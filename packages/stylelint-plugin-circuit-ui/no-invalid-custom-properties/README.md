@@ -4,7 +4,7 @@ Circuit UI exports a number of CSS custom properties (a.k.a. CSS variables) pref
 
 ## Rule Details
 
-This rule aims to prevent issues when using custom properties. In contrast to the legacy JSON theme in `@sumup/design-tokens`, IDEs and CIs will _not_ warn or error by default if using an invalid property. Setting its error level to `error` (or `2`) is recommended.
+This rule aims to prevent issues when using custom properties. In contrast to the legacy JSON theme in `@sumup/design-tokens`, IDEs and CIs will _not_ warn or error by default if using an invalid property.
 
 Examples of **incorrect** code for this rule:
 
