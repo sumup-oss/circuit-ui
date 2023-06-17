@@ -15,7 +15,7 @@
 
 import type { TokenName, TokenType } from '../types/index.js';
 
-export const schema: { name: TokenName; type: TokenType }[] = [
+export const schema = [
   /* Neutral backgrounds */
   { name: '--cui-bg-normal', type: 'color' },
   { name: '--cui-bg-normal-hovered', type: 'color' },
@@ -166,4 +166,74 @@ export const schema: { name: TokenName; type: TokenType }[] = [
   { name: '--cui-bg-overlay', type: 'color' },
   { name: '--cui-bg-elevated', type: 'color' },
   { name: '--cui-border-focus', type: 'color' },
-];
+  /* Border radii */
+  { name: '--cui-border-radius-bit', type: 'dimension' },
+  { name: '--cui-border-radius-byte', type: 'dimension' },
+  { name: '--cui-border-radius-kilo', type: 'dimension' },
+  { name: '--cui-border-radius-mega', type: 'dimension' },
+  { name: '--cui-border-radius-circle', type: 'dimension' },
+  { name: '--cui-border-radius-pill', type: 'dimension' },
+  /* Border widths */
+  { name: '--cui-border-width-kilo', type: 'dimension' },
+  { name: '--cui-border-width-mega', type: 'dimension' },
+  /* Font families */
+  { name: '--cui-font-stack-default', type: 'fontFamily' },
+  { name: '--cui-font-stack-mono', type: 'fontFamily' },
+  /* Font weights */
+  { name: '--cui-font-weight-regular', type: 'fontWeight' },
+  { name: '--cui-font-weight-bold', type: 'fontWeight' },
+  /* Icon sizes */
+  { name: '--cui-icon-sizes-kilo', type: 'dimension' },
+  { name: '--cui-icon-sizes-mega', type: 'dimension' },
+  { name: '--cui-icon-sizes-giga', type: 'dimension' },
+  { name: '--cui-icon-sizes-tera', type: 'dimension' },
+  /* Spacings */
+  { name: '--cui-spacings-bit', type: 'dimension' },
+  { name: '--cui-spacings-byte', type: 'dimension' },
+  { name: '--cui-spacings-kilo', type: 'dimension' },
+  { name: '--cui-spacings-mega', type: 'dimension' },
+  { name: '--cui-spacings-giga', type: 'dimension' },
+  { name: '--cui-spacings-tera', type: 'dimension' },
+  { name: '--cui-spacings-peta', type: 'dimension' },
+  { name: '--cui-spacings-exa', type: 'dimension' },
+  { name: '--cui-spacings-zetta', type: 'dimension' },
+  /* Transitions */
+  { name: '--cui-transitions-default', type: 'duration' },
+  { name: '--cui-transitions-slow', type: 'duration' },
+  /* Typography */
+  { name: '--cui-typography-headline-one-font-size', type: 'dimension' },
+  { name: '--cui-typography-headline-one-line-height', type: 'dimension' },
+  { name: '--cui-typography-headline-two-font-size', type: 'dimension' },
+  { name: '--cui-typography-headline-two-line-height', type: 'dimension' },
+  { name: '--cui-typography-headline-three-font-size', type: 'dimension' },
+  { name: '--cui-typography-headline-three-line-height', type: 'dimension' },
+  { name: '--cui-typography-headline-four-font-size', type: 'dimension' },
+  { name: '--cui-typography-headline-four-line-height', type: 'dimension' },
+  { name: '--cui-typography-title-one-font-size', type: 'dimension' },
+  { name: '--cui-typography-title-one-line-height', type: 'dimension' },
+  { name: '--cui-typography-title-two-font-size', type: 'dimension' },
+  { name: '--cui-typography-title-two-line-height', type: 'dimension' },
+  { name: '--cui-typography-title-three-font-size', type: 'dimension' },
+  { name: '--cui-typography-title-three-line-height', type: 'dimension' },
+  { name: '--cui-typography-title-four-font-size', type: 'dimension' },
+  { name: '--cui-typography-title-four-line-height', type: 'dimension' },
+  { name: '--cui-typography-sub-headline-font-size', type: 'dimension' },
+  { name: '--cui-typography-sub-headline-line-height', type: 'dimension' },
+  { name: '--cui-typography-body-one-font-size', type: 'dimension' },
+  { name: '--cui-typography-body-one-line-height', type: 'dimension' },
+  { name: '--cui-typography-body-two-font-size', type: 'dimension' },
+  { name: '--cui-typography-body-two-line-height', type: 'dimension' },
+  { name: '--cui-typography-body-large-font-size', type: 'dimension' },
+  { name: '--cui-typography-body-large-line-height', type: 'dimension' },
+  /* Z-indices */
+  { name: '--cui-z-index-default', type: 'number' },
+  { name: '--cui-z-index-absolute', type: 'number' },
+  { name: '--cui-z-index-input', type: 'number' },
+  { name: '--cui-z-index-popover', type: 'number' },
+  { name: '--cui-z-index-tooltip', type: 'number' },
+  { name: '--cui-z-index-header', type: 'number' },
+  { name: '--cui-z-index-backdrop', type: 'number' },
+  { name: '--cui-z-index-navigation', type: 'number' },
+  { name: '--cui-z-index-modal', type: 'number' },
+  { name: '--cui-z-index-toast', type: 'number' },
+] satisfies { name: TokenName; type: TokenType }[];
