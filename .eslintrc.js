@@ -13,6 +13,7 @@ module.exports = require('@sumup/foundry/eslint')({
   },
   rules: {
     '@sumup/circuit-ui/no-invalid-custom-properties': 'error',
+    '@sumup/circuit-ui/prefer-custom-properties': 'warn',
     'react/no-unknown-property': ['error', { ignore: ['css'] }],
   },
   parserOptions: {
