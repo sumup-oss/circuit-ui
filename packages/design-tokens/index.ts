@@ -14,14 +14,14 @@
  */
 
 import type { Theme } from './types/index.js';
-import * as lightBase from './themes/light.js';
+import * as legacy from './themes/legacy/light.js';
 
 export { schema } from './themes/schema.js';
 
 export { themePropType } from './utils/theme-prop-type.js';
 
 // HACK: Copy the theme, otherwise, it gets exported as 'module'.
-const light: Theme = { ...lightBase };
+const light: Theme = { ...legacy };
 
 export type { Theme };
 export { light };

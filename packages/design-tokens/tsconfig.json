@@ -8,10 +8,11 @@
     "outDir": "./dist/es",
     "resolveJsonModule": true,
     "strict": true,
+    "skipLibCheck": true,
     "target": "es2019"
   },
   "include": [
-    "cli/**/*",
+    "scripts/**/*",
     "tests/**/*",
     "themes/**/*",
     "types/**/*",
