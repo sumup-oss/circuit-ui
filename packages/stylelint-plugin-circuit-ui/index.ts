@@ -1,5 +1,5 @@
 /**
- * Copyright 2020, SumUp Ltd.
+ * Copyright 2023, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-module.exports = require('@sumup/foundry/lint-staged')({
-  '*.svg': ['svgo --config svgo.config.js --pretty'],
-  '*.css': ['stylelint'],
-});
+import { noInvalidCustomProperties } from './no-invalid-custom-properties';
+
+export default [noInvalidCustomProperties];

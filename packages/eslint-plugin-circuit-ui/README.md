@@ -14,10 +14,10 @@ Depending on your preference, run one of the following in your terminal:
 
 ```sh
 # With npm
-npm install @sumup/eslint-plugin-circuit-ui
+npm install --save-dev @sumup/eslint-plugin-circuit-ui
 
 # With yarn v1
-yarn add @sumup/eslint-plugin-circuit-ui
+yarn add --dev @sumup/eslint-plugin-circuit-ui
 ```
 
 ## Usage
