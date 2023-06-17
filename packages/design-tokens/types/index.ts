@@ -394,6 +394,13 @@ export type ZIndex = {
   toast: number;
 };
 
+/**
+ * @deprecated
+ *
+ * Use the CSS custom properties from `@sumup/design-tokens` instead.
+ * Use the [`circuit-ui/prefer-custom-properties`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/prefer-custom-properties)
+ * ESLint rule to automatically migrate your code.
+ */
 export interface Theme {
   /**
    * @deprecated
