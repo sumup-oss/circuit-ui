@@ -13,17 +13,6 @@
  * limitations under the License.
  */
 
-const baseConfig = require('../../jest.config.base');
+import { getTestRule } from 'jest-preset-stylelint';
 
-const packageJson = require('./package.json');
-
-const packageName = packageJson.name.split('@sumup/').pop();
-
-module.exports = {
-  ...baseConfig,
-  preset: 'jest-preset-stylelint',
-  displayName: packageName,
-  rootDir: '../..',
-  roots: [`<rootDir>/packages/${packageName}`],
-  testEnvironment: 'node',
-};
+global.testRule = getTestRule();

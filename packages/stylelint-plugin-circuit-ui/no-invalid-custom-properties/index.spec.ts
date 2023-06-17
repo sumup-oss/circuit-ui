@@ -17,7 +17,6 @@
 /* eslint-disable @sumup/circuit-ui/no-invalid-custom-properties */
 
 import { noInvalidCustomProperties, ruleName, messages } from '.';
-import 'jest-preset-stylelint';
 
 testRule({
   // @ts-expect-error Stylelint also accepts plugin objects.
