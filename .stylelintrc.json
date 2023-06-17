@@ -1,0 +1,15 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-recess-order"],
+  "plugins": [
+    "stylelint-no-unsupported-browser-features",
+    "@sumup/stylelint-plugin-circuit-ui"
+  ],
+  "rules": {
+    "media-feature-range-notation": ["prefix"],
+    "plugin/no-unsupported-browser-features": [true, { "severity": "warning" }],
+    "circuit-ui/no-invalid-custom-properties": ["prefix"]
+  },
+  "reportDescriptionlessDisables": true,
+  "reportInvalidScopeDisables": true,
+  "reportNeedlessDisables": true
+}

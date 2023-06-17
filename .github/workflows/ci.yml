@@ -39,6 +39,9 @@ jobs:
       - name: Lint code
         run: npm run lint
 
+      # - name: Lint styles
+      #   run: npm run lint:css
+
       - name: Run unit tests
         run: npm run test:ci
 

@@ -1,5 +1,5 @@
 /**
- * Copyright 2020, SumUp Ltd.
+ * Copyright 2023, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,7 +13,17 @@
  * limitations under the License.
  */
 
-module.exports = require('@sumup/foundry/lint-staged')({
-  '*.svg': ['svgo --config svgo.config.js --pretty'],
-  '*.css': ['stylelint'],
-});
+const baseConfig = require('../../jest.config.base');
+
+const packageJson = require('./package.json');
+
+const packageName = packageJson.name.split('@sumup/').pop();
+
+module.exports = {
+  ...baseConfig,
+  preset: 'jest-preset-stylelint',
+  displayName: packageName,
+  rootDir: '../..',
+  roots: [`<rootDir>/packages/${packageName}`],
+  testEnvironment: 'node',
+};

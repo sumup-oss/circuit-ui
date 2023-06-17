@@ -23,7 +23,6 @@ const VALID_CUSTOM_PROPERTIES_WITHOUT_PREFIX = schema.map(({ name }) =>
 const REGEX_STRING = `(?:${PREFIX})(?!(?:${VALID_CUSTOM_PROPERTIES_WITHOUT_PREFIX.join(
   '|',
 )})[^\\w-])[\\w-]+`;
-const REGEX = new RegExp(REGEX_STRING, 'g');
 
 const createRule = ESLintUtils.RuleCreator(
   (name) =>
@@ -37,7 +36,7 @@ export const noInvalidCustomProperties = createRule({
     schema: [],
     docs: {
       description:
-        'Custom properties prefixed with `--cui` should be valid Circuit UI color tokens.',
+        'Custom properties prefixed with `--cui-` should be valid Circuit UI design tokens.',
       recommended: 'error',
     },
     messages: {
@@ -51,9 +50,10 @@ export const noInvalidCustomProperties = createRule({
       // Inspired by `no-tabs`: https://github.com/eslint/eslint/blob/b98fdd413a3b07b262bfce6f704c1c1bb8582770/lib/rules/no-tabs.js
       Program(node) {
         sourceCode.getLines().forEach((line, index) => {
+          const regex = new RegExp(REGEX_STRING, 'g');
           let match;
           // eslint-disable-next-line no-cond-assign
-          while ((match = REGEX.exec(line)) !== null) {
+          while ((match = regex.exec(line)) !== null) {
             context.report({
               node,
               loc: {

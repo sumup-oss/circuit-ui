@@ -24,7 +24,7 @@ The theme used throughout Circuit UI comes from SumUp's design token library, [`
 
 ## Colors
 
-Circuit UI colors have moved from color scales (e.g. `g900`) to semantic color tokens (e.g. `fg-success`). This makes theme customizations easier and more reliable, and enables theming for sub-brands or for supporting multiple color modes. For details and usage guidelines, refer to the [Figma documentation](https://www.figma.com/file/OgPQeoNZ2QoY7hZvy0ybk2/%F0%9F%8C%88-COLOR-TOKENS?node-id=913%3A3903&t=b9BsTOJnzKDomZ9E-4) (_internal link_). Uses of legacy colors (e.g. `color: ${theme.colors.g900};`) should be replaced with semantic color tokens (e.g. `color: --cui-fg-success`).
+Circuit UI colors have moved from color scales (e.g. `g900`) to semantic color tokens (e.g. `fg-success`). This makes theme customizations easier and more reliable, and enables theming for sub-brands or for supporting multiple color modes. For details and usage guidelines, refer to the [Figma documentation](https://www.figma.com/file/OgPQeoNZ2QoY7hZvy0ybk2/%F0%9F%8C%88-COLOR-TOKENS?node-id=913%3A3903&t=b9BsTOJnzKDomZ9E-4) (_internal link_). Uses of legacy colors (e.g. `color: ${theme.colors.g900};`) should be replaced with semantic color tokens (e.g. `color: var(--cui-fg-success)`).
 
 While legacy colors are part of the JS theme (exported from `@sumup/design-tokens`), semantic color tokens are declared as [CSS custom properties](https://www.w3.org/TR/css-variables-1/) (CSS variables). This has performance benefits over CSS-in-JS theming. The custom properties are declared in the Circuit UI `BaseStyles` from version 6.1.0. Eventually, all design tokens will be declared as CSS custom properties and imported as a CSS stylesheet.
 

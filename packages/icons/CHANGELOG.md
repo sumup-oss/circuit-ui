@@ -23,6 +23,26 @@
 
 - [#2061](https://github.com/sumup-oss/circuit-ui/pull/2061) [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f) Thanks [@connor-baer](https://github.com/connor-baer)! - Switched to the `"exports"` field to configure the package entry points. Files that are not explicitly defined in `"exports"` can no longer be imported.
 
+## 2.28.1
+
+### Patch Changes
+
+- [#2151](https://github.com/sumup-oss/circuit-ui/pull/2151) [`820051fe`](https://github.com/sumup-oss/circuit-ui/commit/820051fe4c3ed963491d62aec25bc96d2775bdee) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the Visa, Visa Electron and VPay icons.
+
+## 2.28.0
+
+### Minor Changes
+
+- [#2149](https://github.com/sumup-oss/circuit-ui/pull/2149) [`8312c473`](https://github.com/sumup-oss/circuit-ui/commit/8312c47359e6d60b4a15a2541c8c676a94e74b7c) Thanks [@amrdruid](https://github.com/amrdruid)! - Added a new `Eftpos` icon in size 24 to the payment method category and in size 32 to the card scheme category.
+
+## 2.27.0
+
+### Minor Changes
+
+- [#2135](https://github.com/sumup-oss/circuit-ui/pull/2135) [`8a771fa4`](https://github.com/sumup-oss/circuit-ui/commit/8a771fa4af7d400b8b58352d25a98014a2162efa) Thanks [@a5e](https://github.com/a5e)! - Added new icon `ExternalLink` in size 16 and 24.
+
+- [#2141](https://github.com/sumup-oss/circuit-ui/pull/2141) [`1a69d0f3`](https://github.com/sumup-oss/circuit-ui/commit/1a69d0f35d1e36b4901eaec1a046297e6cc45b76) Thanks [@hris27](https://github.com/hris27)! - Added new card scheme icons in size 24 and 32: `Conecs` and `Swile`.
+
 ## 2.26.0
 
 ### Minor Changes
