@@ -81,7 +81,7 @@ function buildComponentFile(component: Component): string {
   const sizes = icons.map((icon) => parseInt(icon.size)).sort();
   const defaultSize = sizes.includes(24) ? '24' : Math.min(...sizes).toString();
   const sizeMap = icons.map((icon) => `'${icon.size}': ${icon.name},`);
-  const invalidSizeError = `The '\${size}' size is not supported by the '${
+  const invalidSizeWarning = `The '\${size}' size is not supported by the '${
     component.name
   }' icon. Please use one of the available sizes: '${sizes.join("', '")}'.`;
 
@@ -105,7 +105,7 @@ function buildComponentFile(component: Component): string {
         process.env.NODE_ENV !== 'test' &&
         !sizeMap[size]
       ) {
-        throw new Error(\`${invalidSizeError}\`);
+        console.warn(new Error(\`${invalidSizeWarning}\`));
       }
 
       return <Icon {...props} />;
