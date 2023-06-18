@@ -122,6 +122,15 @@ ruleTester.run('prefer-custom-properties', preferCustomProperties, {
       errors: [{ messageId: 'refactor' }],
     },
     {
+      name: 'tagged template expression that does arithmetic with the `theme` property',
+      code: `
+        const styles = (theme) => css\`
+          z-index: \${theme.zIndex.absolute + 1};
+        \`;
+      `,
+      errors: [{ messageId: 'refactor' }],
+    },
+    {
       name: 'tagged template expression with conditional `theme` properties',
       code: `
         const styles = ({ theme, large }) => css\`

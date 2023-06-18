@@ -149,7 +149,7 @@ export const preferCustomProperties = createRule({
       }
 
       // Computed expressions cannot be auto-fixed.
-      if (computed) {
+      if (computed || node.parent?.type === 'BinaryExpression') {
         context.report({
           node,
           messageId: 'refactor',
