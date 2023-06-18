@@ -35,7 +35,7 @@ function main(): void {
     validateTokens(theme.tokens);
 
     const filename = `${theme.name}.css`;
-    const filepath = path.join(__dirname, '../dist', filename);
+    const filepath = path.join(__dirname, '../', filename);
     const customProperties = createCSSCustomProperties(theme.tokens);
     const { code } = transform({
       filename,

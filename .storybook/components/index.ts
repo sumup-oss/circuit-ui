@@ -25,16 +25,22 @@ export { default as DocsContainer } from './DocsContainer';
 export { default as Status } from './Statuses';
 export { default as Preview } from './Preview';
 export { default as Story } from './Story';
-export { default as Type } from './Type';
-export { default as Spacing } from './Spacing';
-export { default as MediaQueriesTable } from './MediaQueriesTable';
-export { default as ColorsTable } from './ColorsTable';
-export { default as BorderWidth } from './BorderWidth';
-export { default as BorderRadius } from './BorderRadius';
-export { default as IconSize } from './IconSize';
 export { default as Icons } from './Icons';
 export { default as Intro } from './Intro';
 export { default as Teaser } from './Teaser';
 export { default as Link } from './Link';
 export { default as Image } from './Image';
 export { default as Stack } from './Stack';
+
+export {
+  CustomPropertiesTable,
+  Color,
+  Spacing,
+  IconSize,
+  BorderRadius,
+  BorderWidth,
+  FontStack,
+  FontWeight,
+  Transition,
+  MediaQueriesTable,
+} from './Theme';
