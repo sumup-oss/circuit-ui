@@ -8,7 +8,7 @@ This rule aims to automate the migration to CSS custom properties. CSS custom pr
 
 Examples of **incorrect** code for this rule:
 
-```ts
+```tsx
 const styles = (theme) => css`
   padding: ${theme.spacings.kilo};
 `;
@@ -16,19 +16,33 @@ const styles = (theme) => css`
 const Box = styled.div`
   padding: ${(theme) => theme.spacings.kilo};
 `;
+
+function Component() {
+  const theme = useTheme();
+  return <div style={{ padding: theme.spacings.kilo }} />;
+}
 ```
 
 Examples of **correct** code for this rule:
 
-```ts
+```tsx
 const styles = () => css`
   padding: var(--cui-spacings-kilo);
 `;
 
-// CSS custom properties aren't supported inside media queries
-const unsupportedTokens = (theme) => css`
+const Box = styled.div`
+  padding: var(--cui-spacings-kilo);
+`;
+
+function Component() {
+  return <div style={{ padding: 'var(--cui-spacings-kilo)' }} />;
+}
+
+// CSS custom properties aren't supported inside media queries,
+// so the rule doesn't flag or replace `theme.mq.*` tokens.
+const mediaQueries = (theme) => css`
   ${theme.mq.kilo} {
-    padding: var(--cui-spacings-kilo);
+    display: flex;
   }
 `;
 ```
