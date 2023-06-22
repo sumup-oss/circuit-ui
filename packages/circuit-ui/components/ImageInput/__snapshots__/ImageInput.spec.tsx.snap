@@ -1983,7 +1983,10 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
 .circuit-13 {
   font-size: 0.875rem;
   line-height: 1.25rem;
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   margin-top: 4px;
   color: var(--cui-fg-subtle);
   -webkit-transition: color 120ms ease-in-out;
@@ -2002,11 +2005,18 @@ exports[`ImageInput Styles should render with invalid styles and an error messag
 }
 
 .circuit-14 {
-  display: inline-block;
-  position: relative;
+  display: block;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: flex-start;
+  align-self: flex-start;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   width: 16px;
   height: 16px;
-  vertical-align: text-top;
+  margin-top: calc(
+        (1.25rem - 16px) / 2
+      );
   margin-right: 4px;
 }
 

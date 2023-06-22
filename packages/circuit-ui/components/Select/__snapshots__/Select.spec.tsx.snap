@@ -503,7 +503,10 @@ select:not(:active)~.circuit-7 {
 .circuit-8 {
   font-size: 0.875rem;
   line-height: 1.25rem;
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   margin-top: 4px;
   color: var(--cui-fg-subtle);
   -webkit-transition: color 120ms ease-in-out;
