@@ -32,7 +32,7 @@ export interface FieldValidationHintProps
 }
 
 const wrapperStyles = ({ theme }: StyleProps) => css`
-  display: block;
+  display: flex;
   margin-top: ${theme.spacings.bit};
   color: var(--cui-fg-subtle);
   transition: color ${theme.transitions.default};
@@ -86,11 +86,14 @@ const Wrapper = styled('span')<FieldValidationHintProps>(
 
 const iconWrapperStyles = ({ theme }: StyleProps) =>
   css`
-    display: inline-block;
-    position: relative;
+    display: block;
+    align-self: flex-start;
+    flex-shrink: 0;
     width: ${theme.iconSizes.kilo};
     height: ${theme.iconSizes.kilo};
-    vertical-align: text-top;
+    margin-top: calc(
+      (${theme.typography.body.two.lineHeight} - ${theme.iconSizes.kilo}) / 2
+    );
     margin-right: ${theme.spacings.bit};
   `;
 
