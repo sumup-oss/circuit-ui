@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 6.10.1
+
+### Patch Changes
+
+- [#2160](https://github.com/sumup-oss/circuit-ui/pull/2160) [`7774d603`](https://github.com/sumup-oss/circuit-ui/commit/7774d603fd0acff5776d8edfa27805147fac979c) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the alignment of the field validation hint icon.
+
 ## 6.10.0
 
 ### Minor Changes
