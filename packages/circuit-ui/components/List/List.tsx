@@ -13,85 +13,37 @@
  * limitations under the License.
  */
 
-import { forwardRef, Ref, OlHTMLAttributes } from 'react';
-import { css } from '@emotion/react';
+import { forwardRef, OlHTMLAttributes } from 'react';
 
-import isPropValid from '../../styles/is-prop-valid.js';
-import styled, { StyleProps } from '../../styles/styled.js';
-import { typography } from '../../styles/style-mixins.js';
+import { clsx } from '../../styles/clsx.js';
 
-type Size = 'one' | 'two';
-type Variant = 'ordered' | 'unordered';
+import classes from './List.module.css';
 
 export interface ListProps extends OlHTMLAttributes<HTMLOListElement> {
   /**
    * A Circuit UI Body size. Should match surrounding text.
    */
-  size?: Size;
+  size?: 'one' | 'two';
   /**
    * Whether the list should be presented as an ordered or unordered list. Defaults to `unordered`.
    */
-  variant?: Variant;
-  /**
-   The ref to the HTML DOM element.
-   */
-  ref?: Ref<HTMLOListElement & HTMLUListElement>;
+  variant?: 'ordered' | 'unordered';
 }
-
-const baseStyles = ({ theme }: StyleProps) => css`
-  font-weight: ${theme.fontWeight.regular};
-`;
-
-const sizeStyles = ({ theme, size = 'one' }: ListProps & StyleProps) => {
-  const sizeMap = {
-    one: {
-      marginBottom: theme.spacings.byte,
-      paddingLeft: theme.spacings.kilo,
-      marginLeft: theme.spacings.kilo,
-      type: typography('one')(theme),
-    },
-    two: {
-      marginBottom: theme.spacings.kilo,
-      paddingLeft: theme.spacings.kilo,
-      marginLeft: theme.spacings.bit,
-      type: typography('two')(theme),
-    },
-  };
-  const { marginBottom, paddingLeft, marginLeft, type } = sizeMap[size];
-  return css`
-    padding-left: ${paddingLeft};
-    ${type};
-
-    li {
-      margin-bottom: ${marginBottom};
-      margin-left: ${marginLeft};
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    ul,
-    ol {
-      margin-bottom: ${marginBottom};
-      margin-left: ${marginLeft};
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  `;
-};
-
-const BaseList = styled('ul', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<ListProps>(baseStyles, sizeStyles);
 
 /**
  * A list, which can be ordered or unordered.
  */
-export const List = forwardRef(
-  ({ variant, ...props }: ListProps, ref: ListProps['ref']) => (
-    <BaseList as={variant === 'ordered' ? 'ol' : 'ul'} {...props} ref={ref} />
-  ),
+export const List = forwardRef<HTMLOListElement, ListProps>(
+  ({ className, variant = 'unordered', size = 'one', ...props }, ref) => {
+    const Element = variant === 'ordered' ? 'ol' : 'ul';
+    return (
+      <Element
+        className={clsx(classes.base, classes[size], className)}
+        {...props}
+        ref={ref}
+      />
+    );
+  },
 );
 
 List.displayName = 'List';
