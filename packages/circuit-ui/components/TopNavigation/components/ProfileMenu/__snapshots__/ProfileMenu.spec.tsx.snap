@@ -113,24 +113,17 @@ exports[`ProfileMenu > Styles > should render with a profile picture 1`] = `
 }
 
 .circuit-6 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 700;
-}
-
-.circuit-7 {
   display: none;
 }
 
 @media (min-width: 768px) {
-  .circuit-7 {
+  .circuit-6 {
     display: block;
     -webkit-transition: -webkit-transform 120ms ease-in-out;
     transition: transform 120ms ease-in-out;
   }
 
-  button[aria-expanded='true'] .circuit-7 {
+  button[aria-expanded='true'] .circuit-6 {
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -168,14 +161,14 @@ exports[`ProfileMenu > Styles > should render with a profile picture 1`] = `
           class="circuit-5"
         >
           <strong
-            class="circuit-6"
+            class="_base_537b83 _two_537b83 _highlight_537b83"
           >
             Jane Doe
           </strong>
         </span>
       </div>
       <svg
-        class="circuit-7"
+        class="circuit-6"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -285,24 +278,17 @@ exports[`ProfileMenu > Styles > should render without a profile picture 1`] = `
 }
 
 .circuit-5 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 700;
-}
-
-.circuit-6 {
   display: none;
 }
 
 @media (min-width: 768px) {
-  .circuit-6 {
+  .circuit-5 {
     display: block;
     -webkit-transition: -webkit-transform 120ms ease-in-out;
     transition: transform 120ms ease-in-out;
   }
 
-  button[aria-expanded='true'] .circuit-6 {
+  button[aria-expanded='true'] .circuit-5 {
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -348,14 +334,14 @@ exports[`ProfileMenu > Styles > should render without a profile picture 1`] = `
           class="circuit-4"
         >
           <strong
-            class="circuit-5"
+            class="_base_537b83 _two_537b83 _highlight_537b83"
           >
             Jane Doe
           </strong>
         </span>
       </div>
       <svg
-        class="circuit-6"
+        class="circuit-5"
         fill="none"
         height="16"
         viewBox="0 0 16 16"

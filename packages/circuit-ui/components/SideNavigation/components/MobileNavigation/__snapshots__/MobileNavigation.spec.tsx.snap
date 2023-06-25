@@ -192,13 +192,6 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
   line-height: 0;
 }
 
-.circuit-9 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-weight: 700;
-}
-
 @media (max-width: 1279px) {
   .circuit-9 {
     font-size: 1.5rem;
@@ -317,12 +310,6 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
   margin-right: 8px;
 }
 
-.circuit-16 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
 <body
   class="ReactModal__Body--open"
 >
@@ -430,7 +417,7 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
                     class="circuit-8"
                   >
                     <span
-                      class="circuit-9"
+                      class="_base_537b83 _one_537b83 _highlight_537b83 circuit-9"
                     >
                       Shop
                     </span>
@@ -481,7 +468,7 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
                             class="circuit-15"
                           >
                             <p
-                              class="circuit-16"
+                              class="_base_537b83 _one_537b83"
                             >
                               Toys
                             </p>
@@ -498,7 +485,7 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
                             class="circuit-15"
                           >
                             <p
-                              class="circuit-16"
+                              class="_base_537b83 _one_537b83"
                             >
                               Books
                             </p>
@@ -701,12 +688,6 @@ exports[`MobileNavigation > styles > should render without secondary links 1`] =
   line-height: 0;
 }
 
-.circuit-9 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
 @media (max-width: 1279px) {
   .circuit-9 {
     font-size: 1.5rem;
@@ -820,7 +801,7 @@ exports[`MobileNavigation > styles > should render without secondary links 1`] =
                     class="circuit-8"
                   >
                     <span
-                      class="circuit-9"
+                      class="_base_537b83 _one_537b83 circuit-9"
                     >
                       Home
                     </span>

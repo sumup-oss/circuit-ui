@@ -87,12 +87,6 @@ exports[`UtilityLinks > styles > should match the snapshot 1`] = `
   line-height: 0;
 }
 
-.circuit-4 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
 @media (max-width: 479px) {
   .circuit-4 {
     border: 0;
@@ -136,7 +130,7 @@ exports[`UtilityLinks > styles > should match the snapshot 1`] = `
         class="circuit-3"
       >
         <span
-          class="circuit-4"
+          class="_base_537b83 _one_537b83 circuit-4"
         >
           More
         </span>

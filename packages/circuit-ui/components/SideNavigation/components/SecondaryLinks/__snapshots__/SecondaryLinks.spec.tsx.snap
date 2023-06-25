@@ -83,13 +83,7 @@ exports[`SecondaryLinks > styles > should render with default styles 1`] = `
   margin-right: 8px;
 }
 
-.circuit-4 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.circuit-8 {
+.circuit-6 {
   font-size: 0.875rem;
   line-height: 1.25rem;
   border-radius: 999999px;
@@ -102,7 +96,7 @@ exports[`SecondaryLinks > styles > should render with default styles 1`] = `
   color: var(--cui-fg-on-strong);
 }
 
-.circuit-9 {
+.circuit-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -133,51 +127,44 @@ exports[`SecondaryLinks > styles > should render with default styles 1`] = `
   hyphens: auto;
 }
 
-.circuit-9:hover {
+.circuit-7:hover {
   background-color: var(--cui-bg-accent-hovered);
   color: var(--cui-fg-accent-hovered);
 }
 
-.circuit-9:active {
+.circuit-7:active {
   background-color: var(--cui-bg-accent-pressed);
   color: var(--cui-fg-accent-pressed);
 }
 
-.circuit-9:focus {
+.circuit-7:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-9:focus::-moz-focus-inner {
+.circuit-7:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-9:focus:not(:focus-visible) {
+.circuit-7:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-9:disabled,
-.circuit-9[disabled] {
+.circuit-7:disabled,
+.circuit-7[disabled] {
   pointer-events: none;
   background-color: var(--cui-bg-accent-disabled);
   color: var(--cui-fg-accent-disabled);
 }
 
 @media (min-width: 1280px) {
-  .circuit-9 {
+  .circuit-7 {
     padding: 12px;
     padding-left: 20px;
   }
 }
 
-.circuit-11 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-weight: 700;
-}
-
-.circuit-12 {
+.circuit-9 {
   display: inline-block;
   line-height: 0;
   margin: 32px 16px 8px;
@@ -202,7 +189,7 @@ exports[`SecondaryLinks > styles > should render with default styles 1`] = `
             class="circuit-3"
           >
             <p
-              class="circuit-4"
+              class="_base_537b83 _one_537b83"
             >
               Shirts
             </p>
@@ -219,13 +206,13 @@ exports[`SecondaryLinks > styles > should render with default styles 1`] = `
             class="circuit-3"
           >
             <p
-              class="circuit-4"
+              class="_base_537b83 _one_537b83"
             >
               Pants
             </p>
           </span>
           <span
-            class="circuit-8"
+            class="circuit-6"
           >
             New
           </span>
@@ -234,7 +221,7 @@ exports[`SecondaryLinks > styles > should render with default styles 1`] = `
       <li>
         <a
           aria-current="page"
-          class="circuit-9"
+          class="circuit-7"
           data-focus-list=":r0:"
           href="/shop/socks"
         >
@@ -242,7 +229,7 @@ exports[`SecondaryLinks > styles > should render with default styles 1`] = `
             class="circuit-3"
           >
             <strong
-              class="circuit-11"
+              class="_base_537b83 _one_537b83 _highlight_537b83"
             >
               Socks
             </strong>
@@ -253,7 +240,7 @@ exports[`SecondaryLinks > styles > should render with default styles 1`] = `
   </li>
   <li>
     <span
-      class="circuit-12"
+      class="circuit-9"
     >
       <h3
         class="_base_551209"
@@ -275,7 +262,7 @@ exports[`SecondaryLinks > styles > should render with default styles 1`] = `
             class="circuit-3"
           >
             <p
-              class="circuit-4"
+              class="_base_537b83 _one_537b83"
             >
               Toys
             </p>
@@ -292,7 +279,7 @@ exports[`SecondaryLinks > styles > should render with default styles 1`] = `
             class="circuit-3"
           >
             <p
-              class="circuit-4"
+              class="_base_537b83 _one_537b83"
             >
               Books
             </p>

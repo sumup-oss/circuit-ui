@@ -110,13 +110,6 @@ exports[`PrimaryLink > styles > should render with active styles 1`] = `
   line-height: 0;
 }
 
-.circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-weight: 700;
-}
-
 @media (max-width: 1279px) {
   .circuit-3 {
     font-size: 1.5rem;
@@ -150,7 +143,7 @@ exports[`PrimaryLink > styles > should render with active styles 1`] = `
     class="circuit-2"
   >
     <span
-      class="circuit-3"
+      class="_base_537b83 _one_537b83 _highlight_537b83 circuit-3"
     >
       Label
     </span>
@@ -271,12 +264,6 @@ exports[`PrimaryLink > styles > should render with badge styles 1`] = `
   line-height: 0;
 }
 
-.circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
 @media (max-width: 1279px) {
   .circuit-3 {
     font-size: 1.5rem;
@@ -309,7 +296,7 @@ exports[`PrimaryLink > styles > should render with badge styles 1`] = `
     class="circuit-2"
   >
     <span
-      class="circuit-3"
+      class="_base_537b83 _one_537b83 circuit-3"
     >
       Label
     </span>
@@ -418,12 +405,6 @@ exports[`PrimaryLink > styles > should render with default styles 1`] = `
   line-height: 0;
 }
 
-.circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
 @media (max-width: 1279px) {
   .circuit-3 {
     font-size: 1.5rem;
@@ -456,7 +437,7 @@ exports[`PrimaryLink > styles > should render with default styles 1`] = `
     class="circuit-2"
   >
     <span
-      class="circuit-3"
+      class="_base_537b83 _one_537b83 circuit-3"
     >
       Label
     </span>
@@ -573,13 +554,6 @@ exports[`PrimaryLink > styles > should render with open styles 1`] = `
   line-height: 0;
 }
 
-.circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-weight: 700;
-}
-
 @media (max-width: 1279px) {
   .circuit-3 {
     font-size: 1.5rem;
@@ -612,7 +586,7 @@ exports[`PrimaryLink > styles > should render with open styles 1`] = `
     class="circuit-2"
   >
     <span
-      class="circuit-3"
+      class="_base_537b83 _one_537b83 _highlight_537b83 circuit-3"
     >
       Label
     </span>

@@ -272,12 +272,6 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
   line-height: 0;
 }
 
-.circuit-12 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
 @media (max-width: 479px) {
   .circuit-12 {
     border: 0;
@@ -378,31 +372,18 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
   text-overflow: ellipsis;
 }
 
-.circuit-18 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 700;
-}
-
-.circuit-20 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-21 {
+.circuit-19 {
   display: none;
 }
 
 @media (min-width: 768px) {
-  .circuit-21 {
+  .circuit-19 {
     display: block;
     -webkit-transition: -webkit-transform 120ms ease-in-out;
     transition: transform 120ms ease-in-out;
   }
 
-  button[aria-expanded='true'] .circuit-21 {
+  button[aria-expanded='true'] .circuit-19 {
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -539,7 +520,7 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
             class="circuit-11"
           >
             <span
-              class="circuit-12"
+              class="_base_537b83 _one_537b83 circuit-12"
             >
               Shop
             </span>
@@ -583,7 +564,7 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
               class="circuit-17"
             >
               <strong
-                class="circuit-18"
+                class="_base_537b83 _two_537b83 _highlight_537b83"
               >
                 Jane Doe
               </strong>
@@ -592,14 +573,14 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
               class="circuit-17"
             >
               <p
-                class="circuit-20"
+                class="_base_537b83 _two_537b83"
               >
                 ID: AC3YULT8
               </p>
             </span>
           </div>
           <svg
-            class="circuit-21"
+            class="circuit-19"
             fill="none"
             height="16"
             viewBox="0 0 16 16"

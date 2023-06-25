@@ -71,19 +71,6 @@ exports[`NotificationToast > styles > should render with a headline 1`] = `
 }
 
 .circuit-5 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-weight: 700;
-}
-
-.circuit-6 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.circuit-7 {
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
@@ -132,19 +119,19 @@ exports[`NotificationToast > styles > should render with a headline 1`] = `
           class="circuit-4"
         >
           <h3
-            class="circuit-5"
+            class="_base_537b83 _one_537b83 _highlight_537b83"
           >
             Information
           </h3>
           <p
-            class="circuit-6"
+            class="_base_537b83 _one_537b83"
           >
             This is a toast message
           </p>
         </div>
         <button
           aria-hidden="true"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a _base_9bf092 circuit-7"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a _base_9bf092 circuit-5"
           tabindex="-1"
           title="-"
           type="button"
@@ -258,12 +245,6 @@ exports[`NotificationToast > styles > should render with danger variant styles 1
 }
 
 .circuit-5 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.circuit-6 {
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
@@ -312,14 +293,14 @@ exports[`NotificationToast > styles > should render with danger variant styles 1
           class="circuit-4"
         >
           <p
-            class="circuit-5"
+            class="_base_537b83 _one_537b83"
           >
             This is a toast message
           </p>
         </div>
         <button
           aria-hidden="true"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a _base_9bf092 circuit-6"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a _base_9bf092 circuit-5"
           tabindex="-1"
           title="-"
           type="button"
@@ -433,12 +414,6 @@ exports[`NotificationToast > styles > should render with default styles 1`] = `
 }
 
 .circuit-5 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.circuit-6 {
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
@@ -487,14 +462,14 @@ exports[`NotificationToast > styles > should render with default styles 1`] = `
           class="circuit-4"
         >
           <p
-            class="circuit-5"
+            class="_base_537b83 _one_537b83"
           >
             This is a toast message
           </p>
         </div>
         <button
           aria-hidden="true"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a _base_9bf092 circuit-6"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a _base_9bf092 circuit-5"
           tabindex="-1"
           title="-"
           type="button"
@@ -608,12 +583,6 @@ exports[`NotificationToast > styles > should render with info variant styles 1`]
 }
 
 .circuit-5 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.circuit-6 {
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
@@ -662,14 +631,14 @@ exports[`NotificationToast > styles > should render with info variant styles 1`]
           class="circuit-4"
         >
           <p
-            class="circuit-5"
+            class="_base_537b83 _one_537b83"
           >
             This is a toast message
           </p>
         </div>
         <button
           aria-hidden="true"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a _base_9bf092 circuit-6"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a _base_9bf092 circuit-5"
           tabindex="-1"
           title="-"
           type="button"
@@ -783,12 +752,6 @@ exports[`NotificationToast > styles > should render with success variant styles 
 }
 
 .circuit-5 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.circuit-6 {
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
@@ -837,14 +800,14 @@ exports[`NotificationToast > styles > should render with success variant styles 
           class="circuit-4"
         >
           <p
-            class="circuit-5"
+            class="_base_537b83 _one_537b83"
           >
             This is a toast message
           </p>
         </div>
         <button
           aria-hidden="true"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a _base_9bf092 circuit-6"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a _base_9bf092 circuit-5"
           tabindex="-1"
           title="-"
           type="button"
@@ -958,12 +921,6 @@ exports[`NotificationToast > styles > should render with warning variant styles 
 }
 
 .circuit-5 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.circuit-6 {
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
@@ -1014,14 +971,14 @@ exports[`NotificationToast > styles > should render with warning variant styles 
           class="circuit-4"
         >
           <p
-            class="circuit-5"
+            class="_base_537b83 _one_537b83"
           >
             This is a toast message
           </p>
         </div>
         <button
           aria-hidden="true"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a _base_9bf092 circuit-6"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a _base_9bf092 circuit-5"
           tabindex="-1"
           title="-"
           type="button"

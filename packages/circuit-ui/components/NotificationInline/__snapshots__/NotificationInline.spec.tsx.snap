@@ -70,12 +70,6 @@ exports[`NotificationInline > styles > should render notification inline with da
   padding-left: 16px;
 }
 
-.circuit-5 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
 <body>
   <div>
     <div
@@ -109,7 +103,7 @@ exports[`NotificationInline > styles > should render notification inline with da
           class="circuit-4"
         >
           <p
-            class="circuit-5"
+            class="_base_537b83 _one_537b83"
           >
             This is an inline message
           </p>
@@ -190,12 +184,6 @@ exports[`NotificationInline > styles > should render notification inline with in
   padding-left: 16px;
 }
 
-.circuit-5 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
 <body>
   <div>
     <div
@@ -229,7 +217,7 @@ exports[`NotificationInline > styles > should render notification inline with in
           class="circuit-4"
         >
           <p
-            class="circuit-5"
+            class="_base_537b83 _one_537b83"
           >
             This is an inline message
           </p>
@@ -310,12 +298,6 @@ exports[`NotificationInline > styles > should render notification inline with su
   padding-left: 16px;
 }
 
-.circuit-5 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
 <body>
   <div>
     <div
@@ -349,7 +331,7 @@ exports[`NotificationInline > styles > should render notification inline with su
           class="circuit-4"
         >
           <p
-            class="circuit-5"
+            class="_base_537b83 _one_537b83"
           >
             This is an inline message
           </p>
@@ -430,12 +412,6 @@ exports[`NotificationInline > styles > should render notification inline with wa
   padding-left: 16px;
 }
 
-.circuit-5 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
 <body>
   <div>
     <div
@@ -471,7 +447,7 @@ exports[`NotificationInline > styles > should render notification inline with wa
           class="circuit-4"
         >
           <p
-            class="circuit-5"
+            class="_base_537b83 _one_537b83"
           >
             This is an inline message
           </p>
@@ -553,25 +529,19 @@ exports[`NotificationInline > styles > should render notification toast with an 
 }
 
 .circuit-5 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.circuit-6 {
   font-weight: bold;
   text-decoration-line: underline;
   color: var(--cui-fg-normal);
   margin-top: 8px;
 }
 
-.circuit-6:hover {
+.circuit-5:hover {
   color: var(--cui-fg-normal-hovered);
 }
 
-.circuit-6:active,
-.circuit-6[aria-expanded='true'],
-.circuit-6[aria-pressed='true'] {
+.circuit-5:active,
+.circuit-5[aria-expanded='true'],
+.circuit-5[aria-pressed='true'] {
   color: var(--cui-fg-normal-pressed);
 }
 
@@ -608,12 +578,12 @@ exports[`NotificationInline > styles > should render notification toast with an 
           class="circuit-4"
         >
           <p
-            class="circuit-5"
+            class="_base_537b83 _one_537b83"
           >
             This is an inline message
           </p>
           <button
-            class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 circuit-6"
+            class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 circuit-5"
           >
             <span
               class="_base_2b3edd _byte_2b3edd _spinner_892426"
@@ -705,12 +675,6 @@ exports[`NotificationInline > styles > should render with default styles 1`] = `
   padding-left: 16px;
 }
 
-.circuit-5 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
 <body>
   <div>
     <div
@@ -744,7 +708,7 @@ exports[`NotificationInline > styles > should render with default styles 1`] = `
           class="circuit-4"
         >
           <p
-            class="circuit-5"
+            class="_base_537b83 _one_537b83"
           >
             This is an inline message
           </p>

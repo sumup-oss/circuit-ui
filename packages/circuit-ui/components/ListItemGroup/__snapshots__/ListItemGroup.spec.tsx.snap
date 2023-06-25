@@ -39,9 +39,6 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a custom de
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -57,12 +54,6 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a custom de
 }
 
 .circuit-5 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-6 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
@@ -77,15 +68,15 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a custom de
   border-radius: 16px;
 }
 
-.circuit-7 {
+.circuit-6 {
   list-style: none;
 }
 
-.circuit-7:not(:first-of-type)>*>div:last-of-type {
+.circuit-6:not(:first-of-type)>*>div:last-of-type {
   position: relative;
 }
 
-.circuit-7:not(:first-of-type)>*>div:last-of-type:before {
+.circuit-6:not(:first-of-type)>*>div:last-of-type:before {
   content: '';
   position: absolute;
   top: -12px;
@@ -94,7 +85,7 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a custom de
   border-top: 1px solid var(--cui-border-divider);
 }
 
-.circuit-8 {
+.circuit-7 {
   background-color: var(--cui-bg-normal);
   color: var(--cui-fg-normal);
   border: 2px solid var(--cui-border-subtle);
@@ -118,38 +109,38 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a custom de
   border-radius: calc(16px - 2px);
 }
 
-.circuit-8:focus {
+.circuit-7:focus {
   outline: 0;
   box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-8:focus::-moz-focus-inner {
+.circuit-7:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-8:focus:not(:focus-visible) {
+.circuit-7:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-8:focus {
+.circuit-7:focus {
   border-color: transparent;
   z-index: 2;
 }
 
-.circuit-8:focus:not(:focus-visible) {
+.circuit-7:focus:not(:focus-visible) {
   border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
-.circuit-8:disabled,
-.circuit-8[disabled] {
+.circuit-7:disabled,
+.circuit-7[disabled] {
   pointer-events: none;
   background-color: var(--cui-bg-normal-disabled);
   border-color: var(--cui-border-subtle-disabled);
   color: var(--cui-fg-normal-disabled);
 }
 
-.circuit-9 {
+.circuit-8 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
@@ -164,7 +155,7 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a custom de
   min-width: 0;
 }
 
-.circuit-10 {
+.circuit-9 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
@@ -182,16 +173,6 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a custom de
   min-width: 0;
 }
 
-.circuit-11 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  max-width: 100%;
-  overflow-x: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
 <div
   class="circuit-0"
 >
@@ -202,7 +183,7 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a custom de
       class="circuit-2"
     >
       <h4
-        class="circuit-3"
+        class="_base_537b83 _two_537b83 circuit-3"
       >
         Group label
       </h4>
@@ -211,29 +192,29 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a custom de
       class="circuit-4"
     >
       <p
-        class="circuit-5"
+        class="_base_537b83 _two_537b83"
       >
         Group details
       </p>
     </div>
   </div>
   <ul
-    class="circuit-6"
+    class="circuit-5"
   >
     <li
-      class="circuit-7"
+      class="circuit-6"
     >
       <div
-        class="circuit-8"
+        class="circuit-7"
       >
         <div
-          class="circuit-9"
+          class="circuit-8"
         >
           <div
-            class="circuit-10"
+            class="circuit-9"
           >
             <p
-              class="circuit-11"
+              class="_base_537b83 _one_537b83 circuit-3"
             >
               First item
             </p>
@@ -242,19 +223,19 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a custom de
       </div>
     </li>
     <li
-      class="circuit-7"
+      class="circuit-6"
     >
       <div
-        class="circuit-8"
+        class="circuit-7"
       >
         <div
-          class="circuit-9"
+          class="circuit-8"
         >
           <div
-            class="circuit-10"
+            class="circuit-9"
           >
             <p
-              class="circuit-11"
+              class="_base_537b83 _one_537b83 circuit-3"
             >
               Second item
             </p>
@@ -263,19 +244,19 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a custom de
       </div>
     </li>
     <li
-      class="circuit-7"
+      class="circuit-6"
     >
       <div
-        class="circuit-8"
+        class="circuit-7"
       >
         <div
-          class="circuit-9"
+          class="circuit-8"
         >
           <div
-            class="circuit-10"
+            class="circuit-9"
           >
             <p
-              class="circuit-11"
+              class="_base_537b83 _one_537b83 circuit-3"
             >
               Third item
             </p>
@@ -326,12 +307,6 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a custom la
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-4 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
@@ -346,15 +321,15 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a custom la
   border-radius: 16px;
 }
 
-.circuit-5 {
+.circuit-4 {
   list-style: none;
 }
 
-.circuit-5:not(:first-of-type)>*>div:last-of-type {
+.circuit-4:not(:first-of-type)>*>div:last-of-type {
   position: relative;
 }
 
-.circuit-5:not(:first-of-type)>*>div:last-of-type:before {
+.circuit-4:not(:first-of-type)>*>div:last-of-type:before {
   content: '';
   position: absolute;
   top: -12px;
@@ -363,7 +338,7 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a custom la
   border-top: 1px solid var(--cui-border-divider);
 }
 
-.circuit-6 {
+.circuit-5 {
   background-color: var(--cui-bg-normal);
   color: var(--cui-fg-normal);
   border: 2px solid var(--cui-border-subtle);
@@ -387,38 +362,38 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a custom la
   border-radius: calc(16px - 2px);
 }
 
-.circuit-6:focus {
+.circuit-5:focus {
   outline: 0;
   box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-6:focus::-moz-focus-inner {
+.circuit-5:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-6:focus:not(:focus-visible) {
+.circuit-5:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-6:focus {
+.circuit-5:focus {
   border-color: transparent;
   z-index: 2;
 }
 
-.circuit-6:focus:not(:focus-visible) {
+.circuit-5:focus:not(:focus-visible) {
   border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
-.circuit-6:disabled,
-.circuit-6[disabled] {
+.circuit-5:disabled,
+.circuit-5[disabled] {
   pointer-events: none;
   background-color: var(--cui-bg-normal-disabled);
   border-color: var(--cui-border-subtle-disabled);
   color: var(--cui-fg-normal-disabled);
 }
 
-.circuit-7 {
+.circuit-6 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
@@ -433,7 +408,7 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a custom la
   min-width: 0;
 }
 
-.circuit-8 {
+.circuit-7 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
@@ -451,10 +426,7 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a custom la
   min-width: 0;
 }
 
-.circuit-9 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
+.circuit-8 {
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -471,29 +443,29 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a custom la
       class="circuit-2"
     >
       <h4
-        class="circuit-3"
+        class="_base_537b83 _two_537b83"
       >
         Group label
       </h4>
     </div>
   </div>
   <ul
-    class="circuit-4"
+    class="circuit-3"
   >
     <li
-      class="circuit-5"
+      class="circuit-4"
     >
       <div
-        class="circuit-6"
+        class="circuit-5"
       >
         <div
-          class="circuit-7"
+          class="circuit-6"
         >
           <div
-            class="circuit-8"
+            class="circuit-7"
           >
             <p
-              class="circuit-9"
+              class="_base_537b83 _one_537b83 circuit-8"
             >
               First item
             </p>
@@ -502,19 +474,19 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a custom la
       </div>
     </li>
     <li
-      class="circuit-5"
+      class="circuit-4"
     >
       <div
-        class="circuit-6"
+        class="circuit-5"
       >
         <div
-          class="circuit-7"
+          class="circuit-6"
         >
           <div
-            class="circuit-8"
+            class="circuit-7"
           >
             <p
-              class="circuit-9"
+              class="_base_537b83 _one_537b83 circuit-8"
             >
               Second item
             </p>
@@ -523,19 +495,19 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a custom la
       </div>
     </li>
     <li
-      class="circuit-5"
+      class="circuit-4"
     >
       <div
-        class="circuit-6"
+        class="circuit-5"
       >
         <div
-          class="circuit-7"
+          class="circuit-6"
         >
           <div
-            class="circuit-8"
+            class="circuit-7"
           >
             <p
-              class="circuit-9"
+              class="_base_537b83 _one_537b83 circuit-8"
             >
               Third item
             </p>
@@ -586,9 +558,6 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a details l
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -604,12 +573,6 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a details l
 }
 
 .circuit-5 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-6 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
@@ -624,15 +587,15 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a details l
   border-radius: 16px;
 }
 
-.circuit-7 {
+.circuit-6 {
   list-style: none;
 }
 
-.circuit-7:not(:first-of-type)>*>div:last-of-type {
+.circuit-6:not(:first-of-type)>*>div:last-of-type {
   position: relative;
 }
 
-.circuit-7:not(:first-of-type)>*>div:last-of-type:before {
+.circuit-6:not(:first-of-type)>*>div:last-of-type:before {
   content: '';
   position: absolute;
   top: -12px;
@@ -641,7 +604,7 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a details l
   border-top: 1px solid var(--cui-border-divider);
 }
 
-.circuit-8 {
+.circuit-7 {
   background-color: var(--cui-bg-normal);
   color: var(--cui-fg-normal);
   border: 2px solid var(--cui-border-subtle);
@@ -665,38 +628,38 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a details l
   border-radius: calc(16px - 2px);
 }
 
-.circuit-8:focus {
+.circuit-7:focus {
   outline: 0;
   box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-8:focus::-moz-focus-inner {
+.circuit-7:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-8:focus:not(:focus-visible) {
+.circuit-7:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-8:focus {
+.circuit-7:focus {
   border-color: transparent;
   z-index: 2;
 }
 
-.circuit-8:focus:not(:focus-visible) {
+.circuit-7:focus:not(:focus-visible) {
   border-color: var(--cui-border-subtle);
   z-index: auto;
 }
 
-.circuit-8:disabled,
-.circuit-8[disabled] {
+.circuit-7:disabled,
+.circuit-7[disabled] {
   pointer-events: none;
   background-color: var(--cui-bg-normal-disabled);
   border-color: var(--cui-border-subtle-disabled);
   color: var(--cui-fg-normal-disabled);
 }
 
-.circuit-9 {
+.circuit-8 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
@@ -711,7 +674,7 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a details l
   min-width: 0;
 }
 
-.circuit-10 {
+.circuit-9 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
@@ -729,16 +692,6 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a details l
   min-width: 0;
 }
 
-.circuit-11 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  max-width: 100%;
-  overflow-x: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
 <div
   class="circuit-0"
 >
@@ -749,7 +702,7 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a details l
       class="circuit-2"
     >
       <h4
-        class="circuit-3"
+        class="_base_537b83 _two_537b83 circuit-3"
       >
         Group label
       </h4>
@@ -758,29 +711,29 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a details l
       class="circuit-4"
     >
       <p
-        class="circuit-5"
+        class="_base_537b83 _two_537b83"
       >
         Group details
       </p>
     </div>
   </div>
   <ul
-    class="circuit-6"
+    class="circuit-5"
   >
     <li
-      class="circuit-7"
+      class="circuit-6"
     >
       <div
-        class="circuit-8"
+        class="circuit-7"
       >
         <div
-          class="circuit-9"
+          class="circuit-8"
         >
           <div
-            class="circuit-10"
+            class="circuit-9"
           >
             <p
-              class="circuit-11"
+              class="_base_537b83 _one_537b83 circuit-3"
             >
               First item
             </p>
@@ -789,19 +742,19 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a details l
       </div>
     </li>
     <li
-      class="circuit-7"
+      class="circuit-6"
     >
       <div
-        class="circuit-8"
+        class="circuit-7"
       >
         <div
-          class="circuit-9"
+          class="circuit-8"
         >
           <div
-            class="circuit-10"
+            class="circuit-9"
           >
             <p
-              class="circuit-11"
+              class="_base_537b83 _one_537b83 circuit-3"
             >
               Second item
             </p>
@@ -810,19 +763,19 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a details l
       </div>
     </li>
     <li
-      class="circuit-7"
+      class="circuit-6"
     >
       <div
-        class="circuit-8"
+        class="circuit-7"
       >
         <div
-          class="circuit-9"
+          class="circuit-8"
         >
           <div
-            class="circuit-10"
+            class="circuit-9"
           >
             <p
-              class="circuit-11"
+              class="_base_537b83 _one_537b83 circuit-3"
             >
               Third item
             </p>
@@ -882,9 +835,6 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a hidden la
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1011,16 +961,6 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a hidden la
   min-width: 0;
 }
 
-.circuit-9 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  max-width: 100%;
-  overflow-x: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
 <div
   class="circuit-0"
 >
@@ -1031,7 +971,7 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a hidden la
       class="circuit-2"
     >
       <h4
-        class="circuit-3"
+        class="_base_537b83 _two_537b83 circuit-3"
       >
         Group label
       </h4>
@@ -1053,7 +993,7 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a hidden la
             class="circuit-8"
           >
             <p
-              class="circuit-9"
+              class="_base_537b83 _one_537b83 circuit-3"
             >
               First item
             </p>
@@ -1074,7 +1014,7 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a hidden la
             class="circuit-8"
           >
             <p
-              class="circuit-9"
+              class="_base_537b83 _one_537b83 circuit-3"
             >
               Second item
             </p>
@@ -1095,7 +1035,7 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with a hidden la
             class="circuit-8"
           >
             <p
-              class="circuit-9"
+              class="_base_537b83 _one_537b83 circuit-3"
             >
               Third item
             </p>
@@ -1146,9 +1086,6 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with interactive
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1293,16 +1230,6 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with interactive
   min-width: 0;
 }
 
-.circuit-9 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  max-width: 100%;
-  overflow-x: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
 <div>
   <div
     class="circuit-0"
@@ -1314,7 +1241,7 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with interactive
         class="circuit-2"
       >
         <h4
-          class="circuit-3"
+          class="_base_537b83 _two_537b83 circuit-3"
         >
           Group label
         </h4>
@@ -1336,7 +1263,7 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with interactive
               class="circuit-8"
             >
               <p
-                class="circuit-9"
+                class="_base_537b83 _one_537b83 circuit-3"
               >
                 First item
               </p>
@@ -1357,7 +1284,7 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with interactive
               class="circuit-8"
             >
               <p
-                class="circuit-9"
+                class="_base_537b83 _one_537b83 circuit-3"
               >
                 Second item
               </p>
@@ -1378,7 +1305,7 @@ exports[`ListItemGroup > styles > should render a ListItemGroup with interactive
               class="circuit-8"
             >
               <p
-                class="circuit-9"
+                class="_base_537b83 _one_537b83 circuit-3"
               >
                 Third item
               </p>
@@ -1431,9 +1358,6 @@ exports[`ListItemGroup > styles > should render a plain variant ListItemGroup 1`
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1562,16 +1486,6 @@ exports[`ListItemGroup > styles > should render a plain variant ListItemGroup 1`
   min-width: 0;
 }
 
-.circuit-9 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  max-width: 100%;
-  overflow-x: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
 <div
   class="circuit-0"
 >
@@ -1582,7 +1496,7 @@ exports[`ListItemGroup > styles > should render a plain variant ListItemGroup 1`
       class="circuit-2"
     >
       <h4
-        class="circuit-3"
+        class="_base_537b83 _two_537b83 circuit-3"
       >
         Group label
       </h4>
@@ -1604,7 +1518,7 @@ exports[`ListItemGroup > styles > should render a plain variant ListItemGroup 1`
             class="circuit-8"
           >
             <p
-              class="circuit-9"
+              class="_base_537b83 _one_537b83 circuit-3"
             >
               First item
             </p>
@@ -1625,7 +1539,7 @@ exports[`ListItemGroup > styles > should render a plain variant ListItemGroup 1`
             class="circuit-8"
           >
             <p
-              class="circuit-9"
+              class="_base_537b83 _one_537b83 circuit-3"
             >
               Second item
             </p>
@@ -1646,7 +1560,7 @@ exports[`ListItemGroup > styles > should render a plain variant ListItemGroup 1`
             class="circuit-8"
           >
             <p
-              class="circuit-9"
+              class="_base_537b83 _one_537b83 circuit-3"
             >
               Third item
             </p>
@@ -1761,9 +1675,6 @@ exports[`ListItemGroup > styles > should render the focused item in a ListItemGr
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1780,7 +1691,7 @@ exports[`ListItemGroup > styles > should render the focused item in a ListItemGr
       class="circuit-2"
     >
       <p
-        class="circuit-3"
+        class="_base_537b83 _one_537b83 circuit-3"
       >
         Second item
       </p>
@@ -1828,9 +1739,6 @@ exports[`ListItemGroup > styles > should render the inset variant ListItemGroup 
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1957,16 +1865,6 @@ exports[`ListItemGroup > styles > should render the inset variant ListItemGroup 
   min-width: 0;
 }
 
-.circuit-9 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  max-width: 100%;
-  overflow-x: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
 <div
   class="circuit-0"
 >
@@ -1977,7 +1875,7 @@ exports[`ListItemGroup > styles > should render the inset variant ListItemGroup 
       class="circuit-2"
     >
       <h4
-        class="circuit-3"
+        class="_base_537b83 _two_537b83 circuit-3"
       >
         Group label
       </h4>
@@ -1999,7 +1897,7 @@ exports[`ListItemGroup > styles > should render the inset variant ListItemGroup 
             class="circuit-8"
           >
             <p
-              class="circuit-9"
+              class="_base_537b83 _one_537b83 circuit-3"
             >
               First item
             </p>
@@ -2020,7 +1918,7 @@ exports[`ListItemGroup > styles > should render the inset variant ListItemGroup 
             class="circuit-8"
           >
             <p
-              class="circuit-9"
+              class="_base_537b83 _one_537b83 circuit-3"
             >
               Second item
             </p>
@@ -2041,7 +1939,7 @@ exports[`ListItemGroup > styles > should render the inset variant ListItemGroup 
             class="circuit-8"
           >
             <p
-              class="circuit-9"
+              class="_base_537b83 _one_537b83 circuit-3"
             >
               Third item
             </p>
@@ -2175,9 +2073,6 @@ exports[`ListItemGroup > styles > should render the selected item in a ListItemG
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -2195,7 +2090,7 @@ exports[`ListItemGroup > styles > should render the selected item in a ListItemG
       class="circuit-2"
     >
       <p
-        class="circuit-3"
+        class="_base_537b83 _one_537b83 circuit-3"
       >
         First item
       </p>
@@ -2333,9 +2228,6 @@ exports[`ListItemGroup > styles > should render the selected item in a plain Lis
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -2353,7 +2245,7 @@ exports[`ListItemGroup > styles > should render the selected item in a plain Lis
       class="circuit-2"
     >
       <p
-        class="circuit-3"
+        class="_base_537b83 _one_537b83 circuit-3"
       >
         First item
       </p>

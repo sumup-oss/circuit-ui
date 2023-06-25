@@ -121,9 +121,6 @@ exports[`NotificationFullscreen > styles > should render with body text 1`] = `
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
   text-align: center;
 }
 
@@ -146,7 +143,7 @@ exports[`NotificationFullscreen > styles > should render with body text 1`] = `
       The browser you're using is no longer supported
     </h2>
     <p
-      class="circuit-3"
+      class="_base_537b83 _one_537b83 circuit-3"
     >
       You need a more up-to-date browser to continue using SumUp.
     </p>

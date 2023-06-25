@@ -88,9 +88,6 @@ exports[`ListItem > business logic > should not render a trailing section with d
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -107,7 +104,7 @@ exports[`ListItem > business logic > should not render a trailing section with d
       class="circuit-2"
     >
       <p
-        class="circuit-3"
+        class="_base_537b83 _one_537b83 circuit-3"
       >
         Label
       </p>
@@ -217,9 +214,6 @@ exports[`ListItem > business logic > should render as a button when the onClick 
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -236,7 +230,7 @@ exports[`ListItem > business logic > should render as a button when the onClick 
       class="circuit-2"
     >
       <p
-        class="circuit-3"
+        class="_base_537b83 _one_537b83 circuit-3"
       >
         Label
       </p>
@@ -346,9 +340,6 @@ exports[`ListItem > business logic > should render as a link when the href prop 
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -366,7 +357,7 @@ exports[`ListItem > business logic > should render as a link when the href prop 
       class="circuit-2"
     >
       <p
-        class="circuit-3"
+        class="_base_537b83 _one_537b83 circuit-3"
       >
         Label
       </p>
@@ -463,9 +454,6 @@ exports[`ListItem > styles > should render a ListItem with a custom details line
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -485,12 +473,6 @@ exports[`ListItem > styles > should render a ListItem with a custom details line
   min-height: 1.5rem;
 }
 
-.circuit-5 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
 <div
   class="circuit-0"
 >
@@ -501,7 +483,7 @@ exports[`ListItem > styles > should render a ListItem with a custom details line
       class="circuit-2"
     >
       <p
-        class="circuit-3"
+        class="_base_537b83 _one_537b83 circuit-3"
       >
         Label
       </p>
@@ -509,7 +491,7 @@ exports[`ListItem > styles > should render a ListItem with a custom details line
         class="circuit-4"
       >
         <p
-          class="circuit-5"
+          class="_base_537b83 _two_537b83"
         >
           Details
         </p>
@@ -606,12 +588,6 @@ exports[`ListItem > styles > should render a ListItem with a custom label 1`] = 
   min-width: 0;
 }
 
-.circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
 <div
   class="circuit-0"
 >
@@ -622,7 +598,7 @@ exports[`ListItem > styles > should render a ListItem with a custom label 1`] = 
       class="circuit-2"
     >
       <p
-        class="circuit-3"
+        class="_base_537b83 _one_537b83"
       >
         Label
       </p>
@@ -758,9 +734,6 @@ exports[`ListItem > styles > should render a ListItem with a custom leading comp
 }
 
 .circuit-5 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -786,7 +759,7 @@ exports[`ListItem > styles > should render a ListItem with a custom leading comp
       class="circuit-4"
     >
       <p
-        class="circuit-5"
+        class="_base_537b83 _one_537b83 circuit-5"
       >
         Label
       </p>
@@ -883,9 +856,6 @@ exports[`ListItem > styles > should render a ListItem with a custom trailing com
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -951,7 +921,7 @@ exports[`ListItem > styles > should render a ListItem with a custom trailing com
       class="circuit-2"
     >
       <p
-        class="circuit-3"
+        class="_base_537b83 _one_537b83 circuit-3"
       >
         Label
       </p>
@@ -1061,9 +1031,6 @@ exports[`ListItem > styles > should render a ListItem with a custom trailing lab
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1106,13 +1073,6 @@ exports[`ListItem > styles > should render a ListItem with a custom trailing lab
   align-items: center;
 }
 
-.circuit-6 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-weight: 700;
-}
-
 <div
   class="circuit-0"
 >
@@ -1123,7 +1083,7 @@ exports[`ListItem > styles > should render a ListItem with a custom trailing lab
       class="circuit-2"
     >
       <p
-        class="circuit-3"
+        class="_base_537b83 _one_537b83 circuit-3"
       >
         Label
       </p>
@@ -1135,7 +1095,7 @@ exports[`ListItem > styles > should render a ListItem with a custom trailing lab
         class="circuit-5"
       >
         <strong
-          class="circuit-6"
+          class="_base_537b83 _one_537b83 _highlight_537b83"
         >
           Trailing label
         </strong>
@@ -1233,9 +1193,6 @@ exports[`ListItem > styles > should render a ListItem with a details line 1`] = 
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1255,13 +1212,6 @@ exports[`ListItem > styles > should render a ListItem with a details line 1`] = 
   min-height: 1.5rem;
 }
 
-.circuit-5 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: var(--cui-fg-subtle);
-}
-
 <div
   class="circuit-0"
 >
@@ -1272,7 +1222,7 @@ exports[`ListItem > styles > should render a ListItem with a details line 1`] = 
       class="circuit-2"
     >
       <p
-        class="circuit-3"
+        class="_base_537b83 _one_537b83 circuit-3"
       >
         Label
       </p>
@@ -1280,7 +1230,7 @@ exports[`ListItem > styles > should render a ListItem with a details line 1`] = 
         class="circuit-4"
       >
         <p
-          class="circuit-5"
+          class="_base_537b83 _two_537b83 _subtle_537b83"
         >
           Details
         </p>
@@ -1389,9 +1339,6 @@ exports[`ListItem > styles > should render a ListItem with a leading icon 1`] = 
 }
 
 .circuit-4 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1425,7 +1372,7 @@ exports[`ListItem > styles > should render a ListItem with a leading icon 1`] = 
       class="circuit-3"
     >
       <p
-        class="circuit-4"
+        class="_base_537b83 _one_537b83 circuit-4"
       >
         Label
       </p>
@@ -1522,9 +1469,6 @@ exports[`ListItem > styles > should render a ListItem with a trailing label 1`] 
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1567,13 +1511,6 @@ exports[`ListItem > styles > should render a ListItem with a trailing label 1`] 
   align-items: center;
 }
 
-.circuit-6 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-weight: 700;
-}
-
 <div
   class="circuit-0"
 >
@@ -1584,7 +1521,7 @@ exports[`ListItem > styles > should render a ListItem with a trailing label 1`] 
       class="circuit-2"
     >
       <p
-        class="circuit-3"
+        class="_base_537b83 _one_537b83 circuit-3"
       >
         Label
       </p>
@@ -1596,7 +1533,7 @@ exports[`ListItem > styles > should render a ListItem with a trailing label 1`] 
         class="circuit-5"
       >
         <strong
-          class="circuit-6"
+          class="_base_537b83 _one_537b83 _highlight_537b83"
         >
           Trailing label
         </strong>
@@ -1694,9 +1631,6 @@ exports[`ListItem > styles > should render a ListItem with custom trailing detai
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1740,13 +1674,6 @@ exports[`ListItem > styles > should render a ListItem with custom trailing detai
 }
 
 .circuit-6 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-weight: 700;
-}
-
-.circuit-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1759,13 +1686,6 @@ exports[`ListItem > styles > should render a ListItem with custom trailing detai
   min-height: 1.5rem;
 }
 
-.circuit-8 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: var(--cui-fg-subtle);
-}
-
 <div
   class="circuit-0"
 >
@@ -1776,7 +1696,7 @@ exports[`ListItem > styles > should render a ListItem with custom trailing detai
       class="circuit-2"
     >
       <p
-        class="circuit-3"
+        class="_base_537b83 _one_537b83 circuit-3"
       >
         Label
       </p>
@@ -1788,16 +1708,16 @@ exports[`ListItem > styles > should render a ListItem with custom trailing detai
         class="circuit-5"
       >
         <strong
-          class="circuit-6"
+          class="_base_537b83 _one_537b83 _highlight_537b83"
         >
           Trailing label
         </strong>
       </div>
       <div
-        class="circuit-7"
+        class="circuit-6"
       >
         <p
-          class="circuit-8"
+          class="_base_537b83 _two_537b83 _subtle_537b83"
         >
           Trailing details
         </p>
@@ -1895,9 +1815,6 @@ exports[`ListItem > styles > should render a ListItem with trailing details 1`] 
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -1941,13 +1858,6 @@ exports[`ListItem > styles > should render a ListItem with trailing details 1`] 
 }
 
 .circuit-6 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-weight: 700;
-}
-
-.circuit-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1960,13 +1870,6 @@ exports[`ListItem > styles > should render a ListItem with trailing details 1`] 
   min-height: 1.5rem;
 }
 
-.circuit-8 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: var(--cui-fg-subtle);
-}
-
 <div
   class="circuit-0"
 >
@@ -1977,7 +1880,7 @@ exports[`ListItem > styles > should render a ListItem with trailing details 1`] 
       class="circuit-2"
     >
       <p
-        class="circuit-3"
+        class="_base_537b83 _one_537b83 circuit-3"
       >
         Label
       </p>
@@ -1989,16 +1892,16 @@ exports[`ListItem > styles > should render a ListItem with trailing details 1`] 
         class="circuit-5"
       >
         <strong
-          class="circuit-6"
+          class="_base_537b83 _one_537b83 _highlight_537b83"
         >
           Trailing label
         </strong>
       </div>
       <div
-        class="circuit-7"
+        class="circuit-6"
       >
         <p
-          class="circuit-8"
+          class="_base_537b83 _two_537b83 _subtle_537b83"
         >
           Trailing details
         </p>
@@ -2096,9 +1999,6 @@ exports[`ListItem > styles > should render a disabled ListItem 1`] = `
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -2116,7 +2016,7 @@ exports[`ListItem > styles > should render a disabled ListItem 1`] = `
       class="circuit-2"
     >
       <p
-        class="circuit-3"
+        class="_base_537b83 _one_537b83 circuit-3"
       >
         Label
       </p>
@@ -2213,9 +2113,6 @@ exports[`ListItem > styles > should render a navigation variant ListItem 1`] = `
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -2269,7 +2166,7 @@ exports[`ListItem > styles > should render a navigation variant ListItem 1`] = `
       class="circuit-2"
     >
       <p
-        class="circuit-3"
+        class="_base_537b83 _one_537b83 circuit-3"
       >
         Label
       </p>
@@ -2407,9 +2304,6 @@ exports[`ListItem > styles > should render a selected ListItem 1`] = `
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -2426,7 +2320,7 @@ exports[`ListItem > styles > should render a selected ListItem 1`] = `
       class="circuit-2"
     >
       <p
-        class="circuit-3"
+        class="_base_537b83 _one_537b83 circuit-3"
       >
         Label
       </p>
@@ -2523,9 +2417,6 @@ exports[`ListItem > styles > should render the action variant ListItem by defaul
 }
 
 .circuit-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -2542,7 +2433,7 @@ exports[`ListItem > styles > should render the action variant ListItem by defaul
       class="circuit-2"
     >
       <p
-        class="circuit-3"
+        class="_base_537b83 _one_537b83 circuit-3"
       >
         Label
       </p>

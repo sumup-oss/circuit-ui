@@ -79,12 +79,6 @@ exports[`NotificationModal > styles > should render with an SVG 1`] = `
 }
 
 .circuit-6 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.circuit-7 {
   margin-top: 24px;
 }
 
@@ -178,12 +172,12 @@ exports[`NotificationModal > styles > should render with an SVG 1`] = `
           It's time to update your browser
         </h2>
         <p
-          class="circuit-6"
+          class="_base_537b83 _one_537b83"
         >
           You'll soon need a more up-to-date browser to continue using SumUp.
         </p>
         <div
-          class="_base_fd5359 _center_fd5359 circuit-7"
+          class="_base_fd5359 _center_fd5359 circuit-6"
         >
           <button
             class="_base_892426 _focus-visible_73b4bb _giga_892426 _primary_892426"
@@ -302,12 +296,6 @@ exports[`NotificationModal > styles > should render with default styles 1`] = `
 }
 
 .circuit-5 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.circuit-6 {
   margin-top: 24px;
 }
 
@@ -385,12 +373,12 @@ exports[`NotificationModal > styles > should render with default styles 1`] = `
           It's time to update your browser
         </h2>
         <p
-          class="circuit-5"
+          class="_base_537b83 _one_537b83"
         >
           You'll soon need a more up-to-date browser to continue using SumUp.
         </p>
         <div
-          class="_base_fd5359 _center_fd5359 circuit-6"
+          class="_base_fd5359 _center_fd5359 circuit-5"
         >
           <button
             class="_base_892426 _focus-visible_73b4bb _giga_892426 _primary_892426"
@@ -501,12 +489,6 @@ exports[`NotificationModal > styles > should render without an image 1`] = `
 }
 
 .circuit-4 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.circuit-5 {
   margin-top: 24px;
 }
 
@@ -585,12 +567,12 @@ exports[`NotificationModal > styles > should render without an image 1`] = `
           It's time to update your browser
         </h2>
         <p
-          class="circuit-4"
+          class="_base_537b83 _one_537b83"
         >
           You'll soon need a more up-to-date browser to continue using SumUp.
         </p>
         <div
-          class="_base_fd5359 _center_fd5359 circuit-5"
+          class="_base_fd5359 _center_fd5359 circuit-4"
         >
           <button
             class="_base_892426 _focus-visible_73b4bb _giga_892426 _primary_892426"
