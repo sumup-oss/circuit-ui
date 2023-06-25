@@ -240,18 +240,10 @@ exports[`DesktopNavigation > styles > should render with secondary links 1`] = `
 }
 
 .circuit-11 {
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: var(--cui-fg-normal);
-}
-
-.circuit-12 {
   list-style: none;
 }
 
-.circuit-13 {
+.circuit-12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -282,50 +274,50 @@ exports[`DesktopNavigation > styles > should render with secondary links 1`] = `
   hyphens: auto;
 }
 
-.circuit-13:hover {
+.circuit-12:hover {
   background-color: var(--cui-bg-normal-hovered);
   color: var(--cui-fg-normal-hovered);
 }
 
-.circuit-13:active {
+.circuit-12:active {
   background-color: var(--cui-bg-normal-pressed);
   color: var(--cui-fg-normal-pressed);
 }
 
-.circuit-13:focus {
+.circuit-12:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-13:focus::-moz-focus-inner {
+.circuit-12:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-13:focus:not(:focus-visible) {
+.circuit-12:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-13:disabled,
-.circuit-13[disabled] {
+.circuit-12:disabled,
+.circuit-12[disabled] {
   pointer-events: none;
   background-color: var(--cui-bg-normal-disabled);
   color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 1280px) {
-  .circuit-13 {
+  .circuit-12 {
     padding: 12px;
     padding-left: 20px;
   }
 }
 
-.circuit-14 {
+.circuit-13 {
   display: inline-block;
   line-height: 0;
   margin-right: 8px;
 }
 
-.circuit-15 {
+.circuit-14 {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -405,26 +397,26 @@ exports[`DesktopNavigation > styles > should render with secondary links 1`] = `
             class="circuit-10"
           >
             <h3
-              class="circuit-11"
+              class="_base_551209"
             >
               For Kids
             </h3>
           </span>
           <ul
-            class="circuit-12"
+            class="circuit-11"
             role="list"
           >
             <li>
               <a
-                class="circuit-13"
+                class="circuit-12"
                 data-focus-list=":r1:"
                 href="/shop/toys"
               >
                 <span
-                  class="circuit-14"
+                  class="circuit-13"
                 >
                   <p
-                    class="circuit-15"
+                    class="circuit-14"
                   >
                     Toys
                   </p>
@@ -433,15 +425,15 @@ exports[`DesktopNavigation > styles > should render with secondary links 1`] = `
             </li>
             <li>
               <a
-                class="circuit-13"
+                class="circuit-12"
                 data-focus-list=":r1:"
                 href="/shop/books"
               >
                 <span
-                  class="circuit-14"
+                  class="circuit-13"
                 >
                   <p
-                    class="circuit-15"
+                    class="circuit-14"
                   >
                     Books
                   </p>

@@ -183,14 +183,6 @@ exports[`SecondaryLinks > styles > should render with default styles 1`] = `
   margin: 32px 16px 8px;
 }
 
-.circuit-13 {
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: var(--cui-fg-normal);
-}
-
 <ul
   class="circuit-0"
   role="list"
@@ -264,7 +256,7 @@ exports[`SecondaryLinks > styles > should render with default styles 1`] = `
       class="circuit-12"
     >
       <h3
-        class="circuit-13"
+        class="_base_551209"
       >
         For Kids
       </h3>

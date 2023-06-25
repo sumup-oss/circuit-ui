@@ -13,12 +13,13 @@
  * limitations under the License.
  */
 
-import { css } from '@emotion/react';
+import { HTMLAttributes, forwardRef } from 'react';
 
-import isPropValid from '../../styles/is-prop-valid.js';
-import styled, { StyleProps } from '../../styles/styled.js';
+import { clsx } from '../../styles/clsx.js';
 
-export interface SubHeadlineProps {
+import classes from './SubHeadline.module.css';
+
+export interface SubHeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
   /**
    * The HTML heading element to render. Headings should be nested sequentially
    * without skipping any levels. Learn more at
@@ -27,18 +28,14 @@ export interface SubHeadlineProps {
   as: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
 
-const baseStyles = ({ theme }: StyleProps) => css`
-  text-transform: uppercase;
-  font-weight: ${theme.fontWeight.bold};
-  font-size: ${theme.typography.subHeadline.fontSize};
-  line-height: ${theme.typography.subHeadline.lineHeight};
-  color: var(--cui-fg-normal);
-`;
-
 /**
  * A flexible SubHeadline component capable of rendering using any HTML heading
  * element, except h1.
  */
-export const SubHeadline = styled('h3', {
-  shouldForwardProp: (prop) => isPropValid(prop),
-})<SubHeadlineProps>(baseStyles);
+export const SubHeadline = forwardRef<HTMLHeadingElement, SubHeadlineProps>(
+  ({ className, as: Element, ...props }, ref) => (
+    <Element {...props} ref={ref} className={clsx(classes.base, className)} />
+  ),
+);
+
+SubHeadline.displayName = 'SubHeadline';
