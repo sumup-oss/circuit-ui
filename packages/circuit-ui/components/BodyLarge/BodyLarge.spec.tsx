@@ -14,37 +14,29 @@
  */
 
 import { describe, expect, it } from 'vitest';
+import { createRef } from 'react';
 
-import { create, renderToHtml, axe, render } from '../../util/test-utils.js';
+import { axe, render } from '../../util/test-utils.js';
 
-import { BodyLarge, BodyLargeProps } from './BodyLarge.js';
+import { BodyLarge } from './BodyLarge.js';
 
 describe('BodyLarge', () => {
-  /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const actual = create(<BodyLarge>BodyLarge</BodyLarge>);
-    expect(actual).toMatchSnapshot();
-  });
-
-  const variants = [
-    'highlight',
-    'quote',
-    'confirm',
-    'alert',
-    'subtle',
-  ] as BodyLargeProps['variant'][];
-  it.each(variants)('should render as a "%s" variant', (variant) => {
-    const actual = create(
-      <BodyLarge variant={variant}>{variant} BodyLarge</BodyLarge>,
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    const { container } = render(
+      <BodyLarge className={className}>BodyLarge</BodyLarge>,
     );
-    expect(actual).toMatchSnapshot();
+    const paragraph = container.querySelector('p');
+    expect(paragraph?.className).toContain(className);
   });
 
-  /**
-   * Logic tests.
-   */
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLParagraphElement>();
+    const { container } = render(<BodyLarge ref={ref}>BodyLarge</BodyLarge>);
+    const paragraph = container.querySelector('p');
+    expect(ref.current).toBe(paragraph);
+  });
+
   const elements = ['p', 'article', 'div'] as const;
   it.each(elements)('should render as a "%s" element', (as) => {
     const { container } = render(<BodyLarge as={as}>{as} BodyLarge</BodyLarge>);
@@ -66,12 +58,9 @@ describe('BodyLarge', () => {
     expect(actual).toBeVisible();
   });
 
-  /**
-   * Accessibility tests.
-   */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<BodyLarge>BodyLarge</BodyLarge>);
-    const actual = await axe(wrapper);
+    const { container } = render(<BodyLarge>BodyLarge</BodyLarge>);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });
