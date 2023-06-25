@@ -16,47 +16,36 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { create, renderToHtml, axe, render } from '../../util/test-utils.js';
+import { axe, render } from '../../util/test-utils.js';
 
 import { Headline } from './Headline.js';
 
 describe('Headline', () => {
-  /**
-   * Style tests.
-   */
-  const elements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
-  it.each(elements)('should render as %s element', (element) => {
-    const headline = create(
-      <Headline as={element}>{`${element} headline`}</Headline>,
-    );
-    expect(headline).toMatchSnapshot();
-  });
-
-  const sizes = ['one', 'two', 'three', 'four'] as const;
-  it.each(sizes)('should render with size %s', (size) => {
-    const headline = create(
-      <Headline as="h2" {...{ size }}>{`${size} headline`}</Headline>,
-    );
-    expect(headline).toMatchSnapshot();
-  });
-
-  it('should accept a working ref for a headline', () => {
-    const tref = createRef<HTMLHeadingElement>();
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
     const { container } = render(
-      <Headline as="h2" ref={tref}>
+      <Headline as="h2" className={className}>
         Headline
       </Headline>,
     );
     const headline = container.querySelector('h2');
-    expect(tref.current).toBe(headline);
+    expect(headline?.className).toContain(className);
   });
 
-  /**
-   * Accessibility tests.
-   */
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLHeadingElement>();
+    const { container } = render(
+      <Headline as="h2" ref={ref}>
+        Headline
+      </Headline>,
+    );
+    const headline = container.querySelector('h2');
+    expect(ref.current).toBe(headline);
+  });
+
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Headline as="h2">Headline</Headline>);
-    const actual = await axe(wrapper);
+    const { container } = render(<Headline as="h2">Headline</Headline>);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });

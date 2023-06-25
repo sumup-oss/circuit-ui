@@ -95,11 +95,6 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
 }
 
 .circuit-5 {
-  font-weight: 700;
-  color: var(--cui-fg-normal);
-  letter-spacing: -0.03em;
-  font-size: 1.125rem;
-  line-height: 1.5rem;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -172,7 +167,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
             class="circuit-4"
           >
             <h2
-              class="circuit-5"
+              class="_base_20bab7 _four_20bab7 circuit-5"
               id=":r0:"
             >
               Side panel title
@@ -309,11 +304,6 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
 }
 
 .circuit-5 {
-  font-weight: 700;
-  color: var(--cui-fg-normal);
-  letter-spacing: -0.03em;
-  font-size: 1.125rem;
-  line-height: 1.5rem;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -389,7 +379,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
             class="circuit-4"
           >
             <h2
-              class="circuit-5"
+              class="_base_20bab7 _four_20bab7 circuit-5"
               id=":r1:"
             >
               Side panel title
@@ -522,11 +512,6 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
 }
 
 .circuit-5 {
-  font-weight: 700;
-  color: var(--cui-fg-normal);
-  letter-spacing: -0.03em;
-  font-size: 1.125rem;
-  line-height: 1.5rem;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -605,7 +590,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
             class="circuit-4"
           >
             <h2
-              class="circuit-5"
+              class="_base_20bab7 _four_20bab7 circuit-5"
               id=":r2:"
             >
               Side panel title

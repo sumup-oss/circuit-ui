@@ -28,11 +28,6 @@ exports[`NotificationFullscreen > styles > should render with an svg component a
 }
 
 .circuit-3 {
-  font-weight: 700;
-  color: var(--cui-fg-normal);
-  letter-spacing: -0.03em;
-  font-size: 1.5rem;
-  line-height: 1.75rem;
   margin-top: 24px;
   margin-bottom: 8px;
   text-align: center;
@@ -65,7 +60,7 @@ exports[`NotificationFullscreen > styles > should render with an svg component a
       </svg>
     </div>
     <h2
-      class="circuit-3"
+      class="_base_20bab7 _two_20bab7 circuit-3"
     >
       The browser you're using is no longer supported
     </h2>
@@ -120,11 +115,6 @@ exports[`NotificationFullscreen > styles > should render with body text 1`] = `
 }
 
 .circuit-2 {
-  font-weight: 700;
-  color: var(--cui-fg-normal);
-  letter-spacing: -0.03em;
-  font-size: 1.5rem;
-  line-height: 1.75rem;
   margin-top: 24px;
   margin-bottom: 8px;
   text-align: center;
@@ -151,7 +141,7 @@ exports[`NotificationFullscreen > styles > should render with body text 1`] = `
       src="/images/illustration-update-browser.svg"
     />
     <h2
-      class="circuit-2"
+      class="_base_20bab7 _two_20bab7 circuit-2"
     >
       The browser you're using is no longer supported
     </h2>
@@ -211,11 +201,6 @@ exports[`NotificationFullscreen > styles > should render with default styles 1`]
 }
 
 .circuit-2 {
-  font-weight: 700;
-  color: var(--cui-fg-normal);
-  letter-spacing: -0.03em;
-  font-size: 1.5rem;
-  line-height: 1.75rem;
   margin-top: 24px;
   margin-bottom: 8px;
   text-align: center;
@@ -235,7 +220,7 @@ exports[`NotificationFullscreen > styles > should render with default styles 1`]
       src="/images/illustration-update-browser.svg"
     />
     <h2
-      class="circuit-2"
+      class="_base_20bab7 _two_20bab7 circuit-2"
     >
       The browser you're using is no longer supported
     </h2>

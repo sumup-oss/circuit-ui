@@ -68,11 +68,6 @@ exports[`SidePanel > should match the snapshot 1`] = `
 }
 
 .circuit-4 {
-  font-weight: 700;
-  color: var(--cui-fg-normal);
-  letter-spacing: -0.03em;
-  font-size: 1.125rem;
-  line-height: 1.5rem;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -137,7 +132,7 @@ exports[`SidePanel > should match the snapshot 1`] = `
             class="circuit-3"
           >
             <h2
-              class="circuit-4"
+              class="_base_20bab7 _four_20bab7 circuit-4"
               id=":r0:"
             >
               Side panel title
@@ -268,11 +263,6 @@ exports[`SidePanel > when the panel is on mobile resolution > should match the s
 }
 
 .circuit-4 {
-  font-weight: 700;
-  color: var(--cui-fg-normal);
-  letter-spacing: -0.03em;
-  font-size: 1.125rem;
-  line-height: 1.5rem;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -337,7 +327,7 @@ exports[`SidePanel > when the panel is on mobile resolution > should match the s
             class="circuit-3"
           >
             <h2
-              class="circuit-4"
+              class="_base_20bab7 _four_20bab7 circuit-4"
               id=":rd:"
             >
               Side panel title

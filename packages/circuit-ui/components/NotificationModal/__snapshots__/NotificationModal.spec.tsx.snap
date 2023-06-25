@@ -75,11 +75,6 @@ exports[`NotificationModal > styles > should render with an SVG 1`] = `
 }
 
 .circuit-5 {
-  font-weight: 700;
-  color: var(--cui-fg-normal);
-  letter-spacing: -0.03em;
-  font-size: 1.25rem;
-  line-height: 1.5rem;
   margin-bottom: 8px;
 }
 
@@ -178,7 +173,7 @@ exports[`NotificationModal > styles > should render with an SVG 1`] = `
           </svg>
         </div>
         <h2
-          class="circuit-5"
+          class="_base_20bab7 _three_20bab7 circuit-5"
         >
           It's time to update your browser
         </h2>
@@ -303,11 +298,6 @@ exports[`NotificationModal > styles > should render with default styles 1`] = `
 }
 
 .circuit-4 {
-  font-weight: 700;
-  color: var(--cui-fg-normal);
-  letter-spacing: -0.03em;
-  font-size: 1.25rem;
-  line-height: 1.5rem;
   margin-bottom: 8px;
 }
 
@@ -390,7 +380,7 @@ exports[`NotificationModal > styles > should render with default styles 1`] = `
           src="/images/illustration-update-browser.svg"
         />
         <h2
-          class="circuit-4"
+          class="_base_20bab7 _three_20bab7 circuit-4"
         >
           It's time to update your browser
         </h2>
@@ -504,11 +494,6 @@ exports[`NotificationModal > styles > should render without an image 1`] = `
 }
 
 .circuit-3 {
-  font-weight: 700;
-  color: var(--cui-fg-normal);
-  letter-spacing: -0.03em;
-  font-size: 1.25rem;
-  line-height: 1.5rem;
   margin-bottom: 8px;
   max-width: 80%;
   margin-right: auto;
@@ -595,7 +580,7 @@ exports[`NotificationModal > styles > should render without an image 1`] = `
           </span>
         </button>
         <h2
-          class="circuit-3"
+          class="_base_20bab7 _three_20bab7 circuit-3"
         >
           It's time to update your browser
         </h2>

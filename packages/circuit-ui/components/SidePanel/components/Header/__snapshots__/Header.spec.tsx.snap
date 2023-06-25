@@ -32,11 +32,6 @@ exports[`Header > should have a bottom separator when sticky 1`] = `
 }
 
 .circuit-1 {
-  font-weight: 700;
-  color: var(--cui-fg-normal);
-  letter-spacing: -0.03em;
-  font-size: 1.125rem;
-  line-height: 1.5rem;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -61,7 +56,7 @@ exports[`Header > should have a bottom separator when sticky 1`] = `
       class="circuit-0"
     >
       <h2
-        class="circuit-1"
+        class="_base_20bab7 _four_20bab7 circuit-1"
         id="side-panel-header"
       >
         Side panel title
@@ -131,11 +126,6 @@ exports[`Header > should match the snapshot 1`] = `
 }
 
 .circuit-1 {
-  font-weight: 700;
-  color: var(--cui-fg-normal);
-  letter-spacing: -0.03em;
-  font-size: 1.125rem;
-  line-height: 1.5rem;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -160,7 +150,7 @@ exports[`Header > should match the snapshot 1`] = `
       class="circuit-0"
     >
       <h2
-        class="circuit-1"
+        class="_base_20bab7 _four_20bab7 circuit-1"
         id="side-panel-header"
       >
         Side panel title

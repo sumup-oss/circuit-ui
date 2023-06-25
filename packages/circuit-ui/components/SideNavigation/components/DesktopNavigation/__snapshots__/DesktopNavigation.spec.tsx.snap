@@ -230,24 +230,16 @@ exports[`DesktopNavigation > styles > should render with secondary links 1`] = `
 }
 
 .circuit-9 {
-  font-weight: 700;
-  color: var(--cui-fg-normal);
-  letter-spacing: -0.03em;
-  font-size: 1.125rem;
-  line-height: 1.5rem;
-}
-
-.circuit-10 {
   list-style: none;
 }
 
-.circuit-11 {
+.circuit-10 {
   display: inline-block;
   line-height: 0;
   margin: 32px 16px 8px;
 }
 
-.circuit-12 {
+.circuit-11 {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 0.875rem;
@@ -255,11 +247,11 @@ exports[`DesktopNavigation > styles > should render with secondary links 1`] = `
   color: var(--cui-fg-normal);
 }
 
-.circuit-13 {
+.circuit-12 {
   list-style: none;
 }
 
-.circuit-14 {
+.circuit-13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -290,50 +282,50 @@ exports[`DesktopNavigation > styles > should render with secondary links 1`] = `
   hyphens: auto;
 }
 
-.circuit-14:hover {
+.circuit-13:hover {
   background-color: var(--cui-bg-normal-hovered);
   color: var(--cui-fg-normal-hovered);
 }
 
-.circuit-14:active {
+.circuit-13:active {
   background-color: var(--cui-bg-normal-pressed);
   color: var(--cui-fg-normal-pressed);
 }
 
-.circuit-14:focus {
+.circuit-13:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-14:focus::-moz-focus-inner {
+.circuit-13:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-14:focus:not(:focus-visible) {
+.circuit-13:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-14:disabled,
-.circuit-14[disabled] {
+.circuit-13:disabled,
+.circuit-13[disabled] {
   pointer-events: none;
   background-color: var(--cui-bg-normal-disabled);
   color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 1280px) {
-  .circuit-14 {
+  .circuit-13 {
     padding: 12px;
     padding-left: 20px;
   }
 }
 
-.circuit-15 {
+.circuit-14 {
   display: inline-block;
   line-height: 0;
   margin-right: 8px;
 }
 
-.circuit-16 {
+.circuit-15 {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -399,40 +391,40 @@ exports[`DesktopNavigation > styles > should render with secondary links 1`] = `
         class="circuit-8"
       >
         <h2
-          class="circuit-9"
+          class="_base_20bab7 _four_20bab7"
         >
           Shop
         </h2>
       </span>
       <ul
-        class="circuit-10"
+        class="circuit-9"
         role="list"
       >
         <li>
           <span
-            class="circuit-11"
+            class="circuit-10"
           >
             <h3
-              class="circuit-12"
+              class="circuit-11"
             >
               For Kids
             </h3>
           </span>
           <ul
-            class="circuit-13"
+            class="circuit-12"
             role="list"
           >
             <li>
               <a
-                class="circuit-14"
+                class="circuit-13"
                 data-focus-list=":r1:"
                 href="/shop/toys"
               >
                 <span
-                  class="circuit-15"
+                  class="circuit-14"
                 >
                   <p
-                    class="circuit-16"
+                    class="circuit-15"
                   >
                     Toys
                   </p>
@@ -441,15 +433,15 @@ exports[`DesktopNavigation > styles > should render with secondary links 1`] = `
             </li>
             <li>
               <a
-                class="circuit-14"
+                class="circuit-13"
                 data-focus-list=":r1:"
                 href="/shop/books"
               >
                 <span
-                  class="circuit-15"
+                  class="circuit-14"
                 >
                   <p
-                    class="circuit-16"
+                    class="circuit-15"
                   >
                     Books
                   </p>
