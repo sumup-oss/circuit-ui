@@ -1,38 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`ImageInput > Styles > should render with a custom component 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
@@ -160,27 +128,6 @@ exports[`ImageInput > Styles > should render with a custom component 1`] = `
 }
 
 .circuit-6 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
-.circuit-7 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 32px;
-  height: 32px;
   position: absolute;
   width: 32px;
   height: 32px;
@@ -194,7 +141,7 @@ exports[`ImageInput > Styles > should render with a custom component 1`] = `
   pointer-events: none;
 }
 
-.circuit-8 {
+.circuit-7 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -243,7 +190,7 @@ exports[`ImageInput > Styles > should render with a custom component 1`] = `
         type="button"
       >
         <span
-          class="_spinner_892426 circuit-6"
+          class="_base_2b3edd _byte_2b3edd _spinner_892426"
         >
           <span
             class="_hide-visually_73b4bb"
@@ -279,10 +226,10 @@ exports[`ImageInput > Styles > should render with a custom component 1`] = `
         </span>
       </button>
       <span
-        class="circuit-7"
+        class="_base_2b3edd _kilo_2b3edd circuit-6"
       >
         <span
-          class="circuit-8"
+          class="circuit-7"
         >
           Uploading
         </span>
@@ -297,38 +244,6 @@ exports[`ImageInput > Styles > should render with a custom component 1`] = `
 `;
 
 exports[`ImageInput > Styles > should render with a giga button 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
@@ -490,27 +405,6 @@ exports[`ImageInput > Styles > should render with a giga button 1`] = `
 }
 
 .circuit-7 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
-.circuit-8 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 32px;
-  height: 32px;
   position: absolute;
   width: 32px;
   height: 32px;
@@ -524,7 +418,7 @@ exports[`ImageInput > Styles > should render with a giga button 1`] = `
   pointer-events: none;
 }
 
-.circuit-9 {
+.circuit-8 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -587,7 +481,7 @@ exports[`ImageInput > Styles > should render with a giga button 1`] = `
         type="button"
       >
         <span
-          class="_spinner_892426 circuit-7"
+          class="_base_2b3edd _byte_2b3edd _spinner_892426"
         >
           <span
             class="_hide-visually_73b4bb"
@@ -617,10 +511,10 @@ exports[`ImageInput > Styles > should render with a giga button 1`] = `
         </span>
       </button>
       <span
-        class="circuit-8"
+        class="_base_2b3edd _kilo_2b3edd circuit-7"
       >
         <span
-          class="circuit-9"
+          class="circuit-8"
         >
           Uploading
         </span>
@@ -635,38 +529,6 @@ exports[`ImageInput > Styles > should render with a giga button 1`] = `
 `;
 
 exports[`ImageInput > Styles > should render with an existing image 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
@@ -805,27 +667,6 @@ exports[`ImageInput > Styles > should render with an existing image 1`] = `
 }
 
 .circuit-7 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
-.circuit-8 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 32px;
-  height: 32px;
   position: absolute;
   width: 32px;
   height: 32px;
@@ -839,7 +680,7 @@ exports[`ImageInput > Styles > should render with an existing image 1`] = `
   pointer-events: none;
 }
 
-.circuit-9 {
+.circuit-8 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -889,7 +730,7 @@ exports[`ImageInput > Styles > should render with an existing image 1`] = `
         type="button"
       >
         <span
-          class="_spinner_892426 circuit-7"
+          class="_base_2b3edd _byte_2b3edd _spinner_892426"
         >
           <span
             class="_hide-visually_73b4bb"
@@ -925,10 +766,10 @@ exports[`ImageInput > Styles > should render with an existing image 1`] = `
         </span>
       </button>
       <span
-        class="circuit-8"
+        class="_base_2b3edd _kilo_2b3edd circuit-7"
       >
         <span
-          class="circuit-9"
+          class="circuit-8"
         >
           Uploading
         </span>
@@ -943,38 +784,6 @@ exports[`ImageInput > Styles > should render with an existing image 1`] = `
 `;
 
 exports[`ImageInput > Styles > should render with default styles 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
@@ -1130,27 +939,6 @@ exports[`ImageInput > Styles > should render with default styles 1`] = `
 }
 
 .circuit-7 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
-.circuit-8 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 32px;
-  height: 32px;
   position: absolute;
   width: 32px;
   height: 32px;
@@ -1164,7 +952,7 @@ exports[`ImageInput > Styles > should render with default styles 1`] = `
   pointer-events: none;
 }
 
-.circuit-9 {
+.circuit-8 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -1227,7 +1015,7 @@ exports[`ImageInput > Styles > should render with default styles 1`] = `
         type="button"
       >
         <span
-          class="_spinner_892426 circuit-7"
+          class="_base_2b3edd _byte_2b3edd _spinner_892426"
         >
           <span
             class="_hide-visually_73b4bb"
@@ -1257,10 +1045,10 @@ exports[`ImageInput > Styles > should render with default styles 1`] = `
         </span>
       </button>
       <span
-        class="circuit-8"
+        class="_base_2b3edd _kilo_2b3edd circuit-7"
       >
         <span
-          class="circuit-9"
+          class="circuit-8"
         >
           Uploading
         </span>
@@ -1275,38 +1063,6 @@ exports[`ImageInput > Styles > should render with default styles 1`] = `
 `;
 
 exports[`ImageInput > Styles > should render with invalid styles and an error message 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0[disabled],
 .circuit-0.cui-field-disabled {
   pointer-events: none;
@@ -1474,27 +1230,6 @@ exports[`ImageInput > Styles > should render with invalid styles and an error me
 }
 
 .circuit-7 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
-.circuit-8 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 32px;
-  height: 32px;
   position: absolute;
   width: 32px;
   height: 32px;
@@ -1508,7 +1243,7 @@ exports[`ImageInput > Styles > should render with invalid styles and an error me
   pointer-events: none;
 }
 
-.circuit-9 {
+.circuit-8 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -1520,7 +1255,7 @@ exports[`ImageInput > Styles > should render with invalid styles and an error me
   width: 1px;
 }
 
-.circuit-10 {
+.circuit-9 {
   font-size: 0.875rem;
   line-height: 1.25rem;
   display: block;
@@ -1531,17 +1266,17 @@ exports[`ImageInput > Styles > should render with invalid styles and an error me
   color: var(--cui-fg-danger);
 }
 
-[disabled] .circuit-10,
-.cui-field-disabled .circuit-10 {
+[disabled] .circuit-9,
+.cui-field-disabled .circuit-9 {
   color: var(--cui-fg-subtle-disabled);
 }
 
-[disabled] .circuit-10,
-.cui-field-disabled .circuit-10 {
+[disabled] .circuit-9,
+.cui-field-disabled .circuit-9 {
   color: var(--cui-fg-danger-disabled);
 }
 
-.circuit-11 {
+.circuit-10 {
   display: inline-block;
   position: relative;
   width: 16px;
@@ -1601,7 +1336,7 @@ exports[`ImageInput > Styles > should render with invalid styles and an error me
         type="button"
       >
         <span
-          class="_spinner_892426 circuit-7"
+          class="_base_2b3edd _byte_2b3edd _spinner_892426"
         >
           <span
             class="_hide-visually_73b4bb"
@@ -1631,10 +1366,10 @@ exports[`ImageInput > Styles > should render with invalid styles and an error me
         </span>
       </button>
       <span
-        class="circuit-8"
+        class="_base_2b3edd _kilo_2b3edd circuit-7"
       >
         <span
-          class="circuit-9"
+          class="circuit-8"
         >
           Uploading
         </span>
@@ -1645,11 +1380,11 @@ exports[`ImageInput > Styles > should render with invalid styles and an error me
       role="status"
     >
       <span
-        class="circuit-10"
+        class="circuit-9"
         id=":r5:"
       >
         <div
-          class="circuit-11"
+          class="circuit-10"
         >
           <svg
             fill="none"

@@ -14,32 +14,30 @@
  */
 
 import { describe, expect, it } from 'vitest';
+import { createRef } from 'react';
 
-import { create, renderToHtml, axe } from '../../util/test-utils.js';
+import { render, axe } from '../../util/test-utils.js';
 
-import { Spinner, SpinnerProps } from './Spinner.js';
+import { Spinner } from './Spinner.js';
 
 describe('Spinner', () => {
-  /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const actual = create(<Spinner />);
-    expect(actual).toMatchSnapshot();
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    const { container } = render(<Spinner className={className} />);
+    const button = container.querySelector('span');
+    expect(button?.className).toContain(className);
   });
 
-  const sizes: SpinnerProps['size'][] = ['byte', 'kilo', 'giga'];
-  it.each(sizes)('should render a %s spinner', (size) => {
-    const actual = create(<Spinner size={size} />);
-    expect(actual).toMatchSnapshot();
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLSpanElement>();
+    const { container } = render(<Spinner ref={ref} />);
+    const span = container.querySelector('span');
+    expect(ref.current).toBe(span);
   });
 
-  /**
-   * Accessibility tests.
-   */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Spinner />);
-    const actual = await axe(wrapper);
+    const { container } = render(<Spinner />);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });

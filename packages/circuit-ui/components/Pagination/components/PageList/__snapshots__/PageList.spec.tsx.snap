@@ -1,22 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`PageList > styles > should render with default styles 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0 {
   list-style: none;
   display: -webkit-box;
@@ -39,18 +23,6 @@ li:last-child .circuit-1 {
   margin-right: 0;
 }
 
-.circuit-2 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
 <ol
   class="circuit-0"
   role="list"
@@ -63,7 +35,7 @@ li:last-child .circuit-1 {
       title="Go to page 1"
     >
       <span
-        class="_spinner_892426 circuit-2"
+        class="_base_2b3edd _byte_2b3edd _spinner_892426"
       >
         <span
           class="_hide-visually_73b4bb"
@@ -84,7 +56,7 @@ li:last-child .circuit-1 {
       title="Go to page 2"
     >
       <span
-        class="_spinner_892426 circuit-2"
+        class="_base_2b3edd _byte_2b3edd _spinner_892426"
       >
         <span
           class="_hide-visually_73b4bb"
@@ -105,7 +77,7 @@ li:last-child .circuit-1 {
       title="Go to page 3"
     >
       <span
-        class="_spinner_892426 circuit-2"
+        class="_base_2b3edd _byte_2b3edd _spinner_892426"
       >
         <span
           class="_hide-visually_73b4bb"

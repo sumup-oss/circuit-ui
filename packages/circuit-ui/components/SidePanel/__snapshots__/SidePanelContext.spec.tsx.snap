@@ -21,22 +21,6 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the non-r
 `;
 
 exports[`SidePanelContext > SidePanelProvider > render > should render the side panel and the resized container 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0 {
   width: 100%;
   -webkit-transition: width 200ms ease-in-out;
@@ -135,25 +119,13 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
 }
 
 .circuit-7 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
-.circuit-8 {
   width: 100%;
   max-width: 480px;
   padding: 0 16px;
 }
 
 @media (min-width: 768px) {
-  .circuit-8 {
+  .circuit-7 {
     padding: 0 24px;
   }
 }
@@ -211,7 +183,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
               type="button"
             >
               <span
-                class="_spinner_892426 circuit-7"
+                class="_base_2b3edd _byte_2b3edd _spinner_892426"
               >
                 <span
                   class="_hide-visually_73b4bb"
@@ -242,7 +214,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
             </button>
           </div>
           <div
-            class="circuit-8"
+            class="circuit-7"
           >
             <p
               data-testid="children"
@@ -258,22 +230,6 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
 `;
 
 exports[`SidePanelContext > SidePanelProvider > render > should render the side panel on mobile resolutions 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0 {
   width: 100%;
   -webkit-transition: width 240ms ease-in-out;
@@ -377,25 +333,13 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
 }
 
 .circuit-7 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
-.circuit-8 {
   width: 100%;
   max-width: 480px;
   padding: 0 16px;
 }
 
 @media (min-width: 768px) {
-  .circuit-8 {
+  .circuit-7 {
     padding: 0 24px;
   }
 }
@@ -456,7 +400,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
               type="button"
             >
               <span
-                class="_spinner_892426 circuit-7"
+                class="_base_2b3edd _byte_2b3edd _spinner_892426"
               >
                 <span
                   class="_hide-visually_73b4bb"
@@ -487,7 +431,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
             </button>
           </div>
           <div
-            class="circuit-8"
+            class="circuit-7"
           >
             <p
               data-testid="children"
@@ -503,22 +447,6 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
 `;
 
 exports[`SidePanelContext > SidePanelProvider > render > should render the side panel with offset for the top navigation 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0 {
   width: 100%;
   -webkit-transition: width 200ms ease-in-out;
@@ -618,25 +546,13 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
 }
 
 .circuit-7 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
-.circuit-8 {
   width: 100%;
   max-width: 480px;
   padding: 0 16px;
 }
 
 @media (min-width: 768px) {
-  .circuit-8 {
+  .circuit-7 {
     padding: 0 24px;
   }
 }
@@ -700,7 +616,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
               type="button"
             >
               <span
-                class="_spinner_892426 circuit-7"
+                class="_base_2b3edd _byte_2b3edd _spinner_892426"
               >
                 <span
                   class="_hide-visually_73b4bb"
@@ -731,7 +647,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
             </button>
           </div>
           <div
-            class="circuit-8"
+            class="circuit-7"
           >
             <p
               data-testid="children"

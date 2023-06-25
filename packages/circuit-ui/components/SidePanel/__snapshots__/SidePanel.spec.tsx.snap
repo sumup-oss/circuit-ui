@@ -1,22 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`SidePanel > should match the snapshot 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0 {
   height: 100%;
 }
@@ -108,25 +92,13 @@ exports[`SidePanel > should match the snapshot 1`] = `
 }
 
 .circuit-6 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
-.circuit-7 {
   width: 100%;
   max-width: 480px;
   padding: 0 16px;
 }
 
 @media (min-width: 768px) {
-  .circuit-7 {
+  .circuit-6 {
     padding: 0 24px;
   }
 }
@@ -176,7 +148,7 @@ exports[`SidePanel > should match the snapshot 1`] = `
               type="button"
             >
               <span
-                class="_spinner_892426 circuit-6"
+                class="_base_2b3edd _byte_2b3edd _spinner_892426"
               >
                 <span
                   class="_hide-visually_73b4bb"
@@ -207,7 +179,7 @@ exports[`SidePanel > should match the snapshot 1`] = `
             </button>
           </div>
           <div
-            class="circuit-7"
+            class="circuit-6"
           >
             <p
               data-testid="children"
@@ -223,22 +195,6 @@ exports[`SidePanel > should match the snapshot 1`] = `
 `;
 
 exports[`SidePanel > when the panel is on mobile resolution > should match the snapshot 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0 {
   position: fixed;
   top: 0;
@@ -336,25 +292,13 @@ exports[`SidePanel > when the panel is on mobile resolution > should match the s
 }
 
 .circuit-6 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
-.circuit-7 {
   width: 100%;
   max-width: 480px;
   padding: 0 16px;
 }
 
 @media (min-width: 768px) {
-  .circuit-7 {
+  .circuit-6 {
     padding: 0 24px;
   }
 }
@@ -404,7 +348,7 @@ exports[`SidePanel > when the panel is on mobile resolution > should match the s
               type="button"
             >
               <span
-                class="_spinner_892426 circuit-6"
+                class="_base_2b3edd _byte_2b3edd _spinner_892426"
               >
                 <span
                   class="_hide-visually_73b4bb"
@@ -435,7 +379,7 @@ exports[`SidePanel > when the panel is on mobile resolution > should match the s
             </button>
           </div>
           <div
-            class="circuit-7"
+            class="circuit-6"
           >
             <p
               data-testid="children"

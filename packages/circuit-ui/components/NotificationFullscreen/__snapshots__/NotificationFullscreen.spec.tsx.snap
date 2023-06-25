@@ -1,22 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`NotificationFullscreen > styles > should render with an svg component as the image 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0 {
   max-width: 420px;
   display: -webkit-box;
@@ -58,18 +42,6 @@ exports[`NotificationFullscreen > styles > should render with an svg component a
   margin-top: 24px;
 }
 
-.circuit-5 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
 <div>
   <div
     class="circuit-0"
@@ -104,7 +76,7 @@ exports[`NotificationFullscreen > styles > should render with an svg component a
         class="_base_892426 _focus-visible_73b4bb _giga_892426 _primary_892426"
       >
         <span
-          class="_spinner_892426 circuit-5"
+          class="_base_2b3edd _byte_2b3edd _spinner_892426"
         >
           <span
             class="_hide-visually_73b4bb"
@@ -122,22 +94,6 @@ exports[`NotificationFullscreen > styles > should render with an svg component a
 `;
 
 exports[`NotificationFullscreen > styles > should render with body text 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0 {
   max-width: 420px;
   display: -webkit-box;
@@ -185,18 +141,6 @@ exports[`NotificationFullscreen > styles > should render with body text 1`] = `
   margin-top: 24px;
 }
 
-.circuit-5 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
 <div>
   <div
     class="circuit-0"
@@ -223,7 +167,7 @@ exports[`NotificationFullscreen > styles > should render with body text 1`] = `
         class="_base_892426 _focus-visible_73b4bb _giga_892426 _primary_892426"
       >
         <span
-          class="_spinner_892426 circuit-5"
+          class="_base_2b3edd _byte_2b3edd _spinner_892426"
         >
           <span
             class="_hide-visually_73b4bb"
@@ -241,22 +185,6 @@ exports[`NotificationFullscreen > styles > should render with body text 1`] = `
 `;
 
 exports[`NotificationFullscreen > styles > should render with default styles 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0 {
   max-width: 420px;
   display: -webkit-box;
@@ -297,18 +225,6 @@ exports[`NotificationFullscreen > styles > should render with default styles 1`]
   margin-top: 24px;
 }
 
-.circuit-4 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
 <div>
   <div
     class="circuit-0"
@@ -330,7 +246,7 @@ exports[`NotificationFullscreen > styles > should render with default styles 1`]
         class="_base_892426 _focus-visible_73b4bb _giga_892426 _primary_892426"
       >
         <span
-          class="_spinner_892426 circuit-4"
+          class="_base_2b3edd _byte_2b3edd _spinner_892426"
         >
           <span
             class="_hide-visually_73b4bb"

@@ -1,22 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`NotificationToast > styles > should render with a headline 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0 {
   background-color: var(--cui-bg-elevated);
   border-radius: 8px;
@@ -115,18 +99,6 @@ exports[`NotificationToast > styles > should render with a headline 1`] = `
   margin-left: auto;
 }
 
-.circuit-8 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
 <body>
   <div>
     <div
@@ -178,7 +150,7 @@ exports[`NotificationToast > styles > should render with a headline 1`] = `
           type="button"
         >
           <span
-            class="_spinner_892426 circuit-8"
+            class="_base_2b3edd _byte_2b3edd _spinner_892426"
           >
             <span
               class="_hide-visually_73b4bb"
@@ -216,22 +188,6 @@ exports[`NotificationToast > styles > should render with a headline 1`] = `
 `;
 
 exports[`NotificationToast > styles > should render with danger variant styles 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0 {
   background-color: var(--cui-bg-elevated);
   border-radius: 8px;
@@ -323,18 +279,6 @@ exports[`NotificationToast > styles > should render with danger variant styles 1
   margin-left: auto;
 }
 
-.circuit-7 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
 <body>
   <div>
     <div
@@ -381,7 +325,7 @@ exports[`NotificationToast > styles > should render with danger variant styles 1
           type="button"
         >
           <span
-            class="_spinner_892426 circuit-7"
+            class="_base_2b3edd _byte_2b3edd _spinner_892426"
           >
             <span
               class="_hide-visually_73b4bb"
@@ -419,22 +363,6 @@ exports[`NotificationToast > styles > should render with danger variant styles 1
 `;
 
 exports[`NotificationToast > styles > should render with default styles 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0 {
   background-color: var(--cui-bg-elevated);
   border-radius: 8px;
@@ -526,18 +454,6 @@ exports[`NotificationToast > styles > should render with default styles 1`] = `
   margin-left: auto;
 }
 
-.circuit-7 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
 <body>
   <div>
     <div
@@ -584,7 +500,7 @@ exports[`NotificationToast > styles > should render with default styles 1`] = `
           type="button"
         >
           <span
-            class="_spinner_892426 circuit-7"
+            class="_base_2b3edd _byte_2b3edd _spinner_892426"
           >
             <span
               class="_hide-visually_73b4bb"
@@ -622,22 +538,6 @@ exports[`NotificationToast > styles > should render with default styles 1`] = `
 `;
 
 exports[`NotificationToast > styles > should render with info variant styles 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0 {
   background-color: var(--cui-bg-elevated);
   border-radius: 8px;
@@ -729,18 +629,6 @@ exports[`NotificationToast > styles > should render with info variant styles 1`]
   margin-left: auto;
 }
 
-.circuit-7 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
 <body>
   <div>
     <div
@@ -787,7 +675,7 @@ exports[`NotificationToast > styles > should render with info variant styles 1`]
           type="button"
         >
           <span
-            class="_spinner_892426 circuit-7"
+            class="_base_2b3edd _byte_2b3edd _spinner_892426"
           >
             <span
               class="_hide-visually_73b4bb"
@@ -825,22 +713,6 @@ exports[`NotificationToast > styles > should render with info variant styles 1`]
 `;
 
 exports[`NotificationToast > styles > should render with success variant styles 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0 {
   background-color: var(--cui-bg-elevated);
   border-radius: 8px;
@@ -932,18 +804,6 @@ exports[`NotificationToast > styles > should render with success variant styles 
   margin-left: auto;
 }
 
-.circuit-7 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
 <body>
   <div>
     <div
@@ -990,7 +850,7 @@ exports[`NotificationToast > styles > should render with success variant styles 
           type="button"
         >
           <span
-            class="_spinner_892426 circuit-7"
+            class="_base_2b3edd _byte_2b3edd _spinner_892426"
           >
             <span
               class="_hide-visually_73b4bb"
@@ -1028,22 +888,6 @@ exports[`NotificationToast > styles > should render with success variant styles 
 `;
 
 exports[`NotificationToast > styles > should render with warning variant styles 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0 {
   background-color: var(--cui-bg-elevated);
   border-radius: 8px;
@@ -1135,18 +979,6 @@ exports[`NotificationToast > styles > should render with warning variant styles 
   margin-left: auto;
 }
 
-.circuit-7 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
 <body>
   <div>
     <div
@@ -1195,7 +1027,7 @@ exports[`NotificationToast > styles > should render with warning variant styles 
           type="button"
         >
           <span
-            class="_spinner_892426 circuit-7"
+            class="_base_2b3edd _byte_2b3edd _spinner_892426"
           >
             <span
               class="_hide-visually_73b4bb"

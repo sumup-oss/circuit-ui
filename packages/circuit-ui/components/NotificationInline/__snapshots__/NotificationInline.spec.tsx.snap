@@ -483,22 +483,6 @@ exports[`NotificationInline > styles > should render notification inline with wa
 `;
 
 exports[`NotificationInline > styles > should render notification toast with an action button 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0 {
   overflow: hidden;
   will-change: height;
@@ -591,18 +575,6 @@ exports[`NotificationInline > styles > should render notification toast with an 
   color: var(--cui-fg-normal-pressed);
 }
 
-.circuit-7 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
 <body>
   <div>
     <div
@@ -644,7 +616,7 @@ exports[`NotificationInline > styles > should render notification toast with an 
             class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 circuit-6"
           >
             <span
-              class="_spinner_892426 circuit-7"
+              class="_base_2b3edd _byte_2b3edd _spinner_892426"
             >
               <span
                 class="_hide-visually_73b4bb"

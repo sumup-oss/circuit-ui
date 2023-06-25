@@ -1,22 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Header > should have a bottom separator when sticky 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0 {
   position: -webkit-sticky;
   position: sticky;
@@ -71,18 +55,6 @@ exports[`Header > should have a bottom separator when sticky 1`] = `
   border-color: transparent!important;
 }
 
-.circuit-3 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
 <body>
   <div>
     <div
@@ -100,7 +72,7 @@ exports[`Header > should have a bottom separator when sticky 1`] = `
         type="button"
       >
         <span
-          class="_spinner_892426 circuit-3"
+          class="_base_2b3edd _byte_2b3edd _spinner_892426"
         >
           <span
             class="_hide-visually_73b4bb"
@@ -135,22 +107,6 @@ exports[`Header > should have a bottom separator when sticky 1`] = `
 `;
 
 exports[`Header > should match the snapshot 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0 {
   position: -webkit-sticky;
   position: sticky;
@@ -198,18 +154,6 @@ exports[`Header > should match the snapshot 1`] = `
   border-color: transparent!important;
 }
 
-.circuit-3 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
 <body>
   <div>
     <div
@@ -227,7 +171,7 @@ exports[`Header > should match the snapshot 1`] = `
         type="button"
       >
         <span
-          class="_spinner_892426 circuit-3"
+          class="_base_2b3edd _byte_2b3edd _spinner_892426"
         >
           <span
             class="_hide-visually_73b4bb"

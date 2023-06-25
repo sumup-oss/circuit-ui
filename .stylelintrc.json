@@ -6,6 +6,7 @@
   ],
   "rules": {
     "media-feature-range-notation": ["prefix"],
+    "value-keyword-case": ["lower", { "camelCaseSvgKeywords": true }],
     "plugin/no-unsupported-browser-features": [true, { "severity": "warning" }],
     "circuit-ui/no-invalid-custom-properties": ["prefix"]
   },

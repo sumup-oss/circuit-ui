@@ -1,22 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`MobileNavigation > styles > should render with secondary links 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0 {
   position: fixed;
   top: 0;
@@ -96,22 +80,10 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
 }
 
 .circuit-5 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
-.circuit-6 {
   list-style: none;
 }
 
-.circuit-7 {
+.circuit-6 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -137,42 +109,42 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
   color: var(--cui-fg-accent);
 }
 
-.circuit-7:focus {
+.circuit-6:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-7:focus::-moz-focus-inner {
+.circuit-6:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-7:focus:not(:focus-visible) {
+.circuit-6:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-7:hover {
+.circuit-6:hover {
   background-color: var(--cui-bg-normal-hovered);
   color: var(--cui-fg-normal-hovered);
 }
 
-.circuit-7:active {
+.circuit-6:active {
   background-color: var(--cui-bg-normal-pressed);
   color: var(--cui-fg-normal-pressed);
 }
 
-.circuit-7:disabled,
-.circuit-7[disabled] {
+.circuit-6:disabled,
+.circuit-6[disabled] {
   pointer-events: none;
   background-color: var(--cui-bg-normal-disabled);
   color: var(--cui-fg-normal-disabled);
 }
 
 @media (max-width: 1279px) {
-  .circuit-7 {
+  .circuit-6 {
     margin-bottom: 1px;
   }
 
-  .circuit-7::after {
+  .circuit-6::after {
     content: '';
     display: block;
     position: absolute;
@@ -187,7 +159,7 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
 }
 
 @media (min-width: 1280px) {
-  .circuit-7 {
+  .circuit-6 {
     height: 48px;
     width: 220px;
     padding: 12px;
@@ -195,15 +167,15 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
   }
 }
 
-.circuit-7:hover {
+.circuit-6:hover {
   background-color: var(--cui-bg-accent-hovered);
 }
 
-.circuit-7:active {
+.circuit-6:active {
   background-color: var(--cui-bg-accent-pressed);
 }
 
-.circuit-8 {
+.circuit-7 {
   display: inline-block;
   line-height: 0;
   position: relative;
@@ -215,12 +187,12 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
   margin-right: 12px;
 }
 
-.circuit-9 {
+.circuit-8 {
   display: inline-block;
   line-height: 0;
 }
 
-.circuit-10 {
+.circuit-9 {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -228,13 +200,13 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
 }
 
 @media (max-width: 1279px) {
-  .circuit-10 {
+  .circuit-9 {
     font-size: 1.5rem;
     line-height: 1.75rem;
   }
 }
 
-.circuit-11 {
+.circuit-10 {
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
@@ -251,23 +223,23 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
   transition: transform 120ms ease-in-out;
 }
 
-.circuit-12 {
+.circuit-11 {
   list-style: none;
   border-bottom: 1px solid var(--cui-border-divider);
   margin-bottom: -1px;
 }
 
-.circuit-12>*:last-child {
+.circuit-11>*:last-child {
   padding-bottom: 24px;
 }
 
-.circuit-13 {
+.circuit-12 {
   display: inline-block;
   line-height: 0;
   margin: 32px 16px 8px;
 }
 
-.circuit-14 {
+.circuit-13 {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 0.875rem;
@@ -275,11 +247,11 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
   color: var(--cui-fg-normal);
 }
 
-.circuit-15 {
+.circuit-14 {
   list-style: none;
 }
 
-.circuit-16 {
+.circuit-15 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -310,50 +282,50 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
   hyphens: auto;
 }
 
-.circuit-16:hover {
+.circuit-15:hover {
   background-color: var(--cui-bg-normal-hovered);
   color: var(--cui-fg-normal-hovered);
 }
 
-.circuit-16:active {
+.circuit-15:active {
   background-color: var(--cui-bg-normal-pressed);
   color: var(--cui-fg-normal-pressed);
 }
 
-.circuit-16:focus {
+.circuit-15:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-16:focus::-moz-focus-inner {
+.circuit-15:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-16:focus:not(:focus-visible) {
+.circuit-15:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-16:disabled,
-.circuit-16[disabled] {
+.circuit-15:disabled,
+.circuit-15[disabled] {
   pointer-events: none;
   background-color: var(--cui-bg-normal-disabled);
   color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 1280px) {
-  .circuit-16 {
+  .circuit-15 {
     padding: 12px;
     padding-left: 20px;
   }
 }
 
-.circuit-17 {
+.circuit-16 {
   display: inline-block;
   line-height: 0;
   margin-right: 8px;
 }
 
-.circuit-18 {
+.circuit-17 {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -397,7 +369,7 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
               type="button"
             >
               <span
-                class="_spinner_892426 circuit-5"
+                class="_base_2b3edd _byte_2b3edd _spinner_892426"
               >
                 <span
                   class="_hide-visually_73b4bb"
@@ -433,18 +405,18 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
             aria-label="Primary"
           >
             <ul
-              class="circuit-6"
+              class="circuit-5"
             >
               <li>
                 <button
                   aria-controls=":r1:"
                   aria-current="page"
                   aria-expanded="false"
-                  class="circuit-7"
+                  class="circuit-6"
                   data-focus-list=":r0:"
                 >
                   <span
-                    class="circuit-8"
+                    class="circuit-7"
                   >
                     <svg
                       fill="none"
@@ -463,16 +435,16 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="circuit-9"
+                    class="circuit-8"
                   >
                     <span
-                      class="circuit-10"
+                      class="circuit-9"
                     >
                       Shop
                     </span>
                   </span>
                   <svg
-                    class="circuit-11"
+                    class="circuit-10"
                     fill="none"
                     height="16"
                     role="presentation"
@@ -488,36 +460,36 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
                 </button>
                 <ul
                   aria-hidden="true"
-                  class="circuit-12"
+                  class="circuit-11"
                   id=":r1:"
                   role="list"
                   style="overflow-y: hidden; will-change: height; opacity: 0; height: 0px; visibility: hidden; transition: all 200ms ease-in-out;"
                 >
                   <li>
                     <span
-                      class="circuit-13"
+                      class="circuit-12"
                     >
                       <h3
-                        class="circuit-14"
+                        class="circuit-13"
                       >
                         For Kids
                       </h3>
                     </span>
                     <ul
-                      class="circuit-15"
+                      class="circuit-14"
                       role="list"
                     >
                       <li>
                         <a
-                          class="circuit-16"
+                          class="circuit-15"
                           data-focus-list=":r2:"
                           href="/shop/toys"
                         >
                           <span
-                            class="circuit-17"
+                            class="circuit-16"
                           >
                             <p
-                              class="circuit-18"
+                              class="circuit-17"
                             >
                               Toys
                             </p>
@@ -526,15 +498,15 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
                       </li>
                       <li>
                         <a
-                          class="circuit-16"
+                          class="circuit-15"
                           data-focus-list=":r2:"
                           href="/shop/books"
                         >
                           <span
-                            class="circuit-17"
+                            class="circuit-16"
                           >
                             <p
-                              class="circuit-18"
+                              class="circuit-17"
                             >
                               Books
                             </p>
@@ -555,22 +527,6 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
 `;
 
 exports[`MobileNavigation > styles > should render without secondary links 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0 {
   position: fixed;
   top: 0;
@@ -650,22 +606,10 @@ exports[`MobileNavigation > styles > should render without secondary links 1`] =
 }
 
 .circuit-5 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
-.circuit-6 {
   list-style: none;
 }
 
-.circuit-7 {
+.circuit-6 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -690,42 +634,42 @@ exports[`MobileNavigation > styles > should render without secondary links 1`] =
   transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
 }
 
-.circuit-7:focus {
+.circuit-6:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-7:focus::-moz-focus-inner {
+.circuit-6:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-7:focus:not(:focus-visible) {
+.circuit-6:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-7:hover {
+.circuit-6:hover {
   background-color: var(--cui-bg-normal-hovered);
   color: var(--cui-fg-normal-hovered);
 }
 
-.circuit-7:active {
+.circuit-6:active {
   background-color: var(--cui-bg-normal-pressed);
   color: var(--cui-fg-normal-pressed);
 }
 
-.circuit-7:disabled,
-.circuit-7[disabled] {
+.circuit-6:disabled,
+.circuit-6[disabled] {
   pointer-events: none;
   background-color: var(--cui-bg-normal-disabled);
   color: var(--cui-fg-normal-disabled);
 }
 
 @media (max-width: 1279px) {
-  .circuit-7 {
+  .circuit-6 {
     margin-bottom: 1px;
   }
 
-  .circuit-7::after {
+  .circuit-6::after {
     content: '';
     display: block;
     position: absolute;
@@ -740,7 +684,7 @@ exports[`MobileNavigation > styles > should render without secondary links 1`] =
 }
 
 @media (min-width: 1280px) {
-  .circuit-7 {
+  .circuit-6 {
     height: 48px;
     width: 220px;
     padding: 12px;
@@ -748,7 +692,7 @@ exports[`MobileNavigation > styles > should render without secondary links 1`] =
   }
 }
 
-.circuit-8 {
+.circuit-7 {
   display: inline-block;
   line-height: 0;
   position: relative;
@@ -760,19 +704,19 @@ exports[`MobileNavigation > styles > should render without secondary links 1`] =
   margin-right: 12px;
 }
 
-.circuit-9 {
+.circuit-8 {
   display: inline-block;
   line-height: 0;
 }
 
-.circuit-10 {
+.circuit-9 {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;
 }
 
 @media (max-width: 1279px) {
-  .circuit-10 {
+  .circuit-9 {
     font-size: 1.5rem;
     line-height: 1.75rem;
   }
@@ -819,7 +763,7 @@ exports[`MobileNavigation > styles > should render without secondary links 1`] =
               type="button"
             >
               <span
-                class="_spinner_892426 circuit-5"
+                class="_base_2b3edd _byte_2b3edd _spinner_892426"
               >
                 <span
                   class="_hide-visually_73b4bb"
@@ -855,16 +799,16 @@ exports[`MobileNavigation > styles > should render without secondary links 1`] =
             aria-label="Primary"
           >
             <ul
-              class="circuit-6"
+              class="circuit-5"
             >
               <li>
                 <a
-                  class="circuit-7"
+                  class="circuit-6"
                   data-focus-list=":r3:"
                   href="/"
                 >
                   <span
-                    class="circuit-8"
+                    class="circuit-7"
                   >
                     <svg
                       fill="none"
@@ -881,10 +825,10 @@ exports[`MobileNavigation > styles > should render without secondary links 1`] =
                     </svg>
                   </span>
                   <span
-                    class="circuit-9"
+                    class="circuit-8"
                   >
                     <span
-                      class="circuit-10"
+                      class="circuit-9"
                     >
                       Home
                     </span>

@@ -1,22 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Pagination > with 2 to 5 pages > should render with default styles 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -42,18 +26,6 @@ exports[`Pagination > with 2 to 5 pages > should render with default styles 1`] 
 }
 
 .circuit-2 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
-.circuit-3 {
   list-style: none;
   display: -webkit-box;
   display: -webkit-flex;
@@ -65,17 +37,17 @@ exports[`Pagination > with 2 to 5 pages > should render with default styles 1`] 
   justify-content: center;
 }
 
-.circuit-4 {
+.circuit-3 {
   min-width: 34px;
   padding: 4px;
   margin-right: 4px;
 }
 
-li:last-child .circuit-4 {
+li:last-child .circuit-3 {
   margin-right: 0;
 }
 
-.circuit-14 {
+.circuit-8 {
   margin-left: 12px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -93,7 +65,7 @@ li:last-child .circuit-4 {
     title="Previous"
   >
     <span
-      class="_spinner_892426 circuit-2"
+      class="_base_2b3edd _byte_2b3edd _spinner_892426"
     >
       <span
         class="_hide-visually_73b4bb"
@@ -123,18 +95,18 @@ li:last-child .circuit-4 {
     </span>
   </button>
   <ol
-    class="circuit-3"
+    class="circuit-2"
     role="list"
   >
     <li>
       <button
         aria-current="true"
         aria-label="Go to page 1"
-        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _primary_892426 circuit-4"
+        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _primary_892426 circuit-3"
         title="Go to page 1"
       >
         <span
-          class="_spinner_892426 circuit-2"
+          class="_base_2b3edd _byte_2b3edd _spinner_892426"
         >
           <span
             class="_hide-visually_73b4bb"
@@ -151,11 +123,11 @@ li:last-child .circuit-4 {
       <button
         aria-current="false"
         aria-label="Go to page 2"
-        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 circuit-4"
+        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 circuit-3"
         title="Go to page 2"
       >
         <span
-          class="_spinner_892426 circuit-2"
+          class="_base_2b3edd _byte_2b3edd _spinner_892426"
         >
           <span
             class="_hide-visually_73b4bb"
@@ -172,11 +144,11 @@ li:last-child .circuit-4 {
       <button
         aria-current="false"
         aria-label="Go to page 3"
-        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 circuit-4"
+        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 circuit-3"
         title="Go to page 3"
       >
         <span
-          class="_spinner_892426 circuit-2"
+          class="_base_2b3edd _byte_2b3edd _spinner_892426"
         >
           <span
             class="_hide-visually_73b4bb"
@@ -193,11 +165,11 @@ li:last-child .circuit-4 {
       <button
         aria-current="false"
         aria-label="Go to page 4"
-        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 circuit-4"
+        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 circuit-3"
         title="Go to page 4"
       >
         <span
-          class="_spinner_892426 circuit-2"
+          class="_base_2b3edd _byte_2b3edd _spinner_892426"
         >
           <span
             class="_hide-visually_73b4bb"
@@ -214,11 +186,11 @@ li:last-child .circuit-4 {
       <button
         aria-current="false"
         aria-label="Go to page 5"
-        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 circuit-4"
+        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 circuit-3"
         title="Go to page 5"
       >
         <span
-          class="_spinner_892426 circuit-2"
+          class="_base_2b3edd _byte_2b3edd _spinner_892426"
         >
           <span
             class="_hide-visually_73b4bb"
@@ -233,11 +205,11 @@ li:last-child .circuit-4 {
     </li>
   </ol>
   <button
-    class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 _kilo_f6dd9a circuit-14"
+    class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 _kilo_f6dd9a circuit-8"
     title="Next"
   >
     <span
-      class="_spinner_892426 circuit-2"
+      class="_base_2b3edd _byte_2b3edd _spinner_892426"
     >
       <span
         class="_hide-visually_73b4bb"
@@ -270,22 +242,6 @@ li:last-child .circuit-4 {
 `;
 
 exports[`Pagination > with more than 5 pages > should render with default styles 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -310,30 +266,18 @@ exports[`Pagination > with more than 5 pages > should render with default styles
   flex-shrink: 0;
 }
 
-.circuit-2 {
-  display: block;
-  border-radius: 100%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  transform-origin: 50% 50%;
-  width: 24px;
-  height: 24px;
-}
-
-.circuit-3[disabled],
-.circuit-3.cui-field-disabled {
+.circuit-2[disabled],
+.circuit-2.cui-field-disabled {
   pointer-events: none;
 }
 
-.circuit-4 {
+.circuit-3 {
   display: block;
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
-.circuit-5 {
+.circuit-4 {
   display: inline-block;
   margin-bottom: 4px;
   border: 0;
@@ -347,18 +291,18 @@ exports[`Pagination > with more than 5 pages > should render with default styles
   width: 1px;
 }
 
-[disabled] .circuit-5,
-.cui-field-disabled .circuit-5 {
+[disabled] .circuit-4,
+.cui-field-disabled .circuit-4 {
   color: var(--cui-fg-normal-disabled);
 }
 
-.circuit-6 {
+.circuit-5 {
   color: var(--cui-fg-normal);
   display: block;
   position: relative;
 }
 
-.circuit-7 {
+.circuit-6 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -388,25 +332,42 @@ exports[`Pagination > with more than 5 pages > should render with default styles
   box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
-.circuit-7:-moz-focusring {
+.circuit-6:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
 
-.circuit-7::-ms-expand {
+.circuit-6::-ms-expand {
   display: none;
 }
 
-.circuit-7:hover {
+.circuit-6:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
-.circuit-7:focus {
+.circuit-6:focus {
   box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
-.circuit-7:active {
+.circuit-6:active {
   box-shadow: 0 0 0 1px var(--cui-border-accent);
+}
+
+.circuit-7 {
+  color: var(--cui-fg-subtle);
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
+}
+
+select:active~.circuit-7 {
+  display: none;
 }
 
 .circuit-8 {
@@ -422,32 +383,15 @@ exports[`Pagination > with more than 5 pages > should render with default styles
   padding: 16px;
 }
 
-select:active~.circuit-8 {
+select:not(:active)~.circuit-8 {
   display: none;
 }
 
 .circuit-9 {
-  color: var(--cui-fg-subtle);
-  display: block;
-  z-index: 21;
-  pointer-events: none;
-  position: absolute;
-  height: 48px;
-  width: 48px;
-  top: 0;
-  right: 0;
-  padding: 16px;
-}
-
-select:not(:active)~.circuit-9 {
-  display: none;
-}
-
-.circuit-10 {
   margin-left: 12px;
 }
 
-.circuit-11 {
+.circuit-10 {
   margin-left: 12px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -465,7 +409,7 @@ select:not(:active)~.circuit-9 {
     title="Previous"
   >
     <span
-      class="_spinner_892426 circuit-2"
+      class="_base_2b3edd _byte_2b3edd _spinner_892426"
     >
       <span
         class="_hide-visually_73b4bb"
@@ -495,24 +439,24 @@ select:not(:active)~.circuit-9 {
     </span>
   </button>
   <div
-    class=" circuit-3"
+    class=" circuit-2"
   >
     <label
-      class="circuit-4"
+      class="circuit-3"
       for=":r0:"
     >
       <span
-        class="circuit-5"
+        class="circuit-4"
       >
         Pagination
       </span>
     </label>
     <div
-      class="circuit-6"
+      class="circuit-5"
     >
       <select
         aria-describedby=":r1:"
-        class="circuit-7"
+        class="circuit-6"
         id=":r0:"
       >
         <option
@@ -568,7 +512,7 @@ select:not(:active)~.circuit-9 {
       </select>
       <svg
         aria-hidden="true"
-        class="circuit-8"
+        class="circuit-7"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -582,7 +526,7 @@ select:not(:active)~.circuit-9 {
       </svg>
       <svg
         aria-hidden="true"
-        class="circuit-9"
+        class="circuit-8"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -601,16 +545,16 @@ select:not(:active)~.circuit-9 {
     />
   </div>
   <span
-    class="circuit-10"
+    class="circuit-9"
   >
     of 10
   </span>
   <button
-    class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 _kilo_f6dd9a circuit-11"
+    class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 _kilo_f6dd9a circuit-10"
     title="Next"
   >
     <span
-      class="_spinner_892426 circuit-2"
+      class="_base_2b3edd _byte_2b3edd _spinner_892426"
     >
       <span
         class="_hide-visually_73b4bb"
