@@ -2,13 +2,13 @@
   "name": "@sumup/design-tokens",
   "version": "6.0.0-next.1",
   "description": "Visual primitives such as typography, color, and spacing that are shared across platforms.",
-  "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": "./dist/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "types": "dist/es/index.d.ts",
   "sideEffects": false,
   "files": [
-    "dist"
+    "dist",
+    "*.css"
   ],
   "repository": {
     "type": "git",
@@ -22,20 +22,23 @@
   "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/design-tokens/README.md",
   "scripts": {
     "start": "tsc --watch",
-    "build": "tsc",
+    "build": "npm run build:es && npm run build:cjs && npm run build:styles",
+    "build:es": "tsc",
+    "build:cjs": "tsc --project tsconfig.cjs.json",
+    "build:styles": "tsx ./scripts/build.ts",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
     "test": "vitest"
   },
   "dependencies": {
+    "browserslist": "^4.21.9",
+    "lightningcss": "^1.21.0",
     "prop-types": "^15.8.1"
   },
   "devDependencies": {
     "@types/node": "^18.15.11",
     "@types/prop-types": "^15.7.5",
+    "tsx": "^3.12.6",
     "typescript": "^5.0.4"
-  },
-  "engines": {
-    "node": ">=16"
   }
 }

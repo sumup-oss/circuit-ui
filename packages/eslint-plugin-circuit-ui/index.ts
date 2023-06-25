@@ -14,7 +14,9 @@
  */
 
 import { noInvalidCustomProperties } from './no-invalid-custom-properties';
+import { preferCustomProperties } from './prefer-custom-properties';
 
 export const rules = {
   'no-invalid-custom-properties': noInvalidCustomProperties,
+  'prefer-custom-properties': preferCustomProperties,
 };

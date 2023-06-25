@@ -40,7 +40,7 @@ export const noInvalidCustomProperties = createRule({
       recommended: 'error',
     },
     messages: {
-      invalid: '"{{name}}" is not a valid Circuit UI color token.',
+      invalid: '"{{name}}" is not a valid Circuit UI design token.',
     },
   },
   defaultOptions: [],

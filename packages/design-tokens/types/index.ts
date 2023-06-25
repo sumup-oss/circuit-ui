@@ -394,6 +394,13 @@ export type ZIndex = {
   toast: number;
 };
 
+/**
+ * @deprecated
+ *
+ * Use the CSS custom properties from `@sumup/design-tokens` instead.
+ * Use the [`circuit-ui/prefer-custom-properties`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/prefer-custom-properties)
+ * ESLint rule to automatically migrate your code.
+ */
 export interface Theme {
   /**
    * @deprecated
@@ -443,11 +450,22 @@ export interface Theme {
   zIndex: ZIndex;
 }
 
+/**
+ * The token definitions below are loosely based on
+ * https://github.com/design-tokens/community-group
+ */
+
 export type TokenName = `--cui-${string}`;
 
 export type TokenType = Token['type'];
 
-export type Token = ColorToken;
+export type Token =
+  | ColorToken
+  | DimensionToken
+  | DurationToken
+  | FontFamilyToken
+  | FontWeightToken
+  | NumberToken;
 
 interface BaseToken {
   name: TokenName;
@@ -460,8 +478,38 @@ interface ColorToken extends BaseToken {
   type: 'color';
   value: Color;
 }
+
 export type Color =
   | `#${string}`
   | `rgb(${number},${number},${number})`
   | `rgb(${number},${number},${number},${number})`
   | `rgba(${number},${number},${number},${number})`;
+
+interface DimensionToken extends BaseToken {
+  type: 'dimension';
+  value: Dimension;
+}
+
+type Dimension = `${number}rem` | `${number}px` | `${number}%`;
+
+interface DurationToken extends BaseToken {
+  type: 'duration';
+  value: Duration;
+}
+
+type Duration = `${number}ms` | `${number}ms ${string}`;
+
+interface FontFamilyToken extends BaseToken {
+  type: 'fontFamily';
+  value: string | string[];
+}
+
+interface FontWeightToken extends BaseToken {
+  type: 'fontWeight';
+  value: string | number;
+}
+
+interface NumberToken extends BaseToken {
+  type: 'number';
+  value: number;
+}

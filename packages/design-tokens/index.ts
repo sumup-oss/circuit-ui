@@ -14,14 +14,21 @@
  */
 
 import type { Theme } from './types/index.js';
-import * as lightBase from './themes/light.js';
+import * as legacy from './themes/legacy/light.js';
 
 export { schema } from './themes/schema.js';
 
 export { themePropType } from './utils/theme-prop-type.js';
 
+/**
+ * @deprecated
+ *
+ * Use the CSS custom properties from `@sumup/design-tokens` instead.
+ * Use the [`circuit-ui/prefer-custom-properties`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/prefer-custom-properties)
+ * ESLint rule to automatically migrate your code.
+ */
 // HACK: Copy the theme, otherwise, it gets exported as 'module'.
-const light: Theme = { ...lightBase };
+const light: Theme = { ...legacy };
 
 export type { Theme };
 export { light };

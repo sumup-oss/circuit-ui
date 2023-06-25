@@ -1,3 +1,5 @@
+import '@sumup/design-tokens/light.css';
+
 import { light, components } from './themes';
 import { withThemeProvider } from './decorators/withThemeProvider';
 import { withUnmountWhenHidden } from './decorators/withUnmountWhenHidden';

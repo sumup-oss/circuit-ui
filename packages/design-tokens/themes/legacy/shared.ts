@@ -24,7 +24,7 @@ import {
   Breakpoints,
   MediaQueries,
   ZIndex,
-} from '../types/index.js';
+} from '../../types/index.js';
 
 export const spacings: Spacings = {
   bit: '4px',

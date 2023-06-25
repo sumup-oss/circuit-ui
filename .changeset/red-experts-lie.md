@@ -1,5 +1,4 @@
 ---
-'@sumup/design-tokens': major
 '@sumup/circuit-ui': major
 '@sumup/icons': major
 ---
