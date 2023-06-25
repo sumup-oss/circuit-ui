@@ -14,35 +14,38 @@
  */
 
 import { describe, expect, it } from 'vitest';
+import { createRef } from 'react';
 
-import { create, renderToHtml, axe } from '../../util/test-utils.js';
+import { render, axe } from '../../util/test-utils.js';
 
 import { Title } from './Title.js';
 
 describe('Title', () => {
-  /**
-   * Style tests.
-   */
-  const elements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
-  it.each(elements)('should render as %s element', (element) => {
-    const title = create(<Title as={element}>{`${element} Title`}</Title>);
-    expect(title).toMatchSnapshot();
-  });
-
-  const sizes = ['one', 'two', 'three', 'four'] as const;
-  it.each(sizes)('should render with size %s', (size) => {
-    const title = create(
-      <Title as="h2" {...{ size }}>{`${size} Title`}</Title>,
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    const { container } = render(
+      <Title as="h2" className={className}>
+        Title
+      </Title>,
     );
-    expect(title).toMatchSnapshot();
+    const headline = container.querySelector('h2');
+    expect(headline?.className).toContain(className);
   });
 
-  /**
-   * Accessibility tests.
-   */
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLHeadingElement>();
+    const { container } = render(
+      <Title as="h2" ref={ref}>
+        Title
+      </Title>,
+    );
+    const headline = container.querySelector('h2');
+    expect(ref.current).toBe(headline);
+  });
+
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Title as="h2">Title</Title>);
-    const actual = await axe(wrapper);
+    const { container } = render(<Title as="h2">Title</Title>);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });
