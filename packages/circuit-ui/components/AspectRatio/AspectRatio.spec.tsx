@@ -14,28 +14,33 @@
  */
 
 import { describe, expect, it } from 'vitest';
+import { createRef } from 'react';
 
 import { render } from '../../util/test-utils.js';
 
 import { AspectRatio } from './AspectRatio.js';
 
 describe('AspectRatio', () => {
-  it('should render with default styles', () => {
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
     const { container } = render(
-      <AspectRatio>
-        <div />
+      <AspectRatio aspectRatio={1.618} className={className}>
+        <span />
       </AspectRatio>,
     );
-    expect(container).toMatchSnapshot();
+    const wrapper = container.querySelector('div');
+    expect(wrapper?.className).toContain(className);
   });
 
-  it('should render with fixed aspect ratio styles', () => {
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLDivElement>();
     const { container } = render(
-      <AspectRatio aspectRatio={1.618}>
-        <div />
+      <AspectRatio aspectRatio={1.618} ref={ref}>
+        <span />
       </AspectRatio>,
     );
-    expect(container).toMatchSnapshot();
+    const wrapper = container.querySelector('div');
+    expect(ref.current).toBe(wrapper);
   });
 
   it('should not render without children', () => {

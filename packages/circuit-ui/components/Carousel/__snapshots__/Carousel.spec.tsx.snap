@@ -109,12 +109,6 @@ exports[`Carousel > styles > should render with children as a function 1`] = `
 }
 
 .circuit-5 {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  height: 0;
-  width: 100%;
-  padding-top: 56%;
   background: var(--cui-bg-subtle);
 }
 
@@ -123,16 +117,6 @@ exports[`Carousel > styles > should render with children as a function 1`] = `
   height: auto;
   max-height: 100%;
   width: 100%;
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
 }
 
 .circuit-6 img {
@@ -338,11 +322,12 @@ exports[`Carousel > styles > should render with children as a function 1`] = `
             class="circuit-4"
           >
             <div
-              class="circuit-5"
+              class="_base_a282dc circuit-5"
+              style="--aspect-ratio: 56%;"
             >
               <img
                 alt="Aerial photo of turbulent blue ocean waves"
-                class="circuit-6"
+                class="_child_a282dc circuit-6"
                 src="/images/illustration-waves.jpg"
               />
             </div>
@@ -359,11 +344,12 @@ exports[`Carousel > styles > should render with children as a function 1`] = `
             class="circuit-4"
           >
             <div
-              class="circuit-5"
+              class="_base_a282dc circuit-5"
+              style="--aspect-ratio: 56%;"
             >
               <img
                 alt="Aerial photo of turbulent turquoise ocean waves"
-                class="circuit-6"
+                class="_child_a282dc circuit-6"
                 src="/images/illustration-waves-2.jpg"
               />
             </div>
@@ -380,11 +366,12 @@ exports[`Carousel > styles > should render with children as a function 1`] = `
             class="circuit-4"
           >
             <div
-              class="circuit-5"
+              class="_base_a282dc circuit-5"
+              style="--aspect-ratio: 56%;"
             >
               <img
                 alt="Aerial photo of turbulent ocean water with white foam"
-                class="circuit-6"
+                class="_child_a282dc circuit-6"
                 src="/images/illustration-waves-3.jpg"
               />
             </div>
@@ -646,12 +633,6 @@ exports[`Carousel > styles > should render with children as a node 1`] = `
 }
 
 .circuit-5 {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  height: 0;
-  width: 100%;
-  padding-top: 56%;
   background: var(--cui-bg-subtle);
 }
 
@@ -660,16 +641,6 @@ exports[`Carousel > styles > should render with children as a node 1`] = `
   height: auto;
   max-height: 100%;
   width: 100%;
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
 }
 
 .circuit-6 img {
@@ -875,11 +846,12 @@ exports[`Carousel > styles > should render with children as a node 1`] = `
             class="circuit-4"
           >
             <div
-              class="circuit-5"
+              class="_base_a282dc circuit-5"
+              style="--aspect-ratio: 56%;"
             >
               <img
                 alt="Aerial photo of turbulent blue ocean waves"
-                class="circuit-6"
+                class="_child_a282dc circuit-6"
                 src="/images/illustration-waves.jpg"
               />
             </div>
@@ -896,11 +868,12 @@ exports[`Carousel > styles > should render with children as a node 1`] = `
             class="circuit-4"
           >
             <div
-              class="circuit-5"
+              class="_base_a282dc circuit-5"
+              style="--aspect-ratio: 56%;"
             >
               <img
                 alt="Aerial photo of turbulent turquoise ocean waves"
-                class="circuit-6"
+                class="_child_a282dc circuit-6"
                 src="/images/illustration-waves-2.jpg"
               />
             </div>
@@ -917,11 +890,12 @@ exports[`Carousel > styles > should render with children as a node 1`] = `
             class="circuit-4"
           >
             <div
-              class="circuit-5"
+              class="_base_a282dc circuit-5"
+              style="--aspect-ratio: 56%;"
             >
               <img
                 alt="Aerial photo of turbulent ocean water with white foam"
-                class="circuit-6"
+                class="_child_a282dc circuit-6"
                 src="/images/illustration-waves-3.jpg"
               />
             </div>
@@ -1182,12 +1156,6 @@ exports[`Carousel > styles > should render with default paused styles 1`] = `
 }
 
 .circuit-5 {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  height: 0;
-  width: 100%;
-  padding-top: 56%;
   background: var(--cui-bg-subtle);
 }
 
@@ -1196,16 +1164,6 @@ exports[`Carousel > styles > should render with default paused styles 1`] = `
   height: auto;
   max-height: 100%;
   width: 100%;
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
 }
 
 .circuit-6 img {
@@ -1411,11 +1369,12 @@ exports[`Carousel > styles > should render with default paused styles 1`] = `
             class="circuit-4"
           >
             <div
-              class="circuit-5"
+              class="_base_a282dc circuit-5"
+              style="--aspect-ratio: 56%;"
             >
               <img
                 alt="Aerial photo of turbulent blue ocean waves"
-                class="circuit-6"
+                class="_child_a282dc circuit-6"
                 src="/images/illustration-waves.jpg"
               />
             </div>
@@ -1432,11 +1391,12 @@ exports[`Carousel > styles > should render with default paused styles 1`] = `
             class="circuit-4"
           >
             <div
-              class="circuit-5"
+              class="_base_a282dc circuit-5"
+              style="--aspect-ratio: 56%;"
             >
               <img
                 alt="Aerial photo of turbulent turquoise ocean waves"
-                class="circuit-6"
+                class="_child_a282dc circuit-6"
                 src="/images/illustration-waves-2.jpg"
               />
             </div>
@@ -1453,11 +1413,12 @@ exports[`Carousel > styles > should render with default paused styles 1`] = `
             class="circuit-4"
           >
             <div
-              class="circuit-5"
+              class="_base_a282dc circuit-5"
+              style="--aspect-ratio: 56%;"
             >
               <img
                 alt="Aerial photo of turbulent ocean water with white foam"
-                class="circuit-6"
+                class="_child_a282dc circuit-6"
                 src="/images/illustration-waves-3.jpg"
               />
             </div>
@@ -1689,12 +1650,6 @@ exports[`Carousel > styles > should render with default styles 1`] = `
 }
 
 .circuit-5 {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  height: 0;
-  width: 100%;
-  padding-top: 56%;
   background: var(--cui-bg-subtle);
 }
 
@@ -1703,16 +1658,6 @@ exports[`Carousel > styles > should render with default styles 1`] = `
   height: auto;
   max-height: 100%;
   width: 100%;
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
 }
 
 .circuit-6 img {
@@ -1918,11 +1863,12 @@ exports[`Carousel > styles > should render with default styles 1`] = `
             class="circuit-4"
           >
             <div
-              class="circuit-5"
+              class="_base_a282dc circuit-5"
+              style="--aspect-ratio: 56%;"
             >
               <img
                 alt="Aerial photo of turbulent blue ocean waves"
-                class="circuit-6"
+                class="_child_a282dc circuit-6"
                 src="/images/illustration-waves.jpg"
               />
             </div>
@@ -1939,11 +1885,12 @@ exports[`Carousel > styles > should render with default styles 1`] = `
             class="circuit-4"
           >
             <div
-              class="circuit-5"
+              class="_base_a282dc circuit-5"
+              style="--aspect-ratio: 56%;"
             >
               <img
                 alt="Aerial photo of turbulent turquoise ocean waves"
-                class="circuit-6"
+                class="_child_a282dc circuit-6"
                 src="/images/illustration-waves-2.jpg"
               />
             </div>
@@ -1960,11 +1907,12 @@ exports[`Carousel > styles > should render with default styles 1`] = `
             class="circuit-4"
           >
             <div
-              class="circuit-5"
+              class="_base_a282dc circuit-5"
+              style="--aspect-ratio: 56%;"
             >
               <img
                 alt="Aerial photo of turbulent ocean water with white foam"
-                class="circuit-6"
+                class="_child_a282dc circuit-6"
                 src="/images/illustration-waves-3.jpg"
               />
             </div>
@@ -2170,12 +2118,6 @@ exports[`Carousel > styles > should render without controls 1`] = `
 }
 
 .circuit-5 {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  height: 0;
-  width: 100%;
-  padding-top: 56%;
   background: var(--cui-bg-subtle);
 }
 
@@ -2184,16 +2126,6 @@ exports[`Carousel > styles > should render without controls 1`] = `
   height: auto;
   max-height: 100%;
   width: 100%;
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
 }
 
 .circuit-6 img {
@@ -2262,11 +2194,12 @@ exports[`Carousel > styles > should render without controls 1`] = `
             class="circuit-4"
           >
             <div
-              class="circuit-5"
+              class="_base_a282dc circuit-5"
+              style="--aspect-ratio: 56%;"
             >
               <img
                 alt="Aerial photo of turbulent blue ocean waves"
-                class="circuit-6"
+                class="_child_a282dc circuit-6"
                 src="/images/illustration-waves.jpg"
               />
             </div>
@@ -2283,11 +2216,12 @@ exports[`Carousel > styles > should render without controls 1`] = `
             class="circuit-4"
           >
             <div
-              class="circuit-5"
+              class="_base_a282dc circuit-5"
+              style="--aspect-ratio: 56%;"
             >
               <img
                 alt="Aerial photo of turbulent turquoise ocean waves"
-                class="circuit-6"
+                class="_child_a282dc circuit-6"
                 src="/images/illustration-waves-2.jpg"
               />
             </div>
@@ -2304,11 +2238,12 @@ exports[`Carousel > styles > should render without controls 1`] = `
             class="circuit-4"
           >
             <div
-              class="circuit-5"
+              class="_base_a282dc circuit-5"
+              style="--aspect-ratio: 56%;"
             >
               <img
                 alt="Aerial photo of turbulent ocean water with white foam"
-                class="circuit-6"
+                class="_child_a282dc circuit-6"
                 src="/images/illustration-waves-3.jpg"
               />
             </div>

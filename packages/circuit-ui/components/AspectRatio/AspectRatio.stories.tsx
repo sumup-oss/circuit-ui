@@ -13,13 +13,7 @@
  * limitations under the License.
  */
 
-import styled from '../../styles/styled.js';
-
 import { AspectRatio, AspectRatioProps } from './AspectRatio.js';
-
-const Background = styled('div')`
-  background: lightgrey;
-`;
 
 export default {
   title: 'Components/AspectRatio',
@@ -29,7 +23,7 @@ export default {
 export const Base = (args: AspectRatioProps) => (
   <div style={{ width: '50vw' }}>
     <AspectRatio {...args}>
-      <Background />
+      <div style={{ background: 'lightgrey' }} />
     </AspectRatio>
   </div>
 );

@@ -2,12 +2,6 @@
 
 exports[`SlideImage > styles > should render with custom aspect ratio 1`] = `
 .circuit-0 {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  height: 0;
-  width: 100%;
-  padding-top: 50%;
   background: var(--cui-bg-subtle);
 }
 
@@ -16,16 +10,6 @@ exports[`SlideImage > styles > should render with custom aspect ratio 1`] = `
   height: auto;
   max-height: 100%;
   width: 100%;
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
 }
 
 .circuit-1 img {
@@ -34,11 +18,12 @@ exports[`SlideImage > styles > should render with custom aspect ratio 1`] = `
 
 <div>
   <div
-    class="circuit-0"
+    class="_base_a282dc circuit-0"
+    style="--aspect-ratio: 50%;"
   >
     <img
       alt="Aerial photo of turbulent blue ocean waves"
-      class="circuit-1"
+      class="_child_a282dc circuit-1"
       src="/images/illustration-waves.jpg"
     />
   </div>
@@ -47,12 +32,6 @@ exports[`SlideImage > styles > should render with custom aspect ratio 1`] = `
 
 exports[`SlideImage > styles > should render with default styles 1`] = `
 .circuit-0 {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  height: 0;
-  width: 100%;
-  padding-top: 56%;
   background: var(--cui-bg-subtle);
 }
 
@@ -61,16 +40,6 @@ exports[`SlideImage > styles > should render with default styles 1`] = `
   height: auto;
   max-height: 100%;
   width: 100%;
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
 }
 
 .circuit-1 img {
@@ -79,11 +48,12 @@ exports[`SlideImage > styles > should render with default styles 1`] = `
 
 <div>
   <div
-    class="circuit-0"
+    class="_base_a282dc circuit-0"
+    style="--aspect-ratio: 56%;"
   >
     <img
       alt="Aerial photo of turbulent blue ocean waves"
-      class="circuit-1"
+      class="_child_a282dc circuit-1"
       src="/images/illustration-waves.jpg"
     />
   </div>

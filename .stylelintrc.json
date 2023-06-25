@@ -5,6 +5,7 @@
     "@sumup/stylelint-plugin-circuit-ui"
   ],
   "rules": {
+    "declaration-block-no-redundant-longhand-properties": null,
     "media-feature-range-notation": ["prefix"],
     "no-descending-specificity": null,
     "value-keyword-case": ["lower", { "camelCaseSvgKeywords": true }],
