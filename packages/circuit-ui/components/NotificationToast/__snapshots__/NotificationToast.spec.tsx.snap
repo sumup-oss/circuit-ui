@@ -100,7 +100,6 @@ exports[`NotificationToast > styles > should render with a headline 1`] = `
 }
 
 .circuit-7 {
-  padding: calc(8px - 1px);
   border-color: transparent!important;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
@@ -127,18 +126,6 @@ exports[`NotificationToast > styles > should render with a headline 1`] = `
   transform-origin: 50% 50%;
   width: 24px;
   height: 24px;
-}
-
-.circuit-9 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
 }
 
 <body>
@@ -186,7 +173,7 @@ exports[`NotificationToast > styles > should render with a headline 1`] = `
         </div>
         <button
           aria-hidden="true"
-          class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-7"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-7"
           tabindex="-1"
           title="-"
           type="button"
@@ -217,7 +204,7 @@ exports[`NotificationToast > styles > should render with a headline 1`] = `
               />
             </svg>
             <span
-              class="circuit-9"
+              class="_hide-visually_73b4bb"
             >
               -
             </span>
@@ -322,7 +309,6 @@ exports[`NotificationToast > styles > should render with danger variant styles 1
 }
 
 .circuit-6 {
-  padding: calc(8px - 1px);
   border-color: transparent!important;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
@@ -349,18 +335,6 @@ exports[`NotificationToast > styles > should render with danger variant styles 1
   transform-origin: 50% 50%;
   width: 24px;
   height: 24px;
-}
-
-.circuit-8 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
 }
 
 <body>
@@ -403,7 +377,7 @@ exports[`NotificationToast > styles > should render with danger variant styles 1
         </div>
         <button
           aria-hidden="true"
-          class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-6"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-6"
           tabindex="-1"
           title="-"
           type="button"
@@ -434,7 +408,7 @@ exports[`NotificationToast > styles > should render with danger variant styles 1
               />
             </svg>
             <span
-              class="circuit-8"
+              class="_hide-visually_73b4bb"
             >
               -
             </span>
@@ -539,7 +513,6 @@ exports[`NotificationToast > styles > should render with default styles 1`] = `
 }
 
 .circuit-6 {
-  padding: calc(8px - 1px);
   border-color: transparent!important;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
@@ -566,18 +539,6 @@ exports[`NotificationToast > styles > should render with default styles 1`] = `
   transform-origin: 50% 50%;
   width: 24px;
   height: 24px;
-}
-
-.circuit-8 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
 }
 
 <body>
@@ -620,7 +581,7 @@ exports[`NotificationToast > styles > should render with default styles 1`] = `
         </div>
         <button
           aria-hidden="true"
-          class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-6"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-6"
           tabindex="-1"
           title="-"
           type="button"
@@ -651,7 +612,7 @@ exports[`NotificationToast > styles > should render with default styles 1`] = `
               />
             </svg>
             <span
-              class="circuit-8"
+              class="_hide-visually_73b4bb"
             >
               -
             </span>
@@ -756,7 +717,6 @@ exports[`NotificationToast > styles > should render with info variant styles 1`]
 }
 
 .circuit-6 {
-  padding: calc(8px - 1px);
   border-color: transparent!important;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
@@ -783,18 +743,6 @@ exports[`NotificationToast > styles > should render with info variant styles 1`]
   transform-origin: 50% 50%;
   width: 24px;
   height: 24px;
-}
-
-.circuit-8 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
 }
 
 <body>
@@ -837,7 +785,7 @@ exports[`NotificationToast > styles > should render with info variant styles 1`]
         </div>
         <button
           aria-hidden="true"
-          class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-6"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-6"
           tabindex="-1"
           title="-"
           type="button"
@@ -868,7 +816,7 @@ exports[`NotificationToast > styles > should render with info variant styles 1`]
               />
             </svg>
             <span
-              class="circuit-8"
+              class="_hide-visually_73b4bb"
             >
               -
             </span>
@@ -973,7 +921,6 @@ exports[`NotificationToast > styles > should render with success variant styles 
 }
 
 .circuit-6 {
-  padding: calc(8px - 1px);
   border-color: transparent!important;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
@@ -1000,18 +947,6 @@ exports[`NotificationToast > styles > should render with success variant styles 
   transform-origin: 50% 50%;
   width: 24px;
   height: 24px;
-}
-
-.circuit-8 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
 }
 
 <body>
@@ -1054,7 +989,7 @@ exports[`NotificationToast > styles > should render with success variant styles 
         </div>
         <button
           aria-hidden="true"
-          class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-6"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-6"
           tabindex="-1"
           title="-"
           type="button"
@@ -1085,7 +1020,7 @@ exports[`NotificationToast > styles > should render with success variant styles 
               />
             </svg>
             <span
-              class="circuit-8"
+              class="_hide-visually_73b4bb"
             >
               -
             </span>
@@ -1190,7 +1125,6 @@ exports[`NotificationToast > styles > should render with warning variant styles 
 }
 
 .circuit-6 {
-  padding: calc(8px - 1px);
   border-color: transparent!important;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
@@ -1217,18 +1151,6 @@ exports[`NotificationToast > styles > should render with warning variant styles 
   transform-origin: 50% 50%;
   width: 24px;
   height: 24px;
-}
-
-.circuit-8 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
 }
 
 <body>
@@ -1273,7 +1195,7 @@ exports[`NotificationToast > styles > should render with warning variant styles 
         </div>
         <button
           aria-hidden="true"
-          class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-6"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-6"
           tabindex="-1"
           title="-"
           type="button"
@@ -1304,7 +1226,7 @@ exports[`NotificationToast > styles > should render with warning variant styles 
               />
             </svg>
             <span
-              class="circuit-8"
+              class="_hide-visually_73b4bb"
             >
               -
             </span>

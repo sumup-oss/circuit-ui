@@ -18,7 +18,6 @@ exports[`Hamburger > should render with active styles when passed the isActive p
 }
 
 .circuit-0 {
-  padding: calc(12px - 1px);
   border: 0;
   padding: 12px;
 }
@@ -121,20 +120,8 @@ exports[`Hamburger > should render with active styles when passed the isActive p
   transform: translateY(0) rotate(-90deg);
 }
 
-.circuit-4 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
 <button
-  class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-0"
+  class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a circuit-0"
   title="Close menu"
   type="button"
 >
@@ -157,7 +144,7 @@ exports[`Hamburger > should render with active styles when passed the isActive p
       />
     </span>
     <span
-      class="circuit-4"
+      class="_hide-visually_73b4bb"
     >
       Close menu
     </span>
@@ -183,7 +170,6 @@ exports[`Hamburger > should render with default styles 1`] = `
 }
 
 .circuit-0 {
-  padding: calc(12px - 1px);
   border: 0;
   padding: 12px;
 }
@@ -259,20 +245,8 @@ exports[`Hamburger > should render with default styles 1`] = `
   width: calc(22px * 0.82);
 }
 
-.circuit-4 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
 <button
-  class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-0"
+  class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a circuit-0"
   title="Open menu"
   type="button"
 >
@@ -295,7 +269,7 @@ exports[`Hamburger > should render with default styles 1`] = `
       />
     </span>
     <span
-      class="circuit-4"
+      class="_hide-visually_73b4bb"
     >
       Open menu
     </span>
@@ -321,7 +295,6 @@ exports[`Hamburger > should render with giga styles 1`] = `
 }
 
 .circuit-0 {
-  padding: calc(12px - 1px);
   border: 0;
   padding: 12px;
 }
@@ -397,20 +370,8 @@ exports[`Hamburger > should render with giga styles 1`] = `
   width: calc(22px * 0.82);
 }
 
-.circuit-4 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
 <button
-  class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-0"
+  class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a circuit-0"
   title="Open menu"
   type="button"
 >
@@ -433,7 +394,7 @@ exports[`Hamburger > should render with giga styles 1`] = `
       />
     </span>
     <span
-      class="circuit-4"
+      class="_hide-visually_73b4bb"
     >
       Open menu
     </span>
@@ -459,7 +420,6 @@ exports[`Hamburger > should render with kilo styles 1`] = `
 }
 
 .circuit-0 {
-  padding: calc(8px - 1px);
   border: 0;
   padding: 8px;
 }
@@ -535,20 +495,8 @@ exports[`Hamburger > should render with kilo styles 1`] = `
   width: calc(14px * 0.82);
 }
 
-.circuit-4 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
 <button
-  class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-0"
+  class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-0"
   title="Open menu"
   type="button"
 >
@@ -571,7 +519,7 @@ exports[`Hamburger > should render with kilo styles 1`] = `
       />
     </span>
     <span
-      class="circuit-4"
+      class="_hide-visually_73b4bb"
     >
       Open menu
     </span>

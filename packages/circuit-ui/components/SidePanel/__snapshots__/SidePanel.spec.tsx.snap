@@ -100,7 +100,6 @@ exports[`SidePanel > should match the snapshot 1`] = `
 }
 
 .circuit-5 {
-  padding: calc(12px - 1px);
   -webkit-flex: none;
   -ms-flex: none;
   flex: none;
@@ -121,25 +120,13 @@ exports[`SidePanel > should match the snapshot 1`] = `
 }
 
 .circuit-7 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-8 {
   width: 100%;
   max-width: 480px;
   padding: 0 16px;
 }
 
 @media (min-width: 768px) {
-  .circuit-8 {
+  .circuit-7 {
     padding: 0 24px;
   }
 }
@@ -184,7 +171,7 @@ exports[`SidePanel > should match the snapshot 1`] = `
               Side panel title
             </h2>
             <button
-              class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-5"
+              class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a circuit-5"
               title="Close"
               type="button"
             >
@@ -212,7 +199,7 @@ exports[`SidePanel > should match the snapshot 1`] = `
                   />
                 </svg>
                 <span
-                  class="circuit-7"
+                  class="_hide-visually_73b4bb"
                 >
                   Close
                 </span>
@@ -220,7 +207,7 @@ exports[`SidePanel > should match the snapshot 1`] = `
             </button>
           </div>
           <div
-            class="circuit-8"
+            class="circuit-7"
           >
             <p
               data-testid="children"
@@ -341,7 +328,6 @@ exports[`SidePanel > when the panel is on mobile resolution > should match the s
 }
 
 .circuit-5 {
-  padding: calc(12px - 1px);
   -webkit-flex: none;
   -ms-flex: none;
   flex: none;
@@ -362,25 +348,13 @@ exports[`SidePanel > when the panel is on mobile resolution > should match the s
 }
 
 .circuit-7 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-8 {
   width: 100%;
   max-width: 480px;
   padding: 0 16px;
 }
 
 @media (min-width: 768px) {
-  .circuit-8 {
+  .circuit-7 {
     padding: 0 24px;
   }
 }
@@ -425,7 +399,7 @@ exports[`SidePanel > when the panel is on mobile resolution > should match the s
               Side panel title
             </h2>
             <button
-              class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-5"
+              class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a circuit-5"
               title="Close"
               type="button"
             >
@@ -453,7 +427,7 @@ exports[`SidePanel > when the panel is on mobile resolution > should match the s
                   />
                 </svg>
                 <span
-                  class="circuit-7"
+                  class="_hide-visually_73b4bb"
                 >
                   Close
                 </span>
@@ -461,7 +435,7 @@ exports[`SidePanel > when the panel is on mobile resolution > should match the s
             </button>
           </div>
           <div
-            class="circuit-8"
+            class="circuit-7"
           >
             <p
               data-testid="children"

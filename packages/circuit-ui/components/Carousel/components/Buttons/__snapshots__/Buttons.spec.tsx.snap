@@ -33,7 +33,6 @@ exports[`Buttons > styles > should render with default styles 1`] = `
 }
 
 .circuit-1 {
-  padding: calc(8px - 1px);
   margin-left: 8px;
 }
 
@@ -53,24 +52,12 @@ exports[`Buttons > styles > should render with default styles 1`] = `
   height: 24px;
 }
 
-.circuit-3 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
 <div>
   <div
     class="circuit-0"
   >
     <button
-      class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-1"
+      class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-1"
       title="Pause"
     >
       <span
@@ -99,14 +86,14 @@ exports[`Buttons > styles > should render with default styles 1`] = `
           />
         </svg>
         <span
-          class="circuit-3"
+          class="_hide-visually_73b4bb"
         >
           Pause
         </span>
       </span>
     </button>
     <button
-      class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-1"
+      class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-1"
       title="Play"
     >
       <span
@@ -135,14 +122,14 @@ exports[`Buttons > styles > should render with default styles 1`] = `
           />
         </svg>
         <span
-          class="circuit-3"
+          class="_hide-visually_73b4bb"
         >
           Play
         </span>
       </span>
     </button>
     <button
-      class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-1"
+      class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-1"
       title="Previous"
     >
       <span
@@ -169,14 +156,14 @@ exports[`Buttons > styles > should render with default styles 1`] = `
           />
         </svg>
         <span
-          class="circuit-3"
+          class="_hide-visually_73b4bb"
         >
           Previous
         </span>
       </span>
     </button>
     <button
-      class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-1"
+      class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-1"
       title="Next"
     >
       <span
@@ -203,7 +190,7 @@ exports[`Buttons > styles > should render with default styles 1`] = `
           />
         </svg>
         <span
-          class="circuit-3"
+          class="_hide-visually_73b4bb"
         >
           Next
         </span>

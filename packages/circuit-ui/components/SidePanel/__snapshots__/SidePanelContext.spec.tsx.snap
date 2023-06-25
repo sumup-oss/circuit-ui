@@ -127,7 +127,6 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
 }
 
 .circuit-6 {
-  padding: calc(12px - 1px);
   -webkit-flex: none;
   -ms-flex: none;
   flex: none;
@@ -148,25 +147,13 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
 }
 
 .circuit-8 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-9 {
   width: 100%;
   max-width: 480px;
   padding: 0 16px;
 }
 
 @media (min-width: 768px) {
-  .circuit-9 {
+  .circuit-8 {
     padding: 0 24px;
   }
 }
@@ -219,7 +206,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
               Side panel title
             </h2>
             <button
-              class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-6"
+              class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a circuit-6"
               title="Close"
               type="button"
             >
@@ -247,7 +234,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
                   />
                 </svg>
                 <span
-                  class="circuit-8"
+                  class="_hide-visually_73b4bb"
                 >
                   Close
                 </span>
@@ -255,7 +242,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
             </button>
           </div>
           <div
-            class="circuit-9"
+            class="circuit-8"
           >
             <p
               data-testid="children"
@@ -382,7 +369,6 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
 }
 
 .circuit-6 {
-  padding: calc(12px - 1px);
   -webkit-flex: none;
   -ms-flex: none;
   flex: none;
@@ -403,25 +389,13 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
 }
 
 .circuit-8 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-9 {
   width: 100%;
   max-width: 480px;
   padding: 0 16px;
 }
 
 @media (min-width: 768px) {
-  .circuit-9 {
+  .circuit-8 {
     padding: 0 24px;
   }
 }
@@ -477,7 +451,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
               Side panel title
             </h2>
             <button
-              class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-6"
+              class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a circuit-6"
               title="Close"
               type="button"
             >
@@ -505,7 +479,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
                   />
                 </svg>
                 <span
-                  class="circuit-8"
+                  class="_hide-visually_73b4bb"
                 >
                   Close
                 </span>
@@ -513,7 +487,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
             </button>
           </div>
           <div
-            class="circuit-9"
+            class="circuit-8"
           >
             <p
               data-testid="children"
@@ -636,7 +610,6 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
 }
 
 .circuit-6 {
-  padding: calc(12px - 1px);
   -webkit-flex: none;
   -ms-flex: none;
   flex: none;
@@ -657,25 +630,13 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
 }
 
 .circuit-8 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-9 {
   width: 100%;
   max-width: 480px;
   padding: 0 16px;
 }
 
 @media (min-width: 768px) {
-  .circuit-9 {
+  .circuit-8 {
     padding: 0 24px;
   }
 }
@@ -734,7 +695,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
               Side panel title
             </h2>
             <button
-              class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-6"
+              class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a circuit-6"
               title="Close"
               type="button"
             >
@@ -762,7 +723,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
                   />
                 </svg>
                 <span
-                  class="circuit-8"
+                  class="_hide-visually_73b4bb"
                 >
                   Close
                 </span>
@@ -770,7 +731,7 @@ exports[`SidePanelContext > SidePanelProvider > render > should render the side 
             </button>
           </div>
           <div
-            class="circuit-9"
+            class="circuit-8"
           >
             <p
               data-testid="children"

@@ -66,7 +66,6 @@ exports[`NotificationModal > styles > should render with an SVG 1`] = `
 }
 
 .circuit-2 {
-  padding: calc(12px - 1px);
   border-color: transparent!important;
   position: absolute;
   top: 8px;
@@ -93,30 +92,18 @@ exports[`NotificationModal > styles > should render with an SVG 1`] = `
 }
 
 .circuit-4 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-5 {
   max-width: 232px;
   height: 120px;
   object-fit: contain;
   margin: 0 auto 24px;
 }
 
-.circuit-6 {
+.circuit-5 {
   height: 100%;
   width: 100%;
 }
 
-.circuit-7 {
+.circuit-6 {
   font-weight: 700;
   color: var(--cui-fg-normal);
   letter-spacing: -0.03em;
@@ -125,13 +112,13 @@ exports[`NotificationModal > styles > should render with an SVG 1`] = `
   margin-bottom: 8px;
 }
 
-.circuit-8 {
+.circuit-7 {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;
 }
 
-.circuit-9 {
+.circuit-8 {
   margin-top: 24px;
 }
 
@@ -165,7 +152,7 @@ exports[`NotificationModal > styles > should render with an SVG 1`] = `
         tabindex="-1"
       >
         <button
-          class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-2"
+          class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a circuit-2"
           title="Close modal"
           type="button"
         >
@@ -195,18 +182,18 @@ exports[`NotificationModal > styles > should render with an SVG 1`] = `
               />
             </svg>
             <span
-              class="circuit-4"
+              class="_hide-visually_73b4bb"
             >
               Close modal
             </span>
           </span>
         </button>
         <div
-          class="circuit-5"
+          class="circuit-4"
         >
           <svg
             aria-hidden="true"
-            class="circuit-6"
+            class="circuit-5"
             fill="none"
             height="24"
             viewBox="0 0 24 24"
@@ -220,17 +207,17 @@ exports[`NotificationModal > styles > should render with an SVG 1`] = `
           </svg>
         </div>
         <h2
-          class="circuit-7"
+          class="circuit-6"
         >
           It's time to update your browser
         </h2>
         <p
-          class="circuit-8"
+          class="circuit-7"
         >
           You'll soon need a more up-to-date browser to continue using SumUp.
         </p>
         <div
-          class="_base_fd5359 _center_fd5359 circuit-9"
+          class="_base_fd5359 _center_fd5359 circuit-8"
         >
           <button
             class="_base_892426 _focus-visible_73b4bb _giga_892426 _primary_892426"
@@ -337,7 +324,6 @@ exports[`NotificationModal > styles > should render with default styles 1`] = `
 }
 
 .circuit-2 {
-  padding: calc(12px - 1px);
   border-color: transparent!important;
   position: absolute;
   top: 8px;
@@ -364,18 +350,6 @@ exports[`NotificationModal > styles > should render with default styles 1`] = `
 }
 
 .circuit-4 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-5 {
   display: block;
   height: auto;
   max-height: 100%;
@@ -386,7 +360,7 @@ exports[`NotificationModal > styles > should render with default styles 1`] = `
   margin: 0 auto 24px;
 }
 
-.circuit-6 {
+.circuit-5 {
   font-weight: 700;
   color: var(--cui-fg-normal);
   letter-spacing: -0.03em;
@@ -395,13 +369,13 @@ exports[`NotificationModal > styles > should render with default styles 1`] = `
   margin-bottom: 8px;
 }
 
-.circuit-7 {
+.circuit-6 {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;
 }
 
-.circuit-8 {
+.circuit-7 {
   margin-top: 24px;
 }
 
@@ -432,7 +406,7 @@ exports[`NotificationModal > styles > should render with default styles 1`] = `
         tabindex="-1"
       >
         <button
-          class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-2"
+          class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a circuit-2"
           title="Close modal"
           type="button"
         >
@@ -462,7 +436,7 @@ exports[`NotificationModal > styles > should render with default styles 1`] = `
               />
             </svg>
             <span
-              class="circuit-4"
+              class="_hide-visually_73b4bb"
             >
               Close modal
             </span>
@@ -470,21 +444,21 @@ exports[`NotificationModal > styles > should render with default styles 1`] = `
         </button>
         <img
           alt=""
-          class="circuit-5"
+          class="circuit-4"
           src="/images/illustration-update-browser.svg"
         />
         <h2
-          class="circuit-6"
+          class="circuit-5"
         >
           It's time to update your browser
         </h2>
         <p
-          class="circuit-7"
+          class="circuit-6"
         >
           You'll soon need a more up-to-date browser to continue using SumUp.
         </p>
         <div
-          class="_base_fd5359 _center_fd5359 circuit-8"
+          class="_base_fd5359 _center_fd5359 circuit-7"
         >
           <button
             class="_base_892426 _focus-visible_73b4bb _giga_892426 _primary_892426"
@@ -591,7 +565,6 @@ exports[`NotificationModal > styles > should render without an image 1`] = `
 }
 
 .circuit-2 {
-  padding: calc(12px - 1px);
   border-color: transparent!important;
   position: absolute;
   top: 8px;
@@ -618,18 +591,6 @@ exports[`NotificationModal > styles > should render without an image 1`] = `
 }
 
 .circuit-4 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-5 {
   font-weight: 700;
   color: var(--cui-fg-normal);
   letter-spacing: -0.03em;
@@ -641,13 +602,13 @@ exports[`NotificationModal > styles > should render without an image 1`] = `
   margin-left: auto;
 }
 
-.circuit-6 {
+.circuit-5 {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;
 }
 
-.circuit-7 {
+.circuit-6 {
   margin-top: 24px;
 }
 
@@ -684,7 +645,7 @@ exports[`NotificationModal > styles > should render without an image 1`] = `
         tabindex="-1"
       >
         <button
-          class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-2"
+          class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a circuit-2"
           title="Close modal"
           type="button"
         >
@@ -714,24 +675,24 @@ exports[`NotificationModal > styles > should render without an image 1`] = `
               />
             </svg>
             <span
-              class="circuit-4"
+              class="_hide-visually_73b4bb"
             >
               Close modal
             </span>
           </span>
         </button>
         <h2
-          class="circuit-5"
+          class="circuit-4"
         >
           It's time to update your browser
         </h2>
         <p
-          class="circuit-6"
+          class="circuit-5"
         >
           You'll soon need a more up-to-date browser to continue using SumUp.
         </p>
         <div
-          class="_base_fd5359 _center_fd5359 circuit-7"
+          class="_base_fd5359 _center_fd5359 circuit-6"
         >
           <button
             class="_base_892426 _focus-visible_73b4bb _giga_892426 _primary_892426"

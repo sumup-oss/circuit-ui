@@ -14,14 +14,14 @@
  */
 
 import { Children, cloneElement, ReactElement, forwardRef } from 'react';
-import { css, SerializedStyles } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
 import type { IconProps } from '@sumup/icons';
 
-import { hideVisually } from '../../styles/style-mixins.js';
-import styled from '../../styles/styled.js';
+import utilityClasses from '../../styles/utility.js';
+import { clsx } from '../../styles/clsx.js';
 import { Button, ButtonProps } from '../Button/Button.js';
 import { AccessibilityError } from '../../util/errors.js';
+
+import classes from './IconButton.module.css';
 
 export interface IconButtonProps extends Omit<ButtonProps, 'icon' | 'stretch'> {
   /**
@@ -35,27 +35,12 @@ export interface IconButtonProps extends Omit<ButtonProps, 'icon' | 'stretch'> {
   label: string;
 }
 
-const Label = styled('span')(hideVisually);
-
-const sizeStyles =
-  (size: IconButtonProps['size'] = 'giga') =>
-  (theme: Theme): SerializedStyles => {
-    const sizeMap = {
-      kilo: theme.spacings.byte,
-      giga: theme.spacings.kilo,
-    };
-
-    return css({
-      padding: `calc(${sizeMap[size]} - 1px)`,
-    });
-  };
-
 /**
  * The IconButton component displays a button with a single icon
  * as its only child.
  */
 export const IconButton = forwardRef<any, IconButtonProps>(
-  ({ children, label, size, ...props }, ref) => {
+  ({ children, label, size = 'giga', className, ...props }, ref) => {
     const child = Children.only(children);
     const iconSize = size === 'kilo' ? '16' : '24';
     const icon = cloneElement(child, {
@@ -75,9 +60,15 @@ export const IconButton = forwardRef<any, IconButtonProps>(
     }
 
     return (
-      <Button title={label} css={sizeStyles(size)} {...props} ref={ref}>
+      <Button
+        title={label}
+        className={clsx(classes[size], className)}
+        size={size}
+        {...props}
+        ref={ref}
+      >
         {icon}
-        <Label>{label}</Label>
+        <span className={utilityClasses.hideVisually}>{label}</span>
       </Button>
     );
   },

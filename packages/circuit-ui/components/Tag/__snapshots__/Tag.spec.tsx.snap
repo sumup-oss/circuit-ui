@@ -153,7 +153,6 @@ exports[`Tag > when is selected > should change the close icon color 1`] = `
 }
 
 .circuit-2 {
-  padding: calc(8px - 1px);
   border-color: transparent!important;
   position: absolute;
   top: 50%;
@@ -178,18 +177,6 @@ exports[`Tag > when is selected > should change the close icon color 1`] = `
   height: 24px;
 }
 
-.circuit-4 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
 <div
   class="circuit-0"
 >
@@ -199,7 +186,7 @@ exports[`Tag > when is selected > should change the close icon color 1`] = `
     SomeTest
   </div>
   <button
-    class="_base_892426 _focus-visible_73b4bb _giga_892426 _primary_892426 circuit-2"
+    class="_base_892426 _focus-visible_73b4bb _kilo_892426 _primary_892426 _kilo_f6dd9a circuit-2"
     data-testid="tag-close"
     title="Remove"
     type="button"
@@ -230,7 +217,7 @@ exports[`Tag > when is selected > should change the close icon color 1`] = `
         />
       </svg>
       <span
-        class="circuit-4"
+        class="_hide-visually_73b4bb"
       >
         Remove
       </span>

@@ -35,7 +35,6 @@ exports[`Pagination > with 2 to 5 pages > should render with default styles 1`] 
 }
 
 .circuit-1 {
-  padding: calc(8px - 1px);
   margin-right: 12px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -55,18 +54,6 @@ exports[`Pagination > with 2 to 5 pages > should render with default styles 1`] 
 }
 
 .circuit-3 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-4 {
   list-style: none;
   display: -webkit-box;
   display: -webkit-flex;
@@ -78,18 +65,17 @@ exports[`Pagination > with 2 to 5 pages > should render with default styles 1`] 
   justify-content: center;
 }
 
-.circuit-5 {
+.circuit-4 {
   min-width: 34px;
   padding: 4px;
   margin-right: 4px;
 }
 
-li:last-child .circuit-5 {
+li:last-child .circuit-4 {
   margin-right: 0;
 }
 
-.circuit-15 {
-  padding: calc(8px - 1px);
+.circuit-14 {
   margin-left: 12px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -102,7 +88,7 @@ li:last-child .circuit-5 {
   role="navigation"
 >
   <button
-    class="_base_892426 _focus-visible_73b4bb _giga_892426 _tertiary_892426 circuit-1"
+    class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 _kilo_f6dd9a circuit-1"
     disabled=""
     title="Previous"
   >
@@ -130,21 +116,21 @@ li:last-child .circuit-5 {
         />
       </svg>
       <span
-        class="circuit-3"
+        class="_hide-visually_73b4bb"
       >
         Previous
       </span>
     </span>
   </button>
   <ol
-    class="circuit-4"
+    class="circuit-3"
     role="list"
   >
     <li>
       <button
         aria-current="true"
         aria-label="Go to page 1"
-        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _primary_892426 circuit-5"
+        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _primary_892426 circuit-4"
         title="Go to page 1"
       >
         <span
@@ -165,7 +151,7 @@ li:last-child .circuit-5 {
       <button
         aria-current="false"
         aria-label="Go to page 2"
-        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 circuit-5"
+        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 circuit-4"
         title="Go to page 2"
       >
         <span
@@ -186,7 +172,7 @@ li:last-child .circuit-5 {
       <button
         aria-current="false"
         aria-label="Go to page 3"
-        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 circuit-5"
+        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 circuit-4"
         title="Go to page 3"
       >
         <span
@@ -207,7 +193,7 @@ li:last-child .circuit-5 {
       <button
         aria-current="false"
         aria-label="Go to page 4"
-        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 circuit-5"
+        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 circuit-4"
         title="Go to page 4"
       >
         <span
@@ -228,7 +214,7 @@ li:last-child .circuit-5 {
       <button
         aria-current="false"
         aria-label="Go to page 5"
-        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 circuit-5"
+        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 circuit-4"
         title="Go to page 5"
       >
         <span
@@ -247,7 +233,7 @@ li:last-child .circuit-5 {
     </li>
   </ol>
   <button
-    class="_base_892426 _focus-visible_73b4bb _giga_892426 _tertiary_892426 circuit-15"
+    class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 _kilo_f6dd9a circuit-14"
     title="Next"
   >
     <span
@@ -274,7 +260,7 @@ li:last-child .circuit-5 {
         />
       </svg>
       <span
-        class="circuit-3"
+        class="_hide-visually_73b4bb"
       >
         Next
       </span>
@@ -318,7 +304,6 @@ exports[`Pagination > with more than 5 pages > should render with default styles
 }
 
 .circuit-1 {
-  padding: calc(8px - 1px);
   margin-right: 12px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -337,30 +322,18 @@ exports[`Pagination > with more than 5 pages > should render with default styles
   height: 24px;
 }
 
-.circuit-3 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-4[disabled],
-.circuit-4.cui-field-disabled {
+.circuit-3[disabled],
+.circuit-3.cui-field-disabled {
   pointer-events: none;
 }
 
-.circuit-5 {
+.circuit-4 {
   display: block;
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
-.circuit-6 {
+.circuit-5 {
   display: inline-block;
   margin-bottom: 4px;
   border: 0;
@@ -374,18 +347,18 @@ exports[`Pagination > with more than 5 pages > should render with default styles
   width: 1px;
 }
 
-[disabled] .circuit-6,
-.cui-field-disabled .circuit-6 {
+[disabled] .circuit-5,
+.cui-field-disabled .circuit-5 {
   color: var(--cui-fg-normal-disabled);
 }
 
-.circuit-7 {
+.circuit-6 {
   color: var(--cui-fg-normal);
   display: block;
   position: relative;
 }
 
-.circuit-8 {
+.circuit-7 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -415,25 +388,42 @@ exports[`Pagination > with more than 5 pages > should render with default styles
   box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
-.circuit-8:-moz-focusring {
+.circuit-7:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
 
-.circuit-8::-ms-expand {
+.circuit-7::-ms-expand {
   display: none;
 }
 
-.circuit-8:hover {
+.circuit-7:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
-.circuit-8:focus {
+.circuit-7:focus {
   box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
-.circuit-8:active {
+.circuit-7:active {
   box-shadow: 0 0 0 1px var(--cui-border-accent);
+}
+
+.circuit-8 {
+  color: var(--cui-fg-subtle);
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  right: 0;
+  padding: 16px;
+}
+
+select:active~.circuit-8 {
+  display: none;
 }
 
 .circuit-9 {
@@ -449,33 +439,15 @@ exports[`Pagination > with more than 5 pages > should render with default styles
   padding: 16px;
 }
 
-select:active~.circuit-9 {
+select:not(:active)~.circuit-9 {
   display: none;
 }
 
 .circuit-10 {
-  color: var(--cui-fg-subtle);
-  display: block;
-  z-index: 21;
-  pointer-events: none;
-  position: absolute;
-  height: 48px;
-  width: 48px;
-  top: 0;
-  right: 0;
-  padding: 16px;
-}
-
-select:not(:active)~.circuit-10 {
-  display: none;
-}
-
-.circuit-11 {
   margin-left: 12px;
 }
 
-.circuit-12 {
-  padding: calc(8px - 1px);
+.circuit-11 {
   margin-left: 12px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -488,7 +460,7 @@ select:not(:active)~.circuit-10 {
   role="navigation"
 >
   <button
-    class="_base_892426 _focus-visible_73b4bb _giga_892426 _tertiary_892426 circuit-1"
+    class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 _kilo_f6dd9a circuit-1"
     disabled=""
     title="Previous"
   >
@@ -516,31 +488,31 @@ select:not(:active)~.circuit-10 {
         />
       </svg>
       <span
-        class="circuit-3"
+        class="_hide-visually_73b4bb"
       >
         Previous
       </span>
     </span>
   </button>
   <div
-    class=" circuit-4"
+    class=" circuit-3"
   >
     <label
-      class="circuit-5"
+      class="circuit-4"
       for=":r0:"
     >
       <span
-        class="circuit-6"
+        class="circuit-5"
       >
         Pagination
       </span>
     </label>
     <div
-      class="circuit-7"
+      class="circuit-6"
     >
       <select
         aria-describedby=":r1:"
-        class="circuit-8"
+        class="circuit-7"
         id=":r0:"
       >
         <option
@@ -596,7 +568,7 @@ select:not(:active)~.circuit-10 {
       </select>
       <svg
         aria-hidden="true"
-        class="circuit-9"
+        class="circuit-8"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -610,7 +582,7 @@ select:not(:active)~.circuit-10 {
       </svg>
       <svg
         aria-hidden="true"
-        class="circuit-10"
+        class="circuit-9"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -629,12 +601,12 @@ select:not(:active)~.circuit-10 {
     />
   </div>
   <span
-    class="circuit-11"
+    class="circuit-10"
   >
     of 10
   </span>
   <button
-    class="_base_892426 _focus-visible_73b4bb _giga_892426 _tertiary_892426 circuit-12"
+    class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 _kilo_f6dd9a circuit-11"
     title="Next"
   >
     <span
@@ -661,7 +633,7 @@ select:not(:active)~.circuit-10 {
         />
       </svg>
       <span
-        class="circuit-3"
+        class="_hide-visually_73b4bb"
       >
         Next
       </span>

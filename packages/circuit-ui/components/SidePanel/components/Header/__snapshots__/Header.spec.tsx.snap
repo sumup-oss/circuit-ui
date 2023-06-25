@@ -64,7 +64,6 @@ exports[`Header > should have a bottom separator when sticky 1`] = `
 }
 
 .circuit-2 {
-  padding: calc(12px - 1px);
   -webkit-flex: none;
   -ms-flex: none;
   flex: none;
@@ -84,18 +83,6 @@ exports[`Header > should have a bottom separator when sticky 1`] = `
   height: 24px;
 }
 
-.circuit-4 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
 <body>
   <div>
     <div
@@ -108,7 +95,7 @@ exports[`Header > should have a bottom separator when sticky 1`] = `
         Side panel title
       </h2>
       <button
-        class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-2"
+        class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a circuit-2"
         title="Close"
         type="button"
       >
@@ -136,7 +123,7 @@ exports[`Header > should have a bottom separator when sticky 1`] = `
             />
           </svg>
           <span
-            class="circuit-4"
+            class="_hide-visually_73b4bb"
           >
             Close
           </span>
@@ -204,7 +191,6 @@ exports[`Header > should match the snapshot 1`] = `
 }
 
 .circuit-2 {
-  padding: calc(12px - 1px);
   -webkit-flex: none;
   -ms-flex: none;
   flex: none;
@@ -224,18 +210,6 @@ exports[`Header > should match the snapshot 1`] = `
   height: 24px;
 }
 
-.circuit-4 {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
 <body>
   <div>
     <div
@@ -248,7 +222,7 @@ exports[`Header > should match the snapshot 1`] = `
         Side panel title
       </h2>
       <button
-        class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 circuit-2"
+        class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a circuit-2"
         title="Close"
         type="button"
       >
@@ -276,7 +250,7 @@ exports[`Header > should match the snapshot 1`] = `
             />
           </svg>
           <span
-            class="circuit-4"
+            class="_hide-visually_73b4bb"
           >
             Close
           </span>
