@@ -66,7 +66,6 @@ exports[`NotificationModal > styles > should render with an SVG 1`] = `
 }
 
 .circuit-2 {
-  border-color: transparent!important;
   position: absolute;
   top: 8px;
   right: 8px;
@@ -152,7 +151,7 @@ exports[`NotificationModal > styles > should render with an SVG 1`] = `
         tabindex="-1"
       >
         <button
-          class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a circuit-2"
+          class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a _base_9bf092 circuit-2"
           title="Close modal"
           type="button"
         >
@@ -324,7 +323,6 @@ exports[`NotificationModal > styles > should render with default styles 1`] = `
 }
 
 .circuit-2 {
-  border-color: transparent!important;
   position: absolute;
   top: 8px;
   right: 8px;
@@ -406,7 +404,7 @@ exports[`NotificationModal > styles > should render with default styles 1`] = `
         tabindex="-1"
       >
         <button
-          class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a circuit-2"
+          class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a _base_9bf092 circuit-2"
           title="Close modal"
           type="button"
         >
@@ -565,7 +563,6 @@ exports[`NotificationModal > styles > should render without an image 1`] = `
 }
 
 .circuit-2 {
-  border-color: transparent!important;
   position: absolute;
   top: 8px;
   right: 8px;
@@ -645,7 +642,7 @@ exports[`NotificationModal > styles > should render without an image 1`] = `
         tabindex="-1"
       >
         <button
-          class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a circuit-2"
+          class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a _base_9bf092 circuit-2"
           title="Close modal"
           type="button"
         >

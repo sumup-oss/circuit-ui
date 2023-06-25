@@ -92,7 +92,6 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
 }
 
 .circuit-4 {
-  border-color: transparent!important;
   background-color: transparent;
 }
 
@@ -393,7 +392,7 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
             class="circuit-3"
           >
             <button
-              class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a circuit-4"
+              class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a _base_9bf092 circuit-4"
               title="Close navigation modal"
               type="button"
             >
@@ -647,7 +646,6 @@ exports[`MobileNavigation > styles > should render without secondary links 1`] =
 }
 
 .circuit-4 {
-  border-color: transparent!important;
   background-color: transparent;
 }
 
@@ -816,7 +814,7 @@ exports[`MobileNavigation > styles > should render without secondary links 1`] =
             class="circuit-3"
           >
             <button
-              class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a circuit-4"
+              class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a _base_9bf092 circuit-4"
               title="Close navigation modal"
               type="button"
             >

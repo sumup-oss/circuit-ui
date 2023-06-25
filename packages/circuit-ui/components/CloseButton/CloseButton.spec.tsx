@@ -16,37 +16,30 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { create, renderToHtml, axe, render } from '../../util/test-utils.js';
+import { axe, render } from '../../util/test-utils.js';
 
 import { CloseButton } from './CloseButton.js';
 
 describe('CloseButton', () => {
-  /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const actual = create(<CloseButton label="Close" />);
-    expect(actual).toMatchSnapshot();
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    const { container } = render(
+      <CloseButton label="Close" className={className} />,
+    );
+    const button = container.querySelector('button');
+    expect(button?.className).toContain(className);
   });
 
-  describe('business logic', () => {
-    /**
-     * Should accept a working ref
-     */
-    it('should accept a working ref', () => {
-      const tref = createRef<any>();
-      const { container } = render(<CloseButton label="Close" ref={tref} />);
-      const button = container.querySelector('button');
-      expect(tref.current).toBe(button);
-    });
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLHRElement>();
+    const { container } = render(<CloseButton label="Close" ref={ref} />);
+    const button = container.querySelector('button');
+    expect(ref.current).toBe(button);
   });
 
-  /**
-   * Accessibility tests.
-   */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<CloseButton label="Close" />);
-    const actual = await axe(wrapper);
+    const { container } = render(<CloseButton label="Close" />);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });

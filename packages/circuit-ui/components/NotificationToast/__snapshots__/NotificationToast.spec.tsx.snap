@@ -100,7 +100,6 @@ exports[`NotificationToast > styles > should render with a headline 1`] = `
 }
 
 .circuit-7 {
-  border-color: transparent!important;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
@@ -173,7 +172,7 @@ exports[`NotificationToast > styles > should render with a headline 1`] = `
         </div>
         <button
           aria-hidden="true"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-7"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a _base_9bf092 circuit-7"
           tabindex="-1"
           title="-"
           type="button"
@@ -309,7 +308,6 @@ exports[`NotificationToast > styles > should render with danger variant styles 1
 }
 
 .circuit-6 {
-  border-color: transparent!important;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
@@ -377,7 +375,7 @@ exports[`NotificationToast > styles > should render with danger variant styles 1
         </div>
         <button
           aria-hidden="true"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-6"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a _base_9bf092 circuit-6"
           tabindex="-1"
           title="-"
           type="button"
@@ -513,7 +511,6 @@ exports[`NotificationToast > styles > should render with default styles 1`] = `
 }
 
 .circuit-6 {
-  border-color: transparent!important;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
@@ -581,7 +578,7 @@ exports[`NotificationToast > styles > should render with default styles 1`] = `
         </div>
         <button
           aria-hidden="true"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-6"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a _base_9bf092 circuit-6"
           tabindex="-1"
           title="-"
           type="button"
@@ -717,7 +714,6 @@ exports[`NotificationToast > styles > should render with info variant styles 1`]
 }
 
 .circuit-6 {
-  border-color: transparent!important;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
@@ -785,7 +781,7 @@ exports[`NotificationToast > styles > should render with info variant styles 1`]
         </div>
         <button
           aria-hidden="true"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-6"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a _base_9bf092 circuit-6"
           tabindex="-1"
           title="-"
           type="button"
@@ -921,7 +917,6 @@ exports[`NotificationToast > styles > should render with success variant styles 
 }
 
 .circuit-6 {
-  border-color: transparent!important;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
@@ -989,7 +984,7 @@ exports[`NotificationToast > styles > should render with success variant styles 
         </div>
         <button
           aria-hidden="true"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-6"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a _base_9bf092 circuit-6"
           tabindex="-1"
           title="-"
           type="button"
@@ -1125,7 +1120,6 @@ exports[`NotificationToast > styles > should render with warning variant styles 
 }
 
 .circuit-6 {
-  border-color: transparent!important;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
@@ -1195,7 +1189,7 @@ exports[`NotificationToast > styles > should render with warning variant styles 
         </div>
         <button
           aria-hidden="true"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-6"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a _base_9bf092 circuit-6"
           tabindex="-1"
           title="-"
           type="button"

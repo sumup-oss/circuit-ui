@@ -127,7 +127,6 @@ exports[`Modal > should match the snapshot 1`] = `
 }
 
 .circuit-3 {
-  border-color: transparent!important;
   position: absolute;
   top: 8px;
   right: 8px;
@@ -176,7 +175,7 @@ exports[`Modal > should match the snapshot 1`] = `
           class="circuit-2"
         >
           <button
-            class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a circuit-3"
+            class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a _base_9bf092 circuit-3"
             title="Close modal"
             type="button"
           >
