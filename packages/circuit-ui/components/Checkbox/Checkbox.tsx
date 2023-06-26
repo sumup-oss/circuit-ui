@@ -25,7 +25,7 @@ import { Checkmark } from '@sumup/icons';
 
 import styled, { StyleProps } from '../../styles/styled.js';
 import { hideVisually, focusOutline } from '../../styles/style-mixins.js';
-import { FieldValidationHint, FieldWrapper } from '../FieldAtoms/index.js';
+import { FieldValidationHint, FieldWrapper } from '../Field/index.js';
 import { AccessibilityError } from '../../util/errors.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 

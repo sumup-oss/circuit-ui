@@ -24,7 +24,7 @@ import {
   FieldLegend,
   FieldSet,
   FieldValidationHint,
-} from '../FieldAtoms/index.js';
+} from '../Field/index.js';
 import { isEmpty } from '../../util/helpers.js';
 
 export interface SelectorGroupProps

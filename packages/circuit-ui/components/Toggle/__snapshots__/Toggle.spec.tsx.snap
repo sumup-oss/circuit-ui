@@ -12,11 +12,6 @@ exports[`Toggle > should render with default styles 1`] = `
   align-items: flex-start;
 }
 
-.circuit-0[disabled],
-.circuit-0.cui-field-disabled {
-  pointer-events: none;
-}
-
 @media (max-width: 479px) {
   .circuit-0 {
     -webkit-flex-direction: row-reverse;
@@ -164,25 +159,13 @@ exports[`Toggle > should render with default styles 1`] = `
   }
 }
 
-.cui-field-disabled .circuit-4 {
+[data-disabled='true'] .circuit-4 {
   color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-5 {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  display: block;
-  color: var(--cui-fg-subtle);
-}
-
-[disabled] .circuit-5,
-.cui-field-disabled .circuit-5 {
-  color: var(--cui-fg-subtle-disabled);
 }
 
 <div>
   <div
-    class="circuit-0"
+    class="_wrapper_7cd753 circuit-0"
   >
     <button
       aria-checked="false"
@@ -210,7 +193,7 @@ exports[`Toggle > should render with default styles 1`] = `
       Label
       <span
         aria-hidden="true"
-        class="circuit-5"
+        class="_description_7cd753"
       >
         A longer explanation
       </span>

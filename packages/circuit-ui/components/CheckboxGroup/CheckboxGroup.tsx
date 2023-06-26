@@ -28,7 +28,7 @@ import {
   FieldValidationHint,
   FieldSet,
   FieldLegend,
-} from '../FieldAtoms/index.js';
+} from '../Field/index.js';
 import { AccessibilityError } from '../../util/errors.js';
 import { isEmpty } from '../../util/helpers.js';
 

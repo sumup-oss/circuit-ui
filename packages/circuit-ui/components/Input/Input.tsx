@@ -30,7 +30,7 @@ import {
   FieldLabel,
   FieldLabelText,
   FieldValidationHint,
-} from '../FieldAtoms/index.js';
+} from '../Field/index.js';
 import { ReturnType } from '../../types/return-type.js';
 import { AccessibilityError } from '../../util/errors.js';
 

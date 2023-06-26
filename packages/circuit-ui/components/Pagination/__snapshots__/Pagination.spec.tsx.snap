@@ -266,43 +266,13 @@ exports[`Pagination > with more than 5 pages > should render with default styles
   flex-shrink: 0;
 }
 
-.circuit-2[disabled],
-.circuit-2.cui-field-disabled {
-  pointer-events: none;
-}
-
-.circuit-3 {
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-4 {
-  display: inline-block;
-  margin-bottom: 4px;
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-[disabled] .circuit-4,
-.cui-field-disabled .circuit-4 {
-  color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-5 {
+.circuit-2 {
   color: var(--cui-fg-normal);
   display: block;
   position: relative;
 }
 
-.circuit-6 {
+.circuit-3 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -332,28 +302,28 @@ exports[`Pagination > with more than 5 pages > should render with default styles
   box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
-.circuit-6:-moz-focusring {
+.circuit-3:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
 
-.circuit-6::-ms-expand {
+.circuit-3::-ms-expand {
   display: none;
 }
 
-.circuit-6:hover {
+.circuit-3:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
-.circuit-6:focus {
+.circuit-3:focus {
   box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
-.circuit-6:active {
+.circuit-3:active {
   box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
-.circuit-7 {
+.circuit-4 {
   color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
@@ -366,11 +336,11 @@ exports[`Pagination > with more than 5 pages > should render with default styles
   padding: 16px;
 }
 
-select:active~.circuit-7 {
+select:active~.circuit-4 {
   display: none;
 }
 
-.circuit-8 {
+.circuit-5 {
   color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
@@ -383,15 +353,15 @@ select:active~.circuit-7 {
   padding: 16px;
 }
 
-select:not(:active)~.circuit-8 {
+select:not(:active)~.circuit-5 {
   display: none;
 }
 
-.circuit-9 {
+.circuit-6 {
   margin-left: 12px;
 }
 
-.circuit-10 {
+.circuit-7 {
   margin-left: 12px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -439,24 +409,24 @@ select:not(:active)~.circuit-8 {
     </span>
   </button>
   <div
-    class=" circuit-2"
+    class="_wrapper_7cd753"
   >
     <label
-      class="circuit-3"
+      class="_label_7cd753"
       for=":r0:"
     >
       <span
-        class="circuit-4"
+        class="_label-text_7cd753 _hide-visually_73b4bb"
       >
         Pagination
       </span>
     </label>
     <div
-      class="circuit-5"
+      class="circuit-2"
     >
       <select
         aria-describedby=":r1:"
-        class="circuit-6"
+        class="circuit-3"
         id=":r0:"
       >
         <option
@@ -512,7 +482,7 @@ select:not(:active)~.circuit-8 {
       </select>
       <svg
         aria-hidden="true"
-        class="circuit-7"
+        class="circuit-4"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -526,7 +496,7 @@ select:not(:active)~.circuit-8 {
       </svg>
       <svg
         aria-hidden="true"
-        class="circuit-8"
+        class="circuit-5"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -545,12 +515,12 @@ select:not(:active)~.circuit-8 {
     />
   </div>
   <span
-    class="circuit-9"
+    class="circuit-6"
   >
     of 10
   </span>
   <button
-    class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 _kilo_f6dd9a circuit-10"
+    class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 _kilo_f6dd9a circuit-7"
     title="Next"
   >
     <span

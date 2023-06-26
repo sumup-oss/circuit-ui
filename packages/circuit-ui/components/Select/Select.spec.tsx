@@ -18,7 +18,7 @@ import { createRef } from 'react';
 
 import { render, axe } from '../../util/test-utils.js';
 
-import Select from '.';
+import { Select } from './Select.js';
 
 describe('Select', () => {
   const defaultProps = {

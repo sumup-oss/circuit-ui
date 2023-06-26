@@ -19,7 +19,7 @@ import { css } from '@emotion/react';
 import styled, { StyleProps } from '../../styles/styled.js';
 import { hideVisually, focusOutline } from '../../styles/style-mixins.js';
 import { AccessibilityError } from '../../util/errors.js';
-import { FieldWrapper } from '../FieldAtoms/FieldWrappers.js';
+import { FieldWrapper } from '../Field/index.js';
 
 export type SelectorSize = 'kilo' | 'mega' | 'flexible';
 

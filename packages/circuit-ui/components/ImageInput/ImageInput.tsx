@@ -32,11 +32,10 @@ import {
   FieldWrapper,
   FieldLabel,
   FieldValidationHint,
-} from '../FieldAtoms/index.js';
+} from '../Field/index.js';
 import IconButton, { IconButtonProps } from '../IconButton/index.js';
 import Spinner from '../Spinner/index.js';
 import { AccessibilityError } from '../../util/errors.js';
-import { CLASS_DISABLED } from '../FieldAtoms/constants.js';
 
 type Size = 'giga' | 'yotta';
 
@@ -209,7 +208,7 @@ const draggingLabelStyles = ({ isDragging }: LabelProps) =>
   `;
 
 const disabledLabelStyles = css`
-  .${CLASS_DISABLED} & {
+  [data-disabled='true'] & {
     opacity: 0.4;
   }
 `;

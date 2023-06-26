@@ -20,8 +20,7 @@ import { Theme } from '@sumup/design-tokens';
 import styled, { StyleProps } from '../../styles/styled.js';
 import { Body } from '../Body/Body.js';
 import { AccessibilityError } from '../../util/errors.js';
-import { FieldDescription, FieldWrapper } from '../FieldAtoms/index.js';
-import { CLASS_DISABLED } from '../FieldAtoms/constants.js';
+import { FieldDescription, FieldWrapper } from '../Field/index.js';
 import { hideVisually } from '../../styles/style-mixins.js';
 
 import { Switch, SwitchProps } from './components/Switch/Switch.js';
@@ -51,7 +50,7 @@ const labelStyles = ({ theme }: StyleProps) => css`
     margin-right: ${theme.spacings.kilo};
   }
 
-  .${CLASS_DISABLED} & {
+  [data-disabled='true'] & {
     color: var(--cui-fg-normal-disabled);
   }
 `;

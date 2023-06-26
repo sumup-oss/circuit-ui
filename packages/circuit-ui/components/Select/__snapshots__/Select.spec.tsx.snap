@@ -1,34 +1,13 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Select > Styles > should not render with invalid styles when also passed the disabled prop 1`] = `
-.circuit-0[disabled],
-.circuit-0.cui-field-disabled {
-  pointer-events: none;
-}
-
-.circuit-1 {
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-2 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-[disabled] .circuit-2,
-.cui-field-disabled .circuit-2 {
-  color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-3 {
+.circuit-0 {
   color: var(--cui-fg-normal);
   display: block;
   position: relative;
 }
 
-.circuit-4 {
+.circuit-1 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -58,16 +37,16 @@ exports[`Select > Styles > should not render with invalid styles when also passe
   box-shadow: 0 0 0 1px var(--cui-border-normal-disabled);
 }
 
-.circuit-4:-moz-focusring {
+.circuit-1:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
 
-.circuit-4::-ms-expand {
+.circuit-1::-ms-expand {
   display: none;
 }
 
-.circuit-5 {
+.circuit-2 {
   color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
@@ -80,11 +59,11 @@ exports[`Select > Styles > should not render with invalid styles when also passe
   padding: 16px;
 }
 
-select:active~.circuit-5 {
+select:active~.circuit-2 {
   display: none;
 }
 
-.circuit-6 {
+.circuit-3 {
   color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
@@ -97,31 +76,32 @@ select:active~.circuit-5 {
   padding: 16px;
 }
 
-select:not(:active)~.circuit-6 {
+select:not(:active)~.circuit-3 {
   display: none;
 }
 
 <div>
   <div
-    class=" cui-field-disabled circuit-0"
+    class="_wrapper_7cd753"
+    data-disabled="true"
   >
     <label
-      class="circuit-1"
+      class="_label_7cd753"
       for=":r8:"
     >
       <span
-        class="circuit-2"
+        class="_label-text_7cd753"
       >
         Label
       </span>
     </label>
     <div
-      class="circuit-3"
+      class="circuit-0"
     >
       <select
         aria-describedby=":r9:"
         aria-invalid="true"
-        class="circuit-4"
+        class="circuit-1"
         disabled=""
         id=":r8:"
       >
@@ -146,7 +126,7 @@ select:not(:active)~.circuit-6 {
       </select>
       <svg
         aria-hidden="true"
-        class="circuit-5"
+        class="circuit-2"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -160,7 +140,7 @@ select:not(:active)~.circuit-6 {
       </svg>
       <svg
         aria-hidden="true"
-        class="circuit-6"
+        class="circuit-3"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -182,34 +162,13 @@ select:not(:active)~.circuit-6 {
 `;
 
 exports[`Select > Styles > should render with a prefix when passed the prefix prop 1`] = `
-.circuit-0[disabled],
-.circuit-0.cui-field-disabled {
-  pointer-events: none;
-}
-
-.circuit-1 {
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-2 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-[disabled] .circuit-2,
-.cui-field-disabled .circuit-2 {
-  color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-3 {
+.circuit-0 {
   color: var(--cui-fg-normal);
   display: block;
   position: relative;
 }
 
-.circuit-4 {
+.circuit-1 {
   display: block;
   position: absolute;
   z-index: 21;
@@ -219,7 +178,7 @@ exports[`Select > Styles > should render with a prefix when passed the prefix pr
   pointer-events: none;
 }
 
-.circuit-5 {
+.circuit-2 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -250,28 +209,28 @@ exports[`Select > Styles > should render with a prefix when passed the prefix pr
   box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
-.circuit-5:-moz-focusring {
+.circuit-2:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
 
-.circuit-5::-ms-expand {
+.circuit-2::-ms-expand {
   display: none;
 }
 
-.circuit-5:hover {
+.circuit-2:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
-.circuit-5:focus {
+.circuit-2:focus {
   box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
-.circuit-5:active {
+.circuit-2:active {
   box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
-.circuit-6 {
+.circuit-3 {
   color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
@@ -284,11 +243,11 @@ exports[`Select > Styles > should render with a prefix when passed the prefix pr
   padding: 16px;
 }
 
-select:active~.circuit-6 {
+select:active~.circuit-3 {
   display: none;
 }
 
-.circuit-7 {
+.circuit-4 {
   color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
@@ -301,34 +260,34 @@ select:active~.circuit-6 {
   padding: 16px;
 }
 
-select:not(:active)~.circuit-7 {
+select:not(:active)~.circuit-4 {
   display: none;
 }
 
 <div>
   <div
-    class=" circuit-0"
+    class="_wrapper_7cd753"
   >
     <label
-      class="circuit-1"
+      class="_label_7cd753"
       for=":rc:"
     >
       <span
-        class="circuit-2"
+        class="_label-text_7cd753"
       >
         Label
       </span>
     </label>
     <div
-      class="circuit-3"
+      class="circuit-0"
     >
       <div
-        class="circuit-4"
+        class="circuit-1"
         style="width: 24px; height: 24px;"
       />
       <select
         aria-describedby=":rd:"
-        class="circuit-5"
+        class="circuit-2"
         id=":rc:"
       >
         <option
@@ -352,7 +311,7 @@ select:not(:active)~.circuit-7 {
       </select>
       <svg
         aria-hidden="true"
-        class="circuit-6"
+        class="circuit-3"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -366,7 +325,7 @@ select:not(:active)~.circuit-7 {
       </svg>
       <svg
         aria-hidden="true"
-        class="circuit-7"
+        class="circuit-4"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -388,34 +347,13 @@ select:not(:active)~.circuit-7 {
 `;
 
 exports[`Select > Styles > should render with a tooltip when passed a validation hint 1`] = `
-.circuit-0[disabled],
-.circuit-0.cui-field-disabled {
-  pointer-events: none;
-}
-
-.circuit-1 {
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-2 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-[disabled] .circuit-2,
-.cui-field-disabled .circuit-2 {
-  color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-3 {
+.circuit-0 {
   color: var(--cui-fg-normal);
   display: block;
   position: relative;
 }
 
-.circuit-4 {
+.circuit-1 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -445,28 +383,28 @@ exports[`Select > Styles > should render with a tooltip when passed a validation
   box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
-.circuit-4:-moz-focusring {
+.circuit-1:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
 
-.circuit-4::-ms-expand {
+.circuit-1::-ms-expand {
   display: none;
 }
 
-.circuit-4:hover {
+.circuit-1:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
-.circuit-4:focus {
+.circuit-1:focus {
   box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
-.circuit-4:active {
+.circuit-1:active {
   box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
-.circuit-5 {
+.circuit-2 {
   color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
@@ -479,11 +417,11 @@ exports[`Select > Styles > should render with a tooltip when passed a validation
   padding: 16px;
 }
 
-select:active~.circuit-5 {
+select:active~.circuit-2 {
   display: none;
 }
 
-.circuit-6 {
+.circuit-3 {
   color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
@@ -496,45 +434,30 @@ select:active~.circuit-5 {
   padding: 16px;
 }
 
-select:not(:active)~.circuit-6 {
+select:not(:active)~.circuit-3 {
   display: none;
-}
-
-.circuit-7 {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  display: block;
-  margin-top: 4px;
-  color: var(--cui-fg-subtle);
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
-[disabled] .circuit-7,
-.cui-field-disabled .circuit-7 {
-  color: var(--cui-fg-subtle-disabled);
 }
 
 <div>
   <div
-    class=" circuit-0"
+    class="_wrapper_7cd753"
   >
     <label
-      class="circuit-1"
+      class="_label_7cd753"
       for=":ra:"
     >
       <span
-        class="circuit-2"
+        class="_label-text_7cd753"
       >
         Label
       </span>
     </label>
     <div
-      class="circuit-3"
+      class="circuit-0"
     >
       <select
         aria-describedby=":rb:"
-        class="circuit-4"
+        class="circuit-1"
         id=":ra:"
       >
         <option
@@ -558,7 +481,7 @@ select:not(:active)~.circuit-6 {
       </select>
       <svg
         aria-hidden="true"
-        class="circuit-5"
+        class="circuit-2"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -572,7 +495,7 @@ select:not(:active)~.circuit-6 {
       </svg>
       <svg
         aria-hidden="true"
-        class="circuit-6"
+        class="circuit-3"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -585,12 +508,12 @@ select:not(:active)~.circuit-6 {
         />
       </svg>
     </div>
-    <span
-      class="circuit-7"
+    <div
+      class="_validation-hint_7cd753"
       id=":rb:"
     >
       This field is required.
-    </span>
+    </div>
     <span
       aria-live="polite"
       role="status"
@@ -600,43 +523,13 @@ select:not(:active)~.circuit-6 {
 `;
 
 exports[`Select > Styles > should render with a visually-hidden label 1`] = `
-.circuit-0[disabled],
-.circuit-0.cui-field-disabled {
-  pointer-events: none;
-}
-
-.circuit-1 {
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-2 {
-  display: inline-block;
-  margin-bottom: 4px;
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-[disabled] .circuit-2,
-.cui-field-disabled .circuit-2 {
-  color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-3 {
+.circuit-0 {
   color: var(--cui-fg-normal);
   display: block;
   position: relative;
 }
 
-.circuit-4 {
+.circuit-1 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -666,28 +559,28 @@ exports[`Select > Styles > should render with a visually-hidden label 1`] = `
   box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
-.circuit-4:-moz-focusring {
+.circuit-1:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
 
-.circuit-4::-ms-expand {
+.circuit-1::-ms-expand {
   display: none;
 }
 
-.circuit-4:hover {
+.circuit-1:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
-.circuit-4:focus {
+.circuit-1:focus {
   box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
-.circuit-4:active {
+.circuit-1:active {
   box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
-.circuit-5 {
+.circuit-2 {
   color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
@@ -700,11 +593,11 @@ exports[`Select > Styles > should render with a visually-hidden label 1`] = `
   padding: 16px;
 }
 
-select:active~.circuit-5 {
+select:active~.circuit-2 {
   display: none;
 }
 
-.circuit-6 {
+.circuit-3 {
   color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
@@ -717,30 +610,30 @@ select:active~.circuit-5 {
   padding: 16px;
 }
 
-select:not(:active)~.circuit-6 {
+select:not(:active)~.circuit-3 {
   display: none;
 }
 
 <div>
   <div
-    class=" circuit-0"
+    class="_wrapper_7cd753"
   >
     <label
-      class="circuit-1"
+      class="_label_7cd753"
       for=":r2:"
     >
       <span
-        class="circuit-2"
+        class="_label-text_7cd753 _hide-visually_73b4bb"
       >
         Label
       </span>
     </label>
     <div
-      class="circuit-3"
+      class="circuit-0"
     >
       <select
         aria-describedby=":r3:"
-        class="circuit-4"
+        class="circuit-1"
         id=":r2:"
       >
         <option
@@ -764,7 +657,7 @@ select:not(:active)~.circuit-6 {
       </select>
       <svg
         aria-hidden="true"
-        class="circuit-5"
+        class="circuit-2"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -778,7 +671,7 @@ select:not(:active)~.circuit-6 {
       </svg>
       <svg
         aria-hidden="true"
-        class="circuit-6"
+        class="circuit-3"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -800,34 +693,13 @@ select:not(:active)~.circuit-6 {
 `;
 
 exports[`Select > Styles > should render with default styles 1`] = `
-.circuit-0[disabled],
-.circuit-0.cui-field-disabled {
-  pointer-events: none;
-}
-
-.circuit-1 {
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-2 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-[disabled] .circuit-2,
-.cui-field-disabled .circuit-2 {
-  color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-3 {
+.circuit-0 {
   color: var(--cui-fg-normal);
   display: block;
   position: relative;
 }
 
-.circuit-4 {
+.circuit-1 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -857,28 +729,28 @@ exports[`Select > Styles > should render with default styles 1`] = `
   box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 
-.circuit-4:-moz-focusring {
+.circuit-1:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
 
-.circuit-4::-ms-expand {
+.circuit-1::-ms-expand {
   display: none;
 }
 
-.circuit-4:hover {
+.circuit-1:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
-.circuit-4:focus {
+.circuit-1:focus {
   box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
-.circuit-4:active {
+.circuit-1:active {
   box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
-.circuit-5 {
+.circuit-2 {
   color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
@@ -891,11 +763,11 @@ exports[`Select > Styles > should render with default styles 1`] = `
   padding: 16px;
 }
 
-select:active~.circuit-5 {
+select:active~.circuit-2 {
   display: none;
 }
 
-.circuit-6 {
+.circuit-3 {
   color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
@@ -908,30 +780,30 @@ select:active~.circuit-5 {
   padding: 16px;
 }
 
-select:not(:active)~.circuit-6 {
+select:not(:active)~.circuit-3 {
   display: none;
 }
 
 <div>
   <div
-    class=" circuit-0"
+    class="_wrapper_7cd753"
   >
     <label
-      class="circuit-1"
+      class="_label_7cd753"
       for=":r0:"
     >
       <span
-        class="circuit-2"
+        class="_label-text_7cd753"
       >
         Label
       </span>
     </label>
     <div
-      class="circuit-3"
+      class="circuit-0"
     >
       <select
         aria-describedby=":r1:"
-        class="circuit-4"
+        class="circuit-1"
         id=":r0:"
       >
         <option
@@ -955,7 +827,7 @@ select:not(:active)~.circuit-6 {
       </select>
       <svg
         aria-hidden="true"
-        class="circuit-5"
+        class="circuit-2"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -969,7 +841,7 @@ select:not(:active)~.circuit-6 {
       </svg>
       <svg
         aria-hidden="true"
-        class="circuit-6"
+        class="circuit-3"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -991,34 +863,13 @@ select:not(:active)~.circuit-6 {
 `;
 
 exports[`Select > Styles > should render with disabled styles when passed the disabled prop 1`] = `
-.circuit-0[disabled],
-.circuit-0.cui-field-disabled {
-  pointer-events: none;
-}
-
-.circuit-1 {
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-2 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-[disabled] .circuit-2,
-.cui-field-disabled .circuit-2 {
-  color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-3 {
+.circuit-0 {
   color: var(--cui-fg-normal);
   display: block;
   position: relative;
 }
 
-.circuit-4 {
+.circuit-1 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -1048,16 +899,16 @@ exports[`Select > Styles > should render with disabled styles when passed the di
   box-shadow: 0 0 0 1px var(--cui-border-normal-disabled);
 }
 
-.circuit-4:-moz-focusring {
+.circuit-1:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
 
-.circuit-4::-ms-expand {
+.circuit-1::-ms-expand {
   display: none;
 }
 
-.circuit-5 {
+.circuit-2 {
   color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
@@ -1070,11 +921,11 @@ exports[`Select > Styles > should render with disabled styles when passed the di
   padding: 16px;
 }
 
-select:active~.circuit-5 {
+select:active~.circuit-2 {
   display: none;
 }
 
-.circuit-6 {
+.circuit-3 {
   color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
@@ -1087,30 +938,31 @@ select:active~.circuit-5 {
   padding: 16px;
 }
 
-select:not(:active)~.circuit-6 {
+select:not(:active)~.circuit-3 {
   display: none;
 }
 
 <div>
   <div
-    class=" cui-field-disabled circuit-0"
+    class="_wrapper_7cd753"
+    data-disabled="true"
   >
     <label
-      class="circuit-1"
+      class="_label_7cd753"
       for=":r4:"
     >
       <span
-        class="circuit-2"
+        class="_label-text_7cd753"
       >
         Label
       </span>
     </label>
     <div
-      class="circuit-3"
+      class="circuit-0"
     >
       <select
         aria-describedby=":r5:"
-        class="circuit-4"
+        class="circuit-1"
         disabled=""
         id=":r4:"
       >
@@ -1135,7 +987,7 @@ select:not(:active)~.circuit-6 {
       </select>
       <svg
         aria-hidden="true"
-        class="circuit-5"
+        class="circuit-2"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1149,7 +1001,7 @@ select:not(:active)~.circuit-6 {
       </svg>
       <svg
         aria-hidden="true"
-        class="circuit-6"
+        class="circuit-3"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1171,34 +1023,13 @@ select:not(:active)~.circuit-6 {
 `;
 
 exports[`Select > Styles > should render with invalid styles when passed the invalid prop 1`] = `
-.circuit-0[disabled],
-.circuit-0.cui-field-disabled {
-  pointer-events: none;
-}
-
-.circuit-1 {
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-2 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-[disabled] .circuit-2,
-.cui-field-disabled .circuit-2 {
-  color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-3 {
+.circuit-0 {
   color: var(--cui-fg-normal);
   display: block;
   position: relative;
 }
 
-.circuit-4 {
+.circuit-1 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -1229,28 +1060,28 @@ exports[`Select > Styles > should render with invalid styles when passed the inv
   box-shadow: 0 0 0 1px var(--cui-border-danger);
 }
 
-.circuit-4:-moz-focusring {
+.circuit-1:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
 
-.circuit-4::-ms-expand {
+.circuit-1::-ms-expand {
   display: none;
 }
 
-.circuit-4:hover {
+.circuit-1:hover {
   box-shadow: 0 0 0 1px var(--cui-border-danger-hovered);
 }
 
-.circuit-4:focus {
+.circuit-1:focus {
   box-shadow: 0 0 0 2px var(--cui-border-danger);
 }
 
-.circuit-4:active {
+.circuit-1:active {
   box-shadow: 0 0 0 1px var(--cui-border-danger-pressed);
 }
 
-.circuit-5 {
+.circuit-2 {
   color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
@@ -1263,11 +1094,11 @@ exports[`Select > Styles > should render with invalid styles when passed the inv
   padding: 16px;
 }
 
-select:active~.circuit-5 {
+select:active~.circuit-2 {
   display: none;
 }
 
-.circuit-6 {
+.circuit-3 {
   color: var(--cui-fg-subtle);
   display: block;
   z-index: 21;
@@ -1280,31 +1111,31 @@ select:active~.circuit-5 {
   padding: 16px;
 }
 
-select:not(:active)~.circuit-6 {
+select:not(:active)~.circuit-3 {
   display: none;
 }
 
 <div>
   <div
-    class=" circuit-0"
+    class="_wrapper_7cd753"
   >
     <label
-      class="circuit-1"
+      class="_label_7cd753"
       for=":r6:"
     >
       <span
-        class="circuit-2"
+        class="_label-text_7cd753"
       >
         Label
       </span>
     </label>
     <div
-      class="circuit-3"
+      class="circuit-0"
     >
       <select
         aria-describedby=":r7:"
         aria-invalid="true"
-        class="circuit-4"
+        class="circuit-1"
         id=":r6:"
       >
         <option
@@ -1328,7 +1159,7 @@ select:not(:active)~.circuit-6 {
       </select>
       <svg
         aria-hidden="true"
-        class="circuit-5"
+        class="circuit-2"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1342,7 +1173,7 @@ select:not(:active)~.circuit-6 {
       </svg>
       <svg
         aria-hidden="true"
-        class="circuit-6"
+        class="circuit-3"
         fill="none"
         height="16"
         viewBox="0 0 16 16"

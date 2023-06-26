@@ -1,32 +1,11 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`TextArea > should prioritize disabled over error styles 1`] = `
-.circuit-0[disabled],
-.circuit-0.cui-field-disabled {
-  pointer-events: none;
-}
-
-.circuit-1 {
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-2 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-[disabled] .circuit-2,
-.cui-field-disabled .circuit-2 {
-  color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-3 {
+.circuit-0 {
   position: relative;
 }
 
-.circuit-4 {
+.circuit-1 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -45,55 +24,56 @@ exports[`TextArea > should prioritize disabled over error styles 1`] = `
   resize: vertical;
 }
 
-.circuit-4::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::placeholder {
+.circuit-1::placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:disabled,
-.circuit-4[disabled] {
+.circuit-1:disabled,
+.circuit-1[disabled] {
   background-color: var(--cui-bg-normal-disabled);
 }
 
 <div
-  class=" cui-field-disabled circuit-0"
+  class="_wrapper_7cd753"
+  data-disabled="true"
 >
   <label
-    class="circuit-1"
+    class="_label_7cd753"
     for=":ri:"
   >
     <span
-      class="circuit-2"
+      class="_label-text_7cd753"
     >
       Textarea
     </span>
   </label>
   <div
-    class="circuit-3"
+    class="circuit-0"
   >
     <textarea
       aria-describedby=":rj:"
       aria-invalid="true"
-      class="circuit-4"
+      class="circuit-1"
       disabled=""
       id=":ri:"
     />
@@ -106,32 +86,11 @@ exports[`TextArea > should prioritize disabled over error styles 1`] = `
 `;
 
 exports[`TextArea > should prioritize disabled over warning styles 1`] = `
-.circuit-0[disabled],
-.circuit-0.cui-field-disabled {
-  pointer-events: none;
-}
-
-.circuit-1 {
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-2 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-[disabled] .circuit-2,
-.cui-field-disabled .circuit-2 {
-  color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-3 {
+.circuit-0 {
   position: relative;
 }
 
-.circuit-4 {
+.circuit-1 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -150,54 +109,55 @@ exports[`TextArea > should prioritize disabled over warning styles 1`] = `
   resize: vertical;
 }
 
-.circuit-4::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::placeholder {
+.circuit-1::placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:disabled,
-.circuit-4[disabled] {
+.circuit-1:disabled,
+.circuit-1[disabled] {
   background-color: var(--cui-bg-normal-disabled);
 }
 
 <div
-  class=" cui-field-disabled circuit-0"
+  class="_wrapper_7cd753"
+  data-disabled="true"
 >
   <label
-    class="circuit-1"
+    class="_label_7cd753"
     for=":rk:"
   >
     <span
-      class="circuit-2"
+      class="_label-text_7cd753"
     >
       Textarea
     </span>
   </label>
   <div
-    class="circuit-3"
+    class="circuit-0"
   >
     <textarea
       aria-describedby=":rl:"
-      class="circuit-4"
+      class="circuit-1"
       disabled=""
       id=":rk:"
     />
@@ -210,32 +170,11 @@ exports[`TextArea > should prioritize disabled over warning styles 1`] = `
 `;
 
 exports[`TextArea > should render minRows props as rows when passed if rows is auto 1`] = `
-.circuit-0[disabled],
-.circuit-0.cui-field-disabled {
-  pointer-events: none;
-}
-
-.circuit-1 {
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-2 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-[disabled] .circuit-2,
-.cui-field-disabled .circuit-2 {
-  color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-3 {
+.circuit-0 {
   position: relative;
 }
 
-.circuit-4 {
+.circuit-1 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -254,66 +193,66 @@ exports[`TextArea > should render minRows props as rows when passed if rows is a
   resize: vertical;
 }
 
-.circuit-4::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::placeholder {
+.circuit-1::placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:disabled,
-.circuit-4[disabled] {
+.circuit-1:disabled,
+.circuit-1[disabled] {
   background-color: var(--cui-bg-normal-disabled);
 }
 
-.circuit-4:hover {
+.circuit-1:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
-.circuit-4:focus {
+.circuit-1:focus {
   box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
-.circuit-4:active {
+.circuit-1:active {
   box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 <div
-  class=" circuit-0"
+  class="_wrapper_7cd753"
 >
   <label
-    class="circuit-1"
+    class="_label_7cd753"
     for=":rq:"
   >
     <span
-      class="circuit-2"
+      class="_label-text_7cd753"
     >
       Textarea
     </span>
   </label>
   <div
-    class="circuit-3"
+    class="circuit-0"
   >
     <textarea
       aria-describedby=":rr:"
-      class="circuit-4"
+      class="circuit-1"
       id=":rq:"
       rows="3"
       style="resize: none; overflow-y: hidden; height: auto;"
@@ -327,32 +266,11 @@ exports[`TextArea > should render minRows props as rows when passed if rows is a
 `;
 
 exports[`TextArea > should render rows props when passed 1`] = `
-.circuit-0[disabled],
-.circuit-0.cui-field-disabled {
-  pointer-events: none;
-}
-
-.circuit-1 {
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-2 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-[disabled] .circuit-2,
-.cui-field-disabled .circuit-2 {
-  color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-3 {
+.circuit-0 {
   position: relative;
 }
 
-.circuit-4 {
+.circuit-1 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -371,66 +289,66 @@ exports[`TextArea > should render rows props when passed 1`] = `
   resize: vertical;
 }
 
-.circuit-4::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::placeholder {
+.circuit-1::placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:disabled,
-.circuit-4[disabled] {
+.circuit-1:disabled,
+.circuit-1[disabled] {
   background-color: var(--cui-bg-normal-disabled);
 }
 
-.circuit-4:hover {
+.circuit-1:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
-.circuit-4:focus {
+.circuit-1:focus {
   box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
-.circuit-4:active {
+.circuit-1:active {
   box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 <div
-  class=" circuit-0"
+  class="_wrapper_7cd753"
 >
   <label
-    class="circuit-1"
+    class="_label_7cd753"
     for=":rm:"
   >
     <span
-      class="circuit-2"
+      class="_label-text_7cd753"
     >
       Textarea
     </span>
   </label>
   <div
-    class="circuit-3"
+    class="circuit-0"
   >
     <textarea
       aria-describedby=":rn:"
-      class="circuit-4"
+      class="circuit-1"
       id=":rm:"
       rows="3"
     />
@@ -443,32 +361,11 @@ exports[`TextArea > should render rows props when passed 1`] = `
 `;
 
 exports[`TextArea > should render with a Tooltip when passed the validationHint prop 1`] = `
-.circuit-0[disabled],
-.circuit-0.cui-field-disabled {
-  pointer-events: none;
-}
-
-.circuit-1 {
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-2 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-[disabled] .circuit-2,
-.cui-field-disabled .circuit-2 {
-  color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-3 {
+.circuit-0 {
   position: relative;
 }
 
-.circuit-4 {
+.circuit-1 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -487,90 +384,75 @@ exports[`TextArea > should render with a Tooltip when passed the validationHint 
   resize: vertical;
 }
 
-.circuit-4::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::placeholder {
+.circuit-1::placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:disabled,
-.circuit-4[disabled] {
+.circuit-1:disabled,
+.circuit-1[disabled] {
   background-color: var(--cui-bg-normal-disabled);
 }
 
-.circuit-4:hover {
+.circuit-1:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
-.circuit-4:focus {
+.circuit-1:focus {
   box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
-.circuit-4:active {
+.circuit-1:active {
   box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
-.circuit-5 {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  display: block;
-  margin-top: 4px;
-  color: var(--cui-fg-subtle);
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
-[disabled] .circuit-5,
-.cui-field-disabled .circuit-5 {
-  color: var(--cui-fg-subtle-disabled);
-}
-
 <div
-  class=" circuit-0"
+  class="_wrapper_7cd753"
 >
   <label
-    class="circuit-1"
+    class="_label_7cd753"
     for=":r6:"
   >
     <span
-      class="circuit-2"
+      class="_label-text_7cd753"
     >
       Textarea
     </span>
   </label>
   <div
-    class="circuit-3"
+    class="circuit-0"
   >
     <textarea
       aria-describedby=":r7:"
-      class="circuit-4"
+      class="circuit-1"
       id=":r6:"
     />
   </div>
-  <span
-    class="circuit-5"
+  <div
+    class="_validation-hint_7cd753"
     id=":r7:"
   >
     Validation hint
-  </span>
+  </div>
   <span
     aria-live="polite"
     role="status"
@@ -579,32 +461,11 @@ exports[`TextArea > should render with a Tooltip when passed the validationHint 
 `;
 
 exports[`TextArea > should render with a prefix when passed the prefix prop 1`] = `
-.circuit-0[disabled],
-.circuit-0.cui-field-disabled {
-  pointer-events: none;
-}
-
-.circuit-1 {
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-2 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-[disabled] .circuit-2,
-.cui-field-disabled .circuit-2 {
-  color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-3 {
+.circuit-0 {
   position: relative;
 }
 
-.circuit-4 {
+.circuit-1 {
   position: absolute;
   pointer-events: none;
   color: var(--cui-fg-subtle);
@@ -613,7 +474,7 @@ exports[`TextArea > should render with a prefix when passed the prefix prop 1`] 
   width: 48px;
 }
 
-.circuit-5 {
+.circuit-2 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -633,70 +494,70 @@ exports[`TextArea > should render with a prefix when passed the prefix prop 1`] 
   resize: vertical;
 }
 
-.circuit-5::-webkit-input-placeholder {
+.circuit-2::-webkit-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-5::-moz-placeholder {
+.circuit-2::-moz-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-5:-ms-input-placeholder {
+.circuit-2:-ms-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-5::placeholder {
+.circuit-2::placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-5:disabled,
-.circuit-5[disabled] {
+.circuit-2:disabled,
+.circuit-2[disabled] {
   background-color: var(--cui-bg-normal-disabled);
 }
 
-.circuit-5:hover {
+.circuit-2:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
-.circuit-5:focus {
+.circuit-2:focus {
   box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
-.circuit-5:active {
+.circuit-2:active {
   box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 <div
-  class=" circuit-0"
+  class="_wrapper_7cd753"
 >
   <label
-    class="circuit-1"
+    class="_label_7cd753"
     for=":r2:"
   >
     <span
-      class="circuit-2"
+      class="_label-text_7cd753"
     >
       Textarea
     </span>
   </label>
   <div
-    class="circuit-3"
+    class="circuit-0"
   >
     <div
-      class="circuit-4"
+      class="circuit-1"
       style="width: 24px; height: 24px;"
     />
     <textarea
       aria-describedby=":r3:"
-      class="circuit-5"
+      class="circuit-2"
       id=":r2:"
     />
   </div>
@@ -708,32 +569,11 @@ exports[`TextArea > should render with a prefix when passed the prefix prop 1`] 
 `;
 
 exports[`TextArea > should render with a suffix when passed the suffix prop 1`] = `
-.circuit-0[disabled],
-.circuit-0.cui-field-disabled {
-  pointer-events: none;
-}
-
-.circuit-1 {
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-2 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-[disabled] .circuit-2,
-.cui-field-disabled .circuit-2 {
-  color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-3 {
+.circuit-0 {
   position: relative;
 }
 
-.circuit-4 {
+.circuit-1 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -753,48 +593,48 @@ exports[`TextArea > should render with a suffix when passed the suffix prop 1`] 
   resize: vertical;
 }
 
-.circuit-4::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::placeholder {
+.circuit-1::placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:disabled,
-.circuit-4[disabled] {
+.circuit-1:disabled,
+.circuit-1[disabled] {
   background-color: var(--cui-bg-normal-disabled);
 }
 
-.circuit-4:hover {
+.circuit-1:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
-.circuit-4:focus {
+.circuit-1:focus {
   box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
-.circuit-4:active {
+.circuit-1:active {
   box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
-.circuit-5 {
+.circuit-2 {
   position: absolute;
   top: 0;
   right: 0;
@@ -808,28 +648,28 @@ exports[`TextArea > should render with a suffix when passed the suffix prop 1`] 
 }
 
 <div
-  class=" circuit-0"
+  class="_wrapper_7cd753"
 >
   <label
-    class="circuit-1"
+    class="_label_7cd753"
     for=":r4:"
   >
     <span
-      class="circuit-2"
+      class="_label-text_7cd753"
     >
       Textarea
     </span>
   </label>
   <div
-    class="circuit-3"
+    class="circuit-0"
   >
     <textarea
       aria-describedby=":r5:"
-      class="circuit-4"
+      class="circuit-1"
       id=":r4:"
     />
     <div
-      class="circuit-5"
+      class="circuit-2"
       style="width: 24px; height: 24px;"
     />
   </div>
@@ -841,32 +681,11 @@ exports[`TextArea > should render with a suffix when passed the suffix prop 1`] 
 `;
 
 exports[`TextArea > should render with default styles 1`] = `
-.circuit-0[disabled],
-.circuit-0.cui-field-disabled {
-  pointer-events: none;
-}
-
-.circuit-1 {
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-2 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-[disabled] .circuit-2,
-.cui-field-disabled .circuit-2 {
-  color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-3 {
+.circuit-0 {
   position: relative;
 }
 
-.circuit-4 {
+.circuit-1 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -885,66 +704,66 @@ exports[`TextArea > should render with default styles 1`] = `
   resize: vertical;
 }
 
-.circuit-4::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::placeholder {
+.circuit-1::placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:disabled,
-.circuit-4[disabled] {
+.circuit-1:disabled,
+.circuit-1[disabled] {
   background-color: var(--cui-bg-normal-disabled);
 }
 
-.circuit-4:hover {
+.circuit-1:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
-.circuit-4:focus {
+.circuit-1:focus {
   box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
-.circuit-4:active {
+.circuit-1:active {
   box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 <div
-  class=" circuit-0"
+  class="_wrapper_7cd753"
 >
   <label
-    class="circuit-1"
+    class="_label_7cd753"
     for=":r0:"
   >
     <span
-      class="circuit-2"
+      class="_label-text_7cd753"
     >
       Textarea
     </span>
   </label>
   <div
-    class="circuit-3"
+    class="circuit-0"
   >
     <textarea
       aria-describedby=":r1:"
-      class="circuit-4"
+      class="circuit-1"
       id=":r0:"
     />
   </div>
@@ -956,32 +775,11 @@ exports[`TextArea > should render with default styles 1`] = `
 `;
 
 exports[`TextArea > should render with disabled styled when passed the disabled prop 1`] = `
-.circuit-0[disabled],
-.circuit-0.cui-field-disabled {
-  pointer-events: none;
-}
-
-.circuit-1 {
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-2 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-[disabled] .circuit-2,
-.cui-field-disabled .circuit-2 {
-  color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-3 {
+.circuit-0 {
   position: relative;
 }
 
-.circuit-4 {
+.circuit-1 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -1000,54 +798,55 @@ exports[`TextArea > should render with disabled styled when passed the disabled 
   resize: vertical;
 }
 
-.circuit-4::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::placeholder {
+.circuit-1::placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:disabled,
-.circuit-4[disabled] {
+.circuit-1:disabled,
+.circuit-1[disabled] {
   background-color: var(--cui-bg-normal-disabled);
 }
 
 <div
-  class=" cui-field-disabled circuit-0"
+  class="_wrapper_7cd753"
+  data-disabled="true"
 >
   <label
-    class="circuit-1"
+    class="_label_7cd753"
     for=":rg:"
   >
     <span
-      class="circuit-2"
+      class="_label-text_7cd753"
     >
       Textarea
     </span>
   </label>
   <div
-    class="circuit-3"
+    class="circuit-0"
   >
     <textarea
       aria-describedby=":rh:"
-      class="circuit-4"
+      class="circuit-1"
       disabled=""
       id=":rg:"
     />
@@ -1060,32 +859,11 @@ exports[`TextArea > should render with disabled styled when passed the disabled 
 `;
 
 exports[`TextArea > should render with invalid styles when passed the invalid prop 1`] = `
-.circuit-0[disabled],
-.circuit-0.cui-field-disabled {
-  pointer-events: none;
-}
-
-.circuit-1 {
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-2 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-[disabled] .circuit-2,
-.cui-field-disabled .circuit-2 {
-  color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-3 {
+.circuit-0 {
   position: relative;
 }
 
-.circuit-4 {
+.circuit-1 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -1104,83 +882,83 @@ exports[`TextArea > should render with invalid styles when passed the invalid pr
   resize: vertical;
 }
 
-.circuit-4::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::placeholder {
+.circuit-1::placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:not(:focus)::-webkit-input-placeholder {
+.circuit-1:not(:focus)::-webkit-input-placeholder {
   color: var(--cui-fg-danger);
 }
 
-.circuit-4:not(:focus)::-moz-placeholder {
+.circuit-1:not(:focus)::-moz-placeholder {
   color: var(--cui-fg-danger);
 }
 
-.circuit-4:not(:focus):-ms-input-placeholder {
+.circuit-1:not(:focus):-ms-input-placeholder {
   color: var(--cui-fg-danger);
 }
 
-.circuit-4:not(:focus)::placeholder {
+.circuit-1:not(:focus)::placeholder {
   color: var(--cui-fg-danger);
 }
 
-.circuit-4:disabled,
-.circuit-4[disabled] {
+.circuit-1:disabled,
+.circuit-1[disabled] {
   background-color: var(--cui-bg-normal-disabled);
 }
 
-.circuit-4:hover {
+.circuit-1:hover {
   box-shadow: 0 0 0 1px var(--cui-border-danger-hovered);
 }
 
-.circuit-4:focus {
+.circuit-1:focus {
   box-shadow: 0 0 0 2px var(--cui-border-danger);
 }
 
-.circuit-4:active {
+.circuit-1:active {
   box-shadow: 0 0 0 1px var(--cui-border-danger-pressed);
 }
 
 <div
-  class=" circuit-0"
+  class="_wrapper_7cd753"
 >
   <label
-    class="circuit-1"
+    class="_label_7cd753"
     for=":ra:"
   >
     <span
-      class="circuit-2"
+      class="_label-text_7cd753"
     >
       Textarea
     </span>
   </label>
   <div
-    class="circuit-3"
+    class="circuit-0"
   >
     <textarea
       aria-describedby=":rb:"
       aria-invalid="true"
-      class="circuit-4"
+      class="circuit-1"
       id=":ra:"
     />
   </div>
@@ -1192,32 +970,11 @@ exports[`TextArea > should render with invalid styles when passed the invalid pr
 `;
 
 exports[`TextArea > should render with readonly styles when passed the readonly prop 1`] = `
-.circuit-0[disabled],
-.circuit-0.cui-field-disabled {
-  pointer-events: none;
-}
-
-.circuit-1 {
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-2 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-[disabled] .circuit-2,
-.cui-field-disabled .circuit-2 {
-  color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-3 {
+.circuit-0 {
   position: relative;
 }
 
-.circuit-4 {
+.circuit-1 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -1237,66 +994,66 @@ exports[`TextArea > should render with readonly styles when passed the readonly 
   resize: vertical;
 }
 
-.circuit-4::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::placeholder {
+.circuit-1::placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:disabled,
-.circuit-4[disabled] {
+.circuit-1:disabled,
+.circuit-1[disabled] {
   background-color: var(--cui-bg-normal-disabled);
 }
 
-.circuit-4:hover {
+.circuit-1:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
-.circuit-4:focus {
+.circuit-1:focus {
   box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
-.circuit-4:active {
+.circuit-1:active {
   box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 <div
-  class=" circuit-0"
+  class="_wrapper_7cd753"
 >
   <label
-    class="circuit-1"
+    class="_label_7cd753"
     for=":re:"
   >
     <span
-      class="circuit-2"
+      class="_label-text_7cd753"
     >
       Textarea
     </span>
   </label>
   <div
-    class="circuit-3"
+    class="circuit-0"
   >
     <textarea
       aria-describedby=":rf:"
-      class="circuit-4"
+      class="circuit-1"
       id=":re:"
       readonly=""
     />
@@ -1309,32 +1066,11 @@ exports[`TextArea > should render with readonly styles when passed the readonly 
 `;
 
 exports[`TextArea > should render with valid styles when passed the showValid prop 1`] = `
-.circuit-0[disabled],
-.circuit-0.cui-field-disabled {
-  pointer-events: none;
-}
-
-.circuit-1 {
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-2 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-[disabled] .circuit-2,
-.cui-field-disabled .circuit-2 {
-  color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-3 {
+.circuit-0 {
   position: relative;
 }
 
-.circuit-4 {
+.circuit-1 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -1353,66 +1089,66 @@ exports[`TextArea > should render with valid styles when passed the showValid pr
   resize: vertical;
 }
 
-.circuit-4::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::placeholder {
+.circuit-1::placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:disabled,
-.circuit-4[disabled] {
+.circuit-1:disabled,
+.circuit-1[disabled] {
   background-color: var(--cui-bg-normal-disabled);
 }
 
-.circuit-4:hover {
+.circuit-1:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
-.circuit-4:focus {
+.circuit-1:focus {
   box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
-.circuit-4:active {
+.circuit-1:active {
   box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 <div
-  class=" circuit-0"
+  class="_wrapper_7cd753"
 >
   <label
-    class="circuit-1"
+    class="_label_7cd753"
     for=":rc:"
   >
     <span
-      class="circuit-2"
+      class="_label-text_7cd753"
     >
       Textarea
     </span>
   </label>
   <div
-    class="circuit-3"
+    class="circuit-0"
   >
     <textarea
       aria-describedby=":rd:"
-      class="circuit-4"
+      class="circuit-1"
       id=":rc:"
     />
   </div>
@@ -1424,32 +1160,11 @@ exports[`TextArea > should render with valid styles when passed the showValid pr
 `;
 
 exports[`TextArea > should render with warning styles when passed the hasWarning prop 1`] = `
-.circuit-0[disabled],
-.circuit-0.cui-field-disabled {
-  pointer-events: none;
-}
-
-.circuit-1 {
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-2 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-[disabled] .circuit-2,
-.cui-field-disabled .circuit-2 {
-  color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-3 {
+.circuit-0 {
   position: relative;
 }
 
-.circuit-4 {
+.circuit-1 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -1468,82 +1183,82 @@ exports[`TextArea > should render with warning styles when passed the hasWarning
   resize: vertical;
 }
 
-.circuit-4::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::placeholder {
+.circuit-1::placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:not(:focus)::-webkit-input-placeholder {
+.circuit-1:not(:focus)::-webkit-input-placeholder {
   color: var(--cui-fg-warning);
 }
 
-.circuit-4:not(:focus)::-moz-placeholder {
+.circuit-1:not(:focus)::-moz-placeholder {
   color: var(--cui-fg-warning);
 }
 
-.circuit-4:not(:focus):-ms-input-placeholder {
+.circuit-1:not(:focus):-ms-input-placeholder {
   color: var(--cui-fg-warning);
 }
 
-.circuit-4:not(:focus)::placeholder {
+.circuit-1:not(:focus)::placeholder {
   color: var(--cui-fg-warning);
 }
 
-.circuit-4:disabled,
-.circuit-4[disabled] {
+.circuit-1:disabled,
+.circuit-1[disabled] {
   background-color: var(--cui-bg-normal-disabled);
 }
 
-.circuit-4:hover {
+.circuit-1:hover {
   box-shadow: 0 0 0 1px var(--cui-border-warning-hovered);
 }
 
-.circuit-4:focus {
+.circuit-1:focus {
   box-shadow: 0 0 0 2px var(--cui-border-warning);
 }
 
-.circuit-4:active {
+.circuit-1:active {
   box-shadow: 0 0 0 1px var(--cui-border-warning-pressed);
 }
 
 <div
-  class=" circuit-0"
+  class="_wrapper_7cd753"
 >
   <label
-    class="circuit-1"
+    class="_label_7cd753"
     for=":r8:"
   >
     <span
-      class="circuit-2"
+      class="_label-text_7cd753"
     >
       Textarea
     </span>
   </label>
   <div
-    class="circuit-3"
+    class="circuit-0"
   >
     <textarea
       aria-describedby=":r9:"
-      class="circuit-4"
+      class="circuit-1"
       id=":r8:"
     />
   </div>
@@ -1555,32 +1270,11 @@ exports[`TextArea > should render with warning styles when passed the hasWarning
 `;
 
 exports[`TextArea > should render without rows props when passed if rows is auto 1`] = `
-.circuit-0[disabled],
-.circuit-0.cui-field-disabled {
-  pointer-events: none;
-}
-
-.circuit-1 {
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.circuit-2 {
-  display: inline-block;
-  margin-bottom: 4px;
-}
-
-[disabled] .circuit-2,
-.cui-field-disabled .circuit-2 {
-  color: var(--cui-fg-normal-disabled);
-}
-
-.circuit-3 {
+.circuit-0 {
   position: relative;
 }
 
-.circuit-4 {
+.circuit-1 {
   font-size: 1rem;
   line-height: 1.5rem;
   -webkit-appearance: none;
@@ -1599,66 +1293,66 @@ exports[`TextArea > should render without rows props when passed if rows is auto
   resize: vertical;
 }
 
-.circuit-4::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4::placeholder {
+.circuit-1::placeholder {
   color: var(--cui-fg-placeholder);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-4:disabled,
-.circuit-4[disabled] {
+.circuit-1:disabled,
+.circuit-1[disabled] {
   background-color: var(--cui-bg-normal-disabled);
 }
 
-.circuit-4:hover {
+.circuit-1:hover {
   box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
 }
 
-.circuit-4:focus {
+.circuit-1:focus {
   box-shadow: 0 0 0 2px var(--cui-border-accent);
 }
 
-.circuit-4:active {
+.circuit-1:active {
   box-shadow: 0 0 0 1px var(--cui-border-accent);
 }
 
 <div
-  class=" circuit-0"
+  class="_wrapper_7cd753"
 >
   <label
-    class="circuit-1"
+    class="_label_7cd753"
     for=":ro:"
   >
     <span
-      class="circuit-2"
+      class="_label-text_7cd753"
     >
       Textarea
     </span>
   </label>
   <div
-    class="circuit-3"
+    class="circuit-0"
   >
     <textarea
       aria-describedby=":rp:"
-      class="circuit-4"
+      class="circuit-1"
       id=":ro:"
       style="resize: none; overflow-y: hidden; height: auto;"
     />

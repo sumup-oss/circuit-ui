@@ -26,7 +26,7 @@ import {
   FieldLabel,
   FieldLabelText,
   FieldValidationHint,
-} from '../FieldAtoms/index.js';
+} from '../Field/index.js';
 import { AccessibilityError } from '../../util/errors.js';
 
 export type SelectOption = {
