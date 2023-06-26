@@ -267,101 +267,10 @@ exports[`Pagination > with more than 5 pages > should render with default styles
 }
 
 .circuit-2 {
-  color: var(--cui-fg-normal);
-  display: block;
-  position: relative;
-}
-
-.circuit-3 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  appearance: none;
-  cursor: pointer;
-  background-color: var(--cui-bg-normal);
-  outline: none;
-  border: 0;
-  border-radius: 8px;
-  box-shadow: none;
-  color: var(--cui-fg-normal);
-  margin: 0;
-  padding-top: 12px;
-  padding-right: 48px;
-  padding-bottom: 12px;
-  padding-left: 16px;
-  position: relative;
-  width: 100%;
-  z-index: 20;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
-  box-shadow: 0 0 0 1px var(--cui-border-normal);
-}
-
-.circuit-3:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
-}
-
-.circuit-3::-ms-expand {
-  display: none;
-}
-
-.circuit-3:hover {
-  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
-}
-
-.circuit-3:focus {
-  box-shadow: 0 0 0 2px var(--cui-border-accent);
-}
-
-.circuit-3:active {
-  box-shadow: 0 0 0 1px var(--cui-border-accent);
-}
-
-.circuit-4 {
-  color: var(--cui-fg-subtle);
-  display: block;
-  z-index: 21;
-  pointer-events: none;
-  position: absolute;
-  height: 48px;
-  width: 48px;
-  top: 0;
-  right: 0;
-  padding: 16px;
-}
-
-select:active~.circuit-4 {
-  display: none;
-}
-
-.circuit-5 {
-  color: var(--cui-fg-subtle);
-  display: block;
-  z-index: 21;
-  pointer-events: none;
-  position: absolute;
-  height: 48px;
-  width: 48px;
-  top: 0;
-  right: 0;
-  padding: 16px;
-}
-
-select:not(:active)~.circuit-5 {
-  display: none;
-}
-
-.circuit-6 {
   margin-left: 12px;
 }
 
-.circuit-7 {
+.circuit-3 {
   margin-left: 12px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -422,11 +331,11 @@ select:not(:active)~.circuit-5 {
       </span>
     </label>
     <div
-      class="circuit-2"
+      class="_wrapper_183935"
     >
       <select
         aria-describedby=":r1:"
-        class="circuit-3"
+        class="_base_183935"
         id=":r0:"
       >
         <option
@@ -482,7 +391,7 @@ select:not(:active)~.circuit-5 {
       </select>
       <svg
         aria-hidden="true"
-        class="circuit-4"
+        class="_icon_183935"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -494,20 +403,6 @@ select:not(:active)~.circuit-5 {
           fill="currentColor"
         />
       </svg>
-      <svg
-        aria-hidden="true"
-        class="circuit-5"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
-          fill="currentColor"
-        />
-      </svg>
     </div>
     <span
       aria-live="polite"
@@ -515,12 +410,12 @@ select:not(:active)~.circuit-5 {
     />
   </div>
   <span
-    class="circuit-6"
+    class="circuit-2"
   >
     of 10
   </span>
   <button
-    class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 _kilo_f6dd9a circuit-7"
+    class="_base_892426 _focus-visible_73b4bb _kilo_892426 _tertiary_892426 _kilo_f6dd9a circuit-3"
     title="Next"
   >
     <span

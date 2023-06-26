@@ -13,13 +13,15 @@
  * limitations under the License.
  */
 
-import { ReactNode, Ref, SelectHTMLAttributes, forwardRef, useId } from 'react';
-import { css } from '@emotion/react';
-import { ChevronDown, ChevronUp } from '@sumup/icons';
-import { Theme } from '@sumup/design-tokens';
+import {
+  ComponentType,
+  ReactNode,
+  SelectHTMLAttributes,
+  forwardRef,
+  useId,
+} from 'react';
+import { ChevronDown } from '@sumup/icons';
 
-import styled, { StyleProps } from '../../styles/styled.js';
-import { typography, inputOutline } from '../../styles/style-mixins.js';
 import { ReturnType } from '../../types/return-type.js';
 import {
   FieldWrapper,
@@ -28,6 +30,9 @@ import {
   FieldValidationHint,
 } from '../Field/index.js';
 import { AccessibilityError } from '../../util/errors.js';
+import { clsx } from '../../styles/clsx.js';
+
+import classes from './Select.module.css';
 
 export type SelectOption = {
   value: string | number;
@@ -72,13 +77,7 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
    * Render prop that should render a left-aligned overlay icon or element.
    * Receives a className prop.
    */
-  renderPrefix?: ({
-    value,
-    className,
-  }: {
-    value?: string | number;
-    className?: string;
-  }) => JSX.Element;
+  renderPrefix?: ComponentType<{ value?: string | number; className?: string }>;
   /**
    * An information or error message, displayed below the select.
    */
@@ -98,128 +97,12 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
    * generated id is used.
    */
   id?: string;
-  /**
-   * The ref to the HTML DOM element.
-   */
-  ref?: Ref<HTMLSelectElement>;
 }
-
-const wrapperStyles = css`
-  color: var(--cui-fg-normal);
-  display: block;
-  position: relative;
-`;
-
-const SelectWrapper = styled('div')(wrapperStyles);
-
-type SelectElProps = Omit<SelectProps, 'options' | 'label'> & {
-  hasPrefix: boolean;
-};
-
-const selectBaseStyles = ({ theme }: StyleProps) => css`
-  appearance: none;
-  cursor: pointer;
-  background-color: var(--cui-bg-normal);
-  outline: none;
-  border: 0;
-  border-radius: ${theme.borderRadius.byte};
-  box-shadow: none;
-  color: var(--cui-fg-normal);
-  margin: 0;
-  padding-top: ${theme.spacings.kilo};
-  padding-right: ${theme.spacings.exa};
-  padding-bottom: ${theme.spacings.kilo};
-  padding-left: ${theme.spacings.mega};
-  position: relative;
-  width: 100%;
-  z-index: ${theme.zIndex.input};
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  transition: box-shadow ${theme.transitions.default},
-    padding ${theme.transitions.default};
-
-  &:-moz-focusring {
-    color: transparent;
-    text-shadow: 0 0 0 #000;
-  }
-
-  &::-ms-expand {
-    display: none;
-  }
-`;
-
-const selectInvalidStyles = ({
-  theme,
-  invalid,
-  disabled,
-}: StyleProps & SelectElProps) =>
-  invalid &&
-  !disabled &&
-  css`
-    padding-right: ${theme.spacings.zetta};
-  `;
-
-const selectPrefixStyles = ({ theme, hasPrefix }: StyleProps & SelectElProps) =>
-  hasPrefix &&
-  css`
-    padding-left: ${theme.spacings.exa};
-  `;
-
-const SelectElement = styled.select<SelectElProps>(
-  typography('one'),
-  selectBaseStyles,
-  selectInvalidStyles,
-  selectPrefixStyles,
-  inputOutline,
-);
-
-/**
- * Used with css prop directly, so it does not require prop
- * destructuring.
- */
-const prefixStyles = (theme: Theme) => css`
-  display: block;
-  position: absolute;
-  z-index: ${theme.zIndex.input + 1};
-  height: ${theme.spacings.exa};
-  width: ${theme.spacings.exa};
-  padding: ${theme.spacings.mega};
-  pointer-events: none;
-`;
-
-const iconBaseStyles = ({ theme }: StyleProps) => css`
-  color: var(--cui-fg-subtle);
-  display: block;
-  z-index: ${theme.zIndex.input + 1};
-  pointer-events: none;
-  position: absolute;
-  height: ${theme.spacings.exa};
-  width: ${theme.spacings.exa};
-  top: 0;
-  right: 0;
-  padding: ${theme.spacings.mega};
-`;
-
-const iconActiveStyles = () => css`
-  select:active ~ & {
-    display: none;
-  }
-`;
-
-const iconInactiveStyles = () => css`
-  select:not(:active) ~ & {
-    display: none;
-  }
-`;
-
-const IconActive = styled(ChevronDown)(iconBaseStyles, iconActiveStyles);
-const IconInactive = styled(ChevronUp)(iconBaseStyles, iconInactiveStyles);
 
 /**
  * A native select component.
  */
-export const Select = forwardRef(
+export const Select = forwardRef<HTMLSelectElement, SelectProps>(
   (
     {
       value,
@@ -240,8 +123,8 @@ export const Select = forwardRef(
       'id': customId,
       'aria-describedby': descriptionId,
       ...props
-    }: SelectProps,
-    ref?: SelectProps['ref'],
+    },
+    ref,
   ): ReturnType => {
     if (
       process.env.NODE_ENV !== 'production' &&
@@ -261,7 +144,7 @@ export const Select = forwardRef(
     }${validationHintId}`;
 
     const prefix = RenderPrefix && (
-      <RenderPrefix css={prefixStyles} value={value} />
+      <RenderPrefix className={classes.prefix} value={value} />
     );
     const hasPrefix = Boolean(prefix);
 
@@ -275,19 +158,22 @@ export const Select = forwardRef(
             required={required}
           />
         </FieldLabel>
-        <SelectWrapper>
+        <div className={classes.wrapper}>
           {prefix}
-          <SelectElement
+          <select
             id={selectId}
             value={value}
             ref={ref}
             aria-describedby={descriptionIds}
-            invalid={invalid}
             aria-invalid={invalid && 'true'}
             required={required}
             disabled={disabled}
-            hasPrefix={hasPrefix}
             defaultValue={defaultValue}
+            className={clsx(
+              classes.base,
+              hasPrefix && classes['has-prefix'],
+              className,
+            )}
             {...props}
           >
             {!value && !defaultValue && (
@@ -307,10 +193,9 @@ export const Select = forwardRef(
                     {optionLabel}
                   </option>
                 )))}
-          </SelectElement>
-          <IconActive size="16" aria-hidden="true" />
-          <IconInactive size="16" aria-hidden="true" />
-        </SelectWrapper>
+          </select>
+          <ChevronDown className={classes.icon} size="16" aria-hidden="true" />
+        </div>
         <FieldValidationHint
           id={validationHintId}
           disabled={disabled}

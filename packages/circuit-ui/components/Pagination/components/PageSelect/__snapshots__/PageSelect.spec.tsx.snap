@@ -2,98 +2,7 @@
 
 exports[`PageSelect > styles > should render with default styles 1`] = `
 HTMLCollection [
-  .circuit-0 {
-  color: var(--cui-fg-normal);
-  display: block;
-  position: relative;
-}
-
-.circuit-1 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  appearance: none;
-  cursor: pointer;
-  background-color: var(--cui-bg-normal);
-  outline: none;
-  border: 0;
-  border-radius: 8px;
-  box-shadow: none;
-  color: var(--cui-fg-normal);
-  margin: 0;
-  padding-top: 12px;
-  padding-right: 48px;
-  padding-bottom: 12px;
-  padding-left: 16px;
-  position: relative;
-  width: 100%;
-  z-index: 20;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
-  box-shadow: 0 0 0 1px var(--cui-border-normal);
-}
-
-.circuit-1:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
-}
-
-.circuit-1::-ms-expand {
-  display: none;
-}
-
-.circuit-1:hover {
-  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
-}
-
-.circuit-1:focus {
-  box-shadow: 0 0 0 2px var(--cui-border-accent);
-}
-
-.circuit-1:active {
-  box-shadow: 0 0 0 1px var(--cui-border-accent);
-}
-
-.circuit-2 {
-  color: var(--cui-fg-subtle);
-  display: block;
-  z-index: 21;
-  pointer-events: none;
-  position: absolute;
-  height: 48px;
-  width: 48px;
-  top: 0;
-  right: 0;
-  padding: 16px;
-}
-
-select:active~.circuit-2 {
-  display: none;
-}
-
-.circuit-3 {
-  color: var(--cui-fg-subtle);
-  display: block;
-  z-index: 21;
-  pointer-events: none;
-  position: absolute;
-  height: 48px;
-  width: 48px;
-  top: 0;
-  right: 0;
-  padding: 16px;
-}
-
-select:not(:active)~.circuit-3 {
-  display: none;
-}
-
-<div
+  <div
     class="_wrapper_7cd753"
   >
     <label
@@ -107,11 +16,11 @@ select:not(:active)~.circuit-3 {
       </span>
     </label>
     <div
-      class="circuit-0"
+      class="_wrapper_183935"
     >
       <select
         aria-describedby=":r1:"
-        class="circuit-1"
+        class="_base_183935"
         id=":r0:"
       >
         <option
@@ -167,7 +76,7 @@ select:not(:active)~.circuit-3 {
       </select>
       <svg
         aria-hidden="true"
-        class="circuit-2"
+        class="_icon_183935"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -176,20 +85,6 @@ select:not(:active)~.circuit-3 {
       >
         <path
           d="M8 11c-.266 0-.52-.104-.71-.29l-4-4A1.013 1.013 0 0 1 3 6a1 1 0 0 1 1-1c.266 0 .52.104.71.29L8 8.58l3.29-3.29c.19-.186.445-.29.71-.29a1 1 0 0 1 1 1c0 .266-.104.52-.29.71l-4 4c-.19.186-.444.29-.71.29z"
-          fill="currentColor"
-        />
-      </svg>
-      <svg
-        aria-hidden="true"
-        class="circuit-3"
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8 5c.266 0 .52.104.71.29l4 4c.186.19.29.444.29.71a1 1 0 0 1-1 1c-.265 0-.52-.104-.71-.29L8 7.42l-3.29 3.29c-.19.186-.444.29-.71.29a1 1 0 0 1-1-1c0-.266.104-.52.29-.71l4-4C7.48 5.104 7.734 5 8 5z"
           fill="currentColor"
         />
       </svg>

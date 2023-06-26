@@ -1,0 +1,107 @@
+.wrapper {
+  position: relative;
+  display: block;
+  color: var(--cui-fg-normal);
+}
+
+.base {
+  position: relative;
+  z-index: var(--cui-z-index-input);
+  width: 100%;
+  padding-top: var(--cui-spacings-kilo);
+  padding-right: var(--cui-spacings-exa);
+  padding-bottom: var(--cui-spacings-kilo);
+  padding-left: var(--cui-spacings-mega);
+  margin: 0;
+  overflow-x: hidden;
+  font-size: var(--cui-typography-body-one-font-size);
+  line-height: var(--cui-typography-body-one-line-height);
+  color: var(--cui-fg-normal);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  appearance: none;
+  cursor: pointer;
+  background-color: var(--cui-bg-normal);
+  border: 0;
+  border-radius: var(--cui-border-radius-byte);
+  outline: none;
+  box-shadow: none;
+  box-shadow: 0 0 0 1px var(--cui-border-normal);
+  transition: box-shadow var(--cui-transitions-default),
+    padding var(--cui-transitions-default);
+}
+
+.base:hover {
+  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
+}
+
+.base:focus {
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
+}
+
+.base:active {
+  box-shadow: 0 0 0 1px var(--cui-border-accent);
+}
+
+.base:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.base::-ms-expand {
+  display: none;
+}
+
+/* Validations */
+
+.base[aria-invalid] {
+  box-shadow: 0 0 0 1px var(--cui-border-danger);
+}
+
+.base[aria-invalid]:hover {
+  box-shadow: 0 0 0 1px var(--cui-border-danger-hovered);
+}
+
+.base[aria-invalid]:focus {
+  box-shadow: 0 0 0 2px var(--cui-border-danger);
+}
+
+.base[aria-invalid]:active {
+  box-shadow: 0 0 0 1px var(--cui-border-danger-pressed);
+}
+
+.has-prefix {
+  padding-left: var(--cui-spacings-exa);
+}
+
+.prefix {
+  position: absolute;
+  z-index: calc(var(--cui-z-index-input) + 1);
+  display: block;
+  width: var(--cui-spacings-exa);
+  height: var(--cui-spacings-exa);
+  padding: var(--cui-spacings-mega);
+  pointer-events: none;
+}
+
+button.prefix,
+.prefix button {
+  pointer-events: auto;
+}
+
+.icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: calc(var(--cui-z-index-input) + 1);
+  display: block;
+  width: var(--cui-spacings-exa);
+  height: var(--cui-spacings-exa);
+  padding: var(--cui-spacings-mega);
+  color: var(--cui-fg-subtle);
+  pointer-events: none;
+}
+
+.base:active ~ .icon {
+  transform: rotate(180deg);
+}
