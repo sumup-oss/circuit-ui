@@ -2106,19 +2106,6 @@ tbody .circuit-4:last-child td {
   overflow-wrap: break-word;
 }
 
-.circuit-16 {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  border-radius: 999999px;
-  display: inline-block;
-  padding: 2px 8px;
-  font-weight: 700;
-  text-align: center;
-  letter-spacing: 0.25px;
-  background-color: var(--cui-bg-highlight);
-  color: var(--cui-fg-normal);
-}
-
 <div
   class="circuit-0"
 >
@@ -2192,8 +2179,9 @@ tbody .circuit-4:last-child td {
             class="circuit-9"
           >
             <div
-              class="circuit-16"
+              class="_base_0e2caf _neutral_0e2caf"
               color="warning"
+              style="--badge-width: auto;"
             >
               Unknown
             </div>

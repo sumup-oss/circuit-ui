@@ -21,47 +21,20 @@ import { render, axe } from '../../util/test-utils.js';
 import { Badge } from './Badge.js';
 
 describe('Badge', () => {
-  /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const { container } = render(<Badge />);
-    expect(container).toMatchSnapshot();
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    const { container } = render(<Badge className={className}>Badge</Badge>);
+    const badge = container.querySelector('div');
+    expect(badge?.className).toContain(className);
   });
 
-  const variants = [
-    'neutral',
-    'success',
-    'warning',
-    'danger',
-    'promo',
-  ] as const;
-
-  it.each(variants)('should render with %s styles', (variant) => {
-    const { container } = render(<Badge variant={variant} />);
-    expect(container).toMatchSnapshot();
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLDivElement>();
+    const { container } = render(<Badge ref={ref}>Badge</Badge>);
+    const badge = container.querySelector('div');
+    expect(ref.current).toBe(badge);
   });
 
-  it('should have the correct circle styles', () => {
-    const { container } = render(<Badge circle />);
-    expect(container).toMatchSnapshot();
-  });
-
-  describe('business logic', () => {
-    /**
-     * Should accept a working ref
-     */
-    it('should accept a working ref', () => {
-      const tref = createRef<HTMLDivElement>();
-      const { container } = render(<Badge ref={tref} />);
-      const div = container.querySelector('div');
-      expect(tref.current).toBe(div);
-    });
-  });
-
-  /**
-   * Accessibility tests.
-   */
   it('should meet accessibility guidelines', async () => {
     const { container } = render(<Badge />);
     const actual = await axe(container);

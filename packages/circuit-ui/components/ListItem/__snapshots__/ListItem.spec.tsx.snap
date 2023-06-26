@@ -673,34 +673,6 @@ exports[`ListItem > styles > should render a ListItem with a custom leading comp
 }
 
 .circuit-2 {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  border-radius: 999999px;
-  display: inline-block;
-  padding: 2px 8px;
-  font-weight: 700;
-  text-align: center;
-  letter-spacing: 0.25px;
-  background-color: var(--cui-bg-danger-strong);
-  color: var(--cui-fg-on-strong);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  padding: 2px 4px;
-  height: 24px;
-  width: 24px;
-}
-
-.circuit-3 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
@@ -715,7 +687,7 @@ exports[`ListItem > styles > should render a ListItem with a custom leading comp
   min-width: 0;
 }
 
-.circuit-4 {
+.circuit-3 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
@@ -733,7 +705,7 @@ exports[`ListItem > styles > should render a ListItem with a custom leading comp
   min-width: 0;
 }
 
-.circuit-5 {
+.circuit-4 {
   max-width: 100%;
   overflow-x: hidden;
   white-space: nowrap;
@@ -747,19 +719,20 @@ exports[`ListItem > styles > should render a ListItem with a custom leading comp
     class="circuit-1"
   >
     <div
-      class="circuit-2"
+      class="_base_0e2caf _danger_0e2caf _circle_0e2caf"
+      style="--badge-width: 24px;"
     >
       3
     </div>
   </div>
   <div
-    class="circuit-3"
+    class="circuit-2"
   >
     <div
-      class="circuit-4"
+      class="circuit-3"
     >
       <p
-        class="_base_537b83 _one_537b83 circuit-5"
+        class="_base_537b83 _one_537b83 circuit-4"
       >
         Label
       </p>
@@ -898,19 +871,6 @@ exports[`ListItem > styles > should render a ListItem with a custom trailing com
   align-items: center;
 }
 
-.circuit-6 {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  border-radius: 999999px;
-  display: inline-block;
-  padding: 2px 8px;
-  font-weight: 700;
-  text-align: center;
-  letter-spacing: 0.25px;
-  background-color: var(--cui-bg-promo-strong);
-  color: var(--cui-fg-on-strong);
-}
-
 <div
   class="circuit-0"
 >
@@ -933,7 +893,8 @@ exports[`ListItem > styles > should render a ListItem with a custom trailing com
         class="circuit-5"
       >
         <div
-          class="circuit-6"
+          class="_base_0e2caf _promo_0e2caf"
+          style="--badge-width: auto;"
         >
           Promo
         </div>
