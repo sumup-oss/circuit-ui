@@ -365,33 +365,6 @@ exports[`ImageInput > Styles > should render with a giga button 1`] = `
 }
 
 .circuit-5 {
-  width: 96px;
-  height: 96px;
-  box-shadow: 0 0 0 1px var(--cui-border-subtle);
-  background-color: var(--cui-bg-subtle);
-  border-radius: 12px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  color: var(--cui-fg-placeholder);
-  font-size: calc(96px / 2);
-  font-weight: 700;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.circuit-6 {
   position: absolute;
   right: -4px;
   bottom: -4px;
@@ -399,12 +372,12 @@ exports[`ImageInput > Styles > should render with a giga button 1`] = `
   pointer-events: none;
 }
 
-.circuit-6 svg {
+.circuit-5 svg {
   width: 14px;
   height: 14px;
 }
 
-.circuit-7 {
+.circuit-6 {
   position: absolute;
   width: 32px;
   height: 32px;
@@ -418,7 +391,7 @@ exports[`ImageInput > Styles > should render with a giga button 1`] = `
   pointer-events: none;
 }
 
-.circuit-8 {
+.circuit-7 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -456,7 +429,7 @@ exports[`ImageInput > Styles > should render with a giga button 1`] = `
         </span>
         <div
           aria-hidden="true"
-          class="circuit-5"
+          class="_base_2eefa5 _yotta_2eefa5"
         >
           <svg
             fill="none"
@@ -475,7 +448,7 @@ exports[`ImageInput > Styles > should render with a giga button 1`] = `
       <button
         aria-hidden="true"
         buttonsize="giga"
-        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _primary_892426 _kilo_f6dd9a circuit-6"
+        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _primary_892426 _kilo_f6dd9a circuit-5"
         tabindex="-1"
         title="-"
         type="button"
@@ -511,10 +484,10 @@ exports[`ImageInput > Styles > should render with a giga button 1`] = `
         </span>
       </button>
       <span
-        class="_base_2b3edd _kilo_2b3edd circuit-7"
+        class="_base_2b3edd _kilo_2b3edd circuit-6"
       >
         <span
-          class="circuit-8"
+          class="circuit-7"
         >
           Uploading
         </span>
@@ -650,23 +623,12 @@ exports[`ImageInput > Styles > should render with an existing image 1`] = `
 }
 
 .circuit-5 {
-  width: 96px;
-  height: 96px;
-  box-shadow: 0 0 0 1px var(--cui-border-subtle);
-  background-color: var(--cui-bg-subtle);
-  border-radius: 12px;
-  display: block;
-  object-fit: cover;
-  object-position: center;
-}
-
-.circuit-6 {
   position: absolute;
   right: -4px;
   bottom: -4px;
 }
 
-.circuit-7 {
+.circuit-6 {
   position: absolute;
   width: 32px;
   height: 32px;
@@ -680,7 +642,7 @@ exports[`ImageInput > Styles > should render with an existing image 1`] = `
   pointer-events: none;
 }
 
-.circuit-8 {
+.circuit-7 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -719,13 +681,13 @@ exports[`ImageInput > Styles > should render with an existing image 1`] = `
         <img
           alt=""
           aria-hidden="true"
-          class="circuit-5"
+          class="_base_2eefa5 _yotta_2eefa5"
           src="/images/illustration-coffee.jpg"
         />
       </label>
       <button
         buttonsize="yotta"
-        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _primary_892426 _destructive_892426 _kilo_f6dd9a circuit-6"
+        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _primary_892426 _destructive_892426 _kilo_f6dd9a circuit-5"
         title="Clear"
         type="button"
       >
@@ -766,10 +728,10 @@ exports[`ImageInput > Styles > should render with an existing image 1`] = `
         </span>
       </button>
       <span
-        class="_base_2b3edd _kilo_2b3edd circuit-7"
+        class="_base_2b3edd _kilo_2b3edd circuit-6"
       >
         <span
-          class="circuit-8"
+          class="circuit-7"
         >
           Uploading
         </span>
@@ -905,40 +867,13 @@ exports[`ImageInput > Styles > should render with default styles 1`] = `
 }
 
 .circuit-5 {
-  width: 96px;
-  height: 96px;
-  box-shadow: 0 0 0 1px var(--cui-border-subtle);
-  background-color: var(--cui-bg-subtle);
-  border-radius: 12px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  color: var(--cui-fg-placeholder);
-  font-size: calc(96px / 2);
-  font-weight: 700;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.circuit-6 {
   position: absolute;
   right: -4px;
   bottom: -4px;
   pointer-events: none;
 }
 
-.circuit-7 {
+.circuit-6 {
   position: absolute;
   width: 32px;
   height: 32px;
@@ -952,7 +887,7 @@ exports[`ImageInput > Styles > should render with default styles 1`] = `
   pointer-events: none;
 }
 
-.circuit-8 {
+.circuit-7 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -990,7 +925,7 @@ exports[`ImageInput > Styles > should render with default styles 1`] = `
         </span>
         <div
           aria-hidden="true"
-          class="circuit-5"
+          class="_base_2eefa5 _yotta_2eefa5"
         >
           <svg
             fill="none"
@@ -1009,7 +944,7 @@ exports[`ImageInput > Styles > should render with default styles 1`] = `
       <button
         aria-hidden="true"
         buttonsize="yotta"
-        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _primary_892426 _kilo_f6dd9a circuit-6"
+        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _primary_892426 _kilo_f6dd9a circuit-5"
         tabindex="-1"
         title="-"
         type="button"
@@ -1045,10 +980,10 @@ exports[`ImageInput > Styles > should render with default styles 1`] = `
         </span>
       </button>
       <span
-        class="_base_2b3edd _kilo_2b3edd circuit-7"
+        class="_base_2b3edd _kilo_2b3edd circuit-6"
       >
         <span
-          class="circuit-8"
+          class="circuit-7"
         >
           Uploading
         </span>
@@ -1196,40 +1131,13 @@ exports[`ImageInput > Styles > should render with invalid styles and an error me
 }
 
 .circuit-5 {
-  width: 96px;
-  height: 96px;
-  box-shadow: 0 0 0 1px var(--cui-border-subtle);
-  background-color: var(--cui-bg-subtle);
-  border-radius: 12px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  color: var(--cui-fg-placeholder);
-  font-size: calc(96px / 2);
-  font-weight: 700;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.circuit-6 {
   position: absolute;
   right: -4px;
   bottom: -4px;
   pointer-events: none;
 }
 
-.circuit-7 {
+.circuit-6 {
   position: absolute;
   width: 32px;
   height: 32px;
@@ -1243,7 +1151,7 @@ exports[`ImageInput > Styles > should render with invalid styles and an error me
   pointer-events: none;
 }
 
-.circuit-8 {
+.circuit-7 {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -1255,7 +1163,7 @@ exports[`ImageInput > Styles > should render with invalid styles and an error me
   width: 1px;
 }
 
-.circuit-9 {
+.circuit-8 {
   font-size: 0.875rem;
   line-height: 1.25rem;
   display: block;
@@ -1266,17 +1174,17 @@ exports[`ImageInput > Styles > should render with invalid styles and an error me
   color: var(--cui-fg-danger);
 }
 
-[disabled] .circuit-9,
-.cui-field-disabled .circuit-9 {
+[disabled] .circuit-8,
+.cui-field-disabled .circuit-8 {
   color: var(--cui-fg-subtle-disabled);
 }
 
-[disabled] .circuit-9,
-.cui-field-disabled .circuit-9 {
+[disabled] .circuit-8,
+.cui-field-disabled .circuit-8 {
   color: var(--cui-fg-danger-disabled);
 }
 
-.circuit-10 {
+.circuit-9 {
   display: inline-block;
   position: relative;
   width: 16px;
@@ -1311,7 +1219,7 @@ exports[`ImageInput > Styles > should render with invalid styles and an error me
         </span>
         <div
           aria-hidden="true"
-          class="circuit-5"
+          class="_base_2eefa5 _yotta_2eefa5"
         >
           <svg
             fill="none"
@@ -1330,7 +1238,7 @@ exports[`ImageInput > Styles > should render with invalid styles and an error me
       <button
         aria-hidden="true"
         buttonsize="yotta"
-        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _primary_892426 _kilo_f6dd9a circuit-6"
+        class="_base_892426 _focus-visible_73b4bb _kilo_892426 _primary_892426 _kilo_f6dd9a circuit-5"
         tabindex="-1"
         title="-"
         type="button"
@@ -1366,10 +1274,10 @@ exports[`ImageInput > Styles > should render with invalid styles and an error me
         </span>
       </button>
       <span
-        class="_base_2b3edd _kilo_2b3edd circuit-7"
+        class="_base_2b3edd _kilo_2b3edd circuit-6"
       >
         <span
-          class="circuit-8"
+          class="circuit-7"
         >
           Uploading
         </span>
@@ -1380,11 +1288,11 @@ exports[`ImageInput > Styles > should render with invalid styles and an error me
       role="status"
     >
       <span
-        class="circuit-9"
+        class="circuit-8"
         id=":r5:"
       >
         <div
-          class="circuit-10"
+          class="circuit-9"
         >
           <svg
             fill="none"

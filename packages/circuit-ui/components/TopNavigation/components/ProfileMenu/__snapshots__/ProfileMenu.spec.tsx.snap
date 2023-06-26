@@ -63,14 +63,6 @@ exports[`ProfileMenu > Styles > should render with a profile picture 1`] = `
 }
 
 .circuit-3 {
-  width: 96px;
-  height: 96px;
-  box-shadow: 0 0 0 1px var(--cui-border-subtle);
-  background-color: var(--cui-bg-subtle);
-  border-radius: 100%;
-  display: block;
-  object-fit: cover;
-  object-position: center;
   width: 24px;
   height: 24px;
 }
@@ -150,7 +142,7 @@ exports[`ProfileMenu > Styles > should render with a profile picture 1`] = `
       >
         <img
           alt=""
-          class="circuit-3"
+          class="_base_2eefa5 _yotta_2eefa5 _identity_2eefa5 circuit-3"
           src="profile.png"
         />
       </span>

@@ -15,16 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { render, axe } from '../../util/test-utils.js';
+import { render, axe, screen } from '../../util/test-utils.js';
 
 import { Avatar, AvatarProps } from './Avatar.js';
-
-const sizes = ['giga', 'yotta'] as const;
-const variants = ['object', 'identity'] as const;
-const images = {
-  object: '/images/illustration-coffee.jpg',
-  identity: '/images/illustration-cat.jpg',
-};
 
 const defaultProps = {
   alt: '',
@@ -35,83 +28,50 @@ describe('Avatar', () => {
     return render(<Avatar {...props} />, options);
   }
 
-  describe('Styles', () => {
-    it('should render with default styles', () => {
-      const { container } = renderAvatar();
-      expect(container).toMatchSnapshot();
+  it('should render with an image', () => {
+    const src = '/images/illustration-coffee.jpg';
+    renderAvatar({ src, variant: 'identity', alt: '' });
+    const image = screen.getByRole('img');
+    expect(image).toBeVisible();
+    expect(image).toHaveAttribute('src', src);
+  });
+
+  it('should render with initials', () => {
+    renderAvatar({ initials: 'JD', variant: 'identity', alt: '' });
+    expect(screen.getByText('JD')).toBeVisible();
+  });
+
+  describe('when alt text is passed', () => {
+    const altText = 'Alternative text';
+
+    it('should have no violations', async () => {
+      const { container } = renderAvatar({ alt: altText });
+      const actual = await axe(container);
+      expect(actual).toHaveNoViolations();
     });
 
-    it.each(sizes)('should render the %s size', (size) => {
-      const { container } = renderAvatar({
-        size,
-        alt: '',
-      });
-      expect(container).toMatchSnapshot();
-    });
-
-    it.each(variants)(
-      'should render the %s variant with an image',
-      (variant) => {
-        const { container } = renderAvatar({
-          src: images[variant],
-          variant,
-          alt: '',
-        });
-        expect(container).toMatchSnapshot();
-      },
-    );
-
-    it.each(variants)('should render the %s variant placeholder', (variant) => {
-      const { container } = renderAvatar({
-        variant,
-        alt: '',
-      });
-      expect(container).toMatchSnapshot();
-    });
-
-    it('should render the identity variant with initials', () => {
-      const { container } = renderAvatar({
-        variant: 'identity',
-        alt: '',
-        initials: 'JD',
-      });
-      expect(container).toMatchSnapshot();
+    it('should have role=img and an accessible name', () => {
+      const { getByRole } = renderAvatar({ alt: altText });
+      const avatarEl = getByRole('img');
+      expect(avatarEl).toHaveAccessibleName(altText);
     });
   });
 
-  describe('Accessibility', () => {
-    describe('when alt text is passed', () => {
-      const altText = 'Alternative text';
-
-      it('should have no violations', async () => {
-        const { container } = renderAvatar({ alt: altText });
-        const actual = await axe(container);
-        expect(actual).toHaveNoViolations();
-      });
-
-      it('should have role=img and an accessible name', () => {
-        const { getByRole } = renderAvatar({ alt: altText });
-        const avatarEl = getByRole('img');
-        expect(avatarEl).toHaveAccessibleName(altText);
-      });
+  describe('when alt is an empty string', () => {
+    it('should have no violations', async () => {
+      const { container } = renderAvatar();
+      const actual = await axe(container);
+      expect(actual).toHaveNoViolations();
     });
 
-    describe('when alt is an empty string', () => {
-      it('should have no violations', async () => {
-        const { container } = renderAvatar();
-        const actual = await axe(container);
-        expect(actual).toHaveNoViolations();
-      });
+    it('should not be in the accessibility tree', () => {
+      const { queryByRole, container } = renderAvatar();
 
-      it('should not be in the accessibility tree', () => {
-        const { queryByRole, container } = renderAvatar();
+      const avatarWithAlternativeText = queryByRole('img');
+      expect(avatarWithAlternativeText).not.toBeInTheDocument();
 
-        const avatarWithAlternativeText = queryByRole('img');
-        expect(avatarWithAlternativeText).not.toBeInTheDocument();
-
-        const avatarEl = container.querySelector('[aria-hidden=true]');
-        expect(avatarEl).toBeInTheDocument();
-      });
+      const avatarEl = container.querySelector('[aria-hidden=true]');
+      expect(avatarEl).toBeInTheDocument();
     });
   });
 });
