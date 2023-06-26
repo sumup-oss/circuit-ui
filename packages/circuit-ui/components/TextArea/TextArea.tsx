@@ -14,13 +14,14 @@
  */
 
 import { forwardRef, useRef } from 'react';
-import { css } from '@emotion/react';
 
 import Input from '../Input/index.js';
-import { InputElement, InputProps } from '../Input/Input.js';
+import type { InputElement, InputProps } from '../Input/index.js';
 import { applyMultipleRefs } from '../../util/refs.js';
+import { clsx } from '../../styles/clsx.js';
 
 import { useAutoExpand } from './useAutoExpand.js';
+import classes from './TextArea.module.css';
 
 export type TextAreaProps = Omit<InputProps, 'rows'> & {
   /**
@@ -35,26 +36,20 @@ export type TextAreaProps = Omit<InputProps, 'rows'> & {
   minRows?: InputProps['rows'];
 };
 
-const textAreaStyles = css`
-  vertical-align: top;
-  overflow: auto;
-  resize: vertical;
-`;
-
 /**
  * TextArea component for forms.
  */
 export const TextArea = forwardRef<InputElement, TextAreaProps>(
-  (props, passedRef) => {
+  ({ inputClassName, ...props }, ref) => {
     const localRef = useRef<InputElement>(null);
     const modifiedProps = useAutoExpand(localRef, props);
 
     return (
       <Input
         {...modifiedProps}
-        inputStyles={textAreaStyles}
+        inputClassName={clsx(classes.base, inputClassName)}
         as="textarea"
-        ref={applyMultipleRefs(localRef, passedRef)}
+        ref={applyMultipleRefs(localRef, ref)}
       />
     );
   },

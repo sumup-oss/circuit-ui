@@ -15,6 +15,8 @@
 
 import { useState, ChangeEvent } from 'react';
 
+import type { InputElement } from '../Input/index.js';
+
 import { SearchInput, SearchInputProps } from './SearchInput.js';
 
 export default {
@@ -25,30 +27,12 @@ export default {
   },
 };
 
-const baseArgs = {
-  placeholder: 'Type a word...',
-  label: 'Search',
-  onClear: null, // by default on* functions send Storybook actions, and trigger accessibility errors
-};
-
-export const Base = (args: SearchInputProps): JSX.Element => (
-  <SearchInput {...args} />
-);
-
-Base.args = baseArgs;
-
-export const Disabled = (args: SearchInputProps): JSX.Element => (
-  <SearchInput {...args} />
-);
-
-Disabled.args = { ...baseArgs, disabled: true };
-
-export const Clearable = (args: SearchInputProps): JSX.Element => {
+export const Base = (args: SearchInputProps): JSX.Element => {
   const [value, setValue] = useState('');
 
   const handleChange = ({
     target: { value: inputValue },
-  }: ChangeEvent<HTMLInputElement>) => {
+  }: ChangeEvent<InputElement>) => {
     setValue(inputValue);
   };
 
@@ -67,4 +51,8 @@ export const Clearable = (args: SearchInputProps): JSX.Element => {
   );
 };
 
-Clearable.args = baseArgs;
+Base.args = {
+  placeholder: 'Type a word...',
+  label: 'Search',
+  onClear: null, // by default on* functions send Storybook actions, and trigger accessibility errors
+};

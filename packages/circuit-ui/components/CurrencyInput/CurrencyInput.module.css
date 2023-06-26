@@ -1,0 +1,6 @@
+.currency {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: var(--cui-spacings-mega);
+}

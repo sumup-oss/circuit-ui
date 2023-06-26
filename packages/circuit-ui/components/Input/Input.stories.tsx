@@ -13,9 +13,7 @@
  * limitations under the License.
  */
 
-import { css } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
-
+import { Stack } from '../../../../.storybook/components/index.js';
 import SearchInput from '../SearchInput/index.js';
 import CurrencyInput from '../CurrencyInput/index.js';
 import DateInput from '../DateInput/index.js';
@@ -32,63 +30,47 @@ export default {
   },
 };
 
-const inputStyles = css`
-  max-width: 250px;
-`;
-
 const baseArgs = {
   label: 'First name',
   placeholder: 'Jane',
   validationHint: 'Maximum 100 characters',
 };
 
-export const Base = (args: InputProps) => <Input {...args} css={inputStyles} />;
+export const Base = (args: InputProps) => <Input {...args} />;
 
 Base.args = baseArgs;
 
-export const Valid = (args: InputProps) => (
-  <Input {...args} css={inputStyles} />
+export const Validations = (args: InputProps) => (
+  <Stack>
+    <Input {...args} validationHint="This field is required." invalid />
+    <Input
+      {...args}
+      defaultValue="poop"
+      validationHint="C'mon. Choose an appropriate name."
+      hasWarning
+    />
+    <Input
+      {...args}
+      defaultValue="john.doe"
+      validationHint="Yay! That username is available."
+      showValid
+    />
+  </Stack>
 );
 
-Valid.args = {
+Validations.args = {
   label: 'Username',
   placeholder: 'jane123',
-  validationHint: 'Yay! That username is available.',
-  showValid: true,
 };
 
-export const Invalid = (args: InputProps) => (
-  <Input {...args} css={inputStyles} />
-);
-
-Invalid.args = {
-  ...baseArgs,
-  validationHint: 'This field is required.',
-  invalid: true,
-};
-
-export const Warning = (args: InputProps) => (
-  <Input {...args} css={inputStyles} />
-);
-
-Warning.args = {
-  ...baseArgs,
-  validationHint: 'This does not look right.',
-  hasWarning: true,
-};
-
-export const Optional = (args: InputProps) => (
-  <Input {...args} css={inputStyles} />
-);
+export const Optional = (args: InputProps) => <Input {...args} />;
 
 Optional.args = {
   ...baseArgs,
   optionalLabel: 'optional',
 };
 
-export const Readonly = (args: InputProps) => (
-  <Input {...args} css={inputStyles} />
-);
+export const Readonly = (args: InputProps) => <Input {...args} />;
 
 Readonly.args = {
   ...baseArgs,
@@ -98,9 +80,7 @@ Readonly.args = {
   readOnly: true,
 };
 
-export const Disabled = (args: InputProps) => (
-  <Input {...args} css={inputStyles} />
-);
+export const Disabled = (args: InputProps) => <Input {...args} />;
 
 Disabled.args = {
   ...baseArgs,
@@ -108,25 +88,14 @@ Disabled.args = {
   disabled: true,
 };
 
-export const RightAligned = (args: InputProps) => (
-  <Input {...args} css={inputStyles} />
-);
-
-RightAligned.args = {
-  ...baseArgs,
-  textAlign: 'right',
-};
-
-const inlineInputs = (theme: Theme) => css`
-  display: flex;
-
-  > *:not(:last-child) {
-    margin-right: ${theme.spacings.mega};
-  }
-`;
-
 export const Inline = (args: InputProps) => (
-  <div css={inlineInputs}>
+  <div
+    style={{
+      display: 'grid',
+      gap: 'var(--cui-spacings-mega)',
+      gridTemplateColumns: 'repeat(2, 1fr)',
+    }}
+  >
     <Input {...args} label="First name" placeholder="Jane" />
     <Input {...args} label="Last name" placeholder="Doe" />
   </div>
@@ -134,9 +103,7 @@ export const Inline = (args: InputProps) => (
 
 Inline.args = baseArgs;
 
-export const HiddenLabel = (args: InputProps) => (
-  <Input {...args} css={inputStyles} />
-);
+export const HiddenLabel = (args: InputProps) => <Input {...args} />;
 
 HiddenLabel.args = {
   ...baseArgs,

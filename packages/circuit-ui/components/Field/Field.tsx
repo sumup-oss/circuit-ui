@@ -25,6 +25,7 @@ import { clsx } from '../../styles/clsx.js';
 import utilityClasses from '../../styles/utility.js';
 
 import classes from './Field.module.css';
+import { getFieldValidity } from './FieldService.js';
 
 export interface FieldWrapperProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -168,26 +169,6 @@ const icons = {
   valid: Confirm,
 };
 
-const getValidity = (props: FieldValidationHintProps) => {
-  switch (true) {
-    case props.disabled: {
-      return null;
-    }
-    case props.invalid: {
-      return 'invalid';
-    }
-    case props.hasWarning: {
-      return 'warning';
-    }
-    case props.showValid: {
-      return 'valid';
-    }
-    default: {
-      return null;
-    }
-  }
-};
-
 /**
  * @private
  */
@@ -200,7 +181,12 @@ export const FieldValidationHint = ({
   disabled,
   ...props
 }: FieldValidationHintProps): JSX.Element | null => {
-  const validity = getValidity({ hasWarning, showValid, invalid, disabled });
+  const validity = getFieldValidity({
+    hasWarning,
+    showValid,
+    invalid,
+    disabled,
+  });
   const Icon = validity && icons[validity];
   const hasMessage = Boolean(validationHint);
   const isStatusMessage = Boolean(validity);

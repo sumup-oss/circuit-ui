@@ -14,10 +14,12 @@
  */
 
 import { forwardRef, useState, useEffect } from 'react';
-import { css } from '@emotion/react';
 import { PatternFormat } from 'react-number-format';
 
-import { Input, InputProps } from '../Input/Input.js';
+import Input, { InputElement, InputProps } from '../Input/index.js';
+import { clsx } from '../../styles/clsx.js';
+
+import classes from './DateInput.module.css';
 
 export interface DateInputProps
   extends Omit<
@@ -34,17 +36,12 @@ export interface DateInputProps
   defaultValue?: string | number;
 }
 
-const dateInputStyles = css`
-  height: 48px;
-  min-width: 8ch;
-`;
-
 /**
  * DateInput component for forms.
  * The input value is always a string in the format `YYYY-MM-DD`.
  */
-export const DateInput = forwardRef(
-  (props: Omit<DateInputProps, 'ref'>, ref: DateInputProps['ref']) => {
+export const DateInput = forwardRef<InputElement, DateInputProps>(
+  ({ inputClassName, ...props }, ref) => {
     // When server-side rendering, we assume that the user's browser supports
     // the native date input.
     const [supportsDate, setSupportsDate] = useState(true);
@@ -84,7 +81,7 @@ export const DateInput = forwardRef(
       <Input
         {...props}
         ref={ref}
-        inputStyles={dateInputStyles}
+        inputClassName={clsx(classes.base, inputClassName)}
         type="date"
         pattern="\d{4}-\d{2}-\d{2}"
         placeholder={placeholder}

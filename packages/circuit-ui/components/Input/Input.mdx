@@ -29,7 +29,15 @@ first name, phone number, street name, etc.
   We assume that everything is required for the user unless explicitly said so.
 - **Do not** mark required fields with asterisks.
 
-## Component variations
+## Validations
+
+Use the `validationHint` to communicate the expected response to users. Communicate validation issues to users with the following props:
+
+- `invalid`: The user needs to change the value to proceed.
+- `hasWarning`: The user is recommended to change the value, but can proceed without doing so. Use it when the provided value could have unintended side-effects.
+- `showValid`: The user is reassured that the value is valid. Use sparingly.
+
+<Story of={Stories.Validations} />
 
 ### Optional
 
@@ -41,36 +49,17 @@ Mark optional text fields instead of mandatory ones. Do not use the asterisk cha
 
 You should use only when its a critical information from the user that we
 already have or need and we do not want the user to edit it easily. A disabled
-field should only be open for editing again if a CTA is clicked.
+field should only be open for editing again if a button is clicked.
 
 <Story of={Stories.Disabled} />
-
-### Invalid
-
-When you have a validation logic behind information that is required in
-order to continue the form flow.
-
-<Story of={Stories.Invalid} />
 
 #### Usage guidelines
 
 - **Do** try to tell that a text input is not valid as soon as we realize it.
 - **Do** display the error message that corresponds to the input above the input field.
-- **Do** use passive voice in the error message to avoid giving direct blame to
-  our users, eg "Password is required" instead of "You didn't set a password"
-- **Do not** use long sentences to describe why something is invalid, be direct
-  and tell the user how to fix it.
-- **Do not** place validation descriptions for formatting such as "Use only
-  numbers". We should always try to take care of this automatically for our users
-  (such as eliminating space in credit card inputs)
-
-### Warning
-
-Use it when the information that the user inserted, due to our automatic
-validations, can affect another setting or attribute of the user's account we
-should warn him on the spot (without having to submit before)
-
-<Story of={Stories.Warning} />
+- **Do** use passive voice in the error message to avoid giving direct blame to our users, for example "Password is required" instead of "You didn't set a password"
+- **Do not** use long sentences to describe why something is invalid, be direct and tell the user how to fix it.
+- **Do not** place validation descriptions for formatting such as "Use only numbers". We should always try to take care of this automatically for our users (such as eliminating space in credit card inputs)
 
 ## Placeholder
 

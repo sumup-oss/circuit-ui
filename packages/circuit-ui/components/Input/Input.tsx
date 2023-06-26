@@ -14,17 +14,13 @@
  */
 
 import {
+  ComponentType,
   forwardRef,
-  Ref,
   InputHTMLAttributes,
   TextareaHTMLAttributes,
   useId,
 } from 'react';
-import { css, Interpolation } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
 
-import styled, { StyleProps } from '../../styles/styled.js';
-import { typography, inputOutline } from '../../styles/style-mixins.js';
 import {
   FieldWrapper,
   FieldLabel,
@@ -33,10 +29,14 @@ import {
 } from '../Field/index.js';
 import { ReturnType } from '../../types/return-type.js';
 import { AccessibilityError } from '../../util/errors.js';
+import { clsx } from '../../styles/clsx.js';
+
+import classes from './Input.module.css';
 
 export type InputElement = HTMLInputElement & HTMLTextAreaElement;
 type CircuitInputHTMLAttributes = InputHTMLAttributes<HTMLInputElement> &
   TextareaHTMLAttributes<HTMLTextAreaElement>;
+
 export interface InputProps extends CircuitInputHTMLAttributes {
   /**
    * A clear and concise description of the input purpose.
@@ -55,12 +55,12 @@ export interface InputProps extends CircuitInputHTMLAttributes {
    * Render prop that should render a left-aligned overlay icon or element.
    * Receives a className prop.
    */
-  renderPrefix?: ({ className }: { className?: string }) => JSX.Element | null;
+  renderPrefix?: ComponentType<{ className?: string }>;
   /**
    * Render prop that should render a right-aligned overlay icon or element.
    * Receives a className prop.
    */
-  renderSuffix?: ({ className }: { className?: string }) => JSX.Element | null;
+  renderSuffix?: ComponentType<{ className?: string }>;
   /**
    * An information, warning or error message, displayed below the input.
    */
@@ -96,139 +96,15 @@ export interface InputProps extends CircuitInputHTMLAttributes {
    */
   hideLabel?: boolean;
   /**
-   * Emotion style object to overwrite the input element styles.
+   * Class to overwrite the input element styles.
    */
-  inputStyles?: Interpolation<Theme>;
-  /**
-   * The ref to the HTML DOM element
-   */
-  ref?: Ref<InputElement>;
+  inputClassName?: string;
 }
-
-const wrapperStyles = () => css`
-  position: relative;
-`;
-
-const InputWrapper = styled('div')(wrapperStyles);
-
-type InputElProps = Omit<InputProps, 'label'> & {
-  hasPrefix: boolean;
-  hasSuffix: boolean;
-};
-
-const inputBaseStyles = ({ theme }: StyleProps) => css`
-  -webkit-appearance: none;
-  background-color: var(--cui-bg-normal);
-  border: none;
-  outline: 0;
-  border-radius: ${theme.borderRadius.byte};
-  padding: ${theme.spacings.kilo} ${theme.spacings.mega};
-  transition: box-shadow ${theme.transitions.default},
-    padding ${theme.transitions.default};
-  width: 100%;
-  margin: 0;
-
-  &::placeholder {
-    color: var(--cui-fg-placeholder);
-    transition: color ${theme.transitions.default};
-  }
-`;
-
-const inputWarningStyles = ({ hasWarning, disabled }: InputElProps) =>
-  !disabled &&
-  hasWarning &&
-  css`
-    &:not(:focus)::placeholder {
-      color: var(--cui-fg-warning);
-    }
-  `;
-
-const inputInvalidStyles = ({ invalid, disabled }: InputElProps) =>
-  !disabled &&
-  invalid &&
-  css`
-    &:not(:focus)::placeholder {
-      color: var(--cui-fg-danger);
-    }
-  `;
-
-const inputReadonlyStyles = ({ readOnly }: InputElProps) =>
-  readOnly &&
-  css`
-    background-color: var(--cui-bg-subtle-disabled);
-  `;
-
-const inputDisabledStyles = css`
-  &:disabled,
-  &[disabled] {
-    background-color: var(--cui-bg-normal-disabled);
-  }
-`;
-
-const inputTextAlignRightStyles = ({ textAlign }: InputElProps) =>
-  textAlign === 'right' &&
-  css`
-    text-align: right;
-  `;
-
-const inputPrefixStyles = ({ theme, hasPrefix }: StyleProps & InputElProps) =>
-  hasPrefix &&
-  css`
-    padding-left: ${theme.spacings.exa};
-  `;
-
-const inputSuffixStyles = ({ theme, hasSuffix }: StyleProps & InputElProps) =>
-  hasSuffix &&
-  css`
-    padding-right: ${theme.spacings.exa};
-  `;
-
-const StyledInput = styled('input')<InputElProps>(
-  typography('one'),
-  inputBaseStyles,
-  inputWarningStyles,
-  inputInvalidStyles,
-  inputTextAlignRightStyles,
-  inputReadonlyStyles,
-  inputDisabledStyles,
-  inputPrefixStyles,
-  inputSuffixStyles,
-  inputOutline,
-);
-
-/**
- * Used with css prop directly, so it does not require prop
- * destructuring.
- */
-const prefixStyles = (theme: Theme) => css`
-  position: absolute;
-  pointer-events: none;
-  color: var(--cui-fg-subtle);
-  padding: ${theme.spacings.kilo} ${theme.spacings.mega};
-  height: ${theme.spacings.exa};
-  width: ${theme.spacings.exa};
-`;
-
-/**
- * Used with css prop directly, so it does not require prop
- * destructuring.
- */
-const suffixStyles = (theme: Theme) => css`
-  position: absolute;
-  top: 0;
-  right: 0;
-  pointer-events: none;
-  color: var(--cui-fg-subtle);
-  padding: ${theme.spacings.kilo} ${theme.spacings.mega};
-  height: ${theme.spacings.exa};
-  width: ${theme.spacings.exa};
-  transition: right ${theme.transitions.default};
-`;
 
 /**
  * Input component for forms. Takes optional prefix and suffix as render props.
  */
-export const Input = forwardRef(
+export const Input = forwardRef<InputElement, InputProps>(
   (
     {
       value,
@@ -241,8 +117,9 @@ export const Input = forwardRef(
       hasWarning,
       showValid,
       disabled,
-      inputStyles,
-      as,
+      textAlign,
+      inputClassName,
+      'as': Element = 'input',
       label,
       hideLabel,
       'id': customId,
@@ -250,8 +127,8 @@ export const Input = forwardRef(
       style,
       'aria-describedby': descriptionId,
       ...props
-    }: InputProps,
-    ref: InputProps['ref'],
+    },
+    ref,
   ): ReturnType => {
     if (
       process.env.NODE_ENV !== 'production' &&
@@ -272,8 +149,8 @@ export const Input = forwardRef(
       descriptionId ? `${descriptionId} ` : ''
     }${validationHintId}`;
 
-    const prefix = RenderPrefix && <RenderPrefix css={prefixStyles} />;
-    const suffix = RenderSuffix && <RenderSuffix css={suffixStyles} />;
+    const prefix = RenderPrefix && <RenderPrefix className={classes.prefix} />;
+    const suffix = RenderSuffix && <RenderSuffix className={classes.suffix} />;
 
     const hasPrefix = Boolean(prefix);
     const hasSuffix = Boolean(suffix);
@@ -288,26 +165,28 @@ export const Input = forwardRef(
             required={required}
           />
         </FieldLabel>
-        <InputWrapper>
+        <div className={classes.wrapper}>
           {prefix}
-          <StyledInput
-            as={as}
+          <Element
             id={inputId}
             value={value}
             ref={ref}
             aria-describedby={descriptionIds}
-            invalid={invalid}
+            className={clsx(
+              classes.base,
+              !disabled && hasWarning && classes.warning,
+              textAlign === 'right' && classes['align-right'],
+              hasPrefix && classes['has-prefix'],
+              hasSuffix && classes['has-suffix'],
+              inputClassName,
+            )}
             aria-invalid={invalid && 'true'}
             required={required}
             disabled={disabled}
-            hasWarning={hasWarning}
-            hasPrefix={hasPrefix}
-            hasSuffix={hasSuffix}
-            css={inputStyles}
             {...props}
           />
           {suffix}
-        </InputWrapper>
+        </div>
         <FieldValidationHint
           id={validationHintId}
           disabled={disabled}

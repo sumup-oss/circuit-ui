@@ -1,0 +1,5 @@
+.base {
+  overflow: auto;
+  vertical-align: top;
+  resize: vertical;
+}

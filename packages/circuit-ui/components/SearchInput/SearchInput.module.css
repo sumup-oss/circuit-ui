@@ -1,0 +1,12 @@
+.base::-webkit-search-decoration,
+.base::-webkit-search-cancel-button,
+.base::-webkit-search-results-button,
+.base::-webkit-search-results-decoration {
+  appearance: none;
+}
+
+.clear-button {
+  padding: var(--cui-spacings-mega);
+  border: none;
+  border-radius: var(--cui-border-radius-byte);
+}

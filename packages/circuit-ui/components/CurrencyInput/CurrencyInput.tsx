@@ -13,15 +13,15 @@
  * limitations under the License.
  */
 
-import { Ref, forwardRef, useId } from 'react';
+import { forwardRef, useId } from 'react';
 import { resolveCurrencyFormat } from '@sumup/intl';
-import { NumericFormat, NumericFormatProps } from 'react-number-format';
+import { NumericFormat } from 'react-number-format';
 
-import styled from '../../styles/styled.js';
-import Input from '../Input/index.js';
-import { InputProps } from '../Input/Input.js';
+import { clsx } from '../../styles/clsx.js';
+import Input, { InputElement, InputProps } from '../Input/index.js';
 
 import { formatPlaceholder } from './CurrencyInputService.js';
+import classes from './CurrencyInput.module.css';
 
 export interface CurrencyInputProps
   extends Omit<
@@ -45,10 +45,6 @@ export interface CurrencyInputProps
    */
   placeholder?: string | number;
   /**
-   * The ref to the HTML DOM element.
-   */
-  ref?: Ref<NumericFormatProps<InputProps>>;
-  /**
    * The value of the input element.
    */
   value?: string | number;
@@ -69,19 +65,12 @@ const DEFAULT_FORMAT = {
 
 const DUMMY_DELIMITER = '?';
 
-const CurrencyIcon = styled('span')`
-  line-height: ${({ theme }) => theme.spacings.mega};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 /**
  * CurrencyInput component for forms. Automatically looks up symbols and places
  * the symbol according to the locale. The corresponding service exports a
  * parser for formatting values automatically.
  */
-export const CurrencyInput = forwardRef(
+export const CurrencyInput = forwardRef<InputElement, CurrencyInputProps>(
   (
     {
       locale,
@@ -89,8 +78,8 @@ export const CurrencyInput = forwardRef(
       placeholder,
       'aria-describedby': descriptionId,
       ...props
-    }: CurrencyInputProps,
-    ref: CurrencyInputProps['ref'],
+    },
+    ref,
   ) => {
     const currencySymbolId = useId();
     const descriptionIds = `${
@@ -121,18 +110,26 @@ export const CurrencyInput = forwardRef(
     const renderPrefix =
       currencyPosition === 'prefix'
         ? (prefixProps: { className?: string }) => (
-            <CurrencyIcon {...prefixProps} id={currencySymbolId}>
+            <span
+              {...prefixProps}
+              className={clsx(prefixProps.className, classes.currency)}
+              id={currencySymbolId}
+            >
               {currencySymbol}
-            </CurrencyIcon>
+            </span>
           )
         : undefined;
 
     const renderSuffix =
       currencyPosition === 'suffix'
         ? (suffixProps: { className?: string }) => (
-            <CurrencyIcon {...suffixProps} id={currencySymbolId}>
+            <span
+              {...suffixProps}
+              className={clsx(suffixProps.className, classes.currency)}
+              id={currencySymbolId}
+            >
               {currencySymbol}
-            </CurrencyIcon>
+            </span>
           )
         : undefined;
 
