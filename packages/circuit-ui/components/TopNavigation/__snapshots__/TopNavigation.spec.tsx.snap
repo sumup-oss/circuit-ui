@@ -49,8 +49,6 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
 }
 
 .circuit-3 {
-  border: 0;
-  padding: 12px;
   padding: 16px;
   border-radius: 0;
   border-right: 1px solid var(--cui-border-divider)!important;
@@ -78,95 +76,41 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
 .circuit-4 {
   display: inline-block;
   line-height: 0;
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-transform: translateY(-1px);
-  -moz-transform: translateY(-1px);
-  -ms-transform: translateY(-1px);
-  transform: translateY(-1px);
-  width: 24px;
-  height: 24px;
 }
 
 .circuit-5 {
-  top: 50%;
-  width: 22px;
-}
-
-.circuit-5,
-.circuit-5::after,
-.circuit-5::before {
-  background-color: currentColor;
-  border-radius: 1px;
-  display: block;
-  height: 2px;
-  position: absolute;
-  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,-webkit-transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-  transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-}
-
-.circuit-5::before,
-.circuit-5::after {
-  top: 0;
-  content: '';
-}
-
-.circuit-5::before {
-  -webkit-transform: translateY(-7px);
-  -moz-transform: translateY(-7px);
-  -ms-transform: translateY(-7px);
-  transform: translateY(-7px);
-  width: calc(22px * 0.64);
-}
-
-.circuit-5::after {
-  -webkit-transform: translateY(7px);
-  -moz-transform: translateY(7px);
-  -ms-transform: translateY(7px);
-  transform: translateY(7px);
-  width: calc(22px * 0.82);
-}
-
-.circuit-6 {
   height: 56px;
 }
 
-.circuit-6>* {
+.circuit-5>* {
   display: block;
   height: inherit;
   line-height: 0;
   padding: 16px;
 }
 
-.circuit-6 a:focus,
-.circuit-6 button:focus {
+.circuit-5 a:focus,
+.circuit-5 button:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-6 a:focus::-moz-focus-inner,
-.circuit-6 button:focus::-moz-focus-inner {
+.circuit-5 a:focus::-moz-focus-inner,
+.circuit-5 button:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-6 a:focus:not(:focus-visible),
-.circuit-6 button:focus:not(:focus-visible) {
+.circuit-5 a:focus:not(:focus-visible),
+.circuit-5 button:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-6 svg {
+.circuit-5 svg {
   color: var(--cui-fg-normal);
   height: 24px;
 }
 
-.circuit-7 {
+.circuit-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -178,7 +122,7 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
   height: 100%;
 }
 
-.circuit-7[aria-busy='true'] {
+.circuit-6[aria-busy='true'] {
   pointer-events: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -186,7 +130,7 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
   user-select: none;
 }
 
-.circuit-8 {
+.circuit-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -197,7 +141,7 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
   align-items: center;
 }
 
-.circuit-9 {
+.circuit-8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -221,37 +165,37 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
   border-left: 1px solid var(--cui-border-divider);
 }
 
-.circuit-9:hover {
+.circuit-8:hover {
   background-color: var(--cui-bg-normal-hovered);
   color: var(--cui-fg-normal-hovered);
 }
 
-.circuit-9:active {
+.circuit-8:active {
   background-color: var(--cui-bg-normal-pressed);
   color: var(--cui-fg-normal-pressed);
 }
 
-.circuit-9:focus {
+.circuit-8:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-9:focus::-moz-focus-inner {
+.circuit-8:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-9:focus:not(:focus-visible) {
+.circuit-8:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-9:disabled,
-.circuit-9[disabled] {
+.circuit-8:disabled,
+.circuit-8[disabled] {
   pointer-events: none;
   background-color: var(--cui-bg-normal-disabled);
   color: var(--cui-fg-normal-disabled);
 }
 
-.circuit-10 {
+.circuit-9 {
   display: inline-block;
   line-height: 0;
   -webkit-flex-shrink: 0;
@@ -262,18 +206,13 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
 }
 
 @media (min-width: 480px) {
-  .circuit-10 {
+  .circuit-9 {
     margin-right: 8px;
   }
 }
 
-.circuit-11 {
-  display: inline-block;
-  line-height: 0;
-}
-
 @media (max-width: 479px) {
-  .circuit-12 {
+  .circuit-11 {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -286,11 +225,11 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
   }
 }
 
-.circuit-13 {
+.circuit-12 {
   display: inline-block;
 }
 
-.circuit-14 {
+.circuit-13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -312,38 +251,38 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
   border-left: 1px solid var(--cui-border-divider);
 }
 
-.circuit-14:hover {
+.circuit-13:hover {
   background-color: var(--cui-bg-normal-hovered);
   color: var(--cui-fg-normal-hovered);
 }
 
-.circuit-14:active {
+.circuit-13:active {
   background-color: var(--cui-bg-normal-pressed);
   color: var(--cui-fg-normal-pressed);
 }
 
-.circuit-14:focus {
+.circuit-13:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-14:focus::-moz-focus-inner {
+.circuit-13:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-14:focus:not(:focus-visible) {
+.circuit-13:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-14:disabled,
-.circuit-14[disabled] {
+.circuit-13:disabled,
+.circuit-13[disabled] {
   pointer-events: none;
   background-color: var(--cui-bg-normal-disabled);
   color: var(--cui-fg-normal-disabled);
 }
 
 @media (max-width: 767px) {
-  .circuit-16 {
+  .circuit-15 {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -357,13 +296,13 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
 }
 
 @media (min-width: 768px) {
-  .circuit-16 {
+  .circuit-15 {
     margin: 0 12px;
     max-width: 20ch;
   }
 }
 
-.circuit-17 {
+.circuit-16 {
   display: inline-block;
   line-height: 0;
   display: block;
@@ -372,18 +311,18 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
   text-overflow: ellipsis;
 }
 
-.circuit-19 {
+.circuit-18 {
   display: none;
 }
 
 @media (min-width: 768px) {
-  .circuit-19 {
+  .circuit-18 {
     display: block;
     -webkit-transition: -webkit-transform 120ms ease-in-out;
     transition: transform 120ms ease-in-out;
   }
 
-  button[aria-expanded='true'] .circuit-19 {
+  button[aria-expanded='true'] .circuit-18 {
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -404,7 +343,8 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
         class="circuit-2"
       >
         <button
-          class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a circuit-3"
+          aria-pressed="false"
+          class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a _button_54588a circuit-3"
           title="Open menu"
           type="button"
         >
@@ -420,10 +360,11 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
           >
             <span
               aria-hidden="true"
-              class="circuit-4"
+              class="_skeleton_54588a _giga_54588a circuit-4"
+              size="24"
             >
               <span
-                class="circuit-5"
+                class="_base_54588a _giga_54588a"
               />
             </span>
             <span
@@ -435,7 +376,7 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
         </button>
       </div>
       <div
-        class="circuit-6"
+        class="circuit-5"
       >
         <a
           aria-label="Visit SumUp's website"
@@ -488,17 +429,17 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
     </div>
     <div
       aria-busy="false"
-      class="circuit-7"
+      class="circuit-6"
     >
       <div
-        class="circuit-8"
+        class="circuit-7"
       >
         <a
-          class="circuit-9"
+          class="circuit-8"
           href="/shop"
         >
           <span
-            class="circuit-10"
+            class="circuit-9"
           >
             <svg
               fill="none"
@@ -517,10 +458,10 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
             </svg>
           </span>
           <span
-            class="circuit-11"
+            class="circuit-4"
           >
             <span
-              class="_base_537b83 _one_537b83 circuit-12"
+              class="_base_537b83 _one_537b83 circuit-11"
             >
               Shop
             </span>
@@ -528,20 +469,20 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
         </a>
       </div>
       <div
-        class="circuit-13"
+        class="circuit-12"
       >
         <button
           aria-controls=":r1:"
           aria-expanded="false"
           aria-haspopup="true"
           aria-label="Open profile menu"
-          class="circuit-14"
+          class="circuit-13"
           id=":r0:"
           title="Open profile menu"
           type="button"
         >
           <span
-            class="circuit-11"
+            class="circuit-4"
           >
             <svg
               fill="none"
@@ -558,10 +499,10 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
             </svg>
           </span>
           <div
-            class="circuit-16"
+            class="circuit-15"
           >
             <span
-              class="circuit-17"
+              class="circuit-16"
             >
               <strong
                 class="_base_537b83 _two_537b83 _highlight_537b83"
@@ -570,7 +511,7 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
               </strong>
             </span>
             <span
-              class="circuit-17"
+              class="circuit-16"
             >
               <p
                 class="_base_537b83 _two_537b83"
@@ -580,7 +521,7 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
             </span>
           </div>
           <svg
-            class="circuit-19"
+            class="circuit-18"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
