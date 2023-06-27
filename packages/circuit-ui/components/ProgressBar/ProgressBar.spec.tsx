@@ -15,40 +15,29 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { create, renderToHtml, axe } from '../../util/test-utils.js';
+import { render, axe, screen } from '../../util/test-utils.js';
 
-import ProgressBar from '.';
+import { ProgressBar } from './ProgressBar.js';
 
 describe('ProgressBar', () => {
   describe('step-based', () => {
     const baseProps = {
       label: 'A progress bar',
       max: 1,
-
       value: 0.5,
     };
 
-    /**
-     * Style tests.
-     */
-    it('should render with default styles', () => {
-      const actual = create(<ProgressBar {...baseProps} />);
-      expect(actual).toMatchSnapshot();
+    it('should have relevant aria attributes', () => {
+      render(<ProgressBar {...baseProps} />);
+      const progressbar = screen.getByRole('progressbar');
+      expect(progressbar).toHaveAttribute('aria-valuenow', '0.5');
+      expect(progressbar).toHaveAttribute('aria-valuemin', '0');
+      expect(progressbar).toHaveAttribute('aria-valuemax', '1');
     });
 
-    it('should render with a hidden label', () => {
-      const actual = create(<ProgressBar {...baseProps} hideLabel />);
-      expect(actual).toMatchSnapshot();
-    });
-
-    /**
-     * Accessibility tests.
-     */
-    it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(
-        <ProgressBar {...baseProps} max={1} value={0.5} />,
-      );
-      const actual = await axe(wrapper);
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<ProgressBar {...baseProps} />);
+      const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });
   });
@@ -58,35 +47,23 @@ describe('ProgressBar', () => {
       label: 'A progress bar',
     };
 
-    /**
-     * Style tests.
-     */
-    it('should render with default styles', () => {
-      const actual = create(<ProgressBar {...baseProps} />);
-      expect(actual).toMatchSnapshot();
+    it('should have no irrelevant aria attributes', () => {
+      render(<ProgressBar {...baseProps} />);
+      const progressbar = screen.getByRole('progressbar');
+      expect(progressbar).not.toHaveAttribute('aria-valuenow');
+      expect(progressbar).not.toHaveAttribute('aria-valuemin');
+      expect(progressbar).not.toHaveAttribute('aria-valuemax');
     });
 
-    it('should render with a hidden label', () => {
-      const actual = create(<ProgressBar {...baseProps} hideLabel />);
-      expect(actual).toMatchSnapshot();
+    it('should have a data attribute when looped', () => {
+      render(<ProgressBar {...baseProps} loop />);
+      const progressbar = screen.getByRole('progressbar');
+      expect(progressbar).toHaveAttribute('data-loop');
     });
 
-    it('should render with paused styles', () => {
-      const actual = create(<ProgressBar {...baseProps} paused />);
-      expect(actual).toMatchSnapshot();
-    });
-
-    it('should render with loop styles', () => {
-      const actual = create(<ProgressBar {...baseProps} loop />);
-      expect(actual).toMatchSnapshot();
-    });
-
-    /**
-     * Accessibility tests.
-     */
-    it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<ProgressBar {...baseProps} />);
-      const actual = await axe(wrapper);
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<ProgressBar {...baseProps} />);
+      const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });
   });

@@ -3,58 +3,6 @@
 exports[`Carousel > styles > should not render without slides data 1`] = `<div />`;
 
 exports[`Carousel > styles > should render with children as a function 1`] = `
-@keyframes animation-0 {
-  0% {
-    width: 0%;
-    -webkit-transform: translateX(0%);
-    -moz-transform: translateX(0%);
-    -ms-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-
-  90% {
-    width: 100%;
-    -webkit-transform: translateX(0%);
-    -moz-transform: translateX(0%);
-    -ms-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-
-  100% {
-    width: 100%;
-    -webkit-transform: translateX(100%);
-    -moz-transform: translateX(100%);
-    -ms-transform: translateX(100%);
-    transform: translateX(100%);
-  }
-}
-
-@keyframes animation-0 {
-  0% {
-    width: 0%;
-    -webkit-transform: translateX(0%);
-    -moz-transform: translateX(0%);
-    -ms-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-
-  90% {
-    width: 100%;
-    -webkit-transform: translateX(0%);
-    -moz-transform: translateX(0%);
-    -ms-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-
-  100% {
-    width: 100%;
-    -webkit-transform: translateX(100%);
-    -moz-transform: translateX(100%);
-    -ms-transform: translateX(100%);
-    transform: translateX(100%);
-  }
-}
-
 .circuit-0 {
   width: 100%;
   height: auto;
@@ -205,76 +153,12 @@ exports[`Carousel > styles > should render with children as a function 1`] = `
 }
 
 .circuit-19 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
 }
 
 .circuit-20 {
-  background-color: var(--cui-bg-highlight);
-  border-radius: 999999px;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  height: 4px;
-}
-
-.circuit-20::after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  background-color: var(--cui-bg-accent-strong);
-  -webkit-transition: width 0.05s ease-out;
-  transition: width 0.05s ease-out;
-  height: 100%;
-  width: 1px;
-}
-
-.circuit-20::after {
-  background-color: var(--cui-bg-strong);
-}
-
-.circuit-20::after {
-  border-radius: 999999px;
-  -webkit-animation-name: animation-0;
-  animation-name: animation-0;
-  -webkit-animation-duration: 5640ms;
-  animation-duration: 5640ms;
-  -webkit-animation-play-state: running;
-  animation-play-state: running;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-}
-
-.circuit-21 {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  margin-left: 8px;
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-22 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -291,16 +175,16 @@ exports[`Carousel > styles > should render with children as a function 1`] = `
 }
 
 @media (max-width: 479px) {
-  .circuit-22 {
+  .circuit-20 {
     margin-left: 12px;
   }
 }
 
-.circuit-23 {
+.circuit-21 {
   margin-left: 8px;
 }
 
-.circuit-23:first-of-type {
+.circuit-21:first-of-type {
   margin-left: 0;
 }
 
@@ -391,27 +275,28 @@ exports[`Carousel > styles > should render with children as a function 1`] = `
       </strong>
       <div
         aria-hidden="true"
-        class="circuit-19"
+        class="_wrapper_42e167 circuit-19"
       >
         <span
           aria-labelledby=":r2:"
-          class="circuit-20"
-          loop=""
+          class="_base_42e167 _secondary_42e167 _byte_42e167"
+          data-loop="true"
           role="progressbar"
+          style="--pagination-animation-duration: 5640ms; --pagination-animation-play-state: running;"
         />
         <span
-          class="circuit-21"
+          class="_label_42e167 _hide-visually_73b4bb"
           id=":r2:"
         >
           1 / 3
         </span>
       </div>
       <div
-        class="circuit-22"
+        class="circuit-20"
       >
         <button
           aria-label="pause"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-23"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-21"
           title="Pause"
         >
           <span
@@ -448,7 +333,7 @@ exports[`Carousel > styles > should render with children as a function 1`] = `
         </button>
         <button
           aria-label="previous"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-23"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-21"
           title="Previous"
         >
           <span
@@ -483,7 +368,7 @@ exports[`Carousel > styles > should render with children as a function 1`] = `
         </button>
         <button
           aria-label="next"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-23"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-21"
           title="Next"
         >
           <span
@@ -527,58 +412,6 @@ exports[`Carousel > styles > should render with children as a function 1`] = `
 `;
 
 exports[`Carousel > styles > should render with children as a node 1`] = `
-@keyframes animation-0 {
-  0% {
-    width: 0%;
-    -webkit-transform: translateX(0%);
-    -moz-transform: translateX(0%);
-    -ms-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-
-  90% {
-    width: 100%;
-    -webkit-transform: translateX(0%);
-    -moz-transform: translateX(0%);
-    -ms-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-
-  100% {
-    width: 100%;
-    -webkit-transform: translateX(100%);
-    -moz-transform: translateX(100%);
-    -ms-transform: translateX(100%);
-    transform: translateX(100%);
-  }
-}
-
-@keyframes animation-0 {
-  0% {
-    width: 0%;
-    -webkit-transform: translateX(0%);
-    -moz-transform: translateX(0%);
-    -ms-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-
-  90% {
-    width: 100%;
-    -webkit-transform: translateX(0%);
-    -moz-transform: translateX(0%);
-    -ms-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-
-  100% {
-    width: 100%;
-    -webkit-transform: translateX(100%);
-    -moz-transform: translateX(100%);
-    -ms-transform: translateX(100%);
-    transform: translateX(100%);
-  }
-}
-
 .circuit-0 {
   width: 100%;
   height: auto;
@@ -729,76 +562,12 @@ exports[`Carousel > styles > should render with children as a node 1`] = `
 }
 
 .circuit-19 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
 }
 
 .circuit-20 {
-  background-color: var(--cui-bg-highlight);
-  border-radius: 999999px;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  height: 4px;
-}
-
-.circuit-20::after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  background-color: var(--cui-bg-accent-strong);
-  -webkit-transition: width 0.05s ease-out;
-  transition: width 0.05s ease-out;
-  height: 100%;
-  width: 1px;
-}
-
-.circuit-20::after {
-  background-color: var(--cui-bg-strong);
-}
-
-.circuit-20::after {
-  border-radius: 999999px;
-  -webkit-animation-name: animation-0;
-  animation-name: animation-0;
-  -webkit-animation-duration: 5640ms;
-  animation-duration: 5640ms;
-  -webkit-animation-play-state: running;
-  animation-play-state: running;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-}
-
-.circuit-21 {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  margin-left: 8px;
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-22 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -815,16 +584,16 @@ exports[`Carousel > styles > should render with children as a node 1`] = `
 }
 
 @media (max-width: 479px) {
-  .circuit-22 {
+  .circuit-20 {
     margin-left: 12px;
   }
 }
 
-.circuit-23 {
+.circuit-21 {
   margin-left: 8px;
 }
 
-.circuit-23:first-of-type {
+.circuit-21:first-of-type {
   margin-left: 0;
 }
 
@@ -915,27 +684,28 @@ exports[`Carousel > styles > should render with children as a node 1`] = `
       </strong>
       <div
         aria-hidden="true"
-        class="circuit-19"
+        class="_wrapper_42e167 circuit-19"
       >
         <span
           aria-labelledby=":r3:"
-          class="circuit-20"
-          loop=""
+          class="_base_42e167 _secondary_42e167 _byte_42e167"
+          data-loop="true"
           role="progressbar"
+          style="--pagination-animation-duration: 5640ms; --pagination-animation-play-state: running;"
         />
         <span
-          class="circuit-21"
+          class="_label_42e167 _hide-visually_73b4bb"
           id=":r3:"
         >
           1 / 3
         </span>
       </div>
       <div
-        class="circuit-22"
+        class="circuit-20"
       >
         <button
           aria-label="pause"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-23"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-21"
           title="Pause"
         >
           <span
@@ -972,7 +742,7 @@ exports[`Carousel > styles > should render with children as a node 1`] = `
         </button>
         <button
           aria-label="previous"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-23"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-21"
           title="Previous"
         >
           <span
@@ -1007,7 +777,7 @@ exports[`Carousel > styles > should render with children as a node 1`] = `
         </button>
         <button
           aria-label="next"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-23"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-21"
           title="Next"
         >
           <span
@@ -1050,58 +820,6 @@ exports[`Carousel > styles > should render with children as a node 1`] = `
 `;
 
 exports[`Carousel > styles > should render with default paused styles 1`] = `
-@keyframes animation-0 {
-  0% {
-    width: 0%;
-    -webkit-transform: translateX(0%);
-    -moz-transform: translateX(0%);
-    -ms-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-
-  90% {
-    width: 100%;
-    -webkit-transform: translateX(0%);
-    -moz-transform: translateX(0%);
-    -ms-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-
-  100% {
-    width: 100%;
-    -webkit-transform: translateX(100%);
-    -moz-transform: translateX(100%);
-    -ms-transform: translateX(100%);
-    transform: translateX(100%);
-  }
-}
-
-@keyframes animation-0 {
-  0% {
-    width: 0%;
-    -webkit-transform: translateX(0%);
-    -moz-transform: translateX(0%);
-    -ms-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-
-  90% {
-    width: 100%;
-    -webkit-transform: translateX(0%);
-    -moz-transform: translateX(0%);
-    -ms-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-
-  100% {
-    width: 100%;
-    -webkit-transform: translateX(100%);
-    -moz-transform: translateX(100%);
-    -ms-transform: translateX(100%);
-    transform: translateX(100%);
-  }
-}
-
 .circuit-0 {
   width: 100%;
   height: auto;
@@ -1252,76 +970,12 @@ exports[`Carousel > styles > should render with default paused styles 1`] = `
 }
 
 .circuit-19 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
 }
 
 .circuit-20 {
-  background-color: var(--cui-bg-highlight);
-  border-radius: 999999px;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  height: 4px;
-}
-
-.circuit-20::after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  background-color: var(--cui-bg-accent-strong);
-  -webkit-transition: width 0.05s ease-out;
-  transition: width 0.05s ease-out;
-  height: 100%;
-  width: 1px;
-}
-
-.circuit-20::after {
-  background-color: var(--cui-bg-strong);
-}
-
-.circuit-20::after {
-  border-radius: 999999px;
-  -webkit-animation-name: animation-0;
-  animation-name: animation-0;
-  -webkit-animation-duration: 5640ms;
-  animation-duration: 5640ms;
-  -webkit-animation-play-state: paused;
-  animation-play-state: paused;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-}
-
-.circuit-21 {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  margin-left: 8px;
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-22 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1338,16 +992,16 @@ exports[`Carousel > styles > should render with default paused styles 1`] = `
 }
 
 @media (max-width: 479px) {
-  .circuit-22 {
+  .circuit-20 {
     margin-left: 12px;
   }
 }
 
-.circuit-23 {
+.circuit-21 {
   margin-left: 8px;
 }
 
-.circuit-23:first-of-type {
+.circuit-21:first-of-type {
   margin-left: 0;
 }
 
@@ -1438,27 +1092,28 @@ exports[`Carousel > styles > should render with default paused styles 1`] = `
       </strong>
       <div
         aria-hidden="true"
-        class="circuit-19"
+        class="_wrapper_42e167 circuit-19"
       >
         <span
           aria-labelledby=":r1:"
-          class="circuit-20"
-          loop=""
+          class="_base_42e167 _secondary_42e167 _byte_42e167"
+          data-loop="true"
           role="progressbar"
+          style="--pagination-animation-duration: 5640ms; --pagination-animation-play-state: paused;"
         />
         <span
-          class="circuit-21"
+          class="_label_42e167 _hide-visually_73b4bb"
           id=":r1:"
         >
           1 / 3
         </span>
       </div>
       <div
-        class="circuit-22"
+        class="circuit-20"
       >
         <button
           aria-label="play"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-23"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-21"
           title="Play"
         >
           <span
@@ -1495,7 +1150,7 @@ exports[`Carousel > styles > should render with default paused styles 1`] = `
         </button>
         <button
           aria-label="previous"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-23"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-21"
           title="Previous"
         >
           <span
@@ -1530,7 +1185,7 @@ exports[`Carousel > styles > should render with default paused styles 1`] = `
         </button>
         <button
           aria-label="next"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-23"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-21"
           title="Next"
         >
           <span
@@ -1570,32 +1225,6 @@ exports[`Carousel > styles > should render with default paused styles 1`] = `
 `;
 
 exports[`Carousel > styles > should render with default styles 1`] = `
-@keyframes animation-0 {
-  0% {
-    width: 0%;
-    -webkit-transform: translateX(0%);
-    -moz-transform: translateX(0%);
-    -ms-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-
-  90% {
-    width: 100%;
-    -webkit-transform: translateX(0%);
-    -moz-transform: translateX(0%);
-    -ms-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-
-  100% {
-    width: 100%;
-    -webkit-transform: translateX(100%);
-    -moz-transform: translateX(100%);
-    -ms-transform: translateX(100%);
-    transform: translateX(100%);
-  }
-}
-
 .circuit-0 {
   width: 100%;
   height: auto;
@@ -1746,76 +1375,12 @@ exports[`Carousel > styles > should render with default styles 1`] = `
 }
 
 .circuit-19 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
 }
 
 .circuit-20 {
-  background-color: var(--cui-bg-highlight);
-  border-radius: 999999px;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  height: 4px;
-}
-
-.circuit-20::after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  background-color: var(--cui-bg-accent-strong);
-  -webkit-transition: width 0.05s ease-out;
-  transition: width 0.05s ease-out;
-  height: 100%;
-  width: 1px;
-}
-
-.circuit-20::after {
-  background-color: var(--cui-bg-strong);
-}
-
-.circuit-20::after {
-  border-radius: 999999px;
-  -webkit-animation-name: animation-0;
-  animation-name: animation-0;
-  -webkit-animation-duration: 5640ms;
-  animation-duration: 5640ms;
-  -webkit-animation-play-state: running;
-  animation-play-state: running;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-}
-
-.circuit-21 {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  margin-left: 8px;
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-22 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1832,16 +1397,16 @@ exports[`Carousel > styles > should render with default styles 1`] = `
 }
 
 @media (max-width: 479px) {
-  .circuit-22 {
+  .circuit-20 {
     margin-left: 12px;
   }
 }
 
-.circuit-23 {
+.circuit-21 {
   margin-left: 8px;
 }
 
-.circuit-23:first-of-type {
+.circuit-21:first-of-type {
   margin-left: 0;
 }
 
@@ -1932,27 +1497,28 @@ exports[`Carousel > styles > should render with default styles 1`] = `
       </strong>
       <div
         aria-hidden="true"
-        class="circuit-19"
+        class="_wrapper_42e167 circuit-19"
       >
         <span
           aria-labelledby=":r0:"
-          class="circuit-20"
-          loop=""
+          class="_base_42e167 _secondary_42e167 _byte_42e167"
+          data-loop="true"
           role="progressbar"
+          style="--pagination-animation-duration: 5640ms; --pagination-animation-play-state: running;"
         />
         <span
-          class="circuit-21"
+          class="_label_42e167 _hide-visually_73b4bb"
           id=":r0:"
         >
           1 / 3
         </span>
       </div>
       <div
-        class="circuit-22"
+        class="circuit-20"
       >
         <button
           aria-label="pause"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-23"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-21"
           title="Pause"
         >
           <span
@@ -1989,7 +1555,7 @@ exports[`Carousel > styles > should render with default styles 1`] = `
         </button>
         <button
           aria-label="previous"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-23"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-21"
           title="Previous"
         >
           <span
@@ -2024,7 +1590,7 @@ exports[`Carousel > styles > should render with default styles 1`] = `
         </button>
         <button
           aria-label="next"
-          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-23"
+          class="_base_892426 _focus-visible_73b4bb _kilo_892426 _secondary_892426 _kilo_f6dd9a circuit-21"
           title="Next"
         >
           <span

@@ -1,0 +1,105 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.base {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--cui-bg-highlight);
+  border-radius: var(--cui-border-radius-pill);
+}
+
+.base::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 1px;
+  height: 100%;
+  content: '';
+  background-color: var(--cui-bg-accent-strong);
+  transition: width 0.05s ease-out;
+}
+
+/* Task */
+
+.base[aria-valuenow]::after {
+  /* TODO: Replace with `attr()` once it's supported cross-browser */
+  width: var(--pagination-width);
+}
+
+/* Timed */
+
+@keyframes one {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes loop {
+  0% {
+    width: 0%;
+    transform: translateX(0%);
+  }
+
+  90% {
+    width: 100%;
+    transform: translateX(0%);
+  }
+
+  100% {
+    width: 100%;
+    transform: translateX(100%);
+  }
+}
+
+.base:not([aria-valuenow])::after {
+  border-radius: var(--cui-border-radius-pill);
+  animation-name: one;
+  animation-duration: var(--pagination-animation-duration);
+  animation-play-state: var(--pagination-animation-play-state);
+  animation-fill-mode: forwards;
+}
+
+.base:not([aria-valuenow])[data-loop]::after {
+  animation-name: loop;
+  animation-iteration-count: infinite;
+}
+
+/* Sizes */
+
+.byte {
+  height: var(--cui-spacings-bit);
+}
+
+.kilo {
+  height: var(--cui-spacings-byte);
+}
+
+.mega {
+  height: var(--cui-spacings-mega);
+}
+
+/* Variants */
+
+.primary::after {
+  background-color: var(--cui-bg-accent-strong);
+}
+
+.secondary::after {
+  background-color: var(--cui-bg-strong);
+}
+
+.label {
+  flex-shrink: 0;
+  margin-left: var(--cui-spacings-byte);
+  font-size: var(--cui-typography-body-two-font-size);
+  line-height: var(--cui-typography-body-two-line-height);
+}
