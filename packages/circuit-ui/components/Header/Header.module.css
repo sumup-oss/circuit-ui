@@ -1,0 +1,24 @@
+.base {
+  position: sticky;
+  z-index: var(--cui-z-index-header);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 64px;
+  padding: var(--cui-spacings-mega);
+  background-color: var(--cui-bg-strong);
+}
+
+@media (min-width: 960px) {
+  .hide-on-wide-viewports {
+    display: none;
+  }
+}
+
+.title {
+  margin-left: var(--cui-spacings-mega);
+  font-size: var(--cui-typography-headline-four-font-size);
+  font-weight: var(--cui-font-weight-bold);
+  line-height: var(--cui-typography-headline-four-line-height);
+  color: var(--cui-fg-on-strong);
+}
