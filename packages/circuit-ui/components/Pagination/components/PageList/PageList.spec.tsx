@@ -15,22 +15,11 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import {
-  create,
-  render,
-  renderToHtml,
-  axe,
-  userEvent,
-  RenderFn,
-} from '../../../../util/test-utils.js';
+import { render, axe, userEvent, screen } from '../../../../util/test-utils.js';
 
 import { PageList, PageListProps } from './PageList.js';
 
 describe('PageList', () => {
-  function renderPageList<T>(renderFn: RenderFn<T>, props: PageListProps) {
-    return renderFn(<PageList {...props} />);
-  }
-
   const baseProps: PageListProps = {
     onChange: vi.fn(),
     pageLabel: (page) => `Go to page ${page}`,
@@ -38,31 +27,20 @@ describe('PageList', () => {
     currentPage: 1,
   };
 
-  describe('styles', () => {
-    it('should render with default styles', () => {
-      const actual = renderPageList(create, baseProps);
-      expect(actual).toMatchSnapshot();
-    });
+  it('should call the onChange callback', async () => {
+    const onChange = vi.fn();
+    render(<PageList {...baseProps} onChange={onChange} />);
+    const pageFour = screen.getByText('3');
+
+    await userEvent.click(pageFour);
+
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith(3);
   });
 
-  describe('business logic', () => {
-    it('should call the onChange callback', async () => {
-      const onChange = vi.fn();
-      const { getByText } = renderPageList(render, { ...baseProps, onChange });
-      const pageFour = getByText('3');
-
-      await userEvent.click(pageFour);
-
-      expect(onChange).toHaveBeenCalledTimes(1);
-      expect(onChange).toHaveBeenCalledWith(3);
-    });
-  });
-
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const wrapper = renderPageList(renderToHtml, baseProps);
-      const actual = await axe(wrapper);
-      expect(actual).toHaveNoViolations();
-    });
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<PageList {...baseProps} />);
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });

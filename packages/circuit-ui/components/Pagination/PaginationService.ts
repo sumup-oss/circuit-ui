@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-// Adapted from https://stackoverflow.com/questions/4852017/how-to-initialize-an-arrays-length-in-javascript
 export function generatePages(totalPages: number): number[] {
-  // eslint-disable-next-line prefer-spread
-  return Array.apply(null, Array(totalPages)).map((_, index) => index + 1);
+  return Array.from(Array(totalPages)).map((_, index) => index + 1);
 }

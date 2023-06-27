@@ -15,22 +15,11 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import {
-  create,
-  render,
-  renderToHtml,
-  axe,
-  RenderFn,
-  userEvent,
-} from '../../util/test-utils.js';
+import { render, axe, userEvent, screen } from '../../util/test-utils.js';
 
 import { Pagination, PaginationProps } from './Pagination.js';
 
 describe('Pagination', () => {
-  function renderPagination<T>(renderFn: RenderFn<T>, props: PaginationProps) {
-    return renderFn(<Pagination {...props} />);
-  }
-
   const baseProps: PaginationProps = {
     onChange: vi.fn(),
     totalPages: 5,
@@ -42,34 +31,24 @@ describe('Pagination', () => {
   };
 
   it('should disable the previous button on the first page', () => {
-    const { getByText } = renderPagination(render, {
-      ...baseProps,
-      currentPage: 1,
-    });
-    const prevButtonEl = getByText('Previous').closest('button');
+    render(<Pagination {...baseProps} currentPage={1} />);
+    const prevButtonEl = screen.getByText('Previous').closest('button');
 
     expect(prevButtonEl).toBeDisabled();
   });
 
   it('should disable the next button on the last page', () => {
-    const { getByText } = renderPagination(render, {
-      ...baseProps,
-      currentPage: baseProps.totalPages,
-    });
-    const nextButtonEl = getByText('Next').closest('button');
+    render(<Pagination {...baseProps} currentPage={baseProps.totalPages} />);
+    const nextButtonEl = screen.getByText('Next').closest('button');
 
     expect(nextButtonEl).toBeDisabled();
   });
 
   it('should go to the previous page', async () => {
     const onChange = vi.fn();
-    const { getByText } = renderPagination(render, {
-      ...baseProps,
-      onChange,
-      currentPage: 3,
-    });
+    render(<Pagination {...baseProps} onChange={onChange} currentPage={3} />);
 
-    const prevButtonEl = getByText('Previous');
+    const prevButtonEl = screen.getByText('Previous');
 
     await userEvent.click(prevButtonEl);
 
@@ -79,9 +58,9 @@ describe('Pagination', () => {
 
   it('should go to the next page', async () => {
     const onChange = vi.fn();
-    const { getByText } = renderPagination(render, { ...baseProps, onChange });
+    render(<Pagination {...baseProps} onChange={onChange} />);
 
-    const nextButtonEl = getByText('Next');
+    const nextButtonEl = screen.getByText('Next');
 
     await userEvent.click(nextButtonEl);
 
@@ -90,26 +69,27 @@ describe('Pagination', () => {
   });
 
   describe('with less than 2 pages', () => {
-    const props = { ...baseProps, totalPages: 1 };
-
     it('should not render', () => {
-      const actual = renderPagination(create, props);
-
-      expect(actual).toBeNull();
+      render(<Pagination {...baseProps} totalPages={1} />);
+      const list = screen.queryByRole('list');
+      const select = screen.queryByRole('combobox');
+      expect(list).not.toBeInTheDocument();
+      expect(select).not.toBeInTheDocument();
     });
   });
 
   describe('with 2 to 5 pages', () => {
     const props = { ...baseProps, totalPages: 5 };
 
-    it('should render with default styles', () => {
-      const actual = renderPagination(create, props);
-      expect(actual).toMatchSnapshot();
+    it('should render a page list', () => {
+      render(<Pagination {...props} />);
+      const list = screen.getByRole('list');
+      expect(list).toBeVisible();
     });
 
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderPagination(renderToHtml, props);
-      const actual = await axe(wrapper);
+      const { container } = render(<Pagination {...props} />);
+      const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });
   });
@@ -117,14 +97,15 @@ describe('Pagination', () => {
   describe('with more than 5 pages', () => {
     const props = { ...baseProps, totalPages: 10 };
 
-    it('should render with default styles', () => {
-      const actual = renderPagination(create, props);
-      expect(actual).toMatchSnapshot();
+    it('should render a page select', () => {
+      render(<Pagination {...props} />);
+      const select = screen.getByRole('combobox');
+      expect(select).toBeVisible();
     });
 
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderPagination(renderToHtml, props);
-      const actual = await axe(wrapper);
+      const { container } = render(<Pagination {...props} />);
+      const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });
   });

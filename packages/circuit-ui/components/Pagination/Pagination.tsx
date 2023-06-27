@@ -13,20 +13,20 @@
  * limitations under the License.
  */
 
-import { ReactElement } from 'react';
-import { css } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
+import { HTMLAttributes, ReactElement } from 'react';
 import { ChevronLeft, ChevronRight } from '@sumup/icons';
 
-import styled from '../../styles/styled.js';
 import IconButton from '../IconButton/index.js';
 import { AccessibilityError } from '../../util/errors.js';
+import { clsx } from '../../styles/clsx.js';
 
 import { PageSelect } from './components/PageSelect/index.js';
 import { PageList } from './components/PageList/index.js';
 import * as PaginationService from './PaginationService.js';
+import classes from './Pagination.module.css';
 
-export interface PaginationProps {
+export interface PaginationProps
+  extends Omit<HTMLAttributes<HTMLElement>, 'onChange'> {
   /**
    * The currently active page
    */
@@ -63,26 +63,6 @@ export interface PaginationProps {
   totalLabel?: (totalPages: number) => string;
 }
 
-const Nav = styled.nav`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: ${(p) => p.theme.spacings.kilo};
-`;
-
-const prevButtonStyles = (theme: Theme) =>
-  css`
-    margin-right: ${theme.spacings.kilo};
-    flex-shrink: 0;
-  `;
-
-const nextButtonStyles = (theme: Theme) =>
-  css`
-    margin-left: ${theme.spacings.kilo};
-    flex-shrink: 0;
-  `;
-
 /**
  * Pagination is a component to show pages numbers calculate dynamically.
  */
@@ -95,6 +75,7 @@ export const Pagination = ({
   nextLabel,
   pageLabel = (page) => `Go to page ${page}`,
   totalLabel,
+  className,
   ...props
 }: PaginationProps): ReactElement | null => {
   if (
@@ -129,14 +110,19 @@ export const Pagination = ({
   const pages = PaginationService.generatePages(totalPages);
 
   return (
-    <Nav role="navigation" aria-label={label} {...props}>
+    <nav
+      role="navigation"
+      aria-label={label}
+      className={clsx(classes.base, className)}
+      {...props}
+    >
       <IconButton
         label={previousLabel}
         size="kilo"
         variant="tertiary"
         disabled={currentPage <= 1}
         onClick={() => onChange(currentPage - 1)}
-        css={prevButtonStyles}
+        className={classes.prev}
       >
         <ChevronLeft size="16" />
       </IconButton>
@@ -165,10 +151,10 @@ export const Pagination = ({
         variant="tertiary"
         disabled={currentPage >= totalPages}
         onClick={() => onChange(currentPage + 1)}
-        css={nextButtonStyles}
+        className={classes.next}
       >
         <ChevronRight size="16" />
       </IconButton>
-    </Nav>
+    </nav>
   );
 };

@@ -15,22 +15,11 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import {
-  create,
-  render,
-  renderToHtml,
-  fireEvent,
-  axe,
-  RenderFn,
-} from '../../../../util/test-utils.js';
+import { render, fireEvent, axe, screen } from '../../../../util/test-utils.js';
 
 import { PageSelect, PageSelectProps } from './PageSelect.js';
 
 describe('PageSelect', () => {
-  function renderPageSelect<T>(renderFn: RenderFn<T>, props: PageSelectProps) {
-    return renderFn(<PageSelect {...props} />);
-  }
-
   const baseProps: PageSelectProps = {
     onChange: vi.fn(),
     label: 'Pagination',
@@ -40,36 +29,23 @@ describe('PageSelect', () => {
     totalPages: 10,
   };
 
-  describe('styles', () => {
-    it('should render with default styles', () => {
-      const actual = renderPageSelect(create, baseProps);
-      expect(actual).toMatchSnapshot();
-    });
+  it('should call the onChange callback', () => {
+    const testId = 'select-page';
+    const onChange = vi.fn();
+    render(
+      <PageSelect {...baseProps} onChange={onChange} data-testid={testId} />,
+    );
+    const selectEl = screen.getByTestId(testId);
+
+    fireEvent.change(selectEl, { target: { value: '3' } });
+
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith(3);
   });
 
-  describe('business logic', () => {
-    it('should call the onChange callback', () => {
-      const testId = 'select-page';
-      const onChange = vi.fn();
-      const { getByTestId } = renderPageSelect(render, {
-        ...baseProps,
-        onChange,
-        'data-testid': testId,
-      });
-      const selectEl = getByTestId(testId);
-
-      fireEvent.change(selectEl, { target: { value: '3' } });
-
-      expect(onChange).toHaveBeenCalledTimes(1);
-      expect(onChange).toHaveBeenCalledWith(3);
-    });
-  });
-
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const wrapper = renderPageSelect(renderToHtml, baseProps);
-      const actual = await axe(wrapper);
-      expect(actual).toHaveNoViolations();
-    });
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<PageSelect {...baseProps} />);
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });
