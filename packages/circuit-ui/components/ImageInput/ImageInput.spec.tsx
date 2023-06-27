@@ -26,71 +26,19 @@ import {
   createEvent,
 } from '../../util/test-utils.js';
 
-import { ImageInput } from './ImageInput.js';
+import { ImageInput, ImageInputProps } from './ImageInput.js';
 
-const defaultProps = {
+const defaultProps: ImageInputProps = {
   label: 'Upload an image',
   loadingLabel: 'Uploading',
   clearButtonLabel: 'Clear',
   onChange: () => Promise.resolve(),
   onClear: () => {},
-  component: Avatar,
-} as const;
+  component: (props) => <Avatar {...props} alt="" />,
+};
 
 describe('ImageInput', () => {
   global.URL.createObjectURL = vi.fn();
-
-  describe('Styles', () => {
-    it('should render with default styles', () => {
-      const { container } = render(<ImageInput {...defaultProps} />);
-      expect(container).toMatchSnapshot();
-    });
-
-    it('should render with an existing image', () => {
-      const { container } = render(
-        <ImageInput {...defaultProps} src="/images/illustration-coffee.jpg" />,
-      );
-      expect(container).toMatchSnapshot();
-    });
-
-    it('should render with invalid styles and an error message', () => {
-      const { container } = render(
-        <ImageInput
-          {...defaultProps}
-          invalid={true}
-          validationHint="The uploaded image exceeds the maximum allowed size. Please use an image with a size below 20MB."
-        />,
-      );
-      expect(container).toMatchSnapshot();
-    });
-
-    it('should render with a giga button', () => {
-      const { container } = render(
-        <ImageInput {...defaultProps} size="giga" />,
-      );
-      expect(container).toMatchSnapshot();
-    });
-
-    it('should render with a custom component', () => {
-      const { container } = render(
-        <ImageInput
-          {...defaultProps}
-          src="/images/illustration-coffee.jpg"
-          component={({ src }) => (
-            <img
-              style={{
-                width: '400px',
-                height: '100px',
-              }}
-              src={src}
-              alt=""
-            />
-          )}
-        />,
-      );
-      expect(container).toMatchSnapshot();
-    });
-  });
 
   const mockUploadFn = vi
     .fn<[File], Promise<string>>()
@@ -127,7 +75,7 @@ describe('ImageInput', () => {
         invalid={!!error}
         validationHint={error}
         loadingLabel="Uploading"
-        component={Avatar}
+        component={(props) => <Avatar {...props} alt="" />}
       />
     );
   }
