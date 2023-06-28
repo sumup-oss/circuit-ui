@@ -14,10 +14,9 @@
  */
 
 /* eslint-disable jsx-a11y/no-redundant-roles */
-import { css } from '@emotion/react';
 import { action } from '@storybook/addon-actions';
 
-import { listItem } from '../../styles/style-mixins.js';
+import sharedClasses from '../../styles/shared.js';
 
 import { useFocusList } from './useFocusList.js';
 
@@ -27,18 +26,18 @@ export default {
 
 const fruits = ['Apple', 'Banana', 'Mango'];
 
-const listStyles = css`
-  list-style: none;
-`;
-
 export const Example = () => {
   const focusProps = useFocusList();
 
   return (
-    <ul role="list" css={listStyles}>
+    <ul role="list" style={{ listStyle: 'none' }}>
       {fruits.map((fruit) => (
         <li key={fruit}>
-          <button css={listItem} onClick={action(fruit)} {...focusProps}>
+          <button
+            className={sharedClasses.listItem}
+            onClick={action(fruit)}
+            {...focusProps}
+          >
             {fruit}
           </button>
         </li>
