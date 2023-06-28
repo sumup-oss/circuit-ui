@@ -13,6 +13,35 @@ The sidebar is the primary navigational component on SumUp's web-based applicati
 sections of the same product (the user dashboard, for example), allowing easy navigation between first
 and the second level of navigations, keeping a strong anchor for our users to always know where they are.
 
+## Dependencies
+
+The Sidebar component depends on [Emotion.js](https://github.com/emotion-js/emotion) which isn't included in Circuit UI. Install it manually before using the components:
+
+```bash
+# npm
+npm install @emotion/react@^11 @emotion/styled@^11
+# yarn v1
+yarn add @emotion/react@^11 @emotion/styled@^11
+```
+
+The Sidebar component depends on the legacy JSON theme. Wrap the component or your entire application in the `ThemeProvider` from Emotion.js:
+
+```tsx
+import { ThemeProvider } from '@emotion/react';
+import { light } from '@sumup/design-tokens';
+import { SidebarContextProvider, Sidebar } from '@sumup/circuit-ui/legacy';
+
+export default function App() {
+  return (
+    <ThemeProvider theme={light}>
+      <SidebarContextProvider>
+        <Sidebar />
+      </SidebarContextProvider>
+    </ThemeProvider>
+  );
+}
+```
+
 <Story of={Stories.Base} />
 
 <Props />
@@ -149,11 +178,10 @@ const Navigation = () => {
             <Sidebar.Footer>Footer</Sidebar.Footer>
           </Sidebar>
         )}
-      </SidebarContextConsumer
+      </SidebarContextConsumer>
     </SidebarContextProvider>
   );
 };
-
 ```
 
 That way, you can use the `SidebarContextConsumer` to control the `Sidebar` open state on other

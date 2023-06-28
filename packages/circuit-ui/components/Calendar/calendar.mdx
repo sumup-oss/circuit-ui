@@ -11,16 +11,31 @@ and time frames for a specific task.
 
 ## Dependencies
 
-The calendar components depend on [`react-dates`](https://github.com/react-dates/react-dates) and [`moment`](https://momentjs.com/) which are no longer included in Circuit UI. Install them manually before using the components:
+The calendar components depend on [`react-dates`](https://github.com/react-dates/react-dates), [`moment`](https://momentjs.com/) and [Emotion.js](https://github.com/emotion-js/emotion) which are no longer included in Circuit UI. Install them manually before using the components:
 
 ```bash
 # npm
-npm install react-dates@^21.8 moment@^2.29
+npm install react-dates@^21.8 moment@^2.29 @emotion/react@^11 @emotion/styled@^11
 # yarn v1
-yarn add react-dates@^21.8 moment@^2.29
+yarn add react-dates@^21.8 moment@^2.29 @emotion/react@^11 @emotion/styled@^11
 ```
 
 Note that `react-dates` isn't compatible with React 18 yet ([ref](https://github.com/react-dates/react-dates/issues/2199)) and might cause a peer dependency error when using npm. Override the warning with `npm install --force` at your own risk.
+
+The calendar components depend on the legacy JSON theme. Wrap the component or your entire application in the `ThemeProvider` from Emotion.js:
+
+```tsx
+import { ThemeProvider } from '@emotion/react';
+import { light } from '@sumup/design-tokens';
+import { SingleDayPicker } from '@sumup/circuit-ui/legacy';
+
+export default function App() {
+  return (
+    <ThemeProvider theme={light}>
+      <SingleDayPicker />
+    </ThemeProvider>
+  );
+}
 
 ## When to use it
 
@@ -67,3 +82,4 @@ Used for cases where the user needs to select dates within the same month and th
 Used for cases where the user needs to select dates that could be outside the same month and that selection affects the data displayed.
 
 <Story id="forms-calendar-calendartagtwostep--base" />
+```
