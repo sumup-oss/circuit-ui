@@ -78,8 +78,6 @@ exports[`SecondaryLinks > styles > should render with default styles 1`] = `
 }
 
 .circuit-3 {
-  display: inline-block;
-  line-height: 0;
   margin-right: 8px;
 }
 
@@ -152,8 +150,6 @@ exports[`SecondaryLinks > styles > should render with default styles 1`] = `
 }
 
 .circuit-8 {
-  display: inline-block;
-  line-height: 0;
   margin: 32px 16px 8px;
 }
 
@@ -173,7 +169,7 @@ exports[`SecondaryLinks > styles > should render with default styles 1`] = `
           href="/shop/shirts"
         >
           <span
-            class="circuit-3"
+            class="_base_c5c51b circuit-3"
           >
             <p
               class="_base_537b83 _one_537b83"
@@ -190,7 +186,7 @@ exports[`SecondaryLinks > styles > should render with default styles 1`] = `
           href="/shop/pants"
         >
           <span
-            class="circuit-3"
+            class="_base_c5c51b circuit-3"
           >
             <p
               class="_base_537b83 _one_537b83"
@@ -214,7 +210,7 @@ exports[`SecondaryLinks > styles > should render with default styles 1`] = `
           href="/shop/socks"
         >
           <span
-            class="circuit-3"
+            class="_base_c5c51b circuit-3"
           >
             <strong
               class="_base_537b83 _one_537b83 _highlight_537b83"
@@ -228,7 +224,7 @@ exports[`SecondaryLinks > styles > should render with default styles 1`] = `
   </li>
   <li>
     <span
-      class="circuit-8"
+      class="_base_c5c51b circuit-8"
     >
       <h3
         class="_base_551209"
@@ -247,7 +243,7 @@ exports[`SecondaryLinks > styles > should render with default styles 1`] = `
           href="/shop/toys"
         >
           <span
-            class="circuit-3"
+            class="_base_c5c51b circuit-3"
           >
             <p
               class="_base_537b83 _one_537b83"
@@ -264,7 +260,7 @@ exports[`SecondaryLinks > styles > should render with default styles 1`] = `
           href="/shop/books"
         >
           <span
-            class="circuit-3"
+            class="_base_c5c51b circuit-3"
           >
             <p
               class="_base_537b83 _one_537b83"

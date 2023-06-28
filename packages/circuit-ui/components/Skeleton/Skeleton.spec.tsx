@@ -16,7 +16,7 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { create, render, axe, RenderFn } from '../../util/test-utils.js';
+import { render, axe, RenderFn } from '../../util/test-utils.js';
 
 import {
   Skeleton,
@@ -41,54 +41,42 @@ describe('Skeleton', () => {
 
   const baseProps = { isLoading: true, children: 'content' };
 
-  describe('styles', () => {
-    it('should render with loading styles', () => {
-      const wrapper = renderSkeleton(create, baseProps);
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render with circular styles', () => {
-      const wrapper = renderSkeleton(create, { ...baseProps, circle: true });
-      expect(wrapper).toMatchSnapshot();
-    });
+  it('should hide the content while loading', () => {
+    const { container } = renderSkeleton(render, baseProps);
+    const element = container.querySelector('div');
+    expect(element).toHaveAttribute('aria-busy', 'true');
+    expect(element).toHaveAttribute('inert');
   });
 
-  describe('business logic', () => {
-    it('should hide the content while loading', () => {
-      const { getByText } = renderSkeleton(render, baseProps);
-      expect(getByText('content')).not.toBeVisible();
+  it('should show the content when loaded', () => {
+    const { container } = renderSkeleton(render, {
+      ...baseProps,
+      isLoading: false,
     });
-
-    it('should show the content when loaded', () => {
-      const { getByText } = renderSkeleton(render, {
-        ...baseProps,
-        isLoading: false,
-      });
-      expect(getByText('content')).toBeVisible();
-    });
-
-    it('should accept a working ref for the SkeletonContainer', () => {
-      const ref = createRef<HTMLDivElement>();
-      const { container } = render(
-        <SkeletonContainer ref={ref} {...baseProps} />,
-      );
-      const element = container.querySelector('div');
-      expect(ref.current).toBe(element);
-    });
-
-    it('should accept a working ref for the Skeleton', () => {
-      const ref = createRef<HTMLSpanElement>();
-      const { container } = render(<Skeleton ref={ref} {...baseProps} />);
-      const element = container.querySelector('span');
-      expect(ref.current).toBe(element);
-    });
+    const element = container.querySelector('div');
+    expect(element).toHaveAttribute('aria-busy', 'false');
+    expect(element).not.toHaveAttribute('inert');
   });
 
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const { container } = renderSkeleton(render, baseProps);
-      const actual = await axe(container);
-      expect(actual).toHaveNoViolations();
-    });
+  it('should forward a ref to the SkeletonContainer', () => {
+    const ref = createRef<HTMLDivElement>();
+    const { container } = render(
+      <SkeletonContainer ref={ref} {...baseProps} />,
+    );
+    const element = container.querySelector('div');
+    expect(ref.current).toBe(element);
+  });
+
+  it('should forward a ref to the Skeleton', () => {
+    const ref = createRef<HTMLSpanElement>();
+    const { container } = render(<Skeleton ref={ref} {...baseProps} />);
+    const element = container.querySelector('span');
+    expect(ref.current).toBe(element);
+  });
+
+  it('should have no accessibility violations', async () => {
+    const { container } = renderSkeleton(render, baseProps);
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });

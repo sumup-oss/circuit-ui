@@ -1,14 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`DesktopNavigation > styles > should render with secondary links 1`] = `
-.circuit-0[aria-busy='true'] {
-  pointer-events: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 @media (max-width: 1279px) {
   .circuit-0 {
     display: none;
@@ -168,8 +160,6 @@ exports[`DesktopNavigation > styles > should render with secondary links 1`] = `
 }
 
 .circuit-4 {
-  display: inline-block;
-  line-height: 0;
   position: relative;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -179,19 +169,14 @@ exports[`DesktopNavigation > styles > should render with secondary links 1`] = `
   margin-right: 12px;
 }
 
-.circuit-5 {
-  display: inline-block;
-  line-height: 0;
-}
-
 @media (max-width: 1279px) {
-  .circuit-6 {
+  .circuit-5 {
     font-size: 1.5rem;
     line-height: 1.75rem;
   }
 }
 
-.circuit-7 {
+.circuit-6 {
   position: -webkit-sticky;
   position: sticky;
   top: 57px;
@@ -211,32 +196,28 @@ exports[`DesktopNavigation > styles > should render with secondary links 1`] = `
 }
 
 @media only screen and (min-width: 1900px) {
-  .circuit-7 {
+  .circuit-6 {
     margin-left: 220px;
   }
 }
 
-.circuit-8 {
-  display: inline-block;
-  line-height: 0;
+.circuit-7 {
   margin: 24px 16px 12px;
 }
 
-.circuit-9 {
+.circuit-8 {
   list-style: none;
 }
 
-.circuit-10 {
-  display: inline-block;
-  line-height: 0;
+.circuit-9 {
   margin: 32px 16px 8px;
 }
 
-.circuit-11 {
+.circuit-10 {
   list-style: none;
 }
 
-.circuit-12 {
+.circuit-11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -267,53 +248,51 @@ exports[`DesktopNavigation > styles > should render with secondary links 1`] = `
   hyphens: auto;
 }
 
-.circuit-12:hover {
+.circuit-11:hover {
   background-color: var(--cui-bg-normal-hovered);
   color: var(--cui-fg-normal-hovered);
 }
 
-.circuit-12:active {
+.circuit-11:active {
   background-color: var(--cui-bg-normal-pressed);
   color: var(--cui-fg-normal-pressed);
 }
 
-.circuit-12:focus {
+.circuit-11:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-12:focus::-moz-focus-inner {
+.circuit-11:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-12:focus:not(:focus-visible) {
+.circuit-11:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-12:disabled,
-.circuit-12[disabled] {
+.circuit-11:disabled,
+.circuit-11[disabled] {
   pointer-events: none;
   background-color: var(--cui-bg-normal-disabled);
   color: var(--cui-fg-normal-disabled);
 }
 
 @media (min-width: 1280px) {
-  .circuit-12 {
+  .circuit-11 {
     padding: 12px;
     padding-left: 20px;
   }
 }
 
-.circuit-13 {
-  display: inline-block;
-  line-height: 0;
+.circuit-12 {
   margin-right: 8px;
 }
 
 <div>
   <div
     aria-busy="false"
-    class="circuit-0"
+    class="_container_c5c51b circuit-0"
   >
     <nav
       aria-label="Primary"
@@ -331,7 +310,7 @@ exports[`DesktopNavigation > styles > should render with secondary links 1`] = `
             href="/shop"
           >
             <span
-              class="circuit-4"
+              class="_base_c5c51b circuit-4"
             >
               <svg
                 fill="none"
@@ -350,10 +329,10 @@ exports[`DesktopNavigation > styles > should render with secondary links 1`] = `
               </svg>
             </span>
             <span
-              class="circuit-5"
+              class="_base_c5c51b"
             >
               <span
-                class="_base_537b83 _one_537b83 _highlight_537b83 circuit-6"
+                class="_base_537b83 _one_537b83 _highlight_537b83 circuit-5"
               >
                 Shop
               </span>
@@ -364,10 +343,10 @@ exports[`DesktopNavigation > styles > should render with secondary links 1`] = `
     </nav>
     <nav
       aria-label="Secondary"
-      class="circuit-7"
+      class="circuit-6"
     >
       <span
-        class="circuit-8"
+        class="_base_c5c51b circuit-7"
       >
         <h2
           class="_base_20bab7 _four_20bab7"
@@ -376,12 +355,12 @@ exports[`DesktopNavigation > styles > should render with secondary links 1`] = `
         </h2>
       </span>
       <ul
-        class="circuit-9"
+        class="circuit-8"
         role="list"
       >
         <li>
           <span
-            class="circuit-10"
+            class="_base_c5c51b circuit-9"
           >
             <h3
               class="_base_551209"
@@ -390,17 +369,17 @@ exports[`DesktopNavigation > styles > should render with secondary links 1`] = `
             </h3>
           </span>
           <ul
-            class="circuit-11"
+            class="circuit-10"
             role="list"
           >
             <li>
               <a
-                class="circuit-12"
+                class="circuit-11"
                 data-focus-list=":r1:"
                 href="/shop/toys"
               >
                 <span
-                  class="circuit-13"
+                  class="_base_c5c51b circuit-12"
                 >
                   <p
                     class="_base_537b83 _one_537b83"
@@ -412,12 +391,12 @@ exports[`DesktopNavigation > styles > should render with secondary links 1`] = `
             </li>
             <li>
               <a
-                class="circuit-12"
+                class="circuit-11"
                 data-focus-list=":r1:"
                 href="/shop/books"
               >
                 <span
-                  class="circuit-13"
+                  class="_base_c5c51b circuit-12"
                 >
                   <p
                     class="_base_537b83 _one_537b83"
@@ -436,14 +415,6 @@ exports[`DesktopNavigation > styles > should render with secondary links 1`] = `
 `;
 
 exports[`DesktopNavigation > styles > should render without secondary links 1`] = `
-.circuit-0[aria-busy='true'] {
-  pointer-events: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 @media (max-width: 1279px) {
   .circuit-0 {
     display: none;
@@ -594,8 +565,6 @@ exports[`DesktopNavigation > styles > should render without secondary links 1`] 
 }
 
 .circuit-4 {
-  display: inline-block;
-  line-height: 0;
   position: relative;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -605,13 +574,8 @@ exports[`DesktopNavigation > styles > should render without secondary links 1`] 
   margin-right: 12px;
 }
 
-.circuit-5 {
-  display: inline-block;
-  line-height: 0;
-}
-
 @media (max-width: 1279px) {
-  .circuit-6 {
+  .circuit-5 {
     font-size: 1.5rem;
     line-height: 1.75rem;
   }
@@ -620,7 +584,7 @@ exports[`DesktopNavigation > styles > should render without secondary links 1`] 
 <div>
   <div
     aria-busy="false"
-    class="circuit-0"
+    class="_container_c5c51b circuit-0"
   >
     <nav
       aria-label="Primary"
@@ -637,7 +601,7 @@ exports[`DesktopNavigation > styles > should render without secondary links 1`] 
             href="/"
           >
             <span
-              class="circuit-4"
+              class="_base_c5c51b circuit-4"
             >
               <svg
                 fill="none"
@@ -654,10 +618,10 @@ exports[`DesktopNavigation > styles > should render without secondary links 1`] 
               </svg>
             </span>
             <span
-              class="circuit-5"
+              class="_base_c5c51b"
             >
               <span
-                class="_base_537b83 _one_537b83 circuit-6"
+                class="_base_537b83 _one_537b83 circuit-5"
               >
                 Home
               </span>

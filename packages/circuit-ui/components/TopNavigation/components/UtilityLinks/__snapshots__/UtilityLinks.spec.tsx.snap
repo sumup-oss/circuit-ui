@@ -67,8 +67,6 @@ exports[`UtilityLinks > styles > should match the snapshot 1`] = `
 }
 
 .circuit-2 {
-  display: inline-block;
-  line-height: 0;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -82,13 +80,8 @@ exports[`UtilityLinks > styles > should match the snapshot 1`] = `
   }
 }
 
-.circuit-3 {
-  display: inline-block;
-  line-height: 0;
-}
-
 @media (max-width: 479px) {
-  .circuit-4 {
+  .circuit-3 {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -110,7 +103,7 @@ exports[`UtilityLinks > styles > should match the snapshot 1`] = `
       href="/more"
     >
       <span
-        class="circuit-2"
+        class="_base_c5c51b circuit-2"
       >
         <svg
           fill="none"
@@ -127,10 +120,10 @@ exports[`UtilityLinks > styles > should match the snapshot 1`] = `
         </svg>
       </span>
       <span
-        class="circuit-3"
+        class="_base_c5c51b"
       >
         <span
-          class="_base_537b83 _one_537b83 circuit-4"
+          class="_base_537b83 _one_537b83 circuit-3"
         >
           More
         </span>

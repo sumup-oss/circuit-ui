@@ -58,24 +58,19 @@ exports[`ProfileMenu > Styles > should render with a profile picture 1`] = `
 }
 
 .circuit-2 {
-  display: inline-block;
-  line-height: 0;
-}
-
-.circuit-3 {
   width: 24px;
   height: 24px;
 }
 
 @media (min-width: 768px) {
-  .circuit-3 {
+  .circuit-2 {
     width: 32px;
     height: 32px;
   }
 }
 
 @media (max-width: 767px) {
-  .circuit-4 {
+  .circuit-3 {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -89,33 +84,31 @@ exports[`ProfileMenu > Styles > should render with a profile picture 1`] = `
 }
 
 @media (min-width: 768px) {
-  .circuit-4 {
+  .circuit-3 {
     margin: 0 12px;
     max-width: 20ch;
   }
 }
 
-.circuit-5 {
-  display: inline-block;
-  line-height: 0;
+.circuit-4 {
   display: block;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-.circuit-6 {
+.circuit-5 {
   display: none;
 }
 
 @media (min-width: 768px) {
-  .circuit-6 {
+  .circuit-5 {
     display: block;
     -webkit-transition: -webkit-transform 120ms ease-in-out;
     transition: transform 120ms ease-in-out;
   }
 
-  button[aria-expanded='true'] .circuit-6 {
+  button[aria-expanded='true'] .circuit-5 {
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -138,19 +131,19 @@ exports[`ProfileMenu > Styles > should render with a profile picture 1`] = `
       type="button"
     >
       <span
-        class="circuit-2"
+        class="_base_c5c51b"
       >
         <img
           alt=""
-          class="_base_2eefa5 _yotta_2eefa5 _identity_2eefa5 circuit-3"
+          class="_base_2eefa5 _yotta_2eefa5 _identity_2eefa5 circuit-2"
           src="profile.png"
         />
       </span>
       <div
-        class="circuit-4"
+        class="circuit-3"
       >
         <span
-          class="circuit-5"
+          class="_base_c5c51b circuit-4"
         >
           <strong
             class="_base_537b83 _two_537b83 _highlight_537b83"
@@ -160,7 +153,7 @@ exports[`ProfileMenu > Styles > should render with a profile picture 1`] = `
         </span>
       </div>
       <svg
-        class="circuit-6"
+        class="circuit-5"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -234,13 +227,8 @@ exports[`ProfileMenu > Styles > should render without a profile picture 1`] = `
   color: var(--cui-fg-normal-disabled);
 }
 
-.circuit-2 {
-  display: inline-block;
-  line-height: 0;
-}
-
 @media (max-width: 767px) {
-  .circuit-3 {
+  .circuit-2 {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -254,33 +242,31 @@ exports[`ProfileMenu > Styles > should render without a profile picture 1`] = `
 }
 
 @media (min-width: 768px) {
-  .circuit-3 {
+  .circuit-2 {
     margin: 0 12px;
     max-width: 20ch;
   }
 }
 
-.circuit-4 {
-  display: inline-block;
-  line-height: 0;
+.circuit-3 {
   display: block;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-.circuit-5 {
+.circuit-4 {
   display: none;
 }
 
 @media (min-width: 768px) {
-  .circuit-5 {
+  .circuit-4 {
     display: block;
     -webkit-transition: -webkit-transform 120ms ease-in-out;
     transition: transform 120ms ease-in-out;
   }
 
-  button[aria-expanded='true'] .circuit-5 {
+  button[aria-expanded='true'] .circuit-4 {
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -303,7 +289,7 @@ exports[`ProfileMenu > Styles > should render without a profile picture 1`] = `
       type="button"
     >
       <span
-        class="circuit-2"
+        class="_base_c5c51b"
       >
         <svg
           fill="none"
@@ -320,10 +306,10 @@ exports[`ProfileMenu > Styles > should render without a profile picture 1`] = `
         </svg>
       </span>
       <div
-        class="circuit-3"
+        class="circuit-2"
       >
         <span
-          class="circuit-4"
+          class="_base_c5c51b circuit-3"
         >
           <strong
             class="_base_537b83 _two_537b83 _highlight_537b83"
@@ -333,7 +319,7 @@ exports[`ProfileMenu > Styles > should render without a profile picture 1`] = `
         </span>
       </div>
       <svg
-        class="circuit-5"
+        class="circuit-4"
         fill="none"
         height="16"
         viewBox="0 0 16 16"

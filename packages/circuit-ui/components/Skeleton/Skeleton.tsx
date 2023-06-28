@@ -13,15 +13,21 @@
  * limitations under the License.
  */
 
-import { createContext, useContext, ReactNode, forwardRef, Ref } from 'react';
-import { css, keyframes } from '@emotion/react';
+import {
+  createContext,
+  useContext,
+  ReactNode,
+  forwardRef,
+  HTMLAttributes,
+} from 'react';
 
-import isPropValid from '../../styles/is-prop-valid.js';
-import styled, { StyleProps } from '../../styles/styled.js';
+import { clsx } from '../../styles/clsx.js';
+
+import classes from './Skeleton.module.css';
 
 const SkeletonContext = createContext(false);
 
-export interface SkeletonContainerProps {
+export interface SkeletonContainerProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * The SkeletonContainer should wrap the entire section that's loading.
    */
@@ -30,47 +36,35 @@ export interface SkeletonContainerProps {
    * Whether the section content is loading.
    */
   isLoading: boolean;
-  /**
-   * A reference to the HTML DOM element.
-   */
-  ref?: Ref<HTMLDivElement>;
-  className?: string;
 }
-
-const containerStyles = css`
-  &[aria-busy='true'] {
-    pointer-events: none;
-    user-select: none;
-  }
-`;
-
-const Container = styled('div', {
-  // `inert` is a new HTML attribute to prevent user input events in an area.
-  // This is a progressive enhancement since few browsers support it yet.
-  // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inert
-  shouldForwardProp: (prop) => isPropValid(prop) || prop === 'inert',
-})<{ inert: boolean }>(containerStyles);
 
 /**
  * The SkeletonContainer wraps a section that's loading. It disables user
  * interactions and signals to screen readers that content is being loaded.
  */
-export const SkeletonContainer = forwardRef(
-  (
-    { children, isLoading, ...props }: SkeletonContainerProps,
-    ref: SkeletonContainerProps['ref'],
-  ) => (
-    <SkeletonContext.Provider value={isLoading}>
-      <Container {...props} ref={ref} aria-busy={isLoading} inert={isLoading}>
-        {children}
-      </Container>
-    </SkeletonContext.Provider>
-  ),
-);
+export const SkeletonContainer = forwardRef<
+  HTMLDivElement,
+  SkeletonContainerProps
+>(({ children, className, isLoading, ...props }, ref) => (
+  <SkeletonContext.Provider value={isLoading}>
+    <div
+      {...props}
+      className={clsx(classes.container, className)}
+      ref={ref}
+      aria-busy={isLoading}
+      // @ts-expect-error `inert` is a new HTML attribute to prevent user input events in an area.
+      // This is a progressive enhancement since few browsers support it yet.
+      // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inert
+      inert={isLoading ? '' : null}
+    >
+      {children}
+    </div>
+  </SkeletonContext.Provider>
+));
 
 SkeletonContainer.displayName = 'SkeletonContainer';
 
-export interface SkeletonProps {
+export interface SkeletonProps extends HTMLAttributes<HTMLSpanElement> {
   /**
    * The content that should be replaced by a skeleton element when it being
    * loaded.
@@ -81,82 +75,37 @@ export interface SkeletonProps {
    * Default: `false`.
    */
   circle?: boolean;
-  /**
-   * A reference to the HTML DOM element.
-   */
-  ref?: Ref<HTMLSpanElement>;
-  className?: string;
 }
-
-const PULSE_WIDTH = '8rem';
-
-const pulse = keyframes`
-  0% {
-    background-position: -${PULSE_WIDTH} 0;
-  }
-  50% {
-    background-position: calc(${PULSE_WIDTH} + 100%) 0;
-  }
-  100% {
-    background-position: calc(${PULSE_WIDTH} + 100%) 0;
-  }
-`;
-
-const baseStyles = css`
-  display: inline-block;
-  line-height: 0;
-`;
-
-const placeholderStyles = ({
-  theme,
-  circle,
-}: StyleProps & SkeletonProps) => css`
-  border-radius: ${circle
-    ? theme.borderRadius.circle
-    : theme.borderRadius.byte};
-  background-color: var(--cui-bg-highlight);
-  background-image: linear-gradient(
-    90deg,
-    var(--cui-bg-highlight),
-    var(--cui-bg-subtle),
-    var(--cui-bg-highlight)
-  );
-  background-size: ${PULSE_WIDTH} 100%;
-  background-repeat: no-repeat;
-  animation: ${pulse} 3s ease-in-out infinite;
-
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
-  }
-
-  > * {
-    visibility: hidden !important;
-  }
-`;
-
-const Placeholder = styled.span(baseStyles, placeholderStyles);
-const Content = styled.span(baseStyles);
 
 /**
  * A placeholder for asynchronously loaded content with a subtle loading
  * animation. Only works when wrapped in a SkeletonContainer.
  */
-export const Skeleton = forwardRef(
-  ({ children, ...props }: SkeletonProps, ref: SkeletonProps['ref']) => {
+export const Skeleton = forwardRef<HTMLSpanElement, SkeletonProps>(
+  ({ children, className, circle, ...props }, ref) => {
     const isLoading = useContext(SkeletonContext);
 
     if (isLoading) {
       return (
-        <Placeholder {...props} ref={ref}>
+        <span
+          {...props}
+          className={clsx(
+            classes.base,
+            classes.placeholder,
+            circle && classes.circle,
+            className,
+          )}
+          ref={ref}
+        >
           {children}
-        </Placeholder>
+        </span>
       );
     }
 
     return (
-      <Content {...props} ref={ref}>
+      <span {...props} className={clsx(classes.base, className)} ref={ref}>
         {children}
-      </Content>
+      </span>
     );
   },
 );

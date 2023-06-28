@@ -94,8 +94,6 @@ exports[`PrimaryLink > styles > should render with active styles 1`] = `
 }
 
 .circuit-1 {
-  display: inline-block;
-  line-height: 0;
   position: relative;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -105,13 +103,8 @@ exports[`PrimaryLink > styles > should render with active styles 1`] = `
   margin-right: 12px;
 }
 
-.circuit-2 {
-  display: inline-block;
-  line-height: 0;
-}
-
 @media (max-width: 1279px) {
-  .circuit-3 {
+  .circuit-2 {
     font-size: 1.5rem;
     line-height: 1.75rem;
   }
@@ -123,7 +116,7 @@ exports[`PrimaryLink > styles > should render with active styles 1`] = `
   href="/url"
 >
   <span
-    class="circuit-1"
+    class="_base_c5c51b circuit-1"
   >
     <svg
       fill="none"
@@ -140,10 +133,10 @@ exports[`PrimaryLink > styles > should render with active styles 1`] = `
     </svg>
   </span>
   <span
-    class="circuit-2"
+    class="_base_c5c51b"
   >
     <span
-      class="_base_537b83 _one_537b83 _highlight_537b83 circuit-3"
+      class="_base_537b83 _one_537b83 _highlight_537b83 circuit-2"
     >
       Label
     </span>
@@ -236,8 +229,6 @@ exports[`PrimaryLink > styles > should render with badge styles 1`] = `
 }
 
 .circuit-1 {
-  display: inline-block;
-  line-height: 0;
   position: relative;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -259,13 +250,8 @@ exports[`PrimaryLink > styles > should render with badge styles 1`] = `
   border-radius: 100%;
 }
 
-.circuit-2 {
-  display: inline-block;
-  line-height: 0;
-}
-
 @media (max-width: 1279px) {
-  .circuit-3 {
+  .circuit-2 {
     font-size: 1.5rem;
     line-height: 1.75rem;
   }
@@ -276,7 +262,7 @@ exports[`PrimaryLink > styles > should render with badge styles 1`] = `
   href="/url"
 >
   <span
-    class="circuit-1"
+    class="_base_c5c51b circuit-1"
   >
     <svg
       fill="none"
@@ -293,10 +279,10 @@ exports[`PrimaryLink > styles > should render with badge styles 1`] = `
     </svg>
   </span>
   <span
-    class="circuit-2"
+    class="_base_c5c51b"
   >
     <span
-      class="_base_537b83 _one_537b83 circuit-3"
+      class="_base_537b83 _one_537b83 circuit-2"
     >
       Label
     </span>
@@ -389,8 +375,6 @@ exports[`PrimaryLink > styles > should render with default styles 1`] = `
 }
 
 .circuit-1 {
-  display: inline-block;
-  line-height: 0;
   position: relative;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -400,13 +384,8 @@ exports[`PrimaryLink > styles > should render with default styles 1`] = `
   margin-right: 12px;
 }
 
-.circuit-2 {
-  display: inline-block;
-  line-height: 0;
-}
-
 @media (max-width: 1279px) {
-  .circuit-3 {
+  .circuit-2 {
     font-size: 1.5rem;
     line-height: 1.75rem;
   }
@@ -417,7 +396,7 @@ exports[`PrimaryLink > styles > should render with default styles 1`] = `
   href="/url"
 >
   <span
-    class="circuit-1"
+    class="_base_c5c51b circuit-1"
   >
     <svg
       fill="none"
@@ -434,10 +413,10 @@ exports[`PrimaryLink > styles > should render with default styles 1`] = `
     </svg>
   </span>
   <span
-    class="circuit-2"
+    class="_base_c5c51b"
   >
     <span
-      class="_base_537b83 _one_537b83 circuit-3"
+      class="_base_537b83 _one_537b83 circuit-2"
     >
       Label
     </span>
@@ -538,8 +517,6 @@ exports[`PrimaryLink > styles > should render with open styles 1`] = `
 }
 
 .circuit-1 {
-  display: inline-block;
-  line-height: 0;
   position: relative;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -549,13 +526,8 @@ exports[`PrimaryLink > styles > should render with open styles 1`] = `
   margin-right: 12px;
 }
 
-.circuit-2 {
-  display: inline-block;
-  line-height: 0;
-}
-
 @media (max-width: 1279px) {
-  .circuit-3 {
+  .circuit-2 {
     font-size: 1.5rem;
     line-height: 1.75rem;
   }
@@ -566,7 +538,7 @@ exports[`PrimaryLink > styles > should render with open styles 1`] = `
   href="/url"
 >
   <span
-    class="circuit-1"
+    class="_base_c5c51b circuit-1"
   >
     <svg
       fill="none"
@@ -583,10 +555,10 @@ exports[`PrimaryLink > styles > should render with open styles 1`] = `
     </svg>
   </span>
   <span
-    class="circuit-2"
+    class="_base_c5c51b"
   >
     <span
-      class="_base_537b83 _one_537b83 _highlight_537b83 circuit-3"
+      class="_base_537b83 _one_537b83 _highlight_537b83 circuit-2"
     >
       Label
     </span>
