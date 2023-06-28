@@ -16,7 +16,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { Plus } from '@sumup/icons';
 
-import { axe, render, userEvent, waitFor } from '../../util/test-utils.js';
+import { axe, render, userEvent, screen } from '../../util/test-utils.js';
 
 import {
   NotificationModal,
@@ -50,33 +50,33 @@ describe('NotificationModal', () => {
     ariaHideApp: false,
   } as const;
 
-  describe('styles', () => {
-    it('should render with default styles', () => {
-      const { baseElement } = renderNotificationModal(baseNotificationModal);
-      expect(baseElement).toMatchSnapshot();
-    });
+  it('should render with an SVG', () => {
+    const alt = 'Image description';
+    const props = {
+      ...baseNotificationModal,
+      image: { svg: Plus, alt },
+    };
+    renderNotificationModal(props);
 
-    it('should render with an SVG', () => {
-      const props = { ...baseNotificationModal, image: { svg: Plus, alt: '' } };
-      const { baseElement } = renderNotificationModal(props);
-      expect(baseElement).toMatchSnapshot();
-    });
+    const svg = screen.getByRole('img');
 
-    it('should render without an image', () => {
-      const { image, ...props } = baseNotificationModal;
-      const { baseElement } = renderNotificationModal(props);
-      expect(baseElement).toMatchSnapshot();
-    });
+    expect(svg).toBeVisible();
+    expect(svg).toHaveAccessibleName(alt);
+  });
 
-    it('should render the modal', async () => {
-      const { findByRole } = renderNotificationModal(baseNotificationModal);
+  it('should render without an image', () => {
+    const { image, ...props } = baseNotificationModal;
+    renderNotificationModal(props);
 
-      const modalEl = await findByRole('dialog');
+    expect(screen.queryByRole('img')).toBeNull();
+  });
 
-      await waitFor(() => {
-        expect(modalEl).toBeVisible();
-      });
-    });
+  it('should render the modal', async () => {
+    const { findByRole } = renderNotificationModal(baseNotificationModal);
+
+    const modalEl = await findByRole('dialog');
+
+    expect(modalEl).toBeVisible();
   });
 
   describe('business logic', () => {
@@ -114,14 +114,12 @@ describe('NotificationModal', () => {
     });
   });
 
-  describe('accessibility', () => {
-    /**
-     * FIXME: calling axe here triggers an act() warning.
-     */
-    it('should have no violations', async () => {
-      const { container } = renderNotificationModal(baseNotificationModal);
-      const actual = await axe(container);
-      expect(actual).toHaveNoViolations();
-    });
+  /**
+   * FIXME: calling axe here triggers an act() warning.
+   */
+  it('should have no accessibility violations', async () => {
+    const { container } = renderNotificationModal(baseNotificationModal);
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });
