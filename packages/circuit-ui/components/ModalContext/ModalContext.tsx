@@ -21,12 +21,12 @@ import {
   useMemo,
 } from 'react';
 import ReactModal, { Props as ReactModalProps } from 'react-modal';
-import { Global, css } from '@emotion/react';
 
 import { useStack, StackItem } from '../../hooks/useStack/index.js';
 import { warn } from '../../util/logger.js';
 
 import { BaseModalProps, ModalComponent } from './types.js';
+import './Modal.css';
 
 // It is important for users of screen readers that other page content be hidden
 // (via the `aria-hidden` attribute) while the modal is open.
@@ -34,11 +34,12 @@ import { BaseModalProps, ModalComponent } from './types.js';
 // with a query selector identifying the root of the app.
 // http://reactcommunity.org/react-modal/accessibility/#app-element
 if (typeof window !== 'undefined') {
-  // These are the default app elements in Next.js, Docusaurus, and CRA.
+  // These are the default app elements in Next.js, Docusaurus, CRA and Storybook.
   const appElement =
     document.getElementById('__next') ||
     document.getElementById('__docusaurus') ||
-    document.getElementById('root');
+    document.getElementById('root') ||
+    document.getElementById('storybook-root');
 
   if (appElement) {
     ReactModal.setAppElement(appElement);
@@ -70,7 +71,10 @@ export const ModalContext = createContext<ModalContextValue>({
 });
 
 export interface ModalProviderProps<TProps extends BaseModalProps>
-  extends Omit<ReactModalProps, 'isOpen'> {
+  extends Omit<
+    ReactModalProps,
+    'isOpen' | 'portalClassName' | 'htmlOpenClassName' | 'bodyOpenClassName'
+  > {
   /**
    * The ModalProvider should wrap your entire application.
    */
@@ -84,8 +88,6 @@ export interface ModalProviderProps<TProps extends BaseModalProps>
 export function ModalProvider<TProps extends BaseModalProps>({
   children,
   initialState,
-  portalClassName = 'ReactModalPortal',
-  htmlOpenClassName = 'ReactModal__Html--open',
   ...defaultModalProps
 }: ModalProviderProps<TProps>): JSX.Element {
   const [modals, dispatch] = useStack<ModalState<TProps>>(initialState);
@@ -157,30 +159,12 @@ export function ModalProvider<TProps extends BaseModalProps>({
             key={id}
             isOpen={!transition}
             onClose={() => removeModal(modal)}
-            portalClassName={portalClassName}
-            htmlOpenClassName={htmlOpenClassName}
+            portalClassName="cui-modal-portal"
+            htmlOpenClassName="cui-modal-open"
+            bodyOpenClassName=""
           />
         );
       })}
-
-      {activeModal && (
-        <Global
-          styles={css`
-            /* Remove scroll on the body when react-modal is open */
-            .${htmlOpenClassName} {
-              height: 100%;
-              overflow-y: hidden;
-              -webkit-overflow-scrolling: auto;
-            }
-            /* Enable keyboard navigation inside the modal, see https://github.com/reactjs/react-modal/issues/782 */
-            .${portalClassName} {
-              position: absolute;
-              height: 100%;
-              width: 100%;
-            }
-          `}
-        />
-      )}
     </ModalContext.Provider>
   );
 }

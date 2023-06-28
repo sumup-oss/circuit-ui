@@ -15,9 +15,9 @@
 
 import { createContext, ReactNode, useContext } from 'react';
 
-export const StackContext = createContext<number | null>(null);
+export const StackContext = createContext<string | number | null>(null);
 
-export const useStackContext = (): number | null => useContext(StackContext);
+export const useStackContext = () => useContext(StackContext);
 
 export interface StackContextProviderProps {
   children: ReactNode;
