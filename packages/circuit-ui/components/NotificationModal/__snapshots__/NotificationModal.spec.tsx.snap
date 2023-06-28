@@ -281,10 +281,6 @@ exports[`NotificationModal > styles > should render with default styles 1`] = `
 }
 
 .circuit-3 {
-  display: block;
-  height: auto;
-  max-height: 100%;
-  width: 100%;
   max-width: 232px;
   height: 120px;
   object-fit: contain;
@@ -364,7 +360,7 @@ exports[`NotificationModal > styles > should render with default styles 1`] = `
         </button>
         <img
           alt=""
-          class="circuit-3"
+          class="_base_1174d4 circuit-3"
           src="/images/illustration-update-browser.svg"
         />
         <h2

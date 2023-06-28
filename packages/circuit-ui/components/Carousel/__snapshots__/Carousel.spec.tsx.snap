@@ -60,13 +60,6 @@ exports[`Carousel > styles > should render with children as a function 1`] = `
   background: var(--cui-bg-subtle);
 }
 
-.circuit-6 {
-  display: block;
-  height: auto;
-  max-height: 100%;
-  width: 100%;
-}
-
 .circuit-6 img {
   object-fit: cover;
 }
@@ -211,7 +204,7 @@ exports[`Carousel > styles > should render with children as a function 1`] = `
             >
               <img
                 alt="Aerial photo of turbulent blue ocean waves"
-                class="_child_a282dc circuit-6"
+                class="_base_1174d4 _child_a282dc circuit-6"
                 src="/images/illustration-waves.jpg"
               />
             </div>
@@ -233,7 +226,7 @@ exports[`Carousel > styles > should render with children as a function 1`] = `
             >
               <img
                 alt="Aerial photo of turbulent turquoise ocean waves"
-                class="_child_a282dc circuit-6"
+                class="_base_1174d4 _child_a282dc circuit-6"
                 src="/images/illustration-waves-2.jpg"
               />
             </div>
@@ -255,7 +248,7 @@ exports[`Carousel > styles > should render with children as a function 1`] = `
             >
               <img
                 alt="Aerial photo of turbulent ocean water with white foam"
-                class="_child_a282dc circuit-6"
+                class="_base_1174d4 _child_a282dc circuit-6"
                 src="/images/illustration-waves-3.jpg"
               />
             </div>
@@ -469,13 +462,6 @@ exports[`Carousel > styles > should render with children as a node 1`] = `
   background: var(--cui-bg-subtle);
 }
 
-.circuit-6 {
-  display: block;
-  height: auto;
-  max-height: 100%;
-  width: 100%;
-}
-
 .circuit-6 img {
   object-fit: cover;
 }
@@ -620,7 +606,7 @@ exports[`Carousel > styles > should render with children as a node 1`] = `
             >
               <img
                 alt="Aerial photo of turbulent blue ocean waves"
-                class="_child_a282dc circuit-6"
+                class="_base_1174d4 _child_a282dc circuit-6"
                 src="/images/illustration-waves.jpg"
               />
             </div>
@@ -642,7 +628,7 @@ exports[`Carousel > styles > should render with children as a node 1`] = `
             >
               <img
                 alt="Aerial photo of turbulent turquoise ocean waves"
-                class="_child_a282dc circuit-6"
+                class="_base_1174d4 _child_a282dc circuit-6"
                 src="/images/illustration-waves-2.jpg"
               />
             </div>
@@ -664,7 +650,7 @@ exports[`Carousel > styles > should render with children as a node 1`] = `
             >
               <img
                 alt="Aerial photo of turbulent ocean water with white foam"
-                class="_child_a282dc circuit-6"
+                class="_base_1174d4 _child_a282dc circuit-6"
                 src="/images/illustration-waves-3.jpg"
               />
             </div>
@@ -877,13 +863,6 @@ exports[`Carousel > styles > should render with default paused styles 1`] = `
   background: var(--cui-bg-subtle);
 }
 
-.circuit-6 {
-  display: block;
-  height: auto;
-  max-height: 100%;
-  width: 100%;
-}
-
 .circuit-6 img {
   object-fit: cover;
 }
@@ -1028,7 +1007,7 @@ exports[`Carousel > styles > should render with default paused styles 1`] = `
             >
               <img
                 alt="Aerial photo of turbulent blue ocean waves"
-                class="_child_a282dc circuit-6"
+                class="_base_1174d4 _child_a282dc circuit-6"
                 src="/images/illustration-waves.jpg"
               />
             </div>
@@ -1050,7 +1029,7 @@ exports[`Carousel > styles > should render with default paused styles 1`] = `
             >
               <img
                 alt="Aerial photo of turbulent turquoise ocean waves"
-                class="_child_a282dc circuit-6"
+                class="_base_1174d4 _child_a282dc circuit-6"
                 src="/images/illustration-waves-2.jpg"
               />
             </div>
@@ -1072,7 +1051,7 @@ exports[`Carousel > styles > should render with default paused styles 1`] = `
             >
               <img
                 alt="Aerial photo of turbulent ocean water with white foam"
-                class="_child_a282dc circuit-6"
+                class="_base_1174d4 _child_a282dc circuit-6"
                 src="/images/illustration-waves-3.jpg"
               />
             </div>
@@ -1282,13 +1261,6 @@ exports[`Carousel > styles > should render with default styles 1`] = `
   background: var(--cui-bg-subtle);
 }
 
-.circuit-6 {
-  display: block;
-  height: auto;
-  max-height: 100%;
-  width: 100%;
-}
-
 .circuit-6 img {
   object-fit: cover;
 }
@@ -1433,7 +1405,7 @@ exports[`Carousel > styles > should render with default styles 1`] = `
             >
               <img
                 alt="Aerial photo of turbulent blue ocean waves"
-                class="_child_a282dc circuit-6"
+                class="_base_1174d4 _child_a282dc circuit-6"
                 src="/images/illustration-waves.jpg"
               />
             </div>
@@ -1455,7 +1427,7 @@ exports[`Carousel > styles > should render with default styles 1`] = `
             >
               <img
                 alt="Aerial photo of turbulent turquoise ocean waves"
-                class="_child_a282dc circuit-6"
+                class="_base_1174d4 _child_a282dc circuit-6"
                 src="/images/illustration-waves-2.jpg"
               />
             </div>
@@ -1477,7 +1449,7 @@ exports[`Carousel > styles > should render with default styles 1`] = `
             >
               <img
                 alt="Aerial photo of turbulent ocean water with white foam"
-                class="_child_a282dc circuit-6"
+                class="_base_1174d4 _child_a282dc circuit-6"
                 src="/images/illustration-waves-3.jpg"
               />
             </div>
@@ -1687,13 +1659,6 @@ exports[`Carousel > styles > should render without controls 1`] = `
   background: var(--cui-bg-subtle);
 }
 
-.circuit-6 {
-  display: block;
-  height: auto;
-  max-height: 100%;
-  width: 100%;
-}
-
 .circuit-6 img {
   object-fit: cover;
 }
@@ -1765,7 +1730,7 @@ exports[`Carousel > styles > should render without controls 1`] = `
             >
               <img
                 alt="Aerial photo of turbulent blue ocean waves"
-                class="_child_a282dc circuit-6"
+                class="_base_1174d4 _child_a282dc circuit-6"
                 src="/images/illustration-waves.jpg"
               />
             </div>
@@ -1787,7 +1752,7 @@ exports[`Carousel > styles > should render without controls 1`] = `
             >
               <img
                 alt="Aerial photo of turbulent turquoise ocean waves"
-                class="_child_a282dc circuit-6"
+                class="_base_1174d4 _child_a282dc circuit-6"
                 src="/images/illustration-waves-2.jpg"
               />
             </div>
@@ -1809,7 +1774,7 @@ exports[`Carousel > styles > should render without controls 1`] = `
             >
               <img
                 alt="Aerial photo of turbulent ocean water with white foam"
-                class="_child_a282dc circuit-6"
+                class="_base_1174d4 _child_a282dc circuit-6"
                 src="/images/illustration-waves-3.jpg"
               />
             </div>
