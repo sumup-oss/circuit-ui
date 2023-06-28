@@ -1,6 +1,5 @@
 import { css, ThemeProvider, Global } from '@emotion/react';
 import { Decorator } from '@storybook/react';
-import { BaseStyles } from '../../packages/circuit-ui/index.js';
 import { light } from '@sumup/design-tokens';
 
 const lightTheme = css`
@@ -322,7 +321,6 @@ export const withThemeProvider: Decorator = (Story, context) => {
   const theme = context.parameters.theme || context.globals.theme;
   return (
     <ThemeProvider theme={light}>
-      <BaseStyles />
       <Global styles={themes[theme]} />
       <Story />
     </ThemeProvider>

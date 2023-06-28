@@ -26,7 +26,6 @@ import {
   SearchInput,
   Select,
   typography,
-  BaseStyles,
   Badge,
 } from '../../packages/circuit-ui/index.js';
 
@@ -149,7 +148,6 @@ const Icons = () => {
 
   return (
     <ThemeProvider theme={light}>
-      <BaseStyles />
       <Filters>
         <SearchInput
           label="Filter icons by name"

@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import './styles/base.css';
+
 export { default as utilityClasses } from './styles/utility.js';
 
 // Typography
@@ -134,7 +136,6 @@ export type {
   PopoverProps,
   PopoverItemProps,
 } from './components/Popover/index.js';
-export { default as BaseStyles } from './components/BaseStyles/index.js';
 export { ModalProvider } from './components/ModalContext/index.js';
 export type { ModalProviderProps } from './components/ModalContext/index.js';
 export { useModal } from './components/Modal/index.js';
