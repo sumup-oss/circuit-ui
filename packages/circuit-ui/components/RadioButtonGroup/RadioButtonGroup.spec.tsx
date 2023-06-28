@@ -237,13 +237,11 @@ describe('RadioButtonGroup', () => {
       expect(groupLiveRegionEl).toHaveTextContent(validationHint);
     });
 
-    it('should have a required attribute on each option when required is specified', () => {
-      const { getByLabelText } = render(
+    it('should mark the group as required', () => {
+      const { getByRole } = render(
         <RadioButtonGroup {...defaultProps} required />,
       );
-      expect(getByLabelText('Option 1')).toBeRequired();
-      expect(getByLabelText('Option 2')).toBeRequired();
-      expect(getByLabelText('Option 3')).toBeRequired();
+      expect(getByRole('radiogroup')).toBeRequired();
     });
   });
 
