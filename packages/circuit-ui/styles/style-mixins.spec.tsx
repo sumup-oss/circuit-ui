@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 import { css } from '@emotion/react';
-import { light, Theme } from '@sumup/design-tokens';
+import { light } from '@sumup/design-tokens';
 
 import { create } from '../util/test-utils.js';
 
@@ -37,11 +37,11 @@ import {
 } from './style-mixins.js';
 
 describe('Style helpers', () => {
-  const byte = (theme: Theme) => css`
-    margin: ${theme.spacings.byte};
+  const byte = () => css`
+    margin: var(--cui-spacings-byte);
   `;
-  const kilo = (theme: Theme) => css`
-    margin: ${theme.spacings.kilo};
+  const kilo = () => css`
+    margin: var(--cui-spacings-kilo);
   `;
   const purple = css`
     color: rebeccapurple;
@@ -53,8 +53,8 @@ describe('Style helpers', () => {
 
       expect(actual).toMatchInlineSnapshot(`
         .circuit-0 {
-          margin: 8px;
-          margin: 12px;
+          margin: var(--cui-spacings-byte);
+          margin: var(--cui-spacings-kilo);
         }
 
         <div
@@ -84,7 +84,7 @@ describe('Style helpers', () => {
 
       expect(actual).toMatchInlineSnapshot(`
         .circuit-0 {
-          margin: 8px;
+          margin: var(--cui-spacings-byte);
         }
 
         <div
@@ -434,8 +434,8 @@ describe('Style helpers', () => {
         `
         "
             background-color: var(--cui-bg-normal);
-            padding: 12px 32px
-              12px 16px;
+            padding: var(--cui-spacings-kilo) var(--cui-spacings-tera)
+              var(--cui-spacings-kilo) var(--cui-spacings-mega);
             border: 0;
             color: var(--cui-fg-normal);
             text-decoration: none;
@@ -485,8 +485,8 @@ describe('Style helpers', () => {
         `
         "
             background-color: var(--cui-bg-normal);
-            padding: 12px 32px
-              12px 16px;
+            padding: var(--cui-spacings-kilo) var(--cui-spacings-tera)
+              var(--cui-spacings-kilo) var(--cui-spacings-mega);
             border: 0;
             color: var(--cui-fg-danger);
             text-decoration: none;
@@ -542,8 +542,8 @@ describe('Style helpers', () => {
             background-color: var(--cui-bg-normal);
             text-align: left;
             cursor: pointer;
-            transition: color 120ms ease-in-out,
-              background-color 120ms ease-in-out;
+            transition: color var(--cui-transitions-default),
+              background-color var(--cui-transitions-default);
 
             &:hover {
               background-color: var(--cui-bg-normal-hovered);
@@ -597,8 +597,8 @@ describe('Style helpers', () => {
             background-color: var(--cui-bg-accent);
             text-align: left;
             cursor: pointer;
-            transition: color 120ms ease-in-out,
-              background-color 120ms ease-in-out;
+            transition: color var(--cui-transitions-default),
+              background-color var(--cui-transitions-default);
 
             &:hover {
               background-color: var(--cui-bg-accent-hovered);

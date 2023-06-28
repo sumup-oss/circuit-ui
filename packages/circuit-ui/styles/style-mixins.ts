@@ -353,13 +353,12 @@ export const listItem = (
         destructive?: boolean;
       },
 ): SerializedStyles => {
-  const theme = getTheme(args);
   const options = isTheme(args) ? { destructive: false } : args;
 
   return css`
     background-color: var(--cui-bg-normal);
-    padding: ${theme.spacings.kilo} ${theme.spacings.tera}
-      ${theme.spacings.kilo} ${theme.spacings.mega};
+    padding: var(--cui-spacings-kilo) var(--cui-spacings-tera)
+      var(--cui-spacings-kilo) var(--cui-spacings-mega);
     border: 0;
     color: ${options.destructive
       ? 'var(--cui-fg-danger)'
@@ -403,7 +402,6 @@ export const navigationItem = (
         isActive?: boolean;
       },
 ): SerializedStyles => {
-  const theme = getTheme(args);
   const options = isTheme(args) ? { isActive: false } : args;
 
   return css`
@@ -419,8 +417,8 @@ export const navigationItem = (
       : 'var(--cui-bg-normal)'};
     text-align: left;
     cursor: pointer;
-    transition: color ${theme.transitions.default},
-      background-color ${theme.transitions.default};
+    transition: color var(--cui-transitions-default),
+      background-color var(--cui-transitions-default);
 
     &:hover {
       background-color: ${options.isActive
