@@ -1,0 +1,95 @@
+.base {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow: hidden;
+  border-radius: var(--cui-border-radius-mega);
+  transition: opacity 200ms ease-in-out, height 200ms ease-in-out,
+    visibility 200ms ease-in-out;
+}
+
+/* Variants */
+
+.system {
+  background-color: var(--cui-bg-accent);
+}
+
+.promotional {
+  background-color: var(--cui-bg-subtle);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 420px;
+  padding: var(--cui-spacings-giga);
+  padding-right: var(--cui-spacings-byte);
+}
+
+.headline {
+  margin-bottom: var(--cui-spacings-byte);
+  font-size: var(--cui-typography-headline-four-font-size);
+  line-height: var(--cui-typography-headline-four-line-height);
+}
+
+@media (min-width: 768px) {
+  .headline {
+    font-size: var(--cui-typography-headline-three-font-size);
+    line-height: var(--cui-typography-headline-three-line-height);
+  }
+}
+
+.body {
+  margin-bottom: var(--cui-spacings-byte);
+  font-size: var(--cui-typography-body-two-font-size);
+  line-height: var(--cui-typography-body-two-line-height);
+}
+
+@media (min-width: 768px) {
+  .body {
+    font-size: var(--cui-typography-body-one-font-size);
+    line-height: var(--cui-typography-body-one-line-height);
+  }
+}
+
+.image {
+  width: var(--notification-image-width);
+  min-width: 0;
+  height: auto;
+  border-radius: 0 var(--cui-border-radius-mega) var(--cui-border-radius-mega) 0;
+  object-fit: contain;
+  object-position: var(--notification-image-align);
+}
+
+.button {
+  padding-top: calc(var(--cui-spacings-bit) - var(--cui-border-width-kilo));
+  padding-bottom: calc(var(--cui-spacings-bit) - var(--cui-border-width-kilo));
+}
+
+@media (min-width: 768px) {
+  .kilo {
+    padding-top: calc(var(--cui-spacings-bit) - var(--cui-border-width-kilo));
+    padding-bottom: calc(var(--cui-spacings-bit) - var(--cui-border-width-kilo));
+  }
+
+  .giga {
+    padding-top: calc(var(--cui-spacings-kilo) - var(--cui-border-width-kilo));
+    padding-bottom: calc(var(--cui-spacings-kilo) - var(--cui-border-width-kilo));
+  }
+}
+
+.close {
+  position: absolute;
+  top: var(--cui-spacings-byte);
+  right: var(--cui-spacings-byte);
+}
+
+.system .close {
+  background-color: var(--cui-bg-accent);
+}
+
+.promotional .close {
+  background-color: var(--cui-bg-subtle);
+}
