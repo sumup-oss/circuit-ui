@@ -14,12 +14,10 @@
  */
 
 import { ReactNode, useRef, useState } from 'react';
-import { css } from '@emotion/react';
 
 import ProgressBar from '../ProgressBar/index.js';
 import Step from '../Step/index.js';
 import { useComponentSize } from '../../hooks/useComponentSize/index.js';
-import styled, { StyleProps } from '../../styles/styled.js';
 import { ImageProps } from '../Image/index.js';
 import { isFunction } from '../../util/type-check.js';
 import { Actions, State } from '../Step/types.js';
@@ -42,6 +40,7 @@ import {
   SLIDE_DURATION,
   SLIDE_DIRECTIONS,
 } from './constants.js';
+import classes from './Carousel.module.css';
 
 export interface CarouselProps {
   /**
@@ -103,29 +102,6 @@ export interface CarouselProps {
 type Item = {
   image: ImageProps;
 };
-
-const statusAlignment = ({ theme }: StyleProps) => css`
-  flex: none;
-  margin-right: ${theme.spacings.exa};
-
-  ${theme.mq.untilKilo} {
-    margin-right: ${theme.spacings.kilo};
-  }
-`;
-const StyledStatus = styled(Status)(statusAlignment);
-
-const StyledProgressBar = styled(ProgressBar)`
-  flex: 1 1 auto;
-`;
-
-const buttonsAlignment = ({ theme }: StyleProps) => css`
-  margin-left: ${theme.spacings.exa};
-
-  ${theme.mq.untilKilo} {
-    margin-left: ${theme.spacings.kilo};
-  }
-`;
-const StyledButtonList = styled(ButtonList)(buttonsAlignment);
 
 export function Carousel({
   slides,
@@ -199,9 +175,13 @@ export function Carousel({
 
           {!hideControls && (
             <Controls>
-              <StyledStatus step={state.step} total={slidesTotal} />
+              <Status
+                step={state.step}
+                total={slidesTotal}
+                className={classes.status}
+              />
 
-              <StyledProgressBar
+              <ProgressBar
                 aria-hidden
                 key={state.step}
                 size="byte"
@@ -213,9 +193,10 @@ export function Carousel({
                 )}
                 label={`${state.step + 1} / ${slidesTotal}`}
                 hideLabel
+                className={classes.progressbar}
               />
 
-              <StyledButtonList>
+              <ButtonList className={classes.buttons}>
                 <PlayButton
                   paused={state.paused}
                   label={state.paused ? playButtonLabel : pauseButtonLabel}
@@ -231,7 +212,7 @@ export function Carousel({
                   label={nextButtonLabel}
                   {...getNextControlProps()}
                 />
-              </StyledButtonList>
+              </ButtonList>
             </Controls>
           )}
 

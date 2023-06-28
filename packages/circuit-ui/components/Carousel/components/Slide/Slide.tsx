@@ -13,13 +13,13 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes, ReactNode } from 'react';
-import { css, keyframes } from '@emotion/react';
+import type { HTMLAttributes, ReactNode } from 'react';
 
-import styled, { StyleProps } from '../../../../styles/styled.js';
 import { ANIMATION_DURATION, SLIDE_DIRECTIONS } from '../../constants.js';
+import { clsx } from '../../../../styles/clsx.js';
 
 import * as SlideService from './SlideService.js';
+import classes from './Slide.module.css';
 
 export interface SlideProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -55,73 +55,6 @@ export interface SlideProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
 }
 
-const baseStyles = ({
-  index,
-  stackOrder,
-  dynamicWidth,
-}: {
-  index: number;
-  stackOrder: number;
-  dynamicWidth: string;
-}) => css`
-  width: 100%;
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: ${dynamicWidth};
-  transform: translate3d(${-index * 100}%, 0, 0);
-  backface-visibility: hidden;
-  position: relative;
-  z-index: ${stackOrder};
-`;
-
-const Wrapper = styled('div')(baseStyles);
-
-const slideIn = keyframes`
-  from {
-    width: 0%;
-  }
-  to {
-    width: 100%;
-  }
-`;
-
-const slideOut = keyframes`
-  from {
-    width: 100%;
-  }
-  to {
-    width: 0%;
-  }
-`;
-
-const animationStyles = ({
-  theme,
-  isAnimating,
-  animationDuration,
-  animationName,
-}: StyleProps & {
-  isAnimating: boolean;
-  animationDuration: number;
-  animationName: string;
-}) => css`
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
-  will-change: width;
-  ${isAnimating &&
-  css`
-    animation-name: ${animationName};
-    animation-duration: ${animationDuration}ms;
-    animation-fill-mode: forwards;
-    animation-timing-function: ${theme.transitions.slow};
-  `};
-`;
-const Inner = styled('div')(animationStyles);
-
-const dynamicWidthStyles = ({ dynamicWidth }: { dynamicWidth: string }) => css`
-  width: ${dynamicWidth};
-`;
-const Content = styled('div')(dynamicWidthStyles);
-
 export function Slide({
   index = 0,
   step = 0,
@@ -145,23 +78,32 @@ export function Slide({
     slideDirection,
   );
   const dynamicWidth = SlideService.getDynamicWidth(slideSize.width);
-  const animationName =
-    slideDirection === SLIDE_DIRECTIONS.FORWARD ? slideIn : slideOut;
+  const isAnimating = Boolean(slideSize.width && shouldAnimate);
 
   return (
-    <Wrapper
-      index={index}
-      stackOrder={stackOrder}
-      dynamicWidth={dynamicWidth}
+    <div
+      style={{
+        '--slide-width': dynamicWidth,
+        '--slide-stack-order': stackOrder,
+        '--slide-transform-x': `${index * 100}%`,
+        '--slide-animation-duration': `${animationDuration}ms`,
+      }}
+      className={classes.base}
       {...props}
     >
-      <Inner
-        isAnimating={Boolean(slideSize.width && shouldAnimate)}
-        animationName={animationName}
-        animationDuration={animationDuration}
+      <div
+        className={clsx(
+          classes.inner,
+          isAnimating &&
+            slideDirection === SLIDE_DIRECTIONS.FORWARD &&
+            classes['animate-in'],
+          isAnimating &&
+            slideDirection === SLIDE_DIRECTIONS.FORWARD &&
+            classes['animate-out'],
+        )}
       >
-        <Content dynamicWidth={dynamicWidth}>{children}</Content>
-      </Inner>
-    </Wrapper>
+        <div>{children}</div>
+      </div>
+    </div>
   );
 }

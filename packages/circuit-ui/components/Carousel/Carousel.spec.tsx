@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { axe, render } from '../../util/test-utils.js';
 
@@ -28,62 +28,37 @@ describe('Carousel', () => {
     nextButtonLabel: 'Next',
   };
 
-  describe('styles', () => {
-    it('should not render without slides data', () => {
-      const { container } = render(<Carousel slides={[]} {...baseProps} />);
+  it('should not render without slides data', () => {
+    const { container } = render(<Carousel slides={[]} {...baseProps} />);
 
-      expect(container).toMatchSnapshot();
-    });
-
-    it('should render with default styles', () => {
-      const { container } = render(<Carousel slides={SLIDES} {...baseProps} />);
-
-      expect(container).toMatchSnapshot();
-    });
-
-    it('should render with default paused styles', () => {
-      const { container } = render(
-        <Carousel slides={SLIDES} autoPlay={false} {...baseProps} />,
-      );
-
-      expect(container).toMatchSnapshot();
-    });
-
-    it('should render with children as a function', () => {
-      const { container } = render(
-        <Carousel slides={SLIDES} {...baseProps}>
-          {({ state }) => <h1>Carousel heading for step #{state.step}</h1>}
-        </Carousel>,
-      );
-
-      expect(container).toMatchSnapshot();
-    });
-
-    it('should render with children as a node', () => {
-      const { container } = render(
-        <Carousel slides={SLIDES} {...baseProps}>
-          <h1>Carousel heading</h1>
-        </Carousel>,
-      );
-
-      expect(container).toMatchSnapshot();
-    });
-
-    it('should render without controls', () => {
-      const { container } = render(
-        <Carousel slides={SLIDES} hideControls {...baseProps} />,
-      );
-
-      expect(container).toMatchSnapshot();
-    });
+    expect(container).toBeEmpty();
   });
 
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const { container } = render(<Carousel slides={SLIDES} {...baseProps} />);
-      const actual = await axe(container);
+  it('should render with children as a function', () => {
+    const children = vi.fn(() => <h1>Carousel heading</h1>);
+    render(
+      <Carousel slides={SLIDES} {...baseProps}>
+        {children}
+      </Carousel>,
+    );
 
-      expect(actual).toHaveNoViolations();
-    });
+    expect(children).toHaveBeenCalled();
+  });
+
+  it('should render with children as a node', () => {
+    const { getByRole } = render(
+      <Carousel slides={SLIDES} {...baseProps}>
+        <h1>Carousel heading</h1>
+      </Carousel>,
+    );
+
+    expect(getByRole('heading')).toHaveTextContent('Carousel heading');
+  });
+
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<Carousel slides={SLIDES} {...baseProps} />);
+    const actual = await axe(container);
+
+    expect(actual).toHaveNoViolations();
   });
 });

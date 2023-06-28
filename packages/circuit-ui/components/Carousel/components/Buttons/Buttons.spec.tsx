@@ -19,30 +19,18 @@ import { axe, render } from '../../../../util/test-utils.js';
 
 import { ButtonList, PlayButton, NextButton, PrevButton } from './Buttons.js';
 
-const renderButtons = () => (
-  <ButtonList>
-    <PlayButton label="Pause" />
-    <PlayButton label="Play" paused />
-    <PrevButton label="Previous" />
-    <NextButton label="Next" />
-  </ButtonList>
-);
-
 describe('Buttons', () => {
-  describe('styles', () => {
-    it('should render with default styles', () => {
-      const { container } = render(renderButtons());
+  it('should have no accessibility violations', async () => {
+    const { container } = render(
+      <ButtonList>
+        <PlayButton label="Pause" />
+        <PlayButton label="Play" paused />
+        <PrevButton label="Previous" />
+        <NextButton label="Next" />
+      </ButtonList>,
+    );
+    const actual = await axe(container);
 
-      expect(container).toMatchSnapshot();
-    });
-  });
-
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const { container } = render(renderButtons());
-      const actual = await axe(container);
-
-      expect(actual).toHaveNoViolations();
-    });
+    expect(actual).toHaveNoViolations();
   });
 });

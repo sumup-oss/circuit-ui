@@ -13,53 +13,51 @@
  * limitations under the License.
  */
 
-import { css } from '@emotion/react';
+import { HTMLAttributes } from 'react';
 import { ChevronLeft, ChevronRight, Pause, Play } from '@sumup/icons';
 
-import styled, { StyleProps } from '../../../../styles/styled.js';
 import IconButton, { IconButtonProps } from '../../../IconButton/index.js';
+import { clsx } from '../../../../styles/clsx.js';
 
-const buttonListStyles = css`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
+import classes from './Buttons.module.css';
 
-export const ButtonList = styled('div')(buttonListStyles);
+type ButtonListProps = HTMLAttributes<HTMLDivElement>;
 
-const buttonStyles = ({ theme }: StyleProps) => css`
-  margin-left: ${theme.spacings.byte};
-
-  &:first-of-type {
-    margin-left: 0;
-  }
-`;
-
-export const Button = styled(IconButton)(buttonStyles);
-
-Button.defaultProps = {
-  size: 'kilo',
-};
+export const ButtonList = ({ className, ...props }: ButtonListProps) => (
+  <div className={clsx(classes['button-list'], className)} {...props} />
+);
 
 type ButtonProps = Omit<IconButtonProps, 'children'>;
 
 export const NextButton = (props: ButtonProps) => (
-  <Button {...props}>
+  <IconButton
+    {...props}
+    className={clsx(classes.button, props.className)}
+    size="kilo"
+  >
     <ChevronRight size="16" />
-  </Button>
+  </IconButton>
 );
 
 export const PrevButton = (props: ButtonProps) => (
-  <Button {...props}>
+  <IconButton
+    {...props}
+    className={clsx(classes.button, props.className)}
+    size="kilo"
+  >
     <ChevronLeft size="16" />
-  </Button>
+  </IconButton>
 );
 
 export const PlayButton = ({
   paused,
   ...props
 }: ButtonProps & { paused?: boolean }) => (
-  <Button {...props}>
+  <IconButton
+    {...props}
+    className={clsx(classes.button, props.className)}
+    size="kilo"
+  >
     {paused ? <Play size="16" /> : <Pause size="16" />}
-  </Button>
+  </IconButton>
 );

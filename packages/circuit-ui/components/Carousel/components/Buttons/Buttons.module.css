@@ -1,0 +1,13 @@
+.button-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  margin-left: var(--cui-spacings-byte);
+}
+
+.button:first-of-type {
+  margin-left: 0;
+}

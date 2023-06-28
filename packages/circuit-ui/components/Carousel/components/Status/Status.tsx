@@ -13,11 +13,10 @@
  * limitations under the License.
  */
 
-import { css } from '@emotion/react';
-
-import { typography } from '../../../../styles/style-mixins.js';
-import styled, { StyleProps } from '../../../../styles/styled.js';
 import Body, { BodyProps } from '../../../Body/index.js';
+import { clsx } from '../../../../styles/clsx.js';
+
+import classes from './Status.module.css';
 
 export interface StatusProps extends BodyProps {
   /**
@@ -30,18 +29,19 @@ export interface StatusProps extends BodyProps {
   total: number;
 }
 
-const textStyles = ({ theme }: StyleProps) => css`
-  ${theme.mq.untilKilo} {
-    ${typography('two')(theme)};
-  }
-`;
-
-const StyledText = styled(Body)(textStyles);
-
-export function Status({ step = 0, total = 0, ...props }: StatusProps) {
+export function Status({
+  step = 0,
+  total = 0,
+  className,
+  ...props
+}: StatusProps) {
   return (
-    <StyledText variant="highlight" {...props}>
+    <Body
+      variant="highlight"
+      className={clsx(classes.base, className)}
+      {...props}
+    >
       {step + 1} / {total}
-    </StyledText>
+    </Body>
   );
 }

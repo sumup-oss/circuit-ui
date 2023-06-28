@@ -13,10 +13,14 @@
  * limitations under the License.
  */
 
-import styled from '../../../../styles/styled.js';
+import type { HTMLAttributes } from 'react';
 
-export const Container = styled.div`
-  width: 100%;
-  height: auto;
-  position: relative;
-`;
+import { clsx } from '../../../../styles/clsx.js';
+
+import classes from './Container.module.css';
+
+type ContainerProps = HTMLAttributes<HTMLDivElement>;
+
+export const Container = ({ className, ...props }: ContainerProps) => (
+  <div className={clsx(classes.base, className)} {...props} />
+);

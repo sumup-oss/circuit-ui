@@ -20,20 +20,16 @@ import { axe, render } from '../../../../util/test-utils.js';
 import { Status } from './Status.js';
 
 describe('Status', () => {
-  describe('styles', () => {
-    it('should render with default styles', () => {
-      const { container } = render(<Status step={1} total={3} />);
+  it('should render the status', () => {
+    const { getByText } = render(<Status step={1} total={3} />);
 
-      expect(container).toMatchSnapshot();
-    });
+    expect(getByText('2 / 3')).toBeVisible();
   });
 
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const { container } = render(<Status step={1} total={3} />);
-      const actual = await axe(container);
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<Status step={1} total={3} />);
+    const actual = await axe(container);
 
-      expect(actual).toHaveNoViolations();
-    });
+    expect(actual).toHaveNoViolations();
   });
 });

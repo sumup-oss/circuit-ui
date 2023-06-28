@@ -13,10 +13,11 @@
  * limitations under the License.
  */
 
-import styled from '../../../../styles/styled.js';
 import Image from '../../../Image/index.js';
 import AspectRatio from '../../../AspectRatio/index.js';
 import { ASPECT_RATIO } from '../../constants.js';
+
+import classes from './SlideImage.module.css';
 
 export interface SlideImageProps {
   /**
@@ -35,16 +36,6 @@ export interface SlideImageProps {
   aspectRatio?: number;
 }
 
-const StyledAspectRatio = styled(AspectRatio)`
-  background: var(--cui-bg-subtle);
-`;
-
-const StyledImage = styled(Image)`
-  img {
-    object-fit: cover;
-  }
-`;
-
 export function SlideImage({
   src,
   alt,
@@ -52,8 +43,8 @@ export function SlideImage({
   ...props
 }: SlideImageProps) {
   return (
-    <StyledAspectRatio aspectRatio={aspectRatio}>
-      <StyledImage src={src} alt={alt} {...props} />
-    </StyledAspectRatio>
+    <AspectRatio aspectRatio={aspectRatio} className={classes['aspect-ratio']}>
+      <Image src={src} alt={alt} className={classes.image} {...props} />
+    </AspectRatio>
   );
 }

@@ -25,32 +25,12 @@ const image = {
 };
 
 describe('SlideImage', () => {
-  describe('styles', () => {
-    it('should render with default styles', () => {
-      const { container } = render(
-        <SlideImage src={image.src} alt={image.alt} />,
-      );
+  it('should have no accessibility violations', async () => {
+    const { container } = render(
+      <SlideImage src={image.src} alt={image.alt} />,
+    );
+    const actual = await axe(container);
 
-      expect(container).toMatchSnapshot();
-    });
-
-    it('should render with custom aspect ratio', () => {
-      const { container } = render(
-        <SlideImage src={image.src} alt={image.alt} aspectRatio={2} />,
-      );
-
-      expect(container).toMatchSnapshot();
-    });
-  });
-
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const { container } = render(
-        <SlideImage src={image.src} alt={image.alt} />,
-      );
-      const actual = await axe(container);
-
-      expect(actual).toHaveNoViolations();
-    });
+    expect(actual).toHaveNoViolations();
   });
 });
