@@ -14,20 +14,20 @@
  */
 
 import { HTMLAttributes, RefObject, useEffect, useRef, useState } from 'react';
-import { css } from '@emotion/react';
 
-import styled, { StyleProps } from '../../styles/styled.js';
 import { useAnimation } from '../../hooks/useAnimation/index.js';
 import Body from '../Body/index.js';
 import CloseButton from '../CloseButton/index.js';
 import { ClickEvent } from '../../types/events.js';
 import { BaseToastProps, createUseToast } from '../ToastContext/index.js';
-import { hideVisually } from '../../styles/style-mixins.js';
+import utilityClasses from '../../styles/utility.js';
+import { clsx } from '../../styles/clsx.js';
 import {
-  NOTIFICATION_COLORS,
   NOTIFICATION_ICONS,
   NotificationVariant,
 } from '../Notification/constants.js';
+
+import classes from './NotificationToast.module.css';
 
 const TRANSITION_DURATION = 200;
 const DEFAULT_HEIGHT = 'auto';
@@ -62,70 +62,6 @@ export type NotificationToastProps = HTMLAttributes<HTMLDivElement> &
     iconLabel?: string;
   };
 
-type NotificationToastWrapperProps = {
-  variant: NotificationVariant;
-};
-
-const toastWrapperStyles = ({
-  theme,
-  variant,
-}: NotificationToastWrapperProps & StyleProps) => css`
-  background-color: var(--cui-bg-elevated);
-  border-radius: ${theme.borderRadius.byte};
-  border: ${theme.borderWidth.mega} solid
-    var(${NOTIFICATION_COLORS[variant].border});
-  overflow: hidden;
-  will-change: height;
-  transition: opacity ${TRANSITION_DURATION}ms ease-in-out,
-    height ${TRANSITION_DURATION}ms ease-in-out,
-    visibility ${TRANSITION_DURATION}ms ease-in-out;
-`;
-
-const NotificationToastWrapper =
-  styled('div')<NotificationToastWrapperProps>(toastWrapperStyles);
-
-const contentWrapperStyles = ({ theme }: StyleProps) => css`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: ${theme.spacings.kilo} ${theme.spacings.mega};
-`;
-
-const ContentWrapper = styled('div')(contentWrapperStyles);
-
-const contentStyles = ({ theme }: StyleProps) => css`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-right: ${theme.spacings.peta};
-  padding-left: ${theme.spacings.mega};
-`;
-
-const Content = styled('div')(contentStyles);
-
-const IconWrapper = styled.div(
-  ({ variant }: { variant: NotificationVariant }) =>
-    css`
-      position: relative;
-      align-self: flex-start;
-      flex-grow: 0;
-      flex-shrink: 0;
-      line-height: 0;
-      color: var(${NOTIFICATION_COLORS[variant].fg});
-    `,
-);
-
-const closeButtonStyles = ({ theme }: StyleProps) => css`
-  flex-grow: 0;
-  flex-shrink: 0;
-  align-self: flex-start;
-  margin-top: -${theme.spacings.bit};
-  margin-bottom: -${theme.spacings.bit};
-  margin-left: auto;
-`;
-
-const StyledCloseButton = styled(CloseButton)(closeButtonStyles);
-
 export function NotificationToast({
   variant = 'info',
   body,
@@ -134,6 +70,7 @@ export function NotificationToast({
   iconLabel = '',
   isVisible,
   duration, // this is the auto-dismiss duration, not the animation duration. We shouldn't pass it to the wrapper along with ...props
+  className,
   ...props
 }: NotificationToastProps): JSX.Element {
   const contentElement = useRef(null);
@@ -161,39 +98,40 @@ export function NotificationToast({
   const Icon = NOTIFICATION_ICONS[variant];
 
   return (
-    <NotificationToastWrapper
+    <div
       ref={contentElement}
       style={{
         opacity: isOpen ? 1 : 0,
         height: isOpen ? height : 0,
         visibility: isOpen ? 'visible' : 'hidden',
       }}
-      variant={variant}
+      className={clsx(classes.base, classes[variant], className)}
       {...props}
     >
-      <ContentWrapper>
-        <IconWrapper variant={variant}>
+      <div className={classes.wrapper}>
+        <div className={classes.icon}>
           <Icon role="presentation" />
-        </IconWrapper>
-        <span css={hideVisually}>{iconLabel}</span>
-        <Content>
+        </div>
+        <span className={utilityClasses.hideVisually}>{iconLabel}</span>
+        <div className={classes.content}>
           {headline && (
             <Body variant={'highlight'} as="h3">
               {headline}
             </Body>
           )}
           <Body>{body}</Body>
-        </Content>
+        </div>
 
-        <StyledCloseButton
+        <CloseButton
+          className={classes.close}
           label="-" // We need to pass a label here to prevent CloseButton from throwing an error
           aria-hidden="true"
           size="kilo"
           onClick={onClose}
           tabIndex={-1}
         />
-      </ContentWrapper>
-    </NotificationToastWrapper>
+      </div>
+    </div>
   );
 }
 
