@@ -59,9 +59,12 @@ export default defineConfig({
   css,
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'index.ts'),
+      entry: [
+        path.resolve(__dirname, 'index.ts'),
+        path.resolve(__dirname, 'legacy.ts'),
+      ],
       formats: ['es'],
-      fileName: 'index',
+      fileName: (_, entryName: string) => `${entryName}.js`,
     },
     minify: false,
     rollupOptions: {
