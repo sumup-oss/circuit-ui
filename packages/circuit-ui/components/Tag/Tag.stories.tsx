@@ -22,6 +22,7 @@ export default {
   title: 'Components/Tag',
   component: Tag,
 };
+
 export const Base = ({ onRemove, removeButtonLabel, ...args }: TagProps) => (
   <Tag {...args}>Transactions</Tag>
 );
@@ -50,13 +51,13 @@ export const WithSuffix = ({
 
 WithSuffix.args = { suffix: Checkmark };
 
-export const Clickable = ({
+export const Interactive = ({
   onRemove,
   removeButtonLabel,
   ...args
 }: TagProps) => <Tag {...args}>Transactions</Tag>;
 
-Clickable.args = {
+Interactive.args = {
   onClick: action('Tag clicked'),
 };
 

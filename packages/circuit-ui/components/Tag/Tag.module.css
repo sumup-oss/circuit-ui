@@ -1,0 +1,87 @@
+.container {
+  --tag-border-width: var(--cui-border-width-kilo);
+
+  position: relative;
+  display: inline-block;
+}
+
+.base {
+  display: inline-flex;
+  align-items: center;
+  padding: calc(var(--cui-spacings-bit) - 1px) var(--cui-spacings-kilo);
+  margin: 0;
+  font-size: var(--cui-typography-body-one-font-size);
+  line-height: var(--cui-typography-body-one-line-height);
+  word-break: break-word;
+  cursor: default;
+  background-color: var(--cui-bg-normal);
+  border: var(--tag-border-width) solid var(--cui-border-normal);
+  border-radius: var(--cui-border-radius-byte);
+  transition: opacity var(--cui-transitions-default),
+    color var(--cui-transitions-default),
+    background-color var(--cui-transitions-default),
+    border-color var(--cui-transitions-default);
+}
+
+.removable {
+  padding-right: calc(var(--cui-spacings-bit) + var(--cui-spacings-tera));
+}
+
+.selected {
+  color: var(--cui-fg-on-strong);
+  background-color: var(--cui-bg-accent-strong);
+  border-color: var(--cui-border-accent);
+}
+
+/* Interactive */
+
+button.base {
+  text-align: left;
+  cursor: pointer;
+  outline: 0;
+}
+
+button.base:hover {
+  color: var(--cui-fg-normal-hovered);
+  background-color: var(--cui-bg-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
+}
+
+button.base:active {
+  color: var(--cui-fg-normal-pressed);
+  background-color: var(--cui-bg-normal-pressed);
+  border-color: var(--cui-border-normal-pressed);
+}
+
+button.selected:hover {
+  color: var(--cui-fg-on-strong-hovered);
+  background-color: var(--cui-bg-accent-strong-hovered);
+  border-color: var(--cui-border-accent-hovered);
+}
+
+button.selected:active {
+  color: var(--cui-fg-on-strong-pressed);
+  background-color: var(--cui-bg-accent-strong-pressed);
+  border-color: var(--cui-border-accent-pressed);
+}
+
+.prefix {
+  flex-shrink: 0;
+  margin-right: var(--cui-spacings-bit);
+  margin-left: calc(-1 *var(--cui-spacings-bit));
+}
+
+.suffix {
+  flex-shrink: 0;
+  margin-right: calc(-1 *var(--cui-spacings-bit));
+  margin-left: var(--cui-spacings-bit);
+}
+
+.remove-button {
+  position: absolute;
+  top: 50%;
+  right: var(--tag-border-width);
+  border: 0;
+  border-radius: var(--cui-border-radius-byte);
+  transform: translateY(-50%);
+}
