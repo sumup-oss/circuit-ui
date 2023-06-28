@@ -55,12 +55,12 @@ export interface ToastProviderProps {
 const liveRegionStyles = ({ theme }: StyleProps) => css`
   position: fixed;
   width: 100%;
-  padding: 0 ${theme.spacings.giga};
-  bottom: ${theme.spacings.giga};
+  padding: 0 var(--cui-spacings-giga);
+  bottom: var(--cui-spacings-giga);
   left: 0;
   display: flex;
   flex-direction: column-reverse;
-  z-index: ${theme.zIndex.toast};
+  z-index: var(--cui-z-index-toast);
 
   ${theme.mq.kilo} {
     width: auto;

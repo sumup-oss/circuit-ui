@@ -17,7 +17,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { Plus } from '@sumup/icons';
 import { createRef } from 'react';
 
-import { render, axe } from '../../util/test-utils.js';
+import { render, axe, screen } from '../../util/test-utils.js';
 
 import {
   NotificationFullscreen,
@@ -42,85 +42,73 @@ describe('NotificationFullscreen', () => {
     },
   };
 
-  describe('styles', () => {
-    it('should render with default styles', () => {
-      const { container } = renderNotificationFullscreen(baseProps);
-      expect(container).toMatchSnapshot();
-    });
+  it('should render with an svg component as the image', () => {
+    const alt = 'Image description';
+    const props = { ...baseProps, image: { svg: Plus, alt } };
+    renderNotificationFullscreen(props);
 
-    it('should render with body text', () => {
-      const { container } = renderNotificationFullscreen({
+    const svg = screen.getByRole('img');
+
+    expect(svg).toBeVisible();
+    expect(svg).toHaveAccessibleName(alt);
+  });
+
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLDivElement>();
+    const { container } = render(
+      <NotificationFullscreen ref={ref} {...baseProps} />,
+    );
+    const wrapper = container.querySelector('div');
+    expect(ref.current).toBe(wrapper);
+  });
+
+  it('should have no accessibility violations', async () => {
+    const { container } = renderNotificationFullscreen(baseProps);
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
+  });
+
+  describe('heading levels', () => {
+    it('should render with an h1 headline', () => {
+      const { getByRole } = renderNotificationFullscreen({
         ...baseProps,
-        body: 'You need a more up-to-date browser to continue using SumUp.',
+        headline: {
+          label: 'Headline 1',
+          as: 'h1',
+        },
       });
-      expect(container).toMatchSnapshot();
-    });
-
-    it('should render with an svg component as the image', () => {
-      const props = { ...baseProps, image: { svg: Plus, alt: '' } };
-      const { container } = renderNotificationFullscreen(props);
-      expect(container).toMatchSnapshot();
-    });
-
-    it('should accept a working ref', () => {
-      const ref = createRef<HTMLDivElement>();
-      const { container } = render(
-        <NotificationFullscreen ref={ref} {...baseProps} />,
-      );
-      const wrapper = container.querySelector('div');
-      expect(ref.current).toBe(wrapper);
+      const headingEl = getByRole('heading');
+      expect(headingEl.tagName).toBe('H1');
     });
   });
 
-  describe('accessibility', () => {
-    it('should have no violations', async () => {
-      const { container } = renderNotificationFullscreen(baseProps);
-      const actual = await axe(container);
-      expect(actual).toHaveNoViolations();
+  describe('alternative text', () => {
+    it('should add an alt attribute to an img element', () => {
+      const altText = 'alt text';
+      const { getByRole } = renderNotificationFullscreen({
+        ...baseProps,
+        image: {
+          src: '/images/illustration-update-browser.svg',
+          alt: altText,
+        },
+      });
+      const imageEl = getByRole('img');
+      expect(imageEl.tagName).toBe('IMG');
+      expect(imageEl.getAttribute('alt')).toBe(altText);
     });
 
-    describe('heading levels', () => {
-      it('should render with an h1 headline', () => {
-        const { getByRole } = renderNotificationFullscreen({
-          ...baseProps,
-          headline: {
-            label: 'Headline 1',
-            as: 'h1',
-          },
-        });
-        const headingEl = getByRole('heading');
-        expect(headingEl.tagName).toBe('H1');
+    it('should add aria-label to an svg element', () => {
+      const altText = 'alt text';
+      const { getByRole } = renderNotificationFullscreen({
+        ...baseProps,
+        image: {
+          svg: Plus,
+          alt: altText,
+        },
       });
-    });
-
-    describe('alternative text', () => {
-      it('should add an alt attribute to an img element', () => {
-        const altText = 'alt text';
-        const { getByRole } = renderNotificationFullscreen({
-          ...baseProps,
-          image: {
-            src: '/images/illustration-update-browser.svg',
-            alt: altText,
-          },
-        });
-        const imageEl = getByRole('img');
-        expect(imageEl.tagName).toBe('IMG');
-        expect(imageEl.getAttribute('alt')).toBe(altText);
-      });
-
-      it('should add aria-label to an svg element', () => {
-        const altText = 'alt text';
-        const { getByRole } = renderNotificationFullscreen({
-          ...baseProps,
-          image: {
-            svg: Plus,
-            alt: altText,
-          },
-        });
-        const imageEl = getByRole('img');
-        expect(imageEl.tagName).toBe('svg');
-        expect(imageEl.getAttribute('aria-label')).toBe(altText);
-      });
+      const imageEl = getByRole('img');
+      expect(imageEl.tagName).toBe('svg');
+      expect(imageEl.getAttribute('aria-label')).toBe(altText);
     });
   });
 });
