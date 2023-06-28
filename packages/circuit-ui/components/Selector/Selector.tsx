@@ -14,12 +14,13 @@
  */
 
 import { Fragment, InputHTMLAttributes, forwardRef, useId } from 'react';
-import { css } from '@emotion/react';
 
-import styled, { StyleProps } from '../../styles/styled.js';
-import { hideVisually, focusOutline } from '../../styles/style-mixins.js';
 import { AccessibilityError } from '../../util/errors.js';
 import { FieldWrapper } from '../Field/index.js';
+import { clsx } from '../../styles/clsx.js';
+import utilityClasses from '../../styles/utility.js';
+
+import classes from './Selector.module.css';
 
 export type SelectorSize = 'kilo' | 'mega' | 'flexible';
 
@@ -68,141 +69,6 @@ export interface SelectorProps
   children?: never;
 }
 
-type LabelElProps = Pick<SelectorProps, 'invalid' | 'size'> & {
-  hasDescription: boolean;
-};
-
-const baseStyles = ({ theme }: StyleProps) => css`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  background-color: var(--cui-bg-normal);
-  color: var(--cui-fg-normal);
-  text-align: center;
-  position: relative;
-  border-radius: ${theme.borderRadius.byte};
-  transition: box-shadow ${theme.transitions.default};
-
-  &::before {
-    display: block;
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: ${theme.borderRadius.byte};
-    border: ${theme.borderWidth.kilo} solid var(--cui-border-normal);
-    transition: border ${theme.transitions.default};
-  }
-
-  &:hover {
-    background-color: var(--cui-bg-normal-hovered);
-    color: var(--cui-fg-normal-hovered);
-
-    &::before {
-      border-color: var(--cui-border-normal-hovered);
-    }
-  }
-
-  &:active {
-    background-color: var(--cui-bg-normal-pressed);
-    color: var(--cui-fg-normal-pressed);
-
-    &::before {
-      border-color: var(--cui-border-normal-pressed);
-    }
-  }
-`;
-
-const invalidStyles = ({ theme, invalid }: StyleProps & LabelElProps) =>
-  invalid &&
-  css`
-    &:not(:focus)::before {
-      border: ${theme.borderWidth.mega} solid var(--cui-border-danger);
-    }
-  `;
-
-const sizeStyles = ({ theme, size = 'mega' }: LabelElProps & StyleProps) => {
-  const sizeMap = {
-    kilo: {
-      padding: `${theme.spacings.bit} ${theme.spacings.mega}`,
-    },
-    mega: {
-      padding: `calc(${theme.spacings.kilo}) ${theme.spacings.giga}`,
-    },
-    flexible: {
-      padding: `${theme.spacings.mega} ${theme.spacings.mega}`,
-    },
-  };
-
-  return css(sizeMap[size]);
-};
-
-const withDescriptionStyles = ({ hasDescription }: LabelElProps) =>
-  hasDescription &&
-  css`
-    text-align: start;
-    align-items: flex-start;
-  `;
-
-const SelectorLabel = styled('label')<LabelElProps>(
-  baseStyles,
-  invalidStyles,
-  sizeStyles,
-  withDescriptionStyles,
-);
-
-const Bold = styled('span')`
-  font-weight: ${(p) => p.theme.fontWeight.bold};
-`;
-
-const inputStyles = ({ theme }: StyleProps) => css`
-  ${hideVisually()};
-
-  &:focus + label::before {
-    ${focusOutline()};
-  }
-
-  &:focus:not(:focus-visible) + label::before {
-    box-shadow: none;
-  }
-
-  &:checked + label {
-    background-color: var(--cui-bg-accent);
-
-    &::before {
-      border: ${theme.borderWidth.mega} solid var(--cui-border-accent);
-    }
-  }
-
-  &:disabled + label,
-  &[disabled] + label {
-    pointer-events: none;
-    background-color: var(--cui-bg-normal-disabled);
-    color: var(--cui-fg-normal-disabled);
-
-    &::before {
-      border: ${theme.borderWidth.mega} solid var(--cui-border-normal-disabled);
-    }
-  }
-
-  &:disabled:checked + label,
-  &[disabled]:checked + label {
-    background-color: var(--cui-bg-accent-disabled);
-
-    &::before {
-      border: ${theme.borderWidth.mega} solid var(--cui-border-accent-disabled);
-    }
-  }
-`;
-
-const SelectorInput = styled('input')(inputStyles);
-
 /**
  * @private
  */
@@ -221,7 +87,7 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
       'aria-describedby': describedBy,
       className,
       style,
-      size,
+      size = 'mega',
       ...props
     },
     ref,
@@ -246,7 +112,7 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
 
     return (
       <FieldWrapper className={className} style={style} disabled={disabled}>
-        <SelectorInput
+        <input
           type={type}
           id={inputId}
           aria-describedby={descriptionIds}
@@ -257,26 +123,33 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
           onClick={onChange}
           // Noop to silence React warning: https://github.com/facebook/react/issues/3070#issuecomment-73311114
           onChange={() => {}}
+          className={clsx(
+            classes.base,
+            invalid && classes.invalid,
+            utilityClasses.hideVisually,
+          )}
           ref={ref}
           {...props}
         />
-        <SelectorLabel
+        <label
           htmlFor={inputId}
-          invalid={invalid}
-          size={size}
-          hasDescription={hasDescription}
+          className={clsx(
+            classes.label,
+            classes[size],
+            hasDescription && classes['has-description'],
+          )}
         >
           {hasDescription ? (
             <Fragment>
-              <Bold>{label}</Bold>
+              <span className={classes.title}>{label}</span>
               <span aria-hidden="true">{description}</span>
             </Fragment>
           ) : (
             label
           )}
-        </SelectorLabel>
+        </label>
         {hasDescription && (
-          <p id={descriptionId} css={hideVisually}>
+          <p id={descriptionId} className={utilityClasses.hideVisually}>
             {description}
           </p>
         )}

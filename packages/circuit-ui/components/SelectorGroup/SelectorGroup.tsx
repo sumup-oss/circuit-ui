@@ -13,10 +13,8 @@
  * limitations under the License.
  */
 
-import { Ref, forwardRef, FieldsetHTMLAttributes, useId } from 'react';
-import { css } from '@emotion/react';
+import { forwardRef, FieldsetHTMLAttributes, useId } from 'react';
 
-import styled, { StyleProps } from '../../styles/styled.js';
 import { Selector, SelectorProps, SelectorSize } from '../Selector/Selector.js';
 import { AccessibilityError } from '../../util/errors.js';
 import {
@@ -26,6 +24,9 @@ import {
   FieldValidationHint,
 } from '../Field/index.js';
 import { isEmpty } from '../../util/helpers.js';
+import { clsx } from '../../styles/clsx.js';
+
+import classes from './SelectorGroup.module.css';
 
 export interface SelectorGroupProps
   extends Omit<
@@ -97,50 +98,7 @@ export interface SelectorGroupProps
    * Marks the inputs as invalid.
    */
   invalid?: boolean;
-  /**
-   * The ref to the HTML DOM element.
-   */
-  ref?: Ref<HTMLFieldSetElement>;
 }
-
-type OptionsProps = Pick<SelectorGroupProps, 'stretch'>;
-
-const baseStyles = ({ theme }: StyleProps) => css`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-
-  > div:not(:last-child) {
-    margin-right: ${theme.spacings.mega};
-  }
-`;
-
-const stretchStyles = ({ stretch }: StyleProps & OptionsProps) => {
-  if (stretch) {
-    return css`
-      display: flex;
-      align-items: stretch;
-      width: 100%;
-    `;
-  }
-
-  return css`
-    display: inline-flex;
-    align-items: flex-start;
-    width: auto;
-  `;
-};
-
-const Options = styled.div(baseStyles, stretchStyles);
-
-const optionStyles = css`
-  flex: 1;
-  width: 100%;
-  align-self: stretch;
-  & label {
-    height: 100%;
-  }
-`;
 
 function isChecked(
   option: SelectorProps,
@@ -153,7 +111,10 @@ function isChecked(
 /**
  * A group of Selectors.
  */
-export const SelectorGroup = forwardRef(
+export const SelectorGroup = forwardRef<
+  HTMLFieldSetElement,
+  SelectorGroupProps
+>(
   (
     {
       options,
@@ -174,8 +135,8 @@ export const SelectorGroup = forwardRef(
       invalid,
       hideLabel,
       ...props
-    }: SelectorGroupProps,
-    ref: SelectorGroupProps['ref'],
+    },
+    ref,
   ) => {
     const randomName = useId();
     const name = customName || randomName;
@@ -217,12 +178,12 @@ export const SelectorGroup = forwardRef(
             required={required}
           />
         </FieldLegend>
-        <Options stretch={stretch}>
+        <div className={clsx(classes.base, stretch && classes.stretch)}>
           {options.map((option) => (
             <Selector
               {...option}
               key={option.label}
-              css={optionStyles}
+              className={classes.option}
               name={name}
               onChange={onChange}
               onBlur={onBlur}
@@ -240,7 +201,7 @@ export const SelectorGroup = forwardRef(
               }
             />
           ))}
-        </Options>
+        </div>
         <FieldValidationHint
           id={validationHintId}
           invalid={invalid}

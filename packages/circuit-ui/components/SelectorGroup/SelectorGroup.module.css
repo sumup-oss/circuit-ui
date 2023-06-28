@@ -1,0 +1,22 @@
+.base {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: auto;
+}
+
+.base > div:not(:last-child) {
+  margin-right: var(--cui-spacings-mega);
+}
+
+.stretch {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.option {
+  flex: 1;
+  align-self: stretch;
+  width: 100%;
+}
