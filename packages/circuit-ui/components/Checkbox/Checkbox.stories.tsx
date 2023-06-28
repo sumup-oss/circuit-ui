@@ -14,8 +14,6 @@
  */
 
 import { ChangeEvent, useState } from 'react';
-import { css } from '@emotion/react';
-import type { Theme } from '@sumup/design-tokens';
 
 import { Checkbox, CheckboxProps } from './Checkbox.js';
 
@@ -72,18 +70,6 @@ Disabled.args = {
   disabled: true,
 };
 
-const legendStyles = (theme: Theme) => css`
-  display: block;
-  margin-bottom: ${theme.spacings.bit};
-  font-size: ${theme.typography.body.two.fontSize};
-  line-height: ${theme.typography.body.two.lineHeight};
-`;
-
-const listStyles = css`
-  list-style: none;
-  margin-left: 26px;
-`;
-
 export const Indeterminate = (args: {
   label: string;
   name: string;
@@ -117,7 +103,16 @@ export const Indeterminate = (args: {
 
   return (
     <fieldset name={name}>
-      <legend css={legendStyles}>{label}</legend>
+      <legend
+        style={{
+          display: 'block',
+          marginBottom: 'var(--cui-spacings-bit)',
+          fontSize: 'var(--cui-typography-body-two-font-size)',
+          lineHeight: 'var(--cui-typography-body-two-line-height)',
+        }}
+      >
+        {label}
+      </legend>
       <Checkbox
         {...parent}
         onChange={handleParentChange}
@@ -125,7 +120,7 @@ export const Indeterminate = (args: {
         indeterminate={someChecked && !allChecked}
         checked={allChecked}
       />
-      <ul css={listStyles}>
+      <ul style={{ listStyle: 'none', marginLeft: '26px' }}>
         {options.map((option) => (
           <li key={option.label}>
             <Checkbox

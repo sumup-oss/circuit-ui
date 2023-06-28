@@ -33,6 +33,15 @@ const defaultProps = {
 };
 
 describe('Checkbox', () => {
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    const { container } = render(
+      <Checkbox {...defaultProps} className={className} />,
+    );
+    const element = container.querySelector('div');
+    expect(element?.className).toContain(className);
+  });
+
   describe('Structure & Semantics', () => {
     it('should be initially unchecked by default', () => {
       render(<Checkbox {...defaultProps} />);

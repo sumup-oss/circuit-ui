@@ -21,7 +21,6 @@ import {
   useId,
 } from 'react';
 
-import styled from '../../styles/styled.js';
 import { Checkbox, CheckboxProps } from '../Checkbox/Checkbox.js';
 import {
   FieldLabelText,
@@ -31,6 +30,8 @@ import {
 } from '../Field/index.js';
 import { AccessibilityError } from '../../util/errors.js';
 import { isEmpty } from '../../util/helpers.js';
+
+import classes from './CheckboxGroup.module.css';
 
 // TODO: Remove the label and value overrides in the next major.
 type Options = Omit<
@@ -114,10 +115,6 @@ export interface CheckboxGroupProps
   hideLabel?: boolean;
 }
 
-const UnorderedList = styled.ul`
-  list-style-type: none;
-`;
-
 /**
  * A group of Checkboxes.
  */
@@ -180,7 +177,7 @@ export const CheckboxGroup = forwardRef(
             optionalLabel={optionalLabel}
           />
         </FieldLegend>
-        <UnorderedList>
+        <ul className={classes.base}>
           {options.map((option) => (
             <li key={option.label}>
               <Checkbox
@@ -199,7 +196,7 @@ export const CheckboxGroup = forwardRef(
               />
             </li>
           ))}
-        </UnorderedList>
+        </ul>
         <FieldValidationHint
           id={validationHintId}
           invalid={invalid}
