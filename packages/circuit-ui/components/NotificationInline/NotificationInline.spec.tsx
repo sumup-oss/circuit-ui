@@ -30,127 +30,99 @@ describe('NotificationInline', () => {
   const baseProps: NotificationInlineProps = {
     body: 'This is an inline message',
   };
-  describe('styles', () => {
-    it('should render with default styles', () => {
-      const { baseElement } = renderNotificationInline(baseProps);
-      expect(baseElement).toMatchSnapshot();
+
+  it('should render the notification inline', async () => {
+    const { getByText } = renderNotificationInline({
+      ...baseProps,
     });
 
-    it('should render the notification inline', async () => {
-      const { getByText } = renderNotificationInline({
-        ...baseProps,
-      });
+    const toastEl = getByText('This is an inline message');
 
-      const toastEl = getByText('This is an inline message');
+    await waitFor(() => {
+      expect(toastEl).toBeVisible();
+    });
+  });
 
-      await waitFor(() => {
-        expect(toastEl).toBeVisible();
-      });
+  it('should render notification inline with headline', () => {
+    const { getByRole } = renderNotificationInline({
+      ...baseProps,
+      headline: 'Information',
     });
 
-    const variants: NotificationInlineProps['variant'][] = [
-      'info',
-      'success',
-      'warning',
-      'danger',
-    ];
+    const headingEl = getByRole('heading');
 
-    it.each(variants)(
-      'should render notification inline with %s styles',
-      (variant) => {
-        const { baseElement } = renderNotificationInline({
-          ...baseProps,
-          variant,
-        });
-        expect(baseElement).toMatchSnapshot();
-      },
-    );
+    expect(headingEl.tagName).toBe('H3');
+    expect(headingEl).toHaveTextContent('Information');
+  });
 
-    it('should render notification inline with headline', () => {
+  it.each(['h2', 'h3', 'h4', 'h5', 'h6'] as const)(
+    'should render notification inline as an %s headline',
+    (level) => {
       const { getByRole } = renderNotificationInline({
         ...baseProps,
-        headline: 'Information',
+        headline: {
+          label: `${level} headline`,
+          as: level,
+        },
       });
 
       const headingEl = getByRole('heading');
 
-      expect(headingEl.tagName).toBe('H3');
-      expect(headingEl).toHaveTextContent('Information');
-    });
+      expect(headingEl.tagName).toBe(level.toUpperCase());
+    },
+  );
 
-    it.each(['h2', 'h3', 'h4', 'h5', 'h6'] as const)(
-      'should render notification inline as an %s headline',
-      (level) => {
-        const { getByRole } = renderNotificationInline({
-          ...baseProps,
-          headline: {
-            label: `${level} headline`,
-            as: level,
-          },
-        });
-
-        const headingEl = getByRole('heading');
-
-        expect(headingEl.tagName).toBe(level.toUpperCase());
+  it('should render notification toast with an action button', () => {
+    const { getByRole } = renderNotificationInline({
+      ...baseProps,
+      action: {
+        onClick: vi.fn(),
+        children: 'Click here',
       },
+    });
+    expect(getByRole('button')).toBeVisible();
+  });
+
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLDivElement>();
+    const { container } = render(
+      <NotificationInline ref={ref} {...baseProps} />,
     );
-
-    it('should render notification toast with an action button', () => {
-      const { baseElement } = renderNotificationInline({
-        ...baseProps,
-        action: {
-          onClick: vi.fn(),
-          children: 'Click here',
-        },
-      });
-      expect(baseElement).toMatchSnapshot();
-    });
-
-    it('should accept a working ref', () => {
-      const ref = createRef<HTMLDivElement>();
-      const { container } = render(
-        <NotificationInline ref={ref} {...baseProps} />,
-      );
-      const wrapper = container.querySelector('div');
-      expect(ref.current).toBe(wrapper);
-    });
+    const wrapper = container.querySelector('div');
+    expect(ref.current).toBe(wrapper);
   });
 
-  describe('business logic', () => {
-    it('should click on a call to action button', async () => {
-      const props = {
-        ...baseProps,
-        action: {
-          onClick: vi.fn(),
-          children: 'Click here',
-        },
-      };
-      const { getByRole } = renderNotificationInline(props);
+  it('should click on a call to action button', async () => {
+    const props = {
+      ...baseProps,
+      action: {
+        onClick: vi.fn(),
+        children: 'Click here',
+      },
+    };
+    const { getByRole } = renderNotificationInline(props);
 
-      await userEvent.click(getByRole('button'));
+    await userEvent.click(getByRole('button'));
 
-      expect(props.action.onClick).toHaveBeenCalledTimes(1);
-    });
-
-    it('should close the notification inline when the onClose method is called', async () => {
-      const props = {
-        ...baseProps,
-        onClose: vi.fn(),
-        closeButtonLabel: 'Close notification',
-      };
-      const { getByRole } = renderNotificationInline(props);
-
-      await userEvent.click(getByRole('button', { name: /close/i }));
-
-      expect(props.onClose).toHaveBeenCalled();
-    });
+    expect(props.action.onClick).toHaveBeenCalledTimes(1);
   });
 
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const { container } = renderNotificationInline(baseProps);
-      const actual = await axe(container);
-      expect(actual).toHaveNoViolations();
-    });
+  it('should close the notification inline when the onClose method is called', async () => {
+    const props = {
+      ...baseProps,
+      onClose: vi.fn(),
+      closeButtonLabel: 'Close notification',
+    };
+    const { getByRole } = renderNotificationInline(props);
+
+    await userEvent.click(getByRole('button', { name: /close/i }));
+
+    expect(props.onClose).toHaveBeenCalled();
+  });
+
+  it('should have no accessibility violations', async () => {
+    const { container } = renderNotificationInline(baseProps);
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });

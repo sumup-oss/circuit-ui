@@ -16,7 +16,7 @@
 import { action } from '@storybook/addon-actions';
 import { useState } from 'react';
 
-import styled from '../../styles/styled.js';
+import { Stack } from '../../../../.storybook/components/index.js';
 
 import {
   NotificationInline,
@@ -30,14 +30,6 @@ export default {
 
 const variants = ['info', 'success', 'warning', 'danger'] as const;
 
-const StackInlineMessages = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-`;
-
 export const Base = (args: NotificationInlineProps) => (
   <NotificationInline {...args} isVisible={true} />
 );
@@ -48,7 +40,7 @@ Base.args = {
 } as NotificationInlineProps;
 
 export const Variants = (args: NotificationInlineProps) => (
-  <StackInlineMessages>
+  <Stack vertical>
     {variants.map((variant) => (
       <NotificationInline
         key={variant}
@@ -57,7 +49,7 @@ export const Variants = (args: NotificationInlineProps) => (
         variant={variant}
       />
     ))}
-  </StackInlineMessages>
+  </Stack>
 );
 
 Variants.args = {
