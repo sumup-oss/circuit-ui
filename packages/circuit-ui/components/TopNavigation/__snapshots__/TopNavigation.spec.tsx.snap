@@ -123,8 +123,8 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
   background-color: var(--cui-bg-normal);
   text-align: left;
   cursor: pointer;
-  -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
-  transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  -webkit-transition: color var(--cui-transitions-default),background-color var(--cui-transitions-default);
+  transition: color var(--cui-transitions-default),background-color var(--cui-transitions-default);
   -webkit-text-decoration: none;
   text-decoration: none;
   height: 100%;
@@ -191,10 +191,6 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
 }
 
 .circuit-9 {
-  display: inline-block;
-}
-
-.circuit-10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -209,45 +205,45 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
   background-color: var(--cui-bg-normal);
   text-align: left;
   cursor: pointer;
-  -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
-  transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  -webkit-transition: color var(--cui-transitions-default),background-color var(--cui-transitions-default);
+  transition: color var(--cui-transitions-default),background-color var(--cui-transitions-default);
   height: 100%;
   padding: 0 16px;
   border-left: 1px solid var(--cui-border-divider);
 }
 
-.circuit-10:hover {
+.circuit-9:hover {
   background-color: var(--cui-bg-normal-hovered);
   color: var(--cui-fg-normal-hovered);
 }
 
-.circuit-10:active {
+.circuit-9:active {
   background-color: var(--cui-bg-normal-pressed);
   color: var(--cui-fg-normal-pressed);
 }
 
-.circuit-10:focus {
+.circuit-9:focus {
   outline: 0;
   box-shadow: inset 0 0 0 4px var(--cui-border-focus);
 }
 
-.circuit-10:focus::-moz-focus-inner {
+.circuit-9:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-10:focus:not(:focus-visible) {
+.circuit-9:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
-.circuit-10:disabled,
-.circuit-10[disabled] {
+.circuit-9:disabled,
+.circuit-9[disabled] {
   pointer-events: none;
   background-color: var(--cui-bg-normal-disabled);
   color: var(--cui-fg-normal-disabled);
 }
 
 @media (max-width: 767px) {
-  .circuit-11 {
+  .circuit-10 {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -261,31 +257,31 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
 }
 
 @media (min-width: 768px) {
-  .circuit-11 {
+  .circuit-10 {
     margin: 0 12px;
     max-width: 20ch;
   }
 }
 
-.circuit-12 {
+.circuit-11 {
   display: block;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-.circuit-14 {
+.circuit-13 {
   display: none;
 }
 
 @media (min-width: 768px) {
-  .circuit-14 {
+  .circuit-13 {
     display: block;
     -webkit-transition: -webkit-transform 120ms ease-in-out;
     transition: transform 120ms ease-in-out;
   }
 
-  button[aria-expanded='true'] .circuit-14 {
+  button[aria-expanded='true'] .circuit-13 {
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -432,14 +428,14 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
         </a>
       </div>
       <div
-        class="circuit-9"
+        class="_trigger_a94e13"
       >
         <button
           aria-controls=":r1:"
           aria-expanded="false"
           aria-haspopup="true"
           aria-label="Open profile menu"
-          class="circuit-10"
+          class="circuit-9"
           id=":r0:"
           title="Open profile menu"
           type="button"
@@ -462,10 +458,10 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
             </svg>
           </span>
           <div
-            class="circuit-11"
+            class="circuit-10"
           >
             <span
-              class="_base_c5c51b circuit-12"
+              class="_base_c5c51b circuit-11"
             >
               <strong
                 class="_base_537b83 _two_537b83 _highlight_537b83"
@@ -474,7 +470,7 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
               </strong>
             </span>
             <span
-              class="_base_c5c51b circuit-12"
+              class="_base_c5c51b circuit-11"
             >
               <p
                 class="_base_537b83 _two_537b83"
@@ -484,7 +480,7 @@ exports[`TopNavigation > styles > should match the snapshot 1`] = `
             </span>
           </div>
           <svg
-            class="circuit-14"
+            class="circuit-13"
             fill="none"
             height="16"
             viewBox="0 0 16 16"

@@ -13,11 +13,8 @@
  * limitations under the License.
  */
 
-import { css, useTheme } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
 import {
   Fragment,
-  Ref,
   useEffect,
   useId,
   useRef,
@@ -33,11 +30,8 @@ import {
 } from '@floating-ui/react-dom';
 import type { IconComponentType } from '@sumup/icons';
 
-import isPropValid from '../../styles/is-prop-valid.js';
 import { ClickEvent } from '../../types/events.js';
 import { EmotionAsPropType } from '../../types/prop-types.js';
-import styled, { StyleProps } from '../../styles/styled.js';
-import { listItem, shadow, typography } from '../../styles/style-mixins.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
 import { useClickOutside } from '../../hooks/useClickOutside/index.js';
 import { useFocusList } from '../../hooks/useFocusList/index.js';
@@ -49,6 +43,11 @@ import { useStackContext } from '../StackContext/index.js';
 import { isFunction } from '../../util/type-check.js';
 import { useLatest } from '../../hooks/useLatest/index.js';
 import { usePrevious } from '../../hooks/usePrevious/index.js';
+import { clsx } from '../../styles/clsx.js';
+import sharedClasses from '../../styles/shared.js';
+import utilityClasses from '../../styles/utility.js';
+
+import classes from './Popover.module.css';
 
 export interface BaseProps {
   /**
@@ -72,132 +71,40 @@ export interface BaseProps {
    * Disabled variant. Visually and functionally disable the button.
    */
   disabled?: boolean;
-  /**
-   * The ref to the HTML DOM element
-   */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  ref?: Ref<any>;
 }
 
 type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
 type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
 
 export type PopoverItemProps = BaseProps & LinkElProps & ButtonElProps;
-type PopoverItemWrapperProps = LinkElProps & ButtonElProps;
-
-const itemWrapperStyles = () => css`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  text-align: left;
-`;
-
-const PopoverItemWrapper = styled('button', {
-  shouldForwardProp: isPropValid,
-})<PopoverItemWrapperProps>(listItem, itemWrapperStyles, typography('one'));
-
-const iconStyles = (theme: Theme) => css`
-  margin-right: ${theme.spacings.kilo};
-`;
 
 export const PopoverItem = ({
   children,
   icon: Icon,
+  destructive,
+  className,
   ...props
 }: PopoverItemProps): JSX.Element => {
   const { Link } = useComponents();
 
+  const Element = props.href ? (Link as EmotionAsPropType) : 'button';
+
   return (
-    <PopoverItemWrapper
-      as={props.href ? (Link as EmotionAsPropType) : 'button'}
+    <Element
       role="menuitem"
+      className={clsx(
+        classes.item,
+        sharedClasses.listItem,
+        destructive && sharedClasses.listItemDestructive,
+        className,
+      )}
       {...props}
     >
-      {Icon && <Icon css={iconStyles} size="24" />}
+      {Icon && <Icon className={classes.icon} size="24" />}
       {children}
-    </PopoverItemWrapper>
+    </Element>
   );
 };
-
-const TriggerElement = styled.div`
-  display: inline-block;
-`;
-
-const menuBaseStyles = ({ theme }: StyleProps) => css`
-  padding: ${theme.spacings.byte} 0px;
-  border: 1px solid var(--cui-border-subtle);
-  box-sizing: border-box;
-  border-radius: ${theme.borderRadius.byte};
-  background-color: var(--cui-bg-elevated);
-  visibility: hidden;
-  opacity: 0;
-
-  ${theme.mq.untilKilo} {
-    opacity: 1;
-    transform: translateY(100%);
-    transition: transform ${theme.transitions.default},
-      visibility ${theme.transitions.default};
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-`;
-
-type OpenProps = { isOpen: boolean };
-
-const menuOpenStyles = ({ theme, isOpen }: StyleProps & OpenProps) =>
-  isOpen &&
-  css`
-    opacity: 1;
-    visibility: inherit;
-
-    ${theme.mq.untilKilo} {
-      transform: translateY(0);
-    }
-  `;
-
-const PopoverMenu = styled('div')<OpenProps>(
-  shadow,
-  menuBaseStyles,
-  menuOpenStyles,
-);
-
-const dividerStyles = (theme: Theme) => css`
-  margin: ${theme.spacings.byte} ${theme.spacings.mega};
-  width: calc(100% - ${theme.spacings.mega}*2);
-`;
-
-const overlayStyles = ({ theme }: StyleProps) => css`
-  ${theme.mq.untilKilo} {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: var(--cui-bg-overlay);
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity ${theme.transitions.default},
-      visibility ${theme.transitions.default};
-  }
-`;
-
-const overlayOpenStyles = ({ theme, isOpen }: StyleProps & OpenProps) =>
-  isOpen &&
-  css`
-    ${theme.mq.untilKilo} {
-      visibility: inherit;
-      opacity: 1;
-    }
-  `;
-
-const Overlay = styled.div<OpenProps>(overlayStyles, overlayOpenStyles);
-
-const floatingStyles = ({ isOpen }: OpenProps) => css`
-  pointer-events: ${isOpen ? 'all' : 'none'};
-`;
-
-const FloatingElement = styled.div<OpenProps>(floatingStyles);
 
 type Divider = { type: 'divider' };
 type Action = PopoverItemProps | Divider;
@@ -264,7 +171,6 @@ export const Popover = ({
   offset,
   ...props
 }: PopoverProps): JSX.Element | null => {
-  const theme = useTheme();
   const zIndex = useStackContext();
   const triggerKey = useRef<TriggerKey | null>(null);
   const menuEl = useRef<HTMLDivElement>(null);
@@ -286,7 +192,7 @@ export const Popover = ({
   const focusProps = useFocusList();
   const prevOpen = usePrevious(isOpen);
 
-  const isMobile = window.matchMedia(`${theme.breakpoints.untilKilo}`).matches;
+  const isMobile = window.matchMedia('(max-width: 479px)').matches;
 
   const mobileStyles = {
     position: 'fixed',
@@ -294,7 +200,7 @@ export const Popover = ({
     left: '0px',
     right: '0px',
     width: 'auto',
-    zIndex: zIndex || theme.zIndex.popover,
+    zIndex: zIndex || 'var(--cui-z-index-popover)',
   } as const;
 
   const handleToggle: OnToggle = (state) => {
@@ -379,7 +285,7 @@ export const Popover = ({
 
   return (
     <Fragment>
-      <TriggerElement ref={refs.setReference}>
+      <div className={classes.trigger} ref={refs.setReference}>
         <Component
           id={triggerId}
           aria-haspopup={true}
@@ -388,16 +294,18 @@ export const Popover = ({
           onClick={handleTriggerClick}
           onKeyDown={handleTriggerKeyDown}
         />
-      </TriggerElement>
+      </div>
       <Portal>
-        <Overlay
-          isOpen={isOpen}
-          style={{ zIndex: zIndex || theme.zIndex.popover }}
+        <div
+          className={clsx(classes.overlay, isOpen && classes.open)}
+          // @ts-expect-error z-index can be a string
+          style={{ zIndex: zIndex || 'var(--cui-z-index-popover)' }}
         />
-        <FloatingElement
+        <div
           {...props}
           ref={refs.setFloating}
-          isOpen={isOpen}
+          className={clsx(classes.wrapper, isOpen && classes.open)}
+          // @ts-expect-error z-index can be a string
           style={
             isMobile
               ? mobileStyles
@@ -405,20 +313,28 @@ export const Popover = ({
                   position: strategy,
                   top: y,
                   left: x,
-                  zIndex: zIndex || theme.zIndex.popover,
+                  zIndex: zIndex || 'var(--cui-z-index-popover)',
                 }
           }
         >
-          <PopoverMenu
+          <div
             id={menuId}
             ref={menuEl}
-            isOpen={isOpen}
             aria-labelledby={triggerId}
             role="menu"
+            className={clsx(
+              classes.menu,
+              isOpen && classes.open,
+              utilityClasses.shadow,
+            )}
           >
             {actions.map((action, index) =>
               isDivider(action) ? (
-                <Hr css={dividerStyles} role="presentation" key={index} />
+                <Hr
+                  className={classes.divider}
+                  role="presentation"
+                  key={index}
+                />
               ) : (
                 <PopoverItem
                   key={index}
@@ -430,8 +346,8 @@ export const Popover = ({
                 />
               ),
             )}
-          </PopoverMenu>
-        </FloatingElement>
+          </div>
+        </div>
       </Portal>
     </Fragment>
   );

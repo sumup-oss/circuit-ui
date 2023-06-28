@@ -242,8 +242,8 @@ exports[`MobileNavigation > styles > should render with secondary links 1`] = `
   background-color: var(--cui-bg-normal);
   text-align: left;
   cursor: pointer;
-  -webkit-transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
-  transition: color 120ms ease-in-out,background-color 120ms ease-in-out;
+  -webkit-transition: color var(--cui-transitions-default),background-color var(--cui-transitions-default);
+  transition: color var(--cui-transitions-default),background-color var(--cui-transitions-default);
   -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;

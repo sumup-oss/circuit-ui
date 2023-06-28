@@ -1,0 +1,49 @@
+.list-item {
+  position: relative;
+  padding: var(--cui-spacings-kilo) var(--cui-spacings-tera)
+    var(--cui-spacings-kilo) var(--cui-spacings-mega);
+  color: var(--cui-fg-normal);
+  text-decoration: none;
+  background-color: var(--cui-bg-normal);
+  border: 0;
+}
+
+.list-item:hover {
+  cursor: pointer;
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+.list-item:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
+}
+
+.list-item:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.list-item:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.list-item:active {
+  background-color: var(--cui-bg-normal-pressed);
+}
+
+.list-item:disabled,
+.list-item[disabled] {
+  color: var(--cui-fg-normal-disabled);
+  pointer-events: none;
+  background-color: var(--cui-bg-normal-disabled);
+}
+
+.list-item-destructive {
+  color: var(--cui-fg-danger);
+}
+
+.list-item-destructive:disabled,
+.list-item-destructive[disabled] {
+  color: var(--cui-fg-danger-disabled);
+  pointer-events: none;
+  background-color: var(--cui-bg-normal-disabled);
+}

@@ -13,14 +13,12 @@
  * limitations under the License.
  */
 
-import _classes from './utility.module.css';
+import _classes from './shared.module.css';
 
 // This explicit remapping is needed so TypeScript infers the types correctly
 const classes = {
-  hideVisually: _classes['hide-visually'],
-  focusVisible: _classes['focus-visible'],
-  focusVisibleInset: _classes['focus-visible-inset'],
-  shadow: _classes.shadow,
+  listItem: _classes['list-item'],
+  listItemDestructive: _classes['list-item-destructive'],
 };
 
 export default classes;
