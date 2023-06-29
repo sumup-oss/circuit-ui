@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import TableCell from './TableCell.js';
+import { TableCell } from './TableCell.js';
 
 export default TableCell;

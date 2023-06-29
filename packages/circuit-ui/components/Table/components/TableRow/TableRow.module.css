@@ -1,0 +1,44 @@
+.base {
+  vertical-align: middle;
+}
+
+tbody .base:last-child th,
+tbody .base:last-child td {
+  border-bottom: none;
+}
+
+.base[tabindex] {
+  position: relative;
+  cursor: pointer;
+}
+
+.base[tabindex]:focus {
+  z-index: 1;
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+
+  /* Chrome doesn't respect position: relative; on table elements so the transform property is used to create a separate stacking context which is needed to show the focus outline above the other table rows. */
+  transform: translate(0, 0);
+}
+
+.base[tabindex]:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.base[tabindex]:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+tbody .base[tabindex]:focus td,
+tbody .base[tabindex]:focus th,
+tbody .base[tabindex]:hover td,
+tbody .base[tabindex]:hover th {
+  color: var(--cui-fg-accent-hovered);
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+tbody .base[tabindex]:active td,
+tbody .base[tabindex]:active th {
+  color: var(--cui-fg-accent-pressed);
+  background-color: var(--cui-bg-normal-pressed);
+}

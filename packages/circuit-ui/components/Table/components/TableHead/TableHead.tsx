@@ -14,13 +14,14 @@
  */
 
 import { Fragment } from 'react';
-import { css } from '@emotion/react';
 
 import TableRow from '../TableRow/index.js';
 import TableHeader from '../TableHeader/index.js';
 import { mapCellProps, getSortParams } from '../../utils.js';
 import { Direction, HeaderCell } from '../../types.js';
-import styled, { StyleProps } from '../../../../styles/styled.js';
+import { clsx } from '../../../../styles/clsx.js';
+
+import classes from './TableHead.module.css';
 
 type ScrollableOptions =
   | {
@@ -73,32 +74,10 @@ type TableHeadProps = ScrollableOptions & {
   onSortLeave?: (i: number) => void;
 };
 
-type TheadElProps = Pick<TableHeadProps, 'scrollable' | 'top' | 'rowHeaders'>;
-
-const fixedStyles = ({
-  scrollable,
-  top,
-  rowHeaders,
-  theme,
-}: TheadElProps & StyleProps) =>
-  scrollable &&
-  top && // we need this check despite the TS types
-  css`
-    transform: translateY(${top}px);
-
-    ${theme.mq.untilMega} {
-      transform: ${rowHeaders ? 'unset' : `translateY(${top}px)`};
-    }
-  `;
-
-const Thead = styled.thead<TheadElProps>`
-  ${fixedStyles}
-`;
-
 /**
  * TableHead for the Table component. The Table handles rendering it.
  */
-const TableHead = ({
+export function TableHead({
   headers = [],
   rowHeaders = false,
   condensed,
@@ -109,49 +88,55 @@ const TableHead = ({
   sortedRow,
   onSortEnter,
   onSortLeave,
-}: TableHeadProps): JSX.Element => (
-  <Thead scrollable={scrollable} top={top} rowHeaders={rowHeaders}>
-    {!!headers.length && (
-      <TableRow>
-        {headers.map((header, i) => {
-          const cellProps = mapCellProps(header);
-          const { sortable, sortLabel } = cellProps;
-          const sortParams = getSortParams({
-            rowIndex: i,
-            sortable,
-            sortDirection,
-            sortLabel,
-            sortedRow,
-          });
-          return (
-            <Fragment key={`table-header-${i}`}>
-              <TableHeader
-                {...cellProps}
-                condensed={condensed}
-                fixed={rowHeaders && i === 0}
-                onClick={
-                  sortParams.sortable
-                    ? onSortBy && (() => onSortBy(i))
-                    : undefined
-                }
-                onMouseEnter={
-                  sortParams.sortable
-                    ? onSortEnter && (() => onSortEnter(i))
-                    : undefined
-                }
-                onMouseLeave={
-                  sortParams.sortable
-                    ? onSortLeave && (() => onSortLeave(i))
-                    : undefined
-                }
-                sortParams={sortParams}
-              />
-            </Fragment>
-          );
-        })}
-      </TableRow>
-    )}
-  </Thead>
-);
-
-export default TableHead;
+}: TableHeadProps) {
+  return (
+    <thead
+      className={clsx(
+        scrollable && classes.fixed,
+        rowHeaders && classes['row-headers'],
+      )}
+      style={{ '--table-head-top': `${top || 0}px` }}
+    >
+      {!!headers.length && (
+        <TableRow>
+          {headers.map((header, i) => {
+            const cellProps = mapCellProps(header);
+            const { sortable, sortLabel } = cellProps;
+            const sortParams = getSortParams({
+              rowIndex: i,
+              sortable,
+              sortDirection,
+              sortLabel,
+              sortedRow,
+            });
+            return (
+              <Fragment key={`table-header-${i}`}>
+                <TableHeader
+                  {...cellProps}
+                  condensed={condensed}
+                  fixed={rowHeaders && i === 0}
+                  onClick={
+                    sortParams.sortable
+                      ? onSortBy && (() => onSortBy(i))
+                      : undefined
+                  }
+                  onMouseEnter={
+                    sortParams.sortable
+                      ? onSortEnter && (() => onSortEnter(i))
+                      : undefined
+                  }
+                  onMouseLeave={
+                    sortParams.sortable
+                      ? onSortLeave && (() => onSortLeave(i))
+                      : undefined
+                  }
+                  sortParams={sortParams}
+                />
+              </Fragment>
+            );
+          })}
+        </TableRow>
+      )}
+    </thead>
+  );
+}

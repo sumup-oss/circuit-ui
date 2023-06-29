@@ -1,0 +1,15 @@
+.fixed {
+  transform: translateY(var(--table-head-top));
+}
+
+@media (max-width: 767px) {
+  .fixed {
+    transform: translateY(var(--table-head-top));
+  }
+}
+
+@media (max-width: 767px) {
+  .row-headers {
+    transform: unset;
+  }
+}

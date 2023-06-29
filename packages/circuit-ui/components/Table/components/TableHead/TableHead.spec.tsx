@@ -15,13 +15,7 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import {
-  create,
-  render,
-  renderToHtml,
-  axe,
-  userEvent,
-} from '../../../../util/test-utils.js';
+import { render, axe, userEvent } from '../../../../util/test-utils.js';
 import { HeaderCell, Direction } from '../../types.js';
 
 import TableHead from './index.js';
@@ -37,18 +31,6 @@ const fixtureHeaders: HeaderCell[] = [
 ];
 
 describe('TableHead', () => {
-  describe('Style tests', () => {
-    it('should render with default styles', () => {
-      const actual = create(<TableHead headers={fixtureHeaders} />);
-      expect(actual).toMatchSnapshot();
-    });
-
-    it('should render with rowHeader styles', () => {
-      const actual = create(<TableHead rowHeaders headers={fixtureHeaders} />);
-      expect(actual).toMatchSnapshot();
-    });
-  });
-
   describe('onClick', () => {
     it('should not dispatch the onSortBy handler when the column is not sortable', async () => {
       const headers = ['Foo'];
@@ -136,13 +118,11 @@ describe('TableHead', () => {
     });
   });
 
-  describe('Accessibility tests', () => {
-    it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(
-        <TableHead rowHeaders headers={fixtureHeaders} />,
-      );
-      const actual = await axe(wrapper);
-      expect(actual).toHaveNoViolations();
-    });
+  it('should have no accessibility violations', async () => {
+    const { container } = render(
+      <TableHead rowHeaders headers={fixtureHeaders} />,
+    );
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });

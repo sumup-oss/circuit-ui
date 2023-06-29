@@ -13,16 +13,15 @@
  * limitations under the License.
  */
 
-import { ThHTMLAttributes, FC, PropsWithChildren } from 'react';
-import { css } from '@emotion/react';
+import type { ThHTMLAttributes } from 'react';
 
-import isPropValid from '../../../../styles/is-prop-valid.js';
-import { focusOutline, typography } from '../../../../styles/style-mixins.js';
 import SortArrow from '../SortArrow/index.js';
-import styled, { StyleProps } from '../../../../styles/styled.js';
 import { CellAlignment, SortParams } from '../../types.js';
 import { ClickEvent } from '../../../../types/events.js';
 import { AccessibilityError } from '../../../../util/errors.js';
+import { clsx } from '../../../../styles/clsx.js';
+
+import classes from './TableHeader.module.css';
 
 export interface TableHeaderProps
   extends ThHTMLAttributes<HTMLTableCellElement> {
@@ -50,7 +49,7 @@ export interface TableHeaderProps
    * Props related to table sorting. Defaults to not sortable.
    */
   onClick?: (
-    event: ClickEvent<HTMLTableHeaderCellElement | HTMLButtonElement>,
+    event: ClickEvent<HTMLTableCellElement | HTMLButtonElement>,
   ) => void;
   /**
    * Props related to table sorting. Defaults to not sortable.
@@ -59,149 +58,9 @@ export interface TableHeaderProps
 }
 
 /**
- * <th> element styles.
- */
-type ThElProps = Omit<TableHeaderProps, 'sortParams'> & {
-  sortable: SortParams['sortable'];
-  isSorted: SortParams['isSorted'];
-};
-
-const baseStyles = ({ theme, align }: StyleProps & ThElProps) => css`
-  background-color: var(--cui-bg-normal);
-  border-bottom: ${theme.borderWidth.kilo} solid var(--cui-border-divider);
-  padding: ${theme.spacings.giga};
-  text-align: ${align};
-  transition: background-color ${theme.transitions.default},
-    color ${theme.transitions.default};
-`;
-
-const hoveredStyles = ({ isHovered }: ThElProps) =>
-  isHovered &&
-  css`
-    background-color: var(--cui-bg-normal-hovered);
-  `;
-
-const colStyles = ({ theme, scope }: StyleProps & ThElProps) =>
-  scope === 'col' &&
-  css`
-    ${typography('two')(theme)};
-    color: var(--cui-fg-subtle);
-    font-weight: ${theme.fontWeight.bold};
-    padding: ${theme.spacings.byte} ${theme.spacings.giga};
-    vertical-align: middle;
-    white-space: nowrap;
-  `;
-
-const fixedStyles = ({ theme, fixed }: StyleProps & ThElProps) =>
-  fixed &&
-  css`
-    ${theme.mq.untilMega} {
-      left: 0;
-      position: sticky;
-      width: 145px;
-      overflow-wrap: break-word;
-      z-index: ${theme.zIndex.absolute};
-
-      &:after {
-        content: '';
-        background: linear-gradient(
-          90deg,
-          rgba(0, 0, 0, 0.12),
-          rgba(255, 255, 255, 0)
-        );
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 100%;
-        width: 6px;
-      }
-    }
-  `;
-
-const sortableStyles = ({ sortable }: ThElProps) =>
-  sortable &&
-  css`
-    cursor: pointer;
-    position: relative;
-    user-select: none;
-
-    &:focus-within::after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: 1;
-      ${focusOutline()};
-    }
-
-    &:focus-within,
-    &:hover {
-      background-color: var(--cui-bg-normal-hovered);
-      color: var(--cui-fg-accent-hovered);
-
-      & > button {
-        opacity: 1;
-      }
-    }
-
-    &:active {
-      background-color: var(--cui-bg-normal-pressed);
-      color: var(--cui-fg-accent-pressed);
-    }
-  `;
-
-const sortableActiveStyles = ({ sortable, isSorted }: ThElProps) =>
-  sortable &&
-  isSorted &&
-  css`
-    & > button {
-      opacity: 1;
-    }
-  `;
-
-const condensedStyles = ({ condensed, theme }: StyleProps & ThElProps) =>
-  condensed &&
-  css`
-    ${typography('two')(theme)};
-    vertical-align: middle;
-    padding: ${theme.spacings.kilo} ${theme.spacings.mega}
-      ${theme.spacings.kilo} ${theme.spacings.giga};
-  `;
-
-const condensedColStyles = ({
-  condensed,
-  scope,
-  theme,
-}: StyleProps & ThElProps) =>
-  condensed &&
-  scope === 'col' &&
-  css`
-    padding: ${theme.spacings.byte} ${theme.spacings.mega}
-      ${theme.spacings.byte} ${theme.spacings.giga};
-  `;
-
-const StyledHeader = styled('th', {
-  shouldForwardProp: (prop) => isPropValid(prop),
-})<ThElProps>(
-  baseStyles,
-  hoveredStyles,
-  fixedStyles,
-  colStyles,
-  sortableStyles,
-  sortableActiveStyles,
-  condensedStyles,
-  condensedColStyles,
-);
-
-/**
  * TableHeader for the Table component. The Table handles rendering it.
  */
-const TableHeader: FC<PropsWithChildren<TableHeaderProps>> = ({
+export function TableHeader({
   children,
   condensed,
   align = 'left',
@@ -211,7 +70,7 @@ const TableHeader: FC<PropsWithChildren<TableHeaderProps>> = ({
   sortParams = { sortable: false },
   onClick,
   ...props
-}) => {
+}: TableHeaderProps) {
   if (
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test' &&
@@ -224,14 +83,15 @@ const TableHeader: FC<PropsWithChildren<TableHeaderProps>> = ({
     );
   }
   return (
-    <StyledHeader
-      condensed={condensed}
-      align={align}
+    <th
+      className={clsx(
+        classes.base,
+        classes[align],
+        isHovered && classes.hover,
+        fixed && classes.fixed,
+        condensed && classes.condensed,
+      )}
       scope={scope}
-      fixed={fixed}
-      isHovered={isHovered}
-      sortable={sortParams.sortable}
-      isSorted={!!sortParams.isSorted}
       aria-label={sortParams.sortLabel}
       aria-sort={
         sortParams.sortable ? sortParams.sortDirection || 'none' : undefined
@@ -247,8 +107,6 @@ const TableHeader: FC<PropsWithChildren<TableHeaderProps>> = ({
         />
       )}
       {children}
-    </StyledHeader>
+    </th>
   );
-};
-
-export default TableHeader;
+}

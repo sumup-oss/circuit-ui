@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import TableHeader from './TableHeader.js';
+import { TableHeader } from './TableHeader.js';
 
 export default TableHeader;

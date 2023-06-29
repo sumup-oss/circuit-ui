@@ -14,68 +14,37 @@
  */
 
 import { HTMLAttributes } from 'react';
-import { css } from '@emotion/react';
 import { ChevronUp, ChevronDown } from '@sumup/icons';
 
-import styled, { StyleProps } from '../../../../styles/styled.js';
-import { hideVisually } from '../../../../styles/style-mixins.js';
 import { Direction } from '../../types.js';
+import { clsx } from '../../../../styles/clsx.js';
+import utilityClasses from '../../../../styles/utility.js';
+
+import classes from './SortArrow.module.css';
 
 interface SortArrowProps extends HTMLAttributes<HTMLButtonElement> {
   direction?: Direction;
   label: string;
 }
 
-const baseStyles = ({ theme }: StyleProps) => css`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 36px;
-  width: ${theme.spacings.giga};
-  position: absolute;
-  left: 0;
-  top: 50%;
-  opacity: 0;
-  transform: translateY(-50%);
-  transition: opacity ${theme.transitions.default};
-  color: var(--cui-fg-accent);
-  border: 0;
-  background: none;
-  outline: 0;
-  padding: 2px 4px;
-  margin: 0;
-  cursor: pointer;
-
-  &:focus {
-    opacity: 1;
-
-    &::-moz-focus-inner {
-      border: 0;
-    }
-  }
-`;
-
-const Button = styled.button(baseStyles);
-
-const iconStyles = css`
-  margin: -2px 0;
-`;
-
-const Label = styled('span')(hideVisually);
-
 /**
  * SortArrow for the Table component. The Table handles rendering it.
  */
-const SortArrow = ({
+export function SortArrow({
   label,
   direction,
+  className,
   ...props
-}: SortArrowProps): JSX.Element => (
-  <Button role="button" title={label} {...props}>
-    {direction !== 'ascending' && <ChevronUp size="16" css={iconStyles} />}
-    {direction !== 'descending' && <ChevronDown size="16" css={iconStyles} />}
-    <Label>{label}</Label>
-  </Button>
-);
-
-export default SortArrow;
+}: SortArrowProps) {
+  return (
+    <button title={label} className={clsx(classes.base, className)} {...props}>
+      {direction !== 'ascending' && (
+        <ChevronUp size="16" aria-hidden="true" className={classes.icon} />
+      )}
+      {direction !== 'descending' && (
+        <ChevronDown size="16" aria-hidden="true" className={classes.icon} />
+      )}
+      <span className={utilityClasses.hideVisually}>{label}</span>
+    </button>
+  );
+}

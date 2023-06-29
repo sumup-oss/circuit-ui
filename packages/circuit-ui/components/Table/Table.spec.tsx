@@ -15,13 +15,7 @@
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import {
-  create,
-  render,
-  renderToHtml,
-  axe,
-  userEvent,
-} from '../../util/test-utils.js';
+import { render, axe, userEvent, screen } from '../../util/test-utils.js';
 import Badge from '../Badge/index.js';
 
 import Table from './Table.js';
@@ -57,47 +51,8 @@ describe('Table', () => {
   });
 
   describe('Style tests', () => {
-    it('should render with default styles', () => {
-      const actual = create(<Table headers={headers} rows={rows} />);
-      expect(actual).toMatchSnapshot();
-    });
-
-    it('should render without the table shadow', () => {
-      const actual = create(<Table headers={headers} rows={rows} noShadow />);
-      expect(actual).toMatchSnapshot();
-    });
-
-    it('should render with rowHeader styles', () => {
-      const actual = create(<Table rowHeaders headers={headers} rows={rows} />);
-      expect(actual).toMatchSnapshot();
-    });
-
-    it('should render a collapsed table', () => {
-      const actual = create(
-        <Table headers={headers} rows={rows} borderCollapsed />,
-      );
-      expect(actual).toMatchSnapshot();
-    });
-
-    it('should render a condensed table', () => {
-      const actual = create(<Table headers={headers} rows={rows} condensed />);
-      expect(actual).toMatchSnapshot();
-    });
-
-    it('should render a scrollable table', () => {
-      const actual = create(
-        <Table headers={headers} rows={rows} scrollable rowHeaders={false} />,
-      );
-      expect(actual).toMatchSnapshot();
-    });
-
-    it('should not render a scrollable table if the rowHeaders prop is true', () => {
-      const actual = create(<Table headers={headers} rows={rows} rowHeaders />);
-      expect(actual).toMatchSnapshot();
-    });
-
     it('should render with component cells', () => {
-      const actual = create(
+      render(
         <Table
           headers={['Name', 'Type']}
           rows={[
@@ -110,11 +65,11 @@ describe('Table', () => {
           ]}
         />,
       );
-      expect(actual).toMatchSnapshot();
+      expect(screen.getByText('Unknown')).toBeVisible();
     });
 
     it('should render "null" or "undefined" cells', () => {
-      const actual = create(
+      render(
         <Table
           headers={['Name', 'Type']}
           rows={[
@@ -123,132 +78,128 @@ describe('Table', () => {
           ]}
         />,
       );
-      expect(actual).toMatchSnapshot();
+      expect(screen.getAllByRole('columnheader')).toHaveLength(2);
     });
   });
 
-  describe('Interaction tests', () => {
-    it('should call the row click callback', async () => {
-      const onRowClickMock = vi.fn();
-      const index = 0;
+  it('should call the row click callback', async () => {
+    const onRowClickMock = vi.fn();
+    const index = 0;
+    const { getAllByRole } = render(
+      <Table onRowClick={onRowClickMock} headers={headers} rows={rows} />,
+    );
+
+    const rowElements = getAllByRole('row');
+
+    // rowElements[0] is the hidden first row
+    await userEvent.click(rowElements[1]);
+
+    expect(onRowClickMock).toHaveBeenCalledTimes(1);
+    expect(onRowClickMock).toHaveBeenCalledWith(index);
+  });
+
+  describe('sorting', () => {
+    it('should sort a column in ascending order', async () => {
       const { getAllByRole } = render(
-        <Table onRowClick={onRowClickMock} headers={headers} rows={rows} />,
+        <Table rows={rows} headers={headers} rowHeaders={false} />,
       );
 
-      const rowElements = getAllByRole('row');
+      const letterHeaderEl = getAllByRole('columnheader')[0];
+      const cellEls = getAllByRole('cell');
 
-      // rowElements[0] is the hidden first row
-      await userEvent.click(rowElements[1]);
+      await userEvent.click(letterHeaderEl);
 
-      expect(onRowClickMock).toHaveBeenCalledTimes(1);
-      expect(onRowClickMock).toHaveBeenCalledWith(index);
+      const sortedRow = ['a', 'b', 'c'];
+
+      rows.forEach((_row, index) => {
+        const cellIndex = rowLength * index;
+        expect(cellEls[cellIndex]).toHaveTextContent(sortedRow[index]);
+      });
     });
 
-    describe('sorting', () => {
-      it('should sort a column in ascending order', async () => {
-        const { getAllByRole } = render(
-          <Table rows={rows} headers={headers} rowHeaders={false} />,
-        );
+    it('should sort a column in ascending order when initial sort direction and initial sorted row is provided', () => {
+      const { getAllByRole } = render(
+        <Table
+          rows={rows}
+          headers={headers}
+          rowHeaders={false}
+          initialSortedRow={1}
+          initialSortDirection={'ascending'}
+        />,
+      );
 
-        const letterHeaderEl = getAllByRole('columnheader')[0];
-        const cellEls = getAllByRole('cell');
+      const cellEls = getAllByRole('cell');
 
-        await userEvent.click(letterHeaderEl);
+      const sortedRow = ['a', 'c', 'b'];
 
-        const sortedRow = ['a', 'b', 'c'];
-
-        rows.forEach((_row, index) => {
-          const cellIndex = rowLength * index;
-          expect(cellEls[cellIndex]).toHaveTextContent(sortedRow[index]);
-        });
+      rows.forEach((_row, index) => {
+        const cellIndex = rowLength * index;
+        expect(cellEls[cellIndex]).toHaveTextContent(sortedRow[index]);
       });
+    });
 
-      it('should sort a column in ascending order when initial sort direction and initial sorted row is provided', () => {
-        const { getAllByRole } = render(
-          <Table
-            rows={rows}
-            headers={headers}
-            rowHeaders={false}
-            initialSortedRow={1}
-            initialSortDirection={'ascending'}
-          />,
-        );
+    it('should sort a column in descending order', async () => {
+      const { getAllByRole } = render(
+        <Table rows={rows} headers={headers} rowHeaders={false} />,
+      );
 
-        const cellEls = getAllByRole('cell');
+      const letterHeaderEl = getAllByRole('columnheader')[0];
+      const cellEls = getAllByRole('cell');
 
-        const sortedRow = ['a', 'c', 'b'];
+      await userEvent.click(letterHeaderEl);
+      await userEvent.click(letterHeaderEl);
 
-        rows.forEach((_row, index) => {
-          const cellIndex = rowLength * index;
-          expect(cellEls[cellIndex]).toHaveTextContent(sortedRow[index]);
-        });
+      const sortedRow = ['c', 'b', 'a'];
+
+      rows.forEach((_row, index) => {
+        const cellIndex = rowLength * index;
+        expect(cellEls[cellIndex]).toHaveTextContent(sortedRow[index]);
       });
+    });
 
-      it('should sort a column in descending order', async () => {
-        const { getAllByRole } = render(
-          <Table rows={rows} headers={headers} rowHeaders={false} />,
-        );
+    it('should sort a column in descending order when initial sort direction and initial sorted row is provided', () => {
+      const { getAllByRole } = render(
+        <Table
+          rows={rows}
+          headers={headers}
+          rowHeaders={false}
+          initialSortedRow={1}
+          initialSortDirection={'descending'}
+        />,
+      );
 
-        const letterHeaderEl = getAllByRole('columnheader')[0];
-        const cellEls = getAllByRole('cell');
+      const cellEls = getAllByRole('cell');
 
-        await userEvent.click(letterHeaderEl);
-        await userEvent.click(letterHeaderEl);
+      const sortedRow = ['b', 'c', 'a'];
 
-        const sortedRow = ['c', 'b', 'a'];
-
-        rows.forEach((_row, index) => {
-          const cellIndex = rowLength * index;
-          expect(cellEls[cellIndex]).toHaveTextContent(sortedRow[index]);
-        });
+      rows.forEach((_row, index) => {
+        const cellIndex = rowLength * index;
+        expect(cellEls[cellIndex]).toHaveTextContent(sortedRow[index]);
       });
+    });
 
-      it('should sort a column in descending order when initial sort direction and initial sorted row is provided', () => {
-        const { getAllByRole } = render(
-          <Table
-            rows={rows}
-            headers={headers}
-            rowHeaders={false}
-            initialSortedRow={1}
-            initialSortDirection={'descending'}
-          />,
-        );
+    it('should call a custom sort callback', async () => {
+      const onSortByMock = vi.fn();
+      const index = 0;
+      const nextDirection = 'ascending';
+      const { getAllByRole } = render(
+        <Table onSortBy={onSortByMock} headers={headers} rows={rows} />,
+      );
 
-        const cellEls = getAllByRole('cell');
+      const headerElements = getAllByRole('columnheader');
 
-        const sortedRow = ['b', 'c', 'a'];
+      await userEvent.click(headerElements[0]);
 
-        rows.forEach((_row, index) => {
-          const cellIndex = rowLength * index;
-          expect(cellEls[cellIndex]).toHaveTextContent(sortedRow[index]);
-        });
-      });
-
-      it('should call a custom sort callback', async () => {
-        const onSortByMock = vi.fn();
-        const index = 0;
-        const nextDirection = 'ascending';
-        const { getAllByRole } = render(
-          <Table onSortBy={onSortByMock} headers={headers} rows={rows} />,
-        );
-
-        const headerElements = getAllByRole('columnheader');
-
-        await userEvent.click(headerElements[0]);
-
-        expect(onSortByMock).toHaveBeenCalledTimes(1);
-        expect(onSortByMock).toHaveBeenCalledWith(index, rows, nextDirection);
-      });
+      expect(onSortByMock).toHaveBeenCalledTimes(1);
+      expect(onSortByMock).toHaveBeenCalledWith(index, rows, nextDirection);
     });
   });
 
-  describe('Accessibility tests', () => {
-    it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(
-        <Table rowHeaders headers={headers} rows={rows} />,
-      );
-      const actual = await axe(wrapper);
-      expect(actual).toHaveNoViolations();
-    });
+  it('should have no accessibility violations', async () => {
+    const { container } = render(
+      <Table rowHeaders headers={headers} rows={rows} />,
+    );
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });

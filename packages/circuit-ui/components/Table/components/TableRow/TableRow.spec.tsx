@@ -15,69 +15,48 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import {
-  create,
-  render,
-  renderToHtml,
-  axe,
-  userEvent,
-} from '../../../../util/test-utils.js';
+import { render, axe, userEvent, screen } from '../../../../util/test-utils.js';
 
 import TableRow from './index.js';
 
 const children = 'Foo';
 
 describe('TableRow', () => {
-  describe('Style tests', () => {
-    it('should render with default styles', () => {
-      const actual = create(<TableRow>{children}</TableRow>);
-      expect(actual).toMatchSnapshot();
-    });
-
-    it('should render with clickable styles', () => {
-      const actual = create(<TableRow onClick={vi.fn()}>{children}</TableRow>);
-      expect(actual).toMatchSnapshot();
-    });
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    const { container } = render(
+      <TableRow className={className}>{children}</TableRow>,
+    );
+    const element = container.querySelector('tr');
+    expect(element?.className).toContain(className);
   });
 
-  describe('Logic tests', () => {
-    it('should call the onClick when clicked', async () => {
-      const onClick = vi.fn();
-      const { getByTestId } = render(
-        <TableRow onClick={onClick} data-testid="row">
-          {children}
-        </TableRow>,
-      );
-      const rowEl = getByTestId('row');
+  it('should call the onClick when clicked', async () => {
+    const onClick = vi.fn();
+    render(<TableRow onClick={onClick}>{children}</TableRow>);
+    const rowEl = screen.getByRole('row');
 
-      rowEl.focus();
-      await userEvent.click(rowEl);
+    rowEl.focus();
+    await userEvent.click(rowEl);
 
-      expect(onClick).toHaveBeenCalledTimes(1);
-    });
-
-    it('should call the onClick when navigating with the keyboard', async () => {
-      const onClick = vi.fn();
-      const { getByTestId } = render(
-        <TableRow onClick={onClick} data-testid="row">
-          {children}
-        </TableRow>,
-      );
-      const rowEl = getByTestId('row');
-
-      rowEl.focus();
-      await userEvent.type(rowEl, '{enter}');
-      await userEvent.type(rowEl, ' ');
-
-      expect(onClick).toHaveBeenCalledTimes(2);
-    });
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 
-  describe('Accessibility tests', () => {
-    it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<TableRow>{children}</TableRow>);
-      const actual = await axe(wrapper);
-      expect(actual).toHaveNoViolations();
-    });
+  it('should call the onClick when navigating with the keyboard', async () => {
+    const onClick = vi.fn();
+    render(<TableRow onClick={onClick}>{children}</TableRow>);
+    const rowEl = screen.getByRole('row');
+
+    rowEl.focus();
+    await userEvent.type(rowEl, '{enter}');
+    await userEvent.type(rowEl, ' ');
+
+    expect(onClick).toHaveBeenCalledTimes(2);
+  });
+
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<TableRow>{children}</TableRow>);
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });
