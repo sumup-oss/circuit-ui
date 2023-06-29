@@ -40,7 +40,7 @@ export const css: UserConfig['css'] = {
 
       const hash = crypto
         .createHash('md5')
-        .update(`${fileName}${name}`)
+        .update(`${filePath}${name}`)
         .digest('base64url')
         // Remove non-word characters and underscores
         .replace(/[\W_]/g, '')
