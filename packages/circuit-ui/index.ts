@@ -15,7 +15,8 @@
 
 import './styles/base.css';
 
-export { default as utilityClasses } from './styles/utility.js';
+export { default as utilClasses } from './styles/utility.js';
+export { clsx } from './styles/clsx.js';
 
 // Typography
 export { default as Headline } from './components/Headline/index.js';
@@ -184,21 +185,6 @@ export {
   useComponents,
 } from './components/ComponentsContext/index.js';
 export type { ComponentsContextType } from './components/ComponentsContext/index.js';
-
-export {
-  cx,
-  spacing,
-  shadow,
-  disableVisually,
-  hideVisually,
-  focusOutline,
-  focusVisible,
-  clearfix,
-  hideScrollbar,
-  inputOutline,
-  typography,
-  center,
-} from './styles/style-mixins.js';
 
 // Hooks
 export { useClickOutside } from './hooks/useClickOutside/index.js';
