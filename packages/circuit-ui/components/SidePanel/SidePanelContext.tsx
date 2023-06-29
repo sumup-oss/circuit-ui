@@ -19,8 +19,6 @@ import {
   ReactNode,
   useMemo,
   useState,
-  useEffect,
-  useRef,
 } from 'react';
 import ReactModal, { Props as ReactModalProps } from 'react-modal';
 
@@ -28,8 +26,8 @@ import { useMedia } from '../../hooks/useMedia/index.js';
 import { useStack, StackItem } from '../../hooks/useStack/index.js';
 import { Require } from '../../types/util.js';
 import { warn } from '../../util/logger.js';
-import { TOP_NAVIGATION_HEIGHT } from '../TopNavigation/TopNavigation.js';
 import { clsx } from '../../styles/clsx.js';
+import { useLatest } from '../../hooks/useLatest/useLatest.js';
 
 import { SidePanel, SidePanelProps } from './SidePanel.js';
 import { TRANSITION_DURATION } from './constants.js';
@@ -110,62 +108,21 @@ export interface SidePanelProviderProps {
    * which will be resized when the side panel is opened.
    */
   children: ReactNode;
-  /**
-   * Indicates whether the top navigation is used and the side panel
-   * should be rendered below it. Defaults to `false`.
-   */
-  withTopNavigation?: boolean;
 }
 
-export function SidePanelProvider({
-  children,
-  withTopNavigation = false,
-}: SidePanelProviderProps) {
-  const isTopNavigationSticky = useMedia('(min-width: 1280px)');
+export function SidePanelProvider({ children }: SidePanelProviderProps) {
   const isMobile = useMedia('(max-width: 767px)');
   const [sidePanels, dispatch] = useStack<SidePanelContextItem>();
   const [isPrimaryContentResized, setIsPrimaryContentResized] = useState(false);
 
-  // Keep an up-to-date sidePanels ref to lower the number of updates of the context value
-  const sidePanelsRef = useRef(sidePanels);
-  sidePanelsRef.current = sidePanels;
-
-  const setSidePanelTop = (top: string) => {
-    document.documentElement.style.setProperty('--side-panel-top', top);
-  };
-
-  // Calculate side panel top offset
-  useEffect(() => {
-    if (!withTopNavigation || isMobile) {
-      setSidePanelTop('0px');
-      return undefined;
-    }
-
-    if (isTopNavigationSticky) {
-      setSidePanelTop(TOP_NAVIGATION_HEIGHT);
-      return undefined;
-    }
-
-    // Figure in the vertical scroll position when the top navigation is not sticky
-    const topNavigationHeight = parseInt(TOP_NAVIGATION_HEIGHT, 10);
-    const handleScroll = () => {
-      const top = Math.max(topNavigationHeight - window.scrollY, 0);
-      setSidePanelTop(`${top}px`);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [withTopNavigation, isTopNavigationSticky, isMobile]);
+  const sidePanelsRef = useLatest(sidePanels);
 
   const findSidePanel = useCallback(
     (group: SidePanelContextProps['group']) =>
       sidePanelsRef.current.find(
         (panel) => panel.group === group && !panel.transition,
       ),
-    [],
+    [sidePanelsRef],
   );
 
   const removeSidePanel = useCallback<RemoveSidePanel>(
@@ -218,7 +175,7 @@ export function SidePanelProvider({
           ),
       );
     },
-    [findSidePanel, dispatch],
+    [findSidePanel, dispatch, sidePanelsRef],
   );
 
   const setSidePanel = useCallback<SetSidePanel>(

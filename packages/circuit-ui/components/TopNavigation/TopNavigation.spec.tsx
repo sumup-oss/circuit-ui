@@ -16,7 +16,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { Shop, SumUpLogo } from '@sumup/icons';
 
-import { axe, render, renderToHtml } from '../../util/test-utils.js';
+import { axe, render } from '../../util/test-utils.js';
 import { PopoverProps } from '../Popover/index.js';
 
 import { TopNavigation, TopNavigationProps } from './TopNavigation.js';
@@ -72,19 +72,9 @@ describe('TopNavigation', () => {
     ],
   };
 
-  describe('styles', () => {
-    it('should match the snapshot', () => {
-      const { container } = render(<TopNavigation {...baseProps} />);
-
-      expect(container).toMatchSnapshot();
-    });
-  });
-
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<TopNavigation {...baseProps} />);
-      const actual = await axe(wrapper);
-      expect(actual).toHaveNoViolations();
-    });
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<TopNavigation {...baseProps} />);
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });

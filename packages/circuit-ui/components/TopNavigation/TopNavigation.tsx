@@ -13,14 +13,12 @@
  * limitations under the License.
  */
 
-import { ReactNode } from 'react';
-import { css } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
+import { HTMLAttributes, ReactNode, useEffect } from 'react';
 
-import styled, { StyleProps } from '../../styles/styled.js';
-import { focusVisible } from '../../styles/style-mixins.js';
 import Hamburger, { HamburgerProps } from '../Hamburger/index.js';
 import { SkeletonContainer } from '../Skeleton/index.js';
+import { clsx } from '../../styles/clsx.js';
+import utilityClasses from '../../styles/utility.js';
 
 import {
   ProfileMenu,
@@ -31,74 +29,16 @@ import {
   UtilityLinksProps,
 } from './components/UtilityLinks/index.js';
 import { UserProps } from './types.js';
+import classes from './TopNavigation.module.css';
 
-const CONTENT_HEIGHT = '56px';
-export const TOP_NAVIGATION_HEIGHT =
-  '57px'; /* content height + border-bottom */
+/**
+ * @deprecated Use the `var(--top-navigation-height)` CSS variable instead.
+ */
+export const TOP_NAVIGATION_HEIGHT = '57px';
 
-const headerStyles = ({ theme }: StyleProps) => css`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: ${TOP_NAVIGATION_HEIGHT};
-  background-color: var(--cui-bg-normal);
-  border-bottom: ${theme.borderWidth.kilo} solid var(--cui-border-divider);
-
-  ${theme.mq.tera} {
-    position: sticky;
-    top: 0;
-    /* The +1 is necessary to ensure that the primary navigation doesn't */
-    /* overlap the top navigation on hover. */
-    z-index: ${theme.zIndex.navigation + 1};
-  }
-`;
-
-const Header = styled.header(headerStyles);
-
-const hamburgerStyles = (theme: Theme) => css`
-  padding: ${theme.spacings.mega};
-  ${focusVisible('inset')};
-
-  border-radius: 0;
-  /* The !important below is necessary to override the default hover styles. */
-  border-right: ${theme.borderWidth.kilo} solid var(--cui-border-divider) !important;
-
-  ${theme.mq.tera} {
-    display: none;
-  }
-`;
-
-const logoStyles = ({ theme }: StyleProps) => css`
-  height: ${CONTENT_HEIGHT};
-
-  > * {
-    display: block;
-    height: inherit;
-    line-height: 0;
-    padding: ${theme.spacings.mega};
-  }
-
-  a,
-  button {
-    ${focusVisible('inset')};
-  }
-
-  svg {
-    color: var(--cui-fg-normal);
-    height: ${theme.iconSizes.mega};
-  }
-`;
-
-const Logo = styled.div(logoStyles);
-
-const wrapperStyles = css`
-  display: flex;
-  align-items: stretch;
-  height: 100%;
-`;
-
-export interface TopNavigationProps extends Partial<UtilityLinksProps> {
+export interface TopNavigationProps
+  extends Partial<UtilityLinksProps>,
+    HTMLAttributes<HTMLElement> {
   logo: ReactNode;
   hamburger?: HamburgerProps;
   user: UserProps;
@@ -113,22 +53,42 @@ export function TopNavigation({
   links,
   hamburger,
   isLoading,
+  className,
   ...props
-}: TopNavigationProps): JSX.Element {
+}: TopNavigationProps) {
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      '--top-navigation-height',
+      TOP_NAVIGATION_HEIGHT,
+    );
+    return () => {
+      document.documentElement.style.removeProperty('--top-navigation-height');
+    };
+  }, []);
+
   return (
-    <Header role="banner" {...props}>
-      <div css={wrapperStyles}>
+    <header role="banner" className={clsx(classes.base, className)} {...props}>
+      <div className={classes.wrapper}>
         {hamburger && (
           <SkeletonContainer isLoading={Boolean(isLoading)}>
-            <Hamburger {...hamburger} css={hamburgerStyles} />
+            <Hamburger
+              {...hamburger}
+              className={clsx(
+                classes.hamburger,
+                utilityClasses.focusVisibleInset,
+              )}
+            />
           </SkeletonContainer>
         )}
-        <Logo>{logo}</Logo>
+        <div className={classes.logo}>{logo}</div>
       </div>
-      <SkeletonContainer css={wrapperStyles} isLoading={Boolean(isLoading)}>
+      <SkeletonContainer
+        className={classes.wrapper}
+        isLoading={Boolean(isLoading)}
+      >
         {links && <UtilityLinks links={links} />}
         <ProfileMenu {...profileMenu} user={user} />
       </SkeletonContainer>
-    </Header>
+    </header>
   );
 }

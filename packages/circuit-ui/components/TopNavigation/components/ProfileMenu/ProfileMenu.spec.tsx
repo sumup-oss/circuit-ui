@@ -48,52 +48,40 @@ describe('ProfileMenu', () => {
     ] as PopoverProps['actions'],
   };
 
-  describe('Styles', () => {
-    it('should render with a profile picture', () => {
-      const { container } = render(
-        <ProfileMenu
-          {...baseProps}
-          user={{ ...baseProps.user, avatar: { src: 'profile.png', alt: '' } }}
-        />,
-      );
+  it('should render with a profile picture', () => {
+    const { getByRole } = render(
+      <ProfileMenu
+        {...baseProps}
+        user={{ ...baseProps.user, avatar: { src: 'profile.png', alt: '' } }}
+      />,
+    );
 
-      expect(container).toMatchSnapshot();
-    });
-
-    it('should render without a profile picture', () => {
-      const { container } = render(<ProfileMenu {...baseProps} />);
-
-      expect(container).toMatchSnapshot();
-    });
+    expect(getByRole('img')).toBeVisible();
   });
 
-  describe('Logic', () => {
-    it('should call the onToggle callback with the popover open state', async () => {
-      const onToggle = vi.fn();
+  it('should call the onToggle callback with the popover open state', async () => {
+    const onToggle = vi.fn();
 
-      render(<ProfileMenu {...baseProps} onToggle={onToggle} />);
+    render(<ProfileMenu {...baseProps} onToggle={onToggle} />);
 
-      const profileEl = screen.getByRole('button');
+    const profileEl = screen.getByRole('button');
 
-      await userEvent.click(profileEl);
+    await userEvent.click(profileEl);
 
-      expect(onToggle).toHaveBeenCalledWith(true);
+    expect(onToggle).toHaveBeenCalledWith(true);
 
-      await userEvent.click(profileEl);
+    await userEvent.click(profileEl);
 
-      expect(onToggle).toHaveBeenCalledWith(false);
-      expect(onToggle).toHaveBeenCalledTimes(2);
-    });
+    expect(onToggle).toHaveBeenCalledWith(false);
+    expect(onToggle).toHaveBeenCalledTimes(2);
   });
 
-  describe('Accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const { container } = render(<ProfileMenu {...baseProps} />);
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<ProfileMenu {...baseProps} />);
 
-      await act(async () => {
-        const actual = await axe(container);
-        expect(actual).toHaveNoViolations();
-      });
+    await act(async () => {
+      const actual = await axe(container);
+      expect(actual).toHaveNoViolations();
     });
   });
 });

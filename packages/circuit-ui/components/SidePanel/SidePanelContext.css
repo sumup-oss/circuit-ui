@@ -28,7 +28,7 @@
 /* Enable keyboard navigation inside the modal, see https://github.com/reactjs/react-modal/issues/782 */
 @media (min-width: 768px) {
   .cui-side-panel-portal {
-    top: var(--side-panel-top);
+    top: var(--top-navigation-height, 0);
     z-index: var(--cui-z-index-absolute);
     width: var(--side-panel-width);
   }

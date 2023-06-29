@@ -14,46 +14,16 @@
  */
 
 import type { MouseEvent, KeyboardEvent, AnchorHTMLAttributes } from 'react';
-import { css } from '@emotion/react';
-import type { Theme } from '@sumup/design-tokens';
 import type { IconComponentType } from '@sumup/icons';
 
-import styled, { NoTheme, StyleProps } from '../../../../styles/styled.js';
-import {
-  hideVisually,
-  navigationItem,
-} from '../../../../styles/style-mixins.js';
-import { EmotionAsPropType } from '../../../../types/prop-types.js';
+import type { AsPropType } from '../../../../types/prop-types.js';
 import Body from '../../../Body/index.js';
 import { useComponents } from '../../../ComponentsContext/index.js';
 import { Skeleton } from '../../../Skeleton/index.js';
+import { clsx } from '../../../../styles/clsx.js';
+import sharedClasses from '../../../../styles/shared.js';
 
-const anchorStyles = ({ theme }: StyleProps) => css`
-  text-decoration: none;
-  height: 100%;
-  padding: 0 ${theme.spacings.mega};
-  border-left: ${theme.borderWidth.kilo} solid var(--cui-border-divider);
-`;
-
-const UtilityAnchor = styled.a<NoTheme>(navigationItem, anchorStyles);
-
-const iconStyles = (theme: Theme) => css`
-  flex-shrink: 0;
-  width: ${theme.iconSizes.mega};
-  height: ${theme.iconSizes.mega};
-
-  ${theme.mq.kilo} {
-    margin-right: ${theme.spacings.byte};
-  }
-`;
-
-const labelStyles = ({ theme }: StyleProps) => css`
-  ${theme.mq.untilKilo} {
-    ${hideVisually()};
-  }
-`;
-
-const UtilityLabel = styled(Body)(labelStyles);
+import classes from './UtilityLinks.module.css';
 
 export interface UtilityLinkProps
   extends AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -80,33 +50,33 @@ export interface UtilityLinkProps
   isActive?: boolean;
 }
 
-function UtilityLink({ icon: Icon, label, ...props }: UtilityLinkProps) {
+function UtilityLink({
+  icon: Icon,
+  label,
+  isActive,
+  className,
+  ...props
+}: UtilityLinkProps) {
   const { Link } = useComponents();
+  const Element = props.href ? (Link as AsPropType) : 'button';
 
   return (
-    <UtilityAnchor
+    <Element
       {...props}
-      as={props.href ? (Link as EmotionAsPropType) : 'button'}
+      aria-current={isActive ? 'page' : undefined}
+      className={clsx(classes.anchor, sharedClasses.navigationItem, className)}
     >
-      <Skeleton css={iconStyles}>
+      <Skeleton className={classes.icon}>
         <Icon role="presentation" size="24" />
       </Skeleton>
       <Skeleton>
-        <UtilityLabel
-          variant={props.isActive ? 'highlight' : undefined}
-          as="span"
-        >
+        <Body as="span" className={classes.label}>
           {label}
-        </UtilityLabel>
+        </Body>
       </Skeleton>
-    </UtilityAnchor>
+    </Element>
   );
 }
-
-const UtilityLinksWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
 
 export interface UtilityLinksProps {
   links: UtilityLinkProps[];
@@ -114,10 +84,12 @@ export interface UtilityLinksProps {
 
 export function UtilityLinks({ links }: UtilityLinksProps): JSX.Element {
   return (
-    <UtilityLinksWrapper>
+    <ul className={classes.list}>
       {links.map((link) => (
-        <UtilityLink key={link.label} {...link} />
+        <li key={link.label} className={classes.item}>
+          <UtilityLink {...link} />
+        </li>
       ))}
-    </UtilityLinksWrapper>
+    </ul>
   );
 }
