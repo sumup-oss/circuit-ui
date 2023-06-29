@@ -22,23 +22,20 @@ import {
   useEffect,
   useRef,
 } from 'react';
-import { css, useTheme } from '@emotion/react';
 import ReactModal, { Props as ReactModalProps } from 'react-modal';
 
-import styled from '../../styles/styled.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 import { useStack, StackItem } from '../../hooks/useStack/index.js';
 import { Require } from '../../types/util.js';
 import { warn } from '../../util/logger.js';
 import { TOP_NAVIGATION_HEIGHT } from '../TopNavigation/TopNavigation.js';
+import { clsx } from '../../styles/clsx.js';
 
 import { SidePanel, SidePanelProps } from './SidePanel.js';
-import {
-  SIDE_PANEL_WIDTH,
-  TRANSITION_DURATION_DESKTOP,
-  TRANSITION_DURATION_MOBILE,
-} from './constants.js';
+import { TRANSITION_DURATION } from './constants.js';
 import type { SidePanelHookProps } from './useSidePanel.js';
+import classes from './SidePanelContext.module.css';
+import './SidePanelContext.css';
 
 // It is important for users of screen readers that other page content be hidden
 // (via the `aria-hidden` attribute) while the side panel is open on mobile.
@@ -46,9 +43,12 @@ import type { SidePanelHookProps } from './useSidePanel.js';
 // with a query selector identifying the root of the app.
 // http://reactcommunity.org/react-modal/accessibility/#app-element
 if (typeof window !== 'undefined') {
-  // These are the default app elements in Next.js and CRA.
+  // These are the default app elements in Next.js, Docusaurus, CRA and Storybook.
   const appElement =
-    document.getElementById('__next') || document.getElementById('root');
+    document.getElementById('__next') ||
+    document.getElementById('__docusaurus') ||
+    document.getElementById('root') ||
+    document.getElementById('storybook-root');
 
   if (appElement) {
     ReactModal.setAppElement(appElement);
@@ -101,7 +101,7 @@ export const SidePanelContext = createContext<SidePanelContextValue>({
   updateSidePanel: () => {},
   removeSidePanel: () => Promise.resolve(),
   isPrimaryContentResized: false,
-  transitionDuration: TRANSITION_DURATION_MOBILE,
+  transitionDuration: TRANSITION_DURATION,
 });
 
 export interface SidePanelProviderProps {
@@ -117,57 +117,33 @@ export interface SidePanelProviderProps {
   withTopNavigation?: boolean;
 }
 
-type PrimaryContentProps = { isResized: boolean; transitionDuration: number };
-
-const primaryContentStyles = ({
-  transitionDuration,
-}: PrimaryContentProps) => css`
-  width: 100%;
-  transition: width ${transitionDuration}ms ease-in-out;
-`;
-
-const primaryContentResizedStyles = ({ isResized }: PrimaryContentProps) =>
-  isResized &&
-  css`
-    width: calc(100% - ${SIDE_PANEL_WIDTH});
-  `;
-
-const PrimaryContent = styled.div(
-  primaryContentStyles,
-  primaryContentResizedStyles,
-);
-
-export const SidePanelProvider = ({
+export function SidePanelProvider({
   children,
   withTopNavigation = false,
-}: SidePanelProviderProps): JSX.Element => {
-  const theme = useTheme();
-  const isTopNavigationSticky = useMedia(theme.breakpoints.tera);
-  const isMobile = useMedia(theme.breakpoints.untilMega);
+}: SidePanelProviderProps) {
+  const isTopNavigationSticky = useMedia('(min-width: 1280px)');
+  const isMobile = useMedia('(max-width: 767px)');
   const [sidePanels, dispatch] = useStack<SidePanelContextItem>();
-  const [sidePanelTop, setSidePanelTop] = useState(
-    withTopNavigation ? TOP_NAVIGATION_HEIGHT : '0px',
-  );
   const [isPrimaryContentResized, setIsPrimaryContentResized] = useState(false);
 
   // Keep an up-to-date sidePanels ref to lower the number of updates of the context value
   const sidePanelsRef = useRef(sidePanels);
   sidePanelsRef.current = sidePanels;
 
-  const transitionDuration = isMobile
-    ? TRANSITION_DURATION_MOBILE
-    : TRANSITION_DURATION_DESKTOP;
+  const setSidePanelTop = (top: string) => {
+    document.documentElement.style.setProperty('--side-panel-top', top);
+  };
 
   // Calculate side panel top offset
   useEffect(() => {
     if (!withTopNavigation || isMobile) {
       setSidePanelTop('0px');
-      return () => {};
+      return undefined;
     }
 
     if (isTopNavigationSticky) {
       setSidePanelTop(TOP_NAVIGATION_HEIGHT);
-      return () => {};
+      return undefined;
     }
 
     // Figure in the vertical scroll position when the top navigation is not sticky
@@ -235,14 +211,14 @@ export const SidePanelProvider = ({
                   type: 'remove',
                   id: sidePanel.id,
                   transition: {
-                    duration: isInstantClose ? 0 : transitionDuration,
+                    duration: isInstantClose ? 0 : TRANSITION_DURATION,
                   },
                 });
               }),
           ),
       );
     },
-    [findSidePanel, dispatch, transitionDuration],
+    [findSidePanel, dispatch],
   );
 
   const setSidePanel = useCallback<SetSidePanel>(
@@ -288,7 +264,7 @@ export const SidePanelProvider = ({
       updateSidePanel,
       removeSidePanel,
       isPrimaryContentResized: !isMobile && isPrimaryContentResized,
-      transitionDuration,
+      transitionDuration: TRANSITION_DURATION,
     }),
     [
       setSidePanel,
@@ -296,18 +272,19 @@ export const SidePanelProvider = ({
       removeSidePanel,
       isMobile,
       isPrimaryContentResized,
-      transitionDuration,
     ],
   );
 
   return (
     <SidePanelContext.Provider value={context}>
-      <PrimaryContent
-        isResized={!isMobile && isPrimaryContentResized}
-        transitionDuration={transitionDuration}
+      <div
+        className={clsx(
+          classes.base,
+          !isMobile && isPrimaryContentResized && classes.resized,
+        )}
       >
         {children}
-      </PrimaryContent>
+      </div>
 
       {sidePanels.map((sidePanel) => {
         const { group, id, transition, ...sidePanelProps } = sidePanel;
@@ -329,10 +306,9 @@ export const SidePanelProvider = ({
             isStacked={isStacked}
             onBack={handleBack}
             onClose={handleClose}
-            top={sidePanelTop}
           />
         );
       })}
     </SidePanelContext.Provider>
   );
-};
+}

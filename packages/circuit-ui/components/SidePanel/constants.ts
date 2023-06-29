@@ -13,9 +13,5 @@
  * limitations under the License.
  */
 
-export const HTML_OPEN_CLASS_NAME = 'ReactModal__SidePanel__Html--open';
-export const PORTAL_CLASS_NAME = 'ReactModalPortal__SidePanel';
-export const TRANSITION_DURATION_DESKTOP = 200;
-export const TRANSITION_DURATION_MOBILE = 240;
+export const TRANSITION_DURATION = 300;
 export const SIDE_PANEL_WIDTH = '400px';
-export const BODY_MAX_WIDTH = '480px';

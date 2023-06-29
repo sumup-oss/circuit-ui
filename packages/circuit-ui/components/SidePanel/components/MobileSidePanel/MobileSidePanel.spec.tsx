@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { render, act, axe } from '../../../../util/test-utils.js';
+import { render, axe } from '../../../../util/test-utils.js';
 
 import { MobileSidePanel, MobileSidePanelProps } from './MobileSidePanel.js';
 
@@ -36,68 +36,9 @@ describe('MobileSidePanel', () => {
   const renderComponent = (props: Partial<MobileSidePanelProps> = {}) =>
     render(<MobileSidePanel {...baseProps} {...props} />);
 
-  it('should match the snapshot', () => {
-    const { baseElement } = renderComponent();
-    expect(baseElement).toMatchSnapshot();
-  });
-
   it('should render the side panel', () => {
     const { getByRole } = renderComponent();
     expect(getByRole('dialog')).toBeVisible();
-  });
-
-  it('should slide in from the bottom when the side panel is not stacked', () => {
-    const { getByRole } = renderComponent();
-    expect(getByRole('dialog')).toHaveStyle('transform: translateY(100%)');
-  });
-
-  it('should slide in from the right when the side panel is stacked', () => {
-    const { getByRole } = renderComponent({ isStacked: true });
-    expect(getByRole('dialog')).toHaveStyle('transform: translateX(100%)');
-  });
-
-  it('should slide out towards the bottom when the side panel is not stacked', () => {
-    const props = {
-      isBottomPanelClosing: true,
-      isStacked: true,
-    };
-
-    const { getByRole, rerender } = renderComponent(props);
-
-    act(() => {
-      rerender(<MobileSidePanel {...baseProps} {...props} isOpen={false} />);
-    });
-
-    expect(getByRole('dialog')).toMatchSnapshot();
-  });
-
-  it('should slide out towards the right when the side panel is stacked', () => {
-    const props = {
-      isStacked: true,
-    };
-
-    const { getByRole, rerender } = renderComponent(props);
-
-    act(() => {
-      rerender(<MobileSidePanel {...baseProps} {...props} isOpen={false} />);
-    });
-
-    expect(getByRole('dialog')).toMatchSnapshot();
-  });
-
-  it('should slide out towards the bottom when the side panel is stacked and all panels are closing', () => {
-    const props = {
-      isBottomPanelClosing: true,
-      isStacked: true,
-    };
-
-    const { getByRole, rerender } = renderComponent(props);
-
-    act(() => {
-      rerender(<MobileSidePanel {...baseProps} {...props} isOpen={false} />);
-    });
-
-    expect(getByRole('dialog')).toMatchSnapshot();
   });
 
   it('should describe the side panel as modal', () => {
@@ -108,7 +49,7 @@ describe('MobileSidePanel', () => {
   /**
    * FIXME: calling axe here triggers an act() warning.
    */
-  it('should meet accessibility guidelines', async () => {
+  it('should have no accessibility violations', async () => {
     const { container } = renderComponent();
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();

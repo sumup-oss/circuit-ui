@@ -47,11 +47,6 @@ describe('SidePanel', () => {
   const renderComponent = (props: Partial<SidePanelProps> = {}) =>
     render(<SidePanel {...baseProps} {...props} />);
 
-  it('should match the snapshot', () => {
-    const { baseElement } = renderComponent();
-    expect(baseElement).toMatchSnapshot();
-  });
-
   it('should render the side panel', () => {
     const { getByRole } = renderComponent();
     expect(getByRole('dialog')).toBeVisible();
@@ -174,11 +169,6 @@ describe('SidePanel', () => {
   });
 
   describe('when the panel is on mobile resolution', () => {
-    it('should match the snapshot', () => {
-      const { baseElement } = renderComponent({ isMobile: true });
-      expect(baseElement).toMatchSnapshot();
-    });
-
     it('should describe the side panel as modal', () => {
       const { getByRole } = renderComponent({ isMobile: true });
       expect(getByRole('dialog')).toHaveAttribute('aria-modal', 'true');
@@ -188,7 +178,7 @@ describe('SidePanel', () => {
   /**
    * FIXME: calling axe here triggers an act() warning.
    */
-  it('should meet accessibility guidelines', async () => {
+  it('should have no accessibility violations', async () => {
     const { container } = renderComponent();
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();

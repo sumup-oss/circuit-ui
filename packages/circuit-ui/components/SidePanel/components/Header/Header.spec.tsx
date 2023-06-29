@@ -20,7 +20,7 @@ import { render, userEvent, axe } from '../../../../util/test-utils.js';
 import { Header, HeaderProps } from './Header.js';
 
 describe('Header', () => {
-  const baseProps: HeaderProps = {
+  const baseProps = {
     backButtonLabel: 'Back',
     closeButtonLabel: 'Close',
     headline: 'Side panel title',
@@ -28,20 +28,10 @@ describe('Header', () => {
     isSticky: false,
     onBack: undefined,
     onClose: vi.fn(),
-  };
+  } satisfies HeaderProps;
 
   const renderComponent = (props: Partial<HeaderProps> = {}) =>
     render(<Header {...baseProps} {...props} />);
-
-  it('should match the snapshot', () => {
-    const { baseElement } = renderComponent();
-    expect(baseElement).toMatchSnapshot();
-  });
-
-  it('should have a bottom separator when sticky', () => {
-    const { baseElement } = renderComponent({ isSticky: true });
-    expect(baseElement).toMatchSnapshot();
-  });
 
   it('should render the header text', () => {
     const { getByText } = renderComponent();
@@ -77,7 +67,7 @@ describe('Header', () => {
     expect(onBack).toHaveBeenCalled();
   });
 
-  it('should meet accessibility guidelines', async () => {
+  it('should have no accessibility violations', async () => {
     const { container } = renderComponent();
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();

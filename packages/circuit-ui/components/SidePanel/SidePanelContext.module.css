@@ -1,0 +1,8 @@
+.base {
+  width: 100%;
+  transition: width var(--cui-transitions-slow);
+}
+
+.resized {
+  width: calc(100% - var(--side-panel-width));
+}

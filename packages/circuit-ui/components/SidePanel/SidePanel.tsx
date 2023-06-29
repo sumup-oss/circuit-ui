@@ -14,10 +14,8 @@
  */
 
 import { UIEventHandler, useEffect, useId, useState } from 'react';
-import { css } from '@emotion/react';
-import { Props as ReactModalProps } from 'react-modal';
+import type { Props as ReactModalProps } from 'react-modal';
 
-import styled, { StyleProps } from '../../styles/styled.js';
 import { isFunction } from '../../util/type-check.js';
 import { AccessibilityError } from '../../util/errors.js';
 
@@ -25,13 +23,7 @@ import { MobileSidePanel } from './components/MobileSidePanel/index.js';
 import { DesktopSidePanel } from './components/DesktopSidePanel/index.js';
 import { Header } from './components/Header/index.js';
 import type { SidePanelHookProps, Callback } from './useSidePanel.js';
-import {
-  BODY_MAX_WIDTH,
-  HTML_OPEN_CLASS_NAME,
-  PORTAL_CLASS_NAME,
-} from './constants.js';
-
-const BODY_OPEN_CLASS_NAME = 'ReactModal__SidePanel__Body--open';
+import classes from './SidePanel.module.css';
 
 export type SidePanelProps = Omit<ReactModalProps, 'children'> &
   Pick<
@@ -62,53 +54,7 @@ export type SidePanelProps = Omit<ReactModalProps, 'children'> &
      * Callback function that is called when the side panel is closed.
      */
     onClose: Callback;
-    /**
-     * The top offset in 'px' applied to the side panel in desktop mode.
-     */
-    top: string;
   };
-
-type ContentContainerProps = { top: string };
-
-const contentContainerStyles = ({ theme }: StyleProps) => css`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  padding: 0;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right)
-    env(safe-area-inset-bottom) env(safe-area-inset-left);
-  width: 100%;
-  height: 100%;
-
-  ${theme.mq.mega} {
-    padding-left: 0;
-  }
-`;
-
-const contentContainerTopStyles = ({ top }: ContentContainerProps) =>
-  top !== '0px' &&
-  css`
-    padding-top: 0;
-  `;
-
-const ContentContainer = styled.div(
-  contentContainerStyles,
-  contentContainerTopStyles,
-);
-
-const contentStyles = ({ theme }: StyleProps) => css`
-  width: 100%;
-  max-width: ${BODY_MAX_WIDTH};
-  padding: 0 ${theme.spacings.mega};
-
-  ${theme.mq.mega} {
-    padding: 0 ${theme.spacings.giga};
-  }
-`;
-
-const Content = styled.div(contentStyles);
 
 export const SidePanel = ({
   backButtonLabel,
@@ -121,7 +67,6 @@ export const SidePanel = ({
   isStacked,
   onBack,
   onClose,
-  top,
   ...props
 }: SidePanelProps): JSX.Element => {
   if (
@@ -157,10 +102,10 @@ export const SidePanel = ({
     aria: {
       labelledby: headerAriaId,
     },
-    bodyOpenClassName: BODY_OPEN_CLASS_NAME,
-    htmlOpenClassName: HTML_OPEN_CLASS_NAME,
     onRequestClose: onBack || onClose,
-    portalClassName: PORTAL_CLASS_NAME,
+    portalClassName: 'cui-side-panel-portal',
+    htmlOpenClassName: 'cui-side-panel-open',
+    bodyOpenClassName: '',
     /**
      * react-modal relies on document.activeElement to return focus after the modal is closed.
      * Safari and Firefox don't set it properly on button click (see https://github.com/reactjs/react-modal/issues/858 and https://github.com/reactjs/react-modal/issues/389).
@@ -171,7 +116,7 @@ export const SidePanel = ({
   };
 
   const content = (
-    <ContentContainer top={top} onScroll={handleScroll}>
+    <div className={classes.base} onScroll={handleScroll}>
       <Header
         backButtonLabel={backButtonLabel}
         closeButtonLabel={closeButtonLabel}
@@ -181,10 +126,10 @@ export const SidePanel = ({
         onClose={onClose}
         isSticky={isHeaderSticky}
       />
-      <Content>
+      <div className={classes.content}>
         {isFunction(children) ? children({ onBack, onClose }) : children}
-      </Content>
-    </ContentContainer>
+      </div>
+    </div>
   );
 
   if (isMobile) {
@@ -205,7 +150,6 @@ export const SidePanel = ({
       {...defaultProps}
       {...props}
       isInstantOpen={isInstantOpen}
-      top={top}
     >
       {content}
     </DesktopSidePanel>

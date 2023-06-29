@@ -13,97 +13,41 @@
  * limitations under the License.
  */
 
-import { css, ClassNames, Global } from '@emotion/react';
 import ReactModal, { Props as ReactModalProps } from 'react-modal';
 
 import { StackContext } from '../../../StackContext/index.js';
 import type { SidePanelProps } from '../../SidePanel.js';
-import {
-  HTML_OPEN_CLASS_NAME,
-  PORTAL_CLASS_NAME,
-  TRANSITION_DURATION_MOBILE,
-} from '../../constants.js';
+import { TRANSITION_DURATION } from '../../constants.js';
+
+import classes from './MobileSidePanel.module.css';
 
 export type MobileSidePanelProps = ReactModalProps &
   Pick<SidePanelProps, 'isBottomPanelClosing' | 'isStacked'>;
 
-export const MobileSidePanel = ({
+export function MobileSidePanel({
   children,
   isBottomPanelClosing,
   isStacked,
   ...props
-}: MobileSidePanelProps): JSX.Element => (
-  <ClassNames>
-    {({ css: cssString, theme }) => {
-      // React Modal styles
-      // https://reactcommunity.org/react-modal/styles/classes/
-      const translate =
-        isStacked && !isBottomPanelClosing ? 'translateX' : 'translateY';
-      const styles = {
-        base: cssString`
-          height: 100%;
-          outline: none;
-          background-color: var(--cui-bg-normal);
-          transform: ${translate}(100%);
-          transition: transform ${TRANSITION_DURATION_MOBILE}ms ease-in-out;
-        `,
-        afterOpen: cssString`
-          transform: ${translate}(0) !important;
-        `,
-        beforeClose: cssString`
-          transform: ${translate}(100%) !important;
-        `,
-      };
+}: MobileSidePanelProps) {
+  const reactModalProps: ReactModalProps = {
+    className: {
+      base: classes.base,
+      afterOpen: classes.open,
+      beforeClose: classes.closed,
+    },
+    overlayClassName: {
+      base: classes.overlay,
+      afterOpen: classes['overlay-open'],
+      beforeClose: classes['overlay-closed'],
+    },
+    closeTimeoutMS: TRANSITION_DURATION,
+    ...props,
+  };
 
-      const overlayStyles = {
-        base: cssString`
-          position: fixed;
-          top: 0;
-          right: 0;
-          left: 0;
-          bottom: 0;
-          transition: background-color ${TRANSITION_DURATION_MOBILE}ms ease-in-out;
-          background-color: rgba(0, 0, 0, 0);
-        `,
-        afterOpen: cssString`
-          background-color: var(--cui-bg-overlay) !important;
-        `,
-        beforeClose: cssString`
-          background-color: rgba(0, 0, 0, 0) !important;
-        `,
-      };
-
-      const reactModalProps: ReactModalProps = {
-        className: styles,
-        overlayClassName: overlayStyles,
-        closeTimeoutMS: TRANSITION_DURATION_MOBILE,
-        ...props,
-      };
-
-      return (
-        <StackContext.Provider value={theme.zIndex.modal}>
-          <ReactModal {...reactModalProps}>{children}</ReactModal>
-          <Global
-            styles={css`
-              /* Remove scroll on the body when react-modal is open */
-              .${HTML_OPEN_CLASS_NAME} {
-                height: 100%;
-                overflow-y: hidden;
-                -webkit-overflow-scrolling: auto;
-              }
-              /* Enable keyboard navigation inside the modal, see https://github.com/reactjs/react-modal/issues/782 */
-              .${PORTAL_CLASS_NAME} {
-                position: fixed;
-                top: 0;
-                right: 0;
-                left: 0;
-                bottom: 0;
-                z-index: ${theme.zIndex.modal};
-              }
-            `}
-          />
-        </StackContext.Provider>
-      );
-    }}
-  </ClassNames>
-);
+  return (
+    <StackContext.Provider value={'var(--cui-z-index-modal)'}>
+      <ReactModal {...reactModalProps}>{children}</ReactModal>
+    </StackContext.Provider>
+  );
+}

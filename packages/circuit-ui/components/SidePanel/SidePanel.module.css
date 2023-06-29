@@ -1,0 +1,30 @@
+.base {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 768px) {
+  .base {
+    padding-left: 0;
+  }
+}
+
+.content {
+  width: 100%;
+  max-width: 480px;
+  padding: 0 var(--cui-spacings-mega);
+}
+
+@media (min-width: 768px) {
+  .content {
+    padding: 0 var(--cui-spacings-giga);
+  }
+}
