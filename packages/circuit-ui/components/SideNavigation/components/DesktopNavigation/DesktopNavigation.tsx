@@ -15,18 +15,16 @@
 
 /* eslint-disable jsx-a11y/no-redundant-roles */
 
-import { css } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
-
-import styled, { StyleProps } from '../../../../styles/styled.js';
-import { shadow, hideScrollbar } from '../../../../styles/style-mixins.js';
+import utilityClasses from '../../../../styles/utility.js';
+import { clsx } from '../../../../styles/clsx.js';
 import { useFocusList } from '../../../../hooks/useFocusList/index.js';
-import { TOP_NAVIGATION_HEIGHT } from '../../../TopNavigation/TopNavigation.js';
 import Headline from '../../../Headline/index.js';
 import { Skeleton, SkeletonContainer } from '../../../Skeleton/index.js';
 import { PrimaryLinkProps } from '../../types.js';
 import { SecondaryLinks } from '../SecondaryLinks/index.js';
 import { PrimaryLink } from '../PrimaryLink/index.js';
+
+import classes from './DesktopNavigation.module.css';
 
 export interface DesktopNavigationProps {
   /**
@@ -49,94 +47,11 @@ export interface DesktopNavigationProps {
   secondaryNavigationLabel: string;
 }
 
-const PRIMARY_NAVIGATION_WIDTH = '48px';
-const PRIMARY_NAVIGATION_OPENED_WIDTH = '220px';
-// The maximum breakpoint in the design tokens is 1280px, so we need to
-// hardcode this value. It's slightly below 1920px to account for scroll bars.
-const LARGE_SCREEN_BREAKPOINT = '1900px';
-
-const wrapperStyles = ({ theme }: StyleProps) => css`
-  ${theme.mq.untilTera} {
-    display: none;
-  }
-  ${theme.mq.tera} {
-    min-width: ${PRIMARY_NAVIGATION_WIDTH};
-    flex-shrink: 0;
-  }
-`;
-
-const Wrapper = styled(SkeletonContainer)(wrapperStyles);
-
-const primaryWrapperStyles = ({ theme }: StyleProps) => css`
-  position: fixed;
-  z-index: ${theme.zIndex.navigation};
-  top: ${TOP_NAVIGATION_HEIGHT};
-  bottom: 0;
-  left: 0;
-  height: calc(100vh - ${TOP_NAVIGATION_HEIGHT});
-  width: ${theme.iconSizes.tera};
-  display: flex;
-  flex-direction: column;
-  background-color: var(--cui-bg-normal);
-  padding-top: ${theme.spacings.kilo};
-  overflow-y: auto;
-  overflow-x: hidden;
-  box-shadow: 1px 0 var(--cui-border-divider);
-  transition: width ${theme.transitions.default},
-    box-shadow ${theme.transitions.default};
-
-  &:hover,
-  &:focus-within {
-    ${shadow()};
-    width: ${PRIMARY_NAVIGATION_OPENED_WIDTH};
-  }
-
-  @media only screen and (min-width: ${LARGE_SCREEN_BREAKPOINT}) {
-    width: ${PRIMARY_NAVIGATION_OPENED_WIDTH};
-    &:hover,
-    &:focus-within {
-      box-shadow: 1px 0 var(--cui-border-divider);
-    }
-  }
-`;
-
-const PrimaryNavigationWrapper = styled.nav(
-  primaryWrapperStyles,
-  hideScrollbar,
-);
-
-const secondaryWrapperStyles = ({ theme }: StyleProps) => css`
-  position: sticky;
-  top: ${TOP_NAVIGATION_HEIGHT};
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  background-color: var(--cui-bg-normal);
-  margin-left: ${PRIMARY_NAVIGATION_WIDTH};
-  height: calc(100vh - ${TOP_NAVIGATION_HEIGHT});
-  width: 200px;
-  border-right: ${theme.borderWidth.kilo} solid var(--cui-border-divider);
-  @media only screen and (min-width: ${LARGE_SCREEN_BREAKPOINT}) {
-    margin-left: ${PRIMARY_NAVIGATION_OPENED_WIDTH};
-  }
-`;
-
-const SecondaryNavigationWrapper = styled.nav(secondaryWrapperStyles);
-
-const listStyles = css`
-  list-style: none;
-`;
-
-const headlineStyles = (theme: Theme) => css`
-  margin: ${theme.spacings.giga} ${theme.spacings.mega} ${theme.spacings.kilo};
-`;
-
 export function DesktopNavigation({
   isLoading,
   primaryLinks,
   primaryNavigationLabel,
   secondaryNavigationLabel,
-  ...props
 }: DesktopNavigationProps): JSX.Element {
   const focusProps = useFocusList();
 
@@ -145,29 +60,35 @@ export function DesktopNavigation({
     activePrimaryLink && activePrimaryLink.secondaryGroups;
 
   return (
-    <Wrapper isLoading={Boolean(isLoading)}>
-      <PrimaryNavigationWrapper {...props} aria-label={primaryNavigationLabel}>
-        <ul role="list" css={listStyles}>
+    <SkeletonContainer
+      isLoading={Boolean(isLoading)}
+      className={classes.wrapper}
+    >
+      <nav
+        className={clsx(classes.primary, utilityClasses.hideScrollbar)}
+        aria-label={primaryNavigationLabel}
+      >
+        <ul role="list" className={classes.list}>
           {primaryLinks.map((link) => (
             <li key={link.label}>
               <PrimaryLink {...link} {...focusProps} />
             </li>
           ))}
         </ul>
-      </PrimaryNavigationWrapper>
+      </nav>
       {secondaryGroups && secondaryGroups.length > 0 && (
-        <SecondaryNavigationWrapper
-          {...props}
+        <nav
+          className={classes.secondary}
           aria-label={secondaryNavigationLabel}
         >
-          <Skeleton css={headlineStyles}>
+          <Skeleton className={classes.headline}>
             <Headline as="h2" size="four">
               {activePrimaryLink && activePrimaryLink.label}
             </Headline>
           </Skeleton>
           <SecondaryLinks secondaryGroups={secondaryGroups} />
-        </SecondaryNavigationWrapper>
+        </nav>
       )}
-    </Wrapper>
+    </SkeletonContainer>
   );
 }

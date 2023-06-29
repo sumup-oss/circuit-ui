@@ -17,7 +17,6 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { ClickEvent } from '../../../../types/events.js';
 import {
-  create,
   render,
   axe,
   RenderFn,
@@ -75,44 +74,33 @@ describe('SecondaryLinks', () => {
     ],
   };
 
-  describe('styles', () => {
-    it('should render with default styles', () => {
-      const wrapper = renderSecondaryLinks(create, baseProps);
-      expect(wrapper).toMatchSnapshot();
+  it('should call the onClick handler when clicked', async () => {
+    const onClick = vi.fn((event: ClickEvent) => {
+      event.preventDefault();
     });
+    const props = {
+      secondaryGroups: [
+        {
+          secondaryLinks: [
+            {
+              label: 'Shirts',
+              href: '/shop/shirts',
+              onClick,
+            },
+          ],
+        },
+      ],
+    };
+    const { getByRole } = renderSecondaryLinks(render, props);
+
+    await userEvent.click(getByRole('link'));
+
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 
-  describe('business logic', () => {
-    it('should call the onClick handler when clicked', async () => {
-      const onClick = vi.fn((event: ClickEvent) => {
-        event.preventDefault();
-      });
-      const props = {
-        secondaryGroups: [
-          {
-            secondaryLinks: [
-              {
-                label: 'Shirts',
-                href: '/shop/shirts',
-                onClick,
-              },
-            ],
-          },
-        ],
-      };
-      const { getByRole } = renderSecondaryLinks(render, props);
-
-      await userEvent.click(getByRole('link'));
-
-      expect(onClick).toHaveBeenCalledTimes(1);
-    });
-  });
-
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const { container } = renderSecondaryLinks(render, baseProps);
-      const actual = await axe(container);
-      expect(actual).toHaveNoViolations();
-    });
+  it('should have no accessibility violations', async () => {
+    const { container } = renderSecondaryLinks(render, baseProps);
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });

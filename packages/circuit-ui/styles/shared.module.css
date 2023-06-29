@@ -47,3 +47,63 @@
   pointer-events: none;
   background-color: var(--cui-bg-normal-disabled);
 }
+
+.navigation-item {
+  display: flex;
+  align-items: center;
+  color: var(--cui-fg-normal);
+  text-align: left;
+  cursor: pointer;
+  background-color: var(--cui-bg-normal);
+  border: none;
+  outline: none;
+  transition: color var(--cui-transitions-default),
+    background-color var(--cui-transitions-default);
+}
+
+.navigation-item:hover {
+  color: var(--cui-fg-normal-hovered);
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+.navigation-item:active {
+  color: var(--cui-fg-normal-pressed);
+  background-color: var(--cui-bg-normal-pressed);
+}
+
+.navigation-item:disabled,
+.navigation-item[disabled] {
+  color: var(--cui-fg-normal-disabled);
+  pointer-events: none;
+  background-color: var(--cui-bg-normal-disabled);
+}
+
+.navigation-item[aria-current="page"] {
+  display: flex;
+  align-items: center;
+  color: var(--cui-fg-accent);
+  text-align: left;
+  cursor: pointer;
+  background-color: var(--cui-bg-accent);
+  border: none;
+  outline: none;
+  transition: color var(--cui-transitions-default),
+    background-color var(--cui-transitions-default);
+}
+
+.navigation-item[aria-current="page"]:hover {
+  color: var(--cui-fg-accent-hovered);
+  background-color: var(--cui-bg-accent-hovered);
+}
+
+.navigation-item[aria-current="page"]:active {
+  color: var(--cui-fg-accent-pressed);
+  background-color: var(--cui-bg-accent-pressed);
+}
+
+.navigation-item[aria-current="page"]:disabled,
+.navigation-item[aria-current="page"][disabled] {
+  color: var(--cui-fg-accent-disabled);
+  pointer-events: none;
+  background-color: var(--cui-bg-accent-disabled);
+}

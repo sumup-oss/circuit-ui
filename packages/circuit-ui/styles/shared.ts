@@ -19,6 +19,7 @@ import _classes from './shared.module.css';
 const classes = {
   listItem: _classes['list-item'],
   listItemDestructive: _classes['list-item-destructive'],
+  navigationItem: _classes['navigation-item'],
 };
 
 export default classes;
