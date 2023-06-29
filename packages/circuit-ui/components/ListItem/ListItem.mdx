@@ -36,17 +36,13 @@ In addition to the default `action` variant there is also the `navigation` varia
 
 It renders a chevron icon in the trailing area of the `ListItem`, indicating to the user that clicking on the item will either change the page or lead to a major change in the layout, such as opening a side panel.
 
-<Story of={Stories.NavigationVariant} />
+<Story of={Stories.Variants} />
 
 ### Elements
 
-A standard Circuit UI icon can be used as a `leadingComponent` to provide additional visual context to the user.
+A standard Circuit UI icon can be used as a `leadingComponent` to provide additional visual context to the user. The `leadingComponent` can also be used for custom components, such as a circular `Badge`.
 
-<Story of={Stories.WithLeadingIcon} />
-
-The `leadingComponent` can also be used for custom components, such as a circular `Badge`.
-
-<Story of={Stories.WithLeadingComponent} />
+<Story of={Stories.WithLeadingContent} />
 
 When the `label` is provided as a string, it is rendered as a size `one` Body and is truncated when it gets too long. A custom component can be used for special cases, such as a multiline label.
 
@@ -56,32 +52,16 @@ The `details` line can be used to provide additional textual and visual informat
 
 <Story of={Stories.WithDetails} />
 
-<Story of={Stories.WithCustomDetails} />
-
 The trailing area can hold a combination of `trailingLabel` and `trailingDetails` or a standalone custom `trailingComponent`. The `trailingLabel` and `trailingDetails` can be custom components as well, but they should be used only for textual information.
 
-<Story of={Stories.WithTrailingLabel} />
+<Story of={Stories.WithTrailingContent} />
 
-<Story of={Stories.WithTrailingLabelAndDetails} />
+The ListItem component becomes interactive when it receives an `onClick` or an `href` prop. This applies additional styles and accessibility features. Make sure to use the `navigation` variant when applicable, such as when the `ListItem` acts as a link.
 
-<Story of={Stories.WithTrailingLabelAndDetailsComponents} />
-
-<Story of={Stories.WithTrailingComponent} />
-
-The ListItem component becomes interactive when it receives an `onClick` or an `href` prop. This applies additional styles and accessibility features.
-
-<Story of={Stories.Clickable} />
-
-Make sure to use the `navigation` variant when applicable, such as when the `ListItem` acts as a link.
-
-<Story of={Stories.AsLink} />
+<Story of={Stories.Interactive} />
 
 With interactive list items it is also possible to set additional states like `selected` and `disabled`.
 
 <Story of={Stories.Selected} />
 
 <Story of={Stories.Disabled} />
-
-### Sample configuration
-
-<Story of={Stories.SampleConfiguration} />

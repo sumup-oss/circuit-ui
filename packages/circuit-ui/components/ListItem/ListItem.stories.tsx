@@ -13,12 +13,10 @@
  * limitations under the License.
  */
 
-import { css } from '@emotion/react';
 import { action } from '@storybook/addon-actions';
 import { SumUpCard, Confirm } from '@sumup/icons';
-import { Theme } from '@sumup/design-tokens';
 
-import { spacing } from '../../styles/style-mixins.js';
+import { Stack } from '../../../../.storybook/components/index.js';
 import Body from '../Body/index.js';
 import Badge from '../Badge/index.js';
 
@@ -57,20 +55,21 @@ const LeadingBadge = (
   </Badge>
 );
 
-const detailsStyles = css`
-  display: flex;
-  align-items: center;
-`;
-
-const statusIconStyles = (theme: Theme) => css`
-  margin-right: ${theme.spacings.bit};
-  color: var(--cui-fg-success);
-`;
-
 const Details = (
-  <div css={detailsStyles}>
-    <Confirm size="16" css={statusIconStyles} role="presentation" />
-    <Body size="two" variant="highlight" css={spacing({ right: 'bit' })}>
+  <div style={{ display: 'flex', alignItems: 'center' }}>
+    <Confirm
+      size="16"
+      style={{
+        marginRight: 'var(--cui-spacings-bit)',
+        color: 'var(--cui-fg-success)',
+      }}
+      role="presentation"
+    />
+    <Body
+      size="two"
+      variant="highlight"
+      style={{ marginRight: 'var(--cui-spacings-bit)' }}
+    >
       {item.status}
     </Body>
     <Body size="two" variant="subtle">
@@ -79,32 +78,23 @@ const Details = (
   </div>
 );
 
-const lineThrough = css`
-  text-decoration-line: line-through;
-`;
+const lineThrough = {
+  textDecorationLine: 'line-through',
+};
 
 const TrailingLabel = (
-  <Body size="one" variant="subtle" css={lineThrough}>
+  <Body size="one" variant="subtle" style={lineThrough}>
     {item.amount}
   </Body>
 );
 
 const TrailingDetails = (
-  <Body size="two" variant="subtle" css={lineThrough}>
+  <Body size="two" variant="subtle" style={lineThrough}>
     {item.fee} fee
   </Body>
 );
 
 const TrailingBadge = <Badge variant="promo">Promo</Badge>;
-
-const baseStyles = css`
-  width: 500px;
-`;
-
-const stylesWithMargin = (theme: Theme) => css`
-  ${baseStyles};
-  margin-bottom: ${theme.spacings.tera};
-`;
 
 const baseArgs: ListItemProps = {
   variant: undefined,
@@ -121,47 +111,45 @@ const baseArgs: ListItemProps = {
 };
 
 export const Base = (args: ListItemProps) => (
-  <ListItem {...args} css={baseStyles} />
+  <ListItem {...args} leadingComponent={SumUpCard} details={Details} />
 );
-Base.args = baseArgs;
-
-export const NavigationVariant = (args: ListItemProps) => (
-  <ListItem {...args} css={baseStyles} />
-);
-NavigationVariant.args = {
+Base.args = {
   ...baseArgs,
   variant: 'navigation',
+  trailingLabel: item.amount,
+  trailingDetails: `${item.fee} fee`,
+  onClick: action('ListItem clicked'),
 } as ListItemProps;
 
-export const WithLeadingIcon = (args: ListItemProps) => (
-  <ListItem {...args} leadingComponent={SumUpCard} css={baseStyles} />
+export const Variants = (args: ListItemProps) => (
+  <Stack vertical>
+    <ListItem {...args} variant="action" />
+    <ListItem {...args} variant="navigation" />
+  </Stack>
 );
-WithLeadingIcon.args = {
-  ...baseArgs,
-} as ListItemProps;
+Variants.args = baseArgs;
 
-export const WithLeadingComponent = (args: ListItemProps) => (
-  <ListItem {...args} leadingComponent={LeadingBadge} css={baseStyles} />
+export const WithLeadingContent = (args: ListItemProps) => (
+  <Stack vertical>
+    <ListItem {...args} leadingComponent={SumUpCard} />
+    <ListItem {...args} leadingComponent={LeadingBadge} />
+  </Stack>
 );
-WithLeadingComponent.args = {
-  ...baseArgs,
-} as ListItemProps;
+WithLeadingContent.args = baseArgs;
 
 export const WithCustomLabel = (args: ListItemProps) => (
-  <>
+  <Stack vertical>
     <ListItem
       {...args}
       leadingComponent={SumUpCard}
       label={`Default truncated label: ${args.label as string}`}
-      css={stylesWithMargin}
     />
     <ListItem
       {...args}
       leadingComponent={SumUpCard}
       label={<Body size="one">Custom multiline label: {args.label}</Body>}
-      css={baseStyles}
     />
-  </>
+  </Stack>
 );
 WithCustomLabel.args = {
   ...baseArgs,
@@ -170,105 +158,54 @@ WithCustomLabel.args = {
 } as ListItemProps;
 
 export const WithDetails = (args: ListItemProps) => (
-  <ListItem {...args} css={baseStyles} />
+  <Stack vertical>
+    <ListItem {...args} details={item.timestamp} />
+    <ListItem {...args} details={Details} />
+  </Stack>
 );
-WithDetails.args = {
-  ...baseArgs,
-  details: item.timestamp,
-} as ListItemProps;
+WithDetails.args = baseArgs;
 
-export const WithCustomDetails = (args: ListItemProps) => (
-  <ListItem {...args} details={Details} css={baseStyles} />
+export const WithTrailingContent = (args: ListItemProps) => (
+  <Stack vertical>
+    <ListItem {...args} trailingLabel={item.amount} />
+    <ListItem
+      {...args}
+      trailingLabel={item.amount}
+      trailingDetails={`${item.fee} fee`}
+    />
+    <ListItem
+      {...args}
+      trailingLabel={TrailingLabel}
+      trailingDetails={TrailingDetails}
+    />
+    <ListItem {...args} trailingComponent={TrailingBadge} />
+  </Stack>
 );
-WithCustomDetails.args = {
-  ...baseArgs,
-} as ListItemProps;
+WithTrailingContent.args = baseArgs;
 
-export const WithTrailingLabel = (args: ListItemProps) => (
-  <ListItem {...args} css={baseStyles} />
+export const Interactive = (args: ListItemProps) => (
+  <Stack vertical>
+    <ListItem {...args} onClick={action('ListItem clicked')} />
+    <ListItem
+      {...args}
+      variant="navigation"
+      href="https://sumup.com"
+      target="_blank"
+    />
+  </Stack>
 );
-WithTrailingLabel.args = {
-  ...baseArgs,
-  trailingLabel: item.amount,
-} as ListItemProps;
+Interactive.args = baseArgs;
 
-export const WithTrailingLabelAndDetails = (args: ListItemProps) => (
-  <ListItem {...args} css={baseStyles} />
-);
-WithTrailingLabelAndDetails.args = {
-  ...baseArgs,
-  trailingLabel: item.amount,
-  trailingDetails: `${item.fee} fee`,
-} as ListItemProps;
-
-export const WithTrailingLabelAndDetailsComponents = (args: ListItemProps) => (
-  <ListItem
-    {...args}
-    trailingLabel={TrailingLabel}
-    trailingDetails={TrailingDetails}
-    css={baseStyles}
-  />
-);
-WithTrailingLabelAndDetailsComponents.args = {
-  ...baseArgs,
-} as ListItemProps;
-
-export const WithTrailingComponent = (args: ListItemProps) => (
-  <ListItem {...args} trailingComponent={TrailingBadge} css={baseStyles} />
-);
-WithTrailingComponent.args = {
-  ...baseArgs,
-} as ListItemProps;
-
-export const Clickable = (args: ListItemProps) => (
-  <ListItem {...args} css={baseStyles} />
-);
-Clickable.args = {
-  ...baseArgs,
-  variant: 'navigation',
-  onClick: action('ListItem clicked'),
-} as ListItemProps;
-
-export const AsLink = (args: ListItemProps) => (
-  <ListItem {...args} css={baseStyles} />
-);
-AsLink.args = {
-  ...baseArgs,
-  variant: 'navigation',
-  href: 'https://sumup.com',
-  target: '_blank',
-} as ListItemProps;
-
-export const Selected = (args: ListItemProps) => (
-  <ListItem {...args} css={baseStyles} />
-);
+export const Selected = (args: ListItemProps) => <ListItem {...args} />;
 Selected.args = {
   ...baseArgs,
   selected: true,
   onClick: action('ListItem clicked'),
 } as ListItemProps;
 
-export const Disabled = (args: ListItemProps) => (
-  <ListItem {...args} css={baseStyles} />
-);
+export const Disabled = (args: ListItemProps) => <ListItem {...args} />;
 Disabled.args = {
   ...baseArgs,
   disabled: true,
-  onClick: action('ListItem clicked'),
-} as ListItemProps;
-
-export const SampleConfiguration = (args: ListItemProps) => (
-  <ListItem
-    {...args}
-    leadingComponent={SumUpCard}
-    details={Details}
-    css={baseStyles}
-  />
-);
-SampleConfiguration.args = {
-  ...baseArgs,
-  variant: 'navigation',
-  trailingLabel: item.amount,
-  trailingDetails: `${item.fee} fee`,
   onClick: action('ListItem clicked'),
 } as ListItemProps;

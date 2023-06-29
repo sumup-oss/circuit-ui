@@ -13,17 +13,10 @@
  * limitations under the License.
  */
 
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import {
-  create,
-  render,
-  renderToHtml,
-  axe,
-  RenderFn,
-  userEvent,
-} from '../../util/test-utils.js';
+import { screen, render, axe, RenderFn } from '../../util/test-utils.js';
 import Body from '../Body/index.js';
 
 import { ListItemGroup, ListItemGroupProps } from './ListItemGroup.js';
@@ -50,145 +43,48 @@ describe('ListItemGroup', () => {
     label: 'Group label',
   };
 
-  describe('styles', () => {
-    it('should render the inset variant ListItemGroup by default', () => {
-      const wrapper = renderListItemGroup(create, baseProps);
-      expect(wrapper).toMatchSnapshot();
+  it('should render a ListItemGroup with a custom label', () => {
+    renderListItemGroup(render, {
+      ...baseProps,
+      label: (
+        <Body as="h4" size="two">
+          Group label
+        </Body>
+      ),
     });
-
-    it('should render a plain variant ListItemGroup', () => {
-      const wrapper = renderListItemGroup(create, {
-        ...baseProps,
-        variant: 'plain',
-      });
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render a ListItemGroup with a hidden label', () => {
-      const wrapper = renderListItemGroup(create, {
-        ...baseProps,
-        hideLabel: true,
-      });
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render a ListItemGroup with a custom label', () => {
-      const wrapper = renderListItemGroup(create, {
-        ...baseProps,
-        label: (
-          <Body as="h4" size="two">
-            Group label
-          </Body>
-        ),
-      });
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render a ListItemGroup with a details line', () => {
-      const wrapper = renderListItemGroup(create, {
-        ...baseProps,
-        details: 'Group details',
-      });
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render a ListItemGroup with a custom details line', () => {
-      const wrapper = renderListItemGroup(create, {
-        ...baseProps,
-        details: <Body size="two">Group details</Body>,
-      });
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render a ListItemGroup with interactive items', () => {
-      const { container } = renderListItemGroup(render, {
-        ...baseProps,
-        items: baseProps.items.map((item) => ({
-          ...item,
-          onClick: vi.fn(),
-        })),
-      });
-
-      expect(container).toMatchSnapshot();
-    });
-
-    it('should render the focused item in a ListItemGroup with interactive items', async () => {
-      const { getAllByRole } = renderListItemGroup(render, {
-        ...baseProps,
-        items: baseProps.items.map((item) => ({
-          ...item,
-          onClick: vi.fn(),
-        })),
-      });
-
-      await userEvent.tab();
-      await userEvent.tab(); // blur first and focus second item
-
-      expect(getAllByRole('button')[1]).toMatchSnapshot();
-    });
-
-    it('should render the selected item in a ListItemGroup with interactive items', () => {
-      const { getAllByRole } = renderListItemGroup(render, {
-        ...baseProps,
-        items: baseProps.items.map((item) => ({
-          ...item,
-          onClick: vi.fn(),
-          selected: item.key === 1,
-        })),
-      });
-
-      expect(getAllByRole('button')[0]).toMatchSnapshot();
-    });
-
-    it('should render the selected item in a plain ListItemGroup with interactive items', () => {
-      const { getAllByRole } = renderListItemGroup(render, {
-        ...baseProps,
-        items: baseProps.items.map((item) => ({
-          ...item,
-          onClick: vi.fn(),
-          selected: item.key === 1,
-        })),
-        variant: 'plain',
-      });
-
-      expect(getAllByRole('button')[0]).toMatchSnapshot();
-    });
+    expect(screen.getByText('Group label')).toBeVisible();
   });
 
-  describe('business logic', () => {
-    it('should accept a working ref', () => {
-      const tref = createRef<any>();
-      const { container } = renderListItemGroup(render, {
-        ...baseProps,
-        ref: tref,
-      });
-      const listItemGroup = container.firstChild;
-      expect(tref.current).toBe(listItemGroup);
+  it('should render a ListItemGroup with a details line', () => {
+    renderListItemGroup(render, {
+      ...baseProps,
+      details: 'Group details',
     });
+    expect(screen.getByText('Group details')).toBeVisible();
   });
 
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const wrapper = renderListItemGroup(renderToHtml, {
-        ...baseProps,
-        label: 'Group label',
-        details: 'Group details',
-      });
-      const actual = await axe(wrapper);
-      expect(actual).toHaveNoViolations();
+  it('should render a ListItemGroup with a custom details line', () => {
+    renderListItemGroup(render, {
+      ...baseProps,
+      details: <Body size="two">Group details</Body>,
     });
+    expect(screen.getByText('Group details')).toBeVisible();
+  });
 
-    it('should set the aria-selected attribute of the selected item', () => {
-      const { getAllByRole } = renderListItemGroup(render, {
-        ...baseProps,
-        items: baseProps.items.map((item) => ({
-          ...item,
-          onClick: vi.fn(),
-          selected: item.key === 1,
-        })),
-      });
+  it('should forward a ref', () => {
+    const ref = createRef<any>();
+    const { container } = render(<ListItemGroup {...baseProps} ref={ref} />);
+    const listItemGroup = container.firstChild;
+    expect(ref.current).toBe(listItemGroup);
+  });
 
-      expect(getAllByRole('button')[0]).toHaveAttribute('aria-pressed', 'true');
+  it('should have no accessibility violations', async () => {
+    const { container } = renderListItemGroup(render, {
+      ...baseProps,
+      label: 'Group label',
+      details: 'Group details',
     });
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });

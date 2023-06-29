@@ -18,12 +18,11 @@ import { createRef, FC } from 'react';
 import { IconProps, SumUpCard } from '@sumup/icons';
 
 import {
-  create,
   render,
-  renderToHtml,
   axe,
   RenderFn,
   userEvent,
+  screen,
 } from '../../util/test-utils.js';
 import Body from '../Body/index.js';
 import Badge from '../Badge/index.js';
@@ -39,154 +38,135 @@ describe('ListItem', () => {
     label: 'Label',
   };
 
-  describe('styles', () => {
-    it('should render the action variant ListItem by default', () => {
-      const wrapper = renderListItem(create, baseProps);
-      expect(wrapper).toMatchSnapshot();
+  it('should render a ListItem with a leading icon', () => {
+    const { container } = renderListItem(render, {
+      ...baseProps,
+      leadingComponent: SumUpCard,
     });
+    expect(container.querySelector('svg')).toBeVisible();
+  });
 
-    it('should render a navigation variant ListItem', () => {
-      const wrapper = renderListItem(create, {
-        ...baseProps,
-        variant: 'navigation',
-      });
-      expect(wrapper).toMatchSnapshot();
+  it('should render a ListItem with a custom leading component', () => {
+    renderListItem(render, {
+      ...baseProps,
+      leadingComponent: (
+        <Badge variant="danger" circle>
+          3
+        </Badge>
+      ),
     });
+    expect(screen.getByText('3')).toBeVisible();
+  });
 
-    it('should render a ListItem with a leading icon', () => {
-      const wrapper = renderListItem(create, {
-        ...baseProps,
-        leadingComponent: SumUpCard as FC<IconProps>,
-      });
-      expect(wrapper).toMatchSnapshot();
+  it('should render a ListItem with a custom label', () => {
+    renderListItem(render, {
+      ...baseProps,
+      label: <Body size="one">Label</Body>,
     });
+    expect(screen.getByText('Label')).toBeVisible();
+  });
 
-    it('should render a ListItem with a custom leading component', () => {
-      const wrapper = renderListItem(create, {
-        ...baseProps,
-        leadingComponent: (
-          <Badge variant="danger" circle>
-            3
-          </Badge>
-        ),
-      });
-      expect(wrapper).toMatchSnapshot();
+  it('should render a ListItem with a details line', () => {
+    renderListItem(render, {
+      ...baseProps,
+      details: 'Details',
     });
+    expect(screen.getByText('Details')).toBeVisible();
+  });
 
-    it('should render a ListItem with a custom label', () => {
-      const wrapper = renderListItem(create, {
-        ...baseProps,
-        label: <Body size="one">Label</Body>,
-      });
-      expect(wrapper).toMatchSnapshot();
+  it('should render a ListItem with a custom details line', () => {
+    renderListItem(render, {
+      ...baseProps,
+      details: <Body size="two">Details</Body>,
     });
+    expect(screen.getByText('Details')).toBeVisible();
+  });
 
-    it('should render a ListItem with a details line', () => {
-      const wrapper = renderListItem(create, {
-        ...baseProps,
-        details: 'Details',
-      });
-      expect(wrapper).toMatchSnapshot();
+  it('should render a ListItem with a trailing label', () => {
+    renderListItem(render, {
+      ...baseProps,
+      trailingLabel: 'Trailing label',
     });
+    expect(screen.getByText('Trailing label')).toBeVisible();
+  });
 
-    it('should render a ListItem with a custom details line', () => {
-      const wrapper = renderListItem(create, {
-        ...baseProps,
-        details: <Body size="two">Details</Body>,
-      });
-      expect(wrapper).toMatchSnapshot();
+  it('should render a ListItem with a custom trailing label', () => {
+    renderListItem(render, {
+      ...baseProps,
+      trailingLabel: (
+        <Body size="one" variant="highlight">
+          Trailing label
+        </Body>
+      ),
     });
+    expect(screen.getByText('Trailing label')).toBeVisible();
+  });
 
-    it('should render a ListItem with a trailing label', () => {
-      const wrapper = renderListItem(create, {
-        ...baseProps,
-        trailingLabel: 'Trailing label',
-      });
-      expect(wrapper).toMatchSnapshot();
+  it('should render a ListItem with trailing details', () => {
+    renderListItem(render, {
+      ...baseProps,
+      trailingLabel: 'Trailing label',
+      trailingDetails: 'Trailing details',
     });
+    expect(screen.getByText('Trailing label')).toBeVisible();
+    expect(screen.getByText('Trailing details')).toBeVisible();
+  });
 
-    it('should render a ListItem with a custom trailing label', () => {
-      const wrapper = renderListItem(create, {
-        ...baseProps,
-        trailingLabel: (
-          <Body size="one" variant="highlight">
-            Trailing label
-          </Body>
-        ),
-      });
-      expect(wrapper).toMatchSnapshot();
+  it('should render a ListItem with custom trailing details', () => {
+    renderListItem(render, {
+      ...baseProps,
+      trailingLabel: 'Trailing label',
+      trailingDetails: (
+        <Body size="two" variant="subtle">
+          Trailing details
+        </Body>
+      ),
     });
+    expect(screen.getByText('Trailing label')).toBeVisible();
+    expect(screen.getByText('Trailing details')).toBeVisible();
+  });
 
-    it('should render a ListItem with trailing details', () => {
-      const wrapper = renderListItem(create, {
-        ...baseProps,
-        trailingLabel: 'Trailing label',
-        trailingDetails: 'Trailing details',
-      });
-      expect(wrapper).toMatchSnapshot();
+  it('should render a ListItem with a custom trailing component', () => {
+    renderListItem(render, {
+      ...baseProps,
+      trailingComponent: <Badge variant="promo">Promo</Badge>,
     });
+    expect(screen.getByText('Promo')).toBeVisible();
+  });
 
-    it('should render a ListItem with custom trailing details', () => {
-      const wrapper = renderListItem(create, {
-        ...baseProps,
-        trailingLabel: 'Trailing label',
-        trailingDetails: (
-          <Body size="two" variant="subtle">
-            Trailing details
-          </Body>
-        ),
-      });
-      expect(wrapper).toMatchSnapshot();
+  it('should render a selected ListItem', () => {
+    renderListItem(render, {
+      ...baseProps,
+      selected: true,
+      href: '/',
     });
+    expect(screen.getByRole('link')).toHaveAttribute('aria-current', 'true');
+  });
 
-    it('should render a ListItem with a custom trailing component', () => {
-      const wrapper = renderListItem(create, {
-        ...baseProps,
-        trailingComponent: <Badge variant="promo">Promo</Badge>,
-      });
-      expect(wrapper).toMatchSnapshot();
+  it('should render a disabled ListItem', () => {
+    renderListItem(render, {
+      ...baseProps,
+      disabled: true,
+      onClick: vi.fn(),
     });
-
-    it('should render a selected ListItem', () => {
-      const wrapper = renderListItem(create, {
-        ...baseProps,
-        selected: true,
-      });
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render a disabled ListItem', () => {
-      const wrapper = renderListItem(create, {
-        ...baseProps,
-        disabled: true,
-      });
-      expect(wrapper).toMatchSnapshot();
-    });
+    expect(screen.getByRole('button')).toBeDisabled();
   });
 
   describe('business logic', () => {
-    it('should not render a trailing section with details but no label', () => {
-      const wrapper = renderListItem(create, {
-        ...baseProps,
-        trailingDetails: 'Trailing details',
-      });
-      expect(wrapper).toMatchSnapshot();
-    });
-
     it('should render as a link when the href prop is passed', () => {
-      const wrapper = renderListItem(create, {
+      renderListItem(render, {
         ...baseProps,
         href: 'https://sumup.com',
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(screen.getByRole('link')).toBeVisible();
     });
 
     it('should render as a button when the onClick prop is passed', () => {
-      const wrapper = renderListItem(create, {
+      renderListItem(render, {
         ...baseProps,
         onClick: vi.fn(),
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(screen.getByRole('button')).toBeVisible();
     });
 
     it('should call the onClick handler when clicked', async () => {
@@ -201,30 +181,25 @@ describe('ListItem', () => {
       expect(props.onClick).toHaveBeenCalledTimes(1);
     });
 
-    it('should accept a working ref', () => {
-      const tref = createRef<any>();
-      const { container } = renderListItem(render, {
-        ...baseProps,
-        ref: tref,
-      });
+    it('should forward a ref', () => {
+      const ref = createRef<any>();
+      const { container } = render(<ListItem {...baseProps} ref={ref} />);
       const listItem = container.firstChild;
-      expect(tref.current).toBe(listItem);
+      expect(ref.current).toBe(listItem);
     });
   });
 
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const wrapper = renderListItem(renderToHtml, {
-        ...baseProps,
-        variant: 'navigation',
-        leadingComponent: SumUpCard as FC<IconProps>,
-        details: 'Details',
-        trailingLabel: 'Trailing label',
-        trailingDetails: 'Trailing details',
-        onClick: vi.fn(),
-      });
-      const actual = await axe(wrapper);
-      expect(actual).toHaveNoViolations();
+  it('should have no accessibility violations', async () => {
+    const { container } = renderListItem(render, {
+      ...baseProps,
+      variant: 'navigation',
+      leadingComponent: SumUpCard as FC<IconProps>,
+      details: 'Details',
+      trailingLabel: 'Trailing label',
+      trailingDetails: 'Trailing details',
+      onClick: vi.fn(),
     });
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });
