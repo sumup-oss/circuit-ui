@@ -13,57 +13,23 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
-import { css, ThemeProvider } from '@emotion/react';
-import { light } from '@sumup/design-tokens';
-import { Headline, Card, spacing } from '../../packages/circuit-ui/index.js';
+import type { ReactNode } from 'react';
+import { Headline, Card } from '../../packages/circuit-ui/index.js';
+import classes from './Teaser.module.css';
 
-// HACK: This prevents the cards from awkwardly wrapping if one of them
-//       only has one line of text.
-const CARD_HEIGHT = '185px';
+interface TeaserProps {
+  title: string;
+  children: ReactNode;
+}
 
-const Wrapper = styled(Card)(
-  ({ theme }) => css`
-    box-sizing: border-box;
-    width: 100%;
-    float: left;
-    margin-top: ${theme.spacings.giga};
+const Teaser = ({ title, children }: TeaserProps) => (
+  <Card className={classes.base}>
+    <Headline as="h2" size="three">
+      {title}
+    </Headline>
 
-    ${theme.mq.mega} {
-      width: calc(50% - ${theme.spacings.giga});
-      margin-right: ${theme.spacings.giga};
-      min-height: ${CARD_HEIGHT};
-    }
-
-    *:last-child {
-      margin-bottom: 0;
-    }
-
-    h2 {
-      border: none;
-      padding: 0;
-    }
-
-    p {
-      margin-top: 0;
-    }
-
-    a::after {
-      content: ' →';
-    }
-  `,
-);
-
-const Teaser = ({ title, children }) => (
-  <ThemeProvider theme={light}>
-    <Wrapper>
-      <Headline as="h2" size="three" css={spacing({ bottom: 'giga' })}>
-        {title}
-      </Headline>
-
-      {children}
-    </Wrapper>
-  </ThemeProvider>
+    {children}
+  </Card>
 );
 
 export default Teaser;

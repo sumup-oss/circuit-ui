@@ -1,0 +1,8 @@
+.base {
+  margin-bottom: var(--cui-spacings-giga);
+}
+
+.base > * {
+  font-size: var(--cui-typography-body-large-font-size) !important;
+  line-height: var(--cui-typography-body-large-line-height) !important;
+}

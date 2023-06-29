@@ -124,19 +124,17 @@ export function CustomPropertiesTable({
   }
 
   return (
-    <ThemeProvider theme={light}>
-      <ToastProvider>
-        <Unstyled>
-          {customProperties && (
-            <Table
-              condensed
-              headers={headers}
-              rows={getRows(customProperties, preview)}
-            />
-          )}
-        </Unstyled>
-      </ToastProvider>
-    </ThemeProvider>
+    <ToastProvider>
+      <Unstyled>
+        {customProperties && (
+          <Table
+            condensed
+            headers={headers}
+            rows={getRows(customProperties, preview)}
+          />
+        )}
+      </Unstyled>
+    </ToastProvider>
   );
 }
 

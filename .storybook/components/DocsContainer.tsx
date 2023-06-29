@@ -1,9 +1,7 @@
 // import { useEffect, useState } from 'react';
-import { ThemeProvider } from '@emotion/react';
 import { DocsContainer as BaseContainer } from '@storybook/addon-docs';
 
 import * as themes from '../themes';
-import { light } from '@sumup/design-tokens';
 
 /**
  * Automatically switch light/dark theme based on system preferences

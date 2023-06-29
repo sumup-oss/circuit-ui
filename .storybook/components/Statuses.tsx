@@ -16,15 +16,9 @@
 import type { ReactNode } from 'react';
 import { Unstyled } from '@storybook/addon-docs';
 import LinkTo from '@storybook/addon-links/react';
-import { css, ThemeProvider } from '@emotion/react';
-import { light } from '@sumup/design-tokens';
-import {
-  Badge,
-  BadgeProps,
-  Body,
-  cx,
-  spacing,
-} from '../../packages/circuit-ui/index.js';
+import { Badge, BadgeProps, Body } from '../../packages/circuit-ui/index.js';
+
+import classes from './Statuses.module.css';
 
 type Variant =
   | 'stable'
@@ -37,12 +31,6 @@ interface StatusProps {
   variant: Variant;
   children?: ReactNode;
 }
-
-const descriptionStyles = css`
-  p {
-    display: inline;
-  }
-`;
 
 const variantMap: Record<
   Variant,
@@ -66,22 +54,20 @@ export default function Status({
   const name = 'Docs';
 
   return (
-    <ThemeProvider theme={light}>
-      <Unstyled {...props}>
-        <LinkTo {...props} kind={kind} name={name}>
-          <Badge variant={variant}>{label}</Badge>
-        </LinkTo>
-        {children && (
-          <Body
-            size="two"
-            as="span"
-            css={cx(spacing({ left: 'byte' }), descriptionStyles)}
-            variant="subtle"
-          >
-            {children}
-          </Body>
-        )}
-      </Unstyled>
-    </ThemeProvider>
+    <Unstyled {...props}>
+      <LinkTo {...props} kind={kind} name={name}>
+        <Badge variant={variant}>{label}</Badge>
+      </LinkTo>
+      {children && (
+        <Body
+          size="two"
+          as="span"
+          className={classes.description}
+          variant="subtle"
+        >
+          {children}
+        </Body>
+      )}
+    </Unstyled>
   );
 }

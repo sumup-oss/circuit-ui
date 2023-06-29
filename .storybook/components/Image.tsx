@@ -13,17 +13,11 @@
  * limitations under the License.
  */
 
-import { ThemeProvider } from '@emotion/react';
-import { light } from '@sumup/design-tokens';
 import {
   Image as BaseImage,
   ImageProps,
 } from '../../packages/circuit-ui/index.js';
 
-const Image = ({ children, ...props }: ImageProps) => (
-  <ThemeProvider theme={light}>
-    <BaseImage {...props} />
-  </ThemeProvider>
-);
+const Image = ({ children, ...props }: ImageProps) => <BaseImage {...props} />;
 
 export default Image;

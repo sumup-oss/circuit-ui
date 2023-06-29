@@ -13,18 +13,20 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
+import type { ReactNode } from 'react';
+import { clsx } from '../../packages/circuit-ui/index.js';
 
-const Stack = styled.div<{ vertical?: boolean }>`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
+import classes from './Stack.module.css';
 
-  @media screen and (min-width: 600px) {
-    flex-direction: ${(p) => (p.vertical ? 'column' : 'row')};
-  }
-`;
+interface StackProps {
+  children: ReactNode;
+  vertical?: boolean;
+}
 
-export default Stack;
+export default function Stack({ children, vertical }: StackProps) {
+  return (
+    <div className={clsx(classes.base, vertical && classes.vertical)}>
+      {children}
+    </div>
+  );
+}
