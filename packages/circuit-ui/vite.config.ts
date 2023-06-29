@@ -18,7 +18,11 @@ import path from 'node:path';
 
 import { UserConfig, defineConfig } from 'vite';
 
-import { dependencies, peerDependencies } from './package.json';
+import {
+  dependencies,
+  peerDependencies,
+  optionalDependencies,
+} from './package.json';
 
 export const css: UserConfig['css'] = {
   modules: {
@@ -71,6 +75,7 @@ export default defineConfig({
       external: [
         ...Object.keys(dependencies),
         ...Object.keys(peerDependencies),
+        ...Object.keys(optionalDependencies),
       ],
     },
   },
