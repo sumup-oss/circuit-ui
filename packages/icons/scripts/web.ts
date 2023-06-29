@@ -149,7 +149,7 @@ function buildDeclarationFile(components: Component[]): string {
         name: string;
         category: string;
         size: '16' | '24' | '32';
-        deprecation?: boolean;
+        deprecation?: string;
       }[];
     };
   `;
