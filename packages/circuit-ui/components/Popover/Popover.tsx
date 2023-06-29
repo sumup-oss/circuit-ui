@@ -45,7 +45,6 @@ import { useLatest } from '../../hooks/useLatest/index.js';
 import { usePrevious } from '../../hooks/usePrevious/index.js';
 import { clsx } from '../../styles/clsx.js';
 import sharedClasses from '../../styles/shared.js';
-import utilityClasses from '../../styles/utility.js';
 
 import classes from './Popover.module.css';
 
@@ -322,11 +321,7 @@ export const Popover = ({
             ref={menuEl}
             aria-labelledby={triggerId}
             role="menu"
-            className={clsx(
-              classes.menu,
-              isOpen && classes.open,
-              utilityClasses.shadow,
-            )}
+            className={clsx(classes.menu, isOpen && classes.open)}
           >
             {actions.map((action, index) =>
               isDivider(action) ? (

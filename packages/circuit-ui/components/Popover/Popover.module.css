@@ -23,6 +23,7 @@
   background-color: var(--cui-bg-elevated);
   border: 1px solid var(--cui-border-subtle);
   border-radius: var(--cui-border-radius-byte);
+  box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
   opacity: 0;
 }
 
