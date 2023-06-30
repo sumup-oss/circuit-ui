@@ -14,10 +14,9 @@
  */
 
 /* istanbul ignore file */
+/* eslint-disable import/no-extraneous-dependencies */
 
 import { ReactNode, useState } from 'react';
-import { css } from '@emotion/react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import {
   SwipeableProps,
   useSwipeable,
@@ -25,47 +24,17 @@ import {
   SwipeDirections,
 } from 'react-swipeable';
 
-import styled, { StyleProps } from '../../../styles/styled.js';
 import Image from '../../Image/index.js';
 import Button from '../../Button/index.js';
 import Step, { StepProps } from '../Step.js';
 import { Actions } from '../types.js';
+import { clsx } from '../../../styles/clsx.js';
 
-const SLIDE_WIDTH = 400;
+import classes from './YesOrNoSlider.module.css';
+
 const ANIMATION_DURATION = 200;
 const LEFT_DIRECTION = 'Left';
 const RIGHT_DIRECTION = 'Right';
-
-const sliderWrapperStyles = css`
-  margin: 0 auto;
-  overflow: hidden;
-  width: ${SLIDE_WIDTH}px;
-`;
-
-const SliderWrapper = styled('div')(sliderWrapperStyles);
-
-const sliderImageBaseStyles = ({ theme }: StyleProps) => css`
-  width: 100%;
-  height: 100%;
-  padding: ${theme.spacings.giga};
-  transition: transform ${ANIMATION_DURATION}ms ease;
-`;
-
-const slideImageTransformStyles = ({
-  swipe,
-}: {
-  swipe: SwipeEventData | null;
-}) =>
-  swipe?.dir &&
-  css`
-    transform: translate3d(${swipe.deltaX * -1}px, ${swipe.deltaY * -1}px, 0)
-      rotate(${calculateRotationAngle(swipe.dir, swipe.velocity)}deg);
-  `;
-
-const SliderImage = styled(Image)(
-  sliderImageBaseStyles,
-  slideImageTransformStyles,
-);
 
 const Swipeable = ({
   children,
@@ -103,21 +72,25 @@ export default function YesOrNoSlider({
   return (
     <Step totalSteps={images.length} {...stepProps}>
       {({ state, actions, getPreviousControlProps, getNextControlProps }) => (
-        <SliderWrapper>
+        <div
+          className={classes.wrapper}
+          style={{
+            '--slide-animation-duration': `${ANIMATION_DURATION}ms`,
+            '--slide-translate-x': `${swipe ? swipe.deltaX * -1 : 0}px`,
+            '--slide-translate-y': `${swipe ? swipe.deltaY * -1 : 0}px`,
+            '--slide-rotation': `${
+              swipe ? calculateRotationAngle(swipe.dir, swipe.velocity) : 0
+            }deg`,
+          }}
+        >
           <Swipeable onSwiped={(eventData) => handleSwipe(eventData, actions)}>
-            <SliderImage
+            <Image
               src={images[state.step]}
               alt="A random picture from Unsplash"
-              swipe={swipe}
+              className={clsx(classes.image, swipe?.dir && classes.swipe)}
             />
           </Swipeable>
-          <div
-            css={(theme) => css`
-              display: flex;
-              justify-content: center;
-              gap: ${theme.spacings.mega};
-            `}
-          >
+          <div className={classes.controls}>
             <Button
               variant={swipe?.dir === LEFT_DIRECTION ? 'primary' : 'secondary'}
               {...getPreviousControlProps()}
@@ -131,7 +104,7 @@ export default function YesOrNoSlider({
               Yes
             </Button>
           </div>
-        </SliderWrapper>
+        </div>
       )}
     </Step>
   );

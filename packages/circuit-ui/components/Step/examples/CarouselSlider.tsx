@@ -15,60 +15,11 @@
 
 /* istanbul ignore file */
 
-import { css } from '@emotion/react';
-
-import styled, { StyleProps } from '../../../styles/styled.js';
 import Image from '../../Image/index.js';
 import Button from '../../Button/index.js';
 import Step, { StepProps } from '../Step.js';
 
-const SLIDE_WIDTH = 400;
-
-const sliderWrapperStyles = css`
-  margin: 0 auto;
-  overflow: hidden;
-  width: ${SLIDE_WIDTH}px;
-`;
-const SliderWrapper = styled('div')(sliderWrapperStyles);
-
-const sliderInnerStyles = ({
-  step,
-  animationDuration,
-}: {
-  step: number;
-  animationDuration: number;
-}) => css`
-  display: flex;
-  width: 100%;
-  transform: translate3d(${-step * SLIDE_WIDTH}px, 0, 0);
-  transition: all ${animationDuration}ms ease-in-out;
-`;
-const SliderInner = styled('div')(sliderInnerStyles);
-
-const sliderControlsStyles = css`
-  display: flex;
-  justify-content: center;
-`;
-const SliderControls = styled('div')(sliderControlsStyles);
-
-const sliderImageStyles = ({
-  theme,
-  animationDuration,
-}: StyleProps & { animationDuration: number }) => css`
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: ${SLIDE_WIDTH}px;
-  width: 100%;
-  height: 100%;
-  transition: all ${animationDuration}ms ease-in-out;
-  padding: ${theme.spacings.giga};
-`;
-const SliderImage = styled(Image)(sliderImageStyles);
-
-const buttonStyles = ({ theme }: StyleProps) => css`
-  margin: ${theme.spacings.byte};
-`;
-const SliderButton = styled(Button)(buttonStyles);
+import classes from './CarouselSlider.module.css';
 
 interface CarouselSliderProps extends StepProps {
   images: string[];
@@ -77,7 +28,7 @@ interface CarouselSliderProps extends StepProps {
 export default function CarouselSlider({
   images = [],
   ...stepProps
-}: CarouselSliderProps): JSX.Element {
+}: CarouselSliderProps) {
   return (
     <Step totalSteps={images.length} {...stepProps}>
       {({
@@ -87,35 +38,42 @@ export default function CarouselSlider({
         getPauseControlProps,
         getPlayControlProps,
       }) => (
-        <SliderWrapper>
-          <SliderInner
-            step={state.step}
-            animationDuration={state.animationDuration}
-          >
+        <div
+          className={classes.wrapper}
+          style={{
+            '--slide-width': '400px',
+            '--slide-step': state.step,
+            '--slide-animation-duration': `${state.animationDuration}ms`,
+          }}
+        >
+          <div className={classes.inner}>
             {images.map((src) => (
-              <SliderImage
+              <Image
                 key={src}
                 src={src}
                 alt="A random picture from Unsplash"
-                animationDuration={state.animationDuration}
+                className={classes.image}
               />
             ))}
-          </SliderInner>
-          <SliderControls>
-            <SliderButton {...getPreviousControlProps()}>
+          </div>
+          <div className={classes.controls}>
+            <Button {...getPreviousControlProps()} className={classes.button}>
               &larr; Prev
-            </SliderButton>
-            <SliderButton
+            </Button>
+            <Button
               variant="primary"
               {...(state.paused
                 ? getPlayControlProps()
                 : getPauseControlProps())}
+              className={classes.button}
             >
               {state.paused ? 'Play' : 'Pause'}
-            </SliderButton>
-            <SliderButton {...getNextControlProps()}>Next &rarr;</SliderButton>
-          </SliderControls>
-        </SliderWrapper>
+            </Button>
+            <Button {...getNextControlProps()} className={classes.button}>
+              Next &rarr;
+            </Button>
+          </div>
+        </div>
       )}
     </Step>
   );
