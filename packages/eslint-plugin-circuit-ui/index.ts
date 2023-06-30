@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { componentLifecycleImports } from './component-lifecycle-imports';
 import { noInvalidCustomProperties } from './no-invalid-custom-properties';
 import { noDeprecatedComponents } from './no-deprecated-components';
 import { noDeprecatedProps } from './no-deprecated-props';
@@ -20,6 +21,7 @@ import { noRenamedProps } from './no-renamed-props';
 import { preferCustomProperties } from './prefer-custom-properties';
 
 export const rules = {
+  'component-lifecycle-imports': componentLifecycleImports,
   'no-invalid-custom-properties': noInvalidCustomProperties,
   'no-deprecated-components': noDeprecatedComponents,
   'no-deprecated-props': noDeprecatedProps,
