@@ -58,7 +58,7 @@
     "@types/cross-spawn": "^6.0.2",
     "@types/jest-axe": "^3.5.5",
     "@types/jscodeshift": "^0.11.6",
-    "@types/node": "^18.15.11",
+    "@types/node": "^18.16.19",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
     "@types/react-modal": "^3.16.0",
