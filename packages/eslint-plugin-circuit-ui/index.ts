@@ -14,7 +14,9 @@
  */
 
 import { noInvalidCustomProperties } from './no-invalid-custom-properties';
+import { noRenamedProps } from './no-renamed-props';
 
 export const rules = {
   'no-invalid-custom-properties': noInvalidCustomProperties,
+  'no-renamed-props': noRenamedProps,
 };
