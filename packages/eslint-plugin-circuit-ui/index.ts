@@ -14,9 +14,11 @@
  */
 
 import { noInvalidCustomProperties } from './no-invalid-custom-properties';
+import { noDeprecatedProps } from './no-deprecated-props';
 import { noRenamedProps } from './no-renamed-props';
 
 export const rules = {
   'no-invalid-custom-properties': noInvalidCustomProperties,
+  'no-deprecated-props': noDeprecatedProps,
   'no-renamed-props': noRenamedProps,
 };
