@@ -1,5 +1,11 @@
 # @sumup/eslint-plugin-circuit-ui
 
+## 2.0.1
+
+### Patch Changes
+
+- [#2173](https://github.com/sumup-oss/circuit-ui/pull/2173) [`df2921af`](https://github.com/sumup-oss/circuit-ui/commit/df2921afa1a05fe7b9c9e2800dc235ef6d26c1a8) Thanks [@connor-baer](https://github.com/connor-baer)! - Made the reported node more specific.
+
 ## 2.0.0
 
 ### Major Changes
