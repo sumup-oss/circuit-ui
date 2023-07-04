@@ -1,5 +1,19 @@
 # @sumup/eslint-plugin-circuit-ui
 
+## 2.0.0
+
+### Major Changes
+
+- [#2171](https://github.com/sumup-oss/circuit-ui/pull/2171) [`1afb4ad9`](https://github.com/sumup-oss/circuit-ui/commit/1afb4ad9337af8cd8b1bf369740a39fa60024cae) Thanks [@connor-baer](https://github.com/connor-baer)! - Added `@sumup/circuit-ui >=6.8.0` as a required peer dependency.
+
+### Minor Changes
+
+- [#2171](https://github.com/sumup-oss/circuit-ui/pull/2171) [`1afb4ad9`](https://github.com/sumup-oss/circuit-ui/commit/1afb4ad9337af8cd8b1bf369740a39fa60024cae) Thanks [@connor-baer](https://github.com/connor-baer)! - Added `circuit-ui/no-deprecated-props` rule to warn when using deprecated component props.
+
+- [#2171](https://github.com/sumup-oss/circuit-ui/pull/2171) [`1afb4ad9`](https://github.com/sumup-oss/circuit-ui/commit/1afb4ad9337af8cd8b1bf369740a39fa60024cae) Thanks [@connor-baer](https://github.com/connor-baer)! - Added `circuit-ui/no-renamed-props` rule to update renamed component prop names and values.
+
+- [#2171](https://github.com/sumup-oss/circuit-ui/pull/2171) [`1afb4ad9`](https://github.com/sumup-oss/circuit-ui/commit/1afb4ad9337af8cd8b1bf369740a39fa60024cae) Thanks [@connor-baer](https://github.com/connor-baer)! - Added `circuit-ui/no-deprecated-components` rule to warn when using deprecated components.
+
 ## 1.0.0
 
 ### Major Changes
