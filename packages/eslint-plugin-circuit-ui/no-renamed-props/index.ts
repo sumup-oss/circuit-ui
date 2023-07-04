@@ -114,7 +114,7 @@ export const noRenamedProps = createRule({
         }
 
         context.report({
-          node,
+          node: attribute,
           messageId: 'propName',
           data: { component, current, replacement },
           fix(fixer) {
@@ -151,7 +151,7 @@ export const noRenamedProps = createRule({
         }
 
         context.report({
-          node,
+          node: attribute,
           messageId: 'propValue',
           data: { component, prop, current, replacement },
           fix(fixer) {

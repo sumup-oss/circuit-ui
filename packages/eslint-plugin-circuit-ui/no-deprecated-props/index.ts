@@ -95,7 +95,7 @@ export const noDeprecatedProps = createRule({
             }
 
             context.report({
-              node,
+              node: attribute,
               messageId: 'deprecated',
               data: { component, prop, alternative },
             });

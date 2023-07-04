@@ -64,7 +64,7 @@ export const noDeprecatedComponents = createRule({
           }
 
           context.report({
-            node,
+            node: specifier,
             messageId: 'deprecated',
             data: component,
           });
