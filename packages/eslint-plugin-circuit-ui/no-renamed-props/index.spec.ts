@@ -99,5 +99,21 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
       `,
       errors: [{ messageId: 'propValue' }],
     },
+    {
+      name: 'matched function with the old prop value',
+      code: `
+        setToast({
+          variant: 'notify',
+          body: 'Your toast is burnt.',
+        });
+      `,
+      output: `
+        setToast({
+          variant: 'warning',
+          body: 'Your toast is burnt.',
+        });
+      `,
+      errors: [{ messageId: 'propValue' }],
+    },
   ],
 });

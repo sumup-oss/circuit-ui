@@ -23,12 +23,14 @@ const createRule = ESLintUtils.RuleCreator(
 type PropNameConfig = {
   type: 'name';
   component: string;
+  hook?: string;
   props: Record<string, string>;
 };
 
 type PropValuesConfig = {
   type: 'values';
   component: string;
+  hook?: string;
   prop: string;
   values: Record<string, string>;
 };
@@ -64,6 +66,7 @@ const configs: (PropNameConfig | PropValuesConfig)[] = [
   {
     type: 'values',
     component: 'NotificationToast',
+    hook: 'setToast',
     prop: 'variant',
     values: {
       confirm: 'success',
@@ -92,7 +95,7 @@ export const noRenamedProps = createRule({
   },
   defaultOptions: [],
   create(context) {
-    function replacePropName(
+    function replaceComponentPropName(
       node: TSESTree.JSXElement,
       config: PropNameConfig,
     ) {
@@ -127,7 +130,7 @@ export const noRenamedProps = createRule({
       });
     }
 
-    function replacePropValues(
+    function replaceComponentPropValues(
       node: TSESTree.JSXElement,
       config: PropValuesConfig,
     ) {
@@ -164,32 +167,107 @@ export const noRenamedProps = createRule({
       });
     }
 
+    function replaceHookPropValues(
+      node: TSESTree.CallExpression,
+      config: PropValuesConfig,
+    ) {
+      const { hook, prop, values } = config;
+
+      node.arguments.forEach((argument) => {
+        if (argument.type !== 'ObjectExpression') {
+          return;
+        }
+
+        argument.properties.forEach((property) => {
+          if (
+            property.type !== 'Property' ||
+            property.key.type !== 'Identifier' ||
+            property.key.name !== prop
+          ) {
+            return;
+          }
+
+          const current = getPropertyValue(property);
+
+          if (!current) {
+            return;
+          }
+
+          const replacement = values[current];
+
+          if (!replacement) {
+            return;
+          }
+
+          context.report({
+            node: property,
+            messageId: 'propValue',
+            data: { component: hook, prop, current, replacement },
+            fix(fixer) {
+              return fixer.replaceText(
+                property.value as TSESTree.Literal,
+                `'${replacement}'`,
+              );
+            },
+          });
+        });
+      });
+    }
+
     return configs.reduce((visitors, config) => {
-      // eslint-disable-next-line no-param-reassign
-      visitors[`JSXElement:has(JSXIdentifier[name="${config.component}"])`] = (
-        node: TSESTree.JSXElement,
-      ) => {
-        if (config.type === 'name') {
-          replacePropName(node, config);
-        }
-        if (config.type === 'values') {
-          replacePropValues(node, config);
-        }
-      };
+      if (config.component) {
+        // eslint-disable-next-line no-param-reassign
+        visitors[`JSXElement:has(JSXIdentifier[name="${config.component}"])`] =
+          (node: TSESTree.JSXElement) => {
+            if (config.type === 'name') {
+              replaceComponentPropName(node, config);
+            }
+            if (config.type === 'values') {
+              replaceComponentPropValues(node, config);
+            }
+          };
+      }
+
+      if (config.hook) {
+        // eslint-disable-next-line no-param-reassign
+        visitors[`CallExpression:has(Identifier[name="${config.hook}"])`] = (
+          node: TSESTree.CallExpression,
+        ) => {
+          if (config.type === 'name') {
+            // TODO: Not needed yet.
+          }
+          if (config.type === 'values') {
+            replaceHookPropValues(node, config);
+          }
+        };
+      }
       return visitors;
     }, {} as TSESLint.RuleListener);
   },
 });
 
 function getAttributeValue(attribute: TSESTree.JSXAttribute): string | null {
-  if (attribute.value?.type === 'Literal') {
-    return attribute.value.value as string;
+  if (
+    attribute.value?.type === 'Literal' &&
+    typeof attribute.value.value === 'string'
+  ) {
+    return attribute.value.value;
   }
   if (
     attribute.value?.type === 'JSXExpressionContainer' &&
     attribute.value.expression.type === 'Literal'
   ) {
     return attribute.value.expression.value as string;
+  }
+  return null;
+}
+
+function getPropertyValue(property: TSESTree.Property): string | null {
+  if (
+    property.value.type === 'Literal' &&
+    typeof property.value.value === 'string'
+  ) {
+    return property.value.value;
   }
   return null;
 }
