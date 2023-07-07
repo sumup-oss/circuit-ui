@@ -1,5 +1,11 @@
 # @sumup/eslint-plugin-circuit-ui
 
+## 2.1.0
+
+### Minor Changes
+
+- [#2175](https://github.com/sumup-oss/circuit-ui/pull/2175) [`8292173e`](https://github.com/sumup-oss/circuit-ui/commit/8292173eb9edb5cd6a78a817db77b0fef95001d5) Thanks [@connor-baer](https://github.com/connor-baer)! - Added support for flagging and fixing `setToast` calls to the `circuit-ui/no-renamed-props` rule.
+
 ## 2.0.1
 
 ### Patch Changes
