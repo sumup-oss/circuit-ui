@@ -1,30 +1,10 @@
 import { NextPage } from 'next';
 import Link from 'next/link';
 import Head from 'next/head';
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
-import {
-  Card,
-  Headline,
-  Body,
-  Button,
-  spacing,
-  cx,
-  center,
-} from '@sumup/circuit-ui';
+import { Card, Headline, Body, Button } from '@sumup/circuit-ui';
 
+import { Main } from '../components/Main';
 import { Logo } from '../components/Logo';
-
-const Main = styled('main')(
-  ({ theme }) => css`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 450px;
-    margin: 0 auto ${theme.spacings.kilo};
-  `,
-);
 
 const title = 'Page not found';
 const description =
@@ -38,14 +18,10 @@ const NotFound: NextPage = () => (
     <Main>
       <Logo />
       <Card>
-        <Headline
-          as="h1"
-          size="one"
-          css={cx(center, spacing({ bottom: 'giga' }))}
-        >
+        <Headline as="h1" size="one">
           {title}
         </Headline>
-        <Body css={spacing({ bottom: 'giga' })}>{description}</Body>
+        <Body>{description}</Body>
         <Link href="/" passHref>
           <Button variant="primary">Return to the homepage</Button>
         </Link>

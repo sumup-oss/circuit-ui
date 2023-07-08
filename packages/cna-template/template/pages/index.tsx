@@ -1,30 +1,9 @@
 import { NextPage } from 'next';
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
-import {
-  Card,
-  Headline,
-  Body,
-  List,
-  Anchor,
-  cx,
-  spacing,
-  center,
-} from '@sumup/circuit-ui';
+import { Card, Headline, Body, List, Anchor } from '@sumup/circuit-ui';
 
 import { Meta } from '../components/Meta';
+import { Main } from '../components/Main';
 import { Logo } from '../components/Logo';
-
-const Main = styled('main')(
-  ({ theme }) => css`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 450px;
-    margin: 0 auto ${theme.spacings.mega};
-  `,
-);
 
 const title = 'Welcome to SumUp Next.js';
 
@@ -34,10 +13,8 @@ const Page: NextPage = () => (
     <Main>
       <Logo />
       <Card>
-        <Headline as="h1" css={cx(center, spacing({ bottom: 'giga' }))}>
-          {title}
-        </Headline>
-        <Body css={spacing({ bottom: 'giga' })}>
+        <Headline as="h1">{title}</Headline>
+        <Body>
           This is a{' '}
           <Anchor href="https://nextjs.org" target="_blank">
             Next.js
@@ -48,7 +25,7 @@ const Page: NextPage = () => (
           </Anchor>
           -specific customizations:
         </Body>
-        <List css={spacing({ bottom: 'giga' })}>
+        <List>
           <li>
             <Anchor
               href="https://github.com/sumup-oss/circuit-ui"
@@ -59,12 +36,6 @@ const Page: NextPage = () => (
             integration
           </li>
           <li>
-            <Anchor href="https://emotion.sh/" target="_blank">
-              Emotion
-            </Anchor>{' '}
-            support
-          </li>
-          <li>
             SumUp&apos;s default tooling provided by{' '}
             <Anchor href="https://github.com/sumup-oss/foundry" target="_blank">
               Foundry
@@ -72,21 +43,8 @@ const Page: NextPage = () => (
           </li>
           <li>Basic SEO and performance optimizations</li>
         </List>
-        <Body css={cx(center, spacing({ bottom: 'giga' }))}>
-          Now go and build things!
-        </Body>
-        <Body
-          aria-hidden
-          css={cx(
-            css`
-              transform: scale3d(1.5, 1.5, 1);
-            `,
-            center,
-            spacing({ bottom: 'giga' }),
-          )}
-        >
-          🔨👩🏽‍💻👨🏼‍💻🚀
-        </Body>
+        <Body>Now go and build things!</Body>
+        <Body aria-hidden>🔨👩🏽‍💻👨🏼‍💻🚀</Body>
       </Card>
     </Main>
   </>

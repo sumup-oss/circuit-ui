@@ -6,7 +6,6 @@ const createJestConfig = nextJest({ dir: './' });
 const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.tsx'],
   testEnvironment: 'jsdom',
-  snapshotSerializers: ['@emotion/jest/serializer'],
   coverageDirectory: './__coverage__',
   coverageReporters: ['cobertura', 'text-summary', 'html'],
   collectCoverageFrom: [
