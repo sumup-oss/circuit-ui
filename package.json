@@ -79,7 +79,7 @@
     "react-dom": "^18.2.0",
     "remark-gfm": "^3.0.1",
     "storybook": "^7.0.12",
-    "stylelint": "^15.7.0",
+    "stylelint": "^15.10.1",
     "stylelint-config-recess-order": "^4.2.0",
     "stylelint-config-standard": "^33.0.0",
     "stylelint-no-unsupported-browser-features": "^6.1.0",
