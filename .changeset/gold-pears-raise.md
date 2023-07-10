@@ -2,4 +2,4 @@
 '@sumup/icons': minor
 ---
 
-Added new icon `Select all` in size 24.
+Added new icon `SelectAll` in size 24.
