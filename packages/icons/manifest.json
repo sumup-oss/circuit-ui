@@ -227,6 +227,11 @@
       "size": "16"
     },
     {
+      "name": "select_all",
+      "category": "Action",
+      "size": "24"
+    },
+    {
       "name": "send",
       "category": "Action",
       "size": "24"
