@@ -14,10 +14,10 @@
  */
 
 import { FC, OlHTMLAttributes } from 'react';
-import { css } from '@emotion/react';
 
-import styled, { StyleProps } from '../../../../styles/styled.js';
-import Button, { ButtonProps } from '../../../Button/index.js';
+import Button from '../../../Button/index.js';
+
+import classes from './PageList.module.css';
 
 export interface PageListProps
   extends Omit<OlHTMLAttributes<HTMLOListElement>, 'onChange'> {
@@ -27,24 +27,6 @@ export interface PageListProps
   currentPage: number;
 }
 
-const List = styled.ol`
-  list-style: none;
-  display: flex;
-  justify-content: center;
-`;
-
-const buttonStyles = ({ theme }: StyleProps) => css`
-  min-width: 34px;
-  padding: ${theme.spacings.bit};
-  margin-right: ${theme.spacings.bit};
-
-  li:last-child & {
-    margin-right: 0;
-  }
-`;
-
-const PageButton = styled(Button)<ButtonProps>(buttonStyles);
-
 export const PageList: FC<PageListProps> = ({
   onChange,
   pageLabel,
@@ -52,24 +34,26 @@ export const PageList: FC<PageListProps> = ({
   currentPage,
   ...props
 }: PageListProps): JSX.Element => (
-  <List role="list" {...props}>
+  // eslint-disable-next-line jsx-a11y/no-redundant-roles
+  <ol role="list" className={classes.base} {...props}>
     {pages.map((page) => {
       const isCurrent = currentPage === page;
       const label = pageLabel(page);
       return (
         <li key={page}>
-          <PageButton
+          <Button
             size="kilo"
             onClick={() => onChange(page)}
             variant={isCurrent ? 'primary' : 'tertiary'}
             title={label}
             aria-label={label}
             aria-current={isCurrent}
+            className={classes.button}
           >
             {page}
-          </PageButton>
+          </Button>
         </li>
       );
     })}
-  </List>
+  </ol>
 );

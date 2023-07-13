@@ -24,6 +24,10 @@ export const Base = (args: HeadlineProps) => (
   <Headline {...args}>This is a headline</Headline>
 );
 
+Base.args = {
+  as: 'h2',
+};
+
 const sizes = ['one', 'two', 'three', 'four'] as const;
 
 export const Sizes = (args: HeadlineProps) =>
@@ -32,3 +36,7 @@ export const Sizes = (args: HeadlineProps) =>
       This is a headline {s}
     </Headline>
   ));
+
+Sizes.args = {
+  as: 'h2',
+};

@@ -14,36 +14,37 @@
  */
 
 import { describe, expect, it } from 'vitest';
+import { createRef } from 'react';
 
-import { create, renderToHtml, axe } from '../../util/test-utils.js';
+import { render, axe } from '../../util/test-utils.js';
 
-import Image from '.';
+import { Image } from './Image.js';
 
 describe('Image', () => {
-  /**
-   * Style tests.
-   */
-  it('should have responsive styles', () => {
-    const actual = create(
-      <Image
-        src="http://www.placepuppy.net/1p/800/500"
-        alt="A random cute puppy"
-      />,
+  const baseProps = {
+    src: 'http://www.placepuppy.net/1p/800/500',
+    alt: 'A random cute puppy',
+  };
+
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    const { container } = render(
+      <Image {...baseProps} className={className} />,
     );
-    expect(actual).toMatchSnapshot();
+    const image = container.querySelector('img');
+    expect(image?.className).toContain(className);
   });
 
-  /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(
-      <Image
-        src="http://www.placepuppy.net/1p/800/500"
-        alt="A random cute puppy"
-      />,
-    );
-    const actual = await axe(wrapper);
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLImageElement>();
+    const { container } = render(<Image {...baseProps} ref={ref} />);
+    const image = container.querySelector('img');
+    expect(ref.current).toBe(image);
+  });
+
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<Image {...baseProps} />);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });

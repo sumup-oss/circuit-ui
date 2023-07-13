@@ -1,0 +1,114 @@
+.base {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--cui-bg-normal);
+  outline: none;
+  opacity: 0;
+  transition: opacity var(--cui-transitions-default),
+    transform var(--cui-transitions-default);
+  transform: translateY(-25%);
+}
+
+.base::after {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  height: var(--cui-spacings-mega);
+  content: '';
+  background: linear-gradient(
+    rgb(255 255 255 / 0%),
+    rgb(255 255 255 / 66%),
+    rgb(255 255 255 / 100%)
+  );
+}
+
+.open {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.closed {
+  opacity: 0;
+  transform: translateY(-25%);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: var(--cui-z-index-modal);
+  background: var(--cui-bg-overlay);
+  opacity: 0;
+  transition: opacity var(--cui-transitions-default);
+}
+
+.overlay-open {
+  opacity: 1;
+}
+
+.overlay-closed {
+  opacity: 0;
+}
+
+.content {
+  max-width: 480px;
+  height: 100%;
+  padding-top: 56px;
+  padding-bottom: calc(env(safe-area-inset-bottom) + var(--cui-spacings-tera));
+  margin: 0 auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: var(--cui-z-index-absolute);
+  width: 100%;
+  padding: var(--cui-spacings-bit);
+  background: linear-gradient(
+    to bottom,
+    rgb(255 255 255 / 100%),
+    rgb(255 255 255 / 100%) 60%,
+    rgb(255 255 255 / 0%)
+  );
+}
+
+.close {
+  background-color: transparent;
+}
+
+.list {
+  list-style: none;
+}
+
+.chevron {
+  transition: transform var(--cui-transitions-default);
+  transform: rotate(0deg);
+}
+
+[aria-expanded="true"] .chevron {
+  color: var(--cui-fg-accent);
+  transform: rotate(-180deg);
+}
+
+.group {
+  margin-bottom: -1px;
+  border-bottom: var(--cui-border-width-kilo) solid var(--cui-border-divider);
+}
+
+.group > *:last-child {
+  padding-bottom: var(--cui-spacings-giga);
+}

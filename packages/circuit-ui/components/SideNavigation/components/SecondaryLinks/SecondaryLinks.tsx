@@ -15,13 +15,9 @@
 
 /* eslint-disable jsx-a11y/no-redundant-roles */
 
-import { forwardRef, Ref } from 'react';
-import { css } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
+import { forwardRef } from 'react';
 
-import styled, { StyleProps, NoTheme } from '../../../../styles/styled.js';
-import { navigationItem } from '../../../../styles/style-mixins.js';
-import { EmotionAsPropType } from '../../../../types/prop-types.js';
+import type { AsPropType } from '../../../../types/prop-types.js';
 import {
   useFocusList,
   FocusProps,
@@ -32,54 +28,38 @@ import Badge from '../../../Badge/index.js';
 import { useComponents } from '../../../ComponentsContext/index.js';
 import { Skeleton } from '../../../Skeleton/index.js';
 import { SecondaryGroupProps, SecondaryLinkProps } from '../../types.js';
+import { clsx } from '../../../../styles/clsx.js';
+import utilityClasses from '../../../../styles/utility.js';
+import sharedClasses from '../../../../styles/shared.js';
 
-const anchorStyles = ({ theme }: StyleProps) => css`
-  flex-wrap: wrap;
-  text-decoration: none;
-  padding: ${theme.spacings.mega} ${theme.spacings.giga};
-  word-break: break-word;
-  hyphens: auto;
-
-  ${theme.mq.tera} {
-    padding: ${theme.spacings.kilo};
-    padding-left: 20px;
-  }
-`;
-
-const SecondaryAnchor = styled.a<NoTheme>(navigationItem, anchorStyles);
-
-const listStyles = css`
-  list-style: none;
-`;
-
-const labelStyles = (theme: Theme) => css`
-  margin-right: ${theme.spacings.byte};
-`;
+import classes from './SecondaryLinks.module.css';
 
 function SecondaryLink({ label, badge, ...props }: SecondaryLinkProps) {
   const { Link } = useComponents();
 
+  const Element = props.href ? (Link as AsPropType) : 'button';
+
   return (
     <li>
-      <SecondaryAnchor
+      <Element
         {...props}
+        className={clsx(
+          classes.anchor,
+          sharedClasses.navigationItem,
+          utilityClasses.focusVisibleInset,
+        )}
         aria-current={props.isActive ? 'page' : undefined}
-        as={props.href ? (Link as EmotionAsPropType) : 'button'}
       >
-        <Skeleton css={labelStyles}>
+        <Skeleton className={classes.label}>
           <Body size="one" variant={props.isActive ? 'highlight' : undefined}>
             {label}
           </Body>
         </Skeleton>
         {badge && <Badge variant="promo" as="span" {...badge} />}
-      </SecondaryAnchor>
+      </Element>
     </li>
   );
 }
-
-const subHeadlineStyles = (theme: Theme) => css`
-  margin: ${theme.spacings.tera} ${theme.spacings.mega} ${theme.spacings.byte};
-`;
 
 function SecondaryGroup({
   label,
@@ -89,11 +69,11 @@ function SecondaryGroup({
   return (
     <li>
       {label && (
-        <Skeleton css={subHeadlineStyles}>
+        <Skeleton className={classes['group-headline']}>
           <SubHeadline as="h3">{label}</SubHeadline>
         </Skeleton>
       )}
-      <ul role="list" css={listStyles}>
+      <ul role="list" className={classes.list}>
         {secondaryLinks.map((link) => (
           <SecondaryLink key={link.label} {...link} {...focusProps} />
         ))}
@@ -107,14 +87,16 @@ export interface SecondaryLinksProps {
   className?: string;
 }
 
-export const SecondaryLinks = forwardRef(
-  (
-    { secondaryGroups, ...props }: SecondaryLinksProps,
-    ref: Ref<HTMLUListElement>,
-  ): JSX.Element => {
+export const SecondaryLinks = forwardRef<HTMLUListElement, SecondaryLinksProps>(
+  ({ secondaryGroups, className, ...props }, ref) => {
     const focusProps = useFocusList();
     return (
-      <ul role="list" ref={ref} css={listStyles} {...props}>
+      <ul
+        role="list"
+        ref={ref}
+        className={clsx(classes.list, className)}
+        {...props}
+      >
         {secondaryGroups.map((group, index) => (
           <SecondaryGroup key={index} {...group} focusProps={focusProps} />
         ))}

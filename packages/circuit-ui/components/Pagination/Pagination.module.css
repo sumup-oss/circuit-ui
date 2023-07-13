@@ -1,0 +1,17 @@
+.base {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: var(--cui-spacings-kilo);
+}
+
+.prev {
+  flex-shrink: 0;
+  margin-right: var(--cui-spacings-kilo);
+}
+
+.next {
+  flex-shrink: 0;
+  margin-left: var(--cui-spacings-kilo);
+}

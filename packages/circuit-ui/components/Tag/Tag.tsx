@@ -13,25 +13,30 @@
  * limitations under the License.
  */
 
-import { Ref, forwardRef, HTMLAttributes, ButtonHTMLAttributes } from 'react';
-import { css } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
+import {
+  forwardRef,
+  HTMLAttributes,
+  ButtonHTMLAttributes,
+  ComponentType,
+} from 'react';
 
-import { ClickEvent } from '../../types/events.js';
-import styled, { StyleProps } from '../../styles/styled.js';
-import { typography, focusVisible } from '../../styles/style-mixins.js';
-import CloseButton, { CloseButtonProps } from '../CloseButton/index.js';
+import type { ClickEvent } from '../../types/events.js';
 import { AccessibilityError } from '../../util/errors.js';
+import { clsx } from '../../styles/clsx.js';
+import utilityClasses from '../../styles/utility.js';
+import CloseButton from '../CloseButton/index.js';
+
+import classes from './Tag.module.css';
 
 type BaseProps = {
   /**
    * Render prop that should render a leading-aligned icon or element.
    */
-  prefix?: ({ className }: { className?: string }) => JSX.Element;
+  prefix?: ComponentType<{ className: string }>;
   /**
    * Render prop that should render a trailing-aligned icon or element.
    */
-  suffix?: ({ className }: { className?: string }) => JSX.Element;
+  suffix?: ComponentType<{ className: string }>;
   /**
    * Triggers selected styles on the tag.
    */
@@ -40,10 +45,6 @@ type BaseProps = {
    * Function that's called when the button is clicked.
    */
   onClick?: (event: ClickEvent) => void;
-  /**
-   *  The ref to the DOM element
-   */
-  ref?: Ref<HTMLDivElement & HTMLButtonElement>;
 };
 
 type RemoveProps =
@@ -61,123 +62,15 @@ type RemoveProps =
     }
   | { onRemove?: never; removeButtonLabel?: never };
 
-type DivElProps = Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>;
-type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
+type DivElProps = Omit<HTMLAttributes<HTMLDivElement>, 'onClick' | 'prefix'>;
+type ButtonElProps = Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  'onClick' | 'prefix'
+>;
 
 export type TagProps = BaseProps & RemoveProps & DivElProps & ButtonElProps;
 
-const BORDER_WIDTH = '1px';
-
-type TagElProps = Omit<TagProps, 'prefix' | 'suffix' | 'removeButtonLabel'> & {
-  removable: boolean;
-};
-
-const tagBaseStyles = ({ theme }: StyleProps) => css`
-  display: inline-flex;
-  align-items: center;
-  margin: 0;
-  word-break: break-word;
-  border: ${BORDER_WIDTH} solid var(--cui-border-normal);
-  border-radius: ${theme.borderRadius.byte};
-  padding: calc(${theme.spacings.bit} - 1px) ${theme.spacings.kilo};
-  cursor: default;
-  background-color: var(--cui-bg-normal);
-  transition: opacity ${theme.transitions.default},
-    color ${theme.transitions.default},
-    background-color ${theme.transitions.default},
-    border-color ${theme.transitions.default};
-`;
-
-const tagRemovableStyles = ({ theme, removable }: StyleProps & TagElProps) =>
-  removable &&
-  css`
-    padding-right: calc(${theme.spacings.bit} + ${theme.spacings.tera});
-  `;
-
-const tagClickableStyles = ({ onClick }: TagElProps) =>
-  onClick &&
-  css`
-    cursor: pointer;
-    outline: 0;
-    text-align: left;
-
-    &:hover {
-      color: var(--cui-fg-normal-hovered);
-      background-color: var(--cui-bg-normal-hovered);
-      border-color: var(--cui-border-normal-hovered);
-    }
-
-    &:active {
-      color: var(--cui-fg-normal-pressed);
-      background-color: var(--cui-bg-normal-pressed);
-      border-color: var(--cui-border-normal-pressed);
-    }
-
-    ${focusVisible()};
-  `;
-
-const tagSelectedStyles = ({ selected }: TagElProps) =>
-  selected &&
-  css`
-    background-color: var(--cui-bg-accent-strong);
-    border-color: var(--cui-border-accent);
-    color: var(--cui-fg-on-strong);
-  `;
-
-const tagSelectedClickableStyles = ({ selected, onClick }: TagElProps) =>
-  selected &&
-  onClick &&
-  css`
-    &:hover {
-      color: var(--cui-fg-on-strong-hovered);
-      background-color: var(--cui-bg-accent-strong-hovered);
-      border-color: var(--cui-border-accent-hovered);
-    }
-
-    &:active {
-      color: var(--cui-fg-on-strong-pressed);
-      background-color: var(--cui-bg-accent-strong-pressed);
-      border-color: var(--cui-border-accent-pressed);
-    }
-  `;
-
-const TagElement = styled('div')<TagElProps>(
-  typography('one'),
-  tagBaseStyles,
-  tagRemovableStyles,
-  tagClickableStyles,
-  tagSelectedStyles,
-  tagSelectedClickableStyles,
-);
-
-const prefixStyles = (theme: Theme) => css`
-  flex-shrink: 0;
-  margin-left: -${theme.spacings.bit};
-  margin-right: ${theme.spacings.bit};
-`;
-
-const suffixStyles = (theme: Theme) => css`
-  flex-shrink: 0;
-  margin-left: ${theme.spacings.bit};
-  margin-right: -${theme.spacings.bit};
-`;
-
-const closeButtonStyles = ({ theme }: StyleProps) => css`
-  position: absolute;
-  top: 50%;
-  right: ${BORDER_WIDTH};
-  transform: translateY(-50%);
-  border-radius: ${theme.borderRadius.byte};
-  border: 0;
-`;
-
-const RemoveButton = styled(CloseButton)<CloseButtonProps>(closeButtonStyles);
-
-const Container = styled.div`
-  position: relative;
-`;
-
-export const Tag = forwardRef(
+export const Tag = forwardRef<HTMLDivElement & HTMLButtonElement, TagProps>(
   (
     {
       children,
@@ -190,8 +83,8 @@ export const Tag = forwardRef(
       className,
       style,
       ...props
-    }: TagProps,
-    ref: BaseProps['ref'],
+    },
+    ref,
   ) => {
     if (
       process.env.NODE_ENV !== 'production' &&
@@ -204,37 +97,42 @@ export const Tag = forwardRef(
         'The `removeButtonLabel` prop is missing. Omit the `onRemove` prop if you intend to disable the tag removing functionality.',
       );
     }
-    const as = onClick ? 'button' : 'div';
+    const Element = onClick ? 'button' : 'div';
+
+    const isRemovable = onRemove && removeButtonLabel;
 
     return (
-      <Container className={className} style={style}>
-        <TagElement
-          removable={Boolean(onRemove)}
-          selected={selected}
+      <div className={clsx(classes.container, className)} style={style}>
+        <Element
+          className={clsx(
+            classes.base,
+            isRemovable && classes.removable,
+            onClick && utilityClasses.focusVisible,
+            selected && classes.selected,
+          )}
           type={onClick && 'button'}
           onClick={onClick}
-          as={as}
           ref={ref}
           {...props}
         >
-          {Prefix && <Prefix css={prefixStyles} />}
+          {Prefix && <Prefix className={classes.prefix} />}
 
           {children}
 
-          {Suffix && <Suffix css={suffixStyles} />}
-        </TagElement>
+          {Suffix && <Suffix className={classes.suffix} />}
+        </Element>
 
-        {onRemove && removeButtonLabel && (
-          <RemoveButton
+        {isRemovable && (
+          <CloseButton
             type="button"
             variant={selected ? 'primary' : 'secondary'}
             label={removeButtonLabel}
-            data-testid="tag-close"
+            className={classes['remove-button']}
             size="kilo"
             onClick={onRemove}
           />
         )}
-      </Container>
+      </div>
     );
   },
 );

@@ -14,16 +14,16 @@
  */
 
 import { Component, createRef, HTMLAttributes, UIEvent } from 'react';
-import { css } from '@emotion/react';
 
-import styled, { StyleProps } from '../../styles/styled.js';
 import { isNil } from '../../util/type-check.js';
 import { throttle } from '../../util/helpers.js';
+import { clsx } from '../../styles/clsx.js';
 
 import TableHead from './components/TableHead/index.js';
 import TableBody from './components/TableBody/index.js';
 import { defaultSortBy, getSortDirection } from './utils.js';
 import { Direction, Row, HeaderCell } from './types.js';
+import classes from './Table.module.css';
 
 export interface TableProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -79,94 +79,6 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
    */
   borderCollapsed?: boolean;
 }
-
-/**
- * Table container styles.
- * The position: relative; container is necessary because ShadowContainer
- * is a position: absolute; element
- */
-type TableContainerElProps = Pick<TableProps, 'scrollable' | 'noShadow'>;
-
-const tableContainerBaseStyles = () => css`
-  position: relative;
-`;
-
-const tableContainerScrollableStyles = ({
-  scrollable,
-}: TableContainerElProps) =>
-  scrollable &&
-  css`
-    height: 100%;
-  `;
-
-const shadowStyles = ({
-  theme,
-  noShadow,
-}: TableContainerElProps & StyleProps) =>
-  !noShadow &&
-  css`
-    border: ${theme.borderWidth.kilo} solid var(--cui-border-divider);
-  `;
-
-const TableContainer = styled.div<TableContainerElProps>(
-  tableContainerBaseStyles,
-  tableContainerScrollableStyles,
-  shadowStyles,
-);
-
-/**
- * Scroll container styles.
- */
-type ScrollContainerElProps = Pick<TableProps, 'scrollable' | 'rowHeaders'> & {
-  height?: string;
-};
-
-const containerStyles = ({
-  theme,
-  rowHeaders,
-}: ScrollContainerElProps & StyleProps) =>
-  rowHeaders &&
-  css`
-    border-radius: ${theme.borderRadius.bit};
-    ${theme.mq.untilMega} {
-      height: unset;
-      overflow-x: auto;
-    }
-  `;
-
-const scrollableStyles = ({ scrollable, height }: ScrollContainerElProps) =>
-  scrollable &&
-  css`
-    height: ${height || '100%'};
-    overflow-y: auto;
-  `;
-
-const ScrollContainer = styled.div<ScrollContainerElProps>(
-  containerStyles,
-  scrollableStyles,
-);
-
-/**
- * Table styles.
- */
-type TableElProps = Pick<TableProps, 'borderCollapsed' | 'rowHeaders'>;
-
-const baseStyles = css`
-  background-color: var(--cui-bg-normal);
-  border-collapse: separate;
-  width: 100%;
-`;
-
-const borderCollapsedStyles = ({ borderCollapsed }: TableElProps) =>
-  borderCollapsed &&
-  css`
-    border-collapse: collapse;
-  `;
-
-const StyledTable = styled.table<TableElProps>(
-  baseStyles,
-  borderCollapsedStyles,
-);
 
 type TableState = {
   sortedRow?: number;
@@ -311,6 +223,7 @@ class Table extends Component<TableProps, TableState> {
       onRowClick,
       rows: initialRows,
       onSortBy,
+      className,
       ...props
     } = this.props;
     const {
@@ -323,21 +236,29 @@ class Table extends Component<TableProps, TableState> {
     } = this.state;
 
     return (
-      <TableContainer
+      <div
+        className={clsx(
+          classes.container,
+          scrollable && classes.scrollable,
+          !noShadow && classes.border,
+          className,
+        )}
         ref={this.tableRef}
-        scrollable={scrollable}
-        noShadow={noShadow}
         {...props}
       >
-        <ScrollContainer
-          rowHeaders={rowHeaders}
-          scrollable={scrollable}
-          height={tableBodyHeight}
+        <div
+          className={clsx(
+            classes['scroll-container'],
+            rowHeaders && classes['row-headers'],
+          )}
+          style={{ '--table-height': tableBodyHeight || '100%' }}
           onScroll={scrollable ? this.handleScroll : undefined}
         >
-          <StyledTable
-            rowHeaders={rowHeaders}
-            borderCollapsed={borderCollapsed}
+          <table
+            className={clsx(
+              classes.base,
+              borderCollapsed && classes['border-collapse'],
+            )}
           >
             <TableHead
               top={scrollTop}
@@ -358,9 +279,9 @@ class Table extends Component<TableProps, TableState> {
               sortHover={sortHover}
               onRowClick={onRowClick}
             />
-          </StyledTable>
-        </ScrollContainer>
-      </TableContainer>
+          </table>
+        </div>
+      </div>
     );
   }
 }

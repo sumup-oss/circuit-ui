@@ -14,7 +14,6 @@
  */
 
 import { Fragment } from 'react';
-import { css } from '@emotion/react';
 
 import { ProgressBar, ProgressBarProps } from './ProgressBar.js';
 
@@ -26,13 +25,13 @@ export default {
 const variants = ['primary', 'secondary'] as const;
 const sizes = ['byte', 'kilo', 'mega'] as const;
 
-const progressBarStyles = css`
-  width: 90%;
-  min-width: 500px;
-`;
+const progressBarStyles = {
+  width: '90%',
+  minWidth: '500px',
+};
 
 export const Steps = (args: ProgressBarProps) => (
-  <ProgressBar {...args} css={progressBarStyles} />
+  <ProgressBar {...args} style={progressBarStyles} />
 );
 
 Steps.args = {
@@ -43,7 +42,7 @@ Steps.args = {
 };
 
 export const Timer = (args: ProgressBarProps) => (
-  <ProgressBar {...args} css={progressBarStyles} />
+  <ProgressBar {...args} style={progressBarStyles} />
 );
 
 Timer.args = {
@@ -62,8 +61,8 @@ export const Labelled = (args: ProgressBarProps) => {
   /* eslint-enable @typescript-eslint/no-non-null-assertion */
   return (
     <Fragment>
-      <ProgressBar {...args} css={progressBarStyles} label={fraction} />
-      <ProgressBar {...args} css={progressBarStyles} label={percentage} />
+      <ProgressBar {...args} style={progressBarStyles} label={fraction} />
+      <ProgressBar {...args} style={progressBarStyles} label={percentage} />
     </Fragment>
   );
 };
@@ -80,7 +79,7 @@ export const Variants = (args: ProgressBarProps) =>
       {...args}
       variant={variant}
       label={`A ${variant} progressbar`}
-      css={progressBarStyles}
+      style={progressBarStyles}
     />
   ));
 
@@ -96,7 +95,7 @@ export const Sizes = (args: ProgressBarProps) =>
       {...args}
       size={size}
       label={`A ${size} progressbar`}
-      css={progressBarStyles}
+      style={progressBarStyles}
     />
   ));
 

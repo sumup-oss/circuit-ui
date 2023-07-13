@@ -24,6 +24,10 @@ export const Base = (args: TitleProps) => (
   <Title {...args}>This is a Title</Title>
 );
 
+Base.args = {
+  as: 'h1',
+};
+
 const sizes = ['one', 'two', 'three', 'four'] as const;
 
 export const Sizes = (args: TitleProps) =>
@@ -32,3 +36,7 @@ export const Sizes = (args: TitleProps) =>
       This is a Title {s}
     </Title>
   ));
+
+Sizes.args = {
+  as: 'h1',
+};

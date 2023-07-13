@@ -135,62 +135,6 @@ describe('SidePanelContext', () => {
       <button onClick={() => hookFn({ group, ...props })}>Update panel</button>
     );
 
-    describe('render', () => {
-      it('should render the non-resized container', () => {
-        const Trigger = () => {
-          const { setSidePanel } = useContext(SidePanelContext);
-          return renderOpenButton(setSidePanel);
-        };
-
-        const { baseElement } = renderComponent(Trigger);
-
-        expect(baseElement).toMatchSnapshot();
-      });
-
-      it('should render the side panel and the resized container', async () => {
-        const Trigger = () => {
-          const { setSidePanel } = useContext(SidePanelContext);
-          return renderOpenButton(setSidePanel);
-        };
-
-        const { baseElement, getByText } = renderComponent(Trigger);
-
-        await userEvent.click(getByText('Open panel'));
-
-        expect(baseElement).toMatchSnapshot();
-      });
-
-      it('should render the side panel on mobile resolutions', async () => {
-        const Trigger = () => {
-          const { setSidePanel } = useContext(SidePanelContext);
-          return renderOpenButton(setSidePanel);
-        };
-
-        (useMedia as Mock).mockReturnValue(true);
-
-        const { baseElement, getByText } = renderComponent(Trigger);
-
-        await userEvent.click(getByText('Open panel'));
-
-        expect(baseElement).toMatchSnapshot();
-      });
-
-      it('should render the side panel with offset for the top navigation', async () => {
-        const Trigger = () => {
-          const { setSidePanel } = useContext(SidePanelContext);
-          return renderOpenButton(setSidePanel);
-        };
-
-        const { baseElement, getByText } = renderComponent(Trigger, {
-          withTopNavigation: true,
-        });
-
-        await userEvent.click(getByText('Open panel'));
-
-        expect(baseElement).toMatchSnapshot();
-      });
-    });
-
     describe('setSidePanel', () => {
       it('should open a side panel', async () => {
         const Trigger = () => {

@@ -16,133 +16,70 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import {
-  create,
-  renderToHtml,
-  axe,
-  render,
-  userEvent,
-} from '../../util/test-utils.js';
+import { axe, render, userEvent, screen } from '../../util/test-utils.js';
 
 import { Tag } from './Tag.js';
 
 const DummyIcon = (props: any) => <div data-testid="tag-icon" {...props} />;
 
 describe('Tag', () => {
-  /**
-   * Style tests.
-   */
-  describe('when is default', () => {
-    const props = {};
-
-    it('should render with default styles', () => {
-      const component = create(<Tag {...props}>SomeTest</Tag>);
-      expect(component).toMatchSnapshot();
-    });
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    const { container } = render(<Tag className={className}>Tag</Tag>);
+    const element = container.querySelector('div');
+    expect(element?.className).toContain(className);
   });
 
-  describe('when is clickable', () => {
-    const props = {
-      onClick: vi.fn(),
-    };
-
-    it('should render with clickable styles', () => {
-      const component = create(<Tag {...props}>SomeTest</Tag>);
-      expect(component).toMatchSnapshot();
-    });
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLButtonElement & HTMLDivElement>();
+    const { container } = render(<Tag ref={ref} onClick={vi.fn()} />);
+    const button = container.querySelector('button');
+    expect(ref.current).toBe(button);
   });
 
-  describe('when is selected', () => {
-    const props = {
-      selected: true,
-    };
-
-    it('should render with selected styles', () => {
-      const component = create(<Tag {...props}>SomeTest</Tag>);
-      expect(component).toMatchSnapshot();
-    });
-
-    it('should change the given icon color', () => {
-      const component = create(
-        <Tag {...{ prefix: DummyIcon, ...props }}>SomeTest</Tag>,
-      );
-      expect(component).toMatchSnapshot();
-    });
-
-    it('should change the close icon color', () => {
-      const component = create(
-        <Tag {...props} onRemove={vi.fn()} removeButtonLabel="Remove">
-          SomeTest
-        </Tag>,
-      );
-
-      expect(component).toMatchSnapshot();
-    });
-  });
-
-  describe('business logic', () => {
-    /**
-     * Should accept a working ref
-     */
-    it('should accept a working ref', () => {
-      const tref = createRef<HTMLButtonElement & HTMLDivElement>();
-      const { container } = render(<Tag ref={tref} onClick={vi.fn()} />);
-      const button = container.querySelector('button');
-      expect(tref.current).toBe(button);
-    });
-  });
-
-  /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Tag>Tag</Tag>);
-    const actual = await axe(wrapper);
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<Tag>Tag</Tag>);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 
-  /**
-   * Logic tests.
-   */
-  describe('when is removable', () => {
-    const props = {
-      onRemove: vi.fn(),
-      removeButtonLabel: 'Remove',
-    };
+  it('should call onRemove when removed', async () => {
+    const onRemove = vi.fn();
+    render(
+      <Tag onRemove={onRemove} removeButtonLabel="Remove">
+        SomeTest
+      </Tag>,
+    );
 
-    it('should render a close button', () => {
-      const { getByTestId } = render(<Tag {...props}>SomeTest</Tag>);
-      expect(getByTestId('tag-close')).not.toBeNull();
-    });
+    await userEvent.click(screen.getByText('Remove'));
 
-    it('should call onRemove when closed', async () => {
-      const { getByTestId } = render(<Tag {...props}>SomeTest</Tag>);
-
-      await userEvent.click(getByTestId('tag-close'));
-
-      expect(props.onRemove).toHaveBeenCalledTimes(1);
-    });
+    expect(onRemove).toHaveBeenCalledTimes(1);
   });
 
-  describe('when a suffix prop is passed', () => {
-    const props = {
-      suffix: DummyIcon,
-    };
-
-    it('should render with suffix', () => {
-      const { getByTestId } = render(<Tag {...props}>SomeTest</Tag>);
-      expect(getByTestId('tag-icon')).not.toBeNull();
-    });
+  it('should render with a prefix', () => {
+    render(<Tag prefix={DummyIcon}>SomeTest</Tag>);
+    expect(screen.getByTestId('tag-icon')).not.toBeNull();
   });
 
-  describe('when a prefix prop is passed', () => {
-    const props = {
-      prefix: DummyIcon,
-    };
+  it('should render with a suffix', () => {
+    render(<Tag suffix={DummyIcon}>SomeTest</Tag>);
+    expect(screen.getByTestId('tag-icon')).toBeVisible();
+  });
 
-    it('should render with a prefix', () => {
-      const { getByTestId } = render(<Tag {...props}>SomeTest</Tag>);
-      expect(getByTestId('tag-icon')).not.toBeNull();
+  describe('when interactive', () => {
+    it('should render a button', () => {
+      const onClick = vi.fn();
+      render(<Tag onClick={onClick}>SomeTest</Tag>);
+      expect(screen.getByRole('button')).toBeVisible();
+    });
+
+    it('should call onClick when clicked', async () => {
+      const onClick = vi.fn();
+      render(<Tag onClick={onClick}>SomeTest</Tag>);
+
+      await userEvent.click(screen.getByRole('button'));
+
+      expect(onClick).toHaveBeenCalledTimes(1);
     });
   });
 });

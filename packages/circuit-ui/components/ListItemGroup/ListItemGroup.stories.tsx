@@ -14,11 +14,9 @@
  */
 
 import { useState } from 'react';
-import { css } from '@emotion/react';
 import { SumUpCard, Confirm, Alert } from '@sumup/icons';
-import { Theme } from '@sumup/design-tokens';
 
-import { spacing } from '../../styles/style-mixins.js';
+import { Stack } from '../../../../.storybook/components/index.js';
 import Body from '../Body/index.js';
 
 import { ListItemGroup, ListItemGroupProps } from './ListItemGroup.js';
@@ -64,29 +62,32 @@ const items: Item[] = [
   },
 ];
 
-const detailsStyles = css`
-  display: flex;
-  align-items: center;
-`;
-
-const successfulIconStyles = (theme: Theme) => css`
-  margin-right: ${theme.spacings.bit};
-  color: var(--cui-fg-success);
-`;
-
-const failedIconStyles = (theme: Theme) => css`
-  margin-right: ${theme.spacings.bit};
-  color: var(--cui-fg-danger);
-`;
-
 const Details = ({ item }: { item: Item }) => (
-  <div css={detailsStyles}>
+  <div style={{ display: 'flex', alignItems: 'center' }}>
     {item.status !== 'Failed' ? (
-      <Confirm size="16" css={successfulIconStyles} role="presentation" />
+      <Confirm
+        size="16"
+        style={{
+          marginRight: 'var(--cui-spacings-bit)',
+          color: 'var(--cui-fg-success)',
+        }}
+        role="presentation"
+      />
     ) : (
-      <Alert size="16" css={failedIconStyles} role="presentation" />
+      <Alert
+        size="16"
+        style={{
+          marginRight: 'var(--cui-spacings-bit)',
+          color: 'var(--cui-fg-danger)',
+        }}
+        role="presentation"
+      />
     )}
-    <Body size="two" variant="highlight" css={spacing({ right: 'bit' })}>
+    <Body
+      size="two"
+      variant="highlight"
+      style={{ marginRight: 'var(--cui-spacings-bit)' }}
+    >
       {item.status}
     </Body>
     <Body size="two" variant="subtle">
@@ -95,23 +96,17 @@ const Details = ({ item }: { item: Item }) => (
   </div>
 );
 
-const strikeThrough = css`
-  text-decoration-line: line-through;
-`;
-
 const TrailingLabel = ({ item }: { item: Item }) => (
   <Body
     size="one"
     variant={item.status === 'Failed' ? 'subtle' : 'highlight'}
-    css={item.status === 'Failed' && strikeThrough}
+    style={
+      item.status === 'Failed' ? { textDecorationLine: 'line-through' } : {}
+    }
   >
     {item.amount}
   </Body>
 );
-
-const baseStyles = css`
-  width: 500px;
-`;
 
 const baseArgs: ListItemGroupProps = {
   variant: undefined,
@@ -123,38 +118,7 @@ const baseArgs: ListItemGroupProps = {
   hideLabel: undefined,
   details: undefined,
 };
-
-export const Base = (args: ListItemGroupProps) => (
-  <ListItemGroup {...args} css={baseStyles} />
-);
-Base.args = baseArgs;
-
-export const WithHiddenLabel = (args: ListItemGroupProps) => (
-  <ListItemGroup {...args} css={baseStyles} />
-);
-WithHiddenLabel.args = {
-  ...baseArgs,
-  hideLabel: true,
-} as ListItemGroupProps;
-
-export const WithLabelAndDetails = (args: ListItemGroupProps) => (
-  <ListItemGroup {...args} css={baseStyles} />
-);
-WithLabelAndDetails.args = {
-  ...baseArgs,
-  details: '€26.20',
-} as ListItemGroupProps;
-
-export const PlainVariant = (args: ListItemGroupProps) => (
-  <ListItemGroup {...args} css={baseStyles} />
-);
-PlainVariant.args = {
-  ...baseArgs,
-  variant: 'plain',
-  details: '€26.20',
-} as ListItemGroupProps;
-
-export const SampleConfiguration = (args: ListItemGroupProps) => {
+export const Base = (args: ListItemGroupProps) => {
   const [selectedId, setSelectedId] = useState<number | null>(null);
 
   return (
@@ -170,12 +134,38 @@ export const SampleConfiguration = (args: ListItemGroupProps) => {
         selected: item.id === selectedId,
         onClick: () => setSelectedId(item.id),
       }))}
-      css={baseStyles}
     />
   );
 };
-SampleConfiguration.args = {
+Base.args = {
   ...baseArgs,
   items: [],
+  details: '€26.20',
+} as ListItemGroupProps;
+
+export const WithHiddenLabel = (args: ListItemGroupProps) => (
+  <ListItemGroup {...args} />
+);
+WithHiddenLabel.args = {
+  ...baseArgs,
+  hideLabel: true,
+} as ListItemGroupProps;
+
+export const WithLabelAndDetails = (args: ListItemGroupProps) => (
+  <ListItemGroup {...args} />
+);
+WithLabelAndDetails.args = {
+  ...baseArgs,
+  details: '€26.20',
+} as ListItemGroupProps;
+
+export const Variants = (args: ListItemGroupProps) => (
+  <Stack vertical>
+    <ListItemGroup {...args} variant="inset" />
+    <ListItemGroup {...args} variant="plain" />
+  </Stack>
+);
+Variants.args = {
+  ...baseArgs,
   details: '€26.20',
 } as ListItemGroupProps;

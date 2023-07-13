@@ -13,10 +13,11 @@
  * limitations under the License.
  */
 
-import { ImgHTMLAttributes } from 'react';
-import { css } from '@emotion/react';
+import { ImgHTMLAttributes, forwardRef } from 'react';
 
-import styled from '../../styles/styled.js';
+import { clsx } from '../../styles/clsx.js';
+
+import classes from './Image.module.css';
 
 export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   /**
@@ -31,14 +32,18 @@ export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   alt: string;
 }
 
-const baseStyles = () => css`
-  display: block;
-  height: auto;
-  max-height: 100%;
-  width: 100%;
-`;
-
 /**
  * The Image component. Responsive by default.
  */
-export const Image = styled.img<ImageProps>(baseStyles);
+export const Image = forwardRef<HTMLImageElement, ImageProps>(
+  ({ className, alt, ...props }, ref) => (
+    <img
+      alt={alt}
+      ref={ref}
+      className={clsx(classes.base, className)}
+      {...props}
+    />
+  ),
+);
+
+Image.displayName = 'Image';

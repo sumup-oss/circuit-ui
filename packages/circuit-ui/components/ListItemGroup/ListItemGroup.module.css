@@ -1,0 +1,92 @@
+.base {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  flex: none;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin: 0 var(--cui-spacings-mega);
+}
+
+.plain .header {
+  margin: 0 calc(var(--cui-spacings-mega) - var(--cui-border-width-mega));
+}
+
+.label {
+  flex: auto;
+  min-width: 0;
+  margin-bottom: var(--cui-spacings-byte);
+}
+
+.label > * {
+  max-width: 100%;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.details {
+  flex: none;
+  margin-bottom: var(--cui-spacings-byte);
+  margin-left: var(--cui-spacings-mega);
+}
+
+.items {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  border: var(--cui-border-width-mega) solid var(--cui-border-subtle);
+  border-radius: var(--cui-border-radius-mega);
+}
+
+.plain .items {
+  border-width: var(--cui-border-width-kilo) 0;
+  border-radius: 0;
+}
+
+.item {
+  list-style: none;
+}
+
+.item:not(:first-of-type) > * > div:last-of-type {
+  position: relative;
+}
+
+.item:not(:first-of-type) > * > div:last-of-type::before {
+  position: absolute;
+  top: calc(-1 * var(--cui-spacings-kilo));
+  right: calc(-1 * var(--cui-spacings-mega));
+  left: 0;
+  content: '';
+  border-top: var(--cui-border-width-kilo) solid var(--cui-border-divider);
+}
+
+
+.interactive:hover:not(:first-of-type) > * > div:last-of-type::before,
+.interactive:hover + li:not(:first-of-type) > * > div:last-of-type::before {
+  border-top-width: 0;
+}
+
+.focused:not(:first-of-type) > * > div:last-of-type::before,
+.focused + li:not(:first-of-type) > * > div:last-of-type::before,
+.selected:not(:first-of-type) > * > div:last-of-type::before,
+.selected + li:not(:first-of-type) > * > div:last-of-type::before  {
+  border-top-width: 0;
+}
+
+.child {
+  border: none;
+  border-radius: calc(
+    var(--cui-border-radius-mega) - var(--cui-border-width-mega)
+  );
+}
+
+.plain .child[aria-current="true"]::after {
+  top: calc(-1 * var(--cui-border-width-kilo));
+  right: 0;
+  bottom: calc(-1 * var(--cui-border-width-kilo));
+  left: 0;
+}

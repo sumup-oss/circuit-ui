@@ -1,0 +1,57 @@
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hide-visually {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.focus-visible:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+}
+
+.focus-visible:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.focus-visible:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.focus-visible-inset:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
+}
+
+.focus-visible-inset:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.focus-visible-inset:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.shadow {
+  box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
+}

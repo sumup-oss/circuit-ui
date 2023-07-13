@@ -15,50 +15,42 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import {
-  create,
-  render,
-  renderToHtml,
-  axe,
-  userEvent,
-} from '../../../../util/test-utils.js';
+import { render, axe, userEvent } from '../../../../util/test-utils.js';
 
 import SortArrow from './index.js';
 
 describe('SortArrow', () => {
-  describe('Style tests', () => {
-    it('should render with both arrows styles', () => {
-      const actual = create(<SortArrow label="Sort" />);
-      expect(actual).toMatchSnapshot();
-    });
-
-    it('should render with ascending arrow styles', () => {
-      const actual = create(<SortArrow label="Sort" direction="ascending" />);
-      expect(actual).toMatchSnapshot();
-    });
-
-    it('should render with descending arrow styles', () => {
-      const actual = create(<SortArrow label="Sort" direction="descending" />);
-      expect(actual).toMatchSnapshot();
-    });
+  it('should render with both arrows styles', () => {
+    const { container } = render(<SortArrow label="Sort" />);
+    expect(container.querySelectorAll('svg')).toHaveLength(2);
   });
 
-  describe('Logic tests', () => {
-    it('should call the onClick callback', async () => {
-      const onClick = vi.fn();
-      const { getByTestId } = render(
-        <SortArrow label="Sort" onClick={onClick} data-testid="sort" />,
-      );
-      await userEvent.click(getByTestId('sort'));
-      expect(onClick).toHaveBeenCalledTimes(1);
-    });
+  it('should render with ascending arrow styles', () => {
+    const { container } = render(
+      <SortArrow label="Sort" direction="ascending" />,
+    );
+    expect(container.querySelectorAll('svg')).toHaveLength(1);
   });
 
-  describe('Accessibility tests', () => {
-    it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<SortArrow label="Sort" />);
-      const actual = await axe(wrapper);
-      expect(actual).toHaveNoViolations();
-    });
+  it('should render with descending arrow styles', () => {
+    const { container } = render(
+      <SortArrow label="Sort" direction="descending" />,
+    );
+    expect(container.querySelectorAll('svg')).toHaveLength(1);
+  });
+
+  it('should call the onClick callback', async () => {
+    const onClick = vi.fn();
+    const { getByTestId } = render(
+      <SortArrow label="Sort" onClick={onClick} data-testid="sort" />,
+    );
+    await userEvent.click(getByTestId('sort'));
+    expect(onClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<SortArrow label="Sort" />);
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });

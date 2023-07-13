@@ -14,34 +14,36 @@
  */
 
 import { describe, expect, it } from 'vitest';
+import { createRef } from 'react';
 
-import { create, renderToHtml, axe } from '../../util/test-utils.js';
+import { render, axe } from '../../util/test-utils.js';
 
-import Card from '.';
+import { Card } from './Card.js';
 
 describe('Card', () => {
-  /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const actual = create(<Card />);
-    expect(actual).toMatchSnapshot();
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    const { container } = render(<Card className={className} />);
+    const card = container.querySelector('div');
+    expect(card?.className).toContain(className);
   });
 
-  it.each(['mega', 'giga'] as const)(
-    'should render with %s spacing styles',
-    (spacing) => {
-      const actual = create(<Card spacing={spacing} />);
-      expect(actual).toMatchSnapshot();
-    },
-  );
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLDivElement>();
+    const { container } = render(<Card ref={ref} />);
+    const card = container.querySelector('div');
+    expect(ref.current).toBe(card);
+  });
 
-  /**
-   * Accessibility tests.
-   */
+  it('should render as a custom element', () => {
+    const { container } = render(<Card as="section" />);
+    const section = container.querySelector('section');
+    expect(section).toBeVisible();
+  });
+
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Card />);
-    const actual = await axe(wrapper);
+    const { container } = render(<Card />);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });

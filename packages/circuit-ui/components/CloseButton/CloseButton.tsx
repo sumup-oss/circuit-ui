@@ -14,29 +14,23 @@
  */
 
 import { forwardRef } from 'react';
-import { css } from '@emotion/react';
 import { Close } from '@sumup/icons';
 
+import { clsx } from '../../styles/clsx.js';
 import { IconButton, IconButtonProps } from '../IconButton/IconButton.js';
 
-export type CloseButtonProps = Omit<IconButtonProps, 'children'>;
+import classes from './CloseButton.module.css';
 
-// The !important below is necessary to override the default hover styles.
-const buttonStyles = () => css`
-  border-color: transparent !important;
-`;
+export type CloseButtonProps = Omit<IconButtonProps, 'children'>;
 
 /**
  * A generic close button.
  */
-export const CloseButton = forwardRef(
-  (
-    { label = 'Close', ...props }: CloseButtonProps,
-    ref: CloseButtonProps['ref'],
-  ) => (
+export const CloseButton = forwardRef<any, CloseButtonProps>(
+  ({ label = 'Close', className, ...props }, ref) => (
     <IconButton
       type="button"
-      css={buttonStyles}
+      className={clsx(classes.base, className)}
       label={label}
       {...props}
       ref={ref}

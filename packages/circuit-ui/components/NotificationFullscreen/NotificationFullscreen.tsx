@@ -14,14 +14,15 @@
  */
 
 import { FC, HTMLAttributes, ReactNode, SVGProps, forwardRef } from 'react';
-import { css } from '@emotion/react';
 
 import Body from '../Body/index.js';
 import Headline from '../Headline/index.js';
 import ButtonGroup, { ButtonGroupProps } from '../ButtonGroup/index.js';
-import { spacing, cx } from '../../styles/style-mixins.js';
 import Image, { ImageProps } from '../Image/index.js';
 import { isString } from '../../util/type-check.js';
+import { clsx } from '../../styles/clsx.js';
+
+import classes from './NotificationFullscreen.module.css';
 
 export interface NotificationFullscreenProps
   extends HTMLAttributes<HTMLDivElement> {
@@ -52,34 +53,13 @@ export interface NotificationFullscreenProps
   actions?: ButtonGroupProps['actions'];
 }
 
-const wrapperStyles = css`
-  max-width: 420px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const imageStyles = css`
-  height: 160px;
-  max-width: 280px;
-  object-fit: contain;
-`;
-
-const svgStyles = css`
-  height: 100%;
-  width: 100%;
-`;
-
-function NotificationImage({
-  image,
-}: Pick<NotificationFullscreenProps, 'image'>) {
+function NotificationImage(image: NotificationFullscreenProps['image']) {
   if ('svg' in image) {
     const Svg = image.svg;
     const isDecorative = !image.alt;
     return (
-      <div css={imageStyles}>
+      <div className={classes.image}>
         <Svg
-          css={svgStyles}
           {...(isDecorative
             ? { 'aria-hidden': true }
             : { 'aria-label': image.alt, 'role': 'img' })}
@@ -87,12 +67,8 @@ function NotificationImage({
       </div>
     );
   }
-  return <Image {...image} css={imageStyles} />;
+  return <Image {...image} className={classes.image} />;
 }
-
-const centeredStyles = css`
-  text-align: center;
-`;
 
 /**
  * The `NotificationFullscreen` component provides important information or
@@ -101,23 +77,17 @@ const centeredStyles = css`
 export const NotificationFullscreen = forwardRef<
   HTMLDivElement,
   NotificationFullscreenProps
->(({ image, headline, body, actions, ...props }, ref): JSX.Element => {
+>(({ image, headline, body, actions, className, ...props }, ref) => {
   const headlineLabel = isString(headline) ? headline : headline.label;
   const headlineElement = isString(headline) ? 'h2' : headline.as;
   return (
-    <div ref={ref} css={wrapperStyles} {...props}>
-      <NotificationImage image={image} />
-      <Headline
-        css={cx(spacing({ top: 'giga', bottom: 'byte' }), centeredStyles)}
-        size="two"
-        as={headlineElement}
-      >
+    <div ref={ref} className={clsx(classes.base, className)} {...props}>
+      <NotificationImage {...image} />
+      <Headline className={classes.headline} size="two" as={headlineElement}>
         {headlineLabel}
       </Headline>
-      {body && <Body css={centeredStyles}>{body}</Body>}
-      {actions && (
-        <ButtonGroup actions={actions} css={spacing({ top: 'giga' })} />
-      )}
+      {body && <Body className={classes.body}>{body}</Body>}
+      {actions && <ButtonGroup actions={actions} className={classes.buttons} />}
     </div>
   );
 });

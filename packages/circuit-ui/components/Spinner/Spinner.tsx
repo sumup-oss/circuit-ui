@@ -13,56 +13,30 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes } from 'react';
-import { css, keyframes } from '@emotion/react';
+import { HTMLAttributes, forwardRef } from 'react';
 
-import styled, { StyleProps } from '../../styles/styled.js';
+import { clsx } from '../../styles/clsx.js';
 
-const spin = keyframes`
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-`;
-
-export type SpinnerSize = 'byte' | 'kilo' | 'giga';
+import classes from './Spinner.module.css';
 
 export interface SpinnerProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Choose from 3 sizes. Default: 'kilo'.
    */
-  size?: SpinnerSize;
+  size?: 'byte' | 'kilo' | 'giga';
 }
-
-const baseStyles = ({ theme }: StyleProps) => css`
-  display: block;
-  border-radius: ${theme.borderRadius.circle};
-  border: ${theme.borderWidth.mega} solid currentColor;
-  border-top-color: transparent;
-  animation: ${spin} 1s infinite linear;
-  transform-origin: 50% 50%;
-`;
-
-const sizeStyles = ({ theme, size = 'kilo' }: SpinnerProps & StyleProps) => {
-  const sizeMap = {
-    byte: {
-      width: `${theme.iconSizes.mega}`,
-      height: `${theme.iconSizes.mega}`,
-    },
-    kilo: {
-      width: `${theme.iconSizes.giga}`,
-      height: `${theme.iconSizes.giga}`,
-    },
-    giga: {
-      width: `${theme.iconSizes.tera}`,
-      height: `${theme.iconSizes.tera}`,
-    },
-  };
-
-  return css({
-    ...sizeMap[size],
-  });
-};
 
 /**
  * A spinning loading icon.
  */
-export const Spinner = styled.span<SpinnerProps>(baseStyles, sizeStyles);
+export const Spinner = forwardRef<HTMLSpanElement, SpinnerProps>(
+  ({ size = 'kilo', className, ...props }, ref) => (
+    <span
+      className={clsx(classes.base, classes[size], className)}
+      {...props}
+      ref={ref}
+    />
+  ),
+);
+
+Spinner.displayName = 'Spinner';

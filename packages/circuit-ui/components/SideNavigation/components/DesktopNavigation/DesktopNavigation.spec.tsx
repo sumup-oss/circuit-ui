@@ -37,7 +37,7 @@ describe('DesktopNavigation', () => {
     secondaryNavigationLabel: 'Secondary',
   };
 
-  const defaultProps = {
+  const defaultProps: DesktopNavigationProps = {
     ...baseProps,
     primaryLinks: [
       {
@@ -67,49 +67,37 @@ describe('DesktopNavigation', () => {
     ],
   };
 
-  describe('styles', () => {
-    it('should render with secondary links', () => {
-      const { container, getAllByRole } = renderDesktopNavigation(
-        render,
-        defaultProps,
-      );
+  it('should render with secondary links', () => {
+    const { getAllByRole } = renderDesktopNavigation(render, defaultProps);
 
-      const lists = getAllByRole('list');
+    const lists = getAllByRole('list');
 
-      expect(lists).toHaveLength(3);
-      expect(container).toMatchSnapshot();
-    });
-
-    it('should render without secondary links', () => {
-      const props = {
-        ...baseProps,
-        primaryLinks: [
-          {
-            icon: (iconProps) => <Home {...iconProps} size="24" />,
-            label: 'Home',
-            href: '/',
-            onClick: vi.fn(),
-            secondaryGroups: [],
-          },
-        ],
-      };
-      const { container, getAllByRole } = renderDesktopNavigation(
-        render,
-        props,
-      );
-
-      const lists = getAllByRole('list');
-
-      expect(lists).toHaveLength(1);
-      expect(container).toMatchSnapshot();
-    });
+    expect(lists).toHaveLength(3);
   });
 
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const { container } = renderDesktopNavigation(render, defaultProps);
-      const actual = await axe(container);
-      expect(actual).toHaveNoViolations();
-    });
+  it('should render without secondary links', () => {
+    const props: DesktopNavigationProps = {
+      ...baseProps,
+      primaryLinks: [
+        {
+          icon: (iconProps) => <Home {...iconProps} size="24" />,
+          label: 'Home',
+          href: '/',
+          onClick: vi.fn(),
+          secondaryGroups: [],
+        },
+      ],
+    };
+    const { getAllByRole } = renderDesktopNavigation(render, props);
+
+    const lists = getAllByRole('list');
+
+    expect(lists).toHaveLength(1);
+  });
+
+  it('should have no accessibility violations', async () => {
+    const { container } = renderDesktopNavigation(render, defaultProps);
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });

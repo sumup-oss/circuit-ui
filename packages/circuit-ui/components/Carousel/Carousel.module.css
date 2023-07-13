@@ -1,0 +1,24 @@
+.status {
+  flex: none;
+  margin-right: var(--cui-spacings-exa);
+}
+
+@media (max-width: 479px) {
+  .status {
+    margin-right: var(--cui-spacings-kilo);
+  }
+}
+
+.progressbar {
+  flex: 1 1 auto;
+}
+
+.buttons {
+  margin-left: var(--cui-spacings-exa);
+}
+
+@media (max-width: 479px) {
+  .buttons {
+    margin-left: var(--cui-spacings-kilo);
+  }
+}

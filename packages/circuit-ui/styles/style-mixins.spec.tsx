@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 import { css } from '@emotion/react';
-import { light, Theme } from '@sumup/design-tokens';
+import { light } from '@sumup/design-tokens';
 
 import { create } from '../util/test-utils.js';
 
@@ -31,17 +31,15 @@ import {
   clearfix,
   hideScrollbar,
   inputOutline,
-  listItem,
-  navigationItem,
   center,
 } from './style-mixins.js';
 
 describe('Style helpers', () => {
-  const byte = (theme: Theme) => css`
-    margin: ${theme.spacings.byte};
+  const byte = () => css`
+    margin: var(--cui-spacings-byte);
   `;
-  const kilo = (theme: Theme) => css`
-    margin: ${theme.spacings.kilo};
+  const kilo = () => css`
+    margin: var(--cui-spacings-kilo);
   `;
   const purple = css`
     color: rebeccapurple;
@@ -53,8 +51,8 @@ describe('Style helpers', () => {
 
       expect(actual).toMatchInlineSnapshot(`
         .circuit-0 {
-          margin: 8px;
-          margin: 12px;
+          margin: var(--cui-spacings-byte);
+          margin: var(--cui-spacings-kilo);
         }
 
         <div
@@ -84,7 +82,7 @@ describe('Style helpers', () => {
 
       expect(actual).toMatchInlineSnapshot(`
         .circuit-0 {
-          margin: 8px;
+          margin: var(--cui-spacings-byte);
         }
 
         <div
@@ -422,216 +420,6 @@ describe('Style helpers', () => {
                   box-shadow: 0 0 0 1px var(--cui-border-warning-pressed);
                 }
               "
-      `,
-      );
-    });
-  });
-
-  describe('listItem', () => {
-    it('should match the snapshot', () => {
-      const { styles } = listItem(light);
-      expect(styles).toMatchInlineSnapshot(
-        `
-        "
-            background-color: var(--cui-bg-normal);
-            padding: 12px 32px
-              12px 16px;
-            border: 0;
-            color: var(--cui-fg-normal);
-            text-decoration: none;
-            position: relative;
-
-            &:hover {
-              background-color: var(--cui-bg-normal-hovered);
-              cursor: pointer;
-            }
-
-
-              &:focus {
-                outline: 0;
-                box-shadow: inset 0 0 0 4px var(--cui-border-focus);
-
-                &::-moz-focus-inner {
-                  border: 0;
-                }
-              }
-
-              &:focus:not(:focus-visible) {
-                box-shadow: none;
-              }
-            ;;
-
-            &:active {
-              background-color: var(--cui-bg-normal-pressed);
-            }
-
-            &:disabled,
-            &[disabled] {
-              pointer-events: none;
-              background-color: var(--cui-bg-normal-disabled);
-              color: var(--cui-fg-normal-disabled);
-            }
-          "
-      `,
-      );
-    });
-
-    it('should match the snapshot when it is destructive', () => {
-      const { styles } = listItem({
-        theme: light,
-        destructive: true,
-      });
-      expect(styles).toMatchInlineSnapshot(
-        `
-        "
-            background-color: var(--cui-bg-normal);
-            padding: 12px 32px
-              12px 16px;
-            border: 0;
-            color: var(--cui-fg-danger);
-            text-decoration: none;
-            position: relative;
-
-            &:hover {
-              background-color: var(--cui-bg-normal-hovered);
-              cursor: pointer;
-            }
-
-
-              &:focus {
-                outline: 0;
-                box-shadow: inset 0 0 0 4px var(--cui-border-focus);
-
-                &::-moz-focus-inner {
-                  border: 0;
-                }
-              }
-
-              &:focus:not(:focus-visible) {
-                box-shadow: none;
-              }
-            ;;
-
-            &:active {
-              background-color: var(--cui-bg-normal-pressed);
-            }
-
-            &:disabled,
-            &[disabled] {
-              pointer-events: none;
-              background-color: var(--cui-bg-normal-disabled);
-              color: var(--cui-fg-danger-disabled);
-            }
-          "
-      `,
-      );
-    });
-  });
-
-  describe('navigationItem', () => {
-    it('should match the snapshot', () => {
-      const { styles } = navigationItem(light);
-      expect(styles).toMatchInlineSnapshot(
-        `
-        "
-            display: flex;
-            align-items: center;
-            border: none;
-            outline: none;
-            color: var(--cui-fg-normal);
-            background-color: var(--cui-bg-normal);
-            text-align: left;
-            cursor: pointer;
-            transition: color 120ms ease-in-out,
-              background-color 120ms ease-in-out;
-
-            &:hover {
-              background-color: var(--cui-bg-normal-hovered);
-              color: var(--cui-fg-normal-hovered);
-            }
-
-            &:active {
-              background-color: var(--cui-bg-normal-pressed);
-              color: var(--cui-fg-normal-pressed);
-            }
-
-
-              &:focus {
-                outline: 0;
-                box-shadow: inset 0 0 0 4px var(--cui-border-focus);
-
-                &::-moz-focus-inner {
-                  border: 0;
-                }
-              }
-
-              &:focus:not(:focus-visible) {
-                box-shadow: none;
-              }
-            ;;
-
-            &:disabled,
-            &[disabled] {
-              pointer-events: none;
-              background-color: var(--cui-bg-normal-disabled);
-              color: var(--cui-fg-normal-disabled);
-            }
-          "
-      `,
-      );
-    });
-
-    it('should match the snapshot when it is active', () => {
-      const { styles } = navigationItem({
-        theme: light,
-        isActive: true,
-      });
-      expect(styles).toMatchInlineSnapshot(
-        `
-        "
-            display: flex;
-            align-items: center;
-            border: none;
-            outline: none;
-            color: var(--cui-fg-accent);
-            background-color: var(--cui-bg-accent);
-            text-align: left;
-            cursor: pointer;
-            transition: color 120ms ease-in-out,
-              background-color 120ms ease-in-out;
-
-            &:hover {
-              background-color: var(--cui-bg-accent-hovered);
-              color: var(--cui-fg-accent-hovered);
-            }
-
-            &:active {
-              background-color: var(--cui-bg-accent-pressed);
-              color: var(--cui-fg-accent-pressed);
-            }
-
-
-              &:focus {
-                outline: 0;
-                box-shadow: inset 0 0 0 4px var(--cui-border-focus);
-
-                &::-moz-focus-inner {
-                  border: 0;
-                }
-              }
-
-              &:focus:not(:focus-visible) {
-                box-shadow: none;
-              }
-            ;;
-
-            &:disabled,
-            &[disabled] {
-              pointer-events: none;
-              background-color: var(--cui-bg-accent-disabled);
-              color: var(--cui-fg-accent-disabled);
-            }
-          "
       `,
       );
     });

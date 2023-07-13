@@ -26,7 +26,6 @@ import Button from '../Button/index.js';
 import { ToastProvider } from '../ToastContext/ToastContext.js';
 
 import {
-  NotificationToast,
   NotificationToastProps,
   useNotificationToast,
 } from './NotificationToast.js';
@@ -35,9 +34,6 @@ describe('NotificationToast', () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
-
-  const renderStaticNotificationToast = (props: NotificationToastProps) =>
-    render(<NotificationToast {...props} />);
 
   const renderNotificationToast = (props: NotificationToastProps) => {
     const App = () => {
@@ -63,103 +59,78 @@ describe('NotificationToast', () => {
     body: 'This is a toast message',
   };
 
-  describe('styles', () => {
-    it('should render with default styles', () => {
-      const { baseElement } = renderStaticNotificationToast(
-        baseNotificationToast,
-      );
-      expect(baseElement).toMatchSnapshot();
+  it('should render with a headline', async () => {
+    const { getByText, findByRole } = renderNotificationToast({
+      ...baseNotificationToast,
+      headline: 'Information',
     });
 
-    const variants: NotificationToastProps['variant'][] = [
-      'info',
-      'success',
-      'warning',
-      'danger',
-    ];
+    await userEvent.click(getByText('Open toast'));
 
-    it.each(variants)('should render with %s variant styles', (variant) => {
-      const { baseElement } = renderStaticNotificationToast({
-        ...baseNotificationToast,
-        variant,
-      });
-      expect(baseElement).toMatchSnapshot();
-    });
+    const headingEl = await findByRole('heading');
 
-    it('should render with a headline', () => {
-      const { baseElement } = renderStaticNotificationToast({
-        ...baseNotificationToast,
-        headline: 'Information',
-      });
-      expect(baseElement).toMatchSnapshot();
-    });
+    expect(headingEl.tagName).toBe('H3');
+    expect(headingEl).toHaveTextContent('Information');
   });
 
-  describe('business logic', () => {
-    it('should open a toast', async () => {
-      const { findByRole, getByText } = renderNotificationToast(
-        baseNotificationToast,
-      );
+  it('should open a toast', async () => {
+    const { findByRole, getByText } = renderNotificationToast(
+      baseNotificationToast,
+    );
 
-      await userEvent.click(getByText('Open toast'));
+    await userEvent.click(getByText('Open toast'));
 
-      const toastEl = await findByRole('status');
+    const toastEl = await findByRole('status');
 
-      expect(toastEl).toBeVisible();
-    });
-
-    it('should close the toast when the onClose method is called', async () => {
-      const { getByText } = renderNotificationToast(baseNotificationToast);
-
-      await userEvent.click(getByText('Open toast'));
-
-      await waitFor(() => {
-        expect(getByText('This is a toast message')).toBeVisible();
-      });
-
-      const closeButton = getByText('-');
-
-      await userEvent.click(closeButton);
-
-      expect(baseNotificationToast.onClose).toHaveBeenCalled();
-    });
-
-    it('should autodismiss toast after the duration has expired', async () => {
-      const { getByText } = renderNotificationToast(baseNotificationToast);
-
-      await userEvent.click(getByText('Open toast'));
-
-      const toastElement = getByText('This is a toast message');
-
-      await waitFor(() => {
-        expect(toastElement).toBeVisible();
-      });
-
-      await waitForElementToBeRemoved(toastElement, {
-        timeout: 10000,
-      });
-
-      expect(baseNotificationToast.onClose).toHaveBeenCalledTimes(1);
-    }, 10000);
+    expect(toastEl).toBeVisible();
   });
 
-  /**
-   * Accessibility tests.
-   */
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const { container, getByText } = renderNotificationToast(
-        baseNotificationToast,
-      );
+  it('should close the toast when the onClose method is called', async () => {
+    const { getByText } = renderNotificationToast(baseNotificationToast);
 
-      await userEvent.click(getByText('Open toast'));
+    await userEvent.click(getByText('Open toast'));
 
-      await waitFor(() => {
-        expect(getByText('This is a toast message')).toBeVisible();
-      });
-
-      const actual = await axe(container);
-      expect(actual).toHaveNoViolations();
+    await waitFor(() => {
+      expect(getByText('This is a toast message')).toBeVisible();
     });
+
+    const closeButton = getByText('-');
+
+    await userEvent.click(closeButton);
+
+    expect(baseNotificationToast.onClose).toHaveBeenCalled();
+  });
+
+  it('should autodismiss toast after the duration has expired', async () => {
+    const { getByText } = renderNotificationToast(baseNotificationToast);
+
+    await userEvent.click(getByText('Open toast'));
+
+    const toastElement = getByText('This is a toast message');
+
+    await waitFor(() => {
+      expect(toastElement).toBeVisible();
+    });
+
+    await waitForElementToBeRemoved(toastElement, {
+      timeout: 10000,
+    });
+
+    expect(baseNotificationToast.onClose).toHaveBeenCalledTimes(1);
+  }, 10000);
+
+  it('should have no accessibility violations', async () => {
+    const { container, getByText } = renderNotificationToast(
+      baseNotificationToast,
+    );
+
+    await userEvent.click(getByText('Open toast'));
+
+    await waitFor(() => {
+      expect(getByText('This is a toast message')).toBeVisible();
+    });
+
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });

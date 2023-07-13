@@ -13,10 +13,8 @@
  * limitations under the License.
  */
 
-import { css, ClassNames } from '@emotion/react';
 import { FC, ReactNode, SVGProps } from 'react';
 import ReactModal from 'react-modal';
-import { Theme } from '@sumup/design-tokens';
 
 import { ClickEvent } from '../../types/events.js';
 import { ModalComponent, BaseModalProps } from '../ModalContext/index.js';
@@ -26,8 +24,9 @@ import Body from '../Body/index.js';
 import { ButtonProps } from '../Button/index.js';
 import ButtonGroup, { ButtonGroupProps } from '../ButtonGroup/index.js';
 import CloseButton from '../CloseButton/index.js';
-import { cx, spacing } from '../../styles/style-mixins.js';
 import { CircuitError } from '../../util/errors.js';
+
+import classes from './NotificationModal.module.css';
 
 const TRANSITION_DURATION = 200;
 
@@ -72,29 +71,6 @@ export type NotificationModalProps = BaseModalProps &
     actions: ButtonGroupProps['actions'];
   };
 
-const closeButtonStyles = (theme: Theme) => css`
-  position: absolute;
-  top: ${theme.spacings.byte};
-  right: ${theme.spacings.byte};
-
-  ${theme.mq.kilo} {
-    top: ${theme.spacings.mega};
-    right: ${theme.spacings.mega};
-  }
-`;
-
-const imageStyles = (theme: Theme) => css`
-  max-width: 232px;
-  height: 120px;
-  object-fit: contain;
-  margin: 0 auto ${theme.spacings.giga};
-`;
-
-const svgStyles = css`
-  height: 100%;
-  width: 100%;
-`;
-
 function NotificationImage({ image }: Pick<NotificationModalProps, 'image'>) {
   if (!image) {
     return null;
@@ -104,9 +80,8 @@ function NotificationImage({ image }: Pick<NotificationModalProps, 'image'>) {
     const Svg = image.svg;
     const isDecorative = !image.alt;
     return (
-      <div css={imageStyles}>
+      <div className={classes.image}>
         <Svg
-          css={svgStyles}
           {...(isDecorative
             ? { 'aria-hidden': true }
             : { 'aria-label': image.alt, 'role': 'img' })}
@@ -115,17 +90,8 @@ function NotificationImage({ image }: Pick<NotificationModalProps, 'image'>) {
     );
   }
 
-  return <Image {...image} css={imageStyles} />;
+  return <Image {...image} className={classes.image} />;
 }
-
-// Prevent the headline from being overlapped by the close button
-const noImageStyles = (hasImage: boolean) =>
-  !hasImage &&
-  css`
-    max-width: 80%;
-    margin-right: auto;
-    margin-left: auto;
-  `;
 
 /**
  * Circuit UI's wrapper component for ReactModal.
@@ -149,123 +115,61 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
     );
   }
 
+  const reactModalProps = {
+    className: {
+      base: classes.base,
+      afterOpen: classes.open,
+      beforeClose: classes.closed,
+    },
+    overlayClassName: {
+      base: classes.overlay,
+      afterOpen: classes.open,
+      beforeClose: classes.closed,
+    },
+    onRequestClose: onClose,
+    closeTimeoutMS: TRANSITION_DURATION,
+    shouldCloseOnOverlayClick: !preventClose,
+    shouldCloseOnEsc: !preventClose,
+    ...props,
+  };
+
+  function wrapOnClick(onClick?: ButtonProps['onClick']) {
+    return (event: ClickEvent) => {
+      onClose?.(event);
+      onClick?.(event);
+    };
+  }
+
   return (
-    <ClassNames>
-      {({ css: cssString, theme }) => {
-        // React Modal styles
-        // https://reactcommunity.org/react-modal/styles/classes/
-        const styles = {
-          base: cssString`
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: calc(100vw - ${theme.spacings.peta} * 2);
-            max-width: 420px;
-            max-height: calc(100vh - ${theme.spacings.mega} * 2);
-            outline: none;
-            background-color: var(--cui-bg-elevated);
-            border-radius: ${theme.borderRadius.mega};
-            padding: ${theme.spacings.giga};
-            text-align: center;
-            opacity: 0;
-            transition: opacity ${TRANSITION_DURATION}ms ease-in-out;
-            overflow-y: auto;
-
-            ${theme.mq.untilKilo} {
-              -webkit-overflow-scrolling: touch;
-            }
-          `,
-
-          afterOpen: cssString`
-           opacity: 1;
-          `,
-          beforeClose: cssString`
-            opacity: 0;
-        `,
-        };
-
-        const overlayStyles = {
-          base: cssString`
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            opacity: 0;
-            transition: opacity ${TRANSITION_DURATION}ms ease-in-out;
-            background: var(--cui-bg-overlay);
-            z-index: ${theme.zIndex.modal};
-
-            ${theme.mq.kilo} {
-              -webkit-overflow-scrolling: touch;
-              overflow-y: auto;
-            }
-          `,
-          afterOpen: cssString`
-            opacity: 1;
-          `,
-          beforeClose: cssString`
-            opacity: 0;
-          `,
-        };
-
-        const reactModalProps = {
-          className: styles,
-          overlayClassName: overlayStyles,
-          onRequestClose: onClose,
-          closeTimeoutMS: TRANSITION_DURATION,
-          shouldCloseOnOverlayClick: !preventClose,
-          shouldCloseOnEsc: !preventClose,
-          ...props,
-        };
-
-        function wrapOnClick(onClick?: ButtonProps['onClick']) {
-          return (event: ClickEvent) => {
-            onClose?.(event);
-            onClick?.(event);
-          };
-        }
-
-        const hasImage = Boolean(image);
-
-        return (
-          <ReactModal {...reactModalProps}>
-            {!preventClose && closeButtonLabel && (
-              <CloseButton
-                onClick={onClose}
-                label={closeButtonLabel}
-                css={closeButtonStyles}
-              />
-            )}
-            <NotificationImage image={image} />
-            <Headline
-              as="h2"
-              size="three"
-              css={cx(spacing({ bottom: 'byte' }), noImageStyles(hasImage))}
-            >
-              {headline}
-            </Headline>
-            {body && <Body>{body}</Body>}
-            {actions && (
-              <ButtonGroup
-                actions={{
-                  primary: {
-                    ...actions.primary,
-                    onClick: wrapOnClick(actions.primary.onClick),
-                  },
-                  secondary: actions.secondary && {
-                    ...actions.secondary,
-                    onClick: wrapOnClick(actions.secondary.onClick),
-                  },
-                }}
-                css={spacing({ top: 'giga' })}
-              />
-            )}
-          </ReactModal>
-        );
-      }}
-    </ClassNames>
+    <ReactModal {...reactModalProps}>
+      {!preventClose && closeButtonLabel && (
+        <CloseButton
+          onClick={onClose}
+          label={closeButtonLabel}
+          className={classes.close}
+        />
+      )}
+      <NotificationImage image={image} />
+      <Headline as="h2" size="three" className={classes.headline}>
+        {headline}
+      </Headline>
+      {body && <Body>{body}</Body>}
+      {actions && (
+        <ButtonGroup
+          actions={{
+            primary: {
+              ...actions.primary,
+              onClick: wrapOnClick(actions.primary.onClick),
+            },
+            secondary: actions.secondary && {
+              ...actions.secondary,
+              onClick: wrapOnClick(actions.secondary.onClick),
+            },
+          }}
+          className={classes.buttons}
+        />
+      )}
+    </ReactModal>
   );
 };
 

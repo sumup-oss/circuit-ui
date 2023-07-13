@@ -13,16 +13,14 @@
  * limitations under the License.
  */
 
-import { css } from '@emotion/react';
+import type { HTMLAttributes } from 'react';
 
-import styled from '../../../../styles/styled.js';
+import { clsx } from '../../../../styles/clsx.js';
 
-export const Controls = styled('div')(
-  ({ theme }) => css`
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: ${theme.spacings.mega};
-  `,
+import classes from './Controls.module.css';
+
+type ControlsProps = HTMLAttributes<HTMLDivElement>;
+
+export const Controls = ({ className, ...props }: ControlsProps) => (
+  <div className={clsx(classes.base, className)} {...props} />
 );

@@ -14,77 +14,17 @@
  */
 
 import { useState, ButtonHTMLAttributes, useEffect } from 'react';
-import { css } from '@emotion/react';
 import { ChevronDown, Profile as ProfileIcon } from '@sumup/icons';
 
-import styled, { NoTheme, StyleProps } from '../../../../styles/styled.js';
-import {
-  hideVisually,
-  navigationItem,
-} from '../../../../styles/style-mixins.js';
 import Avatar from '../../../Avatar/index.js';
 import Body from '../../../Body/index.js';
 import Popover, { PopoverProps } from '../../../Popover/index.js';
 import { Skeleton } from '../../../Skeleton/index.js';
-import { UserProps } from '../../types.js';
+import type { UserProps } from '../../types.js';
+import sharedClasses from '../../../../styles/shared.js';
+import { clsx } from '../../../../styles/clsx.js';
 
-const profileWrapperStyles = ({ theme }: StyleProps) => css`
-  height: 100%;
-  padding: 0 ${theme.spacings.mega};
-  border-left: ${theme.borderWidth.kilo} solid var(--cui-border-divider);
-`;
-
-const ProfileWrapper = styled.button<NoTheme>(
-  navigationItem,
-  profileWrapperStyles,
-);
-
-const userAvatarStyles = ({ theme }: StyleProps) => css`
-  width: ${theme.iconSizes.mega};
-  height: ${theme.iconSizes.mega};
-
-  ${theme.mq.mega} {
-    width: ${theme.iconSizes.giga};
-    height: ${theme.iconSizes.giga};
-  }
-`;
-
-const UserAvatar = styled(Avatar)(userAvatarStyles);
-
-const userDetailsStyles = ({ theme }: StyleProps) => css`
-  ${theme.mq.untilMega} {
-    ${hideVisually()};
-  }
-
-  ${theme.mq.mega} {
-    margin: 0 ${theme.spacings.kilo};
-    max-width: 20ch;
-  }
-`;
-
-const UserDetails = styled.div(userDetailsStyles);
-
-const truncateStyles = css`
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-`;
-
-const chevronStyles = ({ theme }: StyleProps) => css`
-  display: none;
-
-  ${theme.mq.mega} {
-    display: block;
-    transition: transform ${theme.transitions.default};
-
-    button[aria-expanded='true'] & {
-      transform: rotate(180deg);
-    }
-  }
-`;
-
-const Chevron = styled(ChevronDown)(chevronStyles);
+import classes from './ProfileMenu.module.css';
 
 interface ProfileProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
@@ -95,46 +35,42 @@ interface ProfileProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * The user's profile.
    */
   user: UserProps;
-  /**
-   * Whether the associated popover is open.
-   */
-  isOpen?: boolean;
-  /**
-   * Whether the profile page is the currently active page.
-   */
-  isActive?: boolean;
 }
 
-function Profile({ user, label, isActive, isOpen, ...props }: ProfileProps) {
+function Profile({ user, label, className, ...props }: ProfileProps) {
   return (
-    <ProfileWrapper
+    <button
       {...props}
+      className={clsx(classes.profile, sharedClasses.navigationItem, className)}
       type="button"
       aria-label={label}
       title={label}
-      isActive={isOpen || isActive}
     >
       <Skeleton circle>
         {user.avatar ? (
-          <UserAvatar {...user.avatar} variant="identity" />
+          <Avatar
+            {...user.avatar}
+            variant="identity"
+            className={classes.avatar}
+          />
         ) : (
           <ProfileIcon role="presentation" />
         )}
       </Skeleton>
-      <UserDetails>
-        <Skeleton css={truncateStyles}>
+      <div className={classes.details}>
+        <Skeleton className={classes.truncate}>
           <Body size="two" variant="highlight">
             {user.name}
           </Body>
         </Skeleton>
         {user.id && (
-          <Skeleton css={truncateStyles}>
+          <Skeleton className={classes.truncate}>
             <Body size="two">{user.id}</Body>
           </Skeleton>
         )}
-      </UserDetails>
-      <Chevron size="16" />
-    </ProfileWrapper>
+      </div>
+      <ChevronDown size="16" className={classes.chevron} />
+    </button>
   );
 }
 
@@ -154,7 +90,6 @@ export function ProfileMenu({
   user,
   label,
   actions,
-  isActive,
   onToggle,
 }: ProfileMenuProps): JSX.Element {
   const [isOpen, setOpen] = useState(false);
@@ -171,13 +106,7 @@ export function ProfileMenu({
       isOpen={isOpen}
       onToggle={setOpen}
       component={(popoverProps) => (
-        <Profile
-          {...popoverProps}
-          isOpen={isOpen}
-          label={label}
-          user={user}
-          isActive={isActive}
-        />
+        <Profile {...popoverProps} label={label} user={user} />
       )}
       actions={actions}
       placement="bottom-end"

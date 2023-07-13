@@ -1,0 +1,47 @@
+.base {
+  background-color: var(--cui-bg-subtle);
+  box-shadow: 0 0 0 var(--cui-border-width-kilo) var(--cui-border-subtle);
+}
+
+img.base {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+div.base {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--cui-font-weight-bold);
+  color: var(--cui-fg-placeholder);
+  user-select: none;
+}
+
+/* Sizes */
+
+.giga {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--cui-border-radius-byte);
+}
+
+div.giga {
+  font-size: 24px;
+}
+
+.yotta {
+  width: 96px;
+  height: 96px;
+  border-radius: var(--cui-border-radius-kilo);
+}
+
+div.yotta {
+  font-size: 48px;
+}
+
+/* Variants */
+
+.identity {
+  border-radius: var(--cui-border-radius-circle);
+}

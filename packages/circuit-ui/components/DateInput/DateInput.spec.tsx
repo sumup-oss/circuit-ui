@@ -16,23 +16,24 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { render, renderToHtml, axe } from '../../util/test-utils.js';
+import { render, axe } from '../../util/test-utils.js';
+import type { InputElement } from '../Input/index.js';
 
-import DateInput from '.';
+import { DateInput } from './DateInput.js';
 
 describe('DateInput', () => {
   const baseProps = { label: 'Date' };
 
-  it('should accept a working ref', () => {
-    const tref = createRef<HTMLInputElement & HTMLTextAreaElement>();
-    const { container } = render(<DateInput {...baseProps} ref={tref} />);
+  it('should forward a ref', () => {
+    const ref = createRef<InputElement>();
+    const { container } = render(<DateInput {...baseProps} ref={ref} />);
     const input = container.querySelector('input');
-    expect(tref.current).toBe(input);
+    expect(ref.current).toBe(input);
   });
 
-  it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<DateInput {...baseProps} />);
-    const actual = await axe(wrapper);
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<DateInput {...baseProps} />);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });

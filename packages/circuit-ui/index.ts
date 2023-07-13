@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+import './styles/base.css';
+
+export { default as utilClasses } from './styles/utility.js';
+export { clsx } from './styles/clsx.js';
+
 // Typography
 export { default as Headline } from './components/Headline/index.js';
 export type { HeadlineProps } from './components/Headline/index.js';
@@ -132,7 +137,6 @@ export type {
   PopoverProps,
   PopoverItemProps,
 } from './components/Popover/index.js';
-export { default as BaseStyles } from './components/BaseStyles/index.js';
 export { ModalProvider } from './components/ModalContext/index.js';
 export type { ModalProviderProps } from './components/ModalContext/index.js';
 export { useModal } from './components/Modal/index.js';
@@ -181,21 +185,6 @@ export {
   useComponents,
 } from './components/ComponentsContext/index.js';
 export type { ComponentsContextType } from './components/ComponentsContext/index.js';
-
-export {
-  cx,
-  spacing,
-  shadow,
-  disableVisually,
-  hideVisually,
-  focusOutline,
-  focusVisible,
-  clearfix,
-  hideScrollbar,
-  inputOutline,
-  typography,
-  center,
-} from './styles/style-mixins.js';
 
 // Hooks
 export { useClickOutside } from './hooks/useClickOutside/index.js';

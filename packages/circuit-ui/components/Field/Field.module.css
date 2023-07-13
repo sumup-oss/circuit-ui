@@ -1,0 +1,96 @@
+.wrapper[disabled],
+.wrapper[data-disabled="true"],
+.fieldset[disabled],
+.fieldset[data-disabled="true"] {
+  pointer-events: none;
+}
+
+.label,
+.legend {
+  display: block;
+  font-size: var(--cui-typography-body-two-font-size);
+  line-height: var(--cui-typography-body-two-line-height);
+}
+
+.label-text {
+  display: inline-block;
+  margin-bottom: var(--cui-spacings-bit);
+}
+
+[disabled] .label-text,
+:global([data-disabled="true"]) .label-text {
+  color: var(--cui-fg-normal-disabled);
+}
+
+
+.label-text-optional {
+  color: var(--cui-fg-subtle);
+}
+
+[disabled] .label-text-optional,
+:global([data-disabled="true"]) .label-text-optional {
+  color: var(--cui-fg-subtle-disabled);
+}
+
+.description {
+  display: block;
+  font-size: var(--cui-typography-body-two-font-size);
+  line-height: var(--cui-typography-body-two-line-height);
+  color: var(--cui-fg-subtle);
+}
+
+[disabled] .description,
+:global([data-disabled="true"]) .description {
+  color: var(--cui-fg-subtle-disabled);
+}
+
+.validation-hint {
+  display: block;
+  margin-top: var(--cui-spacings-bit);
+  font-size: var(--cui-typography-body-two-font-size);
+  line-height: var(--cui-typography-body-two-line-height);
+  color: var(--cui-fg-subtle);
+  transition: color var(--cui-transitions-default);
+}
+
+[disabled] .validation-hint,
+:global([data-disabled="true"]) .validation-hint {
+  color: var(--cui-fg-subtle-disabled);
+}
+
+
+.valid {
+  color: var(--cui-fg-success);
+}
+
+[disabled] .valid,
+:global([data-disabled="true"]) .valid {
+  color: var(--cui-fg-success-disabled);
+}
+
+.warning {
+  color: var(--cui-fg-warning);
+}
+
+[disabled] .warning,
+:global([data-disabled="true"]) .warning {
+  color: var(--cui-fg-warning-disabled);
+}
+
+.invalid {
+  color: var(--cui-fg-danger);
+}
+
+[disabled] .invalid,
+:global([data-disabled="true"]) .invalid {
+  color: var(--cui-fg-danger-disabled);
+}
+
+.validation-hint-icon {
+  position: relative;
+  display: inline-block;
+  width: var(--cui-icon-sizes-kilo);
+  height: var(--cui-icon-sizes-kilo);
+  margin-right: var(--cui-spacings-bit);
+  vertical-align: text-top;
+}

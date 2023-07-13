@@ -17,7 +17,6 @@ import { action } from '@storybook/addon-actions';
 import { Like, Home, LiveChat, Package, Shop } from '@sumup/icons';
 
 import { ModalProvider } from '../ModalContext/index.js';
-import { TOP_NAVIGATION_HEIGHT } from '../TopNavigation/TopNavigation.js';
 
 import { SideNavigation, SideNavigationProps } from './SideNavigation.js';
 
@@ -115,10 +114,10 @@ export const baseArgs: SideNavigationProps = {
 
 export const Base = (args: SideNavigationProps) => (
   <ModalProvider>
-    <div style={{ height: TOP_NAVIGATION_HEIGHT }} />
+    <div style={{ height: 'var(--top-navigation-height)' }} />
     <div style={{ display: 'flex' }}>
       <SideNavigation {...args} />
-      <div style={{ width: '100%', minHeight: '440px' }} />
+      <div style={{ width: '100%', height: '100vh' }} />
     </div>
   </ModalProvider>
 );

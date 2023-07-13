@@ -34,17 +34,10 @@ First, wrap your application in the `ModalProvider` which keeps track of the ope
 
 ```tsx
 // _app.tsx for Next.js or App.js for CRA
-import { ThemeProvider } from 'emotion-theming';
-import { light } from '@sumup/design-tokens';
-import { ModalProvider, BaseStyles } from '@sumup/circuit-ui';
+import { ModalProvider } from '@sumup/circuit-ui';
 
 export default function App() {
-  return (
-    <ThemeProvider theme={light}>
-      <BaseStyles />
-      <ModalProvider>{/* Your content here... */}</ModalProvider>
-    </ThemeProvider>
-  );
+  return <ModalProvider>{/* Your content here... */}</ModalProvider>;
 }
 ```
 

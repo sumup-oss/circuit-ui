@@ -1,0 +1,105 @@
+.list-item {
+  position: relative;
+  padding: var(--cui-spacings-kilo) var(--cui-spacings-tera)
+    var(--cui-spacings-kilo) var(--cui-spacings-mega);
+  color: var(--cui-fg-normal);
+  text-decoration: none;
+  background-color: var(--cui-bg-normal);
+  border: 0;
+}
+
+.list-item:hover {
+  cursor: pointer;
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+.list-item:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
+}
+
+.list-item:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.list-item:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.list-item:active {
+  background-color: var(--cui-bg-normal-pressed);
+}
+
+.list-item:disabled,
+.list-item[disabled] {
+  color: var(--cui-fg-normal-disabled);
+  pointer-events: none;
+  background-color: var(--cui-bg-normal-disabled);
+}
+
+.list-item-destructive {
+  color: var(--cui-fg-danger);
+}
+
+.list-item-destructive:disabled,
+.list-item-destructive[disabled] {
+  color: var(--cui-fg-danger-disabled);
+  pointer-events: none;
+  background-color: var(--cui-bg-normal-disabled);
+}
+
+.navigation-item {
+  display: flex;
+  align-items: center;
+  color: var(--cui-fg-normal);
+  text-align: left;
+  cursor: pointer;
+  background-color: var(--cui-bg-normal);
+  border: none;
+  outline: none;
+  transition: color var(--cui-transitions-default),
+    background-color var(--cui-transitions-default);
+}
+
+.navigation-item:hover {
+  color: var(--cui-fg-normal-hovered);
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+.navigation-item:active {
+  color: var(--cui-fg-normal-pressed);
+  background-color: var(--cui-bg-normal-pressed);
+}
+
+.navigation-item:disabled,
+.navigation-item[disabled] {
+  color: var(--cui-fg-normal-disabled);
+  pointer-events: none;
+  background-color: var(--cui-bg-normal-disabled);
+}
+
+.navigation-item[aria-expanded='true'],
+.navigation-item[aria-current='page'] {
+  color: var(--cui-fg-accent);
+  background-color: var(--cui-bg-accent);
+}
+
+.navigation-item[aria-expanded='true']:hover,
+.navigation-item[aria-current='page']:hover {
+  color: var(--cui-fg-accent-hovered);
+  background-color: var(--cui-bg-accent-hovered);
+}
+
+.navigation-item[aria-expanded='true']:active,
+.navigation-item[aria-current='page']:active {
+  color: var(--cui-fg-accent-pressed);
+  background-color: var(--cui-bg-accent-pressed);
+}
+
+.navigation-item[aria-expanded='true']:disabled,
+.navigation-item[aria-expanded='true'][disabled],
+.navigation-item[aria-current='page']:disabled,
+.navigation-item[aria-current='page'][disabled] {
+  color: var(--cui-fg-accent-disabled);
+  background-color: var(--cui-bg-accent-disabled);
+}

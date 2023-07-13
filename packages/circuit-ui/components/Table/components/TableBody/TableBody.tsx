@@ -46,46 +46,46 @@ type TableBodyProps = {
 /**
  * TableBody for the Table component. The Table handles rendering it.
  */
-const TableBody = ({
+export function TableBody({
   rows = [],
   condensed,
   rowHeaders = false,
   sortHover,
   onRowClick,
-}: TableBodyProps): JSX.Element => (
-  <tbody>
-    {rows.map((row, rowIndex) => {
-      const { cells, ...props } = mapRowProps(row);
-      return (
-        <TableRow
-          key={`table-row-${rowIndex}`}
-          onClick={onRowClick ? () => onRowClick(rowIndex) : undefined}
-          {...props}
-        >
-          {cells.map((cell, cellIndex) =>
-            rowHeaders && cellIndex === 0 ? (
-              <TableHeader
-                key={`table-cell-${rowIndex}-${cellIndex}`}
-                fixed
-                condensed={condensed}
-                scope="row"
-                isHovered={sortHover === cellIndex}
-                sortParams={{ sortable: false }}
-                {...mapCellProps(cell)}
-              />
-            ) : (
-              <TableCell
-                key={`table-cell-${rowIndex}-${cellIndex}`}
-                condensed={condensed}
-                isHovered={sortHover === cellIndex}
-                {...mapCellProps(cell)}
-              />
-            ),
-          )}
-        </TableRow>
-      );
-    })}
-  </tbody>
-);
-
-export default TableBody;
+}: TableBodyProps) {
+  return (
+    <tbody>
+      {rows.map((row, rowIndex) => {
+        const { cells, ...props } = mapRowProps(row);
+        return (
+          <TableRow
+            key={`table-row-${rowIndex}`}
+            onClick={onRowClick ? () => onRowClick(rowIndex) : undefined}
+            {...props}
+          >
+            {cells.map((cell, cellIndex) =>
+              rowHeaders && cellIndex === 0 ? (
+                <TableHeader
+                  key={`table-cell-${rowIndex}-${cellIndex}`}
+                  fixed
+                  condensed={condensed}
+                  scope="row"
+                  isHovered={sortHover === cellIndex}
+                  sortParams={{ sortable: false }}
+                  {...mapCellProps(cell)}
+                />
+              ) : (
+                <TableCell
+                  key={`table-cell-${rowIndex}-${cellIndex}`}
+                  condensed={condensed}
+                  isHovered={sortHover === cellIndex}
+                  {...mapCellProps(cell)}
+                />
+              ),
+            )}
+          </TableRow>
+        );
+      })}
+    </tbody>
+  );
+}

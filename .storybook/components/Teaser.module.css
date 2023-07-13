@@ -1,0 +1,32 @@
+.base.base {
+  box-sizing: border-box;
+  float: left;
+  width: 100%;
+  margin-top: var(--cui-spacings-giga);
+}
+
+@media (min-width: 768px) {
+  .base.base {
+    width: calc(50% - var(--cui-spacings-giga));
+    min-height: 185px; /* This prevents the cards from awkwardly wrapping if one of them only has one line of text */
+    margin-right: var(--cui-spacings-giga);
+  }
+}
+
+.base *:last-child {
+  margin-bottom: 0;
+}
+
+.base h2 {
+  padding: 0;
+  margin-bottom: var(--cui-spacings-giga);
+  border: none
+}
+
+.base p {
+  margin-top: 0;
+}
+
+.base a::after {
+  content: ' →';
+}

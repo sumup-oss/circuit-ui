@@ -1,0 +1,7 @@
+.description {
+  margin-left: var(--cui-spacings-byte)
+}
+
+.description p {
+  display: inline;
+}

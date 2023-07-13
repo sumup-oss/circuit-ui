@@ -15,40 +15,16 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { create, renderToHtml, axe } from '../../../../util/test-utils.js';
+import { render, axe } from '../../../../util/test-utils.js';
 
-import TableCell from '.';
+import TableCell from './index.js';
 
 const children = 'Foo';
 
 describe('TableCell', () => {
-  describe('Style tests', () => {
-    it('should render with default styles', () => {
-      const actual = create(<TableCell>{children}</TableCell>);
-      expect(actual).toMatchSnapshot();
-    });
-
-    it('should render with isHovered styles', () => {
-      const actual = create(<TableCell isHovered>{children}</TableCell>);
-      expect(actual).toMatchSnapshot();
-    });
-
-    it('should render with header styles', () => {
-      const actual = create(<TableCell header>{children}</TableCell>);
-      expect(actual).toMatchSnapshot();
-    });
-
-    it('should render with condensed styles', () => {
-      const actual = create(<TableCell condensed>{children}</TableCell>);
-      expect(actual).toMatchSnapshot();
-    });
-  });
-
-  describe('Accessibility tests', () => {
-    it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<TableCell>{children}</TableCell>);
-      const actual = await axe(wrapper);
-      expect(actual).toHaveNoViolations();
-    });
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<TableCell>{children}</TableCell>);
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });

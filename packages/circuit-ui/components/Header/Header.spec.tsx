@@ -16,62 +16,42 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import {
-  create,
-  render,
-  RenderFn,
-  renderToHtml,
-  axe,
-} from '../../util/test-utils.js';
+import { render, screen, axe } from '../../util/test-utils.js';
 
-import { Header, HeaderProps } from './Header.js';
+import { Header } from './Header.js';
 
 describe('Header', () => {
   const baseProps = {
-    'title': 'Title',
-    'mobileOnly': false,
-    'data-testid': 'child',
-    'children': 'Text',
+    title: 'Title',
+    mobileOnly: false,
   };
 
-  function renderHeader<T>(renderFn: RenderFn<T>, props: HeaderProps) {
-    return renderFn(<Header {...props} />);
-  }
-
-  describe('styles', () => {
-    it('should render with default styles', () => {
-      const actual = renderHeader(create, baseProps);
-      expect(actual).toMatchSnapshot();
-    });
-
-    it('should render and match snapshot for mobileOnly styles', () => {
-      const mobileProps = { ...baseProps, mobileOnly: true };
-      const actual = renderHeader(create, mobileProps);
-      expect(actual).toMatchSnapshot();
-    });
-
-    it('should render children', () => {
-      const { getByTestId } = renderHeader(render, baseProps);
-      const childEl = getByTestId('child');
-      expect(childEl).not.toBeNull();
-      expect(childEl).toHaveTextContent('Text');
-    });
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    const { container } = render(
+      <Header {...baseProps} className={className} />,
+    );
+    const header = container.querySelector('header');
+    expect(header?.className).toContain(className);
   });
 
-  describe('business logic', () => {
-    it('should accept a working ref', () => {
-      const ref = createRef<HTMLDivElement>();
-      const { container } = renderHeader(render, { ...baseProps, ref });
-      const div = container.querySelector('div');
-      expect(ref.current).toBe(div);
-    });
+  it('should render children', () => {
+    const children = 'Text';
+    render(<Header {...baseProps}>{children}</Header>);
+    const header = screen.getByRole('banner');
+    expect(header).toHaveTextContent(children);
   });
 
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<Header {...baseProps} />);
-      const actual = await axe(wrapper);
-      expect(actual).toHaveNoViolations();
-    });
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLElement>();
+    const { container } = render(<Header {...baseProps} ref={ref} />);
+    const header = container.querySelector('header');
+    expect(ref.current).toBe(header);
+  });
+
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<Header {...baseProps} />);
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });

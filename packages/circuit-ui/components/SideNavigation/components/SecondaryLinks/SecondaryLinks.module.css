@@ -1,0 +1,27 @@
+.list {
+  list-style: none;
+}
+
+.anchor {
+  flex-wrap: wrap;
+  padding: var(--cui-spacings-mega) var(--cui-spacings-giga);
+  hyphens: auto;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+@media (min-width: 1280px) {
+  .anchor {
+    padding: var(--cui-spacings-kilo);
+    padding-left: 20px;
+  }
+}
+
+.label {
+  margin-right: var(--cui-spacings-byte);
+}
+
+.group-headline {
+  margin: var(--cui-spacings-tera) var(--cui-spacings-mega)
+    var(--cui-spacings-byte);
+}

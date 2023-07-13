@@ -42,91 +42,49 @@ describe('NotificationBanner', () => {
     },
   };
 
-  /**
-   * Style tests.
-   */
-  describe('styles', () => {
-    it('should render with default styles', () => {
-      const { container } = renderNotificationBanner(baseProps);
-      expect(container).toMatchSnapshot();
-    });
-
-    it('should render a promotional banner', () => {
-      const { container } = renderNotificationBanner({
-        ...baseProps,
-        variant: 'promotional',
-      });
-      expect(container).toMatchSnapshot();
-    });
-
-    it('should change the alignment of the image', () => {
-      const { container } = renderNotificationBanner({
-        ...baseProps,
-        variant: 'promotional',
-        image: {
-          ...baseProps.image,
-          align: 'bottom',
-        },
-      });
-      expect(container.querySelector('img')).toHaveStyle(
-        'object-position: bottom',
-      );
-    });
-
-    it('should accept a working ref', () => {
-      const ref = createRef<HTMLDivElement>();
-      const { container } = render(
-        <NotificationBanner ref={ref} {...baseProps} />,
-      );
-      const wrapper = container.querySelector('div');
-      expect(ref.current).toBe(wrapper);
-    });
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLDivElement>();
+    const { container } = render(
+      <NotificationBanner ref={ref} {...baseProps} />,
+    );
+    const wrapper = container.querySelector('div');
+    expect(ref.current).toBe(wrapper);
   });
 
-  /**
-   * Logic tests.
-   */
-  describe('business logic', () => {
-    it('should click on a main button', async () => {
-      const { getByRole } = renderNotificationBanner(baseProps);
+  it('should call onClick when clicked', async () => {
+    const { getByRole } = renderNotificationBanner(baseProps);
 
-      await userEvent.click(getByRole('button'));
+    await userEvent.click(getByRole('button'));
 
-      expect(baseProps.action.onClick).toHaveBeenCalledTimes(1);
-    });
-
-    it('should render a close button', () => {
-      const { getByRole } = renderNotificationBanner({
-        ...baseProps,
-        onClose: vi.fn(),
-        closeButtonLabel: 'Close notification',
-      });
-
-      expect(getByRole('button', { name: /close/i })).toBeVisible();
-    });
-
-    it('should call onClose when closed', async () => {
-      const props = {
-        ...baseProps,
-        onClose: vi.fn(),
-        closeButtonLabel: 'Close notification',
-      };
-      const { getByRole } = renderNotificationBanner(props);
-
-      await userEvent.click(getByRole('button', { name: /close/i }));
-
-      expect(props.onClose).toHaveBeenCalledTimes(1);
-    });
+    expect(baseProps.action.onClick).toHaveBeenCalledTimes(1);
   });
 
-  /**
-   * Accessibility tests.
-   */
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const { container } = renderNotificationBanner(baseProps);
-      const actual = await axe(container);
-      expect(actual).toHaveNoViolations();
+  it('should render a close button', () => {
+    const { getByRole } = renderNotificationBanner({
+      ...baseProps,
+      onClose: vi.fn(),
+      closeButtonLabel: 'Close notification',
     });
+
+    expect(getByRole('button', { name: /close/i })).toBeVisible();
+  });
+
+  it('should call onClose when closed', async () => {
+    const props = {
+      ...baseProps,
+      onClose: vi.fn(),
+      closeButtonLabel: 'Close notification',
+    };
+    const { getByRole } = renderNotificationBanner(props);
+
+    await userEvent.click(getByRole('button', { name: /close/i }));
+
+    expect(props.onClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('should have no accessibility violations', async () => {
+    const { container } = renderNotificationBanner(baseProps);
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });

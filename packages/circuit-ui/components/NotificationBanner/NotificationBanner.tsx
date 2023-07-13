@@ -23,17 +23,17 @@ import {
   HTMLAttributes,
   forwardRef,
 } from 'react';
-import { css } from '@emotion/react';
 
 import Button, { ButtonProps } from '../Button/index.js';
-import styled, { NoTheme, StyleProps } from '../../styles/styled.js';
-import { spacing } from '../../styles/style-mixins.js';
 import Headline from '../Headline/index.js';
 import Body from '../Body/index.js';
 import Image, { ImageProps } from '../Image/index.js';
 import CloseButton from '../CloseButton/index.js';
 import { useAnimation } from '../../hooks/useAnimation/index.js';
 import { applyMultipleRefs } from '../../util/refs.js';
+import { clsx } from '../../styles/clsx.js';
+
+import classes from './NotificationBanner.module.css';
 
 type Action = ButtonProps & {
   variant: 'primary' | 'tertiary';
@@ -62,7 +62,7 @@ interface NotificationImageProps extends ImageProps {
   /**
    * Align the image to one side of its container. Default: `center`.
    */
-  align?: 'top' | 'left' | 'bottom' | 'right';
+  align?: 'top' | 'left' | 'bottom' | 'right' | 'center';
 }
 
 interface BaseProps extends Omit<HTMLAttributes<HTMLDivElement>, 'action'> {
@@ -97,112 +97,22 @@ interface BaseProps extends Omit<HTMLAttributes<HTMLDivElement>, 'action'> {
 
 export type NotificationBannerProps = BaseProps & CloseProps;
 
-const bannerWrapperStyles = ({
-  theme,
-  variant,
-}: Pick<NotificationBannerProps, 'variant'> & StyleProps) => css`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  position: relative;
-  border-radius: ${theme.borderRadius.mega};
-  background-color: ${variant === 'system'
-    ? 'var(--cui-bg-accent)'
-    : 'var(--cui-bg-subtle)'};
-  overflow: hidden;
-  transition: opacity 200ms ease-in-out, height 200ms ease-in-out,
-    visibility 200ms ease-in-out;
-`;
-
-const NotificationBannerWrapper = styled('div')(bannerWrapperStyles);
-
-const contentStyles = ({ theme }: StyleProps) => css`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: ${theme.spacings.giga};
-  padding-right: ${theme.spacings.byte};
-  max-width: 420px;
-`;
-
-const Content = styled('div')(contentStyles);
-
-const headlineStyles = ({ theme }: StyleProps) => css`
-  font-size: ${theme.typography.headline.four.fontSize};
-  line-height: ${theme.typography.headline.four.lineHeight};
-
-  ${theme.mq.mega} {
-    font-size: ${theme.typography.headline.three.fontSize};
-    line-height: ${theme.typography.headline.three.lineHeight};
-  }
-`;
-
-const ResponsiveHeadline = styled(Headline)<NoTheme>(
-  headlineStyles,
-  spacing({ bottom: 'byte' }),
-);
-
-const bodyStyles = ({ theme }: StyleProps) => css`
-  font-size: ${theme.typography.body.two.fontSize};
-  line-height: ${theme.typography.body.two.lineHeight};
-
-  ${theme.mq.mega} {
-    font-size: ${theme.typography.body.one.fontSize};
-    line-height: ${theme.typography.body.one.lineHeight};
-  }
-`;
-
-const ResponsiveBody = styled(Body)<NoTheme>(
-  bodyStyles,
-  spacing({ bottom: 'byte' }),
-);
-
-const buttonStyles = ({ theme, size = 'giga' }: StyleProps & Action) => css`
-  padding-top: calc(${theme.spacings.bit} - ${theme.borderWidth.kilo});
-  padding-bottom: calc(${theme.spacings.bit} - ${theme.borderWidth.kilo});
-  ${theme.mq.mega} {
-    padding-top: ${size === 'giga'
-      ? `calc(${theme.spacings.kilo} - ${theme.borderWidth.kilo})`
-      : `calc(${theme.spacings.bit} - ${theme.borderWidth.kilo})`};
-
-    padding-bottom: ${size === 'giga'
-      ? `calc(${theme.spacings.kilo} - ${theme.borderWidth.kilo})`
-      : `calc(${theme.spacings.bit} - ${theme.borderWidth.kilo})`};
-  }
-`;
-
-const ResponsiveButton = styled(Button)(buttonStyles);
-
-const imageStyles = ({
-  theme,
-  width,
-  align,
-}: NotificationImageProps & StyleProps) => css`
-  border-radius: 0 ${theme.borderRadius.mega} ${theme.borderRadius.mega} 0;
-  min-width: 0;
-  width: ${width || 200}px;
-  height: auto;
-  object-fit: contain;
-  object-position: ${align || 'center'};
-`;
-
-const StyledImage = styled(Image)(imageStyles);
-
-const closeButtonStyles = ({
-  theme,
-  notificationVariant,
-}: StyleProps & {
-  notificationVariant: NotificationVariant;
-}) => css`
-  position: absolute;
-  top: ${theme.spacings.byte};
-  right: ${theme.spacings.byte};
-  background-color: ${notificationVariant === 'system'
-    ? 'var(--cui-bg-accent)'
-    : 'var(--cui-bg-subtle)'};
-`;
-
-const StyledCloseButton = styled(CloseButton)(closeButtonStyles);
+function NotificationImage({
+  align = 'center',
+  width = 200,
+  ...props
+}: NotificationImageProps) {
+  return (
+    <Image
+      {...props}
+      className={classes.image}
+      style={{
+        '--notification-image-align': align,
+        '--notification-image-width': `${width}px`,
+      }}
+    />
+  );
+}
 
 /**
  * The NotificationBanner displays a notification with text, a call-to-action,
@@ -222,6 +132,7 @@ export const NotificationBanner = forwardRef<
       onClose,
       closeButtonLabel,
       isVisible = true,
+      className,
       ...props
     },
     ref,
@@ -248,31 +159,36 @@ export const NotificationBanner = forwardRef<
     }, [isVisible, setAnimating]);
 
     return (
-      <NotificationBannerWrapper
+      <div
         ref={applyMultipleRefs(ref, contentElement)}
         style={{
           opacity: isOpen ? 1 : 0,
           height: isOpen ? height : 0,
           visibility: isOpen ? 'visible' : 'hidden',
         }}
-        variant={variant}
+        className={clsx(classes.base, classes[variant], className)}
         {...props}
       >
-        <Content>
-          <ResponsiveHeadline as="h2">{headline}</ResponsiveHeadline>
-          <ResponsiveBody>{body}</ResponsiveBody>
-          <ResponsiveButton {...action} />
-        </Content>
-        {image && image.src && <StyledImage {...image} />}
+        <div className={classes.content}>
+          <Headline as="h2" className={classes.headline}>
+            {headline}
+          </Headline>
+          <Body className={classes.body}>{body}</Body>
+          <Button
+            className={clsx(classes.button, classes[action.size || 'giga'])}
+            {...action}
+          />
+        </div>
+        {image && image.src && <NotificationImage {...image} />}
         {onClose && closeButtonLabel && (
-          <StyledCloseButton
-            notificationVariant={variant}
+          <CloseButton
+            className={classes.close}
             label={closeButtonLabel}
             size="kilo"
             onClick={onClose}
           />
         )}
-      </NotificationBannerWrapper>
+      </div>
     );
   },
 );

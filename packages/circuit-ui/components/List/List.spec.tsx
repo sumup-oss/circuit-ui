@@ -14,66 +14,42 @@
  */
 
 import { describe, expect, it } from 'vitest';
+import { createRef } from 'react';
 
-import { create, renderToHtml, axe } from '../../util/test-utils.js';
+import { render, axe } from '../../util/test-utils.js';
 
-import { List, ListProps } from './List.js';
+import { List } from './List.js';
 
 describe('List', () => {
-  /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const actual = create(
-      <List>
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    const { container } = render(
+      <List className={className}>
         <li>List</li>
       </List>,
     );
-    expect(actual).toMatchSnapshot();
+    const list = container.querySelector('ul');
+    expect(list?.className).toContain(className);
   });
 
-  const variants: ListProps['variant'][] = ['ordered', 'unordered'];
-  it.each(variants)('should render the %s variant', (variant) => {
-    const actual = create(
-      <List variant={variant}>
-        <li>{variant}</li>
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLOListElement>();
+    const { container } = render(
+      <List ref={ref}>
+        <li>List</li>
       </List>,
     );
-    expect(actual).toMatchSnapshot();
+    const list = container.querySelector('ul');
+    expect(ref.current).toBe(list);
   });
 
-  const sizes: ListProps['size'][] = ['one', 'two'];
-  it.each(sizes)('should render with size %s', (size) => {
-    const actual = create(
-      <List size={size}>
-        <li>{size}</li>
-      </List>,
-    );
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render a nested list', () => {
-    const actual = create(
-      <List>
-        <li>First level</li>
-        <List>
-          <li>Second level</li>
-        </List>
-      </List>,
-    );
-    expect(actual).toMatchSnapshot();
-  });
-
-  /**
-   * Accessibility tests.
-   */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(
+    const { container } = render(
       <List>
         <li>List</li>
       </List>,
     );
-    const actual = await axe(wrapper);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });

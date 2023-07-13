@@ -50,4 +50,19 @@ export {
 export { default as Tooltip } from './components/Tooltip/index.js';
 export type { TooltipProps } from './components/Tooltip/index.js';
 
+export {
+  cx,
+  spacing,
+  shadow,
+  disableVisually,
+  hideVisually,
+  focusOutline,
+  focusVisible,
+  clearfix,
+  hideScrollbar,
+  inputOutline,
+  typography,
+  center,
+} from './styles/style-mixins.js';
+
 export { uniqueId } from './util/id.js';

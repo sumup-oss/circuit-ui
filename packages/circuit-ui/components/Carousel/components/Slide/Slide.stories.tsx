@@ -13,12 +13,8 @@
  * limitations under the License.
  */
 
-import { css } from '@emotion/react';
-
-import styled from '../../../../styles/styled.js';
-import Headline, { HeadlineProps } from '../../../Headline/index.js';
+import Headline from '../../../Headline/index.js';
 import Image from '../../../Image/index.js';
-import { spacing } from '../../../../styles/style-mixins.js';
 
 import { Slide, SlideProps } from './Slide.js';
 
@@ -26,20 +22,6 @@ export default {
   title: 'Components/Carousel/Slide',
   component: Slide,
 };
-
-const headingStyles = css`
-  color: #fff;
-  width: 66%;
-  position: absolute;
-  bottom: 0;
-  left: 25px;
-  z-index: 2;
-`;
-
-const StyledHeadline = styled(Headline)<HeadlineProps>(
-  headingStyles,
-  spacing({ bottom: 'giga' }),
-);
 
 export const OnlyImage = (args: SlideProps) => (
   <Slide {...args}>
@@ -56,6 +38,19 @@ export const TextAndImage = (args: SlideProps) => (
       src="/images/illustration-waves.jpg"
       alt="Aerial photo of turbulent blue ocean waves"
     />
-    <StyledHeadline as="h2">Get The SumUp Card Reader Today!</StyledHeadline>
+    <Headline
+      style={{
+        color: '#fff',
+        width: '66%',
+        position: 'absolute',
+        bottom: 0,
+        left: '25px',
+        zIndex: 2,
+        marginBottom: 'var(--cui-spacings-giga)',
+      }}
+      as="h2"
+    >
+      Get The SumUp Card Reader Today!
+    </Headline>
   </Slide>
 );

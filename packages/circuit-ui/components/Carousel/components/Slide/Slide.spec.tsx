@@ -16,55 +16,14 @@
 import { describe, expect, it } from 'vitest';
 
 import { axe, render } from '../../../../util/test-utils.js';
-import { SLIDE_DIRECTIONS } from '../../constants.js';
 
 import { Slide } from './Slide.js';
 
 describe('Slide', () => {
-  describe('styles', () => {
-    it('should render with default styles', () => {
-      const { container } = render(<Slide>content</Slide>);
+  it('should have no accessibility violation', async () => {
+    const { container } = render(<Slide>content</Slide>);
+    const actual = await axe(container);
 
-      expect(container).toMatchSnapshot();
-    });
-
-    it('should render with forward animation styles', () => {
-      const { container } = render(
-        <Slide
-          index={0}
-          step={0}
-          slideSize={{ width: 800 }}
-          slideDirection={SLIDE_DIRECTIONS.FORWARD}
-        >
-          content
-        </Slide>,
-      );
-
-      expect(container).toMatchSnapshot();
-    });
-
-    it('should render with backward animation styles', () => {
-      const { container } = render(
-        <Slide
-          index={0}
-          prevStep={0}
-          slideSize={{ width: 800 }}
-          slideDirection={SLIDE_DIRECTIONS.BACK}
-        >
-          content
-        </Slide>,
-      );
-
-      expect(container).toMatchSnapshot();
-    });
-  });
-
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const { container } = render(<Slide>content</Slide>);
-      const actual = await axe(container);
-
-      expect(actual).toHaveNoViolations();
-    });
+    expect(actual).toHaveNoViolations();
   });
 });

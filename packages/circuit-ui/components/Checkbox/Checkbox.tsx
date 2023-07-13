@@ -20,16 +20,16 @@ import {
   useId,
   useRef,
 } from 'react';
-import { css } from '@emotion/react';
 import { Checkmark } from '@sumup/icons';
 
-import styled, { StyleProps } from '../../styles/styled.js';
-import { hideVisually, focusOutline } from '../../styles/style-mixins.js';
-import { FieldValidationHint, FieldWrapper } from '../FieldAtoms/index.js';
+import { FieldValidationHint, FieldWrapper } from '../Field/index.js';
 import { AccessibilityError } from '../../util/errors.js';
 import { applyMultipleRefs } from '../../util/refs.js';
+import { clsx } from '../../styles/clsx.js';
+import utilityClasses from '../../styles/utility.js';
 
 import { IndeterminateIcon } from './IndeterminateIcon.js';
+import classes from './Checkbox.module.css';
 
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   /**
@@ -51,158 +51,6 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   validationHint?: string;
   children?: never;
 }
-
-const labelBaseStyles = css`
-  color: var(--cui-fg-normal);
-  display: inline-block;
-  padding-left: 26px;
-  position: relative;
-  cursor: pointer;
-`;
-
-const CheckboxLabel = styled('label')(labelBaseStyles);
-
-type WrapperElProps = Pick<CheckboxProps, 'className' | 'style' | 'disabled'>;
-
-const wrapperBaseStyles = () => css`
-  position: relative;
-`;
-
-const CheckboxWrapper = styled(FieldWrapper)<WrapperElProps>(wrapperBaseStyles);
-
-type InputElProps = Pick<CheckboxProps, 'invalid' | 'disabled'>;
-
-const inputBaseStyles = ({ theme }: StyleProps) => css`
-  ${hideVisually()};
-
-  & + label::before {
-    height: 18px;
-    width: 18px;
-    box-sizing: border-box;
-    box-shadow: 0;
-    background-color: var(--cui-bg-normal);
-    border: 1px solid var(--cui-border-normal);
-    border-radius: 3px;
-    content: '';
-    display: block;
-    position: absolute;
-    top: ${theme.spacings.kilo};
-    left: 0;
-    transform: translateY(-50%);
-    transition: border ${theme.transitions.default},
-      background-color ${theme.transitions.default};
-  }
-
-  & + label svg {
-    height: 18px;
-    width: 18px;
-    padding: 2px;
-    box-sizing: border-box;
-    color: var(--cui-fg-on-strong);
-    display: block;
-    line-height: 0;
-    opacity: 0;
-    position: absolute;
-    top: ${theme.spacings.kilo};
-    left: 0;
-    transform: translateY(-50%) scale(0, 0);
-    transition: transform ${theme.transitions.default},
-      opacity ${theme.transitions.default};
-  }
-
-  &:hover + label::before {
-    border-color: var(--cui-border-accent-hovered);
-  }
-
-  &:focus + label::before {
-    ${focusOutline()};
-    border-color: var(--cui-border-accent);
-  }
-
-  &:focus:not(:focus-visible) + label::before {
-    box-shadow: none;
-    border-color: var(--cui-border-normal);
-  }
-
-  &:checked:focus:not(:focus-visible) + label::before,
-  &:indeterminate:focus:not(:focus-visible) + label::before {
-    border-color: var(--cui-border-accent);
-  }
-
-  &:checked:not(:indeterminate) + label > svg[data-symbol='checked'],
-  &:indeterminate + label > svg[data-symbol='indeterminate'] {
-    transform: translateY(-50%) scale(1, 1);
-    opacity: 1;
-  }
-
-  &:checked + label::before,
-  &:indeterminate + label::before {
-    border-color: var(--cui-border-accent);
-    background-color: var(--cui-bg-accent-strong);
-  }
-
-  &:checked:disabled + label::before,
-  &:checked[disabled] + label::before,
-  &:indeterminate:disabled + label::before,
-  &:indeterminate[disabled] + label::before {
-    border-color: var(--cui-border-accent-disabled);
-    background-color: var(--cui-bg-accent-strong-disabled);
-  }
-`;
-
-const inputInvalidStyles = ({ invalid }: InputElProps) =>
-  invalid &&
-  css`
-    & + label::before {
-      border-color: var(--cui-border-danger);
-      background-color: var(--cui-bg-danger);
-    }
-
-    &:hover + label::before,
-    &:focus + label::before {
-      border-color: var(--cui-border-danger-hovered);
-    }
-
-    &:checked + label::before,
-    &:indeterminate + label::before {
-      border-color: var(--cui-border-danger);
-      background-color: var(--cui-bg-danger-strong);
-    }
-
-    &:checked:disabled + label::before,
-    &:indeterminate:disabled + label::before,
-    &:checked[disabled] + label::before,
-    &:indeterminate[disabled] + label::before {
-      border-color: var(--cui-border-danger-disabled);
-      background-color: var(--cui-bg-danger-strong-disabled);
-    }
-  `;
-
-const inputDisabledStyles = () =>
-  css`
-    &:disabled + label,
-    &[disabled] + label {
-      pointer-events: none;
-      color: var(--cui-fg-normal-disabled);
-    }
-    &:disabled + label::before,
-    &[disabled] + label::before {
-      border-color: var(--cui-border-normal-disabled);
-      background-color: var(--cui-bg-normal-disabled);
-    }
-
-    &:disabled:checked + label::before,
-    &[disabled]:checked + label::before {
-      border-color: var(--cui-border-accent-disabled);
-      background-color: var(--cui-bg-accent-strong-disabled);
-    }
-  `;
-
-const CheckboxInput = styled('input')<InputElProps>(
-  inputBaseStyles,
-  inputInvalidStyles,
-  inputDisabledStyles,
-);
 
 /**
  * Checkbox component for forms.
@@ -250,31 +98,35 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     }
 
     return (
-      <CheckboxWrapper className={className} style={style} disabled={disabled}>
-        <CheckboxInput
+      <FieldWrapper className={className} style={style} disabled={disabled}>
+        <input
           {...props}
           id={checkboxId}
           name={name}
           value={value}
           type="checkbox"
           disabled={disabled}
-          invalid={invalid}
           ref={applyMultipleRefs(passedRef, localRef)}
           aria-describedby={descriptionIds}
           aria-checked={indeterminate ? 'mixed' : undefined}
+          className={clsx(
+            classes.base,
+            invalid && classes.invalid,
+            utilityClasses.hideVisually,
+          )}
         />
-        <CheckboxLabel htmlFor={id}>
+        <label htmlFor={id} className={classes.label}>
           {label}
           <Checkmark aria-hidden="true" data-symbol="checked" />
           <IndeterminateIcon aria-hidden="true" data-symbol="indeterminate" />
-        </CheckboxLabel>
+        </label>
         <FieldValidationHint
           id={validationHintId}
           disabled={disabled}
           invalid={invalid}
           validationHint={validationHint}
         />
-      </CheckboxWrapper>
+      </FieldWrapper>
     );
   },
 );

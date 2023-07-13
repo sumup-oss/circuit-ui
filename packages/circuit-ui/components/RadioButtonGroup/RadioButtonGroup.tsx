@@ -27,7 +27,7 @@ import {
   FieldValidationHint,
   FieldLegend,
   FieldSet,
-} from '../FieldAtoms/index.js';
+} from '../Field/index.js';
 import { AccessibilityError } from '../../util/errors.js';
 import { isEmpty } from '../../util/helpers.js';
 
@@ -152,6 +152,8 @@ export const RadioButtonGroup = forwardRef(
         role="radiogroup"
         aria-describedby={descriptionIds}
         aria-orientation="vertical"
+        aria-invalid={invalid && 'true'}
+        aria-required={required && 'true'}
         name={name}
         ref={ref}
         disabled={disabled}
@@ -172,9 +174,7 @@ export const RadioButtonGroup = forwardRef(
             name={name}
             onChange={onChange}
             onBlur={onBlur}
-            required={required}
             disabled={disabled || option.disabled}
-            invalid={invalid || option.invalid}
             checked={value ? option.value === value : option.checked}
             defaultChecked={
               defaultValue

@@ -1,0 +1,74 @@
+.base {
+  /* content height + border-bottom */
+  --top-navigation-height: 57px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: var(--top-navigation-height);
+  background-color: var(--cui-bg-normal);
+  border-bottom: var(--cui-border-width-kilo) solid var(--cui-border-divider);
+}
+
+@media (min-width: 768px) {
+  .base {
+    position: sticky;
+    top: 0;
+
+    /* The +1 is necessary to ensure that the primary navigation doesn't overlap the top navigation on hover. */
+    z-index: calc(var(--cui-z-index-navigation) + 1);
+  }
+}
+
+.wrapper {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+}
+
+.hamburger{
+  padding: var(--cui-spacings-mega);
+
+  /* The !important below is necessary to override the default hover styles. */
+  border-right: var(--cui-border-width-kilo) solid var(--cui-border-divider) !important;
+  border-radius: 0;
+}
+
+@media (min-width: 1280px) {
+  .hamburger{
+    display: none;
+  }
+}
+
+.logo {
+  height: 100%;
+}
+
+.logo > * {
+  display: block;
+  height: inherit;
+  padding: var(--cui-spacings-mega);
+  line-height: 0;
+}
+
+.logo a:focus,
+.logo button:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 4px var(--cui-border-focus);
+}
+
+.logo a:focus::-moz-focus-inner,
+.logo button:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.logo a:focus:not(:focus-visible),
+.logo button:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.logo svg {
+  height: var(--cui-icon-sizes-mega);
+  color: var(--cui-fg-normal);
+}

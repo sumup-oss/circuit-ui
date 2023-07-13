@@ -25,7 +25,7 @@ import {
   TableRow,
   ToastProvider,
   useNotificationToast,
-} from '@sumup/circuit-ui';
+} from '../../packages/circuit-ui/index.js';
 
 type CustomPropertyName = `--cui-${string}`;
 type CustomPropertyValue = string;
@@ -124,19 +124,17 @@ export function CustomPropertiesTable({
   }
 
   return (
-    <ThemeProvider theme={light}>
-      <ToastProvider>
-        <Unstyled>
-          {customProperties && (
-            <Table
-              condensed
-              headers={headers}
-              rows={getRows(customProperties, preview)}
-            />
-          )}
-        </Unstyled>
-      </ToastProvider>
-    </ThemeProvider>
+    <ToastProvider>
+      <Unstyled>
+        {customProperties && (
+          <Table
+            condensed
+            headers={headers}
+            rows={getRows(customProperties, preview)}
+          />
+        )}
+      </Unstyled>
+    </ToastProvider>
   );
 }
 

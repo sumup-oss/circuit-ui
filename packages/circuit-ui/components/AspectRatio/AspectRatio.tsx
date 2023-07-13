@@ -13,42 +13,25 @@
  * limitations under the License.
  */
 
-import { Children, forwardRef, cloneElement, ReactElement } from 'react';
-import { ClassNames, css, ClassNamesContent } from '@emotion/react';
+import {
+  Children,
+  forwardRef,
+  cloneElement,
+  ReactElement,
+  HTMLAttributes,
+} from 'react';
 
-import styled from '../../styles/styled.js';
+import { clsx } from '../../styles/clsx.js';
 
-export interface AspectRatioProps {
+import classes from './AspectRatio.module.css';
+
+export interface AspectRatioProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactElement;
   aspectRatio?: number;
 }
 
-const wrapperStyles = ({ aspectRatio }: { aspectRatio: number }) => css`
-  display: block;
-  position: relative;
-  overflow: hidden;
-  height: 0;
-  width: 100%;
-  padding-top: ${Math.round((1 / aspectRatio) * 100)}%;
-`;
-
-const Wrapper = styled('div')(wrapperStyles);
-
-const childStyles = (context: ClassNamesContent) => context.css`
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: ${context.theme.zIndex.absolute};
-`;
-
 export const AspectRatio = forwardRef<HTMLDivElement, AspectRatioProps>(
-  ({ aspectRatio, children, ...props }, ref) => {
+  ({ aspectRatio, className, style = {}, children, ...props }, ref) => {
     if (!children) {
       return null;
     }
@@ -57,20 +40,24 @@ export const AspectRatio = forwardRef<HTMLDivElement, AspectRatioProps>(
 
     if (!aspectRatio) {
       return (
-        <div ref={ref} {...props}>
+        <div ref={ref} className={className} {...props}>
           {child}
         </div>
       );
     }
 
     return (
-      <Wrapper ref={ref} aspectRatio={aspectRatio} {...props}>
-        <ClassNames>
-          {(context) =>
-            cloneElement(child, { className: childStyles(context) })
-          }
-        </ClassNames>
-      </Wrapper>
+      <div
+        ref={ref}
+        className={clsx(classes.base, className)}
+        style={{
+          ...style,
+          '--aspect-ratio': `${Math.round((1 / aspectRatio) * 100)}%`,
+        }}
+        {...props}
+      >
+        {cloneElement(child, { className: classes.child })}
+      </div>
     );
   },
 );

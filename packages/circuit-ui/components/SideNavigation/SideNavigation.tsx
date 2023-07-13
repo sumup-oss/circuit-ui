@@ -14,7 +14,6 @@
  */
 
 import { useEffect } from 'react';
-import { useTheme } from '@emotion/react';
 
 import { useMedia } from '../../hooks/useMedia/index.js';
 import { AccessibilityError } from '../../util/errors.js';
@@ -68,8 +67,7 @@ export function SideNavigation({
     }
   }
 
-  const theme = useTheme();
-  const isMobile = useMedia(theme.breakpoints.untilTera, true);
+  const isMobile = useMedia('(max-width: 1279px)', true);
 
   const { setModal, removeModal } = useMobileNavigation();
 

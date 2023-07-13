@@ -19,7 +19,6 @@ import { IconProps, Plus } from '@sumup/icons';
 
 import { ClickEvent } from '../../../../types/events.js';
 import {
-  create,
   render,
   axe,
   RenderFn,
@@ -43,69 +42,42 @@ describe('PrimaryLink', () => {
     onClick: vi.fn(),
   };
 
-  describe('styles', () => {
-    it('should render with default styles', () => {
-      const wrapper = renderPrimaryLink(create, baseProps);
-      expect(wrapper).toMatchSnapshot();
+  it('should render as active', () => {
+    const { getByRole } = renderPrimaryLink(render, {
+      ...baseProps,
+      isActive: true,
     });
-
-    it('should render with active styles', () => {
-      const wrapper = renderPrimaryLink(create, {
-        ...baseProps,
-        isActive: true,
-      });
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render with open styles', () => {
-      const wrapper = renderPrimaryLink(create, {
-        ...baseProps,
-        isOpen: true,
-      });
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render with badge styles', () => {
-      const wrapper = renderPrimaryLink(create, {
-        ...baseProps,
-        badge: true,
-      });
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it.todo('should render with an external icon');
-
-    it('should render with a suffix icon', () => {
-      const { getByTestId } = renderPrimaryLink(render, {
-        ...baseProps,
-        // eslint-disable-next-line react/display-name
-        suffix: (props) => <div {...props} data-testid="suffix" />,
-      });
-      expect(getByTestId('suffix')).toBeVisible();
-    });
+    expect(getByRole('link')).toHaveAttribute('aria-current', 'page');
   });
 
-  describe('business logic', () => {
-    it('should call the onClick handler when clicked', async () => {
-      const props = {
-        ...baseProps,
-        onClick: vi.fn((event: ClickEvent) => {
-          event.preventDefault();
-        }),
-      };
-      const { getByRole } = renderPrimaryLink(render, props);
+  it.todo('should render with an external icon');
 
-      await userEvent.click(getByRole('link'));
-
-      expect(props.onClick).toHaveBeenCalledTimes(1);
+  it('should render with a suffix icon', () => {
+    const { getByTestId } = renderPrimaryLink(render, {
+      ...baseProps,
+      // eslint-disable-next-line react/display-name
+      suffix: (props) => <div {...props} data-testid="suffix" />,
     });
+    expect(getByTestId('suffix')).toBeVisible();
   });
 
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const { container } = renderPrimaryLink(render, baseProps);
-      const actual = await axe(container);
-      expect(actual).toHaveNoViolations();
-    });
+  it('should call the onClick handler when clicked', async () => {
+    const props = {
+      ...baseProps,
+      onClick: vi.fn((event: ClickEvent) => {
+        event.preventDefault();
+      }),
+    };
+    const { getByRole } = renderPrimaryLink(render, props);
+
+    await userEvent.click(getByRole('link'));
+
+    expect(props.onClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('should have no accessibility violations', async () => {
+    const { container } = renderPrimaryLink(render, baseProps);
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });

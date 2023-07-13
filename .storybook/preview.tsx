@@ -1,4 +1,5 @@
 import '@sumup/design-tokens/light.css';
+import '../packages/circuit-ui/styles/base.css';
 
 import { light, components } from './themes';
 import { withThemeProvider } from './decorators/withThemeProvider';

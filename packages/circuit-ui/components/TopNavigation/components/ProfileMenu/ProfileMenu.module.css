@@ -1,0 +1,52 @@
+.profile {
+  height: 100%;
+  padding: 0 var(--cui-spacings-mega);
+  border-left: var(--cui-border-width-kilo) solid var(--cui-border-divider);
+}
+
+.avatar {
+  width: var(--cui-icon-sizes-mega);
+  height: var(--cui-icon-sizes-mega);
+}
+
+@media (min-width: 768px) {
+  .avatar {
+    width: var(--cui-icon-sizes-giga);
+    height: var(--cui-icon-sizes-giga);
+  }
+}
+
+@media (max-width: 767px) {
+  .details {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .details {
+    max-width: 20ch;
+    margin: 0 var(--cui-spacings-kilo);
+  }
+}
+
+.chevron {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .chevron {
+    display: block;
+    transition: transform var(--cui-transitions-default);
+  }
+
+  button[aria-expanded='true'] .chevron {
+    transform: rotate(180deg);
+  }
+}
+
+.truncate {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

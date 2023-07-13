@@ -15,31 +15,13 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { create, renderToHtml, axe } from '../../../../util/test-utils.js';
+import { render, axe } from '../../../../util/test-utils.js';
 import { CardFooter } from '../../index.js';
 
 describe('CardFooter', () => {
-  /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const actual = create(<CardFooter />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  describe('Left aligment', () => {
-    it('should render with left alignment styles', () => {
-      const actual = create(<CardFooter align={'left'} />);
-      expect(actual).toMatchSnapshot();
-    });
-  });
-
-  /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<CardFooter />);
-    const actual = await axe(wrapper);
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<CardFooter />);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });

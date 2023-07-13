@@ -15,8 +15,6 @@
 
 /* eslint-disable react/display-name */
 import { Fragment } from 'react';
-import { css } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 import Button from '../Button/index.js';
@@ -166,12 +164,10 @@ CustomStyles.args = {
       <Image
         src="/images/illustration-waves.jpg"
         alt=""
-        css={(theme: Theme) =>
-          css`
-            border-top-left-radius: ${theme.borderRadius.mega};
-            border-top-right-radius: ${theme.borderRadius.mega};
-          `
-        }
+        style={{
+          borderTopLeftRadius: 'var(--cui-border-radius-mega)',
+          borderTopRightRadius: 'var(--cui-border-radius-mega)',
+        }}
       />
       <Headline as="h2" size="four" css={spacing('giga')}>
         Custom styles
@@ -181,14 +177,7 @@ CustomStyles.args = {
       </Body>
     </Fragment>
   ),
-  css: (theme: Theme) => css`
-    ${theme.mq.untilKilo} {
-      padding: 0;
-    }
-    ${theme.mq.kilo} {
-      padding: 0;
-    }
-  `,
+  style: { padding: '0' },
   variant: 'contextual',
   closeButtonLabel: 'Close modal',
 };

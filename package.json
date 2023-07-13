@@ -17,7 +17,6 @@
   "scripts": {
     "start": "lerna run start --stream",
     "build": "lerna run build",
-    "clean": "lerna run clean",
     "test": "vitest",
     "test:ci": "vitest run --coverage",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
@@ -31,7 +30,7 @@
     "check:licenses": "license-checker --production --summary --failOn=GPLv3",
     "check:svg-sizes": "./scripts/check-svg-sizes.sh",
     "copy-docs": "./scripts/copy-docs.sh",
-    "bootstrap": "npm run clean && npm run build && npm run copy-docs && cd packages/cna-template/template && npm ci",
+    "bootstrap": "npm run build && npm run copy-docs && cd packages/cna-template/template && npm ci",
     "release": "changeset publish"
   },
   "devDependencies": {
@@ -56,7 +55,6 @@
     "@sumup/stylelint-plugin-circuit-ui": "^0.1.0",
     "@sumup/foundry": "^6.1.0",
     "@types/node": "^18.15.11",
-    "@vitejs/plugin-react": "^4.0.0",
     "@vitest/coverage-c8": "^0.30.1",
     "audit-ci": "^6.6.1",
     "eslint-import-resolver-typescript": "^3.5.5",
@@ -74,6 +72,7 @@
     "stylelint-no-unsupported-browser-features": "^6.1.0",
     "svgo": "^3.0.2",
     "typescript": "^5.0.4",
+    "vite": "^4.3.4",
     "vite-plugin-turbosnap": "^1.0.2",
     "vitest": "^0.30.1",
     "vitest-github-actions-reporter": "^0.10.0"

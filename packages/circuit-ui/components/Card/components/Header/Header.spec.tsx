@@ -15,30 +15,13 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import {
-  create,
-  render,
-  renderToHtml,
-  axe,
-  userEvent,
-} from '../../../../util/test-utils.js';
+import { render, axe, userEvent } from '../../../../util/test-utils.js';
 
 import { CardHeader } from './Header.js';
 
 describe('CardHeader', () => {
-  const children = <p>This is a content.</p>;
+  const children = <h2>This is a content.</h2>;
 
-  /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const actual = create(<CardHeader>{children}</CardHeader>);
-    expect(actual).toMatchSnapshot();
-  });
-
-  /**
-   * Logic tests.
-   */
   it('should render a close button when an onClose prop is passed', () => {
     const closeButtonLabel = 'Close';
 
@@ -68,14 +51,11 @@ describe('CardHeader', () => {
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(
+  it('should have no accessibility violations', async () => {
+    const { container } = render(
       <CardHeader closeButtonLabel="Close">{children}</CardHeader>,
     );
-    const actual = await axe(wrapper);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });

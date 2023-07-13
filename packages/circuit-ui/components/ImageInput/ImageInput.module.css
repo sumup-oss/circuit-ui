@@ -1,0 +1,157 @@
+.wrapper {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.input:focus + label > *:last-child {
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+
+}
+
+.input:focus + label > *:last-child::-moz-focus-inner {
+  border: 0;
+}
+
+.input:focus:not(:focus-visible) + label > *:last-child {
+  box-shadow: none;
+}
+
+.label {
+  cursor: pointer;
+}
+
+.label::before {
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  content: '';
+  background-color: var(--cui-bg-strong);
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity var(--cui-transitions-default);
+}
+
+.label > *:last-child {
+  transition: box-shadow var(--cui-transitions-default);
+}
+
+@supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
+  .label{
+    transition: filter var(--cui-transitions-default);
+  }
+
+  .label::before {
+    content: none;
+  }
+}
+
+/* Invalid */
+
+[aria-invalid="true"] ~ .label > *:last-child {
+  box-shadow: 0 0 0 2px var(--cui-border-danger);
+}
+
+[aria-invalid="true"] ~ .label:hover > *:last-child {
+  box-shadow: 0 0 0 2px var(--cui-border-danger-hovered);
+}
+
+[aria-invalid="true"] ~ .label:active > *:last-child {
+  box-shadow: 0 0 0 2px var(--cui-border-danger-pressed);
+}
+
+/* Loading */
+
+.label.loading::before {
+  opacity: 0.4;
+}
+
+@supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
+  .label.loading {
+    filter: brightness(0.6);}
+}
+
+.label:not(.loading):hover::before {
+  opacity: 0.1;
+}
+
+.label:not(.loading):active::before {
+  opacity: 0.2;
+}
+
+@supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
+  .label:not(.loading):hover {
+    filter: brightness(0.9);
+  }
+
+  .label:not(.loading):active {
+    filter: brightness(0.8);
+  }
+}
+
+/* Dragging */
+
+.label.dragging *:last-child {
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--cui-border-focus);
+}
+
+.label.dragging *:last-child::-moz-focus-inner {
+  border: 0;
+}
+
+.label.dragging::before {
+  opacity: 0.1;
+}
+
+@supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
+  .label.dragging{
+    filter: brightness(0.9);}
+}
+
+[data-disabled="true"] .label {
+  opacity: 0.4;
+}
+
+.label:hover > button {
+  background-color: var(--cui-bg-danger-hovered);
+  border-color: var(--cui-border-danger-hovered);
+}
+
+.label:active  > button {
+  background-color: var(--cui-bg-danger-pressed);
+  border-color: var(--cui-border-danger-pressed);
+}
+
+.button {
+  position: absolute;
+  right: calc(-1 * var(--cui-spacings-bit));
+  bottom: calc(-1 * var(--cui-spacings-bit));
+}
+
+.button.add {
+  pointer-events: none;
+}
+
+.spinner {
+  position: absolute;
+  top: calc(50% - 16px);
+  left: calc(50% - 16px);
+  width: var(--cui-icon-sizes-giga);
+  height: var(--cui-icon-sizes-giga);
+  color: var(--cui-fg-on-strong);
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity var(--cui-transitions-default),
+    visibility var(--cui-transitions-default);
+}
+
+.spinner.loading {
+  visibility: inherit;
+  opacity: 1;
+}

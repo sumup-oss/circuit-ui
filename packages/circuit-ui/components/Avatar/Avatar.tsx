@@ -14,15 +14,12 @@
  */
 
 import { ImgHTMLAttributes } from 'react';
-import { css } from '@emotion/react';
 import { Profile, Image as ImageIcon } from '@sumup/icons';
 
-import isPropValid from '../../styles/is-prop-valid.js';
-import styled, { StyleProps } from '../../styles/styled.js';
 import { CircuitError } from '../../util/errors.js';
+import { clsx } from '../../styles/clsx.js';
 
-type AvatarSize = 'giga' | 'yotta';
-type AvatarVariant = 'object' | 'identity';
+import classes from './Avatar.module.css';
 
 export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   /**
@@ -39,12 +36,12 @@ export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
    * The variant also changes which placeholder is rendered when the `src` prop is not provided.
    * Defaults to `object`.
    */
-  variant?: AvatarVariant;
+  variant?: 'object' | 'identity';
   /**
    * One of two available sizes for the Avatar, either giga or yotta.
    * Defaults to `yotta`.
    */
-  size?: AvatarSize;
+  size?: 'giga' | 'yotta';
   /**
    * A 1-2 letter representation of a person's identity, usually their abbreviated name.
    * Can only be used with the identity variant.
@@ -52,74 +49,10 @@ export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   initials?: string;
 }
 
-const avatarSizes = {
-  yotta: '96px',
-  giga: '48px',
-};
-
 const placeholders = {
   object: <ImageIcon />,
   identity: <Profile />,
 };
-
-type StyledProps = {
-  size: AvatarSize;
-  variant: AvatarVariant;
-};
-
-const baseStyles = ({ theme, size }: StyledProps & StyleProps) => css`
-  width: ${avatarSizes[size]};
-  height: ${avatarSizes[size]};
-  box-shadow: 0 0 0 ${theme.borderWidth.kilo} var(--cui-border-subtle);
-  background-color: var(--cui-bg-subtle);
-`;
-
-const imageStyles = () => css`
-  display: block;
-  object-fit: cover;
-  object-position: center;
-`;
-
-const borderRadiusStyles = ({
-  theme,
-  variant,
-  size,
-}: StyledProps & StyleProps) => {
-  if (variant === 'identity') {
-    return css`
-      border-radius: ${theme.borderRadius.circle};
-    `;
-  }
-
-  if (size === 'giga') {
-    return css`
-      border-radius: ${theme.borderRadius.byte};
-    `;
-  }
-
-  return css`
-    border-radius: ${theme.borderRadius.kilo};
-  `;
-};
-
-const Image = styled('img', {
-  shouldForwardProp: (prop) => isPropValid(prop),
-})<StyledProps>(baseStyles, borderRadiusStyles, imageStyles);
-
-const placeholderStyles = ({ theme, size }: StyledProps & StyleProps) => css`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--cui-fg-placeholder);
-  /* Initials */
-  font-size: calc(${avatarSizes[size]} / 2);
-  font-weight: ${theme.fontWeight.bold};
-  user-select: none;
-`;
-
-const Placeholder = styled('div', {
-  shouldForwardProp: (prop) => isPropValid(prop),
-})<StyledProps>(baseStyles, borderRadiusStyles, placeholderStyles);
 
 /**
  * The Avatar component displays an identity or an object image.
@@ -130,6 +63,7 @@ export const Avatar = ({
   variant = 'object',
   size = 'yotta',
   initials,
+  className,
   ...props
 }: AvatarProps): JSX.Element => {
   if (
@@ -158,7 +92,17 @@ export const Avatar = ({
 
   if (src) {
     return (
-      <Image src={src} alt={alt} variant={variant} size={size} {...props} />
+      <img
+        src={src}
+        alt={alt}
+        className={clsx(
+          classes.base,
+          classes[size],
+          variant === 'identity' && classes.identity,
+          className,
+        )}
+        {...props}
+      />
     );
   }
 
@@ -168,15 +112,19 @@ export const Avatar = ({
       : placeholders[variant];
 
   return (
-    <Placeholder
+    <div
       {...(alt
         ? { 'role': 'img', 'aria-label': alt }
         : { 'aria-hidden': 'true' })}
-      size={size}
-      variant={variant}
+      className={clsx(
+        classes.base,
+        classes[size],
+        variant === 'identity' && classes.identity,
+        className,
+      )}
       {...props}
     >
       {placeholder}
-    </Placeholder>
+    </div>
   );
 };

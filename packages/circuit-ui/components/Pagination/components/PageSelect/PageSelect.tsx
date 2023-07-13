@@ -15,8 +15,9 @@
 
 import { useCallback, FunctionComponent, ChangeEvent, Fragment } from 'react';
 
-import styled from '../../../../styles/styled.js';
 import Select, { SelectProps } from '../../../Select/index.js';
+
+import classes from './PageSelect.module.css';
 
 export interface PageSelectProps extends Omit<SelectProps, 'onChange'> {
   onChange: (page: number) => void;
@@ -26,10 +27,6 @@ export interface PageSelectProps extends Omit<SelectProps, 'onChange'> {
   totalLabel?: (totalPages: number) => string;
   [key: string]: unknown;
 }
-
-const TotalPages = styled('span')`
-  margin-left: ${(p) => p.theme.spacings.kilo};
-`;
 
 export const PageSelect: FunctionComponent<PageSelectProps> = ({
   label,
@@ -58,7 +55,9 @@ export const PageSelect: FunctionComponent<PageSelectProps> = ({
         onChange={handleChange}
         hideLabel
       />
-      {totalLabel && <TotalPages>{totalLabel(totalPages)}</TotalPages>}
+      {totalLabel && (
+        <span className={classes.total}>{totalLabel(totalPages)}</span>
+      )}
     </Fragment>
   );
 };

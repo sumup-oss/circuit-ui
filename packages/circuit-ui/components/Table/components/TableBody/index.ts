@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import TableBody from './TableBody.js';
+import { TableBody } from './TableBody.js';
 
 export default TableBody;

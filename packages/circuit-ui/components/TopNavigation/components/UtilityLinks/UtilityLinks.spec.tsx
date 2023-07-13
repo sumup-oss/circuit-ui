@@ -17,12 +17,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { IconProps, More } from '@sumup/icons';
 import { KeyboardEvent, MouseEvent, FC } from 'react';
 
-import {
-  axe,
-  render,
-  renderToHtml,
-  userEvent,
-} from '../../../../util/test-utils.js';
+import { axe, render, userEvent } from '../../../../util/test-utils.js';
 
 import { UtilityLinks } from './UtilityLinks.js';
 
@@ -40,31 +35,19 @@ describe('UtilityLinks', () => {
     ],
   };
 
-  describe('styles', () => {
-    it('should match the snapshot', () => {
-      const { container } = render(<UtilityLinks {...baseProps} />);
+  it('should call the onClick handler of a link', async () => {
+    const { getByText } = render(<UtilityLinks {...baseProps} />);
 
-      expect(container).toMatchSnapshot();
-    });
+    const link = baseProps.links[0];
+
+    await userEvent.click(getByText(link.label));
+
+    expect(link.onClick).toHaveBeenCalledTimes(1);
   });
 
-  describe('business logic', () => {
-    it('should call the onClick handler of a link', async () => {
-      const { getByText } = render(<UtilityLinks {...baseProps} />);
-
-      const link = baseProps.links[0];
-
-      await userEvent.click(getByText(link.label));
-
-      expect(link.onClick).toHaveBeenCalledTimes(1);
-    });
-  });
-
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<UtilityLinks {...baseProps} />);
-      const actual = await axe(wrapper);
-      expect(actual).toHaveNoViolations();
-    });
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<UtilityLinks {...baseProps} />);
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });

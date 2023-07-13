@@ -15,7 +15,7 @@
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { render, axe, act } from '../../../../util/test-utils.js';
+import { render, axe } from '../../../../util/test-utils.js';
 
 import { DesktopSidePanel, DesktopSidePanelProps } from './DesktopSidePanel.js';
 
@@ -44,27 +44,9 @@ describe('DesktopSidePanel', () => {
     vi.useRealTimers();
   });
 
-  it('should match the snapshot', () => {
-    const { baseElement } = renderComponent();
-    expect(baseElement).toMatchSnapshot();
-  });
-
   it('should render the side panel', () => {
     const { getByRole } = renderComponent();
     expect(getByRole('dialog')).toBeVisible();
-  });
-
-  it('should slide in from the right', () => {
-    const { getByRole } = renderComponent();
-    expect(getByRole('dialog')).toHaveStyle('transform: translateX(100%)');
-  });
-
-  it('should open without animation when isInstantOpen is true', () => {
-    const { getByRole } = renderComponent({ isInstantOpen: true });
-    act(() => {
-      vi.advanceTimersByTime(100);
-    });
-    expect(getByRole('dialog')).toHaveStyle('transition: none');
   });
 
   it('should describe the side panel as modal', () => {
@@ -75,7 +57,7 @@ describe('DesktopSidePanel', () => {
   /**
    * FIXME: calling axe here triggers an act() warning.
    */
-  it('should meet accessibility guidelines', async () => {
+  it('should have no accessibility violations', async () => {
     vi.useRealTimers();
     const { container } = renderComponent();
     const actual = await axe(container);

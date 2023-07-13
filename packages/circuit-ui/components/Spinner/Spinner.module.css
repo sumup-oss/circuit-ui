@@ -1,0 +1,33 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.base {
+  display: block;
+  border: var(--cui-border-width-mega) solid currentColor;
+  border-top-color: transparent;
+  border-radius: var(--cui-border-radius-circle);
+  transform-origin: 50% 50%;
+  animation: spin 1s infinite linear;
+}
+
+.byte {
+  width: var(--cui-icon-sizes-mega);
+  height: var(--cui-icon-sizes-mega);
+}
+
+.kilo {
+  width: var(--cui-icon-sizes-giga);
+  height: var(--cui-icon-sizes-giga);
+}
+
+.giga {
+  width: var(--cui-icon-sizes-tera);
+  height: var(--cui-icon-sizes-tera);
+}

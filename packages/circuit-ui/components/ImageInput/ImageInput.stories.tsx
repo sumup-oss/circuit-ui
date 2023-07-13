@@ -16,7 +16,6 @@
 import { useState } from 'react';
 
 import Avatar from '../Avatar/index.js';
-import { Stack } from '../../../../.storybook/components/index.js';
 
 import { ImageInputProps } from './ImageInput.js';
 
@@ -49,31 +48,8 @@ export const WithImage = (): JSX.Element => (
     onChange={() => Promise.resolve()}
     onClear={() => {}}
     loadingLabel="Uploading"
-    component={Avatar}
+    component={(props) => <Avatar {...props} alt="" />}
   />
-);
-
-export const Sizes = (): JSX.Element => (
-  <Stack>
-    <ImageInput
-      label="Upload an image"
-      clearButtonLabel="Clear"
-      onChange={() => Promise.resolve()}
-      onClear={() => {}}
-      loadingLabel="Uploading"
-      component={(props) => <Avatar {...props} size="yotta" />}
-      size="yotta"
-    />
-    <ImageInput
-      label="Upload an image"
-      clearButtonLabel="Clear"
-      onChange={() => Promise.resolve()}
-      onClear={() => {}}
-      loadingLabel="Uploading"
-      component={(props) => <Avatar {...props} size="giga" />}
-      size="giga"
-    />
-  </Stack>
 );
 
 export const Invalid = (args: ImageInputProps): JSX.Element => (
@@ -87,7 +63,7 @@ export const Invalid = (args: ImageInputProps): JSX.Element => (
     invalid
     validationHint="The uploaded image exceeds the maximum allowed size. Please use an image with a size below 20MB."
     loadingLabel="Uploading"
-    component={Avatar}
+    component={(props) => <Avatar {...props} alt="" />}
   />
 );
 
@@ -100,7 +76,7 @@ export const Disabled = (args: ImageInputProps): JSX.Element => (
     onClear={() => {}}
     disabled
     loadingLabel="Uploading"
-    component={Avatar}
+    component={(props) => <Avatar {...props} alt="" />}
   />
 );
 
@@ -154,7 +130,7 @@ export const Stateful = (): JSX.Element => {
       invalid={!!error}
       validationHint={error}
       loadingLabel="Uploading"
-      component={Avatar}
+      component={(props) => <Avatar {...props} alt="" />}
     />
   );
 };
@@ -166,7 +142,7 @@ export const CustomComponentImg = (): JSX.Element => (
     onChange={() => Promise.resolve()}
     onClear={() => {}}
     loadingLabel="Uploading"
-    component={({ src }) => (
+    component={({ src, ...props }) => (
       <img
         style={{
           display: 'block',
@@ -177,10 +153,11 @@ export const CustomComponentImg = (): JSX.Element => (
           objectPosition: 'cover',
         }}
         src={
-          src || // we add a transparent svg placeholder to avoid a broken image icon
+          src || // The transparent SVG placeholder avoids a broken image icon
           'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"></svg>'
         }
-        alt="" // we don't need alt text because it is set by the ImageInput, but this fixes a jsx-a11y error
+        {...props}
+        alt="" // Technically, the `alt` text isn't necessary since the ImageInput applies `aria-hidden="true"`, but this silences a jsx-a11y error
       />
     )}
   />
@@ -195,8 +172,9 @@ export const CustomComponentDiv = (): JSX.Element => (
     onChange={() => Promise.resolve()}
     onClear={() => {}}
     loadingLabel="Uploading"
-    component={({ src }) => (
+    component={({ src, ...props }) => (
       <div
+        {...props}
         style={{
           width: '400px',
           height: '100px',

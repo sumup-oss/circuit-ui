@@ -21,24 +21,17 @@ import { render } from '../../../../util/test-utils.js';
 import { Tab } from './Tab.js';
 
 describe('Tab', () => {
-  describe('styles', () => {
-    it('should render with default styles', () => {
-      const { container } = render(<Tab>content</Tab>);
-      expect(container).toMatchSnapshot();
-    });
-
-    it('should render with selected styles', () => {
-      const { container } = render(<Tab selected>content</Tab>);
-      expect(container).toMatchSnapshot();
-    });
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    const { container } = render(<Tab className={className} />);
+    const element = container.querySelector('button');
+    expect(element?.className).toContain(className);
   });
 
-  describe('business logic', () => {
-    it('should accept a working ref', () => {
-      const tref = createRef();
-      const { container } = render(<Tab ref={tref} />);
-      const button = container.querySelector('button');
-      expect(tref.current).toBe(button);
-    });
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLButtonElement>();
+    const { container } = render(<Tab ref={ref} />);
+    const button = container.querySelector('button');
+    expect(ref.current).toBe(button);
   });
 });

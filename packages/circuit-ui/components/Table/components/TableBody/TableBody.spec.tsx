@@ -15,89 +15,46 @@
 
 import { describe, expect, it } from 'vitest';
 
-import {
-  create,
-  render,
-  renderToHtml,
-  axe,
-} from '../../../../util/test-utils.js';
+import { render, axe } from '../../../../util/test-utils.js';
 
 import TableBody from './index.js';
 
 const fixtureRows = [['Foo', 'Bar']];
 
 describe('TableBody', () => {
-  describe('Style tests', () => {
-    it('should render with default styles', () => {
-      const actual = create(<TableBody rows={fixtureRows} />);
-      expect(actual).toMatchSnapshot();
-    });
+  it('should render a table cell as the first element on each row with no rowHeaders', () => {
+    const { getByRole } = render(<TableBody rows={fixtureRows} />);
+    const tableCell = getByRole('row').children[0];
 
-    it('should render with fixed header styles', () => {
-      const actual = create(<TableBody rowHeaders rows={fixtureRows} />);
-      expect(actual).toMatchSnapshot();
-    });
+    expect(tableCell.tagName).toBe('TD');
   });
 
-  describe('logic tests', () => {
-    describe('rowHeaders', () => {
-      it('should render a table cell as the first element on each row with no rowHeaders', () => {
-        const { getByRole } = render(<TableBody rows={fixtureRows} />);
-        const tableCell = getByRole('row').children[0];
+  it('should render a table header as the first element of each row with rowHeaders', () => {
+    const { getByRole } = render(<TableBody rows={fixtureRows} rowHeaders />);
+    const tableCell = getByRole('row').children[0];
 
-        expect(tableCell.tagName).toBe('TD');
-      });
-
-      it('should render a table header as the first element of each row with rowHeaders', () => {
-        const { getByRole } = render(
-          <TableBody rows={fixtureRows} rowHeaders />,
-        );
-        const tableCell = getByRole('row').children[0];
-
-        expect(tableCell.tagName).toBe('TH');
-      });
-    });
-
-    describe('sortHover', () => {
-      it('should not render a cell with hovered styles if its column is not currently hovered', () => {
-        const sortHover = 4;
-        const wrapper = create(
-          <TableBody sortHover={sortHover} rows={fixtureRows} />,
-        );
-        expect(wrapper).toMatchSnapshot();
-      });
-
-      it('should render a cell with hovered styles if its column is currently hovered', () => {
-        const sortHover = 0;
-        const wrapper = create(
-          <TableBody sortHover={sortHover} rows={fixtureRows} />,
-        );
-        expect(wrapper).toMatchSnapshot();
-      });
-    });
-
-    it('should forward additional props to the row', () => {
-      const testId = 'row-1-testId';
-      const rows = [{ 'cells': ['Foo', 'Bar'], 'data-testid': testId }];
-      const { getAllByTestId } = render(<TableBody rows={rows} />);
-
-      expect(getAllByTestId(testId)).toHaveLength(1);
-    });
-
-    it('should forward additional props to the cell', () => {
-      const testId = 'cell-1-testId';
-      const rows = [[{ 'children': 'Foo', 'data-testid': testId }, 'Bar']];
-      const { getAllByTestId } = render(<TableBody rows={rows} />);
-
-      expect(getAllByTestId(testId)).toHaveLength(1);
-    });
+    expect(tableCell.tagName).toBe('TH');
   });
 
-  describe('Accessibility tests', () => {
-    it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<TableBody rowHeaders rows={fixtureRows} />);
-      const actual = await axe(wrapper);
-      expect(actual).toHaveNoViolations();
-    });
+  it('should forward additional props to the row', () => {
+    const testId = 'row-1-testId';
+    const rows = [{ 'cells': ['Foo', 'Bar'], 'data-testid': testId }];
+    const { getAllByTestId } = render(<TableBody rows={rows} />);
+
+    expect(getAllByTestId(testId)).toHaveLength(1);
+  });
+
+  it('should forward additional props to the cell', () => {
+    const testId = 'cell-1-testId';
+    const rows = [[{ 'children': 'Foo', 'data-testid': testId }, 'Bar']];
+    const { getAllByTestId } = render(<TableBody rows={rows} />);
+
+    expect(getAllByTestId(testId)).toHaveLength(1);
+  });
+
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<TableBody rowHeaders rows={fixtureRows} />);
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });

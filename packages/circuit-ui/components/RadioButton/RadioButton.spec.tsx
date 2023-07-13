@@ -103,30 +103,6 @@ describe('RadioButton', () => {
     });
   });
 
-  describe('Validations', () => {
-    it.each([undefined, false])(
-      'should be valid when the invalid prop is %s',
-      (invalid) => {
-        render(<RadioButton invalid={invalid} {...defaultProps} />);
-        const inputEl = screen.getByRole('radio');
-        expect(inputEl).toBeValid();
-      },
-    );
-
-    it.each([true, 'Invalid value'])(
-      'should be invalid when the invalid prop is %s',
-      (invalid) => {
-        render(
-          // @ts-expect-error we're testing that aria-invalid is properly set
-          // even when the invalid prop is a string
-          <RadioButton invalid={invalid} {...defaultProps} />,
-        );
-        const inputEl = screen.getByRole('radio');
-        expect(inputEl).toBeInvalid();
-      },
-    );
-  });
-
   describe('Accessibility', () => {
     it('should have no violations', async () => {
       const { container } = render(<RadioButton {...defaultProps} />);

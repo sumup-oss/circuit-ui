@@ -13,74 +13,27 @@
  * limitations under the License.
  */
 
-import { FC, PropsWithChildren } from 'react';
-import { css } from '@emotion/react';
+import type { HTMLAttributes } from 'react';
 
-import styled from '../../../../styles/styled.js';
-import { focusOutline } from '../../../../styles/style-mixins.js';
-import { ClickEvent } from '../../../../types/events.js';
+import type { ClickEvent } from '../../../../types/events.js';
+import { clsx } from '../../../../styles/clsx.js';
 
-type TableRowProps = {
+import classes from './TableRow.module.css';
+
+export interface TableRowProps extends HTMLAttributes<HTMLTableRowElement> {
   onClick?: (event: ClickEvent<HTMLTableRowElement>) => void;
-};
-
-const baseStyles = () => css`
-  vertical-align: middle;
-
-  tbody & {
-    &:last-child {
-      th,
-      td {
-        border-bottom: none;
-      }
-    }
-  }
-`;
-
-// Chrome doesn't respect position: relative; on table elements
-// so the transform property is used to create a separate stacking context
-// which is needed to show the focus outline above the other table rows.
-const clickableStyles = ({ onClick }: TableRowProps) =>
-  onClick &&
-  css`
-    cursor: pointer;
-    position: relative;
-
-    &:focus {
-      z-index: 1;
-      transform: translate(0, 0);
-      ${focusOutline()};
-    }
-
-    &:focus:not(:focus-visible) {
-      box-shadow: none;
-    }
-
-    tbody &:focus,
-    tbody &:hover {
-      td,
-      th {
-        color: var(--cui-fg-accent-hovered);
-        background-color: var(--cui-bg-normal-hovered);
-      }
-    }
-
-    tbody &:active {
-      td,
-      th {
-        color: var(--cui-fg-accent-pressed);
-        background-color: var(--cui-bg-normal-pressed);
-      }
-    }
-  `;
-
-const Tr = styled.tr(baseStyles, clickableStyles);
+}
 
 /**
  * TableRow for the Table component. The Table handles rendering it.
  */
-const TableRow: FC<PropsWithChildren<TableRowProps>> = ({
-  onClick,
-  ...props
-}) => <Tr onClick={onClick} tabIndex={onClick ? 0 : undefined} {...props} />;
-export default TableRow;
+export function TableRow({ onClick, className, ...props }: TableRowProps) {
+  return (
+    <tr
+      onClick={onClick}
+      tabIndex={onClick ? 0 : undefined}
+      className={clsx(classes.base, className)}
+      {...props}
+    />
+  );
+}

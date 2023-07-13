@@ -86,7 +86,7 @@ export const WithIcon = (args: ButtonProps) => (
 );
 
 export const Loading = (args: ButtonProps) => {
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(args.isLoading);
 
   const handleClick = () => {
     setLoading(true);
@@ -101,4 +101,5 @@ export const Loading = (args: ButtonProps) => {
 Loading.args = {
   children: 'Things take time',
   loadingLabel: 'Loading',
+  isLoading: false,
 };

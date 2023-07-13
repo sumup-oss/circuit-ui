@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import { createContext, ReactNode } from 'react';
+import { ComponentType, createContext } from 'react';
 
 import { Link, LinkProps } from './components/Link/index.js';
 
 export const defaultComponents = { Link };
 
 export type ComponentsContextType = {
-  Link: (props: LinkProps) => ReactNode;
+  Link: ComponentType<LinkProps>;
 };
 
 export const ComponentsContext =

@@ -13,15 +13,18 @@
  * limitations under the License.
  */
 
-import { forwardRef } from 'react';
-import { css } from '@emotion/react';
+import { forwardRef, useRef } from 'react';
 import { Search, Close } from '@sumup/icons';
 
-import styled, { StyleProps } from '../../styles/styled.js';
 import Input from '../Input/index.js';
-import { InputProps } from '../Input/Input.js';
+import type { InputElement, InputProps } from '../Input/index.js';
 import IconButton from '../IconButton/index.js';
 import { AccessibilityError } from '../../util/errors.js';
+import { applyMultipleRefs } from '../../util/refs.js';
+import { clsx } from '../../styles/clsx.js';
+import type { ClickEvent } from '../../types/events.js';
+
+import classes from './SearchInput.module.css';
 
 type ClearProps =
   | { onClear?: never; clearLabel?: never }
@@ -29,7 +32,7 @@ type ClearProps =
       /**
        * Callback function when the user clears the field.
        */
-      onClear: () => void;
+      onClear: (event: ClickEvent) => void;
       /**
        * Visually hidden text label on the clear button for screen readers.
        * Crucial for accessibility.
@@ -39,26 +42,13 @@ type ClearProps =
 
 export type SearchInputProps = InputProps & ClearProps;
 
-const clearButtonStyles = ({ theme }: StyleProps) => css`
-  border: none;
-  margin: 0 !important;
-  width: auto !important;
-  pointer-events: all !important;
-  cursor: pointer !important;
-  padding: 16px !important;
-  border-radius: ${theme.borderRadius.byte};
-`;
-
-const ClearButton = styled(IconButton)(clearButtonStyles);
-
 /**
  * SearchInput component for forms.
  */
-export const SearchInput = forwardRef(
-  (
-    { value, onClear, clearLabel, ...props }: SearchInputProps,
-    ref: SearchInputProps['ref'],
-  ) => {
+export const SearchInput = forwardRef<InputElement, SearchInputProps>(
+  ({ value, onClear, clearLabel, inputClassName, ...props }, ref) => {
+    const localRef = useRef<InputElement>(null);
+
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -70,20 +60,32 @@ export const SearchInput = forwardRef(
         'The `clearLabel` prop is missing. Omit the `onClear` prop if you intend to disable the input clearing functionality.',
       );
     }
+
+    const onClick = (event: ClickEvent) => {
+      onClear?.(event);
+      localRef.current?.focus();
+    };
+
     return (
       <Input
         value={value}
-        type="text"
+        type="search"
         renderPrefix={(renderProps) => <Search size="16" {...renderProps} />}
         renderSuffix={(renderProps) =>
           value && onClear && clearLabel ? (
-            <ClearButton onClick={onClear} label={clearLabel} {...renderProps}>
+            <IconButton
+              {...renderProps}
+              onClick={onClick}
+              label={clearLabel}
+              className={clsx(renderProps.className, classes['clear-button'])}
+            >
               <Close size="16" />
-            </ClearButton>
+            </IconButton>
           ) : null
         }
+        inputClassName={clsx(classes.base, inputClassName)}
         {...props}
-        ref={ref}
+        ref={applyMultipleRefs(localRef, ref)}
       />
     );
   },

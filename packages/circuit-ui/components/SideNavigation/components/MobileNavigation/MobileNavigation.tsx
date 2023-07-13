@@ -15,12 +15,8 @@
 
 import { Fragment } from 'react';
 import ReactModal from 'react-modal';
-import { ClassNames, css } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
 import { ChevronDown } from '@sumup/icons';
 
-import isPropValid from '../../../../styles/is-prop-valid.js';
-import styled, { StyleProps } from '../../../../styles/styled.js';
 import {
   BaseModalProps,
   createUseModal,
@@ -40,9 +36,11 @@ import {
   ComponentsContextType,
 } from '../../../ComponentsContext/index.js';
 import { defaultComponents } from '../../../ComponentsContext/ComponentsContext.js';
+import { clsx } from '../../../../styles/clsx.js';
+
+import classes from './MobileNavigation.module.css';
 
 const TRANSITION_DURATION = 120;
-const HEADER_HEIGHT = 56;
 
 export interface MobileNavigationProps extends BaseModalProps {
   /**
@@ -79,33 +77,6 @@ function combineClickHandlers(
   };
 }
 
-type ChevronProps = { isOpen: boolean };
-
-const chevronStyles = ({ theme }: StyleProps) => css`
-  transform: rotate(0deg);
-  transition: transform ${theme.transitions.default};
-`;
-
-const chevronOpenStyles = ({ isOpen }: ChevronProps) =>
-  isOpen &&
-  css`
-    transform: rotate(-180deg);
-    color: var(--cui-fg-accent);
-  `;
-
-const Chevron = styled(ChevronDown, {
-  shouldForwardProp: (prop) => isPropValid(prop),
-})<ChevronProps>(chevronStyles, chevronOpenStyles);
-
-const groupStyles = (theme: Theme) => css`
-  border-bottom: ${theme.borderWidth.kilo} solid var(--cui-border-divider);
-  margin-bottom: -1px;
-
-  > *:last-child {
-    padding-bottom: ${theme.spacings.giga};
-  }
-`;
-
 function Group({
   secondaryGroups,
   href,
@@ -114,7 +85,7 @@ function Group({
 }: Require<PrimaryLinkProps, 'secondaryGroups'> & {
   onClose: BaseModalProps['onClose'];
 }): JSX.Element {
-  const { isOpen, getButtonProps, getContentProps } =
+  const { getButtonProps, getContentProps } =
     useCollapsible<HTMLUListElement>();
 
   const mappedSecondaryGroups = secondaryGroups.map(
@@ -132,57 +103,22 @@ function Group({
       <PrimaryLink
         {...props}
         {...getButtonProps()}
-        isOpen={isOpen}
-        suffix={(suffixProps) => (
-          <Chevron {...suffixProps} isOpen={isOpen} size="16" />
+        suffix={({ className, ...suffixProps }) => (
+          <ChevronDown
+            {...suffixProps}
+            className={clsx(className, classes.chevron)}
+            size="16"
+          />
         )}
       />
       <SecondaryLinks
         {...getContentProps()}
-        css={groupStyles}
+        className={classes.group}
         secondaryGroups={mappedSecondaryGroups}
       />
     </Fragment>
   );
 }
-
-const contentStyles = ({ theme }: StyleProps) => css`
-  height: 100%;
-  max-width: 480px;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  margin: 0 auto;
-  padding-top: ${HEADER_HEIGHT}px;
-  padding-bottom: calc(env(safe-area-inset-bottom) + ${theme.spacings.tera});
-`;
-
-const Content = styled.div(contentStyles);
-
-const headerStyles = ({ theme }: StyleProps) => css`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  z-index: ${theme.zIndex.absolute};
-  padding: ${theme.spacings.bit};
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 1) 60%,
-    rgba(255, 255, 255, 0)
-  );
-`;
-
-const Header = styled.div(headerStyles);
-
-const closeButtonStyles = css`
-  background-color: transparent;
-`;
-
-const listStyles = css`
-  list-style: none;
-`;
 
 /**
  * TODO: Update description 👇🏻
@@ -200,128 +136,62 @@ export const MobileNavigation: ModalComponent<MobileNavigationProps> = ({
 }) => {
   const focusProps = useFocusList();
 
+  const reactModalProps = {
+    className: {
+      base: classes.base,
+      afterOpen: classes.open,
+      beforeClose: classes.closed,
+    },
+    overlayClassName: {
+      base: classes.overlay,
+      afterOpen: classes['overlay-open'],
+      beforeClose: classes['overlay-closed'],
+    },
+    onRequestClose: onClose,
+    closeTimeoutMS: TRANSITION_DURATION,
+    shouldCloseOnOverlayClick: true,
+    shouldCloseOnEsc: true,
+    ...props,
+  };
+
   return (
     <ComponentsContext.Provider value={UNSAFE_components}>
-      <ClassNames>
-        {({ css: cssString, theme }) => {
-          // React Modal styles
-          // https://reactcommunity.org/react-modal/styles/classes/
-          const styles = {
-            base: cssString`
-                position: fixed;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                opacity: 0;
-                transform: translateY(-25%);
-                transition: opacity ${TRANSITION_DURATION}ms ease-in-out,
-                  transform ${TRANSITION_DURATION}ms ease-in-out;
-                outline: none;
-                background-color: var(--cui-bg-normal);
-                overflow: hidden;
+      <StackContext.Provider value={'var(--cui-z-index-modal)'}>
+        <ReactModal {...reactModalProps}>
+          <div className={classes.content}>
+            <div className={classes.header}>
+              <CloseButton
+                onClick={onClose}
+                label={closeButtonLabel}
+                className={classes.close}
+              />
+            </div>
 
-                &::after {
-                  content: '';
-                  display: block;
-                  position: fixed;
-                  right: 0;
-                  bottom: 0;
-                  left: 0;
-                  height: ${theme.spacings.mega};
-                  background: linear-gradient(
-                    rgba(255,255,255,0),
-                    rgba(255,255,255,0.66),
-                    rgba(255,255,255,1)
-                  );
-                }
-              `,
-            // The !important below is necessary because of some weird
-            // style specificity issues in Emotion.
-            afterOpen: cssString`
-                opacity: 1 !important;
-                transform: translateY(0) !important;
-              `,
-            beforeClose: cssString`
-                opacity: 0 !important;
-                transform: translateY(-25%) !important;
-              `,
-          };
-
-          const overlayStyles = {
-            base: cssString`
-                position: fixed;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-                opacity: 0;
-                transition: opacity ${TRANSITION_DURATION}ms ease-in-out;
-                background: var(--cui-bg-overlay);
-                z-index: ${theme.zIndex.modal};
-              `,
-            afterOpen: cssString`
-                opacity: 1;
-              `,
-            beforeClose: cssString`
-                opacity: 0;
-              `,
-          };
-
-          const reactModalProps = {
-            className: styles,
-            overlayClassName: overlayStyles,
-            onRequestClose: onClose,
-            closeTimeoutMS: TRANSITION_DURATION,
-            shouldCloseOnOverlayClick: true,
-            shouldCloseOnEsc: true,
-            ...props,
-          };
-
-          return (
-            <StackContext.Provider value={theme.zIndex.modal}>
-              <ReactModal {...reactModalProps}>
-                <Content>
-                  <Header>
-                    <CloseButton
-                      onClick={onClose}
-                      label={closeButtonLabel}
-                      css={closeButtonStyles}
-                    />
-                  </Header>
-
-                  <nav aria-label={primaryNavigationLabel}>
-                    <ul css={listStyles}>
-                      {primaryLinks.map(
-                        ({ secondaryGroups, onClick, ...link }) => (
-                          <li key={link.label}>
-                            {secondaryGroups && secondaryGroups.length > 0 ? (
-                              <Group
-                                {...link}
-                                secondaryGroups={secondaryGroups}
-                                onClose={onClose}
-                                {...focusProps}
-                              />
-                            ) : (
-                              <PrimaryLink
-                                {...link}
-                                {...focusProps}
-                                onClick={combineClickHandlers(onClick, onClose)}
-                              />
-                            )}
-                          </li>
-                        ),
-                      )}
-                    </ul>
-                  </nav>
-                </Content>
-              </ReactModal>
-            </StackContext.Provider>
-          );
-        }}
-      </ClassNames>
+            <nav aria-label={primaryNavigationLabel}>
+              <ul className={classes.list}>
+                {primaryLinks.map(({ secondaryGroups, onClick, ...link }) => (
+                  <li key={link.label}>
+                    {secondaryGroups && secondaryGroups.length > 0 ? (
+                      <Group
+                        {...link}
+                        secondaryGroups={secondaryGroups}
+                        onClose={onClose}
+                        {...focusProps}
+                      />
+                    ) : (
+                      <PrimaryLink
+                        {...link}
+                        {...focusProps}
+                        onClick={combineClickHandlers(onClick, onClose)}
+                      />
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+        </ReactModal>
+      </StackContext.Provider>
     </ComponentsContext.Provider>
   );
 };

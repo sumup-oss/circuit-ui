@@ -14,70 +14,47 @@
  */
 
 import { Children, HTMLAttributes } from 'react';
-import { css } from '@emotion/react';
 
-import styled, { StyleProps } from '../../../../styles/styled.js';
-import { shadow, hideScrollbar } from '../../../../styles/style-mixins.js';
+import { clsx } from '../../../../styles/clsx.js';
+import utilityClasses from '../../../../styles/utility.js';
+
+import classes from './TabList.module.css';
 
 export interface TabListProps extends HTMLAttributes<HTMLDivElement> {
   stretched?: boolean;
 }
 
 const MOBILE_AUTOSTRETCH_ITEMS_MAX = 3;
-const DEFAULT_HEIGHT = '48px';
-
-const Wrapper = styled.div`
-  ${shadow()};
-  ${hideScrollbar()}
-  background: var(--cui-bg-normal);
-  height: ${DEFAULT_HEIGHT};
-  display: flex;
-  overflow-x: auto;
-`;
-
-const navigationBaseStyles = css`
-  display: flex;
-  flex-wrap: nowrap;
-`;
-
-const stretchedStyles = ({ children, theme }: StyleProps & TabListProps) => css`
-  width: 100%;
-
-  & [role='tab'] {
-    flex: 1 1 auto;
-    padding: 0 ${theme.spacings.kilo};
-    width: ${Math.floor(100 / Children.toArray(children).length)}%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-`;
-
-const navigationChildrenStyles = ({
-  stretched,
-  ...props
-}: StyleProps & TabListProps) => stretched && stretchedStyles(props);
-
-const navigationResponsiveChildrenStyles = (props: StyleProps & TabListProps) =>
-  Children.toArray(props.children).length <= MOBILE_AUTOSTRETCH_ITEMS_MAX &&
-  css`
-    ${props.theme.mq.untilKilo} {
-      ${stretchedStyles(props)};
-    }
-  `;
-
-const Navigation = styled.div(
-  navigationBaseStyles,
-  navigationChildrenStyles,
-  navigationResponsiveChildrenStyles,
-);
 
 /**
  * TabList component that wraps the Tab components
  */
-export function TabList({ className, style, ...props }: TabListProps) {
+export function TabList({
+  className,
+  style = {},
+  stretched,
+  children,
+  ...props
+}: TabListProps) {
+  const numberOfTabs = Children.toArray(children).length;
+  const tabWidth = Math.floor(100 / numberOfTabs);
+  const stretchOnMobile = numberOfTabs <= MOBILE_AUTOSTRETCH_ITEMS_MAX;
   return (
-    <Wrapper className={className} style={style}>
-      <Navigation {...props} role="tablist" />
-    </Wrapper>
+    <div
+      className={clsx(classes.wrapper, utilityClasses.hideScrollbar, className)}
+      style={{ ...style, '--tab-list-width': tabWidth }}
+    >
+      <div
+        className={clsx(
+          classes.base,
+          stretched && classes.stretched,
+          stretchOnMobile && classes['stretched-mobile'],
+        )}
+        {...props}
+        role="tablist"
+      >
+        {children}
+      </div>
+    </div>
   );
 }

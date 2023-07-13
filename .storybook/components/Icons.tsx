@@ -14,9 +14,7 @@
  */
 
 import { useState } from 'react';
-import styled from '@emotion/styled';
-import { css, ThemeProvider } from '@emotion/react';
-import { light } from '@sumup/design-tokens';
+import { Unstyled } from '@storybook/addon-docs';
 import * as iconComponents from '@sumup/icons';
 import type { IconsManifest } from '@sumup/icons';
 import iconsManifest from '@sumup/icons/manifest.json';
@@ -25,19 +23,24 @@ import {
   Body,
   SearchInput,
   Select,
-  typography,
-  BaseStyles,
   Badge,
-} from '@sumup/circuit-ui';
+} from '../../packages/circuit-ui/index.js';
+import classes from './Icons.module.css';
 
-function groupBy(icons: IconsManifest['icons'], key: string) {
+function groupBy(
+  icons: IconsManifest['icons'],
+  key: keyof IconsManifest['icons'][0],
+) {
   return icons.reduce((groups, icon) => {
     (groups[icon[key]] = groups[icon[key]] || []).push(icon);
     return groups;
   }, {});
 }
 
-function sortBy(icons: IconsManifest['icons'], key: string) {
+function sortBy(
+  icons: IconsManifest['icons'],
+  key: keyof IconsManifest['icons'][0],
+) {
   return icons.sort((iconA, iconB) => {
     return iconA[key].localeCompare(iconB[key]);
   });
@@ -52,61 +55,6 @@ function getComponentName(name: string) {
   );
   return pascalCased.join('');
 }
-
-const Filters = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: ${(p) => p.theme.spacings.kilo};
-  margin-top: ${(p) => p.theme.spacings.tera};
-  margin-bottom: ${(p) => p.theme.spacings.peta};
-`;
-
-const Category = styled.section`
-  margin-bottom: ${(p) => p.theme.spacings.tera};
-`;
-
-const List = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-const Wrapper = styled.div`
-  width: 7.5rem;
-  text-align: center;
-  margin-top: ${(p) => p.theme.spacings.giga};
-  margin-bottom: ${(p) => p.theme.spacings.giga};
-  position: relative;
-`;
-
-const Size = styled.span`
-  display: block;
-  color: var(--cui-fg-subtle);
-  font-style: italic;
-`;
-
-const IconWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 64px; /* 2 * 32px icon */
-`;
-
-const iconStyles = (color: string) =>
-  css`
-    transform: scale(2);
-    max-width: 3rem;
-    color: ${color};
-    background-color: ${color === 'var(--cui-fg-on-strong)'
-      ? 'var(--cui-bg-strong)'
-      : 'var(--cui-bg-normal)'};
-  `;
-
-const badgeStyles = css`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-30deg);
-`;
 
 const Icons = () => {
   const [search, setSearch] = useState('');
@@ -148,9 +96,8 @@ const Icons = () => {
   );
 
   return (
-    <ThemeProvider theme={light}>
-      <BaseStyles />
-      <Filters>
+    <Unstyled>
+      <div className={classes.filters}>
         <SearchInput
           label="Filter icons by name"
           placeholder="Search..."
@@ -171,7 +118,7 @@ const Icons = () => {
           value={color}
           onChange={handleColorChange}
         />
-      </Filters>
+      </div>
 
       {activeIcons.length <= 0 ? (
         <Body>No icons found</Body>
@@ -179,45 +126,54 @@ const Icons = () => {
         Object.entries<IconsManifest['icons']>(
           groupBy(activeIcons, 'category'),
         ).map(([category, items]) => (
-          <Category key={category}>
+          <section key={category} className={classes.category}>
             <Headline as="h3" size="three">
               {category}
             </Headline>
-            <List>
+            <div className={classes.list}>
               {sortBy(items, 'name').map((icon) => {
                 const id = `${icon.name}-${icon.size}`;
                 const componentName = getComponentName(icon.name);
                 const Icon = iconComponents[componentName];
                 return (
-                  <Wrapper key={id}>
-                    <IconWrapper>
+                  <div key={id} className={classes.wrapper}>
+                    <div className={classes['icon-wrapper']}>
                       <Icon
                         aria-labelledby={id}
                         size={icon.size}
-                        css={iconStyles(color)}
+                        className={classes.icon}
+                        style={{
+                          color,
+                          backgroundColor:
+                            color === 'var(--cui-fg-on-strong)'
+                              ? 'var(--cui-bg-strong)'
+                              : 'var(--cui-bg-normal)',
+                        }}
                       />
-                    </IconWrapper>
-                    <span id={id} css={typography('two')}>
+                    </div>
+                    <span id={id} className={classes.label}>
                       {icon.name}
-                      {size === 'all' && <Size>{icon.size}</Size>}
+                      {size === 'all' && (
+                        <span className={classes.size}>{icon.size}</span>
+                      )}
                     </span>
                     {icon.deprecation && (
                       <Badge
                         title={icon.deprecation}
                         variant="warning"
-                        css={badgeStyles}
+                        className={classes.badge}
                       >
                         Deprecated
                       </Badge>
                     )}
-                  </Wrapper>
+                  </div>
                 );
               })}
-            </List>
-          </Category>
+            </div>
+          </section>
         ))
       )}
-    </ThemeProvider>
+    </Unstyled>
   );
 };
 

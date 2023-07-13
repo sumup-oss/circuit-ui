@@ -13,20 +13,16 @@
  * limitations under the License.
  */
 
-import { Ref, forwardRef, useId } from 'react';
-import { css } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
+import { ButtonHTMLAttributes, forwardRef, useId } from 'react';
 
-import styled, { StyleProps } from '../../styles/styled.js';
-import { Body } from '../Body/Body.js';
 import { AccessibilityError } from '../../util/errors.js';
-import { FieldDescription, FieldWrapper } from '../FieldAtoms/index.js';
-import { CLASS_DISABLED } from '../FieldAtoms/constants.js';
-import { hideVisually } from '../../styles/style-mixins.js';
+import { FieldDescription, FieldWrapper } from '../Field/index.js';
+import { clsx } from '../../styles/clsx.js';
+import utilityClasses from '../../styles/utility.js';
 
-import { Switch, SwitchProps } from './components/Switch/Switch.js';
+import classes from './Toggle.module.css';
 
-export interface ToggleProps extends SwitchProps {
+export interface ToggleProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * Describes the function of the toggle. Should not change depending on the state.
    */
@@ -36,58 +32,58 @@ export interface ToggleProps extends SwitchProps {
    */
   description?: string;
   /**
-   * The ref to the HTML DOM button element
+   * Is the Switch on?
    */
-  ref?: Ref<HTMLButtonElement>;
+  checked?: boolean;
+  /**
+   * Label for the 'on' state. Important for accessibility.
+   */
+  checkedLabel: string;
+  /**
+   * Label for the 'off' state. Important for accessibility.
+   */
+  uncheckedLabel: string;
 }
-
-const labelStyles = ({ theme }: StyleProps) => css`
-  display: block;
-  margin-left: ${theme.spacings.kilo};
-  cursor: pointer;
-
-  ${theme.mq.untilKilo} {
-    margin-left: 0;
-    margin-right: ${theme.spacings.kilo};
-  }
-
-  .${CLASS_DISABLED} & {
-    color: var(--cui-fg-normal-disabled);
-  }
-`;
-
-// This component is rendered as a `label` element below.
-const ToggleLabel = styled(Body)<{ htmlFor: string }>(labelStyles);
-
-const wrapperStyles = (theme: Theme) => css`
-  display: flex;
-  align-items: flex-start;
-
-  ${theme.mq.untilKilo} {
-    flex-direction: row-reverse;
-    justify-content: space-between;
-  }
-`;
 
 /**
  * A toggle component with support for labels and additional explanations.
  */
-export const Toggle = forwardRef(
+export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
   (
     {
       label,
       description,
       'aria-describedby': describedBy,
+      checkedLabel,
+      uncheckedLabel,
+      checked = false,
+      onChange,
+      className,
+      style,
       ...props
-    }: ToggleProps,
-    ref: ToggleProps['ref'],
+    },
+    ref,
   ) => {
     if (
       process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !label
+      process.env.NODE_ENV !== 'test'
     ) {
-      throw new AccessibilityError('Toggle', 'The `label` prop is missing.');
+      if (!label) {
+        throw new AccessibilityError('Toggle', 'The `label` prop is missing.');
+      }
+
+      if (!checkedLabel) {
+        throw new AccessibilityError(
+          'Toggle',
+          'The `checkedLabel` prop is missing.',
+        );
+      }
+      if (!uncheckedLabel) {
+        throw new AccessibilityError(
+          'Toggle',
+          'The `checkedLabel` prop is missing.',
+        );
+      }
     }
 
     const switchId = useId();
@@ -99,24 +95,38 @@ export const Toggle = forwardRef(
       .join(' ');
 
     return (
-      <FieldWrapper disabled={props.disabled} css={wrapperStyles}>
-        <Switch
-          {...props}
+      <FieldWrapper
+        disabled={props.disabled}
+        className={clsx(classes.wrapper, className)}
+        style={style}
+      >
+        <button
+          type="button"
+          onClick={onChange}
+          role="switch"
+          aria-checked={checked}
           aria-labelledby={labelId}
           aria-describedby={descriptionIds}
           id={switchId}
+          className={clsx(classes.track, utilityClasses.focusVisible)}
+          {...props}
           ref={ref}
-        />
-        <ToggleLabel as="label" id={labelId} htmlFor={switchId}>
+        >
+          <span className={classes.knob} />
+          <span className={utilityClasses.hideVisually}>
+            {checked ? checkedLabel : uncheckedLabel}
+          </span>
+        </button>
+        <label className={classes.label} id={labelId} htmlFor={switchId}>
           {label}
           {description && (
             <FieldDescription aria-hidden="true">
               {description}
             </FieldDescription>
           )}
-        </ToggleLabel>
+        </label>
         {description && (
-          <p id={descriptionId} css={hideVisually}>
+          <p id={descriptionId} className={utilityClasses.hideVisually}>
             {description}
           </p>
         )}

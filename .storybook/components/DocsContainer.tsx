@@ -1,10 +1,7 @@
 // import { useEffect, useState } from 'react';
-import { ThemeProvider } from '@emotion/react';
 import { DocsContainer as BaseContainer } from '@storybook/addon-docs';
 
 import * as themes from '../themes';
-import { BaseStyles } from '@sumup/circuit-ui';
-import { light } from '@sumup/design-tokens';
 
 /**
  * Automatically switch light/dark theme based on system preferences
@@ -30,9 +27,6 @@ const DocsContainer: typeof BaseContainer = ({ children, context }) => {
 
   return (
     <BaseContainer context={context} theme={themes.light}>
-      <ThemeProvider theme={light}>
-        <BaseStyles />
-      </ThemeProvider>
       {children}
     </BaseContainer>
   );

@@ -15,34 +15,42 @@
 
 import { describe, expect, it } from 'vitest';
 import { Close } from '@sumup/icons';
+import { createRef } from 'react';
 
-import { create, renderToHtml, axe } from '../../util/test-utils.js';
+import { render, axe } from '../../util/test-utils.js';
 
 import { IconButton } from './IconButton.js';
 
 describe('IconButton', () => {
-  /**
-   * Style tests.
-   */
-  it('should render with the default styles', () => {
-    const actual = create(
-      <IconButton label="Close">
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    const { container } = render(
+      <IconButton label="Close" className={className}>
         <Close />
       </IconButton>,
     );
-    expect(actual).toMatchSnapshot();
+    const button = container.querySelector('button');
+    expect(button?.className).toContain(className);
   });
 
-  /**
-   * Accessibility tests.
-   */
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLHRElement>();
+    const { container } = render(
+      <IconButton label="Close" ref={ref}>
+        <Close />
+      </IconButton>,
+    );
+    const button = container.querySelector('button');
+    expect(ref.current).toBe(button);
+  });
+
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(
+    const { container } = render(
       <IconButton label="Close">
         <Close />
       </IconButton>,
     );
-    const actual = await axe(wrapper);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });

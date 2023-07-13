@@ -16,7 +16,6 @@
 import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { Shop, SumUpLogo } from '@sumup/icons';
-import { css } from '@emotion/react';
 
 import { SideNavigation } from '../SideNavigation/index.js';
 import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories.js';
@@ -93,24 +92,20 @@ export const WithSideNavigation = (args: TopNavigationProps) => {
   return (
     <ModalProvider>
       <TopNavigation {...args} hamburger={hamburger} />
-      <div
-        css={css`
-          display: flex;
-        `}
-      >
+      <div style={{ display: 'flex' }}>
         <SideNavigation
           {...sideNavigationProps}
           isOpen={isSideNavigationOpen}
           onClose={() => setSideNavigationOpen(false)}
         />
         <div
-          css={css`
-            background-color: lightgrey;
-            width: 100%;
-            min-height: 300px;
-            margin: 1.5rem;
-            border-radius: 1rem;
-          `}
+          style={{
+            backgroundColor: 'lightgrey',
+            width: '100%',
+            minHeight: '300px',
+            margin: '1.5rem',
+            borderRadius: '1rem',
+          }}
         />
       </div>
     </ModalProvider>

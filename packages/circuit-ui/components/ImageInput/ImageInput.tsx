@@ -21,24 +21,23 @@ import {
   ClipboardEvent,
   DragEvent,
   useId,
+  ComponentType,
 } from 'react';
-import { css } from '@emotion/react';
 import { Delete, Plus } from '@sumup/icons';
 
 import { ClickEvent } from '../../types/events.js';
-import styled, { StyleProps } from '../../styles/styled.js';
-import { focusOutline, hideVisually } from '../../styles/style-mixins.js';
+import utilityClasses from '../../styles/utility.js';
 import {
   FieldWrapper,
   FieldLabel,
   FieldValidationHint,
-} from '../FieldAtoms/index.js';
-import IconButton, { IconButtonProps } from '../IconButton/index.js';
+} from '../Field/index.js';
+import IconButton from '../IconButton/index.js';
 import Spinner from '../Spinner/index.js';
 import { AccessibilityError } from '../../util/errors.js';
-import { CLASS_DISABLED } from '../FieldAtoms/constants.js';
+import { clsx } from '../../styles/clsx.js';
 
-type Size = 'giga' | 'yotta';
+import classes from './ImageInput.module.css';
 
 export interface ImageInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange'> {
@@ -51,7 +50,7 @@ export interface ImageInputProps
    * It should accept a `src` prop to render the image, and `aria-hidden` to
    * hide it from assistive technology.
    */
-  component: (props: { 'src'?: string; 'aria-hidden': 'true' }) => JSX.Element;
+  component: ComponentType<{ 'src'?: string; 'aria-hidden': 'true' }>;
   /**
    * A callback function to call when the user has selected an image.
    */
@@ -85,218 +84,7 @@ export interface ImageInputProps
    * An information or error message, displayed below the input.
    */
   validationHint?: string;
-  /**
-   * Changes the size of the button that controls the input. Defaults to "yotta".
-   */
-  size?: Size;
 }
-
-const InputWrapper = styled.div`
-  display: inline-block;
-  position: relative;
-  text-align: center;
-`;
-
-const HiddenInput = styled.input(
-  hideVisually,
-  css`
-    &:focus + label > *:last-child {
-      ${focusOutline()};
-    }
-
-    &:focus:not(:focus-visible) + label > *:last-child {
-      box-shadow: none;
-    }
-  `,
-);
-
-type LabelProps = {
-  isLoading: boolean;
-  isDragging: boolean;
-  invalid: boolean;
-};
-
-const baseLabelStyles = ({ theme }: StyleProps) => css`
-  cursor: pointer;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    border-radius: 12px;
-    pointer-events: none;
-    background-color: var(--cui-bg-strong);
-    opacity: 0;
-    transition: opacity ${theme.transitions.default};
-  }
-
-  > *:last-child {
-    transition: box-shadow ${theme.transitions.default};
-  }
-
-  @supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
-    transition: filter ${theme.transitions.default};
-
-    &::before {
-      content: none;
-    }
-  }
-`;
-
-const invalidLabelStyles = ({ invalid }: LabelProps) =>
-  invalid &&
-  css`
-    > *:last-child {
-      box-shadow: 0 0 0 2px var(--cui-border-danger);
-    }
-    &:hover > *:last-child {
-      box-shadow: 0 0 0 2px var(--cui-border-danger-hovered);
-    }
-    &:active > *:last-child {
-      box-shadow: 0 0 0 2px var(--cui-border-danger-pressed);
-    }
-  `;
-
-const loadingLabelStyles = ({ isLoading }: LabelProps) => {
-  if (isLoading) {
-    return css`
-      &::before {
-        opacity: 0.4;
-      }
-
-      @supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
-        filter: brightness(0.6);
-      }
-    `;
-  }
-
-  return css`
-    &:hover::before {
-      opacity: 0.1;
-    }
-    &:active::before {
-      opacity: 0.2;
-    }
-
-    @supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
-      &:hover {
-        filter: brightness(0.9);
-      }
-      &:active {
-        filter: brightness(0.8);
-      }
-    }
-  `;
-};
-
-const draggingLabelStyles = ({ isDragging }: LabelProps) =>
-  isDragging &&
-  css`
-    *:last-child {
-      ${focusOutline()};
-    }
-
-    &::before {
-      opacity: 0.1;
-    }
-
-    @supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
-      filter: brightness(0.9);
-    }
-  `;
-
-const disabledLabelStyles = css`
-  .${CLASS_DISABLED} & {
-    opacity: 0.4;
-  }
-`;
-
-const addButtonStyles = css`
-  &:hover {
-    & > button {
-      background-color: var(--cui-bg-danger-hovered);
-      border-color: var(--cui-border-danger-hovered);
-    }
-  }
-  &:active {
-    & > button {
-      background-color: var(--cui-bg-danger-pressed);
-      border-color: var(--cui-border-danger-pressed);
-    }
-  }
-`;
-
-const Label = styled(FieldLabel)<LabelProps>(
-  baseLabelStyles,
-  invalidLabelStyles,
-  loadingLabelStyles,
-  draggingLabelStyles,
-  disabledLabelStyles,
-  addButtonStyles,
-);
-
-const actionButtonBaseStyles = ({ theme }: StyleProps) => css`
-  position: absolute;
-  right: -${theme.spacings.bit};
-  bottom: -${theme.spacings.bit};
-`;
-
-const actionButtonSizeStyles = ({ buttonSize }: ActionButtonProps) => {
-  if (buttonSize === 'giga') {
-    return css`
-      padding: 5px;
-      svg {
-        width: 14px;
-        height: 14px;
-      }
-    `;
-  }
-  return null;
-};
-
-type ActionButtonProps = IconButtonProps & { buttonSize: Size };
-
-const ActionButton = styled(IconButton)<ActionButtonProps>(
-  actionButtonBaseStyles,
-  actionButtonSizeStyles,
-);
-
-const AddButton = styled(ActionButton)`
-  pointer-events: none;
-`;
-
-type LoadingIconProps = { isLoading: boolean };
-
-const spinnerBaseStyles = ({ theme }: LoadingIconProps & StyleProps) => css`
-  position: absolute;
-  width: ${theme.iconSizes.giga};
-  height: ${theme.iconSizes.giga};
-  top: calc(50% - 16px);
-  left: calc(50% - 16px);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity ${theme.transitions.default},
-    visibility ${theme.transitions.default};
-  color: var(--cui-fg-on-strong);
-  pointer-events: none;
-`;
-
-const spinnerLoadingStyles = ({ isLoading }: LoadingIconProps) =>
-  isLoading &&
-  css`
-    opacity: 1;
-    visibility: inherit;
-  `;
-
-const LoadingIcon = styled(Spinner)<LoadingIconProps>(
-  spinnerBaseStyles,
-  spinnerLoadingStyles,
-);
-
-const LoadingLabel = styled.span(hideVisually);
 
 /**
  * The ImageInput component allows users to upload images.
@@ -304,7 +92,6 @@ const LoadingLabel = styled.span(hideVisually);
 export const ImageInput = ({
   label,
   src,
-  size = 'yotta',
   'id': customId,
   clearButtonLabel,
   onChange,
@@ -439,8 +226,9 @@ export const ImageInput = ({
 
   return (
     <FieldWrapper className={className} style={style} disabled={disabled}>
-      <InputWrapper onPaste={handlePaste}>
-        <HiddenInput
+      <div onPaste={handlePaste} className={classes.wrapper}>
+        <input
+          className={clsx(classes.input, utilityClasses.hideVisually)}
           ref={inputRef}
           id={inputId}
           type="file"
@@ -452,21 +240,23 @@ export const ImageInput = ({
           aria-describedby={descriptionIds}
           {...props}
         />
-        <Label
-          isLoading={isLoading}
-          isDragging={isDragging}
-          invalid={invalid}
+        <FieldLabel
           htmlFor={inputId}
           onDragEnter={handleDragging}
           onDragOver={handleDragging}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
+          className={clsx(
+            classes.label,
+            isLoading && classes.loading,
+            isDragging && classes.dragging,
+          )}
         >
-          <span css={hideVisually()}>{label}</span>
+          <span className={utilityClasses.hideVisually}>{label}</span>
           <Component src={src || previewImage} aria-hidden="true" />
-        </Label>
+        </FieldLabel>
         {src ? (
-          <ActionButton
+          <IconButton
             type="button"
             size="kilo"
             variant="primary"
@@ -474,12 +264,12 @@ export const ImageInput = ({
             label={clearButtonLabel}
             onClick={handleClear}
             disabled={isLoading || disabled}
-            buttonSize={size}
+            className={classes.button}
           >
             <Delete size="16" />
-          </ActionButton>
+          </IconButton>
         ) : (
-          <AddButton
+          <IconButton
             type="button"
             size="kilo"
             variant="primary"
@@ -487,15 +277,17 @@ export const ImageInput = ({
             tabIndex={-1}
             label="-" // We need to pass a label here to prevent IconButton from throwing
             disabled={isLoading || disabled}
-            buttonSize={size}
+            className={clsx(classes.button, classes.add)}
           >
             <Plus size="16" />
-          </AddButton>
+          </IconButton>
         )}
-        <LoadingIcon isLoading={isLoading}>
-          <LoadingLabel>{loadingLabel}</LoadingLabel>
-        </LoadingIcon>
-      </InputWrapper>
+        <Spinner
+          className={clsx(classes.spinner, isLoading && classes.loading)}
+        >
+          <span className={utilityClasses.hideVisually}>{loadingLabel}</span>
+        </Spinner>
+      </div>
       <FieldValidationHint
         id={validationHintId}
         validationHint={validationHint}

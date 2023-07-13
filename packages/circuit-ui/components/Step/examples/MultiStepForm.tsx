@@ -15,9 +15,6 @@
 
 /* istanbul ignore file */
 
-import { css } from '@emotion/react';
-
-import styled from '../../../styles/styled.js';
 import Headline from '../../Headline/index.js';
 import Button from '../../Button/index.js';
 import ButtonGroup from '../../ButtonGroup/index.js';
@@ -25,7 +22,8 @@ import Input from '../../Input/index.js';
 import Select from '../../Select/index.js';
 import ProgressBar from '../../ProgressBar/index.js';
 import Step from '../Step.js';
-import { spacing } from '../../../styles/style-mixins.js';
+
+import classes from './MultiStepForm.module.css';
 
 interface FormProps {
   onNextClick: () => void;
@@ -34,16 +32,8 @@ interface FormProps {
 
 const FormOne = ({ onNextClick }: FormProps) => (
   <section>
-    <Input
-      label="First Name"
-      placeholder="John"
-      css={spacing({ bottom: 'mega' })}
-    />
-    <Input
-      label="Second Name"
-      placeholder="Doe"
-      css={spacing({ bottom: 'mega' })}
-    />
+    <Input label="First Name" placeholder="John" className={classes.spacing} />
+    <Input label="Second Name" placeholder="Doe" className={classes.spacing} />
     <Button variant="primary" onClick={() => onNextClick()}>
       Next
     </Button>
@@ -55,9 +45,9 @@ const FormTwo = ({ onNextClick, onBackClick }: FormProps) => (
     <Input
       label="Street"
       placeholder="Madison Ave 5"
-      css={spacing({ bottom: 'mega' })}
+      className={classes.spacing}
     />
-    <Select label="State" css={spacing({ bottom: 'mega' })}>
+    <Select label="State" className={classes.spacing}>
       <option>CA</option>
       <option>TX</option>
       <option>NY</option>
@@ -65,7 +55,7 @@ const FormTwo = ({ onNextClick, onBackClick }: FormProps) => (
     <Input
       label="Postal Code"
       placeholder="10179"
-      css={spacing({ bottom: 'mega' })}
+      className={classes.spacing}
     />
     <ButtonGroup
       align="left"
@@ -89,13 +79,6 @@ const Thanks = () => (
   </section>
 );
 
-const containerStyles = css`
-  margin: 0 auto;
-  width: 90%;
-  max-width: 300px;
-`;
-const Container = styled('div')(containerStyles);
-
 export default function MultiStepForm(): JSX.Element {
   const steps = [FormOne, FormTwo, Thanks];
   const totalSteps = steps.length;
@@ -107,15 +90,15 @@ export default function MultiStepForm(): JSX.Element {
         const stepNumber = state.step + 1;
 
         return (
-          <Container>
-            <Headline as="h2" size="three" css={spacing({ bottom: 'giga' })}>
+          <div className={classes.container}>
+            <Headline as="h2" size="three" className={classes.spacing}>
               Step {stepNumber} of {totalSteps}
             </Headline>
             <ProgressBar
               value={stepNumber}
               max={totalSteps}
               size={'kilo'}
-              css={spacing({ bottom: 'mega' })}
+              className={classes.spacing}
               label={`Step ${stepNumber} of ${totalSteps}`}
               hideLabel
             />
@@ -123,7 +106,7 @@ export default function MultiStepForm(): JSX.Element {
               onNextClick={actions.next}
               onBackClick={actions.previous}
             />
-          </Container>
+          </div>
         );
       }}
     </Step>

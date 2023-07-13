@@ -13,12 +13,11 @@
  * limitations under the License.
  */
 
-import { forwardRef, Ref, HTMLAttributes, ReactNode } from 'react';
-import { css } from '@emotion/react';
+import { forwardRef, HTMLAttributes, ReactNode } from 'react';
 
-import styled, { StyleProps } from '../../styles/styled.js';
+import { clsx } from '../../styles/clsx.js';
 
-import Title from './components/Title/index.js';
+import classes from './Header.module.css';
 
 export interface HeaderProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -34,47 +33,21 @@ export interface HeaderProps extends HTMLAttributes<HTMLDivElement> {
    * The child component of Header.
    */
   children?: ReactNode;
-  /**
-   * The ref to the HTML DOM element.
-   */
-  ref?: Ref<HTMLDivElement>;
 }
 
-type HeaderElProps = Pick<HeaderProps, 'mobileOnly'>;
-
-const containerStyles = ({ theme }: StyleProps) => css`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  min-height: 64px;
-  background-color: var(--cui-bg-strong);
-  padding: ${theme.spacings.mega};
-  z-index: ${theme.zIndex.header};
-  position: sticky;
-`;
-
-const mobileOnlyStyles = ({ theme, mobileOnly }: StyleProps & HeaderElProps) =>
-  mobileOnly &&
-  css`
-    ${theme.mq.giga} {
-      display: none;
-    }
-  `;
-
-const Container = styled('div')<HeaderElProps>(
-  mobileOnlyStyles,
-  containerStyles,
-);
-
-export const Header = forwardRef(
-  (
-    { title, mobileOnly, children, ...props }: HeaderProps,
-    ref: HeaderProps['ref'],
-  ) => (
-    <Container mobileOnly={mobileOnly} ref={ref} {...props}>
+export const Header = forwardRef<HTMLElement, HeaderProps>(
+  ({ title, mobileOnly, children, ...props }, ref) => (
+    <header
+      className={clsx(
+        classes.base,
+        mobileOnly && classes['hide-on-wide-viewports'],
+      )}
+      ref={ref}
+      {...props}
+    >
       {children}
-      <Title>{title}</Title>
-    </Container>
+      <h1 className={classes.title}>{title}</h1>
+    </header>
   ),
 );
 

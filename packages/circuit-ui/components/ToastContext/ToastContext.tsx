@@ -20,13 +20,11 @@ import {
   useEffect,
   useMemo,
 } from 'react';
-import { css } from '@emotion/react';
 
 import { useStack, StackItem } from '../../hooks/useStack/index.js';
-import styled, { StyleProps } from '../../styles/styled.js';
-import { spacing } from '../../styles/style-mixins.js';
 
 import { BaseToastProps, ToastComponent } from './types.js';
+import classes from './ToastContext.module.css';
 
 const DEFAULT_TOAST_DURATION = 6000;
 
@@ -51,26 +49,6 @@ export interface ToastProviderProps {
    */
   children: ReactNode;
 }
-
-const liveRegionStyles = ({ theme }: StyleProps) => css`
-  position: fixed;
-  width: 100%;
-  padding: 0 ${theme.spacings.giga};
-  bottom: ${theme.spacings.giga};
-  left: 0;
-  display: flex;
-  flex-direction: column-reverse;
-  z-index: ${theme.zIndex.toast};
-
-  ${theme.mq.kilo} {
-    width: auto;
-    padding: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-`;
-
-const LiveRegion = styled('div')(liveRegionStyles);
 
 export function ToastProvider<TProps extends BaseToastProps>({
   children,
@@ -128,7 +106,12 @@ export function ToastProvider<TProps extends BaseToastProps>({
   return (
     <ToastContext.Provider value={context}>
       {children}
-      <LiveRegion role="status" aria-live="polite" aria-atomic="false">
+      <div
+        className={classes.base}
+        role="status"
+        aria-live="polite"
+        aria-atomic="false"
+      >
         {toasts.map((toast) => {
           const {
             id,
@@ -141,7 +124,7 @@ export function ToastProvider<TProps extends BaseToastProps>({
             // @ts-expect-error The props are enforced by the toast hooks,
             // so this warning can be safely ignored.
             <Component
-              css={spacing({ top: 'byte' })}
+              className={classes.toast}
               {...toastProps}
               key={id}
               isVisible={!transition}
@@ -149,7 +132,7 @@ export function ToastProvider<TProps extends BaseToastProps>({
             />
           );
         })}
-      </LiveRegion>
+      </div>
     </ToastContext.Provider>
   );
 }

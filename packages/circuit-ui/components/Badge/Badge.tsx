@@ -13,11 +13,12 @@
  * limitations under the License.
  */
 
-import { Ref, HTMLAttributes } from 'react';
-import { css } from '@emotion/react';
+import { HTMLAttributes, forwardRef } from 'react';
 
-import styled, { StyleProps } from '../../styles/styled.js';
-import { typography } from '../../styles/style-mixins.js';
+import type { AsPropType } from '../../types/prop-types.js';
+import { clsx } from '../../styles/clsx.js';
+
+import classes from './Badge.module.css';
 
 export interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -29,57 +30,10 @@ export interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
    */
   circle?: boolean;
   /**
-   * The ref to the HTML DOM element.
+   * Render the text using any HTML element.
    */
-  ref?: Ref<HTMLDivElement>;
+  as?: AsPropType;
 }
-
-const baseStyles = ({ theme }: StyleProps) => css`
-  border-radius: ${theme.borderRadius.pill};
-  display: inline-block;
-  padding: 2px ${theme.spacings.byte};
-  font-weight: ${theme.fontWeight.bold};
-  text-align: center;
-  letter-spacing: 0.25px;
-`;
-
-const variantStyles = ({ variant = 'neutral' }: BadgeProps) => {
-  switch (variant) {
-    case 'success': {
-      return css`
-        background-color: var(--cui-bg-success-strong);
-        color: var(--cui-fg-on-strong);
-      `;
-    }
-    case 'warning': {
-      return css`
-        background-color: var(--cui-bg-warning-strong);
-        color: var(--cui-fg-on-strong);
-      `;
-    }
-    case 'danger': {
-      return css`
-        background-color: var(--cui-bg-danger-strong);
-        color: var(--cui-fg-on-strong);
-      `;
-    }
-    case 'neutral': {
-      return css`
-        background-color: var(--cui-bg-highlight);
-        color: var(--cui-fg-normal);
-      `;
-    }
-    case 'promo': {
-      return css`
-        background-color: var(--cui-bg-promo-strong);
-        color: var(--cui-fg-on-strong);
-      `;
-    }
-    default: {
-      return null;
-    }
-  }
-};
 
 const isDynamicWidth = (children: BadgeProps['children']) => {
   if (typeof children === 'string') {
@@ -88,26 +42,40 @@ const isDynamicWidth = (children: BadgeProps['children']) => {
   return false;
 };
 
-const circleStyles = ({ circle = false, children }: BadgeProps) =>
-  circle &&
-  css`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2px 4px;
-    height: 24px;
-    width: ${isDynamicWidth(children) ? 'auto' : '24px'};
-  `;
-
 /**
  * A badge communicates the status of an element or the count of items
  * related to an element.
  */
-export const Badge = styled('div')<BadgeProps>(
-  typography('two'),
-  baseStyles,
-  variantStyles,
-  circleStyles,
+export const Badge = forwardRef<HTMLDivElement, BadgeProps>(
+  (
+    {
+      as: Element = 'div',
+      className,
+      style = {},
+      variant = 'neutral',
+      circle,
+      children,
+      ...props
+    },
+    ref,
+  ) => {
+    const width = isDynamicWidth(children) ? 'auto' : '24px';
+    return (
+      <Element
+        {...props}
+        ref={ref}
+        className={clsx(
+          classes.base,
+          classes[variant],
+          circle && classes.circle,
+          className,
+        )}
+        style={{ ...style, '--badge-width': width }}
+      >
+        {children}
+      </Element>
+    );
+  },
 );
 
 Badge.displayName = 'Badge';

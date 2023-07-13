@@ -1,0 +1,173 @@
+.base {
+  position: fixed;
+  background-color: var(--cui-bg-elevated);
+  outline: none;
+}
+
+.base::after {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  content: '';
+  background: linear-gradient(
+    rgb(255 255 255 / 0%),
+    rgb(255 255 255 / 66%),
+    rgb(255 255 255 / 100%)
+  );
+}
+
+@media (max-width: 479px) {
+  .base {
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: transform var(--cui-transitions-default);
+    transform: translateY(100%);
+  }
+
+  .base::after {
+    height: var(--cui-spacings-mega);
+  }
+}
+
+@media (min-width: 480px) {
+  .base {
+    top: 50%;
+    left: 50%;
+    border-radius: var(--cui-border-radius-mega);
+    opacity: 0;
+    transition: opacity var(--cui-transitions-slow);
+    transform: translate(-50%, -50%);
+  }
+
+  .base::after {
+    height: var(--cui-spacings-giga);
+    border-bottom-right-radius: var(--cui-border-radius-mega);
+    border-bottom-left-radius: var(--cui-border-radius-mega);
+  }
+}
+
+@media (max-width: 479px) {
+  .contextual {
+    border-top-left-radius: var(--cui-border-radius-mega);
+    border-top-right-radius: var(--cui-border-radius-mega);
+  }
+}
+
+.immersive {
+  top: 0;
+}
+
+/* The !important below is necessary because of some weird style specificity issues */
+@media (max-width: 479px) {
+  .open {
+    transform: translateY(0) !important;
+  }
+}
+
+@media (min-width: 480px) {
+  .open {
+    opacity: 1 !important;
+  }
+}
+
+@media (max-width: 479px) {
+  .closed {
+    transform: translateY(100%) !important;
+  }
+}
+
+@media (min-width: 480px) {
+  .closed {
+    opacity: 0 !important;
+  }
+}
+
+/* Overlay */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: var(--cui-z-index-modal);
+  background: var(--cui-bg-overlay);
+  opacity: 0;
+  transition: opacity var(--cui-transitions-default);
+}
+
+@media (min-width: 480px) {
+  .overlay {
+    transition: opacity var(--cui-transitions-slow);
+  }
+}
+
+.overlay-open {
+  opacity: 1;
+}
+
+.overlay-closed {
+  opacity: 0;
+}
+
+/* Content */
+
+.content {
+  overflow-y: auto;
+}
+
+@media (max-width: 479px) {
+  .content {
+    width: 100vw;
+    padding: var(--cui-spacings-mega);
+    padding-bottom: calc(
+      env(safe-area-inset-bottom) + var(--cui-spacings-mega)
+    );
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (min-width: 480px) {
+  .content {
+    min-width: 480px;
+    max-width: 90vw;
+    max-height: 90vh;
+    padding: var(--cui-spacings-giga);
+    padding-bottom: calc(
+      env(safe-area-inset-bottom) + var(--cui-spacings-giga)
+    );
+  }
+}
+
+/* Variants */
+
+@media (max-width: 479px) {
+  .contextual .content {
+    max-height: calc(100vh - var(--cui-spacings-giga));
+  }
+}
+
+/* iOS viewport bug fix: https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
+@supports (max-height: -webkit-fill-available) {
+  @media (max-width: 479px) {
+    .contextual .content {
+      max-height: 80vh;
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .immersive .content {
+    height: 100%;
+  }
+}
+
+.close {
+  position: absolute;
+  top: var(--cui-spacings-byte);
+  right: var(--cui-spacings-byte);
+  z-index: var(--cui-z-index-absolute);
+}

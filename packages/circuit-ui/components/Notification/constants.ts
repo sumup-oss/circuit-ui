@@ -26,25 +26,3 @@ export const NOTIFICATION_ICONS: Record<
   warning: Notify,
   danger: Alert,
 };
-
-export const NOTIFICATION_COLORS: Record<
-  NotificationVariant,
-  { border: string; fg: string }
-> = {
-  info: {
-    border: '--cui-border-accent',
-    fg: '--cui-fg-accent',
-  },
-  success: {
-    border: '--cui-border-success',
-    fg: '--cui-fg-success',
-  },
-  warning: {
-    border: '--cui-border-warning',
-    fg: '--cui-fg-warning',
-  },
-  danger: {
-    border: '--cui-border-danger',
-    fg: '--cui-fg-danger',
-  },
-};

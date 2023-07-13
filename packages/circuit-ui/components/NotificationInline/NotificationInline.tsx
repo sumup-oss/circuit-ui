@@ -23,22 +23,22 @@ import {
   useRef,
   useState,
 } from 'react';
-import { css } from '@emotion/react';
 
-import styled, { StyleProps } from '../../styles/styled.js';
 import { useAnimation } from '../../hooks/useAnimation/index.js';
 import Body from '../Body/index.js';
 import CloseButton from '../CloseButton/index.js';
-import { hideVisually } from '../../styles/style-mixins.js';
 import Button, { ButtonProps } from '../Button/index.js';
 import { ClickEvent } from '../../types/events.js';
 import { isString } from '../../util/type-check.js';
 import {
-  NOTIFICATION_COLORS,
   NOTIFICATION_ICONS,
   NotificationVariant,
 } from '../Notification/constants.js';
 import { applyMultipleRefs } from '../../util/refs.js';
+import { clsx } from '../../styles/clsx.js';
+import utilityClasses from '../../styles/utility.js';
+
+import classes from './NotificationInline.module.css';
 
 const TRANSITION_DURATION = 200;
 const DEFAULT_HEIGHT = 'auto';
@@ -100,89 +100,6 @@ type NotificationInlineComponent = ForwardRefExoticComponent<
   NotificationInlineProps & RefAttributes<HTMLDivElement>
 > & { TIMEOUT: number };
 
-const inlineWrapperStyles = () => css`
-  overflow: hidden;
-  will-change: height;
-  transition: opacity ${TRANSITION_DURATION}ms ease-in-out,
-    height ${TRANSITION_DURATION}ms ease-in-out,
-    visibility ${TRANSITION_DURATION}ms ease-in-out;
-`;
-
-const NotificationInlineWrapper = styled('div')(inlineWrapperStyles);
-
-type ContentWrapperProps = {
-  variant: NotificationVariant;
-};
-
-const contentWrapperStyles = ({
-  theme,
-  variant,
-}: ContentWrapperProps & StyleProps) => css`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: var(--cui-bg-normal);
-  padding: ${theme.spacings.kilo} ${theme.spacings.mega};
-  border-radius: ${theme.borderRadius.byte};
-  border: ${theme.borderWidth.mega} solid
-    var(${NOTIFICATION_COLORS[variant].border});
-`;
-
-const ContentWrapper = styled('div')<ContentWrapperProps>(contentWrapperStyles);
-
-const contentStyles = ({ theme }: StyleProps) => css`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-right: ${theme.spacings.peta};
-  padding-left: ${theme.spacings.mega};
-`;
-
-const Content = styled('div')(contentStyles);
-
-const actionButtonStyles = ({ theme }: StyleProps & ButtonProps) =>
-  css`
-    font-weight: bold;
-    text-decoration-line: underline;
-    color: var(--cui-fg-normal);
-    margin-top: ${theme.spacings.byte};
-
-    &:hover {
-      color: var(--cui-fg-normal-hovered);
-    }
-
-    &:active,
-    &[aria-expanded='true'],
-    &[aria-pressed='true'] {
-      color: var(--cui-fg-normal-pressed);
-    }
-  `;
-
-const ActionButton = styled(Button)(actionButtonStyles);
-
-const IconWrapper = styled.div(
-  ({ variant }: { variant: NotificationVariant }) =>
-    css`
-      position: relative;
-      align-self: flex-start;
-      flex-grow: 0;
-      flex-shrink: 0;
-      line-height: 0;
-      color: var(${NOTIFICATION_COLORS[variant].fg});
-    `,
-);
-
-const closeButtonStyles = ({ theme }: StyleProps) => css`
-  flex-grow: 0;
-  flex-shrink: 0;
-  align-self: flex-start;
-  margin-top: -${theme.spacings.bit};
-  margin-bottom: -${theme.spacings.bit};
-  margin-left: auto;
-`;
-
-const StyledCloseButton = styled(CloseButton)(closeButtonStyles);
-
 export const NotificationInline = forwardRef<
   HTMLDivElement,
   NotificationInlineProps
@@ -197,6 +114,7 @@ export const NotificationInline = forwardRef<
       closeButtonLabel,
       iconLabel = '',
       isVisible = true,
+      className,
       ...props
     },
     ref,
@@ -226,21 +144,22 @@ export const NotificationInline = forwardRef<
     const Icon = NOTIFICATION_ICONS[variant];
 
     return (
-      <NotificationInlineWrapper
+      <div
         ref={applyMultipleRefs(ref, contentElement)}
         style={{
           opacity: isOpen ? 1 : 0,
           height: isOpen ? height : 0,
           visibility: isOpen ? 'visible' : 'hidden',
         }}
+        className={clsx(classes.base, className)}
         {...props}
       >
-        <ContentWrapper variant={variant}>
-          <IconWrapper variant={variant}>
+        <div className={clsx(classes.wrapper, classes[variant])}>
+          <div className={classes.icon}>
             <Icon role="presentation" />
-          </IconWrapper>
-          <span css={hideVisually}>{iconLabel}</span>
-          <Content>
+          </div>
+          <span className={utilityClasses.hideVisually}>{iconLabel}</span>
+          <div className={classes.content}>
             {headline && (
               <Body
                 variant={'highlight'}
@@ -251,19 +170,25 @@ export const NotificationInline = forwardRef<
             )}
             <Body>{body}</Body>
             {action && (
-              <ActionButton {...action} variant="tertiary" size="kilo" />
+              <Button
+                {...action}
+                className={classes.button}
+                variant="tertiary"
+                size="kilo"
+              />
             )}
-          </Content>
+          </div>
 
           {onClose && closeButtonLabel && (
-            <StyledCloseButton
+            <CloseButton
+              className={classes.close}
               label={closeButtonLabel}
               size="kilo"
               onClick={onClose}
             />
           )}
-        </ContentWrapper>
-      </NotificationInlineWrapper>
+        </div>
+      </div>
     );
   },
 ) as NotificationInlineComponent;

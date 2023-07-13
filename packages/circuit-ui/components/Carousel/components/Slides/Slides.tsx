@@ -13,13 +13,16 @@
  * limitations under the License.
  */
 
-import styled from '../../../../styles/styled.js';
+import { HTMLAttributes, forwardRef } from 'react';
 
-export const Slides = styled.div`
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  height: auto;
-`;
+import { clsx } from '../../../../styles/clsx.js';
+
+import classes from './Slides.module.css';
+
+type SlidesProps = HTMLAttributes<HTMLDivElement>;
+
+export const Slides = forwardRef<HTMLDivElement, SlidesProps>(
+  ({ className, ...props }, ref) => (
+    <div className={clsx(classes.base, className)} ref={ref} {...props} />
+  ),
+);

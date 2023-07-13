@@ -58,7 +58,7 @@ describe('SideNavigation', () => {
     secondaryNavigationLabel: 'Secondary',
   };
 
-  const defaultProps = {
+  const defaultProps: SideNavigationProps = {
     ...baseProps,
     primaryLinks: [
       {
@@ -109,11 +109,9 @@ describe('SideNavigation', () => {
     });
   });
 
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const { container } = renderSideNavigation(render, defaultProps);
-      const actual = await axe(container);
-      expect(actual).toHaveNoViolations();
-    });
+  it('should have no accessibility violations', async () => {
+    const { container } = renderSideNavigation(render, defaultProps);
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });

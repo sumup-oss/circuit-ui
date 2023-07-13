@@ -20,15 +20,16 @@ import {
   ReactNode,
   Ref,
 } from 'react';
-import { css } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
 
-import { focusVisible } from '../../styles/style-mixins.js';
-import { ReturnType } from '../../types/return-type.js';
-import { ClickEvent } from '../../types/events.js';
-import { AsPropType } from '../../types/prop-types.js';
+import type { ReturnType } from '../../types/return-type.js';
+import type { ClickEvent } from '../../types/events.js';
+import type { AsPropType } from '../../types/prop-types.js';
 import { Body, BodyProps } from '../Body/Body.js';
 import { useComponents } from '../ComponentsContext/index.js';
+import { clsx } from '../../styles/clsx.js';
+import utilityClasses from '../../styles/utility.js';
+
+import classes from './Anchor.module.css';
 
 export interface BaseProps extends BodyProps {
   children: ReactNode;
@@ -47,42 +48,15 @@ type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
 
 export type AnchorProps = BaseProps & LinkElProps & ButtonElProps;
 
-const anchorStyles = (theme: Theme) => css`
-  display: inline-block;
-  text-decoration: underline;
-  text-decoration-skip-ink: auto;
-  border: 0;
-  outline: none;
-  background: none;
-  padding: 0;
-  margin-top: 0;
-  margin-left: 0;
-  margin-right: 0;
-  color: var(--cui-fg-accent);
-  border-radius: ${theme.borderRadius.byte};
-  transition: opacity ${theme.transitions.default},
-    color ${theme.transitions.default},
-    background-color ${theme.transitions.default},
-    border-color ${theme.transitions.default};
-
-  &:hover {
-    color: var(--cui-fg-accent-hovered);
-    cursor: pointer;
-  }
-
-  &:active {
-    color: var(--cui-fg-accent-pressed);
-  }
-
-  ${focusVisible()};
-`;
-
 /**
  * The Anchor is used to display a link or button that visually looks like
  * a hyperlink. Based on the Body component, so it also supports its props.
  */
 export const Anchor = forwardRef(
-  (props: AnchorProps, ref?: BaseProps['ref']): ReturnType => {
+  (
+    { className, ...props }: AnchorProps,
+    ref?: BaseProps['ref'],
+  ): ReturnType => {
     const components = useComponents();
     const Link = components.Link as AsPropType;
 
@@ -91,10 +65,24 @@ export const Anchor = forwardRef(
     }
 
     if (props.href) {
-      return <Body {...props} css={anchorStyles} as={Link} ref={ref} />;
+      return (
+        <Body
+          {...props}
+          className={clsx(classes.base, className)}
+          as={Link}
+          ref={ref}
+        />
+      );
     }
 
-    return <Body as="button" {...props} css={anchorStyles} ref={ref} />;
+    return (
+      <Body
+        as="button"
+        {...props}
+        className={clsx(classes.base, utilityClasses.focusVisible, className)}
+        ref={ref}
+      />
+    );
   },
 );
 

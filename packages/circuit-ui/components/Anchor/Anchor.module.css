@@ -1,0 +1,27 @@
+.base {
+  display: inline-block;
+  padding: 0;
+  margin-top: 0;
+  margin-right: 0;
+  margin-left: 0;
+  color: var(--cui-fg-accent);
+  text-decoration: underline;
+  text-decoration-skip-ink: auto;
+  background: none;
+  border: 0;
+  border-radius: var(--cui-border-radius-byte);
+  outline: none;
+  transition: opacity var(--cui-transitions-default),
+    color var(--cui-transitions-default),
+    background-color var(--cui-transitions-default),
+    border-color var(--cui-transitions-default);
+}
+
+.base:hover {
+  color: var(--cui-fg-accent-hovered);
+  cursor: pointer;
+}
+
+.base:active {
+  color: var(--cui-fg-accent-pressed);
+}

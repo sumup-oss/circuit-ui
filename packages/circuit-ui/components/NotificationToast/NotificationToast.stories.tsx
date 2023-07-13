@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import styled from '../../styles/styled.js';
+import { Stack } from '../../../../.storybook/components/index.js';
 import Button from '../Button/index.js';
 import { ToastProvider } from '../ToastContext/index.js';
 
@@ -78,16 +78,8 @@ export const Base = (toast: NotificationToastProps): JSX.Element => {
 
 const variants = ['info', 'success', 'warning', 'danger'] as const;
 
-const StackToasts = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-`;
-
 export const Variants = (toast: NotificationToastProps) => (
-  <StackToasts>
+  <Stack vertical>
     {variants.map((variant) => (
       <NotificationToast
         key={variant}
@@ -96,7 +88,7 @@ export const Variants = (toast: NotificationToastProps) => (
         variant={variant}
       />
     ))}
-  </StackToasts>
+  </Stack>
 );
 
 Variants.args = {

@@ -13,18 +13,17 @@
  * limitations under the License.
  */
 
-import { css } from '@emotion/react';
+import { HTMLAttributes, forwardRef } from 'react';
 
-import isPropValid from '../../styles/is-prop-valid.js';
-import styled, { StyleProps } from '../../styles/styled.js';
+import { clsx } from '../../styles/clsx.js';
 
-type Size = 'one' | 'two' | 'three' | 'four';
+import classes from './Headline.module.css';
 
-export interface HeadlineProps {
+export interface HeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
   /**
    * A Circuit UI headline size. Defaults to `one`.
    */
-  size?: Size;
+  size?: 'one' | 'two' | 'three' | 'four';
   /**
    * The HTML heading element to render.
    * Headings should be nested sequentially without skipping any levels.
@@ -33,22 +32,17 @@ export interface HeadlineProps {
   as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
 
-const baseStyles = ({ theme }: StyleProps) => css`
-  font-weight: ${theme.fontWeight.bold};
-  color: var(--cui-fg-normal);
-  letter-spacing: -0.03em;
-`;
-
-const sizeStyles = ({ theme, size = 'one' }: StyleProps & HeadlineProps) => css`
-  font-size: ${theme.typography.headline[size].fontSize};
-  line-height: ${theme.typography.headline[size].lineHeight};
-`;
-
 /**
  * A flexible headline component capable of rendering any HTML heading element.
  */
-export const Headline = styled('h2', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
-})<HeadlineProps>(baseStyles, sizeStyles);
+export const Headline = forwardRef<HTMLHeadingElement, HeadlineProps>(
+  ({ className, as: Element, size = 'one', ...props }, ref) => (
+    <Element
+      {...props}
+      ref={ref}
+      className={clsx(classes.base, classes[size], className)}
+    />
+  ),
+);
 
 Headline.displayName = 'Headline';

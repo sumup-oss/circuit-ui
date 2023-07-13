@@ -16,25 +16,13 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { create, render, renderToHtml, axe } from '../../util/test-utils.js';
+import { render, axe } from '../../util/test-utils.js';
+import type { InputElement } from '../Input/index.js';
 
-import SearchInput from '.';
+import { SearchInput } from './SearchInput.js';
 
 describe('SearchInput', () => {
   const baseProps = { label: 'Search' };
-
-  /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const actual = create(<SearchInput {...baseProps} />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should grey out icon when disabled', () => {
-    const actual = create(<SearchInput {...baseProps} disabled />);
-    expect(actual).toMatchSnapshot();
-  });
 
   it('should display a clear icon when not empty and an onClear callback is provided', () => {
     const mockCallback = vi.fn();
@@ -57,24 +45,16 @@ describe('SearchInput', () => {
     expect(getByRole('button')).toHaveTextContent(clearLabel);
   });
 
-  describe('business logic', () => {
-    /**
-     * Should accept a working ref
-     */
-    it('should accept a working ref', () => {
-      const tref = createRef<HTMLInputElement & HTMLTextAreaElement>();
-      const { container } = render(<SearchInput {...baseProps} ref={tref} />);
-      const input = container.querySelector('input');
-      expect(tref.current).toBe(input);
-    });
+  it('should forward a ref', () => {
+    const ref = createRef<InputElement>();
+    const { container } = render(<SearchInput {...baseProps} ref={ref} />);
+    const input = container.querySelector('input');
+    expect(ref.current).toBe(input);
   });
 
-  /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<SearchInput {...baseProps} />);
-    const actual = await axe(wrapper);
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<SearchInput {...baseProps} />);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });

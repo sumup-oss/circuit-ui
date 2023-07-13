@@ -21,9 +21,9 @@ import Button from '../Button/index.js';
 import ListItemGroup from '../ListItemGroup/index.js';
 import { ModalProvider } from '../ModalContext/index.js';
 import { TopNavigation } from '../TopNavigation/index.js';
-import { baseArgs as topNavigationProps } from '../TopNavigation/TopNavigation.stories';
+import { baseArgs as topNavigationProps } from '../TopNavigation/TopNavigation.stories.js';
 import { SideNavigation } from '../SideNavigation/index.js';
-import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories';
+import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories.js';
 import { spacing } from '../../styles/style-mixins.js';
 
 import { SidePanelProvider } from './SidePanelContext.js';
@@ -235,7 +235,7 @@ WithTopNavigation.parameters = {
 const SIDEPANEL_UPDATE_DURATION = 1000;
 
 const ComponentWithSidePanelExtended = (props: SidePanelHookProps) => {
-  const [selectedItem, setSelectedItem] = useState<string>(null);
+  const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const { setSidePanel, updateSidePanel, removeSidePanel } = useSidePanel();
 
   return (

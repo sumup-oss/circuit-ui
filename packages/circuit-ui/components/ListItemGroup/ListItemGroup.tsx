@@ -13,21 +13,22 @@
  * limitations under the License.
  */
 
-import { forwardRef, Ref, HTMLAttributes, ReactNode, useState } from 'react';
-import { css } from '@emotion/react';
+import { forwardRef, HTMLAttributes, ReactNode, useState } from 'react';
 
-import styled, { StyleProps } from '../../styles/styled.js';
-import { hideVisually } from '../../styles/style-mixins.js';
 import { AccessibilityError } from '../../util/errors.js';
-import { ReturnType } from '../../types/return-type.js';
 import Body from '../Body/index.js';
 import ListItem, { ListItemProps } from '../ListItem/index.js';
+import { isString } from '../../util/type-check.js';
+import { clsx } from '../../styles/clsx.js';
+import utilityClasses from '../../styles/utility.js';
+
+import classes from './ListItemGroup.module.css';
 
 type Variant = 'plain' | 'inset';
 
 export type ItemProps = ListItemProps & { key: string | number };
 
-interface BaseProps {
+export interface BaseProps {
   /**
    * Choose between 'inset' (outer border and dividers) and 'plain' (only
    * dividers) variant. Defaults to 'inset'.
@@ -51,193 +52,14 @@ interface BaseProps {
    * Display a secondary right-aligned label.
    */
   details?: ReactNode;
-  /**
-   * The ref to the HTML DOM element.
-   */
-  ref?: Ref<HTMLDivElement>;
 }
 
 export type ListItemGroupProps = BaseProps & HTMLAttributes<HTMLDivElement>;
 
-const baseStyles = css`
-  display: flex;
-  flex-direction: column;
-`;
-
-const StyledListItemGroup = styled.div(baseStyles);
-
-const headerContainerStyles = ({ theme }: StyleProps) => css`
-  flex: none;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  margin: 0 ${theme.spacings.mega};
-`;
-
-const headerContainerPlainStyles = ({
-  theme,
-  isPlain,
-}: StyleProps & PlainProps) =>
-  isPlain &&
-  css`
-    margin: 0 calc(${theme.spacings.mega} - ${theme.borderWidth.mega});
-  `;
-
-const HeaderContainer = styled.div(
-  headerContainerStyles,
-  headerContainerPlainStyles,
-);
-
-type HideLabelProps = { hideLabel?: boolean };
-
-const labelContainerStyles = ({ theme }: StyleProps) => css`
-  flex: auto;
-  min-width: 0;
-  margin-bottom: ${theme.spacings.byte};
-`;
-
-const labelContainerHiddenStyles = ({ hideLabel }: HideLabelProps) =>
-  hideLabel && hideVisually();
-
-const LabelContainer = styled.div(
-  labelContainerStyles,
-  labelContainerHiddenStyles,
-);
-
-const labelStyles = css`
-  max-width: 100%;
-  overflow-x: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-`;
-
-const Label = styled(Body)(labelStyles);
-
-const detailsContainerStyles = ({ theme }: StyleProps) => css`
-  flex: none;
-  margin-left: ${theme.spacings.mega};
-  margin-bottom: ${theme.spacings.byte};
-`;
-
-const DetailsContainer = styled.div(detailsContainerStyles);
-
-type PlainProps = { isPlain: boolean };
-
-const itemsContainerBaseStyles = ({ theme }: StyleProps) => css`
-  flex: auto;
-  display: flex;
-  flex-direction: column;
-  border: ${theme.borderWidth.mega} solid var(--cui-border-subtle);
-  border-radius: ${theme.borderRadius.mega};
-`;
-
-const itemsContainerPlainStyles = ({
-  theme,
-  isPlain,
-}: StyleProps & PlainProps) =>
-  isPlain &&
-  css`
-    border-width: ${theme.borderWidth.kilo} 0;
-    border-radius: 0;
-  `;
-
-const ItemsContainer = styled.ul(
-  itemsContainerBaseStyles,
-  itemsContainerPlainStyles,
-);
-
-type InteractiveProps = { isFocused: boolean; isInteractive: boolean };
-
-type StyledLiProps = Pick<ListItemProps, 'selected'> & InteractiveProps;
-
-const liStyles = ({ theme }: StyleProps) => css`
-  list-style: none;
-
-  &:not(:first-of-type) > * > div:last-of-type {
-    position: relative;
-
-    &:before {
-      content: '';
-      position: absolute;
-      top: -${theme.spacings.kilo};
-      left: 0;
-      right: -${theme.spacings.mega};
-      border-top: ${theme.borderWidth.kilo} solid var(--cui-border-divider);
-    }
-  }
-`;
-
-const liInteractiveStyles = ({ isInteractive }: StyledLiProps) =>
-  isInteractive &&
-  css`
-    &:hover {
-      &,
-      & + li {
-        &:not(:first-of-type) > * > div:last-of-type:before {
-          border-top-width: 0;
-        }
-      }
-    }
-  `;
-
-const liFocusedStyles = ({ isFocused }: StyledLiProps) =>
-  isFocused &&
-  css`
-    &,
-    & + li {
-      &:not(:first-of-type) > * > div:last-of-type:before {
-        border-top-width: 0;
-      }
-    }
-  `;
-
-const liSelectedStyles = ({ selected }: StyledLiProps) =>
-  selected &&
-  css`
-    &,
-    & + li {
-      &:not(:first-of-type) > * > div:last-of-type:before {
-        border-top-width: 0;
-      }
-    }
-  `;
-
-const StyledLi = styled.li(
-  liStyles,
-  liInteractiveStyles,
-  liFocusedStyles,
-  liSelectedStyles,
-);
-
-type StyledListItemProps = ListItemProps & PlainProps;
-
-const listItemStyles = ({ theme }: StyleProps) => css`
-  border: none;
-  border-radius: calc(${theme.borderRadius.mega} - ${theme.borderWidth.mega});
-`;
-
-const listItemPlainStyles = ({
-  theme,
-  isPlain,
-  selected,
-}: StyleProps & StyledListItemProps) =>
-  isPlain &&
-  selected &&
-  css`
-    &:after {
-      top: -${theme.borderWidth.kilo};
-      bottom: -${theme.borderWidth.kilo};
-      left: 0;
-      right: 0;
-    }
-  `;
-
-const StyledListItem = styled(ListItem)(listItemStyles, listItemPlainStyles);
-
 /**
  * The ListItemGroup component enables the user to render a named list of ListItem components.
  */
-export const ListItemGroup = forwardRef(
+export const ListItemGroup = forwardRef<HTMLDivElement, ListItemGroupProps>(
   (
     {
       variant = 'inset',
@@ -245,10 +67,11 @@ export const ListItemGroup = forwardRef(
       label,
       hideLabel,
       details,
+      className,
       ...props
-    }: ListItemGroupProps,
-    ref?: BaseProps['ref'],
-  ): ReturnType => {
+    },
+    ref,
+  ) => {
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -267,39 +90,46 @@ export const ListItemGroup = forwardRef(
     const isInteractive = items.some((item) => !!item.href || !!item.onClick);
 
     return (
-      <StyledListItemGroup {...props} ref={ref}>
-        <HeaderContainer isPlain={isPlain}>
-          <LabelContainer hideLabel={hideLabel}>
-            {typeof label === 'string' ? (
-              <Label as="h4" size="two">
+      <div
+        className={clsx(classes.base, isPlain && classes.plain, className)}
+        {...props}
+        ref={ref}
+      >
+        <div className={classes.header}>
+          <div
+            className={clsx(
+              classes.label,
+              hideLabel && utilityClasses.hideVisually,
+            )}
+          >
+            {isString(label) ? (
+              <Body as="h4" size="two">
                 {label}
-              </Label>
+              </Body>
             ) : (
               label
             )}
-          </LabelContainer>
+          </div>
           {details && (
-            <DetailsContainer>
-              {typeof details === 'string' ? (
-                <Body size="two">{details}</Body>
-              ) : (
-                details
-              )}
-            </DetailsContainer>
+            <div className={classes.details}>
+              {isString(details) ? <Body size="two">{details}</Body> : details}
+            </div>
           )}
-        </HeaderContainer>
-        <ItemsContainer isPlain={isPlain}>
+        </div>
+        <ul className={classes.items}>
           {items.map(({ key, ...item }) => (
-            <StyledLi
+            <li
+              className={clsx(
+                classes.item,
+                isInteractive && classes.interactive,
+                focusedItemKey === key && classes.focused,
+                item.selected && classes.selected,
+              )}
               key={key}
-              isFocused={focusedItemKey === key}
-              isInteractive={isInteractive}
-              selected={item.selected}
             >
-              <StyledListItem
+              <ListItem
                 {...item}
-                isPlain={isPlain}
-                aria-pressed={item.onClick ? item.selected : undefined}
+                className={classes.child}
                 onFocus={(event) => {
                   try {
                     if (event.currentTarget.matches(':focus-visible')) {
@@ -311,10 +141,10 @@ export const ListItemGroup = forwardRef(
                 }}
                 onBlur={() => setFocusedItemKey(null)}
               />
-            </StyledLi>
+            </li>
           ))}
-        </ItemsContainer>
-      </StyledListItemGroup>
+        </ul>
+      </div>
     );
   },
 );

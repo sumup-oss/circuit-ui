@@ -15,7 +15,13 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { render, userEvent, axe, waitFor } from '../../util/test-utils.js';
+import {
+  render,
+  userEvent,
+  axe,
+  waitFor,
+  screen,
+} from '../../util/test-utils.js';
 
 import { Modal, ModalProps } from './Modal.js';
 
@@ -34,30 +40,25 @@ describe('Modal', () => {
     ariaHideApp: false,
   };
 
-  it('should match the snapshot', () => {
-    const { baseElement } = render(<Modal {...defaultModal} />);
-    expect(baseElement).toMatchSnapshot();
-  });
-
   it('should render the modal', async () => {
-    const { getByRole } = render(<Modal {...defaultModal} />);
+    render(<Modal {...defaultModal} />);
 
     await waitFor(() => {
-      expect(getByRole('dialog')).toBeVisible();
+      expect(screen.getByRole('dialog')).toBeVisible();
     });
   });
 
   it('should call the onClose callback', async () => {
-    const { getByRole } = render(<Modal {...defaultModal} />);
+    render(<Modal {...defaultModal} />);
 
-    await userEvent.click(getByRole('button'));
+    await userEvent.click(screen.getByRole('button'));
 
     expect(defaultModal.onClose).toHaveBeenCalled();
   });
 
   it('should render the children render prop', () => {
-    const { getByTestId } = render(<Modal {...defaultModal} />);
-    expect(getByTestId('children')).toHaveTextContent('Hello world!');
+    render(<Modal {...defaultModal} />);
+    expect(screen.getByTestId('children')).toHaveTextContent('Hello world!');
   });
 
   it('should meet accessibility guidelines', async () => {

@@ -1,0 +1,9 @@
+.container {
+  width: 90%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.spacing {
+  margin-bottom: var(--cui-spacings-mega);
+}

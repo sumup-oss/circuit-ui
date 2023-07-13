@@ -23,3 +23,7 @@ export default {
 export const Base = (args: SubHeadlineProps) => (
   <SubHeadline {...args}>This is a subheadline</SubHeadline>
 );
+
+Base.args = {
+  as: 'h2',
+};

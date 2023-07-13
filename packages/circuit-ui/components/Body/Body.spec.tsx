@@ -14,41 +14,27 @@
  */
 
 import { describe, expect, it } from 'vitest';
+import { createRef } from 'react';
 
-import { create, renderToHtml, axe, render } from '../../util/test-utils.js';
+import { axe, render } from '../../util/test-utils.js';
 
-import { Body, BodyProps } from './Body.js';
+import { Body } from './Body.js';
 
 describe('Body', () => {
-  /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const actual = create(<Body>Body</Body>);
-    expect(actual).toMatchSnapshot();
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    const { container } = render(<Body className={className}>Body</Body>);
+    const paragraph = container.querySelector('p');
+    expect(paragraph?.className).toContain(className);
   });
 
-  const sizes: BodyProps['size'][] = ['one', 'two'];
-  it.each(sizes)('should render with size "%s"', (size) => {
-    const actual = create(<Body size={size}>{size} Body</Body>);
-    expect(actual).toMatchSnapshot();
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLParagraphElement>();
+    const { container } = render(<Body ref={ref}>Body</Body>);
+    const paragraph = container.querySelector('p');
+    expect(ref.current).toBe(paragraph);
   });
 
-  const variants = [
-    'highlight',
-    'quote',
-    'confirm',
-    'alert',
-    'subtle',
-  ] as BodyProps['variant'][];
-  it.each(variants)('should render as a "%s" variant', (variant) => {
-    const actual = create(<Body variant={variant}>{variant} Body</Body>);
-    expect(actual).toMatchSnapshot();
-  });
-
-  /**
-   * Logic tests.
-   */
   const elements = ['p', 'article', 'div'] as const;
   it.each(elements)('should render as a "%s" element', (as) => {
     const { container } = render(<Body as={as}>{as} Body</Body>);
@@ -68,12 +54,9 @@ describe('Body', () => {
     expect(actual).toBeVisible();
   });
 
-  /**
-   * Accessibility tests.
-   */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Body>Body</Body>);
-    const actual = await axe(wrapper);
+    const { container } = render(<Body>Body</Body>);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });

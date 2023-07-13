@@ -13,14 +13,15 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes } from 'react';
-import { css } from '@emotion/react';
+import type { HTMLAttributes } from 'react';
 import { ArrowLeft, Close } from '@sumup/icons';
 
-import styled, { StyleProps } from '../../../../styles/styled.js';
-import { IconButton } from '../../../IconButton/IconButton.js';
+import { clsx } from '../../../../styles/clsx.js';
+import IconButton from '../../../IconButton/index.js';
 import Headline from '../../../Headline/index.js';
 import type { SidePanelProps } from '../../SidePanel.js';
+
+import classes from './Header.module.css';
 
 type HeaderStickyProps = { isSticky: boolean };
 
@@ -31,69 +32,6 @@ export type HeaderProps = HeaderStickyProps &
     'backButtonLabel' | 'closeButtonLabel' | 'headline' | 'onBack' | 'onClose'
   >;
 
-const headerContainerStyles = ({ theme }: StyleProps) => css`
-  position: sticky;
-  top: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  background-color: var(--cui-bg-normal);
-  z-index: ${theme.zIndex.header};
-
-  ${theme.mq.mega} {
-    box-shadow: inset ${theme.borderWidth.kilo} 0px 0px
-      var(--cui-border-divider);
-  }
-`;
-
-const headerContainerStickyStyles = ({
-  theme,
-  isSticky,
-}: StyleProps & HeaderStickyProps) =>
-  isSticky &&
-  css`
-    box-shadow: inset 0px -${theme.borderWidth.kilo} 0px var(--cui-border-divider);
-
-    ${theme.mq.mega} {
-      box-shadow: inset ${theme.borderWidth.kilo} -${theme.borderWidth.kilo} 0px
-        var(--cui-border-divider);
-    }
-  `;
-
-const HeaderContainer = styled.div(
-  headerContainerStyles,
-  headerContainerStickyStyles,
-);
-
-const iconButtonStyles = ({ theme }: StyleProps) => css`
-  flex: none;
-  margin: ${theme.spacings.bit};
-  border-color: transparent !important;
-`;
-
-const StyledIconButton = styled(IconButton)(iconButtonStyles);
-
-type HeadlineProps = { noBackButton: boolean };
-
-const headlineStyles = css`
-  flex: 1 1 auto;
-  overflow-x: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  text-align: center;
-`;
-
-const headlineNoBackStyles = ({
-  theme,
-  noBackButton,
-}: StyleProps & HeadlineProps) =>
-  noBackButton &&
-  css`
-    margin-left: ${theme.spacings.zetta};
-  `;
-
-const StyledHeadline = styled(Headline)(headlineStyles, headlineNoBackStyles);
-
 export const Header = ({
   backButtonLabel,
   closeButtonLabel,
@@ -103,23 +41,29 @@ export const Header = ({
   onBack,
   onClose,
 }: HeaderProps): JSX.Element => (
-  <HeaderContainer isSticky={isSticky}>
+  <div className={clsx(classes.base, isSticky && classes.sticky)}>
     {onBack && backButtonLabel && (
-      <StyledIconButton type="button" label={backButtonLabel} onClick={onBack}>
+      <IconButton
+        className={classes.button}
+        type="button"
+        label={backButtonLabel}
+        onClick={onBack}
+      >
         <ArrowLeft size="24" />
-      </StyledIconButton>
+      </IconButton>
     )}
-    <StyledHeadline id={id} size="four" as="h2" noBackButton={!onBack}>
+    <Headline id={id} size="four" as="h2" className={classes.headline}>
       {headline}
-    </StyledHeadline>
+    </Headline>
     {closeButtonLabel && (
-      <StyledIconButton
+      <IconButton
+        className={classes.button}
         type="button"
         label={closeButtonLabel}
         onClick={onClose}
       >
         <Close size="24" />
-      </StyledIconButton>
+      </IconButton>
     )}
-  </HeaderContainer>
+  </div>
 );

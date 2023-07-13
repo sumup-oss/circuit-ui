@@ -1,0 +1,26 @@
+.base {
+  height: 100%;
+  background-color: var(--cui-bg-normal);
+  outline: none;
+  box-shadow: inset var(--cui-border-width-kilo) 0 0
+    var(--cui-border-divider);
+  transition: transform var(--cui-transitions-slow);
+  transform: translateX(100%);
+}
+
+.open {
+  transform: translateX(0);
+}
+
+.instant {
+  transition: none;
+}
+
+.closed {
+  transition: transform var(--cui-transitions-slow);
+  transform: translateX(100%);
+}
+
+.overlay {
+  height: 100%;
+}

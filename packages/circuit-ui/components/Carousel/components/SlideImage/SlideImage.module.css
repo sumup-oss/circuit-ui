@@ -1,0 +1,7 @@
+.aspect-ratio {
+  background: var(--cui-bg-subtle);
+}
+
+.image {
+  object-fit: cover;
+}

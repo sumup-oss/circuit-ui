@@ -16,39 +16,36 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { create, renderToHtml, axe, render } from '../../util/test-utils.js';
+import { axe, render } from '../../util/test-utils.js';
 
 import { SubHeadline } from './SubHeadline.js';
 
 describe('SubHeadline', () => {
-  /**
-   * Style tests.
-   */
-  const elements = ['h2', 'h3', 'h4', 'h5', 'h6'] as const;
-  it.each(elements)('should render as %s element', (element) => {
-    const subheading = create(
-      <SubHeadline as={element}>{`${element} subheading`}</SubHeadline>,
-    );
-    expect(subheading).toMatchSnapshot();
-  });
-
-  it('should accept a working ref for a headline', () => {
-    const tref = createRef<HTMLHeadingElement>();
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
     const { container } = render(
-      <SubHeadline as="h3" ref={tref}>
+      <SubHeadline as="h2" className={className}>
         SubHeadline
       </SubHeadline>,
     );
-    const headline = container.querySelector('h3');
-    expect(tref.current).toBe(headline);
+    const headline = container.querySelector('h2');
+    expect(headline?.className).toContain(className);
   });
 
-  /**
-   * Accessibility tests.
-   */
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLHeadingElement>();
+    const { container } = render(
+      <SubHeadline as="h2" ref={ref}>
+        SubHeadline
+      </SubHeadline>,
+    );
+    const headline = container.querySelector('h2');
+    expect(ref.current).toBe(headline);
+  });
+
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<SubHeadline as="h3">Subheading</SubHeadline>);
-    const actual = await axe(wrapper);
+    const { container } = render(<SubHeadline as="h3">Subheading</SubHeadline>);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });
