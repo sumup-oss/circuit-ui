@@ -1,5 +1,21 @@
 # @sumup/cna-template
 
+## 4.0.0-next.1
+
+### Major Changes
+
+- [#2154](https://github.com/sumup-oss/circuit-ui/pull/2154) [`eef360c4`](https://github.com/sumup-oss/circuit-ui/commit/eef360c4c0b5b4ab07cf178884cc3dc00e9bf842) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the list of supported browsers:
+
+  | Browser          | Previous | New   |
+  | ---------------- | -------- | ----- |
+  | Chrome           | 63+      | 73+   |
+  | Firefox          | 67+      | 67+   |
+  | Edge             | 79+      | 79+   |
+  | Safari iOS       | 11.0+    | 12.2+ |
+  | Safari macOS     | 11.1+    | 12.1+ |
+  | Opera            | 50+      | 60+   |
+  | Samsung Internet | 8.2+     | 11.1+ |
+
 ## 3.2.0-next.0
 
 ### Minor Changes

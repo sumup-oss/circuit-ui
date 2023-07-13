@@ -1,5 +1,39 @@
 # @sumup/circuit-ui
 
+## 7.0.0-next.5
+
+### Major Changes
+
+- [#2163](https://github.com/sumup-oss/circuit-ui/pull/2163) [`6ff0b7da`](https://github.com/sumup-oss/circuit-ui/commit/6ff0b7da7f7aae906ffe467da08115d5500e157a) Thanks [@connor-baer](https://github.com/connor-baer)! - Migrated all [stable](https://circuit.sumup.com/?path=/docs/introduction-component-lifecycle--docs) components from [Emotion.js](https://github.com/emotion-js/emotion) to [CSS Modules](https://github.com/css-modules/css-modules).
+
+  The styles are bundled and exported as a single CSS file as `@sumup/circuit-ui/styles.css`. Refer to your framework's documentation on how to include the styles globally in your application.
+
+  The CSS file includes the base styles, so the BaseStyles component has been removed.
+
+  If you are only importing [stable](https://circuit.sumup.com/?path=/docs/introduction-component-lifecycle--docs) components and aren't using Emotion.js in your app, you can remove all Emotion.js-related dependencies.
+
+- [#2154](https://github.com/sumup-oss/circuit-ui/pull/2154) [`eef360c4`](https://github.com/sumup-oss/circuit-ui/commit/eef360c4c0b5b4ab07cf178884cc3dc00e9bf842) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the list of supported browsers:
+
+  | Browser          | Previous | New   |
+  | ---------------- | -------- | ----- |
+  | Chrome           | 63+      | 73+   |
+  | Firefox          | 67+      | 67+   |
+  | Edge             | 79+      | 79+   |
+  | Safari iOS       | 11.0+    | 12.2+ |
+  | Safari macOS     | 11.1+    | 12.1+ |
+  | Opera            | 50+      | 60+   |
+  | Samsung Internet | 8.2+     | 11.1+ |
+
+### Minor Changes
+
+- [#2163](https://github.com/sumup-oss/circuit-ui/pull/2163) [`6ff0b7da`](https://github.com/sumup-oss/circuit-ui/commit/6ff0b7da7f7aae906ffe467da08115d5500e157a) Thanks [@connor-baer](https://github.com/connor-baer)! - Improved the accessibility of the SearchInput component. The input now has the `search` type and focus is returned to the input after clearing the value.
+
+### Patch Changes
+
+- Updated dependencies [[`6ff0b7da`](https://github.com/sumup-oss/circuit-ui/commit/6ff0b7da7f7aae906ffe467da08115d5500e157a), [`415c73dd`](https://github.com/sumup-oss/circuit-ui/commit/415c73dd70dc2720b44ead24cd4b9d7d77af3293), [`66b18d61`](https://github.com/sumup-oss/circuit-ui/commit/66b18d61f5683a24414725a488f7005bad80c8b1), [`415c73dd`](https://github.com/sumup-oss/circuit-ui/commit/415c73dd70dc2720b44ead24cd4b9d7d77af3293)]:
+  - @sumup/icons@3.0.0-next.2
+  - @sumup/design-tokens@6.0.0-next.2
+
 ## 7.0.0-next.4
 
 ### Major Changes
