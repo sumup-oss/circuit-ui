@@ -1,5 +1,17 @@
 # @sumup/eslint-plugin-circuit-ui
 
+## 3.0.0-next.0
+
+### Minor Changes
+
+- [#2158](https://github.com/sumup-oss/circuit-ui/pull/2158) [`415c73dd`](https://github.com/sumup-oss/circuit-ui/commit/415c73dd70dc2720b44ead24cd4b9d7d77af3293) Thanks [@connor-baer](https://github.com/connor-baer)! - Added `circuit-ui/prefer-custom-properties` rule to replace the Emotion.js theme with CSS custom properties.
+
+### Patch Changes
+
+- Updated dependencies [[`415c73dd`](https://github.com/sumup-oss/circuit-ui/commit/415c73dd70dc2720b44ead24cd4b9d7d77af3293), [`6ff0b7da`](https://github.com/sumup-oss/circuit-ui/commit/6ff0b7da7f7aae906ffe467da08115d5500e157a), [`6ff0b7da`](https://github.com/sumup-oss/circuit-ui/commit/6ff0b7da7f7aae906ffe467da08115d5500e157a), [`415c73dd`](https://github.com/sumup-oss/circuit-ui/commit/415c73dd70dc2720b44ead24cd4b9d7d77af3293), [`eef360c4`](https://github.com/sumup-oss/circuit-ui/commit/eef360c4c0b5b4ab07cf178884cc3dc00e9bf842)]:
+  - @sumup/design-tokens@6.0.0-next.2
+  - @sumup/circuit-ui@7.0.0-next.5
+
 ## 2.1.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 {
   "name": "@sumup/cna-template",
-  "version": "3.2.0-next.0",
+  "version": "4.0.0-next.1",
   "description": "Create a fresh Next.js application preconfigured with SumUp's Circuit UI and Foundry",
   "private": true,
   "repository": {

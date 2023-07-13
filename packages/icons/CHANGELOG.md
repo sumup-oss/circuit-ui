@@ -1,5 +1,15 @@
 # @sumup/icons
 
+## 3.0.0-next.2
+
+### Minor Changes
+
+- [#2159](https://github.com/sumup-oss/circuit-ui/pull/2159) [`66b18d61`](https://github.com/sumup-oss/circuit-ui/commit/66b18d61f5683a24414725a488f7005bad80c8b1) Thanks [@connor-baer](https://github.com/connor-baer)! - Log (not throw) an error when an icon is passed an unsupported size.
+
+### Patch Changes
+
+- [#2163](https://github.com/sumup-oss/circuit-ui/pull/2163) [`6ff0b7da`](https://github.com/sumup-oss/circuit-ui/commit/6ff0b7da7f7aae906ffe467da08115d5500e157a) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the `IconsManifest` type.
+
 ## 3.0.0-next.1
 
 ### Major Changes
