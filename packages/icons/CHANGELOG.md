@@ -23,6 +23,12 @@
 
 - [#2061](https://github.com/sumup-oss/circuit-ui/pull/2061) [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f) Thanks [@connor-baer](https://github.com/connor-baer)! - Switched to the `"exports"` field to configure the package entry points. Files that are not explicitly defined in `"exports"` can no longer be imported.
 
+## 2.29.0
+
+### Minor Changes
+
+- [#2180](https://github.com/sumup-oss/circuit-ui/pull/2180) [`ae5ac9e3`](https://github.com/sumup-oss/circuit-ui/commit/ae5ac9e345ed3676f5c6bd26097bb5009e8d10c7) Thanks [@amelako](https://github.com/amelako)! - Added new icon `SelectAll` in size 24.
+
 ## 2.28.1
 
 ### Patch Changes

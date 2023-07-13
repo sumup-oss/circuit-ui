@@ -134,6 +134,12 @@
 
 - [#1992](https://github.com/sumup-oss/circuit-ui/pull/1992) [`0b7fb453`](https://github.com/sumup-oss/circuit-ui/commit/0b7fb453e6eb714561ab4ff8311ef3d4853006c5) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the `uniqueId` util. Use the official [`useId` hook](https://beta.reactjs.org/reference/react/useId) instead.
 
+## 6.10.1
+
+### Patch Changes
+
+- [#2160](https://github.com/sumup-oss/circuit-ui/pull/2160) [`7774d603`](https://github.com/sumup-oss/circuit-ui/commit/7774d603fd0acff5776d8edfa27805147fac979c) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the alignment of the field validation hint icon.
+
 ## 6.10.0
 
 ### Minor Changes

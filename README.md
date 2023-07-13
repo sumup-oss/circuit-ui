@@ -23,7 +23,8 @@ Here are a few helpful links for getting started with Circuit UI:
 - **[@sumup/design-tokens](./packages/design-tokens)** — visual primitives such as typography, color, and spacing
 - **[@sumup/icons](./packages/icons)** — a collection of SVG icons
 - **[@sumup/cna-template](./packages/cna-template)** — bootstrap a fresh [Next.js](https://nextjs.org/) app with Circuit UI and [Foundry](https://github.com/sumup-oss/foundry)
-- **[@sumup/eslint-plugin-circuit-ui](./packages/eslint-plugin-circuit-ui)** — ESLint rules to lint Circuit UI
+- **[@sumup/eslint-plugin-circuit-ui](./packages/eslint-plugin-circuit-ui)** — ESLint rules to help users follow best practices when using Circuit UI
+- **[@sumup/stylelint-plugin-circuit-ui](./packages/stylelint-plugin-circuit-ui)** — Stylelint rules to help users follow best practices when using Circuit UI
 
 ## Code of conduct
 
@@ -33,7 +34,6 @@ If you feel another member of the community violated our CoC or you are experien
 
 ### Maintainers
 
-- [Robin Métral](mailto:robin.metral@sumup.com)
 - [Connor Bär](mailto:connor.baer@sumup.com)
 
 ## Contributing

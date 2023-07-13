@@ -45,7 +45,7 @@
 }
 
 .validation-hint {
-  display: block;
+  display: flex;
   margin-top: var(--cui-spacings-bit);
   font-size: var(--cui-typography-body-two-font-size);
   line-height: var(--cui-typography-body-two-line-height);
@@ -87,10 +87,13 @@
 }
 
 .validation-hint-icon {
-  position: relative;
-  display: inline-block;
+  display: block;
+  flex-shrink: 0;
+  align-self: flex-start;
   width: var(--cui-icon-sizes-kilo);
   height: var(--cui-icon-sizes-kilo);
-  margin-right: var(--cui-spacings-bit);
-  vertical-align: text-top;
+  margin-top: calc(
+    (var(--cui-typography-body-two-line-height) - var(--cui-icon-sizes-kilo)) / 2
+  );
+  margin-right: var(--cui-spacings-bit)
 }
