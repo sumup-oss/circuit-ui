@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+/** @jsxImportSource @emotion/react */
+
 import { Component, createRef } from 'react';
 import { css } from '@emotion/react';
 import type { Moment } from 'moment';

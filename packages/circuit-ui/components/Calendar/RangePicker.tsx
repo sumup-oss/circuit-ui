@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+/** @jsxImportSource @emotion/react */
+
 import { css } from '@emotion/react';
 import { ArrowRight, ArrowLeft, Close } from '@sumup/icons';
 // eslint-disable-next-line import/no-extraneous-dependencies

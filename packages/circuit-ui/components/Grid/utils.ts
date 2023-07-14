@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+/** @jsxImportSource @emotion/react */
+
 import type { Theme } from '@sumup/design-tokens';
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
