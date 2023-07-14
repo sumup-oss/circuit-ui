@@ -34,7 +34,7 @@ export const preferCustomProperties = createRule({
     },
     messages: {
       replace:
-        'Use CSS custom properties instead of the Emotion.js theme. Replace "{{jsToken}}" with "{{cssVariable}}".',
+        "Use CSS custom properties instead of the Emotion.js theme. Replace '{{jsToken}}' with '{{cssVariable}}'.",
       refactor: 'Use CSS custom properties instead of the Emotion.js theme.',
     },
   },
