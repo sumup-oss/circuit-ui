@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+/** @jsxImportSource @emotion/react */
+
 import { Fragment, ReactNode } from 'react';
 import { css } from '@emotion/react';
 

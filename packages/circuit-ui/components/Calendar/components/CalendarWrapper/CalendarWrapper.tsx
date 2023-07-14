@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+/** @jsxImportSource @emotion/react */
+
 import type { ReactNode } from 'react';
 import type { Theme } from '@sumup/design-tokens';
 import { css, Global } from '@emotion/react';

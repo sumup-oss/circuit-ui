@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+/** @jsxImportSource @emotion/react */
+
 import { css } from '@emotion/react';
 
 import styled from '../../styles/styled.js';

@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+/** @jsxImportSource @emotion/react */
+
 import { useState } from 'react';
 import { css } from '@emotion/react';
 import { Home, Profile, Sales, Shop } from '@sumup/icons';

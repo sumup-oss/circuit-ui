@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+/** @jsxImportSource @emotion/react */
+
 import { Stack } from '../../../.storybook/components/index.js';
 import Button from '../components/Button/index.js';
 

@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+/** @jsxImportSource @emotion/react */
+
 import { describe, expect, it } from 'vitest';
 import { css } from '@emotion/react';
 import { light } from '@sumup/design-tokens';

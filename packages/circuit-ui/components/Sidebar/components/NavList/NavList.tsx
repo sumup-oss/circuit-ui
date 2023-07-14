@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+/** @jsxImportSource @emotion/react */
+
 import { HTMLAttributes } from 'react';
 import { css } from '@emotion/react';
 

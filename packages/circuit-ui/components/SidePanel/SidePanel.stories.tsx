@@ -24,7 +24,6 @@ import { TopNavigation } from '../TopNavigation/index.js';
 import { baseArgs as topNavigationProps } from '../TopNavigation/TopNavigation.stories.js';
 import { SideNavigation } from '../SideNavigation/index.js';
 import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories.js';
-import { spacing } from '../../styles/style-mixins.js';
 
 import { SidePanelProvider } from './SidePanelContext.js';
 import {
@@ -69,7 +68,7 @@ const basePlay = ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
 };
 
 const StoryInstructions = () => (
-  <Body css={spacing('mega')}>
+  <Body style={{ margin: '1rem' }}>
     Select an item to open its details in a side panel. When this story is
     viewed in canvas mode we simulate a selection of the third item.
   </Body>
@@ -98,12 +97,12 @@ const DefaultChildren = ({
 
   return (
     <>
-      <Body css={spacing({ bottom: 'mega' })}>
+      <Body style={{ marginBottom: '1rem' }}>
         {showMoreInfo
           ? `These are the details of ${label}.`
           : `This is more information about ${label}.`}
       </Body>
-      <Body css={spacing({ bottom: 'mega' })}>
+      <Body style={{ marginBottom: '1rem' }}>
         {
           'Lorem ipsum dolor amet swag pickled humblebrag retro farm-to-table, shoreditch typewriter deep v single-origin coffee green juice coloring book venmo chambray. Marfa authentic blue bottle mixtape tofu adaptogen. IPhone chia blog palo santo mlkshk tattooed jean shorts yr locavore ennui scenester. Wolf tousled pok pok sartorial scenester man bun salvia quinoa raclette sriracha roof party pour-over venmo hammock. Four dollar toast typewriter 3 wolf moon letterpress disrupt pabst. Neutra irony tousled iPhone banh mi wayfarers hoodie waistcoat.'
         }
@@ -127,7 +126,7 @@ const DefaultChildren = ({
               headline: 'More information',
             })
           }
-          css={spacing({ bottom: 'mega' })}
+          style={{ marginBottom: '1rem' }}
         >
           Show more
         </Button>
@@ -140,7 +139,7 @@ const DefaultChildren = ({
               variant="tertiary"
               size="kilo"
               onClick={onBack}
-              css={spacing({ bottom: 'mega' })}
+              style={{ marginBottom: '1rem' }}
             >
               Back
             </Button>
@@ -150,7 +149,7 @@ const DefaultChildren = ({
             variant="tertiary"
             size="kilo"
             onClick={onClose}
-            css={spacing({ left: 'mega', bottom: 'mega' })}
+            style={{ marginBottom: '1rem', marginLeft: '1rem' }}
           >
             Close
           </Button>
@@ -182,7 +181,7 @@ const ComponentWithSidePanel = (props: SidePanelHookProps) => {
       }))}
       label="List of items with details in a side panel"
       hideLabel
-      css={spacing('mega')}
+      style={{ margin: '1rem' }}
     />
   );
 };
@@ -216,7 +215,7 @@ export const WithTopNavigation = (props: SidePanelHookProps): JSX.Element => {
           onClose={() => setSideNavigationOpen(false)}
         />
         <div style={{ flex: '1' }}>
-          <SidePanelProvider withTopNavigation>
+          <SidePanelProvider>
             <StoryInstructions />
             <ComponentWithSidePanel {...props} />
           </SidePanelProvider>
@@ -279,7 +278,7 @@ const ComponentWithSidePanelExtended = (props: SidePanelHookProps) => {
       }))}
       label="List of items with details in a side panel"
       hideLabel
-      css={spacing('mega')}
+      style={{ margin: '1rem' }}
     />
   );
 };
