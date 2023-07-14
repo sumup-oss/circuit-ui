@@ -15,7 +15,6 @@
 
 import Body from '../../components/Body/index.js';
 import Button from '../../components/Button/index.js';
-import { spacing } from '../../styles/style-mixins.js';
 
 import { CollapsibleOptions, useCollapsible } from './useCollapsible.js';
 
@@ -24,14 +23,15 @@ export default {
 };
 
 export const Example = (args: CollapsibleOptions) => {
-  const { isOpen, getButtonProps, getContentProps } = useCollapsible(args);
+  const { isOpen, getButtonProps, getContentProps } =
+    useCollapsible<HTMLParagraphElement>(args);
 
   return (
     <section>
       <Button {...getButtonProps()}>
         {isOpen ? 'Close section' : 'Open section'}
       </Button>
-      <Body {...getContentProps()} css={spacing({ top: 'kilo' })}>
+      <Body {...getContentProps({ style: { marginTop: '1rem' } })}>
         {
           'Lorem ipsum dolor amet swag pickled humblebrag retro farm-to-table, shoreditch typewriter deep v single-origin coffee green juice coloring book venmo chambray. Marfa authentic blue bottle mixtape tofu adaptogen. IPhone chia blog palo santo mlkshk tattooed jean shorts yr locavore ennui scenester. Wolf tousled pok pok sartorial scenester man bun salvia quinoa raclette sriracha roof party pour-over venmo hammock. Four dollar toast typewriter 3 wolf moon letterpress disrupt pabst. Neutra irony tousled iPhone banh mi wayfarers hoodie waistcoat.'
         }

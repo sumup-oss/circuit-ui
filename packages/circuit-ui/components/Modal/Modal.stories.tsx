@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-/* eslint-disable react/display-name */
 import { Fragment } from 'react';
 
 import { Stack } from '../../../../.storybook/components/index.js';
@@ -22,7 +21,6 @@ import Headline from '../Headline/index.js';
 import Body from '../Body/index.js';
 import Image from '../Image/index.js';
 import { ModalProvider } from '../ModalContext/index.js';
-import { spacing } from '../../styles/style-mixins.js';
 
 import { Modal, ModalProps, useModal } from './Modal.js';
 
@@ -34,7 +32,7 @@ export default {
 
 const defaultModalChildren = () => (
   <Fragment>
-    <Headline as="h2" size="four" css={spacing({ bottom: 'giga' })}>
+    <Headline as="h2" size="four" style={{ marginBottom: '1rem' }}>
       Hello World!
     </Headline>
     <Body>I am a modal.</Body>
@@ -109,10 +107,10 @@ export const PreventClose = (modal: ModalProps): JSX.Element => {
 PreventClose.args = {
   children: ({ onClose }: { onClose: ModalProps['onClose'] }) => (
     <Fragment>
-      <Headline as="h2" size="four" css={spacing({ bottom: 'giga' })}>
+      <Headline as="h2" size="four" style={{ marginBottom: '1rem' }}>
         Complete the action
       </Headline>
-      <Body css={spacing({ bottom: 'giga' })}>
+      <Body style={{ marginBottom: '1rem' }}>
         Users have to complete the action inside the modal to close it. The
         close button is hidden and clicking outside the modal or pressing the
         escape key does not close the modal either.
@@ -169,10 +167,10 @@ CustomStyles.args = {
           borderTopRightRadius: 'var(--cui-border-radius-mega)',
         }}
       />
-      <Headline as="h2" size="four" css={spacing('giga')}>
+      <Headline as="h2" size="four" style={{ margin: '1rem' }}>
         Custom styles
       </Headline>
-      <Body css={spacing('giga')}>
+      <Body style={{ margin: '1rem' }}>
         Custom styles can be applied using the <code>css</code> prop.
       </Body>
     </Fragment>

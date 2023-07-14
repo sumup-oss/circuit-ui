@@ -15,8 +15,7 @@
 
 import { Fragment } from 'react';
 
-import Body from '../Body/index.js';
-import { spacing } from '../../styles/style-mixins.js';
+import { Stack } from '../../../../.storybook/components/index.js';
 
 import { List, ListProps } from './List.js';
 
@@ -40,31 +39,27 @@ export const Base = (args: ListProps) => (
 
 const variants: ListProps['variant'][] = ['unordered', 'ordered'];
 
-export const Variants = (args: ListProps) =>
-  variants.map((variant) => (
-    <List
-      key={variant}
-      {...args}
-      variant={variant}
-      css={spacing({ bottom: 'giga' })}
-    >
-      <ListItems />
-    </List>
-  ));
+export const Variants = (args: ListProps) => (
+  <Stack vertical>
+    {variants.map((variant) => (
+      <List key={variant} {...args} variant={variant}>
+        <ListItems />
+      </List>
+    ))}
+  </Stack>
+);
 
 const sizes: ListProps['size'][] = ['one', 'two'];
 
-export const Sizes = (args: ListProps) =>
-  sizes.map((size) => (
-    <>
-      <Body size={size} css={spacing({ bottom: 'mega' })}>
-        Use List size {size} with Body {size} text.
-      </Body>
-      <List key={size} {...args} size={size} css={spacing({ bottom: 'giga' })}>
+export const Sizes = (args: ListProps) => (
+  <Stack vertical>
+    {sizes.map((size) => (
+      <List key={size} {...args} size={size}>
         <ListItems />
       </List>
-    </>
-  ));
+    ))}
+  </Stack>
+);
 
 export const Nested = (args: ListProps) => (
   <List {...args}>
