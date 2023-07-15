@@ -1,5 +1,16 @@
 # @sumup/circuit-ui
 
+## 7.0.0-next.6
+
+### Patch Changes
+
+- [#2185](https://github.com/sumup-oss/circuit-ui/pull/2185) [`cf5e82fc`](https://github.com/sumup-oss/circuit-ui/commit/cf5e82fc0fb9f0c4179fa61e9c22a2ccf20c8510) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed tree-shaking by retaining the original file structure in the build output.
+
+- [#2184](https://github.com/sumup-oss/circuit-ui/pull/2184) [`4b7dd4d6`](https://github.com/sumup-oss/circuit-ui/commit/4b7dd4d6e18e0026542771580119924f5f318c92) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the `jsxImportSource` from `@emotion/react` to `react`.
+
+- Updated dependencies [[`b51431fc`](https://github.com/sumup-oss/circuit-ui/commit/b51431fc7f8ce7447a04f1c63b0a8066615228dd)]:
+  - @sumup/design-tokens@6.0.0-next.3
+
 ## 7.0.0-next.5
 
 ### Major Changes
