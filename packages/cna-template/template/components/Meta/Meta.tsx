@@ -15,7 +15,6 @@ export interface MetaProps {
   index?: boolean;
   follow?: boolean;
   locale?: string;
-  twitter?: string;
 }
 
 /**
@@ -32,23 +31,19 @@ export const Meta: FC<PropsWithChildren<MetaProps>> = ({
   index = true,
   follow = true,
   locale = process.env.NEXT_PUBLIC_SITE_LOCALE,
-  twitter,
   children,
 }) => {
-  const canonicalUrl = `${process.env.NEXT_PUBLIC_SITE_BASEURL}${path}`;
+  const canonicalUrl = `${process.env.NEXT_PUBLIC_SITE_BASEURL || ''}${path}`;
 
   const indexString = index ? 'index' : 'noindex';
   const followString = follow ? 'follow' : 'nofollow';
 
   return (
     <Head>
-      {/* SEO */}
-      <title>{`${title} · ${siteName}`}</title>
+      <title>{[title, siteName].filter(Boolean).join(' · ')}</title>
       {description && <meta name="description" content={description} />}
       <meta name="robots" content={`${indexString} ${followString}`} />
       <link rel="canonical" href={canonicalUrl} />
-
-      {/* Facebook */}
       <meta property="og:site_name" content={siteName} />
       <meta property="og:title" content={title} />
       <meta property="og:type" content={type} />
@@ -58,14 +53,6 @@ export const Meta: FC<PropsWithChildren<MetaProps>> = ({
       {image && <meta property="og:image" content={image.src} />}
       {image && <meta property="og:image:alt" content={image.alt} />}
       {updatedAt && <meta property="og:updated" content={updatedAt} />}
-
-      {/* Twitter */}
-      {twitter && <meta name="twitter:site" content={`@${twitter}`} />}
-      {image && <meta name="twitter:image:alt" content={image.alt} />}
-      <meta
-        name="twitter:card"
-        content={image ? 'summary_large_image' : 'summary'}
-      />
 
       {children}
     </Head>

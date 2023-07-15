@@ -62,13 +62,6 @@ describe('Meta', () => {
     expect(container.querySelector('meta[property="og:image"]')).toBeNull();
     expect(container.querySelector('meta[property="og:image:alt"]')).toBeNull();
     expect(container.querySelector('meta[property="og:updated"]')).toBeNull();
-    expect(container.querySelector('meta[name="twitter:site"]')).toBeNull();
-    expect(
-      container.querySelector('meta[name="twitter:image:alt"]'),
-    ).toBeNull();
-    expect(
-      container.querySelector('meta[name="twitter:card"]'),
-    ).toHaveAttribute('content', 'summary');
   });
 
   it('should include all meta tags', () => {
@@ -85,7 +78,6 @@ describe('Meta', () => {
       siteName: 'Custom Name',
       type: 'article',
       updatedAt: 'asdfsf',
-      twitter: 'sumup',
     };
     const { container } = renderMeta(props);
 
@@ -130,15 +122,6 @@ describe('Meta', () => {
     expect(
       container.querySelector('meta[property="og:updated"]'),
     ).toHaveAttribute('content', props.updatedAt);
-    expect(
-      container.querySelector('meta[name="twitter:site"]'),
-    ).toHaveAttribute('content', '@sumup');
-    expect(
-      container.querySelector('meta[name="twitter:image:alt"]'),
-    ).toHaveAttribute('content', props.image.alt);
-    expect(
-      container.querySelector('meta[name="twitter:card"]'),
-    ).toHaveAttribute('content', 'summary_large_image');
   });
 
   it('should include additional children', () => {

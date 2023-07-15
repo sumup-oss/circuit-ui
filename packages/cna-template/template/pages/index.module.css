@@ -1,0 +1,24 @@
+.intro {
+  margin-top: var(--cui-spacings-peta);
+  margin-bottom: var(--cui-spacings-peta);
+}
+
+.intro code {
+  padding: var(--cui-spacings-bit) var(--cui-spacings-byte);
+  font-weight: var(--cui-font-weight-bold);
+  background-color: var(--cui-bg-subtle);
+  border: 1px solid var(--cui-border-subtle);
+  border-radius: var(--cui-border-radius-byte);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--cui-spacings-giga);
+}
+
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

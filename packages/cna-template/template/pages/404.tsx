@@ -1,33 +1,29 @@
-import { NextPage } from 'next';
-import Link from 'next/link';
 import Head from 'next/head';
-import { Card, Headline, Body, Button } from '@sumup/circuit-ui';
+import Link from 'next/link';
+import { Title, BodyLarge, Button } from '@sumup/circuit-ui';
 
-import { Main } from '../components/Main';
-import { Logo } from '../components/Logo';
+import { RootLayout } from '../layouts/Root';
+
+import styles from './error.module.css';
 
 const title = 'Page not found';
-const description =
-  "The page you requested can't be found. What's worse, a hilarious 404 page can't be found either.";
+const description = "We looked all over, but that page doesn't seem to exist.";
 
-const NotFound: NextPage = () => (
-  <>
-    <Head>
-      <title>{title}</title>
-    </Head>
-    <Main>
-      <Logo />
-      <Card>
-        <Headline as="h1" size="one">
+export default function NotFound() {
+  return (
+    <>
+      <Head>
+        <title>{title}</title>
+      </Head>
+      <RootLayout>
+        <Title as="h1" size="three">
           {title}
-        </Headline>
-        <Body>{description}</Body>
+        </Title>
+        <BodyLarge className={styles.description}>{description}</BodyLarge>
         <Link href="/" passHref>
           <Button variant="primary">Return to the homepage</Button>
         </Link>
-      </Card>
-    </Main>
-  </>
-);
-
-export default NotFound;
+      </RootLayout>
+    </>
+  );
+}

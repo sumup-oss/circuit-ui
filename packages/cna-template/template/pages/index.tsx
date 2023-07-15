@@ -1,53 +1,46 @@
-import { NextPage } from 'next';
-import { Card, Headline, Body, List, Anchor } from '@sumup/circuit-ui';
+import { Title, BodyLarge } from '@sumup/circuit-ui';
 
+import { RootLayout } from '../layouts/Root';
 import { Meta } from '../components/Meta';
-import { Main } from '../components/Main';
-import { Logo } from '../components/Logo';
+import { DocCard } from '../components/DocCard';
 
-const title = 'Welcome to SumUp Next.js';
+import styles from './index.module.css';
 
-const Page: NextPage = () => (
-  <>
-    <Meta title={title} path="/" />
-    <Main>
-      <Logo />
-      <Card>
-        <Headline as="h1">{title}</Headline>
-        <Body>
-          This is a{' '}
-          <Anchor href="https://nextjs.org" target="_blank">
-            Next.js
-          </Anchor>
-          -based starter project featuring some{' '}
-          <Anchor href="https://sumup.com" target="_blank">
-            SumUp
-          </Anchor>
-          -specific customizations:
-        </Body>
-        <List>
-          <li>
-            <Anchor
-              href="https://github.com/sumup-oss/circuit-ui"
-              target="_blank"
-            >
-              Circuit UI
-            </Anchor>{' '}
-            integration
-          </li>
-          <li>
-            SumUp&apos;s default tooling provided by{' '}
-            <Anchor href="https://github.com/sumup-oss/foundry" target="_blank">
-              Foundry
-            </Anchor>
-          </li>
-          <li>Basic SEO and performance optimizations</li>
-        </List>
-        <Body>Now go and build things!</Body>
-        <Body aria-hidden>🔨👩🏽‍💻👨🏼‍💻🚀</Body>
-      </Card>
-    </Main>
-  </>
-);
+const title = 'Welcome to Next.js + Circuit UI';
 
-export default Page;
+export default function Page() {
+  return (
+    <>
+      <Meta title={title} path="/" />
+      <RootLayout>
+        <Title as="h1" size="three">
+          {title}
+        </Title>
+
+        <BodyLarge className={styles.intro}>
+          Get started by editing <code>pages/index.tsx</code>
+        </BodyLarge>
+
+        <div className={styles.cards}>
+          <DocCard
+            title="Next.js"
+            description="Find in-depth information about Next.js features and API."
+            href="https://nextjs.org/docs"
+          />
+
+          <DocCard
+            title="Circuit UI"
+            description="Discover SumUp's design system for the web."
+            href="https://circuit.sumup.com"
+          />
+
+          <DocCard
+            title="Foundry"
+            description="Learn about SumUp's toolkit for building TypeScript applications."
+            href="https://github.com/sumup-oss/foundry"
+          />
+        </div>
+      </RootLayout>
+    </>
+  );
+}
