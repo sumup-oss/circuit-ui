@@ -70,7 +70,7 @@ describe('build', () => {
       const actual = createCSSCustomProperties(tokens);
 
       expect(actual).toMatchInlineSnapshot(
-        '":root, ::selection, ::backdrop { /* Use as normal background color in any given interface */ --cui-bg-normal: #00f2b840; }"',
+        '":root { /* Use as normal background color in any given interface */ --cui-bg-normal: #00f2b840; }"',
       );
     });
   });
