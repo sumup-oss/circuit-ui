@@ -64,7 +64,8 @@
     "react-swipeable": "^7.0.0",
     "typescript": "^5.0.4",
     "typescript-plugin-css-modules": "^5.0.1",
-    "vite": "^4.3.4"
+    "vite": "^4.3.4",
+    "vite-plugin-no-bundle": "^2.0.2"
   },
   "peerDependencies": {
     "@emotion/is-prop-valid": "1.x",

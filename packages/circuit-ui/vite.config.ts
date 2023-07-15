@@ -17,6 +17,7 @@ import crypto from 'node:crypto';
 import path from 'node:path';
 
 import { UserConfig, defineConfig } from 'vite';
+import noBundlePlugin from 'vite-plugin-no-bundle';
 
 import {
   dependencies,
@@ -79,6 +80,11 @@ export default defineConfig({
       ],
     },
   },
+  plugins: [
+    // @ts-expect-error vite-plugin-no-bundle is bundled in a non-standard way.
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+    (noBundlePlugin.default || noBundlePlugin)({ root: './' }),
+  ],
   test: {
     globals: true,
     environment: 'jsdom',
