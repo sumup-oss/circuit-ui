@@ -75,7 +75,7 @@ export function validateTokens(tokens: Token[]): void {
  */
 export function createCSSCustomProperties(
   tokens: Token[],
-  selector = ':root, ::selection, ::backdrop',
+  selector = ':root',
 ): string {
   const customProperties = tokens
     .flatMap((token) => {
