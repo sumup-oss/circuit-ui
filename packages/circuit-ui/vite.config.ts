@@ -17,6 +17,7 @@ import crypto from 'node:crypto';
 import path from 'node:path';
 
 import { UserConfig, defineConfig } from 'vite';
+import noBundlePlugin from 'vite-plugin-no-bundle';
 
 import {
   dependencies,
@@ -79,6 +80,7 @@ export default defineConfig({
       ],
     },
   },
+  plugins: [noBundlePlugin({ root: './' })],
   test: {
     globals: true,
     environment: 'jsdom',
