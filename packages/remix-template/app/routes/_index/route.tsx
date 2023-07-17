@@ -5,11 +5,14 @@ import { DocCard } from '../../components/DocCard';
 
 import styles from './route.module.css';
 
-const title = 'Welcome to Remix + Circuit UI';
+const title = 'Welcome to Circuit UI + Remix';
 
 export const meta: V2_MetaFunction = () => [
   { title },
-  { name: 'description', content: 'Welcome to Remix!' },
+  {
+    name: 'description',
+    content: 'A Remix stack using Circuit UI and Foundry',
+  },
 ];
 
 export default function Index() {

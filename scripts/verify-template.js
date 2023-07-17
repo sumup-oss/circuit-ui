@@ -16,10 +16,10 @@
 const puppeteer = require('puppeteer');
 
 /**
- * This script is used to check for runtime errors in `@sumup/cna-template`.
+ * This script is used to check for runtime errors in `packages/cna-template` and `packages/remix-template`.
  */
 (async () => {
-  const expected = 'Welcome to SumUp';
+  const expected = 'Welcome to Circuit UI';
 
   try {
     const browser = await puppeteer.launch();
