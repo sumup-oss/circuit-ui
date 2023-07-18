@@ -1,5 +1,17 @@
 # @sumup/eslint-plugin-circuit-ui
 
+## 3.0.0-next.1
+
+### Major Changes
+
+- [#2164](https://github.com/sumup-oss/circuit-ui/pull/2164) [`e1db8492`](https://github.com/sumup-oss/circuit-ui/commit/e1db84920a152cb110ad53b5588849e1e705a01d) Thanks [@connor-baer](https://github.com/connor-baer)! - Added `circuit-ui/component-lifecycle-imports` rule to update component imports when they move to a different lifecycle stage.
+
+### Patch Changes
+
+- Updated dependencies [[`cf5e82fc`](https://github.com/sumup-oss/circuit-ui/commit/cf5e82fc0fb9f0c4179fa61e9c22a2ccf20c8510), [`b51431fc`](https://github.com/sumup-oss/circuit-ui/commit/b51431fc7f8ce7447a04f1c63b0a8066615228dd), [`4b7dd4d6`](https://github.com/sumup-oss/circuit-ui/commit/4b7dd4d6e18e0026542771580119924f5f318c92)]:
+  - @sumup/circuit-ui@7.0.0-next.6
+  - @sumup/design-tokens@6.0.0-next.3
+
 ## 3.0.0-next.0
 
 ### Minor Changes

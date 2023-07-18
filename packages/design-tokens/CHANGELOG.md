@@ -1,5 +1,11 @@
 # @sumup/design-tokens
 
+## 6.0.0-next.3
+
+### Patch Changes
+
+- [#2186](https://github.com/sumup-oss/circuit-ui/pull/2186) [`b51431fc`](https://github.com/sumup-oss/circuit-ui/commit/b51431fc7f8ce7447a04f1c63b0a8066615228dd) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the selector for the root CSS variables.
+
 ## 6.0.0-next.2
 
 ### Minor Changes
