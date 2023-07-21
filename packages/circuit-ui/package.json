@@ -27,7 +27,7 @@
   "scripts": {
     "dev": "vite",
     "start": "npm run dev",
-    "build": "vite build && tsc -p tsconfig.build.json",
+    "build": "vite build && tsc -p tsconfig.build.json && rm -rf dist/node_modules",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
     "test": "vitest"
