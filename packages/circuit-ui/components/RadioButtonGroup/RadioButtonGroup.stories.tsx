@@ -44,8 +44,8 @@ Base.args = {
   label: 'Choose your favourite fruit',
   defaultValue: 'banana',
   options: [
-    { label: 'Apple', value: 'apple' },
-    { label: 'Banana', value: 'banana' },
+    { label: 'Apple', value: 'apple', description: 'Keeps the doctor away' },
+    { label: 'Banana', value: 'banana', description: 'Rich in Mg' },
     { label: 'Mango', value: 'mango' },
   ],
   // Storybook displays the default mocked function props poorly,
@@ -89,8 +89,8 @@ Validations.args = {
   label: 'Choose your favourite fruit',
   optionalLabel: 'Optional',
   options: [
-    { label: 'Apple', value: 'apple' },
-    { label: 'Banana', value: 'banana' },
+    { label: 'Apple', value: 'apple', description: 'Keeps the doctor away' },
+    { label: 'Banana', value: 'banana', description: 'Rich in Mg' },
     { label: 'Mango', value: 'mango' },
   ],
 };
@@ -102,8 +102,12 @@ export const Disabled = (args: RadioButtonGroupProps) => (
       name="fully-disabled"
       disabled
       options={[
-        { label: 'Apple', value: 'apple' },
-        { label: 'Banana', value: 'banana' },
+        {
+          label: 'Apple',
+          value: 'apple',
+          description: 'Keeps the doctor away',
+        },
+        { label: 'Banana', value: 'banana', description: 'Rich in Mg' },
         { label: 'Mango', value: 'mango' },
       ]}
       validationHint="All fruits are sold out"
@@ -113,9 +117,18 @@ export const Disabled = (args: RadioButtonGroupProps) => (
       {...args}
       name="partially-disabled"
       options={[
-        { label: 'Apple', value: 'apple' },
-        { label: 'Banana', value: 'banana' },
-        { label: 'Mango', value: 'mango', disabled: true },
+        {
+          label: 'Apple',
+          value: 'apple',
+          description: 'Keeps the doctor away',
+        },
+        {
+          label: 'Banana',
+          value: 'banana',
+          description: 'Rich in Mg',
+          disabled: true,
+        },
+        { label: 'Mango', value: 'mango' },
       ]}
       validationHint="Some fruits are sold out"
       style={storyStyles}

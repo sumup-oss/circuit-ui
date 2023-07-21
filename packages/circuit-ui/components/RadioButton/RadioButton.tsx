@@ -14,7 +14,6 @@
  */
 
 import {
-  Fragment,
   InputHTMLAttributes,
   Ref,
   createContext,
@@ -29,6 +28,7 @@ import { uniqueId } from '../../util/id';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import { AccessibilityError } from '../../util/errors';
 import { deprecate } from '../../util/logger';
+import { FieldDescription, FieldWrapper } from '../FieldAtoms';
 
 export interface RadioButtonProps
   extends InputHTMLAttributes<HTMLInputElement> {
@@ -36,6 +36,10 @@ export interface RadioButtonProps
    * A clear and concise description of the option's purpose.
    */
   label: string;
+  /**
+   * Further details about the option's purpose.
+   */
+  description?: string;
   /**
    * Triggers error styles on the component.
    */
@@ -72,7 +76,7 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
     content: '';
     display: block;
     position: absolute;
-    top: 50%;
+    top: calc(${theme.typography.body.one.lineHeight} / 2);
     left: 0;
     transform: translateY(-50%);
     transition: border ${theme.transitions.default};
@@ -87,7 +91,7 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
     content: '';
     display: block;
     position: absolute;
-    top: 50%;
+    top: calc(${theme.typography.body.one.lineHeight} / 2);
     left: ${theme.spacings.bit};
     transform: translateY(-50%) scale(0, 0);
     opacity: 0;
@@ -203,6 +207,7 @@ export const RadioButton = forwardRef(
     {
       onChange,
       label,
+      description,
       id: customId,
       name,
       value,
@@ -239,7 +244,7 @@ export const RadioButton = forwardRef(
     const handleChange = useClickEvent(onChange, tracking, 'radio-button');
 
     return (
-      <Fragment>
+      <FieldWrapper disabled={disabled}>
         <RadioButtonInput
           {...props}
           type="radio"
@@ -258,10 +263,21 @@ export const RadioButton = forwardRef(
           invalid={invalid}
           className={className}
           style={style}
+          aria-describedby={description ? `${id}-description` : undefined}
         >
           {label}
+          {description && (
+            <FieldDescription aria-hidden="true">
+              {description}
+            </FieldDescription>
+          )}
         </RadioButtonLabel>
-      </Fragment>
+        {description && (
+          <p id={`${id}-description`} css={hideVisually}>
+            {description}
+          </p>
+        )}
+      </FieldWrapper>
     );
   },
 );
