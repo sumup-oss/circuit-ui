@@ -77,6 +77,10 @@ export default defineConfig({
         ...Object.keys(dependencies),
         ...Object.keys(peerDependencies),
         ...Object.keys(optionalDependencies),
+        // Subfolder imports
+        'react/jsx-runtime',
+        '@emotion/react/jsx-runtime',
+        'react-dates/initialize.js',
       ],
     },
   },
