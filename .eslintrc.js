@@ -40,5 +40,11 @@ module.exports = require('@sumup/foundry/eslint')({
         'node/no-unpublished-require': 'off',
       },
     },
+    {
+      files: ['packages/remix-template/**/*'],
+      rules: {
+        'notice/notice': 'off',
+      },
+    },
   ],
 });

@@ -1,4 +1,4 @@
-name: Create SumUp Next App
+name: Circuit UI App Templates
 
 on:
   schedule:
@@ -10,7 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [16, 18]
+        node: [18, 20]
+        template:
+          [
+            npx create-next-app --example "https://github.com/sumup-oss/circuit-ui/tree/main/packages/cna-template/template" test-app,
+            npx create-remix@latest ./test-app --template https://github.com/sumup-oss/circuit-ui/tree/main/packages/remix-template,
+          ]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -22,7 +27,7 @@ jobs:
           cache: 'npm'
 
       - name: Bootstrap app
-        run: npx create-next-app --example "https://github.com/sumup-oss/circuit-ui/tree/main/packages/cna-template/template" test-app
+        run: ${{ matrix.template }}
 
       - name: Build app
         working-directory: ./test-app
