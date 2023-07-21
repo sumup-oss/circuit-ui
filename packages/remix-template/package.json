@@ -1,5 +1,6 @@
 {
   "name": "@sumup/remix-template-circuit-ui",
+  "version": "1.0.0-next.0",
   "private": true,
   "sideEffects": false,
   "scripts": {
