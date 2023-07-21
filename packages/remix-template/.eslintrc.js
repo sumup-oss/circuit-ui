@@ -1,4 +1,3 @@
-/** @type {import('eslint').Linter.Config} */
-module.exports = {
+module.exports = require('@sumup/foundry/eslint')({
   extends: ['@remix-run/eslint-config', '@remix-run/eslint-config/node'],
-};
+});

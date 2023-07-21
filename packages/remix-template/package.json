@@ -1,12 +1,14 @@
 {
-  "name": "remix-template-circuit-ui",
+  "name": "@sumup/remix-template-circuit-ui",
   "private": true,
   "sideEffects": false,
   "scripts": {
     "build": "remix build",
     "dev": "remix dev",
     "start": "remix-serve build",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "lint": "foundry run eslint . --ext .js,.jsx,.json,.ts,.tsx",
+    "lint:fix": "npm run lint -- --fix"
   },
   "dependencies": {
     "@remix-run/css-bundle": "^1.18.1",
@@ -24,12 +26,13 @@
   "devDependencies": {
     "@remix-run/dev": "^1.18.1",
     "@remix-run/eslint-config": "^1.18.1",
+    "@sumup/foundry": "^6.1.0",
     "@types/react": "^18.0.35",
     "@types/react-dom": "^18.0.11",
     "eslint": "^8.38.0",
     "typescript": "^5.0.4"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   }
 }
