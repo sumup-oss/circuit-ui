@@ -16,6 +16,7 @@
 import { HTMLAttributes, forwardRef } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
+import { CircuitError } from '../../util/errors.js';
 
 import classes from './Title.module.css';
 
@@ -36,13 +37,19 @@ export interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {
  * A flexible title component capable of rendering any HTML heading element.
  */
 export const Title = forwardRef<HTMLHeadingElement, TitleProps>(
-  ({ className, as: Element, size = 'one', ...props }, ref) => (
-    <Element
-      {...props}
-      ref={ref}
-      className={clsx(classes.base, classes[size], className)}
-    />
-  ),
+  ({ className, as: Element, size = 'one', ...props }, ref) => {
+    if (process.env.NODE_ENV !== 'production' && !Element) {
+      throw new CircuitError('Title', 'The `as` prop is required.');
+    }
+
+    return (
+      <Element
+        {...props}
+        ref={ref}
+        className={clsx(classes.base, classes[size], className)}
+      />
+    );
+  },
 );
 
 Title.displayName = 'Title';

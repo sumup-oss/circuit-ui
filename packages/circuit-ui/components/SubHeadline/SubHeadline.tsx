@@ -16,6 +16,7 @@
 import { HTMLAttributes, forwardRef } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
+import { CircuitError } from '../../util/errors.js';
 
 import classes from './SubHeadline.module.css';
 
@@ -33,9 +34,15 @@ export interface SubHeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
  * element, except h1.
  */
 export const SubHeadline = forwardRef<HTMLHeadingElement, SubHeadlineProps>(
-  ({ className, as: Element, ...props }, ref) => (
-    <Element {...props} ref={ref} className={clsx(classes.base, className)} />
-  ),
+  ({ className, as: Element, ...props }, ref) => {
+    if (process.env.NODE_ENV !== 'production' && !Element) {
+      throw new CircuitError('SubHeadline', 'The `as` prop is required.');
+    }
+
+    return (
+      <Element {...props} ref={ref} className={clsx(classes.base, className)} />
+    );
+  },
 );
 
 SubHeadline.displayName = 'SubHeadline';
