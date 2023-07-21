@@ -16,6 +16,13 @@
     },
     "./styles.css": "./dist/style.css"
   },
+  "typesVersions": {
+    "*": {
+      "legacy": [
+        "./dist/legacy.d.ts"
+      ]
+    }
+  },
   "sideEffects": false,
   "files": [
     "dist"
