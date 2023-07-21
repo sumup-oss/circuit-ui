@@ -1,5 +1,16 @@
 # @sumup/eslint-plugin-circuit-ui
 
+## 3.0.0-next.2
+
+### Minor Changes
+
+- [#2194](https://github.com/sumup-oss/circuit-ui/pull/2194) [`b423525f`](https://github.com/sumup-oss/circuit-ui/commit/b423525fdff80dd018e5ed5ab0a776e6ddcf51ec) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the style mixins to the `component-lifecycle-imports` rule.
+
+### Patch Changes
+
+- Updated dependencies [[`d3e35bea`](https://github.com/sumup-oss/circuit-ui/commit/d3e35beaec1a82ed1486be24ab06afd2dbb9c82c), [`6f992ae6`](https://github.com/sumup-oss/circuit-ui/commit/6f992ae6aa39767dcc7df5a6754dbcea4d06af9d)]:
+  - @sumup/circuit-ui@7.0.0-next.8
+
 ## 3.0.0-next.1
 
 ### Major Changes

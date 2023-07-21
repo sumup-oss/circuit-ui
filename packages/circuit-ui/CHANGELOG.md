@@ -1,5 +1,15 @@
 # @sumup/circuit-ui
 
+## 7.0.0-next.8
+
+### Minor Changes
+
+- [#2195](https://github.com/sumup-oss/circuit-ui/pull/2195) [`6f992ae6`](https://github.com/sumup-oss/circuit-ui/commit/6f992ae6aa39767dcc7df5a6754dbcea4d06af9d) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a helpful error message when the Title, Headline or SubHeadline components are missing the `as` prop.
+
+### Patch Changes
+
+- [#2196](https://github.com/sumup-oss/circuit-ui/pull/2196) [`d3e35bea`](https://github.com/sumup-oss/circuit-ui/commit/d3e35beaec1a82ed1486be24ab06afd2dbb9c82c) Thanks [@connor-baer](https://github.com/connor-baer)! - Added types for subpath exports.
+
 ## 7.0.0-next.7
 
 ### Patch Changes
