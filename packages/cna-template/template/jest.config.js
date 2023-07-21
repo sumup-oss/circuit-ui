@@ -1,12 +1,14 @@
 const nextJest = require('next/jest');
 
+const esModules = ['@sumup/circuit-ui', '@sumup/icons'].join('|');
+
 const createJestConfig = nextJest({ dir: './' });
 
 /** @type {import('jest').Config} */
 const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.tsx'],
   testEnvironment: 'jsdom',
-  snapshotSerializers: ['@emotion/jest/serializer'],
+  transformIgnorePatterns: [`/node_modules/(?!${esModules}/)`],
   coverageDirectory: './__coverage__',
   coverageReporters: ['cobertura', 'text-summary', 'html'],
   collectCoverageFrom: [
@@ -20,4 +22,12 @@ const customJestConfig = {
   ],
 };
 
-module.exports = createJestConfig(customJestConfig);
+// next/jest has a `transformIgnorePatterns` on the whole `node_modules`.
+// Some of the packages needs to be transformed as they are ES6 modules.
+// See https://github.com/vercel/next.js/issues/35634
+module.exports = async () => {
+  const config = await createJestConfig(customJestConfig)();
+  // `/node_modules/` is the first pattern
+  config.transformIgnorePatterns[0] = `/node_modules/(?!${esModules}/)`;
+  return config;
+};
