@@ -7,7 +7,8 @@
     "@sumup/design-tokens": "5.1.0",
     "@sumup/eslint-plugin-circuit-ui": "0.0.1",
     "@sumup/icons": "2.22.0",
-    "@sumup/stylelint-plugin-circuit-ui": "1.0.0"
+    "@sumup/stylelint-plugin-circuit-ui": "1.0.0",
+    "@sumup/remix-template-circuit-ui": "1.0.0-next.0"
   },
   "changesets": [
     "afraid-plums-draw",
@@ -17,6 +18,7 @@
     "chilled-flies-dream",
     "chilled-walls-learn",
     "chilly-dolphins-travel",
+    "cyan-eels-explain",
     "cyan-trains-move",
     "dry-bugs-sniff",
     "early-seahorses-whisper",
@@ -27,6 +29,7 @@
     "grumpy-donuts-flash",
     "khaki-baboons-deliver",
     "late-students-own",
+    "light-pumas-shop",
     "loud-pots-act",
     "lucky-monkeys-arrive",
     "metal-bugs-melt",
@@ -43,6 +46,7 @@
     "serious-schools-look",
     "smart-comics-crash",
     "sour-masks-attend",
+    "swift-bats-join",
     "tall-avocados-sin",
     "tender-mangos-wave",
     "thin-lions-share",
