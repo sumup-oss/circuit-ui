@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 7.0.0-next.7
+
+### Patch Changes
+
+- [#2192](https://github.com/sumup-oss/circuit-ui/pull/2192) [`35f42ecf`](https://github.com/sumup-oss/circuit-ui/commit/35f42ecf34282a2f94b39c21ef66b00e4538ae20) Thanks [@connor-baer](https://github.com/connor-baer)! - Externalized subpath imports of node modules.
+
 ## 7.0.0-next.6
 
 ### Patch Changes

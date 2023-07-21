@@ -1,5 +1,11 @@
 # @sumup/cna-template
 
+## 4.0.0-next.2
+
+### Major Changes
+
+- [#2183](https://github.com/sumup-oss/circuit-ui/pull/2183) [`159ef8a8`](https://github.com/sumup-oss/circuit-ui/commit/159ef8a8abfe72569b4eabccd7454aaa8973a7ca) Thanks [@connor-baer](https://github.com/connor-baer)! - Upgraded the Next.js template to Circuit UI v7 and replaced Emotion.js with CSS Modules.
+
 ## 4.0.0-next.1
 
 ### Major Changes
