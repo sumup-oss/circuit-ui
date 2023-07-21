@@ -6,7 +6,7 @@ import { DocCard } from '../components/DocCard';
 
 import styles from './index.module.css';
 
-const title = 'Welcome to Next.js + Circuit UI';
+const title = 'Welcome to Circuit UI + Next.js';
 
 export default function Page() {
   return (
