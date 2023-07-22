@@ -37,10 +37,12 @@ export interface HeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
  * A flexible headline component capable of rendering any HTML heading element.
  */
 export const Headline = forwardRef<HTMLHeadingElement, HeadlineProps>(
-  ({ className, as: Element, size = 'one', ...props }, ref) => {
-    if (process.env.NODE_ENV !== 'production' && !Element) {
+  ({ className, as, size = 'one', ...props }, ref) => {
+    if (process.env.NODE_ENV !== 'production' && !as) {
       throw new CircuitError('Headline', 'The `as` prop is required.');
     }
+
+    const Element = as || 'h2';
 
     return (
       <Element

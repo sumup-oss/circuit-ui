@@ -37,10 +37,12 @@ export interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {
  * A flexible title component capable of rendering any HTML heading element.
  */
 export const Title = forwardRef<HTMLHeadingElement, TitleProps>(
-  ({ className, as: Element, size = 'one', ...props }, ref) => {
-    if (process.env.NODE_ENV !== 'production' && !Element) {
+  ({ className, as, size = 'one', ...props }, ref) => {
+    if (process.env.NODE_ENV !== 'production' && !as) {
       throw new CircuitError('Title', 'The `as` prop is required.');
     }
+
+    const Element = as || 'h1';
 
     return (
       <Element
