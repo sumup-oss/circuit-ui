@@ -47,23 +47,23 @@
 
 /* Validations */
 
-.base[aria-invalid] {
+.base[aria-invalid="true"] {
   box-shadow: 0 0 0 1px var(--cui-border-danger);
 }
 
-.base[aria-invalid]:hover {
+.base[aria-invalid="true"]:hover {
   box-shadow: 0 0 0 1px var(--cui-border-danger-hovered);
 }
 
-.base[aria-invalid]:focus {
+.base[aria-invalid="true"]:focus {
   box-shadow: 0 0 0 2px var(--cui-border-danger);
 }
 
-.base[aria-invalid]:active {
+.base[aria-invalid="true"]:active {
   box-shadow: 0 0 0 1px var(--cui-border-danger-pressed);
 }
 
-.base[aria-invalid]:not(:focus):not([disabled])::placeholder {
+.base[aria-invalid="true"]:not(:focus):not([disabled])::placeholder {
   color: var(--cui-fg-danger);
 }
 
