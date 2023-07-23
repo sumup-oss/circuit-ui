@@ -34,10 +34,12 @@ export interface SubHeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
  * element, except h1.
  */
 export const SubHeadline = forwardRef<HTMLHeadingElement, SubHeadlineProps>(
-  ({ className, as: Element, ...props }, ref) => {
-    if (process.env.NODE_ENV !== 'production' && !Element) {
+  ({ className, as, ...props }, ref) => {
+    if (process.env.NODE_ENV !== 'production' && !as) {
       throw new CircuitError('SubHeadline', 'The `as` prop is required.');
     }
+
+    const Element = as || 'h2';
 
     return (
       <Element {...props} ref={ref} className={clsx(classes.base, className)} />

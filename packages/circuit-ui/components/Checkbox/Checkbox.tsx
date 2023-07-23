@@ -69,6 +69,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       invalid,
       indeterminate = false,
       'aria-describedby': descriptionId,
+      children,
       ...props
     },
     passedRef,
@@ -116,7 +117,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           )}
         />
         <label htmlFor={id} className={classes.label}>
-          {label}
+          {label || children}
           <Checkmark aria-hidden="true" data-symbol="checked" />
           <IndeterminateIcon aria-hidden="true" data-symbol="indeterminate" />
         </label>
