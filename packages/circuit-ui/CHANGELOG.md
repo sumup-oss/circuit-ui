@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 7.0.0-next.9
+
+### Patch Changes
+
+- [#2199](https://github.com/sumup-oss/circuit-ui/pull/2199) [`451dbdc3`](https://github.com/sumup-oss/circuit-ui/commit/451dbdc304d8af2a94b06ef5746a2aa92398febc) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the invalid styles for the Input and Select components.
+
+- [#2198](https://github.com/sumup-oss/circuit-ui/pull/2198) [`21594d28`](https://github.com/sumup-oss/circuit-ui/commit/21594d28aede97efdfb0942d78e47337ee1ff56b) Thanks [@connor-baer](https://github.com/connor-baer)! - Added back the default heading element to the Title, Headline and SubHeadline components in production mode.
+
 ## 7.0.0-next.8
 
 ### Minor Changes
