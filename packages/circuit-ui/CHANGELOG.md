@@ -1,5 +1,16 @@
 # @sumup/circuit-ui
 
+## 7.0.0
+
+### Minor Changes
+
+- [#2191](https://github.com/sumup-oss/circuit-ui/pull/2191) [`7ba96798`](https://github.com/sumup-oss/circuit-ui/commit/7ba9679870c5a595bbd3036aa5a6f65c7ad29f8c) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a new `description` prop to the RadioInput component. Use it to provide additional context for an option.
+
+### Patch Changes
+
+- Updated dependencies [[`2a40586c`](https://github.com/sumup-oss/circuit-ui/commit/2a40586c7efbf19f3834afdee2c95f0dcfbc41e5)]:
+  - @sumup/icons@2.30.0
+
 ## 6.10.1
 
 ### Patch Changes

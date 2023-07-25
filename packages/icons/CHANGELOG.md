@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 2.30.0
+
+### Minor Changes
+
+- [#2201](https://github.com/sumup-oss/circuit-ui/pull/2201) [`2a40586c`](https://github.com/sumup-oss/circuit-ui/commit/2a40586c7efbf19f3834afdee2c95f0dcfbc41e5) Thanks [@Zayebatsu](https://github.com/Zayebatsu)! - Added new icon `ArrowSlanted` in size 16.
+
 ## 2.29.0
 
 ### Minor Changes
