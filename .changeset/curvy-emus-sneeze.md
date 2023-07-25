@@ -2,4 +2,4 @@
 '@sumup/icons': minor
 ---
 
-Add new 16 size 'ArrowSlanted' icon
+Added new icon `ArrowSlanted` in size 16.
