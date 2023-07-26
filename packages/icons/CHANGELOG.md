@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 2.30.1
+
+### Patch Changes
+
+- [#2203](https://github.com/sumup-oss/circuit-ui/pull/2203) [`71018c86`](https://github.com/sumup-oss/circuit-ui/commit/71018c860c3dc8fd12da2df728198fd22c69939a) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the Eftpos payment method icon to include the company name.
+
 ## 2.30.0
 
 ### Minor Changes
