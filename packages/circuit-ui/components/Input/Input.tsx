@@ -121,7 +121,7 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
   background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
-  border-radius: ${theme.borderRadius.byte};
+  border-radius: ${theme.borderRadius.kilo};
   padding: ${theme.spacings.kilo} ${theme.spacings.mega};
   transition: box-shadow ${theme.transitions.default},
     padding ${theme.transitions.default};

@@ -15,7 +15,10 @@ HTMLCollection [
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -49,7 +52,7 @@ HTMLCollection [
   background-color: var(--cui-bg-normal);
   outline: none;
   border: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: none;
   color: var(--cui-fg-normal);
   margin: 0;

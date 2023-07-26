@@ -96,7 +96,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   color: var(--cui-fg-normal);
   text-align: center;
   position: relative;
-  border-radius: ${theme.borderRadius.byte};
+  border-radius: ${theme.borderRadius.kilo};
   transition: box-shadow ${theme.transitions.default};
 
   &::before {
@@ -109,7 +109,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: ${theme.borderRadius.byte};
+    border-radius: ${theme.borderRadius.kilo};
     border: ${theme.borderWidth.kilo} solid var(--cui-border-normal);
     transition: border ${theme.transitions.default};
   }

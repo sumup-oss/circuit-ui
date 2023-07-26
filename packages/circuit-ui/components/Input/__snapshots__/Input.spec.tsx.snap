@@ -14,7 +14,10 @@ exports[`Input Styles should prioritize disabled over error styles 1`] = `
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -33,7 +36,7 @@ exports[`Input Styles should prioritize disabled over error styles 1`] = `
   background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
@@ -119,7 +122,10 @@ exports[`Input Styles should prioritize disabled over warning styles 1`] = `
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -138,7 +144,7 @@ exports[`Input Styles should prioritize disabled over warning styles 1`] = `
   background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
@@ -223,7 +229,10 @@ exports[`Input Styles should render with a description when passed the validatio
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -242,7 +251,7 @@ exports[`Input Styles should render with a description when passed the validatio
   background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
@@ -300,6 +309,8 @@ exports[`Input Styles should render with a description when passed the validatio
   display: -ms-flexbox;
   display: flex;
   margin-top: 4px;
+  margin-right: 4px;
+  margin-left: 4px;
   color: var(--cui-fg-subtle);
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
@@ -362,7 +373,10 @@ exports[`Input Styles should render with a prefix when passed the prefix prop 1`
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -390,7 +404,7 @@ exports[`Input Styles should render with a prefix when passed the prefix prop 1`
   background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
@@ -491,7 +505,10 @@ exports[`Input Styles should render with a suffix when passed the suffix prop 1`
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -510,7 +527,7 @@ exports[`Input Styles should render with a suffix when passed the suffix prop 1`
   background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
@@ -628,7 +645,10 @@ exports[`Input Styles should render with custom styles 1`] = `
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -647,7 +667,7 @@ exports[`Input Styles should render with custom styles 1`] = `
   background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
@@ -744,7 +764,10 @@ exports[`Input Styles should render with default styles 1`] = `
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -763,7 +786,7 @@ exports[`Input Styles should render with default styles 1`] = `
   background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
@@ -859,7 +882,10 @@ exports[`Input Styles should render with disabled styles when passed the disable
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -878,7 +904,7 @@ exports[`Input Styles should render with disabled styles when passed the disable
   background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
@@ -963,7 +989,10 @@ exports[`Input Styles should render with invalid styles when passed the invalid 
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -982,7 +1011,7 @@ exports[`Input Styles should render with invalid styles when passed the invalid 
   background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
@@ -1095,7 +1124,10 @@ exports[`Input Styles should render with readonly styles when passed the readOnl
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -1114,7 +1146,7 @@ exports[`Input Styles should render with readonly styles when passed the readOnl
   background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
@@ -1212,7 +1244,10 @@ exports[`Input Styles should render with right aligned text 1`] = `
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -1231,7 +1266,7 @@ exports[`Input Styles should render with right aligned text 1`] = `
   background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
@@ -1328,7 +1363,10 @@ exports[`Input Styles should render with valid styles when passed the showValid 
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -1347,7 +1385,7 @@ exports[`Input Styles should render with valid styles when passed the showValid 
   background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
@@ -1443,7 +1481,10 @@ exports[`Input Styles should render with warning styles when passed the hasWarni
 
 .circuit-2 {
   display: inline-block;
+  margin-right: 4px;
   margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 700;
 }
 
 [disabled] .circuit-2,
@@ -1462,7 +1503,7 @@ exports[`Input Styles should render with warning styles when passed the hasWarni
   background-color: var(--cui-bg-normal);
   border: none;
   outline: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 12px 16px;
   -webkit-transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;
   transition: box-shadow 120ms ease-in-out,padding 120ms ease-in-out;

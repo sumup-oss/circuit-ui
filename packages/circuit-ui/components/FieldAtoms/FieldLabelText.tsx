@@ -45,7 +45,10 @@ export interface FieldLabelTextProps extends HTMLAttributes<HTMLSpanElement> {
 
 const baseStyles = ({ theme }: StyleProps) => css`
   display: inline-block;
+  margin-right: ${theme.spacings.bit};
   margin-bottom: ${theme.spacings.bit};
+  margin-left: ${theme.spacings.bit};
+  font-weight: ${theme.fontWeight.bold};
 
   [disabled] &,
   .${CLASS_DISABLED} & {
@@ -58,14 +61,18 @@ const hiddenStyles = ({ hideLabel }: Pick<FieldLabelTextProps, 'hideLabel'>) =>
 
 const Text = styled('span')(baseStyles, hiddenStyles);
 
-const Optional = styled('span')`
+const optionalStyles = ({ theme }: StyleProps) => css`
   color: var(--cui-fg-subtle);
+  font-weight: ${theme.fontWeight.regular};
+  font-style: italic;
 
   [disabled] &,
   .${CLASS_DISABLED} & {
     color: var(--cui-fg-subtle-disabled);
   }
 `;
+
+const Optional = styled('span')(optionalStyles);
 
 /**
  * @private
