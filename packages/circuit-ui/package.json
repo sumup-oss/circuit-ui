@@ -45,7 +45,7 @@
     "@emotion/babel-plugin": "^11.11.0",
     "@emotion/is-prop-valid": "^1.2.1",
     "@emotion/jest": "^11.11.0",
-    "@emotion/react": "^11.11.0",
+    "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.10.6",
     "@sumup/collector": "^1.6.1",
     "@sumup/design-tokens": "^5.0.0",
