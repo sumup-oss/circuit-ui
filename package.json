@@ -35,7 +35,7 @@
     "release": "changeset publish"
   },
   "devDependencies": {
-    "@babel/cli": "^7.21.5",
+    "@babel/cli": "^7.22.9",
     "@babel/core": "^7.21.8",
     "@babel/node": "^7.20.7",
     "@babel/preset-env": "^7.22.2",
