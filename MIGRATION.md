@@ -1,6 +1,6 @@
 # Migration <!-- omit in toc -->
 
-- [🤖 Codemods](#-codemods)
+- [🤖 Automated migration](#-automated-migration)
 - [From v6.x to v6.3](#from-v6x-to-v63)
   - [New semantic color tokens](#new-semantic-color-tokens)
   - [Visual component changes](#visual-component-changes)
@@ -16,6 +16,7 @@
     - [Improved `validationHint` for the `Checkbox` component](#improved-validationhint-for-the-checkbox-component)
     - [Minor fixes](#minor-fixes)
   - [Other changes](#other-changes-1)
+- [🤖 Codemods](#-codemods-jscodeshift)
 - [From v4.x to v5](#from-v4x-to-v5)
   - [Explicit browser support](#explicit-browser-support)
   - [New semantic color names](#new-semantic-color-names)
@@ -66,33 +67,13 @@
   - [Utilities](#utilities)
   - [Theme changes](#theme-changes)
 
-## 🤖 Codemods
+## 🤖 Automated migration
 
-Some of the changes in this guide can be automated with _codemods_, small scripts that modify your app's source code automatically. Changes that can be codemodded are marked with a robot emoji (🤖) and the name of the transform (e.g. _button-variant-enum_). The codemods are built with [jscodeshift](https://github.com/facebook/jscodeshift) and can be run through the CLI that ships with Circuit UI. Here is an overview of all available options (you can view this help menu by running `yarn circuit-ui migrate --help`):
+Some of the changes in this guide can be automated using [`@sumup/eslint-plugin-circuit-ui`](https://circuit.sumup.com/?path=/docs/packages-eslint-plugin-circuit-ui--docs). Changes that can be automated are marked with a robot emoji (🤖) and the name of the ESLint rule (e.g. _no-deprecated-props_)
 
-```sh
-yarn circuit-ui migrate
+We encourage you to enable and apply the rules incrementally and review the changes before continuing. The rules don't cover all edge cases, so further manual changes might be necessary. For example, the ESLint rules only analyze one file at a time, so if a Circuit UI component is wrapped in a styled component in one file and used in another, ESLint won't be able to update its props.
 
-Automatically transforms your source code to Circuit UI's latest APIs
-
-Options:
-  --language, -l   The programming language(s) of the files to be transformed
-                [array] [required] [choices: "TypeScript", "JavaScript", "Flow"]
-  --path, -p       A path to the folder that contains the files to be
-                   transformed                           [string] [default: "."]
-  --transform, -t  The transform to be applied to the source code
-                       [string] [required] [choices: "button-variant-enum", ...]
-```
-
-You can only run one codemod at a time and we encourage you to apply the transforms incrementally and review the changes before continuing. The codemods don't cover all edge cases, so further manual changes might be necessary. For example, `jscodeshift` is only able to look at one file at a time, so if a Circuit UI component is wrapped in a styled component in one file and used in another, the codemod won't be able to update its props.
-
-Tip: Provide the `--transform`/`-t` argument at the end of the command, so that as you run further codemods you can easily replace the last argument and reuse the command to run the next codemod.
-
-> ⚠️ If you run into `'node\r': No such file or directory` when running the codemods with yarn, run them with Node directly instead (this is a [known issue](https://github.com/facebook/jscodeshift/issues/424)).
->
-> ```sh
-> ./node_modules/.bin/circuit-ui migrate -l JavaScript -l TypeScript -t codemod-name
-> ```
+Prior to v5, codemods were implemented using [jscodeshift](#-codemods-jscodeshift).
 
 ## From v6.x to v6.3
 
@@ -281,6 +262,34 @@ This version also includes a number of accessibility and visual fixes. While the
 - The `Popover` component was migrated from Popper (deprecated) to Floating UI. If your app uses Popper directly, we recommend migrating to Floating UI to avoid duplicating dependencies. See [Migrating from Popper 2 to Floating UI](https://floating-ui.com/docs/migration#__next)
 - Circuit UI's browser support policy was updated. The library now supports browsers with support for [dynamic module imports](https://caniuse.com/es6-module-dynamic-import). See the [Browser Support](https://circuit.sumup.com/?path=/docs/introduction-browser-support--docs) documentation for details.
 - If your app uses TypeScript, an upgrade of the `@types/react` package in Circuit UI may clash with the version installed in your app. If your app is on React 18, upgrade `@types/react` to `^18.0.25` to fix the issue. If your app is on React 17, upgrade `@types/react` to `^17.0.52` and [extend the React namespace](https://github.com/sumup-oss/circuit-ui/pull/1831#issuecomment-1307485956). More details on [the DefinitelyTyped PR that introduced the issue](https://github.com/DefinitelyTyped/DefinitelyTyped/pull/63076).
+
+## 🤖 Codemods (jscodeshift)
+
+Some of the changes up to v5 can be automated with _codemods_, small scripts that modify your app's source code automatically. Changes that can be codemodded are marked with a robot emoji (🤖) and the name of the transform (e.g. _button-variant-enum_). The codemods are built with [jscodeshift](https://github.com/facebook/jscodeshift) and can be run through the CLI that ships with Circuit UI. Here is an overview of all available options (you can view this help menu by running `yarn circuit-ui migrate --help`):
+
+```sh
+yarn circuit-ui migrate
+
+Automatically transforms your source code to Circuit UI's latest APIs
+
+Options:
+  --language, -l   The programming language(s) of the files to be transformed
+                [array] [required] [choices: "TypeScript", "JavaScript", "Flow"]
+  --path, -p       A path to the folder that contains the files to be
+                   transformed                           [string] [default: "."]
+  --transform, -t  The transform to be applied to the source code
+                       [string] [required] [choices: "button-variant-enum", ...]
+```
+
+You can only run one codemod at a time and we encourage you to apply the transforms incrementally and review the changes before continuing. The codemods don't cover all edge cases, so further manual changes might be necessary. For example, `jscodeshift` is only able to look at one file at a time, so if a Circuit UI component is wrapped in a styled component in one file and used in another, the codemod won't be able to update its props.
+
+Tip: Provide the `--transform`/`-t` argument at the end of the command, so that as you run further codemods you can easily replace the last argument and reuse the command to run the next codemod.
+
+> ⚠️ If you run into `'node\r': No such file or directory` when running the codemods with yarn, run them with Node directly instead (this is a [known issue](https://github.com/facebook/jscodeshift/issues/424)).
+>
+> ```sh
+> ./node_modules/.bin/circuit-ui migrate -l JavaScript -l TypeScript -t codemod-name
+> ```
 
 ## From v4.x to v5
 
