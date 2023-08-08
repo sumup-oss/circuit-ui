@@ -1,5 +1,149 @@
 # @sumup/circuit-ui
 
+## 7.0.0
+
+### Major Changes
+
+- [#2124](https://github.com/sumup-oss/circuit-ui/pull/2124) [`22b03d04`](https://github.com/sumup-oss/circuit-ui/commit/22b03d04f000b72b882962fcf9a67f1c93faff51) Thanks [@connor-baer](https://github.com/connor-baer)! - Added support for validations to the SelectorGroup component. Use the `validationHint` and `invalid` props to communicate validation requirements to users.
+
+- [#2125](https://github.com/sumup-oss/circuit-ui/pull/2125) [`82878190`](https://github.com/sumup-oss/circuit-ui/commit/82878190d70c414032027449e14d8473aa196856) Thanks [@connor-baer](https://github.com/connor-baer)! - Moved the Grid, Row, Col, and InlineElements components to the ["legacy" status](https://circuit.sumup.com/?path=/docs/introduction-component-lifecycle--docs). Update your imports:
+
+  ```diff
+  -import { Grid } from '@sumup/circuit-ui';
+  +import { Grid } from '@sumup/circuit-ui/legacy';
+  ```
+
+- [#1992](https://github.com/sumup-oss/circuit-ui/pull/1992) [`0b7fb453`](https://github.com/sumup-oss/circuit-ui/commit/0b7fb453e6eb714561ab4ff8311ef3d4853006c5) Thanks [@connor-baer](https://github.com/connor-baer)! - Raised the minimum version of the `react` and `react-dom` peer dependencies to >=18.
+
+- [#2124](https://github.com/sumup-oss/circuit-ui/pull/2124) [`22b03d04`](https://github.com/sumup-oss/circuit-ui/commit/22b03d04f000b72b882962fcf9a67f1c93faff51) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the deprecated `children` prop from the Selector component. Use the `label` and `description` props instead.
+
+- [#2124](https://github.com/sumup-oss/circuit-ui/pull/2124) [`22b03d04`](https://github.com/sumup-oss/circuit-ui/commit/22b03d04f000b72b882962fcf9a67f1c93faff51) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the public export of the Selector component. Use the SelectorGroup component instead.
+
+- [#2094](https://github.com/sumup-oss/circuit-ui/pull/2094) [`da1a11b0`](https://github.com/sumup-oss/circuit-ui/commit/da1a11b0f8fe2803cb4fc8cb35e759c178ce6916) Thanks [@connor-baer](https://github.com/connor-baer)! - Moved the SingleDayPicker, RangePicker, CalendarTag, and CalendarTagTwoStep components to the ["legacy" status](https://circuit.sumup.com/?path=/docs/introduction-component-lifecycle--docs).
+
+  Install the optional peer dependencies...
+
+  ```bash
+  npm install react-dates@^21.8 moment@^2.29
+  ```
+
+  ...and update your imports:
+
+  ```diff
+  -import { SingleDayPicker } from '@sumup/circuit-ui';
+  +import { SingleDayPicker } from '@sumup/circuit-ui/legacy';
+  ```
+
+- [#2061](https://github.com/sumup-oss/circuit-ui/pull/2061) [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f) Thanks [@connor-baer](https://github.com/connor-baer)! - Raised the minimum Node.js version to 16+. This is the first maintained version with support for ES modules.
+
+- [#1972](https://github.com/sumup-oss/circuit-ui/pull/1972) [`0f29f87b`](https://github.com/sumup-oss/circuit-ui/commit/0f29f87bf28878f70e047ae42dd18c98660a2ffd) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed `@sumup/collector` from the peer dependencies and removed the related `tracking` and `trackingLabel` props (deprecated since v6.4).
+
+- [#2061](https://github.com/sumup-oss/circuit-ui/pull/2061) [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f) Thanks [@connor-baer](https://github.com/connor-baer)! - **This package is now pure ESM**. Please [read this](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).
+
+  - If you use TypeScript, you need to use TypeScript 4.7 or later ([ref](https://github.com/microsoft/TypeScript/issues/46452)).
+  - If you use a bundler, make sure it supports ESM and that you have correctly configured it for ESM. (Next.js supports ESM packages out of the box since [v12](https://nextjs.org/blog/next-12#es-modules-support-and-url-imports)).
+
+- [#2067](https://github.com/sumup-oss/circuit-ui/pull/2067) [`4f78573e`](https://github.com/sumup-oss/circuit-ui/commit/4f78573e94829e87fc250f284159969d4e5d8fc2) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the signature of the ImageInput's `component` prop. The `component` should now accept `aria-hidden` instead of `alt`.
+
+- [#2063](https://github.com/sumup-oss/circuit-ui/pull/2063) [`fef5b955`](https://github.com/sumup-oss/circuit-ui/commit/fef5b9554d2ff858fb8587f5624d8ee65dfbb969) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the deprecated `children` prop from the Checkbox component. Use the `label` prop instead.
+
+- [#2163](https://github.com/sumup-oss/circuit-ui/pull/2163) [`6ff0b7da`](https://github.com/sumup-oss/circuit-ui/commit/6ff0b7da7f7aae906ffe467da08115d5500e157a) Thanks [@connor-baer](https://github.com/connor-baer)! - Migrated all [stable](https://circuit.sumup.com/?path=/docs/introduction-component-lifecycle--docs) components from [Emotion.js](https://github.com/emotion-js/emotion) to [CSS Modules](https://github.com/css-modules/css-modules).
+
+  The styles are bundled and exported as a single CSS file as `@sumup/circuit-ui/styles.css`. Refer to your framework's documentation on how to include the styles globally in your application.
+
+  The CSS file includes the base styles, so the BaseStyles component has been removed.
+
+  If you are only importing [stable](https://circuit.sumup.com/?path=/docs/introduction-component-lifecycle--docs) components and aren't using Emotion.js in your app, you can remove all Emotion.js-related dependencies.
+
+- [#2094](https://github.com/sumup-oss/circuit-ui/pull/2094) [`da1a11b0`](https://github.com/sumup-oss/circuit-ui/commit/da1a11b0f8fe2803cb4fc8cb35e759c178ce6916) Thanks [@connor-baer](https://github.com/connor-baer)! - Moved the Tooltip component to the ["legacy" status](https://circuit.sumup.com/?path=/docs/introduction-component-lifecycle--docs). Update your imports:
+
+  ```diff
+  -import { Tooltip } from '@sumup/circuit-ui';
+  +import { Tooltip } from '@sumup/circuit-ui/legacy';
+  ```
+
+- [#2094](https://github.com/sumup-oss/circuit-ui/pull/2094) [`da1a11b0`](https://github.com/sumup-oss/circuit-ui/commit/da1a11b0f8fe2803cb4fc8cb35e759c178ce6916) Thanks [@connor-baer](https://github.com/connor-baer)! - Moved the Sidebar, SidebarContextProvider, SidebarContextConsumer, and Header components to the ["legacy" status](https://circuit.sumup.com/?path=/docs/introduction-component-lifecycle--docs). Update your imports:
+
+  ```diff
+  -import { Sidebar } from '@sumup/circuit-ui';
+  +import { Sidebar } from '@sumup/circuit-ui/legacy';
+  ```
+
+- [#2065](https://github.com/sumup-oss/circuit-ui/pull/2065) [`8adb8fee`](https://github.com/sumup-oss/circuit-ui/commit/8adb8feee02bbfef1d1fc6a9c7a9c5a30e25d027) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the `sharedPropTypes` export. Type the props using TypeScript instead.
+
+- [#2061](https://github.com/sumup-oss/circuit-ui/pull/2061) [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f) Thanks [@connor-baer](https://github.com/connor-baer)! - Switched to the `"exports"` field to configure the package entry points. Files that are not explicitly defined in `"exports"` can no longer be imported.
+
+- [#2063](https://github.com/sumup-oss/circuit-ui/pull/2063) [`fef5b955`](https://github.com/sumup-oss/circuit-ui/commit/fef5b9554d2ff858fb8587f5624d8ee65dfbb969) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the deprecated `confirm`, `notify`, and `alert` variants from the Badge, NotificationInline, and NotificationToast components. Use the `success`, `warning`, and `danger` variants instead.
+
+- [#2125](https://github.com/sumup-oss/circuit-ui/pull/2125) [`82878190`](https://github.com/sumup-oss/circuit-ui/commit/82878190d70c414032027449e14d8473aa196856) Thanks [@connor-baer](https://github.com/connor-baer)! - Moved the `uniqueId` util to the ["legacy" status](https://circuit.sumup.com/?path=/docs/introduction-component-lifecycle--docs). Update your imports:
+
+  ```diff
+  -import { uniqueId } from '@sumup/circuit-ui';
+  +import { uniqueId } from '@sumup/circuit-ui/legacy';
+  ```
+
+- [#2065](https://github.com/sumup-oss/circuit-ui/pull/2065) [`8adb8fee`](https://github.com/sumup-oss/circuit-ui/commit/8adb8feee02bbfef1d1fc6a9c7a9c5a30e25d027) Thanks [@connor-baer](https://github.com/connor-baer)! - Migrated the Carousel components to TypeScript. Added the required `playButtonLabel`, `pauseButtonLabel`, `prevButtonLabel`, and `nextButtonLabel` props.
+
+- [#1995](https://github.com/sumup-oss/circuit-ui/pull/1995) [`1267c69c`](https://github.com/sumup-oss/circuit-ui/commit/1267c69cee8dc7c30520753b7c2d662c222c5f03) Thanks [@connor-baer](https://github.com/connor-baer)! - Simplified the function signature of the style mixins that no longer require the `theme` parameter (`shadow`, `focusOutline`, `focusVisible`, and `inputOutline`).
+
+- [#2124](https://github.com/sumup-oss/circuit-ui/pull/2124) [`22b03d04`](https://github.com/sumup-oss/circuit-ui/commit/22b03d04f000b72b882962fcf9a67f1c93faff51) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the deprecated `explanation` prop from the Toggle component. Use the `description` prop instead.
+
+- [#2114](https://github.com/sumup-oss/circuit-ui/pull/2114) [`f53e4336`](https://github.com/sumup-oss/circuit-ui/commit/f53e4336739fa317ce7a6511ec3f9716382f5a15) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the font-display of Aktiv Grotesk, Circuit UI's default font family, from `swap` to `optional`. If the font family is not available locally or cached, a fallback font is used. This reduces the cumulative layout shift (CLS) and largest contentful paint (LCP). The visual difference is minimal.
+
+- [#2154](https://github.com/sumup-oss/circuit-ui/pull/2154) [`eef360c4`](https://github.com/sumup-oss/circuit-ui/commit/eef360c4c0b5b4ab07cf178884cc3dc00e9bf842) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the list of supported browsers:
+
+  | Browser          | Previous | New   |
+  | ---------------- | -------- | ----- |
+  | Chrome           | 63+      | 73+   |
+  | Firefox          | 67+      | 67+   |
+  | Edge             | 79+      | 79+   |
+  | Safari iOS       | 11.0+    | 12.2+ |
+  | Safari macOS     | 11.1+    | 12.1+ |
+  | Opera            | 50+      | 60+   |
+  | Samsung Internet | 8.2+     | 11.1+ |
+
+- [#2124](https://github.com/sumup-oss/circuit-ui/pull/2124) [`22b03d04`](https://github.com/sumup-oss/circuit-ui/commit/22b03d04f000b72b882962fcf9a67f1c93faff51) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the public export of the RadioButton component. Use the RadioButtonGroup component instead.
+
+- [#2065](https://github.com/sumup-oss/circuit-ui/pull/2065) [`8adb8fee`](https://github.com/sumup-oss/circuit-ui/commit/8adb8feee02bbfef1d1fc6a9c7a9c5a30e25d027) Thanks [@connor-baer](https://github.com/connor-baer)! - Migrated the Calendar components to TypeScript. Some props are now required. The CalendarTagTwoStep's `clearText` and `confirmText` props have been renamed to `clearButtonLabel` and `confirmButtonLabel` respectively.
+
+### Minor Changes
+
+- [#2163](https://github.com/sumup-oss/circuit-ui/pull/2163) [`6ff0b7da`](https://github.com/sumup-oss/circuit-ui/commit/6ff0b7da7f7aae906ffe467da08115d5500e157a) Thanks [@connor-baer](https://github.com/connor-baer)! - Improved the accessibility of the SearchInput component. The input now has the `search` type and focus is returned to the input after clearing the value.
+
+- [#2065](https://github.com/sumup-oss/circuit-ui/pull/2065) [`8adb8fee`](https://github.com/sumup-oss/circuit-ui/commit/8adb8feee02bbfef1d1fc6a9c7a9c5a30e25d027) Thanks [@connor-baer](https://github.com/connor-baer)! - Migrated the Tabs components to TypeScript.
+
+- [#1992](https://github.com/sumup-oss/circuit-ui/pull/1992) [`0b7fb453`](https://github.com/sumup-oss/circuit-ui/commit/0b7fb453e6eb714561ab4ff8311ef3d4853006c5) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the `uniqueId` util. Use the official [`useId` hook](https://beta.reactjs.org/reference/react/useId) instead.
+
+- [#2195](https://github.com/sumup-oss/circuit-ui/pull/2195) [`6f992ae6`](https://github.com/sumup-oss/circuit-ui/commit/6f992ae6aa39767dcc7df5a6754dbcea4d06af9d) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a helpful error message when the Title, Headline or SubHeadline components are missing the `as` prop.
+
+- [#1615](https://github.com/sumup-oss/circuit-ui/pull/1615) [`51cd70d3`](https://github.com/sumup-oss/circuit-ui/commit/51cd70d37e0fc4609f81e885a503a35e6f102d11) Thanks [@connor-baer](https://github.com/connor-baer)! - Automatically set the `size` prop on the Button's `icon` prop based on the Button's `size` prop.
+
+- [#2065](https://github.com/sumup-oss/circuit-ui/pull/2065) [`8adb8fee`](https://github.com/sumup-oss/circuit-ui/commit/8adb8feee02bbfef1d1fc6a9c7a9c5a30e25d027) Thanks [@connor-baer](https://github.com/connor-baer)! - Migrated the Sidebar component to TypeScript.
+
+### Patch Changes
+
+- [#2185](https://github.com/sumup-oss/circuit-ui/pull/2185) [`cf5e82fc`](https://github.com/sumup-oss/circuit-ui/commit/cf5e82fc0fb9f0c4179fa61e9c22a2ccf20c8510) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed tree-shaking by retaining the original file structure in the build output.
+
+- [#2199](https://github.com/sumup-oss/circuit-ui/pull/2199) [`451dbdc3`](https://github.com/sumup-oss/circuit-ui/commit/451dbdc304d8af2a94b06ef5746a2aa92398febc) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the invalid styles for the Input and Select components.
+
+- [#2196](https://github.com/sumup-oss/circuit-ui/pull/2196) [`d3e35bea`](https://github.com/sumup-oss/circuit-ui/commit/d3e35beaec1a82ed1486be24ab06afd2dbb9c82c) Thanks [@connor-baer](https://github.com/connor-baer)! - Added types for subpath exports.
+
+- [#2192](https://github.com/sumup-oss/circuit-ui/pull/2192) [`35f42ecf`](https://github.com/sumup-oss/circuit-ui/commit/35f42ecf34282a2f94b39c21ef66b00e4538ae20) Thanks [@connor-baer](https://github.com/connor-baer)! - Externalized subpath imports of node modules.
+
+- [#2079](https://github.com/sumup-oss/circuit-ui/pull/2079) [`36351df2`](https://github.com/sumup-oss/circuit-ui/commit/36351df262c74e163d4e64806baf59f53b2773b3) Thanks [@connor-baer](https://github.com/connor-baer)! - Added file extensions to imports from `react-dates`.
+
+- [#2084](https://github.com/sumup-oss/circuit-ui/pull/2084) [`9677a305`](https://github.com/sumup-oss/circuit-ui/commit/9677a3052b8ccf2799f8acb2fd0bd2a7a01c33c8) Thanks [@connor-baer](https://github.com/connor-baer)! - Added `types` field to the `package.json` file to fix the type resolution.
+
+- [#1615](https://github.com/sumup-oss/circuit-ui/pull/1615) [`51cd70d3`](https://github.com/sumup-oss/circuit-ui/commit/51cd70d37e0fc4609f81e885a503a35e6f102d11) Thanks [@connor-baer](https://github.com/connor-baer)! - Properly hide icons inside a Button.
+
+- [#2184](https://github.com/sumup-oss/circuit-ui/pull/2184) [`4b7dd4d6`](https://github.com/sumup-oss/circuit-ui/commit/4b7dd4d6e18e0026542771580119924f5f318c92) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the `jsxImportSource` from `@emotion/react` to `react`.
+
+- [#2198](https://github.com/sumup-oss/circuit-ui/pull/2198) [`21594d28`](https://github.com/sumup-oss/circuit-ui/commit/21594d28aede97efdfb0942d78e47337ee1ff56b) Thanks [@connor-baer](https://github.com/connor-baer)! - Added back the default heading element to the Title, Headline and SubHeadline components in production mode.
+
+- Updated dependencies [[`6ff0b7da`](https://github.com/sumup-oss/circuit-ui/commit/6ff0b7da7f7aae906ffe467da08115d5500e157a), [`415c73dd`](https://github.com/sumup-oss/circuit-ui/commit/415c73dd70dc2720b44ead24cd4b9d7d77af3293), [`66b18d61`](https://github.com/sumup-oss/circuit-ui/commit/66b18d61f5683a24414725a488f7005bad80c8b1), [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f), [`b51431fc`](https://github.com/sumup-oss/circuit-ui/commit/b51431fc7f8ce7447a04f1c63b0a8066615228dd), [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f), [`415c73dd`](https://github.com/sumup-oss/circuit-ui/commit/415c73dd70dc2720b44ead24cd4b9d7d77af3293), [`9677a305`](https://github.com/sumup-oss/circuit-ui/commit/9677a3052b8ccf2799f8acb2fd0bd2a7a01c33c8), [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f), [`51cd70d3`](https://github.com/sumup-oss/circuit-ui/commit/51cd70d37e0fc4609f81e885a503a35e6f102d11)]:
+  - @sumup/icons@3.0.0
+  - @sumup/design-tokens@6.0.0
+
 ## 7.0.0-next.9
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # @sumup/design-tokens
 
+## 6.0.0
+
+### Minor Changes
+
+- [#2158](https://github.com/sumup-oss/circuit-ui/pull/2158) [`415c73dd`](https://github.com/sumup-oss/circuit-ui/commit/415c73dd70dc2720b44ead24cd4b9d7d77af3293) Thanks [@connor-baer](https://github.com/connor-baer)! - Exported all CSS custom properties as `@sumup/design-tokens/light.css`.
+
+- [#2158](https://github.com/sumup-oss/circuit-ui/pull/2158) [`415c73dd`](https://github.com/sumup-oss/circuit-ui/commit/415c73dd70dc2720b44ead24cd4b9d7d77af3293) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the Emotion.js theme in favor of CSS custom properties. Use the [`circuit-ui/prefer-custom-properties`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/prefer-custom-properties) ESLint rule to automatically migrate your code.
+
+### Patch Changes
+
+- [#2186](https://github.com/sumup-oss/circuit-ui/pull/2186) [`b51431fc`](https://github.com/sumup-oss/circuit-ui/commit/b51431fc7f8ce7447a04f1c63b0a8066615228dd) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the selector for the root CSS variables.
+
+- [#2084](https://github.com/sumup-oss/circuit-ui/pull/2084) [`9677a305`](https://github.com/sumup-oss/circuit-ui/commit/9677a3052b8ccf2799f8acb2fd0bd2a7a01c33c8) Thanks [@connor-baer](https://github.com/connor-baer)! - Added `types` field to the `package.json` file to fix the type resolution.
+
 ## 6.0.0-next.3
 
 ### Patch Changes
