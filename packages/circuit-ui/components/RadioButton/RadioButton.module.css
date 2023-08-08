@@ -8,7 +8,7 @@
 
 .label::before {
   position: absolute;
-  top: 50%;
+  top: calc(var(--cui-typography-body-one-line-height) / 2);
   left: 0;
   box-sizing: border-box;
   display: block;
@@ -24,7 +24,7 @@
 
 .label::after {
   position: absolute;
-  top: 50%;
+  top: calc(var(--cui-typography-body-one-line-height) / 2);
   left: var(--cui-spacings-bit);
   box-sizing: border-box;
   display: block;
@@ -96,20 +96,20 @@
 
 /* Invalid */
 
-[aria-invalid="true"] .base:not(:focus) + .label::before {
+[aria-invalid='true'] .base:not(:focus) + .label::before {
   background-color: var(--cui-bg-danger);
   border-color: var(--cui-border-danger);
 }
 
-[aria-invalid="true"] .base:not(:focus) + .label::after {
+[aria-invalid='true'] .base:not(:focus) + .label::after {
   background-color: var(--cui-fg-danger);
 }
 
-[aria-invalid="true"] .base:hover + .label::before,
-[aria-invalid="true"] .base:focus + .label::before {
+[aria-invalid='true'] .base:hover + .label::before,
+[aria-invalid='true'] .base:focus + .label::before {
   border-color: var(--cui-border-danger-hovered);
 }
 
-[aria-invalid="true"] .base:checked + .label::before {
+[aria-invalid='true'] .base:checked + .label::before {
   border-color: var(--cui-border-danger);
 }

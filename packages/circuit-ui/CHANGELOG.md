@@ -203,6 +203,12 @@
 
 - [#1992](https://github.com/sumup-oss/circuit-ui/pull/1992) [`0b7fb453`](https://github.com/sumup-oss/circuit-ui/commit/0b7fb453e6eb714561ab4ff8311ef3d4853006c5) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the `uniqueId` util. Use the official [`useId` hook](https://beta.reactjs.org/reference/react/useId) instead.
 
+## 6.11.0
+
+### Minor Changes
+
+- [#2191](https://github.com/sumup-oss/circuit-ui/pull/2191) [`7ba96798`](https://github.com/sumup-oss/circuit-ui/commit/7ba9679870c5a595bbd3036aa5a6f65c7ad29f8c) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a new `description` prop to the RadioInput component. Use it to provide additional context for an option.
+
 ## 6.10.1
 
 ### Patch Changes

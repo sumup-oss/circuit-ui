@@ -16,7 +16,7 @@
 import { InputHTMLAttributes, forwardRef, useId } from 'react';
 
 import { AccessibilityError } from '../../util/errors.js';
-import { FieldWrapper } from '../Field/index.js';
+import { FieldWrapper, FieldDescription } from '../Field/index.js';
 import { clsx } from '../../styles/clsx.js';
 import utilityClasses from '../../styles/utility.js';
 
@@ -28,6 +28,10 @@ export interface RadioButtonProps
    * A clear and concise description of the option's purpose.
    */
   label: string;
+  /**
+   * Further details about the option's purpose.
+   */
+  description?: string;
   children?: never;
 }
 
@@ -38,7 +42,9 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
   (
     {
       label,
-      id: customId,
+      description,
+      'aria-describedby': describedBy,
+      'id': customId,
       name,
       value,
       checked,
@@ -61,6 +67,11 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
     }
     const id = useId();
     const inputId = customId || id;
+    const descriptionId = useId();
+
+    const descriptionIds = [describedBy, description && descriptionId]
+      .filter(Boolean)
+      .join(' ');
 
     return (
       <FieldWrapper className={className} style={style} disabled={disabled}>
@@ -75,9 +86,24 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
           ref={ref}
           className={clsx(classes.base, utilityClasses.hideVisually)}
         />
-        <label htmlFor={inputId} className={classes.label} style={style}>
+        <label
+          htmlFor={inputId}
+          className={classes.label}
+          style={style}
+          aria-describedby={descriptionIds}
+        >
           {label}
+          {description && (
+            <FieldDescription aria-hidden="true">
+              {description}
+            </FieldDescription>
+          )}
         </label>
+        {description && (
+          <p id={descriptionIds} className={utilityClasses.hideVisually}>
+            {description}
+          </p>
+        )}
       </FieldWrapper>
     );
   },

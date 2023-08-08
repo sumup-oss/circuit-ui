@@ -33,6 +33,18 @@
 
 - [#2061](https://github.com/sumup-oss/circuit-ui/pull/2061) [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f) Thanks [@connor-baer](https://github.com/connor-baer)! - Switched to the `"exports"` field to configure the package entry points. Files that are not explicitly defined in `"exports"` can no longer be imported.
 
+## 2.30.1
+
+### Patch Changes
+
+- [#2203](https://github.com/sumup-oss/circuit-ui/pull/2203) [`71018c86`](https://github.com/sumup-oss/circuit-ui/commit/71018c860c3dc8fd12da2df728198fd22c69939a) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the Eftpos payment method icon to include the company name.
+
+## 2.30.0
+
+### Minor Changes
+
+- [#2201](https://github.com/sumup-oss/circuit-ui/pull/2201) [`2a40586c`](https://github.com/sumup-oss/circuit-ui/commit/2a40586c7efbf19f3834afdee2c95f0dcfbc41e5) Thanks [@Zayebatsu](https://github.com/Zayebatsu)! - Added new icon `ArrowSlanted` in size 16.
+
 ## 2.29.0
 
 ### Minor Changes

@@ -70,6 +70,14 @@ describe('RadioButton', () => {
       const inputEl = screen.getByRole('radio');
       expect(inputEl).toHaveAccessibleName(defaultProps.label);
     });
+
+    it('should have a description', () => {
+      render(<RadioButton {...defaultProps} description="Some explanation" />);
+      const helperEl = screen.getAllByText('Some explanation');
+      expect(helperEl.length).toBeGreaterThan(0);
+      const labelEl = screen.getByText(defaultProps.label);
+      expect(labelEl).toHaveAccessibleDescription('Some explanation');
+    });
   });
 
   describe('State & Interactions', () => {
