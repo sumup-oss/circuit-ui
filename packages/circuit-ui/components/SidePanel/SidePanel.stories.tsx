@@ -58,13 +58,17 @@ const baseArgs: SidePanelHookProps = {
   onClose: undefined,
 };
 
-const basePlay = ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
+const basePlay = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLCanvasElement;
+}) => {
   const canvas = within(canvasElement);
   const thirdItem = canvas.getByText('Item 3', {
     selector: 'button[data-testid="list-item-3"] p',
   });
 
-  userEvent.click(thirdItem);
+  await userEvent.click(thirdItem);
 };
 
 const StoryInstructions = () => (
