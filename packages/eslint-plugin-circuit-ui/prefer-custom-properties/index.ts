@@ -30,7 +30,7 @@ export const preferCustomProperties = createRule({
     docs: {
       description:
         'Custom properties prefixed with `--cui-` should be valid Circuit UI design tokens.',
-      recommended: 'error',
+      recommended: 'recommended',
     },
     messages: {
       replace:

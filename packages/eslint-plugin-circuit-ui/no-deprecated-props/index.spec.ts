@@ -16,11 +16,12 @@
 // We disable the rule in this file because we explicitly test invalid cases
 /* eslint-disable @sumup/circuit-ui/no-invalid-custom-properties */
 
-import { ESLintUtils } from '@typescript-eslint/utils';
+import { RuleTester } from '@typescript-eslint/rule-tester';
 
 import { noDeprecatedProps } from '.';
 
-const ruleTester = new ESLintUtils.RuleTester({
+// eslint-disable-next-line @typescript-eslint/no-unsafe-call
+const ruleTester = new RuleTester({
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -29,6 +30,7 @@ const ruleTester = new ESLintUtils.RuleTester({
   },
 });
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
 ruleTester.run('no-deprecated-props', noDeprecatedProps, {
   valid: [
     {

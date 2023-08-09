@@ -38,7 +38,7 @@ export const noDeprecatedComponents = createRule({
     schema: [],
     docs: {
       description: 'Deprecated components should be removed or replaced',
-      recommended: 'warn',
+      recommended: 'strict',
     },
     messages: {
       deprecated: 'The {{name}} component has been deprecated. {{alternative}}',
