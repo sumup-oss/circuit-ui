@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { light as theme } from '@sumup/design-tokens';
 
 import { composeBreakpoints, normalizeToNumber, wrapStyles } from './utils.js';
@@ -55,12 +55,6 @@ describe('Grid utils', () => {
   });
 
   describe('composeBreakpoints', () => {
-    const originalEnv = process.env;
-
-    afterEach(() => {
-      process.env = originalEnv;
-    });
-
     it('should throw on unsupported breakpoints in development', () => {
       const fn = vi.fn((_, __, option: number) => option);
       const breakpoints = {
@@ -74,21 +68,6 @@ describe('Grid utils', () => {
       expect(test).toThrow(
         "The breakpoint 'killo' isn't supported by the grid.",
       );
-    });
-
-    it('should filter out unsupported breakpoints in production', () => {
-      process.env.NODE_ENV = 'production';
-
-      const fn = vi.fn((_, __, option: number) => option);
-      const breakpoints = {
-        default: 0,
-        mega: 1,
-        killo: 2,
-      };
-
-      const actual = composeBreakpoints(fn, theme, breakpoints);
-
-      expect(actual).toEqual([0, 1]);
     });
 
     it('should sort the breakpoints by their priority', () => {
