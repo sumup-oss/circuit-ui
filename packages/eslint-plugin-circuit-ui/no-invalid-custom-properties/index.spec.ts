@@ -16,11 +16,11 @@
 // We disable the rule in this file because we explicitly test invalid cases
 /* eslint-disable @sumup/circuit-ui/no-invalid-custom-properties */
 
-import { ESLintUtils } from '@typescript-eslint/utils';
+import { RuleTester } from '@typescript-eslint/rule-tester';
 
 import { noInvalidCustomProperties } from '.';
 
-const ruleTester = new ESLintUtils.RuleTester({
+const ruleTester = new RuleTester({
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
