@@ -20,6 +20,7 @@ import { RuleTester } from '@typescript-eslint/rule-tester';
 
 import { noInvalidCustomProperties } from '.';
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 const ruleTester = new RuleTester({
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -29,6 +30,7 @@ const ruleTester = new RuleTester({
   },
 });
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
 ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
   valid: [
     {
