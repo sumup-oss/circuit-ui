@@ -3,4 +3,4 @@
 '@sumup/icons': major
 ---
 
-Raised the minimum Node.js version to 16+. This is the first maintained version with support for ES modules.
+Raised the minimum Node.js version to 18+.
