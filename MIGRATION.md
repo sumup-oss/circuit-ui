@@ -1,10 +1,21 @@
 # Migration <!-- omit in toc -->
 
 - [🤖 Automated migration](#-automated-migration)
+- [From v6.x to v7](#from-v6x-to-v7)
+  - [Prerequisites](#prerequisites)
+  - [ES Modules](#es-modules)
+  - [CSS Modules](#css-modules)
+    - [Global styles](#global-styles)
+    - [Custom component styles](#custom-component-styles)
+    - [Design tokens](#design-tokens)
+    - [Utility classes](#utility-classes)
+  - [Component lifecycle](#component-lifecycle)
+  - [Removed @sumup/collector](#removed-sumupcollector)
+  - [Other changes](#other-changes)
 - [From v6.x to v6.3](#from-v6x-to-v63)
   - [New semantic color tokens](#new-semantic-color-tokens)
   - [Visual component changes](#visual-component-changes)
-  - [Other changes](#other-changes)
+  - [Other changes](#other-changes-1)
 - [From v5.x to v6](#from-v5x-to-v6)
   - [No default component margins](#no-default-component-margins)
   - [Form component consistency](#form-component-consistency)
@@ -15,7 +26,7 @@
     - [The `label` prop only accepts a string](#the-label-prop-only-accepts-a-string)
     - [Improved `validationHint` for the `Checkbox` component](#improved-validationhint-for-the-checkbox-component)
     - [Minor fixes](#minor-fixes)
-  - [Other changes](#other-changes-1)
+  - [Other changes](#other-changes-2)
 - [🤖 Codemods](#-codemods-jscodeshift)
 - [From v4.x to v5](#from-v4x-to-v5)
   - [Explicit browser support](#explicit-browser-support)
@@ -27,7 +38,7 @@
   - [Runtime errors for missing `noMargin` props](#runtime-errors-for-missing-nomargin-props)
   - [The `ListItemGroup` replaces the `CardList`](#the-listitemgroup-replaces-the-cardlist)
   - [Combined `LoadingButton` and `Button`](#combined-loadingbutton-and-button)
-  - [Other changes](#other-changes-2)
+  - [Other changes](#other-changes-3)
 - [From v3.x to v4](#from-v3x-to-v4)
   - [Emotion 11](#emotion-11)
     - [New package names](#new-package-names)
@@ -53,7 +64,7 @@
     - [Modal](#modal)
     - [Popover](#popover)
   - [Component heights](#component-heights)
-  - [Other changes](#other-changes-3)
+  - [Other changes](#other-changes-4)
   - [Cleaning up](#cleaning-up)
 - [From v1.x to v2](#from-v1x-to-v2)
   - [Library format](#library-format)
@@ -74,6 +85,181 @@ Some of the changes in this guide can be automated using [`@sumup/eslint-plugin-
 We encourage you to enable and apply the rules incrementally and review the changes before continuing. The rules don't cover all edge cases, so further manual changes might be necessary. For example, the ESLint rules only analyze one file at a time, so if a Circuit UI component is wrapped in a styled component in one file and used in another, ESLint won't be able to update its props.
 
 Prior to v5, codemods were implemented using [jscodeshift](#-codemods-jscodeshift).
+
+## From v6.x to v7
+
+Circuit UI v7 contains two foundational changes — the [switch to ES Modules](#es-modules) and [the replacement of Emotion.js with CSS Modules](#css-modules) — and a number of smaller changes to improve consistency and accessibility. New [component lifecycle stages](#component-lifecycle) lower the barrier for contributions. The [Next.js template](https://circuit.sumup.com/?path=/docs/packages-cna-template--docs) has been upgraded to Circuit UI v7 and a [new Remix template](https://circuit.sumup.com/?path=/docs/packages-remix-template--docs) has been added.
+
+To get started, upgrade `@sumup/circuit-ui` and its peer dependencies:
+
+```sh
+npm upgrade @sumup/circuit-ui @sumup/design-tokens @sumup/icons
+```
+
+Upgrade any linter plugins your app is using:
+
+```sh
+# ESLint
+npm upgrade @sumup/eslint-plugin-circuit-ui
+# Stylelint
+npm upgrade @sumup/stylelint-plugin-circuit-ui
+```
+
+For a complete list of changes, refer to the [changelog](https://github.com/sumup-oss/circuit-ui/blob/main/packages/circuit-ui/CHANGELOG.md).
+
+### Prerequisites
+
+Circuit UI now relies on APIs introduced in [React 18](https://react.dev/blog/2022/03/29/react-v18). Upgrade the `react` and `react-dom` peer dependencies to >=18.
+
+Circuit UI now requires at minimum Node.js v18. Note that Node 16 is [scheduled](https://nodejs.dev/en/about/releases/) to reach its end-of-life in September 2023.
+
+Circuit UI no longer supports a range of older browsers:
+
+| Browser          | Previous | New   |
+| ---------------- | -------- | ----- |
+| Chrome           | 63+      | 73+   |
+| Firefox          | 67+      | 67+   |
+| Edge             | 79+      | 79+   |
+| Safari iOS       | 11.0+    | 12.2+ |
+| Safari macOS     | 11.1+    | 12.1+ |
+| Opera            | 50+      | 60+   |
+| Samsung Internet | 8.2+     | 11.1+ |
+
+### ES Modules
+
+As of ES6 (ES2015), JavaScript supports a native module format called ES Modules, or ECMAScript Modules. This modern module format replaces the non-standard CommonJS.
+
+`@sumup/circuit-ui` and `@sumup/icons` are now pure ESM. Please [read this](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).
+
+- If you use TypeScript, you need to use TypeScript 4.7 or later ([ref](https://github.com/microsoft/TypeScript/issues/46452)).
+- If you use a bundler, make sure it supports ESM and that you have correctly configured it for ESM. (Next.js supports ESM packages out of the box since [v12](https://nextjs.org/blog/next-12#es-modules-support-and-url-imports)).
+- The `"exports"` field is now used to configure the package entry points. Files that are not explicitly defined in `"exports"` can no longer be imported.
+
+### CSS Modules
+
+[Emotion.js](https://emotion.sh/), the CSS-in-JS library that Circuit UI had used until now to style components, has been replaced with [CSS Modules](https://github.com/css-modules/css-modules). This will significantly improve the performance of SumUp’s web applications, future-proof the component library against ecosystem changes and start to decouple it from React. Read more about the reasoning in the [RFC](https://github.com/sumup-oss/circuit-ui/issues/2153).
+
+#### Global styles
+
+Remove the [`BaseStyles`](https://circuit.sumup.com/?path=/docs/introduction-getting-started--docs#configuring-the-theme) component and import the CSS files containing the light theme and component styles instead:
+
+```diff
+// _app.tsx
+import { ThemeProvider } from '@emotion/react';
+import { light } from '@sumup/design-tokens';
+-import { BaseStyles } from '@sumup/circuit-ui';
++import '@sumup/design-tokens/light.css';
++import '@sumup/circuit-ui/styles.css';
+
+function App({ Component, pageProps }) {
+	return (
+		<ThemeProvider theme={light}>
+-			<BaseStyles />
+			<Component {...pageProps} />
+		</ThemeProvider>
+	);
+}
+```
+
+The application code must be processed by a bundler that can handle CSS files. [Next.js](https://nextjs.org/docs/pages/building-your-application/styling), [Create React App](https://create-react-app.dev/docs/adding-a-stylesheet), [Remix](https://remix.run/docs/en/main/guides/styling#regular-stylesheets), [Vite](https://vitejs.dev/guide/features.html#css-modules), [Parcel](https://parceljs.org/languages/css/#css-modules) and others support importing CSS files out of the box.
+
+If you are only importing [stable](https://circuit.sumup.com/?path=/docs/introduction-component-lifecycle--docs) components and aren't using Emotion.js in your app, you can remove all Emotion.js-related dependencies.
+
+#### Custom component styles
+
+You can continue to pass the `className` and `styles` props to Circuit UI components. If your application uses Emotion.js, you can continue to use the `css` prop since it is transpiled to the `className` prop by Emotion.js’ Babel plugin.
+
+#### Design tokens
+
+The design tokens have been ported to [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) (aka CSS variables) similar to the existing semantic color tokens:
+
+```diff
+-${theme.borderRadius.circle}
++var(--cui-border-radius.circle)
+```
+
+The JavaScript `theme` object from `@sumup/design-tokens` has been deprecated. Use the 🤖 [`prefer-custom-properties`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/prefer-custom-properties) ESLint rule to flag and automatically rewrite uses of the JS theme to CSS custom properties. Note that the `mq`, `breakpoints`, and `grid` theme properties haven't been migrated to CSS custom properties and are considered legacy.
+
+#### Utility classes
+
+Circuit UI exports [style mixins](https://circuit.sumup.com/?path=/docs/features-style-mixins--docs) such as `spacing`, `hideVisually`, or `shadow`. These functions return an Emotion.js style object that can be passed to the `css` prop but not the `className` prop. The legacy style mixins will be kept for backward compatibility.
+
+For applications that don’t use Emotion.js, Circuit UI exports a new, smaller collection of string utility classes that can be passed to the `className` prop and conditionally joined using the new `clsx` helper.
+
+<details>
+  <summary>Example</summary>
+
+```tsx
+import { clsx, utilClasses } from '@sumup/circuit-ui';
+
+function Component() {
+  return <div className={clsx(utilClasses.center, utilClasses.hideVisually)} />;
+}
+```
+
+</details>
+
+### Component lifecycle
+
+Circuit UI v7 introduces the concept of lifecycle stages for components. Within each stage, components meet different requirements and receive different levels of support. Experimental and legacy components are exported separately from stable components. Use the 🤖 [`component-lifecycle-imports`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/component-lifecycle-imports) ESLint rule to flag components that have moved to a different stage and automatically update their imports.
+
+The following components have been moved to the legacy stage:
+
+- Layout components: Grid, Row, Col, and InlineElements
+- Calendar components: CalendarTag, CalendarTagTwoStep, RangePicker, RangePickerController, SingleDayPicker, and CalendarConstants
+- Legacy navigation components: Header, Sidebar, SidebarContextProvider, and SidebarContextConsumer
+- Tooltip component
+- Style mixins: `cx`, `center`, `clearfix`, `disableVisually`, `focusOutline`, `focusVisible`, `hideScrollbar`, `hideVisually`, `inputOutline`, `shadow`, `spacing`, and `typography`
+- The `uniqueId` utility function
+
+### Removed @sumup/collector
+
+[`@sumup/collector`](https://github.com/sumup-oss/collector) has been deprecated and the integration with Circuit UI has been removed. Replace the `tracking` prop with event handlers to dispatch user interaction events instead (🤖 [`no-deprecated-props`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-deprecated-props)).
+
+```diff
+import { Button } from '@sumup/circuit-ui';
++import { useClickTrigger } from '@sumup/collector';
+
+function Component() {
++  const dispatch = useClickTrigger();
++
++  const handleClick = () => {
++    dispatch({
++      component: 'button',
++      label: 'track-button',
++      customParameters: { key: 'value' },
++    });
++    // ...other logic
++  }
+
+  return (
+    <Button
++      onClick={handleClick}
+-      tracking={{
+-        label: 'track-button',
+-        customParameters: { key: 'value' },
+-      }}
+    >
+      Buy now
+    </Button>
+  );
+}
+```
+
+### Other changes
+
+- Removed the public export of the RadioButton component. Use the RadioButtonGroup component instead (🤖 [`no-deprecated-components`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-deprecated-components))
+- Removed the public export of the Selector component. Use the SelectorGroup component instead (🤖 [`no-deprecated-components`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-deprecated-components))
+- Removed the deprecated `children` property from the SelectorGroup's `options` prop. Use the `label` and `description` properties instead.
+- Removed the deprecated `children` prop from the Checkbox component. Use the `label` prop instead.
+- Removed the deprecated `explanation` prop from the Toggle component. Use the `description` prop instead (🤖 [`no-renamed-props`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-renamed-props))
+- Removed the deprecated `confirm`, `notify`, and `alert` variants from the Badge, NotificationInline, and NotificationToast components. Use the `success`, `warning`, and `danger` variants instead (🤖 [`no-renamed-props`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-renamed-props))
+- Changed the signature of the ImageInput's `component` prop. The component should now accept `aria-hidden` instead of `alt`.
+- Migrated the Calendar components to TypeScript. Some props are now required. The CalendarTagTwoStep's `clearText` and `confirmText` props have been renamed to `clearButtonLabel` and `confirmButtonLabel` respectively.
+- Migrated the Carousel components to TypeScript. Added the required `playButtonLabel`, `pauseButtonLabel`, `prevButtonLabel`, and `nextButtonLabel` props.
+- Migrated the Tabs and Sidebar components to TypeScript.
+- Simplified the function signature of the style mixins that no longer require the theme parameter (`shadow`, `focusOutline`, `focusVisible`, and `inputOutline`).
+- Removed the `sharedPropTypes` export. Type the props using TypeScript instead.
 
 ## From v6.x to v6.3
 
@@ -640,7 +826,7 @@ The core typography components were renamed:
 
 (🤖 _component-names-v3_.)
 
-> Note that the codemod will also transform other renamed components (see [Other Changes](#other-changes).
+> Note that the codemod will also transform other renamed components (see [Other Changes](#other-changes-4).
 
 #### Typography component variants
 
