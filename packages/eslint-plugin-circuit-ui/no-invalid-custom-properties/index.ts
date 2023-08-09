@@ -37,7 +37,7 @@ export const noInvalidCustomProperties = createRule({
     docs: {
       description:
         'Custom properties prefixed with `--cui-` should be valid Circuit UI design tokens.',
-      recommended: 'error',
+      recommended: 'recommended',
     },
     messages: {
       invalid: "'{{name}}' is not a valid Circuit UI design token.",

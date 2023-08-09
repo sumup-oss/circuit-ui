@@ -84,7 +84,7 @@ export const noRenamedProps = createRule({
     fixable: 'code',
     docs: {
       description: 'Component props should use the latest names',
-      recommended: 'error',
+      recommended: 'recommended',
     },
     messages: {
       propName:

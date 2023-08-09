@@ -63,7 +63,7 @@ export const noDeprecatedProps = createRule({
     schema: [],
     docs: {
       description: 'Deprecated component props should be removed or replaced',
-      recommended: 'warn',
+      recommended: 'strict',
     },
     messages: {
       deprecated:

@@ -76,7 +76,7 @@ export const componentLifecycleImports = createRule({
     docs: {
       description:
         'Components that have moved to a different stage in their lifecycle should be imported from the relevant path.',
-      recommended: 'error',
+      recommended: 'recommended',
     },
     messages: {
       refactor:
