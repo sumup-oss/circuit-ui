@@ -1,5 +1,11 @@
 # @sumup/remix-template-circuit-ui
 
+## 1.1.0
+
+### Minor Changes
+
+- [#2214](https://github.com/sumup-oss/circuit-ui/pull/2214) [`002c8672`](https://github.com/sumup-oss/circuit-ui/commit/002c86726c407e9b0f15378a1f95ae88e5e22b68) Thanks [@connor-baer](https://github.com/connor-baer)! - Installed and configured `typescript-plugin-css-modules`.
+
 ## 1.0.0
 
 ### Major Changes
