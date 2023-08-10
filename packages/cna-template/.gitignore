@@ -2,8 +2,6 @@
 
 dist/
 __reports__
-template/yarn.lock
-template/tsconfig.json
 template/next-env.d.ts
 
 # Logs
