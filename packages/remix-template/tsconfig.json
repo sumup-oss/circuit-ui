@@ -15,6 +15,7 @@
     "paths": {
       "~/*": ["./app/*"]
     },
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
 
     // Remix takes care of building everything in `remix build`.
     "noEmit": true
