@@ -12,6 +12,7 @@
   - [Component lifecycle](#component-lifecycle)
   - [Removed @sumup/collector](#removed-sumupcollector)
   - [Other changes](#other-changes)
+  - [Known issues](#known-issues)
 - [From v6.x to v6.3](#from-v6x-to-v63)
   - [New semantic color tokens](#new-semantic-color-tokens)
   - [Visual component changes](#visual-component-changes)
@@ -260,6 +261,10 @@ function Component() {
 - Migrated the Tabs and Sidebar components to TypeScript.
 - Simplified the function signature of the style mixins that no longer require the theme parameter (`shadow`, `focusOutline`, `focusVisible`, and `inputOutline`).
 - Removed the `sharedPropTypes` export. Type the props using TypeScript instead.
+
+### Known issues
+
+- Circuit UI v7 is incompatible with [`next-plugin-preact`](https://github.com/preactjs/next-plugin-preact) because the plugin breaks support for ES Modules.
 
 ## From v6.x to v6.3
 
