@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 7.0.1
+
+### Patch Changes
+
+- [#2216](https://github.com/sumup-oss/circuit-ui/pull/2216) [`e7cfe0cd`](https://github.com/sumup-oss/circuit-ui/commit/e7cfe0cd6bc398639ed56ce2dcb9399c52286419) Thanks [@connor-baer](https://github.com/connor-baer)! - Narrowed the version range of the Emotion.js peer dependencies to ensure they can be imported in an ESM environment (see [emotion-js/emotion#3029](https://github.com/emotion-js/emotion/pull/3029)).
+
 ## 7.0.0
 
 ### Major Changes
