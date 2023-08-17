@@ -12,6 +12,7 @@
   - [Component lifecycle](#component-lifecycle)
   - [Removed @sumup/collector](#removed-sumupcollector)
   - [Other changes](#other-changes)
+  - [Known issues](#known-issues)
 - [From v6.x to v6.3](#from-v6x-to-v63)
   - [New semantic color tokens](#new-semantic-color-tokens)
   - [Visual component changes](#visual-component-changes)
@@ -105,6 +106,12 @@ npm upgrade @sumup/eslint-plugin-circuit-ui
 npm upgrade @sumup/stylelint-plugin-circuit-ui
 ```
 
+If you are using Emotion.js in your app or are importing [legacy](https://circuit.sumup.com/?path=/docs/introduction-component-lifecycle--docs) components, update all Emotion.js-related dependencies:
+
+```sh
+npm upgrade @emotion/is-prop-valid @emotion/react @emotion/styled
+```
+
 For a complete list of changes, refer to the [changelog](https://github.com/sumup-oss/circuit-ui/blob/main/packages/circuit-ui/CHANGELOG.md).
 
 ### Prerequisites
@@ -178,7 +185,12 @@ The design tokens have been ported to [CSS custom properties](https://developer.
 +var(--cui-border-radius.circle)
 ```
 
-The JavaScript `theme` object from `@sumup/design-tokens` has been deprecated. Use the 🤖 [`prefer-custom-properties`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/prefer-custom-properties) ESLint rule to flag and automatically rewrite uses of the JS theme to CSS custom properties. Note that the `mq`, `breakpoints`, and `grid` theme properties haven't been migrated to CSS custom properties and are considered legacy.
+The JavaScript `theme` object from `@sumup/design-tokens` has been deprecated. Use the 🤖 [`prefer-custom-properties`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/prefer-custom-properties) ESLint rule to flag and automatically rewrite uses of the JS theme to CSS custom properties.
+
+Note that some theme properties haven't been migrated to CSS custom properties and are considered legacy:
+
+- `mq` and `breakpoints`: Unfortunately, CSS custom properties aren't supported inside media queries. In the future, we might be able to use [CSS environment variables](https://css-tricks.com/css-environment-variables/) but they are a long way off. Until then, you can keep using the JS theme properties or hard-code the media queries.
+- `grid`: These properties were only intended to be used by the Grid components. Remove any usage of them.
 
 #### Utility classes
 
@@ -260,6 +272,10 @@ function Component() {
 - Migrated the Tabs and Sidebar components to TypeScript.
 - Simplified the function signature of the style mixins that no longer require the theme parameter (`shadow`, `focusOutline`, `focusVisible`, and `inputOutline`).
 - Removed the `sharedPropTypes` export. Type the props using TypeScript instead.
+
+### Known issues
+
+- Circuit UI v7 is incompatible with [`next-plugin-preact`](https://github.com/preactjs/next-plugin-preact) because the plugin breaks support for ES Modules.
 
 ## From v6.x to v6.3
 
