@@ -185,7 +185,12 @@ The design tokens have been ported to [CSS custom properties](https://developer.
 +var(--cui-border-radius.circle)
 ```
 
-The JavaScript `theme` object from `@sumup/design-tokens` has been deprecated. Use the 🤖 [`prefer-custom-properties`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/prefer-custom-properties) ESLint rule to flag and automatically rewrite uses of the JS theme to CSS custom properties. Note that the `mq`, `breakpoints`, and `grid` theme properties haven't been migrated to CSS custom properties and are considered legacy.
+The JavaScript `theme` object from `@sumup/design-tokens` has been deprecated. Use the 🤖 [`prefer-custom-properties`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/prefer-custom-properties) ESLint rule to flag and automatically rewrite uses of the JS theme to CSS custom properties.
+
+Note that some theme properties haven't been migrated to CSS custom properties and are considered legacy:
+
+- `mq` and `breakpoints`: Unfortunately, CSS custom properties aren't supported inside media queries. In the future, we might be able to use [CSS environment variables](https://css-tricks.com/css-environment-variables/) but they are a long way off. Until then, you can keep using the JS theme properties or hard-code the media queries.
+- `grid`: These properties were only intended to be used by the Grid components. Remove any usage of them.
 
 #### Utility classes
 
