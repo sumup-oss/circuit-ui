@@ -106,6 +106,12 @@ npm upgrade @sumup/eslint-plugin-circuit-ui
 npm upgrade @sumup/stylelint-plugin-circuit-ui
 ```
 
+If you are using Emotion.js in your app or are importing [legacy](https://circuit.sumup.com/?path=/docs/introduction-component-lifecycle--docs) components, update all Emotion.js-related dependencies:
+
+```sh
+npm upgrade @emotion/is-prop-valid @emotion/react @emotion/styled
+```
+
 For a complete list of changes, refer to the [changelog](https://github.com/sumup-oss/circuit-ui/blob/main/packages/circuit-ui/CHANGELOG.md).
 
 ### Prerequisites
