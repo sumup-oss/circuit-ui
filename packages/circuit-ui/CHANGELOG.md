@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 7.0.2
+
+### Patch Changes
+
+- [#2218](https://github.com/sumup-oss/circuit-ui/pull/2218) [`f1d3a458`](https://github.com/sumup-oss/circuit-ui/commit/f1d3a458cd00e85d628da809005c41fb6e845452) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the primary SideNavigation width on wide viewports.
+
 ## 7.0.1
 
 ### Patch Changes
