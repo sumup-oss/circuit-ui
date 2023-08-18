@@ -16,6 +16,12 @@
   }
 }
 
+@media (min-width: 1900px) {
+  .wrapper {
+    min-width: var(--primary-navigation-width-open);
+  }
+}
+
 .primary {
   position: fixed;
   top: var(--top-navigation-height, 0);
