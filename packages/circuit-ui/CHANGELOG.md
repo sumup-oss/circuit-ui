@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 7.0.3
+
+### Patch Changes
+
+- [#2220](https://github.com/sumup-oss/circuit-ui/pull/2220) [`858f75a3`](https://github.com/sumup-oss/circuit-ui/commit/858f75a382290a8ca2693908bebab85c0cf39f4f) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the Icon's prefix and suffix icons from the accessibility tree.
+
 ## 7.0.2
 
 ### Patch Changes
