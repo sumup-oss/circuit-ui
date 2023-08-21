@@ -13,12 +13,8 @@
  * limitations under the License.
  */
 
-import {
-  forwardRef,
-  HTMLAttributes,
-  ButtonHTMLAttributes,
-  ComponentType,
-} from 'react';
+import { forwardRef, HTMLAttributes, ButtonHTMLAttributes } from 'react';
+import type { IconComponentType } from '@sumup/icons';
 
 import type { ClickEvent } from '../../types/events.js';
 import { AccessibilityError } from '../../util/errors.js';
@@ -32,11 +28,11 @@ type BaseProps = {
   /**
    * Render prop that should render a leading-aligned icon or element.
    */
-  prefix?: ComponentType<{ className: string }>;
+  prefix?: IconComponentType;
   /**
    * Render prop that should render a trailing-aligned icon or element.
    */
-  suffix?: ComponentType<{ className: string }>;
+  suffix?: IconComponentType;
   /**
    * Triggers selected styles on the tag.
    */
@@ -115,11 +111,11 @@ export const Tag = forwardRef<HTMLDivElement & HTMLButtonElement, TagProps>(
           ref={ref}
           {...props}
         >
-          {Prefix && <Prefix className={classes.prefix} />}
+          {Prefix && <Prefix className={classes.prefix} aria-hidden="true" />}
 
           {children}
 
-          {Suffix && <Suffix className={classes.suffix} />}
+          {Suffix && <Suffix className={classes.suffix} aria-hidden="true" />}
         </Element>
 
         {isRemovable && (
