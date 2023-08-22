@@ -71,18 +71,23 @@ export const SearchInput = forwardRef<InputElement, SearchInputProps>(
         value={value}
         type="search"
         renderPrefix={(renderProps) => <Search size="16" {...renderProps} />}
-        renderSuffix={(renderProps) =>
-          value && onClear && clearLabel ? (
-            <IconButton
-              {...renderProps}
-              onClick={onClick}
-              label={clearLabel}
-              className={clsx(renderProps.className, classes['clear-button'])}
-            >
-              <Close size="16" />
-            </IconButton>
-          ) : null
-        }
+        {...(value && onClear && clearLabel
+          ? {
+              renderSuffix: (renderProps) => (
+                <IconButton
+                  {...renderProps}
+                  onClick={onClick}
+                  label={clearLabel}
+                  className={clsx(
+                    renderProps.className,
+                    classes['clear-button'],
+                  )}
+                >
+                  <Close size="16" />
+                </IconButton>
+              ),
+            }
+          : {})}
         inputClassName={clsx(classes.base, inputClassName)}
         {...props}
         ref={applyMultipleRefs(localRef, ref)}
