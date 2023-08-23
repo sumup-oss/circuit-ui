@@ -126,3 +126,7 @@
   background-color: var(--cui-bg-accent-strong-disabled);
   border-color: var(--cui-border-accent-disabled);
 }
+
+.optional {
+  color: var(--cui-fg-subtle);
+}
