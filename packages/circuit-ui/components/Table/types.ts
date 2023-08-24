@@ -48,6 +48,7 @@ type SortableRowCell = {
 type CellObject = {
   'children': ReactNode;
   'align'?: CellAlignment;
+  'className'?: string;
   'data-testid'?: string;
 };
 
