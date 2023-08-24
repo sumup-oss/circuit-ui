@@ -17,7 +17,10 @@ import { forwardRef } from 'react';
 
 import { IconButton, IconButtonProps } from '../IconButton/IconButton.js';
 import { Skeleton } from '../Skeleton/index.js';
-import { AccessibilityError } from '../../util/errors.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';
 
 import classes from './Hamburger.module.css';
@@ -59,16 +62,16 @@ export const Hamburger = forwardRef<any, HamburgerProps>(
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test'
     ) {
-      if (!activeLabel) {
+      if (!isSufficientlyLabelled(activeLabel)) {
         throw new AccessibilityError(
           'Hamburger',
-          'The `activeLabel` prop is missing.',
+          'The `activeLabel` prop is missing or invalid.',
         );
       }
-      if (!inactiveLabel) {
+      if (!isSufficientlyLabelled(inactiveLabel)) {
         throw new AccessibilityError(
           'Hamburger',
-          'The `inactiveLabel` prop is missing.',
+          'The `inactiveLabel` prop is missing or invalid.',
         );
       }
     }

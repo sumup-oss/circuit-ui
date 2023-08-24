@@ -23,7 +23,10 @@ import {
 import { Checkmark } from '@sumup/icons';
 
 import { FieldValidationHint, FieldWrapper } from '../Field/index.js';
-import { AccessibilityError } from '../../util/errors.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { clsx } from '../../styles/clsx.js';
 import utilityClasses from '../../styles/utility.js';
@@ -93,9 +96,12 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
-      !label
+      !isSufficientlyLabelled(label)
     ) {
-      throw new AccessibilityError('Checkbox', 'The `label` prop is missing.');
+      throw new AccessibilityError(
+        'Checkbox',
+        'The `label` prop is missing or invalid.',
+      );
     }
 
     return (

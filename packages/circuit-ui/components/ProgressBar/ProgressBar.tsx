@@ -16,7 +16,10 @@
 import { HTMLAttributes, useId } from 'react';
 
 import { ReturnType } from '../../types/return-type.js';
-import { AccessibilityError } from '../../util/errors.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
 import utilityClasses from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
 
@@ -100,9 +103,12 @@ export function ProgressBar({
   if (
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test' &&
-    !label
+    !isSufficientlyLabelled(label)
   ) {
-    throw new AccessibilityError('ProgressBar', 'The `label` prop is missing.');
+    throw new AccessibilityError(
+      'ProgressBar',
+      'The `label` prop is missing or invalid.',
+    );
   }
   const ariaId = useId();
   return (

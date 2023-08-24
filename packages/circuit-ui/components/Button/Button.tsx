@@ -25,7 +25,10 @@ import type { ClickEvent } from '../../types/events.js';
 import type { AsPropType } from '../../types/prop-types.js';
 import { useComponents } from '../ComponentsContext/index.js';
 import Spinner from '../Spinner/index.js';
-import { AccessibilityError } from '../../util/errors.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
 import utilityClasses from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
 
@@ -113,11 +116,11 @@ export const Button = forwardRef<any, ButtonProps>(
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
       isLoading !== undefined &&
-      !loadingLabel
+      !isSufficientlyLabelled(loadingLabel)
     ) {
       throw new AccessibilityError(
         'Button',
-        "The `loadingLabel` prop is missing. Remove the `isLoading` prop if you don't intend to use the Button's loading state.",
+        "The `loadingLabel` prop is missing or invalid. Remove the `isLoading` prop if you don't intend to use the Button's loading state.",
       );
     }
     const { Link } = useComponents();

@@ -17,7 +17,10 @@ import { HTMLAttributes, ReactElement } from 'react';
 import { ChevronLeft, ChevronRight } from '@sumup/icons';
 
 import IconButton from '../IconButton/index.js';
-import { AccessibilityError } from '../../util/errors.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';
 
 import { PageSelect } from './components/PageSelect/index.js';
@@ -82,22 +85,22 @@ export const Pagination = ({
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test'
   ) {
-    if (!label) {
+    if (!isSufficientlyLabelled(label)) {
       throw new AccessibilityError(
         'Pagination',
-        'The `label` prop is missing.',
+        'The `label` prop is missing or invalid.',
       );
     }
-    if (!previousLabel) {
+    if (!isSufficientlyLabelled(previousLabel)) {
       throw new AccessibilityError(
         'Pagination',
-        'The `previousLabel` prop is missing.',
+        'The `previousLabel` prop is missing or invalid.',
       );
     }
-    if (!nextLabel) {
+    if (!isSufficientlyLabelled(nextLabel)) {
       throw new AccessibilityError(
         'Pagination',
-        'The `nextLabel` prop is missing.',
+        'The `nextLabel` prop is missing or invalid.',
       );
     }
   }

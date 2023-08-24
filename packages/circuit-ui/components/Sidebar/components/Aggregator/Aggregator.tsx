@@ -24,7 +24,10 @@ import styled, { StyleProps } from '../../../../styles/styled.js';
 import { Child, hasSelectedChild, getIcon } from '../../SidebarService.js';
 import { SubNavList } from '../SubNavList/index.js';
 import { NavLabel } from '../NavLabel/index.js';
-import { AccessibilityError } from '../../../../util/errors.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../../../util/errors.js';
 
 export interface AggregatorProps {
   /**
@@ -119,9 +122,12 @@ export function Aggregator({
   if (
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test' &&
-    !label
+    !isSufficientlyLabelled(label)
   ) {
-    throw new AccessibilityError('Aggregator', 'The `label` prop is missing.');
+    throw new AccessibilityError(
+      'Aggregator',
+      'The `label` prop is missing or invalid.',
+    );
   }
   const [isOpen, setIsOpen] = useState(false);
   const selectedChild = hasSelectedChild(children);

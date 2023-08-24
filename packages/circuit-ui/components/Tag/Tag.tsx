@@ -17,7 +17,10 @@ import { forwardRef, HTMLAttributes, ButtonHTMLAttributes } from 'react';
 import type { IconComponentType } from '@sumup/icons';
 
 import type { ClickEvent } from '../../types/events.js';
-import { AccessibilityError } from '../../util/errors.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';
 import utilityClasses from '../../styles/utility.js';
 import CloseButton from '../CloseButton/index.js';
@@ -86,11 +89,11 @@ export const Tag = forwardRef<HTMLDivElement & HTMLButtonElement, TagProps>(
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
       onRemove &&
-      !removeButtonLabel
+      !isSufficientlyLabelled(removeButtonLabel)
     ) {
       throw new AccessibilityError(
         'Tag',
-        'The `removeButtonLabel` prop is missing. Omit the `onRemove` prop if you intend to disable the tag removing functionality.',
+        'The `removeButtonLabel` prop is missing or invalid. Omit the `onRemove` prop if you intend to disable the tag removing functionality.',
       );
     }
     const Element = onClick ? 'button' : 'div';

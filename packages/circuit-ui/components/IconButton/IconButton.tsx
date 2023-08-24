@@ -19,7 +19,10 @@ import type { IconProps } from '@sumup/icons';
 import utilityClasses from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
 import { Button, ButtonProps } from '../Button/Button.js';
-import { AccessibilityError } from '../../util/errors.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
 
 import classes from './IconButton.module.css';
 
@@ -51,11 +54,11 @@ export const IconButton = forwardRef<any, IconButtonProps>(
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
-      !label
+      !isSufficientlyLabelled(label)
     ) {
       throw new AccessibilityError(
         'IconButton',
-        'The `label` prop is missing.',
+        'The `label` prop is missing or invalid.',
       );
     }
 
