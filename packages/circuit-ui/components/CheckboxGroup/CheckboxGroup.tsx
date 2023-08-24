@@ -33,12 +33,11 @@ import { isEmpty } from '../../util/helpers.js';
 
 import classes from './CheckboxGroup.module.css';
 
-// TODO: Remove the label and value overrides in the next major.
+// TODO: Remove the value override in the next major.
 type Options = Omit<
   CheckboxProps,
-  'onChange' | 'validationHint' | 'name' | 'value'
+  'onChange' | 'validationHint' | 'name' | 'value' | 'optionalLabel'
 > & {
-  label: string;
   value: string | number;
 };
 
