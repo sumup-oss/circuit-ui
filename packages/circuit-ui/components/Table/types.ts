@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ThHTMLAttributes } from 'react';
+import { ReactNode } from 'react';
 
 export type SortByValue = boolean | number | string | Date;
 
@@ -45,8 +45,10 @@ type SortableRowCell = {
   sortByValue?: SortByValue;
 };
 
-type CellObject = ThHTMLAttributes<HTMLTableCellElement> & {
+type CellObject = {
+  'children': ReactNode;
   'align'?: CellAlignment;
+  'className'?: string;
   'data-testid'?: string;
 };
 

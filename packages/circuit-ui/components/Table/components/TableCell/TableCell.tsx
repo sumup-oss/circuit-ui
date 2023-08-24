@@ -16,6 +16,7 @@
 import { TdHTMLAttributes, forwardRef } from 'react';
 
 import { clsx } from '../../../../styles/clsx.js';
+import type { CellAlignment } from '../../types.js';
 
 import classes from './TableCell.module.css';
 
@@ -25,7 +26,7 @@ export interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
   /**
    * Aligns the content of the Cell with text-align.
    */
-  align?: 'left' | 'right' | 'center';
+  align?: CellAlignment;
   /**
    * Adds heading styles to placeholder Cell.
    */
