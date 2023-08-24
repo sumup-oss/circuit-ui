@@ -22,6 +22,24 @@ import TableHeader from './index.js';
 const children = 'Foo';
 
 describe('TableHeader', () => {
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    const { container } = render(
+      <TableHeader
+        sortParams={{
+          sortable: true,
+          sortLabel: 'Sort in ascending order',
+          isSorted: false,
+        }}
+        className={className}
+      >
+        {children}
+      </TableHeader>,
+    );
+    const tableHeader = container.querySelector('th');
+    expect(tableHeader?.className).toContain(className);
+  });
+
   it('should have no accessibility violations', async () => {
     const { container } = render(
       <TableHeader

@@ -68,6 +68,7 @@ export function TableHeader({
   fixed = false,
   isHovered = false,
   sortParams = { sortable: false },
+  className,
   onClick,
   ...props
 }: TableHeaderProps) {
@@ -90,6 +91,7 @@ export function TableHeader({
         isHovered && classes.hover,
         fixed && classes.fixed,
         condensed && classes.condensed,
+        className,
       )}
       scope={scope}
       aria-label={sortParams.sortLabel}
