@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 7.0.4
+
+### Patch Changes
+
+- [#2222](https://github.com/sumup-oss/circuit-ui/pull/2222) [`3deeb5c1`](https://github.com/sumup-oss/circuit-ui/commit/3deeb5c14a6a8edce9c05356b08f8da5ccdb8862) Thanks [@a5e](https://github.com/a5e)! - Removed unnecessary padding in the SearchInput component.
+
+- [#2226](https://github.com/sumup-oss/circuit-ui/pull/2226) [`6eb8a5f0`](https://github.com/sumup-oss/circuit-ui/commit/6eb8a5f09badd0894ac3460202f0276f99baea4b) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed forwarding a custom `className` to the TableHeader component.
+
 ## 7.0.3
 
 ### Patch Changes
