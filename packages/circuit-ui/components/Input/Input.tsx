@@ -28,7 +28,10 @@ import {
   FieldValidationHint,
 } from '../Field/index.js';
 import { ReturnType } from '../../types/return-type.js';
-import { AccessibilityError } from '../../util/errors.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';
 
 import classes from './Input.module.css';
@@ -134,11 +137,11 @@ export const Input = forwardRef<InputElement, InputProps>(
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
       props.type !== 'hidden' &&
-      !label
+      !isSufficientlyLabelled(label)
     ) {
       throw new AccessibilityError(
         'Input',
-        'The `label` prop is missing. Pass `hideLabel` if you intend to hide the label visually.',
+        'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
 

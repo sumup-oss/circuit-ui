@@ -19,7 +19,10 @@ import { Search, Close } from '@sumup/icons';
 import Input from '../Input/index.js';
 import type { InputElement, InputProps } from '../Input/index.js';
 import IconButton from '../IconButton/index.js';
-import { AccessibilityError } from '../../util/errors.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { clsx } from '../../styles/clsx.js';
 import type { ClickEvent } from '../../types/events.js';
@@ -53,11 +56,11 @@ export const SearchInput = forwardRef<InputElement, SearchInputProps>(
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
       onClear &&
-      !clearLabel
+      !isSufficientlyLabelled(clearLabel)
     ) {
       throw new AccessibilityError(
         'SearchInput',
-        'The `clearLabel` prop is missing. Omit the `onClear` prop if you intend to disable the input clearing functionality.',
+        'The `clearLabel` prop is missing or invalid. Omit the `onClear` prop if you intend to disable the input clearing functionality.',
       );
     }
 

@@ -15,7 +15,10 @@
 
 import { Fragment, InputHTMLAttributes, forwardRef, useId } from 'react';
 
-import { AccessibilityError } from '../../util/errors.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
 import { FieldWrapper } from '../Field/index.js';
 import { clsx } from '../../styles/clsx.js';
 import utilityClasses from '../../styles/utility.js';
@@ -104,9 +107,12 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
-      !label
+      !isSufficientlyLabelled(label)
     ) {
-      throw new AccessibilityError('Selector', 'The `label` prop is missing.');
+      throw new AccessibilityError(
+        'Selector',
+        'The `label` prop is missing or invalid.',
+      );
     }
 
     const hasDescription = Boolean(description);

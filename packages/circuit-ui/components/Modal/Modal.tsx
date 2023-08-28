@@ -24,7 +24,10 @@ import {
 } from '../ModalContext/index.js';
 import CloseButton from '../CloseButton/index.js';
 import { StackContext } from '../StackContext/index.js';
-import { AccessibilityError } from '../../util/errors.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';
 
 import classes from './Modal.module.css';
@@ -93,11 +96,11 @@ export const Modal: ModalComponent<ModalProps> = ({
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test' &&
     !preventClose &&
-    !closeButtonLabel
+    !isSufficientlyLabelled(closeButtonLabel)
   ) {
     throw new AccessibilityError(
       'Modal',
-      "The `closeButtonLabel` prop is missing. Pass it in `setModal`, or pass `preventClose` if you intend to hide the Modal's close button.",
+      "The `closeButtonLabel` prop is missing or invalid. Pass it in `setModal`, or pass `preventClose` if you intend to hide the Modal's close button.",
     );
   }
 

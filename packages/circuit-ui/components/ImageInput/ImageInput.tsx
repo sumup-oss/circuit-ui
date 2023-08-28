@@ -34,7 +34,10 @@ import {
 } from '../Field/index.js';
 import IconButton from '../IconButton/index.js';
 import Spinner from '../Spinner/index.js';
-import { AccessibilityError } from '../../util/errors.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';
 
 import classes from './ImageInput.module.css';
@@ -110,22 +113,22 @@ export const ImageInput = ({
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test'
   ) {
-    if (!label) {
+    if (!isSufficientlyLabelled(label)) {
       throw new AccessibilityError(
         'ImageInput',
-        'The `label` prop is missing.',
+        'The `label` prop is missing or invalid.',
       );
     }
-    if (!clearButtonLabel) {
+    if (!isSufficientlyLabelled(clearButtonLabel)) {
       throw new AccessibilityError(
         'ImageInput',
-        'The `clearButtonLabel` prop is missing.',
+        'The `clearButtonLabel` prop is missing or invalid.',
       );
     }
-    if (!loadingLabel) {
+    if (!isSufficientlyLabelled(loadingLabel)) {
       throw new AccessibilityError(
         'ImageInput',
-        'The `loadingLabel` prop is missing.',
+        'The `loadingLabel` prop is missing or invalid.',
       );
     }
   }

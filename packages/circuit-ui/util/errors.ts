@@ -16,6 +16,8 @@
 /* eslint-disable max-classes-per-file */
 import React from 'react';
 
+import { isString } from './type-check.js';
+
 export class CircuitError extends Error {
   constructor(componentName: string, message: string) {
     super(`[${componentName}] ${message}`);
@@ -67,4 +69,23 @@ export class AccessibilityError extends CircuitError {
     super(componentName, message);
     this.name = 'AccessibilityError';
   }
+}
+
+/**
+ * Validates that either a valid label or label id (`aria-labelledby`) exists.
+ *
+ * Labels shouldn't contain structured markup since it is ignored by screen
+ * readers. We allow this only as an escape hatch to use at your own risk.
+ */
+export function isSufficientlyLabelled(
+  label?: string,
+  labelId?: string,
+): boolean {
+  if (label) {
+    return isString(label) ? Boolean(label.trim()) : true;
+  }
+  if (labelId) {
+    return isString(labelId) ? Boolean(labelId.trim()) : true;
+  }
+  return false;
 }

@@ -16,7 +16,10 @@
 import { useEffect } from 'react';
 
 import { useMedia } from '../../hooks/useMedia/index.js';
-import { AccessibilityError } from '../../util/errors.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
 import { usePrevious } from '../../hooks/usePrevious/index.js';
 
 import { DesktopNavigation } from './components/DesktopNavigation/index.js';
@@ -47,22 +50,22 @@ export function SideNavigation({
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test'
   ) {
-    if (!closeButtonLabel) {
+    if (!isSufficientlyLabelled(closeButtonLabel)) {
       throw new AccessibilityError(
         'SideNavigation',
-        'The `closeButtonLabel` prop is missing.',
+        'The `closeButtonLabel` prop is missing or invalid.',
       );
     }
-    if (!primaryNavigationLabel) {
+    if (!isSufficientlyLabelled(primaryNavigationLabel)) {
       throw new AccessibilityError(
         'SideNavigation',
-        'The `primaryNavigationLabel` prop is missing.',
+        'The `primaryNavigationLabel` prop is missing or invalid.',
       );
     }
-    if (!secondaryNavigationLabel) {
+    if (!isSufficientlyLabelled(secondaryNavigationLabel)) {
       throw new AccessibilityError(
         'SideNavigation',
-        'The `secondaryNavigationLabel` prop is missing.',
+        'The `secondaryNavigationLabel` prop is missing or invalid.',
       );
     }
   }

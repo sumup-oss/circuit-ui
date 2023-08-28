@@ -16,7 +16,10 @@
 import { forwardRef, FieldsetHTMLAttributes, useId } from 'react';
 
 import { Selector, SelectorProps, SelectorSize } from '../Selector/Selector.js';
-import { AccessibilityError } from '../../util/errors.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
 import {
   FieldLabelText,
   FieldLegend,
@@ -148,11 +151,11 @@ export const SelectorGroup = forwardRef<
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
-      !label
+      !isSufficientlyLabelled(label)
     ) {
       throw new AccessibilityError(
         'SelectorGroup',
-        'The `label` prop is required. Pass `hideLabel` if you intend to hide the label visually.',
+        'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
 

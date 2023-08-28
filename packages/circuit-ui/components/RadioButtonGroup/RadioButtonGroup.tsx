@@ -28,7 +28,10 @@ import {
   FieldLegend,
   FieldSet,
 } from '../Field/index.js';
-import { AccessibilityError } from '../../util/errors.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
 import { isEmpty } from '../../util/helpers.js';
 
 export interface RadioButtonGroupProps
@@ -135,11 +138,11 @@ export const RadioButtonGroup = forwardRef(
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
-      !label
+      !isSufficientlyLabelled(label)
     ) {
       throw new AccessibilityError(
         'RadioButtonGroup',
-        'The `label` prop is missing. Pass `hideLabel` if you intend to hide the label visually.',
+        'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
 

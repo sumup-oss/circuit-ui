@@ -18,7 +18,10 @@ import type { ThHTMLAttributes } from 'react';
 import SortArrow from '../SortArrow/index.js';
 import { CellAlignment, SortParams } from '../../types.js';
 import { ClickEvent } from '../../../../types/events.js';
-import { AccessibilityError } from '../../../../util/errors.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../../../util/errors.js';
 import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './TableHeader.module.css';
@@ -76,11 +79,11 @@ export function TableHeader({
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test' &&
     sortParams.sortable &&
-    !sortParams.sortLabel
+    !isSufficientlyLabelled(sortParams.sortLabel)
   ) {
     throw new AccessibilityError(
       'Table',
-      'The `sortLabel` prop is missing. Omit the `sortable` prop if you intend to disable the row sorting functionality.',
+      'The `sortLabel` prop is missing or invalid. Omit the `sortable` prop if you intend to disable the row sorting functionality.',
     );
   }
   return (

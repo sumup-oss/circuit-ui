@@ -17,7 +17,10 @@ import { UIEventHandler, useEffect, useId, useState } from 'react';
 import type { Props as ReactModalProps } from 'react-modal';
 
 import { isFunction } from '../../util/type-check.js';
-import { AccessibilityError } from '../../util/errors.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
 
 import { MobileSidePanel } from './components/MobileSidePanel/index.js';
 import { DesktopSidePanel } from './components/DesktopSidePanel/index.js';
@@ -73,16 +76,16 @@ export const SidePanel = ({
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test'
   ) {
-    if (!closeButtonLabel) {
+    if (!isSufficientlyLabelled(closeButtonLabel)) {
       throw new AccessibilityError(
         'SidePanel',
-        'The `closeButtonLabel` prop is missing.',
+        'The `closeButtonLabel` prop is missing or invalid.',
       );
     }
-    if (onBack && !backButtonLabel) {
+    if (onBack && !isSufficientlyLabelled(backButtonLabel)) {
       throw new AccessibilityError(
         'SidePanel',
-        'The `backButtonLabel` prop is missing.',
+        'The `backButtonLabel` prop is missing or invalid.',
       );
     }
   }

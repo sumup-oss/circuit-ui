@@ -15,7 +15,10 @@
 
 import { ButtonHTMLAttributes, forwardRef, useId } from 'react';
 
-import { AccessibilityError } from '../../util/errors.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
 import { FieldDescription, FieldWrapper } from '../Field/index.js';
 import { clsx } from '../../styles/clsx.js';
 import utilityClasses from '../../styles/utility.js';
@@ -68,20 +71,23 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test'
     ) {
-      if (!label) {
-        throw new AccessibilityError('Toggle', 'The `label` prop is missing.');
-      }
-
-      if (!checkedLabel) {
+      if (!isSufficientlyLabelled(label)) {
         throw new AccessibilityError(
           'Toggle',
-          'The `checkedLabel` prop is missing.',
+          'The `label` prop is missing or invalid.',
         );
       }
-      if (!uncheckedLabel) {
+
+      if (!isSufficientlyLabelled(checkedLabel)) {
         throw new AccessibilityError(
           'Toggle',
-          'The `checkedLabel` prop is missing.',
+          'The `checkedLabel` prop is missing or invalid.',
+        );
+      }
+      if (!isSufficientlyLabelled(uncheckedLabel)) {
+        throw new AccessibilityError(
+          'Toggle',
+          'The `checkedLabel` prop is missing or invalid.',
         );
       }
     }
