@@ -1,14 +1,14 @@
 .label {
   position: relative;
   display: inline-block;
-  padding-left: 26px;
+  min-height: 18px;
   color: var(--cui-fg-normal);
   cursor: pointer;
 }
 
 .base + .label::before {
   position: absolute;
-  top: var(--cui-spacings-kilo);
+  top: calc(var(--cui-typography-body-one-line-height) / 2);
   left: 0;
   box-sizing: border-box;
   display: block;
@@ -18,7 +18,7 @@
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-normal);
   border-radius: 3px;
-  box-shadow: 0;
+  box-shadow: none;
   transition: border var(--cui-transitions-default),
     background-color var(--cui-transitions-default);
   transform: translateY(-50%);
@@ -125,4 +125,12 @@
 .base[disabled]:checked + .label::before {
   background-color: var(--cui-bg-accent-strong-disabled);
   border-color: var(--cui-border-accent-disabled);
+}
+
+.label-text {
+  padding-left: 26px;
+}
+
+.optional {
+  color: var(--cui-fg-subtle);
 }
