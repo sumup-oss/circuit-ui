@@ -8,6 +8,13 @@ import { DocsContainer } from './components';
 
 export const parameters = {
   layout: 'centered',
+  versions: {
+    current: 'v7',
+    previous: [
+      { name: 'v6', url: 'https://circuit-v6.sumup-vercel.app' },
+      { name: 'v5', url: 'https://circuit-v5.sumup-vercel.app' },
+    ],
+  },
   previewTabs: { 'storybook/docs/panel': { index: -1 } },
   actions: { argTypesRegex: '^on.*' },
   controls: { expanded: true },
@@ -35,12 +42,12 @@ export const globalTypes = {
           icon: 'paintbrush',
         },
         {
-          title: 'Light',
+          title: 'Light (WIP)',
           value: 'light',
           icon: 'circle',
         },
         {
-          title: 'Dark',
+          title: 'Dark (WIP)',
           value: 'dark',
           icon: 'circlehollow',
         },
