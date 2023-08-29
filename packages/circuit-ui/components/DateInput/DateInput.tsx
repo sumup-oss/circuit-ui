@@ -13,13 +13,19 @@
  * limitations under the License.
  */
 
-import { forwardRef, useState, useEffect } from 'react';
-import { PatternFormat } from 'react-number-format';
+import { forwardRef, useMemo } from 'react';
+import { formatDateTimeToParts } from '@sumup/intl';
 
-import Input, { InputElement, InputProps } from '../Input/index.js';
-import { clsx } from '../../styles/clsx.js';
+import { InputProps } from '../Input/Input.js';
+import {
+  FieldLabel,
+  FieldLabelText,
+  FieldValidationHint,
+  FieldWrapper,
+} from '../Field/index.js';
+import { uniqueId } from '../../util/id.js';
 
-import classes from './DateInput.module.css';
+import styles from './DateInput.module.css';
 
 export interface DateInputProps
   extends Omit<
@@ -36,56 +42,132 @@ export interface DateInputProps
   defaultValue?: string | number;
 }
 
+// const InputWrapper = styled('div')<
+//   Pick<DateInputProps, 'invalid' | 'hasWarning' | 'disabled'>
+// >(inputOutline, inputWrapperStyles);
+
+// const SegmentInput = styled('input')<DateSegmentProps>(
+//   typography('one'),
+//   segmentInputStyles,
+// );
+
+interface DateSegmentProps {
+  min: number;
+  max: number;
+  placeholder: string;
+}
+
+function DateSegment(props: DateSegmentProps) {
+  return (
+    <input
+      className={styles.segment}
+      style={{
+        width: `calc(${props.placeholder.length}ch + var(--cui-spacings-kilo))`,
+      }}
+      type="number"
+      spellCheck="false"
+      autoCapitalize="none"
+      autoCorrect="off"
+      enterKeyHint="next"
+      inputMode="numeric"
+      step="1"
+      {...props}
+    />
+  );
+}
+
+// TODO:
+// Focus management
+// Input labels
+// Input sizing
+// Validation
+// Interactive styles
+// State and change handlers
+
 /**
  * DateInput component for forms.
  * The input value is always a string in the format `YYYY-MM-DD`.
  */
-export const DateInput = forwardRef<InputElement, DateInputProps>(
-  ({ inputClassName, ...props }, ref) => {
-    // When server-side rendering, we assume that the user's browser supports
-    // the native date input.
-    const [supportsDate, setSupportsDate] = useState(true);
+export const DateInput = forwardRef(
+  ({
+    label,
+    hideLabel,
+    optionalLabel,
+    required,
+    className,
+    style,
+    disabled,
+    validationHint,
+    'aria-describedby': descriptionId,
+    hasWarning,
+    invalid,
+    showValid,
+  }: Omit<DateInputProps, 'ref'>) => {
+    const locale = 'en-GB';
 
-    // We check the browser support after the first render to avoid React's
-    // hydration mismatch warning.
-    useEffect(() => {
-      // Browsers fall back to a text input when the date type isn't supported.
-      // Adapted from https://stackoverflow.com/questions/10193294/how-can-i-tell-if-a-browser-supports-input-type-date
-      const input = document.createElement('input');
-      input.setAttribute('type', 'date');
+    const id = uniqueId('input_');
+    const validationHintId = uniqueId('validation-hint_');
+    const descriptionIds = `${
+      descriptionId ? `${descriptionId} ` : ''
+    }${validationHintId}`;
 
-      setSupportsDate(input.type === 'date');
-    }, []);
+    const parts = useMemo(
+      () =>
+        formatDateTimeToParts(new Date(), locale, {
+          year: 'numeric',
+          month: 'numeric',
+          day: 'numeric',
+        }) as {
+          type: 'year' | 'month' | 'day' | 'literal';
+          value: string;
+        }[],
+      [locale],
+    );
 
-    const placeholder = 'yyyy-mm-dd';
-
-    // TODO: Fallback explainer, with enforced format
-    if (!supportsDate) {
-      return (
-        <PatternFormat
-          // react-number-format props
-          placeholder={placeholder}
-          format="####-##-##"
-          mask={['y', 'y', 'y', 'y', 'm', 'm', 'd', 'd']}
-          customInput={Input}
-          getInputRef={ref}
-          // Circuit input props
-          type="text"
-          inputMode="numeric"
-          {...props}
-        />
-      );
-    }
+    const segments = {
+      year: () => <DateSegment placeholder="yyyy" min={0} max={4000} />,
+      month: () => <DateSegment placeholder="mm" min={1} max={12} />,
+      day: () => <DateSegment placeholder="dd" min={1} max={31} />,
+      literal: ({ value }: Intl.DateTimeFormatPart) => <span>{value}</span>,
+    };
 
     return (
-      <Input
-        {...props}
-        ref={ref}
-        inputClassName={clsx(classes.base, inputClassName)}
-        type="date"
-        pattern="\d{4}-\d{2}-\d{2}"
-        placeholder={placeholder}
-      />
+      <FieldWrapper className={className} style={style} disabled={disabled}>
+        <FieldLabel htmlFor={id}>
+          <FieldLabelText
+            label={label}
+            hideLabel={hideLabel}
+            optionalLabel={optionalLabel}
+            required={required}
+          />
+        </FieldLabel>
+        <div
+          className={styles.wrapper}
+          // disabled={disabled}
+          // invalid={invalid}
+          // hasWarning={hasWarning}
+        >
+          {parts.map((part, index) => {
+            const Segment = segments[part.type];
+            return (
+              <Segment
+                key={index}
+                {...part}
+                aria-labelledby={id}
+                aria-describedby={descriptionIds}
+              />
+            );
+          })}
+        </div>
+        <FieldValidationHint
+          id={validationHintId}
+          disabled={disabled}
+          invalid={invalid}
+          hasWarning={hasWarning}
+          showValid={showValid}
+          validationHint={validationHint}
+        />
+      </FieldWrapper>
     );
   },
 );

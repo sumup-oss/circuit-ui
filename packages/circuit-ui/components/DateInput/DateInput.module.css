@@ -2,3 +2,30 @@
   min-width: 8ch;
   height: 48px;
 }
+
+.wrapper {
+  width: 100%;
+  padding: 0 var(--cui-spacings-kilo);
+  margin: 0;
+  background-color: var(--cui-bg-normal);
+  border: none;
+  border-radius: var(--cui-border-radius-byte);
+  outline: 0;
+  transition: box-shadow var(--cui-transitions-default),
+    padding var(--cui-transitions-default);
+}
+
+.segment {
+  padding: var(--cui-spacings-kilo) var(--cui-spacings-bit);
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  appearance: textfield;
+  border: none;
+  outline: 0;
+}
+
+.segment::-webkit-outer-spin-button,
+.segment::-webkit-inner-spin-button {
+  margin: 0;
+  appearance: none;
+}
