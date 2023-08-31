@@ -1,8 +1,8 @@
 ---
-import { SumUpLogo } from '@sumup/icons'
+import { SumUpLogo } from '@sumup/icons';
 
 interface Props {
-  title: string
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -11,7 +11,10 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
 
     {/* Browser icons */}
     <link
@@ -89,7 +92,8 @@ const { title } = Astro.props;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+      env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
 
   .main {

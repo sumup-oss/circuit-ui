@@ -1,13 +1,17 @@
 {
-  "name": "astro-template",
+  "name": "@sumup/astro-template-circuit-ui",
   "type": "module",
   "version": "0.0.1",
+  "private": true,
+  "sideEffects": false,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "npm run lint -- --fix"
   },
   "dependencies": {
     "@astrojs/react": "^3.0.0",
@@ -20,5 +24,9 @@
     "astro": "^3.0.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@sumup/foundry": "^6.1.0",
+    "prettier-plugin-astro": "0.10.0"
   }
 }
