@@ -11,6 +11,10 @@
   },
   "dependencies": {
     "@astrojs/react": "^3.0.0",
+    "@sumup/circuit-ui": "^7.0.4",
+    "@sumup/design-tokens": "^6.0.0",
+    "@sumup/icons": "^3.0.0",
+    "@sumup/intl": "^1.5.0",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "astro": "^3.0.3",
