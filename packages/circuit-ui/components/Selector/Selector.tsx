@@ -73,7 +73,7 @@ export interface SelectorProps
 }
 
 /**
- * @private
+ * @deprecated Use the SelectorGroup component instead.
  */
 export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
   (

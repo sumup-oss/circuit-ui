@@ -39,7 +39,7 @@ export interface RadioButtonProps
 }
 
 /**
- * @private
+ * @deprecated Use the RadioButtonGroup component instead.
  */
 export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
   (
