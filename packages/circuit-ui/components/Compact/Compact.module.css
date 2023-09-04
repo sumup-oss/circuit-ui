@@ -1,4 +1,5 @@
 .base {
+  margin: 0;
   letter-spacing: var(--cui-letter-spacing);
 }
 
