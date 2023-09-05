@@ -13,7 +13,14 @@
  * limitations under the License.
  */
 
-import { Fragment, InputHTMLAttributes, forwardRef, useId } from 'react';
+import {
+  Fragment,
+  InputHTMLAttributes,
+  createContext,
+  forwardRef,
+  useContext,
+  useId,
+} from 'react';
 
 import {
   AccessibilityError,
@@ -22,6 +29,7 @@ import {
 import { FieldWrapper } from '../Field/index.js';
 import { clsx } from '../../styles/clsx.js';
 import utilityClasses from '../../styles/utility.js';
+import { deprecate } from '../../util/logger.js';
 
 import classes from './Selector.module.css';
 
@@ -72,8 +80,10 @@ export interface SelectorProps
   children?: never;
 }
 
+export const SelectorGroupContext = createContext(false);
+
 /**
- * @deprecated Use the SelectorGroup component instead.
+ * @deprecated Use the {@link SelectorGroup} component instead.
  */
 export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
   (
@@ -103,6 +113,15 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
       .filter(Boolean)
       .join(' ');
     const type = multiple ? 'checkbox' : 'radio';
+
+    const isInsideGroup = useContext(SelectorGroupContext);
+
+    if (process.env.NODE_ENV !== 'production' && !isInsideGroup) {
+      deprecate(
+        'Selector',
+        'The Selector component has been deprecated. Use the SelectorGroup component instead.',
+      );
+    }
 
     if (
       process.env.NODE_ENV !== 'production' &&

@@ -15,7 +15,12 @@
 
 import { forwardRef, FieldsetHTMLAttributes, useId } from 'react';
 
-import { Selector, SelectorProps, SelectorSize } from '../Selector/Selector.js';
+import {
+  Selector,
+  SelectorGroupContext,
+  SelectorProps,
+  SelectorSize,
+} from '../Selector/Selector.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
@@ -182,28 +187,30 @@ export const SelectorGroup = forwardRef<
           />
         </FieldLegend>
         <div className={clsx(classes.base, stretch && classes.stretch)}>
-          {options.map((option) => (
-            <Selector
-              {...option}
-              key={option.label}
-              className={classes.option}
-              name={name}
-              onChange={onChange}
-              onBlur={onBlur}
-              multiple={multiple}
-              size={size}
-              disabled={disabled || option.disabled}
-              invalid={invalid || option.invalid}
-              checked={
-                value ? isChecked(option, value, multiple) : option.checked
-              }
-              defaultChecked={
-                defaultValue
-                  ? isChecked(option, defaultValue, multiple)
-                  : option.defaultChecked
-              }
-            />
-          ))}
+          <SelectorGroupContext.Provider value={true}>
+            {options.map((option) => (
+              <Selector
+                {...option}
+                key={option.label}
+                className={classes.option}
+                name={name}
+                onChange={onChange}
+                onBlur={onBlur}
+                multiple={multiple}
+                size={size}
+                disabled={disabled || option.disabled}
+                invalid={invalid || option.invalid}
+                checked={
+                  value ? isChecked(option, value, multiple) : option.checked
+                }
+                defaultChecked={
+                  defaultValue
+                    ? isChecked(option, defaultValue, multiple)
+                    : option.defaultChecked
+                }
+              />
+            ))}
+          </SelectorGroupContext.Provider>
         </div>
         <FieldValidationHint
           id={validationHintId}

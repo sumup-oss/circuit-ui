@@ -21,7 +21,11 @@ import {
   useId,
 } from 'react';
 
-import { RadioButton, RadioButtonProps } from '../RadioButton/RadioButton.js';
+import {
+  RadioButton,
+  RadioButtonGroupContext,
+  RadioButtonProps,
+} from '../RadioButton/RadioButton.js';
 import {
   FieldLabelText,
   FieldValidationHint,
@@ -170,22 +174,24 @@ export const RadioButtonGroup = forwardRef(
             required={required}
           />
         </FieldLegend>
-        {options.map((option) => (
-          <RadioButton
-            {...option}
-            key={option.label}
-            name={name}
-            onChange={onChange}
-            onBlur={onBlur}
-            disabled={disabled || option.disabled}
-            checked={value ? option.value === value : option.checked}
-            defaultChecked={
-              defaultValue
-                ? option.value === defaultValue
-                : option.defaultChecked
-            }
-          />
-        ))}
+        <RadioButtonGroupContext.Provider value={true}>
+          {options.map((option) => (
+            <RadioButton
+              {...option}
+              key={option.label}
+              name={name}
+              onChange={onChange}
+              onBlur={onBlur}
+              disabled={disabled || option.disabled}
+              checked={value ? option.value === value : option.checked}
+              defaultChecked={
+                defaultValue
+                  ? option.value === defaultValue
+                  : option.defaultChecked
+              }
+            />
+          ))}
+        </RadioButtonGroupContext.Provider>
         <FieldValidationHint
           id={validationHintId}
           invalid={invalid}

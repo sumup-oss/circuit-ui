@@ -13,7 +13,13 @@
  * limitations under the License.
  */
 
-import { InputHTMLAttributes, forwardRef, useId } from 'react';
+import {
+  createContext,
+  InputHTMLAttributes,
+  forwardRef,
+  useContext,
+  useId,
+} from 'react';
 
 import {
   AccessibilityError,
@@ -22,6 +28,7 @@ import {
 import { FieldWrapper, FieldDescription } from '../Field/index.js';
 import { clsx } from '../../styles/clsx.js';
 import utilityClasses from '../../styles/utility.js';
+import { deprecate } from '../../util/logger.js';
 
 import classes from './RadioButton.module.css';
 
@@ -38,8 +45,10 @@ export interface RadioButtonProps
   children?: never;
 }
 
+export const RadioButtonGroupContext = createContext(false);
+
 /**
- * @deprecated Use the RadioButtonGroup component instead.
+ * @deprecated Use the {@link RadioButtonGroup} component instead.
  */
 export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
   (
@@ -58,6 +67,14 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
     },
     ref,
   ) => {
+    const isInsideGroup = useContext(RadioButtonGroupContext);
+
+    if (process.env.NODE_ENV !== 'production' && !isInsideGroup) {
+      deprecate(
+        'RadioButton',
+        'The RadioButton component has been deprecated. Use the RadioButtonGroup component instead.',
+      );
+    }
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
