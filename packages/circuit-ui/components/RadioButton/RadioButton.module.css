@@ -18,7 +18,9 @@
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-normal);
   border-radius: 100%;
-  transition: border var(--cui-transitions-default);
+  box-shadow: none;
+  transition: border var(--cui-transitions-default),
+    background-color var(--cui-transitions-default);
   transform: translateY(-50%);
 }
 

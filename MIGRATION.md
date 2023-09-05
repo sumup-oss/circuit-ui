@@ -260,8 +260,8 @@ function Component() {
 
 ### Other changes
 
-- Removed the public export of the RadioButton component. Use the RadioButtonGroup component instead (🤖 [`no-deprecated-components`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-deprecated-components))
-- Removed the public export of the Selector component. Use the SelectorGroup component instead (🤖 [`no-deprecated-components`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-deprecated-components))
+- ~~Removed the public export of the RadioButton component. Use the RadioButtonGroup component instead~~ Reverted in v7.1 and postponed until v8 (🤖 [`no-deprecated-components`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-deprecated-components))
+- ~~Removed the public export of the Selector component. Use the SelectorGroup component instead~~ Reverted in v7.1 and postponed until v8 (🤖 [`no-deprecated-components`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-deprecated-components))
 - Removed the deprecated `children` property from the SelectorGroup's `options` prop. Use the `label` and `description` properties instead.
 - Removed the deprecated `children` prop from the Checkbox component. Use the `label` prop instead.
 - Removed the deprecated `explanation` prop from the Toggle component. Use the `description` prop instead (🤖 [`no-renamed-props`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-renamed-props))

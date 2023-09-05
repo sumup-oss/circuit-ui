@@ -2,6 +2,7 @@
   position: relative;
   display: inline-block;
   min-height: 18px;
+  padding-left: 26px;
   color: var(--cui-fg-normal);
   cursor: pointer;
 }
@@ -128,7 +129,7 @@
 }
 
 .label-text {
-  padding-left: 26px;
+  display: inline-block;
 }
 
 .optional {
