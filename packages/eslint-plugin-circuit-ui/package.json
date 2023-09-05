@@ -1,6 +1,6 @@
 {
   "name": "@sumup/eslint-plugin-circuit-ui",
-  "version": "4.0.0",
+  "version": "3.1.0",
   "description": "ESLint rules to lint Circuit UI.",
   "keywords": [
     "sumup",
@@ -36,7 +36,7 @@
     "typescript": "^5.1.6"
   },
   "peerDependencies": {
-    "@sumup/circuit-ui": ">=7.1.0",
+    "@sumup/circuit-ui": ">=7.0.0",
     "@sumup/design-tokens": ">=6.0.0"
   }
 }
