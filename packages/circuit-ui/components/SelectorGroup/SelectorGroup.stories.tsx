@@ -15,6 +15,7 @@
 
 import { ChangeEvent, FocusEvent, useState } from 'react';
 import { action } from '@storybook/addon-actions';
+import { CardReaderAir, CardReaderSolo, MobilePhone } from '@sumup/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 import { Selector, SelectorProps } from '../Selector/Selector.js';
@@ -121,6 +122,35 @@ WithDescriptions.args = {
       label: 'Mango',
       description: 'Alphonso, Dasheri, or Haden',
       value: 'mango',
+    },
+  ],
+};
+
+export const WithIcons = (args: SelectorGroupProps) => (
+  <SelectorGroup {...args} />
+);
+
+WithIcons.args = {
+  name: 'icons',
+  label: 'Choose a device',
+  options: [
+    {
+      icon: CardReaderSolo,
+      label: 'SumUp Solo',
+      value: 'solo',
+      description: 'Accepts payments as a standalone device',
+    },
+    {
+      icon: CardReaderAir,
+      label: 'SumUp Air',
+      value: 'air',
+      description: 'Requires the free SumUp app to accept payments',
+    },
+    {
+      icon: MobilePhone,
+      label: 'Phone',
+      value: 'phone',
+      description: 'Accept payments using the free SumUp app',
     },
   ],
 };

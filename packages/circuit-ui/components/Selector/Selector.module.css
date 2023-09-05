@@ -28,7 +28,7 @@
 
 .base:disabled + .label::before,
 .base[disabled] + .label::before {
-  border: var(--cui-border-width-mega) solid var(--cui-border-normal-disabled);
+  border: var(--cui-border-width-kilo) solid var(--cui-border-normal-disabled);
 }
 
 .base:disabled:checked + .label,
@@ -116,4 +116,8 @@
 
 .title {
   font-weight: var(--cui-font-weight-bold);
+}
+
+.icon {
+  margin-bottom: var(--cui-spacings-bit);
 }

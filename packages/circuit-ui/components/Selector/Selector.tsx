@@ -21,6 +21,7 @@ import {
   useContext,
   useId,
 } from 'react';
+import type { IconComponentType } from '@sumup/icons';
 
 import {
   AccessibilityError,
@@ -45,6 +46,10 @@ export interface SelectorProps
    * A more detailed description of the input's purpose.
    */
   description?: string;
+  /**
+   * Display an icon in addition to the text to help to identify the option.
+   */
+  icon?: IconComponentType;
   /**
    * Value string for input.
    */
@@ -90,6 +95,7 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
     {
       label,
       description,
+      'icon': Icon,
       value,
       'id': customId,
       name,
@@ -165,6 +171,7 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
             hasDescription && classes['has-description'],
           )}
         >
+          {Icon && <Icon className={classes.icon} aria-hidden="true" />}
           {hasDescription ? (
             <Fragment>
               <span className={classes.title}>{label || children}</span>
