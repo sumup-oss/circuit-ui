@@ -1,5 +1,16 @@
 # @sumup/eslint-plugin-circuit-ui
 
+## 4.0.0
+
+### Minor Changes
+
+- [#2236](https://github.com/sumup-oss/circuit-ui/pull/2236) [`3fc4ef44`](https://github.com/sumup-oss/circuit-ui/commit/3fc4ef44fea5be861ac26fc210aeebafe5eb1760) Thanks [@connor-baer](https://github.com/connor-baer)! - Re-exported the RadioButton and Selector components as legacy components. They will be removed again in the next major release.
+
+### Patch Changes
+
+- Updated dependencies [[`7e5bbd57`](https://github.com/sumup-oss/circuit-ui/commit/7e5bbd57f01011bc3f928ba1255cfa908ea03294), [`4d67245d`](https://github.com/sumup-oss/circuit-ui/commit/4d67245da988f79d59d82d4fa3679341336b8d08), [`4df339ce`](https://github.com/sumup-oss/circuit-ui/commit/4df339ceae065c624fb313a8cc5b9522339c99c5), [`3fc4ef44`](https://github.com/sumup-oss/circuit-ui/commit/3fc4ef44fea5be861ac26fc210aeebafe5eb1760), [`24d746b0`](https://github.com/sumup-oss/circuit-ui/commit/24d746b0f41548c2d34582d86c854136258563d4)]:
+  - @sumup/circuit-ui@7.1.0
+
 ## 3.0.0
 
 ### Major Changes
