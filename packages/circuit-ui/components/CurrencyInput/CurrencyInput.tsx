@@ -15,7 +15,7 @@
 
 import { forwardRef, useId } from 'react';
 import { resolveCurrencyFormat } from '@sumup/intl';
-import { NumericFormat } from 'react-number-format';
+import { NumericFormat, NumericFormatProps } from 'react-number-format';
 
 import { clsx } from '../../styles/clsx.js';
 import Input, { InputElement, InputProps } from '../Input/index.js';
@@ -25,9 +25,10 @@ import classes from './CurrencyInput.module.css';
 
 export interface CurrencyInputProps
   extends Omit<
-    InputProps,
-    'placeholder' | 'ref' | 'value' | 'defaultValue' | 'type'
-  > {
+      InputProps,
+      'placeholder' | 'ref' | 'value' | 'defaultValue' | 'type'
+    >,
+    Pick<NumericFormatProps, 'onValueChange'> {
   /**
    * A ISO 4217 currency code, such as 'USD' for the US dollar,
    * 'EUR' for the Euro, or 'CNY' for the Chinese RMB.
