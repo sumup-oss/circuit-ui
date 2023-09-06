@@ -14,6 +14,7 @@
  */
 
 import {
+  ComponentType,
   Fragment,
   InputHTMLAttributes,
   createContext,
@@ -21,7 +22,6 @@ import {
   useContext,
   useId,
 } from 'react';
-import type { IconComponentType } from '@sumup/icons';
 
 import {
   AccessibilityError,
@@ -49,7 +49,7 @@ export interface SelectorProps
   /**
    * Display an icon in addition to the text to help to identify the option.
    */
-  icon?: IconComponentType;
+  icon?: ComponentType<{ 'className': string; 'aria-hidden': 'true' }>;
   /**
    * Value string for input.
    */
