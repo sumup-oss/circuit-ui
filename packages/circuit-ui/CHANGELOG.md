@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 7.1.1
+
+### Patch Changes
+
+- [#2239](https://github.com/sumup-oss/circuit-ui/pull/2239) [`3b8933f3`](https://github.com/sumup-oss/circuit-ui/commit/3b8933f34fbbe38a69ac46f6e22c00a6e16d6063) Thanks [@connor-baer](https://github.com/connor-baer)! - Widened the type for the SelectorGroup's new `icon` prop.
+
 ## 7.1.0
 
 ### Minor Changes
