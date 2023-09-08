@@ -837,7 +837,7 @@ export const light = [
   /* Typography */
   {
     name: '--cui-typography-headline-one-font-size',
-    value: '2rem',
+    value: '2.25rem',
     type: 'dimension',
   },
   {
@@ -862,27 +862,27 @@ export const light = [
   },
   {
     name: '--cui-typography-headline-three-line-height',
-    value: '1.5rem',
+    value: '1.375rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-headline-four-font-size',
-    value: '1.125rem',
+    value: '1rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-headline-four-line-height',
-    value: '1.5rem',
+    value: '1.125rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-title-one-font-size',
-    value: '7.5rem',
+    value: '8rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-title-one-line-height',
-    value: '7.5rem',
+    value: '8rem',
     type: 'dimension',
   },
   {
@@ -907,12 +907,12 @@ export const light = [
   },
   {
     name: '--cui-typography-title-four-font-size',
-    value: '3.5rem',
+    value: '3rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-title-four-line-height',
-    value: '3.5rem',
+    value: '3rem',
     type: 'dimension',
   },
   {
@@ -947,7 +947,7 @@ export const light = [
   },
   {
     name: '--cui-typography-body-large-font-size',
-    value: '1.25rem',
+    value: '1.125rem',
     type: 'dimension',
   },
   {

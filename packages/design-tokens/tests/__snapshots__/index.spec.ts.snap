@@ -189,21 +189,21 @@ exports[`Themes > light > should match the snapshot 1`] = `
       },
     },
     "bodyLarge": {
-      "fontSize": "1.25rem",
+      "fontSize": "1.125rem",
       "lineHeight": "1.75rem",
     },
     "headline": {
       "four": {
-        "fontSize": "1.125rem",
-        "lineHeight": "1.5rem",
+        "fontSize": "1rem",
+        "lineHeight": "1.125rem",
       },
       "one": {
-        "fontSize": "2rem",
+        "fontSize": "2.25rem",
         "lineHeight": "2.25rem",
       },
       "three": {
         "fontSize": "1.25rem",
-        "lineHeight": "1.5rem",
+        "lineHeight": "1.375rem",
       },
       "two": {
         "fontSize": "1.5rem",
@@ -216,12 +216,12 @@ exports[`Themes > light > should match the snapshot 1`] = `
     },
     "title": {
       "four": {
-        "fontSize": "3.5rem",
-        "lineHeight": "3.5rem",
+        "fontSize": "3rem",
+        "lineHeight": "3rem",
       },
       "one": {
-        "fontSize": "7.5rem",
-        "lineHeight": "7.5rem",
+        "fontSize": "8rem",
+        "lineHeight": "8rem",
       },
       "three": {
         "fontSize": "4rem",

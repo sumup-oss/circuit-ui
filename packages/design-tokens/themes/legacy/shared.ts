@@ -62,7 +62,7 @@ export const borderWidth: BorderWidth = {
 export const typography = {
   headline: {
     one: {
-      fontSize: '2rem',
+      fontSize: '2.25rem',
       lineHeight: '2.25rem',
     },
     two: {
@@ -71,17 +71,17 @@ export const typography = {
     },
     three: {
       fontSize: '1.25rem',
-      lineHeight: '1.5rem',
+      lineHeight: '1.375rem',
     },
     four: {
-      fontSize: '1.125rem',
-      lineHeight: '1.5rem',
+      fontSize: '1rem',
+      lineHeight: '1.125rem',
     },
   },
   title: {
     one: {
-      fontSize: '7.5rem',
-      lineHeight: '7.5rem',
+      fontSize: '8rem',
+      lineHeight: '8rem',
     },
     two: {
       fontSize: '6rem',
@@ -92,8 +92,8 @@ export const typography = {
       lineHeight: '4rem',
     },
     four: {
-      fontSize: '3.5rem',
-      lineHeight: '3.5rem',
+      fontSize: '3rem',
+      lineHeight: '3rem',
     },
   },
   subHeadline: {
@@ -111,7 +111,7 @@ export const typography = {
     },
   },
   bodyLarge: {
-    fontSize: '1.25rem',
+    fontSize: '1.125rem',
     lineHeight: '1.75rem',
   },
 };
