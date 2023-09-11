@@ -41,6 +41,7 @@ export const Title = forwardRef<HTMLHeadingElement, TitleProps>(
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
+      !process.env.UNSAFE_DISABLE_ELEMENT_ERRORS &&
       !as
     ) {
       throw new CircuitError('Title', 'The `as` prop is required.');
