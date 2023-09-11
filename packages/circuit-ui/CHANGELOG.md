@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 7.1.3
+
+### Patch Changes
+
+- [#2246](https://github.com/sumup-oss/circuit-ui/pull/2246) [`7c53988b`](https://github.com/sumup-oss/circuit-ui/commit/7c53988b3f98a52c426c9f3c731dbb9fd7823534) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the spacing inside a ButtonGroup.
+
+- [#2247](https://github.com/sumup-oss/circuit-ui/pull/2247) [`390d1e4e`](https://github.com/sumup-oss/circuit-ui/commit/390d1e4e62f9933b2638072ed2de4b542f1eaf48) Thanks [@connor-baer](https://github.com/connor-baer)! - Hid the Button's loading label in JSDOM environments.
+
 ## 7.1.2
 
 ### Patch Changes
