@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 7.1.2
+
+### Patch Changes
+
+- [#2244](https://github.com/sumup-oss/circuit-ui/pull/2244) [`7326063c`](https://github.com/sumup-oss/circuit-ui/commit/7326063c24e78b15ff66ba72c9b34d5e651bc180) Thanks [@connor-baer](https://github.com/connor-baer)! - Silenced the error for a missing `as` prop in the Title, Headline, and SubHeadline components in test environments.
+
+- [#2241](https://github.com/sumup-oss/circuit-ui/pull/2241) [`296709f8`](https://github.com/sumup-oss/circuit-ui/commit/296709f8b18aaeb9b5522a1ec49c341d4e0b9a3d) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a missing type for the `onValueChange` prop of the CurrencyInput.
+
 ## 7.1.1
 
 ### Patch Changes
