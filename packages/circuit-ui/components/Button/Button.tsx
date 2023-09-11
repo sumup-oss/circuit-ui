@@ -151,7 +151,11 @@ export const Button = forwardRef<any, ButtonProps>(
         )}
         ref={ref}
       >
-        <Spinner className={classes.spinner} size="byte">
+        <Spinner
+          className={classes.spinner}
+          size="byte"
+          aria-hidden={!isLoading}
+        >
           <span className={utilityClasses.hideVisually}>{loadingLabel}</span>
         </Spinner>
         <span className={classes.content}>
