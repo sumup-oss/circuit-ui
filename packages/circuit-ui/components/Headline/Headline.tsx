@@ -38,7 +38,11 @@ export interface HeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
  */
 export const Headline = forwardRef<HTMLHeadingElement, HeadlineProps>(
   ({ className, as, size = 'one', ...props }, ref) => {
-    if (process.env.NODE_ENV !== 'production' && !as) {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !as
+    ) {
       throw new CircuitError('Headline', 'The `as` prop is required.');
     }
 

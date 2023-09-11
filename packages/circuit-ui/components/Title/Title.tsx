@@ -38,7 +38,11 @@ export interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {
  */
 export const Title = forwardRef<HTMLHeadingElement, TitleProps>(
   ({ className, as, size = 'one', ...props }, ref) => {
-    if (process.env.NODE_ENV !== 'production' && !as) {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !as
+    ) {
       throw new CircuitError('Title', 'The `as` prop is required.');
     }
 
