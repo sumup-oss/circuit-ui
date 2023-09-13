@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 7.1.4
+
+### Patch Changes
+
+- [#2249](https://github.com/sumup-oss/circuit-ui/pull/2249) [`c44c6c58`](https://github.com/sumup-oss/circuit-ui/commit/c44c6c58ebc5a491897074b2ec2f13e3159867db) Thanks [@connor-baer](https://github.com/connor-baer)! - Increased the specificity of nested component styles.
+
 ## 7.1.3
 
 ### Patch Changes
