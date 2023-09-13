@@ -60,28 +60,27 @@
   top: 0;
 }
 
-/* The !important below is necessary because of some weird style specificity issues */
 @media (max-width: 479px) {
   .open {
-    transform: translateY(0) !important;
+    transform: translateY(0);
   }
 }
 
 @media (min-width: 480px) {
   .open {
-    opacity: 1 !important;
+    opacity: 1;
   }
 }
 
 @media (max-width: 479px) {
   .closed {
-    transform: translateY(100%) !important;
+    transform: translateY(100%);
   }
 }
 
 @media (min-width: 480px) {
   .closed {
-    opacity: 0 !important;
+    opacity: 0;
   }
 }
 
