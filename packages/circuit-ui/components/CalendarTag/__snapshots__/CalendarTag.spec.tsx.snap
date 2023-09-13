@@ -4,10 +4,10 @@ exports[`CalendarTag > should render with default styles 1`] = `
 <div>
   <div>
     <div
-      class="_container_5b7d65"
+      class="_base_5b7d65"
     >
       <button
-        class="_base_5b7d65 _focus-visible_73b4bb"
+        class="_content_5b7d65 _focus-visible_73b4bb"
         type="button"
       >
         Dates

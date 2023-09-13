@@ -5,27 +5,27 @@
   max-width: 420px;
 }
 
-.image {
+.base .image {
   max-width: 280px;
   height: 160px;
   object-fit: contain;
 }
 
-.image svg {
+.base .image svg {
   width: 100%;
   height: 100%;
 }
 
-.headline {
+.base .headline {
   margin-top: var(--cui-spacings-giga);
   margin-bottom: var(--cui-spacings-byte);
   text-align: center;
 }
 
-.body {
+.base .body {
   text-align: center;
 }
 
-.buttons {
+.base .buttons {
   margin-top: var(--cui-spacings-giga);
 }

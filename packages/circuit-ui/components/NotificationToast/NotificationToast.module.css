@@ -65,7 +65,7 @@
   padding-left: var(--cui-spacings-mega);
 }
 
-.close {
+.base .close {
   flex-grow: 0;
   flex-shrink: 0;
   align-self: flex-start;

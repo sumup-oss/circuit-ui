@@ -7,7 +7,7 @@
   overflow: hidden;
 }
 
-.child {
+.base .child {
   position: absolute;
   top: 0;
   right: 0;

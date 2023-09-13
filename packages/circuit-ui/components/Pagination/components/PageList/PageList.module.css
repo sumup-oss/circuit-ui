@@ -1,16 +1,15 @@
-
 .base {
   display: flex;
   justify-content: center;
   list-style: none;
 }
 
-.button {
+.base .button {
   min-width: 34px;
   padding: var(--cui-spacings-bit);
   margin-right: var(--cui-spacings-bit);
 }
 
-li:last-child .button {
+.base li:last-child .button {
   margin-right: 0;
 }
