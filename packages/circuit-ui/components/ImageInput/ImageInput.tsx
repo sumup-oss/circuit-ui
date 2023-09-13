@@ -229,7 +229,7 @@ export const ImageInput = ({
 
   return (
     <FieldWrapper className={className} style={style} disabled={disabled}>
-      <div onPaste={handlePaste} className={classes.wrapper}>
+      <div onPaste={handlePaste} className={classes.base}>
         <input
           className={clsx(classes.input, utilityClasses.hideVisually)}
           ref={inputRef}

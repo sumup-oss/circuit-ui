@@ -193,7 +193,7 @@
   margin-right: var(--cui-spacings-byte);
 }
 
-.spinner {
+.base .spinner {
   position: absolute;
   visibility: hidden;
   opacity: 0;
@@ -201,7 +201,7 @@
     visibility var(--cui-transitions-default);
 }
 
-[aria-busy="true"] .spinner {
+.base[aria-busy="true"] .spinner {
   visibility: inherit;
   opacity: 1;
 }

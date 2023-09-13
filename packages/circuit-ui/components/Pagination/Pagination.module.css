@@ -6,12 +6,12 @@
   padding: var(--cui-spacings-kilo);
 }
 
-.prev {
+.base .prev {
   flex-shrink: 0;
   margin-right: var(--cui-spacings-kilo);
 }
 
-.next {
+.base .next {
   flex-shrink: 0;
   margin-left: var(--cui-spacings-kilo);
 }

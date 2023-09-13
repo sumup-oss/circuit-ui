@@ -100,12 +100,13 @@ export type NotificationBannerProps = BaseProps & CloseProps;
 function NotificationImage({
   align = 'center',
   width = 200,
+  className,
   ...props
 }: NotificationImageProps) {
   return (
     <Image
       {...props}
-      className={classes.image}
+      className={clsx(classes.image, className)}
       style={{
         '--notification-image-align': align,
         '--notification-image-width': `${width}px`,

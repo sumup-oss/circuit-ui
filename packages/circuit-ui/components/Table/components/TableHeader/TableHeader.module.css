@@ -94,10 +94,6 @@
   box-shadow: 0 0 0 4px var(--cui-border-focus);
 }
 
-.base[aria-sort]:focus-within::after::-moz-focus-inner {
-  border: 0;
-}
-
 .base[aria-sort]:focus-within,
 .base[aria-sort]:hover {
   color: var(--cui-fg-accent-hovered);

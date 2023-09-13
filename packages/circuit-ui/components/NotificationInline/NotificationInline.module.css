@@ -64,24 +64,24 @@
   padding-left: var(--cui-spacings-mega);
 }
 
-.button {
+.base .button {
   margin-top: var(--cui-spacings-byte);
   font-weight: bold;
   color: var(--cui-fg-normal);
   text-decoration-line: underline;
 }
 
-.button:hover {
+.base .button:hover {
   color: var(--cui-fg-normal-hovered);
 }
 
-.button:active,
-.button[aria-expanded='true'],
-.button[aria-pressed='true'] {
+.base .button:active,
+.base .button[aria-expanded="true"],
+.base .button[aria-pressed="true"] {
   color: var(--cui-fg-normal-pressed);
 }
 
-.close {
+.base .close {
   flex-grow: 0;
   flex-shrink: 0;
   align-self: flex-start;

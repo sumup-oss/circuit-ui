@@ -101,13 +101,19 @@ export const Tag = forwardRef<HTMLDivElement & HTMLButtonElement, TagProps>(
     const isRemovable = onRemove && removeButtonLabel;
 
     return (
-      <div className={clsx(classes.container, className)} style={style}>
+      <div
+        className={clsx(
+          classes.base,
+          isRemovable && classes.removable,
+          selected && classes.selected,
+          className,
+        )}
+        style={style}
+      >
         <Element
           className={clsx(
-            classes.base,
-            isRemovable && classes.removable,
+            classes.content,
             onClick && utilityClasses.focusVisible,
-            selected && classes.selected,
           )}
           type={onClick && 'button'}
           onClick={onClick}

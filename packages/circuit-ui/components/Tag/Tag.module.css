@@ -1,11 +1,11 @@
-.container {
+.base {
   --tag-border-width: var(--cui-border-width-kilo);
 
   position: relative;
   display: inline-block;
 }
 
-.base {
+.content {
   display: inline-flex;
   align-items: center;
   padding: calc(var(--cui-spacings-bit) - 1px) var(--cui-spacings-kilo);
@@ -23,11 +23,11 @@
     border-color var(--cui-transitions-default);
 }
 
-.removable {
+.removable .content {
   padding-right: calc(var(--cui-spacings-bit) + var(--cui-spacings-tera));
 }
 
-.selected {
+.selected .content {
   color: var(--cui-fg-on-strong);
   background-color: var(--cui-bg-accent-strong);
   border-color: var(--cui-border-accent);
@@ -35,31 +35,31 @@
 
 /* Interactive */
 
-button.base {
+button.content {
   text-align: left;
   cursor: pointer;
   outline: 0;
 }
 
-button.base:hover {
+button.content:hover {
   color: var(--cui-fg-normal-hovered);
   background-color: var(--cui-bg-normal-hovered);
   border-color: var(--cui-border-normal-hovered);
 }
 
-button.base:active {
+button.content:active {
   color: var(--cui-fg-normal-pressed);
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
 }
 
-button.selected:hover {
+.selected button.content:hover {
   color: var(--cui-fg-on-strong-hovered);
   background-color: var(--cui-bg-accent-strong-hovered);
   border-color: var(--cui-border-accent-hovered);
 }
 
-button.selected:active {
+.selected button.content:active {
   color: var(--cui-fg-on-strong-pressed);
   background-color: var(--cui-bg-accent-strong-pressed);
   border-color: var(--cui-border-accent-pressed);
@@ -68,16 +68,16 @@ button.selected:active {
 .prefix {
   flex-shrink: 0;
   margin-right: var(--cui-spacings-bit);
-  margin-left: calc(-1 *var(--cui-spacings-bit));
+  margin-left: calc(-1 * var(--cui-spacings-bit));
 }
 
 .suffix {
   flex-shrink: 0;
-  margin-right: calc(-1 *var(--cui-spacings-bit));
+  margin-right: calc(-1 * var(--cui-spacings-bit));
   margin-left: var(--cui-spacings-bit);
 }
 
-.remove-button {
+.base .remove-button {
   position: absolute;
   top: 50%;
   right: var(--tag-border-width);

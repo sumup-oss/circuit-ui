@@ -1,4 +1,4 @@
-.wrapper {
+.base {
   position: relative;
   display: inline-block;
   text-align: center;
@@ -7,7 +7,6 @@
 .input:focus + label > *:last-child {
   outline: 0;
   box-shadow: 0 0 0 4px var(--cui-border-focus);
-
 }
 
 .input:focus + label > *:last-child::-moz-focus-inner {
@@ -18,11 +17,11 @@
   box-shadow: none;
 }
 
-.label {
+.base .label {
   cursor: pointer;
 }
 
-.label::before {
+.base .label::before {
   position: absolute;
   top: 0;
   left: 0%;
@@ -36,16 +35,16 @@
   transition: opacity var(--cui-transitions-default);
 }
 
-.label > *:last-child {
+.base .label > *:last-child {
   transition: box-shadow var(--cui-transitions-default);
 }
 
 @supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
-  .label{
+  .base .label {
     transition: filter var(--cui-transitions-default);
   }
 
-  .label::before {
+  .base .label::before {
     content: none;
   }
 }
@@ -72,7 +71,8 @@
 
 @supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
   .label.loading {
-    filter: brightness(0.6);}
+    filter: brightness(0.6);
+  }
 }
 
 .label:not(.loading):hover::before {
@@ -109,8 +109,9 @@
 }
 
 @supports (-webkit-filter: brightness(1)) or (filter: brightness(1)) {
-  .label.dragging{
-    filter: brightness(0.9);}
+  .label.dragging {
+    filter: brightness(0.9);
+  }
 }
 
 [data-disabled="true"] .label {
@@ -122,22 +123,22 @@
   border-color: var(--cui-border-danger-hovered);
 }
 
-.label:active  > button {
+.label:active > button {
   background-color: var(--cui-bg-danger-pressed);
   border-color: var(--cui-border-danger-pressed);
 }
 
-.button {
+.base .button {
   position: absolute;
   right: calc(-1 * var(--cui-spacings-bit));
   bottom: calc(-1 * var(--cui-spacings-bit));
 }
 
-.button.add {
+.base .button.add {
   pointer-events: none;
 }
 
-.spinner {
+.base .spinner {
   position: absolute;
   top: calc(50% - 16px);
   left: calc(50% - 16px);
@@ -151,7 +152,7 @@
     visibility var(--cui-transitions-default);
 }
 
-.spinner.loading {
+.base .spinner.loading {
   visibility: inherit;
   opacity: 1;
 }
