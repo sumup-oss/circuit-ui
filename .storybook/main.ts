@@ -41,6 +41,9 @@ const config: StorybookConfig = {
   },
   async viteFinal(config, { configType }) {
     return mergeConfig(config, {
+      define: {
+        'process.env.UNSAFE_DISABLE_ELEMENT_ERRORS': false,
+      },
       plugins:
         configType === 'PRODUCTION'
           ? [turbosnap({ rootDir: config.root ?? process.cwd() })]
