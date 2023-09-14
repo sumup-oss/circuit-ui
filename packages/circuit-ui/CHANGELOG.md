@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 7.1.5
+
+### Patch Changes
+
+- [`5db4aca3`](https://github.com/sumup-oss/circuit-ui/commit/5db4aca368f024d07dacaf8ecfeb1c952e33a38d) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed a style specificity issue affecting immersive Modals.
+
 ## 7.1.4
 
 ### Patch Changes
