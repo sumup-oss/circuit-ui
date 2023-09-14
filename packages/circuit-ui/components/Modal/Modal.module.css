@@ -49,15 +49,17 @@
   }
 }
 
+/* Variants */
+
 @media (max-width: 479px) {
   .contextual {
     border-top-left-radius: var(--cui-border-radius-mega);
     border-top-right-radius: var(--cui-border-radius-mega);
   }
-}
 
-.immersive {
-  top: 0;
+  .immersive {
+    top: 0;
+  }
 }
 
 @media (max-width: 479px) {
