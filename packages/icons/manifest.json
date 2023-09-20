@@ -212,6 +212,11 @@
       "size": "24"
     },
     {
+      "name": "refresh",
+      "category": "Action",
+      "size": "16"
+    },
+    {
       "name": "remove",
       "category": "Action",
       "size": "24"
