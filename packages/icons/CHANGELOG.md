@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 3.1.0
+
+### Minor Changes
+
+- [#2252](https://github.com/sumup-oss/circuit-ui/pull/2252) [`4f080121`](https://github.com/sumup-oss/circuit-ui/commit/4f08012109c62e03dab5611c1bd8a60ed3fc73c1) Thanks [@Zayebatsu](https://github.com/Zayebatsu)! - Added new icon `Refresh` in size 16.
+
 ## 3.0.0
 
 ### Major Changes

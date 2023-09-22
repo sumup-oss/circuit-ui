@@ -1,5 +1,14 @@
 # @sumup/circuit-ui
 
+## 8.0.0
+
+### Patch Changes
+
+- [#2254](https://github.com/sumup-oss/circuit-ui/pull/2254) [`17a9bcb3`](https://github.com/sumup-oss/circuit-ui/commit/17a9bcb383aba883bff5678c5371aa1e1f91771d) Thanks [@tareqlol](https://github.com/tareqlol)! - Fix style SearchInput clear icon
+
+- Updated dependencies [[`4f080121`](https://github.com/sumup-oss/circuit-ui/commit/4f08012109c62e03dab5611c1bd8a60ed3fc73c1)]:
+  - @sumup/icons@3.1.0
+
 ## 7.1.5
 
 ### Patch Changes
