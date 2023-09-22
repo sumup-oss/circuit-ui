@@ -1,6 +1,6 @@
 {
   "name": "@sumup/remix-template-circuit-ui",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -18,7 +18,7 @@
     "@remix-run/serve": "^1.18.1",
     "@sumup/circuit-ui": "^7.0.0",
     "@sumup/design-tokens": "^6.0.0",
-    "@sumup/icons": "^3.0.0",
+    "@sumup/icons": "^3.1.0",
     "@sumup/intl": "^1.5.0",
     "isbot": "^3.6.13",
     "react": "^18.2.0",
