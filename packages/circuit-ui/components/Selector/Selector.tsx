@@ -175,7 +175,9 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
           {hasDescription ? (
             <Fragment>
               <span className={classes.title}>{label || children}</span>
-              <span aria-hidden="true">{description}</span>
+              <span className={classes.description} aria-hidden="true">
+                {description}
+              </span>
             </Fragment>
           ) : (
             label || children

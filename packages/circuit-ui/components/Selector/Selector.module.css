@@ -56,6 +56,7 @@
   height: 100%;
   color: var(--cui-fg-normal);
   text-align: center;
+  white-space: nowrap;
   cursor: pointer;
   background-color: var(--cui-bg-normal);
   border-radius: var(--cui-border-radius-byte);
@@ -100,6 +101,7 @@
   text-align: start;
 }
 
+
 /* Sizes */
 
 .kilo {
@@ -116,6 +118,10 @@
 
 .title {
   font-weight: var(--cui-font-weight-bold);
+}
+
+.description {
+  white-space: initial;
 }
 
 .icon {
