@@ -103,11 +103,11 @@
 /* Sizes */
 
 .kilo {
-  padding: var(--cui-spacings-bit) var(--cui-spacings-mega);
+  padding: var(--cui-spacings-byte) var(--cui-spacings-kilo);
 }
 
 .mega {
-  padding: var(--cui-spacings-kilo) var(--cui-spacings-giga);
+  padding: var(--cui-spacings-kilo) var(--cui-spacings-mega);
 }
 
 .flexible {
