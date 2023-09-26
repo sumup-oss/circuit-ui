@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 7.1.7
+
+### Patch Changes
+
+- [#2257](https://github.com/sumup-oss/circuit-ui/pull/2257) [`e7307294`](https://github.com/sumup-oss/circuit-ui/commit/e73072947e0620004c2ef8f2d409b5c436eec341) Thanks [@tareqlol](https://github.com/tareqlol)! - Fix Checkbox custom id
+
+- [#2255](https://github.com/sumup-oss/circuit-ui/pull/2255) [`600eff2c`](https://github.com/sumup-oss/circuit-ui/commit/600eff2ca0d912d1691097d886aef3ca10375c36) Thanks [@tareqlol](https://github.com/tareqlol)! - Fixes Selector component size padding
+
 ## 7.1.6
 
 ### Patch Changes
