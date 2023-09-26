@@ -56,6 +56,7 @@
   height: 100%;
   color: var(--cui-fg-normal);
   text-align: center;
+  white-space: nowrap;
   cursor: pointer;
   background-color: var(--cui-bg-normal);
   border-radius: var(--cui-border-radius-byte);
@@ -100,14 +101,15 @@
   text-align: start;
 }
 
+
 /* Sizes */
 
 .kilo {
-  padding: var(--cui-spacings-bit) var(--cui-spacings-mega);
+  padding: var(--cui-spacings-byte) var(--cui-spacings-kilo);
 }
 
 .mega {
-  padding: var(--cui-spacings-kilo) var(--cui-spacings-giga);
+  padding: var(--cui-spacings-kilo) var(--cui-spacings-mega);
 }
 
 .flexible {
@@ -116,6 +118,10 @@
 
 .title {
   font-weight: var(--cui-font-weight-bold);
+}
+
+.description {
+  white-space: initial;
 }
 
 .icon {
