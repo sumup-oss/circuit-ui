@@ -127,7 +127,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             utilityClasses.hideVisually,
           )}
         />
-        <label htmlFor={id} className={classes.label}>
+        <label htmlFor={checkboxId} className={classes.label}>
           <span className={classes['label-text']}>
             {label || children}
             {optionalLabel ? (
