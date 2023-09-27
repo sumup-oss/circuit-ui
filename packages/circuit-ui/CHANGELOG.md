@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 7.1.8
+
+### Patch Changes
+
+- [#2259](https://github.com/sumup-oss/circuit-ui/pull/2259) [`07066f95`](https://github.com/sumup-oss/circuit-ui/commit/07066f95e84f1b53d45b396322936c96eaa14a77) Thanks [@tareqlol](https://github.com/tareqlol)! - Increase css specificity for ListItem child
+
 ## 7.1.7
 
 ### Patch Changes
