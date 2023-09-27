@@ -77,7 +77,7 @@
   border-top-width: 0;
 }
 
-.child {
+li .child {
   border: none;
   border-radius: calc(
     var(--cui-border-radius-mega) - var(--cui-border-width-mega)
