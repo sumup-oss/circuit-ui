@@ -116,6 +116,11 @@ type OnToggle = (open: boolean | ((prevOpen: boolean) => boolean)) => void;
 
 export interface PopoverProps {
   /**
+   * The class name to add to the Popover wrapper element.
+   * Defaults to ''.
+   */
+  className?: string;
+  /**
    * Determines whether the Popover is open or closed.
    */
   isOpen: boolean;
@@ -168,6 +173,7 @@ export const Popover = ({
   fallbackPlacements = ['top', 'right', 'left'],
   component: Component,
   offset,
+  className = '',
   ...props
 }: PopoverProps): JSX.Element | null => {
   const zIndex = useStackContext();
@@ -303,7 +309,7 @@ export const Popover = ({
         <div
           {...props}
           ref={refs.setFloating}
-          className={clsx(classes.wrapper, isOpen && classes.open)}
+          className={clsx(classes.wrapper, isOpen && classes.open, className)}
           // @ts-expect-error z-index can be a string
           style={
             isMobile
