@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 7.1.9
+
+### Patch Changes
+
+- [#2261](https://github.com/sumup-oss/circuit-ui/pull/2261) [`d6bb1bbc`](https://github.com/sumup-oss/circuit-ui/commit/d6bb1bbc76431f91cbde236047c91af709e6e653) Thanks [@tareqlol](https://github.com/tareqlol)! - Fixes missing className prop passed to the Popover component
+
 ## 7.1.8
 
 ### Patch Changes
