@@ -1,8 +1,8 @@
 /* Sizes */
-.kilo {
+button.kilo, a.kilo {
   padding: calc(var(--cui-spacings-byte) - var(--cui-border-width-kilo));
 }
 
-.giga {
+button.giga, a.giga {
   padding: calc(var(--cui-spacings-kilo) - var(--cui-border-width-kilo));
 }
