@@ -27,7 +27,7 @@
   height: 100%;
 }
 
-.hamburger{
+button.hamburger{
   padding: var(--cui-spacings-mega);
 
   /* The !important below is necessary to override the default hover styles. */
