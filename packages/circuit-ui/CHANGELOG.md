@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 7.1.10
+
+### Patch Changes
+
+- [#2264](https://github.com/sumup-oss/circuit-ui/pull/2264) [`6ad6fd6d`](https://github.com/sumup-oss/circuit-ui/commit/6ad6fd6d940a8781f82dd76df9fa7d662ce89836) Thanks [@tareqlol](https://github.com/tareqlol)! - Increase IconButton css specificity
+
 ## 7.1.9
 
 ### Patch Changes
