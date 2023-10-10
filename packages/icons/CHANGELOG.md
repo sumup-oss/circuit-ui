@@ -1,5 +1,12 @@
 # @sumup/icons
 
+## 3.2.0
+
+### Minor Changes
+
+- [#2274](https://github.com/sumup-oss/circuit-ui/pull/2274) [`61d5ca87`](https://github.com/sumup-oss/circuit-ui/commit/61d5ca8726bf80298d925a4410dd8aac8b972586) Thanks [@ToniPetrov03](https://github.com/ToniPetrov03)! - Added a new icon in size 24: `Moon`.
+  Added a new icon in size 24: `Sun`.
+
 ## 3.1.0
 
 ### Minor Changes
