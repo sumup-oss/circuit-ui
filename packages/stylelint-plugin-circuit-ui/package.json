@@ -28,7 +28,7 @@
   "devDependencies": {
     "@sumup/design-tokens": "^6.0.0-next",
     "@tsconfig/node18": "^18.2.1",
-    "jest-preset-stylelint": "^6.1.1",
+    "jest-preset-stylelint": "^6.2.0",
     "typescript": "^5.1.6"
   },
   "peerDependencies": {
