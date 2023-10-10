@@ -1107,6 +1107,11 @@
       "size": "24"
     },
     {
+      "name": "moon",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "package",
       "category": "Miscellaneous",
       "size": "24"
@@ -1158,6 +1163,11 @@
     },
     {
       "name": "sim_card",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "sun",
       "category": "Miscellaneous",
       "size": "24"
     },
