@@ -16,7 +16,7 @@
     "@remix-run/node": "^1.19.3",
     "@remix-run/react": "^1.18.1",
     "@remix-run/serve": "^1.18.1",
-    "@sumup/circuit-ui": "^8.0.0",
+    "@sumup/circuit-ui": "^7.1.11",
     "@sumup/design-tokens": "^6.0.0",
     "@sumup/icons": "^3.2.0",
     "@sumup/intl": "^1.5.0",
