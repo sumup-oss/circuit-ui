@@ -2,4 +2,4 @@
 '@sumup/icons': minor
 ---
 
-Added new icon `InterestOfBalance` in size 24.
+Added new icon `InterestOnBalance` in size 24.
