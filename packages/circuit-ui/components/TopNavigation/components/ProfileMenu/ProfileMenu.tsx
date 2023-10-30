@@ -84,6 +84,10 @@ export interface ProfileMenuProps extends ProfileProps {
    * Function that is called when opening and closing the ProfileMenu.
    */
   onToggle?: (isOpen: boolean) => void;
+  /**
+   * className for the Popover component.
+   */
+  className?: string | undefined;
 }
 
 export function ProfileMenu({
@@ -91,6 +95,7 @@ export function ProfileMenu({
   label,
   actions,
   onToggle,
+  className,
 }: ProfileMenuProps): JSX.Element {
   const [isOpen, setOpen] = useState(false);
   const offset = { mainAxis: 8, crossAxis: -16 };
@@ -111,6 +116,7 @@ export function ProfileMenu({
       actions={actions}
       placement="bottom-end"
       offset={offset}
+      className={className}
     />
   );
 }
