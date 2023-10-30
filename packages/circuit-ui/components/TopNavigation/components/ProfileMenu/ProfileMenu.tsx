@@ -115,6 +115,7 @@ export function ProfileMenu({
       )}
       actions={actions}
       placement="bottom-end"
+      fallbackPlacements={[]}
       offset={offset}
       className={className}
     />
