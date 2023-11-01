@@ -15,7 +15,7 @@
 
 import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
-import { Shop, SumUpLogo } from '@sumup/icons';
+import { Shop, SumUpLogo, Profile, Company } from '@sumup/icons';
 
 import { SideNavigation } from '../SideNavigation/index.js';
 import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories.js';
@@ -45,10 +45,6 @@ export const baseArgs: TopNavigationProps = {
       <SumUpLogo />
     </a>
   ),
-  user: {
-    name: 'Jane Doe',
-    id: 'ID: AC3YULT8',
-  },
   profileMenu: {
     label: 'Open profile menu',
     actions: [
@@ -76,6 +72,50 @@ export const baseArgs: TopNavigationProps = {
       onClick: action('Shop'),
     },
   ],
+  items: [
+    {
+      icon: Profile,
+      label: 'Open profile menu',
+      title: 'Jane Doe',
+      subtitle: 'jane.doe@sumup.com',
+      actions:[
+      {
+        onClick: action('View profile'),
+        children: 'View profile',
+      },
+      {
+        onClick: action('Settings'),
+        children: 'Settings',
+      },
+      { type: 'divider' },
+      {
+        onClick: action('Logout'),
+        children: 'Logout',
+        destructive: true,
+      },
+      ]
+    },
+    {
+      icon: Company,
+      label: "Merchant",
+      title: "MK0001",
+      actions:[
+      {
+        onClick: action('MK0001'),
+        children: 'MK0001',
+      },
+      {
+        onClick: action('MQOP09'),
+        children: 'MQOP09',
+      },
+      { type: 'divider' },
+      {
+        onClick: action('New Account'),
+        children: 'New Account',
+      },
+      ]
+    },
+  ]
 };
 
 export const Base = (args: TopNavigationProps) => <TopNavigation {...args} />;

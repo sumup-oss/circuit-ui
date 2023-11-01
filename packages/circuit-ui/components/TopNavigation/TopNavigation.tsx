@@ -30,6 +30,7 @@ import {
 } from './components/UtilityLinks/index.js';
 import { UserProps } from './types.js';
 import classes from './TopNavigation.module.css';
+import { NavigationMenu, NavigationMenuProps } from './components/NavigationMenu/NavigationMenu.js';
 
 /**
  * @deprecated Use the `var(--top-navigation-height)` CSS variable instead.
@@ -41,9 +42,20 @@ export interface TopNavigationProps
     HTMLAttributes<HTMLElement> {
   logo: ReactNode;
   hamburger?: HamburgerProps;
-  user: UserProps;
-  profileMenu: Omit<ProfileMenuProps, 'user'>;
   isLoading?: boolean;
+  /**
+   * List of navigation menu items to display.
+   * The items are displayed right to left.
+   */
+  items?: NavigationMenuProps[];
+  /**
+   * @deprecated Use the `items` instead.
+   */
+  user?: UserProps;
+  /**
+   * @deprecated Use the `items` instead.
+   */
+  profileMenu: Omit<ProfileMenuProps, 'user'>;
 }
 
 export function TopNavigation({
@@ -54,6 +66,7 @@ export function TopNavigation({
   hamburger,
   isLoading,
   className,
+  items,
   ...props
 }: TopNavigationProps) {
   useEffect(() => {
@@ -87,7 +100,10 @@ export function TopNavigation({
         isLoading={Boolean(isLoading)}
       >
         {links && <UtilityLinks links={links} />}
-        <ProfileMenu {...profileMenu} user={user} />
+        {user && <ProfileMenu {...profileMenu} user={user} />}
+        {items && items.reverse().map(({ title, ...props }) => (
+          <NavigationMenu title={title} key={title} {...props}/>
+        ))}
       </SkeletonContainer>
     </header>
   );
