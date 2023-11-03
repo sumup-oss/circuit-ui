@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 3.3.0
+
+### Minor Changes
+
+- [#2278](https://github.com/sumup-oss/circuit-ui/pull/2278) [`b2edba64`](https://github.com/sumup-oss/circuit-ui/commit/b2edba6482851cfa4c8726a1706e6b862a8c7073) Thanks [@giedoka](https://github.com/giedoka)! - Added new icon `InterestOnBalance` in size 24.
+
 ## 3.2.0
 
 ### Minor Changes

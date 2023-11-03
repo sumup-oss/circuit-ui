@@ -1,5 +1,16 @@
 # @sumup/circuit-ui
 
+## 8.0.0
+
+### Minor Changes
+
+- [#2280](https://github.com/sumup-oss/circuit-ui/pull/2280) [`2897ec7a`](https://github.com/sumup-oss/circuit-ui/commit/2897ec7a1e6ca361fabaeced894064101cdd894e) Thanks [@tranhoangan22](https://github.com/tranhoangan22)! - Inside `TopNavigation`, extended `ProfileMenu`'s props to accept a class name to be passed to the `ProfileMenu`'s `PopOver` component. Passed an empty array for the `fallbackPlacements` prop to the `PopOver` used by `TopNavigation` to disable the flipping behavior.
+
+### Patch Changes
+
+- Updated dependencies [[`b2edba64`](https://github.com/sumup-oss/circuit-ui/commit/b2edba6482851cfa4c8726a1706e6b862a8c7073)]:
+  - @sumup/icons@3.3.0
+
 ## 7.1.11
 
 ### Patch Changes
