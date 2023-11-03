@@ -67,6 +67,7 @@ export const baseArgs: TopNavigationProps = {
         destructive: true,
       },
     ],
+    className: 'custom-class-name',
   },
   links: [
     {
