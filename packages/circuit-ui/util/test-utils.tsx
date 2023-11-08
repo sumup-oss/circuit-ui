@@ -14,7 +14,7 @@
  */
 
 import { FunctionComponent, ReactElement, PropsWithChildren } from 'react';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom/vitest';
 import { configureAxe } from 'jest-axe';
 import {
   render as renderTest,

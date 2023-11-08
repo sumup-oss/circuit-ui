@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom/vitest';
 import { vi } from 'vitest';
 import { createSerializer } from '@emotion/jest';
 import { toHaveNoViolations } from 'jest-axe';
