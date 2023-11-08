@@ -14,7 +14,7 @@ jobs:
         template:
           [
             'npx create-next-app --example "https://github.com/sumup-oss/circuit-ui/tree/main/packages/cna-template/template" test-app',
-            'npx create-remix@latest ./test-app --template https://github.com/sumup-oss/circuit-ui/tree/main/packages/remix-template --typescript --install',
+            'npx create-remix@latest ./test-app --template https://github.com/sumup-oss/circuit-ui/tree/main/packages/remix-template --install --no-git-init',
           ]
     steps:
       - name: Checkout repository
