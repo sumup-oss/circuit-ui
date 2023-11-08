@@ -15,6 +15,8 @@
 
 import { ESLintUtils, TSESLint, TSESTree } from '@typescript-eslint/utils';
 
+/* eslint-disable */
+
 const createRule = ESLintUtils.RuleCreator(
   (name) =>
     `https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/${name}`,

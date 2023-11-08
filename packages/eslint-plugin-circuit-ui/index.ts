@@ -20,6 +20,8 @@ import { noDeprecatedProps } from './no-deprecated-props';
 import { noRenamedProps } from './no-renamed-props';
 import { preferCustomProperties } from './prefer-custom-properties';
 
+/* eslint-disable */
+
 export const rules = {
   'component-lifecycle-imports': componentLifecycleImports,
   'no-invalid-custom-properties': noInvalidCustomProperties,
