@@ -1,5 +1,15 @@
 # @sumup/circuit-ui
 
+## 7.2.1
+
+### Patch Changes
+
+- [#2282](https://github.com/sumup-oss/circuit-ui/pull/2282) [`6402e293`](https://github.com/sumup-oss/circuit-ui/commit/6402e2932c71430d70246b88dd16f438a4386c0f) Thanks [@dependabot](https://github.com/apps/dependabot)! - Safely access `process.env` environment variables other than `NODE_ENV`.
+
+- [#2289](https://github.com/sumup-oss/circuit-ui/pull/2289) [`b75f63a5`](https://github.com/sumup-oss/circuit-ui/commit/b75f63a50177a7c978112072c07e416175d85136) Thanks [@connor-baer](https://github.com/connor-baer)! - Scroll Popover content when it overflows vertically.
+
+- [#2287](https://github.com/sumup-oss/circuit-ui/pull/2287) [`6a026a8d`](https://github.com/sumup-oss/circuit-ui/commit/6a026a8dbb9cd50764a73c66da514a2ee5243408) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the Button text disappearing when a parent element has `aria-busy="true"`.
+
 ## 7.2.0
 
 ### Minor Changes
