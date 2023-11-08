@@ -41,7 +41,7 @@ export const Headline = forwardRef<HTMLHeadingElement, HeadlineProps>(
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
-      !process.env.UNSAFE_DISABLE_ELEMENT_ERRORS &&
+      !process?.env?.UNSAFE_DISABLE_ELEMENT_ERRORS &&
       !as
     ) {
       throw new CircuitError('Headline', 'The `as` prop is required.');

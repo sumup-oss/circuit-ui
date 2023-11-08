@@ -1,4 +1,4 @@
-import type { V2_MetaFunction } from '@remix-run/node';
+import type { MetaFunction } from '@remix-run/node';
 import { Title, BodyLarge } from '@sumup/circuit-ui';
 
 import { DocCard } from '../../components/DocCard';
@@ -7,7 +7,7 @@ import styles from './route.module.css';
 
 const title = 'Welcome to Circuit UI + Remix';
 
-export const meta: V2_MetaFunction = () => [
+export const meta: MetaFunction = () => [
   { title },
   {
     name: 'description',
