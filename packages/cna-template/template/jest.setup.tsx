@@ -2,7 +2,7 @@
  * Add custom Jest matchers for the DOM.
  * https://github.com/testing-library/jest-dom#custom-matchers
  */
-import '@testing-library/jest-dom/jest-globals';
+import '@testing-library/jest-dom';
 
 import { toHaveNoViolations } from 'jest-axe';
 
