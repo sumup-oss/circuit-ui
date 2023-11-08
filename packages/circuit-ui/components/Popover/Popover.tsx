@@ -117,7 +117,6 @@ type OnToggle = (open: boolean | ((prevOpen: boolean) => boolean)) => void;
 export interface PopoverProps {
   /**
    * The class name to add to the Popover wrapper element.
-   * Defaults to ''.
    */
   className?: string;
   /**
@@ -173,7 +172,7 @@ export const Popover = ({
   fallbackPlacements = ['top', 'right', 'left'],
   component: Component,
   offset,
-  className = '',
+  className,
   ...props
 }: PopoverProps): JSX.Element | null => {
   const zIndex = useStackContext();

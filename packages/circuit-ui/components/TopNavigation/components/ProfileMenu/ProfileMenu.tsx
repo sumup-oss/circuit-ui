@@ -85,9 +85,9 @@ export interface ProfileMenuProps extends ProfileProps {
    */
   onToggle?: (isOpen: boolean) => void;
   /**
-   * className for the Popover component.
+   * A class name for the Popover component.
    */
-  className?: string | undefined;
+  className?: string;
 }
 
 export function ProfileMenu({

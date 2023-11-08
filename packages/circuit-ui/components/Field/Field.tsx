@@ -38,7 +38,7 @@ export interface FieldWrapperProps extends HTMLAttributes<HTMLDivElement> {
  * @private
  */
 export const FieldWrapper = forwardRef<HTMLDivElement, FieldWrapperProps>(
-  ({ children, disabled, className = '', ...props }, ref) => (
+  ({ children, disabled, className, ...props }, ref) => (
     <div
       ref={ref}
       data-disabled={disabled}

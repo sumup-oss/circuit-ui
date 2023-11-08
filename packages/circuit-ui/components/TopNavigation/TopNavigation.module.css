@@ -27,7 +27,7 @@
   height: 100%;
 }
 
-button.hamburger{
+button.hamburger {
   padding: var(--cui-spacings-mega);
 
   /* The !important below is necessary to override the default hover styles. */
@@ -36,7 +36,7 @@ button.hamburger{
 }
 
 @media (min-width: 1280px) {
-  .hamburger{
+  button.hamburger {
     display: none;
   }
 }
