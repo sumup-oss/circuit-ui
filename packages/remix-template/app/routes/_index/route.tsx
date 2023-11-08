@@ -1,7 +1,7 @@
 import type { MetaFunction } from '@remix-run/node';
 import { Title, BodyLarge } from '@sumup/circuit-ui';
 
-import { DocCard } from '../../components/DocCard';
+import { DocCard } from '../../components/DocCard/index.js';
 
 import styles from './route.module.css';
 

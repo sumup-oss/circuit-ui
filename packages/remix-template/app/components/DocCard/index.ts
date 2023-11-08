@@ -1,1 +1,1 @@
-export { DocCard } from './DocCard';
+export { DocCard } from './DocCard.jsx';
