@@ -217,7 +217,7 @@
   transform: scale3d(1, 1, 1);
 }
 
-[aria-busy="true"] .content {
+.base[aria-busy="true"] .content {
   visibility: hidden;
   opacity: 0;
   transform: scale3d(0, 0, 0);
