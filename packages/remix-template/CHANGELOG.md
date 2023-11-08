@@ -1,5 +1,11 @@
 # @sumup/remix-template-circuit-ui
 
+## 2.0.0
+
+### Major Changes
+
+- [#2282](https://github.com/sumup-oss/circuit-ui/pull/2282) [`6402e293`](https://github.com/sumup-oss/circuit-ui/commit/6402e2932c71430d70246b88dd16f438a4386c0f) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded the template to [Remix 2](https://remix.run/blog/remix-v2).
+
 ## 1.1.3
 
 ### Patch Changes
