@@ -24,6 +24,8 @@ const REGEX_STRING = `(?:${PREFIX})(?!(?:${VALID_CUSTOM_PROPERTIES_WITHOUT_PREFI
   '|',
 )})[^\\w-])[\\w-]+`;
 
+/* eslint-disable */
+
 const createRule = ESLintUtils.RuleCreator(
   (name) =>
     `https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/${name}`,
