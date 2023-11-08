@@ -18,13 +18,32 @@
 
 .menu {
   box-sizing: border-box;
+  max-height: var(--popover-max-height);
   padding: var(--cui-spacings-byte) 0;
+  overflow-y: auto;
   visibility: hidden;
   background-color: var(--cui-bg-elevated);
   border: 1px solid var(--cui-border-subtle);
   border-radius: var(--cui-border-radius-byte);
   box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
   opacity: 0;
+}
+
+.wrapper::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  height: var(--cui-spacings-kilo);
+  content: '';
+  background: linear-gradient(
+    rgb(255 255 255 / 0%),
+    rgb(255 255 255 / 66%),
+    rgb(255 255 255 / 100%)
+  );
+  border-bottom-right-radius: var(--cui-border-radius-byte);
+  border-bottom-left-radius: var(--cui-border-radius-byte);
 }
 
 @media (max-width: 479px) {

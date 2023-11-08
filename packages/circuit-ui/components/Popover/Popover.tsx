@@ -26,7 +26,9 @@ import {
   useFloating,
   flip,
   offset as offsetMiddleware,
-  Placement,
+  type Placement,
+  size,
+  type SizeOptions,
 } from '@floating-ui/react-dom';
 import type { IconComponentType } from '@sumup/icons';
 
@@ -164,6 +166,15 @@ export interface PopoverProps {
 
 type TriggerKey = 'ArrowUp' | 'ArrowDown';
 
+const sizeOptions: SizeOptions = {
+  apply({ availableHeight, elements }) {
+    elements.floating.style.setProperty(
+      '--popover-max-height',
+      `${availableHeight}px`,
+    );
+  },
+};
+
 export const Popover = ({
   isOpen = false,
   onToggle,
@@ -185,8 +196,12 @@ export const Popover = ({
     placement,
     strategy: 'fixed',
     middleware: offset
-      ? [offsetMiddleware(offset), flip({ fallbackPlacements })]
-      : [flip({ fallbackPlacements })],
+      ? [
+          offsetMiddleware(offset),
+          flip({ fallbackPlacements }),
+          size(sizeOptions),
+        ]
+      : [flip({ fallbackPlacements }), size(sizeOptions)],
   });
 
   // This is a performance optimization to prevent event listeners from being
