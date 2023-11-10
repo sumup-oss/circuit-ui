@@ -1,24 +1,25 @@
+import type { Metadata } from 'next';
 import { Title, BodyLarge } from '@sumup/circuit-ui';
+import { SumUpLogo } from '@sumup/icons';
 
-import { RootLayout } from '../layouts/Root';
-import { Meta } from '../components/Meta';
 import { DocCard } from '../components/DocCard';
 
-import styles from './index.module.css';
+import styles from './page.module.css';
 
-const title = 'Welcome to Circuit UI + Next.js';
+export const metadata: Metadata = {
+  title: 'Welcome to Circuit UI + Next.js',
+};
 
 export default function Page() {
   return (
-    <>
-      <Meta title={title} path="/" />
-      <RootLayout>
+    <div className={styles.grid}>
+      <main className={styles.main}>
         <Title as="h1" size="three">
-          {title}
+          {metadata.title as string}
         </Title>
 
         <BodyLarge className={styles.intro}>
-          Get started by editing <code>pages/index.tsx</code>
+          Get started by editing <code>app/page.tsx</code>
         </BodyLarge>
 
         <div className={styles.cards}>
@@ -40,7 +41,17 @@ export default function Page() {
             href="https://github.com/sumup-oss/foundry"
           />
         </div>
-      </RootLayout>
-    </>
+      </main>
+      <footer className={styles.footer}>
+        <a
+          href="https://sumup.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open SumUp's homepage in a new tab"
+        >
+          <SumUpLogo className={styles.logo} />
+        </a>
+      </footer>
+    </div>
   );
 }
