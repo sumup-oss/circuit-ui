@@ -1,5 +1,11 @@
 # @sumup/cna-template
 
+## 5.0.0
+
+### Major Changes
+
+- [#2290](https://github.com/sumup-oss/circuit-ui/pull/2290) [`7a2c36dc`](https://github.com/sumup-oss/circuit-ui/commit/7a2c36dc4e6a01a04ab715e34dc152b6ad6b6592) Thanks [@connor-baer](https://github.com/connor-baer)! - Upgraded to Next.js 14 and migrated to the `/app` folder.
+
 ## 4.1.0
 
 ### Minor Changes
