@@ -14,16 +14,16 @@
     "lint:fix": "npm run lint -- --fix"
   },
   "dependencies": {
-    "@astrojs/react": "^3.0.0",
-    "@sumup/circuit-ui": "^7.0.4",
+    "@astrojs/react": "^3.0.4",
+    "@sumup/circuit-ui": "^7.2.1",
     "@sumup/design-tokens": "^6.0.0",
-    "@sumup/icons": "^3.0.0",
-    "@sumup/intl": "^1.5.0",
-    "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
-    "astro": "^3.0.3",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "@sumup/icons": "^3.3.0",
+    "@sumup/intl": "^1.6.0",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "astro": "^3.5.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@sumup/foundry": "^6.1.0",
