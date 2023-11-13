@@ -50,6 +50,15 @@ describe('PrimaryLink', () => {
     expect(getByRole('link')).toHaveAttribute('aria-current', 'page');
   });
 
+  it('should render with an active icon', () => {
+    const { getByTestId } = renderPrimaryLink(render, {
+      ...baseProps,
+      activeIcon: () => <div data-testid="active-icon" />,
+      isActive: true,
+    });
+    expect(getByTestId('active-icon')).toBeVisible();
+  });
+
   it.todo('should render with an external icon');
 
   it('should render with a suffix icon', () => {
