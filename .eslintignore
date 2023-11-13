@@ -7,8 +7,9 @@ scripts/
 .out/
 __coverage__/
 __reports__/
-*.config.js
-*rc.js
+*.config.*
+*rc.*
 scripts/
-# disable linting for the template because it will have its own rules when used in a new app
+# disable linting for templates because it will have its own rules when used in a new app
 packages/cna-template/template
+packages/astro-template/src/env.d.ts
