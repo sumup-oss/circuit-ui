@@ -22,7 +22,9 @@ const puppeteer = require('puppeteer');
   const expected = 'Welcome to Circuit UI';
 
   try {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+      headless: 'new',
+    });
     const page = await browser.newPage();
 
     await page.goto('http://localhost:3000');
