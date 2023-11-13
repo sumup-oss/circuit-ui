@@ -32,7 +32,8 @@ export interface PrimaryLinkProps extends PrimaryLinkType {
 }
 
 export function PrimaryLink({
-  icon: Icon,
+  icon,
+  activeIcon,
   label,
   isActive,
   isExternal,
@@ -50,6 +51,8 @@ export function PrimaryLink({
     <Suffix className={classes.suffix} role="presentation" />
   );
   const isExternalLink = isExternal || props.target === '_blank';
+
+  const Icon = isActive && activeIcon ? activeIcon : icon;
 
   return (
     <Element

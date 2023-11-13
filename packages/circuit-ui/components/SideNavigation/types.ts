@@ -26,6 +26,10 @@ export interface PrimaryLinkProps
    */
   icon: IconComponentType;
   /**
+   * Display a different icon when the link is active.
+   */
+  activeIcon?: IconComponentType;
+  /**
    * Short label to describe the target of the link.
    */
   label: string;
