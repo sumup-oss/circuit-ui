@@ -66,6 +66,7 @@
     "jsdom": "^22.1.0",
     "lerna": "^7.1.4",
     "license-checker": "^25.0.1",
+    "prettier-plugin-astro": "0.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "remark-gfm": "^3.0.1",

@@ -11,7 +11,7 @@ template for Circuit UI + Remix apps with SumUp's frontend stack.
 
 ## 💻 Prerequisites
 
-- You should have **Node.js** installed at a version equal to or above **`v16.0.0`**.
+- You should have **Node.js** installed at a version equal to or above **`v18.0.0`**.
 
 ## ✨ Setting up a new project
 

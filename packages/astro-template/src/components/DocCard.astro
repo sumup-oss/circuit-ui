@@ -1,0 +1,47 @@
+---
+import { Body, Card, Headline } from '@sumup/circuit-ui';
+import { uniqueId } from '@sumup/circuit-ui/legacy';
+
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+}
+
+const { title, description, href } = Astro.props;
+const descriptionId = uniqueId();
+---
+
+<Card>
+  <Headline as="h2" className="title">
+    <a
+      href={href}
+      target="_blank"
+      aria-describedby={descriptionId}
+      rel="noreferrer"
+    >
+      {title}
+    </a>
+  </Headline>
+  <Body id={descriptionId}>{description}</Body>
+</Card>
+
+<style>
+  .title {
+    margin-bottom: var(--cui-spacings-byte);
+  }
+
+  .title::after {
+    content: ' →';
+  }
+
+  .title a {
+    color: var(--cui-fg-normal);
+    text-decoration: none;
+  }
+
+  .title a:hover,
+  .title a:focus-visible {
+    text-decoration: underline;
+  }
+</style>

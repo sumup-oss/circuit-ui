@@ -16,7 +16,7 @@
 const puppeteer = require('puppeteer');
 
 /**
- * This script is used to check for runtime errors in `packages/cna-template` and `packages/remix-template`.
+ * This script is used to check for runtime errors in the app templates.
  */
 (async () => {
   const expected = 'Welcome to Circuit UI';
