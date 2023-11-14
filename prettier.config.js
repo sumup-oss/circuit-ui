@@ -13,4 +13,13 @@
  * limitations under the License.
  */
 
-module.exports = require('@sumup/foundry/prettier')();
+module.exports = require('@sumup/foundry/prettier')({
+  overrides: [
+    {
+      files: '*.css',
+      options: {
+        singleQuote: false,
+      },
+    },
+  ],
+});
