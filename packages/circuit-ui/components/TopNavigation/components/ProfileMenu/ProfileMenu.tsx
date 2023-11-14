@@ -39,6 +39,10 @@ interface ProfileProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 function Profile({ user, label, className, ...props }: ProfileProps) {
+  const ariaLabel = [user.name, user.id]
+    .filter((part) => Boolean(part))
+    .join(', ');
+
   return (
     <button
       {...props}
@@ -49,7 +53,7 @@ function Profile({ user, label, className, ...props }: ProfileProps) {
         className,
       )}
       type="button"
-      aria-label={label}
+      aria-label={ariaLabel}
       title={label}
     >
       <Skeleton circle>
