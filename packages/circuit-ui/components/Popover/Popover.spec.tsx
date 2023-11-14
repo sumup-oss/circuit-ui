@@ -264,11 +264,11 @@ describe('Popover', () => {
     });
   });
 
-  it('should render items as role=menuitem and dividers as role=presentation', async () => {
-    renderPopover(baseProps);
+  it('should render items as role=menuitem and dividers as aria-hidden', async () => {
+    const { baseElement } = renderPopover(baseProps);
 
     const items = screen.getAllByRole('menuitem');
-    const dividers = screen.getAllByRole('presentation');
+    const dividers = baseElement.querySelectorAll('hr[aria-hidden="true"');
     expect(items.length).toBe(2);
     expect(dividers.length).toBe(1);
 
