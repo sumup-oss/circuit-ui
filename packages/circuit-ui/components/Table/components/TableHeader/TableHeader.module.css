@@ -35,12 +35,8 @@
     left: 100%;
     width: 6px;
     height: 100%;
-    content: '';
-    background: linear-gradient(
-      90deg,
-      rgb(0 0 0 / 12%),
-      rgb(255 255 255 / 0%)
-    );
+    content: "";
+    background: linear-gradient(90deg, rgb(0 0 0 / 12%), rgb(255 255 255 / 0%));
   }
 }
 
@@ -89,9 +85,9 @@
   display: block;
   width: 100%;
   height: 100%;
-  content: '';
+  content: "";
   outline: 0;
-  box-shadow: 0 0 0 4px var(--cui-border-focus);
+  box-shadow: 0 0 0 2px var(--cui-bg-normal), 0 0 0 4px var(--cui-border-focus);
 }
 
 .base[aria-sort]:focus-within,
@@ -100,7 +96,8 @@
   background-color: var(--cui-bg-normal-hovered);
 }
 
-.base[aria-sort]:focus-within > button,.base[aria-sort]:hover > button {
+.base[aria-sort]:focus-within > button,
+.base[aria-sort]:hover > button {
   opacity: 1;
 }
 

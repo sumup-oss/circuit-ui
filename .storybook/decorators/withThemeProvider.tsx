@@ -153,7 +153,7 @@ const lightTheme = css`
     /* Special colors */
     --cui-bg-overlay: rgba(0, 0, 0, 0.4);
     --cui-bg-elevated: #ffffff;
-    --cui-border-focus: #d8dde1;
+    --cui-border-focus: #000000;
   }
 `;
 
@@ -308,7 +308,7 @@ const darkTheme = css`
     /* Special colors */
     --cui-bg-overlay: rgba(0, 0, 0, 0.4);
     --cui-bg-elevated: #ffffff;
-    --cui-border-focus: #ebf4ff;
+    --cui-border-focus: #3064e3;
   }
 `;
 

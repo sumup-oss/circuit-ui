@@ -14,7 +14,7 @@
   display: block;
   width: 18px;
   height: 18px;
-  content: '';
+  content: "";
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-normal);
   border-radius: 100%;
@@ -32,7 +32,7 @@
   display: block;
   width: 10px;
   height: 10px;
-  content: '';
+  content: "";
   background-color: var(--cui-fg-accent);
   border-radius: 100%;
   opacity: 0;
@@ -48,7 +48,7 @@
 .base:focus + label::before {
   border-color: var(--cui-border-accent);
   outline: 0;
-  box-shadow: 0 0 0 4px var(--cui-border-focus);
+  box-shadow: 0 0 0 2px var(--cui-bg-normal), 0 0 0 4px var(--cui-border-focus);
 }
 
 .base:focus:not(:focus-visible) + label::before {
@@ -98,20 +98,20 @@
 
 /* Invalid */
 
-[aria-invalid='true'] .base:not(:focus) + .label::before {
+[aria-invalid="true"] .base:not(:focus) + .label::before {
   background-color: var(--cui-bg-danger);
   border-color: var(--cui-border-danger);
 }
 
-[aria-invalid='true'] .base:not(:focus) + .label::after {
+[aria-invalid="true"] .base:not(:focus) + .label::after {
   background-color: var(--cui-fg-danger);
 }
 
-[aria-invalid='true'] .base:hover + .label::before,
-[aria-invalid='true'] .base:focus + .label::before {
+[aria-invalid="true"] .base:hover + .label::before,
+[aria-invalid="true"] .base:focus + .label::before {
   border-color: var(--cui-border-danger-hovered);
 }
 
-[aria-invalid='true'] .base:checked + .label::before {
+[aria-invalid="true"] .base:checked + .label::before {
   border-color: var(--cui-border-danger);
 }

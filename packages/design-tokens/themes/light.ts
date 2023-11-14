@@ -687,7 +687,7 @@ export const light = [
   },
   {
     name: '--cui-border-focus',
-    value: '#ebf4ff',
+    value: '#3064e3',
     type: 'color',
   },
   /* Border radii */
