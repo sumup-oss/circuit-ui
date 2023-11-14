@@ -1,5 +1,11 @@
 # @sumup/design-tokens
 
+## 6.1.0
+
+### Minor Changes
+
+- [#2296](https://github.com/sumup-oss/circuit-ui/pull/2296) [`bd4e7ec0`](https://github.com/sumup-oss/circuit-ui/commit/bd4e7ec091a05e526b01f94dcce9d37265c659e7) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the `--cui-border-focus` color token to meet contrast requirements.
+
 ## 6.0.0
 
 ### Minor Changes

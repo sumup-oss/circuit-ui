@@ -1,5 +1,24 @@
 # @sumup/circuit-ui
 
+## 7.3.0
+
+### Minor Changes
+
+- [#2296](https://github.com/sumup-oss/circuit-ui/pull/2296) [`bd4e7ec0`](https://github.com/sumup-oss/circuit-ui/commit/bd4e7ec091a05e526b01f94dcce9d37265c659e7) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the focus ring to have a 2px offset from the focused element.
+
+- [#2295](https://github.com/sumup-oss/circuit-ui/pull/2295) [`6c536a27`](https://github.com/sumup-oss/circuit-ui/commit/6c536a27b661bd17b2b0c045de13dd2056db9b4d) Thanks [@connor-baer](https://github.com/connor-baer)! - Added support for an `activeIcon` to the TopNavigation and SideNavigation links.
+
+### Patch Changes
+
+- [#2297](https://github.com/sumup-oss/circuit-ui/pull/2297) [`2f4fbaf6`](https://github.com/sumup-oss/circuit-ui/commit/2f4fbaf69b32cf36905dbf62bd6c28cb4e2d261d) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the HTML semantics in the TopNavigation and SideNavigation components.
+
+- [#2297](https://github.com/sumup-oss/circuit-ui/pull/2297) [`2f4fbaf6`](https://github.com/sumup-oss/circuit-ui/commit/2f4fbaf69b32cf36905dbf62bd6c28cb4e2d261d) Thanks [@connor-baer](https://github.com/connor-baer)! - Properly hid presentational icons from the accessibility tree.
+
+- [#2297](https://github.com/sumup-oss/circuit-ui/pull/2297) [`2f4fbaf6`](https://github.com/sumup-oss/circuit-ui/commit/2f4fbaf69b32cf36905dbf62bd6c28cb4e2d261d) Thanks [@connor-baer](https://github.com/connor-baer)! - Restored the focus styles of the utility links and profile menu in the TopNavigation.
+
+- Updated dependencies [[`bd4e7ec0`](https://github.com/sumup-oss/circuit-ui/commit/bd4e7ec091a05e526b01f94dcce9d37265c659e7)]:
+  - @sumup/design-tokens@6.1.0
+
 ## 7.2.1
 
 ### Patch Changes
