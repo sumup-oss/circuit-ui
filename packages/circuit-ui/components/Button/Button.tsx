@@ -206,7 +206,7 @@ export const Button = forwardRef<any, ButtonProps>(
               aria-hidden="true"
             />
           )}
-          {children}
+          <span className={classes.label}>{children}</span>
           {TrailingIcon && (
             <TrailingIcon
               className={classes['trailing-icon']}
