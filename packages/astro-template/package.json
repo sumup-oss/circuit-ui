@@ -1,7 +1,7 @@
 {
   "name": "@sumup/astro-template-circuit-ui",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -15,8 +15,8 @@
   },
   "dependencies": {
     "@astrojs/react": "^3.0.4",
-    "@sumup/circuit-ui": "^7.2.1",
-    "@sumup/design-tokens": "^6.0.0",
+    "@sumup/circuit-ui": "^7.3.0",
+    "@sumup/design-tokens": "^6.1.0",
     "@sumup/icons": "^3.3.0",
     "@sumup/intl": "^1.6.0",
     "@types/react": "^18.2.37",
