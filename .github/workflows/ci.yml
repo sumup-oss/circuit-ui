@@ -24,9 +24,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install template dependencies
-        run: cd packages/cna-template/template && npm ci
-
       - name: Check dependency licenses
         run: npm run check:licenses
 
