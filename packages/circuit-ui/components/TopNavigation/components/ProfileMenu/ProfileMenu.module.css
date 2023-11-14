@@ -9,6 +9,10 @@
   height: var(--cui-icon-sizes-mega);
 }
 
+.details {
+  display: block;
+}
+
 @media (min-width: 768px) {
   .avatar {
     width: var(--cui-icon-sizes-giga);

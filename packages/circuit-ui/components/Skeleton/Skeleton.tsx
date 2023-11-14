@@ -21,6 +21,7 @@ import {
   HTMLAttributes,
 } from 'react';
 
+import type { AsPropType } from '../../types/prop-types.js';
 import { clsx } from '../../styles/clsx.js';
 
 import classes from './Skeleton.module.css';
@@ -75,6 +76,10 @@ export interface SkeletonProps extends HTMLAttributes<HTMLSpanElement> {
    * Default: `false`.
    */
   circle?: boolean;
+  /**
+   * Render the skeleton using any HTML element.
+   */
+  as?: AsPropType;
 }
 
 /**
@@ -82,12 +87,12 @@ export interface SkeletonProps extends HTMLAttributes<HTMLSpanElement> {
  * animation. Only works when wrapped in a SkeletonContainer.
  */
 export const Skeleton = forwardRef<HTMLSpanElement, SkeletonProps>(
-  ({ children, className, circle, ...props }, ref) => {
+  ({ children, className, as: Element = 'span', circle, ...props }, ref) => {
     const isLoading = useContext(SkeletonContext);
 
     if (isLoading) {
       return (
-        <span
+        <Element
           {...props}
           className={clsx(
             classes.base,
@@ -98,14 +103,14 @@ export const Skeleton = forwardRef<HTMLSpanElement, SkeletonProps>(
           ref={ref}
         >
           {children}
-        </span>
+        </Element>
       );
     }
 
     return (
-      <span {...props} className={clsx(classes.base, className)} ref={ref}>
+      <Element {...props} className={clsx(classes.base, className)} ref={ref}>
         {children}
-      </span>
+      </Element>
     );
   },
 );

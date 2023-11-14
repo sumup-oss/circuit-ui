@@ -71,7 +71,7 @@ const Details = ({ item }: { item: Item }) => (
           marginRight: 'var(--cui-spacings-bit)',
           color: 'var(--cui-fg-success)',
         }}
-        role="presentation"
+        aria-hidden="true"
       />
     ) : (
       <Alert
@@ -80,7 +80,7 @@ const Details = ({ item }: { item: Item }) => (
           marginRight: 'var(--cui-spacings-bit)',
           color: 'var(--cui-fg-danger)',
         }}
-        role="presentation"
+        aria-hidden="true"
       />
     )}
     <Body

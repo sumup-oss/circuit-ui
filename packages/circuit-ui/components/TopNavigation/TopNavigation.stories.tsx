@@ -86,7 +86,7 @@ Base.args = baseArgs;
 export const WithSideNavigation = (args: TopNavigationProps) => {
   const [isSideNavigationOpen, setSideNavigationOpen] = useState(false);
   const hamburger = {
-    ...args.hamburger,
+    ...args.hamburger!,
     isActive: isSideNavigationOpen,
     onClick: () => setSideNavigationOpen((prev) => !prev),
   };
@@ -116,7 +116,6 @@ export const WithSideNavigation = (args: TopNavigationProps) => {
 WithSideNavigation.storyName = 'With SideNavigation';
 WithSideNavigation.args = {
   ...baseArgs,
-  pageTitle: 'Home',
   hamburger: {
     activeLabel: 'Close side navigation',
     inactiveLabel: 'Open side navigation',

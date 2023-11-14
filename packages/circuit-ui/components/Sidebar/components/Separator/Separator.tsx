@@ -29,7 +29,7 @@ const hrStyles = (theme: Theme) => css`
  */
 export function Separator(): JSX.Element {
   return (
-    <li role="presentation">
+    <li aria-hidden="true">
       <Hr css={hrStyles} />
     </li>
   );

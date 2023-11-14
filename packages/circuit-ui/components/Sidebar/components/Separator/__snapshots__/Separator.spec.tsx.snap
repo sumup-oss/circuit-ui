@@ -6,7 +6,7 @@ exports[`Separator > should render with default styles 1`] = `
 }
 
 <li
-  role="presentation"
+  aria-hidden="true"
 >
   <hr
     class="_base_5bcdd0 circuit-0"
