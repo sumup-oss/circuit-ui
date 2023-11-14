@@ -67,7 +67,7 @@ export function TopNavigation({
   }, []);
 
   return (
-    <header role="banner" className={clsx(classes.base, className)} {...props}>
+    <header className={clsx(classes.base, className)} {...props}>
       <div className={classes.wrapper}>
         {hamburger && (
           <SkeletonContainer isLoading={Boolean(isLoading)}>

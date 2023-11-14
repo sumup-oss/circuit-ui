@@ -51,7 +51,11 @@ function SecondaryLink({ label, badge, ...props }: SecondaryLinkProps) {
         aria-current={props.isActive ? 'page' : undefined}
       >
         <Skeleton className={classes.label}>
-          <Body size="one" variant={props.isActive ? 'highlight' : undefined}>
+          <Body
+            as="span"
+            size="one"
+            variant={props.isActive ? 'highlight' : undefined}
+          >
             {label}
           </Body>
         </Skeleton>
@@ -69,7 +73,7 @@ function SecondaryGroup({
   return (
     <li>
       {label && (
-        <Skeleton className={classes['group-headline']}>
+        <Skeleton className={classes['group-headline']} as="div">
           <SubHeadline as="h3">{label}</SubHeadline>
         </Skeleton>
       )}

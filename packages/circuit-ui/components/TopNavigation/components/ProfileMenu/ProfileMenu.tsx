@@ -57,18 +57,20 @@ function Profile({ user, label, className, ...props }: ProfileProps) {
           <ProfileIcon aria-hidden="true" />
         )}
       </Skeleton>
-      <div className={classes.details}>
+      <span className={classes.details}>
         <Skeleton className={classes.truncate}>
-          <Body size="two" variant="highlight">
+          <Body as="span" size="two" variant="highlight">
             {user.name}
           </Body>
         </Skeleton>
         {user.id && (
           <Skeleton className={classes.truncate}>
-            <Body size="two">{user.id}</Body>
+            <Body as="span" size="two">
+              {user.id}
+            </Body>
           </Skeleton>
         )}
-      </div>
+      </span>
       <ChevronDown size="16" className={classes.chevron} />
     </button>
   );
