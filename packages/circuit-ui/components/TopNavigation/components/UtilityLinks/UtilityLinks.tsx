@@ -21,6 +21,7 @@ import Body from '../../../Body/index.js';
 import { useComponents } from '../../../ComponentsContext/index.js';
 import { Skeleton } from '../../../Skeleton/index.js';
 import { clsx } from '../../../../styles/clsx.js';
+import utilityClasses from '../../../../styles/utility.js';
 import sharedClasses from '../../../../styles/shared.js';
 
 import classes from './UtilityLinks.module.css';
@@ -64,7 +65,12 @@ function UtilityLink({
     <Element
       {...props}
       aria-current={isActive ? 'page' : undefined}
-      className={clsx(classes.anchor, sharedClasses.navigationItem, className)}
+      className={clsx(
+        classes.anchor,
+        sharedClasses.navigationItem,
+        utilityClasses.focusVisibleInset,
+        className,
+      )}
     >
       <Skeleton className={classes.icon}>
         <Icon aria-hidden="true" size="24" />

@@ -21,6 +21,7 @@ import Body from '../../../Body/index.js';
 import Popover, { PopoverProps } from '../../../Popover/index.js';
 import { Skeleton } from '../../../Skeleton/index.js';
 import type { UserProps } from '../../types.js';
+import utilityClasses from '../../../../styles/utility.js';
 import sharedClasses from '../../../../styles/shared.js';
 import { clsx } from '../../../../styles/clsx.js';
 
@@ -41,7 +42,12 @@ function Profile({ user, label, className, ...props }: ProfileProps) {
   return (
     <button
       {...props}
-      className={clsx(classes.profile, sharedClasses.navigationItem, className)}
+      className={clsx(
+        classes.profile,
+        sharedClasses.navigationItem,
+        utilityClasses.focusVisibleInset,
+        className,
+      )}
       type="button"
       aria-label={label}
       title={label}
