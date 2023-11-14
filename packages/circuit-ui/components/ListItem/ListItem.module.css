@@ -40,7 +40,7 @@ button.base:focus {
   z-index: 2;
   border-color: transparent;
   outline: 0;
-  box-shadow: inset 0 0 0 2px var(--cui-border-focus);
+  box-shadow: 0 0 0 4px var(--cui-bg-normal), 0 0 0 6px var(--cui-border-focus);
 }
 
 a.base:focus::-moz-focus-inner,
