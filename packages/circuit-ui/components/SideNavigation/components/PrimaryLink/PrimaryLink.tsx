@@ -47,7 +47,7 @@ export function PrimaryLink({
   const Element = props.href ? (Link as AsPropType) : 'button';
 
   const suffix = Suffix && (
-    <Suffix className={classes.suffix} role="presentation" />
+    <Suffix className={classes.suffix} aria-hidden="true" />
   );
   const isExternalLink = isExternal || props.target === '_blank';
 
@@ -62,7 +62,7 @@ export function PrimaryLink({
       aria-current={isActive ? 'page' : undefined}
     >
       <Skeleton className={clsx(classes.icon, badge && classes['icon-badge'])}>
-        <Icon role="presentation" size="24" />
+        <Icon aria-hidden="true" size="24" />
       </Skeleton>
       <Skeleton>
         <Body as="span" className={classes.label}>
@@ -73,7 +73,7 @@ export function PrimaryLink({
       {isExternalLink && (
         <ArrowRight
           size="16"
-          role="presentation"
+          aria-hidden="true"
           className={clsx(classes.suffix, classes['external-icon'])}
         />
       )}

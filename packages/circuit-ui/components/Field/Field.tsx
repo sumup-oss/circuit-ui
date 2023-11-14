@@ -209,7 +209,7 @@ export const FieldValidationHint = ({
           <div className={classNames} {...props}>
             {Icon && (
               <div className={classes['validation-hint-icon']}>
-                <Icon role="presentation" size="16" />
+                <Icon aria-hidden="true" size="16" />
               </div>
             )}
             {validationHint}

@@ -63,7 +63,7 @@ const Details = (
         marginRight: 'var(--cui-spacings-bit)',
         color: 'var(--cui-fg-success)',
       }}
-      role="presentation"
+      aria-hidden="true"
     />
     <Body
       size="two"

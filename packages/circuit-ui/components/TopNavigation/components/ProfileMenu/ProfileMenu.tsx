@@ -54,7 +54,7 @@ function Profile({ user, label, className, ...props }: ProfileProps) {
             className={classes.avatar}
           />
         ) : (
-          <ProfileIcon role="presentation" />
+          <ProfileIcon aria-hidden="true" />
         )}
       </Skeleton>
       <div className={classes.details}>

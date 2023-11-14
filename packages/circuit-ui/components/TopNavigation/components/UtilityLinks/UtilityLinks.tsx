@@ -67,7 +67,7 @@ function UtilityLink({
       className={clsx(classes.anchor, sharedClasses.navigationItem, className)}
     >
       <Skeleton className={classes.icon}>
-        <Icon role="presentation" size="24" />
+        <Icon aria-hidden="true" size="24" />
       </Skeleton>
       <Skeleton>
         <Body as="span" className={classes.label}>

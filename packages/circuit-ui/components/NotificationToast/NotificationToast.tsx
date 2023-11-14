@@ -110,7 +110,7 @@ export function NotificationToast({
     >
       <div className={classes.wrapper}>
         <div className={classes.icon}>
-          <Icon role="presentation" />
+          <Icon aria-hidden="true" />
         </div>
         <span className={utilityClasses.hideVisually}>{iconLabel}</span>
         <div className={classes.content}>

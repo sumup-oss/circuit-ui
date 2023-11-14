@@ -347,7 +347,7 @@ export const Popover = ({
               isDivider(action) ? (
                 <Hr
                   className={classes.divider}
-                  role="presentation"
+                  aria-hidden="true"
                   key={index}
                 />
               ) : (
