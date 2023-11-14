@@ -15,7 +15,7 @@
   display: block;
   width: 18px;
   height: 18px;
-  content: '';
+  content: "";
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-normal);
   border-radius: 3px;
@@ -49,7 +49,7 @@
 .base:focus + .label::before {
   border-color: var(--cui-border-accent);
   outline: 0;
-  box-shadow: 0 0 0 4px var(--cui-border-focus);
+  box-shadow: 0 0 0 2px var(--cui-bg-normal), 0 0 0 4px var(--cui-border-focus);
 }
 
 .base:focus:not(:focus-visible) + .label::before {
@@ -62,8 +62,8 @@
   border-color: var(--cui-border-accent);
 }
 
-.base:checked:not(:indeterminate) + .label > svg[data-symbol='checked'],
-.base:indeterminate + .label > svg[data-symbol='indeterminate'] {
+.base:checked:not(:indeterminate) + .label > svg[data-symbol="checked"],
+.base:indeterminate + .label > svg[data-symbol="indeterminate"] {
   opacity: 1;
   transform: translateY(-50%) scale(1, 1);
 }
