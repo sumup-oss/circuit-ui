@@ -218,7 +218,7 @@ export function focusVisible(options?: 'inset' | ThemeArgs): SerializedStyles {
     return css`
       &:focus {
         outline: 0;
-        box-shadow: inset 0 0 0 4px var(--cui-border-focus);
+        box-shadow: inset 0 0 0 2px var(--cui-border-focus);
 
         &::-moz-focus-inner {
           border: 0;
