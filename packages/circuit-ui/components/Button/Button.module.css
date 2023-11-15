@@ -29,12 +29,16 @@
 
 /* Sizes */
 .s {
+  --content-gap: var(--cui-spacings-byte);
+
   padding: calc(var(--cui-spacings-bit) - var(--cui-border-width-kilo))
     calc(var(--cui-spacings-mega) - var(--cui-border-width-kilo));
   border-radius: 10px;
 }
 
 .m {
+  --content-gap: var(--cui-spacings-byte);
+
   padding: calc(var(--cui-spacings-kilo) - var(--cui-border-width-kilo))
     calc(var(--cui-spacings-giga) - var(--cui-border-width-kilo));
   border-radius: var(--cui-border-radius-kilo);
@@ -219,12 +223,12 @@
 /* Content */
 .leading-icon {
   flex-shrink: 0;
-  margin-right: var(--cui-spacings-byte);
+  margin-right: var(--content-gap);
 }
 
 .trailing-icon {
   flex-shrink: 0;
-  margin-left: var(--cui-spacings-byte);
+  margin-left: var(--content-gap);
 }
 
 .s .leading-icon,
