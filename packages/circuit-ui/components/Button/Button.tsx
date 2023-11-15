@@ -24,7 +24,6 @@ import type { IconComponentType } from '@sumup/icons';
 import type { ClickEvent } from '../../types/events.js';
 import type { AsPropType } from '../../types/prop-types.js';
 import { useComponents } from '../ComponentsContext/index.js';
-import Spinner from '../Spinner/index.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
@@ -195,9 +194,9 @@ export const Button = forwardRef<any, ButtonProps>(
         )}
         ref={ref}
       >
-        <Spinner className={classes.spinner} size="s" aria-hidden={!isLoading}>
+        <span className={classes.loader} aria-hidden={!isLoading}>
           <span className={utilityClasses.hideVisually}>{loadingLabel}</span>
-        </Spinner>
+        </span>
         <span className={classes.content}>
           {LeadingIcon && (
             <LeadingIcon
