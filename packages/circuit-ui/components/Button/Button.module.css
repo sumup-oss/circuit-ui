@@ -202,7 +202,9 @@
 .tertiary:active .label,
 .tertiary[aria-expanded="true"] .label,
 .tertiary[aria-pressed="true"] .label,
-.tertiary[aria-busy="true"] .label {
+.tertiary[aria-busy="true"] .label,
+.tertiary:disabled .label,
+.tertiary[disabled] .label {
   margin-bottom: 0;
   border-bottom: none;
 }
