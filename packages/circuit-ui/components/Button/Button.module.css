@@ -12,7 +12,6 @@
   cursor: pointer;
   border-style: solid;
   border-width: var(--cui-border-width-kilo);
-  border-radius: var(--cui-border-radius-kilo);
   transition: opacity var(--cui-transitions-default),
     color var(--cui-transitions-default),
     background-color var(--cui-transitions-default),
@@ -32,11 +31,13 @@
 .s {
   padding: calc(var(--cui-spacings-bit) - var(--cui-border-width-kilo))
     calc(var(--cui-spacings-mega) - var(--cui-border-width-kilo));
+  border-radius: 10px;
 }
 
 .m {
   padding: calc(var(--cui-spacings-kilo) - var(--cui-border-width-kilo))
     calc(var(--cui-spacings-giga) - var(--cui-border-width-kilo));
+  border-radius: var(--cui-border-radius-kilo);
 }
 
 /* Variants */
