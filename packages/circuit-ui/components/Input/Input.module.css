@@ -14,7 +14,8 @@
   border-radius: var(--cui-border-radius-byte);
   outline: 0;
   box-shadow: 0 0 0 1px var(--cui-border-normal);
-  transition: box-shadow var(--cui-transitions-default),
+  transition:
+    box-shadow var(--cui-transitions-default),
     padding var(--cui-transitions-default);
 }
 
@@ -85,6 +86,7 @@
 
 .base:disabled,
 .base[disabled] {
+  color: var(--cui-fg-normal-disabled);
   background-color: var(--cui-bg-normal-disabled);
   box-shadow: 0 0 0 1px var(--cui-border-normal-disabled);
 }
