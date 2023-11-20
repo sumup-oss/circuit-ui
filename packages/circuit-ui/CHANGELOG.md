@@ -1,5 +1,15 @@
 # @sumup/circuit-ui
 
+## 7.4.0
+
+### Minor Changes
+
+- [#2300](https://github.com/sumup-oss/circuit-ui/pull/2300) [`0a2073b3`](https://github.com/sumup-oss/circuit-ui/commit/0a2073b322baab07845672184c64f1b682620933) Thanks [@connor-baer](https://github.com/connor-baer)! - Added support for an `activeIcon` to the TopNavigation links.
+
+### Patch Changes
+
+- [#2300](https://github.com/sumup-oss/circuit-ui/pull/2300) [`0a2073b3`](https://github.com/sumup-oss/circuit-ui/commit/0a2073b322baab07845672184c64f1b682620933) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the alignment of the ProfileMenu.
+
 ## 7.3.0
 
 ### Minor Changes
