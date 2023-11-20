@@ -10,7 +10,8 @@
 }
 
 .details {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (min-width: 768px) {
@@ -43,7 +44,7 @@
     transition: transform var(--cui-transitions-default);
   }
 
-  button[aria-expanded='true'] .chevron {
+  button[aria-expanded="true"] .chevron {
     transform: rotate(180deg);
   }
 }
