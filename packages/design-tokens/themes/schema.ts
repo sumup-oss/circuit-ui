@@ -95,6 +95,10 @@ export const schema = [
   { name: '--cui-fg-on-strong-hovered', type: 'color' },
   { name: '--cui-fg-on-strong-pressed', type: 'color' },
   { name: '--cui-fg-on-strong-disabled', type: 'color' },
+  { name: '--cui-fg-on-strong-subtle', type: 'color' },
+  { name: '--cui-fg-on-strong-subtle-hovered', type: 'color' },
+  { name: '--cui-fg-on-strong-subtle-pressed', type: 'color' },
+  { name: '--cui-fg-on-strong-subtle-disabled', type: 'color' },
   /* Accent foregrounds */
   { name: '--cui-fg-accent', type: 'color' },
   { name: '--cui-fg-accent-hovered', type: 'color' },
