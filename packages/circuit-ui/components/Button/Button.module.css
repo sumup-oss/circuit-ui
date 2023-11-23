@@ -190,7 +190,7 @@
 
 .tertiary .label {
   margin-bottom: calc(-1 * var(--cui-border-width-kilo));
-  border-bottom: var(--cui-border-width-kilo) dashed var(--cui-fg-subtle);
+  border-bottom: var(--cui-border-width-kilo) dashed var(--cui-border-normal);
 }
 
 .tertiary:focus-visible .label {
