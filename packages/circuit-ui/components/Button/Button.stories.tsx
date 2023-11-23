@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowSlanted, Plus } from '@sumup/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
@@ -55,17 +55,7 @@ export const Variants = (args: ButtonProps) => (
 );
 
 export const Destructive = (args: ButtonProps) => (
-  <Stack>
-    <Button {...args} variant="primary" destructive>
-      Primary
-    </Button>
-    <Button {...args} variant="secondary" destructive>
-      Secondary
-    </Button>
-    <Button {...args} variant="tertiary" destructive>
-      Tertiary
-    </Button>
-  </Stack>
+  <Variants {...args} destructive />
 );
 
 export const Sizes = (args: ButtonProps) => (
@@ -100,16 +90,24 @@ export const Loading = (args: ButtonProps) => {
 
   const handleClick = () => {
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
   };
 
-  return <Button {...args} isLoading={isLoading} onClick={handleClick} />;
+  useEffect(() => {
+    if (!isLoading) {
+      return undefined;
+    }
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [isLoading]);
+
+  return <Variants {...args} isLoading={isLoading} onClick={handleClick} />;
 };
 
 Loading.args = {
-  children: 'Things take time',
   loadingLabel: 'Loading',
-  isLoading: false,
+  isLoading: true,
 };
