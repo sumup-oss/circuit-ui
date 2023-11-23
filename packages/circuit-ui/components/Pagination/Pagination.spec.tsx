@@ -34,14 +34,14 @@ describe('Pagination', () => {
     render(<Pagination {...baseProps} currentPage={1} />);
     const prevButtonEl = screen.getByText('Previous').closest('button');
 
-    expect(prevButtonEl).toBeDisabled();
+    expect(prevButtonEl).toHaveAttribute('aria-disabled', 'true');
   });
 
   it('should disable the next button on the last page', () => {
     render(<Pagination {...baseProps} currentPage={baseProps.totalPages} />);
     const nextButtonEl = screen.getByText('Next').closest('button');
 
-    expect(nextButtonEl).toBeDisabled();
+    expect(nextButtonEl).toHaveAttribute('aria-disabled', 'true');
   });
 
   it('should go to the previous page', async () => {

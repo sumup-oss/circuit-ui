@@ -177,16 +177,18 @@
 .tertiary[aria-pressed="true"] .label,
 .tertiary[aria-busy="true"] .label,
 .tertiary:disabled .label,
-.tertiary[disabled] .label {
+.tertiary[disabled] .label,
+.tertiary[aria-disabled="true"] .label {
   margin-bottom: 0;
   border-bottom: none;
 }
 
 /* Disabled */
 .base:disabled,
-.base[disabled] {
+.base[disabled],
+.base[aria-disabled="true"] {
   color: var(--cui-fg-normal-disabled);
-  pointer-events: none;
+  cursor: not-allowed;
   background-color: var(--cui-bg-highlight-disabled);
   border-color: transparent;
 }

@@ -91,7 +91,7 @@ describe('Button', () => {
 
       const button = getByRole('button');
 
-      expect(button).toBeDisabled();
+      expect(button).toHaveAttribute('aria-disabled', 'true');
     });
 
     it('should render as disabled when loading', () => {
@@ -104,7 +104,7 @@ describe('Button', () => {
 
       const button = getByRole('button');
 
-      expect(button).toBeDisabled();
+      expect(button).toHaveAttribute('aria-disabled', 'true');
     });
 
     it('should render as disabled when not loading', () => {
@@ -118,7 +118,7 @@ describe('Button', () => {
 
       const button = getByRole('button');
 
-      expect(button).toBeDisabled();
+      expect(button).toHaveAttribute('aria-disabled', 'true');
     });
 
     it('should accept a working ref for a button', () => {

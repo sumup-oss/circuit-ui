@@ -127,6 +127,7 @@ export const Button = forwardRef<any, ButtonProps>(
   (
     {
       children,
+      onClick,
       disabled,
       destructive,
       variant = 'secondary',
@@ -150,10 +151,17 @@ export const Button = forwardRef<any, ButtonProps>(
 
     const size = legacyButtonSizeMap[legacySize] || legacySize;
 
+    const hasLoadingState = typeof isLoading !== 'undefined';
+
+    const isDisabled = Boolean(disabled || isLoading);
+    const onDisabledClick = (event: ClickEvent) => {
+      event.preventDefault();
+    };
+
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
-      isLoading !== undefined &&
+      hasLoadingState &&
       !isSufficientlyLabelled(loadingLabel)
     ) {
       throw new AccessibilityError(
@@ -175,14 +183,12 @@ export const Button = forwardRef<any, ButtonProps>(
     return (
       <Element
         {...props}
-        {...(loadingLabel &&
-          typeof isLoading === 'boolean' && {
-            'aria-live': 'polite',
-            'aria-busy': isLoading,
-          })}
-        {...(!isLink && {
-          disabled: disabled || isLoading,
+        {...(hasLoadingState && {
+          'aria-live': 'polite',
+          'aria-busy': Boolean(isLoading),
         })}
+        onClick={isDisabled ? onDisabledClick : onClick}
+        aria-disabled={isDisabled}
         className={clsx(
           classes.base,
           utilityClasses.focusVisible,
