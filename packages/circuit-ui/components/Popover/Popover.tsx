@@ -211,7 +211,10 @@ export const Popover = ({
   const focusProps = useFocusList();
   const prevOpen = usePrevious(isOpen);
 
-  const isMobile = window.matchMedia('(max-width: 479px)').matches;
+  const isMobile =
+    typeof window === 'undefined'
+      ? false
+      : window.matchMedia('(max-width: 479px)').matches;
 
   const mobileStyles = {
     position: 'fixed',
