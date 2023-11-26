@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 7.4.1
+
+### Patch Changes
+
+- [#2304](https://github.com/sumup-oss/circuit-ui/pull/2304) [`ecc7bbde`](https://github.com/sumup-oss/circuit-ui/commit/ecc7bbde9aecdaa18bc478fe5f6bfc207fe16971) Thanks [@tareqlol](https://github.com/tareqlol)! - Fixed compatibility of the Popover component with server-side rendering.
+
 ## 7.4.0
 
 ### Minor Changes
