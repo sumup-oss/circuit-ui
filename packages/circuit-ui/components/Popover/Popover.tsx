@@ -45,6 +45,7 @@ import { useStackContext } from '../StackContext/index.js';
 import { isFunction } from '../../util/type-check.js';
 import { useLatest } from '../../hooks/useLatest/index.js';
 import { usePrevious } from '../../hooks/usePrevious/index.js';
+import { useMedia } from '../../hooks/useMedia/index.js';
 import { clsx } from '../../styles/clsx.js';
 import sharedClasses from '../../styles/shared.js';
 
@@ -211,7 +212,7 @@ export const Popover = ({
   const focusProps = useFocusList();
   const prevOpen = usePrevious(isOpen);
 
-  const isMobile = window.matchMedia('(max-width: 479px)').matches;
+  const isMobile = useMedia('(max-width: 479px)');
 
   const mobileStyles = {
     position: 'fixed',
