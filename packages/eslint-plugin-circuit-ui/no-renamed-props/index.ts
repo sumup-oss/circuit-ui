@@ -76,6 +76,33 @@ const configs: (PropNameConfig | PropValuesConfig)[] = [
       alert: 'danger',
     },
   },
+  {
+    type: 'values',
+    component: 'Button',
+    prop: 'size',
+    values: {
+      kilo: 's',
+      giga: 'm',
+    },
+  },
+  {
+    type: 'values',
+    component: 'IconButton',
+    prop: 'size',
+    values: {
+      kilo: 's',
+      giga: 'm',
+    },
+  },
+  {
+    type: 'values',
+    component: 'Hamburger',
+    prop: 'size',
+    values: {
+      kilo: 's',
+      giga: 'm',
+    },
+  },
 ];
 
 export const noRenamedProps = createRule({

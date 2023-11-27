@@ -174,7 +174,7 @@ export const NotificationInline = forwardRef<
                 {...action}
                 className={classes.button}
                 variant="tertiary"
-                size="kilo"
+                size="s"
               />
             )}
           </div>
@@ -183,7 +183,7 @@ export const NotificationInline = forwardRef<
             <CloseButton
               className={classes.close}
               label={closeButtonLabel}
-              size="kilo"
+              size="s"
               onClick={onClose}
             />
           )}

@@ -261,7 +261,7 @@ export const ImageInput = ({
         {src ? (
           <IconButton
             type="button"
-            size="kilo"
+            size="s"
             variant="primary"
             destructive
             label={clearButtonLabel}
@@ -274,7 +274,7 @@ export const ImageInput = ({
         ) : (
           <IconButton
             type="button"
-            size="kilo"
+            size="s"
             variant="primary"
             aria-hidden="true"
             tabIndex={-1}

@@ -33,7 +33,7 @@ export const NextButton = (props: ButtonProps) => (
   <IconButton
     {...props}
     className={clsx(classes.button, props.className)}
-    size="kilo"
+    size="s"
   >
     <ChevronRight size="16" />
   </IconButton>
@@ -43,7 +43,7 @@ export const PrevButton = (props: ButtonProps) => (
   <IconButton
     {...props}
     className={clsx(classes.button, props.className)}
-    size="kilo"
+    size="s"
   >
     <ChevronLeft size="16" />
   </IconButton>
@@ -56,7 +56,7 @@ export const PlayButton = ({
   <IconButton
     {...props}
     className={clsx(classes.button, props.className)}
-    size="kilo"
+    size="s"
   >
     {paused ? <Play size="16" /> : <Pause size="16" />}
   </IconButton>

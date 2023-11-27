@@ -70,11 +70,11 @@ export const Destructive = (args: ButtonProps) => (
 
 export const Sizes = (args: ButtonProps) => (
   <Stack>
-    <Button {...args} size="kilo">
-      Kilo
+    <Button {...args} size="s">
+      Small
     </Button>
-    <Button {...args} size="giga">
-      Giga
+    <Button {...args} size="m">
+      Medium
     </Button>
   </Stack>
 );

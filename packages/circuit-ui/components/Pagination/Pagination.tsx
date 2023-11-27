@@ -121,7 +121,7 @@ export const Pagination = ({
     >
       <IconButton
         label={previousLabel}
-        size="kilo"
+        size="s"
         variant="tertiary"
         disabled={currentPage <= 1}
         onClick={() => onChange(currentPage - 1)}
@@ -150,7 +150,7 @@ export const Pagination = ({
 
       <IconButton
         label={nextLabel}
-        size="kilo"
+        size="s"
         variant="tertiary"
         disabled={currentPage >= totalPages}
         onClick={() => onChange(currentPage + 1)}

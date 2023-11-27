@@ -41,9 +41,9 @@ export interface BaseProps {
    */
   'variant'?: 'primary' | 'secondary' | 'tertiary';
   /**
-   * Choose from 2 sizes. Default: 'giga'.
+   * Choose from 2 sizes. Default: 'm'.
    */
-  'size'?: 'kilo' | 'giga';
+  'size'?: 's' | 'm' | 'kilo' | 'giga';
   /**
    * Visually and functionally disable the button.
    */
@@ -90,6 +90,17 @@ type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
 
 export type ButtonProps = BaseProps & LinkElProps & ButtonElProps;
 
+const legacySizeMap: Record<string, 's' | 'm'> = {
+  kilo: 's',
+  giga: 'm',
+};
+
+export function mapLegacyButtonSize(
+  size: 's' | 'm' | 'kilo' | 'giga',
+): 's' | 'm' {
+  return legacySizeMap[size] || size;
+}
+
 /**
  * The Button component enables the user to perform an action or navigate
  * to a different screen.
@@ -101,7 +112,7 @@ export const Button = forwardRef<any, ButtonProps>(
       disabled,
       destructive,
       variant = 'secondary',
-      size = 'giga',
+      size: legacySize = 'm',
       stretch,
       isLoading,
       loadingLabel,
@@ -128,6 +139,8 @@ export const Button = forwardRef<any, ButtonProps>(
     const isLink = Boolean(props.href);
 
     const Element = as || (isLink ? Link : 'button');
+
+    const size = mapLegacyButtonSize(legacySize);
 
     return (
       <Element
@@ -162,7 +175,7 @@ export const Button = forwardRef<any, ButtonProps>(
           {Icon && (
             <Icon
               className={classes.icon}
-              size={size === 'kilo' ? '16' : '24'}
+              size={size === 's' ? '16' : '24'}
               aria-hidden="true"
             />
           )}

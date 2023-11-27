@@ -24,7 +24,7 @@ import {
   forwardRef,
 } from 'react';
 
-import Button, { ButtonProps } from '../Button/index.js';
+import Button, { ButtonProps, mapLegacyButtonSize } from '../Button/index.js';
 import Headline from '../Headline/index.js';
 import Body from '../Body/index.js';
 import Image, { ImageProps } from '../Image/index.js';
@@ -159,6 +159,8 @@ export const NotificationBanner = forwardRef<
       });
     }, [isVisible, setAnimating]);
 
+    const size = action.size ? mapLegacyButtonSize(action.size) : 'm';
+
     return (
       <div
         ref={applyMultipleRefs(ref, contentElement)}
@@ -175,17 +177,14 @@ export const NotificationBanner = forwardRef<
             {headline}
           </Headline>
           <Body className={classes.body}>{body}</Body>
-          <Button
-            className={clsx(classes.button, classes[action.size || 'giga'])}
-            {...action}
-          />
+          <Button className={clsx(classes.button, classes[size])} {...action} />
         </div>
         {image && image.src && <NotificationImage {...image} />}
         {onClose && closeButtonLabel && (
           <CloseButton
             className={classes.close}
             label={closeButtonLabel}
-            size="kilo"
+            size="s"
             onClick={onClose}
           />
         )}

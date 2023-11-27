@@ -15,6 +15,7 @@
 
 import { forwardRef } from 'react';
 
+import { mapLegacyButtonSize } from '../Button/index.js';
 import { IconButton, IconButtonProps } from '../IconButton/IconButton.js';
 import { Skeleton } from '../Skeleton/index.js';
 import {
@@ -52,7 +53,7 @@ export const Hamburger = forwardRef<any, HamburgerProps>(
       isActive = false,
       activeLabel,
       inactiveLabel,
-      size = 'giga',
+      size: legacySize = 'm',
       className,
       ...props
     },
@@ -75,6 +76,8 @@ export const Hamburger = forwardRef<any, HamburgerProps>(
         );
       }
     }
+
+    const size = mapLegacyButtonSize(legacySize);
 
     return (
       <IconButton

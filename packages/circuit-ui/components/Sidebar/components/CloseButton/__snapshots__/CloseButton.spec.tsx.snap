@@ -19,7 +19,7 @@ exports[`CloseButton > styles > should render and match snapshot when not visibl
 }
 
 <button
-  class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a _base_9bf092 circuit-0"
+  class="_base_892426 _focus-visible_73b4bb _m_892426 _secondary_892426 _m_f6dd9a _base_9bf092 circuit-0"
   title="Close"
   type="button"
 >
@@ -79,7 +79,7 @@ exports[`CloseButton > styles > should render and match snapshot when visible 1`
 }
 
 <button
-  class="_base_892426 _focus-visible_73b4bb _giga_892426 _secondary_892426 _giga_f6dd9a _base_9bf092 circuit-0"
+  class="_base_892426 _focus-visible_73b4bb _m_892426 _secondary_892426 _m_f6dd9a _base_9bf092 circuit-0"
   title="Close"
   type="button"
 >

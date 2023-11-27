@@ -18,7 +18,7 @@ import type { IconProps } from '@sumup/icons';
 
 import utilityClasses from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
-import { Button, ButtonProps } from '../Button/Button.js';
+import Button, { ButtonProps, mapLegacyButtonSize } from '../Button/index.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
@@ -43,9 +43,10 @@ export interface IconButtonProps extends Omit<ButtonProps, 'icon' | 'stretch'> {
  * as its only child.
  */
 export const IconButton = forwardRef<any, IconButtonProps>(
-  ({ children, label, size = 'giga', className, ...props }, ref) => {
+  ({ children, label, size: legacySize = 'm', className, ...props }, ref) => {
+    const size = mapLegacyButtonSize(legacySize);
     const child = Children.only(children);
-    const iconSize = size === 'kilo' ? '16' : '24';
+    const iconSize = size === 's' ? '16' : '24';
     const icon = cloneElement(child, {
       'aria-hidden': 'true',
       'size': (child.props.size as string) || iconSize,
