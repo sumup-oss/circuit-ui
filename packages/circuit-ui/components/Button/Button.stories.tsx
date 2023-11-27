@@ -80,7 +80,7 @@ export const Sizes = (args: ButtonProps) => (
 );
 
 export const WithIcon = (args: ButtonProps) => (
-  <Button {...args} icon={Plus}>
+  <Button {...args} leadingIcon={Plus}>
     Add
   </Button>
 );

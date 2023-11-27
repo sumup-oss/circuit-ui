@@ -103,6 +103,13 @@ const configs: (PropNameConfig | PropValuesConfig)[] = [
       giga: 'm',
     },
   },
+  {
+    type: 'name',
+    component: 'Button',
+    props: {
+      icon: 'leadingIcon',
+    },
+  },
 ];
 
 export const noRenamedProps = createRule({

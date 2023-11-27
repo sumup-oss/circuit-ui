@@ -26,7 +26,8 @@ import {
 
 import classes from './IconButton.module.css';
 
-export interface IconButtonProps extends Omit<ButtonProps, 'icon' | 'stretch'> {
+export interface IconButtonProps
+  extends Omit<ButtonProps, 'icon' | 'leadingIcon' | 'stretch'> {
   /**
    * A single icon element.
    */

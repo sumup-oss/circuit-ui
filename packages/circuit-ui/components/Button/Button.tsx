@@ -58,7 +58,11 @@ export interface BaseProps {
    */
   'stretch'?: boolean;
   /**
-   * Display an icon in addition to the text to help to identify the action.
+   * A leading icon provides additional context for the button, such as a “search” icon next to the label for a search field submission.
+   */
+  'leadingIcon'?: IconComponentType;
+  /**
+   * @deprecated Use the `leadingIcon` prop instead.
    */
   'icon'?: IconComponentType;
   /**
@@ -117,7 +121,8 @@ export const Button = forwardRef<any, ButtonProps>(
       isLoading,
       loadingLabel,
       className,
-      icon: Icon,
+      icon,
+      leadingIcon: LeadingIcon = icon,
       as,
       ...props
     },
@@ -172,8 +177,8 @@ export const Button = forwardRef<any, ButtonProps>(
           <span className={utilityClasses.hideVisually}>{loadingLabel}</span>
         </Spinner>
         <span className={classes.content}>
-          {Icon && (
-            <Icon
+          {LeadingIcon && (
+            <LeadingIcon
               className={classes.icon}
               size={size === 's' ? '16' : '24'}
               aria-hidden="true"

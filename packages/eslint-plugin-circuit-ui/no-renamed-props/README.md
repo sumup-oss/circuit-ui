@@ -18,7 +18,12 @@ Examples of **incorrect** code for this rule:
 ```tsx
 // Since Circuit UI v7.5
 function Component() {
-  return <Button size="kilo" />;
+  return (
+    <div>
+      <Button size="kilo" />
+      <Button icon={Plus} />
+    </div>
+  );
 }
 
 // Since Circuit UI v6.8
@@ -43,7 +48,12 @@ Examples of **correct** code for this rule:
 ```tsx
 // Since Circuit UI v7.5
 function Component() {
-  return <Button size="s" />;
+  return (
+    <div>
+      <Button size="s" />
+      <Button leadingIcon={Plus} />
+    </div>
+  );
 }
 
 // Since Circuit UI v6.8
