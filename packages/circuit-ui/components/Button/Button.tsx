@@ -35,7 +35,16 @@ import { clsx } from '../../styles/clsx.js';
 import classes from './Button.module.css';
 
 export interface BaseProps {
-  'children': ReactNode;
+  /**
+   * @deprecated Use the `label` prop instead.
+   */
+  'children'?: ReactNode;
+  /**
+   * Communicates the action that will be performed when the user interacts
+   * with the button. Use one strong, clear imperative verb and follow with a
+   * one-word object if needed to clarify.
+   */
+  'label'?: string;
   /**
    * Choose from 3 style variants. Default: 'secondary'.
    */
@@ -129,6 +138,7 @@ export const Button = forwardRef<any, ButtonProps>(
       leadingIcon: LeadingIcon = icon,
       trailingIcon: TrailingIcon,
       as,
+      label = children,
       ...props
     },
     ref,
@@ -189,7 +199,7 @@ export const Button = forwardRef<any, ButtonProps>(
               aria-hidden="true"
             />
           )}
-          {children}
+          {label}
           {TrailingIcon && (
             <TrailingIcon
               className={classes['trailing-icon']}

@@ -27,14 +27,19 @@ import {
 import classes from './IconButton.module.css';
 
 export interface IconButtonProps
-  extends Omit<ButtonProps, 'icon' | 'leadingIcon' | 'stretch'> {
+  extends Omit<
+    ButtonProps,
+    'icon' | 'leadingIcon' | 'trailingIcon' | 'stretch'
+  > {
   /**
    * A single icon element.
    */
   children: ReactElement<IconProps>;
   /**
-   * Short label to describe the function of the button. Displayed as title
-   * on hover, and accessible to screen readers.
+   * Communicates the action that will be performed when the user interacts
+   * with the button. Use one strong, clear imperative verb and follow with a
+   * one-word object if needed to clarify.
+   * Displayed on hover and accessible to screen readers.
    */
   label: string;
 }

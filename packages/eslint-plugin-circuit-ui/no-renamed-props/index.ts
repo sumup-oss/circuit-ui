@@ -110,6 +110,13 @@ const configs: (PropNameConfig | PropValuesConfig)[] = [
       icon: 'leadingIcon',
     },
   },
+  {
+    type: 'name',
+    component: 'Button',
+    props: {
+      children: 'label',
+    },
+  },
 ];
 
 export const noRenamedProps = createRule({
@@ -164,6 +171,42 @@ export const noRenamedProps = createRule({
           },
         });
       });
+
+      // The `children` prop isn't a `JSXAttribute` and needs to be handled separately.
+      if (props.children && node.children.length > 0) {
+        const replacement = props.children;
+
+        // Multiple children and non-string children can't be automatically fixed.
+        if (node.children.length > 1 || node.children[0].type !== 'JSXText') {
+          context.report({
+            node: node.children[0],
+            messageId: 'propName',
+            data: { component, current: 'children', replacement },
+          });
+          return;
+        }
+
+        const { value } = node.children[0] as TSESTree.JSXText;
+
+        context.report({
+          node: node,
+          messageId: 'propName',
+          data: { component, current: 'children', replacement },
+          fix(fixer) {
+            // Represents the last character of the JSXOpeningElement, the '>' character
+            const openingElementEnding = node.openingElement.range[1] - 1;
+            // Represents the last character of the JSXClosingElement, the '>' character
+            const closingElementEnding = node.closingElement!.range[1];
+
+            const range = [openingElementEnding, closingElementEnding] as const;
+
+            return [
+              fixer.insertTextBeforeRange(range, ` ${replacement}="${value}"`),
+              fixer.replaceTextRange(range, ' />'),
+            ];
+          },
+        });
+      }
     }
 
     function replaceComponentPropValues(
