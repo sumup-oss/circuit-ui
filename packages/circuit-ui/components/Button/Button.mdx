@@ -59,6 +59,14 @@ The button component supports 2 different sizes:
 
 <Story of={Stories.Sizes} />
 
+
+### With Icons
+
+- A **leading icon** provides additional context for the button, such as a “search” icon next to the label for a search field submission.
+- A **trailing icon** hints that the button will perform an unexpected action, such as opening a dropdown or navigating the user to a new tab, so make sure you use them only when necessary. Trailing icons are not an alternative to leading icons and **should not** be used to provide additional context for the button!
+
+<Story of={Stories.WithIcons} />
+
 ### Loading
 
 When the button's action is inputting/saving information, you can indicate a loading state by setting the `isLoading` prop to `true` and passing a `loadingLabel` (for announcing the busy state to screen readers).

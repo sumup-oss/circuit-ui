@@ -190,9 +190,14 @@
 }
 
 /* Content */
-.icon {
+.leading-icon {
   flex-shrink: 0;
   margin-right: var(--cui-spacings-byte);
+}
+
+.trailing-icon {
+  flex-shrink: 0;
+  margin-left: var(--cui-spacings-byte);
 }
 
 .base .spinner {

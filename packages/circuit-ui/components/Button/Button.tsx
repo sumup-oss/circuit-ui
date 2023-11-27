@@ -62,6 +62,10 @@ export interface BaseProps {
    */
   'leadingIcon'?: IconComponentType;
   /**
+   * A trailing icon hints that the button will perform an unexpected action, such as opening a dropdown or navigating the user to a new tab, so make sure you use them only when necessary. Trailing icons are not an alternative to leading icons and should not be used to provide additional context for the button.
+   */
+  'trailingIcon'?: IconComponentType;
+  /**
    * @deprecated Use the `leadingIcon` prop instead.
    */
   'icon'?: IconComponentType;
@@ -123,6 +127,7 @@ export const Button = forwardRef<any, ButtonProps>(
       className,
       icon,
       leadingIcon: LeadingIcon = icon,
+      trailingIcon: TrailingIcon,
       as,
       ...props
     },
@@ -179,12 +184,19 @@ export const Button = forwardRef<any, ButtonProps>(
         <span className={classes.content}>
           {LeadingIcon && (
             <LeadingIcon
-              className={classes.icon}
+              className={classes['leading-icon']}
               size={size === 's' ? '16' : '24'}
               aria-hidden="true"
             />
           )}
           {children}
+          {TrailingIcon && (
+            <TrailingIcon
+              className={classes['trailing-icon']}
+              size={size === 's' ? '16' : '24'}
+              aria-hidden="true"
+            />
+          )}
         </span>
       </Element>
     );
