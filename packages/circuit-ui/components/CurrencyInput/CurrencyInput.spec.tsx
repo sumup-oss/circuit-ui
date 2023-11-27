@@ -17,7 +17,6 @@ import { describe, expect, it } from 'vitest';
 import { createRef, useState, type ChangeEvent } from 'react';
 
 import { render, userEvent, axe, screen } from '../../util/test-utils.js';
-import type { InputElement } from '../Input/index.js';
 
 import { CurrencyInput, type CurrencyInputProps } from './CurrencyInput.js';
 
@@ -30,7 +29,7 @@ const defaultProps = {
 
 describe('CurrencyInput', () => {
   it('should forward a ref', () => {
-    const ref = createRef<InputElement>();
+    const ref = createRef<HTMLInputElement>();
     render(<CurrencyInput {...defaultProps} ref={ref} />);
     const input: HTMLInputElement = screen.getByRole('textbox');
     expect(ref.current).toBe(input);

@@ -17,7 +17,6 @@ import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
 import { render, axe, screen } from '../../util/test-utils.js';
-import type { InputElement } from '../Input/index.js';
 
 import { SearchInput } from './SearchInput.js';
 
@@ -45,7 +44,7 @@ describe('SearchInput', () => {
   });
 
   it('should forward a ref', () => {
-    const ref = createRef<InputElement>();
+    const ref = createRef<HTMLInputElement>();
     const { container } = render(<SearchInput {...baseProps} ref={ref} />);
     const input = container.querySelector('input');
     expect(ref.current).toBe(input);

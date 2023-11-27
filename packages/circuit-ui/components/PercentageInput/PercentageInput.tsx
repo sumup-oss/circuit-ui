@@ -20,7 +20,7 @@ import { resolveNumberFormat } from '@sumup-oss/intl';
 import { NumericFormat, type NumericFormatProps } from 'react-number-format';
 
 import { clsx } from '../../styles/clsx.js';
-import { Input, type InputElement, type InputProps } from '../Input/index.js';
+import { Input, type InputProps } from '../Input/index.js';
 
 import { formatPlaceholder } from './PercentageInputService.js';
 import classes from './PercentageInput.module.css';
@@ -62,7 +62,10 @@ const DEFAULT_FORMAT = {
 /**
  * PercentageInput component for fractional values
  */
-export const PercentageInput = forwardRef<InputElement, PercentageInputProps>(
+export const PercentageInput = forwardRef<
+  HTMLInputElement,
+  PercentageInputProps
+>(
   (
     {
       locale,

@@ -29,7 +29,7 @@ import {
 } from 'react';
 
 import { Select, type SelectProps } from '../Select/index.js';
-import { Input, type InputElement, type InputProps } from '../Input/index.js';
+import { Input, type InputProps } from '../Input/index.js';
 import {
   FieldLabelText,
   FieldLegend,
@@ -144,7 +144,7 @@ export interface PhoneNumberInputProps
     /**
      * The ref to the country code selector HTML DOM element.
      */
-    ref?: ForwardedRef<HTMLSelectElement | InputElement>;
+    ref?: ForwardedRef<HTMLSelectElement | HTMLInputElement>;
     /**
      * Render prop that should render a left-aligned overlay icon or element.
      * Receives a className prop.
@@ -185,7 +185,7 @@ export interface PhoneNumberInputProps
     /**
      * The ref to the subscriber number input HTML DOM element.
      */
-    ref?: ForwardedRef<InputElement>;
+    ref?: ForwardedRef<HTMLInputElement>;
   };
 }
 
@@ -218,8 +218,8 @@ export const PhoneNumberInput = forwardRef<
     },
     ref,
   ) => {
-    const countryCodeRef = useRef<HTMLSelectElement | InputElement>(null);
-    const subscriberNumberRef = useRef<InputElement>(null);
+    const countryCodeRef = useRef<HTMLSelectElement | HTMLInputElement>(null);
+    const subscriberNumberRef = useRef<HTMLInputElement>(null);
 
     const validationHintId = useId();
 
@@ -361,8 +361,8 @@ export const PhoneNumberInput = forwardRef<
               readOnly={true}
               onChange={() => {}}
               ref={applyMultipleRefs(
-                countryCodeRef as RefObject<InputElement>,
-                countryCode.ref as ForwardedRef<InputElement>,
+                countryCodeRef as RefObject<HTMLInputElement>,
+                countryCode.ref as ForwardedRef<HTMLInputElement>,
               )}
               renderPrefix={countryCode.renderPrefix}
             />
@@ -401,7 +401,7 @@ export const PhoneNumberInput = forwardRef<
             {...subscriberNumber}
             invalid={invalid || subscriberNumber.invalid}
             readOnly={readOnly || subscriberNumber.readonly}
-            onChange={eachFn<[ChangeEvent<InputElement>]>([
+            onChange={eachFn<[ChangeEvent<HTMLInputElement>]>([
               subscriberNumber.onChange,
               handleChange,
             ])}

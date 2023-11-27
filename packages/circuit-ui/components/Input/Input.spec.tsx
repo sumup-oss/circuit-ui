@@ -18,7 +18,7 @@ import { createRef } from 'react';
 
 import { render, axe, screen } from '../../util/test-utils.js';
 
-import { Input, type InputElement } from './Input.js';
+import { Input } from './Input.js';
 
 const defaultProps = {
   label: 'Label',
@@ -35,14 +35,14 @@ describe('Input', () => {
   });
 
   it('should forward a ref to the input', () => {
-    const ref = createRef<InputElement>();
+    const ref = createRef<HTMLInputElement>();
     const { container } = render(<Input ref={ref} {...defaultProps} />);
     const input = container.querySelector('input');
     expect(ref.current).toBe(input);
   });
 
   it('should forward a ref to the textarea', () => {
-    const ref = createRef<InputElement>();
+    const ref = createRef<HTMLInputElement>();
     const { container } = render(
       <Input as="textarea" ref={ref} {...defaultProps} />,
     );

@@ -17,7 +17,6 @@ import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
 import { render, axe } from '../../util/test-utils.js';
-import type { InputElement } from '../Input/index.js';
 
 import { DateInput } from './DateInput.js';
 
@@ -25,7 +24,7 @@ describe('DateInput', () => {
   const baseProps = { label: 'Date' };
 
   it('should forward a ref', () => {
-    const ref = createRef<InputElement>();
+    const ref = createRef<HTMLInputElement>();
     const { container } = render(<DateInput {...baseProps} ref={ref} />);
     const input = container.querySelector('input');
     expect(ref.current).toBe(input);

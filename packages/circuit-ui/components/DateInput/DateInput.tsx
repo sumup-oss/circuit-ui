@@ -18,7 +18,7 @@
 import { forwardRef, useState, useEffect } from 'react';
 import { PatternFormat } from 'react-number-format';
 
-import { Input, type InputElement, type InputProps } from '../Input/index.js';
+import { Input, type InputProps } from '../Input/index.js';
 import { clsx } from '../../styles/clsx.js';
 
 import classes from './DateInput.module.css';
@@ -42,7 +42,7 @@ export interface DateInputProps
  * DateInput component for forms.
  * The input value is always a string in the format `YYYY-MM-DD`.
  */
-export const DateInput = forwardRef<InputElement, DateInputProps>(
+export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
   ({ inputClassName, ...props }, ref) => {
     // When server-side rendering, we assume that the user's browser supports
     // the native date input.

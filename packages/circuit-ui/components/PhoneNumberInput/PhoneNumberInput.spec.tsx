@@ -17,7 +17,6 @@ import { describe, it, vi, expect } from 'vitest';
 import { createRef } from 'react';
 
 import { axe, render, screen, userEvent } from '../../util/test-utils.js';
-import type { InputElement } from '../Input/Input.js';
 
 import {
   PhoneNumberInput,
@@ -67,7 +66,7 @@ describe('PhoneNumberInput', () => {
   });
 
   it('should forward a ref to the subscriber number input', () => {
-    const ref = createRef<InputElement>();
+    const ref = createRef<HTMLInputElement>();
     const props = {
       ...defaultProps,
       subscriberNumber: { ...defaultProps.subscriberNumber, ref },
