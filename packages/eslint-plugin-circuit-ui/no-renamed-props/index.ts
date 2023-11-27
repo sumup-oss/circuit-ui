@@ -174,24 +174,52 @@ export const noRenamedProps = createRule({
 
       // The `children` prop isn't a `JSXAttribute` and needs to be handled separately.
       if (props.children && node.children.length > 0) {
+        const current = 'children';
         const replacement = props.children;
 
-        // Multiple children and non-string children can't be automatically fixed.
-        if (node.children.length > 1 || node.children[0].type !== 'JSXText') {
+        // Multiple children can't be automatically fixed.
+        if (node.children.length > 1) {
           context.report({
-            node: node.children[0],
+            node,
             messageId: 'propName',
-            data: { component, current: 'children', replacement },
+            data: { component, current, replacement },
           });
           return;
         }
 
-        const { value } = node.children[0] as TSESTree.JSXText;
+        const child = node.children[0];
+
+        let value: string = '';
+
+        // These are the most common child types, more should be added as needed
+        switch (child.type) {
+          case 'JSXText': {
+            value = `"${child.value.trim()}"`;
+            break;
+          }
+          case 'JSXExpressionContainer': {
+            value = context.sourceCode.getText(child);
+            break;
+          }
+          case 'JSXElement': {
+            value = `{${context.sourceCode.getText(child)}}`;
+            break;
+          }
+        }
+
+        if (!value) {
+          context.report({
+            node: node.children[0],
+            messageId: 'propName',
+            data: { component, current, replacement },
+          });
+          return;
+        }
 
         context.report({
           node: node,
           messageId: 'propName',
-          data: { component, current: 'children', replacement },
+          data: { component, current, replacement },
           fix(fixer) {
             // Represents the last character of the JSXOpeningElement, the '>' character
             const openingElementEnding = node.openingElement.range[1] - 1;
@@ -201,7 +229,7 @@ export const noRenamedProps = createRule({
             const range = [openingElementEnding, closingElementEnding] as const;
 
             return [
-              fixer.insertTextBeforeRange(range, ` ${replacement}="${value}"`),
+              fixer.insertTextBeforeRange(range, ` ${replacement}=${value}`),
               fixer.replaceTextRange(range, ' />'),
             ];
           },

@@ -20,6 +20,7 @@ Examples of **incorrect** code for this rule:
 function Component() {
   return (
     <div>
+      <Button>Submit</Button>
       <Button size="kilo" />
       <Button icon={Plus} />
     </div>
@@ -50,6 +51,7 @@ Examples of **correct** code for this rule:
 function Component() {
   return (
     <div>
+      <Button label="Submit" />
       <Button size="s" />
       <Button leadingIcon={Plus} />
     </div>

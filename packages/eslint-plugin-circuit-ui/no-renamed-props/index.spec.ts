@@ -74,27 +74,53 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
       errors: [{ messageId: 'propName' }],
     },
     {
-      name: 'matched component with deprecated children',
+      name: 'matched component with the old children prop',
       code: `
-        function Component() {
+        function ComponentA() {
           return <Button>Add</Button>
         }
-      `,
-      output: `
-        function Component() {
-          return <Button label="Add" />
+
+        function ComponentB() {
+          return (
+            <Button>
+              Add
+            </Button>
+          )
         }
-      `,
-      errors: [{ messageId: 'propName' }],
-    },
-    {
-      name: 'matched component with deprecated child nodes',
-      code: `
-        function Component() {
+
+        function ComponentC() {
+          return <Button>{t('add')}</Button>
+        }
+
+        function ComponentD() {
           return <Button><span>Add</span></Button>
         }
       `,
-      errors: [{ messageId: 'propName' }],
+      output: `
+        function ComponentA() {
+          return <Button label="Add" />
+        }
+
+        function ComponentB() {
+          return (
+            <Button label="Add" />
+          )
+        }
+
+        function ComponentC() {
+          return <Button label={t('add')} />
+        }
+
+        function ComponentD() {
+          return <Button label={<span>Add</span>} />
+        }
+      `,
+      errors: [
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+      ],
     },
     {
       name: 'matched component with the old prop value',
