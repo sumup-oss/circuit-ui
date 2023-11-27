@@ -17,7 +17,7 @@ import { forwardRef, useRef } from 'react';
 import { Search, Close } from '@sumup/icons';
 
 import Input from '../Input/index.js';
-import type { InputElement, InputProps } from '../Input/index.js';
+import type { InputProps } from '../Input/index.js';
 import IconButton from '../IconButton/index.js';
 import {
   AccessibilityError,
@@ -48,9 +48,9 @@ export type SearchInputProps = InputProps & ClearProps;
 /**
  * SearchInput component for forms.
  */
-export const SearchInput = forwardRef<InputElement, SearchInputProps>(
+export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
   ({ value, onClear, clearLabel, inputClassName, ...props }, ref) => {
-    const localRef = useRef<InputElement>(null);
+    const localRef = useRef<HTMLInputElement>(null);
 
     if (
       process.env.NODE_ENV !== 'production' &&

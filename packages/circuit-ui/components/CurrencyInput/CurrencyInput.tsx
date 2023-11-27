@@ -18,7 +18,7 @@ import { resolveCurrencyFormat } from '@sumup/intl';
 import { NumericFormat, NumericFormatProps } from 'react-number-format';
 
 import { clsx } from '../../styles/clsx.js';
-import Input, { InputElement, InputProps } from '../Input/index.js';
+import Input, { InputProps } from '../Input/index.js';
 
 import { formatPlaceholder } from './CurrencyInputService.js';
 import classes from './CurrencyInput.module.css';
@@ -71,7 +71,7 @@ const DUMMY_DELIMITER = '?';
  * the symbol according to the locale. The corresponding service exports a
  * parser for formatting values automatically.
  */
-export const CurrencyInput = forwardRef<InputElement, CurrencyInputProps>(
+export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
   (
     {
       locale,
