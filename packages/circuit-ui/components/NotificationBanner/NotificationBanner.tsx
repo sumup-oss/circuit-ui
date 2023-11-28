@@ -24,7 +24,7 @@ import {
   forwardRef,
 } from 'react';
 
-import Button, { ButtonProps, mapLegacyButtonSize } from '../Button/index.js';
+import Button, { ButtonProps, legacyButtonSizeMap } from '../Button/index.js';
 import Headline from '../Headline/index.js';
 import Body from '../Body/index.js';
 import Image, { ImageProps } from '../Image/index.js';
@@ -32,6 +32,7 @@ import CloseButton from '../CloseButton/index.js';
 import { useAnimation } from '../../hooks/useAnimation/index.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { clsx } from '../../styles/clsx.js';
+import { deprecate } from '../../util/logger.js';
 
 import classes from './NotificationBanner.module.css';
 
@@ -159,7 +160,22 @@ export const NotificationBanner = forwardRef<
       });
     }, [isVisible, setAnimating]);
 
-    const size = action.size ? mapLegacyButtonSize(action.size) : 'm';
+    const size = action.size
+      ? legacyButtonSizeMap[action.size] || action.size
+      : 'm';
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      action.size &&
+      legacyButtonSizeMap[action.size]
+    ) {
+      deprecate(
+        'NotificationBanner',
+        `The action's \`${action.size}\` size has been deprecated. Use the \`${
+          legacyButtonSizeMap[action.size]
+        }\` size instead.`,
+      );
+    }
 
     return (
       <div

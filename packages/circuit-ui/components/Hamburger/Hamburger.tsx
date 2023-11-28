@@ -15,13 +15,14 @@
 
 import { forwardRef } from 'react';
 
-import { mapLegacyButtonSize } from '../Button/index.js';
+import { legacyButtonSizeMap } from '../Button/index.js';
 import { IconButton, IconButtonProps } from '../IconButton/IconButton.js';
 import { Skeleton } from '../Skeleton/index.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
+import { deprecate } from '../../util/logger.js';
 import { clsx } from '../../styles/clsx.js';
 
 import classes from './Hamburger.module.css';
@@ -77,7 +78,17 @@ export const Hamburger = forwardRef<any, HamburgerProps>(
       }
     }
 
-    const size = mapLegacyButtonSize(legacySize);
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      legacyButtonSizeMap[legacySize]
+    ) {
+      deprecate(
+        'Hamburger',
+        `The \`${legacySize}\` size has been deprecated. Use the \`${legacyButtonSizeMap[legacySize]}\` size instead.`,
+      );
+    }
+
+    const size = legacyButtonSizeMap[legacySize] || legacySize;
 
     return (
       <IconButton

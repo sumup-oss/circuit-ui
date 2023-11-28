@@ -16,6 +16,6 @@
 import { Button } from './Button.js';
 
 export type { ButtonProps } from './Button.js';
-export { mapLegacyButtonSize } from './Button.js';
+export { legacyButtonSizeMap } from './Button.js';
 
 export default Button;

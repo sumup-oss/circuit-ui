@@ -31,6 +31,7 @@ import {
 } from '../../util/errors.js';
 import utilityClasses from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
+import { deprecate } from '../../util/logger.js';
 
 import classes from './Button.module.css';
 
@@ -52,7 +53,17 @@ export interface BaseProps {
   /**
    * Choose from 2 sizes. Default: 'm'.
    */
-  'size'?: 's' | 'm' | 'kilo' | 'giga';
+  'size'?:
+    | 's'
+    | 'm'
+    /**
+     * @deprecated
+     */
+    | 'kilo'
+    /**
+     * @deprecated
+     */
+    | 'giga';
   /**
    * Visually and functionally disable the button.
    */
@@ -107,16 +118,10 @@ type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
 
 export type ButtonProps = BaseProps & LinkElProps & ButtonElProps;
 
-const legacySizeMap: Record<string, 's' | 'm'> = {
+export const legacyButtonSizeMap: Record<string, 's' | 'm'> = {
   kilo: 's',
   giga: 'm',
 };
-
-export function mapLegacyButtonSize(
-  size: 's' | 'm' | 'kilo' | 'giga',
-): 's' | 'm' {
-  return legacySizeMap[size] || size;
-}
 
 /**
  * The Button component enables the user to perform an action or navigate
@@ -143,6 +148,14 @@ export const Button = forwardRef<any, ButtonProps>(
     },
     ref,
   ) => {
+    const { Link } = useComponents();
+
+    const isLink = Boolean(props.href);
+
+    const Element = as || (isLink ? Link : 'button');
+
+    const size = legacyButtonSizeMap[legacySize] || legacySize;
+
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -154,13 +167,30 @@ export const Button = forwardRef<any, ButtonProps>(
         "The `loadingLabel` prop is missing or invalid. Remove the `isLoading` prop if you don't intend to use the Button's loading state.",
       );
     }
-    const { Link } = useComponents();
 
-    const isLink = Boolean(props.href);
+    if (process.env.NODE_ENV !== 'production' && children) {
+      deprecate(
+        'Button',
+        'The `children` prop has been deprecated. Use the `label` prop instead.',
+      );
+    }
 
-    const Element = as || (isLink ? Link : 'button');
+    if (process.env.NODE_ENV !== 'production' && icon) {
+      deprecate(
+        'Button',
+        'The `icon` prop has been deprecated. Use the `leadingIcon` prop instead.',
+      );
+    }
 
-    const size = mapLegacyButtonSize(legacySize);
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      legacyButtonSizeMap[legacySize]
+    ) {
+      deprecate(
+        'Button',
+        `The \`${legacySize}\` size has been deprecated. Use the \`${legacyButtonSizeMap[legacySize]}\` size instead.`,
+      );
+    }
 
     return (
       <Element

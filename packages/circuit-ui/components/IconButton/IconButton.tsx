@@ -18,11 +18,12 @@ import type { IconProps } from '@sumup/icons';
 
 import utilityClasses from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
-import Button, { ButtonProps, mapLegacyButtonSize } from '../Button/index.js';
+import Button, { ButtonProps, legacyButtonSizeMap } from '../Button/index.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
+import { deprecate } from '../../util/logger.js';
 
 import classes from './IconButton.module.css';
 
@@ -50,7 +51,7 @@ export interface IconButtonProps
  */
 export const IconButton = forwardRef<any, IconButtonProps>(
   ({ children, label, size: legacySize = 'm', className, ...props }, ref) => {
-    const size = mapLegacyButtonSize(legacySize);
+    const size = legacyButtonSizeMap[legacySize] || legacySize;
     const child = Children.only(children);
     const iconSize = size === 's' ? '16' : '24';
     const icon = cloneElement(child, {
@@ -66,6 +67,16 @@ export const IconButton = forwardRef<any, IconButtonProps>(
       throw new AccessibilityError(
         'IconButton',
         'The `label` prop is missing or invalid.',
+      );
+    }
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      legacyButtonSizeMap[legacySize]
+    ) {
+      deprecate(
+        'IconButton',
+        `The action's \`${legacySize}\` size has been deprecated. Use the \`${legacyButtonSizeMap[legacySize]}\` size instead.`,
       );
     }
 
