@@ -33,10 +33,9 @@ export const CloseButton = forwardRef<any, CloseButtonProps>(
       className={clsx(classes.base, className)}
       label={label}
       {...props}
+      icon={Close}
       ref={ref}
-    >
-      <Close size="16" />
-    </IconButton>
+    />
   ),
 );
 
