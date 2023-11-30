@@ -20,30 +20,36 @@ import { isSufficientlyLabelled } from './errors.js';
 describe('errors', () => {
   describe('isSufficientlyLabelled', () => {
     describe('should return false', () => {
-      test('when the label and labelId are missing', () => {
+      test('when the label and attributes are missing', () => {
         const label = undefined;
-        const labelId = undefined;
-        expect(isSufficientlyLabelled(label, labelId)).toBe(false);
+        const attributes = undefined;
+        expect(isSufficientlyLabelled(label, attributes)).toBe(false);
       });
 
       test('when the label is an empty string', () => {
         const label = ' ';
-        const labelId = undefined;
-        expect(isSufficientlyLabelled(label, labelId)).toBe(false);
+        const attributes = undefined;
+        expect(isSufficientlyLabelled(label, attributes)).toBe(false);
       });
 
-      test('when the labelId is an empty string', () => {
+      test('when the aria-label is an empty string', () => {
         const label = undefined;
-        const labelId = ' ';
-        expect(isSufficientlyLabelled(label, labelId)).toBe(false);
+        const attributes = { 'aria-label': ' ' };
+        expect(isSufficientlyLabelled(label, attributes)).toBe(false);
+      });
+
+      test('when the aria-labelledby is an empty string', () => {
+        const label = undefined;
+        const attributes = { 'aria-labelledby': ' ' };
+        expect(isSufficientlyLabelled(label, attributes)).toBe(false);
       });
     });
 
     describe('should return true', () => {
       test('when the label is a valid string', () => {
         const label = 'Email address';
-        const labelId = undefined;
-        expect(isSufficientlyLabelled(label, labelId)).toBe(true);
+        const attributes = undefined;
+        expect(isSufficientlyLabelled(label, attributes)).toBe(true);
       });
 
       // Labels shouldn't contain structured markup since it is ignored
@@ -51,15 +57,21 @@ describe('errors', () => {
       // at your own risk.
       test('when the label is defined but not a string', () => {
         const label = <div>Label</div>;
-        const labelId = undefined;
+        const attributes = undefined;
         // @ts-expect-error We're testing for this error.
-        expect(isSufficientlyLabelled(label, labelId)).toBe(true);
+        expect(isSufficientlyLabelled(label, attributes)).toBe(true);
       });
 
-      test('when the label is undefined but the labelId is a valid string', () => {
+      test('when the label is undefined but the aria-label is a valid string', () => {
         const label = undefined;
-        const labelId = ':r1:';
-        expect(isSufficientlyLabelled(label, labelId)).toBe(true);
+        const attributes = { 'aria-label': 'Label' };
+        expect(isSufficientlyLabelled(label, attributes)).toBe(true);
+      });
+
+      test('when the label is undefined but the aria-labelledby is a valid string', () => {
+        const label = undefined;
+        const attributes = { 'aria-labelledby': ':r1:' };
+        expect(isSufficientlyLabelled(label, attributes)).toBe(true);
       });
     });
   });
