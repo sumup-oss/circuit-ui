@@ -19,6 +19,7 @@ exports[`CloseButton > styles > should render and match snapshot when not visibl
 }
 
 <button
+  aria-disabled="false"
   class="_base_892426 _focus-visible_73b4bb _m_892426 _secondary_892426 _m_f6dd9a _base_9bf092 circuit-0"
   title="Close"
   type="button"
@@ -27,6 +28,15 @@ exports[`CloseButton > styles > should render and match snapshot when not visibl
     aria-hidden="true"
     class="_loader_892426"
   >
+    <span
+      class="_dot_892426"
+    />
+    <span
+      class="_dot_892426"
+    />
+    <span
+      class="_dot_892426"
+    />
     <span
       class="_hide-visually_73b4bb"
     />
@@ -81,6 +91,7 @@ exports[`CloseButton > styles > should render and match snapshot when visible 1`
 }
 
 <button
+  aria-disabled="false"
   class="_base_892426 _focus-visible_73b4bb _m_892426 _secondary_892426 _m_f6dd9a _base_9bf092 circuit-0"
   title="Close"
   type="button"
@@ -89,6 +100,15 @@ exports[`CloseButton > styles > should render and match snapshot when visible 1`
     aria-hidden="true"
     class="_loader_892426"
   >
+    <span
+      class="_dot_892426"
+    />
+    <span
+      class="_dot_892426"
+    />
+    <span
+      class="_dot_892426"
+    />
     <span
       class="_hide-visually_73b4bb"
     />
