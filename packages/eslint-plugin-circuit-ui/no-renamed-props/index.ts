@@ -133,6 +133,15 @@ const configs: (PropNameConfig | PropValuesConfig | CustomConfig)[] = [
     },
   },
   {
+    type: 'values',
+    component: 'Selector',
+    prop: 'size',
+    values: {
+      kilo: 's',
+      mega: 'm',
+    },
+  },
+  {
     type: 'name',
     component: 'Button',
     props: {

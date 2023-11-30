@@ -22,6 +22,7 @@ function Component() {
     <div>
       <Avatar size="giga" />
       <ProgressBar size="byte" />
+      <SelectorGroup size="kilo" />
       <Button size="kilo" />
       <Button>Submit</Button>
       <Button icon={Plus} />
@@ -55,6 +56,7 @@ function Component() {
     <div>
       <Avatar size="s" />
       <ProgressBar size="s" />
+      <SelectorGroup size="s" />
       <Button size="s" />
       <Button label="Submit" />
       <Button leadingIcon={Plus} />

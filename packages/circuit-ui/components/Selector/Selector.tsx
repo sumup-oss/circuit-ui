@@ -34,7 +34,18 @@ import { deprecate } from '../../util/logger.js';
 
 import classes from './Selector.module.css';
 
-export type SelectorSize = 'kilo' | 'mega' | 'flexible';
+export type SelectorSize =
+  | 's'
+  | 'm'
+  | 'flexible'
+  /**
+   * @deprecated
+   */
+  | 'kilo'
+  /**
+   * @deprecated
+   */
+  | 'mega';
 
 export interface SelectorProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
@@ -63,7 +74,7 @@ export interface SelectorProps
    */
   name?: string;
   /**
-   * Choose from 3 sizes. Default: 'mega'.
+   * Choose from 3 sizes. Default: 'm'.
    */
   size?: SelectorSize;
   /**
@@ -87,6 +98,11 @@ export interface SelectorProps
 
 export const SelectorGroupContext = createContext(false);
 
+const legacySizeMap: Record<string, 's' | 'm'> = {
+  kilo: 's',
+  mega: 'm',
+};
+
 /**
  * @deprecated Use the {@link SelectorGroup} component instead.
  */
@@ -106,7 +122,7 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
       'aria-describedby': describedBy,
       className,
       style,
-      size = 'mega',
+      'size': legacySize = 'm',
       children,
       ...props
     },
@@ -122,11 +138,20 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
 
     const isInsideGroup = useContext(SelectorGroupContext);
 
-    if (process.env.NODE_ENV !== 'production' && !isInsideGroup) {
-      deprecate(
-        'Selector',
-        'The Selector component has been deprecated. Use the SelectorGroup component instead.',
-      );
+    if (process.env.NODE_ENV !== 'production') {
+      if (!isInsideGroup) {
+        deprecate(
+          'Selector',
+          'The Selector component has been deprecated. Use the SelectorGroup component instead.',
+        );
+      }
+
+      if (legacySizeMap[legacySize]) {
+        deprecate(
+          'Selector',
+          `The \`${legacySize}\` size has been deprecated. Use the \`${legacySizeMap[legacySize]}\` size instead.`,
+        );
+      }
     }
 
     if (
@@ -139,6 +164,8 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
         'The `label` prop is missing or invalid.',
       );
     }
+
+    const size = legacySizeMap[legacySize] || legacySize;
 
     const hasDescription = Boolean(description);
 

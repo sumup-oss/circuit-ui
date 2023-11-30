@@ -77,7 +77,7 @@ export interface SelectorGroupProps
    */
   multiple?: boolean;
   /**
-   * Size of the Selectors within the group. Default: 'mega'.
+   * Size of the Selectors within the group. Default: 'm'.
    */
   size?: SelectorSize;
   /**
