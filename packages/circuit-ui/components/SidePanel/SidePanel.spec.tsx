@@ -89,9 +89,9 @@ describe('SidePanel', () => {
 
   it('should call the onClose callback when Esc is pressed', async () => {
     const onClose = vi.fn();
-    const { getByText } = renderComponent({ onClose });
+    const { getByLabelText } = renderComponent({ onClose });
 
-    const sidePanel = getByText('Close');
+    const sidePanel = getByLabelText('Close');
 
     await waitFor(() => expect(sidePanel).toBeVisible());
 

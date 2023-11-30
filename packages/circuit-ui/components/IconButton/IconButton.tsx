@@ -16,7 +16,6 @@
 import { Children, cloneElement, ReactElement, forwardRef } from 'react';
 import type { IconProps } from '@sumup/icons';
 
-import utilityClasses from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
 import Button, { ButtonProps, legacyButtonSizeMap } from '../Button/index.js';
 import {
@@ -64,30 +63,13 @@ export const IconButton = forwardRef<any, IconButtonProps>(
   ) => {
     const size = legacyButtonSizeMap[legacySize] || legacySize;
 
-    const iconSize = size === 's' ? '16' : '24';
-
-    let icon: ReactElement;
-
     const labelString = isString(children) ? children : label;
 
-    if (Icon) {
-      icon = (
-        <Icon
-          size={iconSize}
-          aria-hidden="true"
-          width={iconSize}
-          height={iconSize}
-        />
-      );
-    } else if (!isString(children)) {
-      const child = Children.only(children);
-      icon = cloneElement(child!, {
-        'aria-hidden': 'true',
-        'size': (child!.props.size as string) || iconSize,
-        'width': iconSize,
-        'height': iconSize,
-      });
-    } else {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      !Icon &&
+      Children.count(children) !== 1
+    ) {
       throw new CircuitError('IconButton', 'The `icon` prop is missing.');
     }
 
@@ -130,13 +112,18 @@ export const IconButton = forwardRef<any, IconButtonProps>(
       <Button
         title={labelString}
         className={clsx(classes[size], className)}
+        aria-label={labelString}
         size={size}
         {...props}
         ref={ref}
-      >
-        {icon}
-        <span className={utilityClasses.hideVisually}>{labelString}</span>
-      </Button>
+        icon={(iconProps) => {
+          if (Icon) {
+            return <Icon {...iconProps} />;
+          }
+          const child = Children.only(children)!;
+          return cloneElement(child, iconProps);
+        }}
+      />
     );
   },
 );

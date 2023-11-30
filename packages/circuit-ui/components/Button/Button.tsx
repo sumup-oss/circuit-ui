@@ -175,7 +175,8 @@ export const Button = forwardRef<any, ButtonProps>(
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
-      !children
+      !children &&
+      !isSufficientlyLabelled(children as string, props)
     ) {
       throw new AccessibilityError(
         'Button',
@@ -239,7 +240,7 @@ export const Button = forwardRef<any, ButtonProps>(
               aria-hidden="true"
             />
           )}
-          <span className={classes.label}>{children}</span>
+          {children && <span className={classes.label}>{children}</span>}
           {TrailingIcon && (
             <TrailingIcon
               className={classes.icon}

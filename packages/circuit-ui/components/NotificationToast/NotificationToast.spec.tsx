@@ -86,7 +86,9 @@ describe('NotificationToast', () => {
   });
 
   it('should close the toast when the onClose method is called', async () => {
-    const { getByText } = renderNotificationToast(baseNotificationToast);
+    const { getByText, getByLabelText } = renderNotificationToast(
+      baseNotificationToast,
+    );
 
     await userEvent.click(getByText('Open toast'));
 
@@ -94,7 +96,7 @@ describe('NotificationToast', () => {
       expect(getByText('This is a toast message')).toBeVisible();
     });
 
-    const closeButton = getByText('-');
+    const closeButton = getByLabelText('-');
 
     await userEvent.click(closeButton);
 
