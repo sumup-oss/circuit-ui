@@ -15,8 +15,6 @@
 
 import { useState, ChangeEvent } from 'react';
 
-import type { InputElement } from '../Input/index.js';
-
 import { SearchInput, SearchInputProps } from './SearchInput.js';
 
 export default {
@@ -32,7 +30,7 @@ export const Base = (args: SearchInputProps): JSX.Element => {
 
   const handleChange = ({
     target: { value: inputValue },
-  }: ChangeEvent<InputElement>) => {
+  }: ChangeEvent<HTMLInputElement>) => {
     setValue(inputValue);
   };
 

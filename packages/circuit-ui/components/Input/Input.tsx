@@ -13,13 +13,7 @@
  * limitations under the License.
  */
 
-import {
-  ComponentType,
-  forwardRef,
-  InputHTMLAttributes,
-  TextareaHTMLAttributes,
-  useId,
-} from 'react';
+import { ComponentType, forwardRef, InputHTMLAttributes, useId } from 'react';
 
 import {
   FieldWrapper,
@@ -36,19 +30,18 @@ import { clsx } from '../../styles/clsx.js';
 
 import classes from './Input.module.css';
 
-export type InputElement = HTMLInputElement & HTMLTextAreaElement;
-type CircuitInputHTMLAttributes = InputHTMLAttributes<HTMLInputElement> &
-  TextareaHTMLAttributes<HTMLTextAreaElement>;
+/**
+ * @deprecated
+ *
+ * Use the `HTMLInputElement` or `HTMLTextAreaElement` interfaces instead.
+ */
+export type InputElement = HTMLInputElement;
 
-export interface InputProps extends CircuitInputHTMLAttributes {
+export interface BaseInputProps {
   /**
    * A clear and concise description of the input purpose.
    */
   label: string;
-  /**
-   * The HTML input element to render.
-   */
-  as?: 'input' | 'textarea';
   /**
    * A unique identifier for the input field. If not defined, a randomly
    * generated id is used.
@@ -104,10 +97,21 @@ export interface InputProps extends CircuitInputHTMLAttributes {
   inputClassName?: string;
 }
 
+export interface InputProps
+  extends BaseInputProps,
+    InputHTMLAttributes<HTMLInputElement> {
+  /**
+   * @private
+   *
+   * Use the {@link TextArea} component.
+   */
+  as?: 'input' | 'textarea';
+}
+
 /**
  * Input component for forms. Takes optional prefix and suffix as render props.
  */
-export const Input = forwardRef<InputElement, InputProps>(
+export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
     {
       value,
@@ -173,6 +177,9 @@ export const Input = forwardRef<InputElement, InputProps>(
           <Element
             id={inputId}
             value={value}
+            // @ts-expect-error The Input component renders as an `input` element
+            // by default. The types are overwritten as necessary in the
+            // TextArea component.
             ref={ref}
             aria-describedby={descriptionIds}
             className={clsx(
