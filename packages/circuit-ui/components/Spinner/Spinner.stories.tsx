@@ -44,10 +44,11 @@ const style = {
 };
 
 export const Base = () => <Spinner style={style} />;
+
 export const Sizes = () => (
   <Stack>
-    <Spinner style={style} size="byte" />
-    <Spinner style={style} size="kilo" />
-    <Spinner style={style} size="giga" />
+    <Spinner style={style} size="s" />
+    <Spinner style={style} size="m" />
+    <Spinner style={style} size="l" />
   </Stack>
 );

@@ -25,7 +25,7 @@ exports[`CloseButton > styles > should render and match snapshot when not visibl
 >
   <span
     aria-hidden="true"
-    class="_base_2b3edd _byte_2b3edd _spinner_892426"
+    class="_base_2b3edd _s_2b3edd _spinner_892426"
   >
     <span
       class="_hide-visually_73b4bb"
@@ -83,7 +83,7 @@ exports[`CloseButton > styles > should render and match snapshot when visible 1`
 >
   <span
     aria-hidden="true"
-    class="_base_2b3edd _byte_2b3edd _spinner_892426"
+    class="_base_2b3edd _s_2b3edd _spinner_892426"
   >
     <span
       class="_hide-visually_73b4bb"

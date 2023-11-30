@@ -21,8 +21,10 @@ function Component() {
   return (
     <div>
       <Avatar size="giga" />
+      <Hamburger size="kilo" />
       <ProgressBar size="byte" />
       <SelectorGroup size="kilo" />
+      <Spinner size="byte" />
       <Button size="kilo" />
       <Button>Submit</Button>
       <Button icon={Plus} />
@@ -55,8 +57,10 @@ function Component() {
   return (
     <div>
       <Avatar size="s" />
+      <Hamburger size="s" />
       <ProgressBar size="s" />
       <SelectorGroup size="s" />
+      <Spinner size="s" />
       <Button size="s" />
       <Button label="Submit" />
       <Button leadingIcon={Plus} />

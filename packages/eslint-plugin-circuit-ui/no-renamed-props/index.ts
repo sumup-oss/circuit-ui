@@ -142,6 +142,16 @@ const configs: (PropNameConfig | PropValuesConfig | CustomConfig)[] = [
     },
   },
   {
+    type: 'values',
+    component: 'Spinner',
+    prop: 'size',
+    values: {
+      byte: 's',
+      kilo: 'm',
+      giga: 'l',
+    },
+  },
+  {
     type: 'name',
     component: 'Button',
     props: {
