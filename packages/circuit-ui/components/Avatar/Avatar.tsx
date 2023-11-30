@@ -18,6 +18,7 @@ import { Profile, Image as ImageIcon } from '@sumup/icons';
 
 import { CircuitError } from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';
+import { deprecate } from '../../util/logger.js';
 
 import classes from './Avatar.module.css';
 
@@ -38,10 +39,19 @@ export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
    */
   variant?: 'object' | 'identity';
   /**
-   * One of two available sizes for the Avatar, either giga or yotta.
-   * Defaults to `yotta`.
+   * Choose from 2 sizes. Default: 'm'.
    */
-  size?: 'giga' | 'yotta';
+  size?:
+    | 's'
+    | 'm'
+    /**
+     * @deprecated
+     */
+    | 'giga'
+    /**
+     * @deprecated
+     */
+    | 'yotta';
   /**
    * A 1-2 letter representation of a person's identity, usually their abbreviated name.
    * Can only be used with the identity variant.
@@ -54,6 +64,11 @@ const placeholders = {
   identity: <Profile />,
 };
 
+const legacySizeMap: Record<string, 's' | 'm'> = {
+  giga: 's',
+  yotta: 'm',
+};
+
 /**
  * The Avatar component displays an identity or an object image.
  */
@@ -61,34 +76,38 @@ export const Avatar = ({
   src,
   alt = '', // This default should be removed in the next major
   variant = 'object',
-  size = 'yotta',
+  size: legacySize = 'm',
   initials,
   className,
   ...props
 }: AvatarProps): JSX.Element => {
   if (
     process.env.NODE_ENV !== 'production' &&
-    process.env.NODE_ENV !== 'test' &&
-    variant === 'object' &&
-    initials
+    process.env.NODE_ENV !== 'test'
   ) {
-    throw new CircuitError(
+    if (variant === 'object' && initials) {
+      throw new CircuitError(
+        'Avatar',
+        'The `initials` prop can only be used with the identity `variant`. Remove the `initials` prop or change the `variant` to identity.',
+      );
+    }
+
+    if (initials && initials.length > 2) {
+      throw new CircuitError(
+        'Avatar',
+        `The \`initials\` prop is ${initials.length} characters long. Shorten it to 1-2 characters.`,
+      );
+    }
+  }
+
+  if (process.env.NODE_ENV !== 'production' && legacySizeMap[legacySize]) {
+    deprecate(
       'Avatar',
-      'The `initials` prop can only be used with the identity `variant`. Remove the `initials` prop or change the `variant` to identity.',
+      `The \`${legacySize}\` size has been deprecated. Use the \`${legacySizeMap[legacySize]}\` size instead.`,
     );
   }
 
-  if (
-    process.env.NODE_ENV !== 'production' &&
-    process.env.NODE_ENV !== 'test' &&
-    initials &&
-    initials.length > 2
-  ) {
-    throw new CircuitError(
-      'Avatar',
-      `The \`initials\` prop is ${initials.length} characters long. Shorten it to 1-2 characters.`,
-    );
-  }
+  const size = legacySizeMap[legacySize] || legacySize;
 
   if (src) {
     return (

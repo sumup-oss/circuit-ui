@@ -114,6 +114,15 @@ const configs: (PropNameConfig | PropValuesConfig | CustomConfig)[] = [
     },
   },
   {
+    type: 'values',
+    component: 'Avatar',
+    prop: 'size',
+    values: {
+      giga: 's',
+      yotta: 'm',
+    },
+  },
+  {
     type: 'name',
     component: 'Button',
     props: {
