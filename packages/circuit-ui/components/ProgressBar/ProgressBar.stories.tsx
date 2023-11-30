@@ -23,7 +23,7 @@ export default {
 };
 
 const variants = ['primary', 'secondary'] as const;
-const sizes = ['byte', 'kilo', 'mega'] as const;
+const sizes = ['s', 'm', 'l'] as const;
 
 const progressBarStyles = {
   width: '90%',

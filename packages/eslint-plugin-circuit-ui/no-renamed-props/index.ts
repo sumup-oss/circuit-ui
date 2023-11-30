@@ -123,6 +123,16 @@ const configs: (PropNameConfig | PropValuesConfig | CustomConfig)[] = [
     },
   },
   {
+    type: 'values',
+    component: 'ProgressBar',
+    prop: 'size',
+    values: {
+      byte: 's',
+      kilo: 'm',
+      mega: 'l',
+    },
+  },
+  {
     type: 'name',
     component: 'Button',
     props: {
