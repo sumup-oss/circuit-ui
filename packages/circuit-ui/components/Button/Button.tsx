@@ -201,12 +201,15 @@ export const Button = forwardRef<any, ButtonProps>(
         ref={ref}
       >
         <span className={classes.loader} aria-hidden={!isLoading}>
+          <span className={classes.dot} />
+          <span className={classes.dot} />
+          <span className={classes.dot} />
           <span className={utilityClasses.hideVisually}>{loadingLabel}</span>
         </span>
         <span className={classes.content}>
           {LeadingIcon && (
             <LeadingIcon
-              className={classes['leading-icon']}
+              className={classes.icon}
               size={size === 's' ? '16' : '24'}
               aria-hidden="true"
             />
@@ -214,7 +217,7 @@ export const Button = forwardRef<any, ButtonProps>(
           <span className={classes.label}>{children}</span>
           {TrailingIcon && (
             <TrailingIcon
-              className={classes['trailing-icon']}
+              className={classes.icon}
               size={size === 's' ? '16' : '24'}
               aria-hidden="true"
             />

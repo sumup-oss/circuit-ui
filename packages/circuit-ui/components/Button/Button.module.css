@@ -1,4 +1,5 @@
 .base {
+  position: relative;
   display: inline-flex;
   justify-content: center;
   width: auto;
@@ -30,6 +31,10 @@
 /* Sizes */
 .s {
   --content-gap: var(--cui-spacings-byte);
+  --icon-size: var(--cui-icon-sizes-kilo);
+  --loader-diameter: 4px;
+  --loader-gap: 3px;
+  --loader-transform: scale(150%);
 
   padding: calc(var(--cui-spacings-bit) - var(--cui-border-width-kilo))
     calc(var(--cui-spacings-mega) - var(--cui-border-width-kilo));
@@ -38,6 +43,10 @@
 
 .m {
   --content-gap: var(--cui-spacings-byte);
+  --icon-size: var(--cui-icon-sizes-mega);
+  --loader-diameter: 6px;
+  --loader-gap: 5px;
+  --loader-transform: scale(133%);
 
   padding: calc(var(--cui-spacings-kilo) - var(--cui-border-width-kilo))
     calc(var(--cui-spacings-giga) - var(--cui-border-width-kilo));
@@ -193,60 +202,94 @@
   border-color: transparent;
 }
 
-/* Content */
-.leading-icon {
-  flex-shrink: 0;
-  margin-right: var(--content-gap);
-}
-
-.trailing-icon {
-  flex-shrink: 0;
-  margin-left: var(--content-gap);
-}
-
-.s .leading-icon,
-.s .trailing-icon {
-  width: 16px;
-  height: 16px;
-}
-
-.m .leading-icon,
-.m .trailing-icon {
-  width: 24px;
-  height: 24px;
-}
-
 /* Loader */
 .loader {
-  top: calc(50% - 3px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--loader-gap);
+  place-content: center;
+  width: 100%;
+  height: 100%;
   visibility: hidden;
   opacity: 0;
   transition: opacity var(--cui-transitions-default),
     visibility var(--cui-transitions-default);
 }
 
-.loader,
-.loader::before,
-.loader::after {
-  position: absolute;
+/* The animation of the dots consists of five phases: an 80ms pause
+   and four 160ms transitions between each dot being highlighted */
+
+.dot {
+  --loader-opacity: 0.25;
+
   display: block;
-  width: 6px;
-  height: 6px;
-  background-color: currentColor;
+  width: var(--loader-diameter);
+  height: var(--loader-diameter);
+  background-color: var(--cui-fg-normal);
   border-radius: var(--cui-border-radius-circle);
+  animation-duration: 720ms; /* 80ms + 4 * 160ms */
+  animation-play-state: paused;
+  animation-timing-function: cubic-bezier(0.75, 0, 1, 1);
+  animation-iteration-count: infinite;
 }
 
-.loader::before,
-.loader::after {
-  content: "";
+@keyframes pulse1 {
+  0%,
+  11%,
+  55%,
+  100% {
+    opacity: var(--loader-opacity);
+    transform: scale(100%);
+  }
+
+  33% {
+    opacity: 1;
+    transform: var(--loader-transform);
+  }
 }
 
-.loader::before {
-  left: -10px;
+.dot:nth-child(1) {
+  animation-name: pulse1;
 }
 
-.loader::after {
-  right: -10px;
+@keyframes pulse2 {
+  0%,
+  33%,
+  77%,
+  100% {
+    opacity: var(--loader-opacity);
+    transform: scale(100%);
+  }
+
+  55% {
+    opacity: 1;
+    transform: var(--loader-transform);
+  }
+}
+
+.dot:nth-child(2) {
+  animation-name: pulse2;
+}
+
+@keyframes pulse3 {
+  0%,
+  55%,
+  100% {
+    opacity: var(--loader-opacity);
+    transform: scale(100%);
+  }
+
+  77% {
+    opacity: 1;
+    transform: var(--loader-transform);
+  }
+}
+
+.dot:nth-child(3) {
+  animation-name: pulse3;
 }
 
 .base[aria-busy="true"] .loader {
@@ -254,16 +297,19 @@
   opacity: 1;
 }
 
+.base[aria-busy="true"] .dot {
+  animation-play-state: running;
+}
+
 /* Content */
 .content {
-  display: inline-flex;
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--content-gap);
+  place-content: center;
   align-items: center;
-  visibility: inherit;
   opacity: 1;
-  transition: opacity var(--cui-transitions-default),
-    transform var(--cui-transitions-default),
-    visibility var(--cui-transitions-default);
-  transform: scale3d(1, 1, 1);
+  transition: opacity var(--cui-transitions-default);
 }
 
 .base:active .content,
@@ -273,7 +319,10 @@
 }
 
 .base[aria-busy="true"] .content {
-  visibility: hidden;
   opacity: 0;
-  transform: scale3d(0, 0, 0);
+}
+
+.icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
 }
