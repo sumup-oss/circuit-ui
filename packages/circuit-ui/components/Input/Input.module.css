@@ -39,35 +39,25 @@
   text-overflow: ellipsis;
 }
 
-.base:disabled,
-.base[disabled] {
-  background-color: var(--cui-bg-normal-disabled);
-  box-shadow: 0 0 0 1px var(--cui-border-normal-disabled);
-}
-
-.base[readonly] {
-  background-color: var(--cui-bg-subtle-disabled);
-}
-
 /* Validations */
 
-.base[aria-invalid='true'] {
+.base[aria-invalid="true"] {
   box-shadow: 0 0 0 1px var(--cui-border-danger);
 }
 
-.base[aria-invalid='true']:hover {
+.base[aria-invalid="true"]:hover {
   box-shadow: 0 0 0 1px var(--cui-border-danger-hovered);
 }
 
-.base[aria-invalid='true']:focus {
+.base[aria-invalid="true"]:focus {
   box-shadow: 0 0 0 2px var(--cui-border-danger);
 }
 
-.base[aria-invalid='true']:active {
+.base[aria-invalid="true"]:active {
   box-shadow: 0 0 0 1px var(--cui-border-danger-pressed);
 }
 
-.base[aria-invalid='true']:not(:focus):not([disabled])::placeholder {
+.base[aria-invalid="true"]:not(:focus):not([disabled])::placeholder {
   color: var(--cui-fg-danger);
 }
 
@@ -89,6 +79,18 @@
 
 .warning:not(:focus):not([disabled])::placeholder {
   color: var(--cui-fg-warning);
+}
+
+/* Disabled */
+
+.base:disabled,
+.base[disabled] {
+  background-color: var(--cui-bg-normal-disabled);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-disabled);
+}
+
+.base[readonly] {
+  background-color: var(--cui-bg-subtle-disabled);
 }
 
 /* Alignment */
