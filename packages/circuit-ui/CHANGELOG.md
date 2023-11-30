@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 7.4.2
+
+### Patch Changes
+
+- [#2308](https://github.com/sumup-oss/circuit-ui/pull/2308) [`94f1d207`](https://github.com/sumup-oss/circuit-ui/commit/94f1d207cac8b24f46963e9cff97fda996c15410) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed invalid styles from disabled Inputs.
+
 ## 7.4.1
 
 ### Patch Changes
