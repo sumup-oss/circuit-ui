@@ -26,6 +26,7 @@ import type { AsPropType } from '../../types/prop-types.js';
 import { useComponents } from '../ComponentsContext/index.js';
 import {
   AccessibilityError,
+  CircuitError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 import utilityClasses from '../../styles/utility.js';
@@ -150,6 +151,7 @@ export const Button = forwardRef<any, ButtonProps>(
     const Element = as || (isLink ? Link : 'button');
 
     const size = legacyButtonSizeMap[legacySize] || legacySize;
+    const iconSize = size === 's' ? '16' : '24';
 
     const hasLoadingState = typeof isLoading !== 'undefined';
 
@@ -167,6 +169,29 @@ export const Button = forwardRef<any, ButtonProps>(
       throw new AccessibilityError(
         'Button',
         "The `loadingLabel` prop is missing or invalid. Remove the `isLoading` prop if you don't intend to use the Button's loading state.",
+      );
+    }
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !children
+    ) {
+      throw new AccessibilityError(
+        'Button',
+        'The `children` prop is missing or invalid.',
+      );
+    }
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      LeadingIcon &&
+      TrailingIcon
+    ) {
+      throw new CircuitError(
+        'Button',
+        'The leading and trailing icons cannot be used at the same time. Remove either the `icon` or the `navigationIcon` prop.',
       );
     }
 
@@ -210,7 +235,7 @@ export const Button = forwardRef<any, ButtonProps>(
           {LeadingIcon && (
             <LeadingIcon
               className={classes.icon}
-              size={size === 's' ? '16' : '24'}
+              size={iconSize}
               aria-hidden="true"
             />
           )}
@@ -218,7 +243,7 @@ export const Button = forwardRef<any, ButtonProps>(
           {TrailingIcon && (
             <TrailingIcon
               className={classes.icon}
-              size={size === 's' ? '16' : '24'}
+              size={iconSize}
               aria-hidden="true"
             />
           )}
