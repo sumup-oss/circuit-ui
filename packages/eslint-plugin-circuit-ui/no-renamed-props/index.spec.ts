@@ -74,6 +74,166 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
       errors: [{ messageId: 'propName' }],
     },
     {
+      name: 'matched component with the old children prop',
+      code: `
+        function ComponentA() {
+          return <Button>Add</Button>
+        }
+
+        function ComponentB() {
+          return (
+            <Button>
+              Add
+            </Button>
+          )
+        }
+
+        function ComponentC() {
+          return (
+            <Button>
+              {t('add')}
+            </Button>
+          )
+        }
+
+        function ComponentD() {
+          return (
+            <Button>
+              <span>Add</span>
+            </Button>
+          )
+        }
+
+        function ComponentE() {
+          return (
+            <Button>
+              <Plus /> Add
+            </Button>
+          )
+        }
+      `,
+      output: `
+        function ComponentA() {
+          return <Button label="Add" />
+        }
+
+        function ComponentB() {
+          return (
+            <Button label="Add" />
+          )
+        }
+
+        function ComponentC() {
+          return (
+            <Button label={t('add')} />
+          )
+        }
+
+        function ComponentD() {
+          return (
+            <Button label={<span>Add</span>} />
+          )
+        }
+
+        function ComponentE() {
+          return (
+            <Button>
+              <Plus /> Add
+            </Button>
+          )
+        }
+      `,
+      errors: [
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+      ],
+    },
+    {
+      name: 'matched IconButton component with the old children prop',
+      code: `
+        function ComponentA() {
+          return <IconButton><Close /></IconButton>
+        }
+
+        function ComponentB() {
+          return (
+            <IconButton>
+              <Close size="16" />
+            </IconButton>
+          )
+        }
+
+        function ComponentC() {
+          return (
+            <IconButton>
+              Close <Close size="16" />
+            </IconButton>
+          )
+        }
+
+        function ComponentD() {
+          return (
+            <IconButton>
+              <Close size="16" className="icon" />
+            </IconButton>
+          )
+        }
+
+        function ComponentE() {
+          return (
+            <IconButton>
+              <span>x</span>
+            </IconButton>
+          )
+        }
+      `,
+      output: `
+        function ComponentA() {
+          return <IconButton icon={Close} />
+        }
+
+        function ComponentB() {
+          return (
+            <IconButton icon={Close} />
+          )
+        }
+
+        function ComponentC() {
+          return (
+            <IconButton>
+              Close <Close size="16" />
+            </IconButton>
+          )
+        }
+
+        function ComponentD() {
+          return (
+            <IconButton>
+              <Close size="16" className="icon" />
+            </IconButton>
+          )
+        }
+
+        function ComponentE() {
+          return (
+            <IconButton>
+              <span>x</span>
+            </IconButton>
+          )
+        }
+      `,
+      errors: [
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+      ],
+    },
+    {
       name: 'matched component with the old prop value',
       code: `
         function Component() {

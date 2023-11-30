@@ -37,7 +37,17 @@ type PropValuesConfig = {
   values: Record<string, string>;
 };
 
-const configs: (PropNameConfig | PropValuesConfig)[] = [
+type CustomConfig = {
+  type: 'custom';
+  component: string;
+  hook?: string;
+  transform: (
+    node: TSESTree.JSXElement,
+    context: TSESLint.RuleContext<'propName' | 'propValue', never[]>,
+  ) => void;
+};
+
+const configs: (PropNameConfig | PropValuesConfig | CustomConfig)[] = [
   {
     type: 'name',
     component: 'Toggle',
@@ -76,6 +86,93 @@ const configs: (PropNameConfig | PropValuesConfig)[] = [
       alert: 'danger',
     },
   },
+  {
+    type: 'values',
+    component: 'Button',
+    prop: 'size',
+    values: {
+      kilo: 's',
+      giga: 'm',
+    },
+  },
+  {
+    type: 'values',
+    component: 'IconButton',
+    prop: 'size',
+    values: {
+      kilo: 's',
+      giga: 'm',
+    },
+  },
+  {
+    type: 'values',
+    component: 'Hamburger',
+    prop: 'size',
+    values: {
+      kilo: 's',
+      giga: 'm',
+    },
+  },
+  {
+    type: 'name',
+    component: 'Button',
+    props: {
+      icon: 'leadingIcon',
+    },
+  },
+  {
+    type: 'name',
+    component: 'Button',
+    props: {
+      children: 'label',
+    },
+  },
+  {
+    type: 'custom',
+    component: 'IconButton',
+    transform: (node, context) => {
+      const component = 'IconButton';
+      const current = 'children';
+      const replacement = 'icon';
+
+      const children = filterWhitespaceChildren(node.children);
+      const child = children[0];
+
+      // These cases can't be automatically fixed:
+      if (
+        // Multiple children
+        children.length !== 1 ||
+        // Non-element child
+        child.type !== 'JSXElement' ||
+        // Element with children
+        child.children.length > 0 ||
+        // Element with props other than `size`
+        child.openingElement.attributes.filter(
+          (attr) => attr.type !== 'JSXAttribute' || attr.name.name !== 'size',
+        ).length > 0
+      ) {
+        context.report({
+          node,
+          messageId: 'propName',
+          data: { component, current, replacement },
+        });
+        return;
+      }
+
+      const childName = (child.openingElement.name as TSESTree.JSXIdentifier)
+        .name;
+
+      context.report({
+        node: node,
+        messageId: 'propName',
+        data: { component, current, replacement },
+        fix(fixer) {
+          const prop = `${replacement}={${childName}}`;
+          return replaceChildrenWithProp(fixer, node, prop);
+        },
+      });
+    },
+  },
 ];
 
 export const noRenamedProps = createRule({
@@ -90,9 +187,9 @@ export const noRenamedProps = createRule({
     },
     messages: {
       propName:
-        "The {{component}}'s `{{current}}` prop has been renamed to '{{replacement}}'.",
+        "The {{component}}'s `{{current}}` prop has been renamed to `{{replacement}}`.",
       propValue:
-        "The {{component}}'s `{{prop}}` prop values have been renamed. Replace '{{current}}' with '{{replacement}}'.",
+        "The {{component}}'s `{{prop}}` prop values have been renamed. Replace `{{current}}` with `{{replacement}}`.",
     },
   },
   defaultOptions: [],
@@ -130,6 +227,63 @@ export const noRenamedProps = createRule({
           },
         });
       });
+
+      // The `children` prop isn't a `JSXAttribute` and needs to be handled separately.
+      if (props.children && node.children.length > 0) {
+        const current = 'children';
+        const replacement = props.children;
+
+        const children = filterWhitespaceChildren(node.children);
+
+        // Multiple children can't be automatically fixed.
+        if (children.length !== 1) {
+          context.report({
+            node,
+            messageId: 'propName',
+            data: { component, current, replacement },
+          });
+          return;
+        }
+
+        const child = children[0];
+
+        let value: string = '';
+
+        // These are the most common child types, more should be added as needed
+        switch (child.type) {
+          case 'JSXText': {
+            value = `"${child.value.trim()}"`;
+            break;
+          }
+          case 'JSXExpressionContainer': {
+            value = context.sourceCode.getText(child);
+            break;
+          }
+          case 'JSXElement': {
+            value = `{${context.sourceCode.getText(child)}}`;
+            break;
+          }
+        }
+
+        if (!value) {
+          context.report({
+            node: children[0],
+            messageId: 'propName',
+            data: { component, current, replacement },
+          });
+          return;
+        }
+
+        context.report({
+          node: node,
+          messageId: 'propName',
+          data: { component, current, replacement },
+          fix(fixer) {
+            const prop = `${replacement}=${value}`;
+            return replaceChildrenWithProp(fixer, node, prop);
+          },
+        });
+      }
     }
 
     function replaceComponentPropValues(
@@ -221,11 +375,16 @@ export const noRenamedProps = createRule({
         // eslint-disable-next-line no-param-reassign
         visitors[`JSXElement:has(JSXIdentifier[name="${config.component}"])`] =
           (node: TSESTree.JSXElement) => {
-            if (config.type === 'name') {
-              replaceComponentPropName(node, config);
-            }
-            if (config.type === 'values') {
-              replaceComponentPropValues(node, config);
+            switch (config.type) {
+              case 'name':
+                replaceComponentPropName(node, config);
+                break;
+              case 'values':
+                replaceComponentPropValues(node, config);
+                break;
+              case 'custom':
+                config.transform(node, context);
+                break;
             }
           };
       }
@@ -235,11 +394,14 @@ export const noRenamedProps = createRule({
         visitors[`CallExpression:has(Identifier[name="${config.hook}"])`] = (
           node: TSESTree.CallExpression,
         ) => {
-          if (config.type === 'name') {
-            // TODO: Not needed yet.
-          }
-          if (config.type === 'values') {
-            replaceHookPropValues(node, config);
+          switch (config.type) {
+            case 'values':
+              replaceHookPropValues(node, config);
+              break;
+            case 'name':
+            case 'custom':
+              // TODO: Not needed yet.
+              break;
           }
         };
       }
@@ -272,4 +434,34 @@ function getPropertyValue(property: TSESTree.Property): string | null {
     return property.value.value;
   }
   return null;
+}
+
+function filterWhitespaceChildren(
+  children: TSESTree.JSXChild[],
+): TSESTree.JSXChild[] {
+  return children.filter((child) => {
+    if (child.type !== 'JSXText') {
+      return true;
+    }
+    const nonWhiteSpaceText = child.value.trim();
+    return Boolean(nonWhiteSpaceText);
+  });
+}
+
+function replaceChildrenWithProp(
+  fixer: TSESLint.RuleFixer,
+  node: TSESTree.JSXElement,
+  prop: string,
+) {
+  // Represents the last character of the JSXOpeningElement, the '>' character
+  const openingElementEnding = node.openingElement.range[1] - 1;
+  // Represents the last character of the JSXClosingElement, the '>' character
+  const closingElementEnding = node.closingElement!.range[1];
+
+  const range = [openingElementEnding, closingElementEnding] as const;
+
+  return [
+    fixer.insertTextBeforeRange(range, ` ${prop}`),
+    fixer.replaceTextRange(range, ' />'),
+  ];
 }

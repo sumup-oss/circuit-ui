@@ -115,7 +115,7 @@ const DefaultChildren = ({
         <Button
           type="button"
           variant="primary"
-          size="kilo"
+          size="s"
           onClick={() =>
             setSidePanel({
               ...baseArgs,
@@ -141,7 +141,7 @@ const DefaultChildren = ({
             <Button
               type="button"
               variant="tertiary"
-              size="kilo"
+              size="s"
               onClick={onBack}
               style={{ marginBottom: '1rem' }}
             >
@@ -151,7 +151,7 @@ const DefaultChildren = ({
           <Button
             type="button"
             variant="tertiary"
-            size="kilo"
+            size="s"
             onClick={onClose}
             style={{ marginBottom: '1rem', marginLeft: '1rem' }}
           >

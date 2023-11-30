@@ -126,7 +126,7 @@ export function NotificationToast({
           className={classes.close}
           label="-" // We need to pass a label here to prevent CloseButton from throwing an error
           aria-hidden="true"
-          size="kilo"
+          size="s"
           onClick={onClose}
           tabIndex={-1}
         />

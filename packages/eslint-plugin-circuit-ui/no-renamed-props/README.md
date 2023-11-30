@@ -16,11 +16,20 @@ Note that the rule can only lint direct uses of a component. Wrapped instances s
 Examples of **incorrect** code for this rule:
 
 ```tsx
-// Since Circuit UI v6.8
+// Since Circuit UI v7.5
 function Component() {
   return (
-    <Toggle explanation="Description" />
+    <div>
+      <Button>Submit</Button>
+      <Button size="kilo" />
+      <Button icon={Plus} />
+    </div>
   );
+}
+
+// Since Circuit UI v6.8
+function Component() {
+  return <Toggle explanation="Description" />;
 }
 
 // Since Circuit UI v6.4
@@ -38,11 +47,20 @@ function Component() {
 Examples of **correct** code for this rule:
 
 ```tsx
-// Since Circuit UI v6.8
+// Since Circuit UI v7.5
 function Component() {
   return (
-    <Toggle description="Description" />
+    <div>
+      <Button label="Submit" />
+      <Button size="s" />
+      <Button leadingIcon={Plus} />
+    </div>
   );
+}
+
+// Since Circuit UI v6.8
+function Component() {
+  return <Toggle description="Description" />;
 }
 
 // Since Circuit UI v6.4

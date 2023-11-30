@@ -14,7 +14,7 @@
  */
 
 import { useState } from 'react';
-import { Plus } from '@sumup/icons';
+import { ArrowSlanted, Plus } from '@sumup/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 import ButtonGroup from '../ButtonGroup/index.js';
@@ -70,19 +70,29 @@ export const Destructive = (args: ButtonProps) => (
 
 export const Sizes = (args: ButtonProps) => (
   <Stack>
-    <Button {...args} size="kilo">
-      Kilo
+    <Button {...args} size="s">
+      Small
     </Button>
-    <Button {...args} size="giga">
-      Giga
+    <Button {...args} size="m">
+      Medium
     </Button>
   </Stack>
 );
 
-export const WithIcon = (args: ButtonProps) => (
-  <Button {...args} icon={Plus}>
-    Add
-  </Button>
+export const WithIcons = (args: ButtonProps) => (
+  <Stack>
+    <Button {...args} leadingIcon={Plus}>
+      Add to cart
+    </Button>
+    <Button
+      {...args}
+      href="https://sumup.com/terms"
+      target="_blank"
+      trailingIcon={ArrowSlanted}
+    >
+      Terms & Conditions
+    </Button>
+  </Stack>
 );
 
 export const Loading = (args: ButtonProps) => {

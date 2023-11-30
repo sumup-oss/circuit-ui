@@ -14,26 +14,37 @@
  */
 
 import { Children, cloneElement, ReactElement, forwardRef } from 'react';
-import type { IconProps } from '@sumup/icons';
+import type { IconComponentType, IconProps } from '@sumup/icons';
 
 import utilityClasses from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
-import { Button, ButtonProps } from '../Button/Button.js';
+import Button, { ButtonProps, legacyButtonSizeMap } from '../Button/index.js';
 import {
   AccessibilityError,
+  CircuitError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
+import { deprecate } from '../../util/logger.js';
 
 import classes from './IconButton.module.css';
 
-export interface IconButtonProps extends Omit<ButtonProps, 'icon' | 'stretch'> {
+export interface IconButtonProps
+  extends Omit<
+    ButtonProps,
+    'icon' | 'leadingIcon' | 'trailingIcon' | 'stretch'
+  > {
   /**
-   * A single icon element.
+   * @deprecated
+   *
+   * Use the `icon` prop instead.
    */
-  children: ReactElement<IconProps>;
+  children?: ReactElement<IconProps>;
+  icon?: IconComponentType;
   /**
-   * Short label to describe the function of the button. Displayed as title
-   * on hover, and accessible to screen readers.
+   * Communicates the action that will be performed when the user interacts
+   * with the button. Use one strong, clear imperative verb and follow with a
+   * one-word object if needed to clarify.
+   * Displayed on hover and accessible to screen readers.
    */
   label: string;
 }
@@ -43,13 +54,36 @@ export interface IconButtonProps extends Omit<ButtonProps, 'icon' | 'stretch'> {
  * as its only child.
  */
 export const IconButton = forwardRef<any, IconButtonProps>(
-  ({ children, label, size = 'giga', className, ...props }, ref) => {
-    const child = Children.only(children);
-    const iconSize = size === 'kilo' ? '16' : '24';
-    const icon = cloneElement(child, {
-      'aria-hidden': 'true',
-      'size': (child.props.size as string) || iconSize,
-    });
+  (
+    {
+      children,
+      label,
+      size: legacySize = 'm',
+      icon: Icon,
+      className,
+      ...props
+    },
+    ref,
+  ) => {
+    const size = legacyButtonSizeMap[legacySize] || legacySize;
+
+    const iconSize = size === 's' ? '16' : '24';
+
+    let icon: ReactElement;
+
+    if (process.env.NODE_ENV !== 'production' && !Icon && !children) {
+      throw new CircuitError('IconButton', 'The `icon` prop is missing.');
+    }
+
+    if (Icon) {
+      icon = <Icon size={iconSize} aria-hidden="true" />;
+    } else {
+      const child = Children.only(children);
+      icon = cloneElement(child!, {
+        'aria-hidden': 'true',
+        'size': (child!.props.size as string) || iconSize,
+      });
+    }
 
     if (
       process.env.NODE_ENV !== 'production' &&
@@ -59,6 +93,23 @@ export const IconButton = forwardRef<any, IconButtonProps>(
       throw new AccessibilityError(
         'IconButton',
         'The `label` prop is missing or invalid.',
+      );
+    }
+
+    if (process.env.NODE_ENV !== 'production' && children) {
+      deprecate(
+        'IconButton',
+        'The `children` prop has been deprecated. Use the `icon` prop instead.',
+      );
+    }
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      legacyButtonSizeMap[legacySize]
+    ) {
+      deprecate(
+        'IconButton',
+        `The action's \`${legacySize}\` size has been deprecated. Use the \`${legacyButtonSizeMap[legacySize]}\` size instead.`,
       );
     }
 

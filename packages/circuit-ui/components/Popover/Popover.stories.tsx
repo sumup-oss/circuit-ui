@@ -65,7 +65,7 @@ export const Base = (args: PopoverProps): JSX.Element => {
         isOpen={isOpen}
         onToggle={setOpen}
         component={(props) => (
-          <Button size="kilo" variant="secondary" {...props}>
+          <Button size="s" variant="secondary" {...props}>
             Open popover
           </Button>
         )}
@@ -88,7 +88,7 @@ export const Offset = (args: PopoverProps): JSX.Element => {
         isOpen={isOpen}
         onToggle={setOpen}
         component={(props) => (
-          <Button size="kilo" variant="secondary" {...props}>
+          <Button size="s" variant="secondary" {...props}>
             Open popover
           </Button>
         )}
