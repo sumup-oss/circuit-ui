@@ -17,17 +17,17 @@
   animation: spin 1s infinite linear;
 }
 
-.byte {
+.s {
   width: var(--cui-icon-sizes-mega);
   height: var(--cui-icon-sizes-mega);
 }
 
-.kilo {
+.m {
   width: var(--cui-icon-sizes-giga);
   height: var(--cui-icon-sizes-giga);
 }
 
-.giga {
+.l {
   width: var(--cui-icon-sizes-tera);
   height: var(--cui-icon-sizes-tera);
 }

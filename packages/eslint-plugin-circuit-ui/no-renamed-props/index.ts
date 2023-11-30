@@ -114,6 +114,44 @@ const configs: (PropNameConfig | PropValuesConfig | CustomConfig)[] = [
     },
   },
   {
+    type: 'values',
+    component: 'Avatar',
+    prop: 'size',
+    values: {
+      giga: 's',
+      yotta: 'm',
+    },
+  },
+  {
+    type: 'values',
+    component: 'ProgressBar',
+    prop: 'size',
+    values: {
+      byte: 's',
+      kilo: 'm',
+      mega: 'l',
+    },
+  },
+  {
+    type: 'values',
+    component: 'Selector',
+    prop: 'size',
+    values: {
+      kilo: 's',
+      mega: 'm',
+    },
+  },
+  {
+    type: 'values',
+    component: 'Spinner',
+    prop: 'size',
+    values: {
+      byte: 's',
+      kilo: 'm',
+      giga: 'l',
+    },
+  },
+  {
     type: 'name',
     component: 'Button',
     props: {

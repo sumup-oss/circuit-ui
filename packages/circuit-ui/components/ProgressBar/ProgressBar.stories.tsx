@@ -23,7 +23,7 @@ export default {
 };
 
 const variants = ['primary', 'secondary'] as const;
-const sizes = ['byte', 'kilo', 'mega'] as const;
+const sizes = ['s', 'm', 'l'] as const;
 
 const progressBarStyles = {
   width: '90%',
@@ -88,13 +88,19 @@ Variants.args = {
   max: 10,
 };
 
+const sizeNames = {
+  s: 'small',
+  m: 'medium',
+  l: 'large',
+};
+
 export const Sizes = (args: ProgressBarProps) =>
   sizes.map((size) => (
     <ProgressBar
       key={size}
       {...args}
       size={size}
-      label={`A ${size} progressbar`}
+      label={`A ${sizeNames[size]} progressbar`}
       style={progressBarStyles}
     />
   ));

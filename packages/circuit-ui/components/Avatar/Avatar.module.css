@@ -20,23 +20,23 @@ div.base {
 
 /* Sizes */
 
-.giga {
+.s {
   width: 48px;
   height: 48px;
   border-radius: var(--cui-border-radius-byte);
 }
 
-div.giga {
+div.s {
   font-size: 24px;
 }
 
-.yotta {
+.m {
   width: 96px;
   height: 96px;
   border-radius: var(--cui-border-radius-kilo);
 }
 
-div.yotta {
+div.m {
   font-size: 48px;
 }
 

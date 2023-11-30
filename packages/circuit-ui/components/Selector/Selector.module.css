@@ -103,17 +103,19 @@
 
 /* Sizes */
 
-.kilo {
+.s {
   padding: var(--cui-spacings-byte) var(--cui-spacings-kilo);
 }
 
-.mega {
+.m {
   padding: var(--cui-spacings-kilo) var(--cui-spacings-mega);
 }
 
 .flexible {
   padding: var(--cui-spacings-mega) var(--cui-spacings-mega);
 }
+
+/* Content */
 
 .title {
   font-weight: var(--cui-font-weight-bold);

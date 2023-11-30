@@ -102,7 +102,7 @@ exports[`Sidebar > should render and match snapshot when open 1`] = `
   >
     <span
       aria-hidden="true"
-      class="_base_2b3edd _byte_2b3edd _spinner_892426"
+      class="_base_2b3edd _s_2b3edd _spinner_892426"
     >
       <span
         class="_hide-visually_73b4bb"
@@ -219,7 +219,7 @@ exports[`Sidebar > should render and match the snapshot when closed 1`] = `
   >
     <span
       aria-hidden="true"
-      class="_base_2b3edd _byte_2b3edd _spinner_892426"
+      class="_base_2b3edd _s_2b3edd _spinner_892426"
     >
       <span
         class="_hide-visually_73b4bb"

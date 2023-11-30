@@ -22,6 +22,7 @@ import {
 } from '../../util/errors.js';
 import utilityClasses from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
+import { deprecate } from '../../util/logger.js';
 
 import classes from './ProgressBar.module.css';
 
@@ -31,9 +32,24 @@ interface BaseProps extends HTMLAttributes<HTMLDivElement> {
    */
   variant?: 'primary' | 'secondary';
   /**
-   * Choose from 3 sizes. Default: 'kilo'.
+   * Choose from 3 sizes. Default: 'm'.
    */
-  size?: 'byte' | 'kilo' | 'mega';
+  size?:
+    | 's'
+    | 'm'
+    | 'l'
+    /**
+     * @deprecated
+     */
+    | 'byte'
+    /**
+     * @deprecated
+     */
+    | 'kilo'
+    /**
+     * @deprecated
+     */
+    | 'mega';
   /**
    * A descriptive label that is used by screen readers.
    */
@@ -81,6 +97,12 @@ function getWidth(value = 0, max = 1) {
   return `${width}%`;
 }
 
+const legacySizeMap: Record<string, 's' | 'm' | 'l'> = {
+  byte: 's',
+  kilo: 'm',
+  mega: 'l',
+};
+
 /**
  * The ProgressBar component communicates the progress of a task or timer
  * to the user.
@@ -90,7 +112,7 @@ export function ProgressBar(props: BaseProps & TimeProgressProps): ReturnType;
 export function ProgressBar({
   max,
   value,
-  size = 'kilo',
+  size: legacySize = 'm',
   variant = 'primary',
   duration = 3000,
   loop = false,
@@ -100,6 +122,8 @@ export function ProgressBar({
   className,
   ...props
 }: ProgressBarProps): ReturnType {
+  const ariaId = useId();
+
   if (
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test' &&
@@ -110,7 +134,16 @@ export function ProgressBar({
       'The `label` prop is missing or invalid.',
     );
   }
-  const ariaId = useId();
+
+  if (process.env.NODE_ENV !== 'production' && legacySizeMap[legacySize]) {
+    deprecate(
+      'ProgressBar',
+      `The \`${legacySize}\` size has been deprecated. Use the \`${legacySizeMap[legacySize]}\` size instead.`,
+    );
+  }
+
+  const size = legacySizeMap[legacySize] || legacySize;
+
   return (
     <div className={clsx(classes.wrapper, className)} {...props}>
       {max || value ? (

@@ -19,7 +19,7 @@
   display: block;
   width: 1px;
   height: 100%;
-  content: '';
+  content: "";
   background-color: var(--cui-bg-accent-strong);
   transition: width 0.05s ease-out;
 }
@@ -75,15 +75,15 @@
 
 /* Sizes */
 
-.byte {
+.s {
   height: var(--cui-spacings-bit);
 }
 
-.kilo {
+.m {
   height: var(--cui-spacings-byte);
 }
 
-.mega {
+.l {
   height: var(--cui-spacings-mega);
 }
 

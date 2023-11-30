@@ -9,7 +9,7 @@ A component prop or its values are renamed in two stages:
 1. Support for the new name(s) is added in a minor release. The old name(s) are marked as deprecated in the same release. In this phase, setting the rule's error level to `warn` (or `1`) is recommended.
 2. The old name(s) are removed in the next major release. In this phase, setting the rule's error level to `error` (or `2`) is recommended.
 
-When upgrading Circuit UI, it is recommended to upgrade to the latest minor version, update the prop names using the suggestions from this rule, then upgrade to the next major.
+When upgrading Circuit UI, it is recommended to upgrade to the latest minor version, update the prop names using the suggestions from this rule, and then upgrade to the next major.
 
 Note that the rule can only lint direct uses of a component. Wrapped instances such as styled components are not supported.
 
@@ -20,8 +20,13 @@ Examples of **incorrect** code for this rule:
 function Component() {
   return (
     <div>
-      <Button>Submit</Button>
+      <Avatar size="giga" />
+      <Hamburger size="kilo" />
+      <ProgressBar size="byte" />
+      <SelectorGroup size="kilo" />
+      <Spinner size="byte" />
       <Button size="kilo" />
+      <Button>Submit</Button>
       <Button icon={Plus} />
     </div>
   );
@@ -51,8 +56,13 @@ Examples of **correct** code for this rule:
 function Component() {
   return (
     <div>
-      <Button label="Submit" />
+      <Avatar size="s" />
+      <Hamburger size="s" />
+      <ProgressBar size="s" />
+      <SelectorGroup size="s" />
+      <Spinner size="s" />
       <Button size="s" />
+      <Button label="Submit" />
       <Button leadingIcon={Plus} />
     </div>
   );

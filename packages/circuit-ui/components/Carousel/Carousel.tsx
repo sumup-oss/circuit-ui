@@ -184,7 +184,7 @@ export function Carousel({
               <ProgressBar
                 aria-hidden
                 key={state.step}
-                size="byte"
+                size="s"
                 variant="secondary"
                 loop
                 paused={state.paused}
