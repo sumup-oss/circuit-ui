@@ -383,6 +383,26 @@ export const light = [
     value: 'rgba(255, 255, 255, 0.4)',
     type: 'color',
   },
+  {
+    name: '--cui-fg-on-strong-subtle',
+    value: 'rgba(255, 255, 255, 0.7)',
+    type: 'color',
+  },
+  {
+    name: '--cui-fg-on-strong-subtle-hovered',
+    value: 'rgba(255, 255, 255, 0.8)',
+    type: 'color',
+  },
+  {
+    name: '--cui-fg-on-strong-subtle-pressed',
+    value: 'rgba(255, 255, 255, 0.8)',
+    type: 'color',
+  },
+  {
+    name: '--cui-fg-on-strong-subtle-disabled',
+    value: 'rgba(255, 255, 255, 0.4)',
+    type: 'color',
+  },
   /* Accent foregrounds */
   {
     name: '--cui-fg-accent',

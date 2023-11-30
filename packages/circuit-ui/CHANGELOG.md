@@ -1,5 +1,17 @@
 # @sumup/circuit-ui
 
+## 7.4.2
+
+### Patch Changes
+
+- [#2308](https://github.com/sumup-oss/circuit-ui/pull/2308) [`94f1d207`](https://github.com/sumup-oss/circuit-ui/commit/94f1d207cac8b24f46963e9cff97fda996c15410) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed invalid styles from disabled Inputs.
+
+## 7.4.1
+
+### Patch Changes
+
+- [#2304](https://github.com/sumup-oss/circuit-ui/pull/2304) [`ecc7bbde`](https://github.com/sumup-oss/circuit-ui/commit/ecc7bbde9aecdaa18bc478fe5f6bfc207fe16971) Thanks [@tareqlol](https://github.com/tareqlol)! - Fixed compatibility of the Popover component with server-side rendering.
+
 ## 7.4.0
 
 ### Minor Changes
