@@ -30,14 +30,14 @@
 
 /* Sizes */
 .s {
-  --content-gap: var(--cui-spacings-byte);
+  --content-gap: var(--cui-spacings-bit);
   --icon-size: var(--cui-icon-sizes-kilo);
   --loader-diameter: 4px;
   --loader-gap: 3px;
   --loader-transform: scale(150%);
 
   padding: calc(var(--cui-spacings-bit) - var(--cui-border-width-kilo))
-    calc(var(--cui-spacings-mega) - var(--cui-border-width-kilo));
+    calc(var(--cui-spacings-kilo) - var(--cui-border-width-kilo));
   border-radius: 10px;
 }
 
