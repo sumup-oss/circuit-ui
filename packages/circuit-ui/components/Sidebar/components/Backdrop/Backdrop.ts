@@ -32,7 +32,8 @@ const baseStyles = ({ theme }: StyleProps) => css`
   height: 100%;
   position: absolute;
   background-color: ${theme.colors.n900};
-  transition: opacity ${theme.transitions.default},
+  transition:
+    opacity ${theme.transitions.default},
     visibility ${theme.transitions.default};
   visibility: hidden;
   opacity: 0;

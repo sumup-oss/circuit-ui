@@ -33,7 +33,9 @@ const baseStyles = ({ theme }: StyleProps) => css`
   position: absolute;
   bottom: ${theme.spacings.mega};
   right: ${theme.spacings.mega};
-  transition: opacity 150ms ease-in-out, visibility 150ms ease-in-out;
+  transition:
+    opacity 150ms ease-in-out,
+    visibility 150ms ease-in-out;
   visibility: hidden;
   opacity: 0;
   z-index: ${theme.zIndex.navigation};

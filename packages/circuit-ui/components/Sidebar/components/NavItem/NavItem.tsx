@@ -79,7 +79,8 @@ const secondaryStyles = ({ theme, secondary }: StyleProps & NavItemProps) =>
   css`
     margin: 0px ${theme.spacings.giga};
     padding: ${theme.spacings.bit} 0px;
-    transition: color ${theme.transitions.default},
+    transition:
+      color ${theme.transitions.default},
       top ${theme.transitions.default};
   `;
 

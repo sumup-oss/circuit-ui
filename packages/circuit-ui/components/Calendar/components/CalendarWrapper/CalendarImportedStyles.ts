@@ -594,7 +594,9 @@ const calendarInheritStyles = () => css`
     visibility: hidden;
   }
   .DayPicker__withBorder {
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.07);
+    box-shadow:
+      0 2px 6px rgba(0, 0, 0, 0.05),
+      0 0 0 1px rgba(0, 0, 0, 0.07);
     border-radius: 3px;
   }
   .DayPicker_portal__horizontal {
