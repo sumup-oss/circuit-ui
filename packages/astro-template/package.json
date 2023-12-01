@@ -26,7 +26,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@sumup/foundry": "^6.1.0",
+    "@sumup/foundry": "^7.0.0-next",
     "prettier-plugin-astro": "0.10.0"
   }
 }
