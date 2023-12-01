@@ -27,7 +27,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@typescript-eslint/utils": "^6.10.0"
+    "@typescript-eslint/utils": "^6.13.1"
   },
   "devDependencies": {
     "@sumup/design-tokens": "^6.0.0",
