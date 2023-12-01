@@ -19,7 +19,7 @@ import { isArray, isFunction, isObject, isString } from './type-check.js';
  * Calls each function in an array with the arguments it receives.
  * Falsy functions are ignored.
  */
-export function eachFn<Args extends []>(
+export function eachFn<Args extends unknown[]>(
   fns: (undefined | ((...args: Args) => unknown))[],
 ) {
   return (...args: Args): void =>

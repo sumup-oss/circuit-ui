@@ -1,0 +1,7 @@
+.wrapper {
+  display: flex;
+}
+
+.wrapper > *:first-child {
+  margin-right: var(--cui-spacings-byte);
+}

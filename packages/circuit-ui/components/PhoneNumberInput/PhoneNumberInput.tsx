@@ -1,0 +1,295 @@
+/**
+ * Copyright 2023, SumUp Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+import {
+  ChangeEvent,
+  FieldsetHTMLAttributes,
+  ForwardedRef,
+  InputHTMLAttributes,
+  SelectHTMLAttributes,
+  forwardRef,
+  useId,
+  useRef,
+} from 'react';
+
+import Select from '../Select/index.js';
+import Input from '../Input/index.js';
+import {
+  FieldLabelText,
+  FieldLegend,
+  FieldSet,
+  FieldValidationHint,
+} from '../Field/index.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
+import { applyMultipleRefs } from '../../util/refs.js';
+import { eachFn } from '../../util/helpers.js';
+
+import classes from './PhoneNumberInput.module.css';
+
+export interface PhoneNumberInputProps
+  extends Omit<
+    FieldsetHTMLAttributes<HTMLFieldSetElement>,
+    'onChange' | 'onBlur'
+  > {
+  /**
+   * A clear and concise description of the input purpose.
+   */
+  label: string;
+  /**
+   * Callback when the country code or subscriber number changes. Called with
+   * the normalized phone number in the [E.164 format](https://en.wikipedia.org/wiki/E.164),
+   * e.g. `+17024181234`.
+   */
+  onChange?: (phoneNumber: string) => void;
+  /**
+   * Label to indicate that the input is optional. Only displayed when the
+   * `required` prop is falsy.
+   */
+  optionalLabel?: string;
+  /**
+   * Triggers error styles on the component. Important for accessibility.
+   */
+  invalid?: boolean;
+  /**
+   * Triggers warning styles on the component.
+   */
+  hasWarning?: boolean;
+  /**
+   * Enables valid styles on the component.
+   */
+  showValid?: boolean;
+  /**
+   * Triggers readonly styles on the component.
+   */
+  readOnly?: boolean;
+  /**
+   * Makes the input group required.
+   */
+  required?: InputHTMLAttributes<HTMLInputElement>['required'];
+  /**
+   * Visually hide the label. This should only be used in rare cases and only
+   * if the purpose of the field can be inferred from other context.
+   */
+  hideLabel?: boolean;
+  /**
+   * An information, warning or error message, displayed below the input.
+   */
+  validationHint?: string;
+  /**
+   * One or more Unicode BCP 47 locale identifiers, e.g. `de-DE` or
+   * `['GB', 'en-US']`. Used to localize the country names and determine the
+   * preselected country code. Defaults to `navigator.languages`.
+   */
+  locale: string | string[];
+  /**
+   * TODO: Description & name
+   */
+  countryCode: {
+    /**
+     * Visually hidden label for visually-impaired users.
+     */
+    label: string;
+    /**
+     * TODO: https://en.wikipedia.org/wiki/List_of_country_calling_codes
+     */
+    options: {
+      /**
+       * TODO:
+       */
+      country: string;
+      /**
+       * TODO:
+       */
+      code: string;
+    }[];
+    /**
+     * Initial country code.
+     */
+    defaultValue?: string;
+    onChange?: SelectHTMLAttributes<HTMLSelectElement>['onChange'];
+    ref?: ForwardedRef<HTMLSelectElement>;
+  };
+  /**
+   * TODO: Description & name
+   */
+  subscriberNumber: {
+    /**
+     * Visually hidden label for visually-impaired users.
+     */
+    label: string;
+    /**
+     * Initial subscriber number.
+     */
+    defaultValue?: string;
+    onChange?: InputHTMLAttributes<HTMLInputElement>['onChange'];
+    ref?: ForwardedRef<HTMLInputElement>;
+  };
+}
+
+function normalizePhoneNumber(countryCode: string, subscriberNumber: string) {
+  const normalizedSubscriberNumber = subscriberNumber
+    // Strip non-numeric characters
+    .replace(/\D/g, '')
+    // Strip any leading zeros
+    .replace(/^0+/, '');
+  return `${countryCode}${normalizedSubscriberNumber}`;
+}
+
+/**
+ * TODO: Description
+ */
+export const PhoneNumberInput = forwardRef<
+  HTMLFieldSetElement,
+  PhoneNumberInputProps
+>(
+  (
+    {
+      label,
+      hideLabel,
+      countryCode,
+      subscriberNumber,
+      optionalLabel,
+      required,
+      invalid,
+      hasWarning,
+      showValid,
+      disabled,
+      validationHint,
+      onChange,
+      'aria-describedby': descriptionId,
+      ...props
+    },
+    ref,
+  ) => {
+    const countryCodeRef = useRef<HTMLSelectElement>(null);
+    const subscriberNumberRef = useRef<HTMLInputElement>(null);
+
+    const validationHintId = useId();
+
+    const descriptionIds = `${
+      descriptionId ? `${descriptionId} ` : ''
+    }${validationHintId}`;
+
+    // TODO: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames
+    const options = countryCode.options.map(({ code }) => ({
+      label: code,
+      value: code,
+    }));
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test'
+    ) {
+      if (!isSufficientlyLabelled(label)) {
+        throw new AccessibilityError(
+          'PhoneNumberInput',
+          'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
+        );
+      }
+
+      if (!isSufficientlyLabelled(countryCode.label)) {
+        throw new AccessibilityError(
+          'PhoneNumberInput',
+          'The `countryCodeLabel` prop is missing or invalid.',
+        );
+      }
+
+      if (!isSufficientlyLabelled(subscriberNumber.label)) {
+        throw new AccessibilityError(
+          'PhoneNumberInput',
+          'The `subscriberNumberLabel` prop is missing or invalid.',
+        );
+      }
+    }
+
+    const handleChange = () => {
+      if (
+        !onChange ||
+        !countryCodeRef.current ||
+        !subscriberNumberRef.current
+      ) {
+        return;
+      }
+      const phoneNumber = normalizePhoneNumber(
+        countryCodeRef.current.value,
+        subscriberNumberRef.current.value,
+      );
+      onChange(phoneNumber);
+    };
+
+    return (
+      <FieldSet
+        aria-describedby={descriptionIds}
+        aria-invalid={invalid && 'true'}
+        aria-required={required && 'true'}
+        disabled={disabled}
+        ref={ref}
+        {...props}
+      >
+        <FieldLegend>
+          <FieldLabelText
+            label={label}
+            hideLabel={hideLabel}
+            optionalLabel={optionalLabel}
+            required={required}
+          />
+        </FieldLegend>
+        <div className={classes.wrapper}>
+          <Select
+            hideLabel
+            autoComplete="tel-country-code"
+            invalid={invalid}
+            disabled={disabled}
+            {...countryCode}
+            options={options}
+            onChange={eachFn<[ChangeEvent<HTMLSelectElement>]>([
+              countryCode.onChange,
+              handleChange,
+            ])}
+            ref={applyMultipleRefs(countryCodeRef, countryCode.ref)}
+          />
+          {/* FIXME: Remove TextArea type from Input component */}
+          <Input
+            hideLabel
+            autoComplete="tel-national"
+            placeholder="123456789"
+            pattern="[0-9]+"
+            invalid={invalid}
+            disabled={disabled}
+            {...subscriberNumber}
+            onChange={eachFn<[ChangeEvent<HTMLInputElement>]>([
+              subscriberNumber.onChange,
+              handleChange,
+            ])}
+            ref={applyMultipleRefs(subscriberNumberRef, subscriberNumber.ref)}
+          />
+        </div>
+        <FieldValidationHint
+          id={validationHintId}
+          disabled={disabled}
+          invalid={invalid}
+          hasWarning={hasWarning}
+          showValid={showValid}
+          validationHint={validationHint}
+        />
+      </FieldSet>
+    );
+  },
+);
+
+PhoneNumberInput.displayName = 'PhoneNumberInput';
