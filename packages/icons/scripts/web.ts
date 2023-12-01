@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import fs from 'node:fs';
+import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -155,7 +155,7 @@ function buildDeclarationFile(components: Component[]): string {
   `;
 }
 
-function transpileModule(fileName: string, code: string): void {
+async function transpileModule(fileName: string, code: string) {
   const output = transformSync(code, {
     cwd: BASE_DIR,
     targets: { esmodules: true },
@@ -163,30 +163,31 @@ function transpileModule(fileName: string, code: string): void {
     plugins: [['inline-react-svg', { svgo: false }]],
     filename: fileName,
   })?.code as string;
-  writeFile(DIST_DIR, fileName, output);
+  return writeFile(DIST_DIR, fileName, output);
 }
 
-function writeFile(dir: string, fileName: string, fileContent: string): void {
+async function writeFile(dir: string, fileName: string, fileContent: string) {
   const filePath = path.join(dir, fileName);
   const directory = path.dirname(filePath);
-  const formattedContent = prettier.format(fileContent, { filepath: filePath });
-  if (directory && directory !== '.') {
-    fs.mkdirSync(directory, { recursive: true });
-  }
-  return fs.writeFile(filePath, formattedContent, { flag: 'w' }, (err) => {
-    if (err) {
-      throw err;
-    }
+  const formattedContent = await prettier.format(fileContent, {
+    filepath: filePath,
   });
+  if (directory && directory !== '.') {
+    await fs.mkdir(directory, { recursive: true });
+  }
+  return fs.writeFile(filePath, formattedContent, { flag: 'w' });
 }
 
-function main(): void {
+async function main() {
   const icons = manifest.icons as Icon[];
-  const iconsByName = icons.reduce((acc, icon) => {
-    acc[icon.name] = acc[icon.name] || [];
-    acc[icon.name].push(icon);
-    return acc;
-  }, {} as Record<string, Icon[]>);
+  const iconsByName = icons.reduce(
+    (acc, icon) => {
+      acc[icon.name] = acc[icon.name] || [];
+      acc[icon.name].push(icon);
+      return acc;
+    },
+    {} as Record<string, Icon[]>,
+  );
   const components = Object.entries(iconsByName).map(
     ([name, icons]): Component => ({
       name: getComponentName(name),
@@ -198,15 +199,17 @@ function main(): void {
   const indexRaw = buildIndexFile(components);
   const declarationFile = buildDeclarationFile(components);
 
-  components.forEach((component) => {
-    const componentFileName = `${component.name}.js`;
-    const componentRaw = buildComponentFile(component);
-    transpileModule(componentFileName, componentRaw);
-  });
+  await Promise.all(
+    components.map((component) => {
+      const componentFileName = `${component.name}.js`;
+      const componentRaw = buildComponentFile(component);
+      return transpileModule(componentFileName, componentRaw);
+    }),
+  );
 
-  transpileModule('index.js', indexRaw);
+  await transpileModule('index.js', indexRaw);
 
-  writeFile(DIST_DIR, 'index.d.ts', declarationFile);
+  await writeFile(DIST_DIR, 'index.d.ts', declarationFile);
 }
 
 main();
