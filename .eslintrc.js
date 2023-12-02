@@ -1,4 +1,5 @@
 module.exports = require('@sumup/foundry/eslint')({
+  extends: ['plugin:storybook/recommended'],
   plugins: ['@sumup/circuit-ui'],
   settings: {
     'import/parsers': {
