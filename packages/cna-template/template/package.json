@@ -21,7 +21,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@sumup/foundry": "^6.1.0",
+    "@sumup/foundry": "^6.2.0",
     "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.2.0",

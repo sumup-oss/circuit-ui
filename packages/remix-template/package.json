@@ -28,7 +28,7 @@
   "devDependencies": {
     "@remix-run/dev": "^2.2.0",
     "@remix-run/eslint-config": "^2.2.0",
-    "@sumup/foundry": "^6.1.0",
+    "@sumup/foundry": "^6.2.0",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "eslint": "^8.53.0",
