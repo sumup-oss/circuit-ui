@@ -55,7 +55,7 @@
     "@storybook/testing-library": "^0.2.2",
     "@storybook/theming": "^7.6.2",
     "@sumup/eslint-plugin-circuit-ui": "^2.1.0",
-    "@sumup/foundry": "^6.1.0",
+    "@sumup/foundry": "^6.2.0",
     "@sumup/stylelint-plugin-circuit-ui": "^1.0.0",
     "@types/node": "^18.16.19",
     "@vitest/coverage-c8": "^0.30.1",
