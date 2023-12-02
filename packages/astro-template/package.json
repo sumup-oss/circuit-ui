@@ -11,7 +11,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "lint:css": "foundry run stylelint '**/*.css'"
   },
   "dependencies": {
     "@astrojs/react": "^3.0.4",
@@ -26,7 +27,9 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@sumup/eslint-plugin-circuit-ui": "^3.1.0",
     "@sumup/foundry": "^6.2.0",
+    "@sumup/stylelint-plugin-circuit-ui": "^1.0.0",
     "prettier-plugin-astro": "0.10.0"
   }
 }
