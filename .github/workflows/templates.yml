@@ -19,7 +19,7 @@ jobs:
             verify: 'npm run lint && npm run astro check'
           - template: nextjs
             bootstrap: 'npx create-next-app --example "https://github.com/sumup-oss/circuit-ui/tree/main/packages/cna-template/template" test-app'
-            verify: 'npm run test'
+            verify: 'npm run test:ci'
           - template: remix
             bootstrap: 'npx create-remix@latest ./test-app --template https://github.com/sumup-oss/circuit-ui/tree/main/packages/remix-template --install --no-git-init'
             verify: 'npm run lint && npm run typecheck'
