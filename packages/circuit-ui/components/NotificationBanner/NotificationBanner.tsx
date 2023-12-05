@@ -26,6 +26,7 @@ import {
 
 import Button, { ButtonProps, legacyButtonSizeMap } from '../Button/index.js';
 import Headline from '../Headline/index.js';
+import Anchor, { AnchorProps } from '../Anchor/index.js';
 import Body from '../Body/index.js';
 import Image, { ImageProps } from '../Image/index.js';
 import CloseButton from '../CloseButton/index.js';
@@ -36,9 +37,9 @@ import { deprecate } from '../../util/logger.js';
 
 import classes from './NotificationBanner.module.css';
 
-type Action = ButtonProps & {
-  variant: 'primary' | 'tertiary';
-};
+type Action =
+  | (Omit<ButtonProps, 'variant'> & { variant: 'primary' })
+  | (Omit<AnchorProps, 'variant'> & { variant: 'tertiary' });
 
 type NotificationVariant = 'system' | 'promotional';
 
@@ -193,7 +194,14 @@ export const NotificationBanner = forwardRef<
             {headline}
           </Headline>
           <Body className={classes.body}>{body}</Body>
-          <Button className={clsx(classes.button, classes[size])} {...action} />
+          {action.variant === 'tertiary' ? (
+            <Anchor {...action} variant="highlight" />
+          ) : (
+            <Button
+              {...action}
+              className={clsx(action.className, classes.button, classes[size])}
+            />
+          )}
         </div>
         {image && image.src && <NotificationImage {...image} />}
         {onClose && closeButtonLabel && (

@@ -65,24 +65,30 @@
   object-position: var(--notification-image-align);
 }
 
-.base .button {
-  padding-top: calc(var(--cui-spacings-bit) - var(--cui-border-width-kilo));
-  padding-bottom: calc(var(--cui-spacings-bit) - var(--cui-border-width-kilo));
+/* Keep in sync with the `.s` class in Button.module.css  */
+.base .button.s,
+.base .button.m {
+  --content-gap: var(--cui-spacings-bit);
+  --loader-diameter: 4px;
+  --loader-gap: 3px;
+  --loader-transform: scale(150%);
+
+  padding: calc(var(--cui-spacings-bit) - var(--cui-border-width-kilo))
+    calc(var(--cui-spacings-kilo) - var(--cui-border-width-kilo));
+  border-radius: 10px;
 }
 
 @media (min-width: 768px) {
-  .base .button.s {
-    padding-top: calc(var(--cui-spacings-bit) - var(--cui-border-width-kilo));
-    padding-bottom: calc(
-      var(--cui-spacings-bit) - var(--cui-border-width-kilo)
-    );
-  }
-
+  /* Keep in sync with the `.m` class in Button.module.css  */
   .base .button.m {
-    padding-top: calc(var(--cui-spacings-kilo) - var(--cui-border-width-kilo));
-    padding-bottom: calc(
-      var(--cui-spacings-kilo) - var(--cui-border-width-kilo)
-    );
+    --content-gap: var(--cui-spacings-byte);
+    --loader-diameter: 6px;
+    --loader-gap: 5px;
+    --loader-transform: scale(133%);
+
+    padding: calc(var(--cui-spacings-kilo) - var(--cui-border-width-kilo))
+      calc(var(--cui-spacings-giga) - var(--cui-border-width-kilo));
+    border-radius: var(--cui-border-radius-kilo);
   }
 }
 
