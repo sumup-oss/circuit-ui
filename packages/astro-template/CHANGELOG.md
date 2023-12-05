@@ -1,5 +1,11 @@
 # @sumup/astro-template-circuit-ui
 
+## 1.1.0
+
+### Minor Changes
+
+- [#2322](https://github.com/sumup-oss/circuit-ui/pull/2322) [`b9863b80`](https://github.com/sumup-oss/circuit-ui/commit/b9863b80c41aeea140d76d9826a322520549df8b) Thanks [@connor-baer](https://github.com/connor-baer)! - Enabled Circuit UI's lint rules by default.
+
 ## 1.0.1
 
 ### Patch Changes
