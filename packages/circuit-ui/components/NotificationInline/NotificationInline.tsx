@@ -172,7 +172,7 @@ export const NotificationInline = forwardRef<
             {action && (
               <Anchor
                 {...action}
-                className={classes.action}
+                className={clsx(action.className, classes.action)}
                 variant="highlight"
               />
             )}
