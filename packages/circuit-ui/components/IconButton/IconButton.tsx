@@ -14,7 +14,7 @@
  */
 
 import { Children, cloneElement, ReactElement, forwardRef } from 'react';
-import type { IconComponentType, IconProps } from '@sumup/icons';
+import type { IconProps } from '@sumup/icons';
 
 import utilityClasses from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
@@ -29,17 +29,13 @@ import { deprecate } from '../../util/logger.js';
 import classes from './IconButton.module.css';
 
 export interface IconButtonProps
-  extends Omit<
-    ButtonProps,
-    'icon' | 'leadingIcon' | 'trailingIcon' | 'stretch'
-  > {
+  extends Omit<ButtonProps, 'navigationIcon' | 'stretch' | 'children'> {
   /**
    * @deprecated
    *
    * Use the `icon` prop instead.
    */
   children?: ReactElement<IconProps>;
-  icon?: IconComponentType;
   /**
    * Communicates the action that will be performed when the user interacts
    * with the button. Use one strong, clear imperative verb and follow with a

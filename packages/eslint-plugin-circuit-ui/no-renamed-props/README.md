@@ -26,8 +26,6 @@ function Component() {
       <SelectorGroup size="kilo" />
       <Spinner size="byte" />
       <Button size="kilo" />
-      <Button>Submit</Button>
-      <Button icon={Plus} />
     </div>
   );
 }
@@ -62,8 +60,6 @@ function Component() {
       <SelectorGroup size="s" />
       <Spinner size="s" />
       <Button size="s" />
-      <Button label="Submit" />
-      <Button leadingIcon={Plus} />
     </div>
   );
 }
