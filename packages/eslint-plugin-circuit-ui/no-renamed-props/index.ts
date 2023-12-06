@@ -159,13 +159,6 @@ const configs: (PropNameConfig | PropValuesConfig | CustomConfig)[] = [
     },
   },
   {
-    type: 'name',
-    component: 'Button',
-    props: {
-      children: 'label',
-    },
-  },
-  {
     type: 'custom',
     component: 'IconButton',
     transform: (node, context) => {

@@ -37,15 +37,11 @@ import classes from './Button.module.css';
 
 export interface BaseProps {
   /**
-   * @deprecated Use the `label` prop instead.
-   */
-  'children'?: ReactNode;
-  /**
    * Communicates the action that will be performed when the user interacts
    * with the button. Use one strong, clear imperative verb and follow with a
    * one-word object if needed to clarify.
    */
-  'label'?: string;
+  'children': ReactNode;
   /**
    * Choose from 3 style variants. Default: 'secondary'.
    */
@@ -143,7 +139,6 @@ export const Button = forwardRef<any, ButtonProps>(
       leadingIcon: LeadingIcon = icon,
       trailingIcon: TrailingIcon,
       as,
-      label = children,
       ...props
     },
     ref,
@@ -165,13 +160,6 @@ export const Button = forwardRef<any, ButtonProps>(
       throw new AccessibilityError(
         'Button',
         "The `loadingLabel` prop is missing or invalid. Remove the `isLoading` prop if you don't intend to use the Button's loading state.",
-      );
-    }
-
-    if (process.env.NODE_ENV !== 'production' && children) {
-      deprecate(
-        'Button',
-        'The `children` prop has been deprecated. Use the `label` prop instead.',
       );
     }
 
@@ -225,7 +213,7 @@ export const Button = forwardRef<any, ButtonProps>(
               aria-hidden="true"
             />
           )}
-          {label}
+          {children}
           {TrailingIcon && (
             <TrailingIcon
               className={classes['trailing-icon']}
