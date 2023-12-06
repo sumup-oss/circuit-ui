@@ -37,15 +37,11 @@ import classes from './Button.module.css';
 
 export interface BaseProps {
   /**
-   * @deprecated Use the `label` prop instead.
-   */
-  'children'?: ReactNode;
-  /**
    * Communicates the action that will be performed when the user interacts
    * with the button. Use one strong, clear imperative verb and follow with a
    * one-word object if needed to clarify.
    */
-  'label'?: string;
+  'children': ReactNode;
   /**
    * Choose from 3 style variants. Default: 'secondary'.
    */
@@ -78,17 +74,18 @@ export interface BaseProps {
    */
   'stretch'?: boolean;
   /**
-   * A leading icon provides additional context for the button, such as a “search” icon next to the label for a search field submission.
-   */
-  'leadingIcon'?: IconComponentType;
-  /**
-   * A trailing icon hints that the button will perform an unexpected action, such as opening a dropdown or navigating the user to a new tab, so make sure you use them only when necessary. Trailing icons are not an alternative to leading icons and should not be used to provide additional context for the button.
-   */
-  'trailingIcon'?: IconComponentType;
-  /**
-   * @deprecated Use the `leadingIcon` prop instead.
+   * An icon provides additional context for the button, such as a “search”
+   * icon next to the label for a search field submission.
    */
   'icon'?: IconComponentType;
+  /**
+   * A navigation icon hints that the button will perform an unexpected action,
+   * such as opening a dropdown or navigating the user to a new tab, so make
+   * sure you use them only when necessary. Navigation icons are not an
+   * alternative to leading icons and should not be used to provide additional
+   * context for the button.
+   */
+  'navigationIcon'?: IconComponentType;
   /**
    * The HTML button type
    */
@@ -139,11 +136,9 @@ export const Button = forwardRef<any, ButtonProps>(
       isLoading,
       loadingLabel,
       className,
-      icon,
-      leadingIcon: LeadingIcon = icon,
-      trailingIcon: TrailingIcon,
+      icon: LeadingIcon,
+      navigationIcon: TrailingIcon,
       as,
-      label = children,
       ...props
     },
     ref,
@@ -165,20 +160,6 @@ export const Button = forwardRef<any, ButtonProps>(
       throw new AccessibilityError(
         'Button',
         "The `loadingLabel` prop is missing or invalid. Remove the `isLoading` prop if you don't intend to use the Button's loading state.",
-      );
-    }
-
-    if (process.env.NODE_ENV !== 'production' && children) {
-      deprecate(
-        'Button',
-        'The `children` prop has been deprecated. Use the `label` prop instead.',
-      );
-    }
-
-    if (process.env.NODE_ENV !== 'production' && icon) {
-      deprecate(
-        'Button',
-        'The `icon` prop has been deprecated. Use the `leadingIcon` prop instead.',
       );
     }
 
@@ -225,7 +206,7 @@ export const Button = forwardRef<any, ButtonProps>(
               aria-hidden="true"
             />
           )}
-          {label}
+          {children}
           {TrailingIcon && (
             <TrailingIcon
               className={classes['trailing-icon']}

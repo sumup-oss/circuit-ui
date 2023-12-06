@@ -81,14 +81,14 @@ export const Sizes = (args: ButtonProps) => (
 
 export const WithIcons = (args: ButtonProps) => (
   <Stack>
-    <Button {...args} leadingIcon={Plus}>
+    <Button {...args} icon={Plus}>
       Add to cart
     </Button>
     <Button
       {...args}
       href="https://sumup.com/terms"
       target="_blank"
-      trailingIcon={ArrowSlanted}
+      navigationIcon={ArrowSlanted}
     >
       Terms & Conditions
     </Button>
