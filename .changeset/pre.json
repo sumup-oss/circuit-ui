@@ -11,5 +11,15 @@
     "@sumup/remix-template-circuit-ui": "2.0.2",
     "@sumup/stylelint-plugin-circuit-ui": "1.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "breezy-chicken-know",
+    "cyan-tables-act",
+    "four-geese-pay",
+    "hot-eggs-agree",
+    "light-plums-sin",
+    "nervous-queens-return",
+    "pretty-suns-cross",
+    "silly-sheep-tease",
+    "sixty-turkeys-fetch"
+  ]
 }
