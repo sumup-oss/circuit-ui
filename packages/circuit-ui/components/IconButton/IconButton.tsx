@@ -104,11 +104,12 @@ export const IconButton = forwardRef<any, IconButtonProps>(
     ) {
       deprecate(
         'IconButton',
-        `The action's \`${legacySize}\` size has been deprecated. Use the \`${legacyButtonSizeMap[legacySize]}\` size instead.`,
+        `The IconButton's \`${legacySize}\` size has been deprecated. Use the \`${legacyButtonSizeMap[legacySize]}\` size instead.`,
       );
     }
 
     return (
+      // @ts-expect-error The `aria-label` replaces the button label.
       <Button
         title={labelString}
         className={clsx(classes[size], className)}
