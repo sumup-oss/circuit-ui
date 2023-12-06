@@ -1,5 +1,23 @@
 # @sumup/circuit-ui
 
+## 7.5.0-canary.0
+
+### Minor Changes
+
+- [#2311](https://github.com/sumup-oss/circuit-ui/pull/2311) [`39466c05`](https://github.com/sumup-oss/circuit-ui/commit/39466c054968e28b14a7a7b1389964f9b2573547) Thanks [@connor-baer](https://github.com/connor-baer)! - Renamed the ProgressBar sizes from `byte` to `s`, `kilo` to `m` and `mega` to `l`. The legacy size names are deprecated and will be removed in the next major version.
+
+- [#2307](https://github.com/sumup-oss/circuit-ui/pull/2307) [`a51de39c`](https://github.com/sumup-oss/circuit-ui/commit/a51de39cc1c5081474468149aac21a6a0b990749) Thanks [@connor-baer](https://github.com/connor-baer)! - Renamed the Button sizes from `kilo` to `s` and `giga` to `m`. The legacy size names are deprecated and will be removed in the next major version.
+
+- [#2311](https://github.com/sumup-oss/circuit-ui/pull/2311) [`39466c05`](https://github.com/sumup-oss/circuit-ui/commit/39466c054968e28b14a7a7b1389964f9b2573547) Thanks [@connor-baer](https://github.com/connor-baer)! - Renamed the Spinner sizes from `byte` to `s`, `kilo` to `m` and `giga` to `l`. The legacy size names are deprecated and will be removed in the next major version.
+
+- [#2307](https://github.com/sumup-oss/circuit-ui/pull/2307) [`a51de39c`](https://github.com/sumup-oss/circuit-ui/commit/a51de39cc1c5081474468149aac21a6a0b990749) Thanks [@connor-baer](https://github.com/connor-baer)! - Replaced the IconButton's `children` with a new `icon` prop.
+
+- [#2307](https://github.com/sumup-oss/circuit-ui/pull/2307) [`a51de39c`](https://github.com/sumup-oss/circuit-ui/commit/a51de39cc1c5081474468149aac21a6a0b990749) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new `navigationIcon` prop to the Button component. Navigation icons hint that the button will perform an unexpected action, such as opening a dropdown or navigating the user to a new tab.
+
+- [#2311](https://github.com/sumup-oss/circuit-ui/pull/2311) [`39466c05`](https://github.com/sumup-oss/circuit-ui/commit/39466c054968e28b14a7a7b1389964f9b2573547) Thanks [@connor-baer](https://github.com/connor-baer)! - Renamed the Avatar sizes from `giga` to `s` and `yotta` to `m`. The legacy size names are deprecated and will be removed in the next major version.
+
+- [#2311](https://github.com/sumup-oss/circuit-ui/pull/2311) [`39466c05`](https://github.com/sumup-oss/circuit-ui/commit/39466c054968e28b14a7a7b1389964f9b2573547) Thanks [@connor-baer](https://github.com/connor-baer)! - Renamed the SelectorGroup sizes from `kilo` to `s` and `mega` to `m`. The legacy size names are deprecated and will be removed in the next major version.
+
 ## 7.4.2
 
 ### Patch Changes
