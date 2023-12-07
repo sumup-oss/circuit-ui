@@ -83,8 +83,15 @@ export function isSufficientlyLabelled(
   attributes?: {
     'aria-label'?: string;
     'aria-labelledby'?: string;
+    'aria-hidden'?: string | boolean;
   },
 ): boolean {
+  if (
+    attributes?.['aria-hidden'] === true ||
+    attributes?.['aria-hidden'] === 'true'
+  ) {
+    return true;
+  }
   if (label) {
     return isString(label) ? Boolean(label.trim()) : true;
   }

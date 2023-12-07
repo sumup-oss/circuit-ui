@@ -46,6 +46,12 @@ describe('errors', () => {
     });
 
     describe('should return true', () => {
+      test('when the element is hidden', () => {
+        const label = undefined;
+        const attributes = { 'aria-hidden': 'true' };
+        expect(isSufficientlyLabelled(label, attributes)).toBe(true);
+      });
+
       test('when the label is a valid string', () => {
         const label = 'Email address';
         const attributes = undefined;
