@@ -13,11 +13,10 @@
  * limitations under the License.
  */
 
-import { Children, cloneElement, ReactElement, forwardRef } from 'react';
-import type { IconProps } from '@sumup/icons';
+import { Children, cloneElement, type ReactElement } from 'react';
+import type { IconComponentType, IconProps } from '@sumup/icons';
 
 import { clsx } from '../../styles/clsx.js';
-import Button, { ButtonProps, legacyButtonSizeMap } from '../Button/index.js';
 import {
   AccessibilityError,
   CircuitError,
@@ -26,10 +25,14 @@ import {
 import { deprecate } from '../../util/logger.js';
 import { isString } from '../../util/type-check.js';
 
+import {
+  createButtonComponent,
+  legacyButtonSizeMap,
+  type SharedButtonProps,
+} from './shared.js';
 import classes from './IconButton.module.css';
 
-export interface IconButtonProps
-  extends Omit<ButtonProps, 'navigationIcon' | 'stretch' | 'children'> {
+export type IconButtonProps = SharedButtonProps & {
   /**
    * Communicates the action that will be performed when the user interacts
    * with the button. Use one strong, clear imperative verb and follow with a
@@ -43,24 +46,27 @@ export interface IconButtonProps
    * Use the `children` prop instead.
    */
   label?: string;
-}
+  /**
+   * The icon provides context for the button, such as a “search” icon for a
+   * search field submission.
+   */
+  icon?: IconComponentType;
+};
 
 /**
- * The IconButton component displays a button with a single icon
- * as its only child.
+ * The IconButton component enables the user to perform an action or navigate
+ * to a different screen.
  */
-export const IconButton = forwardRef<any, IconButtonProps>(
-  (
-    {
-      children,
-      label,
-      size: legacySize = 'm',
-      icon: Icon,
-      className,
-      ...props
-    },
-    ref,
-  ) => {
+export const IconButton = createButtonComponent<IconButtonProps>(
+  'IconButton',
+  ({
+    className,
+    icon: Icon,
+    label,
+    children = label,
+    size: legacySize = 'm',
+    ...props
+  }) => {
     const size = legacyButtonSizeMap[legacySize] || legacySize;
 
     const labelString = isString(children) ? children : label;
@@ -76,7 +82,7 @@ export const IconButton = forwardRef<any, IconButtonProps>(
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
-      !isSufficientlyLabelled(labelString)
+      !isSufficientlyLabelled(labelString, props)
     ) {
       throw new AccessibilityError(
         'IconButton',
@@ -87,7 +93,7 @@ export const IconButton = forwardRef<any, IconButtonProps>(
     if (process.env.NODE_ENV !== 'production' && !isString(children)) {
       deprecate(
         'IconButton',
-        'The `children` prop has been deprecated to pass the icon. Use the `icon` prop instead.',
+        'The `children` prop has been deprecated for passing the icon. Use the `icon` prop instead.',
       );
     }
 
@@ -104,29 +110,27 @@ export const IconButton = forwardRef<any, IconButtonProps>(
     ) {
       deprecate(
         'IconButton',
-        `The IconButton's \`${legacySize}\` size has been deprecated. Use the \`${legacyButtonSizeMap[legacySize]}\` size instead.`,
+        `The \`${legacySize}\` size has been deprecated. Use the \`${legacyButtonSizeMap[legacySize]}\` size instead.`,
       );
     }
 
-    return (
-      // @ts-expect-error The `aria-label` replaces the button label.
-      <Button
-        title={labelString}
-        className={clsx(classes[size], className)}
-        aria-label={labelString}
-        size={size}
-        {...props}
-        ref={ref}
-        icon={(iconProps) => {
-          if (Icon) {
-            return <Icon {...iconProps} />;
-          }
-          const child = Children.only(children)!;
-          return cloneElement(child, iconProps);
-        }}
-      />
-    );
+    return {
+      className: clsx(classes.base, classes[size], className),
+      icon: (iconProps) => {
+        if (Icon) {
+          return <Icon {...iconProps} />;
+        }
+        const child = Children.only(children)!;
+        // TODO: Remove with the next major
+        if (isString(child)) {
+          return null;
+        }
+        return cloneElement(child, iconProps);
+      },
+      size,
+      children,
+      title: isString(children) ? children : undefined,
+      ...props,
+    };
   },
 );
-
-IconButton.displayName = 'IconButton';

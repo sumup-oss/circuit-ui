@@ -17,7 +17,7 @@ import type { HTMLAttributes } from 'react';
 import { ArrowLeft } from '@sumup/icons';
 
 import { clsx } from '../../../../styles/clsx.js';
-import IconButton from '../../../IconButton/index.js';
+import { IconButton } from '../../../Button/index.js';
 import CloseButton from '../../../CloseButton/index.js';
 import Headline from '../../../Headline/index.js';
 import type { SidePanelProps } from '../../SidePanel.js';

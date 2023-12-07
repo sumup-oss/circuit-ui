@@ -32,7 +32,7 @@ import {
   FieldLabel,
   FieldValidationHint,
 } from '../Field/index.js';
-import IconButton from '../IconButton/index.js';
+import { IconButton } from '../Button/index.js';
 import Spinner from '../Spinner/index.js';
 import {
   AccessibilityError,

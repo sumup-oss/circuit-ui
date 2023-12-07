@@ -16,7 +16,7 @@
 import { forwardRef } from 'react';
 
 import { legacyButtonSizeMap } from '../Button/index.js';
-import { IconButton, IconButtonProps } from '../IconButton/IconButton.js';
+import { IconButton, IconButtonProps } from '../Button/IconButton.js';
 import { Skeleton } from '../Skeleton/index.js';
 import {
   AccessibilityError,
@@ -94,7 +94,7 @@ export const Hamburger = forwardRef<any, HamburgerProps>(
       <IconButton
         {...props}
         icon={({ size: _size, ...iconProps }) => (
-          // @ts-expect-error This doesn't have to be an SVG.
+          // @ts-expect-error This doesn't have to be an SVG element.
           <Skeleton
             {...iconProps}
             className={clsx(

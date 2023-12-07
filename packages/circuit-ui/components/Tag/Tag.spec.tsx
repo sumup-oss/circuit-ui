@@ -51,7 +51,7 @@ describe('Tag', () => {
       </Tag>,
     );
 
-    await userEvent.click(screen.getByLabelText('Remove'));
+    await userEvent.click(screen.getByText('Remove'));
 
     expect(onRemove).toHaveBeenCalledTimes(1);
   });

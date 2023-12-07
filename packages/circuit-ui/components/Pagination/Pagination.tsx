@@ -16,7 +16,7 @@
 import { HTMLAttributes, ReactElement } from 'react';
 import { ChevronLeft, ChevronRight } from '@sumup/icons';
 
-import IconButton from '../IconButton/index.js';
+import { IconButton } from '../Button/index.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,

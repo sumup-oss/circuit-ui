@@ -31,7 +31,6 @@ describe('SidePanel', () => {
     isStacked: false,
     onBack: undefined,
     onClose: () => {},
-    top: '0px',
     // Silences the warning about the missing app element.
     // In user land, the side panel is always rendered by the SidePanelProvider,
     // which takes care of setting the app element.
@@ -89,9 +88,9 @@ describe('SidePanel', () => {
 
   it('should call the onClose callback when Esc is pressed', async () => {
     const onClose = vi.fn();
-    const { getByLabelText } = renderComponent({ onClose });
+    const { getByText } = renderComponent({ onClose });
 
-    const sidePanel = getByLabelText('Close');
+    const sidePanel = getByText('Close');
 
     await waitFor(() => expect(sidePanel).toBeVisible());
 

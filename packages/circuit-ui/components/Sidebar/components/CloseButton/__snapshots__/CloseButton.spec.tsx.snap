@@ -20,30 +20,29 @@ exports[`CloseButton > styles > should render and match snapshot when not visibl
 
 <button
   aria-disabled="false"
-  aria-label="Close"
-  class="_base_892426 _focus-visible_73b4bb _m_892426 _secondary_892426 _m_f6dd9a _base_9bf092 circuit-0"
+  class="_base_60a0b0 _secondary_60a0b0 _m_60a0b0 _focus-visible_73b4bb _base_037c7e _m_037c7e _base_9bf092 circuit-0"
   title="Close"
   type="button"
 >
   <span
     aria-hidden="true"
-    class="_loader_892426"
+    class="_loader_60a0b0"
   >
     <span
-      class="_dot_892426"
+      class="_dot_60a0b0"
     />
     <span
-      class="_dot_892426"
+      class="_dot_60a0b0"
     />
     <span
-      class="_dot_892426"
+      class="_dot_60a0b0"
     />
     <span
       class="_hide-visually_73b4bb"
     />
   </span>
   <span
-    class="_content_892426"
+    class="_content_60a0b0"
   >
     <svg
       aria-hidden="true"
@@ -58,6 +57,11 @@ exports[`CloseButton > styles > should render and match snapshot when not visibl
         fill="currentColor"
       />
     </svg>
+    <span
+      class="_label_60a0b0"
+    >
+      Close
+    </span>
   </span>
 </button>
 `;
@@ -84,30 +88,29 @@ exports[`CloseButton > styles > should render and match snapshot when visible 1`
 
 <button
   aria-disabled="false"
-  aria-label="Close"
-  class="_base_892426 _focus-visible_73b4bb _m_892426 _secondary_892426 _m_f6dd9a _base_9bf092 circuit-0"
+  class="_base_60a0b0 _secondary_60a0b0 _m_60a0b0 _focus-visible_73b4bb _base_037c7e _m_037c7e _base_9bf092 circuit-0"
   title="Close"
   type="button"
 >
   <span
     aria-hidden="true"
-    class="_loader_892426"
+    class="_loader_60a0b0"
   >
     <span
-      class="_dot_892426"
+      class="_dot_60a0b0"
     />
     <span
-      class="_dot_892426"
+      class="_dot_60a0b0"
     />
     <span
-      class="_dot_892426"
+      class="_dot_60a0b0"
     />
     <span
       class="_hide-visually_73b4bb"
     />
   </span>
   <span
-    class="_content_892426"
+    class="_content_60a0b0"
   >
     <svg
       aria-hidden="true"
@@ -122,6 +125,11 @@ exports[`CloseButton > styles > should render and match snapshot when visible 1`
         fill="currentColor"
       />
     </svg>
+    <span
+      class="_label_60a0b0"
+    >
+      Close
+    </span>
   </span>
 </button>
 `;
