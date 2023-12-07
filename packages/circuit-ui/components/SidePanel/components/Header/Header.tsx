@@ -47,10 +47,11 @@ export const Header = ({
       <IconButton
         className={classes.button}
         type="button"
-        label={backButtonLabel}
         onClick={onBack}
         icon={ArrowLeft}
-      />
+      >
+        {backButtonLabel}
+      </IconButton>
     )}
     <Headline id={id} size="four" as="h2" className={classes.headline}>
       {headline}
