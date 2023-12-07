@@ -25,24 +25,25 @@ import {
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 import { deprecate } from '../../util/logger.js';
+import { isString } from '../../util/type-check.js';
 
 import classes from './IconButton.module.css';
 
 export interface IconButtonProps
   extends Omit<ButtonProps, 'navigationIcon' | 'stretch' | 'children'> {
   /**
-   * @deprecated
-   *
-   * Use the `icon` prop instead.
-   */
-  children?: ReactElement<IconProps>;
-  /**
    * Communicates the action that will be performed when the user interacts
    * with the button. Use one strong, clear imperative verb and follow with a
    * one-word object if needed to clarify.
    * Displayed on hover and accessible to screen readers.
    */
-  label: string;
+  children?: ReactElement<IconProps> | string;
+  /**
+   * @deprecated
+   *
+   * Use the `children` prop instead.
+   */
+  label?: string;
 }
 
 /**
@@ -67,35 +68,42 @@ export const IconButton = forwardRef<any, IconButtonProps>(
 
     let icon: ReactElement;
 
-    if (process.env.NODE_ENV !== 'production' && !Icon && !children) {
-      throw new CircuitError('IconButton', 'The `icon` prop is missing.');
-    }
+    const labelString = isString(children) ? children : label;
 
     if (Icon) {
       icon = <Icon size={iconSize} aria-hidden="true" />;
-    } else {
+    } else if (!isString(children)) {
       const child = Children.only(children);
       icon = cloneElement(child!, {
         'aria-hidden': 'true',
         'size': (child!.props.size as string) || iconSize,
       });
+    } else {
+      throw new CircuitError('IconButton', 'The `icon` prop is missing.');
     }
 
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
-      !isSufficientlyLabelled(label)
+      !isSufficientlyLabelled(labelString)
     ) {
       throw new AccessibilityError(
         'IconButton',
-        'The `label` prop is missing or invalid.',
+        'The `children` prop is missing or invalid.',
       );
     }
 
-    if (process.env.NODE_ENV !== 'production' && children) {
+    if (process.env.NODE_ENV !== 'production' && !isString(children)) {
       deprecate(
         'IconButton',
-        'The `children` prop has been deprecated. Use the `icon` prop instead.',
+        'The `children` prop has been deprecated to pass the icon. Use the `icon` prop instead.',
+      );
+    }
+
+    if (process.env.NODE_ENV !== 'production' && label) {
+      deprecate(
+        'IconButton',
+        'The `label` prop has been deprecated. Use the `children` prop instead.',
       );
     }
 
@@ -111,14 +119,14 @@ export const IconButton = forwardRef<any, IconButtonProps>(
 
     return (
       <Button
-        title={label}
+        title={labelString}
         className={clsx(classes[size], className)}
         size={size}
         {...props}
         ref={ref}
       >
         {icon}
-        <span className={utilityClasses.hideVisually}>{label}</span>
+        <span className={utilityClasses.hideVisually}>{labelString}</span>
       </Button>
     );
   },

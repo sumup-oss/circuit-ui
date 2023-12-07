@@ -25,6 +25,6 @@ export default {
 export const Base = (args: IconButtonProps) => <IconButton {...args} />;
 
 Base.args = {
-  label: 'Add',
+  children: 'Add',
   icon: Plus,
 };
