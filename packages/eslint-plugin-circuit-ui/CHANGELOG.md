@@ -1,5 +1,12 @@
 # @sumup/eslint-plugin-circuit-ui
 
+## 4.0.0-canary.1
+
+### Patch Changes
+
+- Updated dependencies [[`7959570f`](https://github.com/sumup-oss/circuit-ui/commit/7959570f8f8889eb8d964cc5e851ef637edfbc18)]:
+  - @sumup/circuit-ui@7.5.0-canary.1
+
 ## 4.0.0-canary.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 7.5.0-canary.1
+
+### Minor Changes
+
+- [#2326](https://github.com/sumup-oss/circuit-ui/pull/2326) [`7959570f`](https://github.com/sumup-oss/circuit-ui/commit/7959570f8f8889eb8d964cc5e851ef637edfbc18) Thanks [@connor-baer](https://github.com/connor-baer)! - Replaced the IconButton's and CloseButton's `label` prop with `children`.
+
 ## 7.5.0-canary.0
 
 ### Minor Changes
