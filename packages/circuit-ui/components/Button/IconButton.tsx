@@ -17,11 +17,7 @@ import { Children, cloneElement, type ReactElement } from 'react';
 import type { IconComponentType, IconProps } from '@sumup/icons';
 
 import { clsx } from '../../styles/clsx.js';
-import {
-  AccessibilityError,
-  CircuitError,
-  isSufficientlyLabelled,
-} from '../../util/errors.js';
+import { CircuitError } from '../../util/errors.js';
 import { deprecate } from '../../util/logger.js';
 import { isString } from '../../util/type-check.js';
 
@@ -63,13 +59,11 @@ export const IconButton = createButtonComponent<IconButtonProps>(
     className,
     icon: Icon,
     label,
-    children = label,
+    children,
     size: legacySize = 'm',
     ...props
   }) => {
     const size = legacyButtonSizeMap[legacySize] || legacySize;
-
-    const labelString = isString(children) ? children : label;
 
     if (
       process.env.NODE_ENV !== 'production' &&
@@ -77,17 +71,6 @@ export const IconButton = createButtonComponent<IconButtonProps>(
       Children.count(children) !== 1
     ) {
       throw new CircuitError('IconButton', 'The `icon` prop is missing.');
-    }
-
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !isSufficientlyLabelled(labelString, props)
-    ) {
-      throw new AccessibilityError(
-        'IconButton',
-        'The `children` prop is missing or invalid.',
-      );
     }
 
     if (process.env.NODE_ENV !== 'production' && !isString(children)) {
@@ -128,8 +111,8 @@ export const IconButton = createButtonComponent<IconButtonProps>(
         return cloneElement(child, iconProps);
       },
       size,
-      children,
-      title: isString(children) ? children : undefined,
+      children: isString(children) ? children : label,
+      title: isString(children) ? children : label,
       ...props,
     };
   },

@@ -1,5 +1,5 @@
 ---
-'@sumup/circuit-ui': major
+'@sumup/circuit-ui': minor
 ---
 
-Changed the NotificationBanner's tertiary action variant from the Button to the Anchor component. Update the action props if necessary.
+Replaced the NotificationBanner's "tertiary" action variant with the "secondary" one and changed the action size to medium. Update the action props if necessary.

@@ -174,7 +174,6 @@ export function createButtonComponent<Props>(
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
-      !children &&
       !isSufficientlyLabelled(children as string, sharedProps)
     ) {
       throw new AccessibilityError(

@@ -24,9 +24,8 @@ import {
   forwardRef,
 } from 'react';
 
-import Button, { ButtonProps, legacyButtonSizeMap } from '../Button/index.js';
+import Button, { ButtonProps } from '../Button/index.js';
 import Headline from '../Headline/index.js';
-import Anchor, { AnchorProps } from '../Anchor/index.js';
 import Body from '../Body/index.js';
 import Image, { ImageProps } from '../Image/index.js';
 import CloseButton from '../CloseButton/index.js';
@@ -37,9 +36,7 @@ import { deprecate } from '../../util/logger.js';
 
 import classes from './NotificationBanner.module.css';
 
-type Action =
-  | (Omit<ButtonProps, 'variant'> & { variant: 'primary' })
-  | (Omit<AnchorProps, 'variant'> & { variant: 'tertiary' });
+type Action = Omit<ButtonProps, 'size'>;
 
 type NotificationVariant = 'system' | 'promotional';
 
@@ -144,6 +141,7 @@ export const NotificationBanner = forwardRef<
     const [isOpen, setOpen] = useState(isVisible);
     const [height, setHeight] = useState(getHeight(contentElement));
     const [, setAnimating] = useAnimation();
+
     useEffect(() => {
       setAnimating({
         duration: 200,
@@ -161,20 +159,13 @@ export const NotificationBanner = forwardRef<
       });
     }, [isVisible, setAnimating]);
 
-    const size = action.size
-      ? legacyButtonSizeMap[action.size] || action.size
-      : 'm';
-
     if (
       process.env.NODE_ENV !== 'production' &&
-      action.size &&
-      legacyButtonSizeMap[action.size]
+      action.variant === 'tertiary'
     ) {
       deprecate(
         'NotificationBanner',
-        `The action's \`${action.size}\` size has been deprecated. Use the \`${
-          legacyButtonSizeMap[action.size]
-        }\` size instead.`,
+        "The action's `tertiary` variant has been deprecated. Use the `primary` size instead.",
       );
     }
 
@@ -193,15 +184,13 @@ export const NotificationBanner = forwardRef<
           <Headline as="h2" className={classes.headline}>
             {headline}
           </Headline>
-          <Body className={classes.body}>{body}</Body>
-          {action.variant === 'tertiary' ? (
-            <Anchor {...action} variant="highlight" />
-          ) : (
-            <Button
-              {...action}
-              className={clsx(action.className, classes.button, classes[size])}
-            />
-          )}
+          {body && <Body className={classes.body}>{body}</Body>}
+          <Button
+            {...action}
+            variant={action.variant === 'tertiary' ? 'secondary' : 'primary'}
+            className={clsx(action.className, classes.button)}
+            size="s"
+          />
         </div>
         {image && image.src && <NotificationImage {...image} />}
         {onClose && closeButtonLabel && (
