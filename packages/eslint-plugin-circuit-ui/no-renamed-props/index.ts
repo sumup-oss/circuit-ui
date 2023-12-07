@@ -15,6 +15,14 @@
 
 import { ESLintUtils, TSESTree, TSESLint } from '@typescript-eslint/utils';
 
+import {
+  filterWhitespaceChildren,
+  findAttribute,
+  getAttributeValue,
+  transformAttributeValueToChildren,
+} from '../utils/jsx';
+import { getPropertyValue } from '../utils/object';
+
 /* eslint-disable */
 
 const createRule = ESLintUtils.RuleCreator(
@@ -47,7 +55,9 @@ type CustomConfig = {
   ) => void;
 };
 
-const configs: (PropNameConfig | PropValuesConfig | CustomConfig)[] = [
+type Config = PropNameConfig | PropValuesConfig | CustomConfig;
+
+const configs: Config[] = [
   {
     type: 'name',
     component: 'Toggle',
@@ -154,17 +164,26 @@ const configs: (PropNameConfig | PropValuesConfig | CustomConfig)[] = [
   {
     type: 'custom',
     component: 'IconButton',
+    // children → icon
     transform: (node, context) => {
       const component = 'IconButton';
       const current = 'children';
       const replacement = 'icon';
 
+      const iconAttribute = findAttribute(node, 'icon');
+
+      // Icon is passed as a prop as intended.
+      if (iconAttribute) {
+        return;
+      }
+
       const children = filterWhitespaceChildren(node.children);
       const child = children[0];
 
-      // These cases can't be automatically fixed:
+      // Icon might be passed as children, however, these types of children
+      // can't be automatically replaced:
       if (
-        // Multiple children
+        // No or multiple children
         children.length !== 1 ||
         // Non-element child
         child.type !== 'JSXElement' ||
@@ -183,7 +202,7 @@ const configs: (PropNameConfig | PropValuesConfig | CustomConfig)[] = [
         return;
       }
 
-      const childName = (child.openingElement.name as TSESTree.JSXIdentifier)
+      const iconName = (child.openingElement.name as TSESTree.JSXIdentifier)
         .name;
 
       context.report({
@@ -191,8 +210,71 @@ const configs: (PropNameConfig | PropValuesConfig | CustomConfig)[] = [
         messageId: 'propName',
         data: { component, current, replacement },
         fix(fixer) {
-          const prop = `${replacement}={${childName}}`;
-          return replaceChildrenWithProp(fixer, node, prop);
+          const range: [number, number] = [
+            node.openingElement.range[1] - 1,
+            node.closingElement!.range[1],
+          ];
+          const prop = ` ${replacement}={${iconName}}`;
+
+          return [
+            fixer.insertTextBeforeRange(range, prop),
+            fixer.replaceTextRange(range, ' />'),
+          ];
+        },
+      });
+    },
+  },
+  {
+    type: 'custom',
+    component: 'IconButton',
+    // label → children
+    transform: (node, context) => {
+      const component = 'IconButton';
+      const current = 'label';
+      const replacement = 'children';
+
+      const labelAttribute = findAttribute(node, 'label');
+
+      if (!labelAttribute) {
+        return;
+      }
+
+      const labelValue = transformAttributeValueToChildren(
+        context.sourceCode,
+        labelAttribute,
+      );
+
+      if (
+        // Unable to transform the label value
+        !labelValue ||
+        // Shouldn't override existing children
+        node.children.length > 0
+      ) {
+        context.report({
+          node: labelAttribute,
+          messageId: 'propName',
+          data: { component, current, replacement },
+        });
+        return;
+      }
+
+      context.report({
+        node,
+        messageId: 'propName',
+        data: { component, current, replacement },
+        fix(fixer) {
+          const elementName = (
+            node.openingElement.name as TSESTree.JSXIdentifier
+          ).name;
+          const range: [number, number] = [
+            node.openingElement.range[1] - 2,
+            node.openingElement.range[1],
+          ];
+
+          return [
+            fixer.remove(labelAttribute!),
+            fixer.replaceTextRange(range, `>${labelValue}</${elementName}>`),
+          ];
         },
       });
     },
@@ -251,63 +333,6 @@ export const noRenamedProps = createRule({
           },
         });
       });
-
-      // The `children` prop isn't a `JSXAttribute` and needs to be handled separately.
-      if (props.children && node.children.length > 0) {
-        const current = 'children';
-        const replacement = props.children;
-
-        const children = filterWhitespaceChildren(node.children);
-
-        // Multiple children can't be automatically fixed.
-        if (children.length !== 1) {
-          context.report({
-            node,
-            messageId: 'propName',
-            data: { component, current, replacement },
-          });
-          return;
-        }
-
-        const child = children[0];
-
-        let value: string = '';
-
-        // These are the most common child types, more should be added as needed
-        switch (child.type) {
-          case 'JSXText': {
-            value = `"${child.value.trim()}"`;
-            break;
-          }
-          case 'JSXExpressionContainer': {
-            value = context.sourceCode.getText(child);
-            break;
-          }
-          case 'JSXElement': {
-            value = `{${context.sourceCode.getText(child)}}`;
-            break;
-          }
-        }
-
-        if (!value) {
-          context.report({
-            node: children[0],
-            messageId: 'propName',
-            data: { component, current, replacement },
-          });
-          return;
-        }
-
-        context.report({
-          node: node,
-          messageId: 'propName',
-          data: { component, current, replacement },
-          fix(fixer) {
-            const prop = `${replacement}=${value}`;
-            return replaceChildrenWithProp(fixer, node, prop);
-          },
-        });
-      }
     }
 
     function replaceComponentPropValues(
@@ -394,11 +419,19 @@ export const noRenamedProps = createRule({
       });
     }
 
-    return configs.reduce((visitors, config) => {
-      if (config.component) {
+    const components = configs.reduce((acc, config) => {
+      acc[config.component] = acc[config.component] || [];
+      acc[config.component].push(config);
+      return acc;
+    }, {} as Record<string, Config[]>);
+
+    const componentVisitors = Object.entries(components).reduce(
+      (visitors, [component, configs]) => {
         // eslint-disable-next-line no-param-reassign
-        visitors[`JSXElement:has(JSXIdentifier[name="${config.component}"])`] =
-          (node: TSESTree.JSXElement) => {
+        visitors[`JSXElement:has(JSXIdentifier[name="${component}"])`] = (
+          node: TSESTree.JSXElement,
+        ) => {
+          configs.forEach((config) => {
             switch (config.type) {
               case 'name':
                 replaceComponentPropName(node, config);
@@ -410,82 +443,45 @@ export const noRenamedProps = createRule({
                 config.transform(node, context);
                 break;
             }
-          };
-      }
+          });
+        };
+        return visitors;
+      },
+      {} as TSESLint.RuleListener,
+    );
 
-      if (config.hook) {
+    const hooks = configs.reduce((acc, config) => {
+      if (!config.hook) {
+        return acc;
+      }
+      acc[config.hook] = acc[config.hook] || [];
+      acc[config.hook].push(config);
+      return acc;
+    }, {} as Record<string, Config[]>);
+
+    const hookVisitors = Object.entries(hooks).reduce(
+      (visitors, [hook, configs]) => {
         // eslint-disable-next-line no-param-reassign
-        visitors[`CallExpression:has(Identifier[name="${config.hook}"])`] = (
+        visitors[`CallExpression:has(Identifier[name="${hook}"])`] = (
           node: TSESTree.CallExpression,
         ) => {
-          switch (config.type) {
-            case 'values':
-              replaceHookPropValues(node, config);
-              break;
-            case 'name':
-            case 'custom':
-              // TODO: Not needed yet.
-              break;
-          }
+          configs.forEach((config) => {
+            switch (config.type) {
+              case 'values':
+                replaceHookPropValues(node, config);
+                break;
+              case 'name':
+              case 'custom':
+                // TODO: Not needed yet.
+                break;
+            }
+          });
         };
-      }
-      return visitors;
-    }, {} as TSESLint.RuleListener);
+        return visitors;
+      },
+      {} as TSESLint.RuleListener,
+    );
+
+    return { ...componentVisitors, ...hookVisitors };
   },
 });
-
-function getAttributeValue(attribute: TSESTree.JSXAttribute): string | null {
-  if (
-    attribute.value?.type === 'Literal' &&
-    typeof attribute.value.value === 'string'
-  ) {
-    return attribute.value.value;
-  }
-  if (
-    attribute.value?.type === 'JSXExpressionContainer' &&
-    attribute.value.expression.type === 'Literal'
-  ) {
-    return attribute.value.expression.value as string;
-  }
-  return null;
-}
-
-function getPropertyValue(property: TSESTree.Property): string | null {
-  if (
-    property.value.type === 'Literal' &&
-    typeof property.value.value === 'string'
-  ) {
-    return property.value.value;
-  }
-  return null;
-}
-
-function filterWhitespaceChildren(
-  children: TSESTree.JSXChild[],
-): TSESTree.JSXChild[] {
-  return children.filter((child) => {
-    if (child.type !== 'JSXText') {
-      return true;
-    }
-    const nonWhiteSpaceText = child.value.trim();
-    return Boolean(nonWhiteSpaceText);
-  });
-}
-
-function replaceChildrenWithProp(
-  fixer: TSESLint.RuleFixer,
-  node: TSESTree.JSXElement,
-  prop: string,
-) {
-  // Represents the last character of the JSXOpeningElement, the '>' character
-  const openingElementEnding = node.openingElement.range[1] - 1;
-  // Represents the last character of the JSXClosingElement, the '>' character
-  const closingElementEnding = node.closingElement!.range[1];
-
-  const range = [openingElementEnding, closingElementEnding] as const;
-
-  return [
-    fixer.insertTextBeforeRange(range, ` ${prop}`),
-    fixer.replaceTextRange(range, ' />'),
-  ];
-}
