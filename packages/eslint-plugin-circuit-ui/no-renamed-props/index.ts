@@ -107,6 +107,15 @@ const configs: Config[] = [
   },
   {
     type: 'values',
+    component: 'CloseButton',
+    prop: 'size',
+    values: {
+      kilo: 's',
+      giga: 'm',
+    },
+  },
+  {
+    type: 'values',
     component: 'IconButton',
     prop: 'size',
     values: {

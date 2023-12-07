@@ -81,12 +81,13 @@ export const SearchInput = forwardRef<InputElement, SearchInputProps>(
                   {...renderProps}
                   size="s"
                   onClick={onClick}
-                  label={clearLabel}
                   className={clsx(
                     renderProps.className,
                     classes['clear-button'],
                   )}
-                />
+                >
+                  {clearLabel}
+                </CloseButton>
               ),
             }
           : {})}

@@ -2,4 +2,4 @@
 '@sumup/circuit-ui': minor
 ---
 
-Replaced the IconButton's `label` prop with its `children`.
+Replaced the IconButton's and CloseButton's `label` prop with `children`.

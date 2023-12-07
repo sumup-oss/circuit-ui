@@ -160,11 +160,9 @@ export const MobileNavigation: ModalComponent<MobileNavigationProps> = ({
         <ReactModal {...reactModalProps}>
           <div className={classes.content}>
             <div className={classes.header}>
-              <CloseButton
-                onClick={onClose}
-                label={closeButtonLabel}
-                className={classes.close}
-              />
+              <CloseButton onClick={onClose} className={classes.close}>
+                {closeButtonLabel}
+              </CloseButton>
             </div>
 
             <nav aria-label={primaryNavigationLabel}>

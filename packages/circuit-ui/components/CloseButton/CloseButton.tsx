@@ -27,7 +27,7 @@ export type CloseButtonProps = Omit<IconButtonProps, 'icon'>;
  * A generic close button.
  */
 export const CloseButton = forwardRef<any, CloseButtonProps>(
-  ({ children = 'Close', className, ...props }, ref) => (
+  ({ label = 'Close', children = label, className, ...props }, ref) => (
     <IconButton
       type="button"
       className={clsx(classes.base, className)}
