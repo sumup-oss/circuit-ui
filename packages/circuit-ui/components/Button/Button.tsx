@@ -158,6 +158,8 @@ export const Button = forwardRef<any, ButtonProps>(
     const isDisabled = Boolean(disabled || isLoading);
     const onDisabledClick = (event: ClickEvent) => {
       event.preventDefault();
+      event.stopPropagation();
+      event.nativeEvent.stopImmediatePropagation();
     };
 
     if (
