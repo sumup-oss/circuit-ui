@@ -23,10 +23,10 @@ describe('Buttons', () => {
   it('should have no accessibility violations', async () => {
     const { container } = render(
       <ButtonList>
-        <PlayButton label="Pause" />
-        <PlayButton label="Play" paused />
-        <PrevButton label="Previous" />
-        <NextButton label="Next" />
+        <PlayButton>Pause</PlayButton>
+        <PlayButton paused>Play</PlayButton>
+        <PrevButton>Previous</PrevButton>
+        <NextButton>Next</NextButton>
       </ButtonList>,
     );
     const actual = await axe(container);

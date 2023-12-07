@@ -47,20 +47,19 @@ export const Header = ({
       <IconButton
         className={classes.button}
         type="button"
-        label={backButtonLabel}
         onClick={onBack}
         icon={ArrowLeft}
-      />
+      >
+        {backButtonLabel}
+      </IconButton>
     )}
     <Headline id={id} size="four" as="h2" className={classes.headline}>
       {headline}
     </Headline>
     {closeButtonLabel && (
-      <CloseButton
-        className={classes.button}
-        label={closeButtonLabel}
-        onClick={onClose}
-      />
+      <CloseButton className={classes.button} onClick={onClose}>
+        {closeButtonLabel}
+      </CloseButton>
     )}
   </div>
 );

@@ -27,7 +27,7 @@ export const ButtonList = ({ className, ...props }: ButtonListProps) => (
   <div className={clsx(classes['button-list'], className)} {...props} />
 );
 
-type ButtonProps = Omit<IconButtonProps, 'children'>;
+type ButtonProps = Omit<IconButtonProps, 'icon'>;
 
 export const NextButton = (props: ButtonProps) => (
   <IconButton

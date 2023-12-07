@@ -57,6 +57,14 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
         }
       `,
     },
+    {
+      name: 'matched IconButton component with the correct icon prop and label as children',
+      code: `
+        function Component() {
+          return <IconButton icon={Close}>Close</IconButton>
+        }
+      `,
+    },
   ],
   invalid: [
     {
@@ -72,166 +80,6 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
         }
       `,
       errors: [{ messageId: 'propName' }],
-    },
-    {
-      name: 'matched component with the old children prop',
-      code: `
-        function ComponentA() {
-          return <Button>Add</Button>
-        }
-
-        function ComponentB() {
-          return (
-            <Button>
-              Add
-            </Button>
-          )
-        }
-
-        function ComponentC() {
-          return (
-            <Button>
-              {t('add')}
-            </Button>
-          )
-        }
-
-        function ComponentD() {
-          return (
-            <Button>
-              <span>Add</span>
-            </Button>
-          )
-        }
-
-        function ComponentE() {
-          return (
-            <Button>
-              <Plus /> Add
-            </Button>
-          )
-        }
-      `,
-      output: `
-        function ComponentA() {
-          return <Button label="Add" />
-        }
-
-        function ComponentB() {
-          return (
-            <Button label="Add" />
-          )
-        }
-
-        function ComponentC() {
-          return (
-            <Button label={t('add')} />
-          )
-        }
-
-        function ComponentD() {
-          return (
-            <Button label={<span>Add</span>} />
-          )
-        }
-
-        function ComponentE() {
-          return (
-            <Button>
-              <Plus /> Add
-            </Button>
-          )
-        }
-      `,
-      errors: [
-        { messageId: 'propName' },
-        { messageId: 'propName' },
-        { messageId: 'propName' },
-        { messageId: 'propName' },
-        { messageId: 'propName' },
-      ],
-    },
-    {
-      name: 'matched IconButton component with the old children prop',
-      code: `
-        function ComponentA() {
-          return <IconButton><Close /></IconButton>
-        }
-
-        function ComponentB() {
-          return (
-            <IconButton>
-              <Close size="16" />
-            </IconButton>
-          )
-        }
-
-        function ComponentC() {
-          return (
-            <IconButton>
-              Close <Close size="16" />
-            </IconButton>
-          )
-        }
-
-        function ComponentD() {
-          return (
-            <IconButton>
-              <Close size="16" className="icon" />
-            </IconButton>
-          )
-        }
-
-        function ComponentE() {
-          return (
-            <IconButton>
-              <span>x</span>
-            </IconButton>
-          )
-        }
-      `,
-      output: `
-        function ComponentA() {
-          return <IconButton icon={Close} />
-        }
-
-        function ComponentB() {
-          return (
-            <IconButton icon={Close} />
-          )
-        }
-
-        function ComponentC() {
-          return (
-            <IconButton>
-              Close <Close size="16" />
-            </IconButton>
-          )
-        }
-
-        function ComponentD() {
-          return (
-            <IconButton>
-              <Close size="16" className="icon" />
-            </IconButton>
-          )
-        }
-
-        function ComponentE() {
-          return (
-            <IconButton>
-              <span>x</span>
-            </IconButton>
-          )
-        }
-      `,
-      errors: [
-        { messageId: 'propName' },
-        { messageId: 'propName' },
-        { messageId: 'propName' },
-        { messageId: 'propName' },
-        { messageId: 'propName' },
-      ],
     },
     {
       name: 'matched component with the old prop value',
@@ -276,6 +124,181 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
         });
       `,
       errors: [{ messageId: 'propValue' }],
+    },
+    {
+      name: 'matched IconButton component with the old children prop',
+      code: `
+        // icon component as child
+        function ComponentA() {
+          return <IconButton label="Close"><Close /></IconButton>
+        }
+
+        // icon component with size prop as child
+        function ComponentB() {
+          return (
+            <IconButton label="Close">
+              <Close size="16" />
+            </IconButton>
+          )
+        }
+
+        // icon component with size prop and text as children
+        function ComponentC() {
+          return (
+            <IconButton label="Close">
+              Close <Close size="16" />
+            </IconButton>
+          )
+        }
+
+        // icon component with size and className props as child
+        function ComponentD() {
+          return (
+            <IconButton label="Close">
+              <Close size="16" className="icon" />
+            </IconButton>
+          )
+        }
+
+        // span element as child
+        function ComponentE() {
+          return (
+            <IconButton label="Close">
+              <span>x</span>
+            </IconButton>
+          )
+        }
+        `,
+      output: `
+        // icon component as child
+        function ComponentA() {
+          return <IconButton label="Close" icon={Close} />
+        }
+
+        // icon component with size prop as child
+        function ComponentB() {
+          return (
+            <IconButton label="Close" icon={Close} />
+          )
+        }
+
+        // icon component with size prop and text as children
+        function ComponentC() {
+          return (
+            <IconButton label="Close">
+              Close <Close size="16" />
+            </IconButton>
+          )
+        }
+
+        // icon component with size and className props as child
+        function ComponentD() {
+          return (
+            <IconButton label="Close">
+              <Close size="16" className="icon" />
+            </IconButton>
+          )
+        }
+
+        // span element as child
+        function ComponentE() {
+          return (
+            <IconButton label="Close">
+              <span>x</span>
+            </IconButton>
+          )
+        }
+        `,
+      errors: [
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+      ],
+    },
+    {
+      name: 'matched IconButton component with the old label prop',
+      code: `
+        // label prop as string
+        function ComponentA() {
+          return <IconButton icon={Close} label="Close" />
+        }
+
+        // label prop as expression
+        function ComponentB() {
+          return (
+            <IconButton icon={Close} label={t('close')} />
+          )
+        }
+
+        // label prop as elements
+        function ComponentC() {
+          return (
+            <IconButton icon={Close} label={<span>Close</span>} />
+          )
+        }
+
+        // label prop as conditional
+        function ComponentD() {
+          return (
+            <IconButton icon={Close} label={open ? 'Close' : 'Open'} />
+          )
+        }
+
+        // label prop as variable
+        function ComponentE() {
+          return (
+            <IconButton icon={Close} label={close} />
+          )
+        }
+        `,
+      output: `
+        // label prop as string
+        function ComponentA() {
+          return <IconButton icon={Close}  >Close</IconButton>
+        }
+
+        // label prop as expression
+        function ComponentB() {
+          return (
+            <IconButton icon={Close}  >{t('close')}</IconButton>
+          )
+        }
+
+        // label prop as elements
+        function ComponentC() {
+          return (
+            <IconButton icon={Close}  ><span>Close</span></IconButton>
+          )
+        }
+
+        // label prop as conditional
+        function ComponentD() {
+          return (
+            <IconButton icon={Close}  >{open ? 'Close' : 'Open'}</IconButton>
+          )
+        }
+
+        // label prop as variable
+        function ComponentE() {
+          return (
+            <IconButton icon={Close}  >{close}</IconButton>
+          )
+        }
+        `,
+      errors: [
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+        { messageId: 'propName' },
+      ],
     },
   ],
 });

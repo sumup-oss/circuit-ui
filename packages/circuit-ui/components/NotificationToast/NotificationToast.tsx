@@ -124,12 +124,14 @@ export function NotificationToast({
 
         <CloseButton
           className={classes.close}
-          label="-" // We need to pass a label here to prevent CloseButton from throwing an error
           aria-hidden="true"
           size="s"
           onClick={onClose}
           tabIndex={-1}
-        />
+        >
+          {/* We need to pass a label here to prevent CloseButton from throwing an error */}
+          -
+        </CloseButton>
       </div>
     </div>
   );

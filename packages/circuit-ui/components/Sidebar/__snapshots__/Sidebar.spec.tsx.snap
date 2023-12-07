@@ -12,14 +12,14 @@ exports[`Sidebar > should render and match snapshot when open 1`] = `
   height: 100%;
   min-width: 256px;
   background-color: #1A1A1A;
-  -webkit-transition: -webkit-transform 120ms ease-in-out;
-  transition: transform 120ms ease-in-out;
+  -webkit-transition: -webkit-transform var(--cui-transitions-default);
+  transition: transform var(--cui-transitions-default);
   position: absolute;
   -webkit-transform: translateX(-100%);
   -moz-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
   transform: translateX(-100%);
-  z-index: 800;
+  z-index: var(--cui-z-index-navigation);
   -webkit-transform: translateX(0);
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);
@@ -146,14 +146,14 @@ exports[`Sidebar > should render and match the snapshot when closed 1`] = `
   height: 100%;
   min-width: 256px;
   background-color: #1A1A1A;
-  -webkit-transition: -webkit-transform 120ms ease-in-out;
-  transition: transform 120ms ease-in-out;
+  -webkit-transition: -webkit-transform var(--cui-transitions-default);
+  transition: transform var(--cui-transitions-default);
   position: absolute;
   -webkit-transform: translateX(-100%);
   -moz-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
   transform: translateX(-100%);
-  z-index: 800;
+  z-index: var(--cui-z-index-navigation);
 }
 
 @media (min-width: 960px) {

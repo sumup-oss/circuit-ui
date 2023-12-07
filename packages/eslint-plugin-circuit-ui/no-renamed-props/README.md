@@ -26,6 +26,9 @@ function Component() {
       <SelectorGroup size="kilo" />
       <Spinner size="byte" />
       <Button size="kilo" />
+      <IconButton size="kilo" label="Add to card">
+        <Add />
+      </IconButton>
     </div>
   );
 }
@@ -60,6 +63,9 @@ function Component() {
       <SelectorGroup size="s" />
       <Spinner size="s" />
       <Button size="s" />
+      <IconButton size="s" icon={Add}>
+        Add to card
+      </IconButton>
     </div>
   );
 }

@@ -197,12 +197,9 @@ export const NotificationBanner = forwardRef<
         </div>
         {image && image.src && <NotificationImage {...image} />}
         {onClose && closeButtonLabel && (
-          <CloseButton
-            className={classes.close}
-            label={closeButtonLabel}
-            size="s"
-            onClick={onClose}
-          />
+          <CloseButton className={classes.close} size="s" onClick={onClose}>
+            {closeButtonLabel}
+          </CloseButton>
         )}
       </div>
     );

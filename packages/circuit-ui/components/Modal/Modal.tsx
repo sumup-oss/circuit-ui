@@ -134,11 +134,9 @@ export const Modal: ModalComponent<ModalProps> = ({
       <ReactModal {...reactModalProps}>
         <div className={clsx(classes.content, className)} style={style}>
           {!preventClose && closeButtonLabel && (
-            <CloseButton
-              onClick={onClose}
-              label={closeButtonLabel}
-              className={classes.close}
-            />
+            <CloseButton onClick={onClose} className={classes.close}>
+              {closeButtonLabel}
+            </CloseButton>
           )}
 
           {isFunction(children) ? children({ onClose }) : children}

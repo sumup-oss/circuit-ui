@@ -120,14 +120,15 @@ export const Pagination = ({
       {...props}
     >
       <IconButton
-        label={previousLabel}
         size="s"
         variant="tertiary"
         disabled={currentPage <= 1}
         onClick={() => onChange(currentPage - 1)}
         className={classes.prev}
         icon={ChevronLeft}
-      />
+      >
+        {previousLabel}
+      </IconButton>
 
       {showList ? (
         <PageList
@@ -148,14 +149,15 @@ export const Pagination = ({
       )}
 
       <IconButton
-        label={nextLabel}
         size="s"
         variant="tertiary"
         disabled={currentPage >= totalPages}
         onClick={() => onChange(currentPage + 1)}
         className={classes.next}
         icon={ChevronRight}
-      />
+      >
+        {nextLabel}
+      </IconButton>
     </nav>
   );
 };

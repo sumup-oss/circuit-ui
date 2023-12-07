@@ -26,9 +26,11 @@ export default {
 
 export const AllButtons = () => (
   <ButtonList>
-    <PlayButton label="Pause" onClick={action('on play click')} />
-    <PlayButton label="Play" paused onClick={action('on pause click')} />
-    <PrevButton label="Previous" onClick={action('on previous click')} />
-    <NextButton label="Next" onClick={action('on next click')} />
+    <PlayButton onClick={action('on play click')}>Pause</PlayButton>
+    <PlayButton paused onClick={action('on pause click')}>
+      Play
+    </PlayButton>
+    <PrevButton onClick={action('on previous click')}>Previous</PrevButton>
+    <NextButton onClick={action('on next click')}>Next</NextButton>
   </ButtonList>
 );

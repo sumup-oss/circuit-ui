@@ -180,12 +180,9 @@ export const NotificationInline = forwardRef<
           </div>
 
           {onClose && closeButtonLabel && (
-            <CloseButton
-              className={classes.close}
-              label={closeButtonLabel}
-              size="s"
-              onClick={onClose}
-            />
+            <CloseButton className={classes.close} size="s" onClick={onClose}>
+              {closeButtonLabel}
+            </CloseButton>
           )}
         </div>
       </div>

@@ -143,11 +143,9 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
   return (
     <ReactModal {...reactModalProps}>
       {!preventClose && closeButtonLabel && (
-        <CloseButton
-          onClick={onClose}
-          label={closeButtonLabel}
-          className={classes.close}
-        />
+        <CloseButton onClick={onClose} className={classes.close}>
+          {closeButtonLabel}
+        </CloseButton>
       )}
       <NotificationImage image={image} />
       <Headline as="h2" size="three" className={classes.headline}>

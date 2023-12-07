@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2023, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,18 +13,16 @@
  * limitations under the License.
  */
 
-import { Plus } from '@sumup/icons';
+import { TSESTree } from '@typescript-eslint/utils';
 
-import { IconButton, IconButtonProps } from './IconButton.js';
+/* eslint-disable */
 
-export default {
-  title: 'Components/Button/IconButton',
-  component: IconButton,
-};
-
-export const Base = (args: IconButtonProps) => <IconButton {...args} />;
-
-Base.args = {
-  children: 'Add',
-  icon: Plus,
-};
+export function getPropertyValue(property: TSESTree.Property): string | null {
+  if (
+    property.value.type === 'Literal' &&
+    typeof property.value.value === 'string'
+  ) {
+    return property.value.value;
+  }
+  return null;
+}

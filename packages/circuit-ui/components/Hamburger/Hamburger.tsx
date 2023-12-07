@@ -93,16 +93,26 @@ export const Hamburger = forwardRef<any, HamburgerProps>(
     return (
       <IconButton
         {...props}
+        icon={({ size: _size, ...iconProps }) => (
+          // @ts-expect-error This doesn't have to be an SVG.
+          <Skeleton
+            {...iconProps}
+            className={clsx(
+              iconProps.className,
+              classes.skeleton,
+              classes[size],
+            )}
+          >
+            <span className={clsx(classes.base, classes[size])} />
+          </Skeleton>
+        )}
         className={clsx(classes.button, className)}
         size={size}
-        label={isActive ? activeLabel : inactiveLabel}
         type="button"
         aria-pressed={isActive}
         ref={ref}
       >
-        <Skeleton className={clsx(classes.skeleton, classes[size])}>
-          <span className={clsx(classes.base, classes[size])} />
-        </Skeleton>
+        {isActive ? activeLabel : inactiveLabel}
       </IconButton>
     );
   },

@@ -56,10 +56,10 @@ const baseStyles = ({ theme }: StyleProps) => css`
   height: 100%;
   min-width: ${SIDEBAR_WIDTH}px;
   background-color: ${theme.colors.n900};
-  transition: transform ${theme.transitions.default};
+  transition: transform var(--cui-transitions-default);
   position: absolute;
   transform: translateX(-100%);
-  z-index: ${theme.zIndex.navigation};
+  z-index: var(--cui-z-index-navigation);
   ${theme.mq.giga} {
     transform: translateX(0);
     position: relative;
@@ -99,10 +99,11 @@ export function Sidebar({
       />
       <CloseButton
         visible={open}
-        label={closeButtonLabel}
         onClick={onClose}
         data-testid="sidebar-close-button"
-      />
+      >
+        {closeButtonLabel}
+      </CloseButton>
     </Fragment>
   );
 }
