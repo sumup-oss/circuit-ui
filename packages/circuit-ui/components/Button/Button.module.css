@@ -200,6 +200,18 @@
   margin-left: var(--cui-spacings-byte);
 }
 
+.s .leading-icon,
+.s .trailing-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.m .leading-icon,
+.m .trailing-icon {
+  width: 24px;
+  height: 24px;
+}
+
 .base .spinner {
   position: absolute;
   visibility: hidden;
