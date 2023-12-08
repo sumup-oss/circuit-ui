@@ -1,5 +1,20 @@
 # @sumup/eslint-plugin-circuit-ui
 
+## 4.0.0
+
+### Minor Changes
+
+- [#2307](https://github.com/sumup-oss/circuit-ui/pull/2307) [`a51de39c`](https://github.com/sumup-oss/circuit-ui/commit/a51de39cc1c5081474468149aac21a6a0b990749) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a migration for the IconButton's `icon` and `label` props to the `circuit-ui/no-renamed-props` rule.
+
+- [#2311](https://github.com/sumup-oss/circuit-ui/pull/2311) [`39466c05`](https://github.com/sumup-oss/circuit-ui/commit/39466c054968e28b14a7a7b1389964f9b2573547) Thanks [@connor-baer](https://github.com/connor-baer)! - Added migrations for the Avatar, Button, CloseButton, Hamburger, IconButton, ProgressBar, Selector and Spinner size values to the `circuit-ui/no-renamed-props` rule.
+
+### Patch Changes
+
+- [`658916f6`](https://github.com/sumup-oss/circuit-ui/commit/658916f6f13003d4547c6e06da640fec2cd39eb9) Thanks [@connor-baer](https://github.com/connor-baer)! - Increased the specificity of AST node selectors to prevent false positives and improve performance.
+
+- Updated dependencies [[`39466c05`](https://github.com/sumup-oss/circuit-ui/commit/39466c054968e28b14a7a7b1389964f9b2573547), [`a51de39c`](https://github.com/sumup-oss/circuit-ui/commit/a51de39cc1c5081474468149aac21a6a0b990749), [`39466c05`](https://github.com/sumup-oss/circuit-ui/commit/39466c054968e28b14a7a7b1389964f9b2573547), [`a51de39c`](https://github.com/sumup-oss/circuit-ui/commit/a51de39cc1c5081474468149aac21a6a0b990749), [`a51de39c`](https://github.com/sumup-oss/circuit-ui/commit/a51de39cc1c5081474468149aac21a6a0b990749), [`39466c05`](https://github.com/sumup-oss/circuit-ui/commit/39466c054968e28b14a7a7b1389964f9b2573547), [`39466c05`](https://github.com/sumup-oss/circuit-ui/commit/39466c054968e28b14a7a7b1389964f9b2573547), [`7959570f`](https://github.com/sumup-oss/circuit-ui/commit/7959570f8f8889eb8d964cc5e851ef637edfbc18)]:
+  - @sumup/circuit-ui@7.5.0
+
 ## 4.0.0-canary.2
 
 ### Patch Changes
