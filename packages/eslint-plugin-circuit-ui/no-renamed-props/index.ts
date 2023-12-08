@@ -437,7 +437,7 @@ export const noRenamedProps = createRule({
     const componentVisitors = Object.entries(components).reduce(
       (visitors, [component, configs]) => {
         // eslint-disable-next-line no-param-reassign
-        visitors[`JSXElement:has(JSXIdentifier[name="${component}"])`] = (
+        visitors[`JSXElement[openingElement.name.name="${component}"]`] = (
           node: TSESTree.JSXElement,
         ) => {
           configs.forEach((config) => {
@@ -471,7 +471,7 @@ export const noRenamedProps = createRule({
     const hookVisitors = Object.entries(hooks).reduce(
       (visitors, [hook, configs]) => {
         // eslint-disable-next-line no-param-reassign
-        visitors[`CallExpression:has(Identifier[name="${hook}"])`] = (
+        visitors[`CallExpression[callee.name="${hook}"]`] = (
           node: TSESTree.CallExpression,
         ) => {
           configs.forEach((config) => {

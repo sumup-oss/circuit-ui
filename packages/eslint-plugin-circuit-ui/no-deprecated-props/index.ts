@@ -77,7 +77,7 @@ export const noDeprecatedProps = createRule({
     return mappings.reduce((visitors, config) => {
       config.components.forEach((component) => {
         // eslint-disable-next-line no-param-reassign
-        visitors[`JSXElement:has(JSXIdentifier[name="${component}"])`] = (
+        visitors[`JSXElement[openingElement.name.name="${component}"]`] = (
           node: TSESTree.JSXElement,
         ) => {
           const { props, alternative } = config;

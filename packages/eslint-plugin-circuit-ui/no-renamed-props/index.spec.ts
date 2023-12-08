@@ -58,6 +58,18 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
       `,
     },
     {
+      name: 'matched component with the correct prop name nested in an element with the old prop name',
+      code: `
+        function Component() {
+          return (
+            <Box size="giga">
+              <Button size="m" />
+            </Box>
+          )
+        }
+      `,
+    },
+    {
       name: 'matched IconButton component with the correct icon prop and label as children',
       code: `
         function Component() {

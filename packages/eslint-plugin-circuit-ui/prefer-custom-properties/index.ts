@@ -180,8 +180,7 @@ export const preferCustomProperties = createRule({
     }
 
     return {
-      'TaggedTemplateExpression:has(Identifier[name="css"])':
-        checkTaggedTemplateExpression,
+      'TaggedTemplateExpression[tag.name="css"]': checkTaggedTemplateExpression,
       'MemberExpression:has(Identifier[name="theme"])': checkMemberExpression,
     };
   },
