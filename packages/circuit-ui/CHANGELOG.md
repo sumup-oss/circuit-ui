@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 7.5.1
+
+### Patch Changes
+
+- [#2330](https://github.com/sumup-oss/circuit-ui/pull/2330) [`3eafd13d`](https://github.com/sumup-oss/circuit-ui/commit/3eafd13d334894e8b727043924332791549a7ce4) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the size of icons inside Buttons when the available icon size doesn't match the Button size.
+
 ## 7.5.0
 
 ### Minor Changes
