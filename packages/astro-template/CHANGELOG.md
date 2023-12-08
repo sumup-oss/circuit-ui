@@ -1,11 +1,11 @@
 # @sumup/astro-template-circuit-ui
 
-## 1.1.1-canary.0
+## 1.1.1
 
 ### Patch Changes
 
-- Updated dependencies [[`39466c05`](https://github.com/sumup-oss/circuit-ui/commit/39466c054968e28b14a7a7b1389964f9b2573547), [`a51de39c`](https://github.com/sumup-oss/circuit-ui/commit/a51de39cc1c5081474468149aac21a6a0b990749), [`39466c05`](https://github.com/sumup-oss/circuit-ui/commit/39466c054968e28b14a7a7b1389964f9b2573547), [`a51de39c`](https://github.com/sumup-oss/circuit-ui/commit/a51de39cc1c5081474468149aac21a6a0b990749), [`a51de39c`](https://github.com/sumup-oss/circuit-ui/commit/a51de39cc1c5081474468149aac21a6a0b990749), [`39466c05`](https://github.com/sumup-oss/circuit-ui/commit/39466c054968e28b14a7a7b1389964f9b2573547), [`39466c05`](https://github.com/sumup-oss/circuit-ui/commit/39466c054968e28b14a7a7b1389964f9b2573547)]:
-  - @sumup/circuit-ui@7.5.0-canary.0
+- Updated dependencies [[`39466c05`](https://github.com/sumup-oss/circuit-ui/commit/39466c054968e28b14a7a7b1389964f9b2573547), [`a51de39c`](https://github.com/sumup-oss/circuit-ui/commit/a51de39cc1c5081474468149aac21a6a0b990749), [`39466c05`](https://github.com/sumup-oss/circuit-ui/commit/39466c054968e28b14a7a7b1389964f9b2573547), [`a51de39c`](https://github.com/sumup-oss/circuit-ui/commit/a51de39cc1c5081474468149aac21a6a0b990749), [`a51de39c`](https://github.com/sumup-oss/circuit-ui/commit/a51de39cc1c5081474468149aac21a6a0b990749), [`39466c05`](https://github.com/sumup-oss/circuit-ui/commit/39466c054968e28b14a7a7b1389964f9b2573547), [`39466c05`](https://github.com/sumup-oss/circuit-ui/commit/39466c054968e28b14a7a7b1389964f9b2573547), [`7959570f`](https://github.com/sumup-oss/circuit-ui/commit/7959570f8f8889eb8d964cc5e851ef637edfbc18)]:
+  - @sumup/circuit-ui@7.5.0
 
 ## 1.1.0
 
