@@ -1,5 +1,11 @@
 # @sumup/eslint-plugin-circuit-ui
 
+## 4.0.0-canary.2
+
+### Patch Changes
+
+- [`658916f6`](https://github.com/sumup-oss/circuit-ui/commit/658916f6f13003d4547c6e06da640fec2cd39eb9) Thanks [@connor-baer](https://github.com/connor-baer)! - Increased the specificity of AST node selectors to prevent false positives and improve performance.
+
 ## 4.0.0-canary.1
 
 ### Patch Changes
