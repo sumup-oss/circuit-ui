@@ -71,12 +71,21 @@ export const IconButton = forwardRef<any, IconButtonProps>(
     const labelString = isString(children) ? children : label;
 
     if (Icon) {
-      icon = <Icon size={iconSize} aria-hidden="true" />;
+      icon = (
+        <Icon
+          size={iconSize}
+          aria-hidden="true"
+          width={iconSize}
+          height={iconSize}
+        />
+      );
     } else if (!isString(children)) {
       const child = Children.only(children);
       icon = cloneElement(child!, {
         'aria-hidden': 'true',
         'size': (child!.props.size as string) || iconSize,
+        'width': iconSize,
+        'height': iconSize,
       });
     } else {
       throw new CircuitError('IconButton', 'The `icon` prop is missing.');
