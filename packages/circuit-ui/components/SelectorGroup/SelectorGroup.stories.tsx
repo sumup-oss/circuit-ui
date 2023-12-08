@@ -69,16 +69,16 @@ export const Sizes = (args: SelectorGroupProps) => (
   <Stack vertical>
     <SelectorGroup
       {...args}
-      name="kilo"
-      label="Kilo"
-      size="kilo"
+      name="small"
+      label="Small"
+      size="s"
       style={storyStyles}
     />
     <SelectorGroup
       {...args}
-      name="mega"
-      label="Mega"
-      size="mega"
+      name="medium"
+      label="Medium"
+      size="m"
       style={storyStyles}
     />
     <SelectorGroup

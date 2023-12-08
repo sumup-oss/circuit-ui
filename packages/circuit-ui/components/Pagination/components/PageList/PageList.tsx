@@ -42,7 +42,7 @@ export const PageList: FC<PageListProps> = ({
       return (
         <li key={page}>
           <Button
-            size="kilo"
+            size="s"
             onClick={() => onChange(page)}
             variant={isCurrent ? 'primary' : 'tertiary'}
             title={label}

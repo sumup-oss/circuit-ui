@@ -16,27 +16,60 @@
 import { HTMLAttributes, forwardRef } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
+import { deprecate } from '../../util/logger.js';
 
 import classes from './Spinner.module.css';
 
 export interface SpinnerProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * Choose from 3 sizes. Default: 'kilo'.
+   * Choose from 3 sizes. Default: 'm'.
    */
-  size?: 'byte' | 'kilo' | 'giga';
+  size?:
+    | 's'
+    | 'm'
+    | 'l'
+    /**
+     * @deprecated
+     */
+    | 'byte'
+    /**
+     * @deprecated
+     */
+    | 'kilo'
+    /**
+     * @deprecated
+     */
+    | 'giga';
 }
+
+const legacySizeMap: Record<string, 's' | 'm' | 'l'> = {
+  byte: 's',
+  kilo: 'm',
+  giga: 'l',
+};
 
 /**
  * A spinning loading icon.
  */
 export const Spinner = forwardRef<HTMLSpanElement, SpinnerProps>(
-  ({ size = 'kilo', className, ...props }, ref) => (
-    <span
-      className={clsx(classes.base, classes[size], className)}
-      {...props}
-      ref={ref}
-    />
-  ),
+  ({ size: legacySize = 'm', className, ...props }, ref) => {
+    if (process.env.NODE_ENV !== 'production' && legacySizeMap[legacySize]) {
+      deprecate(
+        'Spinner',
+        `The \`${legacySize}\` size has been deprecated. Use the \`${legacySizeMap[legacySize]}\` size instead.`,
+      );
+    }
+
+    const size = legacySizeMap[legacySize] || legacySize;
+
+    return (
+      <span
+        className={clsx(classes.base, classes[size], className)}
+        {...props}
+        ref={ref}
+      />
+    );
+  },
 );
 
 Spinner.displayName = 'Spinner';

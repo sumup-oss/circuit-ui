@@ -14,11 +14,11 @@
  */
 
 import { forwardRef, useRef } from 'react';
-import { Search, Close } from '@sumup/icons';
+import { Search } from '@sumup/icons';
 
 import Input from '../Input/index.js';
 import type { InputElement, InputProps } from '../Input/index.js';
-import IconButton from '../IconButton/index.js';
+import CloseButton from '../CloseButton/index.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
@@ -77,17 +77,17 @@ export const SearchInput = forwardRef<InputElement, SearchInputProps>(
         {...(value && onClear && clearLabel
           ? {
               renderSuffix: (renderProps) => (
-                <IconButton
+                <CloseButton
                   {...renderProps}
+                  size="s"
                   onClick={onClick}
-                  label={clearLabel}
                   className={clsx(
                     renderProps.className,
                     classes['clear-button'],
                   )}
                 >
-                  <Close size="16" />
-                </IconButton>
+                  {clearLabel}
+                </CloseButton>
               ),
             }
           : {})}

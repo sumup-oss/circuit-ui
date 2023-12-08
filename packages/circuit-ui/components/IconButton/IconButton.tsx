@@ -18,24 +18,32 @@ import type { IconProps } from '@sumup/icons';
 
 import utilityClasses from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
-import { Button, ButtonProps } from '../Button/Button.js';
+import Button, { ButtonProps, legacyButtonSizeMap } from '../Button/index.js';
 import {
   AccessibilityError,
+  CircuitError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
+import { deprecate } from '../../util/logger.js';
+import { isString } from '../../util/type-check.js';
 
 import classes from './IconButton.module.css';
 
-export interface IconButtonProps extends Omit<ButtonProps, 'icon' | 'stretch'> {
+export interface IconButtonProps
+  extends Omit<ButtonProps, 'navigationIcon' | 'stretch' | 'children'> {
   /**
-   * A single icon element.
+   * Communicates the action that will be performed when the user interacts
+   * with the button. Use one strong, clear imperative verb and follow with a
+   * one-word object if needed to clarify.
+   * Displayed on hover and accessible to screen readers.
    */
-  children: ReactElement<IconProps>;
+  children?: ReactElement<IconProps> | string;
   /**
-   * Short label to describe the function of the button. Displayed as title
-   * on hover, and accessible to screen readers.
+   * @deprecated
+   *
+   * Use the `children` prop instead.
    */
-  label: string;
+  label?: string;
 }
 
 /**
@@ -43,35 +51,82 @@ export interface IconButtonProps extends Omit<ButtonProps, 'icon' | 'stretch'> {
  * as its only child.
  */
 export const IconButton = forwardRef<any, IconButtonProps>(
-  ({ children, label, size = 'giga', className, ...props }, ref) => {
-    const child = Children.only(children);
-    const iconSize = size === 'kilo' ? '16' : '24';
-    const icon = cloneElement(child, {
-      'aria-hidden': 'true',
-      'size': (child.props.size as string) || iconSize,
-    });
+  (
+    {
+      children,
+      label,
+      size: legacySize = 'm',
+      icon: Icon,
+      className,
+      ...props
+    },
+    ref,
+  ) => {
+    const size = legacyButtonSizeMap[legacySize] || legacySize;
+
+    const iconSize = size === 's' ? '16' : '24';
+
+    let icon: ReactElement;
+
+    const labelString = isString(children) ? children : label;
+
+    if (Icon) {
+      icon = <Icon size={iconSize} aria-hidden="true" />;
+    } else if (!isString(children)) {
+      const child = Children.only(children);
+      icon = cloneElement(child!, {
+        'aria-hidden': 'true',
+        'size': (child!.props.size as string) || iconSize,
+      });
+    } else {
+      throw new CircuitError('IconButton', 'The `icon` prop is missing.');
+    }
 
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
-      !isSufficientlyLabelled(label)
+      !isSufficientlyLabelled(labelString)
     ) {
       throw new AccessibilityError(
         'IconButton',
-        'The `label` prop is missing or invalid.',
+        'The `children` prop is missing or invalid.',
+      );
+    }
+
+    if (process.env.NODE_ENV !== 'production' && !isString(children)) {
+      deprecate(
+        'IconButton',
+        'The `children` prop has been deprecated to pass the icon. Use the `icon` prop instead.',
+      );
+    }
+
+    if (process.env.NODE_ENV !== 'production' && label) {
+      deprecate(
+        'IconButton',
+        'The `label` prop has been deprecated. Use the `children` prop instead.',
+      );
+    }
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      legacyButtonSizeMap[legacySize]
+    ) {
+      deprecate(
+        'IconButton',
+        `The action's \`${legacySize}\` size has been deprecated. Use the \`${legacyButtonSizeMap[legacySize]}\` size instead.`,
       );
     }
 
     return (
       <Button
-        title={label}
+        title={labelString}
         className={clsx(classes[size], className)}
         size={size}
         {...props}
         ref={ref}
       >
         {icon}
-        <span className={utilityClasses.hideVisually}>{label}</span>
+        <span className={utilityClasses.hideVisually}>{labelString}</span>
       </Button>
     );
   },

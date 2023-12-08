@@ -71,14 +71,18 @@
 }
 
 @media (min-width: 768px) {
-  .base .button.kilo {
+  .base .button.s {
     padding-top: calc(var(--cui-spacings-bit) - var(--cui-border-width-kilo));
-    padding-bottom: calc(var(--cui-spacings-bit) - var(--cui-border-width-kilo));
+    padding-bottom: calc(
+      var(--cui-spacings-bit) - var(--cui-border-width-kilo)
+    );
   }
 
-  .base .button.giga {
+  .base .button.m {
     padding-top: calc(var(--cui-spacings-kilo) - var(--cui-border-width-kilo));
-    padding-bottom: calc(var(--cui-spacings-kilo) - var(--cui-border-width-kilo));
+    padding-bottom: calc(
+      var(--cui-spacings-kilo) - var(--cui-border-width-kilo)
+    );
   }
 }
 

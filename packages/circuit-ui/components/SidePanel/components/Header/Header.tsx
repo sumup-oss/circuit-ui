@@ -14,10 +14,11 @@
  */
 
 import type { HTMLAttributes } from 'react';
-import { ArrowLeft, Close } from '@sumup/icons';
+import { ArrowLeft } from '@sumup/icons';
 
 import { clsx } from '../../../../styles/clsx.js';
 import IconButton from '../../../IconButton/index.js';
+import CloseButton from '../../../CloseButton/index.js';
 import Headline from '../../../Headline/index.js';
 import type { SidePanelProps } from '../../SidePanel.js';
 
@@ -46,24 +47,19 @@ export const Header = ({
       <IconButton
         className={classes.button}
         type="button"
-        label={backButtonLabel}
         onClick={onBack}
+        icon={ArrowLeft}
       >
-        <ArrowLeft size="24" />
+        {backButtonLabel}
       </IconButton>
     )}
     <Headline id={id} size="four" as="h2" className={classes.headline}>
       {headline}
     </Headline>
     {closeButtonLabel && (
-      <IconButton
-        className={classes.button}
-        type="button"
-        label={closeButtonLabel}
-        onClick={onClose}
-      >
-        <Close size="24" />
-      </IconButton>
+      <CloseButton className={classes.button} onClick={onClose}>
+        {closeButtonLabel}
+      </CloseButton>
     )}
   </div>
 );

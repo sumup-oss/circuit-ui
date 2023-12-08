@@ -184,7 +184,7 @@ export function Carousel({
               <ProgressBar
                 aria-hidden
                 key={state.step}
-                size="byte"
+                size="s"
                 variant="secondary"
                 loop
                 paused={state.paused}
@@ -199,11 +199,12 @@ export function Carousel({
               <ButtonList className={classes.buttons}>
                 <PlayButton
                   paused={state.paused}
-                  label={state.paused ? playButtonLabel : pauseButtonLabel}
                   {...(state.paused
                     ? getPlayControlProps()
                     : getPauseControlProps())}
-                />
+                >
+                  {state.paused ? playButtonLabel : pauseButtonLabel}
+                </PlayButton>
                 <PrevButton
                   label={prevButtonLabel}
                   {...getPreviousControlProps()}

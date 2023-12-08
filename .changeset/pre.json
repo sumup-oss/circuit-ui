@@ -1,0 +1,27 @@
+{
+  "mode": "pre",
+  "tag": "canary",
+  "initialVersions": {
+    "@sumup/astro-template-circuit-ui": "1.0.1",
+    "@sumup/circuit-ui": "7.4.0",
+    "@sumup/cna-template": "5.0.0",
+    "@sumup/design-tokens": "6.1.0",
+    "@sumup/eslint-plugin-circuit-ui": "3.1.0",
+    "@sumup/icons": "3.3.0",
+    "@sumup/remix-template-circuit-ui": "2.0.2",
+    "@sumup/stylelint-plugin-circuit-ui": "1.0.0"
+  },
+  "changesets": [
+    "breezy-chicken-know",
+    "cyan-tables-act",
+    "four-geese-pay",
+    "hot-eggs-agree",
+    "light-plums-sin",
+    "nervous-queens-return",
+    "pretty-suns-cross",
+    "silly-sheep-tease",
+    "sixty-turkeys-fetch",
+    "thirty-eyes-beg",
+    "yellow-books-doubt"
+  ]
+}

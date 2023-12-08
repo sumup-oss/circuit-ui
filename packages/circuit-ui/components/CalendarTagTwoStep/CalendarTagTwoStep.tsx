@@ -175,12 +175,12 @@ export class CalendarTagTwoStep extends Component<
                   align="right"
                   actions={{
                     primary: {
-                      size: 'kilo',
+                      size: 's',
                       children: confirmButtonLabel,
                       onClick: this.handleConfirm,
                     },
                     secondary: {
-                      size: 'kilo',
+                      size: 's',
                       children: clearButtonLabel,
                       onClick: this.handleClear,
                     },

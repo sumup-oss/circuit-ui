@@ -97,7 +97,7 @@ export default function MultiStepForm(): JSX.Element {
             <ProgressBar
               value={stepNumber}
               max={totalSteps}
-              size={'kilo'}
+              size="m"
               className={classes.spacing}
               label={`Step ${stepNumber} of ${totalSteps}`}
               hideLabel

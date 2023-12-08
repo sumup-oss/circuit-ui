@@ -25,8 +25,8 @@ describe('IconButton', () => {
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
     const { container } = render(
-      <IconButton label="Close" className={className}>
-        <Close />
+      <IconButton icon={Close} className={className}>
+        Close
       </IconButton>,
     );
     const button = container.querySelector('button');
@@ -36,8 +36,8 @@ describe('IconButton', () => {
   it('should forward a ref', () => {
     const ref = createRef<HTMLHRElement>();
     const { container } = render(
-      <IconButton label="Close" ref={ref}>
-        <Close />
+      <IconButton icon={Close} ref={ref}>
+        Close
       </IconButton>,
     );
     const button = container.querySelector('button');
@@ -45,11 +45,7 @@ describe('IconButton', () => {
   });
 
   it('should meet accessibility guidelines', async () => {
-    const { container } = render(
-      <IconButton label="Close">
-        <Close />
-      </IconButton>,
-    );
+    const { container } = render(<IconButton icon={Close}>Close</IconButton>);
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });

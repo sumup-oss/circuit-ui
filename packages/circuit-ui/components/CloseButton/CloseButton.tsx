@@ -21,21 +21,21 @@ import { IconButton, IconButtonProps } from '../IconButton/IconButton.js';
 
 import classes from './CloseButton.module.css';
 
-export type CloseButtonProps = Omit<IconButtonProps, 'children'>;
+export type CloseButtonProps = Omit<IconButtonProps, 'icon'>;
 
 /**
  * A generic close button.
  */
 export const CloseButton = forwardRef<any, CloseButtonProps>(
-  ({ label = 'Close', className, ...props }, ref) => (
+  ({ label = 'Close', children = label, className, ...props }, ref) => (
     <IconButton
       type="button"
       className={clsx(classes.base, className)}
-      label={label}
       {...props}
+      icon={Close}
       ref={ref}
     >
-      <Close size="16" />
+      {children}
     </IconButton>
   ),
 );

@@ -22,12 +22,9 @@ export default {
   component: IconButton,
 };
 
-export const Base = (args: IconButtonProps) => (
-  <IconButton {...args}>
-    <Plus />
-  </IconButton>
-);
+export const Base = (args: IconButtonProps) => <IconButton {...args} />;
 
 Base.args = {
-  label: 'Add',
+  children: 'Add',
+  icon: Plus,
 };

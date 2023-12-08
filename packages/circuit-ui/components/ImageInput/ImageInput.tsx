@@ -261,28 +261,29 @@ export const ImageInput = ({
         {src ? (
           <IconButton
             type="button"
-            size="kilo"
+            size="s"
             variant="primary"
             destructive
-            label={clearButtonLabel}
             onClick={handleClear}
             disabled={isLoading || disabled}
             className={classes.button}
+            icon={Delete}
           >
-            <Delete size="16" />
+            {clearButtonLabel}
           </IconButton>
         ) : (
           <IconButton
             type="button"
-            size="kilo"
+            size="s"
             variant="primary"
             aria-hidden="true"
             tabIndex={-1}
-            label="-" // We need to pass a label here to prevent IconButton from throwing
             disabled={isLoading || disabled}
             className={clsx(classes.button, classes.add)}
+            icon={Plus}
           >
-            <Plus size="16" />
+            {/* We need to pass a label here to prevent IconButton from throwing */}
+            -
           </IconButton>
         )}
         <Spinner

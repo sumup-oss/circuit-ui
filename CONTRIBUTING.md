@@ -55,6 +55,13 @@ Refer to the `package.json` files in each package for other helpful scripts.
 
 Circuit UI uses [changesets](https://github.com/atlassian/changesets) for versioning. As a contributor you can add a changeset for your changes by running `npx changeset`. Read more in our [release process docs](https://circuit.sumup.com/?path=/docs/contributing-release-process--docs).
 
+### Code Conventions
+
+#### Naming
+
+- **Labels**: Use `label` as the prop name for a component's [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) and `description` for its [accessible description](https://w3c.github.io/accname/#dfn-accessible-description). Restrict these props to strings to prevent formatted or semantic content which is ignored by assistive technologies.
+- **Sizes**: Use t-shirt size for components whose size can be configured with a prop. Use lowercase abbreviations in code (e.g. s, m, l) and write out the names in documentation (e.g. small, medium, large). Always use medium as the default size.
+
 ### Troubleshooting
 
 **Changes in one package aren't recognized in another package**

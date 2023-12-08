@@ -25,5 +25,5 @@ export default {
 export const Base = (args: CloseButtonProps) => <CloseButton {...args} />;
 
 Base.args = {
-  label: 'Close',
+  children: 'Close',
 };

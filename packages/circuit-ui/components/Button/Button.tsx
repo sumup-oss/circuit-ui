@@ -31,19 +31,35 @@ import {
 } from '../../util/errors.js';
 import utilityClasses from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
+import { deprecate } from '../../util/logger.js';
 
 import classes from './Button.module.css';
 
 export interface BaseProps {
+  /**
+   * Communicates the action that will be performed when the user interacts
+   * with the button. Use one strong, clear imperative verb and follow with a
+   * one-word object if needed to clarify.
+   */
   'children': ReactNode;
   /**
    * Choose from 3 style variants. Default: 'secondary'.
    */
   'variant'?: 'primary' | 'secondary' | 'tertiary';
   /**
-   * Choose from 2 sizes. Default: 'giga'.
+   * Choose from 2 sizes. Default: 'm'.
    */
-  'size'?: 'kilo' | 'giga';
+  'size'?:
+    | 's'
+    | 'm'
+    /**
+     * @deprecated
+     */
+    | 'kilo'
+    /**
+     * @deprecated
+     */
+    | 'giga';
   /**
    * Visually and functionally disable the button.
    */
@@ -58,9 +74,18 @@ export interface BaseProps {
    */
   'stretch'?: boolean;
   /**
-   * Display an icon in addition to the text to help to identify the action.
+   * An icon provides additional context for the button, such as a “search”
+   * icon next to the label for a search field submission.
    */
   'icon'?: IconComponentType;
+  /**
+   * A navigation icon hints that the button will perform an unexpected action,
+   * such as opening a dropdown or navigating the user to a new tab, so make
+   * sure you use them only when necessary. Navigation icons are not an
+   * alternative to leading icons and should not be used to provide additional
+   * context for the button.
+   */
+  'navigationIcon'?: IconComponentType;
   /**
    * The HTML button type
    */
@@ -90,6 +115,11 @@ type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
 
 export type ButtonProps = BaseProps & LinkElProps & ButtonElProps;
 
+export const legacyButtonSizeMap: Record<string, 's' | 'm'> = {
+  kilo: 's',
+  giga: 'm',
+};
+
 /**
  * The Button component enables the user to perform an action or navigate
  * to a different screen.
@@ -101,17 +131,26 @@ export const Button = forwardRef<any, ButtonProps>(
       disabled,
       destructive,
       variant = 'secondary',
-      size = 'giga',
+      size: legacySize = 'm',
       stretch,
       isLoading,
       loadingLabel,
       className,
-      icon: Icon,
+      icon: LeadingIcon,
+      navigationIcon: TrailingIcon,
       as,
       ...props
     },
     ref,
   ) => {
+    const { Link } = useComponents();
+
+    const isLink = Boolean(props.href);
+
+    const Element = as || (isLink ? Link : 'button');
+
+    const size = legacyButtonSizeMap[legacySize] || legacySize;
+
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -123,11 +162,16 @@ export const Button = forwardRef<any, ButtonProps>(
         "The `loadingLabel` prop is missing or invalid. Remove the `isLoading` prop if you don't intend to use the Button's loading state.",
       );
     }
-    const { Link } = useComponents();
 
-    const isLink = Boolean(props.href);
-
-    const Element = as || (isLink ? Link : 'button');
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      legacyButtonSizeMap[legacySize]
+    ) {
+      deprecate(
+        'Button',
+        `The \`${legacySize}\` size has been deprecated. Use the \`${legacyButtonSizeMap[legacySize]}\` size instead.`,
+      );
+    }
 
     return (
       <Element
@@ -151,22 +195,25 @@ export const Button = forwardRef<any, ButtonProps>(
         )}
         ref={ref}
       >
-        <Spinner
-          className={classes.spinner}
-          size="byte"
-          aria-hidden={!isLoading}
-        >
+        <Spinner className={classes.spinner} size="s" aria-hidden={!isLoading}>
           <span className={utilityClasses.hideVisually}>{loadingLabel}</span>
         </Spinner>
         <span className={classes.content}>
-          {Icon && (
-            <Icon
-              className={classes.icon}
-              size={size === 'kilo' ? '16' : '24'}
+          {LeadingIcon && (
+            <LeadingIcon
+              className={classes['leading-icon']}
+              size={size === 's' ? '16' : '24'}
               aria-hidden="true"
             />
           )}
           {children}
+          {TrailingIcon && (
+            <TrailingIcon
+              className={classes['trailing-icon']}
+              size={size === 's' ? '16' : '24'}
+              aria-hidden="true"
+            />
+          )}
         </span>
       </Element>
     );

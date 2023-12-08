@@ -131,11 +131,12 @@ export const Tag = forwardRef<HTMLDivElement & HTMLButtonElement, TagProps>(
           <CloseButton
             type="button"
             variant={selected ? 'primary' : 'secondary'}
-            label={removeButtonLabel}
             className={classes['remove-button']}
-            size="kilo"
+            size="s"
             onClick={onRemove}
-          />
+          >
+            {removeButtonLabel}
+          </CloseButton>
         )}
       </div>
     );
