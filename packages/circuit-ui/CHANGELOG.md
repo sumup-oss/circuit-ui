@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 7.5.2
+
+### Patch Changes
+
+- [#2332](https://github.com/sumup-oss/circuit-ui/pull/2332) [`4cd3c9cb`](https://github.com/sumup-oss/circuit-ui/commit/4cd3c9cb31469ad8f783dc4d82909d65a505d281) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the size of icons inside IconButtons when the available icon size doesn't match the IconButton size.
+
 ## 7.5.1
 
 ### Patch Changes
