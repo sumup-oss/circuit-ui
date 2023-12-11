@@ -1,7 +1,7 @@
 {
   "name": "@sumup/astro-template-circuit-ui",
   "type": "module",
-  "version": "1.1.1",
+  "version": "1.1.2-canary.0",
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^3.0.4",
-    "@sumup/circuit-ui": "^7.5.0",
+    "@sumup/circuit-ui": "^8.0.0-canary.0",
     "@sumup/design-tokens": "^6.1.0",
     "@sumup/icons": "^3.3.0",
     "@sumup/intl": "^1.6.0",
@@ -27,7 +27,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@sumup/eslint-plugin-circuit-ui": "^4.0.0",
+    "@sumup/eslint-plugin-circuit-ui": "^5.0.0-canary.0",
     "@sumup/foundry": "^6.2.0",
     "@sumup/stylelint-plugin-circuit-ui": "^1.0.0",
     "prettier-plugin-astro": "0.10.0"

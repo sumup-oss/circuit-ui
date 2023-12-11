@@ -1,5 +1,23 @@
 # @sumup/circuit-ui
 
+## 8.0.0-canary.0
+
+### Major Changes
+
+- [#2299](https://github.com/sumup-oss/circuit-ui/pull/2299) [`7c92ef0d`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the NotificationInline's action from the Button to the Anchor component. Update the action props if necessary.
+
+- [#2299](https://github.com/sumup-oss/circuit-ui/pull/2299) [`7c92ef0d`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the default size of the CloseButton from 40px to 48px to match the Button component.
+
+- [#2299](https://github.com/sumup-oss/circuit-ui/pull/2299) [`7c92ef0d`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d) Thanks [@connor-baer](https://github.com/connor-baer)! - Improved the accessibility of disabled Buttons. The `disabled` attribute has been replaced with the `aria-disabled` attribute which enables the disabled element to receive focus and be perceived by screenreader users. Interactions with the disabled element are blocked by a dummy click handler.
+
+### Minor Changes
+
+- [#2299](https://github.com/sumup-oss/circuit-ui/pull/2299) [`7c92ef0d`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d) Thanks [@connor-baer](https://github.com/connor-baer)! - Replaced the NotificationBanner's "tertiary" action variant with the "secondary" one and changed the action size to medium. Update the action props if necessary.
+
+- [#2299](https://github.com/sumup-oss/circuit-ui/pull/2299) [`7c92ef0d`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the variant of the previous/next buttons in the Pagination component from "tertiary" to "secondary".
+
+- [#2299](https://github.com/sumup-oss/circuit-ui/pull/2299) [`7c92ef0d`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the look of the Button component. Corners are now rounded instead of pill-shaped, the loading spinner has been replaced with three animated dots, and the tertiary variant now sports an underline to improve accessibility.
+
 ## 7.5.2
 
 ### Patch Changes
