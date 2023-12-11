@@ -11,5 +11,12 @@
     "@sumup/remix-template-circuit-ui": "2.1.1",
     "@sumup/stylelint-plugin-circuit-ui": "1.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "cold-buses-fail",
+    "old-schools-walk",
+    "orange-squids-hammer",
+    "thick-pants-trade",
+    "three-lies-flow",
+    "twelve-queens-lie"
+  ]
 }
