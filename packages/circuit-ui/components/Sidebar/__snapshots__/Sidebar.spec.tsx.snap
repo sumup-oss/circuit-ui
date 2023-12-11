@@ -123,6 +123,7 @@ exports[`Sidebar > should render and match snapshot when open 1`] = `
     >
       <svg
         aria-hidden="true"
+        class="_icon_60a0b0"
         fill="none"
         height="24"
         viewBox="0 0 24 24"
@@ -250,6 +251,7 @@ exports[`Sidebar > should render and match the snapshot when closed 1`] = `
     >
       <svg
         aria-hidden="true"
+        class="_icon_60a0b0"
         fill="none"
         height="24"
         viewBox="0 0 24 24"
