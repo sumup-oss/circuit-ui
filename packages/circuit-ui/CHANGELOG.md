@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.0.0-canary.1
+
+### Patch Changes
+
+- [#2335](https://github.com/sumup-oss/circuit-ui/pull/2335) [`5a5eccd5`](https://github.com/sumup-oss/circuit-ui/commit/5a5eccd5152b36241023ffee693475adb4010419) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the prop types of the Button and IconButton components when used with experimental versions of React.
+
 ## 8.0.0-canary.0
 
 ### Major Changes
