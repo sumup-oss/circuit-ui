@@ -95,24 +95,35 @@ exports[`Sidebar > should render and match snapshot when open 1`] = `
     data-testid="sidebar-backdrop"
   />
   <button
-    class="_base_892426 _focus-visible_73b4bb _m_892426 _secondary_892426 _m_f6dd9a _base_9bf092 circuit-2"
+    aria-disabled="false"
+    class="_base_60a0b0 _secondary_60a0b0 _m_60a0b0 _focus-visible_73b4bb _base_037c7e _m_037c7e _base_9bf092 circuit-2"
     data-testid="sidebar-close-button"
     title="Close sidebar"
     type="button"
   >
     <span
       aria-hidden="true"
-      class="_base_2b3edd _s_2b3edd _spinner_892426"
+      class="_loader_60a0b0"
     >
+      <span
+        class="_dot_60a0b0"
+      />
+      <span
+        class="_dot_60a0b0"
+      />
+      <span
+        class="_dot_60a0b0"
+      />
       <span
         class="_hide-visually_73b4bb"
       />
     </span>
     <span
-      class="_content_892426"
+      class="_content_60a0b0"
     >
       <svg
         aria-hidden="true"
+        class="_icon_60a0b0"
         fill="none"
         height="24"
         viewBox="0 0 24 24"
@@ -125,7 +136,7 @@ exports[`Sidebar > should render and match snapshot when open 1`] = `
         />
       </svg>
       <span
-        class="_hide-visually_73b4bb"
+        class="_label_60a0b0"
       >
         Close sidebar
       </span>
@@ -212,24 +223,35 @@ exports[`Sidebar > should render and match the snapshot when closed 1`] = `
     data-testid="sidebar-backdrop"
   />
   <button
-    class="_base_892426 _focus-visible_73b4bb _m_892426 _secondary_892426 _m_f6dd9a _base_9bf092 circuit-2"
+    aria-disabled="false"
+    class="_base_60a0b0 _secondary_60a0b0 _m_60a0b0 _focus-visible_73b4bb _base_037c7e _m_037c7e _base_9bf092 circuit-2"
     data-testid="sidebar-close-button"
     title="Close sidebar"
     type="button"
   >
     <span
       aria-hidden="true"
-      class="_base_2b3edd _s_2b3edd _spinner_892426"
+      class="_loader_60a0b0"
     >
+      <span
+        class="_dot_60a0b0"
+      />
+      <span
+        class="_dot_60a0b0"
+      />
+      <span
+        class="_dot_60a0b0"
+      />
       <span
         class="_hide-visually_73b4bb"
       />
     </span>
     <span
-      class="_content_892426"
+      class="_content_60a0b0"
     >
       <svg
         aria-hidden="true"
+        class="_icon_60a0b0"
         fill="none"
         height="24"
         viewBox="0 0 24 24"
@@ -242,7 +264,7 @@ exports[`Sidebar > should render and match the snapshot when closed 1`] = `
         />
       </svg>
       <span
-        class="_hide-visually_73b4bb"
+        class="_label_60a0b0"
       >
         Close sidebar
       </span>

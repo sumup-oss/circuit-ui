@@ -13,71 +13,36 @@
  * limitations under the License.
  */
 
-import {
-  forwardRef,
-  ButtonHTMLAttributes,
-  AnchorHTMLAttributes,
-  ReactNode,
-} from 'react';
+import type { ReactNode } from 'react';
 import type { IconComponentType } from '@sumup/icons';
 
-import type { ClickEvent } from '../../types/events.js';
-import type { AsPropType } from '../../types/prop-types.js';
-import { useComponents } from '../ComponentsContext/index.js';
-import Spinner from '../Spinner/index.js';
-import {
-  AccessibilityError,
-  isSufficientlyLabelled,
-} from '../../util/errors.js';
-import utilityClasses from '../../styles/utility.js';
+import { CircuitError } from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';
 import { deprecate } from '../../util/logger.js';
 
 import classes from './Button.module.css';
+import {
+  SharedButtonProps,
+  createButtonComponent,
+  legacyButtonSizeMap,
+} from './shared.js';
 
-export interface BaseProps {
+export type ButtonProps = SharedButtonProps & {
   /**
    * Communicates the action that will be performed when the user interacts
    * with the button. Use one strong, clear imperative verb and follow with a
    * one-word object if needed to clarify.
    */
-  'children': ReactNode;
-  /**
-   * Choose from 3 style variants. Default: 'secondary'.
-   */
-  'variant'?: 'primary' | 'secondary' | 'tertiary';
-  /**
-   * Choose from 2 sizes. Default: 'm'.
-   */
-  'size'?:
-    | 's'
-    | 'm'
-    /**
-     * @deprecated
-     */
-    | 'kilo'
-    /**
-     * @deprecated
-     */
-    | 'giga';
-  /**
-   * Visually and functionally disable the button.
-   */
-  'disabled'?: boolean;
-  /**
-   * Change the color from accent to danger to signal to the user that the action
-   * is irreversible or otherwise dangerous.
-   */
-  'destructive'?: boolean;
+  children: ReactNode;
   /**
    * Stretch the button across the full width of its parent.
    */
-  'stretch'?: boolean;
+  stretch?: boolean;
   /**
    * An icon provides additional context for the button, such as a “search”
    * icon next to the label for a search field submission.
    */
-  'icon'?: IconComponentType;
+  icon?: IconComponentType;
   /**
    * A navigation icon hints that the button will perform an unexpected action,
    * such as opening a dropdown or navigating the user to a new tab, so make
@@ -85,81 +50,27 @@ export interface BaseProps {
    * alternative to leading icons and should not be used to provide additional
    * context for the button.
    */
-  'navigationIcon'?: IconComponentType;
-  /**
-   * The HTML button type
-   */
-  'type'?: 'button' | 'submit' | 'reset' | undefined;
-  /**
-   * Function that's called when the button is clicked.
-   */
-  'onClick'?: (event: ClickEvent) => void;
-  'data-testid'?: string;
-  /**
-   * Visually disables the button and shows a loading spinner.
-   */
-  'isLoading'?: boolean;
-  /**
-   * Visually hidden label to communicate the loading state to visually
-   * impaired users.
-   */
-  'loadingLabel'?: string;
-  /**
-   * Render the Button using any element.
-   */
-  'as'?: AsPropType;
-}
-
-type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
-type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
-
-export type ButtonProps = BaseProps & LinkElProps & ButtonElProps;
-
-export const legacyButtonSizeMap: Record<string, 's' | 'm'> = {
-  kilo: 's',
-  giga: 'm',
+  navigationIcon?: IconComponentType;
 };
 
 /**
  * The Button component enables the user to perform an action or navigate
  * to a different screen.
  */
-export const Button = forwardRef<any, ButtonProps>(
-  (
-    {
-      children,
-      disabled,
-      destructive,
-      variant = 'secondary',
-      size: legacySize = 'm',
-      stretch,
-      isLoading,
-      loadingLabel,
-      className,
-      icon: LeadingIcon,
-      navigationIcon: TrailingIcon,
-      as,
-      ...props
-    },
-    ref,
-  ) => {
-    const { Link } = useComponents();
-
-    const isLink = Boolean(props.href);
-
-    const Element = as || (isLink ? Link : 'button');
-
+export const Button = createButtonComponent<ButtonProps>(
+  'Button',
+  ({ className, size: legacySize = 'm', stretch, ...props }) => {
     const size = legacyButtonSizeMap[legacySize] || legacySize;
 
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
-      isLoading !== undefined &&
-      !isSufficientlyLabelled(loadingLabel)
+      props.icon &&
+      props.navigationIcon
     ) {
-      throw new AccessibilityError(
+      throw new CircuitError(
         'Button',
-        "The `loadingLabel` prop is missing or invalid. Remove the `isLoading` prop if you don't intend to use the Button's loading state.",
+        'The leading and trailing icons cannot be used at the same time. Remove either the `icon` or the `navigationIcon` prop.',
       );
     }
 
@@ -173,51 +84,10 @@ export const Button = forwardRef<any, ButtonProps>(
       );
     }
 
-    return (
-      <Element
-        {...props}
-        {...(loadingLabel &&
-          typeof isLoading === 'boolean' && {
-            'aria-live': 'polite',
-            'aria-busy': isLoading,
-          })}
-        {...(!isLink && {
-          disabled: disabled || isLoading,
-        })}
-        className={clsx(
-          classes.base,
-          utilityClasses.focusVisible,
-          classes[size],
-          classes[variant],
-          destructive && classes.destructive,
-          stretch && classes.stretch,
-          className,
-        )}
-        ref={ref}
-      >
-        <Spinner className={classes.spinner} size="s" aria-hidden={!isLoading}>
-          <span className={utilityClasses.hideVisually}>{loadingLabel}</span>
-        </Spinner>
-        <span className={classes.content}>
-          {LeadingIcon && (
-            <LeadingIcon
-              className={classes['leading-icon']}
-              size={size === 's' ? '16' : '24'}
-              aria-hidden="true"
-            />
-          )}
-          {children}
-          {TrailingIcon && (
-            <TrailingIcon
-              className={classes['trailing-icon']}
-              size={size === 's' ? '16' : '24'}
-              aria-hidden="true"
-            />
-          )}
-        </span>
-      </Element>
-    );
+    return {
+      className: clsx(className, classes[size], stretch && classes.stretch),
+      size,
+      ...props,
+    };
   },
 );
-
-Button.displayName = 'Button';

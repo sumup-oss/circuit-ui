@@ -16,109 +16,88 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe, userEvent } from '../../util/test-utils.js';
+import { render, axe, userEvent, screen } from '../../util/test-utils.js';
 
-import { Button, ButtonProps } from './Button.js';
+import { SharedButtonProps, createButtonComponent } from './shared.js';
+
+const Button = createButtonComponent<SharedButtonProps>(
+  'TestButton',
+  (props) => ({ ...props, children: 'Button', size: 'm' }),
+);
 
 describe('Button', () => {
-  function renderButton(props: ButtonProps) {
-    return render(<Button {...props} />);
-  }
-
-  const baseProps = { children: 'Button' };
-
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
-    const { container } = renderButton({ ...baseProps, className });
+    const { container } = render(<Button className={className} />);
     const button = container.querySelector('button');
     expect(button?.className).toContain(className);
   });
 
   describe('business logic', () => {
     it('should render as a link when passed the href prop', () => {
-      const props = {
-        ...baseProps,
-        'href': '#',
-        'onClick': vi.fn(),
-        'data-testid': 'link-button',
-      };
-      const { getByTestId } = renderButton(props);
-      const buttonEl = getByTestId('link-button');
+      render(<Button href="#" onClick={vi.fn()} />);
+      const buttonEl = screen.getByRole('link');
       expect(buttonEl.tagName).toBe('A');
       expect(buttonEl).toHaveAttribute('href');
     });
 
     it('should render as a custom element when passed the as prop', () => {
-      const CustomLink = ({ children, ...props }: ButtonProps) => (
+      const CustomLink = ({ children, ...props }: SharedButtonProps) => (
         <a {...props} href="https://sumup.com">
           {children}
         </a>
       );
-      const props = { ...baseProps, as: CustomLink };
-      const { getByRole } = renderButton(props);
-      const linkEl = getByRole('link');
+      render(<Button as={CustomLink} />);
+      const linkEl = screen.getByRole('link');
       expect(linkEl).toHaveAttribute('href');
     });
 
     it('should render loading button with loading label', () => {
       const loadingLabel = 'Loading';
-      const props = {
-        ...baseProps,
-        isLoading: true,
-        loadingLabel,
-      };
-
-      const { getByText } = renderButton(props);
-      expect(getByText(loadingLabel)).toBeVisible();
+      render(<Button isLoading loadingLabel={loadingLabel} />);
+      expect(screen.getByText(loadingLabel)).toBeVisible();
     });
 
     it('should call the onClick handler when clicked', async () => {
-      const props = {
-        ...baseProps,
-        'onClick': vi.fn(),
-        'data-testid': 'link-button',
-      };
-      const { getByTestId } = renderButton(props);
+      const onClick = vi.fn();
+      render(<Button onClick={onClick} />);
 
-      await userEvent.click(getByTestId('link-button'));
+      await userEvent.click(screen.getByRole('button'));
 
-      expect(props.onClick).toHaveBeenCalledTimes(1);
+      expect(onClick).toHaveBeenCalledTimes(1);
     });
 
     it('should render as disabled', () => {
-      const props = { ...baseProps, disabled: true };
-      const { getByRole } = renderButton(props);
+      render(<Button disabled />);
 
-      const button = getByRole('button');
+      const button = screen.getByRole('button');
 
-      expect(button).toBeDisabled();
+      expect(button).toHaveAttribute('aria-disabled', 'true');
     });
 
     it('should render as disabled when loading', () => {
-      const props = {
-        ...baseProps,
-        isLoading: true,
-        loadingLabel: 'Loading',
-      };
-      const { getByRole } = renderButton(props);
+      render(<Button isLoading loadingLabel="Loading" />);
 
-      const button = getByRole('button');
+      const button = screen.getByRole('button');
 
-      expect(button).toBeDisabled();
+      expect(button).toHaveAttribute('aria-disabled', 'true');
     });
 
     it('should render as disabled when not loading', () => {
-      const props = {
-        ...baseProps,
-        disabled: true,
-        isLoading: false,
-        loadingLabel: 'Loading',
-      };
-      const { getByRole } = renderButton(props);
+      render(<Button disabled isLoading={false} loadingLabel="Loading" />);
 
-      const button = getByRole('button');
+      const button = screen.getByRole('button');
 
-      expect(button).toBeDisabled();
+      expect(button).toHaveAttribute('aria-disabled', 'true');
+    });
+
+    it('should not call the onClick handler when disabled', async () => {
+      const onClick = vi.fn();
+      render(<Button disabled onClick={onClick} />);
+
+      await userEvent.click(screen.getByRole('button'));
+
+      expect(onClick).not.toHaveBeenCalled();
     });
 
     it('should accept a working ref for a button', () => {
@@ -132,7 +111,7 @@ describe('Button', () => {
 
     it('should forward a ref to the button', () => {
       const ref = createRef<HTMLButtonElement>();
-      const { container } = render(<Button {...baseProps} ref={ref} />);
+      const { container } = render(<Button ref={ref} />);
       const button = container.querySelector('button');
       expect(ref.current).toBe(button);
     });
@@ -140,7 +119,7 @@ describe('Button', () => {
     it('should forward a ref to the link', () => {
       const ref = createRef<HTMLAnchorElement>();
       const { container } = render(
-        <Button {...baseProps} href="http://sumup.com" ref={ref} />,
+        <Button href="http://sumup.com" ref={ref} />,
       );
       const anchor = container.querySelector('a');
       expect(ref.current).toBe(anchor);
@@ -165,22 +144,16 @@ describe('Button', () => {
     });
 
     it('should have aria-busy and aria-live for a loading button', () => {
-      const { getByRole } = renderButton({
-        ...baseProps,
-        isLoading: true,
-        loadingLabel: 'Loading...',
-      });
-      const button = getByRole('button');
+      render(<Button isLoading loadingLabel="Loading" />);
+      const button = screen.getByRole('button');
 
       expect(button).toHaveAttribute('aria-live', 'polite');
       expect(button).toHaveAttribute('aria-busy', 'true');
     });
 
     it('should not have aria-busy and aria-live for a regular button', () => {
-      const { getByRole } = renderButton({
-        ...baseProps,
-      });
-      const button = getByRole('button');
+      render(<Button />);
+      const button = screen.getByRole('button');
 
       expect(button).not.toHaveAttribute('aria-live');
       expect(button).not.toHaveAttribute('aria-busy');
