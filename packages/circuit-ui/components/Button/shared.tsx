@@ -189,8 +189,10 @@ export function createButtonComponent<Props>(
           'aria-live': 'polite',
           'aria-busy': Boolean(isLoading),
         })}
+        {...(isDisabled && {
+          'aria-disabled': true,
+        })}
         onClick={isDisabled ? onDisabledClick : onClick}
-        aria-disabled={isDisabled}
         className={clsx(
           classes.base,
           classes[variant],

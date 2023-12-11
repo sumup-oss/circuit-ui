@@ -19,7 +19,6 @@ exports[`CloseButton > styles > should render and match snapshot when not visibl
 }
 
 <button
-  aria-disabled="false"
   class="_base_60a0b0 _secondary_60a0b0 _m_60a0b0 _focus-visible_73b4bb _base_037c7e _m_037c7e _base_9bf092 circuit-0"
   title="Close"
   type="button"
@@ -88,7 +87,6 @@ exports[`CloseButton > styles > should render and match snapshot when visible 1`
 }
 
 <button
-  aria-disabled="false"
   class="_base_60a0b0 _secondary_60a0b0 _m_60a0b0 _focus-visible_73b4bb _base_037c7e _m_037c7e _base_9bf092 circuit-0"
   title="Close"
   type="button"
