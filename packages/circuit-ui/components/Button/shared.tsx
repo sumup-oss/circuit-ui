@@ -15,9 +15,9 @@
 
 import {
   forwardRef,
-  ButtonHTMLAttributes,
-  AnchorHTMLAttributes,
-  ReactNode,
+  type ButtonHTMLAttributes,
+  type AnchorHTMLAttributes,
+  type ReactNode,
 } from 'react';
 import type { IconComponentType } from '@sumup/icons';
 

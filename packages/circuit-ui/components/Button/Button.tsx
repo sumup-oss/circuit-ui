@@ -13,7 +13,12 @@
  * limitations under the License.
  */
 
-import type { ReactNode } from 'react';
+import type {
+  ForwardRefExoticComponent,
+  PropsWithoutRef,
+  ReactNode,
+  RefAttributes,
+} from 'react';
 import type { IconComponentType } from '@sumup/icons';
 
 import { CircuitError } from '../../util/errors.js';
@@ -57,7 +62,9 @@ export type ButtonProps = SharedButtonProps & {
  * The Button component enables the user to perform an action or navigate
  * to a different screen.
  */
-export const Button = createButtonComponent<ButtonProps>(
+export const Button: ForwardRefExoticComponent<
+  PropsWithoutRef<ButtonProps> & RefAttributes<any>
+> = createButtonComponent<ButtonProps>(
   'Button',
   ({ className, size: legacySize = 'm', stretch, ...props }) => {
     const size = legacyButtonSizeMap[legacySize] || legacySize;
