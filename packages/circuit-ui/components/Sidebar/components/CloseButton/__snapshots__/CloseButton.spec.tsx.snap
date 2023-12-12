@@ -19,33 +19,33 @@ exports[`CloseButton > styles > should render and match snapshot when not visibl
 }
 
 <button
-  class="_base_60a0b0 _secondary_60a0b0 _m_60a0b0 _focus-visible_73b4bb _base_037c7e _m_037c7e _base_9bf092 circuit-0"
+  class="_base_93e8a6 _secondary_93e8a6 _m_93e8a6 _focus-visible_73b4bb _base_037c7e _m_037c7e _base_9bf092 circuit-0"
   title="Close"
   type="button"
 >
   <span
     aria-hidden="true"
-    class="_loader_60a0b0"
+    class="_loader_93e8a6"
   >
     <span
-      class="_dot_60a0b0"
+      class="_dot_93e8a6"
     />
     <span
-      class="_dot_60a0b0"
+      class="_dot_93e8a6"
     />
     <span
-      class="_dot_60a0b0"
+      class="_dot_93e8a6"
     />
     <span
       class="_hide-visually_73b4bb"
     />
   </span>
   <span
-    class="_content_60a0b0"
+    class="_content_93e8a6"
   >
     <svg
       aria-hidden="true"
-      class="_leading-icon_60a0b0"
+      class="_leading-icon_93e8a6"
       fill="none"
       height="24"
       viewBox="0 0 24 24"
@@ -58,7 +58,7 @@ exports[`CloseButton > styles > should render and match snapshot when not visibl
       />
     </svg>
     <span
-      class="_label_60a0b0"
+      class="_label_93e8a6"
     >
       Close
     </span>
@@ -87,33 +87,33 @@ exports[`CloseButton > styles > should render and match snapshot when visible 1`
 }
 
 <button
-  class="_base_60a0b0 _secondary_60a0b0 _m_60a0b0 _focus-visible_73b4bb _base_037c7e _m_037c7e _base_9bf092 circuit-0"
+  class="_base_93e8a6 _secondary_93e8a6 _m_93e8a6 _focus-visible_73b4bb _base_037c7e _m_037c7e _base_9bf092 circuit-0"
   title="Close"
   type="button"
 >
   <span
     aria-hidden="true"
-    class="_loader_60a0b0"
+    class="_loader_93e8a6"
   >
     <span
-      class="_dot_60a0b0"
+      class="_dot_93e8a6"
     />
     <span
-      class="_dot_60a0b0"
+      class="_dot_93e8a6"
     />
     <span
-      class="_dot_60a0b0"
+      class="_dot_93e8a6"
     />
     <span
       class="_hide-visually_73b4bb"
     />
   </span>
   <span
-    class="_content_60a0b0"
+    class="_content_93e8a6"
   >
     <svg
       aria-hidden="true"
-      class="_leading-icon_60a0b0"
+      class="_leading-icon_93e8a6"
       fill="none"
       height="24"
       viewBox="0 0 24 24"
@@ -126,7 +126,7 @@ exports[`CloseButton > styles > should render and match snapshot when visible 1`
       />
     </svg>
     <span
-      class="_label_60a0b0"
+      class="_label_93e8a6"
     >
       Close
     </span>
