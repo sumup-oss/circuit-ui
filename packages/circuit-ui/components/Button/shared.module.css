@@ -32,6 +32,7 @@
   --loader-gap: 3px;
   --loader-transform: scale(150%);
 
+  font-size: var(--cui-typography-body-two-font-size);
   border-radius: 10px;
 }
 
@@ -42,6 +43,7 @@
   --loader-gap: 5px;
   --loader-transform: scale(133%);
 
+  font-size: var(--cui-typography-body-one-font-size);
   border-radius: var(--cui-border-radius-kilo);
 }
 
