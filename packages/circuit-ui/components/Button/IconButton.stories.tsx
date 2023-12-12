@@ -44,6 +44,21 @@ Variants.args = {
   icon: Plus,
 };
 
+export const Sizes = (args: IconButtonProps) => (
+  <Stack>
+    <IconButton {...args} size="s">
+      Small
+    </IconButton>
+    <IconButton {...args} size="m">
+      Medium
+    </IconButton>
+  </Stack>
+);
+
+Sizes.args = {
+  icon: Plus,
+};
+
 export const Loading = (args: IconButtonProps) => {
   const [isLoading, setLoading] = useState(args.isLoading);
 
