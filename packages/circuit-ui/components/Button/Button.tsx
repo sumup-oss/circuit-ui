@@ -30,7 +30,7 @@ import {
   SharedButtonProps,
   createButtonComponent,
   legacyButtonSizeMap,
-} from './shared.js';
+} from './base.js';
 
 export type ButtonProps = SharedButtonProps & {
   /**

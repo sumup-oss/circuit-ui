@@ -18,7 +18,7 @@ import { createRef } from 'react';
 
 import { render, axe, userEvent, screen } from '../../util/test-utils.js';
 
-import { SharedButtonProps, createButtonComponent } from './shared.js';
+import { SharedButtonProps, createButtonComponent } from './base.js';
 
 const Button = createButtonComponent<SharedButtonProps>(
   'TestButton',

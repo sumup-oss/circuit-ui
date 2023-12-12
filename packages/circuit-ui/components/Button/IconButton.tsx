@@ -32,7 +32,7 @@ import {
   createButtonComponent,
   legacyButtonSizeMap,
   type SharedButtonProps,
-} from './shared.js';
+} from './base.js';
 import classes from './IconButton.module.css';
 
 export type IconButtonProps = SharedButtonProps & {
