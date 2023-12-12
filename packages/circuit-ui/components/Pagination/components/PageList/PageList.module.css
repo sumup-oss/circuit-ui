@@ -5,7 +5,6 @@
 }
 
 .base .button {
-  min-width: 34px;
   padding: var(--cui-spacings-bit);
   margin-right: var(--cui-spacings-bit);
 }

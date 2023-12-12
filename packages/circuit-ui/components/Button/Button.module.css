@@ -12,8 +12,3 @@
   padding: calc(var(--cui-spacings-kilo) - var(--cui-border-width-kilo))
     calc(var(--cui-spacings-giga) - var(--cui-border-width-kilo));
 }
-
-.icon {
-  width: var(--icon-size);
-  height: var(--icon-size);
-}

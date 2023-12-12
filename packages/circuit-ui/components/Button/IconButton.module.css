@@ -1,5 +1,5 @@
 /* Visually hide the label */
-.base span:last-child > span:last-child {
+.base > span:last-child > span:last-child {
   /* .hide-visually */
   position: absolute;
   width: 1px;
@@ -14,7 +14,7 @@
 
 /* Sizes */
 .s {
-  padding: calc(var(--cui-spacings-byte) - var(--cui-border-width-kilo));
+  padding: calc(var(--cui-spacings-bit) - var(--cui-border-width-kilo));
 }
 
 .m {

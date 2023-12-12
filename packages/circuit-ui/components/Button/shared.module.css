@@ -32,7 +32,6 @@
   --loader-gap: 3px;
   --loader-transform: scale(150%);
 
-  min-height: 32px;
   font-size: var(--cui-typography-body-two-font-size);
   line-height: var(--cui-typography-body-two-line-height);
   border-radius: 10px;
@@ -316,6 +315,8 @@
   gap: var(--content-gap);
   place-content: center;
   align-items: center;
+  min-width: 24px;
+  min-height: 24px;
   opacity: 1;
   transition: opacity var(--cui-transitions-default);
 }
