@@ -31,6 +31,7 @@
   --loader-gap: 3px;
   --loader-transform: scale(150%);
 
+  min-height: 32px;
   font-size: var(--cui-typography-body-two-font-size);
   line-height: var(--cui-typography-body-two-line-height);
   border-radius: 10px;
