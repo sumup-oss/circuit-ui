@@ -148,7 +148,8 @@ export function createButtonComponent<Props>(
 
     const Element = as || (isLink ? Link : 'button');
 
-    const iconSize = size === 's' ? '16' : '24';
+    const leadingIconSize = size === 's' ? '16' : '24';
+    const trailingIconSize = '16';
 
     const hasLoadingState = typeof isLoading !== 'undefined';
 
@@ -212,21 +213,21 @@ export function createButtonComponent<Props>(
         <span className={classes.content}>
           {LeadingIcon && (
             <LeadingIcon
-              className={classes.icon}
               aria-hidden="true"
-              size={iconSize}
-              width={iconSize}
-              height={iconSize}
+              className={classes['leading-icon']}
+              size={leadingIconSize}
+              width={leadingIconSize}
+              height={leadingIconSize}
             />
           )}
           <span className={classes.label}>{children}</span>
           {TrailingIcon && (
             <TrailingIcon
-              className={classes.icon}
               aria-hidden="true"
-              size={iconSize}
-              width={iconSize}
-              height={iconSize}
+              className={classes['trailing-icon']}
+              size={trailingIconSize}
+              width={trailingIconSize}
+              height={trailingIconSize}
             />
           )}
         </span>

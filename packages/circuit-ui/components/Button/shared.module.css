@@ -27,7 +27,7 @@
 /* Sizes */
 .s {
   --content-gap: var(--cui-spacings-bit);
-  --icon-size: var(--cui-icon-sizes-kilo);
+  --leading-icon-size: var(--cui-icon-sizes-kilo);
   --loader-diameter: 4px;
   --loader-gap: 3px;
   --loader-transform: scale(150%);
@@ -38,7 +38,7 @@
 
 .m {
   --content-gap: var(--cui-spacings-byte);
-  --icon-size: var(--cui-icon-sizes-mega);
+  --leading-icon-size: var(--cui-icon-sizes-mega);
   --loader-diameter: 6px;
   --loader-gap: 5px;
   --loader-transform: scale(133%);
@@ -327,7 +327,12 @@
   opacity: 0;
 }
 
-.icon {
-  width: var(--icon-size);
-  height: var(--icon-size);
+.leading-icon {
+  width: var(--leading-icon-size);
+  height: var(--leading-icon-size);
+}
+
+.trailing-icon {
+  width: var(--cui-icon-sizes-kilo);
+  height: var(--cui-icon-sizes-kilo);
 }
