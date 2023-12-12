@@ -31,7 +31,7 @@ import {
 import utilityClasses from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
 
-import classes from './shared.module.css';
+import classes from './base.module.css';
 
 type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
 type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
