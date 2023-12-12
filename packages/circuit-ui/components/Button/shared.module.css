@@ -200,6 +200,9 @@
 .base[disabled],
 .base[aria-disabled="true"] {
   color: var(--cui-fg-normal-disabled);
+
+  /* TODO: Remove in the next major version */
+  pointer-events: none;
   cursor: not-allowed;
   background-color: var(--cui-bg-highlight-disabled);
   border-color: transparent;

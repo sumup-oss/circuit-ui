@@ -189,6 +189,10 @@ export function createButtonComponent<Props>(
           'aria-live': 'polite',
           'aria-busy': Boolean(isLoading),
         })}
+        // TODO: Remove in the next major version
+        {...(!isLink && {
+          disabled: isDisabled,
+        })}
         {...(isDisabled && {
           'aria-disabled': true,
         })}
