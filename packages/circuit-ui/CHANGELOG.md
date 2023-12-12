@@ -1,5 +1,15 @@
 # @sumup/circuit-ui
 
+## 8.0.0-canary.2
+
+### Patch Changes
+
+- [#2339](https://github.com/sumup-oss/circuit-ui/pull/2339) [`d8e16671`](https://github.com/sumup-oss/circuit-ui/commit/d8e1667138ed51fe54cfe260e0919a0c96abf917) Thanks [@connor-baer](https://github.com/connor-baer)! - Reduced the size of the Button component's navigation icon.
+
+- [#2337](https://github.com/sumup-oss/circuit-ui/pull/2337) [`ef5ed0a4`](https://github.com/sumup-oss/circuit-ui/commit/ef5ed0a4045b90e576acb3efd305a550bac2857f) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the `aria-disabled` attribute from the button components when it isn't needed.
+
+- [#2339](https://github.com/sumup-oss/circuit-ui/pull/2339) [`d8e16671`](https://github.com/sumup-oss/circuit-ui/commit/d8e1667138ed51fe54cfe260e0919a0c96abf917) Thanks [@connor-baer](https://github.com/connor-baer)! - Reduced the font-size of small Buttons.
+
 ## 8.0.0-canary.1
 
 ### Patch Changes
