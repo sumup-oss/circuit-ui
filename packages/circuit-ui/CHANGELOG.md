@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.0.0-canary.3
+
+### Patch Changes
+
+- [#2341](https://github.com/sumup-oss/circuit-ui/pull/2341) [`b44e216f`](https://github.com/sumup-oss/circuit-ui/commit/b44e216fcfc3b7b3f42ba360d720141aee108cd1) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the generated classnames for the button components.
+
 ## 8.0.0-canary.2
 
 ### Patch Changes
