@@ -13,10 +13,16 @@
  * limitations under the License.
  */
 
-import { forwardRef, HTMLAttributes, ButtonHTMLAttributes } from 'react';
+import {
+  forwardRef,
+  type HTMLAttributes,
+  type ButtonHTMLAttributes,
+  type AnchorHTMLAttributes,
+} from 'react';
 import type { IconComponentType } from '@sumup/icons';
 
 import type { ClickEvent } from '../../types/events.js';
+import type { AsPropType } from '../../types/prop-types.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
@@ -24,6 +30,7 @@ import {
 import { clsx } from '../../styles/clsx.js';
 import utilityClasses from '../../styles/utility.js';
 import CloseButton from '../CloseButton/index.js';
+import { useComponents } from '../ComponentsContext/index.js';
 
 import classes from './Tag.module.css';
 
@@ -62,12 +69,17 @@ type RemoveProps =
   | { onRemove?: never; removeButtonLabel?: never };
 
 type DivElProps = Omit<HTMLAttributes<HTMLDivElement>, 'onClick' | 'prefix'>;
+type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
 type ButtonElProps = Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
   'onClick' | 'prefix'
 >;
 
-export type TagProps = BaseProps & RemoveProps & DivElProps & ButtonElProps;
+export type TagProps = BaseProps &
+  RemoveProps &
+  DivElProps &
+  LinkElProps &
+  ButtonElProps;
 
 export const Tag = forwardRef<HTMLDivElement & HTMLButtonElement, TagProps>(
   (
@@ -85,6 +97,8 @@ export const Tag = forwardRef<HTMLDivElement & HTMLButtonElement, TagProps>(
     },
     ref,
   ) => {
+    const { Link } = useComponents();
+
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -96,7 +110,13 @@ export const Tag = forwardRef<HTMLDivElement & HTMLButtonElement, TagProps>(
         'The `removeButtonLabel` prop is missing or invalid. Omit the `onRemove` prop if you intend to disable the tag removing functionality.',
       );
     }
-    const Element = onClick ? 'button' : 'div';
+
+    let Element: AsPropType = 'div';
+    if (props.href) {
+      Element = Link;
+    } else if (onClick) {
+      Element = 'button';
+    }
 
     const isRemovable = onRemove && removeButtonLabel;
 
@@ -115,7 +135,7 @@ export const Tag = forwardRef<HTMLDivElement & HTMLButtonElement, TagProps>(
             classes.content,
             onClick && utilityClasses.focusVisible,
           )}
-          type={onClick && 'button'}
+          {...(onClick && !props.href && { type: 'button' })}
           onClick={onClick}
           ref={ref}
           {...props}

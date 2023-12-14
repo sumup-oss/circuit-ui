@@ -67,10 +67,24 @@ describe('Tag', () => {
   });
 
   describe('when interactive', () => {
+    it('should render an anchor', () => {
+      const onClick = vi.fn();
+      render(
+        <Tag href="/" onClick={onClick}>
+          Link
+        </Tag>,
+      );
+      const linkEl = screen.getByRole('link');
+      expect(linkEl).toBeVisible();
+      expect(linkEl).not.toHaveAttribute('type');
+    });
+
     it('should render a button', () => {
       const onClick = vi.fn();
-      render(<Tag onClick={onClick}>SomeTest</Tag>);
-      expect(screen.getByRole('button')).toBeVisible();
+      render(<Tag onClick={onClick}>Button</Tag>);
+      const buttonEl = screen.getByRole('button');
+      expect(buttonEl).toBeVisible();
+      expect(buttonEl).toHaveAttribute('type', 'button');
     });
 
     it('should call onClick when clicked', async () => {
