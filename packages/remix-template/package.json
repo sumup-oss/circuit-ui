@@ -29,7 +29,7 @@
   "devDependencies": {
     "@remix-run/dev": "^2.2.0",
     "@remix-run/eslint-config": "^2.2.0",
-    "@sumup/eslint-plugin-circuit-ui": "^5.0.0",
+    "@sumup/eslint-plugin-circuit-ui": "^4.0.0",
     "@sumup/foundry": "^6.2.0",
     "@sumup/stylelint-plugin-circuit-ui": "^1.0.0",
     "@types/react": "^18.2.37",

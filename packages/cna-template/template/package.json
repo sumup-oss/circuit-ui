@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@next/bundle-analyzer": "^13.4.0",
-    "@sumup/circuit-ui": "^7.5.0",
+    "@sumup/circuit-ui": "^7.6.0",
     "@sumup/design-tokens": "^6.1.0",
     "@sumup/icons": "^3.0.0",
     "@sumup/intl": "^1.5.0",
