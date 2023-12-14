@@ -45,19 +45,17 @@ export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
     { actions, className, align = 'center', ...props }: ButtonGroupProps,
     ref,
   ) => (
-    <div
-      {...props}
-      className={clsx(styles.base, styles[align], className)}
-      ref={ref}
-    >
-      <Button {...actions.primary} variant="primary" />
-      {actions.secondary && (
-        <Button
-          {...actions.secondary}
-          className={clsx(styles.secondary, actions.secondary.className)}
-          variant="secondary"
-        />
-      )}
+    <div {...props} className={clsx(styles.container, className)} ref={ref}>
+      <div className={clsx(styles.base, styles[align])}>
+        <Button {...actions.primary} variant="primary" />
+        {actions.secondary && (
+          <Button
+            {...actions.secondary}
+            className={clsx(styles.secondary, actions.secondary.className)}
+            variant="tertiary"
+          />
+        )}
+      </div>
     </div>
   ),
 );
