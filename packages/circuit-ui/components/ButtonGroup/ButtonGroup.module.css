@@ -25,13 +25,11 @@
 
 @media (max-width: 479px) {
   .base .secondary {
-    margin-top: var(--cui-spacings-mega);
+    margin-top: var(--cui-spacings-kilo);
   }
 
   /* stylelint-disable-next-line no-duplicate-selectors -- Keep in sync with the .tertiary class in Button.module.css */
   .base .secondary {
-    padding-right: 0;
-    padding-left: 0;
     color: var(--cui-fg-accent);
     background-color: transparent;
     border-color: transparent;
@@ -39,23 +37,20 @@
 
   .base .secondary:hover {
     color: var(--cui-fg-accent-hovered);
-    background-color: transparent;
+    background-color: var(--cui-bg-accent-hovered);
     border-color: transparent;
   }
 
   .base .secondary:active,
-  .base .secondary[aria-expanded='true'],
-  .base .secondary[aria-pressed='true'] {
+  .base .secondary[aria-expanded="true"],
+  .base .secondary[aria-pressed="true"] {
     color: var(--cui-fg-accent-pressed);
-    background-color: transparent;
+    background-color: var(--cui-bg-accent-pressed);
     border-color: transparent;
   }
 
-  .base .secondary:disabled,
-  .base .secondary[disabled] {
-    color: var(--cui-fg-accent-disabled);
-    background-color: transparent;
-    border-color: transparent;
+  .base .secondary:focus-visible {
+    background-color: var(--cui-bg-accent-hovered);
   }
 
   .base .secondary.destructive {
@@ -64,17 +59,61 @@
 
   .base .secondary.destructive:hover {
     color: var(--cui-fg-danger-hovered);
+    background-color: var(--cui-bg-danger-hovered);
   }
 
   .base .secondary.destructive:active,
-  .base .secondary.destructive[aria-expanded='true'],
-  .base .secondary.destructive[aria-pressed='true'] {
+  .base .secondary.destructive[aria-expanded="true"],
+  .base .secondary.destructive[aria-pressed="true"] {
     color: var(--cui-fg-danger-pressed);
+    background-color: var(--cui-bg-danger-pressed);
   }
 
-  .base .secondary.destructive:disabled,
-  .base .secondary.destructive[disabled] {
-    color: var(--cui-fg-danger-disabled);
+  .base .secondary.destructive:focus-visible {
+    background-color: var(--cui-bg-danger-hovered);
+  }
+
+  /* > span:last-child > span:last-child targets the label element */
+  .base .secondary > span:last-child > span:last-child {
+    position: relative;
+  }
+
+  .base .secondary > span:last-child > span:last-child::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    content: "";
+    border-top: var(--cui-border-width-kilo) dashed var(--cui-border-normal);
+    opacity: 1;
+    transition: transform var(--cui-transitions-default),
+      opacity var(--cui-transitions-default);
+  }
+
+  .base .secondary:focus-visible > span:last-child > span:last-child::after {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+
+  .base .secondary:hover > span:last-child > span:last-child::after,
+  .base .secondary:active > span:last-child > span:last-child::after,
+  .base
+    .secondary[aria-expanded="true"]
+    > span:last-child
+    > span:last-child::after,
+  .base
+    .secondary[aria-pressed="true"]
+    > span:last-child
+    > span:last-child::after,
+  .base .secondary[aria-busy="true"] > span:last-child > span:last-child::after,
+  .base .secondary:disabled > span:last-child > span:last-child::after,
+  .base .secondary[disabled] > span:last-child > span:last-child::after,
+  .base
+    .secondary[aria-disabled="true"]
+    > span:last-child
+    > span:last-child::after {
+    opacity: 0;
+    transform: translateY(2px);
   }
 }
 
