@@ -13,16 +13,24 @@
  * limitations under the License.
  */
 
-import { Ref, forwardRef, HTMLAttributes, ButtonHTMLAttributes } from 'react';
+import {
+  forwardRef,
+  type Ref,
+  type HTMLAttributes,
+  type ButtonHTMLAttributes,
+  type AnchorHTMLAttributes,
+} from 'react';
 import { css } from '@emotion/react';
 import { Theme } from '@sumup/design-tokens';
 
-import { ClickEvent } from '../../types/events';
+import type { ClickEvent } from '../../types/events';
+import type { EmotionAsPropType } from '../../types/prop-types';
 import styled, { StyleProps } from '../../styles/styled';
 import { typography, focusVisible } from '../../styles/style-mixins';
 import { useClickEvent, TrackingProps } from '../../hooks/useClickEvent';
 import CloseButton, { CloseButtonProps } from '../CloseButton';
 import { AccessibilityError } from '../../util/errors';
+import { useComponents } from '../ComponentsContext';
 
 type BaseProps = {
   /**
@@ -69,9 +77,14 @@ type RemoveProps =
   | { onRemove?: never; removeButtonLabel?: never };
 
 type DivElProps = Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>;
+type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
 type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
 
-export type TagProps = BaseProps & RemoveProps & DivElProps & ButtonElProps;
+export type TagProps = BaseProps &
+  RemoveProps &
+  DivElProps &
+  LinkElProps &
+  ButtonElProps;
 
 const BORDER_WIDTH = '1px';
 
@@ -101,8 +114,8 @@ const tagRemovableStyles = ({ theme, removable }: StyleProps & TagElProps) =>
     padding-right: calc(${theme.spacings.bit} + ${theme.spacings.tera});
   `;
 
-const tagClickableStyles = ({ onClick }: TagElProps) =>
-  onClick &&
+const tagClickableStyles = ({ onClick, href }: TagElProps) =>
+  (onClick || href) &&
   css`
     cursor: pointer;
     outline: 0;
@@ -201,6 +214,8 @@ export const Tag = forwardRef(
     }: TagProps,
     ref: BaseProps['ref'],
   ) => {
+    const { Link } = useComponents();
+
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -212,7 +227,14 @@ export const Tag = forwardRef(
         'The `removeButtonLabel` prop is missing. Omit the `onRemove` prop if you intend to disable the tag removing functionality.',
       );
     }
-    const as = onClick ? 'button' : 'div';
+
+    let as: EmotionAsPropType = 'div';
+    if (props.href) {
+      as = Link as EmotionAsPropType;
+    } else if (onClick) {
+      as = 'button';
+    }
+
     const handleClick = useClickEvent(onClick, tracking, 'tag');
 
     return (
@@ -221,7 +243,7 @@ export const Tag = forwardRef(
           removable={Boolean(onRemove)}
           selected={selected}
           onClick={handleClick}
-          type={onClick && 'button'}
+          {...(onClick && !props.href && { type: 'button' })}
           as={as}
           ref={ref}
           {...props}
