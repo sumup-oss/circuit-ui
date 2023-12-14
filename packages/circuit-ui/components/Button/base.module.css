@@ -352,7 +352,7 @@
 }
 
 @container cui-button-group (width > 480px) {
-  /* Keep in sync with the .tertiary class above */
+  /* Keep in sync with the .secondary class above */
   .tertiary {
     color: var(--cui-fg-normal);
     background-color: var(--cui-bg-normal);
