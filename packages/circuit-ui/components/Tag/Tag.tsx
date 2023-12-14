@@ -110,8 +110,8 @@ export const Tag = forwardRef<HTMLDivElement & HTMLButtonElement, TagProps>(
         'The `removeButtonLabel` prop is missing or invalid. Omit the `onRemove` prop if you intend to disable the tag removing functionality.',
       );
     }
-    let Element: AsPropType = 'div';
 
+    let Element: AsPropType = 'div';
     if (props.href) {
       Element = Link;
     } else if (onClick) {

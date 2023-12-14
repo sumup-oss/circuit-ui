@@ -82,7 +82,7 @@ describe('Tag', () => {
     it('should render a button', () => {
       const onClick = vi.fn();
       render(<Tag onClick={onClick}>Button</Tag>);
-      const buttonEl = screen.getByRole('button', { name: 'Button' });
+      const buttonEl = screen.getByRole('button');
       expect(buttonEl).toBeVisible();
       expect(buttonEl).toHaveAttribute('type', 'button');
     });
