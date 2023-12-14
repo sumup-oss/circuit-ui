@@ -67,9 +67,19 @@ describe('Tag', () => {
   });
 
   describe('when interactive', () => {
+    it('should render an anchor', () => {
+      const onClick = vi.fn();
+      render(
+        <Tag href="/" onClick={onClick}>
+          Link
+        </Tag>,
+      );
+      expect(screen.getByRole('link')).toBeVisible();
+    });
+
     it('should render a button', () => {
       const onClick = vi.fn();
-      render(<Tag onClick={onClick}>SomeTest</Tag>);
+      render(<Tag onClick={onClick}>Button</Tag>);
       expect(screen.getByRole('button')).toBeVisible();
     });
 
