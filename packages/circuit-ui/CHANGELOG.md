@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 8.0.0-canary.4
+
+### Patch Changes
+
+- [#2347](https://github.com/sumup-oss/circuit-ui/pull/2347) [`a9280095`](https://github.com/sumup-oss/circuit-ui/commit/a9280095894074c94089874e80a5e7f7648ffe32) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the destructive styles of the ButtonGroup's secondary action.
+
+- [#2347](https://github.com/sumup-oss/circuit-ui/pull/2347) [`a9280095`](https://github.com/sumup-oss/circuit-ui/commit/a9280095894074c94089874e80a5e7f7648ffe32) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the tertiary styles of the ButtonGroup's secondary action on narrow viewports.
+
 ## 8.0.0-canary.3
 
 ### Patch Changes
