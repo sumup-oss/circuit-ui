@@ -114,8 +114,8 @@ const tagRemovableStyles = ({ theme, removable }: StyleProps & TagElProps) =>
     padding-right: calc(${theme.spacings.bit} + ${theme.spacings.tera});
   `;
 
-const tagClickableStyles = ({ onClick }: TagElProps) =>
-  onClick &&
+const tagClickableStyles = ({ onClick, href }: TagElProps) =>
+  (onClick || href) &&
   css`
     cursor: pointer;
     outline: 0;
