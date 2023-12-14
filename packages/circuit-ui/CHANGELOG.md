@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 7.6.0
+
+### Minor Changes
+
+- [#2344](https://github.com/sumup-oss/circuit-ui/pull/2344) [`e0fa9ef4`](https://github.com/sumup-oss/circuit-ui/commit/e0fa9ef42ef1e5893e71ada04c2b44fa2fbeaac8) Thanks [@connor-baer](https://github.com/connor-baer)! - Added support for rendering the Tag component as an anchor (`a`) element when passed the `href` prop.
+
 ## 7.5.2
 
 ### Patch Changes
