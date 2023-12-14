@@ -74,13 +74,17 @@ describe('Tag', () => {
           Link
         </Tag>,
       );
-      expect(screen.getByRole('link')).toBeVisible();
+      const linkEl = screen.getByRole('link');
+      expect(linkEl).toBeVisible();
+      expect(linkEl).not.toHaveAttribute('type');
     });
 
     it('should render a button', () => {
       const onClick = vi.fn();
       render(<Tag onClick={onClick}>Button</Tag>);
-      expect(screen.getByRole('button')).toBeVisible();
+      const buttonEl = screen.getByRole('button', { name: 'Button' });
+      expect(buttonEl).toBeVisible();
+      expect(buttonEl).toHaveAttribute('type', 'button');
     });
 
     it('should call onClick when clicked', async () => {

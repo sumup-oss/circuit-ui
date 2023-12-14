@@ -135,7 +135,7 @@ export const Tag = forwardRef<HTMLDivElement & HTMLButtonElement, TagProps>(
             classes.content,
             onClick && utilityClasses.focusVisible,
           )}
-          type={onClick && 'button'}
+          {...(onClick && !props.href && { type: 'button' })}
           onClick={onClick}
           ref={ref}
           {...props}
