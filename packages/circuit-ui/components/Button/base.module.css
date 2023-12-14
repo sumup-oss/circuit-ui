@@ -343,3 +343,55 @@
   width: var(--cui-icon-sizes-kilo);
   height: var(--cui-icon-sizes-kilo);
 }
+
+/* ButtonGroup */
+@container cui-button-group (width < 360px) {
+  .base {
+    width: 100%;
+  }
+}
+
+@container cui-button-group (width > 480px) {
+  /* Keep in sync with the .secondary class above */
+  .tertiary {
+    color: var(--cui-fg-normal);
+    background-color: var(--cui-bg-normal);
+    border-color: var(--cui-border-normal);
+  }
+
+  .tertiary:hover {
+    color: var(--cui-fg-normal-hovered);
+    background-color: var(--cui-bg-normal-hovered);
+    border-color: var(--cui-border-normal-hovered);
+  }
+
+  .tertiary:active,
+  .tertiary[aria-expanded="true"],
+  .tertiary[aria-pressed="true"] {
+    color: var(--cui-fg-normal-pressed);
+    background-color: var(--cui-bg-normal-pressed);
+    border-color: var(--cui-border-normal-pressed);
+  }
+
+  .tertiary.destructive {
+    color: var(--cui-fg-danger);
+  }
+
+  .tertiary.destructive:hover {
+    color: var(--cui-fg-danger-hovered);
+    background-color: var(--cui-bg-danger-hovered);
+    border-color: var(--cui-border-danger-hovered);
+  }
+
+  .tertiary.destructive:active,
+  .tertiary.destructive[aria-expanded="true"],
+  .tertiary.destructive[aria-pressed="true"] {
+    color: var(--cui-fg-danger-pressed);
+    background-color: var(--cui-bg-danger-pressed);
+    border-color: var(--cui-border-danger-pressed);
+  }
+
+  .tertiary .label::after {
+    display: none;
+  }
+}
