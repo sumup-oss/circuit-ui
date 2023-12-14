@@ -1,4 +1,5 @@
-.stretch {
+/* This duplicated class is intentional to increase the selector specificity */
+.stretch.stretch {
   width: 100%;
 }
 
