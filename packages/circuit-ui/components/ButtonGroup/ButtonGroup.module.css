@@ -9,11 +9,11 @@
   align-items: center;
 }
 
-.secondary {
+.base .secondary {
   margin-top: var(--cui-spacings-kilo);
 }
 
-@container cui-button-group (width > 480px) {
+@container cui-button-group (width > 420px) {
   .base {
     flex-direction: row-reverse;
   }
@@ -30,7 +30,7 @@
     justify-content: flex-start;
   }
 
-  .secondary {
+  .base .secondary {
     margin-top: 0;
     margin-right: var(--cui-spacings-mega);
   }
