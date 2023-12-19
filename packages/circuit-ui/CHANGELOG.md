@@ -1,5 +1,15 @@
 # @sumup/circuit-ui
 
+## 8.0.0-canary.5
+
+### Major Changes
+
+- [#2351](https://github.com/sumup-oss/circuit-ui/pull/2351) [`cf297de2`](https://github.com/sumup-oss/circuit-ui/commit/cf297de226b8b89cf40a34f0cbf7864d547b14ef) Thanks [@connor-baer](https://github.com/connor-baer)! - Improved the accessibility of disabled Buttons. The `disabled` attribute has been replaced with the `aria-disabled` attribute which enables the disabled element to receive focus and be perceived by screenreader users. Interactions with the disabled element are blocked by a dummy click handler.
+
+### Patch Changes
+
+- [#2349](https://github.com/sumup-oss/circuit-ui/pull/2349) [`dbceca6c`](https://github.com/sumup-oss/circuit-ui/commit/dbceca6c7b834629dde96b08a56d15a2092ca98d) Thanks [@connor-baer](https://github.com/connor-baer)! - Reduced the container width at which the ButtonGroup component switches to a horizontal layout to improve compatibility with the Modal component.
+
 ## 8.0.0-canary.4
 
 ### Patch Changes
