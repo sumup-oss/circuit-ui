@@ -31,18 +31,13 @@ export const globalTypes = {
   theme: {
     name: 'Theme',
     description: 'Global theme for components',
-    defaultValue: 'legacy',
+    defaultValue: 'light',
     toolbar: {
       title: 'Theme',
       icon: 'paintbrush',
       items: [
         {
-          title: 'Legacy',
-          value: 'legacy',
-          icon: 'paintbrush',
-        },
-        {
-          title: 'Light (WIP)',
+          title: 'Light',
           value: 'light',
           icon: 'circle',
         },

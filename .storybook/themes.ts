@@ -12,17 +12,17 @@ const brand = {
 export const light = create({
   base: 'light',
   ...brand,
-  colorPrimary: theme.colors.p500,
-  colorSecondary: theme.colors.p500,
-  appBg: theme.colors.bodyBg,
+  colorPrimary: '#0f131a',
+  colorSecondary: '#0f131a',
+  appBg: '#ffffff',
 });
 
 export const dark = create({
   base: 'dark',
   ...brand,
-  colorPrimary: theme.colors.p300,
-  colorSecondary: theme.colors.p300,
-  appBg: theme.colors.black,
+  colorPrimary: '#ffffff',
+  colorSecondary: '#ffffff',
+  appBg: '#0f131a',
 });
 
 export function getTheme(prefersDark: boolean) {
