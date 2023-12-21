@@ -159,6 +159,8 @@ export interface Theme {
   zIndex: ZIndex;
 }
 
+export type ColorScheme = 'light' | 'dark';
+
 /**
  * The token definitions below are loosely based on
  * https://github.com/design-tokens/community-group
