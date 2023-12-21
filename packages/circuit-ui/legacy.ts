@@ -44,16 +44,6 @@ export type { ColProps } from './components/Grid/index.js';
 export { default as InlineElements } from './components/InlineElements/index.js';
 export type { InlineElementsProps } from './components/InlineElements/index.js';
 
-// Navigation
-export { default as Header } from './components/Header/index.js';
-export type { HeaderProps } from './components/Header/index.js';
-export { default as Sidebar } from './components/Sidebar/index.js';
-export type { SidebarProps } from './components/Sidebar/index.js';
-export {
-  SidebarContextProvider,
-  SidebarContextConsumer,
-} from './components/Sidebar/index.js';
-
 // Miscellaneous
 export { default as Tooltip } from './components/Tooltip/index.js';
 export type { TooltipProps } from './components/Tooltip/index.js';
