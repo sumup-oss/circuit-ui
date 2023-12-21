@@ -17,7 +17,11 @@ import { describe, it, expect } from 'vitest';
 
 import type { Token } from '../types/index.js';
 
-import { validateTokens, createCSSCustomProperties } from './build.js';
+import {
+  validateTokens,
+  createCSSCustomProperties,
+  createStyles,
+} from './build.js';
 
 describe('build', () => {
   describe('validateTokens', () => {
@@ -56,6 +60,30 @@ describe('build', () => {
     });
   });
 
+  describe('createStyles', () => {
+    const theme = {
+      name: 'test',
+      tokens: [
+        {
+          name: '--cui-bg-normal',
+          description: 'Use as normal background color in any given interface',
+          value: '#00f2b840',
+          type: 'color',
+        },
+      ] as Token[],
+      selector: ':root',
+      colorScheme: 'light',
+    } as const;
+
+    it('should create CSS styles for the theme', () => {
+      const actual = createStyles(theme);
+
+      expect(actual).toMatchInlineSnapshot(
+        '":root { color-scheme: light; /* Use as normal background color in any given interface */ --cui-bg-normal: #00f2b840; }"',
+      );
+    });
+  });
+
   describe('createCSSCustomProperties', () => {
     const tokens = [
       {
@@ -70,7 +98,7 @@ describe('build', () => {
       const actual = createCSSCustomProperties(tokens);
 
       expect(actual).toMatchInlineSnapshot(
-        '":root { /* Use as normal background color in any given interface */ --cui-bg-normal: #00f2b840; }"',
+        '"/* Use as normal background color in any given interface */ --cui-bg-normal: #00f2b840;"',
       );
     });
   });
