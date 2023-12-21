@@ -24,12 +24,12 @@ export const light = [
   },
   {
     name: '--cui-bg-normal-hovered',
-    value: '#f5f5f5',
+    value: '#e3e7eb',
     type: 'color',
   },
   {
     name: '--cui-bg-normal-pressed',
-    value: '#e6e6e6',
+    value: '#e3e7eb',
     type: 'color',
   },
   {
@@ -39,47 +39,47 @@ export const light = [
   },
   {
     name: '--cui-bg-subtle',
-    value: '#f5f5f5',
+    value: '#f6f7f9',
     type: 'color',
   },
   {
     name: '--cui-bg-subtle-hovered',
-    value: '#e6e6e6',
+    value: '#e3e7eb',
     type: 'color',
   },
   {
     name: '--cui-bg-subtle-pressed',
-    value: '#cccccc',
+    value: '#c2c9d1',
     type: 'color',
   },
   {
     name: '--cui-bg-subtle-disabled',
-    value: 'rgba(245, 245, 245, 0.4)',
+    value: 'rgba(227, 231, 235, 0.4)',
     type: 'color',
   },
   {
     name: '--cui-bg-highlight',
-    value: '#e6e6e6',
+    value: '#e3e7eb',
     type: 'color',
   },
   {
     name: '--cui-bg-highlight-hovered',
-    value: '#cccccc',
+    value: '#c2c9d1',
     type: 'color',
   },
   {
     name: '--cui-bg-highlight-pressed',
-    value: '#999999',
+    value: '#9da7b1',
     type: 'color',
   },
   {
     name: '--cui-bg-highlight-disabled',
-    value: 'rgba(230, 230, 230, 0.4)',
+    value: 'rgba(227, 231, 235, 0.4)',
     type: 'color',
   },
   {
     name: '--cui-bg-strong',
-    value: '#000000',
+    value: '#0f131a',
     type: 'color',
   },
   {
@@ -94,48 +94,48 @@ export const light = [
   },
   {
     name: '--cui-bg-strong-disabled',
-    value: 'rgba(0, 0, 0, 0.4)',
+    value: 'rgba(15, 19, 26, 0.4)',
     type: 'color',
   },
   /* Accent backgrounds */
   {
     name: '--cui-bg-accent',
-    value: '#ebf4ff',
+    value: '#eef0f2',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-hovered',
-    value: '#dbe9ff',
+    value: '#e3e7eb',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-pressed',
-    value: '#c7dbff',
+    value: '#e3e7eb',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-disabled',
-    value: 'rgba(235, 244, 255, 0.4)',
+    value: 'rgba(238, 240, 242, 0.4)',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-strong',
-    value: '#3064e3',
+    value: '#0f131a',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-strong-hovered',
-    value: '#1c51d3',
+    value: '#000000',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-strong-pressed',
-    value: '#10399e',
+    value: '#000000',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-strong-disabled',
-    value: 'rgba(48, 100, 227, 0.4)',
+    value: 'rgba(15, 19, 26, 0.4)',
     type: 'color',
   },
   /* Success backgrounds */
@@ -156,7 +156,7 @@ export const light = [
   },
   {
     name: '--cui-bg-success-disabled',
-    value: 'rgba(193, 232, 193, 0.4)',
+    value: 'rgba(233, 251, 233, 0.4)',
     type: 'color',
   },
   {
@@ -176,7 +176,7 @@ export const light = [
   },
   {
     name: '--cui-bg-success-strong-disabled',
-    value: 'rgba(1, 135, 48, 0.4)',
+    value: 'rgba(1, 136, 80, 0.4)',
     type: 'color',
   },
   /* Warning backgrounds */
@@ -197,7 +197,7 @@ export const light = [
   },
   {
     name: '--cui-bg-warning-disabled',
-    value: 'rgba(245, 222, 163, 0.4)',
+    value: 'rgba(253, 244, 219, 0.4)',
     type: 'color',
   },
   {
@@ -238,7 +238,7 @@ export const light = [
   },
   {
     name: '--cui-bg-danger-disabled',
-    value: 'rgba(247, 204, 199, 0.4)',
+    value: 'rgba(251, 233, 231, 0.4)',
     type: 'color',
   },
   {
@@ -279,7 +279,7 @@ export const light = [
   },
   {
     name: '--cui-bg-promo-disabled',
-    value: 'rgba(224, 201, 248, 0.4)',
+    value: 'rgba(245, 237, 254, 0.4)',
     type: 'color',
   },
   {
@@ -299,68 +299,68 @@ export const light = [
   },
   {
     name: '--cui-bg-promo-strong-disabled',
-    value: 'rgba(149, 53, 208, 0.4)',
+    value: 'rgba(158, 51, 224, 0.4)',
     type: 'color',
   },
   /* Neutral foregrounds */
   {
     name: '--cui-fg-normal',
-    value: '#1a1a1a',
+    value: '#0f131a',
     type: 'color',
   },
   {
     name: '--cui-fg-normal-hovered',
-    value: '#1a1a1a',
+    value: '#0f131a',
     type: 'color',
   },
   {
     name: '--cui-fg-normal-pressed',
-    value: '#1a1a1a',
+    value: '#0f131a',
     type: 'color',
   },
   {
     name: '--cui-fg-normal-disabled',
-    value: 'rgba(26, 26, 26, 0.4)',
+    value: 'rgba(15, 19, 26, 0.4)',
     type: 'color',
   },
   {
     name: '--cui-fg-subtle',
-    value: '#666666',
+    value: '#6a737c',
     type: 'color',
   },
   {
     name: '--cui-fg-subtle-hovered',
-    value: '#333333',
+    value: '#33373e',
     type: 'color',
   },
   {
     name: '--cui-fg-subtle-pressed',
-    value: '#1a1a1a',
+    value: '#0f131a',
     type: 'color',
   },
   {
     name: '--cui-fg-subtle-disabled',
-    value: 'rgba(102, 102, 102, 0.4)',
+    value: 'rgba(106, 115, 124, 0.4)',
     type: 'color',
   },
   {
     name: '--cui-fg-placeholder',
-    value: '#999999',
+    value: '#9da7b1',
     type: 'color',
   },
   {
     name: '--cui-fg-placeholder-hovered',
-    value: '#999999',
+    value: '#9da7b1',
     type: 'color',
   },
   {
     name: '--cui-fg-placeholder-pressed',
-    value: '#999999',
+    value: '#9da7b1',
     type: 'color',
   },
   {
     name: '--cui-fg-placeholder-disabled',
-    value: 'rgba(153, 153, 153, 0.4)',
+    value: 'rgba(157, 167, 177, 0.4)',
     type: 'color',
   },
   {
@@ -385,43 +385,43 @@ export const light = [
   },
   {
     name: '--cui-fg-on-strong-subtle',
-    value: 'rgba(255, 255, 255, 0.7)',
+    value: 'rgba(255, 255, 255, 0.7000)',
     type: 'color',
   },
   {
     name: '--cui-fg-on-strong-subtle-hovered',
-    value: 'rgba(255, 255, 255, 0.8)',
+    value: 'rgba(255, 255, 255, 0.8000)',
     type: 'color',
   },
   {
     name: '--cui-fg-on-strong-subtle-pressed',
-    value: 'rgba(255, 255, 255, 0.8)',
+    value: 'rgba(255, 255, 255, 0.9000)',
     type: 'color',
   },
   {
     name: '--cui-fg-on-strong-subtle-disabled',
-    value: 'rgba(255, 255, 255, 0.4)',
+    value: 'rgba(255, 255, 255, 0.3000)',
     type: 'color',
   },
   /* Accent foregrounds */
   {
     name: '--cui-fg-accent',
-    value: '#3064e3',
+    value: '#0f131a',
     type: 'color',
   },
   {
     name: '--cui-fg-accent-hovered',
-    value: '#1c51d3',
+    value: '#000000',
     type: 'color',
   },
   {
     name: '--cui-fg-accent-pressed',
-    value: '#10399e',
+    value: '#000000',
     type: 'color',
   },
   {
     name: '--cui-fg-accent-disabled',
-    value: 'rgba(48, 100, 227, 0.4)',
+    value: 'rgba(15, 19, 26, 0.4)',
     type: 'color',
   },
   /* Success foregrounds */
@@ -442,7 +442,7 @@ export const light = [
   },
   {
     name: '--cui-fg-success-disabled',
-    value: 'rgba(1, 135, 48, 0.4)',
+    value: 'rgba(1, 136, 80, 0.4)',
     type: 'color',
   },
   /* Warning foregrounds */
@@ -463,7 +463,7 @@ export const light = [
   },
   {
     name: '--cui-fg-warning-disabled',
-    value: 'rgba(232, 124, 0, 0.4)',
+    value: 'rgba(226, 121, 0, 0.4)',
     type: 'color',
   },
   /* Danger foregrounds */
@@ -505,43 +505,43 @@ export const light = [
   },
   {
     name: '--cui-fg-promo-disabled',
-    value: 'rgba(149, 53, 208, 0.4)',
+    value: 'rgba(158, 51, 224, 0.4)',
     type: 'color',
   },
   /* Neutral borders */
   {
     name: '--cui-border-normal',
-    value: '#cccccc',
+    value: '#c2c9d1',
     type: 'color',
   },
   {
     name: '--cui-border-normal-hovered',
-    value: '#999999',
+    value: '#9da7b1',
     type: 'color',
   },
   {
     name: '--cui-border-normal-pressed',
-    value: '#666666',
+    value: '#6a737c',
     type: 'color',
   },
   {
     name: '--cui-border-normal-disabled',
-    value: 'rgba(204, 204, 204, 0.4)',
+    value: 'rgba(194, 201, 209, 0.4)',
     type: 'color',
   },
   {
     name: '--cui-border-subtle',
-    value: '#e6e6e6',
+    value: '#d6dbe1',
     type: 'color',
   },
   {
     name: '--cui-border-subtle-hovered',
-    value: '#cccccc',
+    value: '#c2c9d1',
     type: 'color',
   },
   {
     name: '--cui-border-subtle-pressed',
-    value: '#999999',
+    value: '#9da7b1',
     type: 'color',
   },
   {
@@ -551,27 +551,27 @@ export const light = [
   },
   {
     name: '--cui-border-divider',
-    value: '#cccccc',
+    value: '#e3e7eb',
     type: 'color',
   },
   {
     name: '--cui-border-divider-hovered',
-    value: '#999999',
+    value: '#9da7b1',
     type: 'color',
   },
   {
     name: '--cui-border-divider-pressed',
-    value: '#666666',
+    value: '#6a737c',
     type: 'color',
   },
   {
     name: '--cui-border-divider-disabled',
-    value: 'rgba(204, 204, 204, 0.4)',
+    value: 'rgba(194, 201, 209, 0.4)',
     type: 'color',
   },
   {
     name: '--cui-border-strong',
-    value: '#1a1a1a',
+    value: '#0f131a',
     type: 'color',
   },
   {
@@ -586,28 +586,28 @@ export const light = [
   },
   {
     name: '--cui-border-strong-disabled',
-    value: 'rgba(0, 0, 0, 0.4)',
+    value: 'rgba(15, 19, 26, 0.4)',
     type: 'color',
   },
   /* Accent borders */
   {
     name: '--cui-border-accent',
-    value: '#3064e3',
+    value: '#0f131a',
     type: 'color',
   },
   {
     name: '--cui-border-accent-hovered',
-    value: '#1c51d3',
+    value: '#000000',
     type: 'color',
   },
   {
     name: '--cui-border-accent-pressed',
-    value: '#10399e',
+    value: '#000000',
     type: 'color',
   },
   {
     name: '--cui-border-accent-disabled',
-    value: 'rgba(48, 100, 227, 0.4)',
+    value: 'rgba(15, 19, 26, 0.4)',
     type: 'color',
   },
   /* Success borders */
@@ -628,7 +628,7 @@ export const light = [
   },
   {
     name: '--cui-border-success-disabled',
-    value: 'rgba(1, 135, 48, 0.4)',
+    value: 'rgba(1, 136, 80, 0.4)',
     type: 'color',
   },
   /* Warning borders */
@@ -649,7 +649,7 @@ export const light = [
   },
   {
     name: '--cui-border-warning-disabled',
-    value: 'rgba(232, 124, 0, 0.4)',
+    value: 'rgba(226, 121, 0, 0.4)',
     type: 'color',
   },
   /* Danger borders */
@@ -691,7 +691,7 @@ export const light = [
   },
   {
     name: '--cui-border-promo-disabled',
-    value: 'rgba(149, 53, 208, 0.4)',
+    value: 'rgba(158, 51, 224, 0.4)',
     type: 'color',
   },
   /* Special colors */
