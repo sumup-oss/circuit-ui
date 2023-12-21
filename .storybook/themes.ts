@@ -1,12 +1,12 @@
 import { create } from '@storybook/theming';
-import { light as theme } from '@sumup/design-tokens';
 import Link from './components/Link';
 
 const brand = {
   brandTitle: 'Circuit UI',
   brandUrl: 'https://github.com/sumup-oss/circuit-ui',
   brandImage: '/images/logo-name.svg',
-  fontBase: theme.fontStack.default,
+  fontBase:
+    'aktiv-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
 };
 
 export const light = create({
