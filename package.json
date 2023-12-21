@@ -1,6 +1,6 @@
 {
   "name": "circuit-ui-web",
-  "description": "Circuit UI Web, part of SumUp's design system",
+  "description": "The web implementation of Circuit UI, SumUp's design system",
   "private": true,
   "workspaces": [
     "packages/*"
