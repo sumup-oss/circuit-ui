@@ -1,6 +1,6 @@
 {
   "name": "@sumup/eslint-plugin-circuit-ui",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "ESLint rules to lint Circuit UI.",
   "keywords": [
     "sumup",
