@@ -145,10 +145,7 @@ export function ProgressBar({
   }
 
   if (process.env.NODE_ENV !== 'production' && deprecatedVariant) {
-    deprecate(
-      'ProgressBar',
-      `The \`${legacySize}\` size has been deprecated. Use the \`${legacySizeMap[legacySize]}\` size instead.`,
-    );
+    deprecate('ProgressBar', 'The `variant` prop has been deprecated.');
   }
 
   const size = legacySizeMap[legacySize] || legacySize;
