@@ -57,6 +57,13 @@
 - [#2299](https://github.com/sumup-oss/circuit-ui/pull/2299) [`7c92ef0d`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the variant of the previous/next buttons in the Pagination component from "tertiary" to "secondary".
 
 - [#2299](https://github.com/sumup-oss/circuit-ui/pull/2299) [`7c92ef0d`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the look of the Button component. Corners are now rounded instead of pill-shaped, the loading spinner has been replaced with three animated dots, and the tertiary variant now sports an underline to improve accessibility.
+
+## 7.7.1
+
+### Patch Changes
+
+- [`2a9cc199`](https://github.com/sumup-oss/circuit-ui/commit/2a9cc199ea9a8b6c78f7ce8504da391c5ee01ea2) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the ProgressBar's deprecation notice.
+
 ## 7.7.0
 
 ### Minor Changes
