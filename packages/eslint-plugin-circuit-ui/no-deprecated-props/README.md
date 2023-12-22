@@ -16,6 +16,11 @@ Note that the rule can only lint direct uses of a component. Wrapped instances s
 Examples of **incorrect** code for this rule:
 
 ```tsx
+// Since Circuit UI v7.7
+function Component() {
+  return <ProgressBar variant="secondary" />;
+}
+
 // Since Circuit UI v6.4
 function Component() {
   return (
@@ -31,6 +36,11 @@ function Component() {
 Examples of **correct** code for this rule:
 
 ```tsx
+// Since Circuit UI v7.7
+function Component() {
+  return <ProgressBar />;
+}
+
 // Since Circuit UI v6.4
 function Component() {
   return (

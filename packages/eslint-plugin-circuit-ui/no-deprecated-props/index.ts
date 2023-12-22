@@ -56,6 +56,11 @@ const mappings: Config[] = [
     alternative:
       'Use an `onClick` handler to dispatch user interaction events instead.',
   },
+  {
+    components: ['ProgressBar'],
+    props: ['variant'],
+    alternative: '',
+  },
 ];
 
 export const noDeprecatedProps = createRule({
