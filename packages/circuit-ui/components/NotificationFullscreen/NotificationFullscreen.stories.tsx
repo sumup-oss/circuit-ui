@@ -33,7 +33,7 @@ Base.args = {
   headline: "The browser you're using is no longer supported",
   body: 'You need a more up-to-date browser to continue using SumUp.',
   image: {
-    src: '/images/illustration-update-browser.svg',
+    src: '/images/illustration-update.svg',
     alt: '',
   },
   actions: {
