@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 7.7.1
+
+### Patch Changes
+
+- [`2a9cc199`](https://github.com/sumup-oss/circuit-ui/commit/2a9cc199ea9a8b6c78f7ce8504da391c5ee01ea2) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the ProgressBar's deprecation notice.
+
 ## 7.7.0
 
 ### Minor Changes
