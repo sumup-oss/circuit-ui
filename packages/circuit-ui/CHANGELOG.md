@@ -57,6 +57,17 @@
 - [#2299](https://github.com/sumup-oss/circuit-ui/pull/2299) [`7c92ef0d`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the variant of the previous/next buttons in the Pagination component from "tertiary" to "secondary".
 
 - [#2299](https://github.com/sumup-oss/circuit-ui/pull/2299) [`7c92ef0d`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the look of the Button component. Corners are now rounded instead of pill-shaped, the loading spinner has been replaced with three animated dots, and the tertiary variant now sports an underline to improve accessibility.
+## 7.7.0
+
+### Minor Changes
+
+- [#2358](https://github.com/sumup-oss/circuit-ui/pull/2358) [`947340b6`](https://github.com/sumup-oss/circuit-ui/commit/947340b6751e8414445556a2de2c3bf721dd051b) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the ProgressBar's `variant` prop. The ProgressBar will always be black in the future.
+
+## 7.6.0
+
+### Minor Changes
+
+- [#2344](https://github.com/sumup-oss/circuit-ui/pull/2344) [`e0fa9ef4`](https://github.com/sumup-oss/circuit-ui/commit/e0fa9ef42ef1e5893e71ada04c2b44fa2fbeaac8) Thanks [@connor-baer](https://github.com/connor-baer)! - Added support for rendering the Tag component as an anchor (`a`) element when passed the `href` prop.
 
 ## 7.5.2
 

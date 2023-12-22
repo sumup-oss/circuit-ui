@@ -28,6 +28,8 @@ import classes from './ProgressBar.module.css';
 
 interface BaseProps extends HTMLAttributes<HTMLDivElement> {
   /**
+   * @deprecated
+   *
    * Choose from 2 style variants. Default: 'primary'.
    */
   variant?: 'primary' | 'secondary';
@@ -113,7 +115,7 @@ export function ProgressBar({
   max,
   value,
   size: legacySize = 'm',
-  variant = 'primary',
+  variant: deprecatedVariant,
   duration = 3000,
   loop = false,
   paused = false,
@@ -142,7 +144,15 @@ export function ProgressBar({
     );
   }
 
+  if (process.env.NODE_ENV !== 'production' && deprecatedVariant) {
+    deprecate(
+      'ProgressBar',
+      `The \`${legacySize}\` size has been deprecated. Use the \`${legacySizeMap[legacySize]}\` size instead.`,
+    );
+  }
+
   const size = legacySizeMap[legacySize] || legacySize;
+  const variant = deprecatedVariant || 'primary';
 
   return (
     <div className={clsx(classes.wrapper, className)} {...props}>

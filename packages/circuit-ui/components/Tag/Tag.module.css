@@ -35,30 +35,35 @@
 
 /* Interactive */
 
+a.content,
 button.content {
   text-align: left;
   cursor: pointer;
   outline: 0;
 }
 
+a.content:hover,
 button.content:hover {
   color: var(--cui-fg-normal-hovered);
   background-color: var(--cui-bg-normal-hovered);
   border-color: var(--cui-border-normal-hovered);
 }
 
+a.content:active,
 button.content:active {
   color: var(--cui-fg-normal-pressed);
   background-color: var(--cui-bg-normal-pressed);
   border-color: var(--cui-border-normal-pressed);
 }
 
+.selected a.content:hover,
 .selected button.content:hover {
   color: var(--cui-fg-on-strong-hovered);
   background-color: var(--cui-bg-accent-strong-hovered);
   border-color: var(--cui-border-accent-hovered);
 }
 
+.selected a.content:active,
 .selected button.content:active {
   color: var(--cui-fg-on-strong-pressed);
   background-color: var(--cui-bg-accent-strong-pressed);

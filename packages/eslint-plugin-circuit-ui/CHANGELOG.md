@@ -7,6 +7,12 @@
 - Updated dependencies [[`7c92ef0d`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d), [`7c92ef0d`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d), [`7c92ef0d`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d), [`7c92ef0d`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d), [`7c92ef0d`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d), [`7c92ef0d`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d)]:
   - @sumup/circuit-ui@8.0.0-canary.0
 
+## 4.1.0
+
+### Minor Changes
+
+- [#2358](https://github.com/sumup-oss/circuit-ui/pull/2358) [`947340b6`](https://github.com/sumup-oss/circuit-ui/commit/947340b6751e8414445556a2de2c3bf721dd051b) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the ProgressBar's `variant` prop. The ProgressBar will always be black in the future.
+
 ## 4.0.0
 
 ### Minor Changes
