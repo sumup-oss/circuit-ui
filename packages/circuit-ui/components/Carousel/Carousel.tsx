@@ -185,7 +185,6 @@ export function Carousel({
                 aria-hidden
                 key={state.step}
                 size="s"
-                variant="secondary"
                 loop
                 paused={state.paused}
                 duration={Math.round(

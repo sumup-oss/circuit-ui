@@ -87,16 +87,6 @@
   height: var(--cui-spacings-mega);
 }
 
-/* Variants */
-
-.primary::after {
-  background-color: var(--cui-bg-accent-strong);
-}
-
-.secondary::after {
-  background-color: var(--cui-bg-strong);
-}
-
 .label {
   flex-shrink: 0;
   margin-left: var(--cui-spacings-byte);
