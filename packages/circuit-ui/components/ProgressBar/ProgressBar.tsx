@@ -28,12 +28,6 @@ import classes from './ProgressBar.module.css';
 
 interface BaseProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * @deprecated
-   *
-   * Choose from 2 style variants. Default: 'primary'.
-   */
-  variant?: 'primary' | 'secondary';
-  /**
    * Choose from 3 sizes. Default: 'm'.
    */
   size?:
@@ -115,7 +109,6 @@ export function ProgressBar({
   max,
   value,
   size: legacySize = 'm',
-  variant: deprecatedVariant,
   duration = 3000,
   loop = false,
   paused = false,
@@ -144,12 +137,7 @@ export function ProgressBar({
     );
   }
 
-  if (process.env.NODE_ENV !== 'production' && deprecatedVariant) {
-    deprecate('ProgressBar', 'The `variant` prop has been deprecated.');
-  }
-
   const size = legacySizeMap[legacySize] || legacySize;
-  const variant = deprecatedVariant || 'primary';
 
   return (
     <div className={clsx(classes.wrapper, className)} {...props}>
@@ -160,14 +148,14 @@ export function ProgressBar({
           aria-valuemin={0}
           aria-valuemax={max}
           aria-labelledby={ariaId}
-          className={clsx(classes.base, classes[variant], classes[size])}
+          className={clsx(classes.base, classes[size])}
           style={{ '--pagination-width': getWidth(value, max) }}
         />
       ) : (
         <span
           role="progressbar"
           aria-labelledby={ariaId}
-          className={clsx(classes.base, classes[variant], classes[size])}
+          className={clsx(classes.base, classes[size])}
           data-loop={loop}
           style={{
             '--pagination-animation-duration': `${duration}ms`,
