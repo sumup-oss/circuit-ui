@@ -1,5 +1,20 @@
 # @sumup/circuit-ui
 
+## 8.0.0-canary.6
+
+### Major Changes
+
+- [#2353](https://github.com/sumup-oss/circuit-ui/pull/2353) [`f33c2699`](https://github.com/sumup-oss/circuit-ui/commit/f33c2699178e546aa8c023c80e774d4fb569e0dd) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the legacy navigation components: Header, Sidebar, SidebarContextProvider and SidebarContextConsumer. Use the [TopNavigation](https://circuit.sumup.com/?path=/docs/navigation-topnavigation--docs) and [SideNavigation](https://circuit.sumup.com/?path=/docs/navigation-sidenavigation--docs) components instead.
+
+- [#2361](https://github.com/sumup-oss/circuit-ui/pull/2361) [`31b6f034`](https://github.com/sumup-oss/circuit-ui/commit/31b6f03489cb5706685cdc9f0499e36f91affa84) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the deprecated `variant` prop from the ProgressBar component.
+
+- [#2352](https://github.com/sumup-oss/circuit-ui/pull/2352) [`08aa9621`](https://github.com/sumup-oss/circuit-ui/commit/08aa962165307de6ba2ef1ca6e7a833aecf89b9e) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the overflow behaviour of long Button labels. Text that would previously wrap is now truncated to a single line with a trailing ellipsis.
+
+### Patch Changes
+
+- Updated dependencies [[`43f357b0`](https://github.com/sumup-oss/circuit-ui/commit/43f357b02f2dd8c358e0263d401a9e1bb3ddb80d), [`bc5e7531`](https://github.com/sumup-oss/circuit-ui/commit/bc5e7531b42771ee04de3aa3f74aee537c9963e6)]:
+  - @sumup/design-tokens@7.0.0-canary.0
+
 ## 8.0.0-canary.5
 
 ### Major Changes
