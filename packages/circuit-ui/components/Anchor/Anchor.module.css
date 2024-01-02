@@ -5,8 +5,8 @@
   margin-right: 0;
   margin-left: 0;
   color: var(--cui-fg-accent);
+  text-align: left;
   text-decoration: underline;
-  text-decoration-skip-ink: auto;
   background: none;
   border: 0;
   border-radius: var(--cui-border-radius-byte);
@@ -15,6 +15,7 @@
     color var(--cui-transitions-default),
     background-color var(--cui-transitions-default),
     border-color var(--cui-transitions-default);
+  text-decoration-skip-ink: auto;
 }
 
 .base:hover {
