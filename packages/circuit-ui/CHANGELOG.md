@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 7.7.2
+
+### Patch Changes
+
+- [#2367](https://github.com/sumup-oss/circuit-ui/pull/2367) [`4effd4fb`](https://github.com/sumup-oss/circuit-ui/commit/4effd4fbed96aca09cce86f109ed8525bff6fa80) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the alignment of the Anchor component when rendered as a `button` element.
+
 ## 7.7.1
 
 ### Patch Changes
