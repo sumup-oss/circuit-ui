@@ -29,7 +29,7 @@ import classes from './Icons.module.css';
 
 function groupBy(
   icons: IconsManifest['icons'],
-  key: keyof IconsManifest['icons'][0],
+  key: 'name' | 'category' | 'size',
 ) {
   return icons.reduce((groups, icon) => {
     (groups[icon[key]] = groups[icon[key]] || []).push(icon);
@@ -39,7 +39,7 @@ function groupBy(
 
 function sortBy(
   icons: IconsManifest['icons'],
-  key: keyof IconsManifest['icons'][0],
+  key: 'name' | 'category' | 'size',
 ) {
   return icons.sort((iconA, iconB) => {
     return iconA[key].localeCompare(iconB[key]);
@@ -90,10 +90,13 @@ const Icons = () => {
     { label: 'On Strong', value: 'var(--cui-fg-on-strong)' },
   ];
 
-  const activeIcons = iconsManifest.icons.filter(
-    (icon) =>
-      icon.name.includes(search) && (size === 'all' || size === icon.size),
-  );
+  const activeIcons = iconsManifest.icons.filter((icon) => {
+    const matchesKeyword = [icon.name, ...(icon.keywords || [])].some(
+      (keyword) => keyword.includes(search),
+    );
+    const matchesSize = size === 'all' || size === icon.size;
+    return matchesKeyword && matchesSize;
+  }) as IconsManifest['icons'];
 
   return (
     <Unstyled>
