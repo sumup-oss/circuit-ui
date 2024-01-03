@@ -337,16 +337,6 @@
   transform: translateY(2px);
 }
 
-/* Disabled */
-.base:disabled,
-.base[disabled],
-.base[aria-disabled="true"] {
-  color: var(--cui-fg-normal-disabled);
-  cursor: not-allowed;
-  background-color: var(--cui-bg-highlight-disabled);
-  border-color: transparent;
-}
-
 /* ButtonGroup */
 @container cui-button-group (width < 360px) {
   .base {
@@ -397,4 +387,20 @@
   .tertiary .label::after {
     display: none;
   }
+}
+
+/* Disabled */
+.base:disabled,
+.base[disabled],
+.base[aria-disabled="true"] {
+  color: var(--cui-fg-normal-disabled);
+  cursor: not-allowed;
+  background-color: var(--cui-bg-highlight-disabled);
+  border-color: transparent;
+}
+
+.base:disabled .content,
+.base[disabled] .content,
+.base[aria-disabled="true"] .content {
+  transform: translate(0);
 }
