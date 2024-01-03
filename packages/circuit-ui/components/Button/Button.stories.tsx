@@ -29,6 +29,7 @@ export default {
   subcomponents: { IconButton, CloseButton, ButtonGroup },
   argTypes: {
     children: { control: 'text' },
+    disabled: { control: 'boolean' },
   },
 };
 
