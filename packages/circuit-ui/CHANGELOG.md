@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.0.0-canary.7
+
+### Patch Changes
+
+- [#2369](https://github.com/sumup-oss/circuit-ui/pull/2369) [`f356fc13`](https://github.com/sumup-oss/circuit-ui/commit/f356fc135bc3a1a4c7d6afd205a4fd6e695c13b4) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the disabled styles of the secondary action inside a ButtonGroup.
+
 ## 8.0.0-canary.6
 
 ### Major Changes
