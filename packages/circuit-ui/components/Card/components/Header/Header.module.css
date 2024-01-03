@@ -9,7 +9,7 @@
   justify-content: flex-end
 }
 
-.close {
+.base .close {
   margin-top: calc(-1 * var(--cui-spacings-byte));
   margin-right: calc(-1 * var(--cui-spacings-mega));
   margin-bottom: calc(-1 * var(--cui-spacings-byte));

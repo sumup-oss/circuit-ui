@@ -49,6 +49,7 @@ export const Header = ({
         type="button"
         onClick={onBack}
         icon={ArrowLeft}
+        variant="tertiary"
       >
         {backButtonLabel}
       </IconButton>

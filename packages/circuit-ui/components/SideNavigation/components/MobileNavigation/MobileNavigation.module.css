@@ -22,7 +22,7 @@
   left: 0;
   display: block;
   height: var(--cui-spacings-mega);
-  content: '';
+  content: "";
   background: linear-gradient(
     rgb(255 255 255 / 0%),
     rgb(255 255 255 / 66%),
@@ -84,10 +84,6 @@
     rgb(255 255 255 / 100%) 60%,
     rgb(255 255 255 / 0%)
   );
-}
-
-.close {
-  background-color: transparent;
 }
 
 .list {
