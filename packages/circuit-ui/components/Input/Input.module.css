@@ -109,8 +109,8 @@
   padding-right: var(--cui-spacings-exa);
 }
 
-.prefix,
-.suffix {
+.wrapper .prefix,
+.wrapper .suffix {
   position: absolute;
   width: var(--cui-spacings-exa);
   height: var(--cui-spacings-exa);
@@ -119,15 +119,15 @@
   pointer-events: none;
 }
 
-.suffix {
+.wrapper .suffix {
   top: 0;
   right: 0;
   transition: right var(--cui-transitions-default);
 }
 
-button.prefix,
-button.suffix,
-.prefix button,
-.suffix button {
+.wrapper button.prefix,
+.wrapper button.suffix,
+.wrapper .prefix button,
+.wrapper .suffix button {
   pointer-events: auto;
 }
