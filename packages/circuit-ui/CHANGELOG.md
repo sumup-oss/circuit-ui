@@ -73,6 +73,12 @@
 
 - [#2299](https://github.com/sumup-oss/circuit-ui/pull/2299) [`7c92ef0d`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the look of the Button component. Corners are now rounded instead of pill-shaped, the loading spinner has been replaced with three animated dots, and the tertiary variant now sports an underline to improve accessibility.
 
+## 7.7.2
+
+### Patch Changes
+
+- [#2367](https://github.com/sumup-oss/circuit-ui/pull/2367) [`4effd4fb`](https://github.com/sumup-oss/circuit-ui/commit/4effd4fbed96aca09cce86f109ed8525bff6fa80) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the alignment of the Anchor component when rendered as a `button` element.
+
 ## 7.7.1
 
 ### Patch Changes
