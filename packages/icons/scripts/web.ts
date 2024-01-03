@@ -33,6 +33,7 @@ const DIST_DIR = path.join(BASE_DIR, 'dist');
 type Icon = {
   name: string;
   category: string;
+  keywords?: string[];
   size: '16' | '24' | '32';
   deprecation?: string;
 };
@@ -148,6 +149,7 @@ function buildDeclarationFile(components: Component[]): string {
       icons: {
         name: string;
         category: string;
+        keywords?: string[];
         size: '16' | '24' | '32';
         deprecation?: string;
       }[];
