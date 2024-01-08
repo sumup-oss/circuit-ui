@@ -1,6 +1,6 @@
 {
   "name": "@sumup/eslint-plugin-circuit-ui",
-  "version": "5.0.0-canary.1",
+  "version": "5.0.0-canary.2",
   "description": "ESLint rules to lint Circuit UI.",
   "keywords": [
     "sumup",
@@ -36,7 +36,7 @@
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
-    "@sumup/circuit-ui": ">=8.0.0-canary.6",
+    "@sumup/circuit-ui": ">=8.0.0-canary.8",
     "@sumup/design-tokens": ">=7.0.0-canary.0"
   }
 }

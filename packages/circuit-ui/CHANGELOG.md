@@ -1,5 +1,15 @@
 # @sumup/circuit-ui
 
+## 8.0.0-canary.8
+
+### Minor Changes
+
+- [#2372](https://github.com/sumup-oss/circuit-ui/pull/2372) [`8f6dfee`](https://github.com/sumup-oss/circuit-ui/commit/8f6dfeed5558422971986b2fb7e109b87c2e218f) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the ButtonGroup's `actions.[primary|secondary].size` prop. Use the top-level `size` prop instead.
+
+### Patch Changes
+
+- [#2373](https://github.com/sumup-oss/circuit-ui/pull/2373) [`5e66931`](https://github.com/sumup-oss/circuit-ui/commit/5e66931a043aba6cddf8d647661eee2a478be710) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed custom styles on nested Buttons.
+
 ## 8.0.0-canary.7
 
 ### Patch Changes
