@@ -19,7 +19,6 @@
 import { noInvalidCustomProperties, ruleName, messages } from '.';
 
 testRule({
-  // @ts-expect-error Stylelint also accepts plugin objects.
   plugins: [noInvalidCustomProperties],
   ruleName,
   config: true,
