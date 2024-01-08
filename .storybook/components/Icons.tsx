@@ -13,7 +13,12 @@
  * limitations under the License.
  */
 
-import { useState } from 'react';
+import {
+  type Dispatch,
+  type SetStateAction,
+  useState,
+  ChangeEvent,
+} from 'react';
 import { Unstyled } from '@storybook/addon-docs';
 import * as iconComponents from '@sumup/icons';
 import type { IconsManifest } from '@sumup/icons';
@@ -24,6 +29,9 @@ import {
   SearchInput,
   Select,
   Badge,
+  SelectorGroup,
+  clsx,
+  utilClasses,
 } from '../../packages/circuit-ui/index.js';
 import classes from './Icons.module.css';
 
@@ -60,24 +68,20 @@ const Icons = () => {
   const [search, setSearch] = useState('');
   const [size, setSize] = useState('all');
   const [color, setColor] = useState('var(--cui-fg-normal)');
+  const [scale, setScale] = useState('one-x');
 
-  const handleSearch = (event) => {
-    setSearch(event.target.value);
-  };
-
-  const handleSizeChange = (event) => {
-    setSize(event.target.value);
-  };
-
-  const handleColorChange = (event) => {
-    setColor(event.target.value);
-  };
+  const handleChange =
+    (setState: Dispatch<SetStateAction<string>>) =>
+    (event: ChangeEvent<any>) => {
+      setState(event.target.value);
+    };
 
   const sizeOptions = [
     { label: 'All sizes', value: 'all' },
     { label: '16', value: '16' },
     { label: '24', value: '24' },
     { label: '32', value: '32' },
+    { label: '48', value: '48' },
   ];
 
   const colorOptions = [
@@ -90,9 +94,14 @@ const Icons = () => {
     { label: 'On Strong', value: 'var(--cui-fg-on-strong)' },
   ];
 
+  const scaleOptions = [
+    { label: '1x', value: 'one-x' },
+    { label: '2x', value: 'two-x' },
+  ];
+
   const activeIcons = iconsManifest.icons.filter((icon) => {
     const matchesKeyword = [icon.name, ...(icon.keywords || [])].some(
-      (keyword) => keyword.includes(search),
+      (keyword) => keyword.toLowerCase().includes(search.toLowerCase()),
     );
     const matchesSize = size === 'all' || size === icon.size;
     return matchesKeyword && matchesSize;
@@ -100,28 +109,35 @@ const Icons = () => {
 
   return (
     <Unstyled>
-      <div className={classes.filters}>
+      <fieldset className={classes.filters}>
+        <legend className={utilClasses.hideVisually}>Icon filters</legend>
         <SearchInput
-          label="Filter icons by name"
+          label="Search by name or keyword"
           placeholder="Search..."
           value={search}
-          onChange={handleSearch}
+          onChange={handleChange(setSearch)}
           onClear={() => setSearch('')}
           clearLabel="Clear"
         />
         <Select
-          label="Select icon size"
+          label="Size"
           options={sizeOptions}
           value={size}
-          onChange={handleSizeChange}
+          onChange={handleChange(setSize)}
         />
         <Select
-          label="Select icon color"
+          label="Color"
           options={colorOptions}
           value={color}
-          onChange={handleColorChange}
+          onChange={handleChange(setColor)}
         />
-      </div>
+        <SelectorGroup
+          label="Scale"
+          options={scaleOptions}
+          value={scale}
+          onChange={handleChange(setScale)}
+        />
+      </fieldset>
 
       {activeIcons.length <= 0 ? (
         <Body>No icons found</Body>
@@ -140,7 +156,9 @@ const Icons = () => {
                 const Icon = iconComponents[componentName];
                 return (
                   <div key={id} className={classes.wrapper}>
-                    <div className={classes['icon-wrapper']}>
+                    <div
+                      className={clsx(classes['icon-wrapper'], classes[scale])}
+                    >
                       <Icon
                         aria-labelledby={id}
                         size={icon.size}
