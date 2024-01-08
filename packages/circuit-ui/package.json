@@ -46,27 +46,27 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@floating-ui/react-dom": "^2.0.1",
+    "@floating-ui/react-dom": "^2.0.5",
     "react-modal": "^3.16.1",
-    "react-number-format": "^5.2.2"
+    "react-number-format": "^5.3.1"
   },
   "devDependencies": {
     "@emotion/is-prop-valid": "^1.2.1",
     "@emotion/jest": "^11.11.0",
-    "@emotion/react": "^11.11.1",
+    "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@sumup/design-tokens": "^7.0.0-canary.0",
     "@sumup/icons": "^3.0.0",
     "@sumup/intl": "^1.5.0",
     "@testing-library/dom": "^9.3.3",
     "@testing-library/jest-dom": "6.0.0",
-    "@testing-library/react": "^14.0.0",
+    "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^14.5.2",
-    "@types/jest-axe": "^3.5.5",
+    "@types/jest-axe": "^3.5.9",
     "@types/node": "^18.16.19",
-    "@types/react": "^18.2.21",
-    "@types/react-dates": "^21.8.3",
-    "@types/react-dom": "^18.2.7",
+    "@types/react": "^18.2.47",
+    "@types/react-dates": "^21.8.6",
+    "@types/react-dom": "^18.2.18",
     "@types/react-modal": "^3.16.3",
     "jest-axe": "^8.0.0",
     "moment": "^2.29.4",
@@ -75,9 +75,9 @@
     "react-dom": "^18.2.0",
     "react-swipeable": "^7.0.1",
     "typescript": "^5.3.3",
-    "typescript-plugin-css-modules": "^5.0.1",
+    "typescript-plugin-css-modules": "^5.0.2",
     "vite": "^4.4.12",
-    "vite-plugin-no-bundle": "^2.0.2"
+    "vite-plugin-no-bundle": "^3.0.0"
   },
   "peerDependencies": {
     "@emotion/is-prop-valid": "^1.2.1",
@@ -90,7 +90,7 @@
     "react-dom": ">=18.0.0 <19.0.0"
   },
   "optionalDependencies": {
-    "moment": ">=2.29",
+    "moment": ">=2.30",
     "react-dates": ">=21.8"
   },
   "engines": {
