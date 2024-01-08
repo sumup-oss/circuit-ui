@@ -95,7 +95,7 @@ exports[`Sidebar > should render and match snapshot when open 1`] = `
     data-testid="sidebar-backdrop"
   />
   <button
-    class="_base_892426 _focus-visible_73b4bb _m_892426 _secondary_892426 _m_f6dd9a _base_9bf092 circuit-2"
+    class="_base_892426 _focus-visible_73b4bb _m_892426 _secondary_892426 _base_f6dd9a _m_f6dd9a _base_9bf092 circuit-2"
     data-testid="sidebar-close-button"
     title="Close sidebar"
     type="button"
@@ -214,7 +214,7 @@ exports[`Sidebar > should render and match the snapshot when closed 1`] = `
     data-testid="sidebar-backdrop"
   />
   <button
-    class="_base_892426 _focus-visible_73b4bb _m_892426 _secondary_892426 _m_f6dd9a _base_9bf092 circuit-2"
+    class="_base_892426 _focus-visible_73b4bb _m_892426 _secondary_892426 _base_f6dd9a _m_f6dd9a _base_9bf092 circuit-2"
     data-testid="sidebar-close-button"
     title="Close sidebar"
     type="button"

@@ -1,3 +1,7 @@
+.base > span:last-child > span {
+  line-height: 0;
+}
+
 /* Sizes */
 button.s, a.s {
   padding: calc(var(--cui-spacings-byte) - var(--cui-border-width-kilo));
