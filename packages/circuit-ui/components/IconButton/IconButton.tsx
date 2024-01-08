@@ -129,7 +129,7 @@ export const IconButton = forwardRef<any, IconButtonProps>(
     return (
       <Button
         title={labelString}
-        className={clsx(classes[size], className)}
+        className={clsx(classes.base, classes[size], className)}
         size={size}
         {...props}
         ref={ref}
