@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 7.7.3
+
+### Patch Changes
+
+- [#2376](https://github.com/sumup-oss/circuit-ui/pull/2376) [`dadbde1d`](https://github.com/sumup-oss/circuit-ui/commit/dadbde1db5e7283c602dc196cc1b53b502569b4b) Thanks [@connor-baer](https://github.com/connor-baer)! - Improve compatibility of the Button component with Google Translate ([ref](https://github.com/facebook/react/issues/11538#issuecomment-390386520)).
+
 ## 7.7.2
 
 ### Patch Changes
