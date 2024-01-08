@@ -33,7 +33,7 @@
     "@sumup/design-tokens": "^7.0.0-canary.0",
     "@tsconfig/node18": "^18.2.2",
     "@typescript-eslint/rule-tester": "^6.10.0",
-    "typescript": "^5.1.6"
+    "typescript": "^5.3.3"
   },
   "peerDependencies": {
     "@sumup/circuit-ui": ">=8.0.0-canary.6",
