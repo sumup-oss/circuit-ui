@@ -27,8 +27,8 @@
   },
   "devDependencies": {
     "@sumup/design-tokens": "^7.0.0-canary.0",
-    "@tsconfig/node18": "^18.2.1",
-    "jest-preset-stylelint": "^6.2.0",
+    "@tsconfig/node18": "^18.2.2",
+    "jest-preset-stylelint": "^7.0.0",
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
