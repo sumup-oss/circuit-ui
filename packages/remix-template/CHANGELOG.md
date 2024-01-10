@@ -1,27 +1,12 @@
 # @sumup/remix-template-circuit-ui
 
-## 2.1.2
+## 3.0.0
 
 ### Patch Changes
 
 - Updated dependencies [[`7c92ef0`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d), [`f356fc1`](https://github.com/sumup-oss/circuit-ui/commit/f356fc135bc3a1a4c7d6afd205a4fd6e695c13b4), [`5a5eccd`](https://github.com/sumup-oss/circuit-ui/commit/5a5eccd5152b36241023ffee693475adb4010419), [`5e66931`](https://github.com/sumup-oss/circuit-ui/commit/5e66931a043aba6cddf8d647661eee2a478be710), [`7c92ef0`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d), [`cf297de`](https://github.com/sumup-oss/circuit-ui/commit/cf297de226b8b89cf40a34f0cbf7864d547b14ef), [`8f6dfee`](https://github.com/sumup-oss/circuit-ui/commit/8f6dfeed5558422971986b2fb7e109b87c2e218f), [`d8e1667`](https://github.com/sumup-oss/circuit-ui/commit/d8e1667138ed51fe54cfe260e0919a0c96abf917), [`ef5ed0a`](https://github.com/sumup-oss/circuit-ui/commit/ef5ed0a4045b90e576acb3efd305a550bac2857f), [`a928009`](https://github.com/sumup-oss/circuit-ui/commit/a9280095894074c94089874e80a5e7f7648ffe32), [`f33c269`](https://github.com/sumup-oss/circuit-ui/commit/f33c2699178e546aa8c023c80e774d4fb569e0dd), [`31b6f03`](https://github.com/sumup-oss/circuit-ui/commit/31b6f03489cb5706685cdc9f0499e36f91affa84), [`43f357b`](https://github.com/sumup-oss/circuit-ui/commit/43f357b02f2dd8c358e0263d401a9e1bb3ddb80d), [`dbceca6`](https://github.com/sumup-oss/circuit-ui/commit/dbceca6c7b834629dde96b08a56d15a2092ca98d), [`7c92ef0`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d), [`a928009`](https://github.com/sumup-oss/circuit-ui/commit/a9280095894074c94089874e80a5e7f7648ffe32), [`b44e216`](https://github.com/sumup-oss/circuit-ui/commit/b44e216fcfc3b7b3f42ba360d720141aee108cd1), [`7c92ef0`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d), [`bc5e753`](https://github.com/sumup-oss/circuit-ui/commit/bc5e7531b42771ee04de3aa3f74aee537c9963e6), [`7c92ef0`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d), [`08aa962`](https://github.com/sumup-oss/circuit-ui/commit/08aa962165307de6ba2ef1ca6e7a833aecf89b9e), [`d8e1667`](https://github.com/sumup-oss/circuit-ui/commit/d8e1667138ed51fe54cfe260e0919a0c96abf917)]:
   - @sumup/circuit-ui@8.0.0
   - @sumup/design-tokens@7.0.0
-
-## 2.1.2-canary.1
-
-### Patch Changes
-
-- Updated dependencies [[`f33c2699`](https://github.com/sumup-oss/circuit-ui/commit/f33c2699178e546aa8c023c80e774d4fb569e0dd), [`31b6f034`](https://github.com/sumup-oss/circuit-ui/commit/31b6f03489cb5706685cdc9f0499e36f91affa84), [`43f357b0`](https://github.com/sumup-oss/circuit-ui/commit/43f357b02f2dd8c358e0263d401a9e1bb3ddb80d), [`bc5e7531`](https://github.com/sumup-oss/circuit-ui/commit/bc5e7531b42771ee04de3aa3f74aee537c9963e6), [`08aa9621`](https://github.com/sumup-oss/circuit-ui/commit/08aa962165307de6ba2ef1ca6e7a833aecf89b9e)]:
-  - @sumup/circuit-ui@8.0.0-canary.6
-  - @sumup/design-tokens@7.0.0-canary.0
-
-## 2.1.2-canary.0
-
-### Patch Changes
-
-- Updated dependencies [[`7c92ef0d`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d), [`7c92ef0d`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d), [`7c92ef0d`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d), [`7c92ef0d`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d), [`7c92ef0d`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d), [`7c92ef0d`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d)]:
-  - @sumup/circuit-ui@8.0.0-canary.0
 
 ## 2.1.1
 

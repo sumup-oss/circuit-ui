@@ -13,19 +13,6 @@
 
 - [#2356](https://github.com/sumup-oss/circuit-ui/pull/2356) [`bc5e753`](https://github.com/sumup-oss/circuit-ui/commit/bc5e7531b42771ee04de3aa3f74aee537c9963e6) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the color scheme from blue to black & white.
 
-## 7.0.0-canary.0
-
-### Major Changes
-
-- [#2355](https://github.com/sumup-oss/circuit-ui/pull/2355) [`43f357b0`](https://github.com/sumup-oss/circuit-ui/commit/43f357b02f2dd8c358e0263d401a9e1bb3ddb80d) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed all colors from the legacy JavaScript theme object and theme prop type. Use the semantic color tokens instead:
-
-  ```diff
-  -color: ${theme.colors.p500};
-  +color: var(--cui-fg-accent);
-  ```
-
-- [#2356](https://github.com/sumup-oss/circuit-ui/pull/2356) [`bc5e7531`](https://github.com/sumup-oss/circuit-ui/commit/bc5e7531b42771ee04de3aa3f74aee537c9963e6) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the color scheme from blue to black & white.
-
 ## 6.2.0
 
 ### Minor Changes
