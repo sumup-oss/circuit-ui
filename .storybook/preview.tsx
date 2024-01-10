@@ -9,7 +9,7 @@ import { DocsContainer } from './components';
 export const parameters = {
   layout: 'centered',
   versions: {
-    current: 'v7',
+    current: 'v8',
     previous: [
       { name: 'v7', url: 'https://circuit-v7.sumup-vercel.app' },
       { name: 'v6', url: 'https://circuit-v6.sumup-vercel.app' },
