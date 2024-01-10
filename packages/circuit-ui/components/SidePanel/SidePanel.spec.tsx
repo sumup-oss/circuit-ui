@@ -31,7 +31,6 @@ describe('SidePanel', () => {
     isStacked: false,
     onBack: undefined,
     onClose: () => {},
-    top: '0px',
     // Silences the warning about the missing app element.
     // In user land, the side panel is always rendered by the SidePanelProvider,
     // which takes care of setting the app element.

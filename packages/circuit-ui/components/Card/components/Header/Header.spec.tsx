@@ -23,8 +23,6 @@ describe('CardHeader', () => {
   const children = <h2>This is a content.</h2>;
 
   it('should render a close button when an onClose prop is passed', () => {
-    const closeButtonLabel = 'Close';
-
     const { getByRole } = render(
       <CardHeader closeButtonLabel="Close" onClose={vi.fn()}>
         {children}
@@ -33,7 +31,6 @@ describe('CardHeader', () => {
     const closeButton = getByRole('button');
 
     expect(closeButton).toBeVisible();
-    expect(closeButton).toHaveTextContent(closeButtonLabel);
   });
 
   it('should call the onClose prop when the close button is clicked', async () => {

@@ -26,10 +26,9 @@
   }
 }
 
-.button {
+.base .button {
   flex: none;
   margin: var(--cui-spacings-bit);
-  border-color: transparent !important;
 }
 
 .headline {

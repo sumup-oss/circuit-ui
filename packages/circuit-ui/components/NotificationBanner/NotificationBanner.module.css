@@ -56,6 +56,10 @@
   }
 }
 
+.button {
+  margin-top: var(--cui-spacings-byte);
+}
+
 .base .image {
   width: var(--notification-image-width);
   min-width: 0;
@@ -63,27 +67,6 @@
   border-radius: 0 var(--cui-border-radius-mega) var(--cui-border-radius-mega) 0;
   object-fit: contain;
   object-position: var(--notification-image-align);
-}
-
-.base .button {
-  padding-top: calc(var(--cui-spacings-bit) - var(--cui-border-width-kilo));
-  padding-bottom: calc(var(--cui-spacings-bit) - var(--cui-border-width-kilo));
-}
-
-@media (min-width: 768px) {
-  .base .button.s {
-    padding-top: calc(var(--cui-spacings-bit) - var(--cui-border-width-kilo));
-    padding-bottom: calc(
-      var(--cui-spacings-bit) - var(--cui-border-width-kilo)
-    );
-  }
-
-  .base .button.m {
-    padding-top: calc(var(--cui-spacings-kilo) - var(--cui-border-width-kilo));
-    padding-bottom: calc(
-      var(--cui-spacings-kilo) - var(--cui-border-width-kilo)
-    );
-  }
 }
 
 .base .close {

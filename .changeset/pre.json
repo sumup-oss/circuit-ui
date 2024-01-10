@@ -1,0 +1,36 @@
+{
+  "mode": "pre",
+  "tag": "canary",
+  "initialVersions": {
+    "@sumup/astro-template-circuit-ui": "1.1.1",
+    "@sumup/circuit-ui": "7.5.2",
+    "@sumup/cna-template": "5.1.0",
+    "@sumup/design-tokens": "6.2.0",
+    "@sumup/eslint-plugin-circuit-ui": "4.0.0",
+    "@sumup/icons": "3.3.0",
+    "@sumup/remix-template-circuit-ui": "2.1.1",
+    "@sumup/stylelint-plugin-circuit-ui": "1.0.0"
+  },
+  "changesets": [
+    "cold-buses-fail",
+    "dull-pets-hope",
+    "large-suns-provide",
+    "old-schools-walk",
+    "orange-squids-hammer",
+    "plenty-dolls-begin",
+    "purple-islands-explain",
+    "rude-eggs-explain",
+    "slimy-poets-fetch",
+    "stupid-crabs-switch",
+    "sweet-lions-eat",
+    "tame-camels-argue",
+    "thick-pants-trade",
+    "thirty-bikes-happen",
+    "three-eggs-happen",
+    "three-lies-flow",
+    "tough-carrots-flow",
+    "twelve-queens-lie",
+    "wild-chicken-call",
+    "young-needles-exist"
+  ]
+}

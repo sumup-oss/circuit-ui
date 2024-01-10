@@ -22,7 +22,6 @@ export default {
   component: ProgressBar,
 };
 
-const variants = ['primary', 'secondary'] as const;
 const sizes = ['s', 'm', 'l'] as const;
 
 const progressBarStyles = {
@@ -68,22 +67,6 @@ export const Labelled = (args: ProgressBarProps) => {
 };
 
 Labelled.args = {
-  value: 3,
-  max: 10,
-};
-
-export const Variants = (args: ProgressBarProps) =>
-  variants.map((variant) => (
-    <ProgressBar
-      key={variant}
-      {...args}
-      variant={variant}
-      label={`A ${variant} progressbar`}
-      style={progressBarStyles}
-    />
-  ));
-
-Variants.args = {
   value: 3,
   max: 10,
 };

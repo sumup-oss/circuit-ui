@@ -64,21 +64,8 @@
   padding-left: var(--cui-spacings-mega);
 }
 
-.base .button {
+.base .action {
   margin-top: var(--cui-spacings-byte);
-  font-weight: bold;
-  color: var(--cui-fg-normal);
-  text-decoration-line: underline;
-}
-
-.base .button:hover {
-  color: var(--cui-fg-normal-hovered);
-}
-
-.base .button:active,
-.base .button[aria-expanded="true"],
-.base .button[aria-pressed="true"] {
-  color: var(--cui-fg-normal-pressed);
 }
 
 .base .close {

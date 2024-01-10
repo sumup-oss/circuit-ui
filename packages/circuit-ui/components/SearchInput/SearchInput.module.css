@@ -6,7 +6,6 @@
 }
 
 .base + .clear-button {
-  padding: var(--cui-spacings-mega);
   border: none;
   border-radius: var(--cui-border-radius-byte);
 }

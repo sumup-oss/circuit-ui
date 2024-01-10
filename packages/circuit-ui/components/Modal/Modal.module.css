@@ -10,7 +10,7 @@
   bottom: 0;
   left: 0;
   display: block;
-  content: '';
+  content: "";
   background: linear-gradient(
     rgb(255 255 255 / 0%),
     rgb(255 255 255 / 66%),
@@ -166,7 +166,7 @@
   }
 }
 
-.close {
+.base .close {
   position: absolute;
   top: var(--cui-spacings-byte);
   right: var(--cui-spacings-byte);

@@ -31,7 +31,7 @@ describe('NotificationFullscreen', () => {
   const baseProps = {
     headline: "The browser you're using is no longer supported",
     image: {
-      src: '/images/illustration-update-browser.svg',
+      src: '/images/illustration-update.svg',
       alt: '',
     },
     actions: {
@@ -88,7 +88,7 @@ describe('NotificationFullscreen', () => {
       const { getByRole } = renderNotificationFullscreen({
         ...baseProps,
         image: {
-          src: '/images/illustration-update-browser.svg',
+          src: '/images/illustration-update.svg',
           alt: altText,
         },
       });

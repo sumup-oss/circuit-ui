@@ -1,11 +1,19 @@
+.container {
+  container: cui-button-group / inline-size;
+  width: 100%;
+}
+
 .base {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
 }
 
-@media (min-width: 480px) {
+.base .secondary {
+  margin-top: var(--cui-spacings-kilo);
+}
+
+@container cui-button-group (width > 420px) {
   .base {
     flex-direction: row-reverse;
   }
@@ -21,65 +29,9 @@
   .right {
     justify-content: flex-start;
   }
-}
 
-@media (max-width: 479px) {
   .base .secondary {
-    margin-top: var(--cui-spacings-mega);
-  }
-
-  /* stylelint-disable-next-line no-duplicate-selectors -- Keep in sync with the .tertiary class in Button.module.css */
-  .base .secondary {
-    padding-right: 0;
-    padding-left: 0;
-    color: var(--cui-fg-accent);
-    background-color: transparent;
-    border-color: transparent;
-  }
-
-  .base .secondary:hover {
-    color: var(--cui-fg-accent-hovered);
-    background-color: transparent;
-    border-color: transparent;
-  }
-
-  .base .secondary:active,
-  .base .secondary[aria-expanded='true'],
-  .base .secondary[aria-pressed='true'] {
-    color: var(--cui-fg-accent-pressed);
-    background-color: transparent;
-    border-color: transparent;
-  }
-
-  .base .secondary:disabled,
-  .base .secondary[disabled] {
-    color: var(--cui-fg-accent-disabled);
-    background-color: transparent;
-    border-color: transparent;
-  }
-
-  .base .secondary.destructive {
-    color: var(--cui-fg-danger);
-  }
-
-  .base .secondary.destructive:hover {
-    color: var(--cui-fg-danger-hovered);
-  }
-
-  .base .secondary.destructive:active,
-  .base .secondary.destructive[aria-expanded='true'],
-  .base .secondary.destructive[aria-pressed='true'] {
-    color: var(--cui-fg-danger-pressed);
-  }
-
-  .base .secondary.destructive:disabled,
-  .base .secondary.destructive[disabled] {
-    color: var(--cui-fg-danger-disabled);
-  }
-}
-
-@media (min-width: 480px) {
-  .base .secondary {
+    margin-top: 0;
     margin-right: var(--cui-spacings-mega);
   }
 }

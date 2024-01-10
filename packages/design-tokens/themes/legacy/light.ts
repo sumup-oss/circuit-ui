@@ -13,113 +13,207 @@
  * limitations under the License.
  */
 
-import { Colors } from '../../types/index.js';
+import {
+  Spacings,
+  IconSizes,
+  BorderRadius,
+  BorderWidth,
+  FontStack,
+  FontWeight,
+  Grid,
+  Breakpoints,
+  MediaQueries,
+  ZIndex,
+} from '../../types/index.js';
 
-export const type = 'light';
-
-const white = '#FFF';
-const black = '#000';
-
-// NOTE: The neutral color names & values don't match up with what's in Figma.
-// Fixing this would be a big breaking change, so we're leaving it as is.
-const neutrals = {
-  n100: '#F5F5F5',
-  n200: '#E6E6E6',
-  n300: '#CCC',
-  n500: '#999',
-  n700: '#666',
-  n800: '#333',
-  n900: '#1A1A1A',
+export const spacings: Spacings = {
+  bit: '4px',
+  byte: '8px',
+  kilo: '12px',
+  mega: '16px',
+  giga: '24px',
+  tera: '32px',
+  peta: '40px',
+  exa: '48px',
+  zetta: '56px',
 };
 
-const blues = {
-  b100: '#F0F6FF',
-  b200: '#DAEAFF',
-  b300: '#AFD0FE',
-  b400: '#7FB5FF',
-  b500: '#3063E9',
-  b700: '#234BC3',
-  b900: '#1A368E',
+export const iconSizes: IconSizes = {
+  kilo: '16px',
+  mega: '24px',
+  giga: '32px',
+  tera: '48px',
 };
 
-const greens = {
-  g100: '#E4EABB',
-  g200: '#D4DB8F',
-  g300: '#BED630',
-  g500: '#8CC13F',
-  g700: '#138849',
-  g900: '#356560',
+export const borderRadius: BorderRadius = {
+  bit: '4px',
+  byte: '8px',
+  kilo: '12px',
+  mega: '16px',
+  circle: '100%',
+  pill: '999999px', // HACK: By providing a very large absolute size, the browser picks the maximum size in one dimension.
 };
 
-const violets = {
-  v100: '#E9CFF2',
-  v200: '#D7A9DC',
-  v300: '#C781C9',
-  v500: '#CA58FF',
-  v700: '#8928A2',
-  v900: '#5F1D6B',
+export const borderWidth: BorderWidth = {
+  kilo: '1px',
+  mega: '2px',
 };
 
-const oranges = {
-  o100: '#EFD0BB',
-  o200: '#F7B97C',
-  o300: '#ED7000',
-  o500: '#CE6C0B',
-  o700: '#8E4503',
-  o900: '#66391B',
+export const typography = {
+  headline: {
+    one: {
+      fontSize: '2rem',
+      lineHeight: '2.25rem',
+    },
+    two: {
+      fontSize: '1.5rem',
+      lineHeight: '1.75rem',
+    },
+    three: {
+      fontSize: '1.25rem',
+      lineHeight: '1.5rem',
+    },
+    four: {
+      fontSize: '1.125rem',
+      lineHeight: '1.5rem',
+    },
+  },
+  title: {
+    one: {
+      fontSize: '7.5rem',
+      lineHeight: '7.5rem',
+    },
+    two: {
+      fontSize: '6rem',
+      lineHeight: '6rem',
+    },
+    three: {
+      fontSize: '4rem',
+      lineHeight: '4rem',
+    },
+    four: {
+      fontSize: '3.5rem',
+      lineHeight: '3.5rem',
+    },
+  },
+  subHeadline: {
+    fontSize: '0.875rem',
+    lineHeight: '1.25rem',
+  },
+  body: {
+    one: {
+      fontSize: '1rem',
+      lineHeight: '1.5rem',
+    },
+    two: {
+      fontSize: '0.875rem',
+      lineHeight: '1.25rem',
+    },
+  },
+  bodyLarge: {
+    fontSize: '1.25rem',
+    lineHeight: '1.75rem',
+  },
 };
 
-const yellows = {
-  y100: '#F2E9C7',
-  y200: '#EDDD8E',
-  y300: '#F6CC1B',
-  y500: '#D8A413',
-  y700: '#AD7A14',
-  y900: '#725514',
+export const fontStack: FontStack = {
+  default:
+    'aktiv-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+  mono: 'Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace',
 };
 
-const reds = {
-  r100: '#F4CBCB',
-  r200: '#EDA2A2',
-  r300: '#EA7A7A',
-  r500: '#D23F47',
-  r700: '#B22426',
-  r900: '#941618',
+export const fontWeight: FontWeight = {
+  regular: '400',
+  bold: '700',
 };
 
-const primary = {
-  p100: blues.b100,
-  p200: blues.b200,
-  p300: blues.b300,
-  p400: blues.b400,
-  p500: blues.b500,
-  p700: blues.b700,
-  p900: blues.b900,
+export const grid: Grid = {
+  default: {
+    priority: 0,
+    breakpoint: 'default',
+    cols: 12,
+    maxWidth: '880px',
+    gutter: spacings.mega,
+  },
+  untilKilo: {
+    priority: 1,
+    breakpoint: 'untilKilo',
+    cols: 12,
+    maxWidth: '400px',
+    gutter: spacings.byte,
+  },
+  kilo: {
+    priority: 2,
+    breakpoint: 'kilo',
+    cols: 12,
+    maxWidth: '600px',
+    gutter: spacings.mega,
+  },
+  mega: {
+    priority: 3,
+    breakpoint: 'mega',
+    cols: 12,
+    maxWidth: '760px',
+    gutter: spacings.giga,
+  },
+  giga: {
+    priority: 4,
+    breakpoint: 'giga',
+    cols: 12,
+    maxWidth: '880px',
+    gutter: spacings.giga,
+  },
+  tera: {
+    priority: 5,
+    breakpoint: 'tera',
+    cols: 12,
+    maxWidth: '1200px',
+    gutter: spacings.giga,
+  },
 };
 
-const misc = {
-  shadow: 'rgba(12, 15, 20, 0.07)',
-  overlay: 'rgba(0, 0, 0, 0.4)',
-  bodyBg: white,
-  bodyColor: neutrals.n900,
-  info: '#3063E9',
-  confirm: '#018730',
-  alert: '#DE331D',
-  notify: '#F5A720',
+export const breakpoints: Breakpoints = {
+  untilKilo: '(max-width: 479px)',
+  kilo: '(min-width: 480px)',
+  kiloToMega: '(min-width: 480px) and (max-width: 767px)',
+  mega: '(min-width: 768px)',
+  untilMega: '(max-width: 767px)',
+  megaToGiga: '(min-width: 768px) and (max-width: 959px)',
+  giga: '(min-width: 960px)',
+  untilGiga: '(max-width: 959px)',
+  gigaToTera: '(min-width: 960px) and (max-width: 1279px)',
+  tera: '(min-width: 1280px)',
+  untilTera: '(max-width: 1279px)',
 };
 
-export const colors: Colors = {
-  white,
-  black,
-  ...neutrals,
-  ...blues,
-  ...greens,
-  ...yellows,
-  ...reds,
-  ...oranges,
-  ...violets,
-  ...primary,
-  ...misc,
+export const mq: MediaQueries = {
+  untilKilo: '@media (max-width: 479px)',
+  kilo: '@media (min-width: 480px)',
+  kiloToMega: '@media (min-width: 480px) and (max-width: 767px)',
+  mega: '@media (min-width: 768px)',
+  untilMega: '@media (max-width: 767px)',
+  megaToGiga: '@media (min-width: 768px) and (max-width: 959px)',
+  giga: '@media (min-width: 960px)',
+  untilGiga: '@media (max-width: 959px)',
+  gigaToTera: '@media (min-width: 960px) and (max-width: 1279px)',
+  tera: '@media (min-width: 1280px)',
+  untilTera: '@media (max-width: 1279px)',
 };
 
-export * from './shared.js';
+export const transitions = {
+  default: '120ms ease-in-out',
+  slow: '300ms ease-in-out',
+};
+
+export const zIndex: ZIndex = {
+  default: 0,
+  absolute: 1,
+  input: 20,
+  popover: 30,
+  tooltip: 40,
+  header: 600,
+  backdrop: 700,
+  navigation: 800,
+  modal: 1000,
+  toast: 1100,
+};

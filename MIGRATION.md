@@ -1,6 +1,13 @@
 # Migration <!-- omit in toc -->
 
 - [🤖 Automated migration](#-automated-migration)
+- [From v7.x to v8](#from-v7x-to-v8)
+  - [Redesigned buttons](#redesigned-buttons)
+    - [Custom styles](#custom-styles)
+    - [Disabled state](#disabled-state)
+  - [Black & white theme](#black--white-theme)
+  - [Removed components and props](#removed-components-and-props)
+  - [Other changes](#other-changes)
 - [From v6.x to v7](#from-v6x-to-v7)
   - [Prerequisites](#prerequisites)
   - [ES Modules](#es-modules)
@@ -11,12 +18,12 @@
     - [Utility classes](#utility-classes)
   - [Component lifecycle](#component-lifecycle)
   - [Removed @sumup/collector](#removed-sumupcollector)
-  - [Other changes](#other-changes)
+  - [Other changes](#other-changes-1)
   - [Known issues](#known-issues)
 - [From v6.x to v6.3](#from-v6x-to-v63)
   - [New semantic color tokens](#new-semantic-color-tokens)
   - [Visual component changes](#visual-component-changes)
-  - [Other changes](#other-changes-1)
+  - [Other changes](#other-changes-2)
 - [From v5.x to v6](#from-v5x-to-v6)
   - [No default component margins](#no-default-component-margins)
   - [Form component consistency](#form-component-consistency)
@@ -27,7 +34,7 @@
     - [The `label` prop only accepts a string](#the-label-prop-only-accepts-a-string)
     - [Improved `validationHint` for the `Checkbox` component](#improved-validationhint-for-the-checkbox-component)
     - [Minor fixes](#minor-fixes)
-  - [Other changes](#other-changes-2)
+  - [Other changes](#other-changes-3)
 - [🤖 Codemods](#-codemods-jscodeshift)
 - [From v4.x to v5](#from-v4x-to-v5)
   - [Explicit browser support](#explicit-browser-support)
@@ -39,7 +46,7 @@
   - [Runtime errors for missing `noMargin` props](#runtime-errors-for-missing-nomargin-props)
   - [The `ListItemGroup` replaces the `CardList`](#the-listitemgroup-replaces-the-cardlist)
   - [Combined `LoadingButton` and `Button`](#combined-loadingbutton-and-button)
-  - [Other changes](#other-changes-3)
+  - [Other changes](#other-changes-4)
 - [From v3.x to v4](#from-v3x-to-v4)
   - [Emotion 11](#emotion-11)
     - [New package names](#new-package-names)
@@ -65,7 +72,7 @@
     - [Modal](#modal)
     - [Popover](#popover)
   - [Component heights](#component-heights)
-  - [Other changes](#other-changes-4)
+  - [Other changes](#other-changes-5)
   - [Cleaning up](#cleaning-up)
 - [From v1.x to v2](#from-v1x-to-v2)
   - [Library format](#library-format)
@@ -86,6 +93,128 @@ Some of the changes in this guide can be automated using [`@sumup/eslint-plugin-
 We encourage you to enable and apply the rules incrementally and review the changes before continuing. The rules don't cover all edge cases, so further manual changes might be necessary. For example, the ESLint rules only analyze one file at a time, so if a Circuit UI component is wrapped in a styled component in one file and used in another, ESLint won't be able to update its props.
 
 Prior to v5, codemods were implemented using [jscodeshift](#-codemods-jscodeshift).
+
+## From v7.x to v8
+
+Circuit UI v8 introduces a redesigned Button component and switches the brand color from blue to black.
+
+To get started, upgrade `@sumup/circuit-ui` and its peer dependencies:
+
+```sh
+npm upgrade @sumup/circuit-ui @sumup/design-tokens @sumup/icons
+```
+
+Upgrade any linter plugins your app is using:
+
+```sh
+# ESLint
+npm upgrade @sumup/eslint-plugin-circuit-ui
+# Stylelint
+npm upgrade @sumup/stylelint-plugin-circuit-ui
+```
+
+### Redesigned buttons
+
+The Button component has been redesigned from the ground up. Corners are now rounded instead of pill-shaped, the tertiary variant now sports an underline to improve accessibility, and the loading spinner has been replaced with three animated dots. Long button labels that would previously wrap are now truncated to a single line with a trailing ellipsis.
+
+The ButtonGroup component now uses a [container query](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries) (instead of a media query) to switch to a horizontal layout. This makes it possible to use it in narrow spaces such as the SidePanel component.
+
+#### Custom styles
+
+Check whether any custom styles applied to a Button clash with the new design. Here are some common patterns we've observed and how to migrate them:
+
+- **Tertiary Button with (horizontal) padding removed**: A tertiary button should only be used next to a primary or secondary one and never alone. Use an Anchor with `variant="highlight"` or a secondary Button instead.
+
+#### Disabled state
+
+To improve accessibility, the Button's `disabled` attribute has been replaced with the `aria-disabled` attribute which enables the disabled element to receive focus and be perceived by screenreader users. Interactions with the disabled element are blocked by a dummy click handler. This is an internal markup change; developers should continue to use the `disabled` prop.
+
+This change might break tests that use `@testing-library/jest-dom`'s [`toBeDisabled`](https://github.com/testing-library/jest-dom#tobedisabled), [`toBeEnabled`](https://github.com/testing-library/jest-dom#tobeenabled) and [`toHaveAttribute`](https://github.com/testing-library/jest-dom#tohaveattribute) matchers. Replace `toHaveAttribute('disabled')` with `toBeDisabled()` and `not.toHaveAttribute('disabled')` with `toBeEnabled()`, then extend the matchers to account for the `aria-disabled` attribute:
+
+<details>
+<summary>Custom Jest matcher</summary>
+
+```js
+// jest.setup.js
+import { toBeDisabled, toBeEnabled } from '@testing-library/jest-dom/matchers';
+
+function isAriaDisabled(element) {
+  return (
+    element.hasAttribute('aria-disabled') &&
+    element.getAttribute('aria-disabled') === 'true'
+  );
+}
+
+expect.extend({
+  toBeDisabled(element) {
+    const isDisabled =
+      toBeDisabled.bind(this)(element).pass || isAriaDisabled(element);
+    return {
+      pass: isDisabled,
+      message: () => {
+        const is = isDisabled ? 'is' : 'is not';
+        return [
+          this.utils.matcherHint(
+            `${this.isNot ? '.not' : ''}.toBeDisabled`,
+            'element',
+            '',
+          ),
+          '',
+          `Received element ${is} disabled:`,
+          `  ${this.utils.printReceived(element.cloneNode(false))}`,
+        ].join('\n');
+      },
+    };
+  },
+  toBeEnabled(element) {
+    const isEnabled =
+      toBeEnabled.bind(this)(element).pass || !isAriaDisabled(element);
+
+    return {
+      pass: isEnabled,
+      message: () => {
+        const is = isEnabled ? 'is' : 'is not';
+        return [
+          this.utils.matcherHint(
+            `${this.isNot ? '.not' : ''}.toBeEnabled`,
+            'element',
+            '',
+          ),
+          '',
+          `Received element ${is} enabled:`,
+          `  ${this.utils.printReceived(element.cloneNode(false))}`,
+        ].join('\n');
+      },
+    };
+  },
+});
+```
+
+</details>
+
+### Black & white theme
+
+SumUp is changing its brand colors from blue to black & white. The color tokens exported by `@sumup/design-tokens` have been updated accordingly.
+
+The color tokens have been removed from the legacy JavaScript theme object and theme prop type. Use the semantic color tokens instead:
+
+```diff
+-color: ${theme.colors.p500};
++color: var(--cui-fg-accent);
+```
+
+### Removed components and props
+
+- Removed the legacy navigation components: Header, Sidebar, SidebarContextProvider and SidebarContextConsumer. Use the [TopNavigation](https://circuit.sumup.com/?path=/docs/navigation-topnavigation--docs) and [SideNavigation](https://circuit.sumup.com/?path=/docs/navigation-sidenavigation--docs) components instead (🤖 _no-deprecated-components_)
+- Removed the deprecated `variant` prop from the ProgressBar component (🤖 _no-deprecated-props_)
+
+### Other changes
+
+- Deprecated the ButtonGroup's `actions.[primary|secondary].size` prop. Use the top-level `size` prop instead.
+- Replaced the NotificationBanner's "tertiary" action variant with the "secondary" one and changed the action size to medium. Update the action props if necessary.
+- Changed the NotificationInline's action from the Button to the Anchor component. Update the action props if necessary.
+- Changed the variant of the previous/next buttons in the Pagination component from "tertiary" to "secondary".
+- Changed the default size of the CloseButton from 40px to 48px to match the Button component.
 
 ## From v6.x to v7
 
@@ -260,8 +389,8 @@ function Component() {
 
 ### Other changes
 
-- ~~Removed the public export of the RadioButton component. Use the RadioButtonGroup component instead~~ Reverted in v7.1 and postponed until v8 (🤖 [`no-deprecated-components`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-deprecated-components))
-- ~~Removed the public export of the Selector component. Use the SelectorGroup component instead~~ Reverted in v7.1 and postponed until v8 (🤖 [`no-deprecated-components`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-deprecated-components))
+- ~~Removed the public export of the RadioButton component. Use the RadioButtonGroup component instead~~ Reverted in v7.1 and postponed until v9 (🤖 [`no-deprecated-components`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-deprecated-components))
+- ~~Removed the public export of the Selector component. Use the SelectorGroup component instead~~ Reverted in v7.1 and postponed until v9 (🤖 [`no-deprecated-components`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-deprecated-components))
 - Removed the deprecated `children` property from the SelectorGroup's `options` prop. Use the `label` and `description` properties instead.
 - Removed the deprecated `children` prop from the Checkbox component. Use the `label` prop instead.
 - Removed the deprecated `explanation` prop from the Toggle component. Use the `description` prop instead (🤖 [`no-renamed-props`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-renamed-props))

@@ -27,7 +27,7 @@ import {
 import { useAnimation } from '../../hooks/useAnimation/index.js';
 import Body from '../Body/index.js';
 import CloseButton from '../CloseButton/index.js';
-import Button, { ButtonProps } from '../Button/index.js';
+import Anchor, { AnchorProps } from '../Anchor/index.js';
 import { ClickEvent } from '../../types/events.js';
 import { isString } from '../../util/type-check.js';
 import {
@@ -43,7 +43,7 @@ import classes from './NotificationInline.module.css';
 const TRANSITION_DURATION = 200;
 const DEFAULT_HEIGHT = 'auto';
 
-type Action = ButtonProps;
+type Action = AnchorProps;
 
 type CloseProps =
   | {
@@ -170,11 +170,10 @@ export const NotificationInline = forwardRef<
             )}
             <Body>{body}</Body>
             {action && (
-              <Button
+              <Anchor
                 {...action}
-                className={classes.button}
-                variant="tertiary"
-                size="s"
+                className={clsx(action.className, classes.action)}
+                variant="highlight"
               />
             )}
           </div>

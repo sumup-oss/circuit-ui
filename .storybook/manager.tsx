@@ -14,16 +14,17 @@ addons.setConfig({
  * Automatically switch light/dark theme based on system preferences
  */
 addons.register('auto-theme-switcher', (api) => {
+  const setTheme = (prefersDark: boolean) => {
+    api.setOptions({ theme: getTheme(prefersDark) });
+    document.documentElement.dataset.theme = prefersDark ? 'dark' : 'light';
+  };
+
   const query = window?.matchMedia('(prefers-color-scheme: dark)');
 
-  const theme = getTheme(query.matches);
-
-  api.setOptions({ theme });
+  setTheme(query.matches);
 
   query.addEventListener('change', (event) => {
-    const updatedTheme = getTheme(event.matches);
-
-    api.setOptions({ theme: updatedTheme });
+    setTheme(event.matches);
   });
 });
 
