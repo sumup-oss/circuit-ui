@@ -1,6 +1,6 @@
 {
   "name": "@sumup/stylelint-plugin-circuit-ui",
-  "version": "2.0.0-canary.0",
+  "version": "2.0.0",
   "description": "Stylelint rules to lint Circuit UI.",
   "keywords": [
     "sumup",
@@ -26,13 +26,13 @@
     "build": "tsc"
   },
   "devDependencies": {
-    "@sumup/design-tokens": "^7.0.0-canary.0",
+    "@sumup/design-tokens": "^7.0.0",
     "@tsconfig/node18": "^18.2.2",
     "jest-preset-stylelint": "^7.0.0",
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
-    "@sumup/design-tokens": ">=7.0.0-canary.0",
+    "@sumup/design-tokens": ">=7.0.0",
     "stylelint": "^15.10.2"
   }
 }
