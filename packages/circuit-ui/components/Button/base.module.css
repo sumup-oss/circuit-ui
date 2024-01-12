@@ -125,8 +125,7 @@
 
 /* Content */
 .content {
-  display: grid;
-  grid-auto-flow: column;
+  display: flex;
   gap: var(--content-gap);
   place-content: center;
   align-items: center;
