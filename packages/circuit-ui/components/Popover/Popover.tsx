@@ -102,7 +102,7 @@ export const PopoverItem = ({
       )}
       {...props}
     >
-      {Icon && <Icon className={classes.icon} size="24" />}
+      {Icon && <Icon className={classes.icon} size="24" aria-hidden="true" />}
       {children}
     </Element>
   );
