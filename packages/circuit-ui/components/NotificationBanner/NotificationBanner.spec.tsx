@@ -36,7 +36,7 @@ describe('NotificationBanner', () => {
       variant: 'primary',
     },
     image: {
-      src: '/images/software_update.png',
+      src: '/images/illustration-update.svg',
       alt: 'Update',
       width: '100',
     },

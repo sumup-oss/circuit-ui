@@ -42,7 +42,6 @@ describe('SearchInput', () => {
       />,
     );
     expect(getByRole('button')).toBeVisible();
-    expect(getByRole('button')).toHaveTextContent(clearLabel);
   });
 
   it('should forward a ref', () => {

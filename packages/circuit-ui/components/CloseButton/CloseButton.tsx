@@ -17,7 +17,7 @@ import { forwardRef } from 'react';
 import { Close } from '@sumup/icons';
 
 import { clsx } from '../../styles/clsx.js';
-import { IconButton, IconButtonProps } from '../IconButton/IconButton.js';
+import { IconButton, IconButtonProps } from '../Button/IconButton.js';
 
 import classes from './CloseButton.module.css';
 

@@ -25,11 +25,9 @@ The theme used throughout Circuit UI comes from SumUp's design token library, [`
 
 </Intro>
 
-Circuit UI is moving from the JavaScript theme for Emotion.js to [CSS custom properties](https://www.w3.org/TR/css-variables-1/) (aka CSS variables) to improve performance and compatibility with other frameworks. We recommend installing the [`@sumup/eslint-plugin-circuit-ui`](Packages/eslint-plugin-circuit-ui/Docs) ESLint plugin, and turning on the `prefer-custom-properties` and `no-invalid-custom-properties` rules to help with the migration.
+Circuit UI's [ESLint plugin](Packages/eslint-plugin-circuit-ui/Docs)  includes rules (`no-invalid-custom-properties` and `prefer-custom-properties`) to ensure proper usage of the design tokens.
 
 ## Colors
-
-Colors have moved from color scales (e.g. `g900`) to semantic color tokens (e.g. `fg-success`). This makes theme customizations easier and more reliable, and enables theming for sub-brands or for supporting multiple color modes. For details and usage guidelines, refer to the [Figma documentation](https://www.figma.com/file/OgPQeoNZ2QoY7hZvy0ybk2/%F0%9F%8C%88-COLOR-TOKENS?node-id=913%3A3903&t=b9BsTOJnzKDomZ9E-4) (_internal link_). Uses of legacy colors (e.g. `color: ${theme.colors.g900};`) should be replaced with semantic color tokens (e.g. `color: var(--cui-fg-success)`).
 
 ### Background colors
 

@@ -72,20 +72,30 @@ export class AccessibilityError extends CircuitError {
 }
 
 /**
- * Validates that either a valid label or label id (`aria-labelledby`) exists.
+ * Validates that a valid [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) (label, `aria-label` or `aria-labelledby`) exists.
  *
- * Labels shouldn't contain structured markup since it is ignored by screen
- * readers. We allow this only as an escape hatch to use at your own risk.
+ * The [accessible name](https://w3c.github.io/accname/#dfn-accessible-name)
+ * shouldn't contain structured markup since it is ignored by screen readers.
+ * We allow this only as an escape hatch to use at your own risk.
  */
 export function isSufficientlyLabelled(
   label?: string,
-  labelId?: string,
+  attributes?: {
+    'aria-label'?: string;
+    'aria-labelledby'?: string;
+    'aria-hidden'?: string | boolean;
+  },
 ): boolean {
+  if (
+    attributes?.['aria-hidden'] === true ||
+    attributes?.['aria-hidden'] === 'true'
+  ) {
+    return true;
+  }
   if (label) {
     return isString(label) ? Boolean(label.trim()) : true;
   }
-  if (labelId) {
-    return isString(labelId) ? Boolean(labelId.trim()) : true;
-  }
-  return false;
+  const attribute =
+    attributes?.['aria-label'] || attributes?.['aria-labelledby'];
+  return isString(attribute) ? Boolean(attribute.trim()) : false;
 }

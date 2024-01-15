@@ -27,25 +27,32 @@ import {
 
 export const css: UserConfig['css'] = {
   modules: {
-    generateScopedName(name, file) {
-      const parts = ['cui'];
+    generateScopedName(className, file) {
+      const prefix = 'cui';
+      const parts = [prefix];
 
       const filePath = file.split('?')[0];
       const fileName = path.basename(filePath, '.module.css');
+      const folderName = last(path.dirname(filePath).split(path.sep));
       const isComponent = filePath.includes('/components');
 
       if (isComponent) {
-        const componentName = fileName.toLowerCase();
+        // ./components/Button/Button.module.css -> button
+        // ./components/Button/base.module.css -> button
+        const componentName =
+          fileName !== 'base'
+            ? fileName.toLowerCase()
+            : folderName.toLowerCase();
         parts.push(componentName);
       }
 
-      if (name !== 'base') {
-        parts.push(name);
+      if (className !== 'base') {
+        parts.push(className);
       }
 
       const hash = crypto
         .createHash('md5')
-        .update(`${filePath}${name}`)
+        .update(`${filePath}${className}`)
         .digest('base64url')
         // Remove non-word characters and underscores
         .replace(/[\W_]/g, '')
@@ -59,6 +66,10 @@ export const css: UserConfig['css'] = {
     },
   },
 };
+
+function last<T>(collection: T[]): T {
+  return collection[collection.length - 1];
+}
 
 export default defineConfig({
   css,

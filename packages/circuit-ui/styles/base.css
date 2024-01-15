@@ -4,18 +4,24 @@
 @font-face {
   font-family: aktiv-grotesk;
   font-weight: 400;
-  src: url('https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-400.woff2') format('woff2'),
-    url('https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-400.woff') format('woff'),
-    url('https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-400.eot') format('embedded-opentype');
+  src: url("https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-400.woff2")
+      format("woff2"),
+    url("https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-400.woff")
+      format("woff"),
+    url("https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-400.eot")
+      format("embedded-opentype");
   font-display: optional;
 }
 
 @font-face {
   font-family: aktiv-grotesk;
   font-weight: 700;
-  src: url('https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.woff2') format('woff2'),
-    url('https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.woff') format('woff'),
-    url('https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.eot') format('embedded-opentype');
+  src: url("https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.woff2")
+      format("woff2"),
+    url("https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.woff")
+      format("woff"),
+    url("https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.eot")
+      format("embedded-opentype");
   font-display: optional;
 }
 
@@ -142,7 +148,7 @@ blockquote::before,
 blockquote::after,
 q::before,
 q::after {
-  content: '';
+  content: "";
   content: none;
 }
 
@@ -168,10 +174,10 @@ table {
 html {
   box-sizing: border-box;
   overflow-x: hidden;
+}
 
-  [type='button'] {
-    appearance: none;
-  }
+[type="button"] {
+  appearance: none;
 }
 
 body {
@@ -194,7 +200,7 @@ textarea,
 button {
   font-family: var(--cui-font-stack-default);
   font-weight: var(--cui-font-weight-regular);
-  font-feature-settings: 'kern';
+  font-feature-settings: "kern";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;

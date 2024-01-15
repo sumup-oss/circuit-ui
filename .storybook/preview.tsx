@@ -9,8 +9,9 @@ import { DocsContainer } from './components';
 export const parameters = {
   layout: 'centered',
   versions: {
-    current: 'v7',
+    current: 'v8',
     previous: [
+      { name: 'v7', url: 'https://circuit-v7.sumup-vercel.app' },
       { name: 'v6', url: 'https://circuit-v6.sumup-vercel.app' },
       { name: 'v5', url: 'https://circuit-v5.sumup-vercel.app' },
     ],
@@ -27,33 +28,29 @@ export const parameters = {
   docs: { theme: light, components, container: DocsContainer },
 };
 
-export const globalTypes = {
-  theme: {
-    name: 'Theme',
-    description: 'Global theme for components',
-    defaultValue: 'legacy',
-    toolbar: {
-      title: 'Theme',
-      icon: 'paintbrush',
-      items: [
-        {
-          title: 'Legacy',
-          value: 'legacy',
-          icon: 'paintbrush',
-        },
-        {
-          title: 'Light (WIP)',
-          value: 'light',
-          icon: 'circle',
-        },
-        {
-          title: 'Dark (WIP)',
-          value: 'dark',
-          icon: 'circlehollow',
-        },
-      ],
-    },
-  },
-};
+// TODO: Re-enable once a dark theme exists
+// export const globalTypes = {
+//   theme: {
+//     name: 'Theme',
+//     description: 'Global theme for components',
+//     defaultValue: 'light',
+//     toolbar: {
+//       title: 'Theme',
+//       icon: 'paintbrush',
+//       items: [
+//         {
+//           title: 'Light',
+//           value: 'light',
+//           icon: 'circle',
+//         },
+//         {
+//           title: 'Dark (WIP)',
+//           value: 'dark',
+//           icon: 'circlehollow',
+//         },
+//       ],
+//     },
+//   },
+// };
 
 export const decorators = [withThemeProvider, withUnmountWhenHidden];

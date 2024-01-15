@@ -32,7 +32,7 @@ describe('NotificationModal', () => {
     closeButtonLabel: 'Close modal',
     onClose: vi.fn(),
     image: {
-      src: '/images/illustration-update-browser.svg',
+      src: '/images/illustration-update.svg',
       alt: '',
     },
     headline: "It's time to update your browser",

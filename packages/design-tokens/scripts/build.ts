@@ -24,10 +24,24 @@ import { transform, browserslistToTargets } from 'lightningcss';
 import { schema } from '../themes/schema.js';
 import { light } from '../themes/light.js';
 
-import type { Token } from '../types/index.js';
+import type { ColorScheme, Token } from '../types/index.js';
+
+type Theme = {
+  name: string;
+  tokens: Token[];
+  selector: string;
+  colorScheme: ColorScheme;
+};
 
 function main(): void {
-  const themes = [{ name: 'light', tokens: light }];
+  const themes: Theme[] = [
+    {
+      name: 'light',
+      tokens: light,
+      selector: ':root',
+      colorScheme: 'light',
+    },
+  ];
 
   const targets = browserslistToTargets(browserslist());
 
@@ -36,10 +50,10 @@ function main(): void {
 
     const filename = `${theme.name}.css`;
     const filepath = path.join(__dirname, '../', filename);
-    const customProperties = createCSSCustomProperties(theme.tokens);
+    const styles = createStyles(theme);
     const { code } = transform({
       filename,
-      code: Buffer.from(customProperties),
+      code: Buffer.from(styles),
       targets,
     });
 
@@ -70,14 +84,16 @@ export function validateTokens(tokens: Token[]): void {
   });
 }
 
+export function createStyles(theme: Theme) {
+  const customProperties = createCSSCustomProperties(theme.tokens);
+  return `${theme.selector} { color-scheme: ${theme.colorScheme}; ${customProperties} }`;
+}
+
 /**
  * Generates CSS custom properties from the tokens
  */
-export function createCSSCustomProperties(
-  tokens: Token[],
-  selector = ':root',
-): string {
-  const customProperties = tokens
+export function createCSSCustomProperties(tokens: Token[]): string {
+  return tokens
     .flatMap((token) => {
       const { description, name, value } = token;
       const lines: string[] = [];
@@ -91,7 +107,6 @@ export function createCSSCustomProperties(
       return lines;
     })
     .join(' ');
-  return `${selector} { ${customProperties} }`;
 }
 
 try {

@@ -1,5 +1,50 @@
 # @sumup/circuit-ui
 
+## 8.1.0
+
+### Minor Changes
+
+- [#2385](https://github.com/sumup-oss/circuit-ui/pull/2385) [`cef26d5`](https://github.com/sumup-oss/circuit-ui/commit/cef26d58f50100069b39cb4166ed101a580194d4) Thanks [@connor-baer](https://github.com/connor-baer)! - Replaced the Tabs' and TabList's outer shadow with a border at the bottom.
+
+## 8.0.1
+
+### Patch Changes
+
+- [#2382](https://github.com/sumup-oss/circuit-ui/pull/2382) [`0541ffd`](https://github.com/sumup-oss/circuit-ui/commit/0541ffd74d49b35664a1483b5fb3c97dcefe7a0d) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed Buttons not taking up the available space, causing the label to be hidden.
+
+- [#2384](https://github.com/sumup-oss/circuit-ui/pull/2384) [`9923844`](https://github.com/sumup-oss/circuit-ui/commit/992384497477899aeeeabbe9900437339cbb59c2) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed presentational icons in the Popover component from the accessibility tree.
+
+## 8.0.0
+
+### Major Changes
+
+- [#2351](https://github.com/sumup-oss/circuit-ui/pull/2351) [`cf297de`](https://github.com/sumup-oss/circuit-ui/commit/cf297de226b8b89cf40a34f0cbf7864d547b14ef) Thanks [@connor-baer](https://github.com/connor-baer)! - Improved the accessibility of disabled Buttons. The `disabled` attribute has been replaced with the `aria-disabled` attribute which enables the disabled element to receive focus and be perceived by screenreader users. Interactions with the disabled element are blocked by a dummy click handler.
+
+- [#2352](https://github.com/sumup-oss/circuit-ui/pull/2352) [`08aa962`](https://github.com/sumup-oss/circuit-ui/commit/08aa962165307de6ba2ef1ca6e7a833aecf89b9e) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the overflow behaviour of long Button labels. Text that would previously wrap is now truncated to a single line with a trailing ellipsis.
+
+- [#2299](https://github.com/sumup-oss/circuit-ui/pull/2299) [`7c92ef0`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the default size of the CloseButton from 40px to 48px to match the Button component.
+
+- [#2299](https://github.com/sumup-oss/circuit-ui/pull/2299) [`7c92ef0`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the NotificationInline's action from the Button to the Anchor component. Update the action props if necessary.
+
+- [#2361](https://github.com/sumup-oss/circuit-ui/pull/2361) [`31b6f03`](https://github.com/sumup-oss/circuit-ui/commit/31b6f03489cb5706685cdc9f0499e36f91affa84) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the deprecated `variant` prop from the ProgressBar component.
+
+- [#2353](https://github.com/sumup-oss/circuit-ui/pull/2353) [`f33c269`](https://github.com/sumup-oss/circuit-ui/commit/f33c2699178e546aa8c023c80e774d4fb569e0dd) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the legacy navigation components: Header, Sidebar, SidebarContextProvider and SidebarContextConsumer. Use the [TopNavigation](https://circuit.sumup.com/?path=/docs/navigation-topnavigation--docs) and [SideNavigation](https://circuit.sumup.com/?path=/docs/navigation-sidenavigation--docs) components instead.
+
+### Minor Changes
+
+- [#2299](https://github.com/sumup-oss/circuit-ui/pull/2299) [`7c92ef0`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the look of the Button component. Corners are now rounded instead of pill-shaped, the loading spinner has been replaced with three animated dots, and the tertiary variant now sports an underline to improve accessibility.
+
+- [#2299](https://github.com/sumup-oss/circuit-ui/pull/2299) [`7c92ef0`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the variant of the previous/next buttons in the Pagination component from "tertiary" to "secondary".
+
+- [#2372](https://github.com/sumup-oss/circuit-ui/pull/2372) [`8f6dfee`](https://github.com/sumup-oss/circuit-ui/commit/8f6dfeed5558422971986b2fb7e109b87c2e218f) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the ButtonGroup's `actions.[primary|secondary].size` prop. Use the top-level `size` prop instead.
+
+- [#2299](https://github.com/sumup-oss/circuit-ui/pull/2299) [`7c92ef0`](https://github.com/sumup-oss/circuit-ui/commit/7c92ef0d1b3063628c25e473d3d6fb9aa92ee49d) Thanks [@connor-baer](https://github.com/connor-baer)! - Replaced the NotificationBanner's "tertiary" action variant with the "secondary" one and changed the action size to medium. Update the action props if necessary.
+
+### Patch Changes
+
+- Updated dependencies [[`43f357b`](https://github.com/sumup-oss/circuit-ui/commit/43f357b02f2dd8c358e0263d401a9e1bb3ddb80d), [`bc5e753`](https://github.com/sumup-oss/circuit-ui/commit/bc5e7531b42771ee04de3aa3f74aee537c9963e6)]:
+  - @sumup/design-tokens@7.0.0
+
 ## 7.7.3
 
 ### Patch Changes

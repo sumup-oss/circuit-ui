@@ -17,10 +17,16 @@ import { forwardRef, HTMLAttributes } from 'react';
 
 import Button, { ButtonProps } from '../Button/index.js';
 import { clsx } from '../../styles/clsx.js';
+import { deprecate } from '../../util/logger.js';
 
 import styles from './ButtonGroup.module.css';
 
-type Action = Omit<ButtonProps, 'variant'>;
+type Action = Omit<ButtonProps, 'variant' | 'size'> & {
+  /**
+   * @deprecated
+   */
+  size?: ButtonProps['size'];
+};
 
 export interface ButtonGroupProps
   extends Omit<HTMLAttributes<HTMLDivElement>, 'align'> {
@@ -35,6 +41,10 @@ export interface ButtonGroupProps
    * Direction to align the buttons. Defaults to `center`.
    */
   align?: 'left' | 'center' | 'right';
+  /**
+   * Choose from 2 sizes. Default: 'm'.
+   */
+  size?: ButtonProps['size'];
 }
 
 /**
@@ -42,24 +52,44 @@ export interface ButtonGroupProps
  */
 export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
   (
-    { actions, className, align = 'center', ...props }: ButtonGroupProps,
+    { actions, className, align = 'center', size, ...props }: ButtonGroupProps,
     ref,
-  ) => (
-    <div
-      {...props}
-      className={clsx(styles.base, styles[align], className)}
-      ref={ref}
-    >
-      <Button {...actions.primary} variant="primary" />
-      {actions.secondary && (
-        <Button
-          {...actions.secondary}
-          className={clsx(styles.secondary, actions.secondary.className)}
-          variant="secondary"
-        />
-      )}
-    </div>
-  ),
+  ) => {
+    if (process.env.NODE_ENV !== 'production') {
+      if (actions.primary.size) {
+        deprecate(
+          'ButtonGroup',
+          'The `actions.primary.size` prop has been deprecated. Use the top-level `size` prop instead.',
+        );
+      }
+      if (actions.secondary?.size) {
+        deprecate(
+          'ButtonGroup',
+          'The `actions.secondary.size` prop has been deprecated. Use the top-level `size` prop instead.',
+        );
+      }
+    }
+
+    return (
+      <div {...props} className={clsx(styles.container, className)} ref={ref}>
+        <div className={clsx(styles.base, styles[align])}>
+          <Button
+            {...actions.primary}
+            size={size || actions.primary.size}
+            variant="primary"
+          />
+          {actions.secondary && (
+            <Button
+              {...actions.secondary}
+              size={size || actions.secondary.size}
+              className={clsx(styles.secondary, actions.secondary.className)}
+              variant="tertiary"
+            />
+          )}
+        </div>
+      </div>
+    );
+  },
 );
 
 ButtonGroup.displayName = 'ButtonGroup';

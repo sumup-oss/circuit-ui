@@ -39,6 +39,7 @@ export const Base = (args: TabsProps) => <Tabs {...args} />;
 
 Base.args = {
   items: tabs,
+  stretched: false,
 };
 
 export const Links = () => (

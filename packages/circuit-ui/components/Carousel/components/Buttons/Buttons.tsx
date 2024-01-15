@@ -16,7 +16,7 @@
 import { HTMLAttributes } from 'react';
 import { ChevronLeft, ChevronRight, Pause, Play } from '@sumup/icons';
 
-import IconButton, { IconButtonProps } from '../../../IconButton/index.js';
+import { IconButton, IconButtonProps } from '../../../Button/index.js';
 import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './Buttons.module.css';
