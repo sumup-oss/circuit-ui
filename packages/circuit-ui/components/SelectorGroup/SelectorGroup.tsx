@@ -192,7 +192,7 @@ export const SelectorGroup = forwardRef<
               <Selector
                 {...option}
                 key={option.label}
-                className={classes.option}
+                className={clsx(classes.option, option.className)}
                 name={name}
                 onChange={onChange}
                 onBlur={onBlur}
