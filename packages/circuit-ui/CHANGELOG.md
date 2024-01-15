@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.1.1
+
+### Patch Changes
+
+- [#2388](https://github.com/sumup-oss/circuit-ui/pull/2388) [`e7fbc09`](https://github.com/sumup-oss/circuit-ui/commit/e7fbc09ddcbaa84730d2426310d0f9c6d357ff8b) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed passing custom styles to the SelectorGroup options.
+
 ## 8.1.0
 
 ### Minor Changes
