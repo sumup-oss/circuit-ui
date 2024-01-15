@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 8.0.1
+
+### Patch Changes
+
+- [#2382](https://github.com/sumup-oss/circuit-ui/pull/2382) [`0541ffd`](https://github.com/sumup-oss/circuit-ui/commit/0541ffd74d49b35664a1483b5fb3c97dcefe7a0d) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed Buttons not taking up the available space, causing the label to be hidden.
+
+- [#2384](https://github.com/sumup-oss/circuit-ui/pull/2384) [`9923844`](https://github.com/sumup-oss/circuit-ui/commit/992384497477899aeeeabbe9900437339cbb59c2) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed presentational icons in the Popover component from the accessibility tree.
+
 ## 8.0.0
 
 ### Major Changes
