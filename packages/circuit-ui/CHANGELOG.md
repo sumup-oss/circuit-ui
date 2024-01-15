@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.1.0
+
+### Minor Changes
+
+- [#2385](https://github.com/sumup-oss/circuit-ui/pull/2385) [`cef26d5`](https://github.com/sumup-oss/circuit-ui/commit/cef26d58f50100069b39cb4166ed101a580194d4) Thanks [@connor-baer](https://github.com/connor-baer)! - Replaced the Tabs' and TabList's outer shadow with a border at the bottom.
+
 ## 8.0.1
 
 ### Patch Changes
