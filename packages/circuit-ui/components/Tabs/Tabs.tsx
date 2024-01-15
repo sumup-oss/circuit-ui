@@ -21,11 +21,11 @@ import {
   isArrowDown,
 } from '../../util/key-codes.js';
 
-import { TabList } from './components/TabList/index.js';
+import { TabList, TabListProps } from './components/TabList/index.js';
 import { Tab } from './components/Tab/index.js';
 import { TabPanel } from './components/TabPanel/index.js';
 
-export interface TabsProps {
+export interface TabsProps extends TabListProps {
   /**
    * The index of the initially selected tab.
    */
