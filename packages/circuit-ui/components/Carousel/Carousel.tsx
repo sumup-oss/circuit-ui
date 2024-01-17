@@ -204,14 +204,12 @@ export function Carousel({
                 >
                   {state.paused ? playButtonLabel : pauseButtonLabel}
                 </PlayButton>
-                <PrevButton
-                  label={prevButtonLabel}
-                  {...getPreviousControlProps()}
-                />
-                <NextButton
-                  label={nextButtonLabel}
-                  {...getNextControlProps()}
-                />
+                <PrevButton {...getPreviousControlProps()}>
+                  {prevButtonLabel}
+                </PrevButton>
+                <NextButton {...getNextControlProps()}>
+                  {nextButtonLabel}
+                </NextButton>
               </ButtonList>
             </Controls>
           )}
