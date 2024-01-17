@@ -15,27 +15,14 @@
 
 import { Info } from '@sumup/icons';
 
+import { Stack } from '../../../../../.storybook/components/index.js';
 import styled from '../../../styles/styled.js';
 
-import { Tooltip } from './Tooltip.js';
+import { Tooltip, TooltipProps } from './Tooltip.js';
 
 export default {
   title: 'Components/Tooltip',
   component: Tooltip,
-  argTypes: {
-    position: {
-      options: ['top', 'bottom', 'left', 'right'],
-      control: {
-        type: 'select',
-      },
-    },
-    align: {
-      options: ['top', 'bottom', 'left', 'right', 'center'],
-      control: {
-        type: 'select',
-      },
-    },
-  },
 };
 
 const TooltipContainer = styled('div')`
@@ -49,11 +36,13 @@ const TooltipContainer = styled('div')`
   }
 `;
 
-export const Base = (args) => (
-  <TooltipContainer>
-    <Tooltip {...args}>I am a teeny, tiny tooltip.</Tooltip>
-    <Info size="16" />
-  </TooltipContainer>
+export const Base = (args: TooltipProps) => (
+  <Stack>
+    <TooltipContainer>
+      <Tooltip {...args}>I am a teeny, tiny tooltip.</Tooltip>
+      <Info size="16" />
+    </TooltipContainer>
+  </Stack>
 );
 
 Base.args = {
@@ -61,38 +50,25 @@ Base.args = {
   align: 'center',
 };
 
-export const TopLeft = (args) => (
-  <TooltipContainer>
-    <Tooltip {...args}>I am a teeny, tiny tooltip.</Tooltip>
-    <Info size="16" />
-  </TooltipContainer>
+export const Positions = () => (
+  <Stack>
+    <TooltipContainer>
+      <Tooltip position="left" align="center">
+        Left center
+      </Tooltip>
+      <Info size="16" />
+    </TooltipContainer>
+    <TooltipContainer>
+      <Tooltip position="top" align="left">
+        Top left
+      </Tooltip>
+      <Info size="16" />
+    </TooltipContainer>
+    <TooltipContainer>
+      <Tooltip position="bottom" align="right">
+        Bottom right
+      </Tooltip>
+      <Info size="16" />
+    </TooltipContainer>
+  </Stack>
 );
-
-TopLeft.args = {
-  position: 'top',
-  align: 'left',
-};
-
-export const BottomRight = (args) => (
-  <TooltipContainer>
-    <Tooltip {...args}>I am a teeny, tiny tooltip.</Tooltip>
-    <Info size="16" />
-  </TooltipContainer>
-);
-
-BottomRight.args = {
-  position: 'bottom',
-  align: 'right',
-};
-
-export const LeftCenter = (args) => (
-  <TooltipContainer>
-    <Tooltip {...args}>I am a teeny, tiny tooltip.</Tooltip>
-    <Info size="16" />
-  </TooltipContainer>
-);
-
-LeftCenter.args = {
-  position: 'left',
-  align: 'center',
-};
