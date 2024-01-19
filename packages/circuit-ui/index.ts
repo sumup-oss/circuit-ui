@@ -54,6 +54,8 @@ export { default as TextArea } from './components/TextArea/index.js';
 export type { TextAreaProps } from './components/TextArea/index.js';
 export { default as CurrencyInput } from './components/CurrencyInput/index.js';
 export type { CurrencyInputProps } from './components/CurrencyInput/index.js';
+export { default as PercentageInput } from './components/PercentageInput/index.js';
+export type { PercentageInputProps } from './components/PercentageInput/index.js';
 export { default as ImageInput } from './components/ImageInput/index.js';
 export type { ImageInputProps } from './components/ImageInput/index.js';
 
