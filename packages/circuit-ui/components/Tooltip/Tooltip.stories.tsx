@@ -14,9 +14,11 @@
  */
 
 import { forwardRef } from 'react';
-import { within, userEvent } from '@storybook/testing-library';
+import { userEvent } from '@storybook/test';
+import { TransferOut, UploadCloud } from '@sumup/icons';
 
-import Button from '../Button/index.js';
+import { Stack } from '../../../../.storybook/components/index.js';
+import Button, { IconButton } from '../Button/index.js';
 
 import { Tooltip, TooltipProps, TooltipReferenceProps } from './Tooltip.js';
 
@@ -29,25 +31,47 @@ export default {
   },
 };
 
-const Reference = forwardRef<HTMLButtonElement, TooltipReferenceProps>(
-  (props, ref) => (
-    <Button {...props} ref={ref} size="s" disabled>
-      Submit
-    </Button>
+const descriptionProps = {
+  label: 'This may take a few minutes',
+  type: 'description',
+  component: forwardRef<HTMLButtonElement, TooltipReferenceProps>(
+    (props, ref) => (
+      <Button {...props} icon={UploadCloud} ref={ref}>
+        Upload
+      </Button>
+    ),
   ),
-);
+} as const;
+
+const showTooltip = async () => {
+  await userEvent.tab();
+};
 
 export const Base = (args: TooltipProps) => (
-  <Tooltip {...args} component={Reference} />
+  <Stack>
+    <Tooltip {...args} />
+  </Stack>
 );
 
-Base.args = {
-  label: 'Please fill out all fields',
-};
+Base.args = descriptionProps;
+Base.play = showTooltip;
 
-Base.play = async ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
-  const canvas = within(canvasElement);
-  const reference = canvas.getByRole('button');
+export const Types = (args: TooltipProps) => (
+  <Stack>
+    {/* The IconButton uses the Tooltip component under the hood */}
+    <IconButton icon={TransferOut}>Transfer out</IconButton>
+    <Tooltip {...args} {...descriptionProps} />
+  </Stack>
+);
 
-  await userEvent.hover(reference);
-};
+Types.play = showTooltip;
+
+export const Placements = (args: TooltipProps) => (
+  <Stack>
+    <Tooltip {...args} {...descriptionProps} placement="left" />
+    <Tooltip {...args} {...descriptionProps} placement="bottom-start" />
+    <Tooltip {...args} {...descriptionProps} placement="right-end" />
+  </Stack>
+);
+
+Placements.play = showTooltip;
