@@ -22,7 +22,7 @@ import {
   RenderResult,
   renderHook,
 } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 import { ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
 
