@@ -115,7 +115,7 @@ describe('CurrencyInput', () => {
         </>,
       );
       expect(getByRole('textbox')).toHaveAccessibleDescription(
-        `${customDescription} ${EUR_CURRENCY_SYMBOL}`,
+        `${EUR_CURRENCY_SYMBOL} ${customDescription}`,
       );
     });
   });
