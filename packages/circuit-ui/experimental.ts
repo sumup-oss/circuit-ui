@@ -16,4 +16,5 @@
 export {
   default as Tooltip,
   type TooltipProps,
+  type TooltipReferenceProps,
 } from './components/Tooltip/index.js';

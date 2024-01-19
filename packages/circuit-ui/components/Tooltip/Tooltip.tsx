@@ -13,11 +13,35 @@
  * limitations under the License.
  */
 
-import { ComponentType, HTMLAttributes, forwardRef, useId } from 'react';
+import {
+  ComponentType,
+  FocusEventHandler,
+  HTMLAttributes,
+  MouseEventHandler,
+  Ref,
+  forwardRef,
+  useEffect,
+  useId,
+  useState,
+} from 'react';
+import { useFloating, flip, shift } from '@floating-ui/react-dom';
 
 import { clsx } from '../../styles/clsx.js';
+import { applyMultipleRefs } from '../../util/refs.js';
+import { useEscapeKey } from '../../index.js';
 
 import classes from './Tooltip.module.css';
+
+export interface TooltipReferenceProps {
+  'aria-describedby'?: string;
+  'aria-labelledby'?: string;
+  'className': string;
+  'onFocus': FocusEventHandler;
+  'onBlur': FocusEventHandler;
+  'onMouseEnter': MouseEventHandler;
+  'onMouseLeave': MouseEventHandler;
+  'ref': Ref<any>;
+}
 
 export interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -29,16 +53,18 @@ export interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * The focusable element that is labelled by the tooltip.
    */
-  component: ComponentType<{
-    'aria-describedby'?: string;
-    'aria-labelledby'?: string;
-    'className'?: string;
-  }>;
+  component: ComponentType<TooltipReferenceProps>;
   /**
    * Whether the tooltip is the main label or a supplemental description of
    * the reference component. Default: 'label'.
    */
   type?: 'label' | 'description';
+}
+
+enum State {
+  initial = 'initial',
+  open = 'open',
+  closed = 'closed',
 }
 
 export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
@@ -47,6 +73,54 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     ref,
   ) => {
     const tooltipId = useId();
+    // The tooltip works without JavaScript using only CSS (the "initial" state).
+    // When JS is available, the component is progressively enhanced and toggles
+    // between the "closed" and "open" states.
+    const [state, setState] = useState<State>(State.initial);
+
+    useEffect(() => {
+      setState(State.closed);
+    }, []);
+
+    useEscapeKey(() => setState(State.closed), state === State.open);
+
+    const { refs, floatingStyles, update } = useFloating({
+      open: state === State.open,
+      placement: 'top',
+      middleware: [flip(), shift()],
+    });
+
+    useEffect(() => {
+      /**
+       * When we support `ResizeObserver` (https://caniuse.com/resizeobserver),
+       * we can look into using Floating UI's `autoUpdate` (but we can't use
+       * `whileElementInMounted` because our implementation hides the floating
+       * element using CSS instead of using conditional rendering.
+       * See https://floating-ui.com/docs/react-dom#updating
+       */
+      if (state === State.open) {
+        update();
+        window.addEventListener('resize', update);
+        window.addEventListener('scroll', update);
+
+        return () => {
+          window.removeEventListener('resize', update);
+          window.removeEventListener('scroll', update);
+        };
+      }
+
+      window.removeEventListener('resize', update);
+      window.removeEventListener('scroll', update);
+
+      return undefined;
+    }, [state, refs.reference, update]);
+
+    const handleOpen = () => {
+      setState(State.open);
+    };
+    const handleClose = () => {
+      setState(State.closed);
+    };
 
     const referenceProps = {
       [type === 'label' ? 'aria-labelledby' : 'aria-describedby']: tooltipId,
@@ -54,14 +128,27 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
 
     return (
       <div className={classes.parent}>
-        <Component {...referenceProps} className={classes.component} />
+        <Component
+          {...referenceProps}
+          onFocus={handleOpen}
+          onBlur={handleClose}
+          onMouseEnter={handleOpen}
+          onMouseLeave={handleClose}
+          className={classes.component}
+          ref={refs.setReference}
+        />
         <div
           {...props}
-          ref={ref}
+          ref={applyMultipleRefs(ref, refs.setFloating)}
           id={tooltipId}
+          role="tooltip"
+          onMouseEnter={handleOpen}
+          onMouseLeave={handleClose}
+          data-state={state}
+          style={{ ...props.style, ...floatingStyles }}
           className={clsx(classes.base, className)}
         >
-          {label}
+          <div className={classes.content}>{label}</div>
         </div>
       </div>
     );

@@ -16,7 +16,7 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe, screen } from '../../util/test-utils.js';
+import { render, axe, screen, userEvent } from '../../util/test-utils.js';
 
 import { Tooltip, TooltipProps } from './Tooltip.js';
 
@@ -45,6 +45,52 @@ describe('Tooltip', () => {
     render(<Tooltip {...baseProps} ref={ref} />);
     const button = screen.getByRole('button');
     expect(button).toHaveAccessibleName(baseProps.label);
+  });
+
+  it('should be initially closed', () => {
+    render(<Tooltip {...baseProps} />);
+    const tooltip = screen.getByRole('tooltip');
+    expect(tooltip).toHaveAttribute('data-state', 'closed');
+  });
+
+  it('should be open when the reference element is focused', async () => {
+    render(<Tooltip {...baseProps} />);
+
+    await userEvent.tab();
+
+    const tooltip = screen.getByRole('tooltip');
+    expect(tooltip).toHaveAttribute('data-state', 'open');
+  });
+
+  it('should be open when the reference element is hovered', async () => {
+    render(<Tooltip {...baseProps} />);
+    const button = screen.getByRole('button');
+
+    await userEvent.hover(button);
+
+    const tooltip = screen.getByRole('tooltip');
+    expect(tooltip).toHaveAttribute('data-state', 'open');
+  });
+
+  it('should stay open when the tooltip element is hovered', async () => {
+    render(<Tooltip {...baseProps} />);
+    const button = screen.getByRole('button');
+    const tooltip = screen.getByRole('tooltip');
+
+    await userEvent.hover(button);
+    await userEvent.hover(tooltip);
+
+    expect(tooltip).toHaveAttribute('data-state', 'open');
+  });
+
+  it('should close when the escape key is pressed', async () => {
+    render(<Tooltip {...baseProps} />);
+
+    await userEvent.keyboard('{Escape}');
+
+    const tooltip = screen.getByRole('tooltip');
+
+    expect(tooltip).toHaveAttribute('data-state', 'closed');
   });
 
   it('should have no accessibility violations', async () => {

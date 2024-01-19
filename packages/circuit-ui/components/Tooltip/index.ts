@@ -15,6 +15,6 @@
 
 import { Tooltip } from './Tooltip.js';
 
-export type { TooltipProps } from './Tooltip.js';
+export type { TooltipProps, TooltipReferenceProps } from './Tooltip.js';
 
 export default Tooltip;

@@ -13,22 +13,41 @@
  * limitations under the License.
  */
 
-import { NotificationCenter } from '@sumup/icons';
+import { forwardRef } from 'react';
+import { within, userEvent } from '@storybook/testing-library';
 
-import { Tooltip, TooltipProps } from './Tooltip.js';
+import Button from '../Button/index.js';
+
+import { Tooltip, TooltipProps, TooltipReferenceProps } from './Tooltip.js';
 
 export default {
   title: 'Components/Tooltip',
   component: Tooltip,
+  parameters: {
+    // Account for the Tooltip's transition-delay
+    chromatic: { delay: 700 },
+  },
 };
 
+const Reference = forwardRef<HTMLButtonElement, TooltipReferenceProps>(
+  (props, ref) => (
+    <Button {...props} ref={ref} size="s" disabled>
+      Submit
+    </Button>
+  ),
+);
+
 export const Base = (args: TooltipProps) => (
-  <Tooltip
-    {...args}
-    component={(props) => <NotificationCenter {...props} tabIndex={0} />}
-  />
+  <Tooltip {...args} component={Reference} />
 );
 
 Base.args = {
-  label: 'Notifications',
+  label: 'Please fill out all fields',
+};
+
+Base.play = async ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
+  const canvas = within(canvasElement);
+  const reference = canvas.getByRole('button');
+
+  await userEvent.hover(reference);
 };
