@@ -1,0 +1,31 @@
+.parent {
+  position: relative;
+  display: inline-block;
+}
+
+.base {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  z-index: var(--cui-z-index-tooltip);
+  width: max-content;
+  max-width: 280px;
+  padding: var(--cui-spacings-bit) var(--cui-spacings-byte);
+  font-size: var(--cui-typography-body-two-font-size);
+  line-height: var(--cui-typography-body-two-line-height);
+  color: var(--cui-fg-on-strong);
+  pointer-events: none;
+  background-color: var(--cui-bg-strong);
+  border-radius: var(--cui-border-radius-bit);
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+  transform: translateX(-50%);
+}
+
+.base:hover,
+.component:hover + .base,
+.component:focus + .base {
+  pointer-events: auto;
+  opacity: 1;
+  transition-delay: 0.6s;
+}
