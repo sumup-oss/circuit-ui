@@ -28,7 +28,7 @@ export interface CurrencyInputProps
       InputProps,
       'placeholder' | 'ref' | 'value' | 'defaultValue' | 'type'
     >,
-    Pick<NumericFormatProps, 'onValueChange'> {
+    Pick<NumericFormatProps, 'onValueChange' | 'allowNegative'> {
   /**
    * A ISO 4217 currency code, such as 'USD' for the US dollar,
    * 'EUR' for the Euro, or 'CNY' for the Chinese RMB.
@@ -83,9 +83,7 @@ export const CurrencyInput = forwardRef<InputElement, CurrencyInputProps>(
     ref,
   ) => {
     const currencySymbolId = useId();
-    const descriptionIds = `${
-      descriptionId ? `${descriptionId} ` : ''
-    }${currencySymbolId}`;
+    const descriptionIds = clsx(currencySymbolId, descriptionId);
 
     const currencyFormat =
       resolveCurrencyFormat(locale, currency) || DEFAULT_FORMAT;
