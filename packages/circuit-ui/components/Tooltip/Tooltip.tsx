@@ -28,7 +28,8 @@ import { useFloating, flip, shift } from '@floating-ui/react-dom';
 
 import { clsx } from '../../styles/clsx.js';
 import { applyMultipleRefs } from '../../util/refs.js';
-import { useEscapeKey } from '../../index.js';
+import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
+import Portal from '../Portal/index.js';
 
 import classes from './Tooltip.module.css';
 
@@ -127,7 +128,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     };
 
     return (
-      <div className={classes.parent}>
+      <>
         <Component
           {...referenceProps}
           onFocus={handleOpen}
@@ -137,20 +138,22 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
           className={classes.component}
           ref={refs.setReference}
         />
-        <div
-          {...props}
-          ref={applyMultipleRefs(ref, refs.setFloating)}
-          id={tooltipId}
-          role="tooltip"
-          onMouseEnter={handleOpen}
-          onMouseLeave={handleClose}
-          data-state={state}
-          style={{ ...props.style, ...floatingStyles }}
-          className={clsx(classes.base, className)}
-        >
-          <div className={classes.content}>{label}</div>
-        </div>
-      </div>
+        <Portal>
+          <div
+            {...props}
+            ref={applyMultipleRefs(ref, refs.setFloating)}
+            id={tooltipId}
+            role="tooltip"
+            onMouseEnter={handleOpen}
+            onMouseLeave={handleClose}
+            data-state={state}
+            style={{ ...props.style, ...floatingStyles }}
+            className={clsx(classes.base, className)}
+          >
+            <div className={classes.content}>{label}</div>
+          </div>
+        </Portal>
+      </>
     );
   },
 );
