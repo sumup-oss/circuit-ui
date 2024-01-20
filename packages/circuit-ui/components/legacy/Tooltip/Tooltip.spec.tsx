@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { create, renderToHtml, axe } from '../../../util/test-utils.js';
+import { create, render, axe } from '../../../util/test-utils.js';
 
 import type { Position, Alignment } from './Tooltip.js';
 import { Tooltip } from './Tooltip.js';
@@ -57,8 +57,8 @@ describe('Tooltip', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Tooltip align={'center'}>Text</Tooltip>);
-    const actual = await axe(wrapper);
+    const { container } = render(<Tooltip align={'center'}>Text</Tooltip>);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });

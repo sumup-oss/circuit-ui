@@ -16,12 +16,7 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import {
-  create,
-  render,
-  renderToHtml,
-  axe,
-} from '../../../../util/test-utils.js';
+import { create, render, axe } from '../../../../util/test-utils.js';
 
 import { Row } from './Row.js';
 
@@ -45,8 +40,8 @@ describe('Row', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Row />);
-    const actual = await axe(wrapper);
+    const { container } = render(<Row />);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });

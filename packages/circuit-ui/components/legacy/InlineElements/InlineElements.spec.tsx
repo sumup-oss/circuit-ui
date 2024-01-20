@@ -15,12 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import {
-  create,
-  renderToHtml,
-  axe,
-  RenderFn,
-} from '../../../util/test-utils.js';
+import { create, render, axe, RenderFn } from '../../../util/test-utils.js';
 
 import { InlineElements, InlineElementsProps } from './InlineElements.js';
 
@@ -63,8 +58,8 @@ describe('InlineElements', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderInlineElements(renderToHtml);
-    const actual = await axe(wrapper);
+    const { container } = renderInlineElements(render);
+    const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 });
