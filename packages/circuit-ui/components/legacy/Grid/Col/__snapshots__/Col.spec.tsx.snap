@@ -46,9 +46,11 @@ exports[`Col > default breakpoint > should render with span based styles 1`] = `
   }
 }
 
-<div
-  class="circuit-0"
-/>
+<div>
+  <div
+    class="circuit-0"
+  />
+</div>
 `;
 
 exports[`Col > default breakpoint > should render with span/skip based styles 1`] = `
@@ -97,9 +99,11 @@ exports[`Col > default breakpoint > should render with span/skip based styles 1`
   }
 }
 
-<div
-  class="circuit-0"
-/>
+<div>
+  <div
+    class="circuit-0"
+  />
+</div>
 `;
 
 exports[`Col > mobile breakpoint > should render with span based styles 1`] = `
@@ -154,9 +158,11 @@ exports[`Col > mobile breakpoint > should render with span based styles 1`] = `
   }
 }
 
-<div
-  class="circuit-0"
-/>
+<div>
+  <div
+    class="circuit-0"
+  />
+</div>
 `;
 
 exports[`Col > mobile breakpoint > should render with span/skip based styles 1`] = `
@@ -218,9 +224,11 @@ exports[`Col > mobile breakpoint > should render with span/skip based styles 1`]
   }
 }
 
-<div
-  class="circuit-0"
-/>
+<div>
+  <div
+    class="circuit-0"
+  />
+</div>
 `;
 
 exports[`Col > should render with default styles 1`] = `
@@ -269,7 +277,9 @@ exports[`Col > should render with default styles 1`] = `
   }
 }
 
-<div
-  class="circuit-0"
-/>
+<div>
+  <div
+    class="circuit-0"
+  />
+</div>
 `;

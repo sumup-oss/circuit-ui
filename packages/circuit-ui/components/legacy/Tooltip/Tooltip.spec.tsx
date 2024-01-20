@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { create, render, axe } from '../../../util/test-utils.js';
+import { render, axe } from '../../../util/test-utils.js';
 
 import type { Position, Alignment } from './Tooltip.js';
 import { Tooltip } from './Tooltip.js';
@@ -27,30 +27,30 @@ describe('Tooltip', () => {
   const positions: Position[] = ['top', 'right', 'bottom', 'left'];
   positions.forEach((position) => {
     it(`should render with position ${position}, when passed "${position}" for the position prop`, () => {
-      const component = create(
+      const { container } = render(
         <Tooltip position={position}>Tooltip content</Tooltip>,
       );
-      expect(component).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
   const alignments: Alignment[] = ['right', 'left', 'top', 'bottom', 'center'];
   alignments.forEach((align) => {
     it(`should render with align ${align}, when passed "${align}" for the align prop`, () => {
-      const component = create(
+      const { container } = render(
         <Tooltip align={align}>Tooltip content</Tooltip>,
       );
-      expect(component).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
   it('should override alignment styles with position styles', () => {
-    const component = create(
+    const { container } = render(
       <Tooltip align={'left'} position={'left'}>
         Tooltip content
       </Tooltip>,
     );
-    expect(component).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   /**

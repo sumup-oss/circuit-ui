@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { create, render, axe, RenderFn } from '../../../util/test-utils.js';
+import { render, axe, RenderFn } from '../../../util/test-utils.js';
 
 import { InlineElements, InlineElementsProps } from './InlineElements.js';
 
@@ -36,22 +36,22 @@ describe('InlineElements', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = renderInlineElements(create);
-    expect(actual).toMatchSnapshot();
+    const { container } = renderInlineElements(render);
+    expect(container).toMatchSnapshot();
   });
 
   it('should render with ratio styles', () => {
-    const actual = renderInlineElements(create, {
+    const { container } = renderInlineElements(render, {
       ratios: [2, 1],
     });
-    expect(actual).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should render with inlineMobile styles', () => {
-    const actual = renderInlineElements(create, {
+    const { container } = renderInlineElements(render, {
       inlineMobile: true,
     });
-    expect(actual).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   /**

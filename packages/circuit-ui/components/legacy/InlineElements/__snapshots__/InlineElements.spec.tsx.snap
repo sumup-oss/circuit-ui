@@ -68,11 +68,13 @@ exports[`InlineElements > should render with default styles 1`] = `
   }
 }
 
-<div
-  class="circuit-0"
->
-  <div />
-  <div />
+<div>
+  <div
+    class="circuit-0"
+  >
+    <div />
+    <div />
+  </div>
 </div>
 `;
 
@@ -180,11 +182,13 @@ exports[`InlineElements > should render with inlineMobile styles 1`] = `
   }
 }
 
-<div
-  class="circuit-0"
->
-  <div />
-  <div />
+<div>
+  <div
+    class="circuit-0"
+  >
+    <div />
+    <div />
+  </div>
 </div>
 `;
 
@@ -272,10 +276,12 @@ exports[`InlineElements > should render with ratio styles 1`] = `
   }
 }
 
-<div
-  class="circuit-0"
->
-  <div />
-  <div />
+<div>
+  <div
+    class="circuit-0"
+  >
+    <div />
+    <div />
+  </div>
 </div>
 `;

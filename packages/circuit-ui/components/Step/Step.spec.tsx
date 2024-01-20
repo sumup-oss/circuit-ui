@@ -15,7 +15,7 @@
 
 import { Mock, afterAll, describe, expect, it, vi } from 'vitest';
 
-import { create, render } from '../../util/test-utils.js';
+import { render } from '../../util/test-utils.js';
 
 import Step from './Step.js';
 import { useStep } from './hooks/useStep.js';
@@ -33,9 +33,9 @@ describe('Step', () => {
     );
 
     // @ts-expect-error We're testing for this error.
-    expect(() => create(<Step />)).toThrow(expectedError);
+    expect(() => render(<Step />)).toThrow(expectedError);
     expect(() =>
-      create(
+      render(
         <Step>
           {/* @ts-expect-error We're testing for this error. */}
           <div />

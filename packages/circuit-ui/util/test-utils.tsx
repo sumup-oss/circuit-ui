@@ -48,17 +48,6 @@ const WithProviders: FunctionComponent<PropsWithChildren<unknown>> = ({
 
 const render: RenderFn<RenderResult> = (component, options: RenderOptions) =>
   renderTest(component, { wrapper: WithProviders, ...options });
-/**
- * @deprecated `create` is deprecated. Use `render` instead.
- */
-const create = (
-  ...args: Parameters<RenderFn<RenderResult>>
-): ChildNode | HTMLCollection | null => {
-  const { container } = render(...args);
-  return container.children.length > 1
-    ? container.children
-    : container.firstChild;
-};
 
 const axe = configureAxe({
   rules: {
@@ -67,4 +56,4 @@ const axe = configureAxe({
   },
 });
 
-export { create, render, renderHook, userEvent, axe };
+export { render, renderHook, userEvent, axe };

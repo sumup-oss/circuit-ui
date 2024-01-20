@@ -16,7 +16,7 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { create, render, axe } from '../../../../util/test-utils.js';
+import { render, axe } from '../../../../util/test-utils.js';
 
 import { Row } from './Row.js';
 
@@ -25,8 +25,8 @@ describe('Row', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<Row />);
-    expect(actual).toMatchSnapshot();
+    const { container } = render(<Row />);
+    expect(container).toMatchSnapshot();
   });
 
   it('should forward a ref', () => {

@@ -52,7 +52,9 @@ exports[`Row > should render with default styles 1`] = `
   }
 }
 
-<div
-  class="circuit-0"
-/>
+<div>
+  <div
+    class="circuit-0"
+  />
+</div>
 `;

@@ -48,10 +48,12 @@ exports[`Tooltip > should override alignment styles with position styles 1`] = `
   border-left-color: var(--cui-bg-strong);
 }
 
-<div
-  class="circuit-0"
->
-  Tooltip content
+<div>
+  <div
+    class="circuit-0"
+  >
+    Tooltip content
+  </div>
 </div>
 `;
 
@@ -96,10 +98,12 @@ exports[`Tooltip > should render with align bottom, when passed "bottom" for the
   border-right-color: var(--cui-bg-strong);
 }
 
-<div
-  class="circuit-0"
->
-  Tooltip content
+<div>
+  <div
+    class="circuit-0"
+  >
+    Tooltip content
+  </div>
 </div>
 `;
 
@@ -151,10 +155,12 @@ exports[`Tooltip > should render with align center, when passed "center" for the
   border-right-color: var(--cui-bg-strong);
 }
 
-<div
-  class="circuit-0"
->
-  Tooltip content
+<div>
+  <div
+    class="circuit-0"
+  >
+    Tooltip content
+  </div>
 </div>
 `;
 
@@ -206,10 +212,12 @@ exports[`Tooltip > should render with align left, when passed "left" for the ali
   border-right-color: var(--cui-bg-strong);
 }
 
-<div
-  class="circuit-0"
->
-  Tooltip content
+<div>
+  <div
+    class="circuit-0"
+  >
+    Tooltip content
+  </div>
 </div>
 `;
 
@@ -261,10 +269,12 @@ exports[`Tooltip > should render with align right, when passed "right" for the a
   border-right-color: var(--cui-bg-strong);
 }
 
-<div
-  class="circuit-0"
->
-  Tooltip content
+<div>
+  <div
+    class="circuit-0"
+  >
+    Tooltip content
+  </div>
 </div>
 `;
 
@@ -309,10 +319,12 @@ exports[`Tooltip > should render with align top, when passed "top" for the align
   border-right-color: var(--cui-bg-strong);
 }
 
-<div
-  class="circuit-0"
->
-  Tooltip content
+<div>
+  <div
+    class="circuit-0"
+  >
+    Tooltip content
+  </div>
 </div>
 `;
 
@@ -364,10 +376,12 @@ exports[`Tooltip > should render with position bottom, when passed "bottom" for 
   border-bottom-color: var(--cui-bg-strong);
 }
 
-<div
-  class="circuit-0"
->
-  Tooltip content
+<div>
+  <div
+    class="circuit-0"
+  >
+    Tooltip content
+  </div>
 </div>
 `;
 
@@ -419,10 +433,12 @@ exports[`Tooltip > should render with position left, when passed "left" for the 
   border-left-color: var(--cui-bg-strong);
 }
 
-<div
-  class="circuit-0"
->
-  Tooltip content
+<div>
+  <div
+    class="circuit-0"
+  >
+    Tooltip content
+  </div>
 </div>
 `;
 
@@ -474,10 +490,12 @@ exports[`Tooltip > should render with position right, when passed "right" for th
   border-right-color: var(--cui-bg-strong);
 }
 
-<div
-  class="circuit-0"
->
-  Tooltip content
+<div>
+  <div
+    class="circuit-0"
+  >
+    Tooltip content
+  </div>
 </div>
 `;
 
@@ -529,9 +547,11 @@ exports[`Tooltip > should render with position top, when passed "top" for the po
   border-top-color: var(--cui-bg-strong);
 }
 
-<div
-  class="circuit-0"
->
-  Tooltip content
+<div>
+  <div
+    class="circuit-0"
+  >
+    Tooltip content
+  </div>
 </div>
 `;

@@ -16,7 +16,7 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { create, render, axe } from '../../../../util/test-utils.js';
+import { render, axe } from '../../../../util/test-utils.js';
 
 import { Col } from './Col.js';
 
@@ -25,33 +25,33 @@ describe('Col', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<Col />);
-    expect(actual).toMatchSnapshot();
+    const { container } = render(<Col />);
+    expect(container).toMatchSnapshot();
   });
 
   describe('default breakpoint', () => {
     it('should render with span based styles', () => {
-      const actual = create(<Col span="6" />);
-      expect(actual).toMatchSnapshot();
+      const { container } = render(<Col span="6" />);
+      expect(container).toMatchSnapshot();
     });
 
     it('should render with span/skip based styles', () => {
-      const actual = create(<Col span="6" skip="6" />);
-      expect(actual).toMatchSnapshot();
+      const { container } = render(<Col span="6" skip="6" />);
+      expect(container).toMatchSnapshot();
     });
   });
 
   describe('mobile breakpoint', () => {
     it('should render with span based styles', () => {
-      const actual = create(<Col span={{ default: 6, kilo: 12 }} />);
-      expect(actual).toMatchSnapshot();
+      const { container } = render(<Col span={{ default: 6, kilo: 12 }} />);
+      expect(container).toMatchSnapshot();
     });
 
     it('should render with span/skip based styles', () => {
-      const actual = create(
+      const { container } = render(
         <Col span={{ default: 6, kilo: 12 }} skip={{ default: 6, kilo: 3 }} />,
       );
-      expect(actual).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
