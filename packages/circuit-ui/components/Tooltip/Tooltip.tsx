@@ -14,17 +14,22 @@
  */
 
 import {
-  ComponentType,
-  FocusEventHandler,
-  HTMLAttributes,
-  MouseEventHandler,
-  Ref,
   forwardRef,
   useEffect,
   useId,
   useState,
+  type ComponentType,
+  type FocusEventHandler,
+  type HTMLAttributes,
+  type MouseEventHandler,
+  type Ref,
 } from 'react';
-import { useFloating, flip, shift } from '@floating-ui/react-dom';
+import {
+  useFloating,
+  flip,
+  shift,
+  type Placement,
+} from '@floating-ui/react-dom';
 
 import { clsx } from '../../styles/clsx.js';
 import { applyMultipleRefs } from '../../util/refs.js';
@@ -60,6 +65,12 @@ export interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
    * the reference component. Default: 'label'.
    */
   type?: 'label' | 'description';
+  /**
+   * Where to display the tooltip relative to the reference component. The
+   * tooltip will automatically move if there isn't enough space available.
+   * Default: 'top'.
+   */
+  placement?: Placement;
 }
 
 enum State {
@@ -70,7 +81,14 @@ enum State {
 
 export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
   (
-    { label, component: Component, type = 'label', className, ...props },
+    {
+      label,
+      component: Component,
+      type = 'label',
+      placement = 'top',
+      className,
+      ...props
+    },
     ref,
   ) => {
     const tooltipId = useId();
@@ -87,7 +105,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
 
     const { refs, floatingStyles, update } = useFloating({
       open: state === State.open,
-      placement: 'top',
+      placement,
       middleware: [flip(), shift()],
     });
 
