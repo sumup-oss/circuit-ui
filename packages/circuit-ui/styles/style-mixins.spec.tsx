@@ -19,7 +19,7 @@ import { describe, expect, it } from 'vitest';
 import { css } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
 
-import { create } from '../util/test-utils.js';
+import { render } from '../util/test-utils.js';
 
 import {
   cx,
@@ -49,47 +49,53 @@ describe('Style helpers', () => {
 
   describe('cx', () => {
     it('should call each style function with the theme', () => {
-      const actual = create(<div css={cx(byte, kilo)} />);
+      const { container } = render(<div css={cx(byte, kilo)} />);
 
-      expect(actual).toMatchInlineSnapshot(`
+      expect(container).toMatchInlineSnapshot(`
         .circuit-0 {
           margin: var(--cui-spacings-byte);
           margin: var(--cui-spacings-kilo);
         }
 
-        <div
-          class="circuit-0"
-        />
+        <div>
+          <div
+            class="circuit-0"
+          />
+        </div>
       `);
     });
 
     it('should support style objects', () => {
-      const actual = create(<div css={cx(purple)} />);
+      const { container } = render(<div css={cx(purple)} />);
 
-      expect(actual).toMatchInlineSnapshot(`
+      expect(container).toMatchInlineSnapshot(`
         .circuit-0 {
           color: rebeccapurple;
         }
 
-        <div
-          class="circuit-0"
-        />
+        <div>
+          <div
+            class="circuit-0"
+          />
+        </div>
       `);
     });
 
     it('should skip falsy style functions', () => {
       const isKilo = false;
 
-      const actual = create(<div css={cx(byte, isKilo && kilo)} />);
+      const { container } = render(<div css={cx(byte, isKilo && kilo)} />);
 
-      expect(actual).toMatchInlineSnapshot(`
+      expect(container).toMatchInlineSnapshot(`
         .circuit-0 {
           margin: var(--cui-spacings-byte);
         }
 
-        <div
-          class="circuit-0"
-        />
+        <div>
+          <div
+            class="circuit-0"
+          />
+        </div>
       `);
     });
   });

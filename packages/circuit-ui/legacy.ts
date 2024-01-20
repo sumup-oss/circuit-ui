@@ -27,26 +27,26 @@ export {
   RangePickerController,
   SingleDayPicker,
   CalendarConstants,
-} from './components/Calendar/index.js';
+} from './components/legacy/Calendar/index.js';
 export type {
   RangePickerProps,
   RangePickerControllerProps,
   SingleDayPickerProps,
-} from './components/Calendar/index.js';
-export { default as CalendarTag } from './components/CalendarTag/index.js';
-export type { CalendarTagProps } from './components/CalendarTag/index.js';
-export { default as CalendarTagTwoStep } from './components/CalendarTagTwoStep/index.js';
-export type { CalendarTagTwoStepProps } from './components/CalendarTagTwoStep/index.js';
+} from './components/legacy/Calendar/index.js';
+export { default as CalendarTag } from './components/legacy/CalendarTag/index.js';
+export type { CalendarTagProps } from './components/legacy/CalendarTag/index.js';
+export { default as CalendarTagTwoStep } from './components/legacy/CalendarTagTwoStep/index.js';
+export type { CalendarTagTwoStepProps } from './components/legacy/CalendarTagTwoStep/index.js';
 
 // Layout
-export { Grid, Row, Col } from './components/Grid/index.js';
-export type { ColProps } from './components/Grid/index.js';
-export { default as InlineElements } from './components/InlineElements/index.js';
-export type { InlineElementsProps } from './components/InlineElements/index.js';
+export { Grid, Row, Col } from './components/legacy/Grid/index.js';
+export type { ColProps } from './components/legacy/Grid/index.js';
+export { default as InlineElements } from './components/legacy/InlineElements/index.js';
+export type { InlineElementsProps } from './components/legacy/InlineElements/index.js';
 
 // Miscellaneous
-export { default as Tooltip } from './components/Tooltip/index.js';
-export type { TooltipProps } from './components/Tooltip/index.js';
+export { default as Tooltip } from './components/legacy/Tooltip/index.js';
+export type { TooltipProps } from './components/legacy/Tooltip/index.js';
 
 export {
   cx,

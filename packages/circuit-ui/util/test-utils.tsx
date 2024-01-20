@@ -22,7 +22,7 @@ import {
   RenderResult,
   renderHook,
 } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 import { ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
 
@@ -48,25 +48,6 @@ const WithProviders: FunctionComponent<PropsWithChildren<unknown>> = ({
 
 const render: RenderFn<RenderResult> = (component, options: RenderOptions) =>
   renderTest(component, { wrapper: WithProviders, ...options });
-/**
- * @deprecated `renderToHtml` is deprecated. Instead, run axe on the container
- * from `const { container } = render(<Component />)`.
- */
-const renderToHtml: RenderFn<HTMLElement> = (component) => {
-  const { container } = render(component);
-  return container;
-};
-/**
- * @deprecated `create` is deprecated. Use `render` instead.
- */
-const create = (
-  ...args: Parameters<RenderFn<RenderResult>>
-): ChildNode | HTMLCollection | null => {
-  const { container } = render(...args);
-  return container.children.length > 1
-    ? container.children
-    : container.firstChild;
-};
 
 const axe = configureAxe({
   rules: {
@@ -75,4 +56,4 @@ const axe = configureAxe({
   },
 });
 
-export { create, render, renderToHtml, renderHook, userEvent, axe };
+export { render, renderHook, userEvent, axe };
