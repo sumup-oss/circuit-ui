@@ -14,7 +14,7 @@
  */
 
 import { action } from '@storybook/addon-actions';
-import { userEvent, within } from '@storybook/testing-library';
+import { screen, userEvent, within } from '@storybook/testing-library';
 
 import { ModalProvider } from '../ModalContext/index.js';
 import Button from '../Button/index.js';
@@ -64,9 +64,10 @@ Base.args = {
 };
 Base.play = async ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
   const canvas = within(canvasElement);
-  const thirdItem = canvas.getByRole('button', {
+  const button = canvas.getByRole('button', {
     name: 'Open modal',
   });
 
-  await userEvent.click(thirdItem);
+  await userEvent.click(button);
+  await screen.findByRole('dialog');
 };

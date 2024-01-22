@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { userEvent, within } from '@storybook/testing-library';
+import { screen, userEvent, within } from '@storybook/testing-library';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 import Button from '../Button/index.js';
@@ -80,11 +80,12 @@ export const Base = (toast: NotificationToastProps): JSX.Element => {
 
 Base.play = async ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
   const canvas = within(canvasElement);
-  const thirdItem = canvas.getByRole('button', {
+  const button = canvas.getByRole('button', {
     name: 'Open toast',
   });
 
-  await userEvent.click(thirdItem);
+  await userEvent.click(button);
+  await screen.findByRole('status');
 };
 
 const variants = ['info', 'success', 'warning', 'danger'] as const;

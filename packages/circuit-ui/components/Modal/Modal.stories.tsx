@@ -14,9 +14,10 @@
  */
 
 import { Fragment } from 'react';
-import { userEvent, within } from '@storybook/testing-library';
+import { screen, userEvent, within } from '@storybook/testing-library';
 
 import { Stack } from '../../../../.storybook/components/index.js';
+import { modes } from '../../../../.storybook/modes.js';
 import Button from '../Button/index.js';
 import Headline from '../Headline/index.js';
 import Body from '../Body/index.js';
@@ -30,7 +31,12 @@ export default {
   component: Modal,
   subcomponents: { ModalProvider },
   parameters: {
-    chromatic: { viewports: [320, 1280] },
+    chromatic: {
+      modes: {
+        mobile: modes.smallMobile,
+        desktop: modes.desktop,
+      },
+    },
   },
 };
 
@@ -49,11 +55,12 @@ const openModal = async ({
   canvasElement: HTMLCanvasElement;
 }) => {
   const canvas = within(canvasElement);
-  const thirdItem = canvas.getByRole('button', {
+  const button = canvas.getByRole('button', {
     name: 'Open modal',
   });
 
-  await userEvent.click(thirdItem);
+  await userEvent.click(button);
+  await screen.findByRole('dialog');
 };
 
 export const Base = (modal: ModalProps): JSX.Element => {

@@ -16,6 +16,26 @@ export const parameters = {
       { name: 'v5', url: 'https://circuit-v5.sumup-vercel.app' },
     ],
   },
+  viewport: {
+    viewports: {
+      smallMobile: {
+        name: 'Small mobile',
+        styles: { width: '320px', height: '568px' },
+      },
+      largeMobile: {
+        name: 'Large mobile',
+        styles: { width: '414px', height: '896px' },
+      },
+      tablet: {
+        name: 'Tablet',
+        styles: { width: '834px', height: '1112px' },
+      },
+      desktop: {
+        name: 'Desktop',
+        styles: { width: '1280px', height: '1000px' },
+      },
+    },
+  },
   previewTabs: { 'storybook/docs/panel': { index: -1 } },
   actions: { argTypesRegex: '^on.*' },
   controls: { expanded: true },
