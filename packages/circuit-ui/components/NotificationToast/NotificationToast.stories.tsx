@@ -29,6 +29,9 @@ import {
 export default {
   title: 'Notification/NotificationToast',
   component: NotificationToast,
+  parameters: {
+    layout: 'padded',
+  },
 };
 
 const TOASTS = [

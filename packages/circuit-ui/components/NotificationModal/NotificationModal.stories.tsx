@@ -28,6 +28,9 @@ import { useNotificationModal } from './useNotificationModal.js';
 export default {
   title: 'Notification/NotificationModal',
   component: NotificationModal,
+  parameters: {
+    layout: 'padded',
+  },
 };
 
 export const Base = (modal: NotificationModalProps): JSX.Element => {

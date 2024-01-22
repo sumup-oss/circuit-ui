@@ -31,6 +31,7 @@ export default {
   component: Modal,
   subcomponents: { ModalProvider },
   parameters: {
+    layout: 'padded',
     chromatic: {
       modes: {
         mobile: modes.smallMobile,
