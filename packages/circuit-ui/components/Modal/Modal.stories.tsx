@@ -14,6 +14,7 @@
  */
 
 import { Fragment } from 'react';
+import { userEvent, within } from '@storybook/testing-library';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 import Button from '../Button/index.js';
@@ -39,6 +40,19 @@ const defaultModalChildren = () => (
   </Fragment>
 );
 
+const openModal = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLCanvasElement;
+}) => {
+  const canvas = within(canvasElement);
+  const thirdItem = canvas.getByRole('button', {
+    name: 'Open modal',
+  });
+
+  await userEvent.click(thirdItem);
+};
+
 export const Base = (modal: ModalProps): JSX.Element => {
   const ComponentWithModal = () => {
     const { setModal } = useModal();
@@ -61,6 +75,7 @@ Base.args = {
   variant: 'contextual',
   closeButtonLabel: 'Close modal',
 };
+Base.play = openModal;
 
 export const Variants = (modal: ModalProps): JSX.Element => {
   const ComponentWithModal = ({ variant }: Pick<ModalProps, 'variant'>) => {
@@ -123,6 +138,7 @@ PreventClose.args = {
   variant: 'immersive',
   preventClose: true,
 };
+PreventClose.play = openModal;
 
 export const InitiallyOpen = (modal: ModalProps): JSX.Element => {
   const initialModal = { id: 'initial', component: Modal, ...modal };
@@ -179,3 +195,4 @@ CustomStyles.args = {
   variant: 'contextual',
   closeButtonLabel: 'Close modal',
 };
+CustomStyles.play = openModal;
