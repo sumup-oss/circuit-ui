@@ -343,7 +343,7 @@
   }
 }
 
-@container cui-button-group (width > 420px) {
+@container cui-button-group (width > 370px) {
   /* Keep in sync with the .secondary class above */
   .tertiary {
     color: var(--cui-fg-normal);
