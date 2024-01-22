@@ -313,7 +313,7 @@
   bottom: 0;
   width: 100%;
   content: "";
-  border-top: var(--cui-border-width-kilo) dashed var(--cui-border-normal);
+  border-top: var(--cui-border-width-kilo) dashed var(--cui-fg-subtle);
   opacity: 1;
   transition: transform var(--cui-transitions-default),
     opacity var(--cui-transitions-default);
