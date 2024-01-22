@@ -211,7 +211,8 @@ CustomStyles.args = {
         Custom styles
       </Headline>
       <Body style={{ margin: '1rem' }}>
-        Custom styles can be applied using the <code>css</code> prop.
+        Custom styles can be applied using the <code>className</code> or{' '}
+        <code>style</code> props.
       </Body>
     </Fragment>
   ),
