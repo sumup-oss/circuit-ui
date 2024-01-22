@@ -29,6 +29,9 @@ export default {
   title: 'Components/Modal',
   component: Modal,
   subcomponents: { ModalProvider },
+  parameters: {
+    chromatic: { viewports: [320, 1280] },
+  },
 };
 
 const defaultModalChildren = () => (
