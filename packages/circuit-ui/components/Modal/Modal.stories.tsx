@@ -13,10 +13,14 @@
  * limitations under the License.
  */
 
+import type { Decorator } from '@storybook/react';
 import { Fragment } from 'react';
 import { screen, userEvent, within } from '@storybook/testing-library';
 
-import { Stack } from '../../../../.storybook/components/index.js';
+import {
+  FullViewport,
+  Stack,
+} from '../../../../.storybook/components/index.js';
 import { modes } from '../../../../.storybook/modes.js';
 import Button from '../Button/index.js';
 import Headline from '../Headline/index.js';
@@ -31,7 +35,6 @@ export default {
   component: Modal,
   subcomponents: { ModalProvider },
   parameters: {
-    layout: 'padded',
     chromatic: {
       modes: {
         mobile: modes.smallMobile,
@@ -39,6 +42,13 @@ export default {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <FullViewport>
+        <Story />
+      </FullViewport>
+    ),
+  ] as Decorator[],
 };
 
 const defaultModalChildren = () => (

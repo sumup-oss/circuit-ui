@@ -1,0 +1,9 @@
+.base {
+  width: 100vw;
+  height: 100vh;
+}
+
+:global(.docs-story) .base {
+  width: auto;
+  height: auto;
+}

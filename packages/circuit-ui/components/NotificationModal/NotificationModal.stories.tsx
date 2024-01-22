@@ -13,9 +13,11 @@
  * limitations under the License.
  */
 
+import type { Decorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { screen, userEvent, within } from '@storybook/testing-library';
 
+import { FullViewport } from '../../../../.storybook/components/index.js';
 import { ModalProvider } from '../ModalContext/index.js';
 import Button from '../Button/index.js';
 
@@ -31,6 +33,13 @@ export default {
   parameters: {
     layout: 'padded',
   },
+  decorators: [
+    (Story) => (
+      <FullViewport>
+        <Story />
+      </FullViewport>
+    ),
+  ] as Decorator[],
 };
 
 export const Base = (modal: NotificationModalProps): JSX.Element => {
