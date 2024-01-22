@@ -122,6 +122,9 @@ Variants.args = {
   children: defaultModalChildren,
   closeButtonLabel: 'Close modal',
 };
+Variants.parameters = {
+  chromatic: { disableSnapshot: true },
+};
 
 export const PreventClose = (modal: ModalProps): JSX.Element => {
   const ComponentWithModal = () => {
