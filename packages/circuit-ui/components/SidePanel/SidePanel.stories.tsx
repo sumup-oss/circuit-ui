@@ -16,6 +16,7 @@
 import { useState } from 'react';
 import { within, userEvent } from '@storybook/testing-library';
 
+import { modes } from '../../../../.storybook/modes.js';
 import Body from '../Body/index.js';
 import Button from '../Button/index.js';
 import ListItemGroup from '../ListItemGroup/index.js';
@@ -36,7 +37,12 @@ export default {
   title: 'Navigation/SidePanel',
   parameters: {
     layout: 'fullscreen',
-    chromatic: { viewports: [320, 960] },
+    chromatic: {
+      modes: {
+        mobile: modes.smallMobile,
+        desktop: modes.desktop,
+      },
+    },
   },
   argTypes: {
     backButtonLabel: { control: 'text' },
@@ -232,7 +238,13 @@ WithTopNavigation.storyName = 'With TopNavigation';
 WithTopNavigation.args = baseArgs;
 WithTopNavigation.play = basePlay;
 WithTopNavigation.parameters = {
-  chromatic: { viewports: [320, 960, 1280] },
+  chromatic: {
+    modes: {
+      mobile: modes.smallMobile,
+      tablet: modes.tablet,
+      desktop: modes.desktop,
+    },
+  },
 };
 
 const SIDEPANEL_UPDATE_DURATION = 1000;

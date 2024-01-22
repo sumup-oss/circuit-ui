@@ -13,8 +13,11 @@
  * limitations under the License.
  */
 
+import type { Decorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { screen, userEvent, within } from '@storybook/testing-library';
 
+import { FullViewport } from '../../../../.storybook/components/index.js';
 import { ModalProvider } from '../ModalContext/index.js';
 import Button from '../Button/index.js';
 
@@ -27,6 +30,16 @@ import { useNotificationModal } from './useNotificationModal.js';
 export default {
   title: 'Notification/NotificationModal',
   component: NotificationModal,
+  parameters: {
+    layout: 'padded',
+  },
+  decorators: [
+    (Story) => (
+      <FullViewport>
+        <Story />
+      </FullViewport>
+    ),
+  ] as Decorator[],
 };
 
 export const Base = (modal: NotificationModalProps): JSX.Element => {
@@ -60,4 +73,13 @@ Base.args = {
     },
   },
   closeButtonLabel: 'Close',
+};
+Base.play = async ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
+  const canvas = within(canvasElement);
+  const button = canvas.getByRole('button', {
+    name: 'Open modal',
+  });
+
+  await userEvent.click(button);
+  await screen.findByRole('dialog');
 };

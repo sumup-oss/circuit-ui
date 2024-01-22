@@ -21,16 +21,17 @@ export { Props };
 
 export { Meta, IconGallery, IconItem, Typeset } from '@storybook/addon-docs';
 
-export { default as DocsContainer } from './DocsContainer';
-export { default as Status } from './Statuses';
-export { default as Preview } from './Preview';
-export { default as Story } from './Story';
-export { default as Icons } from './Icons';
-export { default as Intro } from './Intro';
-export { default as Teaser } from './Teaser';
-export { default as Link } from './Link';
-export { default as Image } from './Image';
-export { default as Stack } from './Stack';
+export { default as DocsContainer } from './DocsContainer.js';
+export { default as Status } from './Statuses.js';
+export { default as Preview } from './Preview.js';
+export { default as Story } from './Story.js';
+export { default as Icons } from './Icons.js';
+export { default as Intro } from './Intro.js';
+export { default as Teaser } from './Teaser.js';
+export { default as Link } from './Link.js';
+export { default as Image } from './Image.js';
+export { default as Stack } from './Stack.js';
+export { default as FullViewport } from './FullViewport.js';
 
 export {
   CustomPropertiesTable,
@@ -43,4 +44,4 @@ export {
   FontWeight,
   Transition,
   MediaQueriesTable,
-} from './Theme';
+} from './Theme.js';

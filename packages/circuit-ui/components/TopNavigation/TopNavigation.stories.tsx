@@ -17,6 +17,7 @@ import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { Shop, SumUpLogo } from '@sumup/icons';
 
+import { modes } from '../../../../.storybook/modes.js';
 import { SideNavigation } from '../SideNavigation/index.js';
 import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories.js';
 import { ModalProvider } from '../ModalContext/index.js';
@@ -28,7 +29,14 @@ export default {
   component: TopNavigation,
   parameters: {
     layout: 'fullscreen',
-    chromatic: { viewports: [320, 480, 960] },
+    chromatic: {
+      modes: {
+        smallMobile: modes.smallMobile,
+        largeMobile: modes.largeMobile,
+        tablet: modes.tablet,
+        desktop: modes.desktop,
+      },
+    },
   },
   excludeStories: /.*Args$/,
 };
@@ -120,7 +128,4 @@ WithSideNavigation.args = {
     activeLabel: 'Close side navigation',
     inactiveLabel: 'Open side navigation',
   },
-};
-WithSideNavigation.parameters = {
-  chromatic: { viewports: [320, 480, 960, 1280] },
 };

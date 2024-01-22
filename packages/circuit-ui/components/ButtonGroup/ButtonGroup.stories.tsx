@@ -16,6 +16,7 @@
 import { action } from '@storybook/addon-actions';
 
 import { Stack } from '../../../../.storybook/components/index.js';
+import { modes } from '../../../../.storybook/modes.js';
 
 import { ButtonGroup, ButtonGroupProps } from './ButtonGroup.js';
 
@@ -25,7 +26,12 @@ export default {
   parameters: {
     // we don't want to center this story to be able to see the effects of the `align` prop
     layout: 'padded',
-    chromatic: { viewports: [320, 1280] },
+    chromatic: {
+      modes: {
+        mobile: modes.smallMobile,
+        desktop: modes.desktop,
+      },
+    },
   },
 };
 

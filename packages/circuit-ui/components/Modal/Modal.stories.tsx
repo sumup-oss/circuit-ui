@@ -13,9 +13,15 @@
  * limitations under the License.
  */
 
+import type { Decorator } from '@storybook/react';
 import { Fragment } from 'react';
+import { screen, userEvent, within } from '@storybook/testing-library';
 
-import { Stack } from '../../../../.storybook/components/index.js';
+import {
+  FullViewport,
+  Stack,
+} from '../../../../.storybook/components/index.js';
+import { modes } from '../../../../.storybook/modes.js';
 import Button from '../Button/index.js';
 import Headline from '../Headline/index.js';
 import Body from '../Body/index.js';
@@ -28,6 +34,21 @@ export default {
   title: 'Components/Modal',
   component: Modal,
   subcomponents: { ModalProvider },
+  parameters: {
+    chromatic: {
+      modes: {
+        mobile: modes.smallMobile,
+        desktop: modes.desktop,
+      },
+    },
+  },
+  decorators: [
+    (Story) => (
+      <FullViewport>
+        <Story />
+      </FullViewport>
+    ),
+  ] as Decorator[],
 };
 
 const defaultModalChildren = () => (
@@ -38,6 +59,20 @@ const defaultModalChildren = () => (
     <Body>I am a modal.</Body>
   </Fragment>
 );
+
+const openModal = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLCanvasElement;
+}) => {
+  const canvas = within(canvasElement);
+  const button = canvas.getByRole('button', {
+    name: 'Open modal',
+  });
+
+  await userEvent.click(button);
+  await screen.findByRole('dialog');
+};
 
 export const Base = (modal: ModalProps): JSX.Element => {
   const ComponentWithModal = () => {
@@ -61,6 +96,7 @@ Base.args = {
   variant: 'contextual',
   closeButtonLabel: 'Close modal',
 };
+Base.play = openModal;
 
 export const Variants = (modal: ModalProps): JSX.Element => {
   const ComponentWithModal = ({ variant }: Pick<ModalProps, 'variant'>) => {
@@ -85,6 +121,9 @@ export const Variants = (modal: ModalProps): JSX.Element => {
 Variants.args = {
   children: defaultModalChildren,
   closeButtonLabel: 'Close modal',
+};
+Variants.parameters = {
+  chromatic: { disableSnapshot: true },
 };
 
 export const PreventClose = (modal: ModalProps): JSX.Element => {
@@ -123,6 +162,7 @@ PreventClose.args = {
   variant: 'immersive',
   preventClose: true,
 };
+PreventClose.play = openModal;
 
 export const InitiallyOpen = (modal: ModalProps): JSX.Element => {
   const initialModal = { id: 'initial', component: Modal, ...modal };
@@ -171,7 +211,8 @@ CustomStyles.args = {
         Custom styles
       </Headline>
       <Body style={{ margin: '1rem' }}>
-        Custom styles can be applied using the <code>css</code> prop.
+        Custom styles can be applied using the <code>className</code> or{' '}
+        <code>style</code> props.
       </Body>
     </Fragment>
   ),
@@ -179,3 +220,4 @@ CustomStyles.args = {
   variant: 'contextual',
   closeButtonLabel: 'Close modal',
 };
+CustomStyles.play = openModal;

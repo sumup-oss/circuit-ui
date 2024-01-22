@@ -16,6 +16,7 @@
 import { action } from '@storybook/addon-actions';
 import { Like, Home, LiveChat, Package, Shop } from '@sumup/icons';
 
+import { modes } from '../../../../.storybook/modes.js';
 import { ModalProvider } from '../ModalContext/index.js';
 
 import { SideNavigation, SideNavigationProps } from './SideNavigation.js';
@@ -25,7 +26,13 @@ export default {
   component: SideNavigation,
   parameters: {
     layout: 'fullscreen',
-    chromatic: { viewports: [320, 960, 1280] },
+    chromatic: {
+      modes: {
+        mobile: modes.smallMobile,
+        tablet: modes.tablet,
+        desktop: modes.desktop,
+      },
+    },
   },
   excludeStories: /.*Args$/,
 };

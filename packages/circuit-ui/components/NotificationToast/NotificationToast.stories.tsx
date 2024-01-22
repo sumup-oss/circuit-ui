@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+import { screen, userEvent, within } from '@storybook/testing-library';
+import isChromatic from 'chromatic/isChromatic';
+
 import { Stack } from '../../../../.storybook/components/index.js';
 import Button from '../Button/index.js';
 import { ToastProvider } from '../ToastContext/index.js';
@@ -55,15 +58,13 @@ const TOASTS = [
 export const Base = (toast: NotificationToastProps): JSX.Element => {
   const App = () => {
     const { setToast } = useNotificationToast();
+    const randomIndex = isChromatic()
+      ? 1
+      : Math.floor(Math.random() * TOASTS.length);
     return (
       <Button
         type="button"
-        onClick={() =>
-          setToast({
-            ...toast,
-            ...TOASTS[Math.floor(Math.random() * TOASTS.length)],
-          })
-        }
+        onClick={() => setToast({ ...toast, ...TOASTS[randomIndex] })}
       >
         Open toast
       </Button>
@@ -74,6 +75,16 @@ export const Base = (toast: NotificationToastProps): JSX.Element => {
       <App />
     </ToastProvider>
   );
+};
+
+Base.play = async ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
+  const canvas = within(canvasElement);
+  const button = canvas.getByRole('button', {
+    name: 'Open toast',
+  });
+
+  await userEvent.click(button);
+  await screen.findByRole('status');
 };
 
 const variants = ['info', 'success', 'warning', 'danger'] as const;
