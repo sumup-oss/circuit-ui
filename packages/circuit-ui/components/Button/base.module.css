@@ -300,7 +300,7 @@
 }
 
 .tertiary .label {
-  text-decoration: underline dashed var(--cui-border-normal);
+  text-decoration: underline dashed var(--cui-fg-subtle);
   text-underline-offset: 0.25em;
   transition: text-decoration-color var(--cui-transitions-default);
 }
