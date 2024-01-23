@@ -28,18 +28,30 @@ import { warn } from '../../util/logger.js';
 import { BaseModalProps, ModalComponent } from './types.js';
 import './Modal.css';
 
+const PORTAL_CLASS_NAME = 'cui-modal-portal';
+const HTML_OPEN_CLASS_NAME = 'cui-modal-open';
+// These are the default app element ids in Next.js, Docusaurus, CRA and Storybook.
+const APP_ELEMENT_IDS = ['root', '__next', '__docusaurus', 'storybook-root'];
+
+function getAppElement(): HTMLElement | null {
+  // eslint-disable-next-line no-restricted-syntax
+  for (const id of APP_ELEMENT_IDS) {
+    const element = document.getElementById(id);
+
+    if (element) {
+      return element;
+    }
+  }
+  return null;
+}
+
 // It is important for users of screen readers that other page content be hidden
 // (via the `aria-hidden` attribute) while the modal is open.
 // To allow react-modal to do this, Circuit UI calls `Modal.setAppElement`
 // with a query selector identifying the root of the app.
 // http://reactcommunity.org/react-modal/accessibility/#app-element
 if (typeof window !== 'undefined') {
-  // These are the default app elements in Next.js, Docusaurus, CRA and Storybook.
-  const appElement =
-    document.getElementById('__next') ||
-    document.getElementById('__docusaurus') ||
-    document.getElementById('root') ||
-    document.getElementById('storybook-root');
+  const appElement = getAppElement();
 
   if (appElement) {
     ReactModal.setAppElement(appElement);
@@ -119,6 +131,10 @@ export function ModalProvider<TProps extends BaseModalProps>({
 
   useEffect(() => {
     if (!activeModal) {
+      // Clean up after react-modal in case it fails to do so itself
+      // https://github.com/reactjs/react-modal/issues/888#issuecomment-1158061329
+      document.documentElement.classList.remove(HTML_OPEN_CLASS_NAME);
+      getAppElement()?.removeAttribute('aria-hidden');
       return undefined;
     }
 
@@ -159,8 +175,8 @@ export function ModalProvider<TProps extends BaseModalProps>({
             key={id}
             isOpen={!transition}
             onClose={() => removeModal(modal)}
-            portalClassName="cui-modal-portal"
-            htmlOpenClassName="cui-modal-open"
+            portalClassName={PORTAL_CLASS_NAME}
+            htmlOpenClassName={HTML_OPEN_CLASS_NAME}
             bodyOpenClassName=""
           />
         );
