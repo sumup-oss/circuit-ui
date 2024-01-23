@@ -6,6 +6,11 @@
       "size": "24"
     },
     {
+      "name": "add",
+      "category": "Action",
+      "size": "16"
+    },
+    {
       "name": "add_employees",
       "category": "Action",
       "size": "24"
@@ -127,12 +132,37 @@
       "size": "16"
     },
     {
+      "name": "filter_applied",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "filter_applied",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "flash_off",
+      "category": "Action",
+      "size": "24"
+    },
+    {
       "name": "flash_on",
       "category": "Action",
       "size": "24"
     },
     {
+      "name": "flashlight",
+      "category": "Action",
+      "size": "24"
+    },
+    {
       "name": "flip_camera",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "freeze",
       "category": "Action",
       "size": "24"
     },
@@ -153,6 +183,11 @@
     },
     {
       "name": "logout",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "manage",
       "category": "Action",
       "size": "24"
     },
@@ -207,6 +242,11 @@
       "size": "16"
     },
     {
+      "name": "random",
+      "category": "Action",
+      "size": "24"
+    },
+    {
       "name": "refresh",
       "category": "Action",
       "size": "24"
@@ -242,12 +282,27 @@
       "size": "24"
     },
     {
+      "name": "send",
+      "category": "Action",
+      "size": "16"
+    },
+    {
       "name": "share",
       "category": "Action",
       "size": "24"
     },
     {
       "name": "share",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "sort",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "sort",
       "category": "Action",
       "size": "16"
     },
@@ -279,6 +334,16 @@
     {
       "name": "view",
       "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "view",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "callback",
+      "category": "Communication",
       "size": "24"
     },
     {
@@ -442,6 +507,11 @@
       "size": "24"
     },
     {
+      "name": "pay_pal",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "pix_full",
       "category": "Payment method",
       "size": "24"
@@ -523,6 +593,11 @@
     },
     {
       "name": "alelo",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "alternative_payment_method",
       "category": "Card scheme",
       "size": "32"
     },
@@ -664,197 +739,245 @@
     {
       "name": "flag_ar",
       "category": "Country flag",
+      "keywords": ["Argentina"],
       "size": "16"
     },
     {
       "name": "flag_at",
       "category": "Country flag",
+      "keywords": ["Austria"],
       "size": "16"
     },
     {
       "name": "flag_au",
       "category": "Country flag",
+      "keywords": ["Australia"],
       "size": "16"
     },
     {
       "name": "flag_be",
       "category": "Country flag",
+      "keywords": ["Belgium"],
       "size": "16"
     },
     {
       "name": "flag_bg",
       "category": "Country flag",
+      "keywords": ["Bulgaria"],
       "size": "16"
     },
     {
       "name": "flag_br",
       "category": "Country flag",
+      "keywords": ["Brazil"],
       "size": "16"
     },
     {
       "name": "flag_ca",
       "category": "Country flag",
+      "keywords": ["Canada"],
       "size": "16"
     },
     {
       "name": "flag_ch",
       "category": "Country flag",
+      "keywords": ["Switzerland"],
       "size": "16"
     },
     {
       "name": "flag_cl",
       "category": "Country flag",
+      "keywords": ["Chile"],
       "size": "16"
     },
     {
       "name": "flag_co",
       "category": "Country flag",
+      "keywords": ["Colombia"],
       "size": "16"
     },
     {
       "name": "flag_cy",
       "category": "Country flag",
+      "keywords": ["Cypress"],
       "size": "16"
     },
     {
       "name": "flag_cz",
       "category": "Country flag",
+      "keywords": ["Czech Republic"],
       "size": "16"
     },
     {
       "name": "flag_de",
       "category": "Country flag",
+      "keywords": ["Germany"],
       "size": "16"
     },
     {
       "name": "flag_dk",
       "category": "Country flag",
+      "keywords": ["Denmark"],
       "size": "16"
     },
     {
       "name": "flag_ee",
       "category": "Country flag",
+      "keywords": ["Estonia"],
       "size": "16"
     },
     {
       "name": "flag_es",
       "category": "Country flag",
+      "keywords": ["Spain"],
       "size": "16"
     },
     {
       "name": "flag_fi",
       "category": "Country flag",
+      "keywords": ["Finland"],
       "size": "16"
     },
     {
       "name": "flag_fr",
       "category": "Country flag",
+      "keywords": ["France"],
       "size": "16"
     },
     {
       "name": "flag_gb",
       "category": "Country flag",
+      "keywords": ["Great Britain", "United Kingdom", "UK", "England"],
       "size": "16"
     },
     {
       "name": "flag_gr",
       "category": "Country flag",
+      "keywords": ["Greece"],
       "size": "16"
     },
     {
       "name": "flag_hr",
       "category": "Country flag",
+      "keywords": ["Croatia"],
       "size": "16"
     },
     {
       "name": "flag_hu",
       "category": "Country flag",
+      "keywords": ["Hungary"],
       "size": "16"
     },
     {
       "name": "flag_ie",
       "category": "Country flag",
+      "keywords": ["Ireland"],
       "size": "16"
     },
     {
       "name": "flag_it",
       "category": "Country flag",
+      "keywords": ["Italy"],
       "size": "16"
     },
     {
       "name": "flag_lt",
       "category": "Country flag",
+      "keywords": ["Lithuania"],
       "size": "16"
     },
     {
       "name": "flag_lu",
       "category": "Country flag",
+      "keywords": ["Luxembourg"],
       "size": "16"
     },
     {
       "name": "flag_lv",
       "category": "Country flag",
+      "keywords": ["Latvia"],
       "size": "16"
     },
     {
       "name": "flag_mt",
       "category": "Country flag",
+      "keywords": ["Montenegro"],
       "size": "16"
     },
     {
       "name": "flag_nl",
       "category": "Country flag",
+      "keywords": ["Netherlands"],
       "size": "16"
     },
     {
       "name": "flag_no",
       "category": "Country flag",
+      "keywords": ["Norway"],
       "size": "16"
     },
     {
       "name": "flag_pe",
       "category": "Country flag",
+      "keywords": ["Peru"],
       "size": "16"
     },
     {
       "name": "flag_pl",
       "category": "Country flag",
+      "keywords": ["Poland"],
       "size": "16"
     },
     {
       "name": "flag_pt",
       "category": "Country flag",
+      "keywords": ["Portugal"],
       "size": "16"
     },
     {
       "name": "flag_ro",
       "category": "Country flag",
+      "keywords": ["Romania"],
       "size": "16"
     },
     {
       "name": "flag_se",
       "category": "Country flag",
+      "keywords": ["Sweden"],
       "size": "16"
     },
     {
       "name": "flag_si",
       "category": "Country flag",
+      "keywords": ["Slovenia"],
       "size": "16"
     },
     {
       "name": "flag_sk",
       "category": "Country flag",
-      "size": "16"
-    },
-    {
-      "name": "flag_sl",
-      "category": "Country flag",
+      "keywords": ["Slovakia"],
       "size": "16"
     },
     {
       "name": "flag_us",
       "category": "Country flag",
+      "keywords": ["United States of America", "USA"],
       "size": "16"
+    },
+    {
+      "name": "bluetooth",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "bluetooth",
+      "category": "Device",
+      "size": "16"
+    },
+    {
+      "name": "camera",
+      "category": "Device",
+      "size": "24"
     },
     {
       "name": "card_reader_air",
@@ -927,6 +1050,11 @@
       "size": "24"
     },
     {
+      "name": "fees_summary",
+      "category": "File",
+      "size": "24"
+    },
+    {
       "name": "file",
       "category": "File",
       "size": "24"
@@ -949,6 +1077,11 @@
     {
       "name": "zip_file",
       "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "activate_card",
+      "category": "Finance",
       "size": "24"
     },
     {
@@ -977,12 +1110,27 @@
       "size": "24"
     },
     {
+      "name": "card_in",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "card_out",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
       "name": "cash",
       "category": "Finance",
       "size": "24"
     },
     {
       "name": "cash_stack",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "direct_debit",
       "category": "Finance",
       "size": "24"
     },
@@ -997,6 +1145,16 @@
       "size": "24"
     },
     {
+      "name": "percentage",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "percentage",
+      "category": "Finance",
+      "size": "16"
+    },
+    {
       "name": "transfer_in",
       "category": "Finance",
       "size": "24"
@@ -1007,9 +1165,29 @@
       "size": "24"
     },
     {
+      "name": "alarm",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "area",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "article",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "barcode",
       "category": "Miscellaneous",
       "size": "24"
+    },
+    {
+      "name": "barcode",
+      "category": "Miscellaneous",
+      "size": "16"
     },
     {
       "name": "basket",
@@ -1034,6 +1212,7 @@
     {
       "name": "cafe",
       "category": "Miscellaneous",
+      "keywords": ["restaurant", "coffee"],
       "size": "24"
     },
     {
@@ -1044,7 +1223,17 @@
     {
       "name": "checkmark",
       "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "checkmark",
+      "category": "Miscellaneous",
       "size": "16"
+    },
+    {
+      "name": "cheque",
+      "category": "Miscellaneous",
+      "size": "24"
     },
     {
       "name": "clothing",
@@ -1053,6 +1242,16 @@
     },
     {
       "name": "company",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "cookie_preferences",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "custom_amount",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -1092,6 +1291,16 @@
       "size": "24"
     },
     {
+      "name": "id",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "key",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "legal",
       "category": "Miscellaneous",
       "size": "24"
@@ -1107,12 +1316,12 @@
       "size": "24"
     },
     {
-      "name": "loja",
-      "category": "Product and feature",
+      "name": "mcc",
+      "category": "Miscellaneous",
       "size": "24"
     },
     {
-      "name": "mcc",
+      "name": "meal_voucher",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -1133,6 +1342,16 @@
     },
     {
       "name": "paid_out",
+      "category": "Miscellaneous",
+      "size": "16"
+    },
+    {
+      "name": "placeholder",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "placeholder",
       "category": "Miscellaneous",
       "size": "16"
     },
@@ -1197,7 +1416,17 @@
       "size": "24"
     },
     {
+      "name": "time",
+      "category": "Miscellaneous",
+      "size": "16"
+    },
+    {
       "name": "truck",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "unfavorite",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -1227,6 +1456,16 @@
       "size": "16"
     },
     {
+      "name": "arrow_slanted",
+      "category": "Navigation",
+      "size": "24"
+    },
+    {
+      "name": "arrow_slanted",
+      "category": "Navigation",
+      "size": "16"
+    },
+    {
       "name": "arrow_up",
       "category": "Navigation",
       "size": "24"
@@ -1238,11 +1477,6 @@
     },
     {
       "name": "external_link",
-      "category": "Navigation",
-      "size": "16"
-    },
-    {
-      "name": "arrow_slanted",
       "category": "Navigation",
       "size": "16"
     },
@@ -1344,10 +1578,25 @@
     {
       "name": "transit",
       "category": "Notification",
+      "size": "24"
+    },
+    {
+      "name": "transit",
+      "category": "Notification",
       "size": "16"
     },
     {
       "name": "account",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "accounting",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "apps",
       "category": "Product and feature",
       "size": "24"
     },
@@ -1372,6 +1621,11 @@
       "size": "24"
     },
     {
+      "name": "contact_picker",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
       "name": "discount",
       "category": "Product and feature",
       "size": "24"
@@ -1387,12 +1641,27 @@
       "size": "24"
     },
     {
+      "name": "general_settings",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
       "name": "gift_card",
       "category": "Product and feature",
       "size": "24"
     },
     {
       "name": "home",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "insurance",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "inventory",
       "category": "Product and feature",
       "size": "24"
     },
@@ -1407,12 +1676,27 @@
       "size": "24"
     },
     {
+      "name": "loja",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
       "name": "notification_center",
       "category": "Product and feature",
       "size": "24"
     },
     {
       "name": "online_store",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "online_payments",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "orders",
       "category": "Product and feature",
       "size": "24"
     },
@@ -1428,6 +1712,11 @@
     },
     {
       "name": "payouts",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "payout_settings",
       "category": "Product and feature",
       "size": "24"
     },
@@ -1452,7 +1741,22 @@
       "size": "24"
     },
     {
+      "name": "receipt_attached",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "receipt_missing",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
       "name": "refer",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "refer_a_friend",
       "category": "Product and feature",
       "size": "24"
     },
@@ -1472,12 +1776,32 @@
       "size": "24"
     },
     {
+      "name": "store_editor",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
       "name": "sum_up_card",
       "category": "Product and feature",
       "size": "24"
     },
     {
+      "name": "sum_up_connect",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
       "name": "support",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "support",
+      "category": "Product and feature",
+      "size": "16"
+    },
+    {
+      "name": "tap_to_pay",
       "category": "Product and feature",
       "size": "24"
     },
@@ -1492,7 +1816,17 @@
       "size": "24"
     },
     {
+      "name": "transactions",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
       "name": "virtual_terminal",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "webspace",
       "category": "Product and feature",
       "size": "24"
     },
