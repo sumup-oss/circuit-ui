@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2024, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,38 +19,50 @@ import { ChangeEvent, createRef, useState } from 'react';
 import { render, userEvent, axe } from '../../util/test-utils.js';
 import type { InputElement } from '../Input/index.js';
 
-import { CurrencyInput, CurrencyInputProps } from './CurrencyInput.js';
+import { PercentageInput, PercentageInputProps } from './PercentageInput.js';
 
-// Note: these defaults render a '€' as an input suffix
 const defaultProps = {
   locale: 'de-DE',
-  currency: 'EUR',
-  label: 'Amount',
+  label: 'Discount',
 };
 
-describe('CurrencyInput', () => {
+describe('PercentageInput', () => {
   it('should forward a ref', () => {
     const ref = createRef<InputElement>();
-    const { getByRole } = render(<CurrencyInput {...defaultProps} ref={ref} />);
+    const { getByRole } = render(
+      <PercentageInput {...defaultProps} ref={ref} />,
+    );
     const input = getByRole('textbox');
     expect(ref.current).toBe(input);
   });
 
-  it('should format a en-GB amount correctly', async () => {
+  it('should format an en-GB amount', async () => {
     const { getByRole } = render(
-      <CurrencyInput {...defaultProps} currency="GBP" locale="en-GB" />,
+      <PercentageInput {...defaultProps} locale="en-GB" />,
     );
 
     const input = getByRole('textbox') as HTMLInputElement;
 
-    await userEvent.type(input, '1234.56');
+    await userEvent.type(input, '1234');
 
-    expect(input.value).toBe('1,234.56');
+    expect(input.value).toBe('1,234');
   });
 
-  it('should format a de-DE amount correctly', async () => {
+  it('should format an de-DE amount', async () => {
     const { getByRole } = render(
-      <CurrencyInput {...defaultProps} currency="EUR" locale="de-DE" />,
+      <PercentageInput {...defaultProps} locale="de-DE" />,
+    );
+
+    const input = getByRole('textbox') as HTMLInputElement;
+
+    await userEvent.type(input, '1234');
+
+    expect(input.value).toBe('1.234');
+  });
+
+  it('should format an amount with decimals', async () => {
+    const { getByRole } = render(
+      <PercentageInput {...defaultProps} decimalScale={2} />,
     );
 
     const input = getByRole('textbox') as HTMLInputElement;
@@ -61,10 +73,10 @@ describe('CurrencyInput', () => {
   });
 
   it('should format an amount in a controlled input with an initial numeric value', async () => {
-    const ControlledCurrencyInput = () => {
-      const [value, setValue] = useState<CurrencyInputProps['value']>(1234.5);
+    const ControlledPercentageInput = () => {
+      const [value, setValue] = useState<PercentageInputProps['value']>(1234);
       return (
-        <CurrencyInput
+        <PercentageInput
           {...defaultProps}
           value={value}
           onChange={(e: ChangeEvent<HTMLInputElement & HTMLTextAreaElement>) =>
@@ -73,33 +85,31 @@ describe('CurrencyInput', () => {
         />
       );
     };
-    const { getByRole } = render(<ControlledCurrencyInput />);
+    const { getByRole } = render(<ControlledPercentageInput />);
 
     const input = getByRole('textbox') as HTMLInputElement;
-    expect(input.value).toBe('1.234,5');
+    expect(input.value).toBe('1.234');
 
     await userEvent.clear(input);
-    await userEvent.type(input, '1234,56');
+    await userEvent.type(input, '1234');
 
-    expect(input.value).toBe('1.234,56');
+    expect(input.value).toBe('1.234');
   });
 
   it('should have no accessibility violations', async () => {
-    const { container } = render(<CurrencyInput {...defaultProps} />);
+    const { container } = render(<PercentageInput {...defaultProps} />);
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
 
   describe('Labeling', () => {
-    const EUR_CURRENCY_SYMBOL = '€'; // formatted by `@sumup/intl`
+    const PERCENT_SYMBOL = '%';
     /**
      * Note: further labeling logic is covered by the underlying `Input` component.
      */
     it('should have the currency symbol as part of its accessible description', () => {
-      const { getByRole } = render(<CurrencyInput {...defaultProps} />);
-      expect(getByRole('textbox')).toHaveAccessibleDescription(
-        EUR_CURRENCY_SYMBOL,
-      );
+      const { getByRole } = render(<PercentageInput {...defaultProps} />);
+      expect(getByRole('textbox')).toHaveAccessibleDescription(PERCENT_SYMBOL);
     });
 
     it('should accept a custom description via aria-describedby', () => {
@@ -108,14 +118,14 @@ describe('CurrencyInput', () => {
       const { getByRole } = render(
         <>
           <span id={customDescriptionId}>{customDescription}</span>
-          <CurrencyInput
+          <PercentageInput
             {...defaultProps}
             aria-describedby={customDescriptionId}
           />
         </>,
       );
       expect(getByRole('textbox')).toHaveAccessibleDescription(
-        `${EUR_CURRENCY_SYMBOL} ${customDescription}`,
+        `${PERCENT_SYMBOL} ${customDescription}`,
       );
     });
   });
