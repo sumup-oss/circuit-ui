@@ -1,5 +1,15 @@
 # @sumup/circuit-ui
 
+## 7.8.0
+
+### Minor Changes
+
+- [#2395](https://github.com/sumup-oss/circuit-ui/pull/2395) [`15ea9657`](https://github.com/sumup-oss/circuit-ui/commit/15ea9657aacc123b5611efb7e4c2170927468634) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a PercentageInput component for fractional numeric values.
+
+### Patch Changes
+
+- [#2402](https://github.com/sumup-oss/circuit-ui/pull/2402) [`07c0106e`](https://github.com/sumup-oss/circuit-ui/commit/07c0106ee53a69f033ab5026c7a0a5cda73e1360) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed a bug where users were unable to scroll after a modal was mounted and immediately unmounted.
+
 ## 7.7.4
 
 ### Patch Changes
