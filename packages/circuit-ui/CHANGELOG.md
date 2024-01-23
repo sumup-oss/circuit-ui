@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 8.1.2
+
+### Patch Changes
+
+- [#2403](https://github.com/sumup-oss/circuit-ui/pull/2403) [`d3a85a9`](https://github.com/sumup-oss/circuit-ui/commit/d3a85a93684321b04c363efcd3fbc23631309e9b) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed a bug where users were unable to scroll after a modal was mounted and immediately unmounted.
+
+- [#2391](https://github.com/sumup-oss/circuit-ui/pull/2391) [`9f57d45`](https://github.com/sumup-oss/circuit-ui/commit/9f57d453e962eecf3935a339a6cfb54ff2080b25) Thanks [@connor-baer](https://github.com/connor-baer)! - Resolved deprecation warnings in the Carousel component.
+
 ## 8.1.1
 
 ### Patch Changes
