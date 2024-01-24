@@ -72,7 +72,7 @@
     "jsdom": "^23.2.0",
     "lerna": "^8.0.2",
     "license-checker": "^25.0.1",
-    "prettier-plugin-astro": "0.10.0",
+    "prettier-plugin-astro": "^0.13.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "remark-gfm": "^3.0.1",
