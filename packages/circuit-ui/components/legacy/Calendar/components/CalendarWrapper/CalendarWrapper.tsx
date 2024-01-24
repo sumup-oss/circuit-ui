@@ -175,7 +175,8 @@ const navButtons = (theme: Theme) => css`
     color: var(--cui-fg-normal);
     padding: ${theme.spacings.byte};
     border-radius: ${theme.borderRadius.pill};
-    transition: opacity ${theme.transitions.default},
+    transition:
+      opacity ${theme.transitions.default},
       color ${theme.transitions.default},
       background-color ${theme.transitions.default},
       border-color ${theme.transitions.default};
