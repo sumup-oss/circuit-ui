@@ -30,11 +30,10 @@
     "@remix-run/dev": "^2.4.1",
     "@remix-run/eslint-config": "^2.4.1",
     "@sumup/eslint-plugin-circuit-ui": "^4.0.0",
-    "@sumup/foundry": "^6.2.0",
+    "@sumup/foundry": "^7.0.0",
     "@sumup/stylelint-plugin-circuit-ui": "^1.0.0",
     "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
-    "eslint": "^8.56.0",
     "typescript": "^5.3.3",
     "typescript-plugin-css-modules": "^5.0.2"
   },

@@ -55,7 +55,7 @@
     "@storybook/testing-library": "^0.2.2",
     "@storybook/theming": "^7.6.7",
     "@sumup/eslint-plugin-circuit-ui": "^4.0.0",
-    "@sumup/foundry": "^6.2.0",
+    "@sumup/foundry": "^7.0.0",
     "@sumup/stylelint-plugin-circuit-ui": "^1.0.0",
     "@types/node": "^18.16.19",
     "@vitest/coverage-c8": "^0.33.0",
@@ -85,8 +85,5 @@
     "vite-plugin-turbosnap": "^1.0.2",
     "vitest": "^0.34.6",
     "vitest-github-actions-reporter": "^0.11.1"
-  },
-  "resolutions": {
-    "prettier": "^2.6.2"
   }
 }
