@@ -17,12 +17,13 @@ import { describe, expect, it, vi } from 'vitest';
 import { FC } from 'react';
 import { IconProps, Plus } from '@sumup/icons';
 
-import { ClickEvent } from '../../../../types/events.js';
+import type { ClickEvent } from '../../../../types/events.js';
 import {
   render,
   axe,
   RenderFn,
   userEvent,
+  screen,
 } from '../../../../util/test-utils.js';
 
 import { PrimaryLink, PrimaryLinkProps } from './PrimaryLink.js';
@@ -43,31 +44,31 @@ describe('PrimaryLink', () => {
   };
 
   it('should render as active', () => {
-    const { getByRole } = renderPrimaryLink(render, {
+    renderPrimaryLink(render, {
       ...baseProps,
       isActive: true,
     });
-    expect(getByRole('link')).toHaveAttribute('aria-current', 'page');
+    expect(screen.getByRole('link')).toHaveAttribute('aria-current', 'page');
   });
 
   it('should render with an active icon', () => {
-    const { getByTestId } = renderPrimaryLink(render, {
+    renderPrimaryLink(render, {
       ...baseProps,
       activeIcon: () => <div data-testid="active-icon" />,
       isActive: true,
     });
-    expect(getByTestId('active-icon')).toBeVisible();
+    expect(screen.getByTestId('active-icon')).toBeVisible();
   });
 
   it.todo('should render with an external icon');
 
   it('should render with a suffix icon', () => {
-    const { getByTestId } = renderPrimaryLink(render, {
+    renderPrimaryLink(render, {
       ...baseProps,
       // eslint-disable-next-line react/display-name
       suffix: (props) => <div {...props} data-testid="suffix" />,
     });
-    expect(getByTestId('suffix')).toBeVisible();
+    expect(screen.getByTestId('suffix')).toBeVisible();
   });
 
   it('should call the onClick handler when clicked', async () => {
@@ -77,9 +78,9 @@ describe('PrimaryLink', () => {
         event.preventDefault();
       }),
     };
-    const { getByRole } = renderPrimaryLink(render, props);
+    renderPrimaryLink(render, props);
 
-    await userEvent.click(getByRole('link'));
+    await userEvent.click(screen.getByRole('link'));
 
     expect(props.onClick).toHaveBeenCalledTimes(1);
   });

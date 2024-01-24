@@ -49,14 +49,14 @@ describe('ProfileMenu', () => {
   };
 
   it('should render with a profile picture', () => {
-    const { getByRole } = render(
+    render(
       <ProfileMenu
         {...baseProps}
         user={{ ...baseProps.user, avatar: { src: 'profile.png', alt: '' } }}
       />,
     );
 
-    expect(getByRole('img')).toBeVisible();
+    expect(screen.getByRole('img')).toBeVisible();
   });
 
   it('should call the onToggle callback with the popover open state', async () => {

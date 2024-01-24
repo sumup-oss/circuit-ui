@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { render, act, userEvent } from '../../util/test-utils.js';
+import { render, act, userEvent, screen } from '../../util/test-utils.js';
 
 import { useFocusList } from './useFocusList.js';
 
@@ -36,9 +36,9 @@ describe('useFocusList', () => {
 
   describe('when pressing the arrow up key', () => {
     it('should focus the previous element when pressing the arrow down key', async () => {
-      const { getByTestId } = render(<MockComponent />);
+      render(<MockComponent />);
 
-      const lastElement = getByTestId('wrapper')
+      const lastElement = screen.getByTestId('wrapper')
         .lastElementChild as HTMLElement;
 
       act(() => {
@@ -53,9 +53,9 @@ describe('useFocusList', () => {
     });
 
     it('should focus the last element when at the beginning', async () => {
-      const { getByTestId } = render(<MockComponent />);
+      render(<MockComponent />);
 
-      const firstElement = getByTestId('wrapper')
+      const firstElement = screen.getByTestId('wrapper')
         .firstElementChild as HTMLElement;
 
       act(() => {
@@ -72,9 +72,9 @@ describe('useFocusList', () => {
 
   describe('when pressing the arrow down key', () => {
     it('should focus the next element', async () => {
-      const { getByTestId } = render(<MockComponent />);
+      render(<MockComponent />);
 
-      const firstElement = getByTestId('wrapper')
+      const firstElement = screen.getByTestId('wrapper')
         .firstElementChild as HTMLElement;
 
       act(() => {
@@ -89,9 +89,9 @@ describe('useFocusList', () => {
     });
 
     it('should focus the first element when at the end', async () => {
-      const { getByTestId } = render(<MockComponent />);
+      render(<MockComponent />);
 
-      const lastElement = getByTestId('wrapper')
+      const lastElement = screen.getByTestId('wrapper')
         .lastElementChild as HTMLElement;
 
       act(() => {

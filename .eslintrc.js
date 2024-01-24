@@ -26,6 +26,20 @@ module.exports = require('@sumup/foundry/eslint')({
   },
   overrides: [
     {
+      files: [
+        '**/*.spec.*',
+        '**/jest*',
+        '**/setupTests.*',
+        '**/test-utils.*',
+        '**/*Fixtures.*',
+        '**/__fixtures__/**/*',
+        '**/__mocks__/**/*',
+      ],
+      rules: {
+        'testing-library/no-container': 'warn',
+      },
+    },
+    {
       files: ['**/*.stories.*'],
       rules: {
         'import/no-relative-packages': 'off',

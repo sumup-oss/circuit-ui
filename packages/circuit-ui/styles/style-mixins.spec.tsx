@@ -234,7 +234,8 @@ describe('Style helpers', () => {
         `
         "
             outline: 0;
-            box-shadow: 0 0 0 2px var(--cui-bg-normal),
+            box-shadow:
+              0 0 0 2px var(--cui-bg-normal),
               0 0 0 4px var(--cui-border-focus);
 
             &::-moz-focus-inner {
@@ -270,7 +271,8 @@ describe('Style helpers', () => {
         "
             &:focus {
               outline: 0;
-              box-shadow: 0 0 0 2px var(--cui-bg-normal),
+              box-shadow:
+                0 0 0 2px var(--cui-bg-normal),
                 0 0 0 4px var(--cui-border-focus);
 
               &::-moz-focus-inner {

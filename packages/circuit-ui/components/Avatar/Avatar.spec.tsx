@@ -51,8 +51,8 @@ describe('Avatar', () => {
     });
 
     it('should have role=img and an accessible name', () => {
-      const { getByRole } = renderAvatar({ alt: altText });
-      const avatarEl = getByRole('img');
+      renderAvatar({ alt: altText });
+      const avatarEl = screen.getByRole('img');
       expect(avatarEl).toHaveAccessibleName(altText);
     });
   });
@@ -65,9 +65,9 @@ describe('Avatar', () => {
     });
 
     it('should not be in the accessibility tree', () => {
-      const { queryByRole, container } = renderAvatar();
+      const { container } = renderAvatar();
 
-      const avatarWithAlternativeText = queryByRole('img');
+      const avatarWithAlternativeText = screen.queryByRole('img');
       expect(avatarWithAlternativeText).not.toBeInTheDocument();
 
       const avatarEl = container.querySelector('[aria-hidden=true]');

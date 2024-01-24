@@ -36,6 +36,7 @@ describe('IconButton', () => {
    */
   it('should render an icon passed as children', () => {
     render(
+      // eslint-disable-next-line @sumup/circuit-ui/no-renamed-props
       <IconButton label="Close">
         <svg data-testid="icon" />
       </IconButton>,

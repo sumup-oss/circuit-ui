@@ -72,18 +72,18 @@ describe('NotificationModal', () => {
   });
 
   it('should render the modal', async () => {
-    const { findByRole } = renderNotificationModal(baseNotificationModal);
+    renderNotificationModal(baseNotificationModal);
 
-    const modalEl = await findByRole('dialog');
+    const modalEl = await screen.findByRole('dialog');
 
     expect(modalEl).toBeVisible();
   });
 
   describe('business logic', () => {
     it('should close the modal when clicking the close button', async () => {
-      const { findByRole } = renderNotificationModal(baseNotificationModal);
+      renderNotificationModal(baseNotificationModal);
 
-      const closeButton = await findByRole('button', {
+      const closeButton = await screen.findByRole('button', {
         name: baseNotificationModal.closeButtonLabel,
       });
 
@@ -101,9 +101,9 @@ describe('NotificationModal', () => {
     });
 
     it('should perform an action and close the modal when clicking an action button', async () => {
-      const { findByRole } = renderNotificationModal(baseNotificationModal);
+      renderNotificationModal(baseNotificationModal);
 
-      const actionButton = await findByRole('button', {
+      const actionButton = await screen.findByRole('button', {
         name: baseNotificationModal.actions.primary.children,
       });
 

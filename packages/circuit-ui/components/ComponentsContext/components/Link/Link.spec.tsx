@@ -16,7 +16,7 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe } from '../../../../util/test-utils.js';
+import { render, axe, screen } from '../../../../util/test-utils.js';
 
 import { Link } from './Link.js';
 
@@ -47,8 +47,8 @@ describe('Link', () => {
 
   describe('styles', () => {
     it('should render with the attributes it receives', () => {
-      const { getByTestId } = render(<Link {...defaultProps} />);
-      const linkEl = getByTestId('link');
+      render(<Link {...defaultProps} />);
+      const linkEl = screen.getByTestId('link');
 
       expect(linkEl).toHaveAttribute('href', defaultProps.href);
       expect(linkEl).toHaveAttribute('target', defaultProps.target);

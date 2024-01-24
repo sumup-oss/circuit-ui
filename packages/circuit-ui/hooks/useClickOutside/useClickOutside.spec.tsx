@@ -16,7 +16,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { useRef, useState } from 'react';
 
-import { render, userEvent } from '../../util/test-utils.js';
+import { render, userEvent, screen } from '../../util/test-utils.js';
 
 import { useClickOutside } from './useClickOutside.js';
 
@@ -39,11 +39,9 @@ describe('useClickOutside', () => {
 
   it('should not call the callback when clicking (inside) the element', async () => {
     const onClickOutside = vi.fn();
-    const { getByRole } = render(
-      <MockComponent onClickOutside={onClickOutside} />,
-    );
+    render(<MockComponent onClickOutside={onClickOutside} />);
 
-    await userEvent.click(getByRole('button'));
+    await userEvent.click(screen.getByRole('button'));
 
     expect(onClickOutside).not.toHaveBeenCalled();
   });
@@ -68,11 +66,9 @@ describe('useClickOutside', () => {
     }
 
     const onClickOutside = vi.fn();
-    const { getByRole } = render(
-      <MockRemoveComponent onClickOutside={onClickOutside} />,
-    );
+    render(<MockRemoveComponent onClickOutside={onClickOutside} />);
 
-    await userEvent.click(getByRole('button'));
+    await userEvent.click(screen.getByRole('button'));
 
     expect(onClickOutside).not.toHaveBeenCalled();
   });
