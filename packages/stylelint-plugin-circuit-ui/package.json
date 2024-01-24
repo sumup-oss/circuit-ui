@@ -33,6 +33,6 @@
   },
   "peerDependencies": {
     "@sumup/design-tokens": ">=5.3.0",
-    "stylelint": "^15.10.2"
+    "stylelint": "^16.2.0"
   }
 }
