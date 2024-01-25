@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 7.8.1
+
+### Patch Changes
+
+- [#2410](https://github.com/sumup-oss/circuit-ui/pull/2410) [`f8713d6e`](https://github.com/sumup-oss/circuit-ui/commit/f8713d6e3541ec35d37538d7cb8bc4aa03926d82) Thanks [@oalpatov](https://github.com/oalpatov)! - Fixed a bug where users were unable to scroll after the ModalProvider was mounted and immediately unmounted.
+
 ## 7.8.0
 
 ### Minor Changes
