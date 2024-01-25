@@ -81,7 +81,6 @@ const Icons = () => {
     { label: '16', value: '16' },
     { label: '24', value: '24' },
     { label: '32', value: '32' },
-    { label: '48', value: '48' },
   ];
 
   const colorOptions = [
