@@ -1107,6 +1107,11 @@
       "size": "24"
     },
     {
+      "name": "loja",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
       "name": "mcc",
       "category": "Miscellaneous",
       "size": "24"
