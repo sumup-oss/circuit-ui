@@ -129,14 +129,14 @@ export function ModalProvider<TProps extends BaseModalProps>({
 
   const activeModal = modals[modals.length - 1];
 
-  const cleanUp = useCallback(() => {
+  useEffect(() => {
     // // Clean up after react-modal in case it fails to do so itself
     // // https://github.com/reactjs/react-modal/issues/888#issuecomment-1158061329
-    document.documentElement.classList.remove(HTML_OPEN_CLASS_NAME);
-    getAppElement()?.removeAttribute('aria-hidden');
-  }, []);
+    const cleanUp = () => {
+      document.documentElement.classList.remove(HTML_OPEN_CLASS_NAME);
+      getAppElement()?.removeAttribute('aria-hidden');
+    };
 
-  useEffect(() => {
     if (!activeModal) {
       cleanUp();
       return undefined;
