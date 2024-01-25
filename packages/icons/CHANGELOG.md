@@ -1,5 +1,15 @@
 # @sumup/icons
 
+## 3.4.0
+
+### Minor Changes
+
+- [#2375](https://github.com/sumup-oss/circuit-ui/pull/2375) [`549ddbe`](https://github.com/sumup-oss/circuit-ui/commit/549ddbe3f6a45036426e446cefafed9928acc3bf) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the `Account` (24px), `Discount` (24px), `Payouts` (24px), `QrCode` (24px), `Reports` (24px), `Sales` (24px), `Taxes` (24px), and `Twitter` (24px) icons.
+
+- [#2375](https://github.com/sumup-oss/circuit-ui/pull/2375) [`549ddbe`](https://github.com/sumup-oss/circuit-ui/commit/549ddbe3f6a45036426e446cefafed9928acc3bf) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the `Accounting` (24px), `ActivateCard` (24px), `Add` (24px), `Alarm` (24px), `AlternativePaymentMethod` (32px), `Apps` (24px), `Area` (24px), `ArrowSlanted` (24px), `Article` (24px), `Barcode` (16px), `Bluetooth` (16px & 24px), `Callback` (24px), `Camera` (24px), `CardIn` (24px), `CardOut` (24px), `Checkmark` (24px), `Cheque` (24px), `ContactPicker` (24px), `CookiePreferences` (24px), `CustomAmount` (24px), `DirectDebit` (24px), `FeesSummary` (24px), `FilterApplied` (16px & 24px), `FlashOff` (24px), `Flashlight` (24px), `Freeze` (24px), `GeneralSettings` (24px), `Id` (24px), `Insurance` (24px), `Inventory` (24px), `Key` (24px), `Loja` (24px), `MealVoucher` (24px), `OnlinePayments` (24px), `Orders` (24px), `PayPal` (24px), `PayoutSettings` (24px), `Percentage` (16px & 24px), `Random` (24px), `ReceiptAttached` (24px), `ReceiptMissing` (24px), `ReferAFriend` (24px), `Send` (16px), `Sort` (16px & 24px), `StoreEditor` (24px), `SumUpConnect` (24px), `Support` (16px), `TapToPay` (24px), `Time` (16px), `Transactions` (24px), `Transit` (24px), `Unfavorite` (24px), `View` (16px), `Webspace` (24px), `WhatsApp` (24px), and `WireTransfer` (24px) icons.
+
+- [#2375](https://github.com/sumup-oss/circuit-ui/pull/2375) [`549ddbe`](https://github.com/sumup-oss/circuit-ui/commit/549ddbe3f6a45036426e446cefafed9928acc3bf) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the incorrect `FlagSl` icon. Use the `FlagSi` icon instead.
+
 ## 3.3.0
 
 ### Minor Changes
