@@ -187,11 +187,6 @@
       "size": "24"
     },
     {
-      "name": "manage",
-      "category": "Action",
-      "size": "24"
-    },
-    {
       "name": "minus",
       "category": "Action",
       "size": "24"
@@ -1342,16 +1337,6 @@
     },
     {
       "name": "paid_out",
-      "category": "Miscellaneous",
-      "size": "16"
-    },
-    {
-      "name": "placeholder",
-      "category": "Miscellaneous",
-      "size": "24"
-    },
-    {
-      "name": "placeholder",
       "category": "Miscellaneous",
       "size": "16"
     },
