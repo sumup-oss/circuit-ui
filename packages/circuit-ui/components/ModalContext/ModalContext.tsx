@@ -129,12 +129,16 @@ export function ModalProvider<TProps extends BaseModalProps>({
 
   const activeModal = modals[modals.length - 1];
 
+  const cleanUp = useCallback(() => {
+    // // Clean up after react-modal in case it fails to do so itself
+    // // https://github.com/reactjs/react-modal/issues/888#issuecomment-1158061329
+    document.documentElement.classList.remove(HTML_OPEN_CLASS_NAME);
+    getAppElement()?.removeAttribute('aria-hidden');
+  }, []);
+
   useEffect(() => {
     if (!activeModal) {
-      // Clean up after react-modal in case it fails to do so itself
-      // https://github.com/reactjs/react-modal/issues/888#issuecomment-1158061329
-      document.documentElement.classList.remove(HTML_OPEN_CLASS_NAME);
-      getAppElement()?.removeAttribute('aria-hidden');
+      cleanUp();
       return undefined;
     }
 
@@ -145,6 +149,7 @@ export function ModalProvider<TProps extends BaseModalProps>({
     window.addEventListener('popstate', popModal);
 
     return () => {
+      cleanUp();
       window.removeEventListener('popstate', popModal);
     };
   }, [activeModal, removeModal]);
