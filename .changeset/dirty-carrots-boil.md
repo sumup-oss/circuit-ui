@@ -2,4 +2,4 @@
 '@sumup/icons': minor
 ---
 
-updated `Reports` icon
+Changed the shape of the `Reports` icon.
