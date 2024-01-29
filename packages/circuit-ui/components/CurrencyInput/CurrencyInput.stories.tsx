@@ -28,10 +28,11 @@ const baseArgs = {
   validationHint: 'Excluding VAT',
   currency: 'EUR',
   locale: 'de-DE',
-  style: { maxWidth: '250px' },
 };
 
-export const Base = (args: CurrencyInputProps) => <CurrencyInput {...args} />;
+export const Base = (args: CurrencyInputProps) => (
+  <CurrencyInput {...args} style={{ maxWidth: '250px' }} />
+);
 
 Base.args = baseArgs;
 
@@ -39,12 +40,14 @@ export const Currencies = (args: CurrencyInputProps) => (
   <Stack>
     <CurrencyInput
       {...args}
+      style={{ maxWidth: '250px' }}
       label="Amount (pt-BR, BRL)"
       currency="BRL"
       locale="pt-BR"
     />
     <CurrencyInput
       {...args}
+      style={{ maxWidth: '250px' }}
       label="Amount (pt-BR, EUR)"
       currency="EUR"
       locale="pt-BR"
@@ -58,12 +61,14 @@ export const Locales = (args: CurrencyInputProps) => (
   <Stack>
     <CurrencyInput
       {...args}
+      style={{ maxWidth: '250px' }}
       label="Amount (de-DE, EUR)"
       currency="EUR"
       locale="de-DE"
     />
     <CurrencyInput
       {...args}
+      style={{ maxWidth: '250px' }}
       label="Amount (en-IE, EUR)"
       currency="EUR"
       locale="en-IE"
