@@ -16,11 +16,12 @@
 import {
   createContext,
   useCallback,
-  ReactNode,
   useMemo,
   useState,
+  type ReactNode,
+  type HTMLAttributes,
 } from 'react';
-import ReactModal, { Props as ReactModalProps } from 'react-modal';
+import ReactModal, { type Props as ReactModalProps } from 'react-modal';
 
 import { useMedia } from '../../hooks/useMedia/index.js';
 import { useStack, StackItem } from '../../hooks/useStack/index.js';
@@ -29,7 +30,7 @@ import { warn } from '../../util/logger.js';
 import { clsx } from '../../styles/clsx.js';
 import { useLatest } from '../../hooks/useLatest/useLatest.js';
 
-import { SidePanel, SidePanelProps } from './SidePanel.js';
+import { SidePanel, type SidePanelProps } from './SidePanel.js';
 import { TRANSITION_DURATION } from './constants.js';
 import type { SidePanelHookProps } from './useSidePanel.js';
 import classes from './SidePanelContext.module.css';
@@ -102,7 +103,7 @@ export const SidePanelContext = createContext<SidePanelContextValue>({
   transitionDuration: TRANSITION_DURATION,
 });
 
-export interface SidePanelProviderProps {
+export interface SidePanelProviderProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * The SidePanelProvider should wrap your entire primary content,
    * which will be resized when the side panel is opened.
@@ -110,7 +111,10 @@ export interface SidePanelProviderProps {
   children: ReactNode;
 }
 
-export function SidePanelProvider({ children }: SidePanelProviderProps) {
+export function SidePanelProvider({
+  children,
+  ...props
+}: SidePanelProviderProps) {
   const isMobile = useMedia('(max-width: 767px)');
   const [sidePanels, dispatch] = useStack<SidePanelContextItem>();
   const [isPrimaryContentResized, setIsPrimaryContentResized] = useState(false);
@@ -235,9 +239,11 @@ export function SidePanelProvider({ children }: SidePanelProviderProps) {
   return (
     <SidePanelContext.Provider value={context}>
       <div
+        {...props}
         className={clsx(
           classes.base,
           !isMobile && isPrimaryContentResized && classes.resized,
+          props.className,
         )}
       >
         {children}

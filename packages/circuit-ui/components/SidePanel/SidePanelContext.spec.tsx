@@ -135,6 +135,17 @@ describe('SidePanelContext', () => {
       <button onClick={() => hookFn({ group, ...props })}>Update panel</button>
     );
 
+    it('should merge a custom class name with the default ones', () => {
+      const className = 'foo';
+      const { container } = render(
+        <SidePanelProvider className={className}>
+          <span />
+        </SidePanelProvider>,
+      );
+      const button = container.querySelector('div');
+      expect(button?.className).toContain(className);
+    });
+
     describe('setSidePanel', () => {
       it('should open a side panel', async () => {
         const Trigger = () => {
