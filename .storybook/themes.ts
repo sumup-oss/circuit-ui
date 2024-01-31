@@ -5,7 +5,7 @@ const brand = {
   brandTitle: 'Circuit UI',
   brandUrl: 'https://github.com/sumup-oss/circuit-ui',
   fontBase:
-    'aktiv-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    'aktiv-grotesk, Helvetica, Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
 };
 
 export const light = create({
