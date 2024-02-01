@@ -7,7 +7,7 @@ export const withThemeProvider: Decorator = (Story, context) => {
   const theme = context.parameters.theme || context.globals.theme;
 
   useEffect(() => {
-    document.documentElement.dataset.theme = theme;
+    document.documentElement.dataset.colorScheme = theme;
   }, [theme]);
 
   return (

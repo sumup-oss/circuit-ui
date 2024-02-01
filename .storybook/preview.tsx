@@ -1,4 +1,4 @@
-import '@sumup/design-tokens/light.css';
+import '@sumup/design-tokens/dynamic.css';
 import '../packages/circuit-ui/styles/base.css';
 
 import { light, components } from './themes';
@@ -48,29 +48,33 @@ export const parameters = {
   docs: { theme: light, components, container: DocsContainer },
 };
 
-// TODO: Re-enable once a dark theme exists
-// export const globalTypes = {
-//   theme: {
-//     name: 'Theme',
-//     description: 'Global theme for components',
-//     defaultValue: 'light',
-//     toolbar: {
-//       title: 'Theme',
-//       icon: 'paintbrush',
-//       items: [
-//         {
-//           title: 'Light',
-//           value: 'light',
-//           icon: 'circle',
-//         },
-//         {
-//           title: 'Dark (WIP)',
-//           value: 'dark',
-//           icon: 'circlehollow',
-//         },
-//       ],
-//     },
-//   },
-// };
+export const globalTypes = {
+  theme: {
+    name: 'Color Scheme',
+    description: 'Global theme for components',
+    defaultValue: 'system',
+    toolbar: {
+      title: 'Color Scheme',
+      icon: 'paintbrush',
+      items: [
+        {
+          title: 'Match system',
+          value: 'system',
+          icon: 'mirror',
+        },
+        {
+          title: 'Light',
+          value: 'light',
+          icon: 'circle',
+        },
+        {
+          title: 'Dark (WIP)',
+          value: 'dark',
+          icon: 'circlehollow',
+        },
+      ],
+    },
+  },
+};
 
 export const decorators = [withThemeProvider, withUnmountWhenHidden];
