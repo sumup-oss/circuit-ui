@@ -38,9 +38,9 @@
     "@babel/preset-env": "^7.23.7",
     "@babel/preset-react": "^7.23.3",
     "@types/babel__core": "^7.20.5",
-    "@types/prettier": "^2.7.3",
+    "@types/prettier": "^3.0.0",
     "babel-plugin-inline-react-svg": "^2.0.2",
-    "prettier": "^2.8.8",
+    "prettier": "^3.2.4",
     "tsx": "^4.7.0",
     "typescript": "^5.3.3"
   },
