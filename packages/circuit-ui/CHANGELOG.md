@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.3.0
+
+### Minor Changes
+
+- [#2414](https://github.com/sumup-oss/circuit-ui/pull/2414) [`5d7a92f`](https://github.com/sumup-oss/circuit-ui/commit/5d7a92f45c2475e1b9b705d2e2c349e5f9969437) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a minimum height to the SidePanelProvider to allow its children to be vertically centered.
+
 ## 8.2.0
 
 ### Minor Changes
