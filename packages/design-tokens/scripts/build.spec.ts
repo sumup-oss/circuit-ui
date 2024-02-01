@@ -18,41 +18,88 @@ import { describe, it, expect } from 'vitest';
 import type { Token } from '../types/index.js';
 
 import {
-  validateTokens,
+  validateTheme,
   createCSSCustomProperties,
   createStyles,
 } from './build.js';
 
 describe('build', () => {
-  describe('validateTokens', () => {
-    it('should throw an error when required tokens are missing', () => {
-      const tokens = [
+  it('should throw an error no tokens are globally defined', () => {
+    const theme = {
+      name: 'test',
+      groups: [
         {
-          name: '--cui-bg-normal',
-          description: 'Use as normal background color in any given interface',
-          value: '#00f2b840',
-          type: 'color',
+          colorScheme: 'light' as const,
+          selectors: ['body'],
+          tokens: [
+            {
+              name: '--cui-bg-normal',
+              description:
+                'Use as normal background color in any given interface',
+              value: '#00f2b840',
+              type: 'color',
+            },
+          ] as Token[],
         },
-      ] as Token[];
+      ],
+    };
 
-      const actual = () => validateTokens(tokens);
+    const actual = () => validateTheme(theme);
+
+    expect(actual).toThrow(
+      'The "test" theme does not define any global tokens. Add them to the ":root" selector.',
+    );
+  });
+
+  describe('validateTheme', () => {
+    it('should throw an error when required tokens are not globally defined', () => {
+      const theme = {
+        name: 'test',
+        groups: [
+          {
+            colorScheme: 'light' as const,
+            selectors: [':root'],
+            tokens: [
+              {
+                name: '--cui-bg-normal',
+                description:
+                  'Use as normal background color in any given interface',
+                value: '#00f2b840',
+                type: 'color',
+              },
+            ] as Token[],
+          },
+        ],
+      };
+
+      const actual = () => validateTheme(theme);
 
       expect(actual).toThrow(
-        'The theme is missing the required "--cui-bg-normal-hovered" token.',
+        'The "test" theme does not globally define the required "--cui-bg-normal-hovered" token. Add it to the ":root" selector.',
       );
     });
 
     it('should throw an error when a token does not match the expected type', () => {
-      const tokens = [
-        {
-          name: '--cui-bg-normal',
-          description: 'Use as normal background color in any given interface',
-          value: '#00f2b840',
-          type: 'spacing',
-        },
-      ] as unknown as Token[];
+      const theme = {
+        name: 'test',
+        groups: [
+          {
+            colorScheme: 'light' as const,
+            selectors: [':root'],
+            tokens: [
+              {
+                name: '--cui-bg-normal',
+                description:
+                  'Use as normal background color in any given interface',
+                value: '#00f2b840',
+                type: 'spacing',
+              },
+            ] as unknown as Token[],
+          },
+        ],
+      };
 
-      const actual = () => validateTokens(tokens);
+      const actual = () => validateTheme(theme);
 
       expect(actual).toThrow(
         'The "--cui-bg-normal" token does not match the expected type. Expected "color". Received "spacing."',
@@ -62,7 +109,6 @@ describe('build', () => {
 
   describe('createStyles', () => {
     const theme = {
-      name: 'test',
       tokens: [
         {
           name: '--cui-bg-normal',
@@ -71,15 +117,33 @@ describe('build', () => {
           type: 'color',
         },
       ] as Token[],
-      selector: ':root',
-      colorScheme: 'light',
-    } as const;
+      selectors: [':root'],
+      colorScheme: 'light' as const,
+    };
 
     it('should create CSS styles for the theme', () => {
       const actual = createStyles(theme);
 
       expect(actual).toMatchInlineSnapshot(
-        '":root { color-scheme: light; /* Use as normal background color in any given interface */ --cui-bg-normal: #00f2b840; }"',
+        `
+        ":root {
+            color-scheme: light;
+            /* Use as normal background color in any given interface */ --cui-bg-normal: #00f2b840;
+          }"
+      `,
+      );
+    });
+
+    it('should create CSS styles for the theme', () => {
+      const actual = createStyles(theme);
+
+      expect(actual).toMatchInlineSnapshot(
+        `
+        ":root {
+            color-scheme: light;
+            /* Use as normal background color in any given interface */ --cui-bg-normal: #00f2b840;
+          }"
+      `,
       );
     });
   });
