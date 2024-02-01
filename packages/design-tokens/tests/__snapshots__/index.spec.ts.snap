@@ -28,7 +28,7 @@ exports[`Themes > light > should match the snapshot 1`] = `
     "untilTera": "(max-width: 1279px)",
   },
   "fontStack": {
-    "default": "aktiv-grotesk, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", Roboto, Helvetica, Arial, sans-serif, \\"Apple Color Emoji\\", \\"Segoe UI Emoji\\", \\"Segoe UI Symbol\\"",
+    "default": "aktiv-grotesk, Helvetica, Arial, system-ui, sans-serif, \\"Segoe UI\\", Roboto, \\"Apple Color Emoji\\", \\"Segoe UI Emoji\\", \\"Segoe UI Symbol\\"",
     "mono": "Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace",
   },
   "fontWeight": {
