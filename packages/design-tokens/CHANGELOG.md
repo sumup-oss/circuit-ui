@@ -1,5 +1,11 @@
 # @sumup/design-tokens
 
+## 6.3.0
+
+### Minor Changes
+
+- [#2417](https://github.com/sumup-oss/circuit-ui/pull/2417) [`1dba5d54`](https://github.com/sumup-oss/circuit-ui/commit/1dba5d54f70a706ace3dc8536cf1a06a2512e257) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the order of the default font stack to prefer web safe fonts over system fonts. This provides a more consistent user experience across platforms, reduces layout shift when switching to SumUp's brand font, Aktiv Grotesk, and works around a (supposedly fixed) [Chrome bug](https://www.bram.us/2020/04/24/chrome-vs-blinkmacsystemfont-a-workaround/).
+
 ## 6.2.0
 
 ### Minor Changes
