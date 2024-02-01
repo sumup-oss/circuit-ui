@@ -118,7 +118,7 @@ export const typography = {
 
 export const fontStack: FontStack = {
   default:
-    'aktiv-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    'aktiv-grotesk, Helvetica, Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
   mono: 'Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace',
 };
 
