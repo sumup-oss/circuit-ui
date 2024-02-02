@@ -5,6 +5,7 @@ import { light, components } from './themes';
 import { withThemeProvider } from './decorators/withThemeProvider';
 import { withUnmountWhenHidden } from './decorators/withUnmountWhenHidden';
 import { DocsContainer } from './components';
+import { modes } from './modes';
 
 export const parameters = {
   layout: 'centered',
@@ -15,6 +16,12 @@ export const parameters = {
       { name: 'v6', url: 'https://circuit-v6.sumup-vercel.app' },
       { name: 'v5', url: 'https://circuit-v5.sumup-vercel.app' },
     ],
+  },
+  chromatic: {
+    modes: {
+      light: modes.light,
+      dark: modes.dark,
+    },
   },
   viewport: {
     viewports: {
