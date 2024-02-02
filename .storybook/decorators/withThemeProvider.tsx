@@ -3,12 +3,34 @@ import { ThemeProvider } from '@emotion/react';
 import type { Decorator } from '@storybook/react';
 import { light } from '@sumup/design-tokens';
 
+function setColorScheme(colorScheme: 'light' | 'dark') {
+  document.documentElement.dataset.colorScheme = colorScheme;
+}
+
 export const withThemeProvider: Decorator = (Story, context) => {
-  const theme = context.parameters.theme || context.globals.theme;
+  const colorScheme =
+    context.parameters.colorScheme || context.globals.colorScheme;
 
   useEffect(() => {
-    document.documentElement.dataset.colorScheme = theme;
-  }, [theme]);
+    if (colorScheme !== 'system') {
+      setColorScheme(colorScheme);
+      return undefined;
+    }
+
+    const query = window.matchMedia('(prefers-color-scheme: dark)');
+
+    setColorScheme(query.matches ? 'dark' : 'light');
+
+    const handleChange = (event: MediaQueryListEvent) => {
+      setColorScheme(event.matches ? 'dark' : 'light');
+    };
+
+    query.addEventListener('change', handleChange);
+
+    return () => {
+      query.removeEventListener('change', handleChange);
+    };
+  }, [colorScheme]);
 
   return (
     <ThemeProvider theme={light}>

@@ -49,7 +49,7 @@ export const parameters = {
 };
 
 export const globalTypes = {
-  theme: {
+  colorScheme: {
     name: 'Color Scheme',
     description: 'Global theme for components',
     defaultValue: 'system',
@@ -65,12 +65,12 @@ export const globalTypes = {
         {
           title: 'Light',
           value: 'light',
-          icon: 'circle',
+          icon: 'circlehollow',
         },
         {
           title: 'Dark (WIP)',
           value: 'dark',
-          icon: 'circlehollow',
+          icon: 'circle',
         },
       ],
     },

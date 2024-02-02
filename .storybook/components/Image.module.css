@@ -1,0 +1,13 @@
+.dark {
+  display: none;
+}
+
+/* Show dark image in dark mode */
+[data-color-scheme="dark"] .dark {
+  display: block;
+}
+
+/* Hide light image in dark mode when dark image is present */
+[data-color-scheme="dark"] .dark + .light {
+  display: none;
+}
