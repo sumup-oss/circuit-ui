@@ -1,10 +1,11 @@
-import '@sumup/design-tokens/light.css';
+import '@sumup/design-tokens/dynamic.css';
 import '../packages/circuit-ui/styles/base.css';
 
 import { light, components } from './themes';
 import { withThemeProvider } from './decorators/withThemeProvider';
 import { withUnmountWhenHidden } from './decorators/withUnmountWhenHidden';
 import { DocsContainer } from './components';
+import { modes } from './modes';
 
 export const parameters = {
   layout: 'centered',
@@ -15,6 +16,12 @@ export const parameters = {
       { name: 'v6', url: 'https://circuit-v6.sumup-vercel.app' },
       { name: 'v5', url: 'https://circuit-v5.sumup-vercel.app' },
     ],
+  },
+  chromatic: {
+    modes: {
+      light: modes.light,
+      dark: modes.dark,
+    },
   },
   viewport: {
     viewports: {
@@ -48,29 +55,33 @@ export const parameters = {
   docs: { theme: light, components, container: DocsContainer },
 };
 
-// TODO: Re-enable once a dark theme exists
-// export const globalTypes = {
-//   theme: {
-//     name: 'Theme',
-//     description: 'Global theme for components',
-//     defaultValue: 'light',
-//     toolbar: {
-//       title: 'Theme',
-//       icon: 'paintbrush',
-//       items: [
-//         {
-//           title: 'Light',
-//           value: 'light',
-//           icon: 'circle',
-//         },
-//         {
-//           title: 'Dark (WIP)',
-//           value: 'dark',
-//           icon: 'circlehollow',
-//         },
-//       ],
-//     },
-//   },
-// };
+export const globalTypes = {
+  colorScheme: {
+    name: 'Color Scheme',
+    description: 'Global theme for components',
+    defaultValue: 'system',
+    toolbar: {
+      title: 'Color Scheme',
+      icon: 'paintbrush',
+      items: [
+        {
+          title: 'Match system',
+          value: 'system',
+          icon: 'mirror',
+        },
+        {
+          title: 'Light',
+          value: 'light',
+          icon: 'circlehollow',
+        },
+        {
+          title: 'Dark (WIP)',
+          value: 'dark',
+          icon: 'circle',
+        },
+      ],
+    },
+  },
+};
 
 export const decorators = [withThemeProvider, withUnmountWhenHidden];
