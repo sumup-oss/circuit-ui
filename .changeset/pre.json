@@ -11,5 +11,7 @@
     "@sumup/remix-template-circuit-ui": "3.0.0",
     "@sumup/stylelint-plugin-circuit-ui": "1.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "lazy-dingos-look"
+  ]
 }

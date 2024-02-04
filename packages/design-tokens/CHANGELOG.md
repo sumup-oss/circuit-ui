@@ -1,5 +1,11 @@
 # @sumup/design-tokens
 
+## 7.2.0-next.0
+
+### Minor Changes
+
+- [#2424](https://github.com/sumup-oss/circuit-ui/pull/2424) [`ea03e6b`](https://github.com/sumup-oss/circuit-ui/commit/ea03e6b4f30c69797a0956e7086dcd39ee07097b) Thanks [@connor-baer](https://github.com/connor-baer)! - Added an experimental dark theme. Import `@sumup/design-tokens/dark.css` for the standalone dark theme. Import `@sumup/design-tokens/dynamic.css` to switch between the light and dark themes automatically based on the system settings or explicitly using the `data-color-mode` attribute.
+
 ## 7.1.0
 
 ### Minor Changes
