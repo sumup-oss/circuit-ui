@@ -1,5 +1,11 @@
 # @sumup/design-tokens
 
+## 7.2.0-next.1
+
+### Patch Changes
+
+- [`b52f5c3`](https://github.com/sumup-oss/circuit-ui/commit/b52f5c31f1f4ef129e29e6987360118c7e530ade) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the names of the dark border color tokens.
+
 ## 7.2.0-next.0
 
 ### Minor Changes
