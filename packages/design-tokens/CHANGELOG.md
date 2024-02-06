@@ -1,5 +1,11 @@
 # @sumup/design-tokens
 
+## 7.2.0-next.2
+
+### Minor Changes
+
+- [#2428](https://github.com/sumup-oss/circuit-ui/pull/2428) [`cde29b1`](https://github.com/sumup-oss/circuit-ui/commit/cde29b1aa232628e39788f2dfcd13bef0479ab2b) Thanks [@connor-baer](https://github.com/connor-baer)! - Added experimental scoped light and dark themes. Import `@sumup/design-tokens/light-scoped.css` or `@sumup/design-tokens/dark-scoped.css` to theme a subset of an application marked up with the `data-color-scheme` attribute.
+
 ## 7.2.0-next.1
 
 ### Patch Changes
