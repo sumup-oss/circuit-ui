@@ -62,6 +62,26 @@ function main(): void {
       ],
     },
     {
+      name: 'light-scoped',
+      groups: [
+        {
+          tokens: light,
+          selectors: ['[data-color-scheme="light"]'],
+          colorScheme: 'light',
+        },
+      ],
+    },
+    {
+      name: 'dark-scoped',
+      groups: [
+        {
+          tokens: dark,
+          selectors: ['[data-color-scheme="dark"]'],
+          colorScheme: 'dark',
+        },
+      ],
+    },
+    {
       name: 'dynamic',
       groups: [
         {
@@ -132,15 +152,13 @@ export function validateTheme(theme: Theme): void {
     });
   });
 
-  // Validate that all tokens have a default value defined at the root
+  // Validate that the tokens at the root are complete
   const rootGroup = theme.groups.find(
     (group) => group.selectors.length === 1 && group.selectors[0] === ':root',
   );
 
   if (!rootGroup) {
-    throw new Error(
-      `The "${theme.name}" theme does not define any global tokens. Add them to the ":root" selector.`,
-    );
+    return;
   }
 
   if (rootGroup.tokens.length !== schema.length) {

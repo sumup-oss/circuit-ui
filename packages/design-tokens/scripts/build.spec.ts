@@ -24,13 +24,13 @@ import {
 } from './build.js';
 
 describe('build', () => {
-  it('should throw an error no tokens are globally defined', () => {
+  it('should throw not throw an error when tokens are  missing in a scoped theme', () => {
     const theme = {
       name: 'test',
       groups: [
         {
           colorScheme: 'light' as const,
-          selectors: ['body'],
+          selectors: ['[data-color-scheme="light"]'],
           tokens: [
             {
               name: '--cui-bg-normal',
@@ -46,9 +46,7 @@ describe('build', () => {
 
     const actual = () => validateTheme(theme);
 
-    expect(actual).toThrow(
-      'The "test" theme does not define any global tokens. Add them to the ":root" selector.',
-    );
+    expect(actual).not.toThrow();
   });
 
   describe('validateTheme', () => {
