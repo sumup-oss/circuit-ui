@@ -185,8 +185,36 @@ interface BaseToken {
   value: unknown;
 }
 
+type ColorUsage = 'fg' | 'bg' | 'border';
+type ColorSentiment =
+  | 'normal'
+  | 'subtle'
+  | 'highlight'
+  | 'accent'
+  | 'placeholder'
+  | 'promo'
+  | 'divider'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'strong'
+  | 'on-strong';
+type ColorVariant = 'strong' | 'on-strong';
+type ColorInteraction = 'hovered' | 'pressed' | 'disabled';
+
 interface ColorToken extends BaseToken {
   type: 'color';
+  name: // usage - sentiment - variant - interaction, with variant and interaction being optional
+  | `--cui-${ColorUsage}-${ColorSentiment}`
+    | `--cui-${ColorUsage}-${ColorSentiment}-${ColorVariant | ColorInteraction}`
+    | `--cui-${ColorUsage}-${ColorSentiment}-${ColorVariant}-${ColorInteraction}`
+    // Special colors
+    | '--cui-bg-elevated'
+    | '--cui-bg-overlay'
+    | '--cui-border-focus'
+    // FIXME: The '--cui-fg-on-strong-subtle' tokens don't follow the naming scheme.
+    | `--cui-${ColorUsage}-${ColorVariant}-${ColorSentiment | ColorInteraction}`
+    | `--cui-${ColorUsage}-${ColorVariant}-${ColorSentiment}-${ColorInteraction}`;
   value: Color;
 }
 

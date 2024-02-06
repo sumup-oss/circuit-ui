@@ -17,52 +17,52 @@ import type { Token } from '../types/index.js';
 
 export const dark = [
   {
-    name: '--cui-┅-border-accent',
+    name: '--cui-border-accent',
     value: '#ffffff',
     type: 'color',
   },
   {
-    name: '--cui-┅-border-danger',
+    name: '--cui-border-danger',
     value: '#de331d',
     type: 'color',
   },
   {
-    name: '--cui-┅-border-divider',
+    name: '--cui-border-divider',
     value: '#454954',
     type: 'color',
   },
   {
-    name: '--cui-┅-border-focus',
+    name: '--cui-border-focus',
     value: '#ffffff',
     type: 'color',
   },
   {
-    name: '--cui-┅-border-normal',
+    name: '--cui-border-normal',
     value: '#454954',
     type: 'color',
   },
   {
-    name: '--cui-┅-border-promo',
+    name: '--cui-border-promo',
     value: '#ae49de',
     type: 'color',
   },
   {
-    name: '--cui-┅-border-strong',
+    name: '--cui-border-strong',
     value: '#4e5155',
     type: 'color',
   },
   {
-    name: '--cui-┅-border-subtle',
+    name: '--cui-border-subtle',
     value: '#2c3038',
     type: 'color',
   },
   {
-    name: '--cui-┅-border-success',
+    name: '--cui-border-success',
     value: '#39c57a',
     type: 'color',
   },
   {
-    name: '--cui-┅-border-warning',
+    name: '--cui-border-warning',
     value: '#e87c00',
     type: 'color',
   },
