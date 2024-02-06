@@ -12,6 +12,7 @@
     "@sumup/stylelint-plugin-circuit-ui": "1.0.0"
   },
   "changesets": [
-    "lazy-dingos-look"
+    "lazy-dingos-look",
+    "wise-mice-design"
   ]
 }
