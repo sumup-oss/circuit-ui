@@ -187,33 +187,32 @@ interface BaseToken {
 
 type ColorUsage = 'fg' | 'bg' | 'border';
 type ColorSentiment =
+  | 'accent'
+  | 'promo'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'on-strong';
+type ColorVariant =
   | 'normal'
   | 'subtle'
   | 'highlight'
-  | 'accent'
+  | 'strong'
   | 'placeholder'
-  | 'promo'
+  | 'elevated'
+  | 'overlay'
   | 'divider'
-  | 'success'
-  | 'warning'
-  | 'danger';
-type ColorVariant = 'strong' | 'on-strong';
+  | 'focus';
 type ColorInteraction = 'hovered' | 'pressed' | 'disabled';
 
 interface ColorToken extends BaseToken {
   type: 'color';
-  name: // usage - sentiment - variant - interaction, with sentiment, variant and interaction being optional
-  | `--cui-${ColorUsage}-${ColorSentiment}`
-    | `--cui-${ColorUsage}-${ColorVariant}`
+  // usage - sentiment - variant - interaction, with sentiment, variant and interaction being optional
+  name:
+    | `--cui-${ColorUsage}-${ColorSentiment | ColorVariant}`
+    | `--cui-${ColorUsage}-${ColorVariant}-${ColorInteraction}`
     | `--cui-${ColorUsage}-${ColorSentiment}-${ColorVariant | ColorInteraction}`
-    | `--cui-${ColorUsage}-${ColorSentiment}-${ColorVariant}-${ColorInteraction}`
-    // Special colors
-    | '--cui-bg-elevated'
-    | '--cui-bg-overlay'
-    | '--cui-border-focus'
-    // FIXME: The '--cui-fg-on-strong-subtle' tokens don't follow the naming scheme.
-    | `--cui-${ColorUsage}-${ColorVariant}-${ColorSentiment | ColorInteraction}`
-    | `--cui-${ColorUsage}-${ColorVariant}-${ColorSentiment}-${ColorInteraction}`;
+    | `--cui-${ColorUsage}-${ColorSentiment}-${ColorVariant}-${ColorInteraction}`;
   value: Color;
 }
 
