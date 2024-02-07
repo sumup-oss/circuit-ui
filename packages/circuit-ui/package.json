@@ -74,6 +74,7 @@
     "react-dates": "^21.8.0",
     "react-dom": "^18.2.0",
     "react-swipeable": "^7.0.1",
+    "rollup-plugin-preserve-directives": "^0.3.1",
     "typescript": "^5.3.3",
     "typescript-plugin-css-modules": "^5.0.2",
     "vite": "^4.5.2"
