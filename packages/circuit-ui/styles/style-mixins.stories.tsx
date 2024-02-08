@@ -108,11 +108,11 @@ const Box = styled.div`
   background-color: var(--cui-bg-normal);
 `;
 
-export const Shadow = () => <Box css={shadow} />;
-
-Shadow.parameters = {
-  layout: 'padded',
-};
+export const Shadow = () => (
+  <Stack>
+    <Box css={shadow} />
+  </Stack>
+);
 
 const Parent = styled.div`
   width: 100%;
