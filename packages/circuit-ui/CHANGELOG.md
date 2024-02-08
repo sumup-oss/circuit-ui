@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 8.3.1
+
+### Patch Changes
+
+- [#2434](https://github.com/sumup-oss/circuit-ui/pull/2434) [`789d796`](https://github.com/sumup-oss/circuit-ui/commit/789d79685bd3c5c5d7908bc960ae490c60a1811f) Thanks [@connor-baer](https://github.com/connor-baer)! - Fix the display and transition of Carousel slides.
+
+- [#2433](https://github.com/sumup-oss/circuit-ui/pull/2433) [`0e0a8e8`](https://github.com/sumup-oss/circuit-ui/commit/0e0a8e8bd261ff7cc8705f26a3b90c08620060ee) Thanks [@connor-baer](https://github.com/connor-baer)! - Adjust components to better support the experimental dark theme.
+
 ## 8.3.0
 
 ### Minor Changes
