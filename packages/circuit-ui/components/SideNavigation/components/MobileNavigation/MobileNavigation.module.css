@@ -24,9 +24,9 @@
   height: var(--cui-spacings-mega);
   content: "";
   background: linear-gradient(
-    rgb(255 255 255 / 0%),
-    rgb(255 255 255 / 66%),
-    rgb(255 255 255 / 100%)
+    color-mix(in sRGB, var(--cui-bg-normal) 0%, transparent),
+    color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent)
   );
 }
 
@@ -79,10 +79,9 @@
   width: 100%;
   padding: var(--cui-spacings-bit);
   background: linear-gradient(
-    to bottom,
-    rgb(255 255 255 / 100%),
-    rgb(255 255 255 / 100%) 60%,
-    rgb(255 255 255 / 0%)
+    color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent),
+    color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent) 66%,
+    color-mix(in sRGB, var(--cui-bg-normal) 0%, transparent)
   );
 }
 

@@ -6,6 +6,7 @@
   font-size: var(--cui-typography-body-one-font-size);
   line-height: var(--cui-typography-body-one-line-height);
   text-align: left;
+  background: var(--cui-bg-elevated);
 }
 
 .icon {
@@ -25,7 +26,11 @@
   background-color: var(--cui-bg-elevated);
   border: 1px solid var(--cui-border-subtle);
   border-radius: var(--cui-border-radius-byte);
+
+  /* Fallback for browsers that don't support color-mix yet */
   box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
+  box-shadow: 0 3px 8px 0
+    color-mix(in sRGB, var(--cui-border-strong) 20%, transparent);
   opacity: 0;
 }
 
@@ -93,9 +98,9 @@
   height: var(--cui-spacings-kilo);
   content: "";
   background: linear-gradient(
-    rgb(255 255 255 / 0%),
-    rgb(255 255 255 / 66%),
-    rgb(255 255 255 / 100%)
+    color-mix(in sRGB, var(--cui-bg-elevated) 0%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent)
   );
   border-bottom-right-radius: var(--cui-border-radius-byte);
   border-bottom-left-radius: var(--cui-border-radius-byte);
