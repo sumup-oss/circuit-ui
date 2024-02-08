@@ -85,7 +85,7 @@ export function Slide({
       style={{
         '--slide-width': dynamicWidth,
         '--slide-stack-order': stackOrder,
-        '--slide-transform-x': `${index * 100}%`,
+        '--slide-transform-x': `${-index * 100}%`,
         '--slide-animation-duration': `${animationDuration}ms`,
       }}
       className={classes.base}
@@ -98,11 +98,11 @@ export function Slide({
             slideDirection === SLIDE_DIRECTIONS.FORWARD &&
             classes['animate-in'],
           isAnimating &&
-            slideDirection === SLIDE_DIRECTIONS.FORWARD &&
+            slideDirection === SLIDE_DIRECTIONS.BACK &&
             classes['animate-out'],
         )}
       >
-        <div>{children}</div>
+        <div className={classes.content}>{children}</div>
       </div>
     </div>
   );
