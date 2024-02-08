@@ -128,7 +128,10 @@ export const spacing = (
  */
 export function shadow(): SerializedStyles {
   return css`
+    /* Fallback for browsers that don't support color-mix yet */
     box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 8px 0
+      color-mix(in sRGB, var(--cui-border-strong) 20%, transparent);
   `;
 }
 

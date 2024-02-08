@@ -91,7 +91,7 @@ const blockedOutOfRange = css`
   .CalendarDay__blocked_out_of_range,
   .CalendarDay__blocked_out_of_range:active,
   .CalendarDay__blocked_out_of_range:hover {
-    background: #fff;
+    background-color: var(--cui-bg-normal);
     border: 1px solid var(--cui-border-divider);
     color: var(--cui-fg-normal-disabled);
   }
@@ -157,7 +157,7 @@ const dateRangePickerInput = (theme: Theme) => css`
   }
 
   .DateInput_fang {
-    margin-top: -8px;
+    margin-top: -11px;
   }
 `;
 
