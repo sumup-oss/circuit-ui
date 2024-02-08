@@ -15,6 +15,7 @@
 
 /* eslint-disable jsx-a11y/no-redundant-roles */
 import { action } from '@storybook/addon-actions';
+import { userEvent } from '@storybook/testing-library';
 
 import sharedClasses from '../../styles/shared.js';
 
@@ -44,4 +45,8 @@ export const Example = () => {
       ))}
     </ul>
   );
+};
+
+Example.play = async () => {
+  await userEvent.tab();
 };

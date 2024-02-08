@@ -47,9 +47,13 @@ export const dark = create({
   base: 'dark',
   ...brand,
   brandImage: '/images/logo-name-dark.png',
-  colorPrimary: '#ffffff',
-  colorSecondary: '#ffffff',
-  appBg: '#0f131a',
+  colorPrimary: '#ffffff', // var(--cui-fg-accent)
+  colorSecondary: '#ffffff', // var(--cui-fg-normal)
+
+  // UI
+  appBg: '#0f131a', // var(--cui-bg-normal)
+  appContentBg: '#0f131a', // var(--cui-bg-normal)
+  appPreviewBg: '#0f131a', // var(--cui-bg-normal)
 });
 
 export const components = {
