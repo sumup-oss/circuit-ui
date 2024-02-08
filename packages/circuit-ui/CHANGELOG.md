@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.3.2-next.0
+
+### Patch Changes
+
+- [#2438](https://github.com/sumup-oss/circuit-ui/pull/2438) [`e5ae63e`](https://github.com/sumup-oss/circuit-ui/commit/e5ae63ef4b9f74dc421b7b2e8523543679178eb5) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed how CSS Modules are bundled which should fix CSS specifity issues caused by out-of-order styles.
+
 ## 8.3.1
 
 ### Patch Changes
