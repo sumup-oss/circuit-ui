@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 7.8.2
+
+### Patch Changes
+
+- [#2435](https://github.com/sumup-oss/circuit-ui/pull/2435) [`565a4dfc`](https://github.com/sumup-oss/circuit-ui/commit/565a4dfcf349993a67c10e570dba9bd24c8ba63b) Thanks [@connor-baer](https://github.com/connor-baer)! - Fix the display and transition of Carousel slides.
+
 ## 7.8.1
 
 ### Patch Changes
