@@ -128,6 +128,8 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
     },
     ref,
   ) => {
+    // useId is allowed in Server Components
+    // eslint-disable-next-line react-server-components/use-client
     const randomId = useId();
     const inputId = customId || randomId;
     const descriptionId = useId();

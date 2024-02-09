@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { useState, ButtonHTMLAttributes, useEffect } from 'react';
 import { ChevronDown, Profile as ProfileIcon } from '@sumup/icons';
 

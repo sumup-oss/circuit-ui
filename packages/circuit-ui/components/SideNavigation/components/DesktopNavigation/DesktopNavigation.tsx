@@ -15,6 +15,8 @@
 
 /* eslint-disable jsx-a11y/no-redundant-roles */
 
+'use client';
+
 import utilityClasses from '../../../../styles/utility.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { useFocusList } from '../../../../hooks/useFocusList/index.js';

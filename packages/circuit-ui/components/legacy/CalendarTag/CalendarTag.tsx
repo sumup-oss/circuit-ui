@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { Component, createRef } from 'react';
 import type { Moment } from 'moment';
 

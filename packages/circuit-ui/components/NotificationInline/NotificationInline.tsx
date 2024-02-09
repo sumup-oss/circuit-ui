@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import {
   ForwardRefExoticComponent,
   HTMLAttributes,

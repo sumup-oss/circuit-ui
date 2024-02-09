@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { ReactNode, useRef, useState } from 'react';
 
 import ProgressBar from '../ProgressBar/index.js';
