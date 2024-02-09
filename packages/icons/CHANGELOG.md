@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 3.5.0
+
+### Minor Changes
+
+- [#2440](https://github.com/sumup-oss/circuit-ui/pull/2440) [`16626e5`](https://github.com/sumup-oss/circuit-ui/commit/16626e5347e88faccb1a5b3dd4d7066488ee9f3a) Thanks [@NataliaSokolowska](https://github.com/NataliaSokolowska)! - Added a new `Sparkles` icon in size 16.
+
 ## 3.4.0
 
 ### Minor Changes
