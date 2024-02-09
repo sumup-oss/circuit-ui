@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { forwardRef, useId } from 'react';
 import { resolveCurrencyFormat } from '@sumup/intl';
 import { NumericFormat, NumericFormatProps } from 'react-number-format';

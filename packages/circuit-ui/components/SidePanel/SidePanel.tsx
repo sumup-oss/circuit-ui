@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { UIEventHandler, useEffect, useId, useState } from 'react';
 import type { Props as ReactModalProps } from 'react-modal';
 

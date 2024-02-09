@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { useCallback, FunctionComponent, ChangeEvent, Fragment } from 'react';
 
 import Select, { SelectProps } from '../../../Select/index.js';

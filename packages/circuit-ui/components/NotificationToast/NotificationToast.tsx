@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { HTMLAttributes, RefObject, useEffect, useRef, useState } from 'react';
 
 import { useAnimation } from '../../hooks/useAnimation/index.js';

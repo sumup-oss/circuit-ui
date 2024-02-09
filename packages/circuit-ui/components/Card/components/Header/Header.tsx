@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { ReactNode, HTMLAttributes, forwardRef } from 'react';
 
 import type { ClickEvent } from '../../../../types/events.js';

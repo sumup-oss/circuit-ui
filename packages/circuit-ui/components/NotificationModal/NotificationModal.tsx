@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { FC, ReactNode, SVGProps } from 'react';
 import ReactModal from 'react-modal';
 

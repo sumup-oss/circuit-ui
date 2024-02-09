@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { forwardRef } from 'react';
 
 import { legacyButtonSizeMap } from '../Button/index.js';
