@@ -1,16 +1,14 @@
 # @sumup/circuit-ui
 
-## 8.4.0-next.1
+## 8.4.0
 
 ### Minor Changes
 
-- [#2430](https://github.com/sumup-oss/circuit-ui/pull/2430) [`87ddbbb`](https://github.com/sumup-oss/circuit-ui/commit/87ddbbb23d5fe1e1dd285e8b1a287ab1fc12e188) Thanks [@connor-baer](https://github.com/connor-baer)! - Made all components compatible with [React Server Components](https://github.com/reactjs/rfcs/blob/main/text/0188-server-components.md) out of the box by adding the [`use client`](https://react.dev/reference/react/use-client) directive to client components.
-
-## 8.3.2-next.0
+- [`ad4c31f`](https://github.com/sumup-oss/circuit-ui/commit/ad4c31fcafcde9f8534c5793dfc1c7b04d645980) Thanks [@connor-baer](https://github.com/connor-baer)! - Made all components compatible with [React Server Components](https://github.com/reactjs/rfcs/blob/main/text/0188-server-components.md) out of the box by adding the [`use client`](https://react.dev/reference/react/use-client) directive to client components.
 
 ### Patch Changes
 
-- [#2438](https://github.com/sumup-oss/circuit-ui/pull/2438) [`e5ae63e`](https://github.com/sumup-oss/circuit-ui/commit/e5ae63ef4b9f74dc421b7b2e8523543679178eb5) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed how CSS Modules are bundled which should fix CSS specifity issues caused by out-of-order styles.
+- [`f1977ef`](https://github.com/sumup-oss/circuit-ui/commit/f1977ef93fadfbbc8a255a3a616ff814e23cba50) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed how CSS Modules are bundled to fix CSS specificity issues caused by out-of-order styles.
 
 ## 8.3.1
 
