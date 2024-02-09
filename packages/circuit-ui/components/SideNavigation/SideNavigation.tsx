@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { useEffect } from 'react';
 
 import { useMedia } from '../../hooks/useMedia/index.js';

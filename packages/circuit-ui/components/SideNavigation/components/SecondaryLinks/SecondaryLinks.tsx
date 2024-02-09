@@ -15,6 +15,8 @@
 
 /* eslint-disable jsx-a11y/no-redundant-roles */
 
+'use client';
+
 import { forwardRef } from 'react';
 
 import type { AsPropType } from '../../../../types/prop-types.js';

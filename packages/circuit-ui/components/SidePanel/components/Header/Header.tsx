@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import type { HTMLAttributes } from 'react';
 import { ArrowLeft } from '@sumup/icons';
 

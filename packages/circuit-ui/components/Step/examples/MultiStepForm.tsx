@@ -15,6 +15,8 @@
 
 /* istanbul ignore file */
 
+'use client';
+
 import Headline from '../../Headline/index.js';
 import Button from '../../Button/index.js';
 import ButtonGroup from '../../ButtonGroup/index.js';

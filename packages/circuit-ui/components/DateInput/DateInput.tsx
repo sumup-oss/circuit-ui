@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { forwardRef, useState, useEffect } from 'react';
 import { PatternFormat } from 'react-number-format';
 

@@ -16,6 +16,8 @@
 /* istanbul ignore file */
 /* eslint-disable import/no-extraneous-dependencies */
 
+'use client';
+
 import { ReactNode, useState } from 'react';
 import {
   SwipeableProps,

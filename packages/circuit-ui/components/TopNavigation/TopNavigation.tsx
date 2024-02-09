@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { HTMLAttributes, ReactNode, useEffect } from 'react';
 
 import Hamburger, { HamburgerProps } from '../Hamburger/index.js';

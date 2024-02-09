@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { forwardRef, useRef } from 'react';
 
 import Input from '../Input/index.js';

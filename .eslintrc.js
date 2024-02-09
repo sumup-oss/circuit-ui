@@ -1,5 +1,8 @@
 module.exports = require('@sumup/foundry/eslint')({
-  extends: ['plugin:storybook/recommended'],
+  extends: [
+    'plugin:storybook/recommended',
+    'plugin:react-server-components/recommended',
+  ],
   plugins: ['@sumup/circuit-ui'],
   settings: {
     'import/parsers': {
@@ -26,6 +29,19 @@ module.exports = require('@sumup/foundry/eslint')({
       files: ['**/*.stories.*'],
       rules: {
         'import/no-relative-packages': 'off',
+        'react-server-components/use-client': 'off',
+      },
+    },
+    {
+      files: ['**/*.spec.*'],
+      rules: {
+        'react-server-components/use-client': 'off',
+      },
+    },
+    {
+      files: ['packages/circuit-ui/components/legacy/**/*'],
+      rules: {
+        '@sumup/circuit-ui/prefer-custom-properties': 'off',
       },
     },
     {
