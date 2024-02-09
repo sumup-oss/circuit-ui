@@ -2,4 +2,4 @@
 '@sumup/icons': major
 ---
 
-Add new 16 size 'Sparkles' icon
+Added a new `Sparkles` icon in size 16.
