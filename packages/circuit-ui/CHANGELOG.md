@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.4.0-next.1
+
+### Minor Changes
+
+- [#2430](https://github.com/sumup-oss/circuit-ui/pull/2430) [`87ddbbb`](https://github.com/sumup-oss/circuit-ui/commit/87ddbbb23d5fe1e1dd285e8b1a287ab1fc12e188) Thanks [@connor-baer](https://github.com/connor-baer)! - Made all components compatible with [React Server Components](https://github.com/reactjs/rfcs/blob/main/text/0188-server-components.md) out of the box by adding the [`use client`](https://react.dev/reference/react/use-client) directive to client components.
+
 ## 8.3.2-next.0
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @sumup/remix-template-circuit-ui
 
+## 3.0.1-next.1
+
+### Patch Changes
+
+- Updated dependencies [[`87ddbbb`](https://github.com/sumup-oss/circuit-ui/commit/87ddbbb23d5fe1e1dd285e8b1a287ab1fc12e188)]:
+  - @sumup/circuit-ui@8.4.0-next.1
+
 ## 3.0.1-next.0
 
 ### Patch Changes
