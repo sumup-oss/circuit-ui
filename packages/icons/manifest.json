@@ -936,15 +936,15 @@
       "size": "16"
     },
     {
-      "name": "flag_no",
-      "category": "Country flag",
-      "keywords": ["Norway"],
-      "size": "16"
-    },
-    {
       "name": "flag_nz",
       "category": "Country flag",
       "keywords": ["New Zeland"],
+      "size": "16"
+    },
+    {
+      "name": "flag_no",
+      "category": "Country flag",
+      "keywords": ["Norway"],
       "size": "16"
     },
     {
