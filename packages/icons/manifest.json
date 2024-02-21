@@ -911,9 +911,9 @@
       "size": "16"
     },
     {
-      "name": "flag_my",
+      "name": "flag_mt",
       "category": "Country flag",
-      "keywords": ["Malaysia"],
+      "keywords": ["Montenegro"],
       "size": "16"
     },
     {
@@ -922,11 +922,10 @@
       "keywords": ["Mexico"],
       "size": "16"
     },
-
     {
-      "name": "flag_mt",
+      "name": "flag_my",
       "category": "Country flag",
-      "keywords": ["Montenegro"],
+      "keywords": ["Malaysia"],
       "size": "16"
     },
     {
@@ -936,15 +935,15 @@
       "size": "16"
     },
     {
-      "name": "flag_nz",
-      "category": "Country flag",
-      "keywords": ["New Zeland"],
-      "size": "16"
-    },
-    {
       "name": "flag_no",
       "category": "Country flag",
       "keywords": ["Norway"],
+      "size": "16"
+    },
+    {
+      "name": "flag_nz",
+      "category": "Country flag",
+      "keywords": ["New Zeland"],
       "size": "16"
     },
     {
