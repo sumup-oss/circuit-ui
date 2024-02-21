@@ -11,11 +11,5 @@
     "@sumup/remix-template-circuit-ui": "3.0.0",
     "@sumup/stylelint-plugin-circuit-ui": "1.0.0"
   },
-  "changesets": [
-    "empty-insects-return",
-    "four-garlics-sleep",
-    "lazy-dingos-look",
-    "nasty-owls-collect",
-    "wise-mice-design"
-  ]
+  "changesets": ["lazy-dingos-look", "nasty-owls-collect"]
 }
