@@ -911,17 +911,18 @@
       "size": "16"
     },
     {
-      "name": "flag_mx",
-      "category": "Country flag",
-      "keywords": ["Mexico"],
-      "size": "16"
-    },
-    {
       "name": "flag_my",
       "category": "Country flag",
       "keywords": ["Malaysia"],
       "size": "16"
     },
+    {
+      "name": "flag_mx",
+      "category": "Country flag",
+      "keywords": ["Mexico"],
+      "size": "16"
+    },
+
     {
       "name": "flag_mt",
       "category": "Country flag",
