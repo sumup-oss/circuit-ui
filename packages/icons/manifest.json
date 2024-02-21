@@ -923,6 +923,12 @@
       "size": "16"
     },
     {
+      "name": "flag_mt",
+      "category": "Country flag",
+      "keywords": ["Montenegro"],
+      "size": "16"
+    },
+    {
       "name": "flag_nl",
       "category": "Country flag",
       "keywords": ["Netherlands"],
