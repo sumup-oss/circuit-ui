@@ -1,5 +1,18 @@
 # @sumup/circuit-ui
 
+## 8.5.0-next.0
+
+### Minor Changes
+
+- [#2444](https://github.com/sumup-oss/circuit-ui/pull/2444) [`726e810`](https://github.com/sumup-oss/circuit-ui/commit/726e810f53ab153b4d07d9344da864bf9b8fe7b2) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the CloseButton to use the _tertiary_ instead of the _secondary_ Button variant.
+
+- [#2444](https://github.com/sumup-oss/circuit-ui/pull/2444) [`726e810`](https://github.com/sumup-oss/circuit-ui/commit/726e810f53ab153b4d07d9344da864bf9b8fe7b2) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the background color of the active Toggle to green to better distinguish its states.
+
+### Patch Changes
+
+- Updated dependencies [[`726e810`](https://github.com/sumup-oss/circuit-ui/commit/726e810f53ab153b4d07d9344da864bf9b8fe7b2)]:
+  - @sumup/design-tokens@7.2.0-next.3
+
 ## 8.4.0
 
 ### Minor Changes

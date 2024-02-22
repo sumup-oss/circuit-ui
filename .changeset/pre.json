@@ -11,5 +11,11 @@
     "@sumup/remix-template-circuit-ui": "3.0.0",
     "@sumup/stylelint-plugin-circuit-ui": "1.0.0"
   },
-  "changesets": ["lazy-dingos-look", "nasty-owls-collect"]
+  "changesets": [
+    "clever-laws-wait",
+    "fuzzy-actors-marry",
+    "lazy-dingos-look",
+    "nasty-owls-collect",
+    "swift-readers-retire"
+  ]
 }
