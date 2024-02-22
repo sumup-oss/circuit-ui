@@ -2,4 +2,4 @@
 '@sumup/icons': minor
 ---
 
-Add flags for new countries
+Added new country flag icons for Hong Kong, Japan, Malaysia, Mexico, New Zealand, Singapore and the United Arab Emirates.

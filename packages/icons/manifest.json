@@ -737,6 +737,12 @@
       "size": "32"
     },
     {
+      "name": "flag_ae",
+      "category": "Country flag",
+      "keywords": ["United Arab Emirates"],
+      "size": "16"
+    },
+    {
       "name": "flag_ar",
       "category": "Country flag",
       "keywords": ["Argentina"],
@@ -992,12 +998,6 @@
       "name": "flag_sk",
       "category": "Country flag",
       "keywords": ["Slovakia"],
-      "size": "16"
-    },
-    {
-      "name": "flag_uae",
-      "category": "Country flag",
-      "keywords": ["United Arab Emirates"],
       "size": "16"
     },
     {
