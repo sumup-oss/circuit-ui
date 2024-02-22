@@ -85,8 +85,12 @@
 }
 
 .label {
+  display: block;
+  overflow: hidden;
   font-size: var(--cui-typography-body-two-font-size);
   line-height: var(--cui-typography-body-two-line-height);
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .badge {
