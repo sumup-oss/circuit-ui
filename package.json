@@ -64,7 +64,7 @@
     "chromatic": "^10.3.1",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react-server-components": "^1.1.1",
+    "eslint-plugin-react-server-components": "^1.1.2",
     "eslint-plugin-storybook": "^0.6.15",
     "jsdom": "^23.2.0",
     "lerna": "^8.0.2",
