@@ -1,5 +1,13 @@
 # @sumup/astro-template-circuit-ui
 
+## 2.0.1-next.2
+
+### Patch Changes
+
+- Updated dependencies [[`726e810`](https://github.com/sumup-oss/circuit-ui/commit/726e810f53ab153b4d07d9344da864bf9b8fe7b2), [`726e810`](https://github.com/sumup-oss/circuit-ui/commit/726e810f53ab153b4d07d9344da864bf9b8fe7b2), [`726e810`](https://github.com/sumup-oss/circuit-ui/commit/726e810f53ab153b4d07d9344da864bf9b8fe7b2)]:
+  - @sumup/design-tokens@7.2.0-next.3
+  - @sumup/circuit-ui@8.5.0-next.0
+
 ## 2.0.1-next.1
 
 ### Patch Changes

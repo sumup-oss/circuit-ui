@@ -1,5 +1,11 @@
 # @sumup/design-tokens
 
+## 7.2.0-next.3
+
+### Minor Changes
+
+- [#2444](https://github.com/sumup-oss/circuit-ui/pull/2444) [`726e810`](https://github.com/sumup-oss/circuit-ui/commit/726e810f53ab153b4d07d9344da864bf9b8fe7b2) Thanks [@connor-baer](https://github.com/connor-baer)! - Finalized the dark theme.
+
 ## 7.2.0-next.2
 
 ### Minor Changes
