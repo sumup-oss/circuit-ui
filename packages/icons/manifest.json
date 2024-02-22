@@ -347,9 +347,15 @@
       "size": "24"
     },
     {
-      "name": "email_chat",
+      "name": "email",
       "category": "Communication",
       "size": "24"
+    },
+    {
+      "name": "email_chat",
+      "category": "Communication",
+      "size": "24",
+      "deprecation": "Use the `Email` icon instead."
     },
     {
       "name": "live_chat",
@@ -357,9 +363,15 @@
       "size": "24"
     },
     {
-      "name": "phone_chat",
+      "name": "phone",
       "category": "Communication",
       "size": "24"
+    },
+    {
+      "name": "phone_chat",
+      "category": "Communication",
+      "size": "24",
+      "deprecation": "Use the `Phone` icon instead."
     },
     {
       "name": "alelo",
@@ -1102,7 +1114,8 @@
     {
       "name": "apm",
       "category": "Finance",
-      "size": "32"
+      "size": "32",
+      "deprecation": "Use the `AlternativePaymentMethod` icon instead."
     },
     {
       "name": "atm",
@@ -1261,9 +1274,15 @@
       "size": "24"
     },
     {
-      "name": "cookie_preferences",
+      "name": "cookie",
       "category": "Miscellaneous",
       "size": "24"
+    },
+    {
+      "name": "cookie_preferences",
+      "category": "Miscellaneous",
+      "size": "24",
+      "deprecation": "Use the `Cookie` icon instead."
     },
     {
       "name": "custom_amount",
@@ -1758,7 +1777,8 @@
     {
       "name": "refer",
       "category": "Product and feature",
-      "size": "24"
+      "size": "24",
+      "deprecation": "Use the `ReferAFriend` or `Reward` icons instead."
     },
     {
       "name": "refer_a_friend",
@@ -1771,9 +1791,15 @@
       "size": "24"
     },
     {
-      "name": "sales",
+      "name": "reward",
       "category": "Product and feature",
       "size": "24"
+    },
+    {
+      "name": "sales",
+      "category": "Product and feature",
+      "size": "24",
+      "deprecation": "Use the `Receipt` icon instead."
     },
     {
       "name": "shop",
