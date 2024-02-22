@@ -139,8 +139,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
-    // useId is allowed in Server Components
-    // eslint-disable-next-line react-server-components/use-client
+
     const id = useId();
     const selectId = customId || id;
     const validationHintId = useId();
