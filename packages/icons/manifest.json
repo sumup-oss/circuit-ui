@@ -1867,6 +1867,11 @@
       "size": "24"
     },
     {
+      "name": "facebook_messenger",
+      "category": "Social media",
+      "size": "24"
+    },
+    {
       "name": "instagram",
       "category": "Social media",
       "size": "24"
@@ -1879,7 +1884,8 @@
     {
       "name": "messenger",
       "category": "Social media",
-      "size": "24"
+      "size": "24",
+      "deprecation": "Use the `FacebookMessenger` icon instead."
     },
     {
       "name": "pinterest",

@@ -2,4 +2,4 @@
 '@sumup/icons': minor
 ---
 
-Added new `DriverLicense`, `Passport`, and `ResidencePermit` icons in size 24.
+Added new `DriverLicense`, `Manage`, `Passport`, and `ResidencePermit` icons in size 24.

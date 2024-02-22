@@ -2,4 +2,4 @@
 '@sumup/icons': minor
 ---
 
-Updated the `Boleto`, `Receipt`, `Refresh`, and `Vr` icons.
+Updated the `BancoEstado`, `Boleto`, `Items`, `Receipt`, `Refresh`, and `Vr` icons.
