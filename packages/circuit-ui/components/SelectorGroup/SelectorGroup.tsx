@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { forwardRef, FieldsetHTMLAttributes, useId } from 'react';
 
 import {
@@ -146,8 +148,6 @@ export const SelectorGroup = forwardRef<
     },
     ref,
   ) => {
-    // useId is allowed in Server Components
-    // eslint-disable-next-line react-server-components/use-client
     const randomName = useId();
     const name = customName || randomName;
     const validationHintId = useId();

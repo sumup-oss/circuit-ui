@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { ButtonHTMLAttributes, forwardRef, useId } from 'react';
 
 import {
@@ -92,8 +94,6 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
       }
     }
 
-    // useId is allowed in Server Components
-    // eslint-disable-next-line react-server-components/use-client
     const switchId = useId();
     const labelId = useId();
     const descriptionId = useId();

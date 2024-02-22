@@ -117,8 +117,6 @@ export function ProgressBar({
   className,
   ...props
 }: ProgressBarProps): ReturnType {
-  // useId is allowed in Server Components
-  // eslint-disable-next-line react-server-components/use-client
   const ariaId = useId();
 
   if (

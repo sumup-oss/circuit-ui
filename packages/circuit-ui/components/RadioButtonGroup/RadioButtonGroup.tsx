@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import {
   FieldsetHTMLAttributes,
   InputHTMLAttributes,
@@ -132,8 +134,6 @@ export const RadioButtonGroup = forwardRef(
     }: RadioButtonGroupProps,
     ref: RadioButtonGroupProps['ref'],
   ) => {
-    // useId is allowed in Server Components
-    // eslint-disable-next-line react-server-components/use-client
     const randomName = useId();
     const name = customName || randomName;
     const validationHintId = useId();
