@@ -1,5 +1,17 @@
 # @sumup/icons
 
+## 3.6.0
+
+### Minor Changes
+
+- [#2447](https://github.com/sumup-oss/circuit-ui/pull/2447) [`390d21f`](https://github.com/sumup-oss/circuit-ui/commit/390d21fb20109061180fe824d6da4ef948281bb6) Thanks [@connor-baer](https://github.com/connor-baer)! - Renamed the `Cookie`, `Email`, `FacebookMessenger`, `Phone`, and `Reward` icons. The previous names are deprecated and will be removed in the next major version.
+
+- [#2443](https://github.com/sumup-oss/circuit-ui/pull/2443) [`a36e352`](https://github.com/sumup-oss/circuit-ui/commit/a36e35296a720415e8dfc8cab688d19b685e61ff) Thanks [@rcdutra](https://github.com/rcdutra)! - Added new country flag icons for Hong Kong, Japan, Malaysia, Mexico, New Zealand, Singapore and the United Arab Emirates.
+
+- [#2447](https://github.com/sumup-oss/circuit-ui/pull/2447) [`390d21f`](https://github.com/sumup-oss/circuit-ui/commit/390d21fb20109061180fe824d6da4ef948281bb6) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the `BancoEstado`, `Boleto`, `Items`, `Receipt`, `Refresh`, and `Vr` icons.
+
+- [#2447](https://github.com/sumup-oss/circuit-ui/pull/2447) [`390d21f`](https://github.com/sumup-oss/circuit-ui/commit/390d21fb20109061180fe824d6da4ef948281bb6) Thanks [@connor-baer](https://github.com/connor-baer)! - Added new `DriverLicense`, `Manage`, `Passport`, and `ResidencePermit` icons in size 24.
+
 ## 3.5.0
 
 ### Minor Changes
