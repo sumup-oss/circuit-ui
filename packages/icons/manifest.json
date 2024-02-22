@@ -347,9 +347,15 @@
       "size": "24"
     },
     {
-      "name": "email_chat",
+      "name": "email",
       "category": "Communication",
       "size": "24"
+    },
+    {
+      "name": "email_chat",
+      "category": "Communication",
+      "size": "24",
+      "deprecation": "Use the `Email` icon instead."
     },
     {
       "name": "live_chat",
@@ -357,9 +363,15 @@
       "size": "24"
     },
     {
-      "name": "phone_chat",
+      "name": "phone",
       "category": "Communication",
       "size": "24"
+    },
+    {
+      "name": "phone_chat",
+      "category": "Communication",
+      "size": "24",
+      "deprecation": "Use the `Phone` icon instead."
     },
     {
       "name": "alelo",
@@ -1087,6 +1099,11 @@
       "size": "24"
     },
     {
+      "name": "driver_license",
+      "category": "File",
+      "size": "24"
+    },
+    {
       "name": "electronic_invoice",
       "category": "File",
       "size": "24"
@@ -1112,7 +1129,17 @@
       "size": "24"
     },
     {
+      "name": "passport",
+      "category": "File",
+      "size": "24"
+    },
+    {
       "name": "recurring_invoice",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "residence_permit",
       "category": "File",
       "size": "24"
     },
@@ -1129,7 +1156,8 @@
     {
       "name": "apm",
       "category": "Finance",
-      "size": "32"
+      "size": "32",
+      "deprecation": "Use the `AlternativePaymentMethod` icon instead."
     },
     {
       "name": "atm",
@@ -1288,9 +1316,15 @@
       "size": "24"
     },
     {
-      "name": "cookie_preferences",
+      "name": "cookie",
       "category": "Miscellaneous",
       "size": "24"
+    },
+    {
+      "name": "cookie_preferences",
+      "category": "Miscellaneous",
+      "size": "24",
+      "deprecation": "Use the `Cookie` icon instead."
     },
     {
       "name": "custom_amount",
@@ -1785,7 +1819,8 @@
     {
       "name": "refer",
       "category": "Product and feature",
-      "size": "24"
+      "size": "24",
+      "deprecation": "Use the `ReferAFriend` or `Reward` icons instead."
     },
     {
       "name": "refer_a_friend",
@@ -1798,9 +1833,15 @@
       "size": "24"
     },
     {
-      "name": "sales",
+      "name": "reward",
       "category": "Product and feature",
       "size": "24"
+    },
+    {
+      "name": "sales",
+      "category": "Product and feature",
+      "size": "24",
+      "deprecation": "Use the `Receipt` icon instead."
     },
     {
       "name": "shop",
@@ -1868,6 +1909,11 @@
       "size": "24"
     },
     {
+      "name": "facebook_messenger",
+      "category": "Social media",
+      "size": "24"
+    },
+    {
       "name": "instagram",
       "category": "Social media",
       "size": "24"
@@ -1880,7 +1926,8 @@
     {
       "name": "messenger",
       "category": "Social media",
-      "size": "24"
+      "size": "24",
+      "deprecation": "Use the `FacebookMessenger` icon instead."
     },
     {
       "name": "pinterest",

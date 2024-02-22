@@ -171,7 +171,7 @@ const Icons = () => {
                         }}
                       />
                     </div>
-                    <span id={id} className={classes.label}>
+                    <span id={id} className={classes.label} title={icon.name}>
                       {icon.name}
                       {size === 'all' && (
                         <span className={classes.size}>{icon.size}</span>
