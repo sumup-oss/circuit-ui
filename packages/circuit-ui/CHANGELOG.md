@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.4.1
+
+### Patch Changes
+
+- [#2448](https://github.com/sumup-oss/circuit-ui/pull/2448) [`9b6c7d6`](https://github.com/sumup-oss/circuit-ui/commit/9b6c7d68820d557dfdcf1b14b2a2b96275d9e353) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the `use client` directive to a few more components that require it.
+
 ## 8.4.0
 
 ### Minor Changes
