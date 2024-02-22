@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+    <path fill="#fff" d="M14.476 2H1.524C.682 2 0 2.657 0 3.467v8.066C0 12.343.682 13 1.524 13h12.952c.842 0 1.524-.657 1.524-1.467V3.467C16 2.657 15.318 2 14.476 2"/>
+    <path fill="#CE0000" fill-rule="evenodd" d="M5.333 2h8.682l1.356.77H5.333zm0 1.538h10.46l.207.77H5.333zm0 1.539H16v.77H5.333zm0 1.538H16v.77H5.333zM0 8.154h16v.77H0zm0 1.538h16v.77H0zm0 1.539h16a.77.77 0 0 1-.77.769H.77a.77.77 0 0 1-.77-.77" clip-rule="evenodd"/>
+    <path fill="#000068" fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h6.067v6.6H0z" clip-rule="evenodd"/>
+    <path fill="#FFCD00" fill-rule="evenodd" d="M5.133 4.933h.734v.734h-.734z" clip-rule="evenodd"/>
+    <path fill="#FFCD00" fill-rule="evenodd" d="M5.5 6.4a1.834 1.834 0 1 1 0-2.2H4.4a1.1 1.1 0 0 0 0 2.2z" clip-rule="evenodd"/>
+    <path fill="#CCC" fill-rule="evenodd" d="M1.882 2h12.236C15.158 2 16 2.843 16 3.882v7.53c0 1.04-.843 1.882-1.882 1.882H1.882A1.88 1.88 0 0 1 0 11.412v-7.53C0 2.842.843 2 1.882 2m0 .47c-.78 0-1.411.633-1.411 1.412v7.53c0 .78.632 1.411 1.411 1.411h12.236c.78 0 1.411-.632 1.411-1.411v-7.53c0-.78-.632-1.411-1.411-1.411z" clip-rule="evenodd"/>
+</svg>

@@ -737,6 +737,12 @@
       "size": "32"
     },
     {
+      "name": "flag_ae",
+      "category": "Country flag",
+      "keywords": ["United Arab Emirates"],
+      "size": "16"
+    },
+    {
       "name": "flag_ar",
       "category": "Country flag",
       "keywords": ["Argentina"],
@@ -857,6 +863,12 @@
       "size": "16"
     },
     {
+      "name": "flag_hk",
+      "category": "Country flag",
+      "keywords": ["Hong Kong"],
+      "size": "16"
+    },
+    {
       "name": "flag_hr",
       "category": "Country flag",
       "keywords": ["Croatia"],
@@ -878,6 +890,12 @@
       "name": "flag_it",
       "category": "Country flag",
       "keywords": ["Italy"],
+      "size": "16"
+    },
+    {
+      "name": "flag_ja",
+      "category": "Country flag",
+      "keywords": ["Japan"],
       "size": "16"
     },
     {
@@ -905,6 +923,18 @@
       "size": "16"
     },
     {
+      "name": "flag_mx",
+      "category": "Country flag",
+      "keywords": ["Mexico"],
+      "size": "16"
+    },
+    {
+      "name": "flag_my",
+      "category": "Country flag",
+      "keywords": ["Malaysia"],
+      "size": "16"
+    },
+    {
       "name": "flag_nl",
       "category": "Country flag",
       "keywords": ["Netherlands"],
@@ -914,6 +944,12 @@
       "name": "flag_no",
       "category": "Country flag",
       "keywords": ["Norway"],
+      "size": "16"
+    },
+    {
+      "name": "flag_nz",
+      "category": "Country flag",
+      "keywords": ["New Zeland"],
       "size": "16"
     },
     {
@@ -944,6 +980,12 @@
       "name": "flag_se",
       "category": "Country flag",
       "keywords": ["Sweden"],
+      "size": "16"
+    },
+    {
+      "name": "flag_sg",
+      "category": "Country flag",
+      "keywords": ["Singapore"],
       "size": "16"
     },
     {
