@@ -44,11 +44,7 @@
 .primary:hover,
 .primary:focus-within {
   width: var(--primary-navigation-width-open);
-
-  /* Fallback for browsers that don't support color-mix yet */
   box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
-  box-shadow: 0 3px 8px 0
-    color-mix(in sRGB, var(--cui-border-strong) 20%, transparent);
 }
 
 @media (min-width: 1900px) {
