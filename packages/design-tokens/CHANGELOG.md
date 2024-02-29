@@ -1,5 +1,19 @@
 # @sumup/design-tokens
 
+## 7.2.0
+
+### Minor Changes
+
+- [#2444](https://github.com/sumup-oss/circuit-ui/pull/2444) [`726e810`](https://github.com/sumup-oss/circuit-ui/commit/726e810f53ab153b4d07d9344da864bf9b8fe7b2) Thanks [@connor-baer](https://github.com/connor-baer)! - Finalized the dark theme.
+
+- [#2424](https://github.com/sumup-oss/circuit-ui/pull/2424) [`ea03e6b`](https://github.com/sumup-oss/circuit-ui/commit/ea03e6b4f30c69797a0956e7086dcd39ee07097b) Thanks [@connor-baer](https://github.com/connor-baer)! - Added an experimental dark theme. Import `@sumup/design-tokens/dark.css` for the standalone dark theme. Import `@sumup/design-tokens/dynamic.css` to switch between the light and dark themes automatically based on the system settings or explicitly using the `data-color-scheme` attribute.
+
+- [#2428](https://github.com/sumup-oss/circuit-ui/pull/2428) [`cde29b1`](https://github.com/sumup-oss/circuit-ui/commit/cde29b1aa232628e39788f2dfcd13bef0479ab2b) Thanks [@connor-baer](https://github.com/connor-baer)! - Added experimental scoped light and dark themes. Import `@sumup/design-tokens/light-scoped.css` or `@sumup/design-tokens/dark-scoped.css` to theme a subset of an application marked up with the `data-color-scheme` attribute.
+
+### Patch Changes
+
+- [#2450](https://github.com/sumup-oss/circuit-ui/pull/2450) [`7e52ec6`](https://github.com/sumup-oss/circuit-ui/commit/7e52ec67b376811e2a88a9481084f4586ba666dc) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the `border-focus` color token value.
+
 ## 7.2.0-next.3
 
 ### Minor Changes
