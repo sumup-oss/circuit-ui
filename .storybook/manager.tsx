@@ -1,6 +1,6 @@
 import { addons, types } from '@storybook/addons';
 
-import { getTheme } from './themes';
+import { dark, light, listenToColorScheme } from './themes.js';
 import { PARAM_KEY as VERSIONS_PARAM_KEY, Versions } from './addons/versions';
 
 addons.setConfig({
@@ -11,21 +11,15 @@ addons.setConfig({
 });
 
 /**
- * Automatically switch light/dark theme based on system preferences
+ * Switch color scheme based on the global types or system preferences
  */
-addons.register('auto-theme-switcher', (api) => {
-  const setTheme = (prefersDark: boolean) => {
-    api.setOptions({ theme: getTheme(prefersDark) });
-    document.documentElement.dataset.theme = prefersDark ? 'dark' : 'light';
+addons.register('color-scheme', (api) => {
+  const setTheme = (colorScheme: 'dark' | 'light') => {
+    api.setOptions({ theme: colorScheme === 'dark' ? dark : light });
+    document.documentElement.dataset.colorScheme = colorScheme;
   };
 
-  const query = window?.matchMedia('(prefers-color-scheme: dark)');
-
-  setTheme(query.matches);
-
-  query.addEventListener('change', (event) => {
-    setTheme(event.matches);
-  });
+  listenToColorScheme(api, setTheme);
 });
 
 /**

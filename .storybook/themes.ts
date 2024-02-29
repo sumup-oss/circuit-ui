@@ -1,4 +1,5 @@
 import { create } from '@storybook/theming';
+import { GLOBALS_UPDATED } from '@storybook/core-events';
 import Link from './components/Link';
 
 const brand = {
@@ -46,15 +47,64 @@ export const dark = create({
   base: 'dark',
   ...brand,
   brandImage: '/images/logo-name-dark.png',
-  colorPrimary: '#ffffff',
-  colorSecondary: '#ffffff',
-  appBg: '#0f131a',
-});
+  colorPrimary: '#ffffff', // var(--cui-fg-accent)
+  colorSecondary: '#ffffff', // var(--cui-fg-normal)
 
-export function getTheme(prefersDark: boolean) {
-  return prefersDark ? dark : light;
-}
+  // UI
+  appBg: '#0f131a', // var(--cui-bg-normal)
+  appContentBg: '#0f131a', // var(--cui-bg-normal)
+  appPreviewBg: '#0f131a', // var(--cui-bg-normal)
+});
 
 export const components = {
   a: Link,
 };
+
+type ColorScheme = 'light' | 'dark';
+
+type EventListener = (
+  eventName: string,
+  callback: (context: { globals: Record<string, unknown> }) => void,
+) => void;
+
+export function listenToColorScheme(
+  eventEmitter: { on: EventListener; off: EventListener },
+  callback: (colorMode: ColorScheme) => void,
+) {
+  const query = window.matchMedia('(prefers-color-scheme: dark)');
+
+  const handleMediaChange = (event: MediaQueryListEvent) => {
+    callback(event.matches ? 'dark' : 'light');
+  };
+
+  const handleGlobalsChange = ({ globals }) => {
+    if (globals.colorScheme === 'system') {
+      callback(query.matches ? 'dark' : 'light');
+      query.addEventListener('change', handleMediaChange);
+    } else {
+      callback(globals.colorScheme);
+      query.removeEventListener('change', handleMediaChange);
+    }
+  };
+
+  const initColorScheme = () => {
+    const globals = new URL(window.location.href).searchParams.get('globals');
+
+    if (globals) {
+      const [key, value] = globals.split(':');
+      if (key === 'colorScheme') {
+        return handleGlobalsChange({ globals: { colorScheme: value } });
+      }
+    }
+
+    handleGlobalsChange({ globals: { colorScheme: 'system' } });
+  };
+
+  initColorScheme();
+
+  eventEmitter.on(GLOBALS_UPDATED, handleGlobalsChange);
+
+  return () => {
+    eventEmitter.off(GLOBALS_UPDATED, handleGlobalsChange);
+  };
+}
