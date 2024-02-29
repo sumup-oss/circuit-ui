@@ -14,7 +14,9 @@
  */
 
 import type { ReactNode } from 'react';
+
 import { Headline, Card } from '../../packages/circuit-ui/index.js';
+import { slugify } from '../slugify.js';
 import classes from './Teaser.module.css';
 
 interface TeaserProps {
@@ -24,7 +26,7 @@ interface TeaserProps {
 
 const Teaser = ({ title, children }: TeaserProps) => (
   <Card className={classes.base}>
-    <Headline as="h2" size="three">
+    <Headline as="h2" size="three" id={slugify(title)}>
       {title}
     </Headline>
 

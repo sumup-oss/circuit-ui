@@ -45,7 +45,12 @@ export const parameters = {
       includeName: true,
     },
   },
-  docs: { theme: light, components, container: DocsContainer },
+  docs: {
+    theme: light,
+    components,
+    container: DocsContainer,
+    toc: { title: 'On this page', headingSelector: 'h2, h3' },
+  },
 };
 
 // TODO: Re-enable once a dark theme exists
