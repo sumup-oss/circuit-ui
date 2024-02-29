@@ -33,6 +33,7 @@ import {
   clsx,
   utilClasses,
 } from '../../packages/circuit-ui/index.js';
+import { slugify } from '../slugify.js';
 import classes from './Icons.module.css';
 
 function groupBy(
@@ -145,7 +146,7 @@ const Icons = () => {
           groupBy(activeIcons, 'category'),
         ).map(([category, items]) => (
           <section key={category} className={classes.category}>
-            <Headline as="h3" size="three">
+            <Headline as="h2" size="two" id={slugify(category)}>
               {category}
             </Headline>
             <div className={classes.list}>
