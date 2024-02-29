@@ -1,7 +1,5 @@
-import GithubSlugger from 'github-slugger';
-
-const slugger = new GithubSlugger();
+import { slug } from 'github-slugger';
 
 export function slugify(value: string): string {
-  return slugger.slug(value);
+  return slug(value);
 }
