@@ -707,7 +707,7 @@ export const light = [
   },
   {
     name: '--cui-border-focus',
-    value: '#3064e3',
+    value: '#0f131a',
     type: 'color',
   },
 ] satisfies Token[];
