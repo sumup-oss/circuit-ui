@@ -14,8 +14,12 @@
  */
 
 import type { ReactNode } from 'react';
+import GithubSlugger from 'github-slugger';
+
 import { Headline, Card } from '../../packages/circuit-ui/index.js';
 import classes from './Teaser.module.css';
+
+const slugger = new GithubSlugger();
 
 interface TeaserProps {
   title: string;
@@ -24,7 +28,7 @@ interface TeaserProps {
 
 const Teaser = ({ title, children }: TeaserProps) => (
   <Card className={classes.base}>
-    <Headline as="h2" size="three">
+    <Headline as="h2" size="three" id={slugger.slug(title)}>
       {title}
     </Headline>
 
