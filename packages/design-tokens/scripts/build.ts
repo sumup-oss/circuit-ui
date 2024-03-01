@@ -25,7 +25,6 @@ import { schema } from '../themes/schema.js';
 import { shared } from '../themes/shared.js';
 import { light } from '../themes/light.js';
 import { dark } from '../themes/dark.js';
-
 import type { ColorScheme, Token } from '../types/index.js';
 
 type StyleGroup = {
@@ -178,7 +177,7 @@ export function createStyles(group: StyleGroup) {
   const selectorStart = group.selectors
     .map((selector) => `${selector} {`)
     .join('');
-  const selectorEnd = group.selectors.map(() => `}`).join('');
+  const selectorEnd = group.selectors.map(() => '}').join('');
   const customProperties = createCSSCustomProperties(group.tokens);
   return `${selectorStart}
     color-scheme: ${group.colorScheme};
@@ -199,7 +198,7 @@ export function createCSSCustomProperties(tokens: Token[]): string {
         lines.push(`/* ${description} */`);
       }
 
-      lines.push(`${name}: ${value};`);
+      lines.push(`${name}: ${value.toString()};`);
 
       return lines;
     })
