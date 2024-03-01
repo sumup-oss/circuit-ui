@@ -1,5 +1,13 @@
 # @sumup/icons
 
+## 3.6.1
+
+### Patch Changes
+
+- [#2458](https://github.com/sumup-oss/circuit-ui/pull/2458) [`913d959`](https://github.com/sumup-oss/circuit-ui/commit/913d9592a6957a82eacc06ddafc76055e7d002d7) Thanks [@connor-baer](https://github.com/connor-baer)! - Added missing exports for the `Manage`, `WhatsApp` and `WireTransfer` icons.
+
+- [#2458](https://github.com/sumup-oss/circuit-ui/pull/2458) [`913d959`](https://github.com/sumup-oss/circuit-ui/commit/913d9592a6957a82eacc06ddafc76055e7d002d7) Thanks [@connor-baer](https://github.com/connor-baer)! - Added missing `width`, `height`, and `viewBox` attributes to the `PostFinance` `Sparkles`, `SumUpLogo`, and `Vr` icons.
+
 ## 3.6.0
 
 ### Minor Changes
