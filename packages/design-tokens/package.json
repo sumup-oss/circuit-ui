@@ -31,7 +31,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "browserslist": "^4.22.2",
+    "browserslist": "^4.23.0",
     "lightningcss": "^1.22.1",
     "prop-types": "^15.8.1"
   },
