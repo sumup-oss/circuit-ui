@@ -15,26 +15,26 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 import prettier from 'prettier';
 import { transformSync } from '@babel/core';
 
+import {
+  BASE_DIR,
+  DIST_DIR,
+  ICON_DIR,
+  CATEGORIES,
+  SIZES,
+} from '../constants.js';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore Import assertions are fine
 import manifest from '../manifest.json' assert { type: 'json' };
 
-// @ts-ignore `import` is fine
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-const BASE_DIR = path.join(__dirname, '..');
-const ICON_DIR = path.join(BASE_DIR, './web/v2');
-const DIST_DIR = path.join(BASE_DIR, 'dist');
-
 type Icon = {
   name: string;
-  category: string;
+  category: (typeof CATEGORIES)[number];
   keywords?: string[];
-  size: '16' | '24' | '32';
+  size: (typeof SIZES)[number];
   deprecation?: string;
 };
 
@@ -79,7 +79,7 @@ function buildComponentFile(component: Component): string {
     (icon) =>
       `import { ReactComponent as ${icon.name} } from '${icon.filePath}';`,
   );
-  const sizes = icons.map((icon) => parseInt(icon.size)).sort();
+  const sizes = icons.map((icon) => parseInt(icon.size, 10)).sort();
   const defaultSize = sizes.includes(24) ? '24' : Math.min(...sizes).toString();
   const sizeMap = icons.map((icon) => `'${icon.size}': ${icon.name},`);
   const invalidSizeWarning = `The '\${size}' size is not supported by the '${
@@ -175,16 +175,11 @@ function writeFile(dir: string, fileName: string, fileContent: string): void {
   if (directory && directory !== '.') {
     fs.mkdirSync(directory, { recursive: true });
   }
-  return fs.writeFile(filePath, formattedContent, { flag: 'w' }, (err) => {
-    if (err) {
-      throw err;
-    }
-  });
+  return fs.writeFileSync(filePath, formattedContent, { flag: 'w' });
 }
 
 function main(): void {
-  const icons = manifest.icons as Icon[];
-  const iconsByName = icons.reduce((acc, icon) => {
+  const iconsByName = (manifest.icons as Icon[]).reduce((acc, icon) => {
     acc[icon.name] = acc[icon.name] || [];
     acc[icon.name].push(icon);
     return acc;

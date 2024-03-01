@@ -27,8 +27,9 @@
   },
   "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/icons/README.md",
   "scripts": {
-    "start": "tsx watch ./scripts/web.ts",
-    "build": "tsx ./scripts/web.ts",
+    "start": "tsx watch ./scripts/build.ts",
+    "build": "tsx ./scripts/build.ts",
+    "test": "vitest",
     "lint": "foundry run eslint . --ext .ts,.tsx,.js,.jsx",
     "lint:fix": "npm run lint -- --fix",
     "prepublish": "npm run build"
@@ -40,6 +41,7 @@
     "@types/babel__core": "^7.20.5",
     "@types/prettier": "^2.7.3",
     "babel-plugin-inline-react-svg": "^2.0.2",
+    "fast-xml-parser": "^4.3.5",
     "prettier": "^2.8.8",
     "tsx": "^4.7.0",
     "typescript": "^5.3.3"
