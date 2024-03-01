@@ -84,7 +84,7 @@
     "vite": "^4.5.2",
     "vite-plugin-turbosnap": "^1.0.2",
     "vitest": "^0.34.6",
-    "vitest-github-actions-reporter": "^0.10.0"
+    "vitest-github-actions-reporter": "^0.11.1"
   },
   "resolutions": {
     "prettier": "^2.6.2"
