@@ -187,6 +187,11 @@
       "size": "24"
     },
     {
+      "name": "manage",
+      "category": "Action",
+      "size": "24"
+    },
+    {
       "name": "minus",
       "category": "Action",
       "size": "24"
@@ -609,6 +614,12 @@
       "size": "32"
     },
     {
+      "name": "apm",
+      "category": "Card scheme",
+      "size": "32",
+      "deprecation": "Use the `AlternativePaymentMethod` icon instead."
+    },
+    {
       "name": "alternative_payment_method",
       "category": "Card scheme",
       "size": "32"
@@ -630,6 +641,11 @@
     },
     {
       "name": "boleto",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "card_unknown",
       "category": "Card scheme",
       "size": "32"
     },
@@ -1154,12 +1170,6 @@
       "size": "24"
     },
     {
-      "name": "apm",
-      "category": "Finance",
-      "size": "32",
-      "deprecation": "Use the `AlternativePaymentMethod` icon instead."
-    },
-    {
       "name": "atm",
       "category": "Finance",
       "size": "24"
@@ -1168,11 +1178,6 @@
       "name": "bank",
       "category": "Finance",
       "size": "24"
-    },
-    {
-      "name": "card_unknown",
-      "category": "Finance",
-      "size": "32"
     },
     {
       "name": "card_unknown",
@@ -1231,6 +1236,11 @@
     },
     {
       "name": "transfer_out",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "wire_transfer",
       "category": "Finance",
       "size": "24"
     },
@@ -1936,6 +1946,11 @@
     },
     {
       "name": "twitter",
+      "category": "Social media",
+      "size": "24"
+    },
+    {
+      "name": "whats_app",
       "category": "Social media",
       "size": "24"
     },
