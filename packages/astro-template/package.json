@@ -29,7 +29,7 @@
   "devDependencies": {
     "@sumup/eslint-plugin-circuit-ui": "^4.0.0",
     "@sumup/foundry": "^7.0.0",
-    "@sumup/stylelint-plugin-circuit-ui": "^1.0.0",
+    "@sumup/stylelint-plugin-circuit-ui": "^2.0.0",
     "prettier-plugin-astro": "^0.13.0"
   }
 }

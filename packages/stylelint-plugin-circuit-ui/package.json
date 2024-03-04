@@ -1,6 +1,6 @@
 {
   "name": "@sumup/stylelint-plugin-circuit-ui",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Stylelint rules to lint Circuit UI.",
   "exports": "./dist/index.js",
   "type": "module",
