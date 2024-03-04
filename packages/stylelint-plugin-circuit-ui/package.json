@@ -2,13 +2,15 @@
   "name": "@sumup/stylelint-plugin-circuit-ui",
   "version": "1.0.0",
   "description": "Stylelint rules to lint Circuit UI.",
+  "exports": "./dist/index.js",
+  "type": "module",
   "keywords": [
     "sumup",
     "circuit-ui",
     "stylelint",
     "stylelint-plugin"
   ],
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
   "files": [
     "dist"
   ],
@@ -23,7 +25,8 @@
   },
   "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/stylelint-plugin-circuit-ui/README.md",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "test": "vitest"
   },
   "devDependencies": {
     "@sumup/design-tokens": "^7.0.0",
@@ -33,6 +36,6 @@
   },
   "peerDependencies": {
     "@sumup/design-tokens": ">=5.3.0",
-    "stylelint": "^15.10.2"
+    "stylelint": "^16.2.0"
   }
 }

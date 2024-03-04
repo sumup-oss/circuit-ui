@@ -174,9 +174,9 @@ describe('ListItem', () => {
         ...baseProps,
         onClick: vi.fn(),
       };
-      const { getByRole } = renderListItem(render, props);
+      renderListItem(render, props);
 
-      await userEvent.click(getByRole('button'));
+      await userEvent.click(screen.getByRole('button'));
 
       expect(props.onClick).toHaveBeenCalledTimes(1);
     });

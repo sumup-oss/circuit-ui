@@ -21,6 +21,7 @@ import {
   act,
   userEvent as baseUserEvent,
   fireEvent,
+  screen,
 } from '../../util/test-utils.js';
 
 import { ModalProvider, ModalContext } from './ModalContext.js';
@@ -76,13 +77,13 @@ describe('ModalContext', () => {
     // the simulated DOM environment of the unit tests. That's why we need to
     // set `ariaHideApp="false"`. This should not be done in production apps.
     it('should render the initial modals', () => {
-      const { getByRole } = render(
+      render(
         <ModalProvider initialState={initialState} ariaHideApp={false}>
           <div />
         </ModalProvider>,
       );
 
-      expect(getByRole('dialog')).toBeVisible();
+      expect(screen.getByRole('dialog')).toBeVisible();
     });
 
     it('should open and close a modal when the context functions are called', async () => {
@@ -96,57 +97,55 @@ describe('ModalContext', () => {
         );
       };
 
-      const { getByRole, queryByRole } = render(
+      render(
         <ModalProvider ariaHideApp={false}>
           <Trigger />
         </ModalProvider>,
       );
 
-      await userEvent.click(getByRole('button', { name: 'Open modal' }));
+      await userEvent.click(screen.getByRole('button', { name: 'Open modal' }));
 
-      expect(getByRole('dialog')).toBeVisible();
+      expect(screen.getByRole('dialog')).toBeVisible();
 
-      await userEvent.click(getByRole('button', { name: 'Close' }));
+      await userEvent.click(screen.getByRole('button', { name: 'Close' }));
 
       act(() => {
         vi.runAllTimers();
       });
 
-      expect(queryByRole('dialog')).toBeNull();
+      expect(screen.queryByRole('dialog')).toBeNull();
     });
 
     it('should close the modal when the user navigates back', () => {
-      const { queryByRole } = render(
+      render(
         <ModalProvider initialState={initialState} ariaHideApp={false}>
           <div />
         </ModalProvider>,
       );
 
-      act(() => {
-        fireEvent.popState(window);
-      });
+      fireEvent.popState(window);
       act(() => {
         vi.runAllTimers();
       });
 
-      expect(queryByRole('dialog')).toBeNull();
+      expect(screen.queryByRole('dialog')).toBeNull();
       expect(onClose).toHaveBeenCalledTimes(1);
     });
 
     it('should close the modal when the onClose method is called', async () => {
-      const { queryByRole } = render(
+      render(
         <ModalProvider initialState={initialState} ariaHideApp={false}>
           <div />
         </ModalProvider>,
       );
 
-      const closeButton = queryByRole('button') as HTMLButtonElement;
+      const closeButton = screen.queryByRole('button') as HTMLButtonElement;
       await userEvent.click(closeButton);
       act(() => {
         vi.runAllTimers();
       });
 
-      expect(queryByRole('dialog')).toBeNull();
+      expect(screen.queryByRole('dialog')).toBeNull();
       expect(onClose).toHaveBeenCalledTimes(1);
     });
   });

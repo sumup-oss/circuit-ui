@@ -69,8 +69,8 @@
 .base .image {
   max-width: 232px;
   height: 120px;
-  object-fit: contain;
   margin: 0 auto var(--cui-spacings-giga);
+  object-fit: contain;
 }
 
 .base .image svg {

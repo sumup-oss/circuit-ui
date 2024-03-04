@@ -7,6 +7,8 @@ public/
 __coverage__/
 __reports__/
 *.config.*
+package.json
+package-lock.json
 *rc.*
 /scripts/
 # disable linting for templates because it will have its own rules when used in a new app

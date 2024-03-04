@@ -15,19 +15,19 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { render } from '../../util/test-utils.js';
+import { render, screen } from '../../util/test-utils.js';
 
 import { Portal } from './Portal.js';
 
 describe('Portal', () => {
   it('should append its children to the document body by default', () => {
     const testId = 'children';
-    const { getByTestId } = render(
+    render(
       <Portal>
         <div data-testid={testId} />
       </Portal>,
     );
-    const children = getByTestId(testId);
+    const children = screen.getByTestId(testId);
 
     expect(children).toBeVisible();
     expect(children.parentElement).toEqual(document.body);
@@ -40,13 +40,13 @@ describe('Portal', () => {
     const testId = 'children';
 
     const getContainer = vi.fn(() => container);
-    const { getByTestId } = render(
+    render(
       <Portal getContainer={getContainer}>
         <div data-testid={testId} />
       </Portal>,
     );
 
-    const children = getByTestId(testId);
+    const children = screen.getByTestId(testId);
 
     expect(getContainer).toHaveBeenCalledTimes(1);
     expect(children.parentElement).toEqual(container);

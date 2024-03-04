@@ -15,7 +15,7 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { render, axe, userEvent } from '../../../../util/test-utils.js';
+import { render, axe, userEvent, screen } from '../../../../util/test-utils.js';
 
 import { CardHeader } from './Header.js';
 
@@ -23,12 +23,12 @@ describe('CardHeader', () => {
   const children = <h2>This is a content.</h2>;
 
   it('should render a close button when an onClose prop is passed', () => {
-    const { getByRole } = render(
+    render(
       <CardHeader closeButtonLabel="Close" onClose={vi.fn()}>
         {children}
       </CardHeader>,
     );
-    const closeButton = getByRole('button');
+    const closeButton = screen.getByRole('button');
 
     expect(closeButton).toBeVisible();
   });
@@ -36,12 +36,12 @@ describe('CardHeader', () => {
   it('should call the onClose prop when the close button is clicked', async () => {
     const onClose = vi.fn();
 
-    const { getByRole } = render(
+    render(
       <CardHeader closeButtonLabel="Close" onClose={onClose}>
         {children}
       </CardHeader>,
     );
-    const closeButton = getByRole('button');
+    const closeButton = screen.getByRole('button');
 
     await userEvent.click(closeButton);
 

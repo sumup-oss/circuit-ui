@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import { noInvalidCustomProperties } from './no-invalid-custom-properties';
+import { noInvalidCustomProperties } from './no-invalid-custom-properties/index.js';
 
 export default [noInvalidCustomProperties];

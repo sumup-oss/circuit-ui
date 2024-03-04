@@ -15,7 +15,7 @@
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { render, axe } from '../../../../util/test-utils.js';
+import { render, axe, screen } from '../../../../util/test-utils.js';
 
 import { DesktopSidePanel, DesktopSidePanelProps } from './DesktopSidePanel.js';
 
@@ -45,13 +45,13 @@ describe('DesktopSidePanel', () => {
   });
 
   it('should render the side panel', () => {
-    const { getByRole } = renderComponent();
-    expect(getByRole('dialog')).toBeVisible();
+    renderComponent();
+    expect(screen.getByRole('dialog')).toBeVisible();
   });
 
   it('should describe the side panel as modal', () => {
-    const { getByRole } = renderComponent();
-    expect(getByRole('dialog')).toHaveAttribute('aria-modal', 'true');
+    renderComponent();
+    expect(screen.getByRole('dialog')).toHaveAttribute('aria-modal', 'true');
   });
 
   /**

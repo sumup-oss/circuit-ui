@@ -111,6 +111,7 @@ describe('Popover', () => {
    * > The state update happens after tests complete, resulting in act warnings.
    */
   async function flushMicrotasks() {
+    // eslint-disable-next-line testing-library/no-unnecessary-act
     await act(async () => {});
   }
 
@@ -230,9 +231,7 @@ describe('Popover', () => {
       onToggle,
     });
 
-    act(() => {
-      rerender(<Popover {...baseProps} isOpen />);
-    });
+    rerender(<Popover {...baseProps} isOpen />);
 
     const popoverItems = screen.getAllByRole('menuitem');
 
@@ -244,9 +243,7 @@ describe('Popover', () => {
   it('should move focus to the trigger element after closing', async () => {
     const { rerender } = renderPopover(baseProps);
 
-    act(() => {
-      rerender(<Popover {...baseProps} isOpen={false} />);
-    });
+    rerender(<Popover {...baseProps} isOpen={false} />);
 
     const popoverTrigger = screen.getByRole('button');
 

@@ -70,14 +70,14 @@ describe('NotificationFullscreen', () => {
 
   describe('heading levels', () => {
     it('should render with an h1 headline', () => {
-      const { getByRole } = renderNotificationFullscreen({
+      renderNotificationFullscreen({
         ...baseProps,
         headline: {
           label: 'Headline 1',
           as: 'h1',
         },
       });
-      const headingEl = getByRole('heading');
+      const headingEl = screen.getByRole('heading');
       expect(headingEl.tagName).toBe('H1');
     });
   });
@@ -85,28 +85,28 @@ describe('NotificationFullscreen', () => {
   describe('alternative text', () => {
     it('should add an alt attribute to an img element', () => {
       const altText = 'alt text';
-      const { getByRole } = renderNotificationFullscreen({
+      renderNotificationFullscreen({
         ...baseProps,
         image: {
           src: '/images/illustration-update.svg',
           alt: altText,
         },
       });
-      const imageEl = getByRole('img');
+      const imageEl = screen.getByRole('img');
       expect(imageEl.tagName).toBe('IMG');
       expect(imageEl.getAttribute('alt')).toBe(altText);
     });
 
     it('should add aria-label to an svg element', () => {
       const altText = 'alt text';
-      const { getByRole } = renderNotificationFullscreen({
+      renderNotificationFullscreen({
         ...baseProps,
         image: {
           svg: Plus,
           alt: altText,
         },
       });
-      const imageEl = getByRole('img');
+      const imageEl = screen.getByRole('img');
       expect(imageEl.tagName).toBe('svg');
       expect(imageEl.getAttribute('aria-label')).toBe(altText);
     });

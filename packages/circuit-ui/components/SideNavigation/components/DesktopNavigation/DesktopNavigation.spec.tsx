@@ -17,7 +17,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { Home, Shop } from '@sumup/icons';
 
-import { render, axe, RenderFn } from '../../../../util/test-utils.js';
+import { render, axe, RenderFn, screen } from '../../../../util/test-utils.js';
 
 import {
   DesktopNavigation,
@@ -68,9 +68,9 @@ describe('DesktopNavigation', () => {
   };
 
   it('should render with secondary links', () => {
-    const { getAllByRole } = renderDesktopNavigation(render, defaultProps);
+    renderDesktopNavigation(render, defaultProps);
 
-    const lists = getAllByRole('list');
+    const lists = screen.getAllByRole('list');
 
     expect(lists).toHaveLength(3);
   });
@@ -88,9 +88,9 @@ describe('DesktopNavigation', () => {
         },
       ],
     };
-    const { getAllByRole } = renderDesktopNavigation(render, props);
+    renderDesktopNavigation(render, props);
 
-    const lists = getAllByRole('list');
+    const lists = screen.getAllByRole('list');
 
     expect(lists).toHaveLength(1);
   });
