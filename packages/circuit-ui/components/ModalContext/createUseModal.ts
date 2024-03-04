@@ -13,10 +13,10 @@
  * limitations under the License.
  */
 
-import { useContext, useCallback, useRef, useId } from 'react';
+import { useCallback, useRef, useId } from 'react';
 
-import { ModalContext } from './ModalContext.js';
 import type { BaseModalProps, ModalComponent } from './types.js';
+import { $modals } from './ModalContext.js';
 
 export function createUseModal<T extends BaseModalProps>(
   component: ModalComponent<T>,
@@ -27,22 +27,24 @@ export function createUseModal<T extends BaseModalProps>(
   } => {
     const id = useId();
     const modalRef = useRef<Omit<T, 'isOpen'> | null>(null);
-    const context = useContext(ModalContext);
 
     const setModal = useCallback(
       (props: Omit<T, 'isOpen'>): void => {
         modalRef.current = props;
-        context.setModal({ ...props, id, component });
+        $modals.add({ ...props, id, component });
       },
-      [context, id],
+      [id],
     );
 
     const removeModal = useCallback((): void => {
       if (modalRef.current) {
-        context.removeModal({ ...modalRef.current, id, component });
+        $modals.remove(
+          { ...modalRef.current, id, component },
+          component.TRANSITION_DURATION,
+        );
         modalRef.current = null;
       }
-    }, [context, id]);
+    }, [id]);
 
     return { setModal, removeModal };
   };

@@ -15,19 +15,15 @@
 
 'use client';
 
-import {
-  createContext,
-  useEffect,
-  useCallback,
-  ReactNode,
-  useMemo,
-} from 'react';
+import { useEffect, ReactNode } from 'react';
 import ReactModal, { Props as ReactModalProps } from 'react-modal';
+import { useStore } from '@nanostores/react';
 
-import { useStack, StackItem } from '../../hooks/useStack/index.js';
 import { warn } from '../../util/logger.js';
+import { StackItem, stack } from '../../util/stores.js';
 
 import { BaseModalProps, ModalComponent } from './types.js';
+
 import './Modal.css';
 
 const PORTAL_CLASS_NAME = 'cui-modal-portal';
@@ -69,22 +65,12 @@ if (typeof window !== 'undefined') {
   }
 }
 
-type ModalState<TProps extends BaseModalProps> = Omit<TProps, 'isOpen'> &
-  StackItem & { component: ModalComponent<TProps> };
+type ModalState = Omit<BaseModalProps, 'isOpen'> &
+  StackItem & { component: ModalComponent<BaseModalProps> };
 
-type ModalContextValue = {
-  /* eslint-disable @typescript-eslint/no-explicit-any */
-  setModal: (modal: ModalState<any>) => void;
-  removeModal: (modal: ModalState<any>) => void;
-  /* eslint-enable @typescript-eslint/no-explicit-any */
-};
+export const $modals = stack<ModalState>([]);
 
-export const ModalContext = createContext<ModalContextValue>({
-  setModal: () => {},
-  removeModal: () => {},
-});
-
-export interface ModalProviderProps<TProps extends BaseModalProps>
+export interface ModalProviderProps
   extends Omit<
     ReactModalProps,
     'isOpen' | 'portalClassName' | 'htmlOpenClassName' | 'bodyOpenClassName'
@@ -96,38 +82,23 @@ export interface ModalProviderProps<TProps extends BaseModalProps>
   /**
    * An array of modals that should be displayed immediately, e.g. on page load.
    */
-  initialState?: ModalState<TProps>[];
+  initialState?: ModalState[];
 }
 
-export function ModalProvider<TProps extends BaseModalProps>({
+export function ModalProvider({
   children,
   initialState,
   ...defaultModalProps
-}: ModalProviderProps<TProps>): JSX.Element {
-  const [modals, dispatch] = useStack<ModalState<TProps>>(initialState);
+}: ModalProviderProps): JSX.Element {
+  const modals = useStore($modals);
 
-  const setModal = useCallback(
-    (modal: ModalState<TProps>) => {
-      dispatch({ type: 'push', item: modal });
-    },
-    [dispatch],
-  );
-
-  const removeModal = useCallback(
-    (modal: ModalState<TProps>) => {
-      if (modal.onClose) {
-        modal.onClose();
-      }
-      dispatch({
-        type: 'remove',
-        id: modal.id,
-        transition: {
-          duration: modal.component.TRANSITION_DURATION,
-        },
-      });
-    },
-    [dispatch],
-  );
+  useEffect(() => {
+    if (initialState) {
+      $modals.set(initialState);
+    }
+    // The initial state should only be set on the initial render
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const activeModal = modals[modals.length - 1];
 
@@ -145,7 +116,7 @@ export function ModalProvider<TProps extends BaseModalProps>({
     }
 
     const popModal = () => {
-      removeModal(activeModal);
+      $modals.remove(activeModal, activeModal.component.TRANSITION_DURATION);
     };
 
     window.addEventListener('popstate', popModal);
@@ -154,40 +125,35 @@ export function ModalProvider<TProps extends BaseModalProps>({
       cleanUp();
       window.removeEventListener('popstate', popModal);
     };
-  }, [activeModal, removeModal]);
-
-  const context = useMemo(
-    () => ({ setModal, removeModal }),
-    [setModal, removeModal],
-  );
+  }, [activeModal]);
 
   return (
-    <ModalContext.Provider value={context}>
+    <>
       {children}
 
       {modals.map((modal) => {
         const {
           id,
           onClose,
-          transition,
           component: Component,
+          state,
           ...modalProps
         } = modal;
         return (
-          // @ts-expect-error The props are enforced by the modal hooks,
-          // so this warning can be safely ignored.
           <Component
             {...defaultModalProps}
             {...modalProps}
             key={id}
-            isOpen={!transition}
-            onClose={() => removeModal(modal)}
+            isOpen={state !== 'removing'}
+            onClose={() =>
+              $modals.remove(modal, modal.component.TRANSITION_DURATION)
+            }
             portalClassName={PORTAL_CLASS_NAME}
             htmlOpenClassName={HTML_OPEN_CLASS_NAME}
             bodyOpenClassName=""
           />
         );
       })}
-    </ModalContext.Provider>
+    </>
   );
 }

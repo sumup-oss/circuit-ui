@@ -27,7 +27,6 @@ export type StackItem = {
 
 type Action<T extends StackItem> =
   | { type: 'push'; item: T }
-  | { type: 'pop'; transition?: Transition }
   | { type: 'remove'; id: Id; transition?: Transition }
   | { type: 'update'; item: Partial<T> & StackItem };
 
@@ -38,19 +37,6 @@ function createReducer<T extends StackItem>() {
     switch (action.type) {
       case 'push': {
         return [...state, action.item];
-      }
-      case 'pop': {
-        const firstItems = state.slice(0, -1);
-
-        if (action.transition) {
-          const lastItem = {
-            ...state[state.length - 1],
-            transition: action.transition,
-          };
-          return [...firstItems, lastItem];
-        }
-
-        return firstItems;
       }
       case 'remove': {
         if (action.transition) {

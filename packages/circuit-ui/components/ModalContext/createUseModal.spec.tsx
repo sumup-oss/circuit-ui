@@ -13,13 +13,22 @@
  * limitations under the License.
  */
 
-import { describe, expect, it, vi } from 'vitest';
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  it,
+  vi,
+} from 'vitest';
+import { cleanStores } from 'nanostores';
 
 import { renderHook, act } from '../../util/test-utils.js';
 
 import { createUseModal } from './createUseModal.js';
-import { ModalContext } from './ModalContext.js';
 import type { ModalComponent } from './types.js';
+import { $modals } from './ModalContext.js';
 
 const Modal: ModalComponent = ({ onClose }) => (
   <div role="dialog">
@@ -29,33 +38,39 @@ const Modal: ModalComponent = ({ onClose }) => (
 Modal.TRANSITION_DURATION = 200;
 
 describe('createUseModal', () => {
+  beforeAll(() => {
+    vi.useFakeTimers();
+  });
+
+  afterAll(() => {
+    vi.useRealTimers();
+  });
+
+  afterEach(() => {
+    $modals.set([]);
+    cleanStores($modals);
+  });
+
   const useModal = createUseModal(Modal);
 
-  const setModal = vi.fn();
-  const removeModal = vi.fn();
-
-  const wrapper = ({ children }) => (
-    <ModalContext.Provider value={{ setModal, removeModal }}>
-      {children}
-    </ModalContext.Provider>
-  );
-
   it('should add the modal when setModal is called', () => {
-    const { result } = renderHook(() => useModal(), { wrapper });
+    const { result } = renderHook(() => useModal());
 
     act(() => {
       result.current.setModal({});
     });
 
-    const expected = expect.objectContaining({
-      component: expect.any(Function),
-      id: expect.any(String),
-    });
-    expect(setModal).toHaveBeenCalledWith(expected);
+    const expected = expect.arrayContaining([
+      expect.objectContaining({
+        component: expect.any(Function),
+        id: expect.any(String),
+      }),
+    ]);
+    expect($modals.get()).toEqual(expected);
   });
 
   it('should remove the modal when removeModal is called', () => {
-    const { result } = renderHook(() => useModal(), { wrapper });
+    const { result } = renderHook(() => useModal());
 
     act(() => {
       result.current.setModal({});
@@ -65,7 +80,10 @@ describe('createUseModal', () => {
       result.current.removeModal();
     });
 
-    const expected = expect.any(Object);
-    expect(removeModal).toHaveBeenCalledWith(expected);
+    act(() => {
+      vi.runAllTimers();
+    });
+
+    expect($modals.get()).toHaveLength(0);
   });
 });

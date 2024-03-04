@@ -14,7 +14,7 @@
  */
 
 import { afterAll, afterEach, describe, expect, it, vi } from 'vitest';
-import { useContext } from 'react';
+import { cleanStores } from 'nanostores';
 
 import {
   render,
@@ -23,7 +23,7 @@ import {
   fireEvent,
 } from '../../util/test-utils.js';
 
-import { ModalProvider, ModalContext } from './ModalContext.js';
+import { $modals, ModalProvider } from './ModalContext.js';
 import type { ModalComponent } from './types.js';
 
 const Modal: ModalComponent = ({ onClose }) => (
@@ -53,7 +53,6 @@ describe('ModalContext', () => {
   });
   afterAll(() => {
     vi.useRealTimers();
-    vi.resetModules();
   });
   afterEach(() => {
     vi.clearAllMocks();
@@ -64,6 +63,11 @@ describe('ModalContext', () => {
   });
 
   describe('ModalProvider', () => {
+    afterEach(() => {
+      $modals.set([]);
+      cleanStores($modals);
+    });
+
     const onClose = vi.fn();
     const modal = {
       id: 'initial',
@@ -85,36 +89,6 @@ describe('ModalContext', () => {
       expect(getByRole('dialog')).toBeVisible();
     });
 
-    it('should open and close a modal when the context functions are called', async () => {
-      const Trigger = () => {
-        const { setModal, removeModal } = useContext(ModalContext);
-        return (
-          <>
-            <button onClick={() => setModal(modal)}>Open modal</button>
-            <button onClick={() => removeModal(modal)}>Close modal</button>
-          </>
-        );
-      };
-
-      const { getByRole, queryByRole } = render(
-        <ModalProvider ariaHideApp={false}>
-          <Trigger />
-        </ModalProvider>,
-      );
-
-      await userEvent.click(getByRole('button', { name: 'Open modal' }));
-
-      expect(getByRole('dialog')).toBeVisible();
-
-      await userEvent.click(getByRole('button', { name: 'Close' }));
-
-      act(() => {
-        vi.runAllTimers();
-      });
-
-      expect(queryByRole('dialog')).toBeNull();
-    });
-
     it('should close the modal when the user navigates back', () => {
       const { queryByRole } = render(
         <ModalProvider initialState={initialState} ariaHideApp={false}>
@@ -129,8 +103,8 @@ describe('ModalContext', () => {
         vi.runAllTimers();
       });
 
-      expect(queryByRole('dialog')).toBeNull();
       expect(onClose).toHaveBeenCalledTimes(1);
+      expect(queryByRole('dialog')).toBeNull();
     });
 
     it('should close the modal when the onClose method is called', async () => {

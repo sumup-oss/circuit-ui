@@ -67,35 +67,6 @@ describe('useStack', () => {
       expect(state[3].id).toBe(4);
     });
 
-    it('should pop an item from the top of the stack', () => {
-      const { result } = renderHook(() => useStack(initialStack));
-
-      act(() => {
-        const dispatch = result.current[1];
-        dispatch({ type: 'pop' });
-      });
-
-      expect(result.current[0]).toHaveLength(2);
-    });
-
-    it('should pop an item from the top of the stack after a delay', () => {
-      const transition = { duration: 200 };
-      const { result } = renderHook(() => useStack(initialStack));
-
-      act(() => {
-        const dispatch = result.current[1];
-        dispatch({ type: 'pop', transition });
-      });
-
-      expect(result.current[0]).toHaveLength(3);
-
-      act(() => {
-        vi.advanceTimersByTime(transition.duration);
-      });
-
-      expect(result.current[0]).toHaveLength(2);
-    });
-
     it('should remove an item from the stack', () => {
       const { result } = renderHook(() => useStack(initialStack));
 
