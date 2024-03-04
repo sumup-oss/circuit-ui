@@ -3,7 +3,8 @@
   "description": "The web implementation of Circuit UI, SumUp's design system",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "packages/cna-template/template"
   ],
   "repository": {
     "type": "git",
@@ -24,7 +25,7 @@
     "test:ci": "vitest run --coverage",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
-    "lint:css": "stylelint \"**/*.css\"",
+    "lint:css": "foundry run stylelint \"**/*.css\"",
     "docs": "npm run docs:start",
     "docs:start": "storybook dev -p 6006",
     "docs:build": "storybook build -c .storybook -o public && cp -R ./packages/icons/web ./public/icons",
