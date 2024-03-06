@@ -70,7 +70,7 @@ export const Anchor = forwardRef(
       return (
         <Body
           {...props}
-          className={clsx(classes.base, className)}
+          className={clsx(classes.base, utilityClasses.focusVisible, className)}
           as={Link}
           ref={ref}
         />
