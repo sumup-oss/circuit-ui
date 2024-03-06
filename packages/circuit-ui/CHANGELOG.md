@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.5.1
+
+### Patch Changes
+
+- [#2461](https://github.com/sumup-oss/circuit-ui/pull/2461) [`ea05708`](https://github.com/sumup-oss/circuit-ui/commit/ea057089c1c4d3b3cb769de94766ce5dcc2789a8) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the missing focus outline of the Anchor component when it renders as the `a` element.
+
 ## 8.5.0
 
 ### Minor Changes
