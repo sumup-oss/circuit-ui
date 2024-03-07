@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { HTMLAttributes, forwardRef } from 'react';
 import { ChevronUp, ChevronDown } from '@sumup/icons';
 
