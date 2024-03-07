@@ -20,6 +20,7 @@ import {
   useEffect,
   useId,
   useState,
+  useRef,
   type ComponentType,
   type FocusEventHandler,
   type HTMLAttributes,
@@ -28,15 +29,17 @@ import {
 } from 'react';
 import {
   useFloating,
+  arrow,
   flip,
+  offset,
   shift,
   type Placement,
+  type Side,
 } from '@floating-ui/react-dom';
 
 import { clsx } from '../../styles/clsx.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
-import Portal from '../Portal/index.js';
 
 import classes from './Tooltip.module.css';
 
@@ -75,6 +78,13 @@ export interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
   placement?: Placement;
 }
 
+const ARROW_ROTATION_MAP: Record<Side, `${number}deg`> = {
+  top: '45deg',
+  right: '135deg',
+  bottom: '225deg',
+  left: '315deg',
+};
+
 enum State {
   initial = 'initial',
   open = 'open',
@@ -87,13 +97,14 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       label,
       component: Component,
       type = 'label',
-      placement = 'top',
+      placement: defaultPlacement = 'top',
       className,
       ...props
     },
     ref,
   ) => {
     const tooltipId = useId();
+    const arrowRef = useRef<HTMLDivElement>(null);
     // The tooltip works without JavaScript using only CSS (the "initial" state).
     // When JS is available, the component is progressively enhanced and toggles
     // between the "closed" and "open" states.
@@ -105,11 +116,24 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
 
     useEscapeKey(() => setState(State.closed), state === State.open);
 
-    const { refs, floatingStyles, update } = useFloating({
-      open: state === State.open,
-      placement,
-      middleware: [flip(), shift()],
-    });
+    const { refs, floatingStyles, middlewareData, update, placement } =
+      useFloating({
+        open: state === State.open,
+        placement: defaultPlacement,
+        middleware: [
+          // 8px (arrow size) + 4px (actual offset)
+          offset(12),
+          flip(),
+          shift(),
+          arrow({
+            element: arrowRef,
+            // This accounts for the content's border radius
+            padding: 8,
+          }),
+        ],
+      });
+
+    const side = placement.split('-')[0] as Side;
 
     useEffect(() => {
       /**
@@ -148,7 +172,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     };
 
     return (
-      <>
+      <div className={clsx(classes.parent, className)}>
         <Component
           {...referenceProps}
           onFocus={handleOpen}
@@ -158,22 +182,31 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
           className={classes.component}
           ref={refs.setReference}
         />
-        <Portal>
+        <div
+          {...props}
+          ref={applyMultipleRefs(ref, refs.setFloating)}
+          id={tooltipId}
+          role="tooltip"
+          onMouseEnter={handleOpen}
+          onMouseLeave={handleClose}
+          data-state={state}
+          className={classes.base}
+          style={{ ...props.style, ...floatingStyles }}
+        >
+          <div className={classes.content}>{label}</div>
           <div
-            {...props}
-            ref={applyMultipleRefs(ref, refs.setFloating)}
-            id={tooltipId}
-            role="tooltip"
-            onMouseEnter={handleOpen}
-            onMouseLeave={handleClose}
-            data-state={state}
-            style={{ ...props.style, ...floatingStyles }}
-            className={clsx(classes.base, className)}
-          >
-            <div className={classes.content}>{label}</div>
-          </div>
-        </Portal>
-      </>
+            ref={arrowRef}
+            className={classes.arrow}
+            // @ts-expect-error The dynamic style rules are valid.
+            style={{
+              left: middlewareData.arrow?.x,
+              top: middlewareData.arrow?.y,
+              [side]: 'calc(100% - (var(--cui-spacings-kilo) / 2))',
+              transform: `rotate(${ARROW_ROTATION_MAP[side]})`,
+            }}
+          />
+        </div>
+      </div>
     );
   },
 );

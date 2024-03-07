@@ -28,8 +28,10 @@ const baseProps: TooltipProps = {
 describe('Tooltip', () => {
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
-    render(<Tooltip {...baseProps} className={className} />);
-    const tooltip = screen.getByRole('tooltip');
+    const { container } = render(
+      <Tooltip {...baseProps} className={className} />,
+    );
+    const tooltip = container.querySelectorAll('div')[0];
     expect(tooltip?.className).toContain(className);
   });
 
