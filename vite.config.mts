@@ -25,5 +25,29 @@ export default defineConfig({
     reporters: process.env.GITHUB_ACTIONS
       ? ['default', new GithubActionsReporter()]
       : 'default',
+    coverage: {
+      exclude: [
+        // Default
+        'coverage/**',
+        'dist/**',
+        '**/[.]**',
+        'packages/*/test?(s)/**',
+        '**/*.d.ts',
+        '**/virtual:*',
+        '**/__x00__*',
+        '**/\x00*',
+        'cypress/**',
+        'test?(s)/**',
+        'test?(-*).?(c|m)[jt]s?(x)',
+        '**/*{.,-}{test,spec}.?(c|m)[jt]s?(x)',
+        '**/__tests__/**',
+        '**/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,tsup,build,lint-staged,remix,astro}.config.*',
+        '**/vitest.{workspace,projects}.[jt]s?(on)',
+        '**/.{eslint,mocha,prettier}rc.{?(c|m)js,yml}',
+        // Custom
+        '**/*.stories.*',
+        '**/index.*',
+      ],
+    },
   },
 });
