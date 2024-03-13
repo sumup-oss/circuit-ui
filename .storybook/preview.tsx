@@ -44,7 +44,6 @@ export const parameters = {
     },
   },
   previewTabs: { 'storybook/docs/panel': { index: -1 } },
-  actions: { argTypesRegex: '^on.*' },
   controls: { expanded: true },
   options: {
     storySort: {

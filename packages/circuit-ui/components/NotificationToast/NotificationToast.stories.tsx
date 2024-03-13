@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { screen, userEvent, within } from '@storybook/testing-library';
+import { screen, userEvent, within } from '@storybook/test';
 import isChromatic from 'chromatic/isChromatic';
 
 import { Stack } from '../../../../.storybook/components/index.js';

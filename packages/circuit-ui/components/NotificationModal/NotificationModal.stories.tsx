@@ -15,7 +15,7 @@
 
 import type { Decorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { screen, userEvent, within } from '@storybook/testing-library';
+import { screen, userEvent, within } from '@storybook/test';
 
 import { FullViewport } from '../../../../.storybook/components/index.js';
 import { ModalProvider } from '../ModalContext/index.js';
