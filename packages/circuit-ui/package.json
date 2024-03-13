@@ -77,7 +77,7 @@
     "rollup-plugin-preserve-directives": "^0.3.1",
     "typescript": "^5.3.3",
     "typescript-plugin-css-modules": "^5.0.2",
-    "vite": "^4.5.2"
+    "vite": "^5.1.6"
   },
   "peerDependencies": {
     "@emotion/is-prop-valid": "^1.2.1",

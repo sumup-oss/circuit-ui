@@ -15,7 +15,7 @@
 
 /** @jsxImportSource @emotion/react */
 
-import { userEvent } from '@storybook/testing-library';
+import { userEvent } from '@storybook/test';
 
 import { Stack } from '../../../.storybook/components/index.js';
 import Button from '../components/Button/index.js';

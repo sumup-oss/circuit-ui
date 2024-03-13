@@ -1,4 +1,4 @@
-import { addons, types } from '@storybook/addons';
+import { addons, types } from '@storybook/manager-api';
 
 import { dark, light, listenToColorScheme } from './themes.js';
 import { PARAM_KEY as VERSIONS_PARAM_KEY, Versions } from './addons/versions';

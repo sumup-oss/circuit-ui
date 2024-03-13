@@ -17,7 +17,7 @@ import crypto from 'node:crypto';
 import path from 'node:path';
 import preserveDirectives from 'rollup-plugin-preserve-directives';
 
-import { UserConfig, defineConfig } from 'vite';
+import { UserConfig, defineConfig } from 'vitest/config';
 
 import {
   dependencies,

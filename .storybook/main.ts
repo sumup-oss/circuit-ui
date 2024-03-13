@@ -2,7 +2,6 @@ import type { StorybookConfig } from '@storybook/react-vite';
 import path from 'path';
 import remarkGfm from 'remark-gfm';
 import { mergeConfig } from 'vite';
-import turbosnap from 'vite-plugin-turbosnap';
 
 const toPath = (_path: string) => path.join(process.cwd(), _path);
 
@@ -44,11 +43,10 @@ const config: StorybookConfig = {
       define: {
         'process.env.UNSAFE_DISABLE_ELEMENT_ERRORS': false,
       },
-      plugins:
-        configType === 'PRODUCTION'
-          ? [turbosnap({ rootDir: config.root ?? process.cwd() })]
-          : [],
     });
+  },
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
   },
 };
 
