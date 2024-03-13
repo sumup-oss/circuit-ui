@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { PureArgsTable as Props } from '@storybook/addon-docs';
+import { Controls as Props } from '@storybook/addon-docs';
 
 export { Props };
 
