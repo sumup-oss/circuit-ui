@@ -59,7 +59,7 @@
     "@storybook/test": "^8.0.0",
     "@storybook/theming": "^8.0.0",
     "@sumup/eslint-plugin-circuit-ui": "^4.0.0",
-    "@sumup/foundry": "^7.0.0",
+    "@sumup/foundry": "^7.1.1",
     "@sumup/stylelint-plugin-circuit-ui": "^1.0.0",
     "@types/node": "^18.16.19",
     "@vitest/coverage-v8": "^1.3.1",
