@@ -26,6 +26,7 @@
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
     "lint:css": "foundry run stylelint \"**/*.css\"",
+    "dev": "npm run docs:start",
     "docs": "npm run docs:start",
     "docs:start": "storybook dev -p 6006",
     "docs:build": "storybook build -c .storybook -o public --stats-json && cp -R ./packages/icons/web ./public/icons",
