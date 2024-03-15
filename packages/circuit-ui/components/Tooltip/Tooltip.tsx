@@ -99,6 +99,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       type,
       placement: defaultPlacement = 'top',
       className,
+      style,
       ...props
     },
     ref,
@@ -172,7 +173,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     };
 
     return (
-      <div className={clsx(classes.parent, className)}>
+      <>
         <Component
           {...referenceProps}
           onFocus={handleOpen}
@@ -191,8 +192,8 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
           onMouseEnter={handleOpen}
           onMouseLeave={handleClose}
           data-state={state}
-          className={classes.base}
-          style={{ ...props.style, ...floatingStyles }}
+          className={clsx(classes.base, className)}
+          style={{ ...style, ...floatingStyles }}
         >
           <div className={classes.content}>{label}</div>
           <div
@@ -207,7 +208,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
             }}
           />
         </div>
-      </div>
+      </>
     );
   },
 );
