@@ -19,7 +19,6 @@ import {
   forwardRef,
   useEffect,
   useId,
-  useState,
   useRef,
   type ComponentType,
   type FocusEventHandler,
@@ -36,10 +35,13 @@ import {
   type Placement,
   type Side,
 } from '@floating-ui/react-dom';
+import { atom, onMount } from 'nanostores';
+import { useStore } from '@nanostores/react';
 
 import { clsx } from '../../styles/clsx.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
+import { CircuitError } from '../../util/errors.js';
 
 import classes from './Tooltip.module.css';
 
@@ -85,10 +87,36 @@ const ARROW_ROTATION_MAP: Record<Side, `${number}deg`> = {
   left: '315deg',
 };
 
+export const $activeTooltipId = atom<string | null>('initial');
+
+// The tooltip works without JavaScript using only CSS (the "initial" state).
+// When JS is available, the component is progressively enhanced and toggles
+// between the "closed" and "open" states.
+onMount($activeTooltipId, () => {
+  $activeTooltipId.set(null);
+  return () => {
+    $activeTooltipId.set('initial');
+  };
+});
+
 enum State {
   initial = 'initial',
   open = 'open',
   closed = 'closed',
+}
+
+function getState(activeTooltipId: string | null, tooltipId: string) {
+  switch (activeTooltipId) {
+    case 'initial': {
+      return State.initial;
+    }
+    case tooltipId: {
+      return State.open;
+    }
+    default: {
+      return State.closed;
+    }
+  }
 }
 
 export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
@@ -104,18 +132,20 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     },
     ref,
   ) => {
+    const activeTooltipId = useStore($activeTooltipId);
     const tooltipId = useId();
     const arrowRef = useRef<HTMLDivElement>(null);
-    // The tooltip works without JavaScript using only CSS (the "initial" state).
-    // When JS is available, the component is progressively enhanced and toggles
-    // between the "closed" and "open" states.
-    const [state, setState] = useState<State>(State.initial);
 
-    useEffect(() => {
-      setState(State.closed);
-    }, []);
+    const state = getState(activeTooltipId, tooltipId);
 
-    useEscapeKey(() => setState(State.closed), state === State.open);
+    const handleOpen = () => {
+      $activeTooltipId.set(tooltipId);
+    };
+    const handleClose = () => {
+      $activeTooltipId.set(null);
+    };
+
+    useEscapeKey(handleClose, state === State.open);
 
     const { refs, floatingStyles, middlewareData, update, placement } =
       useFloating({
@@ -133,8 +163,6 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
           }),
         ],
       });
-
-    const side = placement.split('-')[0] as Side;
 
     useEffect(() => {
       /**
@@ -161,16 +189,14 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       return undefined;
     }, [state, refs.reference, update]);
 
-    const handleOpen = () => {
-      setState(State.open);
-    };
-    const handleClose = () => {
-      setState(State.closed);
-    };
+    if (process.env.NODE_ENV !== 'production' && !type) {
+      throw new CircuitError('Tooltip', 'The `type` prop is required.');
+    }
 
     const referenceProps = {
       [type === 'label' ? 'aria-labelledby' : 'aria-describedby']: tooltipId,
     };
+    const side = placement.split('-')[0] as Side;
 
     return (
       <>

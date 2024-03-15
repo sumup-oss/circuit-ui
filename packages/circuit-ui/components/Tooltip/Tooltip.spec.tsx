@@ -14,7 +14,7 @@
  */
 
 import { describe, expect, it } from 'vitest';
-import { createRef } from 'react';
+import { createRef, forwardRef } from 'react';
 
 import { render, axe, screen, userEvent } from '../../util/test-utils.js';
 
@@ -22,16 +22,15 @@ import { Tooltip, TooltipProps } from './Tooltip.js';
 
 const baseProps: TooltipProps = {
   label: 'Label',
-  component: (props) => <button {...props} />,
+  type: 'label',
+  component: forwardRef((props, ref) => <button {...props} ref={ref} />),
 };
 
 describe('Tooltip', () => {
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
-    const { container } = render(
-      <Tooltip {...baseProps} className={className} />,
-    );
-    const tooltip = container.querySelectorAll('div')[0];
+    render(<Tooltip {...baseProps} className={className} />);
+    const tooltip = screen.getByRole('tooltip');
     expect(tooltip?.className).toContain(className);
   });
 
@@ -47,6 +46,13 @@ describe('Tooltip', () => {
     render(<Tooltip {...baseProps} ref={ref} />);
     const button = screen.getByRole('button');
     expect(button).toHaveAccessibleName(baseProps.label);
+  });
+
+  it('should act as a description for the reference element', () => {
+    const ref = createRef<HTMLDivElement>();
+    render(<Tooltip {...baseProps} type="description" ref={ref} />);
+    const button = screen.getByRole('button');
+    expect(button).toHaveAccessibleDescription(baseProps.label);
   });
 
   it('should be initially closed', () => {
@@ -87,12 +93,36 @@ describe('Tooltip', () => {
 
   it('should close when the escape key is pressed', async () => {
     render(<Tooltip {...baseProps} />);
+    const button = screen.getByRole('button');
+    const tooltip = screen.getByRole('tooltip');
+
+    await userEvent.hover(button);
+
+    expect(tooltip).toHaveAttribute('data-state', 'open');
 
     await userEvent.keyboard('{Escape}');
 
-    const tooltip = screen.getByRole('tooltip');
-
     expect(tooltip).toHaveAttribute('data-state', 'closed');
+  });
+
+  it('should close when another tooltip is opened', async () => {
+    render(
+      <>
+        <Tooltip {...baseProps} />
+        <Tooltip {...baseProps} />
+      </>,
+    );
+    const tooltips = screen.getAllByRole('tooltip');
+
+    await userEvent.tab();
+
+    expect(tooltips[0]).toHaveAttribute('data-state', 'open');
+    expect(tooltips[1]).toHaveAttribute('data-state', 'closed');
+
+    await userEvent.hover(tooltips[1]);
+
+    expect(tooltips[0]).toHaveAttribute('data-state', 'closed');
+    expect(tooltips[1]).toHaveAttribute('data-state', 'open');
   });
 
   it('should have no accessibility violations', async () => {
