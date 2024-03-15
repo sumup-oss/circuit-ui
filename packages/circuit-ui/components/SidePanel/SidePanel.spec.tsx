@@ -73,7 +73,7 @@ describe('SidePanel', () => {
     const onClose = vi.fn();
     renderComponent({ onClose });
 
-    await userEvent.click(screen.getByTitle(baseProps.closeButtonLabel));
+    await userEvent.click(screen.getByLabelText(baseProps.closeButtonLabel));
 
     expect(onClose).toHaveBeenCalled();
   });
@@ -123,7 +123,7 @@ describe('SidePanel', () => {
       renderComponent({ isStacked: true, onBack });
 
       expect(
-        screen.getByTitle(baseProps.backButtonLabel as string),
+        screen.getByLabelText(baseProps.backButtonLabel as string),
       ).toBeVisible();
     });
 
@@ -132,7 +132,7 @@ describe('SidePanel', () => {
       renderComponent({ isStacked: true, onBack });
 
       await userEvent.click(
-        screen.getByTitle(baseProps.backButtonLabel as string),
+        screen.getByLabelText(baseProps.backButtonLabel as string),
       );
 
       expect(onBack).toHaveBeenCalled();
