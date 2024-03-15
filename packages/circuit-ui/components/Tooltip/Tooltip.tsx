@@ -67,9 +67,9 @@ export interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
   component: ComponentType<TooltipReferenceProps>;
   /**
    * Whether the tooltip is the main label or a supplemental description of
-   * the reference component. Default: 'label'.
+   * the reference component.
    */
-  type?: 'label' | 'description';
+  type: 'label' | 'description';
   /**
    * Where to display the tooltip relative to the reference component. The
    * tooltip will automatically move if there isn't enough space available.
@@ -96,7 +96,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     {
       label,
       component: Component,
-      type = 'label',
+      type,
       placement: defaultPlacement = 'top',
       className,
       ...props
@@ -139,7 +139,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       /**
        * When we support `ResizeObserver` (https://caniuse.com/resizeobserver),
        * we can look into using Floating UI's `autoUpdate` (but we can't use
-       * `whileElementInMounted` because our implementation hides the floating
+       * `whileElementIsMounted` because our implementation hides the floating
        * element using CSS instead of using conditional rendering.
        * See https://floating-ui.com/docs/react-dom#updating
        */
@@ -186,6 +186,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
           {...props}
           ref={applyMultipleRefs(ref, refs.setFloating)}
           id={tooltipId}
+          // See https://github.com/w3c/aria/issues/979
           role="tooltip"
           onMouseEnter={handleOpen}
           onMouseLeave={handleClose}

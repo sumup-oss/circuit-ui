@@ -46,6 +46,7 @@ export const PageList: FC<PageListProps> = ({
       return (
         <li key={page}>
           <Tooltip
+            type="description"
             label={label}
             component={forwardRef((tooltipProps, ref) => (
               <Button

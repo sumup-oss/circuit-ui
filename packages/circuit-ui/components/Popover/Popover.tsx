@@ -264,7 +264,7 @@ export const Popover = ({
     /**
      * When we support `ResizeObserver` (https://caniuse.com/resizeobserver),
      * we can look into using Floating UI's `autoUpdate` (but we can't use
-     * `whileElementInMounted` because our implementation hides the floating
+     * `whileElementIsMounted` because our implementation hides the floating
      * element using CSS instead of using conditional rendering.
      * See https://floating-ui.com/docs/react-dom#updating
      */

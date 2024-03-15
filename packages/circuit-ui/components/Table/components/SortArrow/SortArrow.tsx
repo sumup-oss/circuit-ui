@@ -35,6 +35,7 @@ interface SortArrowProps extends HTMLAttributes<HTMLButtonElement> {
 export function SortArrow({ label, direction, onClick }: SortArrowProps) {
   return (
     <Tooltip
+      type="label"
       label={label}
       component={forwardRef((props, ref) => (
         <button
