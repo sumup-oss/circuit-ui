@@ -30,11 +30,11 @@ import {
   SearchInput,
   Select,
   Badge,
-  Tooltip,
   SelectorGroup,
   clsx,
   utilClasses,
 } from '../../packages/circuit-ui/index.js';
+import { Tooltip } from '../../packages/circuit-ui/experimental.js';
 import { slugify } from '../slugify.js';
 import classes from './Icons.module.css';
 
