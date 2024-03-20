@@ -18,6 +18,7 @@ import {
   type SetStateAction,
   useState,
   ChangeEvent,
+  forwardRef,
 } from 'react';
 import { Unstyled } from '@storybook/addon-docs';
 import * as iconComponents from '@sumup/icons';
@@ -29,6 +30,7 @@ import {
   SearchInput,
   Select,
   Badge,
+  Tooltip,
   SelectorGroup,
   clsx,
   utilClasses,
@@ -40,10 +42,13 @@ function groupBy(
   icons: IconsManifest['icons'],
   key: 'name' | 'category' | 'size',
 ) {
-  return icons.reduce((groups, icon) => {
-    (groups[icon[key]] = groups[icon[key]] || []).push(icon);
-    return groups;
-  }, {});
+  return icons.reduce(
+    (groups, icon) => {
+      (groups[icon[key]] = groups[icon[key]] || []).push(icon);
+      return groups;
+    },
+    {} as Record<string, IconsManifest['icons']>,
+  );
 }
 
 function sortBy(
@@ -172,20 +177,28 @@ const Icons = () => {
                         }}
                       />
                     </div>
-                    <span id={id} className={classes.label} title={icon.name}>
-                      {icon.name}
+                    <span id={id} className={classes.label}>
+                      {componentName}
                       {size === 'all' && (
                         <span className={classes.size}>{icon.size}</span>
                       )}
                     </span>
                     {icon.deprecation && (
-                      <Badge
-                        title={icon.deprecation}
-                        variant="warning"
-                        className={classes.badge}
-                      >
-                        Deprecated
-                      </Badge>
+                      <Tooltip
+                        type="description"
+                        label={icon.deprecation}
+                        component={forwardRef((props, ref) => (
+                          <Badge
+                            {...props}
+                            ref={ref}
+                            tabIndex={0}
+                            variant="danger"
+                            className={classes.badge}
+                          >
+                            Deprecated
+                          </Badge>
+                        ))}
+                      />
                     )}
                   </div>
                 );
