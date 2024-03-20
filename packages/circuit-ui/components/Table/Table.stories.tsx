@@ -86,6 +86,22 @@ WithComponentRows.args = {
   ],
 };
 
+export const WithSelectableColumns = ({
+  onSortBy,
+  ...args
+}: TableProps): JSX.Element => <Table {...args} />;
+
+WithSelectableColumns.args = {
+  headers: ['Name', 'Type', 'Yumminess'],
+  rows: [
+    ['Apple', { children: <Badge variant="danger">Fruit</Badge> }, 7],
+    ['Broccoli', { children: <Badge variant="success">Vegetable</Badge> }, 5],
+    ['Chickpeas', { children: <Badge variant="warning">Legume</Badge> }, 8],
+  ],
+  selectableColumns: true,
+  mandatorySelectedColumnIndices: [0],
+};
+
 export const Sortable = ({ onSortBy, ...args }: TableProps): JSX.Element => (
   <Table {...args} />
 );

@@ -55,6 +55,9 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Toggles vertical scroll on the Table body.
    */
+  selectableColumns?: boolean;
+
+  mandatorySelectedColumnIndices?: number[];
   scrollable?: boolean;
   /**
    * Custom onSortBy function for the onSort handler.
@@ -228,6 +231,8 @@ class Table extends Component<TableProps, TableState> {
       noShadow = false,
       borderCollapsed = false,
       condensed = false,
+      selectableColumns = false,
+      mandatorySelectedColumnIndices = [],
       scrollable = false,
       onRowClick,
       rows: initialRows,
@@ -247,52 +252,55 @@ class Table extends Component<TableProps, TableState> {
 
     return (
       <>
-        <div style={{ marginBottom: '0.5rem' }}>
-          <div style={{ textAlign: 'right' }}>
-            <IconButton
-              icon={Settings}
-              size={'s'}
-              variant={'tertiary'}
-              onClick={() => {
-                this.setState({
-                  ...this.state,
-                  hasExpandedColumnSelection:
-                    !this.state.hasExpandedColumnSelection,
-                });
-              }}
-            >
-              Configure
-            </IconButton>
-          </div>
-          {this.state.hasExpandedColumnSelection && (
-            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-              {headers.map((header, index) => {
-                const checked = selectedColumns?.includes(index);
-                return (
-                  <Checkbox
-                    style={{ width: '33%' }}
-                    key={index}
-                    // @ts-expect-error header children
-                    label={String(header?.children ?? header)}
-                    checked={checked}
-                    onChange={() => {
-                      this.setState({
-                        ...this.state,
-                        selectedColumns: checked
-                          ? [
-                              ...(selectedColumns || []).filter(
-                                (v) => v !== index,
-                              ),
-                            ]
-                          : [...(selectedColumns || []), index],
-                      });
-                    }}
-                  />
-                );
-              })}
+        {selectableColumns && (
+          <div style={{ marginBottom: '0.5rem' }}>
+            <div style={{ textAlign: 'right' }}>
+              <IconButton
+                icon={Settings}
+                size={'s'}
+                variant={'tertiary'}
+                onClick={() => {
+                  this.setState({
+                    ...this.state,
+                    hasExpandedColumnSelection:
+                      !this.state.hasExpandedColumnSelection,
+                  });
+                }}
+              >
+                Configure
+              </IconButton>
             </div>
-          )}
-        </div>
+            {this.state.hasExpandedColumnSelection && (
+              <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                {headers.map((header, index) => {
+                  const checked = selectedColumns?.includes(index);
+                  return (
+                    <Checkbox
+                      style={{ width: '33%' }}
+                      disabled={mandatorySelectedColumnIndices?.includes(index)}
+                      key={index}
+                      // @ts-expect-error header children
+                      label={String(header?.children ?? header)}
+                      checked={checked}
+                      onChange={() => {
+                        this.setState({
+                          ...this.state,
+                          selectedColumns: checked
+                            ? [
+                                ...(selectedColumns || []).filter(
+                                  (v) => v !== index,
+                                ),
+                              ]
+                            : [...(selectedColumns || []), index],
+                        });
+                      }}
+                    />
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        )}
         <div
           className={clsx(
             classes.container,
