@@ -36,7 +36,6 @@ import { SidePanel, type SidePanelProps } from './SidePanel.js';
 import { TRANSITION_DURATION } from './constants.js';
 import type { SidePanelHookProps } from './useSidePanel.js';
 import classes from './SidePanelContext.module.css';
-import './SidePanelContext.css';
 
 // It is important for users of screen readers that other page content be hidden
 // (via the `aria-hidden` attribute) while the side panel is open on mobile.
@@ -271,6 +270,8 @@ export function SidePanelProvider({
             isStacked={isStacked}
             onBack={handleBack}
             onClose={handleClose}
+            portalClassName={classes['cui-side-panel-portal']}
+            htmlOpenClassName={classes['cui-side-panel-open']}
           />
         );
       })}
