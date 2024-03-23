@@ -18,7 +18,12 @@
       "types": "./dist/experimental.d.ts",
       "default": "./dist/experimental.js"
     },
-    "./styles.css": "./dist/style.css"
+    "./modular": {
+      "types": "./index.d.ts",
+      "default": "./index.ts"
+    },
+    "./modular.css": "./styles/base.css",
+    "./styles.css": "./styles/base.css"
   },
   "typesVersions": {
     "*": {
@@ -27,6 +32,9 @@
       ],
       "experimental": [
         "./dist/experimental.d.ts"
+      ],
+      "modular": [
+        "./index.d.ts"
       ]
     }
   },
@@ -46,6 +54,8 @@
   "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/circuit-ui/README.md",
   "scripts": {
     "build": "vite build && tsc -p tsconfig.build.json && rm -rf dist/node_modules",
+    "build:modular": "tsc --emitDeclarationOnly",
+    "clean:modular": "tsc --build --clean",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
     "test": "vitest"
