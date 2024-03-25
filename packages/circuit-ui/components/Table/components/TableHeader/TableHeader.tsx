@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import type { ThHTMLAttributes } from 'react';
 
 import SortArrow from '../SortArrow/index.js';

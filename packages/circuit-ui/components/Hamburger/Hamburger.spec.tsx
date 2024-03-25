@@ -50,11 +50,11 @@ describe('Hamburger', () => {
 
   it('should call the onClick prop when clicked', async () => {
     const onClick = vi.fn();
-    const { getByTestId } = render(
+    render(
       <Hamburger {...baseProps} onClick={onClick} data-testid="hamburger" />,
     );
 
-    await userEvent.click(getByTestId('hamburger'));
+    await userEvent.click(screen.getByTestId('hamburger'));
 
     expect(onClick).toHaveBeenCalledTimes(1);
   });

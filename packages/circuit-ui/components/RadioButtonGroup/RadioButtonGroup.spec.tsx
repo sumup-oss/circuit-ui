@@ -238,10 +238,8 @@ describe('RadioButtonGroup', () => {
     });
 
     it('should mark the group as required', () => {
-      const { getByRole } = render(
-        <RadioButtonGroup {...defaultProps} required />,
-      );
-      expect(getByRole('radiogroup')).toBeRequired();
+      render(<RadioButtonGroup {...defaultProps} required />);
+      expect(screen.getByRole('radiogroup')).toBeRequired();
     });
   });
 
@@ -253,30 +251,30 @@ describe('RadioButtonGroup', () => {
     });
 
     it('should render an empty live region on mount', () => {
-      const { getByRole } = render(<RadioButtonGroup {...defaultProps} />);
-      const liveRegionEl = getByRole('status');
+      render(<RadioButtonGroup {...defaultProps} />);
+      const liveRegionEl = screen.getByRole('status');
       expect(liveRegionEl).toBeEmptyDOMElement();
     });
 
     it('should render status messages in a live region', () => {
       const statusMessage = 'This field is required';
-      const { getByRole } = render(
+      render(
         <RadioButtonGroup
           invalid
           validationHint={statusMessage}
           {...defaultProps}
         />,
       );
-      const liveRegionEl = getByRole('status');
+      const liveRegionEl = screen.getByRole('status');
       expect(liveRegionEl).toHaveTextContent(statusMessage);
     });
 
     it('should not render descriptions in a live region', () => {
       const statusMessage = 'This field is required';
-      const { getByRole } = render(
+      render(
         <RadioButtonGroup validationHint={statusMessage} {...defaultProps} />,
       );
-      const liveRegionEl = getByRole('status');
+      const liveRegionEl = screen.getByRole('status');
       expect(liveRegionEl).toBeEmptyDOMElement();
     });
   });

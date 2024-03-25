@@ -33,10 +33,9 @@ Once the side panel is closed focus is returned to the trigger element.
 
 First, wrap the primary content of your application in the `SidePanelProvider`. There should be only one instance of `SidePanelProvider` as part of your global application layout.
 On desktop resolutions the primary content will be resized when the side panel is opened.
-Additionally, the `SidePanelProvider` allows for the side panels to work seamlessly with the top navigation through the `withTopNavigation` prop.
 
 ```tsx
-<SidePanelProvider withTopNavigation>
+<SidePanelProvider>
   {/* Your primary content here... */}
 </SidePanelProvider>
 ```

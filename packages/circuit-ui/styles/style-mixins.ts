@@ -199,7 +199,8 @@ export function focusOutline(options?: 'inset' | ThemeArgs): SerializedStyles {
   }
   return css`
     outline: 0;
-    box-shadow: 0 0 0 2px var(--cui-bg-normal),
+    box-shadow:
+      0 0 0 2px var(--cui-bg-normal),
       0 0 0 4px var(--cui-border-focus);
 
     &::-moz-focus-inner {
@@ -234,7 +235,8 @@ export function focusVisible(options?: 'inset' | ThemeArgs): SerializedStyles {
   return css`
     &:focus {
       outline: 0;
-      box-shadow: 0 0 0 2px var(--cui-bg-normal),
+      box-shadow:
+        0 0 0 2px var(--cui-bg-normal),
         0 0 0 4px var(--cui-border-focus);
 
       &::-moz-focus-inner {

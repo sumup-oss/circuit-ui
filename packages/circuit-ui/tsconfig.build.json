@@ -8,6 +8,8 @@
     "**/*/__tests__/*",
     "**/*/__testfixtures__/*",
     "**/*.spec.*",
-    "**/*.stories.*"
+    "**/*.stories.*",
+    "util/test-utils.tsx",
+    "setupTests.ts"
   ]
 }

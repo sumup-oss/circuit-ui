@@ -1,32 +1,29 @@
-// import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DocsContainer as BaseContainer } from '@storybook/addon-docs';
 
-import * as themes from '../themes';
+import { dark, light, listenToColorScheme } from '../themes';
+
+const themes = { light, dark };
 
 /**
- * Automatically switch light/dark theme based on system preferences
+ * Switch color scheme based on the global types or system preferences
  */
 const DocsContainer: typeof BaseContainer = ({ children, context }) => {
-  // TODO: Re-enable automatic theme switching once there is a proper
-  // dark theme for Circuit UI.
-  // const query = window?.matchMedia('(prefers-color-scheme: dark)');
+  const [colorScheme, setColorScheme] = useState('light');
 
-  // const [theme, setTheme] = useState(getTheme(query.matches));
+  useEffect(
+    () => listenToColorScheme(context.channel, setColorScheme),
+    [context.channel],
+  );
 
-  // useEffect(() => {
-  //   const handleChange = (event: MediaQueryListEvent) => {
-  //     setTheme(getTheme(event.matches));
-  //   };
+  useEffect(() => {
+    document.documentElement.dataset.colorScheme = colorScheme;
+  }, [colorScheme]);
 
-  //   query.addEventListener('change', handleChange);
-
-  //   return () => {
-  //     query.removeEventListener('change', handleChange);
-  //   };
-  // }, []);
+  const theme = themes[colorScheme];
 
   return (
-    <BaseContainer context={context} theme={themes.light}>
+    <BaseContainer context={context} theme={theme}>
       {children}
     </BaseContainer>
   );

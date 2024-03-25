@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { forwardRef, useRef } from 'react';
 import { Search } from '@sumup/icons';
 

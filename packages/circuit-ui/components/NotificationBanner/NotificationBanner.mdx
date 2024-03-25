@@ -9,7 +9,7 @@ import * as Stories from './NotificationBanner.stories';
 
 The notification banner component prominently communicates and promotes high-level, site-wide information to the user.
 
-<Story of={Stories.Base} />
+<Story of={Stories.Base} inline={false} />
 <Props />
 
 ## When to use it
@@ -28,4 +28,4 @@ The notification banner should be used to display the global system messages or 
 - **Do** use the coloured illustration style for the promotional notification use cases.
 - **Do** provide an action to allow users to directly follow up on the communicated content. Depending on the context action can be either tertirary, or a primary button.
 
-<Story id="notification-notificationbanner--dismissable" />
+<Story of={Stories.Dismissable} inline={false} />

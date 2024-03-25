@@ -15,7 +15,7 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { render, axe, userEvent } from '../../../../util/test-utils.js';
+import { render, axe, userEvent, screen } from '../../../../util/test-utils.js';
 import { HeaderCell, Direction } from '../../types.js';
 
 import TableHead from './index.js';
@@ -35,11 +35,9 @@ describe('TableHead', () => {
     it('should not dispatch the onSortBy handler when the column is not sortable', async () => {
       const headers = ['Foo'];
       const onSortByMock = vi.fn();
-      const { getByRole } = render(
-        <TableHead onSortBy={onSortByMock} headers={headers} />,
-      );
+      render(<TableHead onSortBy={onSortByMock} headers={headers} />);
 
-      await userEvent.click(getByRole('columnheader'));
+      await userEvent.click(screen.getByRole('columnheader'));
 
       expect(onSortByMock).not.toHaveBeenCalled();
     });
@@ -49,11 +47,9 @@ describe('TableHead', () => {
         { children: 'Foo', sortable: true, sortLabel },
       ];
       const onSortByMock = vi.fn();
-      const { getByRole } = render(
-        <TableHead onSortBy={onSortByMock} headers={headers} />,
-      );
+      render(<TableHead onSortBy={onSortByMock} headers={headers} />);
 
-      await userEvent.click(getByRole('columnheader'));
+      await userEvent.click(screen.getByRole('columnheader'));
 
       expect(onSortByMock).toHaveBeenCalledTimes(1);
       expect(onSortByMock).toHaveBeenCalledWith(0);
@@ -64,11 +60,9 @@ describe('TableHead', () => {
     it('should not dispatch the onSortEnter handler when the column is not sortable', async () => {
       const headers = ['Foo'];
       const onSortEnterMock = vi.fn();
-      const { getByRole } = render(
-        <TableHead onSortEnter={onSortEnterMock} headers={headers} />,
-      );
+      render(<TableHead onSortEnter={onSortEnterMock} headers={headers} />);
 
-      await userEvent.hover(getByRole('columnheader'));
+      await userEvent.hover(screen.getByRole('columnheader'));
 
       expect(onSortEnterMock).not.toHaveBeenCalled();
     });
@@ -78,11 +72,9 @@ describe('TableHead', () => {
         { children: 'Foo', sortable: true, sortLabel },
       ];
       const onSortEnterMock = vi.fn();
-      const { getByRole } = render(
-        <TableHead onSortEnter={onSortEnterMock} headers={headers} />,
-      );
+      render(<TableHead onSortEnter={onSortEnterMock} headers={headers} />);
 
-      await userEvent.hover(getByRole('columnheader'));
+      await userEvent.hover(screen.getByRole('columnheader'));
 
       expect(onSortEnterMock).toHaveBeenCalledTimes(1);
       expect(onSortEnterMock).toHaveBeenCalledWith(0);
@@ -95,11 +87,9 @@ describe('TableHead', () => {
         { children: 'Foo', sortable: true, sortLabel },
       ];
       const onSortLeaveMock = vi.fn();
-      const { getByRole } = render(
-        <TableHead onSortLeave={onSortLeaveMock} headers={headers} />,
-      );
+      render(<TableHead onSortLeave={onSortLeaveMock} headers={headers} />);
 
-      await userEvent.unhover(getByRole('columnheader'));
+      await userEvent.unhover(screen.getByRole('columnheader'));
 
       expect(onSortLeaveMock).toHaveBeenCalledTimes(1);
       expect(onSortLeaveMock).toHaveBeenCalledWith(0);
@@ -108,11 +98,9 @@ describe('TableHead', () => {
     it('should not dispatch the onSortLeave handler when the column is not sortable', async () => {
       const headers = ['Foo'];
       const onSortLeaveMock = vi.fn();
-      const { getByRole } = render(
-        <TableHead onSortLeave={onSortLeaveMock} headers={headers} />,
-      );
+      render(<TableHead onSortLeave={onSortLeaveMock} headers={headers} />);
 
-      await userEvent.unhover(getByRole('columnheader'));
+      await userEvent.unhover(screen.getByRole('columnheader'));
 
       expect(onSortLeaveMock).not.toHaveBeenCalled();
     });

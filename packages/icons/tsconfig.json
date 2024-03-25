@@ -5,5 +5,5 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext"
   },
-  "include": ["scripts/*"]
+  "include": ["scripts/*", "tests/*", "constants.ts"]
 }

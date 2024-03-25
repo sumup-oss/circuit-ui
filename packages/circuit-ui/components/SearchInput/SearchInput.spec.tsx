@@ -16,7 +16,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe } from '../../util/test-utils.js';
+import { render, axe, screen } from '../../util/test-utils.js';
 import type { InputElement } from '../Input/index.js';
 
 import { SearchInput } from './SearchInput.js';
@@ -28,7 +28,7 @@ describe('SearchInput', () => {
     const mockCallback = vi.fn();
     const clearLabel = 'Clear';
 
-    const { getByRole } = render(
+    render(
       <SearchInput
         {...baseProps}
         value="Search value"
@@ -41,7 +41,7 @@ describe('SearchInput', () => {
         onChange={mockCallback}
       />,
     );
-    expect(getByRole('button')).toBeVisible();
+    expect(screen.getByRole('button')).toBeVisible();
   });
 
   it('should forward a ref', () => {

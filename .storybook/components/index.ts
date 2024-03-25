@@ -13,9 +13,7 @@
  * limitations under the License.
  */
 
-import { ArgsTable as Props, PRIMARY_STORY } from '@storybook/addon-docs';
-
-Props.defaultProps = { ...Props.defaultProps, story: PRIMARY_STORY };
+import { Controls as Props } from '@storybook/addon-docs';
 
 export { Props };
 

@@ -1,6 +1,6 @@
 {
   "name": "@sumup/icons",
-  "version": "3.3.0",
+  "version": "3.6.1",
   "description": "A collection of icons by SumUp",
   "type": "module",
   "main": "./dist/index.js",
@@ -27,20 +27,22 @@
   },
   "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/icons/README.md",
   "scripts": {
-    "start": "tsx watch ./scripts/web.ts",
-    "build": "tsx ./scripts/web.ts",
+    "start": "tsx watch ./scripts/build.ts",
+    "build": "tsx ./scripts/build.ts",
+    "test": "vitest",
     "lint": "foundry run eslint . --ext .ts,.tsx,.js,.jsx",
     "lint:fix": "npm run lint -- --fix",
     "prepublish": "npm run build"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.7",
-    "@babel/preset-env": "^7.23.7",
+    "@babel/core": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
     "@babel/preset-react": "^7.23.3",
     "@types/babel__core": "^7.20.5",
-    "@types/prettier": "^2.7.3",
+    "@types/prettier": "^3.0.0",
     "babel-plugin-inline-react-svg": "^2.0.2",
-    "prettier": "^2.8.8",
+    "fast-xml-parser": "^4.3.5",
+    "prettier": "^3.0.0",
     "tsx": "^4.7.0",
     "typescript": "^5.3.3"
   },

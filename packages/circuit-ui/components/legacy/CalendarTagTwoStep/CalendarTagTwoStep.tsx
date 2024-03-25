@@ -15,6 +15,8 @@
 
 /** @jsxImportSource @emotion/react */
 
+'use client';
+
 import { Component, createRef } from 'react';
 import { css } from '@emotion/react';
 import type { Moment } from 'moment';

@@ -15,7 +15,7 @@
 
 import type { Decorator } from '@storybook/react';
 import { Fragment } from 'react';
-import { screen, userEvent, within } from '@storybook/testing-library';
+import { screen, userEvent, within } from '@storybook/test';
 
 import {
   FullViewport,

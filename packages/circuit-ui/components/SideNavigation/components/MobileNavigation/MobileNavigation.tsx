@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { Fragment } from 'react';
 import ReactModal from 'react-modal';
 import { ChevronDown } from '@sumup/icons';

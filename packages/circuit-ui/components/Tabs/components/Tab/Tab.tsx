@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { AnchorHTMLAttributes, ButtonHTMLAttributes, forwardRef } from 'react';
 
 import { useComponents } from '../../../ComponentsContext/index.js';

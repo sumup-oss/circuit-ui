@@ -1,5 +1,67 @@
 # @sumup/circuit-ui
 
+## 8.5.1
+
+### Patch Changes
+
+- [#2461](https://github.com/sumup-oss/circuit-ui/pull/2461) [`ea05708`](https://github.com/sumup-oss/circuit-ui/commit/ea057089c1c4d3b3cb769de94766ce5dcc2789a8) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the missing focus outline of the Anchor component when it renders as the `a` element.
+
+## 8.5.0
+
+### Minor Changes
+
+- [`779a911`](https://github.com/sumup-oss/circuit-ui/commit/779a911bb080dfc129f471ab08a22cf7675adc33) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the CloseButton to use the _tertiary_ instead of the _secondary_ Button variant.
+
+- [`779a911`](https://github.com/sumup-oss/circuit-ui/commit/779a911bb080dfc129f471ab08a22cf7675adc33) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the background color of the active Toggle to green to better distinguish its states.
+
+## 8.4.1
+
+### Patch Changes
+
+- [#2448](https://github.com/sumup-oss/circuit-ui/pull/2448) [`9b6c7d6`](https://github.com/sumup-oss/circuit-ui/commit/9b6c7d68820d557dfdcf1b14b2a2b96275d9e353) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the `use client` directive to a few more components that require it.
+
+## 8.4.0
+
+### Minor Changes
+
+- [`ad4c31f`](https://github.com/sumup-oss/circuit-ui/commit/ad4c31fcafcde9f8534c5793dfc1c7b04d645980) Thanks [@connor-baer](https://github.com/connor-baer)! - Made all components compatible with [React Server Components](https://github.com/reactjs/rfcs/blob/main/text/0188-server-components.md) out of the box by adding the [`use client`](https://react.dev/reference/react/use-client) directive to client components.
+
+### Patch Changes
+
+- [`f1977ef`](https://github.com/sumup-oss/circuit-ui/commit/f1977ef93fadfbbc8a255a3a616ff814e23cba50) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed how CSS Modules are bundled to fix CSS specificity issues caused by out-of-order styles.
+
+## 8.3.1
+
+### Patch Changes
+
+- [#2434](https://github.com/sumup-oss/circuit-ui/pull/2434) [`789d796`](https://github.com/sumup-oss/circuit-ui/commit/789d79685bd3c5c5d7908bc960ae490c60a1811f) Thanks [@connor-baer](https://github.com/connor-baer)! - Fix the display and transition of Carousel slides.
+
+- [#2433](https://github.com/sumup-oss/circuit-ui/pull/2433) [`0e0a8e8`](https://github.com/sumup-oss/circuit-ui/commit/0e0a8e8bd261ff7cc8705f26a3b90c08620060ee) Thanks [@connor-baer](https://github.com/connor-baer)! - Adjust components to better support the experimental dark theme.
+
+## 8.3.0
+
+### Minor Changes
+
+- [#2414](https://github.com/sumup-oss/circuit-ui/pull/2414) [`5d7a92f`](https://github.com/sumup-oss/circuit-ui/commit/5d7a92f45c2475e1b9b705d2e2c349e5f9969437) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a minimum height to the SidePanelProvider to allow its children to be vertically centered.
+
+## 8.2.0
+
+### Minor Changes
+
+- [#2394](https://github.com/sumup-oss/circuit-ui/pull/2394) [`0d9d407`](https://github.com/sumup-oss/circuit-ui/commit/0d9d407dc3eb3a0384679890b5e476a704907749) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a PercentageInput component for fractional numeric values.
+
+### Patch Changes
+
+- [#2412](https://github.com/sumup-oss/circuit-ui/pull/2412) [`86a15c8`](https://github.com/sumup-oss/circuit-ui/commit/86a15c80c2112faab6ae771e8a9b655a8238c60f) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed a bug where users were unable to scroll after the ModalProvider was mounted and immediately unmounted.
+
+## 8.1.2
+
+### Patch Changes
+
+- [#2403](https://github.com/sumup-oss/circuit-ui/pull/2403) [`d3a85a9`](https://github.com/sumup-oss/circuit-ui/commit/d3a85a93684321b04c363efcd3fbc23631309e9b) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed a bug where users were unable to scroll after a modal was mounted and immediately unmounted.
+
+- [#2391](https://github.com/sumup-oss/circuit-ui/pull/2391) [`9f57d45`](https://github.com/sumup-oss/circuit-ui/commit/9f57d453e962eecf3935a339a6cfb54ff2080b25) Thanks [@connor-baer](https://github.com/connor-baer)! - Resolved deprecation warnings in the Carousel component.
+
 ## 8.1.1
 
 ### Patch Changes

@@ -17,7 +17,9 @@
 
 import { css } from '@emotion/react';
 
+import { Stack } from '../../../../../.storybook/components/index.js';
 import styled from '../../../styles/styled.js';
+import { modes } from '../../../../../.storybook/modes.js';
 
 import { InlineElements } from './InlineElements.js';
 
@@ -26,6 +28,12 @@ export default {
   component: InlineElements,
   parameters: {
     controls: { hideNoControlsWarning: true },
+    chromatic: {
+      modes: {
+        mobile: modes.smallMobile,
+        desktop: modes.desktop,
+      },
+    },
   },
 };
 
@@ -53,39 +61,38 @@ const inlineElementsStyles = css`
   border: 1px solid magenta;
 `;
 
-export const TwoInlineElements = () => (
-  <InlineElements css={inlineElementsStyles}>
-    <Box />
-    <Box />
-  </InlineElements>
+export const Base = () => (
+  <Stack vertical>
+    <InlineElements css={inlineElementsStyles}>
+      <Box />
+      <Box />
+    </InlineElements>
+    <InlineElements css={inlineElementsStyles}>
+      <Box />
+      <Box />
+      <Box />
+    </InlineElements>
+    <InlineElements css={inlineElementsStyles} ratios={[2, 1]}>
+      <Box>2x</Box>
+      <Box>1x</Box>
+    </InlineElements>
+  </Stack>
 );
 
-export const ThreeInlineElements = () => (
-  <InlineElements css={inlineElementsStyles}>
-    <Box />
-    <Box />
-    <Box />
-  </InlineElements>
-);
-
-export const ThreeInlineElementsInlineOnMobile = () => (
-  <InlineElements css={inlineElementsStyles} inlineMobile>
-    <Box />
-    <Box />
-    <Box />
-  </InlineElements>
-);
-
-export const TwoInlineElementsWithRatios = () => (
-  <InlineElements css={inlineElementsStyles} ratios={[2, 1]}>
-    <Box>2x</Box>
-    <Box>1x</Box>
-  </InlineElements>
-);
-
-export const TwoInlineElementsWithRatiosInlineOnMobile = () => (
-  <InlineElements css={inlineElementsStyles} ratios={[2, 1]} inlineMobile>
-    <Box>2x</Box>
-    <Box>1x</Box>
-  </InlineElements>
+export const InlineOnMobile = () => (
+  <Stack vertical>
+    <InlineElements css={inlineElementsStyles} inlineMobile>
+      <Box />
+      <Box />
+    </InlineElements>
+    <InlineElements css={inlineElementsStyles} inlineMobile>
+      <Box />
+      <Box />
+      <Box />
+    </InlineElements>
+    <InlineElements css={inlineElementsStyles} inlineMobile ratios={[2, 1]}>
+      <Box>2x</Box>
+      <Box>1x</Box>
+    </InlineElements>
+  </Stack>
 );

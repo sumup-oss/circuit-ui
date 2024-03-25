@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { HTMLAttributes, ReactNode } from 'react';
 import ReactModal from 'react-modal';
 

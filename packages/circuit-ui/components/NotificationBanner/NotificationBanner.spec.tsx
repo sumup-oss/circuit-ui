@@ -16,7 +16,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe, userEvent } from '../../util/test-utils.js';
+import { render, axe, userEvent, screen } from '../../util/test-utils.js';
 
 import {
   NotificationBanner,
@@ -52,21 +52,21 @@ describe('NotificationBanner', () => {
   });
 
   it('should call onClick when clicked', async () => {
-    const { getByRole } = renderNotificationBanner(baseProps);
+    renderNotificationBanner(baseProps);
 
-    await userEvent.click(getByRole('button'));
+    await userEvent.click(screen.getByRole('button'));
 
     expect(baseProps.action.onClick).toHaveBeenCalledTimes(1);
   });
 
   it('should render a close button', () => {
-    const { getByRole } = renderNotificationBanner({
+    renderNotificationBanner({
       ...baseProps,
       onClose: vi.fn(),
       closeButtonLabel: 'Close notification',
     });
 
-    expect(getByRole('button', { name: /close/i })).toBeVisible();
+    expect(screen.getByRole('button', { name: /close/i })).toBeVisible();
   });
 
   it('should call onClose when closed', async () => {
@@ -75,9 +75,9 @@ describe('NotificationBanner', () => {
       onClose: vi.fn(),
       closeButtonLabel: 'Close notification',
     };
-    const { getByRole } = renderNotificationBanner(props);
+    renderNotificationBanner(props);
 
-    await userEvent.click(getByRole('button', { name: /close/i }));
+    await userEvent.click(screen.getByRole('button', { name: /close/i }));
 
     expect(props.onClose).toHaveBeenCalledTimes(1);
   });

@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { forwardRef, HTMLAttributes, ReactNode, useState } from 'react';
 
 import { AccessibilityError } from '../../util/errors.js';

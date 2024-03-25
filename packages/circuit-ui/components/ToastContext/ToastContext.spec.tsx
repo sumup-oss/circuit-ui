@@ -20,6 +20,7 @@ import {
   render,
   userEvent as baseUserEvent,
   waitForElementToBeRemoved,
+  screen,
 } from '../../util/test-utils.js';
 
 import { ToastProvider, ToastContext } from './ToastContext.js';
@@ -82,15 +83,17 @@ describe('ToastContext', () => {
         );
       };
 
-      const { getByRole, getByText } = render(
+      render(
         <ToastProvider>
           <Trigger />
         </ToastProvider>,
       );
 
-      await userEvent.click(getByRole('button', { name: openButtonLabel }));
+      await userEvent.click(
+        screen.getByRole('button', { name: openButtonLabel }),
+      );
 
-      expect(getByText(toastMessage)).toBeVisible();
+      expect(screen.getByText(toastMessage)).toBeVisible();
     });
 
     it('should close the toast when the onClose method is called', async () => {
@@ -101,16 +104,20 @@ describe('ToastContext', () => {
         );
       };
 
-      const { getByRole, getByText } = render(
+      render(
         <ToastProvider>
           <Trigger />
         </ToastProvider>,
       );
 
-      await userEvent.click(getByRole('button', { name: openButtonLabel }));
-      await userEvent.click(getByRole('button', { name: closeButtonLabel }));
+      await userEvent.click(
+        screen.getByRole('button', { name: openButtonLabel }),
+      );
+      await userEvent.click(
+        screen.getByRole('button', { name: closeButtonLabel }),
+      );
 
-      await waitForElementToBeRemoved(getByText(toastMessage));
+      await waitForElementToBeRemoved(screen.queryByText(toastMessage));
       expect(onClose).toHaveBeenCalledTimes(1);
     });
   });

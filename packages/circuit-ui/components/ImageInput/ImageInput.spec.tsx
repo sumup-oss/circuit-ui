@@ -24,6 +24,7 @@ import {
   fireEvent,
   waitFor,
   createEvent,
+  screen,
 } from '../../util/test-utils.js';
 
 import { ImageInput, ImageInputProps } from './ImageInput.js';
@@ -84,24 +85,27 @@ describe('ImageInput', () => {
     const file = new File(['avatar'], 'avatar.png', { type: 'image/png' });
 
     it('should call the provided upload function', async () => {
-      const { getByLabelText } = render(<StatefulInput />);
-      const inputEl = getByLabelText(defaultProps.label) as HTMLInputElement;
+      render(<StatefulInput />);
+      const inputEl: HTMLInputElement = screen.getByLabelText(
+        defaultProps.label,
+      );
 
       await userEvent.upload(inputEl, file);
 
       await waitFor(() => {
         expect(inputEl.files && inputEl.files[0]).toEqual(file);
-        expect(inputEl.files).toHaveLength(1);
-        expect(mockUploadFn).toHaveBeenCalledWith(file);
       });
+
+      expect(inputEl.files).toHaveLength(1);
+      expect(mockUploadFn).toHaveBeenCalledWith(file);
     });
 
     /**
      * FIXME: this test triggers an act() warning.
      */
     it('should support dragging and dropping an image', async () => {
-      const { getByText } = render(<StatefulInput />);
-      const labelEl = getByText(defaultProps.label);
+      render(<StatefulInput />);
+      const labelEl = screen.getByText(defaultProps.label);
 
       fireEvent.drop(labelEl, { dataTransfer: { files: [file] } });
 
@@ -114,8 +118,8 @@ describe('ImageInput', () => {
      * FIXME: this test triggers an act() warning.
      */
     it('should support pasting an image', async () => {
-      const { getByLabelText } = render(<StatefulInput />);
-      const inputEl = getByLabelText(defaultProps.label) as HTMLInputElement;
+      render(<StatefulInput />);
+      const inputEl = screen.getByLabelText(defaultProps.label);
 
       const paste = createEvent.paste(inputEl, {
         clipboardData: { files: [file] },
@@ -129,8 +133,8 @@ describe('ImageInput', () => {
     });
 
     it('should render a successfully uploaded image', async () => {
-      const { getByLabelText, container } = render(<StatefulInput />);
-      const inputEl = getByLabelText(defaultProps.label) as HTMLInputElement;
+      const { container } = render(<StatefulInput />);
+      const inputEl = screen.getByLabelText(defaultProps.label);
 
       await userEvent.upload(inputEl, file);
 
@@ -142,10 +146,8 @@ describe('ImageInput', () => {
     });
 
     it('should clear an uploaded image', async () => {
-      const { getByLabelText, getByRole, container } = render(
-        <StatefulInput />,
-      );
-      const inputEl = getByLabelText(defaultProps.label) as HTMLInputElement;
+      const { container } = render(<StatefulInput />);
+      const inputEl = screen.getByLabelText(defaultProps.label);
 
       await userEvent.upload(inputEl, file);
 
@@ -156,7 +158,7 @@ describe('ImageInput', () => {
       );
 
       await userEvent.click(
-        getByRole('button', { name: defaultProps.clearButtonLabel }),
+        screen.getByRole('button', { name: defaultProps.clearButtonLabel }),
       );
 
       await waitFor(() => {
@@ -171,15 +173,15 @@ describe('ImageInput', () => {
       const errorMessage =
         'The uploaded image exceeds the maximum allowed size. Please use an image with a size below 20MB.';
       mockUploadFn.mockRejectedValue(new Error(errorMessage));
-      const { getByLabelText, getByText } = render(<StatefulInput />);
-      const inputEl = getByLabelText(defaultProps.label) as HTMLInputElement;
+      render(<StatefulInput />);
+      const inputEl = screen.getByLabelText(defaultProps.label);
 
       await userEvent.upload(inputEl, file);
 
       await waitFor(() => {
-        expect(getByText(errorMessage)).toBeVisible();
-        expect(inputEl).toBeInvalid();
+        expect(screen.getByText(errorMessage)).toBeVisible();
       });
+      expect(inputEl).toBeInvalid();
     });
   });
 
@@ -192,18 +194,16 @@ describe('ImageInput', () => {
 
     describe('Labeling', () => {
       it('should have an accessible name', () => {
-        const { getByLabelText } = render(<ImageInput {...defaultProps} />);
-        const inputEl = getByLabelText(defaultProps.label); // can't getByRole because input type=file is generic in jest-dom
+        render(<ImageInput {...defaultProps} />);
+        const inputEl = screen.getByLabelText(defaultProps.label); // can't getByRole because input type=file is generic in jest-dom
 
         expect(inputEl).toHaveAccessibleName(defaultProps.label);
       });
 
       it('should optionally have an accessible description', () => {
         const description = 'Description';
-        const { getByLabelText } = render(
-          <ImageInput validationHint={description} {...defaultProps} />,
-        );
-        const inputEl = getByLabelText(defaultProps.label);
+        render(<ImageInput validationHint={description} {...defaultProps} />);
+        const inputEl = screen.getByLabelText(defaultProps.label);
 
         expect(inputEl).toHaveAccessibleDescription(description);
       });
@@ -211,7 +211,7 @@ describe('ImageInput', () => {
       it('should accept a custom description via aria-describedby', () => {
         const customDescription = 'Custom description';
         const customDescriptionId = 'customDescriptionId';
-        const { getByLabelText } = render(
+        render(
           <>
             <span id={customDescriptionId}>{customDescription}</span>
             <ImageInput
@@ -221,7 +221,7 @@ describe('ImageInput', () => {
             ,
           </>,
         );
-        const inputEl = getByLabelText(defaultProps.label);
+        const inputEl = screen.getByLabelText(defaultProps.label);
 
         expect(inputEl).toHaveAttribute(
           'aria-describedby',
@@ -234,7 +234,7 @@ describe('ImageInput', () => {
         const customDescription = 'Custom description';
         const customDescriptionId = 'customDescriptionId';
         const description = 'Description';
-        const { getByLabelText } = render(
+        render(
           <>
             <span id={customDescriptionId}>{customDescription}</span>
             <ImageInput
@@ -245,7 +245,7 @@ describe('ImageInput', () => {
             ,
           </>,
         );
-        const inputEl = getByLabelText(defaultProps.label);
+        const inputEl = screen.getByLabelText(defaultProps.label);
 
         expect(inputEl).toHaveAttribute(
           'aria-describedby',
@@ -259,32 +259,30 @@ describe('ImageInput', () => {
 
     describe('Status messages', () => {
       it('should render an empty live region on mount', () => {
-        const { getByRole } = render(<ImageInput {...defaultProps} />);
-        const liveRegionEl = getByRole('status');
+        render(<ImageInput {...defaultProps} />);
+        const liveRegionEl = screen.getByRole('status');
 
         expect(liveRegionEl).toBeEmptyDOMElement();
       });
 
       it('should render status messages in a live region', () => {
         const statusMessage = 'This field is required';
-        const { getByRole } = render(
+        render(
           <ImageInput
             invalid
             validationHint={statusMessage}
             {...defaultProps}
           />,
         );
-        const liveRegionEl = getByRole('status');
+        const liveRegionEl = screen.getByRole('status');
 
         expect(liveRegionEl).toHaveTextContent(statusMessage);
       });
 
       it('should not render descriptions in a live region', () => {
         const statusMessage = 'This field is required';
-        const { getByRole } = render(
-          <ImageInput validationHint={statusMessage} {...defaultProps} />,
-        );
-        const liveRegionEl = getByRole('status');
+        render(<ImageInput validationHint={statusMessage} {...defaultProps} />);
+        const liveRegionEl = screen.getByRole('status');
 
         expect(liveRegionEl).toBeEmptyDOMElement();
       });

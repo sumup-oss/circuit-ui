@@ -15,14 +15,14 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { render } from '../../../../../util/test-utils.js';
+import { render, screen } from '../../../../../util/test-utils.js';
 
 import { CalendarWrapper } from './index.js';
 
 describe('CalendarWrapper', () => {
   it('should render its children', () => {
     const children = 'children';
-    const { getByText } = render(<CalendarWrapper>{children}</CalendarWrapper>);
-    expect(getByText(children)).toBeVisible();
+    render(<CalendarWrapper>{children}</CalendarWrapper>);
+    expect(screen.getByText(children)).toBeVisible();
   });
 });

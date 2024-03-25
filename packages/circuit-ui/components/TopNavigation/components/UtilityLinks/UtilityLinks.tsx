@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import type { MouseEvent, KeyboardEvent, AnchorHTMLAttributes } from 'react';
 import type { IconComponentType } from '@sumup/icons';
 

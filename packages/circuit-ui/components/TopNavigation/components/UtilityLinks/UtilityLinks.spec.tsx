@@ -17,7 +17,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { IconProps, More } from '@sumup/icons';
 import { KeyboardEvent, MouseEvent, FC } from 'react';
 
-import { axe, render, userEvent } from '../../../../util/test-utils.js';
+import { axe, render, userEvent, screen } from '../../../../util/test-utils.js';
 
 import { UtilityLinks } from './UtilityLinks.js';
 
@@ -36,11 +36,11 @@ describe('UtilityLinks', () => {
   };
 
   it('should call the onClick handler of a link', async () => {
-    const { getByText } = render(<UtilityLinks {...baseProps} />);
+    render(<UtilityLinks {...baseProps} />);
 
     const link = baseProps.links[0];
 
-    await userEvent.click(getByText(link.label));
+    await userEvent.click(screen.getByText(link.label));
 
     expect(link.onClick).toHaveBeenCalledTimes(1);
   });

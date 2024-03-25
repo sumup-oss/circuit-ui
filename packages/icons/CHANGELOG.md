@@ -1,5 +1,41 @@
 # @sumup/icons
 
+## 3.6.1
+
+### Patch Changes
+
+- [#2458](https://github.com/sumup-oss/circuit-ui/pull/2458) [`913d959`](https://github.com/sumup-oss/circuit-ui/commit/913d9592a6957a82eacc06ddafc76055e7d002d7) Thanks [@connor-baer](https://github.com/connor-baer)! - Added missing exports for the `Manage`, `WhatsApp` and `WireTransfer` icons.
+
+- [#2458](https://github.com/sumup-oss/circuit-ui/pull/2458) [`913d959`](https://github.com/sumup-oss/circuit-ui/commit/913d9592a6957a82eacc06ddafc76055e7d002d7) Thanks [@connor-baer](https://github.com/connor-baer)! - Added missing `width`, `height`, and `viewBox` attributes to the `PostFinance` `Sparkles`, `SumUpLogo`, and `Vr` icons.
+
+## 3.6.0
+
+### Minor Changes
+
+- [#2447](https://github.com/sumup-oss/circuit-ui/pull/2447) [`390d21f`](https://github.com/sumup-oss/circuit-ui/commit/390d21fb20109061180fe824d6da4ef948281bb6) Thanks [@connor-baer](https://github.com/connor-baer)! - Renamed the `Cookie`, `Email`, `FacebookMessenger`, `Phone`, and `Reward` icons. The previous names are deprecated and will be removed in the next major version.
+
+- [#2443](https://github.com/sumup-oss/circuit-ui/pull/2443) [`a36e352`](https://github.com/sumup-oss/circuit-ui/commit/a36e35296a720415e8dfc8cab688d19b685e61ff) Thanks [@rcdutra](https://github.com/rcdutra)! - Added new country flag icons for Hong Kong, Japan, Malaysia, Mexico, New Zealand, Singapore and the United Arab Emirates.
+
+- [#2447](https://github.com/sumup-oss/circuit-ui/pull/2447) [`390d21f`](https://github.com/sumup-oss/circuit-ui/commit/390d21fb20109061180fe824d6da4ef948281bb6) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the `BancoEstado`, `Boleto`, `Items`, `Receipt`, `Refresh`, and `Vr` icons.
+
+- [#2447](https://github.com/sumup-oss/circuit-ui/pull/2447) [`390d21f`](https://github.com/sumup-oss/circuit-ui/commit/390d21fb20109061180fe824d6da4ef948281bb6) Thanks [@connor-baer](https://github.com/connor-baer)! - Added new `DriverLicense`, `Manage`, `Passport`, and `ResidencePermit` icons in size 24.
+
+## 3.5.0
+
+### Minor Changes
+
+- [#2440](https://github.com/sumup-oss/circuit-ui/pull/2440) [`16626e5`](https://github.com/sumup-oss/circuit-ui/commit/16626e5347e88faccb1a5b3dd4d7066488ee9f3a) Thanks [@NataliaSokolowska](https://github.com/NataliaSokolowska)! - Added a new `Sparkles` icon in size 16.
+
+## 3.4.0
+
+### Minor Changes
+
+- [#2375](https://github.com/sumup-oss/circuit-ui/pull/2375) [`549ddbe`](https://github.com/sumup-oss/circuit-ui/commit/549ddbe3f6a45036426e446cefafed9928acc3bf) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the `Account` (24px), `Discount` (24px), `Payouts` (24px), `QrCode` (24px), `Reports` (24px), `Sales` (24px), `Taxes` (24px), and `Twitter` (24px) icons.
+
+- [#2375](https://github.com/sumup-oss/circuit-ui/pull/2375) [`549ddbe`](https://github.com/sumup-oss/circuit-ui/commit/549ddbe3f6a45036426e446cefafed9928acc3bf) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the `Accounting` (24px), `ActivateCard` (24px), `Add` (24px), `Alarm` (24px), `AlternativePaymentMethod` (32px), `Apps` (24px), `Area` (24px), `ArrowSlanted` (24px), `Article` (24px), `Barcode` (16px), `Bluetooth` (16px & 24px), `Callback` (24px), `Camera` (24px), `CardIn` (24px), `CardOut` (24px), `Checkmark` (24px), `Cheque` (24px), `ContactPicker` (24px), `CookiePreferences` (24px), `CustomAmount` (24px), `DirectDebit` (24px), `FeesSummary` (24px), `FilterApplied` (16px & 24px), `FlashOff` (24px), `Flashlight` (24px), `Freeze` (24px), `GeneralSettings` (24px), `Id` (24px), `Insurance` (24px), `Inventory` (24px), `Key` (24px), `Loja` (24px), `MealVoucher` (24px), `OnlinePayments` (24px), `Orders` (24px), `PayPal` (24px), `PayoutSettings` (24px), `Percentage` (16px & 24px), `Random` (24px), `ReceiptAttached` (24px), `ReceiptMissing` (24px), `ReferAFriend` (24px), `Send` (16px), `Sort` (16px & 24px), `StoreEditor` (24px), `SumUpConnect` (24px), `Support` (16px), `TapToPay` (24px), `Time` (16px), `Transactions` (24px), `Transit` (24px), `Unfavorite` (24px), `View` (16px), `Webspace` (24px), `WhatsApp` (24px), and `WireTransfer` (24px) icons.
+
+- [#2375](https://github.com/sumup-oss/circuit-ui/pull/2375) [`549ddbe`](https://github.com/sumup-oss/circuit-ui/commit/549ddbe3f6a45036426e446cefafed9928acc3bf) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the incorrect `FlagSl` icon. Use the `FlagSi` icon instead.
+
 ## 3.3.0
 
 ### Minor Changes

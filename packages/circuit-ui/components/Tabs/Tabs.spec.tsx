@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { act, axe, fireEvent, render } from '../../util/test-utils.js';
+import { axe, render, screen, userEvent } from '../../util/test-utils.js';
 
 import { TabPanel } from './components/TabPanel/index.js';
 import { TabList } from './components/TabList/index.js';
@@ -23,8 +23,8 @@ import { Tab } from './components/Tab/index.js';
 import { Tabs } from './Tabs.js';
 
 describe('Tabs', () => {
-  it('should switch panels on tab click', () => {
-    const { getAllByTestId } = render(
+  it('should switch panels on tab click', async () => {
+    render(
       <Tabs
         items={[
           { id: 'a', tab: 'tab-a', panel: 'panel-a' },
@@ -34,24 +34,20 @@ describe('Tabs', () => {
       />,
     );
 
-    const tabEls = getAllByTestId('tab-element');
-    const panelEls = getAllByTestId('tab-panel');
+    const tabEls = screen.getAllByTestId('tab-element');
+    const panelEls = screen.getAllByTestId('tab-panel');
 
     expect(panelEls[0]).toBeVisible();
     expect(panelEls[1]).not.toBeVisible();
 
-    act(() => {
-      fireEvent.click(tabEls[1]);
-    });
+    await userEvent.click(tabEls[1]);
 
     expect(panelEls[0]).not.toBeVisible();
     expect(panelEls[1]).toBeVisible();
   });
 
-  it('should go to the next tab on right press', () => {
-    const keyCodeRight = 39;
-
-    const { getAllByTestId } = render(
+  it('should go to the next tab on right press', async () => {
+    render(
       <Tabs
         items={[
           { id: 'a', tab: 'tab-a', panel: 'panel-a' },
@@ -61,18 +57,13 @@ describe('Tabs', () => {
       />,
     );
 
-    const tabEls = getAllByTestId('tab-element');
-    const panelEls = getAllByTestId('tab-panel');
+    const tabEls = screen.getAllByTestId('tab-element');
+    const panelEls = screen.getAllByTestId('tab-panel');
 
     expect(panelEls[0]).toBeVisible();
     expect(panelEls[1]).not.toBeVisible();
 
-    act(() => {
-      fireEvent.keyDown(tabEls[0], {
-        key: 'ArrowRight',
-        code: keyCodeRight,
-      });
-    });
+    await userEvent.type(tabEls[0], '{arrowright}');
 
     expect(panelEls[0]).not.toBeVisible();
     expect(panelEls[1]).toBeVisible();

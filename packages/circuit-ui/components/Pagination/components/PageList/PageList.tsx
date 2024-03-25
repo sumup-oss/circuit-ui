@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { FC, OlHTMLAttributes } from 'react';
 
 import Button from '../../../Button/index.js';

@@ -17,7 +17,13 @@
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { Shop } from '@sumup/icons';
 
-import { render, axe, RenderFn, waitFor } from '../../util/test-utils.js';
+import {
+  render,
+  axe,
+  RenderFn,
+  waitFor,
+  screen,
+} from '../../util/test-utils.js';
 import { ModalProvider } from '../ModalContext/index.js';
 
 import { SideNavigation, SideNavigationProps } from './SideNavigation.js';
@@ -94,17 +100,14 @@ describe('SideNavigation', () => {
     });
 
     it('should open the mobile navigation', async () => {
-      const { queryByRole, rerender } = renderSideNavigation(
-        render,
-        defaultProps,
-      );
+      const { rerender } = renderSideNavigation(render, defaultProps);
 
-      expect(queryByRole('dialog')).not.toBeInTheDocument();
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
 
       renderSideNavigation(rerender, { ...defaultProps, isOpen: true });
 
       await waitFor(() => {
-        expect(queryByRole('dialog')).toBeVisible();
+        expect(screen.queryByRole('dialog')).toBeVisible();
       });
     });
   });

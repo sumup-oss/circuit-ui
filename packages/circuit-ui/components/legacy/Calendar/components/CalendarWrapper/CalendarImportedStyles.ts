@@ -40,12 +40,12 @@ const calendarInheritStyles = () => css`
     outline: 0;
   }
   .PresetDateRangePicker_button__selected {
-    color: #fff;
+    color: var(--cui-fg-on-strong);
     background: #00a699;
   }
   .SingleDatePickerInput {
     display: inline-block;
-    background-color: #fff;
+    background-color: var(--cui-bg-normal);
   }
   .SingleDatePickerInput__withBorder {
     border-radius: 2px;
@@ -128,7 +128,7 @@ const calendarInheritStyles = () => css`
   }
   .SingleDatePicker_picker {
     z-index: 1;
-    background-color: #fff;
+    background-color: var(--cui-bg-normal);
     position: absolute;
   }
   .SingleDatePicker_picker__rtl {
@@ -149,7 +149,7 @@ const calendarInheritStyles = () => css`
     width: 100%;
   }
   .SingleDatePicker_picker__fullScreenPortal {
-    background-color: #fff;
+    background-color: var(--cui-bg-normal);
   }
   .SingleDatePicker_closeButton {
     background: 0 0;
@@ -242,7 +242,7 @@ const calendarInheritStyles = () => css`
     border-left: 33px solid #008489;
   }
   .DayPickerKeyboardShortcuts_showSpan {
-    color: #fff;
+    color: var(--cui-fg-on-strong);
     position: absolute;
   }
   .DayPickerKeyboardShortcuts_showSpan__bottomRight {
@@ -259,7 +259,7 @@ const calendarInheritStyles = () => css`
   }
   .DayPickerKeyboardShortcuts_panel {
     overflow: auto;
-    background: #fff;
+    background-color: var(--cui-bg-normal);
     border: 1px solid #dbdbdb;
     border-radius: 2px;
     position: absolute;
@@ -316,7 +316,7 @@ const calendarInheritStyles = () => css`
   .CalendarDay__default {
     border: 1px solid #e4e7e7;
     color: #484848;
-    background: #fff;
+    background-color: var(--cui-bg-normal);
   }
   .CalendarDay__default:hover {
     background: #e4e7e7;
@@ -330,20 +330,20 @@ const calendarInheritStyles = () => css`
   }
   .CalendarDay__outside {
     border: 0;
-    background: #fff;
+    background-color: var(--cui-bg-normal);
     color: #484848;
   }
   .CalendarDay__outside:hover {
     border: 0;
   }
   .CalendarDay__blocked_minimum_nights {
-    background: #fff;
+    background-color: var(--cui-bg-normal);
     border: 1px solid #eceeee;
     color: #cacccd;
   }
   .CalendarDay__blocked_minimum_nights:active,
   .CalendarDay__blocked_minimum_nights:hover {
-    background: #fff;
+    background-color: var(--cui-bg-normal);
     color: #cacccd;
   }
   .CalendarDay__highlighted_calendar {
@@ -358,20 +358,20 @@ const calendarInheritStyles = () => css`
   .CalendarDay__selected_span {
     background: #66e2da;
     border: 1px double #33dacd;
-    color: #fff;
+    color: var(--cui-fg-on-strong);
   }
   .CalendarDay__selected_span:active,
   .CalendarDay__selected_span:hover {
     background: #33dacd;
     border: 1px double #33dacd;
-    color: #fff;
+    color: var(--cui-fg-on-strong);
   }
   .CalendarDay__selected,
   .CalendarDay__selected:active,
   .CalendarDay__selected:hover {
     background: #00a699;
     border: 1px double #00a699;
-    color: #fff;
+    color: var(--cui-fg-on-strong);
   }
   .CalendarDay__hovered_span,
   .CalendarDay__hovered_span:hover {
@@ -394,7 +394,7 @@ const calendarInheritStyles = () => css`
   .CalendarDay__blocked_out_of_range,
   .CalendarDay__blocked_out_of_range:active,
   .CalendarDay__blocked_out_of_range:hover {
-    background: #fff;
+    background-color: var(--cui-bg-normal);
     border: 1px solid #e4e7e7;
     color: #cacccd;
   }
@@ -407,7 +407,7 @@ const calendarInheritStyles = () => css`
     border: 1px double #e4e7e7;
   }
   .CalendarMonth {
-    background: #fff;
+    background-color: var(--cui-bg-normal);
     text-align: center;
     vertical-align: top;
     -webkit-user-select: none;
@@ -435,7 +435,7 @@ const calendarInheritStyles = () => css`
     padding-bottom: 7px;
   }
   .CalendarMonthGrid {
-    background: #fff;
+    background-color: var(--cui-bg-normal);
     text-align: left;
     z-index: 0;
   }
@@ -510,7 +510,7 @@ const calendarInheritStyles = () => css`
   }
   .DayPickerNavigation_button__default {
     border: 1px solid #e4e7e7;
-    background-color: #fff;
+    background-color: var(--cui-bg-normal);
     color: #757575;
   }
   .DayPickerNavigation_button__default:focus,
@@ -550,7 +550,7 @@ const calendarInheritStyles = () => css`
   }
   .DayPickerNavigation_button__vertical {
     padding: 5px;
-    background: #fff;
+    background-color: var(--cui-bg-normal);
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
     position: relative;
     display: inline-block;
@@ -580,12 +580,12 @@ const calendarInheritStyles = () => css`
     fill: #f2f2f2;
   }
   .DayPicker {
-    background: #fff;
+    background-color: var(--cui-bg-normal);
     position: relative;
     text-align: left;
   }
   .DayPicker__horizontal {
-    background: #fff;
+    background-color: var(--cui-bg-normal);
   }
   .DayPicker__verticalScrollable {
     height: 100%;
@@ -594,7 +594,7 @@ const calendarInheritStyles = () => css`
     visibility: hidden;
   }
   .DayPicker__withBorder {
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 0 0 1px var(--cui-border-normal);
     border-radius: 3px;
   }
   .DayPicker_portal__horizontal {
@@ -634,7 +634,7 @@ const calendarInheritStyles = () => css`
     top: 0;
     display: table-row;
     border-bottom: 1px solid #dbdbdb;
-    background: #fff;
+    background-color: var(--cui-bg-normal);
     margin-left: 0;
     left: 0;
     width: 100%;
@@ -677,7 +677,7 @@ const calendarInheritStyles = () => css`
   .DateInput {
     margin: 0;
     padding: 0;
-    background: #fff;
+    background-color: var(--cui-bg-normal);
     position: relative;
     display: inline-block;
     width: 130px;
@@ -698,7 +698,7 @@ const calendarInheritStyles = () => css`
     font-size: 19px;
     line-height: 24px;
     color: #484848;
-    background-color: #fff;
+    background-color: var(--cui-bg-normal);
     width: 100%;
     padding: 11px 11px 9px;
     border: 0;
@@ -725,7 +725,7 @@ const calendarInheritStyles = () => css`
   }
   .DateInput_input__focused {
     outline: 0;
-    background: #fff;
+    background-color: var(--cui-bg-normal);
     border: 0;
     border-top: 0;
     border-right: 0;
@@ -751,17 +751,17 @@ const calendarInheritStyles = () => css`
     width: 20px;
     height: 10px;
     left: 22px;
-    z-index: 2;
+    z-index: 20000;
   }
   .DateInput_fangShape {
-    fill: #fff;
+    fill: var(--cui-bg-normal);
   }
   .DateInput_fangStroke {
-    stroke: #dbdbdb;
+    stroke: var(--cui-border-normal);
     fill: transparent;
   }
   .DateRangePickerInput {
-    background-color: #fff;
+    background-color: var(--cui-bg-normal);
     display: inline-block;
   }
   .DateRangePickerInput__disabled {
@@ -856,7 +856,7 @@ const calendarInheritStyles = () => css`
   }
   .DateRangePicker_picker {
     z-index: 1;
-    background-color: #fff;
+    background-color: var(--cui-bg-normal);
     position: absolute;
   }
   .DateRangePicker_picker__rtl {
@@ -877,7 +877,7 @@ const calendarInheritStyles = () => css`
     width: 100%;
   }
   .DateRangePicker_picker__fullScreenPortal {
-    background-color: #fff;
+    background-color: var(--cui-bg-normal);
   }
   .DateRangePicker_closeButton {
     background: 0 0;

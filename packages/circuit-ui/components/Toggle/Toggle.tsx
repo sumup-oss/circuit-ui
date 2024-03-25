@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { ButtonHTMLAttributes, forwardRef, useId } from 'react';
 
 import {

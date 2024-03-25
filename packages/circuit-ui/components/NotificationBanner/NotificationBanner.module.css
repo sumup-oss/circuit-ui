@@ -64,9 +64,9 @@
   width: var(--notification-image-width);
   min-width: 0;
   height: auto;
-  border-radius: 0 var(--cui-border-radius-mega) var(--cui-border-radius-mega) 0;
   object-fit: contain;
   object-position: var(--notification-image-align);
+  border-radius: 0 var(--cui-border-radius-mega) var(--cui-border-radius-mega) 0;
 }
 
 .base .close {

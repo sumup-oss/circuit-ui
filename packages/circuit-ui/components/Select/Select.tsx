@@ -139,6 +139,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
+
     const id = useId();
     const selectId = customId || id;
     const validationHintId = useId();

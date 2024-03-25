@@ -1,5 +1,6 @@
 .base {
   width: 100%;
+  min-height: calc(100vh - var(--top-navigation-height));
   transition: width var(--cui-transitions-slow);
 }
 

@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { Component, createRef, HTMLAttributes, UIEvent } from 'react';
 
 import { isNil } from '../../util/type-check.js';

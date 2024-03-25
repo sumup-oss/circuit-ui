@@ -13,28 +13,28 @@
  * limitations under the License.
  */
 
-import fs from 'node:fs';
+import fs from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 import prettier from 'prettier';
 import { transformSync } from '@babel/core';
 
+import {
+  BASE_DIR,
+  DIST_DIR,
+  ICON_DIR,
+  CATEGORIES,
+  SIZES,
+} from '../constants.js';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore Import assertions are fine
 import manifest from '../manifest.json' assert { type: 'json' };
 
-// @ts-ignore `import` is fine
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-const BASE_DIR = path.join(__dirname, '..');
-const ICON_DIR = path.join(BASE_DIR, './web/v2');
-const DIST_DIR = path.join(BASE_DIR, 'dist');
-
 type Icon = {
   name: string;
-  category: string;
+  category: (typeof CATEGORIES)[number];
   keywords?: string[];
-  size: '16' | '24' | '32';
+  size: (typeof SIZES)[number];
   deprecation?: string;
 };
 
@@ -79,7 +79,7 @@ function buildComponentFile(component: Component): string {
     (icon) =>
       `import { ReactComponent as ${icon.name} } from '${icon.filePath}';`,
   );
-  const sizes = icons.map((icon) => parseInt(icon.size)).sort();
+  const sizes = icons.map((icon) => parseInt(icon.size, 10)).sort();
   const defaultSize = sizes.includes(24) ? '24' : Math.min(...sizes).toString();
   const sizeMap = icons.map((icon) => `'${icon.size}': ${icon.name},`);
   const invalidSizeWarning = `The '\${size}' size is not supported by the '${
@@ -157,7 +157,7 @@ function buildDeclarationFile(components: Component[]): string {
   `;
 }
 
-function transpileModule(fileName: string, code: string): void {
+async function transpileModule(fileName: string, code: string) {
   const output = transformSync(code, {
     cwd: BASE_DIR,
     targets: { esmodules: true },
@@ -165,30 +165,30 @@ function transpileModule(fileName: string, code: string): void {
     plugins: [['inline-react-svg', { svgo: false }]],
     filename: fileName,
   })?.code as string;
-  writeFile(DIST_DIR, fileName, output);
+  return writeFile(DIST_DIR, fileName, output);
 }
 
-function writeFile(dir: string, fileName: string, fileContent: string): void {
+async function writeFile(dir: string, fileName: string, fileContent: string) {
   const filePath = path.join(dir, fileName);
   const directory = path.dirname(filePath);
-  const formattedContent = prettier.format(fileContent, { filepath: filePath });
-  if (directory && directory !== '.') {
-    fs.mkdirSync(directory, { recursive: true });
-  }
-  return fs.writeFile(filePath, formattedContent, { flag: 'w' }, (err) => {
-    if (err) {
-      throw err;
-    }
+  const formattedContent = await prettier.format(fileContent, {
+    filepath: filePath,
   });
+  if (directory && directory !== '.') {
+    await fs.mkdir(directory, { recursive: true });
+  }
+  return fs.writeFile(filePath, formattedContent, { flag: 'w' });
 }
 
-function main(): void {
-  const icons = manifest.icons as Icon[];
-  const iconsByName = icons.reduce((acc, icon) => {
-    acc[icon.name] = acc[icon.name] || [];
-    acc[icon.name].push(icon);
-    return acc;
-  }, {} as Record<string, Icon[]>);
+async function main() {
+  const iconsByName = (manifest.icons as Icon[]).reduce(
+    (acc, icon) => {
+      acc[icon.name] = acc[icon.name] || [];
+      acc[icon.name].push(icon);
+      return acc;
+    },
+    {} as Record<string, Icon[]>,
+  );
   const components = Object.entries(iconsByName).map(
     ([name, icons]): Component => ({
       name: getComponentName(name),
@@ -200,15 +200,17 @@ function main(): void {
   const indexRaw = buildIndexFile(components);
   const declarationFile = buildDeclarationFile(components);
 
-  components.forEach((component) => {
-    const componentFileName = `${component.name}.js`;
-    const componentRaw = buildComponentFile(component);
-    transpileModule(componentFileName, componentRaw);
-  });
+  await Promise.all(
+    components.map((component) => {
+      const componentFileName = `${component.name}.js`;
+      const componentRaw = buildComponentFile(component);
+      return transpileModule(componentFileName, componentRaw);
+    }),
+  );
 
-  transpileModule('index.js', indexRaw);
+  await transpileModule('index.js', indexRaw);
 
-  writeFile(DIST_DIR, 'index.d.ts', declarationFile);
+  await writeFile(DIST_DIR, 'index.d.ts', declarationFile);
 }
 
-main();
+void main();

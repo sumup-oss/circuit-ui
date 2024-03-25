@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import {
-  Icons,
   IconButton,
   WithTooltip,
   TooltipLinkList,
 } from '@storybook/components';
+import { ChevronSmallDownIcon } from '@storybook/icons';
 import { useParameter } from '@storybook/manager-api';
 
 type Version = {
@@ -24,6 +24,10 @@ export function Versions() {
   const config = useParameter<VersionsParameter>(PARAM_KEY, DEFAULT_CONFIG);
 
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
+
+  if (!config.current) {
+    return null;
+  }
 
   return (
     <WithTooltip
@@ -49,7 +53,7 @@ export function Versions() {
         title="Switch to previous versions of the documentation"
         active={isTooltipVisible}
       >
-        {config.current} <Icons icon="arrowdown" />
+        {config.current} <ChevronSmallDownIcon aria-hidden="true" />
       </IconButton>
     </WithTooltip>
   );

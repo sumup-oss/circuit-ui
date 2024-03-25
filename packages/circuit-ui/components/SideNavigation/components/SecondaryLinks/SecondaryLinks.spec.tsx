@@ -15,12 +15,13 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { ClickEvent } from '../../../../types/events.js';
+import type { ClickEvent } from '../../../../types/events.js';
 import {
   render,
   axe,
   RenderFn,
   userEvent,
+  screen,
 } from '../../../../util/test-utils.js';
 
 import { SecondaryLinks, SecondaryLinksProps } from './SecondaryLinks.js';
@@ -91,9 +92,9 @@ describe('SecondaryLinks', () => {
         },
       ],
     };
-    const { getByRole } = renderSecondaryLinks(render, props);
+    renderSecondaryLinks(render, props);
 
-    await userEvent.click(getByRole('link'));
+    await userEvent.click(screen.getByRole('link'));
 
     expect(onClick).toHaveBeenCalledTimes(1);
   });

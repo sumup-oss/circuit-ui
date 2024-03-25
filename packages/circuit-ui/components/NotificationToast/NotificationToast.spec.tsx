@@ -21,6 +21,7 @@ import {
   render,
   waitFor,
   waitForElementToBeRemoved,
+  screen,
 } from '../../util/test-utils.js';
 import Button from '../Button/index.js';
 import { ToastProvider } from '../ToastContext/ToastContext.js';
@@ -60,41 +61,39 @@ describe('NotificationToast', () => {
   };
 
   it('should render with a headline', async () => {
-    const { getByText, findByRole } = renderNotificationToast({
+    renderNotificationToast({
       ...baseNotificationToast,
       headline: 'Information',
     });
 
-    await userEvent.click(getByText('Open toast'));
+    await userEvent.click(screen.getByText('Open toast'));
 
-    const headingEl = await findByRole('heading');
+    const headingEl = await screen.findByRole('heading');
 
     expect(headingEl.tagName).toBe('H3');
     expect(headingEl).toHaveTextContent('Information');
   });
 
   it('should open a toast', async () => {
-    const { findByRole, getByText } = renderNotificationToast(
-      baseNotificationToast,
-    );
+    renderNotificationToast(baseNotificationToast);
 
-    await userEvent.click(getByText('Open toast'));
+    await userEvent.click(screen.getByText('Open toast'));
 
-    const toastEl = await findByRole('status');
+    const toastEl = await screen.findByRole('status');
 
     expect(toastEl).toBeVisible();
   });
 
   it('should close the toast when the onClose method is called', async () => {
-    const { getByText } = renderNotificationToast(baseNotificationToast);
+    renderNotificationToast(baseNotificationToast);
 
-    await userEvent.click(getByText('Open toast'));
+    await userEvent.click(screen.getByText('Open toast'));
 
     await waitFor(() => {
-      expect(getByText('This is a toast message')).toBeVisible();
+      expect(screen.getByText('This is a toast message')).toBeVisible();
     });
 
-    const closeButton = getByText('Close');
+    const closeButton = screen.getByText('Close');
 
     await userEvent.click(closeButton);
 
@@ -102,11 +101,11 @@ describe('NotificationToast', () => {
   });
 
   it('should autodismiss toast after the duration has expired', async () => {
-    const { getByText } = renderNotificationToast(baseNotificationToast);
+    renderNotificationToast(baseNotificationToast);
 
-    await userEvent.click(getByText('Open toast'));
+    await userEvent.click(screen.getByText('Open toast'));
 
-    const toastElement = getByText('This is a toast message');
+    const toastElement = screen.getByText('This is a toast message');
 
     await waitFor(() => {
       expect(toastElement).toBeVisible();
@@ -120,14 +119,12 @@ describe('NotificationToast', () => {
   }, 10000);
 
   it('should have no accessibility violations', async () => {
-    const { container, getByText } = renderNotificationToast(
-      baseNotificationToast,
-    );
+    const { container } = renderNotificationToast(baseNotificationToast);
 
-    await userEvent.click(getByText('Open toast'));
+    await userEvent.click(screen.getByText('Open toast'));
 
     await waitFor(() => {
-      expect(getByText('This is a toast message')).toBeVisible();
+      expect(screen.getByText('This is a toast message')).toBeVisible();
     });
 
     const actual = await axe(container);

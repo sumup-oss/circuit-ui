@@ -1,6 +1,6 @@
 {
   "name": "@sumup/design-tokens",
-  "version": "7.0.0",
+  "version": "7.2.0",
   "description": "Visual primitives such as typography, color, and spacing that are shared across platforms.",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
@@ -31,7 +31,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "browserslist": "^4.22.2",
+    "browserslist": "^4.23.0",
     "lightningcss": "^1.22.1",
     "prop-types": "^15.8.1"
   },

@@ -15,7 +15,7 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { axe, render } from '../../util/test-utils.js';
+import { axe, render, screen } from '../../util/test-utils.js';
 
 import { Carousel } from './Carousel.js';
 import { SLIDES } from './__fixtures__/index.js';
@@ -46,13 +46,13 @@ describe('Carousel', () => {
   });
 
   it('should render with children as a node', () => {
-    const { getByRole } = render(
+    render(
       <Carousel slides={SLIDES} {...baseProps}>
         <h1>Carousel heading</h1>
       </Carousel>,
     );
 
-    expect(getByRole('heading')).toHaveTextContent('Carousel heading');
+    expect(screen.getByRole('heading')).toHaveTextContent('Carousel heading');
   });
 
   it('should have no accessibility violations', async () => {

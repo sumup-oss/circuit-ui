@@ -1,0 +1,27 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './PercentageInput.stories';
+
+<Meta of={Stories} />
+
+# PercentageInput
+
+<Status variant="stable" />
+
+The PercentageInput component indicates to the user that a fractional number should be entered.
+
+<Story of={Stories.Base} />
+<Props />
+
+## Component Variations
+
+### Locale
+
+Use the `locale` prop to format the number according to that locale's formatting style.
+
+<Story of={Stories.Locales} />
+
+### Decimals
+
+Use the `decimalScale` prop to allow users to enter numbers with decimals. The default is `0`.
+
+<Story of={Stories.Decimals} />

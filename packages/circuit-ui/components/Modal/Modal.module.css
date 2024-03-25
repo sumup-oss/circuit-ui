@@ -12,9 +12,9 @@
   display: block;
   content: "";
   background: linear-gradient(
-    rgb(255 255 255 / 0%),
-    rgb(255 255 255 / 66%),
-    rgb(255 255 255 / 100%)
+    color-mix(in sRGB, var(--cui-bg-elevated) 0%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent)
   );
 }
 

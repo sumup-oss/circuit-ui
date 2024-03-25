@@ -15,9 +15,9 @@
 
 import crypto from 'node:crypto';
 import path from 'node:path';
+import preserveDirectives from 'rollup-plugin-preserve-directives';
 
-import { UserConfig, defineConfig } from 'vite';
-import noBundlePlugin from 'vite-plugin-no-bundle';
+import { UserConfig, defineConfig } from 'vitest/config';
 
 import {
   dependencies,
@@ -84,6 +84,14 @@ export default defineConfig({
     },
     minify: false,
     rollupOptions: {
+      plugins: [
+        // @ts-expect-error rollup-plugin-preserve-directives is bundled in a non-standard way.
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+        (preserveDirectives.default || preserveDirectives)(),
+      ],
+      output: {
+        preserveModules: true,
+      },
       external: [
         ...Object.keys(dependencies),
         ...Object.keys(peerDependencies),
@@ -95,11 +103,6 @@ export default defineConfig({
       ],
     },
   },
-  plugins: [
-    // @ts-expect-error vite-plugin-no-bundle is bundled in a non-standard way.
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    (noBundlePlugin.default || noBundlePlugin)({ root: './' }),
-  ],
   test: {
     globals: true,
     environment: 'jsdom',

@@ -13,7 +13,7 @@
   margin-top: var(--cui-spacings-kilo);
 }
 
-@container cui-button-group (width > 420px) {
+@container cui-button-group (width > 370px) {
   .base {
     flex-direction: row-reverse;
   }

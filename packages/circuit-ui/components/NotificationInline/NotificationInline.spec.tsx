@@ -16,7 +16,13 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { axe, render, userEvent, waitFor } from '../../util/test-utils.js';
+import {
+  axe,
+  render,
+  userEvent,
+  waitFor,
+  screen,
+} from '../../util/test-utils.js';
 
 import {
   NotificationInline,
@@ -32,11 +38,11 @@ describe('NotificationInline', () => {
   };
 
   it('should render the notification inline', async () => {
-    const { getByText } = renderNotificationInline({
+    renderNotificationInline({
       ...baseProps,
     });
 
-    const toastEl = getByText('This is an inline message');
+    const toastEl = screen.getByText('This is an inline message');
 
     await waitFor(() => {
       expect(toastEl).toBeVisible();
@@ -44,12 +50,12 @@ describe('NotificationInline', () => {
   });
 
   it('should render notification inline with headline', () => {
-    const { getByRole } = renderNotificationInline({
+    renderNotificationInline({
       ...baseProps,
       headline: 'Information',
     });
 
-    const headingEl = getByRole('heading');
+    const headingEl = screen.getByRole('heading');
 
     expect(headingEl.tagName).toBe('H3');
     expect(headingEl).toHaveTextContent('Information');
@@ -58,7 +64,7 @@ describe('NotificationInline', () => {
   it.each(['h2', 'h3', 'h4', 'h5', 'h6'] as const)(
     'should render notification inline as an %s headline',
     (level) => {
-      const { getByRole } = renderNotificationInline({
+      renderNotificationInline({
         ...baseProps,
         headline: {
           label: `${level} headline`,
@@ -66,21 +72,21 @@ describe('NotificationInline', () => {
         },
       });
 
-      const headingEl = getByRole('heading');
+      const headingEl = screen.getByRole('heading');
 
       expect(headingEl.tagName).toBe(level.toUpperCase());
     },
   );
 
   it('should render notification toast with an action button', () => {
-    const { getByRole } = renderNotificationInline({
+    renderNotificationInline({
       ...baseProps,
       action: {
         onClick: vi.fn(),
         children: 'Click here',
       },
     });
-    expect(getByRole('button')).toBeVisible();
+    expect(screen.getByRole('button')).toBeVisible();
   });
 
   it('should forward a ref', () => {
@@ -100,9 +106,9 @@ describe('NotificationInline', () => {
         children: 'Click here',
       },
     };
-    const { getByRole } = renderNotificationInline(props);
+    renderNotificationInline(props);
 
-    await userEvent.click(getByRole('button'));
+    await userEvent.click(screen.getByRole('button'));
 
     expect(props.action.onClick).toHaveBeenCalledTimes(1);
   });
@@ -113,9 +119,9 @@ describe('NotificationInline', () => {
       onClose: vi.fn(),
       closeButtonLabel: 'Close notification',
     };
-    const { getByRole } = renderNotificationInline(props);
+    renderNotificationInline(props);
 
-    await userEvent.click(getByRole('button', { name: /close/i }));
+    await userEvent.click(screen.getByRole('button', { name: /close/i }));
 
     expect(props.onClose).toHaveBeenCalled();
   });
