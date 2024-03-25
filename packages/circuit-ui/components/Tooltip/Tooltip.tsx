@@ -131,6 +131,13 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       $activeTooltipId.set(null);
     };
 
+    // The tooltip works without JavaScript using only CSS (the "initial" state).
+    // When JS is available, the component is progressively enhanced and toggles
+    // between the "closed" and "open" states.
+    useEffect(() => {
+      $activeTooltipId.set(null);
+    }, []);
+
     useEscapeKey(handleClose, state === State.open);
 
     const { refs, floatingStyles, middlewareData, update, placement } =
