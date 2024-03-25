@@ -30,18 +30,21 @@ import {
   useFloating,
   arrow,
   flip,
-  offset,
   shift,
   type Placement,
   type Side,
 } from '@floating-ui/react-dom';
-import { atom, onMount } from 'nanostores';
+import { atom } from 'nanostores';
 import { useStore } from '@nanostores/react';
 
 import { clsx } from '../../styles/clsx.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
-import { CircuitError } from '../../util/errors.js';
+import {
+  AccessibilityError,
+  CircuitError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
 
 import classes from './Tooltip.module.css';
 
@@ -64,7 +67,7 @@ export interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
    */
   label: string;
   /**
-   * The focusable element that is labelled by the tooltip.
+   * The focusable element that acts as the reference for the tooltip.
    */
   component: ComponentType<TooltipReferenceProps>;
   /**
@@ -80,24 +83,7 @@ export interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
   placement?: Placement;
 }
 
-const ARROW_ROTATION_MAP: Record<Side, `${number}deg`> = {
-  top: '45deg',
-  right: '135deg',
-  bottom: '225deg',
-  left: '315deg',
-};
-
-export const $activeTooltipId = atom<string | null>('initial');
-
-// The tooltip works without JavaScript using only CSS (the "initial" state).
-// When JS is available, the component is progressively enhanced and toggles
-// between the "closed" and "open" states.
-onMount($activeTooltipId, () => {
-  $activeTooltipId.set(null);
-  return () => {
-    $activeTooltipId.set('initial');
-  };
-});
+const $activeTooltipId = atom<string | null>('initial');
 
 enum State {
   initial = 'initial',
@@ -152,8 +138,6 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
         open: state === State.open,
         placement: defaultPlacement,
         middleware: [
-          // 8px (arrow size) + 4px (actual offset)
-          offset(12),
           flip(),
           shift(),
           arrow({
@@ -193,6 +177,16 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       throw new CircuitError('Tooltip', 'The `type` prop is required.');
     }
 
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      !isSufficientlyLabelled(label)
+    ) {
+      throw new AccessibilityError(
+        'Tooltip',
+        'The `label` prop is missing or invalid.',
+      );
+    }
+
     const referenceProps = {
       [type === 'label' ? 'aria-labelledby' : 'aria-describedby']: tooltipId,
     };
@@ -218,19 +212,19 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
           onMouseEnter={handleOpen}
           onMouseLeave={handleClose}
           data-state={state}
+          data-side={side}
           className={clsx(classes.base, className)}
-          style={{ ...style, ...floatingStyles }}
+          style={
+            state === State.initial ? style : { ...style, ...floatingStyles }
+          }
         >
           <div className={classes.content}>{label}</div>
           <div
             ref={arrowRef}
             className={classes.arrow}
-            // @ts-expect-error The dynamic style rules are valid.
             style={{
-              left: middlewareData.arrow?.x,
               top: middlewareData.arrow?.y,
-              [side]: 'calc(100% - (var(--cui-spacings-kilo) / 2))',
-              transform: `rotate(${ARROW_ROTATION_MAP[side]})`,
+              left: middlewareData.arrow?.x,
             }}
           />
         </div>

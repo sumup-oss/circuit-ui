@@ -1,10 +1,37 @@
 .base {
+  /* The arrow should be 8px tall. A square element is rotated to achieve a triangular shape. Using Pythagoras' theorem, we can calculate the ratio between the triangle height and the square sides: √(8^2 + 8^2) / 8 ≈ 1.414 */
+  --tooltip-arrow-size: calc(var(--cui-spacings-byte) * 1.414);
+  --tooltip-offset: var(--cui-spacings-kilo);
+
   position: absolute;
-  bottom: calc(100% + 16px); /* 8px (arrow size) + 4px (offset) */
-  left: 50%;
   z-index: var(--cui-z-index-tooltip);
+  pointer-events: none;
+  opacity: 0;
   transition: opacity var(--cui-transitions-default);
+}
+
+.base[data-state="initial"][data-side="top"] {
+  bottom: calc(100% + var(--tooltip-offset));
+  left: 50%;
   transform: translateX(-50%);
+}
+
+.base[data-state="initial"][data-side="left"] {
+  top: 50%;
+  right: 100%;
+  transform: translateY(-50%);
+}
+
+.base[data-state="initial"][data-side="bottom"] {
+  top: calc(100% + var(--tooltip-offset));
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.base[data-state="initial"][data-side="right"] {
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
 }
 
 .base[data-state="open"],
@@ -16,32 +43,63 @@
   transition-delay: 1s;
 }
 
-.base[data-state="open"] {
-  bottom: auto;
-  left: auto;
-}
-
 .base,
 .base[data-state="closed"]:hover,
 .component:hover + .base[data-state="closed"],
 .component:focus + .base[data-state="closed"] {
-  pointer-events: none;
-  opacity: 0;
   transition-delay: 0s;
+}
+
+/* We use padding instead of Floating UI's `offset` middleware to enable users
+   to hover over the tooltip without dismissing it. */
+.base[data-side="top"] {
+  padding-bottom: var(--tooltip-offset);
+}
+
+.base[data-side="right"] {
+  padding-left: var(--tooltip-offset);
+}
+
+.base[data-side="bottom"] {
+  padding-top: var(--tooltip-offset);
+}
+
+.base[data-side="left"] {
+  padding-right: var(--tooltip-offset);
 }
 
 .arrow {
   position: absolute;
-  width: var(--cui-spacings-kilo);
-  height: var(--cui-spacings-kilo);
+  width: var(--tooltip-arrow-size);
+  height: var(--tooltip-arrow-size);
   background-color: var(--cui-bg-elevated);
   border-right: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
   border-bottom: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
   border-bottom-right-radius: 2px;
 }
 
-[data-state="closed"] .arrow {
-  display: none;
+.base[data-side="top"] .arrow {
+  top: calc(100% - var(--tooltip-offset) - (var(--tooltip-arrow-size) / 2));
+  left: calc(50% - (var(--tooltip-arrow-size) / 2));
+  transform: rotate(45deg);
+}
+
+.base[data-side="right"] .arrow {
+  right: calc(100% - var(--tooltip-offset) - (var(--tooltip-arrow-size) / 2));
+  bottom: calc(50% - (var(--tooltip-arrow-size) / 2));
+  transform: rotate(135deg);
+}
+
+.base[data-side="bottom"] .arrow {
+  bottom: calc(100% - var(--tooltip-offset) - (var(--tooltip-arrow-size) / 2));
+  left: calc(50% - (var(--tooltip-arrow-size) / 2));
+  transform: rotate(225deg);
+}
+
+.base[data-side="left"] .arrow {
+  bottom: calc(50% - (var(--tooltip-arrow-size) / 2));
+  left: calc(100% - var(--tooltip-offset) - (var(--tooltip-arrow-size) / 2));
+  transform: rotate(315deg);
 }
 
 .content {
