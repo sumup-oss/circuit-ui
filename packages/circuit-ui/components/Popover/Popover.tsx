@@ -264,7 +264,7 @@ export const Popover = ({
     /**
      * When we support `ResizeObserver` (https://caniuse.com/resizeobserver),
      * we can look into using Floating UI's `autoUpdate` (but we can't use
-     * `whileElementInMounted` because our implementation hides the floating
+     * `whileElementIsMounted` because our implementation hides the floating
      * element using CSS instead of using conditional rendering.
      * See https://floating-ui.com/docs/react-dom#updating
      */
@@ -277,7 +277,14 @@ export const Popover = ({
       window.removeEventListener('scroll', update);
     }
 
-    // Focus the first or last element after opening
+    return () => {
+      window.removeEventListener('resize', update);
+      window.removeEventListener('scroll', update);
+    };
+  }, [isOpen, refs.reference, update]);
+
+  useEffect(() => {
+    // Focus the first or last popover item after opening
     if (!prevOpen && isOpen) {
       const element = (
         triggerKey.current && triggerKey.current === 'ArrowUp'
@@ -289,7 +296,7 @@ export const Popover = ({
       }
     }
 
-    // Focus the trigger button after closing
+    // Focus the reference element after closing
     if (prevOpen && !isOpen) {
       const triggerButton = (refs.reference.current &&
         refs.reference.current.firstElementChild) as HTMLElement;
@@ -297,13 +304,7 @@ export const Popover = ({
     }
 
     triggerKey.current = null;
-
-    // Clean up the event listener when the component is unmounted
-    return () => {
-      window.removeEventListener('resize', update);
-      window.removeEventListener('scroll', update);
-    };
-  }, [isOpen, prevOpen, refs.reference, update]);
+  }, [isOpen, prevOpen, refs.reference]);
 
   return (
     <Fragment>

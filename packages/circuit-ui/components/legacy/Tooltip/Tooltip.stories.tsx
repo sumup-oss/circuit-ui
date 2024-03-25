@@ -21,7 +21,7 @@ import styled from '../../../styles/styled.js';
 import { Tooltip, TooltipProps } from './Tooltip.js';
 
 export default {
-  title: 'Components/Tooltip',
+  title: 'Components/Tooltip/Legacy',
   component: Tooltip,
 };
 

@@ -42,7 +42,7 @@ describe('Header', () => {
     const onClose = vi.fn();
     renderComponent({ onClose });
 
-    await userEvent.click(screen.getByTitle(baseProps.closeButtonLabel));
+    await userEvent.click(screen.getByLabelText(baseProps.closeButtonLabel));
 
     expect(onClose).toHaveBeenCalled();
   });
@@ -53,7 +53,7 @@ describe('Header', () => {
       onBack,
     });
 
-    expect(screen.getByTitle(baseProps.backButtonLabel)).toBeVisible();
+    expect(screen.getByLabelText(baseProps.backButtonLabel)).toBeVisible();
   });
 
   it('should call the onBack callback from the back button', async () => {
@@ -62,7 +62,7 @@ describe('Header', () => {
       onBack,
     });
 
-    await userEvent.click(screen.getByTitle(baseProps.backButtonLabel));
+    await userEvent.click(screen.getByLabelText(baseProps.backButtonLabel));
 
     expect(onBack).toHaveBeenCalled();
   });

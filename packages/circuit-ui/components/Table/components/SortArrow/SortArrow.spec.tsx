@@ -41,8 +41,8 @@ describe('SortArrow', () => {
 
   it('should call the onClick callback', async () => {
     const onClick = vi.fn();
-    render(<SortArrow label="Sort" onClick={onClick} data-testid="sort" />);
-    await userEvent.click(screen.getByTestId('sort'));
+    render(<SortArrow label="Sort" onClick={onClick} />);
+    await userEvent.click(screen.getByRole('button'));
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
