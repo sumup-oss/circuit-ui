@@ -1,3 +1,39 @@
+:root {
+  --side-panel-width: 400px;
+}
+
+/* Enable keyboard navigation inside the modal, see https://github.com/reactjs/react-modal/issues/782 */
+.cui-side-panel-portal {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
+@media (max-width: 767px) {
+  /* Remove scroll on the body when react-modal is open */
+  .cui-side-panel-open {
+    height: 100%;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: auto;
+  }
+
+  /* Enable keyboard navigation inside the modal, see https://github.com/reactjs/react-modal/issues/782 */
+  .cui-side-panel-portal {
+    top: 0;
+    left: 0;
+    z-index: var(--cui-z-index-modal);
+  }
+}
+
+/* Enable keyboard navigation inside the modal, see https://github.com/reactjs/react-modal/issues/782 */
+@media (min-width: 768px) {
+  .cui-side-panel-portal {
+    top: var(--top-navigation-height, 0);
+    z-index: var(--cui-z-index-absolute);
+    width: var(--side-panel-width);
+  }
+}
+
 .base {
   width: 100%;
   min-height: calc(100vh - var(--top-navigation-height));
