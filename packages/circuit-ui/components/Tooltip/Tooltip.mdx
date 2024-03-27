@@ -16,7 +16,7 @@ Tooltips display additional information upon hover or focus that is contextual, 
 
 Tooltips hide information by default and require user interaction to be shown. They should be used as a last resort when space truly is limited and the information cannot be shown inline.
 
-A Tooltip must be used with an interactive, focusable element such as a button, link or input. When wrapping a custom component or an inline function, ensure that the [`ref` is forwarded](https://react.dev/reference/react/forwardRef).
+The wrapped component must be a focusable element such as `<a>`, `<button>`, `<input>`, or an element with `tabindex="0"`.
 
 The label must be a single unformatted string. Use a [Toggletip](Components/Toggletip/Docs) instead if the content should be structured or interactive.
 
@@ -44,12 +44,15 @@ The tooltip automatically flips to the opposite side to stay within the viewport
 
 <Story of={Stories.Placements} />
 
+## Related components
+
+- [Toggletip](Components/Toggletip/Docs): Toggletips display additional information that is contextual, helpful, and nonessential to the user upon pressing a UI trigger element and can contain interactive elements
+
 ---
 
 ## Accessibility
 
 ### Best practices
-
 
 - Only interactive elements should trigger tooltips
 - Tooltips should directly describe the UI control that triggers them (i.e. do not create a control purely to trigger a tooltip)
@@ -60,7 +63,6 @@ The tooltip automatically flips to the opposite side to stay within the viewport
 - Allow the mouse to easily move over the tooltip without dismissing it
 - Do not use a timeout to hide the tooltip
 
-
 ### Resources
 
 - [Tooltips in the time of WCAG 2.1](https://sarahmhigley.com/writing/tooltips-in-wcag-21/) by Sarah Highley
@@ -69,4 +71,3 @@ The tooltip automatically flips to the opposite side to stay within the viewport
 #### Related WCAG success criteria
 
 - 1.4.13: [Content on Hover or Focus](https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus.html)
-

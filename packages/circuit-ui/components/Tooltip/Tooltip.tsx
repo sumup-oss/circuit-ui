@@ -71,8 +71,9 @@ export interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
    */
   component: ComponentType<TooltipReferenceProps>;
   /**
-   * Whether the tooltip is the main label or a supplemental description of
-   * the reference component.
+   * Whether the tooltip is the [main label](https://w3c.github.io/accname/#dfn-accessible-name)
+   * or a [supplemental description](https://w3c.github.io/accname/#dfn-accessible-description)
+   * of the reference component.
    */
   type: 'label' | 'description';
   /**

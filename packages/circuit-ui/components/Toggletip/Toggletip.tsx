@@ -51,13 +51,6 @@ import Button, { type ButtonProps } from '../Button/index.js';
 
 import classes from './Toggletip.module.css';
 
-// TODO: mobile: focus trap
-// TODO: check rerenders
-
-// inert with polyfill
-// render modal outside root with portal?
-// add inert on root
-
 export interface ToggletipReferenceProps {
   'id': string;
   'onClick': (event: ClickEvent) => void;
@@ -70,19 +63,25 @@ export interface ToggletipProps extends HTMLAttributes<HTMLDialogElement> {
    */
   component: ComponentType<ToggletipReferenceProps>;
   /**
-   * TODO:
+   * The optional headline acts as the toggletip's [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+   * Keep it short and under 120 characters.
    */
   headline?: string;
   /**
-   * TODO:
+   * Use the body text to provide additional help or to define a term.
+   * The body acts as the toggletip's [accessible description](https://w3c.github.io/accname/#dfn-accessible-description)
+   * or as its [accessible name](https://w3c.github.io/accname/#dfn-accessible-name)
+   * when no headline is present.
    */
   body: string;
   /**
-   * TODO:
+   * Use the optional action button to point the user to additional information
+   * or enable a contextual action. Use one strong, clear imperative verb and
+   * follow with a one-word object if needed to clarify.
    */
   action?: Omit<ButtonProps, 'variant' | 'size'>;
   /**
-   * TODO:
+   * Label for the toggletip's close button.
    */
   closeButtonLabel: string;
   /**
@@ -90,7 +89,9 @@ export interface ToggletipProps extends HTMLAttributes<HTMLDialogElement> {
    */
   defaultOpen?: boolean;
   /**
-   * TODO:
+   * Where to display the toggletip relative to the trigger component. The
+   * toggletip will automatically move if there isn't enough space available.
+   * Default: 'top'.
    */
   placement?: Placement;
   /**
