@@ -145,6 +145,8 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
         return undefined;
       }
 
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore The package is bundled incorrectly
       dialogPolyfill.registerDialog(dialogElement);
 
       const handleClose = () => {
