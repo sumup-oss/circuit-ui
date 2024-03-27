@@ -196,6 +196,7 @@ export const Popover = ({
   const menuId = useId();
 
   const { x, y, strategy, refs, update } = useFloating<HTMLElement>({
+    open: isOpen,
     placement,
     strategy: 'fixed',
     middleware: offset
@@ -247,15 +248,11 @@ export const Popover = ({
     }
   };
 
-  const handlePopoverItemClick = (
-    event: ClickEvent,
-    onClick: BaseProps['onClick'],
-  ) => {
-    if (onClick) {
-      onClick(event);
-    }
-    handleToggle(false);
-  };
+  const handlePopoverItemClick =
+    (onClick: BaseProps['onClick']) => (event: ClickEvent) => {
+      onClick?.(event);
+      handleToggle(false);
+    };
 
   useEscapeKey(() => handleToggle(false), isOpen);
   useClickOutside(floatingRef, () => handleToggle(false), isOpen);
@@ -359,9 +356,7 @@ export const Popover = ({
                   key={index}
                   {...action}
                   {...focusProps}
-                  onClick={(event) =>
-                    handlePopoverItemClick(event, action.onClick)
-                  }
+                  onClick={handlePopoverItemClick(action.onClick)}
                 />
               ),
             )}
