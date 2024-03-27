@@ -27,7 +27,8 @@
   outline: none;
   box-shadow: none;
   box-shadow: 0 0 0 1px var(--cui-border-normal);
-  transition: box-shadow var(--cui-transitions-default),
+  transition:
+    box-shadow var(--cui-transitions-default),
     padding var(--cui-transitions-default);
 }
 
@@ -41,11 +42,6 @@
 
 .base:active {
   box-shadow: 0 0 0 1px var(--cui-border-accent);
-}
-
-.base:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
 }
 
 .base::-ms-expand {
