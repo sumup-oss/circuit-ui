@@ -28,7 +28,6 @@ import { MobileSidePanel } from './components/MobileSidePanel/index.js';
 import { DesktopSidePanel } from './components/DesktopSidePanel/index.js';
 import { Header } from './components/Header/index.js';
 import type { SidePanelHookProps, OnBack, OnClose } from './useSidePanel.js';
-import contextClasses from './SidePanelContext.module.css';
 import classes from './SidePanel.module.css';
 
 export type SidePanelProps = Omit<ReactModalProps, 'children'> &
@@ -110,8 +109,6 @@ export const SidePanel = ({
       labelledby: headerAriaId,
     },
     onRequestClose: onBack || onClose,
-    portalClassName: contextClasses['cui-side-panel-portal'],
-    htmlOpenClassName: contextClasses['cui-side-panel-open'],
     bodyOpenClassName: '',
     /**
      * react-modal relies on document.activeElement to return focus after the modal is closed.
