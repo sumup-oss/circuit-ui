@@ -16,32 +16,34 @@
 'use client';
 
 import {
+  Fragment,
   forwardRef,
+  useCallback,
   useEffect,
   useId,
   useRef,
+  useState,
   type ComponentType,
   type HTMLAttributes,
-  type Ref,
 } from 'react';
 import {
   arrow,
   flip,
-  offset,
+  offset as offsetMiddleware,
   shift,
   useFloating,
   type Placement,
   type Side,
 } from '@floating-ui/react-dom';
+import dialogPolyfill from 'dialog-polyfill';
 
 import type { ClickEvent } from '../../types/events.js';
 import { clsx } from '../../styles/clsx.js';
 import { applyMultipleRefs } from '../../util/refs.js';
-import { isHTMLElement } from '../../util/type-check.js';
+import { useMedia } from '../../hooks/useMedia/index.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
 import { useClickOutside } from '../../hooks/useClickOutside/index.js';
-import { useLatest } from '../../hooks/useLatest/index.js';
-import { usePrevious } from '../../hooks/usePrevious/index.js';
+import { useStackContext } from '../StackContext/index.js';
 import CloseButton from '../CloseButton/index.js';
 import Headline from '../Headline/index.js';
 import Body from '../Body/index.js';
@@ -49,36 +51,24 @@ import Button, { type ButtonProps } from '../Button/index.js';
 
 import classes from './Toggletip.module.css';
 
-// TODO: mobile:  position, focus trap
-// TODO: what should the a11y semantics be?
-// FIXME: IconButton with Toggletip
-// FIXME: ghost tooltip on close button
+// TODO: mobile: focus trap
+// TODO: check rerenders
 
-// mobile modal
 // inert with polyfill
-// render modal outside root with portal
+// render modal outside root with portal?
 // add inert on root
 
 export interface ToggletipReferenceProps {
-  onClick: (event: ClickEvent) => void;
-  ref: Ref<any>;
+  'id': string;
+  'onClick': (event: ClickEvent) => void;
+  'aria-haspopup': 'dialog';
 }
 
-type OnToggle = (open: boolean | ((prevOpen: boolean) => boolean)) => void;
-
-export interface ToggletipProps extends HTMLAttributes<HTMLDivElement> {
+export interface ToggletipProps extends HTMLAttributes<HTMLDialogElement> {
   /**
    * The button element that triggers the toggletip.
    */
   component: ComponentType<ToggletipReferenceProps>;
-  /**
-   * Determines whether the toggletip is open or closed.
-   */
-  isOpen: boolean;
-  /**
-   * Function that is called when opening and closing the toggletip.
-   */
-  onToggle: OnToggle;
   /**
    * TODO:
    */
@@ -96,17 +86,31 @@ export interface ToggletipProps extends HTMLAttributes<HTMLDivElement> {
    */
   closeButtonLabel: string;
   /**
+   * Whether the toggletip is initially open. Default: 'false'.
+   */
+  defaultOpen?: boolean;
+  /**
    * TODO:
    */
   placement?: Placement;
+  /**
+   * Displaces the floating element from its `placement` along specified axes.
+   *
+   * Pass a number to move the floating element on the main axis, away from (if
+   * positive) or towards (if negative) the reference element. Pass an object
+   * to displace the floating element on both the main and cross axes.
+   *
+   * Default: 12.
+   */
+  offset?: number | { mainAxis?: number; crossAxis?: number };
 }
 
-export const Toggletip = forwardRef<HTMLDivElement, ToggletipProps>(
+export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
   (
     {
-      isOpen = false,
-      onToggle,
+      defaultOpen = false,
       placement: defaultPlacement = 'top',
+      offset = 12,
       headline,
       body,
       action,
@@ -118,30 +122,59 @@ export const Toggletip = forwardRef<HTMLDivElement, ToggletipProps>(
     },
     ref,
   ) => {
+    const zIndex = useStackContext();
+    const isMobile = useMedia('(max-width: 479px)');
     const arrowRef = useRef<HTMLDivElement>(null);
-    const toggletipId = useId();
-    const prevOpen = usePrevious(isOpen);
+    const dialogRef = useRef<HTMLDialogElement>(null);
+    const referenceId = useId();
+    const headlineId = useId();
+    const bodyId = useId();
+    const [open, setOpen] = useState(defaultOpen);
+
+    const closeDialog = useCallback(() => {
+      dialogRef.current?.close();
+    }, []);
+
+    useEscapeKey(closeDialog, open);
+    useClickOutside(dialogRef, closeDialog, open);
+
+    useEffect(() => {
+      const dialogElement = dialogRef.current;
+
+      if (!dialogElement) {
+        return undefined;
+      }
+
+      dialogPolyfill.registerDialog(dialogElement);
+
+      const handleClose = () => {
+        setOpen(false);
+      };
+
+      dialogElement.addEventListener('close', handleClose);
+
+      return () => {
+        dialogElement.addEventListener('close', handleClose);
+      };
+    }, []);
 
     const { refs, floatingStyles, middlewareData, update, placement } =
       useFloating({
-        open: isOpen,
+        open,
         placement: defaultPlacement,
         middleware: [
-          offset(12),
+          offsetMiddleware(offset),
           flip(),
           shift(),
           arrow({ element: arrowRef, padding: 12 }),
         ],
       });
 
-    const side = placement.split('-')[0] as Side;
+    useEffect(() => {
+      const referenceElement = document.getElementById(referenceId);
 
-    // This is a performance optimization to prevent event listeners from being
-    // re-attached on every render.
-    const floatingRef = useLatest(refs.floating.current);
-
-    useEscapeKey(() => onToggle(false), isOpen);
-    useClickOutside(floatingRef, () => onToggle(false), isOpen);
+      refs.setReference(referenceElement);
+    }, [referenceId, refs]);
 
     useEffect(() => {
       /**
@@ -151,7 +184,7 @@ export const Toggletip = forwardRef<HTMLDivElement, ToggletipProps>(
        * element using CSS instead of using conditional rendering.
        * See https://floating-ui.com/docs/react-dom#updating
        */
-      if (isOpen) {
+      if (open) {
         update();
         window.addEventListener('resize', update);
         window.addEventListener('scroll', update);
@@ -163,59 +196,69 @@ export const Toggletip = forwardRef<HTMLDivElement, ToggletipProps>(
         window.removeEventListener('resize', update);
         window.removeEventListener('scroll', update);
       };
-    }, [isOpen, update]);
+    }, [open, update]);
 
-    useEffect(() => {
-      // Focus the toggletip content after opening
-      if (!prevOpen && isOpen) {
-        const contentElement = refs.floating.current?.firstElementChild;
-
-        if (isHTMLElement(contentElement)) {
-          contentElement.setAttribute('tabindex', '0');
-          contentElement.focus();
-          contentElement.setAttribute('tabindex', '-1');
-        }
-      }
-
-      // Focus the reference element after closing
-      const referenceElement = refs.reference.current;
-
-      if (prevOpen && !isOpen && isHTMLElement(referenceElement)) {
-        referenceElement.focus();
-      }
-    }, [isOpen, prevOpen, refs.reference, refs.floating]);
-
-    const handleReferenceClick = (event: ClickEvent) => {
+    const handleReferenceClick = useCallback((event: ClickEvent) => {
       // This prevents the event from bubbling which would trigger the
-      // useClickOutside above and would prevent the popover from closing.
+      // useClickOutside above and would prevent the dialog from closing.
       event.stopPropagation();
-      onToggle(true);
-    };
+      if (dialogRef.current) {
+        dialogRef.current.show();
+        setOpen(true);
+      }
+    }, []);
 
     const handleActionClick = (event: ClickEvent) => {
       action?.onClick?.(event);
-      onToggle(false);
+      closeDialog();
     };
 
+    const side = placement.split('-')[0] as Side;
+
+    const mobileStyles = {
+      position: 'fixed',
+      bottom: '0px',
+      left: '0px',
+      right: '0px',
+    } as const;
+
+    const dialogStyles = isMobile ? mobileStyles : floatingStyles;
+
     return (
-      <>
-        <Component onClick={handleReferenceClick} ref={refs.setReference} />
-        <div
+      <Fragment>
+        <Component
+          id={referenceId}
+          aria-haspopup="dialog"
+          onClick={handleReferenceClick}
+        />
+        {/* eslint-disable jsx-a11y/no-autofocus */}
+        {/* @ts-expect-error "Expression produces a union type that is too complex to represent" */}
+        <dialog
           {...props}
-          ref={applyMultipleRefs(ref, refs.setFloating)}
-          id={toggletipId}
-          data-state={isOpen ? 'open' : 'closed'}
+          ref={applyMultipleRefs(ref, dialogRef, refs.setFloating)}
           data-side={side}
+          aria-labelledby={headlineId}
+          aria-describedby={bodyId}
           className={clsx(classes.base, className)}
-          style={{ ...style, ...floatingStyles }}
+          // @ts-expect-error z-index can be a string
+          style={{
+            ...style,
+            ...dialogStyles,
+            zIndex: zIndex || 'var(--cui-z-index-modal)',
+          }}
         >
           <div className={classes.content}>
             {headline && (
-              <Headline as="h2" size="four" className={classes.headline}>
+              <Headline
+                as="h2"
+                size="four"
+                id={headlineId}
+                className={classes.headline}
+              >
                 {headline}
               </Headline>
             )}
-            <Body size="two" className={classes.body}>
+            <Body size="two" id={bodyId} className={classes.body}>
               {body}
             </Body>
             {action && (
@@ -225,13 +268,15 @@ export const Toggletip = forwardRef<HTMLDivElement, ToggletipProps>(
                 variant="secondary"
                 size="s"
                 className={classes.action}
+                autoFocus
               />
             )}
             <CloseButton
               size="s"
               variant="tertiary"
               className={classes.close}
-              onClick={() => onToggle(false)}
+              onClick={closeDialog}
+              autoFocus={!action}
             >
               {closeButtonLabel}
             </CloseButton>
@@ -244,8 +289,18 @@ export const Toggletip = forwardRef<HTMLDivElement, ToggletipProps>(
               left: middlewareData.arrow?.x,
             }}
           />
-        </div>
-      </>
+        </dialog>
+        {/* eslint-enable jsx-a11y/no-autofocus */}
+        <div
+          className={classes.backdrop}
+          style={{
+            // @ts-expect-error z-index can be a string
+            zIndex: `calc(${zIndex?.toString() || 'var(--cui-z-index-modal)'} - 1)`,
+          }}
+        />
+      </Fragment>
     );
   },
 );
+
+Toggletip.displayName = 'Toggletip';

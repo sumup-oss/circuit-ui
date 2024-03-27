@@ -13,12 +13,11 @@
  * limitations under the License.
  */
 
-import { forwardRef, useState } from 'react';
-import { action } from '@storybook/addon-actions';
 import { userEvent, within } from '@storybook/test';
-import { Info } from '@sumup/icons';
+import { ArrowSlanted, Info } from '@sumup/icons';
 
-import Button from '../Button/index.js';
+import { Stack } from '../../../../.storybook/components/index.js';
+import { IconButton } from '../Button/index.js';
 
 import {
   Toggletip,
@@ -31,44 +30,78 @@ export default {
   component: Toggletip,
 };
 
-const Reference = forwardRef<HTMLButtonElement, ToggletipReferenceProps>(
-  (props, ref) => (
-    <Button {...props} ref={ref} icon={Info}>
-      Info
-    </Button>
-  ),
+const wrapperStyle = { display: 'flex', gap: '4px', alignItems: 'center' };
+
+export const Base = (args: ToggletipProps) => (
+  <div style={wrapperStyle}>
+    Chargeback
+    <Toggletip
+      {...args}
+      component={(props) => (
+        <IconButton {...props} icon={Info} variant="tertiary" size="s">
+          View details
+        </IconButton>
+      )}
+    />
+  </div>
 );
 
-const showToggletip = async ({
-  canvasElement,
-}: {
-  canvasElement: HTMLCanvasElement;
-}) => {
+Base.args = {
+  headline: 'What is a chargeback?',
+  body: 'A chargeback is a return of money to a payer of a transaction, especially a credit card transaction.',
+  action: {
+    children: 'Learn more',
+    navigationIcon: ArrowSlanted,
+    href: 'https://help.sumup.com/en-US/articles/3ztthQLEXab3K0vUaQqgwx-chargeback-faq',
+    target: '_blank',
+  },
+  offset: 8,
+};
+
+Base.play = async ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
   const canvas = within(canvasElement);
   const referenceEl = canvas.getByRole('button');
 
   await userEvent.click(referenceEl);
 };
 
-export const Base = (args: ToggletipProps) => {
-  const [isOpen, setOpen] = useState(false);
-  return (
-    <Toggletip
-      {...args}
-      isOpen={isOpen}
-      onToggle={setOpen}
-      component={Reference}
-    />
+const ReferenceButton = (props: ToggletipReferenceProps) => (
+  <IconButton {...props} icon={Info} variant="tertiary" size="s">
+    View details
+  </IconButton>
+);
+
+export const Placements = (args: ToggletipProps) => (
+  <Stack>
+    <Toggletip {...args} component={ReferenceButton} placement="left" />
+    <Toggletip {...args} component={ReferenceButton} placement="bottom-start" />
+    <Toggletip {...args} component={ReferenceButton} placement="right-end" />
+  </Stack>
+);
+
+Placements.args = {
+  headline: 'What is a chargeback?',
+  body: 'A chargeback is a return of money to a payer of a transaction, especially a credit card transaction.',
+  action: {
+    children: 'Learn more',
+    navigationIcon: ArrowSlanted,
+    href: 'https://help.sumup.com/en-US/articles/3ztthQLEXab3K0vUaQqgwx-chargeback-faq',
+    target: '_blank',
+  },
+  offset: 8,
+};
+
+Placements.play = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLCanvasElement;
+}) => {
+  const canvas = within(canvasElement);
+  const referenceEls = canvas.getAllByRole('button');
+
+  await Promise.all(
+    referenceEls.map(async (referenceEl) => {
+      await userEvent.click(referenceEl);
+    }),
   );
 };
-
-Base.args = {
-  headline: 'Tutorial',
-  body: "We'll show you how to use this exiting new feature.",
-  action: {
-    children: 'Start tour',
-    onClick: action('Start tour'),
-  },
-};
-
-Base.play = showToggletip;
