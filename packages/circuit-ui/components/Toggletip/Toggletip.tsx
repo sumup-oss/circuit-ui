@@ -237,10 +237,11 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
         {/* @ts-expect-error "Expression produces a union type that is too complex to represent" */}
         <dialog
           {...props}
+          open={defaultOpen}
           ref={applyMultipleRefs(ref, dialogRef, refs.setFloating)}
           data-side={side}
-          aria-labelledby={headlineId}
-          aria-describedby={bodyId}
+          aria-labelledby={headline ? headlineId : bodyId}
+          aria-describedby={headline ? bodyId : undefined}
           className={clsx(classes.base, className)}
           // @ts-expect-error z-index can be a string
           style={{
