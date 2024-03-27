@@ -121,6 +121,7 @@ export const Tag = forwardRef<HTMLDivElement & HTMLButtonElement, TagProps>(
     }
 
     const isRemovable = onRemove && removeButtonLabel;
+    const isButton = onClick && !props.href;
 
     return (
       <div
@@ -137,7 +138,8 @@ export const Tag = forwardRef<HTMLDivElement & HTMLButtonElement, TagProps>(
             classes.content,
             onClick && utilityClasses.focusVisible,
           )}
-          {...(onClick && !props.href && { type: 'button' })}
+          type={isButton ? 'button' : undefined}
+          aria-pressed={isButton && selected ? 'true' : undefined}
           onClick={onClick}
           ref={ref}
           {...props}
