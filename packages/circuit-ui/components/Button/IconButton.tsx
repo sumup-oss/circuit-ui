@@ -19,6 +19,7 @@ import {
   Children,
   cloneElement,
   forwardRef,
+  memo,
   type ForwardRefExoticComponent,
   type PropsWithoutRef,
   type ReactElement,
@@ -31,7 +32,6 @@ import { CircuitError } from '../../util/errors.js';
 import { deprecate } from '../../util/logger.js';
 import { isString } from '../../util/type-check.js';
 import Tooltip from '../Tooltip/index.js';
-import { applyMultipleRefs } from '../../util/refs.js';
 
 import {
   createButtonComponent,
@@ -74,72 +74,71 @@ const InnerIconButton = createButtonComponent<CreateButtonComponentProps>(
  */
 export const IconButton: ForwardRefExoticComponent<
   PropsWithoutRef<IconButtonProps> & RefAttributes<any>
-> = forwardRef<HTMLButtonElement, IconButtonProps>(
-  (
-    {
-      className,
-      icon: Icon,
-      size: legacySize = 'm',
-      label,
-      children,
-      ...props
+> = memo(
+  forwardRef<HTMLButtonElement, IconButtonProps>(
+    (
+      {
+        className,
+        icon: Icon,
+        size: legacySize = 'm',
+        label,
+        children,
+        ...props
+      },
+      ref,
+    ) => {
+      const size = legacyButtonSizeMap[legacySize] || legacySize;
+
+      if (
+        process.env.NODE_ENV !== 'production' &&
+        !Icon &&
+        Children.count(children) !== 1
+      ) {
+        throw new CircuitError('IconButton', 'The `icon` prop is missing.');
+      }
+
+      if (process.env.NODE_ENV !== 'production' && !isString(children)) {
+        deprecate(
+          'IconButton',
+          'The `children` prop has been deprecated for passing the icon. Use the `icon` prop instead.',
+        );
+      }
+
+      if (process.env.NODE_ENV !== 'production' && label) {
+        deprecate(
+          'IconButton',
+          'The `label` prop has been deprecated. Use the `children` prop instead.',
+        );
+      }
+
+      return (
+        <Tooltip
+          type="label"
+          label={isString(children) ? children : (label as string)}
+          component={(tooltipProps) => (
+            <InnerIconButton
+              {...props}
+              {...tooltipProps}
+              size={size}
+              className={clsx(classes[size], tooltipProps.className, className)}
+              icon={(iconProps) => {
+                if (Icon) {
+                  return <Icon {...iconProps} />;
+                }
+                const child = Children.only(children)!;
+                // TODO: Remove with the next major
+                if (isString(child)) {
+                  return null;
+                }
+                return cloneElement(child, iconProps);
+              }}
+              ref={ref}
+            />
+          )}
+        />
+      );
     },
-    ref,
-  ) => {
-    const size = legacyButtonSizeMap[legacySize] || legacySize;
-
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      !Icon &&
-      Children.count(children) !== 1
-    ) {
-      throw new CircuitError('IconButton', 'The `icon` prop is missing.');
-    }
-
-    if (process.env.NODE_ENV !== 'production' && !isString(children)) {
-      deprecate(
-        'IconButton',
-        'The `children` prop has been deprecated for passing the icon. Use the `icon` prop instead.',
-      );
-    }
-
-    if (process.env.NODE_ENV !== 'production' && label) {
-      deprecate(
-        'IconButton',
-        'The `label` prop has been deprecated. Use the `children` prop instead.',
-      );
-    }
-
-    return (
-      <Tooltip
-        type="label"
-        label={isString(children) ? children : (label as string)}
-        component={forwardRef((tooltipProps, tooltipRef) => (
-          <InnerIconButton
-            {...props}
-            {...tooltipProps}
-            size={size}
-            className={clsx(
-              classes.base,
-              classes[size],
-              tooltipProps.className,
-              className,
-            )}
-            icon={(iconProps) => {
-              if (Icon) {
-                return <Icon {...iconProps} />;
-              }
-              const child = Children.only(children)!;
-              // TODO: Remove with the next major
-              if (isString(child)) {
-                return null;
-              }
-              return cloneElement(child, iconProps);
-            }}
-            ref={applyMultipleRefs(ref, tooltipRef)}
-          />
-        ))}
-      />
-    );
-  },
+  ),
 );
+
+IconButton.displayName = 'IconButton';

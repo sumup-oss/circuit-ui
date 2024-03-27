@@ -14,7 +14,7 @@
  */
 
 import { describe, expect, it } from 'vitest';
-import { createRef, forwardRef } from 'react';
+import { createRef } from 'react';
 
 import { render, axe, screen, userEvent } from '../../util/test-utils.js';
 
@@ -23,7 +23,7 @@ import { Tooltip, TooltipProps } from './Tooltip.js';
 const baseProps: TooltipProps = {
   label: 'Label',
   type: 'label',
-  component: forwardRef((props, ref) => <button {...props} ref={ref} />),
+  component: (props) => <button {...props} />,
 };
 
 describe('Tooltip', () => {
@@ -42,15 +42,13 @@ describe('Tooltip', () => {
   });
 
   it('should act as a label for the reference element', () => {
-    const ref = createRef<HTMLDivElement>();
-    render(<Tooltip {...baseProps} ref={ref} />);
+    render(<Tooltip {...baseProps} />);
     const button = screen.getByRole('button');
     expect(button).toHaveAccessibleName(baseProps.label);
   });
 
   it('should act as a description for the reference element', () => {
-    const ref = createRef<HTMLDivElement>();
-    render(<Tooltip {...baseProps} type="description" ref={ref} />);
+    render(<Tooltip {...baseProps} type="description" />);
     const button = screen.getByRole('button');
     expect(button).toHaveAccessibleDescription(baseProps.label);
   });

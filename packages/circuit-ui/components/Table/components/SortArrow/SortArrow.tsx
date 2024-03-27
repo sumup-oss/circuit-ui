@@ -15,10 +15,10 @@
 
 'use client';
 
-import { HTMLAttributes, forwardRef } from 'react';
+import { type HTMLAttributes } from 'react';
 import { ChevronUp, ChevronDown } from '@sumup/icons';
 
-import { Direction } from '../../types.js';
+import type { Direction } from '../../types.js';
 import { clsx } from '../../../../styles/clsx.js';
 import Tooltip from '../../../Tooltip/index.js';
 
@@ -37,10 +37,9 @@ export function SortArrow({ label, direction, onClick }: SortArrowProps) {
     <Tooltip
       type="label"
       label={label}
-      component={forwardRef((props, ref) => (
+      component={(props) => (
         <button
           {...props}
-          ref={ref}
           className={clsx(classes.base, props.className)}
           onClick={onClick}
         >
@@ -55,7 +54,7 @@ export function SortArrow({ label, direction, onClick }: SortArrowProps) {
             />
           )}
         </button>
-      ))}
+      )}
     />
   );
 }
