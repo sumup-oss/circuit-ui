@@ -24,6 +24,9 @@
     "*": {
       "legacy": [
         "./dist/legacy.d.ts"
+      ],
+      "experimental": [
+        "./dist/experimental.d.ts"
       ]
     }
   },
