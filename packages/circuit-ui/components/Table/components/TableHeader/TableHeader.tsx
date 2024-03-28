@@ -99,7 +99,6 @@ export function TableHeader({
         className,
       )}
       scope={scope}
-      aria-label={sortParams.sortLabel}
       aria-sort={
         sortParams.sortable ? sortParams.sortDirection || 'none' : undefined
       }

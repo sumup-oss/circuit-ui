@@ -16,22 +16,22 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe } from '../../util/test-utils.js';
+import { render, axe, screen } from '../../util/test-utils.js';
 
 import { Hr } from './Hr.js';
 
 describe('Hr', () => {
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
-    const { container } = render(<Hr className={className} />);
-    const hr = container.querySelector('hr');
+    render(<Hr className={className} />);
+    const hr = screen.getByRole('separator', { hidden: true });
     expect(hr?.className).toContain(className);
   });
 
   it('should forward a ref', () => {
     const ref = createRef<HTMLHRElement>();
-    const { container } = render(<Hr ref={ref} />);
-    const hr = container.querySelector('hr');
+    render(<Hr ref={ref} />);
+    const hr = screen.getByRole('separator', { hidden: true });
     expect(ref.current).toBe(hr);
   });
 
@@ -39,6 +39,18 @@ describe('Hr', () => {
     const { container } = render(<Hr as="span" />);
     const span = container.querySelector('span');
     expect(span).toBeVisible();
+  });
+
+  it('should be hidden from the accessibility tree by default', () => {
+    render(<Hr />);
+    const hr = screen.getByRole('separator', { hidden: true });
+    expect(hr).toHaveAttribute('aria-hidden', 'true');
+  });
+
+  it('should be visible to the accessibility tree', () => {
+    render(<Hr aria-hidden="false" />);
+    const hr = screen.getByRole('separator');
+    expect(hr).toHaveAttribute('aria-hidden', 'false');
   });
 
   it('should meet accessibility guidelines', async () => {
