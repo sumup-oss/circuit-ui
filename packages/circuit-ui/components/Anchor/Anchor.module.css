@@ -9,7 +9,7 @@
   text-decoration: underline;
   background: none;
   border: 0;
-  border-radius: var(--cui-border-radius-byte);
+  border-radius: var(--cui-border-radius-bit);
   outline: none;
   transition: opacity var(--cui-transitions-default),
     color var(--cui-transitions-default),

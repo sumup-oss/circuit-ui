@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import { forwardRef } from 'react';
 import { userEvent } from '@storybook/test';
 import { TransferOut, UploadCloud } from '@sumup/icons';
 
@@ -34,12 +33,10 @@ export default {
 const descriptionProps = {
   label: 'This may take a few minutes',
   type: 'description',
-  component: forwardRef<HTMLButtonElement, TooltipReferenceProps>(
-    (props, ref) => (
-      <Button {...props} icon={UploadCloud} ref={ref}>
-        Upload
-      </Button>
-    ),
+  component: (props: TooltipReferenceProps) => (
+    <Button {...props} icon={UploadCloud}>
+      Upload
+    </Button>
   ),
 } as const;
 
@@ -49,29 +46,41 @@ const showTooltip = async () => {
 
 export const Base = (args: TooltipProps) => (
   <Stack>
-    <Tooltip {...args} />
+    <Tooltip
+      {...args}
+      component={(props) => (
+        <Button {...props} icon={UploadCloud}>
+          Upload
+        </Button>
+      )}
+    />
   </Stack>
 );
 
-Base.args = descriptionProps;
+Base.args = {
+  label: 'This may take a few minutes',
+  type: 'description',
+};
 Base.play = showTooltip;
 
 export const Types = (args: TooltipProps) => (
   <Stack>
     {/* The IconButton uses the Tooltip component under the hood */}
     <IconButton icon={TransferOut}>Transfer out</IconButton>
-    <Tooltip {...args} {...descriptionProps} />
+    <Tooltip {...args} />
   </Stack>
 );
 
+Types.args = descriptionProps;
 Types.play = showTooltip;
 
 export const Placements = (args: TooltipProps) => (
   <Stack>
-    <Tooltip {...args} {...descriptionProps} placement="left" />
-    <Tooltip {...args} {...descriptionProps} placement="bottom-start" />
-    <Tooltip {...args} {...descriptionProps} placement="right-end" />
+    <Tooltip {...args} placement="left" />
+    <Tooltip {...args} placement="bottom-start" />
+    <Tooltip {...args} placement="right-end" />
   </Stack>
 );
 
+Placements.args = descriptionProps;
 Placements.play = showTooltip;

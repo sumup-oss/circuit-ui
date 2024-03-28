@@ -16,7 +16,9 @@
 'use client';
 
 import {
+  Fragment,
   forwardRef,
+  useCallback,
   useEffect,
   useId,
   useRef,
@@ -24,7 +26,6 @@ import {
   type FocusEventHandler,
   type HTMLAttributes,
   type MouseEventHandler,
-  type Ref,
 } from 'react';
 import {
   useFloating,
@@ -56,7 +57,6 @@ export interface TooltipReferenceProps {
   'onBlur': FocusEventHandler;
   'onMouseEnter': MouseEventHandler;
   'onMouseLeave': MouseEventHandler;
-  'ref': Ref<any>;
 }
 
 export interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
@@ -71,8 +71,9 @@ export interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
    */
   component: ComponentType<TooltipReferenceProps>;
   /**
-   * Whether the tooltip is the main label or a supplemental description of
-   * the reference component.
+   * Whether the tooltip is the [main label](https://w3c.github.io/accname/#dfn-accessible-name)
+   * or a [supplemental description](https://w3c.github.io/accname/#dfn-accessible-description)
+   * of the reference component.
    */
   type: 'label' | 'description';
   /**
@@ -123,13 +124,24 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     const arrowRef = useRef<HTMLDivElement>(null);
 
     const state = getState(activeTooltipId, tooltipId);
+    const ariaAttributeName =
+      type === 'label' ? 'aria-labelledby' : 'aria-describedby';
 
-    const handleOpen = () => {
+    const handleOpen = useCallback(() => {
       $activeTooltipId.set(tooltipId);
-    };
-    const handleClose = () => {
+    }, [tooltipId]);
+    const handleClose = useCallback(() => {
       $activeTooltipId.set(null);
-    };
+    }, []);
+
+    const handleFocus: FocusEventHandler = useCallback(
+      (event) => {
+        if (event.currentTarget.matches(':focus-visible')) {
+          handleOpen();
+        }
+      },
+      [handleOpen],
+    );
 
     // The tooltip works without JavaScript using only CSS (the "initial" state).
     // When JS is available, the component is progressively enhanced and toggles
@@ -146,7 +158,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
         placement: defaultPlacement,
         middleware: [
           flip(),
-          shift(),
+          shift({ padding: 4 }),
           arrow({
             element: arrowRef,
             // This accounts for the content's border radius
@@ -154,6 +166,13 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
           }),
         ],
       });
+
+    useEffect(() => {
+      const selector = `[${ariaAttributeName}="${tooltipId}"]`;
+      const referenceElement = document.querySelector(selector);
+
+      refs.setReference(referenceElement);
+    }, [ariaAttributeName, tooltipId, refs]);
 
     useEffect(() => {
       /**
@@ -194,21 +213,18 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       );
     }
 
-    const referenceProps = {
-      [type === 'label' ? 'aria-labelledby' : 'aria-describedby']: tooltipId,
-    };
+    const referenceProps = { [ariaAttributeName]: tooltipId };
     const side = placement.split('-')[0] as Side;
 
     return (
-      <>
+      <Fragment>
         <Component
           {...referenceProps}
-          onFocus={handleOpen}
+          onFocus={handleFocus}
           onBlur={handleClose}
           onMouseEnter={handleOpen}
           onMouseLeave={handleClose}
           className={classes.component}
-          ref={refs.setReference}
         />
         <div
           {...props}
@@ -235,7 +251,9 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
             }}
           />
         </div>
-      </>
+      </Fragment>
     );
   },
 );
+
+Tooltip.displayName = 'Tooltip';

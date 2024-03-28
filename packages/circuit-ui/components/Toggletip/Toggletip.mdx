@@ -1,0 +1,54 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './Toggletip.stories';
+
+<Meta of={Stories} />
+
+# Toggletip
+
+<Status variant="experimental" />
+
+Toggletips display additional information that is contextual, helpful, and nonessential to the user upon pressing a UI trigger element and can contain interactive elements.
+
+<Story of={Stories.Base} />
+<Props />
+
+## Usage
+
+Toggletips hide information by default and require user interaction to be shown. They should be used as a last resort when space truly is limited and the information cannot be shown inline.
+
+The wrapped component must be a `<button>` element.
+
+The optional headline is always accompanied by body text, so use it only whenever necessary. Keep it short and under 120 characters.
+
+When defining the body text make sure it does not contain essential task instructions since a toggletip is not present at all times. Use it to provide additional help or to define a term.
+
+Use the action button to point the user to additional information or enable a contextual action via the toggletip. Try to use one strong, clear imperative verb and follow with a one-word object if needed to clarify.
+
+## Variations
+
+### Placement
+
+By default, the toggletip is positioned above the wrapped component and center-aligned. Use the `placement` prop to specify a different initial position and alignment.
+
+The toggletip automatically flips to the opposite side to stay within the viewport when there isn't enough space available.
+
+<Story of={Stories.Placements} />
+
+## Related components
+
+- [Tooltip](Components/Tooltip/Docs): Tooltips display additional information upon hover or focus that is contextual, helpful, and nonessential to clarify the purpose of otherwise ambiguous interactive elements
+
+---
+
+## Accessibility
+
+### Best practices
+
+- Only use `<button>` elements as the trigger element
+- Do not put essential information in toggletips
+- Provide a means to dismiss the toggletip with both keyboard and pointer
+- Move focus to the main interactive element upon opening the toggletip and revert focus to the trigger element after closing it
+
+### Resources
+
+- [Inclusive Components: Tooltips & Toggletips](https://inclusive-components.design/tooltips-toggletips/) by Heydon Pickering

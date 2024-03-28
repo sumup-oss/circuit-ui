@@ -15,7 +15,7 @@
 
 'use client';
 
-import { FC, OlHTMLAttributes, forwardRef } from 'react';
+import type { FC, OlHTMLAttributes } from 'react';
 
 import { clsx } from '../../../../styles/clsx.js';
 import Button from '../../../Button/index.js';
@@ -48,10 +48,9 @@ export const PageList: FC<PageListProps> = ({
           <Tooltip
             type="description"
             label={label}
-            component={forwardRef((tooltipProps, ref) => (
+            component={(tooltipProps) => (
               <Button
                 {...tooltipProps}
-                ref={ref}
                 size="s"
                 onClick={() => onChange(page)}
                 variant={isCurrent ? 'primary' : 'tertiary'}
@@ -60,7 +59,7 @@ export const PageList: FC<PageListProps> = ({
               >
                 {page}
               </Button>
-            ))}
+            )}
           />
         </li>
       );

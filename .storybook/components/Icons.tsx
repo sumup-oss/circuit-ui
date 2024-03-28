@@ -18,7 +18,6 @@ import {
   type SetStateAction,
   useState,
   ChangeEvent,
-  forwardRef,
 } from 'react';
 import { Unstyled } from '@storybook/addon-docs';
 import * as iconComponents from '@sumup/icons';
@@ -187,17 +186,16 @@ const Icons = () => {
                       <Tooltip
                         type="description"
                         label={icon.deprecation}
-                        component={forwardRef((props, ref) => (
+                        component={(props) => (
                           <Badge
                             {...props}
-                            ref={ref}
                             tabIndex={0}
                             variant="danger"
                             className={classes.badge}
                           >
                             Deprecated
                           </Badge>
-                        ))}
+                        )}
                       />
                     )}
                   </div>

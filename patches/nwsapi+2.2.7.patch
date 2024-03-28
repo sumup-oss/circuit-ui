@@ -1,0 +1,21 @@
+diff --git a/node_modules/nwsapi/src/nwsapi.js b/node_modules/nwsapi/src/nwsapi.js
+index 03cac4e..b02227a 100644
+--- a/node_modules/nwsapi/src/nwsapi.js
++++ b/node_modules/nwsapi/src/nwsapi.js
+@@ -82,7 +82,7 @@
+     treestruct: '(nth(?:-last)?(?:-child|-of-type))(?:\\x28\\s?(even|odd|(?:[-+]?\\d*)(?:n\\s?[-+]?\\s?\\d*)?)\\s?\\x29)',
+     // pseudo-classes not requiring parameters
+     locationpc: '(any-link|link|visited|target)\\b',
+-    useraction: '(hover|active|focus-within|focus)\\b',
++    useraction: '(hover|active|focus-within|focus-visible|focus)\\b',
+     structural: '(root|empty|(?:(?:first|last|only)(?:-child|-of-type)))\\b',
+     inputstate: '(enabled|disabled|read-only|read-write|placeholder-shown|default)\\b',
+     inputvalue: '(checked|indeterminate|required|optional|valid|invalid|in-range|out-of-range)\\b',
+@@ -1076,6 +1076,7 @@
+                     'if((e===s.doc.activeElement)){' + source + '}' : source;
+                   break;
+                 case 'focus':
++                case 'focus-visible':
+                   source = 'hasFocus' in doc ?
+                     'if(e.parentElement&&e.parentElement.style.display!="none"&&' +
+                     'e===s.doc.activeElement&&s.doc.hasFocus()&&(e.type||e.href||typeof e.tabIndex=="number")){' + source + '}' : source;
