@@ -1,5 +1,5 @@
 ---
-"@sumup/circuit-ui": minor
+'@sumup/circuit-ui': minor
 ---
 
-Added an experimental Tooltip component.
+Added experimental Tooltip and Toggletip components to display additional information that is contextual, helpful, and nonessential to clarify the purpose of otherwise ambiguous elements.
