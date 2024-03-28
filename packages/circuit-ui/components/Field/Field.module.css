@@ -1,6 +1,8 @@
 .wrapper[disabled],
+.wrapper[aria-disabled="true"],
 .wrapper[data-disabled="true"],
 .fieldset[disabled],
+.fieldset[aria-disabled="true"],
 .fieldset[data-disabled="true"] {
   pointer-events: none;
 }
@@ -17,17 +19,18 @@
   margin-bottom: var(--cui-spacings-bit);
 }
 
-[disabled] .label-text,
+:global([disabled]) .label-text,
+:global([aria-disabled="true"]) .label-text,
 :global([data-disabled="true"]) .label-text {
   color: var(--cui-fg-normal-disabled);
 }
-
 
 .label-text-optional {
   color: var(--cui-fg-subtle);
 }
 
-[disabled] .label-text-optional,
+:global([disabled]) .label-text-optional,
+:global([aria-disabled="true"]) .label-text-optional,
 :global([data-disabled="true"]) .label-text-optional {
   color: var(--cui-fg-subtle-disabled);
 }
@@ -39,7 +42,8 @@
   color: var(--cui-fg-subtle);
 }
 
-[disabled] .description,
+:global([disabled]) .description,
+:global([aria-disabled="true"]) .description,
 :global([data-disabled="true"]) .description {
   color: var(--cui-fg-subtle-disabled);
 }
@@ -53,17 +57,18 @@
   transition: color var(--cui-transitions-default);
 }
 
-[disabled] .validation-hint,
+:global([disabled]) .validation-hint,
+:global([aria-disabled="true"]) .validation-hint,
 :global([data-disabled="true"]) .validation-hint {
   color: var(--cui-fg-subtle-disabled);
 }
-
 
 .valid {
   color: var(--cui-fg-success);
 }
 
-[disabled] .valid,
+:global([disabled]) .valid,
+:global([aria-disabled="true"]) .valid,
 :global([data-disabled="true"]) .valid {
   color: var(--cui-fg-success-disabled);
 }
@@ -72,7 +77,8 @@
   color: var(--cui-fg-warning);
 }
 
-[disabled] .warning,
+:global([disabled]) .warning,
+:global([aria-disabled="true"]) .warning,
 :global([data-disabled="true"]) .warning {
   color: var(--cui-fg-warning-disabled);
 }
@@ -81,7 +87,8 @@
   color: var(--cui-fg-danger);
 }
 
-[disabled] .invalid,
+:global([disabled]) .invalid,
+:global([aria-disabled="true"]) .invalid,
 :global([data-disabled="true"]) .invalid {
   color: var(--cui-fg-danger-disabled);
 }
@@ -93,7 +100,8 @@
   width: var(--cui-icon-sizes-kilo);
   height: var(--cui-icon-sizes-kilo);
   margin-top: calc(
-    (var(--cui-typography-body-two-line-height) - var(--cui-icon-sizes-kilo)) / 2
+    (var(--cui-typography-body-two-line-height) - var(--cui-icon-sizes-kilo)) /
+      2
   );
-  margin-right: var(--cui-spacings-bit)
+  margin-right: var(--cui-spacings-bit);
 }
