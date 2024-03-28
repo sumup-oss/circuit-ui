@@ -56,7 +56,8 @@ export type NotificationModalProps = BaseModalProps &
      * An optional image to illustrate the notification. Supports either
      * passing an image source to `image.src` or an SVG component to
      * `image.svg`. Pass an empty string as alt text if the image is
-     * decorative, or a localized description if the image is informative.
+     * [decorative](https://www.w3.org/WAI/tutorials/images/decorative/),
+     * or a localized description if the image is [informative](https://www.w3.org/WAI/tutorials/images/informative/).
      */
     image?: ImageProps | { svg: FC<SVGProps<SVGSVGElement>>; alt: string };
     /**

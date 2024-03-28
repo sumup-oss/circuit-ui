@@ -5,24 +5,28 @@ import * as Stories from './Image.stories';
 
 # Image
 
+A responsive image that adapts to the available width.
+
 <Status variant="stable" />
 
 <Story of={Stories.Base} />
 
 <Props />
 
-## When to use it
+## Usage
 
-Use the image component when you need to showcase visual files and ensure responsiveness.
+Use the image component when you need to showcase visual files and ensure responsiveness. Do not use unauthorized images from external sources.
 
-## Usage guidelines
+---
 
-- **Do** always specify the `alt` attribute.
-- **Do not** use unauthorized images from external sources
+## Accessibility
 
-## "Alt" text guidelines
+### Resources
 
-- **Do** always write clear and simple `alt` text
-- **Do** keep the `alt` text as short as possible
-- **Do** write in the active voice
-- **Do not** use complicated or uncommon words
+- [Write helpful Alt Text to describe images](https://accessibility.huit.harvard.edu/describe-content-images) from _Harvard University_
+
+#### Related WCAG success criteria
+
+- 1.1.1: [Non-text Content](https://www.w3.org/WAI/WCAG21/quickref/#qr-text-equiv-all) (Level A)
+- 1.4.5: [Images of Text](https://www.w3.org/WAI/WCAG21/quickref/#qr-visual-audio-contrast-text-presentation) (Level AA)
+- 1.4.9: [Images of Text (No Exception)](https://www.w3.org/WAI/WCAG21/quickref/#qr-visual-audio-contrast-text-images) (Level AAA)

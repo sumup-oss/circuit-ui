@@ -29,7 +29,11 @@ export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
    */
   src?: string;
   /**
-   * Alt text for the Avatar image. Set it to "" if the image is presentational.
+   * [Images must have text alternatives](https://www.w3.org/WAI/tutorials/images/)
+   * that describe the information or function represented by them. This
+   * ensures that images can be used by people with various disabilities. Pass
+   * an empty string if the image is [decorative](https://www.w3.org/WAI/tutorials/images/decorative/),
+   * or a localized description if the image is [informative](https://www.w3.org/WAI/tutorials/images/informative/).
    */
   alt: string;
   /**

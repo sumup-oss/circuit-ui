@@ -1,5 +1,19 @@
 # @sumup/circuit-ui
 
+## 8.5.2
+
+### Patch Changes
+
+- [#2469](https://github.com/sumup-oss/circuit-ui/pull/2469) [`1a2e807`](https://github.com/sumup-oss/circuit-ui/commit/1a2e807c172711d1e4a973d74b813c717072eff5) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the `aria-pressed="true"` attribute to the Tag component when it is rendered as a selected button.
+
+- [#2469](https://github.com/sumup-oss/circuit-ui/pull/2469) [`1a2e807`](https://github.com/sumup-oss/circuit-ui/commit/1a2e807c172711d1e4a973d74b813c717072eff5) Thanks [@connor-baer](https://github.com/connor-baer)! - Wired up the total number of pages to the page `select` as its accessible description in the Pagination component.
+
+- [#2469](https://github.com/sumup-oss/circuit-ui/pull/2469) [`1a2e807`](https://github.com/sumup-oss/circuit-ui/commit/1a2e807c172711d1e4a973d74b813c717072eff5) Thanks [@connor-baer](https://github.com/connor-baer)! - Added instructions for writing relevant alternative text for images.
+
+- [#2469](https://github.com/sumup-oss/circuit-ui/pull/2469) [`1a2e807`](https://github.com/sumup-oss/circuit-ui/commit/1a2e807c172711d1e4a973d74b813c717072eff5) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the semantics from the Hr component by default since its most commonly used for purely visual or aesthetic purposes. If the horizontal rule is useful or essential to understanding the structure of the content, pass the `aria-hidden="false"` attribute to restore its semantics.
+
+- [#2469](https://github.com/sumup-oss/circuit-ui/pull/2469) [`1a2e807`](https://github.com/sumup-oss/circuit-ui/commit/1a2e807c172711d1e4a973d74b813c717072eff5) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the redundant `aria-label` label from the TableHeader component.
+
 ## 8.5.1
 
 ### Patch Changes

@@ -66,6 +66,12 @@ describe('Tag', () => {
     expect(screen.getByTestId('tag-icon')).toBeVisible();
   });
 
+  it('should have not have aria-pressed attribute when selected', () => {
+    render(<Tag selected>Tag</Tag>);
+    const tagEl = screen.getByText('Tag');
+    expect(tagEl).not.toHaveAttribute('aria-pressed', 'true');
+  });
+
   describe('when interactive', () => {
     it('should render an anchor', () => {
       const onClick = vi.fn();
@@ -94,6 +100,16 @@ describe('Tag', () => {
       await userEvent.click(screen.getByRole('button'));
 
       expect(onClick).toHaveBeenCalledTimes(1);
+    });
+
+    it('should have aria-pressed attribute when selected', () => {
+      render(
+        <Tag onClick={vi.fn()} selected>
+          Tag
+        </Tag>,
+      );
+      const buttonEl = screen.getByRole('button');
+      expect(buttonEl).toHaveAttribute('aria-pressed', 'true');
     });
   });
 });

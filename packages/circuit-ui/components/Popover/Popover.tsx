@@ -349,11 +349,7 @@ export const Popover = ({
           >
             {actions.map((action, index) =>
               isDivider(action) ? (
-                <Hr
-                  className={classes.divider}
-                  aria-hidden="true"
-                  key={index}
-                />
+                <Hr className={classes.divider} key={index} />
               ) : (
                 <PopoverItem
                   key={index}
