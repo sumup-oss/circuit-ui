@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 8.6.0-canary.0
+
+### Minor Changes
+
+- [#2393](https://github.com/sumup-oss/circuit-ui/pull/2393) [`c5374e0`](https://github.com/sumup-oss/circuit-ui/commit/c5374e07f62307e2a29e683dab72cbb39d609c2f) Thanks [@connor-baer](https://github.com/connor-baer)! - Added experimental Tooltip and Toggletip components to display additional information that is contextual, helpful, and nonessential to clarify the purpose of otherwise ambiguous elements.
+
+- [#2467](https://github.com/sumup-oss/circuit-ui/pull/2467) [`366729d`](https://github.com/sumup-oss/circuit-ui/commit/366729d8591b6193d376941b1e6deb59ed3ac614) Thanks [@connor-baer](https://github.com/connor-baer)! - Extended the function signature of the `useClickOutside` hook to accept an array of refs as its first argument.
+
 ## 8.5.2
 
 ### Patch Changes
