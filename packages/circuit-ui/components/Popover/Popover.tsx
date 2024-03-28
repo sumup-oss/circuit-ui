@@ -17,38 +17,38 @@
 
 import {
   Fragment,
+  useCallback,
   useEffect,
   useId,
   useRef,
-  KeyboardEvent,
-  AnchorHTMLAttributes,
-  ButtonHTMLAttributes,
+  type KeyboardEvent,
+  type AnchorHTMLAttributes,
+  type ButtonHTMLAttributes,
 } from 'react';
 import {
   useFloating,
   flip,
   offset as offsetMiddleware,
-  type Placement,
   size,
+  type Placement,
   type SizeOptions,
 } from '@floating-ui/react-dom';
 import type { IconComponentType } from '@sumup/icons';
 
-import { ClickEvent } from '../../types/events.js';
-import { EmotionAsPropType } from '../../types/prop-types.js';
+import type { ClickEvent } from '../../types/events.js';
+import type { EmotionAsPropType } from '../../types/prop-types.js';
+import { isArrowDown, isArrowUp } from '../../util/key-codes.js';
+import { isFunction } from '../../util/type-check.js';
+import { clsx } from '../../styles/clsx.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
 import { useClickOutside } from '../../hooks/useClickOutside/index.js';
+import { useMedia } from '../../hooks/useMedia/index.js';
 import { useFocusList } from '../../hooks/useFocusList/index.js';
-import { isArrowDown, isArrowUp } from '../../util/key-codes.js';
+import { usePrevious } from '../../hooks/usePrevious/index.js';
+import { useStackContext } from '../StackContext/index.js';
 import { useComponents } from '../ComponentsContext/index.js';
 import Portal from '../Portal/index.js';
 import Hr from '../Hr/index.js';
-import { useStackContext } from '../StackContext/index.js';
-import { isFunction } from '../../util/type-check.js';
-import { useLatest } from '../../hooks/useLatest/index.js';
-import { usePrevious } from '../../hooks/usePrevious/index.js';
-import { useMedia } from '../../hooks/useMedia/index.js';
-import { clsx } from '../../styles/clsx.js';
 import sharedClasses from '../../styles/shared.js';
 
 import classes from './Popover.module.css';
@@ -208,10 +208,6 @@ export const Popover = ({
       : [flip({ fallbackPlacements }), size(sizeOptions)],
   });
 
-  // This is a performance optimization to prevent event listeners from being
-  // re-attached on every render.
-  const floatingRef = useLatest(refs.floating.current);
-
   const focusProps = useFocusList();
   const prevOpen = usePrevious(isOpen);
 
@@ -226,27 +222,30 @@ export const Popover = ({
     zIndex: zIndex || 'var(--cui-z-index-popover)',
   } as const;
 
-  const handleToggle: OnToggle = (state) => {
-    onToggle((prev) => (isFunction(state) ? state(prev) : state));
-  };
+  const handleToggle: OnToggle = useCallback(
+    (state) => {
+      onToggle((prev) => (isFunction(state) ? state(prev) : state));
+    },
+    [onToggle],
+  );
 
-  const handleTriggerClick = (event: ClickEvent) => {
-    // This prevents the event from bubbling which would trigger the
-    // useClickOutside above and would prevent the popover from closing.
-    event.stopPropagation();
+  const handleTriggerClick = useCallback(() => {
     handleToggle((prev) => !prev);
-  };
+  }, [handleToggle]);
 
-  const handleTriggerKeyDown = (event: KeyboardEvent) => {
-    if (isArrowDown(event)) {
-      triggerKey.current = 'ArrowDown';
-      handleToggle(true);
-    }
-    if (isArrowUp(event)) {
-      triggerKey.current = 'ArrowUp';
-      handleToggle((prev) => !prev);
-    }
-  };
+  const handleTriggerKeyDown = useCallback(
+    (event: KeyboardEvent) => {
+      if (isArrowDown(event)) {
+        triggerKey.current = 'ArrowDown';
+        handleToggle(true);
+      }
+      if (isArrowUp(event)) {
+        triggerKey.current = 'ArrowUp';
+        handleToggle((prev) => !prev);
+      }
+    },
+    [handleToggle],
+  );
 
   const handlePopoverItemClick =
     (onClick: BaseProps['onClick']) => (event: ClickEvent) => {
@@ -255,7 +254,11 @@ export const Popover = ({
     };
 
   useEscapeKey(() => handleToggle(false), isOpen);
-  useClickOutside(floatingRef, () => handleToggle(false), isOpen);
+  useClickOutside(
+    [refs.reference, refs.floating],
+    () => handleToggle(false),
+    isOpen,
+  );
 
   useEffect(() => {
     /**

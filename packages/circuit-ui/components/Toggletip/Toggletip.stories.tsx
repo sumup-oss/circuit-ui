@@ -30,6 +30,17 @@ export default {
   component: Toggletip,
 };
 
+const showToggletip = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLCanvasElement;
+}) => {
+  const canvas = within(canvasElement);
+  const referenceEl = canvas.getAllByRole('button');
+
+  await userEvent.click(referenceEl[0]);
+};
+
 const wrapperStyle = { display: 'flex', gap: '4px', alignItems: 'center' };
 
 export const Base = (args: ToggletipProps) => (
@@ -58,12 +69,7 @@ Base.args = {
   offset: 8,
 };
 
-Base.play = async ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
-  const canvas = within(canvasElement);
-  const referenceEl = canvas.getByRole('button');
-
-  await userEvent.click(referenceEl);
-};
+Base.play = showToggletip;
 
 const ReferenceButton = (props: ToggletipReferenceProps) => (
   <IconButton {...props} icon={Info} variant="tertiary" size="s">
@@ -91,17 +97,4 @@ Placements.args = {
   offset: 8,
 };
 
-Placements.play = async ({
-  canvasElement,
-}: {
-  canvasElement: HTMLCanvasElement;
-}) => {
-  const canvas = within(canvasElement);
-  const referenceEls = canvas.getAllByRole('button');
-
-  await Promise.all(
-    referenceEls.map(async (referenceEl) => {
-      await userEvent.click(referenceEl);
-    }),
-  );
-};
+Placements.play = showToggletip;

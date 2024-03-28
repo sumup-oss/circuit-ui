@@ -25,6 +25,7 @@ import {
   useState,
   type ComponentType,
   type HTMLAttributes,
+  type RefObject,
 } from 'react';
 import {
   arrow,
@@ -132,13 +133,6 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
     const bodyId = useId();
     const [open, setOpen] = useState(defaultOpen);
 
-    const closeDialog = useCallback(() => {
-      dialogRef.current?.close();
-    }, []);
-
-    useEscapeKey(closeDialog, open);
-    useClickOutside(dialogRef, closeDialog, open);
-
     useEffect(() => {
       const dialogElement = dialogRef.current;
 
@@ -201,10 +195,18 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
       };
     }, [open, update]);
 
-    const handleReferenceClick = useCallback((event: ClickEvent) => {
-      // This prevents the event from bubbling which would trigger the
-      // useClickOutside above and would prevent the dialog from closing.
-      event.stopPropagation();
+    const closeDialog = useCallback(() => {
+      dialogRef.current?.close();
+    }, []);
+
+    useClickOutside(
+      [refs.floating, refs.reference as RefObject<HTMLButtonElement>],
+      closeDialog,
+      open,
+    );
+    useEscapeKey(closeDialog, open);
+
+    const handleReferenceClick = useCallback(() => {
       if (dialogRef.current) {
         dialogRef.current.show();
         setOpen(true);
