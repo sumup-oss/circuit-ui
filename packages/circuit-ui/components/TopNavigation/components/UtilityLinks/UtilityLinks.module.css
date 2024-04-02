@@ -6,13 +6,13 @@
 
 .item {
   height: 100%;
+  border-left: var(--cui-border-width-kilo) solid var(--cui-border-divider);
 }
 
 .anchor {
   height: 100%;
   padding: 0 var(--cui-spacings-mega);
   text-decoration: none;
-  border-left: var(--cui-border-width-kilo) solid var(--cui-border-divider);
 }
 
 .icon {
@@ -41,6 +41,6 @@
   }
 }
 
-[aria-current='page'] .label {
+[aria-current="page"] .label {
   font-weight: var(--cui-font-weight-bold);
 }

@@ -41,6 +41,21 @@ export default {
   excludeStories: /.*Args$/,
 };
 
+function Announcement() {
+  return (
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        height: '100%',
+        padding: '0 var(--cui-spacings-mega)',
+      }}
+    >
+      Test mode active
+    </div>
+  );
+}
+
 export const baseArgs: TopNavigationProps = {
   isLoading: false,
   logo: (
@@ -78,6 +93,10 @@ export const baseArgs: TopNavigationProps = {
     className: 'custom-class-name',
   },
   links: [
+    {
+      key: 'announcement',
+      children: <Announcement />,
+    },
     {
       icon: Shop,
       label: 'Shop',

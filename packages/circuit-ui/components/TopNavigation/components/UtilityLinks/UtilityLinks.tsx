@@ -15,7 +15,12 @@
 
 'use client';
 
-import type { MouseEvent, KeyboardEvent, AnchorHTMLAttributes } from 'react';
+import type {
+  MouseEvent,
+  KeyboardEvent,
+  AnchorHTMLAttributes,
+  ReactNode,
+} from 'react';
 import type { IconComponentType } from '@sumup/icons';
 
 import type { AsPropType } from '../../../../types/prop-types.js';
@@ -90,18 +95,32 @@ function UtilityLink({
   );
 }
 
+type CustomLinkProps = { key: string; children: ReactNode };
+
 export interface UtilityLinksProps {
-  links: UtilityLinkProps[];
+  links: (UtilityLinkProps | CustomLinkProps)[];
 }
 
 export function UtilityLinks({ links }: UtilityLinksProps): JSX.Element {
   return (
     <ul className={classes.list}>
-      {links.map((link) => (
-        <li key={link.label} className={classes.item}>
-          <UtilityLink {...link} />
-        </li>
-      ))}
+      {links.map((link) =>
+        isUtilityLink(link) ? (
+          <li key={link.label} className={classes.item}>
+            <UtilityLink {...link} />
+          </li>
+        ) : (
+          <li key={link.key} className={classes.item}>
+            {link.children}
+          </li>
+        ),
+      )}
     </ul>
   );
+}
+
+function isUtilityLink(
+  link: UtilityLinkProps | CustomLinkProps,
+): link is UtilityLinkProps {
+  return 'label' in link;
 }

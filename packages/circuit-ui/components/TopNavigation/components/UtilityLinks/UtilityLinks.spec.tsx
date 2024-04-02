@@ -13,13 +13,13 @@
  * limitations under the License.
  */
 
+import type { KeyboardEvent, MouseEvent, FC } from 'react';
 import { describe, expect, it, vi } from 'vitest';
-import { IconProps, More } from '@sumup/icons';
-import { KeyboardEvent, MouseEvent, FC } from 'react';
+import { More, type IconProps } from '@sumup/icons';
 
 import { axe, render, userEvent, screen } from '../../../../util/test-utils.js';
 
-import { UtilityLinks } from './UtilityLinks.js';
+import { UtilityLinks, type UtilityLinkProps } from './UtilityLinks.js';
 
 describe('UtilityLinks', () => {
   const baseProps = {
@@ -32,17 +32,27 @@ describe('UtilityLinks', () => {
           event.preventDefault();
         }),
       },
+      {
+        key: 'custom',
+        children: <More data-testid="custom-component" />,
+      },
     ],
   };
 
   it('should call the onClick handler of a link', async () => {
     render(<UtilityLinks {...baseProps} />);
 
-    const link = baseProps.links[0];
+    const link = baseProps.links[0] as UtilityLinkProps;
 
     await userEvent.click(screen.getByText(link.label));
 
     expect(link.onClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('should render a custom component', () => {
+    render(<UtilityLinks {...baseProps} />);
+
+    expect(screen.getByTestId('custom-component')).toBeVisible();
   });
 
   it('should have no accessibility violations', async () => {
