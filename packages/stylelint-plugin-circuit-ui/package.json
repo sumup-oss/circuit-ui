@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@sumup/design-tokens": "^7.0.0",
-    "@tsconfig/node18": "^18.2.2",
+    "@tsconfig/node18": "^18.2.4",
     "jest-preset-stylelint": "^7.0.0",
     "typescript": "^5.4.3"
   },
