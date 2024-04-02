@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.5.3
+
+### Patch Changes
+
+- [#2478](https://github.com/sumup-oss/circuit-ui/pull/2478) [`9d0bfdc`](https://github.com/sumup-oss/circuit-ui/commit/9d0bfdcf30d52557dd0043b1cde4537128fd78a7) Thanks [@andonimihai](https://github.com/andonimihai)! - Fixed the display of the slides in the composed Carousel component.
+
 ## 8.5.2
 
 ### Patch Changes
