@@ -1,5 +1,5 @@
 ---
-"@sumup/circuit-ui": minor
+"@sumup/circuit-ui": patch
 ---
 
-Fix the behaviour of the slide when used in the composed variation
+Fixed the display of the slides in the composed Carousel component.
