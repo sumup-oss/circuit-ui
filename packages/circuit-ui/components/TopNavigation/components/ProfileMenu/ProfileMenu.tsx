@@ -132,6 +132,9 @@ export function ProfileMenu({
       fallbackPlacements={[]}
       offset={offset}
       className={className}
+      // This removes the default `menu` role of the Popover.
+      // eslint-disable-next-line jsx-a11y/aria-role
+      role={null}
     />
   );
 }
