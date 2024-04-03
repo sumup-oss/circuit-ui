@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
+import type { FC } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { FC } from 'react';
-import { Delete, Add, Download, IconProps } from '@sumup/icons';
+import { Delete, Add, Download, type IconProps } from '@sumup/icons';
 
 import {
   act,
@@ -25,13 +25,13 @@ import {
   userEvent,
   screen,
 } from '../../util/test-utils.js';
-import { ClickEvent } from '../../types/events.js';
+import type { ClickEvent } from '../../types/events.js';
 
 import {
   PopoverItem,
-  PopoverItemProps,
+  type PopoverItemProps,
   Popover,
-  PopoverProps,
+  type PopoverProps,
 } from './Popover.js';
 
 describe('PopoverItem', () => {
@@ -261,12 +261,32 @@ describe('Popover', () => {
     });
   });
 
-  it('should render items as role=menuitem and dividers as aria-hidden', async () => {
+  it('should render the popover with menu semantics by default ', async () => {
+    renderPopover(baseProps);
+
+    const menu = screen.getByRole('menu');
+    expect(menu).toBeVisible();
+    const menuitems = screen.getAllByRole('menuitem');
+    expect(menuitems.length).toBe(2);
+
+    await flushMicrotasks();
+  });
+
+  it('should render the popover without menu semantics ', async () => {
+    renderPopover({ ...baseProps, role: null });
+
+    const menu = screen.queryByRole('menu');
+    expect(menu).toBeNull();
+    const menuitems = screen.queryAllByRole('menuitem');
+    expect(menuitems.length).toBe(0);
+
+    await flushMicrotasks();
+  });
+
+  it('should hide dividers from the accessibility tree', async () => {
     const { baseElement } = renderPopover(baseProps);
 
-    const items = screen.getAllByRole('menuitem');
     const dividers = baseElement.querySelectorAll('hr[aria-hidden="true"');
-    expect(items.length).toBe(2);
     expect(dividers.length).toBe(1);
 
     await flushMicrotasks();
