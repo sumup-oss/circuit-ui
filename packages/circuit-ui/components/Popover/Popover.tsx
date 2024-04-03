@@ -95,7 +95,6 @@ export const PopoverItem = ({
 
   return (
     <Element
-      role="menuitem"
       className={clsx(
         classes.item,
         sharedClasses.listItem,
@@ -165,6 +164,14 @@ export interface PopoverProps {
     'aria-controls': string;
     'aria-expanded': boolean;
   }) => JSX.Element;
+  /**
+   * Remove the [`menu` role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/roles/menu_role)
+   * when its semantics aren't appropriate for the use case, for example when
+   * the Popover is used as part of a navigation. Default: 'menu'.
+   *
+   * Learn more: https://inclusive-components.design/menus-menu-buttons/
+   */
+  role?: 'menu' | null;
 }
 
 type TriggerKey = 'ArrowUp' | 'ArrowDown';
@@ -187,6 +194,7 @@ export const Popover = ({
   component: Component,
   offset,
   className,
+  role = 'menu',
   ...props
 }: PopoverProps): JSX.Element | null => {
   const zIndex = useStackContext();
@@ -305,6 +313,8 @@ export const Popover = ({
     };
   }, [isOpen, prevOpen, refs.reference, update]);
 
+  const isMenu = role === 'menu';
+
   return (
     <Fragment>
       <div className={classes.trigger} ref={refs.setReference}>
@@ -342,8 +352,8 @@ export const Popover = ({
           <div
             id={menuId}
             ref={menuEl}
-            aria-labelledby={triggerId}
-            role="menu"
+            aria-labelledby={isMenu ? triggerId : undefined}
+            role={isMenu ? 'menu' : undefined}
             className={clsx(classes.menu, isOpen && classes.open)}
           >
             {actions.map((action, index) =>
@@ -354,6 +364,7 @@ export const Popover = ({
                   key={index}
                   {...action}
                   {...focusProps}
+                  role={isMenu ? 'menuitem' : undefined}
                   onClick={(event) =>
                     handlePopoverItemClick(event, action.onClick)
                   }
