@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 8.5.4
+
+### Patch Changes
+
+- [#2483](https://github.com/sumup-oss/circuit-ui/pull/2483) [`76657a1`](https://github.com/sumup-oss/circuit-ui/commit/76657a176dd2946753b6db08c233746135be62f5) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the semantics of the TopNavigation's profile menu.
+
+- [`67e49bc`](https://github.com/sumup-oss/circuit-ui/commit/67e49bc09702406f564c9db7cbcd93f52b8e9309) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the disabled styles of the Input and Select components.
+
 ## 8.5.3
 
 ### Patch Changes
