@@ -95,7 +95,20 @@ function UtilityLink({
   );
 }
 
-type CustomLinkProps = { key: string; children: ReactNode };
+type CustomLinkProps = {
+  /**
+   * A string or a number that uniquely identifies the link among other links.
+   *
+   * See https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key
+   */
+  key: string | number;
+  /**
+   * A custom component. Ensure that the element's styles fit in with the rest
+   * of the TopNavigation. If the element is interactive, it should match the
+   * hover, focus, and active styles of the regular links.
+   */
+  children: ReactNode;
+};
 
 export interface UtilityLinksProps {
   links: (UtilityLinkProps | CustomLinkProps)[];
