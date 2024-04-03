@@ -64,7 +64,7 @@ describe('ProfileMenu', () => {
 
     render(<ProfileMenu {...baseProps} onToggle={onToggle} />);
 
-    const profileEl = screen.getByRole('button');
+    const profileEl = screen.getByRole('button', { name: /Jane Doe/i });
 
     await userEvent.click(profileEl);
 

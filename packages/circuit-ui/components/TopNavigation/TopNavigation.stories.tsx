@@ -76,10 +76,12 @@ export const baseArgs: TopNavigationProps = {
     label: 'Open profile menu',
     actions: [
       {
+        href: '/profile',
         onClick: action('View profile'),
         children: 'View profile',
       },
       {
+        href: '/settings',
         onClick: action('Settings'),
         children: 'Settings',
       },

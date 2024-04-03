@@ -15,7 +15,7 @@
 
 import { ForwardedRef } from 'react';
 
-type Refs<T extends Element> = (ForwardedRef<T> | { current: T })[];
+type Refs<T extends Element> = (ForwardedRef<T> | { current: T } | undefined)[];
 
 export function applyMultipleRefs<T extends Element>(
   ...refs: Refs<T>

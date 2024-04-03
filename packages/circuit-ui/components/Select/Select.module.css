@@ -66,6 +66,13 @@
   box-shadow: 0 0 0 1px var(--cui-border-danger-pressed);
 }
 
+.base:disabled,
+.base[disabled] {
+  color: var(--cui-fg-normal-disabled);
+  background-color: var(--cui-bg-normal-disabled);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-disabled);
+}
+
 .has-prefix {
   padding-left: var(--cui-spacings-exa);
 }
@@ -100,4 +107,9 @@ button.prefix,
 
 .base:active ~ .icon {
   transform: rotate(180deg);
+}
+
+.base:disabled ~ .icon,
+.base[disabled] ~ .icon {
+  color: var(--cui-fg-subtle-disabled);
 }
