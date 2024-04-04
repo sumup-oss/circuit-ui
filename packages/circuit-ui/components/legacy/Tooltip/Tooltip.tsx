@@ -120,7 +120,8 @@ export interface TooltipProps {
  * @deprecated
  *
  * Use the experimental [`Tooltip`](https://circuit.sumup.com/?path=/docs/components-tooltip--docs)
- * or [`Toggletip`](https://circuit.sumup.com/?path=/docs/components-toggletip--docs) components instead.
+ * or [`Toggletip`](https://circuit.sumup.com/?path=/docs/components-toggletip--docs) components instead
+ * ([migration guide](https://circuit.sumup.com/?path=/docs/components-tooltip-legacy--docs#migration)).
  */
 export const Tooltip = styled.div<TooltipProps>(
   typography('two'),
