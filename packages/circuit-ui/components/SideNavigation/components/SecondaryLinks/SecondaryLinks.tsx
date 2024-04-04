@@ -36,7 +36,12 @@ import sharedClasses from '../../../../styles/shared.js';
 
 import classes from './SecondaryLinks.module.css';
 
-function SecondaryLink({ label, badge, ...props }: SecondaryLinkProps) {
+function SecondaryLink({
+  label,
+  badge,
+  isActive,
+  ...props
+}: SecondaryLinkProps) {
   const { Link } = useComponents();
 
   const Element = props.href ? (Link as AsPropType) : 'button';
@@ -50,13 +55,13 @@ function SecondaryLink({ label, badge, ...props }: SecondaryLinkProps) {
           sharedClasses.navigationItem,
           utilityClasses.focusVisibleInset,
         )}
-        aria-current={props.isActive ? 'page' : undefined}
+        aria-current={isActive ? 'page' : undefined}
       >
         <Skeleton className={classes.label}>
           <Body
             as="span"
             size="one"
-            variant={props.isActive ? 'highlight' : undefined}
+            variant={isActive ? 'highlight' : undefined}
           >
             {label}
           </Body>

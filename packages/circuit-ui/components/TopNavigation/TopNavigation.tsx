@@ -43,8 +43,14 @@ export interface TopNavigationProps
     HTMLAttributes<HTMLElement> {
   logo: ReactNode;
   hamburger?: HamburgerProps;
-  user: UserProps;
-  profileMenu: Omit<ProfileMenuProps, 'user'>;
+  /**
+   * @deprecated Use a custom component in the `links` prop instead.
+   */
+  profileMenu?: Omit<ProfileMenuProps, 'user'>;
+  /**
+   * @deprecated Use a custom component in the `links` prop instead.
+   */
+  user?: UserProps;
   isLoading?: boolean;
 }
 
@@ -89,7 +95,7 @@ export function TopNavigation({
         isLoading={Boolean(isLoading)}
       >
         {links && <UtilityLinks links={links} />}
-        <ProfileMenu {...profileMenu} user={user} />
+        {profileMenu && user && <ProfileMenu {...profileMenu} user={user} />}
       </SkeletonContainer>
     </header>
   );
