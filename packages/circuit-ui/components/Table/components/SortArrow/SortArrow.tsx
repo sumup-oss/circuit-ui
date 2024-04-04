@@ -13,12 +13,14 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes } from 'react';
+'use client';
+
+import { type HTMLAttributes } from 'react';
 import { ChevronUp, ChevronDown } from '@sumup/icons';
 
-import { Direction } from '../../types.js';
+import type { Direction } from '../../types.js';
 import { clsx } from '../../../../styles/clsx.js';
-import utilityClasses from '../../../../styles/utility.js';
+import Tooltip from '../../../Tooltip/index.js';
 
 import classes from './SortArrow.module.css';
 
@@ -30,21 +32,29 @@ interface SortArrowProps extends HTMLAttributes<HTMLButtonElement> {
 /**
  * SortArrow for the Table component. The Table handles rendering it.
  */
-export function SortArrow({
-  label,
-  direction,
-  className,
-  ...props
-}: SortArrowProps) {
+export function SortArrow({ label, direction, onClick }: SortArrowProps) {
   return (
-    <button title={label} className={clsx(classes.base, className)} {...props}>
-      {direction !== 'ascending' && (
-        <ChevronUp size="16" aria-hidden="true" className={classes.icon} />
+    <Tooltip
+      type="label"
+      label={label}
+      component={(props) => (
+        <button
+          {...props}
+          className={clsx(classes.base, props.className)}
+          onClick={onClick}
+        >
+          {direction !== 'ascending' && (
+            <ChevronUp size="16" aria-hidden="true" className={classes.icon} />
+          )}
+          {direction !== 'descending' && (
+            <ChevronDown
+              size="16"
+              aria-hidden="true"
+              className={classes.icon}
+            />
+          )}
+        </button>
       )}
-      {direction !== 'descending' && (
-        <ChevronDown size="16" aria-hidden="true" className={classes.icon} />
-      )}
-      <span className={utilityClasses.hideVisually}>{label}</span>
-    </button>
+    />
   );
 }

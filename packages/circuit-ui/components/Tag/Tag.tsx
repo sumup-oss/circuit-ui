@@ -71,7 +71,10 @@ type RemoveProps =
   | { onRemove?: never; removeButtonLabel?: never };
 
 type DivElProps = Omit<HTMLAttributes<HTMLDivElement>, 'onClick' | 'prefix'>;
-type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
+type LinkElProps = Omit<
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  'onClick' | 'prefix'
+>;
 type ButtonElProps = Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
   'onClick' | 'prefix'

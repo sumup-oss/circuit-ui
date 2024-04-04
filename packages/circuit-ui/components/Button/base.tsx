@@ -97,7 +97,7 @@ export type CreateButtonComponentProps = SharedButtonProps & {
    * with the button. Use one strong, clear imperative verb and follow with a
    * one-word object if needed to clarify.
    */
-  children: ReactNode;
+  children?: ReactNode;
   /**
    * Choose from 2 sizes. Default: 'm'.
    */
@@ -124,7 +124,7 @@ export const legacyButtonSizeMap: Record<string, 's' | 'm'> = {
 
 export function createButtonComponent<Props>(
   componentName: string,
-  // TODO: Refactor to `mapClassName` once the deprecations have been removed.
+  // TODO: Refactor to `mapClassName` once the deprecations have been removed?
   mapProps: (props: Props) => CreateButtonComponentProps,
 ) {
   const Button = forwardRef<any, Props>((props, ref) => {
@@ -222,7 +222,7 @@ export function createButtonComponent<Props>(
               height={leadingIconSize}
             />
           )}
-          <span className={classes.label}>{children}</span>
+          {children && <span className={classes.label}>{children}</span>}
           {TrailingIcon && (
             <TrailingIcon
               aria-hidden="true"

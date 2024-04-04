@@ -1,0 +1,127 @@
+.base {
+  /* The arrow should be 8px tall. A square element is rotated to achieve a triangular shape. Using Pythagoras' theorem, we can calculate the ratio between the triangle height and the square sides: √(8^2 + 8^2) / 8 ≈ 1.414 */
+  --tooltip-arrow-size: calc(var(--cui-spacings-byte) * 1.414);
+
+  position: absolute;
+  z-index: var(--cui-z-index-popover);
+  width: max-content;
+  max-width: 360px;
+  max-width: min(360px, 100vw);
+  padding: 0;
+  margin: 0;
+  pointer-events: none;
+  visibility: hidden;
+  background: none;
+  border: none;
+}
+
+.base[open] {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+@media (max-width: 479px) {
+  .base {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.backdrop {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+@media (max-width: 479px) {
+  .backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--cui-bg-overlay);
+  }
+
+  .base[open] + .backdrop {
+    pointer-events: auto;
+    visibility: visible;
+  }
+}
+
+.content {
+  padding: var(--cui-spacings-mega);
+  color: var(--cui-fg-normal);
+  background-color: var(--cui-bg-elevated);
+  border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
+  border-radius: var(--cui-border-radius-byte);
+  outline: 0;
+  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 8%);
+}
+
+@media (max-width: 479px) {
+  .content {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.headline {
+  padding-right: var(--cui-spacings-peta);
+  margin-bottom: var(--cui-spacings-bit);
+}
+
+.body {
+  padding-right: var(--cui-spacings-peta);
+}
+
+.action {
+  margin-top: var(--cui-spacings-kilo);
+}
+
+.close {
+  position: absolute;
+  top: var(--cui-spacings-mega);
+  right: var(--cui-spacings-mega);
+}
+
+.arrow {
+  position: absolute;
+  width: var(--tooltip-arrow-size);
+  height: var(--tooltip-arrow-size);
+  background-color: var(--cui-bg-elevated);
+  border-right: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
+  border-bottom: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
+  border-bottom-right-radius: 2px;
+}
+
+.base[data-side="top"] .arrow {
+  top: calc(100% - (var(--tooltip-arrow-size) / 2));
+  left: calc(50% - (var(--tooltip-arrow-size) / 2));
+  transform: rotate(45deg);
+}
+
+.base[data-side="right"] .arrow {
+  right: calc(100% - (var(--tooltip-arrow-size) / 2));
+  bottom: calc(50% - (var(--tooltip-arrow-size) / 2));
+  transform: rotate(135deg);
+}
+
+.base[data-side="bottom"] .arrow {
+  bottom: calc(100% - (var(--tooltip-arrow-size) / 2));
+  left: calc(50% - (var(--tooltip-arrow-size) / 2));
+  transform: rotate(225deg);
+}
+
+.base[data-side="left"] .arrow {
+  bottom: calc(50% - (var(--tooltip-arrow-size) / 2));
+  left: calc(100% - (var(--tooltip-arrow-size) / 2));
+  transform: rotate(315deg);
+}
+
+@media (max-width: 479px) {
+  .arrow {
+    display: none;
+  }
+}

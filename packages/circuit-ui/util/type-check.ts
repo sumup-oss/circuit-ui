@@ -39,3 +39,7 @@ export function isObject<T extends Record<string, unknown>>(
 export function isNil(value?: unknown): value is null | undefined {
   return value === undefined || value === null;
 }
+
+export function isHTMLElement(element: unknown): element is HTMLElement {
+  return element instanceof HTMLElement;
+}

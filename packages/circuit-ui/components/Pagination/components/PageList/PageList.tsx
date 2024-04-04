@@ -15,9 +15,11 @@
 
 'use client';
 
-import { FC, OlHTMLAttributes } from 'react';
+import type { FC, OlHTMLAttributes } from 'react';
 
+import { clsx } from '../../../../styles/clsx.js';
 import Button from '../../../Button/index.js';
+import Tooltip from '../../../Tooltip/index.js';
 
 import classes from './PageList.module.css';
 
@@ -43,17 +45,22 @@ export const PageList: FC<PageListProps> = ({
       const label = pageLabel(page);
       return (
         <li key={page}>
-          <Button
-            size="s"
-            onClick={() => onChange(page)}
-            variant={isCurrent ? 'primary' : 'tertiary'}
-            title={label}
-            aria-label={label}
-            aria-current={isCurrent}
-            className={classes.button}
-          >
-            {page}
-          </Button>
+          <Tooltip
+            type="description"
+            label={label}
+            component={(tooltipProps) => (
+              <Button
+                {...tooltipProps}
+                size="s"
+                onClick={() => onChange(page)}
+                variant={isCurrent ? 'primary' : 'tertiary'}
+                aria-current={isCurrent}
+                className={clsx(tooltipProps.className, classes.button)}
+              >
+                {page}
+              </Button>
+            )}
+          />
         </li>
       );
     })}

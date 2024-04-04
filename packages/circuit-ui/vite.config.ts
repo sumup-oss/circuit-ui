@@ -77,6 +77,7 @@ export default defineConfig({
     lib: {
       entry: [
         path.resolve(__dirname, 'index.ts'),
+        path.resolve(__dirname, 'experimental.ts'),
         path.resolve(__dirname, 'legacy.ts'),
       ],
       formats: ['es'],
