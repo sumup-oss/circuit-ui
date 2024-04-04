@@ -1,5 +1,15 @@
 # @sumup/circuit-ui
 
+## 8.6.0
+
+### Minor Changes
+
+- [`2d69309`](https://github.com/sumup-oss/circuit-ui/commit/2d6930930204bc7da2772e411b841237f144e64f) Thanks [@connor-baer](https://github.com/connor-baer)! - Added experimental Tooltip and Toggletip components to display additional information that is contextual, helpful, and nonessential to clarify the purpose of otherwise ambiguous elements.
+
+- [`2d69309`](https://github.com/sumup-oss/circuit-ui/commit/2d6930930204bc7da2772e411b841237f144e64f) Thanks [@connor-baer](https://github.com/connor-baer)! - Extended the function signature of the `useClickOutside` hook to accept an array of refs as its first argument.
+
+- [#2481](https://github.com/sumup-oss/circuit-ui/pull/2481) [`43951d0`](https://github.com/sumup-oss/circuit-ui/commit/43951d01fa9b0d9671192e654d5476199d66c55a) Thanks [@connor-baer](https://github.com/connor-baer)! - Added support for passing custom components to the `links` prop of the TopNavigation component and deprecated the `user` and `profileMenu` props.
+
 ## 8.5.4
 
 ### Patch Changes
