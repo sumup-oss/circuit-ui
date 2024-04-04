@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.6.0-canary.1
+
+### Patch Changes
+
+- [#2472](https://github.com/sumup-oss/circuit-ui/pull/2472) [`0610dd8`](https://github.com/sumup-oss/circuit-ui/commit/0610dd8f185f14fedd88c12cd95c885acb19e9d9) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed type generation for the `@sumup/circuit-ui/experimental` entrypoint.
+
 ## 8.6.0-canary.0
 
 ### Minor Changes
