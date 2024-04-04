@@ -21,6 +21,7 @@ import { modes } from '../../../../.storybook/modes.js';
 import { SideNavigation } from '../SideNavigation/index.js';
 import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories.js';
 import { ModalProvider } from '../ModalContext/index.js';
+import Body from '../Body/index.js';
 
 import { TopNavigation, TopNavigationProps } from './TopNavigation.js';
 
@@ -41,18 +42,20 @@ export default {
   excludeStories: /.*Args$/,
 };
 
-function Announcement() {
+function CustomComponent() {
   return (
-    <div
+    <Body
+      size="two"
       style={{
         display: 'flex',
         alignItems: 'center',
         height: '100%',
         padding: '0 var(--cui-spacings-mega)',
+        textAlign: 'center',
       }}
     >
-      Test mode active
-    </div>
+      Test account
+    </Body>
   );
 }
 
@@ -96,8 +99,8 @@ export const baseArgs: TopNavigationProps = {
   },
   links: [
     {
-      key: 'announcement',
-      children: <Announcement />,
+      key: 'custom',
+      children: <CustomComponent />,
     },
     {
       icon: Shop,
