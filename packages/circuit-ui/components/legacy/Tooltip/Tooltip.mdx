@@ -6,7 +6,7 @@ import * as Stories from './Tooltip.stories';
 # Tooltip
 
 <Status variant="deprecated">
-  Use the [stable Tooltip](Components/Tooltip/Docs) component instead.
+  Use the experimental [Tooltip](Components/Tooltip/Docs) or [Toggletip](Components/Toggletip/Docs) components instead.
 </Status>
 
 <Story of={Stories.Base} />
@@ -44,3 +44,119 @@ export default function App() {
 ## Positions
 
 <Story of={Stories.Positions} />
+
+## Migration
+
+Tooltips and Toggletips hide information by default and require user interaction to be shown. They should be used as a last resort when space truly is limited. Often, it is preferable to use the [Input](Components/Input/Docs)'s `validationHint` or the [Checkbox](Components/Checkbox/Docs), [RadioButton](Components/RadioButton/Docs) or [Toggle](Components/Toggle/Docs)'s `explanation` prop instead to display the information inline.
+
+While the deprecated Tooltip component only focused on the look and position of its content, the new Tooltip and Toggletip components also take the semantic context and relationship to their reference element into account.
+
+### Tooltip
+
+Use the new [Tooltip](Components/Tooltip/Docs) component when it acts as the reference element's [main label](https://w3c.github.io/accname/#dfn-accessible-name) or [supplemental description](https://w3c.github.io/accname/#dfn-accessible-description) and appears on _hover_ or _focus_ of the reference element.
+
+Here's an example:
+
+```tsx
+// Before
+import { useState } from "react";
+import { Badge } from "@sumup/circuit-ui";
+import { Tooltip } from "@sumup/circuit-ui/legacy";
+
+function Component() {
+  const [isVisible, setVisible] = useState(false);
+  return (
+    <div>
+      {isVisible && (
+        <Tooltip position="top" align="right">
+          A chargeback is a return of money to a payer of a transaction,
+          especially a credit card transaction.
+        </Tooltip>
+      )}
+      {/* This implementation wasn't accessible to keyboard users */}
+      <Badge
+        onMouseEnter={() => setVisible(true)}
+        onMouseLeave={() => setVisible(false)}
+      >
+        Chargeback
+      </Badge>
+    </div>
+  );
+}
+```
+
+```tsx
+// After
+import { Badge } from "@sumup/circuit-ui";
+import { Tooltip } from "@sumup/circuit-ui/experimental";
+
+function Component() {
+  return (
+    <Tooltip
+      type="description"
+      label="A chargeback is a return of money to a payer of a transaction, especially a credit card transaction."
+      component={(props) => (
+        // The reference element must be focusable
+        <Badge {...props} tabIndex="0">
+          Chargeback
+        </Badge>
+      )}
+    />
+  );
+}
+```
+
+### Toggletip
+
+Use the new [Toggletip](Components/Toggletip/Docs) component if the content should be structured or interactive and the reference element's sole purpose is toggling the tip.
+
+Here's an example:
+
+```tsx
+// Before
+import { useState } from "react";
+import { Tooltip } from "@sumup/circuit-ui/legacy";
+import { Info } from "@sumup/icons";
+
+function Component() {
+  const [isVisible, setVisible] = useState(false);
+  return (
+    <div>
+      {isVisible && (
+        <Tooltip position="top" align="right">
+          <h2>What is a chargeback?</h2>
+          <p>
+            A chargeback is a return of money to a payer of a transaction,
+            especially a credit card transaction.
+          </p>
+        </Tooltip>
+      )}
+      {/* This implementation wasn't accessible because screenreader and
+          keyboard users couldn't perceive the interactive element. */}
+      <Info onClick={() => setVisible((prev) => !prev)} size="16" />
+    </div>
+  );
+}
+```
+
+```tsx
+// After
+import { Toggletip } from "@sumup/circuit-ui/experimental";
+import { IconButton } from "@sumup/circuit-ui";
+import { Info } from "@sumup/icons";
+
+function Component() {
+  return (
+    <Toggletip
+      headline="What is a chargeback?"
+      body="A chargeback is a return of money to a payer of a transaction, especially a credit card transaction."
+      component={(props) => (
+        // The reference element must be a button
+        <IconButton {...props} icon={Info}>
+          Show details
+        </IconButton>
+      )}
+    />
+  );
+}
+```
