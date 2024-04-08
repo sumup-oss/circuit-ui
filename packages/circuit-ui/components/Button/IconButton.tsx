@@ -13,13 +13,9 @@
  * limitations under the License.
  */
 
-'use client';
-
 import {
   Children,
   cloneElement,
-  forwardRef,
-  memo,
   type ForwardRefExoticComponent,
   type PropsWithoutRef,
   type ReactElement,
@@ -31,11 +27,9 @@ import { clsx } from '../../styles/clsx.js';
 import { CircuitError } from '../../util/errors.js';
 import { deprecate } from '../../util/logger.js';
 import { isString } from '../../util/type-check.js';
-import Tooltip from '../Tooltip/index.js';
 
 import {
   createButtonComponent,
-  CreateButtonComponentProps,
   legacyButtonSizeMap,
   type SharedButtonProps,
 } from './base.js';
@@ -62,83 +56,75 @@ export type IconButtonProps = SharedButtonProps & {
   icon?: IconComponentType;
 };
 
-// TODO: This factory function doesn't make much sense for the IconButton anymore. Refactor?
-const InnerIconButton = createButtonComponent<CreateButtonComponentProps>(
-  'IconButton',
-  (props) => props,
-);
-
 /**
  * The IconButton component enables the user to perform an action or navigate
  * to a different screen.
  */
 export const IconButton: ForwardRefExoticComponent<
   PropsWithoutRef<IconButtonProps> & RefAttributes<any>
-> = memo(
-  forwardRef<HTMLButtonElement, IconButtonProps>(
-    (
-      {
-        className,
-        icon: Icon,
-        size: legacySize = 'm',
-        label,
-        children,
-        ...props
-      },
-      ref,
-    ) => {
-      const size = legacyButtonSizeMap[legacySize] || legacySize;
+> = createButtonComponent<IconButtonProps>(
+  'IconButton',
+  ({
+    className,
+    icon: Icon,
+    label,
+    children,
+    size: legacySize = 'm',
+    ...props
+  }) => {
+    const size = legacyButtonSizeMap[legacySize] || legacySize;
 
-      if (
-        process.env.NODE_ENV !== 'production' &&
-        !Icon &&
-        Children.count(children) !== 1
-      ) {
-        throw new CircuitError('IconButton', 'The `icon` prop is missing.');
-      }
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      !Icon &&
+      Children.count(children) !== 1
+    ) {
+      throw new CircuitError('IconButton', 'The `icon` prop is missing.');
+    }
 
-      if (process.env.NODE_ENV !== 'production' && !isString(children)) {
-        deprecate(
-          'IconButton',
-          'The `children` prop has been deprecated for passing the icon. Use the `icon` prop instead.',
-        );
-      }
-
-      if (process.env.NODE_ENV !== 'production' && label) {
-        deprecate(
-          'IconButton',
-          'The `label` prop has been deprecated. Use the `children` prop instead.',
-        );
-      }
-
-      return (
-        <Tooltip
-          type="label"
-          label={isString(children) ? children : (label as string)}
-          component={(tooltipProps) => (
-            <InnerIconButton
-              {...props}
-              {...tooltipProps}
-              size={size}
-              className={clsx(classes[size], tooltipProps.className, className)}
-              icon={(iconProps) => {
-                if (Icon) {
-                  return <Icon {...iconProps} />;
-                }
-                const child = Children.only(children)!;
-                // TODO: Remove with the next major
-                if (isString(child)) {
-                  return null;
-                }
-                return cloneElement(child, iconProps);
-              }}
-              ref={ref}
-            />
-          )}
-        />
+    if (process.env.NODE_ENV !== 'production' && !isString(children)) {
+      deprecate(
+        'IconButton',
+        'The `children` prop has been deprecated for passing the icon. Use the `icon` prop instead.',
       );
-    },
-  ),
+    }
+
+    if (process.env.NODE_ENV !== 'production' && label) {
+      deprecate(
+        'IconButton',
+        'The `label` prop has been deprecated. Use the `children` prop instead.',
+      );
+    }
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      legacyButtonSizeMap[legacySize]
+    ) {
+      deprecate(
+        'IconButton',
+        `The \`${legacySize}\` size has been deprecated. Use the \`${legacyButtonSizeMap[legacySize]}\` size instead.`,
+      );
+    }
+
+    return {
+      className: clsx(classes.base, classes[size], className),
+      icon: (iconProps) => {
+        if (Icon) {
+          return <Icon {...iconProps} />;
+        }
+        const child = Children.only(children)!;
+        // TODO: Remove with the next major
+        if (isString(child)) {
+          return null;
+        }
+        return cloneElement(child, iconProps);
+      },
+      size,
+      children: isString(children) ? children : label,
+      title: isString(children) ? children : label,
+      ...props,
+    };
+  },
 );
 
 IconButton.displayName = 'IconButton';
