@@ -65,13 +65,29 @@ Base.play = showTooltip;
 
 export const Types = (args: TooltipProps) => (
   <Stack>
-    {/* The IconButton uses the Tooltip component under the hood */}
-    <IconButton icon={TransferOut}>Transfer out</IconButton>
-    <Tooltip {...args} />
+    <Tooltip
+      {...args}
+      type="label"
+      label="Transfer out"
+      component={(props) => (
+        <IconButton {...props} icon={TransferOut} title={undefined}>
+          Transfer out
+        </IconButton>
+      )}
+    />
+    <Tooltip
+      {...args}
+      type="description"
+      label="This may take a few minutes"
+      component={(props) => (
+        <Button {...props} icon={UploadCloud}>
+          Upload
+        </Button>
+      )}
+    />
   </Stack>
 );
 
-Types.args = descriptionProps;
 Types.play = showTooltip;
 
 export const Placements = (args: TooltipProps) => (
