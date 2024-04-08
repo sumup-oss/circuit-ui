@@ -1,6 +1,11 @@
 const nextJest = require('next/jest');
 
-const esModules = ['@sumup/circuit-ui', '@sumup/icons'].join('|');
+const esModules = [
+  '@sumup/circuit-ui',
+  '@sumup/icons',
+  '@nanostores/react',
+  'nanostores',
+].join('|');
 
 const createJestConfig = nextJest({ dir: './' });
 
