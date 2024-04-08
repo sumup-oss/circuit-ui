@@ -180,7 +180,7 @@ export const RadioButtonGroup = forwardRef(
           {options.map((option) => (
             <RadioButton
               {...option}
-              key={option.label}
+              key={option.value?.toString() || option.label}
               name={name}
               onChange={onChange}
               onBlur={onBlur}
