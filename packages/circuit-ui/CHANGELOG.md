@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.6.1
+
+### Patch Changes
+
+- [#2486](https://github.com/sumup-oss/circuit-ui/pull/2486) [`54dbfd2`](https://github.com/sumup-oss/circuit-ui/commit/54dbfd23e9daed9792369995b847a62d7771bc28) Thanks [@connor-baer](https://github.com/connor-baer)! - Switched to using an option's `value` instead of its `label` as the [React key](https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key) in the CheckboxGroup, RadioButtonGroup and SelectorGroup components.
+
 ## 8.6.0
 
 ### Minor Changes
