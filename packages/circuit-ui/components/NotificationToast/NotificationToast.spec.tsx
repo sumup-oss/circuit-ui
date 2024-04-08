@@ -93,7 +93,7 @@ describe('NotificationToast', () => {
       expect(screen.getByText('This is a toast message')).toBeVisible();
     });
 
-    const closeButton = screen.getByLabelText('Close');
+    const closeButton = screen.getByText('Close');
 
     await userEvent.click(closeButton);
 

@@ -20,7 +20,7 @@ import { ChevronUp, ChevronDown } from '@sumup/icons';
 
 import type { Direction } from '../../types.js';
 import { clsx } from '../../../../styles/clsx.js';
-import Tooltip from '../../../Tooltip/index.js';
+import utilityClasses from '../../../../styles/utility.js';
 
 import classes from './SortArrow.module.css';
 
@@ -32,29 +32,21 @@ interface SortArrowProps extends HTMLAttributes<HTMLButtonElement> {
 /**
  * SortArrow for the Table component. The Table handles rendering it.
  */
-export function SortArrow({ label, direction, onClick }: SortArrowProps) {
+export function SortArrow({
+  label,
+  direction,
+  className,
+  ...props
+}: SortArrowProps) {
   return (
-    <Tooltip
-      type="label"
-      label={label}
-      component={(props) => (
-        <button
-          {...props}
-          className={clsx(classes.base, props.className)}
-          onClick={onClick}
-        >
-          {direction !== 'ascending' && (
-            <ChevronUp size="16" aria-hidden="true" className={classes.icon} />
-          )}
-          {direction !== 'descending' && (
-            <ChevronDown
-              size="16"
-              aria-hidden="true"
-              className={classes.icon}
-            />
-          )}
-        </button>
+    <button title={label} className={clsx(classes.base, className)} {...props}>
+      {direction !== 'ascending' && (
+        <ChevronUp size="16" aria-hidden="true" className={classes.icon} />
       )}
-    />
+      {direction !== 'descending' && (
+        <ChevronDown size="16" aria-hidden="true" className={classes.icon} />
+      )}
+      <span className={utilityClasses.hideVisually}>{label}</span>
+    </button>
   );
 }
