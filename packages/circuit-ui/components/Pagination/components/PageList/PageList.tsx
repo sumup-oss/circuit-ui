@@ -17,9 +17,8 @@
 
 import type { FC, OlHTMLAttributes } from 'react';
 
-import { clsx } from '../../../../styles/clsx.js';
 import Button from '../../../Button/index.js';
-import Tooltip from '../../../Tooltip/index.js';
+import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './PageList.module.css';
 
@@ -36,31 +35,27 @@ export const PageList: FC<PageListProps> = ({
   pageLabel,
   pages,
   currentPage,
+  className,
   ...props
 }: PageListProps): JSX.Element => (
   // eslint-disable-next-line jsx-a11y/no-redundant-roles
-  <ol role="list" className={classes.base} {...props}>
+  <ol role="list" className={clsx(classes.base, className)} {...props}>
     {pages.map((page) => {
       const isCurrent = currentPage === page;
       const label = pageLabel(page);
       return (
         <li key={page}>
-          <Tooltip
-            type="description"
-            label={label}
-            component={(tooltipProps) => (
-              <Button
-                {...tooltipProps}
-                size="s"
-                onClick={() => onChange(page)}
-                variant={isCurrent ? 'primary' : 'tertiary'}
-                aria-current={isCurrent}
-                className={clsx(tooltipProps.className, classes.button)}
-              >
-                {page}
-              </Button>
-            )}
-          />
+          <Button
+            size="s"
+            onClick={() => onChange(page)}
+            variant={isCurrent ? 'primary' : 'tertiary'}
+            title={label}
+            aria-label={label}
+            aria-current={isCurrent}
+            className={classes.button}
+          >
+            {page}
+          </Button>
         </li>
       );
     })}
