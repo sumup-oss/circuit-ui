@@ -193,7 +193,7 @@ export const SelectorGroup = forwardRef<
             {options.map((option) => (
               <Selector
                 {...option}
-                key={option.label}
+                key={option.value || option.label}
                 className={clsx(classes.option, option.className)}
                 name={name}
                 onChange={onChange}

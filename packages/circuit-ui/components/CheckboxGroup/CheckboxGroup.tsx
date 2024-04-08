@@ -183,7 +183,7 @@ export const CheckboxGroup = forwardRef(
         </FieldLegend>
         <ul className={classes.base}>
           {options.map((option) => (
-            <li key={option.label}>
+            <li key={option.value || option.label}>
               <Checkbox
                 {...option}
                 name={name}
