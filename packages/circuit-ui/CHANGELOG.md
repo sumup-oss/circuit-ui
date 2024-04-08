@@ -10,6 +10,8 @@
 
 ### Minor Changes
 
+⚠️ This version adds two new dependencies to Circuit UI: `@nanostores/react` and `nanostores`. Both packages use the ES Module format and might need to be transpiled (e.g. for Jest).
+
 - [`2d69309`](https://github.com/sumup-oss/circuit-ui/commit/2d6930930204bc7da2772e411b841237f144e64f) Thanks [@connor-baer](https://github.com/connor-baer)! - Added experimental Tooltip and Toggletip components to display additional information that is contextual, helpful, and nonessential to clarify the purpose of otherwise ambiguous elements.
 
 - [`2d69309`](https://github.com/sumup-oss/circuit-ui/commit/2d6930930204bc7da2772e411b841237f144e64f) Thanks [@connor-baer](https://github.com/connor-baer)! - Extended the function signature of the `useClickOutside` hook to accept an array of refs as its first argument.
