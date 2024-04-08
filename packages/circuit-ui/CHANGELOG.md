@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.6.2
+
+### Patch Changes
+
+- [#2489](https://github.com/sumup-oss/circuit-ui/pull/2489) [`c97a10a`](https://github.com/sumup-oss/circuit-ui/commit/c97a10afa19cec3beb3a994ad623b95c47ace7a4) Thanks [@connor-baer](https://github.com/connor-baer)! - Reverted usage of the experimental Tooltip component in the IconButton, Pagination, and Table components. Testing the change in applications surfaced too many edge cases and conflicts. The changes will be re-applied in the next major release.
+
 ## 8.6.1
 
 ### Patch Changes
