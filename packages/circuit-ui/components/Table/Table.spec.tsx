@@ -113,13 +113,13 @@ describe('Table', () => {
       });
     });
 
-    it('should sort a column in ascending order when initial sort direction and initial sorted row is provided', () => {
+    it('should sort a column in ascending order when initial sort direction and initial sorted column is provided', () => {
       render(
         <Table
           rows={rows}
           headers={headers}
           rowHeaders={false}
-          initialSortedRow={1}
+          initialSortedColumn={1}
           initialSortDirection={'ascending'}
         />,
       );
@@ -151,13 +151,13 @@ describe('Table', () => {
       });
     });
 
-    it('should sort a column in descending order when initial sort direction and initial sorted row is provided', () => {
+    it('should sort a column in descending order when initial sort direction and initial sorted column is provided', () => {
       render(
         <Table
           rows={rows}
           headers={headers}
           rowHeaders={false}
-          initialSortedRow={1}
+          initialSortedColumn={1}
           initialSortDirection={'descending'}
         />,
       );

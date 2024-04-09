@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2024, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -63,9 +63,9 @@ type TableHeadProps = ScrollableOptions & {
    */
   sortDirection?: Direction;
   /**
-   * The current sorted row index
+   * The current sorted column index
    */
-  sortedRow?: number;
+  sortedColumn?: number;
   /**
    * sortEnter handler
    */
@@ -87,7 +87,7 @@ export function TableHead({
   top,
   onSortBy,
   sortDirection,
-  sortedRow,
+  sortedColumn,
   onSortEnter,
   onSortLeave,
 }: TableHeadProps) {
@@ -105,11 +105,11 @@ export function TableHead({
             const cellProps = mapCellProps(header);
             const { sortable, sortLabel } = cellProps;
             const sortParams = getSortParams({
-              rowIndex: i,
+              columnIndex: i,
               sortable,
               sortDirection,
               sortLabel,
-              sortedRow,
+              sortedColumn,
             });
             return (
               <Fragment key={`table-header-${i}`}>

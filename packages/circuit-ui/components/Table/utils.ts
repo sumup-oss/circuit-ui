@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2024, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -118,22 +118,22 @@ export const descendingSort =
   };
 
 export const getSortParams = ({
-  rowIndex,
+  columnIndex,
   sortable,
   sortDirection,
   sortLabel,
-  sortedRow,
+  sortedColumn,
 }: {
-  rowIndex: number;
+  columnIndex: number;
   sortable?: boolean;
   sortDirection?: Direction;
   sortLabel?: string | (({ direction }: { direction?: Direction }) => string);
-  sortedRow?: number;
+  sortedColumn?: number;
 }): SortParams => {
   if (!sortable || !sortLabel) {
     return { sortable: false };
   }
-  const isSorted = sortedRow === rowIndex;
+  const isSorted = sortedColumn === columnIndex;
   return {
     sortable: true,
     sortLabel: isFunction(sortLabel)

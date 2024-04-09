@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2024, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -68,9 +68,9 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
    */
   initialSortDirection?: 'ascending' | 'descending';
   /**
-   * Specifies the row index which `initialSortDirection` will be applied to
+   * Specifies the column index which `initialSortDirection` will be applied to
    */
-  initialSortedRow?: number;
+  initialSortedColumn?: number;
   /**
    * Click handler for the row
    * The signature is (index)
@@ -83,7 +83,7 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 type TableState = {
-  sortedRow?: number;
+  sortedColumn?: number;
   rows?: Row[];
   sortHover?: number;
   sortDirection?: Direction;
@@ -98,11 +98,11 @@ class Table extends Component<TableProps, TableState> {
   constructor(props: TableProps) {
     super(props);
     this.state = {
-      sortedRow: this.props.initialSortedRow,
+      sortedColumn: this.props.initialSortedColumn,
       rows: this.getInitialRows(
         this.props.rows,
         this.props.initialSortDirection,
-        this.props.initialSortedRow,
+        this.props.initialSortedColumn,
       ),
       sortHover: undefined,
       sortDirection: this.props.initialSortDirection,
@@ -122,10 +122,10 @@ class Table extends Component<TableProps, TableState> {
   componentDidUpdate(prevProps: TableProps): void {
     if (this.props.rows !== prevProps.rows) {
       // Preserve existing sorting
-      if (this.state.sortedRow && this.state.sortDirection) {
+      if (this.state.sortedColumn && this.state.sortDirection) {
         const sortedRows = this.getSortedRows(
           this.state.sortDirection,
-          this.state.sortedRow,
+          this.state.sortedColumn,
         );
         this.setState({ rows: sortedRows });
         return;
@@ -177,8 +177,8 @@ class Table extends Component<TableProps, TableState> {
   onSortLeave = (): void => this.setState({ sortHover: undefined });
 
   onSortBy = (i: number): void => {
-    const { sortedRow, sortDirection } = this.state;
-    const isActive = i === sortedRow;
+    const { sortedColumn, sortDirection } = this.state;
+    const isActive = i === sortedColumn;
     const nextDirection = getSortDirection(isActive, sortDirection);
     const sortedRows = this.getSortedRows(nextDirection, i);
 
@@ -188,10 +188,10 @@ class Table extends Component<TableProps, TableState> {
   getInitialRows = (
     rows: Row[],
     initialSortDirection?: Direction | undefined,
-    initialSortedRow?: number | undefined,
+    initialSortedColumn?: number | undefined,
   ): Row[] => {
-    if (initialSortedRow && initialSortDirection) {
-      return this.getSortedRows(initialSortDirection, initialSortedRow);
+    if (initialSortedColumn && initialSortDirection) {
+      return this.getSortedRows(initialSortDirection, initialSortedColumn);
     }
     return rows;
   };
@@ -205,7 +205,7 @@ class Table extends Component<TableProps, TableState> {
 
   updateSort = (i: number, nextDirection: Direction, sortedRows: Row[]): void =>
     this.setState({
-      sortedRow: i,
+      sortedColumn: i,
       sortDirection: nextDirection,
       rows: sortedRows,
     });
@@ -231,7 +231,7 @@ class Table extends Component<TableProps, TableState> {
     const {
       sortDirection,
       sortHover,
-      sortedRow,
+      sortedColumn,
       scrollTop,
       tableBodyHeight,
       rows,
@@ -267,7 +267,7 @@ class Table extends Component<TableProps, TableState> {
               condensed={condensed}
               scrollable={scrollable}
               sortDirection={sortDirection}
-              sortedRow={sortedRow}
+              sortedColumn={sortedColumn}
               onSortBy={this.onSortBy}
               onSortEnter={this.onSortEnter}
               onSortLeave={this.onSortLeave}
