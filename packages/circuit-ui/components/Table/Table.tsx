@@ -68,6 +68,13 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
    */
   initialSortDirection?: 'ascending' | 'descending';
   /**
+   * Specifies the wrongly-named column index which `initialSortDirection` will be applied to
+   */
+  /**
+   * @deprecated
+   */
+  initialSortedRow?: number;
+  /**
    * Specifies the column index which `initialSortDirection` will be applied to
    */
   initialSortedColumn?: number;
@@ -97,12 +104,18 @@ type TableState = {
 class Table extends Component<TableProps, TableState> {
   constructor(props: TableProps) {
     super(props);
+    if (this.props.initialSortedRow) {
+      console.warn(
+        'The prop initialSortedRow is deprecated and will be removed in a future version of circuit UI. Please use initialSortedColumn instead.',
+      );
+    }
     this.state = {
-      sortedColumn: this.props.initialSortedColumn,
+      sortedColumn:
+        this.props.initialSortedColumn || this.props.initialSortedRow,
       rows: this.getInitialRows(
         this.props.rows,
         this.props.initialSortDirection,
-        this.props.initialSortedColumn,
+        this.props.initialSortedColumn || this.props.initialSortedRow,
       ),
       sortHover: undefined,
       sortDirection: this.props.initialSortDirection,
@@ -189,12 +202,10 @@ class Table extends Component<TableProps, TableState> {
     rows: Row[],
     initialSortDirection?: Direction | undefined,
     initialSortedColumn?: number | undefined,
-  ): Row[] => {
-    if (initialSortedColumn && initialSortDirection) {
-      return this.getSortedRows(initialSortDirection, initialSortedColumn);
-    }
-    return rows;
-  };
+  ): Row[] =>
+    initialSortedColumn && initialSortDirection
+      ? this.getSortedRows(initialSortDirection, initialSortedColumn)
+      : rows;
 
   getSortedRows = (sortDirection: Direction, sortedRow: number): Row[] => {
     const { rows, onSortBy } = this.props;
