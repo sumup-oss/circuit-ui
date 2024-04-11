@@ -20,6 +20,7 @@ import { Component, createRef, HTMLAttributes, UIEvent } from 'react';
 import { isNil } from '../../util/type-check.js';
 import { throttle } from '../../util/helpers.js';
 import { clsx } from '../../styles/clsx.js';
+import { deprecate } from '../../util/logger.js';
 
 import TableHead from './components/TableHead/index.js';
 import TableBody from './components/TableBody/index.js';
@@ -104,8 +105,9 @@ type TableState = {
 class Table extends Component<TableProps, TableState> {
   constructor(props: TableProps) {
     super(props);
-    if (this.props.initialSortedRow) {
-      console.warn(
+    if (process.env.NODE_ENV !== 'production' && this.props.initialSortedRow) {
+      deprecate(
+        'Table',
         'The prop initialSortedRow is deprecated and will be removed in a future version of circuit UI. Please use initialSortedColumn instead.',
       );
     }

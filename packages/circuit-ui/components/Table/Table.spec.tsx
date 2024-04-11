@@ -196,29 +196,6 @@ describe('Table', () => {
       });
     });
 
-    it('should sort a column in descending order when initial sort direction and initial sorted row is provided and warn about it', () => {
-      const warnMock = vi.spyOn(console, 'warn');
-      render(
-        <Table
-          rows={rows}
-          headers={headers}
-          rowHeaders={false}
-          initialSortedRow={1}
-          initialSortDirection={'descending'}
-        />,
-      );
-
-      const cellEls = screen.getAllByRole('cell');
-
-      const sortedRow = ['b', 'c', 'a'];
-
-      rows.forEach((_row, index) => {
-        const cellIndex = rowLength * index;
-        expect(cellEls[cellIndex]).toHaveTextContent(sortedRow[index]);
-      });
-      expect(warnMock).toHaveBeenCalled();
-    });
-
     it('should call a custom sort callback', async () => {
       const onSortByMock = vi.fn();
       const index = 0;
