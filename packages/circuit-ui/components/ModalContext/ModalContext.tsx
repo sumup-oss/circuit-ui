@@ -28,10 +28,10 @@ import { useStack, StackItem } from '../../hooks/useStack/index.js';
 import { warn } from '../../util/logger.js';
 
 import { BaseModalProps, ModalComponent } from './types.js';
-import './Modal.css';
+import classes from './ModalContext.module.css';
 
-const PORTAL_CLASS_NAME = 'cui-modal-portal';
-const HTML_OPEN_CLASS_NAME = 'cui-modal-open';
+const PORTAL_CLASS_NAME = classes['cui-modal-portal'];
+const HTML_OPEN_CLASS_NAME = classes['cui-modal-open'];
 // These are the default app element ids in Next.js, Docusaurus, CRA and Storybook.
 const APP_ELEMENT_IDS = ['root', '__next', '__docusaurus', 'storybook-root'];
 
