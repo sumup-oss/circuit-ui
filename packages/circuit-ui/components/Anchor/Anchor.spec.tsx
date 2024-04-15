@@ -26,61 +26,62 @@ describe('Anchor', () => {
 
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
-    const { container } = render(
+    render(
       <Anchor className={className} href="https://sumup.com">
         Anchor
       </Anchor>,
     );
-    const anchor = container.querySelector('a');
+    const anchor = screen.getByRole('link');
     expect(anchor?.className).toContain(className);
   });
 
   it('should forward a ref for a button', () => {
     const ref = createRef<HTMLButtonElement>();
-    const { container } = render(
+    render(
       <Anchor ref={ref} onClick={vi.fn}>
         Anchor
       </Anchor>,
     );
-    const button = container.querySelector('button');
+    const button = screen.getByRole('button');
     expect(ref.current).toBe(button);
   });
 
   it('should forward a ref for a link', () => {
     const ref = createRef<HTMLAnchorElement>();
-    const { container } = render(
+    render(
       <Anchor ref={ref} href="https://sumup.com">
         Anchor
       </Anchor>,
     );
-    const anchor = container.querySelector('a');
+    const anchor = screen.getByRole('link');
     expect(ref.current).toBe(anchor);
   });
 
   it('should forward a ref for a span', () => {
     const ref = createRef<HTMLSpanElement>();
-    const { container } = render(<Anchor ref={ref}>Anchor</Anchor>);
-    const span = container.querySelector('span');
+    render(<Anchor ref={ref}>Anchor</Anchor>);
+    const span = screen.getByText('Anchor');
     expect(ref.current).toBe(span);
   });
 
   it('should render as a `span` when neither href nor onClick is passed', () => {
-    const { container } = render(<Anchor {...baseProps} />);
-    const actual = container.querySelector('span');
+    render(<Anchor {...baseProps} />);
+    const actual = screen.getByText('Anchor');
+    expect(actual.tagName).toBe('SPAN');
     expect(actual).toBeVisible();
   });
 
   it('should render as an `a` when an href (and onClick) is passed', () => {
-    const { container } = render(
-      <Anchor {...baseProps} href="https://sumup.com" onClick={vi.fn} />,
-    );
-    const actual = container.querySelector('a');
+    render(<Anchor {...baseProps} href="https://sumup.com" onClick={vi.fn} />);
+    const actual = screen.getByText('Anchor');
+    expect(actual.tagName).toBe('A');
     expect(actual).toBeVisible();
   });
 
   it('should render as a `button` when an onClick is passed', () => {
-    const { container } = render(<Anchor {...baseProps} onClick={vi.fn} />);
-    const actual = container.querySelector('button');
+    render(<Anchor {...baseProps} onClick={vi.fn} />);
+    const actual = screen.getByText('Anchor');
+    expect(actual.tagName).toBe('BUTTON');
     expect(actual).toBeVisible();
   });
 
