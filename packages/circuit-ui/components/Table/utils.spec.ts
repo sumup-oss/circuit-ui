@@ -182,7 +182,7 @@ describe('Table utils', () => {
   describe('getSortParams', () => {
     it('should return sort params with a string sortLabel', () => {
       const actual = utils.getSortParams({
-        rowIndex: 1,
+        columnIndex: 1,
         sortable: true,
         sortLabel: 'Sort',
       });
@@ -201,7 +201,7 @@ describe('Table utils', () => {
         return `Sort in ${order} order`;
       };
       const actual = utils.getSortParams({
-        rowIndex: 1,
+        columnIndex: 1,
         sortable: true,
         sortLabel,
       });
@@ -220,8 +220,8 @@ describe('Table utils', () => {
         return `Sort in ${order} order`;
       };
       const actual = utils.getSortParams({
-        rowIndex: 1,
-        sortedRow: 1,
+        columnIndex: 1,
+        sortedColumn: 1,
         sortable: true,
         sortDirection: 'descending',
         sortLabel,
@@ -237,14 +237,14 @@ describe('Table utils', () => {
     });
 
     it('should return sortable:false if sortable is falsy', () => {
-      const actual = utils.getSortParams({ rowIndex: 0 });
+      const actual = utils.getSortParams({ columnIndex: 0 });
       const expected = { sortable: false };
 
       expect(actual).toEqual(expected);
     });
 
     it('should return sortable:false if sortLabel is falsy', () => {
-      const actual = utils.getSortParams({ rowIndex: 0, sortable: true });
+      const actual = utils.getSortParams({ columnIndex: 0, sortable: true });
       const expected = { sortable: false };
 
       expect(actual).toEqual(expected);

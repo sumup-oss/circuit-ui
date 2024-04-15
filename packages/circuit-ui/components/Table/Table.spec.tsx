@@ -113,7 +113,30 @@ describe('Table', () => {
       });
     });
 
-    it('should sort a column in ascending order when initial sort direction and initial sorted row is provided', () => {
+    it('should sort a column in ascending order when initial sort direction and initial sorted column is provided', () => {
+      render(
+        <Table
+          rows={rows}
+          headers={headers}
+          rowHeaders={false}
+          initialSortedColumn={1}
+          initialSortDirection={'ascending'}
+        />,
+      );
+
+      const cellEls = screen.getAllByRole('cell');
+
+      const sortedRow = ['a', 'c', 'b'];
+
+      rows.forEach((_row, index) => {
+        const cellIndex = rowLength * index;
+        expect(cellEls[cellIndex]).toHaveTextContent(sortedRow[index]);
+      });
+    });
+
+    it('should sort a column in ascending order when initial sort direction and initial sorted row is provided and console.warn about it', () => {
+      const warnMock = vi.spyOn(console, 'warn');
+
       render(
         <Table
           rows={rows}
@@ -132,6 +155,7 @@ describe('Table', () => {
         const cellIndex = rowLength * index;
         expect(cellEls[cellIndex]).toHaveTextContent(sortedRow[index]);
       });
+      expect(warnMock).toHaveBeenCalled();
     });
 
     it('should sort a column in descending order', async () => {
@@ -151,13 +175,13 @@ describe('Table', () => {
       });
     });
 
-    it('should sort a column in descending order when initial sort direction and initial sorted row is provided', () => {
+    it('should sort a column in descending order when initial sort direction and initial sorted column is provided', () => {
       render(
         <Table
           rows={rows}
           headers={headers}
           rowHeaders={false}
-          initialSortedRow={1}
+          initialSortedColumn={1}
           initialSortDirection={'descending'}
         />,
       );

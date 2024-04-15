@@ -63,9 +63,9 @@ type TableHeadProps = ScrollableOptions & {
    */
   sortDirection?: Direction;
   /**
-   * The current sorted row index
+   * The current sorted column index
    */
-  sortedRow?: number;
+  sortedColumn?: number;
   /**
    * sortEnter handler
    */
@@ -87,7 +87,7 @@ export function TableHead({
   top,
   onSortBy,
   sortDirection,
-  sortedRow,
+  sortedColumn,
   onSortEnter,
   onSortLeave,
 }: TableHeadProps) {
@@ -105,11 +105,11 @@ export function TableHead({
             const cellProps = mapCellProps(header);
             const { sortable, sortLabel } = cellProps;
             const sortParams = getSortParams({
-              rowIndex: i,
+              columnIndex: i,
               sortable,
               sortDirection,
               sortLabel,
-              sortedRow,
+              sortedColumn,
             });
             return (
               <Fragment key={`table-header-${i}`}>

@@ -20,6 +20,7 @@ import { Component, createRef, HTMLAttributes, UIEvent } from 'react';
 import { isNil } from '../../util/type-check.js';
 import { throttle } from '../../util/helpers.js';
 import { clsx } from '../../styles/clsx.js';
+import { deprecate } from '../../util/logger.js';
 
 import TableHead from './components/TableHead/index.js';
 import TableBody from './components/TableBody/index.js';
@@ -68,9 +69,15 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
    */
   initialSortDirection?: 'ascending' | 'descending';
   /**
-   * Specifies the row index which `initialSortDirection` will be applied to
+   * @deprecated
+   *
+   * Use the `initialSortedColumn` prop instead.
    */
   initialSortedRow?: number;
+  /**
+   * Specifies the column index which `initialSortDirection` will be applied to
+   */
+  initialSortedColumn?: number;
   /**
    * Click handler for the row
    * The signature is (index)
@@ -83,7 +90,7 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 type TableState = {
-  sortedRow?: number;
+  sortedColumn?: number;
   rows?: Row[];
   sortHover?: number;
   sortDirection?: Direction;
@@ -97,12 +104,19 @@ type TableState = {
 class Table extends Component<TableProps, TableState> {
   constructor(props: TableProps) {
     super(props);
+    if (process.env.NODE_ENV !== 'production' && this.props.initialSortedRow) {
+      deprecate(
+        'Table',
+        'The `initialSortedRow` prop has been deprecated. Use the `initialSortedColumn` prop instead.',
+      );
+    }
     this.state = {
-      sortedRow: this.props.initialSortedRow,
+      sortedColumn:
+        this.props.initialSortedColumn || this.props.initialSortedRow,
       rows: this.getInitialRows(
         this.props.rows,
         this.props.initialSortDirection,
-        this.props.initialSortedRow,
+        this.props.initialSortedColumn || this.props.initialSortedRow,
       ),
       sortHover: undefined,
       sortDirection: this.props.initialSortDirection,
@@ -122,10 +136,10 @@ class Table extends Component<TableProps, TableState> {
   componentDidUpdate(prevProps: TableProps): void {
     if (this.props.rows !== prevProps.rows) {
       // Preserve existing sorting
-      if (this.state.sortedRow && this.state.sortDirection) {
+      if (this.state.sortedColumn && this.state.sortDirection) {
         const sortedRows = this.getSortedRows(
           this.state.sortDirection,
-          this.state.sortedRow,
+          this.state.sortedColumn,
         );
         this.setState({ rows: sortedRows });
         return;
@@ -177,8 +191,8 @@ class Table extends Component<TableProps, TableState> {
   onSortLeave = (): void => this.setState({ sortHover: undefined });
 
   onSortBy = (i: number): void => {
-    const { sortedRow, sortDirection } = this.state;
-    const isActive = i === sortedRow;
+    const { sortedColumn, sortDirection } = this.state;
+    const isActive = i === sortedColumn;
     const nextDirection = getSortDirection(isActive, sortDirection);
     const sortedRows = this.getSortedRows(nextDirection, i);
 
@@ -188,13 +202,11 @@ class Table extends Component<TableProps, TableState> {
   getInitialRows = (
     rows: Row[],
     initialSortDirection?: Direction | undefined,
-    initialSortedRow?: number | undefined,
-  ): Row[] => {
-    if (initialSortedRow && initialSortDirection) {
-      return this.getSortedRows(initialSortDirection, initialSortedRow);
-    }
-    return rows;
-  };
+    initialSortedColumn?: number | undefined,
+  ): Row[] =>
+    initialSortedColumn && initialSortDirection
+      ? this.getSortedRows(initialSortDirection, initialSortedColumn)
+      : rows;
 
   getSortedRows = (sortDirection: Direction, sortedRow: number): Row[] => {
     const { rows, onSortBy } = this.props;
@@ -205,7 +217,7 @@ class Table extends Component<TableProps, TableState> {
 
   updateSort = (i: number, nextDirection: Direction, sortedRows: Row[]): void =>
     this.setState({
-      sortedRow: i,
+      sortedColumn: i,
       sortDirection: nextDirection,
       rows: sortedRows,
     });
@@ -231,7 +243,7 @@ class Table extends Component<TableProps, TableState> {
     const {
       sortDirection,
       sortHover,
-      sortedRow,
+      sortedColumn,
       scrollTop,
       tableBodyHeight,
       rows,
@@ -267,7 +279,7 @@ class Table extends Component<TableProps, TableState> {
               condensed={condensed}
               scrollable={scrollable}
               sortDirection={sortDirection}
-              sortedRow={sortedRow}
+              sortedColumn={sortedColumn}
               onSortBy={this.onSortBy}
               onSortEnter={this.onSortEnter}
               onSortLeave={this.onSortLeave}
