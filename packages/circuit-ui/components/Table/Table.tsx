@@ -69,10 +69,9 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
    */
   initialSortDirection?: 'ascending' | 'descending';
   /**
-   * Specifies the wrongly-named column index which `initialSortDirection` will be applied to
-   */
-  /**
    * @deprecated
+   *
+   * Use the `initialSortedColumn` prop instead.
    */
   initialSortedRow?: number;
   /**
@@ -108,7 +107,7 @@ class Table extends Component<TableProps, TableState> {
     if (process.env.NODE_ENV !== 'production' && this.props.initialSortedRow) {
       deprecate(
         'Table',
-        'The prop initialSortedRow is deprecated and will be removed in a future version of circuit UI. Please use initialSortedColumn instead.',
+        'The `initialSortedRow` prop has been deprecated. Use the `initialSortedColumn` prop instead.',
       );
     }
     this.state = {
