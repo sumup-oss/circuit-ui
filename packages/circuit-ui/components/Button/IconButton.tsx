@@ -126,3 +126,5 @@ export const IconButton: ForwardRefExoticComponent<
     };
   },
 );
+
+IconButton.displayName = 'IconButton';

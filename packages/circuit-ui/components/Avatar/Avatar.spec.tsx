@@ -70,6 +70,7 @@ describe('Avatar', () => {
       const avatarWithAlternativeText = screen.queryByRole('img');
       expect(avatarWithAlternativeText).not.toBeInTheDocument();
 
+      // eslint-disable-next-line testing-library/no-container
       const avatarEl = container.querySelector('[aria-hidden=true]');
       expect(avatarEl).toBeInTheDocument();
     });

@@ -31,8 +31,21 @@ export interface HrProps extends HTMLAttributes<HTMLHRElement> {
  * A horizontal rule to visually and semantically separate content.
  */
 export const Hr = forwardRef<HTMLHRElement, HrProps>(
-  ({ className, as: Element = 'hr', ...props }, ref) => (
-    <Element {...props} ref={ref} className={clsx(classes.base, className)} />
+  (
+    {
+      className,
+      'as': Element = 'hr',
+      'aria-hidden': ariaHidden = 'true',
+      ...props
+    },
+    ref,
+  ) => (
+    <Element
+      {...props}
+      ref={ref}
+      className={clsx(classes.base, className)}
+      aria-hidden={ariaHidden}
+    />
   ),
 );
 

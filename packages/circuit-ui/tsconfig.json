@@ -27,7 +27,8 @@
     "types/**/*",
     "util/**/*",
     "index.ts",
-    "legacy.ts"
+    "legacy.ts",
+    "experimental.ts"
   ],
   "exclude": ["node_modules", "dist"],
   "typeRoots": ["./types"]

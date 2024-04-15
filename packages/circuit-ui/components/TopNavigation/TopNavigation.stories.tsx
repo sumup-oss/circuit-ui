@@ -21,6 +21,7 @@ import { modes } from '../../../../.storybook/modes.js';
 import { SideNavigation } from '../SideNavigation/index.js';
 import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories.js';
 import { ModalProvider } from '../ModalContext/index.js';
+import Body from '../Body/index.js';
 
 import { TopNavigation, TopNavigationProps } from './TopNavigation.js';
 
@@ -40,6 +41,23 @@ export default {
   },
   excludeStories: /.*Args$/,
 };
+
+function CustomComponent() {
+  return (
+    <Body
+      size="two"
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        height: '100%',
+        padding: '0 var(--cui-spacings-mega)',
+        textAlign: 'center',
+      }}
+    >
+      Test account
+    </Body>
+  );
+}
 
 export const baseArgs: TopNavigationProps = {
   isLoading: false,
@@ -61,10 +79,12 @@ export const baseArgs: TopNavigationProps = {
     label: 'Open profile menu',
     actions: [
       {
+        href: '/profile',
         onClick: action('View profile'),
         children: 'View profile',
       },
       {
+        href: '/settings',
         onClick: action('Settings'),
         children: 'Settings',
       },
@@ -78,6 +98,10 @@ export const baseArgs: TopNavigationProps = {
     className: 'custom-class-name',
   },
   links: [
+    {
+      key: 'custom',
+      children: <CustomComponent />,
+    },
     {
       icon: Shop,
       label: 'Shop',

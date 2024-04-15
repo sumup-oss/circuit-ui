@@ -76,17 +76,17 @@ import { useRef } from 'react';
 import { RadioButtonGroup } from '@sumup/circuit-ui';
 
 function Uncontrolled() {
-  const checkboxRefs = useRef({});
+  const radioButtonRefs = useRef({});
 
-  const setCheckboxRef = (input: HTMLInputElement) => {
-    checkboxRefs.current[input.value] = input;
+  const setRadioButtonRef = (input: HTMLInputElement) => {
+    radioButtonRefs.current[input.value] = input;
   };
 
   const options = [
     {
       label: 'Apple',
       value: 'apple',
-      ref: setCheckboxRef,
+      ref: setRadioButtonRef,
     },
   ];
 
@@ -95,7 +95,6 @@ function Uncontrolled() {
       label="Favourite fruit"
       options={options}
       defaultValue={[]}
-      ref={checkboxGroupRef}
     />
   );
 }

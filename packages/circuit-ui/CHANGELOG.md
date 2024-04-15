@@ -1,5 +1,57 @@
 # @sumup/circuit-ui
 
+## 8.6.2
+
+### Patch Changes
+
+- [#2489](https://github.com/sumup-oss/circuit-ui/pull/2489) [`c97a10a`](https://github.com/sumup-oss/circuit-ui/commit/c97a10afa19cec3beb3a994ad623b95c47ace7a4) Thanks [@connor-baer](https://github.com/connor-baer)! - Reverted usage of the experimental Tooltip component in the IconButton, Pagination, and Table components. Testing the change in applications surfaced too many edge cases and conflicts. The changes will be re-applied in the next major release.
+
+## 8.6.1
+
+### Patch Changes
+
+- [#2486](https://github.com/sumup-oss/circuit-ui/pull/2486) [`54dbfd2`](https://github.com/sumup-oss/circuit-ui/commit/54dbfd23e9daed9792369995b847a62d7771bc28) Thanks [@connor-baer](https://github.com/connor-baer)! - Switched to using an option's `value` instead of its `label` as the [React key](https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key) in the CheckboxGroup, RadioButtonGroup and SelectorGroup components.
+
+## 8.6.0
+
+### Minor Changes
+
+⚠️ This version adds two new dependencies to Circuit UI: `@nanostores/react` and `nanostores`. Both packages use the ES Module format and might need to be transpiled (e.g. for Jest).
+
+- [`2d69309`](https://github.com/sumup-oss/circuit-ui/commit/2d6930930204bc7da2772e411b841237f144e64f) Thanks [@connor-baer](https://github.com/connor-baer)! - Added experimental Tooltip and Toggletip components to display additional information that is contextual, helpful, and nonessential to clarify the purpose of otherwise ambiguous elements.
+
+- [`2d69309`](https://github.com/sumup-oss/circuit-ui/commit/2d6930930204bc7da2772e411b841237f144e64f) Thanks [@connor-baer](https://github.com/connor-baer)! - Extended the function signature of the `useClickOutside` hook to accept an array of refs as its first argument.
+
+- [#2481](https://github.com/sumup-oss/circuit-ui/pull/2481) [`43951d0`](https://github.com/sumup-oss/circuit-ui/commit/43951d01fa9b0d9671192e654d5476199d66c55a) Thanks [@connor-baer](https://github.com/connor-baer)! - Added support for passing custom components to the `links` prop of the TopNavigation component and deprecated the `user` and `profileMenu` props.
+
+## 8.5.4
+
+### Patch Changes
+
+- [#2483](https://github.com/sumup-oss/circuit-ui/pull/2483) [`76657a1`](https://github.com/sumup-oss/circuit-ui/commit/76657a176dd2946753b6db08c233746135be62f5) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the semantics of the TopNavigation's profile menu.
+
+- [`67e49bc`](https://github.com/sumup-oss/circuit-ui/commit/67e49bc09702406f564c9db7cbcd93f52b8e9309) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the disabled styles of the Input and Select components.
+
+## 8.5.3
+
+### Patch Changes
+
+- [#2478](https://github.com/sumup-oss/circuit-ui/pull/2478) [`9d0bfdc`](https://github.com/sumup-oss/circuit-ui/commit/9d0bfdcf30d52557dd0043b1cde4537128fd78a7) Thanks [@andonimihai](https://github.com/andonimihai)! - Fixed the display of the slides in the composed Carousel component.
+
+## 8.5.2
+
+### Patch Changes
+
+- [#2469](https://github.com/sumup-oss/circuit-ui/pull/2469) [`1a2e807`](https://github.com/sumup-oss/circuit-ui/commit/1a2e807c172711d1e4a973d74b813c717072eff5) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the `aria-pressed="true"` attribute to the Tag component when it is rendered as a selected button.
+
+- [#2469](https://github.com/sumup-oss/circuit-ui/pull/2469) [`1a2e807`](https://github.com/sumup-oss/circuit-ui/commit/1a2e807c172711d1e4a973d74b813c717072eff5) Thanks [@connor-baer](https://github.com/connor-baer)! - Wired up the total number of pages to the page `select` as its accessible description in the Pagination component.
+
+- [#2469](https://github.com/sumup-oss/circuit-ui/pull/2469) [`1a2e807`](https://github.com/sumup-oss/circuit-ui/commit/1a2e807c172711d1e4a973d74b813c717072eff5) Thanks [@connor-baer](https://github.com/connor-baer)! - Added instructions for writing relevant alternative text for images.
+
+- [#2469](https://github.com/sumup-oss/circuit-ui/pull/2469) [`1a2e807`](https://github.com/sumup-oss/circuit-ui/commit/1a2e807c172711d1e4a973d74b813c717072eff5) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the semantics from the Hr component by default since its most commonly used for purely visual or aesthetic purposes. If the horizontal rule is useful or essential to understanding the structure of the content, pass the `aria-hidden="false"` attribute to restore its semantics.
+
+- [#2469](https://github.com/sumup-oss/circuit-ui/pull/2469) [`1a2e807`](https://github.com/sumup-oss/circuit-ui/commit/1a2e807c172711d1e4a973d74b813c717072eff5) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the redundant `aria-label` label from the TableHeader component.
+
 ## 8.5.1
 
 ### Patch Changes

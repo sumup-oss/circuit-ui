@@ -63,6 +63,7 @@ export function Slide({
   slideDirection,
   animationDuration = ANIMATION_DURATION,
   children,
+  style = {},
   ...props
 }: SlideProps) {
   const stackOrder = SlideService.getStackOrder(
@@ -87,6 +88,7 @@ export function Slide({
         '--slide-stack-order': stackOrder,
         '--slide-transform-x': `${-index * 100}%`,
         '--slide-animation-duration': `${animationDuration}ms`,
+        ...style,
       }}
       className={classes.base}
       {...props}

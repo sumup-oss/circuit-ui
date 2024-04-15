@@ -17,38 +17,38 @@
 
 import {
   Fragment,
+  useCallback,
   useEffect,
   useId,
   useRef,
-  KeyboardEvent,
-  AnchorHTMLAttributes,
-  ButtonHTMLAttributes,
+  type KeyboardEvent,
+  type AnchorHTMLAttributes,
+  type ButtonHTMLAttributes,
 } from 'react';
 import {
   useFloating,
   flip,
   offset as offsetMiddleware,
-  type Placement,
   size,
+  type Placement,
   type SizeOptions,
 } from '@floating-ui/react-dom';
 import type { IconComponentType } from '@sumup/icons';
 
-import { ClickEvent } from '../../types/events.js';
-import { EmotionAsPropType } from '../../types/prop-types.js';
+import type { ClickEvent } from '../../types/events.js';
+import type { EmotionAsPropType } from '../../types/prop-types.js';
+import { isArrowDown, isArrowUp } from '../../util/key-codes.js';
+import { isFunction } from '../../util/type-check.js';
+import { clsx } from '../../styles/clsx.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
 import { useClickOutside } from '../../hooks/useClickOutside/index.js';
+import { useMedia } from '../../hooks/useMedia/index.js';
 import { useFocusList } from '../../hooks/useFocusList/index.js';
-import { isArrowDown, isArrowUp } from '../../util/key-codes.js';
+import { usePrevious } from '../../hooks/usePrevious/index.js';
+import { useStackContext } from '../StackContext/index.js';
 import { useComponents } from '../ComponentsContext/index.js';
 import Portal from '../Portal/index.js';
 import Hr from '../Hr/index.js';
-import { useStackContext } from '../StackContext/index.js';
-import { isFunction } from '../../util/type-check.js';
-import { useLatest } from '../../hooks/useLatest/index.js';
-import { usePrevious } from '../../hooks/usePrevious/index.js';
-import { useMedia } from '../../hooks/useMedia/index.js';
-import { clsx } from '../../styles/clsx.js';
 import sharedClasses from '../../styles/shared.js';
 
 import classes from './Popover.module.css';
@@ -95,7 +95,6 @@ export const PopoverItem = ({
 
   return (
     <Element
-      role="menuitem"
       className={clsx(
         classes.item,
         sharedClasses.listItem,
@@ -165,6 +164,14 @@ export interface PopoverProps {
     'aria-controls': string;
     'aria-expanded': boolean;
   }) => JSX.Element;
+  /**
+   * Remove the [`menu` role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/roles/menu_role)
+   * when its semantics aren't appropriate for the use case, for example when
+   * the Popover is used as part of a navigation. Default: 'menu'.
+   *
+   * Learn more: https://inclusive-components.design/menus-menu-buttons/
+   */
+  role?: 'menu' | null;
 }
 
 type TriggerKey = 'ArrowUp' | 'ArrowDown';
@@ -187,6 +194,7 @@ export const Popover = ({
   component: Component,
   offset,
   className,
+  role = 'menu',
   ...props
 }: PopoverProps): JSX.Element | null => {
   const zIndex = useStackContext();
@@ -196,6 +204,7 @@ export const Popover = ({
   const menuId = useId();
 
   const { x, y, strategy, refs, update } = useFloating<HTMLElement>({
+    open: isOpen,
     placement,
     strategy: 'fixed',
     middleware: offset
@@ -206,10 +215,6 @@ export const Popover = ({
         ]
       : [flip({ fallbackPlacements }), size(sizeOptions)],
   });
-
-  // This is a performance optimization to prevent event listeners from being
-  // re-attached on every render.
-  const floatingRef = useLatest(refs.floating.current);
 
   const focusProps = useFocusList();
   const prevOpen = usePrevious(isOpen);
@@ -225,46 +230,49 @@ export const Popover = ({
     zIndex: zIndex || 'var(--cui-z-index-popover)',
   } as const;
 
-  const handleToggle: OnToggle = (state) => {
-    onToggle((prev) => (isFunction(state) ? state(prev) : state));
-  };
+  const handleToggle: OnToggle = useCallback(
+    (state) => {
+      onToggle((prev) => (isFunction(state) ? state(prev) : state));
+    },
+    [onToggle],
+  );
 
-  const handleTriggerClick = (event: ClickEvent) => {
-    // This prevents the event from bubbling which would trigger the
-    // useClickOutside above and would prevent the popover from closing.
-    event.stopPropagation();
+  const handleTriggerClick = useCallback(() => {
     handleToggle((prev) => !prev);
-  };
+  }, [handleToggle]);
 
-  const handleTriggerKeyDown = (event: KeyboardEvent) => {
-    if (isArrowDown(event)) {
-      triggerKey.current = 'ArrowDown';
-      handleToggle(true);
-    }
-    if (isArrowUp(event)) {
-      triggerKey.current = 'ArrowUp';
-      handleToggle((prev) => !prev);
-    }
-  };
+  const handleTriggerKeyDown = useCallback(
+    (event: KeyboardEvent) => {
+      if (isArrowDown(event)) {
+        triggerKey.current = 'ArrowDown';
+        handleToggle(true);
+      }
+      if (isArrowUp(event)) {
+        triggerKey.current = 'ArrowUp';
+        handleToggle((prev) => !prev);
+      }
+    },
+    [handleToggle],
+  );
 
-  const handlePopoverItemClick = (
-    event: ClickEvent,
-    onClick: BaseProps['onClick'],
-  ) => {
-    if (onClick) {
-      onClick(event);
-    }
-    handleToggle(false);
-  };
+  const handlePopoverItemClick =
+    (onClick: BaseProps['onClick']) => (event: ClickEvent) => {
+      onClick?.(event);
+      handleToggle(false);
+    };
 
   useEscapeKey(() => handleToggle(false), isOpen);
-  useClickOutside(floatingRef, () => handleToggle(false), isOpen);
+  useClickOutside(
+    [refs.reference, refs.floating],
+    () => handleToggle(false),
+    isOpen,
+  );
 
   useEffect(() => {
     /**
      * When we support `ResizeObserver` (https://caniuse.com/resizeobserver),
      * we can look into using Floating UI's `autoUpdate` (but we can't use
-     * `whileElementInMounted` because our implementation hides the floating
+     * `whileElementIsMounted` because our implementation hides the floating
      * element using CSS instead of using conditional rendering.
      * See https://floating-ui.com/docs/react-dom#updating
      */
@@ -277,7 +285,14 @@ export const Popover = ({
       window.removeEventListener('scroll', update);
     }
 
-    // Focus the first or last element after opening
+    return () => {
+      window.removeEventListener('resize', update);
+      window.removeEventListener('scroll', update);
+    };
+  }, [isOpen, refs.reference, update]);
+
+  useEffect(() => {
+    // Focus the first or last popover item after opening
     if (!prevOpen && isOpen) {
       const element = (
         triggerKey.current && triggerKey.current === 'ArrowUp'
@@ -289,7 +304,7 @@ export const Popover = ({
       }
     }
 
-    // Focus the trigger button after closing
+    // Focus the reference element after closing
     if (prevOpen && !isOpen) {
       const triggerButton = (refs.reference.current &&
         refs.reference.current.firstElementChild) as HTMLElement;
@@ -297,13 +312,9 @@ export const Popover = ({
     }
 
     triggerKey.current = null;
+  }, [isOpen, prevOpen, refs.reference]);
 
-    // Clean up the event listener when the component is unmounted
-    return () => {
-      window.removeEventListener('resize', update);
-      window.removeEventListener('scroll', update);
-    };
-  }, [isOpen, prevOpen, refs.reference, update]);
+  const isMenu = role === 'menu';
 
   return (
     <Fragment>
@@ -342,25 +353,20 @@ export const Popover = ({
           <div
             id={menuId}
             ref={menuEl}
-            aria-labelledby={triggerId}
-            role="menu"
+            aria-labelledby={isMenu ? triggerId : undefined}
+            role={isMenu ? 'menu' : undefined}
             className={clsx(classes.menu, isOpen && classes.open)}
           >
             {actions.map((action, index) =>
               isDivider(action) ? (
-                <Hr
-                  className={classes.divider}
-                  aria-hidden="true"
-                  key={index}
-                />
+                <Hr className={classes.divider} key={index} />
               ) : (
                 <PopoverItem
                   key={index}
                   {...action}
                   {...focusProps}
-                  onClick={(event) =>
-                    handlePopoverItemClick(event, action.onClick)
-                  }
+                  role={isMenu ? 'menuitem' : undefined}
+                  onClick={handlePopoverItemClick(action.onClick)}
                 />
               ),
             )}

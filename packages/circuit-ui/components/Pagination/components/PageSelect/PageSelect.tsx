@@ -15,7 +15,13 @@
 
 'use client';
 
-import { useCallback, FunctionComponent, ChangeEvent, Fragment } from 'react';
+import {
+  useCallback,
+  FunctionComponent,
+  ChangeEvent,
+  Fragment,
+  useId,
+} from 'react';
 
 import Select, { SelectProps } from '../../../Select/index.js';
 
@@ -39,6 +45,7 @@ export const PageSelect: FunctionComponent<PageSelectProps> = ({
   totalLabel,
   ...props
 }) => {
+  const descriptionId = useId();
   const pageOptions = pages.map((value) => ({ value, label: `${value}` }));
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLSelectElement>) => {
@@ -56,9 +63,12 @@ export const PageSelect: FunctionComponent<PageSelectProps> = ({
         options={pageOptions}
         onChange={handleChange}
         hideLabel
+        aria-describedby={descriptionId}
       />
       {totalLabel && (
-        <span className={classes.total}>{totalLabel(totalPages)}</span>
+        <span id={descriptionId} className={classes.total}>
+          {totalLabel(totalPages)}
+        </span>
       )}
     </Fragment>
   );

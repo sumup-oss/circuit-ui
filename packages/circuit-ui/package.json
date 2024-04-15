@@ -1,6 +1,6 @@
 {
   "name": "@sumup/circuit-ui",
-  "version": "8.5.1",
+  "version": "8.6.2",
   "description": "SumUp's React UI component library",
   "type": "module",
   "main": "./dist/index.js",
@@ -14,12 +14,19 @@
       "types": "./dist/legacy.d.ts",
       "default": "./dist/legacy.js"
     },
+    "./experimental": {
+      "types": "./dist/experimental.d.ts",
+      "default": "./dist/experimental.js"
+    },
     "./styles.css": "./dist/style.css"
   },
   "typesVersions": {
     "*": {
       "legacy": [
         "./dist/legacy.d.ts"
+      ],
+      "experimental": [
+        "./dist/experimental.d.ts"
       ]
     }
   },
@@ -38,8 +45,6 @@
   },
   "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/circuit-ui/README.md",
   "scripts": {
-    "dev": "vite",
-    "start": "npm run dev",
     "build": "vite build && tsc -p tsconfig.build.json && rm -rf dist/node_modules",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
@@ -47,13 +52,16 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.5",
+    "@nanostores/react": "^0.7.2",
+    "dialog-polyfill": "^0.5.6",
+    "nanostores": "^0.10.0",
     "react-modal": "^3.16.1",
     "react-number-format": "5.3.0"
   },
   "devDependencies": {
     "@emotion/is-prop-valid": "^1.2.1",
     "@emotion/jest": "^11.11.0",
-    "@emotion/react": "^11.11.3",
+    "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
     "@sumup/design-tokens": "^7.0.0",
     "@sumup/icons": "^3.0.0",
@@ -75,9 +83,9 @@
     "react-dom": "^18.2.0",
     "react-swipeable": "^7.0.1",
     "rollup-plugin-preserve-directives": "^0.3.1",
-    "typescript": "^5.3.3",
+    "typescript": "^5.4.3",
     "typescript-plugin-css-modules": "^5.0.2",
-    "vite": "^5.1.6"
+    "vite": "^5.1.7"
   },
   "peerDependencies": {
     "@emotion/is-prop-valid": "^1.2.1",

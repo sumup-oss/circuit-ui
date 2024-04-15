@@ -13,10 +13,12 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes } from 'react';
+'use client';
+
+import { type HTMLAttributes } from 'react';
 import { ChevronUp, ChevronDown } from '@sumup/icons';
 
-import { Direction } from '../../types.js';
+import type { Direction } from '../../types.js';
 import { clsx } from '../../../../styles/clsx.js';
 import utilityClasses from '../../../../styles/utility.js';
 

@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+/* eslint-disable testing-library/no-container */
+
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
