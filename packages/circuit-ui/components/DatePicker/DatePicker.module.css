@@ -1,0 +1,6 @@
+.calendar::part(button) {
+  --color-accent: var(--cui-bg-accent-strong);
+  --color-text-on-accent: var(--cui-fg-on-strong);
+
+  border-radius: var(--cui-border-radius-circle);
+}
