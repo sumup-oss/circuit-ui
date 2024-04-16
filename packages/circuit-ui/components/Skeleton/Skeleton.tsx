@@ -17,10 +17,10 @@
 
 import {
   createContext,
-  useContext,
-  ReactNode,
   forwardRef,
-  HTMLAttributes,
+  useContext,
+  type ReactNode,
+  type HTMLAttributes,
 } from 'react';
 
 import type { AsPropType } from '../../types/prop-types.js';

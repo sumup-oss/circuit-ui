@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ImgHTMLAttributes } from 'react';
+import type { ImgHTMLAttributes } from 'react';
 import { Profile, Image as ImageIcon } from '@sumup/icons';
 
 import { CircuitError } from '../../util/errors.js';

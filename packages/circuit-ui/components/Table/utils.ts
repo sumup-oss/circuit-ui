@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import { isArray, isFunction } from '../../util/type-check.js';
 
-import {
+import type {
   Direction,
   SortByValue,
   RowCellObject,

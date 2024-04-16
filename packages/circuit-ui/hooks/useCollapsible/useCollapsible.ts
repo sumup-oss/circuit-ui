@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { useState, useRef, useCallback, RefObject, useId } from 'react';
+import { useState, useRef, useCallback, useId, type RefObject } from 'react';
 
-import { ClickEvent } from '../../types/events.js';
+import type { ClickEvent } from '../../types/events.js';
 import { useAnimation } from '../useAnimation/index.js';
 
 const DEFAULT_HEIGHT = 'auto';

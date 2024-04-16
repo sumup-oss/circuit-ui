@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { FormEvent, RefObject, useCallback, useEffect } from 'react';
+import { useCallback, useEffect, type FormEvent, type RefObject } from 'react';
 
 import type { InputElement } from '../Input/Input.js';
 import { useComponentSize } from '../../hooks/useComponentSize/index.js';

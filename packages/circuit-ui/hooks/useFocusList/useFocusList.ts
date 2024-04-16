@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { KeyboardEvent, useCallback, useId } from 'react';
+import { useCallback, useId, type KeyboardEvent } from 'react';
 
 import { isArrowDown, isArrowUp } from '../../util/key-codes.js';
 

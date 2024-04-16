@@ -16,13 +16,13 @@
 'use client';
 
 import {
-  ReactNode,
   forwardRef,
-  ButtonHTMLAttributes,
-  AnchorHTMLAttributes,
-  HTMLAttributes,
+  type ReactNode,
+  type ButtonHTMLAttributes,
+  type AnchorHTMLAttributes,
+  type HTMLAttributes,
 } from 'react';
-import { ChevronRight, IconComponentType } from '@sumup/icons';
+import { ChevronRight, type IconComponentType } from '@sumup/icons';
 
 import type { ClickEvent } from '../../types/events.js';
 import type { AsPropType } from '../../types/prop-types.js';

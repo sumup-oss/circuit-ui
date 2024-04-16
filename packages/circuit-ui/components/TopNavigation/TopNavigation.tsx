@@ -15,22 +15,22 @@
 
 'use client';
 
-import { HTMLAttributes, ReactNode, useEffect } from 'react';
+import { useEffect, type HTMLAttributes, type ReactNode } from 'react';
 
-import Hamburger, { HamburgerProps } from '../Hamburger/index.js';
+import Hamburger, { type HamburgerProps } from '../Hamburger/index.js';
 import { SkeletonContainer } from '../Skeleton/index.js';
 import { clsx } from '../../styles/clsx.js';
 import utilityClasses from '../../styles/utility.js';
 
 import {
   ProfileMenu,
-  ProfileMenuProps,
+  type ProfileMenuProps,
 } from './components/ProfileMenu/index.js';
 import {
   UtilityLinks,
-  UtilityLinksProps,
+  type UtilityLinksProps,
 } from './components/UtilityLinks/index.js';
-import { UserProps } from './types.js';
+import type { UserProps } from './types.js';
 import classes from './TopNavigation.module.css';
 
 /**

@@ -13,7 +13,13 @@
  * limitations under the License.
  */
 
-import { Alert, Confirm, IconComponentType, Info, Notify } from '@sumup/icons';
+import {
+  Alert,
+  Confirm,
+  Info,
+  Notify,
+  type IconComponentType,
+} from '@sumup/icons';
 
 export type NotificationVariant = 'info' | 'success' | 'warning' | 'danger';
 

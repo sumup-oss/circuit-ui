@@ -22,7 +22,7 @@ import { css } from '@emotion/react';
 
 import { isString } from '../../../util/type-check.js';
 
-import { GridKey, BreakpointOptions, GridValue } from './types.js';
+import type { GridKey, BreakpointOptions, GridValue } from './types.js';
 
 export function normalizeToNumber(value: string | number): number {
   return isString(value) ? parseInt(value, 10) : value;

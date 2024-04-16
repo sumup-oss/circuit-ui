@@ -15,10 +15,14 @@
 
 'use client';
 
-import { AnchorHTMLAttributes, ButtonHTMLAttributes, forwardRef } from 'react';
+import {
+  forwardRef,
+  type AnchorHTMLAttributes,
+  type ButtonHTMLAttributes,
+} from 'react';
 
 import { useComponents } from '../../../ComponentsContext/index.js';
-import { EmotionAsPropType } from '../../../../types/prop-types.js';
+import type { EmotionAsPropType } from '../../../../types/prop-types.js';
 import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './Tab.module.css';

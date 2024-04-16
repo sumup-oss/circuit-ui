@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes, useId } from 'react';
+import { useId, type HTMLAttributes } from 'react';
 
-import { ReturnType } from '../../types/return-type.js';
+import type { ReturnType } from '../../types/return-type.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,

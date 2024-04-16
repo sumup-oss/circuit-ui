@@ -15,7 +15,7 @@
 
 import { eachFn } from '../../util/helpers.js';
 
-import { Actions, InternalState, PropGetters } from './types.js';
+import type { Actions, InternalState, PropGetters } from './types.js';
 
 type Data = {
   step?: number;

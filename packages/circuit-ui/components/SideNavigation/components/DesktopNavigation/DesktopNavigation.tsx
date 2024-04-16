@@ -22,7 +22,7 @@ import { clsx } from '../../../../styles/clsx.js';
 import { useFocusList } from '../../../../hooks/useFocusList/index.js';
 import Headline from '../../../Headline/index.js';
 import { Skeleton, SkeletonContainer } from '../../../Skeleton/index.js';
-import { PrimaryLinkProps } from '../../types.js';
+import type { PrimaryLinkProps } from '../../types.js';
 import { SecondaryLinks } from '../SecondaryLinks/index.js';
 import { PrimaryLink } from '../PrimaryLink/index.js';
 

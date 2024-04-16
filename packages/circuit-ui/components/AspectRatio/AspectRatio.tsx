@@ -17,8 +17,8 @@ import {
   Children,
   forwardRef,
   cloneElement,
-  ReactElement,
-  HTMLAttributes,
+  type ReactElement,
+  type HTMLAttributes,
 } from 'react';
 
 import { clsx } from '../../styles/clsx.js';

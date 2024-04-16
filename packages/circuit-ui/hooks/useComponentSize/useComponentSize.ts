@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { useCallback, useState, useEffect, RefObject } from 'react';
+import { useCallback, useState, useEffect, type RefObject } from 'react';
 
 import { throttle } from '../../util/helpers.js';
 

@@ -15,14 +15,14 @@
 
 'use client';
 
-import { HTMLAttributes, ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 import ReactModal from 'react-modal';
 
 import { isFunction } from '../../util/type-check.js';
 import {
-  ModalComponent,
-  BaseModalProps,
   createUseModal,
+  type ModalComponent,
+  type BaseModalProps,
 } from '../ModalContext/index.js';
 import CloseButton from '../CloseButton/index.js';
 import { StackContext } from '../StackContext/index.js';

@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, type HTMLAttributes } from 'react';
 
-import Button, { ButtonProps } from '../Button/index.js';
+import Button, { type ButtonProps } from '../Button/index.js';
 import { clsx } from '../../styles/clsx.js';
 import { deprecate } from '../../util/logger.js';
 

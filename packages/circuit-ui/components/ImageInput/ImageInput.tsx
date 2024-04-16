@@ -18,16 +18,16 @@
 import {
   useState,
   useRef,
-  InputHTMLAttributes,
-  ChangeEvent,
-  ClipboardEvent,
-  DragEvent,
   useId,
-  ComponentType,
+  type InputHTMLAttributes,
+  type ChangeEvent,
+  type ClipboardEvent,
+  type DragEvent,
+  type ComponentType,
 } from 'react';
 import { Delete, Plus } from '@sumup/icons';
 
-import { ClickEvent } from '../../types/events.js';
+import type { ClickEvent } from '../../types/events.js';
 import utilityClasses from '../../styles/utility.js';
 import {
   FieldWrapper,

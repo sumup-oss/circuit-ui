@@ -14,7 +14,7 @@
  */
 
 import styled from '@emotion/styled';
-import { Theme } from '@sumup/design-tokens';
+import type { Theme } from '@sumup/design-tokens';
 
 export default styled;
 

@@ -16,14 +16,14 @@
 'use client';
 
 import {
-  useCallback,
-  FunctionComponent,
-  ChangeEvent,
   Fragment,
+  useCallback,
   useId,
+  type FunctionComponent,
+  type ChangeEvent,
 } from 'react';
 
-import Select, { SelectProps } from '../../../Select/index.js';
+import Select, { type SelectProps } from '../../../Select/index.js';
 
 import classes from './PageSelect.module.css';
 

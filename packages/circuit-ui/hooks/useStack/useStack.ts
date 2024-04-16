@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Dispatch, useEffect, useReducer } from 'react';
+import { useEffect, useReducer, type Dispatch } from 'react';
 
 type Id = string | number;
 type Transition = {

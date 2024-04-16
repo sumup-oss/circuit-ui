@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import ReactModal, { Props as ReactModalProps } from 'react-modal';
+import ReactModal, { type Props as ReactModalProps } from 'react-modal';
 
 import { StackContext } from '../../../StackContext/index.js';
 import type { SidePanelProps } from '../../SidePanel.js';

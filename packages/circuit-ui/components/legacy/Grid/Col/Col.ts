@@ -16,13 +16,13 @@
 /** @jsxImportSource @emotion/react */
 
 import { css } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
+import type { Theme } from '@sumup/design-tokens';
 
 import isPropValid from '../../../../styles/is-prop-valid.js';
-import styled, { StyleProps } from '../../../../styles/styled.js';
+import styled, { type StyleProps } from '../../../../styles/styled.js';
 import { isNumber, isString } from '../../../../util/type-check.js';
 import { clamp } from '../../../../util/helpers.js';
-import { BreakpointOptions, GridValue } from '../types.js';
+import type { BreakpointOptions, GridValue } from '../types.js';
 import { wrapStyles, normalizeToNumber, composeBreakpoints } from '../utils.js';
 import { MAX_COL_WIDTH, MIN_COL_SPAN } from '../constants.js';
 

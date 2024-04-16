@@ -16,11 +16,11 @@
 'use client';
 
 import {
-  ComponentType,
   forwardRef,
-  InputHTMLAttributes,
-  TextareaHTMLAttributes,
   useId,
+  type ComponentType,
+  type InputHTMLAttributes,
+  type TextareaHTMLAttributes,
 } from 'react';
 
 import {
@@ -29,7 +29,7 @@ import {
   FieldLabelText,
   FieldValidationHint,
 } from '../Field/index.js';
-import { ReturnType } from '../../types/return-type.js';
+import type { ReturnType } from '../../types/return-type.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,

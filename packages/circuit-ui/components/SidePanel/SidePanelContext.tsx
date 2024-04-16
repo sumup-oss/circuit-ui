@@ -26,8 +26,8 @@ import {
 import ReactModal, { type Props as ReactModalProps } from 'react-modal';
 
 import { useMedia } from '../../hooks/useMedia/index.js';
-import { useStack, StackItem } from '../../hooks/useStack/index.js';
-import { Require } from '../../types/util.js';
+import { useStack, type StackItem } from '../../hooks/useStack/index.js';
+import type { Require } from '../../types/util.js';
 import { warn } from '../../util/logger.js';
 import { clsx } from '../../styles/clsx.js';
 import { useLatest } from '../../hooks/useLatest/useLatest.js';

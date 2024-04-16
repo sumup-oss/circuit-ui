@@ -18,7 +18,7 @@ import { useReducer, useEffect, useRef } from 'react';
 import { CircuitError } from '../../../util/errors.js';
 import { isFunction } from '../../../util/type-check.js';
 import * as StepService from '../StepService.js';
-import { Duration, StateAndHelpers, StepOptions } from '../types.js';
+import type { Duration, StateAndHelpers, StepOptions } from '../types.js';
 
 export function useStep({
   initialStep = 0,

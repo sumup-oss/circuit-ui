@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ImgHTMLAttributes, forwardRef } from 'react';
+import { forwardRef, type ImgHTMLAttributes } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
 

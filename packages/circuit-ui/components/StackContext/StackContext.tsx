@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { createContext, ReactNode, useContext } from 'react';
+import { createContext, useContext, type ReactNode } from 'react';
 
 export const StackContext = createContext<string | number | null>(null);
 

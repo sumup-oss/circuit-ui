@@ -27,9 +27,9 @@ import { deprecate } from '../../util/logger.js';
 
 import classes from './Button.module.css';
 import {
-  SharedButtonProps,
   createButtonComponent,
   legacyButtonSizeMap,
+  type SharedButtonProps,
 } from './base.js';
 
 export type ButtonProps = SharedButtonProps & {

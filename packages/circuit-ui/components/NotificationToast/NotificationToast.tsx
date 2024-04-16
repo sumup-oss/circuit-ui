@@ -15,18 +15,24 @@
 
 'use client';
 
-import { HTMLAttributes, RefObject, useEffect, useRef, useState } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+  type HTMLAttributes,
+  type RefObject,
+} from 'react';
 
 import { useAnimation } from '../../hooks/useAnimation/index.js';
 import Body from '../Body/index.js';
 import CloseButton from '../CloseButton/index.js';
-import { ClickEvent } from '../../types/events.js';
-import { BaseToastProps, createUseToast } from '../ToastContext/index.js';
+import type { ClickEvent } from '../../types/events.js';
+import { type BaseToastProps, createUseToast } from '../ToastContext/index.js';
 import utilityClasses from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
 import {
   NOTIFICATION_ICONS,
-  NotificationVariant,
+  type NotificationVariant,
 } from '../Notification/constants.js';
 
 import classes from './NotificationToast.module.css';

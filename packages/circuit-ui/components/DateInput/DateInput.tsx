@@ -18,7 +18,7 @@
 import { forwardRef, useState, useEffect } from 'react';
 import { PatternFormat } from 'react-number-format';
 
-import Input, { InputElement, InputProps } from '../Input/index.js';
+import Input, { type InputElement, type InputProps } from '../Input/index.js';
 import { clsx } from '../../styles/clsx.js';
 
 import classes from './DateInput.module.css';

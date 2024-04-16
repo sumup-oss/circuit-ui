@@ -16,14 +16,14 @@
 'use client';
 
 import {
-  FieldsetHTMLAttributes,
-  InputHTMLAttributes,
-  Ref,
   forwardRef,
   useId,
+  type FieldsetHTMLAttributes,
+  type InputHTMLAttributes,
+  type Ref,
 } from 'react';
 
-import { Checkbox, CheckboxProps } from '../Checkbox/Checkbox.js';
+import { Checkbox, type CheckboxProps } from '../Checkbox/Checkbox.js';
 import {
   FieldLabelText,
   FieldValidationHint,

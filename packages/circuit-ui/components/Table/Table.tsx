@@ -15,7 +15,7 @@
 
 'use client';
 
-import { Component, createRef, HTMLAttributes, UIEvent } from 'react';
+import { Component, createRef, type HTMLAttributes, type UIEvent } from 'react';
 
 import { isNil } from '../../util/type-check.js';
 import { throttle } from '../../util/helpers.js';
@@ -25,7 +25,7 @@ import { deprecate } from '../../util/logger.js';
 import TableHead from './components/TableHead/index.js';
 import TableBody from './components/TableBody/index.js';
 import { defaultSortBy, getSortDirection } from './utils.js';
-import { Direction, Row, HeaderCell } from './types.js';
+import type { Direction, Row, HeaderCell } from './types.js';
 import classes from './Table.module.css';
 
 export interface TableProps extends HTMLAttributes<HTMLDivElement> {

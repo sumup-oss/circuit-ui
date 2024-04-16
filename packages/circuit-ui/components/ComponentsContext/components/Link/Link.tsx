@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { forwardRef, AnchorHTMLAttributes, Ref } from 'react';
+import { forwardRef, type AnchorHTMLAttributes, type Ref } from 'react';
 
 export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   ref?: Ref<HTMLAnchorElement>;

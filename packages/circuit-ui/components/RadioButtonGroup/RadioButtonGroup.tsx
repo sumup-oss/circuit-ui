@@ -16,17 +16,17 @@
 'use client';
 
 import {
-  FieldsetHTMLAttributes,
-  InputHTMLAttributes,
-  Ref,
   forwardRef,
   useId,
+  type FieldsetHTMLAttributes,
+  type InputHTMLAttributes,
+  type Ref,
 } from 'react';
 
 import {
   RadioButton,
   RadioButtonGroupContext,
-  RadioButtonProps,
+  type RadioButtonProps,
 } from '../RadioButton/RadioButton.js';
 import {
   FieldLabelText,
