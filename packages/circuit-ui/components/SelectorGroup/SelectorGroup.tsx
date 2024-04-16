@@ -15,13 +15,13 @@
 
 'use client';
 
-import { forwardRef, FieldsetHTMLAttributes, useId } from 'react';
+import { forwardRef, useId, type FieldsetHTMLAttributes } from 'react';
 
 import {
   Selector,
   SelectorGroupContext,
-  SelectorProps,
-  SelectorSize,
+  type SelectorProps,
+  type SelectorSize,
 } from '../Selector/Selector.js';
 import {
   AccessibilityError,

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Children, ReactNode } from 'react';
+import { Children, type ReactNode } from 'react';
 
 export interface TabPanelsProps {
   selectedIndex: number;

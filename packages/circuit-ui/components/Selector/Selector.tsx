@@ -16,13 +16,13 @@
 'use client';
 
 import {
-  ComponentType,
   Fragment,
-  InputHTMLAttributes,
   createContext,
   forwardRef,
   useContext,
   useId,
+  type ComponentType,
+  type InputHTMLAttributes,
 } from 'react';
 
 import {

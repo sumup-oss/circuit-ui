@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { forwardRef, HTMLAttributes, Ref } from 'react';
+import { forwardRef, type HTMLAttributes, type Ref } from 'react';
 
 import type { AsPropType } from '../../types/prop-types.js';
 import { clsx } from '../../styles/clsx.js';

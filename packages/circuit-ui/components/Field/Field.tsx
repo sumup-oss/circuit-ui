@@ -14,10 +14,10 @@
  */
 
 import {
-  FieldsetHTMLAttributes,
-  HTMLAttributes,
-  LabelHTMLAttributes,
   forwardRef,
+  type FieldsetHTMLAttributes,
+  type HTMLAttributes,
+  type LabelHTMLAttributes,
 } from 'react';
 import { Confirm, Notify, Alert } from '@sumup/icons';
 

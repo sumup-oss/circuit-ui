@@ -18,18 +18,18 @@
 
 'use client';
 
-import { ReactNode, useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import {
-  SwipeableProps,
   useSwipeable,
-  SwipeEventData,
-  SwipeDirections,
+  type SwipeableProps,
+  type SwipeEventData,
+  type SwipeDirections,
 } from 'react-swipeable';
 
 import Image from '../../Image/index.js';
 import Button from '../../Button/index.js';
-import Step, { StepProps } from '../Step.js';
-import { Actions } from '../types.js';
+import Step, { type StepProps } from '../Step.js';
+import type { Actions } from '../types.js';
 import { clsx } from '../../../styles/clsx.js';
 
 import classes from './YesOrNoSlider.module.css';

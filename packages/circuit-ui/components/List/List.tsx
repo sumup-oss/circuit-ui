@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { forwardRef, OlHTMLAttributes } from 'react';
+import { forwardRef, type OlHTMLAttributes } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
 

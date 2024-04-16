@@ -17,7 +17,7 @@ import { CircuitError } from '../../util/errors.js';
 import { isFunction } from '../../util/type-check.js';
 
 import { useStep } from './hooks/useStep.js';
-import { StateAndHelpers, StepOptions } from './types.js';
+import type { StateAndHelpers, StepOptions } from './types.js';
 
 export interface StepProps extends StepOptions {
   /**

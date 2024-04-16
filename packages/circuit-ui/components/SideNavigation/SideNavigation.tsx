@@ -25,10 +25,10 @@ import {
 import { usePrevious } from '../../hooks/usePrevious/index.js';
 
 import { DesktopNavigation } from './components/DesktopNavigation/index.js';
-import { DesktopNavigationProps } from './components/DesktopNavigation/DesktopNavigation.js';
+import type { DesktopNavigationProps } from './components/DesktopNavigation/DesktopNavigation.js';
 import {
-  MobileNavigationProps,
   useMobileNavigation,
+  type MobileNavigationProps,
 } from './components/MobileNavigation/index.js';
 
 export interface SideNavigationProps

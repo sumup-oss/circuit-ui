@@ -6,6 +6,7 @@
     "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
     "jsxImportSource": "react",

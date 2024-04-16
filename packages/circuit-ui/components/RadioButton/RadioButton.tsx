@@ -17,10 +17,10 @@
 
 import {
   createContext,
-  InputHTMLAttributes,
   forwardRef,
   useContext,
   useId,
+  type InputHTMLAttributes,
 } from 'react';
 
 import {

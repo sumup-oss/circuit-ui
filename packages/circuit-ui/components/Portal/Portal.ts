@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ReactNode, useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 
 export interface PortalProps {

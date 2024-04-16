@@ -16,11 +16,11 @@
 'use client';
 
 import {
-  InputHTMLAttributes,
   forwardRef,
   useEffect,
   useId,
   useRef,
+  type InputHTMLAttributes,
 } from 'react';
 import { Checkmark } from '@sumup/icons';
 

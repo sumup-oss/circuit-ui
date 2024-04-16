@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ForwardedRef } from 'react';
+import type { ForwardedRef } from 'react';
 
 type Refs<T extends Element> = (ForwardedRef<T> | { current: T } | undefined)[];
 

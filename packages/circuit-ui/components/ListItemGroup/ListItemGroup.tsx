@@ -15,11 +15,16 @@
 
 'use client';
 
-import { forwardRef, HTMLAttributes, ReactNode, useState } from 'react';
+import {
+  forwardRef,
+  useState,
+  type HTMLAttributes,
+  type ReactNode,
+} from 'react';
 
 import { AccessibilityError } from '../../util/errors.js';
 import Body from '../Body/index.js';
-import ListItem, { ListItemProps } from '../ListItem/index.js';
+import ListItem, { type ListItemProps } from '../ListItem/index.js';
 import { isString } from '../../util/type-check.js';
 import { clsx } from '../../styles/clsx.js';
 import utilityClasses from '../../styles/utility.js';

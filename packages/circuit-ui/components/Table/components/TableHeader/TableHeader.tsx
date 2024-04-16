@@ -18,8 +18,8 @@
 import type { ThHTMLAttributes } from 'react';
 
 import SortArrow from '../SortArrow/index.js';
-import { CellAlignment, SortParams } from '../../types.js';
-import { ClickEvent } from '../../../../types/events.js';
+import type { CellAlignment, SortParams } from '../../types.js';
+import type { ClickEvent } from '../../../../types/events.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,

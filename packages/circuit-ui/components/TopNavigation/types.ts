@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AvatarProps } from '../Avatar/index.js';
+import type { AvatarProps } from '../Avatar/index.js';
 
 export type UserProps = {
   /**

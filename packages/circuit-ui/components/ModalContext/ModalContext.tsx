@@ -19,15 +19,15 @@ import {
   createContext,
   useEffect,
   useCallback,
-  ReactNode,
   useMemo,
+  type ReactNode,
 } from 'react';
-import ReactModal, { Props as ReactModalProps } from 'react-modal';
+import ReactModal, { type Props as ReactModalProps } from 'react-modal';
 
-import { useStack, StackItem } from '../../hooks/useStack/index.js';
+import { useStack, type StackItem } from '../../hooks/useStack/index.js';
 import { warn } from '../../util/logger.js';
 
-import { BaseModalProps, ModalComponent } from './types.js';
+import type { BaseModalProps, ModalComponent } from './types.js';
 import './Modal.css';
 
 const PORTAL_CLASS_NAME = 'cui-modal-portal';

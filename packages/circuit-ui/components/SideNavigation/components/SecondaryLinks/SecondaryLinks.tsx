@@ -22,14 +22,14 @@ import { forwardRef } from 'react';
 import type { AsPropType } from '../../../../types/prop-types.js';
 import {
   useFocusList,
-  FocusProps,
+  type FocusProps,
 } from '../../../../hooks/useFocusList/index.js';
 import SubHeadline from '../../../SubHeadline/index.js';
 import Body from '../../../Body/index.js';
 import Badge from '../../../Badge/index.js';
 import { useComponents } from '../../../ComponentsContext/index.js';
 import { Skeleton } from '../../../Skeleton/index.js';
-import { SecondaryGroupProps, SecondaryLinkProps } from '../../types.js';
+import type { SecondaryGroupProps, SecondaryLinkProps } from '../../types.js';
 import { clsx } from '../../../../styles/clsx.js';
 import utilityClasses from '../../../../styles/utility.js';
 import sharedClasses from '../../../../styles/shared.js';

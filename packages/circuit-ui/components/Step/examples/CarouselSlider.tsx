@@ -17,7 +17,7 @@
 
 import Image from '../../Image/index.js';
 import Button from '../../Button/index.js';
-import Step, { StepProps } from '../Step.js';
+import Step, { type StepProps } from '../Step.js';
 
 import classes from './CarouselSlider.module.css';
 

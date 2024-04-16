@@ -14,15 +14,15 @@
  */
 
 import {
-  ComponentType,
-  ReactNode,
-  SelectHTMLAttributes,
   forwardRef,
   useId,
+  type ComponentType,
+  type ReactNode,
+  type SelectHTMLAttributes,
 } from 'react';
 import { ChevronDown } from '@sumup/icons';
 
-import { ReturnType } from '../../types/return-type.js';
+import type { ReturnType } from '../../types/return-type.js';
 import {
   FieldWrapper,
   FieldLabel,

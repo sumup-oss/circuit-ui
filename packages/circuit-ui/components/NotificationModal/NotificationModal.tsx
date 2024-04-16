@@ -15,16 +15,16 @@
 
 'use client';
 
-import { FC, ReactNode, SVGProps } from 'react';
+import type { FC, ReactNode, SVGProps } from 'react';
 import ReactModal from 'react-modal';
 
-import { ClickEvent } from '../../types/events.js';
-import { ModalComponent, BaseModalProps } from '../ModalContext/index.js';
-import Image, { ImageProps } from '../Image/index.js';
+import type { ClickEvent } from '../../types/events.js';
+import type { ModalComponent, BaseModalProps } from '../ModalContext/index.js';
+import Image, { type ImageProps } from '../Image/index.js';
 import Headline from '../Headline/index.js';
 import Body from '../Body/index.js';
-import { ButtonProps } from '../Button/index.js';
-import ButtonGroup, { ButtonGroupProps } from '../ButtonGroup/index.js';
+import type { ButtonProps } from '../Button/index.js';
+import ButtonGroup, { type ButtonGroupProps } from '../ButtonGroup/index.js';
 import CloseButton from '../CloseButton/index.js';
 import { CircuitError } from '../../util/errors.js';
 

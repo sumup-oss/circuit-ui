@@ -15,7 +15,13 @@
 
 'use client';
 
-import { Component, Fragment, ReactElement, ReactNode, createRef } from 'react';
+import {
+  createRef,
+  Component,
+  Fragment,
+  type ReactElement,
+  type ReactNode,
+} from 'react';
 
 import {
   isArrowLeft,
@@ -23,7 +29,7 @@ import {
   isArrowDown,
 } from '../../util/key-codes.js';
 
-import { TabList, TabListProps } from './components/TabList/index.js';
+import { TabList, type TabListProps } from './components/TabList/index.js';
 import { Tab } from './components/Tab/index.js';
 import { TabPanel } from './components/TabPanel/index.js';
 

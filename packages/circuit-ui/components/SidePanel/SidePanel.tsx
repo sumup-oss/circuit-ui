@@ -15,7 +15,7 @@
 
 'use client';
 
-import { UIEventHandler, useEffect, useId, useState } from 'react';
+import { useEffect, useId, useState, type UIEventHandler } from 'react';
 import type { Props as ReactModalProps } from 'react-modal';
 
 import { isFunction } from '../../util/type-check.js';

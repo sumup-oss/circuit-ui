@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Children, HTMLAttributes } from 'react';
+import { Children, type HTMLAttributes } from 'react';
 
 import { clsx } from '../../../../styles/clsx.js';
 import utilityClasses from '../../../../styles/utility.js';

@@ -16,7 +16,7 @@
 import { forwardRef } from 'react';
 import { Close } from '@sumup/icons';
 
-import { IconButton, IconButtonProps } from '../Button/IconButton.js';
+import { IconButton, type IconButtonProps } from '../Button/IconButton.js';
 
 export type CloseButtonProps = Omit<IconButtonProps, 'icon'>;
 

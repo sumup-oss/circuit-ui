@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ClickEvent } from '../../types/events.js';
+import type { ClickEvent } from '../../types/events.js';
 
 type OnClose = (event?: ClickEvent) => void;
 

@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { Props as ReactModalProps } from 'react-modal';
+import type { Props as ReactModalProps } from 'react-modal';
 
-import { ClickEvent } from '../../types/events.js';
+import type { ClickEvent } from '../../types/events.js';
 
 type OnClose = (event?: ClickEvent) => void;
 

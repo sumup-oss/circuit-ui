@@ -17,15 +17,15 @@
 
 import {
   createContext,
-  ReactNode,
   useCallback,
   useEffect,
   useMemo,
+  type ReactNode,
 } from 'react';
 
-import { useStack, StackItem } from '../../hooks/useStack/index.js';
+import { useStack, type StackItem } from '../../hooks/useStack/index.js';
 
-import { BaseToastProps, ToastComponent } from './types.js';
+import type { BaseToastProps, ToastComponent } from './types.js';
 import classes from './ToastContext.module.css';
 
 const DEFAULT_TOAST_DURATION = 6000;

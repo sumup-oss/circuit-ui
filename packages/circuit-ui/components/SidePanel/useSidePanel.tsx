@@ -14,17 +14,20 @@
  */
 
 import {
-  ReactNode,
   useContext,
   useCallback,
   useId,
   useRef,
   useEffect,
+  type ReactNode,
 } from 'react';
 
 import { uniqueId } from '../../util/id.js';
 
-import { SidePanelContext, SidePanelContextProps } from './SidePanelContext.js';
+import {
+  SidePanelContext,
+  type SidePanelContextProps,
+} from './SidePanelContext.js';
 
 export type Callback = () => void;
 

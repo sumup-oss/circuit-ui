@@ -15,7 +15,7 @@
 
 'use client';
 
-import { HTMLAttributes, ReactElement } from 'react';
+import type { HTMLAttributes, ReactElement } from 'react';
 import { ChevronLeft, ChevronRight } from '@sumup/icons';
 
 import { IconButton } from '../Button/index.js';

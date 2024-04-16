@@ -15,7 +15,7 @@
 
 'use client';
 
-import { ButtonHTMLAttributes, forwardRef, useId } from 'react';
+import { forwardRef, useId, type ButtonHTMLAttributes } from 'react';
 
 import {
   AccessibilityError,

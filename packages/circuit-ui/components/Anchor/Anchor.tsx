@@ -17,16 +17,16 @@
 
 import {
   forwardRef,
-  AnchorHTMLAttributes,
-  ButtonHTMLAttributes,
-  ReactNode,
-  Ref,
+  type AnchorHTMLAttributes,
+  type ButtonHTMLAttributes,
+  type ReactNode,
+  type Ref,
 } from 'react';
 
 import type { ReturnType } from '../../types/return-type.js';
 import type { ClickEvent } from '../../types/events.js';
 import type { AsPropType } from '../../types/prop-types.js';
-import { Body, BodyProps } from '../Body/Body.js';
+import { Body, type BodyProps } from '../Body/Body.js';
 import { useComponents } from '../ComponentsContext/index.js';
 import { clsx } from '../../styles/clsx.js';
 import utilityClasses from '../../styles/utility.js';

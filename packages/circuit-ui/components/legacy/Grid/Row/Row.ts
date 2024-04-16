@@ -16,11 +16,14 @@
 /** @jsxImportSource @emotion/react */
 
 import { css } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
+import type { Theme } from '@sumup/design-tokens';
 
 import { clearfix } from '../../../../styles/style-mixins.js';
-import styled, { NoTheme, StyleProps } from '../../../../styles/styled.js';
-import { GridValue } from '../types.js';
+import styled, {
+  type NoTheme,
+  type StyleProps,
+} from '../../../../styles/styled.js';
+import type { GridValue } from '../types.js';
 import { composeBreakpoints, wrapStyles } from '../utils.js';
 
 const baseStyles = css`

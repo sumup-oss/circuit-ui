@@ -18,7 +18,7 @@
 import { forwardRef } from 'react';
 
 import { legacyButtonSizeMap } from '../Button/index.js';
-import { IconButton, IconButtonProps } from '../Button/IconButton.js';
+import { IconButton, type IconButtonProps } from '../Button/IconButton.js';
 import { Skeleton } from '../Skeleton/index.js';
 import {
   AccessibilityError,

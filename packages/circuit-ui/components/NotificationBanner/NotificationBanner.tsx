@@ -16,20 +16,20 @@
 'use client';
 
 import {
-  MouseEvent,
-  KeyboardEvent,
-  useState,
-  useRef,
-  RefObject,
-  useEffect,
-  HTMLAttributes,
   forwardRef,
+  useEffect,
+  useRef,
+  useState,
+  type MouseEvent,
+  type KeyboardEvent,
+  type RefObject,
+  type HTMLAttributes,
 } from 'react';
 
-import Button, { ButtonProps } from '../Button/index.js';
+import Button, { type ButtonProps } from '../Button/index.js';
 import Headline from '../Headline/index.js';
 import Body from '../Body/index.js';
-import Image, { ImageProps } from '../Image/index.js';
+import Image, { type ImageProps } from '../Image/index.js';
 import CloseButton from '../CloseButton/index.js';
 import { useAnimation } from '../../hooks/useAnimation/index.js';
 import { applyMultipleRefs } from '../../util/refs.js';

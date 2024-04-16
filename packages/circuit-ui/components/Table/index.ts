@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import Table, { TableProps } from './Table.js';
+import Table, { type TableProps } from './Table.js';
 import type {
   Direction as TableSortDirection,
   SortByValue as TableSortByValue,

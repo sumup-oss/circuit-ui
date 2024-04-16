@@ -14,7 +14,7 @@
  */
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ElementType } from 'react';
+import type { ElementType } from 'react';
 
 // This is how we should type the `as` prop in Circuit components, because the
 // prop should accept either a Component or a string (for an element)

@@ -16,25 +16,25 @@
 'use client';
 
 import {
-  ForwardRefExoticComponent,
-  HTMLAttributes,
-  RefAttributes,
-  RefObject,
   forwardRef,
   useEffect,
   useRef,
   useState,
+  type ForwardRefExoticComponent,
+  type HTMLAttributes,
+  type RefAttributes,
+  type RefObject,
 } from 'react';
 
 import { useAnimation } from '../../hooks/useAnimation/index.js';
 import Body from '../Body/index.js';
 import CloseButton from '../CloseButton/index.js';
-import Anchor, { AnchorProps } from '../Anchor/index.js';
-import { ClickEvent } from '../../types/events.js';
+import Anchor, { type AnchorProps } from '../Anchor/index.js';
+import type { ClickEvent } from '../../types/events.js';
 import { isString } from '../../util/type-check.js';
 import {
   NOTIFICATION_ICONS,
-  NotificationVariant,
+  type NotificationVariant,
 } from '../Notification/constants.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { clsx } from '../../styles/clsx.js';
