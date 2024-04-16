@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import PropTypes, { Requireable, Validator } from 'prop-types';
+import PropTypes, { type Requireable, type Validator } from 'prop-types';
 
 import type {
   Theme,

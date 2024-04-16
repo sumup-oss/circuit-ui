@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {
+import type {
   Spacings,
   IconSizes,
   BorderRadius,
