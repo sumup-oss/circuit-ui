@@ -329,6 +329,7 @@ function Day({
   firstDayOfWeek,
   isOutsideMonth,
   className,
+  ...props
 }: DayProps) {
   const isToday = date.equals(today);
   const isSelected = selectedDate && date.equals(selectedDate);
@@ -392,6 +393,7 @@ function Day({
 
   return (
     <button
+      {...props}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       className={clsx(
@@ -401,9 +403,9 @@ function Day({
         utilityClasses.focusVisible,
       )}
       tabIndex={isFocused ? 0 : -1}
-      aria-current={isToday ? 'date' : undefined}
-      aria-pressed={isSelected ? 'true' : 'false'}
-      aria-disabled={isDisabled ? 'true' : 'false'}
+      {...(isToday && { 'aria-current': 'date' })}
+      {...(isSelected && { 'aria-pressed': 'true' })}
+      {...(isDisabled && { 'aria-disabled': 'true' })}
     >
       {date.day}
     </button>
