@@ -1,0 +1,84 @@
+/**
+ * Copyright 2024, SumUp Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+import { useState } from 'react';
+import isChromatic from 'chromatic/isChromatic';
+import { Temporal } from 'temporal-polyfill';
+
+import { Stack } from '../../../../.storybook/components/index.js';
+import { getTodaysDate } from '../../util/date.js';
+
+import { Calendar, type CalendarProps } from './Calendar.js';
+
+export default {
+  title: 'Components/Calendar',
+  component: Calendar,
+};
+
+const today = isChromatic()
+  ? new Temporal.PlainDate(2020, 8, 15)
+  : getTodaysDate();
+
+export const Base = ({ value, ...args }: CalendarProps) => {
+  const [date, setDate] = useState(value);
+  return <Calendar {...args} value={date} onChange={setDate} />;
+};
+
+Base.args = {
+  locale: 'en-US',
+  value: today.add({ days: 3 }).toString(),
+  min: today.subtract({ days: 7 }).toString(),
+  max: today.add({ months: 3 }).toString(),
+  prevMonthButtonLabel: 'Previous month',
+  nextMonthButtonLabel: 'Next month',
+};
+
+export const Localized = ({ value, ...args }: CalendarProps) => {
+  const [date, setDate] = useState(value);
+  return (
+    <Stack>
+      <Calendar
+        {...args}
+        value={date}
+        onChange={setDate}
+        locale="de-DE"
+        prevMonthButtonLabel="Vorheriger Monat"
+        nextMonthButtonLabel="Nächster Monat"
+      />
+      <Calendar
+        {...args}
+        value={date}
+        onChange={setDate}
+        locale="bg-BG"
+        prevMonthButtonLabel="Предишния месец"
+        nextMonthButtonLabel="Следващият месец"
+      />
+      <Calendar
+        {...args}
+        value={date}
+        onChange={setDate}
+        locale="pt-BR"
+        prevMonthButtonLabel="Mês anterior"
+        nextMonthButtonLabel="Mês próximo"
+      />
+    </Stack>
+  );
+};
+
+Localized.args = {
+  value: today.add({ days: 3 }).toString(),
+  min: today.subtract({ days: 7 }).toString(),
+  max: today.add({ months: 3 }).toString(),
+};
