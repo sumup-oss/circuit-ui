@@ -1,5 +1,5 @@
 /**
- * Copyright 2023, SumUp Ltd.
+ * Copyright 2024, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,13 +13,21 @@
  * limitations under the License.
  */
 
-export {
-  default as Tooltip,
-  type TooltipProps,
-  type TooltipReferenceProps,
-} from './components/Tooltip/index.js';
-export {
-  default as Toggletip,
-  type ToggletipProps,
-} from './components/Toggletip/index.js';
-export { Calendar, type CalendarProps } from './components/Calendar/index.js';
+import { describe, it } from 'vitest';
+
+import { render, axe } from '../../util/test-utils.js';
+
+import { Calendar } from './Calendar.js';
+
+describe('Calendar', () => {
+  const baseProps = {
+    prevMonthButtonLabel: 'Previous month',
+    nextMonthButtonLabel: 'Next month',
+  };
+
+  it('should meet accessibility guidelines', async () => {
+    const { container } = render(<Calendar {...baseProps} />);
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
+  });
+});

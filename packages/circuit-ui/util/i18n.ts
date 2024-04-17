@@ -1,5 +1,5 @@
 /**
- * Copyright 2023, SumUp Ltd.
+ * Copyright 2024, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,13 +13,18 @@
  * limitations under the License.
  */
 
-export {
-  default as Tooltip,
-  type TooltipProps,
-  type TooltipReferenceProps,
-} from './components/Tooltip/index.js';
-export {
-  default as Toggletip,
-  type ToggletipProps,
-} from './components/Toggletip/index.js';
-export { Calendar, type CalendarProps } from './components/Calendar/index.js';
+export type Locale = string | string[];
+
+export const DEFAULT_LOCALE = 'en-US';
+
+/**
+ * Returns the user's preferred locale(s) in browser-like environments.
+ */
+export function getBrowserLocale(): Locale {
+  if (typeof window === 'undefined') {
+    return DEFAULT_LOCALE;
+  }
+  return (navigator.languages ||
+    navigator.language ||
+    DEFAULT_LOCALE) as Locale;
+}
