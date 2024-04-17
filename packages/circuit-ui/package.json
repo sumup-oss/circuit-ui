@@ -56,7 +56,8 @@
     "dialog-polyfill": "^0.5.6",
     "nanostores": "^0.10.0",
     "react-modal": "^3.16.1",
-    "react-number-format": "5.3.0"
+    "react-number-format": "5.3.0",
+    "temporal-polyfill": "^0.2.4"
   },
   "devDependencies": {
     "@emotion/is-prop-valid": "^1.2.1",
