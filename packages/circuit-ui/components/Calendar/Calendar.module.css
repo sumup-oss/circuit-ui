@@ -33,6 +33,7 @@
   font-size: var(--cui-typography-body-one-font-size);
   font-variant-numeric: tabular-nums;
   line-height: var(--cui-typography-body-one-line-height);
+  color: var(--cui-fg-normal);
   touch-action: manipulation;
   cursor: pointer;
   background: none;
@@ -104,7 +105,6 @@
 .day[aria-disabled="true"] {
   color: var(--cui-fg-normal-disabled);
   cursor: not-allowed;
-  background: var(--cui-bg-normal-disabled);
 }
 
 .day[aria-disabled="true"]:hover,
