@@ -43,9 +43,9 @@ export function initCalendar({
   minDate,
   maxDate,
 }: {
-  selectedDate: Temporal.PlainDate | null;
-  minDate: Temporal.PlainDate | null;
-  maxDate: Temporal.PlainDate | null;
+  selectedDate?: Temporal.PlainDate | null;
+  minDate?: Temporal.PlainDate | null;
+  maxDate?: Temporal.PlainDate | null;
 }): CalendarState {
   const today = getTodaysDate();
   const focusedDate = clampDate(selectedDate || today, minDate, maxDate);
@@ -81,19 +81,8 @@ export function calendarReducer(
   }
 }
 
-export type Weekdays = [
-  Weekday,
-  Weekday,
-  Weekday,
-  Weekday,
-  Weekday,
-  Weekday,
-  Weekday,
-];
-type Weekday = {
-  narrow: string;
-  long: string;
-};
+type Weekday = { narrow: string; long: string };
+type Weekdays = [Weekday, Weekday, Weekday, Weekday, Weekday, Weekday, Weekday];
 
 export function getWeekdays(firstDayOfWeek: FirstDayOfWeek, locale?: Locale) {
   return Array.from(Array(DAYS_IN_WEEK)).map((_, i) => {

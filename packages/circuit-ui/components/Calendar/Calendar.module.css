@@ -14,6 +14,7 @@
 
 .table th,
 .table td {
+  position: relative;
   width: 3rem;
   height: 3rem;
   padding: var(--cui-spacings-bit);
@@ -71,35 +72,6 @@
   background: var(--cui-bg-accent-strong-pressed);
 }
 
-/* Outside */
-
-.outside {
-  color: var(--cui-fg-subtle);
-}
-
-.outside:hover {
-  color: var(--cui-fg-subtle-hovered);
-}
-
-.outside:active {
-  color: var(--cui-fg-subtle-pressed);
-}
-
-.outside[aria-pressed="true"] {
-  color: var(--cui-fg-subtle);
-  background: var(--cui-bg-accent);
-}
-
-.outside[aria-pressed="true"]:hover {
-  color: var(--cui-fg-subtle-hovered);
-  background: var(--cui-bg-accent-hovered);
-}
-
-.outside[aria-pressed="true"]:active {
-  color: var(--cui-fg-subtle-pressed);
-  background: var(--cui-bg-accent-pressed);
-}
-
 /* Disabled */
 
 .day[aria-disabled="true"] {
@@ -119,4 +91,17 @@
 .day[aria-disabled="true"][aria-pressed="true"] {
   color: var(--cui-fg-on-strong-disabled);
   background: var(--cui-bg-accent-strong-disabled);
+}
+
+/* Description */
+
+.day[aria-describedby]::after {
+  position: absolute;
+  left: calc(50% - var(--cui-spacings-bit) / 2);
+  display: block;
+  width: var(--cui-spacings-bit);
+  height: var(--cui-spacings-bit);
+  content: "";
+  background-color: currentColor;
+  border-radius: var(--cui-border-radius-circle);
 }
