@@ -1968,6 +1968,11 @@
       "name": "sum_up_logomark",
       "category": "Brand",
       "size": "24"
+    },
+    {
+      "name": "Forward",
+      "category": "Miscellaneous",
+      "size": "24"
     }
   ]
 }
