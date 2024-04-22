@@ -6,6 +6,8 @@
 }
 
 .table {
+  --table-cell-size: 3rem;
+
   inline-size: max-content;
   table-layout: fixed;
   border-spacing: 0;
@@ -15,16 +17,27 @@
 .table th,
 .table td {
   position: relative;
-  width: 3rem;
-  height: 3rem;
+  width: var(--table-cell-size);
+  height: var(--table-cell-size);
   padding: var(--cui-spacings-bit);
   text-align: center;
   vertical-align: middle;
 }
 
 .table th {
-  height: 3.5rem;
+  height: calc(var(--table-cell-size) + var(--cui-spacings-byte));
   padding-bottom: var(--cui-spacings-kilo);
+}
+
+@media (max-width: 360px) {
+  .table {
+    --table-cell-size: 2.5rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 0;
+  }
 }
 
 .day {
