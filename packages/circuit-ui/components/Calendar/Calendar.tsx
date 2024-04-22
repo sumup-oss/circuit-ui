@@ -17,6 +17,7 @@
 
 import {
   useCallback,
+  useEffect,
   useId,
   useMemo,
   useReducer,
@@ -39,12 +40,12 @@ import {
   DAYS_IN_WEEK,
   getFirstDateOfWeek,
   getLastDateOfWeek,
-  toPlainDate,
   yearMonthToDate,
   type FirstDayOfWeek,
 } from '../../util/date.js';
 import {
   AccessibilityError,
+  CircuitError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 
@@ -53,42 +54,63 @@ import {
   getViewOfMonth,
   getWeekdays,
   initCalendar,
-  type Weekdays,
 } from './CalendarService.js';
 import styles from './Calendar.module.css';
 
-export interface CalendarProps {
+type DateModifiers = {
+  disabled?: boolean;
+  description?: string;
+};
+
+interface SharedProps {
   /**
-   * The currently selected date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
-   * format (`YYYY-MM-DD`).
+   * The currently selected date.
    */
-  value?: string;
+  selectedDate?: Temporal.PlainDate;
   /**
-   * The minimum selectable date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
-   * format (`YYYY-MM-DD`) (inclusive).
+   * The minimum selectable date (inclusive).
    */
-  min?: string;
+  minDate?: Temporal.PlainDate;
   /**
-   * The maximum selectable date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
-   * format (`YYYY-MM-DD`) (inclusive).
+   * The maximum selectable date (inclusive).
    */
-  max?: string;
+  maxDate?: Temporal.PlainDate;
   /**
-   * A callback that is called when a user selects a date.
+   * An integer indicating the first day of the week. Can be either `1` (Monday)
+   * or `7` (Sunday). Default: `1` (Monday).
    */
-  onChange?: (date: string) => void;
+  firstDayOfWeek?: FirstDayOfWeek;
   /**
-   * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag),
+   * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
    * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
    * When passing an array, the first supported locale is used.
    * Defaults to `navigator.language` when available.
    */
   locale?: Locale;
   /**
-   * An integer indicating the first day of the week. Can be either `1` (Monday)
-   * or `7` (Sunday). Default: `1` (Monday).
+   * An map of dates and their modifiers, which can be used to disable or add
+   * a description to a specific date. The date key must be in the
+   * [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format (`YYYY-MM-DD`).
+   *
+   * @example
+   * {
+   *   '2020-03-15': { disabled: true },
+   *   '2020-03-20': { description: 'Booked' },
+   * }
    */
-  firstDayOfWeek?: FirstDayOfWeek;
+  modifiers?: Record<string, DateModifiers>;
+}
+
+export interface CalendarProps extends SharedProps {
+  /**
+   * A callback that is called when a user selects a date.
+   */
+  onSelect?: (date: Temporal.PlainDate) => void;
+  /**
+   * A callback that is called on the initial render and whenever a user
+   * navigates to a different month.
+   */
+  onMonthChange?: (date: Temporal.PlainYearMonth) => void;
   /**
    * Text label for the button to navigate to the previous month.
    */
@@ -100,33 +122,30 @@ export interface CalendarProps {
 }
 
 export function Calendar({
-  value,
-  onChange,
-  min,
-  max,
+  selectedDate,
+  onSelect,
+  onMonthChange,
+  minDate,
+  maxDate,
   firstDayOfWeek = 1,
   locale = getBrowserLocale(),
   prevMonthButtonLabel,
   nextMonthButtonLabel,
+  modifiers,
 }: CalendarProps) {
-  const selectedDate = toPlainDate(value);
-  const minDate = toPlainDate(min);
-  const maxDate = toPlainDate(max);
-
-  const [calendar, dispatch] = useReducer(
+  const [{ yearMonth, focusedDate, today }, dispatch] = useReducer(
     calendarReducer,
     { selectedDate, minDate, maxDate },
     initCalendar,
   );
 
-  const weekdays = useMemo(
-    () => getWeekdays(firstDayOfWeek, locale),
-    [firstDayOfWeek, locale],
-  );
+  useEffect(() => {
+    onMonthChange?.(yearMonth);
+  }, [onMonthChange, yearMonth]);
 
   const ref = useRef<HTMLDivElement>(null);
   const headlineId = useId();
-  const headline = formatDateTime(yearMonthToDate(calendar.yearMonth), locale, {
+  const headline = formatDateTime(yearMonthToDate(yearMonth), locale, {
     year: 'numeric',
     month: 'long',
   });
@@ -146,19 +165,58 @@ export function Calendar({
 
   const handleSelectDate = useCallback(
     (date: Temporal.PlainDate) => {
-      if (onChange) {
-        onChange(date.toString());
-      }
+      onSelect?.(date);
     },
-    [onChange],
+    [onSelect],
   );
 
-  const isPrevButtonDisabled = minDate
-    ? calendar.yearMonth.equals(minDate)
-    : false;
-  const isNextButtonDisabled = maxDate
-    ? calendar.yearMonth.equals(maxDate)
-    : false;
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent) => {
+      let nextFocusedDate: Temporal.PlainDate;
+
+      switch (event.key) {
+        case 'ArrowRight':
+          nextFocusedDate = focusedDate.add({ days: 1 });
+          break;
+        case 'ArrowLeft':
+          nextFocusedDate = focusedDate.subtract({ days: 1 });
+          break;
+        case 'ArrowDown':
+          nextFocusedDate = focusedDate.add({ days: DAYS_IN_WEEK });
+          break;
+        case 'ArrowUp':
+          nextFocusedDate = focusedDate.subtract({
+            days: DAYS_IN_WEEK,
+          });
+          break;
+        case 'PageUp':
+          nextFocusedDate = focusedDate.subtract(
+            event.shiftKey ? { years: 1 } : { months: 1 },
+          );
+          break;
+        case 'PageDown':
+          nextFocusedDate = focusedDate.add(
+            event.shiftKey ? { years: 1 } : { months: 1 },
+          );
+          break;
+        case 'Home':
+          nextFocusedDate = getFirstDateOfWeek(focusedDate, firstDayOfWeek);
+          break;
+        case 'End':
+          nextFocusedDate = getLastDateOfWeek(focusedDate, firstDayOfWeek);
+          break;
+        default:
+          return;
+      }
+
+      event.preventDefault();
+      handleFocusDate(nextFocusedDate);
+    },
+    [handleFocusDate, focusedDate, firstDayOfWeek],
+  );
+
+  const isPrevButtonDisabled = minDate ? yearMonth.equals(minDate) : false;
+  const isNextButtonDisabled = maxDate ? yearMonth.equals(maxDate) : false;
 
   if (
     process.env.NODE_ENV !== 'production' &&
@@ -175,6 +233,18 @@ export function Calendar({
         'Calendar',
         'The `nextMonthButtonLabel` prop is missing or invalid.',
       );
+    }
+    if (modifiers) {
+      Object.keys(modifiers).forEach((key) => {
+        try {
+          Temporal.PlainDate.from(key);
+        } catch (error) {
+          throw new CircuitError(
+            'Calendar',
+            `The "${key}" key in the \`modifiers\` prop is not a valid ISO 8601 date string.`,
+          );
+        }
+      });
     }
   }
 
@@ -214,54 +284,58 @@ export function Calendar({
         </IconButton>
       </div>
       <Month
-        {...calendar}
-        weekdays={weekdays}
+        yearMonth={yearMonth}
         selectedDate={selectedDate}
+        focusedDate={focusedDate}
         minDate={minDate}
         maxDate={maxDate}
+        today={today}
         firstDayOfWeek={firstDayOfWeek}
+        locale={locale}
         aria-labelledby={headlineId}
+        modifiers={modifiers}
         onFocusDate={handleFocusDate}
         onSelectDate={handleSelectDate}
+        onKeyDown={handleKeyDown}
       />
     </div>
   );
 }
 
-interface SharedProps {
+interface MonthProps extends SharedProps, HTMLAttributes<HTMLTableElement> {
+  yearMonth: Temporal.PlainYearMonth;
   today: Temporal.PlainDate;
   onFocusDate: (date: Temporal.PlainDate) => void;
   onSelectDate: (date: Temporal.PlainDate) => void;
+  onKeyDown: (event: KeyboardEvent) => void;
   focusedDate: Temporal.PlainDate;
-  selectedDate: Temporal.PlainDate | null;
-  minDate: Temporal.PlainDate | null;
-  maxDate: Temporal.PlainDate | null;
-  firstDayOfWeek: FirstDayOfWeek;
-}
-
-interface MonthProps extends SharedProps, HTMLAttributes<HTMLTableElement> {
-  yearMonth: Temporal.PlainYearMonth;
-  weekdays: Weekdays;
-  // TODO: Better name?
-  showOutsideDays?: boolean;
 }
 
 function Month({
   yearMonth,
-  today,
-  onFocusDate,
-  focusedDate,
-  onSelectDate,
   selectedDate,
+  focusedDate,
   minDate,
   maxDate,
-  weekdays,
-  showOutsideDays = true,
-  firstDayOfWeek,
+  today,
+  modifiers = {},
+  onFocusDate,
+  onSelectDate,
+  onKeyDown,
+  firstDayOfWeek = 1,
+  locale,
   className,
   ...props
 }: MonthProps) {
-  const weeks = getViewOfMonth(yearMonth, firstDayOfWeek);
+  const descriptionIds = useId();
+  const weeks = useMemo(
+    () => getViewOfMonth(yearMonth, firstDayOfWeek),
+    [yearMonth, firstDayOfWeek],
+  );
+  const weekdays = useMemo(
+    () => getWeekdays(firstDayOfWeek, locale),
+    [firstDayOfWeek, locale],
+  );
   return (
     <table {...props} className={clsx(className, styles.table)} role="grid">
       <thead>
@@ -283,24 +357,61 @@ function Month({
         {weeks.map((week, i) => (
           <tr key={i}>
             {week.map((date) => {
-              const isDateOutsideMonth = !yearMonth.equals(date);
-              const isDateVisible = isDateOutsideMonth ? showOutsideDays : true;
+              const key = date.toString();
+              const descriptionId = `${descriptionIds}-${key}`;
+              const isOutsideMonth = !yearMonth.equals(date);
+
+              if (isOutsideMonth) {
+                return <td key={key}></td>;
+              }
+
+              const { disabled, description } = modifiers[key] || {};
+              const isToday = date.equals(today);
+              const isActive = selectedDate && date.equals(selectedDate);
+              const isFocused = date.equals(focusedDate);
+              const isDisabled =
+                disabled ||
+                (minDate && Temporal.PlainDate.compare(date, minDate) < 0) ||
+                (maxDate && Temporal.PlainDate.compare(date, maxDate) > 0);
+
+              const handleClick = (event: MouseEvent) => {
+                if (isDisabled) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                  event.nativeEvent.stopImmediatePropagation();
+                } else {
+                  onSelectDate(date);
+                }
+                onFocusDate(date);
+              };
 
               return (
-                <td key={date.toString()}>
-                  {isDateVisible && (
-                    <Day
-                      today={today}
-                      date={date}
-                      onFocusDate={onFocusDate}
-                      onSelectDate={onSelectDate}
-                      focusedDate={focusedDate}
-                      selectedDate={selectedDate}
-                      minDate={minDate}
-                      maxDate={maxDate}
-                      firstDayOfWeek={firstDayOfWeek}
-                      isOutsideMonth={isDateOutsideMonth}
-                    />
+                <td key={key}>
+                  <button
+                    onClick={handleClick}
+                    onKeyDown={onKeyDown}
+                    className={clsx(
+                      className,
+                      styles.day,
+                      utilityClasses.focusVisible,
+                    )}
+                    tabIndex={isFocused ? 0 : -1}
+                    {...(isToday && { 'aria-current': 'date' })}
+                    {...(isActive && { 'aria-pressed': 'true' })}
+                    {...(isDisabled && { 'aria-disabled': 'true' })}
+                    {...(description && {
+                      'aria-describedby': descriptionId,
+                    })}
+                  >
+                    {date.day}
+                  </button>
+                  {description && (
+                    <span
+                      id={descriptionId}
+                      className={clsx(utilityClasses.hideVisually)}
+                    >
+                      {description}
+                    </span>
                   )}
                 </td>
               );
@@ -309,105 +420,5 @@ function Month({
         ))}
       </tbody>
     </table>
-  );
-}
-
-interface DayProps extends SharedProps, HTMLAttributes<HTMLButtonElement> {
-  date: Temporal.PlainDate;
-  isOutsideMonth?: boolean;
-}
-
-function Day({
-  date,
-  today,
-  onFocusDate,
-  onSelectDate,
-  focusedDate,
-  selectedDate,
-  minDate,
-  maxDate,
-  firstDayOfWeek,
-  isOutsideMonth,
-  className,
-  ...props
-}: DayProps) {
-  const isToday = date.equals(today);
-  const isSelected = selectedDate && date.equals(selectedDate);
-  const isFocused = date.equals(focusedDate);
-  const isDisabled =
-    (minDate && Temporal.PlainDate.compare(date, minDate) < 0) ||
-    (maxDate && Temporal.PlainDate.compare(date, maxDate) > 0);
-
-  const handleClick = (event: MouseEvent) => {
-    if (isDisabled) {
-      event.preventDefault();
-      event.stopPropagation();
-      event.nativeEvent.stopImmediatePropagation();
-    } else {
-      onSelectDate(date);
-    }
-    onFocusDate(date);
-  };
-
-  const handleKeyDown = (event: KeyboardEvent) => {
-    let nextFocusedDate: Temporal.PlainDate;
-
-    switch (event.key) {
-      case 'ArrowRight':
-        nextFocusedDate = focusedDate.add({ days: 1 });
-        break;
-      case 'ArrowLeft':
-        nextFocusedDate = focusedDate.subtract({ days: 1 });
-        break;
-      case 'ArrowDown':
-        nextFocusedDate = focusedDate.add({ days: DAYS_IN_WEEK });
-        break;
-      case 'ArrowUp':
-        nextFocusedDate = focusedDate.subtract({
-          days: DAYS_IN_WEEK,
-        });
-        break;
-      case 'PageUp':
-        nextFocusedDate = focusedDate.subtract(
-          event.shiftKey ? { years: 1 } : { months: 1 },
-        );
-        break;
-      case 'PageDown':
-        nextFocusedDate = focusedDate.add(
-          event.shiftKey ? { years: 1 } : { months: 1 },
-        );
-        break;
-      case 'Home':
-        nextFocusedDate = getFirstDateOfWeek(focusedDate, firstDayOfWeek);
-        break;
-      case 'End':
-        nextFocusedDate = getLastDateOfWeek(focusedDate, firstDayOfWeek);
-        break;
-      default:
-        return;
-    }
-
-    onFocusDate(nextFocusedDate);
-    event.preventDefault();
-  };
-
-  return (
-    <button
-      {...props}
-      onClick={handleClick}
-      onKeyDown={handleKeyDown}
-      className={clsx(
-        className,
-        styles.day,
-        isOutsideMonth && styles.outside,
-        utilityClasses.focusVisible,
-      )}
-      tabIndex={isFocused ? 0 : -1}
-      {...(isToday && { 'aria-current': 'date' })}
-      {...(isSelected && { 'aria-pressed': 'true' })}
-      {...(isDisabled && { 'aria-disabled': 'true' })}
-    >
-      {date.day}
-    </button>
   );
 }
