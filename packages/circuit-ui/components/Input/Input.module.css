@@ -132,4 +132,5 @@
 .wrapper .prefix button,
 .wrapper .suffix button {
   pointer-events: auto;
+  border-radius: var(--cui-border-radius-byte);
 }

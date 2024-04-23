@@ -4,8 +4,3 @@
 .base::-webkit-search-results-decoration {
   appearance: none;
 }
-
-.base + .clear-button {
-  border: none;
-  border-radius: var(--cui-border-radius-byte);
-}

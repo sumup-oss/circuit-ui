@@ -79,15 +79,7 @@ export const SearchInput = forwardRef<InputElement, SearchInputProps>(
         {...(value && onClear && clearLabel
           ? {
               renderSuffix: (renderProps) => (
-                <CloseButton
-                  {...renderProps}
-                  size="s"
-                  onClick={onClick}
-                  className={clsx(
-                    renderProps.className,
-                    classes['clear-button'],
-                  )}
-                >
+                <CloseButton {...renderProps} size="s" onClick={onClick}>
                   {clearLabel}
                 </CloseButton>
               ),
