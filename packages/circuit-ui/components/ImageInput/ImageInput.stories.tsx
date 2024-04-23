@@ -17,7 +17,7 @@ import { useState } from 'react';
 
 import Avatar from '../Avatar/index.js';
 
-import { ImageInputProps } from './ImageInput.js';
+import type { ImageInputProps } from './ImageInput.js';
 
 import ImageInput from './index.js';
 

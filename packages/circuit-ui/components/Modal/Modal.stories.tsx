@@ -28,7 +28,7 @@ import Body from '../Body/index.js';
 import Image from '../Image/index.js';
 import { ModalProvider } from '../ModalContext/index.js';
 
-import { Modal, ModalProps, useModal } from './Modal.js';
+import { useModal, Modal, type ModalProps } from './Modal.js';
 
 export default {
   title: 'Components/Modal',

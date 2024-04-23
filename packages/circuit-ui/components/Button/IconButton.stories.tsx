@@ -18,7 +18,7 @@ import { Plus } from '@sumup/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 
-import { IconButton, IconButtonProps } from './IconButton.js';
+import { IconButton, type IconButtonProps } from './IconButton.js';
 
 export default {
   title: 'Components/Button/IconButton',

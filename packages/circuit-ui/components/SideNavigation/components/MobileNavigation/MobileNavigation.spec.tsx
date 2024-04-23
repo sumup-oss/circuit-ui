@@ -20,13 +20,16 @@ import type { ClickEvent } from '../../../../types/events.js';
 import {
   render,
   axe,
-  RenderFn,
   userEvent,
   waitFor,
   screen,
+  type RenderFn,
 } from '../../../../util/test-utils.js';
 
-import { MobileNavigation, MobileNavigationProps } from './MobileNavigation.js';
+import {
+  MobileNavigation,
+  type MobileNavigationProps,
+} from './MobileNavigation.js';
 
 describe('MobileNavigation', () => {
   function renderMobileNavigation<T>(

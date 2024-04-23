@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Mock, afterAll, describe, expect, it, vi } from 'vitest';
+import { afterAll, describe, expect, it, vi, type Mock } from 'vitest';
 
 import { render } from '../../util/test-utils.js';
 

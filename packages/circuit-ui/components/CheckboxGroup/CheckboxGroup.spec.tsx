@@ -24,7 +24,7 @@ import {
   fireEvent,
 } from '../../util/test-utils.js';
 
-import { CheckboxGroup, CheckboxGroupProps } from './CheckboxGroup.js';
+import { CheckboxGroup, type CheckboxGroupProps } from './CheckboxGroup.js';
 
 const defaultProps: CheckboxGroupProps = {
   label: 'Label',

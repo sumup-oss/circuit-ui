@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { BodyProps } from './Body.js';
+import type { BodyProps } from './Body.js';
 
 import Body from './index.js';
 

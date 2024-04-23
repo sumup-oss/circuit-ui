@@ -20,7 +20,7 @@ import { render, axe, userEvent, screen } from '../../util/test-utils.js';
 
 import {
   NotificationBanner,
-  NotificationBannerProps,
+  type NotificationBannerProps,
 } from './NotificationBanner.js';
 
 describe('NotificationBanner', () => {

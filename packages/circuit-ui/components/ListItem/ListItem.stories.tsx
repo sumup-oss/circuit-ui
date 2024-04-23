@@ -20,7 +20,7 @@ import { Stack } from '../../../../.storybook/components/index.js';
 import Body from '../Body/index.js';
 import Badge from '../Badge/index.js';
 
-import { ListItem, ListItemProps } from './ListItem.js';
+import { ListItem, type ListItemProps } from './ListItem.js';
 
 interface Item {
   title: string;

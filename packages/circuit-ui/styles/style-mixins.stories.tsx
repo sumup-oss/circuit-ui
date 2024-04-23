@@ -30,8 +30,8 @@ import {
   clearfix,
   hideVisually,
   hideScrollbar,
-  SpacingValue,
   center,
+  type SpacingValue,
 } from './style-mixins.js';
 
 export default {

@@ -14,12 +14,15 @@
  */
 
 import { describe, expect, it } from 'vitest';
-import { ChangeEvent, createRef, useState } from 'react';
+import { createRef, useState, type ChangeEvent } from 'react';
 
 import { render, userEvent, axe, screen } from '../../util/test-utils.js';
 import type { InputElement } from '../Input/index.js';
 
-import { PercentageInput, PercentageInputProps } from './PercentageInput.js';
+import {
+  PercentageInput,
+  type PercentageInputProps,
+} from './PercentageInput.js';
 
 const defaultProps = {
   locale: 'de-DE',
@@ -37,7 +40,7 @@ describe('PercentageInput', () => {
   it('should format an en-GB amount', async () => {
     render(<PercentageInput {...defaultProps} locale="en-GB" />);
 
-    const input = screen.getByRole('textbox');
+    const input = screen.getByRole<HTMLInputElement>('textbox');
 
     await userEvent.type(input, '1234');
 
@@ -47,7 +50,7 @@ describe('PercentageInput', () => {
   it('should format an de-DE amount', async () => {
     render(<PercentageInput {...defaultProps} locale="de-DE" />);
 
-    const input = screen.getByRole('textbox');
+    const input = screen.getByRole<HTMLInputElement>('textbox');
 
     await userEvent.type(input, '1234');
 
@@ -57,7 +60,7 @@ describe('PercentageInput', () => {
   it('should format an amount with decimals', async () => {
     render(<PercentageInput {...defaultProps} decimalScale={2} />);
 
-    const input = screen.getByRole('textbox');
+    const input = screen.getByRole<HTMLInputElement>('textbox');
 
     await userEvent.type(input, '1234,56');
 
@@ -79,7 +82,7 @@ describe('PercentageInput', () => {
     };
     render(<ControlledPercentageInput />);
 
-    const input = screen.getByRole('textbox');
+    const input = screen.getByRole<HTMLInputElement>('textbox');
     expect(input.value).toBe('1.234');
 
     await userEvent.clear(input);

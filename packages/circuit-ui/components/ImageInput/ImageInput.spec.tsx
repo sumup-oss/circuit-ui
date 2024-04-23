@@ -27,7 +27,7 @@ import {
   screen,
 } from '../../util/test-utils.js';
 
-import { ImageInput, ImageInputProps } from './ImageInput.js';
+import { ImageInput, type ImageInputProps } from './ImageInput.js';
 
 const defaultProps: ImageInputProps = {
   label: 'Upload an image',

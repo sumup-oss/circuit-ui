@@ -14,7 +14,6 @@
  */
 
 import {
-  Mock,
   afterAll,
   afterEach,
   beforeEach,
@@ -22,8 +21,9 @@ import {
   expect,
   it,
   vi,
+  type Mock,
 } from 'vitest';
-import { ComponentType, useContext } from 'react';
+import { useContext, type ComponentType } from 'react';
 
 import {
   render,
@@ -38,10 +38,10 @@ import { useMedia } from '../../hooks/useMedia/index.js';
 import {
   SidePanelProvider,
   SidePanelContext,
-  SetSidePanel,
-  RemoveSidePanel,
-  UpdateSidePanel,
-  SidePanelContextProps,
+  type SetSidePanel,
+  type RemoveSidePanel,
+  type UpdateSidePanel,
+  type SidePanelContextProps,
 } from './SidePanelContext.js';
 
 vi.mock('../../hooks/useMedia');

@@ -15,7 +15,7 @@
 
 import styled from '../../../../styles/styled.js';
 
-import { Col, ColProps } from './Col.js';
+import { Col, type ColProps } from './Col.js';
 
 const colControl = {
   control: {

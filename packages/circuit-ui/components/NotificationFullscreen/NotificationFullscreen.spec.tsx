@@ -21,7 +21,7 @@ import { render, axe, screen } from '../../util/test-utils.js';
 
 import {
   NotificationFullscreen,
-  NotificationFullscreenProps,
+  type NotificationFullscreenProps,
 } from './NotificationFullscreen.js';
 
 describe('NotificationFullscreen', () => {

@@ -58,7 +58,7 @@ describe('Tag', () => {
 
   it('should render with a prefix', () => {
     render(<Tag prefix={DummyIcon}>SomeTest</Tag>);
-    expect(screen.getByTestId('tag-icon')).not.toBeNull();
+    expect(screen.getByTestId('tag-icon')).toBeVisible();
   });
 
   it('should render with a suffix', () => {

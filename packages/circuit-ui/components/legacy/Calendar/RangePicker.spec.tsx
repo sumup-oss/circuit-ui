@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { render } from '../../../util/test-utils.js';
 
@@ -24,7 +24,17 @@ describe('RangePicker', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const { container } = render(<RangePicker />);
+    const { container } = render(
+      <RangePicker
+        startDate={null}
+        startDateId="startDate"
+        endDate={null}
+        endDateId="endDate"
+        focusedInput={null}
+        onDatesChange={vi.fn()}
+        onFocusChange={vi.fn()}
+      />,
+    );
     expect(container).toMatchSnapshot();
   });
 });

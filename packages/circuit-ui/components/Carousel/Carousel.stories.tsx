@@ -26,7 +26,7 @@ import {
   PrevButton,
 } from './components/Buttons/index.js';
 import { Status } from './components/Status/index.js';
-import { Carousel, CarouselProps } from './Carousel.js';
+import { Carousel, type CarouselProps } from './Carousel.js';
 import {
   ASPECT_RATIO,
   ANIMATION_DURATION,

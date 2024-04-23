@@ -18,7 +18,7 @@ import { createRef } from 'react';
 
 import { render, axe, screen, userEvent } from '../../util/test-utils.js';
 
-import { Toggletip, ToggletipReferenceProps } from './Toggletip.js';
+import { Toggletip, type ToggletipReferenceProps } from './Toggletip.js';
 
 const baseProps = {
   headline: 'What is a chargeback?',

@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { ChangeEvent, useState } from 'react';
+import { useState, type ChangeEvent } from 'react';
 
-import { Checkbox, CheckboxProps } from './Checkbox.js';
+import { Checkbox, type CheckboxProps } from './Checkbox.js';
 
 export default {
   title: 'Forms/Checkbox',

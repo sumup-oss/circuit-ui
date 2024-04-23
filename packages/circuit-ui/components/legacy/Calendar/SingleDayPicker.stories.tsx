@@ -16,7 +16,10 @@
 import { useState } from 'react';
 import type { Moment } from 'moment';
 
-import { SingleDayPicker, SingleDayPickerProps } from './SingleDayPicker.js';
+import {
+  SingleDayPicker,
+  type SingleDayPickerProps,
+} from './SingleDayPicker.js';
 
 export default {
   title: 'Forms/Calendar/SingleDayPicker',

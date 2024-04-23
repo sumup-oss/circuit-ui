@@ -23,9 +23,9 @@ describe('applyMultipleRefs function', () => {
   test("should populate a reference's `current` member'", () => {
     const {
       result: { current: refAsObject },
-    } = renderHook(() => useRef<HTMLDivElement>());
+    } = renderHook(() => useRef<HTMLDivElement>(null));
 
-    render(<div ref={applyMultipleRefs(refAsObject)} />);
+    render(<div ref={applyMultipleRefs<HTMLDivElement>(refAsObject)} />);
     expect(refAsObject.current).toMatchInlineSnapshot('<div />');
   });
 

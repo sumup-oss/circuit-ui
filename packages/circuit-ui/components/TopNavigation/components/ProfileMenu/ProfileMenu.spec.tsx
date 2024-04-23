@@ -22,7 +22,7 @@ import {
   screen,
   userEvent,
 } from '../../../../util/test-utils.js';
-import { PopoverProps } from '../../../Popover/index.js';
+import type { PopoverProps } from '../../../Popover/index.js';
 
 import { ProfileMenu } from './ProfileMenu.js';
 

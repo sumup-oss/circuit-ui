@@ -17,7 +17,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { render, userEvent, axe, screen } from '../../../../util/test-utils.js';
 
-import { Header, HeaderProps } from './Header.js';
+import { Header, type HeaderProps } from './Header.js';
 
 describe('Header', () => {
   const baseProps = {
