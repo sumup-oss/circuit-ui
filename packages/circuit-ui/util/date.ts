@@ -33,8 +33,8 @@ export function toPlainDate(date?: string): Temporal.PlainDate | null {
 
 export function clampDate(
   date: Temporal.PlainDate,
-  minDate: Temporal.PlainDate | null,
-  maxDate: Temporal.PlainDate | null,
+  minDate?: Temporal.PlainDate | null,
+  maxDate?: Temporal.PlainDate | null,
 ): Temporal.PlainDate {
   if (minDate && Temporal.PlainDate.compare(date, minDate) < 0) {
     return minDate;
