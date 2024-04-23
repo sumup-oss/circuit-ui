@@ -48,7 +48,7 @@ const Swipeable = ({
   return <div {...handlers}>{children}</div>;
 };
 
-interface YesOrNoSliderProps extends StepProps {
+export interface YesOrNoSliderProps extends StepProps {
   images: string[];
 }
 

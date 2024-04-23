@@ -19,7 +19,10 @@ import { action } from '@storybook/addon-actions';
 import { Stack } from '../../../../.storybook/components/index.js';
 import { RadioButton } from '../RadioButton/RadioButton.js';
 
-import { RadioButtonGroup, RadioButtonGroupProps } from './RadioButtonGroup.js';
+import {
+  RadioButtonGroup,
+  type RadioButtonGroupProps,
+} from './RadioButtonGroup.js';
 
 export default {
   title: 'Forms/RadioButtonGroup',

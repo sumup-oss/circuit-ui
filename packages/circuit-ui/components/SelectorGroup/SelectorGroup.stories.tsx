@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import { ChangeEvent, FocusEvent, useState } from 'react';
+import { useState, type ChangeEvent, type FocusEvent } from 'react';
 import { action } from '@storybook/addon-actions';
 import { CardReaderAir, CardReaderSolo, MobilePhone } from '@sumup/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
-import { Selector, SelectorProps } from '../Selector/Selector.js';
+import { Selector, type SelectorProps } from '../Selector/Selector.js';
 
-import { SelectorGroup, SelectorGroupProps } from './SelectorGroup.js';
+import { SelectorGroup, type SelectorGroupProps } from './SelectorGroup.js';
 
 export default {
   title: 'Forms/SelectorGroup',

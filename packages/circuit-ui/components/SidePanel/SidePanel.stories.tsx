@@ -29,8 +29,8 @@ import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigatio
 import { SidePanelProvider } from './SidePanelContext.js';
 import {
   useSidePanel,
-  ChildrenRenderProps,
-  SidePanelHookProps,
+  type ChildrenRenderProps,
+  type SidePanelHookProps,
 } from './useSidePanel.js';
 
 export default {

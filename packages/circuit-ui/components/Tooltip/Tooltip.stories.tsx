@@ -19,7 +19,11 @@ import { TransferOut, UploadCloud } from '@sumup/icons';
 import { Stack } from '../../../../.storybook/components/index.js';
 import Button, { IconButton } from '../Button/index.js';
 
-import { Tooltip, TooltipProps, TooltipReferenceProps } from './Tooltip.js';
+import {
+  Tooltip,
+  type TooltipProps,
+  type TooltipReferenceProps,
+} from './Tooltip.js';
 
 export default {
   title: 'Components/Tooltip',

@@ -21,7 +21,7 @@ import Step, { type StepProps } from '../Step.js';
 
 import classes from './CarouselSlider.module.css';
 
-interface CarouselSliderProps extends StepProps {
+export interface CarouselSliderProps extends StepProps {
   images: string[];
 }
 

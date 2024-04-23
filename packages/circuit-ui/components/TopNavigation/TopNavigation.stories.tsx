@@ -23,7 +23,7 @@ import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigatio
 import { ModalProvider } from '../ModalContext/index.js';
 import Body from '../Body/index.js';
 
-import { TopNavigation, TopNavigationProps } from './TopNavigation.js';
+import { TopNavigation, type TopNavigationProps } from './TopNavigation.js';
 
 export default {
   title: 'Navigation/TopNavigation',

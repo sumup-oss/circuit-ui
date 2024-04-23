@@ -19,7 +19,7 @@ import { Like, Home, LiveChat, Package, Shop } from '@sumup/icons';
 import { modes } from '../../../../.storybook/modes.js';
 import { ModalProvider } from '../ModalContext/index.js';
 
-import { SideNavigation, SideNavigationProps } from './SideNavigation.js';
+import { SideNavigation, type SideNavigationProps } from './SideNavigation.js';
 
 export default {
   title: 'Navigation/SideNavigation',
