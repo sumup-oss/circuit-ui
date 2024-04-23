@@ -125,10 +125,10 @@ describe('StepService', () => {
     it('should add actions to elements onclick handler', () => {
       const getters = StepService.generatePropGetters(actions);
 
-      getters.getPlayControlProps().onClick();
-      getters.getPauseControlProps().onClick();
-      getters.getNextControlProps().onClick();
-      getters.getPreviousControlProps().onClick();
+      getters.getPlayControlProps().onClick?.();
+      getters.getPauseControlProps().onClick?.();
+      getters.getNextControlProps().onClick?.();
+      getters.getPreviousControlProps().onClick?.();
 
       expect(actions.play).toHaveBeenCalledTimes(1);
       expect(actions.pause).toHaveBeenCalledTimes(1);

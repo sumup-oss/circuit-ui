@@ -14,12 +14,12 @@
  */
 
 import { describe, expect, it } from 'vitest';
-import { ChangeEvent, createRef, useState } from 'react';
+import { createRef, useState, type ChangeEvent } from 'react';
 
 import { render, userEvent, axe, screen } from '../../util/test-utils.js';
 import type { InputElement } from '../Input/index.js';
 
-import { CurrencyInput, CurrencyInputProps } from './CurrencyInput.js';
+import { CurrencyInput, type CurrencyInputProps } from './CurrencyInput.js';
 
 // Note: these defaults render a '€' as an input suffix
 const defaultProps = {

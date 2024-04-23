@@ -17,7 +17,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { render, axe, userEvent, screen } from '../../../../util/test-utils.js';
 
-import { PageList, PageListProps } from './PageList.js';
+import { PageList, type PageListProps } from './PageList.js';
 
 describe('PageList', () => {
   const baseProps: PageListProps = {

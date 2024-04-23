@@ -24,7 +24,10 @@ import {
   fireEvent,
 } from '../../util/test-utils.js';
 
-import { RadioButtonGroup, RadioButtonGroupProps } from './RadioButtonGroup.js';
+import {
+  RadioButtonGroup,
+  type RadioButtonGroupProps,
+} from './RadioButtonGroup.js';
 
 const defaultProps: RadioButtonGroupProps = {
   label: 'label',

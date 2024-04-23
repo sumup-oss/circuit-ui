@@ -16,10 +16,10 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { screen, render, axe, RenderFn } from '../../util/test-utils.js';
+import { screen, render, axe, type RenderFn } from '../../util/test-utils.js';
 import Body from '../Body/index.js';
 
-import { ListItemGroup, ListItemGroupProps } from './ListItemGroup.js';
+import { ListItemGroup, type ListItemGroupProps } from './ListItemGroup.js';
 
 describe('ListItemGroup', () => {
   function renderListItemGroup<T>(

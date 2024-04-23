@@ -16,13 +16,13 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe, RenderFn } from '../../util/test-utils.js';
+import { render, axe, type RenderFn } from '../../util/test-utils.js';
 
 import {
   Skeleton,
-  SkeletonProps,
+  type SkeletonProps,
   SkeletonContainer,
-  SkeletonContainerProps,
+  type SkeletonContainerProps,
 } from './Skeleton.js';
 
 describe('Skeleton', () => {

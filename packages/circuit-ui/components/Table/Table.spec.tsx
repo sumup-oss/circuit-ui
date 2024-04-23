@@ -19,7 +19,7 @@ import { render, axe, userEvent, screen } from '../../util/test-utils.js';
 import Badge from '../Badge/index.js';
 
 import Table from './Table.js';
-import { HeaderCell, Direction } from './types.js';
+import type { HeaderCell, Direction } from './types.js';
 
 const sortLabel = ({ direction }: { direction?: Direction }) => {
   const order = direction === 'ascending' ? 'descending' : 'ascending';

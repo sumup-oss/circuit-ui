@@ -18,7 +18,7 @@ import { createRef } from 'react';
 
 import { render, axe, screen, userEvent } from '../../util/test-utils.js';
 
-import { Tooltip, TooltipProps } from './Tooltip.js';
+import { Tooltip, type TooltipProps } from './Tooltip.js';
 
 const baseProps: TooltipProps = {
   label: 'Label',

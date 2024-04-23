@@ -19,12 +19,12 @@ import type { ClickEvent } from '../../../../types/events.js';
 import {
   render,
   axe,
-  RenderFn,
   userEvent,
   screen,
+  type RenderFn,
 } from '../../../../util/test-utils.js';
 
-import { SecondaryLinks, SecondaryLinksProps } from './SecondaryLinks.js';
+import { SecondaryLinks, type SecondaryLinksProps } from './SecondaryLinks.js';
 
 describe('SecondaryLinks', () => {
   function renderSecondaryLinks<T>(

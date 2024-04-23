@@ -23,7 +23,7 @@ import {
   screen,
 } from '../../util/test-utils.js';
 
-import { SidePanel, SidePanelProps } from './SidePanel.js';
+import { SidePanel, type SidePanelProps } from './SidePanel.js';
 
 describe('SidePanel', () => {
   const baseProps: SidePanelProps = {
