@@ -15,9 +15,8 @@
 
 import { Temporal } from 'temporal-polyfill';
 
-export const DAYS_IN_WEEK = 7;
-
 export type FirstDayOfWeek = 1 | 7;
+export type DaysInWeek = number;
 
 export function getTodaysDate() {
   return Temporal.Now.plainDateISO();
@@ -28,7 +27,14 @@ export function yearMonthToDate(yearMonth: Temporal.PlainYearMonth): Date {
 }
 
 export function toPlainDate(date?: string): Temporal.PlainDate | null {
-  return date ? Temporal.PlainDate.from(date) : null;
+  if (!date) {
+    return null;
+  }
+  try {
+    return Temporal.PlainDate.from(date);
+  } catch (e) {
+    return null;
+  }
 }
 
 export function clampDate(
@@ -50,7 +56,7 @@ export function getFirstDateOfWeek(
   firstDayOfWeek: FirstDayOfWeek,
 ): Temporal.PlainDate {
   const diff =
-    (date.dayOfWeek < firstDayOfWeek ? DAYS_IN_WEEK : 0) +
+    (date.dayOfWeek < firstDayOfWeek ? date.daysInWeek : 0) +
     date.dayOfWeek -
     firstDayOfWeek;
   return date.subtract({ days: diff });
@@ -61,6 +67,6 @@ export function getLastDateOfWeek(
   firstDayOfWeek: FirstDayOfWeek,
 ): Temporal.PlainDate {
   return getFirstDateOfWeek(date, firstDayOfWeek).add({
-    days: DAYS_IN_WEEK - 1,
+    days: date.daysInWeek - 1,
   });
 }

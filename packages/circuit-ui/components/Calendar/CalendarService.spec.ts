@@ -16,8 +16,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { Temporal } from 'temporal-polyfill';
 
-import { DAYS_IN_WEEK } from '../../util/date.js';
-
 import {
   calendarReducer,
   getDatesInRange,
@@ -37,50 +35,50 @@ vi.mock('../../util/date.js', async (importOriginal) => {
 describe('CalendarService', () => {
   describe('initCalendar', () => {
     it("should return today's date", () => {
-      const selectedDate = new Temporal.PlainDate(2020, 3, 28);
+      const selection = new Temporal.PlainDate(2020, 3, 28);
       const minDate = null;
       const maxDate = null;
-      const actual = initCalendar({ selectedDate, minDate, maxDate });
+      const actual = initCalendar({ selection, minDate, maxDate });
       expect(actual.today.toString()).toBe('2020-03-15');
     });
 
     it('should focus the currently selected date', () => {
-      const selectedDate = new Temporal.PlainDate(2020, 3, 28);
+      const selection = new Temporal.PlainDate(2020, 3, 28);
       const minDate = null;
       const maxDate = null;
-      const actual = initCalendar({ selectedDate, minDate, maxDate });
+      const actual = initCalendar({ selection, minDate, maxDate });
       expect(actual.focusedDate.toString()).toBe('2020-03-28');
     });
 
     it("should focus today's date if there is no selected date", () => {
-      const selectedDate = null;
+      const selection = null;
       const minDate = null;
       const maxDate = null;
-      const actual = initCalendar({ selectedDate, minDate, maxDate });
+      const actual = initCalendar({ selection, minDate, maxDate });
       expect(actual.focusedDate.toString()).toBe('2020-03-15');
     });
 
     it('should focus the minimum date if the selected date is smaller', () => {
-      const selectedDate = new Temporal.PlainDate(2020, 3, 28);
+      const selection = new Temporal.PlainDate(2020, 3, 28);
       const minDate = new Temporal.PlainDate(2020, 4, 1);
       const maxDate = null;
-      const actual = initCalendar({ selectedDate, minDate, maxDate });
+      const actual = initCalendar({ selection, minDate, maxDate });
       expect(actual.focusedDate.toString()).toBe('2020-04-01');
     });
 
     it('should focus the maximum date if the selected date is larger', () => {
-      const selectedDate = new Temporal.PlainDate(2020, 3, 28);
+      const selection = new Temporal.PlainDate(2020, 3, 28);
       const minDate = null;
       const maxDate = new Temporal.PlainDate(2020, 3, 1);
-      const actual = initCalendar({ selectedDate, minDate, maxDate });
+      const actual = initCalendar({ selection, minDate, maxDate });
       expect(actual.focusedDate.toString()).toBe('2020-03-01');
     });
 
     it('should show the currently focused month', () => {
-      const selectedDate = new Temporal.PlainDate(2020, 4, 28);
+      const selection = new Temporal.PlainDate(2020, 4, 28);
       const minDate = null;
       const maxDate = new Temporal.PlainDate(2020, 3, 1);
-      const actual = initCalendar({ selectedDate, minDate, maxDate });
+      const actual = initCalendar({ selection, minDate, maxDate });
       expect(actual.yearMonth.toString()).toBe('2020-03');
     });
   });
@@ -120,9 +118,10 @@ describe('CalendarService', () => {
   describe('getWeekdays', () => {
     it('should return an ordered collection of weekdays', () => {
       const firstDayOfWeek = 1;
+      const daysInWeek = 7;
       const locale = 'en-US';
-      const actual = getWeekdays(firstDayOfWeek, locale);
-      expect(actual).toHaveLength(DAYS_IN_WEEK);
+      const actual = getWeekdays(firstDayOfWeek, daysInWeek, locale);
+      expect(actual).toHaveLength(daysInWeek);
       expect(actual).toEqual([
         { long: 'Monday', narrow: 'M' },
         { long: 'Tuesday', narrow: 'T' },
@@ -136,8 +135,9 @@ describe('CalendarService', () => {
 
     it('should start the weekdays on the specified first day', () => {
       const firstDayOfWeek = 7;
+      const daysInWeek = 7;
       const locale = 'en-US';
-      const actual = getWeekdays(firstDayOfWeek, locale);
+      const actual = getWeekdays(firstDayOfWeek, daysInWeek, locale);
       expect(actual).toEqual([
         { long: 'Sunday', narrow: 'S' },
         { long: 'Monday', narrow: 'M' },
@@ -151,8 +151,9 @@ describe('CalendarService', () => {
 
     it('should format the weekday names for the specified locale', () => {
       const firstDayOfWeek = 1;
+      const daysInWeek = 7;
       const locale = 'de-DE';
-      const actual = getWeekdays(firstDayOfWeek, locale);
+      const actual = getWeekdays(firstDayOfWeek, daysInWeek, locale);
       expect(actual).toEqual([
         { long: 'Montag', narrow: 'M' },
         { long: 'Dienstag', narrow: 'D' },
@@ -186,10 +187,11 @@ describe('CalendarService', () => {
     it('should return a collection of days in the specified month, chunked into full weeks including the days outside of the month', () => {
       const yearMonth = new Temporal.PlainYearMonth(2020, 3);
       const firstDayOfWeek = 1; // Monday
-      const weeks = getViewOfMonth(yearMonth, firstDayOfWeek);
+      const daysInWeek = 7;
+      const weeks = getViewOfMonth(yearMonth, firstDayOfWeek, daysInWeek);
       expect(weeks).toHaveLength(6);
       weeks.forEach((week) => {
-        expect(week).toHaveLength(DAYS_IN_WEEK);
+        expect(week).toHaveLength(daysInWeek);
       });
       expect(weeks[0][0].toString()).toBe('2020-02-24');
       expect(weeks[5][6].toString()).toBe('2020-04-05');
@@ -198,10 +200,11 @@ describe('CalendarService', () => {
     it('should take the first day of the week into account', () => {
       const yearMonth = new Temporal.PlainYearMonth(2020, 3);
       const firstDayOfWeek = 7; // Sunday
-      const weeks = getViewOfMonth(yearMonth, firstDayOfWeek);
+      const daysInWeek = 7;
+      const weeks = getViewOfMonth(yearMonth, firstDayOfWeek, daysInWeek);
       expect(weeks).toHaveLength(5);
       weeks.forEach((week) => {
-        expect(week).toHaveLength(DAYS_IN_WEEK);
+        expect(week).toHaveLength(daysInWeek);
       });
       expect(weeks[0][0].toString()).toBe('2020-03-01');
       expect(weeks[4][6].toString()).toBe('2020-04-04');

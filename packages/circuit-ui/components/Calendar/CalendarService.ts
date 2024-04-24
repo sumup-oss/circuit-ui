@@ -19,11 +19,11 @@ import { formatDateTime } from '@sumup/intl';
 import type { Locale } from '../../util/i18n.js';
 import { chunk } from '../../util/helpers.js';
 import {
-  DAYS_IN_WEEK,
   clampDate,
   getFirstDateOfWeek,
   getLastDateOfWeek,
   getTodaysDate,
+  type DaysInWeek,
   type FirstDayOfWeek,
 } from '../../util/date.js';
 
@@ -39,16 +39,16 @@ type CalendarAction =
   | { type: 'focus-date'; date: Temporal.PlainDate };
 
 export function initCalendar({
-  selectedDate,
+  selection,
   minDate,
   maxDate,
 }: {
-  selectedDate?: Temporal.PlainDate | null;
+  selection?: Temporal.PlainDate | null;
   minDate?: Temporal.PlainDate | null;
   maxDate?: Temporal.PlainDate | null;
 }): CalendarState {
   const today = getTodaysDate();
-  const focusedDate = clampDate(selectedDate || today, minDate, maxDate);
+  const focusedDate = clampDate(selection || today, minDate, maxDate);
   const yearMonth = Temporal.PlainYearMonth.from(focusedDate);
   return { today, focusedDate, yearMonth };
 }
@@ -84,8 +84,12 @@ export function calendarReducer(
 type Weekday = { narrow: string; long: string };
 type Weekdays = [Weekday, Weekday, Weekday, Weekday, Weekday, Weekday, Weekday];
 
-export function getWeekdays(firstDayOfWeek: FirstDayOfWeek, locale?: Locale) {
-  return Array.from(Array(DAYS_IN_WEEK)).map((_, i) => {
+export function getWeekdays(
+  firstDayOfWeek: FirstDayOfWeek = 1,
+  daysInWeek: DaysInWeek = 7,
+  locale?: Locale,
+) {
+  return Array.from(Array(daysInWeek)).map((_, i) => {
     const index = i + firstDayOfWeek;
     // 1971 started with a Monday
     const date = new Date(Date.UTC(1971, 1, index));
@@ -115,6 +119,7 @@ export function getDatesInRange(
 export function getViewOfMonth(
   yearMonth: Temporal.PlainYearMonth,
   firstDayOfWeek: FirstDayOfWeek = 1,
+  daysInWeek: DaysInWeek = 7,
 ): Temporal.PlainDate[][] {
   const firstDayOfMonth = yearMonth.toPlainDate({ day: 1 });
   const lastDayOfMonth = firstDayOfMonth.add({
@@ -122,5 +127,5 @@ export function getViewOfMonth(
   });
   const firstDateOfWeek = getFirstDateOfWeek(firstDayOfMonth, firstDayOfWeek);
   const lastDateOfWeek = getLastDateOfWeek(lastDayOfMonth, firstDayOfWeek);
-  return chunk(getDatesInRange(firstDateOfWeek, lastDateOfWeek), DAYS_IN_WEEK);
+  return chunk(getDatesInRange(firstDateOfWeek, lastDateOfWeek), daysInWeek);
 }
