@@ -31,27 +31,27 @@ const today = isChromatic()
   ? new Temporal.PlainDate(2020, 3, 15)
   : getTodaysDate();
 
-export const Base = ({ selectedDate, ...args }: CalendarProps) => {
-  const [date, setDate] = useState(selectedDate);
-  return <Calendar {...args} selectedDate={date} onSelect={setDate} />;
+export const Base = ({ selection, ...args }: CalendarProps) => {
+  const [date, setDate] = useState(selection);
+  return <Calendar {...args} selection={date} onSelect={setDate} />;
 };
 
 Base.args = {
   locale: 'en-US',
-  selectedDate: today.add({ days: 3 }),
+  selection: today.add({ days: 3 }),
   minDate: today.subtract({ days: 7 }),
   maxDate: today.add({ months: 3 }),
   prevMonthButtonLabel: 'Previous month',
   nextMonthButtonLabel: 'Next month',
 };
 
-export const Localized = ({ selectedDate, ...args }: CalendarProps) => {
-  const [date, setDate] = useState(selectedDate);
+export const Localized = ({ selection, ...args }: CalendarProps) => {
+  const [date, setDate] = useState(selection);
   return (
     <Stack>
       <Calendar
         {...args}
-        selectedDate={date}
+        selection={date}
         onSelect={setDate}
         locale="de-DE"
         prevMonthButtonLabel="Vorheriger Monat"
@@ -59,7 +59,7 @@ export const Localized = ({ selectedDate, ...args }: CalendarProps) => {
       />
       <Calendar
         {...args}
-        selectedDate={date}
+        selection={date}
         onSelect={setDate}
         locale="bg-BG"
         prevMonthButtonLabel="Предишния месец"
@@ -67,7 +67,7 @@ export const Localized = ({ selectedDate, ...args }: CalendarProps) => {
       />
       <Calendar
         {...args}
-        selectedDate={date}
+        selection={date}
         onSelect={setDate}
         locale="pt-BR"
         prevMonthButtonLabel="Mês anterior"
@@ -78,24 +78,27 @@ export const Localized = ({ selectedDate, ...args }: CalendarProps) => {
 };
 
 Localized.args = {
-  selectedDate: today.add({ days: 3 }),
+  selection: today.add({ days: 3 }),
   minDate: today.subtract({ days: 7 }),
   maxDate: today.add({ months: 3 }),
 };
 
-export const Modifiers = ({ selectedDate, ...args }: CalendarProps) => {
-  const [date, setDate] = useState(selectedDate);
-  return <Calendar {...args} selectedDate={date} onSelect={setDate} />;
+export const Modifiers = ({ selection, ...args }: CalendarProps) => {
+  const [date, setDate] = useState(selection);
+  return <Calendar {...args} selection={date} onSelect={setDate} />;
 };
 
 Modifiers.args = {
   locale: 'en-US',
-  selectedDate: today.add({ days: 3 }),
+  selection: today.add({ days: 3 }),
   minDate: today.subtract({ days: 7 }),
   maxDate: today.add({ months: 3 }),
   prevMonthButtonLabel: 'Previous month',
   nextMonthButtonLabel: 'Next month',
   modifiers: {
+    [today.subtract({ days: 10 }).toString()]: {
+      description: 'Booked',
+    },
     [today.subtract({ days: 3 }).toString()]: {
       description: 'Booked',
     },
