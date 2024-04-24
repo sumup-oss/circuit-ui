@@ -16,13 +16,13 @@
 'use client';
 
 import { Component, createRef, HTMLAttributes, UIEvent } from 'react';
-import { Settings } from '@sumup/icons';
+import { Hide, Settings, View } from '@sumup/icons';
 
 import { isNil } from '../../util/type-check.js';
 import { throttle } from '../../util/helpers.js';
 import { clsx } from '../../styles/clsx.js';
 // eslint-disable-next-line import/no-cycle
-import { Checkbox, IconButton } from '../../index.js';
+import { IconButton, Popover } from '../../index.js';
 
 import TableHead from './components/TableHead/index.js';
 import TableBody from './components/TableBody/index.js';
@@ -232,6 +232,7 @@ class Table extends Component<TableProps, TableState> {
       borderCollapsed = false,
       condensed = false,
       selectableColumns = false,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       mandatorySelectedColumnIndices = [],
       scrollable = false,
       onRowClick,
@@ -241,6 +242,7 @@ class Table extends Component<TableProps, TableState> {
       ...props
     } = this.props;
     const {
+      hasExpandedColumnSelection,
       sortDirection,
       sortHover,
       sortedRow,
@@ -250,41 +252,77 @@ class Table extends Component<TableProps, TableState> {
       rows,
     } = this.state;
 
+    const selectedHeaders =
+      // @ts-expect-error ts misses optional chaining
+      selectedColumns?.length > 0
+        ? headers.filter((_, index) =>
+            (selectedColumns as number[]).includes(index),
+          )
+        : headers;
+
     return (
-      <>
-        {selectableColumns && (
-          <div style={{ marginBottom: '0.5rem' }}>
-            <div style={{ textAlign: 'right' }}>
-              <IconButton
-                icon={Settings}
-                size={'s'}
-                variant={'tertiary'}
-                onClick={() => {
-                  this.setState({
-                    ...this.state,
-                    hasExpandedColumnSelection:
-                      !this.state.hasExpandedColumnSelection,
-                  });
-                }}
-              >
-                Configure
-              </IconButton>
-            </div>
-            {this.state.hasExpandedColumnSelection && (
-              <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                {headers.map((header, index) => {
-                  const checked = selectedColumns?.includes(index);
-                  return (
-                    <Checkbox
-                      style={{ width: '33%' }}
-                      disabled={mandatorySelectedColumnIndices?.includes(index)}
-                      key={index}
-                      // @ts-expect-error header children
-                      label={String(header?.children ?? header)}
-                      checked={checked}
-                      onChange={() => {
+      <div
+        className={clsx(
+          classes.container,
+          scrollable && classes.scrollable,
+          !noShadow && classes.border,
+          className,
+        )}
+        ref={this.tableRef}
+        {...props}
+      >
+        <div
+          className={clsx(
+            classes['scroll-container'],
+            rowHeaders && classes['row-headers'],
+          )}
+          style={{ '--table-height': tableBodyHeight || '100%' }}
+          onScroll={scrollable ? this.handleScroll : undefined}
+        >
+          <table
+            className={clsx(
+              classes.base,
+              borderCollapsed && classes['border-collapse'],
+              selectableColumns && classes['has-column-selector'],
+            )}
+          >
+            <TableHead
+              top={scrollTop}
+              condensed={condensed}
+              scrollable={scrollable}
+              sortDirection={sortDirection}
+              sortedRow={sortedRow}
+              onSortBy={this.onSortBy}
+              onSortEnter={this.onSortEnter}
+              onSortLeave={this.onSortLeave}
+              headers={selectedHeaders}
+              rowHeaders={rowHeaders}
+            />
+            {selectableColumns && (
+              <div style={{ position: 'absolute', right: 0, top: 0 }}>
+                <Popover
+                  isOpen={!!hasExpandedColumnSelection}
+                  placement="bottom-end"
+                  component={(componentProps) => (
+                    <IconButton
+                      icon={Settings}
+                      size={'s'}
+                      variant={'tertiary'}
+                      {...componentProps}
+                    >
+                      Configure
+                    </IconButton>
+                  )}
+                  onToggle={() => {
+                    this.setState({
+                      hasExpandedColumnSelection: !hasExpandedColumnSelection,
+                    });
+                  }}
+                  actions={(headers || []).map((header, index) => {
+                    const checked = selectedColumns?.includes(index);
+                    return {
+                      onClick: () => {
                         this.setState({
-                          ...this.state,
                           selectedColumns: checked
                             ? [
                                 ...(selectedColumns || []).filter(
@@ -293,81 +331,38 @@ class Table extends Component<TableProps, TableState> {
                               ]
                             : [...(selectedColumns || []), index],
                         });
-                      }}
-                    />
-                  );
-                })}
+                      },
+                      icon: checked ? View : Hide,
+                      // @ts-expect-error header children
+                      children: String(header?.children ?? header),
+                    };
+                  })}
+                />
               </div>
             )}
-          </div>
-        )}
-        <div
-          className={clsx(
-            classes.container,
-            scrollable && classes.scrollable,
-            !noShadow && classes.border,
-            className,
-          )}
-          ref={this.tableRef}
-          {...props}
-        >
-          <div
-            className={clsx(
-              classes['scroll-container'],
-              rowHeaders && classes['row-headers'],
-            )}
-            style={{ '--table-height': tableBodyHeight || '100%' }}
-            onScroll={scrollable ? this.handleScroll : undefined}
-          >
-            <table
-              className={clsx(
-                classes.base,
-                borderCollapsed && classes['border-collapse'],
-              )}
-            >
-              <TableHead
-                top={scrollTop}
-                condensed={condensed}
-                scrollable={scrollable}
-                sortDirection={sortDirection}
-                sortedRow={sortedRow}
-                onSortBy={this.onSortBy}
-                onSortEnter={this.onSortEnter}
-                onSortLeave={this.onSortLeave}
-                headers={
-                  // @ts-expect-error ts misses optional chaining
-                  selectedColumns?.length > 0
-                    ? headers.filter((_, index) =>
+            <TableBody
+              condensed={condensed}
+              rows={
+                // @ts-expect-error ts misses optional chaining
+                selectedColumns?.length > 0 && rows?.length
+                  ? rows.map((row) => {
+                      let rowCells = row;
+                      if ((row as { cells: RowCell[] })?.cells) {
+                        rowCells = (row as { cells: RowCell[] }).cells;
+                      }
+                      return (rowCells as RowCell[]).filter((_, index) =>
                         (selectedColumns as number[]).includes(index),
-                      )
-                    : headers
-                }
-                rowHeaders={rowHeaders}
-              />
-              <TableBody
-                condensed={condensed}
-                rows={
-                  // @ts-expect-error ts misses optional chaining
-                  selectedColumns?.length > 0 && rows?.length
-                    ? rows.map((row) => {
-                        let rowCells = row;
-                        if ((row as { cells: RowCell[] })?.cells) {
-                          rowCells = (row as { cells: RowCell[] }).cells;
-                        }
-                        return (rowCells as RowCell[]).filter((_, index) =>
-                          (selectedColumns as number[]).includes(index),
-                        );
-                      })
-                    : rows
-                }
-                rowHeaders={rowHeaders}
-                sortHover={sortHover}
-                onRowClick={onRowClick}
-              />
-            </table>
-          </div>
+                      );
+                    })
+                  : rows
+              }
+              rowHeaders={rowHeaders}
+              sortHover={sortHover}
+              onRowClick={onRowClick}
+            />
+          </table>
         </div>
-      </>
+      </div>
     );
   }
 }

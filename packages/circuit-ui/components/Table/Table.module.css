@@ -35,3 +35,7 @@
 .border-collapse {
   border-collapse: collapse;
 }
+
+.has-column-selector thead th:last-child {
+  padding-right: var(--cui-icon-sizes-giga);
+}
