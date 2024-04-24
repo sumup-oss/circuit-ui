@@ -15,6 +15,7 @@
 
 import { describe, it, vi } from 'vitest';
 import { Temporal } from 'temporal-polyfill';
+import { createRef } from 'react';
 
 import {
   render,
@@ -22,6 +23,7 @@ import {
   userEvent,
   axe,
   waitFor,
+  act,
 } from '../../util/test-utils.js';
 
 import { Calendar } from './Calendar.js';
@@ -42,17 +44,31 @@ function wait(ms: number) {
 
 describe('Calendar', () => {
   const baseProps = {
-    selectedDate: new Temporal.PlainDate(2020, 3, 15),
+    selection: new Temporal.PlainDate(2020, 3, 15),
     prevMonthButtonLabel: 'Previous month',
     nextMonthButtonLabel: 'Next month',
   };
 
-  function getDateElement(day: number) {
+  function getDayElement(day: number) {
     return screen.getByRole('button', { name: day.toString() });
   }
-  function getSelectedDateElement() {
-    return getDateElement(baseProps.selectedDate.day);
+  function getSelectedDayElement() {
+    return getDayElement(baseProps.selection.day);
   }
+
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    render(<Calendar {...baseProps} className={className} />);
+    const group = screen.getByRole('group');
+    expect(group?.className).toContain(className);
+  });
+
+  it('should forward a ref to the outer element', () => {
+    const ref = createRef<HTMLDivElement>();
+    render(<Calendar {...baseProps} ref={ref} />);
+    const group = screen.getByRole('group');
+    expect(ref.current).toBe(group);
+  });
 
   it('should show the current month and year', () => {
     render(<Calendar {...baseProps} />);
@@ -104,43 +120,47 @@ describe('Calendar', () => {
         name: /previous month/i,
       });
       const nextButton = screen.getByRole('button', { name: /next month/i });
-      const selectedDate = getSelectedDateElement();
+      const selectedDay = getSelectedDayElement();
       await userEvent.tab();
       expect(document.activeElement).toEqual(prevButton);
       await userEvent.tab();
       expect(document.activeElement).toEqual(nextButton);
       await userEvent.tab();
-      expect(document.activeElement).toEqual(selectedDate);
+      expect(document.activeElement).toEqual(selectedDay);
     });
 
     it('should navigate the date grid using the arrow keys', async () => {
       render(<Calendar {...baseProps} />);
-      const selectedDate = getSelectedDateElement();
-      selectedDate.focus();
-      expect(document.activeElement).toEqual(selectedDate);
+      const selectedDay = getSelectedDayElement();
+      act(() => {
+        selectedDay.focus();
+      });
+      expect(document.activeElement).toEqual(selectedDay);
       await userEvent.keyboard('{ArrowRight}');
       await waitFor(() => {
-        expect(document.activeElement).toEqual(getDateElement(16));
+        expect(document.activeElement).toEqual(getDayElement(16));
       });
       await userEvent.keyboard('{ArrowUp}');
       await waitFor(() => {
-        expect(document.activeElement).toEqual(getDateElement(9));
+        expect(document.activeElement).toEqual(getDayElement(9));
       });
       await userEvent.keyboard('{ArrowLeft}');
       await waitFor(() => {
-        expect(document.activeElement).toEqual(getDateElement(8));
+        expect(document.activeElement).toEqual(getDayElement(8));
       });
       await userEvent.keyboard('{ArrowDown}');
       await waitFor(() => {
-        expect(document.activeElement).toEqual(getDateElement(15));
+        expect(document.activeElement).toEqual(getDayElement(15));
       });
     });
 
     it('should navigate the date grid using the page keys', async () => {
       render(<Calendar {...baseProps} />);
-      const selectedDate = getSelectedDateElement();
-      selectedDate.focus();
-      expect(document.activeElement).toEqual(selectedDate);
+      const selectedDay = getSelectedDayElement();
+      act(() => {
+        selectedDay.focus();
+      });
+      expect(document.activeElement).toEqual(selectedDay);
       expect(screen.getByText('March 2020')).toBeVisible();
       await userEvent.keyboard('{PageUp}');
       await waitFor(() => {
@@ -165,16 +185,18 @@ describe('Calendar', () => {
 
     it('should navigate the date grid using the home and end keys', async () => {
       render(<Calendar {...baseProps} />);
-      const selectedDate = getSelectedDateElement();
-      selectedDate.focus();
-      expect(document.activeElement).toEqual(selectedDate);
+      const selectedDay = getSelectedDayElement();
+      act(() => {
+        selectedDay.focus();
+      });
+      expect(document.activeElement).toEqual(selectedDay);
       await userEvent.keyboard('{Home}');
       await waitFor(() => {
-        expect(document.activeElement).toEqual(getDateElement(9));
+        expect(document.activeElement).toEqual(getDayElement(9));
       });
       await userEvent.keyboard('{End}');
       await waitFor(() => {
-        expect(document.activeElement).toEqual(getDateElement(15));
+        expect(document.activeElement).toEqual(getDayElement(15));
       });
     });
   });
@@ -182,11 +204,11 @@ describe('Calendar', () => {
   describe('selection', () => {
     it('should mark the selected date', () => {
       const { container } = render(<Calendar {...baseProps} />);
-      const selectedDate = screen.getByRole('button', { name: '15' });
+      const selectedDay = screen.getByRole('button', { name: '15' });
       // eslint-disable-next-line testing-library/no-container
-      const selectedDates = container.querySelectorAll('[aria-pressed="true"]');
-      expect(selectedDates).toHaveLength(1);
-      expect(selectedDates[0]).toEqual(selectedDate);
+      const selectedDays = container.querySelectorAll('[aria-pressed="true"]');
+      expect(selectedDays).toHaveLength(1);
+      expect(selectedDays[0]).toEqual(selectedDay);
     });
 
     it('should call the onSelect callback when clicking a date', async () => {
@@ -195,7 +217,7 @@ describe('Calendar', () => {
         spy(date.toString());
       });
       render(<Calendar {...baseProps} onSelect={onSelect} />);
-      const march21 = getDateElement(21);
+      const march21 = getDayElement(21);
       await userEvent.click(march21);
       expect(onSelect).toHaveBeenCalledTimes(1);
       expect(onSelect).toHaveBeenCalledWith(
@@ -212,7 +234,7 @@ describe('Calendar', () => {
         spy(date.toString());
       });
       render(<Calendar {...baseProps} onSelect={onSelect} />);
-      const march21 = getDateElement(21);
+      const march21 = getDayElement(21);
       march21.focus();
       await userEvent.keyboard('{Enter}');
       expect(onSelect).toHaveBeenCalledTimes(1);
@@ -251,9 +273,9 @@ describe('Calendar', () => {
     it('should disable the dates before the minimum date', async () => {
       const minDate = new Temporal.PlainDate(2020, 3, 10);
       render(<Calendar {...baseProps} minDate={minDate} />);
-      const march10 = getDateElement(10);
+      const march10 = getDayElement(10);
       expect(march10).not.toHaveAttribute('aria-disabled', 'true');
-      const march9 = getDateElement(9);
+      const march9 = getDayElement(9);
       expect(march9).toHaveAttribute('aria-disabled', 'true');
       await userEvent.click(march9);
       expect(march9).not.toHaveAttribute('aria-pressed', 'true');
@@ -262,9 +284,9 @@ describe('Calendar', () => {
     it('should disable the dates after the maximum date', async () => {
       const maxDate = new Temporal.PlainDate(2020, 3, 20);
       render(<Calendar {...baseProps} maxDate={maxDate} />);
-      const march20 = getDateElement(20);
+      const march20 = getDayElement(20);
       expect(march20).not.toHaveAttribute('aria-disabled', 'true');
-      const march21 = getDateElement(21);
+      const march21 = getDayElement(21);
       expect(march21).toHaveAttribute('aria-disabled', 'true');
       await userEvent.click(march21);
       expect(march21).not.toHaveAttribute('aria-pressed', 'true');
@@ -275,7 +297,7 @@ describe('Calendar', () => {
         '2020-03-21': { disabled: true },
       };
       render(<Calendar {...baseProps} modifiers={modifiers} />);
-      const march21 = getDateElement(21);
+      const march21 = getDayElement(21);
       expect(march21).toHaveAttribute('aria-disabled', 'true');
     });
   });
@@ -285,7 +307,7 @@ describe('Calendar', () => {
       '2020-03-21': { description: 'Booked' },
     };
     render(<Calendar {...baseProps} modifiers={modifiers} />);
-    const march21 = getDateElement(21);
+    const march21 = getDayElement(21);
     expect(march21).toHaveAccessibleDescription('Booked');
   });
 
