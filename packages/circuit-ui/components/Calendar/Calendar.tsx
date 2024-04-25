@@ -360,18 +360,23 @@ function Month({
   className,
   ...props
 }: MonthProps) {
-  const daysInWeek = 7;
+  const { daysInWeek = 7 } = focusedDate;
   const descriptionIds = useId();
   const weeks = useMemo(
     () => getViewOfMonth(yearMonth, firstDayOfWeek, daysInWeek),
-    [yearMonth, firstDayOfWeek],
+    [yearMonth, firstDayOfWeek, daysInWeek],
   );
   const weekdays = useMemo(
     () => getWeekdays(firstDayOfWeek, daysInWeek, locale),
-    [firstDayOfWeek, locale],
+    [firstDayOfWeek, daysInWeek, locale],
   );
   return (
-    <table {...props} className={clsx(className, classes.table)} role="grid">
+    <table
+      {...props}
+      role="grid"
+      className={clsx(className, classes.table)}
+      style={{ '--calendar-days-in-week': daysInWeek }}
+    >
       <thead>
         <tr>
           {weekdays.map((weekday) => (
@@ -379,7 +384,13 @@ function Month({
               <span className={utilityClasses.hideVisually}>
                 {weekday.long}
               </span>
-              <Body as="span" size="one" variant="highlight" aria-hidden="true">
+              <Body
+                as="span"
+                size="one"
+                variant="highlight"
+                aria-hidden="true"
+                className={classes.weekday}
+              >
                 {weekday.narrow}
               </Body>
             </th>

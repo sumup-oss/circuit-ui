@@ -176,7 +176,6 @@ export function isDateActive(
 
 export function getSelectionType(
   date: Temporal.PlainDate,
-  // focusedDate: Temporal.PlainDate | null,
   hoveredDate: Temporal.PlainDate | null,
   selection?: Temporal.PlainDate | PlainDateRange,
 ): 'selected' | 'range-start' | 'range-middle' | 'range-end' | null {

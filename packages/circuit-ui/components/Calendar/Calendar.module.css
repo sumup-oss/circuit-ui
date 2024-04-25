@@ -2,13 +2,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   margin-bottom: var(--cui-spacings-kilo);
 }
 
 .table {
-  --table-cell-size: 3rem;
+  --calendar-day-min-width: 48px;
+  --calendar-day-max-width: 64px;
+  --calendar-day-padding: var(--cui-spacings-bit);
 
-  inline-size: max-content;
+  width: 100%;
+  min-width: calc(
+    var(--calendar-days-in-week, 7) * var(--calendar-day-min-width)
+  );
+  max-width: calc(
+    var(--calendar-days-in-week, 7) * var(--calendar-day-max-width)
+  );
   table-layout: fixed;
   border-spacing: 0;
   border-collapse: collapse;
@@ -17,32 +26,33 @@
 .table th,
 .table td {
   position: relative;
-  width: var(--table-cell-size);
-  height: var(--table-cell-size);
-  padding: var(--cui-spacings-bit);
+  padding: var(--calendar-day-padding);
   text-align: center;
   vertical-align: middle;
 }
 
 .table th {
-  height: calc(var(--table-cell-size) + var(--cui-spacings-byte));
   padding-bottom: var(--cui-spacings-kilo);
 }
 
 @media (max-width: 360px) {
   .table {
-    --table-cell-size: 2.5rem;
+    --calendar-day-min-width: 32px;
+    --calendar-day-padding: 1px;
   }
+}
 
-  .table th,
-  .table td {
-    padding: 0;
-  }
+.weekday {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
 }
 
 .day {
   width: 100%;
   height: 100%;
+  aspect-ratio: 1 / 1;
   padding: 0;
   font-size: var(--cui-typography-body-one-font-size);
   font-variant-numeric: tabular-nums;
@@ -53,6 +63,18 @@
   background: none;
   border: 0;
   border-radius: var(--cui-border-radius-circle);
+}
+
+@supports not (aspect-ratio: 1 / 1) {
+  .day,
+  .weekday {
+    width: calc(
+      var(--calendar-day-min-width) - 2 * var(--calendar-day-padding)
+    );
+    height: calc(
+      var(--calendar-day-min-width) - 2 * var(--calendar-day-padding)
+    );
+  }
 }
 
 .day:hover {
@@ -95,28 +117,28 @@
 .range-middle::before,
 .range-end::before {
   position: absolute;
-  top: var(--cui-spacings-bit);
+  top: var(--calendar-day-padding);
   z-index: -1;
   display: block;
-  height: calc(var(--table-cell-size) - 2 * var(--cui-spacings-bit));
+  height: calc(100% - 2 * var(--calendar-day-padding));
   content: "";
   background: var(--cui-bg-accent);
 }
 
 .range-start::before {
   right: 0;
-  width: calc(var(--table-cell-size) / 2);
+  width: calc(100% / 2);
 }
 
 .range-middle::before {
   right: 0;
   left: 0;
-  width: var(--table-cell-size);
+  width: 100%;
 }
 
 .range-end::before {
   left: 0;
-  width: calc(var(--table-cell-size) / 2);
+  width: calc(100% / 2);
 }
 
 td:not(:last-of-type) .range-middle.first-day::before {
@@ -160,7 +182,7 @@ td:not(:last-of-type) .range-middle.last-day::before {
 
 .day[aria-describedby]::after {
   position: absolute;
-  left: calc(50% - var(--cui-spacings-bit) / 2);
+  left: calc(50% - var(--calendar-day-padding) / 2);
   display: block;
   width: var(--cui-spacings-bit);
   height: var(--cui-spacings-bit);
