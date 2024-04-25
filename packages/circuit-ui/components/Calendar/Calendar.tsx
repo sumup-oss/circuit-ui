@@ -42,6 +42,7 @@ import {
   getLastDateOfWeek,
   yearMonthToDate,
   type FirstDayOfWeek,
+  type PlainDateRange,
 } from '../../util/date.js';
 import {
   AccessibilityError,
@@ -52,9 +53,11 @@ import { applyMultipleRefs } from '../../util/refs.js';
 
 import {
   calendarReducer,
+  getSelectionType,
   getViewOfMonth,
   getWeekdays,
   initCalendar,
+  isDateActive,
 } from './CalendarService.js';
 import classes from './Calendar.module.css';
 
@@ -67,7 +70,7 @@ interface SharedProps {
   /**
    * The currently selected date.
    */
-  selection?: Temporal.PlainDate;
+  selection?: Temporal.PlainDate | PlainDateRange;
   /**
    * The minimum selectable date (inclusive).
    */
@@ -141,11 +144,12 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
     },
     ref,
   ) => {
-    const [{ yearMonth, focusedDate, today }, dispatch] = useReducer(
-      calendarReducer,
-      { selection, minDate, maxDate },
-      initCalendar,
-    );
+    const [{ yearMonth, focusedDate, hoveredDate, today }, dispatch] =
+      useReducer(
+        calendarReducer,
+        { selection, minDate, maxDate },
+        initCalendar,
+      );
 
     useEffect(() => {
       onMonthChange?.(yearMonth);
@@ -223,6 +227,16 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
       [handleFocusDate, focusedDate, firstDayOfWeek],
     );
 
+    const handleMouseEnter = useCallback(
+      (date: Temporal.PlainDate) => {
+        dispatch({ type: 'mouse-enter-date', date });
+      },
+      [dispatch],
+    );
+    const handleMouseLeave = useCallback(() => {
+      dispatch({ type: 'mouse-leave-date' });
+    }, [dispatch]);
+
     const isPrevButtonDisabled = minDate ? yearMonth.equals(minDate) : false;
     const isNextButtonDisabled = maxDate ? yearMonth.equals(maxDate) : false;
 
@@ -292,6 +306,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
           yearMonth={yearMonth}
           selection={selection}
           focusedDate={focusedDate}
+          hoveredDate={hoveredDate}
           minDate={minDate}
           maxDate={maxDate}
           today={today}
@@ -302,6 +317,8 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
           onFocusDate={handleFocusDate}
           onSelectDate={handleSelectDate}
           onKeyDown={handleKeyDown}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         />
       </div>
     );
@@ -310,19 +327,25 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
 
 Calendar.displayName = 'Calendar';
 
-interface MonthProps extends SharedProps, HTMLAttributes<HTMLTableElement> {
+interface MonthProps
+  extends SharedProps,
+    Omit<HTMLAttributes<HTMLTableElement>, 'onMouseEnter' | 'onMouseLeave'> {
   yearMonth: Temporal.PlainYearMonth;
   today: Temporal.PlainDate;
   onFocusDate: (date: Temporal.PlainDate) => void;
   onSelectDate: (date: Temporal.PlainDate) => void;
+  onMouseEnter: (date: Temporal.PlainDate) => void;
+  onMouseLeave: () => void;
   onKeyDown: (event: KeyboardEvent) => void;
   focusedDate: Temporal.PlainDate;
+  hoveredDate: Temporal.PlainDate | null;
 }
 
 function Month({
   yearMonth,
   selection,
   focusedDate,
+  hoveredDate,
   minDate,
   maxDate,
   today,
@@ -330,6 +353,8 @@ function Month({
   onFocusDate,
   onSelectDate,
   onKeyDown,
+  onMouseEnter,
+  onMouseLeave,
   firstDayOfWeek = 1,
   locale,
   className,
@@ -375,13 +400,20 @@ function Month({
               }
 
               const { disabled, description } = modifiers[isoDate] || {};
+              const isActive = isDateActive(date, selection);
               const isToday = date.equals(today);
-              const isActive = selection && date.equals(selection);
+              const isFirstDay = date.day === 1;
+              const isLastDay = date.day === date.daysInMonth;
               const isFocused = date.equals(focusedDate);
               const isDisabled =
                 disabled ||
                 (minDate && Temporal.PlainDate.compare(date, minDate) < 0) ||
                 (maxDate && Temporal.PlainDate.compare(date, maxDate) > 0);
+              const selectionType = getSelectionType(
+                date,
+                hoveredDate,
+                selection,
+              );
 
               const handleClick = (event: MouseEvent) => {
                 if (isDisabled) {
@@ -394,15 +426,26 @@ function Month({
                 onFocusDate(date);
               };
 
+              const handleMouseEnter = () => {
+                if (!isDisabled) {
+                  onMouseEnter(date);
+                }
+              };
+
               return (
                 <td key={isoDate}>
                   <button
                     data-date={isoDate}
                     onClick={handleClick}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={onMouseLeave}
                     onKeyDown={onKeyDown}
                     className={clsx(
                       className,
                       classes.day,
+                      selectionType && classes[selectionType],
+                      isFirstDay && classes['first-day'],
+                      isLastDay && classes['last-day'],
                       utilityClasses.focusVisible,
                     )}
                     tabIndex={isFocused ? 0 : -1}

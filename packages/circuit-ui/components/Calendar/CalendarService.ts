@@ -23,34 +23,45 @@ import {
   getFirstDateOfWeek,
   getLastDateOfWeek,
   getTodaysDate,
+  isPlainDate,
+  sortDateRange,
   type DaysInWeek,
   type FirstDayOfWeek,
+  type PlainDateRange,
 } from '../../util/date.js';
 
 type CalendarState = {
   today: Temporal.PlainDate;
   focusedDate: Temporal.PlainDate;
+  hoveredDate: Temporal.PlainDate | null;
   yearMonth: Temporal.PlainYearMonth;
 };
 
 type CalendarAction =
   | { type: 'prev-month' }
   | { type: 'next-month' }
-  | { type: 'focus-date'; date: Temporal.PlainDate };
+  | { type: 'focus-date'; date: Temporal.PlainDate }
+  | { type: 'mouse-enter-date'; date: Temporal.PlainDate }
+  | { type: 'mouse-leave-date' };
 
 export function initCalendar({
   selection,
   minDate,
   maxDate,
 }: {
-  selection?: Temporal.PlainDate | null;
+  selection?: Temporal.PlainDate | PlainDateRange | null;
   minDate?: Temporal.PlainDate | null;
   maxDate?: Temporal.PlainDate | null;
 }): CalendarState {
   const today = getTodaysDate();
-  const focusedDate = clampDate(selection || today, minDate, maxDate);
+  let date: Temporal.PlainDate | undefined;
+  if (selection) {
+    date = isPlainDate(selection) ? selection : sortDateRange(selection)[0];
+  }
+  const focusedDate = clampDate(date || today, minDate, maxDate);
+  const hoveredDate = null;
   const yearMonth = Temporal.PlainYearMonth.from(focusedDate);
-  return { today, focusedDate, yearMonth };
+  return { today, focusedDate, hoveredDate, yearMonth };
 }
 
 export function calendarReducer(
@@ -75,6 +86,16 @@ export function calendarReducer(
         ...state,
         focusedDate: action.date,
         yearMonth: Temporal.PlainYearMonth.from(action.date),
+      };
+    case 'mouse-enter-date':
+      return {
+        ...state,
+        hoveredDate: action.date,
+      };
+    case 'mouse-leave-date':
+      return {
+        ...state,
+        hoveredDate: null,
       };
     default:
       return state;
@@ -128,4 +149,70 @@ export function getViewOfMonth(
   const firstDateOfWeek = getFirstDateOfWeek(firstDayOfMonth, firstDayOfWeek);
   const lastDateOfWeek = getLastDateOfWeek(lastDayOfMonth, firstDayOfWeek);
   return chunk(getDatesInRange(firstDateOfWeek, lastDateOfWeek), daysInWeek);
+}
+
+export function isDateActive(
+  date: Temporal.PlainDate,
+  selection?: Temporal.PlainDate | PlainDateRange,
+): boolean {
+  if (!selection) {
+    return false;
+  }
+  if (isPlainDate(selection)) {
+    return date.equals(selection);
+  }
+  const [startDate, endDate] = sortDateRange(selection);
+  if (startDate && endDate) {
+    return (
+      Temporal.PlainDate.compare(date, startDate) >= 0 &&
+      Temporal.PlainDate.compare(date, endDate) <= 0
+    );
+  }
+  if (startDate) {
+    return date.equals(startDate);
+  }
+  return false;
+}
+
+export function getSelectionType(
+  date: Temporal.PlainDate,
+  // focusedDate: Temporal.PlainDate | null,
+  hoveredDate: Temporal.PlainDate | null,
+  selection?: Temporal.PlainDate | PlainDateRange,
+): 'selected' | 'range-start' | 'range-middle' | 'range-end' | null {
+  if (!selection) {
+    return null;
+  }
+  if (isPlainDate(selection)) {
+    return date.equals(selection) ? 'selected' : null;
+  }
+  if (selection.length === 0) {
+    return null;
+  }
+  if (selection[1] || hoveredDate) {
+    const range = [selection[0], selection[1] || hoveredDate] as [
+      Temporal.PlainDate,
+      Temporal.PlainDate,
+    ];
+    const [startDate, endDate] = sortDateRange(range);
+    if (date.equals(startDate) && date.equals(endDate)) {
+      return 'selected';
+    }
+    if (date.equals(startDate)) {
+      return 'range-start';
+    }
+    if (date.equals(endDate)) {
+      return 'range-end';
+    }
+    if (
+      Temporal.PlainDate.compare(date, startDate) > 0 &&
+      Temporal.PlainDate.compare(date, endDate) < 0
+    ) {
+      return 'range-middle';
+    }
+  }
+  if (date.equals(selection[0])) {
+    return 'selected';
+  }
+  return null;
 }

@@ -27,7 +27,9 @@ yarn add temporal-polyfill
 
 ### Selection
 
-Use the `selection` prop to set the currently selected date and the `onSelect` prop to update the selection when a user picks a different date. Use the `minDate` and `maxDate` props to restrict the available date range or use [modifiers](#modifiers) to disable individual days.
+Use the `selection` prop to set the currently selected date or date range and the `onSelect` prop to update the selection when a user picks a different date. Use the `minDate` and `maxDate` props to restrict the available date range or use [modifiers](#modifiers) to disable individual days.
+
+<Story of={Stories.Range} />
 
 ### Localization
 
@@ -45,7 +47,7 @@ Modifiers enable advanced use cases that require disabling or adding a descripti
 
 <Story of={Stories.Modifiers} />
 
-Use the `onMonthChange` prop to lazy-load modifiers for the currently visible month. Preloading the modifiers for the preceding and following months is recommended in case users navigate to them.
+Use the `onMonthChange` prop to lazy-load modifiers for the currently visible month. Preloading the modifiers for the preceding and following months is recommended.
 
 ```tsx
 import { useState } from 'react';
@@ -82,7 +84,6 @@ function App() {
 ## Related components
 
 - [DateInput](Forms/Input/DateInput/Base): The DateInput component allows user to select a specific date.
-
 
 ## Accessibility
 
