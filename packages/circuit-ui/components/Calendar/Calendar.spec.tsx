@@ -25,6 +25,7 @@ import {
   waitFor,
   act,
 } from '../../util/test-utils.js';
+import type { PlainDateRange } from '../../util/date.js';
 
 import { Calendar } from './Calendar.js';
 
@@ -107,11 +108,22 @@ describe('Calendar', () => {
     });
 
     it('should navigate to the next month', async () => {
-      render(<Calendar {...baseProps} />);
+      const spy = vi.fn();
+      const onMonthChange = vi.fn((yearMonth: Temporal.PlainYearMonth) => {
+        spy(yearMonth.toString());
+      });
+      render(<Calendar {...baseProps} onMonthChange={onMonthChange} />);
       expect(screen.getByText('March 2020')).toBeVisible();
       const nextButton = screen.getByRole('button', { name: /next month/i });
       await userEvent.click(nextButton);
       expect(screen.getByText('April 2020')).toBeVisible();
+      expect(onMonthChange).toHaveBeenCalledTimes(2);
+      expect(onMonthChange).toHaveBeenCalledWith(
+        new Temporal.PlainYearMonth(2020, 4),
+      );
+      // The assertion above returns true for any PlainYearMonth.
+      // The assertion below verifies the specific month.
+      expect(spy).toHaveBeenCalledWith('2020-04');
     });
 
     it('should tab to the focused date', async () => {
@@ -209,6 +221,30 @@ describe('Calendar', () => {
       const selectedDays = container.querySelectorAll('[aria-pressed="true"]');
       expect(selectedDays).toHaveLength(1);
       expect(selectedDays[0]).toEqual(selectedDay);
+    });
+
+    it('should mark the selected date range', () => {
+      const selection = [
+        new Temporal.PlainDate(2020, 3, 15),
+        new Temporal.PlainDate(2020, 3, 25),
+      ] satisfies PlainDateRange;
+      const { container } = render(
+        <Calendar {...baseProps} selection={selection} />,
+      );
+      // eslint-disable-next-line testing-library/no-container
+      const selectedDays = container.querySelectorAll('[aria-pressed="true"]');
+      expect(selectedDays).toHaveLength(11);
+
+      for (
+        let index = selection[0].day;
+        index <= selection[1].day;
+        index += 1
+      ) {
+        const selectedDay = screen.getByRole('button', {
+          name: index.toString(),
+        });
+        expect(selectedDay).toHaveAttribute('aria-pressed', 'true');
+      }
     });
 
     it('should call the onSelect callback when clicking a date', async () => {

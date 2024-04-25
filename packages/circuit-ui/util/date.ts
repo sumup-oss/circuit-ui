@@ -17,6 +17,10 @@ import { Temporal } from 'temporal-polyfill';
 
 export type FirstDayOfWeek = 1 | 7;
 export type DaysInWeek = number;
+export type PlainDateRange =
+  | []
+  | [Temporal.PlainDate]
+  | [Temporal.PlainDate, Temporal.PlainDate];
 
 export function getTodaysDate() {
   return Temporal.Now.plainDateISO();
@@ -24,6 +28,10 @@ export function getTodaysDate() {
 
 export function yearMonthToDate(yearMonth: Temporal.PlainYearMonth): Date {
   return new Date(Date.UTC(yearMonth.year, yearMonth.month - 1));
+}
+
+export function isPlainDate(date: unknown): date is Temporal.PlainDate {
+  return date instanceof Temporal.PlainDate;
 }
 
 export function toPlainDate(date?: string): Temporal.PlainDate | null {
@@ -35,6 +43,10 @@ export function toPlainDate(date?: string): Temporal.PlainDate | null {
   } catch (e) {
     return null;
   }
+}
+
+export function sortDateRange<T extends PlainDateRange>(dateRange: T): T {
+  return dateRange.sort((a, b) => Temporal.PlainDate.compare(a, b)) as T;
 }
 
 export function clampDate(

@@ -18,7 +18,7 @@ import isChromatic from 'chromatic/isChromatic';
 import { Temporal } from 'temporal-polyfill';
 
 import { Stack } from '../../../../.storybook/components/index.js';
-import { getTodaysDate } from '../../util/date.js';
+import { getTodaysDate, type PlainDateRange } from '../../util/date.js';
 
 import { Calendar, type CalendarProps } from './Calendar.js';
 
@@ -112,4 +112,24 @@ Modifiers.args = {
       disabled: true,
     },
   },
+};
+
+export const Range = (args: CalendarProps) => {
+  const [selection, setSelection] = useState(args.selection as PlainDateRange);
+
+  const handleSelect = (date: Temporal.PlainDate) => {
+    setSelection((prevSelection) => {
+      if (!prevSelection[0] || (prevSelection[0] && prevSelection[1])) {
+        return [date];
+      }
+      return [prevSelection[0], date];
+    });
+  };
+
+  return <Calendar {...args} selection={selection} onSelect={handleSelect} />;
+};
+
+Range.args = {
+  ...Base.args,
+  selection: [today.subtract({ days: 3 }), today.add({ days: 3 })],
 };
