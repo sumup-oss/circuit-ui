@@ -20,8 +20,11 @@ import {
   clampDate,
   getFirstDateOfWeek,
   getLastDateOfWeek,
+  isPlainDate,
+  sortDateRange,
   toPlainDate,
   yearMonthToDate,
+  type PlainDateRange,
 } from './date.js';
 
 describe('CalendarService', () => {
@@ -30,6 +33,29 @@ describe('CalendarService', () => {
       const yearMonth = new Temporal.PlainYearMonth(2020, 3);
       const actual = yearMonthToDate(yearMonth);
       expect(actual).toEqual(new Date(Date.UTC(2020, 2)));
+    });
+  });
+
+  describe('isPlainDate', () => {
+    it('should return true for a PlainDate', () => {
+      const date = new Temporal.PlainDate(2020, 3, 15);
+      const actual = isPlainDate(date);
+      expect(actual).toBe(true);
+    });
+
+    it('should return false for a Date', () => {
+      const date = new Date(2020, 3, 15);
+      const actual = isPlainDate(date);
+      expect(actual).toBe(false);
+    });
+
+    it('should return false for a PlainDateRange', () => {
+      const date = {
+        from: new Temporal.PlainDate(2020, 3, 15),
+        to: new Temporal.PlainDate(2020, 3, 25),
+      };
+      const actual = isPlainDate(date);
+      expect(actual).toBe(false);
     });
   });
 
@@ -50,6 +76,18 @@ describe('CalendarService', () => {
       const date = undefined;
       const actual = toPlainDate(date);
       expect(actual).toBeNull();
+    });
+  });
+
+  describe('sortDateRange', () => {
+    it('should sort the start and end date in ascending order', () => {
+      const dateRange: PlainDateRange = [
+        new Temporal.PlainDate(2020, 3, 25),
+        new Temporal.PlainDate(2020, 3, 15),
+      ];
+      const actual = sortDateRange(dateRange);
+      expect(actual[0].toString()).toBe('2020-03-15');
+      expect(actual[1].toString()).toBe('2020-03-25');
     });
   });
 
