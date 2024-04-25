@@ -32,7 +32,7 @@
 }
 
 .table th {
-  padding-bottom: var(--cui-spacings-kilo);
+  padding-bottom: calc(var(--calendar-day-padding) + var(--cui-spacings-byte));
 }
 
 @media (max-width: 360px) {
