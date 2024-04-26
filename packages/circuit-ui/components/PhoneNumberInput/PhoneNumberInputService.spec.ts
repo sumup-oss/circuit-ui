@@ -26,11 +26,19 @@ describe('PhoneNumberInputService', () => {
       expect(actual).toBe('+123456789');
     });
 
-    it('should strip non-numeric characters from the subscriber number', () => {
+    it('should strip non-numeric, non-whitespace characters from the subscriber number', () => {
       const countryCode = '+1';
       const subscriberNumber = '(234) 567-8910';
       const actual = normalizePhoneNumber(countryCode, subscriberNumber);
-      expect(actual).toBe('+12345678910');
+      expect(actual).toBe('+1234 5678910');
+    });
+
+    it('should replace unsupported whitespace characters with single spaces in the subscriber number', () => {
+      const countryCode = '+1';
+      // eslint-disable-next-line no-tabs
+      const subscriberNumber = '234	567 8910';
+      const actual = normalizePhoneNumber(countryCode, subscriberNumber);
+      expect(actual).toBe('+1234 567 8910');
     });
 
     it('should strip leading zeros from the subscriber number', () => {

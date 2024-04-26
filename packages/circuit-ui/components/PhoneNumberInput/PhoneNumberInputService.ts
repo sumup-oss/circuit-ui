@@ -18,8 +18,10 @@ export function normalizePhoneNumber(
   subscriberNumber: string,
 ) {
   const normalizedSubscriberNumber = subscriberNumber
-    // Strip non-numeric characters
-    .replace(/\D/g, '')
+    // Strip non-numeric, non-whitespace characters
+    .replace(/[^0-9\s]/g, '')
+    // Replace unsupported whitespace characters with simple space
+    .replace(/\s/g, ' ')
     // Strip any leading zeros
     .replace(/^0+/, '');
   return `${countryCode}${normalizedSubscriberNumber}`;

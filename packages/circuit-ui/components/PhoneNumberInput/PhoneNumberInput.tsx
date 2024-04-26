@@ -275,8 +275,9 @@ export const PhoneNumberInput = forwardRef<
           <Input
             hideLabel
             autoComplete="tel-national"
-            placeholder="123456789"
-            pattern="[0-9]+"
+            placeholder="123 456789"
+            pattern="[0-9]+[0-9 ]+"
+            inputMode="tel"
             invalid={invalid}
             disabled={disabled}
             inputClassName={classes['subscriber-number']}
