@@ -3,7 +3,6 @@ import '../packages/circuit-ui/styles/base.css';
 
 import { light, components } from './themes';
 import { withThemeProvider } from './decorators/withThemeProvider';
-import { withUnmountWhenHidden } from './decorators/withUnmountWhenHidden';
 import { DocsContainer } from './components';
 import { modes } from './modes';
 
@@ -88,4 +87,4 @@ export const globalTypes = {
   },
 };
 
-export const decorators = [withThemeProvider, withUnmountWhenHidden];
+export const decorators = [withThemeProvider];
