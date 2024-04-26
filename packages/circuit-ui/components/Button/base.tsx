@@ -144,7 +144,8 @@ export function createButtonComponent<Props>(
       ...sharedProps
     } = mapProps(props);
 
-    const { Link } = useComponents();
+    const components = useComponents();
+    const Link = components.Link as AsPropType;
 
     const isLink = Boolean(sharedProps.href);
 
