@@ -20,7 +20,7 @@ import { axe, render, userEvent, screen } from '../../util/test-utils.js';
 
 import {
   NotificationModal,
-  NotificationModalProps,
+  type NotificationModalProps,
 } from './NotificationModal.js';
 
 describe('NotificationModal', () => {

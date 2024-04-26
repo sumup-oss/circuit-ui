@@ -26,7 +26,7 @@ import {
 
 import {
   NotificationInline,
-  NotificationInlineProps,
+  type NotificationInlineProps,
 } from './NotificationInline.js';
 
 describe('NotificationInline', () => {

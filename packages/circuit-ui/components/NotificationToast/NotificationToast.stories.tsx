@@ -22,9 +22,9 @@ import Button from '../Button/index.js';
 import { ToastProvider } from '../ToastContext/index.js';
 
 import {
-  NotificationToast,
-  NotificationToastProps,
   useNotificationToast,
+  NotificationToast,
+  type NotificationToastProps,
 } from './NotificationToast.js';
 
 export default {

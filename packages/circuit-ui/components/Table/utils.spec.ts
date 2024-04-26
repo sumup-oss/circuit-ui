@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { RowCell, Direction, SortParams } from './types.js';
+import type { RowCell, Direction, SortParams } from './types.js';
 import * as utils from './utils.js';
 
 describe('Table utils', () => {

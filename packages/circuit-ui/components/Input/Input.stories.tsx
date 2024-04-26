@@ -18,7 +18,7 @@ import SearchInput from '../SearchInput/index.js';
 import CurrencyInput from '../CurrencyInput/index.js';
 import DateInput from '../DateInput/index.js';
 
-import { Input, InputProps } from './Input.js';
+import { Input, type InputProps } from './Input.js';
 
 export default {
   title: 'Forms/Input',

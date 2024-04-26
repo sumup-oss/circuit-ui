@@ -27,8 +27,8 @@ import Button from '../Button/index.js';
 import { ToastProvider } from '../ToastContext/ToastContext.js';
 
 import {
-  NotificationToastProps,
   useNotificationToast,
+  type NotificationToastProps,
 } from './NotificationToast.js';
 
 describe('NotificationToast', () => {
@@ -53,7 +53,7 @@ describe('NotificationToast', () => {
     );
   };
 
-  const baseNotificationToast: NotificationToastProps = {
+  const baseNotificationToast = {
     onClose: vi.fn(),
     iconLabel: '',
     isVisible: false,

@@ -19,7 +19,7 @@ import { SumUpCard, Confirm, Alert } from '@sumup/icons';
 import { Stack } from '../../../../.storybook/components/index.js';
 import Body from '../Body/index.js';
 
-import { ListItemGroup, ListItemGroupProps } from './ListItemGroup.js';
+import { ListItemGroup, type ListItemGroupProps } from './ListItemGroup.js';
 
 interface Item {
   id: number;

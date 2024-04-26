@@ -69,8 +69,8 @@ The SelectorGroup can be used as a controlled or uncontrolled component.
 ### Controlled
 
 ```tsx
-import { useState, ChangeEvent } from 'react';
-import { SelectorGroup, SelectorProps } from '@sumup/circuit-ui';
+import { useState, type ChangeEvent } from 'react';
+import { SelectorGroup, type SelectorProps } from '@sumup/circuit-ui';
 
 function Controlled() {
   const [value, setValue] = useState<SelectorProps['value']>();

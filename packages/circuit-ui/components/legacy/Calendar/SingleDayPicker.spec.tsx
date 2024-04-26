@@ -19,7 +19,13 @@ import { render } from '../../../util/test-utils.js';
 
 import { SingleDayPicker } from './index.js';
 
-const props = { onDateChange: vi.fn(), onFocusChange: vi.fn() };
+const props = {
+  onDateChange: vi.fn(),
+  onFocusChange: vi.fn(),
+  id: 'date',
+  date: null,
+  focused: false,
+};
 
 describe('SingleDayPicker', () => {
   /**

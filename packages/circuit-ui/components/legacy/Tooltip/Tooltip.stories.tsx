@@ -18,7 +18,7 @@ import { Info } from '@sumup/icons';
 import { Stack } from '../../../../../.storybook/components/index.js';
 import styled from '../../../styles/styled.js';
 
-import { Tooltip, TooltipProps } from './Tooltip.js';
+import { Tooltip, type TooltipProps } from './Tooltip.js';
 
 export default {
   title: 'Components/Tooltip/Legacy',

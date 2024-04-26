@@ -16,8 +16,12 @@
 import { action } from '@storybook/addon-actions';
 
 import Step from './Step.js';
-import CarouselSlider from './examples/CarouselSlider.js';
-import YesOrNoSlider from './examples/YesOrNoSlider.js';
+import CarouselSlider, {
+  type CarouselSliderProps,
+} from './examples/CarouselSlider.js';
+import YesOrNoSlider, {
+  type YesOrNoSliderProps,
+} from './examples/YesOrNoSlider.js';
 import MultiStepForm from './examples/MultiStepForm.js';
 
 const IMAGES = [
@@ -44,7 +48,9 @@ const baseArgs = {
   onAfterChange: action('onAfterChange'),
 };
 
-export const Slider = (args) => <CarouselSlider {...args} />;
+export const Slider = (args: CarouselSliderProps) => (
+  <CarouselSlider {...args} />
+);
 
 Slider.args = {
   ...baseArgs,
@@ -52,10 +58,8 @@ Slider.args = {
   animationDuration: ANIMATION_DURATION,
 };
 
-export const Swiper = (args) => <YesOrNoSlider {...args} />;
+export const Swiper = (args: YesOrNoSliderProps) => <YesOrNoSlider {...args} />;
 
 Swiper.args = baseArgs;
 
-export const Form = (args) => <MultiStepForm {...args} />;
-
-Form.args = baseArgs;
+export const Form = () => <MultiStepForm />;

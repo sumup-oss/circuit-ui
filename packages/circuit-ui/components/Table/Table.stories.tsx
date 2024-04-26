@@ -18,8 +18,8 @@ import { action } from '@storybook/addon-actions';
 import Badge from '../Badge/index.js';
 import { isString } from '../../util/type-check.js';
 
-import { TableProps } from './Table.js';
-import { Direction } from './types.js';
+import type { TableProps } from './Table.js';
+import type { Direction } from './types.js';
 
 import Table from './index.js';
 

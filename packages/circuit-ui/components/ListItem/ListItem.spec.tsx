@@ -14,20 +14,20 @@
  */
 
 import { describe, expect, it, vi } from 'vitest';
-import { createRef, FC } from 'react';
-import { IconProps, SumUpCard } from '@sumup/icons';
+import { createRef, type FC } from 'react';
+import { SumUpCard, type IconProps } from '@sumup/icons';
 
 import {
   render,
   axe,
-  RenderFn,
   userEvent,
   screen,
+  type RenderFn,
 } from '../../util/test-utils.js';
 import Body from '../Body/index.js';
 import Badge from '../Badge/index.js';
 
-import { ListItem, ListItemProps } from './ListItem.js';
+import { ListItem, type ListItemProps } from './ListItem.js';
 
 describe('ListItem', () => {
   function renderListItem<T>(renderFn: RenderFn<T>, props: ListItemProps) {

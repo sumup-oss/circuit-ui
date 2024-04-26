@@ -14,7 +14,7 @@
  */
 
 import { describe, expect, test, vi } from 'vitest';
-import { MutableRefObject, FormEvent } from 'react';
+import type { MutableRefObject, FormEvent } from 'react';
 
 import {
   renderHook,
@@ -24,7 +24,7 @@ import {
 } from '../../util/test-utils.js';
 import type { InputElement } from '../Input/Input.js';
 
-import { TextArea, TextAreaProps } from './TextArea.js';
+import { TextArea, type TextAreaProps } from './TextArea.js';
 import { useAutoExpand } from './useAutoExpand.js';
 
 const baseTextareaProps: TextAreaProps = {

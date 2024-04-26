@@ -44,8 +44,8 @@ The RadioButtonGroup can be used as a controlled or uncontrolled component.
 ### Controlled
 
 ```tsx
-import { useState, ChangeEvent } from 'react';
-import { RadioButtonGroup, RadioButtonProps } from '@sumup/circuit-ui';
+import { useState, type ChangeEvent } from 'react';
+import { RadioButtonGroup, type RadioButtonProps } from '@sumup/circuit-ui';
 
 function Controlled() {
   const [value, setValue] = useState<RadioButtonProps['value']>();

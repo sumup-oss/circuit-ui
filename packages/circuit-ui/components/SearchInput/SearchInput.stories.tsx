@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
-import { useState, ChangeEvent } from 'react';
+import { useState, type ChangeEvent } from 'react';
 
 import type { InputElement } from '../Input/index.js';
 
-import { SearchInput, SearchInputProps } from './SearchInput.js';
+import { SearchInput, type SearchInputProps } from './SearchInput.js';
 
 export default {
   title: 'Forms/Input/SearchInput',

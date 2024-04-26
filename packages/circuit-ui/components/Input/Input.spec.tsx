@@ -18,7 +18,7 @@ import { createRef } from 'react';
 
 import { render, axe, screen } from '../../util/test-utils.js';
 
-import { Input, InputElement } from './Input.js';
+import { Input, type InputElement } from './Input.js';
 
 const defaultProps = {
   label: 'Label',

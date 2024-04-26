@@ -23,7 +23,7 @@ import Button from '../Button/index.js';
 
 import {
   NotificationModal,
-  NotificationModalProps,
+  type NotificationModalProps,
 } from './NotificationModal.js';
 import { useNotificationModal } from './useNotificationModal.js';
 

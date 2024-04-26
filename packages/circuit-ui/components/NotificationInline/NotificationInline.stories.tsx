@@ -20,7 +20,7 @@ import { Stack } from '../../../../.storybook/components/index.js';
 
 import {
   NotificationInline,
-  NotificationInlineProps,
+  type NotificationInlineProps,
 } from './NotificationInline.js';
 
 export default {

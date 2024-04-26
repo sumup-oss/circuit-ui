@@ -17,7 +17,10 @@ import { describe, expect, it } from 'vitest';
 
 import { render, axe, screen } from '../../../../util/test-utils.js';
 
-import { MobileSidePanel, MobileSidePanelProps } from './MobileSidePanel.js';
+import {
+  MobileSidePanel,
+  type MobileSidePanelProps,
+} from './MobileSidePanel.js';
 
 describe('MobileSidePanel', () => {
   const baseProps: MobileSidePanelProps = {

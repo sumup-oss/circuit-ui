@@ -14,6 +14,7 @@
  */
 
 import { describe, expect, it, vi } from 'vitest';
+import type { PropsWithChildren } from 'react';
 
 import { renderHook, act } from '../../util/test-utils.js';
 
@@ -34,7 +35,7 @@ describe('createUseModal', () => {
   const setModal = vi.fn();
   const removeModal = vi.fn();
 
-  const wrapper = ({ children }) => (
+  const wrapper = ({ children }: PropsWithChildren) => (
     <ModalContext.Provider value={{ setModal, removeModal }}>
       {children}
     </ModalContext.Provider>

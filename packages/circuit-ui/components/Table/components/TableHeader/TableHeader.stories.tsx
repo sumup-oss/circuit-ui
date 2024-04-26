@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { TableHeaderProps } from './TableHeader.js';
+import type { TableHeaderProps } from './TableHeader.js';
 
 import TableHeader from './index.js';
 

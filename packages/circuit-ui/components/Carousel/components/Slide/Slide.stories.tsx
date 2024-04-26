@@ -16,7 +16,7 @@
 import Headline from '../../../Headline/index.js';
 import Image from '../../../Image/index.js';
 
-import { Slide, SlideProps } from './Slide.js';
+import { Slide, type SlideProps } from './Slide.js';
 
 export default {
   title: 'Components/Carousel/Slide',

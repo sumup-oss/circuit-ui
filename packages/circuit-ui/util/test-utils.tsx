@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import { FunctionComponent, ReactElement, PropsWithChildren } from 'react';
+import type { FunctionComponent, ReactElement, PropsWithChildren } from 'react';
 import '@testing-library/jest-dom/vitest';
 import { configureAxe } from 'jest-axe';
 import {
   render as renderTest,
-  RenderOptions,
-  RenderResult,
   renderHook,
+  type RenderOptions,
+  type RenderResult,
 } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { ThemeProvider } from '@emotion/react';

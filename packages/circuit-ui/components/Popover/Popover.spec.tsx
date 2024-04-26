@@ -20,10 +20,10 @@ import { Delete, Add, Download, type IconProps } from '@sumup/icons';
 import {
   act,
   axe,
-  RenderFn,
   render,
   userEvent,
   screen,
+  type RenderFn,
 } from '../../util/test-utils.js';
 import type { ClickEvent } from '../../types/events.js';
 

@@ -24,7 +24,7 @@ import {
   userEvent,
 } from '../../util/test-utils.js';
 
-import { SelectorGroup, SelectorGroupProps } from './SelectorGroup.js';
+import { SelectorGroup, type SelectorGroupProps } from './SelectorGroup.js';
 
 const defaultProps: SelectorGroupProps = {
   label: 'label',

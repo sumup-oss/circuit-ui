@@ -17,12 +17,14 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { render, axe, screen } from '../../../../util/test-utils.js';
 
-import { DesktopSidePanel, DesktopSidePanelProps } from './DesktopSidePanel.js';
+import {
+  DesktopSidePanel,
+  type DesktopSidePanelProps,
+} from './DesktopSidePanel.js';
 
 describe('DesktopSidePanel', () => {
   const baseProps: DesktopSidePanelProps = {
     isInstantOpen: false,
-    top: '0px',
     // Silences the warning about the missing app element.
     // In user land, the side panel is always rendered by the SidePanelProvider,
     // which takes care of setting the app element.

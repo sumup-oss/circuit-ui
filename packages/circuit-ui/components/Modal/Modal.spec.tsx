@@ -23,7 +23,7 @@ import {
   screen,
 } from '../../util/test-utils.js';
 
-import { Modal, ModalProps } from './Modal.js';
+import { Modal, type ModalProps } from './Modal.js';
 
 describe('Modal', () => {
   const defaultModal: ModalProps = {

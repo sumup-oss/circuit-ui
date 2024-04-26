@@ -18,7 +18,7 @@ import { action } from '@storybook/addon-actions';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 
-import { CheckboxGroup, CheckboxGroupProps } from './CheckboxGroup.js';
+import { CheckboxGroup, type CheckboxGroupProps } from './CheckboxGroup.js';
 
 export default {
   title: 'Forms/CheckboxGroup',

@@ -14,6 +14,7 @@
  */
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import type { PropsWithChildren } from 'react';
 
 import { renderHook } from '../../util/test-utils.js';
 
@@ -36,7 +37,7 @@ describe('useSidePanel', () => {
   const updateSidePanel = vi.fn();
   const removeSidePanel = vi.fn().mockResolvedValue(undefined);
 
-  const wrapper = ({ children }) => (
+  const wrapper = ({ children }: PropsWithChildren) => (
     <SidePanelContext.Provider
       value={{
         setSidePanel,

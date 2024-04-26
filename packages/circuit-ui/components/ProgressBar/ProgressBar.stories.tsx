@@ -15,7 +15,7 @@
 
 import { Fragment } from 'react';
 
-import { ProgressBar, ProgressBarProps } from './ProgressBar.js';
+import { ProgressBar, type ProgressBarProps } from './ProgressBar.js';
 
 export default {
   title: 'Components/ProgressBar',
