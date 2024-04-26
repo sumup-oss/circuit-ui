@@ -29,6 +29,7 @@ import { useMedia } from '../../hooks/useMedia/index.js';
 import { useStack, type StackItem } from '../../hooks/useStack/index.js';
 import type { Require } from '../../types/util.js';
 import { warn } from '../../util/logger.js';
+import { promisify } from '../../util/promises.js';
 import { clsx } from '../../styles/clsx.js';
 import { useLatest } from '../../hooks/useLatest/useLatest.js';
 
@@ -36,6 +37,7 @@ import { SidePanel, type SidePanelProps } from './SidePanel.js';
 import { TRANSITION_DURATION } from './constants.js';
 import type { SidePanelHookProps } from './useSidePanel.js';
 import classes from './SidePanelContext.module.css';
+
 import './SidePanelContext.css';
 
 // It is important for users of screen readers that other page content be hidden
@@ -132,11 +134,11 @@ export function SidePanelProvider({
   );
 
   const removeSidePanel = useCallback<RemoveSidePanel>(
-    (group, isInstantClose) => {
+    async (group, isInstantClose) => {
       const panel = findSidePanel(group);
 
       if (!panel) {
-        return Promise.resolve();
+        return;
       }
 
       const sidePanelIndex = sidePanelsRef.current.indexOf(panel);
@@ -146,40 +148,47 @@ export function SidePanelProvider({
       }
 
       // Remove the side panel and all panels above it in reverse order
-      return Promise.all(
-        sidePanelsRef.current
-          .slice(sidePanelIndex)
-          .reverse()
-          .map(
-            (sidePanel) =>
-              new Promise<void>((res) => {
-                if (sidePanel.onClose) {
-                  sidePanel.onClose();
-                }
+      const sidePanelsToRemove = sidePanelsRef.current
+        .slice(sidePanelIndex)
+        .reverse();
 
-                let updatedPanel = { ...sidePanel, onAfterClose: res };
-                if (isInstantClose) {
-                  updatedPanel = {
-                    ...updatedPanel,
-                    shouldReturnFocusAfterClose: false,
-                    closeTimeoutMS: 0,
-                  };
-                }
+      // The side panels must be closed in series in case a onClose callback
+      // rejects to prevent the remaining side panels from closing.
+      /* eslint-disable no-await-in-loop */
+      // eslint-disable-next-line no-restricted-syntax
+      for (const sidePanel of sidePanelsToRemove) {
+        try {
+          if (sidePanel.onClose) {
+            await promisify(sidePanel.onClose);
+          }
 
-                dispatch({
-                  type: 'update',
-                  item: updatedPanel,
-                });
-                dispatch({
-                  type: 'remove',
-                  id: sidePanel.id,
-                  transition: {
-                    duration: isInstantClose ? 0 : TRANSITION_DURATION,
-                  },
-                });
-              }),
-          ),
-      );
+          await new Promise<void>((resolve) => {
+            let updatedPanel = { ...sidePanel, onAfterClose: resolve };
+            if (isInstantClose) {
+              updatedPanel = {
+                ...updatedPanel,
+                shouldReturnFocusAfterClose: false,
+                closeTimeoutMS: 0,
+              };
+            }
+
+            dispatch({
+              type: 'update',
+              item: updatedPanel,
+            });
+            dispatch({
+              type: 'remove',
+              id: sidePanel.id,
+              transition: {
+                duration: isInstantClose ? 0 : TRANSITION_DURATION,
+              },
+            });
+          });
+        } catch (error) {
+          break;
+        }
+      }
+      /* eslint-enable no-await-in-loop */
     },
     [findSidePanel, dispatch, sidePanelsRef],
   );

@@ -143,8 +143,9 @@ describe('SidePanelContext', () => {
           <span />
         </SidePanelProvider>,
       );
-      const button = container.querySelector('div');
-      expect(button?.className).toContain(className);
+      // eslint-disable-next-line testing-library/no-container
+      const wrapper = container.querySelector('div');
+      expect(wrapper?.className).toContain(className);
     });
 
     describe('setSidePanel', () => {
@@ -258,6 +259,34 @@ describe('SidePanelContext', () => {
         expect(screen.queryByRole('dialog')).toBeNull();
       });
 
+      it('should not close the side panel when the `onClose` callback rejects', async () => {
+        const onClose = vi.fn().mockRejectedValue('');
+        const Trigger = () => {
+          const { setSidePanel, removeSidePanel } =
+            useContext(SidePanelContext);
+          return (
+            <>
+              {renderOpenButton(setSidePanel, { onClose })}
+              {renderCloseButton(removeSidePanel)}
+            </>
+          );
+        };
+
+        renderComponent(Trigger);
+
+        await userEvent.click(screen.getByText('Open panel'));
+
+        expect(screen.getByRole('dialog')).toBeVisible();
+
+        await userEvent.click(screen.getByText('Close panel'));
+
+        act(() => {
+          vi.runAllTimers();
+        });
+
+        expect(screen.getByRole('dialog')).toBeVisible();
+      });
+
       it('should close all side panels stacked above the one being closed', async () => {
         const Trigger = () => {
           const { setSidePanel, removeSidePanel } =
@@ -287,7 +316,9 @@ describe('SidePanelContext', () => {
           vi.runAllTimers();
         });
 
-        expect(screen.queryByRole('dialog')).toBeNull();
+        await waitFor(() => {
+          expect(screen.queryByRole('dialog')).toBeNull();
+        });
       });
 
       it('should not close side panels stacked below the one being closed', async () => {

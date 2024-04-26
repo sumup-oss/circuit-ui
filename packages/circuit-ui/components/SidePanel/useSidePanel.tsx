@@ -29,9 +29,10 @@ import {
   type SidePanelContextProps,
 } from './SidePanelContext.js';
 
-export type Callback = () => void;
+export type OnBack = () => void;
+export type OnClose = () => void | Promise<void>;
 
-export type ChildrenRenderProps = { onBack?: Callback; onClose: Callback };
+export type ChildrenRenderProps = { onBack?: OnBack; onClose: OnClose };
 
 export type SidePanelHookProps = {
   /**
@@ -62,7 +63,7 @@ export type SidePanelHookProps = {
   /**
    * Callback function that is called when the side panel is closed.
    */
-  onClose?: Callback;
+  onClose?: OnClose;
 };
 
 type SetSidePanel = (props: SidePanelHookProps) => void;

@@ -27,7 +27,7 @@ import {
 import { MobileSidePanel } from './components/MobileSidePanel/index.js';
 import { DesktopSidePanel } from './components/DesktopSidePanel/index.js';
 import { Header } from './components/Header/index.js';
-import type { SidePanelHookProps, Callback } from './useSidePanel.js';
+import type { SidePanelHookProps, OnBack, OnClose } from './useSidePanel.js';
 import classes from './SidePanel.module.css';
 
 export type SidePanelProps = Omit<ReactModalProps, 'children'> &
@@ -54,11 +54,11 @@ export type SidePanelProps = Omit<ReactModalProps, 'children'> &
     /**
      * Callback function that is called when the side panel is closed.
      */
-    onBack?: Callback;
+    onBack?: OnBack;
     /**
      * Callback function that is called when the side panel is closed.
      */
-    onClose: Callback;
+    onClose: OnClose;
   };
 
 export const SidePanel = ({
