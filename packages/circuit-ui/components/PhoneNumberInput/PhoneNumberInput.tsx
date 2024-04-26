@@ -17,8 +17,8 @@
 
 import {
   forwardRef,
-  useCallback,
   useId,
+  useMemo,
   useRef,
   type ChangeEvent,
   type FieldsetHTMLAttributes,
@@ -40,7 +40,10 @@ import {
 import { applyMultipleRefs } from '../../util/refs.js';
 import { eachFn } from '../../util/helpers.js';
 
-import { normalizePhoneNumber } from './PhoneNumberInputService.js';
+import {
+  mapCountryCodeOptions,
+  normalizePhoneNumber,
+} from './PhoneNumberInputService.js';
 import classes from './PhoneNumberInput.module.css';
 
 export interface PhoneNumberInputProps
@@ -184,20 +187,10 @@ export const PhoneNumberInput = forwardRef<
       descriptionId ? `${descriptionId} ` : ''
     }${validationHintId}`;
 
-    const formatCountryName = useCallback(
-      (country: string) =>
-        // TODO: Check whether Intl.DisplayNames is supported and add fallback logic
-        new Intl.DisplayNames(locale, { type: 'region' }).of(country),
-      [locale],
+    const options = useMemo(
+      () => mapCountryCodeOptions(countryCode.options, locale),
+      [countryCode.options, locale],
     );
-
-    const options = countryCode.options.map(({ code, country }) => {
-      const countryName = formatCountryName(country);
-      return {
-        label: countryName ? `${countryName} (${code})` : code,
-        value: code,
-      };
-    });
 
     const handleChange = () => {
       if (

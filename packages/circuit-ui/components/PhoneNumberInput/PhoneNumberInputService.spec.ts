@@ -15,7 +15,10 @@
 
 import { describe, it } from 'vitest';
 
-import { normalizePhoneNumber } from './PhoneNumberInputService.js';
+import {
+  mapCountryCodeOptions,
+  normalizePhoneNumber,
+} from './PhoneNumberInputService.js';
 
 describe('PhoneNumberInputService', () => {
   describe('normalizePhoneNumber', () => {
@@ -47,5 +50,23 @@ describe('PhoneNumberInputService', () => {
       const actual = normalizePhoneNumber(countryCode, subscriberNumber);
       expect(actual).toBe('+123456789');
     });
+  });
+
+  describe('mapCountryCodeOptions', () => {
+    it('should use the country code as the option value', () => {
+      const options = [
+        { country: 'US', code: '+1' },
+        { country: 'DE', code: '+49' },
+      ];
+      const actual = mapCountryCodeOptions(options);
+      expect(actual[0].value).toBe('+49');
+      expect(actual[1].value).toBe('+1');
+    });
+
+    it.todo('should use the country name and code as the option label');
+
+    it.todo('should omit the country name when it is not available ');
+
+    it.todo('should sort the options alphabetically');
   });
 });

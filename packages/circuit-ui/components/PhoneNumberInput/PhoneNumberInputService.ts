@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import type { SelectProps } from '../Select/Select.js';
+
 export function normalizePhoneNumber(
   countryCode: string,
   subscriberNumber: string,
@@ -25,4 +27,21 @@ export function normalizePhoneNumber(
     // Strip any leading zeros
     .replace(/^0+/, '');
   return `${countryCode}${normalizedSubscriberNumber}`;
+}
+
+export function mapCountryCodeOptions(
+  countryCodeOptions: { country: string; code: string }[],
+  locale?: string | string[],
+): Required<SelectProps>['options'] {
+  // TODO: Check whether Intl.DisplayNames is supported and add fallback logic
+  const displayName = new Intl.DisplayNames(locale, { type: 'region' });
+  return countryCodeOptions
+    .map(({ code, country }) => {
+      const countryName = displayName.of(country);
+      return {
+        label: countryName ? `${countryName} (${code})` : code,
+        value: code,
+      };
+    })
+    .sort((a, b) => a.label.localeCompare(b.label));
 }
