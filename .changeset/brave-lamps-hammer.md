@@ -2,4 +2,4 @@
 "@sumup/icons": minor
 ---
 
-Add Forward icon
+Added a new `AutomaticBalanceTransfer` icon in size 24.
