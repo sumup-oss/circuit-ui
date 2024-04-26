@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+}
+
+.country-code {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.subscriber-number {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Elevate the input above the country code select */
+.subscriber-number:focus {
+  position: relative;
+  z-index: calc(var(--cui-z-index-input) + 1);
+}

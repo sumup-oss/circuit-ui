@@ -1,5 +1,5 @@
 /**
- * Copyright 2023, SumUp Ltd.
+ * Copyright 2024, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-export {
-  default as Tooltip,
-  type TooltipProps,
-  type TooltipReferenceProps,
-} from './components/Tooltip/index.js';
-export {
-  default as Toggletip,
-  type ToggletipProps,
-} from './components/Toggletip/index.js';
-export { PhoneNumberInput } from './components/PhoneNumberInput/index.js';
-export type { PhoneNumberInputProps } from './components/PhoneNumberInput/index.js';
+export function normalizePhoneNumber(
+  countryCode: string,
+  subscriberNumber: string,
+) {
+  const normalizedSubscriberNumber = subscriberNumber
+    // Strip non-numeric characters
+    .replace(/\D/g, '')
+    // Strip any leading zeros
+    .replace(/^0+/, '');
+  return `${countryCode}${normalizedSubscriberNumber}`;
+}
