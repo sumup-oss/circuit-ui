@@ -215,3 +215,17 @@ export function getSelectionType(
   }
   return null;
 }
+
+export function isDateInMonthRange(
+  date: Temporal.PlainDate,
+  minDate?: Temporal.PlainDate | null,
+  maxDate?: Temporal.PlainDate | null,
+): boolean {
+  if (
+    (minDate && Temporal.PlainYearMonth.compare(date, minDate) < 0) ||
+    (maxDate && Temporal.PlainYearMonth.compare(date, maxDate) > 0)
+  ) {
+    return false;
+  }
+  return true;
+}

@@ -59,6 +59,7 @@ import {
   getWeekdays,
   initCalendar,
   isDateActive,
+  isDateInMonthRange,
 } from './CalendarService.js';
 import classes from './Calendar.module.css';
 
@@ -239,9 +240,12 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
         }
 
         event.preventDefault();
-        handleFocusDate(nextFocusedDate);
+
+        if (isDateInMonthRange(nextFocusedDate, minDate, maxDate)) {
+          handleFocusDate(nextFocusedDate);
+        }
       },
-      [handleFocusDate, focusedDate, firstDayOfWeek],
+      [handleFocusDate, focusedDate, minDate, maxDate, firstDayOfWeek],
     );
 
     const handleMouseEnter = useCallback(
