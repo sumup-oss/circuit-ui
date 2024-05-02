@@ -50,6 +50,7 @@ import {
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 import { applyMultipleRefs } from '../../util/refs.js';
+import { useSwipe } from '../../hooks/useSwipe/useSwipe.js';
 
 import {
   calendarReducer,
@@ -162,6 +163,22 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
       month: 'long',
     });
 
+    const isPrevMonthDisabled = minDate
+      ? Temporal.PlainYearMonth.compare(yearMonth, minDate) <= 0
+      : false;
+    const isNextMonthDisabled = maxDate
+      ? Temporal.PlainYearMonth.compare(yearMonth, maxDate) >= 0
+      : false;
+
+    const touchHandlers = useSwipe((direction) => {
+      if (direction === 'right' && !isPrevMonthDisabled) {
+        dispatch({ type: 'prev-month' });
+      }
+      if (direction === 'left' && !isNextMonthDisabled) {
+        dispatch({ type: 'next-month' });
+      }
+    });
+
     const handleFocusDate = useCallback(
       (date: Temporal.PlainDate) => {
         dispatch({ type: 'focus-date', date });
@@ -237,9 +254,6 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
       dispatch({ type: 'mouse-leave-date' });
     }, [dispatch]);
 
-    const isPrevButtonDisabled = minDate ? yearMonth.equals(minDate) : false;
-    const isNextButtonDisabled = maxDate ? yearMonth.equals(maxDate) : false;
-
     if (process.env.NODE_ENV !== 'production') {
       if (!isSufficientlyLabelled(prevMonthButtonLabel)) {
         throw new AccessibilityError(
@@ -274,7 +288,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             icon={ArrowLeft}
             size="s"
             variant="tertiary"
-            disabled={isPrevButtonDisabled}
+            disabled={isPrevMonthDisabled}
             onClick={() => {
               dispatch({ type: 'prev-month' });
             }}
@@ -294,7 +308,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             icon={ArrowRight}
             size="s"
             variant="tertiary"
-            disabled={isNextButtonDisabled}
+            disabled={isNextMonthDisabled}
             onClick={() => {
               dispatch({ type: 'next-month' });
             }}
@@ -319,6 +333,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
           onKeyDown={handleKeyDown}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
+          {...touchHandlers}
         />
       </div>
     );
