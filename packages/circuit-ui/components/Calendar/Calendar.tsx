@@ -35,7 +35,6 @@ import utilityClasses from '../../styles/utility.js';
 import { getBrowserLocale, type Locale } from '../../util/i18n.js';
 import { IconButton } from '../Button/IconButton.js';
 import { Headline } from '../Headline/Headline.js';
-import { Body } from '../Body/Body.js';
 import { clsx } from '../../styles/clsx.js';
 import {
   getFirstDateOfWeek,
@@ -142,6 +141,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
       prevMonthButtonLabel,
       nextMonthButtonLabel,
       modifiers,
+      className,
       ...props
     },
     ref,
@@ -286,7 +286,12 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
     }
 
     return (
-      <div ref={applyMultipleRefs(ref, calendarRef)} role="group" {...props}>
+      <div
+        ref={applyMultipleRefs(ref, calendarRef)}
+        role="group"
+        className={clsx(classes.container, className)}
+        {...props}
+      >
         <div className={classes.header}>
           <IconButton
             icon={ArrowLeft}
@@ -403,15 +408,9 @@ function Month({
               <span className={utilityClasses.hideVisually}>
                 {weekday.long}
               </span>
-              <Body
-                as="span"
-                size="one"
-                variant="highlight"
-                aria-hidden="true"
-                className={classes.weekday}
-              >
+              <span aria-hidden="true" className={classes.weekday}>
                 {weekday.narrow}
-              </Body>
+              </span>
             </th>
           ))}
         </tr>
