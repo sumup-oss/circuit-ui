@@ -77,33 +77,33 @@
   }
 }
 
+.day[aria-current="date"] {
+  border: 1px solid var(--cui-border-normal);
+}
+
 .day:hover {
   background: var(--cui-bg-normal-hovered);
+  border: 1px solid var(--cui-border-strong-hovered);
 }
 
 .day:active {
   background: var(--cui-bg-normal-pressed);
-}
-
-/* Current */
-
-.day[aria-current="date"] {
-  border: 1px solid var(--cui-border-normal);
+  border: 1px solid var(--cui-border-strong-pressed);
 }
 
 /* Selected */
 
 .selected,
-.range-start,
-.range-end {
+[aria-pressed="true"].range-start,
+[aria-pressed="true"].range-end {
   font-weight: var(--cui-font-weight-bold);
   color: var(--cui-fg-on-strong);
   background: var(--cui-bg-accent-strong);
 }
 
 .selected:hover,
-.range-start:hover,
-.range-end:hover {
+[aria-pressed="true"].range-start:hover,
+[aria-pressed="true"].range-end:hover {
   background: var(--cui-bg-accent-strong-hovered);
 }
 
@@ -141,11 +141,15 @@
   width: calc(100% / 2);
 }
 
-td:not(:last-of-type) .range-middle.first-day::before {
+td:not(:last-of-type) .range-start.first-day::before,
+td:not(:last-of-type) .range-middle.first-day::before,
+td:not(:last-of-type) .range-end.first-day::before {
   background: linear-gradient(to left, var(--cui-bg-accent) 75%, transparent);
 }
 
-td:not(:last-of-type) .range-middle.last-day::before {
+td:not(:last-of-type) .range-start.last-day::before,
+td:not(:last-of-type) .range-middle.last-day::before,
+td:not(:last-of-type) .range-end.last-day::before {
   background: linear-gradient(to right, var(--cui-bg-accent) 75%, transparent);
 }
 
@@ -159,6 +163,7 @@ td:not(:last-of-type) .range-middle.last-day::before {
 .day[aria-disabled="true"]:hover,
 .day[aria-disabled="true"]:active {
   background: var(--cui-bg-normal-disabled);
+  border: none;
 }
 
 .day[aria-current="date"][aria-disabled="true"] {
