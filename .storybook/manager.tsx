@@ -8,6 +8,13 @@ addons.setConfig({
   showPanel: true,
   showToolbar: true,
   panelPosition: 'bottom',
+  sidebar: {
+    filters: {
+      patterns: (item) => {
+        return !item.tags?.includes('hidden');
+      },
+    },
+  },
 });
 
 /**
