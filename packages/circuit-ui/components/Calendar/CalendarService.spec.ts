@@ -26,6 +26,7 @@ import {
   getWeekdays,
   initCalendar,
   isDateActive,
+  isDateInMonthRange,
 } from './CalendarService.js';
 
 vi.mock('../../util/date.js', async (importOriginal) => {
@@ -460,6 +461,56 @@ describe('CalendarService', () => {
       ];
       const actual = getSelectionType(date, hoveredDate, selection);
       expect(actual).toBeNull();
+    });
+  });
+
+  describe('isDateInMonthRange', () => {
+    it('should return true if the date is in the month range', () => {
+      const date = new Temporal.PlainDate(2020, 3, 15);
+      const minDate = new Temporal.PlainDate(2020, 1, 15);
+      const maxDate = new Temporal.PlainDate(2020, 5, 15);
+      const actual = isDateInMonthRange(date, minDate, maxDate);
+      expect(actual).toBe(true);
+    });
+
+    it('should return true if there is no month range', () => {
+      const date = new Temporal.PlainDate(2020, 3, 15);
+      const minDate = null;
+      const maxDate = null;
+      const actual = isDateInMonthRange(date, minDate, maxDate);
+      expect(actual).toBe(true);
+    });
+
+    it('should return true if the date month matches the min month', () => {
+      const date = new Temporal.PlainDate(2020, 3, 15);
+      const minDate = new Temporal.PlainDate(2020, 3, 5);
+      const maxDate = null;
+      const actual = isDateInMonthRange(date, minDate, maxDate);
+      expect(actual).toBe(true);
+    });
+
+    it('should return true if the date month matches the max month', () => {
+      const date = new Temporal.PlainDate(2020, 3, 15);
+      const minDate = null;
+      const maxDate = new Temporal.PlainDate(2020, 3, 25);
+      const actual = isDateInMonthRange(date, minDate, maxDate);
+      expect(actual).toBe(true);
+    });
+
+    it('should return false if the date month is smaller than the min month', () => {
+      const date = new Temporal.PlainDate(2020, 2, 15);
+      const minDate = new Temporal.PlainDate(2020, 3, 25);
+      const maxDate = null;
+      const actual = isDateInMonthRange(date, minDate, maxDate);
+      expect(actual).toBe(false);
+    });
+
+    it('should return false if the date month is larger than the max month', () => {
+      const date = new Temporal.PlainDate(2020, 4, 15);
+      const minDate = null;
+      const maxDate = new Temporal.PlainDate(2020, 3, 25);
+      const actual = isDateInMonthRange(date, minDate, maxDate);
+      expect(actual).toBe(false);
     });
   });
 });
