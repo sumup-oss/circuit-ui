@@ -87,3 +87,12 @@ export function chunk<T>(array: T[], chunkSize: number): T[][] {
 
   return result;
 }
+
+/**
+ * Returns the last item in an array.
+ */
+export function last(array: undefined | null): undefined;
+export function last<T>(array: T[]): T;
+export function last<T>(array: T[] | undefined | null): T | undefined {
+  return isArray(array) ? array[array.length - 1] : undefined;
+}

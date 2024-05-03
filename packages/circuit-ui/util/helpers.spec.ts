@@ -15,7 +15,7 @@
 
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 
-import { chunk, clamp, eachFn, isEmpty, throttle } from './helpers.js';
+import { chunk, clamp, eachFn, isEmpty, last, throttle } from './helpers.js';
 
 describe('helpers', () => {
   describe('clamp', () => {
@@ -203,6 +203,32 @@ describe('helpers', () => {
       const chunkSize = 4;
       const actual = chunk(array, chunkSize);
       expect(actual).toEqual([[1, 2, 3]]);
+    });
+  });
+
+  describe('last', () => {
+    it('should return the last item in an array', () => {
+      const array = [1, 2, 3, 4, 5, 6];
+      const actual = last(array);
+      expect(actual).toBe(6);
+    });
+
+    it('should return undefined for an empty array', () => {
+      const array: never[] = [];
+      const actual = last(array);
+      expect(actual).toBeUndefined();
+    });
+
+    it('should return undefined for an undefined array', () => {
+      const array = undefined;
+      const actual = last(array);
+      expect(actual).toBeUndefined();
+    });
+
+    it('should return undefined for null', () => {
+      const array = undefined;
+      const actual = last(array);
+      expect(actual).toBeUndefined();
     });
   });
 });
