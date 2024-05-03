@@ -188,24 +188,24 @@ export function getSelectionType(
   if (selection.length === 0) {
     return null;
   }
-  if (selection[1] || hoveredDate) {
-    const range = [selection[0], selection[1] || hoveredDate] as [
-      Temporal.PlainDate,
-      Temporal.PlainDate,
-    ];
-    const [startDate, endDate] = sortDateRange(range);
-    if (date.equals(startDate) && date.equals(endDate)) {
+  const [startDate, endDate] = sortDateRange(selection);
+  if (
+    endDate ||
+    (hoveredDate && Temporal.PlainDate.compare(hoveredDate, startDate) > 0)
+  ) {
+    const laterDate = (endDate || hoveredDate) as Temporal.PlainDate;
+    if (date.equals(startDate) && date.equals(laterDate)) {
       return 'selected';
     }
     if (date.equals(startDate)) {
       return 'range-start';
     }
-    if (date.equals(endDate)) {
+    if (date.equals(laterDate)) {
       return 'range-end';
     }
     if (
       Temporal.PlainDate.compare(date, startDate) > 0 &&
-      Temporal.PlainDate.compare(date, endDate) < 0
+      Temporal.PlainDate.compare(date, laterDate) < 0
     ) {
       return 'range-middle';
     }
