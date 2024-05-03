@@ -119,7 +119,14 @@ export const Range = (args: CalendarProps) => {
 
   const handleSelect = (date: Temporal.PlainDate) => {
     setSelection((prevSelection) => {
-      if (!prevSelection[0] || (prevSelection[0] && prevSelection[1])) {
+      if (
+        // Nothing selected yet
+        prevSelection.length === 0 ||
+        // Full range already selected
+        prevSelection.length === 2 ||
+        // Selected date is before previous start date
+        Temporal.PlainDate.compare(prevSelection[0], date) > 0
+      ) {
         return [date];
       }
       return [prevSelection[0], date];
