@@ -25,9 +25,6 @@ import { Calendar, type CalendarProps } from './Calendar.js';
 export default {
   title: 'Components/Calendar',
   component: Calendar,
-  parameters: {
-    layout: 'padded',
-  },
 };
 
 const today = isChromatic()
@@ -52,32 +49,30 @@ export const Localized = ({ selection, ...args }: CalendarProps) => {
   const [date, setDate] = useState(selection);
   return (
     <Stack>
-      <div>
-        <Calendar
-          {...args}
-          selection={date}
-          onSelect={setDate}
-          locale="de-DE"
-          prevMonthButtonLabel="Vorheriger Monat"
-          nextMonthButtonLabel="Nächster Monat"
-        />
-        <Calendar
-          {...args}
-          selection={date}
-          onSelect={setDate}
-          locale="bg-BG"
-          prevMonthButtonLabel="Предишния месец"
-          nextMonthButtonLabel="Следващият месец"
-        />
-        <Calendar
-          {...args}
-          selection={date}
-          onSelect={setDate}
-          locale="pt-BR"
-          prevMonthButtonLabel="Mês anterior"
-          nextMonthButtonLabel="Mês próximo"
-        />
-      </div>
+      <Calendar
+        {...args}
+        selection={date}
+        onSelect={setDate}
+        locale="de-DE"
+        prevMonthButtonLabel="Vorheriger Monat"
+        nextMonthButtonLabel="Nächster Monat"
+      />
+      <Calendar
+        {...args}
+        selection={date}
+        onSelect={setDate}
+        locale="bg-BG"
+        prevMonthButtonLabel="Предишния месец"
+        nextMonthButtonLabel="Следващият месец"
+      />
+      <Calendar
+        {...args}
+        selection={date}
+        onSelect={setDate}
+        locale="pt-BR"
+        prevMonthButtonLabel="Mês anterior"
+        nextMonthButtonLabel="Mês próximo"
+      />
     </Stack>
   );
 };
@@ -144,4 +139,5 @@ export const Range = (args: CalendarProps) => {
 Range.args = {
   ...Base.args,
   selection: [today.subtract({ days: 3 }), today.add({ days: 3 })],
+  numberOfMonths: 2,
 };

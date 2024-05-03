@@ -17,7 +17,7 @@ import { Temporal } from 'temporal-polyfill';
 import { formatDateTime } from '@sumup/intl';
 
 import type { Locale } from '../../util/i18n.js';
-import { chunk } from '../../util/helpers.js';
+import { chunk, last } from '../../util/helpers.js';
 import {
   clampDate,
   getFirstDateOfWeek,
@@ -32,26 +32,38 @@ import {
 
 type CalendarState = {
   today: Temporal.PlainDate;
+  months: Temporal.PlainYearMonth[];
   focusedDate: Temporal.PlainDate;
   hoveredDate: Temporal.PlainDate | null;
-  yearMonth: Temporal.PlainYearMonth;
 };
 
+export enum CalendarActionType {
+  PREV_MONTH,
+  NEXT_MONTH,
+  NUMBER_OF_MONTHS,
+  FOCUS_DATE,
+  MOUSE_ENTER_DATE,
+  MOUSE_LEAVE_DATE,
+}
+
 type CalendarAction =
-  | { type: 'prev-month' }
-  | { type: 'next-month' }
-  | { type: 'focus-date'; date: Temporal.PlainDate }
-  | { type: 'mouse-enter-date'; date: Temporal.PlainDate }
-  | { type: 'mouse-leave-date' };
+  | { type: CalendarActionType.PREV_MONTH }
+  | { type: CalendarActionType.NEXT_MONTH }
+  | { type: CalendarActionType.NUMBER_OF_MONTHS; numberOfMonths: number }
+  | { type: CalendarActionType.FOCUS_DATE; date: Temporal.PlainDate }
+  | { type: CalendarActionType.MOUSE_ENTER_DATE; date: Temporal.PlainDate }
+  | { type: CalendarActionType.MOUSE_LEAVE_DATE };
 
 export function initCalendar({
   selection,
   minDate,
   maxDate,
+  numberOfMonths,
 }: {
   selection?: Temporal.PlainDate | PlainDateRange | null;
   minDate?: Temporal.PlainDate | null;
   maxDate?: Temporal.PlainDate | null;
+  numberOfMonths: number;
 }): CalendarState {
   const today = getTodaysDate();
   let date: Temporal.PlainDate | undefined;
@@ -60,8 +72,10 @@ export function initCalendar({
   }
   const focusedDate = clampDate(date || today, minDate, maxDate);
   const hoveredDate = null;
-  const yearMonth = Temporal.PlainYearMonth.from(focusedDate);
-  return { today, focusedDate, hoveredDate, yearMonth };
+  const months = Array.from(Array(numberOfMonths)).map((_, index) =>
+    Temporal.PlainYearMonth.from(focusedDate).add({ months: index }),
+  );
+  return { today, months, focusedDate, hoveredDate };
 }
 
 export function calendarReducer(
@@ -69,37 +83,58 @@ export function calendarReducer(
   action: CalendarAction,
 ): CalendarState {
   switch (action.type) {
-    case 'prev-month':
-      return {
-        ...state,
-        focusedDate: state.focusedDate.subtract({ months: 1 }),
-        yearMonth: state.yearMonth.subtract({ months: 1 }),
-      };
-    case 'next-month':
-      return {
-        ...state,
-        focusedDate: state.focusedDate.add({ months: 1 }),
-        yearMonth: state.yearMonth.add({ months: 1 }),
-      };
-    case 'focus-date':
-      return {
-        ...state,
-        focusedDate: action.date,
-        yearMonth: Temporal.PlainYearMonth.from(action.date),
-      };
-    case 'mouse-enter-date':
-      return {
-        ...state,
-        hoveredDate: action.date,
-      };
-    case 'mouse-leave-date':
-      return {
-        ...state,
-        hoveredDate: null,
-      };
+    case CalendarActionType.PREV_MONTH: {
+      const months = state.months.map((month) => month.subtract({ months: 1 }));
+      const focusedDate = isDateInMonths(state.focusedDate, months)
+        ? state.focusedDate
+        : state.focusedDate.subtract({ months: 1 });
+      return { ...state, months, focusedDate };
+    }
+    case CalendarActionType.NEXT_MONTH: {
+      const months = state.months.map((month) => month.add({ months: 1 }));
+      const focusedDate = isDateInMonths(state.focusedDate, months)
+        ? state.focusedDate
+        : state.focusedDate.add({ months: 1 });
+      return { ...state, months, focusedDate };
+    }
+    case CalendarActionType.NUMBER_OF_MONTHS: {
+      if (state.months.length === action.numberOfMonths) {
+        return state;
+      }
+      const months = Array.from(Array(action.numberOfMonths)).map((_, index) =>
+        Temporal.PlainYearMonth.from(state.focusedDate).add({ months: index }),
+      );
+      return { ...state, months };
+    }
+    case CalendarActionType.FOCUS_DATE: {
+      const focusedDate = action.date;
+      const months = getMonths(focusedDate, state.months);
+      return { ...state, focusedDate, months };
+    }
+    case CalendarActionType.MOUSE_ENTER_DATE:
+      return { ...state, hoveredDate: action.date };
+    case CalendarActionType.MOUSE_LEAVE_DATE:
+      return { ...state, hoveredDate: null };
     default:
       return state;
   }
+}
+
+export function getMonths(
+  focusedDate: Temporal.PlainDate,
+  prevMonths: Temporal.PlainYearMonth[],
+) {
+  const focusedMonth = Temporal.PlainYearMonth.from(focusedDate);
+
+  if (Temporal.PlainYearMonth.compare(focusedMonth, prevMonths[0]) < 0) {
+    return prevMonths.map((_, index) => focusedMonth.add({ months: index }));
+  }
+  if (Temporal.PlainYearMonth.compare(focusedMonth, last(prevMonths)) > 0) {
+    return prevMonths.map((_, index) =>
+      focusedMonth.subtract({ months: prevMonths.length - index - 1 }),
+    );
+  }
+  return prevMonths;
 }
 
 type Weekday = { narrow: string; long: string };
@@ -228,4 +263,11 @@ export function isDateInMonthRange(
     return false;
   }
   return true;
+}
+
+export function isDateInMonths(
+  date: Temporal.PlainDate,
+  months: Temporal.PlainYearMonth[],
+) {
+  return months.some((month) => month.equals(date));
 }

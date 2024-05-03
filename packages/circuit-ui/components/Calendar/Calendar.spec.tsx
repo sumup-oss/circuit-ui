@@ -88,20 +88,20 @@ describe('Calendar', () => {
   describe('navigation', () => {
     it('should navigate to the previous month', async () => {
       const spy = vi.fn();
-      const onMonthChange = vi.fn((yearMonth: Temporal.PlainYearMonth) => {
-        spy(yearMonth.toString());
+      const onMonthsChange = vi.fn((months: Temporal.PlainYearMonth[]) => {
+        spy(months.toString());
       });
-      render(<Calendar {...baseProps} onMonthChange={onMonthChange} />);
+      render(<Calendar {...baseProps} onMonthsChange={onMonthsChange} />);
       expect(screen.getByText('March 2020')).toBeVisible();
       const prevButton = screen.getByRole('button', {
         name: /previous month/i,
       });
       await userEvent.click(prevButton);
       expect(screen.getByText('February 2020')).toBeVisible();
-      expect(onMonthChange).toHaveBeenCalledTimes(2);
-      expect(onMonthChange).toHaveBeenCalledWith(
+      expect(onMonthsChange).toHaveBeenCalledTimes(2);
+      expect(onMonthsChange).toHaveBeenCalledWith([
         new Temporal.PlainYearMonth(2020, 2),
-      );
+      ]);
       // The assertion above returns true for any PlainYearMonth.
       // The assertion below verifies the specific month.
       expect(spy).toHaveBeenCalledWith('2020-02');
@@ -109,18 +109,18 @@ describe('Calendar', () => {
 
     it('should navigate to the next month', async () => {
       const spy = vi.fn();
-      const onMonthChange = vi.fn((yearMonth: Temporal.PlainYearMonth) => {
-        spy(yearMonth.toString());
+      const onMonthsChange = vi.fn((months: Temporal.PlainYearMonth[]) => {
+        spy(months.toString());
       });
-      render(<Calendar {...baseProps} onMonthChange={onMonthChange} />);
+      render(<Calendar {...baseProps} onMonthsChange={onMonthsChange} />);
       expect(screen.getByText('March 2020')).toBeVisible();
       const nextButton = screen.getByRole('button', { name: /next month/i });
       await userEvent.click(nextButton);
       expect(screen.getByText('April 2020')).toBeVisible();
-      expect(onMonthChange).toHaveBeenCalledTimes(2);
-      expect(onMonthChange).toHaveBeenCalledWith(
+      expect(onMonthsChange).toHaveBeenCalledTimes(2);
+      expect(onMonthsChange).toHaveBeenCalledWith([
         new Temporal.PlainYearMonth(2020, 4),
-      );
+      ]);
       // The assertion above returns true for any PlainYearMonth.
       // The assertion below verifies the specific month.
       expect(spy).toHaveBeenCalledWith('2020-04');

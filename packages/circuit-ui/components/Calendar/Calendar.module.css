@@ -1,5 +1,34 @@
-.container {
-  container: cui-calendar / inline-size;
+.header {
+  position: relative;
+  width: 100%;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 0;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.months {
+  display: flex;
+}
+
+.month:not(:last-child) {
+  margin-right: var(--cui-spacings-giga);
+}
+
+.month {
+  /* FIXME: */
+
+  /* container: cui-calendar / inline-size; */
 
   --calendar-day-min-width: 48px;
   --calendar-day-max-width: 64px;
@@ -7,27 +36,25 @@
 }
 
 @media (max-width: 360px) {
-  .container {
+  .month {
     --calendar-day-min-width: 32px;
     --calendar-day-padding: 1px;
   }
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+.headline {
   min-width: calc(
     var(--calendar-days-in-week, 7) * var(--calendar-day-min-width)
   );
   max-width: calc(
     var(--calendar-days-in-week, 7) * var(--calendar-day-max-width)
   );
-  margin-bottom: var(--cui-spacings-kilo);
+  margin-top: var(--cui-spacings-bit);
+  margin-bottom: var(--cui-spacings-mega);
+  text-align: center;
 }
 
-.table {
+.grid {
   width: 100%;
   min-width: calc(
     var(--calendar-days-in-week, 7) * var(--calendar-day-min-width)
@@ -40,15 +67,15 @@
   border-collapse: collapse;
 }
 
-.table th,
-.table td {
+.grid th,
+.grid td {
   position: relative;
   padding: var(--calendar-day-padding);
   text-align: center;
   vertical-align: middle;
 }
 
-.table th {
+.grid th {
   padding-bottom: calc(var(--calendar-day-padding) + var(--cui-spacings-byte));
 }
 

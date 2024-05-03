@@ -50,8 +50,10 @@ import {
 } from '../../util/errors.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { useSwipe } from '../../hooks/useSwipe/useSwipe.js';
+import { last } from '../../util/helpers.js';
 
 import {
+  CalendarActionType,
   calendarReducer,
   getSelectionType,
   getViewOfMonth,
@@ -72,6 +74,10 @@ interface SharedProps {
    * The currently selected date.
    */
   selection?: Temporal.PlainDate | PlainDateRange;
+  /**
+   * A callback that is called when a user selects a date.
+   */
+  onSelect?: (date: Temporal.PlainDate) => void;
   /**
    * The minimum selectable date (inclusive).
    */
@@ -110,14 +116,10 @@ export interface CalendarProps
   extends SharedProps,
     Omit<HTMLAttributes<HTMLDivElement>, 'onSelect'> {
   /**
-   * A callback that is called when a user selects a date.
+   * A callback that is called with the visible months on the initial render and
+   * whenever a user navigates to different months.
    */
-  onSelect?: (date: Temporal.PlainDate) => void;
-  /**
-   * A callback that is called with the visible month on the initial render and
-   * whenever a user navigates to a different month.
-   */
-  onMonthChange?: (date: Temporal.PlainYearMonth) => void;
+  onMonthsChange?: (months: Temporal.PlainYearMonth[]) => void;
   /**
    * Text label for the button to navigate to the previous month.
    */
@@ -126,6 +128,10 @@ export interface CalendarProps
    * Text label for the button to navigate to the next month.
    */
   nextMonthButtonLabel: string;
+  /**
+   * The number of months to display at a time. Default: `1`.
+   */
+  numberOfMonths?: number;
 }
 
 export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
@@ -133,7 +139,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
     {
       selection,
       onSelect,
-      onMonthChange,
+      onMonthsChange,
       minDate,
       maxDate,
       firstDayOfWeek = 1,
@@ -141,48 +147,48 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
       prevMonthButtonLabel,
       nextMonthButtonLabel,
       modifiers,
-      className,
+      numberOfMonths = 1,
       ...props
     },
     ref,
   ) => {
-    const [{ yearMonth, focusedDate, hoveredDate, today }, dispatch] =
-      useReducer(
-        calendarReducer,
-        { selection, minDate, maxDate },
-        initCalendar,
-      );
+    const [{ months, focusedDate, hoveredDate, today }, dispatch] = useReducer(
+      calendarReducer,
+      { selection, minDate, maxDate, numberOfMonths },
+      initCalendar,
+    );
 
     useEffect(() => {
-      onMonthChange?.(yearMonth);
-    }, [onMonthChange, yearMonth]);
+      onMonthsChange?.(months);
+    }, [onMonthsChange, months]);
+
+    useEffect(() => {
+      dispatch({ type: CalendarActionType.NUMBER_OF_MONTHS, numberOfMonths });
+    }, [numberOfMonths]);
 
     const calendarRef = useRef<HTMLDivElement>(null);
-    const headlineId = useId();
-    const headline = formatDateTime(yearMonthToDate(yearMonth), locale, {
-      year: 'numeric',
-      month: 'long',
-    });
+
+    const { daysInWeek = 7 } = focusedDate;
 
     const isPrevMonthDisabled = minDate
-      ? Temporal.PlainYearMonth.compare(yearMonth, minDate) <= 0
+      ? Temporal.PlainYearMonth.compare(months[0], minDate) <= 0
       : false;
     const isNextMonthDisabled = maxDate
-      ? Temporal.PlainYearMonth.compare(yearMonth, maxDate) >= 0
+      ? Temporal.PlainYearMonth.compare(last(months), maxDate) >= 0
       : false;
 
     const touchHandlers = useSwipe((direction) => {
       if (direction === 'right' && !isPrevMonthDisabled) {
-        dispatch({ type: 'prev-month' });
+        dispatch({ type: CalendarActionType.PREV_MONTH });
       }
       if (direction === 'left' && !isNextMonthDisabled) {
-        dispatch({ type: 'next-month' });
+        dispatch({ type: CalendarActionType.NEXT_MONTH });
       }
     });
 
     const handleFocusDate = useCallback(
       (date: Temporal.PlainDate) => {
-        dispatch({ type: 'focus-date', date });
+        dispatch({ type: CalendarActionType.FOCUS_DATE, date });
         // Focus the button on the next tick after React has rerendered the UI
         window.requestAnimationFrame(() => {
           calendarRef.current
@@ -191,13 +197,6 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
         });
       },
       [dispatch],
-    );
-
-    const handleSelectDate = useCallback(
-      (date: Temporal.PlainDate) => {
-        onSelect?.(date);
-      },
-      [onSelect],
     );
 
     const handleKeyDown = useCallback(
@@ -250,12 +249,12 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
 
     const handleMouseEnter = useCallback(
       (date: Temporal.PlainDate) => {
-        dispatch({ type: 'mouse-enter-date', date });
+        dispatch({ type: CalendarActionType.MOUSE_ENTER_DATE, date });
       },
       [dispatch],
     );
     const handleMouseLeave = useCallback(() => {
-      dispatch({ type: 'mouse-leave-date' });
+      dispatch({ type: CalendarActionType.MOUSE_LEAVE_DATE });
     }, [dispatch]);
 
     if (process.env.NODE_ENV !== 'production') {
@@ -286,12 +285,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
     }
 
     return (
-      <div
-        ref={applyMultipleRefs(ref, calendarRef)}
-        role="group"
-        className={clsx(classes.container, className)}
-        {...props}
-      >
+      <div ref={applyMultipleRefs(ref, calendarRef)} role="group" {...props}>
         <div className={classes.header}>
           <IconButton
             icon={ArrowLeft}
@@ -299,51 +293,49 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             variant="tertiary"
             disabled={isPrevMonthDisabled}
             onClick={() => {
-              dispatch({ type: 'prev-month' });
+              dispatch({ type: CalendarActionType.PREV_MONTH });
             }}
+            className={classes.prev}
           >
             {prevMonthButtonLabel}
           </IconButton>
-          <Headline
-            as="h2"
-            size="four"
-            id={headlineId}
-            aria-live="polite"
-            aria-atomic="true"
-          >
-            {headline}
-          </Headline>
           <IconButton
             icon={ArrowRight}
             size="s"
             variant="tertiary"
             disabled={isNextMonthDisabled}
             onClick={() => {
-              dispatch({ type: 'next-month' });
+              dispatch({ type: CalendarActionType.NEXT_MONTH });
             }}
+            className={classes.next}
           >
             {nextMonthButtonLabel}
           </IconButton>
         </div>
-        <Month
-          yearMonth={yearMonth}
-          selection={selection}
-          focusedDate={focusedDate}
-          hoveredDate={hoveredDate}
-          minDate={minDate}
-          maxDate={maxDate}
-          today={today}
-          firstDayOfWeek={firstDayOfWeek}
-          locale={locale}
-          aria-labelledby={headlineId}
-          modifiers={modifiers}
-          onFocusDate={handleFocusDate}
-          onSelectDate={handleSelectDate}
-          onKeyDown={handleKeyDown}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          {...touchHandlers}
-        />
+        <div className={classes.months}>
+          {months.map((month) => (
+            <Month
+              key={month.toString()}
+              yearMonth={month}
+              selection={selection}
+              focusedDate={focusedDate}
+              hoveredDate={hoveredDate}
+              minDate={minDate}
+              maxDate={maxDate}
+              today={today}
+              firstDayOfWeek={firstDayOfWeek}
+              daysInWeek={daysInWeek}
+              locale={locale}
+              modifiers={modifiers}
+              onFocus={handleFocusDate}
+              onSelect={onSelect}
+              onKeyDown={handleKeyDown}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              {...touchHandlers}
+            />
+          ))}
+        </div>
       </div>
     );
   },
@@ -351,18 +343,16 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
 
 Calendar.displayName = 'Calendar';
 
-interface MonthProps
-  extends SharedProps,
-    Omit<HTMLAttributes<HTMLTableElement>, 'onMouseEnter' | 'onMouseLeave'> {
+interface MonthProps extends SharedProps {
   yearMonth: Temporal.PlainYearMonth;
   today: Temporal.PlainDate;
-  onFocusDate: (date: Temporal.PlainDate) => void;
-  onSelectDate: (date: Temporal.PlainDate) => void;
+  onFocus: (date: Temporal.PlainDate) => void;
   onMouseEnter: (date: Temporal.PlainDate) => void;
   onMouseLeave: () => void;
   onKeyDown: (event: KeyboardEvent) => void;
   focusedDate: Temporal.PlainDate;
   hoveredDate: Temporal.PlainDate | null;
+  daysInWeek?: number;
 }
 
 function Month({
@@ -374,17 +364,15 @@ function Month({
   maxDate,
   today,
   modifiers = {},
-  onFocusDate,
-  onSelectDate,
+  onFocus,
+  onSelect,
   onKeyDown,
   onMouseEnter,
   onMouseLeave,
   firstDayOfWeek = 1,
+  daysInWeek = 7,
   locale,
-  className,
-  ...props
 }: MonthProps) {
-  const { daysInWeek = 7 } = focusedDate;
   const descriptionIds = useId();
   const weeks = useMemo(
     () => getViewOfMonth(yearMonth, firstDayOfWeek, daysInWeek),
@@ -394,111 +382,127 @@ function Month({
     () => getWeekdays(firstDayOfWeek, daysInWeek, locale),
     [firstDayOfWeek, daysInWeek, locale],
   );
+  const headlineId = useId();
+  const headline = formatDateTime(yearMonthToDate(yearMonth), locale, {
+    year: 'numeric',
+    month: 'long',
+  });
   return (
-    <table
-      {...props}
-      role="grid"
-      className={clsx(className, classes.table)}
+    <div
+      className={classes.month}
       style={{ '--calendar-days-in-week': daysInWeek }}
     >
-      <thead>
-        <tr>
-          {weekdays.map((weekday) => (
-            <th key={weekday.long} scope="col">
-              <span className={utilityClasses.hideVisually}>
-                {weekday.long}
-              </span>
-              <span aria-hidden="true" className={classes.weekday}>
-                {weekday.narrow}
-              </span>
-            </th>
-          ))}
-        </tr>
-      </thead>
-
-      <tbody>
-        {weeks.map((week, i) => (
-          <tr key={i}>
-            {week.map((date) => {
-              const isoDate = date.toString();
-              const descriptionId = `${descriptionIds}-${isoDate}`;
-              const isOutsideMonth = !yearMonth.equals(date);
-
-              if (isOutsideMonth) {
-                return <td key={isoDate}></td>;
-              }
-
-              const { disabled, description } = modifiers[isoDate] || {};
-              const isActive = isDateActive(date, selection);
-              const isToday = date.equals(today);
-              const isFirstDay = date.day === 1;
-              const isLastDay = date.day === date.daysInMonth;
-              const isFocused = date.equals(focusedDate);
-              const isDisabled =
-                disabled ||
-                (minDate && Temporal.PlainDate.compare(date, minDate) < 0) ||
-                (maxDate && Temporal.PlainDate.compare(date, maxDate) > 0);
-              const selectionType = getSelectionType(
-                date,
-                hoveredDate,
-                selection,
-              );
-
-              const handleClick = (event: MouseEvent) => {
-                if (isDisabled) {
-                  event.preventDefault();
-                  event.stopPropagation();
-                  event.nativeEvent.stopImmediatePropagation();
-                } else {
-                  onSelectDate(date);
-                }
-                onFocusDate(date);
-              };
-
-              const handleMouseEnter = () => {
-                if (!isDisabled) {
-                  onMouseEnter(date);
-                }
-              };
-
-              return (
-                <td key={isoDate}>
-                  <button
-                    data-date={isoDate}
-                    onClick={handleClick}
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                    onKeyDown={onKeyDown}
-                    className={clsx(
-                      className,
-                      classes.day,
-                      selectionType && classes[selectionType],
-                      isFirstDay && classes['first-day'],
-                      isLastDay && classes['last-day'],
-                      utilityClasses.focusVisible,
-                    )}
-                    tabIndex={isFocused ? 0 : -1}
-                    {...(isToday && { 'aria-current': 'date' })}
-                    {...(isActive && { 'aria-pressed': 'true' })}
-                    {...(isDisabled && { 'aria-disabled': 'true' })}
-                    {...(description && { 'aria-describedby': descriptionId })}
-                  >
-                    {date.day}
-                  </button>
-                  {description && (
-                    <span
-                      id={descriptionId}
-                      className={clsx(utilityClasses.hideVisually)}
-                    >
-                      {description}
-                    </span>
-                  )}
-                </td>
-              );
-            })}
+      <Headline
+        as="h2"
+        size="four"
+        id={headlineId}
+        aria-live="polite"
+        aria-atomic="true"
+        className={classes.headline}
+      >
+        {headline}
+      </Headline>
+      <table role="grid" className={classes.grid}>
+        <thead>
+          <tr>
+            {weekdays.map((weekday) => (
+              <th key={weekday.long} scope="col">
+                <span className={utilityClasses.hideVisually}>
+                  {weekday.long}
+                </span>
+                <span aria-hidden="true" className={classes.weekday}>
+                  {weekday.narrow}
+                </span>
+              </th>
+            ))}
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+
+        <tbody>
+          {weeks.map((week, i) => (
+            <tr key={i}>
+              {week.map((date) => {
+                const isoDate = date.toString();
+                const descriptionId = `${descriptionIds}-${isoDate}`;
+                const isOutsideMonth = !yearMonth.equals(date);
+
+                if (isOutsideMonth) {
+                  return <td key={isoDate}></td>;
+                }
+
+                const { disabled, description } = modifiers[isoDate] || {};
+                const isActive = isDateActive(date, selection);
+                const isToday = date.equals(today);
+                const isFirstDay = date.day === 1;
+                const isLastDay = date.day === date.daysInMonth;
+                const isFocused = date.equals(focusedDate);
+                const isDisabled =
+                  disabled ||
+                  (minDate && Temporal.PlainDate.compare(date, minDate) < 0) ||
+                  (maxDate && Temporal.PlainDate.compare(date, maxDate) > 0);
+                const selectionType = getSelectionType(
+                  date,
+                  hoveredDate,
+                  selection,
+                );
+
+                const handleClick = (event: MouseEvent) => {
+                  if (isDisabled) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    event.nativeEvent.stopImmediatePropagation();
+                  } else {
+                    onSelect?.(date);
+                  }
+                  onFocus(date);
+                };
+
+                const handleMouseEnter = () => {
+                  if (!isDisabled) {
+                    onMouseEnter(date);
+                  }
+                };
+
+                return (
+                  <td key={isoDate}>
+                    <button
+                      data-date={isoDate}
+                      onClick={handleClick}
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={onMouseLeave}
+                      onKeyDown={onKeyDown}
+                      className={clsx(
+                        classes.day,
+                        selectionType && classes[selectionType],
+                        isFirstDay && classes['first-day'],
+                        isLastDay && classes['last-day'],
+                        utilityClasses.focusVisible,
+                      )}
+                      tabIndex={isFocused ? 0 : -1}
+                      {...(isToday && { 'aria-current': 'date' })}
+                      {...(isActive && { 'aria-pressed': 'true' })}
+                      {...(isDisabled && { 'aria-disabled': 'true' })}
+                      {...(description && {
+                        'aria-describedby': descriptionId,
+                      })}
+                    >
+                      {date.day}
+                    </button>
+                    {description && (
+                      <span
+                        id={descriptionId}
+                        className={clsx(utilityClasses.hideVisually)}
+                      >
+                        {description}
+                      </span>
+                    )}
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }

@@ -19,8 +19,10 @@ import { Temporal } from 'temporal-polyfill';
 import type { PlainDateRange } from '../../util/date.js';
 
 import {
+  CalendarActionType,
   calendarReducer,
   getDatesInRange,
+  getMonths,
   getSelectionType,
   getViewOfMonth,
   getWeekdays,
@@ -43,7 +45,13 @@ describe('CalendarService', () => {
       const selection = new Temporal.PlainDate(2020, 3, 28);
       const minDate = null;
       const maxDate = null;
-      const actual = initCalendar({ selection, minDate, maxDate });
+      const numberOfMonths = 1;
+      const actual = initCalendar({
+        selection,
+        minDate,
+        maxDate,
+        numberOfMonths,
+      });
       expect(actual.today.toString()).toBe('2020-03-15');
     });
 
@@ -51,7 +59,13 @@ describe('CalendarService', () => {
       const selection = new Temporal.PlainDate(2020, 3, 28);
       const minDate = null;
       const maxDate = null;
-      const actual = initCalendar({ selection, minDate, maxDate });
+      const numberOfMonths = 1;
+      const actual = initCalendar({
+        selection,
+        minDate,
+        maxDate,
+        numberOfMonths,
+      });
       expect(actual.hoveredDate).toBeNull();
     });
 
@@ -59,7 +73,13 @@ describe('CalendarService', () => {
       const selection = new Temporal.PlainDate(2020, 3, 28);
       const minDate = null;
       const maxDate = null;
-      const actual = initCalendar({ selection, minDate, maxDate });
+      const numberOfMonths = 1;
+      const actual = initCalendar({
+        selection,
+        minDate,
+        maxDate,
+        numberOfMonths,
+      });
       expect(actual.focusedDate.toString()).toBe('2020-03-28');
     });
 
@@ -70,7 +90,13 @@ describe('CalendarService', () => {
       ];
       const minDate = null;
       const maxDate = null;
-      const actual = initCalendar({ selection, minDate, maxDate });
+      const numberOfMonths = 1;
+      const actual = initCalendar({
+        selection,
+        minDate,
+        maxDate,
+        numberOfMonths,
+      });
       expect(actual.focusedDate.toString()).toBe('2020-03-18');
     });
 
@@ -78,7 +104,13 @@ describe('CalendarService', () => {
       const selection = null;
       const minDate = null;
       const maxDate = null;
-      const actual = initCalendar({ selection, minDate, maxDate });
+      const numberOfMonths = 1;
+      const actual = initCalendar({
+        selection,
+        minDate,
+        maxDate,
+        numberOfMonths,
+      });
       expect(actual.focusedDate.toString()).toBe('2020-03-15');
     });
 
@@ -86,7 +118,13 @@ describe('CalendarService', () => {
       const selection = new Temporal.PlainDate(2020, 3, 28);
       const minDate = new Temporal.PlainDate(2020, 4, 1);
       const maxDate = null;
-      const actual = initCalendar({ selection, minDate, maxDate });
+      const numberOfMonths = 1;
+      const actual = initCalendar({
+        selection,
+        minDate,
+        maxDate,
+        numberOfMonths,
+      });
       expect(actual.focusedDate.toString()).toBe('2020-04-01');
     });
 
@@ -94,7 +132,13 @@ describe('CalendarService', () => {
       const selection = new Temporal.PlainDate(2020, 3, 28);
       const minDate = null;
       const maxDate = new Temporal.PlainDate(2020, 3, 1);
-      const actual = initCalendar({ selection, minDate, maxDate });
+      const numberOfMonths = 1;
+      const actual = initCalendar({
+        selection,
+        minDate,
+        maxDate,
+        numberOfMonths,
+      });
       expect(actual.focusedDate.toString()).toBe('2020-03-01');
     });
 
@@ -102,46 +146,96 @@ describe('CalendarService', () => {
       const selection = new Temporal.PlainDate(2020, 4, 28);
       const minDate = null;
       const maxDate = new Temporal.PlainDate(2020, 3, 1);
-      const actual = initCalendar({ selection, minDate, maxDate });
-      expect(actual.yearMonth.toString()).toBe('2020-03');
+      const numberOfMonths = 1;
+      const actual = initCalendar({
+        selection,
+        minDate,
+        maxDate,
+        numberOfMonths,
+      });
+      expect(actual.months.toString()).toBe('2020-03');
+    });
+
+    it('should show the currently focused month and the following months', () => {
+      const selection = new Temporal.PlainDate(2020, 4, 28);
+      const minDate = null;
+      const maxDate = null;
+      const numberOfMonths = 3;
+      const actual = initCalendar({
+        selection,
+        minDate,
+        maxDate,
+        numberOfMonths,
+      });
+      expect(actual.months).toHaveLength(numberOfMonths);
+      expect(actual.months.toString()).toBe('2020-04,2020-05,2020-06');
     });
   });
 
   describe('calendarReducer', () => {
     const state = {
       today: new Temporal.PlainDate(2020, 3, 15),
-      yearMonth: new Temporal.PlainYearMonth(2020, 3),
+      months: [new Temporal.PlainYearMonth(2020, 3)],
       focusedDate: new Temporal.PlainDate(2020, 3, 31),
       hoveredDate: null,
     };
 
     it('should move to the previous month', () => {
-      const action = { type: 'prev-month' } as const;
+      const action = { type: CalendarActionType.PREV_MONTH } as const;
       const actual = calendarReducer(state, action);
-      expect(actual.yearMonth.toString()).toBe('2020-02');
+      expect(actual.months.toString()).toBe('2020-02');
       expect(actual.focusedDate.toString()).toBe('2020-02-29');
     });
 
     it('should move to the next month', () => {
-      const action = { type: 'next-month' } as const;
+      const action = { type: CalendarActionType.NEXT_MONTH } as const;
       const actual = calendarReducer(state, action);
-      expect(actual.yearMonth.toString()).toBe('2020-04');
+      expect(actual.months.toString()).toBe('2020-04');
       expect(actual.focusedDate.toString()).toBe('2020-04-30');
+    });
+
+    it('should increase the number of visible months', () => {
+      const action = {
+        type: CalendarActionType.NUMBER_OF_MONTHS,
+        numberOfMonths: 2,
+      } as const;
+      const actual = calendarReducer(state, action);
+      expect(actual.months).toHaveLength(2);
+      expect(actual.months.toString()).toBe('2020-03,2020-04');
+    });
+
+    it('should decrease the number of visible months', () => {
+      const action = {
+        type: CalendarActionType.NUMBER_OF_MONTHS,
+        numberOfMonths: 1,
+      } as const;
+      const actual = calendarReducer(
+        {
+          ...state,
+          months: [
+            new Temporal.PlainYearMonth(2020, 2),
+            new Temporal.PlainYearMonth(2020, 3),
+          ],
+        },
+        action,
+      );
+      expect(actual.months).toHaveLength(1);
+      expect(actual.months.toString()).toBe('2020-03');
     });
 
     it('should update the focused date', () => {
       const action = {
-        type: 'focus-date',
+        type: CalendarActionType.FOCUS_DATE,
         date: new Temporal.PlainDate(2020, 4, 3),
       } as const;
       const actual = calendarReducer(state, action);
-      expect(actual.yearMonth.toString()).toBe('2020-04');
+      expect(actual.months.toString()).toBe('2020-04');
       expect(actual.focusedDate.toString()).toBe('2020-04-03');
     });
 
     it('should set the hovered date', () => {
       const action = {
-        type: 'mouse-enter-date',
+        type: CalendarActionType.MOUSE_ENTER_DATE,
         date: new Temporal.PlainDate(2020, 4, 3),
       } as const;
       const actual = calendarReducer(state, action);
@@ -149,7 +243,7 @@ describe('CalendarService', () => {
     });
 
     it('should unset the hovered date', () => {
-      const action = { type: 'mouse-leave-date' } as const;
+      const action = { type: CalendarActionType.MOUSE_LEAVE_DATE } as const;
       const actual = calendarReducer(state, action);
       expect(actual.hoveredDate).toBeNull();
     });
@@ -545,6 +639,56 @@ describe('CalendarService', () => {
       const maxDate = new Temporal.PlainDate(2020, 3, 25);
       const actual = isDateInMonthRange(date, minDate, maxDate);
       expect(actual).toBe(false);
+    });
+  });
+
+  describe('getMonths', () => {
+    it('should shift the months backward if the focused date is before the current months', () => {
+      const focusedDate = new Temporal.PlainDate(2020, 1, 15);
+      const prevMonths = [
+        new Temporal.PlainYearMonth(2020, 3),
+        new Temporal.PlainYearMonth(2020, 4),
+      ];
+      const actual = getMonths(focusedDate, prevMonths);
+      expect(actual).toHaveLength(2);
+      expect(actual[0].toString()).toBe('2020-01');
+      expect(actual[1].toString()).toBe('2020-02');
+    });
+
+    it('should shift the months forward if the focused date is after the current months', () => {
+      const focusedDate = new Temporal.PlainDate(2020, 3, 15);
+      const prevMonths = [
+        new Temporal.PlainYearMonth(2020, 1),
+        new Temporal.PlainYearMonth(2020, 2),
+      ];
+      const actual = getMonths(focusedDate, prevMonths);
+      expect(actual).toHaveLength(2);
+      expect(actual[0].toString()).toBe('2020-02');
+      expect(actual[1].toString()).toBe('2020-03');
+    });
+
+    it('should return the current months if the focused date is in the first month', () => {
+      const focusedDate = new Temporal.PlainDate(2020, 3, 15);
+      const prevMonths = [
+        new Temporal.PlainYearMonth(2020, 3),
+        new Temporal.PlainYearMonth(2020, 4),
+      ];
+      const actual = getMonths(focusedDate, prevMonths);
+      expect(actual).toHaveLength(2);
+      expect(actual[0].toString()).toBe('2020-03');
+      expect(actual[1].toString()).toBe('2020-04');
+    });
+
+    it('should return the current months if the focused date is in the last month', () => {
+      const focusedDate = new Temporal.PlainDate(2020, 4, 15);
+      const prevMonths = [
+        new Temporal.PlainYearMonth(2020, 3),
+        new Temporal.PlainYearMonth(2020, 4),
+      ];
+      const actual = getMonths(focusedDate, prevMonths);
+      expect(actual).toHaveLength(2);
+      expect(actual[0].toString()).toBe('2020-03');
+      expect(actual[1].toString()).toBe('2020-04');
     });
   });
 });
