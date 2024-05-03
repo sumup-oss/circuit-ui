@@ -25,3 +25,7 @@ export default {
 export const Base = (args: CalendarTagProps) => (
   <CalendarTag {...args} onDatesRangeChange={action('onDatesRangeChange')} />
 );
+
+Base.args = {
+  useTemporal: true,
+};

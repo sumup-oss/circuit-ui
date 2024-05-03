@@ -15,127 +15,125 @@
 
 'use client';
 
-import { Component, createRef } from 'react';
-import type { Moment } from 'moment';
+import { useEffect, useRef, useState } from 'react';
+import { formatDateTime } from '@sumup/intl';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import moment, { type Moment } from 'moment';
+import type { Temporal } from 'temporal-polyfill';
 
 import type { ClickEvent } from '../../../types/events.js';
-import styled from '../../../styles/styled.js';
-import { RangePickerController } from '../Calendar/index.js';
+import type { Locale } from '../../../util/i18n.js';
+import { sortDateRange, type PlainDateRange } from '../../../util/date.js';
 import Tag from '../../Tag/index.js';
-import { START_DATE } from '../Calendar/constants.js';
+import { Calendar, type CalendarProps } from '../../Calendar/Calendar.js';
 
-export interface CalendarTagProps {
+type CalendarTagTemporalProps = {
+  useTemporal: true;
+  /**
+   * Callback to receive the set of dates when the user selects them.
+   */
+  onDatesRangeChange: (range: PlainDateRange) => void;
+};
+
+type CalendarTagMomentProps = {
+  useTemporal: never;
   /**
    * Callback to receive the set of dates when the user selects them.
    */
   onDatesRangeChange: (range: DateRange) => void;
-  /**
-   * Function that's called when the date tag is clicked.
-   */
-  onClick?: (event: ClickEvent) => void;
-}
-
-type CalendarTagState = DateRange & {
-  focusedInput: FocusedInput;
 };
+
+export type CalendarTagProps = Pick<CalendarProps, 'locale'> &
+  CalendarTagMomentProps &
+  CalendarTagTemporalProps & {
+    /**
+     * Function that's called when the date tag is clicked.
+     */
+    onClick?: (event: ClickEvent) => void;
+    // TODO: Make required in the next major version.
+    prevMonthButtonLabel?: CalendarProps['prevMonthButtonLabel'];
+    nextMonthButtonLabel?: CalendarProps['nextMonthButtonLabel'];
+  };
 
 type CalendarDate = Moment | null;
 type DateRange = {
   startDate: CalendarDate;
   endDate: CalendarDate;
 };
-type FocusedInput = 'startDate' | 'endDate' | null;
 
-const CalendarWrap = styled.div`
-  margin-top: ${({ theme }) => theme.spacings.byte};
-`;
-
-function toDate(date: CalendarDate) {
-  return date ? date.format('MMM DD') : '';
+function toDate(date?: Temporal.PlainDate, locale?: Locale) {
+  if (!date) {
+    return '';
+  }
+  const tmp = new Date(Date.UTC(date.year, date.month - 1, date.day));
+  return formatDateTime(tmp, locale, { month: 'short', day: 'numeric' });
 }
 
 /**
  * @legacy
  */
-export class CalendarTag extends Component<CalendarTagProps, CalendarTagState> {
-  state = {
-    startDate: null,
-    endDate: null,
-    focusedInput: null,
-  };
+export function CalendarTag({
+  onDatesRangeChange,
+  onClick,
+  useTemporal,
+  prevMonthButtonLabel = 'Previous',
+  nextMonthButtonLabel = 'Next',
+  locale,
+  ...props
+}: CalendarTagProps) {
+  const tagRef = useRef<HTMLDivElement & HTMLButtonElement>(null);
+  const [isOpen, setOpen] = useState(false);
+  const [selection, setSelection] = useState<PlainDateRange>([]);
 
-  tagRef = createRef<HTMLDivElement & HTMLButtonElement>();
-
-  handleDatesChange = ({
-    startDate,
-    endDate,
-  }: {
-    startDate: CalendarDate;
-    endDate: CalendarDate;
-  }) => {
-    this.setState({ startDate, endDate });
-
-    if (startDate && endDate) {
-      this.props.onDatesRangeChange({ startDate, endDate });
+  useEffect(() => {
+    if (selection.length === 2) {
+      if (useTemporal) {
+        onDatesRangeChange(selection);
+      } else {
+        const startDate = moment(selection[0].toString());
+        const endDate = moment(selection[1].toString());
+        onDatesRangeChange({ startDate, endDate });
+      }
     }
+  }, [selection, useTemporal, onDatesRangeChange]);
+
+  const handleSelect = (date: Temporal.PlainDate) => {
+    setSelection((prevSelection) => {
+      if (!prevSelection[0] || (prevSelection[0] && prevSelection[1])) {
+        return [date];
+      }
+      return sortDateRange([prevSelection[0], date]);
+    });
   };
 
-  handleFocusChange = (focusedInput: FocusedInput) => {
-    this.setState({ focusedInput });
+  const handleTagClick = (event: ClickEvent) => {
+    onClick?.(event);
+    setOpen((prev) => !prev);
   };
 
-  handleTagClick = (event: ClickEvent) => {
-    if (this.props.onClick) {
-      this.props.onClick(event);
-    }
-    this.setState(({ focusedInput }) => ({
-      focusedInput: focusedInput !== null ? null : START_DATE,
-    }));
-  };
-
-  getDateRangePreview = () => {
-    const { startDate, endDate } = this.state;
+  const getDateRangePreview = () => {
+    const [startDate, endDate] = selection;
 
     if (!startDate && !endDate) {
       return 'Dates';
     }
 
-    return `${toDate(startDate)} - ${toDate(endDate)}`;
+    return `${toDate(startDate, locale)} - ${toDate(endDate, locale)}`;
   };
 
-  handleOutsideClick = ({ target }: MouseEvent) => {
-    if (
-      this.tagRef.current &&
-      !this.tagRef.current.contains(target as HTMLElement)
-    ) {
-      this.handleFocusChange(null);
-    }
-  };
-
-  render() {
-    const { onDatesRangeChange, ...props } = this.props;
-    const { focusedInput, startDate, endDate } = this.state;
-    const isOpen = focusedInput !== null;
-
-    return (
-      <div {...props}>
-        <Tag selected={isOpen} ref={this.tagRef} onClick={this.handleTagClick}>
-          {this.getDateRangePreview()}
-        </Tag>
-        {isOpen && (
-          <CalendarWrap>
-            <RangePickerController
-              initialVisibleMonth={null}
-              startDate={startDate}
-              endDate={endDate}
-              onDatesChange={this.handleDatesChange}
-              focusedInput={focusedInput}
-              onFocusChange={this.handleFocusChange}
-              onOutsideClick={this.handleOutsideClick}
-            />
-          </CalendarWrap>
-        )}
-      </div>
-    );
-  }
+  return (
+    <div {...props}>
+      <Tag selected={isOpen} ref={tagRef} onClick={handleTagClick}>
+        {getDateRangePreview()}
+      </Tag>
+      {isOpen && (
+        <Calendar
+          selection={selection}
+          onSelect={handleSelect}
+          prevMonthButtonLabel={prevMonthButtonLabel}
+          nextMonthButtonLabel={nextMonthButtonLabel}
+        />
+      )}
+    </div>
+  );
 }
