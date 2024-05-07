@@ -13,7 +13,8 @@
   cursor: pointer;
   border-style: solid;
   border-width: var(--cui-border-width-kilo);
-  transition: opacity var(--cui-transitions-default),
+  transition:
+    opacity var(--cui-transitions-default),
     color var(--cui-transitions-default),
     background-color var(--cui-transitions-default),
     border-color var(--cui-transitions-default);
@@ -37,7 +38,8 @@
   height: 100%;
   visibility: hidden;
   opacity: 0;
-  transition: opacity var(--cui-transitions-default),
+  transition:
+    opacity var(--cui-transitions-default),
     visibility var(--cui-transitions-default);
 }
 
@@ -143,12 +145,6 @@
 
 .base[aria-busy="true"] .content {
   opacity: 0;
-}
-
-.label {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .leading-icon {
@@ -304,36 +300,24 @@
 }
 
 .tertiary .label {
-  position: relative;
+  text-decoration: underline dashed var(--cui-border-normal);
+  text-underline-offset: 0.25em;
+  transition: text-decoration-color var(--cui-transitions-default);
 }
 
-.tertiary .label::after {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  content: "";
-  border-top: var(--cui-border-width-kilo) dashed var(--cui-border-normal);
-  opacity: 1;
-  transition: transform var(--cui-transitions-default),
-    opacity var(--cui-transitions-default);
+.tertiary:focus-visible .label {
+  text-decoration-color: transparent;
 }
 
-.tertiary:focus-visible .label::after {
-  opacity: 0;
-  transform: translateY(2px);
-}
-
-.tertiary:hover .label::after,
-.tertiary:active .label::after,
-.tertiary[aria-expanded="true"] .label::after,
-.tertiary[aria-pressed="true"] .label::after,
-.tertiary[aria-busy="true"] .label::after,
-.tertiary:disabled .label::after,
-.tertiary[disabled] .label::after,
-.tertiary[aria-disabled="true"] .label::after {
-  opacity: 0;
-  transform: translateY(2px);
+.tertiary:hover .label,
+.tertiary:active .label,
+.tertiary[aria-expanded="true"] .label,
+.tertiary[aria-pressed="true"] .label,
+.tertiary[aria-busy="true"] .label,
+.tertiary:disabled .label,
+.tertiary[disabled] .label,
+.tertiary[aria-disabled="true"] .label {
+  text-decoration-color: transparent;
 }
 
 /* ButtonGroup */
@@ -383,8 +367,8 @@
     border-color: var(--cui-border-danger-pressed);
   }
 
-  .tertiary .label::after {
-    display: none;
+  .tertiary .label {
+    text-decoration: none;
   }
 }
 
