@@ -1,5 +1,17 @@
 # @sumup/circuit-ui
 
+## 9.0.0
+
+### Minor Changes
+
+- [#2491](https://github.com/sumup-oss/circuit-ui/pull/2491) [`35ee26a`](https://github.com/sumup-oss/circuit-ui/commit/35ee26ad6c3c08a1fe4d06c336fa9217a17ee3c0) Thanks [@Burtchen](https://github.com/Burtchen)! - Renamed the Table's `initialSortedRow` prop to `initialSortedColumn` to better express its purpose. The `initialSortedRow` is deprecated and will be removed in the next major release.
+- [#2508](https://github.com/sumup-oss/circuit-ui/pull/2508) [`5e90c53`](https://github.com/sumup-oss/circuit-ui/commit/5e90c53772a48acb811f957eb2d073f9d3cfb3c4) Thanks [@connor-baer](https://github.com/connor-baer)! Reverted the overflow behaviour of long Button labels. Text that would previously be truncated to a single line with a trailing ellipsis once again wraps to multiple lines, as it did before v8.
+
+### Patch Changes
+
+- Updated dependencies [[`7c74b3b`](https://github.com/sumup-oss/circuit-ui/commit/7c74b3be1283efeacf7d31041e46f8450a2b1bf3)]:
+  - @sumup/icons@3.7.0
+
 ## 8.6.2
 
 ### Patch Changes

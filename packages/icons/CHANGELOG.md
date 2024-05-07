@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 3.7.0
+
+### Minor Changes
+
+- [#2495](https://github.com/sumup-oss/circuit-ui/pull/2495) [`7c74b3b`](https://github.com/sumup-oss/circuit-ui/commit/7c74b3be1283efeacf7d31041e46f8450a2b1bf3) Thanks [@pspasova](https://github.com/pspasova)! - Added a new `AutomaticBalanceTransfer` icon in size 24.
+
 ## 3.6.1
 
 ### Patch Changes
