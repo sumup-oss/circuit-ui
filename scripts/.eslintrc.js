@@ -14,7 +14,7 @@
  */
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-module.exports = require('@sumup/foundry/eslint')({
+module.exports = require('@sumup-oss/foundry/eslint')({
   rules: {
     'arrow-parens': 'off',
     'no-console': 'off',

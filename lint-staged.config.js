@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-module.exports = require('@sumup/foundry/lint-staged')({
+module.exports = require('@sumup-oss/foundry/lint-staged')({
   '*.svg': ['svgo --config svgo.config.js --pretty'],
   '*.css': ['stylelint'],
 });
