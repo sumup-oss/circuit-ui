@@ -23,6 +23,7 @@ export type CloseButtonProps = Omit<IconButtonProps, 'icon'>;
 /**
  * A generic close button.
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const CloseButton = forwardRef<any, CloseButtonProps>(
   ({ label = 'Close', children = label, ...props }, ref) => (
     <IconButton

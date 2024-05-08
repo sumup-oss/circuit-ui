@@ -127,6 +127,7 @@ export function createButtonComponent<Props>(
   // TODO: Refactor to `mapClassName` once the deprecations have been removed.
   mapProps: (props: Props) => CreateButtonComponentProps,
 ) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const Button = forwardRef<any, Props>((props, ref) => {
     const {
       children,
