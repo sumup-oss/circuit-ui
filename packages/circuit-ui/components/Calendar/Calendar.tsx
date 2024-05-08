@@ -168,7 +168,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
 
     const calendarRef = useRef<HTMLDivElement>(null);
 
-    const { daysInWeek = 7 } = focusedDate;
+    const { daysInWeek } = focusedDate;
 
     const isPrevMonthDisabled = minDate
       ? Temporal.PlainYearMonth.compare(months[0], minDate) <= 0
@@ -352,7 +352,7 @@ interface MonthProps extends SharedProps {
   onKeyDown: (event: KeyboardEvent) => void;
   focusedDate: Temporal.PlainDate;
   hoveredDate: Temporal.PlainDate | null;
-  daysInWeek?: number;
+  daysInWeek: number;
 }
 
 function Month({
@@ -370,7 +370,7 @@ function Month({
   onMouseEnter,
   onMouseLeave,
   firstDayOfWeek = 1,
-  daysInWeek = 7,
+  daysInWeek,
   locale,
 }: MonthProps) {
   const descriptionIds = useId();
