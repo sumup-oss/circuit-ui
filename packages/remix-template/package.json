@@ -28,7 +28,6 @@
   },
   "devDependencies": {
     "@remix-run/dev": "^2.4.1",
-    "@remix-run/eslint-config": "^2.4.1",
     "@sumup/eslint-plugin-circuit-ui": "^4.0.0",
     "@sumup-oss/foundry": "^8.0.0",
     "@sumup/stylelint-plugin-circuit-ui": "^2.0.0",
