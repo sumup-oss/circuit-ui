@@ -1,5 +1,4 @@
-module.exports = require('@sumup/foundry/eslint')({
-  extends: ['@remix-run/eslint-config', '@remix-run/eslint-config/node'],
+module.exports = require('@sumup-oss/foundry/eslint')({
   rules: {
     'notice/notice': 'off',
   },

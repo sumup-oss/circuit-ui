@@ -1,4 +1,4 @@
-module.exports = require('@sumup/foundry/stylelint')({
+module.exports = require('@sumup-oss/foundry/stylelint')({
   rules: {
     'selector-class-pattern': [
       '^([a-z][a-z0-9]*)(-[a-z0-9]+)*$',
