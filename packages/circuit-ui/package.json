@@ -83,7 +83,7 @@
     "react-dom": "^18.3.1",
     "react-swipeable": "^7.0.1",
     "rollup-plugin-preserve-directives": "^0.3.1",
-    "typescript": "^5.4.3",
+    "typescript": "^5.4.5",
     "typescript-plugin-css-modules": "^5.0.2",
     "vite": "^5.1.7"
   },
