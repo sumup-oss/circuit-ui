@@ -9,7 +9,7 @@
     "dev": "remix dev",
     "start": "remix-serve ./build/index.js",
     "typecheck": "tsc",
-    "lint": "foundry run eslint . --ext .js,.jsx,.json,.ts,.tsx",
+    "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
     "lint:css": "foundry run stylelint '**/*.css'"
   },
