@@ -19,7 +19,10 @@ import { createRef } from 'react';
 import { axe, render, screen, userEvent } from '../../util/test-utils.js';
 import type { InputElement } from '../Input/Input.js';
 
-import { PhoneNumberInput } from './PhoneNumberInput.js';
+import {
+  PhoneNumberInput,
+  type PhoneNumberInputProps,
+} from './PhoneNumberInput.js';
 
 const countryCodeMap: { [key: string]: string } = {
   '+1': 'US',
@@ -146,5 +149,50 @@ describe('PhoneNumberInput', () => {
     render(<PhoneNumberInput {...props} />);
     const fieldset = screen.getByRole('group');
     expect(fieldset).toHaveAttribute('aria-describedby');
+  });
+
+  it('Should throw accessibility error when the label is not sufficiently labelled and the hideLabel prop is not set', () => {
+    const props = {
+      ...defaultProps,
+      label: undefined,
+    } as unknown as PhoneNumberInputProps;
+    // Silence the console.error output and switch to development mode to throw the error
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    process.env.NODE_ENV = 'development';
+    expect(() => render(<PhoneNumberInput {...props} />)).toThrow();
+    process.env.NODE_ENV = 'test';
+    vi.restoreAllMocks();
+  });
+
+  it('Should throw accessibility error when the countryCode label is not sufficiently labelled', () => {
+    const props = {
+      ...defaultProps,
+      countryCode: {
+        ...defaultProps.countryCode,
+        label: undefined,
+      },
+    } as unknown as PhoneNumberInputProps;
+    // Silence the console.error output and switch to development mode to throw the error
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    process.env.NODE_ENV = 'development';
+    expect(() => render(<PhoneNumberInput {...props} />)).toThrow();
+    process.env.NODE_ENV = 'test';
+    vi.restoreAllMocks();
+  });
+
+  it('Should throw accessibility error when the subscriberNumber label is not sufficiently labelled', () => {
+    const props = {
+      ...defaultProps,
+      subscriberNumber: {
+        ...defaultProps.subscriberNumber,
+        label: undefined,
+      },
+    } as unknown as PhoneNumberInputProps;
+    // Silence the console.error output and switch to development mode to throw the error
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    process.env.NODE_ENV = 'development';
+    expect(() => render(<PhoneNumberInput {...props} />)).toThrow();
+    process.env.NODE_ENV = 'test';
+    vi.restoreAllMocks();
   });
 });
