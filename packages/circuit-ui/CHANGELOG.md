@@ -1,5 +1,17 @@
 # @sumup/circuit-ui
 
+## 8.8.0
+
+### Minor Changes
+
+- [#2511](https://github.com/sumup-oss/circuit-ui/pull/2511) [`3e98f16`](https://github.com/sumup-oss/circuit-ui/commit/3e98f16b3bdc8cb89be22d58376472cb363d35f3) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new `useMedia` hook to track the state of a [media query](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries).
+
+- [#2499](https://github.com/sumup-oss/circuit-ui/pull/2499) [`def7f98`](https://github.com/sumup-oss/circuit-ui/commit/def7f98b30da1a110f30c218a5382c586d7d6ded) Thanks [@connor-baer](https://github.com/connor-baer)! - Added support for the SidePanel's `onClose` prop to be asynchronous. The SidePanel is closed after the `onClose` callback resolves and is prevented from closing if the callback rejects.
+
+- [#2494](https://github.com/sumup-oss/circuit-ui/pull/2494) [`3d3ae20`](https://github.com/sumup-oss/circuit-ui/commit/3d3ae201bd816b381c6000c47a6f88025719a3a0) Thanks [@connor-baer](https://github.com/connor-baer)! - Added an experimental Calendar component that displays a monthly date grid. This is a low-level component for advanced use cases; new DateInput and DateRangeInput components are in development.
+
+- [#2494](https://github.com/sumup-oss/circuit-ui/pull/2494) [`3d3ae20`](https://github.com/sumup-oss/circuit-ui/commit/3d3ae201bd816b381c6000c47a6f88025719a3a0) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new `useSwipe` hook to detect swipe gestures on touch screen devices.
+
 ## 8.7.0
 
 ### Minor Changes
