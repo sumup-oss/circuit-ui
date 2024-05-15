@@ -33,7 +33,8 @@ export function mapCountryCodeOptions(
   countryCodeOptions: { country: string; code: string }[],
   locale?: string | string[],
 ): Required<SelectProps>['options'] {
-  // TODO: Check whether Intl.DisplayNames is supported and add fallback logic
+  // TODO Intl is only unsupported in Opera 50, iOS Safari 11.0-11.2, Firefox 67, Edge 79, Chrome 63. All of those version are not supported by Circuit UI, so should we even care?
+  // eslint-disable-next-line compat/compat
   const displayName = new Intl.DisplayNames(locale, { type: 'region' });
   return countryCodeOptions
     .map(({ code, country }) => {

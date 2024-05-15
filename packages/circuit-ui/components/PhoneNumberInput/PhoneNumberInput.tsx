@@ -21,6 +21,7 @@ import {
   useMemo,
   useRef,
   type ChangeEvent,
+  type ComponentType,
   type FieldsetHTMLAttributes,
   type ForwardedRef,
 } from 'react';
@@ -102,7 +103,7 @@ export interface PhoneNumberInputProps
    */
   locale?: string | string[];
   /**
-   * TODO: Write a description
+   * Country code selector details.
    */
   countryCode: {
     /**
@@ -110,32 +111,51 @@ export interface PhoneNumberInputProps
      */
     label: string;
     /**
-     * TODO: Write a description. See https://en.wikipedia.org/wiki/List_of_country_calling_codes
+     * List of country calling codes to be rendered inside the selector
      */
     options: {
       /**
-       * TODO: Write a description
+       * Country name in two letter ISO 3166 region code format(https://www.iso.org/iso-3166-country-codes.html)
        */
       country: string;
       /**
-       * TODO: Write a description
+       * Country calling codes, see https://en.wikipedia.org/wiki/List_of_country_calling_codes
        */
       code: string;
     }[];
+    /**
+     * Triggers error styles on the component. Important for accessibility.
+     */
+    invalid?: boolean;
     /**
      * Initial country code.
      */
     defaultValue?: string;
     /**
-     * TODO: Write a description.
-     * TODO: The HTML `select` element doesn't support the `readonly` attribute, so this will need to be implemented using CSS and the `aria-readonly` and/or `disabled` attributes. The element must remain perceivable by screen reader users.
+     * Triggers readonly styles on the component.
      */
     readonly?: boolean;
+    /**
+     * Callback when the country code changes.
+     * The callback receives the normalized phone number in the [E.164 format](https://en.wikipedia.org/wiki/E.164),
+     * e.g. `+17024181234`.
+     */
     onChange?: SelectProps['onChange'];
+    /**
+     * The ref to the country code selector HTML DOM element.
+     */
     ref?: ForwardedRef<HTMLSelectElement>;
+    /**
+     * Render prop that should render a left-aligned overlay icon or element.
+     * Receives a className prop.
+     */
+    renderPrefix?: ComponentType<{
+      value?: string | number;
+      className?: string;
+    }>;
   };
   /**
-   * TODO: Write a description
+   * Subscriber number input details.
    */
   subscriberNumber: {
     /**
@@ -146,7 +166,23 @@ export interface PhoneNumberInputProps
      * Initial subscriber number.
      */
     defaultValue?: string;
+    /**
+     * Triggers error styles on the component. Important for accessibility.
+     */
+    invalid?: boolean;
+    /**
+     * Triggers readonly styles on the component.
+     */
+    readonly?: boolean;
+    /**
+     * Callback when the subscriber number changes.
+     * The callback receives the normalized phone number in the [E.164 format](https://en.wikipedia.org/wiki/E.164),
+     * e.g. `+17024181234`.
+     */
     onChange?: InputProps['onChange'];
+    /**
+     * The ref to the subscriber number input HTML DOM element.
+     */
     ref?: ForwardedRef<InputElement>;
   };
 }
@@ -172,6 +208,7 @@ export const PhoneNumberInput = forwardRef<
       disabled,
       validationHint,
       onChange,
+      readOnly,
       'aria-describedby': descriptionId,
       locale,
       ...props
@@ -254,9 +291,10 @@ export const PhoneNumberInput = forwardRef<
           <Select
             hideLabel
             autoComplete="tel-country-code"
-            invalid={invalid}
+            invalid={invalid || countryCode.invalid}
             disabled={disabled}
             className={classes['country-code']}
+            aria-readonly={readOnly || countryCode.readonly}
             {...countryCode}
             options={options}
             onChange={eachFn<[ChangeEvent<HTMLSelectElement>]>([
@@ -264,17 +302,20 @@ export const PhoneNumberInput = forwardRef<
               handleChange,
             ])}
             ref={applyMultipleRefs(countryCodeRef, countryCode.ref)}
+            renderPrefix={countryCode.renderPrefix}
           />
           <Input
             hideLabel
             autoComplete="tel-national"
             placeholder="123 456789"
-            pattern="[0-9]+[0-9 ]+"
+            pattern="^(?:[0-9]\s?){0,13}[0-9]$"
             inputMode="tel"
-            invalid={invalid}
+            invalid={invalid || subscriberNumber.invalid}
             disabled={disabled}
+            className={classes['subscriber-number-wrapper']}
             inputClassName={classes['subscriber-number']}
             {...subscriberNumber}
+            readOnly={readOnly || subscriberNumber.readonly}
             onChange={eachFn<[ChangeEvent<InputElement>]>([
               subscriberNumber.onChange,
               handleChange,
@@ -284,8 +325,7 @@ export const PhoneNumberInput = forwardRef<
         </div>
         <FieldValidationHint
           id={validationHintId}
-          disabled={disabled}
-          invalid={invalid}
+          invalid={invalid || countryCode.invalid || subscriberNumber.invalid}
           hasWarning={hasWarning}
           showValid={showValid}
           validationHint={validationHint}
