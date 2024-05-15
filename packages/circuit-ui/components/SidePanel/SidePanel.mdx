@@ -83,4 +83,6 @@ This is achieved with the use of the `onBack` and `onClose` render props which a
 `onBack` is available only for stacked side panels and imitates the behavior of the back button, closing only the topmost panel.
 Calling `onClose` will close the entire stack, just like clicking on the close button in the header.
 
+It is possible to delay or cancel the closing of a side panel by passing an asynchronous `onClose` callback to the `setSidePanel` function. This can be useful to prompt users to confirm the closing of the side panel if they have entered information but haven't saved it yet, to prevent data loss.
+
 <Story of={Stories.UpdateAndRemove} />
