@@ -23,6 +23,7 @@ import {
   screen,
   fireEvent,
 } from '../../util/test-utils.js';
+import { last } from '../../util/helpers.js';
 
 import {
   RadioButtonGroup,
@@ -236,7 +237,7 @@ describe('RadioButtonGroup', () => {
         />,
       );
       const liveRegionEls = screen.getAllByRole('status');
-      const groupLiveRegionEl = liveRegionEls[liveRegionEls.length - 1];
+      const groupLiveRegionEl = last(liveRegionEls);
       expect(groupLiveRegionEl).toHaveTextContent(validationHint);
     });
 
