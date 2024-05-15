@@ -74,3 +74,25 @@ export function throttle<T extends []>(fn: Fn<T>, timeout: number): Fn<T> {
     }, timeout);
   };
 }
+
+/**
+ * Splits an array into chunks of the specified length.
+ */
+export function chunk<T>(array: T[], chunkSize: number): T[][] {
+  const result = [];
+
+  for (let i = 0; i < array.length; i += chunkSize) {
+    result.push(array.slice(i, i + chunkSize));
+  }
+
+  return result;
+}
+
+/**
+ * Returns the last item in an array.
+ */
+export function last(array: undefined | null): undefined;
+export function last<T>(array: T[]): T;
+export function last<T>(array: T[] | undefined | null): T | undefined {
+  return isArray(array) ? array[array.length - 1] : undefined;
+}

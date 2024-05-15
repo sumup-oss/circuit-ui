@@ -15,7 +15,7 @@
 
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 
-import { clamp, eachFn, isEmpty, throttle } from './helpers.js';
+import { chunk, clamp, eachFn, isEmpty, last, throttle } from './helpers.js';
 
 describe('helpers', () => {
   describe('clamp', () => {
@@ -166,6 +166,69 @@ describe('helpers', () => {
       clearInterval(interval);
 
       expect(fn).toHaveBeenCalledTimes(3);
+    });
+  });
+
+  describe('chunk', () => {
+    it('should split an array into chunks', () => {
+      const array = [1, 2, 3, 4, 5, 6];
+      const chunkSize = 2;
+      const actual = chunk(array, chunkSize);
+      expect(actual).toEqual([
+        [1, 2],
+        [3, 4],
+        [5, 6],
+      ]);
+    });
+
+    it('should return an empty array for an empty array', () => {
+      const array: never[] = [];
+      const chunkSize = 5;
+      const actual = chunk(array, chunkSize);
+      expect(actual).toEqual([]);
+    });
+
+    it('should have a shorter end chunk if the array is not evenly divisible by the chunk size', () => {
+      const array = [1, 2, 3, 4, 5];
+      const chunkSize = 3;
+      const actual = chunk(array, chunkSize);
+      expect(actual).toEqual([
+        [1, 2, 3],
+        [4, 5],
+      ]);
+    });
+
+    it('should have a single shorter chunk if the array length is smaller than the chunk size', () => {
+      const array = [1, 2, 3];
+      const chunkSize = 4;
+      const actual = chunk(array, chunkSize);
+      expect(actual).toEqual([[1, 2, 3]]);
+    });
+  });
+
+  describe('last', () => {
+    it('should return the last item in an array', () => {
+      const array = [1, 2, 3, 4, 5, 6];
+      const actual = last(array);
+      expect(actual).toBe(6);
+    });
+
+    it('should return undefined for an empty array', () => {
+      const array: never[] = [];
+      const actual = last(array);
+      expect(actual).toBeUndefined();
+    });
+
+    it('should return undefined for an undefined array', () => {
+      const array = undefined;
+      const actual = last(array);
+      expect(actual).toBeUndefined();
+    });
+
+    it('should return undefined for null', () => {
+      const array = undefined;
+      const actual = last(array);
+      expect(actual).toBeUndefined();
     });
   });
 });

@@ -15,6 +15,8 @@
 
 import { useEffect, useReducer, type Dispatch } from 'react';
 
+import { last } from '../../util/helpers.js';
+
 type Id = string | number;
 type Transition = {
   duration: number;
@@ -44,7 +46,7 @@ function createReducer<T extends StackItem>() {
 
         if (action.transition) {
           const lastItem = {
-            ...state[state.length - 1],
+            ...last(state),
             transition: action.transition,
           };
           return [...firstItems, lastItem];

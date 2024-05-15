@@ -1,5 +1,5 @@
 /**
- * Copyright 2023, SumUp Ltd.
+ * Copyright 2024, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,14 +13,9 @@
  * limitations under the License.
  */
 
-export {
-  default as Tooltip,
-  type TooltipProps,
-  type TooltipReferenceProps,
-} from './components/Tooltip/index.js';
-export {
-  default as Toggletip,
-  type ToggletipProps,
-} from './components/Toggletip/index.js';
-export { Calendar, type CalendarProps } from './components/Calendar/index.js';
-export { type PlainDateRange } from './util/date.js';
+/**
+ * Forces any function to be asynchronous in a type-safe manner.
+ */
+export async function promisify<T>(fn: () => T | Promise<T>): Promise<T> {
+  return fn();
+}

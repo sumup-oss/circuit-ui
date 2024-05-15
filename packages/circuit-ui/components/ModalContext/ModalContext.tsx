@@ -25,9 +25,11 @@ import {
 import ReactModal, { type Props as ReactModalProps } from 'react-modal';
 
 import { useStack, type StackItem } from '../../hooks/useStack/index.js';
+import { last } from '../../util/helpers.js';
 import { warn } from '../../util/logger.js';
 
 import type { BaseModalProps, ModalComponent } from './types.js';
+
 import './Modal.css';
 
 const PORTAL_CLASS_NAME = 'cui-modal-portal';
@@ -129,7 +131,7 @@ export function ModalProvider<TProps extends BaseModalProps>({
     [dispatch],
   );
 
-  const activeModal = modals[modals.length - 1];
+  const activeModal = last(modals);
 
   useEffect(() => {
     // // Clean up after react-modal in case it fails to do so itself
