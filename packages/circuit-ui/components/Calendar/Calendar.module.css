@@ -26,10 +26,6 @@
 }
 
 .month {
-  /* FIXME: */
-
-  /* container: cui-calendar / inline-size; */
-
   --calendar-day-min-width: 48px;
   --calendar-day-max-width: 64px;
   --calendar-day-padding: var(--cui-spacings-bit);
@@ -114,14 +110,6 @@
     height: calc(
       var(--calendar-day-min-width) - 2 * var(--calendar-day-padding)
     );
-  }
-}
-
-@container cui-calendar (width < 360px) {
-  .day,
-  .weekday {
-    font-size: var(--cui-typography-body-two-font-size);
-    line-height: var(--cui-typography-body-two-line-height);
   }
 }
 
