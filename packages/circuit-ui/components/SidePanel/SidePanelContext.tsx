@@ -152,29 +152,36 @@ export function SidePanelProvider({
         .slice(sidePanelIndex)
         .reverse();
 
-      // The side panels must be closed in series in case a onClose callback
+      // The side panels must be closed in series in case an onClose callback
       // rejects to prevent the remaining side panels from closing.
       /* eslint-disable no-await-in-loop */
-      // eslint-disable-next-line no-restricted-syntax
-      for (const sidePanel of sidePanelsToRemove) {
+      for (let index = 0; index < sidePanelsToRemove.length; index += 1) {
         try {
+          const sidePanel = sidePanelsToRemove[index];
+
           if (sidePanel.onClose) {
             await promisify(sidePanel.onClose);
           }
 
           await new Promise<void>((resolve) => {
-            let updatedPanel = { ...sidePanel, onAfterClose: resolve };
+            const lastPanel = index === sidePanelsToRemove.length - 1;
+
+            // Panels shouldn't wait for the animation of the previous panel to finish.
+            // However, `removeSidePanel` should only resolve once the last panel has animated out.
+            if (lastPanel) {
+              sidePanel.onAfterClose = resolve;
+            } else {
+              resolve();
+            }
+
             if (isInstantClose) {
-              updatedPanel = {
-                ...updatedPanel,
-                shouldReturnFocusAfterClose: false,
-                closeTimeoutMS: 0,
-              };
+              sidePanel.shouldReturnFocusAfterClose = false;
+              sidePanel.closeTimeoutMS = 0;
             }
 
             dispatch({
               type: 'update',
-              item: updatedPanel,
+              item: sidePanel,
             });
             dispatch({
               type: 'remove',
