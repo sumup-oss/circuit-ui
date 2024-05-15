@@ -194,3 +194,4 @@ export { useEscapeKey } from './hooks/useEscapeKey/index.js';
 export { useFocusList } from './hooks/useFocusList/index.js';
 export { useCollapsible } from './hooks/useCollapsible/index.js';
 export { useSwipe } from './hooks/useSwipe/index.js';
+export { useMedia } from './hooks/useMedia/index.js';
