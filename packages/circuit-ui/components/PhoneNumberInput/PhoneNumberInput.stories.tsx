@@ -55,8 +55,54 @@ Base.args = {
   },
   subscriberNumber: {
     label: 'Subscriber number',
+    placeholder: '202 555 0132',
   },
   validationHint: 'Maximum 15 digits',
+};
+
+export const Invalid = (args: PhoneNumberInputProps) => (
+  <PhoneNumberInput {...args} />
+);
+
+Invalid.args = {
+  ...Base.args,
+  validationHint: 'This number is not valid',
+  subscriberNumber: {
+    ...Base.args.subscriberNumber,
+    invalid: true,
+  },
+};
+
+export const Warning = (args: PhoneNumberInputProps) => (
+  <PhoneNumberInput {...args} />
+);
+
+Warning.args = {
+  ...Base.args,
+  hasWarning: true,
+  validationHint: 'This phone number may incur additional charges',
+};
+
+export const Valid = (args: PhoneNumberInputProps) => (
+  <PhoneNumberInput {...args} />
+);
+
+Valid.args = {
+  ...Base.args,
+  showValid: true,
+  validationHint: 'This phone number looks good',
+};
+
+export const Readonly = (args: PhoneNumberInputProps) => (
+  <PhoneNumberInput {...args} />
+);
+
+Readonly.args = {
+  ...Base.args,
+  countryCode: {
+    ...Base.args.countryCode,
+    readonly: true,
+  },
 };
 
 export const Optional = (args: PhoneNumberInputProps) => (
@@ -69,49 +115,6 @@ Optional.args = {
   optionalLabel: 'This field is optional',
 };
 
-export const Warning = (args: PhoneNumberInputProps) => (
-  <PhoneNumberInput {...args} />
-);
-
-Warning.args = {
-  ...Base.args,
-  hasWarning: true,
-};
-
-export const Valid = (args: PhoneNumberInputProps) => (
-  <PhoneNumberInput {...args} />
-);
-
-Valid.args = {
-  ...Base.args,
-  showValid: true,
-};
-
-export const Locked = (args: PhoneNumberInputProps) => (
-  <PhoneNumberInput {...args} />
-);
-
-Locked.args = {
-  ...Base.args,
-  countryCode: {
-    ...Base.args.countryCode,
-    readonly: true,
-  },
-};
-
-export const Readonly = (args: PhoneNumberInputProps) => (
-  <PhoneNumberInput {...args} />
-);
-
-Readonly.args = {
-  ...Base.args,
-  readOnly: true,
-  subscriberNumber: {
-    ...Base.args.subscriberNumber,
-    defaultValue: '123 4567890',
-  },
-};
-
 export const Disabled = (args: PhoneNumberInputProps) => (
   <PhoneNumberInput {...args} />
 );
@@ -119,19 +122,6 @@ export const Disabled = (args: PhoneNumberInputProps) => (
 Disabled.args = {
   ...Base.args,
   disabled: true,
-};
-
-export const Invalid = (args: PhoneNumberInputProps) => (
-  <PhoneNumberInput {...args} />
-);
-
-Invalid.args = {
-  ...Base.args,
-  validationHint: 'This phone number is not valid',
-  subscriberNumber: {
-    ...Base.args.subscriberNumber,
-    invalid: true,
-  },
 };
 
 export const WithPrefix = (args: PhoneNumberInputProps) => {

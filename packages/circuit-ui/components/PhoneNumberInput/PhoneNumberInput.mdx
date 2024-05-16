@@ -7,11 +7,79 @@ import * as Stories from './PhoneNumberInput.stories';
 
 <Status variant="experimental" />
 
-TODO: Write short summary
+The PhoneNumberInput component allows users to input phone numbers.
+It provides a user-friendly interface for entering phone numbers, including country code selection and subscriber number.
+
 
 <Story of={Stories.Base} />
 <Props />
 
-## Usage
+## When to use it
 
-TODO: Write detailed usage instructions
+When you need to collect a phone number from the user. This could be for contact information, two-factor authentication, or other purposes where a phone number is required.
+The component allows the user to select their country code, and normalizes the input to the E.164 format.
+
+## Usage guidelines
+
+- **Do** always accompany the `PhoneNumberInput` field with a visible label. This helps users understand what information is required.
+- **Do not** use `PhoneNumberInput` for non-phone number data. It is specifically designed for phone number input and includes specific formatting and validation for phone numbers.
+- **Do not** communicate that a `PhoneNumberInput` field is required on the label or the placeholder. We assume that everything is required for the user unless explicitly said so.
+- **Do not** mark required fields with asterisks. Instead, use the `required` prop to indicate that the field is required.
+
+## Validations
+
+Use the `validationHint` prop to communicate the expected response to users.
+
+### Invalid
+
+When the user needs to change the value to proceed. This could be due to an incorrect format or an unsupported country code.
+The state can be applied to the entire component or only to a specific field, e.g. in the example below is used to indicate that only the subscriber number is not valid
+
+<Story of={Stories.Invalid} />
+
+### Warning
+
+When the user is recommended to change the value, but can proceed without doing so. Use it when the provided value could have unintended side-effects, such as a high cost for international calls.
+
+<Story of={Stories.Warning} />
+
+### Valid
+
+When the user is reassured that the value is valid. Use sparingly, as the `PhoneNumberInput` component does not validate that the number is actually in service.
+
+<Story of={Stories.Valid} />
+
+## Readonly
+
+The `PhoneNumberInput` component supports a Readonly state. Use the `readOnly` prop to indicate that the field is not currently editable.
+The state can be applied to the entire component or only to a specific field, e.g. in the example below is used to indicate that only the country code is readonly
+
+- **Do** use the `readOnly` prop to communicate to the user that the phone number input is not currently editable. This can be useful in situations where the user needs to view but not edit the phone number, such as in a summary or review screen.
+- **Do not** use the `readOnly` prop to indicate that the field is optional or not required. The `readOnly` prop only changes the editability of the field, not its requirement status.
+
+<Story of={Stories.Readonly} />
+
+## Optional
+
+The `PhoneNumberInput` component supports optional fields. Use the `optionalLabel` prop to indicate that the field is optional. This label is only displayed when the `required` prop is falsy.
+
+- **Do** use the `optionalLabel` prop to communicate to the user that the phone number input is optional. This can help reduce the cognitive load for the user by clearly indicating which fields are required and which are not.
+- **Do not** use the `optionalLabel` prop to communicate other information. It should only be used to indicate that the field is optional.
+
+<Story of={Stories.Optional} />
+
+## Disabled
+
+You should use only when its a critical information from the user that we
+already have or need and we do not want the user to edit it easily. A disabled
+field should only be open for editing again if a user event is triggered.
+
+<Story of={Stories.Disabled} />
+
+## With Prefix
+
+The `PhoneNumberInput` component supports prefixes. Use the `withPrefix` prop to add a small prefix to the country code selected input field. This can be useful for adding a flag icon, which can help the user recognize the selected country.
+
+- **Do** use the `withPrefix` prop to provide relevant visual cues that help guide the user's input.
+
+<Story of={Stories.WithPrefix} />

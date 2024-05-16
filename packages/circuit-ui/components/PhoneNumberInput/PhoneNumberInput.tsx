@@ -163,6 +163,10 @@ export interface PhoneNumberInputProps
      */
     label: string;
     /**
+     * Placeholder number for the input.
+     */
+    placeholder?: string;
+    /**
      * Initial subscriber number.
      */
     defaultValue?: string;
@@ -307,7 +311,7 @@ export const PhoneNumberInput = forwardRef<
           <Input
             hideLabel
             autoComplete="tel-national"
-            placeholder="123 456789"
+            placeholder={subscriberNumber.placeholder}
             pattern="^(?:[0-9]\s?){0,13}[0-9]$"
             inputMode="tel"
             invalid={invalid || subscriberNumber.invalid}
