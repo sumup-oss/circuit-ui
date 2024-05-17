@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 8.8.1
+
+### Patch Changes
+
+- [#2514](https://github.com/sumup-oss/circuit-ui/pull/2514) [`8217e7b`](https://github.com/sumup-oss/circuit-ui/commit/8217e7b88594e8adc16d169e076cf61e42aa3fff) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the positioning of the Calender component's month navigation buttons.
+
+- [#2514](https://github.com/sumup-oss/circuit-ui/pull/2514) [`8217e7b`](https://github.com/sumup-oss/circuit-ui/commit/8217e7b88594e8adc16d169e076cf61e42aa3fff) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the RangePickerController component. Use the experimental Calendar component instead.
+
 ## 8.8.0
 
 ### Minor Changes
