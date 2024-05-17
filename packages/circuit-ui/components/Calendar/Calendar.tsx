@@ -287,30 +287,32 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
     return (
       <div ref={applyMultipleRefs(ref, calendarRef)} role="group" {...props}>
         <div className={classes.header}>
-          <IconButton
-            icon={ArrowLeft}
-            size="s"
-            variant="tertiary"
-            disabled={isPrevMonthDisabled}
-            onClick={() => {
-              dispatch({ type: CalendarActionType.PREV_MONTH });
-            }}
-            className={classes.prev}
-          >
-            {prevMonthButtonLabel}
-          </IconButton>
-          <IconButton
-            icon={ArrowRight}
-            size="s"
-            variant="tertiary"
-            disabled={isNextMonthDisabled}
-            onClick={() => {
-              dispatch({ type: CalendarActionType.NEXT_MONTH });
-            }}
-            className={classes.next}
-          >
-            {nextMonthButtonLabel}
-          </IconButton>
+          <div className={classes.prev}>
+            <IconButton
+              icon={ArrowLeft}
+              size="s"
+              variant="tertiary"
+              disabled={isPrevMonthDisabled}
+              onClick={() => {
+                dispatch({ type: CalendarActionType.PREV_MONTH });
+              }}
+            >
+              {prevMonthButtonLabel}
+            </IconButton>
+          </div>
+          <div className={classes.next}>
+            <IconButton
+              icon={ArrowRight}
+              size="s"
+              variant="tertiary"
+              disabled={isNextMonthDisabled}
+              onClick={() => {
+                dispatch({ type: CalendarActionType.NEXT_MONTH });
+              }}
+            >
+              {nextMonthButtonLabel}
+            </IconButton>
+          </div>
         </div>
         <div className={classes.months}>
           {months.map((month) => (
