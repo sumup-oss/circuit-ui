@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.8.2
+
+### Patch Changes
+
+- [#2516](https://github.com/sumup-oss/circuit-ui/pull/2516) [`d3ce6bf`](https://github.com/sumup-oss/circuit-ui/commit/d3ce6bf7613e90c66c542fc1c95d754ef79c3b75) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the size of the main content while the SidePanel's `onClose` callback is pending.
+
 ## 8.8.1
 
 ### Patch Changes
