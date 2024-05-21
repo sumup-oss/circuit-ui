@@ -143,10 +143,6 @@ export function SidePanelProvider({
 
       const sidePanelIndex = sidePanelsRef.current.indexOf(panel);
 
-      if (!isInstantClose) {
-        setIsPrimaryContentResized(sidePanelIndex !== 0);
-      }
-
       // Remove the side panel and all panels above it in reverse order
       const sidePanelsToRemove = sidePanelsRef.current
         .slice(sidePanelIndex)
@@ -161,6 +157,10 @@ export function SidePanelProvider({
 
           if (sidePanel.onClose) {
             await promisify(sidePanel.onClose);
+          }
+
+          if (!isInstantClose) {
+            setIsPrimaryContentResized(sidePanelIndex !== 0);
           }
 
           await new Promise<void>((resolve) => {
