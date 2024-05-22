@@ -85,7 +85,7 @@
     "react-swipeable": "^7.0.1",
     "rollup-plugin-preserve-directives": "^0.4.0",
     "typescript": "^5.4.5",
-    "typescript-plugin-css-modules": "^5.0.2",
+    "typescript-plugin-css-modules": "^5.1.0",
     "vite": "^5.1.7"
   },
   "peerDependencies": {
