@@ -54,7 +54,7 @@
     "@floating-ui/react-dom": "^2.0.5",
     "@nanostores/react": "^0.7.2",
     "dialog-polyfill": "^0.5.6",
-    "nanostores": "^0.10.0",
+    "nanostores": "^0.10.3",
     "react-modal": "^3.16.1",
     "react-number-format": "5.3.0",
     "temporal-polyfill": "^0.2.4"
