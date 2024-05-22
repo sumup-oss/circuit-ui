@@ -56,7 +56,7 @@ describe('ProfileMenu', () => {
       />,
     );
 
-    expect(screen.getByRole('img')).toBeVisible();
+    expect(screen.getByRole('presentation')).toBeVisible();
   });
 
   it('should call the onToggle callback with the popover open state', async () => {
