@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@remix-run/css-bundle": "^2.4.1",
-    "@remix-run/node": "^2.4.1",
+    "@remix-run/node": "^2.9.2",
     "@remix-run/react": "^2.4.1",
     "@remix-run/serve": "^2.4.1",
     "@sumup/circuit-ui": "^8.0.0",
