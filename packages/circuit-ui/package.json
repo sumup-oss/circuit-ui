@@ -63,7 +63,7 @@
     "@emotion/is-prop-valid": "^1.2.1",
     "@emotion/jest": "^11.11.0",
     "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.0",
+    "@emotion/styled": "^11.11.5",
     "@sumup/design-tokens": "^7.0.0",
     "@sumup/icons": "^3.0.0",
     "@sumup/intl": "^1.5.0",
@@ -91,7 +91,7 @@
   "peerDependencies": {
     "@emotion/is-prop-valid": "^1.2.1",
     "@emotion/react": "^11.11.0",
-    "@emotion/styled": "^11.11.0",
+    "@emotion/styled": "^11.11.5",
     "@sumup/design-tokens": ">=6.0.0",
     "@sumup/icons": ">=3.0.0",
     "@sumup/intl": "1.x",
