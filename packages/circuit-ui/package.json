@@ -68,7 +68,7 @@
     "@sumup/icons": "^3.0.0",
     "@sumup/intl": "^1.5.0",
     "@testing-library/dom": "^9.3.3",
-    "@testing-library/jest-dom": "6.0.0",
+    "@testing-library/jest-dom": "6.4.5",
     "@testing-library/react": "^14.2.1",
     "@testing-library/user-event": "^14.5.2",
     "@types/jest-axe": "^3.5.9",
