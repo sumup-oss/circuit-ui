@@ -10,6 +10,7 @@ updates:
     schedule:
       interval: 'monthly'
     versioning-strategy: increase
+    open-pull-requests-limit: 15
     ignore:
       # Storybook dependencies need to be upgraded manually in unison.
       - dependency-name: '@storybook/*'
