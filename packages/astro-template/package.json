@@ -15,7 +15,7 @@
     "lint:css": "foundry run stylelint '**/*.css'"
   },
   "dependencies": {
-    "@astrojs/react": "^3.0.9",
+    "@astrojs/react": "^3.3.4",
     "@sumup/circuit-ui": "^8.0.0",
     "@sumup/design-tokens": "^7.0.0",
     "@sumup/icons": "^3.3.0",
