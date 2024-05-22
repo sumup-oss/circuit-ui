@@ -14,3 +14,22 @@ updates:
     ignore:
       # Storybook dependencies need to be upgraded manually in unison.
       - dependency-name: '@storybook/*'
+    groups:
+      changesets:
+        patterns:
+          - \@changesets/*
+      emotion:
+        patterns:
+          - \@emotion/*
+      stylelint:
+        patterns:
+          - stylelint*
+      testing-library:
+        patterns:
+          - \@testing-library/*
+      typescript-eslint:
+        patterns:
+          - \@typescript-eslint/*
+      remix:
+        patterns:
+          - \@remix-run/*
