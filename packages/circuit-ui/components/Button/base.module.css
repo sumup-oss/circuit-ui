@@ -58,7 +58,7 @@
 
   font-size: var(--cui-typography-body-two-font-size);
   line-height: var(--cui-typography-body-two-line-height);
-  border-radius: 10px;
+  border-radius: var(--cui-border-radius-byte);
 }
 
 .m {
@@ -70,7 +70,7 @@
 
   font-size: var(--cui-typography-body-one-font-size);
   line-height: var(--cui-typography-body-one-line-height);
-  border-radius: var(--cui-border-radius-kilo);
+  border-radius: var(--cui-border-radius-byte);
 }
 
 /* Variants */
