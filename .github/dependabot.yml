@@ -18,19 +18,19 @@ updates:
     groups:
       changesets:
         patterns:
-          - \@changesets/*
+          - '@changesets/*'
       emotion:
         patterns:
-          - \@emotion/*
+          - '@emotion/*'
       stylelint:
         patterns:
           - stylelint*
       testing-library:
         patterns:
-          - \@testing-library/*
+          - '@testing-library/*'
       typescript-eslint:
         patterns:
-          - \@typescript-eslint/*
+          - '@typescript-eslint/*'
       remix:
         patterns:
-          - \@remix-run/*
+          - '@remix-run/*'
