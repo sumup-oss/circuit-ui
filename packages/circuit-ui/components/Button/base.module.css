@@ -20,12 +20,331 @@
     border-color var(--cui-transitions-default);
 }
 
+/* Content */
+.content {
+  display: flex;
+  gap: var(--content-gap);
+  place-content: center;
+  align-items: center;
+  min-width: 24px;
+  min-height: 24px;
+  opacity: 1;
+  transition: opacity var(--cui-transitions-default);
+}
+
+.base:active .content,
+.base[aria-expanded="true"] .content,
+.base[aria-pressed="true"] .content {
+  transform: translate(0, 1px);
+}
+
+.leading-icon {
+  width: var(--leading-icon-size);
+  height: var(--leading-icon-size);
+}
+
+.trailing-icon {
+  width: var(--cui-icon-sizes-kilo);
+  height: var(--cui-icon-sizes-kilo);
+}
+
+/* Sizes */
+.s {
+  --content-gap: var(--cui-spacings-bit);
+  --leading-icon-size: var(--cui-icon-sizes-kilo);
+  --loader-diameter: 4px;
+  --loader-gap: 3px;
+  --loader-transform: scale(150%);
+
+  font-size: var(--cui-typography-body-two-font-size);
+  line-height: var(--cui-typography-body-two-line-height);
+  border-radius: 10px;
+}
+
+.m {
+  --content-gap: var(--cui-spacings-byte);
+  --leading-icon-size: var(--cui-icon-sizes-mega);
+  --loader-diameter: 6px;
+  --loader-gap: 5px;
+  --loader-transform: scale(133%);
+
+  font-size: var(--cui-typography-body-one-font-size);
+  line-height: var(--cui-typography-body-one-line-height);
+  border-radius: var(--cui-border-radius-kilo);
+}
+
+/* Variants */
+.primary {
+  color: var(--cui-fg-on-strong);
+  background-color: var(--cui-bg-accent-strong);
+  border-color: transparent;
+}
+
+.primary:hover {
+  color: var(--cui-fg-on-strong-hovered);
+  background-color: var(--cui-bg-accent-strong-hovered);
+  border-color: transparent;
+}
+
+.primary:active,
+.primary[aria-expanded="true"],
+.primary[aria-pressed="true"] {
+  color: var(--cui-fg-on-strong-pressed);
+  background-color: var(--cui-bg-accent-strong-pressed);
+  border-color: transparent;
+}
+
+.primary.destructive {
+  background-color: var(--cui-bg-danger-strong);
+}
+
+.primary.destructive:hover {
+  background-color: var(--cui-bg-danger-strong-hovered);
+}
+
+.primary.destructive:active,
+.primary.destructive[aria-expanded="true"],
+.primary.destructive[aria-pressed="true"] {
+  background-color: var(--cui-bg-danger-strong-pressed);
+}
+
+.primary:disabled,
+.primary[disabled],
+.primary[aria-disabled="true"] {
+  color: var(--cui-fg-normal-disabled);
+  background-color: var(--cui-bg-highlight-disabled);
+  border-color: transparent;
+}
+
+.primary.destructive:disabled,
+.primary.destructive[disabled],
+.primary.destructive[aria-disabled="true"] {
+  color: var(--cui-fg-danger-disabled);
+  background-color: var(--cui-bg-danger-disabled);
+  border-color: transparent;
+}
+
+.secondary {
+  color: var(--cui-fg-normal);
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal);
+}
+
+.secondary:hover {
+  color: var(--cui-fg-normal-hovered);
+  background-color: var(--cui-bg-subtle-hovered);
+  border-color: var(--cui-border-normal-hovered);
+}
+
+.secondary:active,
+.secondary[aria-expanded="true"],
+.secondary[aria-pressed="true"] {
+  color: var(--cui-fg-normal-pressed);
+  background-color: var(--cui-bg-subtle-pressed);
+  border-color: var(--cui-border-normal-pressed);
+}
+
+.secondary.destructive {
+  color: var(--cui-fg-danger);
+}
+
+.secondary.destructive:hover {
+  color: var(--cui-fg-danger-hovered);
+  background-color: var(--cui-bg-danger-hovered);
+  border-color: var(--cui-border-danger-hovered);
+}
+
+.secondary.destructive:active,
+.secondary.destructive[aria-expanded="true"],
+.secondary.destructive[aria-pressed="true"] {
+  color: var(--cui-fg-danger-pressed);
+  background-color: var(--cui-bg-danger-pressed);
+  border-color: var(--cui-border-danger-pressed);
+}
+
+.secondary:disabled,
+.secondary[disabled],
+.secondary[aria-disabled="true"] {
+  color: var(--cui-fg-normal-disabled);
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal-disabled);
+}
+
+.secondary.destructive:disabled,
+.secondary.destructive[disabled],
+.secondary.destructive[aria-disabled="true"] {
+  color: var(--cui-fg-danger-disabled);
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal-disabled);
+}
+
+.tertiary {
+  color: var(--cui-fg-accent);
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.tertiary:hover {
+  color: var(--cui-fg-accent-hovered);
+  background-color: var(--cui-bg-accent-hovered);
+  border-color: transparent;
+}
+
+.tertiary:active,
+.tertiary[aria-expanded="true"],
+.tertiary[aria-pressed="true"] {
+  color: var(--cui-fg-accent-pressed);
+  background-color: var(--cui-bg-accent-pressed);
+  border-color: transparent;
+}
+
+.tertiary.destructive {
+  color: var(--cui-fg-danger);
+}
+
+.tertiary.destructive:hover {
+  color: var(--cui-fg-danger-hovered);
+  background-color: var(--cui-bg-danger-hovered);
+}
+
+.tertiary.destructive:active,
+.tertiary.destructive[aria-expanded="true"],
+.tertiary.destructive[aria-pressed="true"] {
+  color: var(--cui-fg-danger-pressed);
+  background-color: var(--cui-bg-danger-pressed);
+}
+
+.tertiary .label {
+  text-decoration: underline;
+  text-underline-position: under;
+  transition: text-decoration-color var(--cui-transitions-default);
+}
+
+@supports (text-underline-offset: 0.25em) {
+  .tertiary .label {
+    text-underline-position: auto;
+    text-underline-offset: 0.25em;
+  }
+}
+
+.tertiary:hover .label,
+.tertiary:active .label,
+.tertiary[aria-expanded="true"] .label,
+.tertiary[aria-pressed="true"] .label,
+.tertiary[aria-busy="true"] .label {
+  text-decoration-color: transparent;
+}
+
+.tertiary:disabled,
+.tertiary[disabled],
+.tertiary[aria-disabled="true"] {
+  color: var(--cui-fg-normal-disabled);
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.tertiary.destructive:disabled,
+.tertiary.destructive[disabled],
+.tertiary.destructive[aria-disabled="true"] {
+  color: var(--cui-fg-danger-disabled);
+}
+
+.tertiary:disabled .label,
+.tertiary[disabled] .label,
+.tertiary[aria-disabled="true"] .label {
+  text-decoration-color: currentColor;
+}
+
+/* ButtonGroup */
+@container cui-button-group (width < 360px) {
+  .base {
+    width: 100%;
+  }
+}
+
+@container cui-button-group (width > 370px) {
+  /* Keep in sync with the .secondary class above */
+  .tertiary {
+    color: var(--cui-fg-normal);
+    background-color: var(--cui-bg-normal);
+    border-color: var(--cui-border-normal);
+  }
+
+  .tertiary:hover {
+    color: var(--cui-fg-normal-hovered);
+    background-color: var(--cui-bg-subtle-hovered);
+    border-color: var(--cui-border-normal-hovered);
+  }
+
+  .tertiary:active,
+  .tertiary[aria-expanded="true"],
+  .tertiary[aria-pressed="true"] {
+    color: var(--cui-fg-normal-pressed);
+    background-color: var(--cui-bg-subtle-pressed);
+    border-color: var(--cui-border-normal-pressed);
+  }
+
+  .tertiary.destructive {
+    color: var(--cui-fg-danger);
+  }
+
+  .tertiary.destructive:hover {
+    color: var(--cui-fg-danger-hovered);
+    background-color: var(--cui-bg-danger-hovered);
+    border-color: var(--cui-border-danger-hovered);
+  }
+
+  .tertiary.destructive:active,
+  .tertiary.destructive[aria-expanded="true"],
+  .tertiary.destructive[aria-pressed="true"] {
+    color: var(--cui-fg-danger-pressed);
+    background-color: var(--cui-bg-danger-pressed);
+    border-color: var(--cui-border-danger-pressed);
+  }
+
+  .tertiary:disabled,
+  .tertiary[disabled],
+  .tertiary[aria-disabled="true"] {
+    color: var(--cui-fg-normal-disabled);
+    background-color: var(--cui-bg-normal);
+    border-color: var(--cui-border-normal-disabled);
+  }
+
+  .tertiary.destructive:disabled,
+  .tertiary.destructive[disabled],
+  .tertiary.destructive[aria-disabled="true"] {
+    color: var(--cui-fg-danger-disabled);
+    background-color: var(--cui-bg-normal);
+    border-color: var(--cui-border-normal-disabled);
+  }
+
+  .tertiary .label {
+    text-decoration: none;
+  }
+}
+
+/* Disabled */
+.base:disabled,
+.base[disabled],
+.base[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+.base:disabled .content,
+.base[disabled] .content,
+.base[aria-disabled="true"] .content {
+  transform: translate(0);
+}
+
+/* Loading */
 .base[aria-busy="true"] {
   position: relative;
   overflow: hidden;
+  color: var(--cui-fg-normal-disabled);
+  background-color: var(--cui-bg-highlight-disabled);
+  border-color: transparent;
 }
 
-/* Loader */
 .loader {
   position: absolute;
   top: 0;
@@ -125,265 +444,6 @@
   animation-play-state: running;
 }
 
-/* Content */
-.content {
-  display: flex;
-  gap: var(--content-gap);
-  place-content: center;
-  align-items: center;
-  min-width: 24px;
-  min-height: 24px;
-  opacity: 1;
-  transition: opacity var(--cui-transitions-default);
-}
-
-.base:active .content,
-.base[aria-expanded="true"] .content,
-.base[aria-pressed="true"] .content {
-  transform: translate(0, 1px);
-}
-
 .base[aria-busy="true"] .content {
   opacity: 0;
-}
-
-.leading-icon {
-  width: var(--leading-icon-size);
-  height: var(--leading-icon-size);
-}
-
-.trailing-icon {
-  width: var(--cui-icon-sizes-kilo);
-  height: var(--cui-icon-sizes-kilo);
-}
-
-/* Sizes */
-.s {
-  --content-gap: var(--cui-spacings-bit);
-  --leading-icon-size: var(--cui-icon-sizes-kilo);
-  --loader-diameter: 4px;
-  --loader-gap: 3px;
-  --loader-transform: scale(150%);
-
-  font-size: var(--cui-typography-body-two-font-size);
-  line-height: var(--cui-typography-body-two-line-height);
-  border-radius: 10px;
-}
-
-.m {
-  --content-gap: var(--cui-spacings-byte);
-  --leading-icon-size: var(--cui-icon-sizes-mega);
-  --loader-diameter: 6px;
-  --loader-gap: 5px;
-  --loader-transform: scale(133%);
-
-  font-size: var(--cui-typography-body-one-font-size);
-  line-height: var(--cui-typography-body-one-line-height);
-  border-radius: var(--cui-border-radius-kilo);
-}
-
-/* Variants */
-.primary {
-  color: var(--cui-fg-on-strong);
-  background-color: var(--cui-bg-accent-strong);
-  border-color: transparent;
-}
-
-.primary:hover {
-  color: var(--cui-fg-on-strong-hovered);
-  background-color: var(--cui-bg-accent-strong-hovered);
-  border-color: transparent;
-}
-
-.primary:active,
-.primary[aria-expanded="true"],
-.primary[aria-pressed="true"] {
-  color: var(--cui-fg-on-strong-pressed);
-  background-color: var(--cui-bg-accent-strong-pressed);
-  border-color: transparent;
-}
-
-.primary.destructive {
-  background-color: var(--cui-bg-danger-strong);
-}
-
-.primary.destructive:hover {
-  background-color: var(--cui-bg-danger-strong-hovered);
-}
-
-.primary.destructive:active,
-.primary.destructive[aria-expanded="true"],
-.primary.destructive[aria-pressed="true"] {
-  background-color: var(--cui-bg-danger-strong-pressed);
-}
-
-.secondary {
-  color: var(--cui-fg-normal);
-  background-color: var(--cui-bg-normal);
-  border-color: var(--cui-border-normal);
-}
-
-.secondary:hover {
-  color: var(--cui-fg-normal-hovered);
-  background-color: var(--cui-bg-normal-hovered);
-  border-color: var(--cui-border-normal-hovered);
-}
-
-.secondary:active,
-.secondary[aria-expanded="true"],
-.secondary[aria-pressed="true"] {
-  color: var(--cui-fg-normal-pressed);
-  background-color: var(--cui-bg-normal-pressed);
-  border-color: var(--cui-border-normal-pressed);
-}
-
-.secondary.destructive {
-  color: var(--cui-fg-danger);
-}
-
-.secondary.destructive:hover {
-  color: var(--cui-fg-danger-hovered);
-  background-color: var(--cui-bg-danger-hovered);
-  border-color: var(--cui-border-danger-hovered);
-}
-
-.secondary.destructive:active,
-.secondary.destructive[aria-expanded="true"],
-.secondary.destructive[aria-pressed="true"] {
-  color: var(--cui-fg-danger-pressed);
-  background-color: var(--cui-bg-danger-pressed);
-  border-color: var(--cui-border-danger-pressed);
-}
-
-.tertiary {
-  color: var(--cui-fg-accent);
-  background-color: transparent;
-  border-color: transparent;
-}
-
-.tertiary:hover {
-  color: var(--cui-fg-accent-hovered);
-  background-color: var(--cui-bg-accent-hovered);
-  border-color: transparent;
-}
-
-.tertiary:active,
-.tertiary[aria-expanded="true"],
-.tertiary[aria-pressed="true"] {
-  color: var(--cui-fg-accent-pressed);
-  background-color: var(--cui-bg-accent-pressed);
-  border-color: transparent;
-}
-
-.tertiary:focus-visible {
-  background-color: var(--cui-bg-accent-hovered);
-}
-
-.tertiary.destructive {
-  color: var(--cui-fg-danger);
-}
-
-.tertiary.destructive:hover {
-  color: var(--cui-fg-danger-hovered);
-  background-color: var(--cui-bg-danger-hovered);
-}
-
-.tertiary.destructive:active,
-.tertiary.destructive[aria-expanded="true"],
-.tertiary.destructive[aria-pressed="true"] {
-  color: var(--cui-fg-danger-pressed);
-  background-color: var(--cui-bg-danger-pressed);
-}
-
-.tertiary.destructive:focus-visible {
-  background-color: var(--cui-bg-danger-hovered);
-}
-
-.tertiary .label {
-  text-decoration: underline dashed var(--cui-border-normal);
-  text-underline-offset: 0.25em;
-  transition: text-decoration-color var(--cui-transitions-default);
-}
-
-.tertiary:focus-visible .label {
-  text-decoration-color: transparent;
-}
-
-.tertiary:hover .label,
-.tertiary:active .label,
-.tertiary[aria-expanded="true"] .label,
-.tertiary[aria-pressed="true"] .label,
-.tertiary[aria-busy="true"] .label,
-.tertiary:disabled .label,
-.tertiary[disabled] .label,
-.tertiary[aria-disabled="true"] .label {
-  text-decoration-color: transparent;
-}
-
-/* ButtonGroup */
-@container cui-button-group (width < 360px) {
-  .base {
-    width: 100%;
-  }
-}
-
-@container cui-button-group (width > 370px) {
-  /* Keep in sync with the .secondary class above */
-  .tertiary {
-    color: var(--cui-fg-normal);
-    background-color: var(--cui-bg-normal);
-    border-color: var(--cui-border-normal);
-  }
-
-  .tertiary:hover {
-    color: var(--cui-fg-normal-hovered);
-    background-color: var(--cui-bg-normal-hovered);
-    border-color: var(--cui-border-normal-hovered);
-  }
-
-  .tertiary:active,
-  .tertiary[aria-expanded="true"],
-  .tertiary[aria-pressed="true"] {
-    color: var(--cui-fg-normal-pressed);
-    background-color: var(--cui-bg-normal-pressed);
-    border-color: var(--cui-border-normal-pressed);
-  }
-
-  .tertiary.destructive {
-    color: var(--cui-fg-danger);
-  }
-
-  .tertiary.destructive:hover {
-    color: var(--cui-fg-danger-hovered);
-    background-color: var(--cui-bg-danger-hovered);
-    border-color: var(--cui-border-danger-hovered);
-  }
-
-  .tertiary.destructive:active,
-  .tertiary.destructive[aria-expanded="true"],
-  .tertiary.destructive[aria-pressed="true"] {
-    color: var(--cui-fg-danger-pressed);
-    background-color: var(--cui-bg-danger-pressed);
-    border-color: var(--cui-border-danger-pressed);
-  }
-
-  .tertiary .label {
-    text-decoration: none;
-  }
-}
-
-/* Disabled */
-.base:disabled,
-.base[disabled],
-.base[aria-disabled="true"] {
-  color: var(--cui-fg-normal-disabled);
-  cursor: not-allowed;
-  background-color: var(--cui-bg-highlight-disabled);
-  border-color: transparent;
-}
-
-.base:disabled .content,
-.base[disabled] .content,
-.base[aria-disabled="true"] .content {
-  transform: translate(0);
 }
