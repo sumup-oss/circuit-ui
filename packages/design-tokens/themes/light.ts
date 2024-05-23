@@ -44,12 +44,12 @@ export const light = [
   },
   {
     name: '--cui-bg-subtle-hovered',
-    value: '#e3e7eb',
+    value: '#d1d5d9',
     type: 'color',
   },
   {
     name: '--cui-bg-subtle-pressed',
-    value: '#c2c9d1',
+    value: '#9da7b1',
     type: 'color',
   },
   {
@@ -74,7 +74,7 @@ export const light = [
   },
   {
     name: '--cui-bg-highlight-disabled',
-    value: 'rgba(227, 231, 235, 0.4)',
+    value: 'rgba(15, 19, 25, 0.08)',
     type: 'color',
   },
   {
@@ -110,7 +110,7 @@ export const light = [
   },
   {
     name: '--cui-bg-accent-pressed',
-    value: '#e3e7eb',
+    value: '#c2c9d1',
     type: 'color',
   },
   {
@@ -125,12 +125,12 @@ export const light = [
   },
   {
     name: '--cui-bg-accent-strong-hovered',
-    value: '#000000',
+    value: '#3b3f46',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-strong-pressed',
-    value: '#000000',
+    value: '#6a737c',
     type: 'color',
   },
   {
@@ -233,12 +233,12 @@ export const light = [
   },
   {
     name: '--cui-bg-danger-pressed',
-    value: '#f7ccc7',
+    value: '#f2bbb5',
     type: 'color',
   },
   {
     name: '--cui-bg-danger-disabled',
-    value: 'rgba(251, 233, 231, 0.4)',
+    value: 'rgba(251, 233, 231, 0.64)',
     type: 'color',
   },
   {
@@ -330,7 +330,7 @@ export const light = [
   },
   {
     name: '--cui-fg-subtle-hovered',
-    value: '#33373e',
+    value: '#6a737c',
     type: 'color',
   },
   {
@@ -474,7 +474,7 @@ export const light = [
   },
   {
     name: '--cui-fg-danger-hovered',
-    value: '#bd2c19',
+    value: '#a62110',
     type: 'color',
   },
   {
@@ -484,7 +484,7 @@ export const light = [
   },
   {
     name: '--cui-fg-danger-disabled',
-    value: 'rgba(222, 51, 29, 0.4)',
+    value: 'rgba(222, 51, 29, 0.64)',
     type: 'color',
   },
   /* Promo foregrounds */
@@ -511,7 +511,7 @@ export const light = [
   /* Neutral borders */
   {
     name: '--cui-border-normal',
-    value: '#c2c9d1',
+    value: '#aeb6be',
     type: 'color',
   },
   {
@@ -536,7 +536,7 @@ export const light = [
   },
   {
     name: '--cui-border-subtle-hovered',
-    value: '#c2c9d1',
+    value: '#6a737c',
     type: 'color',
   },
   {
@@ -660,7 +660,7 @@ export const light = [
   },
   {
     name: '--cui-border-danger-hovered',
-    value: '#bd2c19',
+    value: '#a62110',
     type: 'color',
   },
   {
