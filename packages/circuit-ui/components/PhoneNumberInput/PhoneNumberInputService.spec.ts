@@ -89,7 +89,7 @@ describe('PhoneNumberInputService', () => {
       expect(actual[1].label).toBe('United States (+1)');
     });
 
-    it('Shold use the locale as the default country code', () => {
+    it('should use the locale as the default country code', () => {
       const options = [
         { country: 'US', code: '+1' },
         { country: 'DE', code: '+49' },
