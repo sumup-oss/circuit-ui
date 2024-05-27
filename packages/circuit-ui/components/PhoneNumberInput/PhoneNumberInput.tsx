@@ -17,6 +17,7 @@
 
 import {
   forwardRef,
+  useEffect,
   useId,
   useMemo,
   useRef,
@@ -35,6 +36,7 @@ import {
 } from '../../util/errors.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { eachFn } from '../../util/helpers.js';
+import { clsx } from '../../styles/clsx.js';
 
 import {
   mapCountryCodeOptions,
@@ -132,8 +134,8 @@ export interface PhoneNumberInputProps
     readonly?: boolean;
     /**
      * Callback when the country code changes.
-     * The callback receives the normalized phone number in the [E.164 format](https://en.wikipedia.org/wiki/E.164),
-     * e.g. `+17024181234`.
+     * The callback receives the country code,
+     * e.g. `+49`.
      */
     onChange?: SelectProps['onChange'];
     /**
@@ -175,8 +177,8 @@ export interface PhoneNumberInputProps
     readonly?: boolean;
     /**
      * Callback when the subscriber number changes.
-     * The callback receives the normalized phone number in the [E.164 format](https://en.wikipedia.org/wiki/E.164),
-     * e.g. `+17024181234`.
+     * The callback receives the raw subscriber number,
+     * e.g. `024 181234`.
      */
     onChange?: InputProps['onChange'];
     /**
@@ -227,6 +229,15 @@ export const PhoneNumberInput = forwardRef<
       () => mapCountryCodeOptions(countryCode.options, locale),
       [countryCode.options, locale],
     );
+
+    useEffect(() => {
+      if (readOnly || countryCode?.readonly) {
+        countryCodeRef.current?.setAttribute('tabindex', '-1');
+      }
+      if (readOnly === false || countryCode?.readonly === false) {
+        countryCodeRef.current?.removeAttribute('tabindex');
+      }
+    }, [readOnly, countryCode.readonly]);
 
     const handleChange = () => {
       if (
@@ -290,11 +301,11 @@ export const PhoneNumberInput = forwardRef<
           <Select
             hideLabel
             autoComplete="tel-country-code"
-            invalid={invalid || countryCode.invalid}
             disabled={disabled}
             className={classes['country-code']}
-            aria-readonly={readOnly || countryCode.readonly}
             {...countryCode}
+            invalid={invalid || countryCode.invalid}
+            aria-readonly={readOnly || countryCode.readonly}
             options={options}
             onChange={eachFn<[ChangeEvent<HTMLSelectElement>]>([
               countryCode.onChange,
@@ -309,14 +320,17 @@ export const PhoneNumberInput = forwardRef<
             placeholder={subscriberNumber.placeholder}
             pattern="^(?:[0-9]\s?){0,14}[0-9]$"
             inputMode="tel"
-            invalid={invalid || subscriberNumber.invalid}
             disabled={disabled}
             className={classes['subscriber-number-wrapper']}
-            inputClassName={classes['subscriber-number']}
+            inputClassName={clsx(
+              classes['subscriber-number'],
+              hasWarning && classes['subscriber-number-has-warning'],
+            )}
             validationHint={validationHint}
             hasWarning={hasWarning}
             showValid={showValid}
             {...subscriberNumber}
+            invalid={invalid || subscriberNumber.invalid}
             readOnly={readOnly || subscriberNumber.readonly}
             onChange={eachFn<[ChangeEvent<InputElement>]>([
               subscriberNumber.onChange,
