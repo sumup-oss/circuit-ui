@@ -35,7 +35,7 @@
     "prepublish": "npm run build"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.3",
+    "@babel/core": "^7.24.6",
     "@babel/preset-env": "^7.24.6",
     "@babel/preset-react": "^7.24.6",
     "@types/babel__core": "^7.20.5",
