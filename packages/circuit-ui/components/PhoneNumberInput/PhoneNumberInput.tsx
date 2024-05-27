@@ -28,12 +28,7 @@ import {
 
 import Select, { type SelectProps } from '../Select/index.js';
 import Input, { type InputElement, type InputProps } from '../Input/index.js';
-import {
-  FieldLabelText,
-  FieldLegend,
-  FieldSet,
-  FieldValidationHint,
-} from '../Field/index.js';
+import { FieldLabelText, FieldLegend, FieldSet } from '../Field/index.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
@@ -318,6 +313,9 @@ export const PhoneNumberInput = forwardRef<
             disabled={disabled}
             className={classes['subscriber-number-wrapper']}
             inputClassName={classes['subscriber-number']}
+            validationHint={validationHint}
+            hasWarning={hasWarning}
+            showValid={showValid}
             {...subscriberNumber}
             readOnly={readOnly || subscriberNumber.readonly}
             onChange={eachFn<[ChangeEvent<InputElement>]>([
@@ -327,13 +325,6 @@ export const PhoneNumberInput = forwardRef<
             ref={applyMultipleRefs(subscriberNumberRef, subscriberNumber.ref)}
           />
         </div>
-        <FieldValidationHint
-          id={validationHintId}
-          invalid={invalid || countryCode.invalid || subscriberNumber.invalid}
-          hasWarning={hasWarning}
-          showValid={showValid}
-          validationHint={validationHint}
-        />
       </FieldSet>
     );
   },
