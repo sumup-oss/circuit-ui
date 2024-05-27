@@ -35,19 +35,15 @@ Use the `validationHint` prop to communicate the expected response to users.
 When the user needs to change the value to proceed. This could be due to an incorrect format or an unsupported country code.
 The state can be applied to the entire component or only to a specific field, e.g. in the example below is used to indicate that only the subscriber number is not valid
 
-<Story of={Stories.Invalid} />
-
 ### Warning
 
 When the user is recommended to change the value, but can proceed without doing so. Use it when the provided value could have unintended side-effects, such as a high cost for international calls.
-
-<Story of={Stories.Warning} />
 
 ### Valid
 
 When the user is reassured that the value is valid. Use sparingly, as the `PhoneNumberInput` component does not validate that the number is actually in service.
 
-<Story of={Stories.Valid} />
+<Story of={Stories.Validations} />
 
 ## Readonly
 

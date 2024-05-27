@@ -16,6 +16,8 @@
 import { FlagDe, FlagUs, type IconComponentType } from '@sumup/icons';
 import { useState } from 'react';
 
+import { Stack } from '../../../../.storybook/components/index.js';
+
 import {
   PhoneNumberInput,
   type PhoneNumberInputProps,
@@ -60,38 +62,34 @@ Base.args = {
   validationHint: 'Maximum 15 digits',
 };
 
-export const Invalid = (args: PhoneNumberInputProps) => (
-  <PhoneNumberInput {...args} />
+export const Validations = (args: PhoneNumberInputProps) => (
+  <Stack>
+    <PhoneNumberInput
+      {...args}
+      validationHint="This is not valid"
+      subscriberNumber={{
+        ...args.subscriberNumber,
+        invalid: true,
+      }}
+    />
+    <PhoneNumberInput
+      {...args}
+      hasWarning
+      validationHint="This may include additional charges"
+    />
+    <PhoneNumberInput
+      {...args}
+      subscriberNumber={{
+        ...args.subscriberNumber,
+        defaultValue: '202 555 0132',
+      }}
+      validationHint="This looks good"
+      showValid
+    />
+  </Stack>
 );
 
-Invalid.args = {
-  ...Base.args,
-  validationHint: 'This number is not valid',
-  subscriberNumber: {
-    ...Base.args.subscriberNumber,
-    invalid: true,
-  },
-};
-
-export const Warning = (args: PhoneNumberInputProps) => (
-  <PhoneNumberInput {...args} />
-);
-
-Warning.args = {
-  ...Base.args,
-  hasWarning: true,
-  validationHint: 'This phone number may incur additional charges',
-};
-
-export const Valid = (args: PhoneNumberInputProps) => (
-  <PhoneNumberInput {...args} />
-);
-
-Valid.args = {
-  ...Base.args,
-  showValid: true,
-  validationHint: 'This phone number looks good',
-};
+Validations.args = Base.args;
 
 export const Readonly = (args: PhoneNumberInputProps) => (
   <PhoneNumberInput {...args} />
