@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   chromatic:
-    if: ${{ ! startsWith(github.ref, 'refs/heads/dependabot/') || github.triggering_actor != 'dependabot' }}
+    if: ${{ !startsWith(github.ref, 'refs/heads/dependabot/') || !startsWith(github.triggering_actor, 'dependabot') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
