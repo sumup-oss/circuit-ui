@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "browserslist": "^4.23.0",
-    "lightningcss": "^1.25.0",
+    "lightningcss": "^1.25.1",
     "prop-types": "^15.8.1"
   },
   "devDependencies": {
