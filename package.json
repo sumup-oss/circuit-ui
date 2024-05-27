@@ -69,7 +69,7 @@
     "eslint-config-airbnb-typescript": "^18.0.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-prettier": "^5.1.3",
-    "eslint-plugin-react-server-components": "^1.1.2",
+    "eslint-plugin-react-server-components": "^1.2.0",
     "eslint-plugin-storybook": "^0.8.0",
     "eslint-plugin-testing-library": "^6.2.2",
     "github-slugger": "^2.0.0",
