@@ -307,7 +307,7 @@ export const PhoneNumberInput = forwardRef<
             hideLabel
             autoComplete="tel-national"
             placeholder={subscriberNumber.placeholder}
-            pattern="^(?:[0-9]\s?){0,13}[0-9]$"
+            pattern="^(?:[0-9]\s?){0,14}[0-9]$"
             inputMode="tel"
             invalid={invalid || subscriberNumber.invalid}
             disabled={disabled}
