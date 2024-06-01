@@ -57,7 +57,7 @@
     "nanostores": "^0.10.3",
     "react-modal": "^3.16.1",
     "react-number-format": "5.3.0",
-    "temporal-polyfill": "^0.2.4"
+    "temporal-polyfill": "^0.2.5"
   },
   "devDependencies": {
     "@emotion/is-prop-valid": "^1.2.1",
