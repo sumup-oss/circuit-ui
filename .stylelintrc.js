@@ -1,5 +1,5 @@
 module.exports = require('@sumup-oss/foundry/stylelint')({
-  extends: ['stylelint-config-css-modules'],
+  extends: ['stylelint-prettier/recommended', 'stylelint-config-css-modules'],
   rules: {
     'selector-class-pattern': [
       '^([a-z][a-z0-9]*)(-[a-z0-9]+)*$',
