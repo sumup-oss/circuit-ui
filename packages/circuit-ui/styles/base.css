@@ -4,7 +4,8 @@
 @font-face {
   font-family: aktiv-grotesk;
   font-weight: 400;
-  src: url("https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-400.woff2")
+  src:
+    url("https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-400.woff2")
       format("woff2"),
     url("https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-400.woff")
       format("woff"),
@@ -16,7 +17,8 @@
 @font-face {
   font-family: aktiv-grotesk;
   font-weight: 700;
-  src: url("https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.woff2")
+  src:
+    url("https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.woff2")
       format("woff2"),
     url("https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.woff")
       format("woff"),

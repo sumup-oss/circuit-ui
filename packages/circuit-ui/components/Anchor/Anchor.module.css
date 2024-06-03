@@ -11,7 +11,8 @@
   border: 0;
   border-radius: var(--cui-border-radius-bit);
   outline: none;
-  transition: opacity var(--cui-transitions-default),
+  transition:
+    opacity var(--cui-transitions-default),
     color var(--cui-transitions-default),
     background-color var(--cui-transitions-default),
     border-color var(--cui-transitions-default);

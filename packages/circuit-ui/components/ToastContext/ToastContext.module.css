@@ -19,5 +19,5 @@
 }
 
 .toast {
-  margin-top: var(--cui-spacings-byte)
+  margin-top: var(--cui-spacings-byte);
 }

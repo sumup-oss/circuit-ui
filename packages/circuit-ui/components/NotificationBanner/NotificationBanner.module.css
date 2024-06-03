@@ -5,7 +5,9 @@
   justify-content: space-between;
   overflow: hidden;
   border-radius: var(--cui-border-radius-mega);
-  transition: opacity 200ms ease-in-out, height 200ms ease-in-out,
+  transition:
+    opacity 200ms ease-in-out,
+    height 200ms ease-in-out,
     visibility 200ms ease-in-out;
 }
 
