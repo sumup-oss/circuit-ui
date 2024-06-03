@@ -35,7 +35,8 @@
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
     opacity: 1;
-    transition: transform var(--cui-transitions-default),
+    transition:
+      transform var(--cui-transitions-default),
       visibility var(--cui-transitions-default);
     transform: translateY(100%);
   }
@@ -67,7 +68,8 @@
     visibility: hidden;
     background-color: var(--cui-bg-overlay);
     opacity: 0;
-    transition: opacity var(--cui-transitions-default),
+    transition:
+      opacity var(--cui-transitions-default),
       visibility var(--cui-transitions-default);
   }
 

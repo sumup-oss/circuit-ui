@@ -59,7 +59,8 @@
   background-color: #fff;
   border-radius: var(--toggle-knob-size);
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 25%);
-  transition: box-shadow var(--toggle-animation-timing),
+  transition:
+    box-shadow var(--toggle-animation-timing),
     transform var(--toggle-animation-timing);
   transform: translate3d(var(--cui-spacings-bit), -50%, 0);
 }
