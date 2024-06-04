@@ -22,6 +22,7 @@ import {
   CalendarActionType,
   calendarReducer,
   getDatesInRange,
+  getMonthHeadline,
   getMonths,
   getSelectionType,
   getViewOfMonth,
@@ -246,6 +247,15 @@ describe('CalendarService', () => {
       const action = { type: CalendarActionType.MOUSE_LEAVE_DATE } as const;
       const actual = calendarReducer(state, action);
       expect(actual.hoveredDate).toBeNull();
+    });
+  });
+
+  describe('getMonthHeadline', () => {
+    it('should return the localized month name and year', () => {
+      const yearMonth = new Temporal.PlainYearMonth(2020, 3);
+      const locale = 'en-US';
+      const actual = getMonthHeadline(yearMonth, locale);
+      expect(actual).toBe('March 2020');
     });
   });
 

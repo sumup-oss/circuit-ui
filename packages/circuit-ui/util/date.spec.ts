@@ -23,19 +23,10 @@ import {
   isPlainDate,
   sortDateRange,
   toPlainDate,
-  yearMonthToDate,
   type PlainDateRange,
 } from './date.js';
 
 describe('CalendarService', () => {
-  describe('yearMonthToDate', () => {
-    it('should convert a PlainYearMonth to a legacy Date', () => {
-      const yearMonth = new Temporal.PlainYearMonth(2020, 3);
-      const actual = yearMonthToDate(yearMonth);
-      expect(actual).toEqual(new Date(Date.UTC(2020, 2)));
-    });
-  });
-
   describe('isPlainDate', () => {
     it('should return true for a PlainDate', () => {
       const date = new Temporal.PlainDate(2020, 3, 15);

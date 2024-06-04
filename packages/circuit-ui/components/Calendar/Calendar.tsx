@@ -28,7 +28,6 @@ import {
   type MouseEvent,
 } from 'react';
 import { Temporal } from 'temporal-polyfill';
-import { formatDateTime } from '@sumup/intl';
 import { ArrowLeft, ArrowRight } from '@sumup/icons';
 
 import utilityClasses from '../../styles/utility.js';
@@ -39,7 +38,6 @@ import { clsx } from '../../styles/clsx.js';
 import {
   getFirstDateOfWeek,
   getLastDateOfWeek,
-  yearMonthToDate,
   type FirstDayOfWeek,
   type PlainDateRange,
 } from '../../util/date.js';
@@ -55,6 +53,7 @@ import { last } from '../../util/helpers.js';
 import {
   CalendarActionType,
   calendarReducer,
+  getMonthHeadline,
   getSelectionType,
   getViewOfMonth,
   getWeekdays,
@@ -93,6 +92,10 @@ interface SharedProps {
    * Defaults to `navigator.language` in supported environments.
    */
   locale?: Locale;
+  /**
+   * The identifier for the used [calendar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar). Default: `iso8601`.
+   */
+  calendar?: 'iso8601' | 'gregory';
   /**
    * An integer indicating the first day of the week. Can be either `1` (Monday)
    * or `7` (Sunday). Default: `1`.
@@ -148,6 +151,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
       nextMonthButtonLabel,
       modifiers,
       numberOfMonths = 1,
+      calendar = 'iso8601',
       ...props
     },
     ref,
@@ -328,6 +332,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
               firstDayOfWeek={firstDayOfWeek}
               daysInWeek={daysInWeek}
               locale={locale}
+              calendar={calendar}
               modifiers={modifiers}
               onFocus={handleFocusDate}
               onSelect={onSelect}
@@ -374,21 +379,22 @@ function Month({
   firstDayOfWeek = 1,
   daysInWeek,
   locale,
+  calendar,
 }: MonthProps) {
   const descriptionIds = useId();
+  const headlineId = useId();
+  const headline = useMemo(
+    () => getMonthHeadline(yearMonth, locale, calendar),
+    [yearMonth, locale, calendar],
+  );
+  const weekdays = useMemo(
+    () => getWeekdays(firstDayOfWeek, daysInWeek, locale, calendar),
+    [firstDayOfWeek, daysInWeek, locale, calendar],
+  );
   const weeks = useMemo(
     () => getViewOfMonth(yearMonth, firstDayOfWeek, daysInWeek),
     [yearMonth, firstDayOfWeek, daysInWeek],
   );
-  const weekdays = useMemo(
-    () => getWeekdays(firstDayOfWeek, daysInWeek, locale),
-    [firstDayOfWeek, daysInWeek, locale],
-  );
-  const headlineId = useId();
-  const headline = formatDateTime(yearMonthToDate(yearMonth), locale, {
-    year: 'numeric',
-    month: 'long',
-  });
   return (
     <div
       className={classes.month}
