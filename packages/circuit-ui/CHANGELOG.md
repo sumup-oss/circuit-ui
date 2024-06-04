@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.8.3
+
+### Patch Changes
+
+- [`c10a6f9`](https://github.com/sumup-oss/circuit-ui/commit/c10a6f909022d3bb68cc02703acde718d0d3f802) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the display of the month headline and weekday names in the Calendar component.
+
 ## 8.8.2
 
 ### Patch Changes
