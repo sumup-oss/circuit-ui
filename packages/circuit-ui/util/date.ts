@@ -26,10 +26,6 @@ export function getTodaysDate() {
   return Temporal.Now.plainDateISO();
 }
 
-export function yearMonthToDate(yearMonth: Temporal.PlainYearMonth): Date {
-  return new Date(Date.UTC(yearMonth.year, yearMonth.month - 1));
-}
-
 export function isPlainDate(date: unknown): date is Temporal.PlainDate {
   return date instanceof Temporal.PlainDate;
 }
