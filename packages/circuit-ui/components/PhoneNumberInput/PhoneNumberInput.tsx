@@ -143,7 +143,7 @@ export interface PhoneNumberInputProps
      * The callback receives the country code,
      * e.g. `+49`.
      */
-    onChange?: SelectProps['onChange'] | InputProps['onChange'];
+    onChange?: SelectProps['onChange'];
     /**
      * The ref to the country code selector HTML DOM element.
      */
@@ -316,10 +316,7 @@ export const PhoneNumberInput = forwardRef<
               {...countryCode}
               invalid={invalid || countryCode.invalid}
               readOnly={true}
-              onChange={eachFn<[ChangeEvent<InputElement>]>([
-                countryCode.onChange as InputProps['onChange'],
-                handleChange,
-              ])}
+              onChange={() => {}}
               ref={applyMultipleRefs(
                 countryCodeRef as RefObject<InputElement>,
                 countryCode.ref as ForwardedRef<InputElement>,
@@ -337,7 +334,7 @@ export const PhoneNumberInput = forwardRef<
               aria-readonly={true}
               options={options}
               onChange={eachFn<[ChangeEvent<HTMLSelectElement>]>([
-                countryCode.onChange as SelectProps['onChange'],
+                countryCode.onChange,
                 handleChange,
               ])}
               ref={applyMultipleRefs(
