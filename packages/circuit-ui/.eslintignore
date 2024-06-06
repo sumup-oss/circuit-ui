@@ -10,3 +10,4 @@ __reports__/
 *rc.js
 tsconfig.json
 scripts/
+vendor/

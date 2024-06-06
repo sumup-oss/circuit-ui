@@ -3,7 +3,6 @@
   user-select: none;
 }
 
-
 @keyframes pulse {
   0% {
     background-position: calc(-1 * var(--skeleton-pulse-width)) 0;
@@ -35,13 +34,14 @@
   );
   background-repeat: no-repeat;
   background-size: var(--skeleton-pulse-width) 100%;
-  border-radius:var(--cui-border-radius-byte);
+  border-radius: var(--cui-border-radius-byte);
   animation: pulse 3s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .placeholder {
-    animation: none;}
+    animation: none;
+  }
 }
 
 .placeholder > * {

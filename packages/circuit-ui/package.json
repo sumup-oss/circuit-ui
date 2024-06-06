@@ -1,6 +1,6 @@
 {
   "name": "@sumup/circuit-ui",
-  "version": "8.8.2",
+  "version": "8.8.3",
   "description": "SumUp's React UI component library",
   "type": "module",
   "main": "./dist/index.js",
@@ -53,11 +53,10 @@
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.0",
     "@nanostores/react": "^0.7.2",
-    "dialog-polyfill": "^0.5.6",
     "nanostores": "^0.10.3",
     "react-modal": "^3.16.1",
     "react-number-format": "5.3.0",
-    "temporal-polyfill": "^0.2.4"
+    "temporal-polyfill": "^0.2.5"
   },
   "devDependencies": {
     "@emotion/is-prop-valid": "^1.2.1",
@@ -86,7 +85,7 @@
     "rollup-plugin-preserve-directives": "^0.4.0",
     "typescript": "^5.4.5",
     "typescript-plugin-css-modules": "^5.1.0",
-    "vite": "^5.1.7"
+    "vite": "^5.2.12"
   },
   "peerDependencies": {
     "@emotion/is-prop-valid": "^1.2.1",

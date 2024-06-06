@@ -20,7 +20,8 @@
   border: 1px solid var(--cui-border-normal);
   border-radius: 3px;
   box-shadow: none;
-  transition: border var(--cui-transitions-default),
+  transition:
+    border var(--cui-transitions-default),
     background-color var(--cui-transitions-default);
   transform: translateY(-50%);
 }
@@ -37,7 +38,8 @@
   line-height: 0;
   color: var(--cui-fg-on-strong);
   opacity: 0;
-  transition: transform var(--cui-transitions-default),
+  transition:
+    transform var(--cui-transitions-default),
     opacity var(--cui-transitions-default);
   transform: translateY(-50%) scale(0, 0);
 }
@@ -49,7 +51,9 @@
 .base:focus + .label::before {
   border-color: var(--cui-border-accent);
   outline: 0;
-  box-shadow: 0 0 0 2px var(--cui-bg-normal), 0 0 0 4px var(--cui-border-focus);
+  box-shadow:
+    0 0 0 2px var(--cui-bg-normal),
+    0 0 0 4px var(--cui-border-focus);
 }
 
 .base:focus:not(:focus-visible) + .label::before {

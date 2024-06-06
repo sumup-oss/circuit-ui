@@ -13,8 +13,7 @@
  * limitations under the License.
  */
 
-import { Temporal } from 'temporal-polyfill';
-import { formatDateTime } from '@sumup/intl';
+import { Temporal, Intl } from 'temporal-polyfill';
 
 import type { Locale } from '../../util/i18n.js';
 import { chunk, last } from '../../util/helpers.js';
@@ -144,16 +143,37 @@ export function getWeekdays(
   firstDayOfWeek: FirstDayOfWeek = 1,
   daysInWeek: DaysInWeek = 7,
   locale?: Locale,
+  calendar?: string,
 ) {
-  return Array.from(Array(daysInWeek)).map((_, i) => {
-    const index = i + firstDayOfWeek;
-    // 1971 started with a Monday
-    const date = new Date(Date.UTC(1971, 1, index));
+  const narrow = new Intl.DateTimeFormat(locale, {
+    weekday: 'narrow',
+    calendar,
+  });
+  const long = new Intl.DateTimeFormat(locale, {
+    weekday: 'long',
+    calendar,
+  });
+  return Array.from(Array(daysInWeek)).map((_, index) => {
+    // 1973 started with a Monday
+    const date = new Temporal.PlainDate(1973, 1, index + firstDayOfWeek);
     return {
-      narrow: formatDateTime(date, locale, { weekday: 'narrow' }),
-      long: formatDateTime(date, locale, { weekday: 'long' }),
+      narrow: narrow.format(date),
+      long: long.format(date),
     };
   }) as Weekdays;
+}
+
+export function getMonthHeadline(
+  yearMonth: Temporal.PlainYearMonth,
+  locale?: Locale,
+  calendar = 'iso8601',
+) {
+  const intl = new Intl.DateTimeFormat(locale, {
+    year: 'numeric',
+    month: 'long',
+    calendar,
+  });
+  return intl.format(yearMonth);
 }
 
 export function getDatesInRange(

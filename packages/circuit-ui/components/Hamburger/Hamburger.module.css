@@ -34,7 +34,9 @@
   height: var(--hamburger-height);
   background-color: currentColor;
   border-radius: 1px;
-  transition: width 0.2s ease-out 0.15s, opacity 0.1s ease-in,
+  transition:
+    width 0.2s ease-out 0.15s,
+    opacity 0.1s ease-in,
     transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 
@@ -76,7 +78,9 @@
 [aria-pressed="true"] .base::before,
 [aria-pressed="true"] .base::after {
   width: var(--hamburger-width);
-  transition: width 0.2s ease-out 0.15s, opacity 0.1s ease-out 0.15s,
+  transition:
+    width 0.2s ease-out 0.15s,
+    opacity 0.1s ease-out 0.15s,
     transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.15s;
 }
 

@@ -2,7 +2,8 @@
   overflow: hidden;
   background-color: var(--cui-bg-elevated);
   border-radius: var(--cui-border-radius-byte);
-  transition: opacity var(--cui-transitions-slow),
+  transition:
+    opacity var(--cui-transitions-slow),
     height var(--cui-transitions-slow),
     visibility var(--cui-transitions-slow);
   will-change: height;

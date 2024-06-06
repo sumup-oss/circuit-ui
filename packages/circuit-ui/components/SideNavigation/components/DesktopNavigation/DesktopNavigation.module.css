@@ -37,7 +37,8 @@
   overflow-y: auto;
   background-color: var(--cui-bg-normal);
   box-shadow: 1px 0 var(--cui-border-divider);
-  transition: width var(--cui-transitions-default),
+  transition:
+    width var(--cui-transitions-default),
     box-shadow var(--cui-transitions-default);
 }
 

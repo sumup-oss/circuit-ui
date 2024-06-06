@@ -2,7 +2,8 @@
   padding: var(--cui-spacings-giga);
   background-color: var(--cui-bg-normal);
   border-bottom: var(--cui-border-width-kilo) solid var(--cui-border-divider);
-  transition: background-color var(--cui-transitions-default),
+  transition:
+    background-color var(--cui-transitions-default),
     color var(--cui-transitions-default);
 }
 
@@ -87,7 +88,9 @@
   height: 100%;
   content: "";
   outline: 0;
-  box-shadow: 0 0 0 2px var(--cui-bg-normal), 0 0 0 4px var(--cui-border-focus);
+  box-shadow:
+    0 0 0 2px var(--cui-bg-normal),
+    0 0 0 4px var(--cui-border-focus);
 }
 
 .base[aria-sort]:focus-within,

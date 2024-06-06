@@ -17,7 +17,8 @@
   background-color: var(--cui-bg-normal);
   border: var(--tag-border-width) solid var(--cui-border-normal);
   border-radius: var(--cui-border-radius-byte);
-  transition: opacity var(--cui-transitions-default),
+  transition:
+    opacity var(--cui-transitions-default),
     color var(--cui-transitions-default),
     background-color var(--cui-transitions-default),
     border-color var(--cui-transitions-default);

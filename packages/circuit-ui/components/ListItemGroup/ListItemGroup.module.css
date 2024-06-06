@@ -60,10 +60,9 @@
   top: calc(-1 * var(--cui-spacings-kilo));
   right: calc(-1 * var(--cui-spacings-mega));
   left: 0;
-  content: '';
+  content: "";
   border-top: var(--cui-border-width-kilo) solid var(--cui-border-divider);
 }
-
 
 .interactive:hover:not(:first-of-type) > * > div:last-of-type::before,
 .interactive:hover + li:not(:first-of-type) > * > div:last-of-type::before {
@@ -73,7 +72,7 @@
 .focused:not(:first-of-type) > * > div:last-of-type::before,
 .focused + li:not(:first-of-type) > * > div:last-of-type::before,
 .selected:not(:first-of-type) > * > div:last-of-type::before,
-.selected + li:not(:first-of-type) > * > div:last-of-type::before  {
+.selected + li:not(:first-of-type) > * > div:last-of-type::before {
   border-top-width: 0;
 }
 
