@@ -194,7 +194,8 @@ export interface PhoneNumberInputProps
 }
 
 /**
- * TODO: Write a description
+ * Provides a straightforward way for users to type their phone number in an
+ * accurate, consistent format including the country code and subscriber number.
  */
 export const PhoneNumberInput = forwardRef<
   HTMLFieldSetElement,
