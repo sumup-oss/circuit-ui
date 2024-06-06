@@ -17,7 +17,6 @@
 
 import {
   forwardRef,
-  useEffect,
   useId,
   useMemo,
   useRef,
@@ -235,15 +234,6 @@ export const PhoneNumberInput = forwardRef<
       () => mapCountryCodeOptions(countryCode.options, locale),
       [countryCode.options, locale],
     );
-
-    useEffect(() => {
-      if (readOnly || countryCode?.readonly) {
-        countryCodeRef.current?.setAttribute('tabindex', '-1');
-      }
-      if (readOnly === false || countryCode?.readonly === false) {
-        countryCodeRef.current?.removeAttribute('tabindex');
-      }
-    }, [readOnly, countryCode.readonly]);
 
     const handleChange = () => {
       if (
