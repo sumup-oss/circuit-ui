@@ -12,7 +12,8 @@
   background: none;
   border: none;
   outline: none;
-  transition: color var(--cui-transitions-default),
+  transition:
+    color var(--cui-transitions-default),
     background-color var(--cui-transitions-default);
 }
 
@@ -59,8 +60,10 @@
     width: calc(100% - 2 * var(--cui-spacings-giga));
     content: "";
     border-bottom: var(--cui-border-width-kilo) solid var(--cui-border-divider);
-    transition: width var(--cui-transitions-default),
-      right var(--cui-transitions-default), left var(--cui-transitions-default);
+    transition:
+      width var(--cui-transitions-default),
+      right var(--cui-transitions-default),
+      left var(--cui-transitions-default);
   }
 
   .base[aria-expanded="true"]::after {

@@ -1,0 +1,96 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './Calendar.stories';
+
+<Meta of={Stories} />
+
+# Calendar
+
+<Status variant="experimental" />
+
+The Calendar component displays a monthly date grid. This is a low-level component for advanced use cases; you likely want to use the [DateInput](Forms/Input/DateInput/Base) component instead.
+
+<Story of={Stories.Base} />
+<Props />
+
+## Dependencies
+
+The Calendar component uses the experimental [`Temporal` API](https://tc39.es/proposal-temporal/docs/) which has reached [stage 3](https://github.com/tc39/proposals#stage-3) in the [ECMAScript proposal](https://github.com/tc39/proposal-temporal) process but isn't implemented in [most browsers](https://caniuse.com/temporal) yet. Circuit UI depends on a [polyfill](https://github.com/fullcalendar/temporal-polyfill) which you need to install to use the component in your application:
+
+```bash
+# npm
+npm install temporal-polyfill
+# yarn v1
+yarn add temporal-polyfill
+```
+
+## Usage
+
+### Selection
+
+Use the `selection` prop to set the currently selected date or date range and the `onSelect` prop to update the selection when a user picks a different date. Use the `minDate` and `maxDate` props to restrict the available date range or use [modifiers](#modifiers) to disable individual days.
+
+<Story of={Stories.Range} />
+
+### Localization
+
+Dates are represented as [`Temporal.PlainDate` objects](https://tc39.es/proposal-temporal/docs/plaindate.html) which are time zone agnostic.
+
+Dates are formatted using the [`Intl.DateTimeFormat` API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat). Use the `locale` prop to explicitly set the locale (defaults to `navigator.language` in supported environments).
+
+Use the `firstDayOfWeek` prop to set the first day of the week for the locale, either `1` (Monday) or `7` (Sunday). This information can be obtained using the [`Intl.Locale.prototype.getWeekInfo()` API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/getWeekInfo#firstday) in supported browsers.
+
+Only `iso8601` and `gregory` [calendars](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/getCalendars#supported_calendar_types) and the left-to-right [writing direction](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/dir) are currently supported.
+
+<Story of={Stories.Localized} />
+
+### Modifiers
+
+Modifiers enable advanced use cases that require disabling or adding a description to specific dates. Pass an object that maps dates to their modifiers, with the date keys in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format (`YYYY-MM-DD`).
+
+<Story of={Stories.Modifiers} />
+
+Use the `onMonthChange` prop to lazy-load modifiers for the currently visible month. Preloading the modifiers for the preceding and following months is recommended.
+
+```tsx
+import { useState } from 'react';
+import { Calendar, type CalendarProps } from '@sumup/circuit-ui/experimental';
+import { Temporal } from 'temporal-polyfill';
+
+function App() {
+  const [modifiers, setModifiers] = useState<CalendarProps['modifiers']>({
+    '2020-03-15': { disabled: true },
+    '2020-03-20': { description: 'Booked' },
+  });
+
+  const handleMonthChange = (yearMonth: Temporal.PlainYearMonth) => {
+    // Lazy-load the modifiers from the backend and ideally, preload the
+    // surrounding months
+    fetchModifiers(yearMonth.toString).then(
+      (response: CalendarProps['modifiers']) => {
+        setModifiers((prev = {}) => ({ ...prev, ...response }));
+      },
+    );
+  };
+
+  return (
+    <Calendar
+      onMonthChange={handleMonthChange}
+      modifiers={modifiers}
+      prevMonthButtonLabel="Previous month"
+      nextMonthButtonLabel="Next month"
+    />
+  );
+}
+```
+
+## Related components
+
+- [DateInput](Forms/Input/DateInput/Base): The DateInput component allows user to select a specific date.
+
+## Accessibility
+
+### Resources
+
+- [Date Picker Dialog Example](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/) by the W3C Web Accessibility Initiative
+- [Date Picker Combobox Example ](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-datepicker/) by the W3C Web Accessibility Initiative
+

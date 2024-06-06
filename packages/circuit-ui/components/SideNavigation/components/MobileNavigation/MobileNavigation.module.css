@@ -10,7 +10,8 @@
   background-color: var(--cui-bg-normal);
   outline: none;
   opacity: 0;
-  transition: opacity var(--cui-transitions-default),
+  transition:
+    opacity var(--cui-transitions-default),
     transform var(--cui-transitions-default);
   transform: translateY(-25%);
 }

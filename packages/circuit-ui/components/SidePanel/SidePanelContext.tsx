@@ -29,6 +29,7 @@ import { useMedia } from '../../hooks/useMedia/index.js';
 import { useStack, type StackItem } from '../../hooks/useStack/index.js';
 import type { Require } from '../../types/util.js';
 import { warn } from '../../util/logger.js';
+import { promisify } from '../../util/promises.js';
 import { clsx } from '../../styles/clsx.js';
 import { useLatest } from '../../hooks/useLatest/useLatest.js';
 
@@ -36,6 +37,7 @@ import { SidePanel, type SidePanelProps } from './SidePanel.js';
 import { TRANSITION_DURATION } from './constants.js';
 import type { SidePanelHookProps } from './useSidePanel.js';
 import classes from './SidePanelContext.module.css';
+
 import './SidePanelContext.css';
 
 // It is important for users of screen readers that other page content be hidden
@@ -132,54 +134,68 @@ export function SidePanelProvider({
   );
 
   const removeSidePanel = useCallback<RemoveSidePanel>(
-    (group, isInstantClose) => {
+    async (group, isInstantClose) => {
       const panel = findSidePanel(group);
 
       if (!panel) {
-        return Promise.resolve();
+        return;
       }
 
       const sidePanelIndex = sidePanelsRef.current.indexOf(panel);
 
-      if (!isInstantClose) {
-        setIsPrimaryContentResized(sidePanelIndex !== 0);
-      }
-
       // Remove the side panel and all panels above it in reverse order
-      return Promise.all(
-        sidePanelsRef.current
-          .slice(sidePanelIndex)
-          .reverse()
-          .map(
-            (sidePanel) =>
-              new Promise<void>((res) => {
-                if (sidePanel.onClose) {
-                  sidePanel.onClose();
-                }
+      const sidePanelsToRemove = sidePanelsRef.current
+        .slice(sidePanelIndex)
+        .reverse();
 
-                let updatedPanel = { ...sidePanel, onAfterClose: res };
-                if (isInstantClose) {
-                  updatedPanel = {
-                    ...updatedPanel,
-                    shouldReturnFocusAfterClose: false,
-                    closeTimeoutMS: 0,
-                  };
-                }
+      // The side panels must be closed in series in case an onClose callback
+      // rejects to prevent the remaining side panels from closing.
+      /* eslint-disable no-await-in-loop */
+      for (let index = 0; index < sidePanelsToRemove.length; index += 1) {
+        try {
+          const sidePanel = sidePanelsToRemove[index];
 
-                dispatch({
-                  type: 'update',
-                  item: updatedPanel,
-                });
-                dispatch({
-                  type: 'remove',
-                  id: sidePanel.id,
-                  transition: {
-                    duration: isInstantClose ? 0 : TRANSITION_DURATION,
-                  },
-                });
-              }),
-          ),
-      );
+          if (sidePanel.onClose) {
+            await promisify(sidePanel.onClose);
+          }
+
+          if (!isInstantClose) {
+            setIsPrimaryContentResized(sidePanelIndex !== 0);
+          }
+
+          await new Promise<void>((resolve) => {
+            const lastPanel = index === sidePanelsToRemove.length - 1;
+
+            // Panels shouldn't wait for the animation of the previous panel to finish.
+            // However, `removeSidePanel` should only resolve once the last panel has animated out.
+            if (lastPanel) {
+              sidePanel.onAfterClose = resolve;
+            } else {
+              resolve();
+            }
+
+            if (isInstantClose) {
+              sidePanel.shouldReturnFocusAfterClose = false;
+              sidePanel.closeTimeoutMS = 0;
+            }
+
+            dispatch({
+              type: 'update',
+              item: sidePanel,
+            });
+            dispatch({
+              type: 'remove',
+              id: sidePanel.id,
+              transition: {
+                duration: isInstantClose ? 0 : TRANSITION_DURATION,
+              },
+            });
+          });
+        } catch (error) {
+          break;
+        }
+      }
+      /* eslint-enable no-await-in-loop */
     },
     [findSidePanel, dispatch, sidePanelsRef],
   );

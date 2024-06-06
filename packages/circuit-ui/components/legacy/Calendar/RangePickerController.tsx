@@ -20,18 +20,32 @@ import type { DayPickerRangeControllerShape } from 'react-dates';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'react-dates/initialize.js';
 
+import { deprecate } from '../../../util/logger.js';
+
 import { CalendarWrapper } from './components/index.js';
 
 export type RangePickerControllerProps = DayPickerRangeControllerShape;
 
-export const RangePickerController = (props: RangePickerControllerProps) => (
-  <CalendarWrapper>
-    <DayPickerRangeController
-      navNext={<ArrowRight size="16" />}
-      navPrev={<ArrowLeft size="16" />}
-      numberOfMonths={1}
-      hideKeyboardShortcutsPanel
-      {...props}
-    />
-  </CalendarWrapper>
-);
+/**
+ * @deprecated Use the experimental Calendar component instead.
+ */
+export const RangePickerController = (props: RangePickerControllerProps) => {
+  if (process.env.NODE_ENV !== 'production') {
+    deprecate(
+      'RangePickerController',
+      'The RangePickerController component is deprecated. Use the experimental Calendar component instead.',
+    );
+  }
+
+  return (
+    <CalendarWrapper>
+      <DayPickerRangeController
+        navNext={<ArrowRight size="16" />}
+        navPrev={<ArrowLeft size="16" />}
+        numberOfMonths={1}
+        hideKeyboardShortcutsPanel
+        {...props}
+      />
+    </CalendarWrapper>
+  );
+};

@@ -31,7 +31,7 @@ describe('Avatar', () => {
   it('should render with an image', () => {
     const src = '/images/illustration-coffee.jpg';
     renderAvatar({ src, variant: 'identity', alt: '' });
-    const image = screen.getByRole('img');
+    const image = screen.getByRole('presentation');
     expect(image).toBeVisible();
     expect(image).toHaveAttribute('src', src);
   });

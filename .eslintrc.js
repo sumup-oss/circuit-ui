@@ -1,4 +1,4 @@
-module.exports = require('@sumup/foundry/eslint')({
+module.exports = require('@sumup-oss/foundry/eslint')({
   extends: [
     'plugin:storybook/recommended',
     'plugin:react-server-components/recommended',

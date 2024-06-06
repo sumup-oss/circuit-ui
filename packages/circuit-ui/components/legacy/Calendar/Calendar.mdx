@@ -1,6 +1,11 @@
 import { Meta, Status, Story } from '../../../../../.storybook/components';
+import * as RangePickerStories from './RangePicker.stories';
+import * as SingleDayPickerStories from './SingleDayPicker.stories';
+import * as CalendarTagStories from '../CalendarTag/CalendarTag.stories';
+import * as CalendarTagTwoStepStories from '../CalendarTagTwoStep/CalendarTagTwoStep.stories';
+import * as Stories from './Calendar.stories';
 
-<Meta title="Forms/Calendar/Calendar" />
+<Meta of={Stories} />
 
 # Calendar
 
@@ -58,7 +63,7 @@ or filter a subset of dated items (such as the transaction history, for example)
 Used when the user needs to have clear visibility of selected start and end dates after the selection,
 for instance when a user needs to pick a time period within a form.
 
-<Story id="forms-calendar-rangepicker--base" />
+<Story of={RangePickerStories.Base} />
 
 ### Single Day Picker
 
@@ -66,7 +71,7 @@ for instance when a user needs to pick a time period within a form.
 
 Used when you the user only needs to select a single specific date.
 
-<Story id="forms-calendar-singledaypicker--base" />
+<Story of={SingleDayPickerStories.Base} />
 
 ### Calendar Tag
 
@@ -74,7 +79,7 @@ Used when you the user only needs to select a single specific date.
 
 Used for cases where the user needs to select dates within the same month and that selection affects the data displayed.
 
-<Story id="forms-calendar-calendartag--base" />
+<Story of={CalendarTagStories.Base} />
 
 ### Calendar Tag Two Step
 
@@ -82,5 +87,4 @@ Used for cases where the user needs to select dates within the same month and th
 
 Used for cases where the user needs to select dates that could be outside the same month and that selection affects the data displayed.
 
-<Story id="forms-calendar-calendartagtwostep--base" />
-```
+<Story of={CalendarTagTwoStepStories.Base} />

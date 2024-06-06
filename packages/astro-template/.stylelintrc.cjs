@@ -1,1 +1,1 @@
-module.exports = require('@sumup/foundry/stylelint')();
+module.exports = require('@sumup-oss/foundry/stylelint')();

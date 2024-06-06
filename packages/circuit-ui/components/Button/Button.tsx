@@ -63,6 +63,7 @@ export type ButtonProps = SharedButtonProps & {
  * to a different screen.
  */
 export const Button: ForwardRefExoticComponent<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   PropsWithoutRef<ButtonProps> & RefAttributes<any>
 > = createButtonComponent<ButtonProps>(
   'Button',

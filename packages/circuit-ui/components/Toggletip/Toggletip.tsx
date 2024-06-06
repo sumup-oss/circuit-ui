@@ -36,8 +36,8 @@ import {
   type Placement,
   type Side,
 } from '@floating-ui/react-dom';
-import dialogPolyfill from 'dialog-polyfill';
 
+import dialogPolyfill from '../../vendor/dialog-polyfill/index.js';
 import type { ClickEvent } from '../../types/events.js';
 import { clsx } from '../../styles/clsx.js';
 import { applyMultipleRefs } from '../../util/refs.js';

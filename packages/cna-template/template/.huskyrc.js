@@ -1,1 +1,1 @@
-module.exports = require('@sumup/foundry/husky')();
+module.exports = require('@sumup-oss/foundry/husky')();

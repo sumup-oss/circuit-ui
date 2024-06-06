@@ -1175,6 +1175,11 @@
       "size": "24"
     },
     {
+      "name": "automatic_balance_transfer",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
       "name": "bank",
       "category": "Finance",
       "size": "24"

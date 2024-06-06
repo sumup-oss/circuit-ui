@@ -22,7 +22,6 @@
   color: var(--cui-fg-normal-disabled);
 }
 
-
 .label-text-optional {
   color: var(--cui-fg-subtle);
 }
@@ -58,7 +57,6 @@
   color: var(--cui-fg-subtle-disabled);
 }
 
-
 .valid {
   color: var(--cui-fg-success);
 }
@@ -93,7 +91,8 @@
   width: var(--cui-icon-sizes-kilo);
   height: var(--cui-icon-sizes-kilo);
   margin-top: calc(
-    (var(--cui-typography-body-two-line-height) - var(--cui-icon-sizes-kilo)) / 2
+    (var(--cui-typography-body-two-line-height) - var(--cui-icon-sizes-kilo)) /
+      2
   );
-  margin-right: var(--cui-spacings-bit)
+  margin-right: var(--cui-spacings-bit);
 }

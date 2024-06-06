@@ -1,5 +1,50 @@
 # @sumup/circuit-ui
 
+## 8.8.4
+
+### Patch Changes
+
+- [#2497](https://github.com/sumup-oss/circuit-ui/pull/2497) [`03c3c31`](https://github.com/sumup-oss/circuit-ui/commit/03c3c3136e44c03a7a96b7b06a40b87fc64bf004) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed polyfill for the `dialog` element to work in isomorphic environments.
+
+## 8.8.3
+
+### Patch Changes
+
+- [`c10a6f9`](https://github.com/sumup-oss/circuit-ui/commit/c10a6f909022d3bb68cc02703acde718d0d3f802) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the display of the month headline and weekday names in the Calendar component.
+
+## 8.8.2
+
+### Patch Changes
+
+- [#2516](https://github.com/sumup-oss/circuit-ui/pull/2516) [`d3ce6bf`](https://github.com/sumup-oss/circuit-ui/commit/d3ce6bf7613e90c66c542fc1c95d754ef79c3b75) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the size of the main content while the SidePanel's `onClose` callback is pending.
+
+## 8.8.1
+
+### Patch Changes
+
+- [#2514](https://github.com/sumup-oss/circuit-ui/pull/2514) [`8217e7b`](https://github.com/sumup-oss/circuit-ui/commit/8217e7b88594e8adc16d169e076cf61e42aa3fff) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the positioning of the Calender component's month navigation buttons.
+
+- [#2514](https://github.com/sumup-oss/circuit-ui/pull/2514) [`8217e7b`](https://github.com/sumup-oss/circuit-ui/commit/8217e7b88594e8adc16d169e076cf61e42aa3fff) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the RangePickerController component. Use the experimental Calendar component instead.
+
+## 8.8.0
+
+### Minor Changes
+
+- [#2511](https://github.com/sumup-oss/circuit-ui/pull/2511) [`3e98f16`](https://github.com/sumup-oss/circuit-ui/commit/3e98f16b3bdc8cb89be22d58376472cb363d35f3) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new `useMedia` hook to track the state of a [media query](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries).
+
+- [#2499](https://github.com/sumup-oss/circuit-ui/pull/2499) [`def7f98`](https://github.com/sumup-oss/circuit-ui/commit/def7f98b30da1a110f30c218a5382c586d7d6ded) Thanks [@connor-baer](https://github.com/connor-baer)! - Added support for the SidePanel's `onClose` prop to be asynchronous. The SidePanel is closed after the `onClose` callback resolves and is prevented from closing if the callback rejects.
+
+- [#2494](https://github.com/sumup-oss/circuit-ui/pull/2494) [`3d3ae20`](https://github.com/sumup-oss/circuit-ui/commit/3d3ae201bd816b381c6000c47a6f88025719a3a0) Thanks [@connor-baer](https://github.com/connor-baer)! - Added an experimental Calendar component that displays a monthly date grid. This is a low-level component for advanced use cases; new DateInput and DateRangeInput components are in development.
+
+- [#2494](https://github.com/sumup-oss/circuit-ui/pull/2494) [`3d3ae20`](https://github.com/sumup-oss/circuit-ui/commit/3d3ae201bd816b381c6000c47a6f88025719a3a0) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new `useSwipe` hook to detect swipe gestures on touch screen devices.
+
+## 8.7.0
+
+### Minor Changes
+
+- [#2491](https://github.com/sumup-oss/circuit-ui/pull/2491) [`35ee26a`](https://github.com/sumup-oss/circuit-ui/commit/35ee26ad6c3c08a1fe4d06c336fa9217a17ee3c0) Thanks [@Burtchen](https://github.com/Burtchen)! - Renamed the Table's `initialSortedRow` prop to `initialSortedColumn` to better express its purpose. The `initialSortedRow` is deprecated and will be removed in the next major release.
+- [#2508](https://github.com/sumup-oss/circuit-ui/pull/2508) [`5e90c53`](https://github.com/sumup-oss/circuit-ui/commit/5e90c53772a48acb811f957eb2d073f9d3cfb3c4) Thanks [@connor-baer](https://github.com/connor-baer)! Reverted the overflow behaviour of long Button labels. Text that would previously be truncated to a single line with a trailing ellipsis once again wraps to multiple lines, as it did before v8.
+
 ## 8.6.2
 
 ### Patch Changes
