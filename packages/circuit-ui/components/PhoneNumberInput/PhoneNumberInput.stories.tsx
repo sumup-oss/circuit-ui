@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+import { FlagDe, FlagUs, type IconComponentType } from '@sumup/icons';
+import { useState } from 'react';
+
+import { Stack } from '../../../../.storybook/components/index.js';
+
 import {
   PhoneNumberInput,
   type PhoneNumberInputProps,
@@ -26,6 +31,16 @@ export default {
   },
 };
 
+const flagIconMap: { [key: string]: IconComponentType<'16'> } = {
+  DE: FlagDe,
+  US: FlagUs,
+};
+
+const countryCodeMap: { [key: string]: string } = {
+  '+1': 'US',
+  '+49': 'DE',
+};
+
 export const Base = (args: PhoneNumberInputProps) => (
   <PhoneNumberInput {...args} />
 );
@@ -35,13 +50,95 @@ Base.args = {
   countryCode: {
     label: 'Country code',
     defaultValue: '+1',
-    options: [
-      { country: 'US', code: '+1' },
-      { country: 'DE', code: '+49' },
-    ],
+    options: Object.keys(countryCodeMap).map((key) => ({
+      country: countryCodeMap[key],
+      code: key,
+    })),
   },
   subscriberNumber: {
     label: 'Subscriber number',
+    placeholder: '202 555 0132',
   },
   validationHint: 'Maximum 15 digits',
 };
+
+export const Validations = (args: PhoneNumberInputProps) => (
+  <Stack>
+    <PhoneNumberInput
+      {...args}
+      validationHint="This is not valid"
+      subscriberNumber={{
+        ...args.subscriberNumber,
+        invalid: true,
+      }}
+    />
+    <PhoneNumberInput
+      {...args}
+      hasWarning
+      validationHint="This may include additional charges"
+    />
+    <PhoneNumberInput
+      {...args}
+      subscriberNumber={{
+        ...args.subscriberNumber,
+        defaultValue: '202 555 0132',
+      }}
+      validationHint="This looks good"
+      showValid
+    />
+  </Stack>
+);
+
+Validations.args = Base.args;
+
+export const Readonly = (args: PhoneNumberInputProps) => (
+  <PhoneNumberInput {...args} />
+);
+
+Readonly.args = {
+  ...Base.args,
+  countryCode: {
+    ...Base.args.countryCode,
+    readonly: true,
+  },
+};
+
+export const Optional = (args: PhoneNumberInputProps) => (
+  <PhoneNumberInput {...args} />
+);
+
+Optional.args = {
+  ...Base.args,
+  required: false,
+  optionalLabel: 'This field is optional',
+};
+
+export const Disabled = (args: PhoneNumberInputProps) => (
+  <PhoneNumberInput {...args} />
+);
+
+Disabled.args = {
+  ...Base.args,
+  disabled: true,
+};
+
+export const WithPrefix = (args: PhoneNumberInputProps) => {
+  const [selectedCountry, setSelectedCountry] = useState('US');
+  return (
+    <PhoneNumberInput
+      {...args}
+      countryCode={{
+        ...args.countryCode,
+        onChange: (event) => {
+          setSelectedCountry(countryCodeMap[event.target.value]);
+        },
+        renderPrefix: (props) => {
+          const Icon = flagIconMap[selectedCountry];
+          return Icon ? <Icon {...props} aria-hidden="true" /> : null;
+        },
+      }}
+    />
+  );
+};
+
+WithPrefix.args = Base.args;

@@ -33,7 +33,16 @@ export function mapCountryCodeOptions(
   countryCodeOptions: { country: string; code: string }[],
   locale?: string | string[],
 ): Required<SelectProps>['options'] {
-  // TODO: Check whether Intl.DisplayNames is supported and add fallback logic
+  // eslint-disable-next-line compat/compat
+  const isIntlDisplayNamesSupported = typeof Intl.DisplayNames === 'function';
+  if (!isIntlDisplayNamesSupported) {
+    // When Intl.DisplayNames is not supported, we can't provide the localized country names
+    return countryCodeOptions.map(({ code, country }) => ({
+      label: `${country} (${code})`,
+      value: code,
+    }));
+  }
+  // eslint-disable-next-line compat/compat
   const displayName = new Intl.DisplayNames(locale, { type: 'region' });
   return countryCodeOptions
     .map(({ code, country }) => {

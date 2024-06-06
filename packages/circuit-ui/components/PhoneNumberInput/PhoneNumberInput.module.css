@@ -7,13 +7,25 @@
   border-bottom-right-radius: 0;
 }
 
+.country-code-input:focus {
+  position: relative;
+  z-index: calc(var(--cui-z-index-input) + 1);
+}
+
 .subscriber-number {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-/* Elevate the input above the country code select */
+/* Elevate the input above the country code select on focus */
 .subscriber-number:focus {
+  position: relative;
+  z-index: calc(var(--cui-z-index-input) + 1);
+}
+
+/* Elevate the input above the country code select when invalid or in warning and country code is not focused */
+.country-code:not(:has(.country-code:focus)) + .subscriber-number-wrapper .subscriber-number[aria-invalid="true"],
+.country-code:not(:has(.country-code:focus)) + .subscriber-number-wrapper .subscriber-number-has-warning {
   position: relative;
   z-index: calc(var(--cui-z-index-input) + 1);
 }

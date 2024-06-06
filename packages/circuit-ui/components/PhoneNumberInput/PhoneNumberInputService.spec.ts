@@ -63,10 +63,40 @@ describe('PhoneNumberInputService', () => {
       expect(actual[1].value).toBe('+1');
     });
 
-    it.todo('should use the country name and code as the option label');
+    it('should use the country name and code as the option label', () => {
+      const options = [
+        { country: 'US', code: '+1' },
+        { country: 'DE', code: '+49' },
+      ];
+      const actual = mapCountryCodeOptions(options);
+      expect(actual[0].label).toBe('Germany (+49)');
+      expect(actual[1].label).toBe('United States (+1)');
+    });
 
-    it.todo('should omit the country name when it is not available ');
+    it('should omit the country name when it is not available', () => {
+      const options = [{ country: '', code: '+49' }];
+      const actual = mapCountryCodeOptions(options);
+      expect(actual[0].label).toBe('+49');
+    });
 
-    it.todo('should sort the options alphabetically');
+    it('should sort the options alphabetically', () => {
+      const options = [
+        { country: 'US', code: '+1' },
+        { country: 'DE', code: '+49' },
+      ];
+      const actual = mapCountryCodeOptions(options);
+      expect(actual[0].label).toBe('Germany (+49)');
+      expect(actual[1].label).toBe('United States (+1)');
+    });
+
+    it('should use the locale as the default country code', () => {
+      const options = [
+        { country: 'US', code: '+1' },
+        { country: 'DE', code: '+49' },
+        { country: 'CA', code: '+1' },
+      ];
+      const actual = mapCountryCodeOptions(options, 'DE');
+      expect(actual[0].value).toBe('+49');
+    });
   });
 });
