@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.8.4
+
+### Patch Changes
+
+- [#2497](https://github.com/sumup-oss/circuit-ui/pull/2497) [`03c3c31`](https://github.com/sumup-oss/circuit-ui/commit/03c3c3136e44c03a7a96b7b06a40b87fc64bf004) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed polyfill for the `dialog` element to work in isomorphic environments.
+
 ## 8.8.3
 
 ### Patch Changes
