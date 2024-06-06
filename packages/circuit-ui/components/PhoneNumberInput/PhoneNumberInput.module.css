@@ -7,9 +7,9 @@
   border-bottom-right-radius: 0;
 }
 
-.country-code[aria-readonly="true"] {
-  pointer-events: none;
-  background-color: var(--cui-bg-highlight-disabled);
+.country-code-input:focus {
+  position: relative;
+  z-index: calc(var(--cui-z-index-input) + 1);
 }
 
 .subscriber-number {

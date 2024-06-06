@@ -25,11 +25,17 @@ import {
   type ComponentType,
   type FieldsetHTMLAttributes,
   type ForwardedRef,
+  type RefObject,
 } from 'react';
 
 import Select, { type SelectProps } from '../Select/index.js';
 import Input, { type InputElement, type InputProps } from '../Input/index.js';
-import { FieldLabelText, FieldLegend, FieldSet } from '../Field/index.js';
+import {
+  FieldLabelText,
+  FieldLegend,
+  FieldSet,
+  FieldValidationHint,
+} from '../Field/index.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
@@ -137,11 +143,11 @@ export interface PhoneNumberInputProps
      * The callback receives the country code,
      * e.g. `+49`.
      */
-    onChange?: SelectProps['onChange'];
+    onChange?: SelectProps['onChange'] | InputProps['onChange'];
     /**
      * The ref to the country code selector HTML DOM element.
      */
-    ref?: ForwardedRef<HTMLSelectElement>;
+    ref?: ForwardedRef<HTMLSelectElement | InputElement>;
     /**
      * Render prop that should render a left-aligned overlay icon or element.
      * Receives a className prop.
@@ -216,7 +222,7 @@ export const PhoneNumberInput = forwardRef<
     },
     ref,
   ) => {
-    const countryCodeRef = useRef<HTMLSelectElement>(null);
+    const countryCodeRef = useRef<HTMLSelectElement | InputElement>(null);
     const subscriberNumberRef = useRef<InputElement>(null);
 
     const validationHintId = useId();
@@ -298,22 +304,49 @@ export const PhoneNumberInput = forwardRef<
           />
         </FieldLegend>
         <div className={classes.wrapper}>
-          <Select
-            hideLabel
-            autoComplete="tel-country-code"
-            disabled={disabled}
-            className={classes['country-code']}
-            {...countryCode}
-            invalid={invalid || countryCode.invalid}
-            aria-readonly={readOnly || countryCode.readonly}
-            options={options}
-            onChange={eachFn<[ChangeEvent<HTMLSelectElement>]>([
-              countryCode.onChange,
-              handleChange,
-            ])}
-            ref={applyMultipleRefs(countryCodeRef, countryCode.ref)}
-            renderPrefix={countryCode.renderPrefix}
-          />
+          {readOnly || countryCode.readonly ? (
+            <Input
+              hideLabel
+              autoComplete="tel-country-code"
+              disabled={disabled}
+              inputClassName={clsx(
+                classes['country-code'],
+                classes['country-code-input'],
+              )}
+              {...countryCode}
+              invalid={invalid || countryCode.invalid}
+              readOnly={true}
+              onChange={eachFn<[ChangeEvent<InputElement>]>([
+                countryCode.onChange as InputProps['onChange'],
+                handleChange,
+              ])}
+              ref={applyMultipleRefs(
+                countryCodeRef as RefObject<InputElement>,
+                countryCode.ref as ForwardedRef<InputElement>,
+              )}
+              renderPrefix={countryCode.renderPrefix}
+            />
+          ) : (
+            <Select
+              hideLabel
+              autoComplete="tel-country-code"
+              disabled={disabled}
+              className={classes['country-code']}
+              {...countryCode}
+              invalid={invalid || countryCode.invalid}
+              aria-readonly={true}
+              options={options}
+              onChange={eachFn<[ChangeEvent<HTMLSelectElement>]>([
+                countryCode.onChange as SelectProps['onChange'],
+                handleChange,
+              ])}
+              ref={applyMultipleRefs(
+                countryCodeRef as RefObject<HTMLSelectElement>,
+                countryCode.ref as ForwardedRef<HTMLSelectElement>,
+              )}
+              renderPrefix={countryCode.renderPrefix}
+            />
+          )}
           <Input
             hideLabel
             autoComplete="tel-national"
@@ -326,7 +359,6 @@ export const PhoneNumberInput = forwardRef<
               classes['subscriber-number'],
               hasWarning && classes['subscriber-number-has-warning'],
             )}
-            validationHint={validationHint}
             hasWarning={hasWarning}
             showValid={showValid}
             {...subscriberNumber}
@@ -339,6 +371,14 @@ export const PhoneNumberInput = forwardRef<
             ref={applyMultipleRefs(subscriberNumberRef, subscriberNumber.ref)}
           />
         </div>
+        <FieldValidationHint
+          id={validationHintId}
+          disabled={disabled}
+          invalid={invalid}
+          hasWarning={hasWarning}
+          showValid={showValid}
+          validationHint={validationHint}
+        />
       </FieldSet>
     );
   },
