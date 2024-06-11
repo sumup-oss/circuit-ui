@@ -24,6 +24,7 @@ import {
 } from 'react';
 
 import { useStack, type StackItem } from '../../hooks/useStack/index.js';
+import { clsx } from '../../styles/clsx.js';
 
 import type { BaseToastProps, ToastComponent } from './types.js';
 import classes from './ToastContext.module.css';
@@ -50,10 +51,14 @@ export interface ToastProviderProps {
    * The ToastProvider should wrap your entire application.
    */
   children: ReactNode;
+  position?: 'bottom' | 'top' | 'top-right';
+  className?: string;
 }
 
 export function ToastProvider<TProps extends BaseToastProps>({
   children,
+  position = 'bottom',
+  className,
 }: ToastProviderProps): JSX.Element {
   const [toasts, dispatch] = useStack<ToastState<TProps>>([]);
 
@@ -109,7 +114,7 @@ export function ToastProvider<TProps extends BaseToastProps>({
     <ToastContext.Provider value={context}>
       {children}
       <div
-        className={classes.base}
+        className={clsx(classes.base, classes[position], className)}
         role="status"
         aria-live="polite"
         aria-atomic="false"

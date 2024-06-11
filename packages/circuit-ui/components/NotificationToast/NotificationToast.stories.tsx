@@ -55,29 +55,25 @@ const TOASTS = [
   },
 ] as NotificationToastProps[];
 
-export const Base = (toast: NotificationToastProps): JSX.Element => {
-  const App = () => {
-    const { setToast } = useNotificationToast();
-    const randomIndex = isChromatic()
-      ? 1
-      : Math.floor(Math.random() * TOASTS.length);
-    return (
-      <Button
-        type="button"
-        onClick={() => setToast({ ...toast, ...TOASTS[randomIndex] })}
-      >
-        Open toast
-      </Button>
-    );
-  };
+const App = ({ toast }: { toast: NotificationToastProps }) => {
+  const { setToast } = useNotificationToast();
+  const randomIndex = isChromatic()
+    ? 1
+    : Math.floor(Math.random() * TOASTS.length);
   return (
-    <ToastProvider>
-      <App />
-    </ToastProvider>
+    <Button
+      type="button"
+      onClick={() => setToast({ ...toast, ...TOASTS[randomIndex] })}
+    >
+      Open toast
+    </Button>
   );
 };
-
-Base.play = async ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
+const play = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLCanvasElement;
+}) => {
   const canvas = within(canvasElement);
   const button = canvas.getByRole('button', {
     name: 'Open toast',
@@ -86,6 +82,32 @@ Base.play = async ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
   await userEvent.click(button);
   await screen.findByRole('status');
 };
+
+export const Base = (toast: NotificationToastProps): JSX.Element => (
+  <ToastProvider>
+    <App toast={toast} />
+  </ToastProvider>
+);
+
+Base.play = play;
+
+export const WithTopPosition = (toast: NotificationToastProps): JSX.Element => (
+  <ToastProvider position="top">
+    <App toast={toast} />
+  </ToastProvider>
+);
+
+WithTopPosition.play = play;
+
+export const WithTopRightPosition = (
+  toast: NotificationToastProps,
+): JSX.Element => (
+  <ToastProvider position="top-right">
+    <App toast={toast} />
+  </ToastProvider>
+);
+
+WithTopRightPosition.play = play;
 
 const variants = ['info', 'success', 'warning', 'danger'] as const;
 

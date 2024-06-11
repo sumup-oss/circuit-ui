@@ -59,6 +59,20 @@ export function App({}) {
 }
 ```
 
+### Custom positioning
+
+It's possible to change a position of notifications in the by passing `position` prop. Supported values are `bottom` (default), `top` and  `top-right`:
+
+```tsx
+// _app.tsx for Next.js or App.js for CRA
+import { ToastProvider } from '@sumup/circuit-ui';
+
+export default function App() {
+  // all notifications will appear at the top of the screen
+  return <ToastProvider position="top">{/* Your content goes here... */}</ToastProvider>;
+}
+```
+
 ## Accessibility
 
 By their nature as status messages, toasts are rendered inside a [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) using `role="status"` and `aria-live="polite"`.

@@ -1,6 +1,5 @@
 .base {
   position: fixed;
-  bottom: var(--cui-spacings-giga);
   left: 0;
   z-index: var(--cui-z-index-toast);
   display: flex;
@@ -20,4 +19,20 @@
 
 .toast {
   margin-top: var(--cui-spacings-byte);
+}
+
+/* Positions */
+.top {
+  top: var(--cui-spacings-giga);
+}
+
+.bottom {
+  bottom: var(--cui-spacings-giga);
+}
+
+.top-right {
+  top: var(--cui-spacings-giga);
+  right: var(--cui-spacings-giga);
+  left: inherit;
+  transform: translateX(0%);
 }
