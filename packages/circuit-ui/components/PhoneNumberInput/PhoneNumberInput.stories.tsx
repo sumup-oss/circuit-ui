@@ -15,6 +15,7 @@
 
 import { FlagDe, FlagUs, type IconComponentType } from '@sumup/icons';
 import { useState } from 'react';
+import { action } from '@storybook/addon-actions';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 
@@ -22,7 +23,6 @@ import {
   PhoneNumberInput,
   type PhoneNumberInputProps,
 } from './PhoneNumberInput.js';
-import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Forms/PhoneNumberInput',
