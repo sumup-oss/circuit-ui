@@ -140,8 +140,6 @@ export interface PhoneNumberInputProps
     readonly?: boolean;
     /**
      * Callback when the country code changes.
-     * The callback receives the country code,
-     * e.g. `+49`.
      */
     onChange?: SelectProps['onChange'];
     /**
@@ -183,8 +181,6 @@ export interface PhoneNumberInputProps
     readonly?: boolean;
     /**
      * Callback when the subscriber number changes.
-     * The callback receives the raw subscriber number,
-     * e.g. `024 181234`.
      */
     onChange?: InputProps['onChange'];
     /**
