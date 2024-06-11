@@ -7,6 +7,11 @@
   border-bottom-right-radius: 0;
 }
 
+.country-code-input {
+  /* Prefix padding + country code (max 4 chars) + padding */
+  max-width: calc(var(--cui-spacings-exa) + 4ch + var(--cui-spacings-mega));
+}
+
 .country-code-input:focus {
   position: relative;
   z-index: calc(var(--cui-z-index-input) + 1);
