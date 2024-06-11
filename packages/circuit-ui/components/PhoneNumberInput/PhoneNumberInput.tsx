@@ -397,11 +397,7 @@ export const PhoneNumberInput = forwardRef<
             pattern="^(?:[0-9]\s?){0,14}[0-9]$"
             inputMode="tel"
             disabled={disabled}
-            className={classes['subscriber-number-wrapper']}
-            inputClassName={clsx(
-              classes['subscriber-number'],
-              hasWarning && classes['subscriber-number-has-warning'],
-            )}
+            inputClassName={classes['subscriber-number']}
             hasWarning={hasWarning}
             showValid={showValid}
             {...subscriberNumber}

@@ -2,39 +2,48 @@
   display: flex;
 }
 
-.country-code {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+@media (max-width: 479px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .country-code {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .subscriber-number {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
 }
 
-.country-code-input {
-  /* Prefix padding + country code (max 4 chars) + padding */
-  max-width: calc(var(--cui-spacings-exa) + 4ch + var(--cui-spacings-mega));
+@media (min-width: 480px) {
+  .country-code {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .country-code-input {
+    /* Prefix padding + country code (max 4 chars) + padding */
+    max-width: calc(var(--cui-spacings-exa) + 4ch + var(--cui-spacings-mega));
+  }
+
+  .subscriber-number {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 }
 
+/* Elevate the subscriber number input above the country code select by default */
+.subscriber-number {
+  position: relative;
+  z-index: calc(var(--cui-z-index-input) + 1);
+}
+
+/* Elevate the country code select above the subscriber number input on focus */
+.country-code:focus,
 .country-code-input:focus {
   position: relative;
-  z-index: calc(var(--cui-z-index-input) + 1);
-}
-
-.subscriber-number {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-/* Elevate the input above the country code select on focus */
-.subscriber-number:focus {
-  position: relative;
-  z-index: calc(var(--cui-z-index-input) + 1);
-}
-
-/* Elevate the input above the country code select when invalid or in warning and country code is not focused */
-.country-code:not(:has(.country-code:focus))
-  + .subscriber-number-wrapper
-  .subscriber-number[aria-invalid="true"],
-.country-code:not(:has(.country-code:focus))
-  + .subscriber-number-wrapper
-  .subscriber-number-has-warning {
-  position: relative;
-  z-index: calc(var(--cui-z-index-input) + 1);
+  z-index: calc(var(--cui-z-index-input) + 2);
 }
