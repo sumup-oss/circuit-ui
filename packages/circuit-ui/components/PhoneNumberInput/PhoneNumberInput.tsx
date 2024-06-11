@@ -21,6 +21,7 @@ import {
   useMemo,
   useRef,
   type ChangeEvent,
+  type ClipboardEvent,
   type ComponentType,
   type FieldsetHTMLAttributes,
   type ForwardedRef,
@@ -251,6 +252,64 @@ export const PhoneNumberInput = forwardRef<
       onChange(phoneNumber);
     };
 
+    const handlePaste = (event: ClipboardEvent) => {
+      if (
+        !countryCodeRef.current ||
+        !subscriberNumberRef.current ||
+        countryCodeRef.current.disabled ||
+        (countryCodeRef.current as HTMLInputElement).readOnly
+      ) {
+        return;
+      }
+
+      const pastedText = event.clipboardData
+        .getData('text/plain')
+        .trim()
+        // Normalize the country code prefix
+        .replace(/^00/, '+');
+
+      if (!pastedText) {
+        return;
+      }
+
+      const hasCountryCode = pastedText.startsWith('+');
+
+      if (!hasCountryCode) {
+        return;
+      }
+
+      const pastedCountryCode = countryCode.options
+        .map((option) => option.code)
+        // Match longer, more specific country codes first
+        .sort((a, b) => b.length - a.length)
+        .find((code) => pastedText.startsWith(code));
+
+      if (!pastedCountryCode) {
+        return;
+      }
+
+      event.preventDefault();
+
+      const pastedSubscriberNumber = pastedText.split(pastedCountryCode)[1];
+
+      countryCodeRef.current.value = pastedCountryCode;
+
+      // React overwrites the input.value setter. In order to be able to trigger
+      // a 'change' event on the input, we need to use the native setter.
+      // Adapted from https://stackoverflow.com/a/46012210/4620154
+      Object.getOwnPropertyDescriptor(
+        HTMLInputElement.prototype,
+        'value',
+      )?.set?.call(subscriberNumberRef.current, pastedSubscriberNumber);
+
+      countryCodeRef.current.dispatchEvent(
+        new Event('change', { bubbles: true }),
+      );
+      subscriberNumberRef.current.dispatchEvent(
+        new Event('change', { bubbles: true }),
+      );
+    };
+
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test'
@@ -356,6 +415,7 @@ export const PhoneNumberInput = forwardRef<
               subscriberNumber.onChange,
               handleChange,
             ])}
+            onPaste={handlePaste}
             ref={applyMultipleRefs(subscriberNumberRef, subscriberNumber.ref)}
           />
         </div>

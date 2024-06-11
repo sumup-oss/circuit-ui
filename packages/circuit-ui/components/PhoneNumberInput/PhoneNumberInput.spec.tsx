@@ -45,7 +45,17 @@ const defaultProps = {
 };
 
 describe('PhoneNumberInput', () => {
-  it('Should forward a ref to the country code selector', () => {
+  it('should merge a custom class name with the default ones', () => {
+    const props = {
+      ...defaultProps,
+      className: 'foo',
+    };
+    render(<PhoneNumberInput {...props} />);
+    const fieldset = screen.getByRole('group');
+    expect(fieldset.className).toContain(props.className);
+  });
+
+  it('should forward a ref to the country code selector', () => {
     const ref = createRef<HTMLSelectElement>();
     const props = {
       ...defaultProps,
@@ -56,7 +66,7 @@ describe('PhoneNumberInput', () => {
     expect(ref.current).toBe(select);
   });
 
-  it('Should forward a ref to the subscriber number input', () => {
+  it('should forward a ref to the subscriber number input', () => {
     const ref = createRef<InputElement>();
     const props = {
       ...defaultProps,
@@ -67,7 +77,7 @@ describe('PhoneNumberInput', () => {
     expect(ref.current).toBe(input);
   });
 
-  it('Should call onChange when there is a change', async () => {
+  it('should call onChange when there is a change', async () => {
     const onChange = vi.fn();
     const props = {
       ...defaultProps,
@@ -76,10 +86,10 @@ describe('PhoneNumberInput', () => {
     render(<PhoneNumberInput {...props} />);
     const select = screen.getByRole('combobox');
     await userEvent.selectOptions(select, '+49');
-    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledOnce();
   });
 
-  it('Should call countryCode onChange when there is a change in the country code', async () => {
+  it('should call countryCode onChange when there is a change in the country code', async () => {
     const onChange = vi.fn();
     const props = {
       ...defaultProps,
@@ -91,10 +101,10 @@ describe('PhoneNumberInput', () => {
     render(<PhoneNumberInput {...props} />);
     const select = screen.getByRole('combobox');
     await userEvent.selectOptions(select, '+49');
-    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledOnce();
   });
 
-  it('Should call subscriberNumber onChange when there is a change in the subscriber number', async () => {
+  it('should call subscriberNumber onChange when there is a change in the subscriber number', async () => {
     const onChange = vi.fn();
     const props = {
       ...defaultProps,
@@ -106,10 +116,57 @@ describe('PhoneNumberInput', () => {
     render(<PhoneNumberInput {...props} />);
     const input = screen.getByRole('textbox');
     await userEvent.type(input, '1');
-    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledOnce();
   });
 
-  it('Should flag the input field as valid when a valid phone number is entered', () => {
+  it.each(['+4912345678', '004912345678'])(
+    'should set the country code and subscriber number when pasting a full phone number',
+    async (phoneNumber) => {
+      const props = {
+        ...defaultProps,
+        onChange: vi.fn(),
+        subscriberNumber: {
+          ...defaultProps.subscriberNumber,
+          onChange: vi.fn(),
+        },
+        countryCode: {
+          ...defaultProps.countryCode,
+          onChange: vi.fn(),
+        },
+      };
+      render(<PhoneNumberInput {...props} />);
+      const input = screen.getByRole('textbox');
+      await userEvent.click(input);
+      await userEvent.paste(phoneNumber);
+      expect(props.onChange).toHaveBeenCalledWith('+4912345678');
+      expect(props.countryCode.onChange).toHaveBeenCalledOnce();
+      expect(props.subscriberNumber.onChange).toHaveBeenCalledOnce();
+    },
+  );
+
+  it('should set only the subscriber number when a phone number without country code', async () => {
+    const props = {
+      ...defaultProps,
+      onChange: vi.fn(),
+      subscriberNumber: {
+        ...defaultProps.subscriberNumber,
+        onChange: vi.fn(),
+      },
+      countryCode: {
+        ...defaultProps.countryCode,
+        onChange: vi.fn(),
+      },
+    };
+    render(<PhoneNumberInput {...props} />);
+    const input = screen.getByRole('textbox');
+    await userEvent.click(input);
+    await userEvent.paste('012345678');
+    expect(props.onChange).toHaveBeenCalledWith('+112345678');
+    expect(props.countryCode.onChange).not.toHaveBeenCalled();
+    expect(props.subscriberNumber.onChange).toHaveBeenCalledOnce();
+  });
+
+  it('should flag the input field as valid when a valid phone number is entered', () => {
     const props = {
       ...defaultProps,
       subscriberNumber: {
@@ -122,7 +179,7 @@ describe('PhoneNumberInput', () => {
     expect(input).toBeValid();
   });
 
-  it('Should flag the input field as invalid when the pattern is not matching', () => {
+  it('should flag the input field as invalid when the pattern is not matching', () => {
     const props = {
       ...defaultProps,
       subscriberNumber: {
@@ -141,7 +198,7 @@ describe('PhoneNumberInput', () => {
     expect(actual).toHaveNoViolations();
   });
 
-  it('Should set aria-describedby when there is an error message', () => {
+  it('should set aria-describedby when there is an error message', () => {
     const props = {
       ...defaultProps,
       errorMessage: 'This is an error message',
@@ -151,7 +208,7 @@ describe('PhoneNumberInput', () => {
     expect(fieldset).toHaveAttribute('aria-describedby');
   });
 
-  it('Should throw accessibility error when the label is not sufficiently labelled and the hideLabel prop is not set', () => {
+  it('should throw accessibility error when the label is not sufficiently labelled and the hideLabel prop is not set', () => {
     const props = {
       ...defaultProps,
       label: undefined,
@@ -164,7 +221,7 @@ describe('PhoneNumberInput', () => {
     vi.restoreAllMocks();
   });
 
-  it('Should throw accessibility error when the countryCode label is not sufficiently labelled', () => {
+  it('should throw accessibility error when the countryCode label is not sufficiently labelled', () => {
     const props = {
       ...defaultProps,
       countryCode: {
@@ -180,7 +237,7 @@ describe('PhoneNumberInput', () => {
     vi.restoreAllMocks();
   });
 
-  it('Should throw accessibility error when the subscriberNumber label is not sufficiently labelled', () => {
+  it('should throw accessibility error when the subscriberNumber label is not sufficiently labelled', () => {
     const props = {
       ...defaultProps,
       subscriberNumber: {

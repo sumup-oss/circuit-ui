@@ -22,6 +22,7 @@ import {
   PhoneNumberInput,
   type PhoneNumberInputProps,
 } from './PhoneNumberInput.js';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Forms/PhoneNumberInput',
@@ -60,6 +61,7 @@ Base.args = {
     placeholder: '202 555 0132',
   },
   validationHint: 'Maximum 15 digits',
+  onChange: action('onChange'),
 };
 
 export const Validations = (args: PhoneNumberInputProps) => (
