@@ -42,7 +42,6 @@ import {
 } from '../../util/errors.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { eachFn } from '../../util/helpers.js';
-import { clsx } from '../../styles/clsx.js';
 
 import {
   mapCountryCodeOptions,
@@ -355,10 +354,8 @@ export const PhoneNumberInput = forwardRef<
               hideLabel
               autoComplete="tel-country-code"
               disabled={disabled}
-              inputClassName={clsx(
-                classes['country-code'],
-                classes['country-code-input'],
-              )}
+              className={classes['country-code']}
+              inputClassName={classes['country-code-input']}
               {...countryCode}
               invalid={invalid || countryCode.invalid}
               readOnly={true}
@@ -397,7 +394,8 @@ export const PhoneNumberInput = forwardRef<
             pattern="^(?:[0-9]\s?){0,14}[0-9]$"
             inputMode="tel"
             disabled={disabled}
-            inputClassName={classes['subscriber-number']}
+            className={classes['subscriber-number']}
+            inputClassName={classes['subscriber-number-input']}
             hasWarning={hasWarning}
             showValid={showValid}
             {...subscriberNumber}
