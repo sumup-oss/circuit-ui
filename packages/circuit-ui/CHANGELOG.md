@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.9.0
+
+### Minor Changes
+
+- [#2500](https://github.com/sumup-oss/circuit-ui/pull/2500) [`349be76`](https://github.com/sumup-oss/circuit-ui/commit/349be7665e1e3dd079fbd61a7f42321ad6488138) Thanks [@roma-claudio](https://github.com/roma-claudio)! - Added an experimental PhoneNumberInput component to provide a straightforward way for users to type their phone number in an accurate, consistent format including the country code and subscriber number.
+
 ## 8.8.4
 
 ### Patch Changes
