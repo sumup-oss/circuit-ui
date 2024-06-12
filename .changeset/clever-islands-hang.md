@@ -2,4 +2,4 @@
 "@sumup/circuit-ui": patch
 ---
 
-feat: Update NotificationToast with position and className props
+feat: Update NotificationToast provider with position and className props
