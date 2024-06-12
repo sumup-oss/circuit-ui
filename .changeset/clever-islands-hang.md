@@ -2,4 +2,4 @@
 "@sumup/circuit-ui": patch
 ---
 
-feat: add toast positioning prop
+feat: Update NotificationToast with position and className props
