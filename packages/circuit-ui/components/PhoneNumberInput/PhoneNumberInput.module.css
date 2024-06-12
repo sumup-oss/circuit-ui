@@ -8,6 +8,7 @@
   }
 
   .country-code {
+    margin-bottom: 1px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
@@ -20,6 +21,7 @@
 
 @media (min-width: 480px) {
   .country-code {
+    margin-right: 1px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
@@ -27,6 +29,8 @@
   .country-code-input {
     /* Prefix padding + country code (max 4 chars) + padding */
     max-width: calc(var(--cui-spacings-exa) + 4ch + var(--cui-spacings-mega));
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
   .subscriber-number {
