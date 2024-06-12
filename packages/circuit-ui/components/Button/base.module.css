@@ -186,7 +186,7 @@
 
 .tertiary:hover {
   color: var(--cui-fg-accent-hovered);
-  background-color: var(--cui-bg-accent-hovered);
+  background-color: transparent;
   border-color: transparent;
 }
 
@@ -194,7 +194,7 @@
 .tertiary[aria-expanded="true"],
 .tertiary[aria-pressed="true"] {
   color: var(--cui-fg-accent-pressed);
-  background-color: var(--cui-bg-accent-pressed);
+  background-color: transparent;
   border-color: transparent;
 }
 
@@ -204,18 +204,19 @@
 
 .tertiary.destructive:hover {
   color: var(--cui-fg-danger-hovered);
-  background-color: var(--cui-bg-danger-hovered);
+  background-color: transparent;
 }
 
 .tertiary.destructive:active,
 .tertiary.destructive[aria-expanded="true"],
 .tertiary.destructive[aria-pressed="true"] {
   color: var(--cui-fg-danger-pressed);
-  background-color: var(--cui-bg-danger-pressed);
+  background-color: transparent;
 }
 
 .tertiary .label {
   text-decoration: underline;
+  text-decoration-color: currentColor;
   text-underline-position: under;
   transition: text-decoration-color var(--cui-transitions-default);
 }
@@ -225,14 +226,6 @@
     text-underline-position: auto;
     text-underline-offset: 0.25em;
   }
-}
-
-.tertiary:hover .label,
-.tertiary:active .label,
-.tertiary[aria-expanded="true"] .label,
-.tertiary[aria-pressed="true"] .label,
-.tertiary[aria-busy="true"] .label {
-  text-decoration-color: transparent;
 }
 
 .tertiary:disabled,
@@ -247,12 +240,6 @@
 .tertiary.destructive[disabled],
 .tertiary.destructive[aria-disabled="true"] {
   color: var(--cui-fg-danger-disabled);
-}
-
-.tertiary:disabled .label,
-.tertiary[disabled] .label,
-.tertiary[aria-disabled="true"] .label {
-  text-decoration-color: currentColor;
 }
 
 /* ButtonGroup */
@@ -340,9 +327,6 @@
 .base[aria-busy="true"] {
   position: relative;
   overflow: hidden;
-  color: var(--cui-fg-normal-disabled);
-  background-color: var(--cui-bg-highlight-disabled);
-  border-color: transparent;
 }
 
 .loader {
@@ -371,7 +355,7 @@
   display: block;
   width: var(--loader-diameter);
   height: var(--loader-diameter);
-  background-color: var(--cui-fg-normal);
+  background-color: currentColor;
   border-radius: var(--cui-border-radius-circle);
   animation-duration: 720ms; /* 80ms + 4 * 160ms */
   animation-play-state: paused;
