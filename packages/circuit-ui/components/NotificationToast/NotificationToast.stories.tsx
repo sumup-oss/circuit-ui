@@ -30,6 +30,12 @@ import {
 export default {
   title: 'Notification/NotificationToast',
   component: NotificationToast,
+  argTypes: {
+    position: {
+      options: ['top', 'top-right', 'bottom'],
+      control: { type: 'select' },
+    },
+  },
 };
 
 const TOASTS = [
@@ -91,23 +97,17 @@ export const Base = (toast: NotificationToastProps): JSX.Element => (
 
 Base.play = play;
 
-export const WithTopPosition = (toast: NotificationToastProps): JSX.Element => (
-  <ToastProvider position="top">
+export const Position = (toast: NotificationToastProps): JSX.Element => (
+  <ToastProvider {...toast}>
     <App toast={toast} />
   </ToastProvider>
 );
 
-WithTopPosition.play = play;
+Position.args = {
+  position: 'top',
+};
 
-export const WithTopRightPosition = (
-  toast: NotificationToastProps,
-): JSX.Element => (
-  <ToastProvider position="top-right">
-    <App toast={toast} />
-  </ToastProvider>
-);
-
-WithTopRightPosition.play = play;
+Position.play = play;
 
 const variants = ['info', 'success', 'warning', 'danger'] as const;
 

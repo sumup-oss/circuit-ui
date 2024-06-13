@@ -61,17 +61,9 @@ export function App({}) {
 
 ### Custom positioning
 
-Change the position of notifications by passing the `position` prop. Supported values are `bottom` (default), `top` and  `top-right`:
+Change the position of notifications by passing the `position` prop. Supported values are `bottom` (default), `top` and `top-right`:
 
-```tsx
-// _app.tsx for Next.js or App.js for CRA
-import { ToastProvider } from '@sumup/circuit-ui';
-
-export default function App() {
-  // all notifications will appear at the top of the screen
-  return <ToastProvider position="top">{/* Your content goes here... */}</ToastProvider>;
-}
-```
+<Story of={Stories.Position} />
 
 ## Accessibility
 
