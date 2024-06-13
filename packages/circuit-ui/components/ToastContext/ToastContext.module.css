@@ -19,16 +19,19 @@
 
 @media (min-width: 480px) {
   .base {
-    left: 50%;
     width: auto;
     padding: 0;
+  }
+
+  .top,
+  .bottom {
+    left: 50%;
     transform: translateX(-50%);
   }
 
   .top-right {
     right: var(--cui-spacings-giga);
-    left: inherit;
-    transform: translateX(0%);
+    left: initial;
   }
 }
 
