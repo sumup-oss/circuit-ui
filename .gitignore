@@ -18,6 +18,7 @@ circuit-ui-global.css
 docs/packages/
 docs/contributing/1-overview.mdx
 docs/contributing/*-contributing-*.mdx
+docs/introduction/*-changelog.mdx
 
 # Packages #
 

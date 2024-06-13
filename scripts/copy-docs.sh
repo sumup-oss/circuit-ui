@@ -18,5 +18,6 @@ done
 
 # CONTRIBUTING.md
 
+echo -e "import { Meta } from '../../.storybook/components';\n\n<Meta title=\"Introduction/Changelog\" />\n\n$(cat "./packages/circuit-ui/CHANGELOG.md")" | sed -r 's/@sumup\/circuit-ui/Changelog/g' | sed -r 's/ >=18/ {` >=18`}/g' | sed -r 's/ <18/ {` <18`}/g' > "./docs/introduction/5-changelog.mdx"
 echo -e "import { Meta } from '../../.storybook/components';\n\n<Meta title=\"Contributing/Overview\" />\n\n$(cat "./CONTRIBUTING.md")" > "./docs/contributing/1-overview.mdx"
 echo -e "import { Meta } from '../../.storybook/components';\n\n<Meta title=\"Contributing/Contributing Icons\" />\n\n$(cat "./packages/icons/CONTRIBUTING.md")" > "./docs/contributing/7-contributing-icons.mdx"
