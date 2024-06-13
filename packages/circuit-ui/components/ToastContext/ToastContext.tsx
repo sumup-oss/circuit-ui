@@ -52,7 +52,7 @@ export interface ToastProviderProps {
    */
   children: ReactNode;
   /**
-   * Choose the position of all toasts on screen. Default: 'bottom'.
+   * Choose the position of all toasts on screen (please consider sticking to default value if possible). Default: 'bottom'.
    */
   position?: 'bottom' | 'top' | 'top-right';
   /**
