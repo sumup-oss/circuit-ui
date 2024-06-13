@@ -96,7 +96,7 @@ button.prefix,
   position: absolute;
   top: 0;
   right: 0;
-  z-index: calc(var(--cui-z-index-input) + 1);
+  z-index: calc(var(--cui-z-index-input) + 3);
   display: block;
   width: var(--cui-spacings-exa);
   height: var(--cui-spacings-exa);
