@@ -51,7 +51,13 @@ export interface ToastProviderProps {
    * The ToastProvider should wrap your entire application.
    */
   children: ReactNode;
+  /**
+   * Choose the position of all toasts on screen. Default: 'bottom'.
+   */
   position?: 'bottom' | 'top' | 'top-right';
+  /**
+   * The class name to add to the toast wrapper element.
+   */
   className?: string;
 }
 
