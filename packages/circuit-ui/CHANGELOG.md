@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.9.1
+
+### Patch Changes
+
+- [#2578](https://github.com/sumup-oss/circuit-ui/pull/2578) [`3c026f3`](https://github.com/sumup-oss/circuit-ui/commit/3c026f334de98062f7dc85d661b99f8cd4eee00a) Thanks [@connor-baer](https://github.com/connor-baer)! - Balanced the widths of the PhoneNumberInput component's country code and subscriber number fields.
+
 ## 8.9.0
 
 ### Minor Changes
