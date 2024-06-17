@@ -59,6 +59,12 @@ export function App({}) {
 }
 ```
 
+### Custom positioning
+
+Change the position of notifications by passing the `position` prop. Supported values are `bottom` (default), `top` and `top-right`:
+
+<Story of={Stories.Position} />
+
 ## Accessibility
 
 By their nature as status messages, toasts are rendered inside a [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) using `role="status"` and `aria-live="polite"`.

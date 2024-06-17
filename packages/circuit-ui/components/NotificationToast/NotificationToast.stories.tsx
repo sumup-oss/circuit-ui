@@ -30,6 +30,12 @@ import {
 export default {
   title: 'Notification/NotificationToast',
   component: NotificationToast,
+  argTypes: {
+    position: {
+      options: ['top', 'top-right', 'bottom'],
+      control: { type: 'select' },
+    },
+  },
 };
 
 const TOASTS = [
@@ -55,29 +61,25 @@ const TOASTS = [
   },
 ] as NotificationToastProps[];
 
-export const Base = (toast: NotificationToastProps): JSX.Element => {
-  const App = () => {
-    const { setToast } = useNotificationToast();
-    const randomIndex = isChromatic()
-      ? 1
-      : Math.floor(Math.random() * TOASTS.length);
-    return (
-      <Button
-        type="button"
-        onClick={() => setToast({ ...toast, ...TOASTS[randomIndex] })}
-      >
-        Open toast
-      </Button>
-    );
-  };
+const App = ({ toast }: { toast: NotificationToastProps }) => {
+  const { setToast } = useNotificationToast();
+  const randomIndex = isChromatic()
+    ? 1
+    : Math.floor(Math.random() * TOASTS.length);
   return (
-    <ToastProvider>
-      <App />
-    </ToastProvider>
+    <Button
+      type="button"
+      onClick={() => setToast({ ...toast, ...TOASTS[randomIndex] })}
+    >
+      Open toast
+    </Button>
   );
 };
-
-Base.play = async ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
+const play = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLCanvasElement;
+}) => {
   const canvas = within(canvasElement);
   const button = canvas.getByRole('button', {
     name: 'Open toast',
@@ -86,6 +88,26 @@ Base.play = async ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
   await userEvent.click(button);
   await screen.findByRole('status');
 };
+
+export const Base = (toast: NotificationToastProps): JSX.Element => (
+  <ToastProvider>
+    <App toast={toast} />
+  </ToastProvider>
+);
+
+Base.play = play;
+
+export const Position = (toast: NotificationToastProps): JSX.Element => (
+  <ToastProvider {...toast}>
+    <App toast={toast} />
+  </ToastProvider>
+);
+
+Position.args = {
+  position: 'top',
+};
+
+Position.play = play;
 
 const variants = ['info', 'success', 'warning', 'danger'] as const;
 
