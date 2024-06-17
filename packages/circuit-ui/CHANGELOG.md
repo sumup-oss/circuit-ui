@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.10.0
+
+### Minor Changes
+
+- [#2577](https://github.com/sumup-oss/circuit-ui/pull/2577) [`c3dc064`](https://github.com/sumup-oss/circuit-ui/commit/c3dc0649dd721c7c175fdf9bc484d677838a7f96) Thanks [@voronianski](https://github.com/voronianski)! - Added new `position` and `className` props to the ToastProvider component.
+
 ## 8.9.1
 
 ### Patch Changes
