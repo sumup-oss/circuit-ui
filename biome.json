@@ -1,5 +1,24 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.8.2/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80,
+    "attributePosition": "auto",
+    "ignore": [
+      "**/dist/**",
+      "**/build/**",
+      "packages/cna-template/template/.next/**"
+    ]
+  },
   "organizeImports": { "enabled": true },
   "linter": {
     "enabled": true,
@@ -221,7 +240,24 @@
       "packages/circuit-ui/vendor/**"
     ]
   },
+  "javascript": {
+    "formatter": {
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "preserve",
+      "trailingCommas": "all",
+      "semicolons": "always",
+      "arrowParentheses": "always",
+      "bracketSpacing": true,
+      "bracketSameLine": false,
+      "quoteStyle": "single",
+      "attributePosition": "auto"
+    }
+  },
   "overrides": [
+    {
+      "include": ["*.css"],
+      "javascript": { "formatter": { "quoteStyle": "double" } }
+    },
     {
       "include": ["**/*.{ts,tsx}"],
       "javascript": {
