@@ -2,10 +2,7 @@
   "name": "circuit-ui-web",
   "description": "The web implementation of Circuit UI, SumUp's design system",
   "private": true,
-  "workspaces": [
-    "packages/*",
-    "packages/cna-template/template"
-  ],
+  "workspaces": ["packages/*", "packages/cna-template/template"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sumup-oss/circuit-ui.git"

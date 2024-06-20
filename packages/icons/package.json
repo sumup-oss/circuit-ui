@@ -11,11 +11,7 @@
     "./*.svg": "./web/v2/*.svg"
   },
   "sideEffects": false,
-  "files": [
-    "dist",
-    "web",
-    "manifest.json"
-  ],
+  "files": ["dist", "web", "manifest.json"],
   "repository": {
     "type": "git",
     "directory": "packages/icons",
