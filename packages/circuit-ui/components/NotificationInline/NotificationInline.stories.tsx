@@ -56,7 +56,7 @@ Variants.args = {
   body: 'This is an inline message',
 } as NotificationInlineProps;
 
-export const Dismissable = (args: NotificationInlineProps): JSX.Element => {
+export const Dismissable = (args: NotificationInlineProps) => {
   const [isVisible, setVisible] = useState(args.isVisible);
   return (
     <NotificationInline
@@ -73,9 +73,9 @@ Dismissable.args = {
   variant: 'info',
 } as NotificationInlineProps;
 
-export const WithHeadlineAndAction = (
-  args: NotificationInlineProps,
-): JSX.Element => <NotificationInline {...args} isVisible={args.isVisible} />;
+export const WithHeadlineAndAction = (args: NotificationInlineProps) => (
+  <NotificationInline {...args} isVisible={args.isVisible} />
+);
 
 WithHeadlineAndAction.args = {
   headline: 'Information',

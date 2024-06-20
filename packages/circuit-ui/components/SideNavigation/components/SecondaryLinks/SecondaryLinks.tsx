@@ -76,7 +76,7 @@ function SecondaryGroup({
   label,
   secondaryLinks,
   focusProps,
-}: SecondaryGroupProps & { focusProps: FocusProps }): JSX.Element {
+}: SecondaryGroupProps & { focusProps: FocusProps }) {
   return (
     <li>
       {label && (

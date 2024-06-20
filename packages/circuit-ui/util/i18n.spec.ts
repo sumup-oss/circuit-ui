@@ -13,7 +13,14 @@
  * limitations under the License.
  */
 
-import { describe, it, vi, type MockInstance } from 'vitest';
+import {
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi,
+  type MockInstance,
+} from 'vitest';
 
 import { DEFAULT_LOCALE, getBrowserLocale } from './i18n.js';
 

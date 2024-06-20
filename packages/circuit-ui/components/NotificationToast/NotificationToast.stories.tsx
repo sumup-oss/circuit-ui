@@ -89,7 +89,7 @@ const play = async ({
   await screen.findByRole('status');
 };
 
-export const Base = (toast: NotificationToastProps): JSX.Element => (
+export const Base = (toast: NotificationToastProps) => (
   <ToastProvider>
     <App toast={toast} />
   </ToastProvider>
@@ -97,7 +97,7 @@ export const Base = (toast: NotificationToastProps): JSX.Element => (
 
 Base.play = play;
 
-export const Position = (toast: NotificationToastProps): JSX.Element => (
+export const Position = (toast: NotificationToastProps) => (
   <ToastProvider {...toast}>
     <App toast={toast} />
   </ToastProvider>

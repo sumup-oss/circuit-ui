@@ -42,7 +42,7 @@ export default {
   ] as Decorator[],
 };
 
-export const Base = (modal: NotificationModalProps): JSX.Element => {
+export const Base = (modal: NotificationModalProps) => {
   const ComponentWithModal = () => {
     const { setModal } = useNotificationModal();
 

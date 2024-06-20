@@ -54,7 +54,7 @@ export function DesktopNavigation({
   primaryLinks,
   primaryNavigationLabel,
   secondaryNavigationLabel,
-}: DesktopNavigationProps): JSX.Element {
+}: DesktopNavigationProps) {
   const focusProps = useFocusList();
 
   const activePrimaryLink = primaryLinks.find((link) => link.isActive);

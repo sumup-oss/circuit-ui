@@ -55,7 +55,7 @@ function PopoverWrapper({ children }: { children: ReactNode }) {
   return <div style={{ width: 200, height: 250 }}>{children}</div>;
 }
 
-export const Base = (args: PopoverProps): JSX.Element => {
+export const Base = (args: PopoverProps) => {
   const [isOpen, setOpen] = useState(true);
 
   return (
@@ -78,7 +78,7 @@ Base.args = {
   actions,
 };
 
-export const Offset = (args: PopoverProps): JSX.Element => {
+export const Offset = (args: PopoverProps) => {
   const [isOpen, setOpen] = useState(true);
 
   return (

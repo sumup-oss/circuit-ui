@@ -191,7 +191,7 @@ export function SidePanelProvider({
               },
             });
           });
-        } catch (error) {
+        } catch (_error) {
           break;
         }
       }

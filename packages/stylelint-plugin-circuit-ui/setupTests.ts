@@ -15,4 +15,4 @@
 
 import { getTestRule } from 'jest-preset-stylelint';
 
-global.testRule = getTestRule();
+export const testRule = getTestRule();

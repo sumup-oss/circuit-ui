@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import type React from 'react';
 import type { Props as ReactModalProps } from 'react-modal';
 
 import type { ClickEvent } from '../../types/events.js';
@@ -32,4 +33,4 @@ export interface BaseModalProps
 
 export type ModalComponent<TProps extends BaseModalProps = BaseModalProps> = ((
   props: TProps,
-) => JSX.Element) & { TRANSITION_DURATION: number };
+) => React.JSX.Element) & { TRANSITION_DURATION: number };

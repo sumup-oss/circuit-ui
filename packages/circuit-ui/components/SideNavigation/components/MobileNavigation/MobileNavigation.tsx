@@ -86,7 +86,7 @@ function Group({
   ...props
 }: Require<PrimaryLinkProps, 'secondaryGroups'> & {
   onClose: BaseModalProps['onClose'];
-}): JSX.Element {
+}) {
   const { getButtonProps, getContentProps } =
     useCollapsible<HTMLUListElement>();
 

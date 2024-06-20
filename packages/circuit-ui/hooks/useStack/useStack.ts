@@ -99,7 +99,7 @@ export function useStack<T extends StackItem>(
         (itemToRemove.transition as Transition).duration,
       );
     });
-  }, [state, dispatch]);
+  }, [state]);
 
   return [state, dispatch];
 }

@@ -38,7 +38,7 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
-  async viteFinal(config, { configType }) {
+  viteFinal(config) {
     return mergeConfig(config, {
       define: {
         'process.env.UNSAFE_DISABLE_ELEMENT_ERRORS': false,

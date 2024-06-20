@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { describe, it } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
 import {
   mapCountryCodeOptions,

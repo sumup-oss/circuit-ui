@@ -36,7 +36,7 @@ export function toPlainDate(date?: string): Temporal.PlainDate | null {
   }
   try {
     return Temporal.PlainDate.from(date);
-  } catch (e) {
+  } catch (_error) {
     return null;
   }
 }

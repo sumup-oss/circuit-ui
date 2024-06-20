@@ -37,7 +37,7 @@ export const PageList: FC<PageListProps> = ({
   currentPage,
   className,
   ...props
-}: PageListProps): JSX.Element => (
+}: PageListProps) => (
   // eslint-disable-next-line jsx-a11y/no-redundant-roles
   <ol role="list" className={clsx(classes.base, className)} {...props}>
     {pages.map((page) => {
