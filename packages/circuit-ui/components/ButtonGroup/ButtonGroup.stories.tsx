@@ -35,9 +35,7 @@ export default {
   },
 };
 
-export const Base = (args: ButtonGroupProps): JSX.Element => (
-  <ButtonGroup {...args} />
-);
+export const Base = (args: ButtonGroupProps) => <ButtonGroup {...args} />;
 
 Base.args = {
   actions: {
@@ -52,7 +50,7 @@ Base.args = {
   },
 };
 
-export const Alignment = (args: ButtonGroupProps): JSX.Element => (
+export const Alignment = (args: ButtonGroupProps) => (
   <Stack vertical>
     <ButtonGroup {...args} align="center" />
     <ButtonGroup {...args} align="left" />

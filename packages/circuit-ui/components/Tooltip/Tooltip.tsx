@@ -143,7 +143,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
           if (event.currentTarget.matches(':focus-visible')) {
             handleOpen();
           }
-        } catch (error) {
+        } catch (_error) {
           handleOpen();
         }
       },

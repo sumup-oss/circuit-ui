@@ -226,7 +226,7 @@ class Table extends Component<TableProps, TableState> {
     this.setState({ scrollTop: e.currentTarget.scrollTop });
   };
 
-  render(): JSX.Element {
+  render() {
     const {
       rowHeaders = true,
       headers = [],

@@ -278,7 +278,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
         Object.keys(modifiers).forEach((key) => {
           try {
             Temporal.PlainDate.from(key);
-          } catch (error) {
+          } catch (_error) {
             throw new CircuitError(
               'Calendar',
               `The "${key}" key of the \`modifiers\` prop is not a valid ISO 8601 date string.`,

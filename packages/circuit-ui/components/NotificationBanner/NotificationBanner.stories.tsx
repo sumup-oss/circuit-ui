@@ -26,7 +26,7 @@ export default {
   component: NotificationBanner,
 };
 
-export const Base = (args: NotificationBannerProps): JSX.Element => (
+export const Base = (args: NotificationBannerProps) => (
   <NotificationBanner {...args} />
 );
 
@@ -45,7 +45,7 @@ Base.args = {
   },
 };
 
-export const Dismissable = (args: NotificationBannerProps): JSX.Element => {
+export const Dismissable = (args: NotificationBannerProps) => {
   const [isVisible, setVisible] = useState(args.isVisible);
   return (
     <NotificationBanner

@@ -44,7 +44,7 @@ export function PrimaryLink({
   secondaryGroups,
   className,
   ...props
-}: PrimaryLinkProps): JSX.Element {
+}: PrimaryLinkProps) {
   const { Link } = useComponents();
 
   const Element = props.href ? (Link as AsPropType) : 'button';

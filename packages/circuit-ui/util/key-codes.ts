@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import React from 'react';
+
 export const isEnter = (event: KeyboardEvent | React.KeyboardEvent): boolean =>
   event.key === 'Enter';
 

@@ -110,7 +110,7 @@ export const ImageInput = ({
   style,
   'aria-describedby': descriptionId,
   ...props
-}: ImageInputProps): JSX.Element => {
+}: ImageInputProps) => {
   if (
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test'

@@ -20,8 +20,6 @@ import { renderHook } from '../../util/test-utils.js';
 import { usePrevious } from './usePrevious.js';
 
 describe('usePrevious', () => {
-  afterEach(() => {});
-
   it('should be undefined on first render', () => {
     const { result } = renderHook((value = 'initialValue') =>
       usePrevious(value),

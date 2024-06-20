@@ -20,8 +20,6 @@ import { renderHook } from '../../util/test-utils.js';
 import { useLatest } from './useLatest.js';
 
 describe('useLatest', () => {
-  afterEach(() => {});
-
   it('should store the latest value in a ref object', () => {
     const value = 'value';
     const { result } = renderHook(() => useLatest(value));

@@ -21,6 +21,7 @@ export type TabPanelProps = HTMLAttributes<HTMLDivElement>;
  * TabPanel wrapping content being showed by tabs
  */
 export const TabPanel = forwardRef<HTMLDivElement, TabPanelProps>(
+  // biome-ignore lint/a11y/noNoninteractiveTabindex: The tabIndex is applicable for role="tabpanel"
   (props, ref) => <div ref={ref} {...props} role="tabpanel" tabIndex={0} />,
 );
 

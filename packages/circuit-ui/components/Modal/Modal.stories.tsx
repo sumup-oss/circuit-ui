@@ -74,7 +74,7 @@ const openModal = async ({
   await screen.findByRole('dialog');
 };
 
-export const Base = (modal: ModalProps): JSX.Element => {
+export const Base = (modal: ModalProps) => {
   const ComponentWithModal = () => {
     const { setModal } = useModal();
 
@@ -98,7 +98,7 @@ Base.args = {
 };
 Base.play = openModal;
 
-export const Variants = (modal: ModalProps): JSX.Element => {
+export const Variants = (modal: ModalProps) => {
   const ComponentWithModal = ({ variant }: Pick<ModalProps, 'variant'>) => {
     const { setModal } = useModal();
 
@@ -126,7 +126,7 @@ Variants.parameters = {
   chromatic: { disableSnapshot: true },
 };
 
-export const PreventClose = (modal: ModalProps): JSX.Element => {
+export const PreventClose = (modal: ModalProps) => {
   const ComponentWithModal = () => {
     const { setModal } = useModal();
     return (
@@ -164,7 +164,7 @@ PreventClose.args = {
 };
 PreventClose.play = openModal;
 
-export const InitiallyOpen = (modal: ModalProps): JSX.Element => {
+export const InitiallyOpen = (modal: ModalProps) => {
   const initialModal = { id: 'initial', component: Modal, ...modal };
   return (
     <ModalProvider initialState={[initialModal]}>
@@ -179,7 +179,7 @@ InitiallyOpen.args = {
   closeButtonLabel: 'Close modal',
 };
 
-export const CustomStyles = (modal: ModalProps): JSX.Element => {
+export const CustomStyles = (modal: ModalProps) => {
   const ComponentWithModal = () => {
     const { setModal } = useModal();
     return (

@@ -35,7 +35,7 @@ export interface PortalProps {
 export function Portal({
   children,
   getContainer = () => document.body,
-}: PortalProps): JSX.Element | null {
+}: PortalProps) {
   const [container, setContainer] = useState<Element | null>(null);
 
   // `getContainer` likely uses DOM APIs which would throw during server-side

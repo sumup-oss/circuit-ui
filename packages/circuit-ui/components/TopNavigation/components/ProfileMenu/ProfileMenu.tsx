@@ -110,7 +110,7 @@ export function ProfileMenu({
   actions,
   onToggle,
   className,
-}: ProfileMenuProps): JSX.Element {
+}: ProfileMenuProps) {
   const [isOpen, setOpen] = useState(false);
   const offset = { mainAxis: 8, crossAxis: -16 };
 
@@ -121,6 +121,7 @@ export function ProfileMenu({
   }, [onToggle, isOpen]);
 
   return (
+    // biome-ignore lint/a11y/useValidAriaRole: This removes the default `menu` role of the Popover.
     <Popover
       isOpen={isOpen}
       onToggle={setOpen}

@@ -81,7 +81,7 @@ function parseFileName(fileName: string) {
   try {
     const [, name, size] = fileName.match(/(.+)_(\d+)\.svg$/);
     return { name, size };
-  } catch (error) {
+  } catch (_error) {
     throw new Error(`Failed to parse the '${fileName}' file name.`);
   }
 }

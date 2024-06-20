@@ -120,7 +120,7 @@ export const NotificationInline = forwardRef<
       ...props
     },
     ref,
-  ): JSX.Element => {
+  ) => {
     const contentElement = useRef<HTMLDivElement>(null);
     const [isOpen, setOpen] = useState(isVisible);
     const [height, setHeight] = useState(getHeight(contentElement));

@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import type React from 'react';
+
 import { CircuitError } from '../../util/errors.js';
 import { isFunction } from '../../util/type-check.js';
 
@@ -23,10 +25,10 @@ export interface StepProps extends StepOptions {
   /**
    * Function called with an object containing current state and prop getters.
    */
-  children: (stateAndHelpers: StateAndHelpers) => JSX.Element;
+  children: (stateAndHelpers: StateAndHelpers) => React.JSX.Element;
 }
 
-export default function Step({ children, ...props }: StepProps): JSX.Element {
+export default function Step({ children, ...props }: StepProps) {
   const stateAndHelpers = useStep(props);
 
   if (!isFunction(children)) {

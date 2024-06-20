@@ -15,7 +15,7 @@
 
 'use client';
 
-import {
+import React, {
   Fragment,
   useCallback,
   useEffect,
@@ -88,7 +88,7 @@ export const PopoverItem = ({
   destructive,
   className,
   ...props
-}: PopoverItemProps): JSX.Element => {
+}: PopoverItemProps) => {
   const { Link } = useComponents();
 
   const Element = props.href ? (Link as EmotionAsPropType) : 'button';
@@ -163,7 +163,7 @@ export interface PopoverProps {
     'aria-haspopup': boolean;
     'aria-controls': string;
     'aria-expanded': boolean;
-  }) => JSX.Element;
+  }) => React.JSX.Element;
   /**
    * Remove the [`menu` role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/roles/menu_role)
    * when its semantics aren't appropriate for the use case, for example when
@@ -196,7 +196,7 @@ export const Popover = ({
   className,
   role = 'menu',
   ...props
-}: PopoverProps): JSX.Element | null => {
+}: PopoverProps) => {
   const zIndex = useStackContext();
   const triggerKey = useRef<TriggerKey | null>(null);
   const menuEl = useRef<HTMLDivElement>(null);

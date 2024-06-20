@@ -45,6 +45,7 @@ export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
  */
 export const Image = forwardRef<HTMLImageElement, ImageProps>(
   ({ className, alt, ...props }, ref) => (
+    // biome-ignore lint/a11y/useAltText: The `alt` prop is marked as required.
     <img
       alt={alt}
       ref={ref}
