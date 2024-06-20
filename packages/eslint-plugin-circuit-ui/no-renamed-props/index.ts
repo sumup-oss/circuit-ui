@@ -428,11 +428,14 @@ export const noRenamedProps = createRule({
       });
     }
 
-    const components = configs.reduce((acc, config) => {
-      acc[config.component] = acc[config.component] || [];
-      acc[config.component].push(config);
-      return acc;
-    }, {} as Record<string, Config[]>);
+    const components = configs.reduce(
+      (acc, config) => {
+        acc[config.component] = acc[config.component] || [];
+        acc[config.component].push(config);
+        return acc;
+      },
+      {} as Record<string, Config[]>,
+    );
 
     const componentVisitors = Object.entries(components).reduce(
       (visitors, [component, configs]) => {
@@ -459,14 +462,17 @@ export const noRenamedProps = createRule({
       {} as TSESLint.RuleListener,
     );
 
-    const hooks = configs.reduce((acc, config) => {
-      if (!config.hook) {
+    const hooks = configs.reduce(
+      (acc, config) => {
+        if (!config.hook) {
+          return acc;
+        }
+        acc[config.hook] = acc[config.hook] || [];
+        acc[config.hook].push(config);
         return acc;
-      }
-      acc[config.hook] = acc[config.hook] || [];
-      acc[config.hook].push(config);
-      return acc;
-    }, {} as Record<string, Config[]>);
+      },
+      {} as Record<string, Config[]>,
+    );
 
     const hookVisitors = Object.entries(hooks).reduce(
       (visitors, [hook, configs]) => {
