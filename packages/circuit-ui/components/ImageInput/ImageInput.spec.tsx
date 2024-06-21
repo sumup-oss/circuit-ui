@@ -93,7 +93,7 @@ describe('ImageInput', () => {
       await userEvent.upload(inputEl, file);
 
       await waitFor(() => {
-        expect(inputEl.files && inputEl.files[0]).toEqual(file);
+        expect(inputEl.files?.[0]).toEqual(file);
       });
 
       expect(inputEl.files).toHaveLength(1);

@@ -1,0 +1,155 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.8.2/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "ignore": [
+      "**/dist/**",
+      "**/build/**",
+      "packages/cna-template/template/.next/**"
+    ]
+  },
+  "organizeImports": { "enabled": false },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "a11y": {
+        "noSvgWithoutTitle": "warn",
+        "useButtonType": "off"
+      },
+      "complexity": {
+        "noForEach": "off"
+      },
+      "correctness": {
+        "noConstantMathMinMaxClamp": "error",
+        "noNewSymbol": "error",
+        "noUndeclaredVariables": "error",
+        "noUnusedImports": "error",
+        "noUnusedPrivateClassMembers": "error",
+        "noUnusedVariables": "error",
+        "useArrayLiterals": "error",
+        "useExhaustiveDependencies": "warn",
+        "useHookAtTopLevel": "error"
+      },
+      "performance": {
+        "noReExportAll": "error"
+      },
+      "style": {
+        "noDefaultExport": "off",
+        "noNamespace": "error",
+        "noNegationElse": "error",
+        "noShoutyConstants": "error",
+        "useBlockStatements": "error",
+        "useCollapsedElseIf": "error",
+        "useConsistentArrayType": "error",
+        "useEnumInitializers": "warn",
+        "useFilenamingConvention": {
+          "level": "error",
+          "options": {
+            "requireAscii": true,
+            "filenameCases": ["camelCase", "kebab-case", "PascalCase"]
+          }
+        },
+        "useForOf": "error",
+        "useShorthandAssign": "error",
+        "useShorthandArrayType": "error",
+        "useSingleCaseStatement": "error"
+      },
+      "suspicious": {
+        "noArrayIndexKey": "warn",
+        "noAssignInExpressions": "warn",
+        "noConsoleLog": "error",
+        "noExplicitAny": "off",
+        "noSkippedTests": "error",
+        "useAwait": "error"
+      }
+    },
+    "ignore": [
+      "**/build/**",
+      "**/dist/**",
+      "**/public/**",
+      "**/.next/**",
+      "**/.out/**",
+      "**/__coverage__/**",
+      "**/__reports__/**",
+      "**/*.config.*",
+      "**/package.json",
+      "**/package-lock.json",
+      "**/*rc.*",
+      "./scripts/**",
+      "**/*.astro",
+      "packages/cna-template/template/**",
+      "packages/astro-template/src/env.d.ts",
+      "packages/circuit-ui/vendor/**"
+    ]
+  },
+  "javascript": {
+    "formatter": {
+      "quoteProperties": "preserve",
+      "quoteStyle": "single"
+    }
+  },
+  "overrides": [
+    {
+      "include": ["*.css"],
+      "css": {
+        "formatter": {
+          "enabled": true,
+          "indentStyle": "space",
+          "quoteStyle": "double"
+        },
+        "linter": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "include": ["*.modele.css"],
+      "css": { "parser": { "cssModules": true } }
+    },
+    {
+      "include": ["packages/eslint-plugin-circuit-ui/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noNonNullAssertion": "off"
+          }
+        }
+      }
+    },
+    {
+      "include": ["**/*.{ts,tsx}"],
+      "javascript": {
+        "globals": ["React", "JSX"]
+      },
+      "linter": {
+        "rules": {
+          "complexity": { "noVoid": "error" },
+          "correctness": {
+            "noInvalidUseBeforeDeclaration": "error",
+            "noUnusedVariables": "error"
+          },
+          "style": { "useBlockStatements": "error" }
+        }
+      }
+    },
+    {
+      "include": ["**/*spec.*", "**/setupTests.*", "**/test-utils.*"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noExplicitAny": "off",
+            "noGlobalAssign": "off"
+          }
+        }
+      }
+    }
+  ]
+}

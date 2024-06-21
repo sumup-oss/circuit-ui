@@ -25,7 +25,7 @@ import { isString } from '../../../util/type-check.js';
 import type { GridKey, BreakpointOptions, GridValue } from './types.js';
 
 export function normalizeToNumber(value: string | number): number {
-  return isString(value) ? parseInt(value, 10) : value;
+  return isString(value) ? Number.parseInt(value, 10) : value;
 }
 
 export type CreateStylesFn<Option, ReturnValue> = (

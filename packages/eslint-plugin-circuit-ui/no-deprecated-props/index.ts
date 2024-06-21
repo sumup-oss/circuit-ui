@@ -13,7 +13,11 @@
  * limitations under the License.
  */
 
-import { ESLintUtils, TSESLint, TSESTree } from '@typescript-eslint/utils';
+import {
+  ESLintUtils,
+  type TSESLint,
+  type TSESTree,
+} from '@typescript-eslint/utils';
 
 /* eslint-disable */
 

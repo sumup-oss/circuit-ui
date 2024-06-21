@@ -13,7 +13,11 @@
  * limitations under the License.
  */
 
-import { ESLintUtils, TSESTree, TSESLint } from '@typescript-eslint/utils';
+import {
+  ESLintUtils,
+  type TSESTree,
+  type TSESLint,
+} from '@typescript-eslint/utils';
 
 import {
   filterWhitespaceChildren,
