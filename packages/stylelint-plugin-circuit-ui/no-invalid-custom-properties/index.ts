@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import stylelint, { Rule } from 'stylelint';
+import stylelint, { type Rule } from 'stylelint';
 import { schema } from '@sumup/design-tokens';
 
 const PREFIX = '--cui-';

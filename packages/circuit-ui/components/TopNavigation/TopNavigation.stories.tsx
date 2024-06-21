@@ -22,6 +22,7 @@ import { SideNavigation } from '../SideNavigation/index.js';
 import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories.js';
 import { ModalProvider } from '../ModalContext/index.js';
 import Body from '../Body/index.js';
+import type { HamburgerProps } from '../Hamburger/Hamburger.js';
 
 import { TopNavigation, type TopNavigationProps } from './TopNavigation.js';
 
@@ -118,7 +119,7 @@ Base.args = baseArgs;
 export const WithSideNavigation = (args: TopNavigationProps) => {
   const [isSideNavigationOpen, setSideNavigationOpen] = useState(false);
   const hamburger = {
-    ...args.hamburger!,
+    ...(args.hamburger as HamburgerProps),
     isActive: isSideNavigationOpen,
     onClick: () => setSideNavigationOpen((prev) => !prev),
   };

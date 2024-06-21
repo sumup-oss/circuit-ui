@@ -113,6 +113,7 @@ export const IconButton: ForwardRefExoticComponent<
         if (Icon) {
           return <Icon {...iconProps} />;
         }
+        // biome-ignore lint/style/noNonNullAssertion: We check for the existence of children above
         const child = Children.only(children)!;
         // TODO: Remove with the next major
         if (isString(child)) {

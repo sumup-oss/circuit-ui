@@ -15,7 +15,8 @@
 
 'use client';
 
-import React, {
+import type React from 'react';
+import {
   Fragment,
   useCallback,
   useEffect,
@@ -296,8 +297,8 @@ export const Popover = ({
     if (!prevOpen && isOpen) {
       const element = (
         triggerKey.current && triggerKey.current === 'ArrowUp'
-          ? menuEl.current && menuEl.current.lastElementChild
-          : menuEl.current && menuEl.current.firstElementChild
+          ? menuEl.current?.lastElementChild
+          : menuEl.current?.firstElementChild
       ) as HTMLElement;
       if (element) {
         element.focus();
@@ -306,8 +307,8 @@ export const Popover = ({
 
     // Focus the reference element after closing
     if (prevOpen && !isOpen) {
-      const triggerButton = (refs.reference.current &&
-        refs.reference.current.firstElementChild) as HTMLElement;
+      const triggerButton = refs.reference.current
+        ?.firstElementChild as HTMLElement;
       triggerButton.focus();
     }
 

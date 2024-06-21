@@ -53,7 +53,7 @@ export const noInvalidCustomProperties = createRule({
       Program(node) {
         sourceCode.getLines().forEach((line, index) => {
           const regex = new RegExp(REGEX_STRING, 'g');
-          let match;
+          let match: RegExpExecArray | null;
           // eslint-disable-next-line no-cond-assign
           while ((match = regex.exec(line)) !== null) {
             context.report({

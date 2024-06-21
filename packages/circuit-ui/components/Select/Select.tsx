@@ -191,12 +191,11 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
               </option>
             )}
             {children ||
-              (options &&
-                options.map(({ label: optionLabel, ...rest }) => (
-                  <option key={rest.value} {...rest}>
-                    {optionLabel}
-                  </option>
-                )))}
+              options?.map(({ label: optionLabel, ...rest }) => (
+                <option key={rest.value} {...rest}>
+                  {optionLabel}
+                </option>
+              ))}
           </select>
           <ChevronDown className={classes.icon} size="16" aria-hidden="true" />
         </div>

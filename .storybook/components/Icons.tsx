@@ -14,10 +14,10 @@
  */
 
 import {
+  useState,
   type Dispatch,
   type SetStateAction,
-  useState,
-  ChangeEvent,
+  type ChangeEvent,
 } from 'react';
 import { Unstyled } from '@storybook/addon-docs';
 import * as iconComponents from '@sumup/icons';

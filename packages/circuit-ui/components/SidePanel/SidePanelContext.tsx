@@ -81,7 +81,7 @@ export type UpdateSidePanel = (
 export type RemoveSidePanel = (
   group: SidePanelContextProps['group'],
   isInstantClose?: boolean,
-) => Promise<void | void[]>;
+) => Promise<void>;
 
 type SidePanelContextItem = SidePanelContextProps &
   Pick<SidePanelProps, 'isInstantOpen'> &

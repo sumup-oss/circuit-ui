@@ -49,7 +49,7 @@ export const PageSelect: FunctionComponent<PageSelectProps> = ({
   const pageOptions = pages.map((value) => ({ value, label: `${value}` }));
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLSelectElement>) => {
-      onChange(parseInt(event.target.value, 10));
+      onChange(Number.parseInt(event.target.value, 10));
     },
     [onChange],
   );

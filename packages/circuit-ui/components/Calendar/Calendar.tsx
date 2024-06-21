@@ -427,15 +427,15 @@ function Month({
         </thead>
 
         <tbody>
-          {weeks.map((week, i) => (
-            <tr key={i}>
+          {weeks.map((week) => (
+            <tr key={week.toString()}>
               {week.map((date) => {
                 const isoDate = date.toString();
                 const descriptionId = `${descriptionIds}-${isoDate}`;
                 const isOutsideMonth = !yearMonth.equals(date);
 
                 if (isOutsideMonth) {
-                  return <td key={isoDate}></td>;
+                  return <td key={isoDate} />;
                 }
 
                 const { disabled, description } = modifiers[isoDate] || {};

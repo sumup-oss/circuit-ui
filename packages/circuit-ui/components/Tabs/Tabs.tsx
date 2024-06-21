@@ -15,7 +15,8 @@
 
 'use client';
 
-import React, {
+import type React from 'react';
+import {
   createRef,
   Component,
   Fragment,

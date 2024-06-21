@@ -14,7 +14,8 @@
  */
 
 import { describe, expect, test, vi } from 'vitest';
-import React, { useRef } from 'react';
+import type React from 'react';
+import { useRef } from 'react';
 
 import { render, renderHook } from './test-utils.js';
 import { applyMultipleRefs } from './refs.js';
