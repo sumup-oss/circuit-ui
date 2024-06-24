@@ -6,7 +6,10 @@
   "module": "dist/es/index.js",
   "types": "dist/es/index.d.ts",
   "sideEffects": false,
-  "files": ["dist", "*.css"],
+  "files": [
+    "dist",
+    "*.css"
+  ],
   "repository": {
     "type": "git",
     "directory": "packages/design-tokens",
