@@ -59,12 +59,10 @@
       "**/.out/**",
       "**/__coverage__/**",
       "**/__reports__/**",
-      "**/*.config.*",
-      "**/package-lock.json",
-      "**/*rc.*",
-      // "./scripts/**",
       "**/*.astro",
       "packages/circuit-ui/vendor/**",
+      // Configuration files that use conflicting formatting
+      "**/package-lock.json",
       // The templates have their own linting setup
       "packages/astro-template/**",
       "packages/cna-template/template/**",
@@ -111,31 +109,6 @@
     },
     {
       "include": [
-        "**/*.{ts,tsx}"
-      ],
-      "javascript": {
-        "globals": [
-          "React",
-          "JSX"
-        ]
-      },
-      "linter": {
-        "rules": {
-          "complexity": {
-            "noVoid": "error"
-          },
-          "correctness": {
-            "noInvalidUseBeforeDeclaration": "error",
-            "noUnusedVariables": "error"
-          },
-          "style": {
-            "useBlockStatements": "error"
-          }
-        }
-      }
-    },
-    {
-      "include": [
         "**/*spec.*",
         "**/setupTests.*",
         "**/test-utils.*"
@@ -143,7 +116,6 @@
       "linter": {
         "rules": {
           "suspicious": {
-            "noExplicitAny": "off",
             "noGlobalAssign": "off"
           }
         }

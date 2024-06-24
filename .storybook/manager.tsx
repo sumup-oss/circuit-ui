@@ -36,7 +36,8 @@ addons.register('version-switcher', () => {
   addons.add(VERSIONS_PARAM_KEY, {
     type: types.TOOL,
     title: 'Versions',
-    match: ({ viewMode }) => !!viewMode?.match(/^(story|docs)$/),
+    match: ({ viewMode }) =>
+      viewMode ? /^(story|docs)$/.test(viewMode) : false,
     render: Versions,
   });
 });
