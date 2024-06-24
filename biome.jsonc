@@ -85,9 +85,11 @@
       "**/*rc.*",
       "./scripts/**",
       "**/*.astro",
+      "packages/circuit-ui/vendor/**",
+      // The templates have their own linting setup
+      "packages/astro-template/**",
       "packages/cna-template/template/**",
-      "packages/astro-template/src/env.d.ts",
-      "packages/circuit-ui/vendor/**"
+      "packages/remix-template/**"
     ]
   },
   "javascript": {
