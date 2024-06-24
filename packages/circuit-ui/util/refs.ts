@@ -25,7 +25,6 @@ export function applyMultipleRefs<T extends Element>(
       if (typeof ref === 'function') {
         ref(instance);
       } else if (ref) {
-        // eslint-disable-next-line no-param-reassign
         ref.current = instance;
       }
     });

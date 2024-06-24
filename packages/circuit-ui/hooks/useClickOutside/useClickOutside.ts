@@ -53,6 +53,5 @@ export function useClickOutside(
     // The `refs` array is recreated on each render, but the ref objects inside
     // don't necessarily change. Spreading the array allows React to compare the
     // ref objects themselves.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [...refs, callback, active]);
 }
