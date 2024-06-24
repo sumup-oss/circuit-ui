@@ -1,77 +1,57 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.8.2/schema.json",
-  "vcs": {
-    "enabled": true,
-    "clientKind": "git",
-    "useIgnoreFile": true
-  },
+  "extends": [
+    "@sumup-oss/foundry/biome"
+  ],
   "formatter": {
-    "enabled": true,
-    "formatWithErrors": false,
-    "indentStyle": "space",
     "ignore": [
+      // Generated artifacts
       "**/dist/**",
       "**/build/**",
-      "packages/cna-template/template/.next/**"
+      "packages/cna-template/template/.next/**",
+      // Configuration files that use conflicting formatting
+      ".changeset/**",
+      "**/package.json",
+      "**/tsconfig.json",
+      "**/tsconfig.*.json",
+      "**/lerna.json",
+      "**/.vscode/extensions.json"
     ]
   },
-  "organizeImports": { "enabled": false },
+  "organizeImports": {
+    "enabled": false
+  },
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": true,
-      "a11y": {
-        "noSvgWithoutTitle": "warn",
-        "useButtonType": "off"
-      },
-      "complexity": {
-        "noForEach": "off"
-      },
       "correctness": {
         "noConstantMathMinMaxClamp": "error",
-        "noNewSymbol": "error",
-        "noUndeclaredVariables": "error",
-        "noUnusedImports": "error",
-        "noUnusedPrivateClassMembers": "error",
-        "noUnusedVariables": "error",
-        "useArrayLiterals": "error",
         "useExhaustiveDependencies": "warn",
         "useHookAtTopLevel": "error"
       },
-      "performance": {
-        "noReExportAll": "error"
-      },
       "style": {
         "noDefaultExport": "off",
-        "noNamespace": "error",
-        "noNegationElse": "error",
-        "noShoutyConstants": "error",
-        "useBlockStatements": "error",
-        "useCollapsedElseIf": "error",
-        "useConsistentArrayType": "error",
-        "useEnumInitializers": "warn",
         "useFilenamingConvention": {
           "level": "error",
           "options": {
             "requireAscii": true,
-            "filenameCases": ["camelCase", "kebab-case", "PascalCase"]
+            "filenameCases": [
+              "camelCase",
+              "kebab-case",
+              "PascalCase"
+            ]
           }
-        },
-        "useForOf": "error",
-        "useShorthandAssign": "error",
-        "useShorthandArrayType": "error",
-        "useSingleCaseStatement": "error"
+        }
       },
       "suspicious": {
         "noArrayIndexKey": "warn",
         "noAssignInExpressions": "warn",
-        "noConsoleLog": "error",
-        "noExplicitAny": "off",
-        "noSkippedTests": "error",
-        "useAwait": "error"
+        "noExplicitAny": "warn"
       }
     },
     "ignore": [
+      // Generated artifacts
       "**/build/**",
       "**/dist/**",
       "**/public/**",
@@ -80,10 +60,9 @@
       "**/__coverage__/**",
       "**/__reports__/**",
       "**/*.config.*",
-      "**/package.json",
       "**/package-lock.json",
       "**/*rc.*",
-      "./scripts/**",
+      // "./scripts/**",
       "**/*.astro",
       "packages/circuit-ui/vendor/**",
       // The templates have their own linting setup
@@ -92,15 +71,11 @@
       "packages/remix-template/**"
     ]
   },
-  "javascript": {
-    "formatter": {
-      "quoteProperties": "preserve",
-      "quoteStyle": "single"
-    }
-  },
   "overrides": [
     {
-      "include": ["*.css"],
+      "include": [
+        "*.css"
+      ],
       "css": {
         "formatter": {
           "enabled": true,
@@ -113,11 +88,19 @@
       }
     },
     {
-      "include": ["*.modele.css"],
-      "css": { "parser": { "cssModules": true } }
+      "include": [
+        "*.module.css"
+      ],
+      "css": {
+        "parser": {
+          "cssModules": true
+        }
+      }
     },
     {
-      "include": ["packages/eslint-plugin-circuit-ui/**"],
+      "include": [
+        "packages/eslint-plugin-circuit-ui/**"
+      ],
       "linter": {
         "rules": {
           "style": {
@@ -127,23 +110,36 @@
       }
     },
     {
-      "include": ["**/*.{ts,tsx}"],
+      "include": [
+        "**/*.{ts,tsx}"
+      ],
       "javascript": {
-        "globals": ["React", "JSX"]
+        "globals": [
+          "React",
+          "JSX"
+        ]
       },
       "linter": {
         "rules": {
-          "complexity": { "noVoid": "error" },
+          "complexity": {
+            "noVoid": "error"
+          },
           "correctness": {
             "noInvalidUseBeforeDeclaration": "error",
             "noUnusedVariables": "error"
           },
-          "style": { "useBlockStatements": "error" }
+          "style": {
+            "useBlockStatements": "error"
+          }
         }
       }
     },
     {
-      "include": ["**/*spec.*", "**/setupTests.*", "**/test-utils.*"],
+      "include": [
+        "**/*spec.*",
+        "**/setupTests.*",
+        "**/test-utils.*"
+      ],
       "linter": {
         "rules": {
           "suspicious": {

@@ -57,7 +57,7 @@
     "@storybook/source-loader": "^8.1.8",
     "@storybook/test": "^8.1.8",
     "@storybook/theming": "^8.1.8",
-    "@sumup-oss/foundry": "^8.0.1",
+    "@sumup-oss/foundry": "^8.1.0-canary",
     "@sumup/eslint-plugin-circuit-ui": "^4.0.0",
     "@sumup/stylelint-plugin-circuit-ui": "^2.0.0",
     "@types/node": "^18.19.39",
