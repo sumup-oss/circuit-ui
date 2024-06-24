@@ -22,12 +22,18 @@
   },
   "typesVersions": {
     "*": {
-      "legacy": ["./dist/legacy.d.ts"],
-      "experimental": ["./dist/experimental.d.ts"]
+      "legacy": [
+        "./dist/legacy.d.ts"
+      ],
+      "experimental": [
+        "./dist/experimental.d.ts"
+      ]
     }
   },
   "sideEffects": false,
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "directory": "packages/circuit-ui",
