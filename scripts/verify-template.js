@@ -43,6 +43,7 @@ const puppeteer = require('puppeteer');
 
     await browser.close();
 
+    // biome-ignore lint/suspicious/noConsoleLog: Okay in this test file
     console.log(`Found page heading containing "${expected}".`);
   } catch (error) {
     console.error(error);
