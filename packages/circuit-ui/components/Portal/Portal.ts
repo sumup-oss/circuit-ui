@@ -44,7 +44,6 @@ export function Portal({
     setContainer(getContainer());
     // In order to prevent performance issues, this hook is only run once.
     // This means that the container can't be changed after the initial render.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return container && createPortal(children, container);

@@ -38,7 +38,6 @@ describe('PhoneNumberInputService', () => {
 
     it('should replace unsupported whitespace characters with single spaces in the subscriber number', () => {
       const countryCode = '+1';
-      // eslint-disable-next-line no-tabs
       const subscriberNumber = '234	567 8910';
       const actual = normalizePhoneNumber(countryCode, subscriberNumber);
       expect(actual).toBe('+1234 567 8910');

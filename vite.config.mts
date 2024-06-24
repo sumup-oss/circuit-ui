@@ -16,7 +16,6 @@
 import { defineConfig } from 'vite';
 import GithubActionsReporter from 'vitest-github-actions-reporter';
 
-// eslint-disable-next-line import/no-relative-packages
 import { css } from './packages/circuit-ui/vite.config.js';
 
 export default defineConfig({

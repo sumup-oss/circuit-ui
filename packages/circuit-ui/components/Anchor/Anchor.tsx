@@ -42,7 +42,6 @@ export interface BaseProps extends BodyProps {
   /**
    * The ref to the HTML DOM element, it can be a button an anchor or a span, typed as any for now because of complex js manipulation with styled components
    */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ref?: Ref<any>;
 }
 type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
