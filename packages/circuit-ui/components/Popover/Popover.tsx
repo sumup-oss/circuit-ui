@@ -290,7 +290,7 @@ export const Popover = ({
       window.removeEventListener('resize', update);
       window.removeEventListener('scroll', update);
     };
-  }, [isOpen, refs.reference, update]);
+  }, [isOpen, update]);
 
   useEffect(() => {
     // Focus the first or last popover item after opening

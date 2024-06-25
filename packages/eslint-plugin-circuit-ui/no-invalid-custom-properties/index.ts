@@ -54,7 +54,7 @@ export const noInvalidCustomProperties = createRule({
         sourceCode.getLines().forEach((line, index) => {
           const regex = new RegExp(REGEX_STRING, 'g');
           let match: RegExpExecArray | null;
-          // eslint-disable-next-line no-cond-assign
+          // biome-ignore lint/suspicious/noAssignInExpressions:
           while ((match = regex.exec(line)) !== null) {
             context.report({
               node,
