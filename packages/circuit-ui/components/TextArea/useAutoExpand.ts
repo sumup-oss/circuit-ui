@@ -64,6 +64,7 @@ export const useAutoExpand = (
     [onInput, updateElementHeight],
   );
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: The additional dependencies are intentional to ensure the input size is updated when the element changes size and when the `minRows` prop value changes
   useEffect(() => {
     const el = ref.current;
     if (el && autoExpand) {

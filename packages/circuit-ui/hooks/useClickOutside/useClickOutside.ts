@@ -26,6 +26,7 @@ export function useClickOutside(
 
   const refs = isArray(ref) ? ref : [ref];
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: The `refs` array is recreated on each render, but the ref objects inside don't necessarily change. Spreading the array allows React to compare the ref objects themselves.
   useEffect(() => {
     if (!active) {
       return undefined;
@@ -50,8 +51,5 @@ export function useClickOutside(
       document.removeEventListener('mousedown', handleOutsideMousedown);
       document.removeEventListener('click', handleOutsideClick);
     };
-    // The `refs` array is recreated on each render, but the ref objects inside
-    // don't necessarily change. Spreading the array allows React to compare the
-    // ref objects themselves.
   }, [...refs, callback, active]);
 }

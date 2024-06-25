@@ -190,18 +190,15 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
       }
     });
 
-    const handleFocusDate = useCallback(
-      (date: Temporal.PlainDate) => {
-        dispatch({ type: CalendarActionType.FOCUS_DATE, date });
-        // Focus the button on the next tick after React has rerendered the UI
-        window.requestAnimationFrame(() => {
-          calendarRef.current
-            ?.querySelector<HTMLButtonElement>('button[tabindex="0"]')
-            ?.focus();
-        });
-      },
-      [dispatch],
-    );
+    const handleFocusDate = useCallback((date: Temporal.PlainDate) => {
+      dispatch({ type: CalendarActionType.FOCUS_DATE, date });
+      // Focus the button on the next tick after React has rerendered the UI
+      window.requestAnimationFrame(() => {
+        calendarRef.current
+          ?.querySelector<HTMLButtonElement>('button[tabindex="0"]')
+          ?.focus();
+      });
+    }, []);
 
     const handleKeyDown = useCallback(
       (event: KeyboardEvent) => {
@@ -251,15 +248,12 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
       [handleFocusDate, focusedDate, minDate, maxDate, firstDayOfWeek],
     );
 
-    const handleMouseEnter = useCallback(
-      (date: Temporal.PlainDate) => {
-        dispatch({ type: CalendarActionType.MOUSE_ENTER_DATE, date });
-      },
-      [dispatch],
-    );
+    const handleMouseEnter = useCallback((date: Temporal.PlainDate) => {
+      dispatch({ type: CalendarActionType.MOUSE_ENTER_DATE, date });
+    }, []);
     const handleMouseLeave = useCallback(() => {
       dispatch({ type: CalendarActionType.MOUSE_LEAVE_DATE });
-    }, [dispatch]);
+    }, []);
 
     if (process.env.NODE_ENV !== 'production') {
       if (!isSufficientlyLabelled(prevMonthButtonLabel)) {
