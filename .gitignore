@@ -19,6 +19,7 @@ docs/packages/
 docs/contributing/1-overview.mdx
 docs/contributing/*-contributing-*.mdx
 docs/introduction/*-changelog.mdx
+docs/introduction/*-migration.mdx
 
 # Packages #
 
