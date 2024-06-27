@@ -312,6 +312,11 @@
       "size": "16"
     },
     {
+      "name": "sparkles",
+      "category": "Action",
+      "size": "24"
+    },
+    {
       "name": "stop",
       "category": "Action",
       "size": "24"
