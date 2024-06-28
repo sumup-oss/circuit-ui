@@ -49,7 +49,7 @@ export function mapCountryCodeOptions(
       const countryName = displayName.of(country);
       return {
         label: countryName ? `${countryName} (${code})` : code,
-        value: code,
+        value: country,
       };
     })
     .sort((a, b) => a.label.localeCompare(b.label));

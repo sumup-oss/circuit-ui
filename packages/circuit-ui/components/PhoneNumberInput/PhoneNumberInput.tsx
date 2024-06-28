@@ -241,7 +241,7 @@ export const PhoneNumberInput = forwardRef<
         return;
       }
       const phoneNumber = normalizePhoneNumber(
-        countryCodeRef.current.value,
+        countryCode.options.find(({country}) => country === countryCodeRef?.current?.value)?.code as string,
         subscriberNumberRef.current.value,
       );
       onChange(phoneNumber);
@@ -273,21 +273,18 @@ export const PhoneNumberInput = forwardRef<
         return;
       }
 
-      const pastedCountryCode = countryCode.options
-        .map((option) => option.code)
-        // Match longer, more specific country codes first
-        .sort((a, b) => b.length - a.length)
-        .find((code) => pastedText.startsWith(code));
+      const pastedOption = countryCode.options
+        .find(({code}) => pastedText.startsWith(code));
 
-      if (!pastedCountryCode) {
+      if (!pastedOption) {
         return;
       }
 
       event.preventDefault();
 
-      const pastedSubscriberNumber = pastedText.split(pastedCountryCode)[1];
+      const pastedSubscriberNumber = pastedText.split(pastedOption.code)[1];
 
-      countryCodeRef.current.value = pastedCountryCode;
+      countryCodeRef.current.value = pastedOption.country;
 
       // React overwrites the input.value setter. In order to be able to trigger
       // a 'change' event on the input, we need to use the native setter.
