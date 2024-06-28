@@ -39,9 +39,9 @@ const flagIconMap: { [key: string]: IconComponentType<'16'> } = {
 };
 
 const countryCodeMap: { [key: string]: string } = {
-  'CA': '+1',
-  'US': '+1',
-  'DE': '+49',
+  CA: '+1',
+  US: '+1',
+  DE: '+49',
 };
 
 export const Base = (args: PhoneNumberInputProps) => (

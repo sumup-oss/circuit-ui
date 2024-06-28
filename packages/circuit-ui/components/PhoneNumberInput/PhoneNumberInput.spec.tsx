@@ -25,9 +25,9 @@ import {
 } from './PhoneNumberInput.js';
 
 const countryCodeMap: { [key: string]: string } = {
-  'CA': '+1',
-  'US': '+1',
-  'DE': '+49',
+  CA: '+1',
+  US: '+1',
+  DE: '+49',
 };
 
 const defaultProps = {

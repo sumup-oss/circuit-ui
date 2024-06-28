@@ -241,7 +241,9 @@ export const PhoneNumberInput = forwardRef<
         return;
       }
       const phoneNumber = normalizePhoneNumber(
-        countryCode.options.find(({country}) => country === countryCodeRef?.current?.value)?.code as string,
+        countryCode.options.find(
+          ({ country }) => country === countryCodeRef?.current?.value,
+        )?.code as string,
         subscriberNumberRef.current.value,
       );
       onChange(phoneNumber);
@@ -273,8 +275,9 @@ export const PhoneNumberInput = forwardRef<
         return;
       }
 
-      const pastedOption = countryCode.options
-        .find(({code}) => pastedText.startsWith(code));
+      const pastedOption = countryCode.options.find(({ code }) =>
+        pastedText.startsWith(code),
+      );
 
       if (!pastedOption) {
         return;
