@@ -2,7 +2,8 @@
   display: flex;
 }
 
-.country-code, .subscriber-number {
+.country-code,
+.subscriber-number {
   flex-grow: 1;
 }
 
@@ -63,6 +64,7 @@
 }
 
 /* Elevate the input prefix above the country code select on hover and focus */
-svg:has(+ .country-code:hover), svg:has(+ .country-code:focus){
+svg:has(+ .country-code:hover),
+svg:has(+ .country-code:focus) {
   z-index: calc(var(--cui-z-index-input) + 3);
 }
