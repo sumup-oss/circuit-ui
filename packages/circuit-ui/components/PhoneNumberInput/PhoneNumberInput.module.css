@@ -2,11 +2,6 @@
   display: flex;
 }
 
-.country-code,
-.subscriber-number {
-  flex-grow: 1;
-}
-
 @media (max-width: 479px) {
   .wrapper {
     flex-direction: column;
@@ -61,10 +56,4 @@
 .country-code-input:focus {
   position: relative;
   z-index: calc(var(--cui-z-index-input) + 2);
-}
-
-/* Elevate the input prefix above the country code select on hover and focus */
-svg:has(+ .country-code:hover),
-svg:has(+ .country-code:focus) {
-  z-index: calc(var(--cui-z-index-input) + 3);
 }
