@@ -13,7 +13,7 @@
     "test:ci": "mkdir -p __reports__ && jest --ci --coverage --runInBand --json --outputFile=__reports__/jest-results.json --reporters default --reporters \"github-actions\""
   },
   "dependencies": {
-    "@next/bundle-analyzer": "^14.2.3",
+    "@next/bundle-analyzer": "^14.2.4",
     "@sumup/circuit-ui": "^8.0.0",
     "@sumup/design-tokens": "^7.0.0",
     "@sumup/icons": "^3.0.0",
