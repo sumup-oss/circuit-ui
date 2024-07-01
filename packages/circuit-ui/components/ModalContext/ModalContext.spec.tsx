@@ -13,7 +13,15 @@
  * limitations under the License.
  */
 
-import { afterAll, afterEach, describe, expect, it, vi } from 'vitest';
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  it,
+  vi,
+} from 'vitest';
 import { useContext } from 'react';
 
 import {

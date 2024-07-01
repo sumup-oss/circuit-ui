@@ -81,7 +81,7 @@ const Thanks = () => (
   </section>
 );
 
-export default function MultiStepForm(): JSX.Element {
+export default function MultiStepForm() {
   const steps = [FormOne, FormTwo, Thanks];
   const totalSteps = steps.length;
 

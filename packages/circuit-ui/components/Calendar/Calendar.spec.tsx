@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { describe, it, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { Temporal } from 'temporal-polyfill';
 import { createRef } from 'react';
 

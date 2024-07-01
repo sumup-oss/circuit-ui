@@ -76,7 +76,7 @@ function SecondaryGroup({
   label,
   secondaryLinks,
   focusProps,
-}: SecondaryGroupProps & { focusProps: FocusProps }): JSX.Element {
+}: SecondaryGroupProps & { focusProps: FocusProps }) {
   return (
     <li>
       {label && (
@@ -108,8 +108,12 @@ export const SecondaryLinks = forwardRef<HTMLUListElement, SecondaryLinksProps>(
         className={clsx(classes.list, className)}
         {...props}
       >
-        {secondaryGroups.map((group, index) => (
-          <SecondaryGroup key={index} {...group} focusProps={focusProps} />
+        {secondaryGroups.map((group) => (
+          <SecondaryGroup
+            key={group.label}
+            {...group}
+            focusProps={focusProps}
+          />
         ))}
       </ul>
     );

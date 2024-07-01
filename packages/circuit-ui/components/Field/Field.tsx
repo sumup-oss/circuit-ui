@@ -180,7 +180,7 @@ export const FieldValidationHint = ({
   invalid,
   disabled,
   ...props
-}: FieldValidationHintProps): JSX.Element | null => {
+}: FieldValidationHintProps) => {
   const validity = getFieldValidity({
     hasWarning,
     showValid,

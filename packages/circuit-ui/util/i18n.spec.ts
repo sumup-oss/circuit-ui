@@ -13,7 +13,14 @@
  * limitations under the License.
  */
 
-import { describe, it, vi, type MockInstance } from 'vitest';
+import {
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi,
+  type MockInstance,
+} from 'vitest';
 
 import { DEFAULT_LOCALE, getBrowserLocale } from './i18n.js';
 
@@ -24,7 +31,6 @@ describe('i18n', () => {
     let languageGetter: MockInstance;
 
     beforeEach(() => {
-      // eslint-disable-next-line no-global-assign
       window = originalWindow;
       languagesGetter = vi.spyOn(window.navigator, 'languages', 'get');
       languageGetter = vi.spyOn(window.navigator, 'language', 'get');
@@ -32,7 +38,6 @@ describe('i18n', () => {
 
     it('should return the default locale in server environments', () => {
       // @ts-expect-error The window object is undefined in server environments
-      // eslint-disable-next-line no-global-assign
       window = undefined;
       const actual = getBrowserLocale();
       expect(actual).toBe(DEFAULT_LOCALE);

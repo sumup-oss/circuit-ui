@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ESLintUtils, TSESTree } from '@typescript-eslint/utils';
+import { ESLintUtils, type TSESTree } from '@typescript-eslint/utils';
 
 /* eslint-disable */
 
@@ -94,8 +94,7 @@ export const componentLifecycleImports = createRule({
     return mappings.reduce((visitors, config) => {
       const { from, to, specifiers } = config;
 
-      return {
-        ...visitors,
+      return Object.assign(visitors, {
         [`ImportDeclaration:has(Literal[value="${from}"])`]: (
           node: TSESTree.ImportDeclaration,
         ) => {
@@ -155,7 +154,7 @@ export const componentLifecycleImports = createRule({
             });
           });
         },
-      };
+      });
     }, {});
   },
 });

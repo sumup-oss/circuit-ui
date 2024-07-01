@@ -86,11 +86,11 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   ) => {
     const localRef = useRef<HTMLInputElement>(null);
 
+    // biome-ignore lint/correctness/useExhaustiveDependencies: Because it came from the props, we keep the `indeterminate` state even if the `checked` one is changed.
     useEffect(() => {
       if (localRef.current) {
         localRef.current.indeterminate = indeterminate;
       }
-      // Because it came from a props, we are keeping the `indeterminate` state even if the `checked` one is changed:
     }, [props.checked, indeterminate]);
 
     const id = useId();

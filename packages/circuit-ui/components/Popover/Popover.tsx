@@ -15,6 +15,7 @@
 
 'use client';
 
+import type React from 'react';
 import {
   Fragment,
   useCallback,
@@ -88,7 +89,7 @@ export const PopoverItem = ({
   destructive,
   className,
   ...props
-}: PopoverItemProps): JSX.Element => {
+}: PopoverItemProps) => {
   const { Link } = useComponents();
 
   const Element = props.href ? (Link as EmotionAsPropType) : 'button';
@@ -163,7 +164,7 @@ export interface PopoverProps {
     'aria-haspopup': boolean;
     'aria-controls': string;
     'aria-expanded': boolean;
-  }) => JSX.Element;
+  }) => React.JSX.Element;
   /**
    * Remove the [`menu` role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/roles/menu_role)
    * when its semantics aren't appropriate for the use case, for example when
@@ -196,7 +197,7 @@ export const Popover = ({
   className,
   role = 'menu',
   ...props
-}: PopoverProps): JSX.Element | null => {
+}: PopoverProps) => {
   const zIndex = useStackContext();
   const triggerKey = useRef<TriggerKey | null>(null);
   const menuEl = useRef<HTMLDivElement>(null);
@@ -289,15 +290,15 @@ export const Popover = ({
       window.removeEventListener('resize', update);
       window.removeEventListener('scroll', update);
     };
-  }, [isOpen, refs.reference, update]);
+  }, [isOpen, update]);
 
   useEffect(() => {
     // Focus the first or last popover item after opening
     if (!prevOpen && isOpen) {
       const element = (
         triggerKey.current && triggerKey.current === 'ArrowUp'
-          ? menuEl.current && menuEl.current.lastElementChild
-          : menuEl.current && menuEl.current.firstElementChild
+          ? menuEl.current?.lastElementChild
+          : menuEl.current?.firstElementChild
       ) as HTMLElement;
       if (element) {
         element.focus();
@@ -306,8 +307,8 @@ export const Popover = ({
 
     // Focus the reference element after closing
     if (prevOpen && !isOpen) {
-      const triggerButton = (refs.reference.current &&
-        refs.reference.current.firstElementChild) as HTMLElement;
+      const triggerButton = refs.reference.current
+        ?.firstElementChild as HTMLElement;
       triggerButton.focus();
     }
 

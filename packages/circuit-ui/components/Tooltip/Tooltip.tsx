@@ -143,7 +143,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
           if (event.currentTarget.matches(':focus-visible')) {
             handleOpen();
           }
-        } catch (error) {
+        } catch (_error) {
           handleOpen();
         }
       },
@@ -204,7 +204,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       window.removeEventListener('scroll', update);
 
       return undefined;
-    }, [state, refs.reference, update]);
+    }, [state, update]);
 
     if (process.env.NODE_ENV !== 'production' && !type) {
       throw new CircuitError('Tooltip', 'The `type` prop is required.');

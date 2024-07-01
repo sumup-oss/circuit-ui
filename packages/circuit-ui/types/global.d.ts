@@ -13,12 +13,11 @@
  * limitations under the License.
  */
 
-import { Theme as CircuitTheme } from '@sumup/design-tokens';
+import type { Theme as CircuitTheme } from '@sumup/design-tokens';
 
 import 'react';
 
 declare module '@emotion/react' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
   export interface Theme extends CircuitTheme {}
 }
 

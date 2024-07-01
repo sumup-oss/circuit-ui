@@ -50,7 +50,7 @@ export interface HamburgerProps
 /**
  * A hamburger button for menus. Morphs into a close icon when active.
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 export const Hamburger = forwardRef<any, HamburgerProps>(
   (
     {

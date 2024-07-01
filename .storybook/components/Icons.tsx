@@ -14,10 +14,10 @@
  */
 
 import {
+  useState,
   type Dispatch,
   type SetStateAction,
-  useState,
-  ChangeEvent,
+  type ChangeEvent,
 } from 'react';
 import { Unstyled } from '@storybook/addon-docs';
 import * as iconComponents from '@sumup/icons';
@@ -43,7 +43,8 @@ function groupBy(
 ) {
   return icons.reduce(
     (groups, icon) => {
-      (groups[icon[key]] = groups[icon[key]] || []).push(icon);
+      groups[icon[key]] = groups[icon[key]] || [];
+      groups[icon[key]].push(icon);
       return groups;
     },
     {} as Record<string, IconsManifest['icons']>,

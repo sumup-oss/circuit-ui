@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import type React from 'react';
+
 import type { ClickEvent } from '../../types/events.js';
 
 type OnClose = (event?: ClickEvent) => void;
@@ -30,4 +32,4 @@ export interface BaseToastProps {
 
 export type ToastComponent<TProps extends BaseToastProps = BaseToastProps> = ((
   props: TProps,
-) => JSX.Element) & { TRANSITION_DURATION: number };
+) => React.JSX.Element) & { TRANSITION_DURATION: number };

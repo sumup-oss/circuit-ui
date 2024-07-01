@@ -15,7 +15,7 @@
 
 'use client';
 
-import { type HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 import { ChevronUp, ChevronDown } from '@sumup/icons';
 
 import type { Direction } from '../../types.js';

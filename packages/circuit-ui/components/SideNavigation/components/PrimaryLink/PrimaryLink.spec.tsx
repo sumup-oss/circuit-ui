@@ -65,7 +65,6 @@ describe('PrimaryLink', () => {
   it('should render with a suffix icon', () => {
     renderPrimaryLink(render, {
       ...baseProps,
-      // eslint-disable-next-line react/display-name
       suffix: (props) => <div {...props} data-testid="suffix" />,
     });
     expect(screen.getByTestId('suffix')).toBeVisible();

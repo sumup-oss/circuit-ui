@@ -22,7 +22,7 @@ export default {
   component: Avatar,
 };
 
-export const Base = (args: AvatarProps): JSX.Element => <Avatar {...args} />;
+export const Base = (args: AvatarProps) => <Avatar {...args} />;
 
 Base.args = {
   src: '/images/illustration-coffee.jpg',
@@ -31,7 +31,7 @@ Base.args = {
   alt: 'A cup of coffee on a table',
 };
 
-export const ObjectVariant = (): JSX.Element => (
+export const ObjectVariant = () => (
   <Stack>
     <Avatar
       src="/images/illustration-coffee.jpg"
@@ -42,7 +42,7 @@ export const ObjectVariant = (): JSX.Element => (
   </Stack>
 );
 
-export const IdentityVariant = (): JSX.Element => (
+export const IdentityVariant = () => (
   <Stack>
     <Avatar
       src="/images/illustration-cat.jpg"
@@ -54,7 +54,7 @@ export const IdentityVariant = (): JSX.Element => (
   </Stack>
 );
 
-export const Sizes = (): JSX.Element => (
+export const Sizes = () => (
   <Stack>
     <Stack>
       <Avatar

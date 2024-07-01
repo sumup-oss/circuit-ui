@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+// biome-ignore lint/suspicious/noShadowRestrictedNames: Necessary to add support for Temporal objects to the `Intl` APIs
 import { Temporal, Intl } from 'temporal-polyfill';
 
 import type { Locale } from '../../util/i18n.js';
@@ -37,12 +38,12 @@ type CalendarState = {
 };
 
 export enum CalendarActionType {
-  PREV_MONTH,
-  NEXT_MONTH,
-  NUMBER_OF_MONTHS,
-  FOCUS_DATE,
-  MOUSE_ENTER_DATE,
-  MOUSE_LEAVE_DATE,
+  PREV_MONTH = 0,
+  NEXT_MONTH = 1,
+  NUMBER_OF_MONTHS = 2,
+  FOCUS_DATE = 3,
+  MOUSE_ENTER_DATE = 4,
+  MOUSE_LEAVE_DATE = 5,
 }
 
 type CalendarAction =

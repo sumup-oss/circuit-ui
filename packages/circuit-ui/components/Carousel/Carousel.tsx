@@ -155,7 +155,7 @@ export function Carousel({
           <Slides ref={slidesRef}>
             {slides.map((slide, index) => (
               <Slide
-                key={index}
+                key={slide.image.src}
                 index={index}
                 step={state.step}
                 prevStep={state.previousStep}
