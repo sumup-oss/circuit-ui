@@ -55,7 +55,7 @@
     "@nanostores/react": "^0.7.2",
     "nanostores": "^0.10.3",
     "react-modal": "^3.16.1",
-    "react-number-format": "5.3.0",
+    "react-number-format": "5.4.0",
     "temporal-polyfill": "^0.2.5"
   },
   "devDependencies": {
