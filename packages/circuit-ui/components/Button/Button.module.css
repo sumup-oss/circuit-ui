@@ -13,3 +13,9 @@
   padding: calc(var(--cui-spacings-kilo) - var(--cui-border-width-kilo))
     calc(var(--cui-spacings-giga) - var(--cui-border-width-kilo));
 }
+
+.tertiary.s,
+.tertiary.m {
+  padding-right: 0;
+  padding-left: 0;
+}
