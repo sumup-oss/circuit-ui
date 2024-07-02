@@ -16,6 +16,7 @@
 import { forwardRef, type OlHTMLAttributes } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
+import { deprecate } from '../../util/logger.js';
 
 import classes from './List.module.css';
 
@@ -25,17 +26,33 @@ export interface ListProps extends OlHTMLAttributes<HTMLOListElement> {
    */
   size?: 'one' | 'two';
   /**
-   * Whether the list should be presented as an ordered or unordered list. Defaults to `unordered`.
+   * Whether the list should be presented as an ordered or unordered list. Defaults to `ul`.
+   */
+  as?: 'ol' | 'ul';
+  /**
+   * @deprecated Use the `as` prop instead.
    */
   variant?: 'ordered' | 'unordered';
 }
+
+const variantMap = {
+  unordered: 'ul',
+  ordered: 'ol',
+} as const;
 
 /**
  * A list, which can be ordered or unordered.
  */
 export const List = forwardRef<HTMLOListElement, ListProps>(
-  ({ className, variant = 'unordered', size = 'one', ...props }, ref) => {
-    const Element = variant === 'ordered' ? 'ol' : 'ul';
+  ({ className, variant, as, size = 'one', ...props }, ref) => {
+    if (process.env.NODE_ENV !== 'production' && variant) {
+      deprecate(
+        'List',
+        'The `variant` prop has been deprecated. Use the `as` prop instead.',
+      );
+    }
+
+    const Element = as || (variant ? variantMap[variant] : 'ul');
     return (
       <Element
         className={clsx(classes.base, classes[size], className)}

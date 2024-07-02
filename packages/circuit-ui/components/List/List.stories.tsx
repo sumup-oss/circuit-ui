@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import { Fragment } from 'react';
-
 import { Stack } from '../../../../.storybook/components/index.js';
 
 import { List, type ListProps } from './List.js';
@@ -24,16 +22,10 @@ export default {
   component: List,
 };
 
-const ListItems = () => (
-  <Fragment>
-    <li>This is a list</li>
-    <li>A very fine list</li>
-  </Fragment>
-);
-
 export const Base = (args: ListProps) => (
   <List {...args}>
-    <ListItems />
+    <li>This is a list</li>
+    <li>A very fine list</li>
   </List>
 );
 
@@ -43,7 +35,8 @@ export const Variants = (args: ListProps) => (
   <Stack vertical>
     {variants.map((variant) => (
       <List key={variant} {...args} variant={variant}>
-        <ListItems />
+        <li>This is a list</li>
+        <li>A very fine list</li>
       </List>
     ))}
   </Stack>
@@ -55,7 +48,8 @@ export const Sizes = (args: ListProps) => (
   <Stack vertical>
     {sizes.map((size) => (
       <List key={size} {...args} size={size}>
-        <ListItems />
+        <li>This is a list</li>
+        <li>A very fine list</li>
       </List>
     ))}
   </Stack>
