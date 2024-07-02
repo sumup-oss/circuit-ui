@@ -29,7 +29,7 @@ jobs:
         run: npm run build
 
       - name: Build Storybook
-        run: npm run docs:build
+        run: npm run chromatic-build
 
       - name: Publish to Chromatic
         uses: chromaui/action@latest
