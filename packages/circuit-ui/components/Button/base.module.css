@@ -20,6 +20,111 @@
     border-color var(--cui-transitions-default);
 }
 
+.base[aria-busy="true"] {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Loader */
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--loader-gap);
+  place-content: center;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity var(--cui-transitions-default),
+    visibility var(--cui-transitions-default);
+}
+
+/* The animation of the dots consists of five phases: an 80ms pause
+   and four 160ms transitions between each dot being highlighted */
+
+.dot {
+  --loader-opacity: 0.25;
+
+  display: block;
+  width: var(--loader-diameter);
+  height: var(--loader-diameter);
+  background-color: currentColor;
+  border-radius: var(--cui-border-radius-circle);
+  animation-duration: 720ms; /* 80ms + 4 * 160ms */
+  animation-play-state: paused;
+  animation-timing-function: cubic-bezier(0.75, 0, 1, 1);
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse1 {
+  0%,
+  11%,
+  55%,
+  100% {
+    opacity: var(--loader-opacity);
+    transform: scale(100%);
+  }
+
+  33% {
+    opacity: 1;
+    transform: var(--loader-transform);
+  }
+}
+
+.dot:nth-child(1) {
+  animation-name: pulse1;
+}
+
+@keyframes pulse2 {
+  0%,
+  33%,
+  77%,
+  100% {
+    opacity: var(--loader-opacity);
+    transform: scale(100%);
+  }
+
+  55% {
+    opacity: 1;
+    transform: var(--loader-transform);
+  }
+}
+
+.dot:nth-child(2) {
+  animation-name: pulse2;
+}
+
+@keyframes pulse3 {
+  0%,
+  55%,
+  100% {
+    opacity: var(--loader-opacity);
+    transform: scale(100%);
+  }
+
+  77% {
+    opacity: 1;
+    transform: var(--loader-transform);
+  }
+}
+
+.dot:nth-child(3) {
+  animation-name: pulse3;
+}
+
+.base[aria-busy="true"] .loader {
+  visibility: inherit;
+  opacity: 1;
+}
+
+.base[aria-busy="true"] .dot {
+  animation-play-state: running;
+}
+
 /* Content */
 .content {
   display: flex;
@@ -36,6 +141,10 @@
 .base[aria-expanded="true"] .content,
 .base[aria-pressed="true"] .content {
   transform: translate(0, 1px);
+}
+
+.base[aria-busy="true"] .content {
+  opacity: 0;
 }
 
 .leading-icon {
@@ -260,113 +369,4 @@
 .base[disabled] .content,
 .base[aria-disabled="true"] .content {
   transform: translate(0);
-}
-
-/* Loading */
-.base[aria-busy="true"] {
-  position: relative;
-  overflow: hidden;
-}
-
-.loader {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: grid;
-  grid-auto-flow: column;
-  gap: var(--loader-gap);
-  place-content: center;
-  width: 100%;
-  height: 100%;
-  visibility: hidden;
-  opacity: 0;
-  transition:
-    opacity var(--cui-transitions-default),
-    visibility var(--cui-transitions-default);
-}
-
-/* The animation of the dots consists of five phases: an 80ms pause
-   and four 160ms transitions between each dot being highlighted */
-
-.dot {
-  --loader-opacity: 0.25;
-
-  display: block;
-  width: var(--loader-diameter);
-  height: var(--loader-diameter);
-  background-color: currentColor;
-  border-radius: var(--cui-border-radius-circle);
-  animation-duration: 720ms; /* 80ms + 4 * 160ms */
-  animation-play-state: paused;
-  animation-timing-function: cubic-bezier(0.75, 0, 1, 1);
-  animation-iteration-count: infinite;
-}
-
-@keyframes pulse1 {
-  0%,
-  11%,
-  55%,
-  100% {
-    opacity: var(--loader-opacity);
-    transform: scale(100%);
-  }
-
-  33% {
-    opacity: 1;
-    transform: var(--loader-transform);
-  }
-}
-
-.dot:nth-child(1) {
-  animation-name: pulse1;
-}
-
-@keyframes pulse2 {
-  0%,
-  33%,
-  77%,
-  100% {
-    opacity: var(--loader-opacity);
-    transform: scale(100%);
-  }
-
-  55% {
-    opacity: 1;
-    transform: var(--loader-transform);
-  }
-}
-
-.dot:nth-child(2) {
-  animation-name: pulse2;
-}
-
-@keyframes pulse3 {
-  0%,
-  55%,
-  100% {
-    opacity: var(--loader-opacity);
-    transform: scale(100%);
-  }
-
-  77% {
-    opacity: 1;
-    transform: var(--loader-transform);
-  }
-}
-
-.dot:nth-child(3) {
-  animation-name: pulse3;
-}
-
-.base[aria-busy="true"] .loader {
-  visibility: inherit;
-  opacity: 1;
-}
-
-.base[aria-busy="true"] .dot {
-  animation-play-state: running;
-}
-
-.base[aria-busy="true"] .content {
-  opacity: 0;
 }
