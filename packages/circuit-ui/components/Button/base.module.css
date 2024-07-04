@@ -249,67 +249,6 @@
   }
 }
 
-@container cui-button-group (width > 370px) {
-  /* Keep in sync with the .secondary class above */
-  .tertiary {
-    color: var(--cui-fg-normal);
-    background-color: var(--cui-bg-normal);
-    border-color: var(--cui-border-normal);
-  }
-
-  .tertiary:hover {
-    color: var(--cui-fg-normal-hovered);
-    background-color: var(--cui-bg-subtle-hovered);
-    border-color: var(--cui-border-normal-hovered);
-  }
-
-  .tertiary:active,
-  .tertiary[aria-expanded="true"],
-  .tertiary[aria-pressed="true"] {
-    color: var(--cui-fg-normal-pressed);
-    background-color: var(--cui-bg-subtle-pressed);
-    border-color: var(--cui-border-normal-pressed);
-  }
-
-  .tertiary.destructive {
-    color: var(--cui-fg-danger);
-  }
-
-  .tertiary.destructive:hover {
-    color: var(--cui-fg-danger-hovered);
-    background-color: var(--cui-bg-danger-hovered);
-    border-color: var(--cui-border-danger-hovered);
-  }
-
-  .tertiary.destructive:active,
-  .tertiary.destructive[aria-expanded="true"],
-  .tertiary.destructive[aria-pressed="true"] {
-    color: var(--cui-fg-danger-pressed);
-    background-color: var(--cui-bg-danger-pressed);
-    border-color: var(--cui-border-danger-pressed);
-  }
-
-  .tertiary:disabled,
-  .tertiary[disabled],
-  .tertiary[aria-disabled="true"] {
-    color: var(--cui-fg-normal-disabled);
-    background-color: var(--cui-bg-normal);
-    border-color: var(--cui-border-normal-disabled);
-  }
-
-  .tertiary.destructive:disabled,
-  .tertiary.destructive[disabled],
-  .tertiary.destructive[aria-disabled="true"] {
-    color: var(--cui-fg-danger-disabled);
-    background-color: var(--cui-bg-normal);
-    border-color: var(--cui-border-normal-disabled);
-  }
-
-  .tertiary .label {
-    text-decoration: none;
-  }
-}
-
 /* Disabled */
 .base:disabled,
 .base[disabled],
