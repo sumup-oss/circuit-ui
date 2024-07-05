@@ -27,12 +27,12 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@typescript-eslint/utils": "^7.11.0"
+    "@typescript-eslint/utils": "^7.14.1"
   },
   "devDependencies": {
     "@sumup/design-tokens": "^7.0.0",
     "@tsconfig/node18": "^18.2.4",
-    "@typescript-eslint/rule-tester": "^7.11.0",
+    "@typescript-eslint/rule-tester": "^7.14.1",
     "typescript": "^5.4.5"
   },
   "peerDependencies": {

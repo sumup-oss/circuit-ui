@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.10.1
+
+### Patch Changes
+
+- [#2601](https://github.com/sumup-oss/circuit-ui/pull/2601) [`c33d370`](https://github.com/sumup-oss/circuit-ui/commit/c33d3702c115346f82e4ba80d207d9794ee8b828) Thanks [@roma-claudio](https://github.com/roma-claudio)! - Fixed the visibility of the PhoneNumberInput's country code prefix when hovered or focused.
+
 ## 8.10.0
 
 ### Minor Changes

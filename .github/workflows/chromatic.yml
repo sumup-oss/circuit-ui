@@ -39,4 +39,6 @@ jobs:
           storybookBuildDir: 'public'
           exitOnceUploaded: true
           onlyChanged: true
-          externals: '.storybook/public/**'
+          externals: |
+            '.storybook/public/**'
+            'packages/design-tokens/**'

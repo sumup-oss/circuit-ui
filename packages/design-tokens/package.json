@@ -31,12 +31,12 @@
     "test": "vitest"
   },
   "dependencies": {
-    "browserslist": "^4.23.0",
+    "browserslist": "^4.23.1",
     "lightningcss": "^1.25.1",
     "prop-types": "^15.8.1"
   },
   "devDependencies": {
-    "@types/node": "^18.16.19",
+    "@types/node": "^18.19.39",
     "@types/prop-types": "^15.7.12",
     "tsx": "^4.11.0",
     "typescript": "^5.4.5"
