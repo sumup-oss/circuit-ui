@@ -240,10 +240,21 @@ export const PhoneNumberInput = forwardRef<
       ) {
         return;
       }
+
+      const selectedCountry = countryCodeRef?.current?.value;
+      if (!selectedCountry) {
+        return;
+      }
+      const code = countryCode.options
+        // Match longer, more specific country codes first
+        .sort((a, b) => a.code.length - b.code.length)
+        .find(({ country }) => country === selectedCountry)?.code;
+
+      if (!code) {
+        return;
+      }
       const phoneNumber = normalizePhoneNumber(
-        countryCode.options.find(
-          ({ country }) => country === countryCodeRef?.current?.value,
-        )?.code as string,
+        code,
         subscriberNumberRef.current.value,
       );
       onChange(phoneNumber);
