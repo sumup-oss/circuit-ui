@@ -114,7 +114,7 @@ export interface UtilityLinksProps {
   links: (UtilityLinkProps | CustomLinkProps)[];
 }
 
-export function UtilityLinks({ links }: UtilityLinksProps): JSX.Element {
+export function UtilityLinks({ links }: UtilityLinksProps) {
   return (
     <ul className={classes.list}>
       {links.map((link) =>

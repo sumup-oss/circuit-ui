@@ -43,7 +43,7 @@ export const Header = ({
   isSticky,
   onBack,
   onClose,
-}: HeaderProps): JSX.Element => (
+}: HeaderProps) => (
   <div className={clsx(classes.base, isSticky && classes.sticky)}>
     {onBack && backButtonLabel && (
       <IconButton

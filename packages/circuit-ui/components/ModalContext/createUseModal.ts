@@ -29,6 +29,7 @@ export function createUseModal<T extends BaseModalProps>(
     const modalRef = useRef<Omit<T, 'isOpen'> | null>(null);
     const context = useContext(ModalContext);
 
+    // biome-ignore lint/correctness/useExhaustiveDependencies: The `component` never changes
     const setModal = useCallback(
       (props: Omit<T, 'isOpen'>): void => {
         modalRef.current = props;
@@ -37,6 +38,7 @@ export function createUseModal<T extends BaseModalProps>(
       [context, id],
     );
 
+    // biome-ignore lint/correctness/useExhaustiveDependencies: The `component` never changes
     const removeModal = useCallback((): void => {
       if (modalRef.current) {
         context.removeModal({ ...modalRef.current, id, component });

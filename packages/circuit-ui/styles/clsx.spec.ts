@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { describe, it, expect } from 'vitest';
+
 import { clsx } from './clsx.js';
 
 describe('clsx', () => {

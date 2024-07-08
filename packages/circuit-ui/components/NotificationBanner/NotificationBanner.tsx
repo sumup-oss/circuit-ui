@@ -138,7 +138,7 @@ export const NotificationBanner = forwardRef<
       ...props
     },
     ref,
-  ): JSX.Element => {
+  ) => {
     const contentElement = useRef<HTMLDivElement>(null);
     const [isOpen, setOpen] = useState(isVisible);
     const [height, setHeight] = useState(getHeight(contentElement));
@@ -194,7 +194,7 @@ export const NotificationBanner = forwardRef<
             size="s"
           />
         </div>
-        {image && image.src && <NotificationImage {...image} />}
+        {image?.src && <NotificationImage {...image} />}
         {onClose && closeButtonLabel && (
           <CloseButton className={classes.close} size="s" onClick={onClose}>
             {closeButtonLabel}

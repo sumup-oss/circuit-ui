@@ -55,7 +55,7 @@ export interface YesOrNoSliderProps extends StepProps {
 export default function YesOrNoSlider({
   images,
   ...stepProps
-}: YesOrNoSliderProps): JSX.Element {
+}: YesOrNoSliderProps) {
   const [swipe, setSwipe] = useState<SwipeEventData | null>(null);
   const handleSwipe = (eventData: SwipeEventData, actions: Actions) => {
     setSwipe(eventData);

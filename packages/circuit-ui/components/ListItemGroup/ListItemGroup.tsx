@@ -142,7 +142,7 @@ export const ListItemGroup = forwardRef<HTMLDivElement, ListItemGroupProps>(
                     if (event.currentTarget.matches(':focus-visible')) {
                       setFocusedItemKey(key);
                     }
-                  } catch (err) {
+                  } catch (_error) {
                     setFocusedItemKey(key);
                   }
                 }}

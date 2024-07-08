@@ -196,7 +196,7 @@ const ComponentWithSidePanel = (props: SidePanelHookProps) => {
   );
 };
 
-export const Base = (props: SidePanelHookProps): JSX.Element => (
+export const Base = (props: SidePanelHookProps) => (
   <div style={{ display: 'flex' }}>
     <SidePanelProvider>
       <StoryInstructions />
@@ -207,7 +207,7 @@ export const Base = (props: SidePanelHookProps): JSX.Element => (
 Base.args = baseArgs;
 Base.play = basePlay;
 
-export const WithTopNavigation = (props: SidePanelHookProps): JSX.Element => {
+export const WithTopNavigation = (props: SidePanelHookProps) => {
   const [isSideNavigationOpen, setSideNavigationOpen] = useState(false);
   const hamburger = {
     activeLabel: 'Close side navigation',
@@ -299,7 +299,7 @@ const ComponentWithSidePanelExtended = (props: SidePanelHookProps) => {
   );
 };
 
-export const UpdateAndRemove = (props: SidePanelHookProps): JSX.Element => (
+export const UpdateAndRemove = (props: SidePanelHookProps) => (
   <div style={{ display: 'flex' }}>
     <SidePanelProvider>
       <StoryInstructions />

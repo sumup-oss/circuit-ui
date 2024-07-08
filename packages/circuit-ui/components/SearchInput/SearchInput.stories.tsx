@@ -27,7 +27,7 @@ export default {
   },
 };
 
-export const Base = (args: SearchInputProps): JSX.Element => {
+export const Base = (args: SearchInputProps) => {
   const [value, setValue] = useState('');
 
   const handleChange = ({

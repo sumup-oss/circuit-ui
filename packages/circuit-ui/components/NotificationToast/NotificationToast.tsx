@@ -80,7 +80,7 @@ export function NotificationToast({
   duration, // this is the auto-dismiss duration, not the animation duration. We shouldn't pass it to the wrapper along with ...props
   className,
   ...props
-}: NotificationToastProps): JSX.Element {
+}: NotificationToastProps) {
   const contentElement = useRef(null);
   const [isOpen, setOpen] = useState(false);
   const [height, setHeight] = useState(getHeight(contentElement));

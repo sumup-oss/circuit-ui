@@ -1,5 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-vite';
-import path from 'path';
+import path from 'node:path';
 import remarkGfm from 'remark-gfm';
 import { mergeConfig } from 'vite';
 
@@ -38,7 +38,7 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
-  async viteFinal(config, { configType }) {
+  async viteFinal(config) {
     return mergeConfig(config, {
       define: {
         'process.env.UNSAFE_DISABLE_ELEMENT_ERRORS': false,

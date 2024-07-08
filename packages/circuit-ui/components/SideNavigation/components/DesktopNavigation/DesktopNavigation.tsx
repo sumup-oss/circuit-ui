@@ -54,12 +54,11 @@ export function DesktopNavigation({
   primaryLinks,
   primaryNavigationLabel,
   secondaryNavigationLabel,
-}: DesktopNavigationProps): JSX.Element {
+}: DesktopNavigationProps) {
   const focusProps = useFocusList();
 
   const activePrimaryLink = primaryLinks.find((link) => link.isActive);
-  const secondaryGroups =
-    activePrimaryLink && activePrimaryLink.secondaryGroups;
+  const secondaryGroups = activePrimaryLink?.secondaryGroups;
 
   return (
     <SkeletonContainer
@@ -85,7 +84,7 @@ export function DesktopNavigation({
         >
           <Skeleton className={classes.headline} as="div">
             <Headline as="h2" size="four">
-              {activePrimaryLink && activePrimaryLink.label}
+              {activePrimaryLink?.label}
             </Headline>
           </Skeleton>
           <SecondaryLinks secondaryGroups={secondaryGroups} />

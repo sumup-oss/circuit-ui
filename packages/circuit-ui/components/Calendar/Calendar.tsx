@@ -190,18 +190,15 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
       }
     });
 
-    const handleFocusDate = useCallback(
-      (date: Temporal.PlainDate) => {
-        dispatch({ type: CalendarActionType.FOCUS_DATE, date });
-        // Focus the button on the next tick after React has rerendered the UI
-        window.requestAnimationFrame(() => {
-          calendarRef.current
-            ?.querySelector<HTMLButtonElement>('button[tabindex="0"]')
-            ?.focus();
-        });
-      },
-      [dispatch],
-    );
+    const handleFocusDate = useCallback((date: Temporal.PlainDate) => {
+      dispatch({ type: CalendarActionType.FOCUS_DATE, date });
+      // Focus the button on the next tick after React has rerendered the UI
+      window.requestAnimationFrame(() => {
+        calendarRef.current
+          ?.querySelector<HTMLButtonElement>('button[tabindex="0"]')
+          ?.focus();
+      });
+    }, []);
 
     const handleKeyDown = useCallback(
       (event: KeyboardEvent) => {
@@ -251,15 +248,12 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
       [handleFocusDate, focusedDate, minDate, maxDate, firstDayOfWeek],
     );
 
-    const handleMouseEnter = useCallback(
-      (date: Temporal.PlainDate) => {
-        dispatch({ type: CalendarActionType.MOUSE_ENTER_DATE, date });
-      },
-      [dispatch],
-    );
+    const handleMouseEnter = useCallback((date: Temporal.PlainDate) => {
+      dispatch({ type: CalendarActionType.MOUSE_ENTER_DATE, date });
+    }, []);
     const handleMouseLeave = useCallback(() => {
       dispatch({ type: CalendarActionType.MOUSE_LEAVE_DATE });
-    }, [dispatch]);
+    }, []);
 
     if (process.env.NODE_ENV !== 'production') {
       if (!isSufficientlyLabelled(prevMonthButtonLabel)) {
@@ -278,7 +272,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
         Object.keys(modifiers).forEach((key) => {
           try {
             Temporal.PlainDate.from(key);
-          } catch (error) {
+          } catch (_error) {
             throw new CircuitError(
               'Calendar',
               `The "${key}" key of the \`modifiers\` prop is not a valid ISO 8601 date string.`,
@@ -427,15 +421,15 @@ function Month({
         </thead>
 
         <tbody>
-          {weeks.map((week, i) => (
-            <tr key={i}>
+          {weeks.map((week) => (
+            <tr key={week.toString()}>
               {week.map((date) => {
                 const isoDate = date.toString();
                 const descriptionId = `${descriptionIds}-${isoDate}`;
                 const isOutsideMonth = !yearMonth.equals(date);
 
                 if (isOutsideMonth) {
-                  return <td key={isoDate}></td>;
+                  return <td key={isoDate} />;
                 }
 
                 const { disabled, description } = modifiers[isoDate] || {};

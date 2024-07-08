@@ -1,0 +1,101 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.8.2/schema.json",
+  "extends": ["@sumup-oss/foundry/biome"],
+  "files": {
+    "ignore": [
+      // Generated artifacts
+      "**/build/**",
+      "**/dist/**",
+      "**/public/**",
+      "**/.next/**",
+      "**/.out/**",
+      "**/__coverage__/**",
+      "**/__reports__/**",
+      "**/*.astro",
+      "packages/circuit-ui/vendor/**"
+    ]
+  },
+  "formatter": {
+    "ignore": [
+      // Configuration files that use conflicting formatting
+      ".changeset/**",
+      "**/package.json",
+      "**/package-lock.json",
+      "**/tsconfig.json",
+      "**/tsconfig.*.json",
+      "**/lerna.json",
+      "**/.vscode/extensions.json"
+    ]
+  },
+  "organizeImports": {
+    "enabled": false
+  },
+  "linter": {
+    "rules": {
+      "recommended": true,
+      "style": {
+        "noDefaultExport": "warn",
+        "useFilenamingConvention": {
+          "level": "error",
+          "options": {
+            "requireAscii": true,
+            "filenameCases": ["camelCase", "kebab-case", "PascalCase"]
+          }
+        }
+      },
+      "suspicious": {
+        "noArrayIndexKey": "warn",
+        "noExplicitAny": "warn"
+      }
+    },
+    "ignore": [
+      // The templates have their own linting setup
+      "packages/astro-template/**",
+      "packages/cna-template/template/**",
+      "packages/remix-template/**"
+    ]
+  },
+  "overrides": [
+    {
+      "include": ["*.css"],
+      "css": {
+        "formatter": {
+          "enabled": true,
+          "indentStyle": "space",
+          "quoteStyle": "double"
+        },
+        "linter": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "include": ["*.module.css"],
+      "css": {
+        "parser": {
+          "cssModules": true
+        }
+      }
+    },
+    {
+      "include": ["packages/eslint-plugin-circuit-ui/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noNonNullAssertion": "off"
+          }
+        }
+      }
+    },
+    {
+      "include": ["**/*spec.*", "**/setupTests.*", "**/test-utils.*"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noGlobalAssign": "off"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -23,8 +23,8 @@ import {
   BASE_DIR,
   DIST_DIR,
   ICON_DIR,
-  CATEGORIES,
-  SIZES,
+  type CATEGORIES,
+  type SIZES,
 } from '../constants.js';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore Import assertions are fine
@@ -79,7 +79,7 @@ function buildComponentFile(component: Component): string {
     (icon) =>
       `import { ReactComponent as ${icon.name} } from '${icon.filePath}';`,
   );
-  const sizes = icons.map((icon) => parseInt(icon.size, 10)).sort();
+  const sizes = icons.map((icon) => Number.parseInt(icon.size, 10)).sort();
   const defaultSize = sizes.includes(24) ? '24' : Math.min(...sizes).toString();
   const sizeMap = icons.map((icon) => `'${icon.size}': ${icon.name},`);
   const invalidSizeWarning = `The '\${size}' size is not supported by the '${

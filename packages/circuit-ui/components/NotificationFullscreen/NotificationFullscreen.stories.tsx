@@ -25,7 +25,7 @@ export default {
   component: NotificationFullscreen,
 };
 
-export const Base = (args: NotificationFullscreenProps): JSX.Element => (
+export const Base = (args: NotificationFullscreenProps) => (
   <NotificationFullscreen {...args} />
 );
 
@@ -44,9 +44,9 @@ Base.args = {
   },
 };
 
-export const WithHeading1 = (
-  args: NotificationFullscreenProps,
-): JSX.Element => <NotificationFullscreen {...args} />;
+export const WithHeading1 = (args: NotificationFullscreenProps) => (
+  <NotificationFullscreen {...args} />
+);
 
 WithHeading1.args = {
   ...Base.args,
