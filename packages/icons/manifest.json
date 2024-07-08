@@ -772,365 +772,271 @@
     {
       "name": "flag_ae",
       "category": "Country flag",
-      "keywords": [
-        "United Arab Emirates"
-      ],
+      "keywords": ["United Arab Emirates"],
       "size": "16"
     },
     {
       "name": "flag_ar",
       "category": "Country flag",
-      "keywords": [
-        "Argentina"
-      ],
+      "keywords": ["Argentina"],
       "size": "16"
     },
     {
       "name": "flag_at",
       "category": "Country flag",
-      "keywords": [
-        "Austria"
-      ],
+      "keywords": ["Austria"],
       "size": "16"
     },
     {
       "name": "flag_au",
       "category": "Country flag",
-      "keywords": [
-        "Australia"
-      ],
+      "keywords": ["Australia"],
       "size": "16"
     },
     {
       "name": "flag_be",
       "category": "Country flag",
-      "keywords": [
-        "Belgium"
-      ],
+      "keywords": ["Belgium"],
       "size": "16"
     },
     {
       "name": "flag_bg",
       "category": "Country flag",
-      "keywords": [
-        "Bulgaria"
-      ],
+      "keywords": ["Bulgaria"],
       "size": "16"
     },
     {
       "name": "flag_br",
       "category": "Country flag",
-      "keywords": [
-        "Brazil"
-      ],
+      "keywords": ["Brazil"],
       "size": "16"
     },
     {
       "name": "flag_ca",
       "category": "Country flag",
-      "keywords": [
-        "Canada"
-      ],
+      "keywords": ["Canada"],
       "size": "16"
     },
     {
       "name": "flag_ch",
       "category": "Country flag",
-      "keywords": [
-        "Switzerland"
-      ],
+      "keywords": ["Switzerland"],
       "size": "16"
     },
     {
       "name": "flag_cl",
       "category": "Country flag",
-      "keywords": [
-        "Chile"
-      ],
+      "keywords": ["Chile"],
       "size": "16"
     },
     {
       "name": "flag_co",
       "category": "Country flag",
-      "keywords": [
-        "Colombia"
-      ],
+      "keywords": ["Colombia"],
       "size": "16"
     },
     {
       "name": "flag_cy",
       "category": "Country flag",
-      "keywords": [
-        "Cypress"
-      ],
+      "keywords": ["Cypress"],
       "size": "16"
     },
     {
       "name": "flag_cz",
       "category": "Country flag",
-      "keywords": [
-        "Czech Republic"
-      ],
+      "keywords": ["Czech Republic"],
       "size": "16"
     },
     {
       "name": "flag_de",
       "category": "Country flag",
-      "keywords": [
-        "Germany"
-      ],
+      "keywords": ["Germany"],
       "size": "16"
     },
     {
       "name": "flag_dk",
       "category": "Country flag",
-      "keywords": [
-        "Denmark"
-      ],
+      "keywords": ["Denmark"],
       "size": "16"
     },
     {
       "name": "flag_ee",
       "category": "Country flag",
-      "keywords": [
-        "Estonia"
-      ],
+      "keywords": ["Estonia"],
       "size": "16"
     },
     {
       "name": "flag_es",
       "category": "Country flag",
-      "keywords": [
-        "Spain"
-      ],
+      "keywords": ["Spain"],
       "size": "16"
     },
     {
       "name": "flag_fi",
       "category": "Country flag",
-      "keywords": [
-        "Finland"
-      ],
+      "keywords": ["Finland"],
       "size": "16"
     },
     {
       "name": "flag_fr",
       "category": "Country flag",
-      "keywords": [
-        "France"
-      ],
+      "keywords": ["France"],
       "size": "16"
     },
     {
       "name": "flag_gb",
       "category": "Country flag",
-      "keywords": [
-        "Great Britain",
-        "United Kingdom",
-        "UK",
-        "England"
-      ],
+      "keywords": ["Great Britain", "United Kingdom", "UK", "England"],
       "size": "16"
     },
     {
       "name": "flag_gr",
       "category": "Country flag",
-      "keywords": [
-        "Greece"
-      ],
+      "keywords": ["Greece"],
       "size": "16"
     },
     {
       "name": "flag_hk",
       "category": "Country flag",
-      "keywords": [
-        "Hong Kong"
-      ],
+      "keywords": ["Hong Kong"],
       "size": "16"
     },
     {
       "name": "flag_hr",
       "category": "Country flag",
-      "keywords": [
-        "Croatia"
-      ],
+      "keywords": ["Croatia"],
       "size": "16"
     },
     {
       "name": "flag_hu",
       "category": "Country flag",
-      "keywords": [
-        "Hungary"
-      ],
+      "keywords": ["Hungary"],
       "size": "16"
     },
     {
       "name": "flag_ie",
       "category": "Country flag",
-      "keywords": [
-        "Ireland"
-      ],
+      "keywords": ["Ireland"],
       "size": "16"
     },
     {
       "name": "flag_it",
       "category": "Country flag",
-      "keywords": [
-        "Italy"
-      ],
+      "keywords": ["Italy"],
       "size": "16"
     },
     {
       "name": "flag_ja",
       "category": "Country flag",
-      "keywords": [
-        "Japan"
-      ],
+      "keywords": ["Japan"],
       "size": "16"
     },
     {
       "name": "flag_lt",
       "category": "Country flag",
-      "keywords": [
-        "Lithuania"
-      ],
+      "keywords": ["Lithuania"],
       "size": "16"
     },
     {
       "name": "flag_lu",
       "category": "Country flag",
-      "keywords": [
-        "Luxembourg"
-      ],
+      "keywords": ["Luxembourg"],
       "size": "16"
     },
     {
       "name": "flag_lv",
       "category": "Country flag",
-      "keywords": [
-        "Latvia"
-      ],
+      "keywords": ["Latvia"],
       "size": "16"
     },
     {
       "name": "flag_mt",
       "category": "Country flag",
-      "keywords": [
-        "Montenegro"
-      ],
+      "keywords": ["Montenegro"],
       "size": "16"
     },
     {
       "name": "flag_mx",
       "category": "Country flag",
-      "keywords": [
-        "Mexico"
-      ],
+      "keywords": ["Mexico"],
       "size": "16"
     },
     {
       "name": "flag_my",
       "category": "Country flag",
-      "keywords": [
-        "Malaysia"
-      ],
+      "keywords": ["Malaysia"],
       "size": "16"
     },
     {
       "name": "flag_nl",
       "category": "Country flag",
-      "keywords": [
-        "Netherlands"
-      ],
+      "keywords": ["Netherlands"],
       "size": "16"
     },
     {
       "name": "flag_no",
       "category": "Country flag",
-      "keywords": [
-        "Norway"
-      ],
+      "keywords": ["Norway"],
       "size": "16"
     },
     {
       "name": "flag_nz",
       "category": "Country flag",
-      "keywords": [
-        "New Zeland"
-      ],
+      "keywords": ["New Zeland"],
       "size": "16"
     },
     {
       "name": "flag_pe",
       "category": "Country flag",
-      "keywords": [
-        "Peru"
-      ],
+      "keywords": ["Peru"],
       "size": "16"
     },
     {
       "name": "flag_pl",
       "category": "Country flag",
-      "keywords": [
-        "Poland"
-      ],
+      "keywords": ["Poland"],
       "size": "16"
     },
     {
       "name": "flag_pt",
       "category": "Country flag",
-      "keywords": [
-        "Portugal"
-      ],
+      "keywords": ["Portugal"],
       "size": "16"
     },
     {
       "name": "flag_ro",
       "category": "Country flag",
-      "keywords": [
-        "Romania"
-      ],
+      "keywords": ["Romania"],
       "size": "16"
     },
     {
       "name": "flag_se",
       "category": "Country flag",
-      "keywords": [
-        "Sweden"
-      ],
+      "keywords": ["Sweden"],
       "size": "16"
     },
     {
       "name": "flag_sg",
       "category": "Country flag",
-      "keywords": [
-        "Singapore"
-      ],
+      "keywords": ["Singapore"],
       "size": "16"
     },
     {
       "name": "flag_si",
       "category": "Country flag",
-      "keywords": [
-        "Slovenia"
-      ],
+      "keywords": ["Slovenia"],
       "size": "16"
     },
     {
       "name": "flag_sk",
       "category": "Country flag",
-      "keywords": [
-        "Slovakia"
-      ],
+      "keywords": ["Slovakia"],
       "size": "16"
     },
     {
       "name": "flag_us",
       "category": "Country flag",
-      "keywords": [
-        "United States of America",
-        "USA"
-      ],
+      "keywords": ["United States of America", "USA"],
       "size": "16"
     },
     {
@@ -1396,10 +1302,7 @@
     {
       "name": "cafe",
       "category": "Miscellaneous",
-      "keywords": [
-        "restaurant",
-        "coffee"
-      ],
+      "keywords": ["restaurant", "coffee"],
       "size": "24"
     },
     {

@@ -1,8 +1,6 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.8.2/schema.json",
-  "extends": [
-    "@sumup-oss/foundry/biome"
-  ],
+  "extends": ["@sumup-oss/foundry/biome"],
   "files": {
     "ignore": [
       // Generated artifacts
@@ -41,11 +39,7 @@
           "level": "error",
           "options": {
             "requireAscii": true,
-            "filenameCases": [
-              "camelCase",
-              "kebab-case",
-              "PascalCase"
-            ]
+            "filenameCases": ["camelCase", "kebab-case", "PascalCase"]
           }
         }
       },
@@ -63,9 +57,7 @@
   },
   "overrides": [
     {
-      "include": [
-        "*.css"
-      ],
+      "include": ["*.css"],
       "css": {
         "formatter": {
           "enabled": true,
@@ -78,9 +70,7 @@
       }
     },
     {
-      "include": [
-        "*.module.css"
-      ],
+      "include": ["*.module.css"],
       "css": {
         "parser": {
           "cssModules": true
@@ -88,9 +78,7 @@
       }
     },
     {
-      "include": [
-        "packages/eslint-plugin-circuit-ui/**"
-      ],
+      "include": ["packages/eslint-plugin-circuit-ui/**"],
       "linter": {
         "rules": {
           "style": {
@@ -100,11 +88,7 @@
       }
     },
     {
-      "include": [
-        "**/*spec.*",
-        "**/setupTests.*",
-        "**/test-utils.*"
-      ],
+      "include": ["**/*spec.*", "**/setupTests.*", "**/test-utils.*"],
       "linter": {
         "rules": {
           "suspicious": {
