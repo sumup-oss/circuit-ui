@@ -12,5 +12,9 @@
     "@sumup/remix-template-circuit-ui": "3.0.0",
     "@sumup/stylelint-plugin-circuit-ui": "2.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "eight-taxis-itch",
+    "eighty-snakes-complain",
+    "hot-mayflies-jump"
+  ]
 }

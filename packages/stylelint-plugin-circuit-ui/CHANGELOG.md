@@ -1,5 +1,12 @@
 # @sumup/stylelint-plugin-circuit-ui
 
+## 3.0.0-canary.0
+
+### Patch Changes
+
+- Updated dependencies [[`d2115fb`](https://github.com/sumup-oss/circuit-ui/commit/d2115fba00c50668081ad40a34abce7abaa6d2a2)]:
+  - @sumup/design-tokens@7.3.0-canary.0
+
 ## 2.0.0
 
 ### Major Changes
