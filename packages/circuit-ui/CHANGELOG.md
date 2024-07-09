@@ -1,5 +1,22 @@
 # @sumup/circuit-ui
 
+## 8.11.0-canary.0
+
+### Minor Changes
+
+- [#2551](https://github.com/sumup-oss/circuit-ui/pull/2551) [`d2115fb`](https://github.com/sumup-oss/circuit-ui/commit/d2115fba00c50668081ad40a34abce7abaa6d2a2) Thanks [@connor-baer](https://github.com/connor-baer)! - Always use the secondary Button variant for the second button in a ButtonGroup. Previously, it switched to the tertiary variant in narrow spaces.
+
+- [#2551](https://github.com/sumup-oss/circuit-ui/pull/2551) [`d2115fb`](https://github.com/sumup-oss/circuit-ui/commit/d2115fba00c50668081ad40a34abce7abaa6d2a2) Thanks [@connor-baer](https://github.com/connor-baer)! - Tweaked the Button's updated design to improve its usability.
+
+  - Normalized the border-radius to 8px for all sizes.
+  - Removed the horizontal padding of the tertiary variant and improved the color contrast its underline.
+  - Updated the disabled styles to distinguish the button variants.
+
+### Patch Changes
+
+- Updated dependencies [[`d2115fb`](https://github.com/sumup-oss/circuit-ui/commit/d2115fba00c50668081ad40a34abce7abaa6d2a2)]:
+  - @sumup/design-tokens@7.3.0-canary.0
+
 ## 8.10.1
 
 ### Patch Changes
