@@ -320,7 +320,7 @@ export const dark = [
   },
   {
     name: '--cui-fg-normal-disabled',
-    value: 'rgba(230, 224, 233, 0.6)',
+    value: 'rgba(216, 232, 248, 0.3000)',
     type: 'color',
   },
   {
