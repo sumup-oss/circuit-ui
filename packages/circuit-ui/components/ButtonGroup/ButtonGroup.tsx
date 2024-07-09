@@ -83,7 +83,7 @@ export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
               {...actions.secondary}
               size={size || actions.secondary.size}
               className={clsx(styles.secondary, actions.secondary.className)}
-              variant="tertiary"
+              variant="secondary"
             />
           )}
         </div>

@@ -66,7 +66,7 @@ export const Button: ForwardRefExoticComponent<
   PropsWithoutRef<ButtonProps> & RefAttributes<any>
 > = createButtonComponent<ButtonProps>(
   'Button',
-  ({ className, size: legacySize = 'm', stretch, ...props }) => {
+  ({ className, size: legacySize = 'm', stretch, variant, ...props }) => {
     const size = legacyButtonSizeMap[legacySize] || legacySize;
 
     if (
@@ -92,7 +92,13 @@ export const Button: ForwardRefExoticComponent<
     }
 
     return {
-      className: clsx(className, classes[size], stretch && classes.stretch),
+      className: clsx(
+        className,
+        classes[size],
+        stretch && classes.stretch,
+        variant === 'tertiary' && classes.tertiary,
+      ),
+      variant,
       size,
       ...props,
     };

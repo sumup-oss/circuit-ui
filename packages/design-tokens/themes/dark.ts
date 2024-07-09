@@ -44,12 +44,12 @@ export const dark = [
   },
   {
     name: '--cui-bg-subtle-hovered',
-    value: '#080b0d',
+    value: '#212b31',
     type: 'color',
   },
   {
     name: '--cui-bg-subtle-pressed',
-    value: '#040607',
+    value: '#36434a',
     type: 'color',
   },
   {
@@ -105,12 +105,12 @@ export const dark = [
   },
   {
     name: '--cui-bg-accent-hovered',
-    value: '#080B0D',
+    value: '#20292e',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-pressed',
-    value: '#040607',
+    value: '#313d43',
     type: 'color',
   },
   {
@@ -125,12 +125,12 @@ export const dark = [
   },
   {
     name: '--cui-bg-accent-strong-hovered',
-    value: '#f6f8f9',
+    value: '#c1c1c1',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-strong-pressed',
-    value: '#e3e7eb',
+    value: '#828282',
     type: 'color',
   },
   {
@@ -228,17 +228,17 @@ export const dark = [
   },
   {
     name: '--cui-bg-danger-hovered',
-    value: 'rgba(255, 76, 53, 0.2500)',
+    value: 'rgba(255, 76, 53, 0.2)',
     type: 'color',
   },
   {
     name: '--cui-bg-danger-pressed',
-    value: 'rgba(255, 76, 53, 0.3000)',
+    value: 'rgba(255, 76, 53, 0.4)',
     type: 'color',
   },
   {
     name: '--cui-bg-danger-disabled',
-    value: 'rgba(216, 232, 248, 0.0800)',
+    value: 'rgba(255, 69, 60, 0.13)',
     type: 'color',
   },
   {
@@ -248,12 +248,12 @@ export const dark = [
   },
   {
     name: '--cui-bg-danger-strong-hovered',
-    value: '#ff5c47',
+    value: '#ff6259',
     type: 'color',
   },
   {
     name: '--cui-bg-danger-strong-pressed',
-    value: '#ff6a57',
+    value: '#ff827b',
     type: 'color',
   },
   {
@@ -484,7 +484,7 @@ export const dark = [
   },
   {
     name: '--cui-fg-danger-disabled',
-    value: 'rgba(216, 232, 248, 0.3000)',
+    value: 'rgba(255, 178, 167, 0.7)',
     type: 'color',
   },
   /* Promo foregrounds */
@@ -655,7 +655,7 @@ export const dark = [
   /* Danger borders */
   {
     name: '--cui-border-danger',
-    value: '#ff4e37',
+    value: '#ff634e',
     type: 'color',
   },
   {
@@ -670,7 +670,7 @@ export const dark = [
   },
   {
     name: '--cui-border-danger-disabled',
-    value: 'rgba(216, 232, 248, 0.1500)',
+    value: 'rgba(255, 178, 167, 0.7)',
     type: 'color',
   },
   /* Promo borders */
