@@ -399,6 +399,11 @@
       "size": "24"
     },
     {
+      "name": "bacs_direct_debit",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "banco_estado",
       "category": "Payment method",
       "size": "24"
