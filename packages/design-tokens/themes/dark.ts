@@ -16,7 +16,6 @@
 import type { Token } from '../types/index.js';
 
 export const dark = [
-  /* Neutral backgrounds */
   {
     name: '--cui-bg-normal',
     value: '#171d24',
@@ -44,12 +43,12 @@ export const dark = [
   },
   {
     name: '--cui-bg-subtle-hovered',
-    value: '#080b0d',
+    value: '#212b31',
     type: 'color',
   },
   {
     name: '--cui-bg-subtle-pressed',
-    value: '#040607',
+    value: '#36434a',
     type: 'color',
   },
   {
@@ -97,20 +96,19 @@ export const dark = [
     value: 'rgba(216, 232, 248, 0.0800)',
     type: 'color',
   },
-  /* Accent backgrounds */
   {
     name: '--cui-bg-accent',
-    value: '#0C0F12',
+    value: '#0c0f12',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-hovered',
-    value: '#080B0D',
+    value: '#20292e',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-pressed',
-    value: '#040607',
+    value: '#313d43',
     type: 'color',
   },
   {
@@ -120,17 +118,17 @@ export const dark = [
   },
   {
     name: '--cui-bg-accent-strong',
-    value: '#ffffff',
+    value: '#e1e7ef',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-strong-hovered',
-    value: '#f6f8f9',
+    value: '#ffffff',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-strong-pressed',
-    value: '#e3e7eb',
+    value: '#ffffff',
     type: 'color',
   },
   {
@@ -138,7 +136,6 @@ export const dark = [
     value: 'rgba(216, 232, 248, 0.0800)',
     type: 'color',
   },
-  /* Success backgrounds */
   {
     name: '--cui-bg-success',
     value: 'rgba(12, 211, 104, 0.2000)',
@@ -179,7 +176,6 @@ export const dark = [
     value: 'rgba(216, 232, 248, 0.0800)',
     type: 'color',
   },
-  /* Warning backgrounds */
   {
     name: '--cui-bg-warning',
     value: 'rgba(245, 158, 28, 0.2000)',
@@ -220,7 +216,6 @@ export const dark = [
     value: 'rgba(216, 232, 248, 0.0800)',
     type: 'color',
   },
-  /* Danger backgrounds */
   {
     name: '--cui-bg-danger',
     value: 'rgba(255, 76, 53, 0.2000)',
@@ -228,17 +223,17 @@ export const dark = [
   },
   {
     name: '--cui-bg-danger-hovered',
-    value: 'rgba(255, 76, 53, 0.2500)',
+    value: 'rgba(255, 76, 53, 0.2000)',
     type: 'color',
   },
   {
     name: '--cui-bg-danger-pressed',
-    value: 'rgba(255, 76, 53, 0.3000)',
+    value: 'rgba(255, 76, 53, 0.4000)',
     type: 'color',
   },
   {
     name: '--cui-bg-danger-disabled',
-    value: 'rgba(216, 232, 248, 0.0800)',
+    value: 'rgba(255, 69, 60, 0.1300)',
     type: 'color',
   },
   {
@@ -248,12 +243,12 @@ export const dark = [
   },
   {
     name: '--cui-bg-danger-strong-hovered',
-    value: '#ff5c47',
+    value: '#ff6259',
     type: 'color',
   },
   {
     name: '--cui-bg-danger-strong-pressed',
-    value: '#ff6a57',
+    value: '#ff827b',
     type: 'color',
   },
   {
@@ -261,7 +256,6 @@ export const dark = [
     value: 'rgba(216, 232, 248, 0.0800)',
     type: 'color',
   },
-  /* Promo backgrounds */
   {
     name: '--cui-bg-promo',
     value: 'rgba(195, 83, 247, 0.2000)',
@@ -302,7 +296,6 @@ export const dark = [
     value: 'rgba(216, 232, 248, 0.0800)',
     type: 'color',
   },
-  /* Neutral foregrounds */
   {
     name: '--cui-fg-normal',
     value: '#ffffff',
@@ -310,7 +303,7 @@ export const dark = [
   },
   {
     name: '--cui-fg-normal-hovered',
-    value: '#f6f8f9',
+    value: 'rgba(255, 255, 255, 0.8000)',
     type: 'color',
   },
   {
@@ -320,7 +313,7 @@ export const dark = [
   },
   {
     name: '--cui-fg-normal-disabled',
-    value: 'rgba(216, 232, 248, 0.3000)',
+    value: 'rgba(230, 224, 233, 0.2000)',
     type: 'color',
   },
   {
@@ -403,20 +396,19 @@ export const dark = [
     value: 'rgba(216, 232, 248, 0.2000)',
     type: 'color',
   },
-  /* Accent foregrounds */
   {
     name: '--cui-fg-accent',
-    value: '#ffffff',
+    value: '#e1e7ef',
     type: 'color',
   },
   {
     name: '--cui-fg-accent-hovered',
-    value: '#f6f8f9',
+    value: '#ffffff',
     type: 'color',
   },
   {
     name: '--cui-fg-accent-pressed',
-    value: '#e3e7eb',
+    value: '#ffffff',
     type: 'color',
   },
   {
@@ -424,7 +416,6 @@ export const dark = [
     value: 'rgba(216, 232, 248, 0.3000)',
     type: 'color',
   },
-  /* Success foregrounds */
   {
     name: '--cui-fg-success',
     value: '#17db72',
@@ -445,7 +436,6 @@ export const dark = [
     value: 'rgba(216, 232, 248, 0.3000)',
     type: 'color',
   },
-  /* Warning foregrounds */
   {
     name: '--cui-fg-warning',
     value: '#f5b81c',
@@ -466,7 +456,6 @@ export const dark = [
     value: 'rgba(216, 232, 248, 0.3000)',
     type: 'color',
   },
-  /* Danger foregrounds */
   {
     name: '--cui-fg-danger',
     value: '#ff634e',
@@ -484,10 +473,9 @@ export const dark = [
   },
   {
     name: '--cui-fg-danger-disabled',
-    value: 'rgba(216, 232, 248, 0.3000)',
+    value: 'rgba(255, 178, 167, 0.7000)',
     type: 'color',
   },
-  /* Promo foregrounds */
   {
     name: '--cui-fg-promo',
     value: '#cf7bf6',
@@ -508,7 +496,6 @@ export const dark = [
     value: 'rgba(216, 232, 248, 0.3000)',
     type: 'color',
   },
-  /* Neutral borders */
   {
     name: '--cui-border-normal',
     value: 'rgba(223, 232, 241, 0.3000)',
@@ -526,7 +513,7 @@ export const dark = [
   },
   {
     name: '--cui-border-normal-disabled',
-    value: 'rgba(216, 232, 248, 0.1500)',
+    value: 'rgba(216, 232, 248, 0.3000)',
     type: 'color',
   },
   {
@@ -589,7 +576,6 @@ export const dark = [
     value: 'rgba(216, 232, 248, 0.1500)',
     type: 'color',
   },
-  /* Accent borders */
   {
     name: '--cui-border-accent',
     value: '#ffffff',
@@ -610,7 +596,6 @@ export const dark = [
     value: 'rgba(216, 232, 248, 0.1500)',
     type: 'color',
   },
-  /* Success borders */
   {
     name: '--cui-border-success',
     value: '#0cd368',
@@ -631,7 +616,6 @@ export const dark = [
     value: 'rgba(216, 232, 248, 0.1500)',
     type: 'color',
   },
-  /* Warning borders */
   {
     name: '--cui-border-warning',
     value: '#f5b81c',
@@ -652,10 +636,9 @@ export const dark = [
     value: 'rgba(216, 232, 248, 0.1500)',
     type: 'color',
   },
-  /* Danger borders */
   {
     name: '--cui-border-danger',
-    value: '#ff4e37',
+    value: '#ff634e',
     type: 'color',
   },
   {
@@ -670,10 +653,9 @@ export const dark = [
   },
   {
     name: '--cui-border-danger-disabled',
-    value: 'rgba(216, 232, 248, 0.1500)',
+    value: 'rgba(255, 178, 167, 0.7000)',
     type: 'color',
   },
-  /* Promo borders */
   {
     name: '--cui-border-promo',
     value: '#c353f7',
@@ -694,7 +676,6 @@ export const dark = [
     value: 'rgba(216, 232, 248, 0.1500)',
     type: 'color',
   },
-  /* Special colors */
   {
     name: '--cui-bg-overlay',
     value: 'rgba(0, 0, 0, 0.7000)',
