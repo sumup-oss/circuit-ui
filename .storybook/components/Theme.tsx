@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ComponentType, useEffect, useState } from 'react';
+import { useEffect, useState, type ComponentType } from 'react';
 import { ThemeProvider, useTheme } from '@emotion/react';
 import { Unstyled } from '@storybook/addon-docs';
 import { light, schema } from '@sumup/design-tokens';
@@ -21,10 +21,10 @@ import { SumUpLogomark } from '@sumup/icons';
 import {
   Anchor,
   Table,
-  TableHeaderCell,
-  TableRow,
   ToastProvider,
   useNotificationToast,
+  type TableHeaderCell,
+  type TableRow,
 } from '../../packages/circuit-ui/index.js';
 
 type CustomPropertyName = `--cui-${string}`;

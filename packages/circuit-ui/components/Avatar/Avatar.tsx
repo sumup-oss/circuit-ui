@@ -84,7 +84,7 @@ export const Avatar = ({
   initials,
   className,
   ...props
-}: AvatarProps): JSX.Element => {
+}: AvatarProps) => {
   if (
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test'
@@ -115,6 +115,7 @@ export const Avatar = ({
 
   if (src) {
     return (
+      // biome-ignore lint/a11y/useAltText: The `alt` prop is marked as required.
       <img
         src={src}
         alt={alt}

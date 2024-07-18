@@ -153,6 +153,7 @@ export function ProgressBar({
         />
       ) : (
         <span
+          // biome-ignore lint/a11y/useAriaPropsForRole: FIXME?
           role="progressbar"
           aria-labelledby={ariaId}
           className={clsx(classes.base, classes[size])}

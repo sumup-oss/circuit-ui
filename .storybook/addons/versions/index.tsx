@@ -1,3 +1,4 @@
+// biome-ignore lint/correctness/noUnusedImports: React isn't injected globally in this file
 import React, { useState } from 'react';
 import {
   IconButton,

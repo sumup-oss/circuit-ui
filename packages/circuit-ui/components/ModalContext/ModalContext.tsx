@@ -105,7 +105,7 @@ export function ModalProvider<TProps extends BaseModalProps>({
   children,
   initialState,
   ...defaultModalProps
-}: ModalProviderProps<TProps>): JSX.Element {
+}: ModalProviderProps<TProps>) {
   const [modals, dispatch] = useStack<ModalState<TProps>>(initialState);
 
   const setModal = useCallback(

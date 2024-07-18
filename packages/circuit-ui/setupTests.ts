@@ -14,7 +14,7 @@
  */
 
 import '@testing-library/jest-dom/vitest';
-import { vi } from 'vitest';
+import { vi, expect } from 'vitest';
 import { createSerializer } from '@emotion/jest';
 import { toHaveNoViolations } from 'jest-axe';
 

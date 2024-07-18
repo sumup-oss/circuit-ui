@@ -110,7 +110,7 @@ export const ImageInput = ({
   style,
   'aria-describedby': descriptionId,
   ...props
-}: ImageInputProps): JSX.Element => {
+}: ImageInputProps) => {
   if (
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test'
@@ -147,7 +147,7 @@ export const ImageInput = ({
   const [previewImage, setPreviewImage] = useState<string>('');
 
   const handleChange = (files?: FileList | null) => {
-    const file = files && files[0];
+    const file = files?.[0];
     if (!file) {
       return;
     }
@@ -216,7 +216,7 @@ export const ImageInput = ({
 
   const handleDrop = (event: DragEvent) => {
     handleDragLeave(event);
-    const files = event.dataTransfer && event.dataTransfer.files;
+    const files = event.dataTransfer?.files;
     handleChange(files);
 
     if (inputRef.current && files) {

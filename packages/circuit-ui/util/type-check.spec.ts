@@ -209,7 +209,7 @@ describe('type check', () => {
     });
 
     it('should return false for NaN', () => {
-      const actual = isNil(NaN);
+      const actual = isNil(Number.NaN);
       expect(actual).toBeFalsy();
     });
   });

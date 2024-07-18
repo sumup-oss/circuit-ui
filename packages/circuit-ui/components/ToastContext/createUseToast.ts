@@ -28,6 +28,7 @@ export function createUseToast<T extends BaseToastProps>(
   } => {
     const context = useContext(ToastContext);
 
+    // biome-ignore lint/correctness/useExhaustiveDependencies: The `component` never changes
     return useMemo(
       () => ({
         setToast: (props: Omit<T, 'isVisible'>): void => {

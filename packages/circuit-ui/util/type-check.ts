@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-// eslint-disable-next-line @typescript-eslint/ban-types
+// biome-ignore lint/complexity/noBannedTypes: There is no better type for this type guard
 export function isFunction(value?: unknown): value is Function {
   return typeof value === 'function';
 }

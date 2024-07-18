@@ -710,7 +710,6 @@ Previously, many apps would use `CreateStyled`:
 import styled, { CreateStyled } from '@emotion/styled';
 import { Theme } from '@sumup/design-tokens';
 
-// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
 export default styled as CreateStyled<Theme>;
 ```
 
@@ -737,7 +736,6 @@ import { Theme as CircuitTheme } from '@sumup/design-tokens';
 import {} from '@emotion/react/types/css-prop'; // See https://github.com/emotion-js/emotion/pull/1941
 
 declare module '@emotion/react' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
   export interface Theme extends CircuitTheme {}
 }
 ```

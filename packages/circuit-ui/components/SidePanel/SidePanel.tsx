@@ -73,7 +73,7 @@ export const SidePanel = ({
   onBack,
   onClose,
   ...props
-}: SidePanelProps): JSX.Element => {
+}: SidePanelProps) => {
   if (
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test'
@@ -95,6 +95,7 @@ export const SidePanel = ({
   const [isHeaderSticky, setHeaderSticky] = useState(false);
   const headerAriaId = useId();
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: Not sure why this effect is necessary
   useEffect(() => {
     setHeaderSticky(false);
   }, [isMobile]);

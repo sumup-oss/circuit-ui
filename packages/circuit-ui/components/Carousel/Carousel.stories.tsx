@@ -71,7 +71,7 @@ export const Composed = () => {
         <Slides>
           {SLIDES.map(({ image }, index) => (
             <Slide
-              key={index}
+              key={image.src}
               index={index}
               step={step}
               style={{

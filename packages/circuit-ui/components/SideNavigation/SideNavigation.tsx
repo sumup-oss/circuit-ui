@@ -47,7 +47,7 @@ export function SideNavigation({
   primaryNavigationLabel,
   secondaryNavigationLabel,
   UNSAFE_components,
-}: SideNavigationProps): JSX.Element {
+}: SideNavigationProps) {
   if (
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test'

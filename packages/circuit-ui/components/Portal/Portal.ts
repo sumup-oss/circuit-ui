@@ -35,16 +35,14 @@ export interface PortalProps {
 export function Portal({
   children,
   getContainer = () => document.body,
-}: PortalProps): JSX.Element | null {
+}: PortalProps) {
   const [container, setContainer] = useState<Element | null>(null);
 
   // `getContainer` likely uses DOM APIs which would throw during server-side
   // rendering. That's why it needs to be run in an effect hook.
+  // biome-ignore lint/correctness/useExhaustiveDependencies: In order to prevent performance issues, this hook is only run once. This means that the container can't be changed after the initial render.
   useEffect(() => {
     setContainer(getContainer());
-    // In order to prevent performance issues, this hook is only run once.
-    // This means that the container can't be changed after the initial render.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return container && createPortal(children, container);

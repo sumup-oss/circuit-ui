@@ -65,7 +65,7 @@ export function ToastProvider<TProps extends BaseToastProps>({
   children,
   position = 'bottom',
   className,
-}: ToastProviderProps): JSX.Element {
+}: ToastProviderProps) {
   const [toasts, dispatch] = useStack<ToastState<TProps>>([]);
 
   const setToast = useCallback(

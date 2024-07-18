@@ -19,17 +19,15 @@ import type { BodyLargeProps } from '../../packages/circuit-ui/index.js';
 
 import classes from './Intro.module.css';
 
-function Intro({
+export default function Intro({
   children,
   ...props
 }: {
   children: BodyLargeProps['children'];
-}): JSX.Element {
+}) {
   return (
     <BodyLarge as="div" variant="subtle" className={classes.base} {...props}>
       {children}
     </BodyLarge>
   );
 }
-
-export default Intro;
