@@ -1,5 +1,16 @@
 # @sumup/circuit-ui
 
+## 8.10.2
+
+### Patch Changes
+
+- [#2611](https://github.com/sumup-oss/circuit-ui/pull/2611) [`4d394a6`](https://github.com/sumup-oss/circuit-ui/commit/4d394a6d2ba2e3dd58010af23ef36825afe28b40) Thanks [@connor-baer](https://github.com/connor-baer)! - Increased the NotificationBanner content's maximum width to better use the available space on wide viewports.
+
+- [#2610](https://github.com/sumup-oss/circuit-ui/pull/2610) [`b895f7e`](https://github.com/sumup-oss/circuit-ui/commit/b895f7e8351559e079fc2c9b9f5be1f5b753b821) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed a style specificity issue in the PhoneNumberInput component.
+
+- Updated dependencies [[`95b956d`](https://github.com/sumup-oss/circuit-ui/commit/95b956d9078963041528d496ac441478bd985b15), [`95b956d`](https://github.com/sumup-oss/circuit-ui/commit/95b956d9078963041528d496ac441478bd985b15)]:
+  - @sumup/icons@3.8.1
+
 ## 8.10.1
 
 ### Patch Changes
