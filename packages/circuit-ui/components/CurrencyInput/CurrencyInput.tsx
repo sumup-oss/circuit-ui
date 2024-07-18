@@ -139,7 +139,9 @@ export const CurrencyInput = forwardRef<InputElement, CurrencyInputProps>(
         // react-number-format props
         thousandSeparator={groupDelimiter}
         decimalSeparator={
-          maximumFractionDigits > 0 ? decimalDelimiter : DUMMY_DELIMITER
+          maximumFractionDigits && maximumFractionDigits > 0
+            ? decimalDelimiter
+            : DUMMY_DELIMITER
         }
         decimalScale={maximumFractionDigits}
         customInput={Input}
