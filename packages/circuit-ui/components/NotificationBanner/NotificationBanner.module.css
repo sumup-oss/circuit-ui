@@ -25,7 +25,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 420px;
+  min-width: 66vw;
+  max-width: 640px;
   padding: var(--cui-spacings-giga);
   padding-right: var(--cui-spacings-byte);
 }
@@ -63,6 +64,7 @@
 }
 
 .base .image {
+  flex-shrink: 0;
   width: var(--notification-image-width);
   min-width: 0;
   height: auto;
