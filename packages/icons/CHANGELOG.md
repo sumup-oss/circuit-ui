@@ -1,5 +1,13 @@
 # @sumup/icons
 
+## 3.8.1
+
+### Patch Changes
+
+- [#2607](https://github.com/sumup-oss/circuit-ui/pull/2607) [`95b956d`](https://github.com/sumup-oss/circuit-ui/commit/95b956d9078963041528d496ac441478bd985b15) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the `Elo` icons to the latest logo version.
+
+- [#2607](https://github.com/sumup-oss/circuit-ui/pull/2607) [`95b956d`](https://github.com/sumup-oss/circuit-ui/commit/95b956d9078963041528d496ac441478bd985b15) Thanks [@connor-baer](https://github.com/connor-baer)! - Tweaked the `Employees` icon.
+
 ## 3.8.0
 
 ### Minor Changes
