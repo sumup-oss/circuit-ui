@@ -27,13 +27,13 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@typescript-eslint/utils": "^7.14.1"
+    "@typescript-eslint/utils": "^7.16.1"
   },
   "devDependencies": {
     "@sumup/design-tokens": "^7.0.0",
     "@tsconfig/node18": "^18.2.4",
-    "@typescript-eslint/rule-tester": "^7.14.1",
-    "typescript": "^5.4.5"
+    "@typescript-eslint/rule-tester": "^7.16.1",
+    "typescript": "^5.5.3"
   },
   "peerDependencies": {
     "@sumup/circuit-ui": ">=7.5.0",

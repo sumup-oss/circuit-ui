@@ -42,7 +42,7 @@ describe('ImageInput', () => {
   global.URL.createObjectURL = vi.fn();
 
   const mockUploadFn = vi
-    .fn<[File], Promise<string>>()
+    .fn<(file: File) => Promise<string>>()
     .mockResolvedValue('/images/illustration-coffee.jpg');
   const mockClearFn = vi.fn();
 
