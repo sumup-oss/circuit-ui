@@ -3,7 +3,7 @@ import path from 'node:path';
 import remarkGfm from 'remark-gfm';
 import { mergeConfig } from 'vite';
 
-const toPath = (_path: string) => path.join(process.cwd(), _path);
+const toPath = (filePath: string) => path.join(process.cwd(), filePath);
 
 const config: StorybookConfig = {
   staticDirs: [toPath('.storybook/public')],
