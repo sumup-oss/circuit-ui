@@ -1,5 +1,11 @@
 # @sumup/design-tokens
 
+## 7.3.1
+
+### Patch Changes
+
+- [#2613](https://github.com/sumup-oss/circuit-ui/pull/2613) [`a1f877a`](https://github.com/sumup-oss/circuit-ui/commit/a1f877acd0ddbcc934521371ce929709f13f04f8) Thanks [@connor-baer](https://github.com/connor-baer)! - Matched the interactive variants of the `fg-normal`, `fg-subtle`, `fg-on-strong`, and `fg-on-strong-subtle` color tokens to their default values.
+
 ## 7.3.0
 
 ### Minor Changes
