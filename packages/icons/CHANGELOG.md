@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 4.0.0-next.0
+
+### Major Changes
+
+- [#2615](https://github.com/sumup-oss/circuit-ui/pull/2615) [`985f647`](https://github.com/sumup-oss/circuit-ui/commit/985f64789d712dac02a18f6c4975b69f12fb4bb6) Thanks [@connor-baer](https://github.com/connor-baer)! - Use default parameters for default props rather than statically assigning them as `defaultProps`. This silences React 18.3's warning about `defaultProps` being deprecated and enables tree shaking the icon components (which is prevented if they have static assignments).
+
 ## 3.8.1
 
 ### Patch Changes

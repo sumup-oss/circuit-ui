@@ -1,5 +1,12 @@
 # @sumup/eslint-plugin-circuit-ui
 
+## 5.0.0-next.0
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @sumup/circuit-ui@9.0.0-next.0
+
 ## 4.1.0
 
 ### Minor Changes
