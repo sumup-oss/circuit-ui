@@ -1,0 +1,16 @@
+{
+  "mode": "pre",
+  "tag": "next",
+  "initialVersions": {
+    "@sumup/astro-template-circuit-ui": "2.0.0",
+    "@sumup/circuit-ui": "8.11.0",
+    "@sumup/cna-template": "5.1.0",
+    "next-app": "1.0.1",
+    "@sumup/design-tokens": "7.3.1",
+    "@sumup/eslint-plugin-circuit-ui": "4.1.0",
+    "@sumup/icons": "3.8.1",
+    "@sumup/remix-template-circuit-ui": "3.0.0",
+    "@sumup/stylelint-plugin-circuit-ui": "2.0.0"
+  },
+  "changesets": []
+}
