@@ -162,7 +162,12 @@ async function transpileModule(fileName: string, code: string) {
     cwd: BASE_DIR,
     targets: { esmodules: true },
     presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
-    plugins: [['inline-react-svg', { svgo: false }]],
+    plugins: [
+      [
+        path.join(BASE_DIR, './vendor/babel-plugin-inline-react-svg/index.js'),
+        { svgo: false, spreadDefaultProps: true },
+      ],
+    ],
     filename: fileName,
   })?.code as string;
   return writeFile(DIST_DIR, fileName, output);
