@@ -12,7 +12,7 @@
       "**/__coverage__/**",
       "**/__reports__/**",
       "**/*.astro",
-      "packages/circuit-ui/vendor/**"
+      "**/vendor/**"
     ]
   },
   "formatter": {
