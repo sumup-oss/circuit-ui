@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 3.9.0
+
+### Minor Changes
+
+- [`19ae1cb`](https://github.com/sumup-oss/circuit-ui/commit/19ae1cbaffb60758fece343688b029d31b224c33) Thanks [@matoous](https://github.com/matoous)! - Added the `Accessibility` (24px), `Battery` (16px), `BatteryAlert` (16px & 24px), `ColorCorrection` (24px), `ColorInversion` (24px), `Language` (24px), `NoSim` (24px), `PrintFailed` (16px & 24px), `Upgrade` (16px & 24px) and `Volume` (24px) icons.
+
 ## 3.8.1
 
 ### Patch Changes
