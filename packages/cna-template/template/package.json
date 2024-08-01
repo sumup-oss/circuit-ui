@@ -26,7 +26,7 @@
     "@sumup/eslint-plugin-circuit-ui": "^4.0.0",
     "@sumup-oss/foundry": "^8.1.1",
     "@sumup/stylelint-plugin-circuit-ui": "^2.0.0",
-    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^29.5.12",
