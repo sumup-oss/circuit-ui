@@ -43,7 +43,7 @@
     "babel-plugin-inline-react-svg": "^2.0.2",
     "fast-xml-parser": "^4.4.1",
     "prettier": "^3.3.3",
-    "tsx": "^4.16.3",
+    "tsx": "^4.16.4",
     "typescript": "^5.5.4"
   },
   "peerDependencies": {
