@@ -83,7 +83,7 @@
     "react-dom": "^18.3.1",
     "remark-gfm": "^4.0.0",
     "storybook": "^8.2.4",
-    "stylelint": "^16.7.0",
+    "stylelint": "^16.8.1",
     "stylelint-config-css-modules": "^4.4.0",
     "stylelint-config-recess-order": "^5.0.1",
     "stylelint-config-standard": "^36.0.1",
