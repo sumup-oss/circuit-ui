@@ -13,6 +13,7 @@
     "@sumup/stylelint-plugin-circuit-ui": "2.0.0"
   },
   "changesets": [
+    "old-foxes-deliver",
     "seven-windows-look"
   ]
 }
