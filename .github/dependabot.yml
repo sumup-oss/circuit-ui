@@ -18,6 +18,13 @@ updates:
     groups:
       changesets:
         patterns:
+          - 'astro'
+          - '@astrojs/*'
+      changesets:
+        patterns:
+          - '@babel/*'
+      changesets:
+        patterns:
           - '@changesets/*'
       emotion:
         patterns:
