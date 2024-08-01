@@ -76,7 +76,7 @@
     "eslint-plugin-testing-library": "^6.2.2",
     "github-slugger": "^2.0.0",
     "jsdom": "^24.0.0",
-    "lerna": "^8.1.6",
+    "lerna": "^8.1.7",
     "license-checker": "^25.0.1",
     "prettier-plugin-astro": "^0.14.1",
     "react": "^18.3.1",
