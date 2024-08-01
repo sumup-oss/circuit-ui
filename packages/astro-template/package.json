@@ -31,6 +31,6 @@
     "@sumup/eslint-plugin-circuit-ui": "^4.0.0",
     "@sumup/stylelint-plugin-circuit-ui": "^2.0.0",
     "prettier-plugin-astro": "^0.14.1",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.4"
   }
 }
