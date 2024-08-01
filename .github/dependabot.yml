@@ -16,6 +16,13 @@ updates:
       - dependency-name: 'storybook'
       - dependency-name: '@storybook/*'
     groups:
+      astro:
+        patterns:
+          - 'astro'
+          - '@astrojs/*'
+      babel:
+        patterns:
+          - '@babel/*'
       changesets:
         patterns:
           - '@changesets/*'
