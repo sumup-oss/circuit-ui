@@ -90,7 +90,7 @@
   "peerDependencies": {
     "@emotion/is-prop-valid": "^1.2.1",
     "@emotion/react": "^11.11.0",
-    "@emotion/styled": "^11.13.0",
+    "@emotion/styled": "^11.11.0",
     "@sumup/design-tokens": ">=6.0.0",
     "@sumup/icons": ">=3.0.0",
     "@sumup/intl": "1.x",
