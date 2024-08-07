@@ -167,12 +167,22 @@
       "size": "24"
     },
     {
+      "name": "grid",
+      "category": "Action",
+      "size": "24"
+    },
+    {
       "name": "hide",
       "category": "Action",
       "size": "24"
     },
     {
       "name": "link",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "list",
       "category": "Action",
       "size": "24"
     },
