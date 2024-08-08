@@ -40,7 +40,6 @@
     "@babel/preset-react": "^7.24.7",
     "@types/babel__core": "^7.20.5",
     "@types/prettier": "^3.0.0",
-    "babel-plugin-inline-react-svg": "^2.0.2",
     "fast-xml-parser": "^4.4.1",
     "prettier": "^3.3.3",
     "tsx": "^4.16.5",
