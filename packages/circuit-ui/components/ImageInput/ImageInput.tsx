@@ -264,7 +264,7 @@ export const ImageInput = ({
           <IconButton
             type="button"
             size="s"
-            variant="primary"
+            variant="secondary"
             destructive
             onClick={handleClear}
             disabled={isLoading || disabled}
@@ -277,7 +277,7 @@ export const ImageInput = ({
           <IconButton
             type="button"
             size="s"
-            variant="primary"
+            variant="secondary"
             aria-hidden="true"
             tabIndex={-1}
             disabled={isLoading || disabled}
