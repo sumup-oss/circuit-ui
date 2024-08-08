@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.12.0
+
+### Minor Changes
+
+- [#2642](https://github.com/sumup-oss/circuit-ui/pull/2642) [`d53ccb1`](https://github.com/sumup-oss/circuit-ui/commit/d53ccb100806680039ad6d5429a614696efd5c87) Thanks [@connor-baer](https://github.com/connor-baer)! - Switched the ImageInput's button variant from `primary` to `secondary` to improve its appearance on dark backgrounds.
+
 ## 8.11.0
 
 ### Minor Changes

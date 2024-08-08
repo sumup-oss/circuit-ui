@@ -1,6 +1,6 @@
 {
   "name": "next-app",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -16,7 +16,7 @@
     "@next/bundle-analyzer": "^14.2.5",
     "@sumup/circuit-ui": "^8.0.0",
     "@sumup/design-tokens": "^7.0.0",
-    "@sumup/icons": "^3.0.0",
+    "@sumup/icons": "^4.0.0",
     "@sumup/intl": "^1.5.0",
     "next": "^14.2.5",
     "react": "^18.3.1",
