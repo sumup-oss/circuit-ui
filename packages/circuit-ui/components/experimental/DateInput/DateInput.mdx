@@ -1,0 +1,20 @@
+import { Meta, Status, Props, Story } from '../../../../../.storybook/components';
+import * as Stories from './DateInput.stories';
+
+<Meta of={Stories} />
+
+# DateInput
+
+<Status variant="experimental" />
+
+<Story of={Stories.Base} />
+<Props />
+
+- can't use `input[type="date"]` because of accessibility issues and lack of customization
+- date range selection
+- closing the popover after date selection
+- free-form input
+- autocomplete
+- context on mobile dialog: field name (and current value?)
+- abstract away dialog? -> leave for later once re-implementing the Modal components
+- button to open calendar? open on focus? (how to free-form enter on mobile?) (https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/ vs https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-datepicker/)
