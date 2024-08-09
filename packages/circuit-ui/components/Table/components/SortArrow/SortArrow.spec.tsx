@@ -17,7 +17,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { render, axe, userEvent, screen } from '../../../../util/test-utils.js';
 
-import SortArrow from './index.js';
+import { SortArrow } from './index.js';
 
 describe('SortArrow', () => {
   it('should render with both arrows styles', () => {

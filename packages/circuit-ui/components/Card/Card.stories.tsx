@@ -16,11 +16,11 @@
 import { action } from '@storybook/addon-actions';
 
 import { Stack } from '../../../../.storybook/components/index.js';
-import Headline from '../Headline/index.js';
-import Body from '../Body/index.js';
-import ButtonGroup from '../ButtonGroup/index.js';
+import { Headline } from '../Headline/index.js';
+import { Body } from '../Body/index.js';
+import { ButtonGroup } from '../ButtonGroup/index.js';
 
-import Card, { CardHeader, CardFooter } from './index.js';
+import { Card, CardHeader, CardFooter } from './index.js';
 
 export default {
   title: 'Components/Card',

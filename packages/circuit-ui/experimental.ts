@@ -14,12 +14,12 @@
  */
 
 export {
-  default as Tooltip,
+  Tooltip,
   type TooltipProps,
   type TooltipReferenceProps,
 } from './components/Tooltip/index.js';
 export {
-  default as Toggletip,
+  Toggletip,
   type ToggletipProps,
 } from './components/Toggletip/index.js';
 export { Calendar, type CalendarProps } from './components/Calendar/index.js';

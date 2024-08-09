@@ -31,7 +31,7 @@ import {
 } from '../../util/errors.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { clsx } from '../../styles/clsx.js';
-import utilityClasses from '../../styles/utility.js';
+import { utilClasses } from '../../styles/utility.js';
 
 import { IndeterminateIcon } from './IndeterminateIcon.js';
 import classes from './Checkbox.module.css';
@@ -126,7 +126,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           className={clsx(
             classes.base,
             invalid && classes.invalid,
-            utilityClasses.hideVisually,
+            utilClasses.hideVisually,
           )}
         />
         <label htmlFor={checkboxId} className={classes.label}>

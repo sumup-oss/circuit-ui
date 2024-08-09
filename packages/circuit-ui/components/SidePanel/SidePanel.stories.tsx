@@ -17,9 +17,9 @@ import { useState } from 'react';
 import { within, userEvent } from '@storybook/test';
 
 import { modes } from '../../../../.storybook/modes.js';
-import Body from '../Body/index.js';
-import Button from '../Button/index.js';
-import ListItemGroup from '../ListItemGroup/index.js';
+import { Body } from '../Body/index.js';
+import { Button } from '../Button/index.js';
+import { ListItemGroup } from '../ListItemGroup/index.js';
 import { ModalProvider } from '../ModalContext/index.js';
 import { TopNavigation } from '../TopNavigation/index.js';
 import { baseArgs as topNavigationProps } from '../TopNavigation/TopNavigation.stories.js';

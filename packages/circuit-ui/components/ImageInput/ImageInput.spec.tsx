@@ -16,7 +16,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { useState } from 'react';
 
-import Avatar from '../Avatar/index.js';
+import { Avatar } from '../Avatar/index.js';
 import {
   render,
   axe,

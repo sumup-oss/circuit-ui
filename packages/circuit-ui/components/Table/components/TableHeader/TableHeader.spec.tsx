@@ -17,7 +17,7 @@ import { describe, expect, it } from 'vitest';
 
 import { render, axe } from '../../../../util/test-utils.js';
 
-import TableHeader from './index.js';
+import { TableHeader } from './index.js';
 
 const children = 'Foo';
 

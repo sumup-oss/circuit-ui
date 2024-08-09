@@ -23,7 +23,7 @@ import {
 } from '../../util/errors.js';
 import { FieldDescription, FieldWrapper } from '../Field/index.js';
 import { clsx } from '../../styles/clsx.js';
-import utilityClasses from '../../styles/utility.js';
+import { utilClasses } from '../../styles/utility.js';
 
 import classes from './Toggle.module.css';
 
@@ -116,12 +116,12 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
           aria-labelledby={labelId}
           aria-describedby={descriptionIds}
           id={switchId}
-          className={clsx(classes.track, utilityClasses.focusVisible)}
+          className={clsx(classes.track, utilClasses.focusVisible)}
           {...props}
           ref={ref}
         >
           <span className={classes.knob} />
-          <span className={utilityClasses.hideVisually}>
+          <span className={utilClasses.hideVisually}>
             {checked ? checkedLabel : uncheckedLabel}
           </span>
         </button>
@@ -134,7 +134,7 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
           )}
         </label>
         {description && (
-          <p id={descriptionId} className={utilityClasses.hideVisually}>
+          <p id={descriptionId} className={utilClasses.hideVisually}>
             {description}
           </p>
         )}

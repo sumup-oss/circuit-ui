@@ -28,14 +28,14 @@ import {
 import { Delete, Plus } from '@sumup/icons';
 
 import type { ClickEvent } from '../../types/events.js';
-import utilityClasses from '../../styles/utility.js';
+import { utilClasses } from '../../styles/utility.js';
 import {
   FieldWrapper,
   FieldLabel,
   FieldValidationHint,
 } from '../Field/index.js';
 import { IconButton } from '../Button/index.js';
-import Spinner from '../Spinner/index.js';
+import { Spinner } from '../Spinner/index.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
@@ -233,7 +233,7 @@ export const ImageInput = ({
     <FieldWrapper className={className} style={style} disabled={disabled}>
       <div onPaste={handlePaste} className={classes.base}>
         <input
-          className={clsx(classes.input, utilityClasses.hideVisually)}
+          className={clsx(classes.input, utilClasses.hideVisually)}
           ref={inputRef}
           id={inputId}
           type="file"
@@ -257,7 +257,7 @@ export const ImageInput = ({
             isDragging && classes.dragging,
           )}
         >
-          <span className={utilityClasses.hideVisually}>{label}</span>
+          <span className={utilClasses.hideVisually}>{label}</span>
           <Component src={src || previewImage} aria-hidden="true" />
         </FieldLabel>
         {src ? (
@@ -288,7 +288,7 @@ export const ImageInput = ({
         <Spinner
           className={clsx(classes.spinner, isLoading && classes.loading)}
         >
-          <span className={utilityClasses.hideVisually}>{loadingLabel}</span>
+          <span className={utilClasses.hideVisually}>{loadingLabel}</span>
         </Spinner>
       </div>
       <FieldValidationHint

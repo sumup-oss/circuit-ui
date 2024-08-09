@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import { Avatar } from './Avatar.js';
+export { Avatar } from './Avatar.js';
 
 export type { AvatarProps } from './Avatar.js';
-
-export default Avatar;

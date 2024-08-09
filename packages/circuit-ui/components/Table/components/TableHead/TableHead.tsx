@@ -17,8 +17,8 @@
 
 import { Fragment } from 'react';
 
-import TableRow from '../TableRow/index.js';
-import TableHeader from '../TableHeader/index.js';
+import { TableRow } from '../TableRow/index.js';
+import { TableHeader } from '../TableHeader/index.js';
 import { mapCellProps, getSortParams } from '../../utils.js';
 import type { Direction, HeaderCell } from '../../types.js';
 import { clsx } from '../../../../styles/clsx.js';

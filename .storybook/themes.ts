@@ -1,6 +1,7 @@
 import { create } from '@storybook/theming';
 import { GLOBALS_UPDATED } from '@storybook/core-events';
-import Link from './components/Link';
+
+import { Link } from './components/Link';
 
 const brand = {
   brandTitle: 'Circuit UI',

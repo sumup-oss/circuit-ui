@@ -29,7 +29,7 @@ import {
 } from '../../util/errors.js';
 import { FieldWrapper, FieldDescription } from '../Field/index.js';
 import { clsx } from '../../styles/clsx.js';
-import utilityClasses from '../../styles/utility.js';
+import { utilClasses } from '../../styles/utility.js';
 import { deprecate } from '../../util/logger.js';
 
 import classes from './RadioButton.module.css';
@@ -106,7 +106,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
           disabled={disabled}
           checked={checked}
           ref={ref}
-          className={clsx(classes.base, utilityClasses.hideVisually)}
+          className={clsx(classes.base, utilClasses.hideVisually)}
         />
         <label
           htmlFor={inputId}
@@ -122,7 +122,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
           )}
         </label>
         {description && (
-          <p id={descriptionIds} className={utilityClasses.hideVisually}>
+          <p id={descriptionIds} className={utilClasses.hideVisually}>
             {description}
           </p>
         )}

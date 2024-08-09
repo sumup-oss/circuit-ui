@@ -29,7 +29,7 @@ import type { AsPropType } from '../../types/prop-types.js';
 import { isFunction, isString } from '../../util/type-check.js';
 import { CircuitError } from '../../util/errors.js';
 import { useComponents } from '../ComponentsContext/index.js';
-import Body from '../Body/index.js';
+import { Body } from '../Body/index.js';
 import { clsx } from '../../styles/clsx.js';
 
 import classes from './ListItem.module.css';

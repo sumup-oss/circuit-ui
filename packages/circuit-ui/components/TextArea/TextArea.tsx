@@ -17,8 +17,7 @@
 
 import { forwardRef, useRef } from 'react';
 
-import Input from '../Input/index.js';
-import type { InputElement, InputProps } from '../Input/index.js';
+import { Input, type InputElement, type InputProps } from '../Input/index.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { clsx } from '../../styles/clsx.js';
 

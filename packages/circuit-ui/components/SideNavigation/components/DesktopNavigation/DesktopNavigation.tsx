@@ -17,10 +17,10 @@
 
 'use client';
 
-import utilityClasses from '../../../../styles/utility.js';
+import { utilClasses } from '../../../../styles/utility.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { useFocusList } from '../../../../hooks/useFocusList/index.js';
-import Headline from '../../../Headline/index.js';
+import { Headline } from '../../../Headline/index.js';
 import { Skeleton, SkeletonContainer } from '../../../Skeleton/index.js';
 import type { PrimaryLinkProps } from '../../types.js';
 import { SecondaryLinks } from '../SecondaryLinks/index.js';
@@ -66,7 +66,7 @@ export function DesktopNavigation({
       className={classes.wrapper}
     >
       <nav
-        className={clsx(classes.primary, utilityClasses.hideScrollbar)}
+        className={clsx(classes.primary, utilClasses.hideScrollbar)}
         aria-label={primaryNavigationLabel}
       >
         <ul role="list" className={classes.list}>

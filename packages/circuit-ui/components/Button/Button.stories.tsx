@@ -17,8 +17,8 @@ import { useEffect, useState } from 'react';
 import { ArrowSlanted, Plus } from '@sumup/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
-import ButtonGroup from '../ButtonGroup/index.js';
-import CloseButton from '../CloseButton/index.js';
+import { ButtonGroup } from '../ButtonGroup/index.js';
+import { CloseButton } from '../CloseButton/index.js';
 
 import { IconButton } from './IconButton.js';
 import { Button, type ButtonProps } from './Button.js';

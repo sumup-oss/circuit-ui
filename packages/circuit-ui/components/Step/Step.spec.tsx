@@ -17,7 +17,7 @@ import { afterAll, describe, expect, it, vi, type Mock } from 'vitest';
 
 import { render } from '../../util/test-utils.js';
 
-import Step from './Step.js';
+import { Step } from './Step.js';
 import { useStep } from './hooks/useStep.js';
 
 vi.mock('./hooks/useStep', () => ({ useStep: vi.fn(() => ({})) }));

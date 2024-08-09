@@ -17,6 +17,6 @@ import type { PropsWithChildren } from 'react';
 import { ThemeProvider } from '@emotion/react';
 import { light } from '@sumup/design-tokens';
 
-export default function Preview({ children }: PropsWithChildren) {
+export function Preview({ children }: PropsWithChildren) {
   return <ThemeProvider theme={light}>{children}</ThemeProvider>;
 }

@@ -15,11 +15,11 @@
 
 // Forms
 export {
-  default as RadioButton,
+  RadioButton,
   type RadioButtonProps,
 } from './components/RadioButton/index.js';
 export {
-  default as Selector,
+  Selector,
   type SelectorProps,
 } from './components/Selector/index.js';
 export {
@@ -33,19 +33,19 @@ export type {
   RangePickerControllerProps,
   SingleDayPickerProps,
 } from './components/legacy/Calendar/index.js';
-export { default as CalendarTag } from './components/legacy/CalendarTag/index.js';
+export { CalendarTag } from './components/legacy/CalendarTag/index.js';
 export type { CalendarTagProps } from './components/legacy/CalendarTag/index.js';
-export { default as CalendarTagTwoStep } from './components/legacy/CalendarTagTwoStep/index.js';
+export { CalendarTagTwoStep } from './components/legacy/CalendarTagTwoStep/index.js';
 export type { CalendarTagTwoStepProps } from './components/legacy/CalendarTagTwoStep/index.js';
 
 // Layout
 export { Grid, Row, Col } from './components/legacy/Grid/index.js';
 export type { ColProps } from './components/legacy/Grid/index.js';
-export { default as InlineElements } from './components/legacy/InlineElements/index.js';
+export { InlineElements } from './components/legacy/InlineElements/index.js';
 export type { InlineElementsProps } from './components/legacy/InlineElements/index.js';
 
 // Miscellaneous
-export { default as Tooltip } from './components/legacy/Tooltip/index.js';
+export { Tooltip } from './components/legacy/Tooltip/index.js';
 export type { TooltipProps } from './components/legacy/Tooltip/index.js';
 
 export {

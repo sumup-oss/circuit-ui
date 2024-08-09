@@ -17,7 +17,7 @@
 
 import type { FC, OlHTMLAttributes } from 'react';
 
-import Button from '../../../Button/index.js';
+import { Button } from '../../../Button/index.js';
 import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './PageList.module.css';

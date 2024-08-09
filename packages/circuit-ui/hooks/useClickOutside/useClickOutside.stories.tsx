@@ -15,8 +15,8 @@
 
 import { useRef, useState } from 'react';
 
-import Button from '../../components/Button/index.js';
-import Card from '../../components/Card/index.js';
+import { Button } from '../../components/Button/index.js';
+import { Card } from '../../components/Card/index.js';
 
 import { useClickOutside } from './useClickOutside.js';
 

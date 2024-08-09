@@ -23,7 +23,7 @@ import {
   type ChangeEvent,
 } from 'react';
 
-import Select, { type SelectProps } from '../../../Select/index.js';
+import { Select, type SelectProps } from '../../../Select/index.js';
 
 import classes from './PageSelect.module.css';
 

@@ -24,11 +24,11 @@ import {
 } from 'react';
 
 import { useAnimation } from '../../hooks/useAnimation/index.js';
-import Body from '../Body/index.js';
-import CloseButton from '../CloseButton/index.js';
+import { Body } from '../Body/index.js';
+import { CloseButton } from '../CloseButton/index.js';
 import type { ClickEvent } from '../../types/events.js';
 import { type BaseToastProps, createUseToast } from '../ToastContext/index.js';
-import utilityClasses from '../../styles/utility.js';
+import { utilClasses } from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
 import {
   NOTIFICATION_ICONS,
@@ -120,7 +120,7 @@ export function NotificationToast({
         <div className={classes.icon}>
           <Icon aria-hidden="true" />
         </div>
-        <span className={utilityClasses.hideVisually}>{iconLabel}</span>
+        <span className={utilClasses.hideVisually}>{iconLabel}</span>
         <div className={classes.content}>
           {headline && (
             <Body variant={'highlight'} as="h3">

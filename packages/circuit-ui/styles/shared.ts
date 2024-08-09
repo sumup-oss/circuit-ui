@@ -16,10 +16,8 @@
 import _classes from './shared.module.css';
 
 // This explicit remapping is needed so TypeScript infers the types correctly
-const classes = {
+export const sharedClasses = {
   listItem: _classes['list-item'],
   listItemDestructive: _classes['list-item-destructive'],
   navigationItem: _classes['navigation-item'],
 };
-
-export default classes;

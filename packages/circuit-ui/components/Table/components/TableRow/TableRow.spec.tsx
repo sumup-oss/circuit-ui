@@ -17,7 +17,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { render, axe, userEvent, screen } from '../../../../util/test-utils.js';
 
-import TableRow from './index.js';
+import { TableRow } from './index.js';
 
 const children = 'Foo';
 

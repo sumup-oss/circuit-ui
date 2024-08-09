@@ -18,9 +18,8 @@
 import { forwardRef, useRef } from 'react';
 import { Search } from '@sumup/icons';
 
-import Input from '../Input/index.js';
-import type { InputElement, InputProps } from '../Input/index.js';
-import CloseButton from '../CloseButton/index.js';
+import { Input, type InputElement, type InputProps } from '../Input/index.js';
+import { CloseButton } from '../CloseButton/index.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,

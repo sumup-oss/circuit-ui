@@ -20,7 +20,7 @@ import { resolveCurrencyFormat } from '@sumup/intl';
 import { NumericFormat, type NumericFormatProps } from 'react-number-format';
 
 import { clsx } from '../../styles/clsx.js';
-import Input, { type InputElement, type InputProps } from '../Input/index.js';
+import { Input, type InputElement, type InputProps } from '../Input/index.js';
 
 import { formatPlaceholder } from './CurrencyInputService.js';
 import classes from './CurrencyInput.module.css';

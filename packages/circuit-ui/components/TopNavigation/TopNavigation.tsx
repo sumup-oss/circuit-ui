@@ -17,10 +17,10 @@
 
 import { useEffect, type HTMLAttributes, type ReactNode } from 'react';
 
-import Hamburger, { type HamburgerProps } from '../Hamburger/index.js';
+import { Hamburger, type HamburgerProps } from '../Hamburger/index.js';
 import { SkeletonContainer } from '../Skeleton/index.js';
 import { clsx } from '../../styles/clsx.js';
-import utilityClasses from '../../styles/utility.js';
+import { utilClasses } from '../../styles/utility.js';
 
 import {
   ProfileMenu,
@@ -81,10 +81,7 @@ export function TopNavigation({
           <SkeletonContainer isLoading={Boolean(isLoading)}>
             <Hamburger
               {...hamburger}
-              className={clsx(
-                classes.hamburger,
-                utilityClasses.focusVisibleInset,
-              )}
+              className={clsx(classes.hamburger, utilClasses.focusVisibleInset)}
             />
           </SkeletonContainer>
         )}

@@ -23,7 +23,7 @@ interface StackProps {
   vertical?: boolean;
 }
 
-export default function Stack({ children, vertical }: StackProps) {
+export function Stack({ children, vertical }: StackProps) {
   return (
     <div className={clsx(classes.base, vertical && classes.vertical)}>
       {children}

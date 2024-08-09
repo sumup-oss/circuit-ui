@@ -15,4 +15,5 @@
 
 import isPropValid from '@emotion/is-prop-valid';
 
+// biome-ignore lint/style/noDefaultExport: Mirroring Emotion's exports
 export default isPropValid;

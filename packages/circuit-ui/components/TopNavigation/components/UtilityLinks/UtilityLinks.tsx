@@ -24,12 +24,12 @@ import type {
 import type { IconComponentType } from '@sumup/icons';
 
 import type { AsPropType } from '../../../../types/prop-types.js';
-import Body from '../../../Body/index.js';
+import { Body } from '../../../Body/index.js';
 import { useComponents } from '../../../ComponentsContext/index.js';
 import { Skeleton } from '../../../Skeleton/index.js';
 import { clsx } from '../../../../styles/clsx.js';
-import utilityClasses from '../../../../styles/utility.js';
-import sharedClasses from '../../../../styles/shared.js';
+import { utilClasses } from '../../../../styles/utility.js';
+import { sharedClasses } from '../../../../styles/shared.js';
 
 import classes from './UtilityLinks.module.css';
 
@@ -79,7 +79,7 @@ function UtilityLink({
       className={clsx(
         classes.anchor,
         sharedClasses.navigationItem,
-        utilityClasses.focusVisibleInset,
+        utilClasses.focusVisibleInset,
         className,
       )}
     >

@@ -17,7 +17,7 @@ import { describe, expect, it } from 'vitest';
 
 import { render, axe, screen } from '../../../../util/test-utils.js';
 
-import TableBody from './index.js';
+import { TableBody } from './index.js';
 
 const fixtureRows = [['Foo', 'Bar']];
 
