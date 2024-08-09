@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import { Image } from './Image.js';
+export { Image } from './Image.js';
 
 export type { ImageProps } from './Image.js';
-
-export default Image;

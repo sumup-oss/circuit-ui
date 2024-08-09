@@ -26,21 +26,21 @@ interface ImageProps extends BaseImageProps {
   darkSrc?: string;
 }
 
-const Image = ({ children, src, darkSrc, ...props }: ImageProps) => (
-  <Fragment>
-    {darkSrc && (
+export function Image({ children, src, darkSrc, ...props }: ImageProps) {
+  return (
+    <Fragment>
+      {darkSrc && (
+        <BaseImage
+          src={darkSrc}
+          {...props}
+          className={clsx(classes.dark, props.className)}
+        />
+      )}
       <BaseImage
-        src={darkSrc}
+        src={src}
         {...props}
-        className={clsx(classes.dark, props.className)}
+        className={clsx(classes.light, props.className)}
       />
-    )}
-    <BaseImage
-      src={src}
-      {...props}
-      className={clsx(classes.light, props.className)}
-    />
-  </Fragment>
-);
-
-export default Image;
+    </Fragment>
+  );
+}

@@ -18,7 +18,7 @@
 import { forwardRef, type ReactNode, type HTMLAttributes } from 'react';
 
 import type { ClickEvent } from '../../../../types/events.js';
-import CloseButton from '../../../CloseButton/index.js';
+import { CloseButton } from '../../../CloseButton/index.js';
 import { isArray } from '../../../../util/type-check.js';
 import { clsx } from '../../../../styles/clsx.js';
 

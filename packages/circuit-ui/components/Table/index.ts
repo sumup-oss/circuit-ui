@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import Table, { type TableProps } from './Table.js';
+import type { TableProps } from './Table.js';
 import type {
   Direction as TableSortDirection,
   SortByValue as TableSortByValue,
@@ -21,6 +21,8 @@ import type {
   HeaderCell as TableHeaderCell,
   Row as TableRow,
 } from './types.js';
+
+export { Table } from './Table.js';
 
 /**
  * @deprecated
@@ -37,5 +39,3 @@ export type {
   TableHeaderCell,
   TableRow,
 };
-
-export default Table;

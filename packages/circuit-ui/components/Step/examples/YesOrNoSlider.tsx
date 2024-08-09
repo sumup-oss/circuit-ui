@@ -26,9 +26,9 @@ import {
   type SwipeDirections,
 } from 'react-swipeable';
 
-import Image from '../../Image/index.js';
-import Button from '../../Button/index.js';
-import Step, { type StepProps } from '../Step.js';
+import { Image } from '../../Image/index.js';
+import { Button } from '../../Button/index.js';
+import { Step, type StepProps } from '../Step.js';
 import type { Actions } from '../types.js';
 import { clsx } from '../../../styles/clsx.js';
 
@@ -52,10 +52,7 @@ export interface YesOrNoSliderProps extends StepProps {
   images: string[];
 }
 
-export default function YesOrNoSlider({
-  images,
-  ...stepProps
-}: YesOrNoSliderProps) {
+export function YesOrNoSlider({ images, ...stepProps }: YesOrNoSliderProps) {
   const [swipe, setSwipe] = useState<SwipeEventData | null>(null);
   const handleSwipe = (eventData: SwipeEventData, actions: Actions) => {
     setSwipe(eventData);

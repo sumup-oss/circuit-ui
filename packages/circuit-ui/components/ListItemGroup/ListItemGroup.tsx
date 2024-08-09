@@ -23,11 +23,11 @@ import {
 } from 'react';
 
 import { AccessibilityError } from '../../util/errors.js';
-import Body from '../Body/index.js';
-import ListItem, { type ListItemProps } from '../ListItem/index.js';
+import { Body } from '../Body/index.js';
+import { ListItem, type ListItemProps } from '../ListItem/index.js';
 import { isString } from '../../util/type-check.js';
 import { clsx } from '../../styles/clsx.js';
-import utilityClasses from '../../styles/utility.js';
+import { utilClasses } from '../../styles/utility.js';
 
 import classes from './ListItemGroup.module.css';
 
@@ -106,7 +106,7 @@ export const ListItemGroup = forwardRef<HTMLDivElement, ListItemGroupProps>(
           <div
             className={clsx(
               classes.label,
-              hideLabel && utilityClasses.hideVisually,
+              hideLabel && utilClasses.hideVisually,
             )}
           >
             {isString(label) ? (

@@ -27,9 +27,9 @@ import {
 } from 'react';
 
 import { useAnimation } from '../../hooks/useAnimation/index.js';
-import Body from '../Body/index.js';
-import CloseButton from '../CloseButton/index.js';
-import Anchor, { type AnchorProps } from '../Anchor/index.js';
+import { Body } from '../Body/index.js';
+import { CloseButton } from '../CloseButton/index.js';
+import { Anchor, type AnchorProps } from '../Anchor/index.js';
 import type { ClickEvent } from '../../types/events.js';
 import { isString } from '../../util/type-check.js';
 import {
@@ -38,7 +38,7 @@ import {
 } from '../Notification/constants.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { clsx } from '../../styles/clsx.js';
-import utilityClasses from '../../styles/utility.js';
+import { utilClasses } from '../../styles/utility.js';
 
 import classes from './NotificationInline.module.css';
 
@@ -160,7 +160,7 @@ export const NotificationInline = forwardRef<
           <div className={classes.icon}>
             <Icon aria-hidden="true" />
           </div>
-          <span className={utilityClasses.hideVisually}>{iconLabel}</span>
+          <span className={utilClasses.hideVisually}>{iconLabel}</span>
           <div className={classes.content}>
             {headline && (
               <Body

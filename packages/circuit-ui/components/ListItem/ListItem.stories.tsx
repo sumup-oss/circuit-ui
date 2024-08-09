@@ -17,8 +17,8 @@ import { action } from '@storybook/addon-actions';
 import { SumUpCard, Confirm } from '@sumup/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
-import Body from '../Body/index.js';
-import Badge from '../Badge/index.js';
+import { Body } from '../Body/index.js';
+import { Badge } from '../Badge/index.js';
 
 import { ListItem, type ListItemProps } from './ListItem.js';
 

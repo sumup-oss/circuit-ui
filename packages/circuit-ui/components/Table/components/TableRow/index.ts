@@ -13,6 +13,4 @@
  * limitations under the License.
  */
 
-import { TableRow } from './TableRow.js';
-
-export default TableRow;
+export { TableRow } from './TableRow.js';

@@ -47,7 +47,7 @@ const variantMap: Record<
   'deprecated': { variant: 'danger', label: 'Deprecated' },
 };
 
-export default function Status({
+export function Status({
   variant: status = 'stable',
   children,
   ...props

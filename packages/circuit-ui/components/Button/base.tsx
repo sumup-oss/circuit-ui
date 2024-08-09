@@ -30,7 +30,7 @@ import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
-import utilityClasses from '../../styles/utility.js';
+import { utilClasses } from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
 
 import classes from './base.module.css';
@@ -202,7 +202,7 @@ export function createButtonComponent<Props>(
           classes[variant],
           classes[size],
           destructive && classes.destructive,
-          utilityClasses.focusVisible,
+          utilClasses.focusVisible,
           className,
         )}
         ref={ref}
@@ -211,7 +211,7 @@ export function createButtonComponent<Props>(
           <span className={classes.dot} />
           <span className={classes.dot} />
           <span className={classes.dot} />
-          <span className={utilityClasses.hideVisually}>{loadingLabel}</span>
+          <span className={utilClasses.hideVisually}>{loadingLabel}</span>
         </span>
         <span className={classes.content}>
           {LeadingIcon && (

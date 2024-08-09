@@ -48,9 +48,9 @@ import { useFocusList } from '../../hooks/useFocusList/index.js';
 import { usePrevious } from '../../hooks/usePrevious/index.js';
 import { useStackContext } from '../StackContext/index.js';
 import { useComponents } from '../ComponentsContext/index.js';
-import Portal from '../Portal/index.js';
-import Hr from '../Hr/index.js';
-import sharedClasses from '../../styles/shared.js';
+import { Portal } from '../Portal/index.js';
+import { Hr } from '../Hr/index.js';
+import { sharedClasses } from '../../styles/shared.js';
 
 import classes from './Popover.module.css';
 

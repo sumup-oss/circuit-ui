@@ -13,6 +13,4 @@
  * limitations under the License.
  */
 
-import { Hr } from './Hr.js';
-
-export default Hr;
+export { Hr } from './Hr.js';

@@ -13,6 +13,4 @@
  * limitations under the License.
  */
 
-import { TableHead } from './TableHead.js';
-
-export default TableHead;
+export { TableHead } from './TableHead.js';

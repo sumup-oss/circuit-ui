@@ -22,8 +22,8 @@ import { throttle } from '../../util/helpers.js';
 import { clsx } from '../../styles/clsx.js';
 import { deprecate } from '../../util/logger.js';
 
-import TableHead from './components/TableHead/index.js';
-import TableBody from './components/TableBody/index.js';
+import { TableHead } from './components/TableHead/index.js';
+import { TableBody } from './components/TableBody/index.js';
 import { defaultSortBy, getSortDirection } from './utils.js';
 import type { Direction, Row, HeaderCell } from './types.js';
 import classes from './Table.module.css';
@@ -101,7 +101,7 @@ type TableState = {
 /**
  * Table interface component. It handles rendering rows/headers properly
  */
-class Table extends Component<TableProps, TableState> {
+export class Table extends Component<TableProps, TableState> {
   constructor(props: TableProps) {
     super(props);
     if (process.env.NODE_ENV !== 'production' && this.props.initialSortedRow) {
@@ -299,5 +299,3 @@ class Table extends Component<TableProps, TableState> {
     );
   }
 }
-
-export default Table;

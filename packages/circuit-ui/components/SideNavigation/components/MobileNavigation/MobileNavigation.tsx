@@ -25,7 +25,7 @@ import {
   type ModalComponent,
 } from '../../../ModalContext/index.js';
 import { StackContext } from '../../../StackContext/index.js';
-import CloseButton from '../../../CloseButton/index.js';
+import { CloseButton } from '../../../CloseButton/index.js';
 import { useCollapsible } from '../../../../hooks/useCollapsible/index.js';
 import { useFocusList } from '../../../../hooks/useFocusList/index.js';
 import type { PrimaryLinkProps } from '../../types.js';

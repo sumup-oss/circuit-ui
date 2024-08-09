@@ -25,7 +25,8 @@ import {
   NextButton,
   PrevButton,
 } from './components/Buttons/index.js';
-import { Carousel } from './Carousel.js';
+
+export { Carousel } from './Carousel.js';
 
 export type { CarouselProps } from './Carousel.js';
 
@@ -41,5 +42,3 @@ export const CarouselComposer = {
   NextButton,
   PrevButton,
 };
-
-export default Carousel;

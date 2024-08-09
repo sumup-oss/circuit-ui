@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Card } from './Card.js';
+export { Card } from './Card.js';
 
 export type { CardProps } from './Card.js';
 
@@ -24,5 +24,3 @@ export {
 
 export type { HeaderProps as CardHeaderProps } from './components/index.js';
 export type { FooterProps as CardFooterProps } from './components/index.js';
-
-export default Card;

@@ -24,15 +24,15 @@ import {
   useFocusList,
   type FocusProps,
 } from '../../../../hooks/useFocusList/index.js';
-import SubHeadline from '../../../SubHeadline/index.js';
-import Body from '../../../Body/index.js';
-import Badge from '../../../Badge/index.js';
+import { SubHeadline } from '../../../SubHeadline/index.js';
+import { Body } from '../../../Body/index.js';
+import { Badge } from '../../../Badge/index.js';
 import { useComponents } from '../../../ComponentsContext/index.js';
 import { Skeleton } from '../../../Skeleton/index.js';
 import type { SecondaryGroupProps, SecondaryLinkProps } from '../../types.js';
 import { clsx } from '../../../../styles/clsx.js';
-import utilityClasses from '../../../../styles/utility.js';
-import sharedClasses from '../../../../styles/shared.js';
+import { utilClasses } from '../../../../styles/utility.js';
+import { sharedClasses } from '../../../../styles/shared.js';
 
 import classes from './SecondaryLinks.module.css';
 
@@ -53,7 +53,7 @@ function SecondaryLink({
         className={clsx(
           classes.anchor,
           sharedClasses.navigationItem,
-          utilityClasses.focusVisibleInset,
+          utilClasses.focusVisibleInset,
         )}
         aria-current={isActive ? 'page' : undefined}
       >

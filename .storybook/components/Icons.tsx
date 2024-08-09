@@ -70,7 +70,7 @@ function getComponentName(name: string) {
   return pascalCased.join('');
 }
 
-const Icons = () => {
+export function Icons() {
   const [search, setSearch] = useState('');
   const [size, setSize] = useState('all');
   const [color, setColor] = useState('var(--cui-fg-normal)');
@@ -208,6 +208,4 @@ const Icons = () => {
       )}
     </Unstyled>
   );
-};
-
-export default Icons;
+}

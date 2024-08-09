@@ -20,7 +20,7 @@ import { resolveNumberFormat } from '@sumup/intl';
 import { NumericFormat, type NumericFormatProps } from 'react-number-format';
 
 import { clsx } from '../../styles/clsx.js';
-import Input, { type InputElement, type InputProps } from '../Input/index.js';
+import { Input, type InputElement, type InputProps } from '../Input/index.js';
 
 import { formatPlaceholder } from './PercentageInputService.js';
 import classes from './PercentageInput.module.css';

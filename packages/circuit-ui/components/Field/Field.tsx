@@ -22,7 +22,7 @@ import {
 import { Confirm, Notify, Alert } from '@sumup/icons';
 
 import { clsx } from '../../styles/clsx.js';
-import utilityClasses from '../../styles/utility.js';
+import { utilClasses } from '../../styles/utility.js';
 
 import classes from './Field.module.css';
 import { getFieldValidity } from './FieldService.js';
@@ -127,7 +127,7 @@ export function FieldLabelText({
     <span
       className={clsx(
         classes['label-text'],
-        hideLabel && utilityClasses.hideVisually,
+        hideLabel && utilClasses.hideVisually,
       )}
     >
       {label}

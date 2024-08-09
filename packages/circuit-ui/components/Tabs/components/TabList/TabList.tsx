@@ -16,7 +16,7 @@
 import { Children, type HTMLAttributes } from 'react';
 
 import { clsx } from '../../../../styles/clsx.js';
-import utilityClasses from '../../../../styles/utility.js';
+import { utilClasses } from '../../../../styles/utility.js';
 
 import classes from './TabList.module.css';
 
@@ -41,7 +41,7 @@ export function TabList({
   const stretchOnMobile = numberOfTabs <= MOBILE_AUTOSTRETCH_ITEMS_MAX;
   return (
     <div
-      className={clsx(classes.wrapper, utilityClasses.hideScrollbar, className)}
+      className={clsx(classes.wrapper, utilClasses.hideScrollbar, className)}
       style={{ ...style, '--tab-list-width': tabWidth }}
     >
       <div

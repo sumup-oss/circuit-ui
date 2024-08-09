@@ -24,8 +24,8 @@ import type { Moment } from 'moment';
 import type { ClickEvent } from '../../../types/events.js';
 import styled from '../../../styles/styled.js';
 import { RangePickerController } from '../Calendar/index.js';
-import Tag from '../../Tag/index.js';
-import ButtonGroup from '../../ButtonGroup/index.js';
+import { Tag } from '../../Tag/index.js';
+import { ButtonGroup } from '../../ButtonGroup/index.js';
 import { END_DATE, START_DATE } from '../Calendar/constants.js';
 
 export interface CalendarTagTwoStepProps {

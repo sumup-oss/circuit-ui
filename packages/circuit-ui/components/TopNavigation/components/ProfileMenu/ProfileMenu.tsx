@@ -18,13 +18,13 @@
 import { useState, useEffect, type ButtonHTMLAttributes } from 'react';
 import { ChevronDown, Profile as ProfileIcon } from '@sumup/icons';
 
-import Avatar from '../../../Avatar/index.js';
-import Body from '../../../Body/index.js';
-import Popover, { type PopoverProps } from '../../../Popover/index.js';
+import { Avatar } from '../../../Avatar/index.js';
+import { Body } from '../../../Body/index.js';
+import { Popover, type PopoverProps } from '../../../Popover/index.js';
 import { Skeleton } from '../../../Skeleton/index.js';
 import type { UserProps } from '../../types.js';
-import utilityClasses from '../../../../styles/utility.js';
-import sharedClasses from '../../../../styles/shared.js';
+import { utilClasses } from '../../../../styles/utility.js';
+import { sharedClasses } from '../../../../styles/shared.js';
 import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './ProfileMenu.module.css';
@@ -51,7 +51,7 @@ function Profile({ user, label, className, ...props }: ProfileProps) {
       className={clsx(
         classes.profile,
         sharedClasses.navigationItem,
-        utilityClasses.focusVisibleInset,
+        utilClasses.focusVisibleInset,
         className,
       )}
       type="button"

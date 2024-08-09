@@ -31,7 +31,7 @@ import {
 } from '../../util/errors.js';
 import { FieldWrapper } from '../Field/index.js';
 import { clsx } from '../../styles/clsx.js';
-import utilityClasses from '../../styles/utility.js';
+import { utilClasses } from '../../styles/utility.js';
 import { deprecate } from '../../util/logger.js';
 
 import classes from './Selector.module.css';
@@ -187,7 +187,7 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
           className={clsx(
             classes.base,
             invalid && classes.invalid,
-            utilityClasses.hideVisually,
+            utilClasses.hideVisually,
           )}
           ref={ref}
           {...props}
@@ -213,7 +213,7 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
           )}
         </label>
         {hasDescription && (
-          <p id={descriptionId} className={utilityClasses.hideVisually}>
+          <p id={descriptionId} className={utilClasses.hideVisually}>
             {description}
           </p>
         )}

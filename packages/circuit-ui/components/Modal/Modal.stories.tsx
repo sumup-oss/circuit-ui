@@ -22,10 +22,10 @@ import {
   Stack,
 } from '../../../../.storybook/components/index.js';
 import { modes } from '../../../../.storybook/modes.js';
-import Button from '../Button/index.js';
-import Headline from '../Headline/index.js';
-import Body from '../Body/index.js';
-import Image from '../Image/index.js';
+import { Button } from '../Button/index.js';
+import { Headline } from '../Headline/index.js';
+import { Body } from '../Body/index.js';
+import { Image } from '../Image/index.js';
 import { ModalProvider } from '../ModalContext/index.js';
 
 import { useModal, Modal, type ModalProps } from './Modal.js';

@@ -21,7 +21,7 @@ import { modes } from '../../../../.storybook/modes.js';
 import { SideNavigation } from '../SideNavigation/index.js';
 import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories.js';
 import { ModalProvider } from '../ModalContext/index.js';
-import Body from '../Body/index.js';
+import { Body } from '../Body/index.js';
 import type { HamburgerProps } from '../Hamburger/Hamburger.js';
 
 import { TopNavigation, type TopNavigationProps } from './TopNavigation.js';
