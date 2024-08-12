@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.12.1
+
+### Patch Changes
+
+- [#2646](https://github.com/sumup-oss/circuit-ui/pull/2646) [`3cdcd69`](https://github.com/sumup-oss/circuit-ui/commit/3cdcd69588af28f7dc9dd6b17a194e87b39f1aeb) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed invalid HTML attributes from the Table component.
+
 ## 8.12.0
 
 ### Minor Changes
