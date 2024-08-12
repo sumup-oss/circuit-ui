@@ -102,8 +102,7 @@ export function TableHead({
       {!!headers.length && (
         <TableRow>
           {headers.map((header, i) => {
-            const cellProps = mapCellProps(header);
-            const { sortable, sortLabel } = cellProps;
+            const { sortable, sortLabel, ...cellProps } = mapCellProps(header);
             const sortParams = getSortParams({
               columnIndex: i,
               sortable,
