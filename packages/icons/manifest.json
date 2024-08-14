@@ -1812,11 +1812,6 @@
       "size": "24"
     },
     {
-      "name": "expenses",
-      "category": "Product and feature",
-      "size": "48"
-    },
-    {
       "name": "fee_calculator",
       "category": "Product and feature",
       "size": "24"
