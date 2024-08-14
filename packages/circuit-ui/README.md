@@ -23,9 +23,9 @@ yarn add @sumup-oss/circuit-ui
 
 ```sh
 # With npm
-npm install --save react react-dom @sumup-oss/design-tokens @sumup-oss/icons @sumup/intl
+npm install --save react react-dom @sumup-oss/design-tokens @sumup-oss/icons @sumup-oss/intl
 # With yarn v1
-yarn add react react-dom @sumup-oss/design-tokens @sumup-oss/icons @sumup/intl
+yarn add react react-dom @sumup-oss/design-tokens @sumup-oss/icons @sumup-oss/intl
 ```
 
 ## Usage

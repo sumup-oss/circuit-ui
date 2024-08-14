@@ -87,7 +87,7 @@ describe('CurrencyInput', () => {
   });
 
   describe('Labeling', () => {
-    const EUR_CURRENCY_SYMBOL = '€'; // formatted by `@sumup/intl`
+    const EUR_CURRENCY_SYMBOL = '€'; // formatted by `@sumup-oss/intl`
     /**
      * Note: further labeling logic is covered by the underlying `Input` component.
      */

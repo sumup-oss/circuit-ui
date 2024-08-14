@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { formatNumber } from '@sumup/intl';
+import { formatNumber } from '@sumup-oss/intl';
 
 export function formatPlaceholder(
   placeholder?: string | number,

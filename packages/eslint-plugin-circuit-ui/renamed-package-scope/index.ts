@@ -35,6 +35,10 @@ const mappings = [
     from: '@sumup/icons',
     to: '@sumup-oss/icons',
   },
+  {
+    from: '@sumup/intl',
+    to: '@sumup-oss/intl',
+  },
 ];
 
 export const renamedPackageScope = createRule({

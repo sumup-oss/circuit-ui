@@ -36,7 +36,7 @@ ruleTester.run('renamed-package-scope', renamedPackageScope, {
     {
       name: 'import from an unaffected @sumup package',
       code: `
-        import { RangePicker } from '@sumup/intl';
+        import { OIDCClient } from '@sumup/nanoauth';
       `,
     },
     {
