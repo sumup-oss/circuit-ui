@@ -1807,6 +1807,16 @@
       "size": "24"
     },
     {
+      "name": "expenses",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "expenses",
+      "category": "Product and feature",
+      "size": "48"
+    },
+    {
       "name": "fee_calculator",
       "category": "Product and feature",
       "size": "24"
@@ -1918,6 +1928,16 @@
     },
     {
       "name": "receipt_missing",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "receipt_smart",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "receipt_unreviewed",
       "category": "Product and feature",
       "size": "24"
     },
