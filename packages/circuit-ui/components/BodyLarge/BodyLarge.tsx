@@ -17,6 +17,7 @@ import { forwardRef, type HTMLAttributes, type Ref } from 'react';
 
 import type { AsPropType } from '../../types/prop-types.js';
 import { clsx } from '../../styles/clsx.js';
+import { deprecate } from '../../util/logger.js';
 
 import classes from './BodyLarge.module.css';
 
@@ -48,11 +49,17 @@ function getHTMLElement(variant?: Variant): AsPropType {
 }
 
 /**
- * The BodyLarge component is used to present the core textual content
- * to our users.
+ * @deprecated Use the Body component in size `l` instead.
  */
 export const BodyLarge = forwardRef<HTMLParagraphElement, BodyLargeProps>(
   ({ className, as, variant, ...props }, ref) => {
+    if (process.env.NODE_ENV !== 'production') {
+      deprecate(
+        'BodyLarge',
+        'The BodyLarge component has been deprecated. Use the Body component in size `l` instead.',
+      );
+    }
+
     const Element = as || getHTMLElement(variant);
     return (
       <Element
