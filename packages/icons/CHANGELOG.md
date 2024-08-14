@@ -1,5 +1,18 @@
 # @sumup-oss/icons
 
+## 5.0.0-next.0
+
+### Major Changes
+
+- [#2648](https://github.com/sumup-oss/circuit-ui/pull/2648) [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796) Thanks [@connor-baer](https://github.com/connor-baer)! - Renamed the package scope from `@sumup` to `@sumup-oss`. Replace `@sumup/icons` with `@sumup-oss/icons` in your `package.json` file, then update all imports:
+
+  ```diff
+  -import { Search } from '@sumup/icons';
+  +import { Search } from '@sumup-oss/icons';
+  ```
+
+  [Circuit UI's ESLint plugin](https://circuit.sumup.com/?path=/docs/packages-eslint-plugin-circuit-ui--docs) offers the `renamed-package-scope` rule to automate updating the package imports.
+
 ## 4.0.0
 
 ### Major Changes

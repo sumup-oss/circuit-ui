@@ -12,5 +12,14 @@
     "@sumup-oss/remix-template-circuit-ui": "3.1.0",
     "@sumup-oss/stylelint-plugin-circuit-ui": "2.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "chilly-dodos-end",
+    "flat-steaks-itch",
+    "great-kiwis-compare",
+    "old-sloths-speak",
+    "seven-bees-train",
+    "slimy-pots-lie",
+    "tall-sheep-provide",
+    "wise-emus-count"
+  ]
 }

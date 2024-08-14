@@ -1,5 +1,14 @@
 # @sumup-oss/cna-template
 
+## 1.1.1-next.0
+
+### Patch Changes
+
+- Updated dependencies [[`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796), [`8be7f3b`](https://github.com/sumup-oss/circuit-ui/commit/8be7f3b36e22135f6f312ea2aa4b582c252eb161), [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796), [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796), [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796)]:
+  - @sumup-oss/circuit-ui@9.0.0-next.0
+  - @sumup-oss/icons@5.0.0-next.0
+  - @sumup-oss/design-tokens@8.0.0-next.0
+
 ## 1.1.0
 
 ### Minor Changes
