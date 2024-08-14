@@ -16,7 +16,7 @@
 'use client';
 
 import { forwardRef, useId } from 'react';
-import { resolveCurrencyFormat } from '@sumup/intl';
+import { resolveCurrencyFormat } from '@sumup-oss/intl';
 import { NumericFormat, type NumericFormatProps } from 'react-number-format';
 
 import { clsx } from '../../styles/clsx.js';

@@ -14,7 +14,12 @@
  */
 
 import { useState } from 'react';
-import { FlagDe, FlagUs, FlagFr, type IconComponentType } from '@sumup/icons';
+import {
+  FlagDe,
+  FlagUs,
+  FlagFr,
+  type IconComponentType,
+} from '@sumup-oss/icons';
 
 import { Select, type SelectProps } from './Select.js';
 

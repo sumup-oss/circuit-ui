@@ -1,4 +1,4 @@
-# @sumup/design-tokens
+# @sumup-oss/design-tokens
 
 ## 7.3.1
 

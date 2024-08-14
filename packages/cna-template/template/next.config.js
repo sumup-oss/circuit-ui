@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    optimizePackageImports: ['@sumup/circuit-ui'],
+    optimizePackageImports: ['@sumup-oss/circuit-ui'],
   },
 };
 

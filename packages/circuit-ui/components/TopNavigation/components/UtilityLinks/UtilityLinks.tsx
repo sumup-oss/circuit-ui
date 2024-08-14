@@ -21,7 +21,7 @@ import type {
   AnchorHTMLAttributes,
   ReactNode,
 } from 'react';
-import type { IconComponentType } from '@sumup/icons';
+import type { IconComponentType } from '@sumup-oss/icons';
 
 import type { AsPropType } from '../../../../types/prop-types.js';
 import { Body } from '../../../Body/index.js';

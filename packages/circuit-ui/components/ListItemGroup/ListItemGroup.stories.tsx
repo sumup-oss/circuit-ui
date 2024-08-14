@@ -14,7 +14,7 @@
  */
 
 import { useState } from 'react';
-import { SumUpCard, Confirm, Alert } from '@sumup/icons';
+import { SumUpCard, Confirm, Alert } from '@sumup-oss/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 import { Body } from '../Body/index.js';

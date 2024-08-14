@@ -14,7 +14,7 @@
  */
 
 import { describe, expect, it, vi } from 'vitest';
-import { Plus } from '@sumup/icons';
+import { Plus } from '@sumup-oss/icons';
 
 import { axe, render, userEvent, screen } from '../../util/test-utils.js';
 

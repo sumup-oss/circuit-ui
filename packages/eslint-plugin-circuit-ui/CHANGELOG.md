@@ -1,4 +1,4 @@
-# @sumup/eslint-plugin-circuit-ui
+# @sumup-oss/eslint-plugin-circuit-ui
 
 ## 4.1.0
 

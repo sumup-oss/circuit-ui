@@ -21,7 +21,7 @@ import {
   type ReactElement,
   type RefAttributes,
 } from 'react';
-import type { IconComponentType, IconProps } from '@sumup/icons';
+import type { IconComponentType, IconProps } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
 import { CircuitError } from '../../util/errors.js';

@@ -15,7 +15,7 @@
 
 /* eslint-disable react/display-name */
 import { describe, expect, it, vi } from 'vitest';
-import { Home, Shop } from '@sumup/icons';
+import { Home, Shop } from '@sumup-oss/icons';
 
 import {
   render,

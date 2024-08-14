@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ArrowRight, ArrowLeft } from '@sumup/icons';
+import { ArrowRight, ArrowLeft } from '@sumup-oss/icons';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { DayPickerRangeController } from 'react-dates';
 import type { DayPickerRangeControllerShape } from 'react-dates';

@@ -16,7 +16,7 @@
 /** @jsxImportSource @emotion/react */
 
 import type { ReactNode } from 'react';
-import type { Theme } from '@sumup/design-tokens';
+import type { Theme } from '@sumup-oss/design-tokens';
 import { css, Global } from '@emotion/react';
 
 import {

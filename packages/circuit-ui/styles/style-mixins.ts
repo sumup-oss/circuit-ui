@@ -16,7 +16,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { css, type SerializedStyles } from '@emotion/react';
-import type { Theme } from '@sumup/design-tokens';
+import type { Theme } from '@sumup-oss/design-tokens';
 
 import { warn } from '../util/logger.js';
 import { isFunction } from '../util/type-check.js';

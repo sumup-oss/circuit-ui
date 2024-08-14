@@ -25,7 +25,7 @@ import {
   type DragEvent,
   type ComponentType,
 } from 'react';
-import { Delete, Plus } from '@sumup/icons';
+import { Delete, Plus } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
 import { utilClasses } from '../../styles/utility.js';

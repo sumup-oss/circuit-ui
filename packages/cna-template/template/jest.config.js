@@ -1,8 +1,8 @@
 const nextJest = require('next/jest');
 
 const esModules = [
-  '@sumup/circuit-ui',
-  '@sumup/icons',
+  '@sumup-oss/circuit-ui',
+  '@sumup-oss/icons',
   '@nanostores/react',
   'nanostores',
 ].join('|');

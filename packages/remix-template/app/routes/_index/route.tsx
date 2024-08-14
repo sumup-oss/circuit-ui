@@ -1,5 +1,5 @@
 import type { MetaFunction } from '@remix-run/node';
-import { Title, BodyLarge } from '@sumup/circuit-ui';
+import { Title, BodyLarge } from '@sumup-oss/circuit-ui';
 
 import { DocCard } from '../../components/DocCard/index.js';
 

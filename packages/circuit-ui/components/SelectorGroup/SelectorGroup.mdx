@@ -70,7 +70,7 @@ The SelectorGroup can be used as a controlled or uncontrolled component.
 
 ```tsx
 import { useState, type ChangeEvent } from 'react';
-import { SelectorGroup, type SelectorProps } from '@sumup/circuit-ui';
+import { SelectorGroup, type SelectorProps } from '@sumup-oss/circuit-ui';
 
 function Controlled() {
   const [value, setValue] = useState<SelectorProps['value']>();
@@ -98,7 +98,7 @@ function Controlled() {
 
 ```tsx
 import { useRef } from 'react';
-import { SelectorGroup } from '@sumup/circuit-ui';
+import { SelectorGroup } from '@sumup-oss/circuit-ui';
 
 function Uncontrolled() {
   const checkboxRefs = useRef({});

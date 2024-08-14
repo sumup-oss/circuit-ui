@@ -14,7 +14,7 @@
  */
 
 import { useEffect, useState } from 'react';
-import { Plus } from '@sumup/icons';
+import { Plus } from '@sumup-oss/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 

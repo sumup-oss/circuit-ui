@@ -14,7 +14,7 @@
  */
 
 import { ESLintUtils } from '@typescript-eslint/utils';
-import { schema } from '@sumup/design-tokens';
+import { schema } from '@sumup-oss/design-tokens';
 
 const PREFIX = '--cui-';
 const VALID_CUSTOM_PROPERTIES_WITHOUT_PREFIX = schema.map(({ name }) =>

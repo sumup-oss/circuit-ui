@@ -15,7 +15,7 @@
 
 import { describe, expect, it, vi } from 'vitest';
 import { createRef, type FC } from 'react';
-import { SumUpCard, type IconProps } from '@sumup/icons';
+import { SumUpCard, type IconProps } from '@sumup-oss/icons';
 
 import {
   render,

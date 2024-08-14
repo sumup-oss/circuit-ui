@@ -20,7 +20,7 @@ import {
   type ReactNode,
   type SelectHTMLAttributes,
 } from 'react';
-import { ChevronDown } from '@sumup/icons';
+import { ChevronDown } from '@sumup-oss/icons';
 
 import type { ReturnType } from '../../types/return-type.js';
 import {

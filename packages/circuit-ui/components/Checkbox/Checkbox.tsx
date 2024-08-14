@@ -22,7 +22,7 @@ import {
   useRef,
   type InputHTMLAttributes,
 } from 'react';
-import { Checkmark } from '@sumup/icons';
+import { Checkmark } from '@sumup-oss/icons';
 
 import { FieldValidationHint, FieldWrapper } from '../Field/index.js';
 import {

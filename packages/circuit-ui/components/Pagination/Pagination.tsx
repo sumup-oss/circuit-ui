@@ -16,7 +16,7 @@
 'use client';
 
 import type { HTMLAttributes, ReactElement } from 'react';
-import { ChevronLeft, ChevronRight } from '@sumup/icons';
+import { ChevronLeft, ChevronRight } from '@sumup-oss/icons';
 
 import { IconButton } from '../Button/index.js';
 import {

@@ -16,7 +16,7 @@
 'use client';
 
 import { forwardRef, useRef } from 'react';
-import { Search } from '@sumup/icons';
+import { Search } from '@sumup-oss/icons';
 
 import { Input, type InputElement, type InputProps } from '../Input/index.js';
 import { CloseButton } from '../CloseButton/index.js';

@@ -14,7 +14,7 @@
  */
 
 import { forwardRef } from 'react';
-import { Close } from '@sumup/icons';
+import { Close } from '@sumup-oss/icons';
 
 import { IconButton, type IconButtonProps } from '../Button/IconButton.js';
 

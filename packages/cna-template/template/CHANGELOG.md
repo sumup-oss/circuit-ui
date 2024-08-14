@@ -1,4 +1,4 @@
-# next-app
+# @sumup-oss/cna-template
 
 ## 1.1.0
 

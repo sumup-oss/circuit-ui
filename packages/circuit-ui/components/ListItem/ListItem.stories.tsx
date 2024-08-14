@@ -14,7 +14,7 @@
  */
 
 import { action } from '@storybook/addon-actions';
-import { SumUpCard, Confirm } from '@sumup/icons';
+import { SumUpCard, Confirm } from '@sumup-oss/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 import { Body } from '../Body/index.js';

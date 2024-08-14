@@ -16,8 +16,8 @@
 import { useEffect, useState, type ComponentType } from 'react';
 import { ThemeProvider, useTheme } from '@emotion/react';
 import { Unstyled } from '@storybook/addon-docs';
-import { light, schema } from '@sumup/design-tokens';
-import { SumUpLogomark } from '@sumup/icons';
+import { light, schema } from '@sumup-oss/design-tokens';
+import { SumUpLogomark } from '@sumup-oss/icons';
 import {
   Anchor,
   Table,

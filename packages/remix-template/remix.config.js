@@ -5,5 +5,5 @@ export default {
   // assetsBuildDirectory: "public/build",
   // publicPath: "/build/",
   // serverBuildPath: "build/index.js",
-  serverDependenciesToBundle: ['@sumup/circuit-ui', '@sumup/icons'],
+  serverDependenciesToBundle: ['@sumup-oss/circuit-ui', '@sumup-oss/icons'],
 };

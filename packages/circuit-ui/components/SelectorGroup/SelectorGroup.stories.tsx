@@ -15,7 +15,7 @@
 
 import { useState, type ChangeEvent, type FocusEvent } from 'react';
 import { action } from '@storybook/addon-actions';
-import { CardReaderAir, CardReaderSolo, MobilePhone } from '@sumup/icons';
+import { CardReaderAir, CardReaderSolo, MobilePhone } from '@sumup-oss/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 import { Selector, type SelectorProps } from '../Selector/Selector.js';

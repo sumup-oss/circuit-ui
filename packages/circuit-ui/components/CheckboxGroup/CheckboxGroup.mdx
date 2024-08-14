@@ -50,7 +50,7 @@ The CheckboxGroup can be used as a controlled or uncontrolled component.
 
 ```tsx
 import { useState, type ChangeEvent } from 'react';
-import { CheckboxGroup, type CheckboxProps } from '@sumup/circuit-ui';
+import { CheckboxGroup, type CheckboxProps } from '@sumup-oss/circuit-ui';
 
 function Controlled() {
   const [value, setValue] = useState<CheckboxProps['value'][]>([]);
@@ -84,7 +84,7 @@ function Controlled() {
 
 ```tsx
 import { useRef } from 'react';
-import { CheckboxGroup } from '@sumup/circuit-ui';
+import { CheckboxGroup } from '@sumup-oss/circuit-ui';
 
 function Uncontrolled() {
   const checkboxRefs = useRef({});

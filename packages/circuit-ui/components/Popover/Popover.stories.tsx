@@ -14,7 +14,7 @@
  */
 
 import { action } from '@storybook/addon-actions';
-import { Add, Edit, Delete } from '@sumup/icons';
+import { Add, Edit, Delete } from '@sumup-oss/icons';
 import { useState, type ReactNode } from 'react';
 
 import { Button } from '../Button/index.js';

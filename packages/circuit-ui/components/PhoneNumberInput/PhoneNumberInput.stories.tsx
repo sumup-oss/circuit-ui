@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { FlagDe, FlagUs, type IconComponentType } from '@sumup/icons';
+import { FlagDe, FlagUs, type IconComponentType } from '@sumup-oss/icons';
 import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 

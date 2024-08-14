@@ -8,10 +8,10 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react';
-import { SumUpLogo } from '@sumup/icons';
+import { SumUpLogo } from '@sumup-oss/icons';
 
-import '@sumup/design-tokens/light.css';
-import '@sumup/circuit-ui/styles.css';
+import '@sumup-oss/design-tokens/light.css';
+import '@sumup-oss/circuit-ui/styles.css';
 
 import styles from './root.module.css';
 

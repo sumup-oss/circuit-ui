@@ -1,4 +1,4 @@
-# @sumup/remix-template-circuit-ui
+# @sumup-oss/remix-template-circuit-ui
 
 ## 3.1.0
 

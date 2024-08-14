@@ -1,4 +1,4 @@
-# @sumup/astro-template-circuit-ui
+# @sumup-oss/astro-template-circuit-ui
 
 ## 2.1.0
 
