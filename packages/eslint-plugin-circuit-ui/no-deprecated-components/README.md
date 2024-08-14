@@ -1,6 +1,6 @@
 # Remove deprecated components (`no-deprecated-components`)
 
-Occasionally, components are removed from Circuit UI. This rule flags uses of deprecated components.
+Occasionally, components are removed from Circuit UI. This rule flags usages of deprecated components.
 
 ## Rule Details
 
