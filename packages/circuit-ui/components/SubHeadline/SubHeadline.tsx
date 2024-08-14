@@ -17,6 +17,7 @@ import { forwardRef, type HTMLAttributes } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
 import { CircuitError } from '../../util/errors.js';
+import { deprecate } from '../../util/logger.js';
 
 import classes from './SubHeadline.module.css';
 
@@ -30,8 +31,7 @@ export interface SubHeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
 }
 
 /**
- * A flexible SubHeadline component capable of rendering using any HTML heading
- * element, except h1.
+ * @deprecated Use the Headline component in size `s` instead.
  */
 export const SubHeadline = forwardRef<HTMLHeadingElement, SubHeadlineProps>(
   ({ className, as, ...props }, ref) => {
@@ -42,6 +42,13 @@ export const SubHeadline = forwardRef<HTMLHeadingElement, SubHeadlineProps>(
       !as
     ) {
       throw new CircuitError('SubHeadline', 'The `as` prop is required.');
+    }
+
+    if (process.env.NODE_ENV !== 'production') {
+      deprecate(
+        'SubHeadline',
+        'The SubHeadline component has been deprecated. Use the Headline component in size `s` instead.',
+      );
     }
 
     const Element = as || 'h2';
