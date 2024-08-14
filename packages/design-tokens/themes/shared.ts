@@ -173,22 +173,22 @@ export const shared = [
   },
   {
     name: '--cui-typography-headline-two-font-size',
-    value: '1.5rem',
+    value: '1.375rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-headline-two-line-height',
-    value: '1.75rem',
+    value: '1.625rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-headline-three-font-size',
-    value: '1.25rem',
+    value: '1.375rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-headline-three-line-height',
-    value: '1.5rem',
+    value: '1.625rem',
     type: 'dimension',
   },
   {
@@ -198,57 +198,57 @@ export const shared = [
   },
   {
     name: '--cui-typography-headline-four-line-height',
-    value: '1.5rem',
+    value: '1.375rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-title-one-font-size',
-    value: '7.5rem',
+    value: '4rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-title-one-line-height',
-    value: '7.5rem',
+    value: '4.5rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-title-two-font-size',
-    value: '6rem',
+    value: '3rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-title-two-line-height',
-    value: '6rem',
+    value: '3.5rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-title-three-font-size',
-    value: '4rem',
+    value: '3rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-title-three-line-height',
-    value: '4rem',
+    value: '3.5rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-title-four-font-size',
-    value: '3.5rem',
+    value: '2.5rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-title-four-line-height',
-    value: '3.5rem',
+    value: '2.875rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-sub-headline-font-size',
-    value: '0.875rem',
+    value: '1.125rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-sub-headline-line-height',
-    value: '1.25rem',
+    value: '1.375rem',
     type: 'dimension',
   },
   {
@@ -258,7 +258,7 @@ export const shared = [
   },
   {
     name: '--cui-typography-body-one-line-height',
-    value: '1.5rem',
+    value: '1.375rem',
     type: 'dimension',
   },
   {
@@ -278,7 +278,7 @@ export const shared = [
   },
   {
     name: '--cui-typography-body-large-line-height',
-    value: '1.75rem',
+    value: '1.5rem',
     type: 'dimension',
   },
   /* Z-indices */
