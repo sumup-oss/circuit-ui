@@ -1,8 +1,8 @@
 # Contributing Icons
 
-This page outlines the process of contributing an icon to the `@sumup/icons` package.
+This page outlines the process of contributing an icon to the `@sumup-oss/icons` package.
 
-> Note that icons should be added by internal contributors with access to the SumUp [Figma icons library](https://www.figma.com/file/vnFVuPNlqF45rkw1u9toBC/SumUp-Iconography) (internal link). If you don't have access but would like to see an icon added to `@sumup/icons`, please [open an issue](https://github.com/sumup-oss/circuit-ui/issues/new).
+> Note that icons should be added by internal contributors with access to the SumUp [Figma icons library](https://www.figma.com/file/vnFVuPNlqF45rkw1u9toBC/SumUp-Iconography) (internal link). If you don't have access but would like to see an icon added to `@sumup-oss/icons`, please [open an issue](https://github.com/sumup-oss/circuit-ui/issues/new).
 
 ## Adding a new icon
 
@@ -12,7 +12,7 @@ This page outlines the process of contributing an icon to the `@sumup/icons` pac
 3. Paste the SVG into your file and verify the code — refer to the ["Caveats"](#caveats) section below.
 4. Commit the icons, they will automatically be optimized in the precommit hook using `svgo`.
 5. Add an icon object to the icons manifest file at [`packages/icons/manifest.json`](https://github.com/sumup-oss/circuit-ui/blob/9146e47a21dcd6880f437d1a47a0c54d5a164bfd/packages/icons/manifest.json). The icons are ordered alphabetically by icon category, then name (should match the file name), and finally by size (descending). You can sort the file for example using [jq](https://github.com/jqlang/jq) - `jq '.icons|=sort_by(.category,.name,-(.size|tonumber))' packages/icons/manifest.json > tmp.json && mv tmp.json packages/icons/manifest.json`
-6. Build the icons package (`npx lerna run build --scope=@sumup/icons`) and run the Storybook (`npm run docs`). Verify that your icon renders correctly on the [Icons page](http://localhost:6006/?path=/docs/features-icons--docs) (local link).
+6. Build the icons package (`npx lerna run build --scope=@sumup-oss/icons`) and run the Storybook (`npm run docs`). Verify that your icon renders correctly on the [Icons page](http://localhost:6006/?path=/docs/features-icons--docs) (local link).
 
 ### Caveats
 
@@ -92,4 +92,4 @@ To fix this, copy the icon and paste it on a draft Figma file. Make sure that it
 ## Deprecating an icon
 
 1. Use the `deprecation` field in the icons manifest file at [`packages/icons/manifest.json`](https://github.com/sumup-oss/circuit-ui/blob/9146e47a21dcd6880f437d1a47a0c54d5a164bfd/packages/icons/manifest.json) to add a deprecation notice for the icon. Ideally, the notice should include a reason and recommend an alternative. The field supports markdown syntax. Add a [changeset](https://circuit.sumup.com/?path=/docs/contributing-release-process--docs#changesets) to release the change in a minor version.
-2. In the next major version of `@sumup/icons`, remove the icon from the manifest and delete the SVG.
+2. In the next major version of `@sumup-oss/icons`, remove the icon from the manifest and delete the SVG.

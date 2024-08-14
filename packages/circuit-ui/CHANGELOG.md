@@ -1,4 +1,4 @@
-# @sumup/circuit-ui
+# @sumup-oss/circuit-ui
 
 ## 8.12.1
 

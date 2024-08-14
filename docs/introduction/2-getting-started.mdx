@@ -24,35 +24,35 @@ Already have a project? You can install Circuit UI via `npm` or `yarn`. In your 
 
 ```sh
 # With npm:
-npm install @sumup/circuit-ui
+npm install @sumup-oss/circuit-ui
 
 # With yarn v1
-yarn add @sumup/circuit-ui
+yarn add @sumup-oss/circuit-ui
 ```
 
-Circuit UI relies on some mandatory peer dependencies, namely [@sumup/design-tokens](https://www.npmjs.com/package/@sumup/design-tokens), [@sumup/icons](https://www.npmjs.com/package/@sumup/icons), [@sumup/intl](https://www.npmjs.com/package/@sumup/intl), and [React](https://reactjs.org/). You should install them with the following command:
+Circuit UI relies on some mandatory peer dependencies, namely [@sumup-oss/design-tokens](https://www.npmjs.com/package/@sumup-oss/design-tokens), [@sumup-oss/icons](https://www.npmjs.com/package/@sumup-oss/icons), [@sumup/intl](https://www.npmjs.com/package/@sumup/intl), and [React](https://reactjs.org/). You should install them with the following command:
 
 ```sh
 # With npm:
-npm install --save @sumup/design-tokens @sumup/icons @sumup/intl react react-dom
+npm install --save @sumup-oss/design-tokens @sumup-oss/icons @sumup/intl react react-dom
 # With yarn v1
-yarn add @sumup/design-tokens @sumup/icons @sumup/intl react react-dom
+yarn add @sumup-oss/design-tokens @sumup-oss/icons @sumup/intl react react-dom
 ```
 
-We also recommend installing and configuring [`@sumup/eslint-plugin-circuit-ui`](Packages/eslint-plugin-circuit-ui/Docs) and [`@sumup/stylelint-plugin-circuit-ui`](Packages/stylelint-plugin-circuit-ui/Docs). The plugins will lint [Circuit UI custom properties](Features/Theme/Docs) and include codemods for Circuit UI breaking changes.
+We also recommend installing and configuring [`@sumup-oss/eslint-plugin-circuit-ui`](Packages/eslint-plugin-circuit-ui/Docs) and [`@sumup-oss/stylelint-plugin-circuit-ui`](Packages/stylelint-plugin-circuit-ui/Docs). The plugins will lint [Circuit UI custom properties](Features/Theme/Docs) and include codemods for Circuit UI breaking changes.
 
 ### Importing the styles
 
 ### Configuring the theme
 
-SumUp's default theme is part of the [@sumup/design-tokens](https://www.npmjs.com/package/@sumup/design-tokens) package. Refer to the [Theme documentation](Features/Theme/Docs) to learn how to use and customize the theme.
+SumUp's default theme is part of the [@sumup-oss/design-tokens](https://www.npmjs.com/package/@sumup-oss/design-tokens) package. Refer to the [Theme documentation](Features/Theme/Docs) to learn how to use and customize the theme.
 
 To make the theme available to Circuit UI, import the theme styles _before_ the component styles:
 
 ```tsx
 // /app/layout.tsx or /pages/_app.tsx for Next.js
-import '@sumup/design-tokens/light.css';
-import '@sumup/circuit-ui/styles.css';
+import '@sumup-oss/design-tokens/light.css';
+import '@sumup-oss/circuit-ui/styles.css';
 ```
 
 ### Configuring the viewport
@@ -61,8 +61,8 @@ Finally, make sure that the viewport meta tag includes `viewport-fit=cover`, and
 
 ```tsx
 // /app/layout.tsx or /pages/_app.tsx for Next.js
-import '@sumup/design-tokens/light.css';
-import '@sumup/circuit-ui/styles.css';
+import '@sumup-oss/design-tokens/light.css';
+import '@sumup-oss/circuit-ui/styles.css';
 import Head from 'next/head';
 
 const Layout = css`

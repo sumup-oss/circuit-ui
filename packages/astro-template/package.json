@@ -1,5 +1,5 @@
 {
-  "name": "@sumup/astro-template-circuit-ui",
+  "name": "@sumup-oss/astro-template-circuit-ui",
   "type": "module",
   "version": "2.1.0",
   "private": true,
@@ -16,9 +16,9 @@
   },
   "dependencies": {
     "@astrojs/react": "^3.6.1",
-    "@sumup/circuit-ui": "^8.0.0",
-    "@sumup/design-tokens": "^7.0.0",
-    "@sumup/icons": "^4.0.0",
+    "@sumup-oss/circuit-ui": "^8.0.0",
+    "@sumup-oss/design-tokens": "^7.0.0",
+    "@sumup-oss/icons": "^4.0.0",
     "@sumup/intl": "^1.6.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
@@ -28,8 +28,8 @@
   },
   "devDependencies": {
     "@sumup-oss/foundry": "^8.1.1",
-    "@sumup/eslint-plugin-circuit-ui": "^4.0.0",
-    "@sumup/stylelint-plugin-circuit-ui": "^2.0.0",
+    "@sumup-oss/eslint-plugin-circuit-ui": "^4.0.0",
+    "@sumup-oss/stylelint-plugin-circuit-ui": "^2.0.0",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.5.4"
   }

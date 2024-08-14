@@ -14,7 +14,7 @@
  */
 
 import { describe, expect, it } from 'vitest';
-import { Close } from '@sumup/icons';
+import { Close } from '@sumup-oss/icons';
 
 import { render, screen } from '../../util/test-utils.js';
 
@@ -36,7 +36,7 @@ describe('IconButton', () => {
    */
   it('should render an icon passed as children', () => {
     render(
-      // eslint-disable-next-line @sumup/circuit-ui/no-renamed-props
+      // eslint-disable-next-line @sumup-oss/circuit-ui/no-renamed-props
       <IconButton label="Close">
         <svg data-testid="icon" />
       </IconButton>,

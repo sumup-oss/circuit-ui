@@ -24,7 +24,7 @@ import {
 } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { ThemeProvider } from '@emotion/react';
-import { light } from '@sumup/design-tokens';
+import { light } from '@sumup-oss/design-tokens';
 
 import {
   ComponentsContext,

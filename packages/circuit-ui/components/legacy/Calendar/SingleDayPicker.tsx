@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ArrowRight, ArrowLeft, Close } from '@sumup/icons';
+import { ArrowRight, ArrowLeft, Close } from '@sumup-oss/icons';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { SingleDatePicker } from 'react-dates';
 import type { SingleDatePickerShape } from 'react-dates';

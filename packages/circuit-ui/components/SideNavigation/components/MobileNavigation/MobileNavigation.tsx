@@ -17,7 +17,7 @@
 
 import { Fragment } from 'react';
 import ReactModal from 'react-modal';
-import { ChevronDown } from '@sumup/icons';
+import { ChevronDown } from '@sumup-oss/icons';
 
 import {
   createUseModal,

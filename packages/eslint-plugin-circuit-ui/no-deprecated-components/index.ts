@@ -49,7 +49,7 @@ export const noDeprecatedComponents = createRule({
   defaultOptions: [],
   create(context) {
     return {
-      'ImportDeclaration:has(Literal[value="@sumup/circuit-ui"])': (
+      'ImportDeclaration:has(Literal[value="@sumup-oss/circuit-ui"])': (
         node: TSESTree.ImportDeclaration,
       ) => {
         node.specifiers.forEach((specifier) => {

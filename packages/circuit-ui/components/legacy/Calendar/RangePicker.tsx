@@ -16,7 +16,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { css } from '@emotion/react';
-import { ArrowRight, ArrowLeft, Close } from '@sumup/icons';
+import { ArrowRight, ArrowLeft, Close } from '@sumup-oss/icons';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { DateRangePicker } from 'react-dates';
 import type { DateRangePickerShape } from 'react-dates';

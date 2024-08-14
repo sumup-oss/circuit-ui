@@ -15,7 +15,7 @@
 
 import type { KeyboardEvent, MouseEvent, FC } from 'react';
 import { describe, expect, it, vi } from 'vitest';
-import { More, type IconProps } from '@sumup/icons';
+import { More, type IconProps } from '@sumup-oss/icons';
 
 import { axe, render, userEvent, screen } from '../../../../util/test-utils.js';
 

@@ -19,7 +19,7 @@ import {
   type HTMLAttributes,
   type LabelHTMLAttributes,
 } from 'react';
-import { Confirm, Notify, Alert } from '@sumup/icons';
+import { Confirm, Notify, Alert } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';

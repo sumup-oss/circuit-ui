@@ -14,7 +14,7 @@
  */
 
 import type { ImgHTMLAttributes } from 'react';
-import { Profile, Image as ImageIcon } from '@sumup/icons';
+import { Profile, Image as ImageIcon } from '@sumup-oss/icons';
 
 import { CircuitError } from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';

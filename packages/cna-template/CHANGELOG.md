@@ -1,4 +1,4 @@
-# @sumup/cna-template
+# @sumup-oss/cna-template
 
 ## 5.1.0
 

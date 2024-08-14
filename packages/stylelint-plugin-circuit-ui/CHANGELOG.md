@@ -1,4 +1,4 @@
-# @sumup/stylelint-plugin-circuit-ui
+# @sumup-oss/stylelint-plugin-circuit-ui
 
 ## 2.0.0
 

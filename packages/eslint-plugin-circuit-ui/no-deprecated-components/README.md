@@ -15,14 +15,14 @@ Examples of **incorrect** code for this rule:
 
 ```tsx
 // Since Circuit UI v6.4
-import { RadioButton, Selector } from '@sumup/circuit-ui';
+import { RadioButton, Selector } from '@sumup-oss/circuit-ui';
 ```
 
 Examples of **correct** code for this rule:
 
 ```tsx
 // Since Circuit UI v6.4
-import { RadioButtonGroup, SelectorGroup } from '@sumup/circuit-ui';
+import { RadioButtonGroup, SelectorGroup } from '@sumup-oss/circuit-ui';
 ```
 
 ### Options

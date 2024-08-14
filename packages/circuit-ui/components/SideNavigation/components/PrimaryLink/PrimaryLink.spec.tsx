@@ -15,7 +15,7 @@
 
 import { describe, expect, it, vi } from 'vitest';
 import type { FC } from 'react';
-import { Plus, type IconProps } from '@sumup/icons';
+import { Plus, type IconProps } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../../../types/events.js';
 import {

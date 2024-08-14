@@ -14,7 +14,7 @@
  */
 
 import { describe, expect, it, vi } from 'vitest';
-import { Shop, SumUpLogo } from '@sumup/icons';
+import { Shop, SumUpLogo } from '@sumup-oss/icons';
 
 import { axe, render } from '../../util/test-utils.js';
 import type { PopoverProps } from '../Popover/index.js';

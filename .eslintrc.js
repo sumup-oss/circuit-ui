@@ -3,7 +3,7 @@ module.exports = require('@sumup-oss/foundry/eslint')({
     'plugin:storybook/recommended',
     'plugin:react-server-components/recommended',
   ],
-  plugins: ['@sumup/circuit-ui'],
+  plugins: ['@sumup-oss/circuit-ui'],
   settings: {
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
@@ -16,8 +16,8 @@ module.exports = require('@sumup-oss/foundry/eslint')({
     },
   },
   rules: {
-    '@sumup/circuit-ui/no-invalid-custom-properties': 'error',
-    '@sumup/circuit-ui/prefer-custom-properties': 'warn',
+    '@sumup-oss/circuit-ui/no-invalid-custom-properties': 'error',
+    '@sumup-oss/circuit-ui/prefer-custom-properties': 'warn',
     'react/no-unknown-property': ['error', { ignore: ['css'] }],
   },
   parserOptions: {
@@ -55,7 +55,7 @@ module.exports = require('@sumup-oss/foundry/eslint')({
     {
       files: ['packages/circuit-ui/components/legacy/**/*'],
       rules: {
-        '@sumup/circuit-ui/prefer-custom-properties': 'off',
+        '@sumup-oss/circuit-ui/prefer-custom-properties': 'off',
       },
     },
     {

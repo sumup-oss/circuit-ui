@@ -16,7 +16,7 @@
 'use client';
 
 import { useState, useEffect, type ButtonHTMLAttributes } from 'react';
-import { ChevronDown, Profile as ProfileIcon } from '@sumup/icons';
+import { ChevronDown, Profile as ProfileIcon } from '@sumup-oss/icons';
 
 import { Avatar } from '../../../Avatar/index.js';
 import { Body } from '../../../Body/index.js';

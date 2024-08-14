@@ -16,7 +16,7 @@
 'use client';
 
 import type { HTMLAttributes } from 'react';
-import { ArrowLeft } from '@sumup/icons';
+import { ArrowLeft } from '@sumup-oss/icons';
 
 import { clsx } from '../../../../styles/clsx.js';
 import { IconButton } from '../../../Button/index.js';

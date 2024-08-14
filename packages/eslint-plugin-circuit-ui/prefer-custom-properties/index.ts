@@ -14,7 +14,7 @@
  */
 
 import { ESLintUtils, type TSESTree } from '@typescript-eslint/utils';
-import { schema } from '@sumup/design-tokens';
+import { schema } from '@sumup-oss/design-tokens';
 
 /* eslint-disable */
 

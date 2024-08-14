@@ -24,8 +24,8 @@ const createRule = ESLintUtils.RuleCreator(
 
 const mappings = [
   {
-    from: '@sumup/circuit-ui',
-    to: '@sumup/circuit-ui/legacy',
+    from: '@sumup-oss/circuit-ui',
+    to: '@sumup-oss/circuit-ui/legacy',
     specifiers: [
       'RadioButton',
       'RadioButtonProps',

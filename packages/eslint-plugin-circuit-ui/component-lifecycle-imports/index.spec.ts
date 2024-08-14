@@ -14,7 +14,7 @@
  */
 
 // We disable the rule in this file because we explicitly test invalid cases
-/* eslint-disable @sumup/circuit-ui/no-invalid-custom-properties */
+/* eslint-disable @sumup-oss/circuit-ui/no-invalid-custom-properties */
 
 import { RuleTester } from '@typescript-eslint/rule-tester';
 
@@ -42,19 +42,19 @@ ruleTester.run('component-lifecycle-imports', componentLifecycleImports, {
     {
       name: 'matching import from correct package',
       code: `
-        import { RangePicker } from '@sumup/circuit-ui/legacy';
+        import { RangePicker } from '@sumup-oss/circuit-ui/legacy';
       `,
     },
     {
       name: 'unrelated import from matching package',
       code: `
-        import { Button } from '@sumup/circuit-ui';
+        import { Button } from '@sumup-oss/circuit-ui';
       `,
     },
     {
       name: 'unrelated import with matching local name',
       code: `
-        import { Button as RangePicker } from '@sumup/circuit-ui';
+        import { Button as RangePicker } from '@sumup-oss/circuit-ui';
       `,
     },
   ],
@@ -62,51 +62,51 @@ ruleTester.run('component-lifecycle-imports', componentLifecycleImports, {
     {
       name: 'single import with single match',
       code: `
-        import { RangePicker } from '@sumup/circuit-ui';
+        import { RangePicker } from '@sumup-oss/circuit-ui';
       `,
       output: `
-        import { RangePicker } from '@sumup/circuit-ui/legacy';
+        import { RangePicker } from '@sumup-oss/circuit-ui/legacy';
       `,
       errors: [{ messageId: 'refactor' }],
     },
     {
       name: 'single import with single match with local name',
       code: `
-        import { RangePicker as RangeInput } from '@sumup/circuit-ui';
+        import { RangePicker as RangeInput } from '@sumup-oss/circuit-ui';
       `,
       output: `
-        import { RangePicker as RangeInput } from '@sumup/circuit-ui/legacy';
+        import { RangePicker as RangeInput } from '@sumup-oss/circuit-ui/legacy';
       `,
       errors: [{ messageId: 'refactor' }],
     },
     {
       name: 'multiple imports with single match',
       code: `
-        import { RangePicker, Button } from '@sumup/circuit-ui';
+        import { RangePicker, Button } from '@sumup-oss/circuit-ui';
       `,
       output: `
-        import { Button } from '@sumup/circuit-ui';import { RangePicker } from '@sumup/circuit-ui/legacy';
+        import { Button } from '@sumup-oss/circuit-ui';import { RangePicker } from '@sumup-oss/circuit-ui/legacy';
       `,
       errors: [{ messageId: 'refactor' }],
     },
     {
       name: 'multiple imports with multiple matches',
       code: `
-        import { RangePicker, RangePickerController } from '@sumup/circuit-ui';
+        import { RangePicker, RangePickerController } from '@sumup-oss/circuit-ui';
       `,
       // The other component will be migrated on the second pass.
       output: `
-        import { RangePickerController } from '@sumup/circuit-ui';import { RangePicker } from '@sumup/circuit-ui/legacy';
+        import { RangePickerController } from '@sumup-oss/circuit-ui';import { RangePicker } from '@sumup-oss/circuit-ui/legacy';
       `,
       errors: [{ messageId: 'refactor' }, { messageId: 'refactor' }],
     },
     {
       name: 'single type import with single match',
       code: `
-        import type { RangePickerProps } from '@sumup/circuit-ui';
+        import type { RangePickerProps } from '@sumup-oss/circuit-ui';
       `,
       output: `
-        import type { RangePickerProps } from '@sumup/circuit-ui/legacy';
+        import type { RangePickerProps } from '@sumup-oss/circuit-ui/legacy';
       `,
       errors: [{ messageId: 'refactor' }],
     },

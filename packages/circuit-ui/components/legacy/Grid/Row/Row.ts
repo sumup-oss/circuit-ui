@@ -16,7 +16,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { css } from '@emotion/react';
-import type { Theme } from '@sumup/design-tokens';
+import type { Theme } from '@sumup-oss/design-tokens';
 
 import { clearfix } from '../../../../styles/style-mixins.js';
 import styled, {

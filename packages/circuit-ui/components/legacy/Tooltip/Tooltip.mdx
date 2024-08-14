@@ -29,8 +29,8 @@ The Tooltip component depends on the legacy JSON theme. Wrap the the component o
 
 ```tsx
 import { ThemeProvider } from '@emotion/react';
-import { light } from '@sumup/design-tokens';
-import { Tooltip } from '@sumup/circuit-ui';
+import { light } from '@sumup-oss/design-tokens';
+import { Tooltip } from '@sumup-oss/circuit-ui';
 
 export default function App() {
   return (
@@ -60,8 +60,8 @@ Here's an example:
 ```tsx
 // Before
 import { useState } from "react";
-import { Badge } from "@sumup/circuit-ui";
-import { Tooltip } from "@sumup/circuit-ui/legacy";
+import { Badge } from "@sumup-oss/circuit-ui";
+import { Tooltip } from "@sumup-oss/circuit-ui/legacy";
 
 function Component() {
   const [isVisible, setVisible] = useState(false);
@@ -87,8 +87,8 @@ function Component() {
 
 ```tsx
 // After
-import { Badge } from "@sumup/circuit-ui";
-import { Tooltip } from "@sumup/circuit-ui/experimental";
+import { Badge } from "@sumup-oss/circuit-ui";
+import { Tooltip } from "@sumup-oss/circuit-ui/experimental";
 
 function Component() {
   return (
@@ -115,8 +115,8 @@ Here's an example:
 ```tsx
 // Before
 import { useState } from "react";
-import { Tooltip } from "@sumup/circuit-ui/legacy";
-import { Info } from "@sumup/icons";
+import { Tooltip } from "@sumup-oss/circuit-ui/legacy";
+import { Info } from "@sumup-oss/icons";
 
 function Component() {
   const [isVisible, setVisible] = useState(false);
@@ -141,9 +141,9 @@ function Component() {
 
 ```tsx
 // After
-import { Toggletip } from "@sumup/circuit-ui/experimental";
-import { IconButton } from "@sumup/circuit-ui";
-import { Info } from "@sumup/icons";
+import { Toggletip } from "@sumup-oss/circuit-ui/experimental";
+import { IconButton } from "@sumup-oss/circuit-ui";
+import { Info } from "@sumup-oss/icons";
 
 function Component() {
   return (

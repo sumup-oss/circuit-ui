@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 
-import '@sumup/design-tokens/light.css';
-import '@sumup/circuit-ui/styles.css';
+import '@sumup-oss/design-tokens/light.css';
+import '@sumup-oss/circuit-ui/styles.css';
 
 import { PreloadResources } from './preload-resources';
 

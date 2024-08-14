@@ -20,9 +20,9 @@ import {
   type ChangeEvent,
 } from 'react';
 import { Unstyled } from '@storybook/addon-docs';
-import * as iconComponents from '@sumup/icons';
-import type { IconsManifest } from '@sumup/icons';
-import iconsManifest from '@sumup/icons/manifest.json';
+import * as iconComponents from '@sumup-oss/icons';
+import type { IconsManifest } from '@sumup-oss/icons';
+import iconsManifest from '@sumup-oss/icons/manifest.json';
 import {
   Headline,
   Body,

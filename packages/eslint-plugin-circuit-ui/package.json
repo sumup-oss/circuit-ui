@@ -1,5 +1,5 @@
 {
-  "name": "@sumup/eslint-plugin-circuit-ui",
+  "name": "@sumup-oss/eslint-plugin-circuit-ui",
   "version": "4.1.0",
   "description": "ESLint rules to lint Circuit UI.",
   "keywords": [
@@ -30,13 +30,13 @@
     "@typescript-eslint/utils": "^7.16.1"
   },
   "devDependencies": {
-    "@sumup/design-tokens": "^7.0.0",
+    "@sumup-oss/design-tokens": "^7.0.0",
     "@tsconfig/node18": "^18.2.4",
     "@typescript-eslint/rule-tester": "^7.16.1",
     "typescript": "^5.5.4"
   },
   "peerDependencies": {
-    "@sumup/circuit-ui": ">=7.5.0",
-    "@sumup/design-tokens": ">=6.0.0"
+    "@sumup-oss/circuit-ui": ">=7.5.0",
+    "@sumup-oss/design-tokens": ">=6.0.0"
   }
 }

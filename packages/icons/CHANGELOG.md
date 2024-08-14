@@ -1,4 +1,4 @@
-# @sumup/icons
+# @sumup-oss/icons
 
 ## 4.0.0
 

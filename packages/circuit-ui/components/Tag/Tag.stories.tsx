@@ -14,7 +14,7 @@
  */
 
 import { action } from '@storybook/addon-actions';
-import { Checkmark } from '@sumup/icons';
+import { Checkmark } from '@sumup-oss/icons';
 
 import { Tag, type TagProps } from './Tag.js';
 

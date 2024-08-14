@@ -22,7 +22,7 @@ import {
   type AnchorHTMLAttributes,
   type HTMLAttributes,
 } from 'react';
-import { ChevronRight, type IconComponentType } from '@sumup/icons';
+import { ChevronRight, type IconComponentType } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
 import type { AsPropType } from '../../types/prop-types.js';
@@ -44,7 +44,7 @@ export interface BaseProps {
   variant?: Variant;
   /**
    * Display a leading component.
-   * Pass an icon from `@sumup/icons` or a custom component.
+   * Pass an icon from `@sumup-oss/icons` or a custom component.
    */
   leadingComponent?: IconComponentType | ReactNode;
   /**

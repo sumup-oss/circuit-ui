@@ -28,7 +28,7 @@ import {
   type MouseEvent,
 } from 'react';
 import { Temporal } from 'temporal-polyfill';
-import { ArrowLeft, ArrowRight } from '@sumup/icons';
+import { ArrowLeft, ArrowRight } from '@sumup-oss/icons';
 
 import { utilClasses } from '../../styles/utility.js';
 import { getBrowserLocale, type Locale } from '../../util/i18n.js';

@@ -14,7 +14,7 @@
  */
 
 import { userEvent, within } from '@storybook/test';
-import { ArrowSlanted, Info } from '@sumup/icons';
+import { ArrowSlanted, Info } from '@sumup-oss/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 import { IconButton } from '../Button/index.js';
