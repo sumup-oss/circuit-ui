@@ -50,9 +50,9 @@
     },
     "ignore": [
       // The templates have their own linting setup
-      "packages/astro-template/**",
-      "packages/cna-template/template/**",
-      "packages/remix-template/**"
+      "templates/astro/**",
+      "templates/nextjs/template/**",
+      "templates/remix/**"
     ]
   },
   "overrides": [

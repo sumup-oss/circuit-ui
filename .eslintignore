@@ -12,7 +12,7 @@ package-lock.json
 *rc.*
 /scripts/
 # disable linting for templates because they will have their own rules when used in a new app
-packages/cna-template/template
-packages/astro-template/src/env.d.ts
+templates/nextjs/template
+templates/astro/src/env.d.ts
 packages/circuit-ui/vendor
 packages/icons/vendor
