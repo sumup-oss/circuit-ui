@@ -17,6 +17,7 @@ import { forwardRef, type HTMLAttributes } from 'react';
 
 import type { AsPropType } from '../../types/prop-types.js';
 import { clsx } from '../../styles/clsx.js';
+import { deprecate } from '../../util/logger.js';
 
 import classes from './Body.module.css';
 
@@ -24,9 +25,20 @@ type Variant = 'highlight' | 'quote' | 'confirm' | 'alert' | 'subtle';
 
 export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
   /**
-   * Choose from 2 font sizes. Default `one`.
+   * Choose from 3 font sizes. Default `m`.
    */
-  size?: 'one' | 'two';
+  size?:
+    | 's'
+    | 'm'
+    | 'l'
+    /**
+     * @deprecated
+     */
+    | 'one'
+    /**
+     * @deprecated
+     */
+    | 'two';
   /**
    * Choose from style variants.
    */
@@ -52,8 +64,22 @@ function getHTMLElement(variant?: Variant): AsPropType {
  * to our users.
  */
 export const Body = forwardRef<HTMLParagraphElement, BodyProps>(
-  ({ className, as, size = 'one', variant, ...props }, ref) => {
+  ({ className, as, size = 'm', variant, ...props }, ref) => {
     const Element = as || getHTMLElement(variant);
+
+    if (process.env.NODE_ENV !== 'production') {
+      const deprecatedSizeMap: Record<string, string> = {
+        'one': 'm',
+        'two': 's',
+      };
+      if (size in deprecatedSizeMap) {
+        deprecate(
+          'Body',
+          `The "${size}" size has been deprecated. Use the "${deprecatedSizeMap[size]}" size instead.`,
+        );
+      }
+    }
+
     return (
       <Element
         {...props}

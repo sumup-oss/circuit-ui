@@ -4,6 +4,21 @@
 
 /* Sizes */
 
+.l {
+  font-size: var(--cui-typography-body-large-font-size);
+  line-height: var(--cui-typography-body-large-line-height);
+}
+
+.m {
+  font-size: var(--cui-typography-body-one-font-size);
+  line-height: var(--cui-typography-body-one-line-height);
+}
+
+.s {
+  font-size: var(--cui-typography-body-two-font-size);
+  line-height: var(--cui-typography-body-two-line-height);
+}
+
 .one {
   font-size: var(--cui-typography-body-one-font-size);
   line-height: var(--cui-typography-body-one-line-height);

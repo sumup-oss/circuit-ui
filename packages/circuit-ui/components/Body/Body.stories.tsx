@@ -30,12 +30,12 @@ export default {
 
 export const Base = (args: BodyProps) => <Body {...args}>{content}</Body>;
 
-const sizes = ['one', 'two'] as const;
+const sizes = ['l', 'm', 's'] as const;
 
 export const Sizes = (args: BodyProps) =>
-  sizes.map((s) => (
-    <Body key={s} {...args} size={s}>
-      This is a body {s}. {content}
+  sizes.map((size) => (
+    <Body key={size} {...args} size={size}>
+      This is size {size}. {content}
     </Body>
   ));
 
