@@ -16,6 +16,16 @@ for package in "${packages[@]}"; do
   echo -e "import { Meta } from '../../.storybook/components';\n\n<Meta title=\"Packages/${package_name}\" />\n\n$(cat ${src_file_path})" > "${dest_file_path}"
 done
 
+mkdir -p ./docs/templates
+
+for template in "${templates[@]}"; do
+  template_name=$(echo ${template} | cut -d'/' -f 3)
+  src_file_path="${template}/README.md"
+  dest_file_path="./docs/templates/${template_name}.mdx"
+
+  echo -e "import { Meta } from '../../.storybook/components';\n\n<Meta title=\"Packages/${template_name}\" />\n\n$(cat ${src_file_path})" > "${dest_file_path}"
+done
+
 # CONTRIBUTING.md
 
 echo -e "import { Meta } from '../../.storybook/components';\n\n<Meta title=\"Introduction/Changelog\" />\n\n$(cat "./packages/circuit-ui/CHANGELOG.md")" | sed -r 's/# @sumup\/circuit-ui/# Changelog/g' | sed -r 's/ >=18/ {` >=18`}/g' | sed -r 's/ <18/ {` <18`}/g' > "./docs/introduction/5-changelog.mdx"

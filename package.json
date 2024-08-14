@@ -2,10 +2,7 @@
   "name": "circuit-ui-web",
   "description": "The web implementation of Circuit UI, SumUp's design system",
   "private": true,
-  "workspaces": [
-    "packages/*",
-    "packages/cna-template/template"
-  ],
+  "workspaces": ["packages/*", "templates/*", "templates/nextjs/template"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sumup-oss/circuit-ui.git"
@@ -36,7 +33,7 @@
     "check:licenses": "license-checker --production --summary --failOn=GPLv3",
     "check:svg-sizes": "./scripts/check-svg-sizes.sh",
     "copy-docs": "./scripts/copy-docs.sh",
-    "bootstrap": "npm run build && npm run copy-docs && cd packages/cna-template/template && npm ci",
+    "bootstrap": "npm run build && npm run copy-docs && cd templates/nextjs/template && npm ci",
     "release": "changeset publish"
   },
   "devDependencies": {

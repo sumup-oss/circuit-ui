@@ -72,7 +72,7 @@ module.exports = require('@sumup-oss/foundry/eslint')({
       },
     },
     {
-      files: ['packages/remix-template/**/*', 'packages/astro-template/**/*'],
+      files: ['templates/remix/**/*', 'templates/astro/**/*'],
       rules: {
         'notice/notice': 'off',
       },
