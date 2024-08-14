@@ -28,12 +28,12 @@ Base.args = {
   as: 'h1',
 };
 
-const sizes = ['one', 'two', 'three', 'four'] as const;
+const sizes = ['l', 'm', 's'] as const;
 
 export const Sizes = (args: TitleProps) =>
-  sizes.map((s) => (
-    <Title key={s} {...args} size={s}>
-      This is a Title {s}
+  sizes.map((size) => (
+    <Title key={size} {...args} size={size}>
+      This is size {size}
     </Title>
   ));
 
