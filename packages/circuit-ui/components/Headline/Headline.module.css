@@ -6,6 +6,21 @@
 
 /* Sizes */
 
+.l {
+  font-size: var(--cui-typography-headline-one-font-size);
+  line-height: var(--cui-typography-headline-one-line-height);
+}
+
+.m {
+  font-size: var(--cui-typography-headline-two-font-size);
+  line-height: var(--cui-typography-headline-two-line-height);
+}
+
+.s {
+  font-size: var(--cui-typography-headline-four-font-size);
+  line-height: var(--cui-typography-headline-four-line-height);
+}
+
 .one {
   font-size: var(--cui-typography-headline-one-font-size);
   line-height: var(--cui-typography-headline-one-line-height);

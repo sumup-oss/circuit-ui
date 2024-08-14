@@ -17,14 +17,34 @@ import { forwardRef, type HTMLAttributes } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
 import { CircuitError } from '../../util/errors.js';
+import { deprecate } from '../../util/logger.js';
 
 import classes from './Headline.module.css';
 
 export interface HeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
   /**
-   * A Circuit UI headline size. Defaults to `one`.
+   * Choose from 3 font sizes. Defaults to `m`.
    */
-  size?: 'one' | 'two' | 'three' | 'four';
+  size?:
+    | 's'
+    | 'm'
+    | 'l'
+    /**
+     * @deprecated
+     */
+    | 'one'
+    /**
+     * @deprecated
+     */
+    | 'two'
+    /**
+     * @deprecated
+     */
+    | 'three'
+    /**
+     * @deprecated
+     */
+    | 'four';
   /**
    * The HTML heading element to render.
    * Headings should be nested sequentially without skipping any levels.
@@ -37,7 +57,7 @@ export interface HeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
  * A flexible headline component capable of rendering any HTML heading element.
  */
 export const Headline = forwardRef<HTMLHeadingElement, HeadlineProps>(
-  ({ className, as, size = 'one', ...props }, ref) => {
+  ({ className, as, size = 'm', ...props }, ref) => {
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -45,6 +65,21 @@ export const Headline = forwardRef<HTMLHeadingElement, HeadlineProps>(
       !as
     ) {
       throw new CircuitError('Headline', 'The `as` prop is required.');
+    }
+
+    if (process.env.NODE_ENV !== 'production') {
+      const deprecatedSizeMap: Record<string, string> = {
+        'one': 'l',
+        'two': 'm',
+        'three': 'm',
+        'four': 's',
+      };
+      if (size in deprecatedSizeMap) {
+        deprecate(
+          'Headline',
+          `The "${size}" size has been deprecated. Use the "${deprecatedSizeMap[size]}" size instead.`,
+        );
+      }
     }
 
     const Element = as || 'h2';
