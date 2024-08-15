@@ -24,7 +24,7 @@ import {
   useFocusList,
   type FocusProps,
 } from '../../../../hooks/useFocusList/index.js';
-import { SubHeadline } from '../../../SubHeadline/index.js';
+import { Headline } from '../../../Headline/index.js';
 import { Body } from '../../../Body/index.js';
 import { Badge } from '../../../Badge/index.js';
 import { useComponents } from '../../../ComponentsContext/index.js';
@@ -81,7 +81,9 @@ function SecondaryGroup({
     <li>
       {label && (
         <Skeleton className={classes['group-headline']} as="div">
-          <SubHeadline as="h3">{label}</SubHeadline>
+          <Headline as="h3" size="s">
+            {label}
+          </Headline>
         </Skeleton>
       )}
       <ul role="list" className={classes.list}>
