@@ -62,7 +62,7 @@ export const shared = [
   {
     name: '--cui-font-stack-default',
     value:
-      'aktiv-grotesk, Helvetica, Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+      'Inter, Inter-Fallback, Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
     type: 'fontFamily',
   },
   {
