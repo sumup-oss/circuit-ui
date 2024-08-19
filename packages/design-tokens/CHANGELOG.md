@@ -1,5 +1,18 @@
 # @sumup-oss/design-tokens
 
+## 8.0.0-next.0
+
+### Major Changes
+
+- [#2648](https://github.com/sumup-oss/circuit-ui/pull/2648) [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796) Thanks [@connor-baer](https://github.com/connor-baer)! - Renamed the package scope from `@sumup` to `@sumup-oss`. Replace `@sumup/design-tokens` with `@sumup-oss/design-tokens` in your `package.json` file, then update all imports:
+
+  ```diff
+  -import '@sumup/design-tokens/light.css';
+  +import '@sumup-oss/design-tokens/light.css';
+  ```
+
+  [Circuit UI's ESLint plugin](https://circuit.sumup.com/?path=/docs/packages-eslint-plugin-circuit-ui--docs) offers the `renamed-package-scope` rule to automate updating the package imports.
+
 ## 7.3.1
 
 ### Patch Changes

@@ -1,5 +1,28 @@
 # @sumup-oss/circuit-ui
 
+## 9.0.0-next.0
+
+### Major Changes
+
+- [#2648](https://github.com/sumup-oss/circuit-ui/pull/2648) [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796) Thanks [@connor-baer](https://github.com/connor-baer)! - Upgraded to `@sumup-oss/intl` v2. If your app also depends on `@sumup-oss/intl` (previously called `@sumup/intl`), you need to upgrade it as well.
+
+- [#2306](https://github.com/sumup-oss/circuit-ui/pull/2306) [`8be7f3b`](https://github.com/sumup-oss/circuit-ui/commit/8be7f3b36e22135f6f312ea2aa4b582c252eb161) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the `InputElement` interface and narrowed the Input's element type to `HTMLInputElement` and the TextArea's element type to `HTMLTextAreaElement`. This affects `ref`s and event handlers.
+
+- [#2648](https://github.com/sumup-oss/circuit-ui/pull/2648) [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796) Thanks [@connor-baer](https://github.com/connor-baer)! - Renamed the package scope from `@sumup` to `@sumup-oss`. Replace `@sumup/circuit-ui` with `@sumup-oss/circuit-ui` in your `package.json` file, then update all imports:
+
+  ```diff
+  -import { Button } from '@sumup/circuit-ui';
+  +import { Button } from '@sumup-oss/circuit-ui';
+  ```
+
+  [Circuit UI's ESLint plugin](https://circuit.sumup.com/?path=/docs/packages-eslint-plugin-circuit-ui--docs) offers the `renamed-package-scope` rule to automate updating the package imports.
+
+### Patch Changes
+
+- Updated dependencies [[`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796), [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796)]:
+  - @sumup-oss/icons@5.0.0-next.0
+  - @sumup-oss/design-tokens@8.0.0-next.0
+
 ## 8.12.1
 
 ### Patch Changes

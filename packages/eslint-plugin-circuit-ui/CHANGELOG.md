@@ -1,5 +1,34 @@
 # @sumup-oss/eslint-plugin-circuit-ui
 
+## 5.0.0-next.0
+
+### Major Changes
+
+- [#2648](https://github.com/sumup-oss/circuit-ui/pull/2648) [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796) Thanks [@connor-baer](https://github.com/connor-baer)! - Renamed the package scope from `@sumup` to `@sumup-oss`. Replace `@sumup/eslint-plugin-circuit-ui` with `@sumup-oss/eslint-plugin-circuit-ui` in your `package.json` file, then update the plugin and rule names in your ESLint config:
+
+  ```diff
+  // .eslintrc.js
+
+  module.exports = {
+  -  plugins: ['@sumup/circuit-ui'],
+  +  plugins: ['@sumup-oss/circuit-ui'],
+    rules: {
+  -    '@sumup/circuit-ui/component-lifecycle-imports': 'error',
+  +    '@sumup-oss/circuit-ui/component-lifecycle-imports': 'error',
+    },
+  };
+  ```
+
+### Minor Changes
+
+- [#2648](https://github.com/sumup-oss/circuit-ui/pull/2648) [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796) Thanks [@connor-baer](https://github.com/connor-baer)! - Added `circuit-ui/renamed-package-scope` rule to update imports for design system packages that have moved from the `@sumup` to the `@sumup-oss` scope.
+
+### Patch Changes
+
+- Updated dependencies [[`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796), [`8be7f3b`](https://github.com/sumup-oss/circuit-ui/commit/8be7f3b36e22135f6f312ea2aa4b582c252eb161), [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796), [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796)]:
+  - @sumup-oss/circuit-ui@9.0.0-next.0
+  - @sumup-oss/design-tokens@8.0.0-next.0
+
 ## 4.1.0
 
 ### Minor Changes
