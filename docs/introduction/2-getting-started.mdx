@@ -47,10 +47,11 @@ We also recommend installing and configuring [`@sumup-oss/eslint-plugin-circuit-
 
 SumUp's default theme is part of the [@sumup-oss/design-tokens](https://www.npmjs.com/package/@sumup-oss/design-tokens) package. Refer to the [Theme documentation](Features/Theme/Docs) to learn how to use and customize the theme.
 
-To make the theme available to Circuit UI, import the theme styles _before_ the component styles:
+To make the theme available to Circuit UI, import the fonts and design tokens _before_ the component styles:
 
 ```tsx
 // /app/layout.tsx or /pages/_app.tsx for Next.js
+import '@sumup-oss/design-tokens/fonts.css';
 import '@sumup-oss/design-tokens/light.css';
 import '@sumup-oss/circuit-ui/styles.css';
 ```
@@ -61,15 +62,10 @@ Finally, make sure that the viewport meta tag includes `viewport-fit=cover`, and
 
 ```tsx
 // /app/layout.tsx or /pages/_app.tsx for Next.js
+import '@sumup-oss/design-tokens/fonts.css';
 import '@sumup-oss/design-tokens/light.css';
 import '@sumup-oss/circuit-ui/styles.css';
 import Head from 'next/head';
-
-const Layout = css`
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(
-      safe-area-inset-bottom
-    ) env(safe-area-inset-left);
-`;
 
 export default function App() {
   return (
@@ -80,7 +76,14 @@ export default function App() {
           content="width=device-width, initial-scale=1.0, viewport-fit=cover"
         />
       </Head>
-      <Layout>{/* Your app */}</Layout>
+      <body
+        style={{
+          padding:
+            'env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)',
+        }}
+      >
+        {/* Your app */}
+      </body>
     </>
   );
 }
