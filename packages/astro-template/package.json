@@ -15,14 +15,14 @@
     "lint:css": "foundry run stylelint '**/*.css'"
   },
   "dependencies": {
-    "@astrojs/react": "^3.6.1",
+    "@astrojs/react": "^3.6.2",
     "@sumup/circuit-ui": "^8.0.0",
     "@sumup/design-tokens": "^7.0.0",
     "@sumup/icons": "^4.0.0",
     "@sumup/intl": "^1.6.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "astro": "^4.13.0",
+    "astro": "^4.14.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
