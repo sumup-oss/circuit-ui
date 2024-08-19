@@ -15,12 +15,13 @@
 
 import { describe, it, expect } from 'vitest';
 
-import type { Token } from '../types/index.js';
+import type { FontFace, Token } from '../types/index.js';
 
 import {
   validateTheme,
   createCSSCustomProperties,
   createStyles,
+  createFontFaceDeclarations,
 } from './build.js';
 
 describe('build', () => {
@@ -50,33 +51,6 @@ describe('build', () => {
   });
 
   describe('validateTheme', () => {
-    it('should throw an error when required tokens are not globally defined', () => {
-      const theme = {
-        name: 'test',
-        groups: [
-          {
-            colorScheme: 'light' as const,
-            selectors: [':root'],
-            tokens: [
-              {
-                name: '--cui-bg-normal',
-                description:
-                  'Use as normal background color in any given interface',
-                value: '#00f2b840',
-                type: 'color',
-              },
-            ] as Token[],
-          },
-        ],
-      };
-
-      const actual = () => validateTheme(theme);
-
-      expect(actual).toThrow(
-        'The "test" theme does not globally define the required "--cui-bg-normal-hovered" token. Add it to the ":root" selector.',
-      );
-    });
-
     it('should throw an error when a token does not match the expected type', () => {
       const theme = {
         name: 'test',
@@ -123,12 +97,7 @@ describe('build', () => {
       const actual = createStyles(theme);
 
       expect(actual).toMatchInlineSnapshot(
-        `
-        ":root {
-            color-scheme: light;
-            /* Use as normal background color in any given interface */ --cui-bg-normal: #00f2b840;
-          }"
-      `,
+        `":root {color-scheme: light;/* Use as normal background color in any given interface */ --cui-bg-normal: #00f2b840;}"`,
       );
     });
 
@@ -136,12 +105,7 @@ describe('build', () => {
       const actual = createStyles(theme);
 
       expect(actual).toMatchInlineSnapshot(
-        `
-        ":root {
-            color-scheme: light;
-            /* Use as normal background color in any given interface */ --cui-bg-normal: #00f2b840;
-          }"
-      `,
+        `":root {color-scheme: light;/* Use as normal background color in any given interface */ --cui-bg-normal: #00f2b840;}"`,
       );
     });
   });
@@ -161,6 +125,48 @@ describe('build', () => {
 
       expect(actual).toMatchInlineSnapshot(
         '"/* Use as normal background color in any given interface */ --cui-bg-normal: #00f2b840;"',
+      );
+    });
+  });
+
+  describe('createFontFaceDeclarations', () => {
+    it('should create font face declarations for a custom font face', () => {
+      const fontFaces = [
+        {
+          'font-family': 'Inter',
+          'font-style': 'italic',
+          'font-weight': '100 900',
+          'font-display': 'swap',
+          'src':
+            'url("https://static.sumup.com/fonts/Inter-italic-cyrillic-ext.woff2") format("woff2")',
+          'unicode-range':
+            'U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F',
+        },
+      ] as FontFace[];
+
+      const actual = createFontFaceDeclarations(fontFaces);
+
+      expect(actual).toMatchInlineSnapshot(
+        `"@font-face { font-family: Inter;font-style: italic;font-weight: 100 900;font-display: swap;src: url("https://static.sumup.com/fonts/Inter-italic-cyrillic-ext.woff2") format("woff2");unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }"`,
+      );
+    });
+
+    it('should create font face declarations for a fallback font face', () => {
+      const fontFaces = [
+        {
+          'font-family': 'Inter-Fallback',
+          'src': 'local("Arial")',
+          'ascent-override': '90.49%',
+          'descent-override': '22.56%',
+          'line-gap-override': '0%',
+          'size-adjust': '107.06%',
+        },
+      ] as FontFace[];
+
+      const actual = createFontFaceDeclarations(fontFaces);
+
+      expect(actual).toMatchInlineSnapshot(
+        `"@font-face { font-family: Inter-Fallback;src: local("Arial");ascent-override: 90.49%;descent-override: 22.56%;line-gap-override: 0%;size-adjust: 107.06%; }"`,
       );
     });
   });

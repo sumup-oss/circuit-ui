@@ -25,12 +25,14 @@ import { schema } from '../themes/schema.js';
 import { shared } from '../themes/shared.js';
 import { light } from '../themes/light.js';
 import { dark } from '../themes/dark.js';
-import type { ColorScheme, Token } from '../types/index.js';
+import type { ColorScheme, FontFace, Token } from '../types/index.js';
+import { inter, fontTokens } from '../themes/fonts.js';
 
 type StyleGroup = {
   selectors: string[];
-  colorScheme: ColorScheme;
   tokens: Token[];
+  colorScheme?: ColorScheme;
+  fontFaces?: FontFace[];
 };
 
 type Theme = {
@@ -105,6 +107,16 @@ function main(): void {
         },
       ],
     },
+    {
+      name: 'fonts',
+      groups: [
+        {
+          selectors: [':root'],
+          tokens: fontTokens,
+          fontFaces: inter,
+        },
+      ],
+    },
   ];
 
   const targets = browserslistToTargets(browserslist());
@@ -126,8 +138,7 @@ function main(): void {
 }
 
 /**
- * Validates that the theme includes all expected tokens
- * and that the token values match the expected type.
+ * Validates that the token values match the expected type.
  */
 export function validateTheme(theme: Theme): void {
   // Validate the token types
@@ -137,7 +148,6 @@ export function validateTheme(theme: Theme): void {
 
       if (!token) {
         return;
-        // throw new Error(`The theme is missing the required "${name}" token.`);
       }
 
       if (token.type !== type) {
@@ -150,27 +160,6 @@ export function validateTheme(theme: Theme): void {
       }
     });
   });
-
-  // Validate that the tokens at the root are complete
-  const rootGroup = theme.groups.find(
-    (group) => group.selectors.length === 1 && group.selectors[0] === ':root',
-  );
-
-  if (!rootGroup) {
-    return;
-  }
-
-  if (rootGroup.tokens.length !== schema.length) {
-    schema.forEach(({ name }) => {
-      const token = rootGroup.tokens.find((t) => t.name === name);
-
-      if (!token) {
-        throw new Error(
-          `The "${theme.name}" theme does not globally define the required "${name}" token. Add it to the ":root" selector.`,
-        );
-      }
-    });
-  }
 }
 
 export function createStyles(group: StyleGroup) {
@@ -178,11 +167,22 @@ export function createStyles(group: StyleGroup) {
     .map((selector) => `${selector} {`)
     .join('');
   const selectorEnd = group.selectors.map(() => '}').join('');
-  const customProperties = createCSSCustomProperties(group.tokens);
-  return `${selectorStart}
-    color-scheme: ${group.colorScheme};
-    ${customProperties}
-  ${selectorEnd}`;
+
+  let styles = '';
+
+  if (group.fontFaces) {
+    styles += createFontFaceDeclarations(group.fontFaces);
+  }
+
+  styles += selectorStart;
+
+  if (group.colorScheme) {
+    styles += `color-scheme: ${group.colorScheme};`;
+  }
+
+  styles += createCSSCustomProperties(group.tokens);
+  styles += selectorEnd;
+  return styles;
 }
 
 /**
@@ -201,6 +201,21 @@ export function createCSSCustomProperties(tokens: Token[]): string {
       lines.push(`${name}: ${value.toString()};`);
 
       return lines;
+    })
+    .join(' ');
+}
+
+/**
+ * Generates font face declarations from the font faces
+ */
+export function createFontFaceDeclarations(fontFaces: FontFace[]): string {
+  return fontFaces
+    .map((fontFace) => {
+      const properties = Object.entries(fontFace)
+        .map(([name, value]) => `${name}: ${value};`)
+        .join('');
+
+      return `@font-face { ${properties} }`;
     })
     .join(' ');
 }
