@@ -39,6 +39,15 @@ export const Sizes = (args: BodyProps) =>
     </Body>
   ));
 
+const weights = ['regular', 'bold'] as const;
+
+export const Weights = (args: BodyProps) =>
+  weights.map((weight) => (
+    <Body key={weight} {...args} weight={weight}>
+      This is the {weight} weight. {content}
+    </Body>
+  ));
+
 const variants = ['highlight', 'quote', 'confirm', 'alert', 'subtle'] as const;
 
 export const Variants = (args: BodyProps) =>

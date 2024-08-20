@@ -40,6 +40,10 @@ export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
      */
     | 'two';
   /**
+   * Choose from two font weights. Default: `regular`.
+   */
+  weight?: 'regular' | 'bold';
+  /**
    * Choose from style variants.
    */
   variant?: Variant;
@@ -64,7 +68,10 @@ function getHTMLElement(variant?: Variant): AsPropType {
  * to our users.
  */
 export const Body = forwardRef<HTMLParagraphElement, BodyProps>(
-  ({ className, as, size = 'm', variant, ...props }, ref) => {
+  (
+    { className, as, size = 'm', weight = 'regular', variant, ...props },
+    ref,
+  ) => {
     const Element = as || getHTMLElement(variant);
 
     if (process.env.NODE_ENV !== 'production') {
@@ -87,6 +94,7 @@ export const Body = forwardRef<HTMLParagraphElement, BodyProps>(
         className={clsx(
           classes.base,
           classes[size],
+          classes[weight],
           variant && classes[variant],
           className,
         )}
