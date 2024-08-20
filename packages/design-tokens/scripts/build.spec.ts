@@ -138,7 +138,7 @@ describe('build', () => {
           'font-weight': '100 900',
           'font-display': 'swap',
           'src':
-            'url("https://static.sumup.com/fonts/Inter-italic-cyrillic-ext.woff2") format("woff2")',
+            'url("https://static.sumup.com/fonts/Inter/Inter-italic-cyrillic-ext.woff2") format("woff2")',
           'unicode-range':
             'U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F',
         },
@@ -147,7 +147,7 @@ describe('build', () => {
       const actual = createFontFaceDeclarations(fontFaces);
 
       expect(actual).toMatchInlineSnapshot(
-        `"@font-face { font-family: Inter;font-style: italic;font-weight: 100 900;font-display: swap;src: url("https://static.sumup.com/fonts/Inter-italic-cyrillic-ext.woff2") format("woff2");unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }"`,
+        `"@font-face { font-family: Inter;font-style: italic;font-weight: 100 900;font-display: swap;src: url("https://static.sumup.com/fonts/Inter/Inter-italic-cyrillic-ext.woff2") format("woff2");unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }"`,
       );
     });
 

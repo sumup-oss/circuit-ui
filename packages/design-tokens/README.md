@@ -53,14 +53,7 @@ To speed up the loading of the fonts, add preload links to the global `<head>` e
 ```html
 <link
   rel="preload"
-  href="https://static.sumup.com/fonts/Inter-normal-latin.woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin
-/>
-<link
-  rel="preload"
-  href="https://static.sumup.com/fonts/Inter-normal-latin.woff2"
+  href="https://static.sumup.com/fonts/Inter/Inter-normal-latin.woff2"
   as="font"
   type="font/woff2"
   crossorigin
