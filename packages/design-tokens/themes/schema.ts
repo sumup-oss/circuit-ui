@@ -250,144 +250,176 @@ export const schema = [
   { name: '--cui-typography-numeral-s-font-size', type: 'dimension' },
   { name: '--cui-typography-numeral-s-line-height', type: 'dimension' },
   { name: '--cui-typography-numeral-s-letter-spacing', type: 'dimension' },
+  /* eslint-disable @sumup-oss/circuit-ui/no-deprecated-custom-properties */
   {
     name: '--cui-typography-headline-one-font-size',
     type: 'dimension',
-    deprecation:
-      'Use the `--cui-typography-headline-l-font-size` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-headline-l-font-size',
+    },
   },
   {
     name: '--cui-typography-headline-one-line-height',
     type: 'dimension',
-    deprecation:
-      'Use the `--cui-typography-headline-one-line-height` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-headline-l-line-height',
+    },
   },
   {
     name: '--cui-typography-headline-two-font-size',
     type: 'dimension',
-    deprecation:
-      'Use the `--cui-typography-headline-m-font-size` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-headline-m-font-size',
+    },
   },
   {
     name: '--cui-typography-headline-two-line-height',
     type: 'dimension',
-    deprecation:
-      'Use the `--cui-typography-headline-m-line-height` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-headline-m-line-height',
+    },
   },
   {
     name: '--cui-typography-headline-three-font-size',
     type: 'dimension',
-    deprecation:
-      'Use the `--cui-typography-headline-m-font-size` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-headline-m-font-size',
+    },
   },
   {
     name: '--cui-typography-headline-three-line-height',
     type: 'dimension',
-    deprecation:
-      'Use the `--cui-typography-headline-m-line-height` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-headline-m-line-height',
+    },
   },
   {
     name: '--cui-typography-headline-four-font-size',
     type: 'dimension',
-    deprecation:
-      'Use the `--cui-typography-headline-s-font-size` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-headline-s-font-size',
+    },
   },
   {
     name: '--cui-typography-headline-four-line-height',
     type: 'dimension',
-    deprecation:
-      'Use the `--cui-typography-headline-s-line-height` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-headline-s-line-height',
+    },
   },
   {
     name: '--cui-typography-title-one-font-size',
     type: 'dimension',
-    deprecation:
-      'Use the `--cui-typography-display-l-font-size` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-display-l-font-size',
+    },
   },
   {
     name: '--cui-typography-title-one-line-height',
     type: 'dimension',
-    deprecation:
-      'Use the `--cui-typography-display-l-line-height` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-display-l-line-height',
+    },
   },
   {
     name: '--cui-typography-title-two-font-size',
     type: 'dimension',
-    deprecation:
-      'Use the `--cui-typography-display-m-font-size` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-display-m-font-size',
+    },
   },
   {
     name: '--cui-typography-title-two-line-height',
     type: 'dimension',
-    deprecation:
-      'Use the `--cui-typography-display-m-line-height` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-display-m-line-height',
+    },
   },
   {
     name: '--cui-typography-title-three-font-size',
     type: 'dimension',
-    deprecation:
-      'Use the `--cui-typography-display-m-font-size` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-display-m-font-size',
+    },
   },
   {
     name: '--cui-typography-title-three-line-height',
     type: 'dimension',
-    deprecation:
-      'Use the `--cui-typography-display-m-line-height` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-display-m-line-height',
+    },
   },
   {
     name: '--cui-typography-title-four-font-size',
     type: 'dimension',
-    deprecation:
-      'Use the `--cui-typography-display-s-font-size` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-display-s-font-size',
+    },
   },
   {
     name: '--cui-typography-title-four-line-height',
     type: 'dimension',
-    deprecation:
-      'Use the `--cui-typography-display-s-line-height` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-display-s-line-height',
+    },
   },
   {
     name: '--cui-typography-sub-headline-font-size',
     type: 'dimension',
-    deprecation:
-      'Use the `--cui-typography-headline-s-font-size` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-headline-s-font-size',
+    },
   },
   {
     name: '--cui-typography-sub-headline-line-height',
     type: 'dimension',
-    deprecation:
-      'Use the `--cui-typography-headline-s-line-height` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-headline-s-line-height',
+    },
   },
   {
     name: '--cui-typography-body-one-font-size',
     type: 'dimension',
-    deprecation: 'Use the `--cui-typography-body-m-font-size` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-body-m-font-size',
+    },
   },
   {
     name: '--cui-typography-body-one-line-height',
     type: 'dimension',
-    deprecation: 'Use the `--cui-typography-body-m-line-height` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-body-m-line-height',
+    },
   },
   {
     name: '--cui-typography-body-two-font-size',
     type: 'dimension',
-    deprecation: 'Use the `--cui-typography-body-s-font-size` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-body-s-font-size',
+    },
   },
   {
     name: '--cui-typography-body-two-line-height',
     type: 'dimension',
-    deprecation: 'Use the `--cui-typography-body-s-line-height` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-body-s-line-height',
+    },
   },
   {
     name: '--cui-typography-body-large-font-size',
     type: 'dimension',
-    deprecation: 'Use the `--cui-typography-body-l-font-size` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-body-l-font-size',
+    },
   },
   {
     name: '--cui-typography-body-large-line-height',
     type: 'dimension',
-    deprecation: 'Use the `--cui-typography-body-l-line-height` token instead.',
+    deprecation: {
+      replacement: '--cui-typography-body-l-line-height',
+    },
   },
+  /* eslint-disable @sumup-oss/circuit-ui/no-deprecated-custom-properties */
   /* Z-indices */
   { name: '--cui-z-index-default', type: 'number' },
   { name: '--cui-z-index-absolute', type: 'number' },
@@ -399,4 +431,8 @@ export const schema = [
   { name: '--cui-z-index-navigation', type: 'number' },
   { name: '--cui-z-index-modal', type: 'number' },
   { name: '--cui-z-index-toast', type: 'number' },
-] satisfies { name: TokenName; type: TokenType; deprecation?: string }[];
+] satisfies {
+  name: TokenName;
+  type: TokenType;
+  deprecation?: { replacement: TokenName };
+}[];

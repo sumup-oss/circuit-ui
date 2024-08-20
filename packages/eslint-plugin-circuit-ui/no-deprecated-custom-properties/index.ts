@@ -16,13 +16,12 @@
 import { ESLintUtils } from '@typescript-eslint/utils';
 import { schema } from '@sumup-oss/design-tokens';
 
-const PREFIX = '--cui-';
-const VALID_CUSTOM_PROPERTIES_WITHOUT_PREFIX = schema.map(({ name }) =>
-  name.replace(PREFIX, ''),
+const DEPRECATED_CUSTOM_PROPERTIES = schema.filter(({ deprecation }) =>
+  Boolean(deprecation),
 );
-const REGEX_STRING = `(?:${PREFIX})(?!(?:${VALID_CUSTOM_PROPERTIES_WITHOUT_PREFIX.join(
+const REGEX_STRING = DEPRECATED_CUSTOM_PROPERTIES.map(({ name }) => name).join(
   '|',
-)})[^\\w-])[\\w-]+`;
+);
 
 /* eslint-disable */
 
@@ -31,18 +30,18 @@ const createRule = ESLintUtils.RuleCreator(
     `https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/${name}`,
 );
 
-export const noInvalidCustomProperties = createRule({
-  name: 'no-invalid-custom-properties',
+export const noDeprecatedCustomProperties = createRule({
+  name: 'no-deprecated-custom-properties',
   meta: {
-    type: 'problem',
+    type: 'suggestion',
     schema: [],
     docs: {
-      description:
-        'Custom properties prefixed with `--cui-` should be valid Circuit UI design tokens.',
-      recommended: 'recommended',
+      description: 'Deprecated custom properties should be removed or replaced',
+      recommended: 'strict',
     },
     messages: {
-      invalid: '`{{name}}` is not a valid Circuit UI design token.',
+      deprecated:
+        'The `{{name}}` custom property has been deprecated. Use the ` {{replacement}}` custom property instead.',
     },
   },
   defaultOptions: [],
@@ -55,6 +54,10 @@ export const noInvalidCustomProperties = createRule({
           let match: RegExpExecArray | null;
           // biome-ignore lint/suspicious/noAssignInExpressions:
           while ((match = regex.exec(line)) !== null) {
+            const name = match[0];
+            const { replacement } = DEPRECATED_CUSTOM_PROPERTIES.find(
+              (token) => token.name === name,
+            )!.deprecation!;
             context.report({
               node,
               loc: {
@@ -67,9 +70,10 @@ export const noInvalidCustomProperties = createRule({
                   column: match.index + match[0].length,
                 },
               },
-              messageId: 'invalid',
+              messageId: 'deprecated',
               data: {
-                name: match[0],
+                name,
+                replacement,
               },
             });
           }
