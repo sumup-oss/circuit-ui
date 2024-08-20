@@ -31,6 +31,14 @@ const components = [
     name: 'Selector',
     alternative: 'Use the SelectorGroup component instead.',
   },
+  {
+    name: 'SubHeadline',
+    alternative: 'Use the Headline component in size `s` instead.',
+  },
+  {
+    name: 'Title',
+    alternative: 'Use the new Display component instead.',
+  },
 ];
 
 export const noDeprecatedComponents = createRule({

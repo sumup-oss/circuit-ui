@@ -18,15 +18,15 @@ import { createRef } from 'react';
 
 import { render, axe } from '../../util/test-utils.js';
 
-import { Title } from './Title.js';
+import { Display } from './Display.jsx';
 
-describe('Title', () => {
+describe('Display', () => {
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
     const { container } = render(
-      <Title as="h2" className={className}>
-        Title
-      </Title>,
+      <Display as="h2" className={className}>
+        Display
+      </Display>,
     );
     const headline = container.querySelector('h2');
     expect(headline?.className).toContain(className);
@@ -35,16 +35,16 @@ describe('Title', () => {
   it('should forward a ref', () => {
     const ref = createRef<HTMLHeadingElement>();
     const { container } = render(
-      <Title as="h2" ref={ref}>
-        Title
-      </Title>,
+      <Display as="h2" ref={ref}>
+        Display
+      </Display>,
     );
     const headline = container.querySelector('h2');
     expect(ref.current).toBe(headline);
   });
 
   it('should meet accessibility guidelines', async () => {
-    const { container } = render(<Title as="h2">Title</Title>);
+    const { container } = render(<Display as="h2">Display</Display>);
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });

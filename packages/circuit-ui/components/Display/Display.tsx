@@ -19,9 +19,9 @@ import { clsx } from '../../styles/clsx.js';
 import { CircuitError } from '../../util/errors.js';
 import { deprecate } from '../../util/logger.js';
 
-import classes from './Title.module.css';
+import classes from './Display.module.css';
 
-export interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {
+export interface DisplayProps extends HTMLAttributes<HTMLHeadingElement> {
   /**
    * Choose from 3 font sizes. Defaults to `m`.
    */
@@ -56,7 +56,7 @@ export interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {
 /**
  * A flexible title component capable of rendering any HTML heading element.
  */
-export const Title = forwardRef<HTMLHeadingElement, TitleProps>(
+export const Display = forwardRef<HTMLHeadingElement, DisplayProps>(
   ({ className, as, size = 'm', ...props }, ref) => {
     if (
       process.env.NODE_ENV !== 'production' &&
@@ -64,7 +64,7 @@ export const Title = forwardRef<HTMLHeadingElement, TitleProps>(
       !process?.env?.UNSAFE_DISABLE_ELEMENT_ERRORS &&
       !as
     ) {
-      throw new CircuitError('Title', 'The `as` prop is required.');
+      throw new CircuitError('Display', 'The `as` prop is required.');
     }
 
     if (process.env.NODE_ENV !== 'production') {
@@ -76,7 +76,7 @@ export const Title = forwardRef<HTMLHeadingElement, TitleProps>(
       };
       if (size in deprecatedSizeMap) {
         deprecate(
-          'Title',
+          'Display',
           `The "${size}" size has been deprecated. Use the "${deprecatedSizeMap[size]}" size instead.`,
         );
       }
@@ -94,4 +94,4 @@ export const Title = forwardRef<HTMLHeadingElement, TitleProps>(
   },
 );
 
-Title.displayName = 'Title';
+Display.displayName = 'Display';

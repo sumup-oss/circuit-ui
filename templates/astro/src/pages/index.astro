@@ -1,5 +1,5 @@
 ---
-import { Title, BodyLarge } from '@sumup-oss/circuit-ui';
+import { Display, BodyLarge } from '@sumup-oss/circuit-ui';
 import Root from '../layouts/Root.astro';
 import DocCard from '../components/DocCard.astro';
 
@@ -7,9 +7,9 @@ const title = 'Welcome to Circuit UI + Astro';
 ---
 
 <Root title={title}>
-  <Title as="h1" size="three">
+  <Display as="h1" size="three">
     {title}
-  </Title>
+  </Display>
 
   <BodyLarge className="intro">
     Get started by editing <code>src/pages/index.astro</code>

@@ -13,15 +13,15 @@
  * limitations under the License.
  */
 
-import { Title, type TitleProps } from './Title.js';
+import { Display, type DisplayProps } from './Display.jsx';
 
 export default {
-  title: 'Typography/Title',
-  component: Title,
+  title: 'Typography/Display',
+  component: Display,
 };
 
-export const Base = (args: TitleProps) => (
-  <Title {...args}>This is a Title</Title>
+export const Base = (args: DisplayProps) => (
+  <Display {...args}>This is a Display</Display>
 );
 
 Base.args = {
@@ -30,11 +30,11 @@ Base.args = {
 
 const sizes = ['l', 'm', 's'] as const;
 
-export const Sizes = (args: TitleProps) =>
+export const Sizes = (args: DisplayProps) =>
   sizes.map((size) => (
-    <Title key={size} {...args} size={size}>
+    <Display key={size} {...args} size={size}>
       This is size {size}
-    </Title>
+    </Display>
   ));
 
 Sizes.args = {
