@@ -10,6 +10,7 @@ import {
 } from '@remix-run/react';
 import { SumUpLogo } from '@sumup-oss/icons';
 
+import '@sumup-oss/design-tokens/fonts.css';
 import '@sumup-oss/design-tokens/light.css';
 import '@sumup-oss/circuit-ui/styles.css';
 
@@ -27,6 +28,14 @@ export default function App() {
         <meta
           name="viewport"
           content="width=device-width,initial-scale=1,viewport-fit=cover"
+        />
+
+        <link
+          rel="preload"
+          href="https://static.sumup.com/fonts/Inter/Inter-normal-latin.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin=""
         />
 
         {/* Browser icons */}

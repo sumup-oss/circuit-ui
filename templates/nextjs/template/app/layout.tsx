@@ -7,7 +7,7 @@ import '@sumup-oss/circuit-ui/styles.css';
 import { PreloadResources } from './preload-resources';
 
 const inter = Inter({
-  subsets: ['latin', 'latin-ext'],
+  subsets: ['latin'],
   // FIXME: Re-enable once https://github.com/vercel/next.js/issues/68395 has been resolved
   // axes: ['ital'],
   variable: '--cui-font-stack-default',
@@ -44,9 +44,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <PreloadResources />
-      <body className={inter.variable}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

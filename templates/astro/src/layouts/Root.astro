@@ -1,4 +1,5 @@
 ---
+import '@sumup-oss/design-tokens/fonts.css';
 import '@sumup-oss/design-tokens/light.css';
 import '@sumup-oss/circuit-ui/styles.css';
 
@@ -17,6 +18,14 @@ const { title } = Astro.props;
     <meta
       name="viewport"
       content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+
+    <link
+      rel="preload"
+      href="https://static.sumup.com/fonts/Inter/Inter-normal-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
 
     {/* Browser icons */}
