@@ -7,36 +7,36 @@
 /* Sizes */
 
 .l {
-  font-size: var(--cui-typography-title-one-font-size);
-  line-height: var(--cui-typography-title-one-line-height);
+  font-size: var(--cui-typography-display-l-font-size);
+  line-height: var(--cui-typography-display-l-line-height);
 }
 
 .m {
-  font-size: var(--cui-typography-title-two-font-size);
-  line-height: var(--cui-typography-title-two-line-height);
+  font-size: var(--cui-typography-display-m-font-size);
+  line-height: var(--cui-typography-display-m-line-height);
 }
 
 .s {
-  font-size: var(--cui-typography-title-four-font-size);
-  line-height: var(--cui-typography-title-four-line-height);
+  font-size: var(--cui-typography-display-s-font-size);
+  line-height: var(--cui-typography-display-s-line-height);
 }
 
 .one {
-  font-size: var(--cui-typography-title-one-font-size);
-  line-height: var(--cui-typography-title-one-line-height);
+  font-size: var(--cui-typography-display-l-font-size);
+  line-height: var(--cui-typography-display-l-line-height);
 }
 
 .two {
-  font-size: var(--cui-typography-title-two-font-size);
-  line-height: var(--cui-typography-title-two-line-height);
+  font-size: var(--cui-typography-display-m-font-size);
+  line-height: var(--cui-typography-display-m-line-height);
 }
 
 .three {
-  font-size: var(--cui-typography-title-three-font-size);
-  line-height: var(--cui-typography-title-three-line-height);
+  font-size: var(--cui-typography-display-m-font-size);
+  line-height: var(--cui-typography-display-m-line-height);
 }
 
 .four {
-  font-size: var(--cui-typography-title-four-font-size);
-  line-height: var(--cui-typography-title-four-line-height);
+  font-size: var(--cui-typography-display-s-font-size);
+  line-height: var(--cui-typography-display-s-line-height);
 }

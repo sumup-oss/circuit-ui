@@ -10,8 +10,8 @@
   align-items: center;
   padding: calc(var(--cui-spacings-bit) - 1px) var(--cui-spacings-kilo);
   margin: 0;
-  font-size: var(--cui-typography-body-one-font-size);
-  line-height: var(--cui-typography-body-one-line-height);
+  font-size: var(--cui-typography-body-m-font-size);
+  line-height: var(--cui-typography-body-m-line-height);
   word-break: break-word;
   cursor: default;
   background-color: var(--cui-bg-normal);
