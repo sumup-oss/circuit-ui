@@ -292,6 +292,48 @@ const configs: Config[] = [
       });
     },
   },
+  {
+    type: 'values',
+    component: 'Title',
+    prop: 'size',
+    values: {
+      one: 'l',
+      two: 'm',
+      three: 'm',
+      four: 's',
+    },
+  },
+  {
+    type: 'values',
+    component: 'Display',
+    prop: 'size',
+    values: {
+      one: 'l',
+      two: 'm',
+      three: 'm',
+      four: 's',
+    },
+  },
+  {
+    type: 'values',
+    component: 'Headline',
+    prop: 'size',
+    values: {
+      one: 'l',
+      two: 'm',
+      three: 'm',
+      four: 's',
+    },
+  },
+  {
+    type: 'values',
+    component: 'Body',
+    prop: 'size',
+    values: {
+      one: 'm',
+      two: 's',
+    },
+  },
 ];
 
 export const noRenamedProps = createRule({

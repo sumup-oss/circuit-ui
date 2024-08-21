@@ -16,6 +16,17 @@ Note that the rule can only lint direct uses of a component. Wrapped instances s
 Examples of **incorrect** code for this rule:
 
 ```tsx
+// Since Circuit UI v9
+function Component() {
+  return (
+    <div>
+      <Display size="one" />
+      <Headline size="three" />
+      <Body size="two" />
+    </div>
+  );
+}
+
 // Since Circuit UI v7.5
 function Component() {
   return (
@@ -53,6 +64,17 @@ function Component() {
 Examples of **correct** code for this rule:
 
 ```tsx
+// Since Circuit UI v9
+function Component() {
+  return (
+    <div>
+      <Display size="l" />
+      <Headline size="m" />
+      <Body size="s" />
+    </div>
+  );
+}
+
 // Since Circuit UI v7.5
 function Component() {
   return (
