@@ -14,5 +14,6 @@
  */
 
 import { noInvalidCustomProperties } from './no-invalid-custom-properties/index.js';
+import { noDeprecatedCustomProperties } from './no-deprecated-custom-properties/index.js';
 
-export default [noInvalidCustomProperties];
+export default [noInvalidCustomProperties, noDeprecatedCustomProperties];
