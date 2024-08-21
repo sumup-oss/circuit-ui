@@ -32,5 +32,6 @@ n/a
 
 ## Further Reading
 
+- [Theme documentation](https://circuit.sumup.com/?path=/docs/features-theme--docs) on the Circuit UI docs
 - [Migration guide](https://github.com/sumup-oss/circuit-ui/blob/main/MIGRATION.md)
 - [Design token release notes](https://github.com/sumup-oss/circuit-ui/blob/main/packages/design-tokens/CHANGELOG.md)
