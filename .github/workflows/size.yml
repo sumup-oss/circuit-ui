@@ -13,3 +13,4 @@ jobs:
         uses: preactjs/compressed-size-action@v2
         with:
           pattern: 'packages/**/dist/**/*.{js,css,json}'
+          exclude: '{**/*.map,**/node_modules/**,**/eslint-plugin-circuit-ui/**,**/stylelint-plugin-circuit-ui/**,**/*.index.*,**/*.module.css.js}'
