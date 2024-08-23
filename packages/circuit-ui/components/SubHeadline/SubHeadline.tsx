@@ -15,11 +15,8 @@
 
 import { forwardRef, type HTMLAttributes } from 'react';
 
-import { clsx } from '../../styles/clsx.js';
-import { CircuitError } from '../../util/errors.js';
 import { deprecate } from '../../util/logger.js';
-
-import classes from './SubHeadline.module.css';
+import { Headline } from '../Headline/Headline.js';
 
 export interface SubHeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
   /**
@@ -34,16 +31,7 @@ export interface SubHeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
  * @deprecated Use the Headline component in size `s` instead.
  */
 export const SubHeadline = forwardRef<HTMLHeadingElement, SubHeadlineProps>(
-  ({ className, as, ...props }, ref) => {
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !process?.env?.UNSAFE_DISABLE_ELEMENT_ERRORS &&
-      !as
-    ) {
-      throw new CircuitError('SubHeadline', 'The `as` prop is required.');
-    }
-
+  (props, ref) => {
     if (process.env.NODE_ENV !== 'production') {
       deprecate(
         'SubHeadline',
@@ -51,11 +39,7 @@ export const SubHeadline = forwardRef<HTMLHeadingElement, SubHeadlineProps>(
       );
     }
 
-    const Element = as || 'h2';
-
-    return (
-      <Element {...props} ref={ref} className={clsx(classes.base, className)} />
-    );
+    return <Headline {...props} ref={ref} size="s" />;
   },
 );
 
