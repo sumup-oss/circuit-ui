@@ -1,0 +1,15 @@
+name: Bundle Size
+
+on: [pull_request]
+
+jobs:
+  size:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check compressed bundle sizes
+        uses: preactjs/compressed-size-action@v2
+        with:
+          pattern: 'packages/**/dist/**/*.{js,css,json}'
