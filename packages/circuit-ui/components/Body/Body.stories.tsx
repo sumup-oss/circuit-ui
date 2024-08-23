@@ -51,6 +51,35 @@ export const Weights = (args: BodyProps) =>
     </Body>
   ));
 
+const colors = [
+  'normal',
+  'subtle',
+  'placeholder',
+  'on-strong',
+  'on-strong-subtle',
+  'accent',
+  'success',
+  'warning',
+  'danger',
+  'promo',
+] as const;
+
+export const Colors = (args: BodyProps) =>
+  colors.map((color) => (
+    <Body
+      key={color}
+      {...args}
+      color={color}
+      style={
+        color.includes('on-strong')
+          ? { background: 'var(--cui-bg-strong)' }
+          : {}
+      }
+    >
+      This is the {color} color. {content}
+    </Body>
+  ));
+
 const variants = ['highlight', 'quote', 'confirm', 'alert', 'subtle'] as const;
 
 export const Variants = (args: BodyProps) =>

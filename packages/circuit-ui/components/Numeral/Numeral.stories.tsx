@@ -48,3 +48,32 @@ export const Weights = (args: NumeralProps) =>
       {content} in {weight} weight
     </Numeral>
   ));
+
+const colors = [
+  'normal',
+  'subtle',
+  'placeholder',
+  'on-strong',
+  'on-strong-subtle',
+  'accent',
+  'success',
+  'warning',
+  'danger',
+  'promo',
+] as const;
+
+export const Colors = (args: NumeralProps) =>
+  colors.map((color) => (
+    <Numeral
+      key={color}
+      {...args}
+      color={color}
+      style={
+        color.includes('on-strong')
+          ? { background: 'var(--cui-bg-strong)' }
+          : {}
+      }
+    >
+      {content} in the {color} color.
+    </Numeral>
+  ));

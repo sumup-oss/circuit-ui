@@ -69,7 +69,7 @@ const mappings: Config[] = [
     components: ['Body'],
     props: ['variant'],
     alternative:
-      'Use the `weight` prop instead of the `highlight` variant and use custom CSS to replace the other variants.',
+      'Use the new `color` prop instead of the `alert`, `confirm` and `subtle` variants. Use the new `weight` prop instead of the `highlight` variant. Use custom CSS for the `quote` variant.',
   },
 ];
 

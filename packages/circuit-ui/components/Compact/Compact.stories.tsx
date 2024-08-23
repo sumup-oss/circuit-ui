@@ -49,3 +49,32 @@ export const Weights = (args: CompactProps) =>
       This is the {weight} weight. {content}
     </Compact>
   ));
+
+const colors = [
+  'normal',
+  'subtle',
+  'placeholder',
+  'on-strong',
+  'on-strong-subtle',
+  'accent',
+  'success',
+  'warning',
+  'danger',
+  'promo',
+] as const;
+
+export const Colors = (args: CompactProps) =>
+  colors.map((color) => (
+    <Compact
+      key={color}
+      {...args}
+      color={color}
+      style={
+        color.includes('on-strong')
+          ? { background: 'var(--cui-bg-strong)' }
+          : {}
+      }
+    >
+      This is the {color} color. {content}
+    </Compact>
+  ));

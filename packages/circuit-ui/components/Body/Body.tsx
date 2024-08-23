@@ -44,8 +44,23 @@ export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
    */
   weight?: 'regular' | 'bold';
   /**
-   * @deprecated Use the `weight` prop instead of the `highlight` variant and
-   * use custom CSS to replace the other variants.
+   * Choose a foreground color. Default: `normal`.
+   */
+  color?:
+    | 'normal'
+    | 'subtle'
+    | 'placeholder'
+    | 'on-strong'
+    | 'on-strong-subtle'
+    | 'accent'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | 'promo';
+  /**
+   * @deprecated Use the new `color` prop instead of the `alert`, `confirm` and
+   * `subtle` variants. Use the new `weight` prop instead of the `highlight`
+   * variant. Use custom CSS for the `quote` variant.
    */
   variant?: Variant;
   /**
@@ -80,6 +95,7 @@ export const Body = forwardRef<HTMLParagraphElement, BodyProps>(
       as,
       size: legacySize = 'm',
       weight = 'regular',
+      color = 'normal',
       variant,
       ...props
     },
@@ -92,12 +108,17 @@ export const Body = forwardRef<HTMLParagraphElement, BodyProps>(
         if (variant === 'highlight') {
           deprecate(
             'Body',
-            'The "highlight" variant has been deprecated. Use the "weight" prop instead.',
+            'The "highlight" variant has been deprecated. Use the new `weight` prop instead.',
+          );
+        } else if (variant === 'quote') {
+          deprecate(
+            'Body',
+            'The "quote" variant has been deprecated. Use custom CSS instead.',
           );
         } else {
           deprecate(
             'Body',
-            `The "${variant}" variant has been deprecated. Use custom CSS instead.`,
+            `The "${variant}" variant has been deprecated. Use the new \`color\` prop instead.`,
           );
         }
       }
@@ -120,9 +141,9 @@ export const Body = forwardRef<HTMLParagraphElement, BodyProps>(
         {...props}
         ref={ref}
         className={clsx(
-          classes.base,
           classes[size],
           classes[weight],
+          classes[color],
           variant && classes[variant],
           className,
         )}

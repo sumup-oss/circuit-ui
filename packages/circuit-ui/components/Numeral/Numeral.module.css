@@ -1,6 +1,5 @@
 .base {
   font-variant-numeric: tabular-nums;
-  color: var(--cui-fg-normal);
 }
 
 /* Sizes */
@@ -31,4 +30,46 @@
 
 .bold {
   font-weight: var(--cui-font-weight-bold);
+}
+
+/* Colors */
+
+.normal {
+  color: var(--cui-fg-normal);
+}
+
+.subtle {
+  color: var(--cui-fg-subtle);
+}
+
+.placeholder {
+  color: var(--cui-fg-placeholder);
+}
+
+.on-strong {
+  color: var(--cui-fg-on-strong);
+}
+
+.on-strong-subtle {
+  color: var(--cui-fg-on-strong-subtle);
+}
+
+.accent {
+  color: var(--cui-fg-accent);
+}
+
+.success {
+  color: var(--cui-fg-success);
+}
+
+.warning {
+  color: var(--cui-fg-warning);
+}
+
+.danger {
+  color: var(--cui-fg-danger);
+}
+
+.promo {
+  color: var(--cui-fg-promo);
 }

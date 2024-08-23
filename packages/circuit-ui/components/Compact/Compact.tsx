@@ -30,6 +30,20 @@ export interface CompactProps extends HTMLAttributes<HTMLParagraphElement> {
    */
   weight?: 'regular' | 'bold';
   /**
+   * Choose a foreground color. Default: `normal`.
+   */
+  color?:
+    | 'normal'
+    | 'subtle'
+    | 'placeholder'
+    | 'on-strong'
+    | 'on-strong-subtle'
+    | 'accent'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | 'promo';
+  /**
    * Render the text using any HTML element.
    */
   as?: AsPropType;
@@ -41,13 +55,25 @@ export interface CompactProps extends HTMLAttributes<HTMLParagraphElement> {
  */
 export const Compact = forwardRef<HTMLParagraphElement, CompactProps>(
   (
-    { className, as: Element = 'p', size = 'm', weight = 'regular', ...props },
+    {
+      className,
+      as: Element = 'p',
+      size = 'm',
+      weight = 'regular',
+      color = 'normal',
+      ...props
+    },
     ref,
   ) => (
     <Element
       {...props}
       ref={ref}
-      className={clsx(classes.base, classes[size], classes[weight], className)}
+      className={clsx(
+        classes[size],
+        classes[weight],
+        classes[color],
+        className,
+      )}
     />
   ),
 );
