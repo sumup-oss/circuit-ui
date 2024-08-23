@@ -13,34 +13,7 @@
  * limitations under the License.
  */
 
-import type { FontFace, Token } from '../types/index.js';
-
-export const fontTokens = [
-  /* Font families */
-  {
-    name: '--cui-font-stack-default',
-    value:
-      '"Inter", "Inter-Fallback", Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-    type: 'fontFamily',
-  },
-  {
-    name: '--cui-font-stack-mono',
-    value:
-      'Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace',
-    type: 'fontFamily',
-  },
-  /* Font weights */
-  {
-    name: '--cui-font-weight-regular',
-    value: '400',
-    type: 'fontWeight',
-  },
-  {
-    name: '--cui-font-weight-bold',
-    value: '700',
-    type: 'fontWeight',
-  },
-] satisfies Token[];
+import type { FontFace } from '../types/index.js';
 
 export const inter = [
   /* cyrillic-ext */

@@ -58,6 +58,29 @@ export const shared = [
     value: '2px',
     type: 'dimension',
   },
+  {
+    name: '--cui-font-stack-default',
+    value:
+      '"Inter", "Inter-Fallback", Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    type: 'fontFamily',
+  },
+  {
+    name: '--cui-font-stack-mono',
+    value:
+      'Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace',
+    type: 'fontFamily',
+  },
+  /* Font weights */
+  {
+    name: '--cui-font-weight-regular',
+    value: '400',
+    type: 'fontWeight',
+  },
+  {
+    name: '--cui-font-weight-bold',
+    value: '700',
+    type: 'fontWeight',
+  },
   /* Icon sizes */
   {
     name: '--cui-icon-sizes-kilo',

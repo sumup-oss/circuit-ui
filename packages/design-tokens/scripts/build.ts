@@ -26,11 +26,11 @@ import { shared } from '../themes/shared.js';
 import { light } from '../themes/light.js';
 import { dark } from '../themes/dark.js';
 import type { ColorScheme, FontFace, Token } from '../types/index.js';
-import { inter, fontTokens } from '../themes/fonts.js';
+import { inter } from '../themes/fonts.js';
 
 type StyleGroup = {
   selectors: string[];
-  tokens: Token[];
+  tokens?: Token[];
   colorScheme?: ColorScheme;
   fontFaces?: FontFace[];
 };
@@ -41,6 +41,7 @@ type Theme = {
 };
 
 function main(): void {
+  // TODO: Refactor to separate custom property and font face generation
   const themes: Theme[] = [
     {
       name: 'light',
@@ -112,7 +113,6 @@ function main(): void {
       groups: [
         {
           selectors: [':root'],
-          tokens: fontTokens,
           fontFaces: inter,
         },
       ],
@@ -142,7 +142,7 @@ function main(): void {
  */
 export function validateTheme(theme: Theme): void {
   // Validate the token types
-  theme.groups.forEach(({ tokens }) => {
+  theme.groups.forEach(({ tokens = [] }) => {
     tokens.forEach(({ name, type }) => {
       const token = schema.find((t) => t.name === name);
 
@@ -174,14 +174,18 @@ export function createStyles(group: StyleGroup) {
     styles += createFontFaceDeclarations(group.fontFaces);
   }
 
-  styles += selectorStart;
+  if (group.colorScheme || group.tokens) {
+    styles += selectorStart;
 
-  if (group.colorScheme) {
-    styles += `color-scheme: ${group.colorScheme};`;
+    if (group.colorScheme) {
+      styles += `color-scheme: ${group.colorScheme};`;
+    }
+    if (group.tokens) {
+      styles += createCSSCustomProperties(group.tokens);
+    }
+
+    styles += selectorEnd;
   }
-
-  styles += createCSSCustomProperties(group.tokens);
-  styles += selectorEnd;
   return styles;
 }
 
