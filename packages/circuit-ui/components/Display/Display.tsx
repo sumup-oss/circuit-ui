@@ -53,11 +53,18 @@ export interface DisplayProps extends HTMLAttributes<HTMLHeadingElement> {
   as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
 
+const deprecatedSizeMap: Record<string, string> = {
+  'one': 'l',
+  'two': 'm',
+  'three': 'm',
+  'four': 's',
+};
+
 /**
  * A flexible title component capable of rendering any HTML heading element.
  */
 export const Display = forwardRef<HTMLHeadingElement, DisplayProps>(
-  ({ className, as, size = 'm', ...props }, ref) => {
+  ({ className, as, size: legacySize = 'm', ...props }, ref) => {
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -68,21 +75,20 @@ export const Display = forwardRef<HTMLHeadingElement, DisplayProps>(
     }
 
     if (process.env.NODE_ENV !== 'production') {
-      const deprecatedSizeMap: Record<string, string> = {
-        'one': 'l',
-        'two': 'm',
-        'three': 'm',
-        'four': 's',
-      };
-      if (size in deprecatedSizeMap) {
+      if (legacySize in deprecatedSizeMap) {
         deprecate(
           'Display',
-          `The "${size}" size has been deprecated. Use the "${deprecatedSizeMap[size]}" size instead.`,
+          `The "${legacySize}" size has been deprecated. Use the "${deprecatedSizeMap[legacySize]}" size instead.`,
         );
       }
     }
 
     const Element = as || 'h1';
+
+    const size = (deprecatedSizeMap[legacySize] || legacySize) as
+      | 'l'
+      | 'm'
+      | 's';
 
     return (
       <Element

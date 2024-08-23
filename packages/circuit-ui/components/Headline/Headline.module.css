@@ -9,34 +9,17 @@
 .l {
   font-size: var(--cui-typography-headline-l-font-size);
   line-height: var(--cui-typography-headline-l-line-height);
+  letter-spacing: var(--cui-typography-headline-l-letter-spacing);
 }
 
 .m {
   font-size: var(--cui-typography-headline-m-font-size);
   line-height: var(--cui-typography-headline-m-line-height);
+  letter-spacing: var(--cui-typography-headline-m-letter-spacing);
 }
 
 .s {
   font-size: var(--cui-typography-headline-s-font-size);
   line-height: var(--cui-typography-headline-s-line-height);
-}
-
-.one {
-  font-size: var(--cui-typography-headline-l-font-size);
-  line-height: var(--cui-typography-headline-l-line-height);
-}
-
-.two {
-  font-size: var(--cui-typography-headline-m-font-size);
-  line-height: var(--cui-typography-headline-m-line-height);
-}
-
-.three {
-  font-size: var(--cui-typography-headline-m-font-size);
-  line-height: var(--cui-typography-headline-m-line-height);
-}
-
-.four {
-  font-size: var(--cui-typography-headline-s-font-size);
-  line-height: var(--cui-typography-headline-s-line-height);
+  letter-spacing: var(--cui-typography-headline-s-letter-spacing);
 }

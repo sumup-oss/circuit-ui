@@ -64,13 +64,25 @@ function getHTMLElement(variant?: Variant): AsPropType {
   return 'p';
 }
 
+const deprecatedSizeMap: Record<string, string> = {
+  'one': 'm',
+  'two': 's',
+};
+
 /**
  * The Body component is used to present the core textual content
  * to our users.
  */
 export const Body = forwardRef<HTMLParagraphElement, BodyProps>(
   (
-    { className, as, size = 'm', weight = 'regular', variant, ...props },
+    {
+      className,
+      as,
+      size: legacySize = 'm',
+      weight = 'regular',
+      variant,
+      ...props
+    },
     ref,
   ) => {
     const Element = as || getHTMLElement(variant);
@@ -90,17 +102,18 @@ export const Body = forwardRef<HTMLParagraphElement, BodyProps>(
         }
       }
 
-      const deprecatedSizeMap: Record<string, string> = {
-        'one': 'm',
-        'two': 's',
-      };
-      if (size in deprecatedSizeMap) {
+      if (legacySize in deprecatedSizeMap) {
         deprecate(
           'Body',
-          `The "${size}" size has been deprecated. Use the "${deprecatedSizeMap[size]}" size instead.`,
+          `The "${legacySize}" size has been deprecated. Use the "${deprecatedSizeMap[legacySize]}" size instead.`,
         );
       }
     }
+
+    const size = (deprecatedSizeMap[legacySize] || legacySize) as
+      | 'l'
+      | 'm'
+      | 's';
 
     return (
       <Element
