@@ -1,5 +1,25 @@
 # @sumup-oss/stylelint-plugin-circuit-ui
 
+## 3.0.0-next.0
+
+### Major Changes
+
+- [#2648](https://github.com/sumup-oss/circuit-ui/pull/2648) [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796) Thanks [@connor-baer](https://github.com/connor-baer)! - Renamed the package scope from `@sumup` to `@sumup-oss`. Replace `@sumup/stylelint-plugin-circuit-ui` with `@sumup-oss/stylelint-plugin-circuit-ui` in your `package.json` file, then update the plugin name in your Stylelint config:
+
+  ```diff
+  // .stylelintrc.js
+
+  module.exports = {
+  -  plugins: ['@sumup/stylelint-plugin-circuit-ui'],
+  +  plugins: ['@sumup-oss/stylelint-plugin-circuit-ui'],
+  };
+  ```
+
+### Patch Changes
+
+- Updated dependencies [[`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796)]:
+  - @sumup-oss/design-tokens@8.0.0-next.0
+
 ## 2.0.0
 
 ### Major Changes
