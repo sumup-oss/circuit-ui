@@ -1,0 +1,31 @@
+.base {
+  font-variant-numeric: tabular-nums;
+  color: var(--cui-fg-normal);
+}
+
+/* Sizes */
+
+.l {
+  font-size: var(--cui-typography-numeral-l-font-size);
+  line-height: var(--cui-typography-numeral-l-line-height);
+}
+
+.m {
+  font-size: var(--cui-typography-numeral-m-font-size);
+  line-height: var(--cui-typography-numeral-m-line-height);
+}
+
+.s {
+  font-size: var(--cui-typography-numeral-s-font-size);
+  line-height: var(--cui-typography-numeral-s-line-height);
+}
+
+/* Weights */
+
+.regular {
+  font-weight: var(--cui-font-weight-regular);
+}
+
+.bold {
+  font-weight: var(--cui-font-weight-bold);
+}
