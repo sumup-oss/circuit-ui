@@ -55,7 +55,10 @@ type CustomConfig = {
   hook?: string;
   transform: (
     node: TSESTree.JSXElement,
-    context: TSESLint.RuleContext<'propName' | 'propValue', never[]>,
+    context: TSESLint.RuleContext<
+      'propName' | 'propValue' | 'bodyVariant',
+      never[]
+    >,
   ) => void;
 };
 
@@ -334,6 +337,62 @@ const configs: Config[] = [
       two: 's',
     },
   },
+  {
+    type: 'custom',
+    component: 'Body',
+    // variant → weight or color
+    transform: (node, context) => {
+      const component = 'IconButton';
+
+      node.openingElement.attributes.forEach((attribute) => {
+        if (
+          attribute.type !== 'JSXAttribute' ||
+          attribute.name.type !== 'JSXIdentifier' ||
+          attribute.name.name !== 'variant'
+        ) {
+          return;
+        }
+
+        const current = getAttributeValue(attribute);
+
+        if (current === 'highlight') {
+          const replacement = `weight="bold"`;
+          const weightAttribute = findAttribute(node, 'weight');
+          context.report({
+            node: attribute,
+            messageId: 'bodyVariant',
+            data: { component, current, replacement },
+            fix: weightAttribute
+              ? undefined
+              : (fixer) => {
+                  return fixer.replaceText(attribute, replacement);
+                },
+          });
+          return;
+        }
+
+        if (current && ['alert', 'confirm', 'subtle'].includes(current)) {
+          const replacementMap: Record<string, string> = {
+            'alert': `color="danger"`,
+            'confirm': `color="success"`,
+            'subtle': `color="subtle"`,
+          };
+          const replacement = replacementMap[current];
+          const colorAttribute = findAttribute(node, 'color');
+          context.report({
+            node: attribute,
+            messageId: 'bodyVariant',
+            data: { component, current, replacement },
+            fix: colorAttribute
+              ? undefined
+              : (fixer) => {
+                  return fixer.replaceText(attribute, replacement);
+                },
+          });
+        }
+      });
+    },
+  },
 ];
 
 export const noRenamedProps = createRule({
@@ -351,6 +410,8 @@ export const noRenamedProps = createRule({
         "The {{component}}'s `{{current}}` prop has been renamed to `{{replacement}}`.",
       propValue:
         "The {{component}}'s `{{prop}}` prop values have been renamed. Replace `{{current}}` with `{{replacement}}`.",
+      bodyVariant:
+        'The {{component}}\'s `variant` prop has been deprecated. Replace `variant="{{current}}"` with `{{replacement}}`.',
     },
   },
   defaultOptions: [],
