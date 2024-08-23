@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { BodyLarge } from '../BodyLarge/BodyLarge.js';
+
 import type { BodyProps } from './Body.js';
 
 import { Body } from './index.js';
@@ -23,6 +25,7 @@ const content =
 export default {
   title: 'Typography/Body',
   component: Body,
+  subcomponents: { BodyLarge },
   argTypes: {
     as: { control: 'text' },
   },

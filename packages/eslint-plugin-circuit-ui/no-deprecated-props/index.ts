@@ -65,6 +65,12 @@ const mappings: Config[] = [
     props: ['variant'],
     alternative: '',
   },
+  {
+    components: ['Body'],
+    props: ['variant'],
+    alternative:
+      'Use the `weight` prop instead of the `highlight` variant and use custom CSS to replace the other variants.',
+  },
 ];
 
 export const noDeprecatedProps = createRule({

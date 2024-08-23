@@ -44,7 +44,8 @@ export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
    */
   weight?: 'regular' | 'bold';
   /**
-   * Choose from style variants.
+   * @deprecated Use the `weight` prop instead of the `highlight` variant and
+   * use custom CSS to replace the other variants.
    */
   variant?: Variant;
   /**
@@ -75,6 +76,20 @@ export const Body = forwardRef<HTMLParagraphElement, BodyProps>(
     const Element = as || getHTMLElement(variant);
 
     if (process.env.NODE_ENV !== 'production') {
+      if (variant) {
+        if (variant === 'highlight') {
+          deprecate(
+            'Body',
+            'The "highlight" variant has been deprecated. Use the "weight" prop instead.',
+          );
+        } else {
+          deprecate(
+            'Body',
+            `The "${variant}" variant has been deprecated. Use custom CSS instead.`,
+          );
+        }
+      }
+
       const deprecatedSizeMap: Record<string, string> = {
         'one': 'm',
         'two': 's',
