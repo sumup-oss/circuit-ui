@@ -30,6 +30,7 @@ export default function App() {
           content="width=device-width,initial-scale=1,viewport-fit=cover"
         />
 
+        {/* Font performance optimization */}
         <link
           rel="preload"
           href="https://static.sumup.com/fonts/Inter/Inter-normal-latin.woff2"
@@ -75,16 +76,6 @@ export default function App() {
         />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="theme-color" content="#ffffff" />
-
-        {/* Performance optimizations */}
-        <link
-          rel="preload"
-          href="https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-400.woff2"
-        />
-        <link
-          rel="preload"
-          href="https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.woff2"
-        />
 
         <Meta />
         <Links />

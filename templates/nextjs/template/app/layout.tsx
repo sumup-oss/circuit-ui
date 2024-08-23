@@ -4,8 +4,6 @@ import { Inter } from 'next/font/google';
 import '@sumup-oss/design-tokens/light.css';
 import '@sumup-oss/circuit-ui/styles.css';
 
-import { PreloadResources } from './preload-resources';
-
 const inter = Inter({
   subsets: ['latin'],
   // FIXME: Re-enable once https://github.com/vercel/next.js/issues/68395 has been resolved
@@ -45,7 +43,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      <PreloadResources />
       <body>{children}</body>
     </html>
   );
