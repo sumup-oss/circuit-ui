@@ -15,6 +15,7 @@
 
 import { componentLifecycleImports } from './component-lifecycle-imports';
 import { noInvalidCustomProperties } from './no-invalid-custom-properties';
+import { noDeprecatedCustomProperties } from './no-deprecated-custom-properties';
 import { noDeprecatedComponents } from './no-deprecated-components';
 import { noDeprecatedProps } from './no-deprecated-props';
 import { noRenamedProps } from './no-renamed-props';
@@ -26,6 +27,7 @@ import { renamedPackageScope } from './renamed-package-scope';
 export const rules = {
   'component-lifecycle-imports': componentLifecycleImports,
   'no-invalid-custom-properties': noInvalidCustomProperties,
+  'no-deprecated-custom-properties': noDeprecatedCustomProperties,
   'no-deprecated-components': noDeprecatedComponents,
   'no-deprecated-props': noDeprecatedProps,
   'no-renamed-props': noRenamedProps,

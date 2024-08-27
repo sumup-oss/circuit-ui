@@ -65,6 +65,12 @@ const mappings: Config[] = [
     props: ['variant'],
     alternative: '',
   },
+  {
+    components: ['Body'],
+    props: ['variant'],
+    alternative:
+      'Use the new `color` prop instead of the `alert`, `confirm` and `subtle` variants. Use the new `weight` prop instead of the `highlight` variant. Use custom CSS for the `quote` variant.',
+  },
 ];
 
 export const noDeprecatedProps = createRule({

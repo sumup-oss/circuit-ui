@@ -17,14 +17,34 @@ import { forwardRef, type HTMLAttributes } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
 import { CircuitError } from '../../util/errors.js';
+import { deprecate } from '../../util/logger.js';
 
-import classes from './Title.module.css';
+import classes from './Display.module.css';
 
-export interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {
+export interface DisplayProps extends HTMLAttributes<HTMLHeadingElement> {
   /**
-   * A Circuit UI title size. Defaults to `one`.
+   * Choose from 3 font sizes. Defaults to `m`.
    */
-  size?: 'one' | 'two' | 'three' | 'four';
+  size?:
+    | 's'
+    | 'm'
+    | 'l'
+    /**
+     * @deprecated
+     */
+    | 'one'
+    /**
+     * @deprecated
+     */
+    | 'two'
+    /**
+     * @deprecated
+     */
+    | 'three'
+    /**
+     * @deprecated
+     */
+    | 'four';
   /**
    * The HTML heading element to render.
    * Headings should be nested sequentially without skipping any levels.
@@ -33,21 +53,42 @@ export interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {
   as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
 
+const deprecatedSizeMap: Record<string, string> = {
+  'one': 'l',
+  'two': 'm',
+  'three': 'm',
+  'four': 's',
+};
+
 /**
  * A flexible title component capable of rendering any HTML heading element.
  */
-export const Title = forwardRef<HTMLHeadingElement, TitleProps>(
-  ({ className, as, size = 'one', ...props }, ref) => {
+export const Display = forwardRef<HTMLHeadingElement, DisplayProps>(
+  ({ className, as, size: legacySize = 'm', ...props }, ref) => {
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
       !process?.env?.UNSAFE_DISABLE_ELEMENT_ERRORS &&
       !as
     ) {
-      throw new CircuitError('Title', 'The `as` prop is required.');
+      throw new CircuitError('Display', 'The `as` prop is required.');
+    }
+
+    if (process.env.NODE_ENV !== 'production') {
+      if (legacySize in deprecatedSizeMap) {
+        deprecate(
+          'Display',
+          `The "${legacySize}" size has been deprecated. Use the "${deprecatedSizeMap[legacySize]}" size instead.`,
+        );
+      }
     }
 
     const Element = as || 'h1';
+
+    const size = (deprecatedSizeMap[legacySize] || legacySize) as
+      | 'l'
+      | 'm'
+      | 's';
 
     return (
       <Element
@@ -59,4 +100,4 @@ export const Title = forwardRef<HTMLHeadingElement, TitleProps>(
   },
 );
 
-Title.displayName = 'Title';
+Display.displayName = 'Display';

@@ -191,7 +191,7 @@ export function Icons() {
                           <Badge
                             {...props}
                             tabIndex={0}
-                            variant="danger"
+                            variant="warning"
                             className={classes.badge}
                           >
                             Deprecated

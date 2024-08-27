@@ -1,5 +1,5 @@
 import type { MetaFunction } from '@remix-run/node';
-import { Title, BodyLarge } from '@sumup-oss/circuit-ui';
+import { Display, BodyLarge } from '@sumup-oss/circuit-ui';
 
 import { DocCard } from '../../components/DocCard/index.js';
 
@@ -18,9 +18,9 @@ export const meta: MetaFunction = () => [
 export default function Index() {
   return (
     <>
-      <Title as="h1" size="three">
+      <Display as="h1" size="three">
         {title}
-      </Title>
+      </Display>
 
       <BodyLarge className={styles.intro}>
         Get started by editing <code>app/routes/_index/route.tsx</code>

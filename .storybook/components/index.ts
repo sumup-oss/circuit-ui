@@ -40,6 +40,7 @@ export {
   BorderWidth,
   FontStack,
   FontWeight,
+  Typography,
   Transition,
   MediaQueriesTable,
 } from './Theme.js';

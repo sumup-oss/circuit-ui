@@ -11,9 +11,9 @@ import {
   BorderWidth,
   FontStack,
   FontWeight,
+  Typography,
   Transition,
 } from '../../.storybook/components';
-import { Headline, SubHeadline, Body } from '@sumup-oss/circuit-ui';
 
 <Meta title="Features/Theme" />
 
@@ -43,7 +43,7 @@ Circuit UI's [ESLint plugin](Packages/eslint-plugin-circuit-ui/Docs)  includes r
 
 ## Spacings
 
-Use spacings for gutters, margins, and paddings. Don't use it for border width, border radius, icon size, font size, or line height. Use the dedicated theme properties instead.
+Use spacings for gutters, margins, and paddings. Don't use it for border width, border radius, icon size, font size, or line height. Use the dedicated design tokens instead.
 
 <CustomPropertiesTable namespace="spacings" preview={Spacing} />
 
@@ -61,7 +61,9 @@ Use spacings for gutters, margins, and paddings. Don't use it for border width, 
 
 ## Typography
 
-Avoid using the `var(--cui-typography-*)` CSS custom properties directly in your styles. Instead, use the typography components [`Title`](Typography/Title/Docs), [`Headline`](Typography/Headline/Docs), [`SubHeadline`](Typography/SubHeadline/Docs), [`Body`](Typography/Body/Docs), and [`BodyLarge`](Typography/BodyLarge/Docs).
+Avoid using the `var(--cui-typography-*)` CSS custom properties directly in your styles. Instead, use the typography components [`Display`](Typography/Display/Docs), [`Headline`](Typography/Headline/Docs), and [`Body`](Typography/Body/Docs).
+
+<CustomPropertiesTable namespace="typography" preview={Typography} />
 
 ## Font stack
 

@@ -107,8 +107,8 @@ export const Indeterminate = (args: {
         style={{
           display: 'block',
           marginBottom: 'var(--cui-spacings-bit)',
-          fontSize: 'var(--cui-typography-body-two-font-size)',
-          lineHeight: 'var(--cui-typography-body-two-line-height)',
+          fontSize: 'var(--cui-typography-body-s-font-size)',
+          lineHeight: 'var(--cui-typography-body-s-line-height)',
         }}
       >
         {label}

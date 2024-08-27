@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Title, BodyLarge } from '@sumup-oss/circuit-ui';
+import { Display, BodyLarge } from '@sumup-oss/circuit-ui';
 import { SumUpLogo } from '@sumup-oss/icons';
 
 import { DocCard } from '../components/DocCard';
@@ -14,9 +14,9 @@ export default function Page() {
   return (
     <div className={styles.grid}>
       <main className={styles.main}>
-        <Title as="h1" size="three">
+        <Display as="h1" size="three">
           {metadata.title as string}
-        </Title>
+        </Display>
 
         <BodyLarge className={styles.intro}>
           Get started by editing <code>app/page.tsx</code>

@@ -77,6 +77,24 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
         }
       `,
     },
+    {
+      name: 'matched Body component without the variant prop',
+      code: `
+        function Component() {
+          return <Body>Lorem ipsum</Body>
+        }
+      `,
+    },
+    {
+      name: 'matched Body component with variant="quote"',
+      code: `
+        function Component() {
+          return (
+            <Body variant="quote">Lorem ipsum</Body>
+          )
+        }
+      `,
+    },
   ],
   invalid: [
     {
@@ -311,6 +329,36 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
         { messageId: 'propName' },
         { messageId: 'propName' },
       ],
+    },
+    {
+      name: 'matched Body component with the old prop value',
+      code: `
+        function ComponentA() {
+          return (
+            <Body variant="highlight">Lorem ipsum</Body>
+          )
+        }
+
+        function ComponentB() {
+          return (
+            <Body variant="alert">Lorem ipsum</Body>
+          )
+        }
+      `,
+      output: `
+        function ComponentA() {
+          return (
+            <Body weight="bold">Lorem ipsum</Body>
+          )
+        }
+
+        function ComponentB() {
+          return (
+            <Body color="danger">Lorem ipsum</Body>
+          )
+        }
+      `,
+      errors: [{ messageId: 'bodyVariant' }, { messageId: 'bodyVariant' }],
     },
   ],
 });

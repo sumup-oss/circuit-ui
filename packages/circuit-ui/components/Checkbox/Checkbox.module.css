@@ -9,7 +9,7 @@
 
 .base + .label::before {
   position: absolute;
-  top: calc(var(--cui-typography-body-one-line-height) / 2);
+  top: calc(var(--cui-typography-body-m-line-height) / 2);
   left: 0;
   box-sizing: border-box;
   display: block;

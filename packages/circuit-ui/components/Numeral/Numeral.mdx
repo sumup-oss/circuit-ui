@@ -1,0 +1,35 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './Numeral.stories';
+
+<Meta of={Stories} />
+
+# Numeral
+
+<Status variant="stable" />
+
+The Numeral component is used to present numeric content such as currency values.
+
+<Story of={Stories.Base} />
+<Props />
+
+## Usage guidelines
+
+## Component variations
+
+### Sizes
+
+The Numeral component comes in three sizes. Use the default `m` size in most cases.
+
+<Story of={Stories.Sizes} />
+
+### Weights
+
+The Numeral component comes in two weights. Use the default `regular` weight in most cases.
+
+<Story of={Stories.Weights} />
+
+### Colors
+
+The Numeral component accepts any foreground color. Use the default `normal` color in most cases.
+
+<Story of={Stories.Colors} />

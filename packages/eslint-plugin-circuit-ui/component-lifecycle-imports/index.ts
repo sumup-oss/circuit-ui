@@ -132,8 +132,7 @@ export const componentLifecycleImports = createRule({
                   fixes.push(
                     fixer.replaceText(
                       node,
-                      context
-                        .getSourceCode()
+                      context.sourceCode
                         .getText(node)
                         .replace(importSpecifier, '')
                         .replace(' ,', ''),

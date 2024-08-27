@@ -1,5 +1,5 @@
 /**
- * Copyright 2021, SumUp Ltd.
+ * Copyright 2024, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,35 +16,36 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe } from '../../util/test-utils.js';
+import { axe, render } from '../../util/test-utils.js';
 
-import { Title } from './Title.js';
+import { Numeral } from './Numeral.js';
 
-describe('Title', () => {
+describe('Numeral', () => {
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
     const { container } = render(
-      <Title as="h2" className={className}>
-        Title
-      </Title>,
+      <Numeral className={className}>Numeral</Numeral>,
     );
-    const headline = container.querySelector('h2');
-    expect(headline?.className).toContain(className);
+    const paragraph = container.querySelector('p');
+    expect(paragraph?.className).toContain(className);
   });
 
   it('should forward a ref', () => {
-    const ref = createRef<HTMLHeadingElement>();
-    const { container } = render(
-      <Title as="h2" ref={ref}>
-        Title
-      </Title>,
-    );
-    const headline = container.querySelector('h2');
-    expect(ref.current).toBe(headline);
+    const ref = createRef<HTMLParagraphElement>();
+    const { container } = render(<Numeral ref={ref}>Numeral</Numeral>);
+    const paragraph = container.querySelector('p');
+    expect(ref.current).toBe(paragraph);
+  });
+
+  const elements = ['p', 'article', 'div'] as const;
+  it.each(elements)('should render as a "%s" element', (as) => {
+    const { container } = render(<Numeral as={as}>{as} Numeral</Numeral>);
+    const actual = container.querySelector(as);
+    expect(actual).toBeVisible();
   });
 
   it('should meet accessibility guidelines', async () => {
-    const { container } = render(<Title as="h2">Title</Title>);
+    const { container } = render(<Numeral>Numeral</Numeral>);
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
