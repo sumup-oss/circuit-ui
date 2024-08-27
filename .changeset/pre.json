@@ -13,13 +13,28 @@
     "@sumup-oss/stylelint-plugin-circuit-ui": "2.0.0"
   },
   "changesets": [
+    "brown-cobras-invite",
     "chilly-dodos-end",
+    "clever-pugs-sing",
+    "dry-cheetahs-tap",
+    "five-elephants-travel",
     "flat-steaks-itch",
+    "fluffy-lobsters-sin",
+    "friendly-falcons-turn",
     "great-kiwis-compare",
+    "grumpy-coins-sip",
+    "hot-toys-compare",
+    "itchy-geckos-protect",
     "old-sloths-speak",
+    "plenty-chicken-deny",
+    "pretty-tigers-run",
+    "rich-phones-attend",
     "seven-bees-train",
+    "shiny-dragons-sip",
     "slimy-pots-lie",
+    "soft-drinks-accept",
     "tall-sheep-provide",
+    "tiny-suits-smile",
     "wise-emus-count"
   ]
 }

@@ -1,5 +1,16 @@
 # @sumup-oss/stylelint-plugin-circuit-ui
 
+## 3.0.0-next.1
+
+### Minor Changes
+
+- [#2653](https://github.com/sumup-oss/circuit-ui/pull/2653) [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60) Thanks [@connor-baer](https://github.com/connor-baer)! - Added `circuit-ui/no-deprecated-custom-properties` rule to flag uses of deprecated custom properties.
+
+### Patch Changes
+
+- Updated dependencies [[`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60), [`55bf9ad`](https://github.com/sumup-oss/circuit-ui/commit/55bf9ad7569f1e1a4c739f4eac8df58ba9987ca2), [`55bf9ad`](https://github.com/sumup-oss/circuit-ui/commit/55bf9ad7569f1e1a4c739f4eac8df58ba9987ca2)]:
+  - @sumup-oss/design-tokens@8.0.0-next.1
+
 ## 3.0.0-next.0
 
 ### Major Changes
