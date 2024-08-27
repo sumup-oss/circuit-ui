@@ -1,9 +1,17 @@
 import type { Metadata, Viewport } from 'next';
+import { Inter } from 'next/font/google';
 
 import '@sumup-oss/design-tokens/light.css';
 import '@sumup-oss/circuit-ui/styles.css';
 
-import { PreloadResources } from './preload-resources';
+const inter = Inter({
+  subsets: ['latin'],
+  // FIXME: Re-enable once https://github.com/vercel/next.js/issues/68395 has been resolved
+  // axes: ['ital'],
+  variable: '--cui-font-stack-default',
+  display: 'swap',
+  preload: true,
+});
 
 export const metadata: Metadata = {
   title: {
@@ -34,8 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <PreloadResources />
+    <html lang="en" className={inter.variable}>
       <body>{children}</body>
     </html>
   );

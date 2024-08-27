@@ -25,96 +25,112 @@ import { schema } from '../themes/schema.js';
 import { shared } from '../themes/shared.js';
 import { light } from '../themes/light.js';
 import { dark } from '../themes/dark.js';
-import type { ColorScheme, Token } from '../types/index.js';
+import type { ColorScheme, FontFace, Token } from '../types/index.js';
+import { inter } from '../themes/fonts.js';
 
-type StyleGroup = {
+export type TokenConfig = {
+  type: 'tokens';
   selectors: string[];
-  colorScheme: ColorScheme;
   tokens: Token[];
+  colorScheme: ColorScheme;
 };
 
-type Theme = {
-  name: string;
-  groups: StyleGroup[];
+export type FontFaceConfig = {
+  type: 'font-faces';
+  fontFaces: FontFace[];
 };
+
+type Configs = (TokenConfig | FontFaceConfig)[];
 
 function main(): void {
-  const themes: Theme[] = [
-    {
-      name: 'light',
-      groups: [
-        {
-          tokens: [...light, ...shared],
-          selectors: [':root'],
-          colorScheme: 'light',
-        },
-      ],
-    },
-    {
-      name: 'dark',
-      groups: [
-        {
-          tokens: [...dark, ...shared],
-          selectors: [':root'],
-          colorScheme: 'dark',
-        },
-      ],
-    },
-    {
-      name: 'light-scoped',
-      groups: [
-        {
-          tokens: light,
-          selectors: ['[data-color-scheme="light"]'],
-          colorScheme: 'light',
-        },
-      ],
-    },
-    {
-      name: 'dark-scoped',
-      groups: [
-        {
-          tokens: dark,
-          selectors: ['[data-color-scheme="dark"]'],
-          colorScheme: 'dark',
-        },
-      ],
-    },
-    {
-      name: 'dynamic',
-      groups: [
-        {
-          tokens: [...light, ...shared],
-          selectors: [':root'],
-          colorScheme: 'light',
-        },
-        {
-          tokens: dark,
-          selectors: ['@media (prefers-color-scheme: dark)', ':root'],
-          colorScheme: 'dark',
-        },
-        {
-          tokens: light,
-          selectors: ['[data-color-scheme="light"]'],
-          colorScheme: 'light',
-        },
-        {
-          tokens: dark,
-          selectors: ['[data-color-scheme="dark"]'],
-          colorScheme: 'dark',
-        },
-      ],
-    },
-  ];
+  const files: Record<string, Configs> = {
+    'light': [
+      {
+        type: 'tokens',
+        tokens: [...light, ...shared],
+        selectors: [':root'],
+        colorScheme: 'light',
+      },
+    ],
+    'dark': [
+      {
+        type: 'tokens',
+        tokens: [...dark, ...shared],
+        selectors: [':root'],
+        colorScheme: 'dark',
+      },
+    ],
+    'light-scoped': [
+      {
+        type: 'tokens',
+        tokens: light,
+        selectors: ['[data-color-scheme="light"]'],
+        colorScheme: 'light',
+      },
+    ],
+    'dark-scoped': [
+      {
+        type: 'tokens',
+        tokens: dark,
+        selectors: ['[data-color-scheme="dark"]'],
+        colorScheme: 'dark',
+      },
+    ],
+    'dynamic': [
+      {
+        type: 'tokens',
+        tokens: [...light, ...shared],
+        selectors: [':root'],
+        colorScheme: 'light',
+      },
+      {
+        type: 'tokens',
+        tokens: dark,
+        selectors: ['@media (prefers-color-scheme: dark)', ':root'],
+        colorScheme: 'dark',
+      },
+      {
+        type: 'tokens',
+        tokens: light,
+        selectors: ['[data-color-scheme="light"]'],
+        colorScheme: 'light',
+      },
+      {
+        type: 'tokens',
+        tokens: dark,
+        selectors: ['[data-color-scheme="dark"]'],
+        colorScheme: 'dark',
+      },
+    ],
+    'fonts': [
+      {
+        type: 'font-faces',
+        fontFaces: inter,
+      },
+    ],
+  };
 
   const targets = browserslistToTargets(browserslist());
 
-  themes.forEach((theme) => {
-    validateTheme(theme);
-
-    const filename = `${theme.name}.css`;
+  Object.entries(files).forEach(([name, configs]) => {
+    const filename = `${name}.css`;
     const filepath = path.join(__dirname, '../', filename);
-    const styles = theme.groups.map(createStyles).join('\n');
+    const styles = configs
+      .map((config) => {
+        switch (config.type) {
+          case 'tokens': {
+            validateTokens(config.tokens);
+            return createCSSCustomProperties(config);
+          }
+          case 'font-faces': {
+            return createFontFaceDeclarations(config);
+          }
+          default: {
+            throw new Error('Unsupported config type');
+          }
+        }
+      })
+      .join('\n');
     const { code } = transform({
       filename,
       code: Buffer.from(styles),
@@ -126,70 +142,36 @@ function main(): void {
 }
 
 /**
- * Validates that the theme includes all expected tokens
- * and that the token values match the expected type.
+ * Validates that the token values match the expected type.
  */
-export function validateTheme(theme: Theme): void {
-  // Validate the token types
-  theme.groups.forEach(({ tokens }) => {
-    tokens.forEach(({ name, type }) => {
-      const token = schema.find((t) => t.name === name);
+export function validateTokens(tokens: Token[]): void {
+  tokens.forEach(({ name, type }) => {
+    const token = schema.find((t) => t.name === name);
 
-      if (!token) {
-        return;
-        // throw new Error(`The theme is missing the required "${name}" token.`);
-      }
+    if (!token) {
+      return;
+    }
 
-      if (token.type !== type) {
-        throw new Error(
-          [
-            `The "${name}" token does not match the expected type.`,
-            `Expected "${token.type as string}". Received "${type as string}."`,
-          ].join(' '),
-        );
-      }
-    });
+    if (token.type !== type) {
+      throw new Error(
+        [
+          `The "${name}" token does not match the expected type.`,
+          `Expected "${token.type as string}". Received "${type as string}."`,
+        ].join(' '),
+      );
+    }
   });
-
-  // Validate that the tokens at the root are complete
-  const rootGroup = theme.groups.find(
-    (group) => group.selectors.length === 1 && group.selectors[0] === ':root',
-  );
-
-  if (!rootGroup) {
-    return;
-  }
-
-  if (rootGroup.tokens.length !== schema.length) {
-    schema.forEach(({ name }) => {
-      const token = rootGroup.tokens.find((t) => t.name === name);
-
-      if (!token) {
-        throw new Error(
-          `The "${theme.name}" theme does not globally define the required "${name}" token. Add it to the ":root" selector.`,
-        );
-      }
-    });
-  }
-}
-
-export function createStyles(group: StyleGroup) {
-  const selectorStart = group.selectors
-    .map((selector) => `${selector} {`)
-    .join('');
-  const selectorEnd = group.selectors.map(() => '}').join('');
-  const customProperties = createCSSCustomProperties(group.tokens);
-  return `${selectorStart}
-    color-scheme: ${group.colorScheme};
-    ${customProperties}
-  ${selectorEnd}`;
 }
 
 /**
  * Generates CSS custom properties from the tokens
  */
-export function createCSSCustomProperties(tokens: Token[]): string {
-  return tokens
+export function createCSSCustomProperties(config: TokenConfig) {
+  const selectorStart = config.selectors
+    .map((selector) => `${selector} {`)
+    .join('');
+  const selectorEnd = config.selectors.map(() => '}').join('');
+  const customProperties = config.tokens
     .flatMap((token) => {
       const { description, name, value } = token;
       const lines: string[] = [];
@@ -201,6 +183,26 @@ export function createCSSCustomProperties(tokens: Token[]): string {
       lines.push(`${name}: ${value.toString()};`);
 
       return lines;
+    })
+    .join(' ');
+
+  return `${selectorStart}
+    color-scheme: ${config.colorScheme};
+    ${customProperties}
+  ${selectorEnd}`;
+}
+
+/**
+ * Generates font face declarations from the font faces
+ */
+export function createFontFaceDeclarations(config: FontFaceConfig): string {
+  return config.fontFaces
+    .map((fontFace) => {
+      const properties = Object.entries(fontFace)
+        .map(([name, value]) => `${name}: ${value};`)
+        .join('');
+
+      return `@font-face { ${properties} }`;
     })
     .join(' ');
 }

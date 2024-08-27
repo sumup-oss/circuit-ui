@@ -4,46 +4,20 @@
 />
 <link
   rel="preload"
-  href="https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-400.woff2"
-/>
-<link
-  rel="preload"
-  href="https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.woff2"
+  href="https://static.sumup.com/fonts/Inter/Inter-normal-latin.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
 />
 <style>
-  @font-face {
-    font-family: 'aktiv-grotesk';
-    font-weight: 400;
-    font-display: swap;
-    src:
-      url('https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-400.woff2')
-        format('woff2'),
-      url('https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-400.woff')
-        format('woff'),
-      url('https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-400.eot')
-        format('embedded-opentype');
-  }
-  @font-face {
-    font-family: 'aktiv-grotesk';
-    font-weight: 700;
-    font-display: swap;
-    src:
-      url('https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.woff2')
-        format('woff2'),
-      url('https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.woff')
-        format('woff'),
-      url('https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.eot')
-        format('embedded-opentype');
-  }
   #storybook-root {
     padding: env(safe-area-inset-top) env(safe-area-inset-right)
       env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
 
   html {
-    font-family: 'aktiv-grotesk', Helvetica, Arial, system-ui, sans-serif,
-      'Segoe UI', Roboto, 'Apple Color Emoji', 'Segoe UI Emoji',
-      'Segoe UI Symbol';
+    font-family: 'Inter', Helvetica, Arial, system-ui, sans-serif, 'Segoe UI',
+      Roboto, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   }
 
   .sbdocs.sbdocs-content {

@@ -22,10 +22,11 @@ yarn add @sumup-oss/design-tokens
 
 ## Usage
 
-The design tokens are exported as [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties). Choose a [color scheme](#color-schemes), then import the corresponding CSS file globally in your application, such as in Next.js' `app/layout.tsx` file:
+The design tokens are exported as [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties). Choose a [font loading strategy](#fonts) and a [color scheme](#color-schemes), then import the corresponding CSS file globally in your application, such as in Next.js' `app/layout.tsx` file:
 
 ```tsx
 // app/layout.tsx
+import '@sumup-oss/design-tokens/fonts.css';
 import '@sumup-oss/design-tokens/light.css';
 
 function App({ Component, pageProps }) {
@@ -36,6 +37,56 @@ function App({ Component, pageProps }) {
 The application code must be processed by a bundler that can handle CSS files. [Next.js](https://nextjs.org/docs/pages/building-your-application/styling), [Create React App](https://create-react-app.dev/docs/adding-a-stylesheet), [Vite](https://vitejs.dev/guide/features.html#css-modules), [Parcel](https://parceljs.org/languages/css/#css-modules), and others support importing CSS files out of the box.
 
 Refer to the [theme documentation](https://circuit.sumup.com/?path=/docs/features-theme--docs) for a complete reference of the available tokens.
+
+### Fonts
+
+#### Default
+
+Import the stylesheet that contains the font face declarations globally in your application, such as in a global layout file:
+
+```ts
+import '@sumup-oss/design-tokens/fonts.css';
+```
+
+To speed up the loading of the fonts, add preload links to the global `<head>` element of your application. Choose which subsets to preload based on the languages your app supports. The available subsets are `latin`, `latin-ext`, `cyrillic`, `cyrillic-ext`, `greek`, `greek-ext`, and `vietnamese`.
+
+```html
+<link
+  rel="preload"
+  href="https://static.sumup.com/fonts/Inter/Inter-normal-latin.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+```
+
+#### Next.js
+
+If you're using Next.js 13+, use the built-in [font optimization](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) feature with this recommended configuration instead:
+
+```tsx
+// app/layout.tsx
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+  // Choose which subsets to preload based on the languages your app supports
+  subsets: ['latin'],
+  // Note that Next.js <14.2.6 contains outdated Google Fonts data which prevents
+  // usage of the `ital` axis (see https://github.com/vercel/next.js/issues/68395)
+  axes: ['ital'],
+  variable: '--cui-font-stack-default',
+  display: 'swap',
+  preload: true,
+});
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body className={inter.variable}>{children}</body>
+    </html>
+  );
+}
+```
 
 ### Color schemes
 
