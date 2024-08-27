@@ -1,5 +1,44 @@
 # @sumup-oss/design-tokens
 
+## 8.0.0-next.1
+
+### Major Changes
+
+- [#2654](https://github.com/sumup-oss/circuit-ui/pull/2654) [`55bf9ad`](https://github.com/sumup-oss/circuit-ui/commit/55bf9ad7569f1e1a4c739f4eac8df58ba9987ca2) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the default font from Aktiv Grotesk to Inter, a variable font. Variable fonts combine a continuous range of weights and other "axes" into a single file. This speeds up page load times and enables more creative freedom. Inter is a close match to Aktiv Grotesk, so users shouldn't notice a difference.
+
+- [#2654](https://github.com/sumup-oss/circuit-ui/pull/2654) [`55bf9ad`](https://github.com/sumup-oss/circuit-ui/commit/55bf9ad7569f1e1a4c739f4eac8df58ba9987ca2) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new `@sumup-oss/design-tokens/fonts.css` file containing the `@font-face` declarations to load the Inter font family. Refer to the documentation on [how to load fonts in your application](https://github.com/sumup-oss/circuit-ui/tree/main/packages/design-tokens#fonts).
+
+### Minor Changes
+
+- [#2653](https://github.com/sumup-oss/circuit-ui/pull/2653) [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60) Thanks [@connor-baer](https://github.com/connor-baer)! - Consolidated and renamed the `typography` tokens:
+
+  | Old                                     | New                                 |
+  | --------------------------------------- | ----------------------------------- |
+  | `typography-title-one-font-size`        | `typography-display-l-font-size`    |
+  | `typography-title-one-line-height`      | `typography-display-l-line-height`  |
+  | `typography-title-two-font-size`        | `typography-display-m-font-size`    |
+  | `typography-title-two-line-height`      | `typography-display-m-line-height`  |
+  | `typography-title-three-font-size`      | `typography-display-m-font-size`    |
+  | `typography-title-three-line-height`    | `typography-display-m-line-height`  |
+  | `typography-title-four-font-size`       | `typography-display-s-font-size`    |
+  | `typography-title-four-line-height`     | `typography-display-s-line-height`  |
+  | `typography-headline-one-font-size`     | `typography-headline-l-font-size`   |
+  | `typography-headline-one-line-height`   | `typography-headline-l-line-height` |
+  | `typography-headline-two-font-size`     | `typography-headline-m-font-size`   |
+  | `typography-headline-two-line-height`   | `typography-headline-m-line-height` |
+  | `typography-headline-three-font-size`   | `typography-headline-m-font-size`   |
+  | `typography-headline-three-line-height` | `typography-headline-m-line-height` |
+  | `typography-headline-four-font-size`    | `typography-headline-s-font-size`   |
+  | `typography-headline-four-line-height`  | `typography-headline-s-line-height` |
+  | `typography-sub-headline-font-size`     | `typography-headline-s-font-size`   |
+  | `typography-sub-headline-line-height`   | `typography-headline-s-line-height` |
+  | `typography-body-large-font-size`       | `typography-body-l-font-size`       |
+  | `typography-body-large-line-height`     | `typography-body-l-line-height`     |
+  | `typography-body-one-font-size`         | `typography-body-m-font-size`       |
+  | `typography-body-one-line-height`       | `typography-body-m-line-height`     |
+  | `typography-body-two-font-size`         | `typography-body-s-font-size`       |
+  | `typography-body-two-line-height`       | `typography-body-s-line-height`     |
+
 ## 8.0.0-next.0
 
 ### Major Changes
