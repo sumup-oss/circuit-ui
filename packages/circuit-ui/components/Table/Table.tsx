@@ -20,7 +20,6 @@ import { Component, createRef, type HTMLAttributes, type UIEvent } from 'react';
 import { isNil } from '../../util/type-check.js';
 import { throttle } from '../../util/helpers.js';
 import { clsx } from '../../styles/clsx.js';
-import { deprecate } from '../../util/logger.js';
 
 import { TableHead } from './components/TableHead/index.js';
 import { TableBody } from './components/TableBody/index.js';
@@ -69,12 +68,6 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
    */
   initialSortDirection?: 'ascending' | 'descending';
   /**
-   * @deprecated
-   *
-   * Use the `initialSortedColumn` prop instead.
-   */
-  initialSortedRow?: number;
-  /**
    * Specifies the column index which `initialSortDirection` will be applied to
    */
   initialSortedColumn?: number;
@@ -104,19 +97,12 @@ type TableState = {
 export class Table extends Component<TableProps, TableState> {
   constructor(props: TableProps) {
     super(props);
-    if (process.env.NODE_ENV !== 'production' && this.props.initialSortedRow) {
-      deprecate(
-        'Table',
-        'The `initialSortedRow` prop has been deprecated. Use the `initialSortedColumn` prop instead.',
-      );
-    }
     this.state = {
-      sortedColumn:
-        this.props.initialSortedColumn || this.props.initialSortedRow,
+      sortedColumn: this.props.initialSortedColumn,
       rows: this.getInitialRows(
         this.props.rows,
         this.props.initialSortDirection,
-        this.props.initialSortedColumn || this.props.initialSortedRow,
+        this.props.initialSortedColumn,
       ),
       sortHover: undefined,
       sortDirection: this.props.initialSortDirection,
