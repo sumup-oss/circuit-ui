@@ -16,7 +16,7 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe } from '../../util/test-utils.js';
+import { render, axe, screen } from '../../util/test-utils.js';
 import type { InputElement } from '../Input/index.js';
 
 import { ColorInput } from './ColorInput.js';
@@ -35,5 +35,30 @@ describe('ColorInput', () => {
     const { container } = render(<ColorInput {...baseProps} />);
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
+  });
+
+  describe('Labeling', () => {
+    const HEX_SYMBOL = '#';
+
+    it('should have the currency symbol as part of its accessible description', () => {
+      render(<ColorInput {...baseProps} />);
+      expect(screen.getByRole('textbox')).toHaveAccessibleDescription(
+        HEX_SYMBOL,
+      );
+    });
+
+    it('should accept a custom description via aria-describedby', () => {
+      const customDescription = 'Custom description';
+      const customDescriptionId = 'customDescriptionId';
+      render(
+        <>
+          <span id={customDescriptionId}>{customDescription}</span>
+          <ColorInput {...baseProps} aria-describedby={customDescriptionId} />
+        </>,
+      );
+      expect(screen.getByRole('textbox')).toHaveAccessibleDescription(
+        `${HEX_SYMBOL} ${customDescription}`,
+      );
+    });
   });
 });

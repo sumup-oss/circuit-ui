@@ -17,18 +17,17 @@
 
 import {
   forwardRef,
-  useCallback,
-  useEffect,
   useId,
   useRef,
   useState,
   type ChangeEventHandler,
 } from 'react';
 
-import { Input, type InputElement, type InputProps } from '../Input/index.js';
+import type { InputElement, InputProps } from '../Input/index.js';
 import { clsx } from '../../styles/clsx.js';
-import { FieldLabel, FieldLabelText } from '../Field/index.js';
+import { FieldLabel, FieldLabelText, FieldWrapper } from '../Field/index.js';
 import { applyMultipleRefs } from '../../util/refs.js';
+import classes from '../Input/Input.module.css';
 
 import styles from './ColorInput.module.css';
 
@@ -43,7 +42,6 @@ export interface ColorInputProps
     | 'maxLength'
     | 'pattern'
     | 'renderPrefix'
-    | 'renderSuffix'
     | 'as'
   > {
   /**
@@ -67,15 +65,43 @@ export interface ColorInputProps
 
 export const ColorInput = forwardRef<InputElement, ColorInputProps>(
   (
-    { onChange, className, value, defaultValue, pickerLabel, ...props },
+    {
+      'aria-describedby': descriptionId,
+      'renderSuffix': RenderSuffix,
+      className,
+      defaultValue,
+      disabled,
+      hasWarning,
+      hideLabel,
+      id,
+      invalid,
+      label,
+      onChange,
+      optionalLabel,
+      pickerLabel,
+      readOnly,
+      required,
+      style,
+      value,
+      ...props
+    },
     ref,
   ) => {
     const [currentColor, setCurrentColor] = useState<string | undefined>(
       defaultValue,
     );
-    const colorDisplayRef = useRef<HTMLDivElement>(null);
     const colorPickerRef = useRef<InputElement>(null);
+
     const pickerId = useId();
+    const hexSymbolId = useId();
+    const inputFallbackId = useId();
+    const inputId = id || inputFallbackId;
+
+    const descriptionIds = clsx(hexSymbolId, descriptionId);
+
+    const suffix = RenderSuffix && <RenderSuffix className={classes.suffix} />;
+
+    const hasSuffix = Boolean(suffix);
 
     const onPickerColorChange: ChangeEventHandler<InputElement> = (e) => {
       setCurrentColor(e.target.value);
@@ -91,50 +117,52 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
       setCurrentColor(`#${e.target.value}`);
     };
 
-    useEffect(() => {
-      if (colorDisplayRef.current && currentColor) {
-        colorDisplayRef.current.style.backgroundColor = currentColor;
-      }
-    }, [currentColor]);
-
-    const renderSuffix = useCallback(
-      () => (
-        <div
-          className={clsx(styles.suffix)}
-          ref={colorDisplayRef}
-          style={{ backgroundColor: currentColor }}
-        >
-          <FieldLabel htmlFor={pickerId}>
+    return (
+      <FieldWrapper className={className} style={style} disabled={disabled}>
+        <FieldLabel htmlFor={inputId}>
+          <FieldLabelText
+            label={label}
+            hideLabel={hideLabel}
+            optionalLabel={optionalLabel}
+            required={required}
+          />
+        </FieldLabel>
+        <div className={styles.wrapper}>
+          <FieldLabel htmlFor={pickerId} className={styles.picker}>
             <FieldLabelText label={pickerLabel} hideLabel />
+            <input
+              type="color"
+              id={pickerId}
+              className={styles['color-input']}
+              onChange={onPickerColorChange}
+              ref={applyMultipleRefs(colorPickerRef, ref)}
+              readOnly={readOnly}
+            />
           </FieldLabel>
+          <span className={styles.symbol} id={hexSymbolId}>
+            #
+          </span>
           <input
-            type="color"
-            id={pickerId}
-            className={styles.colorInput}
-            onChange={onPickerColorChange}
-            ref={applyMultipleRefs(colorPickerRef, ref)}
+            id={inputId}
+            aria-describedby={descriptionIds}
+            className={clsx(
+              classes.base,
+              !disabled && hasWarning && classes.warning,
+              hasSuffix && classes['has-suffix'],
+              styles.input,
+            )}
+            aria-invalid={invalid && 'true'}
+            required={required}
+            disabled={disabled}
+            maxLength={6}
+            pattern="[0-9a-f]{3,6}"
+            readOnly={readOnly}
+            value={currentColor ? currentColor.replace('#', '') : undefined}
+            onChange={onInputChange}
+            {...props}
           />
         </div>
-      ),
-      [],
-    );
-
-    return (
-      <Input
-        className={styles.colorpick}
-        renderPrefix={({ className: cn }) => (
-          <div className={clsx(cn, styles.prefix)}>
-            <span>#</span>
-          </div>
-        )}
-        renderSuffix={renderSuffix}
-        value={currentColor ? currentColor.replace('#', '') : undefined}
-        inputClassName={styles.input}
-        maxLength={6}
-        pattern="[0-9a-f]{3,6}"
-        onChange={onInputChange}
-        {...props}
-      />
+      </FieldWrapper>
     );
   },
 );
