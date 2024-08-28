@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2024, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,7 +21,7 @@ import type { InputElement } from '../Input/index.js';
 
 import { ColorInput } from './ColorInput.js';
 
-describe('SearchInput', () => {
+describe('ColorInput', () => {
   const baseProps = { label: 'Car color', pickerLabel: 'Pick car color' };
 
   it('should forward a ref', () => {
