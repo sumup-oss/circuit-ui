@@ -167,7 +167,7 @@ export const NotificationBanner = forwardRef<
     ) {
       deprecate(
         'NotificationBanner',
-        "The action's `tertiary` variant has been deprecated. Use the `secondary` variant instead.",
+        "The action's `tertiary` variant has been deprecated. Use the `primary` variant instead.",
       );
     }
 
