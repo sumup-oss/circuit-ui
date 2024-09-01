@@ -75,7 +75,7 @@
     "eslint-plugin-storybook": "^0.8.0",
     "eslint-plugin-testing-library": "^6.3.0",
     "github-slugger": "^2.0.0",
-    "jsdom": "^24.0.0",
+    "jsdom": "^25.0.0",
     "lerna": "^8.1.8",
     "license-checker": "^25.0.1",
     "prettier-plugin-astro": "^0.14.1",
