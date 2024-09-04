@@ -15,19 +15,19 @@
     "lint:css": "foundry run stylelint '**/*.css'"
   },
   "dependencies": {
-    "@astrojs/react": "^3.6.1",
+    "@astrojs/react": "^3.6.2",
     "@sumup-oss/circuit-ui": "^9.0.0-next.0",
     "@sumup-oss/design-tokens": "^8.0.0-next.0",
     "@sumup-oss/icons": "^5.0.0-next.0",
     "@sumup-oss/intl": "^2.0.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "astro": "^4.13.0",
+    "astro": "^4.15.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@sumup-oss/foundry": "^8.1.1",
+    "@sumup-oss/foundry": "^8.2.0",
     "@sumup-oss/eslint-plugin-circuit-ui": "^5.0.0-next.0",
     "@sumup-oss/stylelint-plugin-circuit-ui": "^3.0.0-next.0",
     "prettier-plugin-astro": "^0.14.1",

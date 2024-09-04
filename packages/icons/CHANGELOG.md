@@ -13,6 +13,12 @@
 
   [Circuit UI's ESLint plugin](https://circuit.sumup.com/?path=/docs/packages-eslint-plugin-circuit-ui--docs) offers the `renamed-package-scope` rule to automate updating the package imports.
 
+## 4.1.0
+
+### Minor Changes
+
+- [#2649](https://github.com/sumup-oss/circuit-ui/pull/2649) [`2ced130`](https://github.com/sumup-oss/circuit-ui/commit/2ced13049997449b6c4670c0b119c6daa95344be) Thanks [@ituraj](https://github.com/ituraj)! - Added `Expenses` icon in size 24. Added `ReceiptSmart` and `ReceiptUnreviewed` in size 24. Updated `ReceiptAttached` and `ReceiptMissing` in size 24.
+
 ## 4.0.0
 
 ### Major Changes
