@@ -41,10 +41,20 @@ export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
     | 'two';
   /**
    * Choose from two font weights. Default: `regular`.
+   *
+   * Use the `as` prop to render the component as the `strong` HTML element
+   * if appropriate.
    */
   weight?: 'regular' | 'bold';
   /**
-   * Choose a foreground color. Default: `normal`.
+   * Choose a style or text decoration. Underline is reserved for hyperlinks.
+   *
+   * Use the `as` prop to render the component as the `em` or `del` HTML
+   * elements if appropriate.
+   */
+  decoration?: 'italic' | 'strikethrough';
+  /**
+   * Choose a foreground color token name. Default: `normal`.
    */
   color?:
     | 'normal'
@@ -95,6 +105,7 @@ export const Body = forwardRef<HTMLParagraphElement, BodyProps>(
       as,
       size: legacySize = 'm',
       weight = 'regular',
+      decoration,
       color = 'normal',
       variant,
       ...props
@@ -144,6 +155,7 @@ export const Body = forwardRef<HTMLParagraphElement, BodyProps>(
           classes[size],
           classes[weight],
           classes[color],
+          decoration && classes[decoration],
           variant && classes[variant],
           className,
         )}

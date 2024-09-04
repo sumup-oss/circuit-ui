@@ -51,6 +51,15 @@ export const Weights = (args: BodyProps) =>
     </Body>
   ));
 
+const decorations = ['italic', 'strikethrough'] as const;
+
+export const Decorations = (args: BodyProps) =>
+  decorations.map((decoration) => (
+    <Body key={decoration} {...args} decoration={decoration}>
+      {content}
+    </Body>
+  ));
+
 const colors = [
   'normal',
   'subtle',
