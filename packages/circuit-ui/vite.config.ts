@@ -95,7 +95,6 @@ export default defineConfig({
         // Subfolder imports
         'react/jsx-runtime',
         '@emotion/react/jsx-runtime',
-        'react-dates/initialize.js',
       ],
     },
   },
