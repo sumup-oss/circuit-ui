@@ -95,7 +95,7 @@
 
 .label {
   display: block;
-  margin-left: var(--cui-spacings-kilo);
+  padding-left: var(--cui-spacings-kilo);
   font-size: var(--cui-typography-body-one-font-size);
   font-weight: var(--cui-font-weight-regular);
   line-height: var(--cui-typography-body-one-line-height);
@@ -104,8 +104,8 @@
 
 @media (max-width: 479px) {
   .label {
-    margin-right: var(--cui-spacings-kilo);
-    margin-left: 0;
+    padding-right: var(--cui-spacings-kilo);
+    padding-left: 0;
   }
 }
 

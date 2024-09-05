@@ -41,13 +41,13 @@ export interface ToggleProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    */
   checked?: boolean;
   /**
-   * Label for the 'on' state. Important for accessibility.
+   * @deprecated This prop is no longer needed.
    */
-  checkedLabel: string;
+  checkedLabel?: string;
   /**
-   * Label for the 'off' state. Important for accessibility.
+   * @deprecated This prop is no longer needed.
    */
-  uncheckedLabel: string;
+  uncheckedLabel?: string;
 }
 
 /**
@@ -79,19 +79,6 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
           'The `label` prop is missing or invalid.',
         );
       }
-
-      if (!isSufficientlyLabelled(checkedLabel)) {
-        throw new AccessibilityError(
-          'Toggle',
-          'The `checkedLabel` prop is missing or invalid.',
-        );
-      }
-      if (!isSufficientlyLabelled(uncheckedLabel)) {
-        throw new AccessibilityError(
-          'Toggle',
-          'The `checkedLabel` prop is missing or invalid.',
-        );
-      }
     }
 
     const switchId = useId();
@@ -121,9 +108,6 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
           ref={ref}
         >
           <span className={classes.knob} />
-          <span className={utilClasses.hideVisually}>
-            {checked ? checkedLabel : uncheckedLabel}
-          </span>
         </button>
         <label className={classes.label} id={labelId} htmlFor={switchId}>
           {label}
@@ -134,9 +118,9 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
           )}
         </label>
         {description && (
-          <p id={descriptionId} className={utilClasses.hideVisually}>
+          <span id={descriptionId} className={utilClasses.hideVisually}>
             {description}
-          </p>
+          </span>
         )}
       </FieldWrapper>
     );
