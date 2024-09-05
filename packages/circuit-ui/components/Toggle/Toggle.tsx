@@ -24,6 +24,7 @@ import {
 import { FieldDescription, FieldWrapper } from '../Field/index.js';
 import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';
+import { deprecate } from '../../util/logger.js';
 
 import classes from './Toggle.module.css';
 
@@ -41,13 +42,13 @@ export interface ToggleProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    */
   checked?: boolean;
   /**
-   * Label for the 'on' state. Important for accessibility.
+   * @deprecated This prop is no longer needed.
    */
-  checkedLabel: string;
+  checkedLabel?: string;
   /**
-   * Label for the 'off' state. Important for accessibility.
+   * @deprecated This prop is no longer needed.
    */
-  uncheckedLabel: string;
+  uncheckedLabel?: string;
 }
 
 /**
@@ -71,25 +72,29 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
   ) => {
     if (
       process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !isSufficientlyLabelled(label)
+    ) {
+      throw new AccessibilityError(
+        'Toggle',
+        'The `label` prop is missing or invalid.',
+      );
+    }
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test'
     ) {
-      if (!isSufficientlyLabelled(label)) {
-        throw new AccessibilityError(
+      if (checkedLabel) {
+        deprecate(
           'Toggle',
-          'The `label` prop is missing or invalid.',
+          'The `checkedLabel` prop is deprecated and can be removed.',
         );
       }
-
-      if (!isSufficientlyLabelled(checkedLabel)) {
-        throw new AccessibilityError(
+      if (uncheckedLabel) {
+        deprecate(
           'Toggle',
-          'The `checkedLabel` prop is missing or invalid.',
-        );
-      }
-      if (!isSufficientlyLabelled(uncheckedLabel)) {
-        throw new AccessibilityError(
-          'Toggle',
-          'The `checkedLabel` prop is missing or invalid.',
+          'The `uncheckedLabel` prop is deprecated and can be removed.',
         );
       }
     }
@@ -121,9 +126,6 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
           ref={ref}
         >
           <span className={classes.knob} />
-          <span className={utilClasses.hideVisually}>
-            {checked ? checkedLabel : uncheckedLabel}
-          </span>
         </button>
         <label className={classes.label} id={labelId} htmlFor={switchId}>
           {label}
@@ -134,9 +136,9 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
           )}
         </label>
         {description && (
-          <p id={descriptionId} className={utilClasses.hideVisually}>
+          <span id={descriptionId} className={utilClasses.hideVisually}>
             {description}
-          </p>
+          </span>
         )}
       </FieldWrapper>
     );
