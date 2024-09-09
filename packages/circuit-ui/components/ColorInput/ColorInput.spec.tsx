@@ -40,7 +40,7 @@ describe('ColorInput', () => {
   describe('Labeling', () => {
     const HEX_SYMBOL = '#';
 
-    it('should have the currency symbol as part of its accessible description', () => {
+    it('should have the hex symbol as part of its accessible description', () => {
       render(<ColorInput {...baseProps} />);
       expect(screen.getByRole('textbox')).toHaveAccessibleDescription(
         HEX_SYMBOL,
