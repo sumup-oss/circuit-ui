@@ -26,7 +26,12 @@ import {
 import { classes as inputClasses } from '../Input/index.js';
 import type { InputElement, InputProps } from '../Input/index.js';
 import { clsx } from '../../styles/clsx.js';
-import { FieldLabel, FieldLabelText, FieldWrapper } from '../Field/index.js';
+import {
+  FieldLabelText,
+  FieldLegend,
+  FieldSet,
+  FieldValidationHint,
+} from '../Field/index.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 
 import classes from './ColorInput.module.css';
@@ -56,11 +61,6 @@ export interface ColorInputProps
    * The default value of the input element.
    */
   defaultValue?: string;
-  /*
-   * Picker label describes the color picker which serves as an alternative
-   * to the hex color input.
-   */
-  pickerLabel: string;
 }
 
 export const ColorInput = forwardRef<InputElement, ColorInputProps>(
@@ -72,13 +72,14 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
       defaultValue,
       disabled,
       hasWarning,
+      showValid,
       hideLabel,
       id,
       invalid,
       label,
       onChange,
       optionalLabel,
-      pickerLabel,
+      validationHint,
       readOnly,
       required,
       style,
@@ -92,12 +93,11 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
     );
     const colorPickerRef = useRef<InputElement>(null);
 
+    const labelId = useId();
     const pickerId = useId();
-    const hexSymbolId = useId();
-    const inputFallbackId = useId();
-    const inputId = id || inputFallbackId;
+    const validationHintId = useId();
 
-    const descriptionIds = clsx(hexSymbolId, descriptionId);
+    const descriptionIds = clsx(validationHintId, descriptionId);
 
     const suffix = RenderSuffix && (
       <RenderSuffix className={inputClasses.suffix} />
@@ -120,32 +120,37 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
     };
 
     return (
-      <FieldWrapper className={className} style={style} disabled={disabled}>
-        <FieldLabel htmlFor={inputId}>
+      <FieldSet
+        className={className}
+        style={style}
+        disabled={disabled}
+        aria-orientation="horizontal"
+      >
+        <FieldLegend id={labelId}>
           <FieldLabelText
             label={label}
             hideLabel={hideLabel}
             optionalLabel={optionalLabel}
             required={required}
           />
-        </FieldLabel>
+        </FieldLegend>
         <div className={classes.wrapper}>
-          <FieldLabel htmlFor={pickerId} className={classes.picker}>
-            <FieldLabelText label={pickerLabel} hideLabel />
+          <label htmlFor={pickerId} className={classes.picker}>
             <input
-              type="color"
               id={pickerId}
+              type="color"
+              aria-labelledby={labelId}
+              aria-describedby={descriptionIds}
               className={classes['color-input']}
               onChange={onPickerColorChange}
               ref={applyMultipleRefs(colorPickerRef, ref)}
               readOnly={readOnly}
             />
-          </FieldLabel>
-          <span className={classes.symbol} id={hexSymbolId}>
-            #
-          </span>
+          </label>
+          <span className={classes.symbol}>#</span>
           <input
-            id={inputId}
+            id={id}
+            aria-labelledby={labelId}
             aria-describedby={descriptionIds}
             className={clsx(
               inputClasses.base,
@@ -164,7 +169,15 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
             {...props}
           />
         </div>
-      </FieldWrapper>
+        <FieldValidationHint
+          id={validationHintId}
+          disabled={disabled}
+          invalid={invalid}
+          hasWarning={hasWarning}
+          showValid={showValid}
+          validationHint={validationHint}
+        />
+      </FieldSet>
     );
   },
 );
