@@ -38,6 +38,8 @@ import { clsx } from '../../styles/clsx.js';
 
 import classes from './Input.module.css';
 
+export { classes };
+
 export type InputElement = HTMLInputElement & HTMLTextAreaElement;
 type CircuitInputHTMLAttributes = InputHTMLAttributes<HTMLInputElement> &
   TextareaHTMLAttributes<HTMLTextAreaElement>;

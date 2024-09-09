@@ -23,13 +23,13 @@ import {
   type ChangeEventHandler,
 } from 'react';
 
+import { classes as inputClasses } from '../Input/index.js';
 import type { InputElement, InputProps } from '../Input/index.js';
 import { clsx } from '../../styles/clsx.js';
 import { FieldLabel, FieldLabelText, FieldWrapper } from '../Field/index.js';
 import { applyMultipleRefs } from '../../util/refs.js';
-import classes from '../Input/Input.module.css';
 
-import styles from './ColorInput.module.css';
+import classes from './ColorInput.module.css';
 
 export interface ColorInputProps
   extends Omit<
@@ -99,7 +99,9 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
 
     const descriptionIds = clsx(hexSymbolId, descriptionId);
 
-    const suffix = RenderSuffix && <RenderSuffix className={classes.suffix} />;
+    const suffix = RenderSuffix && (
+      <RenderSuffix className={inputClasses.suffix} />
+    );
 
     const hasSuffix = Boolean(suffix);
 
@@ -127,29 +129,29 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
             required={required}
           />
         </FieldLabel>
-        <div className={styles.wrapper}>
-          <FieldLabel htmlFor={pickerId} className={styles.picker}>
+        <div className={classes.wrapper}>
+          <FieldLabel htmlFor={pickerId} className={classes.picker}>
             <FieldLabelText label={pickerLabel} hideLabel />
             <input
               type="color"
               id={pickerId}
-              className={styles['color-input']}
+              className={classes['color-input']}
               onChange={onPickerColorChange}
               ref={applyMultipleRefs(colorPickerRef, ref)}
               readOnly={readOnly}
             />
           </FieldLabel>
-          <span className={styles.symbol} id={hexSymbolId}>
+          <span className={classes.symbol} id={hexSymbolId}>
             #
           </span>
           <input
             id={inputId}
             aria-describedby={descriptionIds}
             className={clsx(
-              classes.base,
-              !disabled && hasWarning && classes.warning,
-              hasSuffix && classes['has-suffix'],
-              styles.input,
+              inputClasses.base,
+              !disabled && hasWarning && inputClasses.warning,
+              hasSuffix && inputClasses['has-suffix'],
+              classes.input,
             )}
             aria-invalid={invalid && 'true'}
             required={required}
