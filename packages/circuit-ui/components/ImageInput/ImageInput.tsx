@@ -33,6 +33,7 @@ import {
   FieldWrapper,
   FieldLabel,
   FieldValidationHint,
+  FieldLabelText,
 } from '../Field/index.js';
 import { IconButton } from '../Button/index.js';
 import { Spinner } from '../Spinner/index.js';
@@ -89,6 +90,16 @@ export interface ImageInputProps
    * An information or error message, displayed below the input.
    */
   validationHint?: string;
+  /**
+   * Label to indicate that the input is optional. Only displayed when the
+   * `required` prop is falsy.
+   */
+  optionalLabel?: string;
+  /**
+   * Visually hide the label. This should only be used in rare cases and only
+   * if the purpose of the field can be inferred from other context.
+   */
+  hideLabel?: boolean;
 }
 
 /**
@@ -103,8 +114,11 @@ export const ImageInput = ({
   onClear,
   disabled,
   validationHint,
+  required,
   invalid = false,
   loadingLabel,
+  optionalLabel,
+  hideLabel,
   'component': Component,
   className,
   style,
@@ -240,6 +254,7 @@ export const ImageInput = ({
           accept="image/*"
           onChange={handleInputChange}
           onClick={handleClick}
+          required={required}
           disabled={disabled || isLoading}
           aria-invalid={invalid && 'true'}
           aria-describedby={descriptionIds}
@@ -257,7 +272,12 @@ export const ImageInput = ({
             isDragging && classes.dragging,
           )}
         >
-          <span className={utilClasses.hideVisually}>{label}</span>
+          <FieldLabelText
+            label={label}
+            hideLabel={hideLabel}
+            required={required}
+            optionalLabel={optionalLabel}
+          />
           <Component src={src || previewImage} aria-hidden="true" />
         </FieldLabel>
         {src ? (
