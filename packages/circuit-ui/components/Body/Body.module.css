@@ -28,6 +28,16 @@
   font-weight: var(--cui-font-weight-bold);
 }
 
+/* Decorations & styles */
+
+.italic {
+  font-style: italic;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
 /* Colors */
 
 .normal {
