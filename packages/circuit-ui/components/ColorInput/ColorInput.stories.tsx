@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2024, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,6 +13,21 @@
  * limitations under the License.
  */
 
-export { Input, classes } from './Input.js';
+import { ColorInput, type ColorInputProps } from './ColorInput.js';
 
-export type { InputProps, InputElement } from './Input.js';
+export default {
+  title: 'Forms/Input/ColorInput',
+  component: ColorInput,
+};
+
+const baseArgs = {
+  label: 'Color',
+  pickerLabel: 'Pick color',
+  placeholder: '99ffbb',
+};
+
+export const Base = (args: ColorInputProps) => (
+  <ColorInput {...args} style={{ maxWidth: '250px' }} />
+);
+
+Base.args = baseArgs;
