@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 8.13.0
+
+### Minor Changes
+
+- [#2679](https://github.com/sumup-oss/circuit-ui/pull/2679) [`ce178f8`](https://github.com/sumup-oss/circuit-ui/commit/ce178f8b6463e4c3a93fc3a5551af8cae05247a2) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the Toggle component's `checkedLabel` and `uncheckedLabel` props since they are no longer needed.
+
+- [#2655](https://github.com/sumup-oss/circuit-ui/pull/2655) [`5c62949`](https://github.com/sumup-oss/circuit-ui/commit/5c629491b1bb8f7fe1eeeca5cff4918eefdb91f9) Thanks [@matoous](https://github.com/matoous)! - Added an experimental ColorInput component that enables users to type or select a color.
+
 ## 8.12.1
 
 ### Patch Changes
