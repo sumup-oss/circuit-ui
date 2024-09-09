@@ -82,6 +82,7 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
       validationHint,
       readOnly,
       required,
+      inputClassName,
       style,
       value,
       ...props
@@ -120,12 +121,7 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
     };
 
     return (
-      <FieldSet
-        className={className}
-        style={style}
-        disabled={disabled}
-        aria-orientation="horizontal"
-      >
+      <FieldSet className={className} style={style} disabled={disabled}>
         <FieldLegend id={labelId}>
           <FieldLabelText
             label={label}
@@ -150,6 +146,7 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
           <span className={classes.symbol}>#</span>
           <input
             id={id}
+            type="text"
             aria-labelledby={labelId}
             aria-describedby={descriptionIds}
             className={clsx(
@@ -157,6 +154,7 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
               !disabled && hasWarning && inputClasses.warning,
               hasSuffix && inputClasses['has-suffix'],
               classes.input,
+              inputClassName,
             )}
             aria-invalid={invalid && 'true'}
             required={required}

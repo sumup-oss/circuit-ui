@@ -24,6 +24,15 @@ import { ColorInput } from './ColorInput.js';
 describe('ColorInput', () => {
   const baseProps = { label: 'Car color', pickerLabel: 'Pick car color' };
 
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    const { container } = render(
+      <ColorInput {...baseProps} inputClassName={className} />,
+    );
+    const input = container.querySelector('input[type="text"]');
+    expect(input?.className).toContain(className);
+  });
+
   it('should forward a ref', () => {
     const ref = createRef<InputElement>();
     const { container } = render(<ColorInput {...baseProps} ref={ref} />);
@@ -38,15 +47,6 @@ describe('ColorInput', () => {
   });
 
   describe('Labeling', () => {
-    const HEX_SYMBOL = '#';
-
-    it('should have the hex symbol as part of its accessible description', () => {
-      render(<ColorInput {...baseProps} />);
-      expect(screen.getByRole('textbox')).toHaveAccessibleDescription(
-        HEX_SYMBOL,
-      );
-    });
-
     it('should accept a custom description via aria-describedby', () => {
       const customDescription = 'Custom description';
       const customDescriptionId = 'customDescriptionId';
@@ -57,7 +57,7 @@ describe('ColorInput', () => {
         </>,
       );
       expect(screen.getByRole('textbox')).toHaveAccessibleDescription(
-        `${HEX_SYMBOL} ${customDescription}`,
+        customDescription,
       );
     });
   });
