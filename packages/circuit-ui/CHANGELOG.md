@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.13.1
+
+### Patch Changes
+
+- [#2682](https://github.com/sumup-oss/circuit-ui/pull/2682) [`032b696`](https://github.com/sumup-oss/circuit-ui/commit/032b696ead332d5fa52cf22a62e91c77bf7e0d5f) Thanks [@matoous](https://github.com/matoous)! - Added the missing exports for the experimental ColorInput component.
+
 ## 8.13.0
 
 ### Minor Changes
