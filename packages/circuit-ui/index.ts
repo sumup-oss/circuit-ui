@@ -46,8 +46,6 @@ export { RadioButtonGroup } from './components/RadioButtonGroup/index.js';
 export type { RadioButtonGroupProps } from './components/RadioButtonGroup/index.js';
 export { SearchInput } from './components/SearchInput/index.js';
 export type { SearchInputProps } from './components/SearchInput/index.js';
-export { ColorInput } from './components/ColorInput/index.js';
-export type { ColorInputProps } from './components/ColorInput/index.js';
 export { DateInput } from './components/DateInput/index.js';
 export type { DateInputProps } from './components/DateInput/index.js';
 export { Select } from './components/Select/index.js';
