@@ -13,10 +13,11 @@
  * limitations under the License.
  */
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
+import { userEvent } from '@storybook/test';
 
-import { render, axe, screen } from '../../util/test-utils.js';
+import { render, axe, screen, fireEvent } from '../../util/test-utils.js';
 import type { InputElement } from '../Input/index.js';
 
 import { ColorInput } from './ColorInput.js';
@@ -59,6 +60,118 @@ describe('ColorInput', () => {
       expect(screen.getByRole('textbox')).toHaveAccessibleDescription(
         customDescription,
       );
+    });
+  });
+
+  it('should set value and default value on both inputs', () => {
+    const { container } = render(
+      <ColorInput {...baseProps} defaultValue="#ff11bb" />,
+    );
+    const colorPicker = container.querySelector(
+      "input[type='color']",
+    ) as HTMLInputElement;
+    const colorInput = container.querySelector(
+      "input[type='text']",
+    ) as HTMLInputElement;
+    expect(colorPicker.value).toBe('#ff11bb');
+    expect(colorInput.value).toBe('ff11bb');
+  });
+
+  describe('Synchronization', () => {
+    it('should update text input if color input changes', async () => {
+      const { container } = render(<ColorInput {...baseProps} />);
+      const colorPicker = container.querySelector(
+        "input[type='color']",
+      ) as HTMLInputElement;
+      const newValue = '#00ff00';
+
+      fireEvent.input(colorPicker, { target: { value: newValue } });
+
+      const colorInput = container.querySelector(
+        "input[type='text']",
+      ) as HTMLInputElement;
+      expect(colorInput.value).toBe(newValue.replace('#', ''));
+    });
+
+    it('should update color input if text input changes', async () => {
+      const { container } = render(<ColorInput {...baseProps} />);
+      const colorInput = container.querySelector(
+        "input[type='text']",
+      ) as HTMLInputElement;
+      const newValue = '00ff00';
+
+      await userEvent.type(colorInput, newValue);
+
+      const colorPicker = container.querySelector(
+        "input[type='color']",
+      ) as HTMLInputElement;
+      expect(colorPicker.value).toBe(`#${newValue}`);
+    });
+  });
+
+  describe('OnChange events', () => {
+    it('should trigger onChange event when color picker changes', async () => {
+      const onChange = vi.fn();
+      const { container } = render(
+        <ColorInput {...baseProps} onChange={onChange} />,
+      );
+
+      const colorPicker = container.querySelector(
+        "input[type='color']",
+      ) as HTMLInputElement;
+
+      fireEvent.input(colorPicker, { target: { value: '#00ff00' } });
+
+      expect(onChange).toHaveBeenCalledTimes(1);
+    });
+
+    it('should trigger onChange event when color hex input changes', async () => {
+      const onChange = vi.fn();
+      const { container } = render(
+        <ColorInput {...baseProps} onChange={onChange} />,
+      );
+
+      const colorInput = container.querySelector(
+        "input[type='text']",
+      ) as HTMLInputElement;
+
+      await userEvent.type(colorInput, '00ff00');
+
+      expect(onChange).toHaveBeenCalled();
+    });
+  });
+
+  describe('Paste', () => {
+    it('should handle paste events', async () => {
+      const { container } = render(<ColorInput {...baseProps} />);
+      const colorInput = container.querySelector(
+        "input[type='text']",
+      ) as HTMLInputElement;
+
+      await userEvent.click(colorInput);
+      await userEvent.paste('#00ff00');
+
+      const colorPicker = container.querySelector(
+        "input[type='color']",
+      ) as HTMLInputElement;
+      expect(colorPicker.value).toBe('#00ff00');
+      expect(colorInput.value).toBe('00ff00');
+    });
+
+    it('should ignore invalid paste event', async () => {
+      const { container } = render(<ColorInput {...baseProps} />);
+      const colorInput = container.querySelector(
+        "input[type='text']",
+      ) as HTMLInputElement;
+
+      await userEvent.click(colorInput);
+      await userEvent.paste('oviously invalid');
+
+      const colorPicker = container.querySelector(
+        "input[type='color']",
+      ) as HTMLInputElement;
+      expect(colorPicker.value).toBe('#000000');
+      expect(colorInput.value).toBe('');
     });
   });
 });
