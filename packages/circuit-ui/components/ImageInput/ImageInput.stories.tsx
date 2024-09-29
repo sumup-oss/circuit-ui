@@ -22,7 +22,7 @@ import type { ImageInputProps } from './ImageInput.js';
 import { ImageInput } from './index.js';
 
 export default {
-  title: 'Forms/ImageInput',
+  title: 'Forms/Input/ImageInput',
   component: ImageInput,
 };
 
