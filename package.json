@@ -73,7 +73,7 @@
     "eslint-import-resolver-typescript": "^3.6.3",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react-server-components": "^1.2.0",
-    "eslint-plugin-storybook": "^0.8.0",
+    "eslint-plugin-storybook": "^0.9.0",
     "eslint-plugin-testing-library": "^6.3.0",
     "github-slugger": "^2.0.0",
     "jsdom": "^24.0.0",
