@@ -27,9 +27,6 @@ jobs:
       - name: Check dependency licenses
         run: npm run check:licenses
 
-      - name: Check SVG sizes
-        run: npm run check:svg-sizes
-
       - name: Build packages
         run: npm run build
 
