@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 4.1.1
+
+### Patch Changes
+
+- [#2708](https://github.com/sumup-oss/circuit-ui/pull/2708) [`f7b96c6`](https://github.com/sumup-oss/circuit-ui/commit/f7b96c69b794428ad755f38b8ea13b0902a3549e) Thanks [@voronianski](https://github.com/voronianski)! - Updated `Conecs` and `Swile` icons to the latest logo versions (24px size only).
+
 ## 4.1.0
 
 ### Minor Changes
