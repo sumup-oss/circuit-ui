@@ -1,46 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32">
+    <g clip-path="url(#swile_32_svg__a)">
+        <mask id="swile_32_svg__b" width="33" height="32" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:luminance">
+            <path fill="#fff" d="M32 0H0v32h32z"/>
+        </mask>
+        <g mask="url(#swile_32_svg__b)">
+            <path fill="#000" d="M24 0H8a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8h16a8 8 0 0 0 8-8V8a8 8 0 0 0-8-8"/>
+            <mask id="swile_32_svg__c" width="33" height="32" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:luminance">
+                <path fill="#fff" d="M25.943 0H6.057A6.057 6.057 0 0 0 0 6.057v19.886A6.057 6.057 0 0 0 6.057 32h19.886A6.057 6.057 0 0 0 32 25.943V6.057A6.057 6.057 0 0 0 25.943 0"/>
+            </mask>
+            <g mask="url(#swile_32_svg__c)">
+                <path fill="url(#swile_32_svg__d)" fill-rule="evenodd" d="M0 6.567A6.57 6.57 0 0 1 6.572 0h18.857A6.57 6.57 0 0 1 32 6.567v18.866A6.57 6.57 0 0 1 25.43 32H6.572A6.57 6.57 0 0 1 0 25.433zM6.572.907a5.66 5.66 0 0 0-5.657 5.66v18.866a5.66 5.66 0 0 0 5.657 5.66h18.857a5.66 5.66 0 0 0 5.657-5.66V6.567a5.66 5.66 0 0 0-5.657-5.66z" clip-rule="evenodd"/>
+            </g>
+            <mask id="swile_32_svg__e" width="19" height="7" x="6" y="12" maskUnits="userSpaceOnUse" style="mask-type:luminance">
+                <path fill="#fff" d="M24.915 12.856H6.94v6.143h17.975z"/>
+            </mask>
+            <g mask="url(#swile_32_svg__e)">
+                <path fill="#fff" fill-rule="evenodd" d="M18.167 14.048c.345 0 .636-.242.636-.597 0-.325-.277-.596-.636-.596-.374 0-.636.264-.636.596 0 .366.276.597.636.597m-9.207 4.95c.97 0 1.783-.434 1.783-1.41 0-.805-.697-1.13-1.69-1.325q-.065-.013-.14-.025-.07-.011-.147-.03l-.029-.007c-.33-.07-.676-.182-.676-.49 0-.318.346-.442.673-.442.46 0 .812.208.916.665l.917-.256c-.237-.833-.967-1.236-1.83-1.236-.88 0-1.668.38-1.668 1.31 0 .9.708 1.119 1.453 1.276l.046.01.047.012q.036.006.072.014c.543.117 1.024.271 1.024.604 0 .38-.406.504-.765.504-.504 0-.895-.241-1.04-.727l-.97.263c.248.918 1.15 1.29 2.024 1.29m9.717-4.46v4.432h-1.031v-4.432zm-3.095 4.46c.291-.003.827-.116 1.079-.866.122-.387.154-.728.176-1.35q0-.022.003-.04l.004-.04c0-.022.004-.04.004-.062l.003-.04c.036-.549.105-1.046.295-1.046v-1.016c-.306 0-.863.117-1.125.9-.123.387-.151.866-.184 1.327v.073c-.007.117-.014.267-.028.417l-.004.036-.004.037c-.032.34-.097.669-.222.669-.12 0-.191-.282-.234-.596l-.004-.037-.01-.091-.004-.037-.004-.036a15 15 0 0 1-.032-.413c-.022-.458-.054-.97-.184-1.357-.251-.775-.801-.892-1.107-.892s-.84.117-1.093.892c-.122.388-.154.9-.176 1.357-.007.113-.014.26-.032.413l-.004.036c-.04.373-.111.76-.255.76s-.234-.361-.28-.709l-.004-.036-.004-.037a5 5 0 0 1-.035-.424 65 65 0 0 1-.04-2.245h-1.003v.238c0 .764.004 1.32.04 2.01.032.604.122 1.061.215 1.332.19.589.575.885 1.118.885.536 0 .957-.34 1.111-.885.108-.402.155-.867.176-1.331l.011-.132c.007-.113.018-.245.032-.38l.004-.037c.036-.344.1-.684.23-.684.126 0 .194.308.23.63l.004.036.003.037.004.036c.014.157.025.311.032.432 0 .021.004.04.004.062v.003c.021.465.047.933.176 1.328.252.775.82.885 1.125.885zm4.634-2.285c0 .713.144 1.163.514 1.664l-.837.622c-.497-.68-.712-1.35-.712-2.286v-3.74h1.031v3.74zM22.844 19c.985 0 1.636-.589 1.913-1.295l-.95-.256c-.143.38-.474.618-.941.618-.583 0-1.093-.45-1.126-1.148h3.16c.123-1.324-.643-2.48-2.063-2.48-1.27 0-2.118.992-2.118 2.272 0 1.265.849 2.289 2.125 2.289m-.018-3.697c-.529 0-.97.34-1.071.837h2.142c-.075-.45-.503-.837-1.071-.837" clip-rule="evenodd"/>
+            </g>
+        </g>
+    </g>
     <defs>
-        <clipPath id="swile_32_svg__c">
-            <path d="M0 0h32v32H0z"/>
-        </clipPath>
-        <clipPath id="swile_32_svg__f">
-            <path d="M0 0h32v32H0z"/>
-        </clipPath>
-        <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAA/klEQVRYhe3XsWoCMRzH8X+SppOjUH2ADjf1QHTqq7hafY6+Q1/gnsKpwynUI07aDh3cugiiR04KSeivg5baodtxWf4/CGT7fjKG6Dy8Pl7DbSbwH3OExCIo1HsSC7+dwW3HMErT5XAcdOFzU3/0n+OXBaqs8/vyJuOXCKO0gNtMSN4+UYx9VWNJQg6jxImIhB0KhMQSvbfiCNJSICjEiZ8mY8YZwAAGMIABDGAAAxhwBiQ2Xr53kITpKlof07Uk6CweoJ0JGKXprpiTGPSbja8WNNvdn+5V1oFfFs39C99eUHVv/oKM0nCfD/D7HCEt6w+nJfw+h1MjPOdXP91vwavdWhnSNtUAAAAASUVORK5CYII=" id="swile_32_svg__b" width="32" height="32"/>
-        <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAAVUlEQVRYhWNgGAWjYBSMglEw0gEjLon/Dc1MDBUMChTb8H/XX0bOww9Jd8A7Zn4GPoYPFDuAwfMVI8sWcVyyTJRbQBkYdcCoA0bBKBgFo2AUjIIBBwDH3AwNwmp/5gAAAABJRU5ErkJggg==" id="swile_32_svg__e" width="32" height="32"/>
-        <mask id="swile_32_svg__h">
-            <g filter="url(#swile_32_svg__a)">
-                <use xlink:href="#swile_32_svg__b"/>
-            </g>
-        </mask>
-        <mask id="swile_32_svg__j">
-            <g filter="url(#swile_32_svg__a)">
-                <use xlink:href="#swile_32_svg__e"/>
-            </g>
-        </mask>
-        <g id="swile_32_svg__g" clip-path="url(#swile_32_svg__c)">
-            <path d="M0 6.566A6.57 6.57 0 0 1 6.57 0h18.86A6.567 6.567 0 0 1 32 6.566v18.868A6.567 6.567 0 0 1 25.43 32H6.57A6.57 6.57 0 0 1 0 25.434ZM6.57.906a5.66 5.66 0 0 0-5.656 5.66v18.868a5.66 5.66 0 0 0 5.656 5.66h18.86a5.66 5.66 0 0 0 5.656-5.66V6.566A5.66 5.66 0 0 0 25.43.906Zm0 0" style="stroke:none;fill-rule:evenodd;fill:url(#swile_32_svg__d)"/>
-        </g>
-        <g id="swile_32_svg__i" clip-path="url(#swile_32_svg__f)">
-            <path d="M18.168 14.047c.344 0 .637-.242.637-.594 0-.328-.278-.598-.637-.598-.375 0-.637.262-.637.598 0 .363.278.594.637.594M8.961 19c.969 0 1.781-.437 1.781-1.414 0-.805-.695-1.129-1.687-1.324-.043-.004-.09-.016-.14-.024a3 3 0 0 1-.15-.031l-.027-.004c-.332-.07-.675-.183-.675-.492 0-.316.343-.441.671-.441.461 0 .813.207.914.664l.918-.254c-.238-.836-.964-1.239-1.828-1.239-.883 0-1.668.383-1.668 1.309 0 .902.707 1.121 1.45 1.277l.093.024.075.012c.542.117 1.023.273 1.023.605 0 .379-.406.504-.766.504-.504 0-.894-.242-1.039-.727l-.968.262C7.184 18.625 8.086 19 8.96 19m9.715-4.46v4.429h-1.031v-4.43ZM15.582 19c.293-.004.828-.117 1.078-.867.121-.387.156-.73.176-1.352 0-.011 0-.027.004-.039l.004-.039q.002-.034.004-.062l.004-.04c.035-.55.105-1.046.293-1.046v-1.016c-.305 0-.864.117-1.125.899-.122.386-.149.867-.184 1.328v.07c-.008.117-.012.27-.027.418l-.004.035-.004.04c-.031.339-.098.667-.223.667-.117 0-.191-.281-.234-.594l-.004-.039a1 1 0 0 1-.008-.09l-.004-.039-.004-.035c-.015-.152-.027-.3-.035-.414-.02-.457-.05-.969-.184-1.355-.25-.774-.8-.89-1.105-.89s-.84.116-1.094.89c-.12.386-.152.898-.176 1.355-.007.113-.015.262-.03.414l-.005.035c-.039.375-.113.762-.254.762-.144 0-.234-.363-.28-.707l-.005-.039-.004-.035a4 4 0 0 1-.035-.426 61 61 0 0 1-.039-2.246h-1.004v.238c0 .766.004 1.32.04 2.012.03.605.12 1.062.214 1.332.192.59.574.883 1.117.883.54 0 .957-.34 1.114-.883.105-.402.152-.867.175-1.332l.012-.133q.01-.171.031-.379l.004-.035c.035-.344.102-.683.23-.683.126 0 .192.304.231.628l.004.036c0 .011.004.027.004.035v.039c.016.156.027.308.035.43 0 .023.004.042.004.062v.004c.02.465.047.933.176 1.328.25.773.82.883 1.125.883Zm4.633-2.285c0 .71.144 1.16.515 1.664l-.84.621c-.495-.68-.71-1.352-.71-2.285v-3.742h1.03v3.742ZM22.844 19c.984 0 1.636-.59 1.914-1.297l-.95-.254c-.144.38-.476.617-.945.617-.582 0-1.09-.449-1.125-1.148h3.16c.125-1.324-.64-2.48-2.062-2.48-1.27 0-2.117.992-2.117 2.273 0 1.266.847 2.289 2.125 2.289m-.02-3.7c-.527 0-.969.34-1.07.84h2.144c-.078-.453-.503-.84-1.074-.84m0 0" style="stroke:none;fill-rule:evenodd;fill:#fff;fill-opacity:1"/>
-        </g>
-        <linearGradient id="swile_32_svg__d" x1="2.443" x2="21.756" y1="2" y2="22.223" gradientTransform="scale(1.33333)" gradientUnits="userSpaceOnUse">
-            <stop offset="0" style="stop-color:#a51cf1;stop-opacity:1"/>
-            <stop offset=".12" style="stop-color:#336dff;stop-opacity:1"/>
-            <stop offset=".245" style="stop-color:#31bbfd;stop-opacity:1"/>
-            <stop offset=".365" style="stop-color:#3ceaff;stop-opacity:1"/>
-            <stop offset=".49" style="stop-color:#00eab2;stop-opacity:1"/>
-            <stop offset=".615" style="stop-color:#b0e836;stop-opacity:1"/>
-            <stop offset=".74" style="stop-color:#ffda19;stop-opacity:1"/>
-            <stop offset=".875" style="stop-color:#ff8d40;stop-opacity:1"/>
-            <stop offset="1" style="stop-color:#ff2055;stop-opacity:1"/>
+        <linearGradient id="swile_32_svg__d" x1="3.257" x2="29.009" y1="2.667" y2="29.63" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#A51CF1"/>
+            <stop offset=".12" stop-color="#336DFF"/>
+            <stop offset=".245" stop-color="#31BBFD"/>
+            <stop offset=".365" stop-color="#3CEAFF"/>
+            <stop offset=".49" stop-color="#00EAB2"/>
+            <stop offset=".615" stop-color="#B0E836"/>
+            <stop offset=".74" stop-color="#FFDA19"/>
+            <stop offset=".875" stop-color="#FF8D40"/>
+            <stop offset="1" stop-color="#FF2055"/>
         </linearGradient>
-        <filter id="swile_32_svg__a" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
-            <feColorMatrix in="SourceGraphic" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
-        </filter>
+        <clipPath id="swile_32_svg__a">
+            <path fill="#fff" d="M0 0h32v32H0z"/>
+        </clipPath>
     </defs>
-    <path d="M0 0h32v32H0z" style="fill:#fff;fill-opacity:1;stroke:none"/>
-    <path d="M8 0h16a8 8 0 0 1 8 8v16a8 8 0 0 1-8 8H8a8 8 0 0 1-8-8V8a8 8 0 0 1 8-8m0 0" style="stroke:none;fill-rule:nonzero;fill:#000;fill-opacity:1"/>
-    <use xlink:href="#swile_32_svg__g" mask="url(#swile_32_svg__h)"/>
-    <use xlink:href="#swile_32_svg__i" mask="url(#swile_32_svg__j)"/>
 </svg>
