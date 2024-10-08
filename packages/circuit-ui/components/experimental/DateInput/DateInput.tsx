@@ -74,19 +74,19 @@ export interface DateInputProps
       | 'modifiers'
     > {
   /**
-   * TODO:
+   * Label for the trailing button that opens the calendar dialog.
    */
   openCalendarButtonLabel: string;
   /**
-   * TODO:
+   * Label for the button to close the calendar dialog.
    */
   closeCalendarButtonLabel: string;
   /**
-   * TODO:
+   * Label for the button to apply the selected date and close the calendar dialog.
    */
   applyDateButtonLabel: string;
   /**
-   * TODO:
+   * Label for the button to clear the date value and close the calendar dialog.
    */
   clearDateButtonLabel: string;
   /**
@@ -95,10 +95,10 @@ export interface DateInputProps
    */
   value?: string;
   /**
-   * TODO:
+   * Callback when the date changes. Called with the date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
+   * format (`YYYY-MM-DD`) or an empty string.
    *
-   * date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
-   * format (`YYYY-MM-DD`) or empty string
+   * @example '2024-10-08'
    */
   onChange: (date: string) => void;
   /**
@@ -113,11 +113,8 @@ export interface DateInputProps
   max?: string;
 }
 
-// TODO: Fallback to input[type="date"] without JS?
-// TODO: What to do about required calendar labels? -> optional? or separate experimental component?
-
 /**
- * TODO: DateInput component for forms.
+ * DateInput component for forms.
  * The input value is always a string in the format `YYYY-MM-DD`.
  */
 export const DateInput = forwardRef<InputElement, DateInputProps>(
@@ -147,8 +144,16 @@ export const DateInput = forwardRef<InputElement, DateInputProps>(
     const dialogRef = useRef<HTMLDialogElement>(null);
     const calendarRef = useRef<HTMLDivElement>(null);
     const headlineId = useId();
+    const [isHydrated, setHydrated] = useState(false);
     const [open, setOpen] = useState(false);
     const [selection, setSelection] = useState(toPlainDate(value) || undefined);
+
+    // Initially, an `input[type="date"]` element is rendered in case
+    // JavaScript isn't available. Once hydrated, the input is progressively
+    // enhanced with the custom UI.
+    useEffect(() => {
+      setHydrated(true);
+    }, []);
 
     useEffect(() => {
       const dialogElement = dialogRef.current;
@@ -290,23 +295,28 @@ export const DateInput = forwardRef<InputElement, DateInputProps>(
           ref={applyMultipleRefs(ref, inputRef, refs.setReference)}
           label={label}
           value={value}
+          type={isHydrated ? 'text' : 'date'}
           min={min}
           max={max}
           placeholder={placeholder}
-          renderSuffix={(suffixProps) => (
-            <IconButton
-              {...suffixProps}
-              icon={CalendarIcon}
-              variant="secondary"
-              onClick={openCalendar}
-              className={clsx(
-                suffixProps.className,
-                classes['calendar-button'],
-              )}
-            >
-              {calendarButtonLabel}
-            </IconButton>
-          )}
+          renderSuffix={
+            isHydrated
+              ? (suffixProps) => (
+                  <IconButton
+                    {...suffixProps}
+                    icon={CalendarIcon}
+                    variant="secondary"
+                    onClick={openCalendar}
+                    className={clsx(
+                      suffixProps.className,
+                      classes['calendar-button'],
+                    )}
+                  >
+                    {calendarButtonLabel}
+                  </IconButton>
+                )
+              : undefined
+          }
           onChange={handleInputChange}
         />
         <dialog
