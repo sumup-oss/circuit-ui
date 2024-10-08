@@ -621,7 +621,7 @@ if (typeof window === 'undefined') {
    * @param {!Element} element to force upgrade
    */
   dialogPolyfill.forceRegisterDialog = function (element) {
-    if (window.HTMLDialogElement || element.showModal) {
+    if (window.HTMLDialogElement && element.showModal) {
       console.warn(
         'This browser already supports <dialog>, the polyfill ' +
           'may not work correctly',
