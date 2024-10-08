@@ -29,6 +29,8 @@ describe('DateInput', () => {
     nextMonthButtonLabel: 'Previous month',
     openCalendarButtonLabel: 'Change date',
     closeCalendarButtonLabel: 'Close',
+    applyDateButtonLabel: 'Apply',
+    clearDateButtonLabel: 'Clear',
   };
 
   it('should forward a ref', () => {
