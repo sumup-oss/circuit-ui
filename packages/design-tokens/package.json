@@ -36,7 +36,7 @@
     "prop-types": "^15.8.1"
   },
   "devDependencies": {
-    "@types/node": "^18.19.39",
+    "@types/node": "^22.7.4",
     "@types/prop-types": "^15.7.12",
     "tsx": "^4.16.5",
     "typescript": "^5.5.4"

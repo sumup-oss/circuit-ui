@@ -46,7 +46,7 @@ export function mapCountryCodeOptions(
   const displayName = new Intl.DisplayNames(locale, { type: 'region' });
   return countryCodeOptions
     .map(({ code, country }) => {
-      const countryName = displayName.of(country);
+      const countryName = country ? displayName.of(country) : country;
       return {
         label: countryName ? `${countryName} (${code})` : code,
         value: code,
