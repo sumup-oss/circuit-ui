@@ -13,20 +13,29 @@
  * limitations under the License.
  */
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe } from '../../util/test-utils.js';
+import { render, screen, axe } from '../../util/test-utils.js';
 
 import { DateInput } from './DateInput.js';
 
 describe('DateInput', () => {
-  const baseProps = { label: 'Date' };
+  const baseProps = {
+    onChange: vi.fn(),
+    label: 'Date',
+    prevMonthButtonLabel: 'Previous month',
+    nextMonthButtonLabel: 'Previous month',
+    openCalendarButtonLabel: 'Change date',
+    closeCalendarButtonLabel: 'Close',
+    applyDateButtonLabel: 'Apply',
+    clearDateButtonLabel: 'Clear',
+  };
 
   it('should forward a ref', () => {
     const ref = createRef<HTMLInputElement>();
-    const { container } = render(<DateInput {...baseProps} ref={ref} />);
-    const input = container.querySelector('input');
+    render(<DateInput {...baseProps} ref={ref} />);
+    const input = screen.getByRole('textbox');
     expect(ref.current).toBe(input);
   });
 

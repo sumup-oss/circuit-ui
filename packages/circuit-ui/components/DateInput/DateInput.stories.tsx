@@ -13,11 +13,16 @@
  * limitations under the License.
  */
 
+import { useState } from 'react';
+
 import { DateInput, type DateInputProps } from './DateInput.js';
 
 export default {
   title: 'Forms/DateInput',
   component: DateInput,
+  parameters: {
+    layout: 'padded',
+  },
   argTypes: {
     disabled: { control: 'boolean' },
   },
@@ -25,9 +30,18 @@ export default {
 
 const baseArgs = {
   label: 'Date of birth',
-  validationHint: 'You must be at least 18 years old',
+  validationHint: 'Use the YYYY-MM-DD format',
+  prevMonthButtonLabel: 'Previous month',
+  nextMonthButtonLabel: 'Previous month',
+  openCalendarButtonLabel: 'Change date',
+  closeCalendarButtonLabel: 'Close',
+  applyDateButtonLabel: 'Apply',
+  clearDateButtonLabel: 'Clear',
 };
 
-export const Base = (args: DateInputProps) => <DateInput {...args} />;
+export const Base = (args: DateInputProps) => {
+  const [value, setValue] = useState(args.value || '');
+  return <DateInput {...args} value={value} onChange={setValue} />;
+};
 
 Base.args = baseArgs;
