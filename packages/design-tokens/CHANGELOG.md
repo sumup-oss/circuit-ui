@@ -1,5 +1,11 @@
 # @sumup-oss/design-tokens
 
+## 8.0.0-next.2
+
+### Major Changes
+
+- [#2707](https://github.com/sumup-oss/circuit-ui/pull/2707) [`f8016eb`](https://github.com/sumup-oss/circuit-ui/commit/f8016ebe246005ed415ed9587ecdb76892e981c6) Thanks [@sirineJ](https://github.com/sirineJ)! - Raised the minimum Node.js version to 20+.
+
 ## 8.0.0-next.1
 
 ### Major Changes
