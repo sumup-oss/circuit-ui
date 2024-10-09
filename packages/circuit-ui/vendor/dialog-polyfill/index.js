@@ -1,3 +1,6 @@
+/**
+ * @type {Object}
+ */
 const dialogPolyfill = {};
 
 // This condition assures imports don't break for isomorphic scripts,
