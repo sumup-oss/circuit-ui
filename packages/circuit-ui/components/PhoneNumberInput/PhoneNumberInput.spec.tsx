@@ -25,8 +25,9 @@ import {
 } from './PhoneNumberInput.js';
 
 const countryCodeMap: { [key: string]: string } = {
-  '+1': 'US',
-  '+49': 'DE',
+  CA: '+1',
+  US: '+1',
+  DE: '+49',
 };
 
 const defaultProps = {
@@ -35,8 +36,8 @@ const defaultProps = {
     label: 'Country code',
     defaultValue: '+1',
     options: Object.keys(countryCodeMap).map((key) => ({
-      country: countryCodeMap[key],
-      code: key,
+      country: key,
+      code: countryCodeMap[key],
     })),
   },
   subscriberNumber: {
@@ -85,7 +86,7 @@ describe('PhoneNumberInput', () => {
     };
     render(<PhoneNumberInput {...props} />);
     const select = screen.getByRole('combobox');
-    await userEvent.selectOptions(select, '+49');
+    await userEvent.selectOptions(select, 'DE');
     expect(onChange).toHaveBeenCalledOnce();
   });
 
@@ -100,7 +101,7 @@ describe('PhoneNumberInput', () => {
     };
     render(<PhoneNumberInput {...props} />);
     const select = screen.getByRole('combobox');
-    await userEvent.selectOptions(select, '+49');
+    await userEvent.selectOptions(select, 'DE');
     expect(onChange).toHaveBeenCalledOnce();
   });
 
