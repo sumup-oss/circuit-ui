@@ -23,7 +23,8 @@ export default {
 const baseArgs = {
   label: 'Color',
   pickerLabel: 'Pick color',
-  placeholder: '99ffbb',
+  placeholder: '#99ffbb',
+  defaultValue: '#99ffbb',
 };
 
 export const Base = (args: ColorInputProps) => (
