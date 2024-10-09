@@ -25,7 +25,7 @@ import {
 } from './PhoneNumberInput.js';
 
 export default {
-  title: 'Forms/PhoneNumberInput',
+  title: 'Forms/Input/PhoneNumberInput',
   component: PhoneNumberInput,
   argTypes: {
     disabled: { control: 'boolean' },
