@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 4.1.2
+
+### Patch Changes
+
+- [#2710](https://github.com/sumup-oss/circuit-ui/pull/2710) [`ab8b1fa`](https://github.com/sumup-oss/circuit-ui/commit/ab8b1fac9ec378739e9ca43d5ddeefe42005d528) Thanks [@sirineJ](https://github.com/sirineJ)! - Optimized the `Add`, `AddEmployees`, `AddItems`, `ArrowLeft`, `Calendar`, `Close`, `Edit`, and `Plus` icons to look more balanced when used alongside text.
+
 ## 4.1.1
 
 ### Patch Changes
