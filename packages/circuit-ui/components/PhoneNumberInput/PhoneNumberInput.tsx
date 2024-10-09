@@ -60,8 +60,10 @@ export interface PhoneNumberInputProps
   label: string;
   /**
    * Callback when the country code or subscriber number changes. Called with
-   * the normalized phone number in the [E.164 format](https://en.wikipedia.org/wiki/E.164),
-   * e.g. `+17024181234`.
+   * the normalized phone number in the [E.164 format](https://en.wikipedia.org/wiki/E.164).
+   *
+   *
+   * @example '+17024181234'
    */
   onChange?: (phoneNumber: string) => void;
   /**
