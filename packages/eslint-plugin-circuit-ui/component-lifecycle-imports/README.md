@@ -12,12 +12,20 @@ Examples of **incorrect** code for this rule:
 import { RangePicker } from '@sumup-oss/circuit-ui';
 import type { RangePickerProps } from '@sumup-oss/circuit-ui';
 ```
+```tsx
+import { Calendar } from '@sumup-oss/circuit-ui/experimental';
+import type { CalendarProps } from '@sumup-oss/circuit-ui/experimental';
+```
 
 Examples of **correct** code for this rule:
 
 ```tsx
 import { RangePicker } from '@sumup-oss/circuit-ui/legacy';
 import type { RangePickerProps } from '@sumup-oss/circuit-ui/legacy';
+```
+```tsx
+import { Calendar } from '@sumup-oss/circuit-ui';
+import type { CalendarProps } from '@sumup-oss/circuit-ui';
 ```
 
 ### Options

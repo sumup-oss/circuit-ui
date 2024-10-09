@@ -71,6 +71,11 @@ const mappings = [
       'center',
     ],
   },
+  {
+    from: '@sumup-oss/circuit-ui/experimental',
+    to: '@sumup-oss/circuit-ui',
+    specifiers: ['Calendar', 'CalendarProps', 'PlainDateRange'],
+  },
 ];
 
 export const componentLifecycleImports = createRule({
