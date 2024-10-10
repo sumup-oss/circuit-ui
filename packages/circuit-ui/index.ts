@@ -62,6 +62,9 @@ export { PercentageInput } from './components/PercentageInput/index.js';
 export type { PercentageInputProps } from './components/PercentageInput/index.js';
 export { ImageInput } from './components/ImageInput/index.js';
 export type { ImageInputProps } from './components/ImageInput/index.js';
+export { Calendar } from './components/Calendar/index.js';
+export type { CalendarProps } from './components/Calendar/index.js';
+export type { PlainDateRange } from './util/date.js';
 
 // Actions
 export { Button } from './components/Button/index.js';

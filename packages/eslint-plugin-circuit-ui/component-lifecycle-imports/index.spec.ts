@@ -60,7 +60,7 @@ ruleTester.run('component-lifecycle-imports', componentLifecycleImports, {
   ],
   invalid: [
     {
-      name: 'single import with single match',
+      name: '[Legacy] single import with single match',
       code: `
         import { RangePicker } from '@sumup-oss/circuit-ui';
       `,
@@ -70,7 +70,7 @@ ruleTester.run('component-lifecycle-imports', componentLifecycleImports, {
       errors: [{ messageId: 'refactor' }],
     },
     {
-      name: 'single import with single match with local name',
+      name: '[Legacy] single import with single match with local name',
       code: `
         import { RangePicker as RangeInput } from '@sumup-oss/circuit-ui';
       `,
@@ -80,7 +80,7 @@ ruleTester.run('component-lifecycle-imports', componentLifecycleImports, {
       errors: [{ messageId: 'refactor' }],
     },
     {
-      name: 'multiple imports with single match',
+      name: '[Legacy] multiple imports with single match',
       code: `
         import { RangePicker, Button } from '@sumup-oss/circuit-ui';
       `,
@@ -90,7 +90,7 @@ ruleTester.run('component-lifecycle-imports', componentLifecycleImports, {
       errors: [{ messageId: 'refactor' }],
     },
     {
-      name: 'multiple imports with multiple matches',
+      name: '[Legacy] multiple imports with multiple matches',
       code: `
         import { RangePicker, RangePickerController } from '@sumup-oss/circuit-ui';
       `,
@@ -101,12 +101,22 @@ ruleTester.run('component-lifecycle-imports', componentLifecycleImports, {
       errors: [{ messageId: 'refactor' }, { messageId: 'refactor' }],
     },
     {
-      name: 'single type import with single match',
+      name: '[Legacy] single type import with single match',
       code: `
         import type { RangePickerProps } from '@sumup-oss/circuit-ui';
       `,
       output: `
         import type { RangePickerProps } from '@sumup-oss/circuit-ui/legacy';
+      `,
+      errors: [{ messageId: 'refactor' }],
+    },
+    {
+      name: '[Experimental] single import with single match',
+      code: `
+        import { Calendar } from '@sumup/circuit-ui/experimental';
+      `,
+      output: `
+        import { Calendar } from '@sumup/circuit-ui';
       `,
       errors: [{ messageId: 'refactor' }],
     },

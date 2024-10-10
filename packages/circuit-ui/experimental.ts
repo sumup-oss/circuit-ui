@@ -22,7 +22,5 @@ export {
   Toggletip,
   type ToggletipProps,
 } from './components/Toggletip/index.js';
-export { Calendar, type CalendarProps } from './components/Calendar/index.js';
-export { type PlainDateRange } from './util/date.js';
 export { PhoneNumberInput } from './components/PhoneNumberInput/index.js';
 export type { PhoneNumberInputProps } from './components/PhoneNumberInput/index.js';
