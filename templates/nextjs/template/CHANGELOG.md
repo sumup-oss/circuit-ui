@@ -1,5 +1,18 @@
 # @sumup-oss/cna-template
 
+## 2.0.0-next.1
+
+### Major Changes
+
+- [#2707](https://github.com/sumup-oss/circuit-ui/pull/2707) [`f8016eb`](https://github.com/sumup-oss/circuit-ui/commit/f8016ebe246005ed415ed9587ecdb76892e981c6) Thanks [@sirineJ](https://github.com/sirineJ)! - Raised the minimum Node.js version to 20+.
+
+### Patch Changes
+
+- Updated dependencies [[`f8016eb`](https://github.com/sumup-oss/circuit-ui/commit/f8016ebe246005ed415ed9587ecdb76892e981c6), [`ae6e0bc`](https://github.com/sumup-oss/circuit-ui/commit/ae6e0bc1ccdaaf7d11fd8e2403a8c16a58538c97), [`0652935`](https://github.com/sumup-oss/circuit-ui/commit/0652935b0fc6999ac2f6885410fdcbea000b771f), [`c7c2a10`](https://github.com/sumup-oss/circuit-ui/commit/c7c2a108c9b827f87bc9d39de32b31b9d86e5a6b)]:
+  - @sumup-oss/design-tokens@8.0.0-next.2
+  - @sumup-oss/circuit-ui@9.0.0-next.2
+  - @sumup-oss/icons@5.0.0-next.1
+
 ## 1.1.1-next.0
 
 ### Patch Changes

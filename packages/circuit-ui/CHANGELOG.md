@@ -1,5 +1,25 @@
 # @sumup-oss/circuit-ui
 
+## 9.0.0-next.2
+
+### Major Changes
+
+- [#2707](https://github.com/sumup-oss/circuit-ui/pull/2707) [`f8016eb`](https://github.com/sumup-oss/circuit-ui/commit/f8016ebe246005ed415ed9587ecdb76892e981c6) Thanks [@sirineJ](https://github.com/sirineJ)! - Raised the minimum Node.js version to 20+.
+
+- [#2684](https://github.com/sumup-oss/circuit-ui/pull/2684) [`ae6e0bc`](https://github.com/sumup-oss/circuit-ui/commit/ae6e0bc1ccdaaf7d11fd8e2403a8c16a58538c97) Thanks [@connor-baer](https://github.com/connor-baer)! - Made the ImageInput's label visible by default for consistency with other inputs. Use the new `hideLabel` prop to visually hide the label.
+
+- [#2676](https://github.com/sumup-oss/circuit-ui/pull/2676) [`c7c2a10`](https://github.com/sumup-oss/circuit-ui/commit/c7c2a108c9b827f87bc9d39de32b31b9d86e5a6b) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the Table component's deprecated `initialSortedRow` prop. Use the `initialSortedColumn` prop instead.
+
+### Minor Changes
+
+- [#2678](https://github.com/sumup-oss/circuit-ui/pull/2678) [`0652935`](https://github.com/sumup-oss/circuit-ui/commit/0652935b0fc6999ac2f6885410fdcbea000b771f) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new `decoration` prop to the Body component. Choose between the `italic` and `strikethrough` styles.
+
+### Patch Changes
+
+- Updated dependencies [[`f8016eb`](https://github.com/sumup-oss/circuit-ui/commit/f8016ebe246005ed415ed9587ecdb76892e981c6)]:
+  - @sumup-oss/design-tokens@8.0.0-next.2
+  - @sumup-oss/icons@5.0.0-next.1
+
 ## 9.0.0-next.1
 
 ### Major Changes
