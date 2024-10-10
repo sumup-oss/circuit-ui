@@ -24,10 +24,10 @@ import {
   useState,
   type ChangeEvent,
 } from 'react';
-import { Calendar as CalendarIcon } from '@sumup/icons';
 import type { Temporal } from 'temporal-polyfill';
 import { flip, offset, shift, useFloating } from '@floating-ui/react-dom';
-import { formatDate } from '@sumup/intl';
+import { Calendar as CalendarIcon } from '@sumup-oss/icons';
+import { formatDate } from '@sumup-oss/intl';
 
 import dialogPolyfill from '../../vendor/dialog-polyfill/index.js';
 import { Input, type InputProps } from '../Input/index.js';
@@ -136,20 +136,11 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
   ) => {
     const zIndex = useStackContext();
     const isMobile = useMedia('(max-width: 479px)');
-    const inputRef = useRef<HTMLInputElement>(null);
     const dialogRef = useRef<HTMLDialogElement>(null);
     const calendarRef = useRef<HTMLDivElement>(null);
     const headlineId = useId();
-    const [isHydrated, setHydrated] = useState(false);
     const [open, setOpen] = useState(false);
-    const [selection, setSelection] = useState(toPlainDate(value) || undefined);
-
-    // Initially, an `input[type="date"]` element is rendered in case
-    // JavaScript isn't available. Once hydrated, the input is progressively
-    // enhanced with the custom UI.
-    useEffect(() => {
-      setHydrated(true);
-    }, []);
+    const [selection, setSelection] = useState<Temporal.PlainDate>();
 
     useEffect(() => {
       const dialogElement = dialogRef.current;
@@ -169,7 +160,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       dialogElement.addEventListener('close', handleClose);
 
       return () => {
-        dialogElement.addEventListener('close', handleClose);
+        dialogElement.removeEventListener('close', handleClose);
       };
     }, []);
 
@@ -236,6 +227,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     const openCalendar = () => {
       if (dialogRef.current) {
         dialogRef.current.show();
+        setSelection(toPlainDate(value) || undefined);
         setOpen(true);
       }
     };
@@ -276,43 +268,38 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       }
     }
 
-    const calendarButtonLabel = value
-      ? [
-          openCalendarButtonLabel,
-          // FIXME: Don't error on incomplete date
-          formatDate(new Date(value), locale, 'long'),
-        ].join(', ')
+    const plainDate = toPlainDate(value);
+    const calendarButtonLabel = plainDate
+      ? [openCalendarButtonLabel, formatDate(plainDate, locale, 'long')].join(
+          ', ',
+        )
       : openCalendarButtonLabel;
 
     return (
       <div>
         <Input
           {...props}
-          ref={applyMultipleRefs(ref, inputRef, refs.setReference)}
+          ref={applyMultipleRefs(ref, refs.setReference)}
           label={label}
           value={value}
-          type={isHydrated ? 'text' : 'date'}
+          type="text"
           min={min}
           max={max}
           placeholder={placeholder}
-          renderSuffix={
-            isHydrated
-              ? (suffixProps) => (
-                  <IconButton
-                    {...suffixProps}
-                    icon={CalendarIcon}
-                    variant="secondary"
-                    onClick={openCalendar}
-                    className={clsx(
-                      suffixProps.className,
-                      classes['calendar-button'],
-                    )}
-                  >
-                    {calendarButtonLabel}
-                  </IconButton>
-                )
-              : undefined
-          }
+          renderSuffix={(suffixProps) => (
+            <IconButton
+              {...suffixProps}
+              icon={CalendarIcon}
+              variant="secondary"
+              onClick={openCalendar}
+              className={clsx(
+                suffixProps.className,
+                classes['calendar-button'],
+              )}
+            >
+              {calendarButtonLabel}
+            </IconButton>
+          )}
           onChange={handleInputChange}
         />
         <dialog
