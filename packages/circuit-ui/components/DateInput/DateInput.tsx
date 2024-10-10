@@ -17,7 +17,6 @@
 
 import {
   forwardRef,
-  useCallback,
   useEffect,
   useId,
   useRef,
@@ -29,15 +28,11 @@ import { flip, offset, shift, useFloating } from '@floating-ui/react-dom';
 import { Calendar as CalendarIcon } from '@sumup-oss/icons';
 import { formatDate } from '@sumup-oss/intl';
 
-import dialogPolyfill from '../../vendor/dialog-polyfill/index.js';
 import { Input, type InputProps } from '../Input/index.js';
 import { IconButton } from '../Button/IconButton.js';
 import { Calendar, type CalendarProps } from '../Calendar/Calendar.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { useMedia } from '../../hooks/useMedia/useMedia.js';
-import { useStackContext } from '../StackContext/StackContext.js';
-import { useClickOutside } from '../../hooks/useClickOutside/useClickOutside.js';
-import { useEscapeKey } from '../../hooks/useEscapeKey/useEscapeKey.js';
 import { toPlainDate } from '../../util/date.js';
 import {
   AccessibilityError,
@@ -49,6 +44,7 @@ import { clsx } from '../../styles/clsx.js';
 import { Button } from '../Button/Button.js';
 
 import classes from './DateInput.module.css';
+import { Dialog } from './components/Dialog.js';
 
 export interface DateInputProps
   extends Omit<
@@ -134,39 +130,15 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     },
     ref,
   ) => {
-    const zIndex = useStackContext();
     const isMobile = useMedia('(max-width: 479px)');
-    const dialogRef = useRef<HTMLDialogElement>(null);
     const calendarRef = useRef<HTMLDivElement>(null);
     const headlineId = useId();
     const [open, setOpen] = useState(false);
     const [selection, setSelection] = useState<Temporal.PlainDate>();
 
-    useEffect(() => {
-      const dialogElement = dialogRef.current;
-
-      if (!dialogElement) {
-        return undefined;
-      }
-
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore The package is bundled incorrectly
-      dialogPolyfill.registerDialog(dialogElement);
-
-      const handleClose = () => {
-        setOpen(false);
-      };
-
-      dialogElement.addEventListener('close', handleClose);
-
-      return () => {
-        dialogElement.removeEventListener('close', handleClose);
-      };
-    }, []);
-
     const { refs, floatingStyles, update } = useFloating({
       open,
-      placement: 'bottom-start',
+      placement: 'bottom-end',
       middleware: [offset(4), flip(), shift()],
     });
 
@@ -174,7 +146,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       /**
        * When we support `ResizeObserver` (https://caniuse.com/resizeobserver),
        * we can look into using Floating UI's `autoUpdate` (but we can't use
-       * `whileElementInMounted` because our implementation hides the floating
+       * `whileElementIsMounted` because our implementation hides the floating
        * element using CSS instead of using conditional rendering.
        * See https://floating-ui.com/docs/react-dom#updating
        */
@@ -192,12 +164,14 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       };
     }, [open, update]);
 
-    const closeCalendar = useCallback(() => {
-      dialogRef.current?.close();
-    }, []);
+    const openCalendar = () => {
+      setSelection(toPlainDate(value) || undefined);
+      setOpen(true);
+    };
 
-    useClickOutside(refs.floating, closeCalendar, open);
-    useEscapeKey(closeCalendar, open);
+    const closeCalendar = () => {
+      setOpen(false);
+    };
 
     const placeholder = 'yyyy-mm-dd';
 
@@ -222,14 +196,6 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
       onChange(event.target.value);
-    };
-
-    const openCalendar = () => {
-      if (dialogRef.current) {
-        dialogRef.current.show();
-        setSelection(toPlainDate(value) || undefined);
-        setOpen(true);
-      }
     };
 
     const mobileStyles = {
@@ -270,7 +236,8 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
 
     const plainDate = toPlainDate(value);
     const calendarButtonLabel = plainDate
-      ? [openCalendarButtonLabel, formatDate(plainDate, locale, 'long')].join(
+      ? // @ts-expect-error FIXME: Update @sumup-oss/intl
+        [openCalendarButtonLabel, formatDate(plainDate, locale, 'long')].join(
           ', ',
         )
       : openCalendarButtonLabel;
@@ -302,64 +269,57 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
           )}
           onChange={handleInputChange}
         />
-        <dialog
-          ref={applyMultipleRefs<HTMLDialogElement>(
-            dialogRef,
-            refs.setFloating,
-          )}
+        <Dialog
+          ref={refs.setFloating}
+          open={open}
+          onClose={closeCalendar}
           aria-labelledby={headlineId}
-          className={classes.dialog}
-          style={{
-            ...dialogStyles,
-            // @ts-expect-error z-index can be a string
-            zIndex: zIndex || 'var(--cui-z-index-modal)',
-          }}
+          style={dialogStyles}
         >
-          <div className={classes.content}>
-            <header className={classes.header}>
-              <Headline as="h2" size="three" id={headlineId}>
-                {label}
-              </Headline>
-              <CloseButton size="s" variant="tertiary" onClick={closeCalendar}>
-                {closeCalendarButtonLabel}
-              </CloseButton>
-            </header>
+          {() => (
+            <div className={classes.content}>
+              <header className={classes.header}>
+                <Headline as="h2" size="three" id={headlineId}>
+                  {label}
+                </Headline>
+                <CloseButton
+                  size="s"
+                  variant="tertiary"
+                  onClick={closeCalendar}
+                >
+                  {closeCalendarButtonLabel}
+                </CloseButton>
+              </header>
 
-            <Calendar
-              ref={calendarRef}
-              className={classes.calendar}
-              onSelect={handleSelect}
-              selection={selection}
-              minDate={toPlainDate(min) || undefined}
-              maxDate={toPlainDate(max) || undefined}
-              locale={locale}
-              firstDayOfWeek={firstDayOfWeek}
-              modifiers={modifiers}
-              prevMonthButtonLabel={prevMonthButtonLabel}
-              nextMonthButtonLabel={nextMonthButtonLabel}
-            />
+              <Calendar
+                ref={calendarRef}
+                className={classes.calendar}
+                onSelect={handleSelect}
+                selection={selection}
+                minDate={toPlainDate(min) || undefined}
+                maxDate={toPlainDate(max) || undefined}
+                locale={locale}
+                firstDayOfWeek={firstDayOfWeek}
+                modifiers={modifiers}
+                prevMonthButtonLabel={prevMonthButtonLabel}
+                nextMonthButtonLabel={nextMonthButtonLabel}
+              />
 
-            <div className={classes.buttons}>
-              <Button variant="tertiary" onClick={handleClear}>
-                {clearDateButtonLabel}
-              </Button>
-              <Button
-                variant="primary"
-                onClick={handleApply}
-                className={classes.apply}
-              >
-                {applyDateButtonLabel}
-              </Button>
+              <div className={classes.buttons}>
+                <Button variant="tertiary" onClick={handleClear}>
+                  {clearDateButtonLabel}
+                </Button>
+                <Button
+                  variant="primary"
+                  onClick={handleApply}
+                  className={classes.apply}
+                >
+                  {applyDateButtonLabel}
+                </Button>
+              </div>
             </div>
-          </div>
-        </dialog>
-        <div
-          className={classes.backdrop}
-          style={{
-            // @ts-expect-error z-index can be a string
-            zIndex: `calc(${zIndex?.toString() || 'var(--cui-z-index-modal)'} - 1)`,
-          }}
-        />
+          )}
+        </Dialog>
       </div>
     );
   },
