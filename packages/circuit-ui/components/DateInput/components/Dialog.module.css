@@ -1,0 +1,63 @@
+.dialog {
+  position: absolute;
+  z-index: var(--cui-z-index-popover);
+  width: max-content;
+  max-width: 410px;
+  max-width: min(410px, 100vw);
+  max-height: 100vh;
+  padding: 0;
+  margin: 0;
+  overflow: scroll;
+  pointer-events: none;
+  visibility: hidden;
+  background: none;
+  border: none;
+}
+
+.dialog[open] {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+@media (max-width: 479px) {
+  .dialog {
+    width: 100%;
+    max-width: 100%;
+    transition:
+      transform var(--cui-transitions-default),
+      visibility var(--cui-transitions-default);
+    transform: translateY(100%);
+  }
+
+  .dialog[open] {
+    transform: translateY(0);
+  }
+}
+
+.backdrop {
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+@media (max-width: 479px) {
+  .backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--cui-bg-overlay);
+    transition:
+      opacity var(--cui-transitions-default),
+      visibility var(--cui-transitions-default);
+  }
+
+  .dialog[open] + .backdrop {
+    pointer-events: auto;
+    visibility: visible;
+    opacity: 1;
+  }
+}
