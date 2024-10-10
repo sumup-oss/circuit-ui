@@ -16,7 +16,13 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { render, screen, axe } from '../../util/test-utils.js';
+import {
+  render,
+  screen,
+  axe,
+  userEvent,
+  fireEvent,
+} from '../../util/test-utils.js';
 
 import { DateInput } from './DateInput.js';
 
@@ -37,6 +43,28 @@ describe('DateInput', () => {
     render(<DateInput {...baseProps} ref={ref} />);
     const input = screen.getByRole('textbox');
     expect(ref.current).toBe(input);
+  });
+
+  it('should select a calendar date', async () => {
+    render(<DateInput {...baseProps} />);
+
+    const input: HTMLInputElement = screen.getByRole('textbox');
+    const openCalendarButton = screen.getByRole('button', {
+      name: /change date/i,
+    });
+
+    // For some reason, userEvent doesn't work here.
+    fireEvent.click(openCalendarButton);
+
+    const calendarDialog = screen.getByRole('dialog');
+
+    expect(calendarDialog).toBeVisible();
+
+    const dateButton = screen.getByRole('button', { name: /12/ });
+
+    await userEvent.click(dateButton);
+
+    expect(input).toHaveValue('2024-10-12');
   });
 
   it('should have no accessibility violations', async () => {
