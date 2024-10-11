@@ -284,9 +284,10 @@ export const PhoneNumberInput = forwardRef<
         return;
       }
 
-      const pastedOption = countryCode.options.find(({ code }) =>
-        pastedText.startsWith(code),
-      );
+      const pastedOption = countryCode.options
+        // Match longer, more specific country codes first
+      	.sort((a, b) => b.code.length - a.code.length)
+        .find(({ code }) => pastedText.startsWith(code));
 
       if (!pastedOption) {
         return;
