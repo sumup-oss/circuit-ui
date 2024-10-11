@@ -246,8 +246,6 @@ export const PhoneNumberInput = forwardRef<
         return;
       }
       const code = countryCode.options
-        // Match longer, more specific country codes first
-        .sort((a, b) => a.code.length - b.code.length)
         .find(({ country }) => country === selectedCountry)?.code;
 
       if (!code) {
