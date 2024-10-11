@@ -245,8 +245,9 @@ export const PhoneNumberInput = forwardRef<
       if (!selectedCountry) {
         return;
       }
-      const code = countryCode.options
-        .find(({ country }) => country === selectedCountry)?.code;
+      const code = countryCode.options.find(
+        ({ country }) => country === selectedCountry,
+      )?.code;
 
       if (!code) {
         return;
@@ -286,7 +287,7 @@ export const PhoneNumberInput = forwardRef<
 
       const pastedOption = countryCode.options
         // Match longer, more specific country codes first
-      	.sort((a, b) => b.code.length - a.code.length)
+        .sort((a, b) => b.code.length - a.code.length)
         .find(({ code }) => pastedText.startsWith(code));
 
       if (!pastedOption) {
