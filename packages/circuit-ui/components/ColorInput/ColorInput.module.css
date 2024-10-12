@@ -26,6 +26,12 @@
   box-shadow: 0 0 0 2px var(--cui-border-focus);
 }
 
+.picker[data-disabled="true"] {
+  color: var(--cui-fg-normal-disabled);
+  background-color: var(--cui-bg-normal-disabled);
+  box-shadow: 0 0 0 1px var(--cui-border-normal-disabled);
+}
+
 .color-input {
   width: var(--cui-spacings-giga);
   height: var(--cui-spacings-giga);

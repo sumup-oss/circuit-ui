@@ -19,8 +19,8 @@ import {
   forwardRef,
   useId,
   useRef,
-  useState,
   type ChangeEventHandler,
+  type ClipboardEventHandler,
 } from 'react';
 
 import { classes as inputClasses } from '../Input/index.js';
@@ -80,6 +80,7 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
       onChange,
       optionalLabel,
       validationHint,
+      placeholder,
       readOnly,
       required,
       inputClassName,
@@ -89,10 +90,8 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
     },
     ref,
   ) => {
-    const [currentColor, setCurrentColor] = useState<string | undefined>(
-      defaultValue,
-    );
     const colorPickerRef = useRef<InputElement>(null);
+    const colorInputRef = useRef<InputElement>(null);
 
     const labelId = useId();
     const pickerId = useId();
@@ -106,8 +105,45 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
 
     const hasSuffix = Boolean(suffix);
 
+    const handlePaste: ClipboardEventHandler<InputElement> = (e) => {
+      if (!colorPickerRef.current || !colorInputRef.current || readOnly) {
+        return;
+      }
+
+      e.preventDefault();
+
+      const pastedText = e.clipboardData.getData('text/plain').trim();
+
+      if (!pastedText || !/^#?[0-9A-F]{6}$/i.test(pastedText)) {
+        return;
+      }
+
+      const pastedColor = pastedText.startsWith('#')
+        ? pastedText
+        : `#${pastedText}`;
+
+      colorPickerRef.current.value = pastedColor;
+
+      // React overwrites the input.value setter. In order to be able to trigger
+      // a 'change' event on the input, we need to use the native setter.
+      // Adapted from https://stackoverflow.com/a/46012210/4620154
+      Object.getOwnPropertyDescriptor(
+        HTMLInputElement.prototype,
+        'value',
+      )?.set?.call(colorInputRef.current, pastedColor.replace('#', ''));
+
+      colorInputRef.current.dispatchEvent(
+        new Event('change', { bubbles: true }),
+      );
+      colorPickerRef.current.dispatchEvent(
+        new Event('change', { bubbles: true }),
+      );
+    };
+
     const onPickerColorChange: ChangeEventHandler<InputElement> = (e) => {
-      setCurrentColor(e.target.value);
+      if (colorInputRef.current) {
+        colorInputRef.current.value = e.target.value.replace('#', '');
+      }
       if (onChange) {
         onChange(e);
       }
@@ -117,7 +153,15 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
       if (colorPickerRef.current) {
         colorPickerRef.current.value = `#${e.target.value}`;
       }
-      setCurrentColor(`#${e.target.value}`);
+      if (onChange) {
+        onChange({
+          ...e,
+          target: {
+            ...e.target,
+            value: `#${e.target.value}`,
+          },
+        });
+      }
     };
 
     return (
@@ -131,21 +175,29 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
           />
         </FieldLegend>
         <div className={classes.wrapper}>
-          <label htmlFor={pickerId} className={classes.picker}>
+          <label
+            htmlFor={pickerId}
+            className={classes.picker}
+            data-disabled={disabled}
+          >
             <input
               id={pickerId}
+              ref={applyMultipleRefs(colorPickerRef, ref)}
               type="color"
               aria-labelledby={labelId}
               aria-describedby={descriptionIds}
               className={classes['color-input']}
               onChange={onPickerColorChange}
-              ref={applyMultipleRefs(colorPickerRef, ref)}
               readOnly={readOnly}
+              disabled={disabled}
+              defaultValue={defaultValue}
+              value={value}
             />
           </label>
           <span className={classes.symbol}>#</span>
           <input
             id={id}
+            ref={colorInputRef}
             type="text"
             aria-labelledby={labelId}
             aria-describedby={descriptionIds}
@@ -158,12 +210,15 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
             )}
             aria-invalid={invalid && 'true'}
             required={required}
-            disabled={disabled}
             maxLength={6}
             pattern="[0-9a-f]{3,6}"
             readOnly={readOnly}
-            value={currentColor ? currentColor.replace('#', '') : undefined}
+            disabled={disabled}
+            value={value?.replace('#', '')}
+            defaultValue={defaultValue?.replace('#', '')}
+            placeholder={placeholder?.replace('#', '')}
             onChange={onInputChange}
+            onPaste={handlePaste}
             {...props}
           />
         </div>
