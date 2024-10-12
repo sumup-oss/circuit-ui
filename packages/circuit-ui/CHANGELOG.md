@@ -1,5 +1,11 @@
 # @sumup/circuit-ui
 
+## 8.13.2
+
+### Patch Changes
+
+- [#2687](https://github.com/sumup-oss/circuit-ui/pull/2687) [`2e85454`](https://github.com/sumup-oss/circuit-ui/commit/2e85454eb631250fd231783085957d2dfef5609f) Thanks [@matoous](https://github.com/matoous)! - Fixed event and values handling for the experimental ColorInput component.
+
 ## 8.13.1
 
 ### Patch Changes
