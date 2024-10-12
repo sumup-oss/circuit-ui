@@ -173,7 +173,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     const validationHintId = useId();
 
     const [focusProps, focusHandlers] = useSegmentFocus();
-    const state = usePlainDateState({ value, min, max });
+    const state = usePlainDateState({ value, min, max, onChange });
     const yearProps = useYearSegment(state, focusHandlers);
     const monthProps = useMonthSegment(state, focusHandlers);
     const dayProps = useDaySegment(state, focusHandlers);
@@ -226,18 +226,22 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       setSelection(date);
 
       if (!isMobile) {
-        onChange(date.toString());
+        const { year, month, day } = date;
+        state.update({ year, month, day });
         closeCalendar();
       }
     };
 
     const handleApply = () => {
-      onChange(selection?.toString() || '');
+      if (selection) {
+        const { year, month, day } = selection;
+        state.update({ year, month, day });
+      }
       closeCalendar();
     };
 
     const handleClear = () => {
-      onChange('');
+      state.update({ year: '', month: '', day: '' });
       closeCalendar();
     };
 
@@ -303,14 +307,6 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       : openCalendarButtonLabel;
 
     const segments = getDateSegments(locale);
-
-    // parts are closely related:
-    // - max days depends on month and year
-    // - max month depends on year (and max prop)
-    // - focus management
-
-    // dispatch onChange when each part has been filled in
-    // dispatch with empty string when a part is removed
 
     return (
       <FieldWrapper className={className} style={style} disabled={disabled}>
