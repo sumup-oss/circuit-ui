@@ -15,9 +15,14 @@
 
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
-import { userEvent } from '@storybook/test';
 
-import { render, axe, screen, fireEvent } from '../../util/test-utils.js';
+import {
+  render,
+  axe,
+  screen,
+  fireEvent,
+  userEvent,
+} from '../../util/test-utils.js';
 import type { InputElement } from '../Input/index.js';
 
 import { ColorInput } from './ColorInput.js';
@@ -165,13 +170,29 @@ describe('ColorInput', () => {
       ) as HTMLInputElement;
 
       await userEvent.click(colorInput);
-      await userEvent.paste('oviously invalid');
+      await userEvent.paste('obviously invalid');
 
       const colorPicker = container.querySelector(
         "input[type='color']",
       ) as HTMLInputElement;
       expect(colorPicker.value).toBe('#000000');
       expect(colorInput.value).toBe('');
+    });
+
+    it("should allow pasting color without '#'", async () => {
+      const { container } = render(<ColorInput {...baseProps} />);
+      const colorInput = container.querySelector(
+        "input[type='text']",
+      ) as HTMLInputElement;
+
+      await userEvent.click(colorInput);
+      await userEvent.paste('00ff00');
+
+      const colorPicker = container.querySelector(
+        "input[type='color']",
+      ) as HTMLInputElement;
+      expect(colorPicker.value).toBe('#00ff00');
+      expect(colorInput.value).toBe('00ff00');
     });
   });
 });

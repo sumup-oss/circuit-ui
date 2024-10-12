@@ -106,12 +106,7 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
     const hasSuffix = Boolean(suffix);
 
     const handlePaste: ClipboardEventHandler<InputElement> = (e) => {
-      if (
-        !colorPickerRef.current ||
-        !colorInputRef.current ||
-        disabled ||
-        readOnly
-      ) {
+      if (!colorPickerRef.current || !colorInputRef.current || readOnly) {
         return;
       }
 
@@ -119,11 +114,13 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
 
       const pastedText = e.clipboardData.getData('text/plain').trim();
 
-      if (!pastedText || !/^#[0-9A-F]{6}$/i.test(pastedText)) {
+      if (!pastedText || !/^#?[0-9A-F]{6}$/i.test(pastedText)) {
         return;
       }
 
-      colorPickerRef.current.value = pastedText;
+      colorPickerRef.current.value = pastedText.startsWith('#')
+        ? pastedText
+        : `#${pastedText}`;
       colorInputRef.current.value = pastedText.replace('#', '');
       colorPickerRef.current.dispatchEvent(
         new Event('change', { bubbles: true }),
@@ -165,7 +162,11 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
           />
         </FieldLegend>
         <div className={classes.wrapper}>
-          <label htmlFor={pickerId} className={classes.picker}>
+          <label
+            htmlFor={pickerId}
+            className={classes.picker}
+            data-disabled={disabled}
+          >
             <input
               id={pickerId}
               ref={applyMultipleRefs(colorPickerRef, ref)}
