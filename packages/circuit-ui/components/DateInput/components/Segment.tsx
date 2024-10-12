@@ -15,7 +15,12 @@
 
 'use client';
 
-import { useEffect, useRef, useState, type InputHTMLAttributes } from 'react';
+import {
+  useLayoutEffect,
+  useRef,
+  useState,
+  type InputHTMLAttributes,
+} from 'react';
 
 import classes from './Segment.module.css';
 
@@ -23,8 +28,8 @@ export function Segment(props: InputHTMLAttributes<HTMLInputElement>) {
   const sizeRef = useRef<HTMLSpanElement>(null);
   const [width, setWidth] = useState('4ch');
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies:
-  useEffect(() => {
+  // biome-ignore lint/correctness/useExhaustiveDependencies: TODO:
+  useLayoutEffect(() => {
     if (sizeRef.current) {
       setWidth(`${sizeRef.current.offsetWidth}px`);
     }
