@@ -40,6 +40,7 @@ const baseArgs = {
   monthInputLabel: 'Month',
   dayInputLabel: 'Day',
   locale: 'en-US',
+  autoComplete: 'bday',
   // min: '2024-11-14',
   // max: '2024-11-24',
 };

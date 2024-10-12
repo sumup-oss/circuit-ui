@@ -159,6 +159,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       dayInputLabel,
       className,
       style,
+      autoComplete,
       // ...props
     },
     // ref
@@ -341,6 +342,9 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                         required={required}
                         disabled={disabled}
                         readOnly={readOnly}
+                        autoComplete={
+                          autoComplete === 'bday' ? 'bday-year' : undefined
+                        }
                         {...focusProps}
                         {...yearProps}
                       />
@@ -353,6 +357,9 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                         required={required}
                         disabled={disabled}
                         readOnly={readOnly}
+                        autoComplete={
+                          autoComplete === 'bday' ? 'bday-month' : undefined
+                        }
                         {...focusProps}
                         {...monthProps}
                       />
@@ -365,6 +372,9 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                         required={required}
                         disabled={disabled}
                         readOnly={readOnly}
+                        autoComplete={
+                          autoComplete === 'bday' ? 'bday-day' : undefined
+                        }
                         {...focusProps}
                         {...dayProps}
                       />
