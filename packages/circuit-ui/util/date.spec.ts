@@ -57,16 +57,16 @@ describe('CalendarService', () => {
       expect(actual).toEqual(new Temporal.PlainDate(2020, 3, 1));
     });
 
-    it('should return null if the date is invalid', () => {
+    it('should return undefined if the date is invalid', () => {
       const date = '2020-3-1';
       const actual = toPlainDate(date);
-      expect(actual).toBeNull();
+      expect(actual).toBeUndefined();
     });
 
     it('should return null if the date is undefined', () => {
       const date = undefined;
       const actual = toPlainDate(date);
-      expect(actual).toBeNull();
+      expect(actual).toBeUndefined();
     });
   });
 
