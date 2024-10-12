@@ -118,10 +118,23 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
         return;
       }
 
-      colorPickerRef.current.value = pastedText.startsWith('#')
+      const pastedColor = pastedText.startsWith('#')
         ? pastedText
         : `#${pastedText}`;
-      colorInputRef.current.value = pastedText.replace('#', '');
+
+      colorPickerRef.current.value = pastedColor;
+
+      // React overwrites the input.value setter. In order to be able to trigger
+      // a 'change' event on the input, we need to use the native setter.
+      // Adapted from https://stackoverflow.com/a/46012210/4620154
+      Object.getOwnPropertyDescriptor(
+        HTMLInputElement.prototype,
+        'value',
+      )?.set?.call(colorInputRef.current, pastedColor.replace('#', ''));
+
+      colorInputRef.current.dispatchEvent(
+        new Event('change', { bubbles: true }),
+      );
       colorPickerRef.current.dispatchEvent(
         new Event('change', { bubbles: true }),
       );
