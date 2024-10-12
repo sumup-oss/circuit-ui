@@ -14,6 +14,8 @@
  */
 
 import {
+  useCallback,
+  useEffect,
   useId,
   useMemo,
   useState,
@@ -32,6 +34,7 @@ import { isBackspace, isDelete } from '../../util/key-codes.js';
  * These hooks assume a Gregorian or ISO 8601 calendar:
  *
  * - The maximum number of days in a month is 31.
+ * - The year has to be positive and can have a maximum of 4 digits.
  */
 
 type PartialPlainDate = {
@@ -47,17 +50,14 @@ type PlainDateState = {
   maxDate?: Temporal.PlainDate;
 };
 
-export function usePlainDateState({
-  value,
-  min,
-  max,
-}: {
+export function usePlainDateState(props: {
   value?: string;
   min?: string;
   max?: string;
+  onChange: (date: string) => void;
 }): PlainDateState {
   const [date, setDate] = useState<PartialPlainDate>(() => {
-    const plainDate = toPlainDate(value);
+    const plainDate = toPlainDate(props.value);
     if (!plainDate) {
       return { day: '', month: '', year: '' };
     }
@@ -65,12 +65,23 @@ export function usePlainDateState({
     return { year, month, day };
   });
 
-  const update = (newDate: PartialPlainDate) => {
-    setDate((prevDate) => ({ ...prevDate, ...newDate }));
-  };
+  const { year, month, day } = date;
 
-  const minDate = toPlainDate(min);
-  const maxDate = toPlainDate(max);
+  useEffect(() => {
+    if (isNumber(year) && isNumber(month) && isNumber(day)) {
+      const plainDate = new Temporal.PlainDate(year, month, day);
+      props.onChange(plainDate.toString());
+    } else {
+      props.onChange('');
+    }
+  }, [year, month, day, props.onChange]);
+
+  const update = useCallback((newDate: PartialPlainDate) => {
+    setDate((prevDate) => ({ ...prevDate, ...newDate }));
+  }, []);
+
+  const minDate = toPlainDate(props.min);
+  const maxDate = toPlainDate(props.max);
 
   return { date, update, minDate, maxDate };
 }
