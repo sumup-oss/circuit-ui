@@ -15,23 +15,15 @@
 
 'use client';
 
-import {
-  forwardRef,
-  useEffect,
-  useId,
-  useRef,
-  useState,
-  type ChangeEvent,
-} from 'react';
+import { forwardRef, useEffect, useId, useRef, useState } from 'react';
 import type { Temporal } from 'temporal-polyfill';
 import { flip, offset, shift, useFloating } from '@floating-ui/react-dom';
 import { Calendar as CalendarIcon } from '@sumup-oss/icons';
 import { formatDate } from '@sumup-oss/intl';
 
-import { Input, type InputProps } from '../Input/index.js';
+import type { InputProps } from '../Input/index.js';
 import { IconButton } from '../Button/IconButton.js';
 import { Calendar, type CalendarProps } from '../Calendar/Calendar.js';
-import { applyMultipleRefs } from '../../util/refs.js';
 import { useMedia } from '../../hooks/useMedia/useMedia.js';
 import { toPlainDate } from '../../util/date.js';
 import {
@@ -40,11 +32,26 @@ import {
 } from '../../util/errors.js';
 import { Headline } from '../Headline/Headline.js';
 import { CloseButton } from '../CloseButton/CloseButton.js';
-import { clsx } from '../../styles/clsx.js';
 import { Button } from '../Button/Button.js';
+import {
+  FieldLabelText,
+  FieldLegend,
+  FieldSet,
+  FieldValidationHint,
+  FieldWrapper,
+} from '../Field/Field.js';
 
 import classes from './DateInput.module.css';
 import { Dialog } from './components/Dialog.js';
+import { getDateSegments } from './DateInputService.js';
+import {
+  usePlainDateState,
+  useDaySegment,
+  useMonthSegment,
+  useYearSegment,
+  useSegmentFocus,
+} from './hooks.js';
+import { Segment } from './components/Segment.js';
 
 export interface DateInputProps
   extends Omit<
@@ -103,6 +110,18 @@ export interface DateInputProps
    * format (`YYYY-MM-DD`) (inclusive).
    */
   max?: string;
+  /**
+   * TODO:
+   */
+  yearInputLabel: string;
+  /**
+   * TODO:
+   */
+  monthInputLabel: string;
+  /**
+   * TODO:
+   */
+  dayInputLabel: string;
 }
 
 /**
@@ -120,26 +139,56 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       locale,
       firstDayOfWeek,
       modifiers,
+      hideLabel,
+      required,
+      disabled,
+      readOnly,
+      invalid,
+      hasWarning,
+      showValid,
+      validationHint,
+      optionalLabel,
       openCalendarButtonLabel,
       closeCalendarButtonLabel,
       applyDateButtonLabel,
       clearDateButtonLabel,
       prevMonthButtonLabel,
       nextMonthButtonLabel,
-      ...props
+      yearInputLabel,
+      monthInputLabel,
+      dayInputLabel,
+      className,
+      style,
+      // ...props
     },
-    ref,
+    // ref
   ) => {
     const isMobile = useMedia('(max-width: 479px)');
+
+    const referenceRef = useRef<HTMLDivElement>(null);
+    const floatingRef = useRef<HTMLDialogElement>(null);
     const calendarRef = useRef<HTMLDivElement>(null);
+
     const headlineId = useId();
+    const validationHintId = useId();
+
+    const [focusProps, focusNextSegment] = useSegmentFocus();
+    const state = usePlainDateState({ value, min, max });
+    const yearProps = useYearSegment(state, focusNextSegment);
+    const monthProps = useMonthSegment(state, focusNextSegment);
+    const dayProps = useDaySegment(state, focusNextSegment);
+
     const [open, setOpen] = useState(false);
     const [selection, setSelection] = useState<Temporal.PlainDate>();
 
-    const { refs, floatingStyles, update } = useFloating({
+    const { floatingStyles, update } = useFloating({
       open,
       placement: 'bottom-end',
       middleware: [offset(4), flip(), shift()],
+      elements: {
+        reference: referenceRef.current,
+        floating: floatingRef.current,
+      },
     });
 
     useEffect(() => {
@@ -173,8 +222,6 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       setOpen(false);
     };
 
-    const placeholder = 'yyyy-mm-dd';
-
     const handleSelect = (date: Temporal.PlainDate) => {
       setSelection(date);
 
@@ -192,10 +239,6 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     const handleClear = () => {
       onChange('');
       closeCalendar();
-    };
-
-    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-      onChange(event.target.value);
     };
 
     const mobileStyles = {
@@ -232,45 +275,139 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
           'The `clearDateButtonLabel` prop is missing or invalid.',
         );
       }
+      if (!isSufficientlyLabelled(yearInputLabel)) {
+        throw new AccessibilityError(
+          'DateInput',
+          'The `yearInputLabel` prop is missing or invalid.',
+        );
+      }
+      if (!isSufficientlyLabelled(monthInputLabel)) {
+        throw new AccessibilityError(
+          'DateInput',
+          'The `monthInputLabel` prop is missing or invalid.',
+        );
+      }
+      if (!isSufficientlyLabelled(dayInputLabel)) {
+        throw new AccessibilityError(
+          'DateInput',
+          'The `dayInputLabel` prop is missing or invalid.',
+        );
+      }
     }
 
     const plainDate = toPlainDate(value);
     const calendarButtonLabel = plainDate
-      ? // @ts-expect-error FIXME: Update @sumup-oss/intl
-        [openCalendarButtonLabel, formatDate(plainDate, locale, 'long')].join(
+      ? [openCalendarButtonLabel, formatDate(plainDate, locale, 'long')].join(
           ', ',
         )
       : openCalendarButtonLabel;
 
+    const segments = getDateSegments(locale);
+
+    // parts are closely related:
+    // - max days depends on month and year
+    // - max month depends on year (and max prop)
+    // - focus management
+
+    // dispatch onChange when each part has been filled in
+    // dispatch with empty string when a part is removed
+
     return (
-      <div>
-        <Input
-          {...props}
-          ref={applyMultipleRefs(ref, refs.setReference)}
-          label={label}
+      <FieldWrapper className={className} style={style} disabled={disabled}>
+        {/* TODO: Replicate native date input for uncontrolled inputs? */}
+        {/* <input
+          ref={ref}
+          type="hidden"
           value={value}
-          type="text"
-          min={min}
-          max={max}
-          placeholder={placeholder}
-          renderSuffix={(suffixProps) => (
+          required={required}
+          disabled={disabled}
+          readOnly={readOnly}
+          {...props}
+        /> */}
+        <FieldSet>
+          <FieldLegend>
+            <FieldLabelText
+              label={label}
+              hideLabel={hideLabel}
+              required={required}
+              optionalLabel={optionalLabel}
+            />
+          </FieldLegend>
+          <div className={classes.input} ref={referenceRef}>
+            <div className={classes.segments}>
+              {segments.map((segment, index) => {
+                switch (segment.type) {
+                  case 'year':
+                    return (
+                      <Segment
+                        key={segment.type}
+                        aria-label={yearInputLabel}
+                        required={required}
+                        disabled={disabled}
+                        readOnly={readOnly}
+                        {...focusProps}
+                        {...yearProps}
+                      />
+                    );
+                  case 'month':
+                    return (
+                      <Segment
+                        key={segment.type}
+                        aria-label={monthInputLabel}
+                        required={required}
+                        disabled={disabled}
+                        readOnly={readOnly}
+                        {...focusProps}
+                        {...monthProps}
+                      />
+                    );
+                  case 'day':
+                    return (
+                      <Segment
+                        key={segment.type}
+                        aria-label={dayInputLabel}
+                        required={required}
+                        disabled={disabled}
+                        readOnly={readOnly}
+                        {...focusProps}
+                        {...dayProps}
+                      />
+                    );
+                  case 'literal':
+                    return (
+                      <div
+                        key={segment.type + index}
+                        className={classes.literal}
+                        aria-hidden="true"
+                      >
+                        {segment.value}
+                      </div>
+                    );
+                  default:
+                    return null;
+                }
+              })}
+            </div>
             <IconButton
-              {...suffixProps}
               icon={CalendarIcon}
               variant="secondary"
               onClick={openCalendar}
-              className={clsx(
-                suffixProps.className,
-                classes['calendar-button'],
-              )}
+              className={classes['calendar-button']}
             >
               {calendarButtonLabel}
             </IconButton>
-          )}
-          onChange={handleInputChange}
-        />
+          </div>
+          <FieldValidationHint
+            id={validationHintId}
+            disabled={disabled}
+            invalid={invalid}
+            hasWarning={hasWarning}
+            showValid={showValid}
+            validationHint={validationHint}
+          />
+        </FieldSet>
         <Dialog
-          ref={refs.setFloating}
+          ref={floatingRef}
           open={open}
           onClose={closeCalendar}
           aria-labelledby={headlineId}
@@ -296,8 +433,8 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                 className={classes.calendar}
                 onSelect={handleSelect}
                 selection={selection}
-                minDate={toPlainDate(min) || undefined}
-                maxDate={toPlainDate(max) || undefined}
+                minDate={state.minDate}
+                maxDate={state.maxDate}
                 locale={locale}
                 firstDayOfWeek={firstDayOfWeek}
                 modifiers={modifiers}
@@ -320,7 +457,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
             </div>
           )}
         </Dialog>
-      </div>
+      </FieldWrapper>
     );
   },
 );
