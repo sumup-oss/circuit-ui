@@ -30,13 +30,18 @@ export default {
 
 const baseArgs = {
   label: 'Date of birth',
-  validationHint: 'Use the YYYY-MM-DD format',
   prevMonthButtonLabel: 'Previous month',
   nextMonthButtonLabel: 'Previous month',
   openCalendarButtonLabel: 'Change date',
   closeCalendarButtonLabel: 'Close',
   applyDateButtonLabel: 'Apply',
   clearDateButtonLabel: 'Clear',
+  yearInputLabel: 'Year',
+  monthInputLabel: 'Month',
+  dayInputLabel: 'Day',
+  locale: 'en-US',
+  // min: '2024-11-14',
+  // max: '2024-11-24',
 };
 
 export const Base = (args: DateInputProps) => {

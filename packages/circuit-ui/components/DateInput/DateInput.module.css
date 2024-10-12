@@ -1,3 +1,36 @@
+.input {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--cui-bg-normal);
+  border: none;
+  border-radius: var(--cui-border-radius-byte);
+  outline: 0;
+  box-shadow: 0 0 0 1px var(--cui-border-normal);
+  transition:
+    box-shadow var(--cui-transitions-default),
+    padding var(--cui-transitions-default);
+}
+
+.input:hover {
+  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
+}
+
+.input:focus-within {
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
+}
+
+.segments {
+  display: flex;
+  gap: 2px;
+  padding: var(--cui-spacings-byte) var(--cui-spacings-mega);
+}
+
+.literal {
+  padding: var(--cui-spacings-bit) 0;
+  font-size: var(--cui-typography-body-m-font-size);
+  line-height: var(--cui-typography-body-m-line-height);
+}
+
 .calendar-button {
   border: none;
   border-left: 1px solid var(--cui-border-normal);
