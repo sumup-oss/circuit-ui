@@ -14,17 +14,19 @@
  */
 
 import {
-  useCallback,
   useId,
+  useMemo,
   useState,
   type FormEvent,
   type InputHTMLAttributes,
+  type KeyboardEvent,
 } from 'react';
 import { Temporal } from 'temporal-polyfill';
 
 import { toPlainDate } from '../../util/date.js';
 import { clamp } from '../../util/helpers.js';
 import { isNumber } from '../../util/type-check.js';
+import { isBackspace, isDelete } from '../../util/key-codes.js';
 
 /**
  * These hooks assume a Gregorian or ISO 8601 calendar:
@@ -73,10 +75,35 @@ export function usePlainDateState({
   return { date, update, minDate, maxDate };
 }
 
+export function useSegment(
+  focus: FocusHandlers,
+): InputHTMLAttributes<HTMLInputElement> {
+  const onKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    const input = event.currentTarget;
+
+    // Focus the following segment after clearing the current one
+    if (!input.value && !input.validity.badInput) {
+      if (isBackspace(event)) {
+        event.preventDefault();
+        focus.previous();
+      }
+
+      if (isDelete(event)) {
+        event.preventDefault();
+        focus.next();
+      }
+    }
+  };
+
+  return { onKeyDown };
+}
+
 export function useYearSegment(
   state: PlainDateState,
-  focusNextSegment: () => void,
+  focus: FocusHandlers,
 ): InputHTMLAttributes<HTMLInputElement> {
+  const props = useSegment(focus);
+
   if (
     state.minDate &&
     state.maxDate &&
@@ -88,32 +115,30 @@ export function useYearSegment(
     };
   }
 
+  const value = state.date.year;
+  const placeholder = 'yyyy';
   const min = state.minDate ? state.minDate.year : 1;
   const max = state.maxDate ? state.maxDate.year : 9999;
 
   const onChange = (event: FormEvent<HTMLInputElement>) => {
-    const value = Number.parseInt(event.currentTarget.value, 10);
+    const newValue = Number.parseInt(event.currentTarget.value, 10);
     // FIXME: Clamping makes for a confusing user experience, especially with custom min and max dates 🤔
-    const year = value ? clamp(value, min, max) : '';
+    const year = newValue ? clamp(newValue, min, max) : '';
     state.update({ year });
     if (year && year > 999) {
-      focusNextSegment();
+      focus.next();
     }
   };
 
-  return {
-    value: state.date.year,
-    min,
-    max,
-    placeholder: 'yyyy',
-    onChange,
-  };
+  return { ...props, value, placeholder, min, max, onChange };
 }
 
 export function useMonthSegment(
   state: PlainDateState,
-  focusNextSegment: () => void,
+  focus: FocusHandlers,
 ): InputHTMLAttributes<HTMLInputElement> {
+  const props = useSegment(focus);
+
   if (
     state.minDate &&
     state.maxDate &&
@@ -126,6 +151,8 @@ export function useMonthSegment(
     };
   }
 
+  const value = state.date.month;
+  const placeholder = 'mm';
   let min = 1;
   let max = 12;
 
@@ -138,28 +165,26 @@ export function useMonthSegment(
   }
 
   const onChange = (event: FormEvent<HTMLInputElement>) => {
-    const value = Number.parseInt(event.currentTarget.value, 10);
+    const newValue = Number.parseInt(event.currentTarget.value, 10);
     // FIXME: Clamping makes for a confusing user experience, especially with custom min and max dates 🤔
-    const month = value ? clamp(value, min, max) : '';
+    const month = newValue ? clamp(newValue, min, max) : '';
     state.update({ month });
     if (month && month > 1) {
-      focusNextSegment();
+      focus.next();
     }
   };
 
-  return {
-    value: state.date.month,
-    min,
-    max,
-    placeholder: 'mm',
-    onChange,
-  };
+  return { ...props, value, placeholder, min, max, onChange };
 }
 
 export function useDaySegment(
   state: PlainDateState,
-  focusNextSegment: () => void,
+  focus: FocusHandlers,
 ): InputHTMLAttributes<HTMLInputElement> {
+  const props = useSegment(focus);
+
+  const value = state.date.day;
+  const placeholder = 'dd';
   const min = 1;
   let max = 31;
 
@@ -173,48 +198,61 @@ export function useDaySegment(
   }
 
   const onChange = (event: FormEvent<HTMLInputElement>) => {
-    const value = Number.parseInt(event.currentTarget.value, 10);
+    const newValue = Number.parseInt(event.currentTarget.value, 10);
     // FIXME: Clamping makes for a confusing user experience, especially with custom min and max dates 🤔
-    const day = value ? clamp(value, min, max) : '';
+    const day = newValue ? clamp(newValue, min, max) : '';
     state.update({ day });
     if (day && day > 3) {
-      focusNextSegment();
+      focus.next();
     }
   };
 
-  return {
-    value: state.date.day,
-    min,
-    max,
-    placeholder: 'dd',
-    onChange,
-  };
+  return { ...props, value, placeholder, min, max, onChange };
 }
 
-export function useSegmentFocus(): [Record<string, string>, () => void] {
+type FocusProps = { 'data-focus-list': string };
+type FocusHandlers = { previous: () => void; next: () => void };
+
+export function useSegmentFocus(): [FocusProps, FocusHandlers] {
   const name = useId();
 
-  const focusNextSegment = useCallback(() => {
-    const items = document.querySelectorAll<HTMLElement>(
-      `[data-focus-list="${name}"]`,
-    );
-    const currentEl = document.activeElement as HTMLElement;
-    const currentIndex = Array.from(items).indexOf(currentEl);
+  return useMemo(() => {
+    const getElements = () => {
+      const elements = document.querySelectorAll<HTMLElement>(
+        `[data-focus-list="${name}"]`,
+      );
+      return Array.from(elements);
+    };
 
-    if (currentIndex === -1) {
-      return;
-    }
+    const getCurrentIndex = (elements: HTMLElement[]) => {
+      const currentElement = document.activeElement as HTMLElement;
+      return elements.indexOf(currentElement);
+    };
 
-    const newIndex = currentIndex + 1;
+    const previous = () => {
+      const elements = getElements();
+      const currentIndex = getCurrentIndex(elements);
+      const newIndex = currentIndex - 1;
 
-    if (newIndex >= items.length) {
-      return;
-    }
+      if (newIndex < 0) {
+        return;
+      }
 
-    const newEl = items.item(newIndex);
+      elements[newIndex].focus();
+    };
 
-    newEl.focus();
+    const next = () => {
+      const elements = getElements();
+      const currentIndex = getCurrentIndex(elements);
+      const newIndex = currentIndex + 1;
+
+      if (newIndex >= elements.length) {
+        return;
+      }
+
+      elements[newIndex].focus();
+    };
+
+    return [{ 'data-focus-list': name }, { previous, next }];
   }, [name]);
-
-  return [{ 'data-focus-list': name }, focusNextSegment];
 }

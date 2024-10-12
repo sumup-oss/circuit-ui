@@ -172,11 +172,11 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     const headlineId = useId();
     const validationHintId = useId();
 
-    const [focusProps, focusNextSegment] = useSegmentFocus();
+    const [focusProps, focusHandlers] = useSegmentFocus();
     const state = usePlainDateState({ value, min, max });
-    const yearProps = useYearSegment(state, focusNextSegment);
-    const monthProps = useMonthSegment(state, focusNextSegment);
-    const dayProps = useDaySegment(state, focusNextSegment);
+    const yearProps = useYearSegment(state, focusHandlers);
+    const monthProps = useMonthSegment(state, focusHandlers);
+    const dayProps = useDaySegment(state, focusHandlers);
 
     const [open, setOpen] = useState(false);
     const [selection, setSelection] = useState<Temporal.PlainDate>();
