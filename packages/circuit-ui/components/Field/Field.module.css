@@ -8,8 +8,8 @@
 .label,
 .legend {
   display: block;
-  font-size: var(--cui-typography-body-s-font-size);
-  line-height: var(--cui-typography-body-s-line-height);
+  font-size: var(--cui-body-s-font-size);
+  line-height: var(--cui-body-s-line-height);
 }
 
 .label-text {
@@ -33,8 +33,8 @@
 
 .description {
   display: block;
-  font-size: var(--cui-typography-body-s-font-size);
-  line-height: var(--cui-typography-body-s-line-height);
+  font-size: var(--cui-body-s-font-size);
+  line-height: var(--cui-body-s-line-height);
   color: var(--cui-fg-subtle);
 }
 
@@ -46,8 +46,8 @@
 .validation-hint {
   display: flex;
   margin-top: var(--cui-spacings-bit);
-  font-size: var(--cui-typography-body-s-font-size);
-  line-height: var(--cui-typography-body-s-line-height);
+  font-size: var(--cui-body-s-font-size);
+  line-height: var(--cui-body-s-line-height);
   color: var(--cui-fg-subtle);
   transition: color var(--cui-transitions-default);
 }
@@ -91,7 +91,7 @@
   width: var(--cui-icon-sizes-kilo);
   height: var(--cui-icon-sizes-kilo);
   margin-top: calc(
-    (var(--cui-typography-body-s-line-height) - var(--cui-icon-sizes-kilo)) / 2
+    (var(--cui-body-s-line-height) - var(--cui-icon-sizes-kilo)) / 2
   );
   margin-right: var(--cui-spacings-bit);
 }

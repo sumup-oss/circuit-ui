@@ -40,8 +40,8 @@ ruleTester.run(
         name: 'custom properties in a JS object',
         code: `
           const typography = {
-            fontSize: "var(--cui-typography-headline-l-font-size)",
-            lineHeight: "var(--cui-typography-headline-l-line-height)",
+            fontSize: "var(--cui-headline-l-font-size)",
+            lineHeight: "var(--cui-headline-l-line-height)",
           }
         `,
       },
@@ -49,8 +49,8 @@ ruleTester.run(
         name: 'custom properties in a tagged template literal',
         code: `
           const styles = css\`
-            font-size: var(--cui-typography-headline-l-font-size);
-            line-height: var(--cui-typography-headline-l-line-height);
+            font-size: var(--cui-headline-l-font-size);
+            line-height: var(--cui-headline-l-line-height);
           \`;
         `,
       },
@@ -60,7 +60,7 @@ ruleTester.run(
           function Component() {
             return (
               <p
-                style="font-size:var(--cui-typography-headline-l-font-size);line-height:var(--cui-typography-headline-l-line-height);"
+                style="font-size:var(--cui-headline-l-font-size);line-height:var(--cui-headline-l-line-height);"
               >
                 Success
               </p>

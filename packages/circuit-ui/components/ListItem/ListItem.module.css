@@ -118,7 +118,7 @@ button.base:active {
   display: flex;
   align-items: center;
   max-width: 100%;
-  min-height: var(--cui-typography-body-m-line-height);
+  min-height: var(--cui-body-m-line-height);
 }
 
 .trailing {
@@ -150,6 +150,6 @@ button.base:active {
 }
 
 .navigation .trailing .details {
-  height: var(--cui-typography-body-m-line-height);
+  height: var(--cui-body-m-line-height);
   margin-right: calc(var(--cui-spacings-mega) + var(--cui-spacings-bit));
 }

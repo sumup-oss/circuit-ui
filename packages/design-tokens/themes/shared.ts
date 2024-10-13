@@ -73,13 +73,19 @@ export const shared = [
   /* Font weights */
   {
     name: '--cui-font-weight-regular',
-    value: '400',
+    value: '375',
     type: 'fontWeight',
   },
   {
     name: '--cui-font-weight-bold',
-    value: '700',
+    value: '650',
     type: 'fontWeight',
+  },
+  /* Letter spacing */
+  {
+    name: '--cui-letter-spacing',
+    value: '-0.01375rem',
+    type: 'dimension',
   },
   /* Icon sizes */
   {
@@ -161,228 +167,153 @@ export const shared = [
   },
   /* Typography */
   {
-    name: '--cui-typography-display-l-font-size',
+    name: '--cui-display-l-font-size',
     value: '4rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-display-l-line-height',
+    name: '--cui-display-l-line-height',
     value: '4.5rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-display-l-letter-spacing',
-    value: '0px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-display-m-font-size',
+    name: '--cui-display-m-font-size',
     value: '3rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-display-m-line-height',
+    name: '--cui-display-m-line-height',
     value: '3.5rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-display-m-letter-spacing',
-    value: '0px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-display-s-font-size',
+    name: '--cui-display-s-font-size',
     value: '2.5rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-display-s-line-height',
+    name: '--cui-display-s-line-height',
     value: '2.875rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-display-s-letter-spacing',
-    value: '0px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-headline-l-font-size',
+    name: '--cui-headline-l-font-size',
     value: '2rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-headline-l-line-height',
+    name: '--cui-headline-l-line-height',
     value: '2.25rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-headline-l-letter-spacing',
-    value: '0px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-headline-m-font-size',
+    name: '--cui-headline-m-font-size',
     value: '1.375rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-headline-m-line-height',
+    name: '--cui-headline-m-line-height',
     value: '1.625rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-headline-m-letter-spacing',
-    value: '0px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-headline-s-font-size',
+    name: '--cui-headline-s-font-size',
     value: '1.125rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-headline-s-line-height',
+    name: '--cui-headline-s-line-height',
     value: '1.375rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-headline-s-letter-spacing',
-    value: '0px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-body-l-font-size',
+    name: '--cui-body-l-font-size',
     value: '1.25rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-body-l-line-height',
+    name: '--cui-body-l-line-height',
     value: '1.5rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-body-l-letter-spacing',
-    value: '0px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-body-m-font-size',
+    name: '--cui-body-m-font-size',
     value: '1rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-body-m-line-height',
+    name: '--cui-body-m-line-height',
     value: '1.375rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-body-m-letter-spacing',
-    value: '0px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-body-s-font-size',
+    name: '--cui-body-s-font-size',
     value: '0.875rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-body-s-line-height',
-    value: '1.24rem',
+    name: '--cui-body-s-line-height',
+    value: '1.25rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-body-s-letter-spacing',
-    value: '0px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-compact-l-font-size',
+    name: '--cui-compact-l-font-size',
     value: '1.125rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-compact-l-line-height',
+    name: '--cui-compact-l-line-height',
     value: '1.5rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-compact-l-letter-spacing',
-    value: '0px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-compact-m-font-size',
+    name: '--cui-compact-m-font-size',
     value: '0.9375rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-compact-m-line-height',
+    name: '--cui-compact-m-line-height',
     value: '1.0625rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-compact-m-letter-spacing',
-    value: '0px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-compact-s-font-size',
+    name: '--cui-compact-s-font-size',
     value: '0.8125rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-compact-s-line-height',
+    name: '--cui-compact-s-line-height',
     value: '0.9375rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-compact-s-letter-spacing',
-    value: '0px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-numeral-l-font-size',
+    name: '--cui-numeral-l-font-size',
     value: '3rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-numeral-l-line-height',
+    name: '--cui-numeral-l-line-height',
     value: '3.375rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-numeral-l-letter-spacing',
-    value: '0px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-numeral-m-font-size',
+    name: '--cui-numeral-m-font-size',
     value: '1.5rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-numeral-m-line-height',
+    name: '--cui-numeral-m-line-height',
     value: '1.75rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-numeral-m-letter-spacing',
-    value: '0px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-numeral-s-font-size',
+    name: '--cui-numeral-s-font-size',
     value: '1rem',
     type: 'dimension',
   },
   {
-    name: '--cui-typography-numeral-s-line-height',
-    value: '1rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-numeral-s-letter-spacing',
-    value: '0px',
+    name: '--cui-numeral-s-line-height',
+    value: '1.375rem',
     type: 'dimension',
   },
   /* eslint-disable @sumup-oss/circuit-ui/no-deprecated-custom-properties */

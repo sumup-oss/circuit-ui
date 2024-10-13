@@ -7,19 +7,19 @@
 /* Sizes */
 
 .l {
-  font-size: var(--cui-typography-display-l-font-size);
-  line-height: var(--cui-typography-display-l-line-height);
-  letter-spacing: var(--cui-typography-display-l-letter-spacing);
+  font-size: var(--cui-display-l-font-size);
+  line-height: var(--cui-display-l-line-height);
+  letter-spacing: var(--cui-letter-spacing);
 }
 
 .m {
-  font-size: var(--cui-typography-display-m-font-size);
-  line-height: var(--cui-typography-display-m-line-height);
-  letter-spacing: var(--cui-typography-display-m-letter-spacing);
+  font-size: var(--cui-display-m-font-size);
+  line-height: var(--cui-display-m-line-height);
+  letter-spacing: var(--cui-letter-spacing);
 }
 
 .s {
-  font-size: var(--cui-typography-display-s-font-size);
-  line-height: var(--cui-typography-display-s-line-height);
-  letter-spacing: var(--cui-typography-display-s-letter-spacing);
+  font-size: var(--cui-display-s-font-size);
+  line-height: var(--cui-display-s-line-height);
+  letter-spacing: var(--cui-letter-spacing);
 }

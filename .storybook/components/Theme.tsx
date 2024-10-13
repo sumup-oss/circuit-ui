@@ -42,8 +42,20 @@ type PreviewProps = { name: CustomPropertyName };
 type PreviewComponent = ComponentType<PreviewProps>;
 
 function filterCustomProperties(namespace: string, type?: string) {
+  const typographyPrefixes = [
+    'body',
+    'display',
+    'headline',
+    'compact',
+    'numeral',
+    'typography',
+  ]; //kept 'typography' for deprecated tokens
+
   return schema.filter((token) => {
-    const isNamespace = token.name.startsWith(`--cui-${namespace}`);
+    const isNamespace =
+      namespace === 'typography'
+        ? typographyPrefixes.some((el) => token.name.startsWith(`--cui-${el}`))
+        : token.name.startsWith(`--cui-${namespace}`);
     const isType = type ? token.type === type : true;
     return isNamespace && isType;
   });
@@ -79,8 +91,17 @@ function getRows(
       {
         children: (
           <div style={{ display: 'flex' }}>
-            <code style={{ whiteSpace: 'nowrap' }}>{name}</code>
-            <CopyButton name={name} />
+            <code
+              style={{
+                whiteSpace: 'nowrap',
+                maxWidth: '320px',
+                textOverflow: 'ellipsis',
+                overflow: 'hidden',
+              }}
+            >
+              {name}
+            </code>
+            {!deprecation && <CopyButton name={name} />}
             {deprecation && (
               <Tooltip
                 type="description"
