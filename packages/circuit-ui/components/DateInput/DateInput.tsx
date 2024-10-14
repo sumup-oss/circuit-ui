@@ -463,18 +463,22 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                 nextMonthButtonLabel={nextMonthButtonLabel}
               />
 
-              <div className={classes.buttons}>
-                <Button variant="tertiary" onClick={handleClear}>
-                  {clearDateButtonLabel}
-                </Button>
-                <Button
-                  variant="primary"
-                  onClick={handleApply}
-                  className={classes.apply}
-                >
-                  {applyDateButtonLabel}
-                </Button>
-              </div>
+              {(!required || isMobile) && (
+                <div className={classes.buttons}>
+                  {!required && (
+                    <Button variant="tertiary" onClick={handleClear}>
+                      {clearDateButtonLabel}
+                    </Button>
+                  )}
+                  <Button
+                    variant="primary"
+                    onClick={handleApply}
+                    className={classes.apply}
+                  >
+                    {applyDateButtonLabel}
+                  </Button>
+                </div>
+              )}
             </div>
           )}
         </Dialog>

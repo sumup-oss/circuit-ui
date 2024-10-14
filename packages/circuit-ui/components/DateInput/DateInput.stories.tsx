@@ -25,6 +25,7 @@ export default {
   },
   argTypes: {
     disabled: { control: 'boolean' },
+    required: { control: 'boolean' },
   },
 };
 
