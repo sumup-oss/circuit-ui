@@ -89,7 +89,7 @@ function getHTMLElement(variant?: Variant): AsPropType {
   return 'p';
 }
 
-const deprecatedSizeMap: Record<string, string> = {
+export const deprecatedSizeMap: Record<string, string> = {
   'one': 'm',
   'two': 's',
 };
