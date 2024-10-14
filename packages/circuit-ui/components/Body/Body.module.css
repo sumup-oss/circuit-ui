@@ -1,21 +1,22 @@
+.base {
+  letter-spacing: var(--cui-letter-spacing);
+}
+
 /* Sizes */
 
 .l {
   font-size: var(--cui-body-l-font-size);
   line-height: var(--cui-body-l-line-height);
-  letter-spacing: var(--cui-letter-spacing);
 }
 
 .m {
   font-size: var(--cui-body-m-font-size);
   line-height: var(--cui-body-m-line-height);
-  letter-spacing: var(--cui-letter-spacing);
 }
 
 .s {
   font-size: var(--cui-body-s-font-size);
   line-height: var(--cui-body-s-line-height);
-  letter-spacing: var(--cui-letter-spacing);
 }
 
 /* Weights */

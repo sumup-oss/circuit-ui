@@ -1,5 +1,6 @@
 .base {
   font-variant-numeric: tabular-nums;
+  letter-spacing: var(--cui-letter-spacing);
 }
 
 /* Sizes */
@@ -7,19 +8,16 @@
 .l {
   font-size: var(--cui-numeral-l-font-size);
   line-height: var(--cui-numeral-l-line-height);
-  letter-spacing: var(--cui-letter-spacing);
 }
 
 .m {
   font-size: var(--cui-numeral-m-font-size);
   line-height: var(--cui-numeral-m-line-height);
-  letter-spacing: var(--cui-letter-spacing);
 }
 
 .s {
   font-size: var(--cui-numeral-s-font-size);
   line-height: var(--cui-numeral-s-line-height);
-  letter-spacing: var(--cui-letter-spacing);
 }
 
 /* Weights */

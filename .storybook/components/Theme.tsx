@@ -41,21 +41,12 @@ type CustomProperties = CustomProperty[];
 type PreviewProps = { name: CustomPropertyName };
 type PreviewComponent = ComponentType<PreviewProps>;
 
-function filterCustomProperties(namespace: string, type?: string) {
-  const typographyPrefixes = [
-    'body',
-    'display',
-    'headline',
-    'compact',
-    'numeral',
-    'typography',
-  ]; //kept 'typography' for deprecated tokens
-
+function filterCustomProperties(namespace: string | string[], type?: string) {
   return schema.filter((token) => {
     const isNamespace =
-      namespace === 'typography'
-        ? typographyPrefixes.some((el) => token.name.startsWith(`--cui-${el}`))
-        : token.name.startsWith(`--cui-${namespace}`);
+      typeof namespace === 'string'
+        ? token.name.startsWith(`--cui-${namespace}`)
+        : namespace.some((ns) => token.name.startsWith(`--cui-${ns}`));
     const isType = type ? token.type === type : true;
     return isNamespace && isType;
   });
@@ -136,7 +127,7 @@ function getRows(
 }
 
 interface CustomPropertiesTableProps {
-  namespace: string;
+  namespace: string | string[];
   preview?: PreviewComponent;
   type?: string;
 }
