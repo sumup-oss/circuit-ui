@@ -26,7 +26,6 @@ import {
 import { Temporal } from 'temporal-polyfill';
 
 import { toPlainDate } from '../../util/date.js';
-import { clamp } from '../../util/helpers.js';
 import { isNumber } from '../../util/type-check.js';
 import { isBackspace, isDelete } from '../../util/key-codes.js';
 
@@ -132,9 +131,7 @@ export function useYearSegment(
   const max = state.maxDate ? state.maxDate.year : 9999;
 
   const onChange = (event: FormEvent<HTMLInputElement>) => {
-    const newValue = Number.parseInt(event.currentTarget.value, 10);
-    // FIXME: Clamping makes for a confusing user experience, especially with custom min and max dates 🤔
-    const year = newValue ? clamp(newValue, min, max) : '';
+    const year = Number.parseInt(event.currentTarget.value, 10) || '';
     state.update({ year });
     if (year && year > 999) {
       focus.next();
@@ -176,9 +173,7 @@ export function useMonthSegment(
   }
 
   const onChange = (event: FormEvent<HTMLInputElement>) => {
-    const newValue = Number.parseInt(event.currentTarget.value, 10);
-    // FIXME: Clamping makes for a confusing user experience, especially with custom min and max dates 🤔
-    const month = newValue ? clamp(newValue, min, max) : '';
+    const month = Number.parseInt(event.currentTarget.value, 10) || '';
     state.update({ month });
     if (month && month > 1) {
       focus.next();
@@ -209,9 +204,7 @@ export function useDaySegment(
   }
 
   const onChange = (event: FormEvent<HTMLInputElement>) => {
-    const newValue = Number.parseInt(event.currentTarget.value, 10);
-    // FIXME: Clamping makes for a confusing user experience, especially with custom min and max dates 🤔
-    const day = newValue ? clamp(newValue, min, max) : '';
+    const day = Number.parseInt(event.currentTarget.value, 10) || '';
     state.update({ day });
     if (day && day > 3) {
       focus.next();
