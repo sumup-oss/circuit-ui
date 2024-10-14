@@ -21,18 +21,19 @@ import { flip, offset, shift, useFloating } from '@floating-ui/react-dom';
 import { Calendar as CalendarIcon } from '@sumup-oss/icons';
 import { formatDate } from '@sumup-oss/intl';
 
-import type { InputProps } from '../Input/index.js';
-import { IconButton } from '../Button/IconButton.js';
-import { Calendar, type CalendarProps } from '../Calendar/Calendar.js';
+import type { ClickEvent } from '../../types/events.js';
 import { useMedia } from '../../hooks/useMedia/useMedia.js';
 import { toPlainDate } from '../../util/date.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
-import { Headline } from '../Headline/Headline.js';
-import { CloseButton } from '../CloseButton/CloseButton.js';
+import type { InputProps } from '../Input/index.js';
+import { Calendar, type CalendarProps } from '../Calendar/Calendar.js';
 import { Button } from '../Button/Button.js';
+import { CloseButton } from '../CloseButton/CloseButton.js';
+import { IconButton } from '../Button/IconButton.js';
+import { Headline } from '../Headline/Headline.js';
 import {
   FieldLabelText,
   FieldLegend,
@@ -41,9 +42,8 @@ import {
   FieldWrapper,
 } from '../Field/Field.js';
 
-import classes from './DateInput.module.css';
 import { Dialog } from './components/Dialog.js';
-import { getDateSegments } from './DateInputService.js';
+import { Segment } from './components/Segment.js';
 import {
   usePlainDateState,
   useDaySegment,
@@ -51,7 +51,8 @@ import {
   useYearSegment,
   useSegmentFocus,
 } from './hooks.js';
-import { Segment } from './components/Segment.js';
+import { getDateSegments } from './DateInputService.js';
+import classes from './DateInput.module.css';
 
 export interface DateInputProps
   extends Omit<
@@ -214,6 +215,20 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       };
     }, [open, update]);
 
+    // Focus the first date segment when clicking anywhere on the field...
+    const handleClick = (event: ClickEvent) => {
+      const element = event.target as HTMLElement;
+      // ...except when clicking on a specific segment or the calendar button.
+      if (
+        element.tagName === 'INPUT' ||
+        element.tagName === 'BUTTON' ||
+        element.matches('button :scope')
+      ) {
+        return;
+      }
+      focusHandlers.next();
+    };
+
     const openCalendar = () => {
       setSelection(toPlainDate(value) || undefined);
       setOpen(true);
@@ -321,7 +336,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
           readOnly={readOnly}
           {...props}
         /> */}
-        <FieldSet>
+        <FieldSet onClick={handleClick}>
           <FieldLegend>
             <FieldLabelText
               label={label}
