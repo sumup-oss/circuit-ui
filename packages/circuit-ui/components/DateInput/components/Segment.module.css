@@ -4,11 +4,10 @@
   font-size: var(--cui-typography-body-m-font-size);
   font-variant-numeric: tabular-nums;
   line-height: var(--cui-typography-body-m-line-height);
-  text-align: end;
   appearance: textfield;
   background-color: var(--cui-bg-normal);
   border: none;
-  border-radius: var(--cui-border-radius-bit);
+  border-radius: var(--cui-border-radius-byte);
   transition: background-color var(--cui-transitions-default);
 }
 
@@ -33,7 +32,6 @@
   font-size: var(--cui-typography-body-m-font-size);
   font-variant-numeric: tabular-nums;
   line-height: var(--cui-typography-body-m-line-height);
-  text-align: end;
   pointer-events: none;
   visibility: hidden;
 }
