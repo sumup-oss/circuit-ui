@@ -1,6 +1,7 @@
 .input {
   display: flex;
   justify-content: space-between;
+  cursor: text;
   background-color: var(--cui-bg-normal);
   border: none;
   border-radius: var(--cui-border-radius-byte);
