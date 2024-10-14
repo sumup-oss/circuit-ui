@@ -1,5 +1,11 @@
 # @sumup/icons
 
+## 4.1.3
+
+### Patch Changes
+
+- [#2715](https://github.com/sumup-oss/circuit-ui/pull/2715) [`f053eb3`](https://github.com/sumup-oss/circuit-ui/commit/f053eb3ccb3f86ca71d8f7e99d0dcb7447dc818f) Thanks [@voronianski](https://github.com/voronianski)! - Updated Swile 24px icon size to fit other 24px size icons.
+
 ## 4.1.2
 
 ### Patch Changes
