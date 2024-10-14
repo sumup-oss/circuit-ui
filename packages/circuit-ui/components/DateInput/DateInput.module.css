@@ -91,6 +91,10 @@
   border-top: var(--cui-border-width-kilo) solid var(--cui-border-divider);
 }
 
+.apply {
+  margin-left: auto;
+}
+
 @media (min-width: 480px) {
   .apply {
     display: none;
