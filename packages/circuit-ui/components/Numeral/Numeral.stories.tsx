@@ -40,15 +40,6 @@ export const Sizes = (args: NumeralProps) =>
     </Numeral>
   ));
 
-const weights = ['regular', 'bold'] as const;
-
-export const Weights = (args: NumeralProps) =>
-  weights.map((weight) => (
-    <Numeral key={weight} {...args} weight={weight}>
-      {content} in {weight} weight
-    </Numeral>
-  ));
-
 const colors = [
   'normal',
   'subtle',

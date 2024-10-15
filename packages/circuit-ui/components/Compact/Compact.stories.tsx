@@ -41,7 +41,7 @@ export const Sizes = (args: CompactProps) =>
     </Compact>
   ));
 
-const weights = ['regular', 'bold'] as const;
+const weights = ['regular', 'semibold', 'bold'] as const;
 
 export const Weights = (args: CompactProps) =>
   weights.map((weight) => (

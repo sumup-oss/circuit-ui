@@ -23,6 +23,10 @@ import classes from './Display.module.css';
 
 export interface DisplayProps extends HTMLAttributes<HTMLHeadingElement> {
   /**
+   * Choose from three font weights. Default: `regular`.
+   */
+  weight?: 'regular' | 'semibold' | 'bold';
+  /**
    * Choose from 3 font sizes. Defaults to `m`.
    */
   size?:
@@ -64,7 +68,10 @@ const deprecatedSizeMap: Record<string, string> = {
  * A flexible title component capable of rendering any HTML heading element.
  */
 export const Display = forwardRef<HTMLHeadingElement, DisplayProps>(
-  ({ className, as, size: legacySize = 'm', ...props }, ref) => {
+  (
+    { className, as, size: legacySize = 'm', weight = 'bold', ...props },
+    ref,
+  ) => {
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -94,7 +101,12 @@ export const Display = forwardRef<HTMLHeadingElement, DisplayProps>(
       <Element
         {...props}
         ref={ref}
-        className={clsx(classes.base, classes[size], className)}
+        className={clsx(
+          classes.base,
+          classes[size],
+          classes[weight],
+          className,
+        )}
       />
     );
   },

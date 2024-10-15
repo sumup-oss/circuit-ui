@@ -42,7 +42,7 @@ export const Sizes = (args: BodyProps) =>
     </Body>
   ));
 
-const weights = ['regular', 'bold'] as const;
+const weights = ['regular', 'semibold', 'bold'] as const;
 
 export const Weights = (args: BodyProps) =>
   weights.map((weight) => (

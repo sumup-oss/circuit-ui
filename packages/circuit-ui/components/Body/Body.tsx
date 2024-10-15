@@ -40,12 +40,12 @@ export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
      */
     | 'two';
   /**
-   * Choose from two font weights. Default: `regular`.
+   * Choose from three font weights. Default: `regular`.
    *
    * Use the `as` prop to render the component as the `strong` HTML element
    * if appropriate.
    */
-  weight?: 'regular' | 'bold';
+  weight?: 'regular' | 'semibold' | 'bold';
   /**
    * Choose a style or text decoration. Underline is reserved for hyperlinks.
    *
