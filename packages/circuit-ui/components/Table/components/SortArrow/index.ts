@@ -13,6 +13,4 @@
  * limitations under the License.
  */
 
-import { SortArrow } from './SortArrow.js';
-
-export default SortArrow;
+export { SortArrow } from './SortArrow.js';

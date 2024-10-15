@@ -26,7 +26,7 @@ import {
   cx,
 } from '../../../../../styles/style-mixins.js';
 
-import calendarInheritStyles from './CalendarImportedStyles.js';
+import { calendarInheritStyles } from './CalendarImportedStyles.js';
 
 const dayDefault = css`
   .CalendarDay__default {

@@ -30,8 +30,8 @@ import {
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';
-import utilityClasses from '../../styles/utility.js';
-import CloseButton from '../CloseButton/index.js';
+import { utilClasses } from '../../styles/utility.js';
+import { CloseButton } from '../CloseButton/index.js';
 import { useComponents } from '../ComponentsContext/index.js';
 
 import classes from './Tag.module.css';
@@ -137,10 +137,7 @@ export const Tag = forwardRef<HTMLDivElement & HTMLButtonElement, TagProps>(
         style={style}
       >
         <Element
-          className={clsx(
-            classes.content,
-            onClick && utilityClasses.focusVisible,
-          )}
+          className={clsx(classes.content, onClick && utilClasses.focusVisible)}
           type={isButton ? 'button' : undefined}
           aria-pressed={isButton && selected ? 'true' : undefined}
           onClick={onClick}

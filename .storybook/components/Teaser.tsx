@@ -24,14 +24,14 @@ interface TeaserProps {
   children: ReactNode;
 }
 
-const Teaser = ({ title, children }: TeaserProps) => (
-  <Card className={classes.base}>
-    <Headline as="h2" size="three" id={slugify(title)}>
-      {title}
-    </Headline>
+export function Teaser({ title, children }: TeaserProps) {
+  return (
+    <Card className={classes.base}>
+      <Headline as="h2" size="three" id={slugify(title)}>
+        {title}
+      </Headline>
 
-    {children}
-  </Card>
-);
-
-export default Teaser;
+      {children}
+    </Card>
+  );
+}

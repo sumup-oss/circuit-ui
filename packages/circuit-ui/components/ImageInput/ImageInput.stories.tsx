@@ -15,11 +15,11 @@
 
 import { useState } from 'react';
 
-import Avatar from '../Avatar/index.js';
+import { Avatar } from '../Avatar/index.js';
 
 import type { ImageInputProps } from './ImageInput.js';
 
-import ImageInput from './index.js';
+import { ImageInput } from './index.js';
 
 export default {
   title: 'Forms/ImageInput',
@@ -75,6 +75,7 @@ export const Disabled = (args: ImageInputProps) => (
     disabled
     loadingLabel="Uploading"
     component={(props) => <Avatar {...props} alt="" />}
+    hideLabel={false}
   />
 );
 

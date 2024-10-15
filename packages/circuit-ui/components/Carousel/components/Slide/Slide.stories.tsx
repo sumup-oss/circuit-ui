@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import Headline from '../../../Headline/index.js';
-import Image from '../../../Image/index.js';
+import { Headline } from '../../../Headline/index.js';
+import { Image } from '../../../Image/index.js';
 
 import { Slide, type SlideProps } from './Slide.js';
 

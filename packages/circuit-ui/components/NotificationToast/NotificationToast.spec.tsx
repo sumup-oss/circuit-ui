@@ -23,7 +23,7 @@ import {
   waitForElementToBeRemoved,
   screen,
 } from '../../util/test-utils.js';
-import Button from '../Button/index.js';
+import { Button } from '../Button/index.js';
 import { ToastProvider } from '../ToastContext/ToastContext.js';
 
 import {

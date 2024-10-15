@@ -13,12 +13,8 @@
  * limitations under the License.
  */
 
-declare module '*.mdx' {
-  const content: string;
-  export default content;
-}
-
 declare module '*.module.css' {
   const classes: Record<string, string>;
+  // biome-ignore lint/style/noDefaultExport:
   export default classes;
 }

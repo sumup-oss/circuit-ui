@@ -15,9 +15,9 @@
 
 /* istanbul ignore file */
 
-import Image from '../../Image/index.js';
-import Button from '../../Button/index.js';
-import Step, { type StepProps } from '../Step.js';
+import { Image } from '../../Image/index.js';
+import { Button } from '../../Button/index.js';
+import { Step, type StepProps } from '../Step.js';
 
 import classes from './CarouselSlider.module.css';
 
@@ -25,7 +25,7 @@ export interface CarouselSliderProps extends StepProps {
   images: string[];
 }
 
-export default function CarouselSlider({
+export function CarouselSlider({
   images = [],
   ...stepProps
 }: CarouselSliderProps) {

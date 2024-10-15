@@ -16,7 +16,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { useState } from 'react';
 
-import Avatar from '../Avatar/index.js';
+import { Avatar } from '../Avatar/index.js';
 import {
   render,
   axe,
@@ -42,7 +42,7 @@ describe('ImageInput', () => {
   global.URL.createObjectURL = vi.fn();
 
   const mockUploadFn = vi
-    .fn<[File], Promise<string>>()
+    .fn<(file: File) => Promise<string>>()
     .mockResolvedValue('/images/illustration-coffee.jpg');
   const mockClearFn = vi.fn();
 
@@ -105,7 +105,9 @@ describe('ImageInput', () => {
      */
     it('should support dragging and dropping an image', async () => {
       render(<StatefulInput />);
-      const labelEl = screen.getByText(defaultProps.label);
+      const labelEl = screen.getByText(defaultProps.label, {
+        ignore: '[aria-hidden="true"]',
+      });
 
       fireEvent.drop(labelEl, { dataTransfer: { files: [file] } });
 

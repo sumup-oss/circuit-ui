@@ -20,11 +20,11 @@ import type { ComponentType } from 'react';
 
 import type { AsPropType } from '../../../../types/prop-types.js';
 import { useComponents } from '../../../ComponentsContext/index.js';
-import Body from '../../../Body/index.js';
+import { Body } from '../../../Body/index.js';
 import { Skeleton } from '../../../Skeleton/index.js';
 import type { PrimaryLinkProps as PrimaryLinkType } from '../../types.js';
 import { clsx } from '../../../../styles/clsx.js';
-import utilityClasses from '../../../../styles/utility.js';
+import { utilClasses } from '../../../../styles/utility.js';
 
 import classes from './PrimaryLink.module.css';
 
@@ -59,11 +59,7 @@ export function PrimaryLink({
   return (
     <Element
       {...props}
-      className={clsx(
-        classes.base,
-        utilityClasses.focusVisibleInset,
-        className,
-      )}
+      className={clsx(classes.base, utilClasses.focusVisibleInset, className)}
       aria-current={isActive ? 'page' : undefined}
     >
       <Skeleton className={clsx(classes.icon, badge && classes['icon-badge'])}>

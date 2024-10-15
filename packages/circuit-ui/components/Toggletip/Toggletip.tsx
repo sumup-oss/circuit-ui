@@ -45,10 +45,10 @@ import { useMedia } from '../../hooks/useMedia/index.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
 import { useClickOutside } from '../../hooks/useClickOutside/index.js';
 import { useStackContext } from '../StackContext/index.js';
-import CloseButton from '../CloseButton/index.js';
-import Headline from '../Headline/index.js';
-import Body from '../Body/index.js';
-import Button, { type ButtonProps } from '../Button/index.js';
+import { CloseButton } from '../CloseButton/index.js';
+import { Headline } from '../Headline/index.js';
+import { Body } from '../Body/index.js';
+import { Button, type ButtonProps } from '../Button/index.js';
 
 import classes from './Toggletip.module.css';
 
@@ -168,10 +168,15 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
       });
 
     useEffect(() => {
+      /* Intentionally running useEffect without dependencies
+       * to ensure that the reference element is always up-to-date.
+       * to fix the issue of the tooltip rendering in the wrong position
+       * whenever the reference component re-renders.
+       * */
       const referenceElement = document.getElementById(referenceId);
 
       refs.setReference(referenceElement);
-    }, [referenceId, refs]);
+    });
 
     useEffect(() => {
       /**

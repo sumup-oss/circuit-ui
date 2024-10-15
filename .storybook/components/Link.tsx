@@ -7,7 +7,7 @@ interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
 }
 
-export default function Link({ children, href, ...props }: LinkProps) {
+export function Link({ children, href, ...props }: LinkProps) {
   const storyName = decodeURIComponent(href);
 
   const isStoryName = !LINK_PREFIXES.some((prefix) =>

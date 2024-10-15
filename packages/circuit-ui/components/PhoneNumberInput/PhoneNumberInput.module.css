@@ -2,8 +2,8 @@
   display: flex;
 }
 
-.country-code,
-.subscriber-number {
+.country-code.country-code,
+.subscriber-number.subscriber-number {
   flex-grow: 1;
 }
 
@@ -12,53 +12,53 @@
     flex-direction: column;
   }
 
-  .country-code {
+  .country-code.country-code {
     margin-bottom: 1px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
 
-  .subscriber-number-input {
+  .subscriber-number-input.subscriber-number-input {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
 }
 
 @media (min-width: 480px) {
-  .country-code {
+  .country-code.country-code {
     margin-right: 1px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
 
-  .country-code-input {
+  .country-code-input.country-code-input {
     /* Prefix padding + country code (max 4 chars) + padding */
     max-width: calc(var(--cui-spacings-exa) + 4ch + var(--cui-spacings-mega));
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
 
-  .subscriber-number {
+  .subscriber-number.subscriber-number {
     min-width: 50%;
   }
 
-  .subscriber-number-input {
+  .subscriber-number-input.subscriber-number-input {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
 }
 
 /* Elevate the subscriber number input above the country code select by default */
-.subscriber-number {
+.subscriber-number.subscriber-number {
   position: relative;
   z-index: calc(var(--cui-z-index-input) + 1);
 }
 
 /* Elevate the country code select above the subscriber number input on hover and focus */
-.country-code:hover,
-.country-code:focus,
-.country-code-input:hover,
-.country-code-input:focus {
+.country-code.country-code:hover,
+.country-code.country-code:focus,
+.country-code-input.country-code-input:hover,
+.country-code-input.country-code-input:focus {
   position: relative;
   z-index: calc(var(--cui-z-index-input) + 2);
 }

@@ -15,8 +15,8 @@
 
 import { useState } from 'react';
 
-import Body from '../../components/Body/index.js';
-import Button from '../../components/Button/index.js';
+import { Body } from '../../components/Body/index.js';
+import { Button } from '../../components/Button/index.js';
 
 import { useEscapeKey } from './useEscapeKey.js';
 

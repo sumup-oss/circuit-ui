@@ -20,7 +20,7 @@ import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
-import utilityClasses from '../../styles/utility.js';
+import { utilClasses } from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
 import { deprecate } from '../../util/logger.js';
 
@@ -166,10 +166,7 @@ export function ProgressBar({
       )}
       <span
         id={ariaId}
-        className={clsx(
-          classes.label,
-          hideLabel && utilityClasses.hideVisually,
-        )}
+        className={clsx(classes.label, hideLabel && utilClasses.hideVisually)}
       >
         {label}
       </span>

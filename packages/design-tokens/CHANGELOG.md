@@ -1,5 +1,17 @@
 # @sumup/design-tokens
 
+## 7.3.1
+
+### Patch Changes
+
+- [#2613](https://github.com/sumup-oss/circuit-ui/pull/2613) [`a1f877a`](https://github.com/sumup-oss/circuit-ui/commit/a1f877acd0ddbcc934521371ce929709f13f04f8) Thanks [@connor-baer](https://github.com/connor-baer)! - Matched the interactive variants of the `fg-normal`, `fg-subtle`, `fg-on-strong`, and `fg-on-strong-subtle` color tokens to their default values.
+
+## 7.3.0
+
+### Minor Changes
+
+- [#2551](https://github.com/sumup-oss/circuit-ui/pull/2551) [`d2115fb`](https://github.com/sumup-oss/circuit-ui/commit/d2115fba00c50668081ad40a34abce7abaa6d2a2) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the `bg-normal-disabled`, `bg-subtle-hovered`, `bg-subtle-pressed`, `bg-highlight-disabled`, `bg-accent-hovered`,`bg-accent-pressed`, `bg-accent-strong-hovered`, `bg-accent-strong-pressed`, `bg-danger-hovered`, `bg-danger-pressed`, `bg-danger-disabled`, `bg-danger-strong-hovered`, `bg-danger-strong-pressed`, `fg-subtle-hovered`, `fg-danger-hovered`, `fg-danger-disabled`, `border-normal`, `border-subtle-hovered`, `border-danger`, `border-danger-hovered`, and `border-danger-disabled` color tokens.
+
 ## 7.2.0
 
 ### Minor Changes

@@ -3,10 +3,8 @@ import path from 'node:path';
 import remarkGfm from 'remark-gfm';
 import { mergeConfig } from 'vite';
 
-const toPath = (_path: string) => path.join(process.cwd(), _path);
-
 const config: StorybookConfig = {
-  staticDirs: [toPath('.storybook/public')],
+  staticDirs: [path.join(process.cwd(), '.storybook/public')],
   stories: [
     '../packages/circuit-ui/**/*.@(mdx|stories.@(js|jsx|ts|tsx))',
     '../docs/**/*.@(mdx|stories.@(js|jsx|ts|tsx))',

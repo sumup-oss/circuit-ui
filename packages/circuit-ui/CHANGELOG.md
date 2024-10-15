@@ -1,5 +1,57 @@
 # @sumup/circuit-ui
 
+## 8.13.2
+
+### Patch Changes
+
+- [#2687](https://github.com/sumup-oss/circuit-ui/pull/2687) [`2e85454`](https://github.com/sumup-oss/circuit-ui/commit/2e85454eb631250fd231783085957d2dfef5609f) Thanks [@matoous](https://github.com/matoous)! - Fixed event and values handling for the experimental ColorInput component.
+
+## 8.13.1
+
+### Patch Changes
+
+- [#2682](https://github.com/sumup-oss/circuit-ui/pull/2682) [`032b696`](https://github.com/sumup-oss/circuit-ui/commit/032b696ead332d5fa52cf22a62e91c77bf7e0d5f) Thanks [@matoous](https://github.com/matoous)! - Added the missing exports for the experimental ColorInput component.
+
+## 8.13.0
+
+### Minor Changes
+
+- [#2679](https://github.com/sumup-oss/circuit-ui/pull/2679) [`ce178f8`](https://github.com/sumup-oss/circuit-ui/commit/ce178f8b6463e4c3a93fc3a5551af8cae05247a2) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the Toggle component's `checkedLabel` and `uncheckedLabel` props since they are no longer needed.
+
+- [#2655](https://github.com/sumup-oss/circuit-ui/pull/2655) [`5c62949`](https://github.com/sumup-oss/circuit-ui/commit/5c629491b1bb8f7fe1eeeca5cff4918eefdb91f9) Thanks [@matoous](https://github.com/matoous)! - Added an experimental ColorInput component that enables users to type or select a color.
+
+## 8.12.1
+
+### Patch Changes
+
+- [#2646](https://github.com/sumup-oss/circuit-ui/pull/2646) [`3cdcd69`](https://github.com/sumup-oss/circuit-ui/commit/3cdcd69588af28f7dc9dd6b17a194e87b39f1aeb) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed invalid HTML attributes from the Table component.
+
+## 8.12.0
+
+### Minor Changes
+
+- [#2642](https://github.com/sumup-oss/circuit-ui/pull/2642) [`d53ccb1`](https://github.com/sumup-oss/circuit-ui/commit/d53ccb100806680039ad6d5429a614696efd5c87) Thanks [@connor-baer](https://github.com/connor-baer)! - Switched the ImageInput's button variant from `primary` to `secondary` to improve its appearance on dark backgrounds.
+
+## 8.11.0
+
+### Minor Changes
+
+- [#2551](https://github.com/sumup-oss/circuit-ui/pull/2551) [`d2115fb`](https://github.com/sumup-oss/circuit-ui/commit/d2115fba00c50668081ad40a34abce7abaa6d2a2) Thanks [@connor-baer](https://github.com/connor-baer)! - Always use the secondary Button variant for the second button in a ButtonGroup. Previously, it switched to the tertiary variant in narrow spaces.
+
+- [#2551](https://github.com/sumup-oss/circuit-ui/pull/2551) [`d2115fb`](https://github.com/sumup-oss/circuit-ui/commit/d2115fba00c50668081ad40a34abce7abaa6d2a2) Thanks [@connor-baer](https://github.com/connor-baer)! - Tweaked the Button's updated design to improve its usability.
+
+  - Normalized the border-radius to 8px for all sizes.
+  - Removed the horizontal padding of the tertiary variant and improved the color contrast its underline.
+  - Updated the disabled styles to better distinguish the button variants.
+
+## 8.10.2
+
+### Patch Changes
+
+- [#2611](https://github.com/sumup-oss/circuit-ui/pull/2611) [`4d394a6`](https://github.com/sumup-oss/circuit-ui/commit/4d394a6d2ba2e3dd58010af23ef36825afe28b40) Thanks [@connor-baer](https://github.com/connor-baer)! - Increased the NotificationBanner content's maximum width to better use the available space on wide viewports.
+
+- [#2610](https://github.com/sumup-oss/circuit-ui/pull/2610) [`b895f7e`](https://github.com/sumup-oss/circuit-ui/commit/b895f7e8351559e079fc2c9b9f5be1f5b753b821) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed a style specificity issue in the PhoneNumberInput component.
+
 ## 8.10.1
 
 ### Patch Changes

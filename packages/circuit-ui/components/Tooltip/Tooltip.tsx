@@ -175,11 +175,16 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       });
 
     useEffect(() => {
+      /* Intentionally running useEffect without dependencies
+       * to ensure that the reference element is always up-to-date.
+       * to fix the issue of the tooltip rendering in the wrong position
+       * whenever the reference component re-renders.
+       * */
       const selector = `[${ariaAttributeName}="${tooltipId}"]`;
       const referenceElement = document.querySelector(selector);
 
       refs.setReference(referenceElement);
-    }, [ariaAttributeName, tooltipId, refs]);
+    });
 
     useEffect(() => {
       /**

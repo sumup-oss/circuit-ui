@@ -17,7 +17,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { axe, render } from '../../../util/test-utils.js';
 
-import CalendarTag from './index.js';
+import { CalendarTag } from './index.js';
 
 describe('CalendarTag', () => {
   const baseProps = {

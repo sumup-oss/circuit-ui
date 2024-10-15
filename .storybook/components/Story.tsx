@@ -15,9 +15,9 @@
 
 import { Canvas } from '@storybook/addon-docs';
 
-import Preview from './Preview';
+import { Preview } from './Preview';
 
-export default function Story({ withToolbar = true, ...props }) {
+export function Story({ withToolbar = true, ...props }) {
   return (
     <Preview>
       <Canvas withToolbar={withToolbar} {...props} />

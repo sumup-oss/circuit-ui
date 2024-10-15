@@ -15,7 +15,7 @@
 
 import styled from '../../../styles/styled.js';
 
-const TooltipContainer = styled.div`
+export const TooltipContainer = styled.div`
   position: relative;
   line-height: 0;
   width: 32px;
@@ -24,5 +24,3 @@ const TooltipContainer = styled.div`
     opacity: 1;
   }
 `;
-
-export default TooltipContainer;

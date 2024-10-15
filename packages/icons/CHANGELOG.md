@@ -1,5 +1,53 @@
 # @sumup/icons
 
+## 4.1.3
+
+### Patch Changes
+
+- [#2715](https://github.com/sumup-oss/circuit-ui/pull/2715) [`f053eb3`](https://github.com/sumup-oss/circuit-ui/commit/f053eb3ccb3f86ca71d8f7e99d0dcb7447dc818f) Thanks [@voronianski](https://github.com/voronianski)! - Updated Swile 24px icon size to fit other 24px size icons.
+
+## 4.1.2
+
+### Patch Changes
+
+- [#2710](https://github.com/sumup-oss/circuit-ui/pull/2710) [`ab8b1fa`](https://github.com/sumup-oss/circuit-ui/commit/ab8b1fac9ec378739e9ca43d5ddeefe42005d528) Thanks [@sirineJ](https://github.com/sirineJ)! - Optimized the `Add`, `AddEmployees`, `AddItems`, `ArrowLeft`, `Calendar`, `Close`, `Edit`, and `Plus` icons to look more balanced when used alongside text.
+
+## 4.1.1
+
+### Patch Changes
+
+- [#2708](https://github.com/sumup-oss/circuit-ui/pull/2708) [`f7b96c6`](https://github.com/sumup-oss/circuit-ui/commit/f7b96c69b794428ad755f38b8ea13b0902a3549e) Thanks [@voronianski](https://github.com/voronianski)! - Updated `Conecs` and `Swile` icons to the latest logo versions (24px size only).
+
+## 4.1.0
+
+### Minor Changes
+
+- [#2649](https://github.com/sumup-oss/circuit-ui/pull/2649) [`2ced130`](https://github.com/sumup-oss/circuit-ui/commit/2ced13049997449b6c4670c0b119c6daa95344be) Thanks [@ituraj](https://github.com/ituraj)! - Added `Expenses` icon in size 24. Added `ReceiptSmart` and `ReceiptUnreviewed` in size 24. Updated `ReceiptAttached` and `ReceiptMissing` in size 24.
+
+## 4.0.0
+
+### Major Changes
+
+- [#2615](https://github.com/sumup-oss/circuit-ui/pull/2615) [`985f647`](https://github.com/sumup-oss/circuit-ui/commit/985f64789d712dac02a18f6c4975b69f12fb4bb6) Thanks [@connor-baer](https://github.com/connor-baer)! - Use default parameters for default props rather than statically assigning them as `defaultProps`. This silences React 18.3's warning about `defaultProps` being deprecated and enables tree shaking the icon components (which is prevented if they have static assignments).
+
+### Minor Changes
+
+- [#2640](https://github.com/sumup-oss/circuit-ui/pull/2640) [`aa230ca`](https://github.com/sumup-oss/circuit-ui/commit/aa230ca545252148c9f1591efcf66b0403bfa43d) Thanks [@Zayebatsu](https://github.com/Zayebatsu)! - Added `Grid` and `List` icons in size 24.
+
+## 3.9.0
+
+### Minor Changes
+
+- [`19ae1cb`](https://github.com/sumup-oss/circuit-ui/commit/19ae1cbaffb60758fece343688b029d31b224c33) Thanks [@matoous](https://github.com/matoous)! - Added the `Accessibility` (24px), `Battery` (16px), `BatteryAlert` (16px & 24px), `ColorCorrection` (24px), `ColorInversion` (24px), `Language` (24px), `NoSim` (24px), `PrintFailed` (16px & 24px), `Upgrade` (16px & 24px) and `Volume` (24px) icons.
+
+## 3.8.1
+
+### Patch Changes
+
+- [#2607](https://github.com/sumup-oss/circuit-ui/pull/2607) [`95b956d`](https://github.com/sumup-oss/circuit-ui/commit/95b956d9078963041528d496ac441478bd985b15) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the `Elo` icons to the latest logo version.
+
+- [#2607](https://github.com/sumup-oss/circuit-ui/pull/2607) [`95b956d`](https://github.com/sumup-oss/circuit-ui/commit/95b956d9078963041528d496ac441478bd985b15) Thanks [@connor-baer](https://github.com/connor-baer)! - Tweaked the `Employees` icon.
+
 ## 3.8.0
 
 ### Minor Changes

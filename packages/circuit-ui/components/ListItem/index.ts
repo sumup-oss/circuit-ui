@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import { ListItem } from './ListItem.js';
+export { ListItem } from './ListItem.js';
 
 export type { ListItemProps } from './ListItem.js';
-
-export default ListItem;

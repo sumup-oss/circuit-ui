@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import Body from '../../components/Body/index.js';
-import Button from '../../components/Button/index.js';
+import { Body } from '../../components/Body/index.js';
+import { Button } from '../../components/Button/index.js';
 
 import { useCollapsible, type CollapsibleOptions } from './useCollapsible.js';
 

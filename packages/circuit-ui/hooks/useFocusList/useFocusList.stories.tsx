@@ -17,7 +17,7 @@
 import { action } from '@storybook/addon-actions';
 import { userEvent } from '@storybook/test';
 
-import sharedClasses from '../../styles/shared.js';
+import { sharedClasses } from '../../styles/shared.js';
 
 import { useFocusList } from './useFocusList.js';
 

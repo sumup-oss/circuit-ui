@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import { Tooltip } from './Tooltip.js';
+export { Tooltip } from './Tooltip.js';
 
 export type { TooltipProps } from './Tooltip.js';
-
-export default Tooltip;

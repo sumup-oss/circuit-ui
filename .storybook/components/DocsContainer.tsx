@@ -8,7 +8,7 @@ const themes = { light, dark };
 /**
  * Switch color scheme based on the global types or system preferences
  */
-const DocsContainer: typeof BaseContainer = ({ children, context }) => {
+export const DocsContainer: typeof BaseContainer = ({ children, context }) => {
   const [colorScheme, setColorScheme] = useState('light');
 
   useEffect(
@@ -28,5 +28,3 @@ const DocsContainer: typeof BaseContainer = ({ children, context }) => {
     </BaseContainer>
   );
 };
-
-export default DocsContainer;

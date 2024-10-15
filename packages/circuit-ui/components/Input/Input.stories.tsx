@@ -14,9 +14,9 @@
  */
 
 import { Stack } from '../../../../.storybook/components/index.js';
-import SearchInput from '../SearchInput/index.js';
-import CurrencyInput from '../CurrencyInput/index.js';
-import DateInput from '../DateInput/index.js';
+import { SearchInput } from '../SearchInput/index.js';
+import { CurrencyInput } from '../CurrencyInput/index.js';
+import { DateInput } from '../DateInput/index.js';
 
 import { Input, type InputProps } from './Input.js';
 

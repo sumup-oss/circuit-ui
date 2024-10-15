@@ -21,6 +21,6 @@ interface FullViewportProps {
   children: ReactNode;
 }
 
-export default function FullViewport({ children }: FullViewportProps) {
+export function FullViewport({ children }: FullViewportProps) {
   return <div className={classes.base}>{children}</div>;
 }

@@ -19,7 +19,7 @@ import { screen, userEvent, within } from '@storybook/test';
 
 import { FullViewport } from '../../../../.storybook/components/index.js';
 import { ModalProvider } from '../ModalContext/index.js';
-import Button from '../Button/index.js';
+import { Button } from '../Button/index.js';
 
 import {
   NotificationModal,

@@ -17,8 +17,8 @@
 
 import { useRef, useState, type ReactNode } from 'react';
 
-import ProgressBar from '../ProgressBar/index.js';
-import Step from '../Step/index.js';
+import { ProgressBar } from '../ProgressBar/index.js';
+import { Step } from '../Step/index.js';
 import { useComponentSize } from '../../hooks/useComponentSize/index.js';
 import type { ImageProps } from '../Image/index.js';
 import { isFunction } from '../../util/type-check.js';

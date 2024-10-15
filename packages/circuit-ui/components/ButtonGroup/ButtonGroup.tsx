@@ -15,7 +15,7 @@
 
 import { forwardRef, type HTMLAttributes } from 'react';
 
-import Button, { type ButtonProps } from '../Button/index.js';
+import { Button, type ButtonProps } from '../Button/index.js';
 import { clsx } from '../../styles/clsx.js';
 import { deprecate } from '../../util/logger.js';
 
@@ -83,7 +83,7 @@ export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
               {...actions.secondary}
               size={size || actions.secondary.size}
               className={clsx(styles.secondary, actions.secondary.className)}
-              variant="tertiary"
+              variant="secondary"
             />
           )}
         </div>

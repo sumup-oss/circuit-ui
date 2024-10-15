@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [18, 20.5]
+        node: [18, 20]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -19,16 +19,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
-          cache: "npm"
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Check dependency licenses
-        run: npm run check:licenses
-
-      - name: Check SVG sizes
-        run: npm run check:svg-sizes
 
       - name: Build packages
         run: npm run build
@@ -48,7 +42,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Create release PR or publish to npm
-        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next' || github.ref == 'refs/heads/canary') && matrix.node == 20.5
+        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next' || github.ref == 'refs/heads/canary') && matrix.node == 20
         uses: changesets/action@v1
         with:
           publish: npm run release

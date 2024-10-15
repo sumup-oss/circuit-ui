@@ -17,7 +17,7 @@ import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
 import { screen, render, axe, type RenderFn } from '../../util/test-utils.js';
-import Body from '../Body/index.js';
+import { Body } from '../Body/index.js';
 
 import { ListItemGroup, type ListItemGroupProps } from './ListItemGroup.js';
 

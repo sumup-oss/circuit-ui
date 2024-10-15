@@ -28,7 +28,7 @@ export interface StepProps extends StepOptions {
   children: (stateAndHelpers: StateAndHelpers) => React.JSX.Element;
 }
 
-export default function Step({ children, ...props }: StepProps) {
+export function Step({ children, ...props }: StepProps) {
   const stateAndHelpers = useStep(props);
 
   if (!isFunction(children)) {

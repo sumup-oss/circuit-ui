@@ -12,7 +12,7 @@
       "**/__coverage__/**",
       "**/__reports__/**",
       "**/*.astro",
-      "packages/circuit-ui/vendor/**"
+      "**/vendor/**"
     ]
   },
   "formatter": {
@@ -34,7 +34,7 @@
     "rules": {
       "recommended": true,
       "style": {
-        "noDefaultExport": "warn",
+        "noDefaultExport": "error",
         "useFilenamingConvention": {
           "level": "error",
           "options": {
@@ -74,6 +74,23 @@
       "css": {
         "parser": {
           "cssModules": true
+        }
+      }
+    },
+    {
+      "include": [
+        "*.stories.*",
+        "**/vite.config.*",
+        "**/vitest.config.*",
+        "**/vitest.workspace.*",
+        "packages/stylelint-plugin-circuit-ui/**",
+        ".storybook/main.*"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off"
+          }
         }
       }
     },

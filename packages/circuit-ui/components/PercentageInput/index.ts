@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import { PercentageInput } from './PercentageInput.js';
+export { PercentageInput } from './PercentageInput.js';
 
 export type { PercentageInputProps } from './PercentageInput.js';
-
-export default PercentageInput;

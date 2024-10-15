@@ -28,8 +28,8 @@ import {
   type RefObject,
 } from 'react';
 
-import Select, { type SelectProps } from '../Select/index.js';
-import Input, { type InputElement, type InputProps } from '../Input/index.js';
+import { Select, type SelectProps } from '../Select/index.js';
+import { Input, type InputElement, type InputProps } from '../Input/index.js';
 import {
   FieldLabelText,
   FieldLegend,

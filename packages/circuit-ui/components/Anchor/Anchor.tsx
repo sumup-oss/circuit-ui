@@ -29,7 +29,7 @@ import type { AsPropType } from '../../types/prop-types.js';
 import { Body, type BodyProps } from '../Body/Body.js';
 import { useComponents } from '../ComponentsContext/index.js';
 import { clsx } from '../../styles/clsx.js';
-import utilityClasses from '../../styles/utility.js';
+import { utilClasses } from '../../styles/utility.js';
 
 import classes from './Anchor.module.css';
 
@@ -69,7 +69,7 @@ export const Anchor = forwardRef(
       return (
         <Body
           {...props}
-          className={clsx(classes.base, utilityClasses.focusVisible, className)}
+          className={clsx(classes.base, utilClasses.focusVisible, className)}
           as={Link}
           ref={ref}
         />
@@ -80,7 +80,7 @@ export const Anchor = forwardRef(
       <Body
         as="button"
         {...props}
-        className={clsx(classes.base, utilityClasses.focusVisible, className)}
+        className={clsx(classes.base, utilClasses.focusVisible, className)}
         ref={ref}
       />
     );

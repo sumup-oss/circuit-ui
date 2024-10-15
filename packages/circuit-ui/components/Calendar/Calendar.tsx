@@ -30,7 +30,7 @@ import {
 import { Temporal } from 'temporal-polyfill';
 import { ArrowLeft, ArrowRight } from '@sumup/icons';
 
-import utilityClasses from '../../styles/utility.js';
+import { utilClasses } from '../../styles/utility.js';
 import { getBrowserLocale, type Locale } from '../../util/i18n.js';
 import { IconButton } from '../Button/IconButton.js';
 import { Headline } from '../Headline/Headline.js';
@@ -409,9 +409,7 @@ function Month({
           <tr>
             {weekdays.map((weekday) => (
               <th key={weekday.long} scope="col">
-                <span className={utilityClasses.hideVisually}>
-                  {weekday.long}
-                </span>
+                <span className={utilClasses.hideVisually}>{weekday.long}</span>
                 <span aria-hidden="true" className={classes.weekday}>
                   {weekday.narrow}
                 </span>
@@ -478,7 +476,7 @@ function Month({
                         selectionType && classes[selectionType],
                         isFirstDay && classes['first-day'],
                         isLastDay && classes['last-day'],
-                        utilityClasses.focusVisible,
+                        utilClasses.focusVisible,
                       )}
                       tabIndex={isFocused ? 0 : -1}
                       {...(isToday && { 'aria-current': 'date' })}
@@ -493,7 +491,7 @@ function Month({
                     {description && (
                       <span
                         id={descriptionId}
-                        className={clsx(utilityClasses.hideVisually)}
+                        className={clsx(utilClasses.hideVisually)}
                       >
                         {description}
                       </span>
