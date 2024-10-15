@@ -1,5 +1,17 @@
 # @sumup/circuit-ui
 
+## 8.14.0
+
+### Minor Changes
+
+- [#2721](https://github.com/sumup-oss/circuit-ui/pull/2721) [`01e5589`](https://github.com/sumup-oss/circuit-ui/commit/01e55897982ca1ff0bc941a27542e27d96eed9c6) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a `hideLabel` prop to the ImageInput component (defaulting to `true` to match the existing behavior) and added an `optionalLabel` prop to indicate to users whether the input is required.
+
+- [#2586](https://github.com/sumup-oss/circuit-ui/pull/2586) [`708c52e`](https://github.com/sumup-oss/circuit-ui/commit/708c52e2ab922350cffe84c7bd60019d136a63da) Thanks [@roma-claudio](https://github.com/roma-claudio)! - Use the country code instead of the phone prefix as the value of the PhoneNumberInput component's country code select. This is an implementation detail, but might require changes to unit tests that query the country code select.
+
+### Patch Changes
+
+- [#2720](https://github.com/sumup-oss/circuit-ui/pull/2720) [`7fce1de`](https://github.com/sumup-oss/circuit-ui/commit/7fce1debd283f7970ba1a6d5270457cc6ab8ba1d) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed positioning issue of the Tooltip and the Toggletip components. Improved styling of the Toggletip's backdrop element.
+
 ## 8.13.2
 
 ### Patch Changes
