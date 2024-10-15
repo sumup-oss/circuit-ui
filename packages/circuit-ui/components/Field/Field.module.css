@@ -11,6 +11,7 @@
 }
 
 .label-text {
+  display: block;
   margin-bottom: var(--cui-spacings-bit);
   font-size: var(--cui-typography-body-two-font-size);
   line-height: var(--cui-typography-body-two-line-height);
