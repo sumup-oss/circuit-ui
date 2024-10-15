@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { FlagDe, FlagUs, type IconComponentType } from '@sumup/icons';
+import { FlagCa, FlagDe, FlagUs, type IconComponentType } from '@sumup/icons';
 import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 
@@ -33,13 +33,15 @@ export default {
 };
 
 const flagIconMap: { [key: string]: IconComponentType<'16'> } = {
-  DE: FlagDe,
+  CA: FlagCa,
   US: FlagUs,
+  DE: FlagDe,
 };
 
 const countryCodeMap: { [key: string]: string } = {
-  '+1': 'US',
-  '+49': 'DE',
+  CA: '+1',
+  US: '+1',
+  DE: '+49',
 };
 
 export const Base = (args: PhoneNumberInputProps) => (
@@ -52,8 +54,8 @@ Base.args = {
     label: 'Country code',
     defaultValue: '+1',
     options: Object.keys(countryCodeMap).map((key) => ({
-      country: countryCodeMap[key],
-      code: key,
+      country: key,
+      code: countryCodeMap[key],
     })),
   },
   subscriberNumber: {
@@ -125,14 +127,14 @@ Disabled.args = {
 };
 
 export const WithPrefix = (args: PhoneNumberInputProps) => {
-  const [selectedCountry, setSelectedCountry] = useState('US');
+  const [selectedCountry, setSelectedCountry] = useState('CA');
   return (
     <PhoneNumberInput
       {...args}
       countryCode={{
         ...args.countryCode,
         onChange: (event) => {
-          setSelectedCountry(countryCodeMap[event.target.value]);
+          setSelectedCountry(event.target.value);
         },
         renderPrefix: (props) => {
           const Icon = flagIconMap[selectedCountry];
