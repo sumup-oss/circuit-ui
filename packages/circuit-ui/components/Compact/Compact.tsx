@@ -69,6 +69,7 @@ export const Compact = forwardRef<HTMLParagraphElement, CompactProps>(
       {...props}
       ref={ref}
       className={clsx(
+        classes.base,
         classes[size],
         classes[weight],
         classes[color],

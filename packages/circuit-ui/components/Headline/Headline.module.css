@@ -1,25 +1,22 @@
 .base {
   font-weight: var(--cui-font-weight-bold);
   color: var(--cui-fg-normal);
-  letter-spacing: -0.03em;
+  letter-spacing: var(--cui-letter-spacing);
 }
 
 /* Sizes */
 
 .l {
-  font-size: var(--cui-typography-headline-l-font-size);
-  line-height: var(--cui-typography-headline-l-line-height);
-  letter-spacing: var(--cui-typography-headline-l-letter-spacing);
+  font-size: var(--cui-headline-l-font-size);
+  line-height: var(--cui-headline-l-line-height);
 }
 
 .m {
-  font-size: var(--cui-typography-headline-m-font-size);
-  line-height: var(--cui-typography-headline-m-line-height);
-  letter-spacing: var(--cui-typography-headline-m-letter-spacing);
+  font-size: var(--cui-headline-m-font-size);
+  line-height: var(--cui-headline-m-line-height);
 }
 
 .s {
-  font-size: var(--cui-typography-headline-s-font-size);
-  line-height: var(--cui-typography-headline-s-line-height);
-  letter-spacing: var(--cui-typography-headline-s-letter-spacing);
+  font-size: var(--cui-headline-s-font-size);
+  line-height: var(--cui-headline-s-line-height);
 }

@@ -338,6 +338,15 @@ const configs: Config[] = [
     },
   },
   {
+    type: 'values',
+    component: 'List',
+    prop: 'size',
+    values: {
+      one: 'm',
+      two: 's',
+    },
+  },
+  {
     type: 'custom',
     component: 'Body',
     // variant → weight or color

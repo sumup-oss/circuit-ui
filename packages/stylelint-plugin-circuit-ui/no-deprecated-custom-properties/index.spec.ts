@@ -29,13 +29,13 @@ testRule({
   accept: [
     {
       code: `.class {
-        font-size: var(--cui-typography-headline-l-font-size);
+        font-size: var(--cui-headline-l-font-size);
       }`,
       description: 'Allow valid custom properties',
     },
     {
       code: `.class {
-        margin-bottom: calc(var(--cui-spacings-bit) - var(--cui-typography-headline-l-line-height));
+        margin-bottom: calc(var(--cui-spacings-bit) - var(--cui-headline-l-line-height));
       }`,
       description: 'Allow valid custom properties in complex style rules',
     },
@@ -47,12 +47,12 @@ testRule({
         font-size: var(--cui-typography-headline-one-font-size);
       }`,
       fixed: `.class {
-        font-size: var(--cui-typography-headline-l-font-size);
+        font-size: var(--cui-headline-l-font-size);
       }`,
       description: 'Disallow deprecated custom properties',
       message: messages.deprecated(
         '--cui-typography-headline-one-font-size',
-        '--cui-typography-headline-l-font-size',
+        '--cui-headline-l-font-size',
       ),
       line: 2,
       column: 9,
@@ -64,13 +64,13 @@ testRule({
         margin-bottom: calc(var(--cui-spacings-bit) - var(--cui-typography-headline-one-line-height));
       }`,
       fixed: `.class {
-        margin-bottom: calc(var(--cui-spacings-bit) - var(--cui-typography-headline-l-line-height));
+        margin-bottom: calc(var(--cui-spacings-bit) - var(--cui-headline-l-line-height));
       }`,
       description:
         'Disallow deprecated custom properties in complex style rules',
       message: messages.deprecated(
         '--cui-typography-headline-one-line-height',
-        '--cui-typography-headline-l-line-height',
+        '--cui-headline-l-line-height',
       ),
       line: 2,
       column: 9,
@@ -82,7 +82,7 @@ testRule({
         margin-bottom: calc(var(--cui-spacings-bit) - var(--cui-typography-headline-one-line-height) - var(--cui-typography-headline-two-line-height));
       }`,
       fixed: `.class {
-        margin-bottom: calc(var(--cui-spacings-bit) - var(--cui-typography-headline-l-line-height) - var(--cui-typography-headline-m-line-height));
+        margin-bottom: calc(var(--cui-spacings-bit) - var(--cui-headline-l-line-height) - var(--cui-headline-m-line-height));
       }`,
       description:
         'Disallow multiple deprecated custom properties in complex style rules',
@@ -90,7 +90,7 @@ testRule({
         {
           message: messages.deprecated(
             '--cui-typography-headline-one-line-height',
-            '--cui-typography-headline-l-line-height',
+            '--cui-headline-l-line-height',
           ),
           line: 2,
           column: 9,
@@ -100,7 +100,7 @@ testRule({
         {
           message: messages.deprecated(
             '--cui-typography-headline-two-line-height',
-            '--cui-typography-headline-m-line-height',
+            '--cui-headline-m-line-height',
           ),
           line: 2,
           column: 9,

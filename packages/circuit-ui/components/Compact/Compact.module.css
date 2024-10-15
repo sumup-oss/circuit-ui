@@ -1,21 +1,22 @@
+.base {
+  letter-spacing: var(--cui-letter-spacing);
+}
+
 /* Sizes */
 
 .l {
-  font-size: var(--cui-typography-compact-l-font-size);
-  line-height: var(--cui-typography-compact-l-line-height);
-  letter-spacing: var(--cui-typography-compact-l-letter-spacing);
+  font-size: var(--cui-compact-l-font-size);
+  line-height: var(--cui-compact-l-line-height);
 }
 
 .m {
-  font-size: var(--cui-typography-compact-m-font-size);
-  line-height: var(--cui-typography-compact-m-line-height);
-  letter-spacing: var(--cui-typography-compact-m-letter-spacing);
+  font-size: var(--cui-compact-m-font-size);
+  line-height: var(--cui-compact-m-line-height);
 }
 
 .s {
-  font-size: var(--cui-typography-compact-s-font-size);
-  line-height: var(--cui-typography-compact-s-line-height);
-  letter-spacing: var(--cui-typography-compact-s-letter-spacing);
+  font-size: var(--cui-compact-s-font-size);
+  line-height: var(--cui-compact-s-line-height);
 }
 
 /* Weights */

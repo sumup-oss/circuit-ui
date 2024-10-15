@@ -16,6 +16,9 @@
 import { forwardRef, type OlHTMLAttributes } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
+import type { BodyProps } from '../Body/index.js';
+import { deprecatedSizeMap } from '../Body/Body.js';
+import { deprecate } from '../../util/logger.js';
 
 import classes from './List.module.css';
 
@@ -23,7 +26,7 @@ export interface ListProps extends OlHTMLAttributes<HTMLOListElement> {
   /**
    * A Circuit UI Body size. Should match surrounding text.
    */
-  size?: 'one' | 'two';
+  size?: BodyProps['size'];
   /**
    * Whether the list should be presented as an ordered or unordered list. Defaults to `unordered`.
    */
@@ -34,8 +37,23 @@ export interface ListProps extends OlHTMLAttributes<HTMLOListElement> {
  * A list, which can be ordered or unordered.
  */
 export const List = forwardRef<HTMLOListElement, ListProps>(
-  ({ className, variant = 'unordered', size = 'one', ...props }, ref) => {
+  (
+    { className, variant = 'unordered', size: legacySize = 'm', ...props },
+    ref,
+  ) => {
+    if (process.env.NODE_ENV !== 'production') {
+      if (legacySize in deprecatedSizeMap) {
+        deprecate(
+          'List',
+          `The "${legacySize}" size has been deprecated. Use the "${deprecatedSizeMap[legacySize]}" size instead.`,
+        );
+      }
+    }
     const Element = variant === 'ordered' ? 'ol' : 'ul';
+    const size = (deprecatedSizeMap[legacySize] || legacySize) as
+      | 'l'
+      | 'm'
+      | 's';
     return (
       <Element
         className={clsx(classes.base, classes[size], className)}

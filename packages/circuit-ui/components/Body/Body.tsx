@@ -89,7 +89,7 @@ function getHTMLElement(variant?: Variant): AsPropType {
   return 'p';
 }
 
-const deprecatedSizeMap: Record<string, string> = {
+export const deprecatedSizeMap: Record<string, string> = {
   'one': 'm',
   'two': 's',
 };
@@ -152,6 +152,7 @@ export const Body = forwardRef<HTMLParagraphElement, BodyProps>(
         {...props}
         ref={ref}
         className={clsx(
+          classes.base,
           classes[size],
           classes[weight],
           classes[color],

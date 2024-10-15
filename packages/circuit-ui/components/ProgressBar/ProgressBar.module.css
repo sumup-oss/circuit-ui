@@ -90,6 +90,6 @@
 .label {
   flex-shrink: 0;
   margin-left: var(--cui-spacings-byte);
-  font-size: var(--cui-typography-body-s-font-size);
-  line-height: var(--cui-typography-body-s-line-height);
+  font-size: var(--cui-body-s-font-size);
+  line-height: var(--cui-body-s-line-height);
 }

@@ -49,7 +49,7 @@ export const Variants = (args: ListProps) => (
   </Stack>
 );
 
-const sizes: ListProps['size'][] = ['one', 'two'];
+const sizes: ListProps['size'][] = ['l', 'm', 's'];
 
 export const Sizes = (args: ListProps) => (
   <Stack vertical>

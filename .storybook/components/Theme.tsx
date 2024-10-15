@@ -41,9 +41,12 @@ type CustomProperties = CustomProperty[];
 type PreviewProps = { name: CustomPropertyName };
 type PreviewComponent = ComponentType<PreviewProps>;
 
-function filterCustomProperties(namespace: string, type?: string) {
+function filterCustomProperties(namespace: string | string[], type?: string) {
   return schema.filter((token) => {
-    const isNamespace = token.name.startsWith(`--cui-${namespace}`);
+    const isNamespace =
+      typeof namespace === 'string'
+        ? token.name.startsWith(`--cui-${namespace}`)
+        : namespace.some((ns) => token.name.startsWith(`--cui-${ns}`));
     const isType = type ? token.type === type : true;
     return isNamespace && isType;
   });
@@ -79,8 +82,17 @@ function getRows(
       {
         children: (
           <div style={{ display: 'flex' }}>
-            <code style={{ whiteSpace: 'nowrap' }}>{name}</code>
-            <CopyButton name={name} />
+            <code
+              style={{
+                whiteSpace: 'nowrap',
+                maxWidth: '320px',
+                textOverflow: 'ellipsis',
+                overflow: 'hidden',
+              }}
+            >
+              {name}
+            </code>
+            {!deprecation && <CopyButton name={name} />}
             {deprecation && (
               <Tooltip
                 type="description"
@@ -115,7 +127,7 @@ function getRows(
 }
 
 interface CustomPropertiesTableProps {
-  namespace: string;
+  namespace: string | string[];
   preview?: PreviewComponent;
   type?: string;
 }
