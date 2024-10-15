@@ -152,6 +152,7 @@ export const Body = forwardRef<HTMLParagraphElement, BodyProps>(
         {...props}
         ref={ref}
         className={clsx(
+          classes.base,
           classes[size],
           classes[weight],
           classes[color],
