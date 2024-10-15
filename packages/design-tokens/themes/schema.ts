@@ -185,6 +185,7 @@ export const schema = [
   { name: '--cui-font-stack-mono', type: 'fontFamily' },
   /* Font weights */
   { name: '--cui-font-weight-regular', type: 'fontWeight' },
+  { name: '--cui-font-weight-semibold', type: 'fontWeight' },
   { name: '--cui-font-weight-bold', type: 'fontWeight' },
   /* Icon sizes */
   { name: '--cui-icon-sizes-kilo', type: 'dimension' },

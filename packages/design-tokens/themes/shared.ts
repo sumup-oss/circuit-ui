@@ -77,6 +77,11 @@ export const shared = [
     type: 'fontWeight',
   },
   {
+    name: '--cui-font-weight-semibold',
+    value: '550',
+    type: 'fontWeight',
+  },
+  {
     name: '--cui-font-weight-bold',
     value: '650',
     type: 'fontWeight',
