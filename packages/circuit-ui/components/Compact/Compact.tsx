@@ -26,9 +26,9 @@ export interface CompactProps extends HTMLAttributes<HTMLParagraphElement> {
    */
   size?: 's' | 'm' | 'l';
   /**
-   * Choose from two font weights. Default: `regular`.
+   * Choose from three font weights. Default: `regular`.
    */
-  weight?: 'regular' | 'bold';
+  weight?: 'regular' | 'semibold' | 'bold';
   /**
    * Choose a foreground color. Default: `normal`.
    */

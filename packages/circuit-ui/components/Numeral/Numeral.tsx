@@ -26,10 +26,6 @@ export interface NumeralProps extends HTMLAttributes<HTMLParagraphElement> {
    */
   size?: 's' | 'm' | 'l';
   /**
-   * Choose from two font weights. Default: `regular`.
-   */
-  weight?: 'regular' | 'bold';
-  /**
    * Choose a foreground color. Default: `normal`.
    */
   color?:
@@ -55,26 +51,13 @@ export interface NumeralProps extends HTMLAttributes<HTMLParagraphElement> {
  */
 export const Numeral = forwardRef<HTMLParagraphElement, NumeralProps>(
   (
-    {
-      className,
-      as: Element = 'p',
-      size = 'm',
-      weight = 'regular',
-      color = 'normal',
-      ...props
-    },
+    { className, as: Element = 'p', size = 'm', color = 'normal', ...props },
     ref,
   ) => (
     <Element
       {...props}
       ref={ref}
-      className={clsx(
-        classes.base,
-        classes[size],
-        classes[weight],
-        classes[color],
-        className,
-      )}
+      className={clsx(classes.base, classes[size], classes[color], className)}
     />
   ),
 );
