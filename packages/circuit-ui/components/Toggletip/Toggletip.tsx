@@ -168,10 +168,15 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
       });
 
     useEffect(() => {
+      /* Intentionally running useEffect without dependencies
+       * to ensure that the reference element is always up-to-date.
+       * to fix the issue of the tooltip rendering in the wrong position
+       * whenever the reference component re-renders.
+       * */
       const referenceElement = document.getElementById(referenceId);
 
       refs.setReference(referenceElement);
-    }, [referenceId, refs]);
+    });
 
     useEffect(() => {
       /**
