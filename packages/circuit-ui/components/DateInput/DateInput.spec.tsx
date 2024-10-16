@@ -13,16 +13,11 @@
  * limitations under the License.
  */
 
-import { describe, expect, it, vi } from 'vitest';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
+import MockDate from 'mockdate';
 
-import {
-  render,
-  screen,
-  axe,
-  userEvent,
-  fireEvent,
-} from '../../util/test-utils.js';
+import { render, screen, axe, userEvent } from '../../util/test-utils.js';
 
 import { DateInput } from './DateInput.js';
 
@@ -36,25 +31,43 @@ describe('DateInput', () => {
     closeCalendarButtonLabel: 'Close',
     applyDateButtonLabel: 'Apply',
     clearDateButtonLabel: 'Clear',
+    yearInputLabel: 'Year',
+    monthInputLabel: 'Month',
+    dayInputLabel: 'Day',
   };
 
+  beforeAll(() => {
+    MockDate.set('2000-01-01');
+  });
+
+  // TODO: Move ref to outermost div?
   it('should forward a ref', () => {
-    const ref = createRef<HTMLInputElement>();
+    const ref = createRef<HTMLFieldSetElement>();
     render(<DateInput {...baseProps} ref={ref} />);
-    const input = screen.getByRole('textbox');
-    expect(ref.current).toBe(input);
+    const fieldset = screen.getByRole('group');
+    expect(ref.current).toBe(fieldset);
+  });
+
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    const { container } = render(
+      <DateInput {...baseProps} className={className} />,
+    );
+    // eslint-disable-next-line testing-library/no-container
+    const wrapper = container.querySelectorAll('div')[0];
+    expect(wrapper?.className).toContain(className);
   });
 
   it('should select a calendar date', async () => {
-    render(<DateInput {...baseProps} />);
+    const onChange = vi.fn();
 
-    const input: HTMLInputElement = screen.getByRole('textbox');
+    render(<DateInput {...baseProps} onChange={onChange} />);
+
     const openCalendarButton = screen.getByRole('button', {
       name: /change date/i,
     });
 
-    // For some reason, userEvent doesn't work here.
-    fireEvent.click(openCalendarButton);
+    await userEvent.click(openCalendarButton);
 
     const calendarDialog = screen.getByRole('dialog');
 
@@ -64,8 +77,10 @@ describe('DateInput', () => {
 
     await userEvent.click(dateButton);
 
-    expect(input).toHaveValue('2024-10-12');
+    expect(onChange).toHaveBeenCalledWith('2000-01-12');
   });
+
+  it('should');
 
   it('should have no accessibility violations', async () => {
     const { container } = render(<DateInput {...baseProps} />);

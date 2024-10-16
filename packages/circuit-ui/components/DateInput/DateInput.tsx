@@ -129,7 +129,7 @@ export interface DateInputProps
  * DateInput component for forms.
  * The input value is always a string in the format `YYYY-MM-DD`.
  */
-export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
+export const DateInput = forwardRef<HTMLFieldSetElement, DateInputProps>(
   (
     {
       label,
@@ -163,7 +163,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       autoComplete,
       // ...props
     },
-    // ref
+    ref,
   ) => {
     const isMobile = useMedia('(max-width: 479px)');
 
@@ -336,7 +336,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
           readOnly={readOnly}
           {...props}
         /> */}
-        <FieldSet onClick={handleClick}>
+        <FieldSet onClick={handleClick} ref={ref}>
           <FieldLegend>
             <FieldLabelText
               label={label}
