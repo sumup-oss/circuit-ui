@@ -74,13 +74,17 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       }
 
       if (open) {
-        dialogElement.show();
-      } else {
+        if (!dialogElement.open) {
+          dialogElement.show();
+        }
+      } else if (dialogElement.open) {
         dialogElement.close();
       }
 
       return () => {
-        dialogElement.close();
+        if (dialogElement.open) {
+          dialogElement.close();
+        }
       };
     }, [open]);
 
