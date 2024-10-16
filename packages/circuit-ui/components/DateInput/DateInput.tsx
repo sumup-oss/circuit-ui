@@ -315,12 +315,14 @@ export const DateInput = forwardRef<HTMLFieldSetElement, DateInputProps>(
       }
     }
 
-    const plainDate = toPlainDate(value);
+    const calendarButtonLabel = openCalendarButtonLabel;
+    // TODO fix Error: Uncaught [TypeError: Cannot use valueOf]
+    /*const plainDate = toPlainDate(value);
     const calendarButtonLabel = plainDate
       ? [openCalendarButtonLabel, formatDate(plainDate, locale, 'long')].join(
           ', ',
         )
-      : openCalendarButtonLabel;
+      : openCalendarButtonLabel;*/
 
     const segments = getDateSegments(locale);
 
@@ -414,6 +416,7 @@ export const DateInput = forwardRef<HTMLFieldSetElement, DateInputProps>(
               variant="secondary"
               onClick={openCalendar}
               className={classes['calendar-button']}
+              disabled={disabled}
             >
               {calendarButtonLabel}
             </IconButton>
