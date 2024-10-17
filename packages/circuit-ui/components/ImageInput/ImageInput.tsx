@@ -278,12 +278,7 @@ export const ImageInput = ({
             isDragging && classes.dragging,
           )}
         >
-          <FieldLabelText
-            label={label}
-            hideLabel={hideLabel}
-            required={required}
-            optionalLabel={optionalLabel}
-          />
+          <span className={utilClasses.hideVisually}>{label}</span>
           <Component src={src || previewImage} aria-hidden="true" />
         </FieldLabel>
         {src ? (
