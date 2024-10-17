@@ -1,5 +1,13 @@
 # @sumup/circuit-ui
 
+## 8.15.0
+
+### Minor Changes
+
+- [#2725](https://github.com/sumup-oss/circuit-ui/pull/2725) [`3830252`](https://github.com/sumup-oss/circuit-ui/commit/3830252cf1072972fce7866fae11a2edbee682da) Thanks [@connor-baer](https://github.com/connor-baer)! - Extended the `badge` prop of the SideNavigation's primary link props to accept an object with a custom badge color and a label for visually impaired users.
+
+- [#2725](https://github.com/sumup-oss/circuit-ui/pull/2725) [`3830252`](https://github.com/sumup-oss/circuit-ui/commit/3830252cf1072972fce7866fae11a2edbee682da) Thanks [@connor-baer](https://github.com/connor-baer)! - Added an `externalLabel` prop to the SideNavigation's primary link props to describe to visually impaired users that the link leads to an external page or opens in a new tab.
+
 ## 8.14.0
 
 ### Minor Changes
