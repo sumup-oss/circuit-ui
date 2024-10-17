@@ -172,7 +172,7 @@ export const ListItem = forwardRef<
         <div className={classes.content}>
           <div className={classes.main}>
             {isString(label) ? (
-              <Body size="one" className={classes.label}>
+              <Body size="m" className={classes.label}>
                 {label}
               </Body>
             ) : (
@@ -181,7 +181,7 @@ export const ListItem = forwardRef<
             {details && (
               <div className={classes.details}>
                 {isString(details) ? (
-                  <Body size="two" variant="subtle">
+                  <Body size="s" color="subtle">
                     {details}
                   </Body>
                 ) : (
@@ -199,7 +199,7 @@ export const ListItem = forwardRef<
             >
               <div className={classes.chevron}>
                 {isString(trailingLabel) ? (
-                  <Body size="one" variant="highlight">
+                  <Body size="m" weight="bold">
                     {trailingLabel}
                   </Body>
                 ) : (
@@ -211,7 +211,7 @@ export const ListItem = forwardRef<
               {trailingDetails && (
                 <div className={classes.details}>
                   {isString(trailingDetails) ? (
-                    <Body size="two" variant="subtle">
+                    <Body size="s" color="subtle">
                       {trailingDetails}
                     </Body>
                   ) : (

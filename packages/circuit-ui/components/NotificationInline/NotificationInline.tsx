@@ -163,10 +163,7 @@ export const NotificationInline = forwardRef<
           <span className={utilClasses.hideVisually}>{iconLabel}</span>
           <div className={classes.content}>
             {headline && (
-              <Body
-                variant={'highlight'}
-                as={isString(headline) ? 'h3' : headline.as}
-              >
+              <Body weight="bold" as={isString(headline) ? 'h3' : headline.as}>
                 {isString(headline) ? headline : headline.label}
               </Body>
             )}
@@ -175,7 +172,7 @@ export const NotificationInline = forwardRef<
               <Anchor
                 {...action}
                 className={clsx(action.className, classes.action)}
-                variant="highlight"
+                weight="bold"
               />
             )}
           </div>

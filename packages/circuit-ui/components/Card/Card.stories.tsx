@@ -29,7 +29,7 @@ export default {
 };
 
 const Header = () => (
-  <Headline size="four" as="h2">
+  <Headline size="s" as="h2">
     Card heading
   </Headline>
 );

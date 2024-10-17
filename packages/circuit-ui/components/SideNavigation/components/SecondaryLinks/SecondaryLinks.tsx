@@ -58,11 +58,7 @@ function SecondaryLink({
         aria-current={isActive ? 'page' : undefined}
       >
         <Skeleton className={classes.label}>
-          <Body
-            as="span"
-            size="one"
-            variant={isActive ? 'highlight' : undefined}
-          >
+          <Body as="span" size="m" weight={isActive ? 'bold' : undefined}>
             {label}
           </Body>
         </Skeleton>

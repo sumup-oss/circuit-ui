@@ -262,14 +262,14 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
             {headline && (
               <Headline
                 as="h2"
-                size="four"
+                size="s"
                 id={headlineId}
                 className={classes.headline}
               >
                 {headline}
               </Headline>
             )}
-            <Body size="two" id={bodyId} className={classes.body}>
+            <Body size="s" id={bodyId} className={classes.body}>
               {body}
             </Body>
             {action && (

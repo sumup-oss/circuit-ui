@@ -83,7 +83,7 @@ export function DesktopNavigation({
           aria-label={secondaryNavigationLabel}
         >
           <Skeleton className={classes.headline} as="div">
-            <Headline as="h2" size="three">
+            <Headline as="h2" size="m">
               {activePrimaryLink?.label}
             </Headline>
           </Skeleton>

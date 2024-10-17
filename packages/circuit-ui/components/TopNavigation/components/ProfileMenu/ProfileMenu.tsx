@@ -71,13 +71,13 @@ function Profile({ user, label, className, ...props }: ProfileProps) {
       </Skeleton>
       <span className={classes.details}>
         <Skeleton className={classes.truncate}>
-          <Body as="span" size="two" variant="highlight">
+          <Body as="span" size="s" weight="bold">
             {user.name}
           </Body>
         </Skeleton>
         {user.id && (
           <Skeleton className={classes.truncate}>
-            <Body as="span" size="two">
+            <Body as="span" size="s">
               {user.id}
             </Body>
           </Skeleton>

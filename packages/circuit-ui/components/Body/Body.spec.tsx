@@ -43,12 +43,13 @@ describe('Body', () => {
   });
 
   it('should render the "highlight" variant as a "strong" element', () => {
-    const { container } = render(<Body variant="highlight">Highlight</Body>);
+    const { container } = render(<Body weight="bold">Highlight</Body>);
     const actual = container.querySelector('strong');
     expect(actual).toBeVisible();
   });
 
   it('should render the "quote" variant as a "blockquote" element', () => {
+    // eslint-disable-next-line @sumup-oss/circuit-ui/no-deprecated-props
     const { container } = render(<Body variant="quote">Quote</Body>);
     const actual = container.querySelector('blockquote');
     expect(actual).toBeVisible();

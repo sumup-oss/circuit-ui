@@ -396,7 +396,7 @@ function Month({
     >
       <Headline
         as="h2"
-        size="four"
+        size="s"
         id={headlineId}
         aria-live="polite"
         aria-atomic="true"

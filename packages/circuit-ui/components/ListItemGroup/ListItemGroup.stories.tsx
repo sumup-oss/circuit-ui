@@ -84,13 +84,13 @@ const Details = ({ item }: { item: Item }) => (
       />
     )}
     <Body
-      size="two"
-      variant="highlight"
+      size="s"
+      weight="bold"
       style={{ marginRight: 'var(--cui-spacings-bit)' }}
     >
       {item.status}
     </Body>
-    <Body size="two" variant="subtle">
+    <Body size="s" color="subtle">
       &middot; {item.timestamp}
     </Body>
   </div>
@@ -98,8 +98,9 @@ const Details = ({ item }: { item: Item }) => (
 
 const TrailingLabel = ({ item }: { item: Item }) => (
   <Body
-    size="one"
-    variant={item.status === 'Failed' ? 'subtle' : 'highlight'}
+    size="m"
+    color={item.status === 'Failed' ? 'subtle' : undefined}
+    weight={item.status !== 'Failed' ? 'bold' : undefined}
     style={
       item.status === 'Failed' ? { textDecorationLine: 'line-through' } : {}
     }
