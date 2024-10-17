@@ -72,7 +72,7 @@ const configs: (Config & { components: string[] })[] = [
   },
   {
     type: 'values',
-    components: ['Badge'],
+    components: ['Badge', 'NotificationInline', 'NotificationToast'],
     prop: 'variant',
     values: {
       confirm: 'success',
@@ -82,46 +82,7 @@ const configs: (Config & { components: string[] })[] = [
   },
   {
     type: 'values',
-    components: ['NotificationInline'],
-    prop: 'variant',
-    values: {
-      confirm: 'success',
-      notify: 'warning',
-      alert: 'danger',
-    },
-  },
-  {
-    type: 'values',
-    components: ['NotificationToast'],
-    hook: 'setToast',
-    prop: 'variant',
-    values: {
-      confirm: 'success',
-      notify: 'warning',
-      alert: 'danger',
-    },
-  },
-  {
-    type: 'values',
-    components: ['Button'],
-    prop: 'size',
-    values: {
-      kilo: 's',
-      giga: 'm',
-    },
-  },
-  {
-    type: 'values',
-    components: ['CloseButton'],
-    prop: 'size',
-    values: {
-      kilo: 's',
-      giga: 'm',
-    },
-  },
-  {
-    type: 'values',
-    components: ['IconButton'],
+    components: ['Button', 'CloseButton', 'IconButton'],
     prop: 'size',
     values: {
       kilo: 's',
@@ -293,7 +254,7 @@ const configs: (Config & { components: string[] })[] = [
   },
   {
     type: 'values',
-    components: ['Title'],
+    components: ['Title', 'Display', 'Headline'],
     prop: 'size',
     values: {
       one: 'l',
@@ -304,38 +265,7 @@ const configs: (Config & { components: string[] })[] = [
   },
   {
     type: 'values',
-    components: ['Display'],
-    prop: 'size',
-    values: {
-      one: 'l',
-      two: 'm',
-      three: 'm',
-      four: 's',
-    },
-  },
-  {
-    type: 'values',
-    components: ['Headline'],
-    prop: 'size',
-    values: {
-      one: 'l',
-      two: 'm',
-      three: 'm',
-      four: 's',
-    },
-  },
-  {
-    type: 'values',
-    components: ['Body'],
-    prop: 'size',
-    values: {
-      one: 'm',
-      two: 's',
-    },
-  },
-  {
-    type: 'values',
-    components: ['List'],
+    components: ['Anchor', 'Body', 'List'],
     prop: 'size',
     values: {
       one: 'm',
@@ -344,7 +274,7 @@ const configs: (Config & { components: string[] })[] = [
   },
   {
     type: 'custom',
-    components: ['Body'],
+    components: ['Anchor', 'Body'],
     // variant → weight or color
     transform: (node, component, context) => {
       node.openingElement.attributes.forEach((attribute) => {
