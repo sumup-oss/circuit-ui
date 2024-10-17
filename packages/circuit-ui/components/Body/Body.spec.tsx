@@ -43,7 +43,8 @@ describe('Body', () => {
   });
 
   it('should render the "highlight" variant as a "strong" element', () => {
-    const { container } = render(<Body weight="bold">Highlight</Body>);
+    // eslint-disable-next-line @sumup-oss/circuit-ui/no-deprecated-props, @sumup-oss/circuit-ui/no-renamed-props
+    const { container } = render(<Body variant="highlight">Highlight</Body>);
     const actual = container.querySelector('strong');
     expect(actual).toBeVisible();
   });
