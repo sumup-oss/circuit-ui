@@ -16,7 +16,7 @@
 import { DateInput, type DateInputProps } from './DateInput.js';
 
 export default {
-  title: 'Forms/Input/DateInput',
+  title: 'Forms/DateInput',
   component: DateInput,
   argTypes: {
     disabled: { control: 'boolean' },

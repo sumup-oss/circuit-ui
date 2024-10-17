@@ -16,7 +16,7 @@
 import { ColorInput, type ColorInputProps } from './ColorInput.js';
 
 export default {
-  title: 'Forms/Input/ColorInput',
+  title: 'Forms/ColorInput',
   component: ColorInput,
 };
 
