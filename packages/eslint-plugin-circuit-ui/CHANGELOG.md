@@ -1,5 +1,21 @@
 # @sumup-oss/eslint-plugin-circuit-ui
 
+## 5.0.0-next.2
+
+### Major Changes
+
+- [#2728](https://github.com/sumup-oss/circuit-ui/pull/2728) [`2e6a4be`](https://github.com/sumup-oss/circuit-ui/commit/2e6a4be70035f0fce77dea2073c5f7fbedca0c5a) Thanks [@connor-baer](https://github.com/connor-baer)! - Added missing rules for the Anchor and BodyLarge migrations.
+
+- [#2707](https://github.com/sumup-oss/circuit-ui/pull/2707) [`f8016eb`](https://github.com/sumup-oss/circuit-ui/commit/f8016ebe246005ed415ed9587ecdb76892e981c6) Thanks [@sirineJ](https://github.com/sirineJ)! - Raised the minimum Node.js version to 20+.
+
+### Minor Changes
+
+- [#2713](https://github.com/sumup-oss/circuit-ui/pull/2713) [`00727aa`](https://github.com/sumup-oss/circuit-ui/commit/00727aae7976970283c2d658e9668d093ec2334f) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the `component-lifecycle-imports` ESLint rule to flag imports of stable entities from `@sumup-oss/circuit-ui/experimental`.
+
+- [#2717](https://github.com/sumup-oss/circuit-ui/pull/2717) [`0fb5dc0`](https://github.com/sumup-oss/circuit-ui/commit/0fb5dc0d68221e0f63103883e6cd14ea801cf161) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated new typography design tokens names by removing the `-typography` infix.
+
+- [#2717](https://github.com/sumup-oss/circuit-ui/pull/2717) [`0fb5dc0`](https://github.com/sumup-oss/circuit-ui/commit/0fb5dc0d68221e0f63103883e6cd14ea801cf161) Thanks [@sirineJ](https://github.com/sirineJ)! - Introduced new sizes to the List component and deprecated old sizes. Updated `no-renamed-props` ESlint rule.
+
 ## 5.0.0-next.1
 
 ### Major Changes
