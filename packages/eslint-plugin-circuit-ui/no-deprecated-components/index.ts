@@ -33,11 +33,15 @@ const components = [
   },
   {
     name: 'SubHeadline',
-    alternative: 'Use the Headline component in size `s` instead.',
+    alternative: 'Use the Headline component with `size="s"` instead.',
   },
   {
     name: 'Title',
     alternative: 'Use the new Display component instead.',
+  },
+  {
+    name: 'BodyLarge',
+    alternative: 'Use the Body component with `size="l"` instead.',
   },
 ];
 

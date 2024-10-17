@@ -20,7 +20,7 @@ import { Body, type BodyProps } from '../Body/Body.js';
 
 export type BodyLargeProps = Omit<BodyProps, 'size'>;
 /**
- * @deprecated Use the Body component in size `l` instead.
+ * @deprecated Use the Body component with `size="l"` instead.
  */
 export const BodyLarge = forwardRef<HTMLParagraphElement, BodyLargeProps>(
   (props, ref) => {

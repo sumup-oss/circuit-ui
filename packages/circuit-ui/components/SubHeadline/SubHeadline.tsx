@@ -28,7 +28,7 @@ export interface SubHeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
 }
 
 /**
- * @deprecated Use the Headline component in size `s` instead.
+ * @deprecated Use the Headline component with `size="s"` instead.
  */
 export const SubHeadline = forwardRef<HTMLHeadingElement, SubHeadlineProps>(
   (props, ref) => {
