@@ -1,4 +1,108 @@
-.base {
-  min-width: 8ch;
-  height: 48px;
+.input {
+  display: flex;
+  justify-content: space-between;
+  cursor: text;
+  background-color: var(--cui-bg-normal);
+  border: none;
+  border-radius: var(--cui-border-radius-byte);
+  outline: 0;
+  box-shadow: 0 0 0 1px var(--cui-border-normal);
+  transition:
+    box-shadow var(--cui-transitions-default),
+    padding var(--cui-transitions-default);
+}
+
+.input:hover {
+  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
+}
+
+.input:focus-within {
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
+}
+
+.segments {
+  display: flex;
+  gap: 2px;
+  padding: var(--cui-spacings-byte) var(--cui-spacings-mega);
+}
+
+.literal {
+  padding: var(--cui-spacings-bit) 0;
+  font-size: var(--cui-typography-body-m-font-size);
+  line-height: var(--cui-typography-body-m-line-height);
+}
+
+.calendar-button {
+  border: none;
+  border-left: 1px solid var(--cui-border-normal);
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.content {
+  color: var(--cui-fg-normal);
+  background-color: var(--cui-bg-elevated);
+  border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
+  border-radius: var(--cui-border-radius-byte);
+  outline: 0;
+  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 8%);
+}
+
+@media (max-width: 479px) {
+  .content {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--cui-spacings-giga) var(--cui-spacings-mega)
+    var(--cui-spacings-byte) var(--cui-spacings-mega);
+}
+
+@media (min-width: 480px) {
+  /* Hide visually */
+  .header {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+.calendar {
+  padding: var(--cui-spacings-mega);
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--cui-spacings-kilo);
+  justify-content: space-between;
+  padding: var(--cui-spacings-mega);
+  border-top: var(--cui-border-width-kilo) solid var(--cui-border-divider);
+}
+
+.apply {
+  margin-left: auto;
+}
+
+@media (min-width: 480px) {
+  .apply {
+    display: none;
+  }
+
+  .presets {
+    position: sticky;
+    bottom: 0;
+    margin-top: var(--cui-spacings-mega);
+  }
 }

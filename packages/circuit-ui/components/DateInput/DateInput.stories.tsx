@@ -13,21 +13,42 @@
  * limitations under the License.
  */
 
+import { useState } from 'react';
+
 import { DateInput, type DateInputProps } from './DateInput.js';
 
 export default {
   title: 'Forms/DateInput',
   component: DateInput,
+  parameters: {
+    layout: 'padded',
+  },
   argTypes: {
     disabled: { control: 'boolean' },
+    required: { control: 'boolean' },
   },
 };
 
 const baseArgs = {
   label: 'Date of birth',
-  validationHint: 'You must be at least 18 years old',
+  prevMonthButtonLabel: 'Previous month',
+  nextMonthButtonLabel: 'Previous month',
+  openCalendarButtonLabel: 'Change date',
+  closeCalendarButtonLabel: 'Close',
+  applyDateButtonLabel: 'Apply',
+  clearDateButtonLabel: 'Clear',
+  yearInputLabel: 'Year',
+  monthInputLabel: 'Month',
+  dayInputLabel: 'Day',
+  locale: 'en-US',
+  autoComplete: 'bday',
+  // min: '2024-11-14',
+  // max: '2024-11-24',
 };
 
-export const Base = (args: DateInputProps) => <DateInput {...args} />;
+export const Base = (args: DateInputProps) => {
+  const [value, setValue] = useState(args.value || '');
+  return <DateInput {...args} value={value} onChange={setValue} />;
+};
 
 Base.args = baseArgs;
