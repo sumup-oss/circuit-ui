@@ -16,13 +16,17 @@
 'use client';
 
 import { ArrowRight } from '@sumup/icons';
-import type { ComponentType } from 'react';
+import { useId, type ComponentType } from 'react';
 
 import type { AsPropType } from '../../../../types/prop-types.js';
 import { useComponents } from '../../../ComponentsContext/index.js';
 import { Body } from '../../../Body/index.js';
 import { Skeleton } from '../../../Skeleton/index.js';
-import type { PrimaryLinkProps as PrimaryLinkType } from '../../types.js';
+import type {
+  PrimaryLinkProps as PrimaryLinkType,
+  PrimaryBadgeProps,
+} from '../../types.js';
+import { isObject } from '../../../../util/type-check.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { utilClasses } from '../../../../styles/utility.js';
 
@@ -39,13 +43,24 @@ export function PrimaryLink({
   label,
   isActive,
   isExternal,
+  externalLabel,
   suffix: Suffix,
   badge,
   secondaryGroups,
   className,
+  'aria-describedby': descriptionId,
   ...props
 }: PrimaryLinkProps) {
   const { Link } = useComponents();
+  const badgeLabelId = useId();
+  const externalLabelId = useId();
+
+  const badgeProps = getBadgeProps(badge);
+  const descriptionIds = clsx(
+    badgeProps?.label && badgeLabelId,
+    externalLabel && externalLabelId,
+    descriptionId,
+  );
 
   const Element = props.href ? (Link as AsPropType) : 'button';
 
@@ -57,28 +72,54 @@ export function PrimaryLink({
   const Icon = isActive && activeIcon ? activeIcon : icon;
 
   return (
-    <Element
-      {...props}
-      className={clsx(classes.base, utilClasses.focusVisibleInset, className)}
-      aria-current={isActive ? 'page' : undefined}
-    >
-      <Skeleton className={clsx(classes.icon, badge && classes['icon-badge'])}>
-        <Icon aria-hidden="true" size="24" />
-      </Skeleton>
-      <Skeleton>
-        <Body as="span" className={classes.label}>
-          {label}
-        </Body>
-      </Skeleton>
-      {/* FIXME: Make this accessible to screen readers */}
-      {isExternalLink && (
-        <ArrowRight
-          size="16"
-          aria-hidden="true"
-          className={clsx(classes.suffix, classes['external-icon'])}
-        />
+    <>
+      <Element
+        {...props}
+        className={clsx(classes.base, utilClasses.focusVisibleInset, className)}
+        aria-current={isActive ? 'page' : undefined}
+        aria-describedby={descriptionIds}
+      >
+        <Skeleton
+          className={clsx(
+            classes.icon,
+            badgeProps && classes.badge,
+            badgeProps && classes[badgeProps.variant],
+          )}
+        >
+          <Icon aria-hidden="true" size="24" />
+        </Skeleton>
+        <Skeleton>
+          <Body as="span" className={classes.label}>
+            {label}
+          </Body>
+        </Skeleton>
+        {isExternalLink && (
+          <ArrowRight
+            size="16"
+            aria-hidden="true"
+            className={clsx(classes.suffix, classes['external-icon'])}
+          />
+        )}
+        {suffix}
+      </Element>
+      {badgeProps?.label && (
+        <span id={badgeLabelId} className={utilClasses.hideVisually}>
+          {badgeProps.label}
+        </span>
       )}
-      {suffix}
-    </Element>
+      {isExternalLink && externalLabel && (
+        <span id={externalLabelId} className={utilClasses.hideVisually}>
+          {externalLabel}
+        </span>
+      )}
+    </>
   );
+}
+
+function getBadgeProps(badge?: boolean | PrimaryBadgeProps) {
+  if (!badge) {
+    return null;
+  }
+  const defaultProps = { variant: 'promo', label: '' } as const;
+  return isObject(badge) ? { ...defaultProps, ...badge } : defaultProps;
 }
