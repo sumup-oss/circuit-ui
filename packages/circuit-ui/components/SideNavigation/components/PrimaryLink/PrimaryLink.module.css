@@ -117,7 +117,7 @@
   }
 }
 
-.icon-badge::after {
+.badge::after {
   position: absolute;
   top: -8px;
   right: -8px;
@@ -125,8 +125,27 @@
   width: 10px;
   height: 10px;
   content: "";
-  background-color: var(--cui-fg-promo);
   border-radius: var(--cui-border-radius-circle);
+}
+
+.success::after {
+  background-color: var(--cui-bg-success-strong);
+}
+
+.warning::after {
+  background-color: var(--cui-bg-warning-strong);
+}
+
+.danger::after {
+  background-color: var(--cui-bg-danger-strong);
+}
+
+.neutral::after {
+  background-color: var(--cui-bg-highlight);
+}
+
+.promo::after {
+  background-color: var(--cui-bg-promo-strong);
 }
 
 .suffix {

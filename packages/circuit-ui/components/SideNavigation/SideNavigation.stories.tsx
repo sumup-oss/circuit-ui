@@ -57,7 +57,7 @@ export const baseArgs: SideNavigationProps = {
       href: '/shop',
       onClick: action('Shop'),
       isActive: true,
-      badge: true,
+      badge: { variant: 'promo', label: 'New items' },
       secondaryGroups: [
         {
           secondaryLinks: [
@@ -115,6 +115,7 @@ export const baseArgs: SideNavigationProps = {
       href: 'https://support.example.com',
       onClick: action('Support'),
       target: '_blank',
+      externalLabel: 'Opens in a new tab',
     },
   ],
 };
