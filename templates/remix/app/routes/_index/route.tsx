@@ -1,5 +1,5 @@
 import type { MetaFunction } from '@remix-run/node';
-import { Display, BodyLarge } from '@sumup-oss/circuit-ui';
+import { Display, Body } from '@sumup-oss/circuit-ui';
 
 import { DocCard } from '../../components/DocCard/index.js';
 
@@ -22,9 +22,9 @@ export default function Index() {
         {title}
       </Display>
 
-      <BodyLarge className={styles.intro}>
+      <Body size="l" className={styles.intro}>
         Get started by editing <code>app/routes/_index/route.tsx</code>
-      </BodyLarge>
+      </Body>
 
       <div className={styles.cards}>
         <DocCard
