@@ -25,8 +25,8 @@ export default {
 const sizes = ['s', 'm', 'l'] as const;
 
 const progressBarStyles = {
-  width: '90%',
-  minWidth: '500px',
+  width: '500px',
+  maxWidth: '90vw',
 };
 
 export const Steps = (args: ProgressBarProps) => (

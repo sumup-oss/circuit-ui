@@ -105,7 +105,9 @@ describe('ImageInput', () => {
      */
     it('should support dragging and dropping an image', async () => {
       render(<StatefulInput />);
-      const labelEl = screen.getByText(defaultProps.label);
+      const labelEl = screen.getByText(defaultProps.label, {
+        ignore: '[aria-hidden="true"]',
+      });
 
       fireEvent.drop(labelEl, { dataTransfer: { files: [file] } });
 

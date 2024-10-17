@@ -13,6 +13,24 @@
 
   [Circuit UI's ESLint plugin](https://circuit.sumup.com/?path=/docs/packages-eslint-plugin-circuit-ui--docs) offers the `renamed-package-scope` rule to automate updating the package imports.
 
+## 4.1.3
+
+### Patch Changes
+
+- [#2715](https://github.com/sumup-oss/circuit-ui/pull/2715) [`f053eb3`](https://github.com/sumup-oss/circuit-ui/commit/f053eb3ccb3f86ca71d8f7e99d0dcb7447dc818f) Thanks [@voronianski](https://github.com/voronianski)! - Updated Swile 24px icon size to fit other 24px size icons.
+
+## 4.1.2
+
+### Patch Changes
+
+- [#2710](https://github.com/sumup-oss/circuit-ui/pull/2710) [`ab8b1fa`](https://github.com/sumup-oss/circuit-ui/commit/ab8b1fac9ec378739e9ca43d5ddeefe42005d528) Thanks [@sirineJ](https://github.com/sirineJ)! - Optimized the `Add`, `AddEmployees`, `AddItems`, `ArrowLeft`, `Calendar`, `Close`, `Edit`, and `Plus` icons to look more balanced when used alongside text.
+
+## 4.1.1
+
+### Patch Changes
+
+- [#2708](https://github.com/sumup-oss/circuit-ui/pull/2708) [`f7b96c6`](https://github.com/sumup-oss/circuit-ui/commit/f7b96c69b794428ad755f38b8ea13b0902a3549e) Thanks [@voronianski](https://github.com/voronianski)! - Updated `Conecs` and `Swile` icons to the latest logo versions (24px size only).
+
 ## 4.1.0
 
 ### Minor Changes

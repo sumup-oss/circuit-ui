@@ -56,7 +56,7 @@ export interface ImageInputProps
    * It should accept a `src` prop to render the image, and `aria-hidden` to
    * hide it from assistive technology.
    */
-  component: ComponentType<{ 'src'?: string; 'aria-hidden': 'true' }>;
+  component: ComponentType<{ src?: string; 'aria-hidden': 'true' }>;
   /**
    * A callback function to call when the user has selected an image.
    */
@@ -96,8 +96,7 @@ export interface ImageInputProps
    */
   optionalLabel?: string;
   /**
-   * Visually hide the label. This should only be used in rare cases and only
-   * if the purpose of the field can be inferred from other context.
+   * Visually hide the label. Default: `true`.
    */
   hideLabel?: boolean;
 }
@@ -108,7 +107,7 @@ export interface ImageInputProps
 export const ImageInput = ({
   label,
   src,
-  'id': customId,
+  id: customId,
   clearButtonLabel,
   onChange,
   onClear,
@@ -116,10 +115,10 @@ export const ImageInput = ({
   validationHint,
   required,
   invalid = false,
-  loadingLabel,
   optionalLabel,
-  hideLabel,
-  'component': Component,
+  loadingLabel,
+  hideLabel = true,
+  component: Component,
   className,
   style,
   'aria-describedby': descriptionId,
@@ -245,6 +244,13 @@ export const ImageInput = ({
 
   return (
     <FieldWrapper className={className} style={style} disabled={disabled}>
+      <FieldLabelText
+        label={label}
+        hideLabel={hideLabel}
+        optionalLabel={optionalLabel}
+        required={required}
+        aria-hidden="true"
+      />
       <div onPaste={handlePaste} className={classes.base}>
         <input
           className={clsx(classes.input, utilClasses.hideVisually)}

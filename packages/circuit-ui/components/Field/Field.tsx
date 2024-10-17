@@ -122,6 +122,7 @@ export function FieldLabelText({
   hideLabel,
   optionalLabel,
   required,
+  ...props
 }: FieldLabelTextProps) {
   return (
     <span
@@ -129,6 +130,7 @@ export function FieldLabelText({
         classes['label-text'],
         hideLabel && utilClasses.hideVisually,
       )}
+      {...props}
     >
       {label}
       {optionalLabel && !required ? (

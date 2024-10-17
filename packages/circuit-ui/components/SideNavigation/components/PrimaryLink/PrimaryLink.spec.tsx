@@ -51,6 +51,14 @@ describe('PrimaryLink', () => {
     expect(screen.getByRole('link')).toHaveAttribute('aria-current', 'page');
   });
 
+  it('should render with a badge', () => {
+    renderPrimaryLink(render, {
+      ...baseProps,
+      badge: { label: 'New' },
+    });
+    expect(screen.getByRole('link')).toHaveAccessibleDescription('New');
+  });
+
   it('should render with an active icon', () => {
     renderPrimaryLink(render, {
       ...baseProps,
@@ -60,7 +68,16 @@ describe('PrimaryLink', () => {
     expect(screen.getByTestId('active-icon')).toBeVisible();
   });
 
-  it.todo('should render with an external icon');
+  it('should render with an external icon', () => {
+    renderPrimaryLink(render, {
+      ...baseProps,
+      isExternal: true,
+      externalLabel: 'Opens in a new tab',
+    });
+    expect(screen.getByRole('link')).toHaveAccessibleDescription(
+      'Opens in a new tab',
+    );
+  });
 
   it('should render with a suffix icon', () => {
     renderPrimaryLink(render, {

@@ -70,6 +70,46 @@
   - @sumup-oss/icons@5.0.0-next.0
   - @sumup-oss/design-tokens@8.0.0-next.0
 
+## 8.15.0
+
+### Minor Changes
+
+- [#2725](https://github.com/sumup-oss/circuit-ui/pull/2725) [`3830252`](https://github.com/sumup-oss/circuit-ui/commit/3830252cf1072972fce7866fae11a2edbee682da) Thanks [@connor-baer](https://github.com/connor-baer)! - Extended the `badge` prop of the SideNavigation's primary link props to accept an object with a custom badge color and a label for visually impaired users.
+
+- [#2725](https://github.com/sumup-oss/circuit-ui/pull/2725) [`3830252`](https://github.com/sumup-oss/circuit-ui/commit/3830252cf1072972fce7866fae11a2edbee682da) Thanks [@connor-baer](https://github.com/connor-baer)! - Added an `externalLabel` prop to the SideNavigation's primary link props to describe to visually impaired users that the link leads to an external page or opens in a new tab.
+
+## 8.14.0
+
+### Minor Changes
+
+- [#2721](https://github.com/sumup-oss/circuit-ui/pull/2721) [`01e5589`](https://github.com/sumup-oss/circuit-ui/commit/01e55897982ca1ff0bc941a27542e27d96eed9c6) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a `hideLabel` prop to the ImageInput component (defaulting to `true` to match the existing behavior) and added an `optionalLabel` prop to indicate to users whether the input is required.
+
+- [#2586](https://github.com/sumup-oss/circuit-ui/pull/2586) [`708c52e`](https://github.com/sumup-oss/circuit-ui/commit/708c52e2ab922350cffe84c7bd60019d136a63da) Thanks [@roma-claudio](https://github.com/roma-claudio)! - Use the country code instead of the phone prefix as the value of the PhoneNumberInput component's country code select. This is an implementation detail, but might require changes to unit tests that query the country code select.
+
+### Patch Changes
+
+- [#2720](https://github.com/sumup-oss/circuit-ui/pull/2720) [`7fce1de`](https://github.com/sumup-oss/circuit-ui/commit/7fce1debd283f7970ba1a6d5270457cc6ab8ba1d) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed positioning issue of the Tooltip and the Toggletip components. Improved styling of the Toggletip's backdrop element.
+
+## 8.13.2
+
+### Patch Changes
+
+- [#2687](https://github.com/sumup-oss/circuit-ui/pull/2687) [`2e85454`](https://github.com/sumup-oss/circuit-ui/commit/2e85454eb631250fd231783085957d2dfef5609f) Thanks [@matoous](https://github.com/matoous)! - Fixed event and values handling for the experimental ColorInput component.
+
+## 8.13.1
+
+### Patch Changes
+
+- [#2682](https://github.com/sumup-oss/circuit-ui/pull/2682) [`032b696`](https://github.com/sumup-oss/circuit-ui/commit/032b696ead332d5fa52cf22a62e91c77bf7e0d5f) Thanks [@matoous](https://github.com/matoous)! - Added the missing exports for the experimental ColorInput component.
+
+## 8.13.0
+
+### Minor Changes
+
+- [#2679](https://github.com/sumup-oss/circuit-ui/pull/2679) [`ce178f8`](https://github.com/sumup-oss/circuit-ui/commit/ce178f8b6463e4c3a93fc3a5551af8cae05247a2) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the Toggle component's `checkedLabel` and `uncheckedLabel` props since they are no longer needed.
+
+- [#2655](https://github.com/sumup-oss/circuit-ui/pull/2655) [`5c62949`](https://github.com/sumup-oss/circuit-ui/commit/5c629491b1bb8f7fe1eeeca5cff4918eefdb91f9) Thanks [@matoous](https://github.com/matoous)! - Added an experimental ColorInput component that enables users to type or select a color.
+
 ## 8.12.1
 
 ### Patch Changes

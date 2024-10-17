@@ -8,13 +8,13 @@
 .label,
 .legend {
   display: block;
-  font-size: var(--cui-body-s-font-size);
-  line-height: var(--cui-body-s-line-height);
 }
 
 .label-text {
-  display: inline-block;
+  display: block;
   margin-bottom: var(--cui-spacings-bit);
+  font-size: var(--cui-body-s-font-size);
+  line-height: var(--cui-body-s-line-height);
 }
 
 [disabled] .label-text,

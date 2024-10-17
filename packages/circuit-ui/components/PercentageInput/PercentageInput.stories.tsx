@@ -21,7 +21,7 @@ import {
 } from './PercentageInput.js';
 
 export default {
-  title: 'Forms/Input/PercentageInput',
+  title: 'Forms/PercentageInput',
   component: PercentageInput,
 };
 

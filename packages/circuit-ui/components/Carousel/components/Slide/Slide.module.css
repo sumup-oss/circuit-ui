@@ -1,9 +1,9 @@
 .base {
   position: relative;
   z-index: var(--slide-stack-order);
-  flex-basis: var(--slide-width);
   flex-grow: 0;
   flex-shrink: 0;
+  flex-basis: var(--slide-width);
   width: 100%;
   transform: translate3d(var(--slide-transform-x), 0, 0);
   backface-visibility: hidden;

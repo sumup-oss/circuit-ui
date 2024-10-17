@@ -18,7 +18,7 @@ import { useState, type ChangeEvent } from 'react';
 import { SearchInput, type SearchInputProps } from './SearchInput.js';
 
 export default {
-  title: 'Forms/Input/SearchInput',
+  title: 'Forms/SearchInput',
   component: SearchInput,
   argTypes: {
     placeholder: { control: 'text' },

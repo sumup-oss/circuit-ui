@@ -24,3 +24,5 @@ export {
 } from './components/Toggletip/index.js';
 export { PhoneNumberInput } from './components/PhoneNumberInput/index.js';
 export type { PhoneNumberInputProps } from './components/PhoneNumberInput/index.js';
+export { ColorInput } from './components/ColorInput/index.js';
+export type { ColorInputProps } from './components/ColorInput/index.js';

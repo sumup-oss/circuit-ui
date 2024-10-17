@@ -75,6 +75,7 @@ export const Disabled = (args: ImageInputProps) => (
     disabled
     loadingLabel="Uploading"
     component={(props) => <Avatar {...props} alt="" />}
+    hideLabel={false}
   />
 );
 

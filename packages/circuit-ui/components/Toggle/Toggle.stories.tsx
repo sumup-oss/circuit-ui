@@ -26,8 +26,6 @@ export default {
 
 const baseArgs = {
   label: 'Short label',
-  checkedLabel: 'on',
-  uncheckedLabel: 'off',
   disabled: false,
 };
 

@@ -28,19 +28,27 @@ describe('Icons', () => {
     .filter((fileName) => fileName.endsWith('.svg'))
     .map((fileName) => {
       const { name, size } = parseFileName(fileName);
-      const file = fs.readFileSync(path.join(ICON_DIR, fileName)).toString();
-      return { name, size, file } as {
-        name?: string;
-        size?: string;
+      const filePath = path.join(ICON_DIR, fileName);
+      const file = fs.readFileSync(filePath).toString();
+      const fileStats = fs.statSync(filePath);
+      const fileSize = fileStats.size / 1024; // kilobytes
+      return { name, size, file, fileSize } as {
+        name: string;
+        size: string;
         file: string;
+        fileSize: number;
       };
     });
 
-  describe.each(files)('$name ($size)', ({ name, size, file }) => {
+  describe.each(files)('$name ($size)', ({ name, size, file, fileSize }) => {
     it('should be valid XML', () => {
       const isValidXML = XMLValidator.validate(file);
 
       expect(isValidXML).toBeTruthy();
+    });
+
+    it('should weigh less than 12kb', () => {
+      expect(fileSize).toBeLessThan(12);
     });
 
     it('should have a valid manifest', () => {

@@ -37,6 +37,8 @@ import { clsx } from '../../styles/clsx.js';
 
 import classes from './Input.module.css';
 
+export { classes };
+
 /**
  * @deprecated
  *
