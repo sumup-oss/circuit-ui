@@ -47,7 +47,7 @@ describe('ListItemGroup', () => {
     renderListItemGroup(render, {
       ...baseProps,
       label: (
-        <Body as="h4" size="two">
+        <Body as="h4" size="s">
           Group label
         </Body>
       ),
@@ -66,7 +66,7 @@ describe('ListItemGroup', () => {
   it('should render a ListItemGroup with a custom details line', () => {
     renderListItemGroup(render, {
       ...baseProps,
-      details: <Body size="two">Group details</Body>,
+      details: <Body size="s">Group details</Body>,
     });
     expect(screen.getByText('Group details')).toBeVisible();
   });

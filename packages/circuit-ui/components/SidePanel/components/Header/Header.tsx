@@ -56,7 +56,7 @@ export const Header = ({
         {backButtonLabel}
       </IconButton>
     )}
-    <Headline id={id} size="four" as="h2" className={classes.headline}>
+    <Headline id={id} size="s" as="h2" className={classes.headline}>
       {headline}
     </Headline>
     {closeButtonLabel && (

@@ -93,7 +93,7 @@ export function MultiStepForm() {
 
         return (
           <div className={classes.container}>
-            <Headline as="h2" size="three" className={classes.spacing}>
+            <Headline as="h2" size="m" className={classes.spacing}>
               Step {stepNumber} of {totalSteps}
             </Headline>
             <ProgressBar

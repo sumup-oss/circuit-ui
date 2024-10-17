@@ -110,7 +110,7 @@ export const ListItemGroup = forwardRef<HTMLDivElement, ListItemGroupProps>(
             )}
           >
             {isString(label) ? (
-              <Body as="h4" size="two">
+              <Body as="h4" size="s">
                 {label}
               </Body>
             ) : (
@@ -119,7 +119,7 @@ export const ListItemGroup = forwardRef<HTMLDivElement, ListItemGroupProps>(
           </div>
           {details && (
             <div className={classes.details}>
-              {isString(details) ? <Body size="two">{details}</Body> : details}
+              {isString(details) ? <Body size="s">{details}</Body> : details}
             </div>
           )}
         </div>

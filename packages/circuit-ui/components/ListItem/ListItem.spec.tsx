@@ -61,7 +61,7 @@ describe('ListItem', () => {
   it('should render a ListItem with a custom label', () => {
     renderListItem(render, {
       ...baseProps,
-      label: <Body size="one">Label</Body>,
+      label: <Body size="m">Label</Body>,
     });
     expect(screen.getByText('Label')).toBeVisible();
   });
@@ -77,7 +77,7 @@ describe('ListItem', () => {
   it('should render a ListItem with a custom details line', () => {
     renderListItem(render, {
       ...baseProps,
-      details: <Body size="two">Details</Body>,
+      details: <Body size="s">Details</Body>,
     });
     expect(screen.getByText('Details')).toBeVisible();
   });
@@ -94,7 +94,7 @@ describe('ListItem', () => {
     renderListItem(render, {
       ...baseProps,
       trailingLabel: (
-        <Body size="one" variant="highlight">
+        <Body size="m" weight="bold">
           Trailing label
         </Body>
       ),
@@ -117,7 +117,7 @@ describe('ListItem', () => {
       ...baseProps,
       trailingLabel: 'Trailing label',
       trailingDetails: (
-        <Body size="two" variant="subtle">
+        <Body size="s" color="subtle">
           Trailing details
         </Body>
       ),

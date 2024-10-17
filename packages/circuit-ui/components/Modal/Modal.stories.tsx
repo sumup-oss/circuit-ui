@@ -53,7 +53,7 @@ export default {
 
 const defaultModalChildren = () => (
   <Fragment>
-    <Headline as="h2" size="four" style={{ marginBottom: '1rem' }}>
+    <Headline as="h2" size="s" style={{ marginBottom: '1rem' }}>
       Hello World!
     </Headline>
     <Body>I am a modal.</Body>
@@ -146,7 +146,7 @@ export const PreventClose = (modal: ModalProps) => {
 PreventClose.args = {
   children: ({ onClose }: { onClose: ModalProps['onClose'] }) => (
     <Fragment>
-      <Headline as="h2" size="four" style={{ marginBottom: '1rem' }}>
+      <Headline as="h2" size="s" style={{ marginBottom: '1rem' }}>
         Complete the action
       </Headline>
       <Body style={{ marginBottom: '1rem' }}>
@@ -207,7 +207,7 @@ CustomStyles.args = {
           borderTopRightRadius: 'var(--cui-border-radius-mega)',
         }}
       />
-      <Headline as="h2" size="four" style={{ margin: '1rem' }}>
+      <Headline as="h2" size="s" style={{ margin: '1rem' }}>
         Custom styles
       </Headline>
       <Body style={{ margin: '1rem' }}>

@@ -46,7 +46,7 @@ export default {
 function CustomComponent() {
   return (
     <Body
-      size="two"
+      size="s"
       style={{
         display: 'flex',
         alignItems: 'center',

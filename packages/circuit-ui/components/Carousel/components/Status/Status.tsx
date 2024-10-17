@@ -36,11 +36,7 @@ export function Status({
   ...props
 }: StatusProps) {
   return (
-    <Body
-      variant="highlight"
-      className={clsx(classes.base, className)}
-      {...props}
-    >
+    <Body weight="bold" className={clsx(classes.base, className)} {...props}>
       {step + 1} / {total}
     </Body>
   );
