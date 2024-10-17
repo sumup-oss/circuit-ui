@@ -8,7 +8,7 @@
 .content {
   display: inline-flex;
   align-items: center;
-  padding: calc(var(--cui-spacings-bit) - 1px) var(--cui-spacings-kilo);
+  padding: var(--cui-spacings-bit) var(--cui-spacings-kilo);
   margin: 0;
   font-size: var(--cui-body-m-font-size);
   line-height: var(--cui-body-m-line-height);
