@@ -188,8 +188,7 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
               aria-describedby={descriptionIds}
               className={classes['color-input']}
               onChange={onPickerColorChange}
-              readOnly={readOnly}
-              disabled={disabled}
+              disabled={disabled || readOnly}
               defaultValue={defaultValue}
               value={value}
             />
