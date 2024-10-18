@@ -28,6 +28,7 @@ import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
+import { clsx } from '../../styles/clsx.js';
 import type { InputProps } from '../Input/index.js';
 import { Calendar, type CalendarProps } from '../Calendar/Calendar.js';
 import { Button } from '../Button/Button.js';
@@ -95,6 +96,11 @@ export interface DateInputProps
    */
   value?: string;
   /**
+   * The initially selected date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
+   * format (`YYYY-MM-DD`).
+   */
+  defaultValue?: string;
+  /**
    * Callback when the date changes. Called with the date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
    * format (`YYYY-MM-DD`) or an empty string.
    *
@@ -129,11 +135,12 @@ export interface DateInputProps
  * DateInput component for forms.
  * The input value is always a string in the format `YYYY-MM-DD`.
  */
-export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
+export const DateInput = forwardRef<HTMLFieldSetElement, DateInputProps>(
   (
     {
       label,
       value,
+      defaultValue,
       onChange,
       min,
       max,
@@ -161,9 +168,10 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       className,
       style,
       autoComplete,
+      // TODO:
       // ...props
     },
-    // ref
+    ref,
   ) => {
     const isMobile = useMedia('(max-width: 479px)');
 
@@ -174,11 +182,14 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     const headlineId = useId();
     const validationHintId = useId();
 
+    const minDate = toPlainDate(min);
+    const maxDate = toPlainDate(max);
+
     const [focusProps, focusHandlers] = useSegmentFocus();
-    const state = usePlainDateState({ value, min, max, onChange });
-    const yearProps = useYearSegment(state, focusHandlers);
-    const monthProps = useMonthSegment(state, focusHandlers);
-    const dayProps = useDaySegment(state, focusHandlers);
+    const state = usePlainDateState(value, defaultValue, onChange);
+    const yearProps = useYearSegment(state, focusHandlers, minDate, maxDate);
+    const monthProps = useMonthSegment(state, focusHandlers, minDate, maxDate);
+    const dayProps = useDaySegment(state, focusHandlers, minDate, maxDate);
 
     const [open, setOpen] = useState(false);
     const [selection, setSelection] = useState<Temporal.PlainDate>();
@@ -230,6 +241,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     };
 
     const openCalendar = () => {
+      // TODO: Focus the calendar
       setSelection(toPlainDate(value) || undefined);
       setOpen(true);
     };
@@ -336,7 +348,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
           readOnly={readOnly}
           {...props}
         /> */}
-        <FieldSet onClick={handleClick}>
+        <FieldSet onClick={handleClick} ref={ref}>
           <FieldLegend>
             <FieldLabelText
               label={label}
@@ -345,7 +357,15 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
               optionalLabel={optionalLabel}
             />
           </FieldLegend>
-          <div className={classes.input} ref={referenceRef}>
+          <div
+            className={clsx(
+              classes.input,
+              invalid && classes.invalid,
+              hasWarning && classes.warning,
+              readOnly && classes.readonly,
+            )}
+            ref={referenceRef}
+          >
             <div className={classes.segments}>
               {segments.map((segment, index) => {
                 switch (segment.type) {
@@ -355,6 +375,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                         key={segment.type}
                         aria-label={yearInputLabel}
                         required={required}
+                        invalid={invalid}
                         disabled={disabled}
                         readOnly={readOnly}
                         autoComplete={
@@ -370,6 +391,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                         key={segment.type}
                         aria-label={monthInputLabel}
                         required={required}
+                        invalid={invalid}
                         disabled={disabled}
                         readOnly={readOnly}
                         autoComplete={
@@ -385,6 +407,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                         key={segment.type}
                         aria-label={dayInputLabel}
                         required={required}
+                        invalid={invalid}
                         disabled={disabled}
                         readOnly={readOnly}
                         autoComplete={
@@ -414,6 +437,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
               variant="secondary"
               onClick={openCalendar}
               className={classes['calendar-button']}
+              disabled={disabled || readOnly}
             >
               {calendarButtonLabel}
             </IconButton>
@@ -437,7 +461,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
           {() => (
             <div className={classes.content}>
               <header className={classes.header}>
-                <Headline as="h2" size="three" id={headlineId}>
+                <Headline as="h2" size="m" id={headlineId}>
                   {label}
                 </Headline>
                 <CloseButton
@@ -454,8 +478,8 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                 className={classes.calendar}
                 onSelect={handleSelect}
                 selection={selection}
-                minDate={state.minDate}
-                maxDate={state.maxDate}
+                minDate={minDate}
+                maxDate={maxDate}
                 locale={locale}
                 firstDayOfWeek={firstDayOfWeek}
                 modifiers={modifiers}

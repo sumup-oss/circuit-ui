@@ -25,9 +25,17 @@ import {
 } from 'react';
 import { Temporal } from 'temporal-polyfill';
 
-import { toPlainDate } from '../../util/date.js';
-import { isNumber } from '../../util/type-check.js';
+import {
+  MAX_MONTH,
+  MAX_YEAR,
+  MIN_DAY,
+  MIN_MONTH,
+  MIN_YEAR,
+  toPlainDate,
+} from '../../util/date.js';
+import { isNumber, isString } from '../../util/type-check.js';
 import { isBackspace, isDelete } from '../../util/key-codes.js';
+import { clamp } from '../../util/helpers.js';
 
 /**
  * These hooks assume a Gregorian or ISO 8601 calendar:
@@ -45,44 +53,74 @@ type PartialPlainDate = {
 type PlainDateState = {
   date: PartialPlainDate;
   update: (date: PartialPlainDate) => void;
-  minDate?: Temporal.PlainDate;
-  maxDate?: Temporal.PlainDate;
 };
 
-export function usePlainDateState(props: {
-  value?: string;
-  min?: string;
-  max?: string;
-  onChange: (date: string) => void;
-}): PlainDateState {
-  const [date, setDate] = useState<PartialPlainDate>(() => {
-    const plainDate = toPlainDate(props.value);
-    if (!plainDate) {
-      return { day: '', month: '', year: '' };
-    }
-    const { year, month, day } = plainDate;
-    return { year, month, day };
-  });
+function parseValue(value?: string): PartialPlainDate {
+  const plainDate = toPlainDate(value);
+  if (!plainDate) {
+    return { day: '', month: '', year: '' };
+  }
+  const { year, month, day } = plainDate;
+  return { year, month, day };
+}
 
-  const { year, month, day } = date;
+export function usePlainDateState(
+  value?: string,
+  defaultValue?: string,
+  onChange?: (date: string) => void,
+): PlainDateState {
+  const [date, setDate] = useState<PartialPlainDate>(() =>
+    parseValue(defaultValue || value),
+  );
 
   useEffect(() => {
-    if (isNumber(year) && isNumber(month) && isNumber(day)) {
-      const plainDate = new Temporal.PlainDate(year, month, day);
-      props.onChange(plainDate.toString());
-    } else {
-      props.onChange('');
+    if (isString(value)) {
+      setDate(parseValue(value));
     }
-  }, [year, month, day, props.onChange]);
+  }, [value]);
 
-  const update = useCallback((newDate: PartialPlainDate) => {
-    setDate((prevDate) => ({ ...prevDate, ...newDate }));
-  }, []);
+  const update = useCallback(
+    (newDate: PartialPlainDate) => {
+      setDate((prevDate) => {
+        let year: PartialPlainDate['year'] =
+          (newDate.year ?? prevDate.year) || '';
 
-  const minDate = toPlainDate(props.min);
-  const maxDate = toPlainDate(props.max);
+        if (isNumber(year)) {
+          year = clamp(year, MIN_YEAR, MAX_YEAR);
+        }
 
-  return { date, update, minDate, maxDate };
+        let month: PartialPlainDate['month'] =
+          (newDate.month ?? prevDate.month) || '';
+
+        if (isNumber(month)) {
+          month = clamp(month, MIN_MONTH, MAX_MONTH);
+        }
+
+        let day: PartialPlainDate['day'] = (newDate.day ?? prevDate.day) || '';
+
+        if (isNumber(day)) {
+          let maxDay = 31;
+          if (isNumber(year) && year > 999 && isNumber(month)) {
+            const plainYearMonth = new Temporal.PlainYearMonth(year, month);
+            maxDay = plainYearMonth.daysInMonth;
+          }
+          day = clamp(day, MIN_DAY, maxDay);
+        }
+
+        if (isNumber(year) && year > 999 && isNumber(month) && isNumber(day)) {
+          const plainDate = new Temporal.PlainDate(year, month, day);
+          onChange?.(plainDate.toString());
+        } else {
+          onChange?.('');
+        }
+
+        return { year, month, day };
+      });
+    },
+    [onChange],
+  );
+
+  return { date, update };
 }
 
 export function useSegment(
@@ -111,24 +149,24 @@ export function useSegment(
 export function useYearSegment(
   state: PlainDateState,
   focus: FocusHandlers,
+  minDate?: Temporal.PlainDate,
+  maxDate?: Temporal.PlainDate,
 ): InputHTMLAttributes<HTMLInputElement> {
   const props = useSegment(focus);
 
-  if (
-    state.minDate &&
-    state.maxDate &&
-    state.minDate.year === state.maxDate.year
-  ) {
+  if (minDate && maxDate && minDate.year === maxDate.year) {
+    // FIXME: Set value in state
     return {
-      value: state.minDate.year,
+      value: minDate.year,
       readOnly: true,
     };
   }
 
   const value = state.date.year;
   const placeholder = 'yyyy';
-  const min = state.minDate ? state.minDate.year : 1;
-  const max = state.maxDate ? state.maxDate.year : 9999;
+
+  const min = minDate ? minDate.year : 1;
+  const max = maxDate ? maxDate.year : 9999;
 
   const onChange = (event: FormEvent<HTMLInputElement>) => {
     const year = Number.parseInt(event.currentTarget.value, 10) || '';
@@ -144,32 +182,38 @@ export function useYearSegment(
 export function useMonthSegment(
   state: PlainDateState,
   focus: FocusHandlers,
+  minDate?: Temporal.PlainDate,
+  maxDate?: Temporal.PlainDate,
 ): InputHTMLAttributes<HTMLInputElement> {
   const props = useSegment(focus);
 
   if (
-    state.minDate &&
-    state.maxDate &&
-    state.minDate.year === state.maxDate.year &&
-    state.minDate.month === state.maxDate.month
+    minDate &&
+    maxDate &&
+    minDate.year === maxDate.year &&
+    minDate.month === maxDate.month
   ) {
+    // FIXME: Set value in state
     return {
-      value: state.minDate.month,
+      value: minDate.month,
       readOnly: true,
     };
   }
 
   const value = state.date.month;
   const placeholder = 'mm';
+
   let min = 1;
   let max = 12;
 
-  if (state.minDate && state.minDate.year === state.date.year) {
-    min = state.minDate.month;
+  const sameYear = minDate && maxDate && minDate.year === maxDate.year;
+
+  if (sameYear || (minDate && minDate.year === state.date.year)) {
+    min = minDate.month;
   }
 
-  if (state.maxDate && state.maxDate.year === state.date.year) {
-    max = state.maxDate.month;
+  if (sameYear || (maxDate && maxDate.year === state.date.year)) {
+    max = maxDate.month;
   }
 
   const onChange = (event: FormEvent<HTMLInputElement>) => {
@@ -186,13 +230,26 @@ export function useMonthSegment(
 export function useDaySegment(
   state: PlainDateState,
   focus: FocusHandlers,
+  minDate?: Temporal.PlainDate,
+  maxDate?: Temporal.PlainDate,
 ): InputHTMLAttributes<HTMLInputElement> {
   const props = useSegment(focus);
 
   const value = state.date.day;
   const placeholder = 'dd';
-  const min = 1;
+
+  let min = 1;
   let max = 31;
+
+  if (
+    minDate &&
+    maxDate &&
+    minDate.year === maxDate.year &&
+    minDate.month === maxDate.month
+  ) {
+    min = minDate.day;
+    max = maxDate.day;
+  }
 
   if (isNumber(state.date.year) && isNumber(state.date.month)) {
     const plainYearMonth = new Temporal.PlainYearMonth(
@@ -200,7 +257,21 @@ export function useDaySegment(
       state.date.month,
     );
     max = plainYearMonth.daysInMonth;
-    // TODO: account for min and max dates
+
+    if (
+      minDate &&
+      minDate.year === state.date.year &&
+      minDate.month === state.date.month
+    ) {
+      min = minDate.day;
+    }
+    if (
+      maxDate &&
+      maxDate.year === state.date.year &&
+      maxDate.month === state.date.month
+    ) {
+      max = maxDate.day;
+    }
   }
 
   const onChange = (event: FormEvent<HTMLInputElement>) => {

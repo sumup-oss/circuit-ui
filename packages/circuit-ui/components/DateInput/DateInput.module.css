@@ -3,21 +3,66 @@
   justify-content: space-between;
   cursor: text;
   background-color: var(--cui-bg-normal);
-  border: none;
+  border: 1px solid var(--cui-border-normal);
   border-radius: var(--cui-border-radius-byte);
   outline: 0;
-  box-shadow: 0 0 0 1px var(--cui-border-normal);
+  box-shadow: none;
   transition:
     box-shadow var(--cui-transitions-default),
     padding var(--cui-transitions-default);
 }
 
 .input:hover {
-  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
+  border-color: var(--cui-border-normal-hovered);
 }
 
 .input:focus-within {
-  box-shadow: 0 0 0 2px var(--cui-border-accent);
+  border-color: var(--cui-border-accent);
+  box-shadow: 0 0 0 1px var(--cui-border-accent);
+}
+
+.invalid {
+  border-color: var(--cui-border-danger);
+}
+
+.invalid:hover {
+  border-color: var(--cui-border-danger-hovered);
+}
+
+.invalid:focus-within {
+  border-color: var(--cui-border-danger);
+  box-shadow: 0 0 0 1px var(--cui-border-danger);
+}
+
+.invalid:not(:focus-within):not([disabled])::placeholder {
+  color: var(--cui-fg-danger);
+}
+
+.warning {
+  border-color: var(--cui-border-warning);
+}
+
+.warning:hover {
+  border-color: var(--cui-border-warning-hovered);
+}
+
+.warning:focus-within {
+  border-color: var(--cui-border-warning);
+  box-shadow: 0 0 0 1px var(--cui-border-warning);
+}
+
+.warning:not(:focus-within):not([disabled])::placeholder {
+  color: var(--cui-fg-warning);
+}
+
+:global([data-disabled="true"]) .input {
+  color: var(--cui-fg-normal-disabled);
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+}
+
+.readonly {
+  background-color: var(--cui-bg-subtle-disabled);
 }
 
 .segments {
@@ -28,8 +73,12 @@
 
 .literal {
   padding: var(--cui-spacings-bit) 0;
-  font-size: var(--cui-typography-body-m-font-size);
-  line-height: var(--cui-typography-body-m-line-height);
+  font-size: var(--cui-body-m-font-size);
+  line-height: var(--cui-body-m-line-height);
+}
+
+.readonly .literal {
+  color: var(--cui-fg-subtle);
 }
 
 .calendar-button {
@@ -37,6 +86,10 @@
   border-left: 1px solid var(--cui-border-normal);
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
+}
+
+.calendar-button:focus {
+  box-shadow: inset 0 0 0 2px var(--cui-border-focus);
 }
 
 .content {
