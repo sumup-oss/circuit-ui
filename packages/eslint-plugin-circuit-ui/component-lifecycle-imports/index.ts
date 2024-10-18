@@ -74,7 +74,15 @@ const mappings = [
   {
     from: '@sumup-oss/circuit-ui/experimental',
     to: '@sumup-oss/circuit-ui',
-    specifiers: ['Calendar', 'CalendarProps', 'PlainDateRange'],
+    specifiers: [
+      'Calendar',
+      'CalendarProps',
+      'PlainDateRange',
+      'ColorInput',
+      'ColorInputProps',
+      'PhoneNumberInputProps',
+      'PhoneNumberInput',
+    ],
   },
 ];
 

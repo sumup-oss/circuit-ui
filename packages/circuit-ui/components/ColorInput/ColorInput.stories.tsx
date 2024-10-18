@@ -32,3 +32,9 @@ export const Base = (args: ColorInputProps) => (
 );
 
 Base.args = baseArgs;
+
+export const Readonly = (args: ColorInputProps) => (
+  <ColorInput {...args} style={{ maxWidth: '250px' }} />
+);
+
+Readonly.args = { ...baseArgs, readOnly: true };
