@@ -1,37 +1,49 @@
-.input {
+.base {
   width: calc(var(--width) + 2 * var(--cui-spacings-bit));
   padding: var(--cui-spacings-bit);
-  font-size: var(--cui-typography-body-m-font-size);
+  font-size: var(--cui-body-m-font-size);
   font-variant-numeric: tabular-nums;
-  line-height: var(--cui-typography-body-m-line-height);
+  line-height: var(--cui-body-m-line-height);
   appearance: textfield;
-  background-color: var(--cui-bg-normal);
+  background-color: transparent;
   border: none;
   border-radius: var(--cui-border-radius-byte);
   transition: background-color var(--cui-transitions-default);
 }
 
-.input::-webkit-outer-spin-button,
-.input::-webkit-inner-spin-button {
+.base::-webkit-outer-spin-button,
+.base::-webkit-inner-spin-button {
   margin: 0;
   appearance: none;
 }
 
-.input:focus {
+.base::placeholder {
+  color: var(--cui-fg-placeholder);
+}
+
+.base[aria-invalid="true"]:not(:focus):not([disabled])::placeholder {
+  color: var(--cui-fg-danger);
+}
+
+.base:focus {
   background-color: var(--cui-bg-highlight);
   outline: none;
 }
 
-.input:read-only {
+.base:read-only {
+  color: var(--cui-fg-subtle);
+}
+
+.base:disabled,
+.base[disabled] {
   color: var(--cui-fg-normal-disabled);
-  background-color: var(--cui-bg-normal);
 }
 
 .size {
   position: absolute;
-  font-size: var(--cui-typography-body-m-font-size);
+  font-size: var(--cui-body-m-font-size);
   font-variant-numeric: tabular-nums;
-  line-height: var(--cui-typography-body-m-line-height);
+  line-height: var(--cui-body-m-line-height);
   pointer-events: none;
   visibility: hidden;
 }
