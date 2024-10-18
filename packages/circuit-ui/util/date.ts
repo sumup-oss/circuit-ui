@@ -22,6 +22,16 @@ export type PlainDateRange =
   | [Temporal.PlainDate]
   | [Temporal.PlainDate, Temporal.PlainDate];
 
+// ISO 8601 timestamps only support positive 4-digit years
+export const MIN_YEAR = 1;
+export const MAX_YEAR = 9999;
+
+export const MIN_MONTH = 1;
+export const MAX_MONTH = 12;
+
+export const MIN_DAY = 1;
+// MAX_DAY is not constant as it depends on the year and month
+
 export function getTodaysDate() {
   return Temporal.Now.plainDateISO();
 }
@@ -30,14 +40,14 @@ export function isPlainDate(date: unknown): date is Temporal.PlainDate {
   return date instanceof Temporal.PlainDate;
 }
 
-export function toPlainDate(date?: string): Temporal.PlainDate | null {
+export function toPlainDate(date?: string): Temporal.PlainDate | undefined {
   if (!date) {
-    return null;
+    return undefined;
   }
   try {
     return Temporal.PlainDate.from(date);
   } catch (_error) {
-    return null;
+    return undefined;
   }
 }
 
