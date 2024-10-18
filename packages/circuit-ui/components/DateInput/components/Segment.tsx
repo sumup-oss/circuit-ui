@@ -24,11 +24,26 @@ import {
 
 import classes from './Segment.module.css';
 
-export function Segment(props: InputHTMLAttributes<HTMLInputElement>) {
+export interface SegmentProps extends InputHTMLAttributes<HTMLInputElement> {
+  /**
+   * Triggers error styles on the component. Important for accessibility.
+   */
+  invalid?: boolean;
+  /**
+   * Triggers warning styles on the component.
+   */
+  hasWarning?: boolean;
+  /**
+   * Enables valid styles on the component.
+   */
+  showValid?: boolean;
+}
+
+export function Segment({ invalid, ...props }: SegmentProps) {
   const sizeRef = useRef<HTMLSpanElement>(null);
   const [width, setWidth] = useState('4ch');
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: TODO:
+  // biome-ignore lint/correctness/useExhaustiveDependencies: The width needs to be recalculated when the value changes
   useLayoutEffect(() => {
     if (sizeRef.current) {
       setWidth(`${sizeRef.current.offsetWidth}px`);
@@ -36,10 +51,11 @@ export function Segment(props: InputHTMLAttributes<HTMLInputElement>) {
   }, [props.value]);
 
   return (
-    <div>
+    <>
       <input
         type="number"
-        className={classes.input}
+        className={classes.base}
+        aria-invalid={invalid}
         autoCorrect="false"
         enterKeyHint="next"
         spellCheck={false}
@@ -49,6 +65,6 @@ export function Segment(props: InputHTMLAttributes<HTMLInputElement>) {
       <span ref={sizeRef} className={classes.size} aria-hidden="true">
         {props.value || props.placeholder}
       </span>
-    </div>
+    </>
   );
 }
