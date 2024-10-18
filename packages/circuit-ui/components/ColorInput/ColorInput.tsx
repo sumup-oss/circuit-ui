@@ -99,6 +99,7 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
 
     const descriptionIds = clsx(validationHintId, descriptionId);
 
+    // TODO this appears to not be used in this component
     const suffix = RenderSuffix && (
       <RenderSuffix className={inputClasses.suffix} />
     );
@@ -178,7 +179,7 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
           <label
             htmlFor={pickerId}
             className={classes.picker}
-            data-disabled={disabled}
+            data-disabled={disabled || readOnly}
           >
             <input
               id={pickerId}
@@ -188,9 +189,8 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
               aria-describedby={descriptionIds}
               className={classes['color-input']}
               onChange={onPickerColorChange}
-              readOnly={readOnly}
-              disabled={disabled}
-              defaultValue={defaultValue}
+              disabled={disabled || readOnly}
+              defaultValue={defaultValue} // should we give a fallback value if default is invalid ?
               value={value}
             />
           </label>

@@ -5,9 +5,17 @@ import * as Stories from './ColorInput.stories';
 
 # ColorInput
 
-<Status variant="experimental" />
+<Status variant="stable" />
 
 The ColorInput component enables users to type or select a color.
+The component only supports seven-character string representations of colors in hexadecimal format. Shorthand Hex values like `#fff` will not be normalized to `#ffffff`.
 
 <Story of={Stories.Base} />
 <Props />
+
+## Readonly
+
+The `ColorInput` component supports a Readonly state. Use the `readOnly` prop to indicate that the field is not currently editable.
+The readOnly state is applied to the text input field of the `ColorInput` component, while disabling the color picker input to prevent interactions with the element.
+
+<Story of={Stories.Readonly} />
