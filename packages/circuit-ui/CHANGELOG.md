@@ -1,5 +1,42 @@
 # @sumup-oss/circuit-ui
 
+## 9.0.0-next.2
+
+### Major Changes
+
+- [#2707](https://github.com/sumup-oss/circuit-ui/pull/2707) [`f8016eb`](https://github.com/sumup-oss/circuit-ui/commit/f8016ebe246005ed415ed9587ecdb76892e981c6) Thanks [@sirineJ](https://github.com/sirineJ)! - Raised the minimum Node.js version to 20+.
+
+- [#2684](https://github.com/sumup-oss/circuit-ui/pull/2684) [`ae6e0bc`](https://github.com/sumup-oss/circuit-ui/commit/ae6e0bc1ccdaaf7d11fd8e2403a8c16a58538c97) Thanks [@connor-baer](https://github.com/connor-baer)! - Made the ImageInput's label visible by default for consistency with other inputs. Use the new `hideLabel` prop to visually hide the label.
+
+- [#2711](https://github.com/sumup-oss/circuit-ui/pull/2711) [`a55b08a`](https://github.com/sumup-oss/circuit-ui/commit/a55b08af3dd3af982a075942df7009cd4529ca9b) Thanks [@connor-baer](https://github.com/connor-baer)! - Added [`temporal-polyfill`](https://www.npmjs.com/package/temporal-polyfill) to the list of required peer dependencies.
+
+- [#2468](https://github.com/sumup-oss/circuit-ui/pull/2468) [`c7c2a10`](https://github.com/sumup-oss/circuit-ui/commit/c7c2a108c9b827f87bc9d39de32b31b9d86e5a6b) Thanks [@leonardodino](https://github.com/leonardodino)! - Removed the Table component's deprecated `initialSortedRow` prop. Use the `initialSortedColumn` prop instead.
+
+- [#2713](https://github.com/sumup-oss/circuit-ui/pull/2713) [`00727aa`](https://github.com/sumup-oss/circuit-ui/commit/00727aae7976970283c2d658e9668d093ec2334f) Thanks [@sirineJ](https://github.com/sirineJ)! - Marked the `Calendar` component as stable. Update the related imports:
+
+  ```diff
+  - import { Calendar, CalendarProps, PlainDateRange } from '@sumup-oss/circuit-ui/experimental';
+  + import { Calendar, CalendarProps, PlainDateRange } from '@sumup-oss/circuit-ui';
+  ```
+
+- [#2722](https://github.com/sumup-oss/circuit-ui/pull/2722) [`137a817`](https://github.com/sumup-oss/circuit-ui/commit/137a817685a3636e13b62ec5bb65c71f7b06c6bb) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a semibold weight option to the Body and the Compact components. Added the `weight` prop to the Display component. Removed the `weight` prop from the Numeral component and changed its default font weight to semibold.
+
+### Minor Changes
+
+- [#2678](https://github.com/sumup-oss/circuit-ui/pull/2678) [`0652935`](https://github.com/sumup-oss/circuit-ui/commit/0652935b0fc6999ac2f6885410fdcbea000b771f) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new `decoration` prop to the Body component. Choose between the `italic` and `strikethrough` styles.
+
+- [#2717](https://github.com/sumup-oss/circuit-ui/pull/2717) [`0fb5dc0`](https://github.com/sumup-oss/circuit-ui/commit/0fb5dc0d68221e0f63103883e6cd14ea801cf161) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated new typography design tokens names by removing the `-typography` infix.
+
+- [#2717](https://github.com/sumup-oss/circuit-ui/pull/2717) [`0fb5dc0`](https://github.com/sumup-oss/circuit-ui/commit/0fb5dc0d68221e0f63103883e6cd14ea801cf161) Thanks [@sirineJ](https://github.com/sirineJ)! - Introduced new sizes to the List component and deprecated old sizes. Updated `no-renamed-props` ESlint rule.
+
+- [#2728](https://github.com/sumup-oss/circuit-ui/pull/2728) [`2e6a4be`](https://github.com/sumup-oss/circuit-ui/commit/2e6a4be70035f0fce77dea2073c5f7fbedca0c5a) Thanks [@connor-baer](https://github.com/connor-baer)! - Migrated to the new typography APIs internally.
+
+### Patch Changes
+
+- [#2730](https://github.com/sumup-oss/circuit-ui/pull/2730) [`d39dc28`](https://github.com/sumup-oss/circuit-ui/commit/d39dc28267b1c7a6b8040f47d552ec2a03705ea9) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed some sizing and alignment issues for composite inputs ColorInput and PhoneNumberInput. Disabled color input when ColorInput has prop `readOnly`.
+
+- [#2724](https://github.com/sumup-oss/circuit-ui/pull/2724) [`b37eec9`](https://github.com/sumup-oss/circuit-ui/commit/b37eec9b4cb23cc59f6b89a305dd4b948017d5ec) Thanks [@sirineJ](https://github.com/sirineJ)! - Restored the height of the Input, Select, Tag and SelectorGroup components.
+
 ## 9.0.0-next.1
 
 ### Major Changes
