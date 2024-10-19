@@ -1,10 +1,18 @@
-.input {
+.wrapper {
   display: flex;
-  justify-content: space-between;
+}
+
+.segments {
+  position: relative;
+  z-index: var(--cui-z-index-absolute);
+  display: flex;
+  gap: 2px;
+  padding: var(--cui-spacings-byte) var(--cui-spacings-mega);
   cursor: text;
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-normal);
-  border-radius: var(--cui-border-radius-byte);
+  border-top-left-radius: var(--cui-border-radius-byte);
+  border-bottom-left-radius: var(--cui-border-radius-byte);
   outline: 0;
   box-shadow: none;
   transition:
@@ -12,13 +20,13 @@
     padding var(--cui-transitions-default);
 }
 
-.input:hover {
+.segments:hover {
   border-color: var(--cui-border-normal-hovered);
 }
 
-.input:focus-within {
+.segments:focus-within {
   border-color: var(--cui-border-accent);
-  box-shadow: 0 0 0 1px var(--cui-border-accent);
+  box-shadow: inset 0 0 0 1px var(--cui-border-accent);
 }
 
 .invalid {
@@ -31,7 +39,7 @@
 
 .invalid:focus-within {
   border-color: var(--cui-border-danger);
-  box-shadow: 0 0 0 1px var(--cui-border-danger);
+  box-shadow: inset 0 0 0 1px var(--cui-border-danger);
 }
 
 .invalid:not(:focus-within):not([disabled])::placeholder {
@@ -48,7 +56,7 @@
 
 .warning:focus-within {
   border-color: var(--cui-border-warning);
-  box-shadow: 0 0 0 1px var(--cui-border-warning);
+  box-shadow: inset 0 0 0 1px var(--cui-border-warning);
 }
 
 .warning:not(:focus-within):not([disabled])::placeholder {
@@ -65,12 +73,6 @@
   background-color: var(--cui-bg-subtle-disabled);
 }
 
-.segments {
-  display: flex;
-  gap: 2px;
-  padding: var(--cui-spacings-byte) var(--cui-spacings-mega);
-}
-
 .literal {
   padding: var(--cui-spacings-bit) 0;
   font-size: var(--cui-body-m-font-size);
@@ -82,14 +84,16 @@
 }
 
 .calendar-button {
-  border: none;
-  border-left: 1px solid var(--cui-border-normal);
+  position: relative;
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
+  transform: translateX(-1px);
 }
 
 .calendar-button:focus {
-  box-shadow: inset 0 0 0 2px var(--cui-border-focus);
+  z-index: calc(var(--cui-z-index-absolute) + 1);
+  border-color: var(--cui-border-focus);
+  box-shadow: inset 0 0 0 1px var(--cui-border-focus);
 }
 
 .content {
@@ -128,6 +132,10 @@
     clip: rect(0 0 0 0);
     white-space: nowrap;
     border: 0;
+  }
+
+  .close-button {
+    display: none;
   }
 }
 
