@@ -196,7 +196,7 @@ export const DateInput = forwardRef<HTMLFieldSetElement, DateInputProps>(
 
     const { floatingStyles, update } = useFloating({
       open,
-      placement: 'bottom-end',
+      placement: 'bottom-start',
       middleware: [offset(4), flip(), shift()],
       elements: {
         reference: referenceRef.current,
@@ -357,16 +357,16 @@ export const DateInput = forwardRef<HTMLFieldSetElement, DateInputProps>(
               optionalLabel={optionalLabel}
             />
           </FieldLegend>
-          <div
-            className={clsx(
-              classes.input,
-              invalid && classes.invalid,
-              hasWarning && classes.warning,
-              readOnly && classes.readonly,
-            )}
-            ref={referenceRef}
-          >
-            <div className={classes.segments}>
+          <div className={classes.wrapper}>
+            <div
+              className={clsx(
+                classes.segments,
+                invalid && classes.invalid,
+                hasWarning && classes.warning,
+                readOnly && classes.readonly,
+              )}
+              ref={referenceRef}
+            >
               {segments.map((segment, index) => {
                 switch (segment.type) {
                   case 'year':
@@ -468,6 +468,7 @@ export const DateInput = forwardRef<HTMLFieldSetElement, DateInputProps>(
                   size="s"
                   variant="tertiary"
                   onClick={closeCalendar}
+                  className={classes['close-button']}
                 >
                   {closeCalendarButtonLabel}
                 </CloseButton>
