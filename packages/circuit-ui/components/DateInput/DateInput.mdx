@@ -7,13 +7,45 @@ import * as Stories from './DateInput.stories';
 
 <Status variant="stable" />
 
+The DateInput component allows user to type or select a specific date. The input value is always a string in the format `YYYY-MM-DD`.
+
 <Story of={Stories.Base} />
 <Props />
 
-- can't use `input[type="date"]` because of accessibility issues and lack of customization
-- date range selection
-- closing the popover after date selection
-- free-form input
-- autocomplete
-- context on mobile dialog: field name (and current value?)
-- abstract away dialog? -> leave for later once re-implementing the Modal components
+## Usage
+
+Use the component whenever asking for a specific individual date such as a birth date, expiry date, or appointment date.
+
+For selecting a range of dates, we expect to introduce an iteration of this component in the future. Until then, we recommend using a combination of two input fields (one for the start and the other for the end date).
+
+## Validations
+
+TODO: Decide on built-in validation.
+
+Use the `validationHint` to communicate the expected response to users.
+
+### Invalid
+
+The user needs to change the value to proceed. This could be due to a
+
+### Warning
+
+The user is recommended to change the value, but can proceed without doing so. Use it when the provided value could have unintended side-effects, such as a date in the far future.
+
+### Valid
+
+The user is reassured that the value is valid. Use sparingly.
+
+<Story of={Stories.Validations} />
+
+## Optional
+
+Use the `optionalLabel` prop to indicate that the field is optional. This can help reduce the cognitive load for the user by clearly indicating which fields are required and which are not. This label is only displayed when the `required` prop is falsy.
+
+<Story of={Stories.Optional} />
+
+## Readonly
+
+Use the `readOnly` prop to indicate that the field is not currently editable. This can be useful in situations where the user needs to view but not edit the date, such as in a summary or review screen.
+
+<Story of={Stories.Readonly} />

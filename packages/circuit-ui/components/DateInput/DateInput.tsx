@@ -15,7 +15,14 @@
 
 'use client';
 
-import { forwardRef, useEffect, useId, useRef, useState } from 'react';
+import {
+  forwardRef,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type HTMLAttributes,
+} from 'react';
 import type { Temporal } from 'temporal-polyfill';
 import { flip, offset, shift, useFloating } from '@floating-ui/react-dom';
 import { Calendar as CalendarIcon } from '@sumup-oss/icons';
@@ -56,15 +63,19 @@ import { getDateSegments } from './DateInputService.js';
 import classes from './DateInput.module.css';
 
 export interface DateInputProps
-  extends Omit<
+  extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>,
+    Pick<
       InputProps,
-      | 'type'
-      | 'onChange'
-      | 'value'
-      | 'defaultValue'
-      | 'placeholder'
-      | 'as'
-      | 'renderSuffix'
+      | 'label'
+      | 'hideLabel'
+      | 'invalid'
+      | 'hasWarning'
+      | 'showValid'
+      | 'required'
+      | 'disabled'
+      | 'readOnly'
+      | 'validationHint'
+      | 'optionalLabel'
     >,
     Pick<
       CalendarProps,
@@ -74,6 +85,28 @@ export interface DateInputProps
       | 'nextMonthButtonLabel'
       | 'modifiers'
     > {
+  /**
+   * The currently selected date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
+   * format (`YYYY-MM-DD`).
+   */
+  value?: string;
+  /**
+   * The initially selected date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
+   * format (`YYYY-MM-DD`).
+   */
+  defaultValue?: string;
+  /**
+   * Visually hidden label for the year input.
+   */
+  yearInputLabel: string;
+  /**
+   * Visually hidden label for the month input.
+   */
+  monthInputLabel: string;
+  /**
+   * Visually hidden label for the day input.
+   */
+  dayInputLabel: string;
   /**
    * Label for the trailing button that opens the calendar dialog.
    */
@@ -90,16 +123,6 @@ export interface DateInputProps
    * Label for the button to clear the date value and close the calendar dialog.
    */
   clearDateButtonLabel: string;
-  /**
-   * The currently selected date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
-   * format (`YYYY-MM-DD`).
-   */
-  value?: string;
-  /**
-   * The initially selected date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
-   * format (`YYYY-MM-DD`).
-   */
-  defaultValue?: string;
   /**
    * Callback when the date changes. Called with the date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
    * format (`YYYY-MM-DD`) or an empty string.
@@ -118,24 +141,16 @@ export interface DateInputProps
    */
   max?: string;
   /**
-   * TODO:
+   * A hint to the user agent specifying how to prefill the input.
    */
-  yearInputLabel: string;
-  /**
-   * TODO:
-   */
-  monthInputLabel: string;
-  /**
-   * TODO:
-   */
-  dayInputLabel: string;
+  autoComplete?: 'bday';
 }
 
 /**
- * DateInput component for forms.
+ * The DateInput component allows user to type or select a specific date.
  * The input value is always a string in the format `YYYY-MM-DD`.
  */
-export const DateInput = forwardRef<HTMLFieldSetElement, DateInputProps>(
+export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
   (
     {
       label,
@@ -165,11 +180,8 @@ export const DateInput = forwardRef<HTMLFieldSetElement, DateInputProps>(
       yearInputLabel,
       monthInputLabel,
       dayInputLabel,
-      className,
-      style,
       autoComplete,
-      // TODO:
-      // ...props
+      ...props
     },
     ref,
   ) => {
@@ -241,7 +253,6 @@ export const DateInput = forwardRef<HTMLFieldSetElement, DateInputProps>(
     };
 
     const openCalendar = () => {
-      // TODO: Focus the calendar
       setSelection(toPlainDate(value) || undefined);
       setOpen(true);
     };
@@ -337,7 +348,7 @@ export const DateInput = forwardRef<HTMLFieldSetElement, DateInputProps>(
     const segments = getDateSegments(locale);
 
     return (
-      <FieldWrapper className={className} style={style} disabled={disabled}>
+      <FieldWrapper ref={ref} disabled={disabled} {...props}>
         {/* TODO: Replicate native date input for uncontrolled inputs? */}
         {/* <input
           ref={ref}
@@ -348,7 +359,7 @@ export const DateInput = forwardRef<HTMLFieldSetElement, DateInputProps>(
           readOnly={readOnly}
           {...props}
         /> */}
-        <FieldSet onClick={handleClick} ref={ref}>
+        <FieldSet onClick={handleClick}>
           <FieldLegend>
             <FieldLabelText
               label={label}
@@ -420,6 +431,7 @@ export const DateInput = forwardRef<HTMLFieldSetElement, DateInputProps>(
                   case 'literal':
                     return (
                       <div
+                        // biome-ignore lint/suspicious/noArrayIndexKey: The order of the literals is static
                         key={segment.type + index}
                         className={classes.literal}
                         aria-hidden="true"
