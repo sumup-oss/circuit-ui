@@ -107,7 +107,7 @@ export function usePlainDateState(
           day = clamp(day, MIN_DAY, maxDay);
         }
 
-        if (isNumber(year) && year > 999 && isNumber(month) && isNumber(day)) {
+        if (isNumber(year) && isNumber(month) && isNumber(day)) {
           const plainDate = new Temporal.PlainDate(year, month, day);
           onChange?.(plainDate.toString());
         } else {
@@ -171,9 +171,10 @@ export function useYearSegment(
   const onChange = (event: FormEvent<HTMLInputElement>) => {
     const year = Number.parseInt(event.currentTarget.value, 10) || '';
     state.update({ year });
-    if (year && year > 999) {
-      focus.next();
-    }
+    // FIXME: Don't advance when changing the value using arrow keys
+    // if (year && year > 999) {
+    //   focus.next();
+    // }
   };
 
   return { ...props, value, placeholder, min, max, onChange };
@@ -219,9 +220,10 @@ export function useMonthSegment(
   const onChange = (event: FormEvent<HTMLInputElement>) => {
     const month = Number.parseInt(event.currentTarget.value, 10) || '';
     state.update({ month });
-    if (month && month > 1) {
-      focus.next();
-    }
+    // FIXME: Don't advance when changing the value using arrow keys
+    // if (month && month > 1) {
+    //   focus.next();
+    // }
   };
 
   return { ...props, value, placeholder, min, max, onChange };
@@ -277,9 +279,10 @@ export function useDaySegment(
   const onChange = (event: FormEvent<HTMLInputElement>) => {
     const day = Number.parseInt(event.currentTarget.value, 10) || '';
     state.update({ day });
-    if (day && day > 3) {
-      focus.next();
-    }
+    // FIXME: Don't advance when changing the value using arrow keys
+    // if (day && day > 3) {
+    //   focus.next();
+    // }
   };
 
   return { ...props, value, placeholder, min, max, onChange };

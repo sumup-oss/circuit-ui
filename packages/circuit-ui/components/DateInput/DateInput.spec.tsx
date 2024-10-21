@@ -24,28 +24,28 @@ import { DateInput } from './DateInput.js';
 describe('DateInput', () => {
   const baseProps = {
     onChange: vi.fn(),
-    label: 'Date',
-    prevMonthButtonLabel: 'Previous month',
-    nextMonthButtonLabel: 'Previous month',
-    openCalendarButtonLabel: 'Change date',
-    closeCalendarButtonLabel: 'Close',
-    applyDateButtonLabel: 'Apply',
-    clearDateButtonLabel: 'Clear',
+    label: 'Date of birth',
     yearInputLabel: 'Year',
     monthInputLabel: 'Month',
     dayInputLabel: 'Day',
+    openCalendarButtonLabel: 'Change date',
+    closeCalendarButtonLabel: 'Close calendar',
+    prevMonthButtonLabel: 'Previous month',
+    nextMonthButtonLabel: 'Previous month',
+    applyDateButtonLabel: 'Apply date',
+    clearDateButtonLabel: 'Clear date',
   };
 
   beforeAll(() => {
     MockDate.set('2000-01-01');
   });
 
-  // TODO: Move ref to outermost div?
   it('should forward a ref', () => {
-    const ref = createRef<HTMLFieldSetElement>();
-    render(<DateInput {...baseProps} ref={ref} />);
-    const fieldset = screen.getByRole('group');
-    expect(ref.current).toBe(fieldset);
+    const ref = createRef<HTMLDivElement>();
+    const { container } = render(<DateInput {...baseProps} ref={ref} />);
+    // eslint-disable-next-line testing-library/no-container
+    const wrapper = container.querySelectorAll('div')[0];
+    expect(ref.current).toBe(wrapper);
   });
 
   it('should merge a custom class name with the default ones', () => {
@@ -58,93 +58,239 @@ describe('DateInput', () => {
     expect(wrapper?.className).toContain(className);
   });
 
-  it('should select a calendar date', async () => {
-    const onChange = vi.fn();
+  describe('semantics', () => {
+    it('should optionally have an accessible description', () => {
+      const description = 'Description';
+      render(<DateInput {...baseProps} validationHint={description} />);
+      const fieldset = screen.getByRole('group');
+      const inputs = screen.getAllByRole('spinbutton');
 
-    render(<DateInput {...baseProps} onChange={onChange} />);
-
-    const openCalendarButton = screen.getByRole('button', {
-      name: /change date/i,
+      expect(fieldset).toHaveAccessibleDescription(description);
+      expect(inputs[0]).toHaveAccessibleDescription(description);
+      expect(inputs[1]).not.toHaveAccessibleDescription();
+      expect(inputs[2]).not.toHaveAccessibleDescription();
     });
 
-    await userEvent.click(openCalendarButton);
+    it('should accept a custom description via aria-describedby', () => {
+      const customDescription = 'Custom description';
+      const customDescriptionId = 'customDescriptionId';
+      render(
+        <>
+          <DateInput {...baseProps} aria-describedby={customDescriptionId} />,
+          <span id={customDescriptionId}>{customDescription}</span>
+        </>,
+      );
+      const fieldset = screen.getByRole('group');
+      const inputs = screen.getAllByRole('spinbutton');
 
-    const calendarDialog = screen.getByRole('dialog');
+      expect(fieldset).toHaveAccessibleDescription(customDescription);
+      expect(inputs[0]).toHaveAccessibleDescription(customDescription);
+      expect(inputs[1]).not.toHaveAccessibleDescription();
+      expect(inputs[2]).not.toHaveAccessibleDescription();
+    });
 
-    expect(calendarDialog).toBeVisible();
+    it('should accept a custom description in addition to a validationHint', () => {
+      const customDescription = 'Custom description';
+      const customDescriptionId = 'customDescriptionId';
+      const description = 'Description';
+      render(
+        <>
+          <DateInput
+            {...baseProps}
+            validationHint={description}
+            aria-describedby={customDescriptionId}
+          />
+          <span id={customDescriptionId}>{customDescription}</span>,
+        </>,
+      );
+      const fieldset = screen.getByRole('group');
+      const inputs = screen.getAllByRole('spinbutton');
 
-    const dateButton = screen.getByRole('button', { name: /12/ });
+      expect(fieldset).toHaveAccessibleDescription(
+        `${customDescription} ${description}`,
+      );
+      expect(inputs[0]).toHaveAccessibleDescription(
+        `${customDescription} ${description}`,
+      );
+      expect(inputs[1]).not.toHaveAccessibleDescription();
+      expect(inputs[2]).not.toHaveAccessibleDescription();
+    });
 
-    await userEvent.click(dateButton);
+    it('should render as disabled', async () => {
+      render(<DateInput {...baseProps} disabled />);
+      expect(screen.getByLabelText(/day/i)).toBeDisabled();
+      expect(screen.getByLabelText(/month/i)).toBeDisabled();
+      expect(screen.getByLabelText(/year/i)).toBeDisabled();
+      expect(
+        screen.getByRole('button', { name: baseProps.openCalendarButtonLabel }),
+      ).toHaveAttribute('aria-disabled', 'true');
+    });
 
-    expect(onChange).toHaveBeenCalledWith('2000-01-12');
+    it('should render as read-only', async () => {
+      render(<DateInput {...baseProps} readOnly />);
+      expect(screen.getByLabelText(/day/i)).toHaveAttribute('readonly');
+      expect(screen.getByLabelText(/month/i)).toHaveAttribute('readonly');
+      expect(screen.getByLabelText(/year/i)).toHaveAttribute('readonly');
+      expect(
+        screen.getByRole('button', { name: baseProps.openCalendarButtonLabel }),
+      ).toHaveAttribute('aria-disabled', 'true');
+    });
+
+    it('should render as invalid', async () => {
+      render(<DateInput {...baseProps} invalid />);
+      expect(screen.getByLabelText(/day/i)).toBeInvalid();
+      expect(screen.getByLabelText(/month/i)).toBeInvalid();
+      expect(screen.getByLabelText(/year/i)).toBeInvalid();
+    });
+
+    it('should render as required', async () => {
+      render(<DateInput {...baseProps} required />);
+      expect(screen.getByLabelText(/day/i)).toBeRequired();
+      expect(screen.getByLabelText(/month/i)).toBeRequired();
+      expect(screen.getByLabelText(/year/i)).toBeRequired();
+    });
+
+    it('should have relevant minimum input values', () => {
+      render(<DateInput {...baseProps} min="2000-01-01" />);
+      expect(screen.getByLabelText(/day/i)).toHaveAttribute('min', '1');
+      expect(screen.getByLabelText(/month/i)).toHaveAttribute('min', '1');
+      expect(screen.getByLabelText(/year/i)).toHaveAttribute('min', '2000');
+    });
+
+    it('should have relevant maximum input values', () => {
+      render(<DateInput {...baseProps} max="2001-01-01" />);
+      expect(screen.getByLabelText(/day/i)).toHaveAttribute('max', '31');
+      expect(screen.getByLabelText(/month/i)).toHaveAttribute('max', '12');
+      expect(screen.getByLabelText(/year/i)).toHaveAttribute('max', '2001');
+    });
+
+    it('should mark the year input as readonly when the minimum and maximum dates have the same year', () => {
+      render(<DateInput {...baseProps} min="2000-04-29" max="2000-06-15" />);
+      expect(screen.getByLabelText(/year/i)).toHaveAttribute('readonly');
+      expect(screen.getByLabelText(/month/i)).toHaveAttribute('min', '4');
+      expect(screen.getByLabelText(/month/i)).toHaveAttribute('max', '6');
+    });
+
+    it('should mark the year and month inputs as readonly when the minimum and maximum dates have the same year and month', () => {
+      render(<DateInput {...baseProps} min="2000-04-09" max="2000-04-27" />);
+      expect(screen.getByLabelText(/year/i)).toHaveAttribute('readonly');
+      expect(screen.getByLabelText(/month/i)).toHaveAttribute('readonly');
+      expect(screen.getByLabelText(/day/i)).toHaveAttribute('min', '9');
+      expect(screen.getByLabelText(/day/i)).toHaveAttribute('max', '27');
+    });
   });
 
-  it('should display the initial value correctly', () => {
-    render(<DateInput {...baseProps} value="2000-01-12" />);
+  describe('state', () => {
+    it('should display a default value', () => {
+      render(<DateInput {...baseProps} defaultValue="2000-01-12" />);
 
-    expect(screen.getByLabelText(/day/i)).toHaveValue(12);
-    expect(screen.getByLabelText(/month/i)).toHaveValue(1);
-    expect(screen.getByLabelText(/year/i)).toHaveValue(2000);
+      expect(screen.getByLabelText(/day/i)).toHaveValue(12);
+      expect(screen.getByLabelText(/month/i)).toHaveValue(1);
+      expect(screen.getByLabelText(/year/i)).toHaveValue(2000);
+    });
+
+    it('should display an initial value', () => {
+      render(<DateInput {...baseProps} value="2000-01-12" />);
+
+      expect(screen.getByLabelText(/day/i)).toHaveValue(12);
+      expect(screen.getByLabelText(/month/i)).toHaveValue(1);
+      expect(screen.getByLabelText(/year/i)).toHaveValue(2000);
+    });
+
+    it('should update the displayed value', () => {
+      const { rerender } = render(
+        <DateInput {...baseProps} value="2000-01-12" />,
+      );
+
+      rerender(<DateInput {...baseProps} value="2000-01-15" />);
+
+      expect(screen.getByLabelText(/day/i)).toHaveValue(15);
+      expect(screen.getByLabelText(/month/i)).toHaveValue(1);
+      expect(screen.getByLabelText(/year/i)).toHaveValue(2000);
+    });
   });
 
-  it('should render a disabled input', () => {
-    render(<DateInput {...baseProps} disabled />);
-    expect(screen.getByLabelText(/day/i)).toBeDisabled();
-    expect(screen.getByLabelText(/month/i)).toBeDisabled();
-    expect(screen.getByLabelText(/year/i)).toBeDisabled();
-    expect(
-      screen.getByRole('button', { name: baseProps.openCalendarButtonLabel }),
-    ).toHaveAttribute('aria-disabled', 'true');
+  describe('user interactions', () => {
+    it('should focus the first input when clicking the label', async () => {
+      render(<DateInput {...baseProps} />);
+
+      await userEvent.click(screen.getByText('Date of birth'));
+
+      expect(screen.getAllByRole('spinbutton')[0]).toHaveFocus();
+    });
+
+    it('should allow users to type a date', async () => {
+      const onChange = vi.fn();
+
+      render(<DateInput {...baseProps} onChange={onChange} />);
+
+      await userEvent.type(screen.getByLabelText('Year'), '2017');
+      await userEvent.type(screen.getByLabelText('Month'), '8');
+      await userEvent.type(screen.getByLabelText('Day'), '28');
+
+      expect(onChange).toHaveBeenCalledWith('2017-08-28');
+    });
+
+    it('should update the minimum and maximum input values as the user types', async () => {
+      render(<DateInput {...baseProps} min="2000-04-29" max="2001-02-15" />);
+
+      await userEvent.type(screen.getByLabelText(/year/i), '2001');
+
+      expect(screen.getByLabelText(/month/i)).toHaveAttribute('min', '1');
+      expect(screen.getByLabelText(/month/i)).toHaveAttribute('max', '2');
+
+      await userEvent.type(screen.getByLabelText(/month/i), '2');
+
+      expect(screen.getByLabelText(/day/i)).toHaveAttribute('min', '1');
+      expect(screen.getByLabelText(/day/i)).toHaveAttribute('max', '15');
+    });
+
+    it('should allow users to select a date on a calendar', async () => {
+      const onChange = vi.fn();
+
+      render(<DateInput {...baseProps} onChange={onChange} />);
+
+      const openCalendarButton = screen.getByRole('button', {
+        name: /change date/i,
+      });
+      await userEvent.click(openCalendarButton);
+
+      const calendarDialog = screen.getByRole('dialog');
+      expect(calendarDialog).toBeVisible();
+
+      const dateButton = screen.getByRole('button', { name: /12/ });
+      await userEvent.click(dateButton);
+
+      expect(onChange).toHaveBeenCalledWith('2000-01-12');
+    });
+
+    it('should allow users to clear the date', async () => {
+      const onChange = vi.fn();
+
+      render(
+        <DateInput
+          {...baseProps}
+          defaultValue="2000-01-12"
+          onChange={onChange}
+        />,
+      );
+
+      const openCalendarButton = screen.getByRole('button', {
+        name: /change date/i,
+      });
+      await userEvent.click(openCalendarButton);
+
+      const calendarDialog = screen.getByRole('dialog');
+      expect(calendarDialog).toBeVisible();
+
+      const clearButton = screen.getByRole('button', { name: /clear date/i });
+      await userEvent.click(clearButton);
+
+      expect(onChange).toHaveBeenCalledWith('');
+    });
   });
 
-  it('should handle min/max dates', () => {
-    render(<DateInput {...baseProps} min="2000-01-01" max="2001-01-01" />);
-    expect(screen.getByLabelText(/day/i)).toHaveAttribute('min', '1');
-    expect(screen.getByLabelText(/day/i)).toHaveAttribute('max', '31');
-    expect(screen.getByLabelText(/month/i)).toHaveAttribute('min', '1');
-    expect(screen.getByLabelText(/month/i)).toHaveAttribute('max', '12');
-    expect(screen.getByLabelText(/year/i)).toHaveAttribute('min', '2000');
-    expect(screen.getByLabelText(/year/i)).toHaveAttribute('max', '2001');
-  });
-
-  it('should handle min/max dates as the user types year', async () => {
-    render(<DateInput {...baseProps} min="2000-04-29" max="2001-02-15" />);
-
-    await userEvent.type(screen.getByLabelText(/year/i), '2001');
-    /*    expect(screen.getByLabelText(/day/i)).toHaveAttribute('min', '1');
-    expect(screen.getByLabelText(/day/i)).toHaveAttribute('max', '1'); */
-    expect(screen.getByLabelText(/month/i)).toHaveAttribute('min', '1');
-    expect(screen.getByLabelText(/month/i)).toHaveAttribute('max', '2');
-  });
-
-  it('should handle min/max dates as the user types year and month', async () => {
-    render(<DateInput {...baseProps} min="2000-04-29" max="2001-02-15" />);
-
-    await userEvent.type(screen.getByLabelText(/year/i), '2001');
-    await userEvent.type(screen.getByLabelText(/month/i), '02');
-
-    expect(screen.getByLabelText(/day/i)).toHaveAttribute('min', '1');
-    expect(screen.getByLabelText(/day/i)).toHaveAttribute('max', '15');
-  });
-
-  it('years field should be readonly if min/max dates have the same year', () => {
-    render(<DateInput {...baseProps} min="2000-04-29" max="2000-06-15" />);
-    expect(screen.getByLabelText(/year/i)).toHaveAttribute('readonly');
-    expect(screen.getByLabelText(/month/i)).toHaveAttribute('min', '4');
-    expect(screen.getByLabelText(/month/i)).toHaveAttribute('max', '6');
-  });
-
-  it('years and months fields should render as readonly if min/max dates have the same year and same month', () => {
-    render(<DateInput {...baseProps} min="2000-04-09" max="2000-04-27" />);
-    expect(screen.getByLabelText(/year/i)).toHaveAttribute('readonly');
-    expect(screen.getByLabelText(/month/i)).toHaveAttribute('readonly');
-
-    expect(screen.getByLabelText(/day/i)).toHaveAttribute('min', '9');
-    expect(screen.getByLabelText(/day/i)).toHaveAttribute('max', '27');
-  });
-
-  describe('Status messages', () => {
+  describe('status messages', () => {
     it('should render an empty live region on mount', () => {
       render(<DateInput {...baseProps} />);
       const liveRegionEl = screen.getByRole('status');
