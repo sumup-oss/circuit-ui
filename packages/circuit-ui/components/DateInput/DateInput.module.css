@@ -96,6 +96,11 @@
   box-shadow: inset 0 0 0 1px var(--cui-border-focus);
 }
 
+.calendar-button:active,
+.calendar-button[aria-expanded="true"] {
+  z-index: calc(var(--cui-z-index-absolute) + 1);
+}
+
 .content {
   color: var(--cui-fg-normal);
   background-color: var(--cui-bg-elevated);

@@ -170,6 +170,7 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
       hasWarning,
       showValid,
       validationHint,
+      'aria-describedby': descriptionId,
       optionalLabel,
       openCalendarButtonLabel,
       closeCalendarButtonLabel,
@@ -191,8 +192,11 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
     const floatingRef = useRef<HTMLDialogElement>(null);
     const calendarRef = useRef<HTMLDivElement>(null);
 
+    const dialogId = useId();
     const headlineId = useId();
     const validationHintId = useId();
+
+    const descriptionIds = clsx(descriptionId, validationHintId);
 
     const minDate = toPlainDate(min);
     const maxDate = toPlainDate(max);
@@ -241,12 +245,8 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
     // Focus the first date segment when clicking anywhere on the field...
     const handleClick = (event: ClickEvent) => {
       const element = event.target as HTMLElement;
-      // ...except when clicking on a specific segment or the calendar button.
-      if (
-        element.tagName === 'INPUT' ||
-        element.tagName === 'BUTTON' ||
-        element.matches('button :scope')
-      ) {
+      // ...except when clicking on a specific segment.
+      if (element.tagName === 'INPUT') {
         return;
       }
       focusHandlers.next();
@@ -294,6 +294,12 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
     const dialogStyles = isMobile ? mobileStyles : floatingStyles;
 
     if (process.env.NODE_ENV !== 'production') {
+      if (!isSufficientlyLabelled(label)) {
+        throw new AccessibilityError(
+          'DateInput',
+          'The `label` prop is missing or invalid.',
+        );
+      }
       if (!isSufficientlyLabelled(openCalendarButtonLabel)) {
         throw new AccessibilityError(
           'DateInput',
@@ -359,8 +365,8 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
           readOnly={readOnly}
           {...props}
         /> */}
-        <FieldSet onClick={handleClick}>
-          <FieldLegend>
+        <FieldSet aria-describedby={descriptionIds}>
+          <FieldLegend onClick={handleClick}>
             <FieldLabelText
               label={label}
               hideLabel={hideLabel}
@@ -368,7 +374,8 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
               optionalLabel={optionalLabel}
             />
           </FieldLegend>
-          <div className={classes.wrapper}>
+          {/* biome-ignore lint/a11y/useKeyWithClickEvents: */}
+          <div className={classes.wrapper} onClick={handleClick}>
             <div
               className={clsx(
                 classes.segments,
@@ -379,6 +386,9 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
               ref={referenceRef}
             >
               {segments.map((segment, index) => {
+                // Only the first segment should be associated with the validation hint to reduce verbosity.
+                const validationProps =
+                  index === 0 ? { 'aria-describedby': descriptionIds } : {};
                 switch (segment.type) {
                   case 'year':
                     return (
@@ -392,6 +402,7 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
                         autoComplete={
                           autoComplete === 'bday' ? 'bday-year' : undefined
                         }
+                        {...validationProps}
                         {...focusProps}
                         {...yearProps}
                       />
@@ -408,6 +419,7 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
                         autoComplete={
                           autoComplete === 'bday' ? 'bday-month' : undefined
                         }
+                        {...validationProps}
                         {...focusProps}
                         {...monthProps}
                       />
@@ -424,6 +436,7 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
                         autoComplete={
                           autoComplete === 'bday' ? 'bday-day' : undefined
                         }
+                        {...validationProps}
                         {...focusProps}
                         {...dayProps}
                       />
@@ -450,6 +463,9 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
               onClick={openCalendar}
               className={classes['calendar-button']}
               disabled={disabled || readOnly}
+              aria-expanded={open}
+              aria-haspopup="true"
+              aria-controls={dialogId}
             >
               {calendarButtonLabel}
             </IconButton>
@@ -465,6 +481,7 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
         </FieldSet>
         <Dialog
           ref={floatingRef}
+          id={dialogId}
           open={open}
           onClose={closeCalendar}
           aria-labelledby={headlineId}
