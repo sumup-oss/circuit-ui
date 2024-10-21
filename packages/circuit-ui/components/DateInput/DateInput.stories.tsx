@@ -13,21 +13,109 @@
  * limitations under the License.
  */
 
+import { useState } from 'react';
+
+import { Stack } from '../../../../.storybook/components/index.js';
+
 import { DateInput, type DateInputProps } from './DateInput.js';
 
 export default {
   title: 'Forms/DateInput',
   component: DateInput,
+  parameters: {
+    layout: 'padded',
+  },
   argTypes: {
     disabled: { control: 'boolean' },
+    required: { control: 'boolean' },
   },
 };
 
+// Fun fact: Circuit UI was created on August 28, 2017
+
 const baseArgs = {
   label: 'Date of birth',
-  validationHint: 'You must be at least 18 years old',
+  prevMonthButtonLabel: 'Previous month',
+  nextMonthButtonLabel: 'Previous month',
+  openCalendarButtonLabel: 'Change date',
+  closeCalendarButtonLabel: 'Close calendar',
+  applyDateButtonLabel: 'Apply',
+  clearDateButtonLabel: 'Clear',
+  yearInputLabel: 'Year',
+  monthInputLabel: 'Month',
+  dayInputLabel: 'Day',
+  autoComplete: 'bday',
+  locale: 'en-US',
 };
 
-export const Base = (args: DateInputProps) => <DateInput {...args} />;
+export const Base = (args: DateInputProps) => {
+  const [value, setValue] = useState(args.value || '');
+  return <DateInput {...args} value={value} onChange={setValue} />;
+};
 
 Base.args = baseArgs;
+
+export const Validations = (args: DateInputProps) => (
+  <Stack vertical>
+    <Stack>
+      <DateInput
+        {...args}
+        validationHint="Please enter your birth date"
+        required
+        invalid
+      />
+      <DateInput
+        {...args}
+        defaultValue="1917-08-28"
+        validationHint="That's mighty old"
+        hasWarning
+      />
+      <DateInput
+        {...args}
+        defaultValue="2004-03-15"
+        validationHint="You meet the age requirements"
+        showValid
+      />
+    </Stack>
+    <Stack>
+      <DateInput
+        {...args}
+        min="2024-01-01"
+        max="2024-12-31"
+        validationHint="Enter a date in 2024"
+      />
+      <DateInput
+        {...args}
+        min="2024-08-01"
+        max="2024-08-31"
+        validationHint="Enter a date in August 2024"
+      />
+    </Stack>
+  </Stack>
+);
+
+Validations.args = baseArgs;
+
+export const Optional = (args: DateInputProps) => <DateInput {...args} />;
+
+Optional.args = {
+  ...baseArgs,
+  optionalLabel: 'optional',
+};
+
+export const Readonly = (args: DateInputProps) => <DateInput {...args} />;
+
+Readonly.args = {
+  ...baseArgs,
+  label: 'Appointment date',
+  value: '2017-08-28',
+  readOnly: true,
+};
+
+export const Disabled = (args: DateInputProps) => <DateInput {...args} />;
+
+Disabled.args = {
+  ...baseArgs,
+  value: '2017-08-28',
+  disabled: true,
+};
