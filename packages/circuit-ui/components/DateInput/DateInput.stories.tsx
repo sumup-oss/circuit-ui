@@ -49,8 +49,8 @@ const baseArgs = {
 };
 
 export const Base = (args: DateInputProps) => {
-  const [value, setValue] = useState(args.value || '');
-  return <DateInput {...args} value={value} onChange={setValue} />;
+  const [, setValue] = useState(args.defaultValue || '');
+  return <DateInput {...args} onChange={setValue} />;
 };
 
 Base.args = baseArgs;
@@ -108,7 +108,7 @@ export const Readonly = (args: DateInputProps) => <DateInput {...args} />;
 Readonly.args = {
   ...baseArgs,
   label: 'Appointment date',
-  value: '2017-08-28',
+  defaultValue: '2017-08-28',
   readOnly: true,
 };
 
@@ -116,6 +116,6 @@ export const Disabled = (args: DateInputProps) => <DateInput {...args} />;
 
 Disabled.args = {
   ...baseArgs,
-  value: '2017-08-28',
+  defaultValue: '2017-08-28',
   disabled: true,
 };

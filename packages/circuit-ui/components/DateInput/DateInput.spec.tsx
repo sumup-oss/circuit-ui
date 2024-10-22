@@ -188,26 +188,6 @@ describe('DateInput', () => {
       expect(screen.getByLabelText(/month/i)).toHaveValue(1);
       expect(screen.getByLabelText(/year/i)).toHaveValue(2000);
     });
-
-    it('should display an initial value', () => {
-      render(<DateInput {...baseProps} value="2000-01-12" />);
-
-      expect(screen.getByLabelText(/day/i)).toHaveValue(12);
-      expect(screen.getByLabelText(/month/i)).toHaveValue(1);
-      expect(screen.getByLabelText(/year/i)).toHaveValue(2000);
-    });
-
-    it('should update the displayed value', () => {
-      const { rerender } = render(
-        <DateInput {...baseProps} value="2000-01-12" />,
-      );
-
-      rerender(<DateInput {...baseProps} value="2000-01-15" />);
-
-      expect(screen.getByLabelText(/day/i)).toHaveValue(15);
-      expect(screen.getByLabelText(/month/i)).toHaveValue(1);
-      expect(screen.getByLabelText(/year/i)).toHaveValue(2000);
-    });
   });
 
   describe('user interactions', () => {
@@ -283,7 +263,7 @@ describe('DateInput', () => {
       const calendarDialog = screen.getByRole('dialog');
       expect(calendarDialog).toBeVisible();
 
-      const clearButton = screen.getByRole('button', { name: /clear/ });
+      const clearButton = screen.getByRole('button', { name: /clear date/i });
       await userEvent.click(clearButton);
 
       expect(onChange).toHaveBeenCalledWith('');

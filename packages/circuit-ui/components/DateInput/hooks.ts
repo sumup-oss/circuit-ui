@@ -15,7 +15,6 @@
 
 import {
   useCallback,
-  useEffect,
   useId,
   useMemo,
   useState,
@@ -33,7 +32,7 @@ import {
   MIN_YEAR,
   toPlainDate,
 } from '../../util/date.js';
-import { isNumber, isString } from '../../util/type-check.js';
+import { isNumber } from '../../util/type-check.js';
 import { isBackspace, isDelete } from '../../util/key-codes.js';
 import { clamp } from '../../util/helpers.js';
 
@@ -52,6 +51,7 @@ type PartialPlainDate = {
 
 type PlainDateState = {
   date: PartialPlainDate;
+  plainDate: Temporal.PlainDate | undefined;
   update: (date: PartialPlainDate) => void;
 };
 
@@ -65,19 +65,12 @@ function parseValue(value?: string): PartialPlainDate {
 }
 
 export function usePlainDateState(
-  value?: string,
   defaultValue?: string,
   onChange?: (date: string) => void,
 ): PlainDateState {
   const [date, setDate] = useState<PartialPlainDate>(() =>
-    parseValue(defaultValue || value),
+    parseValue(defaultValue),
   );
-
-  useEffect(() => {
-    if (isString(value)) {
-      setDate(parseValue(value));
-    }
-  }, [value]);
 
   const update = useCallback(
     (newDate: PartialPlainDate) => {
@@ -120,7 +113,12 @@ export function usePlainDateState(
     [onChange],
   );
 
-  return { date, update };
+  const { year, month, day } = date;
+
+  const plainDate =
+    year && month && day ? new Temporal.PlainDate(year, month, day) : undefined;
+
+  return { date, plainDate, update };
 }
 
 export function useSegment(

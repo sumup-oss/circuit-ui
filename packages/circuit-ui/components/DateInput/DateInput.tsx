@@ -86,11 +86,6 @@ export interface DateInputProps
       | 'modifiers'
     > {
   /**
-   * The currently selected date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
-   * format (`YYYY-MM-DD`).
-   */
-  value?: string;
-  /**
    * The initially selected date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
    * format (`YYYY-MM-DD`).
    */
@@ -154,7 +149,6 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
   (
     {
       label,
-      value,
       defaultValue,
       onChange,
       min,
@@ -202,7 +196,7 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
     const maxDate = toPlainDate(max);
 
     const [focusProps, focusHandlers] = useSegmentFocus();
-    const state = usePlainDateState(value, defaultValue, onChange);
+    const state = usePlainDateState(defaultValue, onChange);
     const yearProps = useYearSegment(state, focusHandlers, minDate, maxDate);
     const monthProps = useMonthSegment(state, focusHandlers, minDate, maxDate);
     const dayProps = useDaySegment(state, focusHandlers, minDate, maxDate);
@@ -253,7 +247,7 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
     };
 
     const openCalendar = () => {
-      setSelection(toPlainDate(value) || undefined);
+      setSelection(state.plainDate || undefined);
       setOpen(true);
     };
 
@@ -344,11 +338,11 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
       }
     }
 
-    const plainDate = toPlainDate(value);
-    const calendarButtonLabel = plainDate
-      ? [openCalendarButtonLabel, formatDate(plainDate, locale, 'long')].join(
-          ', ',
-        )
+    const calendarButtonLabel = state.plainDate
+      ? [
+          openCalendarButtonLabel,
+          formatDate(state.plainDate, locale, 'long'),
+        ].join(', ')
       : openCalendarButtonLabel;
 
     const segments = getDateSegments(locale);
