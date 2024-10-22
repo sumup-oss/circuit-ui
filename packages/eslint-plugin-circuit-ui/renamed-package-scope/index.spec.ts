@@ -37,6 +37,7 @@ ruleTester.run('renamed-package-scope', renamedPackageScope, {
       name: 'import from an unaffected @sumup package',
       code: `
         import { OIDCClient } from '@sumup/nanoauth';
+        import { FormDataType } from '@sumup/circuit-ui-form';
       `,
     },
     {
