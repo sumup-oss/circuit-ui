@@ -19,9 +19,28 @@ import { getDateSegments } from './DateInputService.js';
 
 describe('DateInputService', () => {
   describe('getDateSegments', () => {
-    it.todo('should', () => {
-      const actual = getDateSegments();
-      expect(actual).toBe('TODO:');
+    it.each([
+      // locale, year, month, day
+      ['en-US', [4, 0, 2]],
+      ['de-DE', [4, 2, 0]],
+      ['pt-BR', [4, 2, 0]],
+    ])('should order the segments for the %s locale', (locale, indices) => {
+      const actual = getDateSegments(locale);
+      const year = actual.findIndex(({ type }) => type === 'year');
+      const month = actual.findIndex(({ type }) => type === 'month');
+      const day = actual.findIndex(({ type }) => type === 'day');
+      expect([year, month, day]).toEqual(indices);
+    });
+
+    it.each([
+      // locale, literal
+      ['en-US', '/'],
+      ['de-DE', '.'],
+      ['pt-BR', '/'],
+    ])('should return the literal for the %s locale', (locale, literal) => {
+      const actual = getDateSegments(locale);
+      const literalSegment = actual.find(({ type }) => type === 'literal');
+      expect(literalSegment?.value).toBe(literal);
     });
   });
 });

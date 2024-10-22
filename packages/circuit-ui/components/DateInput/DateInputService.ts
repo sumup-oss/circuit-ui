@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
+import { Temporal } from 'temporal-polyfill';
 import { formatDateTimeToParts } from '@sumup-oss/intl';
 
 import type { Locale } from '../../util/i18n.js';
 
-// TODO: Replace with Temporal.PlainDate
-const TEST_VALUE = new Date(2024, 3, 8);
+const TEST_VALUE = new Temporal.PlainDate(2024, 3, 8);
 
 export function getDateSegments(locale?: Locale) {
   const parts = formatDateTimeToParts(TEST_VALUE, locale);
