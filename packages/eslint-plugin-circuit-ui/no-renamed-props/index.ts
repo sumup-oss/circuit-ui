@@ -73,6 +73,7 @@ const configs: (Config & { components: string[] })[] = [
   {
     type: 'values',
     components: ['Badge', 'NotificationInline', 'NotificationToast'],
+    hook: 'setToast',
     prop: 'variant',
     values: {
       confirm: 'success',

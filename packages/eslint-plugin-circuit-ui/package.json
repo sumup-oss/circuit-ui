@@ -24,7 +24,8 @@
   "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/README.md",
   "scripts": {
     "build": "tsc",
-    "test": "vitest"
+    "test": "vitest",
+    "test:ci": "vitest --coverage"
   },
   "dependencies": {
     "@typescript-eslint/utils": "^7.16.1"

@@ -34,7 +34,9 @@ jobs:
         run: npm run lint:css
 
       - name: Run unit tests
-        run: npm run test:ci
+        # For some reason, the global script doesn't run tests in packages/eslint-plugin-circuit-ui
+        # I suspect it's because it's not an ES module.
+        run: npm run test:ci && cd packages/eslint-plugin-circuit-ui && npm run test:ci
 
       - name: Upload results to Codecov
         uses: codecov/codecov-action@v4

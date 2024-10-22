@@ -67,7 +67,7 @@ export const renamedPackageScope = createRule({
       const escapedFrom = from.replace('/', '\\u002F');
 
       return Object.assign(visitors, {
-        [`ImportDeclaration:has(Literal[value=/${escapedFrom}.*/])`]: (
+        [`ImportDeclaration:has(Literal[value=/${escapedFrom}(?!-).*/])`]: (
           node: TSESTree.ImportDeclaration,
         ) => {
           context.report({

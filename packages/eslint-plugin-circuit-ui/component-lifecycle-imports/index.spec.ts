@@ -113,10 +113,10 @@ ruleTester.run('component-lifecycle-imports', componentLifecycleImports, {
     {
       name: '[Experimental] single import with single match',
       code: `
-        import { Calendar } from '@sumup/circuit-ui/experimental';
+        import { Calendar } from '@sumup-oss/circuit-ui/experimental';
       `,
       output: `
-        import { Calendar } from '@sumup/circuit-ui';
+        import { Calendar } from '@sumup-oss/circuit-ui';
       `,
       errors: [{ messageId: 'refactor' }],
     },
