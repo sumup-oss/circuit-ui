@@ -1,5 +1,11 @@
 # @sumup-oss/eslint-plugin-circuit-ui
 
+## 5.0.0-next.3
+
+### Patch Changes
+
+- [#2732](https://github.com/sumup-oss/circuit-ui/pull/2732) [`5417c1b`](https://github.com/sumup-oss/circuit-ui/commit/5417c1b041b5ef37f59bc1fec0b33f6653030b44) Thanks [@connor-baer](https://github.com/connor-baer)! - Guarded against similar names package names in the `renamed-package-scope` ESLint rule.
+
 ## 5.0.0-next.2
 
 ### Major Changes
