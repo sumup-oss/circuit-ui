@@ -290,8 +290,9 @@ const configs: (Config & { components: string[] })[] = [
         const current = getAttributeValue(attribute);
 
         if (current === 'highlight') {
-          const replacement = `weight="bold"`;
+          const replacement = `as="strong" weight="bold"`;
           const weightAttribute = findAttribute(node, 'weight');
+          const asAttribute = findAttribute(node, 'as');
           context.report({
             node: attribute,
             messageId: 'bodyVariant',
@@ -299,6 +300,10 @@ const configs: (Config & { components: string[] })[] = [
             fix: weightAttribute
               ? undefined
               : (fixer) => {
+                  // Don't override an existing `as` attribute
+                  if (asAttribute) {
+                    return fixer.replaceText(attribute, 'weight="bold"');
+                  }
                   return fixer.replaceText(attribute, replacement);
                 },
           });

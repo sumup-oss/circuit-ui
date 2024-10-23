@@ -341,6 +341,12 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
 
         function ComponentB() {
           return (
+            <Body as="span" variant="highlight">Lorem ipsum</Body>
+          )
+        }
+
+        function ComponentC() {
+          return (
             <Body variant="alert">Lorem ipsum</Body>
           )
         }
@@ -348,17 +354,27 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
       output: `
         function ComponentA() {
           return (
-            <Body weight="bold">Lorem ipsum</Body>
+            <Body as="strong" weight="bold">Lorem ipsum</Body>
           )
         }
 
         function ComponentB() {
           return (
+            <Body as="span" weight="bold">Lorem ipsum</Body>
+          )
+        }
+
+        function ComponentC() {
+          return (
             <Body color="danger">Lorem ipsum</Body>
           )
         }
       `,
-      errors: [{ messageId: 'bodyVariant' }, { messageId: 'bodyVariant' }],
+      errors: [
+        { messageId: 'bodyVariant' },
+        { messageId: 'bodyVariant' },
+        { messageId: 'bodyVariant' },
+      ],
     },
   ],
 });
