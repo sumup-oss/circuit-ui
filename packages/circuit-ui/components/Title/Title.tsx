@@ -29,7 +29,7 @@ export const Title = forwardRef<HTMLHeadingElement, TitleProps>(
       deprecate('Title', 'The Title component has been renamed to Display.');
     }
 
-    return <Display {...props} ref={ref} size="s" />;
+    return <Display {...props} ref={ref} />;
   },
 );
 
