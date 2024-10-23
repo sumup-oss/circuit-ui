@@ -78,5 +78,63 @@ ruleTester.run('renamed-package-scope', renamedPackageScope, {
       `,
       errors: [{ messageId: 'refactor' }],
     },
+    {
+      name: 'dynamic import from the old package scope',
+      code: `
+        const components = await import('@sumup/circuit-ui');
+      `,
+      output: `
+        const components = await import('@sumup-oss/circuit-ui');
+      `,
+      errors: [{ messageId: 'refactor' }],
+    },
+    {
+      name: 'module mock of the old package scope',
+      code: `
+        jest.mock('@sumup/circuit-ui');
+
+        jest.mock('@sumup/intl', () => ({
+          ...jest.requireActual('@sumup/intl'),
+          formatNumber: jest.fn(),
+        }));
+      `,
+      output: `
+        jest.mock('@sumup-oss/circuit-ui');
+
+        jest.mock('@sumup-oss/intl', () => ({
+          ...jest.requireActual('@sumup-oss/intl'),
+          formatNumber: jest.fn(),
+        }));
+      `,
+      errors: [
+        { messageId: 'refactor' },
+        { messageId: 'refactor' },
+        { messageId: 'refactor' },
+      ],
+    },
+    {
+      name: 'module mock of the old package scope with type annotations',
+      code: `
+        vi.mock('@sumup/circuit-ui', () => ({
+          ...vi.importActual<typeof import('@sumup/circuit-ui')>(
+            '@sumup/circuit-ui',
+          ),
+          useCollapsible: vi.fn(),
+        }));
+      `,
+      output: `
+        vi.mock('@sumup-oss/circuit-ui', () => ({
+          ...vi.importActual<typeof import('@sumup-oss/circuit-ui')>(
+            '@sumup-oss/circuit-ui',
+          ),
+          useCollapsible: vi.fn(),
+        }));
+      `,
+      errors: [
+        { messageId: 'refactor' },
+        { messageId: 'refactor' },
+        { messageId: 'refactor' },
+      ],
+    },
   ],
 });

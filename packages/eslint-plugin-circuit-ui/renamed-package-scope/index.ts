@@ -66,21 +66,69 @@ export const renamedPackageScope = createRule({
       // See https://eslint.org/docs/latest/extend/selectors#known-issues
       const escapedFrom = from.replace('/', '\\u002F');
 
+      function fixPackageName(node: TSESTree.Node | TSESTree.Token) {
+        context.report({
+          node,
+          messageId: 'refactor',
+          data: { from, to },
+          fix(fixer) {
+            return fixer.replaceText(
+              node,
+              context.sourceCode.getText(node).replace(from, to),
+            );
+          },
+        });
+      }
+
       return Object.assign(visitors, {
         [`ImportDeclaration:has(Literal[value=/${escapedFrom}(?!-).*/])`]: (
           node: TSESTree.ImportDeclaration,
         ) => {
-          context.report({
-            node,
-            messageId: 'refactor',
-            data: { from, to },
-            fix(fixer) {
-              return fixer.replaceText(
-                node,
-                context.sourceCode.getText(node).replace(from, to),
-              );
-            },
-          });
+          const { source } = node;
+
+          if (source.type !== 'Literal') {
+            return;
+          }
+
+          fixPackageName(source);
+        },
+        [`ImportExpression:has(Literal[value=/${escapedFrom}(?!-).*/])`]: (
+          node: TSESTree.ImportExpression,
+        ) => {
+          const { source } = node;
+
+          if (source.type !== 'Literal') {
+            return;
+          }
+
+          fixPackageName(source);
+        },
+        [`CallExpression:has(Identifier[name=/(mock|requireActual|importActual)/]):has(Literal[value=/${escapedFrom}(?!-).*/])`]:
+          (node: TSESTree.CallExpression) => {
+            const firstArg = node.arguments[0];
+
+            if (firstArg.type !== 'Literal') {
+              return;
+            }
+
+            fixPackageName(firstArg);
+          },
+        [`TSImportType:has(Literal[value=/${escapedFrom}(?!-).*/])`]: (
+          node: TSESTree.TSImportType,
+        ) => {
+          const { argument } = node;
+
+          if (argument.type !== 'TSLiteralType') {
+            return;
+          }
+
+          const { literal } = argument;
+
+          if (literal.type !== 'Literal') {
+            return;
+          }
+
+          fixPackageName(literal);
         },
       });
     }, {});
