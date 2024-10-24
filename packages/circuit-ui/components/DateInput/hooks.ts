@@ -33,7 +33,7 @@ import {
   MIN_YEAR,
   toPlainDate,
 } from '../../util/date.js';
-import { isNumber, isString } from '../../util/type-check.js';
+import { isNumber } from '../../util/type-check.js';
 import { isBackspace, isDelete } from '../../util/key-codes.js';
 import { clamp } from '../../util/helpers.js';
 
@@ -52,6 +52,7 @@ type PartialPlainDate = {
 
 type PlainDateState = {
   date: PartialPlainDate;
+  plainDate: Temporal.PlainDate | undefined;
   update: (date: PartialPlainDate) => void;
 };
 
@@ -74,7 +75,7 @@ export function usePlainDateState(
   );
 
   useEffect(() => {
-    if (isString(value)) {
+    if (value) {
       setDate(parseValue(value));
     }
   }, [value]);
@@ -120,7 +121,12 @@ export function usePlainDateState(
     [onChange],
   );
 
-  return { date, update };
+  const { year, month, day } = date;
+
+  const plainDate =
+    year && month && day ? new Temporal.PlainDate(year, month, day) : undefined;
+
+  return { date, plainDate, update };
 }
 
 export function useSegment(

@@ -253,7 +253,7 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
     };
 
     const openCalendar = () => {
-      setSelection(toPlainDate(value) || undefined);
+      setSelection(state.plainDate || undefined);
       setOpen(true);
     };
 
@@ -344,11 +344,11 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
       }
     }
 
-    const plainDate = toPlainDate(value);
-    const calendarButtonLabel = plainDate
-      ? [openCalendarButtonLabel, formatDate(plainDate, locale, 'long')].join(
-          ', ',
-        )
+    const calendarButtonLabel = state.plainDate
+      ? [
+          openCalendarButtonLabel,
+          formatDate(state.plainDate, locale, 'long'),
+        ].join(', ')
       : openCalendarButtonLabel;
 
     const segments = getDateSegments(locale);
