@@ -18,6 +18,7 @@ import { forwardRef, type HTMLAttributes } from 'react';
 import { clsx } from '../../styles/clsx.js';
 import { CircuitError } from '../../util/errors.js';
 import { deprecate } from '../../util/logger.js';
+import { getEnv } from '../../util/env.js';
 
 import classes from './Display.module.css';
 
@@ -75,7 +76,7 @@ export const Display = forwardRef<HTMLHeadingElement, DisplayProps>(
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
-      !process?.env?.UNSAFE_DISABLE_ELEMENT_ERRORS &&
+      !getEnv('UNSAFE_DISABLE_ELEMENT_ERRORS') &&
       !as
     ) {
       throw new CircuitError('Display', 'The `as` prop is required.');
