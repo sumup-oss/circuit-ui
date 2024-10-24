@@ -19,11 +19,7 @@ import preserveDirectives from 'rollup-plugin-preserve-directives';
 
 import { defineConfig, type UserConfig } from 'vitest/config';
 
-import {
-  dependencies,
-  peerDependencies,
-  optionalDependencies,
-} from './package.json';
+import { dependencies, peerDependencies } from './package.json';
 
 export const css: UserConfig['css'] = {
   modules: {
@@ -96,11 +92,9 @@ export default defineConfig({
       external: [
         ...Object.keys(dependencies),
         ...Object.keys(peerDependencies),
-        ...Object.keys(optionalDependencies),
         // Subfolder imports
         'react/jsx-runtime',
         '@emotion/react/jsx-runtime',
-        'react-dates/initialize.js',
       ],
     },
   },
