@@ -1,5 +1,15 @@
 # @sumup-oss/eslint-plugin-circuit-ui
 
+## 5.0.0-next.4
+
+### Minor Changes
+
+- [#2735](https://github.com/sumup-oss/circuit-ui/pull/2735) [`70f3ab8`](https://github.com/sumup-oss/circuit-ui/commit/70f3ab80d460b06fb58c812a2b075c24631a62d4) Thanks [@connor-baer](https://github.com/connor-baer)! - Expanded the `renamed-package-scope` ESLint rule to cover additional occurrences of package names such as in Jest module mocks.
+
+### Patch Changes
+
+- [#2735](https://github.com/sumup-oss/circuit-ui/pull/2735) [`70f3ab8`](https://github.com/sumup-oss/circuit-ui/commit/70f3ab80d460b06fb58c812a2b075c24631a62d4) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the `no-renamed-props` ESLint rule to add the `as="strong"` prop when migrating the Body's `variant="highlight"` prop to match the previous semantics.
+
 ## 5.0.0-next.3
 
 ### Patch Changes

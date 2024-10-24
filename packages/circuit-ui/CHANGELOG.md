@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.0.0-next.3
+
+### Patch Changes
+
+- [#2737](https://github.com/sumup-oss/circuit-ui/pull/2737) [`c2c819c`](https://github.com/sumup-oss/circuit-ui/commit/c2c819c6d3f536f53f62cc2f3887cd2578986cfd) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed safely accessing environment variables in environments where the `process` variable is undefined.
+
 ## 9.0.0-next.2
 
 ### Major Changes
