@@ -23,6 +23,8 @@ export { Headline } from './components/Headline/index.js';
 export type { HeadlineProps } from './components/Headline/index.js';
 export { Display } from './components/Display/index.js';
 export type { DisplayProps } from './components/Display/index.js';
+export { Title } from './components/Title/index.js';
+export type { TitleProps } from './components/Title/index.js';
 export { SubHeadline } from './components/SubHeadline/index.js';
 export type { SubHeadlineProps } from './components/SubHeadline/index.js';
 export { Body } from './components/Body/index.js';

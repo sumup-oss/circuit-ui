@@ -44,7 +44,7 @@ const mappings = [
 export const renamedPackageScope = createRule({
   name: 'renamed-organization-imports',
   meta: {
-    type: 'suggestion',
+    type: 'problem',
     schema: [],
     fixable: 'code',
     docs: {
