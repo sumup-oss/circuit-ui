@@ -18,7 +18,7 @@ import { forwardRef, type HTMLAttributes } from 'react';
 import { clsx } from '../../styles/clsx.js';
 import { CircuitError } from '../../util/errors.js';
 import { deprecate } from '../../util/logger.js';
-import { getEnv } from '../../util/env.js';
+import { getEnvVariable } from '../../util/env.js';
 
 import classes from './Headline.module.css';
 
@@ -69,7 +69,7 @@ export const Headline = forwardRef<HTMLHeadingElement, HeadlineProps>(
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
-      !getEnv('UNSAFE_DISABLE_ELEMENT_ERRORS') &&
+      !getEnvVariable('UNSAFE_DISABLE_ELEMENT_ERRORS') &&
       !as
     ) {
       throw new CircuitError('Headline', 'The `as` prop is required.');

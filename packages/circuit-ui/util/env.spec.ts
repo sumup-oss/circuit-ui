@@ -15,10 +15,10 @@
 
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { getEnv } from './env.js';
+import { getEnvVariable } from './env.js';
 
 describe('env', () => {
-  describe('getEnvironment', () => {
+  describe('getEnvVariable', () => {
     const originalProcess = process;
 
     beforeEach(() => {
@@ -28,24 +28,24 @@ describe('env', () => {
 
     it('should return the environment variable`', () => {
       process.env.FOO = 'foo';
-      const actual = getEnv('FOO');
+      const actual = getEnvVariable('FOO');
       expect(actual).toBe('foo');
     });
 
     it('should return undefined if the environment variable is not defined', () => {
-      const actual = getEnv('FOO');
+      const actual = getEnvVariable('FOO');
       expect(actual).toBeUndefined();
     });
 
     it('should return undefined if `process` is not defined', () => {
       // @ts-expect-error We're testing for this error
       process = undefined;
-      const actual = getEnv('FOO');
+      const actual = getEnvVariable('FOO');
       expect(actual).toBeUndefined();
     });
 
     it('should throw an error when used for `NODE_ENV`', () => {
-      const actual = () => getEnv('NODE_ENV');
+      const actual = () => getEnvVariable('NODE_ENV');
       expect(actual).toThrowError();
     });
   });

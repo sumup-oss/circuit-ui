@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-export function getEnv(name: string) {
+export function getEnvVariable(name: string) {
   if (name === 'NODE_ENV') {
     // Some bundlers have special logic for `process.env.NODE_ENV` which
     // relies on it being written as a continuous string. Destructuring or
