@@ -38,8 +38,6 @@ import { TRANSITION_DURATION } from './constants.js';
 import type { SidePanelHookProps } from './useSidePanel.js';
 import classes from './SidePanelContext.module.css';
 
-import './SidePanelContext.css';
-
 // It is important for users of screen readers that other page content be hidden
 // (via the `aria-hidden` attribute) while the side panel is open on mobile.
 // To allow react-modal to do this, Circuit UI calls `ReactModal.setAppElement`
@@ -287,6 +285,8 @@ export function SidePanelProvider({
             isStacked={isStacked}
             onBack={handleBack}
             onClose={handleClose}
+            portalClassName={classes['cui-side-panel-portal']}
+            htmlOpenClassName={classes['cui-side-panel-open']}
           />
         );
       })}

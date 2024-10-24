@@ -109,8 +109,6 @@ export const SidePanel = ({
       labelledby: headerAriaId,
     },
     onRequestClose: onBack || onClose,
-    portalClassName: 'cui-side-panel-portal',
-    htmlOpenClassName: 'cui-side-panel-open',
     bodyOpenClassName: '',
     /**
      * react-modal relies on document.activeElement to return focus after the modal is closed.
