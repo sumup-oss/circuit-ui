@@ -7,26 +7,24 @@ import * as Stories from './DateInput.stories';
 
 <Status variant="stable" />
 
-The DateInput component allows user to type or select a specific date. The input value is always a string in the format `YYYY-MM-DD`.
+The DateInput component allows users to type or select a specific date. The input value is always a string in the format `YYYY-MM-DD`.
 
 <Story of={Stories.Base} />
 <Props />
 
 ## Usage
 
-Use the component whenever asking for a specific individual date such as a birth date, expiry date, or appointment date.
+Use the component whenever asking for a specific individual date such as a birth date, expiry date, or appointment date. The date is in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format (`YYYY-MM-DD`).
 
 For selecting a range of dates, we expect to introduce an iteration of this component in the future. Until then, we recommend using a combination of two input fields (one for the start and the other for the end date).
 
 ## Validations
 
-TODO: Decide on built-in validation.
-
-Use the `validationHint` to communicate the expected response to users.
+Use the `validationHint` prop to communicate the expected response to users. The DateInput component ensures that the entered date is a valid date, but does not validate whether it falls within the minimum or maximum date range.
 
 ### Invalid
 
-The user needs to change the value to proceed. This could be due to a
+The user needs to change the value to proceed. This could be because they entered a date outside of the allowed range.
 
 ### Warning
 
@@ -49,3 +47,9 @@ Use the `optionalLabel` prop to indicate that the field is optional. This can he
 Use the `readOnly` prop to indicate that the field is not currently editable. This can be useful in situations where the user needs to view but not edit the date, such as in a summary or review screen.
 
 <Story of={Stories.Readonly} />
+
+## Internationalization
+
+Pass one or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) locale identifiers such as `'de-DE'` or `['GB', 'en-US']` to the `locale` prop to display the date in the local format. When passing an array, the first supported locale is used. Defaults to `navigator.language` in supported environments.
+
+<Story of={Stories.Locales} />

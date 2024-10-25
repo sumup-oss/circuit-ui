@@ -47,6 +47,7 @@ import {
   FieldValidationHint,
   FieldWrapper,
 } from '../Field/Field.js';
+import { getBrowserLocale } from '../../util/i18n.js';
 
 import { Dialog } from './components/Dialog.js';
 import { DateSegment } from './components/DateSegment.js';
@@ -140,7 +141,7 @@ export interface DateInputProps
 }
 
 /**
- * The DateInput component allows user to type or select a specific date.
+ * The DateInput component allows users to type or select a specific date.
  * The input value is always a string in the format `YYYY-MM-DD`.
  */
 export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
@@ -152,7 +153,7 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
       onChange,
       min,
       max,
-      locale,
+      locale = getBrowserLocale(),
       firstDayOfWeek,
       modifiers,
       hideLabel,
@@ -181,7 +182,7 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
   ) => {
     const isMobile = useMedia('(max-width: 479px)');
 
-    const referenceRef = useRef<HTMLDivElement>(null);
+    const fieldRef = useRef<HTMLDivElement>(null);
     const floatingRef = useRef<HTMLDialogElement>(null);
     const calendarRef = useRef<HTMLDivElement>(null);
 
@@ -209,7 +210,7 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
       placement: 'bottom-start',
       middleware: [offset(4), flip(), shift()],
       elements: {
-        reference: referenceRef.current,
+        reference: fieldRef.current,
         floating: floatingRef.current,
       },
     });
@@ -356,16 +357,16 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
               optionalLabel={optionalLabel}
             />
           </FieldLegend>
-          {/* biome-ignore lint/a11y/useKeyWithClickEvents: */}
-          <div className={classes.wrapper} onClick={handleClick}>
+          <div ref={fieldRef} className={classes.wrapper}>
+            {/* biome-ignore lint/a11y/useKeyWithClickEvents: */}
             <div
+              onClick={handleClick}
               className={clsx(
                 classes.segments,
                 invalid && classes.invalid,
                 hasWarning && classes.warning,
                 readOnly && classes.readonly,
               )}
-              ref={referenceRef}
             >
               {segments.map((segment, index) => {
                 const segmentProps = {

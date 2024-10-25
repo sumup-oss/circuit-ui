@@ -7,6 +7,7 @@
   z-index: var(--cui-z-index-absolute);
   display: flex;
   gap: 2px;
+  min-width: 170px;
   padding: var(--cui-spacings-byte) var(--cui-spacings-mega);
   cursor: text;
   background-color: var(--cui-bg-normal);
