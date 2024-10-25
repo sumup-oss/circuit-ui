@@ -23,11 +23,11 @@ import {
   userEvent,
   screen,
   type RenderFn,
-} from '../../util/test-utils.js';
-import { Body } from '../Body/index.js';
-import { Badge } from '../Badge/index.js';
+} from '../../util/test-utils';
+import { Body } from '../Body/index';
+import { Badge } from '../Badge/index';
 
-import { ListItem, type ListItemProps } from './ListItem.js';
+import { ListItem, type ListItemProps } from './ListItem';
 
 describe('ListItem', () => {
   function renderListItem<T>(renderFn: RenderFn<T>, props: ListItemProps) {

@@ -22,9 +22,9 @@ import {
   axe,
   screen,
   fireEvent,
-} from '../../util/test-utils.js';
+} from '../../util/test-utils';
 
-import { RadioButton } from './RadioButton.js';
+import { RadioButton } from './RadioButton';
 
 const defaultProps = {
   label: 'Label',

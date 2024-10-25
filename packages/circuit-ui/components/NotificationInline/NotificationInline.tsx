@@ -26,19 +26,19 @@ import {
   type RefObject,
 } from 'react';
 
-import { useAnimation } from '../../hooks/useAnimation/index.js';
-import { Body } from '../Body/index.js';
-import { CloseButton } from '../CloseButton/index.js';
-import { Anchor, type AnchorProps } from '../Anchor/index.js';
-import type { ClickEvent } from '../../types/events.js';
-import { isString } from '../../util/type-check.js';
+import { useAnimation } from '../../hooks/useAnimation/index';
+import { Body } from '../Body/index';
+import { CloseButton } from '../CloseButton/index';
+import { Anchor, type AnchorProps } from '../Anchor/index';
+import type { ClickEvent } from '../../types/events';
+import { isString } from '../../util/type-check';
 import {
   NOTIFICATION_ICONS,
   type NotificationVariant,
-} from '../Notification/constants.js';
-import { applyMultipleRefs } from '../../util/refs.js';
-import { clsx } from '../../styles/clsx.js';
-import { utilClasses } from '../../styles/utility.js';
+} from '../Notification/constants';
+import { applyMultipleRefs } from '../../util/refs';
+import { clsx } from '../../styles/clsx';
+import { utilClasses } from '../../styles/utility';
 
 import classes from './NotificationInline.module.css';
 

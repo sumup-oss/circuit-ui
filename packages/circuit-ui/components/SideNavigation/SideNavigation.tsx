@@ -17,19 +17,19 @@
 
 import { useEffect } from 'react';
 
-import { useMedia } from '../../hooks/useMedia/index.js';
+import { useMedia } from '../../hooks/useMedia/index';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
-} from '../../util/errors.js';
-import { usePrevious } from '../../hooks/usePrevious/index.js';
+} from '../../util/errors';
+import { usePrevious } from '../../hooks/usePrevious/index';
 
-import { DesktopNavigation } from './components/DesktopNavigation/index.js';
-import type { DesktopNavigationProps } from './components/DesktopNavigation/DesktopNavigation.js';
+import { DesktopNavigation } from './components/DesktopNavigation/index';
+import type { DesktopNavigationProps } from './components/DesktopNavigation/DesktopNavigation';
 import {
   useMobileNavigation,
   type MobileNavigationProps,
-} from './components/MobileNavigation/index.js';
+} from './components/MobileNavigation/index';
 
 export interface SideNavigationProps
   extends MobileNavigationProps,

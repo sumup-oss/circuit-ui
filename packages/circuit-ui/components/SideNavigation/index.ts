@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-export { SideNavigation } from './SideNavigation.js';
+export { SideNavigation } from './SideNavigation';
 
-export type { SideNavigationProps } from './SideNavigation.js';
+export type { SideNavigationProps } from './SideNavigation';
 
 export type {
   PrimaryLinkProps,
   SecondaryGroupProps,
   SecondaryLinkProps,
-} from './types.js';
+} from './types';

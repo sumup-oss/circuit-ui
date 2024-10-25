@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { uniqueId } from './id.js';
+import { uniqueId } from './id';
 
 describe('Id', () => {
   it('should generate a unique, auto-incrementing id', () => {

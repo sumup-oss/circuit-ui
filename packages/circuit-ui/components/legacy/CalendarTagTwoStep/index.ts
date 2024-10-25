@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { CalendarTagTwoStep } from './CalendarTagTwoStep.js';
+export { CalendarTagTwoStep } from './CalendarTagTwoStep';
 
-export type { CalendarTagTwoStepProps } from './CalendarTagTwoStep.js';
+export type { CalendarTagTwoStepProps } from './CalendarTagTwoStep';

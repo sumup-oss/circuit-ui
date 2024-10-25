@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { renderHook } from '../../util/test-utils.js';
+import { renderHook } from '../../util/test-utils';
 
-import { usePrevious } from './usePrevious.js';
+import { usePrevious } from './usePrevious';
 
 describe('usePrevious', () => {
   it('should be undefined on first render', () => {

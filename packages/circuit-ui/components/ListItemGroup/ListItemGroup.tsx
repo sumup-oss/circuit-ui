@@ -22,12 +22,12 @@ import {
   type ReactNode,
 } from 'react';
 
-import { AccessibilityError } from '../../util/errors.js';
-import { Body } from '../Body/index.js';
-import { ListItem, type ListItemProps } from '../ListItem/index.js';
-import { isString } from '../../util/type-check.js';
-import { clsx } from '../../styles/clsx.js';
-import { utilClasses } from '../../styles/utility.js';
+import { AccessibilityError } from '../../util/errors';
+import { Body } from '../Body/index';
+import { ListItem, type ListItemProps } from '../ListItem/index';
+import { isString } from '../../util/type-check';
+import { clsx } from '../../styles/clsx';
+import { utilClasses } from '../../styles/utility';
 
 import classes from './ListItemGroup.module.css';
 

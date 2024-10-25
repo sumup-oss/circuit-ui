@@ -23,15 +23,15 @@ import {
 } from 'react';
 import type { IconComponentType } from '@sumup-oss/icons';
 
-import type { ClickEvent } from '../../types/events.js';
-import type { AsPropType } from '../../types/prop-types.js';
-import { useComponents } from '../ComponentsContext/index.js';
+import type { ClickEvent } from '../../types/events';
+import type { AsPropType } from '../../types/prop-types';
+import { useComponents } from '../ComponentsContext/index';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
-} from '../../util/errors.js';
-import { utilClasses } from '../../styles/utility.js';
-import { clsx } from '../../styles/clsx.js';
+} from '../../util/errors';
+import { utilClasses } from '../../styles/utility';
+import { clsx } from '../../styles/clsx';
 
 import classes from './base.module.css';
 

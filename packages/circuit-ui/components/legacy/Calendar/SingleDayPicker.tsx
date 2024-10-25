@@ -18,11 +18,11 @@ import { ArrowRight, ArrowLeft, Close } from '@sumup-oss/icons';
 import { SingleDatePicker } from 'react-dates';
 import type { SingleDatePickerShape } from 'react-dates';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import 'react-dates/initialize.js';
+import 'react-dates/initialize';
 
-import styled from '../../../styles/styled.js';
+import styled from '../../../styles/styled';
 
-import { CalendarWrapper } from './components/index.js';
+import { CalendarWrapper } from './components/index';
 
 const CloseIcon = styled(Close)`
   color: var(--cui-fg-normal);

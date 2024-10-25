@@ -16,7 +16,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { Temporal } from 'temporal-polyfill';
 
-import type { PlainDateRange } from '../../util/date.js';
+import type { PlainDateRange } from '../../util/date';
 
 import {
   CalendarActionType,
@@ -30,7 +30,7 @@ import {
   initCalendar,
   isDateActive,
   isDateInMonthRange,
-} from './CalendarService.js';
+} from './CalendarService';
 
 vi.mock('../../util/date.js', async (importOriginal) => {
   const module = await importOriginal<typeof import('../../util/date.js')>();

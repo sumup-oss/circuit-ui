@@ -17,11 +17,11 @@
 
 import { forwardRef, useRef, type TextareaHTMLAttributes } from 'react';
 
-import { Input, type BaseInputProps } from '../Input/index.js';
-import { applyMultipleRefs } from '../../util/refs.js';
-import { clsx } from '../../styles/clsx.js';
+import { Input, type BaseInputProps } from '../Input/index';
+import { applyMultipleRefs } from '../../util/refs';
+import { clsx } from '../../styles/clsx';
 
-import { useAutoExpand } from './useAutoExpand.js';
+import { useAutoExpand } from './useAutoExpand';
 import classes from './TextArea.module.css';
 
 export type TextAreaProps = BaseInputProps &

@@ -13,13 +13,13 @@
  * limitations under the License.
  */
 
-import * as CalendarConstants from './constants.js';
+import * as CalendarConstants from './constants';
 
-export { RangePicker } from './RangePicker.js';
-export type { RangePickerProps } from './RangePicker.js';
-export { RangePickerController } from './RangePickerController.js';
-export type { RangePickerControllerProps } from './RangePickerController.js';
-export { SingleDayPicker } from './SingleDayPicker.js';
-export type { SingleDayPickerProps } from './SingleDayPicker.js';
+export { RangePicker } from './RangePicker';
+export type { RangePickerProps } from './RangePicker';
+export { RangePickerController } from './RangePickerController';
+export type { RangePickerControllerProps } from './RangePickerController';
+export { SingleDayPicker } from './SingleDayPicker';
+export type { SingleDayPickerProps } from './SingleDayPicker';
 
 export { CalendarConstants };

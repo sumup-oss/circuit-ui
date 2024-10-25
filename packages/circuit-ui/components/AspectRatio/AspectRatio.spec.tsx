@@ -18,9 +18,9 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { render } from '../../util/test-utils.js';
+import { render } from '../../util/test-utils';
 
-import { AspectRatio } from './AspectRatio.js';
+import { AspectRatio } from './AspectRatio';
 
 describe('AspectRatio', () => {
   it('should merge a custom class name with the default ones', () => {

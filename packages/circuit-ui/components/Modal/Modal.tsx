@@ -18,19 +18,19 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import ReactModal from 'react-modal';
 
-import { isFunction } from '../../util/type-check.js';
+import { isFunction } from '../../util/type-check';
 import {
   createUseModal,
   type ModalComponent,
   type BaseModalProps,
-} from '../ModalContext/index.js';
-import { CloseButton } from '../CloseButton/index.js';
-import { StackContext } from '../StackContext/index.js';
+} from '../ModalContext/index';
+import { CloseButton } from '../CloseButton/index';
+import { StackContext } from '../StackContext/index';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
-} from '../../util/errors.js';
-import { clsx } from '../../styles/clsx.js';
+} from '../../util/errors';
+import { clsx } from '../../styles/clsx';
 
 import classes from './Modal.module.css';
 

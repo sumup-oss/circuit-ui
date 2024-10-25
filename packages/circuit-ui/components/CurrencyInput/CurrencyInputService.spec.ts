@@ -15,7 +15,7 @@
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { formatPlaceholder } from './CurrencyInputService.js';
+import { formatPlaceholder } from './CurrencyInputService';
 
 describe('CurrencyInputService', () => {
   beforeEach(() => {

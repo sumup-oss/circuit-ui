@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { Body, type BodyProps } from '../../../Body/index.js';
-import { clsx } from '../../../../styles/clsx.js';
+import { Body, type BodyProps } from '../../../Body/index';
+import { clsx } from '../../../../styles/clsx';
 
 import classes from './Status.module.css';
 

@@ -17,36 +17,36 @@
 export {
   RadioButton,
   type RadioButtonProps,
-} from './components/RadioButton/index.js';
+} from './components/RadioButton/index';
 export {
   Selector,
   type SelectorProps,
-} from './components/Selector/index.js';
+} from './components/Selector/index';
 export {
   RangePicker,
   RangePickerController,
   SingleDayPicker,
   CalendarConstants,
-} from './components/legacy/Calendar/index.js';
+} from './components/legacy/Calendar/index';
 export type {
   RangePickerProps,
   RangePickerControllerProps,
   SingleDayPickerProps,
-} from './components/legacy/Calendar/index.js';
-export { CalendarTag } from './components/legacy/CalendarTag/index.js';
-export type { CalendarTagProps } from './components/legacy/CalendarTag/index.js';
-export { CalendarTagTwoStep } from './components/legacy/CalendarTagTwoStep/index.js';
-export type { CalendarTagTwoStepProps } from './components/legacy/CalendarTagTwoStep/index.js';
+} from './components/legacy/Calendar/index';
+export { CalendarTag } from './components/legacy/CalendarTag/index';
+export type { CalendarTagProps } from './components/legacy/CalendarTag/index';
+export { CalendarTagTwoStep } from './components/legacy/CalendarTagTwoStep/index';
+export type { CalendarTagTwoStepProps } from './components/legacy/CalendarTagTwoStep/index';
 
 // Layout
-export { Grid, Row, Col } from './components/legacy/Grid/index.js';
-export type { ColProps } from './components/legacy/Grid/index.js';
-export { InlineElements } from './components/legacy/InlineElements/index.js';
-export type { InlineElementsProps } from './components/legacy/InlineElements/index.js';
+export { Grid, Row, Col } from './components/legacy/Grid/index';
+export type { ColProps } from './components/legacy/Grid/index';
+export { InlineElements } from './components/legacy/InlineElements/index';
+export type { InlineElementsProps } from './components/legacy/InlineElements/index';
 
 // Miscellaneous
-export { Tooltip } from './components/legacy/Tooltip/index.js';
-export type { TooltipProps } from './components/legacy/Tooltip/index.js';
+export { Tooltip } from './components/legacy/Tooltip/index';
+export type { TooltipProps } from './components/legacy/Tooltip/index';
 
 export {
   cx,
@@ -61,6 +61,6 @@ export {
   inputOutline,
   typography,
   center,
-} from './styles/style-mixins.js';
+} from './styles/style-mixins';
 
-export { uniqueId } from './util/id.js';
+export { uniqueId } from './util/id';

@@ -27,21 +27,21 @@ import {
 } from 'react';
 import { Delete, Plus } from '@sumup-oss/icons';
 
-import type { ClickEvent } from '../../types/events.js';
-import { utilClasses } from '../../styles/utility.js';
+import type { ClickEvent } from '../../types/events';
+import { utilClasses } from '../../styles/utility';
 import {
   FieldWrapper,
   FieldLabel,
   FieldValidationHint,
   FieldLabelText,
-} from '../Field/index.js';
-import { IconButton } from '../Button/index.js';
-import { Spinner } from '../Spinner/index.js';
+} from '../Field/index';
+import { IconButton } from '../Button/index';
+import { Spinner } from '../Spinner/index';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
-} from '../../util/errors.js';
-import { clsx } from '../../styles/clsx.js';
+} from '../../util/errors';
+import { clsx } from '../../styles/clsx';
 
 import classes from './ImageInput.module.css';
 

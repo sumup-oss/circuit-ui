@@ -18,7 +18,7 @@ import { describe, expect, it } from 'vitest';
 import {
   mapCountryCodeOptions,
   normalizePhoneNumber,
-} from './PhoneNumberInputService.js';
+} from './PhoneNumberInputService';
 
 describe('PhoneNumberInputService', () => {
   describe('normalizePhoneNumber', () => {

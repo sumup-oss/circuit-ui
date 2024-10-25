@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { Stack } from '../../../../.storybook/components/index.js';
+import { Stack } from '../../../../.storybook/components/index';
 
-import { Badge, type BadgeProps } from './Badge.js';
+import { Badge, type BadgeProps } from './Badge';
 
 export default {
   title: 'Components/Badge',

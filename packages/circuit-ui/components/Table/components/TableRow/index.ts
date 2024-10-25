@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { TableRow } from './TableRow.js';
+export { TableRow } from './TableRow';

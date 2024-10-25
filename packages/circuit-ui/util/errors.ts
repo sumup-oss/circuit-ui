@@ -16,7 +16,7 @@
 /* eslint-disable max-classes-per-file */
 import React from 'react';
 
-import { isString } from './type-check.js';
+import { isString } from './type-check';
 
 export class CircuitError extends Error {
   constructor(componentName: string, message: string) {

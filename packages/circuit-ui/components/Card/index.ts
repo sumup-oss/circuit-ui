@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-export { Card } from './Card.js';
+export { Card } from './Card';
 
-export type { CardProps } from './Card.js';
+export type { CardProps } from './Card';
 
 export {
   Header as CardHeader,
   Footer as CardFooter,
-} from './components/index.js';
+} from './components/index';
 
-export type { HeaderProps as CardHeaderProps } from './components/index.js';
-export type { FooterProps as CardFooterProps } from './components/index.js';
+export type { HeaderProps as CardHeaderProps } from './components/index';
+export type { FooterProps as CardFooterProps } from './components/index';

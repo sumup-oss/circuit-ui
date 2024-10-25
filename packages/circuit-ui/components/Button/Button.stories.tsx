@@ -16,12 +16,12 @@
 import { useEffect, useState } from 'react';
 import { ArrowSlanted, Plus } from '@sumup-oss/icons';
 
-import { Stack } from '../../../../.storybook/components/index.js';
-import { ButtonGroup } from '../ButtonGroup/index.js';
-import { CloseButton } from '../CloseButton/index.js';
+import { Stack } from '../../../../.storybook/components/index';
+import { ButtonGroup } from '../ButtonGroup/index';
+import { CloseButton } from '../CloseButton/index';
 
-import { IconButton } from './IconButton.js';
-import { Button, type ButtonProps } from './Button.js';
+import { IconButton } from './IconButton';
+import { Button, type ButtonProps } from './Button';
 
 export default {
   title: 'Components/Button',

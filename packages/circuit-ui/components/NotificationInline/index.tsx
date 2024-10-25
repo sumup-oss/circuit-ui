@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { NotificationInline } from './NotificationInline.js';
+export { NotificationInline } from './NotificationInline';
 
-export type { NotificationInlineProps } from './NotificationInline.js';
+export type { NotificationInlineProps } from './NotificationInline';

@@ -13,5 +13,5 @@
  * limitations under the License.
  */
 
-export { PhoneNumberInput } from './PhoneNumberInput.js';
-export type { PhoneNumberInputProps } from './PhoneNumberInput.js';
+export { PhoneNumberInput } from './PhoneNumberInput';
+export type { PhoneNumberInputProps } from './PhoneNumberInput';

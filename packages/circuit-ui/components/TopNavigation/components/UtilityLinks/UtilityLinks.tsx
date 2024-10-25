@@ -23,13 +23,13 @@ import type {
 } from 'react';
 import type { IconComponentType } from '@sumup-oss/icons';
 
-import type { AsPropType } from '../../../../types/prop-types.js';
-import { Body } from '../../../Body/index.js';
-import { useComponents } from '../../../ComponentsContext/index.js';
-import { Skeleton } from '../../../Skeleton/index.js';
-import { clsx } from '../../../../styles/clsx.js';
-import { utilClasses } from '../../../../styles/utility.js';
-import { sharedClasses } from '../../../../styles/shared.js';
+import type { AsPropType } from '../../../../types/prop-types';
+import { Body } from '../../../Body/index';
+import { useComponents } from '../../../ComponentsContext/index';
+import { Skeleton } from '../../../Skeleton/index';
+import { clsx } from '../../../../styles/clsx';
+import { utilClasses } from '../../../../styles/utility';
+import { sharedClasses } from '../../../../styles/shared';
 
 import classes from './UtilityLinks.module.css';
 

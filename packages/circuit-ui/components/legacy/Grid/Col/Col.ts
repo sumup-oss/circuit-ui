@@ -18,13 +18,13 @@
 import { css } from '@emotion/react';
 import type { Theme } from '@sumup-oss/design-tokens';
 
-import isPropValid from '../../../../styles/is-prop-valid.js';
-import styled, { type StyleProps } from '../../../../styles/styled.js';
-import { isNumber, isString } from '../../../../util/type-check.js';
-import { clamp } from '../../../../util/helpers.js';
-import type { BreakpointOptions, GridValue } from '../types.js';
-import { wrapStyles, normalizeToNumber, composeBreakpoints } from '../utils.js';
-import { MAX_COL_WIDTH, MIN_COL_SPAN } from '../constants.js';
+import isPropValid from '../../../../styles/is-prop-valid';
+import styled, { type StyleProps } from '../../../../styles/styled';
+import { isNumber, isString } from '../../../../util/type-check';
+import { clamp } from '../../../../util/helpers';
+import type { BreakpointOptions, GridValue } from '../types';
+import { wrapStyles, normalizeToNumber, composeBreakpoints } from '../utils';
+import { MAX_COL_WIDTH, MIN_COL_SPAN } from '../constants';
 
 type Option = string | number;
 

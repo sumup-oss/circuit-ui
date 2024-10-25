@@ -15,16 +15,16 @@
 
 import { action } from '@storybook/addon-actions';
 
-import { Step } from './Step.js';
+import { Step } from './Step';
 import {
   CarouselSlider,
   type CarouselSliderProps,
-} from './examples/CarouselSlider.js';
+} from './examples/CarouselSlider';
 import {
   YesOrNoSlider,
   type YesOrNoSliderProps,
-} from './examples/YesOrNoSlider.js';
-import { MultiStepForm } from './examples/MultiStepForm.js';
+} from './examples/YesOrNoSlider';
+import { MultiStepForm } from './examples/MultiStepForm';
 
 const IMAGES = [
   '/images/illustration-waves.jpg',

@@ -15,7 +15,7 @@
 
 import { forwardRef, type ImgHTMLAttributes } from 'react';
 
-import { clsx } from '../../styles/clsx.js';
+import { clsx } from '../../styles/clsx';
 
 import classes from './Image.module.css';
 

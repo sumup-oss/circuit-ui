@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AspectRatio, type AspectRatioProps } from './AspectRatio.js';
+import { AspectRatio, type AspectRatioProps } from './AspectRatio';
 
 export default {
   title: 'Components/AspectRatio',

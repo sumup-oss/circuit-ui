@@ -21,9 +21,9 @@ import {
   axe,
   waitFor,
   screen,
-} from '../../util/test-utils.js';
+} from '../../util/test-utils';
 
-import { Modal, type ModalProps } from './Modal.js';
+import { Modal, type ModalProps } from './Modal';
 
 describe('Modal', () => {
   const defaultModal: ModalProps = {

@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { Title } from './Title.js';
+export { Title } from './Title';
 
-export type { TitleProps } from './Title.js';
+export type { TitleProps } from './Title';

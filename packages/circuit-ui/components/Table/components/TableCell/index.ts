@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { TableCell } from './TableCell.js';
+export { TableCell } from './TableCell';

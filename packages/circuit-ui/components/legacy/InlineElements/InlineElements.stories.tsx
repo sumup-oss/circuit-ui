@@ -17,11 +17,11 @@
 
 import { css } from '@emotion/react';
 
-import { Stack } from '../../../../../.storybook/components/index.js';
-import styled from '../../../styles/styled.js';
-import { modes } from '../../../../../.storybook/modes.js';
+import { Stack } from '../../../../../.storybook/components/index';
+import styled from '../../../styles/styled';
+import { modes } from '../../../../../.storybook/modes';
 
-import { InlineElements } from './InlineElements.js';
+import { InlineElements } from './InlineElements';
 
 export default {
   title: 'Layout/InlineElements',

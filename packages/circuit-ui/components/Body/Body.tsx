@@ -15,9 +15,9 @@
 
 import { forwardRef, type HTMLAttributes } from 'react';
 
-import type { AsPropType } from '../../types/prop-types.js';
-import { clsx } from '../../styles/clsx.js';
-import { deprecate } from '../../util/logger.js';
+import type { AsPropType } from '../../types/prop-types';
+import { clsx } from '../../styles/clsx';
+import { deprecate } from '../../util/logger';
 
 import classes from './Body.module.css';
 

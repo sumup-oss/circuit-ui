@@ -19,20 +19,20 @@
 
 import { forwardRef } from 'react';
 
-import type { AsPropType } from '../../../../types/prop-types.js';
+import type { AsPropType } from '../../../../types/prop-types';
 import {
   useFocusList,
   type FocusProps,
-} from '../../../../hooks/useFocusList/index.js';
-import { Headline } from '../../../Headline/index.js';
-import { Body } from '../../../Body/index.js';
-import { Badge } from '../../../Badge/index.js';
-import { useComponents } from '../../../ComponentsContext/index.js';
-import { Skeleton } from '../../../Skeleton/index.js';
-import type { SecondaryGroupProps, SecondaryLinkProps } from '../../types.js';
-import { clsx } from '../../../../styles/clsx.js';
-import { utilClasses } from '../../../../styles/utility.js';
-import { sharedClasses } from '../../../../styles/shared.js';
+} from '../../../../hooks/useFocusList/index';
+import { Headline } from '../../../Headline/index';
+import { Body } from '../../../Body/index';
+import { Badge } from '../../../Badge/index';
+import { useComponents } from '../../../ComponentsContext/index';
+import { Skeleton } from '../../../Skeleton/index';
+import type { SecondaryGroupProps, SecondaryLinkProps } from '../../types';
+import { clsx } from '../../../../styles/clsx';
+import { utilClasses } from '../../../../styles/utility';
+import { sharedClasses } from '../../../../styles/shared';
 
 import classes from './SecondaryLinks.module.css';
 

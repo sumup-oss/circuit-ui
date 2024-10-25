@@ -15,11 +15,11 @@
 
 import { useState } from 'react';
 
-import { Avatar } from '../Avatar/index.js';
+import { Avatar } from '../Avatar/index';
 
-import type { ImageInputProps } from './ImageInput.js';
+import type { ImageInputProps } from './ImageInput';
 
-import { ImageInput } from './index.js';
+import { ImageInput } from './index';
 
 export default {
   title: 'Forms/ImageInput',

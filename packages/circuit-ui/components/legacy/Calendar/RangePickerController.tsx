@@ -18,11 +18,11 @@ import { ArrowRight, ArrowLeft } from '@sumup-oss/icons';
 import { DayPickerRangeController } from 'react-dates';
 import type { DayPickerRangeControllerShape } from 'react-dates';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import 'react-dates/initialize.js';
+import 'react-dates/initialize';
 
-import { deprecate } from '../../../util/logger.js';
+import { deprecate } from '../../../util/logger';
 
-import { CalendarWrapper } from './components/index.js';
+import { CalendarWrapper } from './components/index';
 
 export type RangePickerControllerProps = DayPickerRangeControllerShape;
 

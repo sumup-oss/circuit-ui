@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { List } from './List.js';
+export { List } from './List';
 
-export type { ListProps } from './List.js';
+export type { ListProps } from './List';

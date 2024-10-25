@@ -21,11 +21,11 @@ import {
 } from 'react';
 import { Confirm, Notify, Alert } from '@sumup-oss/icons';
 
-import { clsx } from '../../styles/clsx.js';
-import { utilClasses } from '../../styles/utility.js';
+import { clsx } from '../../styles/clsx';
+import { utilClasses } from '../../styles/utility';
 
 import classes from './Field.module.css';
-import { getFieldValidity } from './FieldService.js';
+import { getFieldValidity } from './FieldService';
 
 export interface FieldWrapperProps extends HTMLAttributes<HTMLDivElement> {
   /**

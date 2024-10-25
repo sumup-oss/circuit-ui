@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { Compact } from './Compact.js';
+export { Compact } from './Compact';
 
-export type { CompactProps } from './Compact.js';
+export type { CompactProps } from './Compact';

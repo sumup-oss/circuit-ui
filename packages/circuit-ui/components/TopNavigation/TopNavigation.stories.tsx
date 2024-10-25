@@ -17,14 +17,14 @@ import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { Shop, SumUpLogo } from '@sumup-oss/icons';
 
-import { modes } from '../../../../.storybook/modes.js';
-import { SideNavigation } from '../SideNavigation/index.js';
-import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories.js';
-import { ModalProvider } from '../ModalContext/index.js';
-import { Body } from '../Body/index.js';
-import type { HamburgerProps } from '../Hamburger/Hamburger.js';
+import { modes } from '../../../../.storybook/modes';
+import { SideNavigation } from '../SideNavigation/index';
+import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories';
+import { ModalProvider } from '../ModalContext/index';
+import { Body } from '../Body/index';
+import type { HamburgerProps } from '../Hamburger/Hamburger';
 
-import { TopNavigation, type TopNavigationProps } from './TopNavigation.js';
+import { TopNavigation, type TopNavigationProps } from './TopNavigation';
 
 export default {
   title: 'Navigation/TopNavigation',

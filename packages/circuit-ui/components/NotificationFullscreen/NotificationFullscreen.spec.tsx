@@ -17,12 +17,12 @@ import { describe, expect, it, vi } from 'vitest';
 import { Plus } from '@sumup-oss/icons';
 import { createRef } from 'react';
 
-import { render, axe, screen } from '../../util/test-utils.js';
+import { render, axe, screen } from '../../util/test-utils';
 
 import {
   NotificationFullscreen,
   type NotificationFullscreenProps,
-} from './NotificationFullscreen.js';
+} from './NotificationFullscreen';
 
 describe('NotificationFullscreen', () => {
   const renderNotificationFullscreen = (props: NotificationFullscreenProps) =>

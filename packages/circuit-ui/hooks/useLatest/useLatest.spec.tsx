@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { renderHook } from '../../util/test-utils.js';
+import { renderHook } from '../../util/test-utils';
 
-import { useLatest } from './useLatest.js';
+import { useLatest } from './useLatest';
 
 describe('useLatest', () => {
   it('should store the latest value in a ref object', () => {

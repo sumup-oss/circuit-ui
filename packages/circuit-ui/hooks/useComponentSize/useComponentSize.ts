@@ -15,7 +15,7 @@
 
 import { useCallback, useState, useEffect, type RefObject } from 'react';
 
-import { throttle } from '../../util/helpers.js';
+import { throttle } from '../../util/helpers';
 
 function getSize(element?: HTMLElement | null) {
   if (!element) {

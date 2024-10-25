@@ -18,13 +18,13 @@
 import { css } from '@emotion/react';
 import type { Theme } from '@sumup-oss/design-tokens';
 
-import { clearfix } from '../../../../styles/style-mixins.js';
+import { clearfix } from '../../../../styles/style-mixins';
 import styled, {
   type NoTheme,
   type StyleProps,
-} from '../../../../styles/styled.js';
-import type { GridValue } from '../types.js';
-import { composeBreakpoints, wrapStyles } from '../utils.js';
+} from '../../../../styles/styled';
+import type { GridValue } from '../types';
+import { composeBreakpoints, wrapStyles } from '../utils';
 
 const baseStyles = css`
   position: relative;

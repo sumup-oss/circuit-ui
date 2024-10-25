@@ -22,10 +22,10 @@ import {
   screen,
   fireEvent,
   userEvent,
-} from '../../util/test-utils.js';
-import type { InputElement } from '../Input/index.js';
+} from '../../util/test-utils';
+import type { InputElement } from '../Input/index';
 
-import { ColorInput } from './ColorInput.js';
+import { ColorInput } from './ColorInput';
 
 describe('ColorInput', () => {
   const baseProps = { label: 'Car color', pickerLabel: 'Pick car color' };

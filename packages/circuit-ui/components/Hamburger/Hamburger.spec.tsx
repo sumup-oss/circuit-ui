@@ -16,9 +16,9 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { axe, render, userEvent, screen } from '../../util/test-utils.js';
+import { axe, render, userEvent, screen } from '../../util/test-utils';
 
-import { Hamburger } from './Hamburger.js';
+import { Hamburger } from './Hamburger';
 
 describe('Hamburger', () => {
   const baseProps = {

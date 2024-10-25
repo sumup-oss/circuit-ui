@@ -22,9 +22,9 @@ import {
   screen,
   axe,
   fireEvent,
-} from '../../util/test-utils.js';
+} from '../../util/test-utils';
 
-import { Selector } from './Selector.js';
+import { Selector } from './Selector';
 
 const defaultProps = {
   label: 'Label',

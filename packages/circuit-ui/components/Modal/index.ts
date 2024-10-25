@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { useModal } from './Modal.js';
+export { useModal } from './Modal';
 
-export type { ModalProps } from './Modal.js';
+export type { ModalProps } from './Modal';

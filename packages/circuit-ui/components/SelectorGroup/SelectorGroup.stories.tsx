@@ -17,10 +17,10 @@ import { useState, type ChangeEvent, type FocusEvent } from 'react';
 import { action } from '@storybook/addon-actions';
 import { CardReaderAir, CardReaderSolo, MobilePhone } from '@sumup-oss/icons';
 
-import { Stack } from '../../../../.storybook/components/index.js';
-import { Selector, type SelectorProps } from '../Selector/Selector.js';
+import { Stack } from '../../../../.storybook/components/index';
+import { Selector, type SelectorProps } from '../Selector/Selector';
 
-import { SelectorGroup, type SelectorGroupProps } from './SelectorGroup.js';
+import { SelectorGroup, type SelectorGroupProps } from './SelectorGroup';
 
 export default {
   title: 'Forms/SelectorGroup',

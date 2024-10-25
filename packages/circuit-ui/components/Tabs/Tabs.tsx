@@ -28,11 +28,11 @@ import {
   isArrowLeft,
   isArrowRight,
   isArrowDown,
-} from '../../util/key-codes.js';
+} from '../../util/key-codes';
 
-import { TabList, type TabListProps } from './components/TabList/index.js';
-import { Tab } from './components/Tab/index.js';
-import { TabPanel } from './components/TabPanel/index.js';
+import { TabList, type TabListProps } from './components/TabList/index';
+import { Tab } from './components/Tab/index';
+import { TabPanel } from './components/TabPanel/index';
 
 export interface TabsProps extends TabListProps {
   /**

@@ -17,20 +17,20 @@
 
 import { useEffect, type HTMLAttributes, type ReactNode } from 'react';
 
-import { Hamburger, type HamburgerProps } from '../Hamburger/index.js';
-import { SkeletonContainer } from '../Skeleton/index.js';
-import { clsx } from '../../styles/clsx.js';
-import { utilClasses } from '../../styles/utility.js';
+import { Hamburger, type HamburgerProps } from '../Hamburger/index';
+import { SkeletonContainer } from '../Skeleton/index';
+import { clsx } from '../../styles/clsx';
+import { utilClasses } from '../../styles/utility';
 
 import {
   ProfileMenu,
   type ProfileMenuProps,
-} from './components/ProfileMenu/index.js';
+} from './components/ProfileMenu/index';
 import {
   UtilityLinks,
   type UtilityLinksProps,
-} from './components/UtilityLinks/index.js';
-import type { UserProps } from './types.js';
+} from './components/UtilityLinks/index';
+import type { UserProps } from './types';
 import classes from './TopNavigation.module.css';
 
 /**

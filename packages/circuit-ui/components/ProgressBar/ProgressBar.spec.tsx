@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { render, axe, screen } from '../../util/test-utils.js';
+import { render, axe, screen } from '../../util/test-utils';
 
-import { ProgressBar } from './ProgressBar.js';
+import { ProgressBar } from './ProgressBar';
 
 describe('ProgressBar', () => {
   describe('step-based', () => {

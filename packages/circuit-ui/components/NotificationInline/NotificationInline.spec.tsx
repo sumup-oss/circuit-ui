@@ -22,12 +22,12 @@ import {
   userEvent,
   waitFor,
   screen,
-} from '../../util/test-utils.js';
+} from '../../util/test-utils';
 
 import {
   NotificationInline,
   type NotificationInlineProps,
-} from './NotificationInline.js';
+} from './NotificationInline';
 
 describe('NotificationInline', () => {
   const renderNotificationInline = (props: NotificationInlineProps) =>

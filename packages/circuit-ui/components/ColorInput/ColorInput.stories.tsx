@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ColorInput, type ColorInputProps } from './ColorInput.js';
+import { ColorInput, type ColorInputProps } from './ColorInput';
 
 export default {
   title: 'Forms/ColorInput',

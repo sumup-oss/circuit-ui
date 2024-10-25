@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { Display } from './Display.jsx';
+export { Display } from './Display';
 
-export type { DisplayProps } from './Display.jsx';
+export type { DisplayProps } from './Display';

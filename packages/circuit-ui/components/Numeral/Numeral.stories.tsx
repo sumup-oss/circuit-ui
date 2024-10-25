@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import type { NumeralProps } from './Numeral.js';
+import type { NumeralProps } from './Numeral';
 
-import { Numeral } from './index.js';
+import { Numeral } from './index';
 
 const content = '$ 1,009.95';
 

@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { useComponentSize } from './useComponentSize.js';
+export { useComponentSize } from './useComponentSize';

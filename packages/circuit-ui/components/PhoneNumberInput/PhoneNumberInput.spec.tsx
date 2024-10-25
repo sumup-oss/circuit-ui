@@ -16,12 +16,12 @@
 import { describe, it, vi, expect } from 'vitest';
 import { createRef } from 'react';
 
-import { axe, render, screen, userEvent } from '../../util/test-utils.js';
+import { axe, render, screen, userEvent } from '../../util/test-utils';
 
 import {
   PhoneNumberInput,
   type PhoneNumberInputProps,
-} from './PhoneNumberInput.js';
+} from './PhoneNumberInput';
 
 const countryCodeMap: { [key: string]: string } = {
   CA: '+1',

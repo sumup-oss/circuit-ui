@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { Toggletip } from './Toggletip.js';
+export { Toggletip } from './Toggletip';
 
-export type { ToggletipProps } from './Toggletip.js';
+export type { ToggletipProps } from './Toggletip';

@@ -15,11 +15,11 @@
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { render, axe, userEvent, screen } from '../../util/test-utils.js';
-import { Badge } from '../Badge/index.js';
+import { render, axe, userEvent, screen } from '../../util/test-utils';
+import { Badge } from '../Badge/index';
 
-import { Table } from './Table.js';
-import type { HeaderCell, Direction } from './types.js';
+import { Table } from './Table';
+import type { HeaderCell, Direction } from './types';
 
 const sortLabel = ({ direction }: { direction?: Direction }) => {
   const order = direction === 'ascending' ? 'descending' : 'ascending';

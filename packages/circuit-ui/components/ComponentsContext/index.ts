@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-export { ComponentsContext } from './ComponentsContext.js';
-export { useComponents } from './useComponents.js';
+export { ComponentsContext } from './ComponentsContext';
+export { useComponents } from './useComponents';
 
-export type { ComponentsContextType } from './ComponentsContext.js';
+export type { ComponentsContextType } from './ComponentsContext';

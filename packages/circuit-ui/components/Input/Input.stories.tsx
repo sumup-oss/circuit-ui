@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import { Stack } from '../../../../.storybook/components/index.js';
-import { SearchInput } from '../SearchInput/index.js';
-import { CurrencyInput } from '../CurrencyInput/index.js';
-import { DateInput } from '../DateInput/index.js';
+import { Stack } from '../../../../.storybook/components/index';
+import { SearchInput } from '../SearchInput/index';
+import { CurrencyInput } from '../CurrencyInput/index';
+import { DateInput } from '../DateInput/index';
 
-import { Input, type InputProps } from './Input.js';
+import { Input, type InputProps } from './Input';
 
 export default {
   title: 'Forms/Input',

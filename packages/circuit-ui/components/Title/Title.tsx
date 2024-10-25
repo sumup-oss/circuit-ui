@@ -15,8 +15,8 @@
 
 import { forwardRef } from 'react';
 
-import { deprecate } from '../../util/logger.js';
-import { Display, type DisplayProps } from '../Display/Display.js';
+import { deprecate } from '../../util/logger';
+import { Display, type DisplayProps } from '../Display/Display';
 
 export interface TitleProps extends DisplayProps {}
 

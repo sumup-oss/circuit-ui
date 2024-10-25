@@ -19,10 +19,10 @@ import { forwardRef, useId } from 'react';
 import { resolveNumberFormat } from '@sumup-oss/intl';
 import { NumericFormat, type NumericFormatProps } from 'react-number-format';
 
-import { clsx } from '../../styles/clsx.js';
-import { Input, type InputProps } from '../Input/index.js';
+import { clsx } from '../../styles/clsx';
+import { Input, type InputProps } from '../Input/index';
 
-import { formatPlaceholder } from './PercentageInputService.js';
+import { formatPlaceholder } from './PercentageInputService';
 import classes from './PercentageInput.module.css';
 
 export interface PercentageInputProps

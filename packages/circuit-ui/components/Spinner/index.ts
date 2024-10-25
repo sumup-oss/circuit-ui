@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { Spinner } from './Spinner.js';
+export { Spinner } from './Spinner';
 
-export type { SpinnerProps } from './Spinner.js';
+export type { SpinnerProps } from './Spinner';

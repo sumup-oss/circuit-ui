@@ -16,9 +16,9 @@
 
 import { useCallback, useEffect, type FormEvent, type RefObject } from 'react';
 
-import { useComponentSize } from '../../hooks/useComponentSize/index.js';
+import { useComponentSize } from '../../hooks/useComponentSize/index';
 
-import type { TextAreaProps } from './index.js';
+import type { TextAreaProps } from './index';
 
 type ModifiedProps = Omit<TextAreaProps, 'minRows' | 'rows'> & {
   rows: TextAreaProps['minRows'];

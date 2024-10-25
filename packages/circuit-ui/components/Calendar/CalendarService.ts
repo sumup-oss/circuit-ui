@@ -16,8 +16,8 @@
 // biome-ignore lint/suspicious/noShadowRestrictedNames: Necessary to add support for Temporal objects to the `Intl` APIs
 import { Temporal, Intl } from 'temporal-polyfill';
 
-import type { Locale } from '../../util/i18n.js';
-import { chunk, last } from '../../util/helpers.js';
+import type { Locale } from '../../util/i18n';
+import { chunk, last } from '../../util/helpers';
 import {
   clampDate,
   getFirstDateOfWeek,
@@ -28,7 +28,7 @@ import {
   type DaysInWeek,
   type FirstDayOfWeek,
   type PlainDateRange,
-} from '../../util/date.js';
+} from '../../util/date';
 
 type CalendarState = {
   today: Temporal.PlainDate;

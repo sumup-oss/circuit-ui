@@ -16,9 +16,9 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe, screen } from '../../util/test-utils.js';
+import { render, axe, screen } from '../../util/test-utils';
 
-import { SearchInput } from './SearchInput.js';
+import { SearchInput } from './SearchInput';
 
 describe('SearchInput', () => {
   const baseProps = { label: 'Search' };

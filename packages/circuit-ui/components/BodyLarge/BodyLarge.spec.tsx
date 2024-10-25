@@ -16,9 +16,9 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { axe, render } from '../../util/test-utils.js';
+import { axe, render } from '../../util/test-utils';
 
-import { BodyLarge } from './BodyLarge.js';
+import { BodyLarge } from './BodyLarge';
 
 describe('BodyLarge', () => {
   it('should merge a custom class name with the default ones', () => {

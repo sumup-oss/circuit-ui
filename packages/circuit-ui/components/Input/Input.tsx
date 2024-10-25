@@ -27,13 +27,13 @@ import {
   FieldLabel,
   FieldLabelText,
   FieldValidationHint,
-} from '../Field/index.js';
-import type { ReturnType } from '../../types/return-type.js';
+} from '../Field/index';
+import type { ReturnType } from '../../types/return-type';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
-} from '../../util/errors.js';
-import { clsx } from '../../styles/clsx.js';
+} from '../../util/errors';
+import { clsx } from '../../styles/clsx';
 
 import classes from './Input.module.css';
 

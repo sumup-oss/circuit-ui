@@ -15,10 +15,10 @@
 
 import { forwardRef, type OlHTMLAttributes } from 'react';
 
-import { clsx } from '../../styles/clsx.js';
-import type { BodyProps } from '../Body/index.js';
-import { deprecatedSizeMap } from '../Body/Body.js';
-import { deprecate } from '../../util/logger.js';
+import { clsx } from '../../styles/clsx';
+import type { BodyProps } from '../Body/index';
+import { deprecatedSizeMap } from '../Body/Body';
+import { deprecate } from '../../util/logger';
 
 import classes from './List.module.css';
 

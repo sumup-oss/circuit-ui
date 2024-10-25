@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { Image } from '../../../Image/index.js';
-import { AspectRatio } from '../../../AspectRatio/index.js';
-import { ASPECT_RATIO } from '../../constants.js';
+import { Image } from '../../../Image/index';
+import { AspectRatio } from '../../../AspectRatio/index';
+import { ASPECT_RATIO } from '../../constants';
 
 import classes from './SlideImage.module.css';
 

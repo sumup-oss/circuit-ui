@@ -29,10 +29,10 @@ import {
   userEvent as baseUserEvent,
   waitForElementToBeRemoved,
   screen,
-} from '../../util/test-utils.js';
+} from '../../util/test-utils';
 
-import { ToastProvider, ToastContext } from './ToastContext.js';
-import type { ToastComponent } from './types.js';
+import { ToastProvider, ToastContext } from './ToastContext';
+import type { ToastComponent } from './types';
 
 const openButtonLabel = 'Open toast';
 const toastMessage = "You've got mail!";

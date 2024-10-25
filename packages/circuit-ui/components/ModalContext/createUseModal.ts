@@ -15,8 +15,8 @@
 
 import { useContext, useCallback, useRef, useId } from 'react';
 
-import { ModalContext } from './ModalContext.js';
-import type { BaseModalProps, ModalComponent } from './types.js';
+import { ModalContext } from './ModalContext';
+import type { BaseModalProps, ModalComponent } from './types';
 
 export function createUseModal<T extends BaseModalProps>(
   component: ModalComponent<T>,

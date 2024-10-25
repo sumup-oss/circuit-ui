@@ -23,10 +23,10 @@ import {
   waitFor,
   screen,
   type RenderFn,
-} from '../../util/test-utils.js';
-import { ModalProvider } from '../ModalContext/index.js';
+} from '../../util/test-utils';
+import { ModalProvider } from '../ModalContext/index';
 
-import { SideNavigation, type SideNavigationProps } from './SideNavigation.js';
+import { SideNavigation, type SideNavigationProps } from './SideNavigation';
 
 describe('SideNavigation', () => {
   function setMediaMatches(matches: boolean) {

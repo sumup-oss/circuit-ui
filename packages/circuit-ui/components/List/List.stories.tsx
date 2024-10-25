@@ -15,9 +15,9 @@
 
 import { Fragment } from 'react';
 
-import { Stack } from '../../../../.storybook/components/index.js';
+import { Stack } from '../../../../.storybook/components/index';
 
-import { List, type ListProps } from './List.js';
+import { List, type ListProps } from './List';
 
 export default {
   title: 'Typography/List',

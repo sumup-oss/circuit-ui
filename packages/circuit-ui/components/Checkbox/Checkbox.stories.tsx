@@ -15,7 +15,7 @@
 
 import { useState, type ChangeEvent } from 'react';
 
-import { Checkbox, type CheckboxProps } from './Checkbox.js';
+import { Checkbox, type CheckboxProps } from './Checkbox';
 
 export default {
   title: 'Forms/Checkbox',

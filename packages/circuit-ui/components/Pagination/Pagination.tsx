@@ -18,16 +18,16 @@
 import type { HTMLAttributes, ReactElement } from 'react';
 import { ChevronLeft, ChevronRight } from '@sumup-oss/icons';
 
-import { IconButton } from '../Button/index.js';
+import { IconButton } from '../Button/index';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
-} from '../../util/errors.js';
-import { clsx } from '../../styles/clsx.js';
+} from '../../util/errors';
+import { clsx } from '../../styles/clsx';
 
-import { PageSelect } from './components/PageSelect/index.js';
-import { PageList } from './components/PageList/index.js';
-import * as PaginationService from './PaginationService.js';
+import { PageSelect } from './components/PageSelect/index';
+import { PageList } from './components/PageList/index';
+import * as PaginationService from './PaginationService';
 import classes from './Pagination.module.css';
 
 export interface PaginationProps

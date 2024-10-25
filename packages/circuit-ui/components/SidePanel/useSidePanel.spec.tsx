@@ -16,10 +16,10 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import type { PropsWithChildren } from 'react';
 
-import { renderHook } from '../../util/test-utils.js';
+import { renderHook } from '../../util/test-utils';
 
-import { useSidePanel } from './useSidePanel.js';
-import { SidePanelContext } from './SidePanelContext.js';
+import { useSidePanel } from './useSidePanel';
+import { SidePanelContext } from './SidePanelContext';
 
 const defaultId = '1';
 const testId = 'test';

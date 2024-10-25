@@ -18,17 +18,17 @@
 import { ArrowRight } from '@sumup-oss/icons';
 import { useId, type ComponentType } from 'react';
 
-import type { AsPropType } from '../../../../types/prop-types.js';
-import { useComponents } from '../../../ComponentsContext/index.js';
-import { Body } from '../../../Body/index.js';
-import { Skeleton } from '../../../Skeleton/index.js';
+import type { AsPropType } from '../../../../types/prop-types';
+import { useComponents } from '../../../ComponentsContext/index';
+import { Body } from '../../../Body/index';
+import { Skeleton } from '../../../Skeleton/index';
 import type {
   PrimaryLinkProps as PrimaryLinkType,
   PrimaryBadgeProps,
-} from '../../types.js';
-import { isObject } from '../../../../util/type-check.js';
-import { clsx } from '../../../../styles/clsx.js';
-import { utilClasses } from '../../../../styles/utility.js';
+} from '../../types';
+import { isObject } from '../../../../util/type-check';
+import { clsx } from '../../../../styles/clsx';
+import { utilClasses } from '../../../../styles/utility';
 
 import classes from './PrimaryLink.module.css';
 

@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-export { Button } from './Button.js';
-export type { ButtonProps } from './Button.js';
-export { IconButton } from './IconButton.js';
-export type { IconButtonProps } from './IconButton.js';
-export { legacyButtonSizeMap } from './base.js';
+export { Button } from './Button';
+export type { ButtonProps } from './Button';
+export { IconButton } from './IconButton';
+export type { IconButtonProps } from './IconButton';
+export { legacyButtonSizeMap } from './base';

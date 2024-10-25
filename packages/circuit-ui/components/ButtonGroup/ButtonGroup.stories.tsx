@@ -15,10 +15,10 @@
 
 import { action } from '@storybook/addon-actions';
 
-import { Stack } from '../../../../.storybook/components/index.js';
-import { modes } from '../../../../.storybook/modes.js';
+import { Stack } from '../../../../.storybook/components/index';
+import { modes } from '../../../../.storybook/modes';
 
-import { ButtonGroup, type ButtonGroupProps } from './ButtonGroup.js';
+import { ButtonGroup, type ButtonGroupProps } from './ButtonGroup';
 
 export default {
   title: 'Components/ButtonGroup',

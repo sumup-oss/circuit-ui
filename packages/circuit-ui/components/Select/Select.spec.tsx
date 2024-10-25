@@ -16,9 +16,9 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe, screen } from '../../util/test-utils.js';
+import { render, axe, screen } from '../../util/test-utils';
 
-import { Select } from './Select.js';
+import { Select } from './Select';
 
 describe('Select', () => {
   const defaultProps = {

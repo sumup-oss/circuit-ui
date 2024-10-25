@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { ImageInput } from './ImageInput.js';
+export { ImageInput } from './ImageInput';
 
-export type { ImageInputProps } from './ImageInput.js';
+export type { ImageInputProps } from './ImageInput';

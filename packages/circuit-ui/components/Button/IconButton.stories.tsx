@@ -16,9 +16,9 @@
 import { useEffect, useState } from 'react';
 import { Plus } from '@sumup-oss/icons';
 
-import { Stack } from '../../../../.storybook/components/index.js';
+import { Stack } from '../../../../.storybook/components/index';
 
-import { IconButton, type IconButtonProps } from './IconButton.js';
+import { IconButton, type IconButtonProps } from './IconButton';
 
 export default {
   title: 'Components/Button/IconButton',

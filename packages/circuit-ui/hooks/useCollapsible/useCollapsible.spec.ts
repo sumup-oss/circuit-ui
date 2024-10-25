@@ -16,9 +16,9 @@
 import type { MouseEvent } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 
-import { renderHook, act, waitFor } from '../../util/test-utils.js';
+import { renderHook, act, waitFor } from '../../util/test-utils';
 
-import { useCollapsible, getHeight } from './useCollapsible.js';
+import { useCollapsible, getHeight } from './useCollapsible';
 
 describe('useCollapsible', () => {
   it('should return the open state and a toggle callback', () => {

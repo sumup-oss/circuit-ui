@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { Container } from './Container.js';
+export { Container } from './Container';

@@ -16,9 +16,9 @@
 import { describe, expect, it } from 'vitest';
 import { Close } from '@sumup-oss/icons';
 
-import { render, screen } from '../../util/test-utils.js';
+import { render, screen } from '../../util/test-utils';
 
-import { IconButton } from './IconButton.js';
+import { IconButton } from './IconButton';
 
 describe('IconButton', () => {
   it('should render an icon passed a prop', () => {

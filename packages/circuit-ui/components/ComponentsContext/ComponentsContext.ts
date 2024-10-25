@@ -15,7 +15,7 @@
 
 import { createContext, type ComponentType } from 'react';
 
-import { Link, type LinkProps } from './components/Link/index.js';
+import { Link, type LinkProps } from './components/Link/index';
 
 export const defaultComponents = { Link };
 

@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { Card } from '../../components/Card/Card.js';
+import { Card } from '../../components/Card/Card';
 
-import { useMedia } from './useMedia.js';
+import { useMedia } from './useMedia';
 
 export default {
   title: 'Hooks/useMedia',

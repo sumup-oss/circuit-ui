@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { render, act, userEvent, screen } from '../../util/test-utils.js';
+import { render, act, userEvent, screen } from '../../util/test-utils';
 
-import { useFocusList } from './useFocusList.js';
+import { useFocusList } from './useFocusList';
 
 describe('useFocusList', () => {
   const list = Array.from(Array(5).keys());

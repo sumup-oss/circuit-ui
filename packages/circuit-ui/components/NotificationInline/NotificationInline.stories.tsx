@@ -16,12 +16,12 @@
 import { action } from '@storybook/addon-actions';
 import { useState } from 'react';
 
-import { Stack } from '../../../../.storybook/components/index.js';
+import { Stack } from '../../../../.storybook/components/index';
 
 import {
   NotificationInline,
   type NotificationInlineProps,
-} from './NotificationInline.js';
+} from './NotificationInline';
 
 export default {
   title: 'Notification/NotificationInline',

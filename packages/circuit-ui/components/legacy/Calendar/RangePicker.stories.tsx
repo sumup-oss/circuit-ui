@@ -17,7 +17,7 @@ import { useState } from 'react';
 import type { Moment } from 'moment';
 import type { FocusedInputShape } from 'react-dates';
 
-import { RangePicker, type RangePickerProps } from './RangePicker.js';
+import { RangePicker, type RangePickerProps } from './RangePicker';
 
 export default {
   title: 'Forms/Calendar/RangePicker',

@@ -26,11 +26,11 @@ import {
 import {
   AccessibilityError,
   isSufficientlyLabelled,
-} from '../../util/errors.js';
-import { FieldWrapper, FieldDescription } from '../Field/index.js';
-import { clsx } from '../../styles/clsx.js';
-import { utilClasses } from '../../styles/utility.js';
-import { deprecate } from '../../util/logger.js';
+} from '../../util/errors';
+import { FieldWrapper, FieldDescription } from '../Field/index';
+import { clsx } from '../../styles/clsx';
+import { utilClasses } from '../../styles/utility';
+import { deprecate } from '../../util/logger';
 
 import classes from './RadioButton.module.css';
 

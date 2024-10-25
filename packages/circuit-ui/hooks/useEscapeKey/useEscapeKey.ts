@@ -15,7 +15,7 @@
 
 import { useEffect } from 'react';
 
-import { isEscape } from '../../util/key-codes.js';
+import { isEscape } from '../../util/key-codes';
 
 /**
  * Calls a function when the escape key is pressed.

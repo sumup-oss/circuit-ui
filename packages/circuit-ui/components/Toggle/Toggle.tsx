@@ -20,11 +20,11 @@ import { forwardRef, useId, type ButtonHTMLAttributes } from 'react';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
-} from '../../util/errors.js';
-import { FieldDescription, FieldWrapper } from '../Field/index.js';
-import { clsx } from '../../styles/clsx.js';
-import { utilClasses } from '../../styles/utility.js';
-import { deprecate } from '../../util/logger.js';
+} from '../../util/errors';
+import { FieldDescription, FieldWrapper } from '../Field/index';
+import { clsx } from '../../styles/clsx';
+import { utilClasses } from '../../styles/utility';
+import { deprecate } from '../../util/logger';
 
 import classes from './Toggle.module.css';
 

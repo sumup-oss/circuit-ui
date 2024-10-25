@@ -20,15 +20,15 @@ import { screen, userEvent, within } from '@storybook/test';
 import {
   FullViewport,
   Stack,
-} from '../../../../.storybook/components/index.js';
-import { modes } from '../../../../.storybook/modes.js';
-import { Button } from '../Button/index.js';
-import { Headline } from '../Headline/index.js';
-import { Body } from '../Body/index.js';
-import { Image } from '../Image/index.js';
-import { ModalProvider } from '../ModalContext/index.js';
+} from '../../../../.storybook/components/index';
+import { modes } from '../../../../.storybook/modes';
+import { Button } from '../Button/index';
+import { Headline } from '../Headline/index';
+import { Body } from '../Body/index';
+import { Image } from '../Image/index';
+import { ModalProvider } from '../ModalContext/index';
 
-import { useModal, Modal, type ModalProps } from './Modal.js';
+import { useModal, Modal, type ModalProps } from './Modal';
 
 export default {
   title: 'Components/Modal',

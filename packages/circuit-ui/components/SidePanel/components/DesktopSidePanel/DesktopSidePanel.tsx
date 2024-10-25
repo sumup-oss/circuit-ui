@@ -15,9 +15,9 @@
 
 import ReactModal, { type Props as ReactModalProps } from 'react-modal';
 
-import { StackContext } from '../../../StackContext/index.js';
-import type { SidePanelProps } from '../../SidePanel.js';
-import { clsx } from '../../../../styles/clsx.js';
+import { StackContext } from '../../../StackContext/index';
+import type { SidePanelProps } from '../../SidePanel';
+import { clsx } from '../../../../styles/clsx';
 
 import classes from './DesktopSidePanel.module.css';
 

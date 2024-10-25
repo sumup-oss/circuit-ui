@@ -24,10 +24,10 @@ import {
   axe,
   waitFor,
   act,
-} from '../../util/test-utils.js';
-import type { PlainDateRange } from '../../util/date.js';
+} from '../../util/test-utils';
+import type { PlainDateRange } from '../../util/date';
 
-import { Calendar } from './Calendar.js';
+import { Calendar } from './Calendar';
 
 vi.mock('../../util/date.js', async (importOriginal) => {
   const module = await importOriginal<typeof import('../../util/date.js')>();

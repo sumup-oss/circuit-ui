@@ -21,9 +21,9 @@ import {
   axe,
   waitFor,
   screen,
-} from '../../util/test-utils.js';
+} from '../../util/test-utils';
 
-import { SidePanel, type SidePanelProps } from './SidePanel.js';
+import { SidePanel, type SidePanelProps } from './SidePanel';
 
 describe('SidePanel', () => {
   const baseProps: SidePanelProps = {

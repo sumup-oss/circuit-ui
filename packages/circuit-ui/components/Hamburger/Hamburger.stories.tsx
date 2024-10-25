@@ -15,7 +15,7 @@
 
 import { useState } from 'react';
 
-import { Hamburger, type HamburgerProps } from './Hamburger.js';
+import { Hamburger, type HamburgerProps } from './Hamburger';
 
 export default {
   title: 'Navigation/Hamburger',

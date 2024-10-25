@@ -23,13 +23,13 @@ import {
   type Ref,
 } from 'react';
 
-import type { ReturnType } from '../../types/return-type.js';
-import type { ClickEvent } from '../../types/events.js';
-import type { AsPropType } from '../../types/prop-types.js';
-import { Body, type BodyProps } from '../Body/Body.js';
-import { useComponents } from '../ComponentsContext/index.js';
-import { clsx } from '../../styles/clsx.js';
-import { utilClasses } from '../../styles/utility.js';
+import type { ReturnType } from '../../types/return-type';
+import type { ClickEvent } from '../../types/events';
+import type { AsPropType } from '../../types/prop-types';
+import { Body, type BodyProps } from '../Body/Body';
+import { useComponents } from '../ComponentsContext/index';
+import { clsx } from '../../styles/clsx';
+import { utilClasses } from '../../styles/utility';
 
 import classes from './Anchor.module.css';
 

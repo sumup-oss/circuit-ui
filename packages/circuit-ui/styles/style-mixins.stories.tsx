@@ -17,10 +17,10 @@
 
 import { userEvent } from '@storybook/test';
 
-import { Stack } from '../../../.storybook/components/index.js';
-import { Button } from '../components/Button/index.js';
+import { Stack } from '../../../.storybook/components/index';
+import { Button } from '../components/Button/index';
 
-import styled from './styled.js';
+import styled from './styled';
 import {
   spacing,
   shadow,
@@ -32,7 +32,7 @@ import {
   hideScrollbar,
   center,
   type SpacingValue,
-} from './style-mixins.js';
+} from './style-mixins';
 
 export default {
   title: 'Features/Style Mixins',

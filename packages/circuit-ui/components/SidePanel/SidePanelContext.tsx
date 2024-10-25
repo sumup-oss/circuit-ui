@@ -25,17 +25,17 @@ import {
 } from 'react';
 import ReactModal, { type Props as ReactModalProps } from 'react-modal';
 
-import { useMedia } from '../../hooks/useMedia/index.js';
-import { useStack, type StackItem } from '../../hooks/useStack/index.js';
-import type { Require } from '../../types/util.js';
-import { warn } from '../../util/logger.js';
-import { promisify } from '../../util/promises.js';
-import { clsx } from '../../styles/clsx.js';
-import { useLatest } from '../../hooks/useLatest/useLatest.js';
+import { useMedia } from '../../hooks/useMedia/index';
+import { useStack, type StackItem } from '../../hooks/useStack/index';
+import type { Require } from '../../types/util';
+import { warn } from '../../util/logger';
+import { promisify } from '../../util/promises';
+import { clsx } from '../../styles/clsx';
+import { useLatest } from '../../hooks/useLatest/useLatest';
 
-import { SidePanel, type SidePanelProps } from './SidePanel.js';
-import { TRANSITION_DURATION } from './constants.js';
-import type { SidePanelHookProps } from './useSidePanel.js';
+import { SidePanel, type SidePanelProps } from './SidePanel';
+import { TRANSITION_DURATION } from './constants';
+import type { SidePanelHookProps } from './useSidePanel';
 import classes from './SidePanelContext.module.css';
 
 // It is important for users of screen readers that other page content be hidden

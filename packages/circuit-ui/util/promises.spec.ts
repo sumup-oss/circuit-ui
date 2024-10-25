@@ -15,7 +15,7 @@
 
 import { describe, it, expect } from 'vitest';
 
-import { promisify } from './promises.js';
+import { promisify } from './promises';
 
 describe('promises', () => {
   describe('promisify', () => {

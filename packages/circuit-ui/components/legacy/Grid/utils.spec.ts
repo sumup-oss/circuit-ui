@@ -16,7 +16,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { light as theme } from '@sumup-oss/design-tokens';
 
-import { composeBreakpoints, normalizeToNumber, wrapStyles } from './utils.js';
+import { composeBreakpoints, normalizeToNumber, wrapStyles } from './utils';
 
 describe('Grid utils', () => {
   describe('normalizeToNumber', () => {

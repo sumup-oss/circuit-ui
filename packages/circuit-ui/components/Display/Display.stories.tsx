@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Display, type DisplayProps } from './Display.jsx';
+import { Display, type DisplayProps } from './Display';
 
 export default {
   title: 'Typography/Display',

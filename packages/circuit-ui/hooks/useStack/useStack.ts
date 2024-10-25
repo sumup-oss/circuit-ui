@@ -15,7 +15,7 @@
 
 import { useEffect, useReducer, type Dispatch } from 'react';
 
-import { last } from '../../util/helpers.js';
+import { last } from '../../util/helpers';
 
 type Id = string | number;
 type Transition = {

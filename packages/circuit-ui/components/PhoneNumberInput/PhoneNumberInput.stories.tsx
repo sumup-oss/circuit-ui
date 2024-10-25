@@ -22,12 +22,12 @@ import {
 import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 
-import { Stack } from '../../../../.storybook/components/index.js';
+import { Stack } from '../../../../.storybook/components/index';
 
 import {
   PhoneNumberInput,
   type PhoneNumberInputProps,
-} from './PhoneNumberInput.js';
+} from './PhoneNumberInput';
 
 export default {
   title: 'Forms/PhoneNumberInput',

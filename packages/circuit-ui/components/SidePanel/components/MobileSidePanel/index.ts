@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { MobileSidePanel } from './MobileSidePanel.js';
+export { MobileSidePanel } from './MobileSidePanel';

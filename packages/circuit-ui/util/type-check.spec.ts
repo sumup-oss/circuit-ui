@@ -23,7 +23,7 @@ import {
   isNumber,
   isObject,
   isString,
-} from './type-check.js';
+} from './type-check';
 
 describe('type check', () => {
   describe('isFunction', () => {

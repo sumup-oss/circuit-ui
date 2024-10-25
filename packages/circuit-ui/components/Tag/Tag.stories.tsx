@@ -16,7 +16,7 @@
 import { action } from '@storybook/addon-actions';
 import { Checkmark } from '@sumup-oss/icons';
 
-import { Tag, type TagProps } from './Tag.js';
+import { Tag, type TagProps } from './Tag';
 
 export default {
   title: 'Components/Tag',

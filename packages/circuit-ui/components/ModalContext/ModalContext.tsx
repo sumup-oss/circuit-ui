@@ -24,11 +24,11 @@ import {
 } from 'react';
 import ReactModal, { type Props as ReactModalProps } from 'react-modal';
 
-import { useStack, type StackItem } from '../../hooks/useStack/index.js';
-import { last } from '../../util/helpers.js';
-import { warn } from '../../util/logger.js';
+import { useStack, type StackItem } from '../../hooks/useStack/index';
+import { last } from '../../util/helpers';
+import { warn } from '../../util/logger';
 
-import type { BaseModalProps, ModalComponent } from './types.js';
+import type { BaseModalProps, ModalComponent } from './types';
 import classes from './ModalContext.module.css';
 
 const PORTAL_CLASS_NAME = classes['cui-modal-portal'];

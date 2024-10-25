@@ -15,12 +15,12 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { axe, render, screen, userEvent } from '../../util/test-utils.js';
+import { axe, render, screen, userEvent } from '../../util/test-utils';
 
-import { TabPanel } from './components/TabPanel/index.js';
-import { TabList } from './components/TabList/index.js';
-import { Tab } from './components/Tab/index.js';
-import { Tabs } from './Tabs.js';
+import { TabPanel } from './components/TabPanel/index';
+import { TabList } from './components/TabList/index';
+import { Tab } from './components/Tab/index';
+import { Tabs } from './Tabs';
 
 describe('Tabs', () => {
   it('should switch panels on tab click', async () => {

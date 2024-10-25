@@ -19,7 +19,7 @@ import { describe, expect, it } from 'vitest';
 import { css } from '@emotion/react';
 import { light } from '@sumup-oss/design-tokens';
 
-import { render } from '../util/test-utils.js';
+import { render } from '../util/test-utils';
 
 import {
   cx,
@@ -34,7 +34,7 @@ import {
   hideScrollbar,
   inputOutline,
   center,
-} from './style-mixins.js';
+} from './style-mixins';
 
 describe('Style helpers', () => {
   const byte = () => css`

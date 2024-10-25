@@ -13,10 +13,10 @@
  * limitations under the License.
  */
 
-import { Body } from '../../components/Body/index.js';
-import { Button } from '../../components/Button/index.js';
+import { Body } from '../../components/Body/index';
+import { Button } from '../../components/Button/index';
 
-import { useCollapsible, type CollapsibleOptions } from './useCollapsible.js';
+import { useCollapsible, type CollapsibleOptions } from './useCollapsible';
 
 export default {
   title: 'Hooks/useCollapsible',

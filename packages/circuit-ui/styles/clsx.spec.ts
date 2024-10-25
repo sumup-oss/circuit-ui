@@ -15,7 +15,7 @@
 
 import { describe, it, expect } from 'vitest';
 
-import { clsx } from './clsx.js';
+import { clsx } from './clsx';
 
 describe('clsx', () => {
   it('should concatenate classnames', () => {

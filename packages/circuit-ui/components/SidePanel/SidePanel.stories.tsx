@@ -16,22 +16,22 @@
 import { useState } from 'react';
 import { within, userEvent } from '@storybook/test';
 
-import { modes } from '../../../../.storybook/modes.js';
-import { Body } from '../Body/index.js';
-import { Button } from '../Button/index.js';
-import { ListItemGroup } from '../ListItemGroup/index.js';
-import { ModalProvider } from '../ModalContext/index.js';
-import { TopNavigation } from '../TopNavigation/index.js';
-import { baseArgs as topNavigationProps } from '../TopNavigation/TopNavigation.stories.js';
-import { SideNavigation } from '../SideNavigation/index.js';
-import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories.js';
+import { modes } from '../../../../.storybook/modes';
+import { Body } from '../Body/index';
+import { Button } from '../Button/index';
+import { ListItemGroup } from '../ListItemGroup/index';
+import { ModalProvider } from '../ModalContext/index';
+import { TopNavigation } from '../TopNavigation/index';
+import { baseArgs as topNavigationProps } from '../TopNavigation/TopNavigation.stories';
+import { SideNavigation } from '../SideNavigation/index';
+import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories';
 
-import { SidePanelProvider } from './SidePanelContext.js';
+import { SidePanelProvider } from './SidePanelContext';
 import {
   useSidePanel,
   type ChildrenRenderProps,
   type SidePanelHookProps,
-} from './useSidePanel.js';
+} from './useSidePanel';
 
 export default {
   title: 'Navigation/SidePanel',

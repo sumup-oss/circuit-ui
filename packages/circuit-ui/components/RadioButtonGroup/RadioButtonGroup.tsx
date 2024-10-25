@@ -27,18 +27,18 @@ import {
   RadioButton,
   RadioButtonGroupContext,
   type RadioButtonProps,
-} from '../RadioButton/RadioButton.js';
+} from '../RadioButton/RadioButton';
 import {
   FieldLabelText,
   FieldValidationHint,
   FieldLegend,
   FieldSet,
-} from '../Field/index.js';
+} from '../Field/index';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
-} from '../../util/errors.js';
-import { isEmpty } from '../../util/helpers.js';
+} from '../../util/errors';
+import { isEmpty } from '../../util/helpers';
 
 export interface RadioButtonGroupProps
   extends Omit<

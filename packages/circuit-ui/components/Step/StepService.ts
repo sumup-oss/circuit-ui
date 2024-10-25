@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { eachFn } from '../../util/helpers.js';
+import { eachFn } from '../../util/helpers';
 
-import type { Actions, InternalState, PropGetters } from './types.js';
+import type { Actions, InternalState, PropGetters } from './types';
 
 type Data = {
   step?: number;

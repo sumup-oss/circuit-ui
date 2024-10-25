@@ -15,7 +15,7 @@
 
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 
-import { chunk, clamp, eachFn, isEmpty, last, throttle } from './helpers.js';
+import { chunk, clamp, eachFn, isEmpty, last, throttle } from './helpers';
 
 describe('helpers', () => {
   describe('clamp', () => {

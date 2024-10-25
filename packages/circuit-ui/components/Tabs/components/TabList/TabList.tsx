@@ -15,8 +15,8 @@
 
 import { Children, type HTMLAttributes } from 'react';
 
-import { clsx } from '../../../../styles/clsx.js';
-import { utilClasses } from '../../../../styles/utility.js';
+import { clsx } from '../../../../styles/clsx';
+import { utilClasses } from '../../../../styles/utility';
 
 import classes from './TabList.module.css';
 

@@ -24,16 +24,16 @@ import {
 } from 'react';
 import { Checkmark } from '@sumup-oss/icons';
 
-import { FieldValidationHint, FieldWrapper } from '../Field/index.js';
+import { FieldValidationHint, FieldWrapper } from '../Field/index';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
-} from '../../util/errors.js';
-import { applyMultipleRefs } from '../../util/refs.js';
-import { clsx } from '../../styles/clsx.js';
-import { utilClasses } from '../../styles/utility.js';
+} from '../../util/errors';
+import { applyMultipleRefs } from '../../util/refs';
+import { clsx } from '../../styles/clsx';
+import { utilClasses } from '../../styles/utility';
 
-import { IndeterminateIcon } from './IndeterminateIcon.js';
+import { IndeterminateIcon } from './IndeterminateIcon';
 import classes from './Checkbox.module.css';
 
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {

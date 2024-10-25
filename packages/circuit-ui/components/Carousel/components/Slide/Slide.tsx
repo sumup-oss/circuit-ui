@@ -15,10 +15,10 @@
 
 import type { HTMLAttributes, ReactNode } from 'react';
 
-import { ANIMATION_DURATION, SLIDE_DIRECTIONS } from '../../constants.js';
-import { clsx } from '../../../../styles/clsx.js';
+import { ANIMATION_DURATION, SLIDE_DIRECTIONS } from '../../constants';
+import { clsx } from '../../../../styles/clsx';
 
-import * as SlideService from './SlideService.js';
+import * as SlideService from './SlideService';
 import classes from './Slide.module.css';
 
 export interface SlideProps extends HTMLAttributes<HTMLDivElement> {

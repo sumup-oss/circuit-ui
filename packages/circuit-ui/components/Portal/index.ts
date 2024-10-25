@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { Portal } from './Portal.js';
+export { Portal } from './Portal';
 
-export type { PortalProps } from './Portal.js';
+export type { PortalProps } from './Portal';

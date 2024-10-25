@@ -16,10 +16,10 @@
 import { useState } from 'react';
 import { SumUpCard, Confirm, Alert } from '@sumup-oss/icons';
 
-import { Stack } from '../../../../.storybook/components/index.js';
-import { Body } from '../Body/index.js';
+import { Stack } from '../../../../.storybook/components/index';
+import { Body } from '../Body/index';
 
-import { ListItemGroup, type ListItemGroupProps } from './ListItemGroup.js';
+import { ListItemGroup, type ListItemGroupProps } from './ListItemGroup';
 
 interface Item {
   id: number;

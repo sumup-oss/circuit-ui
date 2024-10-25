@@ -18,8 +18,8 @@
 import { Children, type ReactElement } from 'react';
 import { css } from '@emotion/react';
 
-import styled, { type StyleProps } from '../../../styles/styled.js';
-import { clearfix } from '../../../styles/style-mixins.js';
+import styled, { type StyleProps } from '../../../styles/styled';
+import { clearfix } from '../../../styles/style-mixins';
 
 export interface InlineElementsProps {
   /**

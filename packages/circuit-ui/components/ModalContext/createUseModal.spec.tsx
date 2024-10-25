@@ -16,11 +16,11 @@
 import { describe, expect, it, vi } from 'vitest';
 import type { PropsWithChildren } from 'react';
 
-import { renderHook, act } from '../../util/test-utils.js';
+import { renderHook, act } from '../../util/test-utils';
 
-import { createUseModal } from './createUseModal.js';
-import { ModalContext } from './ModalContext.js';
-import type { ModalComponent } from './types.js';
+import { createUseModal } from './createUseModal';
+import { ModalContext } from './ModalContext';
+import type { ModalComponent } from './types';
 
 const Modal: ModalComponent = ({ onClose }) => (
   <div role="dialog">

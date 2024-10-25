@@ -16,14 +16,14 @@
 import { userEvent, within } from '@storybook/test';
 import { ArrowSlanted, Info } from '@sumup-oss/icons';
 
-import { Stack } from '../../../../.storybook/components/index.js';
-import { IconButton } from '../Button/index.js';
+import { Stack } from '../../../../.storybook/components/index';
+import { IconButton } from '../Button/index';
 
 import {
   Toggletip,
   type ToggletipProps,
   type ToggletipReferenceProps,
-} from './Toggletip.js';
+} from './Toggletip';
 
 export default {
   title: 'Components/Toggletip',

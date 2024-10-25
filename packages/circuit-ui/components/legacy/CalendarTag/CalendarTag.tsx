@@ -18,11 +18,11 @@
 import { Component, createRef } from 'react';
 import type { Moment } from 'moment';
 
-import type { ClickEvent } from '../../../types/events.js';
-import styled from '../../../styles/styled.js';
-import { RangePickerController } from '../Calendar/index.js';
-import { Tag } from '../../Tag/index.js';
-import { START_DATE } from '../Calendar/constants.js';
+import type { ClickEvent } from '../../../types/events';
+import styled from '../../../styles/styled';
+import { RangePickerController } from '../Calendar/index';
+import { Tag } from '../../Tag/index';
+import { START_DATE } from '../Calendar/constants';
 
 export interface CalendarTagProps {
   /**

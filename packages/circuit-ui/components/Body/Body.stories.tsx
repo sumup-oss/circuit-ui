@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
-import { BodyLarge } from '../BodyLarge/BodyLarge.js';
+import { BodyLarge } from '../BodyLarge/BodyLarge';
 
-import type { BodyProps } from './Body.js';
+import type { BodyProps } from './Body';
 
-import { Body } from './index.js';
+import { Body } from './index';
 
 const content =
   'An electronic circuit is composed of individual electronic components, such as resistors, transistors, capacitors, inductors and diodes, connected by conductive wires or traces through which electric current can flow.';

@@ -15,12 +15,12 @@
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { render, axe, screen } from '../../../../util/test-utils.js';
+import { render, axe, screen } from '../../../../util/test-utils';
 
 import {
   DesktopSidePanel,
   type DesktopSidePanelProps,
-} from './DesktopSidePanel.js';
+} from './DesktopSidePanel';
 
 describe('DesktopSidePanel', () => {
   const baseProps: DesktopSidePanelProps = {

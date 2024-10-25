@@ -17,14 +17,14 @@
 
 import { Component, createRef, type HTMLAttributes, type UIEvent } from 'react';
 
-import { isNil } from '../../util/type-check.js';
-import { throttle } from '../../util/helpers.js';
-import { clsx } from '../../styles/clsx.js';
+import { isNil } from '../../util/type-check';
+import { throttle } from '../../util/helpers';
+import { clsx } from '../../styles/clsx';
 
-import { TableHead } from './components/TableHead/index.js';
-import { TableBody } from './components/TableBody/index.js';
-import { defaultSortBy, getSortDirection } from './utils.js';
-import type { Direction, Row, HeaderCell } from './types.js';
+import { TableHead } from './components/TableHead/index';
+import { TableBody } from './components/TableBody/index';
+import { defaultSortBy, getSortDirection } from './utils';
+import type { Direction, Row, HeaderCell } from './types';
 import classes from './Table.module.css';
 
 export interface TableProps extends HTMLAttributes<HTMLDivElement> {

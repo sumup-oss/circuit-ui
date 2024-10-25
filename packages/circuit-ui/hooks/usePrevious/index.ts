@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { usePrevious } from './usePrevious.js';
+export { usePrevious } from './usePrevious';

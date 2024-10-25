@@ -16,9 +16,9 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe, screen, userEvent } from '../../util/test-utils.js';
+import { render, axe, screen, userEvent } from '../../util/test-utils';
 
-import { Tooltip, type TooltipProps } from './Tooltip.js';
+import { Tooltip, type TooltipProps } from './Tooltip';
 
 const baseProps: TooltipProps = {
   label: 'Label',

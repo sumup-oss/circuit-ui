@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import type { TableHeaderProps } from './TableHeader.js';
+import type { TableHeaderProps } from './TableHeader';
 
-import { TableHeader } from './index.js';
+import { TableHeader } from './index';
 
 export default {
   title: 'Components/Table/TableHeader',

@@ -15,9 +15,9 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { render } from '../../../util/test-utils.js';
+import { render } from '../../../util/test-utils';
 
-import { RangePicker } from './index.js';
+import { RangePicker } from './index';
 
 describe('RangePicker', () => {
   /**

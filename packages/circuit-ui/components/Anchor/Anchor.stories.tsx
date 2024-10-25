@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Anchor, type AnchorProps } from './Anchor.js';
+import { Anchor, type AnchorProps } from './Anchor';
 
 export default {
   title: 'Typography/Anchor',

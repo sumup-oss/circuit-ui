@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { Tab } from './Tab.js';
+export { Tab } from './Tab';
 
-export type { TabProps } from './Tab.js';
+export type { TabProps } from './Tab';

@@ -26,11 +26,11 @@ import {
   type SwipeDirections,
 } from 'react-swipeable';
 
-import { Image } from '../../Image/index.js';
-import { Button } from '../../Button/index.js';
-import { Step, type StepProps } from '../Step.js';
-import type { Actions } from '../types.js';
-import { clsx } from '../../../styles/clsx.js';
+import { Image } from '../../Image/index';
+import { Button } from '../../Button/index';
+import { Step, type StepProps } from '../Step';
+import type { Actions } from '../types';
+import { clsx } from '../../../styles/clsx';
 
 import classes from './YesOrNoSlider.module.css';
 

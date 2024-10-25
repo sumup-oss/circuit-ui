@@ -18,16 +18,16 @@
 import { useEffect, useId, useState, type UIEventHandler } from 'react';
 import type { Props as ReactModalProps } from 'react-modal';
 
-import { isFunction } from '../../util/type-check.js';
+import { isFunction } from '../../util/type-check';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
-} from '../../util/errors.js';
+} from '../../util/errors';
 
-import { MobileSidePanel } from './components/MobileSidePanel/index.js';
-import { DesktopSidePanel } from './components/DesktopSidePanel/index.js';
-import { Header } from './components/Header/index.js';
-import type { SidePanelHookProps, OnBack, OnClose } from './useSidePanel.js';
+import { MobileSidePanel } from './components/MobileSidePanel/index';
+import { DesktopSidePanel } from './components/DesktopSidePanel/index';
+import { Header } from './components/Header/index';
+import type { SidePanelHookProps, OnBack, OnClose } from './useSidePanel';
 import contextClasses from './SidePanelContext.module.css';
 import classes from './SidePanel.module.css';
 

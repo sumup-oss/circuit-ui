@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { Numeral } from './Numeral.js';
+export { Numeral } from './Numeral';
 
-export type { NumeralProps } from './Numeral.js';
+export type { NumeralProps } from './Numeral';

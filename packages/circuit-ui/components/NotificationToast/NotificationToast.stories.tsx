@@ -17,15 +17,15 @@
 import { screen, userEvent, within } from '@storybook/test';
 import isChromatic from 'chromatic/isChromatic';
 
-import { Stack } from '../../../../.storybook/components/index.js';
-import { Button } from '../Button/index.js';
-import { ToastProvider } from '../ToastContext/index.js';
+import { Stack } from '../../../../.storybook/components/index';
+import { Button } from '../Button/index';
+import { ToastProvider } from '../ToastContext/index';
 
 import {
   useNotificationToast,
   NotificationToast,
   type NotificationToastProps,
-} from './NotificationToast.js';
+} from './NotificationToast';
 
 export default {
   title: 'Notification/NotificationToast',

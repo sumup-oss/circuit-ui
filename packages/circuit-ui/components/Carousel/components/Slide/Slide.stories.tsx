@@ -13,10 +13,10 @@
  * limitations under the License.
  */
 
-import { Headline } from '../../../Headline/index.js';
-import { Image } from '../../../Image/index.js';
+import { Headline } from '../../../Headline/index';
+import { Image } from '../../../Image/index';
 
-import { Slide, type SlideProps } from './Slide.js';
+import { Slide, type SlideProps } from './Slide';
 
 export default {
   title: 'Components/Carousel/Slide',

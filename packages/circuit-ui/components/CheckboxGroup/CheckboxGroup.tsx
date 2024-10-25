@@ -23,18 +23,18 @@ import {
   type Ref,
 } from 'react';
 
-import { Checkbox, type CheckboxProps } from '../Checkbox/Checkbox.js';
+import { Checkbox, type CheckboxProps } from '../Checkbox/Checkbox';
 import {
   FieldLabelText,
   FieldValidationHint,
   FieldSet,
   FieldLegend,
-} from '../Field/index.js';
+} from '../Field/index';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
-} from '../../util/errors.js';
-import { isEmpty } from '../../util/helpers.js';
+} from '../../util/errors';
+import { isEmpty } from '../../util/helpers';
 
 import classes from './CheckboxGroup.module.css';
 

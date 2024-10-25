@@ -23,17 +23,17 @@ import {
   type RefObject,
 } from 'react';
 
-import { useAnimation } from '../../hooks/useAnimation/index.js';
-import { Body } from '../Body/index.js';
-import { CloseButton } from '../CloseButton/index.js';
-import type { ClickEvent } from '../../types/events.js';
-import { type BaseToastProps, createUseToast } from '../ToastContext/index.js';
-import { utilClasses } from '../../styles/utility.js';
-import { clsx } from '../../styles/clsx.js';
+import { useAnimation } from '../../hooks/useAnimation/index';
+import { Body } from '../Body/index';
+import { CloseButton } from '../CloseButton/index';
+import type { ClickEvent } from '../../types/events';
+import { type BaseToastProps, createUseToast } from '../ToastContext/index';
+import { utilClasses } from '../../styles/utility';
+import { clsx } from '../../styles/clsx';
 import {
   NOTIFICATION_ICONS,
   type NotificationVariant,
-} from '../Notification/constants.js';
+} from '../Notification/constants';
 
 import classes from './NotificationToast.module.css';
 

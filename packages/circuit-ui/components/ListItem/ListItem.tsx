@@ -24,13 +24,13 @@ import {
 } from 'react';
 import { ChevronRight, type IconComponentType } from '@sumup-oss/icons';
 
-import type { ClickEvent } from '../../types/events.js';
-import type { AsPropType } from '../../types/prop-types.js';
-import { isFunction, isString } from '../../util/type-check.js';
-import { CircuitError } from '../../util/errors.js';
-import { useComponents } from '../ComponentsContext/index.js';
-import { Body } from '../Body/index.js';
-import { clsx } from '../../styles/clsx.js';
+import type { ClickEvent } from '../../types/events';
+import type { AsPropType } from '../../types/prop-types';
+import { isFunction, isString } from '../../util/type-check';
+import { CircuitError } from '../../util/errors';
+import { useComponents } from '../ComponentsContext/index';
+import { Body } from '../Body/index';
+import { clsx } from '../../styles/clsx';
 
 import classes from './ListItem.module.css';
 

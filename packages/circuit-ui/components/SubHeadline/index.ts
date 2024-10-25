@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { SubHeadline } from './SubHeadline.js';
+export { SubHeadline } from './SubHeadline';
 
-export type { SubHeadlineProps } from './SubHeadline.js';
+export type { SubHeadlineProps } from './SubHeadline';

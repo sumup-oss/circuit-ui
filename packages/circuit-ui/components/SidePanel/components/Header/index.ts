@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { Header } from './Header.js';
+export { Header } from './Header';

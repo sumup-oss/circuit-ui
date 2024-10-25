@@ -30,10 +30,10 @@ import {
   userEvent as baseUserEvent,
   fireEvent,
   screen,
-} from '../../util/test-utils.js';
+} from '../../util/test-utils';
 
-import { ModalProvider, ModalContext } from './ModalContext.js';
-import type { ModalComponent } from './types.js';
+import { ModalProvider, ModalContext } from './ModalContext';
+import type { ModalComponent } from './types';
 
 const Modal: ModalComponent = ({ onClose }) => (
   <div role="dialog" aria-label="Modal">

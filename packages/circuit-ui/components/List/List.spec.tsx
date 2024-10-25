@@ -16,9 +16,9 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe } from '../../util/test-utils.js';
+import { render, axe } from '../../util/test-utils';
 
-import { List } from './List.js';
+import { List } from './List';
 
 describe('List', () => {
   it('should merge a custom class name with the default ones', () => {

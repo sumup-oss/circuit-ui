@@ -22,18 +22,18 @@ import {
 } from 'react';
 import { ChevronDown } from '@sumup-oss/icons';
 
-import type { ReturnType } from '../../types/return-type.js';
+import type { ReturnType } from '../../types/return-type';
 import {
   FieldWrapper,
   FieldLabel,
   FieldLabelText,
   FieldValidationHint,
-} from '../Field/index.js';
+} from '../Field/index';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
-} from '../../util/errors.js';
-import { clsx } from '../../styles/clsx.js';
+} from '../../util/errors';
+import { clsx } from '../../styles/clsx';
 
 import classes from './Select.module.css';
 

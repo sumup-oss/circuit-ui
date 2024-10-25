@@ -21,10 +21,10 @@ import {
   userEvent,
   render,
   screen,
-} from '../../util/test-utils.js';
+} from '../../util/test-utils';
 
-import { TextArea, type TextAreaProps } from './TextArea.js';
-import { useAutoExpand } from './useAutoExpand.js';
+import { TextArea, type TextAreaProps } from './TextArea';
+import { useAutoExpand } from './useAutoExpand';
 
 const baseTextareaProps: TextAreaProps = {
   label: 'Test',

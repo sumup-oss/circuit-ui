@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-export { Grid } from './Grid/Grid.js';
-export { Row } from './Row/Row.js';
-export { Col } from './Col/Col.js';
+export { Grid } from './Grid/Grid';
+export { Row } from './Row/Row';
+export { Col } from './Col/Col';
 
-export type { ColProps } from './Col/Col.js';
+export type { ColProps } from './Col/Col';

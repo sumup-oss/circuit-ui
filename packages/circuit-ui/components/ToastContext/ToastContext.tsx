@@ -23,10 +23,10 @@ import {
   type ReactNode,
 } from 'react';
 
-import { useStack, type StackItem } from '../../hooks/useStack/index.js';
-import { clsx } from '../../styles/clsx.js';
+import { useStack, type StackItem } from '../../hooks/useStack/index';
+import { clsx } from '../../styles/clsx';
 
-import type { BaseToastProps, ToastComponent } from './types.js';
+import type { BaseToastProps, ToastComponent } from './types';
 import classes from './ToastContext.module.css';
 
 const DEFAULT_TOAST_DURATION = 6000;

@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { axe, render, screen } from '../../../../util/test-utils.js';
+import { axe, render, screen } from '../../../../util/test-utils';
 
-import { Status } from './Status.js';
+import { Status } from './Status';
 
 describe('Status', () => {
   it('should render the status', () => {

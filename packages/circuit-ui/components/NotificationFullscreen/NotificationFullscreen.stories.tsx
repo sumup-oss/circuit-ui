@@ -18,7 +18,7 @@ import { action } from '@storybook/addon-actions';
 import {
   NotificationFullscreen,
   type NotificationFullscreenProps,
-} from './NotificationFullscreen.js';
+} from './NotificationFullscreen';
 
 export default {
   title: 'Notification/NotificationFullscreen',

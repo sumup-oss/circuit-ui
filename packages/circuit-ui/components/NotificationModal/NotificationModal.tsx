@@ -18,15 +18,15 @@
 import type { FC, ReactNode, SVGProps } from 'react';
 import ReactModal from 'react-modal';
 
-import type { ClickEvent } from '../../types/events.js';
-import type { ModalComponent, BaseModalProps } from '../ModalContext/index.js';
-import { Image, type ImageProps } from '../Image/index.js';
-import { Headline } from '../Headline/index.js';
-import { Body } from '../Body/index.js';
-import type { ButtonProps } from '../Button/index.js';
-import { ButtonGroup, type ButtonGroupProps } from '../ButtonGroup/index.js';
-import { CloseButton } from '../CloseButton/index.js';
-import { CircuitError } from '../../util/errors.js';
+import type { ClickEvent } from '../../types/events';
+import type { ModalComponent, BaseModalProps } from '../ModalContext/index';
+import { Image, type ImageProps } from '../Image/index';
+import { Headline } from '../Headline/index';
+import { Body } from '../Body/index';
+import type { ButtonProps } from '../Button/index';
+import { ButtonGroup, type ButtonGroupProps } from '../ButtonGroup/index';
+import { CloseButton } from '../CloseButton/index';
+import { CircuitError } from '../../util/errors';
 
 import classes from './NotificationModal.module.css';
 

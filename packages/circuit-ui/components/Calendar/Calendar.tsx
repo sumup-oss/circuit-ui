@@ -30,25 +30,25 @@ import {
 import { Temporal } from 'temporal-polyfill';
 import { ArrowLeft, ArrowRight } from '@sumup-oss/icons';
 
-import { utilClasses } from '../../styles/utility.js';
-import { getBrowserLocale, type Locale } from '../../util/i18n.js';
-import { IconButton } from '../Button/IconButton.js';
-import { Headline } from '../Headline/Headline.js';
-import { clsx } from '../../styles/clsx.js';
+import { utilClasses } from '../../styles/utility';
+import { getBrowserLocale, type Locale } from '../../util/i18n';
+import { IconButton } from '../Button/IconButton';
+import { Headline } from '../Headline/Headline';
+import { clsx } from '../../styles/clsx';
 import {
   getFirstDateOfWeek,
   getLastDateOfWeek,
   type FirstDayOfWeek,
   type PlainDateRange,
-} from '../../util/date.js';
+} from '../../util/date';
 import {
   AccessibilityError,
   CircuitError,
   isSufficientlyLabelled,
-} from '../../util/errors.js';
-import { applyMultipleRefs } from '../../util/refs.js';
-import { useSwipe } from '../../hooks/useSwipe/useSwipe.js';
-import { last } from '../../util/helpers.js';
+} from '../../util/errors';
+import { applyMultipleRefs } from '../../util/refs';
+import { useSwipe } from '../../hooks/useSwipe/useSwipe';
+import { last } from '../../util/helpers';
 
 import {
   CalendarActionType,
@@ -60,7 +60,7 @@ import {
   initCalendar,
   isDateActive,
   isDateInMonthRange,
-} from './CalendarService.js';
+} from './CalendarService';
 import classes from './Calendar.module.css';
 
 type DateModifiers = {

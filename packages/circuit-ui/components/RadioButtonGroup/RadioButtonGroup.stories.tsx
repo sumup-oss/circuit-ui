@@ -16,13 +16,13 @@
 import type { ChangeEvent, FocusEvent } from 'react';
 import { action } from '@storybook/addon-actions';
 
-import { Stack } from '../../../../.storybook/components/index.js';
-import { RadioButton } from '../RadioButton/RadioButton.js';
+import { Stack } from '../../../../.storybook/components/index';
+import { RadioButton } from '../RadioButton/RadioButton';
 
 import {
   RadioButtonGroup,
   type RadioButtonGroupProps,
-} from './RadioButtonGroup.js';
+} from './RadioButtonGroup';
 
 export default {
   title: 'Forms/RadioButtonGroup',

@@ -15,10 +15,10 @@
 
 import { useContext, useMemo } from 'react';
 
-import { uniqueId } from '../../util/id.js';
+import { uniqueId } from '../../util/id';
 
-import { ToastContext } from './ToastContext.js';
-import type { BaseToastProps, ToastComponent } from './types.js';
+import { ToastContext } from './ToastContext';
+import type { BaseToastProps, ToastComponent } from './types';
 
 export function createUseToast<T extends BaseToastProps>(
   component: ToastComponent<T>,

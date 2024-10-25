@@ -22,12 +22,12 @@ import {
   axe,
   screen,
   type RenderFn,
-} from '../../../../util/test-utils.js';
+} from '../../../../util/test-utils';
 
 import {
   DesktopNavigation,
   type DesktopNavigationProps,
-} from './DesktopNavigation.js';
+} from './DesktopNavigation';
 
 describe('DesktopNavigation', () => {
   function renderDesktopNavigation<T>(

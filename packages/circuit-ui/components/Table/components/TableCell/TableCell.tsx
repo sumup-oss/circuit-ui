@@ -15,8 +15,8 @@
 
 import { forwardRef, type TdHTMLAttributes } from 'react';
 
-import { clsx } from '../../../../styles/clsx.js';
-import type { CellAlignment } from '../../types.js';
+import { clsx } from '../../../../styles/clsx';
+import type { CellAlignment } from '../../types';
 
 import classes from './TableCell.module.css';
 

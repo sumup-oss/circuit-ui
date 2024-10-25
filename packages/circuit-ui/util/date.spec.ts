@@ -24,7 +24,7 @@ import {
   sortDateRange,
   toPlainDate,
   type PlainDateRange,
-} from './date.js';
+} from './date';
 
 describe('CalendarService', () => {
   describe('isPlainDate', () => {

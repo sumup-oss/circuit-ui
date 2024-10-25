@@ -15,10 +15,10 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { axe, render, screen } from '../../util/test-utils.js';
+import { axe, render, screen } from '../../util/test-utils';
 
-import { Carousel } from './Carousel.js';
-import { SLIDES } from './__fixtures__/index.js';
+import { Carousel } from './Carousel';
+import { SLIDES } from './__fixtures__/index';
 
 describe('Carousel', () => {
   const baseProps = {

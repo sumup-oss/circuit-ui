@@ -16,10 +16,10 @@
 import { action } from '@storybook/addon-actions';
 import { Like, Home, LiveChat, Package, Shop } from '@sumup-oss/icons';
 
-import { modes } from '../../../../.storybook/modes.js';
-import { ModalProvider } from '../ModalContext/index.js';
+import { modes } from '../../../../.storybook/modes';
+import { ModalProvider } from '../ModalContext/index';
 
-import { SideNavigation, type SideNavigationProps } from './SideNavigation.js';
+import { SideNavigation, type SideNavigationProps } from './SideNavigation';
 
 export default {
   title: 'Navigation/SideNavigation',

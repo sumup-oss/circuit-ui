@@ -18,15 +18,15 @@
 import { forwardRef, useRef } from 'react';
 import { Search } from '@sumup-oss/icons';
 
-import { Input, type InputProps } from '../Input/index.js';
-import { CloseButton } from '../CloseButton/index.js';
+import { Input, type InputProps } from '../Input/index';
+import { CloseButton } from '../CloseButton/index';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
-} from '../../util/errors.js';
-import { applyMultipleRefs } from '../../util/refs.js';
-import { clsx } from '../../styles/clsx.js';
-import type { ClickEvent } from '../../types/events.js';
+} from '../../util/errors';
+import { applyMultipleRefs } from '../../util/refs';
+import { clsx } from '../../styles/clsx';
+import type { ClickEvent } from '../../types/events';
 
 import classes from './SearchInput.module.css';
 

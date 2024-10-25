@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import styled from '../../../styles/styled.js';
+import styled from '../../../styles/styled';
 
 export const TooltipContainer = styled.div`
   position: relative;

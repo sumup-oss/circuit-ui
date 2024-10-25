@@ -22,7 +22,7 @@ import {
   type MockInstance,
 } from 'vitest';
 
-import { DEFAULT_LOCALE, getBrowserLocale } from './i18n.js';
+import { DEFAULT_LOCALE, getBrowserLocale } from './i18n';
 
 describe('i18n', () => {
   describe('getBrowserLocale', () => {

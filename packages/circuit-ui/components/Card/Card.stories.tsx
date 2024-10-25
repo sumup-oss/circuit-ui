@@ -15,12 +15,12 @@
 
 import { action } from '@storybook/addon-actions';
 
-import { Stack } from '../../../../.storybook/components/index.js';
-import { Headline } from '../Headline/index.js';
-import { Body } from '../Body/index.js';
-import { ButtonGroup } from '../ButtonGroup/index.js';
+import { Stack } from '../../../../.storybook/components/index';
+import { Headline } from '../Headline/index';
+import { Body } from '../Body/index';
+import { ButtonGroup } from '../ButtonGroup/index';
 
-import { Card, CardHeader, CardFooter } from './index.js';
+import { Card, CardHeader, CardFooter } from './index';
 
 export default {
   title: 'Components/Card',

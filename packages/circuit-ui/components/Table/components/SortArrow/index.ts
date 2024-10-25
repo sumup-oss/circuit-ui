@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { SortArrow } from './SortArrow.js';
+export { SortArrow } from './SortArrow';

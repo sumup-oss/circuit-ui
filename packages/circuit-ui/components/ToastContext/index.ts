@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-export { ToastProvider } from './ToastContext.js';
-export { createUseToast } from './createUseToast.js';
+export { ToastProvider } from './ToastContext';
+export { createUseToast } from './createUseToast';
 
-export type { ToastProviderProps } from './ToastContext.js';
+export type { ToastProviderProps } from './ToastContext';
 
-export type { BaseToastProps, ToastComponent } from './types.js';
+export type { BaseToastProps, ToastComponent } from './types';

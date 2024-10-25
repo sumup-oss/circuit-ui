@@ -15,9 +15,9 @@
 
 import ReactModal, { type Props as ReactModalProps } from 'react-modal';
 
-import { StackContext } from '../../../StackContext/index.js';
-import type { SidePanelProps } from '../../SidePanel.js';
-import { TRANSITION_DURATION } from '../../constants.js';
+import { StackContext } from '../../../StackContext/index';
+import type { SidePanelProps } from '../../SidePanel';
+import { TRANSITION_DURATION } from '../../constants';
 
 import classes from './MobileSidePanel.module.css';
 

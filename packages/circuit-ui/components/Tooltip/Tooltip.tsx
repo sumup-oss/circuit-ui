@@ -38,14 +38,14 @@ import {
 import { atom } from 'nanostores';
 import { useStore } from '@nanostores/react';
 
-import { clsx } from '../../styles/clsx.js';
-import { applyMultipleRefs } from '../../util/refs.js';
-import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
+import { clsx } from '../../styles/clsx';
+import { applyMultipleRefs } from '../../util/refs';
+import { useEscapeKey } from '../../hooks/useEscapeKey/index';
 import {
   AccessibilityError,
   CircuitError,
   isSufficientlyLabelled,
-} from '../../util/errors.js';
+} from '../../util/errors';
 
 import classes from './Tooltip.module.css';
 

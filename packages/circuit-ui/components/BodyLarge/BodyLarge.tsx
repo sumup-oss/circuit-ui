@@ -15,8 +15,8 @@
 
 import { forwardRef } from 'react';
 
-import { deprecate } from '../../util/logger.js';
-import { Body, type BodyProps } from '../Body/Body.js';
+import { deprecate } from '../../util/logger';
+import { Body, type BodyProps } from '../Body/Body';
 
 export type BodyLargeProps = Omit<BodyProps, 'size'>;
 /**

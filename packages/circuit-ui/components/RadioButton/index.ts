@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { RadioButton } from './RadioButton.js';
+export { RadioButton } from './RadioButton';
 
-export type { RadioButtonProps } from './RadioButton.js';
+export type { RadioButtonProps } from './RadioButton';

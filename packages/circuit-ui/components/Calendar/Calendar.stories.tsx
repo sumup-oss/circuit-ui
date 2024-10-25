@@ -17,10 +17,10 @@ import { useState } from 'react';
 import isChromatic from 'chromatic/isChromatic';
 import { Temporal } from 'temporal-polyfill';
 
-import { Stack } from '../../../../.storybook/components/index.js';
-import { getTodaysDate, type PlainDateRange } from '../../util/date.js';
+import { Stack } from '../../../../.storybook/components/index';
+import { getTodaysDate, type PlainDateRange } from '../../util/date';
 
-import { Calendar, type CalendarProps } from './Calendar.js';
+import { Calendar, type CalendarProps } from './Calendar';
 
 export default {
   title: 'Components/Calendar',

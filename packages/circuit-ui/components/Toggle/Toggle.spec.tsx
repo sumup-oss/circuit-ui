@@ -16,9 +16,9 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { render, screen, axe, userEvent } from '../../util/test-utils.js';
+import { render, screen, axe, userEvent } from '../../util/test-utils';
 
-import { Toggle } from './Toggle.js';
+import { Toggle } from './Toggle';
 
 const defaultProps = {
   label: 'Label',

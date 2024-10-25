@@ -23,16 +23,16 @@ import {
   type ClipboardEventHandler,
 } from 'react';
 
-import { classes as inputClasses } from '../Input/index.js';
-import type { InputElement, InputProps } from '../Input/index.js';
-import { clsx } from '../../styles/clsx.js';
+import { classes as inputClasses } from '../Input/index';
+import type { InputElement, InputProps } from '../Input/index';
+import { clsx } from '../../styles/clsx';
 import {
   FieldLabelText,
   FieldLegend,
   FieldSet,
   FieldValidationHint,
-} from '../Field/index.js';
-import { applyMultipleRefs } from '../../util/refs.js';
+} from '../Field/index';
+import { applyMultipleRefs } from '../../util/refs';
 
 import classes from './ColorInput.module.css';
 

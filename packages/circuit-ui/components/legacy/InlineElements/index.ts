@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { InlineElements } from './InlineElements.js';
+export { InlineElements } from './InlineElements';
 
-export type { InlineElementsProps } from './InlineElements.js';
+export type { InlineElementsProps } from './InlineElements';

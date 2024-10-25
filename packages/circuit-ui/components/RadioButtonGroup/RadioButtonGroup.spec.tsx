@@ -22,13 +22,13 @@ import {
   axe,
   screen,
   fireEvent,
-} from '../../util/test-utils.js';
-import { last } from '../../util/helpers.js';
+} from '../../util/test-utils';
+import { last } from '../../util/helpers';
 
 import {
   RadioButtonGroup,
   type RadioButtonGroupProps,
-} from './RadioButtonGroup.js';
+} from './RadioButtonGroup';
 
 const defaultProps: RadioButtonGroupProps = {
   label: 'label',

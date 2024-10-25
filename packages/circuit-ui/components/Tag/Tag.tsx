@@ -23,16 +23,16 @@ import {
 } from 'react';
 import type { IconComponentType } from '@sumup-oss/icons';
 
-import type { ClickEvent } from '../../types/events.js';
-import type { AsPropType } from '../../types/prop-types.js';
+import type { ClickEvent } from '../../types/events';
+import type { AsPropType } from '../../types/prop-types';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
-} from '../../util/errors.js';
-import { clsx } from '../../styles/clsx.js';
-import { utilClasses } from '../../styles/utility.js';
-import { CloseButton } from '../CloseButton/index.js';
-import { useComponents } from '../ComponentsContext/index.js';
+} from '../../util/errors';
+import { clsx } from '../../styles/clsx';
+import { utilClasses } from '../../styles/utility';
+import { CloseButton } from '../CloseButton/index';
+import { useComponents } from '../ComponentsContext/index';
 
 import classes from './Tag.module.css';
 

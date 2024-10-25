@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { SLIDE_DIRECTIONS } from '../../constants.js';
+import { SLIDE_DIRECTIONS } from '../../constants';
 
-import * as SlideService from './SlideService.js';
+import * as SlideService from './SlideService';
 
 describe('SlideService', () => {
   describe('getStackOrder', () => {

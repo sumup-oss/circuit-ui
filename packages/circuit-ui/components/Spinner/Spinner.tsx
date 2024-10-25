@@ -15,8 +15,8 @@
 
 import { forwardRef, type HTMLAttributes } from 'react';
 
-import { clsx } from '../../styles/clsx.js';
-import { deprecate } from '../../util/logger.js';
+import { clsx } from '../../styles/clsx';
+import { deprecate } from '../../util/logger';
 
 import classes from './Spinner.module.css';
 

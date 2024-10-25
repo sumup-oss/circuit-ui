@@ -16,10 +16,10 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe, userEvent, screen } from '../../util/test-utils.js';
-import type { ClickEvent } from '../../types/events.js';
+import { render, axe, userEvent, screen } from '../../util/test-utils';
+import type { ClickEvent } from '../../types/events';
 
-import { Anchor } from './Anchor.js';
+import { Anchor } from './Anchor';
 
 describe('Anchor', () => {
   const baseProps = { children: 'Anchor' };

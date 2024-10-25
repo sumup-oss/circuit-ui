@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { Headline } from './Headline.js';
+export { Headline } from './Headline';
 
-export type { HeadlineProps } from './Headline.js';
+export type { HeadlineProps } from './Headline';

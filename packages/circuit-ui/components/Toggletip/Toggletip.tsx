@@ -37,18 +37,18 @@ import {
   type Side,
 } from '@floating-ui/react-dom';
 
-import dialogPolyfill from '../../vendor/dialog-polyfill/index.js';
-import type { ClickEvent } from '../../types/events.js';
-import { clsx } from '../../styles/clsx.js';
-import { applyMultipleRefs } from '../../util/refs.js';
-import { useMedia } from '../../hooks/useMedia/index.js';
-import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
-import { useClickOutside } from '../../hooks/useClickOutside/index.js';
-import { useStackContext } from '../StackContext/index.js';
-import { CloseButton } from '../CloseButton/index.js';
-import { Headline } from '../Headline/index.js';
-import { Body } from '../Body/index.js';
-import { Button, type ButtonProps } from '../Button/index.js';
+import dialogPolyfill from '../../vendor/dialog-polyfill/index';
+import type { ClickEvent } from '../../types/events';
+import { clsx } from '../../styles/clsx';
+import { applyMultipleRefs } from '../../util/refs';
+import { useMedia } from '../../hooks/useMedia/index';
+import { useEscapeKey } from '../../hooks/useEscapeKey/index';
+import { useClickOutside } from '../../hooks/useClickOutside/index';
+import { useStackContext } from '../StackContext/index';
+import { CloseButton } from '../CloseButton/index';
+import { Headline } from '../Headline/index';
+import { Body } from '../Body/index';
+import { Button, type ButtonProps } from '../Button/index';
 
 import classes from './Toggletip.module.css';
 

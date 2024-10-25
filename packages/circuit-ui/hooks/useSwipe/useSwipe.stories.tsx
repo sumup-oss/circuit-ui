@@ -15,7 +15,7 @@
 
 import { useState, type CSSProperties } from 'react';
 
-import { useSwipe } from './useSwipe.js';
+import { useSwipe } from './useSwipe';
 
 export default {
   title: 'Hooks/useSwipe',

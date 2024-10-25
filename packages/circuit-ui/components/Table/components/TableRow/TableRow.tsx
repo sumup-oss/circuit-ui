@@ -17,8 +17,8 @@
 
 import type { HTMLAttributes } from 'react';
 
-import type { ClickEvent } from '../../../../types/events.js';
-import { clsx } from '../../../../styles/clsx.js';
+import type { ClickEvent } from '../../../../types/events';
+import { clsx } from '../../../../styles/clsx';
 
 import classes from './TableRow.module.css';
 

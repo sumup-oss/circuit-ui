@@ -21,11 +21,11 @@ import { ArrowRight, ArrowLeft, Close } from '@sumup-oss/icons';
 import { DateRangePicker } from 'react-dates';
 import type { DateRangePickerShape } from 'react-dates';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import 'react-dates/initialize.js';
+import 'react-dates/initialize';
 
-import styled from '../../../styles/styled.js';
+import styled from '../../../styles/styled';
 
-import { CalendarWrapper } from './components/index.js';
+import { CalendarWrapper } from './components/index';
 
 const ArrowIcon = styled(ArrowRight)`
   color: var(--cui-fg-normal);

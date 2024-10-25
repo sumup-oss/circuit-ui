@@ -13,16 +13,16 @@
  * limitations under the License.
  */
 
-import type { TableProps } from './Table.js';
+import type { TableProps } from './Table';
 import type {
   Direction as TableSortDirection,
   SortByValue as TableSortByValue,
   RowCell as TableRowCell,
   HeaderCell as TableHeaderCell,
   Row as TableRow,
-} from './types.js';
+} from './types';
 
-export { Table } from './Table.js';
+export { Table } from './Table';
 
 /**
  * @deprecated

@@ -16,9 +16,9 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe, screen } from '../../util/test-utils.js';
+import { render, axe, screen } from '../../util/test-utils';
 
-import { TextArea } from './TextArea.js';
+import { TextArea } from './TextArea';
 
 describe('TextArea', () => {
   it('should merge a custom class name with the default ones', () => {

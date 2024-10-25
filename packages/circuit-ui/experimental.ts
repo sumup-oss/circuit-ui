@@ -17,12 +17,12 @@ export {
   Tooltip,
   type TooltipProps,
   type TooltipReferenceProps,
-} from './components/Tooltip/index.js';
+} from './components/Tooltip/index';
 export {
   Toggletip,
   type ToggletipProps,
-} from './components/Toggletip/index.js';
-export { PhoneNumberInput } from './components/PhoneNumberInput/index.js';
-export type { PhoneNumberInputProps } from './components/PhoneNumberInput/index.js';
-export { ColorInput } from './components/ColorInput/index.js';
-export type { ColorInputProps } from './components/ColorInput/index.js';
+} from './components/Toggletip/index';
+export { PhoneNumberInput } from './components/PhoneNumberInput/index';
+export type { PhoneNumberInputProps } from './components/PhoneNumberInput/index';
+export { ColorInput } from './components/ColorInput/index';
+export type { ColorInputProps } from './components/ColorInput/index';

@@ -16,9 +16,9 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe, userEvent, screen } from '../../util/test-utils.js';
+import { render, axe, userEvent, screen } from '../../util/test-utils';
 
-import { createButtonComponent, type SharedButtonProps } from './base.js';
+import { createButtonComponent, type SharedButtonProps } from './base';
 
 const Button = createButtonComponent<SharedButtonProps>(
   'TestButton',

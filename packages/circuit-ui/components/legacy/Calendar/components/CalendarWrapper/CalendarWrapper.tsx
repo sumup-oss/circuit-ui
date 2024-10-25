@@ -24,9 +24,9 @@ import {
   focusVisible,
   disableVisually,
   cx,
-} from '../../../../../styles/style-mixins.js';
+} from '../../../../../styles/style-mixins';
 
-import { calendarInheritStyles } from './CalendarImportedStyles.js';
+import { calendarInheritStyles } from './CalendarImportedStyles';
 
 const dayDefault = css`
   .CalendarDay__default {

@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-export { Step } from './Step.js';
+export { Step } from './Step';
 
-export { useStep } from './hooks/useStep.js';
+export { useStep } from './hooks/useStep';
 
-export type { StepOptions } from './types.js';
-export type { StepProps } from './Step.js';
+export type { StepOptions } from './types';
+export type { StepProps } from './Step';

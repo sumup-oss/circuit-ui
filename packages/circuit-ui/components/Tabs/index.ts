@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
-export { Tabs } from './Tabs.js';
-export type { TabsProps } from './Tabs.js';
-export { Tab } from './components/Tab/index.js';
-export type { TabProps } from './components/Tab/index.js';
-export { TabPanel } from './components/TabPanel/index.js';
-export type { TabPanelProps } from './components/TabPanel/index.js';
-export { TabList } from './components/TabList/index.js';
-export type { TabListProps } from './components/TabList/index.js';
+export { Tabs } from './Tabs';
+export type { TabsProps } from './Tabs';
+export { Tab } from './components/Tab/index';
+export type { TabProps } from './components/Tab/index';
+export { TabPanel } from './components/TabPanel/index';
+export type { TabPanelProps } from './components/TabPanel/index';
+export { TabList } from './components/TabList/index';
+export type { TabListProps } from './components/TabList/index';

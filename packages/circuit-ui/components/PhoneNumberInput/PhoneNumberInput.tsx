@@ -28,25 +28,25 @@ import {
   type RefObject,
 } from 'react';
 
-import { Select, type SelectProps } from '../Select/index.js';
-import { Input, type InputProps } from '../Input/index.js';
+import { Select, type SelectProps } from '../Select/index';
+import { Input, type InputProps } from '../Input/index';
 import {
   FieldLabelText,
   FieldLegend,
   FieldSet,
   FieldValidationHint,
-} from '../Field/index.js';
+} from '../Field/index';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
-} from '../../util/errors.js';
-import { applyMultipleRefs } from '../../util/refs.js';
-import { eachFn } from '../../util/helpers.js';
+} from '../../util/errors';
+import { applyMultipleRefs } from '../../util/refs';
+import { eachFn } from '../../util/helpers';
 
 import {
   mapCountryCodeOptions,
   normalizePhoneNumber,
-} from './PhoneNumberInputService.js';
+} from './PhoneNumberInputService';
 import classes from './PhoneNumberInput.module.css';
 
 export interface PhoneNumberInputProps

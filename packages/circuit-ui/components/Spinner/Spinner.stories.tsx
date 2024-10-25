@@ -27,9 +27,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Stack } from '../../../../.storybook/components/index.js';
+import { Stack } from '../../../../.storybook/components/index';
 
-import { Spinner } from './Spinner.js';
+import { Spinner } from './Spinner';
 
 export default {
   title: 'Components/Spinner',

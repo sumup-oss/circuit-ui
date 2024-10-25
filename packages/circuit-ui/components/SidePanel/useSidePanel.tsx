@@ -22,12 +22,12 @@ import {
   type ReactNode,
 } from 'react';
 
-import { uniqueId } from '../../util/id.js';
+import { uniqueId } from '../../util/id';
 
 import {
   SidePanelContext,
   type SidePanelContextProps,
-} from './SidePanelContext.js';
+} from './SidePanelContext';
 
 export type OnBack = () => void;
 export type OnClose = () => void | Promise<void>;

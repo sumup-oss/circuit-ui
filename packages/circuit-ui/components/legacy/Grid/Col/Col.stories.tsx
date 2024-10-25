@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import styled from '../../../../styles/styled.js';
+import styled from '../../../../styles/styled';
 
-import { Col, type ColProps } from './Col.js';
+import { Col, type ColProps } from './Col';
 
 const colControl = {
   control: {

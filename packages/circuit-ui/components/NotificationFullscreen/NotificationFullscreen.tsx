@@ -21,12 +21,12 @@ import {
   type SVGProps,
 } from 'react';
 
-import { Body } from '../Body/index.js';
-import { Headline } from '../Headline/index.js';
-import { ButtonGroup, type ButtonGroupProps } from '../ButtonGroup/index.js';
-import { Image, type ImageProps } from '../Image/index.js';
-import { isString } from '../../util/type-check.js';
-import { clsx } from '../../styles/clsx.js';
+import { Body } from '../Body/index';
+import { Headline } from '../Headline/index';
+import { ButtonGroup, type ButtonGroupProps } from '../ButtonGroup/index';
+import { Image, type ImageProps } from '../Image/index';
+import { isString } from '../../util/type-check';
+import { clsx } from '../../styles/clsx';
 
 import classes from './NotificationFullscreen.module.css';
 

@@ -16,9 +16,9 @@
 import type { ChangeEvent, FocusEvent } from 'react';
 import { action } from '@storybook/addon-actions';
 
-import { Stack } from '../../../../.storybook/components/index.js';
+import { Stack } from '../../../../.storybook/components/index';
 
-import { CheckboxGroup, type CheckboxGroupProps } from './CheckboxGroup.js';
+import { CheckboxGroup, type CheckboxGroupProps } from './CheckboxGroup';
 
 export default {
   title: 'Forms/CheckboxGroup',

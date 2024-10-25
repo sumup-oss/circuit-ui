@@ -22,9 +22,9 @@ import {
   userEvent,
   screen,
   fireEvent,
-} from '../../util/test-utils.js';
+} from '../../util/test-utils';
 
-import { Checkbox } from './Checkbox.js';
+import { Checkbox } from './Checkbox';
 
 const defaultProps = {
   label: 'Label',

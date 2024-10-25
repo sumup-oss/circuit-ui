@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { SLIDE_DIRECTIONS } from '../../constants.js';
+import { SLIDE_DIRECTIONS } from '../../constants';
 
 export function getStackOrder(
   slideIndex?: number,

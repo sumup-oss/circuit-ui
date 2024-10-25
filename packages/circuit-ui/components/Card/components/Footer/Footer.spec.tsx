@@ -15,8 +15,8 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { render, axe } from '../../../../util/test-utils.js';
-import { CardFooter } from '../../index.js';
+import { render, axe } from '../../../../util/test-utils';
+import { CardFooter } from '../../index';
 
 describe('CardFooter', () => {
   it('should have no accessibility violations', async () => {

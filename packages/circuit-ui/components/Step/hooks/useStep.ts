@@ -15,10 +15,10 @@
 
 import { useReducer, useEffect, useRef } from 'react';
 
-import { CircuitError } from '../../../util/errors.js';
-import { isFunction } from '../../../util/type-check.js';
-import * as StepService from '../StepService.js';
-import type { Duration, StateAndHelpers, StepOptions } from '../types.js';
+import { CircuitError } from '../../../util/errors';
+import { isFunction } from '../../../util/type-check';
+import * as StepService from '../StepService';
+import type { Duration, StateAndHelpers, StepOptions } from '../types';
 
 export function useStep({
   initialStep = 0,

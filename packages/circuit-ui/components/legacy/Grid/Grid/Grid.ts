@@ -21,9 +21,9 @@ import type { Theme } from '@sumup-oss/design-tokens';
 import styled, {
   type NoTheme,
   type StyleProps,
-} from '../../../../styles/styled.js';
-import type { GridValue } from '../types.js';
-import { composeBreakpoints, wrapStyles } from '../utils.js';
+} from '../../../../styles/styled';
+import type { GridValue } from '../types';
+import { composeBreakpoints, wrapStyles } from '../utils';
 
 const baseStyles = css`
   margin: 0 auto;

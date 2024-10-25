@@ -18,14 +18,14 @@
 import { useState, useEffect, type ButtonHTMLAttributes } from 'react';
 import { ChevronDown, Profile as ProfileIcon } from '@sumup-oss/icons';
 
-import { Avatar } from '../../../Avatar/index.js';
-import { Body } from '../../../Body/index.js';
-import { Popover, type PopoverProps } from '../../../Popover/index.js';
-import { Skeleton } from '../../../Skeleton/index.js';
-import type { UserProps } from '../../types.js';
-import { utilClasses } from '../../../../styles/utility.js';
-import { sharedClasses } from '../../../../styles/shared.js';
-import { clsx } from '../../../../styles/clsx.js';
+import { Avatar } from '../../../Avatar/index';
+import { Body } from '../../../Body/index';
+import { Popover, type PopoverProps } from '../../../Popover/index';
+import { Skeleton } from '../../../Skeleton/index';
+import type { UserProps } from '../../types';
+import { utilClasses } from '../../../../styles/utility';
+import { sharedClasses } from '../../../../styles/shared';
+import { clsx } from '../../../../styles/clsx';
 
 import classes from './ProfileMenu.module.css';
 

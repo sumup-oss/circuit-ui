@@ -15,9 +15,9 @@
 
 import { useState } from 'react';
 
-import { Stack } from '../../../../.storybook/components/index.js';
+import { Stack } from '../../../../.storybook/components/index';
 
-import { Toggle, type ToggleProps } from './Toggle.js';
+import { Toggle, type ToggleProps } from './Toggle';
 
 export default {
   title: 'Forms/Toggle',

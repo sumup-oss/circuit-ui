@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import type { CompactProps } from './Compact.js';
+import type { CompactProps } from './Compact';
 
-import { Compact } from './index.js';
+import { Compact } from './index';
 
 const content =
   'An electronic circuit is composed of individual electronic components, such as resistors, transistors, capacitors, inductors and diodes, connected by conductive wires or traces through which electric current can flow.';

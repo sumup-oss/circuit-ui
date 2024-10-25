@@ -15,9 +15,9 @@
 
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
-import { renderHook, act } from '../../util/test-utils.js';
+import { renderHook, act } from '../../util/test-utils';
 
-import { useAnimation } from './useAnimation.js';
+import { useAnimation } from './useAnimation';
 
 describe('useAnimation', () => {
   beforeAll(() => {

@@ -15,7 +15,7 @@
 
 import { action } from '@storybook/addon-actions';
 
-import * as Buttons from './Buttons.js';
+import * as Buttons from './Buttons';
 
 const { ButtonList, PlayButton, NextButton, PrevButton } = Buttons;
 

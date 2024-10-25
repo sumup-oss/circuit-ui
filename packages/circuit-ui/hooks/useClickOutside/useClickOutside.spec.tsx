@@ -16,9 +16,9 @@
 import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import { useRef, useState } from 'react';
 
-import { render, userEvent, screen } from '../../util/test-utils.js';
+import { render, userEvent, screen } from '../../util/test-utils';
 
-import { useClickOutside } from './useClickOutside.js';
+import { useClickOutside } from './useClickOutside';
 
 describe('useClickOutside', () => {
   beforeAll(() => {

@@ -17,15 +17,15 @@
 
 import { forwardRef } from 'react';
 
-import { legacyButtonSizeMap } from '../Button/index.js';
-import { IconButton, type IconButtonProps } from '../Button/IconButton.js';
-import { Skeleton } from '../Skeleton/index.js';
+import { legacyButtonSizeMap } from '../Button/index';
+import { IconButton, type IconButtonProps } from '../Button/IconButton';
+import { Skeleton } from '../Skeleton/index';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
-} from '../../util/errors.js';
-import { deprecate } from '../../util/logger.js';
-import { clsx } from '../../styles/clsx.js';
+} from '../../util/errors';
+import { deprecate } from '../../util/logger';
+import { clsx } from '../../styles/clsx';
 
 import classes from './Hamburger.module.css';
 

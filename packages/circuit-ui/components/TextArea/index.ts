@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { TextArea } from './TextArea.js';
+export { TextArea } from './TextArea';
 
-export type { TextAreaProps } from './TextArea.js';
+export type { TextAreaProps } from './TextArea';

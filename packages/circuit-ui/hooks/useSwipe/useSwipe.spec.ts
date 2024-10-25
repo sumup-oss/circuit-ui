@@ -18,9 +18,9 @@
 import { describe, expect, it, vi } from 'vitest';
 import type { TouchEvent } from 'react';
 
-import { renderHook, act } from '../../util/test-utils.js';
+import { renderHook, act } from '../../util/test-utils';
 
-import { useSwipe } from './useSwipe.js';
+import { useSwipe } from './useSwipe';
 
 function createTouchEvent(
   type: 'touchstart' | 'touchmove' | 'touchend',

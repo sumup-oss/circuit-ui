@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { NotificationBanner } from './NotificationBanner.js';
+export { NotificationBanner } from './NotificationBanner';
 
-export type { NotificationBannerProps } from './NotificationBanner.js';
+export type { NotificationBannerProps } from './NotificationBanner';

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import type { SelectProps } from '../Select/Select.js';
+import type { SelectProps } from '../Select/Select';
 
 export function normalizePhoneNumber(
   countryCode: string,

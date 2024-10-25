@@ -16,9 +16,9 @@
 import type { ImgHTMLAttributes } from 'react';
 import { Profile, Image as ImageIcon } from '@sumup-oss/icons';
 
-import { CircuitError } from '../../util/errors.js';
-import { clsx } from '../../styles/clsx.js';
-import { deprecate } from '../../util/logger.js';
+import { CircuitError } from '../../util/errors';
+import { clsx } from '../../styles/clsx';
+import { deprecate } from '../../util/logger';
 
 import classes from './Avatar.module.css';
 

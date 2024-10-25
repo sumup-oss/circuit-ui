@@ -22,10 +22,10 @@ import {
   axe,
   screen,
   fireEvent,
-} from '../../util/test-utils.js';
-import { last } from '../../util/helpers.js';
+} from '../../util/test-utils';
+import { last } from '../../util/helpers';
 
-import { CheckboxGroup, type CheckboxGroupProps } from './CheckboxGroup.js';
+import { CheckboxGroup, type CheckboxGroupProps } from './CheckboxGroup';
 
 const defaultProps: CheckboxGroupProps = {
   label: 'Label',

@@ -15,10 +15,10 @@
 
 import { forwardRef, type HTMLAttributes } from 'react';
 
-import { clsx } from '../../styles/clsx.js';
-import { CircuitError } from '../../util/errors.js';
-import { deprecate } from '../../util/logger.js';
-import { getEnvVariable } from '../../util/env.js';
+import { clsx } from '../../styles/clsx';
+import { CircuitError } from '../../util/errors';
+import { deprecate } from '../../util/logger';
+import { getEnvVariable } from '../../util/env';
 
 import classes from './Display.module.css';
 

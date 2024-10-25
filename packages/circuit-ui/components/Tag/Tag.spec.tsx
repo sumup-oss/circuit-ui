@@ -16,9 +16,9 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { axe, render, userEvent, screen } from '../../util/test-utils.js';
+import { axe, render, userEvent, screen } from '../../util/test-utils';
 
-import { Tag } from './Tag.js';
+import { Tag } from './Tag';
 
 const DummyIcon = (props: any) => <div data-testid="tag-icon" {...props} />;
 

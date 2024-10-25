@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { TabPanels } from './TabPanels.js';
+export { TabPanels } from './TabPanels';

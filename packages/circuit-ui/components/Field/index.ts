@@ -21,4 +21,4 @@ export {
   FieldLabelText,
   FieldDescription,
   FieldValidationHint,
-} from './Field.js';
+} from './Field';

@@ -17,14 +17,14 @@
 
 'use client';
 
-import { utilClasses } from '../../../../styles/utility.js';
-import { clsx } from '../../../../styles/clsx.js';
-import { useFocusList } from '../../../../hooks/useFocusList/index.js';
-import { Headline } from '../../../Headline/index.js';
-import { Skeleton, SkeletonContainer } from '../../../Skeleton/index.js';
-import type { PrimaryLinkProps } from '../../types.js';
-import { SecondaryLinks } from '../SecondaryLinks/index.js';
-import { PrimaryLink } from '../PrimaryLink/index.js';
+import { utilClasses } from '../../../../styles/utility';
+import { clsx } from '../../../../styles/clsx';
+import { useFocusList } from '../../../../hooks/useFocusList/index';
+import { Headline } from '../../../Headline/index';
+import { Skeleton, SkeletonContainer } from '../../../Skeleton/index';
+import type { PrimaryLinkProps } from '../../types';
+import { SecondaryLinks } from '../SecondaryLinks/index';
+import { PrimaryLink } from '../PrimaryLink/index';
 
 import classes from './DesktopNavigation.module.css';
 

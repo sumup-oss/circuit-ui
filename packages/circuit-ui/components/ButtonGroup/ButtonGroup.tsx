@@ -15,9 +15,9 @@
 
 import { forwardRef, type HTMLAttributes } from 'react';
 
-import { Button, type ButtonProps } from '../Button/index.js';
-import { clsx } from '../../styles/clsx.js';
-import { deprecate } from '../../util/logger.js';
+import { Button, type ButtonProps } from '../Button/index';
+import { clsx } from '../../styles/clsx';
+import { deprecate } from '../../util/logger';
 
 import styles from './ButtonGroup.module.css';
 

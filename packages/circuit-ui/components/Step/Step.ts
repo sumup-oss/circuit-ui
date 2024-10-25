@@ -15,11 +15,11 @@
 
 import type React from 'react';
 
-import { CircuitError } from '../../util/errors.js';
-import { isFunction } from '../../util/type-check.js';
+import { CircuitError } from '../../util/errors';
+import { isFunction } from '../../util/type-check';
 
-import { useStep } from './hooks/useStep.js';
-import type { StateAndHelpers, StepOptions } from './types.js';
+import { useStep } from './hooks/useStep';
+import type { StateAndHelpers, StepOptions } from './types';
 
 export interface StepProps extends StepOptions {
   /**

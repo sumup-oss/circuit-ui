@@ -22,19 +22,19 @@ import {
   SelectorGroupContext,
   type SelectorProps,
   type SelectorSize,
-} from '../Selector/Selector.js';
+} from '../Selector/Selector';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
-} from '../../util/errors.js';
+} from '../../util/errors';
 import {
   FieldLabelText,
   FieldLegend,
   FieldSet,
   FieldValidationHint,
-} from '../Field/index.js';
-import { isEmpty } from '../../util/helpers.js';
-import { clsx } from '../../styles/clsx.js';
+} from '../Field/index';
+import { isEmpty } from '../../util/helpers';
+import { clsx } from '../../styles/clsx';
 
 import classes from './SelectorGroup.module.css';
 

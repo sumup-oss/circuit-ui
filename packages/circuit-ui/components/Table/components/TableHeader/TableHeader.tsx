@@ -17,14 +17,14 @@
 
 import type { ThHTMLAttributes } from 'react';
 
-import { SortArrow } from '../SortArrow/index.js';
-import type { CellAlignment, SortParams } from '../../types.js';
-import type { ClickEvent } from '../../../../types/events.js';
+import { SortArrow } from '../SortArrow/index';
+import type { CellAlignment, SortParams } from '../../types';
+import type { ClickEvent } from '../../../../types/events';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
-} from '../../../../util/errors.js';
-import { clsx } from '../../../../styles/clsx.js';
+} from '../../../../util/errors';
+import { clsx } from '../../../../styles/clsx';
 
 import classes from './TableHeader.module.css';
 

@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { Badge } from './Badge.js';
+export { Badge } from './Badge';
 
-export type { BadgeProps } from './Badge.js';
+export type { BadgeProps } from './Badge';

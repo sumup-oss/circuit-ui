@@ -21,9 +21,9 @@ import {
   type ButtonHTMLAttributes,
 } from 'react';
 
-import { useComponents } from '../../../ComponentsContext/index.js';
-import type { EmotionAsPropType } from '../../../../types/prop-types.js';
-import { clsx } from '../../../../styles/clsx.js';
+import { useComponents } from '../../../ComponentsContext/index';
+import type { EmotionAsPropType } from '../../../../types/prop-types';
+import { clsx } from '../../../../styles/clsx';
 
 import classes from './Tab.module.css';
 

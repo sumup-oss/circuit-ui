@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { useSwipe } from './useSwipe.js';
+export { useSwipe } from './useSwipe';

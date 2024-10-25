@@ -15,9 +15,9 @@
 
 /* istanbul ignore file */
 
-import { Image } from '../../Image/index.js';
-import { Button } from '../../Button/index.js';
-import { Step, type StepProps } from '../Step.js';
+import { Image } from '../../Image/index';
+import { Button } from '../../Button/index';
+import { Step, type StepProps } from '../Step';
 
 import classes from './CarouselSlider.module.css';
 

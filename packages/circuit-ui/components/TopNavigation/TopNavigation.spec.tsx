@@ -16,10 +16,10 @@
 import { describe, expect, it, vi } from 'vitest';
 import { Shop, SumUpLogo } from '@sumup-oss/icons';
 
-import { axe, render } from '../../util/test-utils.js';
-import type { PopoverProps } from '../Popover/index.js';
+import { axe, render } from '../../util/test-utils';
+import type { PopoverProps } from '../Popover/index';
 
-import { TopNavigation, type TopNavigationProps } from './TopNavigation.js';
+import { TopNavigation, type TopNavigationProps } from './TopNavigation';
 
 describe('TopNavigation', () => {
   const baseProps: TopNavigationProps = {

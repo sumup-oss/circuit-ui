@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { axe, render } from '../../../../util/test-utils.js';
+import { axe, render } from '../../../../util/test-utils';
 
-import { ButtonList, PlayButton, NextButton, PrevButton } from './Buttons.js';
+import { ButtonList, PlayButton, NextButton, PrevButton } from './Buttons';
 
 describe('Buttons', () => {
   it('should have no accessibility violations', async () => {

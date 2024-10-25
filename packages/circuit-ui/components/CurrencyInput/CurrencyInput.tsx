@@ -19,10 +19,10 @@ import { forwardRef, useId } from 'react';
 import { resolveCurrencyFormat } from '@sumup-oss/intl';
 import { NumericFormat, type NumericFormatProps } from 'react-number-format';
 
-import { clsx } from '../../styles/clsx.js';
-import { Input, type InputProps } from '../Input/index.js';
+import { clsx } from '../../styles/clsx';
+import { Input, type InputProps } from '../Input/index';
 
-import { formatPlaceholder } from './CurrencyInputService.js';
+import { formatPlaceholder } from './CurrencyInputService';
 import classes from './CurrencyInput.module.css';
 
 export interface CurrencyInputProps

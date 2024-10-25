@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { Hr } from './Hr.js';
+export { Hr } from './Hr';

@@ -18,7 +18,7 @@ import { action } from '@storybook/addon-actions';
 import {
   CalendarTagTwoStep,
   type CalendarTagTwoStepProps,
-} from './CalendarTagTwoStep.js';
+} from './CalendarTagTwoStep';
 
 export default {
   title: 'Forms/Calendar/CalendarTagTwoStep',

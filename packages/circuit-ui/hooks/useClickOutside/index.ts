@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { useClickOutside } from './useClickOutside.js';
+export { useClickOutside } from './useClickOutside';

@@ -13,5 +13,5 @@
  * limitations under the License.
  */
 
-export { Calendar } from './Calendar.js';
-export type { CalendarProps } from './Calendar.js';
+export { Calendar } from './Calendar';
+export type { CalendarProps } from './Calendar';

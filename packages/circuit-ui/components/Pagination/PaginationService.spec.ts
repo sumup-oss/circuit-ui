@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import * as PaginationService from './PaginationService.js';
+import * as PaginationService from './PaginationService';
 
 describe('PaginationService', () => {
   describe('generatePages', () => {

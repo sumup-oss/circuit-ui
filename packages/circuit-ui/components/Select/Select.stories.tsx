@@ -21,7 +21,7 @@ import {
   type IconComponentType,
 } from '@sumup-oss/icons';
 
-import { Select, type SelectProps } from './Select.js';
+import { Select, type SelectProps } from './Select';
 
 export default {
   title: 'Forms/Select',

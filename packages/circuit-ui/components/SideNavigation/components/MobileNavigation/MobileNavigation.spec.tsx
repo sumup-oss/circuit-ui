@@ -16,7 +16,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Home, Shop } from '@sumup-oss/icons';
 
-import type { ClickEvent } from '../../../../types/events.js';
+import type { ClickEvent } from '../../../../types/events';
 import {
   render,
   axe,
@@ -24,12 +24,12 @@ import {
   waitFor,
   screen,
   type RenderFn,
-} from '../../../../util/test-utils.js';
+} from '../../../../util/test-utils';
 
 import {
   MobileNavigation,
   type MobileNavigationProps,
-} from './MobileNavigation.js';
+} from './MobileNavigation';
 
 describe('MobileNavigation', () => {
   function renderMobileNavigation<T>(

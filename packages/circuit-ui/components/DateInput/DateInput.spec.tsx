@@ -16,9 +16,9 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe } from '../../util/test-utils.js';
+import { render, axe } from '../../util/test-utils';
 
-import { DateInput } from './DateInput.js';
+import { DateInput } from './DateInput';
 
 describe('DateInput', () => {
   const baseProps = { label: 'Date' };

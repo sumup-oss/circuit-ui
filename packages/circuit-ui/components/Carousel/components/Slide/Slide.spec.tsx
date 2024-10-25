@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { axe, render } from '../../../../util/test-utils.js';
+import { axe, render } from '../../../../util/test-utils';
 
-import { Slide } from './Slide.js';
+import { Slide } from './Slide';
 
 describe('Slide', () => {
   it('should have no accessibility violation', async () => {

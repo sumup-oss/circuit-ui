@@ -15,14 +15,14 @@
 
 import { useId, type HTMLAttributes } from 'react';
 
-import type { ReturnType } from '../../types/return-type.js';
+import type { ReturnType } from '../../types/return-type';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
-} from '../../util/errors.js';
-import { utilClasses } from '../../styles/utility.js';
-import { clsx } from '../../styles/clsx.js';
-import { deprecate } from '../../util/logger.js';
+} from '../../util/errors';
+import { utilClasses } from '../../styles/utility';
+import { clsx } from '../../styles/clsx';
+import { deprecate } from '../../util/logger';
 
 import classes from './ProgressBar.module.css';
 

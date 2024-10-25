@@ -22,9 +22,9 @@ import {
   render,
   screen,
   userEvent,
-} from '../../util/test-utils.js';
+} from '../../util/test-utils';
 
-import { SelectorGroup, type SelectorGroupProps } from './SelectorGroup.js';
+import { SelectorGroup, type SelectorGroupProps } from './SelectorGroup';
 
 const defaultProps: SelectorGroupProps = {
   label: 'label',

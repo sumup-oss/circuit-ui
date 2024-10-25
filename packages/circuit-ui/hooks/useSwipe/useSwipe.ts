@@ -17,7 +17,7 @@
 
 import { useCallback, useRef, type TouchEvent } from 'react';
 
-import { useLatest } from '../useLatest/useLatest.js';
+import { useLatest } from '../useLatest/useLatest';
 
 export type Direction = 'up' | 'right' | 'down' | 'left';
 

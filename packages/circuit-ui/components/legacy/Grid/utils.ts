@@ -20,9 +20,9 @@ import type { Theme } from '@sumup-oss/design-tokens';
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 
-import { isString } from '../../../util/type-check.js';
+import { isString } from '../../../util/type-check';
 
-import type { GridKey, BreakpointOptions, GridValue } from './types.js';
+import type { GridKey, BreakpointOptions, GridValue } from './types';
 
 export function normalizeToNumber(value: string | number): number {
   return isString(value) ? Number.parseInt(value, 10) : value;

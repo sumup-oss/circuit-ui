@@ -15,8 +15,8 @@
 
 import { forwardRef, type HTMLAttributes } from 'react';
 
-import { deprecate } from '../../util/logger.js';
-import { Headline } from '../Headline/Headline.js';
+import { deprecate } from '../../util/logger';
+import { Headline } from '../Headline/Headline';
 
 export interface SubHeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
   /**

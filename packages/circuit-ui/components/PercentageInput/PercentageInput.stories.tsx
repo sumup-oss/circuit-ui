@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import { Stack } from '../../../../.storybook/components/index.js';
+import { Stack } from '../../../../.storybook/components/index';
 
 import {
   PercentageInput,
   type PercentageInputProps,
-} from './PercentageInput.js';
+} from './PercentageInput';
 
 export default {
   title: 'Forms/PercentageInput',

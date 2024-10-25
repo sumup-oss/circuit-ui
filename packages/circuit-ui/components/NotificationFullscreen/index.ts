@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { NotificationFullscreen } from './NotificationFullscreen.js';
+export { NotificationFullscreen } from './NotificationFullscreen';
 
-export type { NotificationFullscreenProps } from './NotificationFullscreen.js';
+export type { NotificationFullscreenProps } from './NotificationFullscreen';

@@ -15,7 +15,7 @@
 
 import { describe, expect, test } from 'vitest';
 
-import { isSufficientlyLabelled } from './errors.js';
+import { isSufficientlyLabelled } from './errors';
 
 describe('errors', () => {
   describe('isSufficientlyLabelled', () => {

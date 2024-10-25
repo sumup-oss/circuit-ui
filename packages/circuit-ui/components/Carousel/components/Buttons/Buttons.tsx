@@ -16,8 +16,8 @@
 import type { HTMLAttributes } from 'react';
 import { ChevronLeft, ChevronRight, Pause, Play } from '@sumup-oss/icons';
 
-import { IconButton, type IconButtonProps } from '../../../Button/index.js';
-import { clsx } from '../../../../styles/clsx.js';
+import { IconButton, type IconButtonProps } from '../../../Button/index';
+import { clsx } from '../../../../styles/clsx';
 
 import classes from './Buttons.module.css';
 

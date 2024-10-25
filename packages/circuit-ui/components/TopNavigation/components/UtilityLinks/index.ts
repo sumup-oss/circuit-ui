@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { UtilityLinks } from './UtilityLinks.js';
+export { UtilityLinks } from './UtilityLinks';
 
-export type { UtilityLinksProps } from './UtilityLinks.js';
+export type { UtilityLinksProps } from './UtilityLinks';

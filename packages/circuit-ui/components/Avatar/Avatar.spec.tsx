@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { render, axe, screen } from '../../util/test-utils.js';
+import { render, axe, screen } from '../../util/test-utils';
 
-import { Avatar, type AvatarProps } from './Avatar.js';
+import { Avatar, type AvatarProps } from './Avatar';
 
 const defaultProps = {
   alt: '',

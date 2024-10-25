@@ -15,7 +15,7 @@
 
 import { useCallback, useId, type KeyboardEvent } from 'react';
 
-import { isArrowDown, isArrowUp } from '../../util/key-codes.js';
+import { isArrowDown, isArrowUp } from '../../util/key-codes';
 
 export type FocusProps = {
   'data-focus-list': string;

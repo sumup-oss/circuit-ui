@@ -24,15 +24,15 @@ import {
   userEvent,
   screen,
   type RenderFn,
-} from '../../util/test-utils.js';
-import type { ClickEvent } from '../../types/events.js';
+} from '../../util/test-utils';
+import type { ClickEvent } from '../../types/events';
 
 import {
   PopoverItem,
   type PopoverItemProps,
   Popover,
   type PopoverProps,
-} from './Popover.js';
+} from './Popover';
 
 describe('PopoverItem', () => {
   function renderPopoverItem<T>(

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { isArray, isFunction, isObject, isString } from './type-check.js';
+import { isArray, isFunction, isObject, isString } from './type-check';
 
 /**
  * Calls each function in an array with the arguments it receives.

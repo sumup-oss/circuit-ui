@@ -15,10 +15,10 @@
 
 import { useRef, useState } from 'react';
 
-import { Button } from '../../components/Button/index.js';
-import { Card } from '../../components/Card/index.js';
+import { Button } from '../../components/Button/index';
+import { Card } from '../../components/Card/index';
 
-import { useClickOutside } from './useClickOutside.js';
+import { useClickOutside } from './useClickOutside';
 
 export default {
   title: 'Hooks/useClickOutside',

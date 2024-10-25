@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { ButtonGroup } from './ButtonGroup.js';
+export { ButtonGroup } from './ButtonGroup';
 
-export type { ButtonGroupProps } from './ButtonGroup.js';
+export type { ButtonGroupProps } from './ButtonGroup';

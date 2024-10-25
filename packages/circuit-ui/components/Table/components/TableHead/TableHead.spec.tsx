@@ -15,10 +15,10 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { render, axe, userEvent, screen } from '../../../../util/test-utils.js';
-import type { HeaderCell, Direction } from '../../types.js';
+import { render, axe, userEvent, screen } from '../../../../util/test-utils';
+import type { HeaderCell, Direction } from '../../types';
 
-import { TableHead } from './index.js';
+import { TableHead } from './index';
 
 const sortLabel = ({ direction }: { direction?: Direction }) => {
   const order = direction === 'ascending' ? 'descending' : 'ascending';

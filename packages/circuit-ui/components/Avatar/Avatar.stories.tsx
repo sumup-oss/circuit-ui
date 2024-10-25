@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { Stack } from '../../../../.storybook/components/index.js';
+import { Stack } from '../../../../.storybook/components/index';
 
-import { Avatar, type AvatarProps } from './Avatar.js';
+import { Avatar, type AvatarProps } from './Avatar';
 
 export default {
   title: 'Components/Avatar',

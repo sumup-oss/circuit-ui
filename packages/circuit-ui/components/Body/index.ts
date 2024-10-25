@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { Body } from './Body.js';
+export { Body } from './Body';
 
-export type { BodyProps } from './Body.js';
+export type { BodyProps } from './Body';

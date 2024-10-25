@@ -15,7 +15,7 @@
 
 import { useEffect, useRef, type RefObject } from 'react';
 
-import { isArray } from '../../util/type-check.js';
+import { isArray } from '../../util/type-check';
 
 export function useClickOutside(
   ref: RefObject<HTMLElement> | RefObject<HTMLElement>[],

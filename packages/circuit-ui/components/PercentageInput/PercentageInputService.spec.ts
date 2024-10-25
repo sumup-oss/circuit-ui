@@ -15,7 +15,7 @@
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { formatPlaceholder } from './PercentageInputService.js';
+import { formatPlaceholder } from './PercentageInputService';
 
 describe('PercentageInputService', () => {
   beforeEach(() => {

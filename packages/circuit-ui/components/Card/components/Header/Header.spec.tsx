@@ -15,9 +15,9 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { render, axe, userEvent, screen } from '../../../../util/test-utils.js';
+import { render, axe, userEvent, screen } from '../../../../util/test-utils';
 
-import { CardHeader } from './Header.js';
+import { CardHeader } from './Header';
 
 describe('CardHeader', () => {
   const children = <h2>This is a content.</h2>;

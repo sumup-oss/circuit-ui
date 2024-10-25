@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import styled from '../../../../styles/styled.js';
-import { Row, Col } from '../index.js';
+import styled from '../../../../styles/styled';
+import { Row, Col } from '../index';
 
 export default {
   title: 'Layout/Grid/Row',

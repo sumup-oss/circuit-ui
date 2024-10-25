@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { TextArea, type TextAreaProps } from './TextArea.js';
+import { TextArea, type TextAreaProps } from './TextArea';
 
 export default {
   title: 'Forms/TextArea',

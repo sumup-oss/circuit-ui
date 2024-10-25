@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { CalendarTag } from './CalendarTag.js';
+export { CalendarTag } from './CalendarTag';
 
-export type { CalendarTagProps } from './CalendarTag.js';
+export type { CalendarTagProps } from './CalendarTag';

@@ -15,7 +15,7 @@
 
 import type React from 'react';
 
-import type { ClickEvent } from '../../types/events.js';
+import type { ClickEvent } from '../../types/events';
 
 type OnClose = (event?: ClickEvent) => void;
 

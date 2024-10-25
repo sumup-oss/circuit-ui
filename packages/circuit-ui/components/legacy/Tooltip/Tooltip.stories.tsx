@@ -15,10 +15,10 @@
 
 import { Info } from '@sumup-oss/icons';
 
-import { Stack } from '../../../../../.storybook/components/index.js';
-import styled from '../../../styles/styled.js';
+import { Stack } from '../../../../../.storybook/components/index';
+import styled from '../../../styles/styled';
 
-import { Tooltip, type TooltipProps } from './Tooltip.js';
+import { Tooltip, type TooltipProps } from './Tooltip';
 
 export default {
   title: 'Components/Tooltip/Legacy',

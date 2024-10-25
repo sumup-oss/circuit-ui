@@ -23,16 +23,16 @@ import {
 } from 'react';
 import type { IconComponentType, IconProps } from '@sumup-oss/icons';
 
-import { clsx } from '../../styles/clsx.js';
-import { CircuitError } from '../../util/errors.js';
-import { deprecate } from '../../util/logger.js';
-import { isString } from '../../util/type-check.js';
+import { clsx } from '../../styles/clsx';
+import { CircuitError } from '../../util/errors';
+import { deprecate } from '../../util/logger';
+import { isString } from '../../util/type-check';
 
 import {
   createButtonComponent,
   legacyButtonSizeMap,
   type SharedButtonProps,
-} from './base.js';
+} from './base';
 import classes from './IconButton.module.css';
 
 export type IconButtonProps = SharedButtonProps & {

@@ -17,31 +17,31 @@
 
 import { useRef, useState, type ReactNode } from 'react';
 
-import { ProgressBar } from '../ProgressBar/index.js';
-import { Step } from '../Step/index.js';
-import { useComponentSize } from '../../hooks/useComponentSize/index.js';
-import type { ImageProps } from '../Image/index.js';
-import { isFunction } from '../../util/type-check.js';
-import type { Actions, State } from '../Step/types.js';
+import { ProgressBar } from '../ProgressBar/index';
+import { Step } from '../Step/index';
+import { useComponentSize } from '../../hooks/useComponentSize/index';
+import type { ImageProps } from '../Image/index';
+import { isFunction } from '../../util/type-check';
+import type { Actions, State } from '../Step/types';
 
-import { Container } from './components/Container/index.js';
-import { Slides } from './components/Slides/index.js';
-import { Slide } from './components/Slide/index.js';
-import { SlideImage } from './components/SlideImage/index.js';
-import { Controls } from './components/Controls/index.js';
-import { Status } from './components/Status/index.js';
+import { Container } from './components/Container/index';
+import { Slides } from './components/Slides/index';
+import { Slide } from './components/Slide/index';
+import { SlideImage } from './components/SlideImage/index';
+import { Controls } from './components/Controls/index';
+import { Status } from './components/Status/index';
 import {
   ButtonList,
   NextButton,
   PrevButton,
   PlayButton,
-} from './components/Buttons/index.js';
+} from './components/Buttons/index';
 import {
   ASPECT_RATIO,
   ANIMATION_DURATION,
   SLIDE_DURATION,
   SLIDE_DIRECTIONS,
-} from './constants.js';
+} from './constants';
 import classes from './Carousel.module.css';
 
 export interface CarouselProps {

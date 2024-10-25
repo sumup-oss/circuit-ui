@@ -18,9 +18,9 @@
 import type { HTMLAttributes } from 'react';
 import { ChevronUp, ChevronDown } from '@sumup-oss/icons';
 
-import type { Direction } from '../../types.js';
-import { clsx } from '../../../../styles/clsx.js';
-import { utilClasses } from '../../../../styles/utility.js';
+import type { Direction } from '../../types';
+import { clsx } from '../../../../styles/clsx';
+import { utilClasses } from '../../../../styles/utility';
 
 import classes from './SortArrow.module.css';
 

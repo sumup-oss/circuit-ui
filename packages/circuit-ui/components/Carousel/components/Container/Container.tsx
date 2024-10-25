@@ -15,7 +15,7 @@
 
 import type { HTMLAttributes } from 'react';
 
-import { clsx } from '../../../../styles/clsx.js';
+import { clsx } from '../../../../styles/clsx';
 
 import classes from './Container.module.css';
 

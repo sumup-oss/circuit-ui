@@ -15,9 +15,9 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { render } from '../../../util/test-utils.js';
+import { render } from '../../../util/test-utils';
 
-import { SingleDayPicker } from './index.js';
+import { SingleDayPicker } from './index';
 
 const props = {
   onDateChange: vi.fn(),

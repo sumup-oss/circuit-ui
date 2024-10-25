@@ -15,9 +15,9 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { axe, render } from '../../../util/test-utils.js';
+import { axe, render } from '../../../util/test-utils';
 
-import { CalendarTagTwoStep } from './CalendarTagTwoStep.js';
+import { CalendarTagTwoStep } from './CalendarTagTwoStep';
 
 describe('CalendarTagTwoStep', () => {
   const baseProps = {

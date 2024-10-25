@@ -15,9 +15,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { render, axe } from '../../../../util/test-utils.js';
+import { render, axe } from '../../../../util/test-utils';
 
-import { TableCell } from './index.js';
+import { TableCell } from './index';
 
 const children = 'Foo';
 

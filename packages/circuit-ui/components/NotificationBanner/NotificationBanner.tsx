@@ -26,15 +26,15 @@ import {
   type HTMLAttributes,
 } from 'react';
 
-import { Button, type ButtonProps } from '../Button/index.js';
-import { Headline } from '../Headline/index.js';
-import { Body } from '../Body/index.js';
-import { Image, type ImageProps } from '../Image/index.js';
-import { CloseButton } from '../CloseButton/index.js';
-import { useAnimation } from '../../hooks/useAnimation/index.js';
-import { applyMultipleRefs } from '../../util/refs.js';
-import { clsx } from '../../styles/clsx.js';
-import { deprecate } from '../../util/logger.js';
+import { Button, type ButtonProps } from '../Button/index';
+import { Headline } from '../Headline/index';
+import { Body } from '../Body/index';
+import { Image, type ImageProps } from '../Image/index';
+import { CloseButton } from '../CloseButton/index';
+import { useAnimation } from '../../hooks/useAnimation/index';
+import { applyMultipleRefs } from '../../util/refs';
+import { clsx } from '../../styles/clsx';
+import { deprecate } from '../../util/logger';
 
 import classes from './NotificationBanner.module.css';
 

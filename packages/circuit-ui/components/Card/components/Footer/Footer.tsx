@@ -15,8 +15,8 @@
 
 import { forwardRef, type HTMLAttributes } from 'react';
 
-import { clsx } from '../../../../styles/clsx.js';
-import type { AsPropType } from '../../../../types/prop-types.js';
+import { clsx } from '../../../../styles/clsx';
+import type { AsPropType } from '../../../../types/prop-types';
 
 import classes from './Footer.module.css';
 

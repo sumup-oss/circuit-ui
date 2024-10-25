@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { Popover } from './Popover.js';
+export { Popover } from './Popover';
 
-export type { PopoverProps, PopoverItemProps } from './Popover.js';
+export type { PopoverProps, PopoverItemProps } from './Popover';

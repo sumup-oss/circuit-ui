@@ -29,7 +29,7 @@ import { light } from '@sumup-oss/design-tokens';
 import {
   ComponentsContext,
   defaultComponents,
-} from '../components/ComponentsContext/ComponentsContext.js';
+} from '../components/ComponentsContext/ComponentsContext';
 
 // biome-ignore lint/performance/noReExportAll: We re-export the package to override specific functions below
 export * from '@testing-library/react';

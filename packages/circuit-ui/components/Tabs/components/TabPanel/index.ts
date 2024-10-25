@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { TabPanel } from './TabPanel.js';
+export { TabPanel } from './TabPanel';
 
-export type { TabPanelProps } from './TabPanel.js';
+export type { TabPanelProps } from './TabPanel';

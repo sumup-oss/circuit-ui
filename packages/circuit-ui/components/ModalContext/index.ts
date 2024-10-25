@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-export { ModalProvider } from './ModalContext.js';
-export { createUseModal } from './createUseModal.js';
+export { ModalProvider } from './ModalContext';
+export { createUseModal } from './createUseModal';
 
-export type { ModalProviderProps } from './ModalContext.js';
+export type { ModalProviderProps } from './ModalContext';
 
-export type { BaseModalProps, ModalComponent } from './types.js';
+export type { BaseModalProps, ModalComponent } from './types';

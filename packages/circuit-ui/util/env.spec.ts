@@ -15,7 +15,7 @@
 
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { getEnvVariable } from './env.js';
+import { getEnvVariable } from './env';
 
 describe('env', () => {
   describe('getEnvVariable', () => {

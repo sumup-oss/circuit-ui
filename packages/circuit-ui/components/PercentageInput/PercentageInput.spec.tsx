@@ -16,12 +16,12 @@
 import { describe, expect, it } from 'vitest';
 import { createRef, useState, type ChangeEvent } from 'react';
 
-import { render, userEvent, axe, screen } from '../../util/test-utils.js';
+import { render, userEvent, axe, screen } from '../../util/test-utils';
 
 import {
   PercentageInput,
   type PercentageInputProps,
-} from './PercentageInput.js';
+} from './PercentageInput';
 
 const defaultProps = {
   locale: 'de-DE',

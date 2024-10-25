@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { CheckboxGroup } from './CheckboxGroup.js';
+export { CheckboxGroup } from './CheckboxGroup';
 
-export type { CheckboxGroupProps } from './CheckboxGroup.js';
+export type { CheckboxGroupProps } from './CheckboxGroup';

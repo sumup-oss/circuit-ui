@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { useAnimation } from './useAnimation.js';
+export { useAnimation } from './useAnimation';

@@ -15,9 +15,9 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { render, axe, userEvent, screen } from '../../util/test-utils.js';
+import { render, axe, userEvent, screen } from '../../util/test-utils';
 
-import { Pagination, type PaginationProps } from './Pagination.js';
+import { Pagination, type PaginationProps } from './Pagination';
 
 describe('Pagination', () => {
   const baseProps: PaginationProps = {

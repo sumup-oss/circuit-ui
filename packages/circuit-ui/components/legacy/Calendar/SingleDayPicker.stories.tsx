@@ -19,7 +19,7 @@ import type { Moment } from 'moment';
 import {
   SingleDayPicker,
   type SingleDayPickerProps,
-} from './SingleDayPicker.js';
+} from './SingleDayPicker';
 
 export default {
   title: 'Forms/Calendar/SingleDayPicker',

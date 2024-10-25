@@ -15,11 +15,11 @@
 
 'use client';
 
-import { mapRowProps, mapCellProps } from '../../utils.js';
-import type { Row } from '../../types.js';
-import { TableRow } from '../TableRow/index.js';
-import { TableHeader } from '../TableHeader/index.js';
-import { TableCell } from '../TableCell/index.js';
+import { mapRowProps, mapCellProps } from '../../utils';
+import type { Row } from '../../types';
+import { TableRow } from '../TableRow/index';
+import { TableHeader } from '../TableHeader/index';
+import { TableCell } from '../TableCell/index';
 
 type TableBodyProps = {
   /**

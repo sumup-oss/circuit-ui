@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { useLatest } from './useLatest.js';
+export { useLatest } from './useLatest';

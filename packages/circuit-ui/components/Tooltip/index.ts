@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { Tooltip } from './Tooltip.js';
+export { Tooltip } from './Tooltip';
 
-export type { TooltipProps, TooltipReferenceProps } from './Tooltip.js';
+export type { TooltipProps, TooltipReferenceProps } from './Tooltip';

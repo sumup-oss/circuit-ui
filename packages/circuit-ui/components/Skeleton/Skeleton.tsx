@@ -23,8 +23,8 @@ import {
   type HTMLAttributes,
 } from 'react';
 
-import type { AsPropType } from '../../types/prop-types.js';
-import { clsx } from '../../styles/clsx.js';
+import type { AsPropType } from '../../types/prop-types';
+import { clsx } from '../../styles/clsx';
 
 import classes from './Skeleton.module.css';
 
