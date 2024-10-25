@@ -16,6 +16,7 @@
 import { useCallback, useId, type KeyboardEvent } from 'react';
 
 import { isArrowDown, isArrowUp } from '../../util/key-codes.js';
+import { shiftInRange } from '../../util/helpers.js';
 
 export type FocusProps = {
   'data-focus-list': string;
@@ -42,9 +43,8 @@ export function useFocusList(): FocusProps {
       );
       const currentEl = event.target as HTMLElement;
       const currentIndex = Array.from(items).indexOf(currentEl);
-      const newIndex = isArrowUp(event)
-        ? getPrevIndex(currentIndex, items.length)
-        : getNextIndex(currentIndex, items.length);
+      const offset = isArrowUp(event) ? -1 : 1;
+      const newIndex = shiftInRange(currentIndex, offset, 0, items.length - 1);
       const newEl = items.item(newIndex);
 
       newEl.focus();
@@ -53,12 +53,4 @@ export function useFocusList(): FocusProps {
   );
 
   return { 'data-focus-list': name, onKeyDown };
-}
-
-function getPrevIndex(currentIndex: number, length: number): number {
-  return currentIndex - 1 < 0 ? length - 1 : currentIndex - 1;
-}
-
-function getNextIndex(currentIndex: number, length: number): number {
-  return currentIndex + 1 >= length ? 0 : currentIndex + 1;
 }

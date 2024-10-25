@@ -46,6 +46,9 @@ export function isEmpty(value: unknown): boolean {
   return false;
 }
 
+/**
+ * Clamps a value within a range of values between a minimum and maximum limit.
+ */
 export function clamp(value: number, min: number, max: number): number {
   if (process.env.NODE_ENV !== 'production' && min >= max) {
     throw new RangeError(
@@ -95,4 +98,18 @@ export function last(array: undefined | null): undefined;
 export function last<T>(array: T[]): T;
 export function last<T>(array: T[] | undefined | null): T | undefined {
   return isArray(array) ? array[array.length - 1] : undefined;
+}
+
+/**
+ * Increases or decreases a value by an offset and loops back around to stay
+ * within a given range.
+ */
+export function shiftInRange(
+  value: number, // must be in range
+  offset: number, // positive or negative
+  min: number, // inclusive
+  max: number, // inclusive
+) {
+  const modulus = max - min + 1;
+  return ((value - min + (offset % modulus) + modulus) % modulus) + min;
 }
