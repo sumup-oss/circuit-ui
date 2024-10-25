@@ -23,7 +23,7 @@
       "default": "./index.ts"
     },
     "./modular.css": "./styles/base.css",
-    "./styles.css": "./styles/base.css"
+    "./styles.css": "./dist/styles.css"
   },
   "typesVersions": {
     "*": {
@@ -39,9 +39,6 @@
     }
   },
   "sideEffects": false,
-  "files": [
-    "dist"
-  ],
   "repository": {
     "type": "git",
     "directory": "packages/circuit-ui",

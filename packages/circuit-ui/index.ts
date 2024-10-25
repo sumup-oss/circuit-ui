@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import './styles/base.css';
-
 export { utilClasses } from './styles/utility.js';
 export { clsx } from './styles/clsx.js';
 
