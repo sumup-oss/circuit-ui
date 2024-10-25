@@ -36,7 +36,7 @@ export default {
 const baseArgs = {
   label: 'Date of birth',
   prevMonthButtonLabel: 'Previous month',
-  nextMonthButtonLabel: 'Previous month',
+  nextMonthButtonLabel: 'Next month',
   openCalendarButtonLabel: 'Change date',
   closeCalendarButtonLabel: 'Close calendar',
   applyDateButtonLabel: 'Apply',
@@ -119,3 +119,52 @@ Disabled.args = {
   defaultValue: '2017-08-28',
   disabled: true,
 };
+
+export const Locales = (args: DateInputProps) => (
+  <Stack>
+    <DateInput
+      {...args}
+      locale="de-DE"
+      label="Geburtsdatum"
+      prevMonthButtonLabel="Vorheriger Monat"
+      nextMonthButtonLabel="Nächster Monat"
+      openCalendarButtonLabel="Datum ändern"
+      closeCalendarButtonLabel="Kalendar schließen"
+      applyDateButtonLabel="Anwenden"
+      clearDateButtonLabel="Löschen"
+      yearInputLabel="Jahr"
+      monthInputLabel="Monat"
+      dayInputLabel="Tag"
+    />
+    <DateInput
+      {...args}
+      locale="es-CL"
+      label="Fecha de nacimiento"
+      prevMonthButtonLabel="Mes anterior"
+      nextMonthButtonLabel="Mes siguiente"
+      openCalendarButtonLabel="Cambiar fecha"
+      closeCalendarButtonLabel="Cerrar calendario"
+      applyDateButtonLabel="Aplicar"
+      clearDateButtonLabel="Borrar"
+      yearInputLabel="Año"
+      monthInputLabel="Mes"
+      dayInputLabel="Día"
+    />
+    <DateInput
+      {...args}
+      locale="pt-BR"
+      label="Data de nascimento"
+      prevMonthButtonLabel="Mês anterior"
+      nextMonthButtonLabel="Próximo mês"
+      openCalendarButtonLabel="Alterar data"
+      closeCalendarButtonLabel="Fechar calendário"
+      applyDateButtonLabel="Aplicar"
+      clearDateButtonLabel="Limpar"
+      yearInputLabel="Ano"
+      monthInputLabel="Mês"
+      dayInputLabel="Dia"
+    />
+  </Stack>
+);
+
+Locales.args = baseArgs;

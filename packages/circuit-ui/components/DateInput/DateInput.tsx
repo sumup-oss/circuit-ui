@@ -26,17 +26,15 @@ import {
 import type { Temporal } from 'temporal-polyfill';
 import { flip, offset, shift, useFloating } from '@floating-ui/react-dom';
 import { Calendar as CalendarIcon } from '@sumup-oss/icons';
-import { formatDate } from '@sumup-oss/intl';
 
 import type { ClickEvent } from '../../types/events.js';
 import { useMedia } from '../../hooks/useMedia/useMedia.js';
-import { toPlainDate } from '../../util/date.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';
-import type { InputProps } from '../Input/index.js';
+import type { InputProps } from '../Input/Input.js';
 import { Calendar, type CalendarProps } from '../Calendar/Calendar.js';
 import { Button } from '../Button/Button.js';
 import { CloseButton } from '../CloseButton/CloseButton.js';
@@ -51,15 +49,10 @@ import {
 } from '../Field/Field.js';
 
 import { Dialog } from './components/Dialog.js';
-import { Segment } from './components/Segment.js';
-import {
-  usePlainDateState,
-  useDaySegment,
-  useMonthSegment,
-  useYearSegment,
-  useSegmentFocus,
-} from './hooks.js';
-import { getDateSegments } from './DateInputService.js';
+import { DateSegment } from './components/DateSegment.js';
+import { usePlainDateState } from './hooks/usePlainDateState.js';
+import { useSegmentFocus } from './hooks/useSegmentFocus.js';
+import { getCalendarButtonLabel, getDateSegments } from './DateInputService.js';
 import classes from './DateInput.module.css';
 
 export interface DateInputProps
@@ -198,14 +191,15 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
 
     const descriptionIds = clsx(descriptionId, validationHintId);
 
-    const minDate = toPlainDate(min);
-    const maxDate = toPlainDate(max);
-
-    const [focusProps, focusHandlers] = useSegmentFocus();
-    const state = usePlainDateState(value, defaultValue, onChange);
-    const yearProps = useYearSegment(state, focusHandlers, minDate, maxDate);
-    const monthProps = useMonthSegment(state, focusHandlers, minDate, maxDate);
-    const dayProps = useDaySegment(state, focusHandlers, minDate, maxDate);
+    const focus = useSegmentFocus();
+    const state = usePlainDateState({
+      value,
+      defaultValue,
+      onChange,
+      min,
+      max,
+      locale,
+    });
 
     const [open, setOpen] = useState(false);
     const [selection, setSelection] = useState<Temporal.PlainDate>();
@@ -245,15 +239,15 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
     // Focus the first date segment when clicking anywhere on the field...
     const handleClick = (event: ClickEvent) => {
       const element = event.target as HTMLElement;
-      // ...except when clicking on a specific segment.
-      if (element.tagName === 'INPUT') {
+      // ...except when clicking on a specific segment input.
+      if (element.getAttribute('role') === 'spinbutton') {
         return;
       }
-      focusHandlers.next();
+      focus.next();
     };
 
     const openCalendar = () => {
-      setSelection(state.plainDate || undefined);
+      setSelection(state.date);
       setOpen(true);
     };
 
@@ -292,6 +286,13 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
     } as const;
 
     const dialogStyles = isMobile ? mobileStyles : floatingStyles;
+
+    const segments = getDateSegments(locale);
+    const calendarButtonLabel = getCalendarButtonLabel(
+      openCalendarButtonLabel,
+      state.date,
+      locale,
+    );
 
     if (process.env.NODE_ENV !== 'production') {
       if (!isSufficientlyLabelled(label)) {
@@ -344,27 +345,8 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
       }
     }
 
-    const calendarButtonLabel = state.plainDate
-      ? [
-          openCalendarButtonLabel,
-          formatDate(state.plainDate, locale, 'long'),
-        ].join(', ')
-      : openCalendarButtonLabel;
-
-    const segments = getDateSegments(locale);
-
     return (
       <FieldWrapper ref={ref} disabled={disabled} {...props}>
-        {/* TODO: Replicate native date input for uncontrolled inputs? */}
-        {/* <input
-          ref={ref}
-          type="hidden"
-          value={value}
-          required={required}
-          disabled={disabled}
-          readOnly={readOnly}
-          {...props}
-        /> */}
         <FieldSet aria-describedby={descriptionIds}>
           <FieldLegend onClick={handleClick}>
             <FieldLabelText
@@ -386,59 +368,50 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
               ref={referenceRef}
             >
               {segments.map((segment, index) => {
-                // Only the first segment should be associated with the validation hint to reduce verbosity.
-                const validationProps =
-                  index === 0 ? { 'aria-describedby': descriptionIds } : {};
+                const segmentProps = {
+                  required,
+                  invalid,
+                  disabled,
+                  readOnly,
+                  focus,
+                  // Only the first segment should be associated with the validation hint to reduce verbosity.
+                  'aria-describedby': index === 0 ? descriptionIds : undefined,
+                };
                 switch (segment.type) {
                   case 'year':
                     return (
-                      <Segment
+                      <DateSegment
                         key={segment.type}
                         aria-label={yearInputLabel}
-                        required={required}
-                        invalid={invalid}
-                        disabled={disabled}
-                        readOnly={readOnly}
                         autoComplete={
                           autoComplete === 'bday' ? 'bday-year' : undefined
                         }
-                        {...validationProps}
-                        {...focusProps}
-                        {...yearProps}
+                        {...segmentProps}
+                        {...state.props.year}
                       />
                     );
                   case 'month':
                     return (
-                      <Segment
+                      <DateSegment
                         key={segment.type}
                         aria-label={monthInputLabel}
-                        required={required}
-                        invalid={invalid}
-                        disabled={disabled}
-                        readOnly={readOnly}
                         autoComplete={
                           autoComplete === 'bday' ? 'bday-month' : undefined
                         }
-                        {...validationProps}
-                        {...focusProps}
-                        {...monthProps}
+                        {...segmentProps}
+                        {...state.props.month}
                       />
                     );
                   case 'day':
                     return (
-                      <Segment
+                      <DateSegment
                         key={segment.type}
                         aria-label={dayInputLabel}
-                        required={required}
-                        invalid={invalid}
-                        disabled={disabled}
-                        readOnly={readOnly}
                         autoComplete={
                           autoComplete === 'bday' ? 'bday-day' : undefined
                         }
-                        {...validationProps}
-                        {...focusProps}
-                        {...dayProps}
+                        {...segmentProps}
+                        {...state.props.day}
                       />
                     );
                   case 'literal':
@@ -508,8 +481,8 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
                 className={classes.calendar}
                 onSelect={handleSelect}
                 selection={selection}
-                minDate={minDate}
-                maxDate={maxDate}
+                minDate={state.minDate}
+                maxDate={state.maxDate}
                 locale={locale}
                 firstDayOfWeek={firstDayOfWeek}
                 modifiers={modifiers}

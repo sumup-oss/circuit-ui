@@ -14,7 +14,7 @@
  */
 
 import { Temporal } from 'temporal-polyfill';
-import { formatDateTimeToParts } from '@sumup-oss/intl';
+import { formatDate, formatDateTimeToParts } from '@sumup-oss/intl';
 
 import type { Locale } from '../../util/i18n.js';
 
@@ -25,4 +25,15 @@ export function getDateSegments(locale?: Locale) {
   return parts.map(({ type, value }) =>
     type === 'literal' ? { type, value } : { type },
   );
+}
+
+export function getCalendarButtonLabel(
+  label: string,
+  date: Temporal.PlainDate | undefined,
+  locale: Locale | undefined,
+) {
+  if (!date) {
+    return label;
+  }
+  return [label, formatDate(date, locale, 'long')].join(', ');
 }

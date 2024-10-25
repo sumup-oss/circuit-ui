@@ -20,6 +20,7 @@ import {
   clampDate,
   getFirstDateOfWeek,
   getLastDateOfWeek,
+  getMonthName,
   isPlainDate,
   sortDateRange,
   toPlainDate,
@@ -167,6 +168,44 @@ describe('CalendarService', () => {
       const firstDayOfWeek = 7; // Sunday
       const actual = getLastDateOfWeek(date, firstDayOfWeek);
       expect(actual.toString()).toBe('2020-03-28'); // Saturday
+    });
+  });
+
+  describe('getMonthName', () => {
+    it.each([
+      [1, 'January'],
+      [2, 'February'],
+      [3, 'March'],
+      [4, 'April'],
+      [5, 'May'],
+      [6, 'June'],
+      [7, 'July'],
+      [8, 'August'],
+      [9, 'September'],
+      [10, 'October'],
+      [11, 'November'],
+      [12, 'December'],
+    ])('should return the English name of the month %s', (isoMonth, name) => {
+      const actual = getMonthName(isoMonth);
+      expect(actual).toBe(name);
+    });
+
+    it.each([
+      [1, 'Januar'],
+      [2, 'Februar'],
+      [3, 'März'],
+      [4, 'April'],
+      [5, 'Mai'],
+      [6, 'Juni'],
+      [7, 'Juli'],
+      [8, 'August'],
+      [9, 'September'],
+      [10, 'Oktober'],
+      [11, 'November'],
+      [12, 'Dezember'],
+    ])('should return the German name of the month %s', (isoMonth, name) => {
+      const actual = getMonthName(isoMonth, 'de-DE');
+      expect(actual).toBe(name);
     });
   });
 });

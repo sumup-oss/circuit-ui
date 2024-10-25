@@ -34,8 +34,8 @@ describe('useFocusList', () => {
     );
   }
 
-  describe('when pressing the arrow up key', () => {
-    it('should focus the previous element when pressing the arrow down key', async () => {
+  describe('when pressing the ArrowUp key', () => {
+    it('should focus the previous element', async () => {
       render(<MockComponent />);
 
       const lastElement = screen.getByTestId('wrapper')
@@ -45,7 +45,7 @@ describe('useFocusList', () => {
         lastElement.focus();
       });
 
-      await userEvent.keyboard('{arrowUp}');
+      await userEvent.keyboard('{ArrowUp}');
 
       const expected = (list.length - 2).toString();
 
@@ -62,7 +62,7 @@ describe('useFocusList', () => {
         firstElement.focus();
       });
 
-      await userEvent.keyboard('{arrowUp}');
+      await userEvent.keyboard('{ArrowUp}');
 
       const expected = (list.length - 1).toString();
 
@@ -70,7 +70,7 @@ describe('useFocusList', () => {
     });
   });
 
-  describe('when pressing the arrow down key', () => {
+  describe('when pressing the ArrowDown key', () => {
     it('should focus the next element', async () => {
       render(<MockComponent />);
 
@@ -81,7 +81,7 @@ describe('useFocusList', () => {
         firstElement.focus();
       });
 
-      await userEvent.keyboard('{arrowDown}');
+      await userEvent.keyboard('{ArrowDown}');
 
       const expected = '1';
 
@@ -98,7 +98,7 @@ describe('useFocusList', () => {
         lastElement.focus();
       });
 
-      await userEvent.keyboard('{arrowDown}');
+      await userEvent.keyboard('{ArrowDown}');
 
       const expected = '0';
 

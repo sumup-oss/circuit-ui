@@ -14,6 +14,9 @@
  */
 
 import { Temporal } from 'temporal-polyfill';
+import { formatDateTime } from '@sumup-oss/intl';
+
+import type { Locale } from './i18n.js';
 
 export type FirstDayOfWeek = 1 | 7;
 export type DaysInWeek = number;
@@ -46,7 +49,7 @@ export function toPlainDate(date?: string): Temporal.PlainDate | undefined {
   }
   try {
     return Temporal.PlainDate.from(date);
-  } catch (_error) {
+  } catch {
     return undefined;
   }
 }
@@ -87,4 +90,10 @@ export function getLastDateOfWeek(
   return getFirstDateOfWeek(date, firstDayOfWeek).add({
     days: date.daysInWeek - 1,
   });
+}
+
+export function getMonthName(month: number, locale?: Locale) {
+  // The year can be arbitrary since the month names are the same every year
+  const yearMonth = new Temporal.PlainYearMonth(2000, month, 'gregory');
+  return formatDateTime(yearMonth, locale, { month: 'long' });
 }
