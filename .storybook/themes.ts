@@ -78,7 +78,7 @@ export function listenToColorScheme(
     callback(event.matches ? 'dark' : 'light');
   };
 
-  const handleGlobalsChange = ({ globals }) => {
+  const handleGlobalsChange = ({ globals }: any) => {
     if (globals.colorScheme === 'system') {
       callback(query.matches ? 'dark' : 'light');
       query.addEventListener('change', handleMediaChange);

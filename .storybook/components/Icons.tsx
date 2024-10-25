@@ -67,7 +67,7 @@ function getComponentName(name: string) {
   const pascalCased = words.map(
     (part) => part.charAt(0).toUpperCase() + part.substr(1).toLowerCase(),
   );
-  return pascalCased.join('');
+  return pascalCased.join('') as keyof typeof iconComponents;
 }
 
 export function Icons() {
@@ -166,7 +166,6 @@ export function Icons() {
                     >
                       <Icon
                         aria-labelledby={id}
-                        size={icon.size}
                         className={classes.icon}
                         style={{
                           color,

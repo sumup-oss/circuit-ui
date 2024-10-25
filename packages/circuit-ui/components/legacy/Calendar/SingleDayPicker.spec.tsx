@@ -32,7 +32,8 @@ describe('SingleDayPicker', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const { container } = render(<SingleDayPicker {...props} />);
+    const SkipTypescriptChecks = SingleDayPicker as any;
+    const { container } = render(<SkipTypescriptChecks {...props} />);
     expect(container).toMatchSnapshot();
   });
 });

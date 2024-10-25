@@ -32,7 +32,7 @@ describe('PercentageInput', () => {
   it('should forward a ref', () => {
     const ref = createRef<HTMLInputElement>();
     render(<PercentageInput {...defaultProps} ref={ref} />);
-    const input = screen.getByRole('textbox');
+    const input = screen.getByRole<HTMLInputElement>('textbox');
     expect(ref.current).toBe(input);
   });
 

@@ -53,8 +53,8 @@ describe('NotificationToast', () => {
     );
   };
 
-  const baseNotificationToast = {
-    onClose: vi.fn(),
+  const baseNotificationToast: NotificationToastProps = {
+    onClose: vi.fn<[unknown], void>(),
     iconLabel: '',
     isVisible: false,
     body: 'This is a toast message',
