@@ -38,7 +38,7 @@ describe('Anchor', () => {
   it('should forward a ref for a button', () => {
     const ref = createRef<HTMLButtonElement>();
     render(
-      <Anchor ref={ref} onClick={vi.fn}>
+      <Anchor ref={ref} onClick={vi.fn()}>
         Anchor
       </Anchor>,
     );
@@ -72,14 +72,16 @@ describe('Anchor', () => {
   });
 
   it('should render as an `a` when an href (and onClick) is passed', () => {
-    render(<Anchor {...baseProps} href="https://sumup.com" onClick={vi.fn} />);
+    render(
+      <Anchor {...baseProps} href="https://sumup.com" onClick={vi.fn()} />,
+    );
     const actual = screen.getByText('Anchor');
     expect(actual.tagName).toBe('A');
     expect(actual).toBeVisible();
   });
 
   it('should render as a `button` when an onClick is passed', () => {
-    render(<Anchor {...baseProps} onClick={vi.fn} />);
+    render(<Anchor {...baseProps} onClick={vi.fn()} />);
     const actual = screen.getByText('Anchor');
     expect(actual.tagName).toBe('BUTTON');
     expect(actual).toBeVisible();
@@ -109,7 +111,7 @@ describe('Anchor', () => {
 
   it('should meet accessibility guidelines', async () => {
     const { container } = render(
-      <Anchor {...baseProps} href="https://sumup.com" onClick={vi.fn} />,
+      <Anchor {...baseProps} href="https://sumup.com" onClick={vi.fn()} />,
     );
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();

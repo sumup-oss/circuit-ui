@@ -49,6 +49,7 @@
 		"@storybook/addon-storysource": "^8.2.4",
 		"@storybook/addon-toolbars": "^8.2.4",
 		"@storybook/addon-viewport": "^8.2.4",
+		"@storybook/core-events": "^8.2.4",
 		"@storybook/icons": "^1.2.9",
 		"@storybook/manager-api": "^8.2.4",
 		"@storybook/preview-api": "^8.2.4",

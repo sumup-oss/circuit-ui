@@ -106,7 +106,7 @@ describe('Select', () => {
         {...defaultProps}
         placeholder={placeholder}
         value={value}
-        onChange={vi.fn}
+        onChange={vi.fn()}
       />,
     );
     const selectEl = screen.getByRole('combobox');

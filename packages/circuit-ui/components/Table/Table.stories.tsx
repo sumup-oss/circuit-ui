@@ -121,10 +121,12 @@ export const CustomSort = (args: TableProps) => {
   const onSortBy: TableProps['onSortBy'] = (_i, rows, direction) => {
     if (direction === 'ascending') {
       return rows.sort(
+        // @ts-expect-error TODO: fix types here
         (a, b) => isString(a[0]) && isString(b[0]) && a[0].localeCompare(b[0]),
       );
     }
     return rows.sort(
+      // @ts-expect-error TODO: fix types here
       (a, b) => isString(a[0]) && isString(b[0]) && b[0].localeCompare(a[0]),
     );
   };
