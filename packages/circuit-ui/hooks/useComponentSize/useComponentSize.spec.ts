@@ -19,7 +19,7 @@ import { renderHook, act } from '../../util/test-utils.js';
 
 import { useComponentSize } from './useComponentSize.js';
 
-vi.mock('../../util/helpers', () => ({
+vi.mock('../../util/helpers.js', () => ({
   throttle: vi.fn(<T>(fn: T) => fn),
 }));
 

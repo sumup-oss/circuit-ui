@@ -14,8 +14,9 @@
  */
 
 import { describe, expect, it } from 'vitest';
+import { Temporal } from 'temporal-polyfill';
 
-import { getDateSegments } from './DateInputService.js';
+import { getCalendarButtonLabel, getDateSegments } from './DateInputService.js';
 
 describe('DateInputService', () => {
   describe('getDateSegments', () => {
@@ -41,6 +42,31 @@ describe('DateInputService', () => {
       const actual = getDateSegments(locale);
       const literalSegment = actual.find(({ type }) => type === 'literal');
       expect(literalSegment?.value).toBe(literal);
+    });
+  });
+
+  describe('getCalendarButtonLabel', () => {
+    const label = 'Change date';
+
+    it('should return the plain label if the date is undefined', () => {
+      const date = undefined;
+      const locale = undefined;
+      const actual = getCalendarButtonLabel(label, date, locale);
+      expect(actual).toBe(label);
+    });
+
+    it('should postfix the formatted date to the label', () => {
+      const date = new Temporal.PlainDate(2017, 8, 28);
+      const locale = undefined;
+      const actual = getCalendarButtonLabel(label, date, locale);
+      expect(actual).toBe(`${label}, August 28, 2017`);
+    });
+
+    it('should format the date for the locale', () => {
+      const date = new Temporal.PlainDate(2017, 8, 28);
+      const locale = 'fr-FR';
+      const actual = getCalendarButtonLabel(label, date, locale);
+      expect(actual).toBe(`${label}, 28 août 2017`);
     });
   });
 });

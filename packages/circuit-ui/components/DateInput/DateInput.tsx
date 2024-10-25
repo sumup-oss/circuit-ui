@@ -183,8 +183,7 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
     const isMobile = useMedia('(max-width: 479px)');
 
     const fieldRef = useRef<HTMLDivElement>(null);
-    const floatingRef = useRef<HTMLDialogElement>(null);
-    const calendarRef = useRef<HTMLDivElement>(null);
+    const dialogRef = useRef<HTMLDialogElement>(null);
 
     const dialogId = useId();
     const headlineId = useId();
@@ -211,7 +210,7 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
       middleware: [offset(4), flip(), shift()],
       elements: {
         reference: fieldRef.current,
-        floating: floatingRef.current,
+        floating: dialogRef.current,
       },
     });
 
@@ -281,9 +280,10 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
 
     const mobileStyles = {
       position: 'fixed',
+      top: 'auto',
+      right: '0px',
       bottom: '0px',
       left: '0px',
-      right: '0px',
     } as const;
 
     const dialogStyles = isMobile ? mobileStyles : floatingStyles;
@@ -454,9 +454,10 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
           />
         </FieldSet>
         <Dialog
-          ref={floatingRef}
+          ref={dialogRef}
           id={dialogId}
           open={open}
+          isModal={isMobile}
           onClose={closeCalendar}
           aria-labelledby={headlineId}
           style={dialogStyles}
@@ -478,7 +479,6 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
               </header>
 
               <Calendar
-                ref={calendarRef}
                 className={classes.calendar}
                 onSelect={handleSelect}
                 selection={selection}

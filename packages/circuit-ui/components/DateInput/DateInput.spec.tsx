@@ -13,13 +13,16 @@
  * limitations under the License.
  */
 
-import { beforeAll, describe, expect, it, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi, type Mock } from 'vitest';
 import { createRef } from 'react';
 import MockDate from 'mockdate';
 
 import { render, screen, axe, userEvent } from '../../util/test-utils.js';
+import { useMedia } from '../../hooks/useMedia/useMedia.js';
 
 import { DateInput } from './DateInput.js';
+
+vi.mock('../../hooks/useMedia/useMedia.js');
 
 describe('DateInput', () => {
   const props = {
@@ -36,8 +39,9 @@ describe('DateInput', () => {
     clearDateButtonLabel: 'Clear date',
   };
 
-  beforeAll(() => {
+  beforeEach(() => {
     MockDate.set('2000-01-01');
+    (useMedia as Mock).mockReturnValue(false);
   });
 
   it('should forward a ref', () => {
@@ -182,32 +186,38 @@ describe('DateInput', () => {
       );
     });
 
-    it.skip('should mark the year input as readonly when the minimum and maximum dates have the same year', () => {
-      render(<DateInput {...props} min="2000-04-29" max="2000-06-15" />);
-      expect(screen.getByLabelText(/year/i)).toHaveAttribute('readonly');
-      expect(screen.getByLabelText(/month/i)).toHaveAttribute(
-        'aria-valuemin',
-        '4',
-      );
-      expect(screen.getByLabelText(/month/i)).toHaveAttribute(
-        'aria-valuemax',
-        '6',
-      );
-    });
+    it.todo(
+      'should mark the year input as readonly when the minimum and maximum dates have the same year',
+      () => {
+        render(<DateInput {...props} min="2000-04-29" max="2000-06-15" />);
+        expect(screen.getByLabelText(/year/i)).toHaveAttribute('readonly');
+        expect(screen.getByLabelText(/month/i)).toHaveAttribute(
+          'aria-valuemin',
+          '4',
+        );
+        expect(screen.getByLabelText(/month/i)).toHaveAttribute(
+          'aria-valuemax',
+          '6',
+        );
+      },
+    );
 
-    it.skip('should mark the year and month inputs as readonly when the minimum and maximum dates have the same year and month', () => {
-      render(<DateInput {...props} min="2000-04-09" max="2000-04-27" />);
-      expect(screen.getByLabelText(/year/i)).toHaveAttribute('readonly');
-      expect(screen.getByLabelText(/month/i)).toHaveAttribute('readonly');
-      expect(screen.getByLabelText(/day/i)).toHaveAttribute(
-        'aria-valuemin',
-        '9',
-      );
-      expect(screen.getByLabelText(/day/i)).toHaveAttribute(
-        'aria-valuemax',
-        '27',
-      );
-    });
+    it.todo(
+      'should mark the year and month inputs as readonly when the minimum and maximum dates have the same year and month',
+      () => {
+        render(<DateInput {...props} min="2000-04-09" max="2000-04-27" />);
+        expect(screen.getByLabelText(/year/i)).toHaveAttribute('readonly');
+        expect(screen.getByLabelText(/month/i)).toHaveAttribute('readonly');
+        expect(screen.getByLabelText(/day/i)).toHaveAttribute(
+          'aria-valuemin',
+          '9',
+        );
+        expect(screen.getByLabelText(/day/i)).toHaveAttribute(
+          'aria-valuemax',
+          '27',
+        );
+      },
+    );
   });
 
   describe('state', () => {
@@ -225,6 +235,14 @@ describe('DateInput', () => {
       expect(screen.getByLabelText(/day/i)).toHaveValue('12');
       expect(screen.getByLabelText(/month/i)).toHaveValue('1');
       expect(screen.getByLabelText(/year/i)).toHaveValue('2000');
+    });
+
+    it('should ignore an invalid value', () => {
+      render(<DateInput {...props} value="2000-13-54" />);
+
+      expect(screen.getByLabelText(/day/i)).toHaveValue('');
+      expect(screen.getByLabelText(/month/i)).toHaveValue('');
+      expect(screen.getByLabelText(/year/i)).toHaveValue('');
     });
 
     it('should update the displayed value', () => {
@@ -340,6 +358,88 @@ describe('DateInput', () => {
       await userEvent.click(clearButton);
 
       expect(onChange).toHaveBeenCalledWith('');
+    });
+
+    describe('on narrow viewports', () => {
+      beforeEach(() => {
+        (useMedia as Mock).mockReturnValue(true);
+      });
+
+      it('should allow users to select a date on a calendar', async () => {
+        (useMedia as Mock).mockReturnValue(true);
+        const onChange = vi.fn();
+
+        render(<DateInput {...props} onChange={onChange} />);
+
+        const openCalendarButton = screen.getByRole('button', {
+          name: /change date/i,
+        });
+        await userEvent.click(openCalendarButton);
+
+        const calendarDialog = screen.getByRole('dialog');
+        expect(calendarDialog).toBeVisible();
+
+        const dateButton = screen.getByRole('button', { name: /12/i });
+        await userEvent.click(dateButton);
+
+        expect(onChange).not.toHaveBeenCalled();
+
+        const applyButton = screen.getByRole('button', { name: /apply/i });
+        await userEvent.click(applyButton);
+
+        expect(onChange).toHaveBeenCalledWith('2000-01-12');
+      });
+
+      it('should allow users to clear the date', async () => {
+        const onChange = vi.fn();
+
+        render(
+          <DateInput
+            {...props}
+            defaultValue="2000-01-12"
+            onChange={onChange}
+          />,
+        );
+
+        const openCalendarButton = screen.getByRole('button', {
+          name: /change date/i,
+        });
+        await userEvent.click(openCalendarButton);
+
+        const calendarDialog = screen.getByRole('dialog');
+        expect(calendarDialog).toBeVisible();
+
+        const clearButton = screen.getByRole('button', { name: /clear date/i });
+        await userEvent.click(clearButton);
+
+        expect(onChange).toHaveBeenCalledWith('');
+      });
+
+      it('should allow users to close the calendar dialog without selecting a date', async () => {
+        const onChange = vi.fn();
+
+        render(
+          <DateInput
+            {...props}
+            defaultValue="2000-01-12"
+            onChange={onChange}
+          />,
+        );
+
+        const openCalendarButton = screen.getByRole('button', {
+          name: /change date/i,
+        });
+        await userEvent.click(openCalendarButton);
+
+        const calendarDialog = screen.getByRole('dialog');
+        expect(calendarDialog).toBeVisible();
+
+        const closeButton = screen.getByRole('button', { name: /close/i });
+        await userEvent.click(closeButton);
+
+        expect(calendarDialog).not.toBeVisible();
+        expect(onChange).not.toHaveBeenCalled();
+      });
     });
   });
 

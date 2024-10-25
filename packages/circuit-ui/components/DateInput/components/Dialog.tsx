@@ -35,12 +35,13 @@ import classes from './Dialog.module.css';
 export interface DialogProps
   extends Omit<HTMLAttributes<HTMLDialogElement>, 'children'> {
   open: boolean;
+  isModal?: boolean;
   onClose: () => void;
   children: () => ReactNode;
 }
 
 export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
-  ({ children, open, onClose, className, style, ...props }, ref) => {
+  ({ children, open, onClose, className, style, isModal, ...props }, ref) => {
     const zIndex = useStackContext();
     const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -65,7 +66,6 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       };
     }, [onClose]);
 
-    // TODO: modal
     useEffect(() => {
       const dialogElement = dialogRef.current;
 
@@ -75,7 +75,11 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 
       if (open) {
         if (!dialogElement.open) {
-          dialogElement.show();
+          if (isModal) {
+            dialogElement.showModal();
+          } else {
+            dialogElement.show();
+          }
         }
       } else if (dialogElement.open) {
         dialogElement.close();
@@ -86,7 +90,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
           dialogElement.close();
         }
       };
-    }, [open]);
+    }, [open, isModal]);
 
     return (
       <>
