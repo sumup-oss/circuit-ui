@@ -48,6 +48,7 @@ import {
   FieldWrapper,
 } from '../Field/Field.js';
 import { getBrowserLocale } from '../../util/i18n.js';
+import { toPlainDate } from '../../util/date.js';
 
 import { Dialog } from './components/Dialog.js';
 import { DateSegment } from './components/DateSegment.js';
@@ -190,14 +191,16 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
     const validationHintId = useId();
 
     const descriptionIds = clsx(descriptionId, validationHintId);
+    const minDate = toPlainDate(min);
+    const maxDate = toPlainDate(max);
 
     const focus = useSegmentFocus();
     const state = usePlainDateState({
       value,
       defaultValue,
       onChange,
-      min,
-      max,
+      minDate,
+      maxDate,
       locale,
     });
 
@@ -482,8 +485,8 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
                 className={classes.calendar}
                 onSelect={handleSelect}
                 selection={selection}
-                minDate={state.minDate}
-                maxDate={state.maxDate}
+                minDate={minDate}
+                maxDate={maxDate}
                 locale={locale}
                 firstDayOfWeek={firstDayOfWeek}
                 modifiers={modifiers}
