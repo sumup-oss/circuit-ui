@@ -48,6 +48,8 @@ export type PlainDateState = {
   };
 };
 
+export const emptyDate: DateValues = { year: '', month: '', day: '' };
+
 export function usePlainDateState({
   value,
   defaultValue,
@@ -160,7 +162,7 @@ export function usePlainDateState({
 function parseValue(value?: string): DateValues {
   const plainDate = toPlainDate(value);
   if (!plainDate) {
-    return { day: '', month: '', year: '' };
+    return emptyDate;
   }
   const { year, month, day } = plainDate;
   return { year, month, day };
