@@ -16,17 +16,17 @@
 import { describe, expect, it } from 'vitest';
 import { Temporal } from 'temporal-polyfill';
 
-import { getCalendarButtonLabel, getDateSegments } from './DateInputService.js';
+import { getCalendarButtonLabel, getDateParts } from './DateInputService.js';
 
 describe('DateInputService', () => {
-  describe('getDateSegments', () => {
+  describe('getDateParts', () => {
     it.each([
       // locale, year, month, day
       ['en-US', [4, 0, 2]],
       ['de-DE', [4, 2, 0]],
       ['pt-BR', [4, 2, 0]],
     ])('should order the segments for the %s locale', (locale, indices) => {
-      const actual = getDateSegments(locale);
+      const actual = getDateParts(locale);
       const year = actual.findIndex(({ type }) => type === 'year');
       const month = actual.findIndex(({ type }) => type === 'month');
       const day = actual.findIndex(({ type }) => type === 'day');
@@ -39,7 +39,7 @@ describe('DateInputService', () => {
       ['de-DE', '.'],
       ['pt-BR', '/'],
     ])('should return the literal for the %s locale', (locale, literal) => {
-      const actual = getDateSegments(locale);
+      const actual = getDateParts(locale);
       const literalSegment = actual.find(({ type }) => type === 'literal');
       expect(literalSegment?.value).toBe(literal);
     });

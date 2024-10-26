@@ -60,10 +60,10 @@ import { applyMultipleRefs } from '../../util/refs.js';
 import { changeInputValue } from '../../util/input-value.js';
 
 import { Dialog } from './components/Dialog.js';
-import { DateSegment } from './components/DateSegment.js';
+import { PlainDateSegments } from './components/PlainDateSegments.js';
 import { usePlainDateState } from './hooks/usePlainDateState.js';
 import { useSegmentFocus } from './hooks/useSegmentFocus.js';
-import { getCalendarButtonLabel, getDateSegments } from './DateInputService.js';
+import { getCalendarButtonLabel, getDateParts } from './DateInputService.js';
 import classes from './DateInput.module.css';
 import { translations } from './translations/index.js';
 
@@ -315,7 +315,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
 
     const dialogStyles = isMobile ? mobileStyles : floatingStyles;
 
-    const segments = getDateSegments(locale);
+    const parts = getDateParts(locale);
     const calendarButtonLabel = getCalendarButtonLabel(
       openCalendarButtonLabel,
       state.date,
@@ -371,68 +371,20 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                 readOnly && classes.readonly,
               )}
             >
-              {segments.map((segment, index) => {
-                const segmentProps = {
-                  required,
-                  invalid,
-                  disabled,
-                  readOnly,
-                  focus,
-                  // Only the first segment should be associated with the validation hint to reduce verbosity.
-                  'aria-describedby': index === 0 ? descriptionIds : undefined,
-                };
-                switch (segment.type) {
-                  case 'year':
-                    return (
-                      <DateSegment
-                        key={segment.type}
-                        aria-label={yearInputLabel}
-                        autoComplete={
-                          autoComplete === 'bday' ? 'bday-year' : undefined
-                        }
-                        {...segmentProps}
-                        {...state.props.year}
-                      />
-                    );
-                  case 'month':
-                    return (
-                      <DateSegment
-                        key={segment.type}
-                        aria-label={monthInputLabel}
-                        autoComplete={
-                          autoComplete === 'bday' ? 'bday-month' : undefined
-                        }
-                        {...segmentProps}
-                        {...state.props.month}
-                      />
-                    );
-                  case 'day':
-                    return (
-                      <DateSegment
-                        key={segment.type}
-                        aria-label={dayInputLabel}
-                        autoComplete={
-                          autoComplete === 'bday' ? 'bday-day' : undefined
-                        }
-                        {...segmentProps}
-                        {...state.props.day}
-                      />
-                    );
-                  case 'literal':
-                    return (
-                      <div
-                        // biome-ignore lint/suspicious/noArrayIndexKey: The order of the literals is static
-                        key={segment.type + index}
-                        className={classes.literal}
-                        aria-hidden="true"
-                      >
-                        {segment.value}
-                      </div>
-                    );
-                  default:
-                    return null;
-                }
-              })}
+              <PlainDateSegments
+                parts={parts}
+                state={state}
+                focus={focus}
+                yearInputLabel={yearInputLabel}
+                monthInputLabel={monthInputLabel}
+                dayInputLabel={dayInputLabel}
+                aria-describedby={descriptionIds}
+                required={required}
+                invalid={invalid}
+                disabled={disabled}
+                readOnly={readOnly}
+                autoComplete={autoComplete}
+              />
             </div>
             <IconButton
               ref={calendarButtonRef}
