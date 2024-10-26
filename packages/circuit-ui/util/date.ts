@@ -18,9 +18,18 @@ import { Temporal } from 'temporal-polyfill';
 export type FirstDayOfWeek = 1 | 7;
 export type DaysInWeek = number;
 export type PlainDateRange =
-  | []
-  | [Temporal.PlainDate]
-  | [Temporal.PlainDate, Temporal.PlainDate];
+  | {
+      start: undefined;
+      end: undefined;
+    }
+  | {
+      start: Temporal.PlainDate;
+      end: undefined;
+    }
+  | {
+      start: Temporal.PlainDate;
+      end: Temporal.PlainDate;
+    };
 
 export function getTodaysDate() {
   return Temporal.Now.plainDateISO();
@@ -41,10 +50,6 @@ export function toPlainDate(date?: string): Temporal.PlainDate | null {
   }
 }
 
-export function sortDateRange<T extends PlainDateRange>(dateRange: T): T {
-  return dateRange.sort((a, b) => Temporal.PlainDate.compare(a, b)) as T;
-}
-
 export function clampDate(
   date: Temporal.PlainDate,
   minDate?: Temporal.PlainDate | null,
@@ -57,6 +62,23 @@ export function clampDate(
     return maxDate;
   }
   return date;
+}
+
+export function updatePlainDateRange(
+  previousRange: PlainDateRange,
+  date: Temporal.PlainDate,
+): PlainDateRange {
+  if (
+    // Nothing selected yet
+    (!previousRange.start && !previousRange.end) ||
+    // Full range already selected
+    (previousRange.start && previousRange.end) ||
+    // Selected date is before previous start date
+    Temporal.PlainDate.compare(previousRange.start, date) > 0
+  ) {
+    return { start: date, end: undefined };
+  }
+  return { start: previousRange.start, end: date };
 }
 
 export function getFirstDateOfWeek(

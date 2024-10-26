@@ -24,7 +24,6 @@ import {
   getLastDateOfWeek,
   getTodaysDate,
   isPlainDate,
-  sortDateRange,
   type DaysInWeek,
   type FirstDayOfWeek,
   type PlainDateRange,
@@ -68,7 +67,7 @@ export function initCalendar({
   const today = getTodaysDate();
   let date: Temporal.PlainDate | undefined;
   if (selection) {
-    date = isPlainDate(selection) ? selection : sortDateRange(selection)[0];
+    date = isPlainDate(selection) ? selection : selection.start;
   }
   const focusedDate = clampDate(date || today, minDate, maxDate);
   const hoveredDate = null;
@@ -217,15 +216,14 @@ export function isDateActive(
   if (isPlainDate(selection)) {
     return date.equals(selection);
   }
-  const [startDate, endDate] = sortDateRange(selection);
-  if (startDate && endDate) {
+  if (selection.start && selection.end) {
     return (
-      Temporal.PlainDate.compare(date, startDate) >= 0 &&
-      Temporal.PlainDate.compare(date, endDate) <= 0
+      Temporal.PlainDate.compare(date, selection.start) >= 0 &&
+      Temporal.PlainDate.compare(date, selection.end) <= 0
     );
   }
-  if (startDate) {
-    return date.equals(startDate);
+  if (selection.start) {
+    return date.equals(selection.start);
   }
   return false;
 }
@@ -241,32 +239,32 @@ export function getSelectionType(
   if (isPlainDate(selection)) {
     return date.equals(selection) ? 'selected' : null;
   }
-  if (selection.length === 0) {
+  if (!selection.start && !selection.end) {
     return null;
   }
-  const [startDate, endDate] = sortDateRange(selection);
   if (
-    endDate ||
-    (hoveredDate && Temporal.PlainDate.compare(hoveredDate, startDate) > 0)
+    selection.end ||
+    (hoveredDate &&
+      Temporal.PlainDate.compare(hoveredDate, selection.start) > 0)
   ) {
-    const laterDate = (endDate || hoveredDate) as Temporal.PlainDate;
-    if (date.equals(startDate) && date.equals(laterDate)) {
+    const laterDate = (selection.end || hoveredDate) as Temporal.PlainDate;
+    if (date.equals(selection.start) && date.equals(laterDate)) {
       return 'selected';
     }
-    if (date.equals(startDate)) {
+    if (date.equals(selection.start)) {
       return 'range-start';
     }
     if (date.equals(laterDate)) {
       return 'range-end';
     }
     if (
-      Temporal.PlainDate.compare(date, startDate) > 0 &&
+      Temporal.PlainDate.compare(date, selection.start) > 0 &&
       Temporal.PlainDate.compare(date, laterDate) < 0
     ) {
       return 'range-middle';
     }
   }
-  if (date.equals(selection[0])) {
+  if (date.equals(selection.start)) {
     return 'selected';
   }
   return null;
