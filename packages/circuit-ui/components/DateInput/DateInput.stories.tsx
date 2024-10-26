@@ -18,6 +18,7 @@ import { useState } from 'react';
 import { Stack } from '../../../../.storybook/components/index.js';
 
 import { DateInput, type DateInputProps } from './DateInput.js';
+import { DateRangeInput, type DateRangeInputProps } from './DateRangeInput.js';
 
 export default {
   title: 'Forms/DateInput',
@@ -174,3 +175,12 @@ export const Locales = (args: DateInputProps) => (
 );
 
 Locales.args = baseArgs;
+
+export const Range = (args: DateRangeInputProps) => (
+  <DateRangeInput {...args} />
+);
+
+Range.args = {
+  ...baseArgs,
+  label: 'Trip dates',
+};
