@@ -2,6 +2,10 @@
   list-style: none;
 }
 
+.headline {
+  text-transform: uppercase;
+}
+
 .anchor {
   flex-wrap: wrap;
   padding: var(--cui-spacings-mega) var(--cui-spacings-giga);
