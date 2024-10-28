@@ -199,7 +199,7 @@ export const ListItem = forwardRef<
             >
               <div className={classes.chevron}>
                 {isString(trailingLabel) ? (
-                  <Body size="m" weight="bold">
+                  <Body size="m" weight="semibold">
                     {trailingLabel}
                   </Body>
                 ) : (

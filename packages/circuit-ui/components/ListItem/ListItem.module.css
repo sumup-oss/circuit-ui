@@ -103,6 +103,7 @@ button.base:active {
   display: flex;
   flex: auto;
   flex-direction: column;
+  gap: var(--cui-spacings-bit);
   align-items: flex-start;
   min-width: 0;
 }
@@ -125,6 +126,7 @@ button.base:active {
   display: flex;
   flex: none;
   flex-direction: column;
+  gap: var(--cui-spacings-bit);
   align-items: flex-end;
   align-self: stretch;
   justify-content: center;
