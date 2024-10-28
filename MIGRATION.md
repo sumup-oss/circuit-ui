@@ -2,7 +2,7 @@
 
 ## 🤖 Automated migration
 
-Some of the changes in this guide can be automated using [`@sumup-oss/eslint-plugin-circuit-ui`](https://circuit.sumup.com/?path=/docs/packages-eslint-plugin-circuit-ui--docs). Changes that can be automated are marked with a robot emoji (🤖) and the name of the ESLint rule (e.g. _no-deprecated-props_)
+Some of the changes in this guide can be automated using the [ESLint](https://circuit.sumup.com/?path=/docs/packages-eslint-plugin-circuit-ui--docs) and [Stylelint](https://circuit.sumup.com/?path=/docs/packages-stylelint-plugin-circuit-ui--docs) plugins. Changes that can be automated are marked with a robot emoji (🤖) and the name of the rule (e.g. _no-deprecated-props_)
 
 We encourage you to enable and apply the rules incrementally and review the changes before continuing. The rules don't cover all edge cases, so further manual changes might be necessary. For example, the ESLint rules only analyze one file at a time, so if a Circuit UI component is wrapped in a styled component in one file and used in another, ESLint won't be able to update its props.
 
@@ -10,27 +10,26 @@ Prior to v5, codemods were implemented using [jscodeshift](#-codemods-jscodeshif
 
 ## From v8.x to v9
 
-Circuit UI v9 introduces more flexible typography APIs and new date picker components rebuilt from scratch for better performance and accessibility.
-
-For a complete list of changes, refer to the [changelog](https://github.com/sumup-oss/circuit-ui/blob/main/packages/circuit-ui/CHANGELOG.md).
+Circuit UI v9 introduces a [new typeface](#new-typeface), more flexible [typography APIs](#typography-apis), and [stable input components](#stable-components) for colors, dates, and phone numbers. For a complete list of changes, refer to the [changelog](https://github.com/sumup-oss/circuit-ui/blob/main/packages/circuit-ui/CHANGELOG.md).
 
 ### Prerequisites
 
 Circuit UI now requires at minimum Node.js v20. Note that [Node 18](https://nodejs.org/en/about/previous-releases) reached its end-of-life in October 2024.
 
-- new peer dependency: [`temporal-polyfill`](https://www.npmjs.com/package/temporal-polyfill)
-- Upgraded to `@sumup-oss/intl` v3. If your app also depends on `@sumup-oss/intl` (previously called `@sumup/intl`), you need to upgrade it as well.
+Circuit UI's ESLint plugin has been upgraded to [TypeScript ESLint](https://github.com/typescript-eslint/typescript-eslint) v7. We strongly recommend upgrading to [Foundry v8.3](https://github.com/sumup-oss/foundry/blob/main/CHANGELOG.md#830) to avoid dependency conflicts.
 
 ### Renamed package scope
 
 The packages have moved from the `@sumup` to the `@sumup-oss` scope to avoid conflicts with private packages. To get started, remove the old design system packages, then install the new ones:
 
 ```sh
-npm uninstall @sumup/circuit-ui @sumup/design-tokens @sumup/icons
-npm install @sumup-oss/circuit-ui @sumup-oss/design-tokens @sumup-oss/icons
+npm uninstall @sumup/circuit-ui @sumup/design-tokens @sumup/icons @sumup/intl
+npm install @sumup-oss/circuit-ui @sumup-oss/design-tokens @sumup-oss/icons @sumup-oss/intl temporal-polyfill
 ```
 
-Do the same for any linter plugins your app is using:
+Note that [`temporal-polyfill`](https://www.npmjs.com/package/temporal-polyfill) is a new required peer dependency and that the [`@sumup-oss/intl`](https://www.npmjs.com/package/@sumup-oss/intl) peer dependency has been upgraded to v3. If your app also depends on `@sumup-oss/intl` (previously called `@sumup/intl`), you need to upgrade it as well. Refer to its [changelog](https://github.com/sumup-oss/intl-js/blob/main/CHANGELOG.md) for migration instructions.
+
+Follow the same process to upgrade any linter plugins your app is using:
 
 ```sh
 # ESLint
@@ -41,18 +40,25 @@ npm uninstall @sumup/stylelint-plugin-circuit-ui
 npm install @sumup-oss/stylelint-plugin-circuit-ui
 ```
 
-- Update all imports:
+Update any static and dynamic imports to the new package scope. For example:
 
 ```diff
--import { Button } from '@sumup/circuit-ui';
-+import { Button } from '@sumup-oss/circuit-ui';
+-import { Button, type ButtonProps } from '@sumup/circuit-ui';
++import { Button, type ButtonProps } from '@sumup-oss/circuit-ui';
+
+-jest.mock('@sumup-oss/circuit-ui', () => ({
+-  ...jest.requireActual<typeof import('@sumup-oss/circuit-ui')>(
+-    '@sumup-oss/circuit-ui',
+-  ),
+-}));
++jest.mock('@sumup-oss/circuit-ui', () => ({
++  ...jest.requireActual<typeof import('@sumup-oss/circuit-ui')>(
++    '@sumup-oss/circuit-ui',
++  ),
++}));
 ```
 
-[Circuit UI's ESLint plugin](https://circuit.sumup.com/?path=/docs/packages-eslint-plugin-circuit-ui--docs) offers the `renamed-package-scope` rule to automate updating the package imports.
-
-- manually migrate Linter configs
-- enable 🤖 `renamed-package-scope` ESLint rule
-- manually search for any left-over occurrences of the old package names and fix them
+[Circuit UI's ESLint plugin](https://circuit.sumup.com/?path=/docs/packages-eslint-plugin-circuit-ui--docs) offers the 🤖 `renamed-package-scope` rule to automate updating the package imports. If your project uses Foundry v8.3+, this rule is automatically enabled. Otherwise, manually add the Circuit UI ESLint plugin name to your ESLint config and enable the rule. Run ESLint with the [`--fix` flag](https://eslint.org/docs/latest/use/command-line-interface#--fix), then manually search for and fix any left-over occurrences of the old package names.
 
 ### Stable components
 
@@ -63,14 +69,12 @@ Update the related imports:
 + import { Calendar, CalendarProps, PlainDateRange } from '@sumup-oss/circuit-ui';
 ```
 
-- Calendar, DateInput, (DateRangeInput)
+- Calendar, DateInput, (DateRangeInput) rebuilt from scratch for better performance and accessibility.
 - ColorInput, PhoneNumberInput
 - (Tooltip, Toggletip?)
 - 🤖 `component-lifecycle-imports`
 
 ### Typography APIs
-
-- fonts! (separate section?)
 
 - Renamed the Title component to Display for consistency with other platforms.
 - Deprecated the SubHeadline component. Use the Headline component in size `s` instead.
@@ -107,13 +111,44 @@ optional but recommended migrations:
 - 🤖 `no-deprecated-components`
 - 🤖 `no-deprecated-custom-properties` (ESLint & Stylelint)
 
-### Deprecated `InputElement`
+- Consolidated and renamed the `typography` tokens:
 
-- Deprecated the `InputElement` interface and narrowed the Input's element type to `HTMLInputElement` and the TextArea's element type to `HTMLTextAreaElement`. This affects `ref`s and event handlers.
+| Old                                     | New                      |
+| --------------------------------------- | ------------------------ |
+| `typography-title-one-font-size`        | `display-l-font-size`    |
+| `typography-title-one-line-height`      | `display-l-line-height`  |
+| `typography-title-two-font-size`        | `display-m-font-size`    |
+| `typography-title-two-line-height`      | `display-m-line-height`  |
+| `typography-title-three-font-size`      | `display-m-font-size`    |
+| `typography-title-three-line-height`    | `display-m-line-height`  |
+| `typography-title-four-font-size`       | `display-s-font-size`    |
+| `typography-title-four-line-height`     | `display-s-line-height`  |
+| `typography-headline-one-font-size`     | `headline-l-font-size`   |
+| `typography-headline-one-line-height`   | `headline-l-line-height` |
+| `typography-headline-two-font-size`     | `headline-m-font-size`   |
+| `typography-headline-two-line-height`   | `headline-m-line-height` |
+| `typography-headline-three-font-size`   | `headline-m-font-size`   |
+| `typography-headline-three-line-height` | `headline-m-line-height` |
+| `typography-headline-four-font-size`    | `headline-s-font-size`   |
+| `typography-headline-four-line-height`  | `headline-s-line-height` |
+| `typography-sub-headline-font-size`     | `headline-s-font-size`   |
+| `typography-sub-headline-line-height`   | `headline-s-line-height` |
+| `typography-body-large-font-size`       | `body-l-font-size`       |
+| `typography-body-large-line-height`     | `body-l-line-height`     |
+| `typography-body-one-font-size`         | `body-m-font-size`       |
+| `typography-body-one-line-height`       | `body-m-line-height`     |
+| `typography-body-two-font-size`         | `body-s-font-size`       |
+| `typography-body-two-line-height`       | `body-s-line-height`     |
+
+### New typeface
+
+- Changed the default typeface from Aktiv Grotesk to Inter, a variable font. Variable fonts combine a continuous range of weights and other "axes" into a single file. This speeds up page load times and enables more creative freedom. Inter is a close match to Aktiv Grotesk, so users shouldn't notice a difference.
+- Added a new `@sumup-oss/design-tokens/fonts.css` file containing the `@font-face` declarations to load the Inter font family. Refer to the documentation on [how to load fonts in your application](https://github.com/sumup-oss/circuit-ui/tree/main/packages/design-tokens#fonts).
 
 ### Other changes
 
-- Removed the Table component's deprecated `initialSortedRow` prop. Use the `initialSortedColumn` prop instead (🤖 `no-renamed-props`)
+- Deprecated the `InputElement` interface and narrowed the Input component's element type to `HTMLInputElement` and the TextArea component's element type to `HTMLTextAreaElement`. This affects `ref`s and event handlers.
+- Removed the Table component's deprecated `initialSortedRow` prop. Use the `initialSortedColumn` prop instead (🤖 `no-renamed-props`).
 
 ## From v7.x to v8
 
