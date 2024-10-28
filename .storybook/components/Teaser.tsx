@@ -27,7 +27,7 @@ interface TeaserProps {
 export function Teaser({ title, children }: TeaserProps) {
   return (
     <Card className={classes.base}>
-      <Headline as="h2" size="three" id={slugify(title)}>
+      <Headline as="h2" size="s" id={slugify(title)}>
         {title}
       </Headline>
 

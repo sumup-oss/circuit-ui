@@ -151,7 +151,7 @@ export function Icons() {
           groupBy(activeIcons, 'category'),
         ).map(([category, items]) => (
           <section key={category} className={classes.category}>
-            <Headline as="h2" size="two" id={slugify(category)}>
+            <Headline as="h2" size="m" id={slugify(category)}>
               {category}
             </Headline>
             <div className={classes.list}>

@@ -255,12 +255,23 @@ const configs: (Config & { components: string[] })[] = [
   },
   {
     type: 'values',
-    components: ['Title', 'Display', 'Headline'],
+    components: ['Title', 'Display'],
     prop: 'size',
     values: {
       one: 'l',
       two: 'm',
       three: 'm',
+      four: 's',
+    },
+  },
+  {
+    type: 'values',
+    components: ['Headline'],
+    prop: 'size',
+    values: {
+      one: 'l',
+      two: 'm',
+      three: 's',
       four: 's',
     },
   },
