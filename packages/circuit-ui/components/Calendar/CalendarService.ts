@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-// biome-ignore lint/suspicious/noShadowRestrictedNames: Necessary to add support for Temporal objects to the `Intl` APIs
-import { Temporal, Intl } from 'temporal-polyfill';
+import { Temporal } from 'temporal-polyfill';
+import { formatDateTime } from '@sumup-oss/intl';
 
 import type { Locale } from '../../util/i18n.js';
 import { chunk, last } from '../../util/helpers.js';
@@ -145,20 +145,18 @@ export function getWeekdays(
   locale?: Locale,
   calendar?: string,
 ) {
-  const narrow = new Intl.DateTimeFormat(locale, {
-    weekday: 'narrow',
-    calendar,
-  });
-  const long = new Intl.DateTimeFormat(locale, {
-    weekday: 'long',
-    calendar,
-  });
   return Array.from(Array(daysInWeek)).map((_, index) => {
     // 1973 started with a Monday
     const date = new Temporal.PlainDate(1973, 1, index + firstDayOfWeek);
     return {
-      narrow: narrow.format(date),
-      long: long.format(date),
+      narrow: formatDateTime(date, locale, {
+        weekday: 'narrow',
+        calendar,
+      }),
+      long: formatDateTime(date, locale, {
+        weekday: 'long',
+        calendar,
+      }),
     };
   }) as Weekdays;
 }
@@ -168,12 +166,11 @@ export function getMonthHeadline(
   locale?: Locale,
   calendar = 'iso8601',
 ) {
-  const intl = new Intl.DateTimeFormat(locale, {
+  return formatDateTime(yearMonth, locale, {
     year: 'numeric',
     month: 'long',
     calendar,
   });
-  return intl.format(yearMonth);
 }
 
 export function getDatesInRange(
