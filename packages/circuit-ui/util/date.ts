@@ -18,18 +18,9 @@ import { Temporal } from 'temporal-polyfill';
 export type FirstDayOfWeek = 1 | 7;
 export type DaysInWeek = number;
 export type PlainDateRange =
-  | {
-      start: undefined;
-      end: undefined;
-    }
-  | {
-      start: Temporal.PlainDate;
-      end: undefined;
-    }
-  | {
-      start: Temporal.PlainDate;
-      end: Temporal.PlainDate;
-    };
+  | { start: undefined; end: undefined }
+  | { start: Temporal.PlainDate; end: undefined }
+  | { start: Temporal.PlainDate; end: Temporal.PlainDate };
 
 export function getTodaysDate() {
   return Temporal.Now.plainDateISO();
