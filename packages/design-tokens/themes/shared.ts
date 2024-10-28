@@ -78,12 +78,12 @@ export const shared = [
   },
   {
     name: '--cui-font-weight-semibold',
-    value: '550',
+    value: '560',
     type: 'fontWeight',
   },
   {
     name: '--cui-font-weight-bold',
-    value: '650',
+    value: '630',
     type: 'fontWeight',
   },
   /* Letter spacing */
@@ -213,7 +213,7 @@ export const shared = [
   },
   {
     name: '--cui-headline-m-font-size',
-    value: '1.375rem',
+    value: '1.5rem',
     type: 'dimension',
   },
   {
