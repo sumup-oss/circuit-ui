@@ -48,6 +48,8 @@ export interface ColorInputProps
     | 'pattern'
     | 'renderPrefix'
     | 'as'
+    | 'textAlign'
+    | 'renderSuffix'
   > {
   /**
    * A short string that is shown inside the empty input.
@@ -67,7 +69,6 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
   (
     {
       'aria-describedby': descriptionId,
-      'renderSuffix': RenderSuffix,
       className,
       defaultValue,
       disabled,
@@ -98,13 +99,6 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
     const validationHintId = useId();
 
     const descriptionIds = clsx(validationHintId, descriptionId);
-
-    // TODO this appears to not be used in this component
-    const suffix = RenderSuffix && (
-      <RenderSuffix className={inputClasses.suffix} />
-    );
-
-    const hasSuffix = Boolean(suffix);
 
     const handlePaste: ClipboardEventHandler<InputElement> = (e) => {
       if (!colorPickerRef.current || !colorInputRef.current || readOnly) {
@@ -204,7 +198,6 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
             className={clsx(
               inputClasses.base,
               !disabled && hasWarning && inputClasses.warning,
-              hasSuffix && inputClasses['has-suffix'],
               classes.input,
               inputClassName,
             )}
