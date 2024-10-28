@@ -40,6 +40,7 @@
 
 .base[aria-selected="true"] {
   position: relative;
+  font-weight: var(--cui-font-weight-semibold);
   color: var(--cui-fg-normal);
 }
 

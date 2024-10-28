@@ -2,7 +2,7 @@
   display: inline-block;
   padding: 2px var(--cui-spacings-byte);
   font-size: var(--cui-body-s-font-size);
-  font-weight: var(--cui-font-weight-bold);
+  font-weight: var(--cui-font-weight-semibold);
   line-height: var(--cui-body-s-line-height);
   text-align: center;
   letter-spacing: 0.25px;

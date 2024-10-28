@@ -7,7 +7,7 @@
   height: auto;
   margin: 0;
   font-size: var(--cui-body-m-font-size);
-  font-weight: var(--cui-font-weight-bold);
+  font-weight: var(--cui-font-weight-semibold);
   text-align: center;
   text-decoration: none;
   cursor: pointer;

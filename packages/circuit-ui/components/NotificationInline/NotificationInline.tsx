@@ -163,7 +163,10 @@ export const NotificationInline = forwardRef<
           <span className={utilClasses.hideVisually}>{iconLabel}</span>
           <div className={classes.content}>
             {headline && (
-              <Body weight="bold" as={isString(headline) ? 'h3' : headline.as}>
+              <Body
+                weight="semibold"
+                as={isString(headline) ? 'h3' : headline.as}
+              >
                 {isString(headline) ? headline : headline.label}
               </Body>
             )}
