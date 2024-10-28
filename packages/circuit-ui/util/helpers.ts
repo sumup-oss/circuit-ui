@@ -110,6 +110,19 @@ export function shiftInRange(
   min: number, // inclusive
   max: number, // inclusive
 ) {
+  if (process.env.NODE_ENV !== 'production') {
+    if (min >= max) {
+      throw new RangeError(
+        `The minimum value (${min}) must be less than the maximum value (${max}).`,
+      );
+    }
+    if (value < min || value > max) {
+      throw new TypeError(
+        `The value (${value}) must be inside the provided range (${min}'-'${max})`,
+      );
+    }
+  }
+
   const modulus = max - min + 1;
   return ((value - min + (offset % modulus) + modulus) % modulus) + min;
 }
