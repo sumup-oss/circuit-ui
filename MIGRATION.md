@@ -2,11 +2,118 @@
 
 ## 🤖 Automated migration
 
-Some of the changes in this guide can be automated using [`@sumup/eslint-plugin-circuit-ui`](https://circuit.sumup.com/?path=/docs/packages-eslint-plugin-circuit-ui--docs). Changes that can be automated are marked with a robot emoji (🤖) and the name of the ESLint rule (e.g. _no-deprecated-props_)
+Some of the changes in this guide can be automated using [`@sumup-oss/eslint-plugin-circuit-ui`](https://circuit.sumup.com/?path=/docs/packages-eslint-plugin-circuit-ui--docs). Changes that can be automated are marked with a robot emoji (🤖) and the name of the ESLint rule (e.g. _no-deprecated-props_)
 
 We encourage you to enable and apply the rules incrementally and review the changes before continuing. The rules don't cover all edge cases, so further manual changes might be necessary. For example, the ESLint rules only analyze one file at a time, so if a Circuit UI component is wrapped in a styled component in one file and used in another, ESLint won't be able to update its props.
 
 Prior to v5, codemods were implemented using [jscodeshift](#-codemods-jscodeshift).
+
+## From v8.x to v9
+
+Circuit UI v9 introduces more flexible typography APIs and new date picker components rebuilt from scratch for better performance and accessibility.
+
+For a complete list of changes, refer to the [changelog](https://github.com/sumup-oss/circuit-ui/blob/main/packages/circuit-ui/CHANGELOG.md).
+
+### Prerequisites
+
+Circuit UI now requires at minimum Node.js v20. Note that [Node 18](https://nodejs.org/en/about/previous-releases) reached its end-of-life in October 2024.
+
+- new peer dependency: [`temporal-polyfill`](https://www.npmjs.com/package/temporal-polyfill)
+- Upgraded to `@sumup-oss/intl` v3. If your app also depends on `@sumup-oss/intl` (previously called `@sumup/intl`), you need to upgrade it as well.
+
+### Renamed package scope
+
+The packages have moved from the `@sumup` to the `@sumup-oss` scope to avoid conflicts with private packages. To get started, remove the old design system packages, then install the new ones:
+
+```sh
+npm uninstall @sumup/circuit-ui @sumup/design-tokens @sumup/icons
+npm install @sumup-oss/circuit-ui @sumup-oss/design-tokens @sumup-oss/icons
+```
+
+Do the same for any linter plugins your app is using:
+
+```sh
+# ESLint
+npm uninstall @sumup/eslint-plugin-circuit-ui
+npm install @sumup-oss/eslint-plugin-circuit-ui
+# Stylelint
+npm uninstall @sumup/stylelint-plugin-circuit-ui
+npm install @sumup-oss/stylelint-plugin-circuit-ui
+```
+
+- Update all imports:
+
+```diff
+-import { Button } from '@sumup/circuit-ui';
++import { Button } from '@sumup-oss/circuit-ui';
+```
+
+[Circuit UI's ESLint plugin](https://circuit.sumup.com/?path=/docs/packages-eslint-plugin-circuit-ui--docs) offers the `renamed-package-scope` rule to automate updating the package imports.
+
+- manually migrate Linter configs
+- enable 🤖 `renamed-package-scope` ESLint rule
+- manually search for any left-over occurrences of the old package names and fix them
+
+### Stable components
+
+Update the related imports:
+
+```diff
+- import { Calendar, CalendarProps, PlainDateRange } from '@sumup-oss/circuit-ui/experimental';
++ import { Calendar, CalendarProps, PlainDateRange } from '@sumup-oss/circuit-ui';
+```
+
+- Calendar, DateInput, (DateRangeInput)
+- ColorInput, PhoneNumberInput
+- (Tooltip, Toggletip?)
+- 🤖 `component-lifecycle-imports`
+
+### Typography APIs
+
+- fonts! (separate section?)
+
+- Renamed the Title component to Display for consistency with other platforms.
+- Deprecated the SubHeadline component. Use the Headline component in size `s` instead.
+- Added a new `weight` prop to the Body and Display components. Choose between `regular`, `semibold`, and `bold` font weights.
+- Added a new `decoration` prop to the Body component. Choose between the `italic` and `strikethrough` styles.
+- Added a new `color` prop to the Body component. Choose any foreground color.
+- Deprecated the Body component's `variant` prop. Use the new `color` prop instead of the `alert`, `confirm` and `subtle` variants. Use the new `weight` prop instead of the `highlight` variant. Use custom CSS for the `quote` variant.
+- Added an explicit foreground color to the Body component (`fg-normal`) to better support localized dark mode. Previously, the component inherited its color from its parent.
+- Added a new Compact component for text in space-constraint contexts.
+- Added a new Numeral component for numeric content such as currency values.
+
+- Deprecated the BodyLarge component. Use the Body component in size `l` instead.
+- Consolidated and renamed the sizes of the Display (formerly Title), Headline, and Body components:
+
+**Display & Headline**
+
+| Old   | New |
+| ----- | --- |
+| one   | l   |
+| two   | m   |
+| three | m   |
+| four  | s   |
+
+**Body**
+
+| Old | New |
+| --- | --- |
+| one | m   |
+| two | s   |
+
+optional but recommended migrations:
+
+- 🤖 `no-renamed-props`
+- 🤖 `no-deprecated-components`
+- 🤖 `no-deprecated-custom-properties` (ESLint & Stylelint)
+
+### Deprecated `InputElement`
+
+- Deprecated the `InputElement` interface and narrowed the Input's element type to `HTMLInputElement` and the TextArea's element type to `HTMLTextAreaElement`. This affects `ref`s and event handlers.
+
+### Other changes
+
+- Removed the Table component's deprecated `initialSortedRow` prop. Use the `initialSortedColumn` prop instead (🤖 `no-renamed-props`)
 
 ## From v7.x to v8
 
@@ -71,7 +178,7 @@ expect.extend({
           this.utils.matcherHint(
             `${this.isNot ? '.not' : ''}.toBeDisabled`,
             'element',
-            '',
+            ''
           ),
           '',
           `Received element ${is} disabled:`,
@@ -92,7 +199,7 @@ expect.extend({
           this.utils.matcherHint(
             `${this.isNot ? '.not' : ''}.toBeEnabled`,
             'element',
-            '',
+            ''
           ),
           '',
           `Received element ${is} enabled:`,
@@ -724,7 +831,7 @@ import styled from 'util/styled';
 const RedCard = styled(Card)(
   ({ theme }) => css`
     background-color: red;
-  `,
+  `
 );
 ```
 
@@ -750,7 +857,7 @@ import styled from '@emotion/styled';
 const RedCard = styled(Card)(
   ({ theme }) => css`
     background-color: red;
-  `,
+  `
 );
 ```
 
