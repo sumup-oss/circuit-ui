@@ -1,12 +1,12 @@
 /* Remove scroll on the body when react-modal is open */
-.cui-modal-open {
+.open {
   height: 100%;
   overflow-y: hidden;
   -webkit-overflow-scrolling: auto;
 }
 
 /* Enable keyboard navigation inside the modal, see https://github.com/reactjs/react-modal/issues/782 */
-.cui-modal-portal {
+.portal {
   position: absolute;
   width: 100%;
   height: 100%;

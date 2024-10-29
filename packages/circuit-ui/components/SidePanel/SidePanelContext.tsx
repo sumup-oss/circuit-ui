@@ -285,8 +285,8 @@ export function SidePanelProvider({
             isStacked={isStacked}
             onBack={handleBack}
             onClose={handleClose}
-            portalClassName={classes['cui-side-panel-portal']}
-            htmlOpenClassName={classes['cui-side-panel-open']}
+            portalClassName={classes.portal}
+            htmlOpenClassName={classes.open}
           />
         );
       })}
