@@ -254,6 +254,13 @@ const configs: (Config & { components: string[] })[] = [
     },
   },
   {
+    type: 'name',
+    components: ['Table'],
+    props: {
+      initialSortedRow: 'initialSortedColumn',
+    },
+  },
+  {
     type: 'values',
     components: ['Title', 'Display', 'Headline'],
     prop: 'size',
