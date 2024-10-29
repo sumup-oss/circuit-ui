@@ -25,7 +25,6 @@ import {
   waitFor,
   act,
 } from '../../util/test-utils.js';
-import type { PlainDateRange } from '../../util/date.js';
 
 import { Calendar } from './Calendar.js';
 
@@ -224,10 +223,10 @@ describe('Calendar', () => {
     });
 
     it('should mark the selected date range', () => {
-      const selection = [
-        new Temporal.PlainDate(2020, 3, 15),
-        new Temporal.PlainDate(2020, 3, 25),
-      ] satisfies PlainDateRange;
+      const selection = {
+        start: new Temporal.PlainDate(2020, 3, 15),
+        end: new Temporal.PlainDate(2020, 3, 25),
+      };
       const { container } = render(
         <Calendar {...baseProps} selection={selection} />,
       );
@@ -236,8 +235,8 @@ describe('Calendar', () => {
       expect(selectedDays).toHaveLength(11);
 
       for (
-        let index = selection[0].day;
-        index <= selection[1].day;
+        let index = selection.start.day;
+        index <= selection.end.day;
         index += 1
       ) {
         const selectedDay = screen.getByRole('button', {

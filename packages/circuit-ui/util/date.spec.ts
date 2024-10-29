@@ -22,9 +22,8 @@ import {
   getLastDateOfWeek,
   getMonthName,
   isPlainDate,
-  sortDateRange,
   toPlainDate,
-  type PlainDateRange,
+  updatePlainDateRange,
 } from './date.js';
 
 describe('CalendarService', () => {
@@ -71,18 +70,6 @@ describe('CalendarService', () => {
     });
   });
 
-  describe('sortDateRange', () => {
-    it('should sort the start and end date in ascending order', () => {
-      const dateRange: PlainDateRange = [
-        new Temporal.PlainDate(2020, 3, 25),
-        new Temporal.PlainDate(2020, 3, 15),
-      ];
-      const actual = sortDateRange(dateRange);
-      expect(actual[0].toString()).toBe('2020-03-15');
-      expect(actual[1].toString()).toBe('2020-03-25');
-    });
-  });
-
   describe('clampDate', () => {
     it('should return the date if it is within the range', () => {
       const date = new Temporal.PlainDate(2020, 3, 5);
@@ -122,6 +109,60 @@ describe('CalendarService', () => {
       const maxDate = new Temporal.PlainDate(2020, 3, 10);
       const actual = clampDate(date, minDate, maxDate);
       expect(actual).toEqual(maxDate);
+    });
+  });
+
+  describe('updatePlainDateRange', () => {
+    it('should set the start date if the range is empty', () => {
+      const previousRange = { start: undefined, end: undefined };
+      const date = new Temporal.PlainDate(2020, 3, 11);
+      const actual = updatePlainDateRange(previousRange, date);
+      expect(actual.start).toEqual(date);
+      expect(actual.end).toBeUndefined();
+    });
+
+    it('should start a new range if the range is complete', () => {
+      const previousRange = {
+        start: new Temporal.PlainDate(2020, 3, 9),
+        end: new Temporal.PlainDate(2020, 3, 15),
+      };
+      const date = new Temporal.PlainDate(2020, 3, 11);
+      const actual = updatePlainDateRange(previousRange, date);
+      expect(actual.start).toEqual(date);
+      expect(actual.end).toBeUndefined();
+    });
+
+    it('should set a new start date if the date is before the start date', () => {
+      const previousRange = {
+        start: new Temporal.PlainDate(2020, 3, 9),
+        end: undefined,
+      };
+      const date = new Temporal.PlainDate(2020, 3, 5);
+      const actual = updatePlainDateRange(previousRange, date);
+      expect(actual.start).toEqual(date);
+      expect(actual.end).toBeUndefined();
+    });
+
+    it('should set the end date if the date is equal to the start date', () => {
+      const previousRange = {
+        start: new Temporal.PlainDate(2020, 3, 9),
+        end: undefined,
+      };
+      const date = new Temporal.PlainDate(2020, 3, 9);
+      const actual = updatePlainDateRange(previousRange, date);
+      expect(actual.start).toEqual(previousRange.start);
+      expect(actual.end).toEqual(date);
+    });
+
+    it('should set the end date if the date is after the start date', () => {
+      const previousRange = {
+        start: new Temporal.PlainDate(2020, 3, 9),
+        end: undefined,
+      };
+      const date = new Temporal.PlainDate(2020, 3, 11);
+      const actual = updatePlainDateRange(previousRange, date);
+      expect(actual.start).toEqual(previousRange.start);
+      expect(actual.end).toEqual(date);
     });
   });
 

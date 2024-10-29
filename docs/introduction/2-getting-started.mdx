@@ -30,13 +30,13 @@ npm install @sumup-oss/circuit-ui
 yarn add @sumup-oss/circuit-ui
 ```
 
-Circuit UI relies on some mandatory peer dependencies, namely [@sumup-oss/design-tokens](https://www.npmjs.com/package/@sumup-oss/design-tokens), [@sumup-oss/icons](https://www.npmjs.com/package/@sumup-oss/icons), [@sumup-oss/intl](https://www.npmjs.com/package/@sumup-oss/intl), and [React](https://reactjs.org/). You should install them with the following command:
+Circuit UI relies on some mandatory peer dependencies, namely [@sumup-oss/design-tokens](https://www.npmjs.com/package/@sumup-oss/design-tokens), [@sumup-oss/icons](https://www.npmjs.com/package/@sumup-oss/icons), [@sumup-oss/intl](https://www.npmjs.com/package/@sumup-oss/intl), [React](https://reactjs.org/), and [temporal-polyfill](https://www.npmjs.com/package/temporal-polyfill). You should install them with the following command:
 
 ```sh
 # With npm:
-npm install --save @sumup-oss/design-tokens @sumup-oss/icons @sumup-oss/intl react react-dom
+npm install --save @sumup-oss/design-tokens @sumup-oss/icons @sumup-oss/intl react react-dom temporal-polyfill
 # With yarn v1
-yarn add @sumup-oss/design-tokens @sumup-oss/icons @sumup-oss/intl react react-dom
+yarn add @sumup-oss/design-tokens @sumup-oss/icons @sumup-oss/intl react react-dom temporal-polyfill
 ```
 
 We also recommend installing and configuring [`@sumup-oss/eslint-plugin-circuit-ui`](Packages/eslint-plugin-circuit-ui/Docs) and [`@sumup-oss/stylelint-plugin-circuit-ui`](Packages/stylelint-plugin-circuit-ui/Docs). The plugins will lint [Circuit UI custom properties](Features/Theme/Docs) and include codemods for Circuit UI breaking changes.

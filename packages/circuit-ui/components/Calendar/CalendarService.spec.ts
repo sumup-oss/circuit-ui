@@ -16,8 +16,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { Temporal } from 'temporal-polyfill';
 
-import type { PlainDateRange } from '../../util/date.js';
-
 import {
   CalendarActionType,
   calendarReducer,
@@ -85,10 +83,10 @@ describe('CalendarService', () => {
     });
 
     it('should focus the start date of a selected date range', () => {
-      const selection: PlainDateRange = [
-        new Temporal.PlainDate(2020, 3, 28),
-        new Temporal.PlainDate(2020, 3, 18),
-      ];
+      const selection = {
+        start: new Temporal.PlainDate(2020, 3, 18),
+        end: new Temporal.PlainDate(2020, 3, 28),
+      };
       const minDate = null;
       const maxDate = null;
       const numberOfMonths = 1;
@@ -372,75 +370,77 @@ describe('CalendarService', () => {
 
     it('should return true if the date matches the start and end of the selected range', () => {
       const date = new Temporal.PlainDate(2020, 3, 15);
-      const selection = [
-        new Temporal.PlainDate(2020, 3, 15),
-        new Temporal.PlainDate(2020, 3, 15),
-      ] satisfies PlainDateRange;
+      const selection = {
+        start: new Temporal.PlainDate(2020, 3, 15),
+        end: new Temporal.PlainDate(2020, 3, 15),
+      };
       const actual = isDateActive(date, selection);
       expect(actual).toBe(true);
     });
 
     it('should return true if the date matches the start of the selected range', () => {
       const date = new Temporal.PlainDate(2020, 3, 15);
-      const selection = [
-        new Temporal.PlainDate(2020, 3, 20),
-        new Temporal.PlainDate(2020, 3, 15),
-      ] satisfies PlainDateRange;
+      const selection = {
+        start: new Temporal.PlainDate(2020, 3, 15),
+        end: new Temporal.PlainDate(2020, 3, 20),
+      };
       const actual = isDateActive(date, selection);
       expect(actual).toBe(true);
     });
 
     it('should return true if the date is in the middle of the selected range', () => {
       const date = new Temporal.PlainDate(2020, 3, 15);
-      const selection = [
-        new Temporal.PlainDate(2020, 3, 20),
-        new Temporal.PlainDate(2020, 3, 10),
-      ] satisfies PlainDateRange;
+      const selection = {
+        start: new Temporal.PlainDate(2020, 3, 10),
+        end: new Temporal.PlainDate(2020, 3, 20),
+      };
       const actual = isDateActive(date, selection);
       expect(actual).toBe(true);
     });
 
     it('should return true if the date matches the end of the selected range', () => {
       const date = new Temporal.PlainDate(2020, 3, 15);
-      const selection = [
-        new Temporal.PlainDate(2020, 3, 15),
-        new Temporal.PlainDate(2020, 3, 10),
-      ] satisfies PlainDateRange;
+      const selection = {
+        start: new Temporal.PlainDate(2020, 3, 10),
+        end: new Temporal.PlainDate(2020, 3, 15),
+      };
       const actual = isDateActive(date, selection);
       expect(actual).toBe(true);
     });
 
     it('should return true if the date matches the start of an incomplete range', () => {
       const date = new Temporal.PlainDate(2020, 3, 15);
-      const selection = [
-        new Temporal.PlainDate(2020, 3, 15),
-      ] satisfies PlainDateRange;
+      const selection = {
+        start: new Temporal.PlainDate(2020, 3, 15),
+        end: undefined,
+      };
       const actual = isDateActive(date, selection);
       expect(actual).toBe(true);
     });
 
     it('should return false for an empty range', () => {
       const date = new Temporal.PlainDate(2020, 3, 15);
-      const selection = [] satisfies PlainDateRange;
+      const selection = { start: undefined, end: undefined };
       const actual = isDateActive(date, selection);
       expect(actual).toBe(false);
     });
 
     it('should return false if the date falls outside the selected range', () => {
       const date = new Temporal.PlainDate(2020, 3, 15);
-      const selection = [
-        new Temporal.PlainDate(2020, 3, 16),
-        new Temporal.PlainDate(2020, 3, 18),
-      ] satisfies PlainDateRange;
+      const selection = {
+        start: new Temporal.PlainDate(2020, 3, 16),
+        end: new Temporal.PlainDate(2020, 3, 18),
+      };
       const actual = isDateActive(date, selection);
       expect(actual).toBe(false);
     });
 
     it('should return false if the date does not match the start date of an incomplete range', () => {
       const date = new Temporal.PlainDate(2020, 3, 15);
-      const selection = [
-        new Temporal.PlainDate(2020, 3, 16),
-      ] satisfies PlainDateRange;
+      const selection = {
+        start: new Temporal.PlainDate(2020, 3, 16),
+        end: undefined,
+      };
       const actual = isDateActive(date, selection);
       expect(actual).toBe(false);
     });
@@ -473,7 +473,7 @@ describe('CalendarService', () => {
     it('should return null if the selected range is empty', () => {
       const date = new Temporal.PlainDate(2020, 3, 15);
       const hoveredDate = null;
-      const selection: PlainDateRange = [];
+      const selection = { start: undefined, end: undefined };
       const actual = getSelectionType(date, hoveredDate, selection);
       expect(actual).toBeNull();
     });
@@ -489,9 +489,10 @@ describe('CalendarService', () => {
     it('should return "selected" if the date matches the start of an incomplete range', () => {
       const date = new Temporal.PlainDate(2020, 3, 15);
       const hoveredDate = null;
-      const selection = [
-        new Temporal.PlainDate(2020, 3, 15),
-      ] satisfies PlainDateRange;
+      const selection = {
+        start: new Temporal.PlainDate(2020, 3, 15),
+        end: undefined,
+      };
       const actual = getSelectionType(date, hoveredDate, selection);
       expect(actual).toBe('selected');
     });
@@ -499,9 +500,10 @@ describe('CalendarService', () => {
     it('should return "selected" if the start of an incomplete range matches the hovered date', () => {
       const date = new Temporal.PlainDate(2020, 3, 15);
       const hoveredDate = new Temporal.PlainDate(2020, 3, 15);
-      const selection = [
-        new Temporal.PlainDate(2020, 3, 15),
-      ] satisfies PlainDateRange;
+      const selection = {
+        start: new Temporal.PlainDate(2020, 3, 15),
+        end: undefined,
+      };
       const actual = getSelectionType(date, hoveredDate, selection);
       expect(actual).toBe('selected');
     });
@@ -509,10 +511,10 @@ describe('CalendarService', () => {
     it('should return "range-start" if the date matches the start of the selected range', () => {
       const date = new Temporal.PlainDate(2020, 3, 15);
       const hoveredDate = null;
-      const selection = [
-        new Temporal.PlainDate(2020, 3, 15),
-        new Temporal.PlainDate(2020, 3, 25),
-      ] satisfies PlainDateRange;
+      const selection = {
+        start: new Temporal.PlainDate(2020, 3, 15),
+        end: new Temporal.PlainDate(2020, 3, 25),
+      };
       const actual = getSelectionType(date, hoveredDate, selection);
       expect(actual).toBe('range-start');
     });
@@ -520,9 +522,10 @@ describe('CalendarService', () => {
     it('should return "range-start" if the date matches the start of an incomplete range and hovered date', () => {
       const date = new Temporal.PlainDate(2020, 3, 15);
       const hoveredDate = new Temporal.PlainDate(2020, 3, 25);
-      const selection = [
-        new Temporal.PlainDate(2020, 3, 15),
-      ] satisfies PlainDateRange;
+      const selection = {
+        start: new Temporal.PlainDate(2020, 3, 15),
+        end: undefined,
+      };
       const actual = getSelectionType(date, hoveredDate, selection);
       expect(actual).toBe('range-start');
     });
@@ -530,10 +533,10 @@ describe('CalendarService', () => {
     it('should return "range-middle" if the date is part of the selected range', () => {
       const date = new Temporal.PlainDate(2020, 3, 15);
       const hoveredDate = null;
-      const selection = [
-        new Temporal.PlainDate(2020, 3, 20),
-        new Temporal.PlainDate(2020, 3, 10),
-      ] satisfies PlainDateRange;
+      const selection = {
+        start: new Temporal.PlainDate(2020, 3, 10),
+        end: new Temporal.PlainDate(2020, 3, 20),
+      };
       const actual = getSelectionType(date, hoveredDate, selection);
       expect(actual).toBe('range-middle');
     });
@@ -541,9 +544,10 @@ describe('CalendarService', () => {
     it('should return "range-middle" if the date is between the incomplete range and hovered date', () => {
       const date = new Temporal.PlainDate(2020, 3, 15);
       const hoveredDate = new Temporal.PlainDate(2020, 3, 20);
-      const selection = [
-        new Temporal.PlainDate(2020, 3, 10),
-      ] satisfies PlainDateRange;
+      const selection = {
+        start: new Temporal.PlainDate(2020, 3, 10),
+        end: undefined,
+      };
       const actual = getSelectionType(date, hoveredDate, selection);
       expect(actual).toBe('range-middle');
     });
@@ -551,10 +555,10 @@ describe('CalendarService', () => {
     it('should return "range-end" if the date matches the end of the selected range', () => {
       const date = new Temporal.PlainDate(2020, 3, 15);
       const hoveredDate = null;
-      const selection = [
-        new Temporal.PlainDate(2020, 3, 5),
-        new Temporal.PlainDate(2020, 3, 15),
-      ] satisfies PlainDateRange;
+      const selection = {
+        start: new Temporal.PlainDate(2020, 3, 5),
+        end: new Temporal.PlainDate(2020, 3, 15),
+      };
       const actual = getSelectionType(date, hoveredDate, selection);
       expect(actual).toBe('range-end');
     });
@@ -562,9 +566,10 @@ describe('CalendarService', () => {
     it('should return "range-end" if the date matches the end of an incomplete range and hovered date', () => {
       const date = new Temporal.PlainDate(2020, 3, 20);
       const hoveredDate = new Temporal.PlainDate(2020, 3, 20);
-      const selection = [
-        new Temporal.PlainDate(2020, 3, 15),
-      ] satisfies PlainDateRange;
+      const selection = {
+        start: new Temporal.PlainDate(2020, 3, 15),
+        end: undefined,
+      };
       const actual = getSelectionType(date, hoveredDate, selection);
       expect(actual).toBe('range-end');
     });
@@ -572,10 +577,10 @@ describe('CalendarService', () => {
     it('should prioritize the end date over the hovered date', () => {
       const date = new Temporal.PlainDate(2020, 3, 15);
       const hoveredDate = new Temporal.PlainDate(2020, 3, 25);
-      const selection = [
-        new Temporal.PlainDate(2020, 3, 15),
-        new Temporal.PlainDate(2020, 3, 10),
-      ] satisfies PlainDateRange;
+      const selection = {
+        start: new Temporal.PlainDate(2020, 3, 10),
+        end: new Temporal.PlainDate(2020, 3, 15),
+      };
       const actual = getSelectionType(date, hoveredDate, selection);
       expect(actual).toBe('range-end');
     });
@@ -583,9 +588,10 @@ describe('CalendarService', () => {
     it('should ignore the hovered date if it is before the start of an incomplete range', () => {
       const date = new Temporal.PlainDate(2020, 3, 25);
       const hoveredDate = new Temporal.PlainDate(2020, 3, 5);
-      const selection = [
-        new Temporal.PlainDate(2020, 3, 15),
-      ] satisfies PlainDateRange;
+      const selection = {
+        start: new Temporal.PlainDate(2020, 3, 15),
+        end: undefined,
+      };
       const actual = getSelectionType(date, hoveredDate, selection);
       expect(actual).toBeNull();
     });
@@ -593,10 +599,10 @@ describe('CalendarService', () => {
     it('should return null if the date is not part of any range', () => {
       const date = new Temporal.PlainDate(2020, 3, 5);
       const hoveredDate = null;
-      const selection = [
-        new Temporal.PlainDate(2020, 3, 15),
-        new Temporal.PlainDate(2020, 3, 12),
-      ] satisfies PlainDateRange;
+      const selection = {
+        start: new Temporal.PlainDate(2020, 3, 12),
+        end: new Temporal.PlainDate(2020, 3, 15),
+      };
       const actual = getSelectionType(date, hoveredDate, selection);
       expect(actual).toBeNull();
     });

@@ -66,6 +66,7 @@ export { ImageInput } from './components/ImageInput/index.js';
 export type { ImageInputProps } from './components/ImageInput/index.js';
 export { Calendar } from './components/Calendar/index.js';
 export type { CalendarProps } from './components/Calendar/index.js';
+export { updatePlainDateRange } from './util/date.js';
 export type { PlainDateRange } from './util/date.js';
 
 // Actions
