@@ -39,6 +39,7 @@
     "rules": {
       "recommended": true,
       "a11y": {
+        "noRedundantRoles": "warn",
         "useSemanticElements": "warn"
       },
       "style": {
