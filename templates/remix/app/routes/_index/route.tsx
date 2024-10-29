@@ -18,7 +18,7 @@ export const meta: MetaFunction = () => [
 export default function Index() {
   return (
     <>
-      <Display as="h1" size="three">
+      <Display as="h1" size="m">
         {title}
       </Display>
 

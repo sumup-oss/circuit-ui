@@ -14,7 +14,7 @@ export default function Page() {
   return (
     <div className={styles.grid}>
       <main className={styles.main}>
-        <Display as="h1" size="three">
+        <Display as="h1" size="m">
           {metadata.title as string}
         </Display>
 

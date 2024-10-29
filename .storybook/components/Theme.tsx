@@ -61,7 +61,7 @@ function CopyButton({ name }: { name: CustomPropertyName }) {
   return (
     <Anchor
       style={{ marginLeft: '1rem' }}
-      size="two"
+      size="s"
       onClick={() =>
         navigator.clipboard
           .writeText(name)
