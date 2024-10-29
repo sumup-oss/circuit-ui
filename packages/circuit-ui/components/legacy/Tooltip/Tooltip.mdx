@@ -6,7 +6,7 @@ import * as Stories from './Tooltip.stories';
 # Tooltip
 
 <Status variant="deprecated">
-  Use the experimental [Tooltip](Components/Tooltip/Docs) or [Toggletip](Components/Toggletip/Docs) components instead.
+  Use the [Tooltip](Components/Tooltip/Docs) or [Toggletip](Components/Toggletip/Docs) components instead.
 </Status>
 
 <Story of={Stories.Base} />
@@ -30,7 +30,7 @@ The Tooltip component depends on the legacy JSON theme. Wrap the the component o
 ```tsx
 import { ThemeProvider } from '@emotion/react';
 import { light } from '@sumup-oss/design-tokens';
-import { Tooltip } from '@sumup-oss/circuit-ui';
+import { Tooltip } from '@sumup-oss/circuit-ui/legacy';
 
 export default function App() {
   return (
@@ -87,8 +87,7 @@ function Component() {
 
 ```tsx
 // After
-import { Badge } from "@sumup-oss/circuit-ui";
-import { Tooltip } from "@sumup-oss/circuit-ui/experimental";
+import { Badge, Tooltip } from "@sumup-oss/circuit-ui";
 
 function Component() {
   return (
@@ -141,8 +140,7 @@ function Component() {
 
 ```tsx
 // After
-import { Toggletip } from "@sumup-oss/circuit-ui/experimental";
-import { IconButton } from "@sumup-oss/circuit-ui";
+import { IconButton, Toggletip } from "@sumup-oss/circuit-ui";
 import { Info } from "@sumup-oss/icons";
 
 function Component() {

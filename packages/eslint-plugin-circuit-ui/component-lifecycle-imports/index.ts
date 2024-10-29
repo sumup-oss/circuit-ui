@@ -82,6 +82,11 @@ const mappings = [
       'ColorInputProps',
       'PhoneNumberInputProps',
       'PhoneNumberInput',
+      'Tooltip',
+      'TooltipProps',
+      'TooltipReferenceProps',
+      'Toggletip',
+      'ToggletipProps',
     ],
   },
 ];
