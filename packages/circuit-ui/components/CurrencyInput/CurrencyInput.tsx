@@ -20,6 +20,7 @@ import { resolveCurrencyFormat } from '@sumup-oss/intl';
 import { NumericFormat, type NumericFormatProps } from 'react-number-format';
 
 import { clsx } from '../../styles/clsx.js';
+import { getBrowserLocale, type Locale } from '../../util/i18n.js';
 import { Input, type InputProps } from '../Input/index.js';
 
 import { formatPlaceholder } from './CurrencyInputService.js';
@@ -37,10 +38,12 @@ export interface CurrencyInputProps
    */
   currency: string;
   /**
-   * One or more Unicode BCP 47 locale identifiers, such as 'de-DE' or
-   * ['GB', 'en-US'] (the first supported locale is used).
+   * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
+   * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
+   * When passing an array, the first supported locale is used.
+   * Defaults to `navigator.language` in supported environments.
    */
-  locale?: string | string[];
+  locale?: Locale;
   /**
    * A short string that is shown inside the empty input.
    * If the placeholder is a number, it is formatted in the local
@@ -76,7 +79,7 @@ const DUMMY_DELIMITER = '?';
 export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
   (
     {
-      locale,
+      locale = getBrowserLocale(),
       currency,
       placeholder,
       'aria-describedby': descriptionId,

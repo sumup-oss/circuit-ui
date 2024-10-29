@@ -45,7 +45,7 @@ import {
   type SidePanelContextProps,
 } from './SidePanelContext.js';
 
-vi.mock('../../hooks/useMedia');
+vi.mock('../../hooks/useMedia/index.js');
 
 describe('SidePanelContext', () => {
   beforeAll(() => {

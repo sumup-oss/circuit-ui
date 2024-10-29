@@ -23,6 +23,9 @@ module.exports = require('@sumup-oss/foundry/eslint')({
     '@sumup-oss/circuit-ui/no-renamed-props': 'error',
     '@sumup-oss/circuit-ui/prefer-custom-properties': 'warn',
     'react/no-unknown-property': ['error', { ignore: ['css'] }],
+    // These rules are already covered by Biome
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
   },
   parserOptions: {
     project: ['./packages/*/tsconfig.json', './tsconfig.eslint.json'],

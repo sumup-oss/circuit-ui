@@ -24,7 +24,7 @@ import { SidePanelContext } from './SidePanelContext.js';
 const defaultId = '1';
 const testId = 'test';
 
-vi.mock('../../util/id', () => ({
+vi.mock('../../util/id.js', () => ({
   uniqueId: () => defaultId,
 }));
 

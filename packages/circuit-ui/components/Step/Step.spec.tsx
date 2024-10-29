@@ -20,7 +20,7 @@ import { render } from '../../util/test-utils.js';
 import { Step } from './Step.js';
 import { useStep } from './hooks/useStep.js';
 
-vi.mock('./hooks/useStep', () => ({ useStep: vi.fn(() => ({})) }));
+vi.mock('./hooks/useStep.js', () => ({ useStep: vi.fn(() => ({})) }));
 
 describe('Step', () => {
   afterAll(() => {
