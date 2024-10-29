@@ -33,6 +33,9 @@
   "linter": {
     "rules": {
       "recommended": true,
+      "a11y": {
+        "useSemanticElements": "warn"
+      },
       "style": {
         "noDefaultExport": "error",
         "useFilenamingConvention": {
