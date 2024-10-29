@@ -1,5 +1,39 @@
 # @sumup-oss/circuit-ui
 
+## 9.0.0-next.4
+
+### Major Changes
+
+- [#2741](https://github.com/sumup-oss/circuit-ui/pull/2741) [`1251f90`](https://github.com/sumup-oss/circuit-ui/commit/1251f90a4befc09a6b62fdd0f57e4e7cb9356b66) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the `PlainDateRange` type from a tuple to an object with `start` and `end` properties. This affects the Calendar component's `selection` prop. Use the new `updatePlainDateRange` helper function to update a date range when a user selects a date.
+
+- [#2731](https://github.com/sumup-oss/circuit-ui/pull/2731) [`a4b5d2c`](https://github.com/sumup-oss/circuit-ui/commit/a4b5d2c95abd93afe7da3aa877172782f4f52e48) Thanks [@sirineJ](https://github.com/sirineJ)! - Marked the `ColorInput` and `PhoneNumberInput` components as stable. Update the related imports:
+
+  ```diff
+  - import { ColorInput, type ColorInputProps } from '@sumup-oss/circuit-ui/experimental';
+  + import { ColorInput, type ColorInputProps } from '@sumup-oss/circuit-ui';
+  ```
+
+  ```diff
+  - import { PhoneNumberInput, type PhoneNumberInputProps } from '@sumup-oss/circuit-ui/experimental';
+  + import { PhoneNumberInput, type PhoneNumberInputProps } from '@sumup-oss/circuit-ui';
+  ```
+
+- [#2677](https://github.com/sumup-oss/circuit-ui/pull/2677) [`4a2f1a6`](https://github.com/sumup-oss/circuit-ui/commit/4a2f1a6635c8d818d3774ff16b234141e5875285) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the legacy RangePicker, RangePickerController, SingleDayPicker, CalendarTag, and CalendarTagTwoStep components. Use the updated DateInput component instead.
+
+- [#2645](https://github.com/sumup-oss/circuit-ui/pull/2645) [`4f11234`](https://github.com/sumup-oss/circuit-ui/commit/4f11234159c1aa25d12d3e7521371d4e1a2bb6b9) Thanks [@connor-baer](https://github.com/connor-baer)! - Rewrote the DateInput component and replaced the native date input with a custom implementation to improve its usability and accessibility. The component now requires additional localized label props.
+
+- [#2743](https://github.com/sumup-oss/circuit-ui/pull/2743) [`12a201a`](https://github.com/sumup-oss/circuit-ui/commit/12a201a2f751e0b44265d12cd46232df14f55ecc) Thanks [@sirineJ](https://github.com/sirineJ)! - Marked the `Tooltip` and `Toggletip` components as stable. Update the related imports:
+
+  ```diff
+  - import { Tooltip, type TooltipProps, type TooltipReferenceProps } from '@sumup-oss/circuit-ui/experimental';
+  + import { Tooltip, type TooltipProps, type TooltipReferenceProps } from '@sumup-oss/circuit-ui';
+  ```
+
+  ```diff
+  - import { Toggletip, type ToggletipProps } from '@sumup-oss/circuit-ui/experimental';
+  + import { Toggletip, type ToggletipProps } from '@sumup-oss/circuit-ui';
+  ```
+
 ## 9.0.0-next.3
 
 ### Patch Changes
