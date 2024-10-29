@@ -5,9 +5,46 @@ import * as Stories from './ColorInput.stories';
 
 # ColorInput
 
-<Status variant="experimental" />
+## Use cases and API
+<Status variant="stable" />
 
-The ColorInput component enables users to type or select a color.
+The ColorInput component enables users to type a color in a text field or select it using the browser native color picker.
+
+Use the ColorInput component to allow users to input a color value to personalize content such as UI themes, profile settings or other customizable experiences.
+
+
+The component only supports seven-character string representations of colors in hexadecimal format. Shorthand Hex values like `#fff` will not be normalized to `#ffffff` and values with alpha channel like `##ffffff50` will not be accepted.
+- Accepted: `#aabbcc`, `#AABBCC`
+- Not accepted: `#abc`, `#aabbccaa`, `#ABC`, `#AABBCCAA`
 
 <Story of={Stories.Base} />
+
 <Props />
+
+## Validations
+
+Use the `validationHint` prop to communication information about the state of the ColorInput component, along with one of the following validation props:
+- stand-alone: The user is informed of the expected response.
+- `showWarning`: The user is warned that the value is not recommended but still valid.
+- `showError`: The user is alerted that the value is invalid.
+- `showValid`: The user is reassured that the value is valid. Use sparingly.
+
+<Story of={Stories.Validations} />
+
+## Optional
+
+Use the `optionalLabel` prop to indicate that the field is optional. This can help reduce the cognitive load for the user by clearly indicating which fields are required and which are not. This label is only displayed when the `required` prop is falsy.
+
+<Story of={Stories.Optional} />
+
+## Readonly
+
+The ColorInput component supports a read-only state. Use the `readOnly` prop to indicate that the field is not currently editable.
+The read-only state is applied to the text input field of the ColorInput component, while disabling the color picker input to prevent interactions with the element.
+
+<Story of={Stories.Readonly} />
+
+## Disabled
+
+Disabled form fields can be confusing to users, so use them with caution. Use a disabled color input only if you need to communicate to the user that an option that existed before is not available for choosing now. Consider not displaying the field at all or add an explanation why the field is disabled.
+<Story of={Stories.Disabled} />
