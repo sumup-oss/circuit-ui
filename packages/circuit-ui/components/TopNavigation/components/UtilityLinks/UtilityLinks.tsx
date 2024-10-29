@@ -87,7 +87,7 @@ function UtilityLink({
         <Icon aria-hidden="true" size="24" />
       </Skeleton>
       <Skeleton>
-        <Body as="span" className={classes.label}>
+        <Body as="span" className={classes.label} weight="semibold">
           {label}
         </Body>
       </Skeleton>

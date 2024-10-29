@@ -57,7 +57,7 @@ export interface HeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
 const deprecatedSizeMap: Record<string, string> = {
   'one': 'l',
   'two': 'm',
-  'three': 'm',
+  'three': 's',
   'four': 's',
 };
 

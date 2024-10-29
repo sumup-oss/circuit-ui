@@ -123,7 +123,7 @@ export function NotificationToast({
         <span className={utilClasses.hideVisually}>{iconLabel}</span>
         <div className={classes.content}>
           {headline && (
-            <Body weight="bold" as="h3">
+            <Body weight="semibold" as="h3">
               {headline}
             </Body>
           )}

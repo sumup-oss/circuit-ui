@@ -67,7 +67,8 @@ const Details = (
     />
     <Body
       size="s"
-      weight="bold"
+      weight="semibold"
+      color="success"
       style={{ marginRight: 'var(--cui-spacings-bit)' }}
     >
       {item.status}
