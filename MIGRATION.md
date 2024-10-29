@@ -60,42 +60,42 @@ Update any static and dynamic imports to the new package scope. For example:
 
 [Circuit UI's ESLint plugin](https://circuit.sumup.com/?path=/docs/packages-eslint-plugin-circuit-ui--docs) offers the 🤖 `renamed-package-scope` rule to automate updating the package imports. If your project uses Foundry v8.3+, this rule is automatically enabled. Otherwise, manually add the Circuit UI ESLint plugin name to your ESLint config and enable the rule. Run ESLint with the [`--fix` flag](https://eslint.org/docs/latest/use/command-line-interface#--fix), then manually search for and fix any left-over occurrences of the old package names.
 
-### Stable components
+### New typeface
 
-Update the related imports:
+The default typeface has changed from [Aktiv Grotesk](https://www.daltonmaag.com/font-library/aktiv-grotesk.html) to [Inter](https://rsms.me/inter/), a variable font. Variable fonts combine a continuous range of weights and other "axes" into a single file. This speeds up page load times and enables more creative freedom. Inter is a close match to Aktiv Grotesk, so users shouldn't notice a difference.
 
-```diff
-- import { Calendar, CalendarProps, PlainDateRange } from '@sumup-oss/circuit-ui/experimental';
-+ import { Calendar, CalendarProps, PlainDateRange } from '@sumup-oss/circuit-ui';
-```
-
-- Calendar, DateInput, (DateRangeInput) rebuilt from scratch for better performance and accessibility.
-- ColorInput, PhoneNumberInput
-- (Tooltip, Toggletip?)
-- 🤖 `component-lifecycle-imports`
+Circuit UI no longer loads the fonts by default. Instead, centrally import the new `@sumup-oss/design-tokens/fonts.css` file containing the `@font-face` declarations to load the Inter font family. For more details, refer to the documentation on [how to load fonts in your application](https://github.com/sumup-oss/circuit-ui/tree/main/packages/design-tokens#fonts).
 
 ### Typography APIs
 
-- Renamed the Title component to Display for consistency with other platforms.
-- Deprecated the SubHeadline component. Use the Headline component in size `s` instead.
-- Added a new `weight` prop to the Body and Display components. Choose between `regular`, `semibold`, and `bold` font weights.
-- Added a new `decoration` prop to the Body component. Choose between the `italic` and `strikethrough` styles.
-- Added a new `color` prop to the Body component. Choose any foreground color.
-- Deprecated the Body component's `variant` prop. Use the new `color` prop instead of the `alert`, `confirm` and `subtle` variants. Use the new `weight` prop instead of the `highlight` variant. Use custom CSS for the `quote` variant.
-- Added an explicit foreground color to the Body component (`fg-normal`) to better support localized dark mode. Previously, the component inherited its color from its parent.
-- Added a new Compact component for text in space-constraint contexts.
-- Added a new Numeral component for numeric content such as currency values.
+The typography components have been redesigned to improve visual hierarchy, ensure consistency across platforms and provide more flexible APIs for developers. The changes are fully backward compatible and can be adopted gradually.
 
-- Deprecated the BodyLarge component. Use the Body component in size `l` instead.
-- Consolidated and renamed the sizes of the Display (formerly Title), Headline, and Body components:
+#### Consistent names
 
-**Display & Headline**
+The Title component has been renamed to Display for consistency with other platforms. The SubHeadline component has been deprecated in favor of the Headline component in size `s`. The BodyLarge component has been deprecated in favor of the Body component in size `l` (🤖 `no-deprecated-components`).
+
+#### Flexible props
+
+The Body component's `variant` prop has been split into individual `color`, `weight` and `decoration` props. Use the `color` prop instead of the `alert`, `confirm` and `subtle` variants, use the `weight` prop instead of the `highlight` variant, and use custom CSS to replicate the `quote` variant (🤖 `no-renamed-props`). The new `decoration` prop makes it easier to apply `italic` and `strikethrough` styles.
+
+The sizes of the Display (formerly Title), Headline, and Body components have been consolidated and renamed to enforce greater visual hierarchy (🤖 `no-renamed-props`):
+
+**Display**
 
 | Old   | New |
 | ----- | --- |
 | one   | l   |
 | two   | m   |
 | three | m   |
+| four  | s   |
+
+**Headline**
+
+| Old   | New |
+| ----- | --- |
+| one   | l   |
+| two   | m   |
+| three | s   |
 | four  | s   |
 
 **Body**
@@ -105,13 +105,7 @@ Update the related imports:
 | one | m   |
 | two | s   |
 
-optional but recommended migrations:
-
-- 🤖 `no-renamed-props`
-- 🤖 `no-deprecated-components`
-- 🤖 `no-deprecated-custom-properties` (ESLint & Stylelint)
-
-- Consolidated and renamed the `typography` tokens:
+The typography design tokens have been updated accordingly (🤖 `no-deprecated-custom-properties` (ESLint & Stylelint)):
 
 | Old                                     | New                      |
 | --------------------------------------- | ------------------------ |
@@ -140,13 +134,30 @@ optional but recommended migrations:
 | `typography-body-two-font-size`         | `body-s-font-size`       |
 | `typography-body-two-line-height`       | `body-s-line-height`     |
 
-### New typeface
+#### New components
 
-- Changed the default typeface from Aktiv Grotesk to Inter, a variable font. Variable fonts combine a continuous range of weights and other "axes" into a single file. This speeds up page load times and enables more creative freedom. Inter is a close match to Aktiv Grotesk, so users shouldn't notice a difference.
-- Added a new `@sumup-oss/design-tokens/fonts.css` file containing the `@font-face` declarations to load the Inter font family. Refer to the documentation on [how to load fonts in your application](https://github.com/sumup-oss/circuit-ui/tree/main/packages/design-tokens#fonts).
+The new Compact component should be used to label information in space-constraint contexts.
+
+The new Numeral component should be used to give emphasis to numerical content such as currency values.
+
+### Stable components
+
+All experimental components are now stable.
+
+- The Calendar and DateInput components have been rebuilt from scratch for better performance and accessibility. They replace the legacy RangePicker, RangePickerController, SingleDayPicker, CalendarTag, and CalendarTagTwoStep components which have been removed.
+- The ColorInput and PhoneNumberInput components enable users to enter hex colors and phone numbers respectively.
+- The Tooltip and Toggletip components have been rebuilt from scratch for improved accessibility. They replace the legacy Tooltip component.
+
+Update the related imports (🤖 `component-lifecycle-imports`). For example:
+
+```diff
+- import { Calendar, type CalendarProps, type PlainDateRange } from '@sumup-oss/circuit-ui/experimental';
++ import { Calendar, type CalendarProps, type PlainDateRange } from '@sumup-oss/circuit-ui';
+```
 
 ### Other changes
 
+- Changed the `PlainDateRange` type from an array to an object with start and end properties. This affects the Calendar component's `selection` prop. Use the new `updatePlainDateRange` helper function to update a date range when a user selects a date.
 - Deprecated the `InputElement` interface and narrowed the Input component's element type to `HTMLInputElement` and the TextArea component's element type to `HTMLTextAreaElement`. This affects `ref`s and event handlers.
 - Removed the Table component's deprecated `initialSortedRow` prop. Use the `initialSortedColumn` prop instead (🤖 `no-renamed-props`).
 
