@@ -26,8 +26,8 @@ import {
   useNotificationToast,
   type TableHeaderCell,
   type TableRow,
+  Tooltip,
 } from '../../packages/circuit-ui/index.js';
-import { Tooltip } from '../../packages/circuit-ui/experimental.js';
 
 type CustomPropertyName = `--cui-${string}`;
 type CustomPropertyValue = string;

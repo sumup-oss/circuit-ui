@@ -201,6 +201,15 @@ export {
   useComponents,
 } from './components/ComponentsContext/index.js';
 export type { ComponentsContextType } from './components/ComponentsContext/index.js';
+export {
+  Tooltip,
+  type TooltipProps,
+  type TooltipReferenceProps,
+} from './components/Tooltip/index.js';
+export {
+  Toggletip,
+  type ToggletipProps,
+} from './components/Toggletip/index.js';
 
 // Hooks
 export { useClickOutside } from './hooks/useClickOutside/index.js';

@@ -119,7 +119,7 @@ export interface TooltipProps {
 /**
  * @deprecated
  *
- * Use the experimental [`Tooltip`](https://circuit.sumup.com/?path=/docs/components-tooltip--docs)
+ * Use the [`Tooltip`](https://circuit.sumup.com/?path=/docs/components-tooltip--docs)
  * or [`Toggletip`](https://circuit.sumup.com/?path=/docs/components-toggletip--docs) components instead
  * ([migration guide](https://circuit.sumup.com/?path=/docs/components-tooltip-legacy--docs#migration)).
  */

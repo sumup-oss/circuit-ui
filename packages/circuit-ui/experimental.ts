@@ -13,12 +13,3 @@
  * limitations under the License.
  */
 
-export {
-  Tooltip,
-  type TooltipProps,
-  type TooltipReferenceProps,
-} from './components/Tooltip/index.js';
-export {
-  Toggletip,
-  type ToggletipProps,
-} from './components/Toggletip/index.js';
