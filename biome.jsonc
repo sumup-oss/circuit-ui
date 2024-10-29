@@ -30,6 +30,11 @@
   "organizeImports": {
     "enabled": false
   },
+  "css": {
+    "formatter": {
+      "enabled": false
+    }
+  },
   "linter": {
     "rules": {
       "recommended": true,
@@ -63,7 +68,6 @@
       "include": ["*.css"],
       "css": {
         "formatter": {
-          "enabled": true,
           "indentStyle": "space",
           "quoteStyle": "double"
         },
