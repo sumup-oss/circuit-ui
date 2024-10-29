@@ -1,5 +1,13 @@
 # @sumup-oss/eslint-plugin-circuit-ui
 
+## 5.0.0-next.5
+
+### Minor Changes
+
+- [#2743](https://github.com/sumup-oss/circuit-ui/pull/2743) [`12a201a`](https://github.com/sumup-oss/circuit-ui/commit/12a201a2f751e0b44265d12cd46232df14f55ecc) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the `component-lifecycle-imports` ESLint rule to flag imports of stable components Tooltip and Toggletip from `@sumup-oss/circuit-ui/experimental`.
+
+- [#2731](https://github.com/sumup-oss/circuit-ui/pull/2731) [`a4b5d2c`](https://github.com/sumup-oss/circuit-ui/commit/a4b5d2c95abd93afe7da3aa877172782f4f52e48) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the `component-lifecycle-imports` ESLint rule to handle imports of `ColorInput` and `PhoneNumberInput` as experimental components.
+
 ## 5.0.0-next.4
 
 ### Minor Changes
