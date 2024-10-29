@@ -1,5 +1,11 @@
 # @sumup-oss/design-tokens
 
+## 8.0.0-next.3
+
+### Patch Changes
+
+- [#2747](https://github.com/sumup-oss/circuit-ui/pull/2747) [`84091c5`](https://github.com/sumup-oss/circuit-ui/commit/84091c5fb2b8f8a1f95a55fc25ab37086a879562) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the design token values for `headline-m-font-size`, `font-weight-semibold` and `font-weight-bold`.
+
 ## 8.0.0-next.2
 
 ### Major Changes
