@@ -80,6 +80,7 @@ export const FieldLabel = ({
   htmlFor,
   ...props
 }: FieldLabelProps) => (
+  // biome-ignore lint/a11y/noLabelWithoutControl: The control is rendered separately
   <label
     {...props}
     htmlFor={htmlFor}

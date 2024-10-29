@@ -2,7 +2,7 @@
 	"name": "circuit-ui-web",
 	"description": "The web implementation of Circuit UI, SumUp's design system",
 	"private": true,
-	"workspaces": ["packages/*", "templates/*", "templates/nextjs/template"],
+	"workspaces": [ "packages/*", "templates/*", "templates/nextjs/template"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/sumup-oss/circuit-ui.git"
@@ -20,8 +20,8 @@
 		"build": "lerna run build",
 		"test": "vitest",
 		"test:ci": "vitest run --coverage",
-		"lint": "biome check && foundry run eslint . --ext .js,.jsx,.ts,.tsx",
-		"lint:fix": "biome check --write && foundry run eslint . --ext .js,.jsx,.ts,.tsx --fix",
+		"lint": "biome check --diagnostic-level=error && foundry run eslint . --ext .js,.jsx,.ts,.tsx",
+		"lint:fix": "biome check --write --diagnostic-level=error && foundry run eslint . --ext .js,.jsx,.ts,.tsx --fix",
 		"lint:ci": "biome ci && foundry run eslint . --ext .js,.jsx,.ts,.tsx --quiet ",
 		"lint:css": "foundry run stylelint '**/*.css'",
 		"lint:css:fix": "foundry run stylelint '**/*.css' --fix",
@@ -36,7 +36,7 @@
 		"release": "changeset publish"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.8.3",
+		"@biomejs/biome": "1.9.4",
 		"@changesets/changelog-github": "^0.5.0",
 		"@changesets/cli": "^2.27.8",
 		"@emotion/eslint-plugin": "^11.12.0",
