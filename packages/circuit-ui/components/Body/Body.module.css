@@ -88,12 +88,14 @@
 /* Variants */
 
 .highlight,
-strong.base {
+strong.base,
+.base strong {
   font-weight: var(--cui-font-weight-bold);
 }
 
 .quote,
-blockquote.base {
+blockquote.base,
+.base blockquote {
   padding-left: var(--cui-spacings-kilo);
   font-style: italic;
   border-left: var(--cui-border-width-mega) solid var(--cui-border-accent);
