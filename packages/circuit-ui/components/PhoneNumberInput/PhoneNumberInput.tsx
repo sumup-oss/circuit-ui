@@ -42,6 +42,7 @@ import {
 } from '../../util/errors.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { eachFn } from '../../util/helpers.js';
+import { changeInputValue } from '../../util/input-value.js';
 
 import {
   mapCountryCodeOptions,
@@ -300,22 +301,8 @@ export const PhoneNumberInput = forwardRef<
 
       const pastedSubscriberNumber = pastedText.split(pastedOption.code)[1];
 
-      countryCodeRef.current.value = pastedOption.country;
-
-      // React overwrites the input.value setter. In order to be able to trigger
-      // a 'change' event on the input, we need to use the native setter.
-      // Adapted from https://stackoverflow.com/a/46012210/4620154
-      Object.getOwnPropertyDescriptor(
-        HTMLInputElement.prototype,
-        'value',
-      )?.set?.call(subscriberNumberRef.current, pastedSubscriberNumber);
-
-      countryCodeRef.current.dispatchEvent(
-        new Event('change', { bubbles: true }),
-      );
-      subscriberNumberRef.current.dispatchEvent(
-        new Event('change', { bubbles: true }),
-      );
+      changeInputValue(countryCodeRef.current, pastedOption.country);
+      changeInputValue(subscriberNumberRef.current, pastedSubscriberNumber);
     };
 
     if (

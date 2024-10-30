@@ -50,6 +50,7 @@ import {
 import { getBrowserLocale } from '../../util/i18n.js';
 import { toPlainDate } from '../../util/date.js';
 import { applyMultipleRefs } from '../../util/refs.js';
+import { changeInputValue } from '../../util/input-value.js';
 
 import { Dialog } from './components/Dialog.js';
 import { DateSegment } from './components/DateSegment.js';
@@ -190,17 +191,8 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     const minDate = toPlainDate(min);
     const maxDate = toPlainDate(max);
 
-    const handleChange = (tmp: string) => {
-      if (inputRef.current) {
-        // React overwrites the input.value setter. In order to be able to trigger
-        // a 'change' event on the input, we need to use the native setter.
-        // Adapted from https://stackoverflow.com/a/46012210/4620154
-        Object.getOwnPropertyDescriptor(
-          HTMLInputElement.prototype,
-          'value',
-        )?.set?.call(inputRef.current, tmp);
-        inputRef.current.dispatchEvent(new Event('change', { bubbles: true }));
-      }
+    const handleChange = (newValue: string) => {
+      changeInputValue(inputRef.current, newValue);
     };
 
     const focus = useSegmentFocus();
