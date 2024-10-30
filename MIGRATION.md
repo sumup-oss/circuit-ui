@@ -62,7 +62,7 @@ Update any static and dynamic imports to the new package scope. For example:
 
 ### New typeface
 
-The default typeface has changed from [Aktiv Grotesk](https://www.daltonmaag.com/font-library/aktiv-grotesk.html) to [Inter](https://rsms.me/inter/), a variable font. Variable fonts combine a continuous range of weights and other "axes" into a single file. This speeds up page load times and enables more creative freedom. Inter is a close match to Aktiv Grotesk, so users shouldn't notice a difference.
+The default typeface has changed from [Aktiv Grotesk](https://www.daltonmaag.com/font-library/aktiv-grotesk.html) to [Inter](https://rsms.me/inter/), a variable font. Variable fonts combine a continuous range of weights and other "axes" into a single file. This speeds up page load times and enables more creative freedom. Inter is a close match to Aktiv Grotesk, so the change should be seamless.
 
 Circuit UI no longer loads the fonts by default. Instead, centrally import the new `@sumup-oss/design-tokens/fonts.css` file containing the `@font-face` declarations to load the Inter font family. For more details, refer to the documentation on [how to load fonts in your application](https://github.com/sumup-oss/circuit-ui/tree/main/packages/design-tokens#fonts).
 
