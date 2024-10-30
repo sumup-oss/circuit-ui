@@ -40,8 +40,6 @@ Refer to the [theme documentation](https://circuit.sumup.com/?path=/docs/feature
 
 ### Fonts
 
-#### Default
-
 Import the stylesheet that contains the font face declarations globally in your application, such as in a global layout file:
 
 ```ts
@@ -60,33 +58,7 @@ To speed up the loading of the fonts, add preload links to the global `<head>` e
 />
 ```
 
-#### Next.js
-
-If you're using Next.js 13+, use the built-in [font optimization](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) feature with this recommended configuration instead:
-
-```tsx
-// app/layout.tsx
-import { Inter } from 'next/font/google';
-
-const inter = Inter({
-  // Choose which subsets to preload based on the languages your app supports
-  subsets: ['latin'],
-  // Note that Next.js <14.2.6 contains outdated Google Fonts data which prevents
-  // usage of the `ital` axis (see https://github.com/vercel/next.js/issues/68395)
-  axes: ['ital'],
-  variable: '--cui-font-stack-default',
-  display: 'swap',
-  preload: true,
-});
-
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body className={inter.variable}>{children}</body>
-    </html>
-  );
-}
-```
+Do not use Next.js' built-in font optimization as it doesn't support Inter's italic axis.
 
 ### Color schemes
 
