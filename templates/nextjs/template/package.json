@@ -1,6 +1,6 @@
 {
   "name": "next-app",
-  "version": "2.0.0-next.1",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -14,18 +14,18 @@
   },
   "dependencies": {
     "@next/bundle-analyzer": "^15.0.2",
-    "@sumup-oss/circuit-ui": "^9.0.0-next.2",
-    "@sumup-oss/design-tokens": "^8.0.0-next.2",
-    "@sumup-oss/icons": "^5.0.0-next.1",
+    "@sumup-oss/circuit-ui": "^9.0.0",
+    "@sumup-oss/design-tokens": "^8.0.0",
+    "@sumup-oss/icons": "^5.0.0",
     "@sumup-oss/intl": "^3.0.1",
     "next": "^15.0.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@sumup-oss/eslint-plugin-circuit-ui": "^5.0.0-next.2",
+    "@sumup-oss/eslint-plugin-circuit-ui": "^5.0.0",
     "@sumup-oss/foundry": "^8.3.0",
-    "@sumup-oss/stylelint-plugin-circuit-ui": "^3.0.0-next.2",
+    "@sumup-oss/stylelint-plugin-circuit-ui": "^3.0.0",
     "@testing-library/jest-dom": "^6.6.2",
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.5.2",

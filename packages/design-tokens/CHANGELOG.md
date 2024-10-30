@@ -1,5 +1,63 @@
 # @sumup-oss/design-tokens
 
+## 8.0.0
+
+### Major Changes
+
+- [#2707](https://github.com/sumup-oss/circuit-ui/pull/2707) [`f8016eb`](https://github.com/sumup-oss/circuit-ui/commit/f8016ebe246005ed415ed9587ecdb76892e981c6) Thanks [@sirineJ](https://github.com/sirineJ)! - Raised the minimum Node.js version to 20+.
+
+- [#2654](https://github.com/sumup-oss/circuit-ui/pull/2654) [`55bf9ad`](https://github.com/sumup-oss/circuit-ui/commit/55bf9ad7569f1e1a4c739f4eac8df58ba9987ca2) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the default font from Aktiv Grotesk to Inter, a variable font. Variable fonts combine a continuous range of weights and other "axes" into a single file. This speeds up page load times and enables more creative freedom. Inter is a close match to Aktiv Grotesk, so users shouldn't notice a difference.
+
+- [#2654](https://github.com/sumup-oss/circuit-ui/pull/2654) [`55bf9ad`](https://github.com/sumup-oss/circuit-ui/commit/55bf9ad7569f1e1a4c739f4eac8df58ba9987ca2) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new `@sumup-oss/design-tokens/fonts.css` file containing the `@font-face` declarations to load the Inter font family. Refer to the documentation on [how to load fonts in your application](https://github.com/sumup-oss/circuit-ui/tree/main/packages/design-tokens#fonts).
+
+- [#2648](https://github.com/sumup-oss/circuit-ui/pull/2648) [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796) Thanks [@connor-baer](https://github.com/connor-baer)! - Renamed the package scope from `@sumup` to `@sumup-oss`. Replace `@sumup/design-tokens` with `@sumup-oss/design-tokens` in your `package.json` file, then update all imports:
+
+  ```diff
+  -import '@sumup/design-tokens/light.css';
+  +import '@sumup-oss/design-tokens/light.css';
+  ```
+
+  [Circuit UI's ESLint plugin](https://circuit.sumup.com/?path=/docs/packages-eslint-plugin-circuit-ui--docs) offers the `renamed-package-scope` rule to automate updating the package imports.
+
+### Minor Changes
+
+- [#2653](https://github.com/sumup-oss/circuit-ui/pull/2653) [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60) Thanks [@connor-baer](https://github.com/connor-baer)! - Consolidated and renamed the `typography` tokens:
+
+  | Old                                     | New                                 |
+  | --------------------------------------- | ----------------------------------- |
+  | `typography-title-one-font-size`        | `typography-display-l-font-size`    |
+  | `typography-title-one-line-height`      | `typography-display-l-line-height`  |
+  | `typography-title-two-font-size`        | `typography-display-m-font-size`    |
+  | `typography-title-two-line-height`      | `typography-display-m-line-height`  |
+  | `typography-title-three-font-size`      | `typography-display-m-font-size`    |
+  | `typography-title-three-line-height`    | `typography-display-m-line-height`  |
+  | `typography-title-four-font-size`       | `typography-display-s-font-size`    |
+  | `typography-title-four-line-height`     | `typography-display-s-line-height`  |
+  | `typography-headline-one-font-size`     | `typography-headline-l-font-size`   |
+  | `typography-headline-one-line-height`   | `typography-headline-l-line-height` |
+  | `typography-headline-two-font-size`     | `typography-headline-m-font-size`   |
+  | `typography-headline-two-line-height`   | `typography-headline-m-line-height` |
+  | `typography-headline-three-font-size`   | `typography-headline-m-font-size`   |
+  | `typography-headline-three-line-height` | `typography-headline-m-line-height` |
+  | `typography-headline-four-font-size`    | `typography-headline-s-font-size`   |
+  | `typography-headline-four-line-height`  | `typography-headline-s-line-height` |
+  | `typography-sub-headline-font-size`     | `typography-headline-s-font-size`   |
+  | `typography-sub-headline-line-height`   | `typography-headline-s-line-height` |
+  | `typography-body-large-font-size`       | `typography-body-l-font-size`       |
+  | `typography-body-large-line-height`     | `typography-body-l-line-height`     |
+  | `typography-body-one-font-size`         | `typography-body-m-font-size`       |
+  | `typography-body-one-line-height`       | `typography-body-m-line-height`     |
+  | `typography-body-two-font-size`         | `typography-body-s-font-size`       |
+  | `typography-body-two-line-height`       | `typography-body-s-line-height`     |
+
+- [#2717](https://github.com/sumup-oss/circuit-ui/pull/2717) [`0fb5dc0`](https://github.com/sumup-oss/circuit-ui/commit/0fb5dc0d68221e0f63103883e6cd14ea801cf161) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated several typography token values and replaced the component-specific letter spacing tokens with a unified one.
+
+- [#2717](https://github.com/sumup-oss/circuit-ui/pull/2717) [`0fb5dc0`](https://github.com/sumup-oss/circuit-ui/commit/0fb5dc0d68221e0f63103883e6cd14ea801cf161) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated new typography design tokens names by removing the `-typography` infix.
+
+### Patch Changes
+
+- [#2747](https://github.com/sumup-oss/circuit-ui/pull/2747) [`84091c5`](https://github.com/sumup-oss/circuit-ui/commit/84091c5fb2b8f8a1f95a55fc25ab37086a879562) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the design token values for `headline-m-font-size`, `font-weight-semibold` and `font-weight-bold`.
+
 ## 8.0.0-next.3
 
 ### Patch Changes
