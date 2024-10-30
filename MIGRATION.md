@@ -16,7 +16,7 @@ Circuit UI v9 introduces a [new typeface](#new-typeface), more flexible [typogra
 
 Circuit UI now requires at minimum Node.js v20. Note that [Node 18](https://nodejs.org/en/about/previous-releases) reached its end-of-life in October 2024.
 
-Circuit UI's ESLint plugin has been upgraded to [TypeScript ESLint](https://github.com/typescript-eslint/typescript-eslint) v7. We strongly recommend upgrading to [Foundry v8.3](https://github.com/sumup-oss/foundry/blob/main/CHANGELOG.md#830) to avoid dependency conflicts.
+We strongly recommend upgrading to [Foundry v8.3+](https://github.com/sumup-oss/foundry/blob/main/CHANGELOG.md#830) which adds support for the Circuit UI ESLint plugin's [new package scope](#renamed-package-scope) and prevents dependency conflicts in the shared [`@typescript-eslint/*`](https://github.com/typescript-eslint/typescript-eslint) dependencies. If you're unable to upgrade, manually add the Circuit UI ESLint plugin to your ESLint config and enable the relevant rules.
 
 ### Renamed package scope
 
@@ -40,7 +40,7 @@ npm uninstall @sumup/stylelint-plugin-circuit-ui
 npm install @sumup-oss/stylelint-plugin-circuit-ui
 ```
 
-Update any static and dynamic imports to the new package scope. For example:
+Update any static and dynamic imports to the new package scope (🤖 `renamed-package-scope`). The ESLint rule might not catch all occurrences of the old package names, so manually search for and fix any left-overs after applying the ESLint rule. For example:
 
 ```diff
 -import { Button, type ButtonProps } from '@sumup/circuit-ui';
@@ -58,13 +58,27 @@ Update any static and dynamic imports to the new package scope. For example:
 +}));
 ```
 
-[Circuit UI's ESLint plugin](https://circuit.sumup.com/?path=/docs/packages-eslint-plugin-circuit-ui--docs) offers the 🤖 `renamed-package-scope` rule to automate updating the package imports. If your project uses Foundry v8.3+, this rule is automatically enabled. Otherwise, manually add the Circuit UI ESLint plugin name to your ESLint config and enable the rule. Run ESLint with the [`--fix` flag](https://eslint.org/docs/latest/use/command-line-interface#--fix), then manually search for and fix any left-over occurrences of the old package names.
-
 ### New typeface
 
 The default typeface has changed from [Aktiv Grotesk](https://www.daltonmaag.com/font-library/aktiv-grotesk.html) to [Inter](https://rsms.me/inter/), a variable font. Variable fonts combine a continuous range of weights and other "axes" into a single file. This speeds up page load times and enables more creative freedom. Inter is a close match to Aktiv Grotesk, so the change should be seamless.
 
-Circuit UI no longer loads the fonts by default. Instead, centrally import the new `@sumup-oss/design-tokens/fonts.css` file containing the `@font-face` declarations to load the Inter font family. For more details, refer to the documentation on [how to load fonts in your application](https://github.com/sumup-oss/circuit-ui/tree/main/packages/design-tokens#fonts).
+Circuit UI no longer loads the fonts by default. Instead, import the stylesheet that contains the font face declarations globally in your application, such as in a global layout file:
+
+```ts
+import '@sumup-oss/design-tokens/fonts.css';
+```
+
+To speed up the loading of the fonts, add preload links to the global `<head>` element of your application. Choose which subsets to preload based on the languages your app supports. The available subsets are `latin`, `latin-ext`, `cyrillic`, `cyrillic-ext`, `greek`, `greek-ext`, and `vietnamese`.
+
+```html
+<link
+  rel="preload"
+  href="https://static.sumup.com/fonts/Inter/Inter-normal-latin.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+```
 
 ### Typography APIs
 
@@ -78,7 +92,7 @@ The Title component has been renamed to Display for consistency with other platf
 
 The Body component's `variant` prop has been split into individual `color`, `weight` and `decoration` props. Use the `color` prop instead of the `alert`, `confirm` and `subtle` variants, use the `weight` prop instead of the `highlight` variant, and use custom CSS to replicate the `quote` variant (🤖 `no-renamed-props`). The new `decoration` prop makes it easier to apply `italic` and `strikethrough` styles.
 
-The sizes of the Display (formerly Title), Headline, and Body components have been consolidated and renamed to enforce greater visual hierarchy (🤖 `no-renamed-props`):
+The sizes of the Display (formerly Title), Headline, and Body components have been consolidated and renamed to enforce greater visual hierarchy. Here's how the old size names map to the new ones (🤖 `no-renamed-props`):
 
 **Display**
 
@@ -144,7 +158,7 @@ The new Numeral component should be used to give emphasis to numerical content s
 
 All experimental components are now stable.
 
-- The Calendar and DateInput components have been rebuilt from scratch for better performance and accessibility. They replace the legacy RangePicker, RangePickerController, SingleDayPicker, CalendarTag, and CalendarTagTwoStep components which have been removed.
+- The Calendar and DateInput components have been rebuilt from scratch for better performance and accessibility. They replace the legacy RangePicker, RangePickerController, SingleDayPicker, CalendarTag, and CalendarTagTwoStep components, which have been removed. The DateInput component now requires additional localized label props.
 - The ColorInput and PhoneNumberInput components enable users to enter hex colors and phone numbers respectively.
 - The Tooltip and Toggletip components have been rebuilt from scratch for improved accessibility. They replace the legacy Tooltip component.
 
@@ -157,8 +171,36 @@ Update the related imports (🤖 `component-lifecycle-imports`). For example:
 
 ### Other changes
 
-- Changed the `PlainDateRange` type from an array to an object with start and end properties. This affects the Calendar component's `selection` prop. Use the new `updatePlainDateRange` helper function to update a date range when a user selects a date.
+- Changed the `PlainDateRange` type from an array to an object with start and end properties. This affects the Calendar component's `selection` prop. Use the new `updatePlainDateRange` helper function to update a date range when a user selects a date:
+
+  ```tsx
+  import { useState } from 'react';
+  import { Calendar, updatePlainDateRange } from '@sumup-oss/circuit-ui';
+
+  function Component() {
+    const [selection, setSelection] = useState({});
+    return (
+      <Calendar
+        onSelect={setSelection((prevSelection) =>
+          updatePlainDateRange(prevSelection, date)
+        )}
+      />
+    );
+  }
+  ```
+
 - Deprecated the `InputElement` interface and narrowed the Input component's element type to `HTMLInputElement` and the TextArea component's element type to `HTMLTextAreaElement`. This affects `ref`s and event handlers.
+
+  ```diff
+  -import { InputElement } from '@sumup-oss/circuit-ui';
+
+  -ChangeHandler<InputElement>
+  +ChangeHandler<HTMLInputElement>
+
+  -useRef<InputElement>()
+  +useRef<HTMLInputElement>()
+  ```
+
 - Removed the Table component's deprecated `initialSortedRow` prop. Use the `initialSortedColumn` prop instead (🤖 `no-renamed-props`).
 
 ## From v7.x to v8
