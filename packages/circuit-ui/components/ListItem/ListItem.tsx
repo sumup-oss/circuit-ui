@@ -22,7 +22,7 @@ import {
   type AnchorHTMLAttributes,
   type HTMLAttributes,
 } from 'react';
-import { ChevronRight, type IconComponentType } from '@sumup/icons';
+import { ChevronRight, type IconComponentType } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
 import type { AsPropType } from '../../types/prop-types.js';
@@ -44,7 +44,7 @@ export interface BaseProps {
   variant?: Variant;
   /**
    * Display a leading component.
-   * Pass an icon from `@sumup/icons` or a custom component.
+   * Pass an icon from `@sumup-oss/icons` or a custom component.
    */
   leadingComponent?: IconComponentType | ReactNode;
   /**
@@ -172,7 +172,7 @@ export const ListItem = forwardRef<
         <div className={classes.content}>
           <div className={classes.main}>
             {isString(label) ? (
-              <Body size="one" className={classes.label}>
+              <Body size="m" className={classes.label}>
                 {label}
               </Body>
             ) : (
@@ -181,7 +181,7 @@ export const ListItem = forwardRef<
             {details && (
               <div className={classes.details}>
                 {isString(details) ? (
-                  <Body size="two" variant="subtle">
+                  <Body size="s" color="subtle">
                     {details}
                   </Body>
                 ) : (
@@ -199,7 +199,7 @@ export const ListItem = forwardRef<
             >
               <div className={classes.chevron}>
                 {isString(trailingLabel) ? (
-                  <Body size="one" variant="highlight">
+                  <Body size="m" weight="semibold">
                     {trailingLabel}
                   </Body>
                 ) : (
@@ -211,7 +211,7 @@ export const ListItem = forwardRef<
               {trailingDetails && (
                 <div className={classes.details}>
                   {isString(trailingDetails) ? (
-                    <Body size="two" variant="subtle">
+                    <Body size="s" color="subtle">
                       {trailingDetails}
                     </Body>
                   ) : (

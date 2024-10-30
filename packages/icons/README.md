@@ -1,10 +1,10 @@
 <div align="center">
 
-# @sumup/icons
+# @sumup-oss/icons
 
 A collection of icons for the web, part of the SumUp Circuit Design System.
 
-[![Stars](https://img.shields.io/github/stars/sumup-oss/circuit-ui?style=social)](https://github.com/sumup-oss/circuit-ui/) [![Version](https://img.shields.io/npm/v/@sumup/icons)](https://www.npmjs.com/package/@sumup/icons) [![Coverage](https://img.shields.io/codecov/c/github/sumup-oss/circuit-ui)](https://codecov.io/gh/sumup-oss/circuit-ui) [![License](https://img.shields.io/github/license/sumup-oss/circuit-ui)](https://github.com/sumup-oss/circuit-ui/tree/main/packages/icons/LICENSE) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.1%20adopted-ff69b4.svg)](https://github.com/sumup-oss/circuit-ui/tree/main/CODE_OF_CONDUCT.md)
+[![Stars](https://img.shields.io/github/stars/sumup-oss/circuit-ui?style=social)](https://github.com/sumup-oss/circuit-ui/) [![Version](https://img.shields.io/npm/v/@sumup-oss/icons)](https://www.npmjs.com/package/@sumup-oss/icons) [![Coverage](https://img.shields.io/codecov/c/github/sumup-oss/circuit-ui)](https://codecov.io/gh/sumup-oss/circuit-ui) [![License](https://img.shields.io/github/license/sumup-oss/circuit-ui)](https://github.com/sumup-oss/circuit-ui/tree/main/packages/icons/LICENSE) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.1%20adopted-ff69b4.svg)](https://github.com/sumup-oss/circuit-ui/tree/main/CODE_OF_CONDUCT.md)
 
 </div>
 
@@ -14,10 +14,10 @@ Depending on your preference, run one of the following in your terminal:
 
 ```sh
 # With npm
-npm install @sumup/icons
+npm install @sumup-oss/icons
 
 # With yarn v1
-yarn add @sumup/icons
+yarn add @sumup-oss/icons
 ```
 
 ## Usage
@@ -27,7 +27,7 @@ yarn add @sumup/icons
 The easiest way to use an icon in [React](https://reactjs.org/) is to import it as a component. This approach works out of the box (no special loaders needed), is tree-shaking enabled, and comes with TypeScript typings included.
 
 ```jsx
-import { Check } from '@sumup/icons';
+import { Check } from '@sumup-oss/icons';
 
 const SuccessMessage = ({ description }) => (
   <div>
@@ -40,7 +40,7 @@ const SuccessMessage = ({ description }) => (
 Some icons have multiple sizes. They default to size '24', if supported, or to the smallest available size. Use the `size` prop to show one of the other sizes ('16' or '32') instead:
 
 ```jsx
-import { CircleCheckmark } from '@sumup/icons';
+import { CircleCheckmark } from '@sumup-oss/icons';
 
 const SuccessMessage = ({ description }) => (
   <div>
@@ -54,7 +54,7 @@ To change the color of an icon, set the `color` property in CSS. The color will 
 
 ```jsx
 import styled from '@emotion/styled';
-import { Check } from '@sumup/icons';
+import { Check } from '@sumup-oss/icons';
 
 const GreenCheck = styled(Check)`
   color: green;
@@ -73,7 +73,7 @@ const SuccessMessage = ({ description }) => (
 Alternatively, it's possible to import the raw SVG files. Most bundlers require a special loader to make this work. For Webpack, we recommend the [file-loader](https://github.com/webpack-contrib/file-loader) which turns the import into a URL to the SVG.
 
 ```jsx
-import checkIcon from '@sumup/icons/check_small.svg';
+import checkIcon from '@sumup-oss/icons/check_small.svg';
 
 const SuccessMessage = ({ description }) => (
   <div>

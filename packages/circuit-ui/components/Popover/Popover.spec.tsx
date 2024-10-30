@@ -15,7 +15,7 @@
 
 import type { FC } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { Delete, Add, Download, type IconProps } from '@sumup/icons';
+import { Delete, Add, Download, type IconProps } from '@sumup-oss/icons';
 
 import {
   act,

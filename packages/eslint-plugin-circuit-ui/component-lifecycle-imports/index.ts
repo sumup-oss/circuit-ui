@@ -24,8 +24,8 @@ const createRule = ESLintUtils.RuleCreator(
 
 const mappings = [
   {
-    from: '@sumup/circuit-ui',
-    to: '@sumup/circuit-ui/legacy',
+    from: '@sumup-oss/circuit-ui',
+    to: '@sumup-oss/circuit-ui/legacy',
     specifiers: [
       'RadioButton',
       'RadioButtonProps',
@@ -69,6 +69,24 @@ const mappings = [
       'inputOutline',
       'typography',
       'center',
+    ],
+  },
+  {
+    from: '@sumup-oss/circuit-ui/experimental',
+    to: '@sumup-oss/circuit-ui',
+    specifiers: [
+      'Calendar',
+      'CalendarProps',
+      'PlainDateRange',
+      'ColorInput',
+      'ColorInputProps',
+      'PhoneNumberInputProps',
+      'PhoneNumberInput',
+      'Tooltip',
+      'TooltipProps',
+      'TooltipReferenceProps',
+      'Toggletip',
+      'ToggletipProps',
     ],
   },
 ];
@@ -132,8 +150,7 @@ export const componentLifecycleImports = createRule({
                   fixes.push(
                     fixer.replaceText(
                       node,
-                      context
-                        .getSourceCode()
+                      context.sourceCode
                         .getText(node)
                         .replace(importSpecifier, '')
                         .replace(' ,', ''),

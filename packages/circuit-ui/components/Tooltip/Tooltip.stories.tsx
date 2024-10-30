@@ -14,7 +14,7 @@
  */
 
 import { userEvent } from '@storybook/test';
-import { TransferOut, UploadCloud } from '@sumup/icons';
+import { TransferOut, UploadCloud } from '@sumup-oss/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 import { Button, IconButton } from '../Button/index.js';

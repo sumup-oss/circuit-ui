@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.hidden {
+  display: none;
+}
+
 .country-code.country-code,
 .subscriber-number.subscriber-number {
   flex-grow: 1;
@@ -12,8 +16,12 @@
     flex-direction: column;
   }
 
+  .subscriber-number {
+    /* to avoid having a 2px inner border separating the two inputs */
+    transform: translateY(-1px);
+  }
+
   .country-code.country-code {
-    margin-bottom: 1px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
@@ -25,8 +33,12 @@
 }
 
 @media (min-width: 480px) {
+  .subscriber-number {
+    /* to avoid having a 2px inner border separating the two inputs */
+    transform: translateX(-1px);
+  }
+
   .country-code.country-code {
-    margin-right: 1px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }

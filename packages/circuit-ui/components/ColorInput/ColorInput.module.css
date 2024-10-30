@@ -7,29 +7,33 @@
   position: relative;
   width: var(--cui-spacings-exa);
   height: var(--cui-spacings-exa);
-  margin-right: 1px;
   cursor: pointer;
+  border: 1px solid var(--cui-border-normal);
   border-top-left-radius: var(--cui-border-radius-byte);
   border-bottom-left-radius: var(--cui-border-radius-byte);
-  box-shadow: 0 0 0 1px var(--cui-border-normal);
+  box-shadow: none;
+  transition:
+    box-shadow var(--cui-transitions-default),
+    border var(--cui-transitions-default);
 }
 
 .picker:hover {
   z-index: var(--cui-z-index-absolute);
   background: var(--cui-bg-normal-hovered);
-  box-shadow: 0 0 0 1px var(--cui-border-normal-hovered);
+  border: 1px solid var(--cui-border-normal-hovered);
 }
 
 .picker:focus-within {
   z-index: var(--cui-z-index-absolute);
   background: var(--cui-bg-normal-pressed);
-  box-shadow: 0 0 0 2px var(--cui-border-focus);
+  border: 1px solid var(--cui-border-focus);
+  box-shadow: inset 0 0 0 1px var(--cui-border-focus);
 }
 
 .picker[data-disabled="true"] {
   color: var(--cui-fg-normal-disabled);
   background-color: var(--cui-bg-normal-disabled);
-  box-shadow: 0 0 0 1px var(--cui-border-normal-disabled);
+  border: 1px solid var(--cui-border-normal-disabled);
 }
 
 .color-input {
@@ -77,6 +81,9 @@
   font-family: var(--cui-font-stack-mono);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+
+  /* to avoid having a 2px inner border separating the two inputs */
+  transform: translateX(-1px);
 }
 
 .input:hover,

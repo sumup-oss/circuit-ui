@@ -1,4 +1,151 @@
-# @sumup/circuit-ui
+# @sumup-oss/circuit-ui
+
+## 9.0.0-next.4
+
+### Major Changes
+
+- [#2741](https://github.com/sumup-oss/circuit-ui/pull/2741) [`1251f90`](https://github.com/sumup-oss/circuit-ui/commit/1251f90a4befc09a6b62fdd0f57e4e7cb9356b66) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the `PlainDateRange` type from a tuple to an object with `start` and `end` properties. This affects the Calendar component's `selection` prop. Use the new `updatePlainDateRange` helper function to update a date range when a user selects a date.
+
+- [#2731](https://github.com/sumup-oss/circuit-ui/pull/2731) [`a4b5d2c`](https://github.com/sumup-oss/circuit-ui/commit/a4b5d2c95abd93afe7da3aa877172782f4f52e48) Thanks [@sirineJ](https://github.com/sirineJ)! - Marked the `ColorInput` and `PhoneNumberInput` components as stable. Update the related imports:
+
+  ```diff
+  - import { ColorInput, type ColorInputProps } from '@sumup-oss/circuit-ui/experimental';
+  + import { ColorInput, type ColorInputProps } from '@sumup-oss/circuit-ui';
+  ```
+
+  ```diff
+  - import { PhoneNumberInput, type PhoneNumberInputProps } from '@sumup-oss/circuit-ui/experimental';
+  + import { PhoneNumberInput, type PhoneNumberInputProps } from '@sumup-oss/circuit-ui';
+  ```
+
+- [#2677](https://github.com/sumup-oss/circuit-ui/pull/2677) [`4a2f1a6`](https://github.com/sumup-oss/circuit-ui/commit/4a2f1a6635c8d818d3774ff16b234141e5875285) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the legacy RangePicker, RangePickerController, SingleDayPicker, CalendarTag, and CalendarTagTwoStep components. Use the updated DateInput component instead.
+
+- [#2645](https://github.com/sumup-oss/circuit-ui/pull/2645) [`4f11234`](https://github.com/sumup-oss/circuit-ui/commit/4f11234159c1aa25d12d3e7521371d4e1a2bb6b9) Thanks [@connor-baer](https://github.com/connor-baer)! - Rewrote the DateInput component and replaced the native date input with a custom implementation to improve its usability and accessibility. The component now requires additional localized label props.
+
+- [#2743](https://github.com/sumup-oss/circuit-ui/pull/2743) [`12a201a`](https://github.com/sumup-oss/circuit-ui/commit/12a201a2f751e0b44265d12cd46232df14f55ecc) Thanks [@sirineJ](https://github.com/sirineJ)! - Marked the `Tooltip` and `Toggletip` components as stable. Update the related imports:
+
+  ```diff
+  - import { Tooltip, type TooltipProps, type TooltipReferenceProps } from '@sumup-oss/circuit-ui/experimental';
+  + import { Tooltip, type TooltipProps, type TooltipReferenceProps } from '@sumup-oss/circuit-ui';
+  ```
+
+  ```diff
+  - import { Toggletip, type ToggletipProps } from '@sumup-oss/circuit-ui/experimental';
+  + import { Toggletip, type ToggletipProps } from '@sumup-oss/circuit-ui';
+  ```
+
+## 9.0.0-next.3
+
+### Patch Changes
+
+- [#2737](https://github.com/sumup-oss/circuit-ui/pull/2737) [`c2c819c`](https://github.com/sumup-oss/circuit-ui/commit/c2c819c6d3f536f53f62cc2f3887cd2578986cfd) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed safely accessing environment variables in environments where the `process` variable is undefined.
+
+## 9.0.0-next.2
+
+### Major Changes
+
+- [#2707](https://github.com/sumup-oss/circuit-ui/pull/2707) [`f8016eb`](https://github.com/sumup-oss/circuit-ui/commit/f8016ebe246005ed415ed9587ecdb76892e981c6) Thanks [@sirineJ](https://github.com/sirineJ)! - Raised the minimum Node.js version to 20+.
+
+- [#2684](https://github.com/sumup-oss/circuit-ui/pull/2684) [`ae6e0bc`](https://github.com/sumup-oss/circuit-ui/commit/ae6e0bc1ccdaaf7d11fd8e2403a8c16a58538c97) Thanks [@connor-baer](https://github.com/connor-baer)! - Made the ImageInput's label visible by default for consistency with other inputs. Use the new `hideLabel` prop to visually hide the label.
+
+- [#2711](https://github.com/sumup-oss/circuit-ui/pull/2711) [`a55b08a`](https://github.com/sumup-oss/circuit-ui/commit/a55b08af3dd3af982a075942df7009cd4529ca9b) Thanks [@connor-baer](https://github.com/connor-baer)! - Added [`temporal-polyfill`](https://www.npmjs.com/package/temporal-polyfill) to the list of required peer dependencies.
+
+- [#2468](https://github.com/sumup-oss/circuit-ui/pull/2468) [`c7c2a10`](https://github.com/sumup-oss/circuit-ui/commit/c7c2a108c9b827f87bc9d39de32b31b9d86e5a6b) Thanks [@leonardodino](https://github.com/leonardodino)! - Removed the Table component's deprecated `initialSortedRow` prop. Use the `initialSortedColumn` prop instead.
+
+- [#2713](https://github.com/sumup-oss/circuit-ui/pull/2713) [`00727aa`](https://github.com/sumup-oss/circuit-ui/commit/00727aae7976970283c2d658e9668d093ec2334f) Thanks [@sirineJ](https://github.com/sirineJ)! - Marked the `Calendar` component as stable. Update the related imports:
+
+  ```diff
+  - import { Calendar, CalendarProps, PlainDateRange } from '@sumup-oss/circuit-ui/experimental';
+  + import { Calendar, CalendarProps, PlainDateRange } from '@sumup-oss/circuit-ui';
+  ```
+
+- [#2722](https://github.com/sumup-oss/circuit-ui/pull/2722) [`137a817`](https://github.com/sumup-oss/circuit-ui/commit/137a817685a3636e13b62ec5bb65c71f7b06c6bb) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a semibold weight option to the Body and the Compact components. Added the `weight` prop to the Display component. Removed the `weight` prop from the Numeral component and changed its default font weight to semibold.
+
+### Minor Changes
+
+- [#2678](https://github.com/sumup-oss/circuit-ui/pull/2678) [`0652935`](https://github.com/sumup-oss/circuit-ui/commit/0652935b0fc6999ac2f6885410fdcbea000b771f) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new `decoration` prop to the Body component. Choose between the `italic` and `strikethrough` styles.
+
+- [#2717](https://github.com/sumup-oss/circuit-ui/pull/2717) [`0fb5dc0`](https://github.com/sumup-oss/circuit-ui/commit/0fb5dc0d68221e0f63103883e6cd14ea801cf161) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated new typography design tokens names by removing the `-typography` infix.
+
+- [#2717](https://github.com/sumup-oss/circuit-ui/pull/2717) [`0fb5dc0`](https://github.com/sumup-oss/circuit-ui/commit/0fb5dc0d68221e0f63103883e6cd14ea801cf161) Thanks [@sirineJ](https://github.com/sirineJ)! - Introduced new sizes to the List component and deprecated old sizes. Updated `no-renamed-props` ESlint rule.
+
+- [#2728](https://github.com/sumup-oss/circuit-ui/pull/2728) [`2e6a4be`](https://github.com/sumup-oss/circuit-ui/commit/2e6a4be70035f0fce77dea2073c5f7fbedca0c5a) Thanks [@connor-baer](https://github.com/connor-baer)! - Migrated to the new typography APIs internally.
+
+### Patch Changes
+
+- [#2730](https://github.com/sumup-oss/circuit-ui/pull/2730) [`d39dc28`](https://github.com/sumup-oss/circuit-ui/commit/d39dc28267b1c7a6b8040f47d552ec2a03705ea9) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed some sizing and alignment issues for composite inputs ColorInput and PhoneNumberInput. Disabled color input when ColorInput has prop `readOnly`.
+
+- [#2724](https://github.com/sumup-oss/circuit-ui/pull/2724) [`b37eec9`](https://github.com/sumup-oss/circuit-ui/commit/b37eec9b4cb23cc59f6b89a305dd4b948017d5ec) Thanks [@sirineJ](https://github.com/sirineJ)! - Restored the height of the Input, Select, Tag and SelectorGroup components.
+
+## 9.0.0-next.1
+
+### Major Changes
+
+- [#2653](https://github.com/sumup-oss/circuit-ui/pull/2653) [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60) Thanks [@connor-baer](https://github.com/connor-baer)! - Renamed the Title component to Display for consistency with other platforms.
+
+### Minor Changes
+
+- [#2653](https://github.com/sumup-oss/circuit-ui/pull/2653) [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new `weight` prop to the Body component. Choose between the `regular` and `bold` font weights.
+
+- [#2653](https://github.com/sumup-oss/circuit-ui/pull/2653) [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new Compact component for text in space-constraint contexts.
+
+- [#2653](https://github.com/sumup-oss/circuit-ui/pull/2653) [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new Numeral component for numeric content such as currency values.
+
+- [#2653](https://github.com/sumup-oss/circuit-ui/pull/2653) [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60) Thanks [@connor-baer](https://github.com/connor-baer)! - Consolidated and renamed the sizes of the Display (formerly Title), Headline, and Body components:
+
+  **Display & Headline**
+
+  | Old   | New |
+  | ----- | --- |
+  | one   | l   |
+  | two   | m   |
+  | three | m   |
+  | four  | s   |
+
+  **Body**
+
+  | Old | New |
+  | --- | --- |
+  | one | m   |
+  | two | s   |
+
+- [#2653](https://github.com/sumup-oss/circuit-ui/pull/2653) [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the BodyLarge component. Use the Body component in size `l` instead.
+
+- [#2653](https://github.com/sumup-oss/circuit-ui/pull/2653) [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60) Thanks [@connor-baer](https://github.com/connor-baer)! - Added an explicit foreground color to the Body component (`fg-normal`) to better support localized dark mode. Previously, the component inherited its color from its parent.
+
+- [#2653](https://github.com/sumup-oss/circuit-ui/pull/2653) [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the SubHeadline component. Use the Headline component in size `s` instead.
+
+- [#2653](https://github.com/sumup-oss/circuit-ui/pull/2653) [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the Body component's `variant` prop. Use the new `color` prop instead of the `alert`, `confirm` and `subtle` variants. Use the new `weight` prop instead of the `highlight` variant. Use custom CSS for the `quote` variant.
+
+- [#2653](https://github.com/sumup-oss/circuit-ui/pull/2653) [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new `color` prop to the Body component. Choose any foreground color.
+
+### Patch Changes
+
+- Updated dependencies [[`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60), [`55bf9ad`](https://github.com/sumup-oss/circuit-ui/commit/55bf9ad7569f1e1a4c739f4eac8df58ba9987ca2), [`55bf9ad`](https://github.com/sumup-oss/circuit-ui/commit/55bf9ad7569f1e1a4c739f4eac8df58ba9987ca2)]:
+  - @sumup-oss/design-tokens@8.0.0-next.1
+
+## 9.0.0-next.0
+
+### Major Changes
+
+- [#2648](https://github.com/sumup-oss/circuit-ui/pull/2648) [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796) Thanks [@connor-baer](https://github.com/connor-baer)! - Upgraded to `@sumup-oss/intl` v2. If your app also depends on `@sumup-oss/intl` (previously called `@sumup/intl`), you need to upgrade it as well.
+
+- [#2306](https://github.com/sumup-oss/circuit-ui/pull/2306) [`8be7f3b`](https://github.com/sumup-oss/circuit-ui/commit/8be7f3b36e22135f6f312ea2aa4b582c252eb161) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the `InputElement` interface and narrowed the Input's element type to `HTMLInputElement` and the TextArea's element type to `HTMLTextAreaElement`. This affects `ref`s and event handlers.
+
+- [#2648](https://github.com/sumup-oss/circuit-ui/pull/2648) [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796) Thanks [@connor-baer](https://github.com/connor-baer)! - Renamed the package scope from `@sumup` to `@sumup-oss`. Replace `@sumup/circuit-ui` with `@sumup-oss/circuit-ui` in your `package.json` file, then update all imports:
+
+  ```diff
+  -import { Button } from '@sumup/circuit-ui';
+  +import { Button } from '@sumup-oss/circuit-ui';
+  ```
+
+  [Circuit UI's ESLint plugin](https://circuit.sumup.com/?path=/docs/packages-eslint-plugin-circuit-ui--docs) offers the `renamed-package-scope` rule to automate updating the package imports.
+
+### Patch Changes
+
+- Updated dependencies [[`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796), [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796)]:
+  - @sumup-oss/icons@5.0.0-next.0
+  - @sumup-oss/design-tokens@8.0.0-next.0
 
 ## 8.15.0
 

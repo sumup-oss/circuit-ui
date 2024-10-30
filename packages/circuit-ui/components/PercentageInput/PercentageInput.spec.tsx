@@ -17,7 +17,6 @@ import { describe, expect, it } from 'vitest';
 import { createRef, useState, type ChangeEvent } from 'react';
 
 import { render, userEvent, axe, screen } from '../../util/test-utils.js';
-import type { InputElement } from '../Input/index.js';
 
 import {
   PercentageInput,
@@ -31,7 +30,7 @@ const defaultProps = {
 
 describe('PercentageInput', () => {
   it('should forward a ref', () => {
-    const ref = createRef<InputElement>();
+    const ref = createRef<HTMLInputElement>();
     render(<PercentageInput {...defaultProps} ref={ref} />);
     const input = screen.getByRole('textbox');
     expect(ref.current).toBe(input);

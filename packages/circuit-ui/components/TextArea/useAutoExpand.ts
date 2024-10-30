@@ -16,7 +16,6 @@
 
 import { useCallback, useEffect, type FormEvent, type RefObject } from 'react';
 
-import type { InputElement } from '../Input/Input.js';
 import { useComponentSize } from '../../hooks/useComponentSize/index.js';
 
 import type { TextAreaProps } from './index.js';
@@ -26,7 +25,7 @@ type ModifiedProps = Omit<TextAreaProps, 'minRows' | 'rows'> & {
 };
 
 export const useAutoExpand = (
-  ref: RefObject<InputElement>,
+  ref: RefObject<HTMLTextAreaElement>,
   { minRows, rows = minRows, onInput, ...props }: TextAreaProps,
 ): ModifiedProps => {
   const autoExpand = rows === 'auto';
@@ -53,7 +52,7 @@ export const useAutoExpand = (
   );
 
   const inputHandler = useCallback(
-    (e: FormEvent<InputElement>) => {
+    (e: FormEvent<HTMLTextAreaElement>) => {
       if (onInput) {
         onInput(e);
       }

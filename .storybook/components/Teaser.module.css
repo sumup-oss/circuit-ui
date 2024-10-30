@@ -20,7 +20,7 @@
 .base h2 {
   padding: 0;
   margin-bottom: var(--cui-spacings-giga);
-  border: none
+  border: none;
 }
 
 .base p {
@@ -28,5 +28,5 @@
 }
 
 .base a::after {
-  content: ' →';
+  content: " →";
 }

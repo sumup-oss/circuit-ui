@@ -22,21 +22,6 @@ export {
   Selector,
   type SelectorProps,
 } from './components/Selector/index.js';
-export {
-  RangePicker,
-  RangePickerController,
-  SingleDayPicker,
-  CalendarConstants,
-} from './components/legacy/Calendar/index.js';
-export type {
-  RangePickerProps,
-  RangePickerControllerProps,
-  SingleDayPickerProps,
-} from './components/legacy/Calendar/index.js';
-export { CalendarTag } from './components/legacy/CalendarTag/index.js';
-export type { CalendarTagProps } from './components/legacy/CalendarTag/index.js';
-export { CalendarTagTwoStep } from './components/legacy/CalendarTagTwoStep/index.js';
-export type { CalendarTagTwoStepProps } from './components/legacy/CalendarTagTwoStep/index.js';
 
 // Layout
 export { Grid, Row, Col } from './components/legacy/Grid/index.js';

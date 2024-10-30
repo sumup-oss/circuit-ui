@@ -21,7 +21,7 @@ import {
   type ButtonHTMLAttributes,
   type AnchorHTMLAttributes,
 } from 'react';
-import type { IconComponentType } from '@sumup/icons';
+import type { IconComponentType } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
 import type { AsPropType } from '../../types/prop-types.js';

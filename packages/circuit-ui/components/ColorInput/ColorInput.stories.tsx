@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { Stack } from '../../../../.storybook/components/index.js';
+
 import { ColorInput, type ColorInputProps } from './ColorInput.js';
 
 export default {
@@ -22,13 +24,47 @@ export default {
 
 const baseArgs = {
   label: 'Color',
-  pickerLabel: 'Pick color',
   placeholder: '#99ffbb',
   defaultValue: '#99ffbb',
 };
 
-export const Base = (args: ColorInputProps) => (
-  <ColorInput {...args} style={{ maxWidth: '250px' }} />
-);
+export const Base = (args: ColorInputProps) => <ColorInput {...args} />;
 
 Base.args = baseArgs;
+
+export const Optional = (args: ColorInputProps) => <ColorInput {...args} />;
+
+Optional.args = { ...baseArgs, optionalLabel: 'optional' };
+
+export const Readonly = (args: ColorInputProps) => <ColorInput {...args} />;
+
+Readonly.args = { ...baseArgs, readOnly: true };
+
+export const Disabled = (args: ColorInputProps) => <ColorInput {...args} />;
+
+Disabled.args = { ...baseArgs, disabled: true };
+
+export const Validations = (args: ColorInputProps) => (
+  <Stack>
+    <ColorInput
+      {...args}
+      defaultValue="#0096FF"
+      hasWarning
+      validationHint="Blue is not a Teletubby color :( "
+    />
+    <ColorInput
+      {...args}
+      defaultValue="#fff"
+      invalid
+      validationHint="Value must be a 6 character hexadecimal color"
+    />
+    <ColorInput
+      {...args}
+      defaultValue="#4a288d"
+      showValid
+      validationHint="Tinky-Winky!"
+    />
+  </Stack>
+);
+
+Validations.args = baseArgs;

@@ -13,7 +13,12 @@
  * limitations under the License.
  */
 
-import { FlagCa, FlagDe, FlagUs, type IconComponentType } from '@sumup/icons';
+import {
+  FlagCa,
+  FlagDe,
+  FlagUs,
+  type IconComponentType,
+} from '@sumup-oss/icons';
 import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 
@@ -83,10 +88,7 @@ export const Validations = (args: PhoneNumberInputProps) => (
     />
     <PhoneNumberInput
       {...args}
-      subscriberNumber={{
-        ...args.subscriberNumber,
-        defaultValue: '202 555 0132',
-      }}
+      defaultValue="+1202 555 0132"
       validationHint="This looks good"
       showValid
     />

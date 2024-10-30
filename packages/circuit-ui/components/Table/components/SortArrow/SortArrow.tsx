@@ -16,7 +16,7 @@
 'use client';
 
 import type { HTMLAttributes } from 'react';
-import { ChevronUp, ChevronDown } from '@sumup/icons';
+import { ChevronUp, ChevronDown } from '@sumup-oss/icons';
 
 import type { Direction } from '../../types.js';
 import { clsx } from '../../../../styles/clsx.js';

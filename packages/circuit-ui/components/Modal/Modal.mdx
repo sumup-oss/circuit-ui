@@ -34,7 +34,7 @@ First, wrap your application in the `ModalProvider` which keeps track of the ope
 
 ```tsx
 // _app.tsx for Next.js or App.js for CRA
-import { ModalProvider } from '@sumup/circuit-ui';
+import { ModalProvider } from '@sumup-oss/circuit-ui';
 
 export default function App() {
   return <ModalProvider>{/* Your content here... */}</ModalProvider>;
@@ -44,7 +44,7 @@ export default function App() {
 Then, use the `useModal` hook to open a modal from a component:
 
 ```tsx
-import { useModal, Button, Body } from '@sumup/circuit-ui';
+import { useModal, Button, Body } from '@sumup-oss/circuit-ui';
 
 export function SayHello({ name }) {
   const { setModal } = useModal();

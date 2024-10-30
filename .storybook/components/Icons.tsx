@@ -20,9 +20,9 @@ import {
   type ChangeEvent,
 } from 'react';
 import { Unstyled } from '@storybook/addon-docs';
-import * as iconComponents from '@sumup/icons';
-import type { IconsManifest } from '@sumup/icons';
-import iconsManifest from '@sumup/icons/manifest.json';
+import * as iconComponents from '@sumup-oss/icons';
+import type { IconsManifest } from '@sumup-oss/icons';
+import iconsManifest from '@sumup-oss/icons/manifest.json';
 import {
   Headline,
   Body,
@@ -32,8 +32,8 @@ import {
   SelectorGroup,
   clsx,
   utilClasses,
+  Tooltip,
 } from '../../packages/circuit-ui/index.js';
-import { Tooltip } from '../../packages/circuit-ui/experimental.js';
 import { slugify } from '../slugify.js';
 import classes from './Icons.module.css';
 
@@ -151,7 +151,7 @@ export function Icons() {
           groupBy(activeIcons, 'category'),
         ).map(([category, items]) => (
           <section key={category} className={classes.category}>
-            <Headline as="h2" size="two" id={slugify(category)}>
+            <Headline as="h2" size="m" id={slugify(category)}>
               {category}
             </Headline>
             <div className={classes.list}>
@@ -191,7 +191,7 @@ export function Icons() {
                           <Badge
                             {...props}
                             tabIndex={0}
-                            variant="danger"
+                            variant="warning"
                             className={classes.badge}
                           >
                             Deprecated

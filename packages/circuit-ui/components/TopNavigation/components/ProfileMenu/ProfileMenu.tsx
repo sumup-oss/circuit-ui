@@ -16,7 +16,7 @@
 'use client';
 
 import { useState, useEffect, type ButtonHTMLAttributes } from 'react';
-import { ChevronDown, Profile as ProfileIcon } from '@sumup/icons';
+import { ChevronDown, Profile as ProfileIcon } from '@sumup-oss/icons';
 
 import { Avatar } from '../../../Avatar/index.js';
 import { Body } from '../../../Body/index.js';
@@ -71,13 +71,13 @@ function Profile({ user, label, className, ...props }: ProfileProps) {
       </Skeleton>
       <span className={classes.details}>
         <Skeleton className={classes.truncate}>
-          <Body as="span" size="two" variant="highlight">
+          <Body as="span" size="s" weight="bold">
             {user.name}
           </Body>
         </Skeleton>
         {user.id && (
           <Skeleton className={classes.truncate}>
-            <Body as="span" size="two">
+            <Body as="span" size="s">
               {user.id}
             </Body>
           </Skeleton>

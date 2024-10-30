@@ -36,14 +36,12 @@ const createRule = ESLintUtils.RuleCreator(
 
 type PropNameConfig = {
   type: 'name';
-  component: string;
   hook?: string;
   props: Record<string, string>;
 };
 
 type PropValuesConfig = {
   type: 'values';
-  component: string;
   hook?: string;
   prop: string;
   values: Record<string, string>;
@@ -51,47 +49,30 @@ type PropValuesConfig = {
 
 type CustomConfig = {
   type: 'custom';
-  component: string;
   hook?: string;
   transform: (
     node: TSESTree.JSXElement,
-    context: TSESLint.RuleContext<'propName' | 'propValue', never[]>,
+    component: string,
+    context: TSESLint.RuleContext<
+      'propName' | 'propValue' | 'bodyVariant',
+      never[]
+    >,
   ) => void;
 };
 
 type Config = PropNameConfig | PropValuesConfig | CustomConfig;
 
-const configs: Config[] = [
+const configs: (Config & { components: string[] })[] = [
   {
     type: 'name',
-    component: 'Toggle',
+    components: ['Toggle'],
     props: {
       explanation: 'description',
     },
   },
   {
     type: 'values',
-    component: 'Badge',
-    prop: 'variant',
-    values: {
-      confirm: 'success',
-      notify: 'warning',
-      alert: 'danger',
-    },
-  },
-  {
-    type: 'values',
-    component: 'NotificationInline',
-    prop: 'variant',
-    values: {
-      confirm: 'success',
-      notify: 'warning',
-      alert: 'danger',
-    },
-  },
-  {
-    type: 'values',
-    component: 'NotificationToast',
+    components: ['Badge', 'NotificationInline', 'NotificationToast'],
     hook: 'setToast',
     prop: 'variant',
     values: {
@@ -102,7 +83,7 @@ const configs: Config[] = [
   },
   {
     type: 'values',
-    component: 'Button',
+    components: ['Button', 'CloseButton', 'IconButton'],
     prop: 'size',
     values: {
       kilo: 's',
@@ -111,7 +92,7 @@ const configs: Config[] = [
   },
   {
     type: 'values',
-    component: 'CloseButton',
+    components: ['Hamburger'],
     prop: 'size',
     values: {
       kilo: 's',
@@ -120,25 +101,7 @@ const configs: Config[] = [
   },
   {
     type: 'values',
-    component: 'IconButton',
-    prop: 'size',
-    values: {
-      kilo: 's',
-      giga: 'm',
-    },
-  },
-  {
-    type: 'values',
-    component: 'Hamburger',
-    prop: 'size',
-    values: {
-      kilo: 's',
-      giga: 'm',
-    },
-  },
-  {
-    type: 'values',
-    component: 'Avatar',
+    components: ['Avatar'],
     prop: 'size',
     values: {
       giga: 's',
@@ -147,7 +110,7 @@ const configs: Config[] = [
   },
   {
     type: 'values',
-    component: 'ProgressBar',
+    components: ['ProgressBar'],
     prop: 'size',
     values: {
       byte: 's',
@@ -157,7 +120,7 @@ const configs: Config[] = [
   },
   {
     type: 'values',
-    component: 'Selector',
+    components: ['Selector'],
     prop: 'size',
     values: {
       kilo: 's',
@@ -166,7 +129,7 @@ const configs: Config[] = [
   },
   {
     type: 'values',
-    component: 'Spinner',
+    components: ['Spinner'],
     prop: 'size',
     values: {
       byte: 's',
@@ -176,10 +139,9 @@ const configs: Config[] = [
   },
   {
     type: 'custom',
-    component: 'IconButton',
+    components: ['IconButton'],
     // children → icon
-    transform: (node, context) => {
-      const component = 'IconButton';
+    transform: (node, component, context) => {
       const current = 'children';
       const replacement = 'icon';
 
@@ -239,10 +201,9 @@ const configs: Config[] = [
   },
   {
     type: 'custom',
-    component: 'IconButton',
+    components: ['IconButton'],
     // label → children
-    transform: (node, context) => {
-      const component = 'IconButton';
+    transform: (node, component, context) => {
       const current = 'label';
       const replacement = 'children';
 
@@ -292,6 +253,97 @@ const configs: Config[] = [
       });
     },
   },
+  {
+    type: 'name',
+    components: ['Table'],
+    props: {
+      initialSortedRow: 'initialSortedColumn',
+    },
+  },
+  {
+    type: 'values',
+    components: ['Title', 'Display'],
+    prop: 'size',
+    values: {
+      one: 'l',
+      two: 'm',
+      three: 'm',
+      four: 's',
+    },
+  },
+  {
+    type: 'values',
+    components: ['Headline'],
+    prop: 'size',
+    values: {
+      one: 'l',
+      two: 'm',
+      three: 's',
+      four: 's',
+    },
+  },
+  {
+    type: 'values',
+    components: ['Anchor', 'Body', 'List'],
+    prop: 'size',
+    values: {
+      one: 'm',
+      two: 's',
+    },
+  },
+  {
+    type: 'custom',
+    components: ['Anchor', 'Body'],
+    // variant → weight or color
+    transform: (node, component, context) => {
+      node.openingElement.attributes.forEach((attribute) => {
+        if (
+          attribute.type !== 'JSXAttribute' ||
+          attribute.name.type !== 'JSXIdentifier' ||
+          attribute.name.name !== 'variant'
+        ) {
+          return;
+        }
+
+        const current = getAttributeValue(attribute);
+
+        if (current === 'highlight') {
+          const asAttribute = findAttribute(node, 'as');
+          const weightAttribute = findAttribute(node, 'weight');
+          const replacement = asAttribute ? 'weight="semibold"' : `as="strong"`;
+          context.report({
+            node: attribute,
+            messageId: 'bodyVariant',
+            data: { component, current, replacement },
+            fix: weightAttribute
+              ? undefined
+              : (fixer) => fixer.replaceText(attribute, replacement),
+          });
+          return;
+        }
+
+        if (current && ['alert', 'confirm', 'subtle'].includes(current)) {
+          const replacementMap: Record<string, string> = {
+            'alert': `color="danger"`,
+            'confirm': `color="success"`,
+            'subtle': `color="subtle"`,
+          };
+          const replacement = replacementMap[current];
+          const colorAttribute = findAttribute(node, 'color');
+          context.report({
+            node: attribute,
+            messageId: 'bodyVariant',
+            data: { component, current, replacement },
+            fix: colorAttribute
+              ? undefined
+              : (fixer) => {
+                  return fixer.replaceText(attribute, replacement);
+                },
+          });
+        }
+      });
+    },
+  },
 ];
 
 export const noRenamedProps = createRule({
@@ -309,15 +361,18 @@ export const noRenamedProps = createRule({
         "The {{component}}'s `{{current}}` prop has been renamed to `{{replacement}}`.",
       propValue:
         "The {{component}}'s `{{prop}}` prop values have been renamed. Replace `{{current}}` with `{{replacement}}`.",
+      bodyVariant:
+        'The {{component}}\'s `variant` prop has been deprecated. Replace `variant="{{current}}"` with `{{replacement}}`.',
     },
   },
   defaultOptions: [],
   create(context) {
     function replaceComponentPropName(
       node: TSESTree.JSXElement,
+      component: string,
       config: PropNameConfig,
     ) {
-      const { component, props } = config;
+      const { props } = config;
 
       node.openingElement.attributes.forEach((attribute) => {
         if (
@@ -350,9 +405,10 @@ export const noRenamedProps = createRule({
 
     function replaceComponentPropValues(
       node: TSESTree.JSXElement,
+      component: string,
       config: PropValuesConfig,
     ) {
-      const { component, prop, values } = config;
+      const { prop, values } = config;
 
       node.openingElement.attributes.forEach((attribute) => {
         if (attribute.type !== 'JSXAttribute' || attribute.name.name !== prop) {
@@ -434,8 +490,11 @@ export const noRenamedProps = createRule({
 
     const components = configs.reduce(
       (acc, config) => {
-        acc[config.component] = acc[config.component] || [];
-        acc[config.component].push(config);
+        const { components, ...rest } = config;
+        config.components.forEach((component) => {
+          acc[component] = acc[component] || [];
+          acc[component].push(rest);
+        });
         return acc;
       },
       {} as Record<string, Config[]>,
@@ -450,13 +509,13 @@ export const noRenamedProps = createRule({
           configs.forEach((config) => {
             switch (config.type) {
               case 'name':
-                replaceComponentPropName(node, config);
+                replaceComponentPropName(node, component, config);
                 break;
               case 'values':
-                replaceComponentPropValues(node, config);
+                replaceComponentPropValues(node, component, config);
                 break;
               case 'custom':
-                config.transform(node, context);
+                config.transform(node, component, context);
                 break;
             }
           });

@@ -20,10 +20,10 @@ import {
   clampDate,
   getFirstDateOfWeek,
   getLastDateOfWeek,
+  getMonthName,
   isPlainDate,
-  sortDateRange,
   toPlainDate,
-  type PlainDateRange,
+  updatePlainDateRange,
 } from './date.js';
 
 describe('CalendarService', () => {
@@ -57,28 +57,16 @@ describe('CalendarService', () => {
       expect(actual).toEqual(new Temporal.PlainDate(2020, 3, 1));
     });
 
-    it('should return null if the date is invalid', () => {
+    it('should return undefined if the date is invalid', () => {
       const date = '2020-3-1';
       const actual = toPlainDate(date);
-      expect(actual).toBeNull();
+      expect(actual).toBeUndefined();
     });
 
     it('should return null if the date is undefined', () => {
       const date = undefined;
       const actual = toPlainDate(date);
-      expect(actual).toBeNull();
-    });
-  });
-
-  describe('sortDateRange', () => {
-    it('should sort the start and end date in ascending order', () => {
-      const dateRange: PlainDateRange = [
-        new Temporal.PlainDate(2020, 3, 25),
-        new Temporal.PlainDate(2020, 3, 15),
-      ];
-      const actual = sortDateRange(dateRange);
-      expect(actual[0].toString()).toBe('2020-03-15');
-      expect(actual[1].toString()).toBe('2020-03-25');
+      expect(actual).toBeUndefined();
     });
   });
 
@@ -121,6 +109,60 @@ describe('CalendarService', () => {
       const maxDate = new Temporal.PlainDate(2020, 3, 10);
       const actual = clampDate(date, minDate, maxDate);
       expect(actual).toEqual(maxDate);
+    });
+  });
+
+  describe('updatePlainDateRange', () => {
+    it('should set the start date if the range is empty', () => {
+      const previousRange = { start: undefined, end: undefined };
+      const date = new Temporal.PlainDate(2020, 3, 11);
+      const actual = updatePlainDateRange(previousRange, date);
+      expect(actual.start).toEqual(date);
+      expect(actual.end).toBeUndefined();
+    });
+
+    it('should start a new range if the range is complete', () => {
+      const previousRange = {
+        start: new Temporal.PlainDate(2020, 3, 9),
+        end: new Temporal.PlainDate(2020, 3, 15),
+      };
+      const date = new Temporal.PlainDate(2020, 3, 11);
+      const actual = updatePlainDateRange(previousRange, date);
+      expect(actual.start).toEqual(date);
+      expect(actual.end).toBeUndefined();
+    });
+
+    it('should set a new start date if the date is before the start date', () => {
+      const previousRange = {
+        start: new Temporal.PlainDate(2020, 3, 9),
+        end: undefined,
+      };
+      const date = new Temporal.PlainDate(2020, 3, 5);
+      const actual = updatePlainDateRange(previousRange, date);
+      expect(actual.start).toEqual(date);
+      expect(actual.end).toBeUndefined();
+    });
+
+    it('should set the end date if the date is equal to the start date', () => {
+      const previousRange = {
+        start: new Temporal.PlainDate(2020, 3, 9),
+        end: undefined,
+      };
+      const date = new Temporal.PlainDate(2020, 3, 9);
+      const actual = updatePlainDateRange(previousRange, date);
+      expect(actual.start).toEqual(previousRange.start);
+      expect(actual.end).toEqual(date);
+    });
+
+    it('should set the end date if the date is after the start date', () => {
+      const previousRange = {
+        start: new Temporal.PlainDate(2020, 3, 9),
+        end: undefined,
+      };
+      const date = new Temporal.PlainDate(2020, 3, 11);
+      const actual = updatePlainDateRange(previousRange, date);
+      expect(actual.start).toEqual(previousRange.start);
+      expect(actual.end).toEqual(date);
     });
   });
 
@@ -167,6 +209,44 @@ describe('CalendarService', () => {
       const firstDayOfWeek = 7; // Sunday
       const actual = getLastDateOfWeek(date, firstDayOfWeek);
       expect(actual.toString()).toBe('2020-03-28'); // Saturday
+    });
+  });
+
+  describe('getMonthName', () => {
+    it.each([
+      [1, 'January'],
+      [2, 'February'],
+      [3, 'March'],
+      [4, 'April'],
+      [5, 'May'],
+      [6, 'June'],
+      [7, 'July'],
+      [8, 'August'],
+      [9, 'September'],
+      [10, 'October'],
+      [11, 'November'],
+      [12, 'December'],
+    ])('should return the English name of the month %s', (isoMonth, name) => {
+      const actual = getMonthName(isoMonth);
+      expect(actual).toBe(name);
+    });
+
+    it.each([
+      [1, 'Januar'],
+      [2, 'Februar'],
+      [3, 'März'],
+      [4, 'April'],
+      [5, 'Mai'],
+      [6, 'Juni'],
+      [7, 'Juli'],
+      [8, 'August'],
+      [9, 'September'],
+      [10, 'Oktober'],
+      [11, 'November'],
+      [12, 'Dezember'],
+    ])('should return the German name of the month %s', (isoMonth, name) => {
+      const actual = getMonthName(isoMonth, 'de-DE');
+      expect(actual).toBe(name);
     });
   });
 });

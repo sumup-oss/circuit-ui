@@ -63,12 +63,7 @@ export function Status({
         <Badge variant={variant}>{label}</Badge>
       </LinkTo>
       {children && (
-        <Body
-          size="two"
-          as="span"
-          className={classes.description}
-          variant="subtle"
-        >
+        <Body size="s" as="span" className={classes.description} color="subtle">
           {children}
         </Body>
       )}

@@ -14,7 +14,7 @@
  */
 
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { Home, Shop } from '@sumup/icons';
+import { Home, Shop } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../../../types/events.js';
 import {

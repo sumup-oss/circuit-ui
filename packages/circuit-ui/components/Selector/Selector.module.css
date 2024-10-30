@@ -56,6 +56,8 @@
   align-items: center;
   justify-content: center;
   height: 100%;
+  margin-top: var(--cui-border-width-kilo);
+  margin-bottom: var(--cui-border-width-kilo);
   color: var(--cui-fg-normal);
   text-align: center;
   white-space: nowrap;

@@ -84,8 +84,8 @@
 
 @media (max-width: 1279px) {
   .label {
-    font-size: var(--cui-typography-headline-two-font-size);
-    line-height: var(--cui-typography-headline-two-line-height);
+    font-size: var(--cui-headline-m-font-size);
+    line-height: var(--cui-headline-m-line-height);
   }
 }
 

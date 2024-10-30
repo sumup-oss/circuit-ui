@@ -14,7 +14,7 @@
  */
 
 // We disable the rule in this file because we explicitly test invalid cases
-/* eslint-disable @sumup/circuit-ui/no-invalid-custom-properties */
+/* eslint-disable @sumup-oss/circuit-ui/no-invalid-custom-properties */
 
 import { RuleTester } from '@typescript-eslint/rule-tester';
 
@@ -36,7 +36,7 @@ ruleTester.run('no-deprecated-components', noDeprecatedComponents, {
     {
       name: 'similar component from Circuit UI',
       code: `
-        import { RadioButtonGroup } from '@sumup/circuit-ui';
+        import { RadioButtonGroup } from '@sumup-oss/circuit-ui';
       `,
     },
     {
@@ -50,7 +50,7 @@ ruleTester.run('no-deprecated-components', noDeprecatedComponents, {
     {
       name: 'matched component from Circuit UI',
       code: `
-        import { RadioButton } from '@sumup/circuit-ui';
+        import { RadioButton } from '@sumup-oss/circuit-ui';
       `,
       errors: [{ messageId: 'deprecated' }],
     },

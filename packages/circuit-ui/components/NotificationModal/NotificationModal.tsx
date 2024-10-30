@@ -151,7 +151,7 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
         </CloseButton>
       )}
       <NotificationImage image={image} />
-      <Headline as="h2" size="three" className={classes.headline}>
+      <Headline as="h2" size="s" className={classes.headline}>
         {headline}
       </Headline>
       {body && <Body>{body}</Body>}

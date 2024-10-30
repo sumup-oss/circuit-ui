@@ -34,7 +34,7 @@ import {
   type Placement,
   type SizeOptions,
 } from '@floating-ui/react-dom';
-import type { IconComponentType } from '@sumup/icons';
+import type { IconComponentType } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
 import type { EmotionAsPropType } from '../../types/prop-types.js';
@@ -64,7 +64,7 @@ export interface BaseProps {
    */
   onClick?: (event: ClickEvent) => void;
   /**
-   * Display an icon in addition to the label. Designed for 24px icons from `@sumup/icons`.
+   * Display an icon in addition to the label. Designed for 24px icons from `@sumup-oss/icons`.
    */
   icon?: IconComponentType;
   /**

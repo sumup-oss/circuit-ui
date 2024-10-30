@@ -19,7 +19,7 @@ import {
   type HTMLAttributes,
   type LabelHTMLAttributes,
 } from 'react';
-import { Confirm, Notify, Alert } from '@sumup/icons';
+import { Confirm, Notify, Alert } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';
@@ -80,6 +80,7 @@ export const FieldLabel = ({
   htmlFor,
   ...props
 }: FieldLabelProps) => (
+  // biome-ignore lint/a11y/noLabelWithoutControl: The control is rendered separately
   <label
     {...props}
     htmlFor={htmlFor}

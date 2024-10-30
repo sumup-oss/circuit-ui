@@ -21,7 +21,7 @@ import type {
   AnchorHTMLAttributes,
   ReactNode,
 } from 'react';
-import type { IconComponentType } from '@sumup/icons';
+import type { IconComponentType } from '@sumup-oss/icons';
 
 import type { AsPropType } from '../../../../types/prop-types.js';
 import { Body } from '../../../Body/index.js';
@@ -87,7 +87,7 @@ function UtilityLink({
         <Icon aria-hidden="true" size="24" />
       </Skeleton>
       <Skeleton>
-        <Body as="span" className={classes.label}>
+        <Body as="span" className={classes.label} weight="semibold">
           {label}
         </Body>
       </Skeleton>

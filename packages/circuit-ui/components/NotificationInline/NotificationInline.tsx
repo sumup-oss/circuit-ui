@@ -164,7 +164,7 @@ export const NotificationInline = forwardRef<
           <div className={classes.content}>
             {headline && (
               <Body
-                variant={'highlight'}
+                weight="semibold"
                 as={isString(headline) ? 'h3' : headline.as}
               >
                 {isString(headline) ? headline : headline.label}
@@ -175,7 +175,7 @@ export const NotificationInline = forwardRef<
               <Anchor
                 {...action}
                 className={clsx(action.className, classes.action)}
-                variant="highlight"
+                weight="bold"
               />
             )}
           </div>

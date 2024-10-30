@@ -14,7 +14,7 @@
  */
 
 import { useEffect, useState } from 'react';
-import { ArrowSlanted, Plus } from '@sumup/icons';
+import { ArrowSlanted, Plus } from '@sumup-oss/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 import { ButtonGroup } from '../ButtonGroup/index.js';

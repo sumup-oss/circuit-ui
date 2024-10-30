@@ -20,6 +20,8 @@ import {
   isArrowLeft,
   isArrowRight,
   isArrowUp,
+  isBackspace,
+  isDelete,
   isEnter,
   isEscape,
   isSpacebar,
@@ -61,6 +63,16 @@ describe('key codes', () => {
       keyCode: 40,
       key: 'ArrowDown',
       code: 'ArrowDown',
+    }),
+    backspace: new KeyboardEvent('keydown', {
+      keyCode: 8,
+      key: 'Backspace',
+      code: 'Backspace',
+    }),
+    delete: new KeyboardEvent('keydown', {
+      keyCode: 46,
+      key: 'Delete',
+      code: 'Delete',
     }),
   };
 
@@ -144,6 +156,30 @@ describe('key codes', () => {
 
     it('should return false if another key was pressed', () => {
       const actual = isArrowDown(events.enter);
+      expect(actual).toBeFalsy();
+    });
+  });
+
+  describe('isBackspace', () => {
+    it('should return true if the backspace key was pressed', () => {
+      const actual = isBackspace(events.backspace);
+      expect(actual).toBeTruthy();
+    });
+
+    it('should return false if another key was pressed', () => {
+      const actual = isBackspace(events.delete);
+      expect(actual).toBeFalsy();
+    });
+  });
+
+  describe('isDelete', () => {
+    it('should return true if the delete key was pressed', () => {
+      const actual = isDelete(events.delete);
+      expect(actual).toBeTruthy();
+    });
+
+    it('should return false if another key was pressed', () => {
+      const actual = isDelete(events.backspace);
       expect(actual).toBeFalsy();
     });
   });

@@ -31,6 +31,18 @@ const components = [
     name: 'Selector',
     alternative: 'Use the SelectorGroup component instead.',
   },
+  {
+    name: 'SubHeadline',
+    alternative: 'Use the Headline component with `size="s"` instead.',
+  },
+  {
+    name: 'Title',
+    alternative: 'Use the new Display component instead.',
+  },
+  {
+    name: 'BodyLarge',
+    alternative: 'Use the Body component with `size="l"` instead.',
+  },
 ];
 
 export const noDeprecatedComponents = createRule({
@@ -49,7 +61,7 @@ export const noDeprecatedComponents = createRule({
   defaultOptions: [],
   create(context) {
     return {
-      'ImportDeclaration:has(Literal[value="@sumup/circuit-ui"])': (
+      'ImportDeclaration:has(Literal[value="@sumup-oss/circuit-ui"])': (
         node: TSESTree.ImportDeclaration,
       ) => {
         node.specifiers.forEach((specifier) => {

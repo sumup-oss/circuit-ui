@@ -142,6 +142,7 @@ export function ProgressBar({
   return (
     <div className={clsx(classes.wrapper, className)} {...props}>
       {max || value ? (
+        // biome-ignore lint/a11y/useFocusableInteractive: Progress bars aren't focusable elements, but they can be accessed with a screen reader's read/browse mode.
         <span
           role="progressbar"
           aria-valuenow={value}
@@ -152,6 +153,7 @@ export function ProgressBar({
           style={{ '--pagination-width': getWidth(value, max) }}
         />
       ) : (
+        // biome-ignore lint/a11y/useFocusableInteractive: Progress bars aren't focusable elements, but they can be accessed with a screen reader's read/browse mode.
         <span
           // biome-ignore lint/a11y/useAriaPropsForRole: FIXME?
           role="progressbar"

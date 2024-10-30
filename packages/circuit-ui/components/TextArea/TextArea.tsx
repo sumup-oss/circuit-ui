@@ -15,34 +15,35 @@
 
 'use client';
 
-import { forwardRef, useRef } from 'react';
+import { forwardRef, useRef, type TextareaHTMLAttributes } from 'react';
 
-import { Input, type InputElement, type InputProps } from '../Input/index.js';
+import { Input, type BaseInputProps } from '../Input/index.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { clsx } from '../../styles/clsx.js';
 
 import { useAutoExpand } from './useAutoExpand.js';
 import classes from './TextArea.module.css';
 
-export type TextAreaProps = Omit<InputProps, 'rows'> & {
-  /**
-   * The number of visible text lines for the control.
-   * If set to `auto`, the control will auto-expand vertically to show the whole value.
-   */
-  rows?: InputProps['rows'] | 'auto';
-  /**
-   * Define the minimum number of visible text lines for the control.
-   * Works only when `rows` is set to `auto`.
-   */
-  minRows?: InputProps['rows'];
-};
+export type TextAreaProps = BaseInputProps &
+  Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'rows'> & {
+    /**
+     * The number of visible text lines for the control.
+     * If set to `auto`, the control will auto-expand vertically to show the whole value.
+     */
+    rows?: number | 'auto';
+    /**
+     * Define the minimum number of visible text lines for the control.
+     * Works only when `rows` is set to `auto`.
+     */
+    minRows?: number;
+  };
 
 /**
  * TextArea component for forms.
  */
-export const TextArea = forwardRef<InputElement, TextAreaProps>(
+export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   ({ inputClassName, ...props }, ref) => {
-    const localRef = useRef<InputElement>(null);
+    const localRef = useRef<HTMLTextAreaElement>(null);
     const modifiedProps = useAutoExpand(localRef, props);
 
     return (
@@ -50,6 +51,7 @@ export const TextArea = forwardRef<InputElement, TextAreaProps>(
         {...modifiedProps}
         inputClassName={clsx(classes.base, inputClassName)}
         as="textarea"
+        // @ts-expect-error The input is rendered as a `textarea` element above.
         ref={applyMultipleRefs(localRef, ref)}
       />
     );

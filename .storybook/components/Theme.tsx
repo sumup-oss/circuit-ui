@@ -16,36 +16,40 @@
 import { useEffect, useState, type ComponentType } from 'react';
 import { ThemeProvider, useTheme } from '@emotion/react';
 import { Unstyled } from '@storybook/addon-docs';
-import { light, schema } from '@sumup/design-tokens';
-import { SumUpLogomark } from '@sumup/icons';
+import { light, schema } from '@sumup-oss/design-tokens';
+import { SumUpLogomark } from '@sumup-oss/icons';
 import {
   Anchor,
+  Badge,
   Table,
   ToastProvider,
   useNotificationToast,
   type TableHeaderCell,
   type TableRow,
+  Tooltip,
 } from '../../packages/circuit-ui/index.js';
 
 type CustomPropertyName = `--cui-${string}`;
 type CustomPropertyValue = string;
-type CustomProperty = [CustomPropertyName, CustomPropertyValue];
+type CustomProperty = {
+  name: CustomPropertyName;
+  value: CustomPropertyValue;
+  deprecation?: { replacement: CustomPropertyName };
+};
 type CustomProperties = CustomProperty[];
 
 type PreviewProps = { name: CustomPropertyName };
 type PreviewComponent = ComponentType<PreviewProps>;
 
-function filterCustomProperties(
-  namespace: string,
-  type?: string,
-): CustomPropertyName[] {
-  return schema
-    .filter((token) => {
-      const isNamespace = token.name.startsWith(`--cui-${namespace}`);
-      const isType = type ? token.type === type : true;
-      return isNamespace && isType;
-    })
-    .map((token) => token.name);
+function filterCustomProperties(namespace: string | string[], type?: string) {
+  return schema.filter((token) => {
+    const isNamespace =
+      typeof namespace === 'string'
+        ? token.name.startsWith(`--cui-${namespace}`)
+        : namespace.some((ns) => token.name.startsWith(`--cui-${ns}`));
+    const isType = type ? token.type === type : true;
+    return isNamespace && isType;
+  });
 }
 
 function getCustomPropertyValue(name: CustomPropertyName): CustomPropertyValue {
@@ -57,7 +61,7 @@ function CopyButton({ name }: { name: CustomPropertyName }) {
   return (
     <Anchor
       style={{ marginLeft: '1rem' }}
-      size="two"
+      size="s"
       onClick={() =>
         navigator.clipboard
           .writeText(name)
@@ -73,13 +77,38 @@ function getRows(
   customProperties: CustomProperties,
   Preview?: PreviewComponent,
 ) {
-  return customProperties.map(([name, value]) => {
+  return customProperties.map(({ name, value, deprecation }) => {
     const row: TableRow = [
       {
         children: (
           <div style={{ display: 'flex' }}>
-            <code style={{ whiteSpace: 'nowrap' }}>{name}</code>
-            <CopyButton name={name} />
+            <code
+              style={{
+                whiteSpace: 'nowrap',
+                maxWidth: '320px',
+                textOverflow: 'ellipsis',
+                overflow: 'hidden',
+              }}
+            >
+              {name}
+            </code>
+            {!deprecation && <CopyButton name={name} />}
+            {deprecation && (
+              <Tooltip
+                type="description"
+                label={`Use the \`${deprecation.replacement}\` custom property instead.`}
+                component={(props) => (
+                  <Badge
+                    {...props}
+                    tabIndex={0}
+                    variant="warning"
+                    style={{ marginLeft: '1rem' }}
+                  >
+                    Deprecated
+                  </Badge>
+                )}
+              />
+            )}
           </div>
         ),
       },
@@ -98,7 +127,7 @@ function getRows(
 }
 
 interface CustomPropertiesTableProps {
-  namespace: string;
+  namespace: string | string[];
   preview?: PreviewComponent;
   type?: string;
 }
@@ -111,9 +140,12 @@ export function CustomPropertiesTable({
   const [customProperties, setCustomProperties] = useState<CustomProperties>();
 
   useEffect(() => {
-    const names = filterCustomProperties(namespace, type);
+    const tokens = filterCustomProperties(namespace, type);
     setCustomProperties(
-      names.map((name) => [name, getCustomPropertyValue(name)]),
+      tokens.map((token) => ({
+        ...token,
+        value: getCustomPropertyValue(token.name),
+      })),
     );
   }, [namespace, type]);
 
@@ -194,10 +226,26 @@ export function FontStack({ name }: PreviewProps) {
 
 export function FontWeight({ name }: PreviewProps) {
   return (
+    // @ts-expect-error A CSS custom property is a valid font weight
     <p style={{ fontWeight: `var(${name})`, whiteSpace: 'nowrap' }}>
       Lorem ipsum
     </p>
   );
+}
+
+export function Typography({ name }: PreviewProps) {
+  if (name.includes('font-size')) {
+    return (
+      <p style={{ fontSize: `var(${name})`, lineHeight: 1 }}>Lorem ipsum</p>
+    );
+  }
+  if (name.includes('line-height')) {
+    return <p style={{ lineHeight: `var(${name})` }}>Lorem ipsum</p>;
+  }
+  if (name.includes('letter-spacing')) {
+    return <p style={{ letterSpacing: `var(${name})` }}>Lorem ipsum</p>;
+  }
+  return null;
 }
 
 export function IconSize({ name }: PreviewProps) {
@@ -263,7 +311,9 @@ function TableWrapper() {
         headers={HEADERS}
         rows={Object.keys(theme.mq).map((bp) => [
           { children: <code>{`theme.mq.${bp}`}</code> },
-          { children: <code>{theme.mq[bp]}</code> },
+          {
+            children: <code>{theme.mq[bp as keyof typeof theme.mq]}</code>,
+          },
         ])}
       />
     </Unstyled>

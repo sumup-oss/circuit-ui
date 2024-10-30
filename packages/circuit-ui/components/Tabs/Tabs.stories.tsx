@@ -48,7 +48,10 @@ export const Links = () => (
     <Tab href="https://github.com/sumup-oss/circuit-ui" target="_blank">
       GitHub
     </Tab>
-    <Tab href="https://www.npmjs.com/package/@sumup/circuit-ui" target="_blank">
+    <Tab
+      href="https://www.npmjs.com/package/@sumup-oss/circuit-ui"
+      target="_blank"
+    >
       NPM
     </Tab>
   </TabList>

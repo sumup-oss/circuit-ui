@@ -13,54 +13,25 @@
  * limitations under the License.
  */
 
-import { forwardRef, type HTMLAttributes, type Ref } from 'react';
+import { forwardRef } from 'react';
 
-import type { AsPropType } from '../../types/prop-types.js';
-import { clsx } from '../../styles/clsx.js';
+import { deprecate } from '../../util/logger.js';
+import { Body, type BodyProps } from '../Body/Body.js';
 
-import classes from './BodyLarge.module.css';
-
-type Variant = 'highlight' | 'quote' | 'confirm' | 'alert' | 'subtle';
-
-export interface BodyLargeProps extends HTMLAttributes<HTMLParagraphElement> {
-  /**
-   * Choose from style variants.
-   */
-  variant?: Variant;
-  /**
-   * Render the text using any HTML element.
-   */
-  as?: AsPropType;
-  /**
-   * The ref to the HTML DOM element.
-   */
-  ref?: Ref<any>;
-}
-
-function getHTMLElement(variant?: Variant): AsPropType {
-  if (variant === 'highlight') {
-    return 'strong';
-  }
-  if (variant === 'quote') {
-    return 'blockquote';
-  }
-  return 'p';
-}
-
+export type BodyLargeProps = Omit<BodyProps, 'size'>;
 /**
- * The BodyLarge component is used to present the core textual content
- * to our users.
+ * @deprecated Use the Body component with `size="l"` instead.
  */
 export const BodyLarge = forwardRef<HTMLParagraphElement, BodyLargeProps>(
-  ({ className, as, variant, ...props }, ref) => {
-    const Element = as || getHTMLElement(variant);
-    return (
-      <Element
-        {...props}
-        ref={ref}
-        className={clsx(classes.base, variant && classes[variant], className)}
-      />
-    );
+  (props, ref) => {
+    if (process.env.NODE_ENV !== 'production') {
+      deprecate(
+        'BodyLarge',
+        'The BodyLarge component has been deprecated. Use the Body component in size `l` instead.',
+      );
+    }
+
+    return <Body {...props} ref={ref} size="l" />;
   },
 );
 

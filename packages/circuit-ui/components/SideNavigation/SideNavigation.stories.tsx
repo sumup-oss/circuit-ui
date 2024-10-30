@@ -14,7 +14,7 @@
  */
 
 import { action } from '@storybook/addon-actions';
-import { Like, Home, LiveChat, Package, Shop } from '@sumup/icons';
+import { Like, Home, LiveChat, Package, Shop } from '@sumup-oss/icons';
 
 import { modes } from '../../../../.storybook/modes.js';
 import { ModalProvider } from '../ModalContext/index.js';

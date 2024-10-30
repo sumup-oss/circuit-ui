@@ -15,7 +15,15 @@
 
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 
-import { chunk, clamp, eachFn, isEmpty, last, throttle } from './helpers.js';
+import {
+  chunk,
+  clamp,
+  eachFn,
+  isEmpty,
+  last,
+  shiftInRange,
+  throttle,
+} from './helpers.js';
 
 describe('helpers', () => {
   describe('clamp', () => {
@@ -229,6 +237,38 @@ describe('helpers', () => {
       const array = undefined;
       const actual = last(array);
       expect(actual).toBeUndefined();
+    });
+  });
+
+  describe('shiftInRange', () => {
+    it('should increase a value within a range', () => {
+      const actual = shiftInRange(4, 2, 1, 12);
+      expect(actual).toBe(6);
+    });
+
+    it('should decrease a value within a range', () => {
+      const actual = shiftInRange(4, -2, 1, 12);
+      expect(actual).toBe(2);
+    });
+
+    it('should loop around to the end', () => {
+      const actual = shiftInRange(4, -6, 1, 12);
+      expect(actual).toBe(10);
+    });
+
+    it('should loop around to the start', () => {
+      const actual = shiftInRange(7, 10, 4, 12);
+      expect(actual).toBe(8);
+    });
+
+    it('should loop around to the start', () => {
+      const actual = shiftInRange(4, 10, 2, 12);
+      expect(actual).toBe(3);
+    });
+
+    it('should loop around multiple times', () => {
+      const actual = shiftInRange(4, -9, 2, 5);
+      expect(actual).toBe(3);
     });
   });
 });

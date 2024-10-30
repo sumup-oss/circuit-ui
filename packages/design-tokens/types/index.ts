@@ -121,7 +121,7 @@ export type ZIndex = {
 /**
  * @deprecated
  *
- * Use the CSS custom properties from `@sumup/design-tokens` instead.
+ * Use the CSS custom properties from `@sumup-oss/design-tokens` instead.
  * Use the [`circuit-ui/prefer-custom-properties`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/prefer-custom-properties)
  * ESLint rule to automatically migrate your code.
  */
@@ -160,6 +160,26 @@ export interface Theme {
 }
 
 export type ColorScheme = 'light' | 'dark';
+
+export type FontFace =
+  // Custom font
+  | {
+      'font-family': string;
+      'font-style': 'normal' | 'italic' | 'oblique';
+      'font-weight': `${number}` | `${number} ${number}`;
+      'font-display': 'auto' | 'block' | 'swap' | 'fallback' | 'optional';
+      'src': string;
+      'unicode-range': string;
+    }
+  // Web safe fallback font
+  | {
+      'font-family': string;
+      'src': `local(${string})`;
+      'ascent-override'?: `${number}%`;
+      'descent-override'?: `${number}%`;
+      'line-gap-override'?: `${number}%`;
+      'size-adjust'?: `${number}%`;
+    };
 
 /**
  * The token definitions below are loosely based on

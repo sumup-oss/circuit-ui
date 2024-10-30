@@ -89,7 +89,7 @@ export const NotificationFullscreen = forwardRef<
   return (
     <div ref={ref} className={clsx(classes.base, className)} {...props}>
       <NotificationImage {...image} />
-      <Headline className={classes.headline} size="two" as={headlineElement}>
+      <Headline className={classes.headline} size="m" as={headlineElement}>
         {headlineLabel}
       </Headline>
       {body && <Body className={classes.body}>{body}</Body>}

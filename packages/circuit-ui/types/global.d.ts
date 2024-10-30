@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import type { Theme as CircuitTheme } from '@sumup/design-tokens';
+import type { Theme as CircuitTheme } from '@sumup-oss/design-tokens';
 
 import 'react';
 

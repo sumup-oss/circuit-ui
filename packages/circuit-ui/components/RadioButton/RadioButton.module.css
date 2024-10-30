@@ -8,7 +8,7 @@
 
 .label::before {
   position: absolute;
-  top: calc(var(--cui-typography-body-one-line-height) / 2);
+  top: calc(var(--cui-body-m-line-height) / 2);
   left: 0;
   box-sizing: border-box;
   display: block;
@@ -27,7 +27,7 @@
 
 .label::after {
   position: absolute;
-  top: calc(var(--cui-typography-body-one-line-height) / 2);
+  top: calc(var(--cui-body-m-line-height) / 2);
   left: var(--cui-spacings-bit);
   box-sizing: border-box;
   display: block;

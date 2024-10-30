@@ -103,6 +103,7 @@ button.base:active {
   display: flex;
   flex: auto;
   flex-direction: column;
+  gap: var(--cui-spacings-bit);
   align-items: flex-start;
   min-width: 0;
 }
@@ -118,13 +119,14 @@ button.base:active {
   display: flex;
   align-items: center;
   max-width: 100%;
-  min-height: var(--cui-typography-body-one-line-height);
+  min-height: var(--cui-body-m-line-height);
 }
 
 .trailing {
   display: flex;
   flex: none;
   flex-direction: column;
+  gap: var(--cui-spacings-bit);
   align-items: flex-end;
   align-self: stretch;
   justify-content: center;
@@ -150,6 +152,6 @@ button.base:active {
 }
 
 .navigation .trailing .details {
-  height: var(--cui-typography-body-one-line-height);
+  height: var(--cui-body-m-line-height);
   margin-right: calc(var(--cui-spacings-mega) + var(--cui-spacings-bit));
 }

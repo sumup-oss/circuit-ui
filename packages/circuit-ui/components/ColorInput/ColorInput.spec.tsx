@@ -23,26 +23,24 @@ import {
   fireEvent,
   userEvent,
 } from '../../util/test-utils.js';
-import type { InputElement } from '../Input/index.js';
 
 import { ColorInput } from './ColorInput.js';
 
 describe('ColorInput', () => {
-  const baseProps = { label: 'Car color', pickerLabel: 'Pick car color' };
+  const baseProps = { label: 'Car color' };
 
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
-    const { container } = render(
-      <ColorInput {...baseProps} inputClassName={className} />,
-    );
-    const input = container.querySelector('input[type="text"]');
-    expect(input?.className).toContain(className);
+    render(<ColorInput {...baseProps} inputClassName={className} />);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [_, textInput] = screen.getAllByLabelText(baseProps.label);
+    expect(textInput?.className).toContain(className);
   });
 
   it('should forward a ref', () => {
-    const ref = createRef<InputElement>();
-    const { container } = render(<ColorInput {...baseProps} ref={ref} />);
-    const input = container.querySelector("input[type='color']");
+    const ref = createRef<HTMLInputElement>();
+    render(<ColorInput {...baseProps} ref={ref} />);
+    const [input] = screen.getAllByLabelText(baseProps.label);
     expect(ref.current).toBe(input);
   });
 
@@ -52,7 +50,7 @@ describe('ColorInput', () => {
     expect(actual).toHaveNoViolations();
   });
 
-  describe('Labeling', () => {
+  describe('semantics', () => {
     it('should accept a custom description via aria-describedby', () => {
       const customDescription = 'Custom description';
       const customDescriptionId = 'customDescriptionId';
@@ -66,133 +64,110 @@ describe('ColorInput', () => {
         customDescription,
       );
     });
+    it('should render as disabled', async () => {
+      render(<ColorInput {...baseProps} disabled />);
+      const [colorInput, textInput] = screen.getAllByLabelText(baseProps.label);
+
+      expect(colorInput).toBeDisabled();
+      expect(textInput).toBeDisabled();
+    });
+    it('should render as read-only', async () => {
+      render(<ColorInput {...baseProps} readOnly />);
+      const [colorInput, textInput] = screen.getAllByLabelText(baseProps.label);
+      expect(colorInput).toBeDisabled();
+      expect(textInput).toHaveAttribute('readonly');
+    });
+
+    it('should render as required', async () => {
+      render(<ColorInput {...baseProps} required />);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const [_, textInput] = screen.getAllByLabelText(baseProps.label);
+      expect(textInput).toBeRequired(); // text input
+    });
   });
 
-  it('should set value and default value on both inputs', () => {
-    const { container } = render(
-      <ColorInput {...baseProps} defaultValue="#ff11bb" />,
-    );
-    const colorPicker = container.querySelector(
-      "input[type='color']",
-    ) as HTMLInputElement;
-    const colorInput = container.querySelector(
-      "input[type='text']",
-    ) as HTMLInputElement;
-    expect(colorPicker.value).toBe('#ff11bb');
-    expect(colorInput.value).toBe('ff11bb');
+  describe('state', () => {
+    it('should display a default value on both inputs', () => {
+      render(<ColorInput {...baseProps} defaultValue="#ff11bb" />);
+      const [colorInput, textInput] = screen.getAllByLabelText(baseProps.label);
+
+      expect(colorInput).toHaveValue('#ff11bb');
+      expect(textInput).toHaveValue('ff11bb');
+    });
+
+    it('should display an initial value', () => {
+      render(<ColorInput {...baseProps} value="#ff11bb" />);
+
+      const [colorInput, textInput] = screen.getAllByLabelText(baseProps.label);
+
+      expect(colorInput).toHaveValue('#ff11bb');
+      expect(textInput).toHaveValue('ff11bb');
+    });
+
+    it('should ignore an invalid value', () => {
+      render(<ColorInput {...baseProps} value="#fff" />);
+      const [colorInput, textInput] = screen.getAllByLabelText(baseProps.label);
+
+      expect(colorInput).toHaveValue('#000000');
+      expect(textInput).toHaveValue('fff');
+    });
   });
 
-  describe('Synchronization', () => {
+  describe('user interactions', () => {
+    const newValue = '00ff00';
     it('should update text input if color input changes', async () => {
-      const { container } = render(<ColorInput {...baseProps} />);
-      const colorPicker = container.querySelector(
-        "input[type='color']",
-      ) as HTMLInputElement;
-      const newValue = '#00ff00';
-
-      fireEvent.input(colorPicker, { target: { value: newValue } });
-
-      const colorInput = container.querySelector(
-        "input[type='text']",
-      ) as HTMLInputElement;
-      expect(colorInput.value).toBe(newValue.replace('#', ''));
-    });
-
-    it('should update color input if text input changes', async () => {
-      const { container } = render(<ColorInput {...baseProps} />);
-      const colorInput = container.querySelector(
-        "input[type='text']",
-      ) as HTMLInputElement;
-      const newValue = '00ff00';
-
-      await userEvent.type(colorInput, newValue);
-
-      const colorPicker = container.querySelector(
-        "input[type='color']",
-      ) as HTMLInputElement;
-      expect(colorPicker.value).toBe(`#${newValue}`);
-    });
-  });
-
-  describe('OnChange events', () => {
-    it('should trigger onChange event when color picker changes', async () => {
       const onChange = vi.fn();
-      const { container } = render(
-        <ColorInput {...baseProps} onChange={onChange} />,
-      );
+      render(<ColorInput {...baseProps} onChange={onChange} />);
+      const [colorInput, textInput] = screen.getAllByLabelText(baseProps.label);
 
-      const colorPicker = container.querySelector(
-        "input[type='color']",
-      ) as HTMLInputElement;
+      fireEvent.input(colorInput, { target: { value: `#${newValue}` } });
 
-      fireEvent.input(colorPicker, { target: { value: '#00ff00' } });
-
+      expect(textInput).toHaveValue(newValue.replace('#', ''));
       expect(onChange).toHaveBeenCalledTimes(1);
     });
 
-    it('should trigger onChange event when color hex input changes', async () => {
+    it('should update color input if text input changes', async () => {
       const onChange = vi.fn();
-      const { container } = render(
-        <ColorInput {...baseProps} onChange={onChange} />,
-      );
+      render(<ColorInput {...baseProps} onChange={onChange} />);
+      const [colorInput, textInput] = screen.getAllByLabelText(baseProps.label);
 
-      const colorInput = container.querySelector(
-        "input[type='text']",
-      ) as HTMLInputElement;
+      await userEvent.type(textInput, newValue);
 
-      await userEvent.type(colorInput, '00ff00');
-
+      expect(colorInput).toHaveValue(`#${newValue}`);
       expect(onChange).toHaveBeenCalled();
     });
-  });
 
-  describe('Paste', () => {
     it('should handle paste events', async () => {
-      const { container } = render(<ColorInput {...baseProps} />);
-      const colorInput = container.querySelector(
-        "input[type='text']",
-      ) as HTMLInputElement;
+      render(<ColorInput {...baseProps} />);
+      const [colorInput, textInput] = screen.getAllByLabelText(baseProps.label);
 
-      await userEvent.click(colorInput);
-      await userEvent.paste('#00ff00');
+      await userEvent.click(textInput);
+      await userEvent.paste(`#${newValue}`);
 
-      const colorPicker = container.querySelector(
-        "input[type='color']",
-      ) as HTMLInputElement;
-      expect(colorPicker.value).toBe('#00ff00');
-      expect(colorInput.value).toBe('00ff00');
+      expect(colorInput).toHaveValue(`#${newValue}`);
+      expect(textInput).toHaveValue(newValue);
     });
 
     it('should ignore invalid paste event', async () => {
-      const { container } = render(<ColorInput {...baseProps} />);
-      const colorInput = container.querySelector(
-        "input[type='text']",
-      ) as HTMLInputElement;
+      render(<ColorInput {...baseProps} />);
+      const [colorInput, textInput] = screen.getAllByLabelText(baseProps.label);
 
-      await userEvent.click(colorInput);
+      await userEvent.click(textInput);
       await userEvent.paste('obviously invalid');
 
-      const colorPicker = container.querySelector(
-        "input[type='color']",
-      ) as HTMLInputElement;
-      expect(colorPicker.value).toBe('#000000');
-      expect(colorInput.value).toBe('');
+      expect(colorInput).toHaveValue('#000000');
+      expect(textInput).toHaveValue('');
     });
 
     it("should allow pasting color without '#'", async () => {
-      const { container } = render(<ColorInput {...baseProps} />);
-      const colorInput = container.querySelector(
-        "input[type='text']",
-      ) as HTMLInputElement;
+      render(<ColorInput {...baseProps} />);
+      const [colorInput, textInput] = screen.getAllByLabelText(baseProps.label);
 
-      await userEvent.click(colorInput);
-      await userEvent.paste('00ff00');
+      await userEvent.click(textInput);
+      await userEvent.paste(newValue);
 
-      const colorPicker = container.querySelector(
-        "input[type='color']",
-      ) as HTMLInputElement;
-      expect(colorPicker.value).toBe('#00ff00');
-      expect(colorInput.value).toBe('00ff00');
+      expect(colorInput).toHaveValue(`#${newValue}`);
+      expect(textInput).toHaveValue(newValue);
     });
   });
 });

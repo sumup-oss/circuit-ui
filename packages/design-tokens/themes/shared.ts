@@ -58,11 +58,10 @@ export const shared = [
     value: '2px',
     type: 'dimension',
   },
-  /* Font families */
   {
     name: '--cui-font-stack-default',
     value:
-      'aktiv-grotesk, Helvetica, Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+      '"Inter", "Inter-Fallback", Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
     type: 'fontFamily',
   },
   {
@@ -74,13 +73,24 @@ export const shared = [
   /* Font weights */
   {
     name: '--cui-font-weight-regular',
-    value: '400',
+    value: '375',
+    type: 'fontWeight',
+  },
+  {
+    name: '--cui-font-weight-semibold',
+    value: '560',
     type: 'fontWeight',
   },
   {
     name: '--cui-font-weight-bold',
-    value: '700',
+    value: '630',
     type: 'fontWeight',
+  },
+  /* Letter spacing */
+  {
+    name: '--cui-letter-spacing',
+    value: '-0.01375rem',
+    type: 'dimension',
   },
   /* Icon sizes */
   {
@@ -162,6 +172,157 @@ export const shared = [
   },
   /* Typography */
   {
+    name: '--cui-display-l-font-size',
+    value: '4rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-display-l-line-height',
+    value: '4.5rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-display-m-font-size',
+    value: '3rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-display-m-line-height',
+    value: '3.5rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-display-s-font-size',
+    value: '2.5rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-display-s-line-height',
+    value: '2.875rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-headline-l-font-size',
+    value: '2rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-headline-l-line-height',
+    value: '2.25rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-headline-m-font-size',
+    value: '1.5rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-headline-m-line-height',
+    value: '1.625rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-headline-s-font-size',
+    value: '1.125rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-headline-s-line-height',
+    value: '1.375rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-body-l-font-size',
+    value: '1.25rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-body-l-line-height',
+    value: '1.5rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-body-m-font-size',
+    value: '1rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-body-m-line-height',
+    value: '1.375rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-body-s-font-size',
+    value: '0.875rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-body-s-line-height',
+    value: '1.25rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-compact-l-font-size',
+    value: '1.125rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-compact-l-line-height',
+    value: '1.5rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-compact-m-font-size',
+    value: '0.9375rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-compact-m-line-height',
+    value: '1.0625rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-compact-s-font-size',
+    value: '0.8125rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-compact-s-line-height',
+    value: '0.9375rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-numeral-l-font-size',
+    value: '3rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-numeral-l-line-height',
+    value: '3.375rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-numeral-m-font-size',
+    value: '1.5rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-numeral-m-line-height',
+    value: '1.75rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-numeral-s-font-size',
+    value: '1rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-numeral-s-line-height',
+    value: '1.375rem',
+    type: 'dimension',
+  },
+  /* eslint-disable @sumup-oss/circuit-ui/no-deprecated-custom-properties */
+  {
     name: '--cui-typography-headline-one-font-size',
     value: '2rem',
     type: 'dimension',
@@ -173,22 +334,22 @@ export const shared = [
   },
   {
     name: '--cui-typography-headline-two-font-size',
-    value: '1.5rem',
+    value: '1.375rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-headline-two-line-height',
-    value: '1.75rem',
+    value: '1.625rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-headline-three-font-size',
-    value: '1.25rem',
+    value: '1.375rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-headline-three-line-height',
-    value: '1.5rem',
+    value: '1.625rem',
     type: 'dimension',
   },
   {
@@ -198,57 +359,57 @@ export const shared = [
   },
   {
     name: '--cui-typography-headline-four-line-height',
-    value: '1.5rem',
+    value: '1.375rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-title-one-font-size',
-    value: '7.5rem',
+    value: '4rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-title-one-line-height',
-    value: '7.5rem',
+    value: '4.5rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-title-two-font-size',
-    value: '6rem',
+    value: '3rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-title-two-line-height',
-    value: '6rem',
+    value: '3.5rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-title-three-font-size',
-    value: '4rem',
+    value: '3rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-title-three-line-height',
-    value: '4rem',
+    value: '3.5rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-title-four-font-size',
-    value: '3.5rem',
+    value: '2.5rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-title-four-line-height',
-    value: '3.5rem',
+    value: '2.875rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-sub-headline-font-size',
-    value: '0.875rem',
+    value: '1.125rem',
     type: 'dimension',
   },
   {
     name: '--cui-typography-sub-headline-line-height',
-    value: '1.25rem',
+    value: '1.375rem',
     type: 'dimension',
   },
   {
@@ -258,7 +419,7 @@ export const shared = [
   },
   {
     name: '--cui-typography-body-one-line-height',
-    value: '1.5rem',
+    value: '1.375rem',
     type: 'dimension',
   },
   {
@@ -278,9 +439,10 @@ export const shared = [
   },
   {
     name: '--cui-typography-body-large-line-height',
-    value: '1.75rem',
+    value: '1.5rem',
     type: 'dimension',
   },
+  /* eslint-enable @sumup-oss/circuit-ui/no-deprecated-custom-properties */
   /* Z-indices */
   {
     name: '--cui-z-index-default',

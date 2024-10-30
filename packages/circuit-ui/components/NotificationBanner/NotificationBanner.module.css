@@ -35,27 +35,27 @@
 
 .base .headline {
   margin-bottom: var(--cui-spacings-byte);
-  font-size: var(--cui-typography-headline-four-font-size);
-  line-height: var(--cui-typography-headline-four-line-height);
+  font-size: var(--cui-headline-s-font-size);
+  line-height: var(--cui-headline-s-line-height);
 }
 
 @media (min-width: 768px) {
   .base .headline {
-    font-size: var(--cui-typography-headline-three-font-size);
-    line-height: var(--cui-typography-headline-three-line-height);
+    font-size: var(--cui-headline-m-font-size);
+    line-height: var(--cui-headline-m-line-height);
   }
 }
 
 .base .body {
   margin-bottom: var(--cui-spacings-byte);
-  font-size: var(--cui-typography-body-two-font-size);
-  line-height: var(--cui-typography-body-two-line-height);
+  font-size: var(--cui-body-s-font-size);
+  line-height: var(--cui-body-s-line-height);
 }
 
 @media (min-width: 768px) {
   .base .body {
-    font-size: var(--cui-typography-body-one-font-size);
-    line-height: var(--cui-typography-body-one-line-height);
+    font-size: var(--cui-body-m-font-size);
+    line-height: var(--cui-body-m-line-height);
   }
 }
 

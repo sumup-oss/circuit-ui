@@ -25,7 +25,7 @@ import {
   type DragEvent,
   type ComponentType,
 } from 'react';
-import { Delete, Plus } from '@sumup/icons';
+import { Delete, Plus } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
 import { utilClasses } from '../../styles/utility.js';
@@ -56,7 +56,7 @@ export interface ImageInputProps
    * It should accept a `src` prop to render the image, and `aria-hidden` to
    * hide it from assistive technology.
    */
-  component: ComponentType<{ 'src'?: string; 'aria-hidden': 'true' }>;
+  component: ComponentType<{ src?: string; 'aria-hidden': 'true' }>;
   /**
    * A callback function to call when the user has selected an image.
    */
@@ -107,18 +107,18 @@ export interface ImageInputProps
 export const ImageInput = ({
   label,
   src,
-  'id': customId,
+  id: customId,
   clearButtonLabel,
   onChange,
   onClear,
   disabled,
   validationHint,
-  invalid = false,
   required,
+  invalid = false,
   optionalLabel,
   loadingLabel,
   hideLabel = true,
-  'component': Component,
+  component: Component,
   className,
   style,
   'aria-describedby': descriptionId,

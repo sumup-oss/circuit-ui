@@ -1,5 +1,5 @@
 /**
- * Copyright 2021, SumUp Ltd.
+ * Copyright 2019, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,49 +13,23 @@
  * limitations under the License.
  */
 
-import { forwardRef, type HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 
-import { clsx } from '../../styles/clsx.js';
-import { CircuitError } from '../../util/errors.js';
+import { deprecate } from '../../util/logger.js';
+import { Display, type DisplayProps } from '../Display/Display.js';
 
-import classes from './Title.module.css';
-
-export interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {
-  /**
-   * A Circuit UI title size. Defaults to `one`.
-   */
-  size?: 'one' | 'two' | 'three' | 'four';
-  /**
-   * The HTML heading element to render.
-   * Headings should be nested sequentially without skipping any levels.
-   * Learn more at https://www.w3.org/WAI/tutorials/page-structure/headings/.
-   */
-  as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-}
+export interface TitleProps extends DisplayProps {}
 
 /**
- * A flexible title component capable of rendering any HTML heading element.
+ * @deprecated The Title component has been renamed to Display.
  */
 export const Title = forwardRef<HTMLHeadingElement, TitleProps>(
-  ({ className, as, size = 'one', ...props }, ref) => {
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !process?.env?.UNSAFE_DISABLE_ELEMENT_ERRORS &&
-      !as
-    ) {
-      throw new CircuitError('Title', 'The `as` prop is required.');
+  (props, ref) => {
+    if (process.env.NODE_ENV !== 'production') {
+      deprecate('Title', 'The Title component has been renamed to Display.');
     }
 
-    const Element = as || 'h1';
-
-    return (
-      <Element
-        {...props}
-        ref={ref}
-        className={clsx(classes.base, classes[size], className)}
-      />
-    );
+    return <Display {...props} ref={ref} />;
   },
 );
 

@@ -14,7 +14,7 @@
  */
 
 import { describe, expect, it, vi } from 'vitest';
-import { light as theme } from '@sumup/design-tokens';
+import { light as theme } from '@sumup-oss/design-tokens';
 
 import { composeBreakpoints, normalizeToNumber, wrapStyles } from './utils.js';
 

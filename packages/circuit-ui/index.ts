@@ -21,6 +21,8 @@ export { clsx } from './styles/clsx.js';
 // Typography
 export { Headline } from './components/Headline/index.js';
 export type { HeadlineProps } from './components/Headline/index.js';
+export { Display } from './components/Display/index.js';
+export type { DisplayProps } from './components/Display/index.js';
 export { Title } from './components/Title/index.js';
 export type { TitleProps } from './components/Title/index.js';
 export { SubHeadline } from './components/SubHeadline/index.js';
@@ -29,6 +31,10 @@ export { Body } from './components/Body/index.js';
 export type { BodyProps } from './components/Body/index.js';
 export { BodyLarge } from './components/BodyLarge/index.js';
 export type { BodyLargeProps } from './components/BodyLarge/index.js';
+export { Compact } from './components/Compact/index.js';
+export type { CompactProps } from './components/Compact/index.js';
+export { Numeral } from './components/Numeral/index.js';
+export type { NumeralProps } from './components/Numeral/index.js';
 export { Anchor } from './components/Anchor/index.js';
 export type { AnchorProps } from './components/Anchor/index.js';
 export { List } from './components/List/index.js';
@@ -58,6 +64,14 @@ export { PercentageInput } from './components/PercentageInput/index.js';
 export type { PercentageInputProps } from './components/PercentageInput/index.js';
 export { ImageInput } from './components/ImageInput/index.js';
 export type { ImageInputProps } from './components/ImageInput/index.js';
+export { Calendar } from './components/Calendar/index.js';
+export type { CalendarProps } from './components/Calendar/index.js';
+export { updatePlainDateRange } from './util/date.js';
+export type { PlainDateRange } from './util/date.js';
+export { PhoneNumberInput } from './components/PhoneNumberInput/index.js';
+export type { PhoneNumberInputProps } from './components/PhoneNumberInput/index.js';
+export { ColorInput } from './components/ColorInput/index.js';
+export type { ColorInputProps } from './components/ColorInput/index.js';
 
 // Actions
 export { Button } from './components/Button/index.js';
@@ -187,6 +201,15 @@ export {
   useComponents,
 } from './components/ComponentsContext/index.js';
 export type { ComponentsContextType } from './components/ComponentsContext/index.js';
+export {
+  Tooltip,
+  type TooltipProps,
+  type TooltipReferenceProps,
+} from './components/Tooltip/index.js';
+export {
+  Toggletip,
+  type ToggletipProps,
+} from './components/Toggletip/index.js';
 
 // Hooks
 export { useClickOutside } from './hooks/useClickOutside/index.js';

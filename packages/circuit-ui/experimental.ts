@@ -13,18 +13,3 @@
  * limitations under the License.
  */
 
-export {
-  Tooltip,
-  type TooltipProps,
-  type TooltipReferenceProps,
-} from './components/Tooltip/index.js';
-export {
-  Toggletip,
-  type ToggletipProps,
-} from './components/Toggletip/index.js';
-export { Calendar, type CalendarProps } from './components/Calendar/index.js';
-export { type PlainDateRange } from './util/date.js';
-export { PhoneNumberInput } from './components/PhoneNumberInput/index.js';
-export type { PhoneNumberInputProps } from './components/PhoneNumberInput/index.js';
-export { ColorInput } from './components/ColorInput/index.js';
-export type { ColorInputProps } from './components/ColorInput/index.js';

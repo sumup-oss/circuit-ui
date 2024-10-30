@@ -33,7 +33,7 @@ First, wrap your application in the `ToastProvider` which keeps track of the ope
 
 ```tsx
 // _app.tsx for Next.js or App.js for CRA
-import { ToastProvider } from '@sumup/circuit-ui';
+import { ToastProvider } from '@sumup-oss/circuit-ui';
 
 export default function App() {
   return <ToastProvider>{/* Your content goes here... */}</ToastProvider>;
@@ -43,7 +43,7 @@ export default function App() {
 Then, use the `useNotificationToast` hook to open a toast from a component:
 
 ```tsx
-import { useNotificationToast, Button } from '@sumup/circuit-ui';
+import { useNotificationToast, Button } from '@sumup-oss/circuit-ui';
 
 export function App({}) {
   const { setToast } = useNotificationToast();

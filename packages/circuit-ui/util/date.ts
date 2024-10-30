@@ -14,13 +14,26 @@
  */
 
 import { Temporal } from 'temporal-polyfill';
+import { formatDateTime } from '@sumup-oss/intl';
+
+import type { Locale } from './i18n.js';
 
 export type FirstDayOfWeek = 1 | 7;
 export type DaysInWeek = number;
 export type PlainDateRange =
-  | []
-  | [Temporal.PlainDate]
-  | [Temporal.PlainDate, Temporal.PlainDate];
+  | { start: undefined; end: undefined }
+  | { start: Temporal.PlainDate; end: undefined }
+  | { start: Temporal.PlainDate; end: Temporal.PlainDate };
+
+// ISO 8601 timestamps only support positive 4-digit years
+export const MIN_YEAR = 1;
+export const MAX_YEAR = 9999;
+
+export const MIN_MONTH = 1;
+export const MAX_MONTH = 12;
+
+export const MIN_DAY = 1;
+// MAX_DAY is not constant as it depends on the year and month
 
 export function getTodaysDate() {
   return Temporal.Now.plainDateISO();
@@ -30,19 +43,15 @@ export function isPlainDate(date: unknown): date is Temporal.PlainDate {
   return date instanceof Temporal.PlainDate;
 }
 
-export function toPlainDate(date?: string): Temporal.PlainDate | null {
+export function toPlainDate(date?: string): Temporal.PlainDate | undefined {
   if (!date) {
-    return null;
+    return undefined;
   }
   try {
     return Temporal.PlainDate.from(date);
-  } catch (_error) {
-    return null;
+  } catch {
+    return undefined;
   }
-}
-
-export function sortDateRange<T extends PlainDateRange>(dateRange: T): T {
-  return dateRange.sort((a, b) => Temporal.PlainDate.compare(a, b)) as T;
 }
 
 export function clampDate(
@@ -57,6 +66,23 @@ export function clampDate(
     return maxDate;
   }
   return date;
+}
+
+export function updatePlainDateRange(
+  previousRange: PlainDateRange,
+  date: Temporal.PlainDate,
+): PlainDateRange {
+  if (
+    // Nothing selected yet
+    (!previousRange.start && !previousRange.end) ||
+    // Full range already selected
+    (previousRange.start && previousRange.end) ||
+    // Selected date is before previous start date
+    Temporal.PlainDate.compare(previousRange.start, date) > 0
+  ) {
+    return { start: date, end: undefined };
+  }
+  return { start: previousRange.start, end: date };
 }
 
 export function getFirstDateOfWeek(
@@ -77,4 +103,10 @@ export function getLastDateOfWeek(
   return getFirstDateOfWeek(date, firstDayOfWeek).add({
     days: date.daysInWeek - 1,
   });
+}
+
+export function getMonthName(month: number, locale?: Locale) {
+  // The year can be arbitrary since the month names are the same every year
+  const yearMonth = new Temporal.PlainYearMonth(2000, month, 'gregory');
+  return formatDateTime(yearMonth, locale, { month: 'long' });
 }

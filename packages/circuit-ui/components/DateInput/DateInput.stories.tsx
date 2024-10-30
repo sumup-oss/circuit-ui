@@ -13,21 +13,164 @@
  * limitations under the License.
  */
 
+import { useState } from 'react';
+
+import { Stack } from '../../../../.storybook/components/index.js';
+
 import { DateInput, type DateInputProps } from './DateInput.js';
 
 export default {
   title: 'Forms/DateInput',
   component: DateInput,
+  parameters: {
+    layout: 'padded',
+  },
   argTypes: {
     disabled: { control: 'boolean' },
+    required: { control: 'boolean' },
   },
 };
 
+// Fun fact: Circuit UI was created on August 28, 2017
+
 const baseArgs = {
   label: 'Date of birth',
-  validationHint: 'You must be at least 18 years old',
+  prevMonthButtonLabel: 'Previous month',
+  nextMonthButtonLabel: 'Next month',
+  openCalendarButtonLabel: 'Change date',
+  closeCalendarButtonLabel: 'Close calendar',
+  applyDateButtonLabel: 'Apply',
+  clearDateButtonLabel: 'Clear',
+  yearInputLabel: 'Year',
+  monthInputLabel: 'Month',
+  dayInputLabel: 'Day',
+  autoComplete: 'bday',
+  locale: 'en-US',
 };
 
-export const Base = (args: DateInputProps) => <DateInput {...args} />;
+export const Base = (args: DateInputProps) => {
+  const [value, setValue] = useState(args.defaultValue || args.value || '');
+  return (
+    <DateInput
+      {...args}
+      value={value}
+      onChange={(event) => setValue(event.target.value)}
+    />
+  );
+};
 
 Base.args = baseArgs;
+
+export const Validations = (args: DateInputProps) => (
+  <Stack vertical>
+    <Stack>
+      <DateInput
+        {...args}
+        validationHint="Please enter your birth date"
+        required
+        invalid
+      />
+      <DateInput
+        {...args}
+        defaultValue="1917-08-28"
+        validationHint="That's mighty old"
+        hasWarning
+      />
+      <DateInput
+        {...args}
+        defaultValue="2004-03-15"
+        validationHint="You meet the age requirements"
+        showValid
+      />
+    </Stack>
+    <Stack>
+      <DateInput
+        {...args}
+        min="2024-01-01"
+        max="2024-12-31"
+        validationHint="Enter a date in 2024"
+      />
+      <DateInput
+        {...args}
+        min="2024-08-01"
+        max="2024-08-31"
+        validationHint="Enter a date in August 2024"
+      />
+    </Stack>
+  </Stack>
+);
+
+Validations.args = baseArgs;
+
+export const Optional = (args: DateInputProps) => <DateInput {...args} />;
+
+Optional.args = {
+  ...baseArgs,
+  optionalLabel: 'optional',
+};
+
+export const Readonly = (args: DateInputProps) => <DateInput {...args} />;
+
+Readonly.args = {
+  ...baseArgs,
+  label: 'Appointment date',
+  defaultValue: '2017-08-28',
+  readOnly: true,
+};
+
+export const Disabled = (args: DateInputProps) => <DateInput {...args} />;
+
+Disabled.args = {
+  ...baseArgs,
+  defaultValue: '2017-08-28',
+  disabled: true,
+};
+
+export const Locales = (args: DateInputProps) => (
+  <Stack>
+    <DateInput
+      {...args}
+      locale="de-DE"
+      label="Geburtsdatum"
+      prevMonthButtonLabel="Vorheriger Monat"
+      nextMonthButtonLabel="Nächster Monat"
+      openCalendarButtonLabel="Datum ändern"
+      closeCalendarButtonLabel="Kalendar schließen"
+      applyDateButtonLabel="Anwenden"
+      clearDateButtonLabel="Löschen"
+      yearInputLabel="Jahr"
+      monthInputLabel="Monat"
+      dayInputLabel="Tag"
+    />
+    <DateInput
+      {...args}
+      locale="es-CL"
+      label="Fecha de nacimiento"
+      prevMonthButtonLabel="Mes anterior"
+      nextMonthButtonLabel="Mes siguiente"
+      openCalendarButtonLabel="Cambiar fecha"
+      closeCalendarButtonLabel="Cerrar calendario"
+      applyDateButtonLabel="Aplicar"
+      clearDateButtonLabel="Borrar"
+      yearInputLabel="Año"
+      monthInputLabel="Mes"
+      dayInputLabel="Día"
+    />
+    <DateInput
+      {...args}
+      locale="pt-BR"
+      label="Data de nascimento"
+      prevMonthButtonLabel="Mês anterior"
+      nextMonthButtonLabel="Próximo mês"
+      openCalendarButtonLabel="Alterar data"
+      closeCalendarButtonLabel="Fechar calendário"
+      applyDateButtonLabel="Aplicar"
+      clearDateButtonLabel="Limpar"
+      yearInputLabel="Ano"
+      monthInputLabel="Mês"
+      dayInputLabel="Dia"
+    />
+  </Stack>
+);
+
+Locales.args = baseArgs;

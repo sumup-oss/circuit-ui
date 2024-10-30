@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.8.2/schema.json",
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
   "extends": ["@sumup-oss/foundry/biome"],
   "files": {
     "ignore": [
@@ -30,9 +30,18 @@
   "organizeImports": {
     "enabled": false
   },
+  "css": {
+    "formatter": {
+      "enabled": false
+    }
+  },
   "linter": {
     "rules": {
       "recommended": true,
+      "a11y": {
+        "noRedundantRoles": "warn",
+        "useSemanticElements": "warn"
+      },
       "style": {
         "noDefaultExport": "error",
         "useFilenamingConvention": {
@@ -50,9 +59,9 @@
     },
     "ignore": [
       // The templates have their own linting setup
-      "packages/astro-template/**",
-      "packages/cna-template/template/**",
-      "packages/remix-template/**"
+      "templates/astro/**",
+      "templates/nextjs/template/**",
+      "templates/remix/**"
     ]
   },
   "overrides": [
@@ -60,7 +69,6 @@
       "include": ["*.css"],
       "css": {
         "formatter": {
-          "enabled": true,
           "indentStyle": "space",
           "quoteStyle": "double"
         },

@@ -22,7 +22,6 @@ import {
   render,
   screen,
 } from '../../util/test-utils.js';
-import type { InputElement } from '../Input/Input.js';
 
 import { TextArea, type TextAreaProps } from './TextArea.js';
 import { useAutoExpand } from './useAutoExpand.js';
@@ -35,7 +34,7 @@ const createTextAreaRef = (props = {}) => {
   render(<TextArea label="Test" {...props} />);
   return {
     current: screen.getByRole('textbox'),
-  } as MutableRefObject<InputElement>;
+  } as MutableRefObject<HTMLTextAreaElement>;
 };
 
 describe('useAutoExpand hook', () => {
@@ -189,7 +188,7 @@ describe('useAutoExpand hook', () => {
     test('should allow preventing resize from onInput handler', async () => {
       const onInputHandler = vi
         .fn()
-        .mockImplementation((e: FormEvent<InputElement>) => {
+        .mockImplementation((e: FormEvent<HTMLTextAreaElement>) => {
           e.preventDefault();
         });
 

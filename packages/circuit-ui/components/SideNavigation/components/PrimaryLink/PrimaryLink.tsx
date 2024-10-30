@@ -15,7 +15,7 @@
 
 'use client';
 
-import { ArrowRight } from '@sumup/icons';
+import { ArrowRight } from '@sumup-oss/icons';
 import { useId, type ComponentType } from 'react';
 
 import type { AsPropType } from '../../../../types/prop-types.js';

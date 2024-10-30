@@ -1,0 +1,36 @@
+.base {
+  font-weight: var(--cui-font-weight-bold);
+  color: var(--cui-fg-normal);
+  letter-spacing: var(--cui-letter-spacing);
+}
+
+/* Weights */
+
+.regular {
+  font-weight: var(--cui-font-weight-regular);
+}
+
+.semibold {
+  font-weight: var(--cui-font-weight-semibold);
+}
+
+.bold {
+  font-weight: var(--cui-font-weight-bold);
+}
+
+/* Sizes */
+
+.l {
+  font-size: var(--cui-display-l-font-size);
+  line-height: var(--cui-display-l-line-height);
+}
+
+.m {
+  font-size: var(--cui-display-m-font-size);
+  line-height: var(--cui-display-m-line-height);
+}
+
+.s {
+  font-size: var(--cui-display-s-font-size);
+  line-height: var(--cui-display-s-line-height);
+}

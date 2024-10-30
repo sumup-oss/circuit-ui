@@ -24,7 +24,6 @@ import {
   useFocusList,
   type FocusProps,
 } from '../../../../hooks/useFocusList/index.js';
-import { SubHeadline } from '../../../SubHeadline/index.js';
 import { Body } from '../../../Body/index.js';
 import { Badge } from '../../../Badge/index.js';
 import { useComponents } from '../../../ComponentsContext/index.js';
@@ -58,11 +57,7 @@ function SecondaryLink({
         aria-current={isActive ? 'page' : undefined}
       >
         <Skeleton className={classes.label}>
-          <Body
-            as="span"
-            size="one"
-            variant={isActive ? 'highlight' : undefined}
-          >
+          <Body as="span" size="m" weight={isActive ? 'bold' : undefined}>
             {label}
           </Body>
         </Skeleton>
@@ -81,7 +76,15 @@ function SecondaryGroup({
     <li>
       {label && (
         <Skeleton className={classes['group-headline']} as="div">
-          <SubHeadline as="h3">{label}</SubHeadline>
+          <Body
+            color="subtle"
+            className={classes.headline}
+            weight="semibold"
+            as="h3"
+            size="s"
+          >
+            {label}
+          </Body>
         </Skeleton>
       )}
       <ul role="list" className={classes.list}>

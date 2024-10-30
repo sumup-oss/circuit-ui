@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { BodyLarge } from '../../packages/circuit-ui/index.js';
+import { Body } from '../../packages/circuit-ui/index.js';
 
 import type { BodyLargeProps } from '../../packages/circuit-ui/index.js';
 
@@ -26,8 +26,15 @@ export function Intro({
   children: BodyLargeProps['children'];
 }) {
   return (
-    <BodyLarge as="div" variant="subtle" className={classes.base} {...props}>
+    <Body
+      as="div"
+      size="s"
+      weight="semibold"
+      color="subtle"
+      className={classes.base}
+      {...props}
+    >
       {children}
-    </BodyLarge>
+    </Body>
   );
 }

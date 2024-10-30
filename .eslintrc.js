@@ -3,7 +3,7 @@ module.exports = require('@sumup-oss/foundry/eslint')({
     'plugin:storybook/recommended',
     'plugin:react-server-components/recommended',
   ],
-  plugins: ['@sumup/circuit-ui'],
+  plugins: ['@sumup-oss/circuit-ui'],
   settings: {
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
@@ -16,9 +16,16 @@ module.exports = require('@sumup-oss/foundry/eslint')({
     },
   },
   rules: {
-    '@sumup/circuit-ui/no-invalid-custom-properties': 'error',
-    '@sumup/circuit-ui/prefer-custom-properties': 'warn',
+    '@sumup-oss/circuit-ui/no-invalid-custom-properties': 'error',
+    '@sumup-oss/circuit-ui/no-deprecated-custom-properties': 'error',
+    '@sumup-oss/circuit-ui/no-deprecated-props': 'error',
+    '@sumup-oss/circuit-ui/no-deprecated-components': 'error',
+    '@sumup-oss/circuit-ui/no-renamed-props': 'error',
+    '@sumup-oss/circuit-ui/prefer-custom-properties': 'warn',
     'react/no-unknown-property': ['error', { ignore: ['css'] }],
+    // These rules are already covered by Biome
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
   },
   parserOptions: {
     project: ['./packages/*/tsconfig.json', './tsconfig.eslint.json'],
@@ -55,7 +62,7 @@ module.exports = require('@sumup-oss/foundry/eslint')({
     {
       files: ['packages/circuit-ui/components/legacy/**/*'],
       rules: {
-        '@sumup/circuit-ui/prefer-custom-properties': 'off',
+        '@sumup-oss/circuit-ui/prefer-custom-properties': 'off',
       },
     },
     {
@@ -72,7 +79,7 @@ module.exports = require('@sumup-oss/foundry/eslint')({
       },
     },
     {
-      files: ['packages/remix-template/**/*', 'packages/astro-template/**/*'],
+      files: ['templates/remix/**/*', 'templates/astro/**/*'],
       rules: {
         'notice/notice': 'off',
       },

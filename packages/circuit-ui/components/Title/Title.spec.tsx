@@ -1,5 +1,5 @@
 /**
- * Copyright 2021, SumUp Ltd.
+ * Copyright 2019, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,7 +16,7 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe } from '../../util/test-utils.js';
+import { axe, render } from '../../util/test-utils.js';
 
 import { Title } from './Title.js';
 
@@ -44,7 +44,7 @@ describe('Title', () => {
   });
 
   it('should meet accessibility guidelines', async () => {
-    const { container } = render(<Title as="h2">Title</Title>);
+    const { container } = render(<Title as="h3">Subheading</Title>);
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });

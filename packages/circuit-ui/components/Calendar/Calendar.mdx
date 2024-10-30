@@ -5,29 +5,18 @@ import * as Stories from './Calendar.stories';
 
 # Calendar
 
-<Status variant="experimental" />
+<Status variant="stable" />
 
 The Calendar component displays a monthly date grid. This is a low-level component for advanced use cases; you likely want to use the [DateInput](Forms/DateInput/Base) component instead.
 
 <Story of={Stories.Base} />
 <Props />
 
-## Dependencies
-
-The Calendar component uses the experimental [`Temporal` API](https://tc39.es/proposal-temporal/docs/) which has reached [stage 3](https://github.com/tc39/proposals#stage-3) in the [ECMAScript proposal](https://github.com/tc39/proposal-temporal) process but isn't implemented in [most browsers](https://caniuse.com/temporal) yet. Circuit UI depends on a [polyfill](https://github.com/fullcalendar/temporal-polyfill) which you need to install to use the component in your application:
-
-```bash
-# npm
-npm install temporal-polyfill
-# yarn v1
-yarn add temporal-polyfill
-```
-
 ## Usage
 
 ### Selection
 
-Use the `selection` prop to set the currently selected date or date range and the `onSelect` prop to update the selection when a user picks a different date. Use the `minDate` and `maxDate` props to restrict the available date range or use [modifiers](#modifiers) to disable individual days.
+Use the `selection` prop to set the currently selected date or date range and the `onSelect` prop to update the selection when a user picks a different date. Use the exported `updatePlainDateRange` function to update a date range when a user selects a date. Use the `minDate` and `maxDate` props to restrict the available date range or use [modifiers](#modifiers) to disable individual days.
 
 <Story of={Stories.Range} />
 
@@ -53,7 +42,7 @@ Use the `onMonthChange` prop to lazy-load modifiers for the currently visible mo
 
 ```tsx
 import { useState } from 'react';
-import { Calendar, type CalendarProps } from '@sumup/circuit-ui/experimental';
+import { Calendar, type CalendarProps } from '@sumup-oss/circuit-ui';
 import { Temporal } from 'temporal-polyfill';
 
 function App() {
@@ -65,7 +54,7 @@ function App() {
   const handleMonthChange = (yearMonth: Temporal.PlainYearMonth) => {
     // Lazy-load the modifiers from the backend and ideally, preload the
     // surrounding months
-    fetchModifiers(yearMonth.toString).then(
+    fetchModifiers(yearMonth.toString()).then(
       (response: CalendarProps['modifiers']) => {
         setModifiers((prev = {}) => ({ ...prev, ...response }));
       },

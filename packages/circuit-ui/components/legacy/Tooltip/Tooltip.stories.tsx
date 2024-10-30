@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Info } from '@sumup/icons';
+import { Info } from '@sumup-oss/icons';
 
 import { Stack } from '../../../../../.storybook/components/index.js';
 import styled from '../../../styles/styled.js';

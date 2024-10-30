@@ -1,6 +1,6 @@
 {
-  "name": "@sumup/circuit-ui",
-  "version": "8.15.0",
+  "name": "@sumup-oss/circuit-ui",
+  "version": "9.0.0-next.4",
   "description": "SumUp's React UI component library",
   "type": "module",
   "main": "./dist/index.js",
@@ -52,56 +52,51 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.2",
-    "@nanostores/react": "^0.7.2",
-    "nanostores": "^0.10.3",
+    "@nanostores/react": "^0.8.0",
+    "nanostores": "^0.11.3",
     "react-modal": "^3.16.1",
-    "react-number-format": "5.3.0",
-    "temporal-polyfill": "^0.2.5"
+    "react-number-format": "5.3.0"
   },
   "devDependencies": {
     "@emotion/is-prop-valid": "^1.3.1",
     "@emotion/jest": "^11.13.0",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
-    "@sumup/design-tokens": "^7.0.0",
-    "@sumup/icons": "^4.0.0",
-    "@sumup/intl": "^1.5.0",
+    "@sumup-oss/design-tokens": "^8.0.0-next.2",
+    "@sumup-oss/icons": "^5.0.0-next.1",
+    "@sumup-oss/intl": "^3.0.1",
     "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "6.5.0",
+    "@testing-library/jest-dom": "6.6.2",
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.5.2",
     "@types/jest-axe": "^3.5.9",
-    "@types/node": "^18.19.54",
+    "@types/node": "^22.8.2",
     "@types/react": "^18.3.3",
-    "@types/react-dates": "^21.8.6",
     "@types/react-dom": "^18.3.0",
     "@types/react-modal": "^3.16.3",
     "jest-axe": "^9.0.0",
-    "moment": "^2.29.4",
+    "mockdate": "^3.0.5",
     "react": "^18.3.1",
-    "react-dates": "^21.8.0",
     "react-dom": "^18.3.1",
     "react-swipeable": "^7.0.1",
     "rollup-plugin-preserve-directives": "^0.4.0",
-    "typescript": "^5.6.2",
+    "temporal-polyfill": "^0.2.5",
+    "typescript": "^5.6.3",
     "typescript-plugin-css-modules": "^5.1.0",
-    "vite": "^5.4.8"
+    "vite": "^5.4.10"
   },
   "peerDependencies": {
     "@emotion/is-prop-valid": "^1.2.1",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
-    "@sumup/design-tokens": ">=6.0.0",
-    "@sumup/icons": ">=3.0.0",
-    "@sumup/intl": "1.x",
+    "@sumup-oss/design-tokens": ">=8.0.0-next.1",
+    "@sumup-oss/icons": ">=5.0.0-next.0",
+    "@sumup-oss/intl": "3.x",
     "react": ">=18.0.0 <19.0.0",
-    "react-dom": ">=18.0.0 <19.0.0"
-  },
-  "optionalDependencies": {
-    "moment": ">=2.30",
-    "react-dates": ">=21.8"
+    "react-dom": ">=18.0.0 <19.0.0",
+    "temporal-polyfill": "0.2.x"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   }
 }

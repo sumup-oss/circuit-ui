@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-// biome-ignore lint/suspicious/noShadowRestrictedNames: Necessary to add support for Temporal objects to the `Intl` APIs
-import { Temporal, Intl } from 'temporal-polyfill';
+import { Temporal } from 'temporal-polyfill';
+import { formatDateTime } from '@sumup-oss/intl';
 
 import type { Locale } from '../../util/i18n.js';
 import { chunk, last } from '../../util/helpers.js';
@@ -24,7 +24,6 @@ import {
   getLastDateOfWeek,
   getTodaysDate,
   isPlainDate,
-  sortDateRange,
   type DaysInWeek,
   type FirstDayOfWeek,
   type PlainDateRange,
@@ -68,7 +67,7 @@ export function initCalendar({
   const today = getTodaysDate();
   let date: Temporal.PlainDate | undefined;
   if (selection) {
-    date = isPlainDate(selection) ? selection : sortDateRange(selection)[0];
+    date = isPlainDate(selection) ? selection : selection.start;
   }
   const focusedDate = clampDate(date || today, minDate, maxDate);
   const hoveredDate = null;
@@ -146,20 +145,18 @@ export function getWeekdays(
   locale?: Locale,
   calendar?: string,
 ) {
-  const narrow = new Intl.DateTimeFormat(locale, {
-    weekday: 'narrow',
-    calendar,
-  });
-  const long = new Intl.DateTimeFormat(locale, {
-    weekday: 'long',
-    calendar,
-  });
   return Array.from(Array(daysInWeek)).map((_, index) => {
     // 1973 started with a Monday
     const date = new Temporal.PlainDate(1973, 1, index + firstDayOfWeek);
     return {
-      narrow: narrow.format(date),
-      long: long.format(date),
+      narrow: formatDateTime(date, locale, {
+        weekday: 'narrow',
+        calendar,
+      }),
+      long: formatDateTime(date, locale, {
+        weekday: 'long',
+        calendar,
+      }),
     };
   }) as Weekdays;
 }
@@ -169,12 +166,11 @@ export function getMonthHeadline(
   locale?: Locale,
   calendar = 'iso8601',
 ) {
-  const intl = new Intl.DateTimeFormat(locale, {
+  return formatDateTime(yearMonth, locale, {
     year: 'numeric',
     month: 'long',
     calendar,
   });
-  return intl.format(yearMonth);
 }
 
 export function getDatesInRange(
@@ -217,15 +213,14 @@ export function isDateActive(
   if (isPlainDate(selection)) {
     return date.equals(selection);
   }
-  const [startDate, endDate] = sortDateRange(selection);
-  if (startDate && endDate) {
+  if (selection.start && selection.end) {
     return (
-      Temporal.PlainDate.compare(date, startDate) >= 0 &&
-      Temporal.PlainDate.compare(date, endDate) <= 0
+      Temporal.PlainDate.compare(date, selection.start) >= 0 &&
+      Temporal.PlainDate.compare(date, selection.end) <= 0
     );
   }
-  if (startDate) {
-    return date.equals(startDate);
+  if (selection.start) {
+    return date.equals(selection.start);
   }
   return false;
 }
@@ -241,32 +236,32 @@ export function getSelectionType(
   if (isPlainDate(selection)) {
     return date.equals(selection) ? 'selected' : null;
   }
-  if (selection.length === 0) {
+  if (!selection.start && !selection.end) {
     return null;
   }
-  const [startDate, endDate] = sortDateRange(selection);
   if (
-    endDate ||
-    (hoveredDate && Temporal.PlainDate.compare(hoveredDate, startDate) > 0)
+    selection.end ||
+    (hoveredDate &&
+      Temporal.PlainDate.compare(hoveredDate, selection.start) > 0)
   ) {
-    const laterDate = (endDate || hoveredDate) as Temporal.PlainDate;
-    if (date.equals(startDate) && date.equals(laterDate)) {
+    const laterDate = (selection.end || hoveredDate) as Temporal.PlainDate;
+    if (date.equals(selection.start) && date.equals(laterDate)) {
       return 'selected';
     }
-    if (date.equals(startDate)) {
+    if (date.equals(selection.start)) {
       return 'range-start';
     }
     if (date.equals(laterDate)) {
       return 'range-end';
     }
     if (
-      Temporal.PlainDate.compare(date, startDate) > 0 &&
+      Temporal.PlainDate.compare(date, selection.start) > 0 &&
       Temporal.PlainDate.compare(date, laterDate) < 0
     ) {
       return 'range-middle';
     }
   }
-  if (date.equals(selection[0])) {
+  if (date.equals(selection.start)) {
     return 'selected';
   }
   return null;
