@@ -4,11 +4,7 @@
 
 ### Major Changes
 
-- [#2728](https://github.com/sumup-oss/circuit-ui/pull/2728) [`2e6a4be`](https://github.com/sumup-oss/circuit-ui/commit/2e6a4be70035f0fce77dea2073c5f7fbedca0c5a) Thanks [@connor-baer](https://github.com/connor-baer)! - Added missing rules for the Anchor and BodyLarge migrations.
-
 - [#2707](https://github.com/sumup-oss/circuit-ui/pull/2707) [`f8016eb`](https://github.com/sumup-oss/circuit-ui/commit/f8016ebe246005ed415ed9587ecdb76892e981c6) Thanks [@sirineJ](https://github.com/sirineJ)! - Raised the minimum Node.js version to 20+.
-
-- [#2653](https://github.com/sumup-oss/circuit-ui/pull/2653) [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a migration for the Display (formerly Title), Headline and Body components' `size` prop to the `circuit-ui/no-renamed-props` rule.
 
 - [#2648](https://github.com/sumup-oss/circuit-ui/pull/2648) [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796) Thanks [@connor-baer](https://github.com/connor-baer)! - Renamed the package scope from `@sumup` to `@sumup-oss`. Replace `@sumup/eslint-plugin-circuit-ui` with `@sumup-oss/eslint-plugin-circuit-ui` in your `package.json` file, then update the plugin and rule names in your ESLint config:
 
@@ -27,112 +23,13 @@
 
 ### Minor Changes
 
-- [#2743](https://github.com/sumup-oss/circuit-ui/pull/2743) [`12a201a`](https://github.com/sumup-oss/circuit-ui/commit/12a201a2f751e0b44265d12cd46232df14f55ecc) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the `component-lifecycle-imports` ESLint rule to flag imports of stable components Tooltip and Toggletip from `@sumup-oss/circuit-ui/experimental`.
-
-- [#2653](https://github.com/sumup-oss/circuit-ui/pull/2653) [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60) Thanks [@connor-baer](https://github.com/connor-baer)! - Added `circuit-ui/no-deprecated-custom-properties` rule to flag uses of deprecated custom properties.
-
-- [#2713](https://github.com/sumup-oss/circuit-ui/pull/2713) [`00727aa`](https://github.com/sumup-oss/circuit-ui/commit/00727aae7976970283c2d658e9668d093ec2334f) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the `component-lifecycle-imports` ESLint rule to flag imports of stable entities from `@sumup-oss/circuit-ui/experimental`.
-
-- [#2648](https://github.com/sumup-oss/circuit-ui/pull/2648) [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796) Thanks [@connor-baer](https://github.com/connor-baer)! - Added `circuit-ui/renamed-package-scope` rule to update imports for design system packages that have moved from the `@sumup` to the `@sumup-oss` scope.
-
-- [#2717](https://github.com/sumup-oss/circuit-ui/pull/2717) [`0fb5dc0`](https://github.com/sumup-oss/circuit-ui/commit/0fb5dc0d68221e0f63103883e6cd14ea801cf161) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated new typography design tokens names by removing the `-typography` infix.
-
-- [#2735](https://github.com/sumup-oss/circuit-ui/pull/2735) [`70f3ab8`](https://github.com/sumup-oss/circuit-ui/commit/70f3ab80d460b06fb58c812a2b075c24631a62d4) Thanks [@connor-baer](https://github.com/connor-baer)! - Expanded the `renamed-package-scope` ESLint rule to cover additional occurrences of package names such as in Jest module mocks.
-
-- [#2717](https://github.com/sumup-oss/circuit-ui/pull/2717) [`0fb5dc0`](https://github.com/sumup-oss/circuit-ui/commit/0fb5dc0d68221e0f63103883e6cd14ea801cf161) Thanks [@sirineJ](https://github.com/sirineJ)! - Introduced new sizes to the List component and deprecated old sizes. Updated `no-renamed-props` ESlint rule.
-
-- [#2731](https://github.com/sumup-oss/circuit-ui/pull/2731) [`a4b5d2c`](https://github.com/sumup-oss/circuit-ui/commit/a4b5d2c95abd93afe7da3aa877172782f4f52e48) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the `component-lifecycle-imports` ESLint rule to handle imports of `ColorInput` and `PhoneNumberInput` as experimental components.
-
-### Patch Changes
-
-- [#2735](https://github.com/sumup-oss/circuit-ui/pull/2735) [`70f3ab8`](https://github.com/sumup-oss/circuit-ui/commit/70f3ab80d460b06fb58c812a2b075c24631a62d4) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the `no-renamed-props` ESLint rule to add the `as="strong"` prop when migrating the Body's `variant="highlight"` prop to match the previous semantics.
-
-- [#2732](https://github.com/sumup-oss/circuit-ui/pull/2732) [`5417c1b`](https://github.com/sumup-oss/circuit-ui/commit/5417c1b041b5ef37f59bc1fec0b33f6653030b44) Thanks [@connor-baer](https://github.com/connor-baer)! - Guarded against similar names package names in the `renamed-package-scope` ESLint rule.
-
-## 5.0.0-next.5
-
-### Minor Changes
-
-- [#2743](https://github.com/sumup-oss/circuit-ui/pull/2743) [`12a201a`](https://github.com/sumup-oss/circuit-ui/commit/12a201a2f751e0b44265d12cd46232df14f55ecc) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the `component-lifecycle-imports` ESLint rule to flag imports of stable components Tooltip and Toggletip from `@sumup-oss/circuit-ui/experimental`.
-
-- [#2731](https://github.com/sumup-oss/circuit-ui/pull/2731) [`a4b5d2c`](https://github.com/sumup-oss/circuit-ui/commit/a4b5d2c95abd93afe7da3aa877172782f4f52e48) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the `component-lifecycle-imports` ESLint rule to handle imports of `ColorInput` and `PhoneNumberInput` as experimental components.
-
-## 5.0.0-next.4
-
-### Minor Changes
-
-- [#2735](https://github.com/sumup-oss/circuit-ui/pull/2735) [`70f3ab8`](https://github.com/sumup-oss/circuit-ui/commit/70f3ab80d460b06fb58c812a2b075c24631a62d4) Thanks [@connor-baer](https://github.com/connor-baer)! - Expanded the `renamed-package-scope` ESLint rule to cover additional occurrences of package names such as in Jest module mocks.
-
-### Patch Changes
-
-- [#2735](https://github.com/sumup-oss/circuit-ui/pull/2735) [`70f3ab8`](https://github.com/sumup-oss/circuit-ui/commit/70f3ab80d460b06fb58c812a2b075c24631a62d4) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the `no-renamed-props` ESLint rule to add the `as="strong"` prop when migrating the Body's `variant="highlight"` prop to match the previous semantics.
-
-## 5.0.0-next.3
-
-### Patch Changes
-
-- [#2732](https://github.com/sumup-oss/circuit-ui/pull/2732) [`5417c1b`](https://github.com/sumup-oss/circuit-ui/commit/5417c1b041b5ef37f59bc1fec0b33f6653030b44) Thanks [@connor-baer](https://github.com/connor-baer)! - Guarded against similar names package names in the `renamed-package-scope` ESLint rule.
-
-## 5.0.0-next.2
-
-### Major Changes
-
-- [#2728](https://github.com/sumup-oss/circuit-ui/pull/2728) [`2e6a4be`](https://github.com/sumup-oss/circuit-ui/commit/2e6a4be70035f0fce77dea2073c5f7fbedca0c5a) Thanks [@connor-baer](https://github.com/connor-baer)! - Added missing rules for the Anchor and BodyLarge migrations.
-
-- [#2707](https://github.com/sumup-oss/circuit-ui/pull/2707) [`f8016eb`](https://github.com/sumup-oss/circuit-ui/commit/f8016ebe246005ed415ed9587ecdb76892e981c6) Thanks [@sirineJ](https://github.com/sirineJ)! - Raised the minimum Node.js version to 20+.
-
-### Minor Changes
-
-- [#2713](https://github.com/sumup-oss/circuit-ui/pull/2713) [`00727aa`](https://github.com/sumup-oss/circuit-ui/commit/00727aae7976970283c2d658e9668d093ec2334f) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the `component-lifecycle-imports` ESLint rule to flag imports of stable entities from `@sumup-oss/circuit-ui/experimental`.
-
-- [#2717](https://github.com/sumup-oss/circuit-ui/pull/2717) [`0fb5dc0`](https://github.com/sumup-oss/circuit-ui/commit/0fb5dc0d68221e0f63103883e6cd14ea801cf161) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated new typography design tokens names by removing the `-typography` infix.
-
-- [#2717](https://github.com/sumup-oss/circuit-ui/pull/2717) [`0fb5dc0`](https://github.com/sumup-oss/circuit-ui/commit/0fb5dc0d68221e0f63103883e6cd14ea801cf161) Thanks [@sirineJ](https://github.com/sirineJ)! - Introduced new sizes to the List component and deprecated old sizes. Updated `no-renamed-props` ESlint rule.
-
-## 5.0.0-next.1
-
-### Major Changes
-
 - [#2653](https://github.com/sumup-oss/circuit-ui/pull/2653) [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a migration for the Display (formerly Title), Headline and Body components' `size` prop to the `circuit-ui/no-renamed-props` rule.
 
-### Minor Changes
-
 - [#2653](https://github.com/sumup-oss/circuit-ui/pull/2653) [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60) Thanks [@connor-baer](https://github.com/connor-baer)! - Added `circuit-ui/no-deprecated-custom-properties` rule to flag uses of deprecated custom properties.
 
-### Patch Changes
-
-- Updated dependencies [[`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60), [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60), [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60), [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60), [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60), [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60), [`55bf9ad`](https://github.com/sumup-oss/circuit-ui/commit/55bf9ad7569f1e1a4c739f4eac8df58ba9987ca2), [`55bf9ad`](https://github.com/sumup-oss/circuit-ui/commit/55bf9ad7569f1e1a4c739f4eac8df58ba9987ca2), [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60), [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60), [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60), [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60), [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60)]:
-  - @sumup-oss/circuit-ui@9.0.0-next.1
-  - @sumup-oss/design-tokens@8.0.0-next.1
-
-## 5.0.0-next.0
-
-### Major Changes
-
-- [#2648](https://github.com/sumup-oss/circuit-ui/pull/2648) [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796) Thanks [@connor-baer](https://github.com/connor-baer)! - Renamed the package scope from `@sumup` to `@sumup-oss`. Replace `@sumup/eslint-plugin-circuit-ui` with `@sumup-oss/eslint-plugin-circuit-ui` in your `package.json` file, then update the plugin and rule names in your ESLint config:
-
-  ```diff
-  // .eslintrc.js
-
-  module.exports = {
-  -  plugins: ['@sumup/circuit-ui'],
-  +  plugins: ['@sumup-oss/circuit-ui'],
-    rules: {
-  -    '@sumup/circuit-ui/component-lifecycle-imports': 'error',
-  +    '@sumup-oss/circuit-ui/component-lifecycle-imports': 'error',
-    },
-  };
-  ```
-
-### Minor Changes
+- [#2713](https://github.com/sumup-oss/circuit-ui/pull/2713) [`00727aa`](https://github.com/sumup-oss/circuit-ui/commit/00727aae7976970283c2d658e9668d093ec2334f) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the `component-lifecycle-imports` ESLint rule to flag imports of the now stable Calendar, ColorInput, PhoneNumberInput, Tooltip and Toggletip components from `@sumup-oss/circuit-ui/experimental`.
 
 - [#2648](https://github.com/sumup-oss/circuit-ui/pull/2648) [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796) Thanks [@connor-baer](https://github.com/connor-baer)! - Added `circuit-ui/renamed-package-scope` rule to update imports for design system packages that have moved from the `@sumup` to the `@sumup-oss` scope.
-
-### Patch Changes
-
-- Updated dependencies [[`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796), [`8be7f3b`](https://github.com/sumup-oss/circuit-ui/commit/8be7f3b36e22135f6f312ea2aa4b582c252eb161), [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796), [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796)]:
-  - @sumup-oss/circuit-ui@9.0.0-next.0
-  - @sumup-oss/design-tokens@8.0.0-next.0
 
 ## 4.1.0
 
