@@ -22,15 +22,15 @@
     "@sumup-oss/intl": "^3.0.1",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "astro": "^4.15.9",
+    "astro": "^4.16.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@sumup-oss/foundry": "^8.2.0",
+    "@sumup-oss/foundry": "^8.3.0",
     "@sumup-oss/eslint-plugin-circuit-ui": "^5.0.0-next.2",
     "@sumup-oss/stylelint-plugin-circuit-ui": "^3.0.0-next.2",
     "prettier-plugin-astro": "^0.14.1",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.3"
   }
 }
