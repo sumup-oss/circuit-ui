@@ -15,6 +15,62 @@
 
 import type { SelectProps } from '../Select/Select.js';
 
+export type CountryCodeOption = {
+  /**
+   * Country name in two letter ISO 3166 region code format(https://www.iso.org/iso-3166-country-codes.html)
+   */
+  country: string;
+  /**
+   * Country calling codes, see https://en.wikipedia.org/wiki/List_of_country_calling_codes
+   */
+  code: string;
+};
+
+export function parsePhoneNumber(
+  value: string | undefined,
+  options: CountryCodeOption[],
+): {
+  countryCode?: string;
+  subscriberNumber?: string;
+} {
+  // TODO: Normalize the value further
+  const sanitizedValue = value
+    ?.trim()
+    // Normalize the country code prefix
+    ?.replace(/^00/, '+');
+
+  if (!sanitizedValue) {
+    return {};
+  }
+
+  const hasCountryCode = sanitizedValue.startsWith('+');
+
+  if (!hasCountryCode) {
+    return {
+      subscriberNumber: sanitizedValue,
+    };
+  }
+
+  const matchedOption = options
+    // Match longer, more specific country codes first
+    .sort((a, b) => b.code.length - a.code.length)
+    .find(({ code }) => sanitizedValue.startsWith(code));
+
+  if (!matchedOption) {
+    return {
+      subscriberNumber: sanitizedValue,
+    };
+  }
+
+  // TODO: Handle non-existent subscriber number
+  const subscriberNumber = sanitizedValue.split(matchedOption.code)[1];
+
+  return {
+    countryCode: matchedOption.country,
+    subscriberNumber,
+  };
+}
+
 export function normalizePhoneNumber(
   countryCode: string,
   subscriberNumber: string,

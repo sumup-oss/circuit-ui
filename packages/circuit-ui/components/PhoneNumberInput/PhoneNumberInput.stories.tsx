@@ -88,10 +88,7 @@ export const Validations = (args: PhoneNumberInputProps) => (
     />
     <PhoneNumberInput
       {...args}
-      subscriberNumber={{
-        ...args.subscriberNumber,
-        defaultValue: '202 555 0132',
-      }}
+      defaultValue="+1202 555 0132"
       validationHint="This looks good"
       showValid
     />

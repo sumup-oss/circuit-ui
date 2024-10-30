@@ -23,7 +23,7 @@ import {
   type ChangeEvent,
   type ClipboardEvent,
   type ComponentType,
-  type FieldsetHTMLAttributes,
+  type InputHTMLAttributes,
   type ForwardedRef,
   type RefObject,
 } from 'react';
@@ -47,26 +47,29 @@ import { changeInputValue } from '../../util/input-value.js';
 import {
   mapCountryCodeOptions,
   normalizePhoneNumber,
+  parsePhoneNumber,
+  type CountryCodeOption,
 } from './PhoneNumberInputService.js';
 import classes from './PhoneNumberInput.module.css';
 
 export interface PhoneNumberInputProps
-  extends Omit<
-    FieldsetHTMLAttributes<HTMLFieldSetElement>,
-    'onChange' | 'onBlur'
-  > {
+  extends InputHTMLAttributes<HTMLInputElement> {
+  /**
+   * The normalized phone number in the [E.164 format](https://en.wikipedia.org/wiki/E.164).
+   *
+   * @example '+17024181234'
+   */
+  value?: string;
+  /**
+   * The default normalized phone number in the [E.164 format](https://en.wikipedia.org/wiki/E.164).
+   *
+   * @example '+17024181234'
+   */
+  defaultValue?: string;
   /**
    * A clear and concise description of the input purpose.
    */
   label: string;
-  /**
-   * Callback when the country code or subscriber number changes. Called with
-   * the normalized phone number in the [E.164 format](https://en.wikipedia.org/wiki/E.164).
-   *
-   *
-   * @example '+17024181234'
-   */
-  onChange?: (phoneNumber: string) => void;
   /**
    * Label to indicate that the input is optional. Only displayed when the
    * `required` prop is falsy.
@@ -118,16 +121,7 @@ export interface PhoneNumberInputProps
     /**
      * List of country calling codes to be rendered inside the selector
      */
-    options: {
-      /**
-       * Country name in two letter ISO 3166 region code format(https://www.iso.org/iso-3166-country-codes.html)
-       */
-      country: string;
-      /**
-       * Country calling codes, see https://en.wikipedia.org/wiki/List_of_country_calling_codes
-       */
-      code: string;
-    }[];
+    options: CountryCodeOption[];
     /**
      * Triggers error styles on the component. Important for accessibility.
      */
@@ -197,13 +191,15 @@ export interface PhoneNumberInputProps
  * accurate, consistent format including the country code and subscriber number.
  */
 export const PhoneNumberInput = forwardRef<
-  HTMLFieldSetElement,
+  HTMLInputElement,
   PhoneNumberInputProps
 >(
   (
     {
       label,
       hideLabel,
+      value,
+      defaultValue,
       countryCode,
       subscriberNumber,
       optionalLabel,
@@ -213,14 +209,16 @@ export const PhoneNumberInput = forwardRef<
       showValid,
       disabled,
       validationHint,
-      onChange,
       readOnly,
       'aria-describedby': descriptionId,
       locale,
+      className,
+      style,
       ...props
     },
     ref,
   ) => {
+    const hiddenInputRef = useRef<HTMLInputElement>(null);
     const countryCodeRef = useRef<HTMLSelectElement | HTMLInputElement>(null);
     const subscriberNumberRef = useRef<HTMLInputElement>(null);
 
@@ -236,11 +234,7 @@ export const PhoneNumberInput = forwardRef<
     );
 
     const handleChange = () => {
-      if (
-        !onChange ||
-        !countryCodeRef.current ||
-        !subscriberNumberRef.current
-      ) {
+      if (!countryCodeRef.current || !subscriberNumberRef.current) {
         return;
       }
 
@@ -259,7 +253,8 @@ export const PhoneNumberInput = forwardRef<
         code,
         subscriberNumberRef.current.value,
       );
-      onChange(phoneNumber);
+
+      changeInputValue(hiddenInputRef.current, phoneNumber);
     };
 
     const handlePaste = (event: ClipboardEvent) => {
@@ -272,38 +267,29 @@ export const PhoneNumberInput = forwardRef<
         return;
       }
 
-      const pastedText = event.clipboardData
-        .getData('text/plain')
-        .trim()
-        // Normalize the country code prefix
-        .replace(/^00/, '+');
-
-      if (!pastedText) {
-        return;
-      }
-
-      const hasCountryCode = pastedText.startsWith('+');
-
-      if (!hasCountryCode) {
-        return;
-      }
-
-      const pastedOption = countryCode.options
-        // Match longer, more specific country codes first
-        .sort((a, b) => b.code.length - a.code.length)
-        .find(({ code }) => pastedText.startsWith(code));
-
-      if (!pastedOption) {
-        return;
-      }
-
       event.preventDefault();
 
-      const pastedSubscriberNumber = pastedText.split(pastedOption.code)[1];
+      const pastedPhoneNumber = parsePhoneNumber(
+        event.clipboardData.getData('text/plain'),
+        countryCode.options,
+      );
 
-      changeInputValue(countryCodeRef.current, pastedOption.country);
-      changeInputValue(subscriberNumberRef.current, pastedSubscriberNumber);
+      if (pastedPhoneNumber.countryCode) {
+        changeInputValue(countryCodeRef.current, pastedPhoneNumber.countryCode);
+      }
+      if (pastedPhoneNumber.subscriberNumber) {
+        changeInputValue(
+          subscriberNumberRef.current,
+          pastedPhoneNumber.subscriberNumber,
+        );
+      }
     };
+
+    const parsedValue = parsePhoneNumber(value, countryCode.options);
+    const parsedDefaultValue = parsePhoneNumber(
+      defaultValue,
+      countryCode.options,
+    );
 
     if (
       process.env.NODE_ENV !== 'production' &&
@@ -337,8 +323,8 @@ export const PhoneNumberInput = forwardRef<
         aria-invalid={invalid && 'true'}
         aria-required={required && 'true'}
         disabled={disabled}
-        ref={ref}
-        {...props}
+        className={className}
+        style={style}
       >
         <FieldLegend>
           <FieldLabelText
@@ -349,6 +335,20 @@ export const PhoneNumberInput = forwardRef<
           />
         </FieldLegend>
         <div className={classes.wrapper}>
+          <input
+            type="text"
+            ref={applyMultipleRefs(ref, hiddenInputRef)}
+            className={classes.hidden}
+            required={required}
+            disabled={disabled}
+            readOnly={readOnly}
+            aria-invalid={invalid}
+            aria-hidden="true"
+            tabIndex={-1}
+            value={value}
+            defaultValue={defaultValue}
+            {...props}
+          />
           {readOnly || countryCode.readonly ? (
             <Input
               hideLabel
@@ -357,6 +357,10 @@ export const PhoneNumberInput = forwardRef<
               className={classes['country-code']}
               inputClassName={classes['country-code-input']}
               {...countryCode}
+              value={parsedValue.countryCode}
+              defaultValue={
+                parsedDefaultValue.countryCode ?? countryCode.defaultValue
+              }
               invalid={invalid || countryCode.invalid}
               readOnly={true}
               onChange={() => {}}
@@ -373,6 +377,10 @@ export const PhoneNumberInput = forwardRef<
               disabled={disabled}
               className={classes['country-code']}
               {...countryCode}
+              value={parsedValue.countryCode}
+              defaultValue={
+                parsedDefaultValue.countryCode ?? countryCode.defaultValue
+              }
               invalid={invalid || countryCode.invalid}
               aria-readonly={true}
               options={options}
@@ -399,6 +407,11 @@ export const PhoneNumberInput = forwardRef<
             hasWarning={hasWarning}
             showValid={showValid}
             {...subscriberNumber}
+            value={parsedValue.subscriberNumber}
+            defaultValue={
+              parsedDefaultValue.subscriberNumber ??
+              subscriberNumber.defaultValue
+            }
             invalid={invalid || subscriberNumber.invalid}
             readOnly={readOnly || subscriberNumber.readonly}
             onChange={eachFn<[ChangeEvent<HTMLInputElement>]>([
