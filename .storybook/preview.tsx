@@ -10,9 +10,9 @@ import { modes } from './modes';
 export const parameters = {
   layout: 'centered',
   versions: {
-    current: 'v8',
+    current: 'v9',
     previous: [
-      { name: 'next', url: 'https://circuit-next.sumup-vercel.app' },
+      { name: 'v8', url: 'https://circuit-v8.sumup-vercel.app' },
       { name: 'v7', url: 'https://circuit-v7.sumup-vercel.app' },
       { name: 'v6', url: 'https://circuit-v6.sumup-vercel.app' },
       { name: 'v5', url: 'https://circuit-v5.sumup-vercel.app' },
