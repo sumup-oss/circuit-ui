@@ -38,10 +38,8 @@ type DateValues = {
   day: DateValue;
 };
 
-type PlainDateState = {
+export type PlainDateState = {
   date: Temporal.PlainDate | undefined;
-  minDate: Temporal.PlainDate | undefined;
-  maxDate: Temporal.PlainDate | undefined;
   update: (values: Partial<DateValues>) => void;
   props: {
     year: Omit<DateSegmentProps, 'focus'>;
@@ -54,15 +52,15 @@ export function usePlainDateState({
   value,
   defaultValue,
   onChange,
-  min,
-  max,
+  minDate,
+  maxDate,
   locale,
 }: {
   value: string | undefined;
   defaultValue: string | undefined;
   onChange: ((date: string) => void) | undefined;
-  min: string | undefined;
-  max: string | undefined;
+  minDate: Temporal.PlainDate | undefined;
+  maxDate: Temporal.PlainDate | undefined;
   locale: Locale | undefined;
 }): PlainDateState {
   const [values, setValues] = useState<DateValues>(
@@ -110,8 +108,6 @@ export function usePlainDateState({
 
   const date = safePlainDate(values.year, values.month, values.day);
   const today = getTodaysDate();
-  const minDate = toPlainDate(min);
-  const maxDate = toPlainDate(max);
 
   const sameYearLimit = minDate && maxDate && minDate.year === maxDate.year;
   const sameMonthLimit = sameYearLimit && minDate.month === maxDate.month;
@@ -158,7 +154,7 @@ export function usePlainDateState({
     },
   };
 
-  return { date, minDate, maxDate, update, props };
+  return { date, update, props };
 }
 
 function parseValue(value?: string): DateValues {

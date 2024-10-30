@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.hidden {
+  display: none;
+}
+
 .country-code.country-code,
 .subscriber-number.subscriber-number {
   flex-grow: 1;

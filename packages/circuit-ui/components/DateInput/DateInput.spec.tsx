@@ -45,11 +45,11 @@ describe('DateInput', () => {
   });
 
   it('should forward a ref', () => {
-    const ref = createRef<HTMLDivElement>();
+    const ref = createRef<HTMLInputElement>();
     const { container } = render(<DateInput {...props} ref={ref} />);
     // eslint-disable-next-line testing-library/no-container
-    const wrapper = container.querySelectorAll('div')[0];
-    expect(ref.current).toBe(wrapper);
+    const input = container.querySelector('input[type="date"]');
+    expect(ref.current).toBe(input);
   });
 
   it('should merge a custom class name with the default ones', () => {
@@ -222,34 +222,44 @@ describe('DateInput', () => {
 
   describe('state', () => {
     it('should display a default value', () => {
-      render(<DateInput {...props} defaultValue="2000-01-12" />);
+      const ref = createRef<HTMLInputElement>();
+      render(<DateInput {...props} ref={ref} defaultValue="2000-01-12" />);
 
+      expect(ref.current).toHaveValue('2000-01-12');
       expect(screen.getByLabelText(/day/i)).toHaveValue('12');
       expect(screen.getByLabelText(/month/i)).toHaveValue('1');
       expect(screen.getByLabelText(/year/i)).toHaveValue('2000');
     });
 
     it('should display an initial value', () => {
-      render(<DateInput {...props} value="2000-01-12" />);
+      const ref = createRef<HTMLInputElement>();
+      render(<DateInput {...props} ref={ref} value="2000-01-12" />);
 
+      expect(ref.current).toHaveValue('2000-01-12');
       expect(screen.getByLabelText(/day/i)).toHaveValue('12');
       expect(screen.getByLabelText(/month/i)).toHaveValue('1');
       expect(screen.getByLabelText(/year/i)).toHaveValue('2000');
     });
 
     it('should ignore an invalid value', () => {
-      render(<DateInput {...props} value="2000-13-54" />);
+      const ref = createRef<HTMLInputElement>();
+      render(<DateInput {...props} ref={ref} value="2000-13-54" />);
 
+      expect(ref.current).toHaveValue('');
       expect(screen.getByLabelText(/day/i)).toHaveValue('');
       expect(screen.getByLabelText(/month/i)).toHaveValue('');
       expect(screen.getByLabelText(/year/i)).toHaveValue('');
     });
 
     it('should update the displayed value', () => {
-      const { rerender } = render(<DateInput {...props} value="2000-01-12" />);
+      const ref = createRef<HTMLInputElement>();
+      const { rerender } = render(
+        <DateInput {...props} ref={ref} value="2000-01-12" />,
+      );
 
-      rerender(<DateInput {...props} value="2000-01-15" />);
+      rerender(<DateInput {...props} ref={ref} value="2000-01-15" />);
 
+      expect(ref.current).toHaveValue('2000-01-15');
       expect(screen.getByLabelText(/day/i)).toHaveValue('15');
       expect(screen.getByLabelText(/month/i)).toHaveValue('1');
       expect(screen.getByLabelText(/year/i)).toHaveValue('2000');
@@ -266,15 +276,17 @@ describe('DateInput', () => {
     });
 
     it('should allow users to type a date', async () => {
+      const ref = createRef<HTMLInputElement>();
       const onChange = vi.fn();
 
-      render(<DateInput {...props} onChange={onChange} />);
+      render(<DateInput {...props} ref={ref} onChange={onChange} />);
 
       await userEvent.type(screen.getByLabelText('Year'), '2017');
       await userEvent.type(screen.getByLabelText('Month'), '8');
       await userEvent.type(screen.getByLabelText('Day'), '28');
 
-      expect(onChange).toHaveBeenCalledWith('2017-08-28');
+      expect(onChange).toHaveBeenCalled();
+      expect(ref.current).toHaveValue('2017-08-28');
     });
 
     it('should update the minimum and maximum input values as the user types', async () => {
@@ -304,26 +316,34 @@ describe('DateInput', () => {
     });
 
     it('should allow users to delete the date', async () => {
+      const ref = createRef<HTMLInputElement>();
       const onChange = vi.fn();
 
       render(
-        <DateInput {...props} defaultValue="2000-01-12" onChange={onChange} />,
+        <DateInput
+          {...props}
+          ref={ref}
+          defaultValue="2000-01-12"
+          onChange={onChange}
+        />,
       );
 
       await userEvent.click(screen.getByLabelText(/year/i));
       await userEvent.keyboard(Array(9).fill('{backspace}').join(''));
 
+      expect(ref.current).toHaveValue('');
       expect(screen.getByLabelText(/day/i)).toHaveValue('');
       expect(screen.getByLabelText(/month/i)).toHaveValue('');
       expect(screen.getByLabelText(/year/i)).toHaveValue('');
 
-      expect(onChange).toHaveBeenCalledWith('');
+      expect(onChange).toHaveBeenCalled();
     });
 
     it('should allow users to select a date on a calendar', async () => {
+      const ref = createRef<HTMLInputElement>();
       const onChange = vi.fn();
 
-      render(<DateInput {...props} onChange={onChange} />);
+      render(<DateInput {...props} ref={ref} onChange={onChange} />);
 
       const openCalendarButton = screen.getByRole('button', {
         name: /change date/i,
@@ -336,14 +356,21 @@ describe('DateInput', () => {
       const dateButton = screen.getByRole('button', { name: /12/ });
       await userEvent.click(dateButton);
 
-      expect(onChange).toHaveBeenCalledWith('2000-01-12');
+      expect(ref.current).toHaveValue('2000-01-12');
+      expect(onChange).toHaveBeenCalled();
     });
 
     it('should allow users to clear the date', async () => {
+      const ref = createRef<HTMLInputElement>();
       const onChange = vi.fn();
 
       render(
-        <DateInput {...props} defaultValue="2000-01-12" onChange={onChange} />,
+        <DateInput
+          {...props}
+          ref={ref}
+          defaultValue="2000-01-12"
+          onChange={onChange}
+        />,
       );
 
       const openCalendarButton = screen.getByRole('button', {
@@ -357,7 +384,8 @@ describe('DateInput', () => {
       const clearButton = screen.getByRole('button', { name: /clear date/i });
       await userEvent.click(clearButton);
 
-      expect(onChange).toHaveBeenCalledWith('');
+      expect(ref.current).toHaveValue('');
+      expect(onChange).toHaveBeenCalled();
     });
 
     describe('on narrow viewports', () => {
@@ -367,9 +395,10 @@ describe('DateInput', () => {
 
       it('should allow users to select a date on a calendar', async () => {
         (useMedia as Mock).mockReturnValue(true);
+        const ref = createRef<HTMLInputElement>();
         const onChange = vi.fn();
 
-        render(<DateInput {...props} onChange={onChange} />);
+        render(<DateInput {...props} ref={ref} onChange={onChange} />);
 
         const openCalendarButton = screen.getByRole('button', {
           name: /change date/i,
@@ -387,15 +416,18 @@ describe('DateInput', () => {
         const applyButton = screen.getByRole('button', { name: /apply/i });
         await userEvent.click(applyButton);
 
-        expect(onChange).toHaveBeenCalledWith('2000-01-12');
+        expect(ref.current).toHaveValue('2000-01-12');
+        expect(onChange).toHaveBeenCalled();
       });
 
       it('should allow users to clear the date', async () => {
+        const ref = createRef<HTMLInputElement>();
         const onChange = vi.fn();
 
         render(
           <DateInput
             {...props}
+            ref={ref}
             defaultValue="2000-01-12"
             onChange={onChange}
           />,
@@ -412,15 +444,18 @@ describe('DateInput', () => {
         const clearButton = screen.getByRole('button', { name: /clear date/i });
         await userEvent.click(clearButton);
 
-        expect(onChange).toHaveBeenCalledWith('');
+        expect(ref.current).toHaveValue('');
+        expect(onChange).toHaveBeenCalled();
       });
 
       it('should allow users to close the calendar dialog without selecting a date', async () => {
+        const ref = createRef<HTMLInputElement>();
         const onChange = vi.fn();
 
         render(
           <DateInput
             {...props}
+            ref={ref}
             defaultValue="2000-01-12"
             onChange={onChange}
           />,
@@ -438,6 +473,7 @@ describe('DateInput', () => {
         await userEvent.click(closeButton);
 
         expect(calendarDialog).not.toBeVisible();
+        expect(ref.current).toHaveValue('2000-01-12');
         expect(onChange).not.toHaveBeenCalled();
       });
     });

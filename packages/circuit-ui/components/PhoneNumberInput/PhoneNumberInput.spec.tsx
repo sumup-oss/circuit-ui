@@ -30,6 +30,7 @@ const countryCodeMap: { [key: string]: string } = {
 };
 
 const defaultProps = {
+  ref: createRef<HTMLInputElement>(),
   label: 'Phone number',
   countryCode: {
     label: 'Country code',
@@ -55,14 +56,23 @@ describe('PhoneNumberInput', () => {
     expect(fieldset.className).toContain(props.className);
   });
 
+  it('should forward a ref to the hidden input', () => {
+    const ref = createRef<HTMLInputElement>();
+    const { container } = render(
+      <PhoneNumberInput {...defaultProps} ref={ref} />,
+    );
+    const input = container.querySelectorAll('input')[0];
+    expect(ref.current).toBe(input);
+  });
+
   it('should forward a ref to the country code selector', () => {
     const ref = createRef<HTMLSelectElement>();
     const props = {
       ...defaultProps,
       countryCode: { ...defaultProps.countryCode, ref },
     };
-    const { container } = render(<PhoneNumberInput {...props} />);
-    const select = container.querySelector('select');
+    render(<PhoneNumberInput {...props} />);
+    const select = screen.getByLabelText('Country code');
     expect(ref.current).toBe(select);
   });
 
@@ -72,8 +82,8 @@ describe('PhoneNumberInput', () => {
       ...defaultProps,
       subscriberNumber: { ...defaultProps.subscriberNumber, ref },
     };
-    const { container } = render(<PhoneNumberInput {...props} />);
-    const input = container.querySelector('input');
+    render(<PhoneNumberInput {...props} />);
+    const input = screen.getByLabelText('Subscriber number');
     expect(ref.current).toBe(input);
   });
 
@@ -87,6 +97,47 @@ describe('PhoneNumberInput', () => {
     const select = screen.getByRole('combobox');
     await userEvent.selectOptions(select, 'DE');
     expect(onChange).toHaveBeenCalledOnce();
+  });
+
+  it('should display a default value', () => {
+    const props = {
+      ...defaultProps,
+      defaultValue: '+4912345678',
+    };
+    const { container } = render(<PhoneNumberInput {...props} />);
+    const input = container.querySelectorAll('input')[0];
+    const countryCode = screen.getByLabelText('Country code');
+    const subscriberNumber = screen.getByLabelText('Subscriber number');
+    expect(input).toHaveValue('+4912345678');
+    expect(countryCode).toHaveValue('DE');
+    expect(subscriberNumber).toHaveValue('12345678');
+  });
+
+  it('should display an initial value', () => {
+    const props = {
+      ...defaultProps,
+      value: '+4912345678',
+    };
+    const { container } = render(<PhoneNumberInput {...props} />);
+    const input = container.querySelectorAll('input')[0];
+    const countryCode = screen.getByLabelText('Country code');
+    const subscriberNumber = screen.getByLabelText('Subscriber number');
+    expect(input).toHaveValue('+4912345678');
+    expect(countryCode).toHaveValue('DE');
+    expect(subscriberNumber).toHaveValue('12345678');
+  });
+
+  it('should update the displayed value', () => {
+    const { container, rerender } = render(
+      <PhoneNumberInput {...defaultProps} value="+4912345678" />,
+    );
+    rerender(<PhoneNumberInput {...defaultProps} value="+112345678" />);
+    const input = container.querySelectorAll('input')[0];
+    const countryCode = screen.getByLabelText('Country code');
+    const subscriberNumber = screen.getByLabelText('Subscriber number');
+    expect(input).toHaveValue('+112345678');
+    expect(countryCode).toHaveValue('CA');
+    expect(subscriberNumber).toHaveValue('12345678');
   });
 
   it('should call countryCode onChange when there is a change in the country code', async () => {
@@ -114,7 +165,7 @@ describe('PhoneNumberInput', () => {
       },
     };
     render(<PhoneNumberInput {...props} />);
-    const input = screen.getByRole('textbox');
+    const input = screen.getByLabelText('Subscriber number');
     await userEvent.type(input, '1');
     expect(onChange).toHaveBeenCalledOnce();
   });
@@ -135,16 +186,17 @@ describe('PhoneNumberInput', () => {
         },
       };
       render(<PhoneNumberInput {...props} />);
-      const input = screen.getByRole('textbox');
+      const input = screen.getByLabelText('Subscriber number');
       await userEvent.click(input);
       await userEvent.paste(phoneNumber);
-      expect(props.onChange).toHaveBeenCalledWith('+4912345678');
+      expect(props.ref.current).toHaveValue('+4912345678');
+      expect(props.onChange).toHaveBeenCalledTimes(2);
       expect(props.countryCode.onChange).toHaveBeenCalledOnce();
       expect(props.subscriberNumber.onChange).toHaveBeenCalledOnce();
     },
   );
 
-  it('should set only the subscriber number when a phone number without country code', async () => {
+  it('should set only the subscriber number when pasting a phone number without country code', async () => {
     const props = {
       ...defaultProps,
       onChange: vi.fn(),
@@ -158,10 +210,11 @@ describe('PhoneNumberInput', () => {
       },
     };
     render(<PhoneNumberInput {...props} />);
-    const input = screen.getByRole('textbox');
+    const input = screen.getByLabelText('Subscriber number');
     await userEvent.click(input);
     await userEvent.paste('012345678');
-    expect(props.onChange).toHaveBeenCalledWith('+112345678');
+    expect(props.ref.current).toHaveValue('+112345678');
+    expect(props.onChange).toHaveBeenCalledTimes(1);
     expect(props.countryCode.onChange).not.toHaveBeenCalled();
     expect(props.subscriberNumber.onChange).toHaveBeenCalledOnce();
   });
@@ -171,11 +224,11 @@ describe('PhoneNumberInput', () => {
       ...defaultProps,
       subscriberNumber: {
         ...defaultProps.subscriberNumber,
-        value: '123 456789',
+        defaultValue: '123 456789',
       },
     };
     render(<PhoneNumberInput {...props} />);
-    const input = screen.getByRole('textbox');
+    const input = screen.getByLabelText('Subscriber number');
     expect(input).toBeValid();
   });
 
@@ -184,11 +237,11 @@ describe('PhoneNumberInput', () => {
       ...defaultProps,
       subscriberNumber: {
         ...defaultProps.subscriberNumber,
-        value: '1234567891011121314151617',
+        defaultValue: '1234567891011121314151617',
       },
     };
     render(<PhoneNumberInput {...props} />);
-    const input = screen.getByRole('textbox');
+    const input = screen.getByLabelText('Subscriber number');
     expect(input).toBeInvalid();
   });
 
