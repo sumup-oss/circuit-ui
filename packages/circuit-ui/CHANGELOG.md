@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.0.0-next.5
+
+### Major Changes
+
+- [#2751](https://github.com/sumup-oss/circuit-ui/pull/2751) [`96df6fa`](https://github.com/sumup-oss/circuit-ui/commit/96df6fa5830e89a1804e81b2f6eae8a3186a85d2) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the PhoneNumberInput component to accept `value` and `defaultValue` props. The `onChange` callback is now called with an `Event` object instead of a string to mimic a native input.
+
 ## 9.0.0-next.4
 
 ### Major Changes
