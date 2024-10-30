@@ -301,22 +301,16 @@ const configs: (Config & { components: string[] })[] = [
         const current = getAttributeValue(attribute);
 
         if (current === 'highlight') {
-          const replacement = `as="strong" weight="bold"`;
-          const weightAttribute = findAttribute(node, 'weight');
           const asAttribute = findAttribute(node, 'as');
+          const weightAttribute = findAttribute(node, 'weight');
+          const replacement = asAttribute ? 'weight="semibold"' : `as="strong"`;
           context.report({
             node: attribute,
             messageId: 'bodyVariant',
             data: { component, current, replacement },
             fix: weightAttribute
               ? undefined
-              : (fixer) => {
-                  // Don't override an existing `as` attribute
-                  if (asAttribute) {
-                    return fixer.replaceText(attribute, 'weight="bold"');
-                  }
-                  return fixer.replaceText(attribute, replacement);
-                },
+              : (fixer) => fixer.replaceText(attribute, replacement),
           });
           return;
         }

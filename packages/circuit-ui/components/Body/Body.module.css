@@ -21,15 +21,15 @@
 
 /* Weights */
 
-.regular {
+.base.regular {
   font-weight: var(--cui-font-weight-regular);
 }
 
-.semibold {
+.base.semibold {
   font-weight: var(--cui-font-weight-semibold);
 }
 
-.bold {
+.base.bold {
   font-weight: var(--cui-font-weight-bold);
 }
 
@@ -90,7 +90,7 @@
 .highlight,
 strong.base,
 .base strong {
-  font-weight: var(--cui-font-weight-bold);
+  font-weight: var(--cui-font-weight-semibold);
 }
 
 .quote,

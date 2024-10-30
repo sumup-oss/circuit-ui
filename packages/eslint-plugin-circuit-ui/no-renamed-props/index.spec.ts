@@ -354,13 +354,13 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
       output: `
         function ComponentA() {
           return (
-            <Body as="strong" weight="bold">Lorem ipsum</Body>
+            <Body as="strong">Lorem ipsum</Body>
           )
         }
 
         function ComponentB() {
           return (
-            <Body as="span" weight="bold">Lorem ipsum</Body>
+            <Body as="span" weight="semibold">Lorem ipsum</Body>
           )
         }
 
