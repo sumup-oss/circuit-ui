@@ -2,11 +2,206 @@
 
 ## 🤖 Automated migration
 
-Some of the changes in this guide can be automated using [`@sumup/eslint-plugin-circuit-ui`](https://circuit.sumup.com/?path=/docs/packages-eslint-plugin-circuit-ui--docs). Changes that can be automated are marked with a robot emoji (🤖) and the name of the ESLint rule (e.g. _no-deprecated-props_)
+Some of the changes in this guide can be automated using the [ESLint](https://circuit.sumup.com/?path=/docs/packages-eslint-plugin-circuit-ui--docs) and [Stylelint](https://circuit.sumup.com/?path=/docs/packages-stylelint-plugin-circuit-ui--docs) plugins. Changes that can be automated are marked with a robot emoji (🤖) and the name of the rule (e.g. _no-deprecated-props_)
 
 We encourage you to enable and apply the rules incrementally and review the changes before continuing. The rules don't cover all edge cases, so further manual changes might be necessary. For example, the ESLint rules only analyze one file at a time, so if a Circuit UI component is wrapped in a styled component in one file and used in another, ESLint won't be able to update its props.
 
 Prior to v5, codemods were implemented using [jscodeshift](#-codemods-jscodeshift).
+
+## From v8.x to v9
+
+Circuit UI v9 introduces a [new typeface](#new-typeface), more flexible [typography APIs](#typography-apis), and [stable input components](#stable-components) for colors, dates, and phone numbers. For a complete list of changes, refer to the [changelog](https://github.com/sumup-oss/circuit-ui/blob/main/packages/circuit-ui/CHANGELOG.md).
+
+### Prerequisites
+
+Circuit UI now requires at minimum Node.js v20. Note that [Node 18](https://nodejs.org/en/about/previous-releases) reached its end-of-life in October 2024.
+
+We strongly recommend upgrading to [Foundry v8.3+](https://github.com/sumup-oss/foundry/blob/main/CHANGELOG.md#830) which adds support for the Circuit UI ESLint plugin's [new package scope](#renamed-package-scope) and prevents dependency conflicts in the shared [`@typescript-eslint/*`](https://github.com/typescript-eslint/typescript-eslint) dependencies. If you're unable to upgrade, manually add the Circuit UI ESLint plugin to your ESLint config and enable the relevant rules.
+
+### Renamed package scope
+
+The packages have moved from the `@sumup` to the `@sumup-oss` scope to avoid conflicts with private packages. To get started, remove the old design system packages, then install the new ones:
+
+```sh
+npm uninstall @sumup/circuit-ui @sumup/design-tokens @sumup/icons @sumup/intl
+npm install @sumup-oss/circuit-ui @sumup-oss/design-tokens @sumup-oss/icons @sumup-oss/intl temporal-polyfill
+```
+
+Note that [`temporal-polyfill`](https://www.npmjs.com/package/temporal-polyfill) is a new required peer dependency and that the [`@sumup-oss/intl`](https://www.npmjs.com/package/@sumup-oss/intl) peer dependency has been upgraded to v3. If your app also depends on `@sumup-oss/intl` (previously called `@sumup/intl`), you need to upgrade it as well. Refer to its [changelog](https://github.com/sumup-oss/intl-js/blob/main/CHANGELOG.md) for migration instructions.
+
+Follow the same process to upgrade any linter plugins your app is using:
+
+```sh
+# ESLint
+npm uninstall @sumup/eslint-plugin-circuit-ui
+npm install @sumup-oss/eslint-plugin-circuit-ui
+# Stylelint
+npm uninstall @sumup/stylelint-plugin-circuit-ui
+npm install @sumup-oss/stylelint-plugin-circuit-ui
+```
+
+Update any static and dynamic imports to the new package scope (🤖 `renamed-package-scope`). The ESLint rule might not catch all occurrences of the old package names, so manually search for and fix any left-overs after applying the ESLint rule. For example:
+
+```diff
+-import { Button, type ButtonProps } from '@sumup/circuit-ui';
++import { Button, type ButtonProps } from '@sumup-oss/circuit-ui';
+
+-jest.mock('@sumup-oss/circuit-ui', () => ({
+-  ...jest.requireActual<typeof import('@sumup-oss/circuit-ui')>(
+-    '@sumup-oss/circuit-ui',
+-  ),
+-}));
++jest.mock('@sumup-oss/circuit-ui', () => ({
++  ...jest.requireActual<typeof import('@sumup-oss/circuit-ui')>(
++    '@sumup-oss/circuit-ui',
++  ),
++}));
+```
+
+### New typeface
+
+The default typeface has changed from [Aktiv Grotesk](https://www.daltonmaag.com/font-library/aktiv-grotesk.html) to [Inter](https://rsms.me/inter/), a variable font. Variable fonts combine a continuous range of weights and other "axes" into a single file. This speeds up page load times and enables more creative freedom. Inter is a close match to Aktiv Grotesk, so the change should be seamless.
+
+Circuit UI no longer loads the fonts by default. Instead, import the stylesheet that contains the font face declarations globally in your application, such as in a global layout file:
+
+```ts
+import '@sumup-oss/design-tokens/fonts.css';
+```
+
+To speed up the loading of the fonts, add preload links to the global `<head>` element of your application. Choose which subsets to preload based on the languages your app supports. The available subsets are `latin`, `latin-ext`, `cyrillic`, `cyrillic-ext`, `greek`, `greek-ext`, and `vietnamese`.
+
+```html
+<link
+  rel="preload"
+  href="https://static.sumup.com/fonts/Inter/Inter-normal-latin.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+```
+
+### Typography APIs
+
+The typography components have been redesigned to improve visual hierarchy, ensure consistency across platforms and provide more flexible APIs for developers. The changes are fully backward compatible and can be adopted gradually.
+
+#### Consistent names
+
+The Title component has been renamed to Display for consistency with other platforms. The SubHeadline component has been deprecated in favor of the Headline component in size `s`. The BodyLarge component has been deprecated in favor of the Body component in size `l` (🤖 `no-deprecated-components`).
+
+#### Flexible props
+
+The Body component's `variant` prop has been split into individual `color`, `weight` and `decoration` props. Use the `color` prop instead of the `alert`, `confirm` and `subtle` variants, use the `weight` prop instead of the `highlight` variant, and use custom CSS to replicate the `quote` variant (🤖 `no-renamed-props`). The new `decoration` prop makes it easier to apply `italic` and `strikethrough` styles.
+
+The sizes of the Display (formerly Title), Headline, and Body components have been consolidated and renamed to enforce greater visual hierarchy. Here's how the old size names map to the new ones (🤖 `no-renamed-props`):
+
+**Display**
+
+| Old   | New |
+| ----- | --- |
+| one   | l   |
+| two   | m   |
+| three | m   |
+| four  | s   |
+
+**Headline**
+
+| Old   | New |
+| ----- | --- |
+| one   | l   |
+| two   | m   |
+| three | s   |
+| four  | s   |
+
+**Body**
+
+| Old | New |
+| --- | --- |
+| one | m   |
+| two | s   |
+
+The typography design tokens have been updated accordingly (🤖 `no-deprecated-custom-properties` (ESLint & Stylelint)):
+
+| Old                                     | New                      |
+| --------------------------------------- | ------------------------ |
+| `typography-title-one-font-size`        | `display-l-font-size`    |
+| `typography-title-one-line-height`      | `display-l-line-height`  |
+| `typography-title-two-font-size`        | `display-m-font-size`    |
+| `typography-title-two-line-height`      | `display-m-line-height`  |
+| `typography-title-three-font-size`      | `display-m-font-size`    |
+| `typography-title-three-line-height`    | `display-m-line-height`  |
+| `typography-title-four-font-size`       | `display-s-font-size`    |
+| `typography-title-four-line-height`     | `display-s-line-height`  |
+| `typography-headline-one-font-size`     | `headline-l-font-size`   |
+| `typography-headline-one-line-height`   | `headline-l-line-height` |
+| `typography-headline-two-font-size`     | `headline-m-font-size`   |
+| `typography-headline-two-line-height`   | `headline-m-line-height` |
+| `typography-headline-three-font-size`   | `headline-m-font-size`   |
+| `typography-headline-three-line-height` | `headline-m-line-height` |
+| `typography-headline-four-font-size`    | `headline-s-font-size`   |
+| `typography-headline-four-line-height`  | `headline-s-line-height` |
+| `typography-sub-headline-font-size`     | `headline-s-font-size`   |
+| `typography-sub-headline-line-height`   | `headline-s-line-height` |
+| `typography-body-large-font-size`       | `body-l-font-size`       |
+| `typography-body-large-line-height`     | `body-l-line-height`     |
+| `typography-body-one-font-size`         | `body-m-font-size`       |
+| `typography-body-one-line-height`       | `body-m-line-height`     |
+| `typography-body-two-font-size`         | `body-s-font-size`       |
+| `typography-body-two-line-height`       | `body-s-line-height`     |
+
+#### New components
+
+The new Compact component should be used to label information in space-constraint contexts.
+
+The new Numeral component should be used to give emphasis to numerical content such as currency values.
+
+### Stable components
+
+All experimental components are now stable.
+
+- The Calendar and DateInput components have been rebuilt from scratch for better performance and accessibility. They replace the legacy RangePicker, RangePickerController, SingleDayPicker, CalendarTag, and CalendarTagTwoStep components, which have been removed. The DateInput component now requires additional localized label props.
+- The ColorInput and PhoneNumberInput components enable users to enter hex colors and phone numbers respectively.
+- The Tooltip and Toggletip components have been rebuilt from scratch for improved accessibility. They replace the legacy Tooltip component.
+
+Update the related imports (🤖 `component-lifecycle-imports`). For example:
+
+```diff
+- import { Calendar, type CalendarProps, type PlainDateRange } from '@sumup-oss/circuit-ui/experimental';
++ import { Calendar, type CalendarProps, type PlainDateRange } from '@sumup-oss/circuit-ui';
+```
+
+### Other changes
+
+- Changed the `PlainDateRange` type from an array to an object with start and end properties. This affects the Calendar component's `selection` prop. Use the new `updatePlainDateRange` helper function to update a date range when a user selects a date:
+
+  ```tsx
+  import { useState } from 'react';
+  import { Calendar, updatePlainDateRange } from '@sumup-oss/circuit-ui';
+
+  function Component() {
+    const [selection, setSelection] = useState({});
+    return (
+      <Calendar
+        onSelect={setSelection((prevSelection) =>
+          updatePlainDateRange(prevSelection, date)
+        )}
+      />
+    );
+  }
+  ```
+
+- Deprecated the `InputElement` interface and narrowed the Input component's element type to `HTMLInputElement` and the TextArea component's element type to `HTMLTextAreaElement`. This affects `ref`s and event handlers.
+
+  ```diff
+  -import { InputElement } from '@sumup-oss/circuit-ui';
+
+  -ChangeHandler<InputElement>
+  +ChangeHandler<HTMLInputElement>
+
+  -useRef<InputElement>()
+  +useRef<HTMLInputElement>()
+  ```
+
+- Removed the Table component's deprecated `initialSortedRow` prop. Use the `initialSortedColumn` prop instead (🤖 `no-renamed-props`).
 
 ## From v7.x to v8
 
@@ -71,7 +266,7 @@ expect.extend({
           this.utils.matcherHint(
             `${this.isNot ? '.not' : ''}.toBeDisabled`,
             'element',
-            '',
+            ''
           ),
           '',
           `Received element ${is} disabled:`,
@@ -92,7 +287,7 @@ expect.extend({
           this.utils.matcherHint(
             `${this.isNot ? '.not' : ''}.toBeEnabled`,
             'element',
-            '',
+            ''
           ),
           '',
           `Received element ${is} enabled:`,
@@ -724,7 +919,7 @@ import styled from 'util/styled';
 const RedCard = styled(Card)(
   ({ theme }) => css`
     background-color: red;
-  `,
+  `
 );
 ```
 
@@ -750,7 +945,7 @@ import styled from '@emotion/styled';
 const RedCard = styled(Card)(
   ({ theme }) => css`
     background-color: red;
-  `,
+  `
 );
 ```
 
