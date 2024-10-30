@@ -21,7 +21,7 @@ import {
   useId,
   useRef,
   useState,
-  type HTMLAttributes,
+  type InputHTMLAttributes,
 } from 'react';
 import type { Temporal } from 'temporal-polyfill';
 import { flip, offset, shift, useFloating } from '@floating-ui/react-dom';
@@ -49,6 +49,7 @@ import {
 } from '../Field/Field.js';
 import { getBrowserLocale } from '../../util/i18n.js';
 import { toPlainDate } from '../../util/date.js';
+import { applyMultipleRefs } from '../../util/refs.js';
 
 import { Dialog } from './components/Dialog.js';
 import { DateSegment } from './components/DateSegment.js';
@@ -58,7 +59,7 @@ import { getCalendarButtonLabel, getDateSegments } from './DateInputService.js';
 import classes from './DateInput.module.css';
 
 export interface DateInputProps
-  extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>,
+  extends InputHTMLAttributes<HTMLInputElement>,
     Pick<
       InputProps,
       | 'label'
@@ -119,13 +120,6 @@ export interface DateInputProps
    */
   clearDateButtonLabel: string;
   /**
-   * Callback when the date changes. Called with the date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
-   * format (`YYYY-MM-DD`) or an empty string.
-   *
-   * @example '2024-10-08'
-   */
-  onChange: (date: string) => void;
-  /**
    * The minimum selectable date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
    * format (`YYYY-MM-DD`) (inclusive).
    */
@@ -145,13 +139,12 @@ export interface DateInputProps
  * The DateInput component allows users to type or select a specific date.
  * The input value is always a string in the format `YYYY-MM-DD`.
  */
-export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
+export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
   (
     {
       label,
       value,
       defaultValue,
-      onChange,
       min,
       max,
       locale = getBrowserLocale(),
@@ -177,12 +170,15 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
       monthInputLabel,
       dayInputLabel,
       autoComplete,
+      className,
+      style,
       ...props
     },
     ref,
   ) => {
     const isMobile = useMedia('(max-width: 479px)');
 
+    const inputRef = useRef<HTMLInputElement>(null);
     const fieldRef = useRef<HTMLDivElement>(null);
     const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -194,11 +190,24 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
     const minDate = toPlainDate(min);
     const maxDate = toPlainDate(max);
 
+    const handleChange = (tmp: string) => {
+      if (inputRef.current) {
+        // React overwrites the input.value setter. In order to be able to trigger
+        // a 'change' event on the input, we need to use the native setter.
+        // Adapted from https://stackoverflow.com/a/46012210/4620154
+        Object.getOwnPropertyDescriptor(
+          HTMLInputElement.prototype,
+          'value',
+        )?.set?.call(inputRef.current, tmp);
+        inputRef.current.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    };
+
     const focus = useSegmentFocus();
     const state = usePlainDateState({
       value,
       defaultValue,
-      onChange,
+      onChange: handleChange,
       minDate,
       maxDate,
       locale,
@@ -350,7 +359,7 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
     }
 
     return (
-      <FieldWrapper ref={ref} disabled={disabled} {...props}>
+      <FieldWrapper disabled={disabled} className={className} style={style}>
         <FieldSet aria-describedby={descriptionIds}>
           <FieldLegend onClick={handleClick}>
             <FieldLabelText
@@ -361,6 +370,23 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
             />
           </FieldLegend>
           <div ref={fieldRef} className={classes.wrapper}>
+            <input
+              type="date"
+              ref={applyMultipleRefs(ref, inputRef)}
+              className={classes.hidden}
+              min={min}
+              max={max}
+              required={required}
+              disabled={disabled}
+              readOnly={readOnly}
+              autoComplete={autoComplete}
+              aria-invalid={invalid}
+              aria-hidden="true"
+              tabIndex={-1}
+              value={value}
+              defaultValue={defaultValue}
+              {...props}
+            />
             {/* biome-ignore lint/a11y/useKeyWithClickEvents: */}
             <div
               onClick={handleClick}

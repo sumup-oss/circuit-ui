@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.hidden {
+  display: none;
+}
+
 .segments {
   position: relative;
   z-index: var(--cui-z-index-absolute);
@@ -64,7 +68,7 @@
   color: var(--cui-fg-warning);
 }
 
-:global([data-disabled="true"]) .input {
+:global([data-disabled="true"]) .wrapper {
   color: var(--cui-fg-normal-disabled);
   background-color: var(--cui-bg-normal-disabled);
   border-color: var(--cui-border-normal-disabled);
