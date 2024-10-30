@@ -24,7 +24,7 @@ import {
 } from 'react';
 
 import { classes as inputClasses } from '../Input/index.js';
-import type { InputElement, InputProps } from '../Input/index.js';
+import type { InputProps } from '../Input/index.js';
 import { clsx } from '../../styles/clsx.js';
 import {
   FieldLabelText,
@@ -65,7 +65,7 @@ export interface ColorInputProps
   defaultValue?: string;
 }
 
-export const ColorInput = forwardRef<InputElement, ColorInputProps>(
+export const ColorInput = forwardRef<HTMLInputElement, ColorInputProps>(
   (
     {
       'aria-describedby': descriptionId,
@@ -91,8 +91,8 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
     },
     ref,
   ) => {
-    const colorPickerRef = useRef<InputElement>(null);
-    const colorInputRef = useRef<InputElement>(null);
+    const colorPickerRef = useRef<HTMLInputElement>(null);
+    const colorInputRef = useRef<HTMLInputElement>(null);
 
     const labelId = useId();
     const pickerId = useId();
@@ -100,7 +100,7 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
 
     const descriptionIds = clsx(validationHintId, descriptionId);
 
-    const handlePaste: ClipboardEventHandler<InputElement> = (e) => {
+    const handlePaste: ClipboardEventHandler<HTMLInputElement> = (e) => {
       if (!colorPickerRef.current || !colorInputRef.current || readOnly) {
         return;
       }
@@ -135,7 +135,7 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
       );
     };
 
-    const onPickerColorChange: ChangeEventHandler<InputElement> = (e) => {
+    const onPickerColorChange: ChangeEventHandler<HTMLInputElement> = (e) => {
       if (colorInputRef.current) {
         colorInputRef.current.value = e.target.value.replace('#', '');
       }
@@ -144,7 +144,7 @@ export const ColorInput = forwardRef<InputElement, ColorInputProps>(
       }
     };
 
-    const onInputChange: ChangeEventHandler<InputElement> = (e) => {
+    const onInputChange: ChangeEventHandler<HTMLInputElement> = (e) => {
       if (colorPickerRef.current) {
         colorPickerRef.current.value = `#${e.target.value}`;
       }

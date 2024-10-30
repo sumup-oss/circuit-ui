@@ -23,7 +23,6 @@ import {
   fireEvent,
   userEvent,
 } from '../../util/test-utils.js';
-import type { InputElement } from '../Input/index.js';
 
 import { ColorInput } from './ColorInput.js';
 
@@ -39,7 +38,7 @@ describe('ColorInput', () => {
   });
 
   it('should forward a ref', () => {
-    const ref = createRef<InputElement>();
+    const ref = createRef<HTMLInputElement>();
     render(<ColorInput {...baseProps} ref={ref} />);
     const [input] = screen.getAllByLabelText(baseProps.label);
     expect(ref.current).toBe(input);
