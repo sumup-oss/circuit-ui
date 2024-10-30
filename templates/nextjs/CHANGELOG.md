@@ -1,6 +1,6 @@
 # @sumup-oss/cna-template
 
-## 6.0.0-next.0
+## 6.0.0
 
 ### Major Changes
 

@@ -1,14 +1,10 @@
 # @sumup-oss/icons
 
-## 5.0.0-next.1
+## 5.0.0
 
 ### Major Changes
 
 - [#2707](https://github.com/sumup-oss/circuit-ui/pull/2707) [`f8016eb`](https://github.com/sumup-oss/circuit-ui/commit/f8016ebe246005ed415ed9587ecdb76892e981c6) Thanks [@sirineJ](https://github.com/sirineJ)! - Raised the minimum Node.js version to 20+.
-
-## 5.0.0-next.0
-
-### Major Changes
 
 - [#2648](https://github.com/sumup-oss/circuit-ui/pull/2648) [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796) Thanks [@connor-baer](https://github.com/connor-baer)! - Renamed the package scope from `@sumup` to `@sumup-oss`. Replace `@sumup/icons` with `@sumup-oss/icons` in your `package.json` file, then update all imports:
 
