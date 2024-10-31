@@ -1,5 +1,11 @@
 # @sumup-oss/eslint-plugin-circuit-ui
 
+## 5.1.0
+
+### Minor Changes
+
+- [#2755](https://github.com/sumup-oss/circuit-ui/pull/2755) [`93f12f2`](https://github.com/sumup-oss/circuit-ui/commit/93f12f2674fd841e8b0075a31ebc490aecce2b84) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a fixer method to the `no-deprecated-custom-properties` ESlint rule.
+
 ## 5.0.0
 
 ### Major Changes

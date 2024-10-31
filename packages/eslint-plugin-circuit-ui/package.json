@@ -1,6 +1,6 @@
 {
   "name": "@sumup-oss/eslint-plugin-circuit-ui",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "ESLint rules to lint Circuit UI.",
   "keywords": [
     "sumup",
