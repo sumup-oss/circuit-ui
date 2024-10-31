@@ -35,13 +35,14 @@ export const noDeprecatedCustomProperties = createRule({
   meta: {
     type: 'suggestion',
     schema: [],
+    fixable: 'code',
     docs: {
       description: 'Deprecated custom properties should be removed or replaced',
       recommended: 'strict',
     },
     messages: {
       deprecated:
-        'The `{{name}}` custom property has been deprecated. Use the ` {{replacement}}` custom property instead.',
+        'The `{{name}}` custom property has been deprecated. Use the `{{replacement}}` custom property instead.',
     },
   },
   defaultOptions: [],
@@ -74,6 +75,12 @@ export const noDeprecatedCustomProperties = createRule({
               data: {
                 name,
                 replacement,
+              },
+              fix(fixer) {
+                return fixer.replaceText(
+                  node,
+                  context.sourceCode.getText(node).replace(name, replacement),
+                );
               },
             });
           }

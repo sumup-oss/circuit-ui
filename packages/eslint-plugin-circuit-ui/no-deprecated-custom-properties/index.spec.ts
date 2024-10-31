@@ -75,13 +75,14 @@ ruleTester.run(
         code: `
           const typography = {
             fontSize: "var(--cui-typography-headline-one-font-size)",
-            lineHeight: "var(--cui-typography-headline-one-line-height)",
+          }
+        `,
+        output: `
+          const typography = {
+            fontSize: "var(--cui-headline-l-font-size)",
           }
         `,
         errors: [
-          {
-            messageId: 'deprecated',
-          },
           {
             messageId: 'deprecated',
           },
@@ -92,13 +93,14 @@ ruleTester.run(
         code: `
           const styles = css\`
             font-size: var(--cui-typography-headline-one-font-size);
-            line-height: var(--cui-typography-headline-one-line-height);
+          \`;
+        `,
+        output: `
+          const styles = css\`
+            font-size: var(--cui-headline-l-font-size);
           \`;
         `,
         errors: [
-          {
-            messageId: 'deprecated',
-          },
           {
             messageId: 'deprecated',
           },
@@ -110,7 +112,18 @@ ruleTester.run(
           function Component() {
             return (
               <p
-                style="font-size:var(--cui-typography-headline-one-font-size);line-height:var(--cui-typography-headline-one-line-height);"
+                style="font-size:var(--cui-typography-headline-one-font-size);"
+              >
+                Success
+              </p>
+            );
+          }
+        `,
+        output: `
+          function Component() {
+            return (
+              <p
+                style="font-size:var(--cui-headline-l-font-size);"
               >
                 Success
               </p>
@@ -118,9 +131,6 @@ ruleTester.run(
           }
         `,
         errors: [
-          {
-            messageId: 'deprecated',
-          },
           {
             messageId: 'deprecated',
           },
