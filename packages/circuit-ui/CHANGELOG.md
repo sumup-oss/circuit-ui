@@ -88,13 +88,22 @@
 
 - [#2653](https://github.com/sumup-oss/circuit-ui/pull/2653) [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60) Thanks [@connor-baer](https://github.com/connor-baer)! - Consolidated and renamed the sizes of the Display (formerly Title), Headline, and Body components:
 
-  **Display & Headline**
+  **Display**
 
   | Old   | New |
   | ----- | --- |
   | one   | l   |
   | two   | m   |
   | three | m   |
+  | four  | s   |
+
+  **Headline**
+
+  | Old   | New |
+  | ----- | --- |
+  | one   | l   |
+  | two   | m   |
+  | three | s   |
   | four  | s   |
 
   **Body**
