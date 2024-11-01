@@ -31,7 +31,7 @@
     "@sumup-oss/eslint-plugin-circuit-ui": "^5.0.0",
     "@sumup-oss/foundry": "^8.3.0",
     "@sumup-oss/stylelint-plugin-circuit-ui": "^3.0.0",
-    "@types/react": "^18.3.3",
+    "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "eslint-plugin-prettier": "^5.2.1",
     "typescript": "^5.6.3",
