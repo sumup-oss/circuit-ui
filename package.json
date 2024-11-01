@@ -67,7 +67,7 @@
 		"@types/node": "^22.8.2",
 		"@vitest/coverage-v8": "^2.1.4",
 		"audit-ci": "^7.1.0",
-		"chromatic": "^11.16.1",
+		"chromatic": "^11.16.3",
 		"eslint-config-airbnb-typescript": "^18.0.0",
 		"eslint-import-resolver-typescript": "^3.6.3",
 		"eslint-plugin-prettier": "^5.2.1",
