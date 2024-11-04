@@ -103,13 +103,14 @@ export const Indeterminate = (args: {
   const allChecked = options.every((option) => values.includes(option.value));
 
   return (
-    <fieldset name={name}>
+    <fieldset name={name} style={{ border: 'none', margin: 0, padding: 0 }}>
       <legend
         style={{
           display: 'block',
           marginBottom: 'var(--cui-spacings-bit)',
           fontSize: 'var(--cui-body-s-font-size)',
           lineHeight: 'var(--cui-body-s-line-height)',
+          padding: 0,
         }}
       >
         {label}
