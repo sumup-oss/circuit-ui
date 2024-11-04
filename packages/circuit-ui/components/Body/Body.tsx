@@ -89,6 +89,13 @@ function getHTMLElement(variant?: Variant): AsPropType {
   return 'p';
 }
 
+function getDefaultWeight(as?: AsPropType) {
+  if (as === 'strong') {
+    return 'semibold';
+  }
+  return 'regular';
+}
+
 export const deprecatedSizeMap: Record<string, string> = {
   'one': 'm',
   'two': 's',
@@ -104,7 +111,7 @@ export const Body = forwardRef<HTMLParagraphElement, BodyProps>(
       className,
       as,
       size: legacySize = 'm',
-      weight = 'regular',
+      weight = getDefaultWeight(as),
       decoration,
       color = 'normal',
       variant,
