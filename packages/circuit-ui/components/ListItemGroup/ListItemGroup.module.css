@@ -38,6 +38,8 @@
   display: flex;
   flex: auto;
   flex-direction: column;
+  padding: 0;
+  margin: 0;
   border: var(--cui-border-width-mega) solid var(--cui-border-subtle);
   border-radius: var(--cui-border-radius-mega);
 }

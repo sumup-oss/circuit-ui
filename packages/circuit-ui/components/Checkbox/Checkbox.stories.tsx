@@ -122,7 +122,9 @@ export const Indeterminate = (args: {
         indeterminate={someChecked && !allChecked}
         checked={allChecked}
       />
-      <ul style={{ listStyle: 'none', marginLeft: '26px' }}>
+      <ul
+        style={{ listStyle: 'none', margin: 0, padding: 0, marginLeft: '26px' }}
+      >
         {options.map((option) => (
           <li key={option.label}>
             <Checkbox
