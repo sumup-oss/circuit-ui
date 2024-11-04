@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.0.1
+
+### Patch Changes
+
+- [#2765](https://github.com/sumup-oss/circuit-ui/pull/2765) [`6fdeea0`](https://github.com/sumup-oss/circuit-ui/commit/6fdeea0532d3ec8d356229f9b6babbbe005a241c) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the Body's font weight when rendered as a `strong` element.
+
 ## 9.0.0
 
 ### Major Changes
