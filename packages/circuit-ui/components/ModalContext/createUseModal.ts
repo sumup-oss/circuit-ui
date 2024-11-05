@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { useContext, useCallback, useRef, useId } from 'react';
 
 import { ModalContext } from './ModalContext.js';
