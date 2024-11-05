@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { createContext, type ComponentType } from 'react';
 
 import { Link, type LinkProps } from './components/Link/index.js';
