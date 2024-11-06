@@ -178,7 +178,7 @@ export function DateSegment({
         enterKeyHint="next"
         spellCheck="false"
         role="spinbutton"
-        aria-valuenow={props.value as number}
+        aria-valuenow={props.value || undefined}
         aria-valuemin={min}
         aria-valuemax={max}
         aria-invalid={invalid}
