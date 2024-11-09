@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 9.0.2
+
+### Patch Changes
+
+- [#2768](https://github.com/sumup-oss/circuit-ui/pull/2768) [`d578758`](https://github.com/sumup-oss/circuit-ui/commit/d578758ded27cf2a5fb888c49eb07d1590270fe7) Thanks [@connor-baer](https://github.com/connor-baer)! - Improved the DateInput component's accessibility when empty.
+
+- [#2769](https://github.com/sumup-oss/circuit-ui/pull/2769) [`76787fa`](https://github.com/sumup-oss/circuit-ui/commit/76787fae0f904eacb4d962a50f3c6fea4bcd8e3c) Thanks [@sirineJ](https://github.com/sirineJ)! - Added the missing "use client" directive to a number of components.
+
 ## 9.0.1
 
 ### Patch Changes
