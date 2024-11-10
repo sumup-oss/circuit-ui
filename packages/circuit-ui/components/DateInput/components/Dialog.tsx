@@ -21,6 +21,7 @@ import {
   useRef,
   type HTMLAttributes,
   type ReactNode,
+  useCallback,
 } from 'react';
 
 import dialogPolyfill from '../../../vendor/dialog-polyfill/index.js';
@@ -45,7 +46,21 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     const zIndex = useStackContext();
     const dialogRef = useRef<HTMLDialogElement>(null);
 
-    useClickOutside(dialogRef, onClose, open);
+    // the last focused element, used to restore focus when the dialog is closed
+    const lastFocusedElementRef = useRef<Element | null>(null);
+
+    const handleClickOutside = useCallback(
+      // store it as the last focused element
+      (event: Event) => {
+        if (event.target instanceof HTMLElement) {
+          lastFocusedElementRef.current = event.target;
+        }
+        onClose();
+      },
+      [onClose],
+    );
+
+    useClickOutside(dialogRef, handleClickOutside, open);
     useEscapeKey(onClose, open);
 
     useEffect(() => {
@@ -74,6 +89,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       }
 
       if (open) {
+        lastFocusedElementRef.current = document.activeElement;
         if (!dialogElement.open) {
           if (isModal) {
             dialogElement.showModal();
@@ -82,11 +98,25 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
           }
         }
       } else if (dialogElement.open) {
+        // restore focus to the last focused element
+        if (
+          lastFocusedElementRef.current &&
+          lastFocusedElementRef.current instanceof HTMLElement
+        ) {
+          lastFocusedElementRef.current?.focus();
+        }
         dialogElement.close();
       }
 
       return () => {
         if (dialogElement.open) {
+          // restore focus to the last focused element
+          if (
+            lastFocusedElementRef.current &&
+            lastFocusedElementRef.current instanceof HTMLElement
+          ) {
+            lastFocusedElementRef.current?.focus();
+          }
           dialogElement.close();
         }
       };
