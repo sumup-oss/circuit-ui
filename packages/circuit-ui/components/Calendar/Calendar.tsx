@@ -49,6 +49,7 @@ import {
 import { applyMultipleRefs } from '../../util/refs.js';
 import { useSwipe } from '../../hooks/useSwipe/useSwipe.js';
 import { last } from '../../util/helpers.js';
+import { Body } from '../Body/Body.js';
 
 import {
   CalendarActionType,
@@ -410,9 +411,14 @@ function Month({
             {weekdays.map((weekday) => (
               <th key={weekday.long} scope="col">
                 <span className={utilClasses.hideVisually}>{weekday.long}</span>
-                <span aria-hidden="true" className={classes.weekday}>
+                <Body
+                  as="span"
+                  weight="semibold"
+                  aria-hidden="true"
+                  className={classes.weekday}
+                >
                   {weekday.narrow}
-                </span>
+                </Body>
               </th>
             ))}
           </tr>
