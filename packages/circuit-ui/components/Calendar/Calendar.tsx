@@ -288,6 +288,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
         <div className={classes.header}>
           <div className={classes.prev}>
             <IconButton
+              type="button"
               icon={ArrowLeft}
               size="s"
               variant="tertiary"
@@ -301,6 +302,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
           </div>
           <div className={classes.next}>
             <IconButton
+              type="button"
               icon={ArrowRight}
               size="s"
               variant="tertiary"
@@ -472,6 +474,7 @@ function Month({
                 return (
                   <td key={isoDate}>
                     <button
+                      type="button"
                       data-date={isoDate}
                       onClick={handleClick}
                       onMouseEnter={handleMouseEnter}
