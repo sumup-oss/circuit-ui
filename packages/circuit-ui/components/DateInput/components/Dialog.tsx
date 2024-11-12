@@ -63,6 +63,15 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     useClickOutside(dialogRef, handleClickOutside, open);
     useEscapeKey(onClose, open);
 
+    const onClickListener = useCallback(
+      (e: MouseEvent) => {
+        if (isModal && e.target === dialogRef.current) {
+          dialogRef.current?.close();
+        }
+      },
+      [isModal],
+    );
+
     useEffect(() => {
       const dialogElement = dialogRef.current;
 
@@ -75,9 +84,11 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       dialogPolyfill.registerDialog(dialogElement);
 
       dialogElement.addEventListener('close', onClose);
+      dialogElement.addEventListener('click', onClickListener);
 
       return () => {
         dialogElement.removeEventListener('close', onClose);
+        dialogElement.removeEventListener('click', onClickListener);
       };
     }, [onClose]);
 
