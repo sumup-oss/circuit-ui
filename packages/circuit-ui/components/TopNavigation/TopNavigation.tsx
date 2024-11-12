@@ -15,7 +15,7 @@
 
 'use client';
 
-import { useEffect, type HTMLAttributes, type ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 
 import { Hamburger, type HamburgerProps } from '../Hamburger/index.js';
 import { SkeletonContainer } from '../Skeleton/index.js';
@@ -64,16 +64,6 @@ export function TopNavigation({
   className,
   ...props
 }: TopNavigationProps) {
-  useEffect(() => {
-    document.documentElement.style.setProperty(
-      '--top-navigation-height',
-      TOP_NAVIGATION_HEIGHT,
-    );
-    return () => {
-      document.documentElement.style.removeProperty('--top-navigation-height');
-    };
-  }, []);
-
   return (
     <header className={clsx(classes.base, className)} {...props}>
       <div className={classes.wrapper}>

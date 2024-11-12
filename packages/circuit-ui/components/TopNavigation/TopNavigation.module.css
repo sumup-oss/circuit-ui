@@ -1,7 +1,9 @@
-.base {
+:root {
   /* content height + border-bottom */
   --top-navigation-height: 57px;
+}
 
+.base {
   display: flex;
   align-items: center;
   justify-content: space-between;
