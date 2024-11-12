@@ -50,7 +50,11 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     const lastFocusedElementRef = useRef<Element | null>(null);
 
     const handleClickOutside = useCallback(
-      // store it as the last focused element
+      // When the dialog first opens, we store the document's active element as the last active
+      // element to restore focus to it when the dialog closes.
+      // however, if the dialog is closed by clicking outside of it in non-modal mode,
+      // we don't want to restore focus to the last active element, so we override it
+      // with the element triggering the useClickOutside hook.
       (event: Event) => {
         if (event.target instanceof HTMLElement) {
           lastFocusedElementRef.current = event.target;
