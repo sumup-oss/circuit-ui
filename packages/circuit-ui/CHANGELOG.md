@@ -1,5 +1,15 @@
 # @sumup-oss/circuit-ui
 
+## 9.0.3
+
+### Patch Changes
+
+- [#2771](https://github.com/sumup-oss/circuit-ui/pull/2771) [`a7982db`](https://github.com/sumup-oss/circuit-ui/commit/a7982db64869aee62d99c2944aea234d221b588c) Thanks [@sirineJ](https://github.com/sirineJ)! - Improved the accessibility of the DateInput component by restoring focus to the opening element when closing the calendar dialog.
+
+- [#2771](https://github.com/sumup-oss/circuit-ui/pull/2771) [`a7982db`](https://github.com/sumup-oss/circuit-ui/commit/a7982db64869aee62d99c2944aea234d221b588c) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed unclickable previous/next month buttons on the Calendar component.
+
+- [#2772](https://github.com/sumup-oss/circuit-ui/pull/2772) [`d91ddee`](https://github.com/sumup-oss/circuit-ui/commit/d91ddee9ed19ff5be38cf4bd0c9d3df3a430f3e2) Thanks [@connor-baer](https://github.com/connor-baer)! - Added `type="button"` to all `button` elements in the Calendar and DateInput components to prevent them from triggering form submissions.
+
 ## 9.0.2
 
 ### Patch Changes
