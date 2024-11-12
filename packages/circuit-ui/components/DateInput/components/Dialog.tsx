@@ -21,6 +21,7 @@ import {
   useRef,
   type HTMLAttributes,
   type ReactNode,
+  useCallback,
 } from 'react';
 
 import dialogPolyfill from '../../../vendor/dialog-polyfill/index.js';
@@ -45,8 +46,35 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     const zIndex = useStackContext();
     const dialogRef = useRef<HTMLDialogElement>(null);
 
-    useClickOutside(dialogRef, onClose, open);
+    // the last focused element, used to restore focus when the dialog is closed
+    const lastFocusedElementRef = useRef<Element | null>(null);
+
+    const handleClickOutside = useCallback(
+      // When the dialog first opens, we store the document's active element as the last active
+      // element to restore focus to it when the dialog closes.
+      // however, if the dialog is closed by clicking outside of it in non-modal mode,
+      // we don't want to restore focus to the last active element, so we override it
+      // with the element triggering the useClickOutside hook.
+      (event: Event) => {
+        if (event.target instanceof HTMLElement) {
+          lastFocusedElementRef.current = event.target;
+        }
+        onClose();
+      },
+      [onClose],
+    );
+
+    useClickOutside(dialogRef, handleClickOutside, open);
     useEscapeKey(onClose, open);
+
+    const onClickListener = useCallback(
+      (e: MouseEvent) => {
+        if (isModal && e.target === dialogRef.current) {
+          dialogRef.current?.close();
+        }
+      },
+      [isModal],
+    );
 
     useEffect(() => {
       const dialogElement = dialogRef.current;
@@ -60,9 +88,11 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       dialogPolyfill.registerDialog(dialogElement);
 
       dialogElement.addEventListener('close', onClose);
+      dialogElement.addEventListener('click', onClickListener);
 
       return () => {
         dialogElement.removeEventListener('close', onClose);
+        dialogElement.removeEventListener('click', onClickListener);
       };
     }, [onClose]);
 
@@ -74,6 +104,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       }
 
       if (open) {
+        lastFocusedElementRef.current = document.activeElement;
         if (!dialogElement.open) {
           if (isModal) {
             dialogElement.showModal();
@@ -82,11 +113,25 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
           }
         }
       } else if (dialogElement.open) {
+        // restore focus to the last focused element
+        if (
+          lastFocusedElementRef.current &&
+          lastFocusedElementRef.current instanceof HTMLElement
+        ) {
+          lastFocusedElementRef.current?.focus();
+        }
         dialogElement.close();
       }
 
       return () => {
         if (dialogElement.open) {
+          // restore focus to the last focused element
+          if (
+            lastFocusedElementRef.current &&
+            lastFocusedElementRef.current instanceof HTMLElement
+          ) {
+            lastFocusedElementRef.current?.focus();
+          }
           dialogElement.close();
         }
       };

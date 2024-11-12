@@ -134,6 +134,12 @@ describe('Dialog', () => {
       await userEvent.click(container);
       expect(props.onClose).toHaveBeenCalledOnce();
     });
+
+    it('should close the dialog when modal and pressing the backdrop', async () => {
+      render(<Dialog {...props} isModal open />);
+      await userEvent.click(screen.getByRole('dialog', { hidden: true }));
+      expect(props.onClose).toHaveBeenCalledOnce();
+    });
   });
 
   it('should have no accessibility violations', async () => {
