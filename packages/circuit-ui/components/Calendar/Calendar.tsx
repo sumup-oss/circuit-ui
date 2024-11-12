@@ -49,6 +49,7 @@ import {
 import { applyMultipleRefs } from '../../util/refs.js';
 import { useSwipe } from '../../hooks/useSwipe/useSwipe.js';
 import { last } from '../../util/helpers.js';
+import { Body } from '../Body/Body.js';
 
 import {
   CalendarActionType,
@@ -287,6 +288,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
         <div className={classes.header}>
           <div className={classes.prev}>
             <IconButton
+              type="button"
               icon={ArrowLeft}
               size="s"
               variant="tertiary"
@@ -300,6 +302,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
           </div>
           <div className={classes.next}>
             <IconButton
+              type="button"
               icon={ArrowRight}
               size="s"
               variant="tertiary"
@@ -410,9 +413,14 @@ function Month({
             {weekdays.map((weekday) => (
               <th key={weekday.long} scope="col">
                 <span className={utilClasses.hideVisually}>{weekday.long}</span>
-                <span aria-hidden="true" className={classes.weekday}>
+                <Body
+                  as="span"
+                  weight="semibold"
+                  aria-hidden="true"
+                  className={classes.weekday}
+                >
                   {weekday.narrow}
-                </span>
+                </Body>
               </th>
             ))}
           </tr>
@@ -466,6 +474,7 @@ function Month({
                 return (
                   <td key={isoDate}>
                     <button
+                      type="button"
                       data-date={isoDate}
                       onClick={handleClick}
                       onMouseEnter={handleMouseEnter}

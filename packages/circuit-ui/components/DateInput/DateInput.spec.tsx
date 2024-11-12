@@ -348,6 +348,9 @@ describe('DateInput', () => {
       const openCalendarButton = screen.getByRole('button', {
         name: /change date/i,
       });
+
+      expect(openCalendarButton).toHaveAttribute('type', 'button');
+
       await userEvent.click(openCalendarButton);
 
       const calendarDialog = screen.getByRole('dialog');

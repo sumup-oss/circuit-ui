@@ -453,6 +453,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
               })}
             </div>
             <IconButton
+              type="button"
               icon={CalendarIcon}
               variant="secondary"
               onClick={openCalendar}
@@ -515,11 +516,16 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
               {(!required || isMobile) && (
                 <div className={classes.buttons}>
                   {!required && (
-                    <Button variant="tertiary" onClick={handleClear}>
+                    <Button
+                      type="button"
+                      variant="tertiary"
+                      onClick={handleClear}
+                    >
                       {clearDateButtonLabel}
                     </Button>
                   )}
                   <Button
+                    type="button"
                     variant="primary"
                     onClick={handleApply}
                     className={classes.apply}
