@@ -24,7 +24,7 @@ import {
   type InputHTMLAttributes,
 } from 'react';
 import type { Temporal } from 'temporal-polyfill';
-import { flip, offset, shift, useFloating } from '@floating-ui/react-dom';
+import { flip, offset, shift, size, useFloating } from '@floating-ui/react-dom';
 import { Calendar as CalendarIcon } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
@@ -211,7 +211,16 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     const { floatingStyles, update } = useFloating({
       open,
       placement: 'bottom-start',
-      middleware: [offset(4), flip(), shift()],
+      middleware: [
+        offset(4),
+        flip({ fallbackAxisSideDirection: 'end', crossAxis: false }),
+        shift(),
+        size({
+          apply({ availableHeight, elements }) {
+            elements.floating.style.maxHeight = `${availableHeight}px`;
+          },
+        }),
+      ],
       elements: {
         reference: fieldRef.current,
         floating: dialogRef.current,

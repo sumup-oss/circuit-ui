@@ -94,7 +94,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
         dialogElement.removeEventListener('close', onClose);
         dialogElement.removeEventListener('click', onClickListener);
       };
-    }, [onClose]);
+    }, [onClose, onClickListener]);
 
     useEffect(() => {
       const dialogElement = dialogRef.current;
