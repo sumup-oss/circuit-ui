@@ -32,6 +32,7 @@ import {
 export default {
   title: 'Forms/PhoneNumberInput',
   component: PhoneNumberInput,
+  tags: ['status:stable'],
   argTypes: {
     disabled: { control: 'boolean' },
   },

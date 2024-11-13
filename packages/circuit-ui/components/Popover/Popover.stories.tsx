@@ -24,6 +24,7 @@ import { Popover, type PopoverProps } from './Popover.js';
 export default {
   title: 'Components/Popover',
   component: Popover,
+  tags: ['status:stable'],
   argTypes: {
     children: { control: 'text' },
   },

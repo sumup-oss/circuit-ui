@@ -22,6 +22,7 @@ import { useEscapeKey } from './useEscapeKey.js';
 
 export default {
   title: 'Hooks/useEscapeKey',
+  tags: ['status:stable'],
 };
 
 export const Example = () => {

@@ -18,6 +18,7 @@ import { Image, type ImageProps } from './Image.js';
 export default {
   title: 'Components/Image',
   component: Image,
+  tags: ['status:stable'],
   argTypes: {
     src: { control: 'text' },
     alt: { control: 'text' },

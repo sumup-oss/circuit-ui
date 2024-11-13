@@ -29,6 +29,7 @@ import { Calendar, type CalendarProps } from './Calendar.js';
 export default {
   title: 'Components/Calendar',
   component: Calendar,
+  tags: ['status:stable'],
 };
 
 const today = isChromatic()

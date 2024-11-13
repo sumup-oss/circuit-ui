@@ -21,6 +21,7 @@ import { Tag, type TagProps } from './Tag.js';
 export default {
   title: 'Components/Tag',
   component: Tag,
+  tags: ['status:stable'],
 };
 
 export const Base = ({ onRemove, removeButtonLabel, ...args }: TagProps) => (

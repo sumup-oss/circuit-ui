@@ -34,6 +34,7 @@ export default {
   title: 'Components/Modal',
   component: Modal,
   subcomponents: { ModalProvider },
+  tags: ['status:under-review'],
   parameters: {
     chromatic: {
       modes: {

@@ -23,6 +23,7 @@ import {
 export default {
   title: 'Notification/NotificationFullscreen',
   component: NotificationFullscreen,
+  tags: ['status:stable'],
 };
 
 export const Base = (args: NotificationFullscreenProps) => (

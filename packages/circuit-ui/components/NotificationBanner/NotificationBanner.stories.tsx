@@ -24,6 +24,7 @@ import {
 export default {
   title: 'Notification/NotificationBanner',
   component: NotificationBanner,
+  tags: ['status:stable'],
 };
 
 export const Base = (args: NotificationBannerProps) => (

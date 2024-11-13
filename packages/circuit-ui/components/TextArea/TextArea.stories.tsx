@@ -18,6 +18,7 @@ import { TextArea, type TextAreaProps } from './TextArea.js';
 export default {
   title: 'Forms/TextArea',
   component: TextArea,
+  tags: ['status:stable'],
   argTypes: {
     placeholder: { control: 'text' },
     disabled: { control: 'boolean' },

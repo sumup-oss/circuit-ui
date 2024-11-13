@@ -27,8 +27,9 @@ const colControl = {
 };
 
 export default {
-  title: 'Layout/Grid/Col',
+  title: 'Layout/Col',
   component: Col,
+  tags: ['status:legacy'],
   parameters: {
     layout: 'fullscreen',
   },

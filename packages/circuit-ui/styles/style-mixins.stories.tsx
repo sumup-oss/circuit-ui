@@ -36,6 +36,7 @@ import {
 
 export default {
   title: 'Features/Style Mixins',
+  tags: ['status:legacy'],
 };
 
 const spaceOptions = {

@@ -18,6 +18,7 @@ import { AspectRatio, type AspectRatioProps } from './AspectRatio.js';
 export default {
   title: 'Components/AspectRatio',
   component: AspectRatio,
+  tags: ['status:stable'],
 };
 
 export const Base = (args: AspectRatioProps) => (

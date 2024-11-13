@@ -28,6 +28,7 @@ import {
 export default {
   title: 'Components/Toggletip',
   component: Toggletip,
+  tags: ['status:stable'],
 };
 
 const showToggletip = async ({

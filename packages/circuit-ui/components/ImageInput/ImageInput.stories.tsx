@@ -24,6 +24,7 @@ import { ImageInput } from './index.js';
 export default {
   title: 'Forms/ImageInput',
   component: ImageInput,
+  tags: ['status:stable'],
 };
 
 export const Base = (args: ImageInputProps) => <ImageInput {...args} />;

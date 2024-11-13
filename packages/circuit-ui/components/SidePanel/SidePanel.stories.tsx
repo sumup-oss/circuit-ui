@@ -35,6 +35,7 @@ import {
 
 export default {
   title: 'Navigation/SidePanel',
+  tags: ['status:stable'],
   parameters: {
     layout: 'fullscreen',
     chromatic: {

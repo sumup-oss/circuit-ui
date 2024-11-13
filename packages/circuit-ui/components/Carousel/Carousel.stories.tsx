@@ -37,6 +37,7 @@ import { SLIDES } from './__fixtures__/index.js';
 export default {
   title: 'Components/Carousel',
   component: Carousel,
+  tags: ['status:under-review'],
 };
 
 export const Stateful = (args: CarouselProps) => (

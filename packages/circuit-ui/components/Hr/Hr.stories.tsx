@@ -18,6 +18,7 @@ import { Hr } from './Hr.js';
 export default {
   title: 'Components/Hr',
   component: Hr,
+  tags: ['status:stable'],
   parameters: {
     layout: 'fullscreen',
     controls: { hideNoControlsWarning: true },

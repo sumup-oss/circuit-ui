@@ -32,6 +32,7 @@ interface Item {
 export default {
   title: 'Components/ListItem/ListItemGroup',
   component: ListItemGroup,
+  tags: ['status:stable'],
   argTypes: {
     label: { control: 'text' },
     details: { control: 'text' },

@@ -23,6 +23,7 @@ import { Tooltip, type TooltipProps } from './Tooltip.js';
 export default {
   title: 'Components/Tooltip/Legacy',
   component: Tooltip,
+  tags: ['status:deprecated'],
 };
 
 const TooltipContainer = styled('div')`

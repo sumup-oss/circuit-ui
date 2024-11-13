@@ -18,6 +18,7 @@ import { SubHeadline, type SubHeadlineProps } from './SubHeadline.js';
 export default {
   title: 'Typography/SubHeadline',
   component: SubHeadline,
+  tags: ['status:deprecated'],
 };
 
 export const Base = (args: SubHeadlineProps) => (

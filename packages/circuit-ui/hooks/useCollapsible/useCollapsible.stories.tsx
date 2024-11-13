@@ -20,6 +20,7 @@ import { useCollapsible, type CollapsibleOptions } from './useCollapsible.js';
 
 export default {
   title: 'Hooks/useCollapsible',
+  tags: ['status:stable'],
 };
 
 export const Example = (args: CollapsibleOptions) => {

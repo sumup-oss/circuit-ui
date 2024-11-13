@@ -23,6 +23,7 @@ import { CheckboxGroup, type CheckboxGroupProps } from './CheckboxGroup.js';
 export default {
   title: 'Forms/CheckboxGroup',
   component: CheckboxGroup,
+  tags: ['status:stable'],
 };
 
 const storyStyles = { flex: '1', alignSelf: 'flex-start' };

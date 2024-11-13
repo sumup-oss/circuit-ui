@@ -37,6 +37,7 @@ const ANIMATION_DURATION = 300;
 export default {
   title: 'Components/Step',
   component: Step,
+  tags: ['status:under-review'],
 };
 
 const baseArgs = {

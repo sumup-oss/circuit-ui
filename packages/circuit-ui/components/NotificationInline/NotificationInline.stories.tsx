@@ -26,6 +26,7 @@ import {
 export default {
   title: 'Notification/NotificationInline',
   component: NotificationInline,
+  tags: ['status:stable'],
 };
 
 const variants = ['info', 'success', 'warning', 'danger'] as const;

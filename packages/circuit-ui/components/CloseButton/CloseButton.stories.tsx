@@ -17,6 +17,7 @@ import { CloseButton, type CloseButtonProps } from './CloseButton.js';
 
 export default {
   title: 'Components/Button/CloseButton',
+  tags: ['status:stable'],
   parameters: {
     component: CloseButton,
   },

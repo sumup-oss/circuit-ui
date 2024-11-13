@@ -29,6 +29,7 @@ import { TopNavigation, type TopNavigationProps } from './TopNavigation.js';
 export default {
   title: 'Navigation/TopNavigation',
   component: TopNavigation,
+  tags: ['status:stable'],
   parameters: {
     layout: 'fullscreen',
     chromatic: {

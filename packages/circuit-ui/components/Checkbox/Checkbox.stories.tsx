@@ -20,6 +20,7 @@ import { Checkbox, type CheckboxProps } from './Checkbox.js';
 export default {
   title: 'Forms/Checkbox',
   component: Checkbox,
+  tags: ['status:stable'],
   argTypes: {
     disabled: { control: 'boolean' },
   },

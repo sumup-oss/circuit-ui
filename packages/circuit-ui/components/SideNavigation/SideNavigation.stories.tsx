@@ -24,6 +24,7 @@ import { SideNavigation, type SideNavigationProps } from './SideNavigation.js';
 export default {
   title: 'Navigation/SideNavigation',
   component: SideNavigation,
+  tags: ['status:stable'],
   parameters: {
     layout: 'fullscreen',
     chromatic: {

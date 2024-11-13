@@ -22,6 +22,7 @@ import { Toggle, type ToggleProps } from './Toggle.js';
 export default {
   title: 'Forms/Toggle',
   component: Toggle,
+  tags: ['status:stable'],
 };
 
 const baseArgs = {

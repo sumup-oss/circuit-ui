@@ -18,6 +18,7 @@ import { Display, type DisplayProps } from './Display.jsx';
 export default {
   title: 'Typography/Display',
   component: Display,
+  tags: ['status:stable'],
 };
 
 export const Base = (args: DisplayProps) => (
