@@ -211,7 +211,11 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     const { floatingStyles, update } = useFloating({
       open,
       placement: 'bottom-start',
-      middleware: [offset(4), flip(), shift()],
+      middleware: [
+        offset(4),
+        flip({ fallbackAxisSideDirection: 'end', crossAxis: false }),
+        shift(),
+      ],
       elements: {
         reference: fieldRef.current,
         floating: dialogRef.current,
