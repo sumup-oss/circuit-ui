@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 9.0.4
+
+### Patch Changes
+
+- [#2775](https://github.com/sumup-oss/circuit-ui/pull/2775) [`1b12634`](https://github.com/sumup-oss/circuit-ui/commit/1b12634dfc4fcad7d16db3f867fde8328aa1dc81) Thanks [@connor-baer](https://github.com/connor-baer)! - Improved the DateInput component's calendar dialog to be placed on the side with the most available space and to scroll when it overflows the viewport.
+
+- [#2775](https://github.com/sumup-oss/circuit-ui/pull/2775) [`1b12634`](https://github.com/sumup-oss/circuit-ui/commit/1b12634dfc4fcad7d16db3f867fde8328aa1dc81) Thanks [@connor-baer](https://github.com/connor-baer)! - Stretched the DateInput component to take up the available width.
+
 ## 9.0.3
 
 ### Patch Changes
