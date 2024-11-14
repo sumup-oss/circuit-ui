@@ -119,6 +119,8 @@ export const baseArgs: SideNavigationProps = {
       externalLabel: 'Opens in a new tab',
     },
   ],
+  skipNavigationLabel: 'Skip Navigation',
+  skipNavigationLink: '#main-content',
 };
 
 export const Base = (args: SideNavigationProps) => (

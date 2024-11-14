@@ -39,6 +39,7 @@ import {
 } from '../../../ComponentsContext/index.js';
 import { defaultComponents } from '../../../ComponentsContext/ComponentsContext.js';
 import { clsx } from '../../../../styles/clsx.js';
+import { SkipLink } from '../../../SkipLink/index.js';
 
 import classes from './MobileNavigation.module.css';
 
@@ -65,6 +66,15 @@ export interface MobileNavigationProps extends BaseModalProps {
    * **DO NOT USE.** This prop is not stable and can be removed at any time.
    */
   UNSAFE_components?: ComponentsContextType;
+  /**
+   * link to page main content
+   * to comply with WCAG 2.1 https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html
+   */
+  skipNavigationLink?: string;
+  /**
+   * label for the skip navigation link.
+   */
+  skipNavigationLabel?: string;
 }
 
 function combineClickHandlers(
@@ -123,7 +133,7 @@ function Group({
 }
 
 /**
- * TODO: Update description 👇🏻
+ * TODO: Update description 👇
  * The modal component displays self-contained tasks in a focused window that
  * overlays the page content.
  * Built on top of [`react-modal`](https://reactcommunity.org/react-modal/).
@@ -134,6 +144,8 @@ export const MobileNavigation: ModalComponent<MobileNavigationProps> = ({
   primaryLinks,
   primaryNavigationLabel,
   UNSAFE_components = defaultComponents,
+  skipNavigationLink,
+  skipNavigationLabel,
   ...props
 }) => {
   const focusProps = useFocusList();
@@ -161,6 +173,11 @@ export const MobileNavigation: ModalComponent<MobileNavigationProps> = ({
       <StackContext.Provider value={'var(--cui-z-index-modal)'}>
         <ReactModal {...reactModalProps}>
           <div className={classes.content}>
+            {skipNavigationLink && skipNavigationLabel && (
+              <SkipLink href={skipNavigationLink}>
+                {skipNavigationLabel}
+              </SkipLink>
+            )}
             <div className={classes.header}>
               <CloseButton onClick={onClose}>{closeButtonLabel}</CloseButton>
             </div>

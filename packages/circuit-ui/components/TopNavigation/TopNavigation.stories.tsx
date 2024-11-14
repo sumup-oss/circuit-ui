@@ -111,6 +111,8 @@ export const baseArgs: TopNavigationProps = {
       onClick: action('Shop'),
     },
   ],
+  skipNavigationLink: '#main-content',
+  skipNavigationLabel: 'Skip navigation',
 };
 
 export const Base = (args: TopNavigationProps) => <TopNavigation {...args} />;
@@ -131,6 +133,7 @@ export const WithSideNavigation = (args: TopNavigationProps) => {
         <SideNavigation
           {...sideNavigationProps}
           isOpen={isSideNavigationOpen}
+          skipNavigationLink={undefined}
           onClose={() => setSideNavigationOpen(false)}
         />
         <div

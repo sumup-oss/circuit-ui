@@ -47,6 +47,8 @@ export function SideNavigation({
   primaryNavigationLabel,
   secondaryNavigationLabel,
   UNSAFE_components,
+  skipNavigationLabel,
+  skipNavigationLink,
 }: SideNavigationProps) {
   if (
     process.env.NODE_ENV !== 'production' &&
@@ -86,6 +88,8 @@ export function SideNavigation({
         closeButtonLabel,
         primaryNavigationLabel,
         UNSAFE_components,
+        skipNavigationLabel,
+        skipNavigationLink,
       });
     }
   }, [
@@ -113,6 +117,8 @@ export function SideNavigation({
       primaryLinks={primaryLinks}
       primaryNavigationLabel={primaryNavigationLabel}
       secondaryNavigationLabel={secondaryNavigationLabel}
+      skipNavigationLabel={skipNavigationLabel}
+      skipNavigationLink={skipNavigationLink}
     />
   );
 }

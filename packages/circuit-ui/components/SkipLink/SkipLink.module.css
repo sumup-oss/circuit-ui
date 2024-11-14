@@ -1,0 +1,18 @@
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: calc(var(--cui-z-index-navigation) + 1);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  background-color: var(--cui-bg-accent);
+  transition: transform 0.2s ease-in;
+  transform: translateX(-200px);
+
+  &:focus {
+    width: auto;
+    height: auto;
+    transform: translateX(0);
+  }
+}

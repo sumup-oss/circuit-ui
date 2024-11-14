@@ -110,6 +110,26 @@ describe('SideNavigation', () => {
         expect(screen.queryByRole('dialog')).toBeVisible();
       });
     });
+
+    it('should render a skip navigation link', () => {
+      renderSideNavigation(render, {
+        ...defaultProps,
+        skipNavigationLink: '#main-content',
+        skipNavigationLabel: 'Skip navigation',
+      });
+      const skipLink = screen.getByRole('link', { name: 'Skip navigation' });
+      expect(skipLink).toBeVisible();
+    });
+  });
+
+  it('should render a skip navigation link', () => {
+    renderSideNavigation(render, {
+      ...defaultProps,
+      skipNavigationLink: '#main-content',
+      skipNavigationLabel: 'Skip navigation',
+    });
+    const skipLink = screen.getByRole('link', { name: 'Skip navigation' });
+    expect(skipLink).toBeVisible();
   });
 
   it('should have no accessibility violations', async () => {

@@ -21,6 +21,7 @@ import { Hamburger, type HamburgerProps } from '../Hamburger/index.js';
 import { SkeletonContainer } from '../Skeleton/index.js';
 import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';
+import { SkipLink } from '../SkipLink/index.js';
 
 import {
   ProfileMenu,
@@ -52,6 +53,15 @@ export interface TopNavigationProps
    */
   user?: UserProps;
   isLoading?: boolean;
+  /**
+   * link to page main content
+   * to comply with WCAG 2.1 https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html
+   */
+  skipNavigationLink?: string;
+  /**
+   * label for the skip navigation link.
+   */
+  skipNavigationLabel?: string;
 }
 
 export function TopNavigation({
@@ -62,6 +72,8 @@ export function TopNavigation({
   hamburger,
   isLoading,
   className,
+  skipNavigationLink,
+  skipNavigationLabel,
   ...props
 }: TopNavigationProps) {
   useEffect(() => {
@@ -76,6 +88,9 @@ export function TopNavigation({
 
   return (
     <header className={clsx(classes.base, className)} {...props}>
+      {skipNavigationLink && skipNavigationLabel && (
+        <SkipLink href={skipNavigationLink}>{skipNavigationLabel}</SkipLink>
+      )}
       <div className={classes.wrapper}>
         {hamburger && (
           <SkeletonContainer isLoading={Boolean(isLoading)}>

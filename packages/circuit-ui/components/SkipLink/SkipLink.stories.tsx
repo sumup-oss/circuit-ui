@@ -1,0 +1,55 @@
+/**
+ * Copyright 2024, SumUp Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+import { modes } from '../../../../.storybook/modes.js';
+import { Body } from '../Body/index.js';
+import { Headline } from '../Headline/index.js';
+import type { AnchorProps } from '../Anchor/index.js';
+
+import { SkipLink } from './index.js';
+
+export default {
+  title: 'Navigation/SkipLink',
+  component: SkipLink,
+  parameters: {
+    layout: 'fullscreen',
+    chromatic: {
+      modes: {
+        mobile: modes.smallMobile,
+        tablet: modes.tablet,
+        desktop: modes.desktop,
+      },
+    },
+  },
+  excludeStories: /.*Args$/,
+};
+
+const baseArgs = {
+  href: '#main-content',
+  children: 'Skip Navigation Links',
+};
+
+export const Base = (args: AnchorProps) => (
+  <>
+    <SkipLink {...args} />
+
+    <main id="main-content" style={{ padding: 'var(--cui-spacings-mega)' }}>
+      <Headline as="h2">Main Content</Headline>
+      <Body>Press down the Tab key to reveal the skip navigation link.</Body>
+    </main>
+  </>
+);
+
+Base.args = baseArgs;
