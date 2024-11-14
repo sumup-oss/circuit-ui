@@ -24,7 +24,14 @@ import {
   type InputHTMLAttributes,
 } from 'react';
 import type { Temporal } from 'temporal-polyfill';
-import { flip, offset, shift, size, useFloating } from '@floating-ui/react-dom';
+import {
+  flip,
+  offset,
+  shift,
+  size,
+  useFloating,
+  type Placement,
+} from '@floating-ui/react-dom';
 import { Calendar as CalendarIcon } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
@@ -134,6 +141,10 @@ export interface DateInputProps
    * A hint to the user agent specifying how to prefill the input.
    */
   autoComplete?: 'bday';
+  /**
+   * One of the accepted placement values. Defaults to `bottom-end`.
+   */
+  placement?: Placement;
 }
 
 /**
@@ -171,6 +182,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       monthInputLabel,
       dayInputLabel,
       autoComplete,
+      placement = 'bottom-end',
       className,
       style,
       ...props
@@ -208,14 +220,17 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     const [open, setOpen] = useState(false);
     const [selection, setSelection] = useState<Temporal.PlainDate>();
 
+    const padding = 16; // px
+
     const { floatingStyles, update } = useFloating({
       open,
-      placement: 'bottom-end',
+      placement,
       middleware: [
         offset(4),
-        flip({ fallbackAxisSideDirection: 'start', crossAxis: false }),
-        shift(),
+        flip({ padding, fallbackAxisSideDirection: 'start' }),
+        shift({ padding }),
         size({
+          padding,
           apply({ availableHeight, elements }) {
             elements.floating.style.maxHeight = `${availableHeight}px`;
           },
