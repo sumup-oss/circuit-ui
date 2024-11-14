@@ -27,6 +27,7 @@ export default {
   title: 'Components/Button',
   component: Button,
   subcomponents: { IconButton, CloseButton, ButtonGroup },
+  tags: ['status:stable'],
   argTypes: {
     children: { control: 'text' },
     disabled: { control: 'boolean' },

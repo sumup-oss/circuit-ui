@@ -28,6 +28,7 @@ import {
 export default {
   title: 'Components/Tooltip',
   component: Tooltip,
+  tags: ['status:stable'],
   parameters: {
     // Account for the Tooltip's transition-delay
     chromatic: { delay: 700 },

@@ -22,6 +22,7 @@ const content = '$ 1,009.95';
 export default {
   title: 'Typography/Numeral',
   component: Numeral,
+  tags: ['status:stable'],
   argTypes: {
     as: { control: 'text' },
   },

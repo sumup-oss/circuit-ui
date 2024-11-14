@@ -23,6 +23,7 @@ export default {
   title: 'Navigation/Tabs',
   component: Tabs,
   subcomponents: { TabList, TabPanel, Tab },
+  tags: ['status:under-review'],
   parameters: {
     layout: 'fullscreen',
   },

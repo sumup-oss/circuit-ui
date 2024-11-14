@@ -24,6 +24,7 @@ export default {
   title: 'Forms/Input',
   component: Input,
   subcomponents: { SearchInput, CurrencyInput, DateInput },
+  tags: ['status:stable'],
   argTypes: {
     placeholder: { control: 'text' },
     disabled: { control: 'boolean' },

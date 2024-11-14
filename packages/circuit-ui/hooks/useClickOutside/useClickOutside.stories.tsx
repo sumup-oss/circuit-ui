@@ -22,6 +22,7 @@ import { useClickOutside } from './useClickOutside.js';
 
 export default {
   title: 'Hooks/useClickOutside',
+  tags: ['status:stable'],
 };
 
 export const Example = () => {

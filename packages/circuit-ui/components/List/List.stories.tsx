@@ -22,6 +22,7 @@ import { List, type ListProps } from './List.js';
 export default {
   title: 'Typography/List',
   component: List,
+  tags: ['status:stable'],
 };
 
 const ListItems = () => (

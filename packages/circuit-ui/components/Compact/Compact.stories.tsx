@@ -23,6 +23,7 @@ const content =
 export default {
   title: 'Typography/Compact',
   component: Compact,
+  tags: ['status:stable'],
   argTypes: {
     as: { control: 'text' },
   },

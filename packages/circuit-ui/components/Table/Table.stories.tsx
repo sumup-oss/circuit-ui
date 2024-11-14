@@ -26,6 +26,7 @@ import { Table } from './index.js';
 export default {
   title: 'Components/Table',
   component: Table,
+  tags: ['status:stable'],
 };
 
 const sortLabel = ({ direction }: { direction?: Direction }) => {

@@ -18,6 +18,7 @@ import { Headline, type HeadlineProps } from './Headline.js';
 export default {
   title: 'Typography/Headline',
   component: Headline,
+  tags: ['status:stable'],
 };
 
 export const Base = (args: HeadlineProps) => (

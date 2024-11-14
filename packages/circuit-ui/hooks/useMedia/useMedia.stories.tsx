@@ -19,6 +19,7 @@ import { useMedia } from './useMedia.js';
 
 export default {
   title: 'Hooks/useMedia',
+  tags: ['status:stable'],
 };
 
 export const Example = () => {

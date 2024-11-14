@@ -30,6 +30,7 @@ import { useNotificationModal } from './useNotificationModal.js';
 export default {
   title: 'Notification/NotificationModal',
   component: NotificationModal,
+  tags: ['status:stable'],
   parameters: {
     layout: 'padded',
   },

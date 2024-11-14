@@ -23,6 +23,7 @@ import {
 export default {
   title: 'Forms/PercentageInput',
   component: PercentageInput,
+  tags: ['status:stable'],
 };
 
 const baseArgs = {

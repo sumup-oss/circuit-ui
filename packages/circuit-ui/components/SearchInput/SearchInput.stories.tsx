@@ -20,6 +20,7 @@ import { SearchInput, type SearchInputProps } from './SearchInput.js';
 export default {
   title: 'Forms/SearchInput',
   component: SearchInput,
+  tags: ['status:stable'],
   argTypes: {
     placeholder: { control: 'text' },
   },

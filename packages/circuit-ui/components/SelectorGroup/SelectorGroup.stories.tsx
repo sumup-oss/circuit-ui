@@ -26,6 +26,7 @@ export default {
   title: 'Forms/SelectorGroup',
   component: SelectorGroup,
   subcomponents: { Selector },
+  tags: ['status:stable'],
 };
 
 const storyStyles = { flex: '1', alignSelf: 'flex-start' };

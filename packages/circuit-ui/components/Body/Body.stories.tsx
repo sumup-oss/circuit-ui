@@ -26,6 +26,7 @@ export default {
   title: 'Typography/Body',
   component: Body,
   subcomponents: { BodyLarge },
+  tags: ['status:stable'],
   argTypes: {
     as: { control: 'text' },
   },

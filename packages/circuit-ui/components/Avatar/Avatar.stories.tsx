@@ -20,6 +20,7 @@ import { Avatar, type AvatarProps } from './Avatar.js';
 export default {
   title: 'Components/Avatar',
   component: Avatar,
+  tags: ['status:stable'],
 };
 
 export const Base = (args: AvatarProps) => <Avatar {...args} />;

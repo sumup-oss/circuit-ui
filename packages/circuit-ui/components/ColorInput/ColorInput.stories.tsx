@@ -20,6 +20,7 @@ import { ColorInput, type ColorInputProps } from './ColorInput.js';
 export default {
   title: 'Forms/ColorInput',
   component: ColorInput,
+  tags: ['status:stable'],
 };
 
 const baseArgs = {

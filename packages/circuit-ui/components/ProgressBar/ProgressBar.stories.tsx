@@ -20,6 +20,7 @@ import { ProgressBar, type ProgressBarProps } from './ProgressBar.js';
 export default {
   title: 'Components/ProgressBar',
   component: ProgressBar,
+  tags: ['status:stable'],
 };
 
 const sizes = ['s', 'm', 'l'] as const;

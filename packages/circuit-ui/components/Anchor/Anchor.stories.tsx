@@ -18,6 +18,7 @@ import { Anchor, type AnchorProps } from './Anchor.js';
 export default {
   title: 'Typography/Anchor',
   component: Anchor,
+  tags: ['status:stable'],
   argTypes: {
     href: { control: 'text' },
     children: { control: 'text' },

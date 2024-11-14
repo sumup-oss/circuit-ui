@@ -28,6 +28,7 @@ export default {
   title: 'Forms/RadioButtonGroup',
   component: RadioButtonGroup,
   subcomponents: { RadioButton },
+  tags: ['status:stable'],
   argTypes: {
     value: { control: 'text' },
     invalid: { control: 'boolean' },

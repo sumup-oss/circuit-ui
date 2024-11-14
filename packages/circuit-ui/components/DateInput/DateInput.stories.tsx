@@ -22,6 +22,7 @@ import { DateInput, type DateInputProps } from './DateInput.js';
 export default {
   title: 'Forms/DateInput',
   component: DateInput,
+  tags: ['status:stable'],
   parameters: {
     layout: 'padded',
   },

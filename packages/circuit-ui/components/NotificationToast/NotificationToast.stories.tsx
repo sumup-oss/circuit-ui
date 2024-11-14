@@ -30,6 +30,7 @@ import {
 export default {
   title: 'Notification/NotificationToast',
   component: NotificationToast,
+  tags: ['status:stable'],
   argTypes: {
     position: {
       options: ['top', 'top-right', 'bottom'],

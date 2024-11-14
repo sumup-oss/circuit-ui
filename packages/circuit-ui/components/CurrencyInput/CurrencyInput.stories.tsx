@@ -20,6 +20,7 @@ import { CurrencyInput, type CurrencyInputProps } from './CurrencyInput.js';
 export default {
   title: 'Forms/CurrencyInput',
   component: CurrencyInput,
+  tags: ['status:stable'],
 };
 
 const baseArgs = {

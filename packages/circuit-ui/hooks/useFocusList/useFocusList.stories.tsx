@@ -23,6 +23,7 @@ import { useFocusList } from './useFocusList.js';
 
 export default {
   title: 'Hooks/useFocusList',
+  tags: ['status:stable'],
 };
 
 const fruits = ['Apple', 'Banana', 'Mango'];

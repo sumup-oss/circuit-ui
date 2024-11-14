@@ -26,6 +26,7 @@ import { Select, type SelectProps } from './Select.js';
 export default {
   title: 'Forms/Select',
   component: Select,
+  tags: ['status:stable'],
 };
 
 const baseArgs = {

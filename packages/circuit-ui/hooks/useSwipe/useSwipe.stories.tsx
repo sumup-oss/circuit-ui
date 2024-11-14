@@ -19,6 +19,7 @@ import { useSwipe } from './useSwipe.js';
 
 export default {
   title: 'Hooks/useSwipe',
+  tags: ['status:stable'],
 };
 
 const styles = {

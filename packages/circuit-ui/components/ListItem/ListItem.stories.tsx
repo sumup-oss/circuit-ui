@@ -33,6 +33,7 @@ interface Item {
 export default {
   title: 'Components/ListItem',
   component: ListItem,
+  tags: ['status:stable'],
   argTypes: {
     label: { control: 'text' },
     details: { control: 'text' },
