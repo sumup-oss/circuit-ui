@@ -54,8 +54,6 @@ const mappings = [
       'SidebarProps',
       'SidebarContextProvider',
       'SidebarContextConsumer',
-      'Tooltip',
-      'TooltipProps',
       'uniqueId',
       'cx',
       'spacing',
