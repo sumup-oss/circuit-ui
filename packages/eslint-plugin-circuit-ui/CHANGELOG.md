@@ -1,5 +1,11 @@
 # @sumup-oss/eslint-plugin-circuit-ui
 
+## 5.1.1
+
+### Patch Changes
+
+- [#2778](https://github.com/sumup-oss/circuit-ui/pull/2778) [`8785732`](https://github.com/sumup-oss/circuit-ui/commit/87857327a9417c3bf249654c54d2b649a2259169) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed warning when importing the stable Tooltip component.
+
 ## 5.1.0
 
 ### Minor Changes
