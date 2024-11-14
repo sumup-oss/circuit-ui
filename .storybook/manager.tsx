@@ -90,7 +90,9 @@ addons.setConfig({
             style={{
               ...badge.style,
               display: 'inline-block',
-              padding: '1px 6px',
+              padding: '2px 6px',
+              fontSize: '12px',
+              lineHeight: '1',
               textAlign: 'center',
               borderRadius: 'var(--cui-border-radius-pill)',
               borderWidth: 'var(--cui-border-width-kilo)',
