@@ -180,7 +180,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     const isMobile = useMedia('(max-width: 479px)');
 
     const inputRef = useRef<HTMLInputElement>(null);
-    const fieldRef = useRef<HTMLDivElement>(null);
+    const calendarButtonRef = useRef<HTMLDivElement>(null);
     const dialogRef = useRef<HTMLDialogElement>(null);
 
     const dialogId = useId();
@@ -210,10 +210,10 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
 
     const { floatingStyles, update } = useFloating({
       open,
-      placement: 'bottom-start',
+      placement: 'bottom-end',
       middleware: [
         offset(4),
-        flip({ fallbackAxisSideDirection: 'end', crossAxis: false }),
+        flip({ fallbackAxisSideDirection: 'start', crossAxis: false }),
         shift(),
         size({
           apply({ availableHeight, elements }) {
@@ -222,7 +222,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
         }),
       ],
       elements: {
-        reference: fieldRef.current,
+        reference: calendarButtonRef.current,
         floating: dialogRef.current,
       },
     });
@@ -370,7 +370,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
               optionalLabel={optionalLabel}
             />
           </FieldLegend>
-          <div ref={fieldRef} className={classes.wrapper}>
+          <div className={classes.wrapper}>
             <input
               type="date"
               ref={applyMultipleRefs(ref, inputRef)}
@@ -462,6 +462,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
               })}
             </div>
             <IconButton
+              ref={calendarButtonRef}
               type="button"
               icon={CalendarIcon}
               variant="secondary"
