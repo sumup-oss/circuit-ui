@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { screen, userEvent } from '@storybook/test';
+
 import { modes } from '../../../../.storybook/modes.js';
 import { Body } from '../Body/index.js';
 import { Headline } from '../Headline/index.js';
@@ -41,6 +43,10 @@ const baseArgs = {
   children: 'Skip Navigation Links',
 };
 
+const focusLink = async () => {
+  await userEvent.keyboard('{Tab}');
+  await screen.findByRole('link', { name: 'Skip Navigation Links' });
+};
 export const Base = (args: AnchorProps) => (
   <>
     <SkipLink {...args} />
@@ -53,3 +59,4 @@ export const Base = (args: AnchorProps) => (
 );
 
 Base.args = baseArgs;
+Base.play = focusLink;
