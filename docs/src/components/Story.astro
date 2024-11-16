@@ -1,0 +1,39 @@
+---
+import { getEntry } from 'astro:content';
+
+export type Props = {
+  id: string;
+  group?: string;
+  component?: string;
+  story?: string;
+  showControls?: boolean;
+};
+
+const { id, showControls } = Astro.props;
+
+const story = await getEntry('stories', id);
+
+console.log(story);
+
+const src = new URL('https://circuit.sumup.com');
+
+if (!showControls) {
+  src.pathname = 'iframe.html';
+}
+
+src.searchParams.set('singleStory', 'true');
+src.searchParams.set('path', `/${story.data.type}/${story.data.id}`);
+
+// TODO: responsive size, adjust size for controls/no controls
+// TODO: sync color scheme
+---
+
+<iframe title={story.data.title} src={src.toString()} width="800" height="500"
+></iframe>
+
+<style>
+  iframe {
+    border: none;
+    background: lightgrey;
+  }
+</style>

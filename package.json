@@ -3,6 +3,7 @@
 	"description": "The web implementation of Circuit UI, SumUp's design system",
 	"private": true,
 	"workspaces": [
+		"docs",
 		"packages/*",
 		"templates/*",
 		"templates/nextjs/template"

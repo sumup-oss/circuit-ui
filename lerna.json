@@ -1,5 +1,5 @@
 {
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
-  "packages": ["packages/*", "templates/*", "templates/nextjs/template"],
+  "packages": ["docs", "packages/*", "templates/*", "templates/nextjs/template"],
   "version": "independent"
 }
