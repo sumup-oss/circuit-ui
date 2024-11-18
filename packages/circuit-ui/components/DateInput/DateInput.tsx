@@ -24,7 +24,14 @@ import {
   type InputHTMLAttributes,
 } from 'react';
 import type { Temporal } from 'temporal-polyfill';
-import { flip, offset, shift, size, useFloating } from '@floating-ui/react-dom';
+import {
+  flip,
+  offset,
+  shift,
+  size,
+  useFloating,
+  type Placement,
+} from '@floating-ui/react-dom';
 import { Calendar as CalendarIcon } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
@@ -134,6 +141,10 @@ export interface DateInputProps
    * A hint to the user agent specifying how to prefill the input.
    */
   autoComplete?: 'bday';
+  /**
+   * One of the accepted placement values. Defaults to `bottom-end`.
+   */
+  placement?: Placement;
 }
 
 /**
@@ -171,6 +182,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       monthInputLabel,
       dayInputLabel,
       autoComplete,
+      placement = 'bottom-end',
       className,
       style,
       ...props
@@ -180,7 +192,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     const isMobile = useMedia('(max-width: 479px)');
 
     const inputRef = useRef<HTMLInputElement>(null);
-    const fieldRef = useRef<HTMLDivElement>(null);
+    const calendarButtonRef = useRef<HTMLDivElement>(null);
     const dialogRef = useRef<HTMLDialogElement>(null);
 
     const dialogId = useId();
@@ -208,21 +220,24 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     const [open, setOpen] = useState(false);
     const [selection, setSelection] = useState<Temporal.PlainDate>();
 
+    const padding = 16; // px
+
     const { floatingStyles, update } = useFloating({
       open,
-      placement: 'bottom-start',
+      placement,
       middleware: [
         offset(4),
-        flip({ fallbackAxisSideDirection: 'end', crossAxis: false }),
-        shift(),
+        flip({ padding, fallbackAxisSideDirection: 'start' }),
+        shift({ padding }),
         size({
+          padding,
           apply({ availableHeight, elements }) {
             elements.floating.style.maxHeight = `${availableHeight}px`;
           },
         }),
       ],
       elements: {
-        reference: fieldRef.current,
+        reference: calendarButtonRef.current,
         floating: dialogRef.current,
       },
     });
@@ -370,7 +385,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
               optionalLabel={optionalLabel}
             />
           </FieldLegend>
-          <div ref={fieldRef} className={classes.wrapper}>
+          <div className={classes.wrapper}>
             <input
               type="date"
               ref={applyMultipleRefs(ref, inputRef)}
@@ -462,6 +477,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
               })}
             </div>
             <IconButton
+              ref={calendarButtonRef}
               type="button"
               icon={CalendarIcon}
               variant="secondary"
