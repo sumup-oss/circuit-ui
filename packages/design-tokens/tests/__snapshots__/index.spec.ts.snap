@@ -32,8 +32,8 @@ exports[`Themes > light > should match the snapshot 1`] = `
     "mono": "Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace",
   },
   "fontWeight": {
-    "bold": "700",
-    "regular": "400",
+    "bold": "630",
+    "regular": "375",
   },
   "grid": {
     "default": {
@@ -117,7 +117,7 @@ exports[`Themes > light > should match the snapshot 1`] = `
     "body": {
       "one": {
         "fontSize": "1rem",
-        "lineHeight": "1.5rem",
+        "lineHeight": "1.375rem",
       },
       "two": {
         "fontSize": "0.875rem",
@@ -126,46 +126,46 @@ exports[`Themes > light > should match the snapshot 1`] = `
     },
     "bodyLarge": {
       "fontSize": "1.25rem",
-      "lineHeight": "1.75rem",
+      "lineHeight": "1.5rem",
     },
     "headline": {
       "four": {
         "fontSize": "1.125rem",
-        "lineHeight": "1.5rem",
+        "lineHeight": "1.375rem",
       },
       "one": {
         "fontSize": "2rem",
         "lineHeight": "2.25rem",
       },
       "three": {
-        "fontSize": "1.25rem",
-        "lineHeight": "1.5rem",
+        "fontSize": "1.125rem",
+        "lineHeight": "1.375rem",
       },
       "two": {
         "fontSize": "1.5rem",
-        "lineHeight": "1.75rem",
+        "lineHeight": "1.625rem",
       },
     },
     "subHeadline": {
-      "fontSize": "0.875rem",
-      "lineHeight": "1.25rem",
+      "fontSize": "1.125rem",
+      "lineHeight": "1.375rem",
     },
     "title": {
       "four": {
-        "fontSize": "3.5rem",
-        "lineHeight": "3.5rem",
+        "fontSize": "2.5rem",
+        "lineHeight": "2.875rem",
       },
       "one": {
-        "fontSize": "7.5rem",
-        "lineHeight": "7.5rem",
+        "fontSize": "4rem",
+        "lineHeight": "4.5rem",
       },
       "three": {
-        "fontSize": "4rem",
-        "lineHeight": "4rem",
+        "fontSize": "3rem",
+        "lineHeight": "3.5rem",
       },
       "two": {
-        "fontSize": "6rem",
-        "lineHeight": "6rem",
+        "fontSize": "3rem",
+        "lineHeight": "3.5rem",
       },
     },
   },

@@ -163,7 +163,7 @@ describe('Style helpers', () => {
     it('should match the snapshot for size one', () => {
       const { styles } = typography('one')(light);
       expect(styles).toMatchInlineSnapshot(
-        '"font-size:1rem;line-height:1.5rem;"',
+        `"font-size:1rem;line-height:1.375rem;"`,
       );
     });
 
