@@ -1,5 +1,11 @@
 # @sumup-oss/design-tokens
 
+## 8.0.1
+
+### Patch Changes
+
+- [#2782](https://github.com/sumup-oss/circuit-ui/pull/2782) [`0a6ec4e`](https://github.com/sumup-oss/circuit-ui/commit/0a6ec4efc5fcf6ac43c0ced2822a90a9ac0a35e7) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the legacy JavaScript theme to the latest typography token values to match the modern CSS custom variables.
+
 ## 8.0.0
 
 ### Major Changes
