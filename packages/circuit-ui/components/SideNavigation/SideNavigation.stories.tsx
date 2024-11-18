@@ -120,7 +120,7 @@ export const baseArgs: SideNavigationProps = {
     },
   ],
   skipNavigationLabel: 'Skip Navigation',
-  skipNavigationLink: '#main-content',
+  skipNavigationHref: '#main-content',
 };
 
 export const Base = (args: SideNavigationProps) => (

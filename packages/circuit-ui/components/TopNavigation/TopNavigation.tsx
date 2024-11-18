@@ -54,10 +54,11 @@ export interface TopNavigationProps
   user?: UserProps;
   isLoading?: boolean;
   /**
-   * link to page main content
-   * to comply with WCAG 2.1 https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html
+   * Hash link to the page's main content to enable keyboard and screen reader
+   * users to skip over the navigation links. Required to comply with
+   * [WCAG 2.1 SC 2.4.1](https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html)
    */
-  skipNavigationLink?: string;
+  skipNavigationHref?: string;
   /**
    * label for the skip navigation link.
    */
@@ -72,7 +73,7 @@ export function TopNavigation({
   hamburger,
   isLoading,
   className,
-  skipNavigationLink,
+  skipNavigationHref,
   skipNavigationLabel,
   ...props
 }: TopNavigationProps) {
@@ -88,8 +89,8 @@ export function TopNavigation({
 
   return (
     <header className={clsx(classes.base, className)} {...props}>
-      {skipNavigationLink && skipNavigationLabel && (
-        <SkipLink href={skipNavigationLink}>{skipNavigationLabel}</SkipLink>
+      {skipNavigationHref && skipNavigationLabel && (
+        <SkipLink href={skipNavigationHref}>{skipNavigationLabel}</SkipLink>
       )}
       <div className={classes.wrapper}>
         {hamburger && (

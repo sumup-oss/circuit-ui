@@ -76,13 +76,13 @@ describe('TopNavigation', () => {
     render(
       <TopNavigation
         {...baseProps}
-        skipNavigationLink="#main-content"
+        skipNavigationHref="#main-content"
         skipNavigationLabel="Skip navigation"
       />,
     );
 
     const skipLink = screen.getByRole('link', { name: 'Skip navigation' });
-    expect(skipLink).toBeVisible();
+    expect(skipLink).toBeInTheDocument();
   });
 
   it('should have no accessibility violations', async () => {

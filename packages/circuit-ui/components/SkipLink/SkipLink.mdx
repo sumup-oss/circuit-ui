@@ -1,20 +1,38 @@
-import { Meta, Props } from '../../../../.storybook/components';
+import {Meta, Props, Status, Story} from '../../../../.storybook/components';
 import * as Stories from './SkipLink.stories';
 
 <Meta of={Stories} />
 
 # SkipLink
 
+<Status variant="experimental" />
 
 The SkipLink Component is used to provide a shortcut to the main content of a page.
 It is inspired by the [WCAG 2.1 guideline 2.4.1](https://www.w3.org/WAI/WCAG21/Techniques/general/G1).
+
+
+<Story of={Stories.Base}  inline={false} />
+
+<Props />
+
+## Usage
+
+### When to use it
 
 This shortcut is particularly useful for users who rely on screen readers or keyboard navigation.
 
 The SkipLink component is an [Anchor](Typography/Anchor/Docs) component with special styling: it is visually hidden until focused, at which point it becomes visible and can be interacted with.
 
-The SkipLink component is typically placed at the top of a page, before the main content. It is already included in the [TopNavigation](Navigation/TopNavigation/Docs) and [SideNavigation](Navigation/SideNavigation/Docs) components.
-
 In most cases, one skip link is enough. If your website has few navigation items, it might not even be necessary. The goal is to limit the "link-clutter" and make the navigation experience as efficient as possible.
 
-<Props />
+### How to use it
+
+The SkipLink component is typically placed at the top of a page, before the main content.
+It is already included in the [TopNavigation](Navigation/TopNavigation/Docs) and [SideNavigation](Navigation/SideNavigation/Docs) components.
+
+## Resources
+
+- [WCAG 2.1 guideline 2.4.1](https://www.w3.org/WAI/WCAG21/Techniques/general/G1)
+- [Bypass Blocks](https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks)
+- [Skip Navigation Links](https://webaim.org/techniques/skipnav/)
+

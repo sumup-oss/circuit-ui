@@ -15,7 +15,6 @@
 
 import { screen, userEvent } from '@storybook/test';
 
-import { modes } from '../../../../.storybook/modes.js';
 import { Body } from '../Body/index.js';
 import { Headline } from '../Headline/index.js';
 import type { AnchorProps } from '../Anchor/index.js';
@@ -25,17 +24,6 @@ import { SkipLink } from './index.js';
 export default {
   title: 'Navigation/SkipLink',
   component: SkipLink,
-  parameters: {
-    layout: 'fullscreen',
-    chromatic: {
-      modes: {
-        mobile: modes.smallMobile,
-        tablet: modes.tablet,
-        desktop: modes.desktop,
-      },
-    },
-  },
-  excludeStories: /.*Args$/,
 };
 
 const baseArgs = {
@@ -48,14 +36,14 @@ const focusLink = async () => {
   await screen.findByRole('link', { name: 'Skip Navigation Links' });
 };
 export const Base = (args: AnchorProps) => (
-  <>
+  <div style={{ position: 'relative' }}>
     <SkipLink {...args} />
 
     <main id="main-content" style={{ padding: 'var(--cui-spacings-mega)' }}>
       <Headline as="h2">Main Content</Headline>
       <Body>Press down the Tab key to reveal the skip navigation link.</Body>
     </main>
-  </>
+  </div>
 );
 
 Base.args = baseArgs;

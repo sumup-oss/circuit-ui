@@ -67,10 +67,11 @@ export interface MobileNavigationProps extends BaseModalProps {
    */
   UNSAFE_components?: ComponentsContextType;
   /**
-   * link to page main content
-   * to comply with WCAG 2.1 https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html
+   * Hash link to the page's main content to enable keyboard and screen reader
+   * users to skip over the navigation links. Required to comply with
+   * [WCAG 2.1 SC 2.4.1](https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html)
    */
-  skipNavigationLink?: string;
+  skipNavigationHref?: string;
   /**
    * label for the skip navigation link.
    */
@@ -144,7 +145,7 @@ export const MobileNavigation: ModalComponent<MobileNavigationProps> = ({
   primaryLinks,
   primaryNavigationLabel,
   UNSAFE_components = defaultComponents,
-  skipNavigationLink,
+  skipNavigationHref,
   skipNavigationLabel,
   ...props
 }) => {
@@ -173,8 +174,8 @@ export const MobileNavigation: ModalComponent<MobileNavigationProps> = ({
       <StackContext.Provider value={'var(--cui-z-index-modal)'}>
         <ReactModal {...reactModalProps}>
           <div className={classes.content}>
-            {skipNavigationLink && skipNavigationLabel && (
-              <SkipLink href={skipNavigationLink}>
+            {skipNavigationHref && skipNavigationLabel && (
+              <SkipLink href={skipNavigationHref}>
                 {skipNavigationLabel}
               </SkipLink>
             )}

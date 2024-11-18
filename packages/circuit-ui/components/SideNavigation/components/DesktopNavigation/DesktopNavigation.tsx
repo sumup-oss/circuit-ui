@@ -49,10 +49,11 @@ export interface DesktopNavigationProps {
    */
   secondaryNavigationLabel: string;
   /**
-   * link to page main content
-   * to comply with WCAG 2.1 https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html
+   * Hash link to the page's main content to enable keyboard and screen reader
+   * users to skip over the navigation links. Required to comply with
+   * [WCAG 2.1 SC 2.4.1](https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html)
    */
-  skipNavigationLink?: string;
+  skipNavigationHref?: string;
   /**
    * label for the skip navigation link.
    */
@@ -64,7 +65,7 @@ export function DesktopNavigation({
   primaryLinks,
   primaryNavigationLabel,
   secondaryNavigationLabel,
-  skipNavigationLink,
+  skipNavigationHref,
   skipNavigationLabel,
 }: DesktopNavigationProps) {
   const focusProps = useFocusList();
@@ -81,8 +82,8 @@ export function DesktopNavigation({
         className={clsx(classes.primary, utilClasses.hideScrollbar)}
         aria-label={primaryNavigationLabel}
       >
-        {skipNavigationLink && skipNavigationLabel && (
-          <SkipLink href={skipNavigationLink}>{skipNavigationLabel}</SkipLink>
+        {skipNavigationHref && skipNavigationLabel && (
+          <SkipLink href={skipNavigationHref}>{skipNavigationLabel}</SkipLink>
         )}
         <ul role="list" className={classes.list}>
           {primaryLinks.map((link) => (

@@ -114,22 +114,22 @@ describe('SideNavigation', () => {
     it('should render a skip navigation link', () => {
       renderSideNavigation(render, {
         ...defaultProps,
-        skipNavigationLink: '#main-content',
+        skipNavigationHref: '#main-content',
         skipNavigationLabel: 'Skip navigation',
       });
       const skipLink = screen.getByRole('link', { name: 'Skip navigation' });
-      expect(skipLink).toBeVisible();
+      expect(skipLink).toBeInTheDocument();
     });
   });
 
   it('should render a skip navigation link', () => {
     renderSideNavigation(render, {
       ...defaultProps,
-      skipNavigationLink: '#main-content',
+      skipNavigationHref: '#main-content',
       skipNavigationLabel: 'Skip navigation',
     });
     const skipLink = screen.getByRole('link', { name: 'Skip navigation' });
-    expect(skipLink).toBeVisible();
+    expect(skipLink).toBeInTheDocument();
   });
 
   it('should have no accessibility violations', async () => {

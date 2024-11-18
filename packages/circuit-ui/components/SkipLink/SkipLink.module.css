@@ -1,16 +1,18 @@
 .skip-link {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: var(--cui-spacings-byte);
+  left: var(--cui-spacings-byte);
   z-index: calc(var(--cui-z-index-navigation) + 1);
   width: 1px;
   height: 1px;
+  padding: var(--cui-spacings-bit);
   overflow: hidden;
   background-color: var(--cui-bg-accent);
-  transition: transform 0.2s ease-in;
+  transition: transform var(--cui-transitions-default);
   transform: translateX(-200px);
 
-  &:focus {
+  &:focus,
+  &:hover {
     width: auto;
     height: auto;
     transform: translateX(0);
