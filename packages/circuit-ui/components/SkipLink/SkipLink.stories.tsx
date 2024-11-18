@@ -17,7 +17,7 @@ import { screen, userEvent } from '@storybook/test';
 
 import { Body } from '../Body/index.js';
 import { Headline } from '../Headline/index.js';
-import type { AnchorProps } from '../Anchor/index.js';
+import { Anchor, type AnchorProps } from '../Anchor/index.js';
 
 import { SkipLink } from './index.js';
 
@@ -37,7 +37,17 @@ const focusLink = async () => {
 };
 export const Base = (args: AnchorProps) => (
   <div style={{ position: 'relative' }}>
-    <SkipLink {...args} />
+    <nav>
+      <SkipLink {...args} />
+      <Anchor style={{ marginRight: 'var(--cui-spacings-mega)' }} href="#">
+        About
+      </Anchor>
+
+      <Anchor style={{ marginRight: 'var(--cui-spacings-mega)' }} href="#">
+        Join us
+      </Anchor>
+      <Anchor href="#">Contact</Anchor>
+    </nav>
 
     <main id="main-content" style={{ padding: 'var(--cui-spacings-mega)' }}>
       <Headline as="h2">Main Content</Headline>

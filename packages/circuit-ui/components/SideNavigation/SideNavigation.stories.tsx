@@ -18,6 +18,8 @@ import { Like, Home, LiveChat, Package, Shop } from '@sumup-oss/icons';
 
 import { modes } from '../../../../.storybook/modes.js';
 import { ModalProvider } from '../ModalContext/index.js';
+import { Headline } from '../Headline/index.js';
+import { Body } from '../Body/index.js';
 
 import { SideNavigation, type SideNavigationProps } from './SideNavigation.js';
 
@@ -123,12 +125,28 @@ export const baseArgs: SideNavigationProps = {
   skipNavigationHref: '#main-content',
 };
 
+const placeHolderContent = (
+  <main id="main-content" style={{ padding: 'var(--cui-spacings-tera)' }}>
+    <Headline as="h1">Main content</Headline>
+    <Body>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent semper
+      sed massa sit amet dapibus. Praesent sed libero in erat malesuada luctus
+      quis non justo. Maecenas massa nisl, facilisis a nunc vitae, accumsan
+      faucibus odio. Pellentesque tempus ex id lacus mattis, non dapibus elit
+      efficitur. Praesent ultricies odio ut velit efficitur, eu mattis lectus
+      blandit. Duis pretium dignissim sapien accumsan semper. Sed hendrerit eros
+      posuere, sodales sem vitae, sagittis mi. Donec finibus enim ut ligula
+      luctus viverra.
+    </Body>
+  </main>
+);
+
 export const Base = (args: SideNavigationProps) => (
   <ModalProvider>
     <div style={{ height: 'var(--top-navigation-height)' }} />
     <div style={{ display: 'flex' }}>
       <SideNavigation {...args} />
-      <div style={{ width: '100%', height: '100vh' }} />
+      {placeHolderContent}
     </div>
   </ModalProvider>
 );
