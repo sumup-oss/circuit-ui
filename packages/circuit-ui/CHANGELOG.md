@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.0.5
+
+### Patch Changes
+
+- [#2781](https://github.com/sumup-oss/circuit-ui/pull/2781) [`2b682c1`](https://github.com/sumup-oss/circuit-ui/commit/2b682c1d84c74ff730e2e99c46fc9ce7e43a2e3c) Thanks [@connor-baer](https://github.com/connor-baer)! - Improved the DateInput component's calendar dialog to be placed relative to the calendar button instead of the whole field. This improves the placement when the DateInput is rendered near the center of the viewport. The default `bottom-end` placement can be customized using the new `placement` prop.
+
 ## 9.0.4
 
 ### Patch Changes
