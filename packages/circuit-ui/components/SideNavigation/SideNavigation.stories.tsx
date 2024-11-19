@@ -143,10 +143,11 @@ const placeHolderContent = (
 
 export const Base = (args: SideNavigationProps) => (
   <ModalProvider>
-    <div style={{ height: 'var(--top-navigation-height)' }} />
-    <div style={{ display: 'flex' }}>
-      <SideNavigation {...args} />
-      {placeHolderContent}
+    <div style={{ width: '100%', height: '100vh' }}>
+      <div style={{ display: 'flex' }}>
+        <SideNavigation {...args} />
+        {placeHolderContent}
+      </div>
     </div>
   </ModalProvider>
 );

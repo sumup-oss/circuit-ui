@@ -18,6 +18,7 @@
   &:hover {
     width: auto;
     height: auto;
+    clip: unset;
     transform: translateX(0);
   }
 }
