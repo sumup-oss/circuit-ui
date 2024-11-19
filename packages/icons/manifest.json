@@ -1877,6 +1877,11 @@
       "size": "24"
     },
     {
+      "name": "parcel_locker",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
       "name": "payment_link",
       "category": "Product and feature",
       "size": "24"
