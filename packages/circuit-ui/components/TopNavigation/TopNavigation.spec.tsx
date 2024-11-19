@@ -16,7 +16,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { Shop, SumUpLogo } from '@sumup-oss/icons';
 
-import { axe, render } from '../../util/test-utils.js';
+import { axe, render, screen } from '../../util/test-utils.js';
 import type { PopoverProps } from '../Popover/index.js';
 
 import { TopNavigation, type TopNavigationProps } from './TopNavigation.js';
@@ -71,6 +71,19 @@ describe('TopNavigation', () => {
       },
     ],
   };
+
+  it('should render a skip navigation link', () => {
+    render(
+      <TopNavigation
+        {...baseProps}
+        skipNavigationHref="#main-content"
+        skipNavigationLabel="Skip navigation"
+      />,
+    );
+
+    const skipLink = screen.getByRole('link', { name: 'Skip navigation' });
+    expect(skipLink).toBeInTheDocument();
+  });
 
   it('should have no accessibility violations', async () => {
     const { container } = render(<TopNavigation {...baseProps} />);

@@ -25,6 +25,7 @@ import { Skeleton, SkeletonContainer } from '../../../Skeleton/index.js';
 import type { PrimaryLinkProps } from '../../types.js';
 import { SecondaryLinks } from '../SecondaryLinks/index.js';
 import { PrimaryLink } from '../PrimaryLink/index.js';
+import { SkipLink } from '../../../SkipLink/index.js';
 
 import classes from './DesktopNavigation.module.css';
 
@@ -47,6 +48,16 @@ export interface DesktopNavigationProps {
    * Important for accessibility.
    */
   secondaryNavigationLabel: string;
+  /**
+   * Hash link to the page's main content to enable keyboard and screen reader
+   * users to skip over the navigation links. Required to comply with
+   * [WCAG 2.1 SC 2.4.1](https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html)
+   */
+  skipNavigationHref?: string;
+  /**
+   * label for the skip navigation link.
+   */
+  skipNavigationLabel?: string;
 }
 
 export function DesktopNavigation({
@@ -54,6 +65,8 @@ export function DesktopNavigation({
   primaryLinks,
   primaryNavigationLabel,
   secondaryNavigationLabel,
+  skipNavigationHref,
+  skipNavigationLabel,
 }: DesktopNavigationProps) {
   const focusProps = useFocusList();
 
@@ -69,6 +82,9 @@ export function DesktopNavigation({
         className={clsx(classes.primary, utilClasses.hideScrollbar)}
         aria-label={primaryNavigationLabel}
       >
+        {skipNavigationHref && skipNavigationLabel && (
+          <SkipLink href={skipNavigationHref}>{skipNavigationLabel}</SkipLink>
+        )}
         <ul role="list" className={classes.list}>
           {primaryLinks.map((link) => (
             <li key={link.label}>

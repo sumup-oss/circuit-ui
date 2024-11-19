@@ -23,6 +23,7 @@ import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigatio
 import { ModalProvider } from '../ModalContext/index.js';
 import { Body } from '../Body/index.js';
 import type { HamburgerProps } from '../Hamburger/Hamburger.js';
+import { Headline } from '../Headline/index.js';
 
 import { TopNavigation, type TopNavigationProps } from './TopNavigation.js';
 
@@ -60,6 +61,22 @@ function CustomComponent() {
     </Body>
   );
 }
+
+const placeHolderContent = (
+  <main id="main-content" style={{ padding: 'var(--cui-spacings-tera)' }}>
+    <Headline as="h1">Main content</Headline>
+    <Body>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent semper
+      sed massa sit amet dapibus. Praesent sed libero in erat malesuada luctus
+      quis non justo. Maecenas massa nisl, facilisis a nunc vitae, accumsan
+      faucibus odio. Pellentesque tempus ex id lacus mattis, non dapibus elit
+      efficitur. Praesent ultricies odio ut velit efficitur, eu mattis lectus
+      blandit. Duis pretium dignissim sapien accumsan semper. Sed hendrerit eros
+      posuere, sodales sem vitae, sagittis mi. Donec finibus enim ut ligula
+      luctus viverra.
+    </Body>
+  </main>
+);
 
 export const baseArgs: TopNavigationProps = {
   isLoading: false,
@@ -111,9 +128,16 @@ export const baseArgs: TopNavigationProps = {
       onClick: action('Shop'),
     },
   ],
+  skipNavigationHref: '#main-content',
+  skipNavigationLabel: 'Skip navigation',
 };
 
-export const Base = (args: TopNavigationProps) => <TopNavigation {...args} />;
+export const Base = (args: TopNavigationProps) => (
+  <>
+    <TopNavigation {...args} />
+    {placeHolderContent}
+  </>
+);
 
 Base.args = baseArgs;
 
@@ -131,17 +155,10 @@ export const WithSideNavigation = (args: TopNavigationProps) => {
         <SideNavigation
           {...sideNavigationProps}
           isOpen={isSideNavigationOpen}
+          skipNavigationHref={undefined}
           onClose={() => setSideNavigationOpen(false)}
         />
-        <div
-          style={{
-            backgroundColor: 'lightgrey',
-            width: '100%',
-            minHeight: '300px',
-            margin: '1.5rem',
-            borderRadius: '1rem',
-          }}
-        />
+        {placeHolderContent}
       </div>
     </ModalProvider>
   );

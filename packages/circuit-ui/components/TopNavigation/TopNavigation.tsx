@@ -21,6 +21,7 @@ import { Hamburger, type HamburgerProps } from '../Hamburger/index.js';
 import { SkeletonContainer } from '../Skeleton/index.js';
 import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';
+import { SkipLink } from '../SkipLink/index.js';
 
 import {
   ProfileMenu,
@@ -52,6 +53,16 @@ export interface TopNavigationProps
    */
   user?: UserProps;
   isLoading?: boolean;
+  /**
+   * Hash link to the page's main content to enable keyboard and screen reader
+   * users to skip over the navigation links. Required to comply with
+   * [WCAG 2.1 SC 2.4.1](https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html)
+   */
+  skipNavigationHref?: string;
+  /**
+   * label for the skip navigation link.
+   */
+  skipNavigationLabel?: string;
 }
 
 export function TopNavigation({
@@ -62,6 +73,8 @@ export function TopNavigation({
   hamburger,
   isLoading,
   className,
+  skipNavigationHref,
+  skipNavigationLabel,
   ...props
 }: TopNavigationProps) {
   useEffect(() => {
@@ -76,6 +89,9 @@ export function TopNavigation({
 
   return (
     <header className={clsx(classes.base, className)} {...props}>
+      {skipNavigationHref && skipNavigationLabel && (
+        <SkipLink href={skipNavigationHref}>{skipNavigationLabel}</SkipLink>
+      )}
       <div className={classes.wrapper}>
         {hamburger && (
           <SkeletonContainer isLoading={Boolean(isLoading)}>
