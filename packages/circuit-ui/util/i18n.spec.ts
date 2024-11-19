@@ -22,10 +22,10 @@ import {
   type MockInstance,
 } from 'vitest';
 
-import { DEFAULT_LOCALE, getBrowserLocale } from './i18n.js';
+import { FALLBACK_LOCALE, getDefaultLocale } from './i18n.js';
 
 describe('i18n', () => {
-  describe('getBrowserLocale', () => {
+  describe('getDefaultLocale', () => {
     const originalWindow = window;
     let languagesGetter: MockInstance;
     let languageGetter: MockInstance;
@@ -39,14 +39,14 @@ describe('i18n', () => {
     it('should return the default locale in server environments', () => {
       // @ts-expect-error The window object is undefined in server environments
       window = undefined;
-      const actual = getBrowserLocale();
-      expect(actual).toBe(DEFAULT_LOCALE);
+      const actual = getDefaultLocale();
+      expect(actual).toBe(FALLBACK_LOCALE);
     });
 
     it('should return the preferred locales', () => {
       const languages = ['de-DE', 'en'];
       languagesGetter.mockReturnValue(languages);
-      const actual = getBrowserLocale();
+      const actual = getDefaultLocale();
       expect(actual).toEqual(languages);
     });
 
@@ -54,15 +54,15 @@ describe('i18n', () => {
       const language = 'de-DE';
       languagesGetter.mockReturnValue(undefined);
       languageGetter.mockReturnValue(language);
-      const actual = getBrowserLocale();
+      const actual = getDefaultLocale();
       expect(actual).toEqual(language);
     });
 
     it('should fall back to the default locale', () => {
       languagesGetter.mockReturnValue(undefined);
       languageGetter.mockReturnValue(undefined);
-      const actual = getBrowserLocale();
-      expect(actual).toEqual(DEFAULT_LOCALE);
+      const actual = getDefaultLocale();
+      expect(actual).toEqual(FALLBACK_LOCALE);
     });
   });
 });

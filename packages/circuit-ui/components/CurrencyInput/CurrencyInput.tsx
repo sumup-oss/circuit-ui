@@ -20,7 +20,8 @@ import { resolveCurrencyFormat } from '@sumup-oss/intl';
 import { NumericFormat, type NumericFormatProps } from 'react-number-format';
 
 import { clsx } from '../../styles/clsx.js';
-import { getBrowserLocale, type Locale } from '../../util/i18n.js';
+import type { Locale } from '../../util/i18n.js';
+import { useLocale } from '../../hooks/useLocale/useLocale.js';
 import { Input, type InputProps } from '../Input/index.js';
 
 import { formatPlaceholder } from './CurrencyInputService.js';
@@ -79,7 +80,7 @@ const DUMMY_DELIMITER = '?';
 export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
   (
     {
-      locale = getBrowserLocale(),
+      locale: customLocale,
       currency,
       placeholder,
       'aria-describedby': descriptionId,
@@ -87,6 +88,7 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
     },
     ref,
   ) => {
+    const locale = useLocale(customLocale);
     const currencySymbolId = useId();
     const descriptionIds = clsx(currencySymbolId, descriptionId);
 

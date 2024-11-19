@@ -54,10 +54,10 @@ import {
   FieldValidationHint,
   FieldWrapper,
 } from '../Field/Field.js';
-import { getBrowserLocale } from '../../util/i18n.js';
 import { toPlainDate } from '../../util/date.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { changeInputValue } from '../../util/input-value.js';
+import { useLocale } from '../../hooks/useLocale/useLocale.js';
 
 import { Dialog } from './components/Dialog.js';
 import { DateSegment } from './components/DateSegment.js';
@@ -159,7 +159,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       defaultValue,
       min,
       max,
-      locale = getBrowserLocale(),
+      locale: customLocale,
       firstDayOfWeek,
       modifiers,
       hideLabel,
@@ -189,6 +189,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     },
     ref,
   ) => {
+    const locale = useLocale(customLocale);
     const isMobile = useMedia('(max-width: 479px)');
 
     const inputRef = useRef<HTMLInputElement>(null);

@@ -15,16 +15,16 @@
 
 export type Locale = string | string[];
 
-export const DEFAULT_LOCALE = 'en-US';
+export const FALLBACK_LOCALE = 'en-US';
 
 /**
  * Returns the user's preferred locale(s) in browser-like environments.
  */
-export function getBrowserLocale(): Locale {
+export function getDefaultLocale(): Locale {
   if (typeof window === 'undefined') {
-    return DEFAULT_LOCALE;
+    return FALLBACK_LOCALE;
   }
   return (navigator.languages ||
     navigator.language ||
-    DEFAULT_LOCALE) as Locale;
+    FALLBACK_LOCALE) as Locale;
 }
