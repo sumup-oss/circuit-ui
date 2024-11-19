@@ -58,6 +58,7 @@ import { toPlainDate } from '../../util/date.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { changeInputValue } from '../../util/input-value.js';
 import { useLocale } from '../../hooks/useLocale/useLocale.js';
+import { createTranslate, type Translations } from '../../util/i18n.js';
 
 import { Dialog } from './components/Dialog.js';
 import { DateSegment } from './components/DateSegment.js';
@@ -65,6 +66,11 @@ import { usePlainDateState } from './hooks/usePlainDateState.js';
 import { useSegmentFocus } from './hooks/useSegmentFocus.js';
 import { getCalendarButtonLabel, getDateSegments } from './DateInputService.js';
 import classes from './DateInput.module.css';
+
+// @ts-expect-error import.meta is supported
+const intlModules = import.meta.glob<Translations>('./intl/*.json', {
+  eager: true,
+});
 
 export interface DateInputProps
   extends InputHTMLAttributes<HTMLInputElement>,
@@ -191,6 +197,11 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
   ) => {
     const locale = useLocale(customLocale);
     const isMobile = useMedia('(max-width: 479px)');
+
+    const translate = createTranslate(intlModules, locale);
+
+    // biome-ignore lint/suspicious/noConsoleLog: <explanation>
+    console.log(translate('dayInputLabel'));
 
     const inputRef = useRef<HTMLInputElement>(null);
     const calendarButtonRef = useRef<HTMLDivElement>(null);

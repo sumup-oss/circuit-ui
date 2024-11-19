@@ -13,7 +13,10 @@
  * limitations under the License.
  */
 
+import { isString } from './type-check.js';
+
 export type Locale = string | string[];
+export type Translations = Record<string, string>;
 
 export const FALLBACK_LOCALE = 'en-US';
 
@@ -27,4 +30,70 @@ export function getDefaultLocale(): Locale {
   return (navigator.languages ||
     navigator.language ||
     FALLBACK_LOCALE) as Locale;
+}
+
+export function createTranslate(
+  modules: Record<string, Translations>,
+  locale: Locale,
+) {
+  const languages = Object.entries(modules).map(
+    ([importPath, translations]) => {
+      const matches = importPath.match(/[a-z]{2}-[A-Z]{2}/);
+
+      if (!matches) {
+        throw new Error(
+          `Failed to extract a language from the import path: ${importPath}`,
+        );
+      }
+
+      return { language: matches[0], translations };
+    },
+  );
+
+  const locales = isString(locale) ? [locale] : locale;
+
+  let translations: Translations;
+
+  // eslint-disable-next-line no-restricted-syntax
+  for (const l of locales) {
+    let match: { language: string; translations: Translations } | undefined;
+
+    if (l.length === 5) {
+      match = languages.find(({ language }) => language === l);
+    } else {
+      match = languages.find(({ language }) => language.startsWith(l));
+    }
+
+    if (match) {
+      translations = match.translations;
+      break;
+    }
+  }
+
+  const fallbackLanguage = languages.find(
+    ({ language }) => language === FALLBACK_LOCALE,
+  );
+
+  if (!fallbackLanguage) {
+    throw new Error('TODO:');
+  }
+
+  const fallbackTranslations = fallbackLanguage.translations;
+
+  return (key: string, values?: Record<string, string>) => {
+    const text = translations[key] || fallbackTranslations[key];
+    return interpolate(text, values);
+  };
+}
+
+export function interpolate(text: string, values: Record<string, string> = {}) {
+  return text.replace(/\{\{(\w+)\}\}/g, (_, value) => {
+    if (!isString(value)) {
+      throw new Error('TODO:');
+    }
+    if (!(value in values)) {
+      throw new Error('TODO:');
+    }
+    return values[value];
+  });
 }
