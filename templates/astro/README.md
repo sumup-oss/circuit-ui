@@ -10,7 +10,7 @@ A template for Circuit UI + Astro apps with SumUp's frontend stack.
 
 ## 💻 Prerequisites
 
-- You should have **Node.js** installed at a version equal to or above **`v18.14.1`**.
+- You should have **Node.js** installed at a version equal to or above **`v20.0.0`**.
 
 ## ✨ Setting up a new project
 

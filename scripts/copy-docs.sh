@@ -16,6 +16,8 @@ for package in "${packages[@]}"; do
   echo -e "import { Meta } from '../../.storybook/components';\n\n<Meta title=\"Packages/${package_name}\" />\n\n$(cat ${src_file_path})" > "${dest_file_path}"
 done
 
+templates=(./templates/*)
+
 mkdir -p ./docs/templates
 
 for template in "${templates[@]}"; do
@@ -23,7 +25,7 @@ for template in "${templates[@]}"; do
   src_file_path="${template}/README.md"
   dest_file_path="./docs/templates/${template_name}.mdx"
 
-  echo -e "import { Meta } from '../../.storybook/components';\n\n<Meta title=\"Packages/${template_name}\" />\n\n$(cat ${src_file_path})" > "${dest_file_path}"
+  echo -e "import { Meta } from '../../.storybook/components';\n\n<Meta title=\"Templates/${template_name}\" />\n\n$(cat ${src_file_path})" > "${dest_file_path}"
 done
 
 # CONTRIBUTING.md
