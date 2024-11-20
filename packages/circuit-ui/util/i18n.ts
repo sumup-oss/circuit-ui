@@ -15,10 +15,17 @@
 
 import { isString } from './type-check.js';
 
-export type Locale = string | string[];
-export type Translations = Record<string, string>;
-
 export const FALLBACK_LOCALE = 'en-US';
+// TODO: Add remaining locales from dashboard
+export const SUPPORTED_LOCALES = ['en-US'] as const;
+
+export type Locale = string | string[];
+type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
+
+export type Translations<Key extends string | number | symbol> = Record<
+  SupportedLocale,
+  Record<Key, string>
+>;
 
 /**
  * Returns the user's preferred locale(s) in browser-like environments.
@@ -32,68 +39,66 @@ export function getDefaultLocale(): Locale {
     FALLBACK_LOCALE) as Locale;
 }
 
-export function createTranslate(
-  modules: Record<string, Translations>,
-  locale: Locale,
-) {
-  const languages = Object.entries(modules).map(
-    ([importPath, translations]) => {
-      const matches = importPath.match(/[a-z]{2}-[A-Z]{2}/);
-
-      if (!matches) {
-        throw new Error(
-          `Failed to extract a language from the import path: ${importPath}`,
-        );
-      }
-
-      return { language: matches[0], translations };
-    },
-  );
-
+/**
+ * Returns the first supported locale.
+ */
+export function findSupportedLocale(locale: Locale): SupportedLocale {
   const locales = isString(locale) ? [locale] : locale;
-
-  let translations: Translations;
 
   // eslint-disable-next-line no-restricted-syntax
   for (const l of locales) {
-    let match: { language: string; translations: Translations } | undefined;
+    const matcher =
+      locale.length === 5
+        ? (value: string) => value === l
+        : (value: string) => value.startsWith(l);
 
-    if (l.length === 5) {
-      match = languages.find(({ language }) => language === l);
-    } else {
-      match = languages.find(({ language }) => language.startsWith(l));
-    }
+    const match = SUPPORTED_LOCALES.find(matcher);
 
     if (match) {
-      translations = match.translations;
-      break;
+      return match;
     }
   }
 
-  const fallbackLanguage = languages.find(
-    ({ language }) => language === FALLBACK_LOCALE,
-  );
-
-  if (!fallbackLanguage) {
-    throw new Error('TODO:');
-  }
-
-  const fallbackTranslations = fallbackLanguage.translations;
-
-  return (key: string, values?: Record<string, string>) => {
-    const text = translations[key] || fallbackTranslations[key];
-    return interpolate(text, values);
-  };
+  return FALLBACK_LOCALE;
 }
 
-export function interpolate(text: string, values: Record<string, string> = {}) {
-  return text.replace(/\{\{(\w+)\}\}/g, (_, value) => {
-    if (!isString(value)) {
-      throw new Error('TODO:');
-    }
-    if (!(value in values)) {
-      throw new Error('TODO:');
-    }
-    return values[value];
-  });
+export function transformModulesToTranslations<
+  T extends Record<string, string>,
+  Key extends string | number | symbol = keyof T,
+>(modules: Record<string, T>): Translations<Key> {
+  const translations = Object.entries(modules).reduce(
+    (acc, [importPath, strings]) => {
+      const matches = importPath.match(/[a-z]{2}-[A-Z]{2}/);
+
+      // @ts-expect-error This environment variable is set by Vite.
+      if (import.meta.env.DEV && !matches) {
+        throw new Error(
+          `Failed to extract a locale from the import path: ${importPath}`,
+        );
+      }
+
+      // biome-ignore lint/style/noNonNullAssertion:
+      const locale = matches![0] as SupportedLocale;
+
+      // @ts-expect-error This environment variable is set by Vite.
+      if (import.meta.env.DEV && !SUPPORTED_LOCALES.includes(locale)) {
+        throw new Error(`Unsupported locale: ${importPath}`);
+      }
+
+      acc[locale] = strings as Record<Key, string>;
+      return acc;
+    },
+    {} as Translations<Key>,
+  );
+
+  // @ts-expect-error This environment variable is set by Vite.
+  if (import.meta.env.DEV) {
+    SUPPORTED_LOCALES.forEach((locale) => {
+      if (!translations[locale]) {
+        throw new Error(`Missing translations for locale ${locale}`);
+      }
+    });
+  }
+
+  return translations;
 }

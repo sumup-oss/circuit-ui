@@ -36,6 +36,7 @@ import { Calendar as CalendarIcon } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
 import { useMedia } from '../../hooks/useMedia/useMedia.js';
+import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
@@ -57,8 +58,6 @@ import {
 import { toPlainDate } from '../../util/date.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { changeInputValue } from '../../util/input-value.js';
-import { useLocale } from '../../hooks/useLocale/useLocale.js';
-import { createTranslate, type Translations } from '../../util/i18n.js';
 
 import { Dialog } from './components/Dialog.js';
 import { DateSegment } from './components/DateSegment.js';
@@ -66,11 +65,7 @@ import { usePlainDateState } from './hooks/usePlainDateState.js';
 import { useSegmentFocus } from './hooks/useSegmentFocus.js';
 import { getCalendarButtonLabel, getDateSegments } from './DateInputService.js';
 import classes from './DateInput.module.css';
-
-// @ts-expect-error import.meta is supported
-const intlModules = import.meta.glob<Translations>('./intl/*.json', {
-  eager: true,
-});
+import { translations } from './translations/index.js';
 
 export interface DateInputProps
   extends InputHTMLAttributes<HTMLInputElement>,
@@ -158,14 +153,14 @@ export interface DateInputProps
  * The input value is always a string in the format `YYYY-MM-DD`.
  */
 export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
-  (
-    {
+  (props, ref) => {
+    const {
       label,
       value,
       defaultValue,
       min,
       max,
-      locale: customLocale,
+      locale,
       firstDayOfWeek,
       modifiers,
       hideLabel,
@@ -191,17 +186,9 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       placement = 'bottom-end',
       className,
       style,
-      ...props
-    },
-    ref,
-  ) => {
-    const locale = useLocale(customLocale);
+      ...rest
+    } = useI18n(props, translations);
     const isMobile = useMedia('(max-width: 479px)');
-
-    const translate = createTranslate(intlModules, locale);
-
-    // biome-ignore lint/suspicious/noConsoleLog: <explanation>
-    console.log(translate('dayInputLabel'));
 
     const inputRef = useRef<HTMLInputElement>(null);
     const calendarButtonRef = useRef<HTMLDivElement>(null);
@@ -413,7 +400,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
               tabIndex={-1}
               value={value}
               defaultValue={defaultValue}
-              {...props}
+              {...rest}
             />
             {/* biome-ignore lint/a11y/useKeyWithClickEvents: */}
             <div

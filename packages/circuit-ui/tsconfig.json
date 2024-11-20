@@ -18,7 +18,6 @@
     "resolveJsonModule": true,
     "strict": true,
     "target": "es2019",
-    "types": ["vite/client"],
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "include": [
