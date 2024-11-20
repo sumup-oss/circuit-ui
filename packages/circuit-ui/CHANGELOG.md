@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.1.1
+
+### Patch Changes
+
+- [#2789](https://github.com/sumup-oss/circuit-ui/pull/2789) [`6f0a749`](https://github.com/sumup-oss/circuit-ui/commit/6f0a7496966c7651682a8757e2c35ac569799861) Thanks [@sirineJ](https://github.com/sirineJ)! - Added missing export of the SkipLink component.
+
 ## 9.1.0
 
 ### Minor Changes
