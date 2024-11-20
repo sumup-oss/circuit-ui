@@ -1,5 +1,19 @@
 # @sumup-oss/circuit-ui
 
+## 9.1.0
+
+### Minor Changes
+
+- [#2780](https://github.com/sumup-oss/circuit-ui/pull/2780) [`cbc3716`](https://github.com/sumup-oss/circuit-ui/commit/cbc371643b6b0774af8ac51e4b796b421263322d) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a SkipLink component to allow skipping repetitive content for screen reader and keyboard users.
+
+- [#2237](https://github.com/sumup-oss/circuit-ui/pull/2237) [`6aafecd`](https://github.com/sumup-oss/circuit-ui/commit/6aafecdf8333cc4e7ff9788449357f01a9de3e64) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the global style resets to the relevant components directly. This makes the components more resilient against style conflicts when used alongside other UI libraries and global styles on a page.
+
+- [#2780](https://github.com/sumup-oss/circuit-ui/pull/2780) [`cbc3716`](https://github.com/sumup-oss/circuit-ui/commit/cbc371643b6b0774af8ac51e4b796b421263322d) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a skip link in the TopNavigation and SideNavigation components to allow user to bypass navigation blocks.
+
+### Patch Changes
+
+- [#2787](https://github.com/sumup-oss/circuit-ui/pull/2787) [`543fc89`](https://github.com/sumup-oss/circuit-ui/commit/543fc89d67b355e6f863d1481bc751b5cd8f32b6) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed a hydration error that could occur in the CurrencyInput, Calendar, and DateInput components when no explicit locale was provided.
+
 ## 9.0.5
 
 ### Patch Changes
