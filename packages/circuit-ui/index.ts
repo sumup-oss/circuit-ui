@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import './styles/reset.css';
 import './styles/base.css';
 
 export { utilClasses } from './styles/utility.js';
