@@ -30,8 +30,8 @@ import {
 import { Temporal } from 'temporal-polyfill';
 import { ArrowLeft, ArrowRight } from '@sumup-oss/icons';
 
+import type { Locale } from '../../util/i18n.js';
 import { utilClasses } from '../../styles/utility.js';
-import { getBrowserLocale, type Locale } from '../../util/i18n.js';
 import { IconButton } from '../Button/IconButton.js';
 import { Headline } from '../Headline/Headline.js';
 import { clsx } from '../../styles/clsx.js';
@@ -48,6 +48,7 @@ import {
 } from '../../util/errors.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { useSwipe } from '../../hooks/useSwipe/useSwipe.js';
+import { useLocale } from '../../hooks/useLocale/useLocale.js';
 import { last } from '../../util/helpers.js';
 import { Body } from '../Body/Body.js';
 
@@ -147,7 +148,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
       minDate,
       maxDate,
       firstDayOfWeek = 1,
-      locale = getBrowserLocale(),
+      locale: customLocale,
       prevMonthButtonLabel,
       nextMonthButtonLabel,
       modifiers,
@@ -157,6 +158,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
     },
     ref,
   ) => {
+    const locale = useLocale(customLocale);
     const [{ months, focusedDate, hoveredDate, today }, dispatch] = useReducer(
       calendarReducer,
       { selection, minDate, maxDate, numberOfMonths },
