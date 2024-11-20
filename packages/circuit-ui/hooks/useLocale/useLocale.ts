@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Copyright 2024, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
