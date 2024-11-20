@@ -22,23 +22,29 @@ import {
 } from '../../util/i18n.js';
 import { useLocale } from '../useLocale/useLocale.js';
 
+type I18nProps<Key extends string | number | symbol> = {
+  [key in Key]: string;
+} & {
+  locale: Locale;
+};
+
 export function useI18n<
-  P extends { [key in K]: string } & { locale?: Locale },
-  K extends string | number | symbol,
->(props: P, translations: Translations<K>): P {
+  Props extends Partial<I18nProps<Key>>,
+  Key extends string | number | symbol,
+>(props: Props, translations: Translations<Key>): Props & I18nProps<Key> {
   const locale = useLocale(props.locale);
 
   const supportedLocale = findSupportedLocale(locale);
   const strings = translations[supportedLocale];
-  const keys = Object.keys(strings) as K[];
+  const keys = Object.keys(strings) as Key[];
 
   const translatedProps = keys.reduce(
     (acc, key) => {
       acc[key] = props[key] || strings[key];
       return acc;
     },
-    {} as Record<K, string>,
+    {} as Record<Key, string>,
   );
 
-  return { ...props, ...translatedProps };
+  return { ...props, ...translatedProps, locale };
 }

@@ -103,31 +103,31 @@ export interface DateInputProps
   /**
    * Visually hidden label for the year input.
    */
-  yearInputLabel: string;
+  yearInputLabel?: string;
   /**
    * Visually hidden label for the month input.
    */
-  monthInputLabel: string;
+  monthInputLabel?: string;
   /**
    * Visually hidden label for the day input.
    */
-  dayInputLabel: string;
+  dayInputLabel?: string;
   /**
    * Label for the trailing button that opens the calendar dialog.
    */
-  openCalendarButtonLabel: string;
+  openCalendarButtonLabel?: string;
   /**
    * Label for the button to close the calendar dialog.
    */
-  closeCalendarButtonLabel: string;
+  closeCalendarButtonLabel?: string;
   /**
    * Label for the button to apply the selected date and close the calendar dialog.
    */
-  applyDateButtonLabel: string;
+  applyDateButtonLabel?: string;
   /**
    * Label for the button to clear the date value and close the calendar dialog.
    */
-  clearDateButtonLabel: string;
+  clearDateButtonLabel?: string;
   /**
    * The minimum selectable date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
    * format (`YYYY-MM-DD`) (inclusive).

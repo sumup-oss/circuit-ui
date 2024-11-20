@@ -129,11 +129,11 @@ export interface CalendarProps
   /**
    * Text label for the button to navigate to the previous month.
    */
-  prevMonthButtonLabel: string;
+  prevMonthButtonLabel?: string;
   /**
    * Text label for the button to navigate to the next month.
    */
-  nextMonthButtonLabel: string;
+  nextMonthButtonLabel?: string;
   /**
    * The number of months to display at a time. Default: `1`.
    */
