@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 5.1.0
+
+### Minor Changes
+
+- [#2785](https://github.com/sumup-oss/circuit-ui/pull/2785) [`75d1105`](https://github.com/sumup-oss/circuit-ui/commit/75d1105ee3a69a9c9283d0ac3c7705f6c84588ee) Thanks [@giedoka](https://github.com/giedoka)! - Added new icon `ParcelLocker` in size 24.
+
 ## 5.0.0
 
 ### Major Changes
