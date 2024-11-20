@@ -17,6 +17,8 @@ import { Anchor, type AnchorProps } from '../Anchor/index.js';
 
 import classes from './SkipLink.module.css';
 
-export const SkipLink = (props: AnchorProps) => (
+export type SkipLinkProps = AnchorProps;
+
+export const SkipLink = (props: SkipLinkProps) => (
   <Anchor className={classes['skip-link']} {...props} />
 );

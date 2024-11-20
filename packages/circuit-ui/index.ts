@@ -126,7 +126,8 @@ export type {
   TabPanelProps,
   TabProps,
 } from './components/Tabs/index.js';
-
+export { SkipLink } from './components/SkipLink/index.js';
+export type { SkipLinkProps } from './components/SkipLink/index.js';
 // Miscellaneous
 export { Spinner } from './components/Spinner/index.js';
 export type { SpinnerProps } from './components/Spinner/index.js';
