@@ -22,7 +22,11 @@ import {
   type MockInstance,
 } from 'vitest';
 
-import { FALLBACK_LOCALE, getDefaultLocale } from './i18n.js';
+import {
+  FALLBACK_LOCALE,
+  findSupportedLocale,
+  getDefaultLocale,
+} from './i18n.js';
 
 describe('i18n', () => {
   describe('getDefaultLocale', () => {
@@ -63,6 +67,32 @@ describe('i18n', () => {
       languageGetter.mockReturnValue(undefined);
       const actual = getDefaultLocale();
       expect(actual).toEqual(FALLBACK_LOCALE);
+    });
+  });
+
+  describe('findSupportedLocale', () => {
+    it('should match a full locale', () => {
+      const locale = 'de-DE';
+      const actual = findSupportedLocale(locale);
+      expect(actual).toBe('de-DE');
+    });
+
+    it('should match a partial locale', () => {
+      const locale = 'de';
+      const actual = findSupportedLocale(locale);
+      expect(actual).toBe('de-DE');
+    });
+
+    it('should return the first supported locale', () => {
+      const locale = ['zh-CH', 'en-US', 'de-DE'];
+      const actual = findSupportedLocale(locale);
+      expect(actual).toBe('en-US');
+    });
+
+    it('should fallback to the default locale if the provided locale is not supported', () => {
+      const locale = 'zh-CH';
+      const actual = findSupportedLocale(locale);
+      expect(actual).toBe(FALLBACK_LOCALE);
     });
   });
 });

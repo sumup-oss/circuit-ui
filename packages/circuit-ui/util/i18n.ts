@@ -17,7 +17,7 @@ import { isString } from './type-check.js';
 
 export const FALLBACK_LOCALE = 'en-US';
 // TODO: Add remaining locales from dashboard
-export const SUPPORTED_LOCALES = ['en-US'] as const;
+export const SUPPORTED_LOCALES = ['en-US', 'de-DE'] as const;
 
 export type Locale = string | string[];
 type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
