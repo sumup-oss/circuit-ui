@@ -36,15 +36,6 @@ export default {
 
 const baseArgs = {
   label: 'Date of birth',
-  prevMonthButtonLabel: 'Previous month',
-  nextMonthButtonLabel: 'Next month',
-  openCalendarButtonLabel: 'Change date',
-  closeCalendarButtonLabel: 'Close calendar',
-  applyDateButtonLabel: 'Apply',
-  clearDateButtonLabel: 'Clear',
-  yearInputLabel: 'Year',
-  monthInputLabel: 'Month',
-  dayInputLabel: 'Day',
   autoComplete: 'bday',
   locale: 'en-US',
 };

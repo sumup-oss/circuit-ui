@@ -46,8 +46,6 @@ Base.args = {
   selection: today.add({ days: 3 }),
   minDate: today.subtract({ days: 7 }),
   maxDate: today.add({ months: 3 }),
-  prevMonthButtonLabel: 'Previous month',
-  nextMonthButtonLabel: 'Next month',
 };
 
 export const Localized = ({ selection, ...args }: CalendarProps) => {
