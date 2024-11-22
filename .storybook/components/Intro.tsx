@@ -26,14 +26,7 @@ export function Intro({
   children: BodyLargeProps['children'];
 }) {
   return (
-    <Body
-      as="div"
-      size="s"
-      weight="semibold"
-      color="subtle"
-      className={classes.base}
-      {...props}
-    >
+    <Body as="div" size="s" color="subtle" className={classes.base} {...props}>
       {children}
     </Body>
   );

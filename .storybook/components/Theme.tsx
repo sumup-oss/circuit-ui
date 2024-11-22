@@ -20,13 +20,14 @@ import { light, schema } from '@sumup-oss/design-tokens';
 import { SumUpLogomark } from '@sumup-oss/icons';
 import {
   Anchor,
+  Body,
   Badge,
   Table,
+  Tooltip,
   ToastProvider,
   useNotificationToast,
   type TableHeaderCell,
   type TableRow,
-  Tooltip,
 } from '../../packages/circuit-ui/index.js';
 
 type CustomPropertyName = `--cui-${string}`;
@@ -82,16 +83,19 @@ function getRows(
       {
         children: (
           <div style={{ display: 'flex' }}>
-            <code
+            <Body
+              as="code"
+              size="s"
               style={{
                 whiteSpace: 'nowrap',
                 maxWidth: '320px',
                 textOverflow: 'ellipsis',
                 overflow: 'hidden',
+                fontFamily: 'var(--cui-font-stack-mono)',
               }}
             >
               {name}
-            </code>
+            </Body>
             {!deprecation && <CopyButton name={name} />}
             {deprecation && (
               <Tooltip
@@ -112,7 +116,17 @@ function getRows(
           </div>
         ),
       },
-      { children: <code>{value}</code> },
+      {
+        children: (
+          <Body
+            as="code"
+            size="s"
+            style={{ fontFamily: 'var(--cui-font-stack-mono)' }}
+          >
+            {value}
+          </Body>
+        ),
+      },
     ];
 
     if (Preview) {
