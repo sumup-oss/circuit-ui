@@ -173,11 +173,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             required={required}
             disabled={disabled}
             defaultValue={defaultValue}
-            className={clsx(
-              classes.base,
-              hasPrefix && classes['has-prefix'],
-              className,
-            )}
+            className={clsx(classes.base, hasPrefix && classes['has-prefix'])}
             {...props}
           >
             {!value && !defaultValue && (
