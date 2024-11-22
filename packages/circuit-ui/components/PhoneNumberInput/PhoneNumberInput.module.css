@@ -21,7 +21,8 @@
     transform: translateY(-1px);
   }
 
-  .country-code.country-code {
+  .country-code.country-code select,
+  .country-code-input.country-code-input {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
@@ -38,7 +39,8 @@
     transform: translateX(-1px);
   }
 
-  .country-code.country-code {
+  .country-code.country-code select,
+  .country-code-input.country-code-input {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
@@ -46,8 +48,6 @@
   .country-code-input.country-code-input {
     /* Prefix padding + country code (max 4 chars) + padding */
     max-width: calc(var(--cui-spacings-exa) + 4ch + var(--cui-spacings-mega));
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
   }
 
   .subscriber-number.subscriber-number {
