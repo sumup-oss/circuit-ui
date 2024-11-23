@@ -65,7 +65,7 @@ export function initCalendar({
   numberOfMonths: number;
 }): CalendarState {
   const today = getTodaysDate();
-  let date: Temporal.PlainDate | undefined;
+  let date: Temporal.PlainDate | null = null;
   if (selection) {
     date = isPlainDate(selection) ? selection : selection.start;
   }

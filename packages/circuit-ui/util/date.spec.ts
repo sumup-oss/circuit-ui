@@ -114,11 +114,11 @@ describe('CalendarService', () => {
 
   describe('updatePlainDateRange', () => {
     it('should set the start date if the range is empty', () => {
-      const previousRange = { start: undefined, end: undefined };
+      const previousRange = { start: null, end: null };
       const date = new Temporal.PlainDate(2020, 3, 11);
       const actual = updatePlainDateRange(previousRange, date);
       expect(actual.start).toEqual(date);
-      expect(actual.end).toBeUndefined();
+      expect(actual.end).toBeNull();
     });
 
     it('should start a new range if the range is complete', () => {
@@ -129,24 +129,24 @@ describe('CalendarService', () => {
       const date = new Temporal.PlainDate(2020, 3, 11);
       const actual = updatePlainDateRange(previousRange, date);
       expect(actual.start).toEqual(date);
-      expect(actual.end).toBeUndefined();
+      expect(actual.end).toBeNull();
     });
 
     it('should set a new start date if the date is before the start date', () => {
       const previousRange = {
         start: new Temporal.PlainDate(2020, 3, 9),
-        end: undefined,
+        end: null,
       };
       const date = new Temporal.PlainDate(2020, 3, 5);
       const actual = updatePlainDateRange(previousRange, date);
       expect(actual.start).toEqual(date);
-      expect(actual.end).toBeUndefined();
+      expect(actual.end).toBeNull();
     });
 
     it('should set the end date if the date is equal to the start date', () => {
       const previousRange = {
         start: new Temporal.PlainDate(2020, 3, 9),
-        end: undefined,
+        end: null,
       };
       const date = new Temporal.PlainDate(2020, 3, 9);
       const actual = updatePlainDateRange(previousRange, date);
@@ -157,7 +157,7 @@ describe('CalendarService', () => {
     it('should set the end date if the date is after the start date', () => {
       const previousRange = {
         start: new Temporal.PlainDate(2020, 3, 9),
-        end: undefined,
+        end: null,
       };
       const date = new Temporal.PlainDate(2020, 3, 11);
       const actual = updatePlainDateRange(previousRange, date);

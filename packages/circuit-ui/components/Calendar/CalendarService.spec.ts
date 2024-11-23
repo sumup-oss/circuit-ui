@@ -412,7 +412,7 @@ describe('CalendarService', () => {
       const date = new Temporal.PlainDate(2020, 3, 15);
       const selection = {
         start: new Temporal.PlainDate(2020, 3, 15),
-        end: undefined,
+        end: null,
       };
       const actual = isDateActive(date, selection);
       expect(actual).toBe(true);
@@ -420,7 +420,7 @@ describe('CalendarService', () => {
 
     it('should return false for an empty range', () => {
       const date = new Temporal.PlainDate(2020, 3, 15);
-      const selection = { start: undefined, end: undefined };
+      const selection = { start: null, end: null };
       const actual = isDateActive(date, selection);
       expect(actual).toBe(false);
     });
@@ -439,7 +439,7 @@ describe('CalendarService', () => {
       const date = new Temporal.PlainDate(2020, 3, 15);
       const selection = {
         start: new Temporal.PlainDate(2020, 3, 16),
-        end: undefined,
+        end: null,
       };
       const actual = isDateActive(date, selection);
       expect(actual).toBe(false);
@@ -473,7 +473,7 @@ describe('CalendarService', () => {
     it('should return null if the selected range is empty', () => {
       const date = new Temporal.PlainDate(2020, 3, 15);
       const hoveredDate = null;
-      const selection = { start: undefined, end: undefined };
+      const selection = { start: null, end: null };
       const actual = getSelectionType(date, hoveredDate, selection);
       expect(actual).toBeNull();
     });
@@ -491,7 +491,7 @@ describe('CalendarService', () => {
       const hoveredDate = null;
       const selection = {
         start: new Temporal.PlainDate(2020, 3, 15),
-        end: undefined,
+        end: null,
       };
       const actual = getSelectionType(date, hoveredDate, selection);
       expect(actual).toBe('selected');
@@ -502,7 +502,7 @@ describe('CalendarService', () => {
       const hoveredDate = new Temporal.PlainDate(2020, 3, 15);
       const selection = {
         start: new Temporal.PlainDate(2020, 3, 15),
-        end: undefined,
+        end: null,
       };
       const actual = getSelectionType(date, hoveredDate, selection);
       expect(actual).toBe('selected');
@@ -524,7 +524,7 @@ describe('CalendarService', () => {
       const hoveredDate = new Temporal.PlainDate(2020, 3, 25);
       const selection = {
         start: new Temporal.PlainDate(2020, 3, 15),
-        end: undefined,
+        end: null,
       };
       const actual = getSelectionType(date, hoveredDate, selection);
       expect(actual).toBe('range-start');
@@ -546,7 +546,7 @@ describe('CalendarService', () => {
       const hoveredDate = new Temporal.PlainDate(2020, 3, 20);
       const selection = {
         start: new Temporal.PlainDate(2020, 3, 10),
-        end: undefined,
+        end: null,
       };
       const actual = getSelectionType(date, hoveredDate, selection);
       expect(actual).toBe('range-middle');
@@ -568,7 +568,7 @@ describe('CalendarService', () => {
       const hoveredDate = new Temporal.PlainDate(2020, 3, 20);
       const selection = {
         start: new Temporal.PlainDate(2020, 3, 15),
-        end: undefined,
+        end: null,
       };
       const actual = getSelectionType(date, hoveredDate, selection);
       expect(actual).toBe('range-end');
@@ -590,7 +590,7 @@ describe('CalendarService', () => {
       const hoveredDate = new Temporal.PlainDate(2020, 3, 5);
       const selection = {
         start: new Temporal.PlainDate(2020, 3, 15),
-        end: undefined,
+        end: null,
       };
       const actual = getSelectionType(date, hoveredDate, selection);
       expect(actual).toBeNull();

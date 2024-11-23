@@ -21,8 +21,8 @@ import type { Locale } from './i18n.js';
 export type FirstDayOfWeek = 1 | 7;
 export type DaysInWeek = number;
 export type PlainDateRange =
-  | { start: undefined; end: undefined }
-  | { start: Temporal.PlainDate; end: undefined }
+  | { start: null; end: null }
+  | { start: Temporal.PlainDate; end: null }
   | { start: Temporal.PlainDate; end: Temporal.PlainDate };
 
 // ISO 8601 timestamps only support positive 4-digit years
@@ -80,7 +80,7 @@ export function updatePlainDateRange(
     // Selected date is before previous start date
     Temporal.PlainDate.compare(previousRange.start, date) > 0
   ) {
-    return { start: date, end: undefined };
+    return { start: date, end: null };
   }
   return { start: previousRange.start, end: date };
 }
