@@ -16,8 +16,51 @@
 import { isString } from './type-check.js';
 
 export const FALLBACK_LOCALE = 'en-US';
-// TODO: Add remaining locales from dashboard
-export const SUPPORTED_LOCALES = ['en-US', 'de-DE'] as const;
+
+export const SUPPORTED_LOCALES = [
+  'bg-BG',
+  'cs-CZ',
+  'da-DK',
+  'de-AT',
+  'de-CH',
+  'de-DE',
+  'de-LU',
+  'el-CY',
+  'el-GR',
+  'en-AU',
+  'en-GB',
+  'en-IE',
+  'en-MT',
+  'en-US',
+  'es-CL',
+  'es-CO',
+  'es-ES',
+  'es-MX',
+  'es-PE',
+  'es-US',
+  'et-EE',
+  'fi-FI',
+  'fr-BE',
+  'fr-CH',
+  'fr-FR',
+  'fr-LU',
+  'hr-HR',
+  'hu-HU',
+  'it-CH',
+  'it-IT',
+  'lt-LT',
+  'lv-LV',
+  'nb-NO',
+  'nl-BE',
+  'nl-NL',
+  'pl-PL',
+  'pt-BR',
+  'pt-PT',
+  'ro-RO',
+  'sk-SK',
+  'sl-SI',
+  'sv-SE',
+] as const;
 
 export type Locale = string | string[];
 type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
@@ -91,14 +134,14 @@ export function transformModulesToTranslations<
     {} as Translations<Key>,
   );
 
-  // @ts-expect-error This environment variable is set by Vite.
-  if (import.meta.env.DEV) {
-    SUPPORTED_LOCALES.forEach((locale) => {
-      if (!translations[locale]) {
-        throw new Error(`Missing translations for locale ${locale}`);
-      }
-    });
-  }
+  // TODO: Re-enable validation once all translations have been added
+  // if (import.meta.env.DEV) {
+  //   SUPPORTED_LOCALES.forEach((locale) => {
+  //     if (!translations[locale]) {
+  //       throw new Error(`Missing translations for locale ${locale}`);
+  //     }
+  //   });
+  // }
 
   return translations;
 }

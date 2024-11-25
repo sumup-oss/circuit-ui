@@ -35,7 +35,7 @@ export function useI18n<
   const locale = useLocale(props.locale);
 
   const supportedLocale = findSupportedLocale(locale);
-  const strings = translations[supportedLocale];
+  const strings = translations[supportedLocale] || {};
   const keys = Object.keys(strings) as Key[];
 
   const translatedProps = keys.reduce(

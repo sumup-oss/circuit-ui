@@ -80,7 +80,7 @@ describe('i18n', () => {
     it('should match a partial locale', () => {
       const locale = 'de';
       const actual = findSupportedLocale(locale);
-      expect(actual).toBe('de-DE');
+      expect(actual).toBe('de-AT');
     });
 
     it('should return the first supported locale', () => {
