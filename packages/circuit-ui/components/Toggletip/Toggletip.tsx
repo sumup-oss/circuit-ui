@@ -49,8 +49,14 @@ import { CloseButton } from '../CloseButton/index.js';
 import { Headline } from '../Headline/index.js';
 import { Body } from '../Body/index.js';
 import { Button, type ButtonProps } from '../Button/index.js';
+import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
 
 import classes from './Toggletip.module.css';
+import { translations } from './translations/index.js';
 
 export interface ToggletipReferenceProps {
   'id': string;
@@ -84,7 +90,7 @@ export interface ToggletipProps extends HTMLAttributes<HTMLDialogElement> {
   /**
    * Label for the toggletip's close button.
    */
-  closeButtonLabel: string;
+  closeButtonLabel?: string;
   /**
    * Whether the toggletip is initially open. Default: 'false'.
    */
@@ -108,8 +114,8 @@ export interface ToggletipProps extends HTMLAttributes<HTMLDialogElement> {
 }
 
 export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
-  (
-    {
+  (props, ref) => {
+    const {
       defaultOpen = false,
       placement: defaultPlacement = 'top',
       offset = 12,
@@ -120,10 +126,8 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
       closeButtonLabel,
       className,
       style,
-      ...props
-    },
-    ref,
-  ) => {
+      ...rest
+    } = useI18n(props, translations);
     const zIndex = useStackContext();
     const isMobile = useMedia('(max-width: 479px)');
     const arrowRef = useRef<HTMLDivElement>(null);
@@ -234,6 +238,17 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
 
     const dialogStyles = isMobile ? mobileStyles : floatingStyles;
 
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !isSufficientlyLabelled(closeButtonLabel)
+    ) {
+      throw new AccessibilityError(
+        'Toggletip',
+        'The `closeButtonLabel` prop is missing or invalid.',
+      );
+    }
+
     return (
       <Fragment>
         <Component
@@ -244,7 +259,7 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
         {/* eslint-disable jsx-a11y/no-autofocus */}
         {/* @ts-expect-error "Expression produces a union type that is too complex to represent" */}
         <dialog
-          {...props}
+          {...rest}
           open={defaultOpen}
           ref={applyMultipleRefs(ref, dialogRef, refs.setFloating)}
           data-side={side}

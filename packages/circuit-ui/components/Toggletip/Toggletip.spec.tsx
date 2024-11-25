@@ -28,7 +28,6 @@ const baseProps = {
     onClick: vi.fn(),
     target: '_blank',
   },
-  closeButtonLabel: 'Close',
   component: (props: ToggletipReferenceProps) => (
     <button {...props}>Open toggletip</button>
   ),
