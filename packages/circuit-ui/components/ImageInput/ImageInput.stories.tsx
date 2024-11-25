@@ -31,10 +31,8 @@ export const Base = (args: ImageInputProps) => <ImageInput {...args} />;
 
 Base.args = {
   label: 'Upload an image',
-  clearButtonLabel: 'Clear',
   onChange: () => Promise.resolve(),
   onClear: () => {},
-  loadingLabel: 'Uploading',
   component: Avatar,
   disabled: false,
 };
@@ -42,11 +40,9 @@ Base.args = {
 export const WithImage = () => (
   <ImageInput
     label="Upload an image"
-    clearButtonLabel="Clear"
     src="/images/illustration-coffee.jpg"
     onChange={() => Promise.resolve()}
     onClear={() => {}}
-    loadingLabel="Uploading"
     component={(props) => <Avatar {...props} alt="" />}
   />
 );
@@ -55,13 +51,11 @@ export const Invalid = (args: ImageInputProps) => (
   <ImageInput
     {...args}
     label="Upload an image"
-    clearButtonLabel="Clear"
     src="/images/illustration-coffee.jpg"
     onChange={() => Promise.resolve()}
     onClear={() => {}}
     invalid
     validationHint="The uploaded image exceeds the maximum allowed size. Please use an image with a size below 20MB."
-    loadingLabel="Uploading"
     component={(props) => <Avatar {...props} alt="" />}
   />
 );
@@ -70,11 +64,9 @@ export const Disabled = (args: ImageInputProps) => (
   <ImageInput
     {...args}
     label="Upload an image"
-    clearButtonLabel="Clear"
     onChange={() => Promise.resolve()}
     onClear={() => {}}
     disabled
-    loadingLabel="Uploading"
     component={(props) => <Avatar {...props} alt="" />}
     hideLabel={false}
   />
@@ -123,13 +115,11 @@ export const Stateful = () => {
   return (
     <ImageInput
       label="Upload an image"
-      clearButtonLabel="Clear"
       src={imageUrl}
       onChange={onChange}
       onClear={onClear}
       invalid={!!error}
       validationHint={error}
-      loadingLabel="Uploading"
       component={(props) => <Avatar {...props} alt="" />}
     />
   );
@@ -138,10 +128,8 @@ export const Stateful = () => {
 export const CustomComponentImg = () => (
   <ImageInput
     label="Upload an image"
-    clearButtonLabel="Clear"
     onChange={() => Promise.resolve()}
     onClear={() => {}}
-    loadingLabel="Uploading"
     component={({ src, ...props }) => (
       <img
         style={{
@@ -168,10 +156,8 @@ CustomComponentImg.storyName = 'Custom Component (with an img element)';
 export const CustomComponentDiv = () => (
   <ImageInput
     label="Upload an image"
-    clearButtonLabel="Clear"
     onChange={() => Promise.resolve()}
     onClear={() => {}}
-    loadingLabel="Uploading"
     component={({ src, ...props }) => (
       <div
         {...props}

@@ -42,8 +42,10 @@ import {
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';
+import { useI18n } from '../../hooks/useI18n/useI18n.js';
 
 import classes from './ImageInput.module.css';
+import { translations } from './translations/index.js';
 
 export interface ImageInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange'> {
@@ -68,11 +70,11 @@ export interface ImageInputProps
   /**
    * An accessible label for the "clear" icon button.
    */
-  clearButtonLabel: string;
+  clearButtonLabel?: string;
   /**
    * An accessible label to communicate the input's loading state.
    */
-  loadingLabel: string;
+  loadingLabel?: string;
   /**
    * The source URL of an existing Avatar to be displayed in the ImageInput.
    */
@@ -104,26 +106,29 @@ export interface ImageInputProps
 /**
  * The ImageInput component allows users to upload images.
  */
-export const ImageInput = ({
-  label,
-  src,
-  id: customId,
-  clearButtonLabel,
-  onChange,
-  onClear,
-  disabled,
-  validationHint,
-  required,
-  invalid = false,
-  optionalLabel,
-  loadingLabel,
-  hideLabel = true,
-  component: Component,
-  className,
-  style,
-  'aria-describedby': descriptionId,
-  ...props
-}: ImageInputProps) => {
+export const ImageInput = (props: ImageInputProps) => {
+  const {
+    label,
+    src,
+    id: customId,
+    clearButtonLabel,
+    onChange,
+    onClear,
+    disabled,
+    validationHint,
+    required,
+    invalid = false,
+    optionalLabel,
+    loadingLabel,
+    hideLabel = true,
+    component: Component,
+    className,
+    style,
+    'aria-describedby': descriptionId,
+    locale,
+    ...rest
+  } = useI18n(props, translations);
+
   if (
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test'
@@ -264,7 +269,7 @@ export const ImageInput = ({
           disabled={disabled || isLoading}
           aria-invalid={invalid && 'true'}
           aria-describedby={descriptionIds}
-          {...props}
+          {...rest}
         />
         <FieldLabel
           htmlFor={inputId}

@@ -31,8 +31,6 @@ import { ImageInput, type ImageInputProps } from './ImageInput.js';
 
 const defaultProps: ImageInputProps = {
   label: 'Upload an image',
-  loadingLabel: 'Uploading',
-  clearButtonLabel: 'Clear',
   onChange: () => Promise.resolve(),
   onClear: () => {},
   component: (props) => <Avatar {...props} alt="" />,
@@ -46,7 +44,7 @@ describe('ImageInput', () => {
     .mockResolvedValue('/images/illustration-coffee.jpg');
   const mockClearFn = vi.fn();
 
-  function StatefulInput() {
+  function StatefulInput(props: Partial<ImageInputProps>) {
     const [imageUrl, setImageUrl] = useState<string>('');
     const [error, setError] = useState<string>('');
 
@@ -68,15 +66,14 @@ describe('ImageInput', () => {
 
     return (
       <ImageInput
+        {...props}
         label="Upload an image"
-        clearButtonLabel="Clear"
         src={imageUrl}
         onChange={onChange}
         onClear={onClear}
         invalid={!!error}
         validationHint={error}
-        loadingLabel="Uploading"
-        component={(props) => <Avatar {...props} alt="" />}
+        component={(componentProps) => <Avatar {...componentProps} alt="" />}
       />
     );
   }
@@ -148,7 +145,10 @@ describe('ImageInput', () => {
     });
 
     it('should clear an uploaded image', async () => {
-      const { container } = render(<StatefulInput />);
+      const clearButtonLabel = 'Clear file';
+      const { container } = render(
+        <StatefulInput clearButtonLabel={clearButtonLabel} />,
+      );
       const inputEl = screen.getByLabelText(defaultProps.label);
 
       await userEvent.upload(inputEl, file);
@@ -160,7 +160,7 @@ describe('ImageInput', () => {
       );
 
       await userEvent.click(
-        screen.getByRole('button', { name: defaultProps.clearButtonLabel }),
+        screen.getByRole('button', { name: clearButtonLabel }),
       );
 
       await waitFor(() => {
