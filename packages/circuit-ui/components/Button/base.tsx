@@ -32,8 +32,10 @@ import {
 } from '../../util/errors.js';
 import { utilClasses } from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
+import { useI18n } from '../../hooks/useI18n/useI18n.js';
 
 import classes from './base.module.css';
+import { translations } from './translations/index.js';
 
 type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
 type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
@@ -141,8 +143,9 @@ export function createButtonComponent<Props>(
       icon: LeadingIcon,
       navigationIcon: TrailingIcon,
       as,
+      locale,
       ...sharedProps
-    } = mapProps(props);
+    } = useI18n(mapProps(props), translations);
 
     const components = useComponents();
     const Link = components.Link as AsPropType;

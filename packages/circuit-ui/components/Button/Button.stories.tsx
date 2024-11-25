@@ -110,6 +110,5 @@ export const Loading = (args: ButtonProps) => {
 };
 
 Loading.args = {
-  loadingLabel: 'Loading',
   isLoading: true,
 };

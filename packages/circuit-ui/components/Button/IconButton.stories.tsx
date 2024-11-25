@@ -90,7 +90,6 @@ export const Loading = (args: IconButtonProps) => {
 };
 
 Loading.args = {
-  loadingLabel: 'Loading',
   isLoading: true,
   icon: Plus,
 };

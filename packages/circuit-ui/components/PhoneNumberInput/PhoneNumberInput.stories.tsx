@@ -76,6 +76,7 @@ export const Validations = (args: PhoneNumberInputProps) => (
   <Stack>
     <PhoneNumberInput
       {...args}
+      required
       validationHint="This is not valid"
       subscriberNumber={{
         ...args.subscriberNumber,

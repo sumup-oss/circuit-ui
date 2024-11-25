@@ -53,7 +53,7 @@ describe('Button', () => {
     });
 
     it('should render loading button with loading label', () => {
-      const loadingLabel = 'Loading';
+      const loadingLabel = 'Submitting form';
       render(<Button isLoading loadingLabel={loadingLabel} />);
       expect(screen.getByText(loadingLabel)).toBeVisible();
     });
@@ -76,7 +76,7 @@ describe('Button', () => {
     });
 
     it('should render as disabled when loading', () => {
-      render(<Button isLoading loadingLabel="Loading" />);
+      render(<Button isLoading />);
 
       const button = screen.getByRole('button');
 
@@ -84,7 +84,7 @@ describe('Button', () => {
     });
 
     it('should render as disabled when not loading', () => {
-      render(<Button disabled isLoading={false} loadingLabel="Loading" />);
+      render(<Button disabled isLoading={false} />);
 
       const button = screen.getByRole('button');
 
@@ -134,17 +134,13 @@ describe('Button', () => {
     });
 
     it('should meet accessibility guidelines for Loading button', async () => {
-      const { container } = render(
-        <Button isLoading={true} loadingLabel="Loading">
-          Button
-        </Button>,
-      );
+      const { container } = render(<Button isLoading={true}>Button</Button>);
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });
 
     it('should have aria-busy and aria-live for a loading button', () => {
-      render(<Button isLoading loadingLabel="Loading" />);
+      render(<Button isLoading />);
       const button = screen.getByRole('button');
 
       expect(button).toHaveAttribute('aria-live', 'polite');
