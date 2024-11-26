@@ -352,7 +352,9 @@ export const PhoneNumberInput = forwardRef<
           {readOnly || countryCode.readonly ? (
             <Input
               hideLabel
+              aria-describedby={descriptionIds}
               autoComplete="tel-country-code"
+              required={required}
               disabled={disabled}
               className={classes['country-code']}
               inputClassName={classes['country-code-input']}
@@ -373,7 +375,9 @@ export const PhoneNumberInput = forwardRef<
           ) : (
             <Select
               hideLabel
+              aria-describedby={descriptionIds}
               autoComplete="tel-country-code"
+              required={required}
               disabled={disabled}
               className={classes['country-code']}
               {...countryCode}
@@ -397,10 +401,12 @@ export const PhoneNumberInput = forwardRef<
           )}
           <Input
             hideLabel
+            aria-describedby={descriptionIds}
             autoComplete="tel-national"
             placeholder={subscriberNumber.placeholder}
             pattern="^(?:[0-9]\s?){0,14}[0-9]$"
             inputMode="tel"
+            required={required}
             disabled={disabled}
             className={classes['subscriber-number']}
             inputClassName={classes['subscriber-number-input']}

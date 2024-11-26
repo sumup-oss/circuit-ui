@@ -102,16 +102,49 @@ describe('PhoneNumberInput', () => {
     expect(ref.current).toBe(input);
   });
 
-  it('should call onChange when there is a change', async () => {
-    const onChange = vi.fn();
-    const props = {
-      ...defaultProps,
-      onChange,
-    };
-    render(<PhoneNumberInput {...props} />);
-    const select = screen.getByRole('combobox');
-    await userEvent.selectOptions(select, 'DE');
-    expect(onChange).toHaveBeenCalledOnce();
+  describe('semantics', () => {
+    it('should accept a custom description via aria-describedby', () => {
+      const customDescription = 'Custom description';
+      const customDescriptionId = 'customDescriptionId';
+      render(
+        <>
+          <span id={customDescriptionId}>{customDescription}</span>
+          <PhoneNumberInput
+            {...defaultProps}
+            aria-describedby={customDescriptionId}
+          />
+        </>,
+      );
+      const countryCode = screen.getByLabelText('Country code');
+      const subscriberNumber = screen.getByLabelText('Subscriber number');
+      expect(countryCode).toHaveAccessibleDescription(customDescription);
+      expect(subscriberNumber).toHaveAccessibleDescription(customDescription);
+    });
+
+    it('should render as disabled', async () => {
+      render(<PhoneNumberInput {...defaultProps} disabled />);
+
+      const countryCode = screen.getByLabelText('Country code');
+      const subscriberNumber = screen.getByLabelText('Subscriber number');
+      expect(countryCode).toBeDisabled();
+      expect(subscriberNumber).toBeDisabled();
+    });
+
+    it('should render as read-only', async () => {
+      render(<PhoneNumberInput {...defaultProps} readOnly />);
+      const countryCode = screen.getByLabelText('Country code');
+      const subscriberNumber = screen.getByLabelText('Subscriber number');
+      expect(countryCode).toHaveAttribute('readonly');
+      expect(subscriberNumber).toHaveAttribute('readonly');
+    });
+
+    it('should render as required', async () => {
+      render(<PhoneNumberInput {...defaultProps} required />);
+      const countryCode = screen.getByLabelText('Country code');
+      const subscriberNumber = screen.getByLabelText('Subscriber number');
+      expect(countryCode).toBeRequired();
+      expect(subscriberNumber).toBeRequired();
+    });
   });
 
   it('should display a default value', () => {
@@ -153,6 +186,18 @@ describe('PhoneNumberInput', () => {
     expect(input).toHaveValue('+112345678');
     expect(countryCode).toHaveValue('CA');
     expect(subscriberNumber).toHaveValue('12345678');
+  });
+
+  it('should call onChange when there is a change', async () => {
+    const onChange = vi.fn();
+    const props = {
+      ...defaultProps,
+      onChange,
+    };
+    render(<PhoneNumberInput {...props} />);
+    const select = screen.getByRole('combobox');
+    await userEvent.selectOptions(select, 'DE');
+    expect(onChange).toHaveBeenCalledOnce();
   });
 
   it('should call countryCode onChange when there is a change in the country code', async () => {
