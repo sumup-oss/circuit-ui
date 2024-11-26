@@ -56,6 +56,7 @@ export const Validations = (args: ColorInputProps) => (
       {...args}
       defaultValue=""
       invalid
+      required
       validationHint="Please enter a color"
     />
     <ColorInput

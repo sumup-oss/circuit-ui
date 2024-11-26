@@ -74,8 +74,8 @@ export function DateSegment({
     if (sizeRef.current) {
       const cursorWidth = 1;
       const elementSize = sizeRef.current.getBoundingClientRect();
-      const offsetWidth = Math.ceil(elementSize.width);
-      setWidth(`${cursorWidth + offsetWidth}px`);
+      const elementWidth = Math.ceil(elementSize.width);
+      setWidth(`${cursorWidth + elementWidth}px`);
     }
   }, [props.value]);
 
