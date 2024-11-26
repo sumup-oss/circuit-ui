@@ -17,6 +17,8 @@
 
 import {
   forwardRef,
+  useCallback,
+  useEffect,
   useId,
   useRef,
   type ChangeEventHandler,
@@ -36,6 +38,11 @@ import { applyMultipleRefs } from '../../util/refs.js';
 import { changeInputValue } from '../../util/input-value.js';
 
 import classes from './ColorInput.module.css';
+import {
+  isSameColor,
+  isValidColor,
+  normalizeColor,
+} from './ColorInputService.js';
 
 export interface ColorInputProps
   extends Omit<
@@ -76,7 +83,6 @@ export const ColorInput = forwardRef<HTMLInputElement, ColorInputProps>(
       hasWarning,
       showValid,
       hideLabel,
-      id,
       invalid,
       label,
       onChange,
@@ -101,55 +107,54 @@ export const ColorInput = forwardRef<HTMLInputElement, ColorInputProps>(
 
     const descriptionIds = clsx(validationHintId, descriptionId);
 
+    const updatePickerValue = useCallback((color: string) => {
+      if (!colorPickerRef.current || !isValidColor(color)) {
+        return;
+      }
+
+      changeInputValue(colorPickerRef.current, normalizeColor(color));
+    }, []);
+
+    const updateInputValue = useCallback((color?: string) => {
+      if (!colorInputRef.current || !color) {
+        return;
+      }
+
+      const currentColor = colorInputRef.current.value;
+
+      if (!isSameColor(currentColor, color)) {
+        changeInputValue(colorInputRef.current, color.trim().replace('#', ''));
+      }
+    }, []);
+
+    useEffect(() => {
+      updateInputValue(value);
+    }, [updateInputValue, value]);
+
     const handlePaste: ClipboardEventHandler<HTMLInputElement> = (event) => {
       if (!colorPickerRef.current || !colorInputRef.current || readOnly) {
         return;
       }
 
-      event.preventDefault();
-
       const pastedText = event.clipboardData.getData('text/plain').trim();
 
-      if (!pastedText || !/^#?[0-9A-F]{6}$/i.test(pastedText)) {
+      if (!pastedText || !isValidColor(pastedText)) {
         return;
       }
 
-      const pastedColor = pastedText.startsWith('#')
-        ? pastedText
-        : `#${pastedText}`;
+      event.preventDefault();
 
-      colorPickerRef.current.value = pastedColor;
-      colorPickerRef.current.dispatchEvent(
-        new Event('change', { bubbles: true }),
-      );
-
-      changeInputValue(colorInputRef.current, pastedColor.replace('#', ''));
+      updatePickerValue(pastedText);
+      updateInputValue(pastedText);
     };
 
-    const onPickerColorChange: ChangeEventHandler<HTMLInputElement> = (
-      event,
-    ) => {
-      if (colorInputRef.current) {
-        colorInputRef.current.value = event.target.value.replace('#', '');
-      }
-      if (onChange) {
-        onChange(event);
-      }
+    const onPickerChange: ChangeEventHandler<HTMLInputElement> = (event) => {
+      onChange?.(event);
+      updateInputValue(event.target.value);
     };
 
     const onInputChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-      if (colorPickerRef.current) {
-        colorPickerRef.current.value = `#${event.target.value}`;
-      }
-      if (onChange) {
-        onChange({
-          ...event,
-          target: {
-            ...event.target,
-            value: `#${event.target.value}`,
-          },
-        });
-      }
+      updatePickerValue(event.target.value);
     };
 
     return (
@@ -174,16 +179,18 @@ export const ColorInput = forwardRef<HTMLInputElement, ColorInputProps>(
               type="color"
               aria-labelledby={labelId}
               aria-describedby={descriptionIds}
+              aria-invalid={invalid ? 'true' : undefined}
               className={classes['color-input']}
-              onChange={onPickerColorChange}
+              onChange={onPickerChange}
               disabled={disabled || readOnly}
-              defaultValue={defaultValue}
-              value={value}
+              required={required}
+              defaultValue={defaultValue && normalizeColor(defaultValue)}
+              value={value && normalizeColor(value)}
+              {...props}
             />
           </label>
           <span className={classes.symbol}>#</span>
           <input
-            id={id}
             ref={colorInputRef}
             type="text"
             aria-labelledby={labelId}
@@ -194,18 +201,16 @@ export const ColorInput = forwardRef<HTMLInputElement, ColorInputProps>(
               classes.input,
               inputClassName,
             )}
-            aria-invalid={invalid && 'true'}
+            aria-invalid={invalid ? 'true' : undefined}
             required={required}
             maxLength={6}
             pattern="[0-9a-f]{3,6}"
             readOnly={readOnly}
             disabled={disabled}
-            value={value?.replace('#', '')}
-            defaultValue={defaultValue?.replace('#', '')}
+            defaultValue={(defaultValue || value)?.replace('#', '')}
             placeholder={placeholder?.replace('#', '')}
             onChange={onInputChange}
             onPaste={handlePaste}
-            {...props}
           />
         </div>
         <FieldValidationHint
