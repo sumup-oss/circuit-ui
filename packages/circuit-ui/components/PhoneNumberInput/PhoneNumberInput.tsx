@@ -305,14 +305,14 @@ export const PhoneNumberInput = forwardRef<
       if (!isSufficientlyLabelled(countryCode.label)) {
         throw new AccessibilityError(
           'PhoneNumberInput',
-          'The `countryCodeLabel` prop is missing or invalid.',
+          'The `countryCode.label` prop is missing or invalid.',
         );
       }
 
       if (!isSufficientlyLabelled(subscriberNumber.label)) {
         throw new AccessibilityError(
           'PhoneNumberInput',
-          'The `subscriberNumberLabel` prop is missing or invalid.',
+          'The `subscriberNumber.label` prop is missing or invalid.',
         );
       }
     }

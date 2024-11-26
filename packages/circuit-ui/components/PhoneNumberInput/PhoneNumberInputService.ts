@@ -33,8 +33,11 @@ export function parsePhoneNumber(
   countryCode?: string;
   subscriberNumber?: string;
 } {
-  // TODO: Normalize the value further
   const sanitizedValue = value
+    // Strip non-numeric, non-whitespace characters
+    ?.replace(/[^+0-9\s]/g, ' ')
+    // Replace unsupported whitespace characters with simple space
+    ?.replace(/\s+/g, ' ')
     ?.trim()
     // Normalize the country code prefix
     ?.replace(/^00/, '+');
@@ -62,8 +65,13 @@ export function parsePhoneNumber(
     };
   }
 
-  // TODO: Handle non-existent subscriber number
-  const subscriberNumber = sanitizedValue.split(matchedOption.code)[1];
+  const subscriberNumber = sanitizedValue.split(matchedOption.code)[1].trim();
+
+  if (!subscriberNumber) {
+    return {
+      countryCode: matchedOption.country,
+    };
+  }
 
   return {
     countryCode: matchedOption.country,
@@ -77,9 +85,9 @@ export function normalizePhoneNumber(
 ) {
   const normalizedSubscriberNumber = subscriberNumber
     // Strip non-numeric, non-whitespace characters
-    .replace(/[^0-9\s]/g, '')
+    .replace(/[^0-9\s]/g, ' ')
     // Replace unsupported whitespace characters with simple space
-    .replace(/\s/g, ' ')
+    .replace(/\s+/g, ' ')
     // Strip any leading zeros
     .replace(/^0+/, '');
   return `${countryCode}${normalizedSubscriberNumber}`;
@@ -89,20 +97,23 @@ export function mapCountryCodeOptions(
   countryCodeOptions: { country: string; code: string }[],
   locale?: string | string[],
 ): Required<SelectProps>['options'] {
-  // eslint-disable-next-line compat/compat
-  const isIntlDisplayNamesSupported = typeof Intl.DisplayNames === 'function';
-  if (!isIntlDisplayNamesSupported) {
+  const getCountryName = (country: string) => {
+    // eslint-disable-next-line compat/compat
+    const isIntlDisplayNamesSupported = typeof Intl.DisplayNames === 'function';
+
     // When Intl.DisplayNames is not supported, we can't provide the localized country names
-    return countryCodeOptions.map(({ code, country }) => ({
-      label: `${country} (${code})`,
-      value: code,
-    }));
-  }
-  // eslint-disable-next-line compat/compat
-  const displayName = new Intl.DisplayNames(locale, { type: 'region' });
+    if (!isIntlDisplayNamesSupported || !country) {
+      return country;
+    }
+
+    // eslint-disable-next-line compat/compat
+    const displayName = new Intl.DisplayNames(locale, { type: 'region' });
+    return displayName.of(country);
+  };
+
   return countryCodeOptions
     .map(({ code, country }) => {
-      const countryName = country ? displayName.of(country) : country;
+      const countryName = getCountryName(country);
       return {
         label: countryName ? `${countryName} (${code})` : code,
         value: country,

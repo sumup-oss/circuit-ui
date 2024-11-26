@@ -45,6 +45,10 @@ const defaultProps = {
   },
 };
 
+function getHiddenInput(container: HTMLElement) {
+  return container.querySelectorAll('input')[0];
+}
+
 describe('PhoneNumberInput', () => {
   it('should merge a custom class name with the default ones', () => {
     const props = {
@@ -61,7 +65,7 @@ describe('PhoneNumberInput', () => {
     const { container } = render(
       <PhoneNumberInput {...defaultProps} ref={ref} />,
     );
-    const input = container.querySelectorAll('input')[0];
+    const input = getHiddenInput(container);
     expect(ref.current).toBe(input);
   });
 
@@ -74,6 +78,17 @@ describe('PhoneNumberInput', () => {
     render(<PhoneNumberInput {...props} />);
     const select = screen.getByLabelText('Country code');
     expect(ref.current).toBe(select);
+  });
+
+  it('should forward a ref to the country code input', () => {
+    const ref = createRef<HTMLSelectElement>();
+    const props = {
+      ...defaultProps,
+      countryCode: { ...defaultProps.countryCode, ref },
+    };
+    render(<PhoneNumberInput {...props} />);
+    const input = screen.getByLabelText('Country code');
+    expect(ref.current).toBe(input);
   });
 
   it('should forward a ref to the subscriber number input', () => {
@@ -105,7 +120,7 @@ describe('PhoneNumberInput', () => {
       defaultValue: '+4912345678',
     };
     const { container } = render(<PhoneNumberInput {...props} />);
-    const input = container.querySelectorAll('input')[0];
+    const input = getHiddenInput(container);
     const countryCode = screen.getByLabelText('Country code');
     const subscriberNumber = screen.getByLabelText('Subscriber number');
     expect(input).toHaveValue('+4912345678');
@@ -119,7 +134,7 @@ describe('PhoneNumberInput', () => {
       value: '+4912345678',
     };
     const { container } = render(<PhoneNumberInput {...props} />);
-    const input = container.querySelectorAll('input')[0];
+    const input = getHiddenInput(container);
     const countryCode = screen.getByLabelText('Country code');
     const subscriberNumber = screen.getByLabelText('Subscriber number');
     expect(input).toHaveValue('+4912345678');
@@ -132,7 +147,7 @@ describe('PhoneNumberInput', () => {
       <PhoneNumberInput {...defaultProps} value="+4912345678" />,
     );
     rerender(<PhoneNumberInput {...defaultProps} value="+112345678" />);
-    const input = container.querySelectorAll('input')[0];
+    const input = getHiddenInput(container);
     const countryCode = screen.getByLabelText('Country code');
     const subscriberNumber = screen.getByLabelText('Subscriber number');
     expect(input).toHaveValue('+112345678');
@@ -232,7 +247,7 @@ describe('PhoneNumberInput', () => {
     expect(input).toBeValid();
   });
 
-  it('should flag the input field as invalid when the pattern is not matching', () => {
+  it('should flag the subscriber number field as invalid when the pattern is not matching', () => {
     const props = {
       ...defaultProps,
       subscriberNumber: {
@@ -261,7 +276,7 @@ describe('PhoneNumberInput', () => {
     expect(fieldset).toHaveAttribute('aria-describedby');
   });
 
-  it('should throw accessibility error when the label is not sufficiently labelled and the hideLabel prop is not set', () => {
+  it('should throw accessibility error when the field is not sufficiently labelled', () => {
     const props = {
       ...defaultProps,
       label: undefined,
