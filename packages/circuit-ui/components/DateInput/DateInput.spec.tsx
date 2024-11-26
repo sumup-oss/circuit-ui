@@ -185,39 +185,6 @@ describe('DateInput', () => {
         '2001',
       );
     });
-
-    it.todo(
-      'should mark the year input as readonly when the minimum and maximum dates have the same year',
-      () => {
-        render(<DateInput {...props} min="2000-04-29" max="2000-06-15" />);
-        expect(screen.getByLabelText(/year/i)).toHaveAttribute('readonly');
-        expect(screen.getByLabelText(/month/i)).toHaveAttribute(
-          'aria-valuemin',
-          '4',
-        );
-        expect(screen.getByLabelText(/month/i)).toHaveAttribute(
-          'aria-valuemax',
-          '6',
-        );
-      },
-    );
-
-    it.todo(
-      'should mark the year and month inputs as readonly when the minimum and maximum dates have the same year and month',
-      () => {
-        render(<DateInput {...props} min="2000-04-09" max="2000-04-27" />);
-        expect(screen.getByLabelText(/year/i)).toHaveAttribute('readonly');
-        expect(screen.getByLabelText(/month/i)).toHaveAttribute('readonly');
-        expect(screen.getByLabelText(/day/i)).toHaveAttribute(
-          'aria-valuemin',
-          '9',
-        );
-        expect(screen.getByLabelText(/day/i)).toHaveAttribute(
-          'aria-valuemax',
-          '27',
-        );
-      },
-    );
   });
 
   describe('state', () => {
