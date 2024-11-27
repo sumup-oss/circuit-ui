@@ -25,7 +25,6 @@ export default {
 
 const baseArgs = {
   label: 'Color',
-  placeholder: '#99ffbb',
   defaultValue: '#99ffbb',
 };
 
@@ -55,9 +54,10 @@ export const Validations = (args: ColorInputProps) => (
     />
     <ColorInput
       {...args}
-      defaultValue="#fff"
+      defaultValue=""
       invalid
-      validationHint="Value must be a 6 character hexadecimal color"
+      required
+      validationHint="Please enter a color"
     />
     <ColorInput
       {...args}

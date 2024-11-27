@@ -305,14 +305,14 @@ export const PhoneNumberInput = forwardRef<
       if (!isSufficientlyLabelled(countryCode.label)) {
         throw new AccessibilityError(
           'PhoneNumberInput',
-          'The `countryCodeLabel` prop is missing or invalid.',
+          'The `countryCode.label` prop is missing or invalid.',
         );
       }
 
       if (!isSufficientlyLabelled(subscriberNumber.label)) {
         throw new AccessibilityError(
           'PhoneNumberInput',
-          'The `subscriberNumberLabel` prop is missing or invalid.',
+          'The `subscriberNumber.label` prop is missing or invalid.',
         );
       }
     }
@@ -352,7 +352,9 @@ export const PhoneNumberInput = forwardRef<
           {readOnly || countryCode.readonly ? (
             <Input
               hideLabel
+              aria-describedby={descriptionIds}
               autoComplete="tel-country-code"
+              required={required}
               disabled={disabled}
               className={classes['country-code']}
               inputClassName={classes['country-code-input']}
@@ -373,7 +375,9 @@ export const PhoneNumberInput = forwardRef<
           ) : (
             <Select
               hideLabel
+              aria-describedby={descriptionIds}
               autoComplete="tel-country-code"
+              required={required}
               disabled={disabled}
               className={classes['country-code']}
               {...countryCode}
@@ -397,10 +401,12 @@ export const PhoneNumberInput = forwardRef<
           )}
           <Input
             hideLabel
+            aria-describedby={descriptionIds}
             autoComplete="tel-national"
             placeholder={subscriberNumber.placeholder}
             pattern="^(?:[0-9]\s?){0,14}[0-9]$"
             inputMode="tel"
+            required={required}
             disabled={disabled}
             className={classes['subscriber-number']}
             inputClassName={classes['subscriber-number-input']}

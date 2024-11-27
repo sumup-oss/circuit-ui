@@ -73,8 +73,9 @@ export function DateSegment({
   useLayoutEffect(() => {
     if (sizeRef.current) {
       const cursorWidth = 1;
-      const { offsetWidth } = sizeRef.current;
-      setWidth(`${cursorWidth + offsetWidth}px`);
+      const elementSize = sizeRef.current.getBoundingClientRect();
+      const elementWidth = Math.ceil(elementSize.width);
+      setWidth(`${cursorWidth + elementWidth}px`);
     }
   }, [props.value]);
 

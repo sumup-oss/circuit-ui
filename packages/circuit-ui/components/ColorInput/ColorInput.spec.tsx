@@ -105,16 +105,17 @@ describe('ColorInput', () => {
     });
 
     it('should ignore an invalid value', () => {
-      render(<ColorInput {...baseProps} value="#fff" />);
+      render(<ColorInput {...baseProps} value="#ffg" />);
       const [colorInput, textInput] = screen.getAllByLabelText(baseProps.label);
 
       expect(colorInput).toHaveValue('#000000');
-      expect(textInput).toHaveValue('fff');
+      expect(textInput).toHaveValue('ffg');
     });
   });
 
   describe('user interactions', () => {
     const newValue = '00ff00';
+
     it('should update text input if color input changes', async () => {
       const onChange = vi.fn();
       render(<ColorInput {...baseProps} onChange={onChange} />);
@@ -124,6 +125,13 @@ describe('ColorInput', () => {
 
       expect(textInput).toHaveValue(newValue.replace('#', ''));
       expect(onChange).toHaveBeenCalledTimes(1);
+      expect(onChange).toHaveBeenCalledWith(
+        expect.objectContaining({
+          target: expect.objectContaining({
+            value: `#${newValue}`,
+          }),
+        }),
+      );
     });
 
     it('should update color input if text input changes', async () => {
@@ -134,11 +142,19 @@ describe('ColorInput', () => {
       await userEvent.type(textInput, newValue);
 
       expect(colorInput).toHaveValue(`#${newValue}`);
-      expect(onChange).toHaveBeenCalled();
+      expect(onChange).toHaveBeenCalledTimes(2);
+      expect(onChange).toHaveBeenCalledWith(
+        expect.objectContaining({
+          target: expect.objectContaining({
+            value: `#${newValue}`,
+          }),
+        }),
+      );
     });
 
     it('should handle paste events', async () => {
-      render(<ColorInput {...baseProps} />);
+      const onChange = vi.fn();
+      render(<ColorInput {...baseProps} onChange={onChange} />);
       const [colorInput, textInput] = screen.getAllByLabelText(baseProps.label);
 
       await userEvent.click(textInput);
@@ -146,21 +162,32 @@ describe('ColorInput', () => {
 
       expect(colorInput).toHaveValue(`#${newValue}`);
       expect(textInput).toHaveValue(newValue);
+      expect(onChange).toHaveBeenCalledTimes(1);
+      expect(onChange).toHaveBeenCalledWith(
+        expect.objectContaining({
+          target: expect.objectContaining({
+            value: `#${newValue}`,
+          }),
+        }),
+      );
     });
 
     it('should ignore invalid paste event', async () => {
-      render(<ColorInput {...baseProps} />);
+      const onChange = vi.fn();
+      render(<ColorInput {...baseProps} onChange={onChange} />);
       const [colorInput, textInput] = screen.getAllByLabelText(baseProps.label);
 
       await userEvent.click(textInput);
       await userEvent.paste('obviously invalid');
 
       expect(colorInput).toHaveValue('#000000');
-      expect(textInput).toHaveValue('');
+      expect(textInput).toHaveValue('obviou');
+      expect(onChange).not.toHaveBeenCalled();
     });
 
     it("should allow pasting color without '#'", async () => {
-      render(<ColorInput {...baseProps} />);
+      const onChange = vi.fn();
+      render(<ColorInput {...baseProps} onChange={onChange} />);
       const [colorInput, textInput] = screen.getAllByLabelText(baseProps.label);
 
       await userEvent.click(textInput);
@@ -168,6 +195,14 @@ describe('ColorInput', () => {
 
       expect(colorInput).toHaveValue(`#${newValue}`);
       expect(textInput).toHaveValue(newValue);
+      expect(onChange).toHaveBeenCalledTimes(1);
+      expect(onChange).toHaveBeenCalledWith(
+        expect.objectContaining({
+          target: expect.objectContaining({
+            value: `#${newValue}`,
+          }),
+        }),
+      );
     });
   });
 });

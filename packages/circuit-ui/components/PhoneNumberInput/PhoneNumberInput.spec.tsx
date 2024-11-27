@@ -45,6 +45,10 @@ const defaultProps = {
   },
 };
 
+function getHiddenInput(container: HTMLElement) {
+  return container.querySelectorAll('input')[0];
+}
+
 describe('PhoneNumberInput', () => {
   it('should merge a custom class name with the default ones', () => {
     const props = {
@@ -61,7 +65,7 @@ describe('PhoneNumberInput', () => {
     const { container } = render(
       <PhoneNumberInput {...defaultProps} ref={ref} />,
     );
-    const input = container.querySelectorAll('input')[0];
+    const input = getHiddenInput(container);
     expect(ref.current).toBe(input);
   });
 
@@ -76,6 +80,17 @@ describe('PhoneNumberInput', () => {
     expect(ref.current).toBe(select);
   });
 
+  it('should forward a ref to the country code input', () => {
+    const ref = createRef<HTMLSelectElement>();
+    const props = {
+      ...defaultProps,
+      countryCode: { ...defaultProps.countryCode, ref },
+    };
+    render(<PhoneNumberInput {...props} />);
+    const input = screen.getByLabelText('Country code');
+    expect(ref.current).toBe(input);
+  });
+
   it('should forward a ref to the subscriber number input', () => {
     const ref = createRef<HTMLInputElement>();
     const props = {
@@ -87,16 +102,49 @@ describe('PhoneNumberInput', () => {
     expect(ref.current).toBe(input);
   });
 
-  it('should call onChange when there is a change', async () => {
-    const onChange = vi.fn();
-    const props = {
-      ...defaultProps,
-      onChange,
-    };
-    render(<PhoneNumberInput {...props} />);
-    const select = screen.getByRole('combobox');
-    await userEvent.selectOptions(select, 'DE');
-    expect(onChange).toHaveBeenCalledOnce();
+  describe('semantics', () => {
+    it('should accept a custom description via aria-describedby', () => {
+      const customDescription = 'Custom description';
+      const customDescriptionId = 'customDescriptionId';
+      render(
+        <>
+          <span id={customDescriptionId}>{customDescription}</span>
+          <PhoneNumberInput
+            {...defaultProps}
+            aria-describedby={customDescriptionId}
+          />
+        </>,
+      );
+      const countryCode = screen.getByLabelText('Country code');
+      const subscriberNumber = screen.getByLabelText('Subscriber number');
+      expect(countryCode).toHaveAccessibleDescription(customDescription);
+      expect(subscriberNumber).toHaveAccessibleDescription(customDescription);
+    });
+
+    it('should render as disabled', async () => {
+      render(<PhoneNumberInput {...defaultProps} disabled />);
+
+      const countryCode = screen.getByLabelText('Country code');
+      const subscriberNumber = screen.getByLabelText('Subscriber number');
+      expect(countryCode).toBeDisabled();
+      expect(subscriberNumber).toBeDisabled();
+    });
+
+    it('should render as read-only', async () => {
+      render(<PhoneNumberInput {...defaultProps} readOnly />);
+      const countryCode = screen.getByLabelText('Country code');
+      const subscriberNumber = screen.getByLabelText('Subscriber number');
+      expect(countryCode).toHaveAttribute('readonly');
+      expect(subscriberNumber).toHaveAttribute('readonly');
+    });
+
+    it('should render as required', async () => {
+      render(<PhoneNumberInput {...defaultProps} required />);
+      const countryCode = screen.getByLabelText('Country code');
+      const subscriberNumber = screen.getByLabelText('Subscriber number');
+      expect(countryCode).toBeRequired();
+      expect(subscriberNumber).toBeRequired();
+    });
   });
 
   it('should display a default value', () => {
@@ -105,7 +153,7 @@ describe('PhoneNumberInput', () => {
       defaultValue: '+4912345678',
     };
     const { container } = render(<PhoneNumberInput {...props} />);
-    const input = container.querySelectorAll('input')[0];
+    const input = getHiddenInput(container);
     const countryCode = screen.getByLabelText('Country code');
     const subscriberNumber = screen.getByLabelText('Subscriber number');
     expect(input).toHaveValue('+4912345678');
@@ -119,7 +167,7 @@ describe('PhoneNumberInput', () => {
       value: '+4912345678',
     };
     const { container } = render(<PhoneNumberInput {...props} />);
-    const input = container.querySelectorAll('input')[0];
+    const input = getHiddenInput(container);
     const countryCode = screen.getByLabelText('Country code');
     const subscriberNumber = screen.getByLabelText('Subscriber number');
     expect(input).toHaveValue('+4912345678');
@@ -132,12 +180,24 @@ describe('PhoneNumberInput', () => {
       <PhoneNumberInput {...defaultProps} value="+4912345678" />,
     );
     rerender(<PhoneNumberInput {...defaultProps} value="+112345678" />);
-    const input = container.querySelectorAll('input')[0];
+    const input = getHiddenInput(container);
     const countryCode = screen.getByLabelText('Country code');
     const subscriberNumber = screen.getByLabelText('Subscriber number');
     expect(input).toHaveValue('+112345678');
     expect(countryCode).toHaveValue('CA');
     expect(subscriberNumber).toHaveValue('12345678');
+  });
+
+  it('should call onChange when there is a change', async () => {
+    const onChange = vi.fn();
+    const props = {
+      ...defaultProps,
+      onChange,
+    };
+    render(<PhoneNumberInput {...props} />);
+    const select = screen.getByRole('combobox');
+    await userEvent.selectOptions(select, 'DE');
+    expect(onChange).toHaveBeenCalledOnce();
   });
 
   it('should call countryCode onChange when there is a change in the country code', async () => {
@@ -232,7 +292,7 @@ describe('PhoneNumberInput', () => {
     expect(input).toBeValid();
   });
 
-  it('should flag the input field as invalid when the pattern is not matching', () => {
+  it('should flag the subscriber number field as invalid when the pattern is not matching', () => {
     const props = {
       ...defaultProps,
       subscriberNumber: {
@@ -261,7 +321,7 @@ describe('PhoneNumberInput', () => {
     expect(fieldset).toHaveAttribute('aria-describedby');
   });
 
-  it('should throw accessibility error when the label is not sufficiently labelled and the hideLabel prop is not set', () => {
+  it('should throw accessibility error when the field is not sufficiently labelled', () => {
     const props = {
       ...defaultProps,
       label: undefined,
