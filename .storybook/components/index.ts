@@ -13,11 +13,9 @@
  * limitations under the License.
  */
 
-import { Controls as Props } from '@storybook/addon-docs';
+import { Meta, Controls as Props } from '@storybook/blocks';
 
-export { Props };
-
-export { Meta, IconGallery, IconItem, Typeset } from '@storybook/addon-docs';
+export { Props, Meta };
 
 export { DocsContainer } from './DocsContainer.js';
 export { Status } from './Statuses.js';
