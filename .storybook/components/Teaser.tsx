@@ -15,7 +15,8 @@
 
 import type { ReactNode } from 'react';
 
-import { Headline, Card } from '../../packages/circuit-ui/index.js';
+import { Card } from '../../packages/circuit-ui/components/Card/Card.js';
+import { Headline } from '../../packages/circuit-ui/components/Headline/Headline.js';
 import { slugify } from '../slugify.js';
 import classes from './Teaser.module.css';
 

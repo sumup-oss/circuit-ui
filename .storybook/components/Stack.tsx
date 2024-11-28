@@ -14,7 +14,7 @@
  */
 
 import type { ReactNode } from 'react';
-import { clsx } from '../../packages/circuit-ui/index.js';
+import { clsx } from '../../packages/circuit-ui/styles/clsx.js';
 
 import classes from './Stack.module.css';
 
