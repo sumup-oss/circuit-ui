@@ -21,19 +21,18 @@ import {
 } from 'react';
 import { Unstyled } from '@storybook/addon-docs';
 import * as iconComponents from '@sumup-oss/icons';
+import type { IconComponentType } from '@sumup-oss/icons';
 import type { IconsManifest } from '@sumup-oss/icons';
 import iconsManifest from '@sumup-oss/icons/manifest.json';
-import {
-  Headline,
-  Body,
-  SearchInput,
-  Select,
-  Badge,
-  SelectorGroup,
-  clsx,
-  utilClasses,
-  Tooltip,
-} from '../../packages/circuit-ui/index.js';
+import { Badge } from '../../packages/circuit-ui/components/Badge/Badge.js';
+import { Body } from '../../packages/circuit-ui/components/Body/Body.js';
+import { Headline } from '../../packages/circuit-ui/components/Headline/Headline.js';
+import { SearchInput } from '../../packages/circuit-ui/components/SearchInput/SearchInput.js';
+import { Select } from '../../packages/circuit-ui/components/Select/Select.js';
+import { SelectorGroup } from '../../packages/circuit-ui/components/SelectorGroup/SelectorGroup.js';
+import { Tooltip } from '../../packages/circuit-ui/components/Tooltip/Tooltip.js';
+import { clsx } from '../../packages/circuit-ui/styles/clsx.js';
+import { utilClasses } from '../../packages/circuit-ui/styles/utility.js';
 import { slugify } from '../slugify.js';
 import classes from './Icons.module.css';
 
@@ -157,8 +156,10 @@ export function Icons() {
             <div className={classes.list}>
               {sortBy(items, 'name').map((icon) => {
                 const id = `${icon.name}-${icon.size}`;
-                const componentName = getComponentName(icon.name);
-                const Icon = iconComponents[componentName];
+                const componentName = getComponentName(
+                  icon.name,
+                ) as keyof typeof iconComponents;
+                const Icon = iconComponents[componentName] as IconComponentType;
                 return (
                   <div key={id} className={classes.wrapper}>
                     <div

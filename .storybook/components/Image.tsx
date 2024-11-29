@@ -15,10 +15,10 @@
 
 import { Fragment } from 'react';
 import {
-  clsx,
   Image as BaseImage,
   type ImageProps as BaseImageProps,
-} from '../../packages/circuit-ui/index.js';
+} from '../../packages/circuit-ui/components/Image/Image.js';
+import { clsx } from '../../packages/circuit-ui/styles/clsx.js';
 
 import classes from './Image.module.css';
 

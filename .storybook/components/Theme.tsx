@@ -18,17 +18,17 @@ import { ThemeProvider, useTheme } from '@emotion/react';
 import { Unstyled } from '@storybook/addon-docs';
 import { light, schema } from '@sumup-oss/design-tokens';
 import { SumUpLogomark } from '@sumup-oss/icons';
+import { Anchor } from '../../packages/circuit-ui/components/Anchor/Anchor.js';
+import { Body } from '../../packages/circuit-ui/components/Body/Body.js';
+import { Badge } from '../../packages/circuit-ui/components/Badge/Badge.js';
 import {
-  Anchor,
-  Body,
-  Badge,
   Table,
-  Tooltip,
-  ToastProvider,
-  useNotificationToast,
   type TableHeaderCell,
   type TableRow,
-} from '../../packages/circuit-ui/index.js';
+} from '../../packages/circuit-ui/components/Table/index.js';
+import { Tooltip } from '../../packages/circuit-ui/components/Tooltip/Tooltip.js';
+import { ToastProvider } from '../../packages/circuit-ui/components/ToastContext/ToastContext.js';
+import { useNotificationToast } from '../../packages/circuit-ui/components/NotificationToast//NotificationToast.js';
 
 type CustomPropertyName = `--cui-${string}`;
 type CustomPropertyValue = string;
