@@ -41,3 +41,7 @@ updates:
       remix:
         patterns:
           - '@remix-run/*'
+      nanostores:
+        patterns:
+          - 'nanostores'
+          - '@nanostores/*'
