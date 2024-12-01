@@ -1,5 +1,17 @@
 # @sumup-oss/circuit-ui
 
+## 9.2.0
+
+### Minor Changes
+
+- [#2794](https://github.com/sumup-oss/circuit-ui/pull/2794) [`604c012`](https://github.com/sumup-oss/circuit-ui/commit/604c012464fd975a0083e15ee248b1f80f9f5804) Thanks [@connor-baer](https://github.com/connor-baer)! - Added support for typing and pasting 3-character hex code into the ColorInput component.
+
+- [#2794](https://github.com/sumup-oss/circuit-ui/pull/2794) [`604c012`](https://github.com/sumup-oss/circuit-ui/commit/604c012464fd975a0083e15ee248b1f80f9f5804) Thanks [@connor-baer](https://github.com/connor-baer)! - Improved parsing of the PhoneNumberInput component's `value` and `defaultValue` props.
+
+### Patch Changes
+
+- [#2791](https://github.com/sumup-oss/circuit-ui/pull/2791) [`0bf387e`](https://github.com/sumup-oss/circuit-ui/commit/0bf387e426a26eb14935e007dc44ac01a8f7d18b) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed passing a custom `className` to the outermost element of the Select component.
+
 ## 9.1.1
 
 ### Patch Changes
