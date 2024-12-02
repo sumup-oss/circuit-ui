@@ -110,7 +110,6 @@ export const Modal = () => {
       </Button>
       <Dialog
         open={modalOpen}
-        isModal
         onClose={() => setModalOpen(false)}
         closeButtonLabel="Close"
         aria-label="Hello World!"

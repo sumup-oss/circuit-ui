@@ -34,7 +34,6 @@ import {
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 import type { ClickEvent } from '../../types/events.js';
-import { useClickOutside } from '../../hooks/useClickOutside/index.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
 
 import classes from './Dialog.module.css';
@@ -47,7 +46,6 @@ export interface DialogProps
   onClose?: () => void;
   children: () => ReactNode;
   closeButtonLabel: string;
-  isModal?: boolean;
   variant?: 'contextual' | 'immersive';
 }
 
@@ -60,7 +58,6 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       onClose,
       closeButtonLabel,
       variant = 'contextual',
-      isModal = false,
       children,
       className,
       ...props
@@ -97,7 +94,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       }
       // restore focus to the last focused element
       if (lastFocusedElementRef.current) {
-        setTimeout(() => lastFocusedElementRef.current?.focus());
+        setTimeout(() => lastFocusedElementRef.current?.focus(), 300);
       }
       // restore scroll tp page
       document.documentElement.style.overflowY = 'unset';
@@ -111,15 +108,6 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       }, animationDuration);
     }, []);
 
-    const handleOutsideClick = useCallback(() => {
-      // modal dialogs outside click is handled by onDialogClick
-      if (open && !isModal) {
-        lastFocusedElementRef.current = null;
-        handleDialogClose();
-      }
-    }, [isModal, open, handleDialogClose]);
-
-    useClickOutside(dialogRef, handleOutsideClick, open);
     useEscapeKey(clearAnimationClasses, open);
 
     useEffect(() => {
@@ -152,24 +140,19 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
           lastFocusedElementRef.current = document.activeElement;
         }
         if (!dialogElement.open) {
-          if (isModal) {
-            dialogElement.showModal();
-            if (!hasNativeDialog && isModal) {
-              // use the polyfill backdrop
-              (dialogElement.nextSibling as HTMLDivElement).classList.add(
-                classes['backdrop-visible'],
-                classes.backdrop,
-              );
-            }
-          } else {
-            dialogElement.show();
+          dialogElement.showModal();
+          if (!hasNativeDialog) {
+            // use the polyfill backdrop
+            (dialogElement.nextSibling as HTMLDivElement).classList.add(
+              classes['backdrop-visible'],
+              classes.backdrop,
+            );
           }
+
           // trigger show animation
           dialogElement.classList.add(classes.show);
           // if dialog is modal, disable scroll on page
-          if (isModal) {
-            document.documentElement.style.overflowY = 'hidden';
-          }
+          document.documentElement.style.overflowY = 'hidden';
         }
       } else if (dialogElement.open) {
         handleDialogClose();
@@ -180,12 +163,12 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
           dialogElement.close();
         }
       };
-    }, [open, isModal, handleDialogClose, hasNativeDialog]);
+    }, [open, handleDialogClose, hasNativeDialog]);
 
     const onDialogClick = (
       event: ClickEvent<HTMLDialogElement> | ClickEvent<HTMLDivElement>,
     ) => {
-      if (isModal && event.target === event.currentTarget) {
+      if (event.target === event.currentTarget) {
         handleDialogClose();
       }
     };
@@ -196,7 +179,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
         return;
       }
       dialogElement.classList.remove(classes.show);
-      if (!hasNativeDialog && isModal) {
+      if (!hasNativeDialog) {
         (dialogElement.nextSibling as HTMLDivElement).classList.remove(
           classes['backdrop-visible'],
         );
