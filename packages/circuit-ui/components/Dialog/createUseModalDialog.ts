@@ -33,7 +33,7 @@ export function createUseModalDialog(component: typeof Dialog) {
     const setModal = useCallback(
       (props: SetModalArgs): void => {
         modalRef.current = props;
-        context.setModal({ ...props, id, component, isModal: true });
+        context.setModal({ ...props, id, component });
       },
       [context, id],
     );
