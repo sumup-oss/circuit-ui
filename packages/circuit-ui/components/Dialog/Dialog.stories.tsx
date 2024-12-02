@@ -13,12 +13,10 @@
  * limitations under the License.
  */
 
-import type { Decorator } from '@storybook/react';
 import { Fragment, type ReactNode, useRef, useState } from 'react';
 import { screen, userEvent, within } from '@storybook/test';
 
 import { modes } from '../../../../.storybook/modes.js';
-import { FullViewport } from '../../../../.storybook/components/index.js';
 import { Headline } from '../Headline/index.js';
 import { Body } from '../Body/index.js';
 import { Button } from '../Button/index.js';
@@ -39,13 +37,6 @@ export default {
       },
     },
   },
-  decorators: [
-    (Story) => (
-      <FullViewport>
-        <Story />
-      </FullViewport>
-    ),
-  ] as Decorator[],
 };
 
 const defaultModalChildren = (): ReactNode => (
@@ -72,31 +63,6 @@ const openModal = async ({
 };
 
 export const Base = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  return (
-    <>
-      <Button
-        type="button"
-        onClick={() => {
-          setModalOpen(true);
-        }}
-      >
-        Open modal
-      </Button>
-      <Dialog
-        open={modalOpen}
-        onClose={() => setModalOpen(false)}
-        closeButtonLabel="Close"
-        aria-label="Hello World!"
-        aria-describedby="log1"
-      >
-        {defaultModalChildren}
-      </Dialog>
-    </>
-  );
-};
-
-export const Modal = () => {
   const [modalOpen, setModalOpen] = useState(false);
   return (
     <>
