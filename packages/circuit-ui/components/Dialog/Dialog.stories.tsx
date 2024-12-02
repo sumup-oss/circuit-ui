@@ -13,14 +13,13 @@
  * limitations under the License.
  */
 
-import { Fragment, type ReactNode, useRef, useState } from 'react';
+import { Fragment, type ReactNode, useState } from 'react';
 import { screen, userEvent, within } from '@storybook/test';
 
 import { modes } from '../../../../.storybook/modes.js';
 import { Headline } from '../Headline/index.js';
 import { Body } from '../Body/index.js';
 import { Button } from '../Button/index.js';
-import { Input } from '../Input/index.js';
 
 import { Dialog, type DialogProps, useModal } from './Dialog.js';
 import { ModalDialogProvider } from './ModalDialogContext.js';
@@ -30,6 +29,9 @@ export default {
   component: Dialog,
   tags: ['status:experimental'],
   parameters: {
+    viewport: {
+      defaultViewport: 'reset',
+    },
     chromatic: {
       modes: {
         mobile: modes.smallMobile,
@@ -87,86 +89,7 @@ export const Base = () => {
   );
 };
 
-export const Simultaneous = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalOpen2, setModalOpen2] = useState(false);
-  return (
-    <>
-      <div> TODO handle closing of simultaneous modals</div>
-      <Button
-        type="button"
-        onClick={() => {
-          setModalOpen(true);
-          setModalOpen2(true);
-        }}
-      >
-        Open modal
-      </Button>
-      <Dialog
-        open={modalOpen}
-        onClose={() => setModalOpen(false)}
-        closeButtonLabel="Close"
-      >
-        {defaultModalChildren}
-      </Dialog>
-      <Dialog
-        open={modalOpen2}
-        onClose={() => setModalOpen2(false)}
-        closeButtonLabel="Close"
-      >
-        {() => <div>hi</div>}
-      </Dialog>
-    </>
-  );
-};
-
-const NestedModal = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  return (
-    <>
-      <Button
-        type="button"
-        onClick={() => {
-          setModalOpen(true);
-        }}
-      >
-        Open child modal
-      </Button>
-      <Dialog
-        open={modalOpen}
-        onClose={() => setModalOpen(false)}
-        closeButtonLabel="Close"
-      >
-        {defaultModalChildren}
-      </Dialog>
-    </>
-  );
-};
-
-export const Nested = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  return (
-    <>
-      <Button
-        type="button"
-        onClick={() => {
-          setModalOpen(true);
-        }}
-      >
-        Open modal
-      </Button>
-      <Dialog
-        open={modalOpen}
-        onClose={() => setModalOpen(false)}
-        closeButtonLabel="Close"
-      >
-        {() => <NestedModal />}
-      </Dialog>
-    </>
-  );
-};
-
-export const withUseModal = (modal: DialogProps) => {
+export const WithUseModal = (modal: DialogProps) => {
   const ComponentWithModal = () => {
     const { setModal } = useModal();
 
@@ -183,39 +106,30 @@ export const withUseModal = (modal: DialogProps) => {
   );
 };
 
-const ConfirmContent = () => (
-  <form method="dialog">
-    <Headline
-      as="h2"
-      size="s"
-      style={{ marginBottom: 'var(--cui-spacings-giga)', textAlign: 'center' }}
-    >
-      Are you sure you want to proceed ?
-    </Headline>
+WithUseModal.args = {
+  children: defaultModalChildren,
+  variant: 'contextual',
+  closeButtonLabel: 'Close modal',
+};
 
-    <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-      <Button type="submit" value="no">
-        Cancel
-      </Button>
-      <Button type="submit" value="yes">
-        Submit
-      </Button>
-    </div>
-  </form>
-);
+export const InitiallyOpen = (modal: DialogProps) => {
+  const initialModal = { id: 'initial', component: Dialog, ...modal };
 
-export const ConfirmationModal = () => {
+  return (
+    <ModalDialogProvider initialState={[initialModal]}>
+      <div />
+    </ModalDialogProvider>
+  );
+};
+
+InitiallyOpen.args = {
+  children: defaultModalChildren,
+  variant: 'contextual',
+  closeButtonLabel: 'Close modal',
+};
+
+export const Immersive = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const dialogRef = useRef<HTMLDialogElement>(null);
-
-  const onDialogClosed = () => {
-    setModalOpen(false);
-    setTimeout(() => {
-      // wait for animation to finish
-      alert(`user chose: ${dialogRef?.current?.returnValue}`);
-    }, 300);
-  };
-
   return (
     <>
       <Button
@@ -225,102 +139,6 @@ export const ConfirmationModal = () => {
         }}
       >
         Open modal
-      </Button>
-      <Dialog
-        ref={dialogRef}
-        open={modalOpen}
-        onClose={onDialogClosed}
-        closeButtonLabel="Close"
-        aria-label="Are you sure you want to proceed ?"
-      >
-        {() => <ConfirmContent />}
-      </Dialog>
-    </>
-  );
-};
-
-const FormContent = () => (
-  <form method="dialog">
-    <Headline
-      as="h2"
-      size="s"
-      style={{ marginBottom: 'var(--cui-spacings-giga)', textAlign: 'center' }}
-    >
-      Please enter recipient information
-    </Headline>
-
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 'var(--cui-spacings-mega)',
-      }}
-    >
-      <Input label="First Name" />
-      <Input label="Last Name" />
-      <Input label="Address" />
-    </div>
-
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'space-evenly',
-        marginTop: 'var(--cui-spacings-giga)',
-      }}
-    >
-      <Button type="submit">Cancel</Button>
-      <Button type="submit">Submit</Button>
-    </div>
-  </form>
-);
-
-export const WithInteractiveContent = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-
-  return (
-    <>
-      <Button
-        type="button"
-        onClick={() => {
-          setModalOpen(true);
-        }}
-      >
-        Open modal
-      </Button>
-      <Dialog
-        open={modalOpen}
-        onClose={() => setModalOpen(false)}
-        closeButtonLabel="Close"
-        aria-label="Please enter recipient information"
-      >
-        {() => <FormContent />}
-      </Dialog>
-    </>
-  );
-};
-
-export const Variants = () => {
-  const [isImmersive, setIsImmersive] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false);
-  return (
-    <>
-      <Button
-        type="button"
-        onClick={() => {
-          setIsImmersive(false);
-          setModalOpen(true);
-        }}
-      >
-        Open contextual modal
-      </Button>
-      <Button
-        type="button"
-        onClick={() => {
-          setIsImmersive(true);
-          setModalOpen(true);
-        }}
-      >
-        Open immersive modal
       </Button>
       <Dialog
         open={modalOpen}
@@ -328,7 +146,7 @@ export const Variants = () => {
         closeButtonLabel="Close"
         aria-label="Hello World!"
         aria-describedby="log1"
-        variant={isImmersive ? 'immersive' : 'contextual'}
+        variant="immersive"
       >
         {defaultModalChildren}
       </Dialog>
@@ -336,19 +154,40 @@ export const Variants = () => {
   );
 };
 
-Variants.args = {
-  children: defaultModalChildren,
-  closeButtonLabel: 'Close modal',
-};
-Variants.parameters = {
-  chromatic: { disableSnapshot: true },
-};
-withUseModal.args = {
-  children: defaultModalChildren,
-  closeButtonLabel: 'Close',
-  onClose: () => console.log('closed'),
-  open: true,
-  'aria-label': 'Hello World!',
+export const PreventClose = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  return (
+    <>
+      <Button
+        type="button"
+        onClick={() => {
+          setModalOpen(true);
+        }}
+      >
+        Open modal
+      </Button>
+      <Dialog
+        open={modalOpen}
+        preventClose
+        onClose={() => setModalOpen(false)}
+        closeButtonLabel="Close"
+        aria-label="Hello World!"
+        aria-describedby="log1"
+      >
+        {defaultModalChildren}
+      </Dialog>
+    </>
+  );
 };
 
+Immersive.parameters = {
+  chromatic: { disableSnapshot: true },
+  viewport: {
+    defaultViewport: 'smallMobile',
+  },
+};
+
+InitiallyOpen.play = openModal;
+Immersive.play = openModal;
+PreventClose.play = openModal;
 Base.play = openModal;

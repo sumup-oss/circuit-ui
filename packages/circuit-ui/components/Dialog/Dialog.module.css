@@ -102,6 +102,11 @@
     max-height: unset;
     border-radius: unset;
   }
+
+  .immersive .content {
+    border: none;
+    border-radius: unset;
+  }
 }
 
 /* Content */
