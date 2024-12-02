@@ -15,12 +15,14 @@
 
 'use client';
 
-import { useContext, useCallback, useRef, useId } from 'react';
+import { useContext, useCallback, useRef, useId, type ReactNode } from 'react';
 
 import { ModalDialogContext, type SetModalArgs } from './ModalDialogContext.js';
-import type { Dialog } from './Dialog.js';
+import type { DialogProps } from './Dialog.js';
 
-export function createUseModalDialog(component: typeof Dialog) {
+export function createUseModalDialog(
+  component: (props: DialogProps) => ReactNode,
+) {
   return (): {
     setModal: (props: SetModalArgs) => void;
     removeModal: () => void;
