@@ -135,13 +135,15 @@ describe('Dialog', () => {
       expect(children).toBeVisible();
     });
 
-    it('should remove animation classes when pressing the Escape key', async () => {
-      const { container } = render(<Dialog {...props} open />);
+    it('should not close modal on backdrop click if preventClose is true', async () => {
+      const { container } = render(<Dialog {...props} open preventClose />);
       // eslint-disable-next-line testing-library/no-container
       const dialog = container.querySelector('dialog') as HTMLDialogElement;
-      expect(dialog.className).toContain('show');
-      await userEvent.keyboard('{Escape}');
-      expect(dialog.className).not.toContain('show');
+      await userEvent.click(dialog);
+      act(() => {
+        vi.advanceTimersByTime(animationDuration);
+      });
+      expect(props.onClose).not.toHaveBeenCalled();
     });
 
     it('should open in immersive mode', async () => {

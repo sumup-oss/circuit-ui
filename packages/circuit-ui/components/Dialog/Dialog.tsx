@@ -34,7 +34,7 @@ import {
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 import type { ClickEvent } from '../../types/events.js';
-import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
+import { isEscape } from '../../util/key-codes.js';
 
 import classes from './Dialog.module.css';
 import { createUseModalDialog } from './createUseModalDialog.js';
@@ -42,11 +42,34 @@ import { getFirstFocusableElement } from './DialogService.js';
 
 export interface DialogProps
   extends Omit<HTMLAttributes<HTMLDialogElement>, 'children'> {
+  /**
+   * Whether the dialog is open or not.
+   */
   open: boolean;
+  /**
+   * Callback when the dialog is closed.
+   */
   onClose?: () => void;
+  /**
+   * a function that returns the content of the dialog.
+   */
   children: () => ReactNode;
+  /**
+   * Text label for the close button for screen readers.
+   * Important for accessibility.
+   */
   closeButtonLabel: string;
+  /**
+   * Use the `contextual` variant when the modal content requires the context
+   * of the page underneath to be understood, otherwise, use the `immersive`
+   * variant to focus the user's attention.
+   */
   variant?: 'contextual' | 'immersive';
+  /**
+   * Prevent users from closing the modal by clicking/tapping the overlay or
+   * pressing the escape key. Default `false`.
+   */
+  preventClose?: boolean;
 }
 
 export const animationDuration = 300;
@@ -60,6 +83,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       variant = 'contextual',
       children,
       className,
+      preventClose,
       ...props
     },
     ref,
@@ -99,7 +123,12 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       // restore scroll tp page
       document.documentElement.style.overflowY = 'unset';
       // trigger close animation
-      clearAnimationClasses();
+      dialogElement.classList.remove(classes.show);
+      if (!hasNativeDialog) {
+        (dialogElement.nextSibling as HTMLDivElement).classList.remove(
+          classes['backdrop-visible'],
+        );
+      }
       // trigger dialog close after animation
       setTimeout(() => {
         if (dialogElement.open) {
@@ -108,7 +137,18 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       }, animationDuration);
     }, []);
 
-    useEscapeKey(clearAnimationClasses, open);
+    function onPolyfillDialogKeydown(event: KeyboardEvent) {
+      if (isEscape(event) && preventClose) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    }
+
+    function onPolyfillBackdropClick(event: MouseEvent) {
+      if (preventClose) {
+        event.preventDefault();
+      }
+    }
 
     useEffect(() => {
       const dialogElement = dialogRef.current;
@@ -118,6 +158,9 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore The package is bundled incorrectly
       dialogPolyfill.registerDialog(dialogElement);
+      if (preventClose) {
+        dialogElement.addEventListener('keydown', onPolyfillDialogKeydown);
+      }
       if (onClose) {
         dialogElement.addEventListener('close', onClose);
       }
@@ -125,6 +168,13 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       return () => {
         if (onClose) {
           dialogElement.removeEventListener('close', onClose);
+        }
+        if (!hasNativeDialog && dialogElement.nextSibling) {
+          (dialogElement.nextSibling as HTMLDivElement).removeEventListener(
+            'click',
+            onPolyfillBackdropClick,
+          );
+          dialogElement.removeEventListener('keydown', onPolyfillDialogKeydown);
         }
       };
     }, [onClose]);
@@ -147,6 +197,11 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
               classes['backdrop-visible'],
               classes.backdrop,
             );
+            // intercept and prevent modal closing if preventClose is true
+            (dialogElement.nextSibling as HTMLDivElement).addEventListener(
+              'click',
+              onPolyfillBackdropClick,
+            );
           }
 
           // trigger show animation
@@ -168,23 +223,10 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     const onDialogClick = (
       event: ClickEvent<HTMLDialogElement> | ClickEvent<HTMLDivElement>,
     ) => {
-      if (event.target === event.currentTarget) {
+      if (event.target === event.currentTarget && !preventClose) {
         handleDialogClose();
       }
     };
-
-    function clearAnimationClasses() {
-      const dialogElement = dialogRef.current;
-      if (!dialogElement) {
-        return;
-      }
-      dialogElement.classList.remove(classes.show);
-      if (!hasNativeDialog) {
-        (dialogElement.nextSibling as HTMLDivElement).classList.remove(
-          classes['backdrop-visible'],
-        );
-      }
-    }
 
     return (
       <>
