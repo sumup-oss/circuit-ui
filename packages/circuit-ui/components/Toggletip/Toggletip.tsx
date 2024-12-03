@@ -134,6 +134,7 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
       closeButtonLabel,
       className,
       style,
+      locale,
       ...rest
     } = useI18n(props, translations);
     const zIndex = useStackContext();
