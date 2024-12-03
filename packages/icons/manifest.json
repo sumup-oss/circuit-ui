@@ -905,12 +905,6 @@
     },
     {
       "size": "24",
-      "name": "circle_flag_eh",
-      "category": "Circular country flag",
-      "keywords": ["Western Sahara"]
-    },
-    {
-      "size": "24",
       "name": "circle_flag_er",
       "category": "Circular country flag",
       "keywords": ["Eritrea"]
@@ -1343,12 +1337,6 @@
     },
     {
       "size": "24",
-      "name": "circle_flag_mf",
-      "category": "Circular country flag",
-      "keywords": ["Saint Martin (French part)"]
-    },
-    {
-      "size": "24",
       "name": "circle_flag_mg",
       "category": "Circular country flag",
       "keywords": ["Madagascar"]
@@ -1691,21 +1679,9 @@
     },
     {
       "size": "24",
-      "name": "circle_flag_sh",
-      "category": "Circular country flag",
-      "keywords": ["Saint Helena, Ascension and Tristan da Cunha"]
-    },
-    {
-      "size": "24",
       "name": "circle_flag_si",
       "category": "Circular country flag",
       "keywords": ["Slovenia"]
-    },
-    {
-      "size": "24",
-      "name": "circle_flag_sj",
-      "category": "Circular country flag",
-      "keywords": ["Svalbard and Jan Mayen"]
     },
     {
       "size": "24",
@@ -1772,12 +1748,6 @@
       "name": "circle_flag_sy",
       "category": "Circular country flag",
       "keywords": ["Syrian Arab Republic"]
-    },
-    {
-      "size": "24",
-      "name": "circle_flag_sz",
-      "category": "Circular country flag",
-      "keywords": ["Eswatini"]
     },
     {
       "size": "24",
@@ -1904,12 +1874,6 @@
       "name": "circle_flag_uz",
       "category": "Circular country flag",
       "keywords": ["Uzbekistan"]
-    },
-    {
-      "size": "24",
-      "name": "circle_flag_va",
-      "category": "Circular country flag",
-      "keywords": ["Holy See"]
     },
     {
       "size": "24",
