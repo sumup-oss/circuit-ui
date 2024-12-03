@@ -19,7 +19,7 @@ import type { PropsWithChildren } from 'react';
 import { renderHook, act } from '../../util/test-utils.js';
 
 import { createUseModalDialog } from './createUseModalDialog.js';
-import { ModalDialogContext } from './ModalDialogContext.js';
+import { ModalContext } from './ModalContext.js';
 import { Dialog, type DialogProps } from './Dialog.js';
 
 const Modal = (props: DialogProps) => <Dialog {...props} />;
@@ -38,9 +38,9 @@ describe('createUseModal', () => {
   const removeModal = vi.fn();
 
   const wrapper = ({ children }: PropsWithChildren) => (
-    <ModalDialogContext.Provider value={{ setModal, removeModal }}>
+    <ModalContext.Provider value={{ setModal, removeModal }}>
       {children}
-    </ModalDialogContext.Provider>
+    </ModalContext.Provider>
   );
 
   it('should add the modal when setModal is called', () => {
