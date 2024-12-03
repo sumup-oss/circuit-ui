@@ -17,7 +17,7 @@
 
 import { useContext, useCallback, useRef, useId, type ReactNode } from 'react';
 
-import { ModalDialogContext, type SetModalArgs } from './ModalDialogContext.js';
+import { ModalContext, type SetModalArgs } from './ModalContext.js';
 import type { DialogProps } from './Dialog.js';
 
 export type ModalDialogComponent<TProps extends DialogProps = DialogProps> = (
@@ -33,7 +33,7 @@ export function createUseModalDialog<T extends DialogProps>(
   } => {
     const id = useId();
     const modalRef = useRef<SetModalArgs | null>(null);
-    const context = useContext(ModalDialogContext);
+    const context = useContext(ModalContext);
 
     // biome-ignore lint/correctness/useExhaustiveDependencies: The `component` never changes
     const setModal = useCallback(
