@@ -827,6 +827,12 @@
     },
     {
       "size": "24",
+      "name": "circle_flag_cv",
+      "category": "Circular country flag",
+      "keywords": ["Cabo Verde"]
+    },
+    {
+      "size": "24",
       "name": "circle_flag_cw",
       "category": "Circular country flag",
       "keywords": ["Curaçao"]
@@ -1718,6 +1724,12 @@
       "name": "circle_flag_sp",
       "category": "Circular country flag",
       "keywords": ["Saint Pierre and Miquelon"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_sr",
+      "category": "Circular country flag",
+      "keywords": ["Suriname"]
     },
     {
       "size": "24",
