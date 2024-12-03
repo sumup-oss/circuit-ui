@@ -31,10 +31,7 @@ import {
   screen,
 } from '../../util/test-utils.js';
 
-import {
-  ModalDialogProvider,
-  ModalDialogContext,
-} from './ModalDialogContext.js';
+import { ModalProvider, ModalContext } from './ModalContext.js';
 import { animationDuration, Dialog, type DialogProps } from './Dialog.js';
 
 const Modal = (props: DialogProps) => <Dialog {...props} />;
@@ -69,7 +66,7 @@ describe('ModalDialogContext', () => {
     advanceTimers: vi.advanceTimersByTime,
   });
 
-  describe('ModalDialogProvider', () => {
+  describe('ModalProvider', () => {
     const onClose = vi.fn();
     const modal = {
       id: 'initial',
@@ -82,9 +79,9 @@ describe('ModalDialogContext', () => {
 
     it('should render the initial modals', () => {
       render(
-        <ModalDialogProvider initialState={initialState}>
+        <ModalProvider initialState={initialState}>
           <div />
-        </ModalDialogProvider>,
+        </ModalProvider>,
       );
 
       expect(screen.getByRole('dialog')).toBeVisible();
@@ -92,7 +89,7 @@ describe('ModalDialogContext', () => {
 
     it('should open and close a modal when the context functions are called', async () => {
       const Trigger = () => {
-        const { setModal, removeModal } = useContext(ModalDialogContext);
+        const { setModal, removeModal } = useContext(ModalContext);
         return (
           <>
             <button onClick={() => setModal(modal)}>Open modal</button>
@@ -102,9 +99,9 @@ describe('ModalDialogContext', () => {
       };
 
       render(
-        <ModalDialogProvider>
+        <ModalProvider>
           <Trigger />
-        </ModalDialogProvider>,
+        </ModalProvider>,
       );
 
       await userEvent.click(screen.getByRole('button', { name: 'Open modal' }));
@@ -122,9 +119,9 @@ describe('ModalDialogContext', () => {
 
     it('should close the modal when the user navigates back', () => {
       const { container, unmount } = render(
-        <ModalDialogProvider initialState={initialState}>
+        <ModalProvider initialState={initialState}>
           <div />
-        </ModalDialogProvider>,
+        </ModalProvider>,
       );
       const dialog = container.querySelector('dialog') as HTMLDialogElement;
       vi.spyOn(dialog, 'close');
@@ -141,9 +138,9 @@ describe('ModalDialogContext', () => {
 
     it('should close the modal when the onClose method is called', async () => {
       render(
-        <ModalDialogProvider initialState={initialState}>
+        <ModalProvider initialState={initialState}>
           <div />
-        </ModalDialogProvider>,
+        </ModalProvider>,
       );
 
       const closeButton = screen.queryByRole('button') as HTMLButtonElement;

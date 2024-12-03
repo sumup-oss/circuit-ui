@@ -22,12 +22,12 @@ import { Body } from '../Body/index.js';
 import { Button } from '../Button/index.js';
 
 import { Dialog, type DialogProps, useModal } from './Dialog.js';
-import { ModalDialogProvider } from './ModalDialogContext.js';
+import { ModalProvider } from './ModalContext.js';
 
 export default {
   title: 'Components/Dialog',
   component: Dialog,
-  tags: ['status:experimental'],
+  tags: ['status:stable'],
   parameters: {
     viewport: {
       defaultViewport: 'reset',
@@ -100,9 +100,9 @@ export const WithUseModal = (modal: DialogProps) => {
     );
   };
   return (
-    <ModalDialogProvider>
+    <ModalProvider>
       <ComponentWithModal />
-    </ModalDialogProvider>
+    </ModalProvider>
   );
 };
 
@@ -116,9 +116,9 @@ export const InitiallyOpen = (modal: DialogProps) => {
   const initialModal = { id: 'initial', component: Dialog, ...modal };
 
   return (
-    <ModalDialogProvider initialState={[initialModal]}>
+    <ModalProvider initialState={[initialModal]}>
       <div />
-    </ModalDialogProvider>
+    </ModalProvider>
   );
 };
 

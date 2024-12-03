@@ -30,16 +30,16 @@ type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
 export type SetModalArgs = Optional<DialogProps, 'open'>;
 
 // keep initial state compatible with the old version of this component
-export type ModalDialogState<T extends DialogProps> = SetModalArgs & {
+export type ModalState<T extends DialogProps> = SetModalArgs & {
   component: ModalDialogComponent<T>;
   id: string | number;
 };
 
-type ModalDialogContextValue<T extends DialogProps> = {
-  setModal: (modal: ModalDialogState<T>) => void;
-  removeModal: (modal: ModalDialogState<T>) => void;
+type ModalContextValue<T extends DialogProps> = {
+  setModal: (modal: ModalState<T>) => void;
+  removeModal: (modal: ModalState<T>) => void;
 };
-export interface ModalDialogProviderProps {
+export interface ModalProviderProps {
   /**
    * The ModalProvider should wrap your entire application.
    */
@@ -47,27 +47,27 @@ export interface ModalDialogProviderProps {
   /**
    * An array of modals that should be displayed immediately, e.g. on page load.
    */
-  initialState?: ModalDialogState<DialogProps>[];
+  initialState?: ModalState<DialogProps>[];
 }
 
 // TODO replace any
-export const ModalDialogContext = createContext<ModalDialogContextValue<any>>({
+export const ModalContext = createContext<ModalContextValue<any>>({
   setModal: () => {},
   removeModal: () => {},
 });
 
-export function ModalDialogProvider({
+export function ModalProvider({
   children,
   initialState,
   ...defaultModalProps
-}: ModalDialogProviderProps) {
+}: ModalProviderProps) {
   const [modals, setModals] = useState(initialState ?? []);
 
-  const setModal = useCallback((modal: ModalDialogState<DialogProps>) => {
+  const setModal = useCallback((modal: ModalState<DialogProps>) => {
     setModals((prevValue) => [...prevValue, modal]);
   }, []);
 
-  const removeModal = useCallback((modal: ModalDialogState<DialogProps>) => {
+  const removeModal = useCallback((modal: ModalState<DialogProps>) => {
     if (modal.onClose) {
       modal.onClose();
     }
@@ -80,7 +80,7 @@ export function ModalDialogProvider({
   );
 
   return (
-    <ModalDialogContext.Provider value={context}>
+    <ModalContext.Provider value={context}>
       {children}
       {modals.map((modal) => {
         const { id, component: Component, ...modalProps } = modal;
@@ -94,6 +94,6 @@ export function ModalDialogProvider({
           />
         );
       })}
-    </ModalDialogContext.Provider>
+    </ModalContext.Provider>
   );
 }
