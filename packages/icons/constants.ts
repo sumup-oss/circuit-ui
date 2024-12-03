@@ -38,5 +38,5 @@ export const CATEGORIES = [
   'Product and feature',
   'Social media',
   'Brand',
-  'Circular country flag'
+  'Circular country flag',
 ] as const;
