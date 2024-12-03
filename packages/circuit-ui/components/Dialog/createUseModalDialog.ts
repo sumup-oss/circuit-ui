@@ -20,8 +20,12 @@ import { useContext, useCallback, useRef, useId, type ReactNode } from 'react';
 import { ModalDialogContext, type SetModalArgs } from './ModalDialogContext.js';
 import type { DialogProps } from './Dialog.js';
 
-export function createUseModalDialog(
-  component: (props: DialogProps) => ReactNode,
+export type ModalDialogComponent<TProps extends DialogProps = DialogProps> = (
+  props: TProps,
+) => ReactNode;
+
+export function createUseModalDialog<T extends DialogProps>(
+  component: ModalDialogComponent<T>,
 ) {
   return (): {
     setModal: (props: SetModalArgs) => void;
