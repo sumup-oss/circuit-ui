@@ -120,48 +120,9 @@ Disabled.args = {
 
 export const Locales = (args: DateInputProps) => (
   <Stack>
-    <DateInput
-      {...args}
-      locale="de-DE"
-      label="Geburtsdatum"
-      prevMonthButtonLabel="Vorheriger Monat"
-      nextMonthButtonLabel="Nächster Monat"
-      openCalendarButtonLabel="Datum ändern"
-      closeCalendarButtonLabel="Kalendar schließen"
-      applyDateButtonLabel="Anwenden"
-      clearDateButtonLabel="Löschen"
-      yearInputLabel="Jahr"
-      monthInputLabel="Monat"
-      dayInputLabel="Tag"
-    />
-    <DateInput
-      {...args}
-      locale="es-CL"
-      label="Fecha de nacimiento"
-      prevMonthButtonLabel="Mes anterior"
-      nextMonthButtonLabel="Mes siguiente"
-      openCalendarButtonLabel="Cambiar fecha"
-      closeCalendarButtonLabel="Cerrar calendario"
-      applyDateButtonLabel="Aplicar"
-      clearDateButtonLabel="Borrar"
-      yearInputLabel="Año"
-      monthInputLabel="Mes"
-      dayInputLabel="Día"
-    />
-    <DateInput
-      {...args}
-      locale="pt-BR"
-      label="Data de nascimento"
-      prevMonthButtonLabel="Mês anterior"
-      nextMonthButtonLabel="Próximo mês"
-      openCalendarButtonLabel="Alterar data"
-      closeCalendarButtonLabel="Fechar calendário"
-      applyDateButtonLabel="Aplicar"
-      clearDateButtonLabel="Limpar"
-      yearInputLabel="Ano"
-      monthInputLabel="Mês"
-      dayInputLabel="Dia"
-    />
+    <DateInput {...args} locale="de-DE" label="Geburtsdatum" />
+    <DateInput {...args} locale="es-CL" label="Fecha de nacimiento" />
+    <DateInput {...args} locale="pt-BR" label="Data de nascimento" />
   </Stack>
 );
 

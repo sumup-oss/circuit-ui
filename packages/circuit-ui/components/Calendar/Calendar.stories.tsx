@@ -52,30 +52,9 @@ export const Localized = ({ selection, ...args }: CalendarProps) => {
   const [date, setDate] = useState(selection);
   return (
     <Stack>
-      <Calendar
-        {...args}
-        selection={date}
-        onSelect={setDate}
-        locale="de-DE"
-        prevMonthButtonLabel="Vorheriger Monat"
-        nextMonthButtonLabel="Nächster Monat"
-      />
-      <Calendar
-        {...args}
-        selection={date}
-        onSelect={setDate}
-        locale="bg-BG"
-        prevMonthButtonLabel="Предишния месец"
-        nextMonthButtonLabel="Следващият месец"
-      />
-      <Calendar
-        {...args}
-        selection={date}
-        onSelect={setDate}
-        locale="pt-BR"
-        prevMonthButtonLabel="Mês anterior"
-        nextMonthButtonLabel="Mês próximo"
-      />
+      <Calendar {...args} selection={date} onSelect={setDate} locale="de-DE" />
+      <Calendar {...args} selection={date} onSelect={setDate} locale="bg-BG" />
+      <Calendar {...args} selection={date} onSelect={setDate} locale="pt-BR" />
     </Stack>
   );
 };
@@ -96,8 +75,6 @@ Modifiers.args = {
   selection: today.add({ days: 3 }),
   minDate: today.subtract({ days: 7 }),
   maxDate: today.add({ months: 3 }),
-  prevMonthButtonLabel: 'Previous month',
-  nextMonthButtonLabel: 'Next month',
   modifiers: {
     [today.subtract({ days: 10 }).toString()]: {
       description: 'Booked',

@@ -134,14 +134,14 @@ export function transformModulesToTranslations<
     {} as Translations<Key>,
   );
 
-  // TODO: Re-enable validation once all translations have been added
-  // if (import.meta.env.DEV) {
-  //   SUPPORTED_LOCALES.forEach((locale) => {
-  //     if (!translations[locale]) {
-  //       throw new Error(`Missing translations for locale ${locale}`);
-  //     }
-  //   });
-  // }
+  // @ts-expect-error This environment variable is set by Vite.
+  if (import.meta.env.DEV) {
+    SUPPORTED_LOCALES.forEach((locale) => {
+      if (!translations[locale]) {
+        throw new Error(`Missing translations for locale ${locale}`);
+      }
+    });
+  }
 
   return translations;
 }

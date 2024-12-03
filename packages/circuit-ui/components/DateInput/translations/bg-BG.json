@@ -1,0 +1,9 @@
+{
+  "yearInputLabel": "Година",
+  "monthInputLabel": "Месец",
+  "dayInputLabel": "Ден",
+  "openCalendarButtonLabel": "Промяна на дата",
+  "closeCalendarButtonLabel": "Затваряне на календар",
+  "applyDateButtonLabel": "Прилагане на дата",
+  "clearDateButtonLabel": "Изчистване на дата"
+}
