@@ -61,10 +61,9 @@ export interface DialogProps
    */
   closeButtonLabel: string;
   /**
-   * Use the `contextual` variant when the modal content requires the context
-   * of the page underneath to be understood, otherwise, use the `immersive`
-   * variant to focus the user's attention.
-   */
+   * Use the `immersive` variant to focus the user's attention on the dialog content.
+   * default: 'contextual'
+   * */
   variant?: 'contextual' | 'immersive';
   /**
    * Prevent users from closing the modal by clicking/tapping the overlay or

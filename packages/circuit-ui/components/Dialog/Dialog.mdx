@@ -1,0 +1,105 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './Dialog.stories';
+
+<Meta of={Stories} />
+
+# Dialog
+
+<Status variant="stable" />
+
+The dialog component displays self-contained tasks in a modal view, requiring the user to interact with it before returning to the underlying content.
+
+<Story of={Stories.Base} />
+<Props />
+
+## When to use it
+
+Generally, use the dialog component sparingly. Consider displaying more complex tasks and large amounts of information on a separate page instead.
+
+A modal dialog is a disruptive pattern that interrupts the user's current task. It should only be used when the task requires immediate attention or when the user needs to make a decision before continuing:
+
+- Confirming a critical action, such as deleting an item or abandoning a task (also see the  [NotificationModal](Notification/NotificationModal/Docs) component).
+- Forms or Inputs: To collect short amounts of input without navigating away from the current page (e.g., login, feedback forms).
+- Focused Actions: For focused tasks like editing an item, uploading files, or reviewing details.
+
+
+## How to use it
+
+### inline
+Place your dialog content directly in the `Dialog` component:
+
+```tsx
+import { Dialog, Body, Button } from '@sumup-oss/circuit-ui';
+import {Heading} from '@storybook/blocks';
+
+return (
+  <Dialog open={true} closeButtonLabel="Close" aria-labelledby="dialog-title">
+    {() => (
+        <>
+        <Heading as="h2" id="dialog-title">Dialog title</Heading>
+        <Body>Dialog content</Body>
+        <Button>Close dialog</Button>
+    </>
+    )}
+  </Dialog>
+);
+```
+### with the `useModal` hook
+First, wrap your application in the `ModalProvider`:
+
+```tsx
+// _app.tsx for Next.js or App.js for CRA
+import { ModalProvider } from '@sumup-oss/circuit-ui';
+
+export default function App() {
+  return <ModalProvider>{/* Your content here... */}</ModalProvider>;
+}
+```
+
+Then, use the `useModal` hook to open a dialog from a component:
+
+```tsx
+import { useModal, Heading, Button, Body } from '@sumup-oss/circuit-ui';
+
+export function SayHello({ name }) {
+  const { setModal } = useModal();
+
+  const handleClick = () => {
+    setModal({
+      children: <>
+        <Heading as="h2" id="dialog-title">Dialog title</Heading>
+        <Body>Dialog content</Body>
+        <Button>Close dialog</Button>
+        </>,
+      'aria-labelledby': "dialog-title",
+      variant: 'immersive',
+      closeButtonLabel: 'Close dialog',
+    });
+  };
+
+  return <Button onClick={handleClick}>Say hello</Button>;
+}
+```
+
+## Immersive
+Use the `immersive` variant to focus the user's attention on the dialog content. On small viewports, the dialog component opens up from the bottom as a fullscreen overlay on top of the page content and covers it entirely in favor of an immersive experience.
+
+<Story of={Stories.Immersive} />
+
+
+## Related components
+
+For cases displaying simple text content but requiring immediate or critical action(s) from the user, consider using the [NotificationModal](Notification/NotificationModal/Docs) component.
+
+
+## Accessibility
+This component is built using the native `dialog` HTML element and follows the [WAI-ARIA Dialog Authoring Practices](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/). It is fully accessible and supports keyboard navigation and screen readers. In browsers where `dialog` is not supported, it uses [dialog-polyfill](https://github.com/GoogleChrome/dialog-polyfill).
+
+It is important to ensure that the dialog is appropriately labeled and that the user can easily navigate and interact with it using a keyboard or screen reader.
+If your dialog content has a title, make sure to provide an `aria-labelledby` attribute with the ID of the title element to the `Dialog` component. Otherwise, provide an `aria-label` attribute with a descriptive label.
+
+If your dialog displays a complex flow with multiple screens (for example: a complex form with multiple steps), make sure to programmatically set focus to the title upon landing on every step to convey to the user their evolution within your flow.
+
+If your content contains interactive elements, the component will focus the first interactive element when the dialog opens by default. However, if you wish to focus a different element, you can provide the `initialFocusRef` prop with the ref of the element you want to focus. It is generally recommended to focus the least destructive element, such as a close button or a cancel button. If the element you want to focus is not interactive, don't forget to give it a tabindex with a negative value to enable its focus.
+
+
