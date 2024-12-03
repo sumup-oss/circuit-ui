@@ -538,6 +538,1452 @@
       "size": "32"
     },
     {
+      "size": "24",
+      "name": "circle_flag_ad_24",
+      "category": "Circular country flag",
+      "keywords": ["Andorra"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ae_24",
+      "category": "Circular country flag",
+      "keywords": ["United Arab Emirates"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_af_24",
+      "category": "Circular country flag",
+      "keywords": ["Afghanistan"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ag_24",
+      "category": "Circular country flag",
+      "keywords": ["Antigua and Barbuda"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ai_24",
+      "category": "Circular country flag",
+      "keywords": ["Anguilla"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_al_24",
+      "category": "Circular country flag",
+      "keywords": ["Albania"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_am_24",
+      "category": "Circular country flag",
+      "keywords": ["Armenia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ao_24",
+      "category": "Circular country flag",
+      "keywords": ["Angola"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ar_24",
+      "category": "Circular country flag",
+      "keywords": ["Argentina"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_as_24",
+      "category": "Circular country flag",
+      "keywords": ["American Samoa"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_at_24",
+      "category": "Circular country flag",
+      "keywords": ["Austria"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_au_24",
+      "category": "Circular country flag",
+      "keywords": ["Australia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_aw_24",
+      "category": "Circular country flag",
+      "keywords": ["Aruba"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_az_24",
+      "category": "Circular country flag",
+      "keywords": ["Azerbaijan"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ba_24",
+      "category": "Circular country flag",
+      "keywords": ["Bosnia and Herzegovina"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_bb_24",
+      "category": "Circular country flag",
+      "keywords": ["Barbados"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_bc_24",
+      "category": "Circular country flag",
+      "keywords": ["British Columbia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_bd_24",
+      "category": "Circular country flag",
+      "keywords": ["Bangladesh"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_be_24",
+      "category": "Circular country flag",
+      "keywords": ["Belgium"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_bf_24",
+      "category": "Circular country flag",
+      "keywords": ["Burkina Faso"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_bg_24",
+      "category": "Circular country flag",
+      "keywords": ["Bulgaria"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_bh_24",
+      "category": "Circular country flag",
+      "keywords": ["Bahrain"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_bj_24",
+      "category": "Circular country flag",
+      "keywords": ["Benin"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_bl_24",
+      "category": "Circular country flag",
+      "keywords": ["Saint Barthélemy"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_bm_24",
+      "category": "Circular country flag",
+      "keywords": ["Bermuda"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_bn_24",
+      "category": "Circular country flag",
+      "keywords": ["Brunei Darussalam"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_bo_24",
+      "category": "Circular country flag",
+      "keywords": ["Bolivia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_bq_24",
+      "category": "Circular country flag",
+      "keywords": ["Bonaire, Sint Eustatius and Saba"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_br_24",
+      "category": "Circular country flag",
+      "keywords": ["Brazil"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_bs_24",
+      "category": "Circular country flag",
+      "keywords": ["Bahamas"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_bt_24",
+      "category": "Circular country flag",
+      "keywords": ["Bhutan"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_bw_24",
+      "category": "Circular country flag",
+      "keywords": ["Botswana"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_by_24",
+      "category": "Circular country flag",
+      "keywords": ["Belarus"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_bz_24",
+      "category": "Circular country flag",
+      "keywords": ["Belize"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ca_24",
+      "category": "Circular country flag",
+      "keywords": ["Canada"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_cc_24",
+      "category": "Circular country flag",
+      "keywords": ["Cocos (Keeling) Islands"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_cd_24",
+      "category": "Circular country flag",
+      "keywords": ["Congo (the Democratic Republic of the)"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_cf_24",
+      "category": "Circular country flag",
+      "keywords": ["Central African Republic"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_cg_24",
+      "category": "Circular country flag",
+      "keywords": ["Congo"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ch_24",
+      "category": "Circular country flag",
+      "keywords": ["Switzerland"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ci_24",
+      "category": "Circular country flag",
+      "keywords": ["Côte d'Ivoire"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ck_24",
+      "category": "Circular country flag",
+      "keywords": ["Cook Islands"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_cl_24",
+      "category": "Circular country flag",
+      "keywords": ["Chile"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_cm_24",
+      "category": "Circular country flag",
+      "keywords": ["Cameroon"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_cn_24",
+      "category": "Circular country flag",
+      "keywords": ["China"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_co_24",
+      "category": "Circular country flag",
+      "keywords": ["Colombia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_cr_24",
+      "category": "Circular country flag",
+      "keywords": ["Costa Rica"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_cu_24",
+      "category": "Circular country flag",
+      "keywords": ["Cuba"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_cw_24",
+      "category": "Circular country flag",
+      "keywords": ["Curaçao"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_cx_24",
+      "category": "Circular country flag",
+      "keywords": ["Christmas Island"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_cy_24",
+      "category": "Circular country flag",
+      "keywords": ["Cyprus"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_cz_24",
+      "category": "Circular country flag",
+      "keywords": ["Czechia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_de_24",
+      "category": "Circular country flag",
+      "keywords": ["Germany"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_dj_24",
+      "category": "Circular country flag",
+      "keywords": ["Djibouti"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_dk_24",
+      "category": "Circular country flag",
+      "keywords": ["Denmark"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_dm_24",
+      "category": "Circular country flag",
+      "keywords": ["Dominica"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_do_24",
+      "category": "Circular country flag",
+      "keywords": ["Dominican Republic"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_dz_24",
+      "category": "Circular country flag",
+      "keywords": ["Algeria"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ec_24",
+      "category": "Circular country flag",
+      "keywords": ["Ecuador"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ee_24",
+      "category": "Circular country flag",
+      "keywords": ["Estonia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_eg_24",
+      "category": "Circular country flag",
+      "keywords": ["Egypt"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_eh_24",
+      "category": "Circular country flag",
+      "keywords": ["Western Sahara"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_er_24",
+      "category": "Circular country flag",
+      "keywords": ["Eritrea"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_es_24",
+      "category": "Circular country flag",
+      "keywords": ["Spain"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_et_24",
+      "category": "Circular country flag",
+      "keywords": ["Ethiopia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_eu_24",
+      "category": "Circular country flag",
+      "keywords": ["European Union"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_fi_24",
+      "category": "Circular country flag",
+      "keywords": ["Finland"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_fj_24",
+      "category": "Circular country flag",
+      "keywords": ["Fiji"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_fk_24",
+      "category": "Circular country flag",
+      "keywords": ["Falkland Islands (Malvinas)"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_fm_24",
+      "category": "Circular country flag",
+      "keywords": ["Micronesia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_fo_24",
+      "category": "Circular country flag",
+      "keywords": ["Faroe Islands"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_fr_24",
+      "category": "Circular country flag",
+      "keywords": ["France"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ga_24",
+      "category": "Circular country flag",
+      "keywords": ["Gabon"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_gb_24",
+      "category": "Circular country flag",
+      "keywords": ["United Kingdom of Great Britain and Northern Ireland"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_gd_24",
+      "category": "Circular country flag",
+      "keywords": ["Grenada"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ge_24",
+      "category": "Circular country flag",
+      "keywords": ["Georgia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_gg_24",
+      "category": "Circular country flag",
+      "keywords": ["Guernsey"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_gh_24",
+      "category": "Circular country flag",
+      "keywords": ["Ghana"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_gi_24",
+      "category": "Circular country flag",
+      "keywords": ["Gibraltar"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_gl_24",
+      "category": "Circular country flag",
+      "keywords": ["Greenland"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_gm_24",
+      "category": "Circular country flag",
+      "keywords": ["Gambia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_gn_24",
+      "category": "Circular country flag",
+      "keywords": ["Guinea"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_gq_24",
+      "category": "Circular country flag",
+      "keywords": ["Equatorial Guinea"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_gr_24",
+      "category": "Circular country flag",
+      "keywords": ["Greece"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_gt_24",
+      "category": "Circular country flag",
+      "keywords": ["Guatemala"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_gu_24",
+      "category": "Circular country flag",
+      "keywords": ["Guam"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_gw_24",
+      "category": "Circular country flag",
+      "keywords": ["Guinea-Bissau"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_gy_24",
+      "category": "Circular country flag",
+      "keywords": ["Guyana"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_hk_24",
+      "category": "Circular country flag",
+      "keywords": ["Hong Kong"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_hn_24",
+      "category": "Circular country flag",
+      "keywords": ["Honduras"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_hr_24",
+      "category": "Circular country flag",
+      "keywords": ["Croatia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ht_24",
+      "category": "Circular country flag",
+      "keywords": ["Haiti"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_hu_24",
+      "category": "Circular country flag",
+      "keywords": ["Hungary"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ic_24",
+      "category": "Circular country flag",
+      "keywords": ["Ivory Coast"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_id_24",
+      "category": "Circular country flag",
+      "keywords": ["Indonesia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ie_24",
+      "category": "Circular country flag",
+      "keywords": ["Ireland"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_il_24",
+      "category": "Circular country flag",
+      "keywords": ["Israel"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_im_24",
+      "category": "Circular country flag",
+      "keywords": ["Isle of Man"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_in_24",
+      "category": "Circular country flag",
+      "keywords": ["India"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_io_24",
+      "category": "Circular country flag",
+      "keywords": ["British Indian Ocean Territory"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_iq_24",
+      "category": "Circular country flag",
+      "keywords": ["Iraq"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ir_24",
+      "category": "Circular country flag",
+      "keywords": ["Iran"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_is_24",
+      "category": "Circular country flag",
+      "keywords": ["Iceland"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_it_24",
+      "category": "Circular country flag",
+      "keywords": ["Italy"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_je_24",
+      "category": "Circular country flag",
+      "keywords": ["Jersey"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_jm_24",
+      "category": "Circular country flag",
+      "keywords": ["Jamaica"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_jo_24",
+      "category": "Circular country flag",
+      "keywords": ["Jordan"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_jp_24",
+      "category": "Circular country flag",
+      "keywords": ["Japan"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ke_24",
+      "category": "Circular country flag",
+      "keywords": ["Kenya"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_kg_24",
+      "category": "Circular country flag",
+      "keywords": ["Kyrgyzstan"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_kh_24",
+      "category": "Circular country flag",
+      "keywords": ["Cambodia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ki_24",
+      "category": "Circular country flag",
+      "keywords": ["Kiribati"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_km_24",
+      "category": "Circular country flag",
+      "keywords": ["Comoros"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_kn_24",
+      "category": "Circular country flag",
+      "keywords": ["Saint Kitts and Nevis"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_kp_24",
+      "category": "Circular country flag",
+      "keywords": ["North Korea"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_kr_24",
+      "category": "Circular country flag",
+      "keywords": ["South Korea"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_kw_24",
+      "category": "Circular country flag",
+      "keywords": ["Kuwait"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ky_24",
+      "category": "Circular country flag",
+      "keywords": ["Cayman Islands"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_kz_24",
+      "category": "Circular country flag",
+      "keywords": ["Kazakhstan"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_la_24",
+      "category": "Circular country flag",
+      "keywords": ["Lao People's Democratic Republic"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_lb_24",
+      "category": "Circular country flag",
+      "keywords": ["Lebanon"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_lc_24",
+      "category": "Circular country flag",
+      "keywords": ["Saint Lucia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_li_24",
+      "category": "Circular country flag",
+      "keywords": ["Liechtenstein"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_lk_24",
+      "category": "Circular country flag",
+      "keywords": ["Sri Lanka"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_lr_24",
+      "category": "Circular country flag",
+      "keywords": ["Liberia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ls_24",
+      "category": "Circular country flag",
+      "keywords": ["Lesotho"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_lt_24",
+      "category": "Circular country flag",
+      "keywords": ["Lithuania"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_lu_24",
+      "category": "Circular country flag",
+      "keywords": ["Luxembourg"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_lv_24",
+      "category": "Circular country flag",
+      "keywords": ["Latvia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ly_24",
+      "category": "Circular country flag",
+      "keywords": ["Libya"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ma_24",
+      "category": "Circular country flag",
+      "keywords": ["Morocco"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_mc_24",
+      "category": "Circular country flag",
+      "keywords": ["Monaco"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_md_24",
+      "category": "Circular country flag",
+      "keywords": ["Moldova"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_me_24",
+      "category": "Circular country flag",
+      "keywords": ["Montenegro"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_mf_24",
+      "category": "Circular country flag",
+      "keywords": ["Saint Martin (French part)"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_mg_24",
+      "category": "Circular country flag",
+      "keywords": ["Madagascar"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_mh_24",
+      "category": "Circular country flag",
+      "keywords": ["Marshall Islands"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_mk_24",
+      "category": "Circular country flag",
+      "keywords": ["Republic of North Macedonia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ml_24",
+      "category": "Circular country flag",
+      "keywords": ["Mali"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_mm_24",
+      "category": "Circular country flag",
+      "keywords": ["Myanmar"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_mn_24",
+      "category": "Circular country flag",
+      "keywords": ["Mongolia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_mo_24",
+      "category": "Circular country flag",
+      "keywords": ["Macao"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_mp_24",
+      "category": "Circular country flag",
+      "keywords": ["Northern Mariana Islands"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_mq_24",
+      "category": "Circular country flag",
+      "keywords": ["Martinique"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_mr_24",
+      "category": "Circular country flag",
+      "keywords": ["Mauritania"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ms_24",
+      "category": "Circular country flag",
+      "keywords": ["Montserrat"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_mt_24",
+      "category": "Circular country flag",
+      "keywords": ["Malta"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_mu_24",
+      "category": "Circular country flag",
+      "keywords": ["Mauritius"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_mv_24",
+      "category": "Circular country flag",
+      "keywords": ["Maldives"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_mw_24",
+      "category": "Circular country flag",
+      "keywords": ["Malawi"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_mx_24",
+      "category": "Circular country flag",
+      "keywords": ["Mexico"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_my_24",
+      "category": "Circular country flag",
+      "keywords": ["Malaysia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_mz_24",
+      "category": "Circular country flag",
+      "keywords": ["Mozambique"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_n_24",
+      "category": "Circular country flag",
+      "keywords": ["Nato"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_na_24",
+      "category": "Circular country flag",
+      "keywords": ["Namibia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_nc_24",
+      "category": "Circular country flag",
+      "keywords": ["New Caledonia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ne_24",
+      "category": "Circular country flag",
+      "keywords": ["Niger"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ng_24",
+      "category": "Circular country flag",
+      "keywords": ["Nigeria"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ni_24",
+      "category": "Circular country flag",
+      "keywords": ["Nicaragua"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_nl_24",
+      "category": "Circular country flag",
+      "keywords": ["Netherlands"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_no_24",
+      "category": "Circular country flag",
+      "keywords": ["Norway"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_np_24",
+      "category": "Circular country flag",
+      "keywords": ["Nepal"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_nr_24",
+      "category": "Circular country flag",
+      "keywords": ["Nauru"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_nu_24",
+      "category": "Circular country flag",
+      "keywords": ["Niue"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_nz_24",
+      "category": "Circular country flag",
+      "keywords": ["New Zealand"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_om_24",
+      "category": "Circular country flag",
+      "keywords": ["Oman"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_pa_24",
+      "category": "Circular country flag",
+      "keywords": ["Panama"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_pe_24",
+      "category": "Circular country flag",
+      "keywords": ["Peru"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_pf_24",
+      "category": "Circular country flag",
+      "keywords": ["French Polynesia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_pg_24",
+      "category": "Circular country flag",
+      "keywords": ["Papua New Guinea"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ph_24",
+      "category": "Circular country flag",
+      "keywords": ["Philippines"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_pk_24",
+      "category": "Circular country flag",
+      "keywords": ["Pakistan"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_pl_24",
+      "category": "Circular country flag",
+      "keywords": ["Poland"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_pm_24",
+      "category": "Circular country flag",
+      "keywords": ["Saint Pierre and Miquelon"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_pn_24",
+      "category": "Circular country flag",
+      "keywords": ["Pitcairn"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_pr_24",
+      "category": "Circular country flag",
+      "keywords": ["Puerto Rico"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ps_24",
+      "category": "Circular country flag",
+      "keywords": ["Palestine, State of"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_pt_24",
+      "category": "Circular country flag",
+      "keywords": ["Portugal"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_pw_24",
+      "category": "Circular country flag",
+      "keywords": ["Palau"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_py_24",
+      "category": "Circular country flag",
+      "keywords": ["Paraguay"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_qa_24",
+      "category": "Circular country flag",
+      "keywords": ["Qatar"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_re_24",
+      "category": "Circular country flag",
+      "keywords": ["Réunion"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ro_24",
+      "category": "Circular country flag",
+      "keywords": ["Romania"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_rs_24",
+      "category": "Circular country flag",
+      "keywords": ["Serbia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ru_24",
+      "category": "Circular country flag",
+      "keywords": ["Russian Federation"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_rw_24",
+      "category": "Circular country flag",
+      "keywords": ["Rwanda"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_sa_24",
+      "category": "Circular country flag",
+      "keywords": ["Saudi Arabia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_sb_24",
+      "category": "Circular country flag",
+      "keywords": ["Solomon Islands"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_sc_24",
+      "category": "Circular country flag",
+      "keywords": ["Seychelles"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_sd_24",
+      "category": "Circular country flag",
+      "keywords": ["Sudan"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_se_24",
+      "category": "Circular country flag",
+      "keywords": ["Sweden"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_sg_24",
+      "category": "Circular country flag",
+      "keywords": ["Singapore"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_sh_24",
+      "category": "Circular country flag",
+      "keywords": ["Saint Helena, Ascension and Tristan da Cunha"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_si_24",
+      "category": "Circular country flag",
+      "keywords": ["Slovenia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_sj_24",
+      "category": "Circular country flag",
+      "keywords": ["Svalbard and Jan Mayen"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_sk_24",
+      "category": "Circular country flag",
+      "keywords": ["Slovakia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_sl_24",
+      "category": "Circular country flag",
+      "keywords": ["Sierra Leone"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_sm_24",
+      "category": "Circular country flag",
+      "keywords": ["San Marino"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_sn_24",
+      "category": "Circular country flag",
+      "keywords": ["Senegal"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_so_24",
+      "category": "Circular country flag",
+      "keywords": ["Somalia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_sp_24",
+      "category": "Circular country flag",
+      "keywords": ["Saint Pierre and Miquelon"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ss_24",
+      "category": "Circular country flag",
+      "keywords": ["South Sudan"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_st_24",
+      "category": "Circular country flag",
+      "keywords": ["Sao Tome and Principe"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_sv_24",
+      "category": "Circular country flag",
+      "keywords": ["El Salvador"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_sx_24",
+      "category": "Circular country flag",
+      "keywords": ["Sint Maarten (Dutch part)"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_sy_24",
+      "category": "Circular country flag",
+      "keywords": ["Syrian Arab Republic"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_sz_24",
+      "category": "Circular country flag",
+      "keywords": ["Eswatini"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ta_24",
+      "category": "Circular country flag",
+      "keywords": ["Turks and Caicos Islands"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_tc_24",
+      "category": "Circular country flag",
+      "keywords": ["Turks and Caicos Islands"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_td_24",
+      "category": "Circular country flag",
+      "keywords": ["Chad"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_tg_24",
+      "category": "Circular country flag",
+      "keywords": ["Togo"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_th_24",
+      "category": "Circular country flag",
+      "keywords": ["Thailand"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_tj_24",
+      "category": "Circular country flag",
+      "keywords": ["Tajikistan"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_tk_24",
+      "category": "Circular country flag",
+      "keywords": ["Tokelau"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_tl_24",
+      "category": "Circular country flag",
+      "keywords": ["Timor-Leste"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_tm_24",
+      "category": "Circular country flag",
+      "keywords": ["Turkmenistan"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_tn_24",
+      "category": "Circular country flag",
+      "keywords": ["Tunisia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_to_24",
+      "category": "Circular country flag",
+      "keywords": ["Tonga"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_tr_24",
+      "category": "Circular country flag",
+      "keywords": ["Turkey"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_tt_24",
+      "category": "Circular country flag",
+      "keywords": ["Trinidad and Tobago"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_tv_24",
+      "category": "Circular country flag",
+      "keywords": ["Tuvalu"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_tw_24",
+      "category": "Circular country flag",
+      "keywords": ["Taiwan"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_tz_24",
+      "category": "Circular country flag",
+      "keywords": ["Tanzania, United Republic of"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ua_24",
+      "category": "Circular country flag",
+      "keywords": ["Ukraine"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ug_24",
+      "category": "Circular country flag",
+      "keywords": ["Uganda"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_us_24",
+      "category": "Circular country flag",
+      "keywords": ["United States of America"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_uy_24",
+      "category": "Circular country flag",
+      "keywords": ["Uruguay"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_uz_24",
+      "category": "Circular country flag",
+      "keywords": ["Uzbekistan"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_va_24",
+      "category": "Circular country flag",
+      "keywords": ["Holy See"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_vc_24",
+      "category": "Circular country flag",
+      "keywords": ["Saint Vincent and the Grenadines"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ve_24",
+      "category": "Circular country flag",
+      "keywords": ["Venezuela"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_vg_24",
+      "category": "Circular country flag",
+      "keywords": ["Virgin Islands (British)"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_vi_24",
+      "category": "Circular country flag",
+      "keywords": ["Virgin Islands (U.S.)"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_vn_24",
+      "category": "Circular country flag",
+      "keywords": ["Viet Nam"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_vu_24",
+      "category": "Circular country flag",
+      "keywords": ["Vanuatu"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ws_24",
+      "category": "Circular country flag",
+      "keywords": ["Samoa"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_xk_24",
+      "category": "Circular country flag",
+      "keywords": ["Kosovo"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_ye_24",
+      "category": "Circular country flag",
+      "keywords": ["Yemen"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_za_24",
+      "category": "Circular country flag",
+      "keywords": ["South Africa"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_zm_24",
+      "category": "Circular country flag",
+      "keywords": ["Zambia"]
+    },
+    {
+      "size": "24",
+      "name": "circle_flag_zw_24",
+      "category": "Circular country flag",
+      "keywords": ["Zimbabwe"]
+    },
+    {
       "name": "callback",
       "category": "Communication",
       "size": "24"
