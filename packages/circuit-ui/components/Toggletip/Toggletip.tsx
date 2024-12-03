@@ -54,6 +54,7 @@ import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
+import type { Locale } from '../../util/i18n.js';
 
 import classes from './Toggletip.module.css';
 import { translations } from './translations/index.js';
@@ -111,6 +112,13 @@ export interface ToggletipProps extends HTMLAttributes<HTMLDialogElement> {
    * Default: 12.
    */
   offset?: number | { mainAxis?: number; crossAxis?: number };
+  /**
+   * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
+   * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
+   * When passing an array, the first supported locale is used.
+   * Defaults to `navigator.language` in supported environments.
+   */
+  locale?: Locale;
 }
 
 export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
