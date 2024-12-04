@@ -1,0 +1,9 @@
+{
+  "yearInputLabel": "Godina",
+  "monthInputLabel": "Mjesec",
+  "dayInputLabel": "Dan",
+  "openCalendarButtonLabel": "Promijeni datum",
+  "closeCalendarButtonLabel": "Zatvori kalendar",
+  "applyDateButtonLabel": "Primijeni datum",
+  "clearDateButtonLabel": "Izbriši datum"
+}

@@ -32,8 +32,11 @@ import {
 } from '../../util/errors.js';
 import { utilClasses } from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
+import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import type { Locale } from '../../util/i18n.js';
 
 import classes from './base.module.css';
+import { translations } from './translations/index.js';
 
 type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
 type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
@@ -89,6 +92,13 @@ export type SharedButtonProps = LinkElProps &
      * Render the Button using any element.
      */
     'as'?: AsPropType;
+    /**
+     * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
+     * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
+     * When passing an array, the first supported locale is used.
+     * Defaults to `navigator.language` in supported environments.
+     */
+    locale?: Locale;
   };
 
 export type CreateButtonComponentProps = SharedButtonProps & {
@@ -141,8 +151,9 @@ export function createButtonComponent<Props>(
       icon: LeadingIcon,
       navigationIcon: TrailingIcon,
       as,
+      locale,
       ...sharedProps
-    } = mapProps(props);
+    } = useI18n(mapProps(props), translations);
 
     const components = useComponents();
     const Link = components.Link as AsPropType;
@@ -162,18 +173,6 @@ export function createButtonComponent<Props>(
       event.stopPropagation();
       event.nativeEvent.stopImmediatePropagation();
     };
-
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      hasLoadingState &&
-      !isSufficientlyLabelled(loadingLabel)
-    ) {
-      throw new AccessibilityError(
-        componentName,
-        "The `loadingLabel` prop is missing or invalid. Remove the `isLoading` prop if you don't intend to use the Button's loading state.",
-      );
-    }
 
     if (
       process.env.NODE_ENV !== 'production' &&

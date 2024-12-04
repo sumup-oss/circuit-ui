@@ -41,16 +41,12 @@ import {
   type FirstDayOfWeek,
   type PlainDateRange,
 } from '../../util/date.js';
-import {
-  AccessibilityError,
-  CircuitError,
-  isSufficientlyLabelled,
-} from '../../util/errors.js';
+import { CircuitError } from '../../util/errors.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { useSwipe } from '../../hooks/useSwipe/useSwipe.js';
-import { useLocale } from '../../hooks/useLocale/useLocale.js';
 import { last } from '../../util/helpers.js';
 import { Body } from '../Body/Body.js';
+import { useI18n } from '../../hooks/useI18n/useI18n.js';
 
 import {
   CalendarActionType,
@@ -64,6 +60,7 @@ import {
   isDateInMonthRange,
 } from './CalendarService.js';
 import classes from './Calendar.module.css';
+import { translations } from './translations/index.js';
 
 type DateModifiers = {
   disabled?: boolean;
@@ -128,11 +125,11 @@ export interface CalendarProps
   /**
    * Text label for the button to navigate to the previous month.
    */
-  prevMonthButtonLabel: string;
+  prevMonthButtonLabel?: string;
   /**
    * Text label for the button to navigate to the next month.
    */
-  nextMonthButtonLabel: string;
+  nextMonthButtonLabel?: string;
   /**
    * The number of months to display at a time. Default: `1`.
    */
@@ -140,25 +137,22 @@ export interface CalendarProps
 }
 
 export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
-  (
-    {
+  (props, ref) => {
+    const {
       selection,
       onSelect,
       onMonthsChange,
       minDate,
       maxDate,
       firstDayOfWeek = 1,
-      locale: customLocale,
+      locale,
       prevMonthButtonLabel,
       nextMonthButtonLabel,
       modifiers,
       numberOfMonths = 1,
       calendar = 'iso8601',
-      ...props
-    },
-    ref,
-  ) => {
-    const locale = useLocale(customLocale);
+      ...rest
+    } = useI18n(props, translations);
     const [{ months, focusedDate, hoveredDate, today }, dispatch] = useReducer(
       calendarReducer,
       { selection, minDate, maxDate, numberOfMonths },
@@ -258,35 +252,21 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
       dispatch({ type: CalendarActionType.MOUSE_LEAVE_DATE });
     }, []);
 
-    if (process.env.NODE_ENV !== 'production') {
-      if (!isSufficientlyLabelled(prevMonthButtonLabel)) {
-        throw new AccessibilityError(
-          'Calendar',
-          'The `prevMonthButtonLabel` prop is missing or invalid.',
-        );
-      }
-      if (!isSufficientlyLabelled(nextMonthButtonLabel)) {
-        throw new AccessibilityError(
-          'Calendar',
-          'The `nextMonthButtonLabel` prop is missing or invalid.',
-        );
-      }
-      if (modifiers) {
-        Object.keys(modifiers).forEach((key) => {
-          try {
-            Temporal.PlainDate.from(key);
-          } catch (_error) {
-            throw new CircuitError(
-              'Calendar',
-              `The "${key}" key of the \`modifiers\` prop is not a valid ISO 8601 date string.`,
-            );
-          }
-        });
-      }
+    if (process.env.NODE_ENV !== 'production' && modifiers) {
+      Object.keys(modifiers).forEach((key) => {
+        try {
+          Temporal.PlainDate.from(key);
+        } catch (_error) {
+          throw new CircuitError(
+            'Calendar',
+            `The "${key}" key of the \`modifiers\` prop is not a valid ISO 8601 date string.`,
+          );
+        }
+      });
     }
 
     return (
-      <div ref={applyMultipleRefs(ref, calendarRef)} role="group" {...props}>
+      <div ref={applyMultipleRefs(ref, calendarRef)} role="group" {...rest}>
         <div className={classes.header}>
           <div className={classes.prev}>
             <IconButton

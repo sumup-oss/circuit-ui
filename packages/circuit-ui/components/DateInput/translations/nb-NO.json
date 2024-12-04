@@ -1,0 +1,9 @@
+{
+  "yearInputLabel": "År",
+  "monthInputLabel": "Måned",
+  "dayInputLabel": "Dag",
+  "openCalendarButtonLabel": "Endre dato",
+  "closeCalendarButtonLabel": "Lukk kalender",
+  "applyDateButtonLabel": "Bruk dato",
+  "clearDateButtonLabel": "Slett dato"
+}

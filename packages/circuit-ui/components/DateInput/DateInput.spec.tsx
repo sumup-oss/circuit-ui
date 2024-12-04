@@ -28,15 +28,6 @@ describe('DateInput', () => {
   const props = {
     onChange: vi.fn(),
     label: 'Date of birth',
-    yearInputLabel: 'Year',
-    monthInputLabel: 'Month',
-    dayInputLabel: 'Day',
-    openCalendarButtonLabel: 'Change date',
-    closeCalendarButtonLabel: 'Close calendar',
-    prevMonthButtonLabel: 'Previous month',
-    nextMonthButtonLabel: 'Previous month',
-    applyDateButtonLabel: 'Apply date',
-    clearDateButtonLabel: 'Clear date',
   };
 
   beforeEach(() => {

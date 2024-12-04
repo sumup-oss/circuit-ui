@@ -1,0 +1,9 @@
+{
+  "yearInputLabel": "Metai",
+  "monthInputLabel": "Mėnuo",
+  "dayInputLabel": "Diena",
+  "openCalendarButtonLabel": "Keisti datą",
+  "closeCalendarButtonLabel": "Uždaryti kalendorių",
+  "applyDateButtonLabel": "Taikyti datą",
+  "clearDateButtonLabel": "Išvalyti datą"
+}

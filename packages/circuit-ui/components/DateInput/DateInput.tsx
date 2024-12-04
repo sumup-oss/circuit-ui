@@ -36,6 +36,7 @@ import { Calendar as CalendarIcon } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
 import { useMedia } from '../../hooks/useMedia/useMedia.js';
+import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
@@ -57,7 +58,6 @@ import {
 import { toPlainDate } from '../../util/date.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { changeInputValue } from '../../util/input-value.js';
-import { useLocale } from '../../hooks/useLocale/useLocale.js';
 
 import { Dialog } from './components/Dialog.js';
 import { DateSegment } from './components/DateSegment.js';
@@ -65,6 +65,7 @@ import { usePlainDateState } from './hooks/usePlainDateState.js';
 import { useSegmentFocus } from './hooks/useSegmentFocus.js';
 import { getCalendarButtonLabel, getDateSegments } from './DateInputService.js';
 import classes from './DateInput.module.css';
+import { translations } from './translations/index.js';
 
 export interface DateInputProps
   extends InputHTMLAttributes<HTMLInputElement>,
@@ -102,31 +103,31 @@ export interface DateInputProps
   /**
    * Visually hidden label for the year input.
    */
-  yearInputLabel: string;
+  yearInputLabel?: string;
   /**
    * Visually hidden label for the month input.
    */
-  monthInputLabel: string;
+  monthInputLabel?: string;
   /**
    * Visually hidden label for the day input.
    */
-  dayInputLabel: string;
+  dayInputLabel?: string;
   /**
    * Label for the trailing button that opens the calendar dialog.
    */
-  openCalendarButtonLabel: string;
+  openCalendarButtonLabel?: string;
   /**
    * Label for the button to close the calendar dialog.
    */
-  closeCalendarButtonLabel: string;
+  closeCalendarButtonLabel?: string;
   /**
    * Label for the button to apply the selected date and close the calendar dialog.
    */
-  applyDateButtonLabel: string;
+  applyDateButtonLabel?: string;
   /**
    * Label for the button to clear the date value and close the calendar dialog.
    */
-  clearDateButtonLabel: string;
+  clearDateButtonLabel?: string;
   /**
    * The minimum selectable date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
    * format (`YYYY-MM-DD`) (inclusive).
@@ -152,14 +153,14 @@ export interface DateInputProps
  * The input value is always a string in the format `YYYY-MM-DD`.
  */
 export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
-  (
-    {
+  (props, ref) => {
+    const {
       label,
       value,
       defaultValue,
       min,
       max,
-      locale: customLocale,
+      locale,
       firstDayOfWeek,
       modifiers,
       hideLabel,
@@ -185,11 +186,8 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       placement = 'bottom-end',
       className,
       style,
-      ...props
-    },
-    ref,
-  ) => {
-    const locale = useLocale(customLocale);
+      ...rest
+    } = useI18n(props, translations);
     const isMobile = useMedia('(max-width: 479px)');
 
     const inputRef = useRef<HTMLInputElement>(null);
@@ -324,55 +322,14 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       locale,
     );
 
-    if (process.env.NODE_ENV !== 'production') {
-      if (!isSufficientlyLabelled(label)) {
-        throw new AccessibilityError(
-          'DateInput',
-          'The `label` prop is missing or invalid.',
-        );
-      }
-      if (!isSufficientlyLabelled(openCalendarButtonLabel)) {
-        throw new AccessibilityError(
-          'DateInput',
-          'The `openCalendarButtonLabel` prop is missing or invalid.',
-        );
-      }
-      if (!isSufficientlyLabelled(closeCalendarButtonLabel)) {
-        throw new AccessibilityError(
-          'DateInput',
-          'The `closeCalendarButtonLabel` prop is missing or invalid.',
-        );
-      }
-      if (!isSufficientlyLabelled(applyDateButtonLabel)) {
-        throw new AccessibilityError(
-          'DateInput',
-          'The `applyDateButtonLabel` prop is missing or invalid.',
-        );
-      }
-      if (!isSufficientlyLabelled(clearDateButtonLabel)) {
-        throw new AccessibilityError(
-          'DateInput',
-          'The `clearDateButtonLabel` prop is missing or invalid.',
-        );
-      }
-      if (!isSufficientlyLabelled(yearInputLabel)) {
-        throw new AccessibilityError(
-          'DateInput',
-          'The `yearInputLabel` prop is missing or invalid.',
-        );
-      }
-      if (!isSufficientlyLabelled(monthInputLabel)) {
-        throw new AccessibilityError(
-          'DateInput',
-          'The `monthInputLabel` prop is missing or invalid.',
-        );
-      }
-      if (!isSufficientlyLabelled(dayInputLabel)) {
-        throw new AccessibilityError(
-          'DateInput',
-          'The `dayInputLabel` prop is missing or invalid.',
-        );
-      }
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      !isSufficientlyLabelled(label)
+    ) {
+      throw new AccessibilityError(
+        'DateInput',
+        'The `label` prop is missing or invalid.',
+      );
     }
 
     return (
@@ -402,7 +359,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
               tabIndex={-1}
               value={value}
               defaultValue={defaultValue}
-              {...props}
+              {...rest}
             />
             {/* biome-ignore lint/a11y/useKeyWithClickEvents: */}
             <div

@@ -49,8 +49,11 @@ import { CloseButton } from '../CloseButton/index.js';
 import { Headline } from '../Headline/index.js';
 import { Body } from '../Body/index.js';
 import { Button, type ButtonProps } from '../Button/index.js';
+import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import type { Locale } from '../../util/i18n.js';
 
 import classes from './Toggletip.module.css';
+import { translations } from './translations/index.js';
 
 export interface ToggletipReferenceProps {
   'id': string;
@@ -84,7 +87,7 @@ export interface ToggletipProps extends HTMLAttributes<HTMLDialogElement> {
   /**
    * Label for the toggletip's close button.
    */
-  closeButtonLabel: string;
+  closeButtonLabel?: string;
   /**
    * Whether the toggletip is initially open. Default: 'false'.
    */
@@ -105,11 +108,18 @@ export interface ToggletipProps extends HTMLAttributes<HTMLDialogElement> {
    * Default: 12.
    */
   offset?: number | { mainAxis?: number; crossAxis?: number };
+  /**
+   * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
+   * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
+   * When passing an array, the first supported locale is used.
+   * Defaults to `navigator.language` in supported environments.
+   */
+  locale?: Locale;
 }
 
 export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
-  (
-    {
+  (props, ref) => {
+    const {
       defaultOpen = false,
       placement: defaultPlacement = 'top',
       offset = 12,
@@ -120,10 +130,9 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
       closeButtonLabel,
       className,
       style,
-      ...props
-    },
-    ref,
-  ) => {
+      locale,
+      ...rest
+    } = useI18n(props, translations);
     const zIndex = useStackContext();
     const isMobile = useMedia('(max-width: 479px)');
     const arrowRef = useRef<HTMLDivElement>(null);
@@ -244,7 +253,7 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
         {/* eslint-disable jsx-a11y/no-autofocus */}
         {/* @ts-expect-error "Expression produces a union type that is too complex to represent" */}
         <dialog
-          {...props}
+          {...rest}
           open={defaultOpen}
           ref={applyMultipleRefs(ref, dialogRef, refs.setFloating)}
           data-side={side}

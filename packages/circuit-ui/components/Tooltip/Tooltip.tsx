@@ -211,18 +211,17 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       return undefined;
     }, [state, update]);
 
-    if (process.env.NODE_ENV !== 'production' && !type) {
-      throw new CircuitError('Tooltip', 'The `type` prop is required.');
-    }
+    if (process.env.NODE_ENV !== 'production') {
+      if (!type) {
+        throw new CircuitError('Tooltip', 'The `type` prop is required.');
+      }
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      !isSufficientlyLabelled(label)
-    ) {
-      throw new AccessibilityError(
-        'Tooltip',
-        'The `label` prop is missing or invalid.',
-      );
+      if (!isSufficientlyLabelled(label)) {
+        throw new AccessibilityError(
+          'Tooltip',
+          'The `label` prop is missing or invalid.',
+        );
+      }
     }
 
     const referenceProps = { [ariaAttributeName]: tooltipId };

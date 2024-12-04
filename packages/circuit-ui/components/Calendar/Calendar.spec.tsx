@@ -45,8 +45,6 @@ function wait(ms: number) {
 describe('Calendar', () => {
   const baseProps = {
     selection: new Temporal.PlainDate(2020, 3, 15),
-    prevMonthButtonLabel: 'Previous month',
-    nextMonthButtonLabel: 'Next month',
   };
 
   function getDayElement(day: number) {

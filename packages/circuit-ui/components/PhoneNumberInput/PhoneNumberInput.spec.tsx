@@ -98,7 +98,7 @@ describe('PhoneNumberInput', () => {
       subscriberNumber: { ...defaultProps.subscriberNumber, ref },
     };
     render(<PhoneNumberInput {...props} />);
-    const input = screen.getByLabelText('Subscriber number');
+    const input = screen.getByLabelText(/Subscriber number/);
     expect(ref.current).toBe(input);
   });
 
@@ -155,7 +155,7 @@ describe('PhoneNumberInput', () => {
     const { container } = render(<PhoneNumberInput {...props} />);
     const input = getHiddenInput(container);
     const countryCode = screen.getByLabelText('Country code');
-    const subscriberNumber = screen.getByLabelText('Subscriber number');
+    const subscriberNumber = screen.getByLabelText(/Subscriber number/);
     expect(input).toHaveValue('+4912345678');
     expect(countryCode).toHaveValue('DE');
     expect(subscriberNumber).toHaveValue('12345678');
@@ -169,7 +169,7 @@ describe('PhoneNumberInput', () => {
     const { container } = render(<PhoneNumberInput {...props} />);
     const input = getHiddenInput(container);
     const countryCode = screen.getByLabelText('Country code');
-    const subscriberNumber = screen.getByLabelText('Subscriber number');
+    const subscriberNumber = screen.getByLabelText(/Subscriber number/);
     expect(input).toHaveValue('+4912345678');
     expect(countryCode).toHaveValue('DE');
     expect(subscriberNumber).toHaveValue('12345678');
@@ -182,7 +182,7 @@ describe('PhoneNumberInput', () => {
     rerender(<PhoneNumberInput {...defaultProps} value="+112345678" />);
     const input = getHiddenInput(container);
     const countryCode = screen.getByLabelText('Country code');
-    const subscriberNumber = screen.getByLabelText('Subscriber number');
+    const subscriberNumber = screen.getByLabelText(/Subscriber number/);
     expect(input).toHaveValue('+112345678');
     expect(countryCode).toHaveValue('CA');
     expect(subscriberNumber).toHaveValue('12345678');
@@ -225,7 +225,7 @@ describe('PhoneNumberInput', () => {
       },
     };
     render(<PhoneNumberInput {...props} />);
-    const input = screen.getByLabelText('Subscriber number');
+    const input = screen.getByLabelText(/Subscriber number/);
     await userEvent.type(input, '1');
     expect(onChange).toHaveBeenCalledOnce();
   });
@@ -246,7 +246,7 @@ describe('PhoneNumberInput', () => {
         },
       };
       render(<PhoneNumberInput {...props} />);
-      const input = screen.getByLabelText('Subscriber number');
+      const input = screen.getByLabelText(/Subscriber number/);
       await userEvent.click(input);
       await userEvent.paste(phoneNumber);
       expect(props.ref.current).toHaveValue('+4912345678');
@@ -270,7 +270,7 @@ describe('PhoneNumberInput', () => {
       },
     };
     render(<PhoneNumberInput {...props} />);
-    const input = screen.getByLabelText('Subscriber number');
+    const input = screen.getByLabelText(/Subscriber number/);
     await userEvent.click(input);
     await userEvent.paste('012345678');
     expect(props.ref.current).toHaveValue('+112345678');
@@ -288,7 +288,7 @@ describe('PhoneNumberInput', () => {
       },
     };
     render(<PhoneNumberInput {...props} />);
-    const input = screen.getByLabelText('Subscriber number');
+    const input = screen.getByLabelText(/Subscriber number/);
     expect(input).toBeValid();
   });
 
@@ -301,7 +301,7 @@ describe('PhoneNumberInput', () => {
       },
     };
     render(<PhoneNumberInput {...props} />);
-    const input = screen.getByLabelText('Subscriber number');
+    const input = screen.getByLabelText(/Subscriber number/);
     expect(input).toBeInvalid();
   });
 
