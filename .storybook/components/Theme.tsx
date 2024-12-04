@@ -15,7 +15,7 @@
 
 import { useEffect, useState, type ComponentType } from 'react';
 import { ThemeProvider, useTheme } from '@emotion/react';
-import { Unstyled } from '@storybook/addon-docs';
+import { Unstyled } from '@storybook/blocks';
 import { light, schema } from '@sumup-oss/design-tokens';
 import { SumUpLogomark } from '@sumup-oss/icons';
 import { Anchor } from '../../packages/circuit-ui/components/Anchor/Anchor.js';

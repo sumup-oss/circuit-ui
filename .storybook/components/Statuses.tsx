@@ -14,7 +14,7 @@
  */
 
 import type { ReactNode } from 'react';
-import { Unstyled } from '@storybook/addon-docs';
+import { Unstyled } from '@storybook/blocks';
 import LinkTo from '@storybook/addon-links/react';
 import { Badge, type BadgeProps } from '@sumup-oss/circuit-ui';
 import {} from '../../packages/circuit-ui/components/Badge/Badge.js';

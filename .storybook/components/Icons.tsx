@@ -19,7 +19,7 @@ import {
   type SetStateAction,
   type ChangeEvent,
 } from 'react';
-import { Unstyled } from '@storybook/addon-docs';
+import { Unstyled } from '@storybook/blocks';
 import * as iconComponents from '@sumup-oss/icons';
 import type { IconComponentType } from '@sumup-oss/icons';
 import type { IconsManifest } from '@sumup-oss/icons';
