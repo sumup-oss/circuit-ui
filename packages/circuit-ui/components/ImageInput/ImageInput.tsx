@@ -139,26 +139,13 @@ export const ImageInput = (props: ImageInputProps) => {
 
   if (
     process.env.NODE_ENV !== 'production' &&
-    process.env.NODE_ENV !== 'test'
+    process.env.NODE_ENV !== 'test' &&
+    !isSufficientlyLabelled(label)
   ) {
-    if (!isSufficientlyLabelled(label)) {
-      throw new AccessibilityError(
-        'ImageInput',
-        'The `label` prop is missing or invalid.',
-      );
-    }
-    if (!isSufficientlyLabelled(clearButtonLabel)) {
-      throw new AccessibilityError(
-        'ImageInput',
-        'The `clearButtonLabel` prop is missing or invalid.',
-      );
-    }
-    if (!isSufficientlyLabelled(loadingLabel)) {
-      throw new AccessibilityError(
-        'ImageInput',
-        'The `loadingLabel` prop is missing or invalid.',
-      );
-    }
+    throw new AccessibilityError(
+      'ImageInput',
+      'The `label` prop is missing or invalid.',
+    );
   }
 
   const inputRef = useRef<HTMLInputElement>(null);
