@@ -1,5 +1,5 @@
 ---
-"@sumup-oss/circuit-ui": patch
+'@sumup-oss/circuit-ui': patch
 ---
 
-Fixed the z-index of the DateInput component when used inside a SidePanel alongside the Select component.
+Increased the SidePanel component's root z-index value to ensure nested, absolutely-positioned components stack properly.
