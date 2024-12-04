@@ -43,7 +43,7 @@ export function DesktopSidePanel({
   };
 
   return (
-    <StackContext.Provider value={'var(--cui-z-index-absolute)'}>
+    <StackContext.Provider value={'var(--cui-z-index-navigation)'}>
       <ReactModal {...reactModalProps}>{children}</ReactModal>
     </StackContext.Provider>
   );
