@@ -9,7 +9,6 @@ The following component props are now optional:
 - Button, IconButton: `loadingLabel`
 - Calendar: `prevMonthButtonLabel`, `nextMonthButtonLabel`
 - DateInput: `yearInputLabel`, `monthInputLabel`, `dayInputLabel`, `openCalendarButtonLabel`, `closeCalendarButtonLabel`, `applyDateButtonLabel`, `clearDateButtonLabel`
-- ImageInput: `clearButtonLabel`, `loadingLabel`
 - Toggletip: `closeButtonLabel`
 
 We'll add default translations to more components in the future.
