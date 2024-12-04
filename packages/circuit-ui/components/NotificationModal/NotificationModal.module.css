@@ -5,7 +5,7 @@
 @media (min-width: 480px) {
   .centered.base {
     width: calc(100vw - var(--cui-spacings-peta) * 2);
-    min-width: 480px;
+    min-width: unset;
     max-width: 420px;
     max-height: calc(100vh - var(--cui-spacings-mega) * 2);
   }
