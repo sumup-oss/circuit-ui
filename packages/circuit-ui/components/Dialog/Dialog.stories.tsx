@@ -187,7 +187,6 @@ Immersive.parameters = {
   },
 };
 
-InitiallyOpen.play = openModal;
 Immersive.play = openModal;
 PreventClose.play = openModal;
 Base.play = openModal;
