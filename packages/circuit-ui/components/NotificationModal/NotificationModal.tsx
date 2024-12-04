@@ -15,7 +15,7 @@
 
 'use client';
 
-import type { FC, ReactNode, SVGProps } from 'react';
+import { type FC, type ReactNode, type SVGProps, useId, useRef } from 'react';
 
 import type { ClickEvent } from '../../types/events.js';
 import { Image, type ImageProps } from '../Image/index.js';
@@ -84,11 +84,15 @@ export const NotificationModal = ({
   className,
   ...props
 }: NotificationModalProps) => {
+  const headlineId = useId();
+  const initialFocusRef = useRef<HTMLButtonElement>(null);
   const dialogProps = {
     className: clsx(classes.centered, className, classes.base),
     closeButtonLabel,
+    'aria-labelledby': headlineId,
     preventClose,
     onClose,
+    initialFocusRef,
     ...props,
   };
 
@@ -104,7 +108,12 @@ export const NotificationModal = ({
       {() => (
         <>
           <NotificationImage image={image} />
-          <Headline as="h2" size="s" className={classes.headline}>
+          <Headline
+            as="h2"
+            size="s"
+            id={headlineId}
+            className={classes.headline}
+          >
             {headline}
           </Headline>
           {body && <Body>{body}</Body>}
@@ -117,6 +126,8 @@ export const NotificationModal = ({
                 },
                 secondary: actions.secondary && {
                   ...actions.secondary,
+                  // @ts-expect-error ref is a valid prop on a button
+                  ref: initialFocusRef,
                   onClick: wrapOnClick(actions.secondary.onClick),
                 },
               }}
