@@ -322,55 +322,14 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       locale,
     );
 
-    if (process.env.NODE_ENV !== 'production') {
-      if (!isSufficientlyLabelled(label)) {
-        throw new AccessibilityError(
-          'DateInput',
-          'The `label` prop is missing or invalid.',
-        );
-      }
-      if (!isSufficientlyLabelled(openCalendarButtonLabel)) {
-        throw new AccessibilityError(
-          'DateInput',
-          'The `openCalendarButtonLabel` prop is missing or invalid.',
-        );
-      }
-      if (!isSufficientlyLabelled(closeCalendarButtonLabel)) {
-        throw new AccessibilityError(
-          'DateInput',
-          'The `closeCalendarButtonLabel` prop is missing or invalid.',
-        );
-      }
-      if (!isSufficientlyLabelled(applyDateButtonLabel)) {
-        throw new AccessibilityError(
-          'DateInput',
-          'The `applyDateButtonLabel` prop is missing or invalid.',
-        );
-      }
-      if (!isSufficientlyLabelled(clearDateButtonLabel)) {
-        throw new AccessibilityError(
-          'DateInput',
-          'The `clearDateButtonLabel` prop is missing or invalid.',
-        );
-      }
-      if (!isSufficientlyLabelled(yearInputLabel)) {
-        throw new AccessibilityError(
-          'DateInput',
-          'The `yearInputLabel` prop is missing or invalid.',
-        );
-      }
-      if (!isSufficientlyLabelled(monthInputLabel)) {
-        throw new AccessibilityError(
-          'DateInput',
-          'The `monthInputLabel` prop is missing or invalid.',
-        );
-      }
-      if (!isSufficientlyLabelled(dayInputLabel)) {
-        throw new AccessibilityError(
-          'DateInput',
-          'The `dayInputLabel` prop is missing or invalid.',
-        );
-      }
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      !isSufficientlyLabelled(label)
+    ) {
+      throw new AccessibilityError(
+        'DateInput',
+        'The `label` prop is missing or invalid.',
+      );
     }
 
     return (

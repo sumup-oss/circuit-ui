@@ -41,11 +41,7 @@ import {
   type FirstDayOfWeek,
   type PlainDateRange,
 } from '../../util/date.js';
-import {
-  AccessibilityError,
-  CircuitError,
-  isSufficientlyLabelled,
-} from '../../util/errors.js';
+import { CircuitError } from '../../util/errors.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { useSwipe } from '../../hooks/useSwipe/useSwipe.js';
 import { last } from '../../util/helpers.js';
@@ -256,31 +252,17 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
       dispatch({ type: CalendarActionType.MOUSE_LEAVE_DATE });
     }, []);
 
-    if (process.env.NODE_ENV !== 'production') {
-      if (!isSufficientlyLabelled(prevMonthButtonLabel)) {
-        throw new AccessibilityError(
-          'Calendar',
-          'The `prevMonthButtonLabel` prop is missing or invalid.',
-        );
-      }
-      if (!isSufficientlyLabelled(nextMonthButtonLabel)) {
-        throw new AccessibilityError(
-          'Calendar',
-          'The `nextMonthButtonLabel` prop is missing or invalid.',
-        );
-      }
-      if (modifiers) {
-        Object.keys(modifiers).forEach((key) => {
-          try {
-            Temporal.PlainDate.from(key);
-          } catch (_error) {
-            throw new CircuitError(
-              'Calendar',
-              `The "${key}" key of the \`modifiers\` prop is not a valid ISO 8601 date string.`,
-            );
-          }
-        });
-      }
+    if (process.env.NODE_ENV !== 'production' && modifiers) {
+      Object.keys(modifiers).forEach((key) => {
+        try {
+          Temporal.PlainDate.from(key);
+        } catch (_error) {
+          throw new CircuitError(
+            'Calendar',
+            `The "${key}" key of the \`modifiers\` prop is not a valid ISO 8601 date string.`,
+          );
+        }
+      });
     }
 
     return (

@@ -177,18 +177,6 @@ export function createButtonComponent<Props>(
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
-      hasLoadingState &&
-      !isSufficientlyLabelled(loadingLabel)
-    ) {
-      throw new AccessibilityError(
-        componentName,
-        "The `loadingLabel` prop is missing or invalid. Remove the `isLoading` prop if you don't intend to use the Button's loading state.",
-      );
-    }
-
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
       !isSufficientlyLabelled(children as string, sharedProps)
     ) {
       throw new AccessibilityError(

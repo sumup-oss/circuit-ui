@@ -50,10 +50,6 @@ import { Headline } from '../Headline/index.js';
 import { Body } from '../Body/index.js';
 import { Button, type ButtonProps } from '../Button/index.js';
 import { useI18n } from '../../hooks/useI18n/useI18n.js';
-import {
-  AccessibilityError,
-  isSufficientlyLabelled,
-} from '../../util/errors.js';
 import type { Locale } from '../../util/i18n.js';
 
 import classes from './Toggletip.module.css';
@@ -246,17 +242,6 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
     } as const;
 
     const dialogStyles = isMobile ? mobileStyles : floatingStyles;
-
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !isSufficientlyLabelled(closeButtonLabel)
-    ) {
-      throw new AccessibilityError(
-        'Toggletip',
-        'The `closeButtonLabel` prop is missing or invalid.',
-      );
-    }
 
     return (
       <Fragment>
