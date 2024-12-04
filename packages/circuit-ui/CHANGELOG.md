@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.2.1
+
+### Patch Changes
+
+- [#2818](https://github.com/sumup-oss/circuit-ui/pull/2818) [`9a16c82`](https://github.com/sumup-oss/circuit-ui/commit/9a16c82123fafb188f6223e81fb0f5603e3a8b7b) Thanks [@connor-baer](https://github.com/connor-baer)! - Increased the SidePanel component's root z-index value to ensure nested, absolutely-positioned components stack properly.
+
 ## 9.2.0
 
 ### Minor Changes
