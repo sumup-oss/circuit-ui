@@ -20,6 +20,7 @@ import {
   forwardRef,
   type HTMLAttributes,
   type ReactNode,
+  type RefObject,
   useCallback,
   useEffect,
   useRef,
@@ -70,6 +71,10 @@ export interface DialogProps
    * pressing the escape key. Default `false`.
    */
   preventClose?: boolean;
+  /**
+   * Enables focusing a particular element in the dialog content and override default behavior
+   */
+  initialFocusRef?: RefObject<HTMLElement>;
 }
 
 export const animationDuration = 300;
@@ -84,6 +89,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       children,
       className,
       preventClose,
+      initialFocusRef,
       ...props
     },
     ref,
@@ -104,10 +110,13 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     useEffect(() => {
       const dialogElement = dialogRef.current;
       if (open && dialogElement) {
-        setTimeout(
-          () => getFirstFocusableElement(dialogElement).focus(),
-          animationDuration,
-        );
+        setTimeout(() => {
+          if (initialFocusRef) {
+            initialFocusRef?.current?.focus();
+          } else {
+            getFirstFocusableElement(dialogElement).focus();
+          }
+        }, animationDuration);
       }
     }, [open]);
 

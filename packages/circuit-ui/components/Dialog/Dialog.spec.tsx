@@ -200,5 +200,28 @@ describe('Dialog', () => {
 
       await waitFor(() => expect(closeButton).toHaveFocus());
     });
+
+    it('should focus a given element when provided', async () => {
+      const ref = createRef<HTMLButtonElement>();
+      render(
+        <Dialog {...props} open initialFocusRef={ref}>
+          {() => (
+            <div>
+              <button type="button" name="btn">
+                Button
+              </button>
+              <button ref={ref} type="button" name="btn">
+                Special button
+              </button>
+            </div>
+          )}
+        </Dialog>,
+      );
+      const spacialButton = screen.getByRole('button', {
+        name: /Special button/i,
+      });
+
+      await waitFor(() => expect(spacialButton).toHaveFocus());
+    });
   });
 });
