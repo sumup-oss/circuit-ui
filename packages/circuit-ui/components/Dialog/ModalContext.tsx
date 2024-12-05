@@ -23,10 +23,11 @@ import {
   useState,
 } from 'react';
 
+import type { Optional } from '../../types/util.js';
+
 import type { DialogProps } from './Dialog.js';
 import type { ModalDialogComponent } from './createUseModalDialog.js';
 
-type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
 export type SetModalArgs = Optional<DialogProps, 'open'>;
 
 // keep initial state compatible with the old version of this component
