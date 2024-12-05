@@ -10,7 +10,7 @@
   pointer-events: none;
   visibility: hidden;
   border: none;
-  border-radius: var(--cui-border-radius-byte);
+  border-radius: var(--cui-border-radius-mega);
   outline: none;
   box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
   opacity: 0;
@@ -26,8 +26,8 @@
 }
 
 @media (min-width: 480px) {
-  .dialog {
-    width: max-content;
+  .dialog .content {
+    width: min-content;
     min-width: 480px;
     max-width: 90vw;
     max-height: 90vw;
@@ -90,7 +90,7 @@
   opacity: 1;
 }
 
-.close {
+.dialog .close {
   position: absolute;
   top: var(--cui-spacings-byte);
   right: var(--cui-spacings-byte);
@@ -115,7 +115,6 @@
 .content {
   overflow-y: auto;
   background-color: var(--cui-bg-elevated);
-  border-radius: var(--cui-border-radius-byte);
 }
 
 @media (max-width: 479px) {
