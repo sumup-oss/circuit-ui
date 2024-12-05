@@ -55,9 +55,11 @@ export interface DialogProps
    */
   onClose?: () => void;
   /**
-   * a function that returns the content of the dialog.
+   * a ReactNode or a function that returns the content of the dialog.
    */
-  children?: ({ onClose }: { onClose?: DialogProps['onClose'] }) => ReactNode;
+  children?:
+    | ReactNode
+    | (({ onClose }: { onClose?: DialogProps['onClose'] }) => ReactNode);
   /**
    * Text label for the close button for screen readers.
    * Important for accessibility.
@@ -256,7 +258,11 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
             {closeButtonLabel}
           </CloseButton>
           {open && (
-            <div className={classes.content}>{children?.({ onClose })}</div>
+            <div className={classes.content}>
+              {typeof children === 'function'
+                ? children?.({ onClose })
+                : children}
+            </div>
           )}
         </dialog>
       </>
