@@ -39,7 +39,10 @@ import { isEscape } from '../../util/key-codes.js';
 
 import classes from './Dialog.module.css';
 import { createUseModalDialog } from './createUseModalDialog.js';
-import { getFirstFocusableElement } from './DialogService.js';
+import {
+  getFirstFocusableElement,
+  hasNativeDialogSupport,
+} from './DialogService.js';
 
 export interface DialogProps
   extends Omit<HTMLAttributes<HTMLDialogElement>, 'children'> {
@@ -104,7 +107,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
         );
       }
     }
-    const hasNativeDialog = 'HTMLDialogElement' in window;
+    const hasNativeDialog = hasNativeDialogSupport();
 
     useEffect(() => {
       const dialogElement = dialogRef.current;
