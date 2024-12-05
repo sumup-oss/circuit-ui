@@ -15,11 +15,13 @@
 
 import { Fragment, type ReactNode, useState } from 'react';
 import { screen, userEvent, within } from '@storybook/test';
+import type { Decorator } from '@storybook/react';
 
 import { modes } from '../../../../.storybook/modes.js';
 import { Headline } from '../Headline/index.js';
 import { Body } from '../Body/index.js';
 import { Button } from '../Button/index.js';
+import { FullViewport } from '../../../../.storybook/components/index.js';
 
 import { Dialog, type DialogProps, useModal } from './Dialog.js';
 import { ModalProvider } from './ModalContext.js';
@@ -29,6 +31,7 @@ export default {
   component: Dialog,
   tags: ['status:stable'],
   parameters: {
+    layout: 'fullscreen',
     viewport: {
       defaultViewport: 'reset',
     },
@@ -38,6 +41,13 @@ export default {
         desktop: modes.desktop,
       },
     },
+    decorators: [
+      (Story) => (
+        <FullViewport>
+          <Story />
+        </FullViewport>
+      ),
+    ] as Decorator[],
   },
 };
 
@@ -46,7 +56,7 @@ const defaultModalChildren = (): ReactNode => (
     <Headline id="title" as="h2" size="s" style={{ marginBottom: '1rem' }}>
       Hello World!
     </Headline>
-    <Body id="log1">I am a modal dialog.</Body>
+    <Body id="description">I am a modal dialog.</Body>
   </Fragment>
 );
 
@@ -64,7 +74,17 @@ const openModal = async ({
   await screen.findByRole('dialog');
 };
 
-export const Base = () => {
+const baseArgs: DialogProps = {
+  open: false,
+  onClose: () => {},
+  'aria-labelledby': 'title',
+  'aria-describedby': 'description',
+  variant: 'contextual',
+  closeButtonLabel: 'Close',
+  children: defaultModalChildren,
+};
+
+export const Base = (modal: DialogProps) => {
   const [modalOpen, setModalOpen] = useState(false);
   return (
     <>
@@ -76,18 +96,12 @@ export const Base = () => {
       >
         Open modal
       </Button>
-      <Dialog
-        open={modalOpen}
-        onClose={() => setModalOpen(false)}
-        closeButtonLabel="Close"
-        aria-label="Hello World!"
-        aria-describedby="log1"
-      >
-        {defaultModalChildren}
-      </Dialog>
+      <Dialog {...modal} open={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 };
+Base.args = baseArgs;
+Base.play = openModal;
 
 export const WithUseModal = (modal: DialogProps) => {
   const ComponentWithModal = () => {
@@ -105,12 +119,11 @@ export const WithUseModal = (modal: DialogProps) => {
     </ModalProvider>
   );
 };
-
 WithUseModal.args = {
   children: defaultModalChildren,
-  variant: 'contextual',
   closeButtonLabel: 'Close modal',
 };
+WithUseModal.play = openModal;
 
 export const InitiallyOpen = (modal: DialogProps) => {
   const initialModal = { id: 'initial', component: Dialog, ...modal };
@@ -121,7 +134,6 @@ export const InitiallyOpen = (modal: DialogProps) => {
     </ModalProvider>
   );
 };
-
 InitiallyOpen.args = {
   children: defaultModalChildren,
   variant: 'contextual',
@@ -144,8 +156,8 @@ export const Immersive = () => {
         open={modalOpen}
         onClose={() => setModalOpen(false)}
         closeButtonLabel="Close"
-        aria-label="Hello World!"
-        aria-describedby="log1"
+        aria-labelledby="title"
+        aria-describedby="description"
         variant="immersive"
       >
         {defaultModalChildren}
@@ -153,6 +165,13 @@ export const Immersive = () => {
     </>
   );
 };
+Immersive.parameters = {
+  chromatic: { disableSnapshot: true },
+  viewport: {
+    defaultViewport: 'smallMobile',
+  },
+};
+Immersive.play = openModal;
 
 export const PreventClose = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -171,22 +190,15 @@ export const PreventClose = () => {
         preventClose
         onClose={() => setModalOpen(false)}
         closeButtonLabel="Close"
-        aria-label="Hello World!"
-        aria-describedby="log1"
+        aria-labelledby="title"
+        aria-describedby="description"
       >
         {defaultModalChildren}
       </Dialog>
     </>
   );
 };
-
-Immersive.parameters = {
+PreventClose.parameters = {
   chromatic: { disableSnapshot: true },
-  viewport: {
-    defaultViewport: 'smallMobile',
-  },
 };
-
-Immersive.play = openModal;
 PreventClose.play = openModal;
-Base.play = openModal;
