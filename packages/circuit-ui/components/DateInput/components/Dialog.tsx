@@ -139,11 +139,9 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 
     return (
       <>
-        {/* @ts-expect-error "Expression produces a union type that is too complex to represent" */}
         <dialog
           ref={applyMultipleRefs(ref, dialogRef)}
           className={clsx(classes.dialog, className)}
-          // @ts-expect-error z-index can be a string
           style={{
             ...style,
             zIndex: zIndex || 'var(--cui-z-index-modal)',
@@ -155,7 +153,6 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
         <div
           className={classes.backdrop}
           style={{
-            // @ts-expect-error z-index can be a string
             zIndex: `calc(${zIndex?.toString() || 'var(--cui-z-index-modal)'} - 1)`,
           }}
         />
