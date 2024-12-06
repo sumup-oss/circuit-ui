@@ -332,14 +332,12 @@ export const Popover = ({
       <Portal>
         <div
           className={clsx(classes.overlay, isOpen && classes.open)}
-          // @ts-expect-error z-index can be a string
           style={{ zIndex: zIndex || 'var(--cui-z-index-popover)' }}
         />
         <div
           {...props}
           ref={refs.setFloating}
           className={clsx(classes.wrapper, isOpen && classes.open, className)}
-          // @ts-expect-error z-index can be a string
           style={
             isMobile
               ? mobileStyles

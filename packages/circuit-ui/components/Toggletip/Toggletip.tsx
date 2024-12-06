@@ -251,7 +251,6 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
           onClick={handleReferenceClick}
         />
         {/* eslint-disable jsx-a11y/no-autofocus */}
-        {/* @ts-expect-error "Expression produces a union type that is too complex to represent" */}
         <dialog
           {...rest}
           open={defaultOpen}
@@ -260,7 +259,6 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
           aria-labelledby={headline ? headlineId : bodyId}
           aria-describedby={headline ? bodyId : undefined}
           className={clsx(classes.base, className)}
-          // @ts-expect-error z-index can be a string
           style={{
             ...style,
             ...dialogStyles,
@@ -314,7 +312,6 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
         <div
           className={classes.backdrop}
           style={{
-            // @ts-expect-error z-index can be a string
             zIndex: `calc(${zIndex?.toString() || 'var(--cui-z-index-modal)'} - 1)`,
           }}
         />

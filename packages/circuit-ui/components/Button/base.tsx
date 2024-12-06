@@ -153,7 +153,7 @@ export function createButtonComponent<Props>(
       as,
       locale,
       ...sharedProps
-    } = useI18n(mapProps(props), translations);
+    } = useI18n(mapProps(props as Props), translations);
 
     const components = useComponents();
     const Link = components.Link as AsPropType;
