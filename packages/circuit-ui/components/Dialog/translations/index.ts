@@ -1,5 +1,5 @@
 /**
- * Copyright 2021, SumUp Ltd.
+ * Copyright 2024, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,12 +13,14 @@
  * limitations under the License.
  */
 
-import { createUseModalDialog } from '../Dialog/createUseModalDialog.js';
+import { transformModulesToTranslations } from '../../../util/i18n.js';
 
-import {
-  NotificationModal,
-  type NotificationModalProps,
-} from './NotificationModal.js';
-
-export const useNotificationModal =
-  createUseModalDialog<NotificationModalProps>(NotificationModal);
+export const translations = transformModulesToTranslations<
+  typeof import('./en-US.json')
+>(
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore import.meta.glob is supported by Vite
+  import.meta.glob('./*.json', {
+    eager: true,
+  }),
+);
