@@ -23,12 +23,10 @@ import {
   useState,
 } from 'react';
 
-import type { Optional } from '../../types/util.js';
-
 import type { DialogProps } from './Dialog.js';
 import type { ModalDialogComponent } from './createUseModalDialog.js';
 
-export type SetModalArgs = Optional<DialogProps, 'open'>;
+export type SetModalArgs = Omit<DialogProps, 'open'>;
 
 // keep initial state compatible with the old version of this component
 export type ModalState<T extends DialogProps> = SetModalArgs & {

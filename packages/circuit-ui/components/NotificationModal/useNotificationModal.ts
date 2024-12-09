@@ -15,6 +15,10 @@
 
 import { createUseModalDialog } from '../Dialog/createUseModalDialog.js';
 
-import { NotificationModal } from './NotificationModal.js';
+import {
+  NotificationModal,
+  type NotificationModalProps,
+} from './NotificationModal.js';
 
-export const useNotificationModal = createUseModalDialog(NotificationModal);
+export const useNotificationModal =
+  createUseModalDialog<NotificationModalProps>(NotificationModal);
