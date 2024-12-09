@@ -30,12 +30,9 @@ import { CloseButton } from '../CloseButton/index.js';
 import dialogPolyfill from '../../vendor/dialog-polyfill/index.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { clsx } from '../../styles/clsx.js';
-import {
-  AccessibilityError,
-  isSufficientlyLabelled,
-} from '../../util/errors.js';
 import type { ClickEvent } from '../../types/events.js';
 import { isEscape } from '../../util/key-codes.js';
+import { useI18n } from '../../hooks/useI18n/useI18n.js';
 
 import classes from './Dialog.module.css';
 import { createUseModalDialog } from './createUseModalDialog.js';
@@ -43,6 +40,7 @@ import {
   getFirstFocusableElement,
   hasNativeDialogSupport,
 } from './DialogService.js';
+import { translations } from './translations/index.js';
 
 export interface DialogProps
   extends Omit<HTMLAttributes<HTMLDialogElement>, 'children'> {
@@ -64,7 +62,7 @@ export interface DialogProps
    * Text label for the close button for screen readers.
    * Important for accessibility.
    */
-  closeButtonLabel: string;
+  closeButtonLabel?: string;
   /**
    * Use the `immersive` variant to focus the user's attention on the dialog content.
    * default: 'contextual'
@@ -84,8 +82,8 @@ export interface DialogProps
 export const animationDuration = 300;
 
 export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
-  (
-    {
+  (props, ref) => {
+    const {
       open,
       onClose,
       closeButtonLabel,
@@ -94,21 +92,11 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       className,
       preventClose,
       initialFocusRef,
-      ...props
-    },
-    ref,
-  ) => {
+      ...rest
+    } = useI18n(props, translations);
     const dialogRef = useRef<HTMLDialogElement>(null);
     const lastFocusedElementRef = useRef<HTMLElement | null>(null);
-    // TODO add translated default close label
-    if (process.env.NODE_ENV !== 'production') {
-      if (!isSufficientlyLabelled(closeButtonLabel)) {
-        throw new AccessibilityError(
-          'Dialog',
-          'The `closeButtonLabel` prop is missing or invalid.',
-        );
-      }
-    }
+
     const hasNativeDialog = hasNativeDialogSupport();
 
     useEffect(() => {
@@ -252,7 +240,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
             classes.dialog,
             variant === 'immersive' ? classes.immersive : '',
           )}
-          {...props}
+          {...rest}
         >
           <CloseButton onClick={handleDialogClose} className={classes.close}>
             {closeButtonLabel}
