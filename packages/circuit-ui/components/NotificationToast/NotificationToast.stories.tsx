@@ -16,6 +16,7 @@
 
 import { screen, userEvent, within } from '@storybook/test';
 import isChromatic from 'chromatic/isChromatic';
+import { useRef } from 'react';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 import { Button } from '../Button/index.js';
@@ -26,7 +27,6 @@ import {
   NotificationToast,
   type NotificationToastProps,
 } from './NotificationToast.js';
-import { useRef } from 'react';
 
 export default {
   title: 'Notification/NotificationToast',
