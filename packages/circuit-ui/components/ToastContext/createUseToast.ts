@@ -24,16 +24,20 @@ export function createUseToast<T extends BaseToastProps>(
   component: ToastComponent<T>,
 ) {
   return (): {
-    setToast: (props: Omit<T, 'isVisible'>) => void;
+    setToast: (props: Omit<T, 'isVisible'>) => () => void;
   } => {
     const context = useContext(ToastContext);
 
     // biome-ignore lint/correctness/useExhaustiveDependencies: The `component` never changes
     return useMemo(
       () => ({
-        setToast: (props: Omit<T, 'isVisible'>): void => {
+        setToast: (props: Omit<T, 'isVisible'>): (() => void) => {
           const id = uniqueId('toast_');
-          context.setToast({ ...props, id, component });
+          const toast = { ...props, id, component };
+          context.setToast(toast);
+          return () => {
+            context.removeToast(toast);
+          };
         },
       }),
       [context],
