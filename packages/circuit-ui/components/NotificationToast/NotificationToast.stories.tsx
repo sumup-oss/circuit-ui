@@ -26,6 +26,7 @@ import {
   NotificationToast,
   type NotificationToastProps,
 } from './NotificationToast.js';
+import { useRef } from 'react';
 
 export default {
   title: 'Notification/NotificationToast',
@@ -109,6 +110,36 @@ Position.args = {
 };
 
 Position.play = play;
+
+const DismissApp = ({ toast }: { toast: NotificationToastProps }) => {
+  const { setToast } = useNotificationToast();
+  const dismissRef = useRef(() => {});
+  const randomIndex = isChromatic()
+    ? 1
+    : Math.floor(Math.random() * TOASTS.length);
+  return (
+    <>
+      <Button
+        type="button"
+        onClick={() => {
+          dismissRef.current = setToast({ ...toast, ...TOASTS[randomIndex] });
+        }}
+      >
+        Open toast
+      </Button>
+      &nbsp;
+      <Button type="button" onClick={() => dismissRef.current()}>
+        Dismiss toast
+      </Button>
+    </>
+  );
+};
+
+export const Dismiss = (toast: NotificationToastProps) => (
+  <ToastProvider>
+    <DismissApp toast={toast} />
+  </ToastProvider>
+);
 
 const variants = ['info', 'success', 'warning', 'danger'] as const;
 
