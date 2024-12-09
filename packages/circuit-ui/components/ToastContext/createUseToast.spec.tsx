@@ -54,4 +54,17 @@ describe('createUseToast', () => {
     });
     expect(setToast).toHaveBeenCalledWith(expected);
   });
+
+  it('should remove the toast when the returned function is called', () => {
+    const { result } = renderHook(() => useToast(), { wrapper });
+
+    const remove = result.current.setToast({});
+    remove();
+
+    const expected = expect.objectContaining({
+      component: expect.any(Function),
+      id: expect.any(String),
+    });
+    expect(removeToast).toHaveBeenCalledWith(expected);
+  });
 });

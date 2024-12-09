@@ -16,6 +16,7 @@
 
 import { screen, userEvent, within } from '@storybook/test';
 import isChromatic from 'chromatic/isChromatic';
+import { useRef } from 'react';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 import { Button } from '../Button/index.js';
@@ -109,6 +110,36 @@ Position.args = {
 };
 
 Position.play = play;
+
+const DismissApp = ({ toast }: { toast: NotificationToastProps }) => {
+  const { setToast } = useNotificationToast();
+  const dismissRef = useRef(() => {});
+  const randomIndex = isChromatic()
+    ? 1
+    : Math.floor(Math.random() * TOASTS.length);
+  return (
+    <>
+      <Button
+        type="button"
+        onClick={() => {
+          dismissRef.current = setToast({ ...toast, ...TOASTS[randomIndex] });
+        }}
+      >
+        Open toast
+      </Button>
+      &nbsp;
+      <Button type="button" onClick={() => dismissRef.current()}>
+        Dismiss toast
+      </Button>
+    </>
+  );
+};
+
+export const Dismiss = (toast: NotificationToastProps) => (
+  <ToastProvider>
+    <DismissApp toast={toast} />
+  </ToastProvider>
+);
 
 const variants = ['info', 'success', 'warning', 'danger'] as const;
 

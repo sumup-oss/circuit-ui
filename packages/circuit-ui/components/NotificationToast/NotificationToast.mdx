@@ -65,6 +65,39 @@ Change the position of notifications by passing the `position` prop. Supported v
 
 <Story of={Stories.Position} />
 
+### Dismissing toasts programmatically
+
+You can use the function returned from the `setToast` method to dismiss a toast programmatically:
+
+```tsx
+import { useNotificationToast, Button } from '@sumup-oss/circuit-ui';
+
+export function App({}) {
+  const { setToast } = useNotificationToast();
+  const dismissRef = useRef(() => {});
+
+  const handleClick = () => {
+    dismissRef.current = setToast({
+      variant: 'success',
+      body: 'This is a toast message',
+    });
+  };
+
+  const handleDismiss = () => {
+    dismissRef.current();
+  };
+
+  return (
+    <>
+      <Button onClick={handleClick}>Open toast</Button>
+      <Button onClick={handleDismiss}>Dismiss toast</Button>
+    </>
+  );
+}
+```
+
+<Story of={Stories.Dismiss} />
+
 ## Accessibility
 
 By their nature as status messages, toasts are rendered inside a [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) using `role="status"` and `aria-live="polite"`.
