@@ -101,15 +101,19 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 
     useEffect(() => {
       const dialogElement = dialogRef.current;
+      let timeoutId: NodeJS.Timeout;
       if (open && dialogElement) {
-        setTimeout(() => {
-          if (initialFocusRef) {
+        timeoutId = setTimeout(() => {
+          if (initialFocusRef?.current) {
             initialFocusRef?.current?.focus();
           } else {
             getFirstFocusableElement(dialogElement).focus();
           }
         }, animationDuration);
       }
+      return () => {
+        clearTimeout(timeoutId);
+      };
     }, [open]);
 
     const handleDialogClose = useCallback(() => {
@@ -119,9 +123,12 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       }
       // restore focus to the last focused element
       if (lastFocusedElementRef.current) {
-        setTimeout(() => lastFocusedElementRef.current?.focus(), 300);
+        setTimeout(
+          () => lastFocusedElementRef.current?.focus(),
+          animationDuration,
+        );
       }
-      // restore scroll tp page
+      // restore scroll to page
       document.documentElement.style.overflowY = 'unset';
       // trigger close animation
       dialogElement.classList.remove(classes.show);
@@ -139,7 +146,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     }, []);
 
     function onPolyfillDialogKeydown(event: KeyboardEvent) {
-      if (isEscape(event) && preventClose) {
+      if (isEscape(event)) {
         event.preventDefault();
         event.stopPropagation();
       }
@@ -238,7 +245,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
           className={clsx(
             className,
             classes.dialog,
-            variant === 'immersive' ? classes.immersive : '',
+            variant === 'immersive' && classes.immersive,
           )}
           {...rest}
         >

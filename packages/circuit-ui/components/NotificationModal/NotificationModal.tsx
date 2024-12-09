@@ -25,6 +25,7 @@ import type { ButtonProps } from '../Button/index.js';
 import { ButtonGroup, type ButtonGroupProps } from '../ButtonGroup/index.js';
 import { Dialog, type DialogProps } from '../Dialog/index.js';
 import { clsx } from '../../styles/clsx.js';
+import { CircuitError } from '../../util/errors.js';
 
 import classes from './NotificationModal.module.css';
 
@@ -84,6 +85,13 @@ export const NotificationModal = ({
   className,
   ...props
 }: NotificationModalProps) => {
+  if (process.env.NODE_ENV !== 'production' && className) {
+    throw new CircuitError(
+      'NotificationModal',
+      'Custom styles are not supported by this component. If your use case requires custom styles, please open an issue at https://github.com/sumup-oss/circuit-ui.',
+    );
+  }
+
   const headlineId = useId();
   const initialFocusRef = useRef<HTMLButtonElement>(null);
   const dialogProps = {

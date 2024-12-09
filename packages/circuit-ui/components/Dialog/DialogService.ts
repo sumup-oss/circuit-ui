@@ -13,26 +13,30 @@
  * limitations under the License.
  */
 
-export const getKeyboardFocusableElements = (
+export function getKeyboardFocusableElements(
   element: HTMLElement,
-): HTMLElement[] =>
-  [
+): HTMLElement[] {
+  return [
     ...element.querySelectorAll(
       'a[href], button, input, textarea, select, details,[tabindex]:not([tabindex="-1"])',
     ),
   ].filter(
-    (el) => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden'),
+    (el) =>
+      !el.hasAttribute('disabled') &&
+      !el.hasAttribute('aria-disabled') &&
+      !el.getAttribute('aria-hidden'),
   ) as HTMLElement[];
+}
 
-export const getFirstFocusableElement = (
+export function getFirstFocusableElement(
   dialog: HTMLDialogElement,
-): HTMLElement => {
+): HTMLElement {
   const focusableElements = getKeyboardFocusableElements(dialog);
   // if there is only one focusable element (the close button), focus it
   return focusableElements.length === 1
     ? focusableElements[0]
     : focusableElements[1];
-};
+}
 
 export const hasNativeDialogSupport = (): boolean =>
   'HTMLDialogElement' in window;

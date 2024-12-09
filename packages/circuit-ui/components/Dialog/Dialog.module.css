@@ -12,11 +12,10 @@
   border: none;
   border-radius: var(--cui-border-radius-mega);
   outline: none;
-  box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
   opacity: 0;
   transition:
-    opacity 0.3s ease-in-out,
-    visibility 0.3s ease-in-out;
+    opacity var(--cui-transitions-slow),
+    visibility var(--cui-transitions-slow);
 }
 
 .dialog.show {
@@ -25,12 +24,32 @@
   opacity: 1;
 }
 
+.dialog::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  content: "";
+  background: linear-gradient(
+    color-mix(in sRGB, var(--cui-bg-elevated) 0%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent)
+  );
+}
+
 @media (min-width: 480px) {
   .dialog .content {
     width: min-content;
     min-width: 480px;
     max-width: 90vw;
-    max-height: 90vw;
+    max-height: 90vh;
+  }
+
+  .dialog::after {
+    height: var(--cui-spacings-giga);
+    border-bottom-right-radius: var(--cui-border-radius-mega);
+    border-bottom-left-radius: var(--cui-border-radius-mega);
   }
 }
 
@@ -41,15 +60,17 @@
     left: 0;
     width: 100%;
     max-width: 100%;
-    visibility: visible;
+    visibility: hidden;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
-    opacity: 1;
-    transition: transform 0.3s ease-in-out;
+    opacity: 0;
+    transition: transform var(--cui-transitions-slow);
     transform: translateY(100%);
   }
 
   .dialog.show {
+    visibility: visible;
+    opacity: 1;
     transform: translateY(0%);
   }
 }
@@ -60,8 +81,8 @@
   background-color: var(--cui-bg-overlay);
   opacity: 0;
   transition:
-    opacity 0.3s ease-in-out,
-    visibility 0.3s ease-in-out;
+    opacity var(--cui-transitions-slow),
+    visibility var(--cui-transitions-slow);
 }
 
 .dialog.show::backdrop {
@@ -81,8 +102,8 @@
   background-color: var(--cui-bg-overlay);
   opacity: 0;
   transition:
-    opacity 0.3s ease-in-out,
-    visibility 0.3s ease-in-out;
+    opacity var(--cui-transitions-slow),
+    visibility var(--cui-transitions-slow);
 }
 
 .backdrop.backdrop-visible {
