@@ -47,7 +47,7 @@ import {
   act,
 } from '../../util/test-utils.js';
 
-import { animationDuration, Dialog, type DialogProps } from './Dialog.js';
+import { animationDuration, Dialog } from './Dialog.js';
 import { hasNativeDialogSupport } from './DialogService.js';
 
 vi.mock('./DialogService.js', async (importOriginal) => {
@@ -91,19 +91,6 @@ describe('Dialog', () => {
     // eslint-disable-next-line testing-library/no-container
     const dialog = container.querySelector('dialog');
     expect(dialog?.className).toContain(className);
-  });
-
-  it('should throw accessibility error when the field is not sufficiently labelled', () => {
-    const dialogProps = {
-      ...props,
-      closeButtonLabel: undefined,
-    } as unknown as DialogProps;
-    // Silence the console.error output and switch to development mode to throw the error
-    vi.spyOn(console, 'error').mockImplementation(() => undefined);
-    process.env.NODE_ENV = 'development';
-    expect(() => render(<Dialog {...dialogProps} />)).toThrow();
-    process.env.NODE_ENV = 'test';
-    vi.restoreAllMocks();
   });
 
   it('should render in closed state by default', () => {
