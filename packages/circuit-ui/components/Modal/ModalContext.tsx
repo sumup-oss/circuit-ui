@@ -23,18 +23,18 @@ import {
   useState,
 } from 'react';
 
-import type { DialogProps } from './Dialog.js';
-import type { ModalDialogComponent } from './createUseModalDialog.js';
+import type { ModalProps } from './Modal.js';
+import type { ModalDialogComponent } from './createUseModal.js';
 
-export type SetModalArgs = Omit<DialogProps, 'open'>;
+export type SetModalArgs = Omit<ModalProps, 'open'>;
 
 // keep initial state compatible with the old version of this component
-export type ModalState<T extends DialogProps> = SetModalArgs & {
+export type ModalState<T extends ModalProps> = SetModalArgs & {
   component: ModalDialogComponent<T>;
   id: string | number;
 };
 
-type ModalContextValue<T extends DialogProps> = {
+type ModalContextValue<T extends ModalProps> = {
   setModal: (modal: ModalState<T>) => void;
   removeModal: (modal: ModalState<T>) => void;
 };
@@ -46,7 +46,7 @@ export interface ModalProviderProps {
   /**
    * An array of modals that should be displayed immediately, e.g. on page load.
    */
-  initialState?: ModalState<DialogProps>[];
+  initialState?: ModalState<ModalProps>[];
 }
 
 // TODO replace any
@@ -62,11 +62,11 @@ export function ModalProvider({
 }: ModalProviderProps) {
   const [modals, setModals] = useState(initialState ?? []);
 
-  const setModal = useCallback((modal: ModalState<DialogProps>) => {
+  const setModal = useCallback((modal: ModalState<ModalProps>) => {
     setModals((prevValue) => [...prevValue, modal]);
   }, []);
 
-  const removeModal = useCallback((modal: ModalState<DialogProps>) => {
+  const removeModal = useCallback((modal: ModalState<ModalProps>) => {
     if (modal.onClose) {
       modal.onClose();
     }

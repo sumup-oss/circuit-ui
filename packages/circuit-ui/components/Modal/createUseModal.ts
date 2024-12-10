@@ -18,13 +18,13 @@
 import { useContext, useCallback, useRef, useId, type ReactNode } from 'react';
 
 import { ModalContext, type SetModalArgs } from './ModalContext.js';
-import type { DialogProps } from './Dialog.js';
+import type { ModalProps } from './Modal.js';
 
-export type ModalDialogComponent<TProps extends DialogProps = DialogProps> = (
+export type ModalDialogComponent<TProps extends ModalProps = ModalProps> = (
   props: TProps,
 ) => ReactNode;
 
-export function createUseModalDialog<T extends DialogProps>(
+export function createUseModal<T extends ModalProps>(
   component: ModalDialogComponent<T>,
 ) {
   return (): {

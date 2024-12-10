@@ -21,17 +21,20 @@ import { modes } from '../../../../.storybook/modes.js';
 import { Headline } from '../Headline/index.js';
 import { Body } from '../Body/index.js';
 import { Button } from '../Button/index.js';
-import { FullViewport } from '../../../../.storybook/components/index.js';
+import {
+  FullViewport,
+  Stack,
+} from '../../../../.storybook/components/index.js';
 
-import { Dialog, type DialogProps, useModal } from './Dialog.js';
+import { Modal, type ModalProps, useModal } from './Modal.js';
 import { ModalProvider } from './ModalContext.js';
 
 export default {
-  title: 'Components/Dialog',
-  component: Dialog,
+  title: 'Components/Modal',
+  component: Modal,
   tags: ['status:stable'],
   parameters: {
-    layout: 'fullscreen',
+    layout: 'padded',
     viewport: {
       defaultViewport: 'reset',
     },
@@ -75,7 +78,7 @@ const openModal = async ({
   await screen.findByRole('dialog');
 };
 
-const baseArgs: DialogProps = {
+const baseArgs: ModalProps = {
   open: false,
   onClose: () => {},
   'aria-labelledby': 'title',
@@ -85,10 +88,10 @@ const baseArgs: DialogProps = {
   children: defaultModalChildren,
 };
 
-export const Base = (modal: DialogProps) => {
+export const Base = (modal: ModalProps) => {
   const [modalOpen, setModalOpen] = useState(false);
   return (
-    <>
+    <Stack>
       <Button
         type="button"
         onClick={() => {
@@ -97,14 +100,14 @@ export const Base = (modal: DialogProps) => {
       >
         Open modal
       </Button>
-      <Dialog {...modal} open={modalOpen} onClose={() => setModalOpen(false)} />
-    </>
+      <Modal {...modal} open={modalOpen} onClose={() => setModalOpen(false)} />
+    </Stack>
   );
 };
 Base.args = baseArgs;
 Base.play = openModal;
 
-export const WithUseModal = (modal: DialogProps) => {
+export const WithUseModal = (modal: ModalProps) => {
   const ComponentWithModal = () => {
     const { setModal } = useModal();
 
@@ -126,8 +129,8 @@ WithUseModal.args = {
 };
 WithUseModal.play = openModal;
 
-export const InitiallyOpen = (modal: DialogProps) => {
-  const initialModal = { id: 'initial', component: Dialog, ...modal };
+export const InitiallyOpen = (modal: ModalProps) => {
+  const initialModal = { id: 'initial', component: Modal, ...modal };
 
   return (
     <ModalProvider initialState={[initialModal]}>
@@ -151,9 +154,9 @@ export const Immersive = () => {
           setModalOpen(true);
         }}
       >
-        Open modal
+        Open immersive modal
       </Button>
-      <Dialog
+      <Modal
         open={modalOpen}
         onClose={() => setModalOpen(false)}
         closeButtonLabel="Close"
@@ -162,7 +165,7 @@ export const Immersive = () => {
         variant="immersive"
       >
         {defaultModalChildren}
-      </Dialog>
+      </Modal>
     </>
   );
 };
@@ -186,7 +189,7 @@ export const PreventClose = () => {
       >
         Open modal
       </Button>
-      <Dialog
+      <Modal
         open={modalOpen}
         preventClose
         onClose={() => setModalOpen(false)}
@@ -195,7 +198,7 @@ export const PreventClose = () => {
         aria-describedby="description"
       >
         {defaultModalChildren}
-      </Dialog>
+      </Modal>
     </>
   );
 };

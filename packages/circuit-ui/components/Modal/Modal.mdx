@@ -1,9 +1,9 @@
 import { Meta, Status, Props, Story } from '../../../../.storybook/components';
-import * as Stories from './Dialog.stories';
+import * as Stories from './Modal.stories';
 
 <Meta of={Stories} />
 
-# Dialog
+# Modal
 
 <Status variant="stable" />
 
@@ -25,22 +25,22 @@ A modal dialog is a disruptive pattern that interrupts the user's current task. 
 
 ## How to use it
 
-### inline
-Place your dialog content directly in the `Dialog` component:
+### inline (recommended)
+Place your dialog content directly in the `Modal` component:
 
 ```tsx
-import { Dialog, Body, Button, Heading } from '@sumup-oss/circuit-ui';
+import { Modal, Body, Button, Heading } from '@sumup-oss/circuit-ui';
 
 return (
-  <Dialog open={true} closeButtonLabel="Close" aria-labelledby="dialog-title">
+  <Modal open={true} closeButtonLabel="Close" aria-labelledby="dialog-title">
     {() => (
         <>
-        <Heading as="h2" id="dialog-title">Dialog title</Heading>
-        <Body>Dialog content</Body>
+        <Heading as="h2" id="dialog-title">Modal title</Heading>
+        <Body>Modal content</Body>
         <Button>Close dialog</Button>
     </>
     )}
-  </Dialog>
+  </Modal>
 );
 ```
 ### with the `useModal` hook
@@ -66,8 +66,8 @@ export function SayHello({ name }) {
   const handleClick = () => {
     setModal({
       children: <>
-        <Heading as="h2" id="dialog-title">Dialog title</Heading>
-        <Body>Dialog content</Body>
+        <Heading as="h2" id="dialog-title">Modal title</Heading>
+        <Body>Modal content</Body>
         <Button>Close dialog</Button>
         </>,
       'aria-labelledby': "dialog-title",
@@ -92,10 +92,10 @@ For cases displaying simple text content but requiring immediate or critical act
 
 
 ## Accessibility
-This component is built using the native `dialog` HTML element and follows the [WAI-ARIA Dialog Authoring Practices](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/). It is fully accessible and supports keyboard navigation and screen readers. In browsers where `dialog` is not supported, it uses [dialog-polyfill](https://github.com/GoogleChrome/dialog-polyfill).
+This component is built using the native `dialog` HTML element and follows the [WAI-ARIA Modal Authoring Practices](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/). It is fully accessible and supports keyboard navigation and screen readers. In browsers where `dialog` is not supported, it uses [dialog-polyfill](https://github.com/GoogleChrome/dialog-polyfill).
 
 It is important to ensure that the dialog is appropriately labeled and that the user can easily navigate and interact with it using a keyboard or screen reader.
-If your dialog content has a title, make sure to provide an `aria-labelledby` attribute with the ID of the title element to the `Dialog` component. Otherwise, provide an `aria-label` attribute with a descriptive label.
+If your dialog content has a title, make sure to provide an `aria-labelledby` attribute with the ID of the title element to the `Modal` component. Otherwise, provide an `aria-label` attribute with a descriptive label.
 
 If your dialog displays a complex flow with multiple screens (for example: a complex form with multiple steps), make sure to programmatically set focus to the title upon landing on every step to convey to the user their evolution within your flow.
 

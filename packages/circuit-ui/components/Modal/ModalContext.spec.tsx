@@ -32,9 +32,9 @@ import {
 } from '../../util/test-utils.js';
 
 import { ModalProvider, ModalContext } from './ModalContext.js';
-import { animationDuration, Dialog, type DialogProps } from './Dialog.js';
+import { animationDuration, type ModalProps } from './Modal.js';
 
-const Modal = (props: DialogProps) => <Dialog {...props} />;
+const Modal = (props: ModalProps) => <Modal {...props} />;
 
 describe('ModalDialogContext', () => {
   beforeAll(() => {

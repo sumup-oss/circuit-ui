@@ -23,13 +23,13 @@ import { Headline } from '../Headline/index.js';
 import { Body } from '../Body/index.js';
 import type { ButtonProps } from '../Button/index.js';
 import { ButtonGroup, type ButtonGroupProps } from '../ButtonGroup/index.js';
-import { Dialog, type DialogProps } from '../Dialog/index.js';
+import { Modal, type ModalProps } from '../Modal/index.js';
 import { clsx } from '../../styles/clsx.js';
 import { CircuitError } from '../../util/errors.js';
 
 import classes from './NotificationModal.module.css';
 
-export type NotificationModalProps = Omit<DialogProps, 'children'> & {
+export type NotificationModalProps = Omit<ModalProps, 'children'> & {
   /**
    * An optional image to illustrate the notification. Supports either
    * passing an image source to `image.src` or an SVG component to
@@ -112,7 +112,7 @@ export const NotificationModal = ({
   }
 
   return (
-    <Dialog {...dialogProps}>
+    <Modal {...dialogProps}>
       {() => (
         <>
           <NotificationImage image={image} />
@@ -144,6 +144,6 @@ export const NotificationModal = ({
           )}
         </>
       )}
-    </Dialog>
+    </Modal>
   );
 };

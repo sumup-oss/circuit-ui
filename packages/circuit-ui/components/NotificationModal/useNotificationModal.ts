@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { createUseModalDialog } from '../Dialog/createUseModalDialog.js';
+import { createUseModal } from '../Modal/createUseModal.js';
 
 import {
   NotificationModal,
@@ -21,4 +21,4 @@ import {
 } from './NotificationModal.js';
 
 export const useNotificationModal =
-  createUseModalDialog<NotificationModalProps>(NotificationModal);
+  createUseModal<NotificationModalProps>(NotificationModal);

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-export { Dialog } from './Dialog.js';
+export { Modal } from './Modal.js';
 
-export { useModal } from './Dialog.js';
-export type { DialogProps } from './Dialog.js';
+export { useModal } from './Modal.js';
+export type { ModalProps } from './Modal.js';

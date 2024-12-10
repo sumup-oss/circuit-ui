@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { getKeyboardFocusableElements } from './DialogService.js';
+import { getKeyboardFocusableElements } from './ModalService.js';
 
 describe('DialogService', () => {
   describe('getKeyboardFocusableElements', () => {

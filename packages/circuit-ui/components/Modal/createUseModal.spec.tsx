@@ -18,21 +18,21 @@ import type { PropsWithChildren } from 'react';
 
 import { renderHook, act } from '../../util/test-utils.js';
 
-import { createUseModalDialog } from './createUseModalDialog.js';
+import { createUseModal } from './createUseModal.js';
 import { ModalContext } from './ModalContext.js';
-import { Dialog, type DialogProps } from './Dialog.js';
+import { Modal, type ModalProps } from './Modal.js';
 
-const Modal = (props: DialogProps) => <Dialog {...props} />;
+const ModalComponent = (props: ModalProps) => <Modal {...props} />;
 
 const props = {
   onClose: vi.fn(),
   open: false,
   closeButtonLabel: 'Close',
-  children: vi.fn(() => <div data-testid="children">Dialog content</div>),
+  children: vi.fn(() => <div data-testid="children">Modal dialog content</div>),
 };
 
 describe('createUseModal', () => {
-  const useModal = createUseModalDialog(Modal);
+  const useModal = createUseModal(ModalComponent);
 
   const setModal = vi.fn();
   const removeModal = vi.fn();

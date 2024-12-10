@@ -17,7 +17,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { Plus } from '@sumup-oss/icons';
 
 import { axe, render, userEvent, screen, act } from '../../util/test-utils.js';
-import { animationDuration } from '../Dialog/Dialog.js';
+import { animationDuration } from '../Modal/Modal.js';
 
 import {
   NotificationModal,

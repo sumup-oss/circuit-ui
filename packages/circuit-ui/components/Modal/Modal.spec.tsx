@@ -33,23 +33,25 @@ import {
   act,
 } from '../../util/test-utils.js';
 
-import { animationDuration, Dialog } from './Dialog.js';
-import { hasNativeDialogSupport } from './DialogService.js';
+import { animationDuration, Modal } from './Modal.js';
+import { hasNativeDialogSupport } from './ModalService.js';
 
-vi.mock('./DialogService.js', async (importOriginal) => {
-  const module = await importOriginal<typeof import('./DialogService.js')>();
+vi.mock('./ModalService.js', async (importOriginal) => {
+  const module = await importOriginal<typeof import('./ModalService.js')>();
   return {
     ...module,
     hasNativeDialogSupport: vi.fn().mockReturnValue(true),
   };
 });
 
-describe('Dialog', () => {
+describe('Modal', () => {
   const props = {
     onClose: vi.fn(),
     open: false,
     closeButtonLabel: 'Close',
-    children: vi.fn(() => <div data-testid="children">Dialog content</div>),
+    children: vi.fn(() => (
+      <div data-testid="children">Modal dialog content</div>
+    )),
   };
 
   beforeEach(() => {
@@ -65,7 +67,7 @@ describe('Dialog', () => {
 
   it('should forward a ref', () => {
     const ref = createRef<HTMLDialogElement>();
-    const { container } = render(<Dialog {...props} ref={ref} />);
+    const { container } = render(<Modal {...props} ref={ref} />);
     // eslint-disable-next-line testing-library/no-container
     const dialog = container.querySelector('dialog');
     expect(ref.current).toBe(dialog);
@@ -73,34 +75,34 @@ describe('Dialog', () => {
 
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
-    const { container } = render(<Dialog {...props} className={className} />);
+    const { container } = render(<Modal {...props} className={className} />);
     // eslint-disable-next-line testing-library/no-container
     const dialog = container.querySelector('dialog');
     expect(dialog?.className).toContain(className);
   });
 
   it('should render in closed state by default', () => {
-    const { container } = render(<Dialog {...props} />);
+    const { container } = render(<Modal {...props} />);
     // eslint-disable-next-line testing-library/no-container
     const dialog = container.querySelector('dialog') as HTMLDialogElement;
     expect(dialog).not.toBeVisible();
   });
 
   it('should open the dialog when the open prop becomes truthy', () => {
-    const { container, rerender } = render(<Dialog {...props} />);
+    const { container, rerender } = render(<Modal {...props} />);
     // eslint-disable-next-line testing-library/no-container
     const dialog = container.querySelector('dialog') as HTMLDialogElement;
     vi.spyOn(dialog, 'showModal');
-    rerender(<Dialog {...props} open />);
+    rerender(<Modal {...props} open />);
     expect(dialog.showModal).toHaveBeenCalledOnce();
   });
 
   it('should close the dialog when the open prop becomes falsy', () => {
-    const { container, rerender } = render(<Dialog {...props} open />);
+    const { container, rerender } = render(<Modal {...props} open />);
     // eslint-disable-next-line testing-library/no-container
     const dialog = container.querySelector('dialog') as HTMLDialogElement;
     vi.spyOn(dialog, 'close');
-    rerender(<Dialog {...props} />);
+    rerender(<Modal {...props} />);
     act(() => {
       vi.advanceTimersByTime(animationDuration);
     });
@@ -108,7 +110,7 @@ describe('Dialog', () => {
   });
 
   it('should close the dialog when the component is unmounted', async () => {
-    const { container, unmount } = render(<Dialog {...props} open />);
+    const { container, unmount } = render(<Modal {...props} open />);
     // eslint-disable-next-line testing-library/no-container
     const dialog = container.querySelector('dialog') as HTMLDialogElement;
     vi.spyOn(dialog, 'close');
@@ -118,14 +120,14 @@ describe('Dialog', () => {
 
   describe('when the dialog is closed', () => {
     it('should not render its children', () => {
-      render(<Dialog {...props} />);
-      const children = screen.queryByText('Dialog content');
+      render(<Modal {...props} />);
+      const children = screen.queryByText('Modal dialog content');
 
       expect(children).not.toBeInTheDocument();
     });
 
     it('should do nothing when pressing the Escape key', async () => {
-      render(<Dialog {...props} />);
+      render(<Modal {...props} />);
       await userEvent.keyboard('{Escape}');
       expect(props.onClose).not.toHaveBeenCalled();
     });
@@ -133,14 +135,14 @@ describe('Dialog', () => {
 
   describe('when the dialog is open', () => {
     it('should render its children', () => {
-      render(<Dialog {...props} open />);
-      const children = screen.getByText('Dialog content');
+      render(<Modal {...props} open />);
+      const children = screen.getByText('Modal dialog content');
       expect(props.children).toHaveBeenCalledOnce();
       expect(children).toBeVisible();
     });
 
     it('should not close modal on backdrop click if preventClose is true', async () => {
-      const { container } = render(<Dialog {...props} open preventClose />);
+      const { container } = render(<Modal {...props} open preventClose />);
       // eslint-disable-next-line testing-library/no-container
       const dialog = container.querySelector('dialog') as HTMLDialogElement;
       await userEvent.click(dialog);
@@ -152,7 +154,7 @@ describe('Dialog', () => {
 
     it('should open in immersive mode', async () => {
       const { container } = render(
-        <Dialog {...props} open variant="immersive" />,
+        <Modal {...props} open variant="immersive" />,
       );
       // eslint-disable-next-line testing-library/no-container
       const dialog = container.querySelector('dialog') as HTMLDialogElement;
@@ -160,7 +162,7 @@ describe('Dialog', () => {
     });
 
     it('should close the dialog when pressing the backdrop', async () => {
-      render(<Dialog {...props} open />);
+      render(<Modal {...props} open />);
       await userEvent.click(screen.getByRole('dialog', { hidden: true }));
       act(() => {
         vi.advanceTimersByTime(animationDuration);
@@ -169,7 +171,7 @@ describe('Dialog', () => {
     });
 
     it('should close the dialog when the close button is clicked', async () => {
-      render(<Dialog {...props} open />);
+      render(<Modal {...props} open />);
       await userEvent.click(screen.getByRole('button', { name: 'Close' }));
       act(() => {
         vi.advanceTimersByTime(animationDuration);
@@ -179,7 +181,7 @@ describe('Dialog', () => {
 
     it('should remove animation classes when closed when polyfill is used', async () => {
       (hasNativeDialogSupport as Mock).mockReturnValue(false);
-      render(<Dialog {...props} open />);
+      render(<Modal {...props} open />);
 
       const backdrop = document.getElementsByClassName('backdrop')[0];
       expect(backdrop.classList.toString()).toContain('backdrop-visible');
@@ -195,25 +197,25 @@ describe('Dialog', () => {
 
   describe('accessibility', () => {
     it('should have no accessibility violations', async () => {
-      const { container } = render(<Dialog {...props} open />);
+      const { container } = render(<Modal {...props} open />);
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });
 
     it('should focus the close button when opened', () => {
-      render(<Dialog {...props} open />);
+      render(<Modal {...props} open />);
       expect(screen.getByRole('button', { name: /Close/i })).toHaveFocus();
     });
 
     it('should focus the first interactive element when opened', async () => {
       render(
-        <Dialog {...props} open>
+        <Modal {...props} open>
           {() => (
             <button type="button" name="btn">
               Button
             </button>
           )}
-        </Dialog>,
+        </Modal>,
       );
       const closeButton = screen.getByRole('button', { name: /Button/i });
 
@@ -223,7 +225,7 @@ describe('Dialog', () => {
     it('should focus a given element when provided', async () => {
       const ref = createRef<HTMLButtonElement>();
       render(
-        <Dialog {...props} open initialFocusRef={ref}>
+        <Modal {...props} open initialFocusRef={ref}>
           {() => (
             <div>
               <button type="button" name="btn">
@@ -234,7 +236,7 @@ describe('Dialog', () => {
               </button>
             </div>
           )}
-        </Dialog>,
+        </Modal>,
       );
       const spacialButton = screen.getByRole('button', {
         name: /Special button/i,
