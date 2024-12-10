@@ -40,6 +40,7 @@ export default {
         mobile: modes.smallMobile,
         desktop: modes.desktop,
       },
+      pauseAnimationAtEnd: true,
     },
     decorators: [
       (Story) => (
