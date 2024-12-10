@@ -78,7 +78,7 @@
 /* Native Backdrop */
 .dialog::backdrop {
   visibility: hidden;
-  background-color: var(--cui-bg-overlay);
+  background-color: var(--cui-bg-overlay, rgb(0 0 0 / 40%));
   opacity: 0;
   transition:
     opacity var(--cui-transitions-slow),
@@ -99,7 +99,7 @@
   bottom: 0;
   left: 0;
   visibility: hidden;
-  background-color: var(--cui-bg-overlay);
+  background-color: var(--cui-bg-overlay, rgb(0 0 0 / 40%));
   opacity: 0;
   transition:
     opacity var(--cui-transitions-slow),

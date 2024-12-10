@@ -17,14 +17,10 @@ import { Fragment, type ReactNode, useState } from 'react';
 import { screen, userEvent, within } from '@storybook/test';
 import type { Decorator } from '@storybook/react';
 
-import { modes } from '../../../../.storybook/modes.js';
 import { Headline } from '../Headline/index.js';
 import { Body } from '../Body/index.js';
 import { Button } from '../Button/index.js';
-import {
-  FullViewport,
-  Stack,
-} from '../../../../.storybook/components/index.js';
+import { FullViewport } from '../../../../.storybook/components/index.js';
 
 import { Modal, type ModalProps, useModal } from './Modal.js';
 import { ModalProvider } from './ModalContext.js';
@@ -35,24 +31,14 @@ export default {
   tags: ['status:stable'],
   parameters: {
     layout: 'padded',
-    viewport: {
-      defaultViewport: 'reset',
-    },
-    chromatic: {
-      modes: {
-        mobile: modes.smallMobile,
-        desktop: modes.desktop,
-      },
-      pauseAnimationAtEnd: true,
-    },
-    decorators: [
-      (Story) => (
-        <FullViewport>
-          <Story />
-        </FullViewport>
-      ),
-    ] as Decorator[],
   },
+  decorators: [
+    (Story) => (
+      <FullViewport>
+        <Story />
+      </FullViewport>
+    ),
+  ] as Decorator[],
 };
 
 const defaultModalChildren = (): ReactNode => (
@@ -91,7 +77,7 @@ const baseArgs: ModalProps = {
 export const Base = (modal: ModalProps) => {
   const [modalOpen, setModalOpen] = useState(false);
   return (
-    <Stack>
+    <>
       <Button
         type="button"
         onClick={() => {
@@ -101,7 +87,7 @@ export const Base = (modal: ModalProps) => {
         Open modal
       </Button>
       <Modal {...modal} open={modalOpen} onClose={() => setModalOpen(false)} />
-    </Stack>
+    </>
   );
 };
 Base.args = baseArgs;
@@ -171,9 +157,6 @@ export const Immersive = () => {
 };
 Immersive.parameters = {
   chromatic: { disableSnapshot: true },
-  viewport: {
-    defaultViewport: 'smallMobile',
-  },
 };
 Immersive.play = openModal;
 

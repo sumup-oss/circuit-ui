@@ -20,6 +20,7 @@ import { screen, userEvent, within } from '@storybook/test';
 import { FullViewport } from '../../../../.storybook/components/index.js';
 import { ModalProvider } from '../Modal/ModalContext.js';
 import { Button } from '../Button/index.js';
+import { modes } from '../../../../.storybook/modes.js';
 
 import {
   NotificationModal,
@@ -31,6 +32,13 @@ export default {
   title: 'Notification/NotificationModal',
   component: NotificationModal,
   tags: ['status:stable'],
+  chromatic: {
+    modes: {
+      mobile: modes.smallMobile,
+      desktop: modes.desktop,
+    },
+    pauseAnimationAtEnd: true,
+  },
   parameters: {
     layout: 'padded',
   },
