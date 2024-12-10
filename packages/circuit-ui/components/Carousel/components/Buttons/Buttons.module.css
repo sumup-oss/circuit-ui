@@ -4,10 +4,10 @@
   justify-content: center;
 }
 
-.button {
+.button-list .button {
   margin-left: var(--cui-spacings-byte);
 }
 
-.button:first-of-type {
+.button-list .button:first-of-type {
   margin-left: 0;
 }
