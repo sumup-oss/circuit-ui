@@ -110,7 +110,8 @@ export function transformModulesToTranslations<
   Key extends string | number | symbol = keyof T,
 >(modules: Record<string, T>): Translations<Key> {
   const translations = Object.entries(modules).reduce(
-    (acc, [importPath, strings]) => {
+    (acc, [importPath, exports]) => {
+      const { default: unused, ...strings } = exports;
       const matches = importPath.match(/[a-z]{2}-[A-Z]{2}/);
 
       // @ts-expect-error This environment variable is set by Vite.
@@ -128,7 +129,7 @@ export function transformModulesToTranslations<
         throw new Error(`Unsupported locale: ${importPath}`);
       }
 
-      acc[locale] = strings as Record<Key, string>;
+      acc[locale] = strings as unknown as Record<Key, string>;
       return acc;
     },
     {} as Translations<Key>,
