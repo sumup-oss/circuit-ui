@@ -13,7 +13,14 @@
  * limitations under the License.
  */
 
-export { Modal } from './Modal.js';
+import { transformModulesToTranslations } from '../../../util/i18n.js';
 
-export { useModal } from './Modal.js';
-export type { ModalProps } from './Modal.js';
+export const translations = transformModulesToTranslations<
+  typeof import('./en-US.json')
+>(
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore import.meta.glob is supported by Vite
+  import.meta.glob('./*.json', {
+    eager: true,
+  }),
+);
