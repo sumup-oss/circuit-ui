@@ -22,10 +22,7 @@ import { ModalProvider } from '../Modal/ModalContext.js';
 import { Button } from '../Button/index.js';
 import { modes } from '../../../../.storybook/modes.js';
 
-import {
-  NotificationModal,
-  type NotificationModalProps,
-} from './NotificationModal.js';
+import { NotificationModal } from './NotificationModal.js';
 import { useNotificationModal } from './useNotificationModal.js';
 
 export default {
@@ -51,11 +48,38 @@ export default {
   ] as Decorator[],
 };
 
-export const Base = (modal: NotificationModalProps) => {
+export const Base = () => {
   const ComponentWithModal = () => {
     const { setModal } = useNotificationModal();
 
-    return <Button onClick={() => setModal(modal)}>Open modal</Button>;
+    return (
+      <Button
+        onClick={() =>
+          setModal({
+            image: {
+              src: '/images/illustration-update.svg',
+              alt: '',
+            },
+            headline: "It's time to update your browser",
+            body: "You'll soon need a more up-to-date browser to continue using SumUp.",
+            actions: {
+              primary: {
+                children: 'Update now',
+                onClick: action('primary'),
+              },
+              secondary: {
+                children: 'Not now',
+                onClick: action('secondary'),
+              },
+            },
+            'data-selector': 'test',
+            closeButtonLabel: 'Close',
+          })
+        }
+      >
+        Open modal
+      </Button>
+    );
   };
   return (
     <ModalProvider>

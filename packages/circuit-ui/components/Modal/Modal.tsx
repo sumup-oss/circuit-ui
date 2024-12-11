@@ -33,6 +33,7 @@ import { clsx } from '../../styles/clsx.js';
 import type { ClickEvent } from '../../types/events.js';
 import { isEscape } from '../../util/key-codes.js';
 import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import { deprecate } from '../../util/logger.js';
 
 import classes from './Modal.module.css';
 import { createUseModal } from './createUseModal.js';
@@ -42,6 +43,7 @@ import {
 } from './ModalService.js';
 import { translations } from './translations/index.js';
 
+type DataAttribute = `data-${string}`;
 export interface ModalProps
   extends Omit<HTMLAttributes<HTMLDialogElement>, 'children'> {
   /**
@@ -77,6 +79,13 @@ export interface ModalProps
    * Enables focusing a particular element in the dialog content and override default behavior
    */
   initialFocusRef?: RefObject<HTMLElement>;
+
+  /**
+   * @deprecated this props was passed to react-modal and is no longer relevant.
+   * Use preventClose instead. Also see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role#required_javascript_features
+   */
+  hideCloseButton?: boolean;
+  [key: DataAttribute]: string | undefined;
 }
 
 export const animationDuration = 300;
@@ -91,10 +100,20 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
     className,
     preventClose,
     initialFocusRef,
+    hideCloseButton,
     ...rest
   } = useI18n(props, translations);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const lastFocusedElementRef = useRef<HTMLElement | null>(null);
+
+  if (process.env.NODE_ENV !== 'production') {
+    if (hideCloseButton) {
+      deprecate(
+        'Modal',
+        'The "hideCloseButton" prop has been deprecated. Use the `preventClose` prop instead.',
+      );
+    }
+  }
 
   const hasNativeDialog = hasNativeDialogSupport();
 

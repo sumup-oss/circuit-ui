@@ -26,10 +26,10 @@ import {
 import type { ModalProps } from './Modal.js';
 import type { ModalDialogComponent } from './createUseModal.js';
 
-export type SetModalArgs = Omit<ModalProps, 'open'>;
+export type SetModalArgs<T> = Omit<T, 'open'>;
 
 // keep initial state compatible with the old version of this component
-export type ModalState<T extends ModalProps> = SetModalArgs & {
+export type ModalState<T extends ModalProps> = SetModalArgs<T> & {
   component: ModalDialogComponent<T>;
   id: string | number;
 };
@@ -38,7 +38,7 @@ type ModalContextValue<T extends ModalProps> = {
   setModal: (modal: ModalState<T>) => void;
   removeModal: (modal: ModalState<T>) => void;
 };
-export interface ModalProviderProps {
+export interface ModalProviderProps<T extends ModalProps> {
   /**
    * The ModalProvider should wrap your entire application.
    */
@@ -46,7 +46,7 @@ export interface ModalProviderProps {
   /**
    * An array of modals that should be displayed immediately, e.g. on page load.
    */
-  initialState?: ModalState<ModalProps>[];
+  initialState?: ModalState<T>[];
 }
 
 // TODO replace any
@@ -55,18 +55,18 @@ export const ModalContext = createContext<ModalContextValue<any>>({
   removeModal: () => {},
 });
 
-export function ModalProvider({
+export function ModalProvider<T extends ModalProps>({
   children,
   initialState,
   ...defaultModalProps
-}: ModalProviderProps) {
+}: ModalProviderProps<T>) {
   const [modals, setModals] = useState(initialState ?? []);
 
-  const setModal = useCallback((modal: ModalState<ModalProps>) => {
+  const setModal = useCallback((modal: ModalState<T>) => {
     setModals((prevValue) => [...prevValue, modal]);
   }, []);
 
-  const removeModal = useCallback((modal: ModalState<ModalProps>) => {
+  const removeModal = useCallback((modal: ModalState<T>) => {
     if (modal.onClose) {
       modal.onClose();
     }
@@ -84,6 +84,7 @@ export function ModalProvider({
       {modals.map((modal) => {
         const { id, component: Component, ...modalProps } = modal;
         return (
+          // @ts-expect-error type will either be ModalProps or NotificationProps
           <Component
             {...defaultModalProps}
             {...modalProps}

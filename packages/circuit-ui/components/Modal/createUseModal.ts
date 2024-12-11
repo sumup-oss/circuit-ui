@@ -28,16 +28,16 @@ export function createUseModal<T extends ModalProps>(
   component: ModalDialogComponent<T>,
 ) {
   return (): {
-    setModal: (props: SetModalArgs) => void;
+    setModal: (props: SetModalArgs<T>) => void;
     removeModal: () => void;
   } => {
     const id = useId();
-    const modalRef = useRef<SetModalArgs | null>(null);
+    const modalRef = useRef<SetModalArgs<T> | null>(null);
     const context = useContext(ModalContext);
 
     // biome-ignore lint/correctness/useExhaustiveDependencies: The `component` never changes
     const setModal = useCallback(
-      (props: SetModalArgs): void => {
+      (props: SetModalArgs<T>): void => {
         modalRef.current = props;
         context.setModal({ ...props, id, component });
       },
