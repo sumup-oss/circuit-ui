@@ -137,13 +137,13 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     const handleFocus: FocusEventHandler = useCallback(
       (event) => {
         if (
-          event.currentTarget.matches(':focus-visible') ||
           // Vitest and Jest use nwsapi to mock the `Element.matches` API.
           // It has a bug where `:focus-visible` is not matched unless
           // the element has the `autofocus` property set.
           // https://github.com/dperini/nwsapi/issues/122
-          (process.env.NODE_ENV === 'test' &&
-            event.currentTarget.matches(':focus'))
+          process.env.NODE_ENV === 'test'
+            ? event.currentTarget.matches(':focus')
+            : event.currentTarget.matches(':focus-visible')
         ) {
           handleOpen();
         }
