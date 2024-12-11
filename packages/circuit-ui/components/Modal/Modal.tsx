@@ -115,6 +115,20 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
     };
   }, [open]);
 
+  function setScrollProperty() {
+    document.documentElement.style.setProperty(
+      '--scroll-y',
+      `${window.scrollY}px`,
+    );
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', setScrollProperty);
+    return () => {
+      window.removeEventListener('scroll', setScrollProperty);
+    };
+  }, [setScrollProperty]);
+
   const handleDialogClose = useCallback(() => {
     const dialogElement = dialogRef.current;
     if (!dialogElement) {
@@ -128,7 +142,12 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
       );
     }
     // restore scroll to page
-    document.documentElement.style.overflowY = 'unset';
+    const { body } = document;
+    const scrollY = body.style.top;
+    body.style.position = '';
+    body.style.top = '';
+    window.scrollTo(0, Number.parseInt(scrollY || '0', 10) * -1);
+
     // trigger close animation
     dialogElement.classList.remove(classes.show);
     if (!hasNativeDialog) {
@@ -213,8 +232,12 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
 
         // trigger show animation
         dialogElement.classList.add(classes.show);
-        // if dialog is modal, disable scroll on page
-        document.documentElement.style.overflowY = 'hidden';
+        // disable scroll on page
+        const scrollY =
+          document.documentElement.style.getPropertyValue('--scroll-y');
+        const { body } = document;
+        body.style.position = 'fixed';
+        body.style.top = `-${scrollY}`;
       }
     } else if (dialogElement.open) {
       handleDialogClose();
