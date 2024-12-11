@@ -64,13 +64,14 @@
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
     opacity: 0;
-    transition: transform var(--cui-transitions-slow);
+    transition:
+      transform var(--cui-transitions-slow),
+      visibility var(--cui-transitions-slow),
+      opacity var(--cui-transitions-slow);
     transform: translateY(100%);
   }
 
   .dialog.show {
-    visibility: visible;
-    opacity: 1;
     transform: translateY(0%);
   }
 }
@@ -126,6 +127,7 @@
   }
 
   .immersive .content {
+    height: 100%;
     border: none;
     border-radius: unset;
   }
@@ -140,8 +142,6 @@
 
 @media (max-width: 479px) {
   .content {
-    width: 100%;
-    height: 100%;
     padding: var(--cui-spacings-mega);
     padding-bottom: calc(
       env(safe-area-inset-bottom) + var(--cui-spacings-mega)
