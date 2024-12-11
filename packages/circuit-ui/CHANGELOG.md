@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 9.3.1
+
+### Patch Changes
+
+- [#2824](https://github.com/sumup-oss/circuit-ui/pull/2824) [`630667d`](https://github.com/sumup-oss/circuit-ui/commit/630667d1a20f2664431d2a7d9d3b45a8444c077c) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed the spacing of the Carousel component's buttons.
+
+- [#2825](https://github.com/sumup-oss/circuit-ui/pull/2825) [`e036aff`](https://github.com/sumup-oss/circuit-ui/commit/e036aff6a8fa14249f14a9556392fc3464955198) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the `default` attribute that was accidentally added to components with default translations.
+
 ## 9.3.0
 
 ### Minor Changes
