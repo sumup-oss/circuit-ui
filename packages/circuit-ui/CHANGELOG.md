@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.3.2
+
+### Patch Changes
+
+- [#2827](https://github.com/sumup-oss/circuit-ui/pull/2827) [`dc6aa83`](https://github.com/sumup-oss/circuit-ui/commit/dc6aa8352a2e1a09a0574f453bb4bb3b51669eea) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed a regression that [breaks Jest and Vitest tests](https://github.com/dperini/nwsapi/issues?q=sort%3Aupdated-desc+is%3Aissue+focus-visible+) when [matching elements](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) using the `:focus-visible` selector.
+
 ## 9.3.1
 
 ### Patch Changes
