@@ -155,12 +155,14 @@ export type {
   PopoverProps,
   PopoverItemProps,
 } from './components/Popover/index.js';
-export { ModalProvider } from './components/ModalContext/index.js';
-export type { ModalProviderProps } from './components/ModalContext/index.js';
-export { useModal } from './components/Modal/index.js';
-export type { ModalProps } from './components/Modal/index.js';
+export { ModalProvider } from './components/Modal/ModalContext.js';
+export type { ModalProviderProps } from './components/Modal/ModalContext.js';
+export { useModal } from './components/Modal/Modal.js';
+export type { ModalProps } from './components/Modal/Modal.js';
+export { Modal } from './components/Modal/Modal.js';
 export { useNotificationModal } from './components/NotificationModal/index.js';
 export type { NotificationModalProps } from './components/NotificationModal/index.js';
+export { NotificationModal } from './components/NotificationModal/index.js';
 export { ListItem } from './components/ListItem/index.js';
 export type { ListItemProps } from './components/ListItem/index.js';
 export { ListItemGroup } from './components/ListItemGroup/index.js';
