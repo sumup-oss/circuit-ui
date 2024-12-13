@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2024, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,57 +13,236 @@
  * limitations under the License.
  */
 
-import { describe, expect, it, vi } from 'vitest';
+import {
+  beforeEach,
+  afterEach,
+  describe,
+  expect,
+  it,
+  vi,
+  type Mock,
+} from 'vitest';
+import { createRef } from 'react';
 
 import {
   render,
-  userEvent,
-  axe,
-  waitFor,
   screen,
+  axe,
+  userEvent,
+  waitFor,
+  act,
 } from '../../util/test-utils.js';
 
-import { Modal, type ModalProps } from './Modal.js';
+import { ANIMATION_DURATION, Modal } from './Modal.js';
+import { hasNativeDialogSupport } from './ModalService.js';
+
+vi.mock('./ModalService.js', async (importOriginal) => {
+  const module = await importOriginal<typeof import('./ModalService.js')>();
+  return {
+    ...module,
+    hasNativeDialogSupport: vi.fn().mockReturnValue(true),
+  };
+});
 
 describe('Modal', () => {
-  const defaultModal: ModalProps = {
-    variant: 'immersive',
-    isOpen: true,
-    closeButtonLabel: 'Close modal',
+  const props = {
     onClose: vi.fn(),
-    // eslint-disable-next-line react/prop-types, react/display-name
-    children: <p data-testid="children">Hello world!</p>,
-    // Silences the warning about the missing app element.
-    // In user land, the modal is always rendered by the ModalProvider,
-    // which takes care of setting the app element.
-    // http://reactcommunity.org/react-modal/accessibility/#app-element
-    ariaHideApp: false,
+    open: false,
+    closeButtonLabel: 'Close',
+    children: vi.fn(() => (
+      <div data-testid="children">Modal dialog content</div>
+    )),
   };
 
-  it('should render the modal', async () => {
-    render(<Modal {...defaultModal} />);
+  beforeEach(() => {
+    vi.useFakeTimers({ shouldAdvanceTime: true });
+    (hasNativeDialogSupport as Mock).mockReturnValue(true);
+  });
 
-    await waitFor(() => {
-      expect(screen.getByRole('dialog')).toBeVisible();
+  afterEach(() => {
+    vi.runOnlyPendingTimers();
+    vi.useRealTimers();
+    vi.clearAllMocks();
+  });
+
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLDialogElement>();
+    const { container } = render(<Modal {...props} ref={ref} />);
+    // eslint-disable-next-line testing-library/no-container
+    const dialog = container.querySelector('dialog');
+    expect(ref.current).toBe(dialog);
+  });
+
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    const { container } = render(<Modal {...props} className={className} />);
+    // eslint-disable-next-line testing-library/no-container
+    const dialog = container.querySelector('dialog');
+    expect(dialog?.className).toContain(className);
+  });
+
+  it('should render in closed state by default', () => {
+    const { container } = render(<Modal {...props} />);
+    // eslint-disable-next-line testing-library/no-container
+    const dialog = container.querySelector('dialog') as HTMLDialogElement;
+    expect(dialog).not.toBeVisible();
+  });
+
+  it('should open the dialog when the open prop becomes truthy', () => {
+    const { container, rerender } = render(<Modal {...props} />);
+    // eslint-disable-next-line testing-library/no-container
+    const dialog = container.querySelector('dialog') as HTMLDialogElement;
+    vi.spyOn(dialog, 'showModal');
+    rerender(<Modal {...props} open />);
+    expect(dialog.showModal).toHaveBeenCalledOnce();
+  });
+
+  it('should close the dialog when the open prop becomes falsy', () => {
+    const { container, rerender } = render(<Modal {...props} open />);
+    // eslint-disable-next-line testing-library/no-container
+    const dialog = container.querySelector('dialog') as HTMLDialogElement;
+    vi.spyOn(dialog, 'close');
+    rerender(<Modal {...props} />);
+    act(() => {
+      vi.advanceTimersByTime(ANIMATION_DURATION);
+    });
+    expect(dialog.close).toHaveBeenCalledOnce();
+  });
+
+  it('should close the dialog when the component is unmounted', async () => {
+    const { container, unmount } = render(<Modal {...props} open />);
+    // eslint-disable-next-line testing-library/no-container
+    const dialog = container.querySelector('dialog') as HTMLDialogElement;
+    vi.spyOn(dialog, 'close');
+    unmount();
+    expect(dialog.close).toHaveBeenCalledOnce();
+  });
+
+  describe('when the dialog is closed', () => {
+    it('should not render its children', () => {
+      render(<Modal {...props} />);
+      const children = screen.queryByText('Modal dialog content');
+
+      expect(children).not.toBeInTheDocument();
+    });
+
+    it('should do nothing when pressing the Escape key', async () => {
+      render(<Modal {...props} />);
+      await userEvent.keyboard('{Escape}');
+      expect(props.onClose).not.toHaveBeenCalled();
     });
   });
 
-  it('should call the onClose callback', async () => {
-    render(<Modal {...defaultModal} />);
+  describe('when the dialog is open', () => {
+    it('should render its children', () => {
+      render(<Modal {...props} open />);
+      const children = screen.getByText('Modal dialog content');
+      expect(props.children).toHaveBeenCalledOnce();
+      expect(children).toBeVisible();
+    });
 
-    await userEvent.click(screen.getByRole('button'));
+    it('should not close modal on backdrop click if preventClose is true', async () => {
+      const { container } = render(<Modal {...props} open preventClose />);
+      // eslint-disable-next-line testing-library/no-container
+      const dialog = container.querySelector('dialog') as HTMLDialogElement;
+      await userEvent.click(dialog);
+      act(() => {
+        vi.advanceTimersByTime(ANIMATION_DURATION);
+      });
+      expect(props.onClose).not.toHaveBeenCalled();
+    });
 
-    expect(defaultModal.onClose).toHaveBeenCalled();
+    it('should open in immersive mode', async () => {
+      const { container } = render(
+        <Modal {...props} open variant="immersive" />,
+      );
+      // eslint-disable-next-line testing-library/no-container
+      const dialog = container.querySelector('dialog') as HTMLDialogElement;
+      expect(dialog.className).toContain('immersive');
+    });
+
+    it('should close the dialog when pressing the backdrop', async () => {
+      render(<Modal {...props} open />);
+      await userEvent.click(screen.getByRole('dialog', { hidden: true }));
+      act(() => {
+        vi.advanceTimersByTime(ANIMATION_DURATION);
+      });
+      expect(props.onClose).toHaveBeenCalledOnce();
+    });
+
+    it('should close the dialog when the close button is clicked', async () => {
+      render(<Modal {...props} open />);
+      await userEvent.click(screen.getByRole('button', { name: 'Close' }));
+      act(() => {
+        vi.advanceTimersByTime(ANIMATION_DURATION);
+      });
+      expect(props.onClose).toHaveBeenCalledOnce();
+    });
+
+    it('should remove animation classes when closed when polyfill is used', async () => {
+      (hasNativeDialogSupport as Mock).mockReturnValue(false);
+      render(<Modal {...props} open />);
+
+      const backdrop = document.getElementsByClassName('backdrop')[0];
+      expect(backdrop.classList.toString()).toContain('backdrop-visible');
+      await userEvent.click(screen.getByRole('button', { name: 'Close' }));
+      expect(backdrop.classList.toString()).not.toContain('backdrop-visible');
+      act(() => {
+        vi.advanceTimersByTime(ANIMATION_DURATION);
+      });
+
+      expect(props.onClose).toHaveBeenCalledOnce();
+    });
   });
 
-  it('should render the children render prop', () => {
-    render(<Modal {...defaultModal} />);
-    expect(screen.getByTestId('children')).toHaveTextContent('Hello world!');
-  });
+  describe('accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Modal {...props} open />);
+      const actual = await axe(container);
+      expect(actual).toHaveNoViolations();
+    });
 
-  it('should meet accessibility guidelines', async () => {
-    const { container } = render(<Modal {...defaultModal} />);
-    const actual = await axe(container);
-    expect(actual).toHaveNoViolations();
+    it('should focus the close button when opened', () => {
+      render(<Modal {...props} open />);
+      expect(screen.getByRole('button', { name: /Close/i })).toHaveFocus();
+    });
+
+    it('should focus the first interactive element when opened', async () => {
+      render(
+        <Modal {...props} open>
+          {() => (
+            <button type="button" name="btn">
+              Button
+            </button>
+          )}
+        </Modal>,
+      );
+      const closeButton = screen.getByRole('button', { name: /Button/i });
+
+      await waitFor(() => expect(closeButton).toHaveFocus());
+    });
+
+    it('should focus a given element when provided', async () => {
+      const ref = createRef<HTMLButtonElement>();
+      render(
+        <Modal {...props} open initialFocusRef={ref}>
+          {() => (
+            <div>
+              <button type="button" name="btn">
+                Button
+              </button>
+              <button ref={ref} type="button" name="btn">
+                Special button
+              </button>
+            </div>
+          )}
+        </Modal>,
+      );
+      const spacialButton = screen.getByRole('button', {
+        name: /Special button/i,
+      });
+
+      await waitFor(() => expect(spacialButton).toHaveFocus());
+    });
   });
 });
