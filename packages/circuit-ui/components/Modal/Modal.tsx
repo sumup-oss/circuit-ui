@@ -1,5 +1,6 @@
+'use client';
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2024, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,139 +16,297 @@
 
 'use client';
 
-import type { HTMLAttributes, ReactNode } from 'react';
-import ReactModal from 'react-modal';
+import {
+  forwardRef,
+  type HTMLAttributes,
+  type ReactNode,
+  type RefObject,
+  useCallback,
+  useEffect,
+  useRef,
+} from 'react';
 
-import { isFunction } from '../../util/type-check.js';
-import {
-  createUseModal,
-  type ModalComponent,
-  type BaseModalProps,
-} from '../ModalContext/index.js';
 import { CloseButton } from '../CloseButton/index.js';
-import { StackContext } from '../StackContext/index.js';
-import {
-  AccessibilityError,
-  isSufficientlyLabelled,
-} from '../../util/errors.js';
+import dialogPolyfill from '../../vendor/dialog-polyfill/index.js';
+import { applyMultipleRefs } from '../../util/refs.js';
 import { clsx } from '../../styles/clsx.js';
+import type { ClickEvent } from '../../types/events.js';
+import { isEscape } from '../../util/key-codes.js';
+import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import { deprecate } from '../../util/logger.js';
 
 import classes from './Modal.module.css';
+import { createUseModal } from './createUseModal.js';
+import {
+  getFirstFocusableElement,
+  hasNativeDialogSupport,
+} from './ModalService.js';
+import { translations } from './translations/index.js';
 
-const TRANSITION_DURATION = 300;
+type DataAttribute = `data-${string}`;
+export interface ModalProps
+  extends Omit<HTMLAttributes<HTMLDialogElement>, 'children'> {
+  /**
+   * Whether the modal dialog is open or not.
+   */
+  open: boolean;
+  /**
+   * Callback when the modal dialog is closed.
+   */
+  onClose?: () => void;
+  /**
+   * a ReactNode or a function that returns the content of the modal dialog.
+   */
+  children?:
+    | ReactNode
+    | (({ onClose }: { onClose?: ModalProps['onClose'] }) => ReactNode);
+  /**
+   * Text label for the close button for screen readers.
+   * Important for accessibility.
+   */
+  closeButtonLabel?: string;
+  /**
+   * Use the `immersive` variant to focus the user's attention on the dialog content.
+   * default: 'contextual'
+   * */
+  variant?: 'contextual' | 'immersive';
+  /**
+   * Prevent users from closing the modal by clicking/tapping the overlay or
+   * pressing the escape key. Default `false`.
+   */
+  preventClose?: boolean;
+  /**
+   * Enables focusing a particular element in the dialog content and override default behavior
+   */
+  initialFocusRef?: RefObject<HTMLElement>;
 
-type PreventCloseProps =
-  | {
-      /**
-       * Text label for the close button for screen readers.
-       * Important for accessibility.
-       */
-      closeButtonLabel?: never;
-      /**
-       * Prevent users from closing the modal by clicking/tapping the overlay or
-       * pressing the escape key. Default `false`.
-       */
-      preventClose: boolean;
+  /**
+   * @deprecated this props was passed to react-modal and is no longer relevant.
+   * Use preventClose instead. Also see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role#required_javascript_features
+   */
+  hideCloseButton?: boolean;
+  [key: DataAttribute]: string | undefined;
+}
+
+export const ANIMATION_DURATION = 300;
+
+export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
+  const {
+    open,
+    onClose,
+    closeButtonLabel,
+    variant = 'contextual',
+    children,
+    className,
+    preventClose,
+    initialFocusRef,
+    hideCloseButton,
+    ...rest
+  } = useI18n(props, translations);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const lastFocusedElementRef = useRef<HTMLElement | null>(null);
+
+  if (process.env.NODE_ENV !== 'production') {
+    if (hideCloseButton) {
+      deprecate(
+        'Modal',
+        'The "hideCloseButton" prop has been deprecated. Use the `preventClose` prop instead.',
+      );
     }
-  | {
-      closeButtonLabel: string;
-      preventClose?: never;
+  }
+
+  const hasNativeDialog = hasNativeDialogSupport();
+
+  // set initial focus on the modal dialog content
+  useEffect(() => {
+    const dialogElement = dialogRef.current;
+    let timeoutId: NodeJS.Timeout;
+    if (open && dialogElement) {
+      timeoutId = setTimeout(() => {
+        if (initialFocusRef?.current) {
+          initialFocusRef?.current?.focus();
+        } else {
+          getFirstFocusableElement(dialogElement).focus();
+        }
+      }, ANIMATION_DURATION);
+    }
+    return () => {
+      clearTimeout(timeoutId);
     };
+  }, [open]);
 
-export type ModalProps = BaseModalProps &
-  PreventCloseProps & {
-    /**
-     * The modal content. Use a render function when you need access to the
-     * `onClose` function.
-     */
-    children:
-      | ReactNode
-      | (({ onClose }: Pick<BaseModalProps, 'onClose'>) => ReactNode);
-    /**
-     * Use the `contextual` variant when the modal content requires the context
-     * of the page underneath to be understood, otherwise, use the `immersive`
-     * variant to focus the user's attention.
-     */
-    variant: 'contextual' | 'immersive';
-    /**
-     * Custom styles for the modal wrapper element.
-     */
-    className?: HTMLAttributes<HTMLDivElement>['className'];
-    /**
-     * Custom styles for the modal wrapper element.
-     */
-    style?: HTMLAttributes<HTMLDivElement>['style'];
-  };
-
-/**
- * The modal component displays self-contained tasks in a focused window that
- * overlays the page content.
- * Built on top of [`react-modal`](https://reactcommunity.org/react-modal/).
- */
-export const Modal: ModalComponent<ModalProps> = ({
-  children,
-  onClose,
-  variant = 'contextual',
-  preventClose = false,
-  closeButtonLabel,
-  className,
-  style,
-  ...props
-}) => {
-  if (
-    process.env.NODE_ENV !== 'production' &&
-    process.env.NODE_ENV !== 'test' &&
-    !preventClose &&
-    !isSufficientlyLabelled(closeButtonLabel)
-  ) {
-    throw new AccessibilityError(
-      'Modal',
-      "The `closeButtonLabel` prop is missing or invalid. Pass it in `setModal`, or pass `preventClose` if you intend to hide the Modal's close button.",
+  function setScrollProperty() {
+    document.documentElement.style.setProperty(
+      '--scroll-y',
+      `${window.scrollY}px`,
     );
   }
 
-  const reactModalProps = {
-    className: {
-      base: clsx(classes.base, classes[variant]),
-      afterOpen: classes.open,
-      beforeClose: classes.closed,
-    },
-    overlayClassName: {
-      base: classes.overlay,
-      afterOpen: classes['overlay-open'],
-      beforeClose: classes['overlay-closed'],
-    },
-    onRequestClose: onClose,
-    closeTimeoutMS: TRANSITION_DURATION,
-    shouldCloseOnOverlayClick: !preventClose,
-    shouldCloseOnEsc: !preventClose,
-    /**
-     * react-modal relies on document.activeElement to return focus after the modal is closed.
-     * Safari and Firefox don't set it properly on button click (see https://github.com/reactjs/react-modal/issues/858 and https://github.com/reactjs/react-modal/issues/389).
-     * Returning the focus to document.body or to the focus-root can cause unwanted page scroll.
-     * Preventing scroll on focus would provide better UX for mouse users and shouldn't cause any side effects for assistive technology users.
-     */
-    preventScroll: true,
-    ...props,
+  useEffect(() => {
+    window.addEventListener('scroll', setScrollProperty);
+    return () => {
+      window.removeEventListener('scroll', setScrollProperty);
+    };
+  }, [setScrollProperty]);
+
+  const handleDialogClose = useCallback(() => {
+    const dialogElement = dialogRef.current;
+    if (!dialogElement) {
+      return;
+    }
+    // restore focus to the last focused element
+    if (lastFocusedElementRef.current) {
+      setTimeout(
+        () => lastFocusedElementRef.current?.focus(),
+        ANIMATION_DURATION,
+      );
+    }
+    // restore scroll to page
+    const { body } = document;
+    const scrollY = body.style.top;
+    body.style.position = '';
+    body.style.top = '';
+    window.scrollTo(0, Number.parseInt(scrollY || '0', 10) * -1);
+
+    // trigger closing animation
+    dialogElement.classList.remove(classes.show);
+    if (!hasNativeDialog) {
+      (dialogElement.nextSibling as HTMLDivElement).classList.remove(
+        classes['backdrop-visible'],
+      );
+    }
+    // trigger closing of the dialog after animation
+    setTimeout(() => {
+      if (dialogElement.open) {
+        dialogElement.close();
+      }
+    }, ANIMATION_DURATION);
+  }, []);
+
+  // intercept and prevent polyfill modal closing if preventClose is true
+  function onPolyfillDialogKeydown(event: KeyboardEvent) {
+    if (isEscape(event)) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  }
+
+  function onPolyfillBackdropClick(event: MouseEvent) {
+    if (preventClose) {
+      event.preventDefault();
+    }
+  }
+
+  useEffect(() => {
+    const dialogElement = dialogRef.current;
+    if (!dialogElement) {
+      return undefined;
+    }
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore The package is bundled incorrectly
+    dialogPolyfill.registerDialog(dialogElement);
+    if (preventClose) {
+      dialogElement.addEventListener('keydown', onPolyfillDialogKeydown);
+    }
+    if (onClose) {
+      dialogElement.addEventListener('close', onClose);
+    }
+
+    return () => {
+      if (onClose) {
+        dialogElement.removeEventListener('close', onClose);
+      }
+      if (!hasNativeDialog && dialogElement.nextSibling) {
+        (dialogElement.nextSibling as HTMLDivElement).removeEventListener(
+          'click',
+          onPolyfillBackdropClick,
+        );
+        dialogElement.removeEventListener('keydown', onPolyfillDialogKeydown);
+      }
+    };
+  }, [onClose]);
+
+  useEffect(() => {
+    const dialogElement = dialogRef.current;
+
+    if (!dialogElement) {
+      return undefined;
+    }
+    if (open) {
+      if (document.activeElement instanceof HTMLElement) {
+        lastFocusedElementRef.current = document.activeElement;
+      }
+      if (!dialogElement.open) {
+        dialogElement.showModal();
+        if (!hasNativeDialog) {
+          // use the polyfill backdrop
+          (dialogElement.nextSibling as HTMLDivElement).classList.add(
+            classes['backdrop-visible'],
+            classes.backdrop,
+          );
+          // intercept and prevent modal closing if preventClose is true
+          (dialogElement.nextSibling as HTMLDivElement).addEventListener(
+            'click',
+            onPolyfillBackdropClick,
+          );
+        }
+
+        // trigger show animation
+        dialogElement.classList.add(classes.show);
+        // disable scroll on page
+        const scrollY =
+          document.documentElement.style.getPropertyValue('--scroll-y');
+        const { body } = document;
+        body.style.position = 'fixed';
+        body.style.top = `-${scrollY}`;
+      }
+    } else if (dialogElement.open) {
+      handleDialogClose();
+    }
+
+    return () => {
+      if (dialogElement.open) {
+        dialogElement.close();
+      }
+    };
+  }, [open, handleDialogClose, hasNativeDialog]);
+
+  const onDialogClick = (
+    event: ClickEvent<HTMLDialogElement> | ClickEvent<HTMLDivElement>,
+  ) => {
+    if (event.target === event.currentTarget && !preventClose) {
+      handleDialogClose();
+    }
   };
 
   return (
-    <StackContext.Provider value={'var(--cui-z-index-modal)'}>
-      <ReactModal {...reactModalProps}>
-        <div className={clsx(classes.content, className)} style={style}>
-          {!preventClose && closeButtonLabel && (
-            <CloseButton onClick={onClose} className={classes.close}>
-              {closeButtonLabel}
-            </CloseButton>
-          )}
-
-          {isFunction(children) ? children({ onClose }) : children}
-        </div>
-      </ReactModal>
-    </StackContext.Provider>
+    <>
+      {/* eslint-disable-next-line  jsx-a11y/no-noninteractive-element-interactions */}
+      <dialog
+        onClick={onDialogClick}
+        ref={applyMultipleRefs(ref, dialogRef)}
+        className={clsx(
+          className,
+          classes.dialog,
+          variant === 'immersive' && classes.immersive,
+        )}
+        {...rest}
+      >
+        <CloseButton onClick={handleDialogClose} className={classes.close}>
+          {closeButtonLabel}
+        </CloseButton>
+        {open && (
+          <div className={classes.content}>
+            {typeof children === 'function'
+              ? children?.({ onClose })
+              : children}
+          </div>
+        )}
+      </dialog>
+    </>
   );
-};
+});
 
-Modal.TRANSITION_DURATION = TRANSITION_DURATION;
+Modal.displayName = 'Modal';
 
 export const useModal = createUseModal(Modal);

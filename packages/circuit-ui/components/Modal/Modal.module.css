@@ -1,11 +1,28 @@
-.base {
+.dialog {
   position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0;
+  margin: auto;
+  overflow-y: auto;
+  pointer-events: none;
+  visibility: hidden;
   background-color: var(--cui-bg-elevated);
+  border: none;
+  border-radius: var(--cui-border-radius-mega);
   outline: none;
+  animation: fade-out 0.5s forwards;
 }
 
-.base::after {
-  position: fixed;
+.dialog.show {
+  pointer-events: auto;
+  animation: fade-in 0.5s forwards;
+}
+
+.dialog::after {
+  position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
@@ -18,111 +35,75 @@
   );
 }
 
-@media (max-width: 479px) {
-  .base {
-    right: 0;
-    bottom: 0;
-    left: 0;
-    transition: transform var(--cui-transitions-default);
-    transform: translateY(100%);
-  }
-
-  .base::after {
-    height: var(--cui-spacings-mega);
-  }
-}
-
 @media (min-width: 480px) {
-  .base {
-    top: 50%;
-    left: 50%;
-    border-radius: var(--cui-border-radius-mega);
-    opacity: 0;
-    transition: opacity var(--cui-transitions-slow);
-    transform: translate(-50%, -50%);
-  }
-
-  .base::after {
+  .dialog::after {
     height: var(--cui-spacings-giga);
     border-bottom-right-radius: var(--cui-border-radius-mega);
     border-bottom-left-radius: var(--cui-border-radius-mega);
   }
 }
 
-/* Variants */
-
 @media (max-width: 479px) {
-  .contextual {
-    border-top-left-radius: var(--cui-border-radius-mega);
-    border-top-right-radius: var(--cui-border-radius-mega);
+  .dialog {
+    top: unset;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    animation: slide-out 0.5s forwards;
   }
 
-  .immersive {
-    top: 0;
-  }
-}
-
-@media (max-width: 479px) {
-  .open {
-    transform: translateY(0);
-  }
-}
-
-@media (min-width: 480px) {
-  .open {
-    opacity: 1;
+  .dialog.show {
+    animation: slide-in 0.5s forwards;
   }
 }
 
-@media (max-width: 479px) {
-  .closed {
-    transform: translateY(100%);
-  }
+/* Native Backdrop */
+.dialog::backdrop {
+  background-color: var(--cui-bg-overlay);
+  animation: fade-out 0.5s forwards;
 }
 
-@media (min-width: 480px) {
-  .closed {
-    opacity: 0;
-  }
+.dialog.show::backdrop {
+  pointer-events: auto;
+  animation: fade-in 0.5s forwards;
 }
 
-/* Overlay */
-
-.overlay {
+/* Polyfill Backdrop */
+.dialog + .backdrop {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: var(--cui-z-index-modal);
-  background: var(--cui-bg-overlay);
-  opacity: 0;
-  transition: opacity var(--cui-transitions-default);
+  background-color: var(--cui-bg-overlay);
+  animation: fade-out 0.5s forwards;
 }
 
-@media (min-width: 480px) {
-  .overlay {
-    transition: opacity var(--cui-transitions-slow);
-  }
+.backdrop.backdrop-visible {
+  animation: fade-in 0.5s forwards;
 }
 
-.overlay-open {
-  opacity: 1;
-}
-
-.overlay-closed {
-  opacity: 0;
-}
-
-/* Content */
-
-.content {
-  overflow-y: auto;
+.dialog .close {
+  position: absolute;
+  top: var(--cui-spacings-byte);
+  right: var(--cui-spacings-byte);
+  z-index: var(--cui-z-index-absolute);
 }
 
 @media (max-width: 479px) {
-  .content {
-    width: 100vw;
+  .immersive {
+    height: 100%;
+    max-height: unset;
+    border: none;
+    border-radius: unset;
+  }
+}
+
+@media (max-width: 479px) {
+  .dialog .content {
     padding: var(--cui-spacings-mega);
     padding-bottom: calc(
       env(safe-area-inset-bottom) + var(--cui-spacings-mega)
@@ -132,10 +113,14 @@
 }
 
 @media (min-width: 480px) {
-  .content {
+  .dialog {
+    width: min-content;
     min-width: 480px;
     max-width: 90vw;
     max-height: 90vh;
+  }
+
+  .dialog .content {
     padding: var(--cui-spacings-giga);
     padding-bottom: calc(
       env(safe-area-inset-bottom) + var(--cui-spacings-giga)
@@ -143,32 +128,54 @@
   }
 }
 
-/* Variants */
+@keyframes fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
 
-@media (max-width: 479px) {
-  .contextual .content {
-    max-height: calc(100vh - var(--cui-spacings-giga));
+  to {
+    visibility: visible;
+    opacity: 1;
   }
 }
 
-/* iOS viewport bug fix: https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
-@supports (max-height: -webkit-fill-available) {
-  @media (max-width: 479px) {
-    .contextual .content {
-      max-height: 80vh;
-    }
+@keyframes fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  to {
+    visibility: hidden;
+    opacity: 0;
   }
 }
 
-@media (max-width: 479px) {
-  .immersive .content {
-    height: 100%;
+@keyframes slide-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  to {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.base .close {
-  position: absolute;
-  top: var(--cui-spacings-byte);
-  right: var(--cui-spacings-byte);
-  z-index: var(--cui-z-index-absolute);
+@keyframes slide-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(100%);
+  }
 }
