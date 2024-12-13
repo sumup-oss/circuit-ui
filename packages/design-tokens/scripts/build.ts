@@ -48,7 +48,7 @@ function main(): void {
       {
         type: 'tokens',
         tokens: [...light, ...shared],
-        selectors: [':root'],
+        selectors: [':root, ::backdrop'],
         colorScheme: 'light',
       },
     ],
@@ -56,7 +56,7 @@ function main(): void {
       {
         type: 'tokens',
         tokens: [...dark, ...shared],
-        selectors: [':root'],
+        selectors: [':root, ::backdrop'],
         colorScheme: 'dark',
       },
     ],
@@ -80,13 +80,13 @@ function main(): void {
       {
         type: 'tokens',
         tokens: [...light, ...shared],
-        selectors: [':root'],
+        selectors: [':root, ::backdrop'],
         colorScheme: 'light',
       },
       {
         type: 'tokens',
         tokens: dark,
-        selectors: ['@media (prefers-color-scheme: dark)', ':root'],
+        selectors: ['@media (prefers-color-scheme: dark)', ':root, ::backdrop'],
         colorScheme: 'dark',
       },
       {
