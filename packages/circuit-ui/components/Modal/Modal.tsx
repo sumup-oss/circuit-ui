@@ -166,6 +166,8 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
     const scrollY = body.style.top;
     body.style.position = '';
     body.style.top = '';
+    body.style.left = '';
+    body.style.right = '';
     window.scrollTo(0, Number.parseInt(scrollY || '0', 10) * -1);
 
     // trigger closing animation
@@ -258,6 +260,8 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
           document.documentElement.style.getPropertyValue('--scroll-y');
         const { body } = document;
         body.style.position = 'fixed';
+        body.style.left = '0';
+        body.style.right = '0';
         body.style.top = `-${scrollY}`;
       }
     } else if (dialogElement.open) {
