@@ -11,7 +11,7 @@ jobs:
     strategy:
       # https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs
       matrix:
-        node: [20, 22]
+        node: [20, 22.11]
         template: [astro, nextjs, remix]
         include:
           - template: astro
