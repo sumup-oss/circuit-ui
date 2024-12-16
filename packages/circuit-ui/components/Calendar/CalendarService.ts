@@ -143,7 +143,6 @@ export function getWeekdays(
   firstDayOfWeek: FirstDayOfWeek = 1,
   daysInWeek: DaysInWeek = 7,
   locale?: Locale,
-  calendar?: string,
 ) {
   return Array.from(Array(daysInWeek)).map((_, index) => {
     // 1973 started with a Monday
@@ -151,11 +150,11 @@ export function getWeekdays(
     return {
       narrow: formatDateTime(date, locale, {
         weekday: 'narrow',
-        calendar,
+        calendar: date.calendarId,
       }),
       long: formatDateTime(date, locale, {
         weekday: 'long',
-        calendar,
+        calendar: date.calendarId,
       }),
     };
   }) as Weekdays;
@@ -164,12 +163,17 @@ export function getWeekdays(
 export function getMonthHeadline(
   yearMonth: Temporal.PlainYearMonth,
   locale?: Locale,
-  calendar = 'iso8601',
 ) {
-  return formatDateTime(yearMonth, locale, {
+  // Temporal objects use the `iso8601` calendar system by default, which
+  // (incorrectly?) renders the year before the month since Node 22.12
+  // (e.g. "2020 March" instead of "March 2020").
+  // A `PlainYearMonth` has to be converted to a `PlainDate` to be able to
+  // change its calendar system.
+  const date = yearMonth.toPlainDate({ day: 1 }).withCalendar('gregory');
+  return formatDateTime(date, locale, {
     year: 'numeric',
     month: 'long',
-    calendar,
+    calendar: date.calendarId,
   });
 }
 

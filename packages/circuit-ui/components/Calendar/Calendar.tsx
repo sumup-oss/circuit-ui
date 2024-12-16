@@ -92,6 +92,10 @@ interface SharedProps {
    */
   locale?: Locale;
   /**
+   * @deprecated Support for the `gregory` calendar has been removed since it
+   * never fully worked. The `calendar` prop will be removed in the next major
+   * version.
+   *
    * The identifier for the used [calendar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar). Default: `iso8601`.
    */
   calendar?: 'iso8601' | 'gregory';
@@ -150,7 +154,6 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
       nextMonthButtonLabel,
       modifiers,
       numberOfMonths = 1,
-      calendar = 'iso8601',
       ...rest
     } = useI18n(props, translations);
     const [{ months, focusedDate, hoveredDate, today }, dispatch] = useReducer(
@@ -311,7 +314,6 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
               firstDayOfWeek={firstDayOfWeek}
               daysInWeek={daysInWeek}
               locale={locale}
-              calendar={calendar}
               modifiers={modifiers}
               onFocus={handleFocusDate}
               onSelect={onSelect}
@@ -358,17 +360,16 @@ function Month({
   firstDayOfWeek = 1,
   daysInWeek,
   locale,
-  calendar,
 }: MonthProps) {
   const descriptionIds = useId();
   const headlineId = useId();
   const headline = useMemo(
-    () => getMonthHeadline(yearMonth, locale, calendar),
-    [yearMonth, locale, calendar],
+    () => getMonthHeadline(yearMonth, locale),
+    [yearMonth, locale],
   );
   const weekdays = useMemo(
-    () => getWeekdays(firstDayOfWeek, daysInWeek, locale, calendar),
-    [firstDayOfWeek, daysInWeek, locale, calendar],
+    () => getWeekdays(firstDayOfWeek, daysInWeek, locale),
+    [firstDayOfWeek, daysInWeek, locale],
   );
   const weeks = useMemo(
     () => getViewOfMonth(yearMonth, firstDayOfWeek, daysInWeek),
