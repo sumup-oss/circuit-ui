@@ -25,6 +25,7 @@
     "public/**/*",
     "**/dist/**/*",
     "**/template/**/*",
+    "templates/astro/astro.config.ts",
     "**/__tests__/**/*",
     "**/__testfixtures__/**/*",
     "**/*.spec.*",
