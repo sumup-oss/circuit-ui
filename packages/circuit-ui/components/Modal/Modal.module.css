@@ -13,12 +13,12 @@
   border: none;
   border-radius: var(--cui-border-radius-mega);
   outline: none;
-  animation: fade-out 0.5s forwards;
+  animation: fade-out 0.3s forwards;
 }
 
 .dialog.show {
   pointer-events: auto;
-  animation: fade-in 0.5s forwards;
+  animation: fade-in 0.3s forwards;
 }
 
 .dialog::after {
@@ -52,23 +52,23 @@
     max-width: 100%;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
-    animation: slide-out 0.5s forwards;
+    animation: slide-out 0.3s forwards;
   }
 
   .dialog.show {
-    animation: slide-in 0.5s forwards;
+    animation: slide-in 0.3s forwards;
   }
 }
 
 /* Native Backdrop */
 .dialog::backdrop {
   background-color: var(--cui-bg-overlay);
-  animation: fade-out 0.5s forwards;
+  animation: fade-out 0.3s forwards;
 }
 
 .dialog.show::backdrop {
   pointer-events: auto;
-  animation: fade-in 0.5s forwards;
+  animation: fade-in 0.3s forwards;
 }
 
 /* Polyfill Backdrop */
@@ -79,11 +79,11 @@
   bottom: 0;
   left: 0;
   background-color: var(--cui-bg-overlay);
-  animation: fade-out 0.5s forwards;
+  animation: fade-out 0.3s forwards;
 }
 
 .backdrop.backdrop-visible {
-  animation: fade-in 0.5s forwards;
+  animation: fade-in 0.3s forwards;
 }
 
 .dialog .close {
