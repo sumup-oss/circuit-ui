@@ -42,6 +42,9 @@
         "noRedundantRoles": "warn",
         "useSemanticElements": "warn"
       },
+      "correctness": {
+        "useExhaustiveDependencies": "error"
+      },
       "style": {
         "noDefaultExport": "error",
         "useFilenamingConvention": {
