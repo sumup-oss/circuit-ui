@@ -1,5 +1,11 @@
 # @sumup-oss/astro-template-circuit-ui
 
+## 4.0.0
+
+### Major Changes
+
+- [#2830](https://github.com/sumup-oss/circuit-ui/pull/2830) [`b357c8e`](https://github.com/sumup-oss/circuit-ui/commit/b357c8ea0f75a382881c282d461e63a274ddba09) Thanks [@connor-baer](https://github.com/connor-baer)! - Upgraded to [Astro v5](https://astro.build/blog/astro-5/).
+
 ## 3.0.0
 
 ### Major Changes
