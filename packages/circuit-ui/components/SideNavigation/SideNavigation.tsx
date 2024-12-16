@@ -102,6 +102,8 @@ export function SideNavigation({
     closeButtonLabel,
     primaryNavigationLabel,
     UNSAFE_components,
+    skipNavigationLabel,
+    skipNavigationHref,
   ]);
 
   // Close the modal when the user resizes the window.
