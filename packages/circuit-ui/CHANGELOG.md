@@ -1,5 +1,15 @@
 # @sumup-oss/circuit-ui
 
+## 9.4.0
+
+### Minor Changes
+
+- [#2832](https://github.com/sumup-oss/circuit-ui/pull/2832) [`7a292c7`](https://github.com/sumup-oss/circuit-ui/commit/7a292c7c810364a72b98c6484c51f0bb672ff073) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the Calendar component's `calendar` prop since support for the `gregory` calendar system wasn't fully tested and is partially broken. Use the default `iso8601` calendar system instead. The prop will be removed in the next major version.
+
+### Patch Changes
+
+- [#2832](https://github.com/sumup-oss/circuit-ui/pull/2832) [`7a292c7`](https://github.com/sumup-oss/circuit-ui/commit/7a292c7c810364a72b98c6484c51f0bb672ff073) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the display order of the Calendar component's month headline on Node 22.12 and above.
+
 ## 9.3.2
 
 ### Patch Changes
