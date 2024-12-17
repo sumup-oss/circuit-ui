@@ -118,6 +118,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
   const hasNativeDialog = hasNativeDialogSupport();
 
   // set initial focus on the modal dialog content
+  // biome-ignore lint/correctness/useExhaustiveDependencies: we only want to run this effect once
   useEffect(() => {
     const dialogElement = dialogRef.current;
     let timeoutId: NodeJS.Timeout;
@@ -135,12 +136,12 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
     };
   }, [open]);
 
-  function setScrollProperty() {
+  const setScrollProperty = useCallback(() => {
     document.documentElement.style.setProperty(
       '--scroll-y',
       `${window.scrollY}px`,
     );
-  }
+  }, []);
 
   useEffect(() => {
     window.addEventListener('scroll', setScrollProperty);
@@ -183,21 +184,24 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
         dialogElement.close();
       }
     }, ANIMATION_DURATION);
-  }, []);
+  }, [hasNativeDialog]);
 
   // intercept and prevent polyfill modal closing if preventClose is true
-  function onPolyfillDialogKeydown(event: KeyboardEvent) {
+  const onPolyfillDialogKeydown = useCallback((event: KeyboardEvent) => {
     if (isEscape(event)) {
       event.preventDefault();
       event.stopPropagation();
     }
-  }
+  }, []);
 
-  function onPolyfillBackdropClick(event: MouseEvent) {
-    if (preventClose) {
-      event.preventDefault();
-    }
-  }
+  const onPolyfillBackdropClick = useCallback(
+    (event: MouseEvent) => {
+      if (preventClose) {
+        event.preventDefault();
+      }
+    },
+    [preventClose],
+  );
 
   useEffect(() => {
     const dialogElement = dialogRef.current;
@@ -226,7 +230,13 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
         dialogElement.removeEventListener('keydown', onPolyfillDialogKeydown);
       }
     };
-  }, [onClose]);
+  }, [
+    onClose,
+    onPolyfillBackdropClick,
+    preventClose,
+    hasNativeDialog,
+    onPolyfillDialogKeydown,
+  ]);
 
   useEffect(() => {
     const dialogElement = dialogRef.current;
@@ -273,7 +283,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
         dialogElement.close();
       }
     };
-  }, [open, handleDialogClose, hasNativeDialog]);
+  }, [open, handleDialogClose, hasNativeDialog, onPolyfillBackdropClick]);
 
   const onDialogClick = (
     event: ClickEvent<HTMLDialogElement> | ClickEvent<HTMLDivElement>,
