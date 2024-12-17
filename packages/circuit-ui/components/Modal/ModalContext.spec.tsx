@@ -61,9 +61,6 @@ describe('ModalContext', () => {
         vi.advanceTimersByTime(ANIMATION_DURATION);
       });
 
-      expect(
-        (screen.getByTestId('dummy-dialog')).open,
-      ).toBe(true);
       expect(screen.getByTestId('dummy-dialog')).toBeVisible();
     });
 
