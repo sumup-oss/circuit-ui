@@ -1,9 +1,5 @@
-.dialog {
+.base {
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
   padding: 0;
   margin: auto;
   overflow-y: auto;
@@ -11,18 +7,21 @@
   visibility: hidden;
   background-color: var(--cui-bg-elevated);
   border: none;
-  border-radius: var(--cui-border-radius-mega);
   outline: none;
   animation: fade-out 0.3s forwards;
 }
 
-.dialog.show {
+.base.show {
   pointer-events: auto;
   animation: fade-in 0.3s forwards;
 }
 
-.dialog::after {
-  position: absolute;
+.content {
+  position: relative;
+}
+
+.base::after {
+  position: sticky;
   right: 0;
   bottom: 0;
   left: 0;
@@ -36,16 +35,30 @@
 }
 
 @media (min-width: 480px) {
-  .dialog::after {
+  .base {
+    width: min-content;
+    min-width: 480px;
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: var(--cui-border-radius-mega);
+  }
+
+  .base::after {
     height: var(--cui-spacings-giga);
-    border-bottom-right-radius: var(--cui-border-radius-mega);
-    border-bottom-left-radius: var(--cui-border-radius-mega);
+  }
+
+  .base .content {
+    padding: var(--cui-spacings-giga);
+    padding-bottom: calc(
+      env(safe-area-inset-bottom) + var(--cui-spacings-giga)
+    );
   }
 }
 
 @media (max-width: 479px) {
-  .dialog {
+  .base {
     top: unset;
+    right: 0;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -55,24 +68,39 @@
     animation: slide-out 0.3s forwards;
   }
 
-  .dialog.show {
+  .base.show {
     animation: slide-in 0.3s forwards;
+  }
+
+  .immersive {
+    height: 100%;
+    max-height: unset;
+    border: none;
+    border-radius: unset;
+  }
+
+  .base .content {
+    padding: var(--cui-spacings-mega);
+    padding-bottom: calc(
+      env(safe-area-inset-bottom) + var(--cui-spacings-mega)
+    );
+    -webkit-overflow-scrolling: touch;
   }
 }
 
 /* Native Backdrop */
-.dialog::backdrop {
+.base::backdrop {
   background-color: var(--cui-bg-overlay);
   animation: fade-out 0.3s forwards;
 }
 
-.dialog.show::backdrop {
+.base.show::backdrop {
   pointer-events: auto;
   animation: fade-in 0.3s forwards;
 }
 
 /* Polyfill Backdrop */
-.dialog + .backdrop {
+.base + .backdrop {
   position: fixed;
   top: 0;
   right: 0;
@@ -86,47 +114,15 @@
   animation: fade-in 0.3s forwards;
 }
 
-.dialog .close {
+/* Close button */
+.base .close {
   position: absolute;
   top: var(--cui-spacings-byte);
   right: var(--cui-spacings-byte);
   z-index: var(--cui-z-index-absolute);
 }
 
-@media (max-width: 479px) {
-  .immersive {
-    height: 100%;
-    max-height: unset;
-    border: none;
-    border-radius: unset;
-  }
-}
-
-@media (max-width: 479px) {
-  .dialog .content {
-    padding: var(--cui-spacings-mega);
-    padding-bottom: calc(
-      env(safe-area-inset-bottom) + var(--cui-spacings-mega)
-    );
-    -webkit-overflow-scrolling: touch;
-  }
-}
-
-@media (min-width: 480px) {
-  .dialog {
-    width: min-content;
-    min-width: 480px;
-    max-width: 90vw;
-    max-height: 90vh;
-  }
-
-  .dialog .content {
-    padding: var(--cui-spacings-giga);
-    padding-bottom: calc(
-      env(safe-area-inset-bottom) + var(--cui-spacings-giga)
-    );
-  }
-}
+/* Animations */
 
 @keyframes fade-in {
   from {

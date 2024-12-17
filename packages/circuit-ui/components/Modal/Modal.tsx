@@ -300,7 +300,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
         onClick={onDialogClick}
         ref={applyMultipleRefs(ref, dialogRef)}
         className={clsx(
-          classes.dialog,
+          classes.base,
           variant === 'immersive' && classes.immersive,
           className,
         )}
