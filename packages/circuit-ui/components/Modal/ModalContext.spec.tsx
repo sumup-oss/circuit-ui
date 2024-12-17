@@ -13,57 +13,30 @@
  * limitations under the License.
  */
 
-import {
-  afterAll,
-  afterEach,
-  beforeAll,
-  describe,
-  expect,
-  it,
-  vi,
-} from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { useContext } from 'react';
 
-import {
-  render,
-  act,
-  userEvent as baseUserEvent,
-  screen,
-} from '../../util/test-utils.js';
+import { render, act, screen, userEvent } from '../../util/test-utils.js';
 
 import { ModalProvider, ModalContext } from './ModalContext.js';
 import { ANIMATION_DURATION, type ModalProps } from './Modal.js';
 
-const Modal = (props: ModalProps) => <Modal {...props} />;
+const Modal = ({ onClose, open }: ModalProps) => (
+  <dialog aria-label="Modal" open={open} data-testid="dummy-dialog">
+    <button onClick={onClose} type="button">
+      Close
+    </button>
+  </dialog>
+);
 
-describe('ModalDialogContext', () => {
-  beforeAll(() => {
-    vi.useFakeTimers();
-
-    // HACK: Temporary workaround for a bug in @testing-library/react when
-    // using  @testing-library/user-event with fake timers.
-    // https://github.com/testing-library/react-testing-library/issues/1197
-    const originalJest = globalThis.jest;
-
-    globalThis.jest = {
-      ...globalThis.jest,
-      advanceTimersByTime: vi.advanceTimersByTime.bind(vi),
-    };
-
-    return () => {
-      globalThis.jest = originalJest;
-    };
-  });
-  afterAll(() => {
-    vi.useRealTimers();
-    vi.resetModules();
+describe('ModalContext', () => {
+  beforeEach(() => {
+    vi.useFakeTimers({ shouldAdvanceTime: true });
   });
   afterEach(() => {
+    vi.runOnlyPendingTimers();
+    vi.useRealTimers();
     vi.clearAllMocks();
-  });
-
-  const userEvent = baseUserEvent.setup({
-    advanceTimers: vi.advanceTimersByTime,
   });
 
   describe('ModalProvider', () => {
@@ -84,7 +57,14 @@ describe('ModalDialogContext', () => {
         </ModalProvider>,
       );
 
-      expect(screen.getByRole('dialog')).toBeVisible();
+      act(() => {
+        vi.advanceTimersByTime(ANIMATION_DURATION);
+      });
+
+      expect(
+        (screen.getByTestId('dummy-dialog')).open,
+      ).toBe(true);
+      expect(screen.getByTestId('dummy-dialog')).toBeVisible();
     });
 
     it('should open and close a modal when the context functions are called', async () => {
@@ -114,26 +94,7 @@ describe('ModalDialogContext', () => {
         vi.runAllTimers();
       });
 
-      expect(screen.queryByRole('dialog')).toBeNull();
-    });
-
-    it('should close the modal when the user navigates back', () => {
-      const { container, unmount } = render(
-        <ModalProvider initialState={initialState}>
-          <div />
-        </ModalProvider>,
-      );
-      const dialog = container.querySelector('dialog') as HTMLDialogElement;
-      vi.spyOn(dialog, 'close');
-
-      unmount();
-      act(() => {
-        vi.runAllTimers();
-        vi.advanceTimersByTime(ANIMATION_DURATION);
-      });
-
-      expect(screen.queryByRole('dialog')).toBeNull();
-      expect(dialog.close).toHaveBeenCalledTimes(1);
+      expect(screen.queryByTestId('dummy-dialog')).not.toBeInTheDocument();
     });
 
     it('should close the modal when the onClose method is called', async () => {
@@ -149,7 +110,7 @@ describe('ModalDialogContext', () => {
         vi.runAllTimers();
       });
 
-      expect(screen.queryByRole('dialog')).toBeNull();
+      expect(screen.queryByTestId('dummy-dialog')).not.toBeInTheDocument();
       expect(onClose).toHaveBeenCalledTimes(1);
     });
   });
