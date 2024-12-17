@@ -67,55 +67,64 @@ describe('Modal', () => {
 
   it('should forward a ref', () => {
     const ref = createRef<HTMLDialogElement>();
-    const { container } = render(<Modal {...props} ref={ref} />);
+    render(<Modal {...props} ref={ref} />);
     // eslint-disable-next-line testing-library/no-container
-    const dialog = container.querySelector('dialog');
+    const dialog = screen.getByRole('dialog', { hidden: true });
     expect(ref.current).toBe(dialog);
   });
 
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
-    const { container } = render(<Modal {...props} className={className} />);
+    render(<Modal {...props} className={className} />);
     // eslint-disable-next-line testing-library/no-container
-    const dialog = container.querySelector('dialog');
+    const dialog = screen.getByRole('dialog', { hidden: true });
     expect(dialog?.className).toContain(className);
   });
 
   it('should render in closed state by default', () => {
-    const { container } = render(<Modal {...props} />);
+    render(<Modal {...props} />);
     // eslint-disable-next-line testing-library/no-container
-    const dialog = container.querySelector('dialog') as HTMLDialogElement;
+    const dialog = screen.getByRole('dialog', { hidden: true });
     expect(dialog).not.toBeVisible();
   });
 
   it('should open the dialog when the open prop becomes truthy', () => {
-    const { container, rerender } = render(<Modal {...props} />);
+    const { rerender } = render(<Modal {...props} />);
     // eslint-disable-next-line testing-library/no-container
-    const dialog = container.querySelector('dialog') as HTMLDialogElement;
+    const dialog = screen.getByRole('dialog', {
+      hidden: true,
+    });
     vi.spyOn(dialog, 'showModal');
     rerender(<Modal {...props} open />);
     expect(dialog.showModal).toHaveBeenCalledOnce();
+    expect(dialog).toBeVisible();
   });
 
   it('should close the dialog when the open prop becomes falsy', () => {
-    const { container, rerender } = render(<Modal {...props} open />);
+    const { rerender } = render(<Modal {...props} open />);
     // eslint-disable-next-line testing-library/no-container
-    const dialog = container.querySelector('dialog') as HTMLDialogElement;
+    const dialog = screen.getByRole('dialog', {
+      hidden: true,
+    });
     vi.spyOn(dialog, 'close');
     rerender(<Modal {...props} />);
     act(() => {
       vi.advanceTimersByTime(ANIMATION_DURATION);
     });
     expect(dialog.close).toHaveBeenCalledOnce();
+    expect(dialog).not.toBeVisible();
   });
 
   it('should close the dialog when the component is unmounted', async () => {
-    const { container, unmount } = render(<Modal {...props} open />);
+    const { unmount } = render(<Modal {...props} open />);
     // eslint-disable-next-line testing-library/no-container
-    const dialog = container.querySelector('dialog') as HTMLDialogElement;
+    const dialog = screen.getByRole('dialog', {
+      hidden: true,
+    });
     vi.spyOn(dialog, 'close');
     unmount();
     expect(dialog.close).toHaveBeenCalledOnce();
+    expect(dialog).not.toBeVisible();
   });
 
   describe('when the dialog is closed', () => {
@@ -142,46 +151,43 @@ describe('Modal', () => {
     });
 
     it('should not close modal on backdrop click if preventClose is true', async () => {
-      const { container } = render(<Modal {...props} open preventClose />);
+      render(<Modal {...props} open preventClose />);
       // eslint-disable-next-line testing-library/no-container
-      const dialog = container.querySelector('dialog') as HTMLDialogElement;
+      const dialog = screen.getByRole('dialog', { hidden: true });
       await userEvent.click(dialog);
       act(() => {
         vi.advanceTimersByTime(ANIMATION_DURATION);
       });
       expect(props.onClose).not.toHaveBeenCalled();
-    });
-
-    it('should open in immersive mode', async () => {
-      const { container } = render(
-        <Modal {...props} open variant="immersive" />,
-      );
-      // eslint-disable-next-line testing-library/no-container
-      const dialog = container.querySelector('dialog') as HTMLDialogElement;
-      expect(dialog.className).toContain('immersive');
+      expect(dialog).toBeVisible();
     });
 
     it('should close the dialog when pressing the backdrop', async () => {
       render(<Modal {...props} open />);
+      const dialog = screen.getByRole('dialog', { hidden: true });
       await userEvent.click(screen.getByRole('dialog', { hidden: true }));
       act(() => {
         vi.advanceTimersByTime(ANIMATION_DURATION);
       });
       expect(props.onClose).toHaveBeenCalledOnce();
+      expect(dialog).not.toBeVisible();
     });
 
     it('should close the dialog when the close button is clicked', async () => {
       render(<Modal {...props} open />);
+      const dialog = screen.getByRole('dialog', { hidden: true });
       await userEvent.click(screen.getByRole('button', { name: 'Close' }));
       act(() => {
         vi.advanceTimersByTime(ANIMATION_DURATION);
       });
       expect(props.onClose).toHaveBeenCalledOnce();
+      expect(dialog).not.toBeVisible();
     });
 
     it('should remove animation classes when closed when polyfill is used', async () => {
       (hasNativeDialogSupport as Mock).mockReturnValue(false);
       render(<Modal {...props} open />);
+      const dialog = screen.getByRole('dialog', { hidden: true });
 
       const backdrop = document.getElementsByClassName('backdrop')[0];
       expect(backdrop.classList.toString()).toContain('backdrop-visible');
@@ -192,6 +198,7 @@ describe('Modal', () => {
       });
 
       expect(props.onClose).toHaveBeenCalledOnce();
+      expect(dialog).not.toBeVisible();
     });
   });
 

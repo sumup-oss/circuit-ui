@@ -1,6 +1,5 @@
-'use client';
 /**
- * Copyright 2024, SumUp Ltd.
+ * Copyright 2019, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -34,6 +33,7 @@ import type { ClickEvent } from '../../types/events.js';
 import { isEscape } from '../../util/key-codes.js';
 import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import { deprecate } from '../../util/logger.js';
+import type { Locale } from '../../util/i18n.js';
 
 import classes from './Modal.module.css';
 import { createUseModal } from './createUseModal.js';
@@ -79,10 +79,16 @@ export interface ModalProps
    * Enables focusing a particular element in the dialog content and override default behavior
    */
   initialFocusRef?: RefObject<HTMLElement>;
-
   /**
-   * @deprecated this props was passed to react-modal and is no longer relevant.
-   * Use preventClose instead. Also see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role#required_javascript_features
+   * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
+   * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
+   * When passing an array, the first supported locale is used.
+   * Defaults to `navigator.language` in supported environments.
+   */
+  locale?: Locale;
+  /**
+   * @deprecated This prop was passed to `react-modal` and is no longer relevant.
+   * Use the `preventClose` prop instead. Also see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role#required_javascript_features
    */
   hideCloseButton?: boolean;
   [key: DataAttribute]: string | undefined;
@@ -94,6 +100,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
   const {
     open,
     onClose,
+    locale,
     closeButtonLabel,
     variant = 'contextual',
     children,
@@ -110,7 +117,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
     if (hideCloseButton) {
       deprecate(
         'Modal',
-        'The "hideCloseButton" prop has been deprecated. Use the `preventClose` prop instead.',
+        'The `hideCloseButton` prop has been deprecated. Use the `preventClose` prop instead.',
       );
     }
   }
@@ -118,7 +125,6 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
   const hasNativeDialog = hasNativeDialogSupport();
 
   // set initial focus on the modal dialog content
-  // biome-ignore lint/correctness/useExhaustiveDependencies: we only want to run this effect once
   useEffect(() => {
     const dialogElement = dialogRef.current;
     let timeoutId: NodeJS.Timeout;
@@ -134,21 +140,20 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [open]);
-
-  const setScrollProperty = useCallback(() => {
-    document.documentElement.style.setProperty(
-      '--scroll-y',
-      `${window.scrollY}px`,
-    );
-  }, []);
+  }, [open, initialFocusRef?.current]);
 
   useEffect(() => {
+    function setScrollProperty() {
+      document.documentElement.style.setProperty(
+        '--scroll-y',
+        `${window.scrollY}px`,
+      );
+    }
     window.addEventListener('scroll', setScrollProperty);
     return () => {
       window.removeEventListener('scroll', setScrollProperty);
     };
-  }, [setScrollProperty]);
+  }, []);
 
   const handleDialogClose = useCallback(() => {
     const dialogElement = dialogRef.current;
@@ -288,6 +293,9 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
   const onDialogClick = (
     event: ClickEvent<HTMLDialogElement> | ClickEvent<HTMLDivElement>,
   ) => {
+    // the dialog content covers the whole dialog element
+    // leaving the backdrop element as the only clickable area
+    // that can trigger an onClick event
     if (event.target === event.currentTarget && !preventClose) {
       handleDialogClose();
     }
@@ -314,6 +322,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
             {typeof children === 'function'
               ? children?.({ onClose })
               : children}
+            <div className={classes.scrollable} />
           </div>
         )}
       </dialog>
