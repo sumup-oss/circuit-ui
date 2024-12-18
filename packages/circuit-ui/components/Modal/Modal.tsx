@@ -37,10 +37,7 @@ import type { Locale } from '../../util/i18n.js';
 import { useScrollLock } from '../../hooks/useScrollLock/useScrollLock.js';
 
 import classes from './Modal.module.css';
-import {
-  getFirstFocusableElement,
-  hasNativeDialogSupport,
-} from './ModalService.js';
+import { getFirstFocusableElement } from './ModalService.js';
 import { translations } from './translations/index.js';
 
 type DataAttribute = `data-${string}`;
@@ -122,7 +119,8 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
     }
   }
 
-  const hasNativeDialog = hasNativeDialogSupport();
+  // eslint-disable-next-line compat/compat
+  const hasNativeDialog = window.HTMLDialogElement !== undefined;
 
   useScrollLock(open);
 
