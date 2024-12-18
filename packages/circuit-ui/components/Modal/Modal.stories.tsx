@@ -23,15 +23,15 @@ import { Body } from '../Body/index.js';
 import { Button } from '../Button/index.js';
 import { FullViewport } from '../../../../.storybook/components/index.js';
 
-import { Modal, type ModalProps, useModal } from './Modal.js';
 import { ModalProvider } from './ModalContext.js';
+
+import { Modal, type ModalProps, useModal } from './index.js';
 
 export default {
   title: 'Components/Modal',
   component: Modal,
   tags: ['status:stable'],
   parameters: {
-    layout: 'padded',
     chromatic: {
       modes: {
         mobile: modes.smallMobile,

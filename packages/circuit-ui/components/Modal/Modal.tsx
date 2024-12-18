@@ -34,12 +34,12 @@ import { isEscape } from '../../util/key-codes.js';
 import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import { deprecate } from '../../util/logger.js';
 import type { Locale } from '../../util/i18n.js';
+import { useScrollLock } from '../../hooks/useScrollLock/useScrollLock.js';
 
 import classes from './Modal.module.css';
 import {
   getFirstFocusableElement,
   hasNativeDialogSupport,
-  useScrollLock,
 } from './ModalService.js';
 import { translations } from './translations/index.js';
 
