@@ -22,47 +22,49 @@ import {
 
 import type { Locale } from '../../util/i18n.js';
 
-export const DATE_TIME_STYLE_MAP = {
-  long: { dateStyle: 'long', timeStyle: 'short' },
-  short: { dateStyle: 'medium' },
-  narrow: { dateStyle: 'short' },
-} satisfies Record<string, Intl.DateTimeFormatOptions>;
+const DATE_STYLE_MAP = {
+  long: 'long',
+  short: 'medium',
+  narrow: 'short',
+} satisfies Record<string, Intl.DateTimeFormatOptions['dateStyle']>;
+
+const TIME_STYLE = 'short' satisfies Intl.DateTimeFormatOptions['timeStyle'];
 
 const UNITS = [
   {
     name: 'years',
     duration: Temporal.Duration.from('P1Y'),
-    interval: 300000,
+    interval: 300000, // 5 minutes
   },
   {
     name: 'months',
     duration: Temporal.Duration.from('P1M'),
-    interval: 300000,
+    interval: 300000, // 5 minutes
   },
   {
     name: 'weeks',
     duration: Temporal.Duration.from('P1W'),
-    interval: 300000,
+    interval: 300000, // 5 minutes
   },
   {
     name: 'days',
     duration: Temporal.Duration.from('P1D'),
-    interval: 300000,
+    interval: 300000, // 5 minutes
   },
   {
     name: 'hours',
     duration: Temporal.Duration.from('PT1H'),
-    interval: 60000,
+    interval: 60000, // 1 minute
   },
   {
     name: 'minutes',
     duration: Temporal.Duration.from('PT1M'),
-    interval: 5000,
+    interval: 5000, // 5 seconds
   },
   {
     name: 'seconds',
     duration: Temporal.Duration.from('PT1S'),
-    interval: 1000,
+    interval: 1000, // 1 second
   },
 ] satisfies {
   name: Temporal.SmallestUnit<Temporal.DateTimeUnit>;
@@ -75,26 +77,45 @@ export type State = {
   interval: number | null;
 };
 
-export function getInitialState(
-  datetime: string,
-  locale: Locale | undefined,
-  formatStyle: 'long' | 'short' | 'narrow',
-): State {
+export function getInitialState({
+  datetime,
+  locale,
+  formatStyle,
+  includeTime,
+}: {
+  datetime: string;
+  locale: Locale | undefined;
+  formatStyle: 'long' | 'short' | 'narrow';
+  includeTime: boolean;
+}): State {
   const zonedDateTime = Temporal.ZonedDateTime.from(datetime);
-  const options = DATE_TIME_STYLE_MAP[formatStyle];
+  const options: Intl.DateTimeFormatOptions = {
+    dateStyle: DATE_STYLE_MAP[formatStyle],
+  };
+  if (includeTime) {
+    options.timeStyle = TIME_STYLE;
+  }
   return {
     label: formatDateTime(zonedDateTime.toPlainDateTime(), locale, options),
     interval: null,
   };
 }
 
-export function getState(
-  datetime: string,
-  locale: Locale | undefined,
-  formatStyle: 'long' | 'short' | 'narrow',
-  variant: 'auto' | 'relative' | 'absolute',
-  threshold: string,
-): State {
+export function getState({
+  datetime,
+  locale,
+  formatStyle,
+  variant,
+  threshold,
+  includeTime,
+}: {
+  datetime: string;
+  locale: Locale | undefined;
+  formatStyle: 'long' | 'short' | 'narrow';
+  variant: 'auto' | 'relative' | 'absolute';
+  threshold: string;
+  includeTime: boolean;
+}): State {
   const zonedDateTime = Temporal.ZonedDateTime.from(datetime);
   const now = Temporal.Now.zonedDateTimeISO();
   const duration = zonedDateTime.since(now);
@@ -111,7 +132,12 @@ export function getState(
     (variant === 'auto' && isBeyondThreshold) ||
     !isRelativeTimeFormatSupported
   ) {
-    const options = DATE_TIME_STYLE_MAP[formatStyle];
+    const options: Intl.DateTimeFormatOptions = {
+      dateStyle: DATE_STYLE_MAP[formatStyle],
+    };
+    if (includeTime) {
+      options.timeStyle = TIME_STYLE;
+    }
     return {
       label: formatDateTime(zonedDateTime.toPlainDateTime(), locale, options),
       interval: null,

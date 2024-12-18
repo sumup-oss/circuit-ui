@@ -22,6 +22,7 @@ import { Timestamp, type TimestampProps } from './Timestamp.js';
 export default {
   title: 'Components/Timestamp',
   component: Timestamp,
+  tags: ['status:experimental'],
 };
 
 const datetimes = [
@@ -30,9 +31,10 @@ const datetimes = [
   Temporal.Now.zonedDateTimeISO().subtract({ minutes: 7 }),
   Temporal.Now.zonedDateTimeISO().subtract({ days: 1 }),
   Temporal.Now.zonedDateTimeISO().subtract({ weeks: 5 }),
-];
-
-const locales = ['en-US', 'de-DE', 'pt-BR'];
+] as const;
+const locales = ['en-US', 'de-DE', 'pt-BR'] as const;
+const variants = ['absolute', 'relative'] as const;
+const formatStyles = ['long', 'short', 'narrow'] as const;
 
 export const Base = (args: TimestampProps) => <Timestamp {...args} />;
 
@@ -80,4 +82,26 @@ export const Absolute = (args: TimestampProps) => (
 
 Absolute.args = {
   variant: 'absolute',
+};
+
+export const FormatStyles = (args: TimestampProps) => (
+  <Stack>
+    {variants.map((variant) => (
+      <Stack vertical key={variant}>
+        {formatStyles.map((formatStyle) => (
+          <Timestamp
+            {...args}
+            key={args.datetime.toString()}
+            variant={variant}
+            formatStyle={formatStyle}
+          />
+        ))}
+      </Stack>
+    ))}
+  </Stack>
+);
+
+FormatStyles.args = {
+  datetime: datetimes[2].toString(),
+  includeTime: true,
 };

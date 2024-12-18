@@ -38,6 +38,12 @@ export interface TimestampProps extends HTMLAttributes<HTMLTimeElement> {
   /**
    * TODO: Write description
    *
+   * @default false
+   */
+  includeTime?: boolean;
+  /**
+   * TODO: Write description
+   *
    * @default 'P1M' // 1 month
    */
   threshold?: string;
@@ -66,7 +72,8 @@ export const Timestamp = forwardRef<HTMLTimeElement, TimestampProps>(
     {
       datetime,
       variant = 'auto',
-      formatStyle = 'short',
+      formatStyle = 'long',
+      includeTime = false,
       threshold = 'P1M',
       locale,
       className,
@@ -76,13 +83,22 @@ export const Timestamp = forwardRef<HTMLTimeElement, TimestampProps>(
   ) => {
     const zonedDateTime = Temporal.ZonedDateTime.from(datetime);
     const [state, setState] = useState(
-      getInitialState(datetime, locale, formatStyle),
+      getInitialState({ datetime, locale, formatStyle, includeTime }),
     );
 
     // Update state on props change
     useEffect(() => {
-      setState(getState(datetime, locale, formatStyle, variant, threshold));
-    }, [datetime, variant, formatStyle, locale, threshold]);
+      setState(
+        getState({
+          datetime,
+          locale,
+          formatStyle,
+          variant,
+          threshold,
+          includeTime,
+        }),
+      );
+    }, [datetime, variant, formatStyle, locale, threshold, includeTime]);
 
     // Update state in regular intervals for relative times
     useEffect(() => {
@@ -91,13 +107,30 @@ export const Timestamp = forwardRef<HTMLTimeElement, TimestampProps>(
       }
 
       const timer = setInterval(() => {
-        setState(getState(datetime, locale, formatStyle, variant, threshold));
+        setState(
+          getState({
+            datetime,
+            locale,
+            formatStyle,
+            variant,
+            threshold,
+            includeTime,
+          }),
+        );
       }, state.interval);
 
       return () => {
         clearInterval(timer);
       };
-    }, [state.interval, datetime, variant, formatStyle, locale, threshold]);
+    }, [
+      state.interval,
+      datetime,
+      variant,
+      formatStyle,
+      locale,
+      threshold,
+      includeTime,
+    ]);
 
     return (
       <time
