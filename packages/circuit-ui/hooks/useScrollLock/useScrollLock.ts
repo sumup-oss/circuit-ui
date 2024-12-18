@@ -43,9 +43,12 @@ export const useScrollLock = (isLocked: boolean): void => {
       const scrollY =
         document.documentElement.style.getPropertyValue('--scroll-y');
       const { body } = document;
+      const bodyWidth = body.offsetWidth;
+      // when position is set to fixed, the body element is taken out of
+      // the normal document flow and this may cause it to change size.
+      // To prevent this, we set the width of the body to its current width.
       body.style.position = 'fixed';
-      body.style.left = '0';
-      body.style.right = '0';
+      body.style.width = `${bodyWidth}px`;
       body.style.top = `-${scrollY}`;
     } else {
       // restore scroll to page
@@ -53,8 +56,7 @@ export const useScrollLock = (isLocked: boolean): void => {
       const scrollY = body.style.top;
       body.style.position = '';
       body.style.top = '';
-      body.style.left = '';
-      body.style.right = '';
+      body.style.width = '';
       window.scrollTo(0, Number.parseInt(scrollY || '0', 10) * -1);
     }
   }, [isLocked]);
