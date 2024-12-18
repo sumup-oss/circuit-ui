@@ -27,7 +27,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { useEffect, useRef } from 'react';
 
 export function getKeyboardFocusableElements(
   element: HTMLElement,
@@ -56,48 +55,3 @@ export function getFirstFocusableElement(
 
 export const hasNativeDialogSupport = (): boolean =>
   'HTMLDialogElement' in window;
-
-export const useScrollLock = (isLocked: boolean): void => {
-  const busy = useRef(false);
-
-  useEffect(() => {
-    function setScrollProperty() {
-      if (!busy.current) {
-        requestAnimationFrame(() => {
-          document.documentElement.style.setProperty(
-            '--scroll-y',
-            `${window.scrollY}px`,
-          );
-          busy.current = false;
-        });
-        busy.current = true;
-      }
-    }
-    window.addEventListener('scroll', setScrollProperty);
-
-    return () => {
-      window.removeEventListener('scroll', setScrollProperty);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (isLocked) {
-      const scrollY =
-        document.documentElement.style.getPropertyValue('--scroll-y');
-      const { body } = document;
-      body.style.position = 'fixed';
-      body.style.left = '0';
-      body.style.right = '0';
-      body.style.top = `-${scrollY}`;
-    } else {
-      // restore scroll to page
-      const { body } = document;
-      const scrollY = body.style.top;
-      body.style.position = '';
-      body.style.top = '';
-      body.style.left = '';
-      body.style.right = '';
-      window.scrollTo(0, Number.parseInt(scrollY || '0', 10) * -1);
-    }
-  }, [isLocked]);
-};
