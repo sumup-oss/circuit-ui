@@ -39,7 +39,7 @@ export function createUseModal<T extends ModalProps>(
     const setModal = useCallback(
       (props: SetModalArgs<T>): void => {
         modalRef.current = props;
-        context.setModal({ ...props, id, component });
+        context.setModal({ ...props, id, component, open: true });
       },
       [context, id],
     );
@@ -47,7 +47,12 @@ export function createUseModal<T extends ModalProps>(
     // biome-ignore lint/correctness/useExhaustiveDependencies: The `component` never changes
     const removeModal = useCallback((): void => {
       if (modalRef.current) {
-        context.removeModal({ ...modalRef.current, id, component });
+        context.removeModal({
+          ...modalRef.current,
+          id,
+          component,
+          open: false,
+        });
         modalRef.current = null;
       }
     }, [context, id]);

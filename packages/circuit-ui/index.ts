@@ -157,9 +157,9 @@ export type {
 } from './components/Popover/index.js';
 export { ModalProvider } from './components/Modal/ModalContext.js';
 export type { ModalProviderProps } from './components/Modal/ModalContext.js';
-export { useModal } from './components/Modal/Modal.js';
-export type { ModalProps } from './components/Modal/Modal.js';
-export { Modal } from './components/Modal/Modal.js';
+export { useModal } from './components/Modal/index.js';
+export type { ModalProps } from './components/Modal/index.js';
+export { Modal } from './components/Modal/index.js';
 export { useNotificationModal } from './components/NotificationModal/index.js';
 export type { NotificationModalProps } from './components/NotificationModal/index.js';
 export { NotificationModal } from './components/NotificationModal/index.js';

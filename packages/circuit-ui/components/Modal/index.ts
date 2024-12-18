@@ -13,6 +13,9 @@
  * limitations under the License.
  */
 
+import { createUseModal } from './createUseModal.js';
+import { Modal } from './Modal.js';
+
 export { Modal } from './Modal.js';
-export { useModal } from './Modal.js';
 export type { ModalProps } from './Modal.js';
+export const useModal = createUseModal(Modal);

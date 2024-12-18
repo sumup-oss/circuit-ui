@@ -36,7 +36,6 @@ import { deprecate } from '../../util/logger.js';
 import type { Locale } from '../../util/i18n.js';
 
 import classes from './Modal.module.css';
-import { createUseModal } from './createUseModal.js';
 import {
   getFirstFocusableElement,
   hasNativeDialogSupport,
@@ -126,6 +125,15 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
   const hasNativeDialog = hasNativeDialogSupport();
 
   useScrollLock(open);
+
+  useEffect(
+    () => () => {
+      if (dialogRef?.current?.open) {
+        dialogRef?.current?.close();
+      }
+    },
+    [],
+  );
 
   // set initial focus on the modal dialog content
   useEffect(() => {
@@ -228,7 +236,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
     const dialogElement = dialogRef.current;
 
     if (!dialogElement) {
-      return undefined;
+      return;
     }
     if (open) {
       if (document.activeElement instanceof HTMLElement) {
@@ -255,12 +263,6 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
     } else if (dialogElement.open) {
       handleDialogClose();
     }
-
-    return () => {
-      if (dialogElement.open) {
-        dialogElement.close();
-      }
-    };
   }, [open, handleDialogClose, hasNativeDialog, onPolyfillBackdropClick]);
 
   const onDialogClick = (
@@ -304,5 +306,3 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
 });
 
 Modal.displayName = 'Modal';
-
-export const useModal = createUseModal(Modal);
