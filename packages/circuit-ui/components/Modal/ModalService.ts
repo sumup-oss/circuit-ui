@@ -52,6 +52,3 @@ export function getFirstFocusableElement(
     ? focusableElements[0]
     : focusableElements[1];
 }
-
-export const hasNativeDialogSupport = (): boolean =>
-  'HTMLDialogElement' in window;

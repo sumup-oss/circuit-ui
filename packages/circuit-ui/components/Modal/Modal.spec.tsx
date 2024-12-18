@@ -13,15 +13,7 @@
  * limitations under the License.
  */
 
-import {
-  beforeEach,
-  afterEach,
-  describe,
-  expect,
-  it,
-  vi,
-  type Mock,
-} from 'vitest';
+import { beforeEach, afterEach, describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
 import {
@@ -34,15 +26,6 @@ import {
 } from '../../util/test-utils.js';
 
 import { ANIMATION_DURATION, Modal } from './Modal.js';
-import { hasNativeDialogSupport } from './ModalService.js';
-
-vi.mock('./ModalService.js', async (importOriginal) => {
-  const module = await importOriginal<typeof import('./ModalService.js')>();
-  return {
-    ...module,
-    hasNativeDialogSupport: vi.fn().mockReturnValue(true),
-  };
-});
 
 describe('Modal', () => {
   const props = {
@@ -53,16 +36,21 @@ describe('Modal', () => {
       <div data-testid="children">Modal dialog content</div>
     )),
   };
+  let originalHTMLDialogElement: typeof window.HTMLDialogElement;
 
   beforeEach(() => {
+    originalHTMLDialogElement = window.HTMLDialogElement;
     vi.useFakeTimers({ shouldAdvanceTime: true });
-    (hasNativeDialogSupport as Mock).mockReturnValue(true);
   });
 
   afterEach(() => {
     vi.runOnlyPendingTimers();
     vi.useRealTimers();
     vi.clearAllMocks();
+    Object.defineProperty(window, 'HTMLDialogElement', {
+      writable: true,
+      value: originalHTMLDialogElement,
+    });
   });
 
   it('should forward a ref', () => {
@@ -185,7 +173,11 @@ describe('Modal', () => {
     });
 
     it('should remove animation classes when closed when polyfill is used', async () => {
-      (hasNativeDialogSupport as Mock).mockReturnValue(false);
+      Object.defineProperty(window, 'HTMLDialogElement', {
+        writable: true,
+        value: undefined,
+      });
+
       render(<Modal {...props} open />);
       const dialog = screen.getByRole('dialog', { hidden: true });
 
