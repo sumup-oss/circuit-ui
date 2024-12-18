@@ -15,15 +15,11 @@
 
 'use client';
 
-import {
-  createContext,
-  type ReactNode,
-  useCallback,
-  useMemo,
-  useState,
-} from 'react';
+import { createContext, type ReactNode, useCallback, useMemo } from 'react';
 
-import type { ModalProps } from './Modal.js';
+import { useStack } from '../../hooks/useStack/index.js';
+
+import { ANIMATION_DURATION, type ModalProps } from './Modal.js';
 import type { ModalDialogComponent } from './createUseModal.js';
 
 export type SetModalArgs<T> = Omit<T, 'open'>;
@@ -60,18 +56,30 @@ export function ModalProvider<T extends ModalProps>({
   initialState,
   ...defaultModalProps
 }: ModalProviderProps<T>) {
-  const [modals, setModals] = useState(initialState ?? []);
+  const [modals, dispatch] = useStack<ModalState<T>>(initialState);
 
-  const setModal = useCallback((modal: ModalState<T>) => {
-    setModals((prevValue) => [...prevValue, modal]);
-  }, []);
+  const setModal = useCallback(
+    (modal: ModalState<T>) => {
+      dispatch({ type: 'push', item: modal });
+    },
+    [dispatch],
+  );
 
-  const removeModal = useCallback((modal: ModalState<T>) => {
-    if (modal.onClose) {
-      modal.onClose();
-    }
-    setModals((prevValue) => prevValue.filter((m) => m.id !== modal.id));
-  }, []);
+  const removeModal = useCallback(
+    (modal: ModalState<T>) => {
+      if (modal.onClose) {
+        modal.onClose();
+      }
+      dispatch({
+        type: 'remove',
+        id: modal.id,
+        transition: {
+          duration: ANIMATION_DURATION,
+        },
+      });
+    },
+    [dispatch],
+  );
 
   const context = useMemo(
     () => ({ setModal, removeModal }),

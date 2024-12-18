@@ -36,7 +36,6 @@ import { deprecate } from '../../util/logger.js';
 import type { Locale } from '../../util/i18n.js';
 
 import classes from './Modal.module.css';
-import { createUseModal } from './createUseModal.js';
 import {
   getFirstFocusableElement,
   hasNativeDialogSupport,
@@ -304,5 +303,3 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
 });
 
 Modal.displayName = 'Modal';
-
-export const useModal = createUseModal(Modal);
