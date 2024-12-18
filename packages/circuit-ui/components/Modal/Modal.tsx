@@ -40,6 +40,7 @@ import { createUseModal } from './createUseModal.js';
 import {
   getFirstFocusableElement,
   hasNativeDialogSupport,
+  useScrollLock,
 } from './ModalService.js';
 import { translations } from './translations/index.js';
 
@@ -124,6 +125,8 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
 
   const hasNativeDialog = hasNativeDialogSupport();
 
+  useScrollLock(open);
+
   // set initial focus on the modal dialog content
   useEffect(() => {
     const dialogElement = dialogRef.current;
@@ -142,19 +145,6 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
     };
   }, [open, initialFocusRef?.current]);
 
-  useEffect(() => {
-    function setScrollProperty() {
-      document.documentElement.style.setProperty(
-        '--scroll-y',
-        `${window.scrollY}px`,
-      );
-    }
-    window.addEventListener('scroll', setScrollProperty);
-    return () => {
-      window.removeEventListener('scroll', setScrollProperty);
-    };
-  }, []);
-
   const handleDialogClose = useCallback(() => {
     const dialogElement = dialogRef.current;
     if (!dialogElement) {
@@ -167,15 +157,6 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
         ANIMATION_DURATION,
       );
     }
-    // restore scroll to page
-    const { body } = document;
-    const scrollY = body.style.top;
-    body.style.position = '';
-    body.style.top = '';
-    body.style.left = '';
-    body.style.right = '';
-    window.scrollTo(0, Number.parseInt(scrollY || '0', 10) * -1);
-
     // trigger closing animation
     dialogElement.classList.remove(classes.show);
     if (!hasNativeDialog) {
@@ -270,14 +251,6 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
 
         // trigger show animation
         dialogElement.classList.add(classes.show);
-        // disable scroll on page
-        const scrollY =
-          document.documentElement.style.getPropertyValue('--scroll-y');
-        const { body } = document;
-        body.style.position = 'fixed';
-        body.style.left = '0';
-        body.style.right = '0';
-        body.style.top = `-${scrollY}`;
       }
     } else if (dialogElement.open) {
       handleDialogClose();
