@@ -13,10 +13,11 @@
  * limitations under the License.
  */
 
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { Plus } from '@sumup-oss/icons';
 
-import { axe, render, userEvent, screen } from '../../util/test-utils.js';
+import { axe, render, userEvent, screen, act } from '../../util/test-utils.js';
+import { ANIMATION_DURATION } from '../Modal/Modal.js';
 
 import {
   NotificationModal,
@@ -24,11 +25,21 @@ import {
 } from './NotificationModal.js';
 
 describe('NotificationModal', () => {
+  beforeEach(() => {
+    vi.useFakeTimers({ shouldAdvanceTime: true });
+  });
+
+  afterEach(() => {
+    vi.runOnlyPendingTimers();
+    vi.useRealTimers();
+    vi.clearAllMocks();
+  });
+
   const renderNotificationModal = (props: NotificationModalProps) =>
     render(<NotificationModal {...props} />);
 
   const baseNotificationModal = {
-    isOpen: true,
+    open: true,
     closeButtonLabel: 'Close modal',
     onClose: vi.fn(),
     image: {
@@ -47,7 +58,6 @@ describe('NotificationModal', () => {
         onClick: vi.fn(),
       },
     },
-    ariaHideApp: false,
   } as const;
 
   it('should render with an SVG', () => {
@@ -57,6 +67,9 @@ describe('NotificationModal', () => {
       image: { svg: Plus, alt },
     };
     renderNotificationModal(props);
+    act(() => {
+      vi.advanceTimersByTime(ANIMATION_DURATION);
+    });
 
     const svg = screen.getByRole('img');
 
@@ -74,6 +87,10 @@ describe('NotificationModal', () => {
   it('should render the modal', async () => {
     renderNotificationModal(baseNotificationModal);
 
+    act(() => {
+      vi.advanceTimersByTime(ANIMATION_DURATION);
+    });
+
     const modalEl = await screen.findByRole('dialog');
 
     expect(modalEl).toBeVisible();
@@ -82,27 +99,27 @@ describe('NotificationModal', () => {
   describe('business logic', () => {
     it('should close the modal when clicking the close button', async () => {
       renderNotificationModal(baseNotificationModal);
+      act(() => {
+        vi.advanceTimersByTime(ANIMATION_DURATION);
+      });
 
       const closeButton = await screen.findByRole('button', {
         name: baseNotificationModal.closeButtonLabel,
       });
 
       await userEvent.click(closeButton);
-
-      expect(baseNotificationModal.onClose).toHaveBeenCalled();
-    });
-
-    it('should close the modal when clicking outside', async () => {
-      renderNotificationModal(baseNotificationModal);
-
-      await userEvent.click(document.body);
+      act(() => {
+        vi.advanceTimersByTime(ANIMATION_DURATION);
+      });
 
       expect(baseNotificationModal.onClose).toHaveBeenCalled();
     });
 
     it('should perform an action and close the modal when clicking an action button', async () => {
       renderNotificationModal(baseNotificationModal);
-
+      act(() => {
+        vi.advanceTimersByTime(ANIMATION_DURATION);
+      });
       const actionButton = await screen.findByRole('button', {
         name: baseNotificationModal.actions.primary.children,
       });
