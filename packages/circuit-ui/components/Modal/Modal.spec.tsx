@@ -32,21 +32,20 @@ describe('Modal', () => {
     onClose: vi.fn(),
     open: false,
     closeButtonLabel: 'Close',
-    children: vi.fn(() => (
-      <div data-testid="children">Modal dialog content</div>
-    )),
+    children: 'Modal dialog content',
   };
   let originalHTMLDialogElement: typeof window.HTMLDialogElement;
 
   beforeEach(() => {
     originalHTMLDialogElement = window.HTMLDialogElement;
+    vi.clearAllMocks();
     vi.useFakeTimers({ shouldAdvanceTime: true });
   });
 
   afterEach(() => {
     vi.runOnlyPendingTimers();
     vi.useRealTimers();
-    vi.clearAllMocks();
+    vi.resetAllMocks();
     Object.defineProperty(window, 'HTMLDialogElement', {
       writable: true,
       value: originalHTMLDialogElement,
@@ -132,9 +131,10 @@ describe('Modal', () => {
   describe('when the dialog is open', () => {
     it('should render its children', () => {
       render(<Modal {...props} open />);
-      const children = screen.getByText('Modal dialog content');
-      expect(props.children).toHaveBeenCalledOnce();
-      expect(children).toBeVisible();
+      act(() => {
+        vi.advanceTimersByTime(ANIMATION_DURATION);
+      });
+      expect(screen.getByText('Modal dialog content')).toBeVisible();
     });
 
     it('should not close modal on backdrop click if preventClose is true', async () => {
