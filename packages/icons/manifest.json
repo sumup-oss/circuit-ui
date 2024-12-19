@@ -732,6 +732,13 @@
       "size": "16"
     },
     {
+      "name": "flag_ja",
+      "category": "Country flag",
+      "keywords": ["Japan"],
+      "size": "16",
+      "deprecation": "Use the `FlagJp` icon instead."
+    },
+    {
       "name": "flag_lt",
       "category": "Country flag",
       "keywords": ["Lithuania"],
