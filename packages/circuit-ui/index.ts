@@ -155,12 +155,14 @@ export type {
   PopoverProps,
   PopoverItemProps,
 } from './components/Popover/index.js';
-export { ModalProvider } from './components/ModalContext/index.js';
-export type { ModalProviderProps } from './components/ModalContext/index.js';
+export { ModalProvider } from './components/Modal/ModalContext.js';
+export type { ModalProviderProps } from './components/Modal/ModalContext.js';
 export { useModal } from './components/Modal/index.js';
 export type { ModalProps } from './components/Modal/index.js';
+export { Modal } from './components/Modal/index.js';
 export { useNotificationModal } from './components/NotificationModal/index.js';
 export type { NotificationModalProps } from './components/NotificationModal/index.js';
+export { NotificationModal } from './components/NotificationModal/index.js';
 export { ListItem } from './components/ListItem/index.js';
 export type { ListItemProps } from './components/ListItem/index.js';
 export { ListItemGroup } from './components/ListItemGroup/index.js';
@@ -220,3 +222,4 @@ export { useFocusList } from './hooks/useFocusList/index.js';
 export { useCollapsible } from './hooks/useCollapsible/index.js';
 export { useSwipe } from './hooks/useSwipe/index.js';
 export { useMedia } from './hooks/useMedia/index.js';
+export { useScrollLock } from './hooks/useScrollLock/useScrollLock.js';

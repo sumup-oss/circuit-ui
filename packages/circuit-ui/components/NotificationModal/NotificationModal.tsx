@@ -15,64 +15,42 @@
 
 'use client';
 
-import type { FC, ReactNode, SVGProps } from 'react';
-import ReactModal from 'react-modal';
+import { type FC, type ReactNode, type SVGProps, useId, useRef } from 'react';
 
 import type { ClickEvent } from '../../types/events.js';
-import type { ModalComponent, BaseModalProps } from '../ModalContext/index.js';
 import { Image, type ImageProps } from '../Image/index.js';
 import { Headline } from '../Headline/index.js';
 import { Body } from '../Body/index.js';
 import type { ButtonProps } from '../Button/index.js';
 import { ButtonGroup, type ButtonGroupProps } from '../ButtonGroup/index.js';
-import { CloseButton } from '../CloseButton/index.js';
+import { Modal, type ModalProps } from '../Modal/index.js';
+import { clsx } from '../../styles/clsx.js';
 import { CircuitError } from '../../util/errors.js';
 
 import classes from './NotificationModal.module.css';
 
-const TRANSITION_DURATION = 200;
-
-type PreventCloseProps =
-  | {
-      /**
-       * Text label for the close button for screen readers.
-       * Important for accessibility.
-       */
-      closeButtonLabel?: never;
-      /**
-       * Prevent users from closing the modal by clicking/tapping the overlay or
-       * pressing the escape key. Default `false`.
-       */
-      preventClose: boolean;
-    }
-  | {
-      closeButtonLabel: string;
-      preventClose?: never;
-    };
-
-export type NotificationModalProps = BaseModalProps &
-  PreventCloseProps & {
-    /**
-     * An optional image to illustrate the notification. Supports either
-     * passing an image source to `image.src` or an SVG component to
-     * `image.svg`. Pass an empty string as alt text if the image is
-     * [decorative](https://www.w3.org/WAI/tutorials/images/decorative/),
-     * or a localized description if the image is [informative](https://www.w3.org/WAI/tutorials/images/informative/).
-     */
-    image?: ImageProps | { svg: FC<SVGProps<SVGSVGElement>>; alt: string };
-    /**
-     * The notification's headline.
-     */
-    headline: string;
-    /**
-     * Optional body copy for notification details.
-     */
-    body?: string | ReactNode;
-    /**
-     * Action buttons to allow users to act on the notification.
-     */
-    actions: ButtonGroupProps['actions'];
-  };
+export type NotificationModalProps = Omit<ModalProps, 'children'> & {
+  /**
+   * An optional image to illustrate the notification. Supports either
+   * passing an image source to `image.src` or an SVG component to
+   * `image.svg`. Pass an empty string as alt text if the image is
+   * [decorative](https://www.w3.org/WAI/tutorials/images/decorative/),
+   * or a localized description if the image is [informative](https://www.w3.org/WAI/tutorials/images/informative/).
+   */
+  image?: ImageProps | { svg: FC<SVGProps<SVGSVGElement>>; alt: string };
+  /**
+   * The notification's headline.
+   */
+  headline: string;
+  /**
+   * Optional body copy for notification details.
+   */
+  body?: string | ReactNode;
+  /**
+   * Action buttons to allow users to act on the notification.
+   */
+  actions: ButtonGroupProps['actions'];
+};
 
 function NotificationImage({ image }: Pick<NotificationModalProps, 'image'>) {
   if (!image) {
@@ -96,11 +74,7 @@ function NotificationImage({ image }: Pick<NotificationModalProps, 'image'>) {
   return <Image {...image} className={classes.image} />;
 }
 
-/**
- * Circuit UI's wrapper component for ReactModal.
- * http://reactcommunity.org/react-modal/accessibility/#aria
- */
-export const NotificationModal: ModalComponent<NotificationModalProps> = ({
+export const NotificationModal = ({
   image,
   headline,
   body,
@@ -110,7 +84,7 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
   preventClose = false,
   className,
   ...props
-}) => {
+}: NotificationModalProps) => {
   if (process.env.NODE_ENV !== 'production' && className) {
     throw new CircuitError(
       'NotificationModal',
@@ -118,60 +92,58 @@ export const NotificationModal: ModalComponent<NotificationModalProps> = ({
     );
   }
 
-  const reactModalProps = {
-    className: {
-      base: classes.base,
-      afterOpen: classes.open,
-      beforeClose: classes.closed,
-    },
-    overlayClassName: {
-      base: classes.overlay,
-      afterOpen: classes.open,
-      beforeClose: classes.closed,
-    },
-    onRequestClose: onClose,
-    closeTimeoutMS: TRANSITION_DURATION,
-    shouldCloseOnOverlayClick: !preventClose,
-    shouldCloseOnEsc: !preventClose,
+  const headlineId = useId();
+  const initialFocusRef = useRef<HTMLButtonElement>(null);
+  const dialogProps = {
+    className: clsx(className, classes.base),
+    closeButtonLabel,
+    'aria-labelledby': headlineId,
+    preventClose,
+    onClose,
+    initialFocusRef,
     ...props,
   };
 
   function wrapOnClick(onClick?: ButtonProps['onClick']) {
     return (event: ClickEvent) => {
-      onClose?.(event);
+      onClose?.();
       onClick?.(event);
     };
   }
 
   return (
-    <ReactModal {...reactModalProps}>
-      {!preventClose && closeButtonLabel && (
-        <CloseButton onClick={onClose} className={classes.close}>
-          {closeButtonLabel}
-        </CloseButton>
+    <Modal {...dialogProps}>
+      {() => (
+        <>
+          <NotificationImage image={image} />
+          <Headline
+            as="h2"
+            size="s"
+            id={headlineId}
+            className={classes.headline}
+          >
+            {headline}
+          </Headline>
+          {body && <Body>{body}</Body>}
+          {actions && (
+            <ButtonGroup
+              actions={{
+                primary: {
+                  ...actions.primary,
+                  onClick: wrapOnClick(actions.primary.onClick),
+                },
+                secondary: actions.secondary && {
+                  ...actions.secondary,
+                  // @ts-expect-error ref is a valid prop on a button
+                  ref: initialFocusRef,
+                  onClick: wrapOnClick(actions.secondary.onClick),
+                },
+              }}
+              className={classes.buttons}
+            />
+          )}
+        </>
       )}
-      <NotificationImage image={image} />
-      <Headline as="h2" size="s" className={classes.headline}>
-        {headline}
-      </Headline>
-      {body && <Body>{body}</Body>}
-      {actions && (
-        <ButtonGroup
-          actions={{
-            primary: {
-              ...actions.primary,
-              onClick: wrapOnClick(actions.primary.onClick),
-            },
-            secondary: actions.secondary && {
-              ...actions.secondary,
-              onClick: wrapOnClick(actions.secondary.onClick),
-            },
-          }}
-          className={classes.buttons}
-        />
-      )}
-    </ReactModal>
+    </Modal>
   );
 };
-
-NotificationModal.TRANSITION_DURATION = TRANSITION_DURATION;

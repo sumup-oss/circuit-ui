@@ -97,6 +97,7 @@
     "temporal-polyfill": "0.2.x"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=20",
+    "typescript": ">=4.1"
   }
 }
