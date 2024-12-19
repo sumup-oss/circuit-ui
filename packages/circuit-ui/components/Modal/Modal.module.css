@@ -1,4 +1,6 @@
 .base {
+  --dialog-animation-duration: 0.3s;
+
   position: fixed;
   padding: 0;
   margin: auto;
@@ -9,12 +11,12 @@
   border: none;
   outline: none;
   box-shadow: 0 0 0 100vmax var(--cui-bg-overlay);
-  animation: fade-out 0.3s forwards;
+  animation: fade-out var(--dialog-animation-duration) forwards;
 }
 
 .base.show {
   pointer-events: auto;
-  animation: fade-in 0.3s forwards;
+  animation: fade-in var(--dialog-animation-duration) forwards;
 }
 
 .content {
@@ -24,10 +26,9 @@
 .scrollable {
   position: sticky;
   right: 0;
-  bottom: 0;
+  bottom: env(safe-area-inset-bottom);
   left: 0;
   display: block;
-  height: var(--cui-spacings-giga);
   pointer-events: none;
   content: "";
   background: linear-gradient(
@@ -37,50 +38,10 @@
   );
 }
 
-@media (min-width: 480px) {
-  .base {
-    width: min-content;
-    min-width: 480px;
-    max-width: 90vw;
-    max-height: 90vh;
-    border-radius: var(--cui-border-radius-mega);
-  }
-
-  .base .content {
-    padding: var(--cui-spacings-giga) var(--cui-spacings-giga) 0;
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-}
-
-@media (max-width: 479px) {
-  .base {
-    top: unset;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    max-width: 100%;
-    border-radius: var(--cui-border-radius-mega) var(--cui-border-radius-mega) 0
-      0;
-    animation: slide-out 0.3s forwards;
-  }
-
-  .base.show {
-    animation: slide-in 0.3s forwards;
-  }
-
-  .immersive {
-    height: 100%;
-    max-height: unset;
-    border: none;
-    border-radius: unset;
-  }
-
-  .base .content {
-    padding: var(--cui-spacings-mega) var(--cui-spacings-mega) 0;
-    padding-bottom: env(safe-area-inset-bottom);
-    -webkit-overflow-scrolling: touch;
-  }
+/* Close button */
+.base .close {
+  position: absolute;
+  z-index: var(--cui-z-index-absolute);
 }
 
 /* Native Backdrop */
@@ -95,20 +56,80 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: var(--cui-bg-overlay);
-  animation: fade-out 0.3s forwards;
+  background: transparent;
+  animation: fade-out var(--dialog-animation-duration) forwards;
 }
 
 .backdrop.backdrop-visible {
-  animation: fade-in 0.3s forwards;
+  animation: fade-in var(--dialog-animation-duration) forwards;
 }
 
-/* Close button */
-.base .close {
-  position: absolute;
-  top: var(--cui-spacings-byte);
-  right: var(--cui-spacings-byte);
-  z-index: var(--cui-z-index-absolute);
+@media (min-width: 480px) {
+  .base {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: min-content;
+    min-width: 480px;
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: var(--cui-border-radius-mega);
+  }
+
+  .base .content {
+    padding: var(--cui-spacings-giga) var(--cui-spacings-giga) 0;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .scrollable {
+    height: var(--cui-spacings-giga);
+  }
+
+  .base .close {
+    top: var(--cui-spacings-byte);
+    right: var(--cui-spacings-byte);
+  }
+}
+
+@media (max-width: 479px) {
+  .base {
+    top: unset;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    border-radius: var(--cui-border-radius-mega) var(--cui-border-radius-mega) 0
+      0;
+    animation: slide-out var(--dialog-animation-duration) forwards;
+  }
+
+  .base.show {
+    animation: slide-in var(--dialog-animation-duration) forwards;
+  }
+
+  .immersive {
+    height: 100%;
+    max-height: unset;
+    border: none;
+    border-radius: unset;
+  }
+
+  .base .content {
+    padding: var(--cui-spacings-mega) var(--cui-spacings-mega) 0;
+    padding-bottom: env(safe-area-inset-bottom);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .scrollable {
+    height: var(--cui-spacings-mega);
+  }
+
+  .base .close {
+    top: var(--cui-spacings-bit);
+    right: var(--cui-spacings-bit);
+  }
 }
 
 /* Animations */
