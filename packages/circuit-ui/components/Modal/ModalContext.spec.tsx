@@ -43,6 +43,7 @@ describe('ModalContext', () => {
     const onClose = vi.fn();
     const modal = {
       id: 'initial',
+      open: true,
       component: Modal,
       onClose,
       children: () => <p>Modal content</p>,

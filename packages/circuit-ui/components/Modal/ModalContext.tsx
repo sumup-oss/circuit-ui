@@ -57,7 +57,9 @@ export function ModalProvider<T extends ModalProps>({
   initialState,
   ...defaultModalProps
 }: ModalProviderProps<T>) {
-  const [modals, dispatch] = useStack<ModalState<T>>(initialState);
+  const [modals, dispatch] = useStack<ModalState<T>>(
+    initialState?.map((modal) => ({ ...modal, open: true })),
+  );
 
   const setModal = useCallback(
     (modal: ModalState<T>) => {

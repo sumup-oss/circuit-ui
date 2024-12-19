@@ -22,6 +22,7 @@ import {
   type RefObject,
   useCallback,
   useEffect,
+  useLayoutEffect,
   useRef,
 } from 'react';
 
@@ -124,7 +125,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
 
   useScrollLock(open);
 
-  useEffect(
+  useLayoutEffect(
     () => () => {
       if (dialogRef?.current?.open) {
         dialogRef?.current?.close();
