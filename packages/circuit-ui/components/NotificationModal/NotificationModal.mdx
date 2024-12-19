@@ -1,5 +1,5 @@
-import { Meta, Status, Props, Story } from '../../../../.storybook/components';
-import * as Stories from './NotificationModal.stories';
+import { Meta, Status, Props, Story } from "../../../../.storybook/components";
+import * as Stories from "./NotificationModal.stories";
 
 <Meta of={Stories} />
 
@@ -24,35 +24,40 @@ The notification modal component communicates critical information while blockin
 Place your NotificationModal directly in your JSX:
 
 ```jsx
-import { NotificationModal, Button } from '@sumup-oss/circuit-ui';
-import {useState} from 'react';
+import { NotificationModal, Button } from "@sumup-oss/circuit-ui";
+import { useState } from "react";
 
 const [open, setOpen] = useState(false);
 
 return (
-    <>
-      <Button onClick={() => setOpen(true)}>Open dialog</Button>
-      <NotificationModal open={open} closeButtonLabel="Close" onClose={() => setOpen(false)} headline="It's time to update your browser" actions={{
-    primary: {
-      children: 'Update now',
-      onClick: update(),
-    },
-    secondary: {
-      children: 'Not now',
-      onClick: () => setOpen(false),
-    },
-  }}>
-
-      </NotificationModal>
-    </>
+  <>
+    <Button onClick={() => setOpen(true)}>Open dialog</Button>
+    <NotificationModal
+      open={open}
+      closeButtonLabel="Close"
+      onClose={() => setOpen(false)}
+      headline="It's time to update your browser"
+      actions={{
+        primary: {
+          children: "Update now",
+          onClick: update(),
+        },
+        secondary: {
+          children: "Not now",
+          onClick: () => setOpen(false),
+        },
+      }}
+    ></NotificationModal>
+  </>
 );
 ```
 
 ### with the `useModal` hook
+
 First, wrap your application in the `ModalProvider`:
 
 ```tsx
-import { ModalProvider } from '@sumup-oss/circuit-ui';
+import { ModalProvider } from "@sumup-oss/circuit-ui";
 
 export default function App() {
   return <ModalProvider>{/* Your content here... */}</ModalProvider>;
@@ -62,31 +67,31 @@ export default function App() {
 Then, use the `useNotificationModal` hook to open a NotificationModal from a component:
 
 ```tsx
-import { useNotificationModal, Heading, Button } from '@sumup-oss/circuit-ui';
+import { useNotificationModal, Heading, Button } from "@sumup-oss/circuit-ui";
 
 export function SayHello({ name }) {
   const { setModal, removeModal } = useNotificationModal();
 
   const handleClick = () => {
     setModal({
-            image: {
-              src: '/images/illustration-update.svg',
-              alt: '',
-            },
-            headline: "It's time to update your browser",
-            body: "You'll soon need a more up-to-date browser to continue using SumUp.",
-            actions: {
-              primary: {
-                children: 'Update now',
-                onClick: update(),
-              },
-              secondary: {
-                children: 'Not now',
-                onClick: removeModal(),
-              },
-            },
-            closeButtonLabel: 'Close',
-          })
+      image: {
+        src: "/images/illustration-update.svg",
+        alt: "",
+      },
+      headline: "It's time to update your browser",
+      body: "You'll soon need a more up-to-date browser to continue using SumUp.",
+      actions: {
+        primary: {
+          children: "Update now",
+          onClick: update(),
+        },
+        secondary: {
+          children: "Not now",
+          onClick: removeModal(),
+        },
+      },
+      closeButtonLabel: "Close",
+    });
   };
 
   return <Button onClick={handleClick}>Say hello</Button>;
