@@ -2,4 +2,4 @@
 "@sumup-oss/icons": major
 ---
 
-Rename Japan country icon from JA to JP
+Added a new icon for Japanese flag with correct country code `flag_jp`. Deprecated the old `flag_ja` icon.
