@@ -56,7 +56,6 @@ describe('Modal', () => {
   it('should forward a ref', () => {
     const ref = createRef<HTMLDialogElement>();
     render(<Modal {...props} ref={ref} />);
-    // eslint-disable-next-line testing-library/no-container
     const dialog = screen.getByRole('dialog', { hidden: true });
     expect(ref.current).toBe(dialog);
   });
