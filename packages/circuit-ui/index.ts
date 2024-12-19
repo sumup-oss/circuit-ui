@@ -195,6 +195,8 @@ export {
   CarouselComposer,
 } from './components/Carousel/index.js';
 export type { CarouselProps } from './components/Carousel/index.js';
+export { CarouselPagination } from './components/CarouselPagination/index.js';
+export type { CarouselPaginationProps } from './components/CarouselPagination/index.js';
 export { Avatar } from './components/Avatar/index.js';
 export type { AvatarProps } from './components/Avatar/index.js';
 
