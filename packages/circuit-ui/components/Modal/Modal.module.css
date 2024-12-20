@@ -27,7 +27,7 @@
 }
 
 .base::after {
-  position: sticky;
+  position: absolute;
   right: 0;
   bottom: env(safe-area-inset-bottom);
   left: 0;
@@ -81,8 +81,10 @@
   }
 
   .base .content {
-    padding: var(--cui-spacings-giga) var(--cui-spacings-giga) 0;
-    padding-bottom: env(safe-area-inset-bottom);
+    padding: var(--cui-spacings-giga);
+    padding-bottom: calc(
+      env(safe-area-inset-bottom) + var(--cui-spacings-giga)
+    );
   }
 
   .base::after {
@@ -120,8 +122,10 @@
   }
 
   .base .content {
-    padding: var(--cui-spacings-mega) var(--cui-spacings-mega) 0;
-    padding-bottom: env(safe-area-inset-bottom);
+    padding: var(--cui-spacings-mega);
+    padding-bottom: calc(
+      env(safe-area-inset-bottom) + var(--cui-spacings-mega)
+    );
     -webkit-overflow-scrolling: touch;
   }
 
