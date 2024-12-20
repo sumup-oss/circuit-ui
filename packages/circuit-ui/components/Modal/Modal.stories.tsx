@@ -31,14 +31,15 @@ export default {
   title: 'Components/Modal',
   component: Modal,
   tags: ['status:stable'],
+  chromatic: {
+    modes: {
+      mobile: modes.smallMobile,
+      desktop: modes.desktop,
+    },
+    pauseAnimationAtEnd: true,
+  },
   parameters: {
     layout: 'padded',
-    chromatic: {
-      modes: {
-        mobile: modes.smallMobile,
-        desktop: modes.desktop,
-      },
-    },
   },
   decorators: [
     (Story) => (
@@ -167,11 +168,9 @@ export const Immersive = () => {
     </>
   );
 };
-Immersive.parameters = {
-  chromatic: {
-    modes: {
-      mobile: modes.smallMobile,
-    },
+Immersive.chromatic = {
+  modes: {
+    mobile: modes.smallMobile,
   },
 };
 Immersive.play = openModal;
