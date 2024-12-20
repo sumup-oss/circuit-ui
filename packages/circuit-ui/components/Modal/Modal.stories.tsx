@@ -32,6 +32,7 @@ export default {
   component: Modal,
   tags: ['status:stable'],
   parameters: {
+    layout: 'padded',
     chromatic: {
       modes: {
         mobile: modes.smallMobile,
