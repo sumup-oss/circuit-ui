@@ -15,7 +15,7 @@
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { act, renderHook } from '../../util/test-utils.js';
+import { renderHook } from '../../util/test-utils.js';
 
 import { useScrollLock } from './useScrollLock.js';
 
@@ -30,12 +30,11 @@ describe('useScrollLock', () => {
   beforeEach(() => {
     document.body.style.position = '';
     document.body.style.top = '';
-    document.documentElement.style.setProperty('--scroll-y', '');
+    window.scrollY = 1;
   });
 
   it('locks the scroll when `isLocked` is true', () => {
-    document.documentElement.style.setProperty('--scroll-y', '100px');
-
+    window.scrollY = 100;
     const { rerender } = renderHook(({ isLocked }) => useScrollLock(isLocked), {
       initialProps: { isLocked: false },
     });
@@ -47,7 +46,7 @@ describe('useScrollLock', () => {
   });
 
   it('unlocks the scroll when `isLocked` is false', () => {
-    document.body.style.top = '-100px';
+    window.scrollY = 100;
 
     const { rerender } = renderHook(({ isLocked }) => useScrollLock(isLocked), {
       initialProps: { isLocked: true },
@@ -58,23 +57,5 @@ describe('useScrollLock', () => {
     expect(document.body.style.position).toBe('');
     expect(document.body.style.top).toBe('');
     expect(window.scrollTo).toHaveBeenCalledWith(0, 100);
-  });
-
-  it('updates `--scroll-y` on scroll', () => {
-    global.requestAnimationFrame = vi
-      .fn()
-      .mockImplementation((callback: () => void) => callback());
-
-    renderHook(() => useScrollLock(false));
-
-    act(() => {
-      window.scrollY = 200;
-      const scrollEvent = new Event('scroll');
-      window.dispatchEvent(scrollEvent);
-    });
-
-    expect(document.documentElement.style.getPropertyValue('--scroll-y')).toBe(
-      '200px',
-    );
   });
 });

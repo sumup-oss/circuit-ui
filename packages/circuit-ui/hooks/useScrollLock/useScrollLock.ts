@@ -16,32 +16,12 @@
 import { useEffect, useRef } from 'react';
 
 export const useScrollLock = (isLocked: boolean): void => {
-  const busy = useRef(false);
-
-  useEffect(() => {
-    function setScrollProperty() {
-      if (!busy.current) {
-        requestAnimationFrame(() => {
-          document.documentElement.style.setProperty(
-            '--scroll-y',
-            `${window.scrollY}px`,
-          );
-          busy.current = false;
-        });
-        busy.current = true;
-      }
-    }
-    window.addEventListener('scroll', setScrollProperty);
-
-    return () => {
-      window.removeEventListener('scroll', setScrollProperty);
-    };
-  }, []);
+  const scrollValue = useRef<string>();
 
   useEffect(() => {
     if (isLocked) {
-      const scrollY =
-        document.documentElement.style.getPropertyValue('--scroll-y');
+      scrollValue.current = `${window.scrollY}px`;
+      const scrollY = scrollValue.current;
       const { body } = document;
       const bodyWidth = body.offsetWidth;
       // when position is set to fixed, the body element is taken out of
