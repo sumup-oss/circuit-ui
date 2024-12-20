@@ -296,7 +296,6 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
             {typeof children === 'function'
               ? children?.({ onClose })
               : children}
-            <div className={classes.scrollable} />
           </div>
         )}
       </dialog>
