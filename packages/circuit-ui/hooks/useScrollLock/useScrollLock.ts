@@ -13,11 +13,20 @@
  * limitations under the License.
  */
 
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 export const useScrollLock = (isLocked: boolean): void => {
   const scrollValue = useRef<string>();
 
+  const restoreScroll = useCallback(() => {
+    // restore scroll to page
+    const { body } = document;
+    const scrollY = body.style.top;
+    body.style.position = '';
+    body.style.top = '';
+    body.style.width = '';
+    window.scrollTo(0, Number.parseInt(scrollY || '0', 10) * -1);
+  }, []);
   useEffect(() => {
     if (isLocked) {
       scrollValue.current = `${window.scrollY}px`;
@@ -31,13 +40,10 @@ export const useScrollLock = (isLocked: boolean): void => {
       body.style.width = `${bodyWidth}px`;
       body.style.top = `-${scrollY}`;
     } else {
-      // restore scroll to page
-      const { body } = document;
-      const scrollY = body.style.top;
-      body.style.position = '';
-      body.style.top = '';
-      body.style.width = '';
-      window.scrollTo(0, Number.parseInt(scrollY || '0', 10) * -1);
+      restoreScroll();
     }
-  }, [isLocked]);
+    return () => {
+      restoreScroll();
+    };
+  }, [isLocked, restoreScroll]);
 };

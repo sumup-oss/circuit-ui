@@ -58,4 +58,19 @@ describe('useScrollLock', () => {
     expect(document.body.style.top).toBe('');
     expect(window.scrollTo).toHaveBeenCalledWith(0, 100);
   });
+
+  it('unlocks the scroll when unmounted', () => {
+    window.scrollY = 100;
+
+    const { unmount } = renderHook(() => useScrollLock(true), {
+      initialProps: { isLocked: true },
+    });
+    expect(document.body.style.position).toBe('fixed');
+
+    unmount();
+
+    expect(document.body.style.position).toBe('');
+    expect(document.body.style.top).toBe('');
+    expect(window.scrollTo).toHaveBeenCalledWith(0, 100);
+  });
 });
