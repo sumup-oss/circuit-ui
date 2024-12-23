@@ -11,6 +11,12 @@
   background-color: var(--cui-bg-elevated);
   border: none;
   outline: none;
+
+  /* Firefox does not support animating the backdrop property.
+   As a workaround, we used the box-shadow on the dialog element as a fake backdrop,
+   which gets animated along with the dialog element itself.
+   https://stackoverflow.com/questions/75313685/animating-dialog-backdrop-in-firefox
+   */
   box-shadow: 0 0 0 100vmax var(--cui-bg-overlay);
   animation: fade-out var(--dialog-animation-duration) forwards;
 }
