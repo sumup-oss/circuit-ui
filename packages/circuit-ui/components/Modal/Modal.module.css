@@ -60,11 +60,6 @@
   bottom: 0;
   left: 0;
   background: transparent;
-  animation: fade-out var(--dialog-animation-duration) forwards;
-}
-
-.backdrop.backdrop-visible {
-  animation: fade-in var(--dialog-animation-duration) forwards;
 }
 
 @media (min-width: 480px) {
