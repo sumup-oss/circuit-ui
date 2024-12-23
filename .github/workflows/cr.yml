@@ -1,18 +1,17 @@
 name: Continuous Releases
 on:
-  issue_comment:
-    types: [created]
+  pull_request:
+    types:
+      - labeled
 
 jobs:
   build:
-    if: ${{ github.event.comment.body == '/preview' && github.event.issue.pull_request }}
+    if: ${{ github.event.label.name == 'preview' }}
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          ref: refs/pull/${{ github.event.issue.number }}/head #based on https://github.com/stackblitz-labs/pkg.pr.new/issues/187
 
       - name: Setup Node.js v20
         uses: actions/setup-node@v4
