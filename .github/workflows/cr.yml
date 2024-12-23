@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          ref: refs/pull/${{ github.event.issue.number }}/head #based on https://github.com/stackblitz-labs/pkg.pr.new/issues/187
 
       - name: Setup Node.js v20
         uses: actions/setup-node@v4
