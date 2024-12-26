@@ -224,6 +224,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     const { floatingStyles, update } = useFloating({
       open,
       placement,
+      strategy: 'fixed',
       middleware: [
         offset(4),
         flip({ padding, fallbackAxisSideDirection: 'start' }),
