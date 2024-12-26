@@ -151,10 +151,7 @@ export type { ProgressBarProps } from './components/ProgressBar/index.js';
 export { Tag } from './components/Tag/index.js';
 export type { TagProps } from './components/Tag/index.js';
 export { Popover } from './components/Popover/index.js';
-export type {
-  PopoverProps,
-  PopoverItemProps,
-} from './components/Popover/index.js';
+export type { PopoverProps } from './components/Popover/index.js';
 export { ModalProvider } from './components/Modal/ModalContext.js';
 export type { ModalProviderProps } from './components/Modal/ModalContext.js';
 export { useModal } from './components/Modal/index.js';

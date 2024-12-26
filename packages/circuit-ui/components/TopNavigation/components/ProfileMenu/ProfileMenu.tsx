@@ -20,12 +20,13 @@ import { ChevronDown, Profile as ProfileIcon } from '@sumup-oss/icons';
 
 import { Avatar } from '../../../Avatar/index.js';
 import { Body } from '../../../Body/index.js';
-import { Popover, type PopoverProps } from '../../../Popover/index.js';
+import { Popover } from '../../../Popover/index.js';
 import { Skeleton } from '../../../Skeleton/index.js';
 import type { UserProps } from '../../types.js';
 import { utilClasses } from '../../../../styles/utility.js';
 import { sharedClasses } from '../../../../styles/shared.js';
 import { clsx } from '../../../../styles/clsx.js';
+import type { Action } from '../../../Popover/Popover.js';
 
 import classes from './ProfileMenu.module.css';
 
@@ -93,7 +94,7 @@ export interface ProfileMenuProps extends ProfileProps {
    * A collection of actions to be rendered in the profile menu.
    * Same API as the Popover actions.
    */
-  actions: PopoverProps['actions'];
+  actions: Action[];
   /**
    * Function that is called when opening and closing the ProfileMenu.
    */
@@ -135,7 +136,7 @@ export function ProfileMenu({
       className={className}
       // This removes the default `menu` role of the Popover.
       // eslint-disable-next-line jsx-a11y/aria-role
-      role={null}
+      role="none"
     />
   );
 }
