@@ -74,9 +74,8 @@
     right: 0;
     bottom: 0;
     left: 0;
-    width: min-content;
     min-width: 480px;
-    max-width: 90vw;
+    max-width: 50vw;
     max-height: 90vh;
     border-radius: var(--cui-border-radius-mega);
   }
