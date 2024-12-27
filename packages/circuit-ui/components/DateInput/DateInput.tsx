@@ -17,21 +17,13 @@
 
 import {
   forwardRef,
-  useEffect,
   useId,
   useRef,
   useState,
   type InputHTMLAttributes,
 } from 'react';
 import type { Temporal } from 'temporal-polyfill';
-import {
-  flip,
-  offset,
-  shift,
-  size,
-  useFloating,
-  type Placement,
-} from '@floating-ui/react-dom';
+import type { Placement } from '@floating-ui/react-dom';
 import { Calendar as CalendarIcon } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
@@ -45,7 +37,6 @@ import { clsx } from '../../styles/clsx.js';
 import type { InputProps } from '../Input/Input.js';
 import { Calendar, type CalendarProps } from '../Calendar/Calendar.js';
 import { Button } from '../Button/Button.js';
-import { CloseButton } from '../CloseButton/CloseButton.js';
 import { IconButton } from '../Button/IconButton.js';
 import { Headline } from '../Headline/Headline.js';
 import {
@@ -58,8 +49,9 @@ import {
 import { toPlainDate } from '../../util/date.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { changeInputValue } from '../../util/input-value.js';
+import { Popover } from '../Popover/index.js';
+import { Hr } from '../Hr/index.js';
 
-import { Dialog } from './components/Dialog.js';
 import { DateSegment } from './components/DateSegment.js';
 import { usePlainDateState } from './hooks/usePlainDateState.js';
 import { useSegmentFocus } from './hooks/useSegmentFocus.js';
@@ -219,51 +211,6 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     const [open, setOpen] = useState(false);
     const [selection, setSelection] = useState<Temporal.PlainDate>();
 
-    const padding = 16; // px
-
-    const { floatingStyles, update } = useFloating({
-      open,
-      placement,
-      strategy: 'fixed',
-      middleware: [
-        offset(4),
-        flip({ padding, fallbackAxisSideDirection: 'start' }),
-        shift({ padding }),
-        size({
-          padding,
-          apply({ availableHeight, elements }) {
-            elements.floating.style.maxHeight = `${availableHeight}px`;
-          },
-        }),
-      ],
-      elements: {
-        reference: calendarButtonRef.current,
-        floating: dialogRef.current,
-      },
-    });
-
-    useEffect(() => {
-      /**
-       * When we support `ResizeObserver` (https://caniuse.com/resizeobserver),
-       * we can look into using Floating UI's `autoUpdate` (but we can't use
-       * `whileElementIsMounted` because our implementation hides the floating
-       * element using CSS instead of using conditional rendering.
-       * See https://floating-ui.com/docs/react-dom#updating
-       */
-      if (open) {
-        update();
-        window.addEventListener('resize', update);
-        window.addEventListener('scroll', update);
-      } else {
-        window.removeEventListener('resize', update);
-        window.removeEventListener('scroll', update);
-      }
-      return () => {
-        window.removeEventListener('resize', update);
-        window.removeEventListener('scroll', update);
-      };
-    }, [open, update]);
-
     // Focus the first date segment when clicking anywhere on the field...
     const handleClick = (event: ClickEvent) => {
       const element = event.target as HTMLElement;
@@ -274,9 +221,9 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       focus.next();
     };
 
-    const openCalendar = () => {
+    const toggleCalendar = () => {
       setSelection(state.date);
-      setOpen(true);
+      setOpen((prev) => !prev);
     };
 
     const closeCalendar = () => {
@@ -305,16 +252,6 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       state.update({ year: '', month: '', day: '' });
       closeCalendar();
     };
-
-    const mobileStyles = {
-      position: 'fixed',
-      top: 'auto',
-      right: '0px',
-      bottom: '0px',
-      left: '0px',
-    } as const;
-
-    const dialogStyles = isMobile ? mobileStyles : floatingStyles;
 
     const segments = getDateSegments(locale);
     const calendarButtonLabel = getCalendarButtonLabel(
@@ -435,20 +372,79 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                 }
               })}
             </div>
-            <IconButton
-              ref={calendarButtonRef}
-              type="button"
-              icon={CalendarIcon}
-              variant="secondary"
-              onClick={openCalendar}
-              className={classes['calendar-button']}
-              disabled={disabled || readOnly}
-              aria-expanded={open}
-              aria-haspopup="true"
-              aria-controls={dialogId}
+            <Popover
+              ref={dialogRef}
+              id={dialogId}
+              isOpen={open}
+              onToggle={closeCalendar}
+              aria-labelledby={headlineId}
+              className={clsx(!isMobile && classes.popover)}
+              offset={4}
+              placement={placement}
+              closeButtonLabel={closeCalendarButtonLabel}
+              component={() => (
+                <IconButton
+                  ref={calendarButtonRef}
+                  type="button"
+                  icon={CalendarIcon}
+                  variant="secondary"
+                  onClick={toggleCalendar}
+                  className={classes['calendar-button']}
+                  disabled={disabled || readOnly}
+                  aria-expanded={open}
+                  aria-haspopup="true"
+                  aria-controls={dialogId}
+                >
+                  {calendarButtonLabel}
+                </IconButton>
+              )}
             >
-              {calendarButtonLabel}
-            </IconButton>
+              {() => (
+                <div className={clsx(!isMobile && classes.content)}>
+                  <header className={classes.header}>
+                    <Headline as="h2" size="m" id={headlineId}>
+                      {label}
+                    </Headline>
+                  </header>
+
+                  <Calendar
+                    className={classes.calendar}
+                    onSelect={handleSelect}
+                    selection={selection}
+                    minDate={minDate}
+                    maxDate={maxDate}
+                    locale={locale}
+                    firstDayOfWeek={firstDayOfWeek}
+                    modifiers={modifiers}
+                    prevMonthButtonLabel={prevMonthButtonLabel}
+                    nextMonthButtonLabel={nextMonthButtonLabel}
+                  />
+                  <Hr className={classes.divider} />
+
+                  {(!required || isMobile) && (
+                    <div className={classes.buttons}>
+                      {!required && (
+                        <Button
+                          type="button"
+                          variant="tertiary"
+                          onClick={handleClear}
+                        >
+                          {clearDateButtonLabel}
+                        </Button>
+                      )}
+                      <Button
+                        type="button"
+                        variant="primary"
+                        onClick={handleApply}
+                        className={classes.apply}
+                      >
+                        {applyDateButtonLabel}
+                      </Button>
+                    </div>
+                  )}
+                </div>
+              )}
+            </Popover>
           </div>
           <FieldValidationHint
             id={validationHintId}
@@ -459,68 +455,6 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
             validationHint={validationHint}
           />
         </FieldSet>
-        <Dialog
-          ref={dialogRef}
-          id={dialogId}
-          open={open}
-          isModal={isMobile}
-          onClose={closeCalendar}
-          aria-labelledby={headlineId}
-          style={dialogStyles}
-        >
-          {() => (
-            <div className={classes.content}>
-              <header className={classes.header}>
-                <Headline as="h2" size="m" id={headlineId}>
-                  {label}
-                </Headline>
-                <CloseButton
-                  size="s"
-                  variant="tertiary"
-                  onClick={closeCalendar}
-                  className={classes['close-button']}
-                >
-                  {closeCalendarButtonLabel}
-                </CloseButton>
-              </header>
-
-              <Calendar
-                className={classes.calendar}
-                onSelect={handleSelect}
-                selection={selection}
-                minDate={minDate}
-                maxDate={maxDate}
-                locale={locale}
-                firstDayOfWeek={firstDayOfWeek}
-                modifiers={modifiers}
-                prevMonthButtonLabel={prevMonthButtonLabel}
-                nextMonthButtonLabel={nextMonthButtonLabel}
-              />
-
-              {(!required || isMobile) && (
-                <div className={classes.buttons}>
-                  {!required && (
-                    <Button
-                      type="button"
-                      variant="tertiary"
-                      onClick={handleClear}
-                    >
-                      {clearDateButtonLabel}
-                    </Button>
-                  )}
-                  <Button
-                    type="button"
-                    variant="primary"
-                    onClick={handleApply}
-                    className={classes.apply}
-                  >
-                    {applyDateButtonLabel}
-                  </Button>
-                </div>
-              )}
-            </div>
-          )}
-        </Dialog>
       </FieldWrapper>
     );
   },

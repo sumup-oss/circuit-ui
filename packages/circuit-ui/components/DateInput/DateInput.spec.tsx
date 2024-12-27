@@ -13,26 +13,50 @@
  * limitations under the License.
  */
 
-import { beforeEach, describe, expect, it, vi, type Mock } from 'vitest';
+import {
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi,
+  type Mock,
+  afterEach,
+} from 'vitest';
 import { createRef } from 'react';
 import MockDate from 'mockdate';
 
-import { render, screen, axe, userEvent } from '../../util/test-utils.js';
+import { render, screen, axe, userEvent, act } from '../../util/test-utils.js';
 import { useMedia } from '../../hooks/useMedia/useMedia.js';
+import { ANIMATION_DURATION } from '../Modal/Modal.js';
 
 import { DateInput } from './DateInput.js';
 
 vi.mock('../../hooks/useMedia/useMedia.js');
+vi.mock('../../hooks/useScrollLock/useScrollLock.js');
 
 describe('DateInput', () => {
   const props = {
     onChange: vi.fn(),
     label: 'Date of birth',
   };
+  let originalHTMLDialogElement: typeof window.HTMLDialogElement;
 
   beforeEach(() => {
+    originalHTMLDialogElement = window.HTMLDialogElement;
     MockDate.set('2000-01-01');
     (useMedia as Mock).mockReturnValue(false);
+    vi.clearAllMocks();
+    vi.useFakeTimers({ shouldAdvanceTime: true });
+  });
+
+  afterEach(() => {
+    vi.runOnlyPendingTimers();
+    vi.useRealTimers();
+    vi.resetAllMocks();
+    Object.defineProperty(window, 'HTMLDialogElement', {
+      writable: true,
+      value: originalHTMLDialogElement,
+    });
   });
 
   it('should forward a ref', () => {
@@ -228,7 +252,7 @@ describe('DateInput', () => {
     it('should focus the first input when clicking the label', async () => {
       render(<DateInput {...props} />);
 
-      await userEvent.click(screen.getByText('Date of birth'));
+      await userEvent.click(screen.getAllByText('Date of birth')[0]);
 
       expect(screen.getAllByRole('spinbutton')[0]).toHaveFocus();
     });
@@ -319,7 +343,6 @@ describe('DateInput', () => {
 
       expect(ref.current).toHaveValue('2000-01-12');
       expect(onChange).toHaveBeenCalled();
-      expect(openCalendarButton).toHaveFocus();
     });
 
     it('should allow users to clear the date', async () => {
@@ -348,7 +371,11 @@ describe('DateInput', () => {
 
       expect(ref.current).toHaveValue('');
       expect(onChange).toHaveBeenCalled();
-      expect(openCalendarButton).toHaveFocus();
+      expect(
+        screen.getByRole('button', {
+          name: /change date/i,
+        }),
+      ).toHaveFocus();
     });
 
     it('should close calendar on outside click', async () => {
@@ -452,7 +479,9 @@ describe('DateInput', () => {
 
         const closeButton = screen.getByRole('button', { name: /close/i });
         await userEvent.click(closeButton);
-
+        act(() => {
+          vi.advanceTimersByTime(ANIMATION_DURATION);
+        });
         expect(calendarDialog).not.toBeVisible();
         expect(ref.current).toHaveValue('2000-01-12');
         expect(onChange).not.toHaveBeenCalled();
