@@ -107,19 +107,13 @@
   z-index: calc(var(--cui-z-index-absolute) + 1);
 }
 
-.content {
-  color: var(--cui-fg-normal);
-  background-color: var(--cui-bg-elevated);
-  border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
-  border-radius: var(--cui-border-radius-byte);
-  outline: 0;
-  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 8%);
-}
-
 @media (max-width: 479px) {
   .content {
+    padding: 0;
+    border: none;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
+    box-shadow: none;
   }
 }
 
@@ -127,8 +121,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--cui-spacings-giga) var(--cui-spacings-mega)
-    var(--cui-spacings-byte) var(--cui-spacings-mega);
+  padding: var(--cui-spacings-byte) 0;
 }
 
 @media (min-width: 480px) {
@@ -151,7 +144,18 @@
 }
 
 .calendar {
-  padding: var(--cui-spacings-mega);
+  margin-bottom: var(--cui-spacings-mega);
+}
+
+@media (max-width: 479px) {
+  .calendar {
+    margin: var(--cui-spacings-mega) 0;
+  }
+}
+
+.divider {
+  width: calc(100% + 32px) !important;
+  margin-left: -16px;
 }
 
 .buttons {
@@ -159,8 +163,15 @@
   flex-wrap: wrap;
   gap: var(--cui-spacings-kilo);
   justify-content: space-between;
-  padding: var(--cui-spacings-mega);
-  border-top: var(--cui-border-width-kilo) solid var(--cui-border-divider);
+}
+
+.popover {
+  max-width: min(410px, 100vw);
+  border: var(--cui-border-width-kilo) solid var(--cui-border-subtle) !important;
+}
+
+.popover::after {
+  visibility: hidden;
 }
 
 .apply {
