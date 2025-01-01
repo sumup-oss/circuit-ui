@@ -86,7 +86,7 @@
 		"react-dom": "^18.3.1",
 		"remark-gfm": "^4.0.0",
 		"storybook": "^8.4.5",
-		"stylelint": "^16.11.0",
+		"stylelint": "^16.12.0",
 		"stylelint-config-css-modules": "^4.4.0",
 		"stylelint-config-recess-order": "^5.1.1",
 		"stylelint-config-standard": "^36.0.1",
