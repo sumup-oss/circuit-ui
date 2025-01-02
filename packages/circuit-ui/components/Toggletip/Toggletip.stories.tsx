@@ -18,12 +18,9 @@ import { ArrowSlanted, Info } from '@sumup-oss/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 import { IconButton } from '../Button/index.js';
+import type { PopoverReferenceProps } from '../Popover/Popover.js';
 
-import {
-  Toggletip,
-  type ToggletipProps,
-  type ToggletipReferenceProps,
-} from './Toggletip.js';
+import { Toggletip, type ToggletipProps } from './Toggletip.js';
 
 export default {
   title: 'Components/Toggletip',
@@ -49,6 +46,7 @@ export const Base = (args: ToggletipProps) => (
     Chargeback
     <Toggletip
       {...args}
+      fallbackPlacements={['bottom']}
       component={(props) => (
         <IconButton {...props} icon={Info} variant="tertiary" size="s">
           View details
@@ -72,7 +70,7 @@ Base.args = {
 
 Base.play = showToggletip;
 
-const ReferenceButton = (props: ToggletipReferenceProps) => (
+const ReferenceButton = (props: PopoverReferenceProps) => (
   <IconButton {...props} icon={Info} variant="tertiary" size="s">
     View details
   </IconButton>

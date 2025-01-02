@@ -17,8 +17,9 @@ import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
 import { render, axe, screen, userEvent } from '../../util/test-utils.js';
+import type { PopoverReferenceProps } from '../Popover/Popover.js';
 
-import { Toggletip, type ToggletipReferenceProps } from './Toggletip.js';
+import { Toggletip } from './Toggletip.js';
 
 const baseProps = {
   headline: 'What is a chargeback?',
@@ -28,7 +29,7 @@ const baseProps = {
     onClick: vi.fn(),
     target: '_blank',
   },
-  component: (props: ToggletipReferenceProps) => (
+  component: (props: PopoverReferenceProps) => (
     <button {...props}>Open toggletip</button>
   ),
 } as const;
@@ -71,15 +72,6 @@ describe('Toggletip', () => {
   it('should open when the reference element is clicked', async () => {
     render(<Toggletip {...baseProps} />);
     const button = screen.getByRole('button');
-    await userEvent.click(button);
-    const dialog = screen.getByRole('dialog');
-    expect(dialog).toHaveAttribute('open');
-  });
-
-  it('should stay open when the reference element is clicked multiple times', async () => {
-    render(<Toggletip {...baseProps} />);
-    const button = screen.getByRole('button');
-    await userEvent.click(button);
     await userEvent.click(button);
     const dialog = screen.getByRole('dialog');
     expect(dialog).toHaveAttribute('open');
