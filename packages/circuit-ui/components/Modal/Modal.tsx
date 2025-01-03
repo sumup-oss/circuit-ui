@@ -36,6 +36,7 @@ import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import { deprecate } from '../../util/logger.js';
 import type { Locale } from '../../util/i18n.js';
 import { useScrollLock } from '../../hooks/useScrollLock/useScrollLock.js';
+import { useMedia } from '../../hooks/useMedia/index.js';
 
 import classes from './Modal.module.css';
 import { getFirstFocusableElement } from './ModalService.js';
@@ -89,6 +90,11 @@ export interface ModalProps
    * Use the `preventClose` prop instead. Also see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role#required_javascript_features
    */
   hideCloseButton?: boolean;
+  /**
+   * Choose between one of the four animations for the modal dialog on small screens.
+   * default: 'slide-up'
+   * */
+  animation?: 'slide-up' | 'slide-down' | 'slide-left' | 'slide-right' | 'fade';
   [key: DataAttribute]: string | undefined;
 }
 
@@ -105,11 +111,14 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
     className,
     preventClose,
     initialFocusRef,
+    animation,
     hideCloseButton,
     ...rest
   } = useI18n(props, translations);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const lastFocusedElementRef = useRef<HTMLElement | null>(null);
+  const isMobile = useMedia('(max-width: 479px)');
+  const defaultAnimation = isMobile ? 'slide-up' : 'fade';
 
   if (process.env.NODE_ENV !== 'production') {
     if (hideCloseButton) {
@@ -283,6 +292,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
         ref={applyMultipleRefs(ref, dialogRef)}
         className={clsx(
           classes.base,
+          classes[animation ?? defaultAnimation],
           variant === 'immersive' && classes.immersive,
           className,
         )}

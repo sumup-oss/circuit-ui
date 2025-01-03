@@ -18,12 +18,12 @@
    https://stackoverflow.com/questions/75313685/animating-dialog-backdrop-in-firefox
    */
   box-shadow: 0 0 0 100vmax var(--cui-bg-overlay);
-  animation: fade-out var(--dialog-animation-duration) forwards;
+  animation: fade-out 0.5s forwards;
 }
 
 .base.show {
   pointer-events: auto;
-  animation: fade-in var(--dialog-animation-duration) forwards;
+  animation: fade-in 0.5s forwards;
 }
 
 .content {
@@ -107,11 +107,6 @@
     max-width: 100%;
     border-radius: var(--cui-border-radius-mega) var(--cui-border-radius-mega) 0
       0;
-    animation: slide-out var(--dialog-animation-duration) forwards;
-  }
-
-  .base.show {
-    animation: slide-in var(--dialog-animation-duration) forwards;
   }
 
   .immersive {
@@ -141,6 +136,46 @@
 
 /* Animations */
 
+.base.slide-up {
+  animation: slide-up-out var(--dialog-animation-duration) forwards;
+}
+
+.base.show.slide-up {
+  animation: slide-up-in var(--dialog-animation-duration) forwards;
+}
+
+.base.slide-down {
+  animation: slide-down-out var(--dialog-animation-duration) forwards;
+}
+
+.base.show.slide-down {
+  animation: slide-down-in var(--dialog-animation-duration) forwards;
+}
+
+.base.slide-left {
+  animation: slide-left-out var(--dialog-animation-duration) forwards;
+}
+
+.base.show.slide-left {
+  animation: slide-left-in var(--dialog-animation-duration) forwards;
+}
+
+.base.slide-right {
+  animation: slide-right-out var(--dialog-animation-duration) forwards;
+}
+
+.base.show.slide-right {
+  animation: slide-right-in var(--dialog-animation-duration) forwards;
+}
+
+.base.fade {
+  animation: fade-out var(--dialog-animation-duration) forwards;
+}
+
+.base.show.fade {
+  animation: fade-in var(--dialog-animation-duration) forwards;
+}
+
 @keyframes fade-in {
   from {
     visibility: hidden;
@@ -165,7 +200,7 @@
   }
 }
 
-@keyframes slide-in {
+@keyframes slide-up-in {
   from {
     visibility: hidden;
     opacity: 0;
@@ -179,7 +214,7 @@
   }
 }
 
-@keyframes slide-out {
+@keyframes slide-up-out {
   from {
     visibility: visible;
     opacity: 1;
@@ -190,5 +225,89 @@
     visibility: hidden;
     opacity: 0;
     transform: translateY(100%);
+  }
+}
+
+@keyframes slide-down-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  to {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-down-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slide-left-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  to {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-left-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slide-right-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  to {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-right-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(100%);
   }
 }

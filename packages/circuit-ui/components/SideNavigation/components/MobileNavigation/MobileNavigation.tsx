@@ -154,6 +154,7 @@ export const MobileNavigation = ({
           onClose={onClose}
           className={classes.base}
           variant="immersive"
+          animation="slide-down"
           {...props}
         >
           <div className={classes.content}>

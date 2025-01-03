@@ -27,6 +27,8 @@ import {
 
 import { ANIMATION_DURATION, Modal } from './Modal.js';
 
+vi.mock('../../hooks/useMedia/index.js');
+
 describe('Modal', () => {
   const props = {
     onClose: vi.fn(),
