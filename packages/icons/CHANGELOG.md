@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 5.2.0
+
+### Minor Changes
+
+- [#2836](https://github.com/sumup-oss/circuit-ui/pull/2836) [`0f4c967`](https://github.com/sumup-oss/circuit-ui/commit/0f4c967b75ec5696a6fade9c33441457f6c71f29) Thanks [@matoous](https://github.com/matoous)! - Added a new icon for Japanese flag with correct country code `flag_jp`. Deprecated the old `flag_ja` icon.
+
 ## 5.1.0
 
 ### Minor Changes
