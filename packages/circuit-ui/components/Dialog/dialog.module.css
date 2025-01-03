@@ -37,7 +37,7 @@
 }
 
 /* Close button */
-.base .close {
+.close {
   position: absolute;
   z-index: var(--cui-z-index-absolute);
 }
@@ -62,7 +62,7 @@
     height: var(--cui-spacings-giga);
   }
 
-  .base .close {
+  .close {
     top: var(--cui-spacings-byte);
     right: var(--cui-spacings-byte);
   }
@@ -73,7 +73,7 @@
     height: var(--cui-spacings-mega);
   }
 
-  .base .close {
+  .close {
     top: var(--cui-spacings-bit);
     right: var(--cui-spacings-bit);
   }

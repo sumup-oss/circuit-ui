@@ -40,7 +40,7 @@ export interface ModalProps
    * */
   variant?: 'contextual' | 'immersive';
   /**
-   * Callback when the modal dialog is closed.
+   * Callback function invoked when the modal closes.
    */
   onClose?: DialogProps['onCloseEnd'];
   /**

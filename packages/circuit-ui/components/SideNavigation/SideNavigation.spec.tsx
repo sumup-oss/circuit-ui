@@ -24,7 +24,6 @@ import {
   screen,
   type RenderFn,
 } from '../../util/test-utils.js';
-import { ModalProvider } from '../ModalContext/index.js';
 
 import { SideNavigation, type SideNavigationProps } from './SideNavigation.js';
 
@@ -49,11 +48,7 @@ describe('SideNavigation', () => {
     renderFn: RenderFn<T>,
     props: SideNavigationProps,
   ) {
-    return renderFn(
-      <ModalProvider>
-        <SideNavigation {...props} />
-      </ModalProvider>,
-    );
+    return renderFn(<SideNavigation {...props} />);
   }
 
   const baseProps = {
@@ -114,6 +109,7 @@ describe('SideNavigation', () => {
     it('should render a skip navigation link', () => {
       renderSideNavigation(render, {
         ...defaultProps,
+        isOpen: true,
         skipNavigationHref: '#main-content',
         skipNavigationLabel: 'Skip navigation',
       });
@@ -122,19 +118,24 @@ describe('SideNavigation', () => {
     });
   });
 
-  it('should render a skip navigation link', () => {
-    renderSideNavigation(render, {
-      ...defaultProps,
-      skipNavigationHref: '#main-content',
-      skipNavigationLabel: 'Skip navigation',
+  describe('on desktop', () => {
+    beforeAll(() => {
+      setMediaMatches(false);
     });
-    const skipLink = screen.getByRole('link', { name: 'Skip navigation' });
-    expect(skipLink).toBeInTheDocument();
-  });
+    it('should render a skip navigation link', () => {
+      renderSideNavigation(render, {
+        ...defaultProps,
+        skipNavigationHref: '#main-content',
+        skipNavigationLabel: 'Skip navigation',
+      });
+      const skipLink = screen.getByRole('link', { name: 'Skip navigation' });
+      expect(skipLink).toBeInTheDocument();
+    });
 
-  it('should have no accessibility violations', async () => {
-    const { container } = renderSideNavigation(render, defaultProps);
-    const actual = await axe(container);
-    expect(actual).toHaveNoViolations();
+    it('should have no accessibility violations', async () => {
+      const { container } = renderSideNavigation(render, defaultProps);
+      const actual = await axe(container);
+      expect(actual).toHaveNoViolations();
+    });
   });
 });

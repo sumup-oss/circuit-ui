@@ -15,8 +15,6 @@
 
 'use client';
 
-import { useEffect } from 'react';
-
 import { useMedia } from '../../hooks/useMedia/index.js';
 import {
   AccessibilityError,
@@ -26,15 +24,19 @@ import { usePrevious } from '../../hooks/usePrevious/index.js';
 
 import { DesktopNavigation } from './components/DesktopNavigation/index.js';
 import type { DesktopNavigationProps } from './components/DesktopNavigation/DesktopNavigation.js';
-import {
-  useMobileNavigation,
-  type MobileNavigationProps,
-} from './components/MobileNavigation/index.js';
+import type { MobileNavigationProps } from './components/MobileNavigation/index.js';
+import { MobileNavigation } from './components/MobileNavigation/MobileNavigation.js';
 
 export interface SideNavigationProps
-  extends MobileNavigationProps,
+  extends Omit<MobileNavigationProps, 'open'>,
     DesktopNavigationProps {
+  /**
+   * Whether the modal navigation is open.
+   */
   isOpen: boolean;
+  /**
+   * Callback function invoked when the modal closes.
+   */
   onClose: () => void;
 }
 
@@ -49,17 +51,12 @@ export function SideNavigation({
   UNSAFE_components,
   skipNavigationLabel,
   skipNavigationHref,
+  ...rest
 }: SideNavigationProps) {
   if (
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test'
   ) {
-    if (!isSufficientlyLabelled(closeButtonLabel)) {
-      throw new AccessibilityError(
-        'SideNavigation',
-        'The `closeButtonLabel` prop is missing or invalid.',
-      );
-    }
     if (!isSufficientlyLabelled(primaryNavigationLabel)) {
       throw new AccessibilityError(
         'SideNavigation',
@@ -76,44 +73,21 @@ export function SideNavigation({
 
   const isMobile = useMedia('(max-width: 1279px)', true);
 
-  const { setModal, removeModal } = useMobileNavigation();
-
   const prevOpen = usePrevious(isOpen);
 
-  useEffect(() => {
-    if (!prevOpen && isOpen && isMobile) {
-      setModal({
-        onClose,
-        primaryLinks,
-        closeButtonLabel,
-        primaryNavigationLabel,
-        UNSAFE_components,
-        skipNavigationLabel,
-        skipNavigationHref,
-      });
-    }
-  }, [
-    prevOpen,
-    isOpen,
-    isMobile,
-    setModal,
-    primaryLinks,
-    onClose,
-    closeButtonLabel,
-    primaryNavigationLabel,
-    UNSAFE_components,
-    skipNavigationLabel,
-    skipNavigationHref,
-  ]);
-
-  // Close the modal when the user resizes the window.
-  useEffect(() => {
-    if (!isMobile) {
-      removeModal();
-    }
-  }, [isMobile, removeModal]);
-
-  return (
+  return isMobile ? (
+    <MobileNavigation
+      skipNavigationHref={skipNavigationHref}
+      skipNavigationLabel={skipNavigationLabel}
+      UNSAFE_components={UNSAFE_components}
+      primaryLinks={primaryLinks}
+      closeButtonLabel={closeButtonLabel}
+      primaryNavigationLabel={primaryNavigationLabel}
+      onCloseEnd={onClose}
+      open={!prevOpen && isOpen}
+      {...rest}
+    />
+  ) : (
     <DesktopNavigation
       isLoading={isLoading}
       primaryLinks={primaryLinks}

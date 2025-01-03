@@ -55,7 +55,7 @@ export interface DialogProps
    */
   isModal?: boolean;
   /**
-   * Callback when the modal dialog is closed.
+   * Callback function invoked when the dialog closes.
    */
   onCloseEnd?: () => void;
   /**
