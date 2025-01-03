@@ -14,10 +14,10 @@
     "lint:css": "foundry run stylelint '**/*.css'"
   },
   "dependencies": {
-    "@remix-run/css-bundle": "^2.15.0",
-    "@remix-run/node": "^2.15.0",
-    "@remix-run/react": "^2.15.0",
-    "@remix-run/serve": "^2.15.0",
+    "@remix-run/css-bundle": "^2.15.2",
+    "@remix-run/node": "^2.15.2",
+    "@remix-run/react": "^2.15.2",
+    "@remix-run/serve": "^2.15.2",
     "@sumup-oss/circuit-ui": "^9.0.0",
     "@sumup-oss/design-tokens": "^8.0.0",
     "@sumup-oss/icons": "^5.0.0",
@@ -27,7 +27,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@remix-run/dev": "^2.15.0",
+    "@remix-run/dev": "^2.15.2",
     "@sumup-oss/eslint-plugin-circuit-ui": "^5.0.0",
     "@sumup-oss/foundry": "^8.4.1",
     "@sumup-oss/stylelint-plugin-circuit-ui": "^3.0.0",
