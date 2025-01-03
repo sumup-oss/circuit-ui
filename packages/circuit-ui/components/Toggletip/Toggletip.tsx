@@ -15,18 +15,10 @@
 
 'use client';
 
-import {
-  forwardRef,
-  useCallback,
-  useEffect,
-  useId,
-  useRef,
-  useState,
-} from 'react';
+import { forwardRef, useCallback, useId, useState } from 'react';
 
 import type { ClickEvent } from '../../types/events.js';
 import { clsx } from '../../styles/clsx.js';
-import { applyMultipleRefs } from '../../util/refs.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 import { useStackContext } from '../StackContext/index.js';
 import { CloseButton } from '../CloseButton/index.js';
@@ -84,7 +76,6 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
     } = useI18n(props, translations);
     const zIndex = useStackContext();
     const isMobile = useMedia('(max-width: 479px)');
-    const dialogRef = useRef<HTMLDialogElement>(null);
     const headlineId = useId();
     const bodyId = useId();
     const [open, setOpen] = useState(defaultOpen);
@@ -92,13 +83,6 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
     const closeDialog = useCallback(() => {
       setOpen(false);
     }, []);
-
-    useEffect(
-      () => () => {
-        dialogRef.current?.close();
-      },
-      [],
-    );
 
     const handleActionClick = (event: ClickEvent) => {
       action?.onClick?.(event);
@@ -110,7 +94,7 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
     }, []);
     return (
       <Popover
-        ref={applyMultipleRefs(ref, dialogRef)}
+        ref={ref}
         className={clsx(classes.base, className)}
         placement={placement}
         offset={offset}
@@ -122,6 +106,7 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
           zIndex: zIndex || 'var(--cui-z-index-modal)',
         }}
         closeButtonLabel={closeButtonLabel}
+        locale={locale}
         onToggle={handleToggle}
         isOpen={open}
         {...rest}

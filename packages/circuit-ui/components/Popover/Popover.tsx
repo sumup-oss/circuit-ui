@@ -26,8 +26,6 @@ import {
   type HTMLAttributes,
   forwardRef,
   type RefObject,
-  type AnchorHTMLAttributes,
-  type ButtonHTMLAttributes,
   type AriaRole,
 } from 'react';
 import {
@@ -41,7 +39,6 @@ import {
   shift,
   type Side,
 } from '@floating-ui/react-dom';
-import type { IconComponentType } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
 import { isArrowDown, isArrowUp } from '../../util/key-codes.js';
@@ -55,71 +52,17 @@ import { Modal } from '../Modal/index.js';
 import { getKeyboardFocusableElements } from '../Modal/ModalService.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import dialogPolyfill from '../../vendor/dialog-polyfill/index.js';
-import { useComponents } from '../ComponentsContext/index.js';
-import type { EmotionAsPropType } from '../../types/prop-types.js';
-import { sharedClasses } from '../../styles/shared.js';
 import { CircuitError } from '../../util/errors.js';
 import { Hr } from '../Hr/index.js';
 import { useFocusList } from '../../hooks/useFocusList/index.js';
 import type { Locale } from '../../util/i18n.js';
+import { useStackContext } from '../StackContext/index.js';
 
 import classes from './Popover.module.css';
-
-export interface BaseProps {
-  /**
-   * The Popover item label.
-   */
-  children: string;
-  /**
-   * Function that's called when the item is clicked.
-   */
-  onClick?: (event: ClickEvent) => void;
-  /**
-   * Display an icon in addition to the label. Designed for 24px icons from `@sumup-oss/icons`.
-   */
-  icon?: IconComponentType;
-  /**
-   * Destructive variant, changes the color of label and icon from blue to red to signal to the user that the action
-   * is irreversible or otherwise dangerous. Interactive states are the same for destructive variant.
-   */
-  destructive?: boolean;
-  /**
-   * Disabled variant. Visually and functionally disable the button.
-   */
-  disabled?: boolean;
-}
-
-type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
-type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
-
-export type PopoverItemProps = BaseProps & LinkElProps & ButtonElProps;
-
-export const PopoverItem = ({
-  children,
-  icon: Icon,
-  destructive,
-  className,
-  ...props
-}: PopoverItemProps) => {
-  const { Link } = useComponents();
-
-  const Element = props.href ? (Link as EmotionAsPropType) : 'button';
-
-  return (
-    <Element
-      className={clsx(
-        classes.item,
-        sharedClasses.listItem,
-        destructive && sharedClasses.listItemDestructive,
-        className,
-      )}
-      {...props}
-    >
-      {Icon && <Icon className={classes.icon} size="24" aria-hidden="true" />}
-      {children}
-    </Element>
-  );
-};
+import {
+  PopoverItem,
+  type PopoverItemProps,
+} from './components/PopoverItem.js';
 
 type Divider = { type: 'divider' };
 export type Action = PopoverItemProps | Divider;
@@ -244,16 +187,16 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
       className,
       role = 'menu',
       children,
-      locale,
       actions,
-      closeButtonLabel,
       hasArrow,
       ...props
     },
     ref,
   ) => {
+    const zIndex = useStackContext();
     const triggerKey = useRef<TriggerKey | null>(null);
     const menuEl = useRef<HTMLDivElement>(null);
+    const dialogRef = useRef<HTMLDialogElement>(null);
     const arrowRef = useRef<HTMLDivElement>(null);
     const triggerId = useId();
     const menuId = useId();
@@ -270,40 +213,43 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
       );
     }
 
-    const { floatingStyles, middlewareData, refs, update } =
-      useFloating<HTMLElement>({
-        open: isOpen,
-        placement,
-        strategy: 'fixed',
-        middleware: offset
-          ? [
-              offsetMiddleware(offset),
-              flip({ fallbackPlacements }),
-              shift(),
-              size(sizeOptions),
-              arrow({ element: arrowRef, padding: 12 }),
-            ]
-          : [
-              flip({ fallbackPlacements }),
-              shift(),
-              size(sizeOptions),
-              arrow({ element: arrowRef, padding: 12 }),
-            ],
-      });
+    const padding = 16; // px
 
-    useEffect(() => {
-      // restore focus to triggering element
-      if (!isOpen && refs.reference) {
-        refs.reference.current?.focus();
-      }
-      return () => {
-        if (refs.reference) {
-          refs.reference.current?.focus();
-        }
-      };
-    }, [isOpen, refs.reference]);
+    const {
+      placement: finalPlacement,
+      floatingStyles,
+      middlewareData,
+      refs,
+      update,
+    } = useFloating<HTMLElement>({
+      open: isOpen,
+      placement,
+      strategy: 'fixed',
+      middleware: offset
+        ? [
+            offsetMiddleware(hasArrow ? 8 : offset),
+            flip({
+              fallbackPlacements,
+            }),
+            shift({ padding }),
+            size({ padding }),
+            arrow({ element: arrowRef, padding: 12 }),
+          ]
+        : [
+            offsetMiddleware(hasArrow ? 8 : 0),
+            flip({ fallbackPlacements }),
+            size(sizeOptions),
+          ],
+    });
 
-    const side = middlewareData.offset?.placement?.split('-')[0] as Side;
+    useEffect(
+      () => () => {
+        dialogRef.current?.close();
+      },
+      [],
+    );
+
+    const side = finalPlacement.split('-')[0] as Side;
 
     const focusProps = useFocusList();
     const prevOpen = usePrevious(isOpen);
@@ -336,7 +282,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
     );
 
     const handlePopoverItemClick =
-      (onClick: BaseProps['onClick']) => (event: ClickEvent) => {
+      (onClick: PopoverItemProps['onClick']) => (event: ClickEvent) => {
         onClick?.(event);
         handleToggle(false);
       };
@@ -349,7 +295,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
     );
 
     useEffect(() => {
-      const dialogElement = refs.floating.current;
+      const dialogElement = dialogRef.current;
 
       if (!dialogElement) {
         return;
@@ -358,7 +304,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore The package is bundled incorrectly
       dialogPolyfill.registerDialog(dialogElement);
-    }, [refs.floating.current]);
+    }, []);
 
     useEffect(() => {
       /**
@@ -457,7 +403,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
             onClose={handleTriggerClick}
             open={isOpen}
             className={className}
-            closeButtonLabel={closeButtonLabel}
+            {...props}
           >
             {popoverContent}
           </Modal>
@@ -466,14 +412,17 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
             open={isOpen}
             {...props}
             data-side={side}
-            ref={applyMultipleRefs(ref, refs.setFloating)}
+            ref={applyMultipleRefs(ref, refs.setFloating, dialogRef)}
             className={clsx(
               !isMobile && classes.content,
               isOpen && classes.open,
               actions && classes['with-actions'],
               className,
             )}
-            style={floatingStyles}
+            style={{
+              ...floatingStyles,
+              zIndex: zIndex || 'var(--cui-z-index-popover)',
+            }}
           >
             {popoverContent}
             {hasArrow && (

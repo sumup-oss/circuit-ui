@@ -19,7 +19,7 @@ import { useState, type ReactNode } from 'react';
 
 import { Button } from '../Button/index.js';
 
-import { type Action, Popover } from './Popover.js';
+import { type Action, Popover, type PopoverProps } from './Popover.js';
 
 export default {
   title: 'Components/Popover',
@@ -54,14 +54,15 @@ function PopoverWrapper({ children }: { children: ReactNode }) {
   return <div style={{ width: 200, height: 250 }}>{children}</div>;
 }
 
-const popoverContent = <div style={{}}>Hello 👋</div>;
+const popoverContent = 'Hello 👋';
 
-export const Base = () => {
+export const Base = (args: PopoverProps) => {
   const [isOpen, setOpen] = useState(true);
 
   return (
     <PopoverWrapper>
       <Popover
+        {...args}
         isOpen={isOpen}
         fallbackPlacements={['bottom']}
         onToggle={setOpen}
@@ -70,19 +71,22 @@ export const Base = () => {
             Open popover
           </Button>
         )}
-      >
-        {popoverContent}
-      </Popover>
+      />
     </PopoverWrapper>
   );
 };
-export const WithActions = () => {
+
+Base.args = {
+  children: popoverContent,
+};
+
+export const WithActions = (args: PopoverProps) => {
   const [isOpen, setOpen] = useState(true);
 
   return (
     <PopoverWrapper>
       <Popover
-        actions={actions}
+        {...args}
         isOpen={isOpen}
         onToggle={setOpen}
         component={(props) => (
@@ -95,23 +99,30 @@ export const WithActions = () => {
   );
 };
 
-export const Offset = () => {
+WithActions.args = {
+  actions,
+};
+
+export const Offset = (args: PopoverProps) => {
   const [isOpen, setOpen] = useState(true);
 
   return (
     <PopoverWrapper>
       <Popover
+        {...args}
         isOpen={isOpen}
-        offset={20}
         onToggle={setOpen}
         component={(props) => (
           <Button size="s" variant="secondary" {...props}>
             Open popover
           </Button>
         )}
-      >
-        {popoverContent}
-      </Popover>
+      />
     </PopoverWrapper>
   );
+};
+
+Offset.args = {
+  actions,
+  offset: 20,
 };

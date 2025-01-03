@@ -154,8 +154,8 @@
 }
 
 .divider {
-  width: calc(100% + 32px) !important;
-  margin-left: -16px;
+  width: calc(100% + var(--cui-spacings-tera));
+  margin-left: calc(-1 * var(--cui-spacings-mega));
 }
 
 .buttons {
@@ -167,7 +167,8 @@
 
 .popover {
   max-width: min(410px, 100vw);
-  border: var(--cui-border-width-kilo) solid var(--cui-border-subtle) !important;
+  border-color: var(--cui-border-subtle);
+  box-shadow: none;
 }
 
 .popover::after {

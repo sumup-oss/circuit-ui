@@ -14,11 +14,12 @@
  */
 
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { createRef } from 'react';
+import { createRef, type FC } from 'react';
+import { Add, Delete, type IconProps } from '@sumup-oss/icons';
 
 import { act, axe, render, userEvent, screen } from '../../util/test-utils.js';
 
-import { Popover, type PopoverProps } from './Popover.js';
+import { type Action, Popover, type PopoverProps } from './Popover.js';
 
 describe('Popover', () => {
   afterEach(() => {
@@ -55,6 +56,21 @@ describe('Popover', () => {
     isOpen: true,
     onToggle: vi.fn(createStateSetter(true)),
   };
+
+  const actions: Action[] = [
+    {
+      onClick: vi.fn(),
+      children: 'Add',
+      icon: Add as FC<IconProps>,
+    },
+    { type: 'divider' },
+    {
+      onClick: vi.fn(),
+      children: 'Remove',
+      icon: Delete as FC<IconProps>,
+      destructive: true,
+    },
+  ];
 
   it('should forward a ref', () => {
     const ref = createRef<HTMLDialogElement>();
@@ -140,6 +156,20 @@ describe('Popover', () => {
     expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
   });
 
+  it('should close the popover when clicking a popover item', async () => {
+    renderPopover({
+      ...baseProps,
+      children: undefined,
+      actions,
+    });
+
+    const popoverItems = screen.getAllByRole('menuitem');
+
+    await userEvent.click(popoverItems[0]);
+
+    expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
+  });
+
   it('should move focus to the first popover item after opening', async () => {
     const isOpen = false;
     const onToggle = vi.fn(createStateSetter(isOpen));
@@ -187,13 +217,41 @@ describe('Popover', () => {
     });
   });
 
+  it('should render the popover with menu semantics by default ', async () => {
+    renderPopover({
+      ...baseProps,
+      children: undefined,
+      actions,
+    });
+
+    const menu = screen.getByRole('menu');
+    expect(menu).toBeVisible();
+    const menuitems = screen.getAllByRole('menuitem');
+    expect(menuitems.length).toBe(2);
+
+    await flushMicrotasks();
+  });
+
   it('should render the popover without menu semantics ', async () => {
-    renderPopover({ ...baseProps });
+    renderPopover({ ...baseProps, role: 'none' });
 
     const menu = screen.queryByRole('menu');
     expect(menu).toBeNull();
     const menuitems = screen.queryAllByRole('menuitem');
     expect(menuitems.length).toBe(0);
+
+    await flushMicrotasks();
+  });
+
+  it('should hide dividers from the accessibility tree', async () => {
+    const { baseElement } = renderPopover({
+      ...baseProps,
+      children: undefined,
+      actions,
+    });
+
+    const dividers = baseElement.querySelectorAll('hr[aria-hidden="true"');
+    expect(dividers.length).toBe(1);
 
     await flushMicrotasks();
   });
