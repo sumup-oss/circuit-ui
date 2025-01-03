@@ -32,7 +32,7 @@ import {
 } from './components/MobileNavigation/index.js';
 
 export interface SideNavigationProps
-  extends MobileNavigationProps,
+  extends Omit<MobileNavigationProps, 'open'>,
     DesktopNavigationProps {
   isOpen: boolean;
   onClose: () => void;

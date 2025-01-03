@@ -16,14 +16,8 @@
 'use client';
 
 import { Fragment } from 'react';
-import ReactModal from 'react-modal';
 import { ChevronDown } from '@sumup-oss/icons';
 
-import {
-  createUseModal,
-  type BaseModalProps,
-  type ModalComponent,
-} from '../../../ModalContext/index.js';
 import { StackContext } from '../../../StackContext/index.js';
 import { CloseButton } from '../../../CloseButton/index.js';
 import { useCollapsible } from '../../../../hooks/useCollapsible/index.js';
@@ -40,12 +34,14 @@ import {
 import { defaultComponents } from '../../../ComponentsContext/ComponentsContext.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { SkipLink } from '../../../SkipLink/index.js';
+import { Modal, type ModalProps } from '../../../Modal/index.js';
+import { createUseModal } from '../../../Modal/createUseModal.js';
 
 import classes from './MobileNavigation.module.css';
 
 const TRANSITION_DURATION = 120;
 
-export interface MobileNavigationProps extends BaseModalProps {
+export interface MobileNavigationProps extends Omit<ModalProps, 'children'> {
   /**
    * A collection of links with nested secondary groups.
    */
@@ -96,7 +92,7 @@ function Group({
   onClose,
   ...props
 }: Require<PrimaryLinkProps, 'secondaryGroups'> & {
-  onClose: BaseModalProps['onClose'];
+  onClose: ModalProps['onClose'];
 }) {
   const { getButtonProps, getContentProps } =
     useCollapsible<HTMLUListElement>();
@@ -139,7 +135,7 @@ function Group({
  * overlays the page content.
  * Built on top of [`react-modal`](https://reactcommunity.org/react-modal/).
  */
-export const MobileNavigation: ModalComponent<MobileNavigationProps> = ({
+export const MobileNavigation = ({
   onClose,
   closeButtonLabel,
   primaryLinks,
@@ -148,31 +144,18 @@ export const MobileNavigation: ModalComponent<MobileNavigationProps> = ({
   skipNavigationHref,
   skipNavigationLabel,
   ...props
-}) => {
+}: MobileNavigationProps) => {
   const focusProps = useFocusList();
-
-  const reactModalProps = {
-    className: {
-      base: classes.base,
-      afterOpen: classes.open,
-      beforeClose: classes.closed,
-    },
-    overlayClassName: {
-      base: classes.overlay,
-      afterOpen: classes['overlay-open'],
-      beforeClose: classes['overlay-closed'],
-    },
-    onRequestClose: onClose,
-    closeTimeoutMS: TRANSITION_DURATION,
-    shouldCloseOnOverlayClick: true,
-    shouldCloseOnEsc: true,
-    ...props,
-  };
 
   return (
     <ComponentsContext.Provider value={UNSAFE_components}>
       <StackContext.Provider value={'var(--cui-z-index-modal)'}>
-        <ReactModal {...reactModalProps}>
+        <Modal
+          onClose={onClose}
+          className={classes.base}
+          variant="immersive"
+          {...props}
+        >
           <div className={classes.content}>
             {skipNavigationHref && skipNavigationLabel && (
               <SkipLink href={skipNavigationHref}>
@@ -206,7 +189,7 @@ export const MobileNavigation: ModalComponent<MobileNavigationProps> = ({
               </ul>
             </nav>
           </div>
-        </ReactModal>
+        </Modal>
       </StackContext.Provider>
     </ComponentsContext.Provider>
   );

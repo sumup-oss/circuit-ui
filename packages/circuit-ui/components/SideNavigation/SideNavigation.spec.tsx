@@ -24,7 +24,7 @@ import {
   screen,
   type RenderFn,
 } from '../../util/test-utils.js';
-import { ModalProvider } from '../ModalContext/index.js';
+import { ModalProvider } from '../Modal/ModalContext.js';
 
 import { SideNavigation, type SideNavigationProps } from './SideNavigation.js';
 
