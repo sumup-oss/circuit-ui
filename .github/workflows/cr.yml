@@ -1,11 +1,12 @@
 name: Continuous Releases
 on:
-  issue_comment:
-    types: [created]
+  pull_request:
+    types:
+      - labeled
 
 jobs:
   build:
-    if: ${{ github.event.comment.body == '/preview' && github.event.issue.pull_request }}
+    if: ${{ github.event.label.name == 'preview' }}
     runs-on: ubuntu-latest
 
     steps:
@@ -25,4 +26,78 @@ jobs:
         run: npm run build
 
       - name: Publish packages
-        run: npx pkg-pr-new publish './packages/circuit-ui'  './packages/design-tokens'  './packages/icons'
+        run: npx pkg-pr-new publish './packages/circuit-ui'  './packages/design-tokens'  './packages/icons' --json output.json --comment=off
+
+      - name: Post or update comment
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const output = JSON.parse(fs.readFileSync('output.json', 'utf8'));
+            console.log(output);
+      
+            const packages = output.packages
+              .map((p) => `- ${p.name}: ${p.url}`)
+              .join('\n');
+      
+            const sha = context.payload.pull_request.head.sha
+            
+            const commitUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${sha}`;
+      
+            const body = `## 🚀 Your packages were published 
+      
+            ### Published Packages:
+      
+            ${packages}
+      
+            [View Commit](${commitUrl})`;
+      
+            const botCommentIdentifier = '## 🚀 Your packages were published ';
+      
+            async function findBotComment(issueNumber) {
+              if (!issueNumber) return null;
+              const comments = await github.rest.issues.listComments({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+              });
+              return comments.data.find((comment) =>
+                comment.body.includes(botCommentIdentifier)
+              );
+            }
+      
+            async function createOrUpdateComment(issueNumber) {
+              if (!issueNumber) {
+                console.log('No issue number provided. Cannot post or update comment.');
+                return;
+              }
+      
+              const existingComment = await findBotComment(issueNumber);
+              if (existingComment) {
+                await github.rest.issues.updateComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  comment_id: existingComment.id,
+                  body: body,
+                });
+              } else {
+                await github.rest.issues.createComment({
+                  issue_number: issueNumber,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body: body,
+                });
+              }
+            }
+            if (context.issue.number) {
+              await createOrUpdateComment(context.issue.number);
+            }
+
+      - name: Delete label
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER:
+            ${{ github.event.pull_request.number }}
+        run: |
+          gh pr edit $PR_NUMBER --remove-label "preview"

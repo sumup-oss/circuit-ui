@@ -26,7 +26,7 @@
 		"test:ci": "vitest run --coverage",
 		"lint": "biome check --diagnostic-level=error && foundry run eslint . --ext .js,.jsx,.ts,.tsx",
 		"lint:fix": "biome check --write --diagnostic-level=error && foundry run eslint . --ext .js,.jsx,.ts,.tsx --fix",
-		"lint:ci": "biome ci && foundry run eslint . --ext .js,.jsx,.ts,.tsx --quiet ",
+		"lint:ci": "biome ci --diagnostic-level=error && foundry run eslint . --ext .js,.jsx,.ts,.tsx --quiet ",
 		"lint:css": "foundry run stylelint '**/*.css'",
 		"lint:css:fix": "foundry run stylelint '**/*.css' --fix",
 		"dev": "npm run docs:start",
