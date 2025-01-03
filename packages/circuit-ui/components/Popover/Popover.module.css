@@ -1,99 +1,70 @@
-.item {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  font-size: var(--cui-body-m-font-size);
-  line-height: var(--cui-body-m-line-height);
-  text-align: left;
-  background: var(--cui-bg-elevated);
-}
-
-.icon {
-  margin-right: var(--cui-spacings-kilo);
-}
-
 .trigger {
   display: inline-block;
 }
 
 .menu {
-  box-sizing: border-box;
-  max-height: var(--popover-max-height);
   padding: var(--cui-spacings-byte) 0;
   overflow-y: auto;
-  visibility: hidden;
   background-color: var(--cui-bg-elevated);
   border: 1px solid var(--cui-border-subtle);
   border-radius: var(--cui-border-radius-byte);
+}
+
+.content {
+  /* The arrow should be 8px tall. A square element is rotated to achieve a triangular shape. Using Pythagoras' theorem, we can calculate the ratio between the triangle height and the square sides: √(8^2 + 8^2) / 8 ≈ 1.414 */
+  --tooltip-arrow-size: calc(var(--cui-spacings-byte) * 1.414);
+
+  box-sizing: border-box;
+  max-height: var(--popover-max-height);
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  pointer-events: none;
+  visibility: hidden;
+  background-color: var(--cui-bg-elevated);
+  border: none;
   box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
   opacity: 0;
 }
 
-@media (max-width: 479px) {
-  .menu {
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-    opacity: 1;
-    transition:
-      transform var(--cui-transitions-default),
-      visibility var(--cui-transitions-default);
-    transform: translateY(100%);
-  }
-}
-
-.menu.open {
+.content.open {
+  pointer-events: all;
   visibility: inherit;
   opacity: 1;
 }
 
-@media (max-width: 479px) {
-  .menu.open {
-    transform: translateY(0);
+@media (min-width: 480px) {
+  .content {
+    padding: var(--cui-spacings-mega);
+    border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
+    border-radius: var(--cui-border-radius-byte);
   }
+}
+
+.content.with-actions {
+  padding: 0;
+  border: none;
+  border-radius: var(--cui-border-radius-byte);
 }
 
 .divider {
-  width: calc(100% - var(--cui-spacings-mega) * 2);
-  margin: var(--cui-spacings-byte) var(--cui-spacings-mega);
+  margin: var(--cui-spacings-byte) auto;
 }
 
-@media (max-width: 479px) {
-  .overlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    visibility: hidden;
-    background-color: var(--cui-bg-overlay);
-    opacity: 0;
-    transition:
-      opacity var(--cui-transitions-default),
-      visibility var(--cui-transitions-default);
-  }
-
-  .overlay.open {
-    visibility: inherit;
-    opacity: 1;
+@media (min-width: 480px) {
+  .divider {
+    width: calc(100% - var(--cui-spacings-mega) * 2);
   }
 }
 
-.wrapper {
-  pointer-events: none;
-}
-
-.wrapper.open {
-  pointer-events: all;
-}
-
-.wrapper.open::after {
+.content.open::after {
   position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
   display: block;
   height: var(--cui-spacings-kilo);
+  margin: 0;
   content: "";
   background: linear-gradient(
     color-mix(in sRGB, var(--cui-bg-elevated) 0%, transparent),
@@ -102,4 +73,48 @@
   );
   border-bottom-right-radius: var(--cui-border-radius-byte);
   border-bottom-left-radius: var(--cui-border-radius-byte);
+}
+
+.arrow {
+  position: absolute;
+  width: var(--tooltip-arrow-size);
+  height: var(--tooltip-arrow-size);
+  background-color: var(--cui-bg-elevated);
+  border-right: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
+  border-bottom: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
+  border-bottom-right-radius: 2px;
+}
+
+.content[data-side="top"] .arrow {
+  top: calc(100% - (var(--tooltip-arrow-size) / 2));
+  left: calc(50% - (var(--tooltip-arrow-size) / 2));
+  margin-top: 1px;
+  transform: rotate(45deg);
+}
+
+.content[data-side="right"] .arrow {
+  right: calc(100% - (var(--tooltip-arrow-size) / 2));
+  bottom: calc(50% - (var(--tooltip-arrow-size) / 2));
+  margin-right: 1px;
+  transform: rotate(135deg);
+}
+
+.content[data-side="bottom"] .arrow {
+  bottom: calc(100% - (var(--tooltip-arrow-size) / 2));
+  left: calc(50% - (var(--tooltip-arrow-size) / 2));
+  margin-bottom: 1px;
+  transform: rotate(225deg);
+}
+
+.content[data-side="left"] .arrow {
+  bottom: calc(50% - (var(--tooltip-arrow-size) / 2));
+  left: calc(100% - (var(--tooltip-arrow-size) / 2));
+  margin-left: 1px;
+  transform: rotate(315deg);
+}
+
+@media (max-width: 479px) {
+  .arrow {
+    display: none;
+  }
 }

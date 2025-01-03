@@ -1,24 +1,29 @@
-import { Meta, Status, Props, Story } from '../../../../.storybook/components';
-import * as Stories from './Popover.stories';
+import { Meta, Status, Props, Story } from "../../../../.storybook/components";
+import * as Stories from "./Popover.stories";
 
 <Meta of={Stories} />
 
 # Popover
 
-Popover menus are a common pattern to display a list of subsequent action options, when interacting with an actionable component.
+The Popover component shows content on top of other page content in an ephemeral manner.
 
 <Story of={Stories.Base} />
 <Props />
+## When to use it
 
-- The reference element, which triggers Popover, can be primary, secondary, tertiary buttons, an overflow icon, or components with embedded buttons such as the [ImageInput](Forms/ImageInput) component.
-- Each Popover action item is represented by an appropriate HTML element (e.g., a button element or an anchor element).
+In most cases, the [Tooltip](Components/Tooltip/Docs) or the [Toggletip](Components/Toggletip/Docs) components should cover your needs. However, if you need to show more interactive content, the Popover component will be the best fit.
+Examples:
+
+- To display content in dropdown types, such as profile menus, filters, media previews.. etc.
+- To display list of actions that can be taken on a specific item (use the `actions` prop)
+
+## How to use it
+
+- The component will either accept an `actions` prop, which is an array of objects, each object representing an action item in the Popover, or a `children` prop, which represents the content of the Popover, but not both at the same time.
+- The reference element, which triggers the Popover, can be a primary, secondary, tertiary button, an overflow icon, or components with embedded buttons such as the [ImageInput](Forms/ImageInput) component.
+- When using the `actions` prop, each Popover action item is represented by an appropriate HTML element (e.g., a button element or an anchor element).
 - If needed, the dividing line can be used to separate Popover action items.
 - The leading icon is optional.
+- On small screens, the popover will show your content inside a [Modal](Components/Modal/Docs) component.
 - The Popover is powered by [Floating UI](https://floating-ui.com/docs/react-dom). You can easily change the position of the Popover relative to the reference element by passing in the `placement` prop. If you want to offset the Popover in the x and y directions, use the `offset` prop.
-
-<Story of={Stories.Offset} />
-
-## Usage guidelines
-
-- **Do** use clear, concise and actionable labels for Popover items
-- **Do** always think about the priority of the action option to be taken and put the option order in logical order
+- if the `hasArrow` prop is set to `true`, the Popover will have an arrow pointing to the reference element, and will ignore the provided `offset` prop to position the arrow correctly.

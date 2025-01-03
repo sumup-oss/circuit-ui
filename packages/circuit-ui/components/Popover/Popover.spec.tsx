@@ -13,78 +13,13 @@
  * limitations under the License.
  */
 
-import type { FC } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { Delete, Add, Download, type IconProps } from '@sumup-oss/icons';
+import { createRef, type FC } from 'react';
+import { Add, Delete, type IconProps } from '@sumup-oss/icons';
 
-import {
-  act,
-  axe,
-  render,
-  userEvent,
-  screen,
-  type RenderFn,
-} from '../../util/test-utils.js';
-import type { ClickEvent } from '../../types/events.js';
+import { act, axe, render, userEvent, screen } from '../../util/test-utils.js';
 
-import {
-  PopoverItem,
-  type PopoverItemProps,
-  Popover,
-  type PopoverProps,
-} from './Popover.js';
-
-describe('PopoverItem', () => {
-  function renderPopoverItem<T>(
-    renderFn: RenderFn<T>,
-    props: PopoverItemProps,
-  ) {
-    return renderFn(<PopoverItem {...props} />);
-  }
-
-  const baseProps = {
-    children: 'PopoverItem',
-    icon: Download as FC<IconProps>,
-  };
-
-  describe('Styles', () => {
-    it('should render as Link when an href (and onClick) is passed', () => {
-      const props = {
-        ...baseProps,
-        href: 'https://sumup.com',
-        onClick: vi.fn(),
-      };
-      const { container } = renderPopoverItem(render, props);
-      const anchorEl = container.querySelector('a');
-      expect(anchorEl).toBeVisible();
-    });
-
-    it('should render as a `button` when an onClick is passed', () => {
-      const props = { ...baseProps, onClick: vi.fn() };
-      const { container } = renderPopoverItem(render, props);
-      const buttonEl = container.querySelector('button');
-      expect(buttonEl).toBeVisible();
-    });
-  });
-
-  describe('Logic', () => {
-    it('should call onClick when rendered as Link', async () => {
-      const props = {
-        ...baseProps,
-        href: 'https://sumup.com',
-        onClick: vi.fn((event: ClickEvent) => {
-          event.preventDefault();
-        }),
-      };
-      const { container } = renderPopoverItem(render, props);
-      const anchorEl = container.querySelector('a');
-      if (anchorEl) {
-        await userEvent.click(anchorEl);
-      }
-      expect(props.onClick).toHaveBeenCalledTimes(1);
-    });
-  });
-});
+import { type Action, Popover, type PopoverProps } from './Popover.js';
 
 describe('Popover', () => {
   afterEach(() => {
@@ -117,23 +52,33 @@ describe('Popover', () => {
 
   const baseProps: PopoverProps = {
     component: (triggerProps) => <button {...triggerProps}>Button</button>,
-    actions: [
-      {
-        onClick: vi.fn(),
-        children: 'Add',
-        icon: Add as FC<IconProps>,
-      },
-      { type: 'divider' },
-      {
-        onClick: vi.fn(),
-        children: 'Remove',
-        icon: Delete as FC<IconProps>,
-        destructive: true,
-      },
-    ],
+    children: <div>Popover content</div>,
     isOpen: true,
     onToggle: vi.fn(createStateSetter(true)),
   };
+
+  const actions: Action[] = [
+    {
+      onClick: vi.fn(),
+      children: 'Add',
+      icon: Add as FC<IconProps>,
+    },
+    { type: 'divider' },
+    {
+      onClick: vi.fn(),
+      children: 'Remove',
+      icon: Delete as FC<IconProps>,
+      destructive: true,
+    },
+  ];
+
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLDialogElement>();
+    renderPopover({ ...baseProps, ref });
+    const dialog = screen.getByRole('dialog', { hidden: true });
+    expect(ref.current).toBe(dialog);
+  });
+
   it('should open the popover when clicking the trigger element', async () => {
     const isOpen = false;
     const onToggle = vi.fn(createStateSetter(isOpen));
@@ -212,7 +157,11 @@ describe('Popover', () => {
   });
 
   it('should close the popover when clicking a popover item', async () => {
-    renderPopover(baseProps);
+    renderPopover({
+      ...baseProps,
+      children: undefined,
+      actions,
+    });
 
     const popoverItems = screen.getAllByRole('menuitem');
 
@@ -225,15 +174,22 @@ describe('Popover', () => {
     const isOpen = false;
     const onToggle = vi.fn(createStateSetter(isOpen));
 
-    const { rerender } = renderPopover({
+    const props = {
       ...baseProps,
       isOpen,
       onToggle,
-    });
+      children: (
+        <div>
+          <button type="button">Item</button>
+          <button type="button">Item</button>
+        </div>
+      ),
+    };
+    const { rerender } = renderPopover(props);
 
-    rerender(<Popover {...baseProps} isOpen />);
+    rerender(<Popover {...props} isOpen />);
 
-    const popoverItems = screen.getAllByRole('menuitem');
+    const popoverItems = screen.getAllByText('Item');
 
     expect(popoverItems[0]).toHaveFocus();
 
@@ -262,7 +218,11 @@ describe('Popover', () => {
   });
 
   it('should render the popover with menu semantics by default ', async () => {
-    renderPopover(baseProps);
+    renderPopover({
+      ...baseProps,
+      children: undefined,
+      actions,
+    });
 
     const menu = screen.getByRole('menu');
     expect(menu).toBeVisible();
@@ -273,7 +233,7 @@ describe('Popover', () => {
   });
 
   it('should render the popover without menu semantics ', async () => {
-    renderPopover({ ...baseProps, role: null });
+    renderPopover({ ...baseProps, role: 'none' });
 
     const menu = screen.queryByRole('menu');
     expect(menu).toBeNull();
@@ -284,7 +244,11 @@ describe('Popover', () => {
   });
 
   it('should hide dividers from the accessibility tree', async () => {
-    const { baseElement } = renderPopover(baseProps);
+    const { baseElement } = renderPopover({
+      ...baseProps,
+      children: undefined,
+      actions,
+    });
 
     const dividers = baseElement.querySelectorAll('hr[aria-hidden="true"');
     expect(dividers.length).toBe(1);
