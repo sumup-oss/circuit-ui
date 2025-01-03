@@ -16,3 +16,5 @@
 export { Popover } from './Popover.js';
 
 export type { PopoverProps } from './Popover.js';
+
+export type { PopoverItemProps } from './components/PopoverItem.js';

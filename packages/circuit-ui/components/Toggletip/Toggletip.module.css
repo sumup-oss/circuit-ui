@@ -2,10 +2,13 @@
   width: max-content;
   max-width: 360px;
   max-width: min(360px, 100vw);
-  overflow: visible !important;
-  border: var(--cui-border-width-kilo) solid var(--cui-border-subtle) !important;
-  border-radius: var(--cui-border-radius-byte);
-  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 8%);
+  overflow: visible;
+}
+
+@media (min-width: 480px) {
+  .base {
+    box-shadow: 0 2px 6px 0 rgb(0 0 0 / 8%);
+  }
 }
 
 .base::after {

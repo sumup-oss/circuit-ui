@@ -382,6 +382,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
               offset={4}
               placement={placement}
               closeButtonLabel={closeCalendarButtonLabel}
+              locale={locale}
               component={() => (
                 <IconButton
                   ref={calendarButtonRef}

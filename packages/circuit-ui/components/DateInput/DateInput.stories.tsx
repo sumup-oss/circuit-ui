@@ -14,6 +14,7 @@
  */
 
 import { useState } from 'react';
+import { userEvent, within } from '@storybook/test';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 
@@ -94,13 +95,24 @@ export const Validations = (args: DateInputProps) => (
 
 Validations.args = baseArgs;
 
+const openCalendar = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLCanvasElement;
+}) => {
+  const canvas = within(canvasElement);
+  const referenceEl = canvas.getAllByRole('button');
+
+  await userEvent.click(referenceEl[0]);
+};
+
 export const Optional = (args: DateInputProps) => <DateInput {...args} />;
 
 Optional.args = {
   ...baseArgs,
   optionalLabel: 'optional',
 };
-
+Optional.play = openCalendar;
 export const Readonly = (args: DateInputProps) => <DateInput {...args} />;
 
 Readonly.args = {
