@@ -20,7 +20,7 @@ import { Shop, SumUpLogo } from '@sumup-oss/icons';
 import { modes } from '../../../../.storybook/modes.js';
 import { SideNavigation } from '../SideNavigation/index.js';
 import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories.js';
-import { ModalProvider } from '../ModalContext/index.js';
+import { ModalProvider } from '../Modal/ModalContext.js';
 import { Body } from '../Body/index.js';
 import type { HamburgerProps } from '../Hamburger/Hamburger.js';
 import { Headline } from '../Headline/index.js';

@@ -19,7 +19,6 @@ import { Fragment } from 'react';
 import { ChevronDown } from '@sumup-oss/icons';
 
 import { StackContext } from '../../../StackContext/index.js';
-import { CloseButton } from '../../../CloseButton/index.js';
 import { useCollapsible } from '../../../../hooks/useCollapsible/index.js';
 import { useFocusList } from '../../../../hooks/useFocusList/index.js';
 import type { PrimaryLinkProps } from '../../types.js';
@@ -129,12 +128,6 @@ function Group({
   );
 }
 
-/**
- * TODO: Update description 👇
- * The modal component displays self-contained tasks in a focused window that
- * overlays the page content.
- * Built on top of [`react-modal`](https://reactcommunity.org/react-modal/).
- */
 export const MobileNavigation = ({
   onClose,
   closeButtonLabel,
@@ -163,9 +156,6 @@ export const MobileNavigation = ({
                 {skipNavigationLabel}
               </SkipLink>
             )}
-            <div className={classes.header}>
-              <CloseButton onClick={onClose}>{closeButtonLabel}</CloseButton>
-            </div>
 
             <nav aria-label={primaryNavigationLabel}>
               <ul className={classes.list}>

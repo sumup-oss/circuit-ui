@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { Home, Shop } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../../../types/events.js';
@@ -40,12 +40,7 @@ describe('MobileNavigation', () => {
   }
 
   const baseProps = {
-    // Silences the warning about the missing app element.
-    // In user land, the modal is always rendered by the ModalProvider,
-    // which takes care of setting the app element.
-    // http://reactcommunity.org/react-modal/accessibility/#app-element
-    ariaHideApp: false,
-    isOpen: true,
+    open: true,
     onClose: vi.fn(),
     closeButtonLabel: 'Close navigation modal',
     primaryNavigationLabel: 'Primary',
@@ -81,8 +76,22 @@ describe('MobileNavigation', () => {
     ],
   };
 
-  afterEach(() => {
+  let originalHTMLDialogElement: typeof window.HTMLDialogElement;
+
+  beforeEach(() => {
+    originalHTMLDialogElement = window.HTMLDialogElement;
     vi.clearAllMocks();
+    vi.useFakeTimers({ shouldAdvanceTime: true });
+  });
+
+  afterEach(() => {
+    vi.runOnlyPendingTimers();
+    vi.useRealTimers();
+    vi.resetAllMocks();
+    Object.defineProperty(window, 'HTMLDialogElement', {
+      writable: true,
+      value: originalHTMLDialogElement,
+    });
   });
 
   it('should toggle the secondary navigation', async () => {

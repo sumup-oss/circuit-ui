@@ -3,6 +3,7 @@
     max-height: unset;
     padding: 0 !important;
   }
+}
 
 @media (min-width: 480px) {
   .base {
