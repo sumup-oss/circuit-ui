@@ -1,4 +1,6 @@
 .base {
+  background: var(--cui-bg-normal);
+
   > div {
     max-height: unset;
     padding: 0 !important;
