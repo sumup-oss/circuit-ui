@@ -58,9 +58,12 @@ vi.mock('./SidePanel.js', () => ({
     onAfterClose,
     children,
   }: { open: boolean; onAfterClose?: () => void; children: ReactNode }) => {
-    useEffect(() => () => {
+    useEffect(
+      () => () => {
         onAfterClose?.();
-      }, [onAfterClose]);
+      },
+      [onAfterClose],
+    );
 
     return <dialog open={open}>{children}</dialog>;
   },

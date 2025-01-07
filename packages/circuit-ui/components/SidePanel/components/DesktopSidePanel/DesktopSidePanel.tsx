@@ -66,15 +66,6 @@ export const DesktopSidePanel = forwardRef<
     return () => clearTimeout(timeoutId);
   }, [open]);
 
-  useEffect(
-    () => () => {
-      if (dialogRef.current) {
-        dialogRef.current?.close();
-      }
-      void onClose?.();
-    },
-    [onClose],
-  );
   const [isOpen, setIsOpen] = useState(false);
 
   function onEscapeKey() {
