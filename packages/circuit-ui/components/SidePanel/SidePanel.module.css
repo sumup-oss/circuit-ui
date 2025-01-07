@@ -17,6 +17,22 @@
   }
 }
 
+@media (max-width: 767px) {
+  .modal {
+    width: 100vw;
+    max-width: unset;
+    height: 100vh;
+    max-height: unset;
+    margin: auto;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .modal > div {
+    padding: 0 !important;
+  }
+}
+
 .content {
   width: 100%;
   max-width: 480px;

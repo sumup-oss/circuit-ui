@@ -20,7 +20,7 @@ import { modes } from '../../../../.storybook/modes.js';
 import { Body } from '../Body/index.js';
 import { Button } from '../Button/index.js';
 import { ListItemGroup } from '../ListItemGroup/index.js';
-import { ModalProvider } from '../ModalContext/index.js';
+import { ModalProvider } from '../Modal/ModalContext.js';
 import { TopNavigation } from '../TopNavigation/index.js';
 import { baseArgs as topNavigationProps } from '../TopNavigation/TopNavigation.stories.js';
 import { SideNavigation } from '../SideNavigation/index.js';

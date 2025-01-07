@@ -92,11 +92,6 @@ describe('SidePanelContext', () => {
       headline: 'Side panel title',
       id: uniqueId(),
       onClose: undefined,
-      // Silences the warning about the missing app element.
-      // In user land, the side panel is always rendered by the SidePanelProvider,
-      // which takes care of setting the app element.
-      // http://reactcommunity.org/react-modal/accessibility/#app-element
-      ariaHideApp: false,
     });
 
     const renderComponent = (Trigger: ComponentType, props = {}) =>

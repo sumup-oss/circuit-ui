@@ -18,12 +18,10 @@
    https://stackoverflow.com/questions/75313685/animating-dialog-backdrop-in-firefox
    */
   box-shadow: 0 0 0 100vmax var(--cui-bg-overlay);
-  animation: fade-out 0.5s forwards;
 }
 
 .base.show {
   pointer-events: auto;
-  animation: fade-in 0.5s forwards;
 }
 
 .content {

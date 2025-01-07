@@ -14,6 +14,7 @@
  */
 
 import { describe, expect, it, vi } from 'vitest';
+import { createRef } from 'react';
 
 import {
   render,
@@ -31,26 +32,25 @@ describe('SidePanel', () => {
     children: () => <p data-testid="children">Side panel content</p>,
     closeButtonLabel: 'Close',
     headline: 'Side panel title',
-    isBottomPanelClosing: false,
     isInstantOpen: false,
     isMobile: false,
     isStacked: false,
     onBack: undefined,
     onClose: () => {},
-    // Silences the warning about the missing app element.
-    // In user land, the side panel is always rendered by the SidePanelProvider,
-    // which takes care of setting the app element.
-    // http://reactcommunity.org/react-modal/accessibility/#app-element
-    ariaHideApp: false,
-    // Keep the modal opened by setting the react-modal isOpen prop.
     // Usually this is controlled by the SidePanelProvider.
-    isOpen: true,
-    // Close the modals instantly to prevent buildup of `ReactModalPortal__SidePanel` div elements.
-    closeTimeoutMS: 0,
+    open: true,
   };
 
   const renderComponent = (props: Partial<SidePanelProps> = {}) =>
     render(<SidePanel {...baseProps} {...props} />);
+
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLDialogElement>();
+    render(<SidePanel {...baseProps} ref={ref} />);
+
+    const dialog = screen.getByRole('dialog', { hidden: true });
+    expect(ref.current).toBe(dialog);
+  });
 
   it('should render the side panel', () => {
     renderComponent();
@@ -165,23 +165,6 @@ describe('SidePanel', () => {
     });
   });
 
-  describe('when the panel is on desktop resolution', () => {
-    it('should describe the side panel as modal', () => {
-      renderComponent();
-      expect(screen.getByRole('dialog')).toHaveAttribute('aria-modal', 'true');
-    });
-  });
-
-  describe('when the panel is on mobile resolution', () => {
-    it('should describe the side panel as modal', () => {
-      renderComponent({ isMobile: true });
-      expect(screen.getByRole('dialog')).toHaveAttribute('aria-modal', 'true');
-    });
-  });
-
-  /**
-   * FIXME: calling axe here triggers an act() warning.
-   */
   it('should have no accessibility violations', async () => {
     const { container } = renderComponent();
     const actual = await axe(container);

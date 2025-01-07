@@ -13,38 +13,109 @@
  * limitations under the License.
  */
 
-import ReactModal, { type Props as ReactModalProps } from 'react-modal';
+'use client';
 
+import { forwardRef, useEffect, useRef, useState } from 'react';
+
+import { clsx } from '../../../../styles/clsx.js';
 import { StackContext } from '../../../StackContext/index.js';
 import type { SidePanelProps } from '../../SidePanel.js';
-import { clsx } from '../../../../styles/clsx.js';
+import { useEscapeKey } from '../../../../hooks/useEscapeKey/index.js';
+import { getFirstFocusableElement } from '../../../Modal/ModalService.js';
+import dialogPolyfill from '../../../../vendor/dialog-polyfill/index.js';
+import { TRANSITION_DURATION } from '../../constants.js';
+import { applyMultipleRefs } from '../../../../util/refs.js';
 
 import classes from './DesktopSidePanel.module.css';
 
-export type DesktopSidePanelProps = ReactModalProps &
-  Pick<SidePanelProps, 'isInstantOpen'>;
+export type DesktopSidePanelProps = Omit<
+  SidePanelProps,
+  'isMobile' | 'isStacked' | 'headline'
+>;
 
-export function DesktopSidePanel({
-  children,
-  isInstantOpen,
-  ...props
-}: DesktopSidePanelProps) {
-  const reactModalProps: ReactModalProps = {
-    ariaHideApp: false,
-    className: {
-      base: classes.base,
-      afterOpen: clsx(classes.open, isInstantOpen && classes.instant),
-      beforeClose: classes.closed,
+export const DesktopSidePanel = forwardRef<
+  HTMLDialogElement,
+  DesktopSidePanelProps
+>((props, ref) => {
+  const { children, isInstantOpen, open, onClose, className, ...rest } = props;
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const lastFocusedElementRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (document.activeElement instanceof HTMLElement) {
+      lastFocusedElementRef.current = document.activeElement;
+    }
+  }, []);
+
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+    const dialogElement = dialogRef.current;
+
+    if (open && dialogElement) {
+      timeoutId = setTimeout(() => {
+        getFirstFocusableElement(dialogElement)?.focus();
+      }, TRANSITION_DURATION);
+    }
+    if (!open && lastFocusedElementRef.current) {
+      // restore focus to the last focused element
+      setTimeout(
+        () => lastFocusedElementRef.current?.focus(),
+        TRANSITION_DURATION,
+      );
+    }
+    return () => clearTimeout(timeoutId);
+  }, [open]);
+
+  useEffect(
+    () => () => {
+      if (dialogRef.current) {
+        dialogRef.current?.close();
+      }
+      void onClose?.();
     },
-    overlayClassName: classes.overlay,
-    shouldCloseOnOverlayClick: false,
-    closeTimeoutMS: 300,
-    ...props,
-  };
+    [onClose],
+  );
+  const [isOpen, setIsOpen] = useState(false);
+
+  function onEscapeKey() {
+    if (dialogRef.current) {
+      dialogRef.current?.close();
+      void onClose?.();
+    }
+  }
+  useEscapeKey(onEscapeKey, open);
+
+  // trigger animation on show
+  useEffect(() => {
+    setIsOpen(open);
+  }, [open]);
+
+  useEffect(() => {
+    const dialogElement = dialogRef.current;
+    if (!dialogElement) {
+      return;
+    }
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore The package is bundled incorrectly
+    dialogPolyfill.registerDialog(dialogElement);
+  }, []);
 
   return (
     <StackContext.Provider value={'var(--cui-z-index-navigation)'}>
-      <ReactModal {...reactModalProps}>{children}</ReactModal>
+      <dialog
+        {...rest}
+        open={open}
+        ref={applyMultipleRefs(ref, dialogRef)}
+        className={clsx(
+          classes.base,
+          isOpen && classes.open,
+          !isOpen && classes.closed,
+          isOpen && isInstantOpen && classes.instant,
+          className,
+        )}
+      >
+        {typeof children === 'function' ? children?.({ onClose }) : children}
+      </dialog>
     </StackContext.Provider>
   );
-}
+});

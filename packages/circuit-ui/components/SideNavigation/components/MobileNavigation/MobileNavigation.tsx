@@ -46,11 +46,6 @@ export interface MobileNavigationProps extends Omit<ModalProps, 'children'> {
    */
   primaryLinks: PrimaryLinkProps[];
   /**
-   * Text label for the close button for screen readers.
-   * Important for accessibility.
-   */
-  closeButtonLabel: string;
-  /**
    * Text label for the primary navigation for screen readers.
    * Important for accessibility.
    */

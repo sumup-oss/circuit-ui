@@ -14,8 +14,15 @@
  */
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { createRef } from 'react';
 
-import { render, axe, screen } from '../../../../util/test-utils.js';
+import {
+  render,
+  axe,
+  screen,
+  waitFor,
+  userEvent,
+} from '../../../../util/test-utils.js';
 
 import {
   DesktopSidePanel,
@@ -25,44 +32,106 @@ import {
 describe('DesktopSidePanel', () => {
   const baseProps: DesktopSidePanelProps = {
     isInstantOpen: false,
-    // Silences the warning about the missing app element.
-    // In user land, the side panel is always rendered by the SidePanelProvider,
-    // which takes care of setting the app element.
-    // http://reactcommunity.org/react-modal/accessibility/#app-element
-    ariaHideApp: false,
-    // Keep the modal opened by setting the react-modal isOpen prop.
     // Usually this is controlled by the SidePanelProvider.
-    isOpen: true,
+    open: true,
+    children: 'content',
+    onClose: vi.fn(),
   };
+  let originalHTMLDialogElement: typeof window.HTMLDialogElement;
 
   const renderComponent = (props: Partial<DesktopSidePanelProps> = {}) =>
     render(<DesktopSidePanel {...baseProps} {...props} />);
 
   beforeEach(() => {
-    vi.useFakeTimers();
+    originalHTMLDialogElement = window.HTMLDialogElement;
+    vi.clearAllMocks();
+    vi.useFakeTimers({ shouldAdvanceTime: true });
   });
 
   afterEach(() => {
+    vi.runOnlyPendingTimers();
     vi.useRealTimers();
+    vi.resetAllMocks();
+    Object.defineProperty(window, 'HTMLDialogElement', {
+      writable: true,
+      value: originalHTMLDialogElement,
+    });
+  });
+
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLDialogElement>();
+    render(<DesktopSidePanel {...baseProps} ref={ref} />);
+
+    const dialog = screen.getByRole('dialog', { hidden: true });
+    expect(ref.current).toBe(dialog);
   });
 
   it('should render the side panel', () => {
     renderComponent();
     expect(screen.getByRole('dialog')).toBeVisible();
+    expect(screen.getByText(baseProps.children)).toBeVisible();
   });
 
-  it('should describe the side panel as modal', () => {
-    renderComponent();
-    expect(screen.getByRole('dialog')).toHaveAttribute('aria-modal', 'true');
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    renderComponent({ className });
+    // eslint-disable-next-line testing-library/no-container
+    const dialog = screen.getByRole('dialog', { hidden: true });
+    expect(dialog?.className).toContain(className);
   });
 
-  /**
-   * FIXME: calling axe here triggers an act() warning.
-   */
-  it('should have no accessibility violations', async () => {
-    vi.useRealTimers();
-    const { container } = renderComponent();
-    const actual = await axe(container);
-    expect(actual).toHaveNoViolations();
+  it('should open the dialog when the open prop becomes truthy', () => {
+    const { rerender } = render(
+      <DesktopSidePanel {...baseProps} open={false} />,
+    );
+    const dialog = screen.getByRole('dialog', {
+      hidden: true,
+    });
+    vi.spyOn(dialog, 'showModal');
+    rerender(<DesktopSidePanel {...baseProps} open />);
+    expect(dialog).toBeVisible();
+  });
+
+  it('should close when escape key is pressed', async () => {
+    render(<DesktopSidePanel {...baseProps} />);
+    await userEvent.keyboard('{Escape}');
+    expect(baseProps.onClose).toHaveBeenCalled();
+  });
+
+  describe('when closed', () => {
+    it('should not render its children', () => {
+      render(<DesktopSidePanel {...baseProps} open={false} />);
+      const children = screen.queryByText(baseProps.children);
+
+      expect(children).not.toBeVisible();
+    });
+
+    it('should do nothing when pressing the Escape key', async () => {
+      render(<DesktopSidePanel {...baseProps} open={false} />);
+      await userEvent.keyboard('{Escape}');
+      expect(baseProps.onClose).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = renderComponent();
+      const actual = await axe(container);
+      expect(actual).toHaveNoViolations();
+    });
+
+    it('should focus the first interactive element when opened', async () => {
+      render(
+        <DesktopSidePanel {...baseProps}>
+          <button type="button" name="btn">
+            Button
+          </button>
+        </DesktopSidePanel>,
+      );
+
+      const closeButton = screen.getByRole('button', { name: /Button/i });
+
+      await waitFor(() => expect(closeButton).toHaveFocus());
+    });
   });
 });

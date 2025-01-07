@@ -22,6 +22,7 @@ import {
   useRef,
   useEffect,
   type ReactNode,
+  type HTMLAttributes,
 } from 'react';
 
 import { uniqueId } from '../../util/id.js';
@@ -34,9 +35,12 @@ import {
 export type OnBack = () => void;
 export type OnClose = () => void | Promise<void>;
 
-export type ChildrenRenderProps = { onBack?: OnBack; onClose: OnClose };
+export type ChildrenRenderProps = { onBack?: OnBack; onClose?: OnClose };
 
-export type SidePanelHookProps = {
+export type SidePanelHookProps = Omit<
+  HTMLAttributes<HTMLDialogElement>,
+  'children'
+> & {
   /**
    * Text label for the back button for screen readers.
    * Important for accessibility.
@@ -51,7 +55,7 @@ export type SidePanelHookProps = {
    * Text label for the close button for screen readers.
    * Important for accessibility.
    */
-  closeButtonLabel: string;
+  closeButtonLabel?: string;
   /**
    * The group of the side panel. Opening a second side panel in
    * the same group will replace the content and close all side panels

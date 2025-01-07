@@ -22,10 +22,6 @@
   .base > div {
     max-width: 480px;
     height: 100%;
-    padding-top: 56px;
-    padding-bottom: calc(
-      env(safe-area-inset-bottom) + var(--cui-spacings-tera)
-    );
     margin: 0 auto;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -35,21 +31,6 @@
 .content {
   padding-top: 56px;
   padding-bottom: calc(env(safe-area-inset-bottom) + var(--cui-spacings-tera));
-}
-
-.header {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: var(--cui-z-index-absolute);
-  width: 100%;
-  padding: var(--cui-spacings-bit);
-  background: linear-gradient(
-    color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent),
-    color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent) 66%,
-    color-mix(in sRGB, var(--cui-bg-normal) 0%, transparent)
-  );
 }
 
 .list {

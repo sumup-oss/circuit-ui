@@ -23,12 +23,10 @@ import {
   type ReactNode,
   type HTMLAttributes,
 } from 'react';
-import ReactModal, { type Props as ReactModalProps } from 'react-modal';
 
 import { useMedia } from '../../hooks/useMedia/index.js';
 import { useStack, type StackItem } from '../../hooks/useStack/index.js';
 import type { Require } from '../../types/util.js';
-import { warn } from '../../util/logger.js';
 import { promisify } from '../../util/promises.js';
 import { clsx } from '../../styles/clsx.js';
 import { useLatest } from '../../hooks/useLatest/useLatest.js';
@@ -37,33 +35,6 @@ import { SidePanel, type SidePanelProps } from './SidePanel.js';
 import { TRANSITION_DURATION } from './constants.js';
 import type { SidePanelHookProps } from './useSidePanel.js';
 import classes from './SidePanelContext.module.css';
-
-// It is important for users of screen readers that other page content be hidden
-// (via the `aria-hidden` attribute) while the side panel is open on mobile.
-// To allow react-modal to do this, Circuit UI calls `ReactModal.setAppElement`
-// with a query selector identifying the root of the app.
-// http://reactcommunity.org/react-modal/accessibility/#app-element
-if (typeof window !== 'undefined') {
-  // These are the default app elements in Next.js, Docusaurus, CRA and Storybook.
-  const appElement =
-    document.getElementById('__next') ||
-    document.getElementById('__docusaurus') ||
-    document.getElementById('root') ||
-    document.getElementById('storybook-root');
-
-  if (appElement) {
-    ReactModal.setAppElement(appElement);
-  } else if (
-    process.env.NODE_ENV !== 'production' &&
-    process.env.NODE_ENV !== 'test'
-  ) {
-    warn(
-      'SidePanelProvider',
-      'Could not find the app root element to hide it when a side panel is open.',
-      'Add an element with the id `#root` at the root of your application.',
-    );
-  }
-}
 
 export type SidePanelContextProps = Require<SidePanelHookProps, 'group'>;
 
@@ -82,11 +53,7 @@ export type RemoveSidePanel = (
 ) => Promise<void>;
 
 type SidePanelContextItem = SidePanelContextProps &
-  Pick<SidePanelProps, 'isInstantOpen'> &
-  Pick<
-    ReactModalProps,
-    'closeTimeoutMS' | 'onAfterClose' | 'shouldReturnFocusAfterClose'
-  > &
+  Pick<SidePanelProps, 'onAfterClose' | 'isInstantOpen'> &
   StackItem;
 
 export type SidePanelContextValue = {
@@ -170,11 +137,6 @@ export function SidePanelProvider({
               sidePanel.onAfterClose = resolve;
             } else {
               resolve();
-            }
-
-            if (isInstantClose) {
-              sidePanel.shouldReturnFocusAfterClose = false;
-              sidePanel.closeTimeoutMS = 0;
             }
 
             dispatch({
@@ -268,7 +230,6 @@ export function SidePanelProvider({
       {sidePanels.map((sidePanel) => {
         const { group, id, transition, ...sidePanelProps } = sidePanel;
 
-        const isBottomPanelClosing = !!sidePanels[0].transition;
         const isStacked = group !== sidePanels[0].group;
         const handleClose = () => {
           void removeSidePanel(sidePanels[0].group);
@@ -279,14 +240,11 @@ export function SidePanelProvider({
           <SidePanel
             {...sidePanelProps}
             key={id}
-            isBottomPanelClosing={isBottomPanelClosing}
             isMobile={isMobile}
-            isOpen={!transition}
+            open={!transition}
             isStacked={isStacked}
             onBack={handleBack}
             onClose={handleClose}
-            portalClassName={classes.portal}
-            htmlOpenClassName={classes.open}
           />
         );
       })}

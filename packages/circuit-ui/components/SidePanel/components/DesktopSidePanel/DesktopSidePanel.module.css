@@ -1,6 +1,15 @@
 .base {
+  top: var(--top-navigation-height, 0);
+  right: 0;
+  bottom: 0;
+  left: unset;
+  z-index: var(--cui-z-index-absolute);
+  width: var(--side-panel-width);
   height: 100%;
+  padding: 0;
+  margin: 0;
   background-color: var(--cui-bg-normal);
+  border: none;
   outline: none;
   box-shadow: inset var(--cui-border-width-kilo) 0 0 var(--cui-border-divider);
   transition: transform var(--cui-transitions-slow);
@@ -18,8 +27,4 @@
 .closed {
   transition: transform var(--cui-transitions-slow);
   transform: translateX(100%);
-}
-
-.overlay {
-  height: 100%;
 }
