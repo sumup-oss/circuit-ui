@@ -31,6 +31,8 @@ import {
   type MobileNavigationProps,
 } from './MobileNavigation.js';
 
+vi.mock('../../../../hooks/useMedia/index.js');
+
 describe('MobileNavigation', () => {
   function renderMobileNavigation<T>(
     renderFn: RenderFn<T>,

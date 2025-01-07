@@ -24,7 +24,12 @@ import {
   vi,
   type Mock,
 } from 'vitest';
-import { useContext, type ComponentType } from 'react';
+import {
+  useContext,
+  type ComponentType,
+  useEffect,
+  type ReactNode,
+} from 'react';
 
 import {
   render,
@@ -46,6 +51,20 @@ import {
 } from './SidePanelContext.js';
 
 vi.mock('../../hooks/useMedia/index.js');
+
+vi.mock('./SidePanel.js', () => ({
+  SidePanel: ({
+    open,
+    onAfterClose,
+    children,
+  }: { open: boolean; onAfterClose?: () => void; children: ReactNode }) => {
+    useEffect(() => () => {
+        onAfterClose?.();
+      }, [onAfterClose]);
+
+    return <dialog open={open}>{children}</dialog>;
+  },
+}));
 
 describe('SidePanelContext', () => {
   beforeAll(() => {
