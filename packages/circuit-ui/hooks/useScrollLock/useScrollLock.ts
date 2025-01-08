@@ -15,35 +15,51 @@
 
 import { useCallback, useEffect, useRef } from 'react';
 
+let hookInstanceCount = 0;
+
 export const useScrollLock = (isLocked: boolean): void => {
   const scrollValue = useRef<string>();
+  const isFirstInstance = useRef(false);
 
   const restoreScroll = useCallback(() => {
     // restore scroll to page
     const { body } = document;
-    const scrollY = body.style.top;
     body.style.position = '';
     body.style.top = '';
     body.style.width = '';
-    window.scrollTo(0, Number.parseInt(scrollY || '0', 10) * -1);
+    window.scrollTo(
+      0,
+      Number.parseInt(scrollValue.current?.split('px')[0] || '0', 10),
+    );
   }, []);
+
   useEffect(() => {
-    if (isLocked) {
-      scrollValue.current = `${window.scrollY}px`;
-      const scrollY = scrollValue.current;
-      const { body } = document;
-      const bodyWidth = body.offsetWidth;
-      // when position is set to fixed, the body element is taken out of
-      // the normal document flow and this may cause it to change size.
-      // To prevent this, we set the width of the body to its current width.
-      body.style.position = 'fixed';
-      body.style.width = `${bodyWidth}px`;
-      body.style.top = `-${scrollY}`;
-    } else {
-      restoreScroll();
+    hookInstanceCount += 1;
+    if (hookInstanceCount === 1) {
+      isFirstInstance.current = true;
     }
     return () => {
+      hookInstanceCount -= 1;
       restoreScroll();
     };
+  }, [restoreScroll]);
+
+  useEffect(() => {
+    if (isFirstInstance.current) {
+      if (isLocked) {
+        scrollValue.current = `${window.scrollY}px`;
+        const scrollY = scrollValue.current;
+        const { body } = document;
+        const bodyWidth = body.offsetWidth;
+        // when position is set to fixed, the body element is taken out of
+        // the normal document flow and this may cause it to change size.
+        // To prevent this, we set the width of the body to its current width.
+        body.style.position = 'fixed';
+        body.style.width = `${bodyWidth}px`;
+        body.style.top = `-${scrollY}`;
+      } else {
+        restoreScroll();
+      }
+    }
   }, [isLocked, restoreScroll]);
 };
