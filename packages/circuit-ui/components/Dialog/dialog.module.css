@@ -9,7 +9,6 @@
   border: none;
   outline: none;
   opacity: 0;
-  animation: fade-out var(--dialog-animation-duration) forwards;
 }
 
 .modal {
@@ -23,7 +22,6 @@
 
 .base.show {
   pointer-events: auto;
-  animation: fade-in var(--dialog-animation-duration) forwards;
 }
 
 .base::after {
@@ -86,6 +84,22 @@
 
 /* Animations */
 
+.fade {
+  animation: fade-out var(--dialog-animation-duration) forwards;
+}
+
+.fade.show {
+  animation: fade-in var(--dialog-animation-duration) forwards;
+}
+
+.slide {
+  animation: slide-out var(--dialog-animation-duration) forwards;
+}
+
+.slide.show {
+  animation: slide-in var(--dialog-animation-duration) forwards;
+}
+
 @keyframes fade-in {
   from {
     visibility: hidden;
@@ -107,5 +121,33 @@
   to {
     visibility: hidden;
     opacity: 0;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  to {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(100%);
   }
 }

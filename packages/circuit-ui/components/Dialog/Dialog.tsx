@@ -24,11 +24,11 @@ import {
   useEffect,
   useLayoutEffect,
   useRef,
+  useState,
 } from 'react';
 
 import type { Locale } from '../../util/i18n.js';
 import { applyMultipleRefs } from '../../util/refs.js';
-import { ANIMATION_DURATION } from '../Modal/Modal.js';
 import dialogPolyfill from '../../vendor/dialog-polyfill/index.js';
 import { isEscape } from '../../util/key-codes.js';
 import { useScrollLock } from '../../hooks/useScrollLock/useScrollLock.js';
@@ -38,6 +38,8 @@ import type { ClickEvent } from '../../types/events.js';
 import { clsx } from '../../styles/clsx.js';
 
 import classes from './dialog.module.css';
+
+export const ANIMATION_DURATION = 300;
 
 type DataAttribute = `data-${string}`;
 
@@ -83,6 +85,7 @@ export interface DialogProps
     | ReactNode
     | (({ onClose }: { onClose?: DialogProps['onClose'] }) => ReactNode);
   [key: DataAttribute]: string | undefined;
+  animation?: 'slide' | 'fade';
 }
 
 export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
@@ -96,8 +99,11 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       className,
       initialFocusRef,
       preventClose,
+      animation = 'fade',
       ...rest
     } = props;
+    // this state needs to be preserved
+    const [show, setShow] = useState(false);
     const dialogRef = useRef<HTMLDialogElement>(null);
     const lastFocusedElementRef = useRef<HTMLElement | null>(null);
 
@@ -124,7 +130,13 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
           if (initialFocusRef?.current) {
             initialFocusRef?.current?.focus();
           } else {
-            getFirstFocusableElement(dialogElement).focus();
+            const firstFocusableElement =
+              getFirstFocusableElement(dialogElement);
+            if (firstFocusableElement) {
+              firstFocusableElement.focus();
+            } else {
+              dialogElement.focus();
+            }
           }
         }, ANIMATION_DURATION);
       }
@@ -208,7 +220,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       }
 
       // trigger closing animation
-      dialogElement.classList.remove(classes.show);
+      setShow(false);
       if (!hasNativeDialog) {
         (dialogElement.nextSibling as HTMLDivElement).classList.remove(
           classes['backdrop-visible'],
@@ -250,7 +262,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
           }
 
           // trigger show animation
-          dialogElement.classList.add(classes.show);
+          setShow(true);
         }
       } else if (dialogElement.open) {
         handleDialogClose();
@@ -279,7 +291,13 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
         {/* eslint-disable-next-line  jsx-a11y/no-noninteractive-element-interactions */}
         <dialog
           onClick={onDialogClick}
-          className={clsx(classes.base, isModal && classes.modal, className)}
+          className={clsx(
+            classes.base,
+            isModal && classes.modal,
+            classes[animation],
+            show && classes.show,
+            className,
+          )}
           ref={applyMultipleRefs(ref, dialogRef)}
           {...rest}
         >
