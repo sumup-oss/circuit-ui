@@ -33,7 +33,6 @@ import { clsx } from '../../styles/clsx.js';
 import type { ClickEvent } from '../../types/events.js';
 import { isEscape } from '../../util/key-codes.js';
 import { useI18n } from '../../hooks/useI18n/useI18n.js';
-import { deprecate } from '../../util/logger.js';
 import type { Locale } from '../../util/i18n.js';
 import { useScrollLock } from '../../hooks/useScrollLock/useScrollLock.js';
 
@@ -84,11 +83,6 @@ export interface ModalProps
    * Defaults to `navigator.language` in supported environments.
    */
   locale?: Locale;
-  /**
-   * @deprecated This prop was passed to `react-modal` and is no longer relevant.
-   * Use the `preventClose` prop instead. Also see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role#required_javascript_features
-   */
-  hideCloseButton?: boolean;
   [key: DataAttribute]: string | undefined;
 }
 
@@ -105,20 +99,10 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
     className,
     preventClose,
     initialFocusRef,
-    hideCloseButton,
     ...rest
   } = useI18n(props, translations);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const lastFocusedElementRef = useRef<HTMLElement | null>(null);
-
-  if (process.env.NODE_ENV !== 'production') {
-    if (hideCloseButton) {
-      deprecate(
-        'Modal',
-        'The `hideCloseButton` prop has been deprecated. Use the `preventClose` prop instead.',
-      );
-    }
-  }
 
   // eslint-disable-next-line compat/compat
   const hasNativeDialog = window.HTMLDialogElement !== undefined;
