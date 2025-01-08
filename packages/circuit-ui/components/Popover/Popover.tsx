@@ -26,7 +26,7 @@ import {
   type HTMLAttributes,
   forwardRef,
   type RefObject,
-  type AriaRole,
+  type ComponentType,
 } from 'react';
 import {
   useFloating,
@@ -34,7 +34,6 @@ import {
   offset as offsetMiddleware,
   size,
   type Placement,
-  type SizeOptions,
   arrow,
   shift,
   type Side,
@@ -83,7 +82,7 @@ export interface PopoverReferenceProps {
 }
 
 interface BasePopoverProps
-  extends Omit<HTMLAttributes<HTMLDialogElement>, 'children'> {
+  extends Omit<HTMLAttributes<HTMLDialogElement>, 'children' | 'role'> {
   /**
    * The class name to add to the Popover wrapper element.
    */
@@ -117,7 +116,7 @@ interface BasePopoverProps
    * The component that toggles the Popover when clicked. Also referred to as
    * reference element.
    */
-  component: (props: PopoverReferenceProps) => ReactNode;
+  component: ComponentType<PopoverReferenceProps>;
   /**
    * Remove the [`menu` role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/roles/menu_role)
    * when its semantics aren't appropriate for the use case, for example when
@@ -125,7 +124,7 @@ interface BasePopoverProps
    *
    * Learn more: https://inclusive-components.design/menus-menu-buttons/
    */
-  role?: AriaRole;
+  role?: 'menu' | null;
   /**
    * Text label for the close button for screen readers.
    * Important for accessibility.
@@ -164,15 +163,6 @@ type PopoverContent =
 
 type TriggerKey = 'ArrowUp' | 'ArrowDown';
 
-const sizeOptions: SizeOptions = {
-  apply({ availableHeight, elements }) {
-    elements.floating.style.setProperty(
-      '--popover-max-height',
-      `${availableHeight}px`,
-    );
-  },
-};
-
 export type PopoverProps = BasePopoverProps & PopoverContent;
 
 export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
@@ -209,11 +199,26 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
     ) {
       throw new CircuitError(
         'Popover',
-        'The component can either accept children or actions, but not both.',
+        'The component accepts either a `children` or `actions` prop, but not both.',
       );
     }
 
     const padding = 16; // px
+
+    const convertedOffset =
+      typeof offset === 'number'
+        ? { mainAxis: offset, crossAxis: 0 }
+        : {
+            mainAxis: offset?.mainAxis ?? 0,
+            crossAxis: offset?.crossAxis ?? 0,
+          };
+
+    const finalOffset = hasArrow
+      ? {
+          mainAxis: convertedOffset?.mainAxis + 8,
+          crossAxis: convertedOffset.crossAxis + 8,
+        }
+      : convertedOffset;
 
     const {
       placement: finalPlacement,
@@ -225,21 +230,17 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
       open: isOpen,
       placement,
       strategy: 'fixed',
-      middleware: offset
-        ? [
-            offsetMiddleware(hasArrow ? 8 : offset),
-            flip({
-              fallbackPlacements,
-            }),
-            shift({ padding }),
-            size({ padding }),
-            arrow({ element: arrowRef, padding: 12 }),
-          ]
-        : [
-            offsetMiddleware(hasArrow ? 8 : 0),
-            flip({ fallbackPlacements }),
-            size(sizeOptions),
-          ],
+      middleware: [
+        offsetMiddleware(finalOffset),
+        flip({
+          fallbackPlacements,
+        }),
+        shift({ padding }),
+        size({
+          padding,
+        }),
+        arrow({ element: arrowRef, padding: 12 }),
+      ],
     });
 
     useEffect(
@@ -340,9 +341,11 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
 
       // Focus the reference element after closing
       if (prevOpen && !isOpen) {
-        const triggerButton = refs.reference.current
-          ?.firstElementChild as HTMLElement;
-        triggerButton.focus();
+        setTimeout(() => {
+          const triggerButton = refs.reference.current
+            ?.firstElementChild as HTMLElement;
+          triggerButton?.focus();
+        });
       }
 
       triggerKey.current = null;
@@ -357,7 +360,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
     const isMenu = role === 'menu';
 
     const childrenContent =
-      typeof children === 'function' ? children?.() : children;
+      typeof children === 'function' ? children() : children;
 
     const popoverContent = actions ? (
       <div

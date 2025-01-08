@@ -19,7 +19,7 @@ import type { IconComponentType } from '@sumup-oss/icons';
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 
 import { useComponents } from '../../ComponentsContext/index.js';
-import type { EmotionAsPropType } from '../../../types/prop-types.js';
+import type { AsPropType } from '../../../types/prop-types.js';
 import { clsx } from '../../../styles/clsx.js';
 import { sharedClasses } from '../../../styles/shared.js';
 import type { ClickEvent } from '../../../types/events.js';
@@ -66,7 +66,7 @@ export const PopoverItem = ({
 }: PopoverItemProps) => {
   const { Link } = useComponents();
 
-  const Element = props.href ? (Link as EmotionAsPropType) : 'button';
+  const Element = props.href ? (Link as AsPropType) : 'button';
 
   return (
     <Element

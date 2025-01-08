@@ -74,7 +74,7 @@ describe('Popover', () => {
 
   it('should forward a ref', () => {
     const ref = createRef<HTMLDialogElement>();
-    renderPopover({ ...baseProps, ref });
+    render(<Popover {...baseProps} ref={ref} />);
     const dialog = screen.getByRole('dialog', { hidden: true });
     expect(ref.current).toBe(dialog);
   });

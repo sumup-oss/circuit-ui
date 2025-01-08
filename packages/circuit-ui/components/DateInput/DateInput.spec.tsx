@@ -343,6 +343,7 @@ describe('DateInput', () => {
 
       expect(ref.current).toHaveValue('2000-01-12');
       expect(onChange).toHaveBeenCalled();
+      expect(openCalendarButton).toHaveFocus();
     });
 
     it('should allow users to clear the date', async () => {
