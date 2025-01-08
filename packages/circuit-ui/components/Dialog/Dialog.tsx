@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 'use client';
 
 import {
@@ -32,11 +31,13 @@ import { applyMultipleRefs } from '../../util/refs.js';
 import { ANIMATION_DURATION } from '../Modal/Modal.js';
 import dialogPolyfill from '../../vendor/dialog-polyfill/index.js';
 import { isEscape } from '../../util/key-codes.js';
-import classes from '../Modal/Modal.module.css';
 import { useScrollLock } from '../../hooks/useScrollLock/useScrollLock.js';
 import { getFirstFocusableElement } from '../Modal/ModalService.js';
 import { CloseButton } from '../CloseButton/index.js';
 import type { ClickEvent } from '../../types/events.js';
+import { clsx } from '../../styles/clsx.js';
+
+import classes from './dialog.module.css';
 
 type DataAttribute = `data-${string}`;
 
@@ -49,7 +50,7 @@ export interface DialogProps
   /**
    * Whether the dialog is modal or not.
    */
-  isModal: boolean;
+  isModal?: boolean;
   /**
    * Callback when the modal dialog is closed.
    */
@@ -88,10 +89,11 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
   (props, ref) => {
     const {
       open,
-      isModal,
+      isModal = false,
       children,
       onClose,
       closeButtonLabel,
+      className,
       initialFocusRef,
       preventClose,
       ...rest
@@ -277,7 +279,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
         {/* eslint-disable-next-line  jsx-a11y/no-noninteractive-element-interactions */}
         <dialog
           onClick={onDialogClick}
-          open={open}
+          className={clsx(classes.base, isModal && classes.modal, className)}
           ref={applyMultipleRefs(ref, dialogRef)}
           {...rest}
         >
