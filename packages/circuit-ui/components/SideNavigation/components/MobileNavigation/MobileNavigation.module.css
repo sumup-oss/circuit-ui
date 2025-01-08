@@ -2,9 +2,18 @@
   background: var(--cui-bg-normal);
 
   > div {
+    height: 100%;
     max-height: unset;
     padding: 0 !important;
   }
+}
+
+.base::after {
+  background: linear-gradient(
+    color-mix(in sRGB, var(--cui-bg-normal) 0%, transparent),
+    color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent)
+  );
 }
 
 @media (min-width: 480px) {
@@ -23,7 +32,6 @@
 
   .base > div {
     max-width: 480px;
-    height: 100%;
     margin: 0 auto;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -31,8 +39,26 @@
 }
 
 .content {
+  height: 100%;
   padding-top: 56px;
   padding-bottom: calc(env(safe-area-inset-bottom) + var(--cui-spacings-tera));
+  overflow-y: auto;
+}
+
+.content::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: var(--cui-spacings-mega);
+  content: "";
+  background: linear-gradient(
+    color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent),
+    color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-normal) 0%, transparent)
+  );
 }
 
 .list {

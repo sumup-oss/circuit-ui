@@ -54,12 +54,6 @@ export function SideNavigation({
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test'
   ) {
-    if (!isSufficientlyLabelled(closeButtonLabel)) {
-      throw new AccessibilityError(
-        'SideNavigation',
-        'The `closeButtonLabel` prop is missing or invalid.',
-      );
-    }
     if (!isSufficientlyLabelled(primaryNavigationLabel)) {
       throw new AccessibilityError(
         'SideNavigation',
