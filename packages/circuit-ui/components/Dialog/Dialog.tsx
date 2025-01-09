@@ -130,8 +130,10 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
           if (initialFocusRef?.current) {
             initialFocusRef?.current?.focus();
           } else {
-            const firstFocusableElement =
-              getFirstFocusableElement(dialogElement);
+            const firstFocusableElement = getFirstFocusableElement(
+              dialogElement,
+              isModal,
+            );
             if (firstFocusableElement) {
               firstFocusableElement.focus();
             } else {
@@ -143,7 +145,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       return () => {
         clearTimeout(timeoutId);
       };
-    }, [open, initialFocusRef?.current]);
+    }, [open, initialFocusRef?.current, isModal]);
 
     useEffect(() => {
       // restore focus to opening element
