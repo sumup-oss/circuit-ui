@@ -143,7 +143,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
         if (initialFocusRef?.current) {
           initialFocusRef?.current?.focus();
         } else {
-          getFirstFocusableElement(dialogElement).focus();
+          getFirstFocusableElement(dialogElement, true).focus();
         }
       }, ANIMATION_DURATION);
     }

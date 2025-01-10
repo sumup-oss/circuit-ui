@@ -13,11 +13,17 @@
  * limitations under the License.
  */
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, afterEach } from 'vitest';
 
-import { getKeyboardFocusableElements } from './ModalService.js';
+import {
+  getFirstFocusableElement,
+  getKeyboardFocusableElements,
+} from './ModalService.js';
 
 describe('DialogService', () => {
+  afterEach(() => {
+    document.body.innerHTML = '';
+  });
   describe('getKeyboardFocusableElements', () => {
     it('should return empty array if element is empty', () => {
       const container = document.createElement('div');
@@ -83,6 +89,25 @@ describe('DialogService', () => {
           container,
         ]),
       );
+    });
+  });
+
+  describe('getFirstFocusableElement', () => {
+    it('should return the first focusable element', () => {
+      const button = document.createElement('button');
+      const input = document.createElement('input');
+      const a = document.createElement('a');
+      document.body.append(button, input, a);
+
+      expect(getFirstFocusableElement(document.body, false)).toEqual(button);
+    });
+    it('should return the first focusable element with skipFirst flag', () => {
+      const button = document.createElement('button');
+      const input = document.createElement('input');
+      const a = document.createElement('a');
+      document.body.append(button, input, a);
+
+      expect(getFirstFocusableElement(document.body, true)).toEqual(input);
     });
   });
 });

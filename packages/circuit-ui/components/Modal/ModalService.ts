@@ -29,9 +29,13 @@ export function getKeyboardFocusableElements(
 }
 
 export function getFirstFocusableElement(
-  dialog: HTMLDialogElement,
+  dialog: HTMLElement,
+  skipFirst?: boolean,
 ): HTMLElement {
   const focusableElements = getKeyboardFocusableElements(dialog);
+  if (!skipFirst) {
+    return focusableElements[0];
+  }
   // if there is only one focusable element (the close button), focus it
   return focusableElements.length === 1
     ? focusableElements[0]
