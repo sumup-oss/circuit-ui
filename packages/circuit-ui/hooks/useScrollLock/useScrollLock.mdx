@@ -1,0 +1,28 @@
+import { Meta, Status, Story } from "../../../../.storybook/components";
+import * as Stories from "./useScrollLock.stories";
+
+<Meta of={Stories} />
+
+# useScrollLock()
+
+<Status variant="stable" />
+
+Disables scrolling on the body element when the given argument is true.
+
+<div
+  style={{
+    maxHeight: "50vh",
+    overflowY: "scroll",
+  }}
+>
+  <Story of={Stories.ForDocs} />
+</div>
+
+```ts
+function useScrollLock(isLocked: boolean): void;
+```
+
+## Usage
+
+Use this hook to prevent scrolling on the body element when a modal or other overlay is open.
+This pattern prevents users from scrolling the background content while interacting with a modal or other overlay.
