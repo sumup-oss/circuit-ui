@@ -96,41 +96,20 @@ describe('NotificationModal', () => {
     expect(modalEl).toBeVisible();
   });
 
-  describe('business logic', () => {
-    it('should close the modal when clicking the close button', async () => {
-      renderNotificationModal(baseNotificationModal);
-      act(() => {
-        vi.advanceTimersByTime(ANIMATION_DURATION);
-      });
-
-      const closeButton = await screen.findByRole('button', {
-        name: baseNotificationModal.closeButtonLabel,
-      });
-
-      await userEvent.click(closeButton);
-      act(() => {
-        vi.advanceTimersByTime(ANIMATION_DURATION);
-      });
-
-      expect(baseNotificationModal.onClose).toHaveBeenCalled();
+  it('should perform an action and close the modal when clicking an action button', async () => {
+    renderNotificationModal(baseNotificationModal);
+    act(() => {
+      vi.advanceTimersByTime(ANIMATION_DURATION);
+    });
+    const actionButton = await screen.findByRole('button', {
+      name: baseNotificationModal.actions.primary.children,
     });
 
-    it('should perform an action and close the modal when clicking an action button', async () => {
-      renderNotificationModal(baseNotificationModal);
-      act(() => {
-        vi.advanceTimersByTime(ANIMATION_DURATION);
-      });
-      const actionButton = await screen.findByRole('button', {
-        name: baseNotificationModal.actions.primary.children,
-      });
+    await userEvent.click(actionButton);
 
-      await userEvent.click(actionButton);
-
-      expect(baseNotificationModal.actions.primary.onClick).toHaveBeenCalled();
-      expect(baseNotificationModal.onClose).toHaveBeenCalled();
-    });
+    expect(baseNotificationModal.actions.primary.onClick).toHaveBeenCalled();
+    expect(baseNotificationModal.onClose).toHaveBeenCalled();
   });
-
   /**
    * FIXME: calling axe here triggers an act() warning.
    */

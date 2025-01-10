@@ -30,7 +30,6 @@ import { applyMultipleRefs } from '../../util/refs.js';
 import dialogPolyfill from '../../vendor/dialog-polyfill/index.js';
 import { isEscape } from '../../util/key-codes.js';
 import { useScrollLock } from '../../hooks/useScrollLock/useScrollLock.js';
-import { getFirstFocusableElement } from '../Modal/ModalService.js';
 import { CloseButton } from '../CloseButton/index.js';
 import type { ClickEvent } from '../../types/events.js';
 import { clsx } from '../../styles/clsx.js';
@@ -38,6 +37,7 @@ import { useClickOutside } from '../../hooks/useClickOutside/index.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
 import { useLatest } from '../../hooks/useLatest/index.js';
 
+import { getFirstFocusableElement } from './DialogService.js';
 import classes from './dialog.module.css';
 
 type DataAttribute = `data-${string}`;
@@ -138,7 +138,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
               isModal,
             );
             if (firstFocusableElement) {
-              firstFocusableElement.focus();
+              firstFocusableElement?.focus();
             } else {
               dialogElement.focus();
             }

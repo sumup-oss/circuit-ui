@@ -36,7 +36,7 @@ export function getFirstFocusableElement(
    * This flag makes it possible to skip this button.
    */
   skipFirstElement?: boolean,
-): HTMLElement {
+): HTMLElement | undefined {
   const focusableElements = getKeyboardFocusableElements(dialog);
   if (!skipFirstElement) {
     return focusableElements[0];
