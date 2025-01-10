@@ -50,8 +50,6 @@ const actions = [
   },
 ];
 
-// This wrapper is necessary because the Popover's floating element renders
-// in a Portal, and Chromatic excludes it from screenshots by default.
 function PopoverWrapper({ children }: { children: ReactNode }) {
   return <div style={{ width: 200, height: 250 }}>{children}</div>;
 }
