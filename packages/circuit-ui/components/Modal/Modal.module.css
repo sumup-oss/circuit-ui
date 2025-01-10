@@ -1,71 +1,14 @@
 .base {
-  --dialog-animation-duration: 0.3s;
-
   position: fixed;
   max-height: 90vh;
-  padding: 0;
-  margin: auto;
-  overflow-y: auto;
-  pointer-events: none;
-  visibility: hidden;
+  margin: auto !important;
   background-color: var(--cui-bg-elevated);
-  border: none;
-  outline: none;
-
-  /* Firefox does not support animating the backdrop property.
-   As a workaround, we used the box-shadow on the dialog element as a fake backdrop,
-   which gets animated along with the dialog element itself.
-   https://stackoverflow.com/questions/75313685/animating-dialog-backdrop-in-firefox
-   */
-  box-shadow: 0 0 0 100vmax var(--cui-bg-overlay);
-  animation: fade-out var(--dialog-animation-duration) forwards;
-}
-
-.base.show {
-  pointer-events: auto;
-  animation: fade-in var(--dialog-animation-duration) forwards;
 }
 
 .content {
   position: relative;
   max-height: 90vh;
   overflow-y: scroll;
-}
-
-.base::after {
-  position: absolute;
-  right: 0;
-  bottom: env(safe-area-inset-bottom);
-  left: 0;
-  display: block;
-  pointer-events: none;
-  content: "";
-  background: linear-gradient(
-    color-mix(in sRGB, var(--cui-bg-elevated) 0%, transparent),
-    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
-    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent)
-  );
-}
-
-/* Close button */
-.base .close {
-  position: absolute;
-  z-index: var(--cui-z-index-absolute);
-}
-
-/* Native Backdrop */
-.base::backdrop {
-  background: transparent;
-}
-
-/* Polyfill Backdrop */
-.base + .backdrop {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: transparent;
 }
 
 @media (min-width: 480px) {
@@ -76,7 +19,6 @@
     left: 0;
     min-width: 480px;
     max-width: 50vw;
-    max-height: 90vh;
     border-radius: var(--cui-border-radius-mega);
   }
 
@@ -85,15 +27,6 @@
     padding-bottom: calc(
       env(safe-area-inset-bottom) + var(--cui-spacings-giga)
     );
-  }
-
-  .base::after {
-    height: var(--cui-spacings-giga);
-  }
-
-  .base .close {
-    top: var(--cui-spacings-byte);
-    right: var(--cui-spacings-byte);
   }
 }
 
@@ -107,11 +40,6 @@
     max-width: 100%;
     border-radius: var(--cui-border-radius-mega) var(--cui-border-radius-mega) 0
       0;
-    animation: slide-out var(--dialog-animation-duration) forwards;
-  }
-
-  .base.show {
-    animation: slide-in var(--dialog-animation-duration) forwards;
   }
 
   .immersive {
@@ -127,68 +55,5 @@
       env(safe-area-inset-bottom) + var(--cui-spacings-mega)
     );
     -webkit-overflow-scrolling: touch;
-  }
-
-  .base::after {
-    height: var(--cui-spacings-mega);
-  }
-
-  .base .close {
-    top: var(--cui-spacings-bit);
-    right: var(--cui-spacings-bit);
-  }
-}
-
-/* Animations */
-
-@keyframes fade-in {
-  from {
-    visibility: hidden;
-    opacity: 0;
-  }
-
-  to {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-
-@keyframes fade-out {
-  from {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  to {
-    visibility: hidden;
-    opacity: 0;
-  }
-}
-
-@keyframes slide-in {
-  from {
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(100%);
-  }
-
-  to {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slide-out {
-  from {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  to {
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(100%);
   }
 }
