@@ -1,0 +1,14 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  font-size: var(--cui-body-m-font-size);
+  line-height: var(--cui-body-m-line-height);
+  text-align: left;
+  background: var(--cui-bg-elevated);
+}
+
+.icon {
+  margin-right: var(--cui-spacings-kilo);
+}
