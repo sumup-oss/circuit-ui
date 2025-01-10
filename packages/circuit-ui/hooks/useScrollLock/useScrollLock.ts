@@ -15,6 +15,8 @@
 
 import { useCallback, useEffect, useRef } from 'react';
 
+let instanceCount = 0;
+
 export const useScrollLock = (isLocked: boolean): void => {
   const scrollValue = useRef<string>();
 
@@ -27,6 +29,18 @@ export const useScrollLock = (isLocked: boolean): void => {
     body.style.width = '';
     window.scrollTo(0, Number.parseInt(scrollY || '0', 10) * -1);
   }, []);
+
+  useEffect(() => {
+    instanceCount += 1;
+
+    return () => {
+      instanceCount -= 1;
+      if (instanceCount === 0) {
+        restoreScroll();
+      }
+    };
+  }, [restoreScroll]);
+
   useEffect(() => {
     if (isLocked) {
       scrollValue.current = `${window.scrollY}px`;
@@ -39,11 +53,8 @@ export const useScrollLock = (isLocked: boolean): void => {
       body.style.position = 'fixed';
       body.style.width = `${bodyWidth}px`;
       body.style.top = `-${scrollY}`;
-    } else {
+    } else if (instanceCount === 1) {
       restoreScroll();
     }
-    return () => {
-      restoreScroll();
-    };
   }, [isLocked, restoreScroll]);
 };
