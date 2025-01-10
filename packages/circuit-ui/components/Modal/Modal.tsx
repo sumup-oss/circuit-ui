@@ -27,12 +27,16 @@ import classes from './Modal.module.css';
 import { translations } from './translations/index.js';
 
 export interface ModalProps
-  extends Omit<DialogProps, 'onCloseStart' | 'isModal' | 'animationDuration'> {
+  extends Omit<
+    DialogProps,
+    'onCloseStart' | 'onCloseEnd' | 'isModal' | 'animationDuration'
+  > {
   /**
    * Use the `immersive` variant to focus the user's attention on the dialog content.
    * default: 'contextual'
    * */
   variant?: 'contextual' | 'immersive';
+  onClose: DialogProps['onCloseEnd'];
 }
 
 export const ANIMATION_DURATION = 300;
@@ -66,7 +70,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
       <Dialog
         ref={ref}
         isModal
-        onClose={handleModalClose}
+        onCloseEnd={handleModalClose}
         animationDuration={ANIMATION_DURATION}
         className={clsx(
           classes.base,
@@ -80,7 +84,9 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
         {...rest}
       >
         <div className={classes.content}>
-          {typeof children === 'function' ? children?.({ onClose }) : children}
+          {typeof children === 'function'
+            ? children?.({ onCloseEnd: onClose })
+            : children}
         </div>
       </Dialog>
     </>
