@@ -29,7 +29,7 @@ import { Dialog } from './Dialog.js';
 
 describe('Dialog', () => {
   const props = {
-    onClose: vi.fn(),
+    onCloseEnd: vi.fn(),
     onCloseStart: vi.fn(),
     open: false,
     isModal: false,
@@ -115,7 +115,7 @@ describe('Dialog', () => {
     vi.spyOn(dialog, 'showModal');
     rerender(<Dialog {...props} open isModal />);
     expect(dialog.showModal).toHaveBeenCalledOnce();
-    expect(props.onClose).not.toHaveBeenCalled();
+    expect(props.onCloseEnd).not.toHaveBeenCalled();
     expect(props.onCloseStart).not.toHaveBeenCalled();
     expect(dialog).toBeVisible();
   });
@@ -156,7 +156,7 @@ describe('Dialog', () => {
     it('should do nothing when pressing the Escape key', async () => {
       render(<Dialog {...props} />);
       await userEvent.keyboard('{Escape}');
-      expect(props.onClose).not.toHaveBeenCalled();
+      expect(props.onCloseEnd).not.toHaveBeenCalled();
       expect(props.onCloseStart).not.toHaveBeenCalled();
     });
   });
@@ -176,9 +176,17 @@ describe('Dialog', () => {
       act(() => {
         vi.runAllTimers();
       });
-      expect(props.onClose).not.toHaveBeenCalled();
+      expect(props.onCloseEnd).not.toHaveBeenCalled();
       expect(props.onCloseStart).not.toHaveBeenCalled();
       expect(dialog).toBeVisible();
+    });
+
+    it('should not show the close button if preventClose is true', async () => {
+      render(<Dialog {...props} open preventClose />);
+      // eslint-disable-next-line testing-library/no-container
+      expect(
+        screen.queryByRole('button', { name: 'Close' }),
+      ).not.toBeInTheDocument();
     });
 
     it('should not close modal on backdrop click if preventClose is true - polyfill', async () => {
@@ -191,7 +199,7 @@ describe('Dialog', () => {
       const dialog = screen.getByRole('dialog', { hidden: true });
       await userEvent.click(dialog);
       vi.runAllTimers();
-      expect(props.onClose).not.toHaveBeenCalled();
+      expect(props.onCloseEnd).not.toHaveBeenCalled();
       expect(props.onCloseStart).not.toHaveBeenCalled();
       expect(dialog).toBeVisible();
     });
@@ -201,7 +209,7 @@ describe('Dialog', () => {
       const dialog = screen.getByRole('dialog', { hidden: true });
       await userEvent.click(screen.getByRole('dialog', { hidden: true }));
       vi.runAllTimers();
-      expect(props.onClose).toHaveBeenCalledOnce();
+      expect(props.onCloseEnd).toHaveBeenCalledOnce();
       expect(props.onCloseStart).toHaveBeenCalledOnce();
       expect(dialog).not.toBeVisible();
     });
@@ -212,7 +220,7 @@ describe('Dialog', () => {
       const backdrop = document.getElementsByClassName('backdrop')[0];
       await userEvent.click(backdrop);
       vi.runAllTimers();
-      expect(props.onClose).toHaveBeenCalledOnce();
+      expect(props.onCloseEnd).toHaveBeenCalledOnce();
       expect(props.onCloseStart).toHaveBeenCalledOnce();
       expect(dialog).not.toBeVisible();
     });
@@ -222,7 +230,7 @@ describe('Dialog', () => {
       const dialog = screen.getByRole('dialog', { hidden: true });
       await userEvent.click(screen.getByRole('button', { name: 'Close' }));
       vi.runAllTimers();
-      expect(props.onClose).toHaveBeenCalledOnce();
+      expect(props.onCloseEnd).toHaveBeenCalledOnce();
       expect(props.onCloseStart).toHaveBeenCalledOnce();
       expect(dialog).not.toBeVisible();
     });
@@ -242,7 +250,7 @@ describe('Dialog', () => {
       expect(backdrop.classList.toString()).not.toContain('backdrop-visible');
       vi.runAllTimers();
 
-      expect(props.onClose).toHaveBeenCalledOnce();
+      expect(props.onCloseEnd).toHaveBeenCalledOnce();
       expect(props.onCloseStart).toHaveBeenCalledOnce();
       expect(dialog).not.toBeVisible();
     });

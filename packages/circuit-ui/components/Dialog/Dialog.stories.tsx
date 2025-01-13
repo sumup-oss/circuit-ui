@@ -52,7 +52,7 @@ const defaultChildren = () => (
     <Headline id="title" as="h2" size="s" style={{ marginBottom: '1rem' }}>
       Hello World!
     </Headline>
-    <Body id="description">I am a the dialog content.</Body>
+    <Body id="description">I am the dialog content.</Body>
   </div>
 );
 
@@ -77,7 +77,7 @@ const dialogStyles = {
 
 const baseArgs: DialogProps = {
   open: false,
-  onClose: () => {},
+  onCloseEnd: () => {},
   'aria-labelledby': 'title',
   'aria-describedby': 'description',
   closeButtonLabel: 'Close',
@@ -100,7 +100,7 @@ export const Base = (dialog: DialogProps) => {
       <Dialog
         {...dialog}
         open={dialogOpen}
-        onClose={() => setDialogOpen(false)}
+        onCloseEnd={() => setDialogOpen(false)}
       />
     </>
   );
@@ -123,11 +123,10 @@ export const Modal = (dialog: DialogProps) => {
       <Dialog
         {...dialog}
         open={dialogOpen}
-        isModal
-        onClose={() => setDialogOpen(false)}
+        onCloseEnd={() => setDialogOpen(false)}
       />
     </>
   );
 };
-Modal.args = baseArgs;
+Modal.args = { ...baseArgs, isModal: true };
 Modal.play = openDialog;

@@ -101,7 +101,7 @@ describe('DialogService', () => {
 
       expect(getFirstFocusableElement(document.body, false)).toEqual(button);
     });
-    it('should return the first focusable element with skipFirst flag', () => {
+    it('should return the second focusable element with skipFirst flag', () => {
       const button = document.createElement('button');
       const input = document.createElement('input');
       const a = document.createElement('a');

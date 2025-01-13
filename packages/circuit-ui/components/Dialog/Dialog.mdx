@@ -43,7 +43,6 @@ function Component() {
       <Button onClick={() => setOpen(true)}>Open dialog</Button>
       <Dialog
         open={open}
-        aria-labelledby="dialog-title"
         onClose={() => setOpen(false)}
       >
         {() => (
@@ -71,7 +70,6 @@ function Component() {
       <Button onClick={() => setOpen(true)}>Open dialog</Button>
       <Dialog
         open={open}
-        aria-labelledby="dialog-title"
         onClose={() => setOpen(false)}
         isModal
       >
