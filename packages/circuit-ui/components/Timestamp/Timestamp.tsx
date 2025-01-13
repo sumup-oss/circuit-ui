@@ -26,33 +26,34 @@ import classes from './Timestamp.module.css';
 
 export interface TimestampProps extends HTMLAttributes<HTMLTimeElement> {
   /**
-   * TODO: Write description
+   * A datetime in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
+   * format (`YYYY-MM-DDThh:mm:ss.sss[time-zone-id]`). Must include an
+   * [IANA time zone identifier](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+   * in brackets.
    */
   datetime: string;
   /**
-   * TODO: Write description
-   *
-   * @default 'auto'
-   */
-  variant?: 'auto' | 'relative' | 'absolute';
-  /**
-   * TODO: Write description
+   * Whether to include the time when displaying the datetime as an absolute
+   * value.
    *
    * @default false
    */
   includeTime?: boolean;
   /**
-   * TODO: Write description
-   *
-   * @default 'P1M' // 1 month
-   */
-  threshold?: string;
-  /**
-   * TODO: Write description
+   * The verbosity of the displayed datetime value. Longer formats are easier
+   * to read for humans.
    *
    * @default 'short'
    */
   formatStyle?: 'long' | 'short' | 'narrow';
+  /**
+   * Display the datetime as a relative or absolute value. The auto variant
+   * displays a relative value within 30 days of the datetime and an absolute
+   * value otherwise.
+   *
+   * @default 'auto'
+   */
+  variant?: 'auto' | 'relative' | 'absolute';
   /**
    * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
    * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
@@ -62,10 +63,8 @@ export interface TimestampProps extends HTMLAttributes<HTMLTimeElement> {
   locale?: Locale;
 }
 
-// TODO: initial, server-rendered label should include timezone and respect format style
-
 /**
- * TODO:
+ * The Timestamp component displays a human readable date time.
  */
 export const Timestamp = forwardRef<HTMLTimeElement, TimestampProps>(
   (
@@ -74,7 +73,6 @@ export const Timestamp = forwardRef<HTMLTimeElement, TimestampProps>(
       variant = 'auto',
       formatStyle = 'long',
       includeTime = false,
-      threshold = 'P1M',
       locale,
       className,
       ...props
@@ -94,11 +92,10 @@ export const Timestamp = forwardRef<HTMLTimeElement, TimestampProps>(
           locale,
           formatStyle,
           variant,
-          threshold,
           includeTime,
         }),
       );
-    }, [datetime, variant, formatStyle, locale, threshold, includeTime]);
+    }, [datetime, variant, formatStyle, locale, includeTime]);
 
     // Update state in regular intervals for relative times
     useEffect(() => {
@@ -113,7 +110,6 @@ export const Timestamp = forwardRef<HTMLTimeElement, TimestampProps>(
             locale,
             formatStyle,
             variant,
-            threshold,
             includeTime,
           }),
         );
@@ -122,15 +118,7 @@ export const Timestamp = forwardRef<HTMLTimeElement, TimestampProps>(
       return () => {
         clearInterval(timer);
       };
-    }, [
-      state.interval,
-      datetime,
-      variant,
-      formatStyle,
-      locale,
-      threshold,
-      includeTime,
-    ]);
+    }, [state.interval, datetime, variant, formatStyle, locale, includeTime]);
 
     return (
       <time

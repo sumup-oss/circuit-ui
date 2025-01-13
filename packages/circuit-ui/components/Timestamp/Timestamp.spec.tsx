@@ -72,7 +72,48 @@ describe('Calendar', () => {
         <Timestamp {...baseProps} variant="absolute" formatStyle="long" />,
       );
       const element = screen.getByRole('time');
-      expect(element).toHaveTextContent('January 1, 2020 at 12:00 AM');
+      expect(element).toHaveTextContent('January 1, 2020');
+    });
+
+    describe('with time', () => {
+      it('should display a narrow human-readable date time', () => {
+        render(
+          <Timestamp
+            {...baseProps}
+            variant="absolute"
+            formatStyle="narrow"
+            includeTime
+          />,
+        );
+        const element = screen.getByRole('time');
+        expect(element).toHaveTextContent('1/1/20, 12:00 AM');
+      });
+
+      it('should display a short human-readable date time', () => {
+        render(
+          <Timestamp
+            {...baseProps}
+            variant="absolute"
+            formatStyle="short"
+            includeTime
+          />,
+        );
+        const element = screen.getByRole('time');
+        expect(element).toHaveTextContent('Jan 1, 2020, 12:00 AM');
+      });
+
+      it('should display a long human-readable date time', () => {
+        render(
+          <Timestamp
+            {...baseProps}
+            variant="absolute"
+            formatStyle="long"
+            includeTime
+          />,
+        );
+        const element = screen.getByRole('time');
+        expect(element).toHaveTextContent('January 1, 2020 at 12:00 AM');
+      });
     });
   });
 

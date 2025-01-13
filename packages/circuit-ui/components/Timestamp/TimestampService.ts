@@ -106,14 +106,12 @@ export function getState({
   locale,
   formatStyle,
   variant,
-  threshold,
   includeTime,
 }: {
   datetime: string;
   locale: Locale | undefined;
   formatStyle: 'long' | 'short' | 'narrow';
   variant: 'auto' | 'relative' | 'absolute';
-  threshold: string;
   includeTime: boolean;
 }): State {
   const zonedDateTime = Temporal.ZonedDateTime.from(datetime);
@@ -121,11 +119,9 @@ export function getState({
   const duration = zonedDateTime.since(now);
 
   const isBeyondThreshold =
-    Temporal.Duration.compare(
-      duration.abs(),
-      Temporal.Duration.from(threshold),
-      { relativeTo: now },
-    ) > 0;
+    Temporal.Duration.compare(duration.abs(), Temporal.Duration.from('P1M'), {
+      relativeTo: now,
+    }) > 0;
 
   if (
     variant === 'absolute' ||
@@ -150,7 +146,7 @@ export function getState({
         relativeTo: now,
       }) >= 0,
   );
-  // Use 'seconds' when no unit was found, i.e. when the duration is less than a second
+  // Use the smallest unit when no unit was found, i.e. when the duration is less than the smallest unit duration
   const unitIndex = bestUnitIndex >= 0 ? bestUnitIndex : UNITS.length - 1;
   const unit = UNITS[unitIndex];
   const value = duration.round({

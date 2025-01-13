@@ -91,7 +91,7 @@ export const FormatStyles = (args: TimestampProps) => (
         {formatStyles.map((formatStyle) => (
           <Timestamp
             {...args}
-            key={args.datetime.toString()}
+            key={args.datetime}
             variant={variant}
             formatStyle={formatStyle}
           />
