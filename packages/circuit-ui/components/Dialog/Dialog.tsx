@@ -40,8 +40,6 @@ import { useLatest } from '../../hooks/useLatest/index.js';
 
 import classes from './dialog.module.css';
 
-export const ANIMATION_DURATION = 300;
-
 type DataAttribute = `data-${string}`;
 
 export interface DialogProps
@@ -64,6 +62,12 @@ export interface DialogProps
    */
   onCloseStart?: () => void;
   /**
+   * The duration of the dialog animation in milliseconds.
+   * If you wish to animate the dialog, provide a value of the animation duration to enable the animation to complete before the dialog closes.
+   * Default `0`.
+   */
+  animationDuration?: number;
+  /**
    * Text label for the close button for screen readers.
    * Important for accessibility.
    */
@@ -81,7 +85,8 @@ export interface DialogProps
    */
   preventClose?: boolean;
   /**
-   * Enables focusing a particular element in the dialog content and override default behavior
+   * Enables focusing a particular element in the dialog content and override default behavior. This will have no effect if the dialog is not modal.
+   * Default `false`.
    */
   initialFocusRef?: RefObject<HTMLElement>;
   /**
@@ -90,12 +95,6 @@ export interface DialogProps
   children?:
     | ReactNode
     | (({ onClose }: { onClose?: DialogProps['onClose'] }) => ReactNode);
-  /**
-   * The duration of the dialog animation in milliseconds.
-   * If you wish to animate the dialog, provide a value of the animation duration to enable the animation to complete before the dialog closes.
-   * default: 0
-   */
-  animationDuration?: number;
   [key: DataAttribute]: string | undefined;
 }
 
@@ -109,7 +108,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       closeButtonLabel,
       className,
       initialFocusRef,
-      preventClose,
+      preventClose = false,
       animationDuration = 0,
       onCloseStart,
       ...rest
@@ -150,7 +149,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     }, [open, initialFocusRef?.current, isModal, animationDuration]);
 
     useEffect(() => {
-      // restore focus to opening element
+      // restore focus to the opening element
       if (open) {
         if (document.activeElement instanceof HTMLElement) {
           lastFocusedElementRef.current = document.activeElement;
@@ -166,7 +165,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       };
     }, [open, animationDuration]);
 
-    const onPolyfillDialogKeydown = useCallback((event: KeyboardEvent) => {
+    const preventEscapeKeyEvent = useCallback((event: KeyboardEvent) => {
       if (isEscape(event)) {
         event.preventDefault();
         event.stopPropagation();
@@ -193,7 +192,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
         // causes the `onClose` callback to be called if the effect's
         // dependencies change.
         // To avoid that we set the dialog's returnValue to 'skipOnClose'
-        // in the effect's cleanup fn and reset it afterwords.
+        // in the effect's cleanup fn and reset it afterward.
         if (
           openRef.current &&
           dialogRef.current?.returnValue !== 'skipOnClose'
@@ -212,26 +211,23 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
         '--dialog-animation-duration',
         `${animationDuration}ms`,
       );
-      if (preventClose) {
-        dialogElement.addEventListener('keydown', onPolyfillDialogKeydown);
+      if (preventClose && isModal) {
+        dialogElement.addEventListener('keydown', preventEscapeKeyEvent);
       }
       if (onClose) {
         dialogElement.addEventListener('close', handleClose);
       }
 
       return () => {
-        if (onClose) {
-          dialogElement.removeEventListener('close', handleClose);
-        }
-        if (preventClose) {
-          dialogElement.removeEventListener('keydown', onPolyfillDialogKeydown);
-        }
+        dialogElement.removeEventListener('close', handleClose);
+        dialogElement.removeEventListener('keydown', preventEscapeKeyEvent);
       };
     }, [
       openRef.current,
       onClose,
       preventClose,
-      onPolyfillDialogKeydown,
+      isModal,
+      preventEscapeKeyEvent,
       animationDuration,
     ]);
 

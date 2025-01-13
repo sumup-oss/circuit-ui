@@ -2,6 +2,7 @@
   padding: 0 !important;
   overflow-y: auto;
   pointer-events: none;
+  background-color: canvas;
   border: none;
   outline: none;
 }

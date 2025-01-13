@@ -17,18 +17,19 @@ The dialog component displays content inside of a `<dialog/>` element while prov
 The Dialog component is intended as a base component and serves as a foundation for more specific, higher-level components provided by the Circuit UI component library. Before using this component directly, we recommend reviewing the following components that are built on top of it:
 
 - [Modal](../Components/Modal/Docs)
+- [NotificationModal](../Notification/NotificationModal/Docs)
 - [Popover](../Components/Popover/Docs)
 - [Toggletip](../Components/Toggletip/Docs)
 
 These higher-level components are designed to cover most use cases and include best practices, accessibility features, and additional functionality that may save you time and effort.
 
-Use this base component only if your requirements are not fully addressed by the higher-level components, or if you need to create highly customized behavior that extends beyond their capabilities.
+Use this base component only if your requirements are not fully addressed by the above-mentioned higher-level components, or if you need to create highly customized behavior that extends beyond their capabilities.
 
 ## How to use it
 
 ### Non modal
 
-The dialog component can render an overlay without blocking the user from interacting with the rest of the page. This is useful for displaying additional information or actions that are not critical or disruptive to the user's current task.
+The dialog component renders an overlay without blocking the user from interacting with the rest of the page. This is useful for displaying additional information or actions that are not critical or disruptive to the user's current task.
 
 ```tsx
 import { Dialog, Body, Button, Heading } from "@sumup-oss/circuit-ui";
