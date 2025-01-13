@@ -1,0 +1,94 @@
+import { Meta, Status, Props, Story } from "../../../../.storybook/components";
+import * as Stories from "./Dialog.stories";
+
+<Meta of={Stories} />
+
+# Dialog
+
+<Status variant="stable" />
+
+The dialog component displays content inside of a `<dialog/>` element while providing all recommended accessibility features needed for a dialog box.
+
+<Story of={Stories.Base} />
+<Props />
+
+## When to use it
+
+The Dialog component is intended as a base component and serves as a foundation for more specific, higher-level components provided by the Circuit UI component library. Before using this component directly, we recommend reviewing the following components that are built on top of it:
+
+- [Modal](../Components/Modal/Docs)
+- [NotificationModal](../Notification/NotificationModal/Docs)
+- [Popover](../Components/Popover/Docs)
+- [Toggletip](../Components/Toggletip/Docs)
+
+These higher-level components are designed to cover most use cases and include best practices, accessibility features, and additional functionality that may save you time and effort.
+
+Use this base component only if your requirements are not fully addressed by the above-mentioned higher-level components, or if you need to create highly customized behavior that extends beyond their capabilities.
+
+## How to use it
+
+### Non modal
+
+The dialog component renders an overlay without blocking the user from interacting with the rest of the page. This is useful for displaying additional information or actions that are not critical or disruptive to the user's current task.
+
+```tsx
+import { Dialog, Body, Button, Heading } from "@sumup-oss/circuit-ui";
+import { useState } from "react";
+
+function Component() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>Open dialog</Button>
+      <Dialog
+        open={open}
+        onClose={() => setOpen(false)}
+      >
+        {() => (
+          <Body>Fun Fact: Bananas are berries, but strawberries aren't!</Body>
+        )}
+      </Dialog>
+    </>
+  );
+}
+```
+
+### Modal
+
+Use the `isModal` prop to render the dialog as a modal overlay, blocking the user from interacting with the rest of the page until the dialog is closed. This is useful for displaying critical actions or tasks that require immediate attention.
+
+```tsx
+import { Dialog, Body, Button, Heading } from "@sumup-oss/circuit-ui";
+import { useState } from "react";
+
+function Component() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>Open dialog</Button>
+      <Dialog
+        open={open}
+        onClose={() => setOpen(false)}
+        isModal
+      >
+        {() => (
+          <Body>Fun Fact: Bananas are berries, but strawberries aren't!</Body>
+        )}
+      </Dialog>
+    </>
+  );
+}
+```
+
+## Accessibility
+
+This component is built using the native `dialog` HTML element and follows the [WAI-ARIA Modal Authoring Practices](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/). It is fully accessible and supports keyboard navigation and screen readers. In browsers where `dialog` is not supported, it uses [dialog-polyfill](https://github.com/GoogleChrome/dialog-polyfill).
+
+It is important to ensure that the dialog is appropriately labeled and that the user can easily navigate and interact with it using a keyboard or screen reader.
+If your dialog content has a title, make sure to provide an `aria-labelledby` attribute with the ID of the title element to the `Dialog` component. Otherwise, provide an `aria-label` attribute with a descriptive label.
+
+If your dialog displays a complex flow with multiple screens (for example: a complex form with multiple steps), make sure to programmatically set focus to the title upon landing on every step to convey to the user their evolution within your flow.
+
+If your content contains interactive elements, the component will focus the first interactive element when the dialog opens by default. However, if you wish to focus a different element, you can provide the `initialFocusRef` prop with the ref of the element you want to focus. It is generally recommended to focus the least destructive element, such as a close or a cancel button. If the element you want to focus is not interactive, don't forget to give it a tabindex with a negative value to enable its focus.
