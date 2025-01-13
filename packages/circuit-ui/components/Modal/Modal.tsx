@@ -15,7 +15,7 @@
 
 'use client';
 
-import { forwardRef, useState } from 'react';
+import { forwardRef, useCallback, useState } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
 import { useI18n } from '../../hooks/useI18n/useI18n.js';
@@ -33,9 +33,12 @@ export interface ModalProps
   > {
   /**
    * Use the `immersive` variant to focus the user's attention on the dialog content.
-   * default: 'contextual'
+   * @default 'contextual'
    * */
   variant?: 'contextual' | 'immersive';
+  /**
+   * Callback when the modal dialog is closed.
+   */
   onClose: DialogProps['onCloseEnd'];
 }
 
@@ -52,10 +55,14 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
 
   const [isClosing, setIsClosing] = useState(false);
 
-  const handleModalClose = () => {
+  const handleModalCloseEnd = useCallback(() => {
     setIsClosing(false);
     onClose?.();
-  };
+  }, [onClose]);
+
+  const handleModalCloseStart = useCallback(() => {
+    setIsClosing(true);
+  }, []);
 
   const isMobile = useMedia('(max-width: 479px)');
 
@@ -70,7 +77,8 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
       <Dialog
         ref={ref}
         isModal
-        onCloseEnd={handleModalClose}
+        onCloseStart={handleModalCloseStart}
+        onCloseEnd={handleModalCloseEnd}
         animationDuration={ANIMATION_DURATION}
         className={clsx(
           classes.base,
@@ -78,15 +86,10 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
           variant === 'immersive' && classes.immersive,
           className,
         )}
-        onCloseStart={() => {
-          setIsClosing(true);
-        }}
         {...rest}
       >
         <div className={classes.content}>
-          {typeof children === 'function'
-            ? children?.({ onCloseEnd: onClose })
-            : children}
+          {typeof children === 'function' ? children?.({ onClose }) : children}
         </div>
       </Dialog>
     </>

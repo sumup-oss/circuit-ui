@@ -1,7 +1,6 @@
 .base {
   position: fixed;
   max-height: 90vh;
-  margin: auto !important;
   background-color: var(--cui-bg-elevated);
 }
 
