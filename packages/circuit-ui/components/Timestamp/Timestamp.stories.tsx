@@ -85,20 +85,34 @@ Absolute.args = {
 };
 
 export const FormatStyles = (args: TimestampProps) => (
-  <Stack>
-    {variants.map((variant) => (
-      <Stack vertical key={variant}>
-        {formatStyles.map((formatStyle) => (
-          <Timestamp
-            {...args}
-            key={args.datetime}
-            variant={variant}
-            formatStyle={formatStyle}
-          />
+  <table style={{ textAlign: 'center' }}>
+    <thead>
+      <tr>
+        <th />
+        {variants.map((variant) => (
+          <th key={variant} scope="col">
+            {variant}
+          </th>
         ))}
-      </Stack>
-    ))}
-  </Stack>
+      </tr>
+    </thead>
+    <tbody>
+      {formatStyles.map((formatStyle) => (
+        <tr key={formatStyle}>
+          <th scope="row">{formatStyle}</th>
+          {variants.map((variant) => (
+            <td key={formatStyle} style={{ padding: '8px' }}>
+              <Timestamp
+                {...args}
+                variant={variant}
+                formatStyle={formatStyle}
+              />
+            </td>
+          ))}
+        </tr>
+      ))}
+    </tbody>
+  </table>
 );
 
 FormatStyles.args = {
