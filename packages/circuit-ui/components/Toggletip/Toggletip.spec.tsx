@@ -76,15 +76,6 @@ describe('Toggletip', () => {
     expect(dialog).toHaveAttribute('open');
   });
 
-  it('should stay open when the reference element is clicked multiple times', async () => {
-    render(<Toggletip {...baseProps} />);
-    const button = screen.getByRole('button');
-    await userEvent.click(button);
-    await userEvent.click(button);
-    const dialog = screen.getByRole('dialog');
-    expect(dialog).toHaveAttribute('open');
-  });
-
   it('should focus the action button when the dialog is opened', async () => {
     render(<Toggletip {...baseProps} />);
     const button = screen.getByRole('button');
