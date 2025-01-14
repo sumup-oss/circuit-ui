@@ -104,3 +104,73 @@
   color: var(--cui-fg-accent-disabled);
   background-color: var(--cui-bg-accent-disabled);
 }
+
+.animation-fade-in {
+  animation: fade-in var(--dialog-animation-duration) forwards;
+}
+
+.animation-fade-out {
+  animation: fade-out var(--dialog-animation-duration) forwards;
+}
+
+.animation-slide-in {
+  animation: slide-in var(--dialog-animation-duration) forwards;
+}
+
+.animation-slide-out {
+  animation: slide-out var(--dialog-animation-duration) forwards;
+}
+
+/* Animations */
+
+@keyframes fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  to {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}

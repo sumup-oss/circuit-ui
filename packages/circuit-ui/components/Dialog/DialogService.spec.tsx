@@ -18,7 +18,7 @@ import { describe, expect, it, afterEach } from 'vitest';
 import {
   getFirstFocusableElement,
   getKeyboardFocusableElements,
-} from './ModalService.js';
+} from './DialogService.js';
 
 describe('DialogService', () => {
   afterEach(() => {

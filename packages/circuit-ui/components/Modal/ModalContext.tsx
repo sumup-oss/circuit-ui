@@ -17,7 +17,7 @@
 
 import { createContext, type ReactNode, useCallback, useMemo } from 'react';
 
-import { useStack } from '../../hooks/useStack/index.js';
+import { type StackItem, useStack } from '../../hooks/useStack/index.js';
 
 import { ANIMATION_DURATION, type ModalProps } from './Modal.js';
 import type { ModalDialogComponent } from './createUseModal.js';
@@ -25,11 +25,11 @@ import type { ModalDialogComponent } from './createUseModal.js';
 export type SetModalArgs<T> = Omit<T, 'open'>;
 
 // keep initial state compatible with the old version of this component
-export type ModalState<T extends ModalProps> = SetModalArgs<T> & {
-  component: ModalDialogComponent<T>;
-  id: string | number;
-  open: boolean;
-};
+export type ModalState<T extends ModalProps> = SetModalArgs<T> &
+  StackItem & {
+    component: ModalDialogComponent<T>;
+    open: boolean;
+  };
 
 type ModalContextValue<T extends ModalProps> = {
   setModal: (modal: ModalState<T>) => void;
@@ -97,14 +97,15 @@ export function ModalProvider<T extends ModalProps>({
     <ModalContext.Provider value={context}>
       {children}
       {modals.map((modal) => {
-        const { id, open, component: Component, ...modalProps } = modal;
+        const { id, component: Component, transition, ...modalProps } = modal;
+
         return (
           // @ts-expect-error type will either be ModalProps or NotificationProps
           <Component
             {...defaultModalProps}
             {...modalProps}
             key={id}
-            open={open}
+            open={!transition}
             onClose={() => removeModal(modal)}
           />
         );

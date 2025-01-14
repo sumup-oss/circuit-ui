@@ -1,14 +1,21 @@
 .base {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: calc(100vw - var(--cui-spacings-peta) * 2);
   min-width: unset;
   max-width: 420px;
-  max-height: calc(100vh - var(--cui-spacings-mega) * 2);
   text-align: center;
+}
+
+.base > div {
+  padding: var(--cui-spacings-giga);
 }
 
 @media (max-width: 479px) {
   .base {
     -webkit-overflow-scrolling: touch;
+    border-radius: var(--cui-border-radius-mega);
   }
 }
 
