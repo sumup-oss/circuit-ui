@@ -214,12 +214,10 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
           aria-haspopup="dialog"
           onClick={handleReferenceClick}
         />
-        {/* eslint-disable jsx-a11y/no-autofocus */}
         <Dialog
           {...rest}
           open={open}
           isModal={isMobile}
-          role="tooltip"
           onCloseEnd={closeDialog}
           ref={applyMultipleRefs(ref, refs.setFloating)}
           data-side={side}
@@ -253,7 +251,6 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
                 variant="secondary"
                 size="s"
                 className={classes.action}
-                autoFocus
               />
             )}
             {!isMobile && (
@@ -262,7 +259,6 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
                 variant="tertiary"
                 className={classes.close}
                 onClick={closeDialog}
-                autoFocus={!action}
               >
                 {closeButtonLabel}
               </CloseButton>

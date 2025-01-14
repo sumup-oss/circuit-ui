@@ -8,12 +8,12 @@
   max-width: min(360px, 100vw);
   padding: 0;
   margin: 0;
-  overflow: visible !important;
+  overflow: visible;
   border-radius: var(--cui-border-radius-byte);
 }
 
 .base::after {
-  visibility: hidden;
+  display: none;
 }
 
 @media (max-width: 479px) {
@@ -36,7 +36,6 @@
 @media (max-width: 479px) {
   .base {
     top: unset;
-    margin: 0;
   }
 
   .content {
