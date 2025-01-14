@@ -18,6 +18,10 @@
       "types": "./dist/experimental.d.ts",
       "default": "./dist/experimental.js"
     },
+    "./internal": {
+      "types": "./dist/internal.d.ts",
+      "default": "./dist/internal.js"
+    },
     "./styles.css": "./dist/style.css",
     "./experimental/styles.css": "./dist/experimental-styles.css"
   },
@@ -28,6 +32,9 @@
       ],
       "experimental": [
         "./dist/experimental.d.ts"
+      ],
+      "internal": [
+        "./dist/internal.d.ts"
       ]
     }
   },
