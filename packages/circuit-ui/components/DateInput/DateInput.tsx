@@ -22,6 +22,7 @@ import {
   useRef,
   useState,
   type InputHTMLAttributes,
+  useCallback,
 } from 'react';
 import type { Temporal } from 'temporal-polyfill';
 import {
@@ -45,7 +46,6 @@ import { clsx } from '../../styles/clsx.js';
 import type { InputProps } from '../Input/Input.js';
 import { Calendar, type CalendarProps } from '../Calendar/Calendar.js';
 import { Button } from '../Button/Button.js';
-import { CloseButton } from '../CloseButton/CloseButton.js';
 import { IconButton } from '../Button/IconButton.js';
 import { Headline } from '../Headline/Headline.js';
 import {
@@ -58,8 +58,9 @@ import {
 import { toPlainDate } from '../../util/date.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { changeInputValue } from '../../util/input-value.js';
+import { Dialog } from '../Dialog/Dialog.js';
+import { sharedClasses } from '../../styles/shared.js';
 
-import { Dialog } from './components/Dialog.js';
 import { DateSegment } from './components/DateSegment.js';
 import { usePlainDateState } from './hooks/usePlainDateState.js';
 import { useSegmentFocus } from './hooks/useSegmentFocus.js';
@@ -189,6 +190,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       ...rest
     } = useI18n(props, translations);
     const isMobile = useMedia('(max-width: 479px)');
+    const animationDuration = isMobile ? 300 : 0;
 
     const inputRef = useRef<HTMLInputElement>(null);
     const calendarButtonRef = useRef<HTMLDivElement>(null);
@@ -279,9 +281,9 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       setOpen(true);
     };
 
-    const closeCalendar = () => {
+    const closeCalendar = useCallback(() => {
       setOpen(false);
-    };
+    }, []);
 
     const handleSelect = (date: Temporal.PlainDate) => {
       setSelection(date);
@@ -332,6 +334,19 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
         'The `label` prop is missing or invalid.',
       );
     }
+    const [isClosing, setIsClosing] = useState(false);
+
+    const handleModalCloseEnd = useCallback(() => {
+      setIsClosing(false);
+      closeCalendar?.();
+    }, [closeCalendar]);
+
+    const handleModalCloseStart = useCallback(() => {
+      setIsClosing(true);
+    }, []);
+
+    const outAnimation = isMobile ? sharedClasses.animationSlideOut : undefined;
+    const inAnimation = isMobile ? sharedClasses.animationSlideIn : undefined;
 
     return (
       <FieldWrapper disabled={disabled} className={className} style={style}>
@@ -464,9 +479,16 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
           id={dialogId}
           open={open}
           isModal={isMobile}
-          onClose={closeCalendar}
+          onCloseStart={handleModalCloseStart}
+          onCloseEnd={handleModalCloseEnd}
+          className={clsx(
+            classes.dialog,
+            isClosing ? outAnimation : inAnimation,
+          )}
+          animationDuration={isMobile ? animationDuration : 0}
           aria-labelledby={headlineId}
           style={dialogStyles}
+          closeButtonLabel={closeCalendarButtonLabel}
         >
           {() => (
             <div className={classes.content}>
@@ -474,14 +496,6 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                 <Headline as="h2" size="m" id={headlineId}>
                   {label}
                 </Headline>
-                <CloseButton
-                  size="s"
-                  variant="tertiary"
-                  onClick={closeCalendar}
-                  className={classes['close-button']}
-                >
-                  {closeCalendarButtonLabel}
-                </CloseButton>
               </header>
 
               <Calendar
