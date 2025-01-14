@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 5.2.1
+
+### Patch Changes
+
+- [#2856](https://github.com/sumup-oss/circuit-ui/pull/2856) [`36f6217`](https://github.com/sumup-oss/circuit-ui/commit/36f621746eb60d9a7912528b5b41b1c98b22f82e) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the Calendar icon to the latest design.
+
 ## 5.2.0
 
 ### Minor Changes
