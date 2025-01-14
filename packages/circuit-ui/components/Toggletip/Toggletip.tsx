@@ -219,6 +219,7 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
           {...rest}
           open={open}
           isModal={isMobile}
+          role="tooltip"
           onCloseEnd={closeDialog}
           ref={applyMultipleRefs(ref, refs.setFloating)}
           data-side={side}
