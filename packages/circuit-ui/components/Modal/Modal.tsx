@@ -19,6 +19,7 @@ import { forwardRef, useCallback, useState } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
 import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import { deprecate } from '../../util/logger.js';
 import { Dialog, type DialogProps } from '../Dialog/Dialog.js';
 import { sharedClasses } from '../../styles/shared.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
@@ -40,19 +41,32 @@ export interface ModalProps
    * Callback when the modal dialog is closed.
    */
   onClose: DialogProps['onCloseEnd'];
+  /**
+   * @deprecated This prop was passed to `react-modal` and is no longer relevant.
+   * Use the `preventClose` prop instead. Also see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role#required_javascript_features
+   */
+  hideCloseButton?: boolean;
 }
 
 export const ANIMATION_DURATION = 300;
 
 export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
   const {
+    hideCloseButton,
     variant = 'contextual',
     className,
     children,
     onClose,
     ...rest
   } = useI18n(props, translations);
-
+  if (process.env.NODE_ENV !== 'production') {
+    if (hideCloseButton) {
+      deprecate(
+        'Modal',
+        'The `hideCloseButton` prop has been deprecated. Use the `preventClose` prop instead.',
+      );
+    }
+  }
   const [isClosing, setIsClosing] = useState(false);
 
   const handleModalCloseEnd = useCallback(() => {
@@ -67,9 +81,11 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
   const isMobile = useMedia('(max-width: 479px)');
 
   const outAnimation = isMobile
-    ? sharedClasses.slideOut
-    : sharedClasses.fadeOut;
-  const inAnimation = isMobile ? sharedClasses.slideIn : sharedClasses.fadeIn;
+    ? sharedClasses.animationSlideOut
+    : sharedClasses.animationFadeOut;
+  const inAnimation = isMobile
+    ? sharedClasses.animationSlideIn
+    : sharedClasses.animationFadeIn;
 
   return (
     <>

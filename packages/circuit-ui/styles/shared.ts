@@ -20,8 +20,8 @@ export const sharedClasses = {
   listItem: _classes['list-item'],
   listItemDestructive: _classes['list-item-destructive'],
   navigationItem: _classes['navigation-item'],
-  fadeIn: _classes['animation-fade-in'],
-  fadeOut: _classes['animation-fade-out'],
-  slideIn: _classes['animation-slide-in'],
-  slideOut: _classes['animation-slide-out'],
+  animationFadeIn: _classes['animation-fade-in'],
+  animationFadeOut: _classes['animation-fade-out'],
+  animationSlideIn: _classes['animation-slide-in'],
+  animationSlideOut: _classes['animation-slide-out'],
 };
