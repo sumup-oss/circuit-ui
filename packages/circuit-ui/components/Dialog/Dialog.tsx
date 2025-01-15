@@ -36,6 +36,7 @@ import { clsx } from '../../styles/clsx.js';
 import { useClickOutside } from '../../hooks/useClickOutside/index.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
 import { useLatest } from '../../hooks/useLatest/index.js';
+import { isArray } from '../../util/type-check.js';
 
 import { getFirstFocusableElement } from './DialogService.js';
 import classes from './dialog.module.css';
@@ -91,6 +92,11 @@ export interface DialogProps
    */
   initialFocusRef?: RefObject<HTMLElement>;
   /**
+   * By passing a `preventOutsideClickRefs` ref or array of refs,
+   * you can prevent the dialog from closing when clicking on elements referenced by these refs.
+   */
+  preventOutsideClickRefs?: RefObject<HTMLElement> | RefObject<HTMLElement>[];
+  /**
    * A `ReactNode` or a function that returns the content of the modal dialog.
    */
   children?:
@@ -109,6 +115,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       closeButtonLabel,
       className,
       initialFocusRef,
+      preventOutsideClickRefs,
       preventClose = false,
       animationDuration = 0,
       onCloseStart,
@@ -259,7 +266,11 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       handleDialogClose();
     }, [handleDialogClose]);
 
-    useClickOutside([dialogRef], handleOutsideClick, open && !isModal);
+    const useClickOutsideRefs = isArray(preventOutsideClickRefs)
+      ? [dialogRef, ...preventOutsideClickRefs]
+      : [dialogRef];
+
+    useClickOutside(useClickOutsideRefs, handleOutsideClick, open && !isModal);
     useEscapeKey(() => handleDialogClose(), open && !isModal);
 
     useEffect(() => {
