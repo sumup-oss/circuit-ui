@@ -25,6 +25,8 @@ import {
   forwardRef,
   type ComponentType,
   useState,
+  type HTMLAttributes,
+  type MouseEvent,
 } from 'react';
 import {
   useFloating,
@@ -62,15 +64,6 @@ function isDivider(action: Action): action is Divider {
 }
 
 type OnToggle = (open: boolean | ((prevOpen: boolean) => boolean)) => void;
-
-export interface PopoverReferenceProps {
-  'onClick': (event: ClickEvent) => void;
-  'onKeyDown': (event: KeyboardEvent) => void;
-  'id': string;
-  'aria-haspopup': boolean;
-  'aria-controls': string;
-  'aria-expanded': boolean;
-}
 
 export interface PopoverProps
   extends Omit<
@@ -112,7 +105,7 @@ export interface PopoverProps
    * The component that toggles the Popover when clicked. Also referred to as
    * reference element.
    */
-  component: ComponentType<PopoverReferenceProps>;
+  component: ComponentType<HTMLAttributes<HTMLElement>>;
   /**
    * Remove the [`menu` role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/roles/menu_role)
    * when its semantics aren't appropriate for the use case, for example when
@@ -160,7 +153,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
     const menuId = useId();
     const [isClosing, setClosing] = useState(false);
     const isMobile = useMedia('(max-width: 479px)');
-    const ANIMATION_DURATION = isMobile ? 300 : 0;
+    const animationDuration = isMobile ? 300 : 0;
 
     const { floatingStyles, refs, update } = useFloating<HTMLElement>({
       open: isOpen,
@@ -185,8 +178,17 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
       [onToggle],
     );
 
+    const handleTriggerMouseDown = useCallback((event: MouseEvent) => {
+      /* The Dialog component already closes the dialog when the trigger
+      element is clicked via the useClickOutside hook.
+      the `handleTriggerClick` method would still handle toggling
+      the Popover's state
+      */
+      event.preventDefault();
+      event.stopPropagation();
+    }, []);
     const handleTriggerClick = useCallback(() => {
-      handleToggle(true);
+      handleToggle((prev) => !prev);
     }, [handleToggle]);
 
     const handleTriggerKeyDown = useCallback(
@@ -243,7 +245,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
         if (element) {
           setTimeout(() => {
             element.focus();
-          }, ANIMATION_DURATION);
+          }, animationDuration);
         }
       }
 
@@ -255,7 +257,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
       }
 
       triggerKey.current = null;
-    }, [isOpen, prevOpen, refs.reference, ANIMATION_DURATION]);
+    }, [isOpen, prevOpen, refs.reference, animationDuration]);
 
     const isMenu = role === 'menu';
 
@@ -305,6 +307,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
             aria-expanded={isOpen}
             onClick={handleTriggerClick}
             onKeyDown={handleTriggerKeyDown}
+            onMouseDown={handleTriggerMouseDown}
           />
         </div>
         <Dialog
@@ -318,7 +321,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
             isClosing ? outAnimation : inAnimation,
             className,
           )}
-          animationDuration={ANIMATION_DURATION}
+          animationDuration={animationDuration}
           style={
             isMobile
               ? style
