@@ -25,7 +25,6 @@ import {
   useState,
   type ComponentType,
   type HTMLAttributes,
-  type RefObject,
 } from 'react';
 import {
   arrow,
@@ -37,13 +36,10 @@ import {
   type Side,
 } from '@floating-ui/react-dom';
 
-import dialogPolyfill from '../../vendor/dialog-polyfill/index.js';
 import type { ClickEvent } from '../../types/events.js';
 import { clsx } from '../../styles/clsx.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
-import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
-import { useClickOutside } from '../../hooks/useClickOutside/index.js';
 import { useStackContext } from '../StackContext/index.js';
 import { CloseButton } from '../CloseButton/index.js';
 import { Headline } from '../Headline/index.js';
@@ -51,6 +47,7 @@ import { Body } from '../Body/index.js';
 import { Button, type ButtonProps } from '../Button/index.js';
 import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import type { Locale } from '../../util/i18n.js';
+import { Dialog } from '../Dialog/Dialog.js';
 
 import classes from './Toggletip.module.css';
 import { translations } from './translations/index.js';
@@ -136,33 +133,10 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
     const zIndex = useStackContext();
     const isMobile = useMedia('(max-width: 479px)');
     const arrowRef = useRef<HTMLDivElement>(null);
-    const dialogRef = useRef<HTMLDialogElement>(null);
     const referenceId = useId();
     const headlineId = useId();
     const bodyId = useId();
     const [open, setOpen] = useState(defaultOpen);
-
-    useEffect(() => {
-      const dialogElement = dialogRef.current;
-
-      if (!dialogElement) {
-        return undefined;
-      }
-
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore The package is bundled incorrectly
-      dialogPolyfill.registerDialog(dialogElement);
-
-      const handleClose = () => {
-        setOpen(false);
-      };
-
-      dialogElement.addEventListener('close', handleClose);
-
-      return () => {
-        dialogElement.addEventListener('close', handleClose);
-      };
-    }, []);
 
     const { refs, floatingStyles, middlewareData, update, placement } =
       useFloating({
@@ -210,21 +184,11 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
     }, [open, update]);
 
     const closeDialog = useCallback(() => {
-      dialogRef.current?.close();
+      setOpen(false);
     }, []);
 
-    useClickOutside(
-      [refs.floating, refs.reference as RefObject<HTMLButtonElement>],
-      closeDialog,
-      open,
-    );
-    useEscapeKey(closeDialog, open);
-
     const handleReferenceClick = useCallback(() => {
-      if (dialogRef.current) {
-        dialogRef.current.show();
-        setOpen(true);
-      }
+      setOpen(true);
     }, []);
 
     const handleActionClick = (event: ClickEvent) => {
@@ -250,11 +214,12 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
           aria-haspopup="dialog"
           onClick={handleReferenceClick}
         />
-        {/* eslint-disable jsx-a11y/no-autofocus */}
-        <dialog
+        <Dialog
           {...rest}
-          open={defaultOpen}
-          ref={applyMultipleRefs(ref, dialogRef, refs.setFloating)}
+          open={open}
+          isModal={isMobile}
+          onCloseEnd={closeDialog}
+          ref={applyMultipleRefs(ref, refs.setFloating)}
           data-side={side}
           aria-labelledby={headline ? headlineId : bodyId}
           aria-describedby={headline ? bodyId : undefined}
@@ -286,18 +251,18 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
                 variant="secondary"
                 size="s"
                 className={classes.action}
-                autoFocus
               />
             )}
-            <CloseButton
-              size="s"
-              variant="tertiary"
-              className={classes.close}
-              onClick={closeDialog}
-              autoFocus={!action}
-            >
-              {closeButtonLabel}
-            </CloseButton>
+            {!isMobile && (
+              <CloseButton
+                size="s"
+                variant="tertiary"
+                className={classes.close}
+                onClick={closeDialog}
+              >
+                {closeButtonLabel}
+              </CloseButton>
+            )}
           </div>
           <div
             ref={arrowRef}
@@ -307,14 +272,7 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
               left: middlewareData.arrow?.x,
             }}
           />
-        </dialog>
-        {/* eslint-enable jsx-a11y/no-autofocus */}
-        <div
-          className={classes.backdrop}
-          style={{
-            zIndex: `calc(${zIndex?.toString() || 'var(--cui-z-index-modal)'} - 1)`,
-          }}
-        />
+        </Dialog>
       </Fragment>
     );
   },
