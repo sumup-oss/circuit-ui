@@ -16,8 +16,8 @@
   padding: var(--cui-spacings-byte) 0;
   overflow-y: auto;
   background-color: var(--cui-bg-elevated);
-  border: 1px solid var(--cui-border-subtle);
-  border-radius: var(--cui-border-radius-byte);
+  border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
+  border-radius: inherit;
   box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
 }
 
@@ -37,8 +37,6 @@
   .menu {
     max-height: 90vh;
     padding: var(--cui-spacings-byte) 0;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
   }
 }
 
@@ -49,11 +47,10 @@
 
 .base::after {
   height: var(--cui-spacings-kilo);
+  margin: var(--cui-border-width-kilo) var(--cui-border-width-mega);
   background: linear-gradient(
     color-mix(in sRGB, var(--cui-bg-elevated) 0%, transparent),
     color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
     color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent)
   );
-  border-bottom-right-radius: var(--cui-border-radius-byte);
-  border-bottom-left-radius: var(--cui-border-radius-byte);
 }

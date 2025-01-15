@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { createRef, type FC } from 'react';
 import { Add, Delete, type IconProps } from '@sumup-oss/icons';
 import { waitFor } from '@testing-library/react';
@@ -23,7 +23,11 @@ import { act, axe, render, userEvent, screen } from '../../util/test-utils.js';
 import { Popover, type PopoverProps } from './Popover.js';
 
 describe('Popover', () => {
+  beforeEach(() => {
+    vi.useFakeTimers({ shouldAdvanceTime: true });
+  });
   afterEach(() => {
+    vi.useRealTimers();
     vi.clearAllMocks();
   });
 
@@ -138,6 +142,7 @@ describe('Popover', () => {
     'should close the popover when pressing the %s key on the trigger element',
     async (_, key) => {
       renderPopover(baseProps);
+      vi.runAllTimers();
 
       const popoverTrigger = screen.getByRole('button');
 
