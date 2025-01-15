@@ -254,7 +254,12 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       }, animationDurationRef.current);
     }, [hasNativeDialog, animationDurationRef.current, isModal, onCloseStart]);
 
-    useClickOutside([dialogRef], () => handleDialogClose(), open && !isModal);
+    const handleOutsideClick = useCallback(() => {
+      lastFocusedElementRef.current = null;
+      handleDialogClose();
+    }, [handleDialogClose]);
+
+    useClickOutside([dialogRef], handleOutsideClick, open && !isModal);
     useEscapeKey(() => handleDialogClose(), open && !isModal);
 
     useEffect(() => {

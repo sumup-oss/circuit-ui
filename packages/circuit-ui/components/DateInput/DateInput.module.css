@@ -107,17 +107,32 @@
   z-index: calc(var(--cui-z-index-absolute) + 1);
 }
 
+.dialog {
+  width: max-content;
+  max-width: 410px;
+  max-width: min(410px, 100vw);
+  max-height: 100vh;
+  margin: 0;
+  overflow: scroll;
+  border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
+  border-radius: var(--cui-border-radius-byte);
+}
+
+.dialog::after {
+  display: none;
+}
+
 .content {
   color: var(--cui-fg-normal);
   background-color: var(--cui-bg-elevated);
-  border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
-  border-radius: var(--cui-border-radius-byte);
   outline: 0;
   box-shadow: 0 2px 6px 0 rgb(0 0 0 / 8%);
 }
 
 @media (max-width: 479px) {
-  .content {
+  .dialog {
+    width: 100%;
+    max-width: 100%;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }

@@ -16,6 +16,7 @@
 import { beforeEach, describe, expect, it, vi, type Mock } from 'vitest';
 import { createRef } from 'react';
 import MockDate from 'mockdate';
+import { waitFor } from '@testing-library/react';
 
 import { render, screen, axe, userEvent } from '../../util/test-utils.js';
 import { useMedia } from '../../hooks/useMedia/useMedia.js';
@@ -38,7 +39,7 @@ describe('DateInput', () => {
   it('should forward a ref', () => {
     const ref = createRef<HTMLInputElement>();
     const { container } = render(<DateInput {...props} ref={ref} />);
-    // eslint-disable-next-line testing-library/no-container
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
     const input = container.querySelector('input[type="date"]');
     expect(ref.current).toBe(input);
   });
@@ -48,7 +49,7 @@ describe('DateInput', () => {
     const { container } = render(
       <DateInput {...props} className={className} />,
     );
-    // eslint-disable-next-line testing-library/no-container
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
     const wrapper = container.querySelectorAll('div')[0];
     expect(wrapper?.className).toContain(className);
   });
@@ -453,7 +454,9 @@ describe('DateInput', () => {
         const closeButton = screen.getByRole('button', { name: /close/i });
         await userEvent.click(closeButton);
 
-        expect(calendarDialog).not.toBeVisible();
+        await waitFor(() => {
+          expect(calendarDialog).not.toBeVisible();
+        });
         expect(ref.current).toHaveValue('2000-01-12');
         expect(onChange).not.toHaveBeenCalled();
       });

@@ -1,6 +1,5 @@
 .base {
   padding: 0 !important;
-  overflow-y: auto;
   pointer-events: none;
   background-color: canvas;
   border: none;
@@ -34,6 +33,7 @@
     color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
     color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent)
   );
+  border-radius: inherit;
 }
 
 /* Close button */
