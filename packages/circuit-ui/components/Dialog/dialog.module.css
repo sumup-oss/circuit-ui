@@ -1,7 +1,7 @@
 .base {
   padding: 0 !important;
   pointer-events: none;
-  background-color: canvas;
+  background-color: var(--cui-bg-elevated);
   border: none;
   outline: none;
 }
@@ -29,9 +29,9 @@
   pointer-events: none;
   content: "";
   background: linear-gradient(
-    color-mix(in sRGB, var(--cui-bg-normal) 0%, transparent),
-    color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
-    color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent)
+    color-mix(in sRGB, var(--cui-bg-elevated) 0%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent)
   );
   border-radius: inherit;
 }

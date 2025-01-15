@@ -48,9 +48,4 @@
 .base::after {
   height: var(--cui-spacings-kilo);
   margin: var(--cui-border-width-kilo) var(--cui-border-width-mega);
-  background: linear-gradient(
-    color-mix(in sRGB, var(--cui-bg-elevated) 0%, transparent),
-    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
-    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent)
-  );
 }
