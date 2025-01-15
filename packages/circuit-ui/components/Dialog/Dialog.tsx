@@ -36,7 +36,6 @@ import { clsx } from '../../styles/clsx.js';
 import { useClickOutside } from '../../hooks/useClickOutside/index.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
 import { useLatest } from '../../hooks/useLatest/index.js';
-import { isArray } from '../../util/type-check.js';
 
 import { getFirstFocusableElement } from './DialogService.js';
 import classes from './dialog.module.css';
@@ -266,8 +265,9 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       handleDialogClose();
     }, [handleDialogClose]);
 
-    const useClickOutsideRefs = isArray(preventOutsideClickRefs)
-      ? [dialogRef, ...preventOutsideClickRefs]
+    const useClickOutsideRefs = preventOutsideClickRefs
+      ? // eslint-disable-next-line compat/compat
+        [dialogRef, preventOutsideClickRefs].flat()
       : [dialogRef];
 
     useClickOutside(useClickOutsideRefs, handleOutsideClick, open && !isModal);
