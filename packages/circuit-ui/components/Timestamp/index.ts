@@ -1,5 +1,5 @@
 /**
- * Copyright 2023, SumUp Ltd.
+ * Copyright 2024, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-export {
-  Timestamp,
-  type TimestampProps,
-} from './components/Timestamp/index.js';
+export { Timestamp } from './Timestamp.js';
+
+export type { TimestampProps } from './Timestamp.js';

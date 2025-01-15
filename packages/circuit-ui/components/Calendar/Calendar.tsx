@@ -140,6 +140,11 @@ export interface CalendarProps
   numberOfMonths?: number;
 }
 
+/**
+ * The Calendar component displays a monthly date grid. This is a low-level
+ * component for advanced use cases; you likely want to use the DateInput
+ * component instead.
+ */
 export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
   (props, ref) => {
     const {
