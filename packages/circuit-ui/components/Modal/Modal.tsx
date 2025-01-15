@@ -28,7 +28,11 @@ import classes from './Modal.module.css';
 export interface ModalProps
   extends Omit<
     DialogProps,
-    'onCloseStart' | 'onCloseEnd' | 'isModal' | 'animationDuration'
+    | 'onCloseStart'
+    | 'onCloseEnd'
+    | 'isModal'
+    | 'animationDuration'
+    | 'preventOutsideClickRefs'
   > {
   /**
    * Use the `immersive` variant to focus the user's attention on the dialog content.
@@ -38,7 +42,7 @@ export interface ModalProps
   /**
    * Callback when the modal dialog is closed.
    */
-  onClose: DialogProps['onCloseEnd'];
+  onClose?: DialogProps['onCloseEnd'];
   /**
    * @deprecated This prop was passed to `react-modal` and is no longer relevant.
    * Use the `preventClose` prop instead. Also see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role#required_javascript_features

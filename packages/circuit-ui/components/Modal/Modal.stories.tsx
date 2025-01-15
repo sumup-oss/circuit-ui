@@ -76,8 +76,6 @@ const openModal = async ({
 const baseArgs: ModalProps = {
   open: false,
   onClose: () => {},
-  'aria-labelledby': 'title',
-  'aria-describedby': 'description',
   variant: 'contextual',
   children: defaultModalChildren,
 };

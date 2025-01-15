@@ -75,7 +75,16 @@ export interface PopoverReferenceProps {
 export interface PopoverProps
   extends Omit<
     DialogProps,
-    'children' | 'role' | 'open' | 'onCloseEnd' | 'onCloseStart'
+    | 'children'
+    | 'role'
+    | 'open'
+    | 'onCloseEnd'
+    | 'onCloseStart'
+    | 'isModal'
+    | 'animationDuration'
+    | 'preventClose'
+    | 'initialFocusRef'
+    | 'preventOutsideClickRefs'
   > {
   /**
    * Determines whether the Popover is open or closed.

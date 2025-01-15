@@ -89,7 +89,7 @@ export interface DialogProps
    */
   preventClose?: boolean;
   /**
-   * Enables focusing a particular element in the dialog content and override default behavior. This will have no effect if the dialog is not modal.
+   * Enables focusing a particular element in the dialog content and overrides the default behavior.
    * @default `false`.
    */
   initialFocusRef?: RefObject<HTMLElement>;
