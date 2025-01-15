@@ -25,8 +25,6 @@ import {
   forwardRef,
   type ComponentType,
   useState,
-  type HTMLAttributes,
-  type MouseEvent,
 } from 'react';
 import {
   useFloating,
@@ -64,6 +62,15 @@ function isDivider(action: Action): action is Divider {
 }
 
 type OnToggle = (open: boolean | ((prevOpen: boolean) => boolean)) => void;
+
+export interface PopoverReferenceProps {
+  'onClick': (event: ClickEvent) => void;
+  'onKeyDown': (event: KeyboardEvent) => void;
+  'id': string;
+  'aria-haspopup': boolean;
+  'aria-controls': string;
+  'aria-expanded': boolean;
+}
 
 export interface PopoverProps
   extends Omit<
@@ -105,7 +112,7 @@ export interface PopoverProps
    * The component that toggles the Popover when clicked. Also referred to as
    * reference element.
    */
-  component: ComponentType<HTMLAttributes<HTMLElement>>;
+  component: ComponentType<PopoverReferenceProps>;
   /**
    * Remove the [`menu` role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/roles/menu_role)
    * when its semantics aren't appropriate for the use case, for example when
@@ -178,15 +185,6 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
       [onToggle],
     );
 
-    const handleTriggerMouseDown = useCallback((event: MouseEvent) => {
-      /* The Dialog component already closes the dialog when the trigger
-      element is clicked via the useClickOutside hook.
-      the `handleTriggerClick` method would still handle toggling
-      the Popover's state
-      */
-      event.preventDefault();
-      event.stopPropagation();
-    }, []);
     const handleTriggerClick = useCallback(() => {
       handleToggle((prev) => !prev);
     }, [handleToggle]);
@@ -307,7 +305,6 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
             aria-expanded={isOpen}
             onClick={handleTriggerClick}
             onKeyDown={handleTriggerKeyDown}
-            onMouseDown={handleTriggerMouseDown}
           />
         </div>
         <Dialog
@@ -331,6 +328,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
                   zIndex: zIndex || 'var(--cui-z-index-popover)',
                 }
           }
+          preventOutsideClickRefs={refs.reference}
           {...props}
         >
           {popoverContent}
