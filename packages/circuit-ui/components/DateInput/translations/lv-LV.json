@@ -3,7 +3,6 @@
   "monthInputLabel": "Mēnesis",
   "dayInputLabel": "Diena",
   "openCalendarButtonLabel": "Mainīt datumu",
-  "closeCalendarButtonLabel": "Aizvērt kalendāru",
   "applyDateButtonLabel": "Piemērot datumu",
   "clearDateButtonLabel": "Notīrīt datumu"
 }

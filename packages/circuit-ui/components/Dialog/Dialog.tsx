@@ -37,9 +37,11 @@ import { useClickOutside } from '../../hooks/useClickOutside/index.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
 import { useLatest } from '../../hooks/useLatest/index.js';
 import { isArray } from '../../util/type-check.js';
+import { useI18n } from '../../hooks/useI18n/useI18n.js';
 
 import { getFirstFocusableElement } from './DialogService.js';
 import classes from './dialog.module.css';
+import { translations } from './translations/index.js';
 
 type DataAttribute = `data-${string}`;
 
@@ -120,7 +122,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       animationDuration = 0,
       onCloseStart,
       ...rest
-    } = props;
+    } = useI18n(props, translations);
     const dialogRef = useRef<HTMLDialogElement>(null);
     const openRef = useLatest<boolean>(open);
     const animationDurationRef = useLatest<number>(animationDuration);
