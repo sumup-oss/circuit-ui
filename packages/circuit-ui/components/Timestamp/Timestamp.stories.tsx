@@ -14,6 +14,7 @@
  */
 
 import { Temporal } from 'temporal-polyfill';
+import isChromatic from 'chromatic/isChromatic';
 
 import { Stack } from '../../../../.storybook/components/Stack.js';
 
@@ -25,12 +26,16 @@ export default {
   tags: ['status:experimental'],
 };
 
+const now = isChromatic()
+  ? Temporal.ZonedDateTime.from('2020-03-15T10:00:00+01:00[Europe/Berlin]')
+  : Temporal.Now.zonedDateTimeISO();
+
 const datetimes = [
-  Temporal.Now.zonedDateTimeISO().add({ months: 4 }),
-  Temporal.Now.zonedDateTimeISO().add({ seconds: 64 }),
-  Temporal.Now.zonedDateTimeISO().subtract({ minutes: 7 }),
-  Temporal.Now.zonedDateTimeISO().subtract({ days: 1 }),
-  Temporal.Now.zonedDateTimeISO().subtract({ weeks: 5 }),
+  now.add({ months: 4 }),
+  now.add({ seconds: 64 }),
+  now.subtract({ minutes: 7 }),
+  now.subtract({ days: 1 }),
+  now.subtract({ weeks: 5 }),
 ] as const;
 const locales = ['en-US', 'de-DE', 'pt-BR'] as const;
 const variants = ['absolute', 'relative'] as const;
