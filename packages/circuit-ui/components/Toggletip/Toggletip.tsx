@@ -57,7 +57,15 @@ export interface ToggletipReferenceProps {
 export interface ToggletipProps
   extends Omit<
     DialogProps,
-    'onCloseStart' | 'onCloseEnd' | 'isModal' | 'animationDuration'
+    | 'onCloseStart'
+    | 'onCloseEnd'
+    | 'isModal'
+    | 'animationDuration'
+    | 'initialFocusRef'
+    | 'open'
+    | 'preventClose'
+    | 'preventOutsideClickRefs'
+    | 'children'
   > {
   /**
    * The button element that triggers the toggletip.
@@ -88,7 +96,7 @@ export interface ToggletipProps
   /**
    * Where to display the toggletip relative to the trigger component. The
    * toggletip will automatically move if there isn't enough space available.
-   * Default: 'top'.
+   * @default 'top'.
    */
   placement?: Placement;
   /**
@@ -98,7 +106,7 @@ export interface ToggletipProps
    * positive) or towards (if negative) the reference element. Pass an object
    * to displace the floating element on both the main and cross axes.
    *
-   * Default: 12.
+   * @default: 12.
    */
   offset?: number | { mainAxis?: number; crossAxis?: number };
 }
