@@ -17,8 +17,15 @@ import { useEffect, useRef, type RefObject } from 'react';
 
 import { isArray } from '../../util/type-check.js';
 
+// Allowing potentially undefined values
+// to avoid the "The final argument passed to useEffect changed size between renders." error.
+
+type PotentiallyUndefinedRef<T> = RefObject<T> | undefined;
+
 export function useClickOutside(
-  ref: RefObject<HTMLElement> | RefObject<HTMLElement>[],
+  ref:
+    | PotentiallyUndefinedRef<HTMLElement>
+    | PotentiallyUndefinedRef<HTMLElement>[],
   callback: (event: MouseEvent) => void,
   active = true,
 ): void {
@@ -33,9 +40,11 @@ export function useClickOutside(
     }
 
     const handleOutsideMousedown = (event: MouseEvent) => {
-      isOutsideClick.current = !refs.some((r) =>
-        r.current ? r.current.contains(event.target as Node) : true,
-      );
+      isOutsideClick.current = !refs
+        .filter((r) => Boolean(r))
+        .some((r) =>
+          r?.current ? r.current.contains(event.target as Node) : true,
+        );
     };
 
     const handleOutsideClick = (event: MouseEvent) => {
