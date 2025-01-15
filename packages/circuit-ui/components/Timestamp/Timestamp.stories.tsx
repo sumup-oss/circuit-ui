@@ -26,17 +26,20 @@ export default {
   tags: ['status:experimental'],
 };
 
-const now = isChromatic()
-  ? Temporal.ZonedDateTime.from('2020-03-15T10:00:00+01:00[Europe/Berlin]')
-  : Temporal.Now.zonedDateTimeISO();
+function getDatetimes(variant: TimestampProps['variant']) {
+  const now =
+    variant === 'absolute' && isChromatic()
+      ? Temporal.ZonedDateTime.from('2020-03-15T10:00:00+01:00[Europe/Berlin]')
+      : Temporal.Now.zonedDateTimeISO();
 
-const datetimes = [
-  now.add({ months: 4 }),
-  now.add({ seconds: 64 }),
-  now.subtract({ minutes: 7 }),
-  now.subtract({ days: 1 }),
-  now.subtract({ weeks: 5 }),
-] as const;
+  return [
+    now.add({ months: 4 }),
+    now.add({ seconds: 64 }),
+    now.subtract({ minutes: 7 }),
+    now.subtract({ days: 1 }),
+    now.subtract({ weeks: 5 }),
+  ];
+}
 const locales = ['en-US', 'de-DE', 'pt-BR'] as const;
 const variants = ['absolute', 'relative'] as const;
 const formatStyles = ['long', 'short', 'narrow'] as const;
@@ -44,14 +47,14 @@ const formatStyles = ['long', 'short', 'narrow'] as const;
 export const Base = (args: TimestampProps) => <Timestamp {...args} />;
 
 Base.args = {
-  datetime: datetimes[2].toString(),
+  datetime: getDatetimes('relative')[2].toString(),
 };
 
 export const Relative = (args: TimestampProps) => (
   <Stack>
     {locales.map((locale) => (
       <Stack vertical key={locale}>
-        {datetimes.map((datetime) => (
+        {getDatetimes('relative').map((datetime) => (
           <Timestamp
             {...args}
             key={datetime.toString()}
@@ -72,7 +75,7 @@ export const Absolute = (args: TimestampProps) => (
   <Stack>
     {locales.map((locale) => (
       <Stack vertical key={locale}>
-        {datetimes.map((datetime) => (
+        {getDatetimes('absolute').map((datetime) => (
           <Timestamp
             {...args}
             key={datetime.toString()}
@@ -121,6 +124,6 @@ export const FormatStyles = (args: TimestampProps) => (
 );
 
 FormatStyles.args = {
-  datetime: datetimes[2].toString(),
+  datetime: getDatetimes('absolute')[2].toString(),
   includeTime: true,
 };
