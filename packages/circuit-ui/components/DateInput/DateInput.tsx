@@ -488,6 +488,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
           animationDuration={isMobile ? animationDuration : 0}
           aria-labelledby={headlineId}
           style={dialogStyles}
+          locale={locale}
           closeButtonLabel={closeCalendarButtonLabel}
         >
           {() => (

@@ -3,7 +3,6 @@
   "monthInputLabel": "Kuu",
   "dayInputLabel": "Päev",
   "openCalendarButtonLabel": "Kuupäeva muutmine",
-  "closeCalendarButtonLabel": "Sulge kalender",
   "applyDateButtonLabel": "Rakenda kuupäev",
   "clearDateButtonLabel": "Tühjenda kuupäev"
 }

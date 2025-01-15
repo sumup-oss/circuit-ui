@@ -79,7 +79,6 @@ const baseArgs: ModalProps = {
   'aria-labelledby': 'title',
   'aria-describedby': 'description',
   variant: 'contextual',
-  closeButtonLabel: 'Close',
   children: defaultModalChildren,
 };
 

@@ -18,14 +18,12 @@
 import { forwardRef, useCallback, useState } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
-import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import { deprecate } from '../../util/logger.js';
 import { Dialog, type DialogProps } from '../Dialog/Dialog.js';
 import { sharedClasses } from '../../styles/shared.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 
 import classes from './Modal.module.css';
-import { translations } from './translations/index.js';
 
 export interface ModalProps
   extends Omit<
@@ -58,7 +56,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
     children,
     onClose,
     ...rest
-  } = useI18n(props, translations);
+  } = props;
   if (process.env.NODE_ENV !== 'production') {
     if (hideCloseButton) {
       deprecate(
