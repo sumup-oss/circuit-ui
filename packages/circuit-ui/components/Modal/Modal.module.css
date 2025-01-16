@@ -4,14 +4,6 @@
   background-color: var(--cui-bg-elevated);
 }
 
-.base::after {
-  background: linear-gradient(
-    color-mix(in sRGB, var(--cui-bg-elevated) 0%, transparent),
-    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
-    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent)
-  );
-}
-
 .content {
   position: relative;
   max-height: 90vh;

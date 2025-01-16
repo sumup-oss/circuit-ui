@@ -15,7 +15,7 @@
 
 import { action } from '@storybook/addon-actions';
 import { Add, Edit, Delete } from '@sumup-oss/icons';
-import { useState, type ReactNode } from 'react';
+import { useState } from 'react';
 
 import { Button } from '../Button/index.js';
 
@@ -50,28 +50,20 @@ const actions = [
   },
 ];
 
-// This wrapper is necessary because the Popover's floating element renders
-// in a Portal, and Chromatic excludes it from screenshots by default.
-function PopoverWrapper({ children }: { children: ReactNode }) {
-  return <div style={{ width: 200, height: 250 }}>{children}</div>;
-}
-
 export const Base = (args: PopoverProps) => {
   const [isOpen, setOpen] = useState(true);
 
   return (
-    <PopoverWrapper>
-      <Popover
-        {...args}
-        isOpen={isOpen}
-        onToggle={setOpen}
-        component={(props) => (
-          <Button size="s" variant="secondary" {...props}>
-            Open popover
-          </Button>
-        )}
-      />
-    </PopoverWrapper>
+    <Popover
+      {...args}
+      isOpen={isOpen}
+      onToggle={setOpen}
+      component={(props) => (
+        <Button size="s" variant="secondary" {...props}>
+          Open popover
+        </Button>
+      )}
+    />
   );
 };
 
@@ -83,18 +75,16 @@ export const Offset = (args: PopoverProps) => {
   const [isOpen, setOpen] = useState(true);
 
   return (
-    <PopoverWrapper>
-      <Popover
-        {...args}
-        isOpen={isOpen}
-        onToggle={setOpen}
-        component={(props) => (
-          <Button size="s" variant="secondary" {...props}>
-            Open popover
-          </Button>
-        )}
-      />
-    </PopoverWrapper>
+    <Popover
+      {...args}
+      isOpen={isOpen}
+      onToggle={setOpen}
+      component={(props) => (
+        <Button size="s" variant="secondary" {...props}>
+          Open popover
+        </Button>
+      )}
+    />
   );
 };
 

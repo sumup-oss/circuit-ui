@@ -91,6 +91,11 @@ export interface DialogProps
    */
   initialFocusRef?: RefObject<HTMLElement>;
   /**
+   * By passing a `preventOutsideClickRefs` ref or array of refs,
+   * you can prevent the dialog from closing when clicking on elements referenced by these refs.
+   */
+  preventOutsideClickRefs?: RefObject<HTMLElement> | RefObject<HTMLElement>[];
+  /**
    * A `ReactNode` or a function that returns the content of the modal dialog.
    */
   children?:
@@ -109,6 +114,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       closeButtonLabel,
       className,
       initialFocusRef,
+      preventOutsideClickRefs,
       preventClose = false,
       animationDuration = 0,
       onCloseStart,
@@ -259,7 +265,12 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       handleDialogClose();
     }, [handleDialogClose]);
 
-    useClickOutside([dialogRef], handleOutsideClick, open && !isModal);
+    const useClickOutsideRefs = preventOutsideClickRefs
+      ? // eslint-disable-next-line compat/compat
+        [dialogRef, preventOutsideClickRefs].flat()
+      : [dialogRef];
+
+    useClickOutside(useClickOutsideRefs, handleOutsideClick, open && !isModal);
     useEscapeKey(() => handleDialogClose(), open && !isModal);
 
     useEffect(() => {
