@@ -19,6 +19,7 @@ import { Fragment, useCallback, useState } from 'react';
 import { ChevronDown } from '@sumup-oss/icons';
 
 import { StackContext } from '../../../StackContext/index.js';
+import { CloseButton } from '../../../CloseButton/index.js';
 import { useCollapsible } from '../../../../hooks/useCollapsible/index.js';
 import { useFocusList } from '../../../../hooks/useFocusList/index.js';
 import type { PrimaryLinkProps } from '../../types.js';
@@ -179,12 +180,14 @@ export const MobileNavigation = ({
           {...props}
         >
           <div className={classes.content}>
+            <div className={classes.header}>
+              <CloseButton onClick={onClose}>{closeButtonLabel}</CloseButton>
+            </div>
             {skipNavigationHref && skipNavigationLabel && (
               <SkipLink href={skipNavigationHref}>
                 {skipNavigationLabel}
               </SkipLink>
             )}
-
             <nav
               aria-label={primaryNavigationLabel}
               className={classes.navigation}

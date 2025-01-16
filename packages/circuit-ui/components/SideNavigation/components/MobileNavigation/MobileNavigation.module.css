@@ -3,9 +3,7 @@
 }
 
 .base > button {
-  top: var(--cui-spacings-bit);
-  right: unset;
-  left: var(--cui-spacings-bit);
+  display: none;
 }
 
 .base::after {
