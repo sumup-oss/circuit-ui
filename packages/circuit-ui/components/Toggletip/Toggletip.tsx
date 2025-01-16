@@ -24,7 +24,6 @@ import {
   useRef,
   useState,
   type ComponentType,
-  type HTMLAttributes,
 } from 'react';
 import {
   arrow,
@@ -45,12 +44,9 @@ import { CloseButton } from '../CloseButton/index.js';
 import { Headline } from '../Headline/index.js';
 import { Body } from '../Body/index.js';
 import { Button, type ButtonProps } from '../Button/index.js';
-import { useI18n } from '../../hooks/useI18n/useI18n.js';
-import type { Locale } from '../../util/i18n.js';
-import { Dialog } from '../Dialog/Dialog.js';
+import { Dialog, type DialogProps } from '../Dialog/Dialog.js';
 
 import classes from './Toggletip.module.css';
-import { translations } from './translations/index.js';
 
 export interface ToggletipReferenceProps {
   'id': string;
@@ -58,7 +54,19 @@ export interface ToggletipReferenceProps {
   'aria-haspopup': 'dialog';
 }
 
-export interface ToggletipProps extends HTMLAttributes<HTMLDialogElement> {
+export interface ToggletipProps
+  extends Omit<
+    DialogProps,
+    | 'onCloseStart'
+    | 'onCloseEnd'
+    | 'isModal'
+    | 'animationDuration'
+    | 'initialFocusRef'
+    | 'open'
+    | 'preventClose'
+    | 'preventOutsideClickRefs'
+    | 'children'
+  > {
   /**
    * The button element that triggers the toggletip.
    */
@@ -82,17 +90,13 @@ export interface ToggletipProps extends HTMLAttributes<HTMLDialogElement> {
    */
   action?: Omit<ButtonProps, 'variant' | 'size'>;
   /**
-   * Label for the toggletip's close button.
-   */
-  closeButtonLabel?: string;
-  /**
    * Whether the toggletip is initially open. Default: 'false'.
    */
   defaultOpen?: boolean;
   /**
    * Where to display the toggletip relative to the trigger component. The
    * toggletip will automatically move if there isn't enough space available.
-   * Default: 'top'.
+   * @default 'top'.
    */
   placement?: Placement;
   /**
@@ -102,16 +106,9 @@ export interface ToggletipProps extends HTMLAttributes<HTMLDialogElement> {
    * positive) or towards (if negative) the reference element. Pass an object
    * to displace the floating element on both the main and cross axes.
    *
-   * Default: 12.
+   * @default: 12.
    */
   offset?: number | { mainAxis?: number; crossAxis?: number };
-  /**
-   * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
-   * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
-   * When passing an array, the first supported locale is used.
-   * Defaults to `navigator.language` in supported environments.
-   */
-  locale?: Locale;
 }
 
 export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
@@ -129,7 +126,7 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
       style,
       locale,
       ...rest
-    } = useI18n(props, translations);
+    } = props;
     const zIndex = useStackContext();
     const isMobile = useMedia('(max-width: 479px)');
     const arrowRef = useRef<HTMLDivElement>(null);
@@ -224,6 +221,7 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
           aria-labelledby={headline ? headlineId : bodyId}
           aria-describedby={headline ? bodyId : undefined}
           className={clsx(classes.base, className)}
+          closeButtonLabel={closeButtonLabel}
           style={{
             ...style,
             ...dialogStyles,

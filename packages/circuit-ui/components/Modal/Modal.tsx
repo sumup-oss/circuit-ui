@@ -18,19 +18,21 @@
 import { forwardRef, useCallback, useState } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
-import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import { deprecate } from '../../util/logger.js';
 import { Dialog, type DialogProps } from '../Dialog/Dialog.js';
 import { sharedClasses } from '../../styles/shared.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 
 import classes from './Modal.module.css';
-import { translations } from './translations/index.js';
 
 export interface ModalProps
   extends Omit<
     DialogProps,
-    'onCloseStart' | 'onCloseEnd' | 'isModal' | 'animationDuration'
+    | 'onCloseStart'
+    | 'onCloseEnd'
+    | 'isModal'
+    | 'animationDuration'
+    | 'preventOutsideClickRefs'
   > {
   /**
    * Use the `immersive` variant to focus the user's attention on the dialog content.
@@ -40,7 +42,7 @@ export interface ModalProps
   /**
    * Callback when the modal dialog is closed.
    */
-  onClose: DialogProps['onCloseEnd'];
+  onClose?: DialogProps['onCloseEnd'];
   /**
    * @deprecated This prop was passed to `react-modal` and is no longer relevant.
    * Use the `preventClose` prop instead. Also see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role#required_javascript_features
@@ -58,7 +60,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
     children,
     onClose,
     ...rest
-  } = useI18n(props, translations);
+  } = props;
   if (process.env.NODE_ENV !== 'production') {
     if (hideCloseButton) {
       deprecate(

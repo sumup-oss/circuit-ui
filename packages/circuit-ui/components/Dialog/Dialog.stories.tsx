@@ -80,7 +80,6 @@ const baseArgs: DialogProps = {
   onCloseEnd: () => {},
   'aria-labelledby': 'title',
   'aria-describedby': 'description',
-  closeButtonLabel: 'Close',
   children: defaultChildren,
   style: dialogStyles,
 };

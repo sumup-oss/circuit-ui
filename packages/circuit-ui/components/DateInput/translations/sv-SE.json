@@ -3,7 +3,6 @@
   "monthInputLabel": "Månad",
   "dayInputLabel": "Dag",
   "openCalendarButtonLabel": "Ändra datum",
-  "closeCalendarButtonLabel": "Stäng kalendern",
   "applyDateButtonLabel": "Välj datum",
   "clearDateButtonLabel": "Rensa datum"
 }

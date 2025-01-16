@@ -3,7 +3,6 @@
   "monthInputLabel": "Mes",
   "dayInputLabel": "Día",
   "openCalendarButtonLabel": "Cambiar la fecha",
-  "closeCalendarButtonLabel": "Cerrar calendario",
   "applyDateButtonLabel": "Aplicar fecha",
   "clearDateButtonLabel": "Borrar fecha"
 }

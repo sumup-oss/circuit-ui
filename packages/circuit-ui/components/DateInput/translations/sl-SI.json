@@ -3,7 +3,6 @@
   "monthInputLabel": "Mesec",
   "dayInputLabel": "Dan",
   "openCalendarButtonLabel": "Spremeni datum",
-  "closeCalendarButtonLabel": "Zapri koledar",
   "applyDateButtonLabel": "Uporabi datum",
   "clearDateButtonLabel": "Počisti datum"
 }
