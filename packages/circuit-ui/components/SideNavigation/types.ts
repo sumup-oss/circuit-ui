@@ -50,10 +50,10 @@ export interface PrimaryLinkProps
    */
   externalLabel?: string;
   /**
-   * Whether to show a small circular badge to indicate that a nested secondary
-   * link has a badge.
+   * An optional circular badge to highlight the primary link, e.g. to promote
+   * a new link or to indicate new content.
    */
-  badge?: boolean | PrimaryBadgeProps;
+  badge?: PrimaryBadgeProps;
   /**
    * A collection of secondary groups with nested secondary navigation links.
    */

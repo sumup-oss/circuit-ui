@@ -29,6 +29,10 @@ import type {
 import { isObject } from '../../../../util/type-check.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { utilClasses } from '../../../../styles/utility.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../../../util/errors.js';
 
 import classes from './PrimaryLink.module.css';
 
@@ -54,6 +58,18 @@ export function PrimaryLink({
   const { Link } = useComponents();
   const badgeLabelId = useId();
   const externalLabelId = useId();
+
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    badge &&
+    !isSufficientlyLabelled(badge.label)
+  ) {
+    throw new AccessibilityError(
+      'SideNavigation',
+      `The \`badge.label\` prop for the '${label}' primary link is missing.`,
+    );
+  }
 
   const badgeProps = getBadgeProps(badge);
   const descriptionIds = clsx(
