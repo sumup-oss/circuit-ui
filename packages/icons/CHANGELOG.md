@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 5.3.0
+
+### Minor Changes
+
+- [#2870](https://github.com/sumup-oss/circuit-ui/pull/2870) [`d5308e7`](https://github.com/sumup-oss/circuit-ui/commit/d5308e7b3a83f8c6d17974d43df5a9dc1f3af2e8) Thanks [@matoous](https://github.com/matoous)! - Added new Code icon.
+
 ## 5.2.1
 
 ### Patch Changes

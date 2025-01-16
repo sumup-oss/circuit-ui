@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.5.0
+
+### Minor Changes
+
+- [#2822](https://github.com/sumup-oss/circuit-ui/pull/2822) [`8fe9315`](https://github.com/sumup-oss/circuit-ui/commit/8fe93157e9dd783f2a50259fdcd926170e0ca41c) Thanks [@connor-baer](https://github.com/connor-baer)! - Added an experimental Timestamp component to display a human-readable date time to users.
+
 ## 9.4.0
 
 ### Minor Changes
