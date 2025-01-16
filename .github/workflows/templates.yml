@@ -50,4 +50,7 @@ jobs:
 
       - name: Test app
         working-directory: ./test-app
-        run: npx start-server-and-test 'npm run start -- --port=3000' localhost:3000 "node ../scripts/verify-template.js"
+        # We use aa-exec since Ubuntu 24.04's AppArmor profile blocks the use
+        # of puppeteer otherwise, see
+        # https://github.com/puppeteer/puppeteer/issues/12818
+        run: npx start-server-and-test 'npm run start -- --port=3000' localhost:3000 "aa-exec --profile=chrome node ../scripts/verify-template.js"
