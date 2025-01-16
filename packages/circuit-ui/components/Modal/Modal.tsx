@@ -83,10 +83,10 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
   const isMobile = useMedia('(max-width: 479px)');
 
   const outAnimation = isMobile
-    ? sharedClasses.animationSlideOut
+    ? sharedClasses.animationSlideUpOut
     : sharedClasses.animationFadeOut;
   const inAnimation = isMobile
-    ? sharedClasses.animationSlideIn
+    ? sharedClasses.animationSlideUpIn
     : sharedClasses.animationFadeIn;
 
   return (

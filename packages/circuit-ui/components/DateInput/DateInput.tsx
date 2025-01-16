@@ -345,8 +345,10 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       setIsClosing(true);
     }, []);
 
-    const outAnimation = isMobile ? sharedClasses.animationSlideOut : undefined;
-    const inAnimation = isMobile ? sharedClasses.animationSlideIn : undefined;
+    const outAnimation = isMobile
+      ? sharedClasses.animationSlideUpOut
+      : undefined;
+    const inAnimation = isMobile ? sharedClasses.animationSlideUpIn : undefined;
 
     return (
       <FieldWrapper disabled={disabled} className={className} style={style}>
