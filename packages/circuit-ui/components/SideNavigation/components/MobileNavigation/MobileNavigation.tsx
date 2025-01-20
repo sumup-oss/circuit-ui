@@ -15,17 +15,10 @@
 
 'use client';
 
-import { Fragment } from 'react';
-import ReactModal from 'react-modal';
+import { Fragment, useCallback, useState } from 'react';
 import { ChevronDown } from '@sumup-oss/icons';
 
-import {
-  createUseModal,
-  type BaseModalProps,
-  type ModalComponent,
-} from '../../../ModalContext/index.js';
 import { StackContext } from '../../../StackContext/index.js';
-import { CloseButton } from '../../../CloseButton/index.js';
 import { useCollapsible } from '../../../../hooks/useCollapsible/index.js';
 import { useFocusList } from '../../../../hooks/useFocusList/index.js';
 import type { PrimaryLinkProps } from '../../types.js';
@@ -39,13 +32,24 @@ import {
 } from '../../../ComponentsContext/index.js';
 import { defaultComponents } from '../../../ComponentsContext/ComponentsContext.js';
 import { clsx } from '../../../../styles/clsx.js';
-import { SkipLink } from '../../../SkipLink/index.js';
+import { Dialog, type DialogProps } from '../../../Dialog/Dialog.js';
+import { sharedClasses } from '../../../../styles/shared.js';
 
 import classes from './MobileNavigation.module.css';
 
 const TRANSITION_DURATION = 120;
 
-export interface MobileNavigationProps extends BaseModalProps {
+export interface MobileNavigationProps
+  extends Omit<
+    DialogProps,
+    | 'children'
+    | 'isModal'
+    | 'onCloseStart'
+    | 'animationDuration'
+    | 'preventClose'
+    | 'initialFocusRef'
+    | 'preventOutsideClickRefs'
+  > {
   /**
    * A collection of links with nested secondary groups.
    */
@@ -66,16 +70,6 @@ export interface MobileNavigationProps extends BaseModalProps {
    * **DO NOT USE.** This prop is not stable and can be removed at any time.
    */
   UNSAFE_components?: ComponentsContextType;
-  /**
-   * Hash link to the page's main content to enable keyboard and screen reader
-   * users to skip over the navigation links. Required to comply with
-   * [WCAG 2.1 SC 2.4.1](https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html)
-   */
-  skipNavigationHref?: string;
-  /**
-   * label for the skip navigation link.
-   */
-  skipNavigationLabel?: string;
 }
 
 function combineClickHandlers(
@@ -96,7 +90,7 @@ function Group({
   onClose,
   ...props
 }: Require<PrimaryLinkProps, 'secondaryGroups'> & {
-  onClose: BaseModalProps['onClose'];
+  onClose: DialogProps['onCloseEnd'];
 }) {
   const { getButtonProps, getContentProps } =
     useCollapsible<HTMLUListElement>();
@@ -133,57 +127,49 @@ function Group({
   );
 }
 
-/**
- * TODO: Update description 👇
- * The modal component displays self-contained tasks in a focused window that
- * overlays the page content.
- * Built on top of [`react-modal`](https://reactcommunity.org/react-modal/).
- */
-export const MobileNavigation: ModalComponent<MobileNavigationProps> = ({
-  onClose,
+export const MobileNavigation = ({
+  onCloseEnd: onClose,
   closeButtonLabel,
   primaryLinks,
   primaryNavigationLabel,
   UNSAFE_components = defaultComponents,
-  skipNavigationHref,
-  skipNavigationLabel,
   ...props
-}) => {
+}: MobileNavigationProps) => {
   const focusProps = useFocusList();
 
-  const reactModalProps = {
-    className: {
-      base: classes.base,
-      afterOpen: classes.open,
-      beforeClose: classes.closed,
-    },
-    overlayClassName: {
-      base: classes.overlay,
-      afterOpen: classes['overlay-open'],
-      beforeClose: classes['overlay-closed'],
-    },
-    onRequestClose: onClose,
-    closeTimeoutMS: TRANSITION_DURATION,
-    shouldCloseOnOverlayClick: true,
-    shouldCloseOnEsc: true,
-    ...props,
-  };
+  const [isClosing, setIsClosing] = useState(false);
+
+  const handleDialogCloseEnd = useCallback(() => {
+    setIsClosing(false);
+    onClose?.();
+  }, [onClose]);
+
+  const handleDialogCloseStart = useCallback(() => {
+    setIsClosing(true);
+  }, []);
 
   return (
     <ComponentsContext.Provider value={UNSAFE_components}>
       <StackContext.Provider value={'var(--cui-z-index-modal)'}>
-        <ReactModal {...reactModalProps}>
+        <Dialog
+          onCloseStart={handleDialogCloseStart}
+          onCloseEnd={handleDialogCloseEnd}
+          isModal
+          className={clsx(
+            classes.base,
+            isClosing
+              ? sharedClasses.animationSlideDownOut
+              : sharedClasses.animationSlideDownIn,
+          )}
+          closeButtonLabel={closeButtonLabel}
+          animationDuration={120} /* .12s */
+          {...props}
+        >
           <div className={classes.content}>
-            {skipNavigationHref && skipNavigationLabel && (
-              <SkipLink href={skipNavigationHref}>
-                {skipNavigationLabel}
-              </SkipLink>
-            )}
-            <div className={classes.header}>
-              <CloseButton onClick={onClose}>{closeButtonLabel}</CloseButton>
-            </div>
-
-            <nav aria-label={primaryNavigationLabel}>
+            <nav
+              aria-label={primaryNavigationLabel}
+              className={classes.navigation}
+            >
               <ul className={classes.list}>
                 {primaryLinks.map(({ secondaryGroups, onClick, ...link }) => (
                   <li key={link.label}>
@@ -206,12 +192,10 @@ export const MobileNavigation: ModalComponent<MobileNavigationProps> = ({
               </ul>
             </nav>
           </div>
-        </ReactModal>
+        </Dialog>
       </StackContext.Provider>
     </ComponentsContext.Provider>
   );
 };
 
 MobileNavigation.TRANSITION_DURATION = TRANSITION_DURATION;
-
-export const useMobileNavigation = createUseModal(MobileNavigation);

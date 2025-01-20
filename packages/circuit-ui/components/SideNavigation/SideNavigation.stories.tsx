@@ -15,9 +15,9 @@
 
 import { action } from '@storybook/addon-actions';
 import { Like, Home, LiveChat, Package, Shop } from '@sumup-oss/icons';
+import { useState } from 'react';
 
 import { modes } from '../../../../.storybook/modes.js';
-import { ModalProvider } from '../ModalContext/index.js';
 import { Headline } from '../Headline/index.js';
 import { Body } from '../Body/index.js';
 
@@ -141,15 +141,24 @@ const placeHolderContent = (
   </main>
 );
 
-export const Base = (args: SideNavigationProps) => (
-  <ModalProvider>
+export const Base = (args: SideNavigationProps) => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  const onSideNavigationClose = () => {
+    setIsOpen(false);
+  };
+  return (
     <div style={{ width: '100%', height: '100vh' }}>
       <div style={{ display: 'flex' }}>
-        <SideNavigation {...args} />
+        <SideNavigation
+          {...args}
+          isOpen={isOpen}
+          onClose={onSideNavigationClose}
+        />
         {placeHolderContent}
       </div>
     </div>
-  </ModalProvider>
-);
+  );
+};
 
 Base.args = baseArgs;

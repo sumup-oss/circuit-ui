@@ -24,7 +24,6 @@ import {
   screen,
   type RenderFn,
 } from '../../util/test-utils.js';
-import { ModalProvider } from '../ModalContext/index.js';
 
 import { SideNavigation, type SideNavigationProps } from './SideNavigation.js';
 
@@ -49,11 +48,7 @@ describe('SideNavigation', () => {
     renderFn: RenderFn<T>,
     props: SideNavigationProps,
   ) {
-    return renderFn(
-      <ModalProvider>
-        <SideNavigation {...props} />
-      </ModalProvider>,
-    );
+    return renderFn(<SideNavigation {...props} />);
   }
 
   const baseProps = {
@@ -110,7 +105,12 @@ describe('SideNavigation', () => {
         expect(screen.queryByRole('dialog')).toBeVisible();
       });
     });
+  });
 
+  describe('on desktop', () => {
+    beforeAll(() => {
+      setMediaMatches(false);
+    });
     it('should render a skip navigation link', () => {
       renderSideNavigation(render, {
         ...defaultProps,
@@ -120,21 +120,11 @@ describe('SideNavigation', () => {
       const skipLink = screen.getByRole('link', { name: 'Skip navigation' });
       expect(skipLink).toBeInTheDocument();
     });
-  });
 
-  it('should render a skip navigation link', () => {
-    renderSideNavigation(render, {
-      ...defaultProps,
-      skipNavigationHref: '#main-content',
-      skipNavigationLabel: 'Skip navigation',
+    it('should have no accessibility violations', async () => {
+      const { container } = renderSideNavigation(render, defaultProps);
+      const actual = await axe(container);
+      expect(actual).toHaveNoViolations();
     });
-    const skipLink = screen.getByRole('link', { name: 'Skip navigation' });
-    expect(skipLink).toBeInTheDocument();
-  });
-
-  it('should have no accessibility violations', async () => {
-    const { container } = renderSideNavigation(render, defaultProps);
-    const actual = await axe(container);
-    expect(actual).toHaveNoViolations();
   });
 });

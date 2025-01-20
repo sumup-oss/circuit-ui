@@ -301,8 +301,10 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
       setClosing(true);
     }, []);
 
-    const outAnimation = isMobile ? sharedClasses.animationSlideOut : undefined;
-    const inAnimation = isMobile ? sharedClasses.animationSlideIn : undefined;
+    const outAnimation = isMobile
+      ? sharedClasses.animationSlideUpOut
+      : undefined;
+    const inAnimation = isMobile ? sharedClasses.animationSlideUpIn : undefined;
 
     return (
       <Fragment>

@@ -40,13 +40,8 @@ describe('MobileNavigation', () => {
   }
 
   const baseProps = {
-    // Silences the warning about the missing app element.
-    // In user land, the modal is always rendered by the ModalProvider,
-    // which takes care of setting the app element.
-    // http://reactcommunity.org/react-modal/accessibility/#app-element
-    ariaHideApp: false,
-    isOpen: true,
-    onClose: vi.fn(),
+    open: true,
+    onCloseEnd: vi.fn(),
     closeButtonLabel: 'Close navigation modal',
     primaryNavigationLabel: 'Primary',
   };
@@ -133,7 +128,7 @@ describe('MobileNavigation', () => {
 
     await userEvent.click(primaryLinkEl);
 
-    expect(baseProps.onClose).toHaveBeenCalledTimes(1);
+    expect(baseProps.onCloseEnd).toHaveBeenCalledTimes(1);
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
@@ -182,7 +177,7 @@ describe('MobileNavigation', () => {
 
     await userEvent.click(secondaryLinkEl);
 
-    expect(baseProps.onClose).toHaveBeenCalledTimes(1);
+    expect(baseProps.onCloseEnd).toHaveBeenCalledTimes(1);
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 

@@ -113,12 +113,36 @@
   animation: fade-out var(--dialog-animation-duration) forwards;
 }
 
-.animation-slide-in {
-  animation: slide-in var(--dialog-animation-duration) forwards;
+.animation-slide-up-in {
+  animation: slide-up-in var(--dialog-animation-duration) forwards;
 }
 
-.animation-slide-out {
-  animation: slide-out var(--dialog-animation-duration) forwards;
+.animation-slide-up-out {
+  animation: slide-up-out var(--dialog-animation-duration) forwards;
+}
+
+.animation-slide-down-in {
+  animation: slide-down-in var(--dialog-animation-duration) forwards;
+}
+
+.animation-slide-down-out {
+  animation: slide-down-out var(--dialog-animation-duration) forwards;
+}
+
+.animation-slide-left-in {
+  animation: slide-left-in var(--dialog-animation-duration) forwards;
+}
+
+.animation-slide-left-out {
+  animation: slide-left-out var(--dialog-animation-duration) forwards;
+}
+
+.animation-slide-right-in {
+  animation: slide-right-in var(--dialog-animation-duration) forwards;
+}
+
+.animation-slide-right-out {
+  animation: slide-right-out var(--dialog-animation-duration) forwards;
 }
 
 /* Animations */
@@ -147,7 +171,7 @@
   }
 }
 
-@keyframes slide-in {
+@keyframes slide-up-in {
   from {
     visibility: hidden;
     opacity: 0;
@@ -161,7 +185,7 @@
   }
 }
 
-@keyframes slide-out {
+@keyframes slide-up-out {
   from {
     visibility: visible;
     opacity: 1;
@@ -172,5 +196,89 @@
     visibility: hidden;
     opacity: 0;
     transform: translateY(100%);
+  }
+}
+
+@keyframes slide-down-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  to {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-down-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slide-left-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  to {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-left-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slide-right-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  to {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-right-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(100%);
   }
 }
