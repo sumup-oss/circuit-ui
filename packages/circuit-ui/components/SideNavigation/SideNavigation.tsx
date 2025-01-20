@@ -77,8 +77,6 @@ export function SideNavigation({
 
   return isMobile ? (
     <MobileNavigation
-      skipNavigationHref={skipNavigationHref}
-      skipNavigationLabel={skipNavigationLabel}
       UNSAFE_components={UNSAFE_components}
       primaryLinks={primaryLinks}
       closeButtonLabel={closeButtonLabel}

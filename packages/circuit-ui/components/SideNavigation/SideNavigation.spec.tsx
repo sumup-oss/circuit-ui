@@ -105,17 +105,6 @@ describe('SideNavigation', () => {
         expect(screen.queryByRole('dialog')).toBeVisible();
       });
     });
-
-    it('should render a skip navigation link', () => {
-      renderSideNavigation(render, {
-        ...defaultProps,
-        isOpen: true,
-        skipNavigationHref: '#main-content',
-        skipNavigationLabel: 'Skip navigation',
-      });
-      const skipLink = screen.getByRole('link', { name: 'Skip navigation' });
-      expect(skipLink).toBeInTheDocument();
-    });
   });
 
   describe('on desktop', () => {

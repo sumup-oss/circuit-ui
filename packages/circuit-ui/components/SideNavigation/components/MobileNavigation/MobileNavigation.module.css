@@ -2,10 +2,6 @@
   overflow: hidden;
 }
 
-.base > button {
-  display: none;
-}
-
 .base::after {
   height: var(--cui-spacings-mega);
 }
@@ -30,21 +26,6 @@
   margin: 0 auto;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-}
-
-.header {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: var(--cui-z-index-absolute);
-  width: 100%;
-  padding: var(--cui-spacings-bit);
-  background: linear-gradient(
-    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent),
-    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent) 66%,
-    color-mix(in sRGB, var(--cui-bg-elevated) 0%, transparent)
-  );
 }
 
 .list {

@@ -19,7 +19,6 @@ import { Fragment, useCallback, useState } from 'react';
 import { ChevronDown } from '@sumup-oss/icons';
 
 import { StackContext } from '../../../StackContext/index.js';
-import { CloseButton } from '../../../CloseButton/index.js';
 import { useCollapsible } from '../../../../hooks/useCollapsible/index.js';
 import { useFocusList } from '../../../../hooks/useFocusList/index.js';
 import type { PrimaryLinkProps } from '../../types.js';
@@ -33,7 +32,6 @@ import {
 } from '../../../ComponentsContext/index.js';
 import { defaultComponents } from '../../../ComponentsContext/ComponentsContext.js';
 import { clsx } from '../../../../styles/clsx.js';
-import { SkipLink } from '../../../SkipLink/index.js';
 import { Dialog, type DialogProps } from '../../../Dialog/Dialog.js';
 import { sharedClasses } from '../../../../styles/shared.js';
 
@@ -72,16 +70,6 @@ export interface MobileNavigationProps
    * **DO NOT USE.** This prop is not stable and can be removed at any time.
    */
   UNSAFE_components?: ComponentsContextType;
-  /**
-   * Hash link to the page's main content to enable keyboard and screen reader
-   * users to skip over the navigation links. Required to comply with
-   * [WCAG 2.1 SC 2.4.1](https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html)
-   */
-  skipNavigationHref?: string;
-  /**
-   * label for the skip navigation link.
-   */
-  skipNavigationLabel?: string;
 }
 
 function combineClickHandlers(
@@ -145,8 +133,6 @@ export const MobileNavigation = ({
   primaryLinks,
   primaryNavigationLabel,
   UNSAFE_components = defaultComponents,
-  skipNavigationHref,
-  skipNavigationLabel,
   ...props
 }: MobileNavigationProps) => {
   const focusProps = useFocusList();
@@ -180,14 +166,6 @@ export const MobileNavigation = ({
           {...props}
         >
           <div className={classes.content}>
-            <div className={classes.header}>
-              <CloseButton onClick={onClose}>{closeButtonLabel}</CloseButton>
-            </div>
-            {skipNavigationHref && skipNavigationLabel && (
-              <SkipLink href={skipNavigationHref}>
-                {skipNavigationLabel}
-              </SkipLink>
-            )}
             <nav
               aria-label={primaryNavigationLabel}
               className={classes.navigation}
