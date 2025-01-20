@@ -32,14 +32,14 @@ import classes from './CarouselPagination.module.css';
 type LinkElProps = AnchorHTMLAttributes<HTMLAnchorElement>;
 type ButtonElProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
-export type Items = LinkElProps &
+export type Slide = LinkElProps &
   ButtonElProps & {
     /**
-     * TODO:
+     * A unique identifier
      */
     id: string | number;
     /**
-     * TODO:
+     * A concise description of the slide content
      */
     label: string;
   };
@@ -47,30 +47,40 @@ export type Items = LinkElProps &
 export interface CarouselPaginationProps
   extends HTMLAttributes<HTMLUListElement> {
   /**
-   * TODO:
+   * The collection of slides that can be navigated using this component.
    */
-  items: Items[];
+  slides: Slide[];
   /**
-   * TODO: same as item id
+   * The unique identifier of the current slide
    */
   currentId: string | number;
   /**
-   * TODO:
+   * Specify the nature of the slide content for the [`aria-current`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current) attribute.
+   *
+   * `page`: Represents the current page within a set of pages such as the link
+   * to the current document in a breadcrumb.
+   *
+   * `step`: Represents the current step within a process such as the current
+   * step in an enumerated multi step checkout flow.
    */
   type?: 'page' | 'step';
 }
 
+/**
+ * The carousel pagination component allows to display larger amounts of
+ * content in limited spaces by dividing these into multiple pieces to be
+ * discoverd by the users through interaction.
+ */
 export const CarouselPagination = forwardRef<
   HTMLUListElement,
   CarouselPaginationProps
->(({ items, currentId, type }, ref) => {
+>(({ slides, currentId, type }, ref) => {
   const components = useComponents();
   const Link = components.Link as AsPropType;
 
   return (
-    // eslint-disable-next-line jsx-a11y/no-redundant-roles
-    <ul ref={ref} className={classes.base} role="list">
-      {items.map(({ id, label, ...item }) => {
+    <ul ref={ref} className={classes.base}>
+      {slides.map(({ id, label, ...item }) => {
         let Element: AsPropType;
         if (item.href) {
           Element = Link;

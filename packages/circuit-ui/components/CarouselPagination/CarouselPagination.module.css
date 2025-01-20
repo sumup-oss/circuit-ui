@@ -1,5 +1,7 @@
 .base {
   display: flex;
+  padding: 0;
+  margin: 0;
   list-style-type: none;
 }
 
@@ -20,7 +22,7 @@ button.cue {
   display: block;
   width: var(--cui-spacings-kilo);
   height: var(--cui-spacings-kilo);
-  background-color: var(--cui-bg-highlight);
+  background-color: var(--cui-fg-placeholder);
   border-radius: var(--cui-border-radius-pill);
   transition:
     background-color var(--cui-transitions-default),
@@ -29,12 +31,12 @@ button.cue {
 
 a.cue:hover .shape,
 button.cue:hover .shape {
-  background-color: var(--cui-bg-highlight-hovered);
+  background-color: var(--cui-fg-placeholder-hovered);
 }
 
 a.cue:active .shape,
 button.cue:active .shape {
-  background-color: var(--cui-bg-highlight-pressed);
+  background-color: var(--cui-fg-placeholder-pressed);
 }
 
 .cue[aria-current] .shape {

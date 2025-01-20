@@ -7,8 +7,26 @@ import * as Stories from './CarouselPagination.stories';
 
 <Status variant="stable" />
 
+The carousel pagination component allows to display larger amounts of content in limited spaces by dividing these into multiple pieces to be discoverd by the users through interaction.
+
 <Story of={Stories.Base} />
 <Props />
 
-- colors
+## Usage
+
+Consider adjusting the layout or using a different component if the number of pages/slides exceeds five.
+
+For inline use cases, create an illusion of continuity through cropped images or text, so users quickly understand that they can get more content by moving beyond the screen edge.
+
+Do not place the carousel cue on busy, dynamic backgrounds (i.e. on images, illustrations), in order to ensure optimal contrast and discoverability.
+
+- lazy-load hidden content
+- ensure content outside the viewport is searchable and becomes visible on focus
+
+<Story of={Stories.Carousel} />
+
+## Accessibility
+
 - size ([minimum tap target size](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html): 24px)
+- announce next page content?
+- move focus?

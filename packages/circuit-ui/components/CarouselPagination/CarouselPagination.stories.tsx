@@ -19,14 +19,28 @@ import {
   CarouselPagination,
   type CarouselPaginationProps,
 } from './CarouselPagination.js';
+import { Carousel as ExampleCarousel } from './examples/Carousel.js';
 
 export default {
-  title: 'Components/Carousel/CarouselPagination',
+  title: 'Components/CarouselPagination',
   component: CarouselPagination,
 };
 
-const baseArgs = {
-  items: [
+export const Base = (args: CarouselPaginationProps) => {
+  const [currentId, setCurrentId] = useState(args.currentId);
+
+  const slides = args.slides.map((slide) => ({
+    ...slide,
+    onClick: () => {
+      setCurrentId(slide.id);
+    },
+  }));
+
+  return <CarouselPagination {...args} slides={slides} currentId={currentId} />;
+};
+
+Base.args = {
+  slides: [
     { id: 'foo', label: 'Foo' },
     { id: 'bar', label: 'Bar' },
     { id: 'baz', label: 'Baz' },
@@ -34,17 +48,50 @@ const baseArgs = {
   currentId: 'foo',
 };
 
-export const Base = (args: CarouselPaginationProps) => {
-  const [currentId, setCurrentId] = useState(args.currentId);
+export const Carousel = (args: CarouselPaginationProps) => (
+  <ExampleCarousel {...args} />
+);
 
-  const items = args.items.map((item) => ({
-    ...item,
-    onClick: () => {
-      setCurrentId(item.id);
+Carousel.args = {
+  slides: [
+    {
+      id: 'coffee-transaction',
+      label: 'coffee-transaction',
+      href: '#coffee-transaction',
+      target: '_self',
+      image: { src: '/images/sumup-coffee-transaction.jpg', alt: '' },
     },
-  }));
-
-  return <CarouselPagination {...args} items={items} currentId={currentId} />;
+    {
+      id: 'product-catalog',
+      label: 'Product catalog',
+      href: '#product-catalog',
+      target: '_self',
+      image: { src: '/images/sumup-product-catalog.jpg', alt: '' },
+    },
+    {
+      id: 'solo-cradle',
+      label: 'Solo with cradle',
+      href: '#solo-cradle',
+      target: '_self',
+      image: { src: '/images/sumup-solo-cradle.jpg', alt: '' },
+    },
+    {
+      id: 'solo-printer',
+      label: 'Solo printer',
+      href: '#solo-printer',
+      target: '_self',
+      image: { src: '/images/sumup-solo-printer.jpg', alt: '' },
+    },
+    {
+      id: 'tablet-insights',
+      label: 'Tablet insights',
+      href: '#tablet-insights',
+      target: '_self',
+      image: { src: '/images/sumup-tablet-insights.jpg', alt: '' },
+    },
+  ],
+  currentId: 'coffee-transaction',
 };
-
-Base.args = baseArgs;
+Carousel.parameters = {
+  chromatic: { disableSnapshot: true },
+};
