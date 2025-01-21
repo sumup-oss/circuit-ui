@@ -1,30 +1,46 @@
 .base {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right)
-    env(safe-area-inset-bottom) env(safe-area-inset-left);
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  right: 0;
+  bottom: 0;
+  left: unset;
+  z-index: var(--cui-z-index-absolute);
+  box-shadow: none;
+}
+
+@media (max-width: 767px) {
+  .base {
+    top: 0;
+    min-width: 100vw;
+    height: 100vh;
+    max-height: unset;
+    margin: auto;
+    border-radius: 0;
+  }
+
+  .content {
+    padding: 0 var(--cui-spacings-mega);
+  }
 }
 
 @media (min-width: 768px) {
   .base {
-    padding-left: 0;
+    top: var(--top-navigation-height, 0);
+    width: var(--side-panel-width);
+    height: calc(100vh - var(--top-navigation-height, 0));
+    margin: 0;
+    box-shadow: inset var(--cui-border-width-kilo) 0 0 var(--cui-border-divider);
   }
-}
 
-.content {
-  width: 100%;
-  max-width: 480px;
-  padding: 0 var(--cui-spacings-mega);
-}
+  .base::after {
+    /* to account for inset box shadow */
+    margin-left: 1px;
+  }
 
-@media (min-width: 768px) {
   .content {
     padding: 0 var(--cui-spacings-giga);
   }
+}
+
+.closed {
+  /* TODO find a better way to prevent flickering before animation classes are applied */
+  display: none;
 }

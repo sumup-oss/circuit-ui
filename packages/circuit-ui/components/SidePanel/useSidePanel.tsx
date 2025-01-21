@@ -15,14 +15,7 @@
 
 'use client';
 
-import {
-  useContext,
-  useCallback,
-  useId,
-  useRef,
-  useEffect,
-  type ReactNode,
-} from 'react';
+import { useContext, useCallback, useId, useRef, useEffect } from 'react';
 
 import { uniqueId } from '../../util/id.js';
 
@@ -30,49 +23,30 @@ import {
   SidePanelContext,
   type SidePanelContextProps,
 } from './SidePanelContext.js';
+import type { SidePanelProps } from './SidePanel.js';
 
 export type OnBack = () => void;
 export type OnClose = () => void | Promise<void>;
 
-export type ChildrenRenderProps = { onBack?: OnBack; onClose: OnClose };
+export type ChildrenRenderProps = { onBack?: OnBack; onClose?: OnClose };
 
-export type SidePanelHookProps = {
-  /**
-   * Text label for the back button for screen readers.
-   * Important for accessibility.
-   */
-  backButtonLabel?: string;
-  /**
-   * The side panel content. Use a render function when you need access to the
-   * `onBack` and `onClose` functions to close the side panel programmatically.
-   */
-  children: ReactNode | ((props: ChildrenRenderProps) => ReactNode);
-  /**
-   * Text label for the close button for screen readers.
-   * Important for accessibility.
-   */
-  closeButtonLabel: string;
-  /**
-   * The group of the side panel. Opening a second side panel in
-   * the same group will replace the content and close all side panels
-   * stacked on top of it. Only panels in different groups stack one on top of the other.
-   */
-  group?: string;
-  /**
-   * The headline of the side panel.
-   */
-  headline: string;
-  /**
-   * Callback function that is called when the side panel is closed.
-   */
-  onClose?: OnClose;
-};
+export type SidePanelHookProps = Pick<
+  SidePanelProps,
+  | 'headline'
+  | 'backButtonLabel'
+  | 'onClose'
+  | 'closeButtonLabel'
+  | 'locale'
+  | 'children'
+>;
 
-type SetSidePanel = (props: SidePanelHookProps) => void;
+type SetSidePanel = (props: SidePanelHookProps & SidePanelContextProps) => void;
 
-type UpdateSidePanel = (props: Partial<SidePanelHookProps>) => void;
+type UpdateSidePanel = (
+  props: Partial<SidePanelHookProps & SidePanelContextProps>,
+) => void;
 
-type RemoveSidePanel = (group?: SidePanelHookProps['group']) => void;
+type RemoveSidePanel = (group?: SidePanelContextProps['group']) => void;
 
 type UseSidePanelHook = () => {
   setSidePanel: SetSidePanel;

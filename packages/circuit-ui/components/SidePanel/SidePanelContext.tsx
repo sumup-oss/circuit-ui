@@ -23,53 +23,27 @@ import {
   type ReactNode,
   type HTMLAttributes,
 } from 'react';
-import ReactModal, { type Props as ReactModalProps } from 'react-modal';
 
 import { useMedia } from '../../hooks/useMedia/index.js';
 import { useStack, type StackItem } from '../../hooks/useStack/index.js';
-import type { Require } from '../../types/util.js';
-import { warn } from '../../util/logger.js';
 import { promisify } from '../../util/promises.js';
 import { clsx } from '../../styles/clsx.js';
 import { useLatest } from '../../hooks/useLatest/useLatest.js';
 
 import { SidePanel, type SidePanelProps } from './SidePanel.js';
 import { TRANSITION_DURATION } from './constants.js';
-import type { SidePanelHookProps } from './useSidePanel.js';
 import classes from './SidePanelContext.module.css';
 
-// It is important for users of screen readers that other page content be hidden
-// (via the `aria-hidden` attribute) while the side panel is open on mobile.
-// To allow react-modal to do this, Circuit UI calls `ReactModal.setAppElement`
-// with a query selector identifying the root of the app.
-// http://reactcommunity.org/react-modal/accessibility/#app-element
-if (typeof window !== 'undefined') {
-  // These are the default app elements in Next.js, Docusaurus, CRA and Storybook.
-  const appElement =
-    document.getElementById('__next') ||
-    document.getElementById('__docusaurus') ||
-    document.getElementById('root') ||
-    document.getElementById('storybook-root');
+export type SidePanelContextProps = {
+  /**
+   * The group of the side panel. Opening a second side panel in
+   * the same group will replace the content and close all side panels
+   * stacked on top of it. Only panels in different groups stack one on top of the other.
+   */
+  group?: string;
+};
 
-  if (appElement) {
-    ReactModal.setAppElement(appElement);
-  } else if (
-    process.env.NODE_ENV !== 'production' &&
-    process.env.NODE_ENV !== 'test'
-  ) {
-    warn(
-      'SidePanelProvider',
-      'Could not find the app root element to hide it when a side panel is open.',
-      'Add an element with the id `#root` at the root of your application.',
-    );
-  }
-}
-
-export type SidePanelContextProps = Require<SidePanelHookProps, 'group'>;
-
-export type SetSidePanel = (
-  sidePanel: SidePanelContextProps & Pick<StackItem, 'id'>,
-) => void;
+export type SetSidePanel = (sidePanel: SidePanelContextItem) => void;
 
 export type UpdateSidePanel = (
   sidePanel: Partial<SidePanelContextProps> &
@@ -81,13 +55,9 @@ export type RemoveSidePanel = (
   isInstantClose?: boolean,
 ) => Promise<void>;
 
-type SidePanelContextItem = SidePanelContextProps &
-  Pick<SidePanelProps, 'isInstantOpen'> &
-  Pick<
-    ReactModalProps,
-    'closeTimeoutMS' | 'onAfterClose' | 'shouldReturnFocusAfterClose'
-  > &
-  StackItem;
+export type SidePanelContextItem = SidePanelContextProps &
+  Pick<SidePanelProps, 'onCloseEnd' | 'onClose' | 'headline' | 'children'> &
+  StackItem & { isInstantOpen?: boolean };
 
 export type SidePanelContextValue = {
   setSidePanel: SetSidePanel;
@@ -167,20 +137,11 @@ export function SidePanelProvider({
             // Panels shouldn't wait for the animation of the previous panel to finish.
             // However, `removeSidePanel` should only resolve once the last panel has animated out.
             if (lastPanel) {
-              sidePanel.onAfterClose = resolve;
+              sidePanel.onCloseEnd = resolve;
             } else {
               resolve();
             }
 
-            if (isInstantClose) {
-              sidePanel.shouldReturnFocusAfterClose = false;
-              sidePanel.closeTimeoutMS = 0;
-            }
-
-            dispatch({
-              type: 'update',
-              item: sidePanel,
-            });
             dispatch({
               type: 'remove',
               id: sidePanel.id,
@@ -263,33 +224,33 @@ export function SidePanelProvider({
         )}
       >
         {children}
+        {sidePanels.map((sidePanel) => {
+          const { group, id, transition, isInstantOpen, ...sidePanelProps } =
+            sidePanel;
+
+          const isStacked = group !== sidePanels[0].group;
+          const isTopPanel = group === sidePanels[sidePanels?.length - 1].group;
+          const handleClose = () => {
+            void removeSidePanel(sidePanels[0].group);
+          };
+          const handleBack = isStacked
+            ? () => removeSidePanel(group)
+            : undefined;
+
+          return (
+            <SidePanel
+              {...sidePanelProps}
+              key={id}
+              open={true}
+              isMobile={isMobile}
+              animationDuration={isInstantOpen ? 0 : TRANSITION_DURATION}
+              onBack={handleBack}
+              onClose={handleClose}
+              preventEscapeKeyClose={!isTopPanel}
+            />
+          );
+        })}
       </div>
-
-      {sidePanels.map((sidePanel) => {
-        const { group, id, transition, ...sidePanelProps } = sidePanel;
-
-        const isBottomPanelClosing = !!sidePanels[0].transition;
-        const isStacked = group !== sidePanels[0].group;
-        const handleClose = () => {
-          void removeSidePanel(sidePanels[0].group);
-        };
-        const handleBack = isStacked ? () => removeSidePanel(group) : undefined;
-
-        return (
-          <SidePanel
-            {...sidePanelProps}
-            key={id}
-            isBottomPanelClosing={isBottomPanelClosing}
-            isMobile={isMobile}
-            isOpen={!transition}
-            isStacked={isStacked}
-            onBack={handleBack}
-            onClose={handleClose}
-            portalClassName={classes.portal}
-            htmlOpenClassName={classes.open}
-          />
-        );
-      })}
     </SidePanelContext.Provider>
   );
 }
