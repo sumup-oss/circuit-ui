@@ -12,7 +12,7 @@
   flex-wrap: wrap;
   padding: var(--cui-spacings-mega) var(--cui-spacings-giga);
   hyphens: auto;
-  word-break: break-word;
+  overflow-wrap: break-word;
   text-decoration: none;
 }
 
