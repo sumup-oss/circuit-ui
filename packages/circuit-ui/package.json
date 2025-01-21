@@ -54,7 +54,6 @@
     "@floating-ui/react-dom": "^2.1.2",
     "@nanostores/react": "^0.8.4",
     "nanostores": "^0.11.3",
-    "react-modal": "^3.16.1",
     "react-number-format": "5.3.0"
   },
   "devDependencies": {
@@ -73,7 +72,6 @@
     "@types/node": "^22.10.7",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.1",
-    "@types/react-modal": "^3.16.3",
     "jest-axe": "^9.0.0",
     "mockdate": "^3.0.5",
     "react": "^18.3.1",
