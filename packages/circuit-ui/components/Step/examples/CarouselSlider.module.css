@@ -7,12 +7,12 @@
 .inner {
   display: flex;
   width: 100%;
-  transition: all var(--slide-animation-duration) ease-in-out;
   transform: translate3d(
     calc(-1 * var(--slide-step) * var(--slide-width)),
     0,
     0
   );
+  transition: all var(--slide-animation-duration) ease-in-out;
 }
 
 .image {

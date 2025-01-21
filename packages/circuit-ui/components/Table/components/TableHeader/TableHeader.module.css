@@ -13,9 +13,9 @@
   font-size: var(--cui-body-s-font-size);
   font-weight: var(--cui-font-weight-bold);
   line-height: var(--cui-body-s-line-height);
+  vertical-align: middle;
   color: var(--cui-fg-subtle);
   white-space: nowrap;
-  vertical-align: middle;
 }
 
 .hover {
@@ -87,8 +87,8 @@
   display: block;
   width: 100%;
   height: 100%;
-  content: "";
   outline: 0;
+  content: "";
   box-shadow:
     0 0 0 2px var(--cui-bg-normal),
     0 0 0 4px var(--cui-border-focus);

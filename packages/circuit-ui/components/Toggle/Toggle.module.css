@@ -13,10 +13,10 @@
   overflow: visible;
   appearance: none;
   cursor: pointer;
+  outline: 0;
   background-color: var(--cui-bg-highlight);
   border: 0;
   border-radius: var(--toggle-track-height);
-  outline: 0;
   transition: background-color var(--toggle-animation-timing);
 }
 
@@ -59,10 +59,10 @@
   background-color: #fff;
   border-radius: var(--toggle-knob-size);
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 25%);
+  transform: translate3d(var(--cui-spacings-bit), -50%, 0);
   transition:
     box-shadow var(--toggle-animation-timing),
     transform var(--toggle-animation-timing);
-  transform: translate3d(var(--cui-spacings-bit), -50%, 0);
 }
 
 [aria-checked="true"] .knob {

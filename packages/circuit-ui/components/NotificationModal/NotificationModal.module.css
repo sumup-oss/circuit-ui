@@ -8,12 +8,12 @@
   padding: var(--cui-spacings-giga);
   overflow-y: auto;
   text-align: center;
+  outline: none;
   background-color: var(--cui-bg-elevated);
   border-radius: var(--cui-border-radius-mega);
-  outline: none;
   opacity: 0;
-  transition: opacity var(--cui-transitions-slow);
   transform: translate(-50%, -50%);
+  transition: opacity var(--cui-transitions-slow);
 }
 
 @media (max-width: 479px) {

@@ -1,7 +1,7 @@
 .base {
   position: fixed;
-  background-color: var(--cui-bg-elevated);
   outline: none;
+  background-color: var(--cui-bg-elevated);
 }
 
 .base::after {
@@ -23,8 +23,8 @@
     right: 0;
     bottom: 0;
     left: 0;
-    transition: transform var(--cui-transitions-default);
     transform: translateY(100%);
+    transition: transform var(--cui-transitions-default);
   }
 
   .base::after {
@@ -38,8 +38,8 @@
     left: 50%;
     border-radius: var(--cui-border-radius-mega);
     opacity: 0;
-    transition: opacity var(--cui-transitions-slow);
     transform: translate(-50%, -50%);
+    transition: opacity var(--cui-transitions-slow);
   }
 
   .base::after {

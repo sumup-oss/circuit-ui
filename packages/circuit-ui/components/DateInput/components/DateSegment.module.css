@@ -26,8 +26,8 @@
 }
 
 .base:focus {
-  background-color: var(--cui-bg-highlight);
   outline: none;
+  background-color: var(--cui-bg-highlight);
 }
 
 .base:read-only {
@@ -41,9 +41,9 @@
 
 .size {
   position: absolute;
+  visibility: hidden;
   font-size: var(--cui-body-m-font-size);
   font-variant-numeric: tabular-nums;
   line-height: var(--cui-body-m-line-height);
   pointer-events: none;
-  visibility: hidden;
 }

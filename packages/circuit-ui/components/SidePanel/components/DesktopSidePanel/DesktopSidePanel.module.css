@@ -1,10 +1,10 @@
 .base {
   height: 100%;
-  background-color: var(--cui-bg-normal);
   outline: none;
+  background-color: var(--cui-bg-normal);
   box-shadow: inset var(--cui-border-width-kilo) 0 0 var(--cui-border-divider);
-  transition: transform var(--cui-transitions-slow);
   transform: translateX(100%);
+  transition: transform var(--cui-transitions-slow);
 }
 
 .open {
@@ -16,8 +16,8 @@
 }
 
 .closed {
-  transition: transform var(--cui-transitions-slow);
   transform: translateX(100%);
+  transition: transform var(--cui-transitions-slow);
 }
 
 .overlay {
