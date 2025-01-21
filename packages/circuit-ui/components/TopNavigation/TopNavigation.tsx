@@ -24,14 +24,9 @@ import { utilClasses } from '../../styles/utility.js';
 import { SkipLink } from '../SkipLink/index.js';
 
 import {
-  ProfileMenu,
-  type ProfileMenuProps,
-} from './components/ProfileMenu/index.js';
-import {
   UtilityLinks,
   type UtilityLinksProps,
 } from './components/UtilityLinks/index.js';
-import type { UserProps } from './types.js';
 import classes from './TopNavigation.module.css';
 
 /**
@@ -44,14 +39,6 @@ export interface TopNavigationProps
     HTMLAttributes<HTMLElement> {
   logo: ReactNode;
   hamburger?: HamburgerProps;
-  /**
-   * @deprecated Use a custom component in the `links` prop instead.
-   */
-  profileMenu?: Omit<ProfileMenuProps, 'user'>;
-  /**
-   * @deprecated Use a custom component in the `links` prop instead.
-   */
-  user?: UserProps;
   isLoading?: boolean;
   /**
    * Hash link to the page's main content to enable keyboard and screen reader
@@ -67,8 +54,6 @@ export interface TopNavigationProps
 
 export function TopNavigation({
   logo,
-  user,
-  profileMenu,
   links,
   hamburger,
   isLoading,
@@ -108,7 +93,6 @@ export function TopNavigation({
         isLoading={Boolean(isLoading)}
       >
         {links && <UtilityLinks links={links} />}
-        {profileMenu && user && <ProfileMenu {...profileMenu} user={user} />}
       </SkeletonContainer>
     </header>
   );
