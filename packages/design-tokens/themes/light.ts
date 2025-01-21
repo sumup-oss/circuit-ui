@@ -338,22 +338,22 @@ export const light = [
   },
   {
     name: '--cui-fg-placeholder',
-    value: '#9da7b1',
+    value: '#929396',
     type: 'color',
   },
   {
     name: '--cui-fg-placeholder-hovered',
-    value: '#9da7b1',
+    value: '#787A7C',
     type: 'color',
   },
   {
     name: '--cui-fg-placeholder-pressed',
-    value: '#9da7b1',
+    value: '#484A51',
     type: 'color',
   },
   {
     name: '--cui-fg-placeholder-disabled',
-    value: 'rgba(157, 167, 177, 0.4000)',
+    value: 'rgba(146, 147, 150, 0.4000)',
     type: 'color',
   },
   {

@@ -31,12 +31,12 @@
   top: 0;
   left: 0;
   display: grid;
+  visibility: hidden;
   grid-auto-flow: column;
   gap: var(--loader-gap);
   place-content: center;
   width: 100%;
   height: 100%;
-  visibility: hidden;
   opacity: 0;
   transition:
     opacity var(--cui-transitions-default),
@@ -55,9 +55,9 @@
   background-color: currentColor;
   border-radius: var(--cui-border-radius-circle);
   animation-duration: 720ms; /* 80ms + 4 * 160ms */
-  animation-play-state: paused;
   animation-timing-function: cubic-bezier(0.75, 0, 1, 1);
   animation-iteration-count: infinite;
+  animation-play-state: paused;
 }
 
 @keyframes pulse1 {

@@ -3,6 +3,7 @@
   --tooltip-arrow-size: calc(var(--cui-spacings-byte) * 1.414);
 
   z-index: var(--cui-z-index-popover);
+  visibility: hidden;
   width: max-content;
   max-width: 360px;
   max-width: min(360px, 100vw);
@@ -26,10 +27,10 @@
 .content {
   padding: var(--cui-spacings-mega);
   color: var(--cui-fg-normal);
+  outline: 0;
   background-color: var(--cui-bg-elevated);
   border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
   border-radius: var(--cui-border-radius-byte);
-  outline: 0;
   box-shadow: 0 2px 6px 0 rgb(0 0 0 / 8%);
 }
 

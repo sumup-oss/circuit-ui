@@ -43,9 +43,9 @@
   margin: var(--cui-spacings-kilo);
   appearance: none;
   cursor: pointer;
+  outline: none;
   border: none;
   border-radius: 6px;
-  outline: none;
   box-shadow: 0 0 0 1px var(--cui-border-normal);
 }
 

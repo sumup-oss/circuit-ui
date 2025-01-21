@@ -1,9 +1,9 @@
 .base {
   padding: 0 !important;
   pointer-events: none;
+  outline: none;
   background-color: var(--cui-bg-elevated);
   border: none;
-  outline: none;
 }
 
 .base[open] {

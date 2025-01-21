@@ -14,17 +14,17 @@
   padding-left: var(--cui-spacings-mega);
   margin: 0;
   overflow-x: hidden;
+  text-overflow: ellipsis;
   font-size: var(--cui-body-m-font-size);
   line-height: var(--cui-body-m-line-height);
   color: var(--cui-fg-normal);
-  text-overflow: ellipsis;
   white-space: nowrap;
   appearance: none;
   cursor: pointer;
+  outline: none;
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-normal);
   border-radius: var(--cui-border-radius-byte);
-  outline: none;
   box-shadow: none;
   transition:
     box-shadow var(--cui-transitions-default),

@@ -35,8 +35,8 @@
   flex: 1 1 auto;
   margin-left: var(--cui-spacings-zetta);
   overflow-x: hidden;
-  text-align: center;
   text-overflow: ellipsis;
+  text-align: center;
   white-space: nowrap;
 }
 

@@ -35,8 +35,8 @@
 }
 
 .chevron {
-  transition: transform var(--cui-transitions-default);
   transform: rotate(0deg);
+  transition: transform var(--cui-transitions-default);
 }
 
 [aria-expanded="true"] .chevron {

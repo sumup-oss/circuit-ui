@@ -16,6 +16,7 @@
 import { afterAll, describe, expect, it, vi, type Mock } from 'vitest';
 
 import { render } from '../../util/test-utils.js';
+import { CircuitError } from '../../util/errors.js';
 
 import { Step } from './Step.js';
 import { useStep } from './hooks/useStep.js';
@@ -28,8 +29,9 @@ describe('Step', () => {
   });
 
   it('should throw error without children as a function', () => {
-    const expectedError = new Error(
-      '[Step] The `children` prop must be a function.',
+    const expectedError = new CircuitError(
+      'Step',
+      'The `children` prop must be a function.',
     );
 
     // @ts-expect-error We're testing for this error.

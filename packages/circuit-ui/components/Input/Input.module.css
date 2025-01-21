@@ -9,10 +9,10 @@
   font-size: var(--cui-body-m-font-size);
   line-height: var(--cui-body-m-line-height);
   appearance: none;
+  outline: 0;
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-normal);
   border-radius: var(--cui-border-radius-byte);
-  outline: 0;
   box-shadow: none;
   transition:
     box-shadow var(--cui-transitions-default),

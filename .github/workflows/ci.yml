@@ -39,7 +39,7 @@ jobs:
         run: npm run test:ci && cd packages/eslint-plugin-circuit-ui && npm run test:ci
 
       - name: Upload results to Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 

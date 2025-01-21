@@ -1,7 +1,7 @@
 .base {
   padding: var(--cui-spacings-giga);
-  overflow-wrap: break-word;
   vertical-align: middle;
+  overflow-wrap: break-word;
   background-color: var(--cui-bg-normal);
   border-bottom: var(--cui-border-width-kilo) solid var(--cui-border-divider);
   transition: background-color var(--cui-transitions-default);

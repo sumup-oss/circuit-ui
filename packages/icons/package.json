@@ -39,10 +39,10 @@
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-react": "^7.25.9",
     "@types/babel__core": "^7.20.5",
-    "fast-xml-parser": "^4.5.0",
+    "fast-xml-parser": "^4.5.1",
     "prettier": "^3.4.1",
     "tsx": "^4.19.2",
-    "typescript": "^5.6.3"
+    "typescript": "^5.7.3"
   },
   "peerDependencies": {
     "react": ">=16.0.0 <19.0.0"

@@ -38,8 +38,8 @@ button.base:hover {
 a.base:focus,
 button.base:focus {
   z-index: 2;
-  border-color: transparent;
   outline: 0;
+  border-color: transparent;
   box-shadow:
     0 0 0 4px var(--cui-bg-normal),
     0 0 0 6px var(--cui-border-focus);

@@ -69,8 +69,8 @@
 .grid td {
   position: relative;
   padding: var(--calendar-day-padding);
-  text-align: center;
   vertical-align: middle;
+  text-align: center;
 }
 
 .grid th {

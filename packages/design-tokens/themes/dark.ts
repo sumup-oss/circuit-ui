@@ -338,22 +338,22 @@ export const dark = [
   },
   {
     name: '--cui-fg-placeholder',
-    value: 'rgba(223, 232, 241, 0.4000)',
+    value: '#555D62',
     type: 'color',
   },
   {
     name: '--cui-fg-placeholder-hovered',
-    value: 'rgba(223, 232, 241, 0.4000)',
+    value: '#687278',
     type: 'color',
   },
   {
     name: '--cui-fg-placeholder-pressed',
-    value: 'rgba(223, 232, 241, 0.4000)',
+    value: '#7C878D',
     type: 'color',
   },
   {
     name: '--cui-fg-placeholder-disabled',
-    value: 'rgba(216, 232, 248, 0.1500)',
+    value: 'rgba(85, 93, 98, 0.500)',
     type: 'color',
   },
   {

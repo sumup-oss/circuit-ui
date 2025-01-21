@@ -1,9 +1,9 @@
 .base {
   height: 100%;
-  background-color: var(--cui-bg-normal);
   outline: none;
-  transition: transform var(--cui-transitions-slow);
+  background-color: var(--cui-bg-normal);
   transform: translateX(100%);
+  transition: transform var(--cui-transitions-slow);
 }
 
 .open {
