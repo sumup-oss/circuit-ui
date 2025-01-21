@@ -481,6 +481,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
           id={dialogId}
           open={open}
           isModal={isMobile}
+          hideCloseButton={!isMobile}
           onCloseStart={handleModalCloseStart}
           onCloseEnd={handleModalCloseEnd}
           className={clsx(

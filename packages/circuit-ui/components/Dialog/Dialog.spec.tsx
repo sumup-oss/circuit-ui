@@ -166,42 +166,79 @@ describe('Dialog', () => {
       render(<Dialog {...props} open />);
       vi.runAllTimers();
       expect(screen.getByText('Dialog content')).toBeVisible();
+      expect(screen.getByRole('button', { name: 'Close' })).toBeInTheDocument();
     });
 
-    it('should not close modal on backdrop click if preventClose is true', async () => {
-      render(<Dialog {...props} open preventClose />);
-      // eslint-disable-next-line testing-library/no-container
-      const dialog = screen.getByRole('dialog', { hidden: true });
-      await userEvent.click(dialog);
-      act(() => {
-        vi.runAllTimers();
-      });
-      expect(props.onCloseEnd).not.toHaveBeenCalled();
-      expect(props.onCloseStart).not.toHaveBeenCalled();
-      expect(dialog).toBeVisible();
-    });
-
-    it('should not show the close button if preventClose is true', async () => {
-      render(<Dialog {...props} open preventClose />);
+    it('should not show the close button if hideCloseButton is true', async () => {
+      render(<Dialog {...props} open hideCloseButton />);
       // eslint-disable-next-line testing-library/no-container
       expect(
         screen.queryByRole('button', { name: 'Close' }),
       ).not.toBeInTheDocument();
     });
 
-    it('should not close modal on backdrop click if preventClose is true - polyfill', async () => {
-      Object.defineProperty(window, 'HTMLDialogElement', {
-        writable: true,
-        value: undefined,
+    describe('preventOutsideClickClose', () => {
+      it('should close modal on backdrop click if preventOutsideClickClose is false', async () => {
+        render(<Dialog {...props} open />);
+        // eslint-disable-next-line testing-library/no-container
+        const dialog = screen.getByRole('dialog', { hidden: true });
+        vi.spyOn(dialog, 'close');
+        await userEvent.click(dialog);
+        act(() => {
+          vi.runAllTimers();
+        });
+        expect(props.onCloseEnd).toHaveBeenCalled();
+        expect(props.onCloseStart).toHaveBeenCalled();
+        expect(dialog.close).toHaveBeenCalled();
       });
-      render(<Dialog {...props} open preventClose />);
-      // eslint-disable-next-line testing-library/no-container
-      const dialog = screen.getByRole('dialog', { hidden: true });
-      await userEvent.click(dialog);
-      vi.runAllTimers();
-      expect(props.onCloseEnd).not.toHaveBeenCalled();
-      expect(props.onCloseStart).not.toHaveBeenCalled();
-      expect(dialog).toBeVisible();
+      it('should not close modal on backdrop click if preventOutsideClickClose is true', async () => {
+        render(<Dialog {...props} open preventOutsideClickClose />);
+        // eslint-disable-next-line testing-library/no-container
+        const dialog = screen.getByRole('dialog', { hidden: true });
+        await userEvent.click(dialog);
+        act(() => {
+          vi.runAllTimers();
+        });
+        expect(props.onCloseEnd).not.toHaveBeenCalled();
+        expect(props.onCloseStart).not.toHaveBeenCalled();
+        expect(dialog).toBeVisible();
+      });
+      it('should not close modal on backdrop click if preventOutsideClickClose is true - polyfill', async () => {
+        Object.defineProperty(window, 'HTMLDialogElement', {
+          writable: true,
+          value: undefined,
+        });
+        render(<Dialog {...props} open preventOutsideClickClose />);
+        // eslint-disable-next-line testing-library/no-container
+        const dialog = screen.getByRole('dialog', { hidden: true });
+        await userEvent.click(dialog);
+        vi.runAllTimers();
+        expect(props.onCloseEnd).not.toHaveBeenCalled();
+        expect(props.onCloseStart).not.toHaveBeenCalled();
+        expect(dialog).toBeVisible();
+      });
+    });
+
+    describe('preventEscapeKeyClose', () => {
+      it('should close the dialog pressing the Escape key and preventEscapeKeyClose is false', async () => {
+        render(<Dialog {...props} open />);
+        const dialog = screen.getByRole('dialog', { hidden: true });
+        vi.spyOn(dialog, 'close');
+        await userEvent.keyboard('{Escape}');
+        expect(dialog.close).toHaveBeenCalled();
+        expect(props.onCloseEnd).toHaveBeenCalled();
+        expect(props.onCloseStart).toHaveBeenCalled();
+      });
+
+      it('should not close the dialog pressing the Escape key and preventEscapeKeyClose is true', async () => {
+        render(<Dialog {...props} open preventEscapeKeyClose />);
+        const dialog = screen.getByRole('dialog', { hidden: true });
+        vi.spyOn(dialog, 'close');
+        await userEvent.keyboard('{Escape}');
+        expect(dialog.close).not.toHaveBeenCalled();
+        expect(props.onCloseEnd).not.toHaveBeenCalled();
+        expect(props.onCloseStart).not.toHaveBeenCalled();
+      });
     });
 
     it('should close the dialog when pressing the backdrop', async () => {

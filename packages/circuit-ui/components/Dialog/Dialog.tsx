@@ -66,7 +66,7 @@ export interface DialogProps
   /**
    * The duration of the dialog animation in milliseconds.
    * If you wish to animate the dialog, provide a value of the animation duration to enable the animation to complete before the dialog closes.
-   * @default `0`.
+   * @default 0
    */
   animationDuration?: number;
   /**
@@ -82,14 +82,23 @@ export interface DialogProps
    */
   locale?: Locale;
   /**
-   * Prevent users from closing the modal by clicking/tapping the overlay or
-   * pressing the escape key.
-   * @default `false`.
+   * Prevent users from closing the modal by clicking/tapping outside the dialog element.
+   * @default false
    */
-  preventClose?: boolean;
+  preventOutsideClickClose?: boolean;
+  /**
+   * Prevent users from closing the modal by pressing the escape key.
+   * @default false
+   */
+  preventEscapeKeyClose?: boolean;
+  /**
+   * Hides the close button when the dialog is modal.
+   @default false
+   */
+  hideCloseButton?: boolean;
   /**
    * Enables focusing a particular element in the dialog content and overrides the default behavior.
-   * @default `false`.
+   * @default false.
    */
   initialFocusRef?: RefObject<HTMLElement>;
   /**
@@ -117,7 +126,9 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       className,
       initialFocusRef,
       preventOutsideClickRefs,
-      preventClose = false,
+      preventOutsideClickClose = false,
+      hideCloseButton = false,
+      preventEscapeKeyClose = false,
       animationDuration = 0,
       onCloseStart,
       locale,
@@ -140,14 +151,14 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       if (open && dialogElement) {
         timeoutId = setTimeout(() => {
           if (initialFocusRef?.current) {
-            initialFocusRef?.current?.focus();
+            initialFocusRef?.current?.focus({ preventScroll: true });
           } else {
             const firstFocusableElement = getFirstFocusableElement(
               dialogElement,
-              isModal,
+              !hideCloseButton,
             );
             if (firstFocusableElement) {
-              firstFocusableElement?.focus();
+              firstFocusableElement?.focus({ preventScroll: true });
             } else {
               dialogElement.focus();
             }
@@ -157,7 +168,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       return () => {
         clearTimeout(timeoutId);
       };
-    }, [open, initialFocusRef, isModal, animationDurationRef.current]);
+    }, [open, initialFocusRef, hideCloseButton, animationDurationRef.current]);
 
     useEffect(() => {
       // save the opening element to restore focus after the dialog closes
@@ -186,11 +197,11 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 
     const onPolyfillBackdropClick = useCallback(
       (event: MouseEvent) => {
-        if (preventClose) {
+        if (preventOutsideClickClose) {
           event.preventDefault();
         }
       },
-      [preventClose],
+      [preventOutsideClickClose],
     );
 
     useEffect(() => {
@@ -223,7 +234,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
         '--dialog-animation-duration',
         `${animationDurationRef.current}ms`,
       );
-      if (preventClose && isModal) {
+      if (preventEscapeKeyClose) {
         dialogElement.addEventListener('keydown', preventEscapeKeyEvent);
       }
       if (onCloseEnd) {
@@ -237,8 +248,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     }, [
       openRef.current,
       onCloseEnd,
-      preventClose,
-      isModal,
+      preventEscapeKeyClose,
       preventEscapeKeyEvent,
       animationDurationRef.current,
     ]);
@@ -258,17 +268,26 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     }, [animationDurationRef.current, onCloseStart]);
 
     const handleOutsideClick = useCallback(() => {
-      lastFocusedElementRef.current = null;
-      handleDialogClose();
-    }, [handleDialogClose]);
+      if (!preventOutsideClickClose) {
+        lastFocusedElementRef.current = null;
+        handleDialogClose();
+      }
+    }, [handleDialogClose, preventOutsideClickClose]);
 
     const useClickOutsideRefs = preventOutsideClickRefs
       ? // eslint-disable-next-line compat/compat
         [dialogRef, preventOutsideClickRefs].flat()
       : [dialogRef];
 
-    useClickOutside(useClickOutsideRefs, handleOutsideClick, open && !isModal);
-    useEscapeKey(() => handleDialogClose(), open && !isModal);
+    useClickOutside(
+      useClickOutsideRefs,
+      handleOutsideClick,
+      open && !preventOutsideClickClose,
+    );
+    useEscapeKey((e: KeyboardEvent) => {
+      e.preventDefault();
+      handleDialogClose();
+    }, open && !preventEscapeKeyClose);
 
     useEffect(() => {
       const dialogElement = dialogRef.current;
@@ -325,7 +344,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       // the dialog content covers the whole dialog element
       // leaving the backdrop element as the only clickable area
       // that can trigger an onClick event
-      if (event.target === event.currentTarget && !preventClose) {
+      if (event.target === event.currentTarget && !preventOutsideClickClose) {
         handleDialogClose();
       }
     };
@@ -339,7 +358,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
           ref={applyMultipleRefs(ref, dialogRef)}
           {...rest}
         >
-          {isModal && !preventClose && (
+          {!hideCloseButton && (
             <CloseButton onClick={handleDialogClose} className={classes.close}>
               {closeButtonLabel}
             </CloseButton>
