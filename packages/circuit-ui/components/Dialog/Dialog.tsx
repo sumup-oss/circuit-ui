@@ -120,6 +120,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       preventClose = false,
       animationDuration = 0,
       onCloseStart,
+      locale,
       ...rest
     } = useI18n(props, translations);
     const dialogRef = useRef<HTMLDialogElement>(null);
