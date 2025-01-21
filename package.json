@@ -67,7 +67,7 @@
 		"@sumup-oss/eslint-plugin-circuit-ui": "^5.1.1",
 		"@sumup-oss/foundry": "^8.4.1",
 		"@sumup-oss/stylelint-plugin-circuit-ui": "^3.0.0",
-		"@types/node": "^22.10.1",
+		"@types/node": "^22.10.7",
 		"@vitest/coverage-v8": "^2.1.6",
 		"audit-ci": "^7.1.0",
 		"chromatic": "^11.25.0",
