@@ -7,13 +7,13 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: var(--cui-bg-normal);
   outline: none;
+  background-color: var(--cui-bg-normal);
   opacity: 0;
+  transform: translateY(-25%);
   transition:
     opacity var(--cui-transitions-default),
     transform var(--cui-transitions-default);
-  transform: translateY(-25%);
 }
 
 .base::after {
@@ -93,8 +93,8 @@
 }
 
 .chevron {
-  transition: transform var(--cui-transitions-default);
   transform: rotate(0deg);
+  transition: transform var(--cui-transitions-default);
 }
 
 [aria-expanded="true"] .chevron {

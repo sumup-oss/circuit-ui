@@ -19,10 +19,10 @@
 
 .menu {
   box-sizing: border-box;
+  visibility: hidden;
   max-height: var(--popover-max-height);
   padding: var(--cui-spacings-byte) 0;
   overflow-y: auto;
-  visibility: hidden;
   background-color: var(--cui-bg-elevated);
   border: 1px solid var(--cui-border-subtle);
   border-radius: var(--cui-border-radius-byte);
@@ -35,10 +35,10 @@
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
     opacity: 1;
+    transform: translateY(100%);
     transition:
       transform var(--cui-transitions-default),
       visibility var(--cui-transitions-default);
-    transform: translateY(100%);
   }
 }
 

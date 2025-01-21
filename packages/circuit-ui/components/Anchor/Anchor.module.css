@@ -7,10 +7,10 @@
   color: var(--cui-fg-accent);
   text-align: left;
   text-decoration: underline;
+  outline: none;
   background: none;
   border: 0;
   border-radius: var(--cui-border-radius-bit);
-  outline: none;
   transition:
     opacity var(--cui-transitions-default),
     color var(--cui-transitions-default),
