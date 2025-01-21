@@ -32,7 +32,7 @@
     "@sumup-oss/design-tokens": "^8.0.0",
     "@tsconfig/node18": "^18.2.4",
     "jest-preset-stylelint": "^7.1.0",
-    "typescript": "^5.6.3"
+    "typescript": "^5.7.3"
   },
   "peerDependencies": {
     "@sumup-oss/design-tokens": ">=8.0.0",
