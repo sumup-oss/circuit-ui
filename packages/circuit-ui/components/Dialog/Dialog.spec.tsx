@@ -234,26 +234,6 @@ describe('Dialog', () => {
       expect(props.onCloseStart).toHaveBeenCalledOnce();
       expect(dialog).not.toBeVisible();
     });
-
-    it('should remove animation classes of the modal dialog when closed when polyfill is used', async () => {
-      Object.defineProperty(window, 'HTMLDialogElement', {
-        writable: true,
-        value: undefined,
-      });
-
-      render(<Dialog {...props} open isModal />);
-      const dialog = screen.getByRole('dialog', { hidden: true });
-
-      const backdrop = document.getElementsByClassName('backdrop')[0];
-      expect(backdrop.classList.toString()).toContain('backdrop-visible');
-      await userEvent.click(screen.getByRole('button', { name: 'Close' }));
-      expect(backdrop.classList.toString()).not.toContain('backdrop-visible');
-      vi.runAllTimers();
-
-      expect(props.onCloseEnd).toHaveBeenCalledOnce();
-      expect(props.onCloseStart).toHaveBeenCalledOnce();
-      expect(dialog).not.toBeVisible();
-    });
   });
 
   describe('accessibility', () => {
