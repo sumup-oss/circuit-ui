@@ -45,6 +45,10 @@ updates:
         patterns:
           - 'nanostores'
           - '@nanostores/*'
+      vitest:
+        patterns:
+          - 'vitest'
+          - '@vitest/*'
 
   - package-ecosystem: 'github-actions'
     directory: '/'
