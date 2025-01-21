@@ -14,6 +14,7 @@
  */
 
 import { useState } from 'react';
+import { screen, userEvent, within } from '@storybook/test';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 
@@ -38,6 +39,20 @@ const baseArgs = {
   label: 'Date of birth',
   autoComplete: 'bday',
   locale: 'en-US',
+};
+
+const openCalendar = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLCanvasElement;
+}) => {
+  const canvas = within(canvasElement);
+  const button = canvas.getByRole('button', {
+    name: 'Change date',
+  });
+
+  await userEvent.click(button);
+  await screen.findByRole('dialog');
 };
 
 export const Base = (args: DateInputProps) => {
@@ -100,6 +115,7 @@ Optional.args = {
   ...baseArgs,
   optionalLabel: 'optional',
 };
+Optional.play = openCalendar;
 
 export const Readonly = (args: DateInputProps) => <DateInput {...args} />;
 

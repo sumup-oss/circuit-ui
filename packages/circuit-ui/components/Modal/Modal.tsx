@@ -33,6 +33,9 @@ export interface ModalProps
     | 'isModal'
     | 'animationDuration'
     | 'preventOutsideClickRefs'
+    | 'preventOutsideClickClose'
+    | 'preventEscapeKeyClose'
+    | 'hideCloseButton'
   > {
   /**
    * Use the `immersive` variant to focus the user's attention on the dialog content.
@@ -48,6 +51,12 @@ export interface ModalProps
    * Use the `preventClose` prop instead. Also see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role#required_javascript_features
    */
   hideCloseButton?: boolean;
+  /**
+   * Prevent users from closing the modal by clicking/tapping the overlay or
+   * pressing the escape key, and hides the close button.
+   * @default `false`.
+   */
+  preventClose?: boolean;
 }
 
 export const ANIMATION_DURATION = 300;
@@ -57,6 +66,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
     hideCloseButton,
     variant = 'contextual',
     className,
+    preventClose,
     children,
     onClose,
     ...rest
@@ -104,6 +114,9 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
           variant === 'immersive' && classes.immersive,
           className,
         )}
+        preventEscapeKeyClose={preventClose}
+        preventOutsideClickClose={preventClose}
+        hideCloseButton={preventClose}
         {...rest}
       >
         <div className={classes.content}>
