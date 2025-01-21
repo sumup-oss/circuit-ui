@@ -82,7 +82,9 @@ export interface PopoverProps
     | 'onCloseStart'
     | 'isModal'
     | 'animationDuration'
-    | 'preventClose'
+    | 'preventOutsideClickClose'
+    | 'preventEscapeKeyClose'
+    | 'hideCloseButton'
     | 'initialFocusRef'
     | 'preventOutsideClickRefs'
   > {
@@ -323,6 +325,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
           onCloseStart={handleCloseStart}
           onCloseEnd={handleCloseEnd}
           isModal={isMobile}
+          hideCloseButton={!isMobile}
           ref={applyMultipleRefs(ref, refs.setFloating, dialogRef)}
           className={clsx(
             classes.base,

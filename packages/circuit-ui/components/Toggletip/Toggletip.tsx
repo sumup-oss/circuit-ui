@@ -40,7 +40,6 @@ import { clsx } from '../../styles/clsx.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 import { useStackContext } from '../StackContext/index.js';
-import { CloseButton } from '../CloseButton/index.js';
 import { Headline } from '../Headline/index.js';
 import { Body } from '../Body/index.js';
 import { Button, type ButtonProps } from '../Button/index.js';
@@ -63,7 +62,9 @@ export interface ToggletipProps
     | 'animationDuration'
     | 'initialFocusRef'
     | 'open'
-    | 'preventClose'
+    | 'preventOutsideClickClose'
+    | 'preventEscapeKeyClose'
+    | 'hideCloseButton'
     | 'preventOutsideClickRefs'
     | 'children'
   > {
@@ -250,16 +251,6 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
                 size="s"
                 className={classes.action}
               />
-            )}
-            {!isMobile && (
-              <CloseButton
-                size="s"
-                variant="tertiary"
-                className={classes.close}
-                onClick={closeDialog}
-              >
-                {closeButtonLabel}
-              </CloseButton>
             )}
           </div>
           <div
