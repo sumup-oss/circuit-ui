@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2024, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,9 +13,14 @@
  * limitations under the License.
  */
 
-export { ModalProvider } from './ModalContext.js';
-export { createUseModal } from './createUseModal.js';
+import { transformModulesToTranslations } from '../../../util/i18n.js';
 
-export type { ModalProviderProps } from './ModalContext.js';
-
-export type { BaseModalProps, ModalComponent } from './types.js';
+export const translations = transformModulesToTranslations<
+  typeof import('./en-US.json')
+>(
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore import.meta.glob is supported by Vite
+  import.meta.glob('./*.json', {
+    eager: true,
+  }),
+);
