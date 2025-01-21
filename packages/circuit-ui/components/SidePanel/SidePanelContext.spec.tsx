@@ -24,7 +24,7 @@ import {
   vi,
   type Mock,
 } from 'vitest';
-import { useContext, type ComponentType } from 'react';
+import { useContext, type ComponentType, useEffect } from 'react';
 
 import {
   render,
@@ -43,9 +43,30 @@ import {
   type RemoveSidePanel,
   type UpdateSidePanel,
   type SidePanelContextProps,
+  type SidePanelContextItem,
 } from './SidePanelContext.js';
 
 vi.mock('../../hooks/useMedia/index.js');
+
+vi.mock('./SidePanel.js', () => ({
+  SidePanel: ({
+    onCloseEnd,
+    children,
+  }: Pick<SidePanelContextItem, 'onCloseEnd' | 'children'>) => {
+    useEffect(
+      () => () => {
+        onCloseEnd?.();
+      },
+      [onCloseEnd],
+    );
+
+    return (
+      <dialog open={true}>
+        {typeof children === 'function' ? children({}) : children}
+      </dialog>
+    );
+  },
+}));
 
 describe('SidePanelContext', () => {
   beforeAll(() => {
@@ -92,11 +113,6 @@ describe('SidePanelContext', () => {
       headline: 'Side panel title',
       id: uniqueId(),
       onClose: undefined,
-      // Silences the warning about the missing app element.
-      // In user land, the side panel is always rendered by the SidePanelProvider,
-      // which takes care of setting the app element.
-      // http://reactcommunity.org/react-modal/accessibility/#app-element
-      ariaHideApp: false,
     });
 
     const renderComponent = (Trigger: ComponentType, props = {}) =>
@@ -108,7 +124,7 @@ describe('SidePanelContext', () => {
 
     const renderOpenButton = (
       hookFn: SetSidePanel,
-      props: Partial<SidePanelContextProps> = {},
+      props: Partial<SidePanelContextItem> = {},
       label = 'Open panel',
     ) => (
       <button onClick={() => hookFn({ ...getPanel(), ...props })}>
@@ -131,7 +147,7 @@ describe('SidePanelContext', () => {
 
     const renderUpdateButton = (
       hookFn: UpdateSidePanel,
-      props: Partial<SidePanelContextProps> = {},
+      props: Partial<SidePanelContextItem> = {},
       group: SidePanelContextProps['group'] = 'primary',
     ) => (
       <button onClick={() => hookFn({ group, ...props })}>Update panel</button>
