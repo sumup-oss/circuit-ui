@@ -73,7 +73,7 @@
 		"chromatic": "^11.25.0",
 		"eslint-config-airbnb-typescript": "^18.0.0",
 		"eslint-import-resolver-typescript": "^3.6.3",
-		"eslint-plugin-prettier": "^5.2.1",
+		"eslint-plugin-prettier": "^5.2.3",
 		"eslint-plugin-react-server-components": "^1.2.0",
 		"eslint-plugin-storybook": "^0.11.2",
 		"eslint-plugin-testing-library": "^7.1.1",
