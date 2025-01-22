@@ -92,14 +92,6 @@ interface SharedProps {
    */
   locale?: Locale;
   /**
-   * @deprecated Support for the `gregory` calendar has been removed since it
-   * never fully worked. The `calendar` prop will be removed in the next major
-   * version.
-   *
-   * The identifier for the used [calendar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar). Default: `iso8601`.
-   */
-  calendar?: 'iso8601' | 'gregory';
-  /**
    * An integer indicating the first day of the week. Can be either `1` (Monday)
    * or `7` (Sunday). Default: `1`.
    */
