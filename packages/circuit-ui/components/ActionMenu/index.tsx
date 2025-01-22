@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-export { Popover } from './Popover.js';
+export { ActionMenu } from './ActionMenu.js';
 
-export type { PopoverProps } from './Popover.js';
+export type { ActionMenuProps } from './ActionMenu.js';
 
-export type { PopoverItemProps } from './components/PopoverItem.js';
+export type { ActionMenuItemProps } from './components/ActionMenuItem.js';

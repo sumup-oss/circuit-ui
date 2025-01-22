@@ -46,7 +46,7 @@ const mappings: Config[] = [
       'NotificationInline',
       'NotificationToast',
       'Pagination',
-      'Popover',
+      'ActionMenu',
       'RadioButton',
       'Select',
       'Selector',

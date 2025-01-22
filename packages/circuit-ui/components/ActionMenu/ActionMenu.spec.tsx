@@ -20,9 +20,9 @@ import { waitFor } from '@testing-library/react';
 
 import { act, axe, render, userEvent, screen } from '../../util/test-utils.js';
 
-import { Popover, type PopoverProps } from './Popover.js';
+import { ActionMenu, type ActionMenuProps } from './ActionMenu.js';
 
-describe('Popover', () => {
+describe('ActionMenu', () => {
   beforeEach(() => {
     vi.useFakeTimers({ shouldAdvanceTime: true });
   });
@@ -31,8 +31,8 @@ describe('Popover', () => {
     vi.clearAllMocks();
   });
 
-  function renderPopover(props: PopoverProps) {
-    return render(<Popover {...props} />);
+  function renderActionMenu(props: ActionMenuProps) {
+    return render(<ActionMenu {...props} />);
   }
 
   function createStateSetter(initialState: boolean) {
@@ -55,7 +55,7 @@ describe('Popover', () => {
     await act(async () => {});
   }
 
-  const baseProps: PopoverProps = {
+  const baseProps: ActionMenuProps = {
     component: (triggerProps) => <button {...triggerProps}>Button</button>,
     actions: [
       {
@@ -76,19 +76,19 @@ describe('Popover', () => {
   };
   it('should forward a ref', () => {
     const ref = createRef<HTMLDialogElement>();
-    render(<Popover {...baseProps} ref={ref} />);
+    render(<ActionMenu {...baseProps} ref={ref} />);
     const dialog = screen.getByRole('dialog', { hidden: true });
     expect(ref.current).toBe(dialog);
   });
 
-  it('should open the popover when clicking the trigger element', async () => {
+  it('should open the action menu when clicking the trigger element', async () => {
     const isOpen = false;
     const onToggle = vi.fn(createStateSetter(isOpen));
-    renderPopover({ ...baseProps, isOpen, onToggle });
+    renderActionMenu({ ...baseProps, isOpen, onToggle });
 
-    const popoverTrigger = screen.getByRole('button');
+    const trigger = screen.getByRole('button');
 
-    await userEvent.click(popoverTrigger);
+    await userEvent.click(trigger);
 
     expect(onToggle).toHaveBeenCalledTimes(1);
   });
@@ -99,23 +99,23 @@ describe('Popover', () => {
     ['arrow down', '{ArrowDown}'],
     ['arrow up', '{ArrowUp}'],
   ])(
-    'should open the popover when pressing the %s key on the trigger element',
+    'should open the action menu when pressing the %s key on the trigger element',
     async (_, key) => {
       const isOpen = false;
       const onToggle = vi.fn(createStateSetter(isOpen));
-      renderPopover({ ...baseProps, isOpen, onToggle });
+      renderActionMenu({ ...baseProps, isOpen, onToggle });
 
-      const popoverTrigger = screen.getByRole('button');
+      const trigger = screen.getByRole('button');
 
-      popoverTrigger.focus();
+      trigger.focus();
       await userEvent.keyboard(key);
 
       expect(onToggle).toHaveBeenCalledTimes(1);
     },
   );
 
-  it('should close the popover when clicking outside', async () => {
-    renderPopover(baseProps);
+  it('should close the action menu when clicking outside', async () => {
+    renderActionMenu(baseProps);
 
     await userEvent.click(document.body);
 
@@ -124,12 +124,12 @@ describe('Popover', () => {
     });
   });
 
-  it('should close the popover when clicking the trigger element', async () => {
-    renderPopover(baseProps);
+  it('should close the action menu when clicking the trigger element', async () => {
+    renderActionMenu(baseProps);
 
-    const popoverTrigger = screen.getByRole('button');
+    const trigger = screen.getByRole('button');
 
-    await userEvent.click(popoverTrigger);
+    await userEvent.click(trigger);
 
     // TODO Find a better way to test this as toHaveBeenCalled is not reliable here.
     expect(baseProps.onToggle).toHaveBeenCalled();
@@ -140,73 +140,73 @@ describe('Popover', () => {
     ['enter', '{Enter}'],
     ['arrow up', '{ArrowUp}'],
   ])(
-    'should close the popover when pressing the %s key on the trigger element',
+    'should close the action menu when pressing the %s key on the trigger element',
     async (_, key) => {
-      renderPopover(baseProps);
+      renderActionMenu(baseProps);
       vi.runAllTimers();
 
-      const popoverTrigger = screen.getByRole('button');
+      const trigger = screen.getByRole('button');
 
-      popoverTrigger.focus();
+      trigger.focus();
       await userEvent.keyboard(key);
 
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
     },
   );
 
-  it('should close the popover when clicking the escape key', async () => {
-    renderPopover(baseProps);
+  it('should close the action menu when clicking the escape key', async () => {
+    renderActionMenu(baseProps);
 
     await userEvent.keyboard('{Escape}');
 
     await waitFor(() => expect(baseProps.onToggle).toHaveBeenCalledTimes(1));
   });
 
-  it('should close the popover when clicking a popover item', async () => {
-    renderPopover(baseProps);
+  it('should close the action menu when clicking a action menu item', async () => {
+    renderActionMenu(baseProps);
 
-    const popoverItems = screen.getAllByRole('menuitem');
+    const actionMenuItems = screen.getAllByRole('menuitem');
 
-    await userEvent.click(popoverItems[0]);
+    await userEvent.click(actionMenuItems[0]);
 
     expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
   });
 
-  it('should move focus to the first popover item after opening', async () => {
+  it('should move focus to the first action menu item after opening', async () => {
     const isOpen = false;
     const onToggle = vi.fn(createStateSetter(isOpen));
 
-    const { rerender } = renderPopover({
+    const { rerender } = renderActionMenu({
       ...baseProps,
       isOpen,
       onToggle,
     });
 
-    rerender(<Popover {...baseProps} isOpen />);
+    rerender(<ActionMenu {...baseProps} isOpen />);
 
-    const popoverItems = screen.getAllByRole('menuitem');
+    const actionMenuItems = screen.getAllByRole('menuitem');
 
-    expect(popoverItems[0]).toHaveFocus();
+    expect(actionMenuItems[0]).toHaveFocus();
 
     await flushMicrotasks();
   });
 
   it('should move focus to the trigger element after closing', async () => {
-    const { rerender } = renderPopover(baseProps);
+    const { rerender } = renderActionMenu(baseProps);
 
-    rerender(<Popover {...baseProps} isOpen={false} />);
+    rerender(<ActionMenu {...baseProps} isOpen={false} />);
 
-    const popoverTrigger = screen.getByRole('button');
+    const trigger = screen.getByRole('button');
 
     await waitFor(() => {
-      expect(popoverTrigger).toHaveFocus();
+      expect(trigger).toHaveFocus();
     });
 
     await flushMicrotasks();
   });
 
   it('should have no accessibility violations', async () => {
-    const { container } = renderPopover(baseProps);
+    const { container } = renderActionMenu(baseProps);
 
     await act(async () => {
       const actual = await axe(container);
@@ -214,8 +214,8 @@ describe('Popover', () => {
     });
   });
 
-  it('should render the popover with menu semantics by default ', async () => {
-    renderPopover(baseProps);
+  it('should render the action menu with menu semantics by default ', async () => {
+    renderActionMenu(baseProps);
 
     const menu = screen.getByRole('menu');
     expect(menu).toBeVisible();
@@ -225,8 +225,8 @@ describe('Popover', () => {
     await flushMicrotasks();
   });
 
-  it('should render the popover without menu semantics ', async () => {
-    renderPopover({ ...baseProps, role: null });
+  it('should render the action menu without menu semantics ', async () => {
+    renderActionMenu({ ...baseProps, role: null });
 
     const menu = screen.queryByRole('menu');
     expect(menu).toBeNull();
@@ -237,7 +237,7 @@ describe('Popover', () => {
   });
 
   it('should hide dividers from the accessibility tree', async () => {
-    const { baseElement } = renderPopover(baseProps);
+    const { baseElement } = renderActionMenu(baseProps);
 
     // eslint-disable-next-line testing-library/no-node-access
     const dividers = baseElement.querySelectorAll('hr[aria-hidden="true"');
