@@ -23,7 +23,7 @@
     "@sumup-oss/icons": "^5.0.0",
     "@sumup-oss/intl": "^3.1.0",
     "isbot": "^5.1.21",
-    "react": "^18.3.1",
+    "react": "^19.0.0",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
@@ -31,7 +31,7 @@
     "@sumup-oss/eslint-plugin-circuit-ui": "^5.0.0",
     "@sumup-oss/foundry": "^8.4.1",
     "@sumup-oss/stylelint-plugin-circuit-ui": "^3.0.0",
-    "@types/react": "^18.3.3",
+    "@types/react": "^19.0.7",
     "@types/react-dom": "^18.3.1",
     "eslint-plugin-prettier": "^5.2.3",
     "typescript": "^5.7.3",
