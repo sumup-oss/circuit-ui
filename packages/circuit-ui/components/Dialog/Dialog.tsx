@@ -39,7 +39,7 @@ import { useLatest } from '../../hooks/useLatest/index.js';
 import { useI18n } from '../../hooks/useI18n/useI18n.js';
 
 import { getFirstFocusableElement } from './DialogService.js';
-import classes from './dialog.module.css';
+import classes from './Dialog.module.css';
 import { translations } from './translations/index.js';
 
 type DataAttribute = `data-${string}`;
@@ -248,12 +248,6 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       if (!dialogElement) {
         return;
       }
-
-      if (!hasNativeDialog && isModal) {
-        (dialogElement.nextSibling as HTMLDivElement).classList.remove(
-          classes['backdrop-visible'],
-        );
-      }
       onCloseStart?.();
       // trigger closing of the dialog after animation
       setTimeout(() => {
@@ -261,7 +255,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
           dialogElement.close();
         }
       }, animationDurationRef.current);
-    }, [hasNativeDialog, animationDurationRef.current, isModal, onCloseStart]);
+    }, [animationDurationRef.current, onCloseStart]);
 
     const handleOutsideClick = useCallback(() => {
       lastFocusedElementRef.current = null;
@@ -295,7 +289,6 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
         if (!hasNativeDialog && dialogElement.nextSibling) {
           // use the polyfill backdrop
           (dialogElement.nextSibling as HTMLDivElement).classList.add(
-            classes['backdrop-visible'],
             classes.backdrop,
           );
           // intercept and prevent modal closing if preventClose is true
