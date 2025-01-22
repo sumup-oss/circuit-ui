@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.5.1
+
+### Patch Changes
+
+- [#2908](https://github.com/sumup-oss/circuit-ui/pull/2908) [`2b0d27c`](https://github.com/sumup-oss/circuit-ui/commit/2b0d27ca122f9659bb969b255835d28e84243244) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the Input component's red or yellow placeholder color when invalid or with a warning. Previously, the placeholder text could be confused for a user entered value.
+
 ## 9.5.0
 
 ### Minor Changes
