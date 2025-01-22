@@ -19,11 +19,11 @@ import { useState } from 'react';
 
 import { Button } from '../Button/index.js';
 
-import { Popover, type PopoverProps } from './Popover.js';
+import { ActionMenu, type ActionMenuProps } from './ActionMenu.js';
 
 export default {
-  title: 'Components/Popover',
-  component: Popover,
+  title: 'Components/ActionMenu',
+  component: ActionMenu,
   tags: ['status:stable'],
   argTypes: {
     children: { control: 'text' },
@@ -50,17 +50,17 @@ const actions = [
   },
 ];
 
-export const Base = (args: PopoverProps) => {
+export const Base = (args: ActionMenuProps) => {
   const [isOpen, setOpen] = useState(true);
 
   return (
-    <Popover
+    <ActionMenu
       {...args}
       isOpen={isOpen}
       onToggle={setOpen}
       component={(props) => (
         <Button size="s" variant="secondary" {...props}>
-          Open popover
+          Open action menu
         </Button>
       )}
     />
@@ -71,17 +71,17 @@ Base.args = {
   actions,
 };
 
-export const Offset = (args: PopoverProps) => {
+export const Offset = (args: ActionMenuProps) => {
   const [isOpen, setOpen] = useState(true);
 
   return (
-    <Popover
+    <ActionMenu
       {...args}
       isOpen={isOpen}
       onToggle={setOpen}
       component={(props) => (
         <Button size="s" variant="secondary" {...props}>
-          Open popover
+          Open action menu
         </Button>
       )}
     />

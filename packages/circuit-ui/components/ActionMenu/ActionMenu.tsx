@@ -48,14 +48,14 @@ import { useStackContext } from '../StackContext/index.js';
 import { Dialog, type DialogProps } from '../Dialog/Dialog.js';
 import { sharedClasses } from '../../styles/shared.js';
 
-import classes from './Popover.module.css';
+import classes from './ActionMenu.module.css';
 import {
-  PopoverItem,
-  type PopoverItemProps,
-} from './components/PopoverItem.js';
+  ActionMenuItem,
+  type ActionMenuItemProps,
+} from './components/ActionMenuItem.js';
 
 type Divider = { type: 'divider' };
-type Action = PopoverItemProps | Divider;
+type Action = ActionMenuItemProps | Divider;
 
 function isDivider(action: Action): action is Divider {
   return 'type' in action && action.type === 'divider';
@@ -63,7 +63,7 @@ function isDivider(action: Action): action is Divider {
 
 type OnToggle = (open: boolean | ((prevOpen: boolean) => boolean)) => void;
 
-export interface PopoverReferenceProps {
+export interface ActionMenuReferenceProps {
   'onClick': (event: ClickEvent) => void;
   'onKeyDown': (event: KeyboardEvent) => void;
   'id': string;
@@ -72,7 +72,7 @@ export interface PopoverReferenceProps {
   'aria-expanded': boolean;
 }
 
-export interface PopoverProps
+export interface ActionMenuProps
   extends Omit<
     DialogProps,
     | 'children'
@@ -89,15 +89,15 @@ export interface PopoverProps
     | 'preventOutsideClickRefs'
   > {
   /**
-   * Determines whether the Popover is open or closed.
+   * Determines whether the ActionMenu is open or closed.
    */
   isOpen: boolean;
   /**
-   * Function that is called when opening and closing the Popover.
+   * Function that is called when opening and closing the ActionMenu.
    */
   onToggle: OnToggle;
   /**
-   * An array of PopoverItem or Divider.
+   * An array of ActionMenuItem or Divider.
    */
   actions: Action[];
   /**
@@ -107,7 +107,7 @@ export interface PopoverProps
   placement?: Placement;
   /**
    * The placements to fallback to when there is not enough space for the
-   * Popover.
+   * ActionMenu.
    * @default `['top', 'right', 'left']`.
    */
   fallbackPlacements?: Placement[];
@@ -120,14 +120,14 @@ export interface PopoverProps
    */
   offset?: number | { mainAxis?: number; crossAxis?: number };
   /**
-   * The component that toggles the Popover when clicked. Also referred to as
+   * The component that toggles the ActionMenu when clicked. Also referred to as
    * reference element.
    */
-  component: ComponentType<PopoverReferenceProps>;
+  component: ComponentType<ActionMenuReferenceProps>;
   /**
    * Remove the [`menu` role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/roles/menu_role)
    * when its semantics aren't appropriate for the use case, for example when
-   * the Popover is used as part of a navigation.
+   * the ActionMenu is used as part of a navigation.
    * @default 'menu'.
    *
    * Learn more: https://inclusive-components.design/menus-menu-buttons/
@@ -146,7 +146,7 @@ const sizeOptions: SizeOptions = {
   },
 };
 
-export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
+export const ActionMenu = forwardRef<HTMLDialogElement, ActionMenuProps>(
   (
     {
       isOpen = false,
@@ -214,8 +214,8 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
       [handleToggle],
     );
 
-    const handlePopoverItemClick =
-      (onClick: PopoverItemProps['onClick']) => (event: ClickEvent) => {
+    const handleActionMenuItemClick =
+      (onClick: ActionMenuItemProps['onClick']) => (event: ClickEvent) => {
         onClick?.(event);
         handleToggle(false);
       };
@@ -244,7 +244,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
     }, [isOpen, update]);
 
     useEffect(() => {
-      // Focus the first or last popover item after opening
+      // Focus the first or last action menu item after opening
       if (!prevOpen && isOpen) {
         const element = (
           triggerKey.current && triggerKey.current === 'ArrowUp'
@@ -270,7 +270,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
 
     const isMenu = role === 'menu';
 
-    const popoverContent = (
+    const actionMenuContent = (
       <div
         id={menuId}
         ref={menuEl}
@@ -282,12 +282,12 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
           isDivider(action) ? (
             <Hr className={classes.divider} key={index} />
           ) : (
-            <PopoverItem
+            <ActionMenuItem
               key={index}
               {...action}
               {...focusProps}
               role={isMenu ? 'menuitem' : undefined}
-              onClick={handlePopoverItemClick(action.onClick)}
+              onClick={handleActionMenuItemClick(action.onClick)}
             />
           ),
         )}
@@ -345,7 +345,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
           preventOutsideClickRefs={refs.reference}
           {...props}
         >
-          {popoverContent}
+          {actionMenuContent}
         </Dialog>
       </Fragment>
     );
