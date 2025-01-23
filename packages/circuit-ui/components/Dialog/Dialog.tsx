@@ -146,6 +146,50 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     // eslint-disable-next-line compat/compat
     const hasNativeDialog = window.HTMLDialogElement !== undefined;
 
+    // Focus Management
+    useEffect(() => {
+      const dialogElement = dialogRef.current;
+      let timeoutId: NodeJS.Timeout;
+      if (open && dialogElement) {
+        timeoutId = setTimeout(() => {
+          if (initialFocusRef?.current) {
+            initialFocusRef?.current?.focus({ preventScroll: true });
+          } else {
+            const firstFocusableElement = getFirstFocusableElement(
+              dialogElement,
+              !hideCloseButton,
+            );
+            if (firstFocusableElement) {
+              firstFocusableElement?.focus({ preventScroll: true });
+            } else {
+              dialogElement.focus();
+            }
+          }
+        }, animationDurationRef.current);
+      }
+      return () => {
+        clearTimeout(timeoutId);
+      };
+    }, [open, initialFocusRef, hideCloseButton, animationDurationRef.current]);
+
+    useEffect(() => {
+      // save the opening element to restore focus after the dialog closes
+      if (open) {
+        if (document.activeElement instanceof HTMLElement) {
+          lastFocusedElementRef.current = document.activeElement;
+        }
+      }
+      return () => {
+        // restore focus to the opening element
+        if (lastFocusedElementRef.current) {
+          setTimeout(
+            () => lastFocusedElementRef.current?.focus(),
+            animationDurationRef.current,
+          );
+        }
+      };
+    }, [open, animationDurationRef]);
+
     // Component  opening/closing logic
     const handleDialogClose = useCallback(() => {
       const dialogElement = dialogRef.current;
@@ -320,51 +364,6 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       },
       [handleDialogClose, preventOutsideClickClose],
     );
-
-    // Focus Management
-    useEffect(() => {
-      if (!open) {
-        return undefined;
-      }
-      // save the opening element to restore focus after the dialog closes
-      if (document.activeElement instanceof HTMLElement) {
-        lastFocusedElementRef.current = document.activeElement;
-      }
-      return () => {
-        // restore focus to the opening element
-        if (lastFocusedElementRef.current) {
-          setTimeout(() => {
-            lastFocusedElementRef.current?.focus();
-            lastFocusedElementRef.current = null;
-          }, animationDurationRef.current);
-        }
-      };
-    }, [open, animationDurationRef]);
-
-    useEffect(() => {
-      const dialogElement = dialogRef.current;
-      let timeoutId: NodeJS.Timeout;
-      if (open && dialogElement) {
-        timeoutId = setTimeout(() => {
-          if (initialFocusRef?.current) {
-            initialFocusRef?.current?.focus({ preventScroll: true });
-          } else {
-            const firstFocusableElement = getFirstFocusableElement(
-              dialogElement,
-              !hideCloseButton,
-            );
-            if (firstFocusableElement) {
-              firstFocusableElement?.focus({ preventScroll: true });
-            } else {
-              dialogElement.focus();
-            }
-          }
-        }, animationDurationRef.current);
-      }
-      return () => {
-        clearTimeout(timeoutId);
-      };
-    }, [open, initialFocusRef, hideCloseButton, animationDurationRef]);
 
     return (
       <>
