@@ -149,24 +149,20 @@
 
 @keyframes fade-in {
   from {
-    visibility: hidden;
     opacity: 0;
   }
 
   to {
-    visibility: visible;
     opacity: 1;
   }
 }
 
 @keyframes fade-out {
   from {
-    visibility: visible;
     opacity: 1;
   }
 
   to {
-    visibility: hidden;
     opacity: 0;
   }
 }
