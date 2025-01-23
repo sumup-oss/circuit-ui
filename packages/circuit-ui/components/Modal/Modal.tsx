@@ -54,7 +54,7 @@ export interface ModalProps
   /**
    * Prevent users from closing the modal by clicking/tapping the overlay or
    * pressing the escape key, and hides the close button.
-   * @default `false`.
+   * @default false
    */
   preventClose?: boolean;
 }
@@ -66,7 +66,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
     hideCloseButton,
     variant = 'contextual',
     className,
-    preventClose,
+    preventClose = false,
     children,
     onClose,
     ...rest
