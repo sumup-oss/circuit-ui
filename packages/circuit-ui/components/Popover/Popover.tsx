@@ -45,7 +45,7 @@ import { Hr } from '../Hr/index.js';
 import { useFocusList } from '../../hooks/useFocusList/index.js';
 import { usePrevious } from '../../hooks/usePrevious/index.js';
 import { useStackContext } from '../StackContext/index.js';
-import { Dialog, type DialogProps } from '../Dialog/Dialog.js';
+import { Dialog, type PublicDialogProps } from '../Dialog/Dialog.js';
 import { sharedClasses } from '../../styles/shared.js';
 
 import classes from './Popover.module.css';
@@ -72,22 +72,7 @@ export interface PopoverReferenceProps {
   'aria-expanded': boolean;
 }
 
-export interface PopoverProps
-  extends Omit<
-    DialogProps,
-    | 'children'
-    | 'role'
-    | 'open'
-    | 'onCloseEnd'
-    | 'onCloseStart'
-    | 'isModal'
-    | 'animationDuration'
-    | 'preventOutsideClickClose'
-    | 'preventEscapeKeyClose'
-    | 'hideCloseButton'
-    | 'initialFocusRef'
-    | 'preventOutsideClickRefs'
-  > {
+export interface PopoverProps extends Omit<PublicDialogProps, 'open' | 'role'> {
   /**
    * Determines whether the Popover is open or closed.
    */
