@@ -33,30 +33,22 @@ import { useLatest } from '../../hooks/useLatest/useLatest.js';
 import { SidePanel, type SidePanelProps } from './SidePanel.js';
 import { TRANSITION_DURATION } from './constants.js';
 import classes from './SidePanelContext.module.css';
-
-export type SidePanelContextProps = {
-  /**
-   * The group of the side panel. Opening a second side panel in
-   * the same group will replace the content and close all side panels
-   * stacked on top of it. Only panels in different groups stack one on top of the other.
-   */
-  group?: string;
-};
+import type { SidePanelHookProps } from './useSidePanel.js';
 
 export type SetSidePanel = (sidePanel: SidePanelContextItem) => void;
 
 export type UpdateSidePanel = (
-  sidePanel: Partial<SidePanelContextProps> &
-    Pick<Required<SidePanelContextProps>, 'group'>,
+  sidePanel: Partial<SidePanelHookProps> &
+    Pick<Required<SidePanelHookProps>, 'group'>,
 ) => void;
 
 export type RemoveSidePanel = (
-  group: SidePanelContextProps['group'],
+  group: SidePanelHookProps['group'],
   isInstantClose?: boolean,
 ) => Promise<void>;
 
-export type SidePanelContextItem = SidePanelContextProps &
-  Pick<SidePanelProps, 'onCloseEnd' | 'onClose' | 'headline' | 'children'> &
+export type SidePanelContextItem = SidePanelHookProps &
+  Pick<SidePanelProps, 'onCloseEnd'> &
   StackItem & { isInstantOpen?: boolean };
 
 export type SidePanelContextValue = {
@@ -94,7 +86,7 @@ export function SidePanelProvider({
   const sidePanelsRef = useLatest(sidePanels);
 
   const findSidePanel = useCallback(
-    (group: SidePanelContextProps['group']) =>
+    (group: SidePanelHookProps['group']) =>
       sidePanelsRef.current.find(
         (panel) => panel.group === group && !panel.transition,
       ),

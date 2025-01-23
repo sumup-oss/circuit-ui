@@ -42,9 +42,9 @@ import {
   type SetSidePanel,
   type RemoveSidePanel,
   type UpdateSidePanel,
-  type SidePanelContextProps,
   type SidePanelContextItem,
 } from './SidePanelContext.js';
+import type { SidePanelHookProps } from './useSidePanel.js';
 
 vi.mock('../../hooks/useMedia/index.js');
 
@@ -114,7 +114,7 @@ describe('SidePanelContext', () => {
 
     const renderCloseButton = (
       hookFn: RemoveSidePanel,
-      group: SidePanelContextProps['group'] = 'primary',
+      group: SidePanelHookProps['group'] = 'primary',
     ) => (
       <button
         onClick={() => {
@@ -128,7 +128,7 @@ describe('SidePanelContext', () => {
     const renderUpdateButton = (
       hookFn: UpdateSidePanel,
       props: Partial<SidePanelContextItem> = {},
-      group: SidePanelContextProps['group'] = 'primary',
+      group: SidePanelHookProps['group'] = 'primary',
     ) => (
       <button onClick={() => hookFn({ group, ...props })}>Update panel</button>
     );

@@ -19,10 +19,7 @@ import { useContext, useCallback, useId, useRef, useEffect } from 'react';
 
 import { uniqueId } from '../../util/id.js';
 
-import {
-  SidePanelContext,
-  type SidePanelContextProps,
-} from './SidePanelContext.js';
+import { SidePanelContext } from './SidePanelContext.js';
 import type { SidePanelProps } from './SidePanel.js';
 
 export type OnBack = () => void;
@@ -38,15 +35,20 @@ export type SidePanelHookProps = Pick<
   | 'closeButtonLabel'
   | 'locale'
   | 'children'
->;
+> & {
+  /**
+   * The group of the side panel. Opening a second side panel in
+   * the same group will replace the content and close all side panels
+   * stacked on top of it. Only panels in different groups stack one on top of the other.
+   */
+  group?: string;
+};
 
-type SetSidePanel = (props: SidePanelHookProps & SidePanelContextProps) => void;
+type SetSidePanel = (props: SidePanelHookProps) => void;
 
-type UpdateSidePanel = (
-  props: Partial<SidePanelHookProps & SidePanelContextProps>,
-) => void;
+type UpdateSidePanel = (props: Partial<SidePanelHookProps>) => void;
 
-type RemoveSidePanel = (group?: SidePanelContextProps['group']) => void;
+type RemoveSidePanel = (group?: SidePanelHookProps['group']) => void;
 
 type UseSidePanelHook = () => {
   setSidePanel: SetSidePanel;
@@ -59,7 +61,7 @@ type UseSidePanelHook = () => {
 export const useSidePanel: UseSidePanelHook = () => {
   const defaultGroup = useId();
   const bottomSidePanelGroupRef = useRef<
-    SidePanelContextProps['group'] | undefined
+    SidePanelHookProps['group'] | undefined
   >();
   const {
     setSidePanel: setSidePanelContext,
