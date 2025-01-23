@@ -158,7 +158,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
           dialogElement.close();
         }
       }, animationDurationRef.current);
-    }, [animationDurationRef.current, onCloseStart]);
+    }, [animationDurationRef, onCloseStart]);
 
     useEffect(() => {
       // register the dialog element with the polyfill
@@ -224,7 +224,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       return () => {
         dialogElement.removeEventListener('close', handleClose);
       };
-    }, [openRef.current, onCloseEnd]);
+    }, [openRef, onCloseEnd]);
 
     // DOM manipulation and event handling
     useScrollLock(open && isModal);
@@ -357,7 +357,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       return () => {
         clearTimeout(timeoutId);
       };
-    }, [open, initialFocusRef, hideCloseButton, animationDurationRef.current]);
+    }, [open, initialFocusRef, hideCloseButton, animationDurationRef]);
 
     useEffect(() => {
       dialogRef.current?.style.setProperty(
