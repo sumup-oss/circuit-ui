@@ -1,0 +1,13 @@
+<button id="open">open dialog</button>
+<dialog>
+    <button id="close">close dialog</button>
+    <div>dialog content</div>
+</dialog>
+<script>
+    document.querySelector('#open').addEventListener('click', function() {
+        document.querySelector('dialog').show();
+    });
+    document.querySelector('#close').addEventListener('click', function() {
+        document.querySelector('dialog').close();
+    });
+</script>
