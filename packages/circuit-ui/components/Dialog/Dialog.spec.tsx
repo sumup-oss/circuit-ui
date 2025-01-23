@@ -166,7 +166,7 @@ describe('Dialog', () => {
       render(<Dialog {...props} open />);
       vi.runAllTimers();
       expect(screen.getByText('Dialog content')).toBeVisible();
-      expect(screen.getByRole('button', { name: 'Close' })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'Close' })).toBeVisible();
     });
 
     it('should not show the close button if hideCloseButton is true', async () => {
