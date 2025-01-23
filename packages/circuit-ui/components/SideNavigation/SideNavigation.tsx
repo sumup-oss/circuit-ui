@@ -81,7 +81,7 @@ export function SideNavigation({
       primaryLinks={primaryLinks}
       closeButtonLabel={closeButtonLabel}
       primaryNavigationLabel={primaryNavigationLabel}
-      onCloseEnd={onClose}
+      onClose={onClose}
       open={!prevOpen && isOpen}
       {...rest}
     />

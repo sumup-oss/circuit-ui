@@ -19,24 +19,17 @@ import { forwardRef, useCallback, useState } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
 import { deprecate } from '../../util/logger.js';
-import { Dialog, type DialogProps } from '../Dialog/Dialog.js';
+import {
+  Dialog,
+  type DialogProps,
+  type PublicDialogProps,
+} from '../Dialog/Dialog.js';
 import { sharedClasses } from '../../styles/shared.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 
 import classes from './Modal.module.css';
 
-export interface ModalProps
-  extends Omit<
-    DialogProps,
-    | 'onCloseStart'
-    | 'onCloseEnd'
-    | 'isModal'
-    | 'animationDuration'
-    | 'preventOutsideClickRefs'
-    | 'preventOutsideClickClose'
-    | 'preventEscapeKeyClose'
-    | 'hideCloseButton'
-  > {
+export interface ModalProps extends PublicDialogProps {
   /**
    * Use the `immersive` variant to focus the user's attention on the dialog content.
    * @default 'contextual'
