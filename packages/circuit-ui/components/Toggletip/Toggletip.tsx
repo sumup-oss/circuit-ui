@@ -43,7 +43,7 @@ import { useStackContext } from '../StackContext/index.js';
 import { Headline } from '../Headline/index.js';
 import { Body } from '../Body/index.js';
 import { Button, type ButtonProps } from '../Button/index.js';
-import { Dialog, type DialogProps } from '../Dialog/Dialog.js';
+import { Dialog, type PublicDialogProps } from '../Dialog/Dialog.js';
 
 import classes from './Toggletip.module.css';
 
@@ -54,20 +54,7 @@ export interface ToggletipReferenceProps {
 }
 
 export interface ToggletipProps
-  extends Omit<
-    DialogProps,
-    | 'onCloseStart'
-    | 'onCloseEnd'
-    | 'isModal'
-    | 'animationDuration'
-    | 'initialFocusRef'
-    | 'open'
-    | 'preventOutsideClickClose'
-    | 'preventEscapeKeyClose'
-    | 'hideCloseButton'
-    | 'preventOutsideClickRefs'
-    | 'children'
-  > {
+  extends Omit<PublicDialogProps, 'open' | 'children'> {
   /**
    * The button element that triggers the toggletip.
    */

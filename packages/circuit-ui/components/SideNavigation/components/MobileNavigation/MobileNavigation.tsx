@@ -32,24 +32,18 @@ import {
 } from '../../../ComponentsContext/index.js';
 import { defaultComponents } from '../../../ComponentsContext/ComponentsContext.js';
 import { clsx } from '../../../../styles/clsx.js';
-import { Dialog, type DialogProps } from '../../../Dialog/Dialog.js';
+import {
+  Dialog,
+  type DialogProps,
+  type PublicDialogProps,
+} from '../../../Dialog/Dialog.js';
 import { sharedClasses } from '../../../../styles/shared.js';
 
 import classes from './MobileNavigation.module.css';
 
 const TRANSITION_DURATION = 120;
 
-export interface MobileNavigationProps
-  extends Omit<
-    DialogProps,
-    | 'children'
-    | 'isModal'
-    | 'onCloseStart'
-    | 'animationDuration'
-    | 'preventClose'
-    | 'initialFocusRef'
-    | 'preventOutsideClickRefs'
-  > {
+export interface MobileNavigationProps extends PublicDialogProps {
   /**
    * A collection of links with nested secondary groups.
    */
@@ -70,6 +64,10 @@ export interface MobileNavigationProps
    * **DO NOT USE.** This prop is not stable and can be removed at any time.
    */
   UNSAFE_components?: ComponentsContextType;
+  /**
+   * Callback function invoked when the mobile navigation closes.
+   */
+  onClose: DialogProps['onCloseEnd'];
 }
 
 function combineClickHandlers(
@@ -128,7 +126,7 @@ function Group({
 }
 
 export const MobileNavigation = ({
-  onCloseEnd: onClose,
+  onClose,
   closeButtonLabel,
   primaryLinks,
   primaryNavigationLabel,

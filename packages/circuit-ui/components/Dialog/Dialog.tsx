@@ -44,7 +44,7 @@ import { translations } from './translations/index.js';
 
 type DataAttribute = `data-${string}`;
 
-export interface DialogProps
+export interface PublicDialogProps
   extends Omit<HTMLAttributes<HTMLDialogElement>, 'children'> {
   /**
    * Whether the modal dialog is open or not. Learn more about the `dialog` api https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/open.
@@ -54,15 +54,6 @@ export interface DialogProps
    * Whether the dialog is modal or not.
    */
   isModal?: boolean;
-  /**
-   * Callback function invoked when the dialog closes.
-   */
-  onCloseEnd?: () => void;
-  /**
-   * Fired when the dialog starts to close.
-   * Use this to trigger animations before the dialog closes.
-   */
-  onCloseStart?: () => void;
   /**
    * The duration of the dialog animation in milliseconds.
    * If you wish to animate the dialog, provide a value of the animation duration to enable the animation to complete before the dialog closes.
@@ -82,6 +73,30 @@ export interface DialogProps
    */
   locale?: Locale;
   /**
+   * Enables focusing a particular element in the dialog content and overrides the default behavior.
+   * @default false.
+   */
+  initialFocusRef?: RefObject<HTMLElement>;
+  /**
+   * A `ReactNode` or a function that returns the content of the modal dialog.
+   */
+  children?:
+    | ReactNode
+    | (({ onClose }: { onClose?: DialogProps['onCloseEnd'] }) => ReactNode);
+  [key: DataAttribute]: string | undefined;
+}
+
+export interface DialogProps extends PublicDialogProps {
+  /**
+   * Fired when the dialog starts to close.
+   * Use this to trigger animations before the dialog closes.
+   */
+  onCloseStart?: () => void;
+  /**
+   * Callback function invoked when the dialog closes.
+   */
+  onCloseEnd?: () => void;
+  /**
    * Prevent users from closing the modal by clicking/tapping outside the dialog element.
    * @default false
    */
@@ -97,22 +112,10 @@ export interface DialogProps
    */
   hideCloseButton?: boolean;
   /**
-   * Enables focusing a particular element in the dialog content and overrides the default behavior.
-   * @default false.
-   */
-  initialFocusRef?: RefObject<HTMLElement>;
-  /**
    * By passing a `preventOutsideClickRefs` ref or array of refs,
    * you can prevent the dialog from closing when clicking on elements referenced by these refs.
    */
   preventOutsideClickRefs?: RefObject<HTMLElement> | RefObject<HTMLElement>[];
-  /**
-   * A `ReactNode` or a function that returns the content of the modal dialog.
-   */
-  children?:
-    | ReactNode
-    | (({ onClose }: { onClose?: DialogProps['onCloseEnd'] }) => ReactNode);
-  [key: DataAttribute]: string | undefined;
 }
 
 export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
