@@ -135,6 +135,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       animationDuration = 0,
       onCloseStart,
       locale,
+      style,
       ...rest
     } = useI18n(props, translations);
     const dialogRef = useRef<HTMLDialogElement>(null);
@@ -236,9 +237,11 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     }, []);
 
     useEffect(() => {
-      if (preventEscapeKeyClose) {
-        dialogRef.current?.addEventListener('keydown', preventEscapeKeyEvent);
+      if (!preventEscapeKeyClose) {
+        return undefined;
       }
+      dialogRef.current?.addEventListener('keydown', preventEscapeKeyEvent);
+
       return () => {
         dialogRef.current?.removeEventListener(
           'keydown',
@@ -284,6 +287,9 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 
     useEffect(() => {
       const dialogElement = dialogRef.current;
+      if (!dialogElement || hasNativeDialog) {
+        return undefined;
+      }
       if (open && !hasNativeDialog && dialogElement?.nextSibling) {
         // use the polyfill backdrop
         (dialogElement.nextSibling as HTMLDivElement).classList.add(
@@ -317,19 +323,20 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 
     // Focus Management
     useEffect(() => {
+      if (!open) {
+        return undefined;
+      }
       // save the opening element to restore focus after the dialog closes
-      if (open) {
-        if (document.activeElement instanceof HTMLElement) {
-          lastFocusedElementRef.current = document.activeElement;
-        }
+      if (document.activeElement instanceof HTMLElement) {
+        lastFocusedElementRef.current = document.activeElement;
       }
       return () => {
         // restore focus to the opening element
         if (lastFocusedElementRef.current) {
-          setTimeout(
-            () => lastFocusedElementRef.current?.focus(),
-            animationDurationRef.current,
-          );
+          setTimeout(() => {
+            lastFocusedElementRef.current?.focus();
+            lastFocusedElementRef.current = null;
+          }, animationDurationRef.current);
         }
       };
     }, [open, animationDurationRef]);
@@ -359,13 +366,6 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       };
     }, [open, initialFocusRef, hideCloseButton, animationDurationRef]);
 
-    useEffect(() => {
-      dialogRef.current?.style.setProperty(
-        '--dialog-animation-duration',
-        `${animationDuration}ms`,
-      );
-    }, [animationDuration]);
-
     return (
       <>
         {/* eslint-disable-next-line  jsx-a11y/no-noninteractive-element-interactions */}
@@ -373,6 +373,10 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
           onClick={onDialogClick}
           className={clsx(classes.base, isModal && classes.modal, className)}
           ref={applyMultipleRefs(ref, dialogRef)}
+          style={{
+            ...style,
+            '--dialog-animation-duration': `${animationDuration}ms`,
+          }}
           {...rest}
         >
           {!hideCloseButton && (
