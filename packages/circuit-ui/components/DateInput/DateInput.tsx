@@ -336,12 +336,12 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     }
     const [isClosing, setIsClosing] = useState(false);
 
-    const handleModalCloseEnd = useCallback(() => {
+    const handleDialogCloseEnd = useCallback(() => {
       setIsClosing(false);
       closeCalendar?.();
     }, [closeCalendar]);
 
-    const handleModalCloseStart = useCallback(() => {
+    const handleDialogCloseStart = useCallback(() => {
       setIsClosing(true);
     }, []);
 
@@ -482,8 +482,8 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
           open={open}
           isModal={isMobile}
           hideCloseButton={!isMobile}
-          onCloseStart={handleModalCloseStart}
-          onCloseEnd={handleModalCloseEnd}
+          onCloseStart={handleDialogCloseStart}
+          onCloseEnd={handleDialogCloseEnd}
           className={clsx(
             classes.dialog,
             isClosing ? outAnimation : inAnimation,

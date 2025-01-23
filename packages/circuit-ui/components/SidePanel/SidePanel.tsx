@@ -31,7 +31,6 @@ import { clsx } from '../../styles/clsx.js';
 import { useAnimation } from '../../hooks/useAnimation/index.js';
 import { sharedClasses } from '../../styles/shared.js';
 import { useI18n } from '../../hooks/useI18n/useI18n.js';
-import { useLatest } from '../../hooks/useLatest/index.js';
 
 import { Header } from './components/Header/index.js';
 import type { ChildrenRenderProps, OnBack, OnClose } from './useSidePanel.js';
@@ -94,29 +93,33 @@ export const SidePanel = forwardRef<HTMLDialogElement, SidePanelProps>(
 
       const [, setAnimating] = useAnimation();
 
-      const triggerAnimation = useCallback(
-        (isOpening: boolean, callBack?: OnBack | OnClose) => {
+      const onOpening = useCallback(() => {
+        setAnimating({
+          duration: animationDuration,
+          onStart: () => {
+            setAnimationClass(
+              animationDuration > 0
+                ? sharedClasses.animationSlideRightIn
+                : undefined,
+            );
+          },
+          onEnd: () => {
+            setAnimationClass(undefined);
+          },
+        });
+      }, [animationDuration, setAnimating]);
+
+      const onClosing = useCallback(
+        (callBack?: OnBack | OnClose) => {
           setAnimating({
             duration: animationDuration,
             onStart: () => {
-              if (isOpening) {
-                setAnimationClass(
-                  animationDuration > 0
-                    ? sharedClasses.animationSlideRightIn
-                    : undefined,
-                );
-              } else {
-                void callBack?.();
-                setAnimationClass(sharedClasses.animationSlideRightOut);
-              }
+              void callBack?.();
+              setAnimationClass(sharedClasses.animationSlideRightOut);
             },
             onEnd: () => {
-              if (isOpening) {
-                setAnimationClass(undefined);
-              } else {
-                setAnimationClass(classes.closed);
-                onCloseEnd?.();
-              }
+              setAnimationClass(classes.closed);
+              onCloseEnd?.();
             },
           });
         },
@@ -132,35 +135,16 @@ export const SidePanel = forwardRef<HTMLDialogElement, SidePanelProps>(
         setHeaderSticky(event.currentTarget.scrollTop > 0);
       };
 
-      const triggerAnimationRef = useLatest(triggerAnimation);
-
       useEffect(() => {
         // trigger animation on opening
-        triggerAnimationRef.current(true);
-      }, [triggerAnimationRef]);
+        onOpening();
+      }, [onOpening]);
 
       useEffect(
         () => () => {
           onCloseEnd?.();
         },
         [onCloseEnd],
-      );
-
-      const content = (
-        <div onScroll={handleScroll}>
-          <Header
-            backButtonLabel={backButtonLabel}
-            closeButtonLabel={closeButtonLabel}
-            headline={headline}
-            id={headerAriaId}
-            onBack={onBack ? () => triggerAnimation(false, onBack) : undefined}
-            onClose={() => triggerAnimation(false, onClose)}
-            isSticky={isHeaderSticky}
-          />
-          <div className={classes.content}>
-            {isFunction(children) ? children({ onBack, onClose }) : children}
-          </div>
-        </div>
       );
 
       return (
@@ -172,12 +156,25 @@ export const SidePanel = forwardRef<HTMLDialogElement, SidePanelProps>(
           aria-labelledby={headerAriaId}
           animationDuration={animationDuration}
           className={clsx(classes.base, animationClass, className)}
-          onCloseStart={() => triggerAnimation(false, onBack || onClose)}
+          onCloseStart={() => onClosing(onBack || onClose)}
           preventOutsideClickClose={true}
           preventEscapeKeyClose={preventEscapeKeyClose}
           hideCloseButton
         >
-          {content}
+          <div className={classes.wrapper} onScroll={handleScroll}>
+            <Header
+              backButtonLabel={backButtonLabel}
+              closeButtonLabel={closeButtonLabel}
+              headline={headline}
+              id={headerAriaId}
+              onBack={onBack ? () => onClosing(onBack) : undefined}
+              onClose={() => onClosing(onClose)}
+              isSticky={isHeaderSticky}
+            />
+            <div className={classes.content}>
+              {isFunction(children) ? children({ onBack, onClose }) : children}
+            </div>
+          </div>
         </Dialog>
       );
     }

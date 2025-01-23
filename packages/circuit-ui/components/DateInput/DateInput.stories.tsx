@@ -48,7 +48,7 @@ const openCalendar = async ({
 }) => {
   const canvas = within(canvasElement);
   const button = canvas.getByRole('button', {
-    name: 'Change date',
+    name: 'Change date, August 28, 2017',
   });
 
   await userEvent.click(button);
@@ -114,6 +114,7 @@ export const Optional = (args: DateInputProps) => <DateInput {...args} />;
 Optional.args = {
   ...baseArgs,
   optionalLabel: 'optional',
+  defaultValue: '2017-08-28',
 };
 Optional.play = openCalendar;
 

@@ -143,6 +143,10 @@ export function SidePanelProvider({
             }
 
             dispatch({
+              type: 'update',
+              item: sidePanel,
+            });
+            dispatch({
               type: 'remove',
               id: sidePanel.id,
               transition: {

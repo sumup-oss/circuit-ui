@@ -98,6 +98,16 @@ describe('SidePanel', () => {
     await waitFor(() => expect(onClose).toHaveBeenCalled());
   });
 
+  describe('when the panel is not stacked', () => {
+    it('should not show the back button', () => {
+      renderComponent();
+
+      expect(
+        screen.queryByTitle(baseProps.backButtonLabel as string),
+      ).toBeNull();
+    });
+  });
+
   describe('when the panel is stacked', () => {
     it('should show the back button', () => {
       const onBack = vi.fn();
@@ -142,6 +152,16 @@ describe('SidePanel', () => {
       await userEvent.keyboard('{Escape}');
 
       expect(onBack).toHaveBeenCalled();
+    });
+  });
+
+  describe('when the panel is on desktop resolution', () => {
+    it('should describe the side panel as modal', () => {
+      const { rerender } = render(<SidePanel {...baseProps} open={false} />);
+      const dialog = screen.getByRole('dialog', { hidden: true });
+      vi.spyOn(dialog, 'show');
+      rerender(<SidePanel {...baseProps} open />);
+      expect(dialog.show).toHaveBeenCalledOnce();
     });
   });
 

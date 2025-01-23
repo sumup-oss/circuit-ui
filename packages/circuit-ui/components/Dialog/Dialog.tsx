@@ -317,6 +317,24 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 
     // Focus Management
     useEffect(() => {
+      // save the opening element to restore focus after the dialog closes
+      if (open) {
+        if (document.activeElement instanceof HTMLElement) {
+          lastFocusedElementRef.current = document.activeElement;
+        }
+      }
+      return () => {
+        // restore focus to the opening element
+        if (lastFocusedElementRef.current) {
+          setTimeout(
+            () => lastFocusedElementRef.current?.focus(),
+            animationDurationRef.current,
+          );
+        }
+      };
+    }, [open, animationDurationRef]);
+
+    useEffect(() => {
       const dialogElement = dialogRef.current;
       let timeoutId: NodeJS.Timeout;
       if (open && dialogElement) {
@@ -340,24 +358,6 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
         clearTimeout(timeoutId);
       };
     }, [open, initialFocusRef, hideCloseButton, animationDurationRef.current]);
-
-    useEffect(() => {
-      // save the opening element to restore focus after the dialog closes
-      if (open) {
-        if (document.activeElement instanceof HTMLElement) {
-          lastFocusedElementRef.current = document.activeElement;
-        }
-      }
-      return () => {
-        // restore focus to the opening element
-        if (lastFocusedElementRef.current) {
-          setTimeout(
-            () => lastFocusedElementRef.current?.focus(),
-            animationDurationRef.current,
-          );
-        }
-      };
-    }, [open, animationDurationRef]);
 
     useEffect(() => {
       dialogRef.current?.style.setProperty(
