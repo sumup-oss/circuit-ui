@@ -142,7 +142,7 @@ export function SidePanelProvider({
               type: 'remove',
               id: sidePanel.id,
               transition: {
-                duration: isInstantClose ? 0 : TRANSITION_DURATION,
+                duration: isInstantClose || index > 0 ? 0 : TRANSITION_DURATION,
               },
             });
           });

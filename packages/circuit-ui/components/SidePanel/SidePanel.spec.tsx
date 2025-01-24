@@ -156,7 +156,7 @@ describe('SidePanel', () => {
   });
 
   describe('when the panel is on desktop resolution', () => {
-    it('should describe the side panel as modal', () => {
+    it('should open the side panel as non-modal', () => {
       const { rerender } = render(<SidePanel {...baseProps} open={false} />);
       const dialog = screen.getByRole('dialog', { hidden: true });
       vi.spyOn(dialog, 'show');
