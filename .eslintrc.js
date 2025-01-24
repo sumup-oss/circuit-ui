@@ -22,6 +22,7 @@ module.exports = require('@sumup-oss/foundry/eslint')({
     '@sumup-oss/circuit-ui/no-deprecated-components': 'error',
     '@sumup-oss/circuit-ui/no-renamed-props': 'error',
     '@sumup-oss/circuit-ui/prefer-custom-properties': 'warn',
+    '@typescript-eslint/unbound-method': ['error', { ignoreStatic: true }],
     'react/no-unknown-property': ['error', { ignore: ['css'] }],
     // These rules are already covered by Biome
     'jsx-a11y/click-events-have-key-events': 'off',
