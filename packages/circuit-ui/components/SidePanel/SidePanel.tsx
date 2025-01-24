@@ -31,6 +31,7 @@ import { clsx } from '../../styles/clsx.js';
 import { useAnimation } from '../../hooks/useAnimation/index.js';
 import { sharedClasses } from '../../styles/shared.js';
 import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import { useMedia } from '../../hooks/useMedia/index.js';
 
 import { Header } from './components/Header/index.js';
 import type { ChildrenRenderProps, OnBack, OnClose } from './useSidePanel.js';
@@ -53,10 +54,6 @@ export type SidePanelProps = Omit<DialogProps, 'children'> & {
    */
   children: ReactNode | ((props: ChildrenRenderProps) => ReactNode);
   /**
-   * Boolean indicating whether the side panel should be in desktop or mobile mode.
-   */
-  isMobile: boolean;
-  /**
    * Callback function that is called when the stacked side panel is closed.
    */
   onBack?: OnBack;
@@ -74,7 +71,6 @@ export const SidePanel = forwardRef<HTMLDialogElement, SidePanelProps>(
       children,
       closeButtonLabel,
       headline,
-      isMobile,
       onBack,
       onCloseEnd,
       onClose,
@@ -84,6 +80,8 @@ export const SidePanel = forwardRef<HTMLDialogElement, SidePanelProps>(
       className,
       ...rest
     } = useI18n(props, translations);
+    const isMobile = useMedia('(max-width: 767px)');
+
     {
       const [animationClass, setAnimationClass] = useState<string | undefined>(
         classes.closed,
