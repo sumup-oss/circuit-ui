@@ -13,11 +13,78 @@
  * limitations under the License.
  */
 
-import { describe, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+import { createRef } from 'react';
+
+import { render, screen } from '../../util/test-utils.js';
+
+import { CarouselPagination } from './CarouselPagination.js';
 
 describe('CarouselPagination', () => {
-  it.todo('should render as button');
-  it.todo('should render as links');
-  it.todo('should mark the current active item');
-  it.todo('should mark the current active item with the type');
+  const baseProps = {
+    slides: [
+      { id: 'foo', label: 'Foo' },
+      { id: 'bar', label: 'Bar' },
+      { id: 'baz', label: 'Baz' },
+    ],
+    currentId: 'foo',
+  };
+
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    render(<CarouselPagination {...baseProps} className={className} />);
+    const list = screen.getByRole('list');
+    expect(list?.className).toContain(className);
+  });
+
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLUListElement>();
+    render(<CarouselPagination {...baseProps} ref={ref} />);
+    const list = screen.getByRole('list');
+    expect(ref.current).toBe(list);
+  });
+
+  it('should render as buttons when the slides have onClick handlers', () => {
+    const slides = [
+      { id: 'foo', label: 'Foo', onClick: vi.fn() },
+      { id: 'bar', label: 'Bar', onClick: vi.fn() },
+      { id: 'baz', label: 'Baz', onClick: vi.fn() },
+    ];
+    render(<CarouselPagination {...baseProps} slides={slides} />);
+    const buttons = screen.getAllByRole('button');
+    expect(buttons).toHaveLength(slides.length);
+  });
+
+  it('should render as links when the slides have href attributes', () => {
+    const slides = [
+      { id: 'foo', label: 'Foo', href: '#foo', onClick: vi.fn() },
+      { id: 'bar', label: 'Bar', href: '#bar', onClick: vi.fn() },
+      { id: 'baz', label: 'Baz', href: '#baz', onClick: vi.fn() },
+    ];
+    render(<CarouselPagination {...baseProps} slides={slides} />);
+    const links = screen.getAllByRole('link');
+    expect(links).toHaveLength(slides.length);
+  });
+
+  it('should mark the current active item', () => {
+    const slides = [
+      { id: 'foo', label: 'Foo', href: '#foo' },
+      { id: 'bar', label: 'Bar', href: '#bar' },
+      { id: 'baz', label: 'Baz', href: '#baz' },
+    ];
+    render(<CarouselPagination {...baseProps} slides={slides} />);
+    const currentSlide = screen.getByRole('link', { name: /foo/i });
+    expect(currentSlide).toHaveAttribute('aria-current');
+  });
+
+  it('should mark the current active item with the provided type', () => {
+    const slides = [
+      { id: 'foo', label: 'Foo', href: '#foo' },
+      { id: 'bar', label: 'Bar', href: '#bar' },
+      { id: 'baz', label: 'Baz', href: '#baz' },
+    ];
+    render(<CarouselPagination {...baseProps} slides={slides} type="page" />);
+    const currentSlide = screen.getByRole('link', { name: /foo/i });
+    expect(currentSlide).toHaveAttribute('aria-current', 'page');
+  });
 });

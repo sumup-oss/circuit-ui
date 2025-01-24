@@ -74,12 +74,12 @@ export interface CarouselPaginationProps
 export const CarouselPagination = forwardRef<
   HTMLUListElement,
   CarouselPaginationProps
->(({ slides, currentId, type }, ref) => {
+>(({ slides, currentId, type, className, ...props }, ref) => {
   const components = useComponents();
   const Link = components.Link as AsPropType;
 
   return (
-    <ul ref={ref} className={classes.base}>
+    <ul ref={ref} className={clsx(classes.base, className)} {...props}>
       {slides.map(({ id, label, ...item }) => {
         let Element: AsPropType;
         if (item.href) {
