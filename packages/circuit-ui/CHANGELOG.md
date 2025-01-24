@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.6.0
+
+### Minor Changes
+
+- [#2909](https://github.com/sumup-oss/circuit-ui/pull/2909) [`8f9df8d`](https://github.com/sumup-oss/circuit-ui/commit/8f9df8db449397f98b73f1f26adb9e99b58981a0) Thanks [@connor-baer](https://github.com/connor-baer)! - Applied tighter letter spacing to the Display component.
+
 ## 9.5.1
 
 ### Patch Changes
