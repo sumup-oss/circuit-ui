@@ -93,30 +93,27 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
     : sharedClasses.animationFadeIn;
 
   return (
-    <>
-      {/* eslint-disable-next-line  jsx-a11y/no-noninteractive-element-interactions */}
-      <Dialog
-        ref={ref}
-        isModal
-        onCloseStart={handleModalCloseStart}
-        onCloseEnd={handleModalCloseEnd}
-        animationDuration={ANIMATION_DURATION}
-        className={clsx(
-          classes.base,
-          isClosing ? outAnimation : inAnimation,
-          variant === 'immersive' && classes.immersive,
-          className,
-        )}
-        preventEscapeKeyClose={preventClose}
-        preventOutsideClickClose={preventClose}
-        hideCloseButton={preventClose}
-        {...rest}
-      >
-        <div className={classes.content}>
-          {typeof children === 'function' ? children?.({ onClose }) : children}
-        </div>
-      </Dialog>
-    </>
+    <Dialog
+      ref={ref}
+      isModal
+      onCloseStart={handleModalCloseStart}
+      onCloseEnd={handleModalCloseEnd}
+      animationDuration={ANIMATION_DURATION}
+      className={clsx(
+        classes.base,
+        isClosing ? outAnimation : inAnimation,
+        variant === 'immersive' && classes.immersive,
+        className,
+      )}
+      preventEscapeKeyClose={preventClose}
+      preventOutsideClickClose={preventClose}
+      hideCloseButton={preventClose}
+      {...rest}
+    >
+      <div className={classes.content}>
+        {typeof children === 'function' ? children?.({ onClose }) : children}
+      </div>
+    </Dialog>
   );
 });
 
