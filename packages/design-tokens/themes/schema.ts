@@ -237,6 +237,7 @@ export const schema = [
   { name: '--cui-numeral-s-font-size', type: 'dimension' },
   { name: '--cui-numeral-s-line-height', type: 'dimension' },
   { name: '--cui-letter-spacing', type: 'dimension' },
+  { name: '--cui-letter-spacing-tight', type: 'dimension' },
   /* eslint-disable @sumup-oss/circuit-ui/no-deprecated-custom-properties */
   {
     name: '--cui-typography-headline-one-font-size',

@@ -92,6 +92,11 @@ export const shared = [
     value: '-0.01375rem',
     type: 'dimension',
   },
+  {
+    name: '--cui-letter-spacing-tight',
+    value: '-0.08rem',
+    type: 'dimension',
+  },
   /* Icon sizes */
   {
     name: '--cui-icon-sizes-kilo',
