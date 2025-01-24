@@ -15,6 +15,8 @@
 
 import { action } from '@storybook/addon-actions';
 
+import { images } from '../../../../.storybook/fixtures.js';
+
 import { Step } from './Step.js';
 import {
   CarouselSlider,
@@ -26,11 +28,6 @@ import {
 } from './examples/YesOrNoSlider.js';
 import { MultiStepForm } from './examples/MultiStepForm.js';
 
-const IMAGES = [
-  '/images/illustration-waves.jpg',
-  '/images/illustration-waves-2.jpg',
-  '/images/illustration-waves-3.jpg',
-];
 const STEP_DURATION = 2000;
 const ANIMATION_DURATION = 300;
 
@@ -41,7 +38,7 @@ export default {
 };
 
 const baseArgs = {
-  images: IMAGES,
+  images,
   cycle: true,
   onNext: action('onNext'),
   onPrevious: action('onPrev'),

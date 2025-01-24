@@ -47,15 +47,9 @@ module.exports = require('@sumup-oss/foundry/eslint')({
       },
     },
     {
-      files: ['**/*.stories.*'],
+      files: ['**/*.stories.*', '**/*.spec.*'],
       rules: {
         'import/no-relative-packages': 'off',
-        'react-server-components/use-client': 'off',
-      },
-    },
-    {
-      files: ['**/*.spec.*'],
-      rules: {
         'react-server-components/use-client': 'off',
       },
     },

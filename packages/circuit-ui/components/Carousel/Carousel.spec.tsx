@@ -15,10 +15,12 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
+import { images } from '../../../../.storybook/fixtures.js';
 import { axe, render, screen } from '../../util/test-utils.js';
 
 import { Carousel } from './Carousel.js';
-import { SLIDES } from './__fixtures__/index.js';
+
+const slides = images.map((image) => ({ image }));
 
 describe('Carousel', () => {
   const baseProps = {
@@ -37,7 +39,7 @@ describe('Carousel', () => {
   it('should render with children as a function', () => {
     const children = vi.fn(() => <h1>Carousel heading</h1>);
     render(
-      <Carousel slides={SLIDES} {...baseProps}>
+      <Carousel slides={slides} {...baseProps}>
         {children}
       </Carousel>,
     );
@@ -47,7 +49,7 @@ describe('Carousel', () => {
 
   it('should render with children as a node', () => {
     render(
-      <Carousel slides={SLIDES} {...baseProps}>
+      <Carousel slides={slides} {...baseProps}>
         <h1>Carousel heading</h1>
       </Carousel>,
     );
@@ -56,7 +58,7 @@ describe('Carousel', () => {
   });
 
   it('should have no accessibility violations', async () => {
-    const { container } = render(<Carousel slides={SLIDES} {...baseProps} />);
+    const { container } = render(<Carousel slides={slides} {...baseProps} />);
     const actual = await axe(container);
 
     expect(actual).toHaveNoViolations();

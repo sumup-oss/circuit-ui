@@ -49,7 +49,7 @@ const Swipeable = ({
 };
 
 export interface YesOrNoSliderProps extends StepProps {
-  images: string[];
+  images: { src: string; alt: string }[];
 }
 
 export function YesOrNoSlider({ images, ...stepProps }: YesOrNoSliderProps) {
@@ -84,8 +84,8 @@ export function YesOrNoSlider({ images, ...stepProps }: YesOrNoSliderProps) {
         >
           <Swipeable onSwiped={(eventData) => handleSwipe(eventData, actions)}>
             <Image
-              src={images[state.step]}
-              alt="A random picture from Unsplash"
+              src={images[state.step].src}
+              alt={images[state.step].alt}
               className={clsx(classes.image, swipe?.dir && classes.swipe)}
             />
           </Swipeable>

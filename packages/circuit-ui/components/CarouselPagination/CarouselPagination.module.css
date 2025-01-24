@@ -1,0 +1,55 @@
+.base {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.cue {
+  display: block;
+  padding: var(--cui-spacings-byte);
+  background: none;
+  border: none;
+  border-radius: var(--cui-border-radius-pill);
+}
+
+a.cue,
+button.cue {
+  cursor: pointer;
+}
+
+.shape {
+  display: block;
+  width: var(--cui-spacings-kilo);
+  height: var(--cui-spacings-kilo);
+  background-color: var(--cui-fg-placeholder);
+  border-radius: var(--cui-border-radius-pill);
+  transition:
+    background-color var(--cui-transitions-default),
+    width var(--cui-transitions-default);
+}
+
+a.cue:hover .shape,
+button.cue:hover .shape {
+  background-color: var(--cui-fg-placeholder-hovered);
+}
+
+a.cue:active .shape,
+button.cue:active .shape {
+  background-color: var(--cui-fg-placeholder-pressed);
+}
+
+.cue[aria-current] .shape {
+  width: var(--cui-spacings-peta);
+  background-color: var(--cui-bg-strong);
+}
+
+a.cue[aria-current]:hover .shape,
+button.cue[aria-current]:hover .shape {
+  background-color: var(--cui-bg-strong-hovered);
+}
+
+a.cue[aria-current]:active .shape,
+button.cue[aria-current]:active .shape {
+  background-color: var(--cui-bg-strong-pressed);
+}

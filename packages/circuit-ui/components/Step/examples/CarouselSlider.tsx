@@ -22,7 +22,7 @@ import { Step, type StepProps } from '../Step.js';
 import classes from './CarouselSlider.module.css';
 
 export interface CarouselSliderProps extends StepProps {
-  images: string[];
+  images: { src: string; alt: string }[];
 }
 
 export function CarouselSlider({
@@ -47,11 +47,11 @@ export function CarouselSlider({
           }}
         >
           <div className={classes.inner}>
-            {images.map((src) => (
+            {images.map((image) => (
               <Image
-                key={src}
-                src={src}
-                alt="A random picture from Unsplash"
+                key={image.src}
+                src={image.src}
+                alt={image.alt}
                 className={classes.image}
               />
             ))}
