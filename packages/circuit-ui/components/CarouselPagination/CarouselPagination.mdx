@@ -18,15 +18,8 @@ Consider adjusting the layout or using a different component if the number of pa
 
 For inline use cases, create an illusion of continuity through cropped images or text, so users quickly understand that they can get more content by moving beyond the screen edge.
 
-Do not place the carousel cue on busy, dynamic backgrounds (i.e. on images, illustrations), in order to ensure optimal contrast and discoverability.
+Do not place the carousel pagination on busy, dynamic backgrounds (i.e. on images, illustrations), in order to ensure optimal contrast and discoverability.
 
-- lazy-load hidden content
-- ensure content outside the viewport is searchable and becomes visible on focus
+Ensure that content outside the viewport is searchable and becomes visible when focused. Consider lazy-loading content that is initially hidden to optimize performance.
 
 <Story of={Stories.Carousel} />
-
-## Accessibility
-
-- size ([minimum tap target size](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html): 24px)
-- announce next page content?
-- move focus?
