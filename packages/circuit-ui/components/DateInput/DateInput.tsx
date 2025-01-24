@@ -61,7 +61,7 @@ import { changeInputValue } from '../../util/input-value.js';
 
 import { Dialog } from './components/Dialog.js';
 import { PlainDateSegments } from './components/PlainDateSegments.js';
-import { usePlainDateState } from './hooks/usePlainDateState.js';
+import { emptyDate, usePlainDateState } from './hooks/usePlainDateState.js';
 import { useSegmentFocus } from './hooks/useSegmentFocus.js';
 import { getCalendarButtonLabel, getDateParts } from './DateInputService.js';
 import classes from './DateInput.module.css';
@@ -301,7 +301,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     };
 
     const handleClear = () => {
-      state.update({ year: '', month: '', day: '' });
+      state.update(emptyDate);
       closeCalendar();
     };
 
