@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, type Mock, vi, afterEach } from 'vitest';
 
 import {
   render,
@@ -22,8 +22,11 @@ import {
   waitFor,
   screen,
 } from '../../util/test-utils.js';
+import { useMedia } from '../../hooks/useMedia/index.js';
 
 import { SidePanel, type SidePanelProps } from './SidePanel.js';
+
+vi.mock('../../hooks/useMedia/useMedia.js');
 
 describe('SidePanel', () => {
   const closeButtonLabel = 'Close';
@@ -32,13 +35,16 @@ describe('SidePanel', () => {
     children: () => <p data-testid="children">Side panel content</p>,
     closeButtonLabel,
     headline: 'Side panel title',
-    isMobile: false,
     onBack: undefined,
     onClose: () => {},
     // Keep the modal opened by setting the Dialog open prop.
     // Usually this is controlled by the SidePanelProvider.
     open: true,
   };
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
 
   const renderComponent = (props: Partial<SidePanelProps> = {}) =>
     render(<SidePanel {...baseProps} {...props} />);
@@ -167,12 +173,12 @@ describe('SidePanel', () => {
 
   describe('when the panel is on mobile resolution', () => {
     it('should describe the side panel as modal', () => {
-      const { rerender } = render(
-        <SidePanel {...baseProps} isMobile open={false} />,
-      );
+      (useMedia as Mock).mockReturnValue(true);
+
+      const { rerender } = render(<SidePanel {...baseProps} open={false} />);
       const dialog = screen.getByRole('dialog', { hidden: true });
       vi.spyOn(dialog, 'showModal');
-      rerender(<SidePanel {...baseProps} isMobile open />);
+      rerender(<SidePanel {...baseProps} open />);
       expect(dialog.showModal).toHaveBeenCalledOnce();
     });
   });

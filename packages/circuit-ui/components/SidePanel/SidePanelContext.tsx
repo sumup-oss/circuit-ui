@@ -24,7 +24,6 @@ import {
   type HTMLAttributes,
 } from 'react';
 
-import { useMedia } from '../../hooks/useMedia/index.js';
 import { useStack, type StackItem } from '../../hooks/useStack/index.js';
 import { promisify } from '../../util/promises.js';
 import { clsx } from '../../styles/clsx.js';
@@ -79,7 +78,6 @@ export function SidePanelProvider({
   children,
   ...props
 }: SidePanelProviderProps) {
-  const isMobile = useMedia('(max-width: 767px)');
   const [sidePanels, dispatch] = useStack<SidePanelContextItem>();
   const [isPrimaryContentResized, setIsPrimaryContentResized] = useState(false);
 
@@ -197,16 +195,10 @@ export function SidePanelProvider({
       setSidePanel,
       updateSidePanel,
       removeSidePanel,
-      isPrimaryContentResized: !isMobile && isPrimaryContentResized,
+      isPrimaryContentResized,
       transitionDuration: TRANSITION_DURATION,
     }),
-    [
-      setSidePanel,
-      updateSidePanel,
-      removeSidePanel,
-      isMobile,
-      isPrimaryContentResized,
-    ],
+    [setSidePanel, updateSidePanel, removeSidePanel, isPrimaryContentResized],
   );
 
   return (
@@ -215,7 +207,7 @@ export function SidePanelProvider({
         {...props}
         className={clsx(
           classes.base,
-          !isMobile && isPrimaryContentResized && classes.resized,
+          isPrimaryContentResized && classes.resized,
           props.className,
         )}
       >
@@ -238,7 +230,6 @@ export function SidePanelProvider({
               {...sidePanelProps}
               key={id}
               open={true}
-              isMobile={isMobile}
               animationDuration={isInstantOpen ? 0 : TRANSITION_DURATION}
               onBack={handleBack}
               onClose={handleClose}

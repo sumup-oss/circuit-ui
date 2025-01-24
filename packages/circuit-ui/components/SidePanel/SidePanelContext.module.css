@@ -7,6 +7,8 @@
   transition: width var(--cui-transitions-slow);
 }
 
-.resized {
-  width: calc(100% - var(--side-panel-width));
+@media (min-width: 768px) {
+  .resized {
+    width: calc(100% - var(--side-panel-width));
+  }
 }
