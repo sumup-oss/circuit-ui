@@ -15,27 +15,47 @@
 
 'use client';
 
-import { useContext, useCallback, useId, useRef, useEffect } from 'react';
+import {
+  useContext,
+  useCallback,
+  useId,
+  useRef,
+  useEffect,
+  type ReactNode,
+} from 'react';
 
 import { uniqueId } from '../../util/id.js';
 
 import { SidePanelContext } from './SidePanelContext.js';
-import type { SidePanelProps } from './SidePanel.js';
 
 export type OnBack = () => void;
 export type OnClose = () => void | Promise<void>;
 
 export type ChildrenRenderProps = { onBack?: OnBack; onClose?: OnClose };
 
-export type SidePanelHookProps = Pick<
-  SidePanelProps,
-  | 'headline'
-  | 'backButtonLabel'
-  | 'onClose'
-  | 'closeButtonLabel'
-  | 'locale'
-  | 'children'
-> & {
+export type SidePanelHookProps = {
+  /**
+   * The headline of the side panel.
+   */
+  headline: string;
+  /**
+   * Text label for the back button for screen readers.
+   * Important for accessibility.
+   */
+  backButtonLabel?: string;
+  /**
+   * The side panel content. Use a render function when you need access to the
+   * `onBack` and `onClose` functions to close the side panel programmatically.
+   */
+  children: ReactNode | ((props: ChildrenRenderProps) => ReactNode);
+  /**
+   * Callback function that is called when the stacked side panel is closed.
+   */
+  onBack?: OnBack;
+  /**
+   * Callback function that is called when the side panel is closed.
+   */
+  onClose?: OnClose;
   /**
    * The group of the side panel. Opening a second side panel in
    * the same group will replace the content and close all side panels
