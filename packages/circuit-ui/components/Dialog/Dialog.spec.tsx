@@ -239,6 +239,24 @@ describe('Dialog', () => {
         expect(props.onCloseEnd).not.toHaveBeenCalled();
         expect(props.onCloseStart).not.toHaveBeenCalled();
       });
+
+      it('should not close the dialog pressing the Escape key and focus is outside the dialog', async () => {
+        render(
+          <>
+            <Dialog {...props} open preventEscapeKeyClose />
+            <button>Some button</button>
+          </>,
+        );
+        const dialog = screen.getByRole('dialog', { hidden: true });
+        const button = screen.getByText('Some button');
+        vi.spyOn(dialog, 'close');
+
+        button.focus();
+        await userEvent.keyboard('{Escape}');
+        expect(dialog.close).not.toHaveBeenCalled();
+        expect(props.onCloseEnd).not.toHaveBeenCalled();
+        expect(props.onCloseStart).not.toHaveBeenCalled();
+      });
     });
 
     it('should close the dialog when pressing the backdrop', async () => {
