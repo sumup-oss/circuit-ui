@@ -19,21 +19,17 @@ import { forwardRef, useCallback, useState } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
 import { deprecate } from '../../util/logger.js';
-import { Dialog, type DialogProps } from '../Dialog/Dialog.js';
+import {
+  Dialog,
+  type DialogProps,
+  type PublicDialogProps,
+} from '../Dialog/Dialog.js';
 import { sharedClasses } from '../../styles/shared.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 
 import classes from './Modal.module.css';
 
-export interface ModalProps
-  extends Omit<
-    DialogProps,
-    | 'onCloseStart'
-    | 'onCloseEnd'
-    | 'isModal'
-    | 'animationDuration'
-    | 'preventOutsideClickRefs'
-  > {
+export interface ModalProps extends PublicDialogProps {
   /**
    * Use the `immersive` variant to focus the user's attention on the dialog content.
    * @default 'contextual'
@@ -48,6 +44,12 @@ export interface ModalProps
    * Use the `preventClose` prop instead. Also see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role#required_javascript_features
    */
   hideCloseButton?: boolean;
+  /**
+   * Prevent users from closing the modal by clicking/tapping the overlay or
+   * pressing the escape key, and hides the close button.
+   * @default false
+   */
+  preventClose?: boolean;
 }
 
 export const ANIMATION_DURATION = 300;
@@ -57,6 +59,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
     hideCloseButton,
     variant = 'contextual',
     className,
+    preventClose = false,
     children,
     onClose,
     ...rest
@@ -90,27 +93,27 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
     : sharedClasses.animationFadeIn;
 
   return (
-    <>
-      {/* eslint-disable-next-line  jsx-a11y/no-noninteractive-element-interactions */}
-      <Dialog
-        ref={ref}
-        isModal
-        onCloseStart={handleModalCloseStart}
-        onCloseEnd={handleModalCloseEnd}
-        animationDuration={ANIMATION_DURATION}
-        className={clsx(
-          classes.base,
-          isClosing ? outAnimation : inAnimation,
-          variant === 'immersive' && classes.immersive,
-          className,
-        )}
-        {...rest}
-      >
-        <div className={classes.content}>
-          {typeof children === 'function' ? children?.({ onClose }) : children}
-        </div>
-      </Dialog>
-    </>
+    <Dialog
+      ref={ref}
+      isModal
+      onCloseStart={handleModalCloseStart}
+      onCloseEnd={handleModalCloseEnd}
+      animationDuration={ANIMATION_DURATION}
+      className={clsx(
+        classes.base,
+        isClosing ? outAnimation : inAnimation,
+        variant === 'immersive' && classes.immersive,
+        className,
+      )}
+      preventEscapeKeyClose={preventClose}
+      preventOutsideClickClose={preventClose}
+      hideCloseButton={preventClose}
+      {...rest}
+    >
+      <div className={classes.content}>
+        {typeof children === 'function' ? children?.({ onClose }) : children}
+      </div>
+    </Dialog>
   );
 });
 

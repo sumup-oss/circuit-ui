@@ -15,16 +15,17 @@
 
 import { useState } from 'react';
 import { within, userEvent } from '@storybook/test';
+import type { Decorator } from '@storybook/react';
 
 import { modes } from '../../../../.storybook/modes.js';
 import { Body } from '../Body/index.js';
 import { Button } from '../Button/index.js';
 import { ListItemGroup } from '../ListItemGroup/index.js';
-import { ModalProvider } from '../ModalContext/index.js';
 import { TopNavigation } from '../TopNavigation/index.js';
 import { baseArgs as topNavigationProps } from '../TopNavigation/TopNavigation.stories.js';
 import { SideNavigation } from '../SideNavigation/index.js';
 import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories.js';
+import { FullViewport } from '../../../../.storybook/components/index.js';
 
 import { SidePanelProvider } from './SidePanelContext.js';
 import {
@@ -47,8 +48,14 @@ export default {
   },
   argTypes: {
     backButtonLabel: { control: 'text' },
-    group: { control: 'text' },
   },
+  decorators: [
+    (Story) => (
+      <FullViewport>
+        <Story />
+      </FullViewport>
+    ),
+  ] as Decorator[],
 };
 
 const items = Array.from(Array(10).keys()).map((i) => ({
@@ -57,12 +64,11 @@ const items = Array.from(Array(10).keys()).map((i) => ({
 }));
 
 const baseArgs: SidePanelHookProps = {
-  backButtonLabel: undefined,
-  children: undefined,
-  closeButtonLabel: 'Close',
-  group: undefined,
   headline: 'Item details',
+  children: undefined,
   onClose: undefined,
+  closeButtonLabel: 'Close',
+  backButtonLabel: undefined,
 };
 
 const basePlay = async ({
@@ -217,7 +223,7 @@ export const WithTopNavigation = (props: SidePanelHookProps) => {
     onClick: () => setSideNavigationOpen((prev) => !prev),
   };
   return (
-    <ModalProvider>
+    <>
       <TopNavigation {...topNavigationProps} hamburger={hamburger} />
       <div style={{ display: 'flex' }}>
         <SideNavigation
@@ -232,7 +238,7 @@ export const WithTopNavigation = (props: SidePanelHookProps) => {
           </SidePanelProvider>
         </div>
       </div>
-    </ModalProvider>
+    </>
   );
 };
 WithTopNavigation.storyName = 'With TopNavigation';
