@@ -143,9 +143,6 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     const animationDurationRef = useLatest<number>(animationDuration);
     const lastFocusedElementRef = useRef<HTMLElement | null>(null);
 
-    // eslint-disable-next-line compat/compat
-    const hasNativeDialog = window.HTMLDialogElement !== undefined;
-
     // Focus Management
     useEffect(() => {
       const dialogElement = dialogRef.current;
@@ -294,7 +291,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       };
     }, [preventEscapeKeyClose, preventEscapeKeyEvent]);
 
-    const useEscapeKeyHandler = useCallback(
+    const handleEscapeKey = useCallback(
       (e: KeyboardEvent) => {
         e.preventDefault();
         handleDialogClose();
@@ -302,7 +299,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       [handleDialogClose],
     );
 
-    useEscapeKey(useEscapeKeyHandler, open && !preventEscapeKeyClose);
+    useEscapeKey(handleEscapeKey, open && !preventEscapeKeyClose);
 
     const handleOutsideClick = useCallback(() => {
       lastFocusedElementRef.current = null;
@@ -330,6 +327,8 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     );
 
     useEffect(() => {
+      // eslint-disable-next-line compat/compat
+      const hasNativeDialog = window.HTMLDialogElement !== undefined;
       const dialogElement = dialogRef.current;
       if (!dialogElement || hasNativeDialog) {
         return undefined;
@@ -351,7 +350,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
           onPolyfillBackdropClick,
         );
       };
-    }, [open, hasNativeDialog, onPolyfillBackdropClick]);
+    }, [open, onPolyfillBackdropClick]);
 
     const onDialogClick = useCallback(
       (event: ClickEvent<HTMLDialogElement> | ClickEvent<HTMLDivElement>) => {
