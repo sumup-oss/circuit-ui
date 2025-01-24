@@ -146,6 +146,12 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       }
       return () => {
         // restore focus to the opening element
+        if (
+          !dialogRef.current?.contains(document.activeElement) &&
+          document.body !== document.activeElement
+        ) {
+          return;
+        }
         if (lastFocusedElementRef.current) {
           setTimeout(
             () => lastFocusedElementRef.current?.focus(),
