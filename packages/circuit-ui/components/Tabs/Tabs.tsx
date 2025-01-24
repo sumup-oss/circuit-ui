@@ -85,7 +85,7 @@ export class Tabs extends Component<TabsProps, TabsState> {
   };
 
   render() {
-    const { items, ...props } = this.props;
+    const { items, initialSelectedIndex, ...props } = this.props;
     const { selectedIndex } = this.state;
     const { tabs, panels } = items.reduce(
       (aggr, { id, tab, panel }, index) => {

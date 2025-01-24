@@ -28,7 +28,6 @@ describe('DateSegment', () => {
     min: 1,
     max: 12,
     step: 3,
-    advanceFocusBoundary: 1,
     onChange: vi.fn(),
     focus: {
       previous: vi.fn(),

@@ -222,6 +222,8 @@ export class Table extends Component<TableProps, TableState> {
       scrollable = false,
       onRowClick,
       rows: initialRows,
+      initialSortedColumn,
+      initialSortDirection,
       onSortBy,
       className,
       ...props
