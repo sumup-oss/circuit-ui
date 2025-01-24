@@ -23,7 +23,7 @@ import {
   useState,
   type HTMLAttributes,
 } from 'react';
-import type { Temporal } from 'temporal-polyfill';
+import { Temporal } from 'temporal-polyfill';
 import {
   flip,
   offset,
@@ -100,13 +100,13 @@ export interface DateRangeInputProps
    * format (`YYYY-MM-DD`).
    */
   // FIXME:
-  value?: { start: string; end: string };
+  value?: { start?: string; end?: string };
   /**
    * The initially selected date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
    * format (`YYYY-MM-DD`).
    */
   // FIXME:
-  defaultValue?: { start: string; end: string };
+  defaultValue?: { start?: string; end?: string };
   /**
    * Visually hidden label for the year input.
    */
@@ -290,7 +290,14 @@ export const DateRangeInput = forwardRef<HTMLDivElement, DateRangeInputProps>(
     };
 
     const openCalendar = () => {
-      if (startState.date) {
+      if (startState.date && endState.date) {
+        // Technically, a start date after the end date is invalid, however,
+        //
+        const [start, end] = [startState.date, endState.date].sort(
+          Temporal.PlainDate.compare,
+        );
+        setSelection({ start, end });
+      } else if (startState.date) {
         setSelection({ start: startState.date, end: endState.date });
       } else {
         setSelection({ start: undefined, end: undefined });
