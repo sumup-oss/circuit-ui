@@ -301,15 +301,16 @@ describe('Dialog', () => {
     });
 
     it('should focus a given element when provided', async () => {
-      const ref = createRef<HTMLButtonElement>();
       render(
-        <Dialog {...props} open initialFocusRef={ref}>
+        <Dialog {...props} open>
           {() => (
             <div>
               <button type="button" name="btn">
                 Button
               </button>
-              <button ref={ref} type="button" name="btn">
+              {/* eslint-disable react/no-unknown-property */}
+              {/* @ts-expect-error React purposefully breaks the `autoFocus` property. Using the lowercase DOM attribute name instead forces it to be added to the DOM but will produce a console warning that can be safely ignored. https://github.com/facebook/react/issues/23301 */}
+              <button type="button" name="btn" autofocus="true">
                 Special button
               </button>
             </div>

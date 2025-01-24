@@ -38,7 +38,6 @@ import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
 import { useLatest } from '../../hooks/useLatest/index.js';
 import { useI18n } from '../../hooks/useI18n/useI18n.js';
 
-import { getFirstFocusableElement } from './DialogService.js';
 import classes from './Dialog.module.css';
 import { translations } from './translations/index.js';
 
@@ -72,11 +71,6 @@ export interface PublicDialogProps
    * Defaults to `navigator.language` in supported environments.
    */
   locale?: Locale;
-  /**
-   * Enables focusing a particular element in the dialog content and overrides the default behavior.
-   * @default false.
-   */
-  initialFocusRef?: RefObject<HTMLElement>;
   /**
    * A `ReactNode` or a function that returns the content of the modal dialog.
    */
@@ -127,7 +121,6 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       onCloseEnd,
       closeButtonLabel,
       className,
-      initialFocusRef,
       preventOutsideClickRefs,
       preventOutsideClickClose = false,
       hideCloseButton = false,
@@ -144,31 +137,6 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     const lastFocusedElementRef = useRef<HTMLElement | null>(null);
 
     // Focus Management
-    useEffect(() => {
-      const dialogElement = dialogRef.current;
-      let timeoutId: NodeJS.Timeout;
-      if (open && dialogElement) {
-        timeoutId = setTimeout(() => {
-          if (initialFocusRef?.current) {
-            initialFocusRef?.current?.focus({ preventScroll: true });
-          } else {
-            const firstFocusableElement = getFirstFocusableElement(
-              dialogElement,
-              !hideCloseButton,
-            );
-            if (firstFocusableElement) {
-              firstFocusableElement?.focus({ preventScroll: true });
-            } else {
-              dialogElement.focus();
-            }
-          }
-        }, animationDurationRef.current);
-      }
-      return () => {
-        clearTimeout(timeoutId);
-      };
-    }, [open, initialFocusRef, hideCloseButton, animationDurationRef.current]);
-
     useEffect(() => {
       // save the opening element to restore focus after the dialog closes
       if (open) {
@@ -377,15 +345,15 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
           }}
           {...rest}
         >
+          {open &&
+            (typeof children === 'function'
+              ? children?.({ onClose: onCloseEnd })
+              : children)}
           {!hideCloseButton && (
             <CloseButton onClick={handleDialogClose} className={classes.close}>
               {closeButtonLabel}
             </CloseButton>
           )}
-          {open &&
-            (typeof children === 'function'
-              ? children?.({ onClose: onCloseEnd })
-              : children)}
         </dialog>
       </>
     );

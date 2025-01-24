@@ -15,7 +15,7 @@
 
 'use client';
 
-import { type FC, type ReactNode, type SVGProps, useId, useRef } from 'react';
+import { type FC, type ReactNode, type SVGProps, useId } from 'react';
 
 import type { ClickEvent } from '../../types/events.js';
 import { Image, type ImageProps } from '../Image/index.js';
@@ -93,14 +93,12 @@ export const NotificationModal = ({
   }
 
   const headlineId = useId();
-  const initialFocusRef = useRef<HTMLButtonElement>(null);
   const dialogProps = {
     className: clsx(className, classes.base),
     closeButtonLabel,
     'aria-labelledby': headlineId,
     preventClose,
     onClose,
-    initialFocusRef,
     ...props,
   };
 
@@ -134,8 +132,12 @@ export const NotificationModal = ({
                 },
                 secondary: actions.secondary && {
                   ...actions.secondary,
-                  // @ts-expect-error ref is a valid prop on a button
-                  ref: initialFocusRef,
+                  // @ts-expect-error React purposefully breaks the `autoFocus`
+                  // property. Using the lowercase DOM attribute name instead
+                  // forces it to be added to the DOM but will produce a console
+                  // warning that can be safely ignored.
+                  // https://github.com/facebook/react/issues/23301
+                  autofocus: 'true',
                   onClick: wrapOnClick(actions.secondary.onClick),
                 },
               }}
