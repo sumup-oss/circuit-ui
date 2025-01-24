@@ -22,7 +22,6 @@ import {
   type UIEventHandler,
   forwardRef,
   useCallback,
-  type ReactNode,
 } from 'react';
 
 import { isFunction } from '../../util/type-check.js';
@@ -34,34 +33,11 @@ import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 
 import { Header } from './components/Header/index.js';
-import type { ChildrenRenderProps, OnBack, OnClose } from './useSidePanel.js';
+import type { OnBack, OnClose, SidePanelHookProps } from './useSidePanel.js';
 import classes from './SidePanel.module.css';
 import { translations } from './translations/index.js';
 
-export type SidePanelProps = Omit<DialogProps, 'children'> & {
-  /**
-   * The headline of the side panel.
-   */
-  headline: string;
-  /**
-   * Text label for the back button for screen readers.
-   * Important for accessibility.
-   */
-  backButtonLabel?: string;
-  /**
-   * The side panel content. Use a render function when you need access to the
-   * `onBack` and `onClose` functions to close the side panel programmatically.
-   */
-  children: ReactNode | ((props: ChildrenRenderProps) => ReactNode);
-  /**
-   * Callback function that is called when the stacked side panel is closed.
-   */
-  onBack?: OnBack;
-  /**
-   * Callback function that is called when the side panel is closed.
-   */
-  onClose?: OnClose;
-};
+export type SidePanelProps = Omit<DialogProps, 'children'> & SidePanelHookProps;
 
 export const SidePanel = forwardRef<HTMLDialogElement, SidePanelProps>(
   (props, ref) => {

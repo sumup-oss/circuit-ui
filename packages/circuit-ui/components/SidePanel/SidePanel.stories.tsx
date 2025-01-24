@@ -33,9 +33,11 @@ import {
   type ChildrenRenderProps,
   type SidePanelHookProps,
 } from './useSidePanel.js';
+import { SidePanel } from './SidePanel.js';
 
 export default {
   title: 'Navigation/SidePanel',
+  component: SidePanel,
   tags: ['status:stable'],
   parameters: {
     layout: 'fullscreen',
