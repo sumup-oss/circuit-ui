@@ -57,9 +57,23 @@ ruleTester.run('no-renamed-components', noRenamedComponents, {
           return <Popover />
         }`,
       output: `
-          import {Popover} from '@sumup-oss/circuit-ui';
+          import {ActionMenu} from '@sumup-oss/circuit-ui';
    function Component() {
           return <ActionMenu />
+        }`,
+      errors: [{ messageId: 'renamed' }, { messageId: 'renamed' }],
+    },
+    {
+      name: 'matched renamed import from Circuit UI',
+      code: `
+          import {Popover as CircuitPopover} from '@sumup-oss/circuit-ui';
+   function Component() {
+          return <CircuitPopover />
+        }`,
+      output: `
+          import {ActionMenu as CircuitPopover} from '@sumup-oss/circuit-ui';
+   function Component() {
+          return <CircuitPopover />
         }`,
       errors: [{ messageId: 'renamed' }],
     },

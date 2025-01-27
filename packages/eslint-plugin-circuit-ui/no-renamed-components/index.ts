@@ -52,6 +52,33 @@ export const noRenamedComponents = createRule({
           node.specifiers.forEach((specifier) => {
             if (specifier.type === 'ImportSpecifier') {
               trackedImports.set(specifier.local.name, node.source.value);
+              const renamedComponent = components.find(
+                (comp) =>
+                  comp.name === specifier.local.name ||
+                  comp.name === specifier.imported.name,
+              );
+              if (!renamedComponent) {
+                return;
+              }
+              context.report({
+                node,
+                messageId: 'renamed',
+                data: {
+                  name: renamedComponent?.name,
+                  alternative: renamedComponent?.alternative,
+                },
+                fix(fixer) {
+                  return fixer.replaceText(
+                    node,
+                    context.sourceCode
+                      .getText(node)
+                      .replace(
+                        renamedComponent?.name,
+                        renamedComponent?.alternative,
+                      ),
+                  );
+                },
+              });
             }
           });
         }

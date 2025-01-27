@@ -10,19 +10,19 @@ An ActionMenu displays a list of subsequent actions, when interacting with an ac
 <Story of={Stories.Base} />
 <Props />
 
-- The reference element, which triggers ActionMenu, can be primary, secondary, tertiary buttons, an overflow icon, or components with embedded buttons such as the [ImageInput](Forms/ImageInput) component.
-- Each ActionMenu action item is represented by an appropriate HTML element (e.g., a button element or an anchor element).
+- The reference element which triggers the ActionMenu must be a `button` element or a component that renders a `button` such as the Button or IconButton components.
+- Each ActionMenu action item is represented by an appropriate HTML element. Elements provided with an `href` will render as anchor elements while elements provided with an `onClick` will render as buttons.
 - If needed, the dividing line can be used to separate ActionMenu action items.
 - The leading icon is optional.
-- The ActionMenu is powered by [Floating UI](https://floating-ui.com/docs/react-dom). You can easily change the position of the ActionMenu relative to the reference element by passing in the `placement` prop. If you want to offset the ActionMenu in the x and y directions, use the `offset` prop.
+- The ActionMenu is powered by [Floating UI](https://floating-ui.com/docs/react-dom). You can change the position of the ActionMenu relative to the reference element by passing in the `placement` prop. If you want to offset the ActionMenu in the x and y directions, use the `offset` prop.
 
 <Story of={Stories.Offset} />
 
 ## Related components
 
-This component is built on top of the low level [Popover](Components/Popover/Docs) component. If this component does not meet your requirements, you can use the Dialog component directly to build your own custom popover component.
+This component is built on top of the low level [Dialog](Components/Dialog/Docs) component. If this component does not meet your requirements, you can use the Dialog component directly to build your own custom popover component.
 
 ## Usage guidelines
 
-- **Do** use clear, concise and actionable labels for ActionMenu items
-- **Do** always think about the priority of the action option to be taken and put the option order in logical order
+- **Do** use clear, concise and actionable labels for ActionMenu items.
+- **Do** always think about the priority of the actions to be taken and put the options in logical order.
