@@ -20,18 +20,18 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, userEvent, type RenderFn } from '../../../util/test-utils.js';
 import type { ClickEvent } from '../../../types/events.js';
 
-import { PopoverItem, type PopoverItemProps } from './PopoverItem.js';
+import { ActionMenuItem, type ActionMenuItemProps } from './ActionMenuItem.js';
 
-describe('PopoverItem', () => {
-  function renderPopoverItem<T>(
+describe('ActionMenuItem', () => {
+  function renderActionMenuItem<T>(
     renderFn: RenderFn<T>,
-    props: PopoverItemProps,
+    props: ActionMenuItemProps,
   ) {
-    return renderFn(<PopoverItem {...props} />);
+    return renderFn(<ActionMenuItem {...props} />);
   }
 
   const baseProps = {
-    children: 'PopoverItem',
+    children: 'ActionMenuItem',
     icon: Download as FC<IconProps>,
   };
 
@@ -42,14 +42,14 @@ describe('PopoverItem', () => {
         href: 'https://sumup.com',
         onClick: vi.fn(),
       };
-      const { container } = renderPopoverItem(render, props);
+      const { container } = renderActionMenuItem(render, props);
       const anchorEl = container.querySelector('a');
       expect(anchorEl).toBeVisible();
     });
 
     it('should render as a `button` when an onClick is passed', () => {
       const props = { ...baseProps, onClick: vi.fn() };
-      const { container } = renderPopoverItem(render, props);
+      const { container } = renderActionMenuItem(render, props);
       const buttonEl = container.querySelector('button');
       expect(buttonEl).toBeVisible();
     });
@@ -64,7 +64,7 @@ describe('PopoverItem', () => {
           event.preventDefault();
         }),
       };
-      const { container } = renderPopoverItem(render, props);
+      const { container } = renderActionMenuItem(render, props);
       const anchorEl = container.querySelector('a');
       if (anchorEl) {
         await userEvent.click(anchorEl);

@@ -24,11 +24,11 @@ import { clsx } from '../../../styles/clsx.js';
 import { sharedClasses } from '../../../styles/shared.js';
 import type { ClickEvent } from '../../../types/events.js';
 
-import classes from './PopoverItem.module.css';
+import classes from './ActionMenuItem.module.css';
 
-interface PopoverItemBaseProps {
+interface ActionMenuItemBaseProps {
   /**
-   * The Popover item label.
+   * The ActionMenu item label.
    */
   children: string;
   /**
@@ -53,17 +53,17 @@ interface PopoverItemBaseProps {
 type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
 type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
 
-export type PopoverItemProps = PopoverItemBaseProps &
+export type ActionMenuItemProps = ActionMenuItemBaseProps &
   LinkElProps &
   ButtonElProps;
 
-export const PopoverItem = ({
+export const ActionMenuItem = ({
   children,
   icon: Icon,
   destructive,
   className,
   ...props
-}: PopoverItemProps) => {
+}: ActionMenuItemProps) => {
   const { Link } = useComponents();
 
   const Element = props.href ? (Link as AsPropType) : 'button';
