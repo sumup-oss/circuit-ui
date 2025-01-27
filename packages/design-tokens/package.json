@@ -1,6 +1,6 @@
 {
   "name": "@sumup-oss/design-tokens",
-  "version": "8.0.1",
+  "version": "8.2.0",
   "description": "Visual primitives such as typography, color, and spacing that are shared across platforms.",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",

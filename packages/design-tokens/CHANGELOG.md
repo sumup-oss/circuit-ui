@@ -1,5 +1,17 @@
 # @sumup-oss/design-tokens
 
+## 8.2.0
+
+### Minor Changes
+
+- [#2909](https://github.com/sumup-oss/circuit-ui/pull/2909) [`8f9df8d`](https://github.com/sumup-oss/circuit-ui/commit/8f9df8db449397f98b73f1f26adb9e99b58981a0) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the `--cui-letter-spacing-tight` token. Use it for very large typography.
+
+## 8.1.0
+
+### Minor Changes
+
+- [#2873](https://github.com/sumup-oss/circuit-ui/pull/2873) [`f7e1557`](https://github.com/sumup-oss/circuit-ui/commit/f7e1557edcafefb7fba4a355e655cd26db9d81c5) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the `--cui-fg-placeholder-*` color tokens to meet contrast requirements.
+
 ## 8.0.1
 
 ### Patch Changes

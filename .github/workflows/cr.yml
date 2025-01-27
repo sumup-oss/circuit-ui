@@ -36,25 +36,25 @@ jobs:
             const fs = require('fs');
             const output = JSON.parse(fs.readFileSync('output.json', 'utf8'));
             console.log(output);
-      
+
             const packages = output.packages
               .map((p) => `- ${p.name}: ${p.url}`)
               .join('\n');
-      
+
             const sha = context.payload.pull_request.head.sha
-            
+
             const commitUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${sha}`;
-      
-            const body = `## 🚀 Your packages were published 
-      
+
+            const body = `## 🚀 Your packages were published
+
             ### Published Packages:
-      
+
             ${packages}
-      
+
             [View Commit](${commitUrl})`;
-      
+
             const botCommentIdentifier = '## 🚀 Your packages were published ';
-      
+
             async function findBotComment(issueNumber) {
               if (!issueNumber) return null;
               const comments = await github.rest.issues.listComments({
@@ -66,13 +66,13 @@ jobs:
                 comment.body.includes(botCommentIdentifier)
               );
             }
-      
+
             async function createOrUpdateComment(issueNumber) {
               if (!issueNumber) {
                 console.log('No issue number provided. Cannot post or update comment.');
                 return;
               }
-      
+
               const existingComment = await findBotComment(issueNumber);
               if (existingComment) {
                 await github.rest.issues.updateComment({
@@ -97,7 +97,6 @@ jobs:
       - name: Delete label
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER:
-            ${{ github.event.pull_request.number }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           gh pr edit $PR_NUMBER --remove-label "preview"
