@@ -14,7 +14,14 @@
 
 html {
   box-sizing: border-box;
-  overflow-x: clip;
+  overflow-x: hidden;
+}
+
+/* `clip` has the same visual effect as `hidden`, but doesn't interfere with `position: sticky` on child elements */
+@supports (overflow-x: clip) {
+  html {
+    overflow-x: clip;
+  }
 }
 
 [type="button"] {
