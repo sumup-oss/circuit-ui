@@ -201,8 +201,8 @@ CustomStyles.args = {
   children: () => (
     <Fragment>
       <Image
-        src="/images/illustration-waves.jpg"
-        alt=""
+        src="/images/sumup-solo-printer.jpg"
+        alt="A person taps their phone onto a SumUp Solo card reader, perhaps to pay for the assortment of food around it on the table"
         style={{
           borderTopLeftRadius: 'var(--cui-border-radius-mega)',
           borderTopRightRadius: 'var(--cui-border-radius-mega)',

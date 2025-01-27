@@ -26,8 +26,8 @@ export default {
 export const OnlyImage = (args: SlideProps) => (
   <Slide {...args}>
     <Image
-      src="/images/illustration-waves.jpg"
-      alt="Aerial photo of turbulent blue ocean waves"
+      src="/images/sumup-coffee-transaction.jpg"
+      alt="Next to a cup of coffee lays a phone showing a card transaction in the SumUp app"
     />
   </Slide>
 );
@@ -35,8 +35,8 @@ export const OnlyImage = (args: SlideProps) => (
 export const TextAndImage = (args: SlideProps) => (
   <Slide {...args}>
     <Image
-      src="/images/illustration-waves.jpg"
-      alt="Aerial photo of turbulent blue ocean waves"
+      src="/images/sumup-solo-cradle.jpg"
+      alt="A SumUp Solo card reader sits in its charging cradle next to a tray of red, green and dark-brown mini tarts"
     />
     <Headline
       style={{
