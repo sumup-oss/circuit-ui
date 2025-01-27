@@ -125,6 +125,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     } = useI18n(props, translations);
     const dialogRef = useRef<HTMLDialogElement>(null);
     const openRef = useLatest<boolean>(open);
+    const isModalRef = useLatest<boolean>(isModal);
     const animationDurationRef = useLatest<number>(animationDuration);
     const lastFocusedElementRef = useRef<HTMLElement | null>(null);
 
@@ -205,10 +206,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
         // dependencies change.
         // To avoid that we set the dialog's returnValue to 'skipOnClose'
         // in the effect's cleanup fn and reset it afterward.
-        if (
-          openRef.current &&
-          dialogRef.current?.returnValue !== 'skipOnClose'
-        ) {
+        if (dialogRef.current?.returnValue !== 'skipOnClose') {
           onCloseEnd?.();
         }
         if (dialogRef.current?.returnValue === 'skipOnClose') {
@@ -235,7 +233,6 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
         dialogElement.removeEventListener('keydown', preventEscapeKeyEvent);
       };
     }, [
-      openRef.current,
       onCloseEnd,
       preventClose,
       isModal,
@@ -270,6 +267,15 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     useClickOutside(useClickOutsideRefs, handleOutsideClick, open && !isModal);
     useEscapeKey(() => handleDialogClose(), open && !isModal);
 
+    useEffect(
+      () => () => {
+        if (dialogRef.current?.open) {
+          dialogRef.current?.close();
+        }
+      },
+      [],
+    );
+
     useEffect(() => {
       const dialogElement = dialogRef.current;
 
@@ -277,15 +283,62 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
         return undefined;
       }
 
-      if (!open) {
+      if (!openRef.current) {
         dialogElement.returnValue = '';
       }
-      if (open && !dialogElement.open) {
+      if (openRef.current && !dialogElement.open) {
         if (isModal) {
           dialogElement.showModal();
         } else {
           dialogElement.show();
         }
+      }
+
+      return () => {
+        if (dialogElement.open) {
+          dialogElement.close('skipOnClose');
+        }
+      };
+    }, [isModal, openRef]);
+
+    useEffect(() => {
+      const dialogElement = dialogRef.current;
+
+      if (!dialogElement) {
+        return;
+      }
+
+      if (!open) {
+        dialogElement.returnValue = '';
+      }
+      if (open && !dialogElement.open) {
+        if (isModalRef.current) {
+          dialogElement.showModal();
+        } else {
+          dialogElement.show();
+        }
+      }
+    }, [isModalRef, open]);
+
+    useEffect(() => {
+      const dialogElement = dialogRef.current;
+
+      if (!dialogElement) {
+        return;
+      }
+      if (!open && dialogElement.open) {
+        handleDialogClose();
+      }
+    }, [open, handleDialogClose]);
+
+    useEffect(() => {
+      const dialogElement = dialogRef.current;
+
+      if (!dialogElement) {
+        return undefined;
+      }
+
+      if (open && !dialogElement.open) {
         if (!hasNativeDialog && dialogElement.nextSibling) {
           // use the polyfill backdrop
           (dialogElement.nextSibling as HTMLDivElement).classList.add(
@@ -298,26 +351,13 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
           );
         }
       }
-      if (!open && dialogElement.open) {
-        handleDialogClose();
-      }
-
       return () => {
-        if (dialogElement.open) {
-          dialogElement.close('skipOnClose');
-        }
         (dialogElement.nextSibling as HTMLDivElement)?.removeEventListener(
           'click',
           onPolyfillBackdropClick,
         );
       };
-    }, [
-      isModal,
-      open,
-      handleDialogClose,
-      hasNativeDialog,
-      onPolyfillBackdropClick,
-    ]);
+    }, [open, hasNativeDialog, onPolyfillBackdropClick]);
 
     const onDialogClick = (
       event: ClickEvent<HTMLDialogElement> | ClickEvent<HTMLDivElement>,
