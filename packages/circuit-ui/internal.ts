@@ -13,3 +13,5 @@
  * limitations under the License.
  */
 
+export { CheckboxInput } from './components/Checkbox/CheckboxInput.js';
+export type { CheckboxInputProps } from './components/Checkbox/CheckboxInput.js';

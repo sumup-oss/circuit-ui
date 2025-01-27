@@ -1,0 +1,141 @@
+.label {
+  --checkbox-size: 18px;
+
+  position: relative;
+  display: inline-block;
+  min-height: var(--cui-body-m-line-height);
+  padding-left: calc(var(--checkbox-size) + var(--cui-spacings-byte));
+  color: var(--cui-fg-normal);
+  cursor: pointer;
+}
+
+.label::before,
+.label svg {
+  position: absolute;
+  left: 0;
+  box-sizing: border-box;
+  display: block;
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+}
+
+.label.center::before,
+.label.center svg {
+  top: 50%;
+}
+
+.label.start::before,
+.label.start svg {
+  top: calc(var(--cui-body-m-line-height) / 2);
+}
+
+.label::before {
+  content: "";
+  background-color: var(--cui-bg-normal);
+  border: 1px solid var(--cui-border-normal);
+  border-radius: 3px;
+  box-shadow: none;
+  transform: translateY(-50%);
+  transition:
+    border var(--cui-transitions-default),
+    background-color var(--cui-transitions-default);
+}
+
+.label svg {
+  padding: 2px;
+  line-height: 0;
+  color: var(--cui-fg-on-strong);
+  opacity: 0;
+  transform: translateY(-50%) scale(0, 0);
+  transition:
+    transform var(--cui-transitions-default),
+    opacity var(--cui-transitions-default);
+}
+
+.base:hover + .label::before {
+  border-color: var(--cui-border-accent-hovered);
+}
+
+.base:focus + .label::before {
+  outline: 0;
+  border-color: var(--cui-border-accent);
+  box-shadow:
+    0 0 0 2px var(--cui-bg-normal),
+    0 0 0 4px var(--cui-border-focus);
+}
+
+.base:focus:not(:focus-visible) + .label::before {
+  border-color: var(--cui-border-normal);
+  box-shadow: none;
+}
+
+.base:checked:focus:not(:focus-visible) + .label::before,
+.base:indeterminate:focus:not(:focus-visible) + .label::before {
+  border-color: var(--cui-border-accent);
+}
+
+.base:checked:not(:indeterminate) + .label > svg[data-symbol="checked"],
+.base:indeterminate + .label > svg[data-symbol="indeterminate"] {
+  opacity: 1;
+  transform: translateY(-50%) scale(1, 1);
+}
+
+.base:checked + .label::before,
+.base:indeterminate + .label::before {
+  background-color: var(--cui-bg-accent-strong);
+  border-color: var(--cui-border-accent);
+}
+
+.base:checked:disabled + .label::before,
+.base:checked[disabled] + .label::before,
+.base:indeterminate:disabled + .label::before,
+.base:indeterminate[disabled] + .label::before {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: var(--cui-border-accent-disabled);
+}
+
+/* Invalid */
+
+.invalid + .label::before {
+  background-color: var(--cui-bg-danger);
+  border-color: var(--cui-border-danger);
+}
+
+.invalid:hover + .label::before,
+.invalid:focus + .label::before {
+  border-color: var(--cui-border-danger-hovered);
+}
+
+.invalid:checked + .label::before,
+.invalid:indeterminate + .label::before {
+  background-color: var(--cui-bg-danger-strong);
+  border-color: var(--cui-border-danger);
+}
+
+.invalid:checked:disabled + .label::before,
+.invalid:indeterminate:disabled + .label::before,
+.invalid:checked[disabled] + .label::before,
+.invalid:indeterminate[disabled] + .label::before {
+  background-color: var(--cui-bg-danger-strong-disabled);
+  border-color: var(--cui-border-danger-disabled);
+}
+
+/* Disabled */
+
+.base:disabled + .label,
+.base[disabled] + .label {
+  color: var(--cui-fg-normal-disabled);
+  pointer-events: none;
+}
+
+.base:disabled + .label::before,
+.base[disabled] + .label::before {
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+}
+
+.base:disabled:checked + .label::before,
+.base[disabled]:checked + .label::before {
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border-color: var(--cui-border-accent-disabled);
+}
