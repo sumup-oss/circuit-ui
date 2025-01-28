@@ -24,21 +24,39 @@ import {
 } from 'react';
 
 import {
-  RadioButton,
-  RadioButtonGroupContext,
-  type RadioButtonProps,
-} from '../RadioButton/RadioButton.js';
-import {
   FieldLabelText,
   FieldValidationHint,
   FieldLegend,
   FieldSet,
+  FieldWrapper,
+  FieldDescription,
 } from '../Field/index.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 import { isEmpty } from '../../util/helpers.js';
+import { utilClasses } from '../../styles/utility.js';
+import { clsx } from '../../styles/clsx.js';
+
+import {
+  RadioButtonInput,
+  type RadioButtonInputProps,
+} from './RadioButtonInput.js';
+
+type Option = Omit<
+  RadioButtonInputProps,
+  'onChange' | 'onBlur' | 'name' | 'children'
+> & {
+  /**
+   * A clear and concise description of the option's purpose.
+   */
+  label: string;
+  /**
+   * Further details about the option's purpose.
+   */
+  description?: string;
+};
 
 export interface RadioButtonGroupProps
   extends Omit<
@@ -49,17 +67,17 @@ export interface RadioButtonGroupProps
    * A collection of available options. Each option must have at least a value
    * and a label.
    */
-  options: Omit<RadioButtonProps, 'onChange' | 'onBlur' | 'name'>[];
+  options: Option[];
   /**
    * A callback that is called when any of the inputs change their values.
    * Passed on to the RadioButtons.
    */
-  onChange?: RadioButtonProps['onChange'];
+  onChange?: RadioButtonInputProps['onChange'];
   /**
    * A callback that is called when any of the inputs lose focus.
    * Passed on to the RadioButtons.
    */
-  onBlur?: RadioButtonProps['onBlur'];
+  onBlur?: RadioButtonInputProps['onBlur'];
   /**
    * A visually hidden description of the selector group for screen readers.
    */
@@ -72,11 +90,11 @@ export interface RadioButtonGroupProps
   /**
    * The value of the currently checked RadioButton.
    */
-  value?: RadioButtonProps['value'];
+  value?: RadioButtonInputProps['value'];
   /**
    * The value of the currently checked RadioButton.
    */
-  defaultValue?: RadioButtonProps['value'];
+  defaultValue?: RadioButtonInputProps['value'];
   /**
    * The ref to the HTML DOM element
    */
@@ -137,9 +155,7 @@ export const RadioButtonGroup = forwardRef(
     const randomName = useId();
     const name = customName || randomName;
     const validationHintId = useId();
-    const descriptionIds = `${
-      descriptionId ? `${descriptionId} ` : ''
-    }${validationHintId}`;
+    const descriptionIds = clsx(descriptionId, validationHintId);
 
     if (
       process.env.NODE_ENV !== 'production' &&
@@ -176,24 +192,62 @@ export const RadioButtonGroup = forwardRef(
             required={required}
           />
         </FieldLegend>
-        <RadioButtonGroupContext.Provider value={true}>
-          {options.map((option) => (
-            <RadioButton
-              {...option}
-              key={option.value?.toString() || option.label}
-              name={name}
-              onChange={onChange}
-              onBlur={onBlur}
-              disabled={disabled || option.disabled}
-              checked={value ? option.value === value : option.checked}
-              defaultChecked={
-                defaultValue
-                  ? option.value === defaultValue
-                  : option.defaultChecked
-              }
-            />
-          ))}
-        </RadioButtonGroupContext.Provider>
+        {options.map(
+          ({
+            className,
+            style,
+            label: optionLabel,
+            description,
+            'aria-describedby': describedBy,
+            ...option
+          }) => {
+            const optionDescriptionId = useId();
+            const optionDescriptionIds = clsx(
+              description && optionDescriptionId,
+              describedBy,
+            );
+
+            return (
+              <FieldWrapper
+                key={option.value?.toString() || optionLabel}
+                className={className}
+                style={style}
+                disabled={disabled}
+              >
+                <RadioButtonInput
+                  {...option}
+                  name={name}
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  disabled={disabled || option.disabled}
+                  checked={value ? option.value === value : option.checked}
+                  aria-describedby={optionDescriptionIds}
+                  defaultChecked={
+                    defaultValue
+                      ? option.value === defaultValue
+                      : option.defaultChecked
+                  }
+                  align="start"
+                >
+                  {optionLabel}
+                  {description && (
+                    <FieldDescription aria-hidden="true">
+                      {description}
+                    </FieldDescription>
+                  )}
+                </RadioButtonInput>
+                {description && (
+                  <p
+                    id={optionDescriptionId}
+                    className={utilClasses.hideVisually}
+                  >
+                    {description}
+                  </p>
+                )}
+              </FieldWrapper>
+            );
+          },
+        )}
         <FieldValidationHint
           id={validationHintId}
           invalid={invalid}

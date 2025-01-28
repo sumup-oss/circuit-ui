@@ -15,10 +15,6 @@
 
 // Forms
 export {
-  RadioButton,
-  type RadioButtonProps,
-} from './components/RadioButton/index.js';
-export {
   Selector,
   type SelectorProps,
 } from './components/Selector/index.js';

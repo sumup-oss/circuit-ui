@@ -1,20 +1,36 @@
 .label {
+  --radio-button-size: 18px;
+
   position: relative;
   display: inline-block;
-  padding-left: 26px;
+  min-height: var(--cui-body-m-line-height);
+  padding-left: calc(var(--radio-button-size) + var(--cui-spacings-byte));
   color: var(--cui-fg-normal);
   cursor: pointer;
 }
 
-.label::before {
+.label::before,
+.label::after {
   position: absolute;
-  top: calc(var(--cui-body-m-line-height) / 2);
-  left: 0;
   box-sizing: border-box;
   display: block;
-  width: 18px;
-  height: 18px;
   content: "";
+}
+
+.label.center::before,
+.label.center::after {
+  top: 50%;
+}
+
+.label.start::before,
+.label.start::after {
+  top: calc(var(--cui-body-m-line-height) / 2);
+}
+
+.label::before {
+  left: 0;
+  width: var(--radio-button-size);
+  height: var(--radio-button-size);
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-normal);
   border-radius: 100%;
@@ -26,14 +42,9 @@
 }
 
 .label::after {
-  position: absolute;
-  top: calc(var(--cui-body-m-line-height) / 2);
   left: var(--cui-spacings-bit);
-  box-sizing: border-box;
-  display: block;
   width: 10px;
   height: 10px;
-  content: "";
   background-color: var(--cui-fg-accent);
   border-radius: 100%;
   opacity: 0;
@@ -43,11 +54,11 @@
     opacity var(--cui-transitions-default);
 }
 
-.base:hover + label::before {
+.base:hover + .label::before {
   border-color: var(--cui-border-normal-hovered);
 }
 
-.base:focus + label::before {
+.base:focus + .label::before {
   outline: 0;
   border-color: var(--cui-border-accent);
   box-shadow:
@@ -55,48 +66,48 @@
     0 0 0 4px var(--cui-border-focus);
 }
 
-.base:focus:not(:focus-visible) + label::before {
+.base:focus:not(:focus-visible) + .label::before {
   border-color: var(--cui-border-normal);
   box-shadow: none;
 }
 
-.base:checked:focus:not(:focus-visible) + label::before {
+.base:checked:focus:not(:focus-visible) + .label::before {
   border-color: var(--cui-border-accent);
 }
 
-.base:checked + label::before {
+.base:checked + .label::before {
   border-color: var(--cui-border-accent);
 }
 
-.base:checked + label::after {
+.base:checked + .label::after {
   opacity: 1;
   transform: translateY(-50%) scale(1, 1);
 }
 
-.base:disabled + label,
-.base[disabled] + label {
+.base:disabled + .label,
+.base[disabled] + .label {
   color: var(--cui-fg-normal-disabled);
   pointer-events: none;
 }
 
-.base:disabled + label::before,
-.base[disabled] + label::before {
+.base:disabled + .label::before,
+.base[disabled] + .label::before {
   background-color: var(--cui-bg-normal-disabled);
   border-color: var(--cui-border-normal-disabled);
 }
 
-.base:disabled + label::after,
-.base[disabled] + label::after {
+.base:disabled + .label::after,
+.base[disabled] + .label::after {
   background-color: var(--cui-fg-on-strong-disabled);
 }
 
-.base:disabled:checked + label::before,
-.base[disabled]:checked + label::before {
+.base:disabled:checked + .label::before,
+.base[disabled]:checked + .label::before {
   border-color: var(--cui-border-accent-disabled);
 }
 
-.base:disabled:checked + label::after,
-.base[disabled]:checked + label::after {
+.base:disabled:checked + .label::after,
+.base[disabled]:checked + .label::after {
   background-color: var(--cui-fg-accent-disabled);
 }
 

@@ -91,6 +91,18 @@ describe('RadioButtonGroup', () => {
       );
     });
 
+    it('should have option descriptions', () => {
+      const options = defaultProps.options.map((option) => ({
+        ...option,
+        description: 'Some explanation',
+      }));
+      render(<RadioButtonGroup {...defaultProps} options={options} />);
+      const inputs = screen.getAllByRole('radio');
+      inputs.forEach((input) => {
+        expect(input).toHaveAccessibleDescription('Some explanation');
+      });
+    });
+
     it('should have a label (accessible name)', () => {
       render(<RadioButtonGroup {...defaultProps} />);
       const groupEl = screen.getByRole('radiogroup');
