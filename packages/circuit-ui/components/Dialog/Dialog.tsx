@@ -133,6 +133,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     } = useI18n(props, translations);
     const dialogRef = useRef<HTMLDialogElement>(null);
     const openRef = useLatest<boolean>(open);
+    const isModalRef = useLatest<boolean>(isModal);
     const animationDurationRef = useLatest<number>(animationDuration);
     const lastFocusedElementRef = useRef<HTMLElement | null>(null);
 
@@ -192,18 +193,15 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
         return undefined;
       }
 
-      if (!open) {
+      if (!openRef.current) {
         dialogElement.returnValue = '';
       }
-      if (open && !dialogElement.open) {
+      if (openRef.current && !dialogElement.open) {
         if (isModal) {
           dialogElement.showModal();
         } else {
           dialogElement.show();
         }
-      }
-      if (!open && dialogElement.open) {
-        handleDialogClose();
       }
 
       return () => {
@@ -211,7 +209,37 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
           dialogElement.close('skipOnClose');
         }
       };
-    }, [isModal, open, handleDialogClose]);
+    }, [isModal, openRef]);
+
+    useEffect(() => {
+      const dialogElement = dialogRef.current;
+
+      if (!dialogElement) {
+        return;
+      }
+
+      if (!open) {
+        dialogElement.returnValue = '';
+      }
+      if (open && !dialogElement.open) {
+        if (isModalRef.current) {
+          dialogElement.showModal();
+        } else {
+          dialogElement.show();
+        }
+      }
+    }, [isModalRef, open]);
+
+    useEffect(() => {
+      const dialogElement = dialogRef.current;
+
+      if (!dialogElement) {
+        return;
+      }
+      if (!open && dialogElement.open) {
+        handleDialogClose();
+      }
+    }, [open, handleDialogClose]);
 
     useEffect(() => {
       const dialogElement = dialogRef.current;
@@ -225,7 +253,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
         // dependencies change.
         // To avoid that we set the dialog's returnValue to 'skipOnClose'
         // in the effect's cleanup fn and reset it afterward.
-        if (openRef.current && dialogElement?.returnValue !== 'skipOnClose') {
+        if (dialogElement?.returnValue !== 'skipOnClose') {
           onCloseEnd?.();
         }
         if (dialogElement?.returnValue === 'skipOnClose') {
@@ -240,7 +268,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       return () => {
         dialogElement.removeEventListener('close', handleClose);
       };
-    }, [openRef, onCloseEnd]);
+    }, [onCloseEnd]);
 
     // DOM manipulation and event handling
     useScrollLock(open && isModal);
@@ -277,6 +305,15 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     );
 
     useEscapeKey(handleEscapeKey, open && !preventEscapeKeyClose);
+
+    useEffect(
+      () => () => {
+        if (dialogRef.current?.open) {
+          dialogRef.current?.close();
+        }
+      },
+      [],
+    );
 
     const handleOutsideClick = useCallback(() => {
       lastFocusedElementRef.current = null;
