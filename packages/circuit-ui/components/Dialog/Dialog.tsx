@@ -23,12 +23,12 @@ import {
   useCallback,
   useEffect,
   useRef,
+  useState,
 } from 'react';
 
 import type { Locale } from '../../util/i18n.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import dialogPolyfill from '../../vendor/dialog-polyfill/index.js';
-import { isEscape } from '../../util/key-codes.js';
 import { useScrollLock } from '../../hooks/useScrollLock/useScrollLock.js';
 import { CloseButton } from '../CloseButton/index.js';
 import type { ClickEvent } from '../../types/events.js';
@@ -136,6 +136,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     const isModalRef = useLatest<boolean>(isModal);
     const animationDurationRef = useLatest<number>(animationDuration);
     const lastFocusedElementRef = useRef<HTMLElement | null>(null);
+    const [isClosing, setIsClosing] = useState(false);
 
     // Focus Management
     useEffect(() => {
@@ -169,10 +170,12 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
         return;
       }
       onCloseStart?.();
+      setIsClosing(true);
       // trigger closing of the dialog after animation
       setTimeout(() => {
         if (dialogElement.open) {
           dialogElement.close();
+          setIsClosing(false);
         }
       }, animationDurationRef.current);
     }, [animationDurationRef, onCloseStart]);
@@ -272,26 +275,20 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 
     // DOM manipulation and event handling
     useScrollLock(open && isModal);
-    const preventEscapeKeyEvent = useCallback((event: KeyboardEvent) => {
-      if (isEscape(event)) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-    }, []);
 
     useEffect(() => {
+      const dialogElement = dialogRef.current;
       if (!preventEscapeKeyClose) {
         return undefined;
       }
-      dialogRef.current?.addEventListener('keydown', preventEscapeKeyEvent);
-
-      return () => {
-        dialogRef.current?.removeEventListener(
-          'keydown',
-          preventEscapeKeyEvent,
-        );
+      const handleCancel = (event: Event) => {
+        event.preventDefault(); // Prevent dialog from closing
       };
-    }, [preventEscapeKeyClose, preventEscapeKeyEvent]);
+      if (dialogElement) {
+        dialogElement.addEventListener('cancel', handleCancel);
+      }
+      return () => dialogElement?.removeEventListener('cancel', handleCancel);
+    }, [preventEscapeKeyClose]);
 
     const handleEscapeKey = useCallback(
       (e: KeyboardEvent) => {
@@ -391,7 +388,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
           }}
           {...rest}
         >
-          {open &&
+          {(open || isClosing) &&
             (typeof children === 'function'
               ? children?.({ onClose: onCloseEnd })
               : children)}
