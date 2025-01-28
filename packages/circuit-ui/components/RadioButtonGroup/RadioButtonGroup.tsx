@@ -212,7 +212,7 @@ export const RadioButtonGroup = forwardRef(
                 key={option.value?.toString() || optionLabel}
                 className={className}
                 style={style}
-                disabled={disabled}
+                disabled={disabled || option.disabled}
               >
                 <RadioButtonInput
                   {...option}
