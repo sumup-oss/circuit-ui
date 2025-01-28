@@ -97,7 +97,12 @@ export const useSidePanel: UseSidePanelHook = () => {
       if (!bottomSidePanelGroupRef.current) {
         bottomSidePanelGroupRef.current = sidePanelGroup;
       }
-      setSidePanelContext({ ...props, group: sidePanelGroup, id: uniqueId() });
+      setSidePanelContext({
+        ...props,
+        group: sidePanelGroup,
+        id: uniqueId(),
+        open: true,
+      });
     },
     [setSidePanelContext, defaultGroup],
   );

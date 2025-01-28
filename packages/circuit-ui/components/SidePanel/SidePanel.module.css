@@ -5,6 +5,12 @@
   left: unset;
   z-index: var(--cui-z-index-absolute);
   box-shadow: none;
+  transform: translateX(100%);
+  transition: transform var(--dialog-animation-duration) ease-in-out;
+}
+
+.open {
+  transform: translateX(0);
 }
 
 .wrapper {
@@ -56,9 +62,4 @@
   .content {
     padding: 0 var(--cui-spacings-giga);
   }
-}
-
-.closed {
-  /* TODO find a better way to prevent flickering before animation classes are applied */
-  display: none;
 }

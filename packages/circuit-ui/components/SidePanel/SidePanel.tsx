@@ -27,13 +27,12 @@ import {
 import { isFunction } from '../../util/type-check.js';
 import { Dialog, type DialogProps } from '../Dialog/Dialog.js';
 import { clsx } from '../../styles/clsx.js';
-import { useAnimation } from '../../hooks/useAnimation/index.js';
-import { sharedClasses } from '../../styles/shared.js';
 import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
+import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
 
 import { Header } from './components/Header/index.js';
-import type { OnBack, OnClose, SidePanelHookProps } from './useSidePanel.js';
+import type { SidePanelHookProps } from './useSidePanel.js';
 import classes from './SidePanel.module.css';
 import { translations } from './translations/index.js';
 
@@ -59,46 +58,9 @@ export const SidePanel = forwardRef<HTMLDialogElement, SidePanelProps>(
     const isMobile = useMedia('(max-width: 767px)');
 
     {
-      const [animationClass, setAnimationClass] = useState<string | undefined>(
-        classes.closed,
-      );
+      const [animationClass, setAnimationClass] = useState<string>();
       const [isHeaderSticky, setHeaderSticky] = useState(false);
       const headerAriaId = useId();
-
-      const [, setAnimating] = useAnimation();
-
-      const onOpening = useCallback(() => {
-        setAnimating({
-          duration: animationDuration,
-          onStart: () => {
-            setAnimationClass(
-              animationDuration > 0
-                ? sharedClasses.animationSlideRightIn
-                : undefined,
-            );
-          },
-          onEnd: () => {
-            setAnimationClass(undefined);
-          },
-        });
-      }, [animationDuration, setAnimating]);
-
-      const onClosing = useCallback(
-        (callBack?: OnBack | OnClose) => {
-          setAnimating({
-            duration: animationDuration,
-            onStart: () => {
-              void callBack?.();
-              setAnimationClass(sharedClasses.animationSlideRightOut);
-            },
-            onEnd: () => {
-              setAnimationClass(classes.closed);
-              onCloseEnd?.();
-            },
-          });
-        },
-        [setAnimating, animationDuration, onCloseEnd],
-      );
 
       // biome-ignore lint/correctness/useExhaustiveDependencies: Not sure why this effect is necessary
       useEffect(() => {
@@ -110,9 +72,8 @@ export const SidePanel = forwardRef<HTMLDialogElement, SidePanelProps>(
       };
 
       useEffect(() => {
-        // trigger animation on opening
-        onOpening();
-      }, [onOpening]);
+        setAnimationClass(open ? classes.open : undefined);
+      }, [open]);
 
       useEffect(
         () => () => {
@@ -120,6 +81,12 @@ export const SidePanel = forwardRef<HTMLDialogElement, SidePanelProps>(
         },
         [onCloseEnd],
       );
+
+      const escapeHandler = useCallback(() => {
+        (onBack || onClose)?.();
+      }, [onBack, onClose]);
+
+      useEscapeKey(escapeHandler, open && !preventEscapeKeyClose);
 
       return (
         <Dialog
@@ -130,9 +97,9 @@ export const SidePanel = forwardRef<HTMLDialogElement, SidePanelProps>(
           aria-labelledby={headerAriaId}
           animationDuration={animationDuration}
           className={clsx(classes.base, animationClass, className)}
-          onCloseStart={() => onClosing(onBack || onClose)}
+          onCloseStart={onBack || onClose}
           preventOutsideClickClose={true}
-          preventEscapeKeyClose={preventEscapeKeyClose}
+          preventEscapeKeyClose={true}
           hideCloseButton
         >
           <div className={classes.wrapper} onScroll={handleScroll}>
@@ -141,8 +108,8 @@ export const SidePanel = forwardRef<HTMLDialogElement, SidePanelProps>(
               closeButtonLabel={closeButtonLabel}
               headline={headline}
               id={headerAriaId}
-              onBack={onBack ? () => onClosing(onBack) : undefined}
-              onClose={() => onClosing(onClose)}
+              onBack={onBack}
+              onClose={onClose}
               isSticky={isHeaderSticky}
             />
             <div className={classes.content}>

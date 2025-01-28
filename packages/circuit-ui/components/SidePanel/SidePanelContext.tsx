@@ -47,8 +47,8 @@ export type RemoveSidePanel = (
 ) => Promise<void>;
 
 export type SidePanelContextItem = SidePanelHookProps &
-  Pick<SidePanelProps, 'onCloseEnd'> &
-  StackItem & { isInstantOpen?: boolean };
+  Pick<SidePanelProps, 'onCloseEnd' | 'open'> &
+  StackItem & { isInstantOpen?: boolean; isInstantClose?: boolean };
 
 export type SidePanelContextValue = {
   setSidePanel: SetSidePanel;
@@ -134,13 +134,13 @@ export function SidePanelProvider({
 
             dispatch({
               type: 'update',
-              item: sidePanel,
+              item: { ...sidePanel, open: false, isInstantClose },
             });
             dispatch({
               type: 'remove',
               id: sidePanel.id,
               transition: {
-                duration: isInstantClose || index > 0 ? 0 : TRANSITION_DURATION,
+                duration: isInstantClose ? 0 : TRANSITION_DURATION,
               },
             });
           });
@@ -161,7 +161,7 @@ export function SidePanelProvider({
         setIsPrimaryContentResized(true);
         dispatch({
           type: 'push',
-          item: { ...sidePanel, isInstantOpen },
+          item: { ...sidePanel, isInstantOpen, open: true },
         });
       };
 
@@ -213,8 +213,15 @@ export function SidePanelProvider({
       >
         {children}
         {sidePanels.map((sidePanel) => {
-          const { group, id, transition, isInstantOpen, ...sidePanelProps } =
-            sidePanel;
+          const {
+            open,
+            group,
+            id,
+            transition,
+            isInstantOpen,
+            isInstantClose,
+            ...sidePanelProps
+          } = sidePanel;
 
           const isStacked = group !== sidePanels[0].group;
           const isTopPanel = group === sidePanels[sidePanels?.length - 1].group;
@@ -229,8 +236,12 @@ export function SidePanelProvider({
             <SidePanel
               {...sidePanelProps}
               key={id}
-              open={true}
-              animationDuration={isInstantOpen ? 0 : TRANSITION_DURATION}
+              open={open}
+              animationDuration={
+                (open && isInstantOpen) || (!open && isInstantClose)
+                  ? 0
+                  : TRANSITION_DURATION
+              }
               onBack={handleBack}
               onClose={handleClose}
               preventEscapeKeyClose={!isTopPanel}
