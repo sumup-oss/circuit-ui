@@ -41,8 +41,6 @@ This component is built on top of the low level [Dialog](Components/Dialog/Docs)
 
 ## Usage in code
 
-### Using the `useSidePanel` hook
-
 First, wrap the primary content of your application in the `SidePanelProvider`. There should be only one instance of `SidePanelProvider` as part of your global application layout.
 On desktop resolutions the primary content will be resized when the side panel is opened.
 
@@ -91,39 +89,3 @@ This is achieved with the use of the `onBack` and `onClose` render props which a
 Calling `onClose` will close the entire stack, just like clicking on the close button in the header.
 
 It is possible to delay or cancel the closing of a side panel by passing an asynchronous `onClose` callback to the `setSidePanel` function. This can be useful to prompt users to confirm the closing of the side panel if they have entered information but haven't saved it yet, to prevent data loss.
-
-### Inline
-
-If you wish to have more control on your side panels, you can also use the `SidePanel` component inline in your component tree.
-
-```tsx
-import { SidePanel, Button, Body } from "@sumup-oss/circuit-ui";
-import { useState } from "react";
-
-export function ShowMore() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleClick = () => {
-    setIsOpen(true);
-  };
-
-  const handleClose = () => {
-    setIsOpen(false);
-  };
-
-  return (
-    <>
-      <Button onClick={handleClick}>Show more</Button>
-      <SidePanel
-        isOpen={isOpen}
-        onClose={handleClose}
-        headline="More information"
-      >
-        <Body>Some additional information</Body>
-      </SidePanel>
-    </>
-  );
-}
-```
-
-The `useSidePanel` hook handles the stacking of side panels for you. If you wish to use the SidePanel inline and handle stacking yourself, use the `onBack` prop to a stacked `SidePanel` component to show a back button that closes the topmost panel.
