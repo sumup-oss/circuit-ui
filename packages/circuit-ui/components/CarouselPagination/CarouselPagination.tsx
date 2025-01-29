@@ -67,9 +67,8 @@ export interface CarouselPaginationProps
 }
 
 /**
- * The carousel pagination component allows to display larger amounts of
- * content in limited spaces by dividing these into multiple pieces to be
- * discoverd by the users through interaction.
+ * The carousel pagination component allows users to navigate content that is
+ * divided into multiple slides or pages.
  */
 export const CarouselPagination = forwardRef<
   HTMLUListElement,
