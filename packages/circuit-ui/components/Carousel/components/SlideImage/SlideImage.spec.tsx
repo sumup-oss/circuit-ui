@@ -20,8 +20,8 @@ import { axe, render } from '../../../../util/test-utils.js';
 import { SlideImage } from './SlideImage.js';
 
 const image = {
-  src: '/images/illustration-waves.jpg',
-  alt: 'Aerial photo of turbulent blue ocean waves',
+  src: '/images/sumup-coffee-transaction.jpg',
+  alt: 'Next to a cup of coffee lays a phone showing a card transaction in the SumUp app',
 };
 
 describe('SlideImage', () => {

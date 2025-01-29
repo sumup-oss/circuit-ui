@@ -28,6 +28,6 @@ export default {
 export const Base = (args: ImageProps) => <Image {...args} />;
 
 Base.args = {
-  src: '/images/illustration-waves.jpg',
-  alt: 'Aerial photo of turbulent blue-turquoise ocean waves',
+  src: '/images/sumup-tablet-insights.jpg',
+  alt: 'A tablet shows sales insights in the SumUp POS app. On the table next to it are a SumUp Solo card reader with printer and two bowls with fruits',
 };
