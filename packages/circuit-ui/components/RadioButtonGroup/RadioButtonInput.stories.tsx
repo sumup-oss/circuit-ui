@@ -32,6 +32,7 @@ const options = [
     id: 'sumup-solo',
     label: 'SumUp Solo',
     image: images[3],
+    checked: true,
   },
   {
     id: 'tap-to-pay',
@@ -58,7 +59,12 @@ const options = [
 export const Base = (args: RadioButtonInputProps) => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
     {options.map((option) => (
-      <RadioButtonInput key={option.id} {...args} value={option.id}>
+      <RadioButtonInput
+        {...args}
+        key={option.id}
+        value={option.id}
+        defaultChecked={option.checked}
+      >
         <div
           style={{
             display: 'flex',

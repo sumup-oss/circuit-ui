@@ -31,6 +31,7 @@ const products = [
     label: 'SumUp Solo',
     description: 'Take digital payments with a stylish card reader',
     image: images[3],
+    checked: true,
   },
   {
     id: 'tap-to-pay',
@@ -64,6 +65,7 @@ const rows = products.map((product) => [
       <CheckboxInput
         name="products"
         value={product.id}
+        defaultChecked={product.checked}
         aria-labelledby={`${product.id}-label`}
         aria-describedby={`${product.id}-description`}
       />
