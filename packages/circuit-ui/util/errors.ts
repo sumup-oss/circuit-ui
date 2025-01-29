@@ -14,7 +14,7 @@
  */
 
 /* eslint-disable max-classes-per-file */
-import React from 'react';
+import React, { type ReactNode } from 'react';
 
 import { isString } from './type-check.js';
 
@@ -70,7 +70,7 @@ export class AccessibilityError extends CircuitError {
  * We allow this only as an escape hatch to use at your own risk.
  */
 export function isSufficientlyLabelled(
-  label?: string,
+  label?: ReactNode,
   attributes?: {
     'aria-label'?: string;
     'aria-labelledby'?: string;

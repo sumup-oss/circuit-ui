@@ -12,21 +12,19 @@ import { Meta, Intro, Status } from '../../.storybook/components';
 
 ## Stable
 
-<Status variant="stable" aria-hidden />
+<Status variant="stable" aria-hidden="true" />
 
 Stable components solve a proven use case. They meet all of our quality standards including accessibility, [browser support](Introduction/Browser-Support/Docs), localization, test coverage, and documentation. Changes to the component API are unlikely and follow [semantic versioning](https://semver.org/).
 
-## Under Review
+## Internal
 
-<Status variant="under-review" aria-hidden />
+<Status variant="internal" aria-hidden="true" />
 
-Our quality requirements evolve over time. Existing components that haven't been updated yet to meet the latest standards are placed under review. You can continue to use them but be aware of the issues that are listed in the components' documentation.
-
-[Contributions](Contributing/Overview/Docs) to resolve the issues are welcome!
+Internal components are lower-level, partial building blocks. They are intended for advanced use cases that aren't covered by the regular, feature-complete components. Developers are responsible for ensuring accessibility, [browser support](Introduction/Browser-Support/Docs), and localization. Changes to the component API are unlikely and follow [semantic versioning](https://semver.org/).
 
 ## Experimental
 
-<Status variant="experimental" aria-hidden />
+<Status variant="experimental" aria-hidden="true" />
 
 Experimental components are under active development. They might not meet our quality standards yet and likely lack sufficient documentation. They don't follow [semantic versioning](https://semver.org/) so breaking changes in minor versions are possible.
 
@@ -38,9 +36,17 @@ Experimental components are exported separately from stable components. Import t
 import { Component } from '@sumup-oss/circuit-ui/experimental';
 ```
 
+## Under Review
+
+<Status variant="under-review" aria-hidden="true" />
+
+Our quality requirements evolve over time. Existing components that haven't been updated yet to meet the latest standards are placed under review. You can continue to use them but be aware of the issues that are listed in the components' documentation.
+
+[Contributions](Contributing/Overview/Docs) to resolve the issues are welcome!
+
 ## Legacy
 
-<Status variant="legacy" aria-hidden />
+<Status variant="legacy" aria-hidden="true" />
 
 Legacy components are going to be phased out eventually, but don't have a stable replacement yet. You can continue to use them in existing code until a stable alternative becomes available. We don't recommend adopting legacy components in new code. Legacy components won't receive any updates apart from bugfixes.
 
@@ -54,7 +60,7 @@ Some legacy components require third-party dependencies which aren't bundled wit
 
 ## Deprecated
 
-<Status variant="deprecated" aria-hidden />
+<Status variant="deprecated" aria-hidden="true" />
 
 Deprecated components are going to be removed in the next major release. When used, they log a deprecation warning during local development. Replace them with the alternative that's suggested in the components' documentation. Deprecated components won't receive any updates or bugfixes.
 

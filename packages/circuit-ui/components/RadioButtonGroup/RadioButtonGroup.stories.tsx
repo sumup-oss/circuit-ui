@@ -17,7 +17,6 @@ import type { ChangeEvent, FocusEvent } from 'react';
 import { action } from '@storybook/addon-actions';
 
 import { Stack } from '../../../../.storybook/components/index.js';
-import { RadioButton } from '../RadioButton/RadioButton.js';
 
 import {
   RadioButtonGroup,
@@ -27,7 +26,6 @@ import {
 export default {
   title: 'Forms/RadioButtonGroup',
   component: RadioButtonGroup,
-  subcomponents: { RadioButton },
   tags: ['status:stable'],
   argTypes: {
     value: { control: 'text' },

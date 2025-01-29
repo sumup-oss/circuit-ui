@@ -24,73 +24,65 @@ import {
   fireEvent,
 } from '../../util/test-utils.js';
 
-import { RadioButton } from './RadioButton.js';
+import { RadioButtonInput } from './RadioButtonInput.js';
 
 const defaultProps = {
-  label: 'Label',
+  children: 'Label',
   name: 'radio',
   value: 'test',
 };
 
-describe('RadioButton', () => {
+describe('RadioButtonInput', () => {
   describe('Structure & Semantics', () => {
     it('should be initially unchecked by default', () => {
-      render(<RadioButton {...defaultProps} />);
+      render(<RadioButtonInput {...defaultProps} />);
       const inputEl = screen.getByRole('radio');
       expect(inputEl).not.toBeChecked();
     });
 
     it('should be initially checked (uncontrolled)', () => {
-      render(<RadioButton {...defaultProps} defaultChecked />);
+      render(<RadioButtonInput {...defaultProps} defaultChecked />);
       const inputEl = screen.getByRole('radio');
       expect(inputEl).toBeChecked();
     });
 
     it('should be initially checked (controlled)', () => {
-      render(<RadioButton {...defaultProps} checked onChange={vi.fn()} />);
+      render(<RadioButtonInput {...defaultProps} checked onChange={vi.fn()} />);
       const inputEl = screen.getByRole('radio');
       expect(inputEl).toBeChecked();
     });
 
     it('should be optionally disabled', () => {
-      render(<RadioButton {...defaultProps} disabled />);
+      render(<RadioButtonInput {...defaultProps} disabled />);
       const inputEl = screen.getByRole('radio');
       expect(inputEl).toBeDisabled();
     });
 
     it('should have a name', () => {
-      render(<RadioButton {...defaultProps} />);
+      render(<RadioButtonInput {...defaultProps} />);
       const inputEl = screen.getByRole('radio');
       expect(inputEl).toHaveAttribute('name', defaultProps.name);
     });
 
     it('should have a label (accessible name)', () => {
       const ref = createRef<HTMLInputElement>();
-      render(<RadioButton ref={ref} {...defaultProps} />);
+      render(<RadioButtonInput ref={ref} {...defaultProps} />);
       const inputEl = screen.getByRole('radio');
-      expect(inputEl).toHaveAccessibleName(defaultProps.label);
-    });
-
-    it('should have a description', () => {
-      render(<RadioButton {...defaultProps} description="Some explanation" />);
-      const helperEl = screen.getAllByText('Some explanation');
-      expect(helperEl.length).toBeGreaterThan(0);
-      const inputEl = screen.getByRole('radio');
-      expect(inputEl).toHaveAccessibleDescription('Some explanation');
+      expect(inputEl).toHaveAccessibleName(defaultProps.children);
     });
   });
 
   describe('State & Interactions', () => {
     it('should forward a ref to the input', () => {
       const ref = createRef<HTMLInputElement>();
-      render(<RadioButton ref={ref} {...defaultProps} />);
+      render(<RadioButtonInput ref={ref} {...defaultProps} />);
       const inputEl = screen.getByRole('radio');
       expect(ref.current).toBe(inputEl);
     });
 
     it('should call the change handler when clicked', async () => {
       const onChange = vi.fn();
-      render(<RadioButton {...defaultProps} onChange={onChange} />);
+      render(<RadioButtonInput {...defaultProps} onChange={onChange} />);
       const inputEl = screen.getByRole('radio');
 
       await userEvent.click(inputEl);
@@ -100,7 +92,7 @@ describe('RadioButton', () => {
 
     it('should call the blur handler when loosing focus', async () => {
       const onBlur = vi.fn();
-      render(<RadioButton {...defaultProps} onBlur={onBlur} />);
+      render(<RadioButtonInput {...defaultProps} onBlur={onBlur} />);
       const inputEl = screen.getByRole('radio');
 
       await userEvent.click(inputEl);
@@ -113,7 +105,7 @@ describe('RadioButton', () => {
 
   describe('Accessibility', () => {
     it('should have no violations', async () => {
-      const { container } = render(<RadioButton {...defaultProps} />);
+      const { container } = render(<RadioButtonInput {...defaultProps} />);
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });

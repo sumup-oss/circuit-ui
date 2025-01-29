@@ -29,7 +29,8 @@ type Variant =
   | 'under-review'
   | 'experimental'
   | 'legacy'
-  | 'deprecated';
+  | 'deprecated'
+  | 'internal';
 
 interface StatusProps {
   variant: Variant;
@@ -45,6 +46,7 @@ const variantMap: Record<
   'under-review': { variant: 'warning', label: 'Under Review' },
   'legacy': { variant: 'warning', label: 'Legacy' },
   'deprecated': { variant: 'danger', label: 'Deprecated' },
+  'internal': { variant: 'neutral', label: 'Internal' },
 };
 
 export function Status({
