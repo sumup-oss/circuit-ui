@@ -1,3 +1,9 @@
+.base {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cui-spacings-bit);
+}
+
 .label-text {
   display: inline-block;
   padding-left: var(--cui-spacings-byte);

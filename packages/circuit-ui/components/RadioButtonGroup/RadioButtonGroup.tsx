@@ -193,64 +193,66 @@ export const RadioButtonGroup = forwardRef(
             required={required}
           />
         </FieldLegend>
-        {options.map(
-          ({
-            className,
-            style,
-            label: optionLabel,
-            description,
-            'aria-describedby': describedBy,
-            ...option
-          }) => {
-            const optionDescriptionId = useId();
-            const optionDescriptionIds = clsx(
-              description && optionDescriptionId,
-              describedBy,
-            );
+        <div className={classes.base}>
+          {options.map(
+            ({
+              className,
+              style,
+              label: optionLabel,
+              description,
+              'aria-describedby': describedBy,
+              ...option
+            }) => {
+              const optionDescriptionId = useId();
+              const optionDescriptionIds = clsx(
+                description && optionDescriptionId,
+                describedBy,
+              );
 
-            return (
-              <FieldWrapper
-                key={option.value?.toString() || optionLabel}
-                className={className}
-                style={style}
-                disabled={disabled || option.disabled}
-              >
-                <RadioButtonInput
-                  {...option}
-                  name={name}
-                  onChange={onChange}
-                  onBlur={onBlur}
+              return (
+                <FieldWrapper
+                  key={option.value?.toString() || optionLabel}
+                  className={className}
+                  style={style}
                   disabled={disabled || option.disabled}
-                  checked={value ? option.value === value : option.checked}
-                  aria-describedby={optionDescriptionIds}
-                  defaultChecked={
-                    defaultValue
-                      ? option.value === defaultValue
-                      : option.defaultChecked
-                  }
-                  align="start"
                 >
-                  <span className={classes['label-text']}>
-                    {optionLabel}
-                    {description && (
-                      <FieldDescription aria-hidden="true">
-                        {description}
-                      </FieldDescription>
-                    )}
-                  </span>
-                </RadioButtonInput>
-                {description && (
-                  <p
-                    id={optionDescriptionId}
-                    className={utilClasses.hideVisually}
+                  <RadioButtonInput
+                    {...option}
+                    name={name}
+                    onChange={onChange}
+                    onBlur={onBlur}
+                    disabled={disabled || option.disabled}
+                    checked={value ? option.value === value : option.checked}
+                    aria-describedby={optionDescriptionIds}
+                    defaultChecked={
+                      defaultValue
+                        ? option.value === defaultValue
+                        : option.defaultChecked
+                    }
+                    align="start"
                   >
-                    {description}
-                  </p>
-                )}
-              </FieldWrapper>
-            );
-          },
-        )}
+                    <span className={classes['label-text']}>
+                      {optionLabel}
+                      {description && (
+                        <FieldDescription aria-hidden="true">
+                          {description}
+                        </FieldDescription>
+                      )}
+                    </span>
+                  </RadioButtonInput>
+                  {description && (
+                    <p
+                      id={optionDescriptionId}
+                      className={utilClasses.hideVisually}
+                    >
+                      {description}
+                    </p>
+                  )}
+                </FieldWrapper>
+              );
+            },
+          )}
+        </div>
         <FieldValidationHint
           id={validationHintId}
           invalid={invalid}
