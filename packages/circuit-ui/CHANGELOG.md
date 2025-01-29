@@ -1,5 +1,17 @@
 # @sumup-oss/circuit-ui
 
+## 9.7.0
+
+### Minor Changes
+
+- [#2913](https://github.com/sumup-oss/circuit-ui/pull/2913) [`335eff1`](https://github.com/sumup-oss/circuit-ui/commit/335eff1dc91dca000795f3dec3915ad21607a48e) Thanks [@connor-baer](https://github.com/connor-baer)! - Exported the component styles without the global style reset under `@sumup-oss/circuit-ui/experimental/styles.css`. The global style reset will be removed in the next major release.
+
+- [#2917](https://github.com/sumup-oss/circuit-ui/pull/2917) [`3f002ad`](https://github.com/sumup-oss/circuit-ui/commit/3f002ad0a36faa60dc5f9ffaee30c7931412d450) Thanks [@connor-baer](https://github.com/connor-baer)! - Exported the CheckboxInput and RadioButtonInput components. These internal, low-level components are intended for advanced use cases that aren't covered by the regular, feature-complete Checkbox, CheckboxGroup, and RadioButtonGroup components.
+
+- [#2681](https://github.com/sumup-oss/circuit-ui/pull/2681) [`763c194`](https://github.com/sumup-oss/circuit-ui/commit/763c194855019e571f0cbe4640a8658671cb1865) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new CarouselPagination component. Use it to display larger amounts of content in limited spaces by dividing it into multiple pieces to be discoverd by the users through interaction.
+
+- [#2917](https://github.com/sumup-oss/circuit-ui/pull/2917) [`3f002ad`](https://github.com/sumup-oss/circuit-ui/commit/3f002ad0a36faa60dc5f9ffaee30c7931412d450) Thanks [@connor-baer](https://github.com/connor-baer)! - Increased the tap target area of the Checkbox and RadioButton components.
+
 ## 9.6.0
 
 ### Minor Changes
