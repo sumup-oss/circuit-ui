@@ -15,14 +15,13 @@
 
 'use client';
 
-import { forwardRef, useEffect, useId, useRef } from 'react';
+import { forwardRef, useId } from 'react';
 
 import { FieldValidationHint, FieldWrapper } from '../Field/index.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
-import { applyMultipleRefs } from '../../util/refs.js';
 
 import { CheckboxInput, type CheckboxInputProps } from './CheckboxInput.js';
 import classes from './Checkbox.module.css';
@@ -61,17 +60,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       children,
       ...props
     },
-    passedRef,
+    ref,
   ) => {
-    const localRef = useRef<HTMLInputElement>(null);
-
-    // biome-ignore lint/correctness/useExhaustiveDependencies: Because it came from the props, we keep the `indeterminate` state even if the `checked` one is changed.
-    useEffect(() => {
-      if (localRef.current) {
-        localRef.current.indeterminate = indeterminate;
-      }
-    }, [props.checked, indeterminate]);
-
     const validationHintId = useId();
     const descriptionIds = `${
       descriptionId ? `${descriptionId} ` : ''
@@ -92,7 +82,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       <FieldWrapper className={className} style={style} disabled={disabled}>
         <CheckboxInput
           {...props}
-          ref={applyMultipleRefs(passedRef, localRef)}
+          ref={ref}
           aria-describedby={descriptionIds}
           invalid={invalid}
           disabled={disabled}

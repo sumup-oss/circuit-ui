@@ -58,6 +58,13 @@ describe('CheckboxInput', () => {
       expect(inputEl).toBeDisabled();
     });
 
+    it('should be optionally indeterminate', () => {
+      render(<CheckboxInput {...defaultProps} indeterminate />);
+      const inputEl: HTMLInputElement = screen.getByRole('checkbox');
+      expect(inputEl.indeterminate).toBe(true);
+      expect(inputEl).toHaveAttribute('aria-checked', 'mixed');
+    });
+
     it('should have a name', () => {
       render(<CheckboxInput {...defaultProps} />);
       const inputEl = screen.getByRole('checkbox');

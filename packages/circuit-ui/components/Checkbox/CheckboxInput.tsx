@@ -15,7 +15,13 @@
 
 'use client';
 
-import { forwardRef, useId, type InputHTMLAttributes } from 'react';
+import {
+  forwardRef,
+  useEffect,
+  useId,
+  useRef,
+  type InputHTMLAttributes,
+} from 'react';
 import { Checkmark } from '@sumup-oss/icons';
 
 import {
@@ -24,6 +30,7 @@ import {
 } from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';
+import { applyMultipleRefs } from '../../util/refs.js';
 
 import { IndeterminateIcon } from './IndeterminateIcon.js';
 import classes from './CheckboxInput.module.css';
@@ -51,7 +58,7 @@ export const CheckboxInput = forwardRef<HTMLInputElement, CheckboxInputProps>(
     {
       id: customId,
       invalid,
-      indeterminate,
+      indeterminate = false,
       children,
       className,
       style,
@@ -71,6 +78,15 @@ export const CheckboxInput = forwardRef<HTMLInputElement, CheckboxInputProps>(
       );
     }
 
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    // biome-ignore lint/correctness/useExhaustiveDependencies: Because it came from the props, we keep the `indeterminate` state even if the `checked` one is changed.
+    useEffect(() => {
+      if (inputRef.current) {
+        inputRef.current.indeterminate = indeterminate;
+      }
+    }, [props.checked, indeterminate]);
+
     const id = useId();
     const inputId = customId || id;
 
@@ -78,7 +94,7 @@ export const CheckboxInput = forwardRef<HTMLInputElement, CheckboxInputProps>(
       <>
         <input
           {...props}
-          ref={ref}
+          ref={applyMultipleRefs(ref, inputRef)}
           id={inputId}
           type="checkbox"
           aria-checked={indeterminate ? 'mixed' : undefined}
