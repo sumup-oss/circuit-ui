@@ -1,10 +1,10 @@
 .label {
-  --checkbox-size: 18px;
+  --checkbox-size: 20px;
 
   position: relative;
   display: inline-block;
   min-height: var(--cui-body-m-line-height);
-  padding-left: calc(var(--checkbox-size) + var(--cui-spacings-byte));
+  padding-left: var(--checkbox-size);
   color: var(--cui-fg-normal);
   cursor: pointer;
 }

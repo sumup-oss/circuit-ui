@@ -2,7 +2,3 @@
   display: inline-block;
   padding-left: var(--cui-spacings-byte);
 }
-
-.optional {
-  color: var(--cui-fg-subtle);
-}

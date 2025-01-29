@@ -43,6 +43,7 @@ import {
   RadioButtonInput,
   type RadioButtonInputProps,
 } from './RadioButtonInput.js';
+import classes from './RadioButtonGroup.module.css';
 
 type Option = Omit<
   RadioButtonInputProps,
@@ -229,12 +230,14 @@ export const RadioButtonGroup = forwardRef(
                   }
                   align="start"
                 >
-                  {optionLabel}
-                  {description && (
-                    <FieldDescription aria-hidden="true">
-                      {description}
-                    </FieldDescription>
-                  )}
+                  <span className={classes['label-text']}>
+                    {optionLabel}
+                    {description && (
+                      <FieldDescription aria-hidden="true">
+                        {description}
+                      </FieldDescription>
+                    )}
+                  </span>
                 </RadioButtonInput>
                 {description && (
                   <p

@@ -1,10 +1,10 @@
 .label {
-  --radio-button-size: 18px;
+  --radio-button-size: 20px;
 
   position: relative;
   display: inline-block;
   min-height: var(--cui-body-m-line-height);
-  padding-left: calc(var(--radio-button-size) + var(--cui-spacings-byte));
+  padding-left: var(--radio-button-size);
   color: var(--cui-fg-normal);
   cursor: pointer;
 }
@@ -42,9 +42,9 @@
 }
 
 .label::after {
-  left: var(--cui-spacings-bit);
-  width: 10px;
-  height: 10px;
+  left: calc(var(--radio-button-size) / 4);
+  width: calc(var(--radio-button-size) / 2);
+  height: calc(var(--radio-button-size) / 2);
   background-color: var(--cui-fg-accent);
   border-radius: 100%;
   opacity: 0;
