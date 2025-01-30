@@ -20,7 +20,7 @@
     "@sumup-oss/intl": "^3.1.0",
     "next": "^15.1.3",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@sumup-oss/eslint-plugin-circuit-ui": "^5.0.0",
@@ -33,7 +33,7 @@
     "@types/jest-axe": "^3.5.9",
     "@types/node": "^22.10.7",
     "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.1",
+    "@types/react-dom": "^19.0.3",
     "eslint-config-next": "^15.1.5",
     "eslint-plugin-jest": "^28.11.0",
     "eslint-plugin-testing-library": "^7.1.1",
