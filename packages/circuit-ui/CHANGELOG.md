@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.7.2
+
+### Patch Changes
+
+- [`c358658`](https://github.com/sumup-oss/circuit-ui/commit/c35865886c1855d343dc02a3ff9c14c1390ae9c4) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed a conditional hook call error when violating accessibility requirements.
+
 ## 9.7.1
 
 ### Patch Changes
