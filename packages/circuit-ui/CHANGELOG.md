@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.7.3
+
+### Patch Changes
+
+- [`c040aab`](https://github.com/sumup-oss/circuit-ui/commit/c040aab13c1a32bab6c11dc6ece906f97968ec1c) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed rendering of a dynamic number of RadioButtonGroup options.
+
 ## 9.7.2
 
 ### Patch Changes
