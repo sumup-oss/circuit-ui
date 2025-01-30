@@ -15,147 +15,109 @@
 
 'use client';
 
-import { useEffect, useId, useState, type UIEventHandler } from 'react';
-import type { Props as ReactModalProps } from 'react-modal';
+import {
+  useEffect,
+  useId,
+  useState,
+  type UIEventHandler,
+  forwardRef,
+  useCallback,
+} from 'react';
 
 import { isFunction } from '../../util/type-check.js';
-import {
-  AccessibilityError,
-  isSufficientlyLabelled,
-} from '../../util/errors.js';
+import { Dialog, type DialogProps } from '../Dialog/Dialog.js';
+import { clsx } from '../../styles/clsx.js';
+import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import { useMedia } from '../../hooks/useMedia/index.js';
+import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
 
-import { MobileSidePanel } from './components/MobileSidePanel/index.js';
-import { DesktopSidePanel } from './components/DesktopSidePanel/index.js';
 import { Header } from './components/Header/index.js';
-import type { SidePanelHookProps, OnBack, OnClose } from './useSidePanel.js';
+import type { SidePanelHookProps } from './useSidePanel.js';
 import classes from './SidePanel.module.css';
+import { translations } from './translations/index.js';
 
-export type SidePanelProps = Omit<ReactModalProps, 'children'> &
-  Pick<
-    SidePanelHookProps,
-    'backButtonLabel' | 'children' | 'closeButtonLabel' | 'headline'
-  > & {
-    /**
-     * Boolean indicating whether the bottom side panel is being closed.
-     */
-    isBottomPanelClosing: boolean;
-    /**
-     * Boolean indicating whether the side panel should be opened without animation.
-     */
-    isInstantOpen: boolean;
-    /**
-     * Boolean indicating whether the side panel should be in desktop or mobile mode.
-     */
-    isMobile: boolean;
-    /**
-     * Boolean indicating whether the side panel is stacked over another panel.
-     */
-    isStacked: boolean;
-    /**
-     * Callback function that is called when the side panel is closed.
-     */
-    onBack?: OnBack;
-    /**
-     * Callback function that is called when the side panel is closed.
-     */
-    onClose: OnClose;
-  };
+export type SidePanelProps = Omit<DialogProps, 'children'> & SidePanelHookProps;
 
-export const SidePanel = ({
-  backButtonLabel,
-  children,
-  closeButtonLabel,
-  headline,
-  isBottomPanelClosing,
-  isInstantOpen,
-  isMobile,
-  isStacked,
-  onBack,
-  onClose,
-  ...props
-}: SidePanelProps) => {
-  if (
-    process.env.NODE_ENV !== 'production' &&
-    process.env.NODE_ENV !== 'test'
-  ) {
-    if (!isSufficientlyLabelled(closeButtonLabel)) {
-      throw new AccessibilityError(
-        'SidePanel',
-        'The `closeButtonLabel` prop is missing or invalid.',
+export const SidePanel = forwardRef<HTMLDialogElement, SidePanelProps>(
+  (props, ref) => {
+    const {
+      open,
+      backButtonLabel,
+      children,
+      closeButtonLabel,
+      headline,
+      onBack,
+      onCloseEnd,
+      onClose,
+      preventOutsideClickClose,
+      animationDuration = 0,
+      preventEscapeKeyClose,
+      className,
+      ...rest
+    } = useI18n(props, translations);
+    const isMobile = useMedia('(max-width: 767px)');
+
+    {
+      const [animationClass, setAnimationClass] = useState<string>();
+      const [isHeaderSticky, setHeaderSticky] = useState(false);
+      const headerAriaId = useId();
+
+      // biome-ignore lint/correctness/useExhaustiveDependencies: Not sure why this effect is necessary
+      useEffect(() => {
+        setHeaderSticky(false);
+      }, [isMobile]);
+
+      const handleScroll: UIEventHandler<HTMLDivElement> = (event) => {
+        setHeaderSticky(event.currentTarget.scrollTop > 0);
+      };
+
+      useEffect(() => {
+        setAnimationClass(open ? classes.open : undefined);
+      }, [open]);
+
+      useEffect(
+        () => () => {
+          onCloseEnd?.();
+        },
+        [onCloseEnd],
+      );
+
+      const escapeHandler = useCallback(() => {
+        (onBack || onClose)?.();
+      }, [onBack, onClose]);
+
+      useEscapeKey(escapeHandler, open && !preventEscapeKeyClose);
+
+      return (
+        <Dialog
+          {...rest}
+          ref={ref}
+          open={open}
+          isModal={isMobile}
+          aria-labelledby={headerAriaId}
+          animationDuration={animationDuration}
+          className={clsx(classes.base, animationClass, className)}
+          onCloseStart={onBack || onClose}
+          preventOutsideClickClose={true}
+          preventEscapeKeyClose={true}
+          hideCloseButton
+        >
+          <div className={classes.wrapper} onScroll={handleScroll}>
+            <Header
+              backButtonLabel={backButtonLabel}
+              closeButtonLabel={closeButtonLabel}
+              headline={headline}
+              id={headerAriaId}
+              onBack={onBack}
+              onClose={onClose}
+              isSticky={isHeaderSticky}
+            />
+            <div className={classes.content}>
+              {isFunction(children) ? children({ onBack, onClose }) : children}
+            </div>
+          </div>
+        </Dialog>
       );
     }
-    if (onBack && !isSufficientlyLabelled(backButtonLabel)) {
-      throw new AccessibilityError(
-        'SidePanel',
-        'The `backButtonLabel` prop is missing or invalid.',
-      );
-    }
-  }
-
-  const [isHeaderSticky, setHeaderSticky] = useState(false);
-  const headerAriaId = useId();
-
-  // biome-ignore lint/correctness/useExhaustiveDependencies: Not sure why this effect is necessary
-  useEffect(() => {
-    setHeaderSticky(false);
-  }, [isMobile]);
-
-  const handleScroll: UIEventHandler<HTMLDivElement> = (event) => {
-    setHeaderSticky(event.currentTarget.scrollTop > 0);
-  };
-
-  const defaultProps: Partial<ReactModalProps> = {
-    aria: {
-      labelledby: headerAriaId,
-    },
-    onRequestClose: onBack || onClose,
-    bodyOpenClassName: '',
-    /**
-     * react-modal relies on document.activeElement to return focus after the modal is closed.
-     * Safari and Firefox don't set it properly on button click (see https://github.com/reactjs/react-modal/issues/858 and https://github.com/reactjs/react-modal/issues/389).
-     * Returning the focus to document.body or to the focus-root can cause unwanted page scroll.
-     * Preventing scroll on focus would provide better UX for mouse users and shouldn't cause any side effects for assistive technology users.
-     */
-    preventScroll: true,
-  };
-
-  const content = (
-    <div className={classes.base} onScroll={handleScroll}>
-      <Header
-        backButtonLabel={backButtonLabel}
-        closeButtonLabel={closeButtonLabel}
-        headline={headline}
-        id={headerAriaId}
-        onBack={onBack}
-        onClose={onClose}
-        isSticky={isHeaderSticky}
-      />
-      <div className={classes.content}>
-        {isFunction(children) ? children({ onBack, onClose }) : children}
-      </div>
-    </div>
-  );
-
-  if (isMobile) {
-    return (
-      <MobileSidePanel
-        {...defaultProps}
-        {...props}
-        isBottomPanelClosing={isBottomPanelClosing}
-        isStacked={isStacked}
-      >
-        {content}
-      </MobileSidePanel>
-    );
-  }
-
-  return (
-    <DesktopSidePanel
-      {...defaultProps}
-      {...props}
-      isInstantOpen={isInstantOpen}
-    >
-      {content}
-    </DesktopSidePanel>
-  );
-};
+  },
+);

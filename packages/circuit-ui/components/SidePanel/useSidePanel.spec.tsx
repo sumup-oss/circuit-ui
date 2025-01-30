@@ -69,6 +69,7 @@ describe('useSidePanel', () => {
       ...panel,
       group: ':r0:',
       id: '1',
+      open: true,
     };
     expect(setSidePanel).toHaveBeenCalledWith(expected);
   });
@@ -83,6 +84,7 @@ describe('useSidePanel', () => {
       ...panel,
       group: testId,
       id: defaultId,
+      open: true,
     };
     expect(setSidePanel).toHaveBeenCalledWith(expected);
   });

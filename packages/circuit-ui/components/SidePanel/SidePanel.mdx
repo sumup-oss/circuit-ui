@@ -1,5 +1,5 @@
-import { Meta, Status, Props, Story } from '../../../../.storybook/components';
-import * as Stories from './SidePanel.stories';
+import { Meta, Status, Props, Story } from "../../../../.storybook/components";
+import * as Stories from "./SidePanel.stories";
 
 <Meta of={Stories} />
 
@@ -8,26 +8,36 @@ import * as Stories from './SidePanel.stories';
 <Status variant="stable" />
 
 The side panel component provides an additional surface for displaying contextual information that can support the screen's primary content.
-It should always start in the closed state and appear only upon user interaction with another element.
-You can also open a secondary side panel on top of the first, triggered from an element within the first panel.
 
 _Note: the examples for the side panel component are best viewed in canvas mode_
 
 <Story of={Stories.Base} />
-<Props />
+<Props
+  include={[
+    "headline",
+    "children",
+    "onClose",
+    "closeButtonLabel",
+    "backButtonLabel",
+    "group",
+  ]}
+/>
 
 ## Usage guidelines
 
 - **Do** use the side panel to show short-lived contextual information as part of the user's workflow.
+- **Do** only show the side panel upon user interaction with its triggering element.
+- **Do** open a secondary side panel on top of the first, only by triggering an element from within the first panel.
 - **Do not** use the side panel as a permanent layout element. It should always be dismissible.
 
 ## Accessibility
 
 The side panel component has been built to be used as part of a workflow and this has an effect on its accessibility.
-When the element triggering the side panel is clicked, the focus automatically shifts to the newly opened panel, facilitating a better keyboard navigation experience.
-While the side panel is visible the focus remains trapped inside. On desktop resolutions the side panel is non-modal, meaning that mouse users can interact with the rest of the application.
-Screen reader users would have to close the side panel first, which can also be done using the Esc key.
-Once the side panel is closed focus is returned to the trigger element.
+
+On desktop resolutions the side panel is non-modal, meaning that users can interact with the rest of the application, and focus is not trapped.
+On mobile resolutions the side panel is modal and covers the screen, meaning that the rest of the application is not accessible while the side panel is open.
+
+This component is built on top of the low level [Dialog](Components/Dialog/Docs) component, which meets the necessary accessibility requirements for this pattern. If this component does not meet your requirements, you can use the `Dialog` component directly to build your own custom dialog.
 
 ## Usage in code
 
@@ -35,22 +45,16 @@ First, wrap the primary content of your application in the `SidePanelProvider`. 
 On desktop resolutions the primary content will be resized when the side panel is opened.
 
 ```tsx
-<SidePanelProvider>
-  {/* Your primary content here... */}
-</SidePanelProvider>
+<SidePanelProvider>{/* Your primary content here... */}</SidePanelProvider>
 ```
 
-<Story of={Stories.WithTopNavigation} />
-
 Then, use the `useSidePanel` hook to open a side panel from within a component.
-In the most straightforward case, simply use the `setSidePanel` function, passing the minimum set of props:
+In the most straightforward case, simply use the `setSidePanel` function to open a side panel with a headline and some content.
 
-- `children` - the content of your side panel
-- `closeButtonLabel` - an accessibility label for the close Button
-- `headline` - the title of the side panel
+The panel can self close using its built-in close button or by pressing the Escape key.
 
 ```tsx
-import { useSidePanel, Button, Body } from '@sumup-oss/circuit-ui';
+import { useSidePanel, Button, Body } from "@sumup-oss/circuit-ui";
 
 export function ShowMore() {
   const { setSidePanel } = useSidePanel();
@@ -58,8 +62,7 @@ export function ShowMore() {
   const handleClick = () => {
     setSidePanel({
       children: <Body>Some additional information</Body>,
-      closeButtonLabel: 'Close',
-      headline: 'More information',
+      headline: "More information",
     });
   };
 
@@ -76,7 +79,9 @@ For stacked side panels you need to also provide the `backButtonLabel` accessibi
 
 In addition to the `setSidePanel` function the `useSidePanel` hook also returns the `updateSidePanel` and `removeSidePanel` functions.
 You can use `updateSidePanel` if you need to update the side panel asynchronously, though usually you should keep the side panel content self-contained.
-The `removeSidePanel` function allows you to programmatically close the side panel from the component that triggered it. Closing a lower level side panel also closes the panels stacked on top of it.
+The `removeSidePanel` function allows you to programmatically close the side panel from the component that triggered it. Closing a stacked side panel using the close button will close the entire stack.
+
+<Story of={Stories.UpdateAndRemove} />
 
 It is also possible to close a side panel manually from within the side panel, e.g. closing the panel after an asynchronous API call.
 This is achieved with the use of the `onBack` and `onClose` render props which are passed to the `children` prop.
@@ -84,5 +89,3 @@ This is achieved with the use of the `onBack` and `onClose` render props which a
 Calling `onClose` will close the entire stack, just like clicking on the close button in the header.
 
 It is possible to delay or cancel the closing of a side panel by passing an asynchronous `onClose` callback to the `setSidePanel` function. This can be useful to prompt users to confirm the closing of the side panel if they have entered information but haven't saved it yet, to prevent data loss.
-
-<Story of={Stories.UpdateAndRemove} />

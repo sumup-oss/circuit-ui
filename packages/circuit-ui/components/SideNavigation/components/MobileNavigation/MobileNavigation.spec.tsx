@@ -41,7 +41,7 @@ describe('MobileNavigation', () => {
 
   const baseProps = {
     open: true,
-    onCloseEnd: vi.fn(),
+    onClose: vi.fn(),
     closeButtonLabel: 'Close navigation modal',
     primaryNavigationLabel: 'Primary',
   };
@@ -128,7 +128,7 @@ describe('MobileNavigation', () => {
 
     await userEvent.click(primaryLinkEl);
 
-    expect(baseProps.onCloseEnd).toHaveBeenCalledTimes(1);
+    expect(baseProps.onClose).toHaveBeenCalledTimes(1);
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
@@ -177,7 +177,7 @@ describe('MobileNavigation', () => {
 
     await userEvent.click(secondaryLinkEl);
 
-    expect(baseProps.onCloseEnd).toHaveBeenCalledTimes(1);
+    expect(baseProps.onClose).toHaveBeenCalledTimes(1);
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
