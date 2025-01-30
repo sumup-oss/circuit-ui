@@ -67,17 +67,6 @@ export const CheckboxInput = forwardRef<HTMLInputElement, CheckboxInputProps>(
     },
     ref,
   ) => {
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !isSufficientlyLabelled(children, props)
-    ) {
-      throw new AccessibilityError(
-        'CheckboxInput',
-        'The input is missing a valid label.',
-      );
-    }
-
     const inputRef = useRef<HTMLInputElement>(null);
 
     // biome-ignore lint/correctness/useExhaustiveDependencies: Because it came from the props, we keep the `indeterminate` state even if the `checked` one is changed.
@@ -89,6 +78,17 @@ export const CheckboxInput = forwardRef<HTMLInputElement, CheckboxInputProps>(
 
     const id = useId();
     const inputId = customId || id;
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !isSufficientlyLabelled(children, props)
+    ) {
+      throw new AccessibilityError(
+        'CheckboxInput',
+        'The input is missing a valid label.',
+      );
+    }
 
     return (
       <>

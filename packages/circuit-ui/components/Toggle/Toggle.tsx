@@ -70,6 +70,14 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
     },
     ref,
   ) => {
+    const switchId = useId();
+    const labelId = useId();
+    const descriptionId = useId();
+
+    const descriptionIds = [describedBy, description && descriptionId]
+      .filter(Boolean)
+      .join(' ');
+
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -98,14 +106,6 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
         );
       }
     }
-
-    const switchId = useId();
-    const labelId = useId();
-    const descriptionId = useId();
-
-    const descriptionIds = [describedBy, description && descriptionId]
-      .filter(Boolean)
-      .join(' ');
 
     return (
       <FieldWrapper

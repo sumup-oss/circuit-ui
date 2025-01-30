@@ -124,30 +124,6 @@ export const ImageInput = ({
   'aria-describedby': descriptionId,
   ...props
 }: ImageInputProps) => {
-  if (
-    process.env.NODE_ENV !== 'production' &&
-    process.env.NODE_ENV !== 'test'
-  ) {
-    if (!isSufficientlyLabelled(label)) {
-      throw new AccessibilityError(
-        'ImageInput',
-        'The `label` prop is missing or invalid.',
-      );
-    }
-    if (!isSufficientlyLabelled(clearButtonLabel)) {
-      throw new AccessibilityError(
-        'ImageInput',
-        'The `clearButtonLabel` prop is missing or invalid.',
-      );
-    }
-    if (!isSufficientlyLabelled(loadingLabel)) {
-      throw new AccessibilityError(
-        'ImageInput',
-        'The `loadingLabel` prop is missing or invalid.',
-      );
-    }
-  }
-
   const inputRef = useRef<HTMLInputElement>(null);
   const id = useId();
   const inputId = customId || id;
@@ -241,6 +217,30 @@ export const ImageInput = ({
       }
     }
   };
+
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test'
+  ) {
+    if (!isSufficientlyLabelled(label)) {
+      throw new AccessibilityError(
+        'ImageInput',
+        'The `label` prop is missing or invalid.',
+      );
+    }
+    if (!isSufficientlyLabelled(clearButtonLabel)) {
+      throw new AccessibilityError(
+        'ImageInput',
+        'The `clearButtonLabel` prop is missing or invalid.',
+      );
+    }
+    if (!isSufficientlyLabelled(loadingLabel)) {
+      throw new AccessibilityError(
+        'ImageInput',
+        'The `loadingLabel` prop is missing or invalid.',
+      );
+    }
+  }
 
   return (
     <FieldWrapper className={className} style={style} disabled={disabled}>

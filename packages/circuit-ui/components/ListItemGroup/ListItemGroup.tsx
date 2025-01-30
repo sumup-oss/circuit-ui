@@ -79,6 +79,13 @@ export const ListItemGroup = forwardRef<HTMLDivElement, ListItemGroupProps>(
     },
     ref,
   ) => {
+    const [focusedItemKey, setFocusedItemKey] = useState<
+      ItemProps['key'] | null
+    >(null);
+
+    const isPlain = variant === 'plain';
+    const isInteractive = items.some((item) => !!item.href || !!item.onClick);
+
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -89,12 +96,6 @@ export const ListItemGroup = forwardRef<HTMLDivElement, ListItemGroupProps>(
         'The `label` prop is missing. This is an accessibility requirement. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
-    const [focusedItemKey, setFocusedItemKey] = useState<
-      ItemProps['key'] | null
-    >(null);
-
-    const isPlain = variant === 'plain';
-    const isInteractive = items.some((item) => !!item.href || !!item.onClick);
 
     return (
       <div

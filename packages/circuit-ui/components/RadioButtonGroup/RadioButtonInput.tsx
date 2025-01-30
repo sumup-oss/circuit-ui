@@ -43,6 +43,9 @@ export const RadioButtonInput = forwardRef<
     { 'id': customId, className, style, children, align = 'center', ...props },
     ref,
   ) => {
+    const id = useId();
+    const inputId = customId || id;
+
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -53,9 +56,6 @@ export const RadioButtonInput = forwardRef<
         'The input is missing a valid label.',
       );
     }
-
-    const id = useId();
-    const inputId = customId || id;
 
     return (
       <>

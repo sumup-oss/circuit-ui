@@ -57,6 +57,12 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
     },
     ref,
   ) => {
+    const id = useId();
+    const inputId = customId || id;
+    const descriptionId = useId();
+
+    const descriptionIds = clsx(describedBy, description && descriptionId);
+
     if (process.env.NODE_ENV !== 'production') {
       deprecate(
         'RadioButton',
@@ -73,12 +79,6 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
         'The `label` prop is missing or invalid.',
       );
     }
-
-    const id = useId();
-    const inputId = customId || id;
-    const descriptionId = useId();
-
-    const descriptionIds = clsx(describedBy, description && descriptionId);
 
     return (
       <FieldWrapper className={className} style={style} disabled={disabled}>
