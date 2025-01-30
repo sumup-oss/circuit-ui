@@ -12,5 +12,19 @@
     "next-app": "2.0.0",
     "@sumup-oss/remix-template-circuit-ui": "4.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "angry-ears-train",
+    "cyan-knives-drop",
+    "eight-beers-think",
+    "gold-lemons-report",
+    "grumpy-wombats-talk",
+    "lucky-cheetahs-flow",
+    "metal-sloths-ring",
+    "poor-ads-hunt",
+    "rich-icons-pretend",
+    "sharp-seals-leave",
+    "silent-moles-guess",
+    "spicy-avocados-provide",
+    "wicked-pants-cough"
+  ]
 }

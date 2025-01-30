@@ -1,5 +1,11 @@
 # @sumup-oss/design-tokens
 
+## 8.3.0-next.0
+
+### Minor Changes
+
+- [#2859](https://github.com/sumup-oss/circuit-ui/pull/2859) [`3dd75c9`](https://github.com/sumup-oss/circuit-ui/commit/3dd75c9b647eb80d5043c6cac1cbb0d299654f56) Thanks [@sirineJ](https://github.com/sirineJ)! - Added "::backdrop" to the list of selectors to apply theme custom properties to. See https://developer.chrome.com/blog/css-backdrop-inheritance.
+
 ## 8.2.0
 
 ### Minor Changes
