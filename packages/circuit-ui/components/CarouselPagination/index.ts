@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2024, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,21 +13,6 @@
  * limitations under the License.
  */
 
-import { Image, type ImageProps } from './Image.js';
+export { CarouselPagination } from './CarouselPagination.js';
 
-export default {
-  title: 'Components/Image',
-  component: Image,
-  tags: ['status:stable'],
-  argTypes: {
-    src: { control: 'text' },
-    alt: { control: 'text' },
-  },
-};
-
-export const Base = (args: ImageProps) => <Image {...args} />;
-
-Base.args = {
-  src: '/images/sumup-tablet-insights.jpg',
-  alt: 'A tablet shows sales insights in the SumUp POS app. On the table next to it are a SumUp Solo card reader with printer and two bowls with fruits',
-};
+export type { CarouselPaginationProps } from './CarouselPagination.js';

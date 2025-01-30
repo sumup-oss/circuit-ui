@@ -146,18 +146,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     },
     ref,
   ): ReturnType => {
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      props.type !== 'hidden' &&
-      !isSufficientlyLabelled(label)
-    ) {
-      throw new AccessibilityError(
-        'Input',
-        'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
-      );
-    }
-
     const id = useId();
     const inputId = customId || id;
     const validationHintId = useId();
@@ -170,6 +158,18 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     const hasPrefix = Boolean(prefix);
     const hasSuffix = Boolean(suffix);
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      props.type !== 'hidden' &&
+      !isSufficientlyLabelled(label)
+    ) {
+      throw new AccessibilityError(
+        'Input',
+        'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
+      );
+    }
 
     return (
       <FieldWrapper className={className} style={style} disabled={disabled}>

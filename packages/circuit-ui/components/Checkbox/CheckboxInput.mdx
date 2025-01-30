@@ -1,0 +1,19 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './CheckboxInput.stories';
+
+<Meta of={Stories} />
+
+# CheckboxInput
+
+<Status variant="internal" />
+
+This is a low-level component for advanced use cases. Only use it if the [Checkbox](Forms/Checkbox/Docs) and [CheckboxGroup](Forms/CheckboxGroup/Docs) components don't meet your requirements.
+
+<Story of={Stories.Base} />
+<Props />
+
+## Accessibility
+
+A checkbox must have a label (aka https://www.tpgi.com/what-is-an-accessible-name/) that describes the purpose of the input in a concise manner. Passing the label to the CheckboxInput as its child will render it inside the `label` associated with the `input`. This has the added benefit of allowing users to toggle the checkbox by pressing the label.  Keep in mind that accessible names don't have semantics or structure, so rendering e.g. an anchor or a tooltip in the label would be an accessibility issue.
+
+In case the label needs to be displayed separately from the checkbox, such as in a table, associate it with the input using the [`aria-labelledby` attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby). If additional context can or should be provided, associate it with the input using the [`aria-describedby` attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby).

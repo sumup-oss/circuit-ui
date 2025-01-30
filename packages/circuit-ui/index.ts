@@ -48,7 +48,6 @@ export { CheckboxGroup } from './components/CheckboxGroup/index.js';
 export type { CheckboxGroupProps } from './components/CheckboxGroup/index.js';
 export { Input } from './components/Input/index.js';
 export type { InputProps, InputElement } from './components/Input/index.js';
-export type { RadioButtonProps } from './components/RadioButton/index.js';
 export { RadioButtonGroup } from './components/RadioButtonGroup/index.js';
 export type { RadioButtonGroupProps } from './components/RadioButtonGroup/index.js';
 export { SearchInput } from './components/SearchInput/index.js';
@@ -197,6 +196,8 @@ export {
   CarouselComposer,
 } from './components/Carousel/index.js';
 export type { CarouselProps } from './components/Carousel/index.js';
+export { CarouselPagination } from './components/CarouselPagination/index.js';
+export type { CarouselPaginationProps } from './components/CarouselPagination/index.js';
 export { Avatar } from './components/Avatar/index.js';
 export type { AvatarProps } from './components/Avatar/index.js';
 

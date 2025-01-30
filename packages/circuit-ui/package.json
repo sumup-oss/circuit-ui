@@ -1,6 +1,6 @@
 {
   "name": "@sumup-oss/circuit-ui",
-  "version": "9.6.0",
+  "version": "9.7.3",
   "description": "SumUp's React UI component library",
   "type": "module",
   "main": "./dist/index.js",
@@ -18,7 +18,12 @@
       "types": "./dist/experimental.d.ts",
       "default": "./dist/experimental.js"
     },
-    "./styles.css": "./dist/style.css"
+    "./internal": {
+      "types": "./dist/internal.d.ts",
+      "default": "./dist/internal.js"
+    },
+    "./styles.css": "./dist/style.css",
+    "./experimental/styles.css": "./dist/experimental-styles.css"
   },
   "typesVersions": {
     "*": {
@@ -27,6 +32,9 @@
       ],
       "experimental": [
         "./dist/experimental.d.ts"
+      ],
+      "internal": [
+        "./dist/internal.d.ts"
       ]
     }
   },
@@ -45,7 +53,7 @@
   },
   "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/circuit-ui/README.md",
   "scripts": {
-    "build": "vite build && tsc -p tsconfig.build.json && rm -rf dist/node_modules",
+    "build": "vite build && tsc -p tsconfig.build.json && rm -rf dist/node_modules && sed '/BEGIN RESET/,/END RESET/d' ./dist/style.css > ./dist/experimental-styles.css",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
     "test": "vitest"

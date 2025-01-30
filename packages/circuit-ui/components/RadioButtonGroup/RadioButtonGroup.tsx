@@ -24,11 +24,6 @@ import {
 } from 'react';
 
 import {
-  RadioButton,
-  RadioButtonGroupContext,
-  type RadioButtonProps,
-} from '../RadioButton/RadioButton.js';
-import {
   FieldLabelText,
   FieldValidationHint,
   FieldLegend,
@@ -39,6 +34,27 @@ import {
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 import { isEmpty } from '../../util/helpers.js';
+import { clsx } from '../../styles/clsx.js';
+import {
+  RadioButton,
+  type RadioButtonProps,
+} from '../RadioButton/RadioButton.js';
+
+import classes from './RadioButtonGroup.module.css';
+
+type Option = Omit<
+  RadioButtonProps,
+  'onChange' | 'onBlur' | 'name' | 'children'
+> & {
+  /**
+   * A clear and concise description of the option's purpose.
+   */
+  label: string;
+  /**
+   * Further details about the option's purpose.
+   */
+  description?: string;
+};
 
 export interface RadioButtonGroupProps
   extends Omit<
@@ -49,7 +65,7 @@ export interface RadioButtonGroupProps
    * A collection of available options. Each option must have at least a value
    * and a label.
    */
-  options: Omit<RadioButtonProps, 'onChange' | 'onBlur' | 'name'>[];
+  options: Option[];
   /**
    * A callback that is called when any of the inputs change their values.
    * Passed on to the RadioButtons.
@@ -137,9 +153,7 @@ export const RadioButtonGroup = forwardRef(
     const randomName = useId();
     const name = customName || randomName;
     const validationHintId = useId();
-    const descriptionIds = `${
-      descriptionId ? `${descriptionId} ` : ''
-    }${validationHintId}`;
+    const descriptionIds = clsx(descriptionId, validationHintId);
 
     if (
       process.env.NODE_ENV !== 'production' &&
@@ -176,15 +190,15 @@ export const RadioButtonGroup = forwardRef(
             required={required}
           />
         </FieldLegend>
-        <RadioButtonGroupContext.Provider value={true}>
+        <div className={classes.base}>
           {options.map((option) => (
             <RadioButton
               {...option}
               key={option.value?.toString() || option.label}
+              disabled={disabled || option.disabled}
               name={name}
               onChange={onChange}
               onBlur={onBlur}
-              disabled={disabled || option.disabled}
               checked={value ? option.value === value : option.checked}
               defaultChecked={
                 defaultValue
@@ -193,7 +207,7 @@ export const RadioButtonGroup = forwardRef(
               }
             />
           ))}
-        </RadioButtonGroupContext.Provider>
+        </div>
         <FieldValidationHint
           id={validationHintId}
           invalid={invalid}

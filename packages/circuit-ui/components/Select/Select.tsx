@@ -129,17 +129,6 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     },
     ref,
   ): ReturnType => {
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !isSufficientlyLabelled(label)
-    ) {
-      throw new AccessibilityError(
-        'Select',
-        'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
-      );
-    }
-
     const id = useId();
     const selectId = customId || id;
     const validationHintId = useId();
@@ -151,6 +140,17 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
       <RenderPrefix className={classes.prefix} value={value} />
     );
     const hasPrefix = Boolean(prefix);
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !isSufficientlyLabelled(label)
+    ) {
+      throw new AccessibilityError(
+        'Select',
+        'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
+      );
+    }
 
     return (
       <FieldWrapper className={className} style={style} disabled={disabled}>

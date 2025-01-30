@@ -45,6 +45,14 @@ const badges = {
       borderColor: 'var(--cui-border-danger)',
     },
   },
+  'status:internal': {
+    label: 'Internal',
+    style: {
+      color: 'var(--cui-fg-normal)',
+      backgroundColor: 'var(--cui-bg-subtle)',
+      borderColor: 'var(--cui-border-normal)',
+    },
+  },
 } satisfies Record<string, BadgeConfig>;
 
 addons.setConfig({
