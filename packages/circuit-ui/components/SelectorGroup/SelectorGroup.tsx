@@ -20,6 +20,7 @@ import { forwardRef, useId, type FieldsetHTMLAttributes } from 'react';
 import {
   Selector,
   SelectorGroupContext,
+  legacySizeMap,
   type SelectorProps,
   type SelectorSize,
 } from '../Selector/Selector.js';
@@ -83,7 +84,7 @@ export interface SelectorGroupProps
    */
   size?: SelectorSize;
   /**
-   * Whether the group should take the whole width available. Defaults to true.
+   * Whether the group should take the whole width available. Defaults to false.
    */
   stretch?: boolean;
   /**
@@ -139,11 +140,12 @@ export const SelectorGroup = forwardRef<
       optionalLabel,
       disabled,
       multiple,
-      size,
+      'size': legacySize = 'm',
       stretch = false,
       validationHint,
       invalid,
       hideLabel,
+      className,
       ...props
     },
     ref,
@@ -170,6 +172,8 @@ export const SelectorGroup = forwardRef<
       return null;
     }
 
+    const size = legacySizeMap[legacySize] || legacySize;
+
     return (
       <FieldSet
         name={name}
@@ -178,6 +182,7 @@ export const SelectorGroup = forwardRef<
         disabled={disabled}
         role={multiple ? undefined : 'radiogroup'}
         aria-orientation={multiple ? undefined : 'horizontal'}
+        className={clsx(className, stretch && classes.stretch, classes[size])}
         {...props}
       >
         <FieldLegend>
@@ -188,7 +193,7 @@ export const SelectorGroup = forwardRef<
             required={required}
           />
         </FieldLegend>
-        <div className={clsx(classes.base, stretch && classes.stretch)}>
+        <div className={classes.options}>
           <SelectorGroupContext.Provider value={true}>
             {options.map((option) => (
               <Selector
