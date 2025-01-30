@@ -22,8 +22,7 @@
       "types": "./dist/internal.d.ts",
       "default": "./dist/internal.js"
     },
-    "./styles.css": "./dist/style.css",
-    "./experimental/styles.css": "./dist/experimental-styles.css"
+    "./styles.css": "./dist/style.css"
   },
   "typesVersions": {
     "*": {
@@ -53,7 +52,7 @@
   },
   "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/circuit-ui/README.md",
   "scripts": {
-    "build": "vite build && tsc -p tsconfig.build.json && rm -rf dist/node_modules && sed '/BEGIN RESET/,/END RESET/d' ./dist/style.css > ./dist/experimental-styles.css",
+    "build": "vite build && tsc -p tsconfig.build.json && rm -rf dist/node_modules",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
     "test": "vitest"
