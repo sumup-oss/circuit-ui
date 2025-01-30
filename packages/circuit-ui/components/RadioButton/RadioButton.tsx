@@ -15,7 +15,7 @@
 
 'use client';
 
-import { forwardRef, useId, type InputHTMLAttributes } from 'react';
+import { forwardRef, useId } from 'react';
 
 import {
   AccessibilityError,
@@ -24,11 +24,14 @@ import {
 import { FieldWrapper, FieldDescription } from '../Field/index.js';
 import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';
-import { deprecate } from '../../util/logger.js';
-import { RadioButtonInput } from '../RadioButtonGroup/RadioButtonInput.js';
+import {
+  RadioButtonInput,
+  type RadioButtonInputProps,
+} from '../RadioButtonGroup/RadioButtonInput.js';
 
-export interface RadioButtonProps
-  extends InputHTMLAttributes<HTMLInputElement> {
+import classes from './RadioButton.module.css';
+
+export interface RadioButtonProps extends Omit<RadioButtonInputProps, 'align'> {
   /**
    * A clear and concise description of the option's purpose.
    */
@@ -41,7 +44,7 @@ export interface RadioButtonProps
 }
 
 /**
- * @deprecated Use the {@link RadioButtonGroup} component instead.
+ * @deprecated Use the {@link RadioButtonGroup} or {@link RadioButtonInput} components instead.
  */
 export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
   (
@@ -63,12 +66,6 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
 
     const descriptionIds = clsx(describedBy, description && descriptionId);
 
-    if (process.env.NODE_ENV !== 'production') {
-      deprecate(
-        'RadioButton',
-        'The RadioButton component has been deprecated. Use the RadioButtonGroup or RadioButtonInput components instead.',
-      );
-    }
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -88,13 +85,16 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
           id={inputId}
           disabled={disabled}
           aria-describedby={descriptionIds}
+          align="start"
         >
-          {label}
-          {description && (
-            <FieldDescription aria-hidden="true">
-              {description}
-            </FieldDescription>
-          )}
+          <span className={classes['label-text']}>
+            {label}
+            {description && (
+              <FieldDescription aria-hidden="true">
+                {description}
+              </FieldDescription>
+            )}
+          </span>
         </RadioButtonInput>
         {description && (
           <p id={descriptionId} className={utilClasses.hideVisually}>

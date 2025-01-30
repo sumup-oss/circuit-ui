@@ -28,25 +28,22 @@ import {
   FieldValidationHint,
   FieldLegend,
   FieldSet,
-  FieldWrapper,
-  FieldDescription,
 } from '../Field/index.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 import { isEmpty } from '../../util/helpers.js';
-import { utilClasses } from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
-
 import {
-  RadioButtonInput,
-  type RadioButtonInputProps,
-} from './RadioButtonInput.js';
+  RadioButton,
+  type RadioButtonProps,
+} from '../RadioButton/RadioButton.js';
+
 import classes from './RadioButtonGroup.module.css';
 
 type Option = Omit<
-  RadioButtonInputProps,
+  RadioButtonProps,
   'onChange' | 'onBlur' | 'name' | 'children'
 > & {
   /**
@@ -73,12 +70,12 @@ export interface RadioButtonGroupProps
    * A callback that is called when any of the inputs change their values.
    * Passed on to the RadioButtons.
    */
-  onChange?: RadioButtonInputProps['onChange'];
+  onChange?: RadioButtonProps['onChange'];
   /**
    * A callback that is called when any of the inputs lose focus.
    * Passed on to the RadioButtons.
    */
-  onBlur?: RadioButtonInputProps['onBlur'];
+  onBlur?: RadioButtonProps['onBlur'];
   /**
    * A visually hidden description of the selector group for screen readers.
    */
@@ -91,11 +88,11 @@ export interface RadioButtonGroupProps
   /**
    * The value of the currently checked RadioButton.
    */
-  value?: RadioButtonInputProps['value'];
+  value?: RadioButtonProps['value'];
   /**
    * The value of the currently checked RadioButton.
    */
-  defaultValue?: RadioButtonInputProps['value'];
+  defaultValue?: RadioButtonProps['value'];
   /**
    * The ref to the HTML DOM element
    */
@@ -194,64 +191,22 @@ export const RadioButtonGroup = forwardRef(
           />
         </FieldLegend>
         <div className={classes.base}>
-          {options.map(
-            ({
-              className,
-              style,
-              label: optionLabel,
-              description,
-              'aria-describedby': describedBy,
-              ...option
-            }) => {
-              const optionDescriptionId = useId();
-              const optionDescriptionIds = clsx(
-                description && optionDescriptionId,
-                describedBy,
-              );
-
-              return (
-                <FieldWrapper
-                  key={option.value?.toString() || optionLabel}
-                  className={className}
-                  style={style}
-                  disabled={disabled || option.disabled}
-                >
-                  <RadioButtonInput
-                    {...option}
-                    name={name}
-                    onChange={onChange}
-                    onBlur={onBlur}
-                    disabled={disabled || option.disabled}
-                    checked={value ? option.value === value : option.checked}
-                    aria-describedby={optionDescriptionIds}
-                    defaultChecked={
-                      defaultValue
-                        ? option.value === defaultValue
-                        : option.defaultChecked
-                    }
-                    align="start"
-                  >
-                    <span className={classes['label-text']}>
-                      {optionLabel}
-                      {description && (
-                        <FieldDescription aria-hidden="true">
-                          {description}
-                        </FieldDescription>
-                      )}
-                    </span>
-                  </RadioButtonInput>
-                  {description && (
-                    <p
-                      id={optionDescriptionId}
-                      className={utilClasses.hideVisually}
-                    >
-                      {description}
-                    </p>
-                  )}
-                </FieldWrapper>
-              );
-            },
-          )}
+          {options.map((option) => (
+            <RadioButton
+              {...option}
+              key={option.value?.toString() || option.label}
+              disabled={disabled || option.disabled}
+              name={name}
+              onChange={onChange}
+              onBlur={onBlur}
+              checked={value ? option.value === value : option.checked}
+              defaultChecked={
+                defaultValue
+                  ? option.value === defaultValue
+                  : option.defaultChecked
+              }
+            />
+          ))}
         </div>
         <FieldValidationHint
           id={validationHintId}

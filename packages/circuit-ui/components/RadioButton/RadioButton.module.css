@@ -1,0 +1,4 @@
+.label-text {
+  display: inline-block;
+  padding-left: var(--cui-spacings-byte);
+}
