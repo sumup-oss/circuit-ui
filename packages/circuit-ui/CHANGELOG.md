@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 9.7.1
+
+### Patch Changes
+
+- [`9bfdb77`](https://github.com/sumup-oss/circuit-ui/commit/9bfdb77525b13022179113a0d14ad489b4113c86) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a fallback for the Display component's letter spacing to ensure compatibility with older versions of the design tokens package.
+
+- [`f9da07e`](https://github.com/sumup-oss/circuit-ui/commit/f9da07ec6bc0875d1d378d02efcdaf9e53acadb6) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed bundling of the new `@sumup-oss/circuit-ui/internal` entrypoint.
+
 ## 9.7.0
 
 ### Minor Changes
