@@ -2,4 +2,4 @@
 "@sumup-oss/icons": minor
 ---
 
-Added new icon `Motorbike` in size 24.
+Added a new `Motorbike` icon in size 24.
