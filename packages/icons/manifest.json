@@ -1274,6 +1274,11 @@
       "size": "24"
     },
     {
+      "name": "motorbike",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "no_sim",
       "category": "Miscellaneous",
       "size": "24"
@@ -1865,11 +1870,6 @@
     },
     {
       "name": "loja",
-      "category": "Product and feature",
-      "size": "24"
-    },
-    {
-      "name": "motorbike",
       "category": "Product and feature",
       "size": "24"
     },
