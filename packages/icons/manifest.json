@@ -1274,6 +1274,11 @@
       "size": "24"
     },
     {
+      "name": "motorbike",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "no_sim",
       "category": "Miscellaneous",
       "size": "24"
