@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 5.4.0
+
+### Minor Changes
+
+- [#2937](https://github.com/sumup-oss/circuit-ui/pull/2937) [`755267d`](https://github.com/sumup-oss/circuit-ui/commit/755267dbe180b608241f94c56e0cf1f97ca2461d) Thanks [@giedoka](https://github.com/giedoka)! - Added a new `Motorbike` icon in size 24.
+
 ## 5.3.0
 
 ### Minor Changes
