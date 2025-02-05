@@ -79,6 +79,7 @@ export default defineConfig({
       ],
       formats: ['es'],
       fileName: (_, entryName: string) => `${entryName}.js`,
+      cssFileName: 'styles',
     },
     minify: false,
     rollupOptions: {

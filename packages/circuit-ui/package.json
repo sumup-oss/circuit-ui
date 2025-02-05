@@ -22,7 +22,7 @@
       "types": "./dist/internal.d.ts",
       "default": "./dist/internal.js"
     },
-    "./styles.css": "./dist/style.css"
+    "./styles.css": "./dist/styles.css"
   },
   "typesVersions": {
     "*": {
