@@ -1,5 +1,13 @@
 # @sumup-oss/cna-template
 
+## 2.0.1-next.0
+
+### Patch Changes
+
+- Updated dependencies [[`6ad9edb`](https://github.com/sumup-oss/circuit-ui/commit/6ad9edbbdebf89abd26639066687bdb2e87c66cc), [`3dd75c9`](https://github.com/sumup-oss/circuit-ui/commit/3dd75c9b647eb80d5043c6cac1cbb0d299654f56), [`3dd75c9`](https://github.com/sumup-oss/circuit-ui/commit/3dd75c9b647eb80d5043c6cac1cbb0d299654f56), [`3dd75c9`](https://github.com/sumup-oss/circuit-ui/commit/3dd75c9b647eb80d5043c6cac1cbb0d299654f56), [`3dd75c9`](https://github.com/sumup-oss/circuit-ui/commit/3dd75c9b647eb80d5043c6cac1cbb0d299654f56), [`64faf5e`](https://github.com/sumup-oss/circuit-ui/commit/64faf5e24259baf925f18254e1397f43833bcf78), [`c01bb30`](https://github.com/sumup-oss/circuit-ui/commit/c01bb304a920dffdaa2baf7921d7b793f7a8ebf5), [`ea6d920`](https://github.com/sumup-oss/circuit-ui/commit/ea6d920ae43be4da2701579f56b9fd15cd435c04), [`3ab5e39`](https://github.com/sumup-oss/circuit-ui/commit/3ab5e39cf1153d5879a7ae2842b56ae5bfc5469c), [`3dd75c9`](https://github.com/sumup-oss/circuit-ui/commit/3dd75c9b647eb80d5043c6cac1cbb0d299654f56), [`3dd75c9`](https://github.com/sumup-oss/circuit-ui/commit/3dd75c9b647eb80d5043c6cac1cbb0d299654f56), [`6c6e2ac`](https://github.com/sumup-oss/circuit-ui/commit/6c6e2ac3bc6dd706a2aa6e51eb27ffdd83e90c94), [`3dd75c9`](https://github.com/sumup-oss/circuit-ui/commit/3dd75c9b647eb80d5043c6cac1cbb0d299654f56)]:
+  - @sumup-oss/circuit-ui@10.0.0-next.0
+  - @sumup-oss/design-tokens@8.3.0-next.0
+
 ## 2.0.0
 
 ### Major Changes
