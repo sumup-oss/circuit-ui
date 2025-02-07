@@ -54,7 +54,7 @@ describe('PrimaryLink', () => {
   it('should render with a badge', () => {
     renderPrimaryLink(render, {
       ...baseProps,
-      badge: { label: 'New' },
+      badge: { children: 'New' },
     });
     expect(screen.getByRole('link')).toHaveAccessibleDescription('New');
   });
