@@ -63,8 +63,7 @@
     "ignore": [
       // The templates have their own linting setup
       "templates/astro/**",
-      "templates/nextjs/template/**",
-      "templates/remix/**"
+      "templates/nextjs/template/**"
     ]
   },
   "overrides": [

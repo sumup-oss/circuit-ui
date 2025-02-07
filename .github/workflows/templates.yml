@@ -12,7 +12,7 @@ jobs:
       # https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs
       matrix:
         node: [20, 22]
-        template: [astro, nextjs, remix]
+        template: [astro, nextjs]
         include:
           - template: astro
             bootstrap: 'npx create-astro@latest ./test-app --template sumup-oss/circuit-ui/templates/astro --install --no-git --typescript=strictest'
@@ -20,9 +20,6 @@ jobs:
           - template: nextjs
             bootstrap: 'npx create-next-app --example "https://github.com/sumup-oss/circuit-ui/tree/main/templates/nextjs/template" test-app'
             verify: 'npm run test:ci'
-          - template: remix
-            bootstrap: 'npx create-remix@latest ./test-app --template https://github.com/sumup-oss/circuit-ui/tree/main/templates/remix --install --no-git-init'
-            verify: 'npm run lint && npm run typecheck'
 
     steps:
       - name: Checkout repository
