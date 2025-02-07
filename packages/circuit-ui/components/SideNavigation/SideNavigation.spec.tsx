@@ -51,16 +51,12 @@ describe('SideNavigation', () => {
     return renderFn(<SideNavigation {...props} />);
   }
 
-  const baseProps = {
+  const defaultProps: SideNavigationProps = {
     isOpen: false,
     onClose: vi.fn(),
     closeButtonLabel: 'Close navigation modal',
     primaryNavigationLabel: 'Primary',
     secondaryNavigationLabel: 'Secondary',
-  };
-
-  const defaultProps: SideNavigationProps = {
-    ...baseProps,
     primaryLinks: [
       {
         icon: (iconProps) => <Shop {...iconProps} size="24" />,
@@ -68,6 +64,9 @@ describe('SideNavigation', () => {
         href: '/shop',
         onClick: vi.fn(),
         isActive: true,
+        badge: {
+          children: 'New',
+        },
         secondaryGroups: [
           {
             label: 'For Kids',
@@ -81,6 +80,9 @@ describe('SideNavigation', () => {
                 label: 'Books',
                 href: '/shop/books',
                 onClick: vi.fn(),
+                badge: {
+                  children: 'New',
+                },
               },
             ],
           },

@@ -46,30 +46,31 @@ export interface PrimaryLinkProps
    */
   isExternal?: boolean;
   /**
-   * Short label to describe that the link leads to an external page or opens in a new tab.
+   * Short label to describe that the link leads to an external page or opens
+   * in a new tab.
    */
   externalLabel?: string;
   /**
    * Whether to show a small circular badge to indicate that a nested secondary
    * link has a badge.
    */
-  badge?: boolean | PrimaryBadgeProps;
+  badge?: {
+    /**
+     * Choose the style variant.
+     *
+     * @default 'promo'
+     */
+    variant?: BadgeProps['variant'];
+    /**
+     * A clear and concise description of the badge's meaning.
+     */
+    children: string;
+  };
   /**
    * A collection of secondary groups with nested secondary navigation links.
    */
   secondaryGroups?: SecondaryGroupProps[];
 }
-
-export type PrimaryBadgeProps = {
-  /**
-   * Choose the style variant. Default: 'promo'.
-   */
-  variant?: BadgeProps['variant'];
-  /**
-   * A clear and concise description of the badge's meaning.
-   */
-  label: string;
-};
 
 export interface SecondaryGroupProps {
   /**

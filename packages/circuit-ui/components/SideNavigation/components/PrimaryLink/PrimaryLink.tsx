@@ -22,13 +22,13 @@ import type { AsPropType } from '../../../../types/prop-types.js';
 import { useComponents } from '../../../ComponentsContext/index.js';
 import { Body } from '../../../Body/index.js';
 import { Skeleton } from '../../../Skeleton/index.js';
-import type {
-  PrimaryLinkProps as PrimaryLinkType,
-  PrimaryBadgeProps,
-} from '../../types.js';
-import { isObject } from '../../../../util/type-check.js';
+import type { PrimaryLinkProps as PrimaryLinkType } from '../../types.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { utilClasses } from '../../../../styles/utility.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../../../util/errors.js';
 
 import classes from './PrimaryLink.module.css';
 
@@ -55,9 +55,8 @@ export function PrimaryLink({
   const badgeLabelId = useId();
   const externalLabelId = useId();
 
-  const badgeProps = getBadgeProps(badge);
   const descriptionIds = clsx(
-    badgeProps?.label && badgeLabelId,
+    badge && badgeLabelId,
     externalLabel && externalLabelId,
     descriptionId,
   );
@@ -71,6 +70,17 @@ export function PrimaryLink({
 
   const Icon = isActive && activeIcon ? activeIcon : icon;
 
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    badge &&
+    !isSufficientlyLabelled(badge.children)
+  ) {
+    throw new AccessibilityError(
+      'SideNavigation',
+      "A primary link's badge is missing the `children` prop to describe its purpose.",
+    );
+  }
+
   return (
     <>
       <Element
@@ -82,8 +92,8 @@ export function PrimaryLink({
         <Skeleton
           className={clsx(
             classes.icon,
-            badgeProps && classes.badge,
-            badgeProps && classes[badgeProps.variant],
+            badge && classes.badge,
+            badge && classes[badge.variant || 'promo'],
           )}
         >
           <Icon aria-hidden="true" size="24" />
@@ -102,9 +112,9 @@ export function PrimaryLink({
         )}
         {suffix}
       </Element>
-      {badgeProps?.label && (
+      {badge && (
         <span id={badgeLabelId} className={utilClasses.hideVisually}>
-          {badgeProps.label}
+          {badge.children}
         </span>
       )}
       {isExternalLink && externalLabel && (
@@ -114,12 +124,4 @@ export function PrimaryLink({
       )}
     </>
   );
-}
-
-function getBadgeProps(badge?: boolean | PrimaryBadgeProps) {
-  if (!badge) {
-    return null;
-  }
-  const defaultProps = { variant: 'promo', label: '' } as const;
-  return isObject(badge) ? { ...defaultProps, ...badge } : defaultProps;
 }
