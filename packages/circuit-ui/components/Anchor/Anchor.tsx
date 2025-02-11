@@ -33,7 +33,7 @@ import { utilClasses } from '../../styles/utility.js';
 
 import classes from './Anchor.module.css';
 
-export interface BaseProps extends BodyProps {
+export interface BaseProps extends Omit<BodyProps, 'color'> {
   children: ReactNode;
   /**
    * Function that's called when the button is clicked.
@@ -44,8 +44,14 @@ export interface BaseProps extends BodyProps {
    */
   ref?: Ref<any>;
 }
-type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
-type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
+type LinkElProps = Omit<
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  'onClick' | 'color'
+>;
+type ButtonElProps = Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  'onClick' | 'color'
+>;
 
 export type AnchorProps = BaseProps & LinkElProps & ButtonElProps;
 
