@@ -75,7 +75,7 @@ export const Base = (args: RadioButtonInputProps) => (
         >
           <img
             src={option.image.src}
-            alt={option.image.alt}
+            alt=""
             style={{ objectFit: 'cover', borderRadius: '4px' }}
             width="48"
             height="48"
