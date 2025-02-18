@@ -23,12 +23,32 @@
 
 .l {
   font-size: var(--cui-display-l-font-size);
+  font-size: clamp(
+    var(--cui-display-m-font-size),
+    1.848vw + 2.522rem,
+    var(--cui-display-l-font-size)
+  );
   line-height: var(--cui-display-l-line-height);
+  line-height: clamp(
+    var(--cui-display-m-line-height),
+    1.848vw + 3.022rem,
+    var(--cui-display-l-line-height)
+  );
 }
 
 .m {
   font-size: var(--cui-display-m-font-size);
+  font-size: clamp(
+    var(--cui-display-s-font-size),
+    0.924vw + 2.261rem,
+    var(--cui-display-m-font-size)
+  );
   line-height: var(--cui-display-m-line-height);
+  line-height: clamp(
+    var(--cui-display-s-line-height),
+    1.155vw + 2.576rem,
+    var(--cui-display-m-line-height)
+  );
 }
 
 .s {
