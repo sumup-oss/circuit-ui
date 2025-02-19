@@ -29,11 +29,7 @@
     width: 100%;
     height: var(--cui-spacings-kilo);
     content: "";
-    background: linear-gradient(
-      rgb(255 255 255 / 100%),
-      rgb(255 255 255 / 66%),
-      rgb(255 255 255 / 0%)
-    );
+    background: linear-gradient(var(--cui-bg-normal), transparent);
   }
 }
 
@@ -86,9 +82,9 @@
 .label {
   display: block;
   overflow: hidden;
+  text-overflow: ellipsis;
   font-size: var(--cui-body-s-font-size);
   line-height: var(--cui-body-s-line-height);
-  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
