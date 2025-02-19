@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 9.7.4
+
+### Patch Changes
+
+- [#2948](https://github.com/sumup-oss/circuit-ui/pull/2948) [`2ccda4c`](https://github.com/sumup-oss/circuit-ui/commit/2ccda4c3b12066404fdb1d4b95676b76bc02c7f5) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the `color` prop from the Anchor component's prop types as it's not supported.
+
+- [#2951](https://github.com/sumup-oss/circuit-ui/pull/2951) [`0cc2af2`](https://github.com/sumup-oss/circuit-ui/commit/0cc2af2f98772322ca6e74664937b5b9eddd12a9) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the Tag component's text color on iOS.
+
 ## 9.7.3
 
 ### Patch Changes
