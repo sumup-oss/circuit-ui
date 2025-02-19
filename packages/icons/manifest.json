@@ -453,6 +453,11 @@
       "size": "32"
     },
     {
+      "name": "girocard",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
       "name": "google_pay",
       "category": "Card scheme",
       "size": "32"
