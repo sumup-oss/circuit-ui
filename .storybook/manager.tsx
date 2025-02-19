@@ -1,6 +1,7 @@
 import '@sumup-oss/design-tokens/dynamic.css';
 
-import type { CSSProperties } from 'react';
+// biome-ignore lint/correctness/noUnusedImports:
+import React, { type CSSProperties } from 'react';
 import { addons, types } from '@storybook/manager-api';
 
 import { dark, light, listenToColorScheme } from './themes.js';

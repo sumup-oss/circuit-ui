@@ -12,6 +12,7 @@
   margin: 0;
   font-size: var(--cui-body-m-font-size);
   line-height: var(--cui-body-m-line-height);
+  color: var(--cui-fg-normal);
   overflow-wrap: break-word;
   cursor: default;
   background-color: var(--cui-bg-normal);
