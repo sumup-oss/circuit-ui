@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 5.5.0
+
+### Minor Changes
+
+- [#2950](https://github.com/sumup-oss/circuit-ui/pull/2950) [`0d9195c`](https://github.com/sumup-oss/circuit-ui/commit/0d9195c6e4c8f2456eee607473bddd1ca6385d1a) Thanks [@kamenlitchev](https://github.com/kamenlitchev)! - Added a new `Girocard` card scheme icon in size 32.
+
 ## 5.4.0
 
 ### Minor Changes
