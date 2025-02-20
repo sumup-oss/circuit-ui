@@ -1,5 +1,5 @@
 ---
-'@sumup/icons': minor
+'@sumup-oss/icons': minor
 ---
 
-Added new card scheme icons in size 32: `Girocard`.
+Added a new `Girocard` card scheme icon in size 32.
