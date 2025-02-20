@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.7.5
+
+### Patch Changes
+
+- [`8ff379d`](https://github.com/sumup-oss/circuit-ui/commit/8ff379da1c791a17cfe62168b23e4f46ebc4d163) Thanks [@connor-baer](https://github.com/connor-baer)! - Upgraded Rollup to fix extraneous attributes being forwarded to HTML elements.
+
 ## 9.7.4
 
 ### Patch Changes
