@@ -97,8 +97,5 @@
 		"vite": "^5.4.13",
 		"vitest": "^3.0.2",
 		"vitest-github-actions-reporter": "^0.11.1"
-	},
-	"overrides": {
-		"caniuse-lite": "1.0.30001653"
 	}
 }
