@@ -100,7 +100,7 @@ export interface SelectorProps
 
 export const SelectorGroupContext = createContext(false);
 
-const legacySizeMap: Record<string, 's' | 'm'> = {
+export const legacySizeMap: Record<string, 's' | 'm'> = {
   kilo: 's',
   mega: 'm',
 };
