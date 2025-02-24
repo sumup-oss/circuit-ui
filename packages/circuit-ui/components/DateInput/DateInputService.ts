@@ -20,7 +20,26 @@ import type { Locale } from '../../util/i18n.js';
 
 const TEST_VALUE = new Temporal.PlainDate(2024, 3, 8);
 
-export function getDateSegments(locale?: Locale) {
+export type DatePart =
+  | { type: 'literal'; value: string }
+  | {
+      type:
+        | 'day'
+        | 'dayPeriod'
+        | 'era'
+        | 'hour'
+        | 'minute'
+        | 'month'
+        | 'second'
+        | 'timeZoneName'
+        | 'weekday'
+        | 'year'
+        | 'unknown'
+        | 'date';
+      value?: never;
+    };
+
+export function getDateParts(locale?: Locale): DatePart[] {
   const parts = formatDateTimeToParts(TEST_VALUE, locale);
   return parts.map(({ type, value }) =>
     type === 'literal' ? { type, value } : { type },
