@@ -1,0 +1,31 @@
+import { Meta, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './Popover.stories';
+
+<Meta of={Stories} />
+
+# Popover
+
+Popovers are a common pattern for displaying content in an overlay after interacting with an actionable component.
+
+<Story of={Stories.Base} />
+<Props />
+
+- The popover is non-modal on desktop and modal on mobile.
+- The reference element which triggers the Popover must be a `button` element or a component that renders a `button` such as the Button or IconButton components.
+- The Popover is powered by [Floating UI](https://floating-ui.com/docs/react-dom). You can easily change the position of the Popover relative to the reference element by passing in the `placement` prop. If you want to offset the Popover in the x and y directions, use the `offset` prop.
+
+<Story of={Stories.Offset} />
+
+## Usage
+Use the popover for displaying versatile content to quickly display additional information or perform small actions. For example:
+- Notifications: showing a list of notification items when clicking on a notification icon.
+- Filters: displaying a list of filter options when clicking on a filter component.
+- Inline editing: showing a single field for editing an item in a table when clicking on an edit icon.
+- Content preview: displaying a preview of an image when clicking on a file icon.
+- For displaying an action list, you can use the [ActionMenu](Components/ActionMenu/Docs) component.
+
+
+
+## Related components
+
+This component is built on top of the low level [Dialog](Components/Dialog/Docs) component. If this component does not meet your requirements, you can use the Dialog component directly to build your own custom popover component.
