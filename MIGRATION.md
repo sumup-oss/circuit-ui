@@ -8,6 +8,111 @@ We encourage you to enable and apply the rules incrementally and review the chan
 
 Prior to v5, codemods were implemented using [jscodeshift](#-codemods-jscodeshift).
 
+## From v9.x to v10
+
+Circuit UI v10 leverages a collection of its overlay components by taking advantage of the native [dialog](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) element's capabilities and API.
+
+### Upgrading
+
+Circuit UI v10 requires a minimum Typescript version of 4.1. While this is technically a breaking change, v4.1 was released over 4 years ago (relative to this version's release date), so we don't expect this to break anyone's code. Please let us know if this causes you issues.
+
+To get started, upgrade `@sumup/circuit-ui` and its peer dependencies:
+
+```sh
+npm upgrade @sumup/circuit-ui @sumup/design-tokens @sumup/icons
+```
+
+### Overlay Components: Now Using Native dialog
+
+Several overlay components now use the native dialog element instead of [react-modal](https://www.npmjs.com/package/react-modal).
+
+- Updated Components
+  - Modal component
+  - NotificationModal component
+  - SidePanel component
+  - SideNavigation component
+  - ActionMenu (previously Popover) component
+- New components
+  - Popover component
+  - Dialog component
+
+#### Key changes
+
+- Components are now rendered in a different layer of the DOM the Top Layer), which may affect stacking context and portals.
+- You can now render a Modal component inline, without the `useModal` hook, thus allowing your modal content to be placed naturally within your component tree. This improves performance and simplifies state management.
+- The `useModal` hook continues to be supported.
+- Overlay components can now inherit styles from their parent elements, which may cause slight visual changes. Test your application thoroughly after upgrading.
+- The `closeButtonLabel` and `backButtonLabel` props are now localized and optional.
+
+### Style reset
+
+Circuit UI styles previously included a very opinionated global style reset, sometimes conflicting with other UI libraries and frameworks. This reset has been removed to improve compatibility. If your app still requires it, you can [download](https://meyerweb.com/eric/tools/css/reset/) and include it manually.
+
+### Renamed components
+
+The Popover component has been renamed to ActionMenu to better describe its function. The Popover name is now reserved for a new overlay component.
+
+#### Migration steps
+
+Use the 🤖 `no-renamed-components` Eslint rule to automatically update imports and usages. Use this rule only once upon migration. Multiple runs may unintentionally replace the new Popover references.
+It is also recommended to manually search for any remaining uses of the old Popover component that the ESlint rule might not have caught.
+
+```diff
+-import { Popover, type PopoverProps } from '@sumup-oss/circuit-ui';
++import { ActionMenu, type ActionMenuProps } from '@sumup-oss/circuit-ui';
+
+-jest.mock('@sumup-oss/circuit-ui', () => ({
+-  ...jest.requireActual('@sumup-oss/circuit-ui'),
+-    Popover: jest.fn().mockImplementation(() => <div />),
+-  ),
+-}));
+
++jest.mock('@sumup-oss/circuit-ui', () => ({
++  ...jest.requireActual('@sumup-oss/circuit-ui'),
++    ActionMenu: jest.fn().mockImplementation(() => <div />),
++  ),
++}));
+
+- const StyledPopover = styled(Popover)`
++ const StyledPopover = styled(ActionMenu)`
+```
+
+Once all usages have been migrated, disable the `no-renamed-components` rule.
+
+### New components
+
+- The Popover component is a new component that can display any given content in a floating overlay upon interacting with its triggering element.
+- The Dialog component is a low level component based on the html [dialog](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) element. Use it to create your own custom overlay component if none of the Circuit UI components mentioned above fits your needs.
+
+### Stable components
+
+The [Timestamp](https://circuit.sumup.com/?path=/docs/components-timestamp--docs) component is now stable. It automatically formats, displays, and updates dates into human-readable date times. Combine different formats and variants to display the date time such as creation or last-updated times.
+
+### Other changes
+
+#### Component Deprecations & Removals
+
+- Calendar: Removed the deprecated `calendar` prop.
+- SideNavigation:
+  - Renamed the `badge.label` prop to `badge.children` for consistency.
+  - Requires an accessible name for the primary link badge.
+- TopNavigation: Removed the deprecated `profileMenu` and `user` props.
+- RadioButton: Use RadioButtonGroup or RadioButtonInput instead.
+- Selector: Use SelectorGroup instead.
+- Title: Use Display instead.
+- SubHeadline: Use Headline in size `s` instead.
+
+#### Accessibility Improvements
+
+- Anchor & SideNavigation: Now throw an error when external links lack alternative text.
+- SideNavigation: Removed SideNavigation's `isExternal` prop for primary links. Instead, use a combination of `target`, `rel`, and `externalLabel`.
+- New useScrollLock hook: Disables page scrolling on demand.
+
+#### Removals
+
+- Remix template: Removed in favor of React Router 7.
+- `themePropType`: Removed. Use the `Theme` type or migrate to CSS custom properties.
+
 ## From v8.x to v9
 
 Circuit UI v9 introduces a [new typeface](#new-typeface), more flexible [typography APIs](#typography-apis), and [stable input components](#stable-components) for colors, dates, and phone numbers. For a complete list of changes, refer to the [changelog](https://github.com/sumup-oss/circuit-ui/blob/main/packages/circuit-ui/CHANGELOG.md).
@@ -65,7 +170,7 @@ The default typeface has changed from [Aktiv Grotesk](https://www.daltonmaag.com
 Circuit UI no longer loads the fonts by default. Instead, import the stylesheet that contains the font face declarations globally in your application, such as in a global layout file:
 
 ```ts
-import '@sumup-oss/design-tokens/fonts.css';
+import "@sumup-oss/design-tokens/fonts.css";
 ```
 
 To speed up the loading of the fonts, add preload links to the global `<head>` element of your application. Choose which subsets to preload based on the languages your app supports. The available subsets are `latin`, `latin-ext`, `cyrillic`, `cyrillic-ext`, `greek`, `greek-ext`, and `vietnamese`.
@@ -174,15 +279,15 @@ Update the related imports (🤖 `component-lifecycle-imports`). For example:
 - Changed the `PlainDateRange` type from an array to an object with start and end properties. This affects the Calendar component's `selection` prop. Use the new `updatePlainDateRange` helper function to update a date range when a user selects a date:
 
   ```tsx
-  import { useState } from 'react';
-  import { Calendar, updatePlainDateRange } from '@sumup-oss/circuit-ui';
+  import { useState } from "react";
+  import { Calendar, updatePlainDateRange } from "@sumup-oss/circuit-ui";
 
   function Component() {
     const [selection, setSelection] = useState({});
     return (
       <Calendar
         onSelect={setSelection((prevSelection) =>
-          updatePlainDateRange(prevSelection, date)
+          updatePlainDateRange(prevSelection, date),
         )}
       />
     );
@@ -245,12 +350,12 @@ This change might break tests that use `@testing-library/jest-dom`'s [`toBeDisab
 
 ```js
 // jest.setup.js
-import { toBeDisabled, toBeEnabled } from '@testing-library/jest-dom/matchers';
+import { toBeDisabled, toBeEnabled } from "@testing-library/jest-dom/matchers";
 
 function isAriaDisabled(element) {
   return (
-    element.hasAttribute('aria-disabled') &&
-    element.getAttribute('aria-disabled') === 'true'
+    element.hasAttribute("aria-disabled") &&
+    element.getAttribute("aria-disabled") === "true"
   );
 }
 
@@ -261,17 +366,17 @@ expect.extend({
     return {
       pass: isDisabled,
       message: () => {
-        const is = isDisabled ? 'is' : 'is not';
+        const is = isDisabled ? "is" : "is not";
         return [
           this.utils.matcherHint(
-            `${this.isNot ? '.not' : ''}.toBeDisabled`,
-            'element',
-            ''
+            `${this.isNot ? ".not" : ""}.toBeDisabled`,
+            "element",
+            "",
           ),
-          '',
+          "",
           `Received element ${is} disabled:`,
           `  ${this.utils.printReceived(element.cloneNode(false))}`,
-        ].join('\n');
+        ].join("\n");
       },
     };
   },
@@ -282,17 +387,17 @@ expect.extend({
     return {
       pass: isEnabled,
       message: () => {
-        const is = isEnabled ? 'is' : 'is not';
+        const is = isEnabled ? "is" : "is not";
         return [
           this.utils.matcherHint(
-            `${this.isNot ? '.not' : ''}.toBeEnabled`,
-            'element',
-            ''
+            `${this.isNot ? ".not" : ""}.toBeEnabled`,
+            "element",
+            "",
           ),
-          '',
+          "",
           `Received element ${is} enabled:`,
           `  ${this.utils.printReceived(element.cloneNode(false))}`,
-        ].join('\n');
+        ].join("\n");
       },
     };
   },
@@ -440,7 +545,7 @@ For applications that don’t use Emotion.js, Circuit UI exports a new, smaller 
   <summary>Example</summary>
 
 ```tsx
-import { clsx, utilClasses } from '@sumup/circuit-ui';
+import { clsx, utilClasses } from "@sumup/circuit-ui";
 
 function Component() {
   return <div className={clsx(utilClasses.center, utilClasses.hideVisually)} />;
@@ -902,8 +1007,8 @@ Previously, many apps would use `CreateStyled`:
 
 ```ts
 // utils/styled.ts
-import styled, { CreateStyled } from '@emotion/styled';
-import { Theme } from '@sumup/design-tokens';
+import styled, { CreateStyled } from "@emotion/styled";
+import { Theme } from "@sumup/design-tokens";
 
 export default styled as CreateStyled<Theme>;
 ```
@@ -912,14 +1017,14 @@ export default styled as CreateStyled<Theme>;
 
 ```tsx
 // components/RedCard.tsx
-import { css } from '@emotion/core';
+import { css } from "@emotion/core";
 
-import styled from 'util/styled';
+import styled from "util/styled";
 
 const RedCard = styled(Card)(
   ({ theme }) => css`
     background-color: red;
-  `
+  `,
 );
 ```
 
@@ -927,10 +1032,10 @@ Now, you can type the theme by adding it to `@emotion/react`'s declaration:
 
 ```ts
 // types/emotion.d.ts (don't forget to include this file in tsconfig.json under `typeRoots`)
-import { Theme as CircuitTheme } from '@sumup/design-tokens';
-import {} from '@emotion/react/types/css-prop'; // See https://github.com/emotion-js/emotion/pull/1941
+import { Theme as CircuitTheme } from "@sumup/design-tokens";
+import {} from "@emotion/react/types/css-prop"; // See https://github.com/emotion-js/emotion/pull/1941
 
-declare module '@emotion/react' {
+declare module "@emotion/react" {
   export interface Theme extends CircuitTheme {}
 }
 ```
@@ -939,13 +1044,13 @@ declare module '@emotion/react' {
 
 ```tsx
 // components/RedCard.tsx
-import { css } from '@emotion/core';
-import styled from '@emotion/styled';
+import { css } from "@emotion/core";
+import styled from "@emotion/styled";
 
 const RedCard = styled(Card)(
   ({ theme }) => css`
     background-color: red;
-  `
+  `,
 );
 ```
 
@@ -958,7 +1063,7 @@ Make sure that references to Emotion packages inside Storybook are pointing to t
 ```js
 // .storybook/main.js
 
-const path = require('path');
+const path = require("path");
 const toPath = (_path) => path.join(process.cwd(), _path);
 
 module.exports = {
@@ -966,9 +1071,9 @@ module.exports = {
     // Add compatibility with Emotion 11
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@emotion/core': toPath('node_modules/@emotion/react'),
-      '@emotion/styled': toPath('node_modules/@emotion/styled'),
-      'emotion-theming': toPath('node_modules/@emotion/react'),
+      "@emotion/core": toPath("node_modules/@emotion/react"),
+      "@emotion/styled": toPath("node_modules/@emotion/styled"),
+      "emotion-theming": toPath("node_modules/@emotion/react"),
     };
     return config;
   },
