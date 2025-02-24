@@ -1,5 +1,18 @@
 # Migration
 
+## Table of Contents
+1. [Automated migration](#automated-migration)
+2. [From v9.x to v10](#from-v9x-to-v10)
+3. [From v8.x to v9](#from-v8x-to-v9)
+4. [From v7.x to v8](#from-v7x-to-v8)
+5. [From v6.x to v7](#from-v6x-to-v7)
+6. [From v5.x to v6](#from-v5x-to-v6)
+7. [From v4.x to v5](#from-v4x-to-v5)
+8. [From v3.x to v4](#from-v3x-to-v4)
+9. [From v2.x to v3](#from-v2x-to-v3)
+10. [From v1.x to v2](#from-v1x-to-v2)
+
+
 ## 🤖 Automated migration
 
 Some of the changes in this guide can be automated using the [ESLint](https://circuit.sumup.com/?path=/docs/packages-eslint-plugin-circuit-ui--docs) and [Stylelint](https://circuit.sumup.com/?path=/docs/packages-stylelint-plugin-circuit-ui--docs) plugins. Changes that can be automated are marked with a robot emoji (🤖) and the name of the rule (e.g. _no-deprecated-props_)
@@ -7,6 +20,10 @@ Some of the changes in this guide can be automated using the [ESLint](https://ci
 We encourage you to enable and apply the rules incrementally and review the changes before continuing. The rules don't cover all edge cases, so further manual changes might be necessary. For example, the ESLint rules only analyze one file at a time, so if a Circuit UI component is wrapped in a styled component in one file and used in another, ESLint won't be able to update its props.
 
 Prior to v5, codemods were implemented using [jscodeshift](#-codemods-jscodeshift).
+
+## From v9.x to v10
+
+
 
 ## From v8.x to v9
 
@@ -730,6 +747,7 @@ Tip: Provide the `--transform`/`-t` argument at the end of the command, so that 
 > ```sh
 > ./node_modules/.bin/circuit-ui migrate -l JavaScript -l TypeScript -t codemod-name
 > ```
+
 
 ## From v4.x to v5
 
