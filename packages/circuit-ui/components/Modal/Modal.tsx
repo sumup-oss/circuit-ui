@@ -36,7 +36,7 @@ export interface ModalProps
   > {
   /**
    * Use the `immersive` variant to focus the user's attention on the dialog content.
-   * @default 'contextual'
+   * @default contextual
    * */
   variant?: 'contextual' | 'immersive';
   /**
