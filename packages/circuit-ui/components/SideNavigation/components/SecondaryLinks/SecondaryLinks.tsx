@@ -32,12 +32,14 @@ import type { SecondaryGroupProps, SecondaryLinkProps } from '../../types.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { utilClasses } from '../../../../styles/utility.js';
 import { sharedClasses } from '../../../../styles/shared.js';
+import { TierIndicator } from '../../../TierIndicator/TierIndicator.js';
 
 import classes from './SecondaryLinks.module.css';
 
 function SecondaryLink({
   label,
   badge,
+  tier,
   isActive,
   ...props
 }: SecondaryLinkProps) {
@@ -62,6 +64,7 @@ function SecondaryLink({
           </Body>
         </Skeleton>
         {badge && <Badge variant="promo" as="span" {...badge} />}
+        {tier && <TierIndicator variant={tier} size="s" />}
       </Element>
     </li>
   );

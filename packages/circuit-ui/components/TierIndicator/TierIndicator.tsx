@@ -37,4 +37,6 @@ export const TierIndicator = ({
   size = 'm',
   variant,
   ...props
-}: TierIndicatorProps) => <PlusTier size={sizeMap[size]} {...props} />;
+}: TierIndicatorProps) => (
+  <PlusTier aria-label={variant} size={sizeMap[size]} {...props} />
+);
