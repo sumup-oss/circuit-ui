@@ -1,0 +1,19 @@
+import { Meta, Status, Props, Story } from "../../../../.storybook/components";
+import * as Stories from "./TierIndicator.stories";
+
+<Meta of={Stories} />
+
+# TierIndicator
+
+The TierIndicator component is used to highlight freemium offerings in the UI.
+
+<Status variant="stable" />
+
+<Story of={Stories.Base} />
+<Props />
+
+## Best practices
+
+- Don’t pair the component with the SumUp logo or in a block of text.
+- Limit the usage of the tier indicators per screen, group together concerned features if possible.
+- The Indicator mark should be used to highlight freemium offerings only.
