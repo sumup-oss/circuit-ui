@@ -17,6 +17,7 @@ import type { MouseEvent, KeyboardEvent, AnchorHTMLAttributes } from 'react';
 import type { IconComponentType } from '@sumup-oss/icons';
 
 import type { BadgeProps } from '../Badge/index.js';
+import type { TierIndicatorProps } from '../TierIndicator/TierIndicator.js';
 
 export interface PrimaryLinkProps
   extends AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -105,4 +106,9 @@ export interface SecondaryLinkProps {
    * a new link or to indicate new content.
    */
   badge?: BadgeProps;
+  /**
+   * An optional badge to highlight the secondary link, e.g. to promote
+   * a new link or to indicate new content.
+   */
+  tier?: TierIndicatorProps['variant'];
 }

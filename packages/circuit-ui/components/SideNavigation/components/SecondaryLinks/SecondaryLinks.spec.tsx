@@ -34,7 +34,7 @@ describe('SecondaryLinks', () => {
     return renderFn(<SecondaryLinks {...props} />);
   }
 
-  const baseProps = {
+  const baseProps: SecondaryLinksProps = {
     secondaryGroups: [
       {
         secondaryLinks: [
@@ -54,6 +54,7 @@ describe('SecondaryLinks', () => {
             href: '/shop/socks',
             onClick: vi.fn(),
             isActive: true,
+            tier: 'plus',
           },
         ],
       },
@@ -97,6 +98,16 @@ describe('SecondaryLinks', () => {
     await userEvent.click(screen.getByRole('link'));
 
     expect(onClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('should show a badge when the badge prop is passed', () => {
+    renderSecondaryLinks(render, baseProps);
+    expect(screen.getByText('New')).toBeVisible();
+  });
+
+  it('should show a tier indicator when the badge prop is passed', () => {
+    renderSecondaryLinks(render, baseProps);
+    expect(screen.getByLabelText('plus')).toBeVisible();
   });
 
   it('should have no accessibility violations', async () => {

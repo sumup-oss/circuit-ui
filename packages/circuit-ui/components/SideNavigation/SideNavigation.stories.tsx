@@ -74,6 +74,7 @@ export const baseArgs: SideNavigationProps = {
               label: 'Pants',
               href: '/shop/pants',
               onClick: action('Shop → Pants'),
+              tier: 'plus',
             },
             {
               label: 'Socks',
