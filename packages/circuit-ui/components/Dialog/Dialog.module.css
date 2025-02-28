@@ -1,4 +1,5 @@
 .base {
+  z-index: var(--cui-z-index-modal);
   padding: 0 !important;
   pointer-events: none;
   outline: none;
