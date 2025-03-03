@@ -151,13 +151,15 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
       setIsOpen((prev) => {
         if (prev) {
           setClosing(true);
-          onClose?.();
+          if (!isClosing) {
+            onClose?.();
+          }
           return false;
         }
 
         return true;
       });
-    }, [onClose]);
+    }, [onClose, isClosing]);
 
     useEffect(() => {
       /**
@@ -185,8 +187,10 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
     const handleCloseEnd = useCallback(() => {
       setClosing(false);
       setIsOpen(false);
-      onClose?.();
-    }, [onClose]);
+      if (!isClosing) {
+        onClose?.();
+      }
+    }, [onClose, isClosing]);
 
     const handleCloseStart = useCallback(() => {
       setClosing(true);

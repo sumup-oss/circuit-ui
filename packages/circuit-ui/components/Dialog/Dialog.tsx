@@ -292,9 +292,6 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 
     const handleEscapeKey = useCallback(
       (e: KeyboardEvent) => {
-        if (!dialogRef.current?.contains(e.target as Node)) {
-          return;
-        }
         e.preventDefault();
         handleDialogClose();
       },
