@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 5.6.0
+
+### Minor Changes
+
+- [#2956](https://github.com/sumup-oss/circuit-ui/pull/2956) [`8a7ddc7`](https://github.com/sumup-oss/circuit-ui/commit/8a7ddc76658b28c52d1eb375ebf58f603a206a0e) Thanks [@sirineJ](https://github.com/sirineJ)! - Added icons for the Plus tier indicator.
+
 ## 5.5.0
 
 ### Minor Changes
