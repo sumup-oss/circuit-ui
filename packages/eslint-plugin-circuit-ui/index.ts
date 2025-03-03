@@ -19,7 +19,6 @@ import { noDeprecatedCustomProperties } from './no-deprecated-custom-properties'
 import { noDeprecatedProps } from './no-deprecated-props';
 import { noRenamedProps } from './no-renamed-props';
 import { preferCustomProperties } from './prefer-custom-properties';
-import { renamedPackageScope } from './renamed-package-scope';
 
 /* eslint-disable */
 
@@ -30,5 +29,4 @@ export const rules = {
   'no-deprecated-props': noDeprecatedProps,
   'no-renamed-props': noRenamedProps,
   'prefer-custom-properties': preferCustomProperties,
-  'renamed-package-scope': renamedPackageScope,
 };
