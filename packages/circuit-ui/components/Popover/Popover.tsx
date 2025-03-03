@@ -220,6 +220,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
             className,
           )}
           animationDuration={animationDuration}
+          hideCloseButton
           style={
             isMobile
               ? style
