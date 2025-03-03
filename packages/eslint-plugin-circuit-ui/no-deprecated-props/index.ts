@@ -29,38 +29,6 @@ type Config = {
 
 const mappings: Config[] = [
   {
-    components: [
-      'Anchor',
-      'Button',
-      'Header',
-      'Carousel',
-      'Checkbox',
-      'Hamburger',
-      'ListItem',
-      'NotificationBanner',
-      'NotificationInline',
-      'NotificationToast',
-      'Pagination',
-      'ActionMenu',
-      'RadioButton',
-      'Select',
-      'Selector',
-      'Step',
-      'Tag',
-      // Sidebar
-      'Aggregator',
-      'NavItem',
-    ],
-    props: ['tracking'],
-    alternative:
-      'Use an `onClick` handler to dispatch user interaction events instead.',
-  },
-  {
-    components: ['ProgressBar'],
-    props: ['variant'],
-    alternative: '',
-  },
-  {
     components: ['Body'],
     props: ['variant'],
     alternative:
