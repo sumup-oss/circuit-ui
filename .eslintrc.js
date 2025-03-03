@@ -19,7 +19,6 @@ module.exports = require('@sumup-oss/foundry/eslint')({
     '@sumup-oss/circuit-ui/no-invalid-custom-properties': 'error',
     '@sumup-oss/circuit-ui/no-deprecated-custom-properties': 'error',
     '@sumup-oss/circuit-ui/no-deprecated-props': 'error',
-    '@sumup-oss/circuit-ui/no-deprecated-components': 'error',
     '@sumup-oss/circuit-ui/no-renamed-props': 'error',
     '@sumup-oss/circuit-ui/prefer-custom-properties': 'warn',
     'react/no-unknown-property': ['error', { ignore: ['css'] }],
