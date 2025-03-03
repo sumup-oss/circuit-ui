@@ -21,7 +21,6 @@ import { noDeprecatedCustomProperties } from './no-deprecated-custom-properties/
 import { noDeprecatedProps } from './no-deprecated-props/index.js';
 import { noRenamedProps } from './no-renamed-props/index.js';
 import { preferCustomProperties } from './prefer-custom-properties/index.js';
-import { renamedPackageScope } from './renamed-package-scope/index.js';
 import { noRenamedComponents } from './no-renamed-components/index.js';
 
 export const rules = {
@@ -31,7 +30,6 @@ export const rules = {
   'no-deprecated-props': noDeprecatedProps,
   'no-renamed-props': noRenamedProps,
   'prefer-custom-properties': preferCustomProperties,
-  'renamed-package-scope': renamedPackageScope,
   'no-renamed-components': noRenamedComponents,
 };
 
