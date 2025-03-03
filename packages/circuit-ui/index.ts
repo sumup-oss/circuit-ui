@@ -214,6 +214,10 @@ export {
   Toggletip,
   type ToggletipProps,
 } from './components/Toggletip/index.js';
+export {
+  Timestamp,
+  type TimestampProps,
+} from './components/Timestamp/index.js';
 
 // Hooks
 export { useClickOutside } from './hooks/useClickOutside/index.js';
