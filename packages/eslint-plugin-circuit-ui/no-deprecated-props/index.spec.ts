@@ -13,9 +13,6 @@
  * limitations under the License.
  */
 
-// We disable the rule in this file because we explicitly test invalid cases
-/* eslint-disable @sumup-oss/circuit-ui/no-invalid-custom-properties */
-
 import { RuleTester } from '@typescript-eslint/rule-tester';
 
 import { noDeprecatedProps } from '.';
@@ -37,7 +34,7 @@ ruleTester.run('no-deprecated-props', noDeprecatedProps, {
       name: 'matched component without the deprecated prop',
       code: `
         function Component() {
-          return <Button />
+          return <Body />
         }
       `,
     },
@@ -47,7 +44,7 @@ ruleTester.run('no-deprecated-props', noDeprecatedProps, {
       name: 'matched component with the deprecated prop',
       code: `
         function Component() {
-          return <Button tracking={{ label: 'button' }} />
+          return <Body variant="alert" />
         }
       `,
       errors: [{ messageId: 'deprecated' }],
