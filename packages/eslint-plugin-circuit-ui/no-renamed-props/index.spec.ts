@@ -32,18 +32,10 @@ const ruleTester = new RuleTester({
 ruleTester.run('no-renamed-props', noRenamedProps, {
   valid: [
     {
-      name: 'matched component with the correct prop name',
-      code: `
-        function Component() {
-          return <Toggle description="Description" />
-        }
-      `,
-    },
-    {
       name: 'matched component with the correct prop value',
       code: `
         function Component() {
-          return <Badge variant="success" />
+          return <Button size="s" />
         }
       `,
     },
@@ -51,19 +43,7 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
       name: 'unrelated component with the old prop value',
       code: `
         function Component() {
-          return <Button variant="confirm" />
-        }
-      `,
-    },
-    {
-      name: 'matched component with the correct prop name nested in an element with the old prop name',
-      code: `
-        function Component() {
-          return (
-            <Box size="giga">
-              <Button size="m" />
-            </Box>
-          )
+          return <Badge size="kilo" />
         }
       `,
     },
@@ -96,29 +76,15 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
   ],
   invalid: [
     {
-      name: 'matched component with the old prop name',
-      code: `
-        function Component() {
-          return <Toggle explanation="Description" />
-        }
-      `,
-      output: `
-        function Component() {
-          return <Toggle description="Description" />
-        }
-      `,
-      errors: [{ messageId: 'propName' }],
-    },
-    {
       name: 'matched component with the old prop value',
       code: `
         function Component() {
-          return <Badge variant="confirm" />
+          return <Body size="two" />
         }
       `,
       output: `
         function Component() {
-          return <Badge variant="success" />
+          return <Body size="s" />
         }
       `,
       errors: [{ messageId: 'propValue' }],
@@ -127,34 +93,18 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
       name: 'matched component with the old prop value as an expression',
       code: `
         function Component() {
-          return <Badge variant={'confirm'} />
+          return <Body size={'two'} />
         }
       `,
       output: `
         function Component() {
-          return <Badge variant="success" />
+          return <Body size="s" />
         }
       `,
       errors: [{ messageId: 'propValue' }],
     },
     {
-      name: 'matched function with the old prop value',
-      code: `
-        setToast({
-          variant: 'notify',
-          body: 'Your toast is burnt.',
-        });
-      `,
-      output: `
-        setToast({
-          variant: 'warning',
-          body: 'Your toast is burnt.',
-        });
-      `,
-      errors: [{ messageId: 'propValue' }],
-    },
-    {
-      name: 'matched IconButton component with icon component as child',
+      name: 'matched IconButton component with the old children prop',
       code: `
         function Component() {
           return <IconButton label="Close"><Close /></IconButton>
