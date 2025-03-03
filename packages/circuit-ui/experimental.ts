@@ -13,7 +13,3 @@
  * limitations under the License.
  */
 
-export {
-  Timestamp,
-  type TimestampProps,
-} from './components/Timestamp/index.js';

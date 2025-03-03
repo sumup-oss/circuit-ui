@@ -85,6 +85,8 @@ const mappings = [
       'TooltipReferenceProps',
       'Toggletip',
       'ToggletipProps',
+      'Timestamp',
+      'TimestampProps',
     ],
   },
 ];
