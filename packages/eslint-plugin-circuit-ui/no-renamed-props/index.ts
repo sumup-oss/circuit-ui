@@ -25,7 +25,6 @@ import {
   getAttributeValue,
   transformAttributeValueToChildren,
 } from '../utils/jsx';
-import { getPropertyValue } from '../utils/object';
 
 /* eslint-disable */
 
@@ -34,22 +33,14 @@ const createRule = ESLintUtils.RuleCreator(
     `https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/${name}`,
 );
 
-type PropNameConfig = {
-  type: 'name';
-  hook?: string;
-  props: Record<string, string>;
-};
-
 type PropValuesConfig = {
   type: 'values';
-  hook?: string;
   prop: string;
   values: Record<string, string>;
 };
 
 type CustomConfig = {
   type: 'custom';
-  hook?: string;
   transform: (
     node: TSESTree.JSXElement,
     component: string,
@@ -60,27 +51,9 @@ type CustomConfig = {
   ) => void;
 };
 
-type Config = PropNameConfig | PropValuesConfig | CustomConfig;
+type Config = PropValuesConfig | CustomConfig;
 
 const configs: (Config & { components: string[] })[] = [
-  {
-    type: 'name',
-    components: ['Toggle'],
-    props: {
-      explanation: 'description',
-    },
-  },
-  {
-    type: 'values',
-    components: ['Badge', 'NotificationInline', 'NotificationToast'],
-    hook: 'setToast',
-    prop: 'variant',
-    values: {
-      confirm: 'success',
-      notify: 'warning',
-      alert: 'danger',
-    },
-  },
   {
     type: 'values',
     components: ['Button', 'CloseButton', 'IconButton'],
@@ -120,7 +93,7 @@ const configs: (Config & { components: string[] })[] = [
   },
   {
     type: 'values',
-    components: ['Selector'],
+    components: ['SelectorGroup'],
     prop: 'size',
     values: {
       kilo: 's',
@@ -254,13 +227,6 @@ const configs: (Config & { components: string[] })[] = [
     },
   },
   {
-    type: 'name',
-    components: ['Table'],
-    props: {
-      initialSortedRow: 'initialSortedColumn',
-    },
-  },
-  {
     type: 'values',
     components: ['Title', 'Display'],
     prop: 'size',
@@ -367,42 +333,6 @@ export const noRenamedProps = createRule({
   },
   defaultOptions: [],
   create(context) {
-    function replaceComponentPropName(
-      node: TSESTree.JSXElement,
-      component: string,
-      config: PropNameConfig,
-    ) {
-      const { props } = config;
-
-      node.openingElement.attributes.forEach((attribute) => {
-        if (
-          attribute.type !== 'JSXAttribute' ||
-          attribute.name.type !== 'JSXIdentifier'
-        ) {
-          return;
-        }
-
-        const current = attribute.name.name;
-        const replacement = props[current];
-
-        if (!replacement) {
-          return;
-        }
-
-        context.report({
-          node: attribute,
-          messageId: 'propName',
-          data: { component, current, replacement },
-          fix(fixer) {
-            return fixer.replaceText(
-              attribute.name as TSESTree.JSXIdentifier,
-              replacement,
-            );
-          },
-        });
-      });
-    }
-
     function replaceComponentPropValues(
       node: TSESTree.JSXElement,
       component: string,
@@ -441,53 +371,6 @@ export const noRenamedProps = createRule({
       });
     }
 
-    function replaceHookPropValues(
-      node: TSESTree.CallExpression,
-      config: PropValuesConfig,
-    ) {
-      const { hook, prop, values } = config;
-
-      node.arguments.forEach((argument) => {
-        if (argument.type !== 'ObjectExpression') {
-          return;
-        }
-
-        argument.properties.forEach((property) => {
-          if (
-            property.type !== 'Property' ||
-            property.key.type !== 'Identifier' ||
-            property.key.name !== prop
-          ) {
-            return;
-          }
-
-          const current = getPropertyValue(property);
-
-          if (!current) {
-            return;
-          }
-
-          const replacement = values[current];
-
-          if (!replacement) {
-            return;
-          }
-
-          context.report({
-            node: property,
-            messageId: 'propValue',
-            data: { component: hook, prop, current, replacement },
-            fix(fixer) {
-              return fixer.replaceText(
-                property.value as TSESTree.Literal,
-                `'${replacement}'`,
-              );
-            },
-          });
-        });
-      });
-    }
-
     const components = configs.reduce(
       (acc, config) => {
         const { components, ...rest } = config;
@@ -500,7 +383,7 @@ export const noRenamedProps = createRule({
       {} as Record<string, Config[]>,
     );
 
-    const componentVisitors = Object.entries(components).reduce(
+    return Object.entries(components).reduce(
       (visitors, [component, configs]) => {
         // eslint-disable-next-line no-param-reassign
         visitors[`JSXElement[openingElement.name.name="${component}"]`] = (
@@ -508,9 +391,6 @@ export const noRenamedProps = createRule({
         ) => {
           configs.forEach((config) => {
             switch (config.type) {
-              case 'name':
-                replaceComponentPropName(node, component, config);
-                break;
               case 'values':
                 replaceComponentPropValues(node, component, config);
                 break;
@@ -524,42 +404,5 @@ export const noRenamedProps = createRule({
       },
       {} as TSESLint.RuleListener,
     );
-
-    const hooks = configs.reduce(
-      (acc, config) => {
-        if (!config.hook) {
-          return acc;
-        }
-        acc[config.hook] = acc[config.hook] || [];
-        acc[config.hook].push(config);
-        return acc;
-      },
-      {} as Record<string, Config[]>,
-    );
-
-    const hookVisitors = Object.entries(hooks).reduce(
-      (visitors, [hook, configs]) => {
-        // eslint-disable-next-line no-param-reassign
-        visitors[`CallExpression[callee.name="${hook}"]`] = (
-          node: TSESTree.CallExpression,
-        ) => {
-          configs.forEach((config) => {
-            switch (config.type) {
-              case 'values':
-                replaceHookPropValues(node, config);
-                break;
-              case 'name':
-              case 'custom':
-                // TODO: Not needed yet.
-                break;
-            }
-          });
-        };
-        return visitors;
-      },
-      {} as TSESLint.RuleListener,
-    );
-
-    return { ...componentVisitors, ...hookVisitors };
   },
 });
