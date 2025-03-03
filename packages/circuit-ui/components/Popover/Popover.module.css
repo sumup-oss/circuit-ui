@@ -1,0 +1,43 @@
+.base {
+  box-sizing: border-box;
+  max-height: var(--popover-max-height);
+  margin: 0;
+  border-radius: var(--cui-border-radius-byte);
+}
+
+.content {
+  max-height: inherit;
+  overflow-y: auto;
+}
+
+.trigger {
+  display: inline-block;
+}
+
+@media (min-width: 480px) {
+  .base {
+    box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
+  }
+
+  .content {
+    padding: var(--cui-spacings-giga);
+  }
+}
+
+@media (max-width: 479px) {
+  .base {
+    top: unset;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: var(--cui-border-radius-byte) var(--cui-border-radius-byte) 0
+      0;
+  }
+
+  .content {
+    padding: var(--cui-spacings-mega);
+  }
+}
