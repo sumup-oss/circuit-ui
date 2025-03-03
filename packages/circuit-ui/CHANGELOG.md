@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 9.8.0
+
+### Minor Changes
+
+- [#2956](https://github.com/sumup-oss/circuit-ui/pull/2956) [`8a7ddc7`](https://github.com/sumup-oss/circuit-ui/commit/8a7ddc76658b28c52d1eb375ebf58f603a206a0e) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a TierIndicator component for freemium plans.
+
+- [#2957](https://github.com/sumup-oss/circuit-ui/pull/2957) [`ff8537d`](https://github.com/sumup-oss/circuit-ui/commit/ff8537dae41811691142a745090de998a91645f5) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a `tier` prop to the SideNavigation component's secondary links to show an optional paid tier indicator.
+
 ## 9.7.5
 
 ### Patch Changes
