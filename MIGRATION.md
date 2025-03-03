@@ -8,6 +8,77 @@ We encourage you to enable and apply the rules incrementally and review the chan
 
 Prior to v5, codemods were implemented using [jscodeshift](#-codemods-jscodeshift).
 
+## From v9.x to v10
+
+Circuit UI v10 leverages a collection of overlay components by utilizing the native html [dialog](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) element, with a focus of improving the accessibility of these components.
+
+Circuit UI v10 requires a minimum Typescript version of 4.1. While this is technically a breaking change, v4.1 was released over 4 years ago (relative to the date this version is being released), so we don't expect this to break anyone's code. Please let us know if this causes you issues.
+
+To get started, upgrade `@sumup/circuit-ui` and its peer dependencies:
+
+```sh
+npm upgrade @sumup/circuit-ui @sumup/design-tokens @sumup/icons
+```
+
+### Overlay components
+
+Several overlay components have been refactored to use the native html dialog element:
+- Modal component
+- NotificationModal component
+- SidePanel component
+- SideNavigation component
+- ActionMenu (previously Popover) component
+- Popover component (new)
+- Dialog component (new)
+
+In older versions, components such as the Modal or the SidePanel were rendered using [react-modal](https://www.npmjs.com/package/react-modal), which had its issues.
+While the API of most these components has not changed, this still represents a breaking change as the components are now rendered in a different layer of the DOM, or a different stacking context compared to previous versions.
+This can lead to unexpected behavior in some cases, for example when combining portals with components that are rendered in the top layer like the Modal component. Please test your application thoroughly after upgrading to v10 to ensure that the changes do not break your UI and make fixes when necessary.
+
+It is now possible to show a Modal component inline, without using the `useModal` hook, thus allowing your modal content to be placed naturally within your component tree. This can improve performance and reduce the state management complexity. The `useModal` hook is still supported.
+
+It is noteworthy that the above-mentioned components now have default localized labels for the `closeButtonLabel` and `backButtonLabel` (when applicable) props, which are now optional.
+
+### Style reset
+Circuit UI styles have always included by default a very opinionated global style reset. When used  in combination with other UI libraries or frameworks, this has led to conflicts and unexpected results. To improve compatibility, the global style reset has been removed. If your app still requires the reset, [download](https://meyerweb.com/eric/tools/css/reset/) and include it manually.
+
+### Renamed components
+The Popover component has been renamed to ActionMenu to be more descriptive of its purpose. The name Popover is now reserved for a new component. Use the 🤖 `no-renamed-components` Eslint rule to automatically update the imports. Use this rule only once upon migration, multiple runs may cause issues unintentionally replacing any uses of the new Popover component.
+It is also recommended to manually search for any remaining uses of the old Popover component that the ESlint rule might not catch.
+
+```diff
+-import { Popover, type PopoverProps } from '@sumup-oss/circuit-ui';
++import { ActionMenu, type ActionMenuProps } from '@sumup-oss/circuit-ui';
+
+-jest.mock('@sumup-oss/circuit-ui', () => ({
+-  ...jest.requireActual('@sumup-oss/circuit-ui'),
+-    Popover: jest.fn().mockImplementation(() => <div />),
+-  ),
+-}));
++jest.mock('@sumup-oss/circuit-ui', () => ({
++  ...jest.requireActual('@sumup-oss/circuit-ui'),
++    ActionMenu: jest.fn().mockImplementation(() => <div />),
++  ),
++}));
+
+- const StyledPopover = styled(Popover)`
++ const StyledPopover = styled(ActionMenu)`
+```
+
+### New components
+- The Popover component is a new component that can be used to display any given content in a floating overlay upon interaction with a triggering element.
+- The Dialog component is a low level component based on the [html <dialog/>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) element. Use it to create your own custom overlay component if the Circuit UI component don't fit your needs.
+
+### Stable components
+The [Timestamp](https://circuit.sumup.com/?path=/docs/components-timestamp--docs) component is now stable. It automatically formats, displays, and updates dates into human-readable date times. Combine different formats and variants to display the date time for your use case. For example: creation time, last updated time, or the time of an event.
+
+### Other changes
+- Removed the Calendar component's deprecated calendar prop. Support for the gregory calendar was removed in v9.4 since it never fully worked.
+- Required an accessible name for the SideNavigation's primary link badge to ensure it can be perceived by visually impaired users. The relevant prop has been renamed from badge.label to badge.children to match the secondary link's badge.
+- Removed the deprecated profileMenu and user props from the TopNavigation component.
+- Added a new hook `useScrollLock` to disable page scroll on demand. If multiple instances coexist, only the latest instance is active.
+- Removed the Remix template as support for it has officially stopped in favor of React Router 7 ([blog post](https://remix.run/blog/merging-remix-and-react-router)).
+
 ## From v8.x to v9
 
 Circuit UI v9 introduces a [new typeface](#new-typeface), more flexible [typography APIs](#typography-apis), and [stable input components](#stable-components) for colors, dates, and phone numbers. For a complete list of changes, refer to the [changelog](https://github.com/sumup-oss/circuit-ui/blob/main/packages/circuit-ui/CHANGELOG.md).
@@ -730,6 +801,7 @@ Tip: Provide the `--transform`/`-t` argument at the end of the command, so that 
 > ```sh
 > ./node_modules/.bin/circuit-ui migrate -l JavaScript -l TypeScript -t codemod-name
 > ```
+
 
 ## From v4.x to v5
 

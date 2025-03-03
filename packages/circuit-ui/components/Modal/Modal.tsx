@@ -32,7 +32,7 @@ import classes from './Modal.module.css';
 export interface ModalProps extends PublicDialogProps {
   /**
    * Use the `immersive` variant to focus the user's attention on the dialog content.
-   * @default 'contextual'
+   * @default contextual
    * */
   variant?: 'contextual' | 'immersive';
   /**
