@@ -34,26 +34,11 @@ describe('Popover', () => {
     return render(<Popover {...props} />);
   }
 
-  /**
-   * Flushes microtasks to prevent act() warnings.
-   *
-   * From https://floating-ui.com/docs/react-dom#testing:
-   *
-   * > The position of floating elements is computed asynchronously, so a state
-   * > update occurs during a Promise microtask.
-   * >
-   * > The state update happens after tests complete, resulting in act warnings.
-   */
-  async function flushMicrotasks() {
-    // eslint-disable-next-line testing-library/no-unnecessary-act
-    await act(async () => {});
-  }
-
   const popoverContent = 'Popover content';
   const baseProps: PopoverProps = {
     component: (triggerProps) => <button {...triggerProps}>Button</button>,
     children: popoverContent,
-    isOpen: true,
+    initialOpen: true,
     onClose: vi.fn(),
   };
   it('should forward a ref', () => {
@@ -73,8 +58,7 @@ describe('Popover', () => {
 
   describe('when closed', () => {
     it('should open the popover when clicking the trigger element', async () => {
-      const isOpen = false;
-      renderPopover({ ...baseProps, isOpen });
+      renderPopover({ ...baseProps, initialOpen: false });
 
       const popoverTrigger = screen.getByRole('button');
 
@@ -89,8 +73,7 @@ describe('Popover', () => {
     ])(
       'should open the popover when pressing the %s key on the trigger element',
       async (_, key) => {
-        const isOpen = false;
-        renderPopover({ ...baseProps, isOpen });
+        renderPopover({ ...baseProps, initialOpen: false });
 
         const popoverTrigger = screen.getByRole('button');
 
@@ -151,34 +134,6 @@ describe('Popover', () => {
   });
 
   describe('Accessibility', () => {
-    it('should move focus to the first popover item after opening', async () => {
-      const popoverButton = <button type="button">Popover Button</button>;
-
-      renderPopover({
-        ...baseProps,
-
-        children: popoverButton,
-      });
-
-      expect(screen.getByText('Popover Button')).toHaveFocus();
-
-      await flushMicrotasks();
-    });
-
-    it('should move focus to the trigger element after closing', async () => {
-      const { rerender } = renderPopover(baseProps);
-
-      rerender(<Popover {...baseProps} isOpen={false} />);
-
-      const popoverTrigger = screen.getByRole('button');
-
-      await waitFor(() => {
-        expect(popoverTrigger).toHaveFocus();
-      });
-
-      await flushMicrotasks();
-    });
-
     it('should have no accessibility violations', async () => {
       const { container } = renderPopover(baseProps);
 

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { type ReactNode, useState } from 'react';
+import type { ReactNode } from 'react';
 import { NotificationCenter } from '@sumup-oss/icons';
 
 import { IconButton } from '../Button/index.js';
@@ -82,57 +82,47 @@ function PopoverWrapper({ children }: { children: ReactNode }) {
     </div>
   );
 }
-export const Base = (args: PopoverProps) => {
-  const [isOpen, setOpen] = useState(true);
-
-  return (
-    <PopoverWrapper>
-      <Popover
-        {...args}
-        isOpen={isOpen}
-        onClose={() => setOpen(false)}
-        component={(props) => (
-          <IconButton
-            size="s"
-            variant="secondary"
-            icon={NotificationCenter}
-            {...props}
-          >
-            Notifications
-          </IconButton>
-        )}
-      />
-    </PopoverWrapper>
-  );
-};
+export const Base = (args: PopoverProps) => (
+  <PopoverWrapper>
+    <Popover
+      {...args}
+      initialOpen={true}
+      component={(props) => (
+        <IconButton
+          size="s"
+          variant="secondary"
+          icon={NotificationCenter}
+          {...props}
+        >
+          Notifications
+        </IconButton>
+      )}
+    />
+  </PopoverWrapper>
+);
 
 Base.args = {
   children: PopoverContent,
 };
 
-export const Offset = (args: PopoverProps) => {
-  const [isOpen, setOpen] = useState(true);
-
-  return (
-    <PopoverWrapper>
-      <Popover
-        {...args}
-        isOpen={isOpen}
-        onClose={() => setOpen(false)}
-        component={(props) => (
-          <IconButton
-            size="s"
-            variant="secondary"
-            icon={NotificationCenter}
-            {...props}
-          >
-            Notifications
-          </IconButton>
-        )}
-      />
-    </PopoverWrapper>
-  );
-};
+export const Offset = (args: PopoverProps) => (
+  <PopoverWrapper>
+    <Popover
+      {...args}
+      initialOpen={true}
+      component={(props) => (
+        <IconButton
+          size="s"
+          variant="secondary"
+          icon={NotificationCenter}
+          {...props}
+        >
+          Notifications
+        </IconButton>
+      )}
+    />
+  </PopoverWrapper>
+);
 
 Offset.args = {
   children: PopoverContent,

@@ -42,7 +42,6 @@ import { useMedia } from '../../hooks/useMedia/index.js';
 import { sharedClasses } from '../../styles/shared.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { clsx } from '../../styles/clsx.js';
-import { usePrevious } from '../../hooks/usePrevious/index.js';
 
 import classes from './Popover.module.css';
 
@@ -68,9 +67,9 @@ export interface PopoverProps
     | 'preventOutsideClickRefs'
   > {
   /**
-   * Determines whether the Popover is open or closed.
+   * The initial state of the Popover.
    */
-  isOpen: boolean;
+  initialOpen?: boolean;
   /**
    * Function that is called when the Popover is closed.
    */
@@ -113,7 +112,7 @@ const sizeOptions: SizeOptions = {
 export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
   (
     {
-      isOpen: initialOpen = false,
+      initialOpen = false,
       onClose,
       children,
       placement = 'bottom',
@@ -147,19 +146,6 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
           ]
         : [flip({ fallbackPlacements }), size(sizeOptions)],
     });
-    const prevOpen = usePrevious(isOpen);
-
-    useEffect(() => {
-      setIsOpen(initialOpen);
-    }, [initialOpen]);
-
-    useEffect(() => {
-      if (prevOpen && !isOpen) {
-        const triggerButton = refs.reference.current
-          ?.firstElementChild as HTMLElement;
-        triggerButton.focus();
-      }
-    }, [prevOpen, isOpen, refs.reference]);
 
     const handleTriggerClick = useCallback(() => {
       setIsOpen((prev) => {
