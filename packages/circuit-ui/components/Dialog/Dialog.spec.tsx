@@ -166,42 +166,97 @@ describe('Dialog', () => {
       render(<Dialog {...props} open />);
       vi.runAllTimers();
       expect(screen.getByText('Dialog content')).toBeVisible();
+      expect(screen.getByRole('button', { name: 'Close' })).toBeVisible();
     });
 
-    it('should not close modal on backdrop click if preventClose is true', async () => {
-      render(<Dialog {...props} open preventClose />);
-      // eslint-disable-next-line testing-library/no-container
-      const dialog = screen.getByRole('dialog', { hidden: true });
-      await userEvent.click(dialog);
-      act(() => {
-        vi.runAllTimers();
-      });
-      expect(props.onCloseEnd).not.toHaveBeenCalled();
-      expect(props.onCloseStart).not.toHaveBeenCalled();
-      expect(dialog).toBeVisible();
-    });
-
-    it('should not show the close button if preventClose is true', async () => {
-      render(<Dialog {...props} open preventClose />);
+    it('should not show the close button if hideCloseButton is true', async () => {
+      render(<Dialog {...props} open hideCloseButton />);
       // eslint-disable-next-line testing-library/no-container
       expect(
         screen.queryByRole('button', { name: 'Close' }),
       ).not.toBeInTheDocument();
     });
 
-    it('should not close modal on backdrop click if preventClose is true - polyfill', async () => {
-      Object.defineProperty(window, 'HTMLDialogElement', {
-        writable: true,
-        value: undefined,
+    describe('preventOutsideClickClose', () => {
+      it('should close modal on backdrop click if preventOutsideClickClose is false', async () => {
+        render(<Dialog {...props} open />);
+        // eslint-disable-next-line testing-library/no-container
+        const dialog = screen.getByRole('dialog', { hidden: true });
+        vi.spyOn(dialog, 'close');
+        await userEvent.click(dialog);
+        act(() => {
+          vi.runAllTimers();
+        });
+        expect(props.onCloseEnd).toHaveBeenCalled();
+        expect(props.onCloseStart).toHaveBeenCalled();
+        expect(dialog.close).toHaveBeenCalled();
       });
-      render(<Dialog {...props} open preventClose />);
-      // eslint-disable-next-line testing-library/no-container
-      const dialog = screen.getByRole('dialog', { hidden: true });
-      await userEvent.click(dialog);
-      vi.runAllTimers();
-      expect(props.onCloseEnd).not.toHaveBeenCalled();
-      expect(props.onCloseStart).not.toHaveBeenCalled();
-      expect(dialog).toBeVisible();
+      it('should not close modal on backdrop click if preventOutsideClickClose is true', async () => {
+        render(<Dialog {...props} open preventOutsideClickClose />);
+        // eslint-disable-next-line testing-library/no-container
+        const dialog = screen.getByRole('dialog', { hidden: true });
+        await userEvent.click(dialog);
+        act(() => {
+          vi.runAllTimers();
+        });
+        expect(props.onCloseEnd).not.toHaveBeenCalled();
+        expect(props.onCloseStart).not.toHaveBeenCalled();
+        expect(dialog).toBeVisible();
+      });
+      it('should not close modal on backdrop click if preventOutsideClickClose is true - polyfill', async () => {
+        Object.defineProperty(window, 'HTMLDialogElement', {
+          writable: true,
+          value: undefined,
+        });
+        render(<Dialog {...props} open preventOutsideClickClose />);
+        // eslint-disable-next-line testing-library/no-container
+        const dialog = screen.getByRole('dialog', { hidden: true });
+        await userEvent.click(dialog);
+        vi.runAllTimers();
+        expect(props.onCloseEnd).not.toHaveBeenCalled();
+        expect(props.onCloseStart).not.toHaveBeenCalled();
+        expect(dialog).toBeVisible();
+      });
+    });
+
+    describe('preventEscapeKeyClose', () => {
+      it('should close the dialog pressing the Escape key and preventEscapeKeyClose is false', async () => {
+        render(<Dialog {...props} open />);
+        const dialog = screen.getByRole('dialog', { hidden: true });
+        vi.spyOn(dialog, 'close');
+        await userEvent.keyboard('{Escape}');
+        expect(dialog.close).toHaveBeenCalled();
+        expect(props.onCloseEnd).toHaveBeenCalled();
+        expect(props.onCloseStart).toHaveBeenCalled();
+      });
+
+      it('should not close the dialog pressing the Escape key and preventEscapeKeyClose is true', async () => {
+        render(<Dialog {...props} open preventEscapeKeyClose />);
+        const dialog = screen.getByRole('dialog', { hidden: true });
+        vi.spyOn(dialog, 'close');
+        await userEvent.keyboard('{Escape}');
+        expect(dialog.close).not.toHaveBeenCalled();
+        expect(props.onCloseEnd).not.toHaveBeenCalled();
+        expect(props.onCloseStart).not.toHaveBeenCalled();
+      });
+
+      it('should not close the dialog pressing the Escape key and focus is outside the dialog', async () => {
+        render(
+          <>
+            <Dialog {...props} open preventEscapeKeyClose />
+            <button>Some button</button>
+          </>,
+        );
+        const dialog = screen.getByRole('dialog', { hidden: true });
+        const button = screen.getByText('Some button');
+        vi.spyOn(dialog, 'close');
+
+        button.focus();
+        await userEvent.keyboard('{Escape}');
+        expect(dialog.close).not.toHaveBeenCalled();
+        expect(props.onCloseEnd).not.toHaveBeenCalled();
+        expect(props.onCloseStart).not.toHaveBeenCalled();
+      });
     });
 
     it('should close the dialog when pressing the backdrop', async () => {
@@ -264,15 +319,16 @@ describe('Dialog', () => {
     });
 
     it('should focus a given element when provided', async () => {
-      const ref = createRef<HTMLButtonElement>();
       render(
-        <Dialog {...props} open initialFocusRef={ref}>
+        <Dialog {...props} open>
           {() => (
             <div>
               <button type="button" name="btn">
                 Button
               </button>
-              <button ref={ref} type="button" name="btn">
+              {/* eslint-disable react/no-unknown-property */}
+              {/* @ts-expect-error React purposefully breaks the `autoFocus` property. Using the lowercase DOM attribute name instead forces it to be added to the DOM but will produce a console warning that can be safely ignored. https://github.com/facebook/react/issues/23301 */}
+              <button type="button" name="btn" autofocus="true">
                 Special button
               </button>
             </div>

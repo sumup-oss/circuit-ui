@@ -40,11 +40,10 @@ import { clsx } from '../../styles/clsx.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 import { useStackContext } from '../StackContext/index.js';
-import { CloseButton } from '../CloseButton/index.js';
 import { Headline } from '../Headline/index.js';
 import { Body } from '../Body/index.js';
 import { Button, type ButtonProps } from '../Button/index.js';
-import { Dialog, type DialogProps } from '../Dialog/Dialog.js';
+import { Dialog, type PublicDialogProps } from '../Dialog/Dialog.js';
 
 import classes from './Toggletip.module.css';
 
@@ -55,18 +54,7 @@ export interface ToggletipReferenceProps {
 }
 
 export interface ToggletipProps
-  extends Omit<
-    DialogProps,
-    | 'onCloseStart'
-    | 'onCloseEnd'
-    | 'isModal'
-    | 'animationDuration'
-    | 'initialFocusRef'
-    | 'open'
-    | 'preventClose'
-    | 'preventOutsideClickRefs'
-    | 'children'
-  > {
+  extends Omit<PublicDialogProps, 'open' | 'children'> {
   /**
    * The button element that triggers the toggletip.
    */
@@ -250,16 +238,6 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
                 size="s"
                 className={classes.action}
               />
-            )}
-            {!isMobile && (
-              <CloseButton
-                size="s"
-                variant="tertiary"
-                className={classes.close}
-                onClick={closeDialog}
-              >
-                {closeButtonLabel}
-              </CloseButton>
             )}
           </div>
           <div

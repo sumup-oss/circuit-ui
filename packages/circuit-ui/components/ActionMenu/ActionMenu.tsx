@@ -45,7 +45,7 @@ import { Hr } from '../Hr/index.js';
 import { useFocusList } from '../../hooks/useFocusList/index.js';
 import { usePrevious } from '../../hooks/usePrevious/index.js';
 import { useStackContext } from '../StackContext/index.js';
-import { Dialog, type DialogProps } from '../Dialog/Dialog.js';
+import { Dialog, type PublicDialogProps } from '../Dialog/Dialog.js';
 import { sharedClasses } from '../../styles/shared.js';
 
 import classes from './ActionMenu.module.css';
@@ -73,19 +73,7 @@ export interface ActionMenuReferenceProps {
 }
 
 export interface ActionMenuProps
-  extends Omit<
-    DialogProps,
-    | 'children'
-    | 'role'
-    | 'open'
-    | 'onCloseEnd'
-    | 'onCloseStart'
-    | 'isModal'
-    | 'animationDuration'
-    | 'preventClose'
-    | 'initialFocusRef'
-    | 'preventOutsideClickRefs'
-  > {
+  extends Omit<PublicDialogProps, 'open' | 'role'> {
   /**
    * Determines whether the ActionMenu is open or closed.
    */
@@ -299,6 +287,7 @@ export const ActionMenu = forwardRef<HTMLDialogElement, ActionMenuProps>(
           onCloseStart={handleCloseStart}
           onCloseEnd={handleCloseEnd}
           isModal={isMobile}
+          hideCloseButton={!isMobile}
           ref={applyMultipleRefs(ref, refs.setFloating, dialogRef)}
           className={clsx(
             classes.base,

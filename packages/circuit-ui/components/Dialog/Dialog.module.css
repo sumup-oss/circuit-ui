@@ -37,7 +37,7 @@
 }
 
 /* Close button */
-.close {
+.base .close {
   position: absolute;
   z-index: var(--cui-z-index-absolute);
 }

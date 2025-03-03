@@ -26,17 +26,18 @@ import {
 
 import { uniqueId } from '../../util/id.js';
 
-import {
-  SidePanelContext,
-  type SidePanelContextProps,
-} from './SidePanelContext.js';
+import { SidePanelContext } from './SidePanelContext.js';
 
 export type OnBack = () => void;
 export type OnClose = () => void | Promise<void>;
 
-export type ChildrenRenderProps = { onBack?: OnBack; onClose: OnClose };
+export type ChildrenRenderProps = { onBack?: OnBack; onClose?: OnClose };
 
 export type SidePanelHookProps = {
+  /**
+   * The headline of the side panel.
+   */
+  headline: string;
   /**
    * Text label for the back button for screen readers.
    * Important for accessibility.
@@ -48,24 +49,19 @@ export type SidePanelHookProps = {
    */
   children: ReactNode | ((props: ChildrenRenderProps) => ReactNode);
   /**
-   * Text label for the close button for screen readers.
-   * Important for accessibility.
+   * Callback function that is called when the stacked side panel is closed.
    */
-  closeButtonLabel: string;
+  onBack?: OnBack;
+  /**
+   * Callback function that is called when the side panel is closed.
+   */
+  onClose?: OnClose;
   /**
    * The group of the side panel. Opening a second side panel in
    * the same group will replace the content and close all side panels
    * stacked on top of it. Only panels in different groups stack one on top of the other.
    */
   group?: string;
-  /**
-   * The headline of the side panel.
-   */
-  headline: string;
-  /**
-   * Callback function that is called when the side panel is closed.
-   */
-  onClose?: OnClose;
 };
 
 type SetSidePanel = (props: SidePanelHookProps) => void;
@@ -85,7 +81,7 @@ type UseSidePanelHook = () => {
 export const useSidePanel: UseSidePanelHook = () => {
   const defaultGroup = useId();
   const bottomSidePanelGroupRef = useRef<
-    SidePanelContextProps['group'] | undefined
+    SidePanelHookProps['group'] | undefined
   >();
   const {
     setSidePanel: setSidePanelContext,
@@ -101,7 +97,12 @@ export const useSidePanel: UseSidePanelHook = () => {
       if (!bottomSidePanelGroupRef.current) {
         bottomSidePanelGroupRef.current = sidePanelGroup;
       }
-      setSidePanelContext({ ...props, group: sidePanelGroup, id: uniqueId() });
+      setSidePanelContext({
+        ...props,
+        group: sidePanelGroup,
+        id: uniqueId(),
+        open: true,
+      });
     },
     [setSidePanelContext, defaultGroup],
   );

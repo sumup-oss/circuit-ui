@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, type Mock, vi, afterEach } from 'vitest';
 
 import {
   render,
@@ -22,32 +22,29 @@ import {
   waitFor,
   screen,
 } from '../../util/test-utils.js';
+import { useMedia } from '../../hooks/useMedia/index.js';
 
 import { SidePanel, type SidePanelProps } from './SidePanel.js';
 
+vi.mock('../../hooks/useMedia/useMedia.js');
+
 describe('SidePanel', () => {
+  const closeButtonLabel = 'Close';
   const baseProps: SidePanelProps = {
     backButtonLabel: 'Back',
     children: () => <p data-testid="children">Side panel content</p>,
-    closeButtonLabel: 'Close',
+    closeButtonLabel,
     headline: 'Side panel title',
-    isBottomPanelClosing: false,
-    isInstantOpen: false,
-    isMobile: false,
-    isStacked: false,
     onBack: undefined,
     onClose: () => {},
-    // Silences the warning about the missing app element.
-    // In user land, the side panel is always rendered by the SidePanelProvider,
-    // which takes care of setting the app element.
-    // http://reactcommunity.org/react-modal/accessibility/#app-element
-    ariaHideApp: false,
-    // Keep the modal opened by setting the react-modal isOpen prop.
+    // Keep the modal opened by setting the Dialog open prop.
     // Usually this is controlled by the SidePanelProvider.
-    isOpen: true,
-    // Close the modals instantly to prevent buildup of `ReactModalPortal__SidePanel` div elements.
-    closeTimeoutMS: 0,
+    open: true,
   };
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
 
   const renderComponent = (props: Partial<SidePanelProps> = {}) =>
     render(<SidePanel {...baseProps} {...props} />);
@@ -73,7 +70,7 @@ describe('SidePanel', () => {
     const onClose = vi.fn();
     renderComponent({ onClose });
 
-    await userEvent.click(screen.getByTitle(baseProps.closeButtonLabel));
+    await userEvent.click(screen.getByTitle(closeButtonLabel));
 
     expect(onClose).toHaveBeenCalled();
   });
@@ -82,7 +79,7 @@ describe('SidePanel', () => {
     const onClose = vi.fn();
     renderComponent({
       children: ({ onClose: onCloseRenderProp }) => (
-        <button data-testid="close" onClick={onCloseRenderProp}>
+        <button data-testid="close" type="button" onClick={onCloseRenderProp}>
           Close
         </button>
       ),
@@ -120,7 +117,7 @@ describe('SidePanel', () => {
   describe('when the panel is stacked', () => {
     it('should show the back button', () => {
       const onBack = vi.fn();
-      renderComponent({ isStacked: true, onBack });
+      renderComponent({ onBack });
 
       expect(
         screen.getByTitle(baseProps.backButtonLabel as string),
@@ -129,7 +126,7 @@ describe('SidePanel', () => {
 
     it('should call the onBack callback from the back button', async () => {
       const onBack = vi.fn();
-      renderComponent({ isStacked: true, onBack });
+      renderComponent({ onBack });
 
       await userEvent.click(
         screen.getByTitle(baseProps.backButtonLabel as string),
@@ -142,11 +139,10 @@ describe('SidePanel', () => {
       const onBack = vi.fn();
       renderComponent({
         children: ({ onBack: onBackRenderProp }) => (
-          <button data-testid="back" onClick={onBackRenderProp}>
+          <button data-testid="back" type="button" onClick={onBackRenderProp}>
             Back
           </button>
         ),
-        isStacked: true,
         onBack,
       });
 
@@ -157,7 +153,7 @@ describe('SidePanel', () => {
 
     it('should call the onBack callback when Esc is pressed', async () => {
       const onBack = vi.fn();
-      renderComponent({ isStacked: true, onBack });
+      renderComponent({ onBack });
 
       await userEvent.keyboard('{Escape}');
 
@@ -166,16 +162,24 @@ describe('SidePanel', () => {
   });
 
   describe('when the panel is on desktop resolution', () => {
-    it('should describe the side panel as modal', () => {
-      renderComponent();
-      expect(screen.getByRole('dialog')).toHaveAttribute('aria-modal', 'true');
+    it('should open the side panel as non-modal', () => {
+      const { rerender } = render(<SidePanel {...baseProps} open={false} />);
+      const dialog = screen.getByRole('dialog', { hidden: true });
+      vi.spyOn(dialog, 'show');
+      rerender(<SidePanel {...baseProps} open />);
+      expect(dialog.show).toHaveBeenCalledOnce();
     });
   });
 
   describe('when the panel is on mobile resolution', () => {
     it('should describe the side panel as modal', () => {
-      renderComponent({ isMobile: true });
-      expect(screen.getByRole('dialog')).toHaveAttribute('aria-modal', 'true');
+      (useMedia as Mock).mockReturnValue(true);
+
+      const { rerender } = render(<SidePanel {...baseProps} open={false} />);
+      const dialog = screen.getByRole('dialog', { hidden: true });
+      vi.spyOn(dialog, 'showModal');
+      rerender(<SidePanel {...baseProps} open />);
+      expect(dialog.showModal).toHaveBeenCalledOnce();
     });
   });
 

@@ -42,8 +42,9 @@ import {
   type SetSidePanel,
   type RemoveSidePanel,
   type UpdateSidePanel,
-  type SidePanelContextProps,
+  type SidePanelContextItem,
 } from './SidePanelContext.js';
+import type { SidePanelHookProps } from './useSidePanel.js';
 
 vi.mock('../../hooks/useMedia/index.js');
 
@@ -92,11 +93,6 @@ describe('SidePanelContext', () => {
       headline: 'Side panel title',
       id: uniqueId(),
       onClose: undefined,
-      // Silences the warning about the missing app element.
-      // In user land, the side panel is always rendered by the SidePanelProvider,
-      // which takes care of setting the app element.
-      // http://reactcommunity.org/react-modal/accessibility/#app-element
-      ariaHideApp: false,
     });
 
     const renderComponent = (Trigger: ComponentType, props = {}) =>
@@ -108,7 +104,7 @@ describe('SidePanelContext', () => {
 
     const renderOpenButton = (
       hookFn: SetSidePanel,
-      props: Partial<SidePanelContextProps> = {},
+      props: Partial<SidePanelContextItem> = {},
       label = 'Open panel',
     ) => (
       <button onClick={() => hookFn({ ...getPanel(), ...props })}>
@@ -118,7 +114,7 @@ describe('SidePanelContext', () => {
 
     const renderCloseButton = (
       hookFn: RemoveSidePanel,
-      group: SidePanelContextProps['group'] = 'primary',
+      group: SidePanelHookProps['group'] = 'primary',
     ) => (
       <button
         onClick={() => {
@@ -131,8 +127,8 @@ describe('SidePanelContext', () => {
 
     const renderUpdateButton = (
       hookFn: UpdateSidePanel,
-      props: Partial<SidePanelContextProps> = {},
-      group: SidePanelContextProps['group'] = 'primary',
+      props: Partial<SidePanelContextItem> = {},
+      group: SidePanelHookProps['group'] = 'primary',
     ) => (
       <button onClick={() => hookFn({ group, ...props })}>Update panel</button>
     );
