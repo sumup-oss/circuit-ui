@@ -65,6 +65,8 @@ export interface PopoverProps
     | 'preventClose'
     | 'initialFocusRef'
     | 'preventOutsideClickRefs'
+    | 'preventEscapeKeyClose'
+    | 'preventOutsideClickClose'
   > {
   /**
    * The initial state of the Popover.
@@ -119,6 +121,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
       fallbackPlacements = ['top', 'right', 'left'],
       component: Component,
       offset,
+      hideCloseButton,
       className,
       style,
       ...props
@@ -147,19 +150,16 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
         : [flip({ fallbackPlacements }), size(sizeOptions)],
     });
 
-    const handleTriggerClick = useCallback(() => {
+    const handleTriggerClick = () => {
       setIsOpen((prev) => {
         if (prev) {
           setClosing(true);
-          if (!isClosing) {
-            onClose?.();
-          }
           return false;
         }
 
         return true;
       });
-    }, [onClose, isClosing]);
+    };
 
     useEffect(() => {
       /**
@@ -187,10 +187,8 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
     const handleCloseEnd = useCallback(() => {
       setClosing(false);
       setIsOpen(false);
-      if (!isClosing) {
-        onClose?.();
-      }
-    }, [onClose, isClosing]);
+      onClose?.();
+    }, [onClose]);
 
     const handleCloseStart = useCallback(() => {
       setClosing(true);
@@ -224,7 +222,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
             className,
           )}
           animationDuration={animationDuration}
-          hideCloseButton
+          hideCloseButton={hideCloseButton}
           style={
             isMobile
               ? style

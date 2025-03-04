@@ -99,7 +99,7 @@ describe('Popover', () => {
     it('should close the popover when clicking the trigger element', async () => {
       renderPopover(baseProps);
 
-      const popoverTrigger = screen.getByRole('button');
+      const popoverTrigger = screen.getByText('Button');
 
       await userEvent.click(popoverTrigger);
 
@@ -115,7 +115,7 @@ describe('Popover', () => {
         renderPopover(baseProps);
         vi.runAllTimers();
 
-        const popoverTrigger = screen.getByRole('button');
+        const popoverTrigger = screen.getByText('Button');
 
         popoverTrigger.focus();
         await userEvent.keyboard(key);
