@@ -21,6 +21,7 @@ import { noDeprecatedProps } from './no-deprecated-props';
 import { noRenamedProps } from './no-renamed-props';
 import { preferCustomProperties } from './prefer-custom-properties';
 import { renamedPackageScope } from './renamed-package-scope';
+import { noRenamedComponents } from './no-renamed-components';
 
 /* eslint-disable */
 
@@ -33,4 +34,5 @@ export const rules = {
   'no-renamed-props': noRenamedProps,
   'prefer-custom-properties': preferCustomProperties,
   'renamed-package-scope': renamedPackageScope,
+  'no-renamed-components': noRenamedComponents,
 };
