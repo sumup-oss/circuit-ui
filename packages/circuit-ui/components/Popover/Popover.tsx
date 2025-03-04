@@ -75,7 +75,7 @@ export interface PopoverProps
   /**
    * Function that is called when the Popover is closed.
    */
-  onClose: DialogProps['onCloseEnd'];
+  onClose?: DialogProps['onCloseEnd'];
   /**
    * One of the accepted placement values.
    * @default `bottom`.

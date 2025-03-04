@@ -292,7 +292,16 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 
     const handleEscapeKey = useCallback(
       (e: KeyboardEvent) => {
-        if (!dialogRef.current?.contains(e.target as Node)) {
+        const isHighestDialog =
+          e
+            .composedPath()
+            .filter(
+              (el) => el instanceof Node && el.nodeName === 'DIALOG',
+            )[0] === dialogRef.current;
+        if (
+          !dialogRef.current?.contains(e.target as Node) ||
+          !isHighestDialog
+        ) {
           return;
         }
         e.preventDefault();
@@ -365,7 +374,8 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 
     const onDialogClick = useCallback(
       (event: ReactMouseEvent<HTMLDialogElement>) => {
-        if (isModal && !preventOutsideClickClose) {
+        const isChildNode = dialogRef.current?.contains(event.target as Node);
+        if (!preventOutsideClickClose) {
           let isInDialog = false;
           const rect = dialogRef.current?.getBoundingClientRect();
           if (rect) {
@@ -375,8 +385,13 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
               rect.left <= event.clientX &&
               event.clientX <= rect.left + rect.width;
           }
-
-          if (!isInDialog) {
+          const isBackdropClick =
+            event.target === dialogRef.current && !isInDialog;
+          if (
+            (isModal && !isInDialog && !isChildNode) ||
+            (isModal && isBackdropClick) ||
+            (!isModal && !isChildNode)
+          ) {
             handleDialogClose();
           }
         }
