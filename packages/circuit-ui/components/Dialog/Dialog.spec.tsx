@@ -23,6 +23,7 @@ import {
   userEvent,
   waitFor,
   act,
+  fireEvent,
 } from '../../util/test-utils.js';
 
 import { Dialog } from './Dialog.js';
@@ -183,7 +184,7 @@ describe('Dialog', () => {
         // eslint-disable-next-line testing-library/no-container
         const dialog = screen.getByRole('dialog', { hidden: true });
         vi.spyOn(dialog, 'close');
-        await userEvent.click(dialog);
+        await userEvent.click(document.body);
         act(() => {
           vi.runAllTimers();
         });
@@ -260,9 +261,18 @@ describe('Dialog', () => {
     });
 
     it('should close the dialog when pressing the backdrop', async () => {
-      render(<Dialog {...props} open />);
+      render(<Dialog {...props} open isModal />);
       const dialog = screen.getByRole('dialog', { hidden: true });
-      await userEvent.click(screen.getByRole('dialog', { hidden: true }));
+
+      // Get the bounding rect of the element
+      const rect = dialog.getBoundingClientRect();
+
+      // Calculate coordinates outside the element's bounding rect
+      const outsideX = rect.right + 10;
+      const outsideY = rect.bottom + 10;
+
+      // Simulate a click event outside the element
+      fireEvent.click(dialog, { clientX: outsideX, clientY: outsideY });
       vi.runAllTimers();
       expect(props.onCloseEnd).toHaveBeenCalledOnce();
       expect(props.onCloseStart).toHaveBeenCalledOnce();
