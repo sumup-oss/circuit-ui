@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+/* eslint-disable import/no-extraneous-dependencies */
+
 import fs from 'node:fs';
 import path from 'node:path';
 
