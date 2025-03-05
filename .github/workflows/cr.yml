@@ -26,7 +26,7 @@ jobs:
         run: npm run build
 
       - name: Publish packages
-        run: npx pkg-pr-new publish './packages/circuit-ui'  './packages/design-tokens'  './packages/icons' --json output.json --comment=off
+        run: npx pkg-pr-new publish './packages/circuit-ui'  './packages/design-tokens'  './packages/icons' './packages/eslint-plugin-circuit-ui' --json output.json --comment=off
 
       - name: Post or update comment
         uses: actions/github-script@v7
