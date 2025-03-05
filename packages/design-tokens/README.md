@@ -103,27 +103,6 @@ function App() {
 
 The theme is a plain JavaScript object, so you can use it in other ways, too.
 
-#### With prop types
-
-The package exports a `themePropType` which can be used to check the `theme` prop:
-
-```tsx
-import PropTypes from 'prop-types';
-import { withTheme } from '@emotion/react';
-import { themePropType } from '@sumup-oss/design-tokens';
-
-function ComponentWithInlineStyles({ theme, label }) {
-  return <div style={{ borderRadius: theme.borderRadius.kilo }}>{label}</div>;
-}
-
-ComponentWithInlineStyles.propTypes = {
-  theme: themePropType.isRequired,
-  label: PropTypes.string,
-};
-
-export default function withTheme(ComponentWithInlineStyles);
-```
-
 #### With TypeScript
 
 The package exports a `Theme` interface that can be used to augment Emotion.js' types as described in the [Emotion.js docs](https://emotion.sh/docs/typescript#define-a-theme):

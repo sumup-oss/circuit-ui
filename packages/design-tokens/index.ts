@@ -18,8 +18,6 @@ import * as legacy from './themes/legacy/light.js';
 
 export { schema } from './themes/schema.js';
 
-export { themePropType } from './utils/theme-prop-type.js';
-
 /**
  * @deprecated
  *
