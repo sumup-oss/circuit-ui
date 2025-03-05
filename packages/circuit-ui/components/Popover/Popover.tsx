@@ -53,6 +53,7 @@ export interface PopoverReferenceProps {
   'aria-controls': string;
   'aria-expanded': boolean;
 }
+type OnToggle = (open: boolean | ((prevOpen: boolean) => boolean)) => void;
 
 export interface PopoverProps
   extends Omit<
@@ -69,13 +70,13 @@ export interface PopoverProps
     | 'preventOutsideClickClose'
   > {
   /**
-   * The initial state of the Popover.
+   * The state of the Popover.
    */
-  initialOpen?: boolean;
+  isOpen?: boolean;
   /**
-   * Function that is called when the Popover is closed.
+   * Function that is called when opening and closing the Popover.
    */
-  onClose?: DialogProps['onCloseEnd'];
+  onToggle: OnToggle;
   /**
    * One of the accepted placement values.
    * @default `bottom`.
@@ -114,8 +115,8 @@ const sizeOptions: SizeOptions = {
 export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
   (
     {
-      initialOpen = false,
-      onClose,
+      isOpen = false,
+      onToggle,
       children,
       placement = 'bottom',
       fallbackPlacements = ['top', 'right', 'left'],
@@ -135,7 +136,6 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
     const [isClosing, setClosing] = useState(false);
     const isMobile = useMedia('(max-width: 479px)');
     const animationDuration = isMobile ? 300 : 0;
-    const [isOpen, setIsOpen] = useState(initialOpen);
 
     const { floatingStyles, refs, update } = useFloating<HTMLElement>({
       open: isOpen,
@@ -151,7 +151,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
     });
 
     const handleTriggerClick = () => {
-      setIsOpen((prev) => {
+      onToggle((prev) => {
         if (prev) {
           setClosing(true);
           return false;
@@ -186,9 +186,8 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
 
     const handleCloseEnd = useCallback(() => {
       setClosing(false);
-      setIsOpen(false);
-      onClose?.();
-    }, [onClose]);
+      onToggle(false);
+    }, [onToggle]);
 
     const handleCloseStart = useCallback(() => {
       setClosing(true);
@@ -237,7 +236,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
         >
           <div id={contentId} className={classes.content}>
             {typeof children === 'function'
-              ? children?.({ onClose })
+              ? children?.({ onClose: handleCloseEnd })
               : children}
           </div>
         </Dialog>
