@@ -1,0 +1,31 @@
+.base {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 96px;
+  padding: 0 var(--cui-spacings-kilo);
+  border-right: 1px solid var(--cui-border-subtle);
+}
+
+.wrapper {
+  vertical-align: bottom;
+}
+
+.title {
+  display: flex;
+  gap: var(--cui-spacings-bit);
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--cui-spacings-bit);
+}
+
+@media (min-width: 768px) {
+  .base {
+    padding: 0 var(--cui-spacings-mega);
+  }
+
+  .description {
+    margin-bottom: var(--cui-spacings-mega);
+  }
+}
