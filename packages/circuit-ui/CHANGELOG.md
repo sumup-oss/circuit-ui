@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.8.1
+
+### Patch Changes
+
+- [#2979](https://github.com/sumup-oss/circuit-ui/pull/2979) [`b4c46ea`](https://github.com/sumup-oss/circuit-ui/commit/b4c46eafe90907dd5429bbc2021d1636a9834eb3) Thanks [@sirineJ](https://github.com/sirineJ)! - Add missing export of the TierIndicator component.
+
 ## 9.8.0
 
 ### Minor Changes
