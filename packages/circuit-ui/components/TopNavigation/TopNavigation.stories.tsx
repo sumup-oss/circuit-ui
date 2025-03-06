@@ -90,32 +90,6 @@ export const baseArgs: TopNavigationProps = {
       <SumUpLogo />
     </a>
   ),
-  user: {
-    name: 'Jane Doe',
-    id: 'ID: AC3YULT8',
-  },
-  profileMenu: {
-    label: 'Open profile menu',
-    actions: [
-      {
-        href: '/profile',
-        onClick: action('View profile'),
-        children: 'View profile',
-      },
-      {
-        href: '/settings',
-        onClick: action('Settings'),
-        children: 'Settings',
-      },
-      { type: 'divider' },
-      {
-        onClick: action('Logout'),
-        children: 'Logout',
-        destructive: true,
-      },
-    ],
-    className: 'custom-class-name',
-  },
   links: [
     {
       key: 'custom',

@@ -17,7 +17,6 @@ import { describe, expect, it, vi } from 'vitest';
 import { Shop, SumUpLogo } from '@sumup-oss/icons';
 
 import { axe, render, screen } from '../../util/test-utils.js';
-import type { PopoverProps } from '../Popover/index.js';
 
 import { TopNavigation, type TopNavigationProps } from './TopNavigation.js';
 
@@ -38,29 +37,6 @@ describe('TopNavigation', () => {
       onClick: vi.fn(),
       activeLabel: 'Close menu',
       inactiveLabel: 'Open menu',
-    },
-    user: {
-      name: 'Jane Doe',
-      id: 'ID: AC3YULT8',
-    },
-    profileMenu: {
-      label: 'Open profile menu',
-      actions: [
-        {
-          onClick: vi.fn(),
-          children: 'View profile',
-        },
-        {
-          onClick: vi.fn(),
-          children: 'Settings',
-        },
-        { type: 'divider' },
-        {
-          onClick: vi.fn(),
-          children: 'Logout',
-          destructive: true,
-        },
-      ] as PopoverProps['actions'],
     },
     links: [
       {
