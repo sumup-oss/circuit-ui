@@ -214,6 +214,12 @@ export {
   type ToggletipProps,
 } from './components/Toggletip/index.js';
 
+// Brand
+export {
+  TierIndicator,
+  type TierIndicatorProps,
+} from './components/TierIndicator/TierIndicator.js';
+
 // Hooks
 export { useClickOutside } from './hooks/useClickOutside/index.js';
 export { useEscapeKey } from './hooks/useEscapeKey/index.js';
