@@ -1,0 +1,34 @@
+.base {
+  vertical-align: middle;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 64px;
+  padding: var(--cui-spacings-mega);
+  text-align: start;
+}
+
+.header {
+  justify-content: center;
+  padding-left: 0;
+}
+
+.title {
+  display: flex;
+  gap: var(--cui-spacings-byte);
+  align-items: center;
+  justify-content: start;
+}
+
+.centered {
+  justify-content: center;
+}
+
+.description {
+  text-align: start;
+}
