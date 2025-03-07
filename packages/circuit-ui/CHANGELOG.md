@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.8.2
+
+### Patch Changes
+
+- [#2982](https://github.com/sumup-oss/circuit-ui/pull/2982) [`908de8b`](https://github.com/sumup-oss/circuit-ui/commit/908de8b19ca24604edd2ee3b733060c9e6d0fd9b) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the Button and IconButton component's compatibility with React Server Components (RSC) by adding a missing `'use client'` directive.
+
 ## 9.8.1
 
 ### Patch Changes
