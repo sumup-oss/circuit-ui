@@ -45,7 +45,6 @@ export const posPlusPlan: TableHeaderProps = {
 export const posProPlan: TableHeaderProps = {
   title: 'POS Pro',
   id: 'pos_pro',
-  tier: { variant: 'plus' },
   description: '25$/month',
   callToAction: {
     children: 'Join now',
@@ -63,12 +62,12 @@ export const freeBusinessAccountFeature: FeatureRowProps = {
           View details for Free business account
         </IconButton>
       ),
-      headline: 'What is a chargeback?',
-      body: 'A chargeback is a return of money to a payer of a transaction, especially a credit card transaction.',
+      headline: 'Some additional information',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
       action: {
         children: 'Learn more',
         navigationIcon: ArrowSlanted,
-        href: 'https://help.sumup.com/en-US/articles/3ztthQLEXab3K0vUaQqgwx-chargeback-faq',
+        href: 'https://help.sumup.com/',
         target: '_blank',
       },
       offset: 8,
@@ -159,12 +158,12 @@ export const productCatalogSection: FeatureSection = {
               View details for Modifiers
             </IconButton>
           ),
-          headline: 'What are variants ?',
-          body: 'A variant is a product that is similar to another product but has some differences.',
+          headline: 'Some additional information',
+          body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
           action: {
             children: 'Learn more',
             navigationIcon: ArrowSlanted,
-            href: 'https://help.sumup.com/en-US/articles/3ztthQLEXab3K0vUaQqgwx-chargeback-faq',
+            href: 'https://help.sumup.com/',
             target: '_blank',
           },
           offset: 8,

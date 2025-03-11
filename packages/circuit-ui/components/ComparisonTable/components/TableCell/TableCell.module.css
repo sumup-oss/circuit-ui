@@ -30,5 +30,6 @@
 }
 
 .description {
+  margin-top: var(--cui-spacings-bit);
   text-align: start;
 }

@@ -22,6 +22,7 @@ import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
+import { clsx } from '../../styles/clsx.js';
 
 import {
   PlanPicker,
@@ -31,6 +32,7 @@ import {
   PlanTable,
   type PlanTableProps,
 } from './components/PlanTable/PlanTable.js';
+import classes from './ComparisonTable.module.css';
 
 export interface ComparisonTableProps
   extends Omit<PlanTableProps, 'activePlans' | 'isCollapsed'>,
@@ -48,6 +50,7 @@ export const ComparisonTable = forwardRef<
       showAllFeaturesLabel,
       selectFirstPlanLabel,
       selectSecondPlanLabel,
+      className,
       ...props
     },
     ref,
@@ -95,9 +98,10 @@ export const ComparisonTable = forwardRef<
     }, []);
 
     return (
-      <div {...props}>
+      <div className={clsx(classes.base, className)} {...props}>
         {isMobile && plans.length >= 3 && (
           <PlanPicker
+            className={classes.picker}
             plans={planOptions}
             selectedPlans={activePlans}
             onPlanSelect={onPlanSelect}

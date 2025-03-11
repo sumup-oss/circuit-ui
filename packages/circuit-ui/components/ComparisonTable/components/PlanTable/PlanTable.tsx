@@ -38,6 +38,7 @@ import { throttle } from '../../../../util/helpers.js';
 import { Compact } from '../../../Compact/index.js';
 import { useMedia } from '../../../../hooks/useMedia/index.js';
 import { Body } from '../../../Body/index.js';
+import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './PlanTable.module.css';
 
@@ -123,7 +124,6 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
     return (
       <div className={classes.wrapper}>
         <table
-          style={{ position: 'relative' }}
           className={classes.base}
           ref={applyMultipleRefs(ref, tableRef)}
           {...props}
@@ -131,12 +131,21 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
           <caption id="caption" className={utilClasses.hideVisually}>
             {caption}
           </caption>
+          <colgroup>
+            <col />
+            <col />
+            <col />
+          </colgroup>
           <thead ref={theadRef}>
-            <tr className={classes.offers}>
+            <tr>
               <th id="features" aria-hidden={true} />
               {(isMobile ? generateFromIndex(plans, activePlans) : plans).map(
-                (plan) => (
-                  <TableHeader key={plan.id} {...plan} />
+                (plan, index) => (
+                  <TableHeader
+                    key={plan.id}
+                    {...plan}
+                    className={clsx(index > 0 && classes.border)}
+                  />
                 ),
               )}
             </tr>
@@ -150,8 +159,9 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
                   scope="rowgroup"
                   headers="features"
                   colSpan={plans.length + 1}
+                  /* account for sticky plan selector on mobile */
                   style={{
-                    top: `${headerHeight}px`,
+                    top: `${(isMobile ? 72 : 0) + headerHeight}px`,
                   }}
                 >
                   <SectionTitleElement size="m" weight="semibold">

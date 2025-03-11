@@ -25,6 +25,7 @@ import { Button, type ButtonProps } from '../../../Button/index.js';
 import { Body } from '../../../Body/index.js';
 import { useMedia } from '../../../../hooks/useMedia/index.js';
 import { Compact } from '../../../Compact/index.js';
+import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './TableHeader.module.css';
 
@@ -56,20 +57,21 @@ export const TableHeader = ({
   title,
   description,
   tier,
+  className,
   callToAction,
 }: TableHeaderProps) => {
   const isMobile = useMedia('(max-width: 767px)');
 
   return (
     <th scope="col" className={classes.wrapper}>
-      <div className={classes.base}>
+      <div className={clsx(classes.base, className)}>
         <div className={classes.title}>
           {(!isMobile || (isMobile && !tier)) && (
-            <Compact size={isMobile ? 'm' : 'l'} weight="bold">
+            <Compact size="l" weight="bold">
               {title}
             </Compact>
           )}
-          {tier && <TierIndicator {...tier} size={isMobile ? 's' : 'm'} />}
+          {tier && <TierIndicator {...tier} size="m" />}
         </div>
 
         <Body size={isMobile ? 's' : 'm'} className={classes.description}>
