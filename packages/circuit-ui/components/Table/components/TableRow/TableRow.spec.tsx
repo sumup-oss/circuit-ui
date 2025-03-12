@@ -42,16 +42,18 @@ describe('TableRow', () => {
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
-  it('should call the onClick when navigating with the keyboard', async () => {
+  it.each([
+    ['space', '{ }'],
+    ['enter', '{Enter}'],
+  ])('should call onClick when %s key is pressed', async (_, key) => {
     const onClick = vi.fn();
     render(<TableRow onClick={onClick}>{children}</TableRow>);
     const rowEl = screen.getByRole('row');
 
     rowEl.focus();
-    await userEvent.type(rowEl, '{enter}');
-    await userEvent.type(rowEl, ' ');
+    await userEvent.keyboard(key);
 
-    expect(onClick).toHaveBeenCalledTimes(2);
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 
   it('should have no accessibility violations', async () => {
