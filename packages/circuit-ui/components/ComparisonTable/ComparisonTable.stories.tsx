@@ -13,348 +13,59 @@
  * limitations under the License.
  */
 
-import { ArrowSlanted, Help } from '@sumup-oss/icons';
-
-import { IconButton } from '../Button/index.js';
+import { modes } from '../../../../.storybook/modes.js';
 
 import {
   ComparisonTable,
   type ComparisonTableProps,
 } from './ComparisonTable.js';
+import {
+  bankingBasicsSection,
+  bookingsSection,
+  cashManagementSection,
+  posPlan,
+  posPlusPlan,
+  posProPlan,
+  productCatalogSection,
+} from './fixtures.js';
 
 export default {
   title: 'Brand/ComparisonTable',
   component: ComparisonTable,
   tags: ['status:stable'],
+  parameters: {
+    chromatic: {
+      modes: {
+        mobile: modes.smallMobile,
+        desktop: modes.desktop,
+      },
+    },
+  },
 };
 
 const baseProps: ComparisonTableProps = {
   caption: 'Compare plans',
-  cols: [
-    {
-      title: 'Product',
-      description: 'Free',
-      cta: {
-        children: 'Get started',
-        href: 'https://sumup.com',
-      },
-    },
-    {
-      title: 'Product',
-      tier: { variant: 'plus' },
-      description: '14.99$/month',
-      cta: {
-        children: 'Join now',
-        href: 'https://sumup.com/plus',
-      },
-    },
-    {
-      title: 'Product Premium',
-      tier: { variant: 'plus' },
-      description: '24.99$/month',
-      cta: {
-        children: 'Join now',
-        href: 'https://sumup.com/pro',
-      },
-    },
-  ],
-  rows: [
-    {
-      title: 'Banking basics',
-      features: [
-        {
-          featureDescription: {
-            title: 'Free business account',
-            description: 'get started right away',
-            toggleTip: {
-              component: (props) => (
-                <IconButton {...props} icon={Help} variant="tertiary" size="s">
-                  View details for Free business account
-                </IconButton>
-              ),
-              headline: 'What is a chargeback?',
-              body: 'A chargeback is a return of money to a payer of a transaction, especially a credit card transaction.',
-              action: {
-                children: 'Learn more',
-                navigationIcon: ArrowSlanted,
-                href: 'https://help.sumup.com/en-US/articles/3ztthQLEXab3K0vUaQqgwx-chargeback-faq',
-                target: '_blank',
-              },
-              offset: 8,
-            },
-          },
-          values: [
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-          ],
-        },
-        {
-          featureDescription: {
-            title: 'Free physical or virtual Mastercard',
-          },
-          values: [
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-          ],
-        },
-        {
-          featureDescription: {
-            title: 'Free instant transfers',
-          },
-          values: [
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-          ],
-        },
-        {
-          featureDescription: {
-            title: 'Scheduled payments',
-          },
-          values: [
-            { value: false, label: 'uavailable' },
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-          ],
-        },
-        {
-          featureDescription: {
-            title: 'Payment reminders',
-          },
-          values: [
-            { value: false, label: 'uavailable' },
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-          ],
-        },
-      ],
-    },
-    {
-      title: 'Product catalog',
-      features: [
-        {
-          featureDescription: {
-            title: 'Variants',
-            description: 'add variations',
-          },
-          values: [
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-          ],
-        },
-        {
-          featureDescription: {
-            title: 'Modifiers',
-            toggleTip: {
-              component: (props) => (
-                <IconButton {...props} icon={Help} variant="tertiary" size="s">
-                  View details for Modifiers
-                </IconButton>
-              ),
-              headline: 'What are variants ?',
-              body: 'A variant is a product that is similar to another product but has some differences.',
-              action: {
-                children: 'Learn more',
-                navigationIcon: ArrowSlanted,
-                href: 'https://help.sumup.com/en-US/articles/3ztthQLEXab3K0vUaQqgwx-chargeback-faq',
-                target: '_blank',
-              },
-              offset: 8,
-            },
-          },
-
-          values: [
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-          ],
-        },
-        {
-          featureDescription: {
-            title: 'Units of mesure',
-          },
-          values: [
-            { value: false, label: 'uavailable' },
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-          ],
-        },
-        {
-          featureDescription: {
-            title: 'Eat-in & takeaway',
-          },
-          values: [
-            { value: false, label: 'uavailable' },
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-          ],
-        },
-        {
-          featureDescription: {
-            title: 'Fees',
-          },
-          values: [
-            { value: '1.55%', label: '1.55%' },
-            { value: '0.99%', label: '0.99%' },
-            { value: '0.55%', label: '0.55%' },
-          ],
-        },
-      ],
-    },
-    {
-      title: 'Bookings',
-      features: [
-        {
-          featureDescription: {
-            title: 'Variants',
-            description: 'add variations',
-          },
-          values: [
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-          ],
-        },
-        {
-          featureDescription: {
-            title: 'Modifiers',
-            toggleTip: {
-              component: (props) => (
-                <IconButton {...props} icon={Help} variant="tertiary" size="s">
-                  View details for Modifiers
-                </IconButton>
-              ),
-              headline: 'What are variants ?',
-              body: 'A variant is a product that is similar to another product but has some differences.',
-              action: {
-                children: 'Learn more',
-                navigationIcon: ArrowSlanted,
-                href: 'https://help.sumup.com/en-US/articles/3ztthQLEXab3K0vUaQqgwx-chargeback-faq',
-                target: '_blank',
-              },
-              offset: 8,
-            },
-          },
-
-          values: [
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-          ],
-        },
-        {
-          featureDescription: {
-            title: 'Units of mesure',
-          },
-          values: [
-            { value: false, label: 'uavailable' },
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-          ],
-        },
-        {
-          featureDescription: {
-            title: 'Eat-in & takeaway',
-          },
-          values: [
-            { value: false, label: 'uavailable' },
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-          ],
-        },
-        {
-          featureDescription: {
-            title: 'Fees',
-          },
-          values: [
-            { value: '1.55%', label: '1.55%' },
-            { value: '0.99%', label: '0.99%' },
-            { value: '0.55%', label: '0.55%' },
-          ],
-        },
-      ],
-    },
-    {
-      title: 'Cash management',
-      features: [
-        {
-          featureDescription: {
-            title: 'Variants',
-            description: 'add variations',
-          },
-          values: [
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-          ],
-        },
-        {
-          featureDescription: {
-            title: 'Modifiers',
-            toggleTip: {
-              component: (props) => (
-                <IconButton {...props} icon={Help} variant="tertiary" size="s">
-                  View details for Modifiers
-                </IconButton>
-              ),
-              headline: 'What are variants ?',
-              body: 'A variant is a product that is similar to another product but has some differences.',
-              action: {
-                children: 'Learn more',
-                navigationIcon: ArrowSlanted,
-                href: 'https://help.sumup.com/en-US/articles/3ztthQLEXab3K0vUaQqgwx-chargeback-faq',
-                target: '_blank',
-              },
-              offset: 8,
-            },
-          },
-
-          values: [
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-          ],
-        },
-        {
-          featureDescription: {
-            title: 'Units of mesure',
-          },
-          values: [
-            { value: false, label: 'uavailable' },
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-          ],
-        },
-        {
-          featureDescription: {
-            title: 'Eat-in & takeaway',
-          },
-          values: [
-            { value: false, label: 'uavailable' },
-            { value: true, label: 'available' },
-            { value: true, label: 'available' },
-          ],
-        },
-        {
-          featureDescription: {
-            title: 'Fees',
-          },
-          values: [
-            { value: '1.55%', label: '1.55%' },
-            { value: '0.99%', label: '0.99%' },
-            { value: '0.55%', label: '0.55%' },
-          ],
-        },
-      ],
-    },
-  ],
+  plans: [posPlan, posPlusPlan, posProPlan],
+  sections: [bankingBasicsSection],
+  showAllFeaturesLabel: 'Show all features',
+  selectSecondPlanLabel: 'Select a second plan',
+  selectFirstPlanLabel: 'Select a first plan',
 };
 
 export const Base = (args: ComparisonTableProps) => (
-  <ComparisonTable style={{ width: '1000px' }} {...args} />
+  <ComparisonTable {...args} />
+);
+Base.args = baseProps;
+export const Collapsed = (args: ComparisonTableProps) => (
+  <ComparisonTable {...args} />
 );
 
-Base.args = baseProps;
+Collapsed.args = {
+  ...baseProps,
+  sections: [
+    ...baseProps.sections,
+    productCatalogSection,
+    bookingsSection,
+    cashManagementSection,
+  ],
+};
