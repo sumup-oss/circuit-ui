@@ -2,8 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 96px;
+  justify-content: flex-start;
   padding: 0 var(--cui-spacings-kilo);
 }
 
@@ -20,12 +19,13 @@
   margin-bottom: var(--cui-spacings-bit);
 }
 
+.cta {
+  margin-top: var(--cui-spacings-mega);
+}
+
 @media (min-width: 768px) {
   .base {
+    min-height: 96px;
     padding: 0 var(--cui-spacings-mega);
-  }
-
-  .description {
-    margin-bottom: var(--cui-spacings-mega);
   }
 }

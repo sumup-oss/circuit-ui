@@ -33,8 +33,8 @@ import {
 } from './ComparisonTable.js';
 import {
   bankingBasicsSection,
-  bookingsSection,
-  cashManagementSection,
+  MoneyManagement,
+  InvoicingSection,
   posPlan,
   posPlusPlan,
   posProPlan,
@@ -50,8 +50,8 @@ const baseProps: ComparisonTableProps = {
   sections: [
     bankingBasicsSection,
     productCatalogSection,
-    bookingsSection,
-    cashManagementSection,
+    MoneyManagement,
+    InvoicingSection,
   ],
   showAllFeaturesLabel: 'Show all features',
   selectSecondPlanLabel: 'Select a second plan',

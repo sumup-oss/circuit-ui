@@ -78,6 +78,7 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
   ) => {
     const tableRef = useRef<HTMLTableElement>(null);
     const isMobile = useMedia('(max-width: 767px)');
+    const isTablet = useMedia('(max-width: 767px) and (min-width: 480px)');
     const [isCollapsed, setIsCollapsed] = useState(
       sections.reduce(
         (totalRows, section) => totalRows + section.features.length + 1,
@@ -133,8 +134,9 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
           </caption>
           <colgroup>
             <col />
-            <col />
-            <col />
+            {(isMobile ? activePlans : plans).map((_, index) => (
+              <col key={index} />
+            ))}
           </colgroup>
           <thead ref={theadRef}>
             <tr>
@@ -159,9 +161,9 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
                   scope="rowgroup"
                   headers="features"
                   colSpan={plans.length + 1}
-                  /* account for sticky plan selector on mobile */
+                  /* account for sticky plan picker on mobile */
                   style={{
-                    top: `${(isMobile ? 72 : 0) + headerHeight}px`,
+                    top: `${(isMobile ? 80 : 0) + (isTablet ? 16 : 0) + headerHeight}px`,
                   }}
                 >
                   <SectionTitleElement size="m" weight="semibold">

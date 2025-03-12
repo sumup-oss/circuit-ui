@@ -17,7 +17,7 @@ import { beforeEach, describe, expect, it, type Mock, vi } from 'vitest';
 
 import { render, screen } from '../../../../util/test-utils.js';
 import { useMedia } from '../../../../hooks/useMedia/index.js';
-import { posPlan } from '../../fixtures.js';
+import { posPlusPlan } from '../../fixtures.js';
 
 import { TableHeader, type TableHeaderProps } from './TableHeader.js';
 
@@ -28,7 +28,7 @@ describe('TableHeader', () => {
     (useMedia as Mock).mockReturnValue(false);
   });
 
-  const baseProps: TableHeaderProps = posPlan;
+  const baseProps: TableHeaderProps = posPlusPlan;
 
   it('should render all plan information', () => {
     render(<TableHeader {...baseProps} tier={{ variant: 'plus' }} />);

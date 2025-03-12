@@ -21,13 +21,15 @@ import {
 } from './ComparisonTable.js';
 import {
   bankingBasicsSection,
-  bookingsSection,
-  cashManagementSection,
+  MoneyManagement,
+  InvoicingSection,
   posPlan,
   posPlusPlan,
   posProPlan,
   productCatalogSection,
 } from './fixtures.js';
+import {FullViewport} from '../../../../.storybook/components/index.js';
+import type {Decorator} from '@storybook/react';
 
 export default {
   title: 'Brand/ComparisonTable',
@@ -53,11 +55,11 @@ const baseProps: ComparisonTableProps = {
 };
 
 export const Base = (args: ComparisonTableProps) => (
-  <ComparisonTable {...args} />
+    <ComparisonTable {...args} />
 );
 Base.args = baseProps;
 export const Collapsed = (args: ComparisonTableProps) => (
-  <ComparisonTable {...args} />
+    <ComparisonTable {...args} />
 );
 
 Collapsed.args = {
@@ -65,7 +67,7 @@ Collapsed.args = {
   sections: [
     ...baseProps.sections,
     productCatalogSection,
-    bookingsSection,
-    cashManagementSection,
+    MoneyManagement,
+    InvoicingSection,
   ],
 };

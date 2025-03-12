@@ -1,6 +1,5 @@
 .base {
   width: 100%;
-  empty-cells: hide;
   border-spacing: 0;
   border-collapse: separate;
 }
@@ -58,7 +57,7 @@
   }
 
   .base thead th {
-    top: 72px;
+    top: 80px; /* height of the sticky plan picker on mobile */
     padding-top: 0;
   }
 
@@ -68,5 +67,12 @@
 
   .base colgroup col:first-child {
     width: 40%;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .base thead th {
+    top: 96px; /* height of the sticky plan picker on tablet */
+    padding-top: 0;
   }
 }

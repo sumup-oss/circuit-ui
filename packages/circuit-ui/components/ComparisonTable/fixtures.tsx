@@ -22,13 +22,9 @@ import type { FeatureSection } from './components/PlanTable/PlanTable.js';
 import type { FeatureRowProps } from './components/TableRow/FeatureRow.js';
 
 export const posPlan: TableHeaderProps = {
-  title: 'POS',
-  id: 'pos',
-  description: 'Free',
-  callToAction: {
-    children: 'Get started',
-    href: 'https://sumup.com',
-  },
+  title: 'Free',
+  id: 'free',
+  description: '0€ / month',
 };
 
 export const posPlusPlan: TableHeaderProps = {
@@ -119,7 +115,7 @@ export const paymentRemindersFeature: FeatureRowProps = {
   },
   values: [
     { value: false, label: 'unavailable' },
-    { value: true, label: 'available' },
+    { value: false, label: 'available' },
     { value: true, label: 'available' },
   ],
 };
@@ -140,7 +136,7 @@ export const productCatalogSection: FeatureSection = {
   features: [
     {
       featureDescription: {
-        label: 'Variants',
+        label: 'Catalog with item images',
         description: 'add variations',
       },
       values: [
@@ -151,7 +147,7 @@ export const productCatalogSection: FeatureSection = {
     },
     {
       featureDescription: {
-        label: 'Modifiers',
+        label: 'Sell with Variants, modifiers, and units of measure',
         toggletip: {
           component: (props) => (
             <IconButton {...props} icon={Help} variant="tertiary" size="s">
@@ -178,7 +174,7 @@ export const productCatalogSection: FeatureSection = {
     },
     {
       featureDescription: {
-        label: 'Units of mesure',
+        label: 'Eat-in/takeaway prices',
       },
       values: [
         { value: false, label: 'unavailable' },
@@ -188,7 +184,7 @@ export const productCatalogSection: FeatureSection = {
     },
     {
       featureDescription: {
-        label: 'Eat-in & takeaway',
+        label: 'Import/export items',
       },
       values: [
         { value: false, label: 'unavailable' },
@@ -198,94 +194,99 @@ export const productCatalogSection: FeatureSection = {
     },
     {
       featureDescription: {
-        label: 'Fees',
+        label: 'Item creation by taking a photo',
       },
       values: [
-        { value: '1.55%', label: '1.55%' },
-        { value: '0.99%', label: '0.99%' },
-        { value: '0.55%', label: '0.55%' },
+        { value: false, label: 'unavailable' },
+        { value: false, label: 'unavailable' },
+        { value: true, label: 'available' },
       ],
     },
   ],
 };
 
-export const bookingsSection: FeatureSection = {
-  title: 'Bookings',
+export const MoneyManagement: FeatureSection = {
+  title: 'Money Management',
   features: [
     {
       featureDescription: {
-        label: 'Calendar',
+        label: 'Expense cards',
       },
       values: [
         { value: false, label: 'available' },
-        { value: true, label: 'available' },
-        { value: true, label: 'available' },
+        { value: '3 included', label: '3 included' },
+        { value: '5 included', label: '5 included' },
       ],
     },
     {
       featureDescription: {
-        label: 'Automated communications',
+        label: 'Additional balances',
         description: 'Emails, SMS, and push notifications',
       },
 
       values: [
         { value: false, label: 'available' },
-        { value: true, label: 'available' },
-        { value: true, label: 'available' },
+        { value: '3 included', label: '3 included' },
+        { value: '5 included', label: '5 included' },
       ],
     },
     {
       featureDescription: {
-        label: 'Automated appointments',
+        label: 'Bulk transfers',
       },
 
       values: [
         { value: false, label: 'available' },
-        { value: false, label: 'available' },
+        { value: true, label: 'available' },
         { value: true, label: 'available' },
       ],
     },
   ],
 };
 
-export const cashManagementSection: FeatureSection = {
-  title: 'Cash management',
+export const InvoicingSection: FeatureSection = {
+  title: 'Invoicing',
   features: [
     {
       featureDescription: {
-        label: 'Virtual cash drawer',
+        label: 'Send invoices to get paid',
+        description: 'Includes electronic invoices',
       },
       values: [
-        { value: false, label: 'available' },
-        { value: true, label: 'available' },
-        { value: true, label: 'available' },
+        { value: '4', label: '4' },
+        { value: 'unlimited', label: 'unlimited' },
+        { value: 'unlimited', label: 'unlimited' },
       ],
     },
     {
       featureDescription: {
-        label: 'Cash Movements history',
-      },
-
-      values: [
-        { value: false, label: 'available' },
-        { value: true, label: 'available' },
-        { value: true, label: 'available' },
-      ],
-    },
-    {
-      featureDescription: {
-        label: 'Daily cash reconciliation report',
+        label: 'Invoices as proof of payment',
+        description: 'Includes electronic invoices',
       },
 
       values: [
-        { value: false, label: 'available' },
-        { value: true, label: 'available' },
-        { value: true, label: 'available' },
+        { value: 'unlimited', label: 'unlimited' },
+        { value: 'unlimited', label: 'unlimited' },
+        { value: 'unlimited', label: 'unlimited' },
       ],
     },
     {
       featureDescription: {
-        label: 'Multi device management',
+        label: 'Get paid via invoices by bank transfer',
+      },
+
+      values: [
+        {
+          value: 'With the SumUp Business Account',
+          label: 'With the SumUp Business Account',
+        },
+        { value: 'With any bank account', label: 'With any bank account' },
+        { value: 'With any bank account', label: 'With any bank account' },
+      ],
+    },
+    {
+      featureDescription: {
+        label: 'Create recurring invoices',
       },
       values: [
         { value: false, label: 'unavailable' },

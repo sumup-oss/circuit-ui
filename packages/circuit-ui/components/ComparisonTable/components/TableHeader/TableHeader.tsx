@@ -50,7 +50,7 @@ export interface TableHeaderProps
   /**
    *  The call-to-action button props
    */
-  callToAction: ButtonProps;
+  callToAction?: ButtonProps;
 }
 
 export const TableHeader = ({
@@ -74,10 +74,15 @@ export const TableHeader = ({
           {tier && <TierIndicator {...tier} size="m" />}
         </div>
 
-        <Body size={isMobile ? 's' : 'm'} className={classes.description}>
-          {description}
-        </Body>
-        {!isMobile && <Button {...callToAction} variant="secondary" size="s" />}
+        <Body size={isMobile ? 's' : 'm'}>{description}</Body>
+        {!isMobile && callToAction && (
+          <Button
+            {...callToAction}
+            className={classes.cta}
+            variant="secondary"
+            size="s"
+          />
+        )}
       </div>
     </th>
   );
