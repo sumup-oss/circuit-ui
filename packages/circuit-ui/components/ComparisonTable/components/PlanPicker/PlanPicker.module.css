@@ -1,0 +1,13 @@
+.base {
+  display: flex;
+  gap: var(--cui-spacings-kilo);
+  justify-content: center;
+  width: 100%;
+  margin-bottom: var(--cui-spacings-giga);
+}
+
+@media (max-width: 479px) {
+  .select {
+    width: 100%;
+  }
+}
