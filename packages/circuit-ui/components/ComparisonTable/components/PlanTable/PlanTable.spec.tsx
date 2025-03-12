@@ -34,7 +34,7 @@ const baseProps: PlanTableProps = {
   caption: 'Plan comparison',
   showAllFeaturesLabel: 'Show all features',
   sections: [bankingBasicsSection],
-  plans: [posPlan, posPlusPlan, posProPlan],
+  headers: [posPlan, posPlusPlan, posProPlan],
   activePlans: [0, 1],
 };
 describe('PlanTable', () => {

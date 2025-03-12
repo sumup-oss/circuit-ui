@@ -28,8 +28,6 @@ import {
   posProPlan,
   productCatalogSection,
 } from './fixtures.js';
-import {FullViewport} from '../../../../.storybook/components/index.js';
-import type {Decorator} from '@storybook/react';
 
 export default {
   title: 'Brand/ComparisonTable',
@@ -47,7 +45,7 @@ export default {
 
 const baseProps: ComparisonTableProps = {
   caption: 'Compare plans',
-  plans: [posPlan, posPlusPlan, posProPlan],
+  headers: [posPlan, posPlusPlan, posProPlan],
   sections: [bankingBasicsSection],
   showAllFeaturesLabel: 'Show all features',
   selectSecondPlanLabel: 'Select a second plan',
@@ -55,11 +53,11 @@ const baseProps: ComparisonTableProps = {
 };
 
 export const Base = (args: ComparisonTableProps) => (
-    <ComparisonTable {...args} />
+  <ComparisonTable {...args} />
 );
 Base.args = baseProps;
 export const Collapsed = (args: ComparisonTableProps) => (
-    <ComparisonTable {...args} />
+  <ComparisonTable {...args} />
 );
 
 Collapsed.args = {

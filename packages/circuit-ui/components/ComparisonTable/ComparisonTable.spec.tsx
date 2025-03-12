@@ -45,7 +45,7 @@ vi.mock('../../hooks/useMedia/index.js');
 
 const baseProps: ComparisonTableProps = {
   caption: 'Compare plans',
-  plans: [posPlan, posPlusPlan, posProPlan],
+  headers: [posPlan, posPlusPlan, posProPlan],
 
   sections: [
     bankingBasicsSection,
@@ -97,7 +97,9 @@ describe('ComparisonTable', () => {
     });
 
     it('should not render the plan picker on mobile if only given two plans', () => {
-      render(<ComparisonTable {...baseProps} plans={[posPlan, posPlusPlan]} />);
+      render(
+        <ComparisonTable {...baseProps} headers={[posPlan, posPlusPlan]} />,
+      );
       expect(
         screen.queryByText(baseProps.selectFirstPlanLabel),
       ).not.toBeInTheDocument();

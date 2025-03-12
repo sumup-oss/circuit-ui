@@ -46,7 +46,7 @@ export const ComparisonTable = forwardRef<
     {
       caption,
       sections,
-      plans,
+      headers,
       showAllFeaturesLabel,
       selectFirstPlanLabel,
       selectSecondPlanLabel,
@@ -88,7 +88,7 @@ export const ComparisonTable = forwardRef<
     const [activePlans, setActivePlans] = useState<number[]>([0, 1]);
     const isMobile = useMedia('(max-width: 767px)');
 
-    const planOptions = plans.map((plan, index) => ({
+    const planOptions = headers.map((plan, index) => ({
       label: plan.title,
       value: index,
     }));
@@ -99,7 +99,7 @@ export const ComparisonTable = forwardRef<
 
     return (
       <div className={clsx(classes.base, className)} {...props}>
-        {isMobile && plans.length >= 3 && (
+        {isMobile && headers.length >= 3 && (
           <PlanPicker
             className={classes.picker}
             plans={planOptions}
@@ -113,7 +113,7 @@ export const ComparisonTable = forwardRef<
           ref={ref}
           caption={caption}
           sections={sections}
-          plans={plans}
+          headers={headers}
           activePlans={activePlans}
           showAllFeaturesLabel={showAllFeaturesLabel}
         />

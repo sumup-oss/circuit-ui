@@ -61,9 +61,9 @@ export interface PlanTableProps extends HTMLAttributes<HTMLTableElement> {
    */
   sections: FeatureSection[];
   /**
-   * A list of plans to compare.
+   * A list of the items to compare.
    */
-  plans: TableHeaderProps[];
+  headers: TableHeaderProps[];
   /**
    * An array of the two positions of the currently selected plans.
    * the first index is the first plan, the second index is the second plan.
@@ -73,7 +73,7 @@ export interface PlanTableProps extends HTMLAttributes<HTMLTableElement> {
 
 export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
   (
-    { caption, showAllFeaturesLabel, plans, sections, activePlans, ...props },
+    { caption, showAllFeaturesLabel, headers, sections, activePlans, ...props },
     ref,
   ) => {
     const tableRef = useRef<HTMLTableElement>(null);
@@ -134,22 +134,23 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
           </caption>
           <colgroup>
             <col />
-            {(isMobile ? activePlans : plans).map((_, index) => (
+            {(isMobile ? activePlans : headers).map((_, index) => (
               <col key={index} />
             ))}
           </colgroup>
           <thead ref={theadRef}>
             <tr>
               <th id="features" aria-hidden={true} />
-              {(isMobile ? generateFromIndex(plans, activePlans) : plans).map(
-                (plan, index) => (
-                  <TableHeader
-                    key={plan.id}
-                    {...plan}
-                    className={clsx(index > 0 && classes.border)}
-                  />
-                ),
-              )}
+              {(isMobile
+                ? generateFromIndex(headers, activePlans)
+                : headers
+              ).map((plan, index) => (
+                <TableHeader
+                  key={plan.id}
+                  {...plan}
+                  className={clsx(index > 0 && classes.border)}
+                />
+              ))}
             </tr>
           </thead>
 
@@ -160,7 +161,7 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
                   className={classes.section}
                   scope="rowgroup"
                   headers="features"
-                  colSpan={plans.length + 1}
+                  colSpan={headers.length + 1}
                   /* account for sticky plan picker on mobile */
                   style={{
                     top: `${(isMobile ? 80 : 0) + (isTablet ? 16 : 0) + headerHeight}px`,
