@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
 import { render } from '../../../../util/test-utils.js';
@@ -33,5 +33,14 @@ describe('Tab', () => {
     const { container } = render(<Tab ref={ref} />);
     const button = container.querySelector('button');
     expect(ref.current).toBe(button);
+  });
+
+  it('should be focused when selected', () => {
+    const ref = createRef<HTMLButtonElement>();
+    const { container, rerender } = render(<Tab ref={ref} selected={false} />);
+    const button = container.querySelector('button');
+    vi.spyOn(button, 'focus');
+    rerender(<Tab ref={ref} selected />);
+    expect(button?.focus).toHaveBeenCalledOnce();
   });
 });
