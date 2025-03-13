@@ -19,11 +19,14 @@ import {
   forwardRef,
   type AnchorHTMLAttributes,
   type ButtonHTMLAttributes,
+  useEffect,
+  useRef,
 } from 'react';
 
 import { useComponents } from '../../../ComponentsContext/index.js';
 import type { EmotionAsPropType } from '../../../../types/prop-types.js';
 import { clsx } from '../../../../styles/clsx.js';
+import { applyMultipleRefs } from '../../../../util/refs.js';
 
 import classes from './Tab.module.css';
 
@@ -46,12 +49,19 @@ const tabIndex = (selected: boolean) => (selected ? undefined : -1);
  */
 export const Tab = forwardRef<HTMLButtonElement, TabProps>(
   ({ selected = false, className, ...props }, ref) => {
+    const tabRef = useRef<HTMLButtonElement>(null);
     const components = useComponents();
     const Link = components.Link as EmotionAsPropType;
     const Element = props.href ? Link : 'button';
+
+    useEffect(() => {
+      if (selected) {
+        tabRef?.current?.focus();
+      }
+    }, [selected]);
     return (
       <Element
-        ref={ref}
+        ref={applyMultipleRefs(tabRef, ref)}
         role="tab"
         aria-selected={selected}
         tabIndex={tabIndex(selected)}
