@@ -21,6 +21,7 @@ import {
   type ButtonHTMLAttributes,
   type ReactNode,
   type Ref,
+  useId,
 } from 'react';
 
 import type { ReturnType } from '../../types/return-type.js';
@@ -43,6 +44,14 @@ export interface BaseProps extends Omit<BodyProps, 'color'> {
    * The ref to the HTML DOM element, it can be a button an anchor or a span, typed as any for now because of complex js manipulation with styled components
    */
   ref?: Ref<any>;
+  /**
+   * Whether the link leads to an external page or opens in a new tab.
+   */
+  isExternal?: boolean;
+  /**
+   * Short label to describe that the link leads to an external page or opens in a new tab.
+   */
+  externalLabel?: string;
 }
 type LinkElProps = Omit<
   AnchorHTMLAttributes<HTMLAnchorElement>,
@@ -61,24 +70,49 @@ export type AnchorProps = BaseProps & LinkElProps & ButtonElProps;
  */
 export const Anchor = forwardRef(
   (
-    { className, ...props }: AnchorProps,
+    {
+      className,
+      isExternal,
+      externalLabel,
+      'aria-describedby': descriptionId,
+      children,
+      ...props
+    }: AnchorProps,
     ref?: BaseProps['ref'],
   ): ReturnType => {
     const components = useComponents();
     const Link = components.Link as AsPropType;
+    const externalLabelId = useId();
+    const descriptionIds = clsx(
+      externalLabel && externalLabelId,
+      descriptionId,
+    );
+    const isExternalLink = isExternal || props.target === '_blank';
 
     if (!props.href && !props.onClick) {
-      return <Body as="span" {...props} ref={ref} />;
+      return (
+        <Body as="span" {...props} ref={ref}>
+          {children}
+        </Body>
+      );
     }
 
     if (props.href) {
       return (
         <Body
           {...props}
+          aria-describedby={descriptionIds}
           className={clsx(classes.base, utilClasses.focusVisible, className)}
           as={Link}
           ref={ref}
-        />
+        >
+          {children}
+          {isExternalLink && externalLabel && (
+            <span id={externalLabelId} className={utilClasses.hideVisually}>
+              {externalLabel}
+            </span>
+          )}
+        </Body>
       );
     }
 
@@ -86,9 +120,17 @@ export const Anchor = forwardRef(
       <Body
         as="button"
         {...props}
+        aria-describedby={descriptionIds}
         className={clsx(classes.base, utilClasses.focusVisible, className)}
         ref={ref}
-      />
+      >
+        {children}
+        {isExternalLink && externalLabel && (
+          <span id={externalLabelId} className={utilClasses.hideVisually}>
+            {externalLabel}
+          </span>
+        )}
+      </Body>
     );
   },
 );

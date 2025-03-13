@@ -107,6 +107,36 @@ describe('Anchor', () => {
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
+  it('should render as link with an description label when it renders an external link', () => {
+    render(
+      <Anchor
+        href="www.external.link.com"
+        {...baseProps}
+        isExternal
+        externalLabel="Opens in a new tab"
+      />,
+    );
+
+    expect(screen.getByRole('link')).toHaveAccessibleDescription(
+      'Opens in a new tab',
+    );
+  });
+
+  it('should render as button with an description label when it renders an external link', () => {
+    render(
+      <Anchor
+        onClick={vi.fn()}
+        {...baseProps}
+        isExternal
+        externalLabel="Opens in a new tab"
+      />,
+    );
+
+    expect(screen.getByRole('button')).toHaveAccessibleDescription(
+      'Opens in a new tab',
+    );
+  });
+
   it('should meet accessibility guidelines', async () => {
     const { container } = render(
       <Anchor {...baseProps} href="https://sumup.com" onClick={vi.fn} />,
