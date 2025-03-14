@@ -14,6 +14,11 @@
  */
 
 import { useState, Fragment } from 'react';
+import { ArrowLeft, ExternalLink } from '@sumup-oss/icons';
+
+import { Body } from '../Body/index.js';
+import { Headline } from '../Headline/index.js';
+import { Button } from '../Button/index.js';
 
 import type { TabsProps } from './Tabs.js';
 
@@ -29,11 +34,57 @@ export default {
   },
 };
 
+const ContentWithInteractiveElements = ({ index }: { index: number }) => (
+  <div
+    style={{
+      padding: 'var(--cui-spacings-giga',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: 'var(--cui-spacings-kilo)',
+    }}
+  >
+    <Headline as="h2">Content of tab {index}</Headline>
+    <Body>
+      Lorem ipsum dolor amet swag pickled humblebrag retro farm-to-table,
+      shoreditch typewriter deep v single-origin coffee green juice coloring
+      book venmo chambray. Marfa authentic blue bottle mixtape tofu adaptogen.
+      IPhone chia blog palo santo mlkshk tattooed jean shorts yr locavore ennui
+      scenester. Wolf tousled pok pok sartorial scenester man bun salvia quinoa
+      raclette sriracha roof party pour-over venmo hammock. Four dollar toast
+      typewriter 3 wolf moon letterpress disrupt pabst. Neutra irony tousled
+      iPhone banh mi wayfarers hoodie waistcoat.
+    </Body>
+    <Button icon={ArrowLeft} variant="secondary">
+      Home page
+    </Button>
+    <Button variant="primary" navigationIcon={ExternalLink}>
+      Learn more
+    </Button>
+  </div>
+);
+
 const tabs = [
-  { id: 'one', tab: 'Tab 1', panel: 'Content 1' },
-  { id: 'two', tab: 'Tab 2', panel: 'Content 2' },
-  { id: 'three', tab: 'Tab 3', panel: 'Content 3' },
-  { id: 'four', tab: 'Tab 4', panel: 'Content 4' },
+  {
+    id: 'one',
+    tab: 'Tab 1',
+    panel: <ContentWithInteractiveElements index={1} />,
+  },
+  {
+    id: 'two',
+    tab: 'Tab 2',
+    panel: <ContentWithInteractiveElements index={2} />,
+  },
+  {
+    id: 'three',
+    tab: 'Tab 3',
+    panel: <ContentWithInteractiveElements index={3} />,
+  },
+  {
+    id: 'four',
+    tab: 'Tab 4',
+    panel: <ContentWithInteractiveElements index={4} />,
+  },
 ];
 
 export const Base = (args: TabsProps) => <Tabs {...args} />;
