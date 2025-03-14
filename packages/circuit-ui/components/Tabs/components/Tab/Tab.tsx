@@ -56,7 +56,7 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(
 
     useEffect(() => {
       if (selected) {
-        tabRef?.current?.focus();
+        tabRef?.current?.focus({ preventScroll: true });
       }
     }, [selected]);
     return (
