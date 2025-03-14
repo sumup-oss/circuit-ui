@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 5.7.0
+
+### Minor Changes
+
+- [#2991](https://github.com/sumup-oss/circuit-ui/pull/2991) [`fea6e1d`](https://github.com/sumup-oss/circuit-ui/commit/fea6e1d61bfd2611394df5c78c651745278039bd) Thanks [@kamenlitchev](https://github.com/kamenlitchev)! - Added a new `Girocard` payment method icon in size 24.
+
 ## 5.6.0
 
 ### Minor Changes
