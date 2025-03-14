@@ -161,7 +161,6 @@ export interface PopoverProps {
     'onClick': (event: ClickEvent) => void;
     'onKeyDown': (event: KeyboardEvent) => void;
     'id': string;
-    'aria-haspopup': boolean;
     'aria-controls': string;
     'aria-expanded': boolean;
   }) => React.JSX.Element;
@@ -322,7 +321,6 @@ export const Popover = ({
       <div className={classes.trigger} ref={refs.setReference}>
         <Component
           id={triggerId}
-          aria-haspopup={true}
           aria-controls={menuId}
           aria-expanded={isOpen}
           onClick={handleTriggerClick}
