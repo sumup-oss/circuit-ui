@@ -45,8 +45,8 @@
 .wrapper {
   position: relative;
   width: 7.5rem;
-  margin-top: var(--cui-spacings-giga);
-  margin-bottom: var(--cui-spacings-giga);
+  padding-bottom: var(--cui-spacings-tera);
+  margin-top: var(--cui-spacings-mega);
   text-align: center;
 }
 
@@ -93,4 +93,16 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-30deg);
+}
+
+.copy {
+  position: absolute;
+  right: 50%;
+  bottom: 0;
+  display: none;
+  transform: translateX(50%);
+}
+
+.wrapper:hover .copy {
+  display: block;
 }
