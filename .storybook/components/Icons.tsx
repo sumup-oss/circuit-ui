@@ -203,15 +203,17 @@ export function Icons() {
                         )}
                       />
                     )}
-                    <IconButton
-                      variant="tertiary"
-                      size="s"
-                      icon={iconComponents.Link}
-                      className={classes.copy}
-                      onClick={copyIconURL}
-                    >
-                      Copy URL
-                    </IconButton>
+                    {navigator.clipboard && (
+                      <IconButton
+                        variant="tertiary"
+                        size="s"
+                        icon={iconComponents.Link}
+                        className={classes.copy}
+                        onClick={copyIconURL}
+                      >
+                        Copy URL
+                      </IconButton>
+                    )}
                   </div>
                 );
               })}
