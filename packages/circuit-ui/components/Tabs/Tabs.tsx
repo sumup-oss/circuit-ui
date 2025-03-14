@@ -15,12 +15,11 @@
 
 'use client';
 
-import type React from 'react';
 import {
   createRef,
-  Component,
   Fragment,
-  type ReactElement,
+  useState,
+  type KeyboardEvent,
   type ReactNode,
 } from 'react';
 
@@ -49,102 +48,57 @@ export interface TabsProps extends TabListProps {
   }[];
 }
 
-type TabsState = {
-  selectedIndex: number;
-};
+export function Tabs({ initialSelectedIndex = 0, items, ...props }: TabsProps) {
+  const [selectedIndex, setSelectedIndex] = useState(initialSelectedIndex);
 
-export class Tabs extends Component<TabsProps, TabsState> {
-  static defaultProps = {
-    initialSelectedIndex: 0,
-  };
+  const tabPanelsRefs = createRefs(items.length);
 
-  state = {
-    selectedIndex:
-      this.props.initialSelectedIndex || Tabs.defaultProps.initialSelectedIndex,
-  };
-
-  tabPanelsRefs = createRefs(this.props.items.length);
-
-  handleChange = (selectedIndex: number) => this.setState({ selectedIndex });
-
-  handleTabKeyDown = (event: KeyboardEvent | React.KeyboardEvent) => {
-    const { selectedIndex } = this.state;
-    const nextTab = Math.min(this.props.items.length - 1, selectedIndex + 1);
-    const previousTab = Math.max(0, selectedIndex - 1);
-    const panelRef = this.tabPanelsRefs[selectedIndex].current;
-
+  const handleTabKeyDown = (event: KeyboardEvent) => {
     if (isArrowLeft(event)) {
-      this.setState({ selectedIndex: previousTab });
+      const previousTab = Math.max(0, selectedIndex - 1);
+      setSelectedIndex(previousTab);
     } else if (isArrowRight(event)) {
-      this.setState({ selectedIndex: nextTab });
+      const nextTab = Math.min(items.length - 1, selectedIndex + 1);
+      setSelectedIndex(nextTab);
     } else if (isArrowDown(event)) {
+      const panelRef = tabPanelsRefs[selectedIndex].current;
       if (panelRef) {
         panelRef.focus();
       }
     }
   };
 
-  render() {
-    const { items, initialSelectedIndex, ...props } = this.props;
-    const { selectedIndex } = this.state;
-    const { tabs, panels } = items.reduce(
-      (aggr, { id, tab, panel }, index) => {
-        const { tabId, panelId } = getIds(id);
-
-        const tabElement = (
+  return (
+    <Fragment>
+      <TabList {...props}>
+        {items.map(({ id, tab }, index) => (
           <Tab
-            key={tabId}
+            key={id}
             data-testid="tab-element"
             selected={selectedIndex === index}
-            onClick={() => this.handleChange(index)}
-            id={tabId}
-            aria-controls={panelId}
-            onKeyDown={this.handleTabKeyDown}
+            onClick={() => setSelectedIndex(index)}
+            id={`tab-${id}`}
+            aria-controls={`panel-${id}`}
+            onKeyDown={handleTabKeyDown}
           >
             {tab}
           </Tab>
-        );
-        const tabPanelElement = (
-          <TabPanel
-            key={tabId}
-            data-testid="tab-panel"
-            id={panelId}
-            aria-labelledby={tabId}
-            hidden={selectedIndex !== index}
-            ref={this.tabPanelsRefs[index]}
-          >
-            {panel}
-          </TabPanel>
-        );
-
-        return {
-          tabs: [...aggr.tabs, tabElement],
-          panels: [...aggr.panels, tabPanelElement],
-        };
-      },
-      {
-        tabs: [],
-        panels: [],
-      } as {
-        tabs: ReactElement[];
-        panels: ReactElement[];
-      },
-    );
-
-    return (
-      <Fragment>
-        <TabList {...props}>{tabs}</TabList>
-        {panels}
-      </Fragment>
-    );
-  }
-}
-
-function getIds(id: string) {
-  return {
-    tabId: `tab-${id}`,
-    panelId: `panel-${id}`,
-  };
+        ))}
+      </TabList>
+      {items.map(({ id, panel }, index) => (
+        <TabPanel
+          key={id}
+          data-testid="tab-panel"
+          id={`panel-${id}`}
+          aria-labelledby={`tab-${id}`}
+          hidden={selectedIndex !== index}
+          ref={tabPanelsRefs[index]}
+        >
+          {panel}
+        </TabPanel>
+      ))}
+    </Fragment>
+  );
 }
 
 function createRefs(length: number) {
