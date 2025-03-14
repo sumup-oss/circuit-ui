@@ -35,6 +35,7 @@ import { clsx } from '../../packages/circuit-ui/styles/clsx.js';
 import { utilClasses } from '../../packages/circuit-ui/styles/utility.js';
 import { slugify } from '../slugify.js';
 import classes from './Icons.module.css';
+import { IconButton } from '@sumup-oss/circuit-ui';
 
 function groupBy(
   icons: IconsManifest['icons'],
@@ -77,7 +78,7 @@ export function Icons() {
 
   const handleChange =
     (setState: Dispatch<SetStateAction<string>>) =>
-    (event: ChangeEvent<any>) => {
+    (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
       setState(event.target.value);
     };
 
@@ -160,6 +161,10 @@ export function Icons() {
                   icon.name,
                 ) as keyof typeof iconComponents;
                 const Icon = iconComponents[componentName] as IconComponentType;
+                const copyIconURL = () => {
+                  const iconURL = `https://circuit.sumup.com/icons/v2/${icon.name}_${icon.size}.svg`;
+                  navigator.clipboard.writeText(iconURL);
+                };
                 return (
                   <div key={id} className={classes.wrapper}>
                     <div
@@ -180,9 +185,7 @@ export function Icons() {
                     </div>
                     <span id={id} className={classes.label}>
                       {componentName}
-                      {size === 'all' && (
-                        <span className={classes.size}>{icon.size}</span>
-                      )}
+                      <span className={classes.size}>{icon.size}</span>
                     </span>
                     {icon.deprecation && (
                       <Tooltip
@@ -200,6 +203,15 @@ export function Icons() {
                         )}
                       />
                     )}
+                    <IconButton
+                      variant="tertiary"
+                      size="s"
+                      icon={iconComponents.Link}
+                      className={classes.copy}
+                      onClick={copyIconURL}
+                    >
+                      Copy URL
+                    </IconButton>
                   </div>
                 );
               })}
