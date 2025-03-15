@@ -39,7 +39,7 @@ export interface TabsProps extends TabListProps {
    */
   items: {
     id: string;
-    tab: ReactNode;
+    tab: string;
     panel: ReactNode;
   }[];
 }
