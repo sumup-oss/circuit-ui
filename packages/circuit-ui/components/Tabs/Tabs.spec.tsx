@@ -73,7 +73,7 @@ describe('Tabs', () => {
   it('should go to the previous tab on left arrow press', async () => {
     render(
       <Tabs
-        initialSelectedId="b"
+        initialSelectedIndex={1}
         items={[
           { id: 'a', tab: 'tab-a', panel: 'panel-a' },
           { id: 'b', tab: 'tab-b', panel: 'panel-b' },

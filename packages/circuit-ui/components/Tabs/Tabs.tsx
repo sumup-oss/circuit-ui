@@ -29,11 +29,11 @@ import { TabPanel } from './components/TabPanel/index.js';
 
 export interface TabsProps extends TabListProps {
   /**
-   * The id of the initially selected tab.
+   * The index of the initially selected tab.
    *
-   * @default items[0].id
+   * @default 0
    */
-  initialSelectedId?: string;
+  initialSelectedIndex?: number;
   /**
    * A collection of tabs with an id, the tab label, and panel content.
    */
@@ -44,12 +44,8 @@ export interface TabsProps extends TabListProps {
   }[];
 }
 
-export function Tabs({
-  items,
-  initialSelectedId = items[0].id,
-  ...props
-}: TabsProps) {
-  const [selectedId, setSelectedId] = useState(initialSelectedId);
+export function Tabs({ items, initialSelectedIndex = 0, ...props }: TabsProps) {
+  const [selectedId, setSelectedId] = useState(items[initialSelectedIndex]?.id);
 
   const handleTabKeyDown = (event: KeyboardEvent) => {
     const selectedIndex = items.findIndex((item) => item.id === selectedId);
