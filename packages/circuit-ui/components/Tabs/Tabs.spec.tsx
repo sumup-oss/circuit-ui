@@ -73,7 +73,7 @@ describe('Tabs', () => {
   it('should go to the previous tab on left arrow press', async () => {
     render(
       <Tabs
-        initialSelectedIndex={1}
+        initialSelectedId="b"
         items={[
           { id: 'a', tab: 'tab-a', panel: 'panel-a' },
           { id: 'b', tab: 'tab-b', panel: 'panel-b' },
@@ -85,7 +85,7 @@ describe('Tabs', () => {
     await userEvent.keyboard('{Tab}');
 
     const tabs = screen.getAllByRole('tab');
-    expect(tabs[0]).toHaveFocus();
+    expect(tabs[1]).toHaveFocus();
 
     const panelB = screen.getByRole('tabpanel');
     expect(panelB).toHaveAccessibleName('tab-b');
@@ -100,7 +100,6 @@ describe('Tabs', () => {
   it('should focus the current panel on down arrow press', async () => {
     render(
       <Tabs
-        initialSelectedIndex={1}
         items={[
           { id: 'a', tab: 'tab-a', panel: 'panel-a' },
           { id: 'b', tab: 'tab-b', panel: 'panel-b' },

@@ -15,13 +15,7 @@
 
 'use client';
 
-import {
-  createRef,
-  Fragment,
-  useState,
-  type KeyboardEvent,
-  type ReactNode,
-} from 'react';
+import { Fragment, useState, type KeyboardEvent, type ReactNode } from 'react';
 
 import {
   isArrowLeft,
@@ -35,9 +29,11 @@ import { TabPanel } from './components/TabPanel/index.js';
 
 export interface TabsProps extends TabListProps {
   /**
-   * The index of the initially selected tab.
+   * The id of the initially selected tab.
+   *
+   * @default items[0].id
    */
-  initialSelectedIndex?: number;
+  initialSelectedId?: string;
   /**
    * A collection of tabs with an id, the tab label, and panel content.
    */
@@ -48,34 +44,43 @@ export interface TabsProps extends TabListProps {
   }[];
 }
 
-export function Tabs({ initialSelectedIndex = 0, items, ...props }: TabsProps) {
-  const [selectedIndex, setSelectedIndex] = useState(initialSelectedIndex);
-
-  const tabPanelsRefs = createRefs(items.length);
+export function Tabs({
+  items,
+  initialSelectedId = items[0].id,
+  ...props
+}: TabsProps) {
+  const [selectedId, setSelectedId] = useState(initialSelectedId);
 
   const handleTabKeyDown = (event: KeyboardEvent) => {
+    const selectedIndex = items.findIndex((item) => item.id === selectedId);
+
     if (isArrowLeft(event)) {
-      const previousTab = Math.max(0, selectedIndex - 1);
-      setSelectedIndex(previousTab);
-    } else if (isArrowRight(event)) {
-      const nextTab = Math.min(items.length - 1, selectedIndex + 1);
-      setSelectedIndex(nextTab);
-    } else if (isArrowDown(event)) {
-      const panelRef = tabPanelsRefs[selectedIndex].current;
-      if (panelRef) {
-        panelRef.focus();
+      const previousIndex = selectedIndex - 1;
+      if (previousIndex >= 0) {
+        const previousId = items[previousIndex].id;
+        setSelectedId(previousId);
+        document.getElementById(`tab-${previousId}`)?.focus();
       }
+    } else if (isArrowRight(event)) {
+      const nextIndex = selectedIndex + 1;
+      if (nextIndex <= items.length - 1) {
+        const nextId = items[nextIndex].id;
+        setSelectedId(nextId);
+        document.getElementById(`tab-${nextId}`)?.focus();
+      }
+    } else if (isArrowDown(event)) {
+      document.getElementById(`panel-${selectedId}`)?.focus();
     }
   };
 
   return (
     <Fragment>
       <TabList {...props}>
-        {items.map(({ id, tab }, index) => (
+        {items.map(({ id, tab }) => (
           <Tab
             key={id}
-            selected={selectedIndex === index}
-            onClick={() => setSelectedIndex(index)}
+            selected={selectedId === id}
+            onClick={() => setSelectedId(id)}
             id={`tab-${id}`}
             aria-controls={`panel-${id}`}
             onKeyDown={handleTabKeyDown}
@@ -84,23 +89,16 @@ export function Tabs({ initialSelectedIndex = 0, items, ...props }: TabsProps) {
           </Tab>
         ))}
       </TabList>
-      {items.map(({ id, panel }, index) => (
+      {items.map(({ id, panel }) => (
         <TabPanel
           key={id}
           id={`panel-${id}`}
           aria-labelledby={`tab-${id}`}
-          hidden={selectedIndex !== index}
-          ref={tabPanelsRefs[index]}
+          hidden={selectedId !== id}
         >
           {panel}
         </TabPanel>
       ))}
     </Fragment>
-  );
-}
-
-function createRefs(length: number) {
-  return Array.from(Array(length).keys()).map(() =>
-    createRef<HTMLDivElement>(),
   );
 }
