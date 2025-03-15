@@ -74,7 +74,6 @@ export function Tabs({ initialSelectedIndex = 0, items, ...props }: TabsProps) {
         {items.map(({ id, tab }, index) => (
           <Tab
             key={id}
-            data-testid="tab-element"
             selected={selectedIndex === index}
             onClick={() => setSelectedIndex(index)}
             id={`tab-${id}`}
@@ -88,7 +87,6 @@ export function Tabs({ initialSelectedIndex = 0, items, ...props }: TabsProps) {
       {items.map(({ id, panel }, index) => (
         <TabPanel
           key={id}
-          data-testid="tab-panel"
           id={`panel-${id}`}
           aria-labelledby={`tab-${id}`}
           hidden={selectedIndex !== index}
