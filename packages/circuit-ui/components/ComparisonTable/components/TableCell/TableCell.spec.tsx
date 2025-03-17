@@ -22,42 +22,28 @@ import { TableCell } from './TableCell.js';
 describe('TableCell', () => {
   const cellLabel = 'Cell label';
   const cellValue = 'Cell value';
-  const cellDescription = 'Cell description';
 
-  it('should render as row header', () => {
-    render(
-      <TableCell
-        isHeader
-        value={cellValue}
-        label={cellLabel}
-        description={cellDescription}
-      />,
-    );
-    expect(screen.getByRole('rowheader')).toBeInTheDocument();
-    expect(screen.getByText(cellDescription)).toBeInTheDocument();
-  });
   it('should render as row cell', () => {
-    render(<TableCell value={cellValue} label={cellLabel} />);
+    render(<TableCell cellValue={cellValue} />);
     expect(screen.getByRole('cell')).toBeInTheDocument();
   });
   it('should render content as paragraph when value is a string', () => {
-    render(<TableCell value={cellValue} label="label" />);
+    render(<TableCell cellValue={cellValue} />);
     expect(screen.getByRole('paragraph')).toBeVisible();
     expect(screen.getByRole('paragraph').textContent).toBe(cellValue);
   });
   it('should render checked icon when value is true', () => {
-    render(<TableCell value={true} label={cellLabel} />);
+    render(<TableCell cellValue={{ label: cellLabel, value: true }} />);
     expect(screen.getByTestId('boolean-value-true')).toBeVisible();
     expect(screen.getByText(cellLabel)).toBeInTheDocument();
   });
   it('should render unchecked icon when value is false', () => {
-    render(<TableCell value={false} label={cellLabel} />);
+    render(<TableCell cellValue={{ label: cellLabel, value: false }} />);
     expect(screen.getByTestId('boolean-value-false')).toBeVisible();
     expect(screen.getByText(cellLabel)).toBeInTheDocument();
   });
   it('should render unchecked icon when value is undefined', () => {
-    render(<TableCell value={undefined} label={cellLabel} />);
+    render(<TableCell cellValue={undefined} />);
     expect(screen.getByTestId('boolean-value-false')).toBeVisible();
-    expect(screen.getByText(cellLabel)).toBeInTheDocument();
   });
 });

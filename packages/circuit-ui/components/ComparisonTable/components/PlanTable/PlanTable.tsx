@@ -30,7 +30,7 @@ import {
   TableHeader,
   type TableHeaderProps,
 } from '../TableHeader/TableHeader.js';
-import { FeatureRow, type FeatureRowProps } from '../TableRow/FeatureRow.js';
+import { type Feature, FeatureRow } from '../TableRow/FeatureRow.js';
 import { generateFromIndex, getFirstEightRows } from '../../utils.js';
 import { Button } from '../../../Button/index.js';
 import { applyMultipleRefs } from '../../../../util/refs.js';
@@ -44,7 +44,7 @@ import classes from './PlanTable.module.css';
 
 export interface FeatureSection {
   title: string;
-  features: FeatureRowProps[];
+  features: Feature[];
 }
 
 export interface PlanTableProps extends HTMLAttributes<HTMLTableElement> {

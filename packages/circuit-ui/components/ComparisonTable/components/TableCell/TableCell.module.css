@@ -6,7 +6,7 @@
 
 .content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   min-height: 64px;
   padding: var(--cui-spacings-mega);

@@ -15,21 +15,26 @@
 
 import type { HTMLAttributes } from 'react';
 
-import { TableCell, type TableCellProps } from '../TableCell/TableCell.js';
+import { TableCell } from '../TableCell/TableCell.js';
 import { clsx } from '../../../../styles/clsx.js';
+import { RowHeader } from '../RowHeader/RowHeader.js';
+import type { ToggletipProps } from '../../../Toggletip/index.js';
 
 import classes from './FeatureRow.module.css';
 
-export interface FeatureRowProps extends HTMLAttributes<HTMLTableRowElement> {
-  featureDescription: Pick<
-    TableCellProps,
-    'label' | 'description' | 'toggletip'
-  >;
+export type CellValue = string | { label: string; value: boolean } | undefined;
+export interface Feature {
+  featureDescription: {
+    label: string;
+    description?: string;
+    toggletip?: ToggletipProps;
+  };
   /**
    * An array of the cell values and labels in the same order of the displayed columns.
    */
-  values: { value: TableCellProps['value']; label: TableCellProps['label'] }[];
+  values: CellValue[];
 }
+export type FeatureRowProps = Feature & HTMLAttributes<HTMLTableRowElement>;
 
 export const FeatureRow = ({
   featureDescription,
@@ -37,19 +42,17 @@ export const FeatureRow = ({
   ...props
 }: FeatureRowProps) => (
   <tr {...props}>
-    <TableCell
-      isHeader
-      value={featureDescription.label}
-      label={featureDescription.label}
+    <RowHeader
       description={featureDescription.description}
       toggletip={featureDescription.toggletip}
-    />
-    {values.map(({ value, label }, index) => (
+    >
+      {featureDescription.label}
+    </RowHeader>
+    {values.map((value, index) => (
       <TableCell
+        key={`cui-comparison-table-row-${index}`}
         className={clsx(index > 0 && classes.border)}
-        key={`${label}-${index}`}
-        value={value}
-        label={label}
+        cellValue={value}
       />
     ))}
   </tr>

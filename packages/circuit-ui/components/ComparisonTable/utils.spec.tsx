@@ -17,53 +17,53 @@ import { describe, expect, it } from 'vitest';
 
 import type { FeatureSection } from './components/PlanTable/PlanTable.js';
 import { generateFromIndex, getFirstEightRows } from './utils.js';
-import type { FeatureRowProps } from './components/TableRow/FeatureRow.js';
+import type { Feature } from './components/FeatureRow/FeatureRow.js';
 
-const feature1: FeatureRowProps = {
+const feature1: Feature = {
   featureDescription: {
-    title: 'title',
+    label: 'title',
   },
   values: [],
 };
-const feature2: FeatureRowProps = {
+const feature2: Feature = {
   featureDescription: {
-    title: 'title',
+    label: 'title',
   },
   values: [],
 };
-const feature3: FeatureRowProps = {
+const feature3: Feature = {
   featureDescription: {
-    title: 'title',
+    label: 'title',
   },
   values: [],
 };
-const feature4: FeatureRowProps = {
+const feature4: Feature = {
   featureDescription: {
-    title: 'title',
+    label: 'title',
   },
   values: [],
 };
-const feature5: FeatureRowProps = {
+const feature5: Feature = {
   featureDescription: {
-    title: 'title',
+    label: 'title',
   },
   values: [],
 };
-const feature6: FeatureRowProps = {
+const feature6: Feature = {
   featureDescription: {
-    title: 'title',
+    label: 'title',
   },
   values: [],
 };
-const feature7: FeatureRowProps = {
+const feature7: Feature = {
   featureDescription: {
-    title: 'title',
+    label: 'title',
   },
   values: [],
 };
-const feature8: FeatureRowProps = {
+const feature8: Feature = {
   featureDescription: {
-    title: 'title',
+    label: 'title',
   },
   values: [],
 };

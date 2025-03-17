@@ -19,7 +19,7 @@ import { IconButton } from '../Button/index.js';
 
 import type { TableHeaderProps } from './components/TableHeader/TableHeader.js';
 import type { FeatureSection } from './components/PlanTable/PlanTable.js';
-import type { FeatureRowProps } from './components/TableRow/FeatureRow.js';
+import type { Feature } from './components/TableRow/FeatureRow.js';
 
 export const posPlan: TableHeaderProps = {
   title: 'Free',
@@ -48,7 +48,7 @@ export const posProPlan: TableHeaderProps = {
   },
 };
 
-export const freeBusinessAccountFeature: FeatureRowProps = {
+export const freeBusinessAccountFeature: Feature = {
   featureDescription: {
     label: 'Free business account',
     description: 'get started right away',
@@ -76,7 +76,7 @@ export const freeBusinessAccountFeature: FeatureRowProps = {
   ],
 };
 
-export const freePhysicalCardFeature: FeatureRowProps = {
+export const freePhysicalCardFeature: Feature = {
   featureDescription: {
     label: 'Free physical or virtual Mastercard',
   },
@@ -87,7 +87,7 @@ export const freePhysicalCardFeature: FeatureRowProps = {
   ],
 };
 
-export const freeInstantTransfersFeature: FeatureRowProps = {
+export const freeInstantTransfersFeature: Feature = {
   featureDescription: {
     label: 'Free instant transfers',
   },
@@ -98,7 +98,7 @@ export const freeInstantTransfersFeature: FeatureRowProps = {
   ],
 };
 
-export const scheduledPaymentsFeature: FeatureRowProps = {
+export const scheduledPaymentsFeature: Feature = {
   featureDescription: {
     label: 'Scheduled payments',
   },
@@ -109,7 +109,7 @@ export const scheduledPaymentsFeature: FeatureRowProps = {
   ],
 };
 
-export const paymentRemindersFeature: FeatureRowProps = {
+export const paymentRemindersFeature: Feature = {
   featureDescription: {
     label: 'Payment reminders',
   },
@@ -214,8 +214,8 @@ export const MoneyManagement: FeatureSection = {
       },
       values: [
         { value: false, label: 'available' },
-        { value: '3 included', label: '3 included' },
-        { value: '5 included', label: '5 included' },
+        '3 included',
+        '5 included',
       ],
     },
     {
@@ -226,8 +226,8 @@ export const MoneyManagement: FeatureSection = {
 
       values: [
         { value: false, label: 'available' },
-        { value: '3 included', label: '3 included' },
-        { value: '5 included', label: '5 included' },
+        '3 included',
+        '5 included',
       ],
     },
     {
@@ -252,11 +252,7 @@ export const InvoicingSection: FeatureSection = {
         label: 'Send invoices to get paid',
         description: 'Includes electronic invoices',
       },
-      values: [
-        { value: '4', label: '4' },
-        { value: 'unlimited', label: 'unlimited' },
-        { value: 'unlimited', label: 'unlimited' },
-      ],
+      values: ['4', 'unlimited', 'unlimited'],
     },
     {
       featureDescription: {
@@ -264,11 +260,7 @@ export const InvoicingSection: FeatureSection = {
         description: 'Includes electronic invoices',
       },
 
-      values: [
-        { value: 'unlimited', label: 'unlimited' },
-        { value: 'unlimited', label: 'unlimited' },
-        { value: 'unlimited', label: 'unlimited' },
-      ],
+      values: ['unlimited', 'unlimited', 'unlimited'],
     },
     {
       featureDescription: {
@@ -276,12 +268,9 @@ export const InvoicingSection: FeatureSection = {
       },
 
       values: [
-        {
-          value: 'With the SumUp Business Account',
-          label: 'With the SumUp Business Account',
-        },
-        { value: 'With any bank account', label: 'With any bank account' },
-        { value: 'With any bank account', label: 'With any bank account' },
+        'With the SumUp Business Account',
+        'With any bank account',
+        'With any bank account',
       ],
     },
     {

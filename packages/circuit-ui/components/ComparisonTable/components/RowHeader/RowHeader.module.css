@@ -1,0 +1,18 @@
+.base {
+  justify-content: center;
+  padding: var(--cui-spacings-mega);
+  padding-left: 0;
+  border-bottom: 1px solid var(--cui-border-divider);
+}
+
+.title {
+  display: flex;
+  gap: var(--cui-spacings-byte);
+  align-items: center;
+  justify-content: start;
+}
+
+.description {
+  margin-top: var(--cui-spacings-bit);
+  text-align: start;
+}
