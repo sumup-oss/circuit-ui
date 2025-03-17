@@ -213,7 +213,10 @@ export {
   Toggletip,
   type ToggletipProps,
 } from './components/Toggletip/index.js';
-export { ComparisonTable } from './components/ComparisonTable/ComparisonTable.js';
+export {
+  ComparisonTable,
+  type ComparisonTableProps,
+} from './components/ComparisonTable/ComparisonTable.js';
 
 // Hooks
 export { useClickOutside } from './hooks/useClickOutside/index.js';

@@ -77,12 +77,12 @@ export const ComparisonTable = forwardRef<
           'The `selectFirstPlanLabel` prop is missing or invalid.',
         );
       }
-    }
-    if (!isSufficientlyLabelled(selectSecondPlanLabel)) {
-      throw new AccessibilityError(
-        'ComparisonTable',
-        'The `selectSecondPlanLabel` prop is missing or invalid.',
-      );
+      if (!isSufficientlyLabelled(selectSecondPlanLabel)) {
+        throw new AccessibilityError(
+          'ComparisonTable',
+          'The `selectSecondPlanLabel` prop is missing or invalid.',
+        );
+      }
     }
 
     const [activePlans, setActivePlans] = useState<number[]>([0, 1]);

@@ -23,7 +23,7 @@ interface BooleanValueProps {
    */
   label: string;
   /**
-   * The boolean value that will determine which icon to show.
+   * The boolean value. `true` displays a checkmark, `false` displays a dash.
    */
   value: boolean;
 }
@@ -58,6 +58,7 @@ export const BooleanValue = ({ label, value }: BooleanValueProps) => (
         height="24"
         viewBox="0 0 24 24"
         fill="none"
+        aria-hidden="true"
         data-testid="boolean-value-false"
       >
         <rect
@@ -65,7 +66,7 @@ export const BooleanValue = ({ label, value }: BooleanValueProps) => (
           y="11"
           width="12"
           height="2"
-          fill="var(--cui-bg-highlight)"
+          fill="var(--cui-fg-placeholder)"
         />
       </svg>
     )}
