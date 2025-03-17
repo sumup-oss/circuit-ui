@@ -21,7 +21,7 @@ import { BooleanValue } from '../BooleanValue/BooleanValue.js';
 import { Compact } from '../../../Compact/index.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { useMedia } from '../../../../hooks/useMedia/index.js';
-import type { CellValue } from '../TableRow/FeatureRow.js';
+import type { CellValue } from '../FeatureRow/FeatureRow.js';
 
 import classes from './TableCell.module.css';
 

@@ -19,7 +19,7 @@ import { IconButton } from '../Button/index.js';
 
 import type { TableHeaderProps } from './components/TableHeader/TableHeader.js';
 import type { FeatureSection } from './components/PlanTable/PlanTable.js';
-import type { Feature } from './components/TableRow/FeatureRow.js';
+import type { Feature } from './components/FeatureRow/FeatureRow.js';
 
 export const posPlan: TableHeaderProps = {
   title: 'Free',

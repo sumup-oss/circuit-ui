@@ -30,7 +30,7 @@ import {
   TableHeader,
   type TableHeaderProps,
 } from '../TableHeader/TableHeader.js';
-import { type Feature, FeatureRow } from '../TableRow/FeatureRow.js';
+import { type Feature, FeatureRow } from '../FeatureRow/FeatureRow.js';
 import { generateFromIndex, getFirstEightRows } from '../../utils.js';
 import { Button } from '../../../Button/index.js';
 import { applyMultipleRefs } from '../../../../util/refs.js';
