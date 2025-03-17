@@ -39,9 +39,10 @@ export type FeatureRowProps = Feature & HTMLAttributes<HTMLTableRowElement>;
 export const FeatureRow = ({
   featureDescription,
   values,
+  className,
   ...props
 }: FeatureRowProps) => (
-  <tr {...props}>
+  <tr {...props} className={clsx(className, classes.base)}>
     <RowHeader
       description={featureDescription.description}
       toggletip={featureDescription.toggletip}
@@ -50,8 +51,7 @@ export const FeatureRow = ({
     </RowHeader>
     {values.map((value, index) => (
       <TableCell
-        key={`cui-comparison-table-row-${index}`}
-        className={clsx(index > 0 && classes.border)}
+        key={`cui-comparison-table-${featureDescription.label}-cell-${index}`}
         cellValue={value}
       />
     ))}

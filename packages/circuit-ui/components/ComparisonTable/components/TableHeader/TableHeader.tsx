@@ -50,7 +50,7 @@ export interface TableHeaderProps
   /**
    *  The call-to-action button props
    */
-  callToAction?: ButtonProps;
+  action?: ButtonProps;
 }
 
 export const TableHeader = ({
@@ -58,13 +58,13 @@ export const TableHeader = ({
   description,
   tier,
   className,
-  callToAction,
+  action,
 }: TableHeaderProps) => {
   const isMobile = useMedia('(max-width: 767px)');
 
   return (
-    <th scope="col" className={classes.wrapper}>
-      <div className={clsx(classes.base, className)}>
+    <th scope="col" className={clsx(classes.wrapper, className)}>
+      <div className={classes.base}>
         <div className={classes.title}>
           {(!isMobile || (isMobile && !tier)) && (
             <Compact size="l" weight="bold">
@@ -75,9 +75,9 @@ export const TableHeader = ({
         </div>
 
         <Body size={isMobile ? 's' : 'm'}>{description}</Body>
-        {!isMobile && callToAction && (
+        {!isMobile && action && (
           <Button
-            {...callToAction}
+            {...action}
             className={classes.cta}
             variant="secondary"
             size="s"

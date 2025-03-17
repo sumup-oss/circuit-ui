@@ -21,8 +21,8 @@ import {
 } from './ComparisonTable.js';
 import {
   bankingBasicsSection,
-  MoneyManagement,
-  InvoicingSection,
+  moneyManagement,
+  invoicingSection,
   posPlan,
   posPlusPlan,
   posProPlan,
@@ -65,7 +65,7 @@ Collapsed.args = {
   sections: [
     ...baseProps.sections,
     productCatalogSection,
-    MoneyManagement,
-    InvoicingSection,
+    moneyManagement,
+    invoicingSection,
   ],
 };

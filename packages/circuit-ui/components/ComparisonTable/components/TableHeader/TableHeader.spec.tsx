@@ -34,9 +34,7 @@ describe('TableHeader', () => {
     render(<TableHeader {...baseProps} tier={{ variant: 'plus' }} />);
     expect(screen.getByText(baseProps.title)).toBeVisible();
     expect(screen.getByText(baseProps.description)).toBeVisible();
-    expect(
-      screen.getByText(baseProps.callToAction.children as string),
-    ).toBeVisible();
+    expect(screen.getByText(baseProps.action.children as string)).toBeVisible();
     expect(screen.getByText('plus')).toBeVisible();
   });
 

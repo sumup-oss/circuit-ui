@@ -21,17 +21,17 @@ import { Compact } from '../../../Compact/index.js';
 
 import classes from './RowHeader.module.css';
 
-interface RowHeaderProps extends ThHTMLAttributes<HTMLTableCellElement> {
+export interface RowHeaderProps extends ThHTMLAttributes<HTMLTableCellElement> {
   /**
-   * A short description of the feature (for row headers only).
+   * A short description of the feature.
    */
   description?: string;
   /**
-   * Additional description of the feature (for row headers only).
+   * Additional description of the feature.
    */
   toggletip?: ToggletipProps;
   /**
-   * The content of the header.
+   * The name of the feature.
    */
   children: ReactNode;
 }
@@ -41,15 +41,15 @@ export const RowHeader = ({
   toggletip,
   children,
 }: RowHeaderProps) => (
-    <th className={classes.base} scope="row">
-      <div className={clsx(classes.title)}>
-        {children}
-        {toggletip && <Toggletip {...toggletip} placement="right" />}
-      </div>
-      {description && (
-        <Compact className={classes.description} size="s" color="subtle">
-          {description}
-        </Compact>
-      )}
-    </th>
-  );
+  <th className={classes.base} scope="row">
+    <div className={clsx(classes.title)}>
+      {children}
+      {toggletip && <Toggletip {...toggletip} placement="right" />}
+    </div>
+    {description && (
+      <Compact className={classes.description} size="s" color="subtle">
+        {description}
+      </Compact>
+    )}
+  </th>
+);

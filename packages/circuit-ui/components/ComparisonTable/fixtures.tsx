@@ -24,15 +24,15 @@ import type { Feature } from './components/FeatureRow/FeatureRow.js';
 export const posPlan: TableHeaderProps = {
   title: 'Free',
   id: 'free',
-  description: '0€ / month',
+  description: '$0 / month',
 };
 
 export const posPlusPlan: TableHeaderProps = {
   title: 'POS',
   id: 'pos_plus',
   tier: { variant: 'plus' },
-  description: '15$/month',
-  callToAction: {
+  description: '$15/month',
+  action: {
     children: 'Join now',
     href: 'https://sumup.com',
   },
@@ -41,8 +41,8 @@ export const posPlusPlan: TableHeaderProps = {
 export const posProPlan: TableHeaderProps = {
   title: 'POS Pro',
   id: 'pos_pro',
-  description: '25$/month',
-  callToAction: {
+  description: '$25/month',
+  action: {
     children: 'Join now',
     href: 'https://sumup.com',
   },
@@ -205,7 +205,7 @@ export const productCatalogSection: FeatureSection = {
   ],
 };
 
-export const MoneyManagement: FeatureSection = {
+export const moneyManagement: FeatureSection = {
   title: 'Money Management',
   features: [
     {
@@ -244,7 +244,7 @@ export const MoneyManagement: FeatureSection = {
   ],
 };
 
-export const InvoicingSection: FeatureSection = {
+export const invoicingSection: FeatureSection = {
   title: 'Invoicing',
   features: [
     {

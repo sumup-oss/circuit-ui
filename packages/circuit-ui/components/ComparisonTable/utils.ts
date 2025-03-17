@@ -15,8 +15,11 @@
 
 import type { FeatureSection } from './components/PlanTable/PlanTable.js';
 
-export function getFirstEightRows(arr: FeatureSection[]): FeatureSection[] {
-  let credit = 8;
+export function getFirstNRows(
+  arr: FeatureSection[],
+  n: number,
+): FeatureSection[] {
+  let credit = n;
   const result: FeatureSection[] = [];
   arr.forEach((section) => {
     if (credit > 0) {

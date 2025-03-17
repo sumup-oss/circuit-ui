@@ -33,8 +33,8 @@ import {
 } from './ComparisonTable.js';
 import {
   bankingBasicsSection,
-  MoneyManagement,
-  InvoicingSection,
+  moneyManagement,
+  invoicingSection,
   posPlan,
   posPlusPlan,
   posProPlan,
@@ -50,8 +50,8 @@ const baseProps: ComparisonTableProps = {
   sections: [
     bankingBasicsSection,
     productCatalogSection,
-    MoneyManagement,
-    InvoicingSection,
+    moneyManagement,
+    invoicingSection,
   ],
   showAllFeaturesLabel: 'Show all features',
   selectSecondPlanLabel: 'Select a second plan',
@@ -111,7 +111,7 @@ describe('ComparisonTable', () => {
     it('should update displayed plans when a new plan is picked', async () => {
       render(<ComparisonTable {...baseProps} />);
       expect(
-        screen.getByRole('columnheader', { name: 'plus 15$/month' }),
+        screen.getByRole('columnheader', { name: 'plus $15/month' }),
       ).toBeInTheDocument();
 
       await userEvent.selectOptions(
@@ -119,7 +119,7 @@ describe('ComparisonTable', () => {
         'POS Pro',
       );
       expect(
-        screen.getByRole('columnheader', { name: 'plus 15$/month' }),
+        screen.getByRole('columnheader', { name: 'plus $15/month' }),
       ).toBeVisible();
     });
   });

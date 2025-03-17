@@ -16,7 +16,7 @@
 import { describe, expect, it } from 'vitest';
 
 import type { FeatureSection } from './components/PlanTable/PlanTable.js';
-import { generateFromIndex, getFirstEightRows } from './utils.js';
+import { generateFromIndex, getFirstNRows } from './utils.js';
 import type { Feature } from './components/FeatureRow/FeatureRow.js';
 
 const feature1: Feature = {
@@ -70,7 +70,7 @@ const feature8: Feature = {
 
 describe('getFirstEightRows', () => {
   it('no sections', () => {
-    expect(getFirstEightRows([])).toEqual([]);
+    expect(getFirstNRows([], 8)).toEqual([]);
   });
   it('one section with 2 features', () => {
     const data: FeatureSection[] = [
@@ -79,7 +79,7 @@ describe('getFirstEightRows', () => {
         features: [feature1, feature2],
       },
     ];
-    expect(getFirstEightRows(data)).toEqual(data);
+    expect(getFirstNRows(data, 8)).toEqual(data);
   });
   it('one section with 8 features', () => {
     const data: FeatureSection[] = [
@@ -97,7 +97,7 @@ describe('getFirstEightRows', () => {
         ],
       },
     ];
-    expect(getFirstEightRows(data)).toEqual([
+    expect(getFirstNRows(data, 8)).toEqual([
       {
         title: 'Banking basics',
         features: [
@@ -123,7 +123,7 @@ describe('getFirstEightRows', () => {
         features: [feature3, feature4],
       },
     ];
-    expect(getFirstEightRows(data)).toEqual(data);
+    expect(getFirstNRows(data, 8)).toEqual(data);
   });
   it('two section with 5 features', () => {
     const data: FeatureSection[] = [
@@ -136,7 +136,7 @@ describe('getFirstEightRows', () => {
         features: [feature1, feature2, feature3, feature4, feature5],
       },
     ];
-    expect(getFirstEightRows(data)).toEqual([
+    expect(getFirstNRows(data, 8)).toEqual([
       {
         title: 'section 1',
         features: [feature1, feature2, feature3, feature4, feature5],

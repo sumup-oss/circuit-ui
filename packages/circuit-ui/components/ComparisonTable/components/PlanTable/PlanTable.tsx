@@ -31,7 +31,7 @@ import {
   type TableHeaderProps,
 } from '../TableHeader/TableHeader.js';
 import { type Feature, FeatureRow } from '../FeatureRow/FeatureRow.js';
-import { generateFromIndex, getFirstEightRows } from '../../utils.js';
+import { generateFromIndex, getFirstNRows } from '../../utils.js';
 import { Button } from '../../../Button/index.js';
 import { applyMultipleRefs } from '../../../../util/refs.js';
 import { throttle } from '../../../../util/helpers.js';
@@ -41,6 +41,8 @@ import { Body } from '../../../Body/index.js';
 import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './PlanTable.module.css';
+
+const COLLAPSE_THRESHOLD = 8;
 
 export interface FeatureSection {
   title: string;
@@ -83,11 +85,13 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
       sections.reduce(
         (totalRows, section) => totalRows + section.features.length + 1,
         0,
-      ) > 8,
+      ) > COLLAPSE_THRESHOLD,
     );
     const theadRef = useRef<HTMLTableSectionElement>(null);
     const [headerHeight, setHeaderHeight] = useState(0);
-    const rowsToDisplay = isCollapsed ? getFirstEightRows(sections) : sections;
+    const rowsToDisplay = isCollapsed
+      ? getFirstNRows(sections, COLLAPSE_THRESHOLD)
+      : sections;
 
     const updateHeaderHeight = useCallback(() => {
       throttle(() => {
@@ -115,8 +119,8 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
       if (!isCollapsed) {
         // set focus to the first row of the added rows when the table is expanded
         tableRef.current
-          ?.querySelectorAll('tr')[9]
-          ?.focus({ preventScroll: true });
+          ?.querySelectorAll('tr')
+          [COLLAPSE_THRESHOLD + 1]?.focus({ preventScroll: true });
       }
     }, [isCollapsed]);
 
