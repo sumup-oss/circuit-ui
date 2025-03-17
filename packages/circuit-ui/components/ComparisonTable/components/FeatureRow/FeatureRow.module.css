@@ -1,3 +1,0 @@
-.base td:not(:nth-of-type(1)) {
-  border-left: 1px solid var(--cui-border-divider);
-}

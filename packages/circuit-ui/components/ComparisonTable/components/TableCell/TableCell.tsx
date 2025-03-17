@@ -15,17 +15,18 @@
 
 'use client';
 
-import type { HTMLAttributes } from 'react';
+import type { TdHTMLAttributes } from 'react';
 
 import { BooleanValue } from '../BooleanValue/BooleanValue.js';
 import { Compact } from '../../../Compact/index.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { useMedia } from '../../../../hooks/useMedia/index.js';
-import type { CellValue } from '../FeatureRow/FeatureRow.js';
 
 import classes from './TableCell.module.css';
 
-export interface TableCellProps extends HTMLAttributes<HTMLTableCellElement> {
+export type CellValue = string | { label: string; value: boolean } | undefined;
+
+export interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
   /**
    * The content of the cell.
    * If the value is a string, it will be rendered as plain text.

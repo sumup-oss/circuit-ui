@@ -13,11 +13,15 @@
  * limitations under the License.
  */
 
+
+'use client';
+
 import type { ReactNode, ThHTMLAttributes } from 'react';
 
 import { Toggletip, type ToggletipProps } from '../../../Toggletip/index.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { Compact } from '../../../Compact/index.js';
+import { useMedia } from '../../../../hooks/useMedia/index.js';
 
 import classes from './RowHeader.module.css';
 
@@ -40,16 +44,21 @@ export const RowHeader = ({
   description,
   toggletip,
   children,
-}: RowHeaderProps) => (
-  <th className={classes.base} scope="row">
-    <div className={clsx(classes.title)}>
-      {children}
-      {toggletip && <Toggletip {...toggletip} placement="right" />}
-    </div>
-    {description && (
-      <Compact className={classes.description} size="s" color="subtle">
-        {description}
-      </Compact>
-    )}
-  </th>
-);
+  ...props
+}: RowHeaderProps) => {
+  const isMobile = useMedia('(max-width: 767px)');
+
+  return (
+    <th className={classes.base} scope="row" {...props}>
+      <div className={clsx(classes.title)}>
+        <Compact size={isMobile ? 's' : 'm'}>{children}</Compact>
+        {toggletip && <Toggletip {...toggletip} placement="right" />}
+      </div>
+      {description && (
+        <Compact className={classes.description} size="s" color="subtle">
+          {description}
+        </Compact>
+      )}
+    </th>
+  );
+};

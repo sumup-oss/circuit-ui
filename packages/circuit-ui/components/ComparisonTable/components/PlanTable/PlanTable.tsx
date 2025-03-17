@@ -20,6 +20,7 @@ import {
   type HTMLAttributes,
   useCallback,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from 'react';
@@ -30,7 +31,6 @@ import {
   TableHeader,
   type TableHeaderProps,
 } from '../TableHeader/TableHeader.js';
-import { type Feature, FeatureRow } from '../FeatureRow/FeatureRow.js';
 import { generateFromIndex, getFirstNRows } from '../../utils.js';
 import { Button } from '../../../Button/index.js';
 import { applyMultipleRefs } from '../../../../util/refs.js';
@@ -39,10 +39,26 @@ import { Compact } from '../../../Compact/index.js';
 import { useMedia } from '../../../../hooks/useMedia/index.js';
 import { Body } from '../../../Body/index.js';
 import { clsx } from '../../../../styles/clsx.js';
+import { RowHeader, type RowHeaderProps } from '../RowHeader/RowHeader.js';
+import { type CellValue, TableCell } from '../TableCell/TableCell.js';
+import type { ToggletipProps } from '../../../Toggletip/index.js';
 
 import classes from './PlanTable.module.css';
 
 const COLLAPSE_THRESHOLD = 8;
+
+export interface Feature {
+  featureDescription: {
+    label: string;
+    description?: string;
+    toggletip?: ToggletipProps;
+  };
+  /**
+   * An array of the cell values and labels in the same order of the displayed columns.
+   */
+  values: CellValue[];
+  headers?: RowHeaderProps['headers'];
+}
 
 export interface FeatureSection {
   title: string;
@@ -89,9 +105,6 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
     );
     const theadRef = useRef<HTMLTableSectionElement>(null);
     const [headerHeight, setHeaderHeight] = useState(0);
-    const rowsToDisplay = isCollapsed
-      ? getFirstNRows(sections, COLLAPSE_THRESHOLD)
-      : sections;
 
     const updateHeaderHeight = useCallback(() => {
       throttle(() => {
@@ -126,6 +139,17 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
 
     const SectionTitleElement = isMobile ? Compact : Body;
 
+    const sectionsToDisplay = useMemo(
+      () =>
+        isCollapsed ? getFirstNRows(sections, COLLAPSE_THRESHOLD) : sections,
+      [sections, isCollapsed],
+    );
+
+    const headersToDisplay = useMemo(
+      () => (isMobile ? generateFromIndex(headers, activePlans) : headers),
+      [headers, activePlans, isMobile],
+    );
+
     return (
       <div className={classes.wrapper}>
         <table
@@ -139,32 +163,33 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
           <colgroup>
             <col />
             {(isMobile ? activePlans : headers).map((_, index) => (
-              <col key={index} />
+              <col key={`cui-ct-col-${index}`} />
             ))}
           </colgroup>
           <thead ref={theadRef}>
             <tr>
-              <th id="features" aria-hidden={true} />
-              {(isMobile
-                ? generateFromIndex(headers, activePlans)
-                : headers
-              ).map((plan, index) => (
+              <th aria-hidden={true} />
+              {headersToDisplay.map((plan, index) => (
                 <TableHeader
-                  key={plan.id}
                   {...plan}
+                  key={`cui-ct-headers-${plan.id}`}
+                  id={`cui-ct-headers-${plan.id}`}
                   className={clsx(index > 0 && classes.border)}
                 />
               ))}
             </tr>
           </thead>
 
-          {rowsToDisplay.map((row) => (
-            <tbody style={{ position: 'relative' }} key={row.title}>
+          {sectionsToDisplay.map((row, sectionIndex) => (
+            <tbody
+              style={{ position: 'relative' }}
+              key={`cui-ct-tbody-${sectionIndex}`}
+            >
               <tr tabIndex={-1}>
                 <th
                   className={classes.section}
                   scope="rowgroup"
-                  headers="features"
+                  id={`cui-ct-sections-${sectionIndex}`}
                   colSpan={headers.length + 1}
                   /* account for sticky plan picker on mobile */
                   style={{
@@ -176,18 +201,34 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
                   </SectionTitleElement>
                 </th>
               </tr>
-              {row.features.map((feature) => (
-                <FeatureRow
-                  key={feature.featureDescription.label}
-                  tabIndex={-1}
-                  {...feature}
-                  values={
-                    isMobile
+              {row.features.map((feature) => {
+                const featureId = feature.featureDescription.label.replace(
+                  /\s+/g,
+                  '',
+                );
+                return (
+                  <tr key={featureId} className={clsx(classes.base)}>
+                    <RowHeader
+                      description={feature.featureDescription.description}
+                      toggletip={feature.featureDescription.toggletip}
+                      headers={`cui-ct-sections-${sectionIndex}`}
+                      id={featureId}
+                    >
+                      {feature.featureDescription.label}
+                    </RowHeader>
+                    {(isMobile
                       ? generateFromIndex(feature.values, activePlans)
                       : feature.values
-                  }
-                />
-              ))}
+                    ).map((value, index) => (
+                      <TableCell
+                        key={`cui-comparison-table-${feature.featureDescription.label}-cell-${index}`}
+                        headers={`cui-ct-sections-${sectionIndex} ${featureId} cui-ct-headers-${headersToDisplay[index].id}`}
+                        cellValue={value}
+                      />
+                    ))}
+                  </tr>
+                );
+              })}
             </tbody>
           ))}
         </table>

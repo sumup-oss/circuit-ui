@@ -51,6 +51,10 @@
   );
 }
 
+.base tbody tr td:not(:nth-of-type(1)) {
+  border-left: 1px solid var(--cui-border-divider);
+}
+
 @media (max-width: 767px) {
   .base {
     table-layout: fixed;

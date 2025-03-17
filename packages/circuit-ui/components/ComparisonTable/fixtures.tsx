@@ -18,8 +18,10 @@ import { ArrowSlanted, Help } from '@sumup-oss/icons';
 import { IconButton } from '../Button/index.js';
 
 import type { TableHeaderProps } from './components/TableHeader/TableHeader.js';
-import type { FeatureSection } from './components/PlanTable/PlanTable.js';
-import type { Feature } from './components/FeatureRow/FeatureRow.js';
+import type {
+  Feature,
+  FeatureSection,
+} from './components/PlanTable/PlanTable.js';
 
 export const posPlan: TableHeaderProps = {
   title: 'Free',

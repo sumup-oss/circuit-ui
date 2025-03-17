@@ -59,11 +59,12 @@ export const TableHeader = ({
   tier,
   className,
   action,
+  ...props
 }: TableHeaderProps) => {
   const isMobile = useMedia('(max-width: 767px)');
 
   return (
-    <th scope="col" className={clsx(classes.wrapper, className)}>
+    <th scope="col" className={clsx(classes.wrapper, className)} {...props}>
       <div className={classes.base}>
         <div className={classes.title}>
           {(!isMobile || (isMobile && !tier)) && (

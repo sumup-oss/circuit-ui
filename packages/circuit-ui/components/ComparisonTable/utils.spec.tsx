@@ -15,9 +15,11 @@
 
 import { describe, expect, it } from 'vitest';
 
-import type { FeatureSection } from './components/PlanTable/PlanTable.js';
+import type {
+  Feature,
+  FeatureSection,
+} from './components/PlanTable/PlanTable.js';
 import { generateFromIndex, getFirstNRows } from './utils.js';
-import type { Feature } from './components/FeatureRow/FeatureRow.js';
 
 const feature1: Feature = {
   featureDescription: {
