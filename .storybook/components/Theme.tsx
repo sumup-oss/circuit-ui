@@ -240,8 +240,14 @@ export function FontStack({ name }: PreviewProps) {
 
 export function FontWeight({ name }: PreviewProps) {
   return (
-    // @ts-expect-error A CSS custom property is a valid font weight
     <p style={{ fontWeight: `var(${name})`, whiteSpace: 'nowrap' }}>
+      Lorem ipsum
+    </p>
+  );
+}
+export function LetterSpacing({ name }: PreviewProps) {
+  return (
+    <p style={{ letterSpacing: `var(${name})`, whiteSpace: 'nowrap' }}>
       Lorem ipsum
     </p>
   );
@@ -255,9 +261,6 @@ export function Typography({ name }: PreviewProps) {
   }
   if (name.includes('line-height')) {
     return <p style={{ lineHeight: `var(${name})` }}>Lorem ipsum</p>;
-  }
-  if (name.includes('letter-spacing')) {
-    return <p style={{ letterSpacing: `var(${name})` }}>Lorem ipsum</p>;
   }
   return null;
 }
