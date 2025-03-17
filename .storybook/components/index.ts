@@ -38,6 +38,7 @@ export {
   BorderWidth,
   FontStack,
   FontWeight,
+  LetterSpacing,
   Typography,
   Transition,
   MediaQueriesTable,
