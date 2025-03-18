@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 'use client';
 
 import type { ReactNode, ThHTMLAttributes } from 'react';

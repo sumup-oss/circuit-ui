@@ -207,7 +207,11 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
                   '',
                 );
                 return (
-                  <tr key={featureId} className={clsx(classes.base)}>
+                  <tr
+                    tabIndex={-1}
+                    key={featureId}
+                    className={clsx(classes.base)}
+                  >
                     <RowHeader
                       description={feature.featureDescription.description}
                       toggletip={feature.featureDescription.toggletip}
@@ -222,7 +226,7 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
                     ).map((value, index) => (
                       <TableCell
                         key={`cui-comparison-table-${feature.featureDescription.label}-cell-${index}`}
-                        headers={`cui-ct-sections-${sectionIndex} ${featureId} cui-ct-headers-${headersToDisplay[index].id}`}
+                        headers={`cui-ct-sections-${sectionIndex} ${featureId} cui-ct-headers-${headersToDisplay[index]?.id}`}
                         cellValue={value}
                       />
                     ))}

@@ -19,7 +19,7 @@ import classes from './BooleanValue.module.css';
 
 interface BooleanValueProps {
   /**
-   * The label that will describe the boolean value's icon.
+   * A label describing the boolean value.
    */
   label: string;
   /**
