@@ -18,7 +18,7 @@
   background-color: var(--cui-bg-normal);
 }
 
-.border {
+.border > div {
   border-left: 1px solid var(--cui-border-subtle);
 }
 
