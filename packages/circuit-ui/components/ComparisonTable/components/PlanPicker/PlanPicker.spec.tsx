@@ -23,23 +23,23 @@ const onPlanSelectSpy = vi.fn();
 const baseProps: PlanPickerProps = {
   plans: [
     {
-      value: 1,
+      value: 'plan_1',
       label: 'Plan 1',
     },
     {
-      value: 2,
+      value: 'plan_2',
       label: 'Plan 2',
     },
     {
-      value: 3,
+      value: 'plan_3',
       label: 'Plan 3',
     },
     {
-      value: 4,
+      value: 'plan_4',
       label: 'Plan 4',
     },
   ],
-  selectedPlans: [1, 2],
+  selectedPlans: ['plan_1', 'plan_2'],
   onPlanSelect: onPlanSelectSpy,
   selectFirstPlanLabel: 'Select first plan',
   selectSecondPlanLabel: 'Select second plan',
@@ -52,20 +52,20 @@ describe('PlanPicker', () => {
     const secondSelect = screen.getByLabelText(baseProps.selectSecondPlanLabel);
     expect(firstSelect).toBeVisible();
     expect(secondSelect).toBeVisible();
-    expect(firstSelect.value).toBe('1');
-    expect(secondSelect.value).toBe('2');
+    expect(firstSelect.value).toBe('plan_1');
+    expect(secondSelect.value).toBe('plan_2');
   });
   it('should fire onPlanSelect when user selects plans', async () => {
     render(<PlanPicker {...baseProps} />);
     const [firstSelect, secondSelect] = screen.getAllByRole('combobox');
-    await userEvent.selectOptions(firstSelect, '4');
-    expect(onPlanSelectSpy).toHaveBeenCalledWith([4, 2]);
-    await userEvent.selectOptions(secondSelect, '3');
-    expect(onPlanSelectSpy).toHaveBeenCalledWith([1, 3]);
+    await userEvent.selectOptions(firstSelect, 'plan_4');
+    expect(onPlanSelectSpy).toHaveBeenCalledWith(['plan_4', 'plan_2']);
+    await userEvent.selectOptions(secondSelect, 'plan_3');
+    expect(onPlanSelectSpy).toHaveBeenCalledWith(['plan_1', 'plan_3']);
   });
 
   it('should disable options that are already selected', async () => {
-    render(<PlanPicker {...baseProps} selectedPlans={[1, 2]} />);
+    render(<PlanPicker {...baseProps} />);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, plan1] = screen.getAllByRole('option', {
       name: 'Plan 1',

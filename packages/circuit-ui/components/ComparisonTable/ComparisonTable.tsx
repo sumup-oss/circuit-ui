@@ -85,15 +85,18 @@ export const ComparisonTable = forwardRef<
       }
     }
 
-    const [activePlans, setActivePlans] = useState<number[]>([0, 1]);
+    const [activePlans, setActivePlans] = useState([
+      headers[0].id,
+      headers[1].id,
+    ]);
     const isMobile = useMedia('(max-width: 767px)');
 
-    const planOptions = headers.map((plan, index) => ({
+    const planOptions = headers.map((plan) => ({
       label: plan.title,
-      value: index,
+      value: plan.id,
     }));
 
-    const onPlanSelect = useCallback((value: number[]) => {
+    const onPlanSelect = useCallback((value: string[]) => {
       setActivePlans(value);
     }, []);
 
@@ -114,7 +117,10 @@ export const ComparisonTable = forwardRef<
           caption={caption}
           sections={sections}
           headers={headers}
-          activePlans={activePlans}
+          activePlans={[
+            headers.findIndex(({ id }) => id === activePlans[0]),
+            headers.findIndex(({ id }) => id === activePlans[1]),
+          ]}
           showAllFeaturesLabel={showAllFeaturesLabel}
         />
       </div>

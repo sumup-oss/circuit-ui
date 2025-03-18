@@ -28,14 +28,14 @@ export interface PlanPickerProps extends HTMLAttributes<HTMLDivElement> {
    */
   plans: SelectOption[];
   /**
-   * An array of the two positions of the currently selected plans.
+   * An array of the two ids of the currently selected plans.
    * the first index is the first plan, the second index is the second plan.
    */
-  selectedPlans: number[];
+  selectedPlans: string[];
   /**
    * Callback when a plan is selected.
    */
-  onPlanSelect: (plans: number[]) => void;
+  onPlanSelect: (plans: string[]) => void;
   /**
    * The label for the first plan selector.
    */
@@ -58,7 +58,7 @@ export const PlanPicker = ({
   const handleSelectPlan = useCallback(
     (index: number) => (event: ChangeEvent<HTMLSelectElement>) => {
       const newSelectedPlans = [...selectedPlans];
-      newSelectedPlans[index] = Number(event.target.value);
+      newSelectedPlans[index] = event.target.value;
       onPlanSelect(newSelectedPlans);
     },
     [onPlanSelect, selectedPlans],

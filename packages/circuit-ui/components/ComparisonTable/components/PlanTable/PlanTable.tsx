@@ -29,7 +29,7 @@ import { Plus } from '@sumup-oss/icons';
 import { utilClasses } from '../../../../styles/utility.js';
 import {
   TableHeader,
-  type TableHeaderProps,
+  type TableHeaderDetails,
 } from '../TableHeader/TableHeader.js';
 import { generateFromIndex, getFirstNRows } from '../../utils.js';
 import { Button } from '../../../Button/index.js';
@@ -81,7 +81,7 @@ export interface PlanTableProps extends HTMLAttributes<HTMLTableElement> {
   /**
    * A list of the items to compare.
    */
-  headers: TableHeaderProps[];
+  headers: TableHeaderDetails[];
   /**
    * An array of the two positions of the currently selected plans.
    * the first index is the first plan, the second index is the second plan.

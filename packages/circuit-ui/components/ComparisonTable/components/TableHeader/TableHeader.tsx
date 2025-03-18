@@ -29,8 +29,7 @@ import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './TableHeader.module.css';
 
-export interface TableHeaderProps
-  extends ThHTMLAttributes<HTMLTableCellElement> {
+export interface TableHeaderDetails {
   /**
    * The title of the plan.
    */
@@ -52,6 +51,9 @@ export interface TableHeaderProps
    */
   action?: ButtonProps;
 }
+
+export type TableHeaderProps = TableHeaderDetails &
+  ThHTMLAttributes<HTMLTableCellElement>;
 
 export const TableHeader = ({
   title,
