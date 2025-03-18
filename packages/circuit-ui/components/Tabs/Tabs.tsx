@@ -39,7 +39,7 @@ export interface TabsProps extends TabListProps {
    */
   items: {
     id: string;
-    tab: string;
+    tab: ReactNode;
     panel: ReactNode;
   }[];
 }
@@ -75,6 +75,7 @@ export function Tabs({ items, initialSelectedIndex = 0, ...props }: TabsProps) {
         {items.map(({ id, tab }) => (
           <Tab
             key={id}
+            data-testid="tab-element"
             selected={selectedId === id}
             onClick={() => setSelectedId(id)}
             id={`tab-${id}`}
@@ -88,6 +89,7 @@ export function Tabs({ items, initialSelectedIndex = 0, ...props }: TabsProps) {
       {items.map(({ id, panel }) => (
         <TabPanel
           key={id}
+          data-testid="tab-panel"
           id={`panel-${id}`}
           aria-labelledby={`tab-${id}`}
           hidden={selectedId !== id}
