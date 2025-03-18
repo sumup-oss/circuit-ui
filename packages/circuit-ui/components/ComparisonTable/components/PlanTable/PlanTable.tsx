@@ -35,7 +35,6 @@ import { generateFromIndex, getFirstNRows } from '../../utils.js';
 import { Button } from '../../../Button/index.js';
 import { applyMultipleRefs } from '../../../../util/refs.js';
 import { throttle } from '../../../../util/helpers.js';
-import { Compact } from '../../../Compact/index.js';
 import { useMedia } from '../../../../hooks/useMedia/index.js';
 import { Body } from '../../../Body/index.js';
 import { clsx } from '../../../../styles/clsx.js';
@@ -95,8 +94,11 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
     ref,
   ) => {
     const tableRef = useRef<HTMLTableElement>(null);
-    const isMobile = useMedia('(max-width: 767px)');
-    const isTablet = useMedia('(max-width: 767px) and (min-width: 480px)');
+    const isMobile = useMedia('(max-width: 767px)', true);
+    const isTablet = useMedia(
+      '(max-width: 767px) and (min-width: 480px)',
+      true,
+    );
     const [isCollapsed, setIsCollapsed] = useState(
       sections.reduce(
         (totalRows, section) => totalRows + section.features.length + 1,
@@ -112,10 +114,9 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
       }, 500)();
     }, []);
 
-    // biome-ignore lint/correctness/useExhaustiveDependencies: we want to update this value when the isCollapsed prop changes
     useEffect(() => {
       updateHeaderHeight();
-    }, [updateHeaderHeight, isCollapsed, isMobile]);
+    }, [updateHeaderHeight]);
 
     useEffect(() => {
       window.addEventListener('resize', updateHeaderHeight);
@@ -136,8 +137,6 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
           [COLLAPSE_THRESHOLD + 1]?.focus({ preventScroll: true });
       }
     }, [isCollapsed]);
-
-    const SectionTitleElement = isMobile ? Compact : Body;
 
     const sectionsToDisplay = useMemo(
       () =>
@@ -196,9 +195,9 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
                     top: `${(isMobile ? 80 : 0) + (isTablet ? 16 : 0) + headerHeight}px`,
                   }}
                 >
-                  <SectionTitleElement size="m" weight="semibold">
+                  <Body className={classes.title} size="m" weight="semibold">
                     {row.title}
-                  </SectionTitleElement>
+                  </Body>
                 </th>
               </tr>
               {row.features.map((feature) => {

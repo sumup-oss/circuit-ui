@@ -17,7 +17,6 @@
 
 import { forwardRef, useCallback, useState } from 'react';
 
-import { useMedia } from '../../hooks/useMedia/index.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
@@ -89,7 +88,6 @@ export const ComparisonTable = forwardRef<
       headers[0].id,
       headers[1].id,
     ]);
-    const isMobile = useMedia('(max-width: 767px)');
 
     const planOptions = headers.map((plan) => ({
       label: plan.title,
@@ -102,7 +100,7 @@ export const ComparisonTable = forwardRef<
 
     return (
       <div className={clsx(classes.base, className)} {...props}>
-        {isMobile && headers.length >= 3 && (
+        {headers.length >= 3 && (
           <PlanPicker
             className={classes.picker}
             plans={planOptions}

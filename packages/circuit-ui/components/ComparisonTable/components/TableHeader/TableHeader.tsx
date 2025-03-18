@@ -23,7 +23,6 @@ import {
 } from '../../../TierIndicator/TierIndicator.js';
 import { Button, type ButtonProps } from '../../../Button/index.js';
 import { Body } from '../../../Body/index.js';
-import { useMedia } from '../../../../hooks/useMedia/index.js';
 import { Compact } from '../../../Compact/index.js';
 import { clsx } from '../../../../styles/clsx.js';
 
@@ -62,26 +61,28 @@ export const TableHeader = ({
   className,
   action,
   ...props
-}: TableHeaderProps) => {
-  const isMobile = useMedia('(max-width: 767px)');
-
-  return (
+}: TableHeaderProps) => (
     <th scope="col" className={clsx(classes.wrapper, className)} {...props}>
       <div className={classes.base}>
         <div className={classes.title}>
-          {(!isMobile || (isMobile && !tier)) && (
-            <Compact size="l" weight="bold">
-              {title}
-            </Compact>
-          )}
+          <Compact
+            size="l"
+            weight="bold"
+            className={clsx(tier && classes.hide)}
+          >
+            {title}
+          </Compact>
+
           {tier && <TierIndicator {...tier} size="m" />}
         </div>
 
-        <Body size={isMobile ? 's' : 'm'}>{description}</Body>
-        {!isMobile && action && (
+        <Body size="s" className={classes.description}>
+          {description}
+        </Body>
+        {action && (
           <Button
             {...action}
-            className={classes.cta}
+            className={classes.action}
             variant="secondary"
             size="s"
           />
@@ -89,4 +90,3 @@ export const TableHeader = ({
       </div>
     </th>
   );
-};

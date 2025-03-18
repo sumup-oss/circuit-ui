@@ -72,6 +72,11 @@
   .base colgroup col:first-child {
     width: 40%;
   }
+
+  .title {
+    font-size: var(--cui-compact-m-font-size);
+    line-height: var(--cui-compact-m-line-height);
+  }
 }
 
 @media (min-width: 480px) and (max-width: 767px) {

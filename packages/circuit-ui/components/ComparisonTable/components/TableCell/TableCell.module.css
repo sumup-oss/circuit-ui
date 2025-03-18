@@ -14,23 +14,9 @@
   text-align: start;
 }
 
-.header {
-  justify-content: center;
-  padding-left: 0;
-}
-
-.title {
-  display: flex;
-  gap: var(--cui-spacings-byte);
-  align-items: center;
-  justify-content: start;
-}
-
-.centered {
-  justify-content: center;
-}
-
-.description {
-  margin-top: var(--cui-spacings-bit);
-  text-align: start;
+@media (min-width: 768px) {
+  .text {
+    font-size: var(--cui-compact-m-font-size);
+    line-height: var(--cui-compact-m-line-height);
+  }
 }

@@ -110,16 +110,15 @@ describe('ComparisonTable', () => {
 
     it('should update displayed plans when a new plan is picked', async () => {
       render(<ComparisonTable {...baseProps} />);
-      expect(
-        screen.getByRole('columnheader', { name: 'plus $15/month' }),
-      ).toBeInTheDocument();
 
       await userEvent.selectOptions(
         screen.getByLabelText(baseProps.selectFirstPlanLabel),
         'POS Pro',
       );
       expect(
-        screen.getByRole('columnheader', { name: 'plus $15/month' }),
+        screen.getByRole('columnheader', {
+          name: 'POS plus $15/month Join now',
+        }),
       ).toBeVisible();
     });
   });

@@ -2,6 +2,7 @@
   justify-content: center;
   padding: var(--cui-spacings-mega);
   padding-left: 0;
+  text-align: left;
   border-bottom: 1px solid var(--cui-border-divider);
 }
 
@@ -15,4 +16,11 @@
 .description {
   margin-top: var(--cui-spacings-bit);
   text-align: start;
+}
+
+@media (min-width: 768px) {
+  .name {
+    font-size: var(--cui-compact-m-font-size);
+    line-height: var(--cui-compact-m-line-height);
+  }
 }

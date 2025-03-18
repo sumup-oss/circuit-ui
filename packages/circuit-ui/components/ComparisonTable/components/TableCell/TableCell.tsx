@@ -20,7 +20,6 @@ import type { TdHTMLAttributes } from 'react';
 import { BooleanValue } from '../BooleanValue/BooleanValue.js';
 import { Compact } from '../../../Compact/index.js';
 import { clsx } from '../../../../styles/clsx.js';
-import { useMedia } from '../../../../hooks/useMedia/index.js';
 
 import classes from './TableCell.module.css';
 
@@ -39,13 +38,15 @@ export const TableCell = ({
   className,
   ...props
 }: TableCellProps) => {
-  const isMobile = useMedia('(max-width: 767px)');
   let content = <BooleanValue label={''} value={false} />;
   if (typeof cellValue === 'string') {
-    content = <Compact size={isMobile ? 's' : 'm'}>{cellValue}</Compact>;
+    content = (
+      <Compact size="s" className={classes.text}>
+        {cellValue}
+      </Compact>
+    );
   } else if (typeof cellValue === 'object') {
     const { label, value } = cellValue;
-
     content = <BooleanValue label={label} value={value} />;
   }
 
