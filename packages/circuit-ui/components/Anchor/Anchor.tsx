@@ -45,10 +45,6 @@ export interface BaseProps extends Omit<BodyProps, 'color'> {
    */
   ref?: Ref<any>;
   /**
-   * Whether the link leads to an external page or opens in a new tab.
-   */
-  isExternal?: boolean;
-  /**
    * Short label to describe that the link leads to an external page or opens in a new tab.
    */
   externalLabel?: string;
@@ -72,7 +68,6 @@ export const Anchor = forwardRef(
   (
     {
       className,
-      isExternal,
       externalLabel,
       'aria-describedby': descriptionId,
       children,
@@ -82,12 +77,13 @@ export const Anchor = forwardRef(
   ): ReturnType => {
     const components = useComponents();
     const Link = components.Link as AsPropType;
+    const isExternalLink =
+      props.rel === 'external' || props.target === '_blank';
     const externalLabelId = useId();
     const descriptionIds = clsx(
-      externalLabel && externalLabelId,
+      externalLabel && isExternalLink && externalLabelId,
       descriptionId,
     );
-    const isExternalLink = isExternal || props.target === '_blank';
 
     if (!props.href && !props.onClick) {
       return (
@@ -108,7 +104,11 @@ export const Anchor = forwardRef(
         >
           {children}
           {isExternalLink && externalLabel && (
-            <span id={externalLabelId} className={utilClasses.hideVisually}>
+            <span
+              aria-hidden={true}
+              id={externalLabelId}
+              className={utilClasses.hideVisually}
+            >
               {externalLabel}
             </span>
           )}
@@ -126,7 +126,11 @@ export const Anchor = forwardRef(
       >
         {children}
         {isExternalLink && externalLabel && (
-          <span id={externalLabelId} className={utilClasses.hideVisually}>
+          <span
+            aria-hidden={true}
+            id={externalLabelId}
+            className={utilClasses.hideVisually}
+          >
             {externalLabel}
           </span>
         )}

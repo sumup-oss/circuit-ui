@@ -112,7 +112,7 @@ describe('Anchor', () => {
       <Anchor
         href="www.external.link.com"
         {...baseProps}
-        isExternal
+        rel="external"
         externalLabel="Opens in a new tab"
       />,
     );
@@ -127,7 +127,7 @@ describe('Anchor', () => {
       <Anchor
         onClick={vi.fn()}
         {...baseProps}
-        isExternal
+        rel="external"
         externalLabel="Opens in a new tab"
       />,
     );
