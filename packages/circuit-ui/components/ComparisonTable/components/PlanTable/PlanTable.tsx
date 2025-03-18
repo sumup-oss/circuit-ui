@@ -53,7 +53,7 @@ export interface Feature {
     toggletip?: ToggletipProps;
   };
   /**
-   * An array of the cell values and labels in the same order of the displayed columns.
+   * An array of the cell values and labels in the same order of the given headers.
    */
   values: CellValue[];
   headers?: RowHeaderProps['headers'];
@@ -70,17 +70,18 @@ export interface PlanTableProps extends HTMLAttributes<HTMLTableElement> {
    */
   caption: string;
   /**
-   * The label for the show all features button.
+   * The label for the button that expands the table when collapsed.
    */
   showAllFeaturesLabel: string;
   /**
-   * A list of sections with features to display.
-   */
-  sections: FeatureSection[];
-  /**
-   * A list of the items to compare.
+   * An array containing the information of the items to compare.
    */
   headers: TableHeaderDetails[];
+  /**
+   * A list of sections with features to display. Each section has a title and a list of features.
+   * Each feature has its information and a list of values corresponding to the items to compare, in their same order of appearance in the `headers` prop.
+   */
+  sections: FeatureSection[];
   /**
    * An array of the two positions of the currently selected plans.
    * the first index is the first plan, the second index is the second plan.
@@ -94,6 +95,7 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
     ref,
   ) => {
     const tableRef = useRef<HTMLTableElement>(null);
+    const theadRef = useRef<HTMLTableSectionElement>(null);
     const isMobile = useMedia('(max-width: 767px)', true);
     const isTablet = useMedia(
       '(max-width: 767px) and (min-width: 480px)',
@@ -101,11 +103,11 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
     );
     const [isCollapsed, setIsCollapsed] = useState(
       sections.reduce(
+        // the table is collapsed if the total number of rows is greater than the threshold, section titles included.
         (totalRows, section) => totalRows + section.features.length + 1,
         0,
       ) > COLLAPSE_THRESHOLD,
     );
-    const theadRef = useRef<HTMLTableSectionElement>(null);
     const [headerHeight, setHeaderHeight] = useState(0);
 
     const updateHeaderHeight = useCallback(() => {
@@ -150,9 +152,9 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
     );
 
     return (
-      <div className={classes.wrapper}>
+      <div className={classes.base}>
         <table
-          className={classes.base}
+          className={classes.table}
           ref={applyMultipleRefs(ref, tableRef)}
           {...props}
         >
@@ -206,11 +208,7 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
                   '',
                 );
                 return (
-                  <tr
-                    tabIndex={-1}
-                    key={featureId}
-                    className={clsx(classes.base)}
-                  >
+                  <tr tabIndex={-1} key={featureId}>
                     <RowHeader
                       description={feature.featureDescription.description}
                       toggletip={feature.featureDescription.toggletip}

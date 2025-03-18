@@ -16,7 +16,10 @@
   gap: var(--cui-spacings-bit);
   align-items: center;
   justify-content: center;
-  margin-bottom: var(--cui-spacings-bit);
+}
+
+.description {
+  margin-top: var(--cui-spacings-bit);
 }
 
 .action {

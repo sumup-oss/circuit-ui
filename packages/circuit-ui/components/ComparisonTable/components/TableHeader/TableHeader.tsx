@@ -44,7 +44,7 @@ export interface TableHeaderDetails {
   /**
    *  Additional information about the plan
    */
-  description: string;
+  description?: string;
   /**
    *  The call-to-action button props
    */
@@ -62,31 +62,28 @@ export const TableHeader = ({
   action,
   ...props
 }: TableHeaderProps) => (
-    <th scope="col" className={clsx(classes.wrapper, className)} {...props}>
-      <div className={classes.base}>
-        <div className={classes.title}>
-          <Compact
-            size="l"
-            weight="bold"
-            className={clsx(tier && classes.hide)}
-          >
-            {title}
-          </Compact>
+  <th scope="col" className={clsx(classes.wrapper, className)} {...props}>
+    <div className={classes.base}>
+      <div className={classes.title}>
+        <Compact size="l" weight="bold" className={clsx(tier && classes.hide)}>
+          {title}
+        </Compact>
 
-          {tier && <TierIndicator {...tier} size="m" />}
-        </div>
-
+        {tier && <TierIndicator {...tier} size="m" />}
+      </div>
+      {description && (
         <Body size="s" className={classes.description}>
           {description}
         </Body>
-        {action && (
-          <Button
-            {...action}
-            className={classes.action}
-            variant="secondary"
-            size="s"
-          />
-        )}
-      </div>
-    </th>
-  );
+      )}
+      {action && (
+        <Button
+          {...action}
+          className={classes.action}
+          variant="secondary"
+          size="s"
+        />
+      )}
+    </div>
+  </th>
+);

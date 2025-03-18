@@ -54,8 +54,8 @@ const baseProps: ComparisonTableProps = {
     invoicingSection,
   ],
   showAllFeaturesLabel: 'Show all features',
-  selectSecondPlanLabel: 'Select a second plan',
   selectFirstPlanLabel: 'Select a first plan',
+  selectSecondPlanLabel: 'Select a second plan',
 };
 
 describe('ComparisonTable', () => {
@@ -140,7 +140,6 @@ describe('ComparisonTable', () => {
         showAllFeaturesLabel: undefined,
       } as unknown as ComparisonTableProps;
       // Silence the console.error output and switch to development mode to throw the error
-
       expect(() => render(<ComparisonTable {...props} />)).toThrow();
     });
 
@@ -150,7 +149,6 @@ describe('ComparisonTable', () => {
         caption: undefined,
       } as unknown as ComparisonTableProps;
       // Silence the console.error output and switch to development mode to throw the error
-
       expect(() => render(<ComparisonTable {...props} />)).toThrow();
     });
 
@@ -160,7 +158,6 @@ describe('ComparisonTable', () => {
         selectFirstPlanLabel: undefined,
       } as unknown as ComparisonTableProps;
       // Silence the console.error output and switch to development mode to throw the error
-
       expect(() => render(<ComparisonTable {...props} />)).toThrow();
     });
 
@@ -170,7 +167,6 @@ describe('ComparisonTable', () => {
         selectSecondPlanLabel: undefined,
       } as unknown as ComparisonTableProps;
       // Silence the console.error output and switch to development mode to throw the error
-
       expect(() => render(<ComparisonTable {...props} />)).toThrow();
     });
   });

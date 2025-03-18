@@ -13,21 +13,14 @@
  * limitations under the License.
  */
 
-import { beforeEach, describe, expect, it, type Mock, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
 import { render, screen } from '../../../../util/test-utils.js';
-import { useMedia } from '../../../../hooks/useMedia/index.js';
 import { posPlusPlan } from '../../fixtures.js';
 
 import { TableHeader, type TableHeaderProps } from './TableHeader.js';
 
-vi.mock('../../../../hooks/useMedia/index.js');
-
 describe('TableHeader', () => {
-  beforeEach(() => {
-    (useMedia as Mock).mockReturnValue(false);
-  });
-
   const baseProps: TableHeaderProps = posPlusPlan;
 
   it('should render all plan information', () => {
@@ -36,11 +29,5 @@ describe('TableHeader', () => {
     expect(screen.getByText(baseProps.description)).toBeVisible();
     expect(screen.getByText(baseProps.action.children as string)).toBeVisible();
     expect(screen.getByText('plus')).toBeVisible();
-  });
-
-  it('should hide call to action button on mobile', () => {
-    (useMedia as Mock).mockReturnValue(true);
-    render(<TableHeader {...baseProps} />);
-    expect(screen.queryByText('call to action')).not.toBeInTheDocument();
   });
 });
