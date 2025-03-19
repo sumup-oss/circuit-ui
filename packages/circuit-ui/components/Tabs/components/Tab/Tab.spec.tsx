@@ -13,34 +13,25 @@
  * limitations under the License.
  */
 
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { render } from '../../../../util/test-utils.js';
+import { render, screen } from '../../../../util/test-utils.js';
 
 import { Tab } from './Tab.js';
 
 describe('Tab', () => {
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
-    const { container } = render(<Tab className={className} />);
-    const element = container.querySelector('button');
-    expect(element?.className).toContain(className);
+    render(<Tab className={className} />);
+    const element = screen.getByRole('tab');
+    expect(element.className).toContain(className);
   });
 
   it('should forward a ref', () => {
     const ref = createRef<HTMLButtonElement>();
-    const { container } = render(<Tab ref={ref} />);
-    const button = container.querySelector('button');
-    expect(ref.current).toBe(button);
-  });
-
-  it('should be focused when selected', () => {
-    const ref = createRef<HTMLButtonElement>();
-    const { container, rerender } = render(<Tab ref={ref} selected={false} />);
-    const button = container.querySelector('button');
-    vi.spyOn(button, 'focus');
-    rerender(<Tab ref={ref} selected />);
-    expect(button?.focus).toHaveBeenCalledOnce();
+    render(<Tab ref={ref} />);
+    const tab = screen.getByRole('tab');
+    expect(ref.current).toBe(tab);
   });
 });

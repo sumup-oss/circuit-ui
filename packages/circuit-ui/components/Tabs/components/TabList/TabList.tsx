@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Children, type HTMLAttributes } from 'react';
+import { Children, forwardRef, type HTMLAttributes } from 'react';
 
 import { clsx } from '../../../../styles/clsx.js';
 import { utilClasses } from '../../../../styles/utility.js';
@@ -29,32 +29,29 @@ const MOBILE_AUTOSTRETCH_ITEMS_MAX = 3;
 /**
  * TabList component that wraps the Tab components
  */
-export function TabList({
-  className,
-  style = {},
-  stretched,
-  children,
-  ...props
-}: TabListProps) {
-  const numberOfTabs = Children.toArray(children).length;
-  const tabWidth = Math.floor(100 / numberOfTabs);
-  const stretchOnMobile = numberOfTabs <= MOBILE_AUTOSTRETCH_ITEMS_MAX;
-  return (
-    <div
-      className={clsx(classes.wrapper, utilClasses.hideScrollbar, className)}
-      style={{ ...style, '--tab-list-width': tabWidth }}
-    >
+export const TabList = forwardRef<HTMLDivElement, TabListProps>(
+  ({ className, style = {}, stretched, children, ...props }, ref) => {
+    const numberOfTabs = Children.toArray(children).length;
+    const tabWidth = Math.floor(100 / numberOfTabs);
+    const stretchOnMobile = numberOfTabs <= MOBILE_AUTOSTRETCH_ITEMS_MAX;
+    return (
       <div
-        className={clsx(
-          classes.base,
-          stretched && classes.stretched,
-          stretchOnMobile && classes['stretched-mobile'],
-        )}
-        {...props}
-        role="tablist"
+        ref={ref}
+        className={clsx(classes.wrapper, utilClasses.hideScrollbar, className)}
+        style={{ ...style, '--tab-list-width': tabWidth }}
       >
-        {children}
+        <div
+          className={clsx(
+            classes.base,
+            stretched && classes.stretched,
+            stretchOnMobile && classes['stretched-mobile'],
+          )}
+          {...props}
+          role="tablist"
+        >
+          {children}
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  },
+);
