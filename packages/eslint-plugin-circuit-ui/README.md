@@ -49,3 +49,4 @@ Rules are configured under the rules section:
 - [`no-renamed-props`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-renamed-props)
 - [`prefer-custom-properties`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/prefer-custom-properties)
 - [`renamed-organization-imports`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/renamed-organization-imports)
+- [`no-renamed-components`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-renamed-components)
