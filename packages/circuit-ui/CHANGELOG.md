@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.9.1
+
+### Patch Changes
+
+- [#2997](https://github.com/sumup-oss/circuit-ui/pull/2997) [`dbdb716`](https://github.com/sumup-oss/circuit-ui/commit/dbdb7167b13fe15febb9f1c43b65a5681c35f536) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed a styling issue with the top left empty cell in the ComparisonTable component.
+
 ## 9.9.0
 
 ### Minor Changes
