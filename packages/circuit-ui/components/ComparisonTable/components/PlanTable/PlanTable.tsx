@@ -169,7 +169,7 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
           </colgroup>
           <thead ref={theadRef}>
             <tr>
-              <th aria-hidden={true} />
+              <td />
               {headersToDisplay.map((plan, index) => (
                 <TableHeader
                   {...plan}
