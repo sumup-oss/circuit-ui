@@ -1,5 +1,23 @@
 # @sumup-oss/circuit-ui
 
+## 9.9.0
+
+### Minor Changes
+
+- [#2988](https://github.com/sumup-oss/circuit-ui/pull/2988) [`1fe1d0d`](https://github.com/sumup-oss/circuit-ui/commit/1fe1d0d783c1d8faff4d1c1ef58f018a7b18406f) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a new `externalLabel` prop to the Anchor component to describe to visually impaired users that the link leads to an external page or opens in a new tab.
+
+- [#2984](https://github.com/sumup-oss/circuit-ui/pull/2984) [`3141bf5`](https://github.com/sumup-oss/circuit-ui/commit/3141bf54be9b9978a96eb7273b07d9948be25b76) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a ComparisonTable component that displays and compares pricing tiers.
+
+### Patch Changes
+
+- [#2990](https://github.com/sumup-oss/circuit-ui/pull/2990) [`287f1f0`](https://github.com/sumup-oss/circuit-ui/commit/287f1f047d46c0ac6dfa0028e865f96d5a15f4c0) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed the irrelevant `aria-pressed` attribute from the Hamburger component.
+
+- [#2989](https://github.com/sumup-oss/circuit-ui/pull/2989) [`3165e8e`](https://github.com/sumup-oss/circuit-ui/commit/3165e8eddc3ed9239836e26b57432bf688540aa5) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed the superfluous `aria-haspopup` attribute from the Popover's trigger element.
+
+- [#2985](https://github.com/sumup-oss/circuit-ui/pull/2985) [`6281a89`](https://github.com/sumup-oss/circuit-ui/commit/6281a897e4f0d03d30e250ed10149d360cda9fda) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed a bug on the Table component to allow table rows to be activated using Enter or Space keys.
+
+- [#2987](https://github.com/sumup-oss/circuit-ui/pull/2987) [`ee7af59`](https://github.com/sumup-oss/circuit-ui/commit/ee7af59d8b594d800127dea27ea4992c22e5ca78) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed an issue with keyboard navigation in the Tabs component. Tab panels are no longer part of the tab order but can be focused with keydown press.
+
 ## 9.8.2
 
 ### Patch Changes
