@@ -49,6 +49,11 @@ export type SidePanelHookProps = {
    */
   children: ReactNode | ((props: ChildrenRenderProps) => ReactNode);
   /**
+   * Text label for the close button for screen readers.
+   * Important for accessibility.
+   */
+  closeButtonLabel?: string;
+  /**
    * Callback function that is called when the stacked side panel is closed.
    */
   onBack?: OnBack;

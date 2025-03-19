@@ -13,6 +13,10 @@
   transform: translateX(0);
 }
 
+.content {
+  width: 100%;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
