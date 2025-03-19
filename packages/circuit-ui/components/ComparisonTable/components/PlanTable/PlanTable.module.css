@@ -10,7 +10,8 @@
 }
 
 /* Table headers */
-.table thead th {
+.table thead th,
+.table thead td {
   position: sticky;
   top: 0;
   z-index: 1;
@@ -60,6 +61,7 @@
     table-layout: fixed;
   }
 
+  .table thead td,
   .table thead th {
     top: 80px; /* height of the sticky plan picker on mobile */
     padding-top: 0;
@@ -80,6 +82,7 @@
 }
 
 @media (min-width: 480px) and (max-width: 767px) {
+  .table thead td,
   .table thead th {
     top: 96px; /* height of the sticky plan picker on tablet */
     padding-top: 0;
