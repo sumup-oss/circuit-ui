@@ -21,7 +21,7 @@ export const light = create({
   appBg: '#ffffff', // var(--cui-bg-normal)
   appContentBg: '#ffffff', // var(--cui-bg-normal)
   appPreviewBg: '#ffffff', // var(--cui-bg-normal)
-  appBorderColor: '#c2c9d1', // var(--cui-border-normal)
+  appBorderColor: '#aeb6be', // var(--cui-border-normal)
   appBorderRadius: 0,
 
   // Text colors
@@ -31,15 +31,15 @@ export const light = create({
 
   // Toolbar default and active colors
   barTextColor: '#6a737c', // var(--cui-fg-subtle)
-  barHoverColor: '#33373e', // var(--cui-fg-subtle-hovered)
-  barSelectedColor: '#0f131a', // var(--cui-fg-subtle-pressed)
+  barHoverColor: '#6a737c', // var(--cui-fg-subtle-hovered)
+  barSelectedColor: '#6a737c', // var(--cui-fg-subtle-pressed)
   barBg: '#ffffff', // var(--cui-bg-normal)
 
   // Form colors
-  buttonBg: '#f6f7f9', // var(--cui-bg-subtle)
-  buttonBorder: '#d6dbe1', // var(--cui-border-subtle)
+  buttonBg: '#f0f1f5', // var(--cui-bg-subtle)
+  buttonBorder: '#e3e7ec', // var(--cui-border-subtle)
   inputBg: '#ffffff', // var(--cui-bg-normal)
-  inputBorder: '#c2c9d1', // var(--cui-border-normal)
+  inputBorder: '#aeb6be', // var(--cui-border-normal)
   inputTextColor: '#0f131a', // var(--cui-fg-normal)
   inputBorderRadius: 4, // var(--cui-border-radius-bit)
 });
@@ -48,13 +48,13 @@ export const dark = create({
   base: 'dark',
   ...brand,
   brandImage: '/images/logo-name-dark.png',
-  colorPrimary: '#ffffff', // var(--cui-fg-accent)
+  colorPrimary: '#e1e7ef', // var(--cui-fg-accent)
   colorSecondary: '#ffffff', // var(--cui-fg-normal)
 
   // UI
-  appBg: '#0f131a', // var(--cui-bg-normal)
-  appContentBg: '#0f131a', // var(--cui-bg-normal)
-  appPreviewBg: '#0f131a', // var(--cui-bg-normal)
+  appBg: '#171d24', // var(--cui-bg-normal)
+  appContentBg: '#171d24', // var(--cui-bg-normal)
+  appPreviewBg: '#171d24', // var(--cui-bg-normal)
 });
 
 export const components = {

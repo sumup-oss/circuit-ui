@@ -29,11 +29,7 @@
     width: 100%;
     height: var(--cui-spacings-kilo);
     content: "";
-    background: linear-gradient(
-      rgb(255 255 255 / 100%),
-      rgb(255 255 255 / 66%),
-      rgb(255 255 255 / 0%)
-    );
+    background: linear-gradient(var(--cui-bg-normal), transparent);
   }
 }
 
@@ -49,8 +45,8 @@
 .wrapper {
   position: relative;
   width: 7.5rem;
-  margin-top: var(--cui-spacings-giga);
-  margin-bottom: var(--cui-spacings-giga);
+  padding-bottom: var(--cui-spacings-tera);
+  margin-top: var(--cui-spacings-mega);
   text-align: center;
 }
 
@@ -86,9 +82,9 @@
 .label {
   display: block;
   overflow: hidden;
+  text-overflow: ellipsis;
   font-size: var(--cui-body-s-font-size);
   line-height: var(--cui-body-s-line-height);
-  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
@@ -97,4 +93,16 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-30deg);
+}
+
+.copy {
+  position: absolute;
+  right: 50%;
+  bottom: 0;
+  display: none;
+  transform: translateX(50%);
+}
+
+.wrapper:hover .copy {
+  display: block;
 }

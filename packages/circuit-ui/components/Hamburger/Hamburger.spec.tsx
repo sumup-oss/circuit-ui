@@ -42,12 +42,6 @@ describe('Hamburger', () => {
     expect(ref.current).toBe(hamburger);
   });
 
-  it('should have the relevant aria attribute when active', () => {
-    render(<Hamburger {...baseProps} isActive />);
-    const button = screen.getByRole('button');
-    expect(button).toHaveAttribute('aria-pressed', 'true');
-  });
-
   it('should call the onClick prop when clicked', async () => {
     const onClick = vi.fn();
     render(

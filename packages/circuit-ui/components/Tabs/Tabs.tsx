@@ -15,14 +15,7 @@
 
 'use client';
 
-import type React from 'react';
-import {
-  createRef,
-  Component,
-  Fragment,
-  type ReactElement,
-  type ReactNode,
-} from 'react';
+import { Fragment, useState, type KeyboardEvent, type ReactNode } from 'react';
 
 import {
   isArrowLeft,
@@ -37,6 +30,8 @@ import { TabPanel } from './components/TabPanel/index.js';
 export interface TabsProps extends TabListProps {
   /**
    * The index of the initially selected tab.
+   *
+   * @default 0
    */
   initialSelectedIndex?: number;
   /**
@@ -49,106 +44,59 @@ export interface TabsProps extends TabListProps {
   }[];
 }
 
-type TabsState = {
-  selectedIndex: number;
-};
+export function Tabs({ items, initialSelectedIndex = 0, ...props }: TabsProps) {
+  const [selectedId, setSelectedId] = useState(items[initialSelectedIndex]?.id);
 
-export class Tabs extends Component<TabsProps, TabsState> {
-  static defaultProps = {
-    initialSelectedIndex: 0,
-  };
-
-  state = {
-    selectedIndex:
-      this.props.initialSelectedIndex || Tabs.defaultProps.initialSelectedIndex,
-  };
-
-  tabPanelsRefs = createRefs(this.props.items.length);
-
-  handleChange = (selectedIndex: number) => this.setState({ selectedIndex });
-
-  handleTabKeyDown = (event: KeyboardEvent | React.KeyboardEvent) => {
-    const { selectedIndex } = this.state;
-    const nextTab = Math.min(this.props.items.length - 1, selectedIndex + 1);
-    const previousTab = Math.max(0, selectedIndex - 1);
-    const panelRef = this.tabPanelsRefs[selectedIndex].current;
+  const handleTabKeyDown = (event: KeyboardEvent) => {
+    const selectedIndex = items.findIndex((item) => item.id === selectedId);
 
     if (isArrowLeft(event)) {
-      this.setState({ selectedIndex: previousTab });
-    } else if (isArrowRight(event)) {
-      this.setState({ selectedIndex: nextTab });
-    } else if (isArrowDown(event)) {
-      if (panelRef) {
-        panelRef.focus();
+      const previousIndex = selectedIndex - 1;
+      if (previousIndex >= 0) {
+        const previousId = items[previousIndex].id;
+        setSelectedId(previousId);
+        document.getElementById(`tab-${previousId}`)?.focus();
       }
+    } else if (isArrowRight(event)) {
+      const nextIndex = selectedIndex + 1;
+      if (nextIndex <= items.length - 1) {
+        const nextId = items[nextIndex].id;
+        setSelectedId(nextId);
+        document.getElementById(`tab-${nextId}`)?.focus();
+      }
+    } else if (isArrowDown(event)) {
+      document.getElementById(`panel-${selectedId}`)?.focus();
     }
   };
 
-  render() {
-    const { items, initialSelectedIndex, ...props } = this.props;
-    const { selectedIndex } = this.state;
-    const { tabs, panels } = items.reduce(
-      (aggr, { id, tab, panel }, index) => {
-        const { tabId, panelId } = getIds(id);
-
-        const tabElement = (
+  return (
+    <Fragment>
+      <TabList {...props}>
+        {items.map(({ id, tab }) => (
           <Tab
-            key={tabId}
+            key={id}
             data-testid="tab-element"
-            selected={selectedIndex === index}
-            onClick={() => this.handleChange(index)}
-            id={tabId}
-            aria-controls={panelId}
-            onKeyDown={this.handleTabKeyDown}
+            selected={selectedId === id}
+            onClick={() => setSelectedId(id)}
+            id={`tab-${id}`}
+            aria-controls={`panel-${id}`}
+            onKeyDown={handleTabKeyDown}
           >
             {tab}
           </Tab>
-        );
-        const tabPanelElement = (
-          <TabPanel
-            key={tabId}
-            data-testid="tab-panel"
-            id={panelId}
-            aria-labelledby={tabId}
-            hidden={selectedIndex !== index}
-            ref={this.tabPanelsRefs[index]}
-          >
-            {panel}
-          </TabPanel>
-        );
-
-        return {
-          tabs: [...aggr.tabs, tabElement],
-          panels: [...aggr.panels, tabPanelElement],
-        };
-      },
-      {
-        tabs: [],
-        panels: [],
-      } as {
-        tabs: ReactElement[];
-        panels: ReactElement[];
-      },
-    );
-
-    return (
-      <Fragment>
-        <TabList {...props}>{tabs}</TabList>
-        {panels}
-      </Fragment>
-    );
-  }
-}
-
-function getIds(id: string) {
-  return {
-    tabId: `tab-${id}`,
-    panelId: `panel-${id}`,
-  };
-}
-
-function createRefs(length: number) {
-  return Array.from(Array(length).keys()).map(() =>
-    createRef<HTMLDivElement>(),
+        ))}
+      </TabList>
+      {items.map(({ id, panel }) => (
+        <TabPanel
+          key={id}
+          data-testid="tab-panel"
+          id={`panel-${id}`}
+          aria-labelledby={`tab-${id}`}
+          hidden={selectedId !== id}
+        >
+          {panel}
+        </TabPanel>
+      ))}
+    </Fragment>
   );
 }

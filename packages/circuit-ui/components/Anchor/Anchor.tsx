@@ -21,6 +21,7 @@ import {
   type ButtonHTMLAttributes,
   type ReactNode,
   type Ref,
+  useId,
 } from 'react';
 
 import type { ReturnType } from '../../types/return-type.js';
@@ -33,7 +34,7 @@ import { utilClasses } from '../../styles/utility.js';
 
 import classes from './Anchor.module.css';
 
-export interface BaseProps extends BodyProps {
+export interface BaseProps extends Omit<BodyProps, 'color'> {
   children: ReactNode;
   /**
    * Function that's called when the button is clicked.
@@ -43,9 +44,19 @@ export interface BaseProps extends BodyProps {
    * The ref to the HTML DOM element, it can be a button an anchor or a span, typed as any for now because of complex js manipulation with styled components
    */
   ref?: Ref<any>;
+  /**
+   * Short label to describe that the link leads to an external page or opens in a new tab.
+   */
+  externalLabel?: string;
 }
-type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
-type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
+type LinkElProps = Omit<
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  'onClick' | 'color'
+>;
+type ButtonElProps = Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  'onClick' | 'color'
+>;
 
 export type AnchorProps = BaseProps & LinkElProps & ButtonElProps;
 
@@ -55,24 +66,53 @@ export type AnchorProps = BaseProps & LinkElProps & ButtonElProps;
  */
 export const Anchor = forwardRef(
   (
-    { className, ...props }: AnchorProps,
+    {
+      className,
+      externalLabel,
+      'aria-describedby': descriptionId,
+      children,
+      ...props
+    }: AnchorProps,
     ref?: BaseProps['ref'],
   ): ReturnType => {
     const components = useComponents();
     const Link = components.Link as AsPropType;
+    const isExternalLink =
+      props.rel === 'external' || props.target === '_blank';
+    const externalLabelId = useId();
+    const descriptionIds = clsx(
+      externalLabel && isExternalLink && externalLabelId,
+      descriptionId,
+    );
 
     if (!props.href && !props.onClick) {
-      return <Body as="span" {...props} ref={ref} />;
+      return (
+        <Body as="span" {...props} ref={ref}>
+          {children}
+        </Body>
+      );
     }
 
     if (props.href) {
       return (
         <Body
           {...props}
+          aria-describedby={descriptionIds}
           className={clsx(classes.base, utilClasses.focusVisible, className)}
           as={Link}
           ref={ref}
-        />
+        >
+          {children}
+          {isExternalLink && externalLabel && (
+            <span
+              aria-hidden={true}
+              id={externalLabelId}
+              className={utilClasses.hideVisually}
+            >
+              {externalLabel}
+            </span>
+          )}
+        </Body>
       );
     }
 
@@ -80,9 +120,21 @@ export const Anchor = forwardRef(
       <Body
         as="button"
         {...props}
+        aria-describedby={descriptionIds}
         className={clsx(classes.base, utilClasses.focusVisible, className)}
         ref={ref}
-      />
+      >
+        {children}
+        {isExternalLink && externalLabel && (
+          <span
+            aria-hidden={true}
+            id={externalLabelId}
+            className={utilClasses.hideVisually}
+          >
+            {externalLabel}
+          </span>
+        )}
+      </Body>
     );
   },
 );

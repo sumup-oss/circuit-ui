@@ -112,7 +112,6 @@ export const Hamburger = forwardRef<any, HamburgerProps>(
         className={clsx(classes.button, className)}
         size={size}
         type="button"
-        aria-pressed={isActive}
         ref={ref}
       >
         {isActive ? activeLabel : inactiveLabel}

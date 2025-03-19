@@ -1,5 +1,63 @@
 # @sumup-oss/circuit-ui
 
+## 9.9.1
+
+### Patch Changes
+
+- [#2997](https://github.com/sumup-oss/circuit-ui/pull/2997) [`dbdb716`](https://github.com/sumup-oss/circuit-ui/commit/dbdb7167b13fe15febb9f1c43b65a5681c35f536) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed a styling issue with the top left empty cell in the ComparisonTable component.
+
+## 9.9.0
+
+### Minor Changes
+
+- [#2988](https://github.com/sumup-oss/circuit-ui/pull/2988) [`1fe1d0d`](https://github.com/sumup-oss/circuit-ui/commit/1fe1d0d783c1d8faff4d1c1ef58f018a7b18406f) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a new `externalLabel` prop to the Anchor component to describe to visually impaired users that the link leads to an external page or opens in a new tab.
+
+- [#2984](https://github.com/sumup-oss/circuit-ui/pull/2984) [`3141bf5`](https://github.com/sumup-oss/circuit-ui/commit/3141bf54be9b9978a96eb7273b07d9948be25b76) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a ComparisonTable component that displays and compares pricing tiers.
+
+### Patch Changes
+
+- [#2990](https://github.com/sumup-oss/circuit-ui/pull/2990) [`287f1f0`](https://github.com/sumup-oss/circuit-ui/commit/287f1f047d46c0ac6dfa0028e865f96d5a15f4c0) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed the irrelevant `aria-pressed` attribute from the Hamburger component.
+
+- [#2989](https://github.com/sumup-oss/circuit-ui/pull/2989) [`3165e8e`](https://github.com/sumup-oss/circuit-ui/commit/3165e8eddc3ed9239836e26b57432bf688540aa5) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed the superfluous `aria-haspopup` attribute from the Popover's trigger element.
+
+- [#2985](https://github.com/sumup-oss/circuit-ui/pull/2985) [`6281a89`](https://github.com/sumup-oss/circuit-ui/commit/6281a897e4f0d03d30e250ed10149d360cda9fda) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed a bug on the Table component to allow table rows to be activated using Enter or Space keys.
+
+- [#2987](https://github.com/sumup-oss/circuit-ui/pull/2987) [`ee7af59`](https://github.com/sumup-oss/circuit-ui/commit/ee7af59d8b594d800127dea27ea4992c22e5ca78) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed an issue with keyboard navigation in the Tabs component. Tab panels are no longer part of the tab order but can be focused with keydown press.
+
+## 9.8.2
+
+### Patch Changes
+
+- [#2982](https://github.com/sumup-oss/circuit-ui/pull/2982) [`908de8b`](https://github.com/sumup-oss/circuit-ui/commit/908de8b19ca24604edd2ee3b733060c9e6d0fd9b) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the Button and IconButton component's compatibility with React Server Components (RSC) by adding a missing `'use client'` directive.
+
+## 9.8.1
+
+### Patch Changes
+
+- [#2979](https://github.com/sumup-oss/circuit-ui/pull/2979) [`b4c46ea`](https://github.com/sumup-oss/circuit-ui/commit/b4c46eafe90907dd5429bbc2021d1636a9834eb3) Thanks [@sirineJ](https://github.com/sirineJ)! - Add missing export of the TierIndicator component.
+
+## 9.8.0
+
+### Minor Changes
+
+- [#2956](https://github.com/sumup-oss/circuit-ui/pull/2956) [`8a7ddc7`](https://github.com/sumup-oss/circuit-ui/commit/8a7ddc76658b28c52d1eb375ebf58f603a206a0e) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a TierIndicator component for freemium plans.
+
+- [#2957](https://github.com/sumup-oss/circuit-ui/pull/2957) [`ff8537d`](https://github.com/sumup-oss/circuit-ui/commit/ff8537dae41811691142a745090de998a91645f5) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a `tier` prop to the SideNavigation component's secondary links to show an optional paid tier indicator.
+
+## 9.7.5
+
+### Patch Changes
+
+- [`8ff379d`](https://github.com/sumup-oss/circuit-ui/commit/8ff379da1c791a17cfe62168b23e4f46ebc4d163) Thanks [@connor-baer](https://github.com/connor-baer)! - Upgraded Rollup to fix extraneous attributes being forwarded to HTML elements.
+
+## 9.7.4
+
+### Patch Changes
+
+- [#2948](https://github.com/sumup-oss/circuit-ui/pull/2948) [`2ccda4c`](https://github.com/sumup-oss/circuit-ui/commit/2ccda4c3b12066404fdb1d4b95676b76bc02c7f5) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the `color` prop from the Anchor component's prop types as it's not supported.
+
+- [#2951](https://github.com/sumup-oss/circuit-ui/pull/2951) [`0cc2af2`](https://github.com/sumup-oss/circuit-ui/commit/0cc2af2f98772322ca6e74664937b5b9eddd12a9) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the Tag component's text color on iOS.
+
 ## 9.7.3
 
 ### Patch Changes

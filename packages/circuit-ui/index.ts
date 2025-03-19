@@ -220,6 +220,16 @@ export {
   Timestamp,
   type TimestampProps,
 } from './components/Timestamp/index.js';
+export {
+  ComparisonTable,
+  type ComparisonTableProps,
+} from './components/ComparisonTable/ComparisonTable.js';
+
+// Brand
+export {
+  TierIndicator,
+  type TierIndicatorProps,
+} from './components/TierIndicator/TierIndicator.js';
 
 // Hooks
 export { useClickOutside } from './hooks/useClickOutside/index.js';

@@ -59,30 +59,30 @@ const options = [
 export const Base = (args: RadioButtonInputProps) => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
     {options.map((option) => (
-      <RadioButtonInput
-        {...args}
+      <div
         key={option.id}
-        value={option.id}
-        defaultChecked={option.checked}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '12px',
+        }}
       >
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '12px',
-            paddingLeft: '12px',
-          }}
-        >
-          <img
-            src={option.image.src}
-            alt=""
-            style={{ objectFit: 'cover', borderRadius: '4px' }}
-            width="48"
-            height="48"
-          />
-          <Body>{option.label}</Body>
-        </div>
-      </RadioButtonInput>
+        <RadioButtonInput
+          {...args}
+          value={option.id}
+          defaultChecked={option.checked}
+          aria-labelledby={option.id}
+        />
+
+        <img
+          src={option.image.src}
+          alt=""
+          style={{ objectFit: 'cover', borderRadius: '4px' }}
+          width="48"
+          height="48"
+        />
+        <Body id={option.id}>{option.label}</Body>
+      </div>
     ))}
   </div>
 );

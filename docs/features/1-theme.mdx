@@ -10,6 +10,7 @@ import {
   BorderWidth,
   FontStack,
   FontWeight,
+  LetterSpacing,
   Typography,
   Transition,
 } from '../../.storybook/components';
@@ -83,6 +84,10 @@ Avoid using the typography CSS custom properties directly in your styles. Instea
 <CustomPropertiesTable namespace="font-weight" preview={FontWeight} />
 
 Pass the `weight` prop to the `Body` component to adjust its font-weight styling. The font weight of the `Display`, `Headline` and the `Numeral` components is bold by default and should not be overwritten.
+
+## Letter spacing
+
+<CustomPropertiesTable namespace="letter-spacing" preview={LetterSpacing} />
 
 ## Transitions
 
