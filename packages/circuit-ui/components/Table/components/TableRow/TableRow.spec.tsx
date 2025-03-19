@@ -50,7 +50,10 @@ describe('TableRow', () => {
     render(<TableRow onClick={onClick}>{children}</TableRow>);
     const rowEl = screen.getByRole('row');
 
-    rowEl.focus();
+    await userEvent.keyboard('{Tab}');
+
+    expect(rowEl).toHaveFocus();
+
     await userEvent.keyboard(key);
 
     expect(onClick).toHaveBeenCalledTimes(1);
