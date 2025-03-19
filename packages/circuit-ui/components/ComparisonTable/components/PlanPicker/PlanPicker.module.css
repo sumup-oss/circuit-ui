@@ -1,0 +1,18 @@
+.base {
+  display: flex;
+  gap: var(--cui-spacings-kilo);
+  justify-content: center;
+  width: 100%;
+  padding: var(--cui-spacings-giga) 0;
+  background-color: var(--cui-bg-normal);
+}
+
+@media (max-width: 479px) {
+  .base {
+    padding: var(--cui-spacings-mega) 0;
+  }
+
+  .select {
+    width: 100%;
+  }
+}

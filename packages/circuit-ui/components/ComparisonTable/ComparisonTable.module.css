@@ -1,0 +1,16 @@
+.base {
+  position: relative;
+  background-color: var(--cui-bg-normal);
+}
+
+.picker {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .picker {
+    display: none;
+  }
+}

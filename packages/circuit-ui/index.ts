@@ -213,6 +213,10 @@ export {
   Toggletip,
   type ToggletipProps,
 } from './components/Toggletip/index.js';
+export {
+  ComparisonTable,
+  type ComparisonTableProps,
+} from './components/ComparisonTable/ComparisonTable.js';
 
 // Brand
 export {

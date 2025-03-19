@@ -132,9 +132,10 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     const id = useId();
     const selectId = customId || id;
     const validationHintId = useId();
-    const descriptionIds = `${
-      descriptionId ? `${descriptionId} ` : ''
-    }${validationHintId}`;
+    const descriptionIds = clsx(
+      Boolean(descriptionId) && descriptionId,
+      Boolean(validationHint) && validationHintId,
+    );
 
     const prefix = RenderPrefix && (
       <RenderPrefix className={classes.prefix} value={value} />
