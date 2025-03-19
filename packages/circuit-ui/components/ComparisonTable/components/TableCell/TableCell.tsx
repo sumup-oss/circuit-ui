@@ -52,7 +52,7 @@ export const TableCell = ({
 
   return (
     <td className={clsx(classes.base, className)} {...props}>
-      <div className={clsx(classes.content)}>{content}</div>
+      <div className={classes.content}>{content}</div>
     </td>
   );
 };
