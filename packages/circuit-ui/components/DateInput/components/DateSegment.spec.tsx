@@ -215,9 +215,13 @@ describe('DateSegment', () => {
 
   describe('layout', () => {
     it('should adjust the width of the input to its content', async () => {
+      vi.spyOn(Element.prototype, 'getBoundingClientRect').mockReturnValueOnce({
+        width: 24,
+      } as DOMRect);
+
       render(<DateSegment {...props} />);
       const input = screen.getByRole('spinbutton');
-      expect(input).toHaveStyle('--width: 1px');
+      expect(input).toHaveStyle('--width: 25px');
     });
   });
 
