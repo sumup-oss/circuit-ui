@@ -35,7 +35,11 @@ import {
   useState,
 } from 'react';
 
-import { Dialog, type DialogProps } from '../Dialog/Dialog.js';
+import {
+  Dialog,
+  type DialogProps,
+  type PublicDialogProps,
+} from '../Dialog/Dialog.js';
 import type { ClickEvent } from '../../types/events.js';
 import { useStackContext } from '../StackContext/index.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
@@ -49,31 +53,22 @@ export interface PopoverReferenceProps {
   'onClick': (event: ClickEvent) => void;
   'onKeyDown'?: (event: KeyboardEvent) => void;
   'id': string;
-  'aria-haspopup': boolean;
   'aria-controls': string;
   'aria-expanded': boolean;
 }
+type OnToggle = (open: boolean | ((prevOpen: boolean) => boolean)) => void;
 
 export interface PopoverProps
-  extends Omit<
-    DialogProps,
-    | 'open'
-    | 'onCloseEnd'
-    | 'onCloseStart'
-    | 'isModal'
-    | 'animationDuration'
-    | 'preventClose'
-    | 'initialFocusRef'
-    | 'preventOutsideClickRefs'
-  > {
+  extends Omit<PublicDialogProps, 'open'>,
+    Pick<DialogProps, 'hideCloseButton'> {
   /**
-   * The initial state of the Popover.
+   * The state of the Popover.
    */
-  initialOpen?: boolean;
+  isOpen?: boolean;
   /**
-   * Function that is called when the Popover is closed.
+   * Function that is called when opening and closing the Popover.
    */
-  onClose: DialogProps['onCloseEnd'];
+  onToggle: OnToggle;
   /**
    * One of the accepted placement values.
    * @default `bottom`.
@@ -112,8 +107,8 @@ const sizeOptions: SizeOptions = {
 export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
   (
     {
-      initialOpen = false,
-      onClose,
+      isOpen = false,
+      onToggle,
       children,
       placement = 'bottom',
       fallbackPlacements = ['top', 'right', 'left'],
@@ -132,7 +127,6 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
     const [isClosing, setClosing] = useState(false);
     const isMobile = useMedia('(max-width: 479px)');
     const animationDuration = isMobile ? 300 : 0;
-    const [isOpen, setIsOpen] = useState(initialOpen);
 
     const { floatingStyles, refs, update } = useFloating<HTMLElement>({
       open: isOpen,
@@ -147,17 +141,16 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
         : [flip({ fallbackPlacements }), size(sizeOptions)],
     });
 
-    const handleTriggerClick = useCallback(() => {
-      setIsOpen((prev) => {
+    const handleTriggerClick = () => {
+      onToggle((prev) => {
         if (prev) {
           setClosing(true);
-          onClose?.();
           return false;
         }
 
         return true;
       });
-    }, [onClose]);
+    };
 
     useEffect(() => {
       /**
@@ -184,9 +177,8 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
 
     const handleCloseEnd = useCallback(() => {
       setClosing(false);
-      setIsOpen(false);
-      onClose?.();
-    }, [onClose]);
+      onToggle(false);
+    }, [onToggle]);
 
     const handleCloseStart = useCallback(() => {
       setClosing(true);
@@ -202,13 +194,13 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
         <div className={classes.trigger} ref={refs.setReference}>
           <Component
             id={triggerId}
-            aria-haspopup={true}
             aria-controls={contentId}
             aria-expanded={isOpen}
             onClick={handleTriggerClick}
           />
         </div>
         <Dialog
+          {...props}
           open={isOpen}
           onCloseStart={handleCloseStart}
           onCloseEnd={handleCloseEnd}
@@ -230,11 +222,10 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
                 }
           }
           preventOutsideClickRefs={refs.reference}
-          {...props}
         >
           <div id={contentId} className={classes.content}>
             {typeof children === 'function'
-              ? children?.({ onClose })
+              ? children?.({ onClose: handleCloseEnd })
               : children}
           </div>
         </Dialog>
