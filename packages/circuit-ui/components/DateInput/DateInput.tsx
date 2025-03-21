@@ -461,7 +461,6 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
               className={classes['calendar-button']}
               disabled={disabled || readOnly}
               aria-expanded={open}
-              aria-haspopup="true"
               aria-controls={dialogId}
             >
               {calendarButtonLabel}

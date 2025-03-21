@@ -53,7 +53,6 @@ export interface PopoverReferenceProps {
   'onClick': (event: ClickEvent) => void;
   'onKeyDown'?: (event: KeyboardEvent) => void;
   'id': string;
-  'aria-haspopup': boolean;
   'aria-controls': string;
   'aria-expanded': boolean;
 }
@@ -195,7 +194,6 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
         <div className={classes.trigger} ref={refs.setReference}>
           <Component
             id={triggerId}
-            aria-haspopup={true}
             aria-controls={contentId}
             aria-expanded={isOpen}
             onClick={handleTriggerClick}

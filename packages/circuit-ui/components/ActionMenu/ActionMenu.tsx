@@ -67,7 +67,6 @@ export interface ActionMenuReferenceProps {
   'onClick': (event: ClickEvent) => void;
   'onKeyDown': (event: KeyboardEvent) => void;
   'id': string;
-  'aria-haspopup': boolean;
   'aria-controls': string;
   'aria-expanded': boolean;
 }
@@ -275,7 +274,6 @@ export const ActionMenu = forwardRef<HTMLDialogElement, ActionMenuProps>(
         <div className={classes.trigger} ref={refs.setReference}>
           <Component
             id={triggerId}
-            aria-haspopup={true}
             aria-controls={menuId}
             aria-expanded={isOpen}
             onClick={handleTriggerClick}
