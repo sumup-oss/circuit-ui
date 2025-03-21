@@ -26,7 +26,7 @@ import {
   essentialFeaturesSection,
   customizationSection,
   supportSection,
-  analyticsSection
+  analyticsSection,
 } from './fixtures.js';
 
 export default {
@@ -66,6 +66,6 @@ Collapsed.args = {
     ...baseProps.sections,
     customizationSection,
     supportSection,
-    analyticsSection
+    analyticsSection,
   ],
 };
