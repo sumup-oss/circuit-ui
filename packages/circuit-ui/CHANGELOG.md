@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.9.3
+
+### Patch Changes
+
+- [#3004](https://github.com/sumup-oss/circuit-ui/pull/3004) [`07f05aa`](https://github.com/sumup-oss/circuit-ui/commit/07f05aa5de22f14291dc52410dd804548160761e) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the empty `aria-describedby` attribute from the Anchor component.
+
 ## 9.9.2
 
 ### Patch Changes
