@@ -13,48 +13,49 @@
  * limitations under the License.
  */
 
-import { useCallback, useEffect, useRef } from 'react';
+import { atom, onSet } from 'nanostores';
+import { useEffect } from 'react';
 
-let instanceCount = 0;
+const instances = atom(0);
+
+onSet(instances, ({ newValue }) => {
+  const oldValue = instances.get();
+
+  // Lock scroll on the first active instance
+  if (oldValue === 0 && newValue === 1) {
+    // Read the layout before modifying styles to avoid conflicts
+    const top = `-${window.scrollY}px`;
+    const width = `${document.body.offsetWidth}px`;
+
+    document.body.style.position = 'fixed';
+    document.body.style.top = top;
+    // When its position is set to fixed, the body element is taken out of
+    // the normal document flow and this may cause it to change size.
+    // To prevent this, we set the width of the body to its current width.
+    document.body.style.width = width;
+  }
+
+  // Unlock scroll when there are no active instances
+  if (newValue === 0) {
+    const scrollY = document.body.style.top
+      ? Number.parseInt(document.body.style.top, 10)
+      : 0;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, scrollY * -1);
+  }
+});
 
 export const useScrollLock = (isActive: boolean): void => {
-  const scrollValue = useRef<string>();
-  const hasBeenActivated = useRef<boolean>(false);
-
-  const restoreScroll = useCallback(() => {
-    // restore scroll to page
-    const { body } = document;
-    const scrollY = body.style.top;
-    body.style.position = '';
-    body.style.top = '';
-    body.style.width = '';
-    window.scrollTo(0, Number.parseInt(scrollY || '0', 10) * -1);
-  }, []);
-
   useEffect(() => {
-    if (isActive) {
-      hasBeenActivated.current = true;
-      instanceCount += 1;
-      scrollValue.current = `${window.scrollY}px`;
-      const scrollY = scrollValue.current;
-      const { body } = document;
-      const bodyWidth = body.offsetWidth;
-      // when position is set to fixed, the body element is taken out of
-      // the normal document flow and this may cause it to change size.
-      // To prevent this, we set the width of the body to its current width.
-      body.style.position = 'fixed';
-      body.style.width = `${bodyWidth}px`;
-      body.style.top = `-${scrollY}`;
+    if (!isActive) {
+      return undefined;
     }
+
+    instances.set(instances.get() + 1);
     return () => {
-      if (hasBeenActivated.current) {
-        // only decrease the instance count if the hook has been activated
-        instanceCount -= 1;
-      }
-      if (instanceCount === 0) {
-        restoreScroll();
-      }
-      hasBeenActivated.current = false;
+      instances.set(instances.get() - 1);
     };
-  }, [isActive, restoreScroll]);
+  }, [isActive]);
 };
