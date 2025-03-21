@@ -13,14 +13,6 @@
  * limitations under the License.
  */
 
-// Forms
-export { RadioButton } from './components/RadioButton/index.js';
-export type { RadioButtonProps } from './components/RadioButton/index.js';
-export {
-  Selector,
-  type SelectorProps,
-} from './components/Selector/index.js';
-
 // Layout
 export { Grid, Row, Col } from './components/legacy/Grid/index.js';
 export type { ColProps } from './components/legacy/Grid/index.js';
