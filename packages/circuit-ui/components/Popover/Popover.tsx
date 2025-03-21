@@ -35,7 +35,11 @@ import {
   useState,
 } from 'react';
 
-import { Dialog, type DialogProps } from '../Dialog/Dialog.js';
+import {
+  Dialog,
+  type DialogProps,
+  type PublicDialogProps,
+} from '../Dialog/Dialog.js';
 import type { ClickEvent } from '../../types/events.js';
 import { useStackContext } from '../StackContext/index.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
@@ -56,19 +60,8 @@ export interface PopoverReferenceProps {
 type OnToggle = (open: boolean | ((prevOpen: boolean) => boolean)) => void;
 
 export interface PopoverProps
-  extends Omit<
-    DialogProps,
-    | 'open'
-    | 'onCloseEnd'
-    | 'onCloseStart'
-    | 'isModal'
-    | 'animationDuration'
-    | 'preventClose'
-    | 'initialFocusRef'
-    | 'preventOutsideClickRefs'
-    | 'preventEscapeKeyClose'
-    | 'preventOutsideClickClose'
-  > {
+  extends PublicDialogProps,
+    Pick<DialogProps, 'hideCloseButton'> {
   /**
    * The state of the Popover.
    */
@@ -122,7 +115,6 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
       fallbackPlacements = ['top', 'right', 'left'],
       component: Component,
       offset,
-      hideCloseButton,
       className,
       style,
       ...props
@@ -210,6 +202,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
           />
         </div>
         <Dialog
+          {...props}
           open={isOpen}
           onCloseStart={handleCloseStart}
           onCloseEnd={handleCloseEnd}
@@ -221,7 +214,6 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
             className,
           )}
           animationDuration={animationDuration}
-          hideCloseButton={hideCloseButton}
           style={
             isMobile
               ? style
@@ -232,7 +224,6 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
                 }
           }
           preventOutsideClickRefs={refs.reference}
-          {...props}
         >
           <div id={contentId} className={classes.content}>
             {typeof children === 'function'

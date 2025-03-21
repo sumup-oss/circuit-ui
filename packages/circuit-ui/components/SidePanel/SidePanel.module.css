@@ -51,12 +51,18 @@
     width: var(--side-panel-width);
     height: calc(100vh - var(--top-navigation-height, 0));
     margin: 0;
+    background-color: var(--cui-bg-normal);
     box-shadow: inset var(--cui-border-width-kilo) 0 0 var(--cui-border-divider);
   }
 
   .base::after {
     /* to account for inset box shadow */
     margin-left: 1px;
+    background: linear-gradient(
+      color-mix(in sRGB, var(--cui-bg-normal) 0%, transparent),
+      color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
+      color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent)
+    );
   }
 
   .wrapper {

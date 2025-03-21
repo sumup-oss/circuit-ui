@@ -57,7 +57,7 @@ describe('Popover', () => {
   });
 
   describe('when closed', () => {
-    it('should not  render its content', () => {
+    it('should not render its content', () => {
       renderPopover({ ...baseProps, isOpen: false });
 
       expect(screen.queryByText(popoverContent)).not.toBeInTheDocument();
@@ -65,7 +65,7 @@ describe('Popover', () => {
     it('should open the popover when clicking the trigger element', async () => {
       renderPopover({ ...baseProps, isOpen: false });
 
-      const popoverTrigger = screen.getByRole('button');
+      const popoverTrigger = screen.getByRole('button', { name: 'Button' });
 
       await userEvent.click(popoverTrigger);
 
@@ -110,7 +110,7 @@ describe('Popover', () => {
     it('should close the popover when clicking the trigger element', async () => {
       renderPopover(baseProps);
 
-      const popoverTrigger = screen.getByText('Button');
+      const popoverTrigger = screen.getByRole('button', { name: 'Button' });
 
       await userEvent.click(popoverTrigger);
 
@@ -126,7 +126,7 @@ describe('Popover', () => {
         renderPopover(baseProps);
         vi.runAllTimers();
 
-        const popoverTrigger = screen.getByText('Button');
+        const popoverTrigger = screen.getByRole('button', { name: 'Button' });
 
         popoverTrigger.focus();
         await userEvent.keyboard(key);
@@ -143,7 +143,7 @@ describe('Popover', () => {
       await waitFor(() => expect(baseProps.onToggle).toHaveBeenCalledTimes(1));
     });
 
-    it('should close the isOpen prop changes ', async () => {
+    it('should close when the isOpen prop changes ', async () => {
       const { rerender } = renderPopover(baseProps);
 
       rerender(<Popover {...baseProps} isOpen={false} />);

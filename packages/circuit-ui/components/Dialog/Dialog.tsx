@@ -292,6 +292,8 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 
     const handleEscapeKey = useCallback(
       (e: KeyboardEvent) => {
+        // get all potential dialog elements in this dialog's composed path
+        // and check if it is topmost dialog .
         const isTopMostDialog =
           e
             .composedPath()
@@ -299,7 +301,9 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
               (el) => el instanceof Node && el.nodeName === 'DIALOG',
             )[0] === dialogRef.current;
         if (
+          // if the event happened on another dialog element that is not a child of the current dialog, we don't want to close it
           !dialogRef.current?.contains(e.target as Node) ||
+          // if the dialog is not the topmost dialog, we don't want to close it
           !isTopMostDialog
         ) {
           return;
@@ -374,29 +378,34 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 
     const onDialogClick = useCallback(
       (event: ReactMouseEvent<HTMLDialogElement>) => {
-        const isChildNode = dialogRef.current?.contains(event.target as Node);
         if (!preventOutsideClickClose) {
-          let isInDialog = false;
+          const isTargetChildNode = dialogRef.current?.contains(
+            event.target as Node,
+          );
+
+          let isWithingDialogBoundingRect = false;
           const rect = dialogRef.current?.getBoundingClientRect();
           if (rect) {
-            isInDialog =
+            isWithingDialogBoundingRect =
               rect.top <= event.clientY &&
               event.clientY <= rect.top + rect.height &&
               rect.left <= event.clientX &&
               event.clientX <= rect.left + rect.width;
           }
           const isBackdropClick =
-            event.target === dialogRef.current && !isInDialog;
+            event.target === dialogRef.current && !isWithingDialogBoundingRect;
+
           if (
-            (isModal && !isInDialog && !isChildNode) ||
-            (isModal && isBackdropClick) ||
-            (!isModal && !isChildNode)
+            // if the click happened outside the dialog by an element that is not a child of the dialog
+            (!isWithingDialogBoundingRect && !isTargetChildNode) ||
+            // if the click happened on the backdrop
+            isBackdropClick
           ) {
             handleDialogClose();
           }
         }
       },
-      [handleDialogClose, preventOutsideClickClose, isModal],
+      [handleDialogClose, preventOutsideClickClose],
     );
 
     return (

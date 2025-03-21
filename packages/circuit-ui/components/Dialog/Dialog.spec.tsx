@@ -263,16 +263,11 @@ describe('Dialog', () => {
     it('should close the dialog when pressing the backdrop', async () => {
       render(<Dialog {...props} open isModal />);
       const dialog = screen.getByRole('dialog', { hidden: true });
+      vi.spyOn(dialog, 'getBoundingClientRect').mockImplementation(
+        () => new DOMRect(100, 100, 500, 500),
+      );
 
-      // Get the bounding rect of the element
-      const rect = dialog.getBoundingClientRect();
-
-      // Calculate coordinates outside the element's bounding rect
-      const outsideX = rect.right + 10;
-      const outsideY = rect.bottom + 10;
-
-      // Simulate a click event outside the element
-      fireEvent.click(dialog, { clientX: outsideX, clientY: outsideY });
+      fireEvent.click(dialog, { clientX: 700, clientY: 700 });
       vi.runAllTimers();
       expect(props.onCloseEnd).toHaveBeenCalledOnce();
       expect(props.onCloseStart).toHaveBeenCalledOnce();

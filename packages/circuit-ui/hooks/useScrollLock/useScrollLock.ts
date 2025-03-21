@@ -33,18 +33,6 @@ export const useScrollLock = (isActive: boolean): void => {
   useEffect(() => {
     if (isActive) {
       instanceCount += 1;
-    }
-
-    return () => {
-      instanceCount -= 1;
-      if (instanceCount <= 1) {
-        restoreScroll();
-      }
-    };
-  }, [restoreScroll, isActive]);
-
-  useEffect(() => {
-    if (isActive) {
       scrollValue.current = `${window.scrollY}px`;
       const scrollY = scrollValue.current;
       const { body } = document;
@@ -58,5 +46,11 @@ export const useScrollLock = (isActive: boolean): void => {
     } else if (instanceCount === 1) {
       restoreScroll();
     }
+    return () => {
+      instanceCount -= 1;
+      if (instanceCount <= 1) {
+        restoreScroll();
+      }
+    };
   }, [isActive, restoreScroll]);
 };
