@@ -59,7 +59,7 @@ export interface PopoverReferenceProps {
 type OnToggle = (open: boolean | ((prevOpen: boolean) => boolean)) => void;
 
 export interface PopoverProps
-  extends PublicDialogProps,
+  extends Omit<PublicDialogProps, 'open'>,
     Pick<DialogProps, 'hideCloseButton'> {
   /**
    * The state of the Popover.
