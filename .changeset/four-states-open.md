@@ -2,4 +2,4 @@
 "@sumup-oss/circuit-ui": patch
 ---
 
-Change plan details on ComparisonTable docs
+Updated the examples in the ComparisonTable documentation to be more generic.
