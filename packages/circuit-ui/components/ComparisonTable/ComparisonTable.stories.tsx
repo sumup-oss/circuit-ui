@@ -20,13 +20,13 @@ import {
   type ComparisonTableProps,
 } from './ComparisonTable.js';
 import {
-  bankingBasicsSection,
-  moneyManagement,
-  invoicingSection,
-  posPlan,
-  posPlusPlan,
-  posProPlan,
-  productCatalogSection,
+  basicPlan,
+  standardPlan,
+  premiumPlan,
+  essentialFeaturesSection,
+  customizationSection,
+  supportSection,
+  analyticsSection,
 } from './fixtures.js';
 
 export default {
@@ -45,8 +45,8 @@ export default {
 
 const baseProps: ComparisonTableProps = {
   caption: 'Compare plans',
-  headers: [posPlan, posPlusPlan, posProPlan],
-  sections: [bankingBasicsSection],
+  headers: [basicPlan, standardPlan, premiumPlan],
+  sections: [essentialFeaturesSection],
   showAllFeaturesLabel: 'Show all features',
   selectSecondPlanLabel: 'Select a second plan',
   selectFirstPlanLabel: 'Select a first plan',
@@ -64,8 +64,8 @@ Collapsed.args = {
   ...baseProps,
   sections: [
     ...baseProps.sections,
-    productCatalogSection,
-    moneyManagement,
-    invoicingSection,
+    customizationSection,
+    supportSection,
+    analyticsSection,
   ],
 };

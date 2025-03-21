@@ -16,12 +16,12 @@
 import { describe, expect, it } from 'vitest';
 
 import { render, screen } from '../../../../util/test-utils.js';
-import { posPlusPlan } from '../../fixtures.js';
+import { standardPlan } from '../../fixtures.js';
 
 import { TableHeader, type TableHeaderProps } from './TableHeader.js';
 
 describe('TableHeader', () => {
-  const baseProps: TableHeaderProps = posPlusPlan;
+  const baseProps: TableHeaderProps = standardPlan;
 
   it('should render all plan information', () => {
     render(<TableHeader {...baseProps} tier={{ variant: 'plus' }} />);
