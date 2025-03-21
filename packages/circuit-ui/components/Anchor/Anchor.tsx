@@ -80,10 +80,9 @@ export const Anchor = forwardRef(
     const isExternalLink =
       props.rel === 'external' || props.target === '_blank';
     const externalLabelId = useId();
-    const descriptionIds = clsx(
-      externalLabel && isExternalLink && externalLabelId,
-      descriptionId,
-    );
+    const descriptionIds =
+      clsx(externalLabel && isExternalLink && externalLabelId, descriptionId) ||
+      undefined;
 
     if (!props.href && !props.onClick) {
       return (
@@ -97,9 +96,7 @@ export const Anchor = forwardRef(
       return (
         <Body
           {...props}
-          {...(descriptionIds && {
-            'aria-describedby': descriptionIds,
-          })}
+          aria-describedby={descriptionIds}
           className={clsx(classes.base, utilClasses.focusVisible, className)}
           as={Link}
           ref={ref}
@@ -122,9 +119,7 @@ export const Anchor = forwardRef(
       <Body
         as="button"
         {...props}
-        {...(descriptionIds && {
-          'aria-describedby': descriptionIds,
-        })}
+        aria-describedby={descriptionIds}
         className={clsx(classes.base, utilClasses.focusVisible, className)}
         ref={ref}
       >
