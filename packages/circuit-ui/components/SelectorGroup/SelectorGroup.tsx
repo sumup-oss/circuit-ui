@@ -19,7 +19,6 @@ import { forwardRef, useId, type FieldsetHTMLAttributes } from 'react';
 
 import {
   Selector,
-  SelectorGroupContext,
   type SelectorProps,
   type SelectorSize,
 } from '../Selector/Selector.js';
@@ -189,30 +188,28 @@ export const SelectorGroup = forwardRef<
           />
         </FieldLegend>
         <div className={clsx(classes.base, stretch && classes.stretch)}>
-          <SelectorGroupContext.Provider value={true}>
-            {options.map((option) => (
-              <Selector
-                {...option}
-                key={option.value || option.label}
-                className={clsx(classes.option, option.className)}
-                name={name}
-                onChange={onChange}
-                onBlur={onBlur}
-                multiple={multiple}
-                size={size}
-                disabled={disabled || option.disabled}
-                invalid={invalid || option.invalid}
-                checked={
-                  value ? isChecked(option, value, multiple) : option.checked
-                }
-                defaultChecked={
-                  defaultValue
-                    ? isChecked(option, defaultValue, multiple)
-                    : option.defaultChecked
-                }
-              />
-            ))}
-          </SelectorGroupContext.Provider>
+          {options.map((option) => (
+            <Selector
+              {...option}
+              key={option.value || option.label}
+              className={clsx(classes.option, option.className)}
+              name={name}
+              onChange={onChange}
+              onBlur={onBlur}
+              multiple={multiple}
+              size={size}
+              disabled={disabled || option.disabled}
+              invalid={invalid || option.invalid}
+              checked={
+                value ? isChecked(option, value, multiple) : option.checked
+              }
+              defaultChecked={
+                defaultValue
+                  ? isChecked(option, defaultValue, multiple)
+                  : option.defaultChecked
+              }
+            />
+          ))}
         </div>
         <FieldValidationHint
           id={validationHintId}
