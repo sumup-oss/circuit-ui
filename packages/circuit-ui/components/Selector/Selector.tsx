@@ -17,9 +17,7 @@
 
 import {
   Fragment,
-  createContext,
   forwardRef,
-  useContext,
   useId,
   type ComponentType,
   type InputHTMLAttributes,
@@ -98,16 +96,11 @@ export interface SelectorProps
   children?: never;
 }
 
-export const SelectorGroupContext = createContext(false);
-
 const legacySizeMap: Record<string, 's' | 'm'> = {
   kilo: 's',
   mega: 'm',
 };
 
-/**
- * @deprecated Use the {@link SelectorGroup} component instead.
- */
 export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
   (
     {
@@ -138,16 +131,7 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
       .join(' ');
     const type = multiple ? 'checkbox' : 'radio';
 
-    const isInsideGroup = useContext(SelectorGroupContext);
-
     if (process.env.NODE_ENV !== 'production') {
-      if (!isInsideGroup) {
-        deprecate(
-          'Selector',
-          'The Selector component has been deprecated. Use the SelectorGroup component instead.',
-        );
-      }
-
       if (legacySizeMap[legacySize]) {
         deprecate(
           'Selector',

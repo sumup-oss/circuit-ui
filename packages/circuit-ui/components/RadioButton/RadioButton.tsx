@@ -43,9 +43,6 @@ export interface RadioButtonProps extends Omit<RadioButtonInputProps, 'align'> {
   children?: never;
 }
 
-/**
- * @deprecated Use the {@link RadioButtonGroup} or {@link RadioButtonInput} components instead.
- */
 export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
   (
     {
