@@ -19,6 +19,7 @@ let instanceCount = 0;
 
 export const useScrollLock = (isActive: boolean): void => {
   const scrollValue = useRef<string>();
+  const hasBeenActivated = useRef<boolean>(false);
 
   const restoreScroll = useCallback(() => {
     // restore scroll to page
@@ -32,6 +33,7 @@ export const useScrollLock = (isActive: boolean): void => {
 
   useEffect(() => {
     if (isActive) {
+      hasBeenActivated.current = true;
       instanceCount += 1;
       scrollValue.current = `${window.scrollY}px`;
       const scrollY = scrollValue.current;
@@ -43,14 +45,16 @@ export const useScrollLock = (isActive: boolean): void => {
       body.style.position = 'fixed';
       body.style.width = `${bodyWidth}px`;
       body.style.top = `-${scrollY}`;
-    } else if (instanceCount === 1) {
-      restoreScroll();
     }
     return () => {
-      instanceCount -= 1;
-      if (instanceCount <= 1) {
+      if (hasBeenActivated.current) {
+        // only decrease the instance count if the hook has been activated
+        instanceCount -= 1;
+      }
+      if (instanceCount === 0) {
         restoreScroll();
       }
+      hasBeenActivated.current = false;
     };
   }, [isActive, restoreScroll]);
 };
