@@ -60,7 +60,7 @@
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.2",
     "@nanostores/react": "^0.8.4",
-    "nanostores": "^0.11.3",
+    "nanostores": "^0.11.4",
     "react-number-format": "5.3.0"
   },
   "devDependencies": {
@@ -76,19 +76,19 @@
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",
     "@types/jest-axe": "^3.5.9",
-    "@types/node": "^22.10.7",
+    "@types/node": "^22.13.11",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.1",
-    "jest-axe": "^9.0.0",
+    "jest-axe": "^10.0.0",
     "mockdate": "^3.0.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-swipeable": "^7.0.2",
     "rollup-plugin-preserve-directives": "^0.4.0",
     "temporal-polyfill": "^0.2.5",
-    "typescript": "^5.7.3",
+    "typescript": "^5.8.2",
     "typescript-plugin-css-modules": "^5.1.0",
-    "vite": "^6.1.0"
+    "vite": "^6.2.2"
   },
   "peerDependencies": {
     "@emotion/is-prop-valid": "^1.2.1",
