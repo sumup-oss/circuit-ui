@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.9.4
+
+### Patch Changes
+
+- [#3006](https://github.com/sumup-oss/circuit-ui/pull/3006) [`50e7e40`](https://github.com/sumup-oss/circuit-ui/commit/50e7e40cafc58c2a2407c219c688c6604f19d375) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed empty `aria-describedby` attributes from all other components.
+
 ## 9.9.3
 
 ### Patch Changes
