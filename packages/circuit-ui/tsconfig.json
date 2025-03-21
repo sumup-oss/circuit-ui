@@ -17,6 +17,7 @@
     "noUnusedParameters": true,
     "resolveJsonModule": true,
     "strict": true,
+    "skipLibCheck": true,
     "target": "es2019",
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
