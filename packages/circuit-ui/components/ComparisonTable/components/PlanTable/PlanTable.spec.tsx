@@ -19,11 +19,11 @@ import { createRef } from 'react';
 import { axe, render, screen, userEvent } from '../../../../util/test-utils.js';
 import { useMedia } from '../../../../hooks/useMedia/index.js';
 import {
-  bankingBasicsSection,
-  posPlan,
-  posPlusPlan,
-  posProPlan,
-  productCatalogSection,
+  essentialFeaturesSection,
+  customizationSection,
+  basicPlan,
+  standardPlan,
+  premiumPlan,
 } from '../../fixtures.js';
 
 import { PlanTable, type PlanTableProps } from './PlanTable.js';
@@ -33,19 +33,22 @@ vi.mock('../../../../hooks/useMedia/index.js');
 const baseProps: PlanTableProps = {
   caption: 'Plan comparison',
   showAllFeaturesLabel: 'Show all features',
-  sections: [bankingBasicsSection],
-  headers: [posPlan, posPlusPlan, posProPlan],
+  sections: [essentialFeaturesSection],
+  headers: [basicPlan, standardPlan, premiumPlan],
   activePlans: [0, 1],
 };
+
 describe('PlanTable', () => {
   beforeEach(() => {
     (useMedia as Mock).mockReturnValue(false);
   });
+
   it('should forward the ref to the table element', () => {
     const ref = createRef<HTMLTableElement>();
     render(<PlanTable {...baseProps} ref={ref} />);
     expect(screen.getByRole('table')).toBe(ref.current);
   });
+
   it('should render all plan information', () => {
     render(<PlanTable {...baseProps} />);
     expect(screen.getByText(baseProps.caption)).toBeInTheDocument();
@@ -57,19 +60,20 @@ describe('PlanTable', () => {
     expect(screen.getAllByRole('row')).toHaveLength(7);
 
     expect(
-      screen.getAllByRole('rowheader', { name: 'Banking basics' }),
+      screen.getAllByRole('rowheader', { name: 'Essential Features' }),
     ).toHaveLength(1);
     expect(screen.getAllByRole('rowheader')).toHaveLength(6);
-    expect(screen.getAllByRole('cell', { name: 'available' })).toHaveLength(13);
-    expect(screen.getAllByRole('cell', { name: 'unavailable' })).toHaveLength(
-      2,
+    expect(screen.getAllByRole('cell', { name: 'included' })).toHaveLength(12);
+    expect(screen.getAllByRole('cell', { name: 'not included' })).toHaveLength(
+      3,
     );
   });
+
   it('should render as collapsed when content is large', async () => {
     render(
       <PlanTable
         {...baseProps}
-        sections={[...baseProps.sections, productCatalogSection]}
+        sections={[...baseProps.sections, customizationSection]}
       />,
     );
     const showAllFeaturesButton = screen.getByText(
@@ -78,15 +82,16 @@ describe('PlanTable', () => {
     expect(showAllFeaturesButton).toBeVisible();
     expect(screen.getAllByRole('row')).toHaveLength(9);
     await userEvent.click(showAllFeaturesButton);
-    expect(screen.getAllByRole('row')).toHaveLength(13);
+    expect(screen.getAllByRole('row')).toHaveLength(11);
   });
+
   it('should only render two columns on mobile', () => {
     (useMedia as Mock).mockReturnValue(true);
     render(<PlanTable {...baseProps} />);
     expect(screen.getAllByRole('columnheader')).toHaveLength(2);
     expect(
       screen.queryByRole('columnheader', {
-        name: 'POS Pro plus 25$ /month Join now',
+        name: 'Premium Full feature set Get started',
       }),
     ).not.toBeInTheDocument();
   });

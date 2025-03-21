@@ -104,7 +104,7 @@ export const limitedFeature: Feature = {
     label: 'Limited access',
   },
   values: [
-    { value: false, label: 'not available' },
+    { value: false, label: 'not included' },
     { value: true, label: 'included' },
     { value: true, label: 'included' },
   ],
@@ -115,8 +115,8 @@ export const exclusiveFeature: Feature = {
     label: 'Exclusive access',
   },
   values: [
-    { value: false, label: 'not available' },
-    { value: false, label: 'not available' },
+    { value: false, label: 'not included' },
+    { value: false, label: 'not included' },
     { value: true, label: 'included' },
   ],
 };
@@ -167,7 +167,7 @@ export const customizationSection: FeatureSection = {
         },
       },
       values: [
-        { value: false, label: 'not available' },
+        { value: false, label: 'not included' },
         { value: true, label: 'included' },
         { value: true, label: 'included' },
       ],
@@ -177,8 +177,8 @@ export const customizationSection: FeatureSection = {
         label: 'Full customization',
       },
       values: [
-        { value: false, label: 'not available' },
-        { value: false, label: 'not available' },
+        { value: false, label: 'not included' },
+        { value: false, label: 'not included' },
         { value: true, label: 'included' },
       ],
     },
@@ -204,7 +204,7 @@ export const supportSection: FeatureSection = {
         description: '24/7 availability',
       },
       values: [
-        { value: false, label: 'not available' },
+        { value: false, label: 'not included' },
         { value: true, label: 'included' },
         { value: true, label: 'included' },
       ],
@@ -214,8 +214,8 @@ export const supportSection: FeatureSection = {
         label: 'Dedicated support',
       },
       values: [
-        { value: false, label: 'not available' },
-        { value: false, label: 'not available' },
+        { value: false, label: 'not included' },
+        { value: false, label: 'not included' },
         { value: true, label: 'included' },
       ],
     },
@@ -241,7 +241,7 @@ export const analyticsSection: FeatureSection = {
         description: 'Detailed insights and custom reports',
       },
       values: [
-        { value: false, label: 'not available' },
+        { value: false, label: 'not included' },
         { value: true, label: 'included' },
         { value: true, label: 'included' },
       ],
@@ -251,8 +251,8 @@ export const analyticsSection: FeatureSection = {
         label: 'Custom dashboards',
       },
       values: [
-        { value: false, label: 'not available' },
-        { value: false, label: 'not available' },
+        { value: false, label: 'not included' },
+        { value: false, label: 'not included' },
         { value: true, label: 'included' },
       ],
     },
