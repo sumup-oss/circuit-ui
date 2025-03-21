@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 9.9.2
+
+### Patch Changes
+
+- [#3003](https://github.com/sumup-oss/circuit-ui/pull/3003) [`305ea75`](https://github.com/sumup-oss/circuit-ui/commit/305ea75d1deb1f86da84540168a7a6b97d7813d1) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed type generation for the `@sumup-oss/circuit-ui/internal` exports.
+
+- [#2999](https://github.com/sumup-oss/circuit-ui/pull/2999) [`f2b9920`](https://github.com/sumup-oss/circuit-ui/commit/f2b9920980ec7c0085cc7f5331f13e83c4573aeb) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the DateInput component's input segment width when the component isn't immediately rendered to the DOM.
+
 ## 9.9.1
 
 ### Patch Changes
