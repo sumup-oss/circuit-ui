@@ -97,7 +97,9 @@ export const Anchor = forwardRef(
       return (
         <Body
           {...props}
-          aria-describedby={descriptionIds}
+          {...(descriptionIds && {
+            'aria-describedby': descriptionIds,
+          })}
           className={clsx(classes.base, utilClasses.focusVisible, className)}
           as={Link}
           ref={ref}
@@ -120,7 +122,9 @@ export const Anchor = forwardRef(
       <Body
         as="button"
         {...props}
-        aria-describedby={descriptionIds}
+        {...(descriptionIds && {
+          'aria-describedby': descriptionIds,
+        })}
         className={clsx(classes.base, utilClasses.focusVisible, className)}
         ref={ref}
       >
