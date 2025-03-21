@@ -32,7 +32,6 @@ export const basicPlan: TableHeaderProps = {
 export const standardPlan: TableHeaderProps = {
   title: 'Standard',
   id: 'standard',
-  tier: { variant: 'plus' },
   description: 'Most popular',
   action: {
     children: 'Get started',
