@@ -35,6 +35,7 @@ import {
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 import { isEmpty } from '../../util/helpers.js';
+import { clsx } from '../../styles/clsx.js';
 
 import classes from './CheckboxGroup.module.css';
 
@@ -146,9 +147,7 @@ export const CheckboxGroup = forwardRef(
     ref: CheckboxGroupProps['ref'],
   ) => {
     const validationHintId = useId();
-    const descriptionIds = `${
-      descriptionId ? `${descriptionId} ` : ''
-    }${validationHintId}`;
+    const descriptionIds = clsx(descriptionId, validationHintId) || undefined;
 
     if (
       process.env.NODE_ENV !== 'production' &&
