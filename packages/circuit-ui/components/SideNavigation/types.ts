@@ -43,6 +43,10 @@ export interface PrimaryLinkProps
    */
   isActive?: boolean;
   /**
+   * Whether the link leads to an external page or opens in a new tab.
+   */
+  isExternal?: boolean;
+  /**
    * Short label to describe that the link leads to an external page or opens in a new tab.
    */
   externalLabel?: string;
