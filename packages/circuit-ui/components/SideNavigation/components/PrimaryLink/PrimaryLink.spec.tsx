@@ -71,8 +71,8 @@ describe('PrimaryLink', () => {
   it('should render with an external icon', () => {
     renderPrimaryLink(render, {
       ...baseProps,
-      isExternal: true,
       externalLabel: 'Opens in a new tab',
+      target: '_blank',
     });
     expect(screen.getByRole('link')).toHaveAccessibleDescription(
       'Opens in a new tab',
@@ -105,5 +105,19 @@ describe('PrimaryLink', () => {
     const { container } = renderPrimaryLink(render, baseProps);
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
+  });
+
+  it('should throw an accessibility error when the externalLabel prop is missing', () => {
+    // Silence the console.error output and switch to development mode to throw the error
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    process.env.NODE_ENV = 'development';
+    expect(() =>
+      renderPrimaryLink(render, {
+        ...baseProps,
+        target: '_blank',
+      }),
+    ).toThrow();
+    process.env.NODE_ENV = 'test';
+    vi.restoreAllMocks();
   });
 });
