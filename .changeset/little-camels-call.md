@@ -2,4 +2,4 @@
 "@sumup-oss/icons": minor
 ---
 
-Add Bulk transfer icon in size 24.
+Added a  Bulk Transfer icon in size 24.
