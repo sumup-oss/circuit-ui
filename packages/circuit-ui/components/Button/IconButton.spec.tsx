@@ -50,4 +50,10 @@ describe('IconButton', () => {
     const label = screen.getByText('Close');
     expect(label).toBeInTheDocument();
   });
+
+  it('should render with an accessible name', () => {
+    render(<IconButton icon={Close}>Close</IconButton>);
+    const button = screen.getByRole('button');
+    expect(button).toHaveAccessibleName('Close');
+  });
 });
