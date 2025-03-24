@@ -32,7 +32,7 @@ const ruleTester = new RuleTester({
 ruleTester.run('no-renamed-components', noRenamedComponents, {
   valid: [
     {
-      name: 'similar component from Circuit UI',
+      name: 'different component from Circuit UI',
       code: `
           import {Button} from '@sumup-oss/circuit-ui';
    function Component() {
@@ -64,6 +64,18 @@ ruleTester.run('no-renamed-components', noRenamedComponents, {
       errors: [{ messageId: 'renamed' }, { messageId: 'renamed' }],
     },
     {
+      name: 'matched component from Circuit UI',
+      code: `import {PopoverProps} from '@sumup-oss/circuit-ui';`,
+      output: `import {ActionMenuProps} from '@sumup-oss/circuit-ui';`,
+      errors: [{ messageId: 'renamed' }],
+    },
+    {
+      name: 'matched component from Circuit UI',
+      code: `import {PopoverItemProps} from '@sumup-oss/circuit-ui';`,
+      output: `import {ActionMenuItemProps} from '@sumup-oss/circuit-ui';`,
+      errors: [{ messageId: 'renamed' }],
+    },
+    {
       name: 'matched renamed import from Circuit UI',
       code: `
           import {Popover as CircuitPopover} from '@sumup-oss/circuit-ui';
@@ -75,6 +87,22 @@ ruleTester.run('no-renamed-components', noRenamedComponents, {
    function Component() {
           return <CircuitPopover />
         }`,
+      errors: [{ messageId: 'renamed' }],
+    },
+    {
+      name: 'matched renamed import from Circuit UI',
+      code: `
+          import {PopoverProps as CircuitPopoverProps} from '@sumup-oss/circuit-ui';`,
+      output: `
+          import {ActionMenuProps as CircuitPopoverProps} from '@sumup-oss/circuit-ui';`,
+      errors: [{ messageId: 'renamed' }],
+    },
+    {
+      name: 'matched renamed import from Circuit UI',
+      code: `
+          import {PopoverItemProps as CircuitPopoverItemProps} from '@sumup-oss/circuit-ui';`,
+      output: `
+          import {ActionMenuItemProps as CircuitPopoverItemProps} from '@sumup-oss/circuit-ui';`,
       errors: [{ messageId: 'renamed' }],
     },
   ],

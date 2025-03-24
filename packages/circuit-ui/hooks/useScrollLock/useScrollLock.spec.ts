@@ -13,64 +13,92 @@
  * limitations under the License.
  */
 
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { renderHook } from '../../util/test-utils.js';
 
 import { useScrollLock } from './useScrollLock.js';
 
 describe('useScrollLock', () => {
-  Object.defineProperty(window, 'scrollTo', {
-    value: vi.fn(),
-    writable: true,
-  });
-
-  Object.defineProperty(window, 'scrollY', { value: 1, writable: true });
+  vi.spyOn(window, 'scrollTo');
 
   beforeEach(() => {
-    document.body.style.position = '';
-    document.body.style.top = '';
-    window.scrollY = 1;
+    window.scrollY = 100;
   });
 
-  it('locks the scroll when `isLocked` is true', () => {
-    window.scrollY = 100;
-    const { rerender } = renderHook(({ isLocked }) => useScrollLock(isLocked), {
-      initialProps: { isLocked: false },
+  afterEach(() => {
+    vi.resetAllMocks();
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+  });
+
+  it('locks the scroll when `isActive` is true', () => {
+    const { rerender } = renderHook(({ isActive }) => useScrollLock(isActive), {
+      initialProps: { isActive: false },
     });
 
-    rerender({ isLocked: true });
+    rerender({ isActive: true });
 
     expect(document.body.style.position).toBe('fixed');
     expect(document.body.style.top).toBe('-100px');
+    expect(document.body.style.width).toBe('0px');
   });
 
-  it('unlocks the scroll when `isLocked` is false', () => {
-    window.scrollY = 100;
-
-    const { rerender } = renderHook(({ isLocked }) => useScrollLock(isLocked), {
-      initialProps: { isLocked: true },
+  it('unlocks the scroll when `isActive` is false', () => {
+    const { rerender } = renderHook(({ isActive }) => useScrollLock(isActive), {
+      initialProps: { isActive: true },
     });
 
-    rerender({ isLocked: false });
+    rerender({ isActive: false });
 
     expect(document.body.style.position).toBe('');
     expect(document.body.style.top).toBe('');
+    expect(document.body.style.width).toBe('');
+    expect(window.scrollTo).toHaveBeenCalledTimes(2);
     expect(window.scrollTo).toHaveBeenCalledWith(0, 100);
   });
 
   it('unlocks the scroll when unmounted', () => {
-    window.scrollY = 100;
+    const { unmount } = renderHook(() => useScrollLock(true));
 
-    const { unmount } = renderHook(() => useScrollLock(true), {
-      initialProps: { isLocked: true },
-    });
     expect(document.body.style.position).toBe('fixed');
 
     unmount();
 
     expect(document.body.style.position).toBe('');
     expect(document.body.style.top).toBe('');
+    expect(document.body.style.width).toBe('');
+    expect(window.scrollTo).toHaveBeenCalledTimes(1);
+    expect(window.scrollTo).toHaveBeenCalledWith(0, 100);
+  });
+
+  it('locks the scroll once for multiple instances', () => {
+    renderHook(() => useScrollLock(true));
+
+    window.scrollY = 0;
+
+    renderHook(() => useScrollLock(true));
+
+    expect(document.body.style.top).toBe('-100px');
+  });
+
+  it('unlocks the scroll once for multiple instances', () => {
+    const { rerender } = renderHook(({ isActive }) => useScrollLock(isActive), {
+      initialProps: { isActive: true },
+    });
+
+    window.scrollY = 0;
+
+    const { unmount } = renderHook(() => useScrollLock(true));
+
+    rerender({ isActive: false });
+    unmount();
+
+    expect(document.body.style.position).toBe('');
+    expect(document.body.style.top).toBe('');
+    expect(document.body.style.width).toBe('');
+    expect(window.scrollTo).toHaveBeenCalledTimes(2);
     expect(window.scrollTo).toHaveBeenCalledWith(0, 100);
   });
 });

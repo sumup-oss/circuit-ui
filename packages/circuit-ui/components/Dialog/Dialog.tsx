@@ -24,6 +24,7 @@ import {
   useEffect,
   useRef,
   useState,
+  type MouseEvent as ReactMouseEvent,
 } from 'react';
 
 import type { Locale } from '../../util/i18n.js';
@@ -31,7 +32,6 @@ import { applyMultipleRefs } from '../../util/refs.js';
 import dialogPolyfill from '../../vendor/dialog-polyfill/index.js';
 import { useScrollLock } from '../../hooks/useScrollLock/useScrollLock.js';
 import { CloseButton } from '../CloseButton/index.js';
-import type { ClickEvent } from '../../types/events.js';
 import { clsx } from '../../styles/clsx.js';
 import { useClickOutside } from '../../hooks/useClickOutside/index.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
@@ -292,7 +292,20 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 
     const handleEscapeKey = useCallback(
       (e: KeyboardEvent) => {
-        if (!dialogRef.current?.contains(e.target as Node)) {
+        // get all potential dialog elements in this dialog's composed path
+        // and check if it is topmost dialog .
+        const isTopMostDialog =
+          e
+            .composedPath()
+            .filter(
+              (el) => el instanceof Node && el.nodeName === 'DIALOG',
+            )[0] === dialogRef.current;
+        if (
+          // if the event happened on another dialog element that is not a child of the current dialog, we don't want to close it
+          !dialogRef.current?.contains(e.target as Node) ||
+          // if the dialog is not the topmost dialog, we don't want to close it
+          !isTopMostDialog
+        ) {
           return;
         }
         e.preventDefault();
@@ -364,12 +377,32 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     }, [open, onPolyfillBackdropClick]);
 
     const onDialogClick = useCallback(
-      (event: ClickEvent<HTMLDialogElement> | ClickEvent<HTMLDivElement>) => {
-        // the dialog content covers the whole dialog element
-        // leaving the backdrop element as the only clickable area
-        // that can trigger an onClick event
-        if (event.target === event.currentTarget && !preventOutsideClickClose) {
-          handleDialogClose();
+      (event: ReactMouseEvent<HTMLDialogElement>) => {
+        if (!preventOutsideClickClose) {
+          const isTargetChildNode = dialogRef.current?.contains(
+            event.target as Node,
+          );
+
+          let isWithingDialogBoundingRect = false;
+          const rect = dialogRef.current?.getBoundingClientRect();
+          if (rect) {
+            isWithingDialogBoundingRect =
+              rect.top <= event.clientY &&
+              event.clientY <= rect.top + rect.height &&
+              rect.left <= event.clientX &&
+              event.clientX <= rect.left + rect.width;
+          }
+          const isBackdropClick =
+            event.target === dialogRef.current && !isWithingDialogBoundingRect;
+
+          if (
+            // if the click happened outside the dialog by an element that is not a child of the dialog
+            (!isWithingDialogBoundingRect && !isTargetChildNode) ||
+            // if the click happened on the backdrop
+            isBackdropClick
+          ) {
+            handleDialogClose();
+          }
         }
       },
       [handleDialogClose, preventOutsideClickClose],

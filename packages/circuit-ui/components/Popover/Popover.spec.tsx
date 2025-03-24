@@ -38,8 +38,8 @@ describe('Popover', () => {
   const baseProps: PopoverProps = {
     component: (triggerProps) => <button {...triggerProps}>Button</button>,
     children: popoverContent,
-    initialOpen: true,
-    onClose: vi.fn(),
+    isOpen: true,
+    onToggle: vi.fn(),
   };
   it('should forward a ref', () => {
     const ref = createRef<HTMLDialogElement>();
@@ -57,14 +57,19 @@ describe('Popover', () => {
   });
 
   describe('when closed', () => {
-    it('should open the popover when clicking the trigger element', async () => {
-      renderPopover({ ...baseProps, initialOpen: false });
+    it('should not render its content', () => {
+      renderPopover({ ...baseProps, isOpen: false });
 
-      const popoverTrigger = screen.getByRole('button');
+      expect(screen.queryByText(popoverContent)).not.toBeInTheDocument();
+    });
+    it('should open the popover when clicking the trigger element', async () => {
+      renderPopover({ ...baseProps, isOpen: false });
+
+      const popoverTrigger = screen.getByRole('button', { name: 'Button' });
 
       await userEvent.click(popoverTrigger);
 
-      expect(screen.getByText(popoverContent)).toBeVisible();
+      expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
     });
 
     it.each([
@@ -73,37 +78,43 @@ describe('Popover', () => {
     ])(
       'should open the popover when pressing the %s key on the trigger element',
       async (_, key) => {
-        renderPopover({ ...baseProps, initialOpen: false });
+        renderPopover({ ...baseProps, isOpen: false });
 
         const popoverTrigger = screen.getByRole('button');
 
         popoverTrigger.focus();
         await userEvent.keyboard(key);
 
-        expect(screen.getByText(popoverContent)).toBeVisible();
+        expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
       },
     );
   });
 
   describe('when open', () => {
+    it('should render its content', () => {
+      renderPopover(baseProps);
+
+      expect(screen.getByText(popoverContent)).toBeVisible();
+    });
+
     it('should close the popover when clicking outside', async () => {
       renderPopover(baseProps);
 
       await userEvent.click(document.body);
 
       await waitFor(() => {
-        expect(baseProps.onClose).toHaveBeenCalledTimes(1);
+        expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
       });
     });
 
     it('should close the popover when clicking the trigger element', async () => {
       renderPopover(baseProps);
 
-      const popoverTrigger = screen.getByRole('button');
+      const popoverTrigger = screen.getByRole('button', { name: 'Button' });
 
       await userEvent.click(popoverTrigger);
 
-      expect(baseProps.onClose).toHaveBeenCalled();
+      expect(baseProps.onToggle).toHaveBeenCalled();
     });
 
     it.each([
@@ -115,12 +126,12 @@ describe('Popover', () => {
         renderPopover(baseProps);
         vi.runAllTimers();
 
-        const popoverTrigger = screen.getByRole('button');
+        const popoverTrigger = screen.getByRole('button', { name: 'Button' });
 
         popoverTrigger.focus();
         await userEvent.keyboard(key);
 
-        expect(baseProps.onClose).toHaveBeenCalledTimes(1);
+        expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
       },
     );
 
@@ -129,7 +140,15 @@ describe('Popover', () => {
 
       await userEvent.keyboard('{Escape}');
 
-      await waitFor(() => expect(baseProps.onClose).toHaveBeenCalledTimes(1));
+      await waitFor(() => expect(baseProps.onToggle).toHaveBeenCalledTimes(1));
+    });
+
+    it('should close when the isOpen prop changes ', async () => {
+      const { rerender } = renderPopover(baseProps);
+
+      rerender(<Popover {...baseProps} isOpen={false} />);
+
+      await waitFor(() => expect(baseProps.onToggle).toHaveBeenCalledTimes(1));
     });
   });
 

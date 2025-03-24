@@ -20,7 +20,7 @@
   }
 
   .content {
-    padding: var(--cui-spacings-giga);
+    padding: var(--cui-spacings-mega);
   }
 }
 
@@ -38,6 +38,6 @@
   }
 
   .content {
-    padding: var(--cui-spacings-mega);
+    padding: var(--cui-spacings-kilo);
   }
 }
