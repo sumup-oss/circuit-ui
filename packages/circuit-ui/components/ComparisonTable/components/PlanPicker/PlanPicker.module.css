@@ -4,7 +4,7 @@
   justify-content: center;
   width: 100%;
   padding: var(--cui-spacings-giga) 0;
-  background-color: var(--cui-bg-normal);
+  background-color: inherit;
 }
 
 @media (max-width: 479px) {

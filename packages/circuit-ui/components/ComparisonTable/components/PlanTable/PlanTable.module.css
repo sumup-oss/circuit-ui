@@ -16,7 +16,7 @@
   top: 0;
   z-index: 1;
   padding-top: var(--cui-spacings-giga);
-  background-color: var(--cui-bg-normal);
+  background-color: inherit;
 }
 
 .border > div {
@@ -29,7 +29,7 @@
   z-index: 1;
   padding: var(--cui-spacings-giga) 0 var(--cui-spacings-mega);
   text-align: start;
-  background-color: var(--cui-bg-normal);
+  background-color: inherit;
   border-bottom: var(--cui-border-width-kilo) solid var(--cui-border-strong);
 }
 

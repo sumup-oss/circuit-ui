@@ -1,6 +1,6 @@
 .base {
   vertical-align: middle;
-  background-color: var(--cui-bg-normal);
+  background-color: inherit;
   border-bottom: 1px solid var(--cui-border-divider);
 }
 

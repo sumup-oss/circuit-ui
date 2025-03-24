@@ -1,6 +1,6 @@
 .base {
   position: relative;
-  background-color: var(--cui-bg-normal);
+  background-color: inherit;
 }
 
 .picker {
