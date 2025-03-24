@@ -1017,6 +1017,11 @@
       "size": "24"
     },
     {
+      "name": "bulk_transfer",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
       "name": "card_in",
       "category": "Finance",
       "size": "24"
