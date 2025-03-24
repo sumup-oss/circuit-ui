@@ -42,7 +42,6 @@ export function PrimaryLink({
   activeIcon,
   label,
   isActive,
-  isExternal,
   externalLabel,
   suffix: Suffix,
   badge,
@@ -66,7 +65,19 @@ export function PrimaryLink({
   const suffix = Suffix && (
     <Suffix className={classes.suffix} aria-hidden="true" />
   );
-  const isExternalLink = isExternal || props.target === '_blank';
+  const isExternalLink = props.target === '_blank' || props.rel === 'external';
+
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    isExternalLink &&
+    !externalLabel
+  ) {
+    throw new AccessibilityError(
+      'PrimaryLink',
+      'An external link is missing an alternative text. Provide an `externalLabel` prop to communicate that the link leads to an external page or opens in a new tab.',
+    );
+  }
 
   const Icon = isActive && activeIcon ? activeIcon : icon;
 

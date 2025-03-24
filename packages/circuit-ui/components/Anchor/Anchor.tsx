@@ -31,6 +31,7 @@ import { Body, type BodyProps } from '../Body/Body.js';
 import { useComponents } from '../ComponentsContext/index.js';
 import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';
+import { AccessibilityError } from '../../util/errors.js';
 
 import classes from './Anchor.module.css';
 
@@ -79,6 +80,19 @@ export const Anchor = forwardRef(
     const Link = components.Link as AsPropType;
     const isExternalLink =
       props.rel === 'external' || props.target === '_blank';
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      isExternalLink &&
+      !externalLabel
+    ) {
+      throw new AccessibilityError(
+        'Anchor',
+        'An external link is missing an alternative text. Provide an `externalLabel` prop to communicate that the link leads to an external page or opens in a new tab.',
+      );
+    }
+
     const externalLabelId = useId();
     const descriptionIds = clsx(
       externalLabel && isExternalLink && externalLabelId,
