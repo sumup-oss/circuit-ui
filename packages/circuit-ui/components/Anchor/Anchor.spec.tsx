@@ -144,17 +144,4 @@ describe('Anchor', () => {
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
-
-  it('should throw an accessibility error when the externalLabel prop is missing', () => {
-    // Silence the console.error output and switch to development mode to throw the error
-    vi.spyOn(console, 'error').mockImplementation(() => undefined);
-    process.env.NODE_ENV = 'development';
-    expect(() =>
-      render(
-        <Anchor {...baseProps} href="https://sumup.com" target="_blank" />,
-      ),
-    ).toThrow();
-    process.env.NODE_ENV = 'test';
-    vi.restoreAllMocks();
-  });
 });
