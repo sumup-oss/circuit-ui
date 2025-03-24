@@ -25,7 +25,8 @@ const createRule = ESLintUtils.RuleCreator(
 const components = [
   {
     name: 'RadioButton',
-    alternative: 'Use the RadioButtonGroup component instead.',
+    alternative:
+      'Use the RadioButtonGroup component or – for advanced use cases – the RadioButtonInput component instead.',
   },
   {
     name: 'Selector',
