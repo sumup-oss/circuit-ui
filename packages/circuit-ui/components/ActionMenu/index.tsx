@@ -15,6 +15,9 @@
 
 export { ActionMenu } from './ActionMenu.js';
 
-export type { ActionMenuProps } from './ActionMenu.js';
+export type {
+  ActionMenuProps,
+  ActionMenuReferenceProps,
+} from './ActionMenu.js';
 
 export type { ActionMenuItemProps } from './components/ActionMenuItem.js';
