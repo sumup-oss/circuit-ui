@@ -26,7 +26,7 @@ import { Button } from '../Button/index.js';
 import { Dialog, type DialogProps } from './Dialog.js';
 
 export default {
-  title: 'Components/Dialog',
+  title: 'Components/Modal/Dialog',
   component: Dialog,
   tags: ['status:stable'],
   chromatic: {
