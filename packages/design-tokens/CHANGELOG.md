@@ -1,5 +1,15 @@
 # @sumup-oss/design-tokens
 
+## 9.0.0-next.0
+
+### Major Changes
+
+- [#2978](https://github.com/sumup-oss/circuit-ui/pull/2978) [`b7ff643`](https://github.com/sumup-oss/circuit-ui/commit/b7ff643cbb1d190d82a164b5116808546241a528) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the `themePropType` export. Use the `Theme` type instead or (better) migrate to CSS custom properties.
+
+### Minor Changes
+
+- [#2859](https://github.com/sumup-oss/circuit-ui/pull/2859) [`3dd75c9`](https://github.com/sumup-oss/circuit-ui/commit/3dd75c9b647eb80d5043c6cac1cbb0d299654f56) Thanks [@sirineJ](https://github.com/sirineJ)! - Added "::backdrop" to the list of selectors to apply theme custom properties to. See https://developer.chrome.com/blog/css-backdrop-inheritance.
+
 ## 8.2.0
 
 ### Minor Changes

@@ -1,5 +1,65 @@
 # @sumup-oss/circuit-ui
 
+## 10.0.0-next.0
+
+### Major Changes
+
+- [#3002](https://github.com/sumup-oss/circuit-ui/pull/3002) [`c0ca9c5`](https://github.com/sumup-oss/circuit-ui/commit/c0ca9c5f5170b7afe6acbe9793969bc9a208a591) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the deprecated RadioButton component. Use the RadioButtonGroup component instead, or – for advanced use cases – the internal RadioButtonInput component.
+
+- [#3002](https://github.com/sumup-oss/circuit-ui/pull/3002) [`c0ca9c5`](https://github.com/sumup-oss/circuit-ui/commit/c0ca9c5f5170b7afe6acbe9793969bc9a208a591) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the deprecated Selector component. Use the SelectorGroup component instead.
+
+- [#2854](https://github.com/sumup-oss/circuit-ui/pull/2854) [`bfb9130`](https://github.com/sumup-oss/circuit-ui/commit/bfb9130f684ea965efcb0197b6a4a02d7780f473) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the Anchor and the SideNavigation components to throw an accessibility error when external links are not provided with an alternative text.
+
+- [#2902](https://github.com/sumup-oss/circuit-ui/pull/2902) [`64faf5e`](https://github.com/sumup-oss/circuit-ui/commit/64faf5e24259baf925f18254e1397f43833bcf78) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the Calendar component's deprecated `calendar` prop. Support for the `gregory` calendar was removed in v9.4 since it never fully worked.
+
+- [#2914](https://github.com/sumup-oss/circuit-ui/pull/2914) [`c01bb30`](https://github.com/sumup-oss/circuit-ui/commit/c01bb304a920dffdaa2baf7921d7b793f7a8ebf5) Thanks [@sirineJ](https://github.com/sirineJ)! - Renamed the Popover component to ActionMenu to better reflect its purpose.
+
+- [#2922](https://github.com/sumup-oss/circuit-ui/pull/2922) [`ea6d920`](https://github.com/sumup-oss/circuit-ui/commit/ea6d920ae43be4da2701579f56b9fd15cd435c04) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the global style reset to improve compatibility with other UI libraries. If your app still requires the reset, [download](https://meyerweb.com/eric/tools/css/reset/) and include it manually.
+
+- [#3002](https://github.com/sumup-oss/circuit-ui/pull/3002) [`c0ca9c5`](https://github.com/sumup-oss/circuit-ui/commit/c0ca9c5f5170b7afe6acbe9793969bc9a208a591) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the deprecated Title component. Use the Display component instead.
+
+- [#2947](https://github.com/sumup-oss/circuit-ui/pull/2947) [`e925c3a`](https://github.com/sumup-oss/circuit-ui/commit/e925c3a071a6b6d6412aa94028193907f2198e10) Thanks [@connor-baer](https://github.com/connor-baer)! - Required an accessible name for the SideNavigation's primary link badge to ensure it can be perceived by visually impaired users. The relevant prop has been renamed from `badge.label` to `badge.children` to match the secondary link's badge.
+
+- [#3002](https://github.com/sumup-oss/circuit-ui/pull/3002) [`c0ca9c5`](https://github.com/sumup-oss/circuit-ui/commit/c0ca9c5f5170b7afe6acbe9793969bc9a208a591) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the deprecated SubHeadline component. Use the Headline component in size `s` instead.
+
+- [#2854](https://github.com/sumup-oss/circuit-ui/pull/2854) [`bfb9130`](https://github.com/sumup-oss/circuit-ui/commit/bfb9130f684ea965efcb0197b6a4a02d7780f473) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the SideNavigation's optional `isExternal` prop to convey when links open externally. Use a combination of the `target` or `rel` props with the `externalLabel` prop to create accessible external links.
+
+### Minor Changes
+
+- [#2906](https://github.com/sumup-oss/circuit-ui/pull/2906) [`6ad9edb`](https://github.com/sumup-oss/circuit-ui/commit/6ad9edbbdebf89abd26639066687bdb2e87c66cc) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed the deprecated `profileMenu` and `user` props from the TopNavigation component.
+
+- [#2974](https://github.com/sumup-oss/circuit-ui/pull/2974) [`b025cf4`](https://github.com/sumup-oss/circuit-ui/commit/b025cf4cfa9a1a687623d1d23f3daf0283c0db2c) Thanks [@sirineJ](https://github.com/sirineJ)! - Marked the Timestamp component as stable.
+
+  ```diff
+  -import { Timestamp } from '@sumup-oss/circuit-ui/experimental';
+  +import { Timestamp } from '@sumup-oss/circuit-ui';
+  ```
+
+- [#2859](https://github.com/sumup-oss/circuit-ui/pull/2859) [`3dd75c9`](https://github.com/sumup-oss/circuit-ui/commit/3dd75c9b647eb80d5043c6cac1cbb0d299654f56) Thanks [@sirineJ](https://github.com/sirineJ)! - Set an explicit minimum version for TypeScript of 4.1 or higher. While this is technically a breaking change, v4.1 was released over 4 years ago, so we don't expect this to break anyone's code. Please let us know if this causes you issues.
+
+- [#2859](https://github.com/sumup-oss/circuit-ui/pull/2859) [`3dd75c9`](https://github.com/sumup-oss/circuit-ui/commit/3dd75c9b647eb80d5043c6cac1cbb0d299654f56) Thanks [@sirineJ](https://github.com/sirineJ)! - Refactored the NotificationModal component to use the new Modal component under the hood.
+
+- [#2859](https://github.com/sumup-oss/circuit-ui/pull/2859) [`3dd75c9`](https://github.com/sumup-oss/circuit-ui/commit/3dd75c9b647eb80d5043c6cac1cbb0d299654f56) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a new hook `useScrollLock` to disable page scroll on demand.
+
+- [#2859](https://github.com/sumup-oss/circuit-ui/pull/2859) [`3dd75c9`](https://github.com/sumup-oss/circuit-ui/commit/3dd75c9b647eb80d5043c6cac1cbb0d299654f56) Thanks [@sirineJ](https://github.com/sirineJ)! - Deprecated the `hideCloseButton` prop in the Modal and NotificationModal components. It had no effect.
+
+- [#2859](https://github.com/sumup-oss/circuit-ui/pull/2859) [`3dd75c9`](https://github.com/sumup-oss/circuit-ui/commit/3dd75c9b647eb80d5043c6cac1cbb0d299654f56) Thanks [@sirineJ](https://github.com/sirineJ)! - Added default translations for the Modal and NotificationModal components. The `closeButtonLabel` prop is now optional.
+
+- [#2916](https://github.com/sumup-oss/circuit-ui/pull/2916) [`40ceec5`](https://github.com/sumup-oss/circuit-ui/commit/40ceec53e12096c16f8089edd5591ecbaa6e277d) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a Popover component that displays any given content above other content in a page upon interaction with a triggering element.
+
+- [#2871](https://github.com/sumup-oss/circuit-ui/pull/2871) [`6c6e2ac`](https://github.com/sumup-oss/circuit-ui/commit/6c6e2ac3bc6dd706a2aa6e51eb27ffdd83e90c94) Thanks [@sirineJ](https://github.com/sirineJ)! - Refactored the Modal, Popover, Toggletip, DateInput, SidePanel and SideNavigation components to leverage the internal Dialog component for improved consistency and maintainability.
+
+- [#3016](https://github.com/sumup-oss/circuit-ui/pull/3016) [`c78f508`](https://github.com/sumup-oss/circuit-ui/commit/c78f50828ed0c08c5b2e3ad8e932420cd36ce311) Thanks [@sirineJ](https://github.com/sirineJ)! - Exported the Dialog component as an internal component.
+
+- [#2859](https://github.com/sumup-oss/circuit-ui/pull/2859) [`3dd75c9`](https://github.com/sumup-oss/circuit-ui/commit/3dd75c9b647eb80d5043c6cac1cbb0d299654f56) Thanks [@sirineJ](https://github.com/sirineJ)! - Refactored the Modal component to use the native `dialog` element. The Modal component can now be rendered directly in your JSX (the older `useModal` hook continues to be supported).
+
+### Patch Changes
+
+- [#2860](https://github.com/sumup-oss/circuit-ui/pull/2860) [`3ab5e39`](https://github.com/sumup-oss/circuit-ui/commit/3ab5e39cf1153d5879a7ae2842b56ae5bfc5469c) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed an issue with simultaneous instances of the `useScrollLock` hook.
+
+- Updated dependencies [[`3dd75c9`](https://github.com/sumup-oss/circuit-ui/commit/3dd75c9b647eb80d5043c6cac1cbb0d299654f56), [`b7ff643`](https://github.com/sumup-oss/circuit-ui/commit/b7ff643cbb1d190d82a164b5116808546241a528)]:
+  - @sumup-oss/design-tokens@9.0.0-next.0
+
 ## 9.9.1
 
 ### Patch Changes

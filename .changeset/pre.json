@@ -11,5 +11,32 @@
     "@sumup-oss/cna-template": "6.0.0",
     "next-app": "2.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "angry-comics-invent",
+    "angry-ears-train",
+    "breezy-suns-impress",
+    "cyan-knives-drop",
+    "dry-peaches-sin",
+    "eight-beers-think",
+    "gold-lemons-report",
+    "grumpy-wombats-talk",
+    "happy-carrots-vanish",
+    "large-shirts-peel",
+    "lucky-cheetahs-flow",
+    "metal-sloths-ring",
+    "nine-wolves-prove",
+    "poor-ads-hunt",
+    "rich-icons-pretend",
+    "rich-monkeys-sneeze",
+    "shaggy-glasses-grin",
+    "sharp-seals-leave",
+    "silent-moles-guess",
+    "silent-pots-rule",
+    "smart-pumas-design",
+    "spicy-avocados-provide",
+    "spicy-pandas-glow",
+    "thick-pianos-fly",
+    "true-adults-end",
+    "wicked-pants-cough"
+  ]
 }
