@@ -18,3 +18,6 @@ export type { CheckboxInputProps } from './components/Checkbox/CheckboxInput.js'
 
 export { RadioButtonInput } from './components/RadioButtonGroup/RadioButtonInput.js';
 export type { RadioButtonInputProps } from './components/RadioButtonGroup/RadioButtonInput.js';
+
+export { Dialog } from './components/Dialog/Dialog.js';
+export type { DialogProps } from './components/Dialog/Dialog.js';
