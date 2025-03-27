@@ -122,13 +122,10 @@ export const ActionMenu = forwardRef<HTMLDialogElement, ActionMenuProps>(
         >
           {actions.map((action, index) =>
             isDivider(action) ? (
-              <Hr
-                className={classes.divider}
-                key={`cui-action-menu-divider-${menuId}-${index}`}
-              />
+              <Hr className={classes.divider} key={index} />
             ) : (
               <ActionMenuItem
-                key={`cui-action-menu-item-${menuId}-${index}`}
+                key={index}
                 {...action}
                 {...focusProps}
                 role={isMenu ? 'menuitem' : undefined}
