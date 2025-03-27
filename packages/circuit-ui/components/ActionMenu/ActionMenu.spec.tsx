@@ -56,7 +56,9 @@ describe('ActionMenu', () => {
   }
 
   const baseProps: ActionMenuProps = {
-    component: (triggerProps) => <button {...triggerProps}>Button</button>,
+    component: (triggerProps) => (
+      <button {...triggerProps}>Trigger Button</button>
+    ),
     actions: [
       {
         onClick: vi.fn(),
@@ -127,7 +129,7 @@ describe('ActionMenu', () => {
   it('should close the action menu when clicking the trigger element', async () => {
     renderActionMenu(baseProps);
 
-    const trigger = screen.getByRole('button');
+    const trigger = screen.getByRole('button', { name: 'Trigger Button' });
 
     await userEvent.click(trigger);
 
@@ -145,7 +147,7 @@ describe('ActionMenu', () => {
       renderActionMenu(baseProps);
       vi.runAllTimers();
 
-      const trigger = screen.getByRole('button');
+      const trigger = screen.getByRole('button', { name: 'Trigger Button' });
 
       trigger.focus();
       await userEvent.keyboard(key);

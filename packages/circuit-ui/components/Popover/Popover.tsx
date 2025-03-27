@@ -46,6 +46,7 @@ import { useMedia } from '../../hooks/useMedia/index.js';
 import { sharedClasses } from '../../styles/shared.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { clsx } from '../../styles/clsx.js';
+import { usePrevious } from '../../hooks/usePrevious/index.js';
 
 import classes from './Popover.module.css';
 
@@ -127,6 +128,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
     const [isClosing, setClosing] = useState(false);
     const isMobile = useMedia('(max-width: 479px)');
     const animationDuration = isMobile ? 300 : 0;
+    const prevOpen = usePrevious(isOpen);
 
     const { floatingStyles, refs, update } = useFloating<HTMLElement>({
       open: isOpen,
@@ -189,6 +191,14 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
       : undefined;
     const inAnimation = isMobile ? sharedClasses.animationSlideUpIn : undefined;
 
+    useEffect(() => {
+      // Focus the reference element after closing
+      if (prevOpen && !isOpen) {
+        const triggerButton = refs.reference.current
+          ?.firstElementChild as HTMLElement;
+        triggerButton.focus();
+      }
+    }, [isOpen, prevOpen, refs.reference]);
     return (
       <Fragment>
         <div className={classes.trigger} ref={refs.setReference}>

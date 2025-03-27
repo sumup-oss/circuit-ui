@@ -150,7 +150,10 @@ export type {
   ActionMenuItemProps,
 } from './components/ActionMenu/index.js';
 export { Popover } from './components/Popover/Popover.js';
-export type { PopoverProps } from './components/Popover/Popover.js';
+export type {
+  PopoverProps,
+  PopoverReferenceProps,
+} from './components/Popover/Popover.js';
 export { ModalProvider } from './components/Modal/ModalContext.js';
 export type { ModalProviderProps } from './components/Modal/ModalContext.js';
 export { useModal } from './components/Modal/index.js';

@@ -1,43 +1,10 @@
-.base {
+.base > div {
   box-sizing: border-box;
-  max-height: var(--popover-max-height);
-  padding: 0;
-  margin: 0;
-  border-radius: var(--cui-border-radius-byte);
-}
-
-.trigger {
-  display: inline-block;
-}
-
-.menu {
-  box-sizing: border-box;
-  max-height: var(--popover-max-height);
   padding: var(--cui-spacings-byte) 0;
   overflow-y: auto;
   background-color: var(--cui-bg-elevated);
   border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
   border-radius: inherit;
-  box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
-}
-
-@media (max-width: 479px) {
-  .base {
-    top: unset;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: auto;
-    max-width: 100%;
-    max-height: 90vh;
-    border-radius: var(--cui-border-radius-byte) var(--cui-border-radius-byte) 0
-      0;
-  }
-
-  .menu {
-    max-height: 90vh;
-    padding: var(--cui-spacings-byte) 0;
-  }
 }
 
 .divider {
