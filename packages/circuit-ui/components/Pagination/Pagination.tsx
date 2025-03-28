@@ -116,7 +116,6 @@ export const Pagination = ({
 
   return (
     <nav
-      role="navigation"
       aria-label={label}
       className={clsx(classes.base, className)}
       {...props}
