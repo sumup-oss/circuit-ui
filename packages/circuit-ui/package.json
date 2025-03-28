@@ -102,7 +102,7 @@
     "@sumup-oss/intl": "^3.1.1",
     "react": ">=18.0.0 <19.0.0",
     "react-dom": ">=18.0.0 <19.0.0",
-    "temporal-polyfill": "0.3.x"
+    "temporal-polyfill": ">= 0.2.0 < 0.4.0"
   },
   "engines": {
     "node": ">=20"
