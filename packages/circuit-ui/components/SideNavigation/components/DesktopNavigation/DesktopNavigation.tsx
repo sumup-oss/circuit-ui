@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-/* eslint-disable jsx-a11y/no-redundant-roles */
-
 'use client';
 
 import { utilClasses } from '../../../../styles/utility.js';

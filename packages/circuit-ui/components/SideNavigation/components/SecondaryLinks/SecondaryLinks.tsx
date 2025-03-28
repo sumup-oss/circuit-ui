@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-/* eslint-disable jsx-a11y/no-redundant-roles */
-
 'use client';
 
 import { forwardRef } from 'react';

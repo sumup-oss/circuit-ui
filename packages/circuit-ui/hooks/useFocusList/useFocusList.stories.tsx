@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-/* eslint-disable jsx-a11y/no-redundant-roles */
 import { action } from '@storybook/addon-actions';
 import { userEvent } from '@storybook/test';
 

@@ -38,7 +38,6 @@ export const PageList: FC<PageListProps> = ({
   className,
   ...props
 }: PageListProps) => (
-  // eslint-disable-next-line jsx-a11y/no-redundant-roles
   <ol className={clsx(classes.base, className)} {...props}>
     {pages.map((page) => {
       const isCurrent = currentPage === page;
