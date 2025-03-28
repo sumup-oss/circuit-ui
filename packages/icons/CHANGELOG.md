@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 5.8.0
+
+### Minor Changes
+
+- [#3012](https://github.com/sumup-oss/circuit-ui/pull/3012) [`ff540a3`](https://github.com/sumup-oss/circuit-ui/commit/ff540a3b93f0efe50253041a5bc0fef6281ad35f) Thanks [@pspasova](https://github.com/pspasova)! - Added a Bulk Transfer icon in size 24.
+
 ## 5.7.0
 
 ### Minor Changes
