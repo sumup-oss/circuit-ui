@@ -128,7 +128,8 @@ export const ImageInput = ({
   const id = useId();
   const inputId = customId || id;
   const validationHintId = useId();
-  const descriptionIds = clsx(descriptionId, validationHintId) || undefined;
+  const descriptionIds =
+    clsx(descriptionId, validationHint && validationHintId) || undefined;
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isDragging, setDragging] = useState<boolean>(false);
   const [previewImage, setPreviewImage] = useState<string>('');

@@ -225,7 +225,8 @@ export const PhoneNumberInput = forwardRef<
 
     const validationHintId = useId();
 
-    const descriptionIds = clsx(descriptionId, validationHintId) || undefined;
+    const descriptionIds =
+      clsx(descriptionId, validationHint && validationHintId) || undefined;
 
     const options = useMemo(
       () => mapCountryCodeOptions(countryCode.options, locale),

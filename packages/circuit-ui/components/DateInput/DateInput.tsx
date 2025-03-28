@@ -198,7 +198,10 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     const headlineId = useId();
     const validationHintId = useId();
 
-    const descriptionIds = clsx(descriptionId, validationHintId);
+    const descriptionIds = clsx(
+      descriptionId,
+      validationHint && validationHintId,
+    );
     const minDate = toPlainDate(min);
     const maxDate = toPlainDate(max);
 
@@ -464,7 +467,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
           open={open}
           isModal={isMobile}
           onClose={closeCalendar}
-          aria-labelledby={headlineId}
+          aria-labelledby={clsx(open && headlineId)}
           style={dialogStyles}
         >
           {() => (

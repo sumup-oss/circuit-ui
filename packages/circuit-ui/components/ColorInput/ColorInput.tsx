@@ -105,7 +105,10 @@ export const ColorInput = forwardRef<HTMLInputElement, ColorInputProps>(
     const pickerId = useId();
     const validationHintId = useId();
 
-    const descriptionIds = clsx(validationHintId, descriptionId);
+    const descriptionIds = clsx(
+      validationHint && validationHintId,
+      descriptionId,
+    );
 
     const updatePickerValue = useCallback((color: string) => {
       if (!colorPickerRef.current || !isValidColor(color)) {

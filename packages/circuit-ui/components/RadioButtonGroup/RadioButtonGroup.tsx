@@ -153,7 +153,10 @@ export const RadioButtonGroup = forwardRef(
     const randomName = useId();
     const name = customName || randomName;
     const validationHintId = useId();
-    const descriptionIds = clsx(descriptionId, validationHintId);
+    const descriptionIds = clsx(
+      descriptionId,
+      validationHint && validationHintId,
+    );
 
     if (
       process.env.NODE_ENV !== 'production' &&

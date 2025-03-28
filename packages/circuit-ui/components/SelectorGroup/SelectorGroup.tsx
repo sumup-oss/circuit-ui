@@ -151,7 +151,8 @@ export const SelectorGroup = forwardRef<
     const randomName = useId();
     const name = customName || randomName;
     const validationHintId = useId();
-    const descriptionIds = clsx(descriptionId, validationHintId) || undefined;
+    const descriptionIds =
+      clsx(descriptionId, validationHint && validationHintId) || undefined;
 
     if (
       process.env.NODE_ENV !== 'production' &&
