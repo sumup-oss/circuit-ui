@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.9.5
+
+### Patch Changes
+
+- [#3009](https://github.com/sumup-oss/circuit-ui/pull/3009) [`4b75fcd`](https://github.com/sumup-oss/circuit-ui/commit/4b75fcdd9393dbf5c1b7e1db8fc2ac8cba4cdfb7) Thanks [@sirineJ](https://github.com/sirineJ)! - Provided an accessible name to the IconButton component.
+
 ## 9.9.4
 
 ### Patch Changes
