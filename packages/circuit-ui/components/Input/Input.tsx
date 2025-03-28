@@ -149,7 +149,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     const id = useId();
     const inputId = customId || id;
     const validationHintId = useId();
-    const descriptionIds = clsx(descriptionId, validationHintId) || undefined;
+    const descriptionIds =
+      clsx(descriptionId, validationHint && validationHintId) || undefined;
 
     const prefix = RenderPrefix && <RenderPrefix className={classes.prefix} />;
     const suffix = RenderSuffix && <RenderSuffix className={classes.suffix} />;

@@ -147,7 +147,8 @@ export const CheckboxGroup = forwardRef(
     ref: CheckboxGroupProps['ref'],
   ) => {
     const validationHintId = useId();
-    const descriptionIds = clsx(descriptionId, validationHintId) || undefined;
+    const descriptionIds =
+      clsx(descriptionId, validationHint && validationHintId) || undefined;
 
     if (
       process.env.NODE_ENV !== 'production' &&
