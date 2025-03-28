@@ -32,7 +32,7 @@ export const Example = () => {
   const focusProps = useFocusList();
 
   return (
-    <ul role="list" style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+    <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
       {fruits.map((fruit) => (
         <li key={fruit}>
           <button

@@ -98,7 +98,7 @@ function SecondaryGroup({
           </Body>
         </Skeleton>
       )}
-      <ul role="list" className={classes.list}>
+      <ul className={classes.list}>
         {secondaryLinks.map((link) => (
           <SecondaryLink key={link.label} {...link} {...focusProps} />
         ))}
@@ -116,12 +116,7 @@ export const SecondaryLinks = forwardRef<HTMLUListElement, SecondaryLinksProps>(
   ({ secondaryGroups, className, ...props }, ref) => {
     const focusProps = useFocusList();
     return (
-      <ul
-        role="list"
-        ref={ref}
-        className={clsx(classes.list, className)}
-        {...props}
-      >
+      <ul ref={ref} className={clsx(classes.list, className)} {...props}>
         {secondaryGroups.map((group) => (
           <SecondaryGroup
             key={group.label}

@@ -85,7 +85,7 @@ export function DesktopNavigation({
         {skipNavigationHref && skipNavigationLabel && (
           <SkipLink href={skipNavigationHref}>{skipNavigationLabel}</SkipLink>
         )}
-        <ul role="list" className={classes.list}>
+        <ul className={classes.list}>
           {primaryLinks.map((link) => (
             <li key={link.label}>
               <PrimaryLink {...link} {...focusProps} />
