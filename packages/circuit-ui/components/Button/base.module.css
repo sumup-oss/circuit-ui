@@ -20,6 +20,10 @@
     border-color var(--cui-transitions-default);
 }
 
+.base[hidden] {
+  display: none;
+}
+
 .base[aria-busy="true"] {
   position: relative;
   overflow: hidden;
