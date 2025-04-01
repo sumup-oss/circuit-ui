@@ -2,4 +2,4 @@
 "@sumup-oss/icons": minor
 ---
 
-Added a Sumup pay icon in size 24.
+Added a Sumup pay icon in size 32.
