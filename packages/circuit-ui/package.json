@@ -61,7 +61,7 @@
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.2",
     "@nanostores/react": "^0.8.4",
-    "nanostores": "^0.11.3",
+    "nanostores": "^0.11.4",
     "react-modal": "^3.16.1",
     "react-number-format": "5.3.0"
   },
