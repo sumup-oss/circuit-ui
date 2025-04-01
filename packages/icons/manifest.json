@@ -560,7 +560,7 @@
     {
       "name": "sumup_pay",
       "category": "Card scheme",
-      "size": "24"
+      "size": "32"
     },
     {
       "name": "callback",
