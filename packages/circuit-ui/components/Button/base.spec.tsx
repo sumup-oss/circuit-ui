@@ -124,6 +124,12 @@ describe('Button', () => {
       const anchor = container.querySelector('a');
       expect(ref.current).toBe(anchor);
     });
+
+    it('should render button with display: none when hidden attribute is set', () => {
+      const { container } = render(<Button hidden />);
+      const button = container.querySelector('button');
+      expect(button).toHaveStyle({ display: 'none' });
+    });
   });
 
   describe('accessibility', () => {
