@@ -18,6 +18,7 @@ import './styles/base.css';
 
 export { utilClasses } from './styles/utility.js';
 export { clsx } from './styles/clsx.js';
+export { idx } from './util/idx.js';
 
 // Typography
 export { Headline } from './components/Headline/index.js';
