@@ -132,7 +132,7 @@ export function usePlainDateState({
       value: values.month,
       'aria-valuetext': values.month
         ? [values.month, getMonthName(values.month, locale)].join(', ')
-        : '',
+        : undefined,
       defaultValue: today.month,
       placeholder: 'mm',
       step: 3,
