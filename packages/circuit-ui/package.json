@@ -1,6 +1,6 @@
 {
   "name": "@sumup-oss/circuit-ui",
-  "version": "9.9.4",
+  "version": "9.10.0",
   "description": "SumUp's React UI component library",
   "type": "module",
   "main": "./dist/index.js",
@@ -71,7 +71,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@sumup-oss/design-tokens": "^8.2.0",
-    "@sumup-oss/icons": "^5.7.0",
+    "@sumup-oss/icons": "^5.8.0",
     "@sumup-oss/intl": "^3.1.1",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "6.6.3",

@@ -1,5 +1,21 @@
 # @sumup-oss/circuit-ui
 
+## 9.10.0
+
+### Minor Changes
+
+- [#3018](https://github.com/sumup-oss/circuit-ui/pull/3018) [`4254dcd`](https://github.com/sumup-oss/circuit-ui/commit/4254dcd4b7f5df24cbcf02d323ef775ebbfe6288) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a new `idx` helper to concatenate ids for `aria-*` attributes.
+
+### Patch Changes
+
+- [#3018](https://github.com/sumup-oss/circuit-ui/pull/3018) [`4254dcd`](https://github.com/sumup-oss/circuit-ui/commit/4254dcd4b7f5df24cbcf02d323ef775ebbfe6288) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed `aria-*` attributes with references to non-existent elements.
+
+- [#3019](https://github.com/sumup-oss/circuit-ui/pull/3019) [`1e177db`](https://github.com/sumup-oss/circuit-ui/commit/1e177db0798fe74a6ee6fc8ff2d752efd6b3f8ce) Thanks [@connor-baer](https://github.com/connor-baer)! - Widened the allowed version range for the `temporal-polyfill` peer dependency which recently added support for the March 2025 version of the Temporal spec.
+
+- [#3020](https://github.com/sumup-oss/circuit-ui/pull/3020) [`e366b87`](https://github.com/sumup-oss/circuit-ui/commit/e366b872167e3dce3d89f1486221c7e75cf2fa07) Thanks [@vascofg](https://github.com/vascofg)! - Added support for the `hidden` attribute to the Button component.
+
+- [#3009](https://github.com/sumup-oss/circuit-ui/pull/3009) [`4b75fcd`](https://github.com/sumup-oss/circuit-ui/commit/4b75fcdd9393dbf5c1b7e1db8fc2ac8cba4cdfb7) Thanks [@sirineJ](https://github.com/sirineJ)! - Provided an accessible name to the IconButton component.
+
 ## 9.9.4
 
 ### Patch Changes
