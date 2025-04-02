@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.10.1
+
+### Patch Changes
+
+- [#3031](https://github.com/sumup-oss/circuit-ui/pull/3031) [`7da5585`](https://github.com/sumup-oss/circuit-ui/commit/7da558500bc1a0b6635b692ac8851e6969a04935) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the `aria-valuetext` attribute from the DateInput component when empty.
+
 ## 9.10.0
 
 ### Minor Changes
