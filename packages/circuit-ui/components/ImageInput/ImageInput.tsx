@@ -42,6 +42,7 @@ import {
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';
+import { idx } from '../../util/idx.js';
 
 import classes from './ImageInput.module.css';
 
@@ -128,7 +129,7 @@ export const ImageInput = ({
   const id = useId();
   const inputId = customId || id;
   const validationHintId = useId();
-  const descriptionIds = clsx(descriptionId, validationHintId) || undefined;
+  const descriptionIds = idx(descriptionId, validationHint && validationHintId);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isDragging, setDragging] = useState<boolean>(false);
   const [previewImage, setPreviewImage] = useState<string>('');

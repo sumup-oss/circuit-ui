@@ -43,7 +43,7 @@ import {
 import { applyMultipleRefs } from '../../util/refs.js';
 import { eachFn } from '../../util/helpers.js';
 import { changeInputValue } from '../../util/input-value.js';
-import { clsx } from '../../styles/clsx.js';
+import { idx } from '../../util/idx.js';
 
 import {
   mapCountryCodeOptions,
@@ -225,7 +225,10 @@ export const PhoneNumberInput = forwardRef<
 
     const validationHintId = useId();
 
-    const descriptionIds = clsx(descriptionId, validationHintId) || undefined;
+    const descriptionIds = idx(
+      descriptionId,
+      validationHint && validationHintId,
+    );
 
     const options = useMemo(
       () => mapCountryCodeOptions(countryCode.options, locale),

@@ -58,6 +58,7 @@ import {
 import { toPlainDate } from '../../util/date.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { changeInputValue } from '../../util/input-value.js';
+import { idx } from '../../util/idx.js';
 
 import { Dialog } from './components/Dialog.js';
 import { DateSegment } from './components/DateSegment.js';
@@ -198,7 +199,10 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     const headlineId = useId();
     const validationHintId = useId();
 
-    const descriptionIds = clsx(descriptionId, validationHintId);
+    const descriptionIds = idx(
+      descriptionId,
+      validationHint && validationHintId,
+    );
     const minDate = toPlainDate(min);
     const maxDate = toPlainDate(max);
 
@@ -464,7 +468,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
           open={open}
           isModal={isMobile}
           onClose={closeCalendar}
-          aria-labelledby={headlineId}
+          aria-labelledby={idx(open && headlineId)}
           style={dialogStyles}
         >
           {() => (

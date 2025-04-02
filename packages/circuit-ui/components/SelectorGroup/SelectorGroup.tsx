@@ -35,6 +35,7 @@ import {
 } from '../Field/index.js';
 import { isEmpty } from '../../util/helpers.js';
 import { clsx } from '../../styles/clsx.js';
+import { idx } from '../../util/idx.js';
 
 import classes from './SelectorGroup.module.css';
 
@@ -151,7 +152,10 @@ export const SelectorGroup = forwardRef<
     const randomName = useId();
     const name = customName || randomName;
     const validationHintId = useId();
-    const descriptionIds = clsx(descriptionId, validationHintId) || undefined;
+    const descriptionIds = idx(
+      descriptionId,
+      validationHint && validationHintId,
+    );
 
     if (
       process.env.NODE_ENV !== 'production' &&

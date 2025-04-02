@@ -34,7 +34,7 @@ import {
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 import { isEmpty } from '../../util/helpers.js';
-import { clsx } from '../../styles/clsx.js';
+import { idx } from '../../util/idx.js';
 import {
   RadioButton,
   type RadioButtonProps,
@@ -153,7 +153,10 @@ export const RadioButtonGroup = forwardRef(
     const randomName = useId();
     const name = customName || randomName;
     const validationHintId = useId();
-    const descriptionIds = clsx(descriptionId, validationHintId);
+    const descriptionIds = idx(
+      descriptionId,
+      validationHint && validationHintId,
+    );
 
     if (
       process.env.NODE_ENV !== 'production' &&
