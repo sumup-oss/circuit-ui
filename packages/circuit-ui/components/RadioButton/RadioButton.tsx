@@ -21,8 +21,8 @@ import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
+import { idx } from '../../util/idx.js';
 import { FieldWrapper, FieldDescription } from '../Field/index.js';
-import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';
 import {
   RadioButtonInput,
@@ -64,7 +64,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
     const inputId = customId || id;
     const descriptionId = useId();
 
-    const descriptionIds = clsx(describedBy, description && descriptionId);
+    const descriptionIds = idx(describedBy, description && descriptionId);
 
     if (
       process.env.NODE_ENV !== 'production' &&

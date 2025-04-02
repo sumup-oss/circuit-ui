@@ -22,7 +22,7 @@ import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
-import { clsx } from '../../styles/clsx.js';
+import { idx } from '../../util/idx.js';
 
 import { CheckboxInput, type CheckboxInputProps } from './CheckboxInput.js';
 import classes from './Checkbox.module.css';
@@ -64,8 +64,10 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     ref,
   ) => {
     const validationHintId = useId();
-    const descriptionIds =
-      clsx(descriptionId, validationHint && validationHintId) || undefined;
+    const descriptionIds = idx(
+      descriptionId,
+      validationHint && validationHintId,
+    );
 
     if (
       process.env.NODE_ENV !== 'production' &&

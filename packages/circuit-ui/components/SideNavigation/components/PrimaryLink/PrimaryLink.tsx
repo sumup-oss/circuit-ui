@@ -27,6 +27,7 @@ import type {
   PrimaryBadgeProps,
 } from '../../types.js';
 import { isObject } from '../../../../util/type-check.js';
+import { idx } from '../../../../util/idx.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { utilClasses } from '../../../../styles/utility.js';
 
@@ -56,7 +57,7 @@ export function PrimaryLink({
   const externalLabelId = useId();
 
   const badgeProps = getBadgeProps(badge);
-  const descriptionIds = clsx(
+  const descriptionIds = idx(
     badgeProps?.label && badgeLabelId,
     externalLabel && externalLabelId,
     descriptionId,

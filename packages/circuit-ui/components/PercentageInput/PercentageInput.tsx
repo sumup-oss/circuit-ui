@@ -20,6 +20,7 @@ import { resolveNumberFormat } from '@sumup-oss/intl';
 import { NumericFormat, type NumericFormatProps } from 'react-number-format';
 
 import { clsx } from '../../styles/clsx.js';
+import { idx } from '../../util/idx.js';
 import { Input, type InputProps } from '../Input/index.js';
 
 import { formatPlaceholder } from './PercentageInputService.js';
@@ -77,7 +78,7 @@ export const PercentageInput = forwardRef<
     ref,
   ) => {
     const percentageSymbolId = useId();
-    const descriptionIds = clsx(percentageSymbolId, descriptionId);
+    const descriptionIds = idx(percentageSymbolId, descriptionId);
 
     const { groupDelimiter, decimalDelimiter } =
       resolveNumberFormat(locale, {
