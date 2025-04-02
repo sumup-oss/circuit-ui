@@ -2,4 +2,4 @@
 "@sumup-oss/circuit-ui": patch
 ---
 
-Hide button when hidden attribute is passed
+Added support for the `hidden` attribute to the Button component.
