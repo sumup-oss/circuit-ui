@@ -8,6 +8,104 @@ We encourage you to enable and apply the rules incrementally and review the chan
 
 Prior to v5, codemods were implemented using [jscodeshift](#-codemods-jscodeshift).
 
+## From v9.x to v10
+
+Circuit UI v10 improves the accessibility of the overlay components using the native [`dialog`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) element's capabilities and API.
+
+### Upgrading
+
+Circuit UI v10 requires a minimum Typescript version of 4.1. While this is technically a breaking change, v4.1 was released over 4 years ago (relative to this version's release date), so we don't expect this to break anyone's code. Please let us know if this causes you issues.
+
+To get started, upgrade `@sumup-oss/circuit-ui` and its peer dependencies:
+
+```sh
+npm upgrade @sumup-oss/circuit-ui @sumup-oss/design-tokens @sumup-oss/icons @sumup-oss/stylelint-plugin-circuit-ui @sumup-oss/eslint-plugin-circuit-ui
+```
+
+### Overlay components: now using native `dialog`
+
+All overlay components have been refactored to use the native `dialog` element instead of [react-modal](https://www.npmjs.com/package/react-modal). As a result, the modal dialog is now rendered in the DOM's [Top Layer](https://developer.mozilla.org/en-US/docs/Glossary/Top_layer), a special rendering layer that sits above the browser's `document`, previously reserved for browser controlled UI elements like alerts, permission prompts or autofill popups. 
+This is an important concept to consider when building UI, as it changes our perception of how content is rendered. 
+
+
+All children of a modal dialog are rendered in the Top Layer as well. However, [portal-based](https://react.dev/reference/react-dom/createPortal) components might not be part of the Top Layer, since they render their content outside the normal DOM hierarchy. When possible, try refactoring these components with the Popover or Dialog components.
+
+The Modal component can now be rendered inline, without the `useModal` hook, thus allowing the modal content to be placed naturally within the component tree. This improves performance and simplifies state management. The `useModal` hook continues to be supported.
+
+Overlay components that are rendered inline can inherit styles from their parent elements, which may cause slight visual changes. This applies to the ActionMenu (previously Popover) component, so make sure to test your application thoroughly after upgrading. 
+
+The `closeButtonLabel` and `backButtonLabel` props are now localized and optional.
+
+The following components have been updated:
+
+- Modal
+- NotificationModal
+- SidePanel
+- SideNavigation
+- ActionMenu (previously Popover)
+
+The following components have been added:
+
+- Popover
+- Dialog
+
+
+### Style reset
+
+Circuit UI styles previously included an opinionated global style reset, sometimes conflicting with other UI libraries and frameworks. This reset has been removed to improve compatibility. If your app still requires it, you can [download](https://meyerweb.com/eric/tools/css/reset/) and include it manually.
+
+### Renamed components
+
+The Popover component has been renamed to ActionMenu to better describe its function. The Popover name is now reserved for a new overlay component.
+
+Use the 🤖 `no-renamed-components` ESLint rule to automatically update imports and usages. Use this rule only once upon migration. Multiple runs may unintentionally replace the new Popover references.
+It is also recommended to manually search for any remaining uses of the old Popover component that the ESLint rule might not have caught.
+
+```diff
+-import { Popover, type PopoverProps } from '@sumup-oss/circuit-ui';
++import { ActionMenu, type ActionMenuProps } from '@sumup-oss/circuit-ui';
+
+-jest.mock('@sumup-oss/circuit-ui', () => ({
+-  ...jest.requireActual('@sumup-oss/circuit-ui'),
+-    Popover: jest.fn().mockImplementation(() => <div />),
+-  ),
+-}));
+
++jest.mock('@sumup-oss/circuit-ui', () => ({
++  ...jest.requireActual('@sumup-oss/circuit-ui'),
++    ActionMenu: jest.fn().mockImplementation(() => <div />),
++  ),
++}));
+
+- const StyledPopover = styled(Popover)`
++ const StyledPopover = styled(ActionMenu)`
+```
+
+Once all usages have been migrated, disable the `no-renamed-components` rule.
+
+### New components and hooks
+
+- The Popover component is a new component that can display any given content in a floating overlay upon interacting with its triggering element.
+- The Dialog component is a low level component based on the html [dialog](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) element. Use it to create your own custom overlay component if none of the Circuit UI components mentioned above fits your needs.
+- The useScrollLock hook disables page scrolling on demand.
+
+### Stable components
+
+The [Timestamp](https://circuit.sumup.com/?path=/docs/components-timestamp--docs) component is now stable. It automatically formats, displays, and updates dates into human-readable date times. Combine different formats and variants to display the date time such as creation or last-updated times. Use the `component-lifecycle-imports` ESlint rule to update relevant imports.
+
+### Other changes
+
+- Calendar: Removed the deprecated `calendar` prop. Support for the gregory calendar was removed in v9.4 since it never fully worked.
+- SideNavigation: 
+  - Now requires an accessible name for the primary link badge to ensure it can be perceived by visually impaired users. The `badge.label` prop was renamed to `badge.children` for consistency.
+  - Removed the `isExternal` prop for primary links. Instead, use a combination of the `target`, `rel`, and `externalLabel` props.
+- TopNavigation: Removed the deprecated `profileMenu` and `user` props.
+- RadioButton: This deprecated component was removed. Use the RadioButtonGroup component instead, or – for advanced use cases – the internal RadioButtonInput component.
+- Selector: This deprecated component was removed. Use the SelectorGroup component instead.
+- Title: This deprecated component was removed. Use the Display component instead.
+- SubHeadline: This deprecated component was removed. Use the Headline component in size `s` instead.
+- `themePropType`: This export was removed. Use the Theme type instead or (better) migrate to CSS custom properties.
+
 ## From v8.x to v9
 
 Circuit UI v9 introduces a [new typeface](#new-typeface), more flexible [typography APIs](#typography-apis), and [stable input components](#stable-components) for colors, dates, and phone numbers. For a complete list of changes, refer to the [changelog](https://github.com/sumup-oss/circuit-ui/blob/main/packages/circuit-ui/CHANGELOG.md).
