@@ -32,7 +32,7 @@ All children of a modal dialog are rendered in the Top Layer as well. However, [
 
 The Modal component can now be rendered inline, without the `useModal` hook, thus allowing the modal content to be placed naturally within the component tree. This improves performance and simplifies state management. The `useModal` hook continues to be supported.
 
-Overlay components that are rendered inline can inherit styles from their parent elements, which may cause slight visual changes. This applies to the ActionMenu component, so make sure to test your application thoroughly after upgrading. 
+Overlay components that are rendered inline can inherit styles from their parent elements, which may cause slight visual changes. This applies to the ActionMenu (previously Popover) component, so make sure to test your application thoroughly after upgrading. 
 
 The `closeButtonLabel` and `backButtonLabel` props are now localized and optional.
 
@@ -98,7 +98,7 @@ The [Timestamp](https://circuit.sumup.com/?path=/docs/components-timestamp--docs
 - Calendar: Removed the deprecated `calendar` prop. Support for the gregory calendar was removed in v9.4 since it never fully worked.
 - SideNavigation: 
   - Now requires an accessible name for the primary link badge to ensure it can be perceived by visually impaired users. The `badge.label` prop was renamed to `badge.children` for consistency.
-  - Removed SideNavigation's `isExternal` prop for primary links. Instead, use a combination of `target`, `rel`, and `externalLabel`.
+  - Removed the `isExternal` prop for primary links. Instead, use a combination of the `target`, `rel`, and `externalLabel` props.
 - TopNavigation: Removed the deprecated `profileMenu` and `user` props.
 - RadioButton: This deprecated component was removed. Use the RadioButtonGroup component instead, or – for advanced use cases – the internal RadioButtonInput component.
 - Selector: This deprecated component was removed. Use the SelectorGroup component instead.
