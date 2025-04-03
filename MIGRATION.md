@@ -28,7 +28,7 @@ All overlay components have been refactored to use the native `dialog` element i
 This is an important concept to consider when building UI, as it changes our perception of how content is rendered. 
 
 
-All children of a modal dialog are rendered in the Top Layer as well. However, portal-based components might not be part of the Top Layer, since they render their content outside the normal DOM hierarchy (eg: Portals). 
+All children of a modal dialog are rendered in the Top Layer as well. However, [portal-based](https://react.dev/reference/react-dom/createPortal) components might not be part of the Top Layer, since they render their content outside the normal DOM hierarchy. When possible, try refactoring these components with the Popover or Dialog components.
 
 The Modal component can now be rendered inline, without the `useModal` hook, thus allowing the modal content to be placed naturally within the component tree. This improves performance and simplifies state management. The `useModal` hook continues to be supported.
 
