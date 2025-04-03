@@ -73,7 +73,6 @@ export const coreFeature: Feature = {
   values: [
     { value: true, label: 'included' },
     { value: true, label: 'included' },
-    { value: true, label: 'included' },
   ],
 };
 
@@ -82,7 +81,6 @@ export const advancedFeature: Feature = {
     label: 'Advanced features',
   },
   values: [
-    { value: true, label: 'included' },
     { value: true, label: 'included' },
     { value: true, label: 'included' },
   ],
@@ -95,7 +93,6 @@ export const premiumFeature: Feature = {
   values: [
     { value: true, label: 'included' },
     { value: true, label: 'included' },
-    { value: true, label: 'included' },
   ],
 };
 
@@ -105,7 +102,6 @@ export const limitedFeature: Feature = {
   },
   values: [
     { value: false, label: 'not included' },
-    { value: true, label: 'included' },
     { value: true, label: 'included' },
   ],
 };
@@ -117,7 +113,6 @@ export const exclusiveFeature: Feature = {
   values: [
     { value: false, label: 'not included' },
     { value: false, label: 'not included' },
-    { value: true, label: 'included' },
   ],
 };
 

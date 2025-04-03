@@ -13,7 +13,7 @@
 .table thead th,
 .table thead td {
   position: sticky;
-  top: 0;
+  top: calc(var(--top-navigation-height, 0));
   z-index: 1;
   padding-top: var(--cui-spacings-giga);
   background-color: var(--cui-bg-normal);
@@ -61,9 +61,11 @@
     table-layout: fixed;
   }
 
-  .table thead td,
-  .table thead th {
-    top: 80px; /* height of the sticky plan picker on mobile */
+  .offset {
+    top: calc(
+      var(--top-navigation-height, 0) + 80px
+    ); /* height of the sticky plan picker on mobile */
+
     padding-top: 0;
   }
 
@@ -82,9 +84,11 @@
 }
 
 @media (min-width: 480px) and (max-width: 767px) {
-  .table thead td,
-  .table thead th {
-    top: 96px; /* height of the sticky plan picker on tablet */
+  .offset {
+    top: calc(
+      var(--top-navigation-height, 0) + 96px
+    ); /* height of the sticky plan picker on tablet */
+
     padding-top: 0;
   }
 }

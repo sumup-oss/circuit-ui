@@ -23,7 +23,6 @@ import {
   customizationSection,
   basicPlan,
   standardPlan,
-  premiumPlan,
 } from '../../fixtures.js';
 
 import { PlanTable, type PlanTableProps } from './PlanTable.js';
@@ -34,7 +33,7 @@ const baseProps: PlanTableProps = {
   caption: 'Plan comparison',
   showAllFeaturesLabel: 'Show all features',
   sections: [essentialFeaturesSection],
-  headers: [basicPlan, standardPlan, premiumPlan],
+  headers: [basicPlan, standardPlan],
   activePlans: [0, 1],
 };
 
@@ -55,7 +54,7 @@ describe('PlanTable', () => {
     expect(
       screen.getAllByRole('table', { name: baseProps.caption }),
     ).toHaveLength(1);
-    expect(screen.getAllByRole('columnheader')).toHaveLength(3);
+    expect(screen.getAllByRole('columnheader')).toHaveLength(2);
     expect(screen.getAllByRole('rowgroup')).toHaveLength(2);
     expect(screen.getAllByRole('row')).toHaveLength(7);
 
@@ -63,7 +62,7 @@ describe('PlanTable', () => {
       screen.getAllByRole('rowheader', { name: 'Essential Features' }),
     ).toHaveLength(1);
     expect(screen.getAllByRole('rowheader')).toHaveLength(6);
-    expect(screen.getAllByRole('cell', { name: 'included' })).toHaveLength(12);
+    expect(screen.getAllByRole('cell', { name: 'included' })).toHaveLength(7);
     expect(screen.getAllByRole('cell', { name: 'not included' })).toHaveLength(
       3,
     );
