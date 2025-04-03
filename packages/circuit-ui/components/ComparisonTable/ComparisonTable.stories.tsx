@@ -69,12 +69,24 @@ Collapsed.args = {
 };
 
 export const WithTopNavigation = (args: ComparisonTableProps) => (
-  <>
-    <TopNavigation {...topNavigationProps} />
-    <ComparisonTable {...args} />
-  </>
+  <div style={{ position: 'relative' }}>
+    <TopNavigation
+      {...topNavigationProps}
+      style={{
+        position: 'sticky',
+        top: '0',
+        zIndex: 'calc(var(--cui-z-index-navigation) + 1)',
+      }}
+    />
+    <div style={{ padding: 'var(--cui-spacings-giga)' }}>
+      <ComparisonTable {...args} />
+    </div>
+  </div>
 );
 
+WithTopNavigation.parameters = {
+  layout: 'fullscreen',
+};
 WithTopNavigation.args = {
   ...baseProps,
   headers: [basicPlan, standardPlan, premiumPlan],

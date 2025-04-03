@@ -173,7 +173,7 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
           </colgroup>
           <thead ref={theadRef}>
             <tr>
-              <td />
+              <td className={clsx(isPlanPickerVisible && classes.offset)} />
               {headersToDisplay.map((plan, index) => (
                 <TableHeader
                   {...plan}
@@ -201,7 +201,7 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
                   colSpan={headers.length + 1}
                   /* account for sticky plan picker on mobile */
                   style={{
-                    top: `calc(var(--top-navigation-height, 0) + ${offset}px)`,
+                    top: `calc(var(--top-navigation-height, 0px) + ${offset}px)`,
                   }}
                 >
                   <Body className={classes.title} size="m" weight="semibold">
