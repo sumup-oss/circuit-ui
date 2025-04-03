@@ -24,13 +24,17 @@ npm upgrade @sumup-oss/circuit-ui @sumup-oss/design-tokens @sumup-oss/icons @sum
 
 ### Overlay components: now using native `dialog`
 
-All overlay components have been refactored to use the native `dialog` element instead of [react-modal](https://www.npmjs.com/package/react-modal).
+All overlay components have been refactored to use the native `dialog` element instead of [react-modal](https://www.npmjs.com/package/react-modal). As a result, the modal dialog is now rendered in the DOM's [Top Layer](https://developer.mozilla.org/en-US/docs/Glossary/Top_layer), a special rendering layer that sits above the browser's `document`, previously reserved for browser controlled UI elements like alerts, permission prompts or autofill popups. 
+This is an important concept to consider when building UI, as it changes our perception of how content is rendered. 
 
-Key changes:
-- Components are now rendered in the DOM's [Top Layer](https://developer.mozilla.org/en-US/docs/Glossary/Top_layer), which may affect stacking context and portals.
-- The Modal component can now be rendered inline, without the `useModal` hook, thus allowing the modal content to be placed naturally within the component tree. This improves performance and simplifies state management. The `useModal` hook continues to be supported.
-- Overlay components that are rendered inline can inherit styles from their parent elements, which may cause slight visual changes. This applies to the ActionMenu component, so make sure to test your application thoroughly after upgrading.
-- The `closeButtonLabel` and `backButtonLabel` props are now localized and optional.
+
+All children of a modal dialog are rendered in the Top Layer as well. However, portal-based components might not be part of the Top Layer, since they render their content outside the normal DOM hierarchy (eg: Portals). 
+
+The Modal component can now be rendered inline, without the `useModal` hook, thus allowing the modal content to be placed naturally within the component tree. This improves performance and simplifies state management. The `useModal` hook continues to be supported.
+
+Overlay components that are rendered inline can inherit styles from their parent elements, which may cause slight visual changes. This applies to the ActionMenu component, so make sure to test your application thoroughly after upgrading. 
+
+The `closeButtonLabel` and `backButtonLabel` props are now localized and optional.
 
 The following components have been updated:
 
@@ -53,8 +57,6 @@ Circuit UI styles previously included an opinionated global style reset, sometim
 ### Renamed components
 
 The Popover component has been renamed to ActionMenu to better describe its function. The Popover name is now reserved for a new overlay component.
-
-#### Migration steps
 
 Use the 🤖 `no-renamed-components` ESLint rule to automatically update imports and usages. Use this rule only once upon migration. Multiple runs may unintentionally replace the new Popover references.
 It is also recommended to manually search for any remaining uses of the old Popover component that the ESLint rule might not have caught.
@@ -81,10 +83,11 @@ It is also recommended to manually search for any remaining uses of the old Popo
 
 Once all usages have been migrated, disable the `no-renamed-components` rule.
 
-### New components
+### New components and hooks
 
 - The Popover component is a new component that can display any given content in a floating overlay upon interacting with its triggering element.
 - The Dialog component is a low level component based on the html [dialog](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) element. Use it to create your own custom overlay component if none of the Circuit UI components mentioned above fits your needs.
+- The useScrollLock hook disables page scrolling on demand.
 
 ### Stable components
 
@@ -92,22 +95,16 @@ The [Timestamp](https://circuit.sumup.com/?path=/docs/components-timestamp--docs
 
 ### Other changes
 
-#### Component Deprecations & Removals
-
 - Calendar: Removed the deprecated `calendar` prop. Support for the gregory calendar was removed in v9.4 since it never fully worked.
-- SideNavigation: Now requires an accessible name for the primary link badge to ensure it can be perceived by visually impaired users. The `badge.label` prop was renamed to `badge.children` for consistency.
+- SideNavigation: 
+  - Now requires an accessible name for the primary link badge to ensure it can be perceived by visually impaired users. The `badge.label` prop was renamed to `badge.children` for consistency.
+  - Removed SideNavigation's `isExternal` prop for primary links. Instead, use a combination of `target`, `rel`, and `externalLabel`.
 - TopNavigation: Removed the deprecated `profileMenu` and `user` props.
 - RadioButton: This deprecated component was removed. Use the RadioButtonGroup component instead, or – for advanced use cases – the internal RadioButtonInput component.
 - Selector: This deprecated component was removed. Use the SelectorGroup component instead.
 - Title: This deprecated component was removed. Use the Display component instead.
 - SubHeadline: This deprecated component was removed. Use the Headline component in size `s` instead.
 - `themePropType`: This export was removed. Use the Theme type instead or (better) migrate to CSS custom properties.
-
-#### Accessibility Improvements
-
-- Anchor & SideNavigation: Now throw an error when external links lack alternative text.
-- SideNavigation: Removed SideNavigation's `isExternal` prop for primary links. Instead, use a combination of `target`, `rel`, and `externalLabel`.
-- New useScrollLock hook: Disables page scrolling on demand.
 
 ## From v8.x to v9
 
