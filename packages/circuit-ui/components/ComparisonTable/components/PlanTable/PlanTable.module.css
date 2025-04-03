@@ -13,7 +13,7 @@
 .table thead th,
 .table thead td {
   position: sticky;
-  top: calc(var(--top-navigation-height, 0));
+  top: var(--top-navigation-height, 0);
   z-index: 1;
   padding-top: var(--cui-spacings-giga);
   background-color: var(--cui-bg-normal);

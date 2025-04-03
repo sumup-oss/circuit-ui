@@ -13,14 +13,9 @@
  * limitations under the License.
  */
 
-import { Shop, SumUpLogo } from '@sumup-oss/icons';
-import { action } from '@storybook/addon-actions';
-
 import { modes } from '../../../../.storybook/modes.js';
-import {
-  TopNavigation,
-  type TopNavigationProps,
-} from '../TopNavigation/index.js';
+import { TopNavigation } from '../TopNavigation/index.js';
+import { baseArgs as topNavigationProps } from '../TopNavigation/TopNavigation.stories.js';
 
 import {
   ComparisonTable,
@@ -71,56 +66,6 @@ Collapsed.args = {
   ...baseProps,
   headers: [basicPlan, standardPlan, premiumPlan],
   sections: [customizationSection, supportSection, analyticsSection],
-};
-
-const topNavigationProps: TopNavigationProps = {
-  isLoading: false,
-  logo: (
-    <a
-      href="https://sumup.com"
-      aria-label="Visit SumUp's website"
-      target="_blank"
-      rel="noreferrer"
-    >
-      <SumUpLogo />
-    </a>
-  ),
-  user: {
-    name: 'Jane Doe',
-    id: 'ID: AC3YULT8',
-  },
-  profileMenu: {
-    label: 'Open profile menu',
-    actions: [
-      {
-        href: '/profile',
-        onClick: action('View profile'),
-        children: 'View profile',
-      },
-      {
-        href: '/settings',
-        onClick: action('Settings'),
-        children: 'Settings',
-      },
-      { type: 'divider' },
-      {
-        onClick: action('Logout'),
-        children: 'Logout',
-        destructive: true,
-      },
-    ],
-    className: 'custom-class-name',
-  },
-  links: [
-    {
-      icon: Shop,
-      label: 'Shop',
-      href: '/shop',
-      onClick: action('Shop'),
-    },
-  ],
-  skipNavigationHref: '#main-content',
-  skipNavigationLabel: 'Skip navigation',
 };
 
 export const WithTopNavigation = (args: ComparisonTableProps) => (
