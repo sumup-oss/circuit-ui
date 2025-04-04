@@ -97,7 +97,7 @@ export interface ToggletipProps extends HTMLAttributes<HTMLDialogElement> {
   /**
    * Where to display the toggletip relative to the trigger component. The
    * toggletip will automatically move if there isn't enough space available.
-   * @default top
+   * @default 'top'
    */
   placement?: Placement;
   /**
@@ -119,7 +119,7 @@ export interface ToggletipProps extends HTMLAttributes<HTMLDialogElement> {
   locale?: Locale;
   /**
    * The strategy to use when positioning the floating element.
-   * @default fixed
+   * @default 'fixed'
    */
   strategy?: Strategy;
 }
