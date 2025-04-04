@@ -1,5 +1,15 @@
 # @sumup-oss/circuit-ui
 
+## 9.11.0
+
+### Minor Changes
+
+- [#3035](https://github.com/sumup-oss/circuit-ui/pull/3035) [`fb8a70e`](https://github.com/sumup-oss/circuit-ui/commit/fb8a70e8a2549535620f59c11f202728807ddccb) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a `strategy` prop to the Toggletip component to allow a more flexible positioning of the floating element. Defaults to `"fixed"`. Read more about strategy in [floating-ui's documentation](https://floating-ui.com/docs/usefloating#strategy).
+
+### Patch Changes
+
+- [#3034](https://github.com/sumup-oss/circuit-ui/pull/3034) [`c2a40b1`](https://github.com/sumup-oss/circuit-ui/commit/c2a40b166cc6be2d228cf9a91680251ee9c1f90e) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed the sticky positioning of the comparison table headers in the absence of a plan picker. Added support for positioning relative to a navigation element by providing a `--top-navigation-height` custom property.
+
 ## 9.10.1
 
 ### Patch Changes
