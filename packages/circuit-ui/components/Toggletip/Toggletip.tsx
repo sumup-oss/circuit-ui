@@ -36,6 +36,7 @@ import {
   type Placement,
   type Side,
 } from '@floating-ui/react-dom';
+import type { Strategy } from '@floating-ui/utils';
 
 import dialogPolyfill from '../../vendor/dialog-polyfill/index.js';
 import type { ClickEvent } from '../../types/events.js';
@@ -89,13 +90,14 @@ export interface ToggletipProps extends HTMLAttributes<HTMLDialogElement> {
    */
   closeButtonLabel?: string;
   /**
-   * Whether the toggletip is initially open. Default: 'false'.
+   * Whether the toggletip is initially open.
+   * @default false
    */
   defaultOpen?: boolean;
   /**
    * Where to display the toggletip relative to the trigger component. The
    * toggletip will automatically move if there isn't enough space available.
-   * Default: 'top'.
+   * @default 'top'
    */
   placement?: Placement;
   /**
@@ -104,8 +106,7 @@ export interface ToggletipProps extends HTMLAttributes<HTMLDialogElement> {
    * Pass a number to move the floating element on the main axis, away from (if
    * positive) or towards (if negative) the reference element. Pass an object
    * to displace the floating element on both the main and cross axes.
-   *
-   * Default: 12.
+   * @default 12
    */
   offset?: number | { mainAxis?: number; crossAxis?: number };
   /**
@@ -113,8 +114,14 @@ export interface ToggletipProps extends HTMLAttributes<HTMLDialogElement> {
    * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
    * When passing an array, the first supported locale is used.
    * Defaults to `navigator.language` in supported environments.
+   * @default navigator.language
    */
   locale?: Locale;
+  /**
+   * The strategy to use when positioning the floating element.
+   * @default 'fixed'
+   */
+  strategy?: Strategy;
 }
 
 export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
@@ -131,6 +138,7 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
       className,
       style,
       locale,
+      strategy = 'fixed',
       ...rest
     } = useI18n(props, translations);
     const zIndex = useStackContext();
@@ -167,6 +175,7 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
     const { refs, floatingStyles, middlewareData, update, placement } =
       useFloating({
         open,
+        strategy,
         placement: defaultPlacement,
         middleware: [
           offsetMiddleware(offset),
