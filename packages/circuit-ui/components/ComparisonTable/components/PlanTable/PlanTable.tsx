@@ -109,6 +109,10 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
       ) > COLLAPSE_THRESHOLD,
     );
     const [headerHeight, setHeaderHeight] = useState(0);
+    const isPlanPickerVisible = headers.length > 2;
+    const offset =
+      headerHeight +
+      (isPlanPickerVisible ? (isMobile ? 80 : 0) + (isTablet ? 16 : 0) : 0);
 
     const updateHeaderHeight = useCallback(() => {
       throttle(() => {
@@ -169,13 +173,16 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
           </colgroup>
           <thead ref={theadRef}>
             <tr>
-              <td />
+              <td className={clsx(isPlanPickerVisible && classes.offset)} />
               {headersToDisplay.map((plan, index) => (
                 <TableHeader
                   {...plan}
                   key={`cui-ct-headers-${plan.id}`}
                   id={`cui-ct-headers-${plan.id}`}
-                  className={clsx(index > 0 && classes.border)}
+                  className={clsx(
+                    index > 0 && classes.border,
+                    isPlanPickerVisible && classes.offset,
+                  )}
                 />
               ))}
             </tr>
@@ -194,7 +201,7 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
                   colSpan={headers.length + 1}
                   /* account for sticky plan picker on mobile */
                   style={{
-                    top: `${(isMobile ? 80 : 0) + (isTablet ? 16 : 0) + headerHeight}px`,
+                    top: `calc(var(--top-navigation-height, 0px) + ${offset}px)`,
                   }}
                 >
                   <Body className={classes.title} size="m" weight="semibold">
