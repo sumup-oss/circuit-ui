@@ -20,6 +20,7 @@ import type { ReactNode, ThHTMLAttributes } from 'react';
 import { Toggletip, type ToggletipProps } from '../../../Toggletip/index.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { Compact } from '../../../Compact/index.js';
+import { StackContext } from '../../../StackContext/index.js';
 
 import classes from './RowHeader.module.css';
 
@@ -49,7 +50,11 @@ export const RowHeader = ({
       <Compact size="s" className={classes.name}>
         {children}
       </Compact>
-      {toggletip && <Toggletip {...toggletip} placement="right" />}
+      {toggletip && (
+        <StackContext.Provider value={'0'}>
+          <Toggletip {...toggletip} style={{ zIndex: 0 }} placement="right" />
+        </StackContext.Provider>
+      )}
     </div>
     {description && (
       <Compact className={classes.description} size="s" color="subtle">
