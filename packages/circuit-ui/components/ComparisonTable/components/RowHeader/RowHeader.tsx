@@ -52,7 +52,7 @@ export const RowHeader = ({
       </Compact>
       {toggletip && (
         <StackContext.Provider value={'0'}>
-          <Toggletip {...toggletip} style={{ zIndex: 0 }} placement="right" />
+          <Toggletip {...toggletip} placement="right" />
         </StackContext.Provider>
       )}
     </div>
