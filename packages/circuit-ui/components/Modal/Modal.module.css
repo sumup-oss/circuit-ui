@@ -7,7 +7,7 @@
 .content {
   position: relative;
   max-height: 90vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 @media (min-width: 480px) {
