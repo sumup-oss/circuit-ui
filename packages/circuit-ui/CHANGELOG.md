@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.0.0-next.1
+
+### Patch Changes
+
+- [#3038](https://github.com/sumup-oss/circuit-ui/pull/3038) [`ff4f63c`](https://github.com/sumup-oss/circuit-ui/commit/ff4f63c6259a4039a4430d4e1d7012cf8202e5db) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed the overflow behaviour of the Modal component's content.
+
 ## 10.0.0-next.0
 
 ### Major Changes
