@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.11.1
+
+### Patch Changes
+
+- [#3037](https://github.com/sumup-oss/circuit-ui/pull/3037) [`ed77910`](https://github.com/sumup-oss/circuit-ui/commit/ed779103b2103d4e3a705f80e53a2299a5f72071) Thanks [@sirineJ](https://github.com/sirineJ)! - Improved the stacking of Toggletips inside the ComparisonTable.
+
 ## 9.11.0
 
 ### Minor Changes
