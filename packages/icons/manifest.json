@@ -917,14 +917,34 @@
       "size": "24"
     },
     {
+      "name": "phone",
+      "category": "Device",
+      "size": "32"
+    },
+    {
       "name": "printer",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "register",
+      "category": "Device",
+      "size": "32"
+    },
+    {
+      "name": "tablet",
       "category": "Device",
       "size": "24"
     },
     {
       "name": "tablet",
       "category": "Device",
-      "size": "24"
+      "size": "32"
+    },
+    {
+      "name": "terminal",
+      "category": "Device",
+      "size": "32"
     },
     {
       "name": "wifi",
