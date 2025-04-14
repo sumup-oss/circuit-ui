@@ -111,7 +111,8 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
     const isPlanPickerVisible = headers.length > 2;
 
     useEffect(() => {
-      if (!theadRef.current || !ResizeObserver) {
+      const tableHeaderElement = theadRef.current;
+      if (!tableHeaderElement || !ResizeObserver) {
         return undefined;
       }
 
@@ -126,10 +127,10 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
         );
       });
 
-      headerSizeObserver.observe(theadRef.current);
+      headerSizeObserver.observe(tableHeaderElement);
       return () => {
-        if (theadRef.current) {
-          headerSizeObserver.unobserve(theadRef.current);
+        if (tableHeaderElement) {
+          headerSizeObserver.unobserve(tableHeaderElement);
         }
       };
     }, [isPlanPickerVisible, isMobile, isTablet]);
