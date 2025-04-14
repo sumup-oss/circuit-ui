@@ -34,7 +34,6 @@ import {
 import { generateFromIndex, getFirstNRows } from '../../utils.js';
 import { Button } from '../../../Button/index.js';
 import { applyMultipleRefs } from '../../../../util/refs.js';
-import { throttle } from '../../../../util/helpers.js';
 import { useMedia } from '../../../../hooks/useMedia/index.js';
 import { Body } from '../../../Body/index.js';
 import { clsx } from '../../../../styles/clsx.js';
@@ -108,28 +107,32 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
         0,
       ) > COLLAPSE_THRESHOLD,
     );
-    const [headerHeight, setHeaderHeight] = useState(0);
+    const [sectionOffset, setSectionOffset] = useState(0);
     const isPlanPickerVisible = headers.length > 2;
-    const offset =
-      headerHeight +
-      (isPlanPickerVisible ? (isMobile ? 80 : 0) + (isTablet ? 16 : 0) : 0);
-
-    const updateHeaderHeight = useCallback(() => {
-      throttle(() => {
-        setHeaderHeight(theadRef.current?.getBoundingClientRect().height ?? 0);
-      }, 500)();
-    }, []);
 
     useEffect(() => {
-      updateHeaderHeight();
-    }, [updateHeaderHeight]);
+      if (!theadRef.current) {
+        return undefined;
+      }
 
-    useEffect(() => {
-      window.addEventListener('resize', updateHeaderHeight);
+      // opt for progressive enhancement
+      // eslint-disable-next-line compat/compat
+      const headerSizeObserver = new ResizeObserver((entries) => {
+        setSectionOffset(
+          entries[0].contentRect.height +
+            (isPlanPickerVisible
+              ? (isMobile ? 80 : 0) + (isTablet ? 16 : 0)
+              : 0),
+        );
+      });
+
+      headerSizeObserver.observe(theadRef.current);
       return () => {
-        window.removeEventListener('resize', updateHeaderHeight);
+        if (theadRef.current) {
+          headerSizeObserver.unobserve(theadRef.current);
+        }
       };
-    }, [updateHeaderHeight]);
+    }, [isPlanPickerVisible, isMobile, isTablet]);
 
     const showFeatures = useCallback(() => {
       setIsCollapsed(false);
@@ -201,7 +204,7 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
                   colSpan={headers.length + 1}
                   /* account for sticky plan picker on mobile */
                   style={{
-                    top: `calc(var(--top-navigation-height, 0px) + ${offset}px)`,
+                    top: `calc(var(--top-navigation-height, 0px) + ${sectionOffset}px)`,
                   }}
                 >
                   <Body className={classes.title} size="m" weight="semibold">
