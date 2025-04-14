@@ -119,12 +119,10 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
       // opt for progressive enhancement
       // eslint-disable-next-line compat/compat
       const headerSizeObserver = new ResizeObserver((entries) => {
-        setSectionOffset(
-          entries[0].contentRect.height +
-            (isPlanPickerVisible
-              ? (isMobile ? 80 : 0) + (isTablet ? 16 : 0)
-              : 0),
-        );
+        const planPickerHeight = isPlanPickerVisible
+          ? (isMobile ? 80 : 0) + (isTablet ? 16 : 0)
+          : 0;
+        setSectionOffset(entries[0].contentRect.height + planPickerHeight);
       });
 
       headerSizeObserver.observe(tableHeaderElement);
