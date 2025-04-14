@@ -127,9 +127,7 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
 
       headerSizeObserver.observe(tableHeaderElement);
       return () => {
-        if (tableHeaderElement) {
-          headerSizeObserver.unobserve(tableHeaderElement);
-        }
+        headerSizeObserver.unobserve(tableHeaderElement);
       };
     }, [isPlanPickerVisible, isMobile, isTablet]);
 
