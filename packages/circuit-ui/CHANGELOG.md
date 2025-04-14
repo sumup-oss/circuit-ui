@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 9.11.1
+
+### Patch Changes
+
+- [#3045](https://github.com/sumup-oss/circuit-ui/pull/3045) [`b46aa1e`](https://github.com/sumup-oss/circuit-ui/commit/b46aa1ec728175735b12ad57f93c7ab464bbdb4e) Thanks [@sirineJ](https://github.com/sirineJ)! - Improved the sticky behavior of sticky section names of the ComporisonTable component.
+
+- [#3037](https://github.com/sumup-oss/circuit-ui/pull/3037) [`ed77910`](https://github.com/sumup-oss/circuit-ui/commit/ed779103b2103d4e3a705f80e53a2299a5f72071) Thanks [@sirineJ](https://github.com/sirineJ)! - Improved the stacking of Toggletips inside the ComparisonTable.
+
 ## 9.11.0
 
 ### Minor Changes
