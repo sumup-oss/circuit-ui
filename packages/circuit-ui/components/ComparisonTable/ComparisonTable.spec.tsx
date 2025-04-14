@@ -51,6 +51,10 @@ const baseProps: ComparisonTableProps = {
 
 describe('ComparisonTable', () => {
   beforeEach(() => {
+    window.ResizeObserver = vi.fn().mockImplementation(() => ({
+      observe: vi.fn(),
+      unobserve: vi.fn(),
+    }));
     (useMedia as Mock).mockReturnValue(false);
   });
 
