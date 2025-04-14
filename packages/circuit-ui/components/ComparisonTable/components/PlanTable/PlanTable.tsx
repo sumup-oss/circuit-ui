@@ -112,7 +112,7 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
 
     useEffect(() => {
       const tableHeaderElement = theadRef.current;
-      if (!tableHeaderElement || !ResizeObserver) {
+      if (!tableHeaderElement || typeof ResizeObserver === 'undefined') {
         return undefined;
       }
 
