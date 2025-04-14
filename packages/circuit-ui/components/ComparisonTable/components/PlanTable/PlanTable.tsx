@@ -111,7 +111,7 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
     const isPlanPickerVisible = headers.length > 2;
 
     useEffect(() => {
-      if (!theadRef.current) {
+      if (!theadRef.current || !ResizeObserver) {
         return undefined;
       }
 
