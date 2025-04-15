@@ -221,6 +221,7 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
                       toggletip={feature.featureDescription.toggletip}
                       headers={`cui-ct-sections-${sectionIndex}`}
                       id={featureId}
+                      offset={sectionOffset}
                     >
                       {feature.featureDescription.label}
                     </RowHeader>
