@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 10.0.0-next.1
+
+### Patch Changes
+
+- [#3046](https://github.com/sumup-oss/circuit-ui/pull/3046) [`9945d7b`](https://github.com/sumup-oss/circuit-ui/commit/9945d7bbde6d6096b7e7a39249359a35b09a727f) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed legacy z-index value from the SidePanel component styles. The SidePanel now inherits this property from the Dialog component on desktop, and renders as a modal dialog in the top layer on mobile.
+
+- [#3038](https://github.com/sumup-oss/circuit-ui/pull/3038) [`ff4f63c`](https://github.com/sumup-oss/circuit-ui/commit/ff4f63c6259a4039a4430d4e1d7012cf8202e5db) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed the overflow behaviour of the Modal component's content.
+
 ## 10.0.0-next.0
 
 ### Major Changes
