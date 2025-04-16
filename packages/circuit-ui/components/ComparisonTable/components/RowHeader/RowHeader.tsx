@@ -71,8 +71,8 @@ export const RowHeader = ({
     };
     // eslint-disable-next-line compat/compat
     const observer = new IntersectionObserver(handleObserver, {
-      threshold: 1,
-      rootMargin: `-${offset}px 0px 0px 0px`,
+      threshold: 0.5,
+      rootMargin: `-${offset + 60}px 0px 0px 0px`, // 60px is the (average) sticky header height
     });
     observer.observe(cellElement);
     return () => {
