@@ -466,7 +466,7 @@ export const shared = [
   },
   {
     name: '--cui-z-index-popover',
-    value: 30,
+    value: 1000,
     type: 'number',
   },
   {
