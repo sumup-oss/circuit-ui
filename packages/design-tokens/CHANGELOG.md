@@ -1,5 +1,11 @@
 # @sumup-oss/design-tokens
 
+## 9.0.0-next.1
+
+### Patch Changes
+
+- [#3048](https://github.com/sumup-oss/circuit-ui/pull/3048) [`3927281`](https://github.com/sumup-oss/circuit-ui/commit/3927281a8530ad1ff32432ede7ad171f241066ac) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the `--cui-z-index-popover` token to align different overlay components.
+
 ## 9.0.0-next.0
 
 ### Major Changes
