@@ -112,7 +112,12 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
 
     useEffect(() => {
       const tableHeaderElement = theadRef.current;
-      if (!tableHeaderElement || typeof ResizeObserver === 'undefined') {
+      const tableElement = tableRef.current;
+      if (
+        !tableHeaderElement ||
+        typeof ResizeObserver === 'undefined' ||
+        !tableElement
+      ) {
         return undefined;
       }
 
@@ -125,7 +130,7 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
           : 0;
         /* account for sticky top navigation, if it exists */
         const topNavigationHeight = Number(
-          getComputedStyle(document.documentElement)
+          getComputedStyle(tableElement)
             .getPropertyValue('--top-navigation-height')
             .replace('px', '') ?? 0,
         );
