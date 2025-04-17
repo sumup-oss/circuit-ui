@@ -114,13 +114,13 @@ export const ListItemGroup = forwardRef<HTMLDivElement, ListItemGroupProps>(
             )}
             aria-labelledby={labelId}
           >
-            {hideLabel ? (null) : (isString(label) ? (
+            {hideLabel ? null : isString(label) ? (
               <Body as="h4" size="s" id={labelId}>
                 {label}
               </Body>
              ) : (
               label
-            ))}
+            )}
           </div>
           {details && (
             <div className={classes.details}>
