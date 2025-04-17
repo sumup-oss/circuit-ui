@@ -1,10 +1,10 @@
-.base > div {
+.content {
   box-sizing: border-box;
   padding: var(--cui-spacings-byte) 0;
   overflow-y: auto;
   background-color: var(--cui-bg-elevated);
   border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
-  border-radius: inherit;
+  border-radius: var(--cui-border-radius-byte);
 }
 
 .divider {
