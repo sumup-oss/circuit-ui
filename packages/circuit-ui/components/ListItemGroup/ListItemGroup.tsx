@@ -18,6 +18,7 @@
 import {
   forwardRef,
   useState,
+  useId,
   type HTMLAttributes,
   type ReactNode,
 } from 'react';
@@ -83,6 +84,8 @@ export const ListItemGroup = forwardRef<HTMLDivElement, ListItemGroupProps>(
       ItemProps['key'] | null
     >(null);
 
+    const labelId = useId();
+
     const isPlain = variant === 'plain';
     const isInteractive = items.some((item) => !!item.href || !!item.onClick);
 
@@ -109,9 +112,10 @@ export const ListItemGroup = forwardRef<HTMLDivElement, ListItemGroupProps>(
               classes.label,
               hideLabel && utilClasses.hideVisually,
             )}
+            aria-labelledby={labelId}
           >
             {isString(label) && !hideLabel ? (
-              <Body as="h4" size="s">
+              <Body as="h4" size="s" id={labelId}>
                 {label}
               </Body>
             ) : null}
