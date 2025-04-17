@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.11.2
+
+### Patch Changes
+
+- [#3047](https://github.com/sumup-oss/circuit-ui/pull/3047) [`b1187df`](https://github.com/sumup-oss/circuit-ui/commit/b1187df4e4eec56d2b5012db78604cab5c313335) Thanks [@sirineJ](https://github.com/sirineJ)! - Hid the ComparisonTable's open Toggletips when their triggering elements are scrolled out of view.
+
 ## 9.11.1
 
 ### Patch Changes
