@@ -112,17 +112,33 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
 
     useEffect(() => {
       const tableHeaderElement = theadRef.current;
-      if (!tableHeaderElement || typeof ResizeObserver === 'undefined') {
+      const tableElement = tableRef.current;
+      if (
+        !tableHeaderElement ||
+        typeof ResizeObserver === 'undefined' ||
+        !tableElement
+      ) {
         return undefined;
       }
 
       // opt for progressive enhancement
       // eslint-disable-next-line compat/compat
       const headerSizeObserver = new ResizeObserver((entries) => {
+        /* account for sticky plan picker on mobile */
         const planPickerHeight = isPlanPickerVisible
           ? (isMobile ? 80 : 0) + (isTablet ? 16 : 0)
           : 0;
-        setSectionOffset(entries[0].contentRect.height + planPickerHeight);
+        /* account for sticky top navigation, if it exists */
+        const topNavigationHeight = Number(
+          getComputedStyle(tableElement)
+            .getPropertyValue('--top-navigation-height')
+            .replace('px', '') ?? 0,
+        );
+        setSectionOffset(
+          entries[0].contentRect.height +
+            planPickerHeight +
+            topNavigationHeight,
+        );
       });
 
       headerSizeObserver.observe(tableHeaderElement);
@@ -199,9 +215,8 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
                   scope="rowgroup"
                   id={`cui-ct-sections-${sectionIndex}`}
                   colSpan={headers.length + 1}
-                  /* account for sticky plan picker on mobile */
                   style={{
-                    top: `calc(var(--top-navigation-height, 0px) + ${sectionOffset}px)`,
+                    top: `${sectionOffset}px`,
                   }}
                 >
                   <Body className={classes.title} size="m" weight="semibold">
@@ -221,6 +236,7 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
                       toggletip={feature.featureDescription.toggletip}
                       headers={`cui-ct-sections-${sectionIndex}`}
                       id={featureId}
+                      offset={sectionOffset}
                     >
                       {feature.featureDescription.label}
                     </RowHeader>

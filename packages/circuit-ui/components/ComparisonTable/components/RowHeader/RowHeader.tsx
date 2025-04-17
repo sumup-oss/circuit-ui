@@ -15,12 +15,17 @@
 
 'use client';
 
-import type { ReactNode, ThHTMLAttributes } from 'react';
+import {
+  type ReactNode,
+  type ThHTMLAttributes,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
 import { Toggletip, type ToggletipProps } from '../../../Toggletip/index.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { Compact } from '../../../Compact/index.js';
-import { StackContext } from '../../../StackContext/index.js';
 
 import classes from './RowHeader.module.css';
 
@@ -37,29 +42,64 @@ export interface RowHeaderProps extends ThHTMLAttributes<HTMLTableCellElement> {
    * The name of the feature.
    */
   children: ReactNode;
+  /**
+   * The sticky offset of the header.
+   */
+  offset: number;
 }
 
 export const RowHeader = ({
   description,
   toggletip,
   children,
+  offset,
   ...props
-}: RowHeaderProps) => (
-  <th className={classes.base} scope="row" {...props}>
-    <div className={clsx(classes.title)}>
-      <Compact size="s" className={classes.name}>
-        {children}
-      </Compact>
-      {toggletip && (
-        <StackContext.Provider value={'0'}>
-          <Toggletip {...toggletip} placement="right" />
-        </StackContext.Provider>
+}: RowHeaderProps) => {
+  const toggletipRef = useRef<HTMLTableCellElement>(null);
+  const [showToggletip, setShowToggletip] = useState(true);
+  useEffect(() => {
+    const cellElement = toggletipRef.current;
+    if (
+      !cellElement ||
+      !toggletip ||
+      typeof IntersectionObserver === 'undefined'
+    ) {
+      return undefined;
+    }
+    const handleObserver: IntersectionObserverCallback = ([entry]) => {
+      setShowToggletip(entry.isIntersecting);
+    };
+    // eslint-disable-next-line compat/compat
+    const observer = new IntersectionObserver(handleObserver, {
+      threshold: 0.5,
+      rootMargin: `-${offset + 60}px 0px 0px 0px`, // 60px is the (average) sticky header height
+    });
+    observer.observe(cellElement);
+    return () => {
+      observer.unobserve(cellElement);
+    };
+  }, [toggletip, offset]);
+  return (
+    <th className={classes.base} scope="row" {...props} ref={toggletipRef}>
+      <div className={clsx(classes.title)}>
+        <Compact size="s" className={classes.name}>
+          {children}
+        </Compact>
+        {toggletip && (
+          <Toggletip
+            {...toggletip}
+            placement="right"
+            style={{
+              visibility: showToggletip ? 'visible' : 'hidden',
+            }}
+          />
+        )}
+      </div>
+      {description && (
+        <Compact className={classes.description} size="s" color="subtle">
+          {description}
+        </Compact>
       )}
-    </div>
-    {description && (
-      <Compact className={classes.description} size="s" color="subtle">
-        {description}
-      </Compact>
-    )}
-  </th>
-);
+    </th>
+  );
+};
