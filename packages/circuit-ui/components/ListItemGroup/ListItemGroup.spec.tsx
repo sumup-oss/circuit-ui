@@ -55,6 +55,16 @@ describe('ListItemGroup', () => {
     expect(screen.getByText('Group label')).toBeVisible();
   });
 
+  it('should render a ListItemGroup with aria attribute instead of label', () => {
+    renderListItemGroup(render, {
+      ...baseProps,
+      label: undefined,
+      'aria-label': 'Group label',
+    });
+    expect(screen.queryByRole('label')).not.toBeInTheDocument();
+    expect(screen.getByRole('list')).toBeInTheDocument();
+  });
+
   it('should render a ListItemGroup with a details line', () => {
     renderListItemGroup(render, {
       ...baseProps,
@@ -86,5 +96,15 @@ describe('ListItemGroup', () => {
     });
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
+  });
+
+  it('should throw accessibility error when there is no aria attribute or label', () => {
+    const props = {
+      ...baseProps,
+      label: undefined,
+      'aria-label': undefined,
+    };
+    // Silence the console.error output and switch to development mode to throw the error
+    expect(() => render(<ListItemGroup {...props} />)).toThrow();
   });
 });
