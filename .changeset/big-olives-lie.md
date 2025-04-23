@@ -1,5 +1,5 @@
 ---
-"@sumup-oss/circuit-ui": minor
+"@sumup-oss/circuit-ui": patch
 ---
 
-Added support for passing a `ref` to the `setModal` function to get the underlying `dialog` element.
+Added `ref` to the prop types of the `setModal` function, which makes it possible to get the underlying `dialog` element.
