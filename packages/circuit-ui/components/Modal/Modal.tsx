@@ -15,7 +15,7 @@
 
 'use client';
 
-import { forwardRef, useCallback, useState } from 'react';
+import { forwardRef, useCallback, useState, type Ref } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
 import { deprecate } from '../../util/logger.js';
@@ -50,6 +50,7 @@ export interface ModalProps extends PublicDialogProps {
    * @default false
    */
   preventClose?: boolean;
+  ref?: Ref<HTMLDialogElement>;
 }
 
 export const ANIMATION_DURATION = 300;
