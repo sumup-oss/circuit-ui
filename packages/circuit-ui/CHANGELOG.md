@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 10.0.0-next.2
+
+### Patch Changes
+
+- [#3053](https://github.com/sumup-oss/circuit-ui/pull/3053) [`b9c0cae`](https://github.com/sumup-oss/circuit-ui/commit/b9c0cae132272861db2209a4121333ab4c7ac923) Thanks [@connor-baer](https://github.com/connor-baer)! - Added `ref` to the prop types of the `setModal` function, which makes it possible to get the underlying `dialog` element.
+
+- [#3054](https://github.com/sumup-oss/circuit-ui/pull/3054) [`abb6b1f`](https://github.com/sumup-oss/circuit-ui/commit/abb6b1f3c6eb2c3af9a8fedf563bdc777aacb51f) Thanks [@sirineJ](https://github.com/sirineJ)! - Ensured the open property in modal components is always set to true to avoid rendering issues when using the `useModal` hook.
+
 ## 10.0.0-next.1
 
 ### Patch Changes
