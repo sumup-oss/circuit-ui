@@ -1,6 +1,6 @@
 .base {
   z-index: var(--cui-z-index-modal);
-  padding: 0 !important;
+  padding: 0;
   pointer-events: none;
   outline: none;
   background-color: var(--cui-bg-elevated);

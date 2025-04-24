@@ -111,9 +111,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
       hideCloseButton={preventClose}
       {...rest}
     >
-      <div className={classes.content}>
-        {typeof children === 'function' ? children?.({ onClose }) : children}
-      </div>
+      {typeof children === 'function' ? children?.({ onClose }) : children}
     </Dialog>
   );
 });

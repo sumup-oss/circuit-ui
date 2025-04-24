@@ -8,10 +8,6 @@
   text-align: center;
 }
 
-.base > div {
-  padding: var(--cui-spacings-giga);
-}
-
 @media (max-width: 479px) {
   .base {
     -webkit-overflow-scrolling: touch;

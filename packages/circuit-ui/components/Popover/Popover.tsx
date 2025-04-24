@@ -233,7 +233,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
           }
           preventOutsideClickRefs={refs.reference}
         >
-          <div id={contentId} className={classes.content}>
+          <div id={contentId}>
             {typeof children === 'function'
               ? children?.({ onClose: handleCloseEnd })
               : children}
