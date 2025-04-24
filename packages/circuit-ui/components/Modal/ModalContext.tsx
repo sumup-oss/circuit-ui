@@ -74,10 +74,6 @@ export function ModalProvider<T extends ModalProps>({
         modal.onClose();
       }
       dispatch({
-        type: 'update',
-        item: modal,
-      });
-      dispatch({
         type: 'remove',
         id: modal.id,
         transition: {
@@ -105,7 +101,7 @@ export function ModalProvider<T extends ModalProps>({
             {...defaultModalProps}
             {...modalProps}
             key={id}
-            open={!transition}
+            open={true}
             onClose={() => removeModal(modal)}
           />
         );
