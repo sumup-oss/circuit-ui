@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.0.0-next.3
+
+### Minor Changes
+
+- [#3050](https://github.com/sumup-oss/circuit-ui/pull/3050) [`a3e4bb8`](https://github.com/sumup-oss/circuit-ui/commit/a3e4bb8f14608fbe74b45845266fef2fff28c174) Thanks [@sirineJ](https://github.com/sirineJ)! - Introduced an optional `contentClassName` prop, enabling custom styling for the content of Dialog-based components, including Dialog, ActionMenu, Popover, Modal, and NotificationModal.
+
 ## 10.0.0-next.2
 
 ### Patch Changes
