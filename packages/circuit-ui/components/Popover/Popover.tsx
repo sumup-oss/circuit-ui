@@ -116,6 +116,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
       component: Component,
       offset,
       className,
+      contentClassName,
       style,
       ...props
     },
@@ -211,6 +212,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
         </div>
         <Dialog
           {...props}
+          id={contentId}
           open={isOpen}
           onCloseStart={handleCloseStart}
           onCloseEnd={handleCloseEnd}
@@ -221,6 +223,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
             isClosing ? outAnimation : inAnimation,
             className,
           )}
+          contentClassName={clsx(classes.content, contentClassName)}
           animationDuration={animationDuration}
           style={
             isMobile
@@ -233,11 +236,9 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
           }
           preventOutsideClickRefs={refs.reference}
         >
-          <div id={contentId} className={classes.content}>
-            {typeof children === 'function'
-              ? children?.({ onClose: handleCloseEnd })
-              : children}
-          </div>
+          {typeof children === 'function'
+            ? children?.({ onClose: handleCloseEnd })
+            : children}
         </Dialog>
       </Fragment>
     );

@@ -106,6 +106,7 @@ export const ActionMenu = forwardRef<HTMLDialogElement, ActionMenuProps>(
     return (
       <Popover
         className={clsx(className, classes.base)}
+        contentClassName={classes.content}
         ref={ref}
         hideCloseButton={!isMobile}
         onToggle={onToggle}

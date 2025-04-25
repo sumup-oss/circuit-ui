@@ -60,6 +60,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
     hideCloseButton,
     variant = 'contextual',
     className,
+    contentClassName,
     preventClose = false,
     children,
     onClose,
@@ -106,14 +107,13 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
         variant === 'immersive' && classes.immersive,
         className,
       )}
+      contentClassName={clsx(classes.content, contentClassName)}
       preventEscapeKeyClose={preventClose}
       preventOutsideClickClose={preventClose}
       hideCloseButton={preventClose}
       {...rest}
     >
-      <div className={classes.content}>
-        {typeof children === 'function' ? children?.({ onClose }) : children}
-      </div>
+      {typeof children === 'function' ? children?.({ onClose }) : children}
     </Dialog>
   );
 });
