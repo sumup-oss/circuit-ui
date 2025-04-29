@@ -2,4 +2,4 @@
 "@sumup-oss/circuit-ui": minor
 ---
 
-Display action item in comparison table header on mobile screens
+Display the action button in the ComparisonTable's header on narrow viewports.
