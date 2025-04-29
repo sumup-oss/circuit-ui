@@ -55,7 +55,7 @@ describe('ListItemGroup', () => {
     expect(screen.getByText('Group label')).toBeVisible();
   });
 
-  it('should render a ListItemGroup with aria attribute instead of label', () => {
+  it('should render a ListItemGroup with aria-label', () => {
     renderListItemGroup(render, {
       ...baseProps,
       label: undefined,
