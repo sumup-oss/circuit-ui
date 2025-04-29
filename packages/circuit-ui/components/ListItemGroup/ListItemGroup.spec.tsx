@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
 import { screen, render, axe, type RenderFn } from '../../util/test-utils.js';
@@ -107,6 +107,10 @@ describe('ListItemGroup', () => {
       'aria-hidden': undefined,
     } as unknown as ListItemGroupProps;
     // Silence the console.error output and switch to development mode to throw the error
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    process.env.NODE_ENV = 'development';
     expect(() => render(<ListItemGroup {...props} />)).toThrow();
+    process.env.NODE_ENV = 'test';
+    vi.restoreAllMocks();
   });
 });
