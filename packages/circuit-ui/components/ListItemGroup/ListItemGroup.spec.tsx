@@ -103,7 +103,8 @@ describe('ListItemGroup', () => {
       ...baseProps,
       label: undefined,
       'aria-label': undefined,
-    };
+      'aria-labelledby': undefined,
+    } as unknown as ListItemGroupProps;
     // Silence the console.error output and switch to development mode to throw the error
     expect(() => render(<ListItemGroup {...props} />)).toThrow();
   });
