@@ -2,4 +2,4 @@
 "@sumup-oss/circuit-ui": patch
 ---
 
-Changed the `label` prop of ListItemGroup component to be optional to allow providing context via aria attributes.
+Allowed more flexibility on the accessibility requirements of the ListItemGroup component by making the `label` prop optional and accepting `aria-label` or `aria-labelledby` attributes as alternatives to provide context.
