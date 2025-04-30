@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.0.0-next.4
+
+### Patch Changes
+
+- [#3061](https://github.com/sumup-oss/circuit-ui/pull/3061) [`e31307f`](https://github.com/sumup-oss/circuit-ui/commit/e31307f08faeaabc78926a523faac0abeddf2cda) Thanks [@sirineJ](https://github.com/sirineJ)! - Restored overflow styles of the SidePanel component.
+
 ## 10.0.0-next.3
 
 ### Minor Changes
