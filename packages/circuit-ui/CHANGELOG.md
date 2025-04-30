@@ -1,5 +1,15 @@
 # @sumup-oss/circuit-ui
 
+## 9.12.0
+
+### Minor Changes
+
+- [#3059](https://github.com/sumup-oss/circuit-ui/pull/3059) [`2fa018b`](https://github.com/sumup-oss/circuit-ui/commit/2fa018b6190c426a7bae03aa7013e7679247391f) Thanks [@jmaslate](https://github.com/jmaslate)! - Display the action button in the ComparisonTable's header on narrow viewports.
+
+### Patch Changes
+
+- [#3052](https://github.com/sumup-oss/circuit-ui/pull/3052) [`2b4b4c4`](https://github.com/sumup-oss/circuit-ui/commit/2b4b4c4b19c673b782e45682977011251450bc91) Thanks [@cecisousa](https://github.com/cecisousa)! - Allowed more flexibility on the accessibility requirements of the ListItemGroup component by making the `label` prop optional and accepting `aria-label` or `aria-labelledby` attributes as alternatives to provide context.
+
 ## 9.11.2
 
 ### Patch Changes
