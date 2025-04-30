@@ -3,6 +3,7 @@
   right: 0;
   bottom: 0;
   left: unset;
+  overflow-y: auto;
   box-shadow: none;
   transform: translateX(100%);
   transition: transform var(--dialog-animation-duration) ease-in-out;
