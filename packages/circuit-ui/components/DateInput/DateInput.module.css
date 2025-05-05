@@ -108,7 +108,6 @@
 }
 
 .dialog {
-  z-index: var(--cui-z-index-modal);
   width: max-content;
   max-width: 410px;
   max-width: min(410px, 100vw);

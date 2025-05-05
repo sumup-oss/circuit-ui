@@ -213,7 +213,7 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
           style={{
             ...style,
             ...dialogStyles,
-            zIndex: zIndex || 'var(--cui-z-index-modal)',
+            zIndex: zIndex || 'var(--cui-z-index-tooltip)',
           }}
         >
           <div className={classes.content}>
