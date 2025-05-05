@@ -3,7 +3,7 @@
   right: 0;
   bottom: 0;
   left: unset;
-  z-index: var(--cui-z-index-popover);
+  z-index: var(--cui-z-index-side-panel);
   box-shadow: none;
   transform: translateX(100%);
   transition: transform var(--dialog-animation-duration) ease-in-out;
