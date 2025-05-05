@@ -94,6 +94,10 @@ export interface PopoverProps
    * reference element.
    */
   component: ComponentType<PopoverReferenceProps>;
+  /**
+   * An optional class name to be applied to the component's content.
+   */
+  contentClassName?: string;
 }
 
 const sizeOptions: SizeOptions = {
@@ -223,7 +227,6 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
             isClosing ? outAnimation : inAnimation,
             className,
           )}
-          contentClassName={clsx(classes.content, contentClassName)}
           animationDuration={animationDuration}
           style={
             isMobile
@@ -236,9 +239,14 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
           }
           preventOutsideClickRefs={refs.reference}
         >
-          {typeof children === 'function'
-            ? children?.({ onClose: handleCloseEnd })
-            : children}
+          <div
+            id={contentId}
+            className={clsx(classes.content, contentClassName)}
+          >
+            {typeof children === 'function'
+              ? children?.({ onClose: handleCloseEnd })
+              : children}
+          </div>
         </Dialog>
       </Fragment>
     );
