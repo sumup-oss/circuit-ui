@@ -61,6 +61,14 @@
     table-layout: fixed;
   }
 
+  .table thead td {
+    display: none;
+  }
+
+  .table colgroup col:nth-child(1) {
+    display: none;
+  }
+
   .table thead .offset {
     top: calc(
       var(--top-navigation-height, 0px) + 80px

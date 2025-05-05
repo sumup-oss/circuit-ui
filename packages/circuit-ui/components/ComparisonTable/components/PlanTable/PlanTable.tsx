@@ -214,7 +214,11 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
                   className={classes.section}
                   scope="rowgroup"
                   id={`cui-ct-sections-${sectionIndex}`}
-                  colSpan={headers.length + 1}
+                  colSpan={
+                    isMobile
+                      ? headersToDisplay.length
+                      : headersToDisplay.length + 1
+                  }
                   style={{
                     top: `${sectionOffset}px`,
                   }}
@@ -248,6 +252,7 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
                         key={`cui-comparison-table-${feature.featureDescription.label}-cell-${index}`}
                         headers={`cui-ct-sections-${sectionIndex} ${featureId} cui-ct-headers-${headersToDisplay[index]?.id}`}
                         cellValue={value}
+                        feature={feature}
                       />
                     ))}
                   </tr>

@@ -20,6 +20,7 @@ import type { TdHTMLAttributes } from 'react';
 import { BooleanValue } from '../BooleanValue/BooleanValue.js';
 import { Compact } from '../../../Compact/index.js';
 import { clsx } from '../../../../styles/clsx.js';
+import type { Feature } from '../PlanTable/PlanTable.js';
 
 import classes from './TableCell.module.css';
 
@@ -32,10 +33,12 @@ export interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
    * If the value is a boolean, it will be rendered as an icon with a descriptive label.
    */
   cellValue: CellValue;
+  feature: Feature;
 }
 export const TableCell = ({
   cellValue,
   className,
+  feature,
   ...props
 }: TableCellProps) => {
   let content = <BooleanValue label={''} value={false} />;
@@ -52,7 +55,18 @@ export const TableCell = ({
 
   return (
     <td className={clsx(classes.base, className)} {...props}>
-      <div className={classes.content}>{content}</div>
+      <div className={classes.content}>
+        {content}
+
+        <Compact className={classes.label} size="s">
+          {feature.featureDescription.label}
+        </Compact>
+        {feature.featureDescription.description && (
+          <Compact className={classes.description} size="s" color="subtle">
+            {feature.featureDescription.description}
+          </Compact>
+        )}
+      </div>
     </td>
   );
 };

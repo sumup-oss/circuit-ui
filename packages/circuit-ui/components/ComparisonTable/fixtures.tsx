@@ -225,7 +225,7 @@ export const analyticsSection: FeatureSection = {
         label: 'Basic reporting',
       },
       values: [
-        { value: true, label: 'included' },
+        'Core features only',
         { value: true, label: 'included' },
         { value: true, label: 'included' },
       ],

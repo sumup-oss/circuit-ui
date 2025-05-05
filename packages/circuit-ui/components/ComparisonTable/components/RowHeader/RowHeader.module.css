@@ -23,3 +23,9 @@
     line-height: var(--cui-compact-m-line-height);
   }
 }
+
+@media (max-width: 767px) {
+  .base {
+    display: none;
+  }
+}
