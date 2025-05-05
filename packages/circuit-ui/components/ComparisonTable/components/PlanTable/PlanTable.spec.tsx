@@ -66,10 +66,8 @@ describe('PlanTable', () => {
       screen.getAllByRole('rowheader', { name: 'Essential Features' }),
     ).toHaveLength(1);
     expect(screen.getAllByRole('rowheader')).toHaveLength(6);
-    expect(screen.getAllByRole('cell', { name: 'included' })).toHaveLength(7);
-    expect(screen.getAllByRole('cell', { name: 'not included' })).toHaveLength(
-      3,
-    );
+    expect(screen.getAllByText('included')).toHaveLength(7);
+    expect(screen.getAllByText('not included')).toHaveLength(3);
   });
 
   it('should render as collapsed when content is large', async () => {

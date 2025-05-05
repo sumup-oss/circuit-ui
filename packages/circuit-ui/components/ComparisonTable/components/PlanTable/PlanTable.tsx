@@ -214,11 +214,7 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
                   className={classes.section}
                   scope="rowgroup"
                   id={`cui-ct-sections-${sectionIndex}`}
-                  colSpan={
-                    isMobile
-                      ? headersToDisplay.length
-                      : headersToDisplay.length + 1
-                  }
+                  colSpan={isMobile ? 2 : headersToDisplay.length + 1}
                   style={{
                     top: `${sectionOffset}px`,
                   }}
