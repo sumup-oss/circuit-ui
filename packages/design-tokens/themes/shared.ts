@@ -485,11 +485,6 @@ export const shared = [
     type: 'number',
   },
   {
-    name: '--cui-z-index-backdrop',
-    value: 700,
-    type: 'number',
-  },
-  {
     name: '--cui-z-index-navigation',
     value: 800,
     type: 'number',

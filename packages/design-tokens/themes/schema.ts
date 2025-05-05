@@ -416,7 +416,6 @@ export const schema = [
   { name: '--cui-z-index-side-panel', type: 'number' },
   { name: '--cui-z-index-tooltip', type: 'number' },
   { name: '--cui-z-index-header', type: 'number' },
-  { name: '--cui-z-index-backdrop', type: 'number' },
   { name: '--cui-z-index-navigation', type: 'number' },
   { name: '--cui-z-index-toast', type: 'number' },
 ] satisfies {
