@@ -78,10 +78,6 @@ export interface PublicDialogProps
     | ReactNode
     | (({ onClose }: { onClose?: DialogProps['onCloseEnd'] }) => ReactNode);
   [key: DataAttribute]: string | undefined;
-  /**
-   * An optional class name to be applied to the component's content.
-   */
-  contentClassName?: string;
 }
 
 export interface DialogProps extends PublicDialogProps {
@@ -125,7 +121,6 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       onCloseEnd,
       closeButtonLabel,
       className,
-      contentClassName,
       preventOutsideClickRefs,
       preventOutsideClickClose = false,
       hideCloseButton = false,
@@ -426,12 +421,11 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
           }}
           {...rest}
         >
-          <div className={contentClassName}>
-            {(open || isClosing) &&
-              (typeof children === 'function'
-                ? children?.({ onClose: onCloseEnd })
-                : children)}
-          </div>
+          {(open || isClosing) &&
+            (typeof children === 'function'
+              ? children?.({ onClose: onCloseEnd })
+              : children)}
+
           {!hideCloseButton && (
             <CloseButton onClick={handleDialogClose} className={classes.close}>
               {closeButtonLabel}

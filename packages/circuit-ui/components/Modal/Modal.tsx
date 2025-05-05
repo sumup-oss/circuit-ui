@@ -50,6 +50,10 @@ export interface ModalProps extends PublicDialogProps {
    * @default false
    */
   preventClose?: boolean;
+  /**
+   * An optional class name to be applied to the component's content.
+   */
+  contentClassName?: string;
   ref?: Ref<HTMLDialogElement>;
 }
 
@@ -107,13 +111,14 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
         variant === 'immersive' && classes.immersive,
         className,
       )}
-      contentClassName={clsx(classes.content, contentClassName)}
       preventEscapeKeyClose={preventClose}
       preventOutsideClickClose={preventClose}
       hideCloseButton={preventClose}
       {...rest}
     >
-      {typeof children === 'function' ? children?.({ onClose }) : children}
+      <div className={clsx(classes.content, contentClassName)}>
+        {typeof children === 'function' ? children?.({ onClose }) : children}
+      </div>
     </Dialog>
   );
 });
