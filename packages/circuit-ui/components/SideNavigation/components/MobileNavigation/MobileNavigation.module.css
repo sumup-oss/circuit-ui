@@ -25,7 +25,7 @@
   height: var(--cui-spacings-mega);
   content: "";
   background: linear-gradient(
-    color-mix(in sRGB, var(--cui-bg-normal) 0%, transparent),
+    color-mix(in sRGB, var(--cui-bg-normal) 1%, transparent),
     color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
     color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent)
   );
@@ -82,7 +82,7 @@
   background: linear-gradient(
     color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent),
     color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent) 66%,
-    color-mix(in sRGB, var(--cui-bg-normal) 0%, transparent)
+    color-mix(in sRGB, var(--cui-bg-normal) 1%, transparent)
   );
 }
 

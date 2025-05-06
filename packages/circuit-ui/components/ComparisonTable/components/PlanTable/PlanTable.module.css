@@ -46,7 +46,7 @@
   min-height: 96px;
   content: "";
   background: linear-gradient(
-    color-mix(in sRGB, var(--cui-bg-normal) 0%, transparent),
+    color-mix(in sRGB, var(--cui-bg-normal) 1%, transparent),
     color-mix(in sRGB, var(--cui-bg-normal) 90%, transparent),
     color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent)
   );
