@@ -1,5 +1,17 @@
 # @sumup-oss/design-tokens
 
+## 9.0.0-next.2
+
+### Major Changes
+
+- [#3072](https://github.com/sumup-oss/circuit-ui/pull/3072) [`e81b1b4`](https://github.com/sumup-oss/circuit-ui/commit/e81b1b4a2e09c7c35ef8e9f38b53e26eb341ce5e) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed obsolete `--cui-z-index-modal` token. Use `--cui-z-index-popover` instead.
+
+- [#3072](https://github.com/sumup-oss/circuit-ui/pull/3072) [`e81b1b4`](https://github.com/sumup-oss/circuit-ui/commit/e81b1b4a2e09c7c35ef8e9f38b53e26eb341ce5e) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed unused token `--cui-z-index-backdrop`.
+
+### Minor Changes
+
+- [#3072](https://github.com/sumup-oss/circuit-ui/pull/3072) [`e81b1b4`](https://github.com/sumup-oss/circuit-ui/commit/e81b1b4a2e09c7c35ef8e9f38b53e26eb341ce5e) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a new `--cui-z-index-side-panel` token for side panels.
+
 ## 9.0.0-next.1
 
 ### Patch Changes

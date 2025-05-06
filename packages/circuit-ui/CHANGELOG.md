@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 10.0.0-next.5
+
+### Patch Changes
+
+- [#3072](https://github.com/sumup-oss/circuit-ui/pull/3072) [`e81b1b4`](https://github.com/sumup-oss/circuit-ui/commit/e81b1b4a2e09c7c35ef8e9f38b53e26eb341ce5e) Thanks [@sirineJ](https://github.com/sirineJ)! - Added missing backgroud color to SidePanel header on mobile.
+
+- [#3072](https://github.com/sumup-oss/circuit-ui/pull/3072) [`e81b1b4`](https://github.com/sumup-oss/circuit-ui/commit/e81b1b4a2e09c7c35ef8e9f38b53e26eb341ce5e) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed optional `contentClassName` from the Dialog component.
+
 ## 10.0.0-next.4
 
 ### Patch Changes
