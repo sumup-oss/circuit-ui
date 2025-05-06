@@ -18,7 +18,6 @@
 import { Fragment, useCallback, useState } from 'react';
 import { ChevronDown } from '@sumup-oss/icons';
 
-import { StackContext } from '../../../StackContext/index.js';
 import { useCollapsible } from '../../../../hooks/useCollapsible/index.js';
 import { useFocusList } from '../../../../hooks/useFocusList/index.js';
 import type { PrimaryLinkProps } from '../../types.js';
@@ -148,50 +147,48 @@ export const MobileNavigation = ({
 
   return (
     <ComponentsContext.Provider value={UNSAFE_components}>
-      <StackContext.Provider value={'var(--cui-z-index-modal)'}>
-        <Dialog
-          onCloseStart={handleDialogCloseStart}
-          onCloseEnd={handleDialogCloseEnd}
-          isModal
-          className={clsx(
-            classes.base,
-            isClosing
-              ? sharedClasses.animationSlideDownOut
-              : sharedClasses.animationSlideDownIn,
-          )}
-          closeButtonLabel={closeButtonLabel}
-          animationDuration={120} /* .12s */
-          {...props}
-        >
-          <div className={classes.content}>
-            <nav
-              aria-label={primaryNavigationLabel}
-              className={classes.navigation}
-            >
-              <ul className={classes.list}>
-                {primaryLinks.map(({ secondaryGroups, onClick, ...link }) => (
-                  <li key={link.label}>
-                    {secondaryGroups && secondaryGroups.length > 0 ? (
-                      <Group
-                        {...link}
-                        secondaryGroups={secondaryGroups}
-                        onClose={onClose}
-                        {...focusProps}
-                      />
-                    ) : (
-                      <PrimaryLink
-                        {...link}
-                        {...focusProps}
-                        onClick={combineClickHandlers(onClick, onClose)}
-                      />
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </div>
-        </Dialog>
-      </StackContext.Provider>
+      <Dialog
+        onCloseStart={handleDialogCloseStart}
+        onCloseEnd={handleDialogCloseEnd}
+        isModal
+        className={clsx(
+          classes.base,
+          isClosing
+            ? sharedClasses.animationSlideDownOut
+            : sharedClasses.animationSlideDownIn,
+        )}
+        closeButtonLabel={closeButtonLabel}
+        animationDuration={120} /* .12s */
+        {...props}
+      >
+        <div className={classes.content}>
+          <nav
+            aria-label={primaryNavigationLabel}
+            className={classes.navigation}
+          >
+            <ul className={classes.list}>
+              {primaryLinks.map(({ secondaryGroups, onClick, ...link }) => (
+                <li key={link.label}>
+                  {secondaryGroups && secondaryGroups.length > 0 ? (
+                    <Group
+                      {...link}
+                      secondaryGroups={secondaryGroups}
+                      onClose={onClose}
+                      {...focusProps}
+                    />
+                  ) : (
+                    <PrimaryLink
+                      {...link}
+                      {...focusProps}
+                      onClick={combineClickHandlers(onClick, onClose)}
+                    />
+                  )}
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      </Dialog>
     </ComponentsContext.Provider>
   );
 };

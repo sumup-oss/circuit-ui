@@ -413,11 +413,10 @@ export const schema = [
   { name: '--cui-z-index-absolute', type: 'number' },
   { name: '--cui-z-index-input', type: 'number' },
   { name: '--cui-z-index-popover', type: 'number' },
+  { name: '--cui-z-index-side-panel', type: 'number' },
   { name: '--cui-z-index-tooltip', type: 'number' },
   { name: '--cui-z-index-header', type: 'number' },
-  { name: '--cui-z-index-backdrop', type: 'number' },
   { name: '--cui-z-index-navigation', type: 'number' },
-  { name: '--cui-z-index-modal', type: 'number' },
   { name: '--cui-z-index-toast', type: 'number' },
 ] satisfies {
   name: TokenName;

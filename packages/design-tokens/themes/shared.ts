@@ -470,6 +470,11 @@ export const shared = [
     type: 'number',
   },
   {
+    name: '--cui-z-index-side-panel',
+    value: 30,
+    type: 'number',
+  },
+  {
     name: '--cui-z-index-tooltip',
     value: 40,
     type: 'number',
@@ -480,18 +485,8 @@ export const shared = [
     type: 'number',
   },
   {
-    name: '--cui-z-index-backdrop',
-    value: 700,
-    type: 'number',
-  },
-  {
     name: '--cui-z-index-navigation',
     value: 800,
-    type: 'number',
-  },
-  {
-    name: '--cui-z-index-modal',
-    value: 1000,
     type: 'number',
   },
   {
