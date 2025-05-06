@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.12.1
+
+### Patch Changes
+
+- [#3076](https://github.com/sumup-oss/circuit-ui/pull/3076) [`805e499`](https://github.com/sumup-oss/circuit-ui/commit/805e499bf22b5da00c01ddf9f08e9da18a25a326) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a workaround for gradients in the ComparisonTable, Modal, Popover, and SideNavigation components that could be broken by CSS minifiers.
+
 ## 9.12.0
 
 ### Minor Changes
