@@ -39,7 +39,7 @@
 /* Close button */
 .base .close {
   position: absolute;
-  z-index: var(--cui-z-index-absolute);
+  z-index: calc(var(--cui-z-index-input) + 1);
 }
 
 /* Native Backdrop */
