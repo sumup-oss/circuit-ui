@@ -170,5 +170,5 @@
   position: absolute;
   top: var(--cui-spacings-byte);
   right: var(--cui-spacings-byte);
-  z-index: var(--cui-z-index-absolute);
+  z-index: calc(var(--cui-z-index-input) + 1);
 }
