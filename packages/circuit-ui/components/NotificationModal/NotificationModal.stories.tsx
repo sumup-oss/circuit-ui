@@ -14,7 +14,7 @@
  */
 
 import type { Decorator } from '@storybook/react-vite';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { screen, userEvent, within } from 'storybook/test';
 import { useState } from 'react';
 

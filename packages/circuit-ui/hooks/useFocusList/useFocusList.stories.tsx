@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { userEvent } from 'storybook/test';
 
 import { sharedClasses } from '../../styles/shared.js';

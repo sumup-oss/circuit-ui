@@ -14,7 +14,7 @@
  */
 
 import { useState } from 'react';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { Shop, SumUpLogo } from '@sumup-oss/icons';
 
 import { modes } from '../../../../.storybook/modes.js';

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 import { modes } from '../../../../.storybook/modes.js';
