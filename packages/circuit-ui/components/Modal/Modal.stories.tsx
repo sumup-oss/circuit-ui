@@ -15,7 +15,7 @@
 
 import { Fragment, useState } from 'react';
 import { screen, userEvent, within } from 'storybook/test';
-import type { Decorator } from '@storybook/react';
+import type { Decorator } from '@storybook/react-vite';
 
 import { modes } from '../../../../.storybook/modes.js';
 import { Headline } from '../Headline/index.js';

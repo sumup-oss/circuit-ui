@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import type { Decorator } from '@storybook/react';
+import type { Decorator } from '@storybook/react-vite';
 import { useState } from 'react';
 import { screen, userEvent, within } from 'storybook/test';
 
