@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { DocsContainer as BaseContainer } from '@storybook/blocks';
+import { DocsContainer as BaseContainer } from '@storybook/addon-docs/blocks';
 
 import { dark, light, listenToColorScheme } from '../themes';
 

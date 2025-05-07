@@ -4,9 +4,9 @@ import {
   IconButton,
   WithTooltip,
   TooltipLinkList,
-} from '@storybook/components';
+} from 'storybook/internal/components';
 import { ChevronSmallDownIcon } from '@storybook/icons';
-import { useParameter } from '@storybook/manager-api';
+import { useParameter } from 'storybook/manager-api';
 
 type Version = {
   name:

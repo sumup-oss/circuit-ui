@@ -14,7 +14,7 @@
  */
 
 import { useState } from 'react';
-import { screen, userEvent, within } from '@storybook/test';
+import { screen, userEvent, within } from 'storybook/test';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 

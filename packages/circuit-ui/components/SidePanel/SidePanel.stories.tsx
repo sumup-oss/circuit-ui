@@ -14,7 +14,7 @@
  */
 
 import { useState } from 'react';
-import { within, userEvent } from '@storybook/test';
+import { within, userEvent } from 'storybook/test';
 import type { Decorator } from '@storybook/react';
 
 import { modes } from '../../../../.storybook/modes.js';

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { screen, userEvent } from '@storybook/test';
+import { screen, userEvent } from 'storybook/test';
 
 import { Body } from '../Body/index.js';
 import { Headline } from '../Headline/index.js';

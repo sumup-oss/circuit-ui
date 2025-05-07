@@ -14,7 +14,7 @@
  */
 
 import { action } from '@storybook/addon-actions';
-import { userEvent } from '@storybook/test';
+import { userEvent } from 'storybook/test';
 
 import { sharedClasses } from '../../styles/shared.js';
 
