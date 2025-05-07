@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Canvas } from '@storybook/blocks';
+import { Canvas } from '@storybook/addon-docs/blocks';
 
 import { Preview } from './Preview';
 

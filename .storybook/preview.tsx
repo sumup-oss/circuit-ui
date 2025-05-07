@@ -58,6 +58,7 @@ export const parameters = {
     components,
     container: DocsContainer,
     toc: { title: 'On this page', headingSelector: 'h2, h3' },
+    codePanel: true,
   },
 };
 

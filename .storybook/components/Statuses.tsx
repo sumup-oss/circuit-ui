@@ -14,7 +14,7 @@
  */
 
 import type { ReactNode } from 'react';
-import { Unstyled } from '@storybook/blocks';
+import { Unstyled } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
 import {
   Badge,

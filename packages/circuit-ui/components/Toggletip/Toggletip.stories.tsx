@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { userEvent, within } from '@storybook/test';
+import { userEvent, within } from 'storybook/test';
 import { ArrowSlanted, Info } from '@sumup-oss/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';

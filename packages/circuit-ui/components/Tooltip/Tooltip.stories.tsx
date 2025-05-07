@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { userEvent } from '@storybook/test';
+import { userEvent } from 'storybook/test';
 import { TransferOut, UploadCloud } from '@sumup-oss/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';

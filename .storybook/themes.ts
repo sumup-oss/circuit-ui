@@ -1,5 +1,5 @@
-import { create } from '@storybook/theming';
-import { GLOBALS_UPDATED } from '@storybook/core-events';
+import { create } from 'storybook/theming';
+import { GLOBALS_UPDATED } from 'storybook/internal/core-events';
 
 import { Link } from './components/Link';
 

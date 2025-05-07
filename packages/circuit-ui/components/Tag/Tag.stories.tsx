@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { Checkmark } from '@sumup-oss/icons';
 
 import { Tag, type TagProps } from './Tag.js';

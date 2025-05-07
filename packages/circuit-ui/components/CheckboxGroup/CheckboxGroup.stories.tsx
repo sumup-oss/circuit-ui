@@ -14,7 +14,7 @@
  */
 
 import type { ChangeEvent, FocusEvent } from 'react';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 

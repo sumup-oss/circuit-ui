@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import type { Decorator } from '@storybook/react';
+import type { Decorator } from '@storybook/react-vite';
 import { useState } from 'react';
-import { screen, userEvent, within } from '@storybook/test';
+import { screen, userEvent, within } from 'storybook/test';
 
 import { FullViewport } from '../../../../.storybook/components/index.js';
 import { Headline } from '../Headline/index.js';
