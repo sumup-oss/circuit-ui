@@ -1,22 +1,31 @@
-.base {
-  display: inline-flex;
+.stretch {
+  width: 100%;
+}
+
+.options {
+  display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: stretch;
+  justify-content: flex-start;
   width: auto;
 }
 
-.base > div:not(:last-child) {
-  margin-right: var(--cui-spacings-mega);
+.stretch .options {
+  justify-content: space-evenly;
+  width: 100%;
 }
 
-.stretch {
-  display: flex;
-  align-items: stretch;
-  width: 100%;
+/* Sizes */
+.s .options {
+  gap: var(--cui-spacings-byte);
+}
+
+.m .options,
+.flexible .options {
+  gap: var(--cui-spacings-kilo);
 }
 
 .option {
   flex: 1;
-  align-self: stretch;
   width: 100%;
 }
