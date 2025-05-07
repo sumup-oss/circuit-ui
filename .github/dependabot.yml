@@ -29,6 +29,14 @@ updates:
       emotion:
         patterns:
           - '@emotion/*'
+      nanostores:
+        patterns:
+          - 'nanostores'
+          - '@nanostores/*'
+      next:
+        patterns:
+          - 'next'
+          - '@next/*'
       stylelint:
         patterns:
           - stylelint*
@@ -38,10 +46,6 @@ updates:
       typescript-eslint:
         patterns:
           - '@typescript-eslint/*'
-      nanostores:
-        patterns:
-          - 'nanostores'
-          - '@nanostores/*'
       vitest:
         patterns:
           - 'vitest'
