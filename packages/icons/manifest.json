@@ -72,12 +72,22 @@
       "size": "16"
     },
     {
+      "name": "controls",
+      "category": "Action",
+      "size": "16"
+    },
+    {
       "name": "copy",
       "category": "Action",
       "size": "24"
     },
     {
       "name": "crop",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "day_view",
       "category": "Action",
       "size": "24"
     },
@@ -210,6 +220,11 @@
       "name": "minus",
       "category": "Action",
       "size": "16"
+    },
+    {
+      "name": "month_view",
+      "category": "Action",
+      "size": "24"
     },
     {
       "name": "more",
@@ -370,6 +385,11 @@
       "name": "view",
       "category": "Action",
       "size": "16"
+    },
+    {
+      "name": "week_view",
+      "category": "Action",
+      "size": "24"
     },
     {
       "name": "sum_up_logo",
