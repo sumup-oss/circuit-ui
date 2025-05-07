@@ -20,7 +20,6 @@ const config: StorybookConfig = {
         },
       },
     },
-    '@storybook/addon-storysource',
     '@storybook/addon-controls',
     '@storybook/addon-actions',
     '@storybook/addon-interactions',
