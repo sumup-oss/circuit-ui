@@ -1,5 +1,15 @@
 # @sumup-oss/eslint-plugin-circuit-ui
 
+## 6.0.0
+
+### Minor Changes
+
+- [#2914](https://github.com/sumup-oss/circuit-ui/pull/2914) [`c01bb30`](https://github.com/sumup-oss/circuit-ui/commit/c01bb304a920dffdaa2baf7921d7b793f7a8ebf5) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a `no-renamed-components` new ESLint rule to flag and replace renamed components.
+
+### Patch Changes
+
+- [#2974](https://github.com/sumup-oss/circuit-ui/pull/2974) [`b025cf4`](https://github.com/sumup-oss/circuit-ui/commit/b025cf4cfa9a1a687623d1d23f3daf0283c0db2c) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the `component-lifecycle-imports` ESlint rule to flag imports of the now stable Timestamp component from `@sumup-oss/circuit-ui/experimental`
+
 ## 6.0.0-next.0
 
 ### Minor Changes
