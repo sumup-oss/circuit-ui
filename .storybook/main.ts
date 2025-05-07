@@ -22,7 +22,6 @@ const config: StorybookConfig = {
     },
     '@storybook/addon-controls',
     '@storybook/addon-actions',
-    '@storybook/addon-interactions',
     '@storybook/addon-a11y',
     '@storybook/addon-links',
     '@storybook/addon-viewport',

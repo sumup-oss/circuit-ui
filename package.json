@@ -49,7 +49,6 @@
     "@storybook/addon-actions": "^8.6.7",
     "@storybook/addon-controls": "^8.6.7",
     "@storybook/addon-docs": "^9.0.0-beta.11",
-    "@storybook/addon-interactions": "^8.6.7",
     "@storybook/addon-links": "^9.0.0-beta.11",
     "@storybook/addon-measure": "^8.6.7",
     "@storybook/addon-outline": "^8.6.7",
