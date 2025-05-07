@@ -36,6 +36,7 @@ import {
 } from '../Field/index.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { changeInputValue } from '../../util/input-value.js';
+import { idx } from '../../util/idx.js';
 
 import classes from './ColorInput.module.css';
 import {
@@ -105,7 +106,10 @@ export const ColorInput = forwardRef<HTMLInputElement, ColorInputProps>(
     const pickerId = useId();
     const validationHintId = useId();
 
-    const descriptionIds = clsx(validationHintId, descriptionId);
+    const descriptionIds = idx(
+      descriptionId,
+      validationHint && validationHintId,
+    );
 
     const updatePickerValue = useCallback((color: string) => {
       if (!colorPickerRef.current || !isValidColor(color)) {

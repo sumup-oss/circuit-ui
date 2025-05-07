@@ -22,7 +22,10 @@ import {
   type ReactNode,
 } from 'react';
 
-import { AccessibilityError } from '../../util/errors.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
 import { Body } from '../Body/index.js';
 import { ListItem, type ListItemProps } from '../ListItem/index.js';
 import { isString } from '../../util/type-check.js';
@@ -48,8 +51,9 @@ export interface BaseProps {
   items: ItemProps[];
   /**
    * Display a main label/headline describing the group.
+   * `aria-label` or `aria-labelledby` can alternatively be used to provide accessibility information.
    */
-  label: ReactNode;
+  label?: ReactNode;
   /**
    * Visually hide the label. This should only be used in rare cases and only
    * if the purpose of the field can be inferred from other context.
@@ -89,11 +93,11 @@ export const ListItemGroup = forwardRef<HTMLDivElement, ListItemGroupProps>(
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
-      !label
+      !isSufficientlyLabelled(label, props)
     ) {
       throw new AccessibilityError(
         'ListItemGroup',
-        'The `label` prop is missing. This is an accessibility requirement. Pass `hideLabel` if you intend to hide the label visually.',
+        'The `label` prop, `aria-label` or `aria-labelledby` is missing. This is an accessibility requirement. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
 
@@ -104,20 +108,22 @@ export const ListItemGroup = forwardRef<HTMLDivElement, ListItemGroupProps>(
         ref={ref}
       >
         <div className={classes.header}>
-          <div
-            className={clsx(
-              classes.label,
-              hideLabel && utilClasses.hideVisually,
-            )}
-          >
-            {isString(label) ? (
-              <Body as="h4" size="s">
-                {label}
-              </Body>
-            ) : (
-              label
-            )}
-          </div>
+          {label && (
+            <div
+              className={clsx(
+                classes.label,
+                hideLabel && utilClasses.hideVisually,
+              )}
+            >
+              {isString(label) ? (
+                <Body as="h4" size="s">
+                  {label}
+                </Body>
+              ) : (
+                label
+              )}
+            </div>
+          )}
           {details && (
             <div className={classes.details}>
               {isString(details) ? <Body size="s">{details}</Body> : details}

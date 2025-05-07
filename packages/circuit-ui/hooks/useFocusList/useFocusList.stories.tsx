@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-/* eslint-disable jsx-a11y/no-redundant-roles */
 import { action } from '@storybook/addon-actions';
 import { userEvent } from '@storybook/test';
 
@@ -32,7 +31,7 @@ export const Example = () => {
   const focusProps = useFocusList();
 
   return (
-    <ul role="list" style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+    <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
       {fruits.map((fruit) => (
         <li key={fruit}>
           <button

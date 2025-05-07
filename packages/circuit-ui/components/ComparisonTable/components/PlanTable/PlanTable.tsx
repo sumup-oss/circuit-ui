@@ -34,7 +34,6 @@ import {
 import { generateFromIndex, getFirstNRows } from '../../utils.js';
 import { Button } from '../../../Button/index.js';
 import { applyMultipleRefs } from '../../../../util/refs.js';
-import { throttle } from '../../../../util/helpers.js';
 import { useMedia } from '../../../../hooks/useMedia/index.js';
 import { Body } from '../../../Body/index.js';
 import { clsx } from '../../../../styles/clsx.js';
@@ -108,24 +107,45 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
         0,
       ) > COLLAPSE_THRESHOLD,
     );
-    const [headerHeight, setHeaderHeight] = useState(0);
-
-    const updateHeaderHeight = useCallback(() => {
-      throttle(() => {
-        setHeaderHeight(theadRef.current?.getBoundingClientRect().height ?? 0);
-      }, 500)();
-    }, []);
+    const [sectionOffset, setSectionOffset] = useState(0);
+    const isPlanPickerVisible = headers.length > 2;
 
     useEffect(() => {
-      updateHeaderHeight();
-    }, [updateHeaderHeight]);
+      const tableHeaderElement = theadRef.current;
+      const tableElement = tableRef.current;
+      if (
+        !tableHeaderElement ||
+        typeof ResizeObserver === 'undefined' ||
+        !tableElement
+      ) {
+        return undefined;
+      }
 
-    useEffect(() => {
-      window.addEventListener('resize', updateHeaderHeight);
+      // opt for progressive enhancement
+      // eslint-disable-next-line compat/compat
+      const headerSizeObserver = new ResizeObserver((entries) => {
+        /* account for sticky plan picker on mobile */
+        const planPickerHeight = isPlanPickerVisible
+          ? (isMobile ? 80 : 0) + (isTablet ? 16 : 0)
+          : 0;
+        /* account for sticky top navigation, if it exists */
+        const topNavigationHeight = Number(
+          getComputedStyle(tableElement)
+            .getPropertyValue('--top-navigation-height')
+            .replace('px', '') ?? 0,
+        );
+        setSectionOffset(
+          entries[0].contentRect.height +
+            planPickerHeight +
+            topNavigationHeight,
+        );
+      });
+
+      headerSizeObserver.observe(tableHeaderElement);
       return () => {
-        window.removeEventListener('resize', updateHeaderHeight);
+        headerSizeObserver.unobserve(tableHeaderElement);
       };
-    }, [updateHeaderHeight]);
+    }, [isPlanPickerVisible, isMobile, isTablet]);
 
     const showFeatures = useCallback(() => {
       setIsCollapsed(false);
@@ -169,13 +189,16 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
           </colgroup>
           <thead ref={theadRef}>
             <tr>
-              <td />
+              <td className={clsx(isPlanPickerVisible && classes.offset)} />
               {headersToDisplay.map((plan, index) => (
                 <TableHeader
                   {...plan}
                   key={`cui-ct-headers-${plan.id}`}
                   id={`cui-ct-headers-${plan.id}`}
-                  className={clsx(index > 0 && classes.border)}
+                  className={clsx(
+                    index > 0 && classes.border,
+                    isPlanPickerVisible && classes.offset,
+                  )}
                 />
               ))}
             </tr>
@@ -192,9 +215,8 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
                   scope="rowgroup"
                   id={`cui-ct-sections-${sectionIndex}`}
                   colSpan={headers.length + 1}
-                  /* account for sticky plan picker on mobile */
                   style={{
-                    top: `${(isMobile ? 80 : 0) + (isTablet ? 16 : 0) + headerHeight}px`,
+                    top: `${sectionOffset}px`,
                   }}
                 >
                   <Body className={classes.title} size="m" weight="semibold">
@@ -214,6 +236,7 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
                       toggletip={feature.featureDescription.toggletip}
                       headers={`cui-ct-sections-${sectionIndex}`}
                       id={featureId}
+                      offset={sectionOffset}
                     >
                       {feature.featureDescription.label}
                     </RowHeader>

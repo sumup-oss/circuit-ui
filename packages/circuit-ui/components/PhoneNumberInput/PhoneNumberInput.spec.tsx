@@ -314,7 +314,7 @@ describe('PhoneNumberInput', () => {
   it('should set aria-describedby when there is an error message', () => {
     const props = {
       ...defaultProps,
-      errorMessage: 'This is an error message',
+      validationHint: 'This is an error message',
     };
     render(<PhoneNumberInput {...props} />);
     const fieldset = screen.getByRole('group');

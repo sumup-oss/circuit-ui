@@ -14,19 +14,21 @@
  */
 
 import { modes } from '../../../../.storybook/modes.js';
+import { TopNavigation } from '../TopNavigation/index.js';
+import { baseArgs as topNavigationProps } from '../TopNavigation/TopNavigation.stories.js';
 
 import {
   ComparisonTable,
   type ComparisonTableProps,
 } from './ComparisonTable.js';
 import {
-  bankingBasicsSection,
-  moneyManagement,
-  invoicingSection,
-  posPlan,
-  posPlusPlan,
-  posProPlan,
-  productCatalogSection,
+  basicPlan,
+  standardPlan,
+  premiumPlan,
+  essentialFeaturesSection,
+  customizationSection,
+  supportSection,
+  analyticsSection,
 } from './fixtures.js';
 
 export default {
@@ -45,8 +47,8 @@ export default {
 
 const baseProps: ComparisonTableProps = {
   caption: 'Compare plans',
-  headers: [posPlan, posPlusPlan, posProPlan],
-  sections: [bankingBasicsSection],
+  headers: [basicPlan, standardPlan],
+  sections: [essentialFeaturesSection],
   showAllFeaturesLabel: 'Show all features',
   selectSecondPlanLabel: 'Select a second plan',
   selectFirstPlanLabel: 'Select a first plan',
@@ -62,10 +64,31 @@ export const Collapsed = (args: ComparisonTableProps) => (
 
 Collapsed.args = {
   ...baseProps,
-  sections: [
-    ...baseProps.sections,
-    productCatalogSection,
-    moneyManagement,
-    invoicingSection,
-  ],
+  headers: [basicPlan, standardPlan, premiumPlan],
+  sections: [customizationSection, supportSection, analyticsSection],
+};
+
+export const WithTopNavigation = (args: ComparisonTableProps) => (
+  <div style={{ position: 'relative' }}>
+    <TopNavigation
+      {...topNavigationProps}
+      style={{
+        position: 'sticky',
+        top: '0',
+        zIndex: 'calc(var(--cui-z-index-navigation) + 1)',
+      }}
+    />
+    <div style={{ padding: 'var(--cui-spacings-giga)' }}>
+      <ComparisonTable {...args} />
+    </div>
+  </div>
+);
+
+WithTopNavigation.parameters = {
+  layout: 'fullscreen',
+};
+WithTopNavigation.args = {
+  ...baseProps,
+  headers: [basicPlan, standardPlan, premiumPlan],
+  sections: [customizationSection, supportSection, analyticsSection],
 };

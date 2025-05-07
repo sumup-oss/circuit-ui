@@ -1,5 +1,19 @@
 # @sumup-oss/icons
 
+## 5.9.0
+
+### Minor Changes
+
+- [#3075](https://github.com/sumup-oss/circuit-ui/pull/3075) [`3d0c5fc`](https://github.com/sumup-oss/circuit-ui/commit/3d0c5fcf7c9f39861a3c3289311e6129800a1357) Thanks [@giedoka](https://github.com/giedoka)! - Added new `DayView`, `WeekView`, `MonthView` icons in size 24 and `Controls` icon in size 16.
+
+## 5.8.0
+
+### Minor Changes
+
+- [#3012](https://github.com/sumup-oss/circuit-ui/pull/3012) [`ff540a3`](https://github.com/sumup-oss/circuit-ui/commit/ff540a3b93f0efe50253041a5bc0fef6281ad35f) Thanks [@pspasova](https://github.com/pspasova)! - Added a Bulk Transfer icon in size 24.
+
+- [#3015](https://github.com/sumup-oss/circuit-ui/pull/3015) [`a92a222`](https://github.com/sumup-oss/circuit-ui/commit/a92a22266d32a9e9432a395b5147be73099c2fc7) Thanks [@amelako](https://github.com/amelako)! - Added a Sumup pay icon in size 32.
+
 ## 5.7.0
 
 ### Minor Changes

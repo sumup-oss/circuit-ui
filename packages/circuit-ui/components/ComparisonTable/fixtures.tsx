@@ -23,266 +23,232 @@ import type {
   FeatureSection,
 } from './components/PlanTable/PlanTable.js';
 
-export const posPlan: TableHeaderProps = {
-  title: 'Free',
-  id: 'free',
-  description: '$0 / month',
+export const basicPlan: TableHeaderProps = {
+  title: 'Basic',
+  id: 'basic',
+  description: 'Essential features',
 };
 
-export const posPlusPlan: TableHeaderProps = {
-  title: 'POS',
-  id: 'pos_plus',
-  tier: { variant: 'plus' },
-  description: '$15/month',
+export const standardPlan: TableHeaderProps = {
+  title: 'Standard',
+  id: 'standard',
+  description: 'Most popular',
   action: {
-    children: 'Join now',
-    href: 'https://sumup.com',
+    children: 'Get started',
+    href: '#',
   },
 };
 
-export const posProPlan: TableHeaderProps = {
-  title: 'POS Pro',
-  id: 'pos_pro',
-  description: '$25/month',
+export const premiumPlan: TableHeaderProps = {
+  title: 'Premium',
+  id: 'premium',
+  description: 'Full feature set',
   action: {
-    children: 'Join now',
-    href: 'https://sumup.com',
+    children: 'Get started',
+    href: '#',
   },
 };
 
-export const freeBusinessAccountFeature: Feature = {
+export const coreFeature: Feature = {
   featureDescription: {
-    label: 'Free business account',
-    description: 'get started right away',
+    label: 'Core functionality',
+    description: 'essential features included',
     toggletip: {
       component: (props) => (
         <IconButton {...props} icon={Help} variant="tertiary" size="s">
-          View details for Free business account
+          View details for Core functionality
         </IconButton>
       ),
-      headline: 'Some additional information',
-      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+      headline: 'Additional information',
+      body: 'This feature provides essential functionality for all users.',
       action: {
         children: 'Learn more',
         navigationIcon: ArrowSlanted,
-        href: 'https://help.sumup.com/',
+        href: '#',
         target: '_blank',
       },
       offset: 8,
     },
   },
   values: [
-    { value: true, label: 'available' },
-    { value: true, label: 'available' },
-    { value: true, label: 'available' },
+    { value: true, label: 'included' },
+    { value: true, label: 'included' },
   ],
 };
 
-export const freePhysicalCardFeature: Feature = {
+export const advancedFeature: Feature = {
   featureDescription: {
-    label: 'Free physical or virtual Mastercard',
+    label: 'Advanced features',
   },
   values: [
-    { value: true, label: 'available' },
-    { value: true, label: 'available' },
-    { value: true, label: 'available' },
+    { value: true, label: 'included' },
+    { value: true, label: 'included' },
   ],
 };
 
-export const freeInstantTransfersFeature: Feature = {
+export const premiumFeature: Feature = {
   featureDescription: {
-    label: 'Free instant transfers',
+    label: 'Premium features',
   },
   values: [
-    { value: true, label: 'available' },
-    { value: true, label: 'available' },
-    { value: true, label: 'available' },
+    { value: true, label: 'included' },
+    { value: true, label: 'included' },
   ],
 };
 
-export const scheduledPaymentsFeature: Feature = {
+export const limitedFeature: Feature = {
   featureDescription: {
-    label: 'Scheduled payments',
+    label: 'Limited access',
   },
   values: [
-    { value: false, label: 'unavailable' },
-    { value: true, label: 'available' },
-    { value: true, label: 'available' },
+    { value: false, label: 'not included' },
+    { value: true, label: 'included' },
   ],
 };
 
-export const paymentRemindersFeature: Feature = {
+export const exclusiveFeature: Feature = {
   featureDescription: {
-    label: 'Payment reminders',
+    label: 'Exclusive access',
   },
   values: [
-    { value: false, label: 'unavailable' },
-    { value: false, label: 'available' },
-    { value: true, label: 'available' },
+    { value: false, label: 'not included' },
+    { value: false, label: 'not included' },
   ],
 };
 
-export const bankingBasicsSection: FeatureSection = {
-  title: 'Banking basics',
+export const essentialFeaturesSection: FeatureSection = {
+  title: 'Essential Features',
   features: [
-    freeBusinessAccountFeature,
-    freePhysicalCardFeature,
-    freeInstantTransfersFeature,
-    scheduledPaymentsFeature,
-    paymentRemindersFeature,
+    coreFeature,
+    advancedFeature,
+    premiumFeature,
+    limitedFeature,
+    exclusiveFeature,
   ],
 };
 
-export const productCatalogSection: FeatureSection = {
-  title: 'Product catalog',
+export const customizationSection: FeatureSection = {
+  title: 'Customization',
   features: [
     {
       featureDescription: {
-        label: 'Catalog with item images',
-        description: 'add variations',
+        label: 'Basic customization',
+        description: 'limited options',
       },
       values: [
-        { value: true, label: 'available' },
-        { value: true, label: 'available' },
-        { value: true, label: 'available' },
+        { value: true, label: 'included' },
+        { value: true, label: 'included' },
+        { value: true, label: 'included' },
       ],
     },
     {
       featureDescription: {
-        label: 'Sell with Variants, modifiers, and units of measure',
+        label: 'Advanced customization',
         toggletip: {
           component: (props) => (
             <IconButton {...props} icon={Help} variant="tertiary" size="s">
-              View details for Modifiers
+              View details for Advanced customization
             </IconButton>
           ),
-          headline: 'Some additional information',
-          body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+          headline: 'Customization options',
+          body: 'Advanced customization provides more flexibility and control over your experience.',
           action: {
             children: 'Learn more',
             navigationIcon: ArrowSlanted,
-            href: 'https://help.sumup.com/',
+            href: '#',
             target: '_blank',
           },
           offset: 8,
         },
       },
-
       values: [
-        { value: true, label: 'available' },
-        { value: true, label: 'available' },
-        { value: true, label: 'available' },
+        { value: false, label: 'not included' },
+        { value: true, label: 'included' },
+        { value: true, label: 'included' },
       ],
     },
     {
       featureDescription: {
-        label: 'Eat-in/takeaway prices',
+        label: 'Full customization',
       },
       values: [
-        { value: false, label: 'unavailable' },
-        { value: true, label: 'available' },
-        { value: true, label: 'available' },
-      ],
-    },
-    {
-      featureDescription: {
-        label: 'Import/export items',
-      },
-      values: [
-        { value: false, label: 'unavailable' },
-        { value: true, label: 'available' },
-        { value: true, label: 'available' },
-      ],
-    },
-    {
-      featureDescription: {
-        label: 'Item creation by taking a photo',
-      },
-      values: [
-        { value: false, label: 'unavailable' },
-        { value: false, label: 'unavailable' },
-        { value: true, label: 'available' },
+        { value: false, label: 'not included' },
+        { value: false, label: 'not included' },
+        { value: true, label: 'included' },
       ],
     },
   ],
 };
 
-export const moneyManagement: FeatureSection = {
-  title: 'Money Management',
+export const supportSection: FeatureSection = {
+  title: 'Support',
   features: [
     {
       featureDescription: {
-        label: 'Expense cards',
+        label: 'Email support',
       },
       values: [
-        { value: false, label: 'available' },
-        '3 included',
-        '5 included',
+        { value: true, label: 'included' },
+        { value: true, label: 'included' },
+        { value: true, label: 'included' },
       ],
     },
     {
       featureDescription: {
-        label: 'Additional balances',
-        description: 'Emails, SMS, and push notifications',
+        label: 'Priority support',
+        description: '24/7 availability',
       },
-
       values: [
-        { value: false, label: 'available' },
-        '3 included',
-        '5 included',
+        { value: false, label: 'not included' },
+        { value: true, label: 'included' },
+        { value: true, label: 'included' },
       ],
     },
     {
       featureDescription: {
-        label: 'Bulk transfers',
+        label: 'Dedicated support',
       },
-
       values: [
-        { value: false, label: 'available' },
-        { value: true, label: 'available' },
-        { value: true, label: 'available' },
+        { value: false, label: 'not included' },
+        { value: false, label: 'not included' },
+        { value: true, label: 'included' },
       ],
     },
   ],
 };
 
-export const invoicingSection: FeatureSection = {
-  title: 'Invoicing',
+export const analyticsSection: FeatureSection = {
+  title: 'Analytics',
   features: [
     {
       featureDescription: {
-        label: 'Send invoices to get paid',
-        description: 'Includes electronic invoices',
+        label: 'Basic reporting',
       },
-      values: ['4', 'unlimited', 'unlimited'],
-    },
-    {
-      featureDescription: {
-        label: 'Invoices as proof of payment',
-        description: 'Includes electronic invoices',
-      },
-
-      values: ['unlimited', 'unlimited', 'unlimited'],
-    },
-    {
-      featureDescription: {
-        label: 'Get paid via invoices by bank transfer',
-      },
-
       values: [
-        'With the SumUp Business Account',
-        'With any bank account',
-        'With any bank account',
+        { value: true, label: 'included' },
+        { value: true, label: 'included' },
+        { value: true, label: 'included' },
       ],
     },
     {
       featureDescription: {
-        label: 'Create recurring invoices',
+        label: 'Advanced analytics',
+        description: 'Detailed insights and custom reports',
       },
       values: [
-        { value: false, label: 'unavailable' },
-        { value: false, label: 'available' },
-        { value: true, label: 'available' },
+        { value: false, label: 'not included' },
+        { value: true, label: 'included' },
+        { value: true, label: 'included' },
+      ],
+    },
+    {
+      featureDescription: {
+        label: 'Custom dashboards',
+      },
+      values: [
+        { value: false, label: 'not included' },
+        { value: false, label: 'not included' },
+        { value: true, label: 'included' },
       ],
     },
   ],

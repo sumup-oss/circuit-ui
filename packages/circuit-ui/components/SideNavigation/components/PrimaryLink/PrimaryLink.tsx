@@ -23,6 +23,7 @@ import { useComponents } from '../../../ComponentsContext/index.js';
 import { Body } from '../../../Body/index.js';
 import { Skeleton } from '../../../Skeleton/index.js';
 import type { PrimaryLinkProps as PrimaryLinkType } from '../../types.js';
+import { idx } from '../../../../util/idx.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { utilClasses } from '../../../../styles/utility.js';
 import {
@@ -54,7 +55,7 @@ export function PrimaryLink({
   const badgeLabelId = useId();
   const externalLabelId = useId();
 
-  const descriptionIds = clsx(
+  const descriptionIds = idx(
     badge && badgeLabelId,
     externalLabel && externalLabelId,
     descriptionId,

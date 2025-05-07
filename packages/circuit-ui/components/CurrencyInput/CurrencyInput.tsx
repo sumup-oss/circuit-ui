@@ -20,6 +20,7 @@ import { resolveCurrencyFormat } from '@sumup-oss/intl';
 import { NumericFormat, type NumericFormatProps } from 'react-number-format';
 
 import { clsx } from '../../styles/clsx.js';
+import { idx } from '../../util/idx.js';
 import type { Locale } from '../../util/i18n.js';
 import { useLocale } from '../../hooks/useLocale/useLocale.js';
 import { Input, type InputProps } from '../Input/index.js';
@@ -90,7 +91,7 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
   ) => {
     const locale = useLocale(customLocale);
     const currencySymbolId = useId();
-    const descriptionIds = clsx(currencySymbolId, descriptionId);
+    const descriptionIds = idx(currencySymbolId, descriptionId);
 
     const currencyFormat =
       resolveCurrencyFormat(locale, currency) || DEFAULT_FORMAT;

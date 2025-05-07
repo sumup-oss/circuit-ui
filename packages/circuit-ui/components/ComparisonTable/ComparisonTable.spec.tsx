@@ -32,27 +32,18 @@ import {
   type ComparisonTableProps,
 } from './ComparisonTable.js';
 import {
-  bankingBasicsSection,
-  moneyManagement,
-  invoicingSection,
-  posPlan,
-  posPlusPlan,
-  posProPlan,
-  productCatalogSection,
+  standardPlan,
+  essentialFeaturesSection,
+  basicPlan,
+  premiumPlan,
 } from './fixtures.js';
 
 vi.mock('../../hooks/useMedia/index.js');
 
 const baseProps: ComparisonTableProps = {
   caption: 'Compare plans',
-  headers: [posPlan, posPlusPlan, posProPlan],
-
-  sections: [
-    bankingBasicsSection,
-    productCatalogSection,
-    moneyManagement,
-    invoicingSection,
-  ],
+  headers: [basicPlan, standardPlan, premiumPlan],
+  sections: [essentialFeaturesSection],
   showAllFeaturesLabel: 'Show all features',
   selectFirstPlanLabel: 'Select a first plan',
   selectSecondPlanLabel: 'Select a second plan',
@@ -60,6 +51,10 @@ const baseProps: ComparisonTableProps = {
 
 describe('ComparisonTable', () => {
   beforeEach(() => {
+    window.ResizeObserver = vi.fn().mockImplementation(() => ({
+      observe: vi.fn(),
+      unobserve: vi.fn(),
+    }));
     (useMedia as Mock).mockReturnValue(false);
   });
 
@@ -98,7 +93,7 @@ describe('ComparisonTable', () => {
 
     it('should not render the plan picker on mobile if only given two plans', () => {
       render(
-        <ComparisonTable {...baseProps} headers={[posPlan, posPlusPlan]} />,
+        <ComparisonTable {...baseProps} headers={[basicPlan, standardPlan]} />,
       );
       expect(
         screen.queryByText(baseProps.selectFirstPlanLabel),
@@ -113,11 +108,11 @@ describe('ComparisonTable', () => {
 
       await userEvent.selectOptions(
         screen.getByLabelText(baseProps.selectFirstPlanLabel),
-        'POS Pro',
+        'Premium',
       );
       expect(
         screen.getByRole('columnheader', {
-          name: 'POS plus $15/month Join now',
+          name: 'Premium Full feature set Get started',
         }),
       ).toBeVisible();
     });

@@ -110,6 +110,94 @@
 - Updated dependencies [[`3dd75c9`](https://github.com/sumup-oss/circuit-ui/commit/3dd75c9b647eb80d5043c6cac1cbb0d299654f56), [`b7ff643`](https://github.com/sumup-oss/circuit-ui/commit/b7ff643cbb1d190d82a164b5116808546241a528)]:
   - @sumup-oss/design-tokens@9.0.0-next.0
 
+## 9.12.2
+
+### Patch Changes
+
+- [#3080](https://github.com/sumup-oss/circuit-ui/pull/3080) [`73f2ee3`](https://github.com/sumup-oss/circuit-ui/commit/73f2ee3bb27a74165b77c953dcf76a6f89c0e76a) Thanks [@sirineJ](https://github.com/sirineJ)! - Increased the Modal component's close button z-index value.
+
+## 9.12.1
+
+### Patch Changes
+
+- [#3076](https://github.com/sumup-oss/circuit-ui/pull/3076) [`805e499`](https://github.com/sumup-oss/circuit-ui/commit/805e499bf22b5da00c01ddf9f08e9da18a25a326) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a workaround for gradients in the ComparisonTable, Modal, Popover, and SideNavigation components that could be broken by CSS minifiers.
+
+## 9.12.0
+
+### Minor Changes
+
+- [#3059](https://github.com/sumup-oss/circuit-ui/pull/3059) [`2fa018b`](https://github.com/sumup-oss/circuit-ui/commit/2fa018b6190c426a7bae03aa7013e7679247391f) Thanks [@jmaslate](https://github.com/jmaslate)! - Display the action button in the ComparisonTable's header on narrow viewports.
+
+### Patch Changes
+
+- [#3052](https://github.com/sumup-oss/circuit-ui/pull/3052) [`2b4b4c4`](https://github.com/sumup-oss/circuit-ui/commit/2b4b4c4b19c673b782e45682977011251450bc91) Thanks [@cecisousa](https://github.com/cecisousa)! - Allowed more flexibility on the accessibility requirements of the ListItemGroup component by making the `label` prop optional and accepting `aria-label` or `aria-labelledby` attributes as alternatives to provide context.
+
+## 9.11.2
+
+### Patch Changes
+
+- [#3047](https://github.com/sumup-oss/circuit-ui/pull/3047) [`b1187df`](https://github.com/sumup-oss/circuit-ui/commit/b1187df4e4eec56d2b5012db78604cab5c313335) Thanks [@sirineJ](https://github.com/sirineJ)! - Hid the ComparisonTable's open Toggletips when their triggering elements are scrolled out of view.
+
+## 9.11.1
+
+### Patch Changes
+
+- [#3045](https://github.com/sumup-oss/circuit-ui/pull/3045) [`b46aa1e`](https://github.com/sumup-oss/circuit-ui/commit/b46aa1ec728175735b12ad57f93c7ab464bbdb4e) Thanks [@sirineJ](https://github.com/sirineJ)! - Improved the sticky behavior of sticky section names of the ComporisonTable component.
+
+- [#3037](https://github.com/sumup-oss/circuit-ui/pull/3037) [`ed77910`](https://github.com/sumup-oss/circuit-ui/commit/ed779103b2103d4e3a705f80e53a2299a5f72071) Thanks [@sirineJ](https://github.com/sirineJ)! - Improved the stacking of Toggletips inside the ComparisonTable.
+
+## 9.11.0
+
+### Minor Changes
+
+- [#3035](https://github.com/sumup-oss/circuit-ui/pull/3035) [`fb8a70e`](https://github.com/sumup-oss/circuit-ui/commit/fb8a70e8a2549535620f59c11f202728807ddccb) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a `strategy` prop to the Toggletip component to allow a more flexible positioning of the floating element. Defaults to `"fixed"`. Read more about strategy in [floating-ui's documentation](https://floating-ui.com/docs/usefloating#strategy).
+
+### Patch Changes
+
+- [#3034](https://github.com/sumup-oss/circuit-ui/pull/3034) [`c2a40b1`](https://github.com/sumup-oss/circuit-ui/commit/c2a40b166cc6be2d228cf9a91680251ee9c1f90e) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed the sticky positioning of the comparison table headers in the absence of a plan picker. Added support for positioning relative to a navigation element by providing a `--top-navigation-height` custom property.
+
+## 9.10.1
+
+### Patch Changes
+
+- [#3031](https://github.com/sumup-oss/circuit-ui/pull/3031) [`7da5585`](https://github.com/sumup-oss/circuit-ui/commit/7da558500bc1a0b6635b692ac8851e6969a04935) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the `aria-valuetext` attribute from the DateInput component when empty.
+
+## 9.10.0
+
+### Minor Changes
+
+- [#3018](https://github.com/sumup-oss/circuit-ui/pull/3018) [`4254dcd`](https://github.com/sumup-oss/circuit-ui/commit/4254dcd4b7f5df24cbcf02d323ef775ebbfe6288) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a new `idx` helper to concatenate ids for `aria-*` attributes.
+
+### Patch Changes
+
+- [#3018](https://github.com/sumup-oss/circuit-ui/pull/3018) [`4254dcd`](https://github.com/sumup-oss/circuit-ui/commit/4254dcd4b7f5df24cbcf02d323ef775ebbfe6288) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed `aria-*` attributes with references to non-existent elements.
+
+- [#3019](https://github.com/sumup-oss/circuit-ui/pull/3019) [`1e177db`](https://github.com/sumup-oss/circuit-ui/commit/1e177db0798fe74a6ee6fc8ff2d752efd6b3f8ce) Thanks [@connor-baer](https://github.com/connor-baer)! - Widened the allowed version range for the `temporal-polyfill` peer dependency which recently added support for the March 2025 version of the Temporal spec.
+
+- [#3020](https://github.com/sumup-oss/circuit-ui/pull/3020) [`e366b87`](https://github.com/sumup-oss/circuit-ui/commit/e366b872167e3dce3d89f1486221c7e75cf2fa07) Thanks [@vascofg](https://github.com/vascofg)! - Added support for the `hidden` attribute to the Button component.
+
+- [#3009](https://github.com/sumup-oss/circuit-ui/pull/3009) [`4b75fcd`](https://github.com/sumup-oss/circuit-ui/commit/4b75fcdd9393dbf5c1b7e1db8fc2ac8cba4cdfb7) Thanks [@sirineJ](https://github.com/sirineJ)! - Provided an accessible name to the IconButton component.
+
+## 9.9.4
+
+### Patch Changes
+
+- [#3006](https://github.com/sumup-oss/circuit-ui/pull/3006) [`50e7e40`](https://github.com/sumup-oss/circuit-ui/commit/50e7e40cafc58c2a2407c219c688c6604f19d375) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed empty `aria-describedby` attributes from all other components.
+
+## 9.9.3
+
+### Patch Changes
+
+- [#3004](https://github.com/sumup-oss/circuit-ui/pull/3004) [`07f05aa`](https://github.com/sumup-oss/circuit-ui/commit/07f05aa5de22f14291dc52410dd804548160761e) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the empty `aria-describedby` attribute from the Anchor component.
+
+## 9.9.2
+
+### Patch Changes
+
+- [#3003](https://github.com/sumup-oss/circuit-ui/pull/3003) [`305ea75`](https://github.com/sumup-oss/circuit-ui/commit/305ea75d1deb1f86da84540168a7a6b97d7813d1) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed type generation for the `@sumup-oss/circuit-ui/internal` exports.
+
+- [#2999](https://github.com/sumup-oss/circuit-ui/pull/2999) [`f2b9920`](https://github.com/sumup-oss/circuit-ui/commit/f2b9920980ec7c0085cc7f5331f13e83c4573aeb) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the DateInput component's input segment width when the component isn't immediately rendered to the DOM.
+
 ## 9.9.1
 
 ### Patch Changes

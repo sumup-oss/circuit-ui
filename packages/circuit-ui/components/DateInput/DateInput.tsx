@@ -60,6 +60,7 @@ import { applyMultipleRefs } from '../../util/refs.js';
 import { changeInputValue } from '../../util/input-value.js';
 import { Dialog } from '../Dialog/Dialog.js';
 import { sharedClasses } from '../../styles/shared.js';
+import { idx } from '../../util/idx.js';
 
 import { DateSegment } from './components/DateSegment.js';
 import { usePlainDateState } from './hooks/usePlainDateState.js';
@@ -200,7 +201,10 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     const headlineId = useId();
     const validationHintId = useId();
 
-    const descriptionIds = clsx(descriptionId, validationHintId);
+    const descriptionIds = idx(
+      descriptionId,
+      validationHint && validationHintId,
+    );
     const minDate = toPlainDate(min);
     const maxDate = toPlainDate(max);
 
@@ -488,7 +492,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
             isClosing ? outAnimation : inAnimation,
           )}
           animationDuration={isMobile ? animationDuration : 0}
-          aria-labelledby={headlineId}
+          aria-labelledby={idx(open && headlineId)}
           style={dialogStyles}
           locale={locale}
           closeButtonLabel={closeCalendarButtonLabel}

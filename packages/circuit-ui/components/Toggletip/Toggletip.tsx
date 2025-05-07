@@ -34,6 +34,7 @@ import {
   type Placement,
   type Side,
 } from '@floating-ui/react-dom';
+import type { Strategy } from '@floating-ui/utils';
 
 import type { ClickEvent } from '../../types/events.js';
 import { clsx } from '../../styles/clsx.js';
@@ -78,13 +79,14 @@ export interface ToggletipProps
    */
   action?: Omit<ButtonProps, 'variant' | 'size'>;
   /**
-   * Whether the toggletip is initially open. Default: 'false'.
+   * Whether the toggletip is initially open.
+   * @default false
    */
   defaultOpen?: boolean;
   /**
    * Where to display the toggletip relative to the trigger component. The
    * toggletip will automatically move if there isn't enough space available.
-   * @default 'top'.
+   * @default 'top'
    */
   placement?: Placement;
   /**
@@ -93,10 +95,14 @@ export interface ToggletipProps
    * Pass a number to move the floating element on the main axis, away from (if
    * positive) or towards (if negative) the reference element. Pass an object
    * to displace the floating element on both the main and cross axes.
-   *
-   * @default: 12.
+   * @default 12
    */
   offset?: number | { mainAxis?: number; crossAxis?: number };
+  /**
+   * The strategy to use when positioning the floating element.
+   * @default 'fixed'
+   */
+  strategy?: Strategy;
 }
 
 export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
@@ -113,6 +119,7 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
       className,
       style,
       locale,
+      strategy = 'fixed',
       ...rest
     } = props;
     const zIndex = useStackContext();
@@ -126,6 +133,7 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
     const { refs, floatingStyles, middlewareData, update, placement } =
       useFloating({
         open,
+        strategy,
         placement: defaultPlacement,
         middleware: [
           offsetMiddleware(offset),

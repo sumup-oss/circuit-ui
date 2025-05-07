@@ -125,6 +125,7 @@ export const IconButton: ForwardRefExoticComponent<
       size,
       children: isString(children) ? children : label,
       title: isString(children) ? children : label,
+      'aria-label': isString(children) ? children : label,
       ...props,
     };
   },

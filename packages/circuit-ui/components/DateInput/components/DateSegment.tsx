@@ -75,7 +75,10 @@ export function DateSegment({
       const cursorWidth = 1;
       const elementSize = sizeRef.current.getBoundingClientRect();
       const elementWidth = Math.ceil(elementSize.width);
-      setWidth(`${cursorWidth + elementWidth}px`);
+      // The element width can be 0 if a parent element isn't rendered to the DOM (yet)
+      if (elementWidth > 0) {
+        setWidth(`${cursorWidth + elementWidth}px`);
+      }
     }
   }, [props.value]);
 

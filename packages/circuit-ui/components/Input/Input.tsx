@@ -34,6 +34,7 @@ import {
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';
+import { idx } from '../../util/idx.js';
 
 import classes from './Input.module.css';
 
@@ -149,9 +150,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     const id = useId();
     const inputId = customId || id;
     const validationHintId = useId();
-    const descriptionIds = `${
-      descriptionId ? `${descriptionId} ` : ''
-    }${validationHintId}`;
+    const descriptionIds = idx(
+      descriptionId,
+      validationHint && validationHintId,
+    );
 
     const prefix = RenderPrefix && <RenderPrefix className={classes.prefix} />;
     const suffix = RenderSuffix && <RenderSuffix className={classes.suffix} />;

@@ -30,7 +30,8 @@
     "util/**/*",
     "index.ts",
     "legacy.ts",
-    "experimental.ts"
+    "experimental.ts",
+    "internal.ts"
   ],
   "exclude": ["node_modules", "dist"],
   "typeRoots": ["./types"]

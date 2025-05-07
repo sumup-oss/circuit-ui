@@ -29,6 +29,7 @@ import type { ClickEvent } from '../../types/events.js';
 import type { AsPropType } from '../../types/prop-types.js';
 import { Body, type BodyProps } from '../Body/Body.js';
 import { useComponents } from '../ComponentsContext/index.js';
+import { idx } from '../../util/idx.js';
 import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';
 import { AccessibilityError } from '../../util/errors.js';
@@ -94,7 +95,7 @@ export const Anchor = forwardRef(
     }
 
     const externalLabelId = useId();
-    const descriptionIds = clsx(
+    const descriptionIds = idx(
       externalLabel && isExternalLink && externalLabelId,
       descriptionId,
     );

@@ -34,6 +34,7 @@ import {
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';
+import { idx } from '../../util/idx.js';
 
 import classes from './Select.module.css';
 
@@ -132,9 +133,9 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     const id = useId();
     const selectId = customId || id;
     const validationHintId = useId();
-    const descriptionIds = clsx(
-      Boolean(descriptionId) && descriptionId,
-      Boolean(validationHint) && validationHintId,
+    const descriptionIds = idx(
+      descriptionId,
+      validationHint && validationHintId,
     );
 
     const prefix = RenderPrefix && (
