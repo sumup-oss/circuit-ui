@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 10.0.0-next.6
+
+### Patch Changes
+
+- [#3079](https://github.com/sumup-oss/circuit-ui/pull/3079) [`fab963b`](https://github.com/sumup-oss/circuit-ui/commit/fab963b555dd505b5a3047fdff4f38a249f684a2) Thanks [@sirineJ](https://github.com/sirineJ)! - Increased the Dialog component's close button z-index value.
+
+- [#3083](https://github.com/sumup-oss/circuit-ui/pull/3083) [`7cdd57e`](https://github.com/sumup-oss/circuit-ui/commit/7cdd57ea02c6cd04628c2b571b11c44fa9aaaebb) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed the `position: relative` CSS property on the Modal component's content class.
+
 ## 10.0.0-next.5
 
 ### Patch Changes
