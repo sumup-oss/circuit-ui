@@ -21,9 +21,9 @@ import {
   useId,
   useRef,
   useState,
-  type InputHTMLAttributes,
+  type HTMLAttributes,
 } from 'react';
-import type { Temporal } from 'temporal-polyfill';
+import { Temporal } from 'temporal-polyfill';
 import {
   flip,
   offset,
@@ -36,7 +36,6 @@ import { Calendar as CalendarIcon } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
 import { useMedia } from '../../hooks/useMedia/useMedia.js';
-import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
@@ -55,21 +54,26 @@ import {
   FieldValidationHint,
   FieldWrapper,
 } from '../Field/Field.js';
-import { toPlainDate } from '../../util/date.js';
-import { applyMultipleRefs } from '../../util/refs.js';
-import { changeInputValue } from '../../util/input-value.js';
-import { idx } from '../../util/idx.js';
+import {
+  toPlainDate,
+  updatePlainDateRange,
+  type PlainDateRange,
+} from '../../util/date.js';
+import { useI18n } from '../../hooks/useI18n/useI18n.js';
 
 import { Dialog } from './components/Dialog.js';
-import { PlainDateSegments } from './components/PlainDateSegments.js';
 import { emptyDate, usePlainDateState } from './hooks/usePlainDateState.js';
 import { useSegmentFocus } from './hooks/useSegmentFocus.js';
 import { getCalendarButtonLabel, getDateParts } from './DateInputService.js';
+import { PlainDateSegments } from './components/PlainDateSegments.js';
 import classes from './DateInput.module.css';
 import { translations } from './translations/index.js';
 
-export interface DateInputProps
-  extends InputHTMLAttributes<HTMLInputElement>,
+export interface DateRangeInputProps
+  extends Omit<
+      HTMLAttributes<HTMLDivElement>,
+      'onChange' | 'value' | 'defaultValue'
+    >,
     Pick<
       InputProps,
       | 'label'
@@ -95,12 +99,14 @@ export interface DateInputProps
    * The currently selected date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
    * format (`YYYY-MM-DD`).
    */
-  value?: string;
+  // FIXME:
+  value?: { start?: string; end?: string };
   /**
    * The initially selected date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
    * format (`YYYY-MM-DD`).
    */
-  defaultValue?: string;
+  // FIXME:
+  defaultValue?: { start?: string; end?: string };
   /**
    * Visually hidden label for the year input.
    */
@@ -130,6 +136,13 @@ export interface DateInputProps
    */
   clearDateButtonLabel?: string;
   /**
+   * Callback when the date changes. Called with the date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
+   * format (`YYYY-MM-DD`) or an empty string.
+   *
+   * @example '2024-10-08'
+   */
+  onChange: (date: string) => void;
+  /**
    * The minimum selectable date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
    * format (`YYYY-MM-DD`) (inclusive).
    */
@@ -140,25 +153,22 @@ export interface DateInputProps
    */
   max?: string;
   /**
-   * A hint to the user agent specifying how to prefill the input.
-   */
-  autoComplete?: 'bday';
-  /**
    * One of the accepted placement values. Defaults to `bottom-end`.
    */
   placement?: Placement;
 }
 
 /**
- * The DateInput component allows users to type or select a specific date.
+ * The DateRangeInput component allows users to type or select a specific date.
  * The input value is always a string in the format `YYYY-MM-DD`.
  */
-export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
+export const DateRangeInput = forwardRef<HTMLDivElement, DateRangeInputProps>(
   (props, ref) => {
     const {
       label,
       value,
       defaultValue,
+      onChange,
       min,
       max,
       locale,
@@ -183,7 +193,6 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       yearInputLabel,
       monthInputLabel,
       dayInputLabel,
-      autoComplete,
       placement = 'bottom-end',
       className,
       style,
@@ -191,7 +200,6 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     } = useI18n(props, translations);
     const isMobile = useMedia('(max-width: 479px)');
 
-    const inputRef = useRef<HTMLInputElement>(null);
     const calendarButtonRef = useRef<HTMLDivElement>(null);
     const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -199,29 +207,33 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     const headlineId = useId();
     const validationHintId = useId();
 
-    const descriptionIds = idx(
-      descriptionId,
-      validationHint && validationHintId,
-    );
+    const descriptionIds = clsx(descriptionId, validationHintId);
     const minDate = toPlainDate(min);
     const maxDate = toPlainDate(max);
 
-    const handleChange = (newValue: string) => {
-      changeInputValue(inputRef.current, newValue);
-    };
-
     const focus = useSegmentFocus();
-    const state = usePlainDateState({
-      value,
-      defaultValue,
-      onChange: handleChange,
+    const startState = usePlainDateState({
+      value: value?.start,
+      defaultValue: defaultValue?.start,
+      onChange,
+      minDate,
+      maxDate,
+      locale,
+    });
+    const endState = usePlainDateState({
+      value: value?.end,
+      defaultValue: defaultValue?.end,
+      onChange,
       minDate,
       maxDate,
       locale,
     });
 
     const [open, setOpen] = useState(false);
-    const [selection, setSelection] = useState<Temporal.PlainDate>();
+    const [selection, setSelection] = useState<PlainDateRange>({
+      start: undefined,
+      end: undefined,
+    });
 
     const padding = 16; // px
 
@@ -278,7 +290,18 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     };
 
     const openCalendar = () => {
-      setSelection(state.date);
+      if (startState.date && endState.date) {
+        // Technically, a start date after the end date is invalid, however,
+        //
+        const [start, end] = [startState.date, endState.date].sort(
+          Temporal.PlainDate.compare,
+        );
+        setSelection({ start, end });
+      } else if (startState.date) {
+        setSelection({ start: startState.date, end: endState.date });
+      } else {
+        setSelection({ start: undefined, end: undefined });
+      }
       setOpen(true);
     };
 
@@ -287,25 +310,24 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     };
 
     const handleSelect = (date: Temporal.PlainDate) => {
-      setSelection(date);
+      const updatedSelection = updatePlainDateRange(selection, date);
+      setSelection(updatedSelection);
 
       if (!isMobile) {
-        const { year, month, day } = date;
-        state.update({ year, month, day });
-        closeCalendar();
+        startState.update(updatedSelection.start || emptyDate);
+        endState.update(updatedSelection.end || emptyDate);
       }
     };
 
     const handleApply = () => {
-      if (selection) {
-        const { year, month, day } = selection;
-        state.update({ year, month, day });
-      }
+      startState.update(selection.start || emptyDate);
+      endState.update(selection.end || emptyDate);
       closeCalendar();
     };
 
     const handleClear = () => {
-      state.update(emptyDate);
+      startState.update(emptyDate);
+      endState.update(emptyDate);
       closeCalendar();
     };
 
@@ -322,7 +344,8 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     const parts = getDateParts(locale);
     const calendarButtonLabel = getCalendarButtonLabel(
       openCalendarButtonLabel,
-      state.date,
+      // FIXME:
+      startState.date,
       locale,
     );
 
@@ -331,13 +354,19 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       !isSufficientlyLabelled(label)
     ) {
       throw new AccessibilityError(
-        'DateInput',
+        'DateRangeInput',
         'The `label` prop is missing or invalid.',
       );
     }
 
     return (
-      <FieldWrapper disabled={disabled} className={className} style={style}>
+      <FieldWrapper
+        ref={ref}
+        disabled={disabled}
+        className={className}
+        style={style}
+        {...rest}
+      >
         <FieldSet aria-describedby={descriptionIds}>
           <FieldLegend onClick={handleClick}>
             <FieldLabelText
@@ -348,23 +377,6 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
             />
           </FieldLegend>
           <div className={classes.wrapper}>
-            <input
-              type="date"
-              ref={applyMultipleRefs(ref, inputRef)}
-              className={classes.hidden}
-              min={min}
-              max={max}
-              required={required}
-              disabled={disabled}
-              readOnly={readOnly}
-              autoComplete={autoComplete}
-              aria-invalid={invalid}
-              aria-hidden="true"
-              tabIndex={-1}
-              value={value}
-              defaultValue={defaultValue}
-              {...rest}
-            />
             {/* biome-ignore lint/a11y/useKeyWithClickEvents: */}
             <div
               onClick={handleClick}
@@ -377,7 +389,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
             >
               <PlainDateSegments
                 parts={parts}
-                state={state}
+                state={startState}
                 focus={focus}
                 yearInputLabel={yearInputLabel}
                 monthInputLabel={monthInputLabel}
@@ -387,7 +399,22 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                 invalid={invalid}
                 disabled={disabled}
                 readOnly={readOnly}
-                autoComplete={autoComplete}
+              />
+              <div className={classes.divider} aria-hidden="true">
+                –
+              </div>
+              <PlainDateSegments
+                parts={parts}
+                state={endState}
+                focus={focus}
+                yearInputLabel={yearInputLabel}
+                monthInputLabel={monthInputLabel}
+                dayInputLabel={dayInputLabel}
+                aria-describedby={descriptionIds}
+                required={required}
+                invalid={invalid}
+                disabled={disabled}
+                readOnly={readOnly}
               />
             </div>
             <IconButton
@@ -420,7 +447,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
           open={open}
           isModal={isMobile}
           onClose={closeCalendar}
-          aria-labelledby={idx(open && headlineId)}
+          aria-labelledby={headlineId}
           style={dialogStyles}
         >
           {() => (
@@ -483,4 +510,4 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
   },
 );
 
-DateInput.displayName = 'DateInput';
+DateRangeInput.displayName = 'DateRangeInput';
