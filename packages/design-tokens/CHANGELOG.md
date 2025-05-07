@@ -1,6 +1,6 @@
 # @sumup-oss/design-tokens
 
-## 9.0.0-next.2
+## 9.0.0
 
 ### Major Changes
 
@@ -8,25 +8,17 @@
 
 - [#3072](https://github.com/sumup-oss/circuit-ui/pull/3072) [`e81b1b4`](https://github.com/sumup-oss/circuit-ui/commit/e81b1b4a2e09c7c35ef8e9f38b53e26eb341ce5e) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed unused token `--cui-z-index-backdrop`.
 
-### Minor Changes
-
-- [#3072](https://github.com/sumup-oss/circuit-ui/pull/3072) [`e81b1b4`](https://github.com/sumup-oss/circuit-ui/commit/e81b1b4a2e09c7c35ef8e9f38b53e26eb341ce5e) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a new `--cui-z-index-side-panel` token for side panels.
-
-## 9.0.0-next.1
-
-### Patch Changes
-
-- [#3048](https://github.com/sumup-oss/circuit-ui/pull/3048) [`3927281`](https://github.com/sumup-oss/circuit-ui/commit/3927281a8530ad1ff32432ede7ad171f241066ac) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the `--cui-z-index-popover` token to align different overlay components.
-
-## 9.0.0-next.0
-
-### Major Changes
-
 - [#2978](https://github.com/sumup-oss/circuit-ui/pull/2978) [`b7ff643`](https://github.com/sumup-oss/circuit-ui/commit/b7ff643cbb1d190d82a164b5116808546241a528) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the `themePropType` export. Use the `Theme` type instead or (better) migrate to CSS custom properties.
 
 ### Minor Changes
 
 - [#2859](https://github.com/sumup-oss/circuit-ui/pull/2859) [`3dd75c9`](https://github.com/sumup-oss/circuit-ui/commit/3dd75c9b647eb80d5043c6cac1cbb0d299654f56) Thanks [@sirineJ](https://github.com/sirineJ)! - Added "::backdrop" to the list of selectors to apply theme custom properties to. See https://developer.chrome.com/blog/css-backdrop-inheritance.
+
+- [#3072](https://github.com/sumup-oss/circuit-ui/pull/3072) [`e81b1b4`](https://github.com/sumup-oss/circuit-ui/commit/e81b1b4a2e09c7c35ef8e9f38b53e26eb341ce5e) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a new `--cui-z-index-side-panel` token for side panels.
+
+### Patch Changes
+
+- [#3048](https://github.com/sumup-oss/circuit-ui/pull/3048) [`3927281`](https://github.com/sumup-oss/circuit-ui/commit/3927281a8530ad1ff32432ede7ad171f241066ac) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the `--cui-z-index-popover` token to align different overlay components.
 
 ## 8.2.0
 

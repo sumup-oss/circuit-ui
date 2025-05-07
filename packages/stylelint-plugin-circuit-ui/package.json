@@ -1,6 +1,6 @@
 {
   "name": "@sumup-oss/stylelint-plugin-circuit-ui",
-  "version": "4.0.0-next.0",
+  "version": "4.0.0",
   "description": "Stylelint rules to lint Circuit UI.",
   "exports": "./dist/index.js",
   "type": "module",
@@ -29,7 +29,7 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "@sumup-oss/design-tokens": "^9.0.0-next.0",
+    "@sumup-oss/design-tokens": "^9.0.0",
     "@tsconfig/node18": "^18.2.4",
     "jest-preset-stylelint": "^7.3.0",
     "typescript": "^5.8.2"
