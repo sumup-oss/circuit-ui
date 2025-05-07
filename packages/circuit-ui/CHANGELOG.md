@@ -59,25 +59,7 @@
 
 - [#3053](https://github.com/sumup-oss/circuit-ui/pull/3053) [`b9c0cae`](https://github.com/sumup-oss/circuit-ui/commit/b9c0cae132272861db2209a4121333ab4c7ac923) Thanks [@connor-baer](https://github.com/connor-baer)! - Added `ref` to the prop types of the `setModal` function, which makes it possible to get the underlying `dialog` element.
 
-- [#3061](https://github.com/sumup-oss/circuit-ui/pull/3061) [`e31307f`](https://github.com/sumup-oss/circuit-ui/commit/e31307f08faeaabc78926a523faac0abeddf2cda) Thanks [@sirineJ](https://github.com/sirineJ)! - Restored overflow styles of the SidePanel component.
-
-- [#3046](https://github.com/sumup-oss/circuit-ui/pull/3046) [`9945d7b`](https://github.com/sumup-oss/circuit-ui/commit/9945d7bbde6d6096b7e7a39249359a35b09a727f) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed legacy z-index value from the SidePanel component styles. The SidePanel now inherits this property from the Dialog component on desktop, and renders as a modal dialog in the top layer on mobile.
-
-- [#3072](https://github.com/sumup-oss/circuit-ui/pull/3072) [`e81b1b4`](https://github.com/sumup-oss/circuit-ui/commit/e81b1b4a2e09c7c35ef8e9f38b53e26eb341ce5e) Thanks [@sirineJ](https://github.com/sirineJ)! - Added missing backgroud color to SidePanel header on mobile.
-
-- [#3054](https://github.com/sumup-oss/circuit-ui/pull/3054) [`abb6b1f`](https://github.com/sumup-oss/circuit-ui/commit/abb6b1f3c6eb2c3af9a8fedf563bdc777aacb51f) Thanks [@sirineJ](https://github.com/sirineJ)! - Ensured the open property in modal components is always set to true to avoid rendering issues when using the `useModal` hook.
-
 - [#3079](https://github.com/sumup-oss/circuit-ui/pull/3079) [`fab963b`](https://github.com/sumup-oss/circuit-ui/commit/fab963b555dd505b5a3047fdff4f38a249f684a2) Thanks [@sirineJ](https://github.com/sirineJ)! - Increased the Dialog component's close button z-index value.
-
-- [#3083](https://github.com/sumup-oss/circuit-ui/pull/3083) [`7cdd57e`](https://github.com/sumup-oss/circuit-ui/commit/7cdd57ea02c6cd04628c2b571b11c44fa9aaaebb) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed the `position: relative` CSS property on the Modal component's content class.
-
-- [#2860](https://github.com/sumup-oss/circuit-ui/pull/2860) [`3ab5e39`](https://github.com/sumup-oss/circuit-ui/commit/3ab5e39cf1153d5879a7ae2842b56ae5bfc5469c) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed an issue with simultaneous instances of the `useScrollLock` hook.
-
-- [#3084](https://github.com/sumup-oss/circuit-ui/pull/3084) [`be06ba7`](https://github.com/sumup-oss/circuit-ui/commit/be06ba771ab21516da7e1378e636f4c0becd175d) Thanks [@sirineJ](https://github.com/sirineJ)! - Specified a z-index value for the DateInput's Dialog.
-
-- [#3072](https://github.com/sumup-oss/circuit-ui/pull/3072) [`e81b1b4`](https://github.com/sumup-oss/circuit-ui/commit/e81b1b4a2e09c7c35ef8e9f38b53e26eb341ce5e) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed optional `contentClassName` from the Dialog component.
-
-- [#3038](https://github.com/sumup-oss/circuit-ui/pull/3038) [`ff4f63c`](https://github.com/sumup-oss/circuit-ui/commit/ff4f63c6259a4039a4430d4e1d7012cf8202e5db) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed the overflow behaviour of the Modal component's content.
 
 ## 9.12.2
 
