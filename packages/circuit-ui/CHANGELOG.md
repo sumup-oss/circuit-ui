@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.0.0-next.7
+
+### Patch Changes
+
+- [#3084](https://github.com/sumup-oss/circuit-ui/pull/3084) [`be06ba7`](https://github.com/sumup-oss/circuit-ui/commit/be06ba771ab21516da7e1378e636f4c0becd175d) Thanks [@sirineJ](https://github.com/sirineJ)! - Specified a z-index value for the DateInput's Dialog.
+
 ## 10.0.0-next.6
 
 ### Patch Changes
