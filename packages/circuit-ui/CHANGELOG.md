@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 9.12.2
+
+### Patch Changes
+
+- [#3080](https://github.com/sumup-oss/circuit-ui/pull/3080) [`73f2ee3`](https://github.com/sumup-oss/circuit-ui/commit/73f2ee3bb27a74165b77c953dcf76a6f89c0e76a) Thanks [@sirineJ](https://github.com/sirineJ)! - Increased the Modal component's close button z-index value.
+
 ## 9.12.1
 
 ### Patch Changes
