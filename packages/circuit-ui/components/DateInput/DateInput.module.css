@@ -107,36 +107,8 @@
   z-index: calc(var(--cui-z-index-absolute) + 1);
 }
 
-.dialog {
-  z-index: var(--cui-z-index-popover);
-  width: max-content;
-  max-width: 410px;
-  max-width: min(410px, 100vw);
-  max-height: 100vh;
-  margin: 0;
-  overflow: scroll;
-  border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
-  border-radius: var(--cui-border-radius-byte);
-}
-
-.dialog::after {
-  display: none;
-}
-
 .content {
-  color: var(--cui-fg-normal);
-  outline: 0;
-  background-color: var(--cui-bg-elevated);
-  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 8%);
-}
-
-@media (max-width: 479px) {
-  .dialog {
-    width: 100%;
-    max-width: 100%;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-  }
+  padding: 0;
 }
 
 .header {
@@ -148,6 +120,15 @@
 }
 
 @media (min-width: 480px) {
+  .dialog {
+    width: max-content;
+    max-width: 410px;
+    max-width: min(410px, 100vw);
+    max-height: 100vh;
+    overflow: scroll;
+    border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
+  }
+
   /* Hide visually */
   .header {
     position: absolute;
