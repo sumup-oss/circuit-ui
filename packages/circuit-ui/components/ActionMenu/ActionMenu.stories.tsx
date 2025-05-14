@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { Add, Edit, Delete } from '@sumup-oss/icons';
 import { useState } from 'react';
 

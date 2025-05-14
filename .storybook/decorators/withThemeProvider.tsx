@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { ThemeProvider } from '@emotion/react';
-import type { Decorator } from '@storybook/react';
+import type { Decorator } from '@storybook/react-vite';
 import { light } from '@sumup-oss/design-tokens';
 
 function setColorScheme(colorScheme: 'light' | 'dark') {

@@ -20,7 +20,7 @@ import {
   type IconComponentType,
 } from '@sumup-oss/icons';
 import { useState } from 'react';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 

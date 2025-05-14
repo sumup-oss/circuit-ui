@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import { Badge } from '../Badge/index.js';
 import { isString } from '../../util/type-check.js';
