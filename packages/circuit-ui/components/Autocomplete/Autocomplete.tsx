@@ -13,19 +13,51 @@
  * limitations under the License.
  */
 
-
 'use client';
 
 import { type ChangeEvent, forwardRef, useState } from 'react';
+import type { IconComponentType } from '@sumup-oss/icons';
 
 import { SearchInput, type SearchInputProps } from '../SearchInput/index.js';
 import type { ClickEvent } from '../../types/events.js';
 
 import classes from './Autocomplete.module.css';
 
-export type AutocompleteProps = SearchInputProps;
+type LeadingMedia =
+  | {
+      icon: IconComponentType;
+      src: never;
+      alt: never;
+    }
+  | {
+      icon: never;
+      src: string;
+      alt: string;
+    };
 
-export const Autocomplete = forwardRef<HTMLInputElement, SearchInputProps>(
+type AutocompleteSuggestion = {
+  value: string;
+  label: string;
+  description?: string;
+  selected?: boolean;
+  leadingMedia?: LeadingMedia;
+};
+
+type AutocompleteSuggestionGroup = {
+  label: string;
+  suggestions: AutocompleteSuggestion[];
+};
+
+export type AutocompleteSuggestions = (
+  | AutocompleteSuggestionGroup
+  | AutocompleteSuggestion
+)[];
+
+export type AutocompleteProps = SearchInputProps & {
+  suggestions: AutocompleteSuggestions;
+};
+
+export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
   ({ onClear, clearLabel, ...props }, ref) => {
     const [searchText, setSearchText] = useState<string>();
 
