@@ -17,7 +17,6 @@
 
 import {
   forwardRef,
-  useEffect,
   useId,
   useRef,
   useState,
@@ -25,14 +24,7 @@ import {
   useCallback,
 } from 'react';
 import type { Temporal } from 'temporal-polyfill';
-import {
-  flip,
-  offset,
-  shift,
-  size,
-  useFloating,
-  type Placement,
-} from '@floating-ui/react-dom';
+import type { Placement } from '@floating-ui/react-dom';
 import { Calendar as CalendarIcon } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
@@ -58,9 +50,8 @@ import {
 import { toPlainDate } from '../../util/date.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { changeInputValue } from '../../util/input-value.js';
-import { Dialog } from '../Dialog/Dialog.js';
-import { sharedClasses } from '../../styles/shared.js';
 import { idx } from '../../util/idx.js';
+import { Popover } from '../Popover/Popover.js';
 
 import { DateSegment } from './components/DateSegment.js';
 import { usePlainDateState } from './hooks/usePlainDateState.js';
@@ -191,7 +182,6 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       ...rest
     } = useI18n(props, translations);
     const isMobile = useMedia('(max-width: 479px)');
-    const animationDuration = isMobile ? 300 : 0;
 
     const inputRef = useRef<HTMLInputElement>(null);
     const calendarButtonRef = useRef<HTMLDivElement>(null);
@@ -225,51 +215,6 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     const [open, setOpen] = useState(false);
     const [selection, setSelection] = useState<Temporal.PlainDate>();
 
-    const padding = 16; // px
-
-    const { floatingStyles, update } = useFloating({
-      open,
-      placement,
-      strategy: 'fixed',
-      middleware: [
-        offset(4),
-        flip({ padding, fallbackAxisSideDirection: 'start' }),
-        shift({ padding }),
-        size({
-          padding,
-          apply({ availableHeight, elements }) {
-            elements.floating.style.maxHeight = `${availableHeight}px`;
-          },
-        }),
-      ],
-      elements: {
-        reference: calendarButtonRef.current,
-        floating: dialogRef.current,
-      },
-    });
-
-    useEffect(() => {
-      /**
-       * When we support `ResizeObserver` (https://caniuse.com/resizeobserver),
-       * we can look into using Floating UI's `autoUpdate` (but we can't use
-       * `whileElementIsMounted` because our implementation hides the floating
-       * element using CSS instead of using conditional rendering.
-       * See https://floating-ui.com/docs/react-dom#updating
-       */
-      if (open) {
-        update();
-        window.addEventListener('resize', update);
-        window.addEventListener('scroll', update);
-      } else {
-        window.removeEventListener('resize', update);
-        window.removeEventListener('scroll', update);
-      }
-      return () => {
-        window.removeEventListener('resize', update);
-        window.removeEventListener('scroll', update);
-      };
-    }, [open, update]);
-
     // Focus the first date segment when clicking anywhere on the field...
     const handleClick = (event: ClickEvent) => {
       const element = event.target as HTMLElement;
@@ -278,11 +223,6 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
         return;
       }
       focus.next();
-    };
-
-    const openCalendar = () => {
-      setSelection(state.date);
-      setOpen(true);
     };
 
     const closeCalendar = useCallback(() => {
@@ -312,16 +252,6 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       closeCalendar();
     };
 
-    const mobileStyles = {
-      position: 'fixed',
-      top: 'auto',
-      right: '0px',
-      bottom: '0px',
-      left: '0px',
-    } as const;
-
-    const dialogStyles = isMobile ? mobileStyles : floatingStyles;
-
     const segments = getDateSegments(locale);
     const calendarButtonLabel = getCalendarButtonLabel(
       openCalendarButtonLabel,
@@ -338,21 +268,6 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
         'The `label` prop is missing or invalid.',
       );
     }
-    const [isClosing, setIsClosing] = useState(false);
-
-    const handleDialogCloseEnd = useCallback(() => {
-      setIsClosing(false);
-      closeCalendar?.();
-    }, [closeCalendar]);
-
-    const handleDialogCloseStart = useCallback(() => {
-      setIsClosing(true);
-    }, []);
-
-    const outAnimation = isMobile
-      ? sharedClasses.animationSlideUpOut
-      : undefined;
-    const inAnimation = isMobile ? sharedClasses.animationSlideUpIn : undefined;
 
     return (
       <FieldWrapper disabled={disabled} className={className} style={style}>
@@ -456,49 +371,37 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                 }
               })}
             </div>
-            <IconButton
-              ref={calendarButtonRef}
-              type="button"
-              icon={CalendarIcon}
-              variant="secondary"
-              onClick={openCalendar}
-              className={classes['calendar-button']}
-              disabled={disabled || readOnly}
-              aria-expanded={open}
-              aria-controls={dialogId}
+            <Popover
+              ref={dialogRef}
+              id={dialogId}
+              isOpen={open}
+              onToggle={setOpen}
+              hideCloseButton={!isMobile}
+              aria-labelledby={idx(open && headlineId)}
+              closeButtonLabel={closeCalendarButtonLabel}
+              locale={locale}
+              placement={placement}
+              offset={4}
+              className={classes.dialog}
+              contentClassName={classes.content}
+              component={(btnProps) => (
+                <IconButton
+                  {...btnProps}
+                  ref={calendarButtonRef}
+                  type="button"
+                  icon={CalendarIcon}
+                  variant="secondary"
+                  className={classes['calendar-button']}
+                  disabled={disabled || readOnly}
+                  onClick={(event) => {
+                    setSelection(state.date);
+                    btnProps.onClick?.(event);
+                  }}
+                >
+                  {calendarButtonLabel}
+                </IconButton>
+              )}
             >
-              {calendarButtonLabel}
-            </IconButton>
-          </div>
-          <FieldValidationHint
-            id={validationHintId}
-            disabled={disabled}
-            invalid={invalid}
-            hasWarning={hasWarning}
-            showValid={showValid}
-            validationHint={validationHint}
-          />
-        </FieldSet>
-        <Dialog
-          ref={dialogRef}
-          id={dialogId}
-          open={open}
-          isModal={isMobile}
-          hideCloseButton={!isMobile}
-          onCloseStart={handleDialogCloseStart}
-          onCloseEnd={handleDialogCloseEnd}
-          className={clsx(
-            classes.dialog,
-            isClosing ? outAnimation : inAnimation,
-          )}
-          animationDuration={isMobile ? animationDuration : 0}
-          aria-labelledby={idx(open && headlineId)}
-          style={dialogStyles}
-          locale={locale}
-          closeButtonLabel={closeCalendarButtonLabel}
-        >
-          {() => (
-            <div className={classes.content}>
               <header className={classes.header}>
                 <Headline as="h2" size="m" id={headlineId}>
                   {label}
@@ -539,9 +442,17 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                   </Button>
                 </div>
               )}
-            </div>
-          )}
-        </Dialog>
+            </Popover>
+          </div>
+          <FieldValidationHint
+            id={validationHintId}
+            disabled={disabled}
+            invalid={invalid}
+            hasWarning={hasWarning}
+            showValid={showValid}
+            validationHint={validationHint}
+          />
+        </FieldSet>
       </FieldWrapper>
     );
   },

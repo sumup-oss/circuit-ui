@@ -320,7 +320,11 @@ describe('DateInput', () => {
 
       expect(ref.current).toHaveValue('2000-01-12');
       expect(onChange).toHaveBeenCalled();
-      expect(openCalendarButton).toHaveFocus();
+      expect(
+        screen.getByRole('button', {
+          name: /change date/i,
+        }),
+      ).toHaveFocus();
     });
 
     it('should allow users to clear the date', async () => {
@@ -349,7 +353,11 @@ describe('DateInput', () => {
 
       expect(ref.current).toHaveValue('');
       expect(onChange).toHaveBeenCalled();
-      expect(openCalendarButton).toHaveFocus();
+      expect(
+        screen.getByRole('button', {
+          name: /change date/i,
+        }),
+      ).toHaveFocus();
     });
 
     it('should close calendar on outside click', async () => {
