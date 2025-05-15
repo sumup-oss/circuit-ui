@@ -13,10 +13,44 @@
  * limitations under the License.
  */
 
+
+'use client';
+
+import { type ChangeEvent, forwardRef, useState } from 'react';
+
 import { SearchInput, type SearchInputProps } from '../SearchInput/index.js';
+import type { ClickEvent } from '../../types/events.js';
+
+import classes from './Autocomplete.module.css';
 
 export type AutocompleteProps = SearchInputProps;
 
-export const Autocomplete = (props: AutocompleteProps) => (
-  <SearchInput {...props} />
+export const Autocomplete = forwardRef<HTMLInputElement, SearchInputProps>(
+  ({ onClear, clearLabel, ...props }, ref) => {
+    const [searchText, setSearchText] = useState<string>();
+
+    const onSearchTextChange = (event: ChangeEvent<HTMLInputElement>) => {
+      setSearchText(event.target.value);
+      if (props.onChange) {
+        props.onChange(event);
+      }
+    };
+
+    const onSearchTextClear = (event: ClickEvent) => {
+      setSearchText('');
+      onClear?.(event);
+    };
+
+    return (
+      <SearchInput
+        {...props}
+        ref={ref}
+        clearLabel={clearLabel}
+        className={classes.input}
+        value={searchText}
+        onChange={onSearchTextChange}
+        onClear={onSearchTextClear}
+      />
+    );
+  },
 );
