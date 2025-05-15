@@ -23,27 +23,51 @@ describe('TableCell', () => {
   const cellLabel = 'Cell label';
   const cellValue = 'Cell value';
 
+  const feature = {
+    featureDescription: {
+      label: 'Feature name',
+      description: 'feature description',
+    },
+    values: [
+      { value: true, label: 'included' },
+      { value: true, label: 'included' },
+    ],
+  };
+
   it('should render as row cell', () => {
-    render(<TableCell cellValue={cellValue} />);
+    render(<TableCell cellValue={cellValue} feature={feature} />);
     expect(screen.getByRole('cell')).toBeInTheDocument();
   });
   it('should render content as paragraph when value is a string', () => {
-    render(<TableCell cellValue={cellValue} />);
-    expect(screen.getByRole('paragraph')).toBeVisible();
-    expect(screen.getByRole('paragraph').textContent).toBe(cellValue);
+    render(<TableCell cellValue={cellValue} feature={feature} />);
+    expect(screen.getByText(cellValue)).toBeVisible();
+    expect(screen.getByText(feature.featureDescription.label)).toBeVisible();
+    expect(
+      screen.getByText(feature.featureDescription.description),
+    ).toBeVisible();
   });
   it('should render checked icon when value is true', () => {
-    render(<TableCell cellValue={{ label: cellLabel, value: true }} />);
+    render(
+      <TableCell
+        cellValue={{ label: cellLabel, value: true }}
+        feature={feature}
+      />,
+    );
     expect(screen.getByTestId('boolean-value-true')).toBeVisible();
     expect(screen.getByText(cellLabel)).toBeInTheDocument();
   });
   it('should render unchecked icon when value is false', () => {
-    render(<TableCell cellValue={{ label: cellLabel, value: false }} />);
+    render(
+      <TableCell
+        cellValue={{ label: cellLabel, value: false }}
+        feature={feature}
+      />,
+    );
     expect(screen.getByTestId('boolean-value-false')).toBeVisible();
     expect(screen.getByText(cellLabel)).toBeInTheDocument();
   });
   it('should render unchecked icon when value is undefined', () => {
-    render(<TableCell cellValue={undefined} />);
+    render(<TableCell cellValue={undefined} feature={feature} />);
     expect(screen.getByTestId('boolean-value-false')).toBeVisible();
   });
 });
