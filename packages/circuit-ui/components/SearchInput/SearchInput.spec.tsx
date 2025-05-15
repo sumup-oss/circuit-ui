@@ -25,13 +25,11 @@ describe('SearchInput', () => {
 
   it('should display a clear icon when not empty and an onClear callback is provided', () => {
     const mockCallback = vi.fn();
-    const clearLabel = 'Clear';
 
     render(
       <SearchInput
         {...baseProps}
         value="Search value"
-        clearLabel={clearLabel}
         onClear={mockCallback}
         /**
          * We set onChange to silence a warning about adding a `value` without

@@ -45,7 +45,6 @@ export const Base = (args: SearchInputProps) => {
       value={value}
       onClear={handleClear}
       onChange={handleChange}
-      clearLabel="Clear"
     />
   );
 };
