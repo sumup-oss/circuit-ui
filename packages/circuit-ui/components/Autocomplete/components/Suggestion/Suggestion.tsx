@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 'use client';
 
 import type { IconComponentType } from '@sumup-oss/icons';
@@ -25,7 +24,6 @@ import { isEnter, isSpacebar } from '../../../../util/key-codes.js';
 
 import classes from './Suggestion.module.css';
 import { Checkmark } from './Checkmark.js';
-
 
 type LeadingMedia =
   | {
@@ -52,7 +50,7 @@ export type AutocompleteSuggestion = {
 type SuggestionProps = HTMLAttributes<HTMLLIElement> &
   AutocompleteSuggestion & {
     isSelectable?: boolean;
-    onClick?: (value: string) => void;
+    onSuggestionClicked: (value: string) => void;
   };
 
 export const Suggestion = ({
@@ -67,11 +65,14 @@ export const Suggestion = ({
   const labelId = useId();
   const onSuggestionKeydown = (event: KeyboardEvent<HTMLLIElement>) => {
     if (isEnter(event) || isSpacebar(event)) {
-      props.onClick?.(value);
+      props.onSuggestionClicked(value);
+    } else {
+      props.onKeyDown?.(event);
     }
   };
   return (
     <li
+      {...props}
       // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: list element has all necessary attributes to be interactive
       role="option"
       className={classes.base}
@@ -79,8 +80,7 @@ export const Suggestion = ({
       aria-labelledby={labelId}
       tabIndex={0}
       onKeyDown={onSuggestionKeydown}
-      onClick={() => props.onClick?.(value)}
-      {...props}
+      onClick={() => props.onSuggestionClicked(value)}
     >
       {leadingMedia && (
         <div className={classes.media}>
