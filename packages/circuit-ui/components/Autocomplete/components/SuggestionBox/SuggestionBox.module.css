@@ -1,0 +1,22 @@
+.base {
+  max-height: inherit;
+  padding: var(--cui-spacings-mega);
+  margin: 0;
+  overflow-y: auto;
+}
+
+.group {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.group-label {
+  margin-left: var(--cui-spacings-byte);
+}
+
+.group-suggestion {
+  padding: 0;
+  margin: var(--cui-spacings-byte) 0;
+  list-style-type: none;
+}
