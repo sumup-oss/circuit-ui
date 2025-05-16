@@ -15,51 +15,106 @@
 
 'use client';
 
-import { type ChangeEvent, forwardRef, useState } from 'react';
-import type { IconComponentType } from '@sumup-oss/icons';
+import {
+  type ChangeEvent,
+  forwardRef,
+  type ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
+import {
+  flip,
+  offset as offsetMiddleware,
+  type Placement,
+  size,
+  type SizeOptions,
+  useFloating,
+} from '@floating-ui/react-dom';
 
 import { SearchInput, type SearchInputProps } from '../SearchInput/index.js';
 import type { ClickEvent } from '../../types/events.js';
+import { applyMultipleRefs } from '../../util/refs.js';
+import { Dialog } from '../Dialog/Dialog.js';
+import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import type { Locale } from '../../util/i18n.js';
 
+import { translations } from './translations/index.js';
+import {
+  type AutocompleteSuggestions,
+  SuggestionBox,
+} from './components/SuggestionBox/SuggestionBox.js';
 import classes from './Autocomplete.module.css';
 
-type LeadingMedia =
-  | {
-      icon: IconComponentType;
-      src: never;
-      alt: never;
-    }
-  | {
-      icon: never;
-      src: string;
-      alt: string;
-    };
-
-type AutocompleteSuggestion = {
-  value: string;
-  label: string;
-  description?: string;
-  selected?: boolean;
-  leadingMedia?: LeadingMedia;
-};
-
-type AutocompleteSuggestionGroup = {
-  label: string;
-  suggestions: AutocompleteSuggestion[];
-};
-
-export type AutocompleteSuggestions = (
-  | AutocompleteSuggestionGroup
-  | AutocompleteSuggestion
-)[];
-
 export type AutocompleteProps = SearchInputProps & {
+  /**
+   * List of suggestions to display in the dropdown.
+   */
   suggestions: AutocompleteSuggestions;
+  /**
+   * A custom message to display when no suggestions are available.
+   */
+  noResultsMessage?: ReactNode;
+  /**
+   * One of the accepted placement values.
+   * @default `bottom`.
+   */
+  placement?: Placement;
+  /**
+   * The placements to fallback to when there is not enough space for the
+   * Popover.
+   * @default `['top', 'right', 'left']`.
+   */
+  fallbackPlacements?: Placement[];
+  /**
+   * Displaces the floating element from its `placement` along specified axes.
+   *
+   * Pass a number to move the floating element on the main axis, away from (if
+   * positive) or towards (if negative) the reference element. Pass an object
+   * to displace the floating element on both the main and cross axes.
+   */
+  offset?: number | { mainAxis?: number; crossAxis?: number };
+  /**
+   * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
+   * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
+   * When passing an array, the first supported locale is used.
+   * Defaults to `navigator.language` in supported environments.
+   */
+  locale?: Locale;
+};
+
+const sizeOptions: SizeOptions = {
+  apply({ availableHeight, elements }) {
+    elements.floating.style.setProperty(
+      '--suggestion-box-max-height',
+      `${availableHeight}px`,
+    );
+  },
 };
 
 export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
-  ({ onClear, clearLabel, ...props }, ref) => {
+  (
+    {
+      onClear,
+      clearLabel,
+      noResultsMessage: customNoResultsMessage,
+      locale,
+      offset = 8,
+      placement = 'bottom',
+      fallbackPlacements = ['top', 'right', 'left'],
+      suggestions,
+      ...props
+    },
+    ref,
+  ) => {
+    const { noResultsMessage: defaultNoResultMessage } = useI18n(
+      { noResultsMessage: '', locale },
+      translations,
+    );
+
     const [searchText, setSearchText] = useState<string>();
+    const [isOpen, setIsOpen] = useState(false);
+    const textBoxRef = useRef<HTMLInputElement>(null);
 
     const onSearchTextChange = (event: ChangeEvent<HTMLInputElement>) => {
       setSearchText(event.target.value);
@@ -73,16 +128,89 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       onClear?.(event);
     };
 
+    const openSuggestionBox = () => {
+      setIsOpen(true);
+    };
+
+    const closeSuggestionBox = () => {
+      setIsOpen(false);
+    };
+
+    const { floatingStyles, refs, update } = useFloating<HTMLElement>({
+      open: isOpen,
+      placement,
+      strategy: 'fixed',
+      middleware: offset
+        ? [
+            offsetMiddleware(offset),
+            flip({ fallbackPlacements }),
+            size(sizeOptions),
+          ]
+        : [flip({ fallbackPlacements }), size(sizeOptions)],
+    });
+
+    useEffect(() => {
+      /**
+       * When we support `ResizeObserver` (https://caniuse.com/resizeobserver),
+       * we can look into using Floating UI's `autoUpdate` (but we can't use
+       * `whileElementIsMounted` because our implementation hides the floating
+       * element using CSS instead of using conditional rendering.
+       * See https://floating-ui.com/docs/react-dom#updating
+       */
+      if (isOpen) {
+        update();
+        window.addEventListener('resize', update);
+        window.addEventListener('scroll', update);
+      } else {
+        window.removeEventListener('resize', update);
+        window.removeEventListener('scroll', update);
+      }
+
+      return () => {
+        window.removeEventListener('resize', update);
+        window.removeEventListener('scroll', update);
+      };
+    }, [isOpen, update]);
+
     return (
-      <SearchInput
-        {...props}
-        ref={ref}
-        clearLabel={clearLabel}
-        className={classes.input}
-        value={searchText}
-        onChange={onSearchTextChange}
-        onClear={onSearchTextClear}
-      />
+      <div>
+        <SearchInput
+          {...props}
+          ref={applyMultipleRefs(textBoxRef, ref, refs.setReference)}
+          clearLabel={clearLabel}
+          className={classes.input}
+          value={searchText}
+          onChange={onSearchTextChange}
+          onClear={onSearchTextClear}
+          onClick={openSuggestionBox}
+        />
+        <Dialog
+          open={isOpen}
+          hideCloseButton
+          className={classes.dialog}
+          ref={refs.setFloating}
+          onCloseEnd={closeSuggestionBox}
+          preventOutsideClickRefs={refs.reference}
+          style={{
+            ...floatingStyles,
+            width: textBoxRef.current?.offsetWidth,
+            maxWidth: textBoxRef.current?.offsetWidth,
+          }}
+        >
+          {suggestions.length === 0 && (
+            <div className={classes['no-results']}>
+              {customNoResultsMessage ?? defaultNoResultMessage}
+            </div>
+          )}
+          {suggestions.length > 0 && (
+            <SuggestionBox
+              suggestions={suggestions}
+              onSuggestionClicked={(name) => console.log(name)}
+              label={props.label}
+            />
+          )}
+        </Dialog>
+      </div>
     );
   },
 );
