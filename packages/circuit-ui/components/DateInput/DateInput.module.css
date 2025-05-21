@@ -107,8 +107,13 @@
   z-index: calc(var(--cui-z-index-absolute) + 1);
 }
 
+.dialog {
+  box-shadow: none;
+}
+
 .content {
   padding: 0;
+  overflow: unset;
 }
 
 .header {
@@ -124,7 +129,6 @@
     width: max-content;
     max-width: 410px;
     max-width: min(410px, 100vw);
-    max-height: 100vh;
     overflow: scroll;
     border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
   }
