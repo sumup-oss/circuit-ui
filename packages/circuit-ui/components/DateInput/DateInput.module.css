@@ -107,10 +107,6 @@
   z-index: calc(var(--cui-z-index-absolute) + 1);
 }
 
-.dialog {
-  box-shadow: none;
-}
-
 .content {
   padding: 0;
   overflow: unset;
