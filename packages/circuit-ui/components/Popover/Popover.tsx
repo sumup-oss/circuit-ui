@@ -19,6 +19,7 @@ import {
   flip,
   offset as offsetMiddleware,
   type Placement,
+  shift,
   size,
   type SizeOptions,
   useFloating,
@@ -100,7 +101,10 @@ export interface PopoverProps
   contentClassName?: string;
 }
 
+const boundaryPadding = 8;
+
 const sizeOptions: SizeOptions = {
+  padding: boundaryPadding,
   apply({ availableHeight, elements }) {
     elements.floating.style.setProperty(
       '--popover-max-height',
@@ -139,13 +143,15 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
       open: isOpen,
       placement,
       strategy: 'fixed',
-      middleware: offset
-        ? [
-            offsetMiddleware(offset),
-            flip({ fallbackPlacements }),
-            size(sizeOptions),
-          ]
-        : [flip({ fallbackPlacements }), size(sizeOptions)],
+      middleware: [
+        offset ? offsetMiddleware(offset) : undefined,
+        shift({ padding: boundaryPadding }),
+        flip({
+          padding: boundaryPadding,
+          fallbackPlacements,
+        }),
+        size(sizeOptions),
+      ],
     });
 
     const handleTriggerClick = () => {
