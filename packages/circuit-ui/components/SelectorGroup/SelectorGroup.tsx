@@ -201,6 +201,7 @@ export const SelectorGroup = forwardRef<
               multiple={multiple}
               size={size}
               disabled={disabled || option.disabled}
+              required={required || option.required}
               invalid={invalid || option.invalid}
               checked={
                 value ? isChecked(option, value, multiple) : option.checked
