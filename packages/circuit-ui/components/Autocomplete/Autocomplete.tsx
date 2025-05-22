@@ -18,8 +18,10 @@
 import {
   type ChangeEvent,
   forwardRef,
+  type KeyboardEventHandler,
   type ReactNode,
   useEffect,
+  useId,
   useRef,
   useState,
 } from 'react';
@@ -35,9 +37,11 @@ import {
 import { SearchInput, type SearchInputProps } from '../SearchInput/index.js';
 import type { ClickEvent } from '../../types/events.js';
 import { applyMultipleRefs } from '../../util/refs.js';
-import { Dialog } from '../Dialog/Dialog.js';
 import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import type { Locale } from '../../util/i18n.js';
+import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
+import { useClickOutside } from '../../hooks/useClickOutside/index.js';
+import { isArrowDown, isArrowUp } from '../../util/key-codes.js';
 
 import { translations } from './translations/index.js';
 import {
@@ -112,21 +116,12 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       translations,
     );
 
-    const [searchText, setSearchText] = useState<string>();
+    const [searchText, setSearchText] = useState<string>('');
     const [isOpen, setIsOpen] = useState(false);
+    const [activeSuggestion, setActiveSuggestion] = useState<number>();
     const textBoxRef = useRef<HTMLInputElement>(null);
-
-    const onSearchTextChange = (event: ChangeEvent<HTMLInputElement>) => {
-      setSearchText(event.target.value);
-      if (props.onChange) {
-        props.onChange(event);
-      }
-    };
-
-    const onSearchTextClear = (event: ClickEvent) => {
-      setSearchText('');
-      onClear?.(event);
-    };
+    const popupId = useId();
+    const autocompleteId = useId();
 
     const openSuggestionBox = () => {
       setIsOpen(true);
@@ -134,8 +129,21 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
 
     const closeSuggestionBox = () => {
       setIsOpen(false);
+      setActiveSuggestion(undefined);
     };
 
+    const onSearchTextChange = (event: ChangeEvent<HTMLInputElement>) => {
+      setSearchText(event.target.value);
+      if (event.target.value !== '') {
+        openSuggestionBox();
+      }
+      props.onChange?.(event);
+    };
+
+    const onSearchTextClear = (event: ClickEvent) => {
+      setSearchText('');
+      onClear?.(event);
+    };
     const { floatingStyles, refs, update } = useFloating<HTMLElement>({
       open: isOpen,
       placement,
@@ -148,6 +156,30 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
           ]
         : [flip({ fallbackPlacements }), size(sizeOptions)],
     });
+
+    const onInputKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
+      if (isOpen) {
+        if (isArrowDown(event) || isArrowUp(event)) {
+          event.preventDefault();
+          const totalSuggestions =
+            refs.floating.current?.querySelectorAll('[role="option"]').length ??
+            0;
+          if (activeSuggestion === undefined) {
+            setActiveSuggestion(isArrowDown(event) ? 0 : totalSuggestions - 1);
+          } else {
+            const nextSuggestion =
+              (isArrowDown(event)
+                ? (activeSuggestion ?? 0) + totalSuggestions + 1
+                : (activeSuggestion ?? 0) + totalSuggestions - 1) %
+              totalSuggestions;
+
+            setActiveSuggestion(nextSuggestion);
+          }
+        }
+      } else if (isArrowDown(event) && searchText?.length) {
+        openSuggestionBox();
+      }
+    };
 
     useEffect(() => {
       /**
@@ -172,6 +204,10 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       };
     }, [isOpen, update]);
 
+    useEscapeKey(closeSuggestionBox, isOpen);
+
+    useClickOutside([textBoxRef, refs.floating], closeSuggestionBox);
+
     return (
       <div>
         <SearchInput
@@ -182,34 +218,46 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
           value={searchText}
           onChange={onSearchTextChange}
           onClear={onSearchTextClear}
-          onClick={openSuggestionBox}
+          onKeyDown={onInputKeyDown}
+          role="combobox"
+          autoComplete="off"
+          aria-autocomplete="none"
+          aria-controls={popupId}
+          aria-expanded={isOpen}
+          aria-activedescendant={
+            isOpen
+              ? `suggestion-${autocompleteId}-${activeSuggestion}`
+              : undefined
+          }
         />
-        <Dialog
-          open={isOpen}
-          hideCloseButton
-          className={classes.dialog}
-          ref={refs.setFloating}
-          onCloseEnd={closeSuggestionBox}
-          preventOutsideClickRefs={refs.reference}
-          style={{
-            ...floatingStyles,
-            width: textBoxRef.current?.offsetWidth,
-            maxWidth: textBoxRef.current?.offsetWidth,
-          }}
-        >
-          {suggestions.length === 0 && (
-            <div className={classes['no-results']}>
-              {customNoResultsMessage ?? defaultNoResultMessage}
-            </div>
-          )}
-          {suggestions.length > 0 && (
-            <SuggestionBox
-              suggestions={suggestions}
-              onSuggestionClicked={(name) => console.log(name)}
-              label={props.label}
-            />
-          )}
-        </Dialog>
+        {isOpen && (
+          <div
+            className={classes.dialog}
+            ref={refs.setFloating}
+            id={popupId}
+            style={{
+              ...floatingStyles,
+              width: textBoxRef.current?.offsetWidth,
+              maxWidth: textBoxRef.current?.offsetWidth,
+            }}
+          >
+            {suggestions.length === 0 && (
+              <div className={classes['no-results']}>
+                {customNoResultsMessage ?? defaultNoResultMessage}
+              </div>
+            )}
+            {suggestions.length > 0 && (
+              <SuggestionBox
+                suggestions={suggestions}
+                onSuggestionClicked={(name) => console.log(name)}
+                label={props.label}
+                autocompleteId={autocompleteId}
+                activeSuggestion={activeSuggestion}
+                aria-readonly={props.readOnly}
+              />
+            )}
+          </div>
+        )}
       </div>
     );
   },

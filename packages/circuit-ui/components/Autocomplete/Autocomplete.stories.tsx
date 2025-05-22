@@ -14,7 +14,7 @@
  */
 
 import { Autocomplete, type AutocompleteProps } from './Autocomplete.js';
-import { groupedSuggestions } from './fixtures.js';
+import { suggestions } from './fixtures.js';
 
 export default {
   title: 'Forms/Autocomplete',
@@ -29,7 +29,7 @@ export default {
 const baseArgs = {
   label: 'Customer',
   placeholder: 'Search for customer',
-  suggestions: groupedSuggestions,
+  suggestions,
 };
 
 export const Base = (args: AutocompleteProps) => <Autocomplete {...args} />;

@@ -13,24 +13,15 @@
  * limitations under the License.
  */
 
-
 'use client';
 
-import {
-  type FocusEventHandler,
-  type HTMLAttributes,
-  type KeyboardEvent,
-  useCallback,
-  useRef,
-  useState,
-} from 'react';
+import { type HTMLAttributes, useMemo, useRef } from 'react';
 
 import {
   type AutocompleteSuggestion,
   Suggestion,
 } from '../Suggestion/Suggestion.js';
 import { Compact } from '../../../Compact/index.js';
-import { isArrowDown, isArrowUp } from '../../../../util/key-codes.js';
 
 import classes from './SuggestionBox.module.css';
 
@@ -50,6 +41,8 @@ type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
   isSelectable?: boolean;
   onSuggestionClicked: (value: string) => void;
   label: string;
+  autocompleteId: string;
+  activeSuggestion?: number;
 };
 
 const isGroup = (
@@ -62,71 +55,35 @@ export const SuggestionBox = ({
   onSuggestionClicked,
   isSelectable,
   label,
+  autocompleteId,
+  activeSuggestion,
 }: SuggestionBoxProps) => {
   const suggestionBoxRef = useRef<HTMLUListElement>(null);
-  const [activeSuggestion, setActiveSuggestion] = useState(0);
 
-  const onSuggestionKeydown = useCallback(
-    (event: KeyboardEvent) => {
-      if (!suggestionBoxRef.current) {
-        return;
-      }
-      const totalSuggestions =
-        suggestionBoxRef.current.querySelectorAll('[role="option"]').length ??
-        0;
-      if (isArrowDown(event) || isArrowUp(event)) {
-        event.preventDefault();
-        const nextSuggestion =
-          (isArrowDown(event)
-            ? activeSuggestion + totalSuggestions + 1
-            : activeSuggestion + totalSuggestions - 1) % totalSuggestions;
-
-        setActiveSuggestion(nextSuggestion);
-
-        (
-          suggestionBoxRef.current.querySelectorAll('[role="option"]')[
-            nextSuggestion
-          ] as HTMLElement | null
-        )?.focus();
-      }
-    },
-    [activeSuggestion],
-  );
-
-  const onSuggestionFocused: FocusEventHandler<HTMLLIElement> = useCallback(
-    (event) => {
-      if (!suggestionBoxRef.current) {
-        return;
-      }
-      const target = event.target as HTMLLIElement;
-      const suggestionIndex = Array.from(
-        suggestionBoxRef.current.querySelectorAll('[role="option"]'),
-      ).indexOf(target);
-      if (suggestionIndex !== -1) {
-        setActiveSuggestion(suggestionIndex);
-      }
-    },
-    [],
+  const suggestionValues: string[] = useMemo(
+    () =>
+      suggestions
+        .flatMap((suggestion) =>
+          isGroup(suggestion) ? suggestion.suggestions : suggestion,
+        )
+        .map((suggestion) => suggestion.value),
+    [suggestions],
   );
 
   return (
     <ul
       // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: list element has all necessary attributes to be interactive
       role="listbox"
+      aria-multiselectable={isSelectable}
       ref={suggestionBoxRef}
       aria-label={label}
       tabIndex={-1}
       className={classes.base}
-      onBlur={() => setActiveSuggestion(0)}
     >
       {suggestions.map((suggestion) => {
         if (isGroup(suggestion)) {
           return (
-            <li
-              role="presentation"
-              key={suggestion.label}
-              className={classes.group}
-            >
+            <div key={suggestion.label} className={classes.group}>
               <Compact
                 size="s"
                 color="subtle"
@@ -139,18 +96,30 @@ export const SuggestionBox = ({
                 aria-label={suggestion.label}
                 className={classes['group-suggestion']}
               >
-                {suggestion.suggestions.map((groupSuggestion) => (
+                {suggestion.suggestions.map((suggestionItem) => (
                   <Suggestion
-                    key={groupSuggestion.value}
-                    {...groupSuggestion}
+                    key={suggestionItem.value}
+                    {...suggestionItem}
                     onSuggestionClicked={onSuggestionClicked}
                     isSelectable={isSelectable}
-                    onKeyDown={onSuggestionKeydown}
-                    onFocus={onSuggestionFocused}
+                    id={`suggestion-${autocompleteId}-${suggestionValues.indexOf(suggestionItem.value)}`}
+                    isFocused={
+                      activeSuggestion !== undefined
+                        ? suggestionValues[activeSuggestion] ===
+                          suggestionItem.value
+                        : false
+                    }
+                    tabIndex={
+                      activeSuggestion &&
+                      suggestionValues[activeSuggestion] ===
+                        suggestionItem.value
+                        ? 0
+                        : -1
+                    }
                   />
                 ))}
               </ul>
-            </li>
+            </div>
           );
         }
         return (
@@ -159,8 +128,18 @@ export const SuggestionBox = ({
             {...suggestion}
             onSuggestionClicked={onSuggestionClicked}
             isSelectable={isSelectable}
-            onKeyDown={onSuggestionKeydown}
-            onFocus={onSuggestionFocused}
+            id={`suggestion-${autocompleteId}-${suggestionValues.indexOf(suggestion.value)}`}
+            isFocused={
+              activeSuggestion !== undefined
+                ? suggestionValues[activeSuggestion] === suggestion.value
+                : false
+            }
+            tabIndex={
+              activeSuggestion &&
+              suggestionValues[activeSuggestion] === suggestion.value
+                ? 0
+                : -1
+            }
           />
         );
       })}
