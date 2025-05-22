@@ -16,7 +16,13 @@
 'use client';
 
 import type { IconComponentType } from '@sumup-oss/icons';
-import { type HTMLAttributes, type KeyboardEvent, useId } from 'react';
+import {
+  type HTMLAttributes,
+  type KeyboardEvent,
+  useEffect,
+  useId,
+  useRef,
+} from 'react';
 
 import { clsx } from '../../../../styles/clsx.js';
 import { Compact } from '../../../Compact/index.js';
@@ -50,6 +56,7 @@ export type AutocompleteSuggestion = {
 type SuggestionProps = HTMLAttributes<HTMLLIElement> &
   AutocompleteSuggestion & {
     isSelectable?: boolean;
+    isFocused?: boolean;
     onSuggestionClicked: (value: string) => void;
   };
 
@@ -59,28 +66,40 @@ export const Suggestion = ({
   selected,
   leadingMedia,
   isSelectable,
+  isFocused,
+  onSuggestionClicked,
   value,
   ...props
 }: SuggestionProps) => {
   const labelId = useId();
+  const suggestionRef = useRef<HTMLLIElement>(null);
   const onSuggestionKeydown = (event: KeyboardEvent<HTMLLIElement>) => {
     if (isEnter(event) || isSpacebar(event)) {
-      props.onSuggestionClicked(value);
+      onSuggestionClicked(value);
     } else {
       props.onKeyDown?.(event);
     }
   };
+  useEffect(() => {
+    if (isFocused) {
+      suggestionRef?.current?.scrollIntoView({
+        block: 'nearest',
+        inline: 'nearest',
+      });
+    }
+  }, [isFocused]);
   return (
     <li
       {...props}
+      ref={suggestionRef}
       // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: list element has all necessary attributes to be interactive
       role="option"
-      className={classes.base}
+      className={clsx(classes.base, isFocused && classes.focused)}
       aria-selected={selected}
       aria-labelledby={labelId}
       tabIndex={0}
       onKeyDown={onSuggestionKeydown}
-      onClick={() => props.onSuggestionClicked(value)}
+      onClick={() => onSuggestionClicked(value)}
     >
       {leadingMedia && (
         <div className={classes.media}>
