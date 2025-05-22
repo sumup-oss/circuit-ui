@@ -1,5 +1,17 @@
 # @sumup-oss/circuit-ui
 
+## 10.0.1
+
+### Patch Changes
+
+- [#3116](https://github.com/sumup-oss/circuit-ui/pull/3116) [`8bc4f55`](https://github.com/sumup-oss/circuit-ui/commit/8bc4f55f0ee8ef1ab39a8640c6a9bf33c805f735) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed support for the `required` attribute in the RadioButtonGroup and SelectorGroup components.
+
+- [#3115](https://github.com/sumup-oss/circuit-ui/pull/3115) [`d4eb5b2`](https://github.com/sumup-oss/circuit-ui/commit/d4eb5b2c8c237edf79ae879ff45aeb7748f7b74b) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed applying a custom class name to the Anchor component when it renders as a `span` when neither the `href` nor the `onClick` props have been passed.
+
+- [#3112](https://github.com/sumup-oss/circuit-ui/pull/3112) [`5e0425a`](https://github.com/sumup-oss/circuit-ui/commit/5e0425ac272a820cb25b54a67091dd252337acad) Thanks [@sirineJ](https://github.com/sirineJ)! - Refactored the DateInput component to use the Popover component under the hood.
+
+- [#3112](https://github.com/sumup-oss/circuit-ui/pull/3112) [`5e0425a`](https://github.com/sumup-oss/circuit-ui/commit/5e0425ac272a820cb25b54a67091dd252337acad) Thanks [@sirineJ](https://github.com/sirineJ)! - Improved the Popover's floating element's positioning.
+
 ## 10.0.0
 
 ### Major Changes
