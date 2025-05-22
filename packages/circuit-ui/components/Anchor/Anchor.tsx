@@ -102,7 +102,7 @@ export const Anchor = forwardRef(
 
     if (!props.href && !props.onClick) {
       return (
-        <Body as="span" {...props} ref={ref}>
+        <Body as="span" {...props} className={className} ref={ref}>
           {children}
         </Body>
       );
