@@ -508,6 +508,11 @@
       "size": "32"
     },
     {
+      "name": "interac",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
       "name": "jcb",
       "category": "Card scheme",
       "size": "32"
@@ -1710,6 +1715,11 @@
     },
     {
       "name": "ideal",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "interac",
       "category": "Payment method",
       "size": "24"
     },
