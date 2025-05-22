@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 5.10.0
+
+### Minor Changes
+
+- [#3117](https://github.com/sumup-oss/circuit-ui/pull/3117) [`dcca0a9`](https://github.com/sumup-oss/circuit-ui/commit/dcca0a9017e94f7297b348de7742148c9ec01aaa) Thanks [@aamirnajar](https://github.com/aamirnajar)! - Added a new `Interac` card scheme icon in sizes 24 and 32.
+
 ## 5.9.0
 
 ### Minor Changes
