@@ -199,6 +199,7 @@ export const RadioButtonGroup = forwardRef(
               {...option}
               key={option.value?.toString() || option.label}
               disabled={disabled || option.disabled}
+              required={required || option.required}
               name={name}
               onChange={onChange}
               onBlur={onBlur}

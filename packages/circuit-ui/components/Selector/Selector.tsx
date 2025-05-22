@@ -111,6 +111,7 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
       'id': customId,
       name,
       disabled,
+      required,
       invalid,
       multiple,
       onChange,
@@ -164,6 +165,7 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
           name={name}
           value={value}
           disabled={disabled}
+          required={multiple ? undefined : required}
           // @ts-expect-error Change is handled by onClick for browser support, see https://stackoverflow.com/a/5575369
           onClick={onChange}
           // Noop to silence React warning: https://github.com/facebook/react/issues/3070#issuecomment-73311114
