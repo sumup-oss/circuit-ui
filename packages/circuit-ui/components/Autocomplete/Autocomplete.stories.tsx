@@ -13,8 +13,10 @@
  * limitations under the License.
  */
 
+import { type ChangeEvent, useState } from 'react';
+
 import { Autocomplete, type AutocompleteProps } from './Autocomplete.js';
-import { suggestions } from './fixtures.js';
+import { suggestions as mockSuggestions } from './fixtures.js';
 
 export default {
   title: 'Forms/Autocomplete',
@@ -29,10 +31,42 @@ export default {
 const baseArgs = {
   label: 'Choose your hero',
   placeholder: 'Whiskers',
-  suggestions,
+  suggestions: mockSuggestions,
   validationHint: 'All our cats have been neutered and vaccinated.',
-  value: suggestions[8].value,
 };
 
-export const Base = (args: AutocompleteProps) => <Autocomplete {...args} />;
+const filterSuggestions = (
+  searchText: string,
+  allSuggestions: AutocompleteProps['suggestions'],
+) =>
+  allSuggestions
+    .flatMap((suggestion) =>
+      'suggestions' in suggestion ? suggestion.suggestions : suggestion,
+    )
+    .filter(
+      (suggestion) =>
+        suggestion.value.includes(searchText) ||
+        suggestion.label.includes(searchText),
+    );
+
+export const Base = (args: AutocompleteProps) => {
+  const [autocompleteValue, setAutocompleteValue] = useState(args.value);
+  const [suggestions, setSuggestions] = useState(args.suggestions);
+  const onSearchTextChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const searchText = event.target.value;
+    setSuggestions(filterSuggestions(searchText, args.suggestions));
+  };
+  const onSelection = (value: string) => {
+    setAutocompleteValue(value);
+  };
+  return (
+    <Autocomplete
+      {...args}
+      value={autocompleteValue}
+      suggestions={suggestions}
+      onChange={onSearchTextChange}
+      onSelection={onSelection}
+    />
+  );
+};
 Base.args = baseArgs;
