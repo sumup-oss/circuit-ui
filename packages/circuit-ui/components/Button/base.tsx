@@ -101,7 +101,7 @@ export type SharedButtonProps = LinkElProps &
     locale?: Locale;
   };
 
-export type CreateButtonComponentProps = SharedButtonProps & {
+type CreateButtonComponentProps = SharedButtonProps & {
   /**
    * Communicates the action that will be performed when the user interacts
    * with the button. Use one strong, clear imperative verb and follow with a

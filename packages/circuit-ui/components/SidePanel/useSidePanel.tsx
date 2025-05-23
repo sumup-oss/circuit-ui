@@ -28,8 +28,8 @@ import { uniqueId } from '../../util/id.js';
 
 import { SidePanelContext } from './SidePanelContext.js';
 
-export type OnBack = () => void;
-export type OnClose = () => void | Promise<void>;
+type OnBack = () => void;
+type OnClose = () => void | Promise<void>;
 
 export type ChildrenRenderProps = { onBack?: OnBack; onClose?: OnClose };
 

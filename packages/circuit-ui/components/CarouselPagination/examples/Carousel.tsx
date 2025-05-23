@@ -33,7 +33,7 @@ type Slide = {
   };
 };
 
-export interface CarouselProps extends CarouselPaginationProps {
+interface CarouselProps extends CarouselPaginationProps {
   slides: Slide[];
 }
 

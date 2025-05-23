@@ -19,7 +19,7 @@ import { useCallback, useRef, type TouchEvent } from 'react';
 
 import { useLatest } from '../useLatest/useLatest.js';
 
-export type Direction = 'up' | 'right' | 'down' | 'left';
+type Direction = 'up' | 'right' | 'down' | 'left';
 
 /**
  * Detects swipe gestures on touch screen devices.

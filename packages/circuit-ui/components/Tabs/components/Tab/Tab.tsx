@@ -27,7 +27,7 @@ import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './Tab.module.css';
 
-export interface BaseProps {
+interface BaseProps {
   /**
    * Triggers selected styles of the component
    */

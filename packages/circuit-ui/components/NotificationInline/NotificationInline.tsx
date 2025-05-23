@@ -61,7 +61,7 @@ type CloseProps =
     }
   | { onClose?: never; closeButtonLabel?: never };
 
-export type BaseProps = HTMLAttributes<HTMLDivElement> & {
+type BaseProps = HTMLAttributes<HTMLDivElement> & {
   /**
    * The notification's variant. Defaults to `info`.
    */

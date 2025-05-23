@@ -25,7 +25,7 @@ import classes from './TableCell.module.css';
 
 export type CellValue = string | { label: string; value: boolean } | undefined;
 
-export interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
+interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
   /**
    * The content of the cell.
    * If the value is a string, it will be rendered as plain text.

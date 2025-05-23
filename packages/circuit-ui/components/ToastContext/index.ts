@@ -18,4 +18,4 @@ export { createUseToast } from './createUseToast.js';
 
 export type { ToastProviderProps } from './ToastContext.js';
 
-export type { BaseToastProps, ToastComponent } from './types.js';
+export type { BaseToastProps } from './types.js';

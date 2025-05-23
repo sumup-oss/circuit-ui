@@ -46,7 +46,7 @@ export type BorderWidth = {
   mega: string;
 };
 
-export type Typography = {
+type Typography = {
   fontSize: string;
   lineHeight: string;
 };
@@ -100,7 +100,7 @@ export type Grid = {
   };
 };
 
-export type Transitions = {
+type Transitions = {
   default: string;
   slow: string;
 };
@@ -236,7 +236,7 @@ interface ColorToken extends BaseToken {
   value: Color;
 }
 
-export type Color =
+type Color =
   | `#${string}`
   | `rgb(${number},${number},${number})`
   | `rgb(${number},${number},${number},${number})`
