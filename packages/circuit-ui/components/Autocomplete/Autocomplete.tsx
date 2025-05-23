@@ -42,6 +42,7 @@ import type { Locale } from '../../util/i18n.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
 import { useClickOutside } from '../../hooks/useClickOutside/index.js';
 import { isArrowDown, isArrowUp } from '../../util/key-codes.js';
+import { changeInputValue } from '../../util/input-value.js';
 
 import { translations } from './translations/index.js';
 import {
@@ -61,6 +62,10 @@ export type AutocompleteProps = SearchInputProps & {
    */
   value?: string;
   /**
+   * A function called when a suggestion is selected.
+   */
+  onSelection: (value: string) => void;
+  /**
    * A custom message to display when no suggestions are available.
    */
   noResultsMessage?: ReactNode;
@@ -75,14 +80,6 @@ export type AutocompleteProps = SearchInputProps & {
    * @default `['top', 'right', 'left']`.
    */
   fallbackPlacements?: Placement[];
-  /**
-   * Displaces the floating element from its `placement` along specified axes.
-   *
-   * Pass a number to move the floating element on the main axis, away from (if
-   * positive) or towards (if negative) the reference element. Pass an object
-   * to displace the floating element on both the main and cross axes.
-   */
-  offset?: number | { mainAxis?: number; crossAxis?: number };
   /**
    * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
    * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
@@ -109,10 +106,10 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       clearLabel,
       noResultsMessage: customNoResultsMessage,
       locale,
-      offset = 8,
       placement = 'bottom',
       fallbackPlacements = ['top', 'right', 'left'],
       suggestions,
+      onSelection,
       ...props
     },
     ref,
@@ -149,7 +146,8 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     };
 
     const onSearchTextClear = (event: ClickEvent) => {
-      setSearchText('');
+      changeInputValue(textBoxRef.current, '');
+      onSelection('');
       onClear?.(event);
     };
 
@@ -162,13 +160,11 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       open: isOpen,
       placement,
       strategy: 'fixed',
-      middleware: offset
-        ? [
-            offsetMiddleware(offset),
-            flip({ fallbackPlacements }),
-            size(sizeOptions),
-          ]
-        : [flip({ fallbackPlacements }), size(sizeOptions)],
+      middleware: [
+        offsetMiddleware(8),
+        flip({ fallbackPlacements }),
+        size(sizeOptions),
+      ],
     });
 
     const onInputKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
@@ -195,6 +191,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       }
     };
 
+    // biome-ignore lint/correctness/useExhaustiveDependencies: we need to update the floating element styles if the suggestions length changes
     useEffect(() => {
       /**
        * When we support `ResizeObserver` (https://caniuse.com/resizeobserver),
@@ -216,11 +213,20 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
         window.removeEventListener('resize', update);
         window.removeEventListener('scroll', update);
       };
-    }, [isOpen, update]);
+    }, [isOpen, update, suggestions]);
 
     useEscapeKey(closeSuggestionBox, isOpen);
 
     useClickOutside([textBoxRef, refs.floating], closeSuggestionBox);
+
+    const onSuggestionClicked = (selectedValue: string) => {
+      onSelection(selectedValue);
+      changeInputValue(
+        textBoxRef.current,
+        getSuggestionLabelByValue(suggestions, selectedValue),
+      );
+      closeSuggestionBox();
+    };
 
     return (
       <div>
@@ -265,7 +271,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
               <SuggestionBox
                 value={value}
                 suggestions={suggestions}
-                onSuggestionClicked={(name) => console.log(name)}
+                onSuggestionClicked={onSuggestionClicked}
                 label={props.label}
                 autocompleteId={autocompleteId}
                 activeSuggestion={activeSuggestion}
