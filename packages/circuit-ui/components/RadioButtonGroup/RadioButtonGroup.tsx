@@ -42,10 +42,9 @@ import {
 
 import classes from './RadioButtonGroup.module.css';
 
-type Option = Omit<
-  RadioButtonProps,
-  'onChange' | 'onBlur' | 'name' | 'children'
-> & {
+type EventHandlers = 'onChange' | 'onFocus' | 'onBlur';
+
+type Option = Omit<RadioButtonProps, EventHandlers | 'name' | 'children'> & {
   /**
    * A clear and concise description of the option's purpose.
    */
@@ -57,10 +56,7 @@ type Option = Omit<
 };
 
 export interface RadioButtonGroupProps
-  extends Omit<
-    FieldsetHTMLAttributes<HTMLFieldSetElement>,
-    'onChange' | 'onBlur'
-  > {
+  extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, EventHandlers> {
   /**
    * A collection of available options. Each option must have at least a value
    * and a label.
@@ -72,7 +68,12 @@ export interface RadioButtonGroupProps
    */
   onChange?: RadioButtonProps['onChange'];
   /**
-   * A callback that is called when any of the inputs lose focus.
+   * A callback that is called when any of the inputs gains focus.
+   * Passed on to the RadioButtons.
+   */
+  onFocus?: RadioButtonProps['onFocus'];
+  /**
+   * A callback that is called when any of the inputs loses focus.
    * Passed on to the RadioButtons.
    */
   onBlur?: RadioButtonProps['onBlur'];
@@ -132,6 +133,7 @@ export const RadioButtonGroup = forwardRef(
     {
       options,
       onChange,
+      onFocus,
       onBlur,
       value,
       defaultValue,
@@ -202,6 +204,7 @@ export const RadioButtonGroup = forwardRef(
               required={required || option.required}
               name={name}
               onChange={onChange}
+              onFocus={onFocus}
               onBlur={onBlur}
               checked={value ? option.value === value : option.checked}
               defaultChecked={
