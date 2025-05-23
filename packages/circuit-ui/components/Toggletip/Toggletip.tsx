@@ -40,7 +40,6 @@ import type { ClickEvent } from '../../types/events.js';
 import { clsx } from '../../styles/clsx.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
-import { useStackContext } from '../StackContext/index.js';
 import { Headline } from '../Headline/index.js';
 import { Body } from '../Body/index.js';
 import { Button, type ButtonProps } from '../Button/index.js';
@@ -122,7 +121,6 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
       strategy = 'fixed',
       ...rest
     } = props;
-    const zIndex = useStackContext();
     const isMobile = useMedia('(max-width: 479px)');
     const arrowRef = useRef<HTMLDivElement>(null);
     const referenceId = useId();
@@ -218,11 +216,7 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
           aria-describedby={headline ? bodyId : undefined}
           className={clsx(classes.base, className)}
           closeButtonLabel={closeButtonLabel}
-          style={{
-            ...style,
-            ...dialogStyles,
-            zIndex: zIndex || 'var(--cui-z-index-tooltip)',
-          }}
+          style={{ ...style, ...dialogStyles }}
         >
           <div className={classes.content}>
             {headline && (
