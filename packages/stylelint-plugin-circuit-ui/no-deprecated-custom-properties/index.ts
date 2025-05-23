@@ -25,7 +25,7 @@ const REGEX_STRING = DEPRECATED_CUSTOM_PROPERTIES.map(({ name }) => name).join(
 
 export const ruleName = 'circuit-ui/no-deprecated-custom-properties';
 
-export const meta = {
+const meta = {
   url: 'https://github.com/sumup-oss/circuit-ui/tree/main/packages/stylelint-plugin-circuit-ui/no-deprecated-custom-properties/README.md',
   fixable: true,
 };

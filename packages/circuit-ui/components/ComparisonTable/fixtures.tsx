@@ -49,7 +49,7 @@ export const premiumPlan: TableHeaderProps = {
   },
 };
 
-export const coreFeature: Feature = {
+const coreFeature: Feature = {
   featureDescription: {
     label: 'Core functionality',
     description: 'essential features included',
@@ -76,7 +76,7 @@ export const coreFeature: Feature = {
   ],
 };
 
-export const advancedFeature: Feature = {
+const advancedFeature: Feature = {
   featureDescription: {
     label: 'Advanced features',
   },
@@ -86,7 +86,7 @@ export const advancedFeature: Feature = {
   ],
 };
 
-export const premiumFeature: Feature = {
+const premiumFeature: Feature = {
   featureDescription: {
     label: 'Premium features',
   },
@@ -96,7 +96,7 @@ export const premiumFeature: Feature = {
   ],
 };
 
-export const limitedFeature: Feature = {
+const limitedFeature: Feature = {
   featureDescription: {
     label: 'Limited access',
   },
@@ -106,7 +106,7 @@ export const limitedFeature: Feature = {
   ],
 };
 
-export const exclusiveFeature: Feature = {
+const exclusiveFeature: Feature = {
   featureDescription: {
     label: 'Exclusive access',
   },
