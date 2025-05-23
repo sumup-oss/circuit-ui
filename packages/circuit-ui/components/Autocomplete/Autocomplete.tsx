@@ -49,12 +49,17 @@ import {
   SuggestionBox,
 } from './components/SuggestionBox/SuggestionBox.js';
 import classes from './Autocomplete.module.css';
+import { getSuggestionLabelByValue } from './AutocompleteService.js';
 
 export type AutocompleteProps = SearchInputProps & {
   /**
    * List of suggestions to display in the dropdown.
    */
   suggestions: AutocompleteSuggestions;
+  /**
+   * The field's value.
+   */
+  value?: string;
   /**
    * A custom message to display when no suggestions are available.
    */
@@ -99,6 +104,7 @@ const sizeOptions: SizeOptions = {
 export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
   (
     {
+      value,
       onClear,
       clearLabel,
       noResultsMessage: customNoResultsMessage,
@@ -116,7 +122,9 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       translations,
     );
 
-    const [searchText, setSearchText] = useState<string>('');
+    const [searchText, setSearchText] = useState<string>(
+      getSuggestionLabelByValue(suggestions, value) ?? '',
+    );
     const [isOpen, setIsOpen] = useState(false);
     const [activeSuggestion, setActiveSuggestion] = useState<number>();
     const textBoxRef = useRef<HTMLInputElement>(null);
@@ -143,6 +151,12 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     const onSearchTextClear = (event: ClickEvent) => {
       setSearchText('');
       onClear?.(event);
+    };
+
+    const onSearchTextFocus = () => {
+      if (value) {
+        openSuggestionBox();
+      }
     };
     const { floatingStyles, refs, update } = useFloating<HTMLElement>({
       open: isOpen,
@@ -229,6 +243,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
               ? `suggestion-${autocompleteId}-${activeSuggestion}`
               : undefined
           }
+          onFocus={onSearchTextFocus}
         />
         {isOpen && (
           <div
@@ -248,6 +263,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
             )}
             {suggestions.length > 0 && (
               <SuggestionBox
+                value={value}
                 suggestions={suggestions}
                 onSuggestionClicked={(name) => console.log(name)}
                 label={props.label}

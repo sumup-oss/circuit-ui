@@ -4,12 +4,29 @@
 
 .dialog {
   z-index: var(--cui-z-index-popover);
-  max-height: min(500px, var(--suggestion-box-max-height));
-  padding: var(--cui-spacings-mega);
+  max-height: min(400px, var(--suggestion-box-max-height));
   margin: 0;
+  overflow-y: auto;
   background-color: var(--cui-bg-normal);
   border-radius: var(--cui-border-radius-byte);
   box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
+}
+
+.dialog::after {
+  position: absolute;
+  right: 0;
+  bottom: env(safe-area-inset-bottom);
+  left: 0;
+  display: block;
+  height: var(--cui-spacings-mega);
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(
+    color-mix(in sRGB, var(--cui-bg-elevated) 0%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent)
+  );
+  border-radius: inherit;
 }
 
 .no-results {

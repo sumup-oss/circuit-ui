@@ -1,8 +1,14 @@
 .base {
+  position: relative;
+  height: inherit;
   max-height: inherit;
   padding: var(--cui-spacings-mega);
   margin: 0;
   overflow-y: auto;
+}
+
+li:last-of-type {
+  margin-bottom: 0;
 }
 
 .group {
