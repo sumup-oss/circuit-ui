@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/knip/schema.json",
+  "entry": [
+    "**/*.stories.*",
+    "**/*.mdx",
+    "packages/circuit-ui/experimental.ts!",
+    "packages/circuit-ui/internal.ts!",
+    "packages/circuit-ui/legacy.ts!",
+    "packages/circuit-ui/index.ts!"
+  ],
+  "ignore": [
+    ".storybook/**/*",
+    "scripts/**/*",
+    "*rc.js",
+    "*.config.js",
+    "**/vendor/**/*"
+  ],
+  "ignoreWorkspaces": ["templates/**/*"],
+  "ignoreBinaries": ["start-server-and-test"],
+  "ignoreDependencies": ["@babel/preset-env", "@babel/preset-react"]
+}

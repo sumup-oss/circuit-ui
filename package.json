@@ -66,6 +66,7 @@
     "eslint-plugin-testing-library": "^7.1.1",
     "github-slugger": "^2.0.0",
     "jsdom": "^26.1.0",
+    "knip": "^5.57.1",
     "lerna": "^8.2.2",
     "pkg-pr-new": "^0.0.43",
     "prettier-plugin-astro": "^0.14.1",
