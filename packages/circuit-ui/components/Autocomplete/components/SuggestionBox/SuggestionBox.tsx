@@ -15,13 +15,14 @@
 
 'use client';
 
-import { type HTMLAttributes, useMemo, useRef } from 'react';
+import { type HTMLAttributes, useEffect, useMemo, useRef } from 'react';
 
 import {
   type AutocompleteSuggestion,
   Suggestion,
 } from '../Suggestion/Suggestion.js';
 import { Compact } from '../../../Compact/index.js';
+import type { AutocompleteProps } from '../../Autocomplete.js';
 
 import classes from './SuggestionBox.module.css';
 
@@ -43,6 +44,7 @@ type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
   label: string;
   autocompleteId: string;
   activeSuggestion?: number;
+  value: AutocompleteProps['value'];
 };
 
 const isGroup = (
@@ -57,8 +59,17 @@ export const SuggestionBox = ({
   label,
   autocompleteId,
   activeSuggestion,
+  value,
 }: SuggestionBoxProps) => {
   const suggestionBoxRef = useRef<HTMLUListElement>(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      suggestionBoxRef.current
+        ?.querySelector('[aria-selected="true"]')
+        ?.scrollIntoView({ behavior: 'smooth' });
+    }, 0);
+  }, []);
 
   const suggestionValues: string[] = useMemo(
     () =>
@@ -102,6 +113,7 @@ export const SuggestionBox = ({
                     {...suggestionItem}
                     onSuggestionClicked={onSuggestionClicked}
                     isSelectable={isSelectable}
+                    selected={value === suggestionItem.value}
                     id={`suggestion-${autocompleteId}-${suggestionValues.indexOf(suggestionItem.value)}`}
                     isFocused={
                       activeSuggestion !== undefined
@@ -127,6 +139,7 @@ export const SuggestionBox = ({
             key={suggestion.value}
             {...suggestion}
             onSuggestionClicked={onSuggestionClicked}
+            selected={value === suggestion.value}
             isSelectable={isSelectable}
             id={`suggestion-${autocompleteId}-${suggestionValues.indexOf(suggestion.value)}`}
             isFocused={

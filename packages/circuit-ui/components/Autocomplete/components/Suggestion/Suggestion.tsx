@@ -94,7 +94,11 @@ export const Suggestion = ({
       ref={suggestionRef}
       // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: list element has all necessary attributes to be interactive
       role="option"
-      className={clsx(classes.base, isFocused && classes.focused)}
+      className={clsx(
+        classes.base,
+        isFocused && classes.focused,
+        selected && classes.selected,
+      )}
       aria-selected={selected}
       aria-labelledby={labelId}
       tabIndex={0}
@@ -114,11 +118,16 @@ export const Suggestion = ({
         </div>
       )}
       <div className={classes.content}>
-        <Compact id={labelId} size="s" weight="bold">
+        <Compact
+          id={labelId}
+          size="s"
+          weight="bold"
+          color={selected ? 'on-strong' : 'normal'}
+        >
           {label}
         </Compact>
         {description && (
-          <Compact size="s" color="subtle">
+          <Compact size="s" color={selected ? 'on-strong-subtle' : 'subtle'}>
             {description}
           </Compact>
         )}

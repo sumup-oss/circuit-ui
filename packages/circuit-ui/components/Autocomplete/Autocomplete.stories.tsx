@@ -27,9 +27,11 @@ export default {
 };
 
 const baseArgs = {
-  label: 'Customer',
-  placeholder: 'Search for customer',
+  label: 'Choose your hero',
+  placeholder: 'Whiskers',
   suggestions,
+  validationHint: 'All our cats have been neutered and vaccinated.',
+  value: suggestions[8].value,
 };
 
 export const Base = (args: AutocompleteProps) => <Autocomplete {...args} />;
