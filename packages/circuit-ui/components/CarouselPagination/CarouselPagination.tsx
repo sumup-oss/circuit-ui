@@ -32,7 +32,7 @@ import classes from './CarouselPagination.module.css';
 type LinkElProps = AnchorHTMLAttributes<HTMLAnchorElement>;
 type ButtonElProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
-export type Slide = LinkElProps &
+type Slide = LinkElProps &
   ButtonElProps & {
     /**
      * A unique identifier

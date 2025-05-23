@@ -72,7 +72,7 @@ const UNITS = [
   interval: number; // in milliseconds
 }[];
 
-export type State = {
+type State = {
   label: string;
   interval: number | null;
 };

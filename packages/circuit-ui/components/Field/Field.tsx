@@ -27,7 +27,7 @@ import { utilClasses } from '../../styles/utility.js';
 import classes from './Field.module.css';
 import { getFieldValidity } from './FieldService.js';
 
-export interface FieldWrapperProps extends HTMLAttributes<HTMLDivElement> {
+interface FieldWrapperProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Trigger disabled styles on the component.
    */
@@ -50,7 +50,7 @@ export const FieldWrapper = forwardRef<HTMLDivElement, FieldWrapperProps>(
   ),
 );
 
-export type FieldSetProps = FieldsetHTMLAttributes<HTMLFieldSetElement>;
+type FieldSetProps = FieldsetHTMLAttributes<HTMLFieldSetElement>;
 
 /**
  * @private
@@ -65,7 +65,7 @@ export const FieldSet = forwardRef<HTMLFieldSetElement, FieldSetProps>(
   ),
 );
 
-export interface FieldLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
+interface FieldLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   /**
    * The identifier of the corresponding form element.
    */
@@ -88,13 +88,13 @@ export const FieldLabel = ({
   />
 );
 
-export type FieldLegendProps = HTMLAttributes<HTMLLegendElement>;
+type FieldLegendProps = HTMLAttributes<HTMLLegendElement>;
 
 export const FieldLegend = ({ className, ...props }: FieldLegendProps) => (
   <legend {...props} className={clsx(classes.legend, className)} />
 );
 
-export interface FieldLabelTextProps {
+interface FieldLabelTextProps {
   /**
    * A clear and concise description of the input purpose.
    */
@@ -143,7 +143,7 @@ export function FieldLabelText({
   );
 }
 
-export interface FieldDescriptionProps extends HTMLAttributes<HTMLSpanElement> {
+interface FieldDescriptionProps extends HTMLAttributes<HTMLSpanElement> {
   validationHint?: string;
 }
 
@@ -157,8 +157,7 @@ export const FieldDescription = ({
   <span {...props} className={clsx(classes.description, className)} />
 );
 
-export interface FieldValidationHintProps
-  extends HTMLAttributes<HTMLSpanElement> {
+interface FieldValidationHintProps extends HTMLAttributes<HTMLSpanElement> {
   validationHint?: string;
   disabled?: boolean;
   invalid?: boolean;

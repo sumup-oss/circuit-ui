@@ -15,13 +15,7 @@
 
 'use client';
 
-import {
-  useEffect,
-  useRef,
-  useState,
-  type HTMLAttributes,
-  type RefObject,
-} from 'react';
+import { useEffect, useRef, useState, type HTMLAttributes } from 'react';
 
 import { useAnimation } from '../../hooks/useAnimation/index.js';
 import { Body } from '../Body/index.js';
@@ -31,14 +25,14 @@ import { type BaseToastProps, createUseToast } from '../ToastContext/index.js';
 import { utilClasses } from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
 import {
+  DEFAULT_HEIGHT,
   NOTIFICATION_ICONS,
+  TRANSITION_DURATION,
   type NotificationVariant,
 } from '../Notification/constants.js';
+import { getElementHeight } from '../Notification/NotificationService.js';
 
 import classes from './NotificationToast.module.css';
-
-const TRANSITION_DURATION = 200;
-const DEFAULT_HEIGHT = 'auto';
 
 export type NotificationToastProps = HTMLAttributes<HTMLDivElement> &
   BaseToastProps & {
@@ -83,14 +77,14 @@ export function NotificationToast({
 }: NotificationToastProps) {
   const contentElement = useRef(null);
   const [isOpen, setOpen] = useState(false);
-  const [height, setHeight] = useState(getHeight(contentElement));
+  const [height, setHeight] = useState(getElementHeight(contentElement));
   const [, setAnimating] = useAnimation();
 
   useEffect(() => {
     setAnimating({
       duration: TRANSITION_DURATION,
       onStart: () => {
-        setHeight(getHeight(contentElement));
+        setHeight(getElementHeight(contentElement));
         // Delaying the state update until the next animation frame ensures that
         // the browsers renders the new height before the animation starts.
         window.requestAnimationFrame(() => {
@@ -143,12 +137,5 @@ export function NotificationToast({
 }
 
 NotificationToast.TRANSITION_DURATION = TRANSITION_DURATION;
-
-export function getHeight(element: RefObject<HTMLElement>): string {
-  if (!element || !element.current) {
-    return DEFAULT_HEIGHT;
-  }
-  return `${element.current.scrollHeight}px`;
-}
 
 export const useNotificationToast = createUseToast(NotificationToast);

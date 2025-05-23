@@ -50,7 +50,7 @@ export type SidePanelContextItem = SidePanelHookProps &
   Pick<SidePanelProps, 'onCloseEnd' | 'open'> &
   StackItem & { isInstantOpen?: boolean; isInstantClose?: boolean };
 
-export type SidePanelContextValue = {
+type SidePanelContextValue = {
   setSidePanel: SetSidePanel;
   updateSidePanel: UpdateSidePanel;
   removeSidePanel: RemoveSidePanel;

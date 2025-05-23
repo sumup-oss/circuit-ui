@@ -285,7 +285,7 @@ export function isDateInMonthRange(
   return true;
 }
 
-export function isDateInMonths(
+function isDateInMonths(
   date: Temporal.PlainDate,
   months: Temporal.PlainYearMonth[],
 ) {

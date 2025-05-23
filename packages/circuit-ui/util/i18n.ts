@@ -17,7 +17,7 @@ import { isString } from './type-check.js';
 
 export const FALLBACK_LOCALE = 'en-US';
 
-export const SUPPORTED_LOCALES = [
+const SUPPORTED_LOCALES = [
   'bg-BG',
   'cs-CZ',
   'da-DK',

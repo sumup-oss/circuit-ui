@@ -38,7 +38,7 @@ type DateValues = {
   day: DateValue;
 };
 
-export type PlainDateState = {
+type PlainDateState = {
   date: Temporal.PlainDate | undefined;
   update: (values: Partial<DateValues>) => void;
   props: {

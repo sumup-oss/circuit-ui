@@ -14,5 +14,3 @@
  */
 
 export { SecondaryLinks } from './SecondaryLinks.js';
-
-export type { SecondaryLinksProps } from './SecondaryLinks.js';

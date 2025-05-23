@@ -21,7 +21,7 @@ import {
   Selector,
   type SelectorProps,
   type SelectorSize,
-} from '../Selector/Selector.js';
+} from '../Selector/index.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,

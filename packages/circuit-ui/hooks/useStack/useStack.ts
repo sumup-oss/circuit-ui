@@ -33,7 +33,7 @@ type Action<T extends StackItem> =
   | { type: 'remove'; id: Id; transition?: Transition }
   | { type: 'update'; item: Partial<T> & StackItem };
 
-export type StackDispatch<T extends StackItem> = Dispatch<Action<T>>;
+type StackDispatch<T extends StackItem> = Dispatch<Action<T>>;
 
 function createReducer<T extends StackItem>() {
   return (state: T[], action: Action<T>) => {

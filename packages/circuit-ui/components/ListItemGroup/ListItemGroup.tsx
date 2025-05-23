@@ -36,9 +36,9 @@ import classes from './ListItemGroup.module.css';
 
 type Variant = 'plain' | 'inset';
 
-export type ItemProps = ListItemProps & { key: string | number };
+type ItemProps = ListItemProps & { key: string | number };
 
-export interface BaseProps {
+interface BaseProps {
   /**
    * Choose between 'inset' (outer border and dividers) and 'plain' (only
    * dividers) variant. Defaults to 'inset'.

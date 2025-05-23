@@ -36,7 +36,7 @@ import { AccessibilityError } from '../../util/errors.js';
 
 import classes from './Anchor.module.css';
 
-export interface BaseProps extends Omit<BodyProps, 'color'> {
+interface BaseProps extends Omit<BodyProps, 'color'> {
   children: ReactNode;
   /**
    * Function that's called when the button is clicked.

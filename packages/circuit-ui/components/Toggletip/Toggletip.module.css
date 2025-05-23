@@ -2,7 +2,7 @@
   /* The arrow should be 8px tall. A square element is rotated to achieve a triangular shape. Using Pythagoras' theorem, we can calculate the ratio between the triangle height and the square sides: √(8^2 + 8^2) / 8 ≈ 1.414 */
   --tooltip-arrow-size: calc(var(--cui-spacings-byte) * 1.414);
 
-  z-index: var(--cui-z-index-popover);
+  z-index: var(--cui-z-index-tooltip);
   width: max-content;
   max-width: 360px;
   max-width: min(360px, 100vw);

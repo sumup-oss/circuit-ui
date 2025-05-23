@@ -14,5 +14,3 @@
  */
 
 export { Skeleton, SkeletonContainer } from './Skeleton.js';
-
-export type { SkeletonProps, SkeletonContainerProps } from './Skeleton.js';

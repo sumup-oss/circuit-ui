@@ -139,6 +139,7 @@ export type {
   CardFooterProps,
 } from './components/Card/index.js';
 export { Hr } from './components/Hr/index.js';
+export type { HrProps } from './components/Hr/index.js';
 export { Image } from './components/Image/index.js';
 export type { ImageProps } from './components/Image/index.js';
 export { ProgressBar } from './components/ProgressBar/index.js';

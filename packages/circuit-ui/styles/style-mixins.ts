@@ -54,7 +54,7 @@ type Spacing = keyof Theme['spacings'];
 
 export type SpacingValue = Spacing | 'auto' | 0;
 
-export type SpacingObject = {
+type SpacingObject = {
   top?: SpacingValue;
   bottom?: SpacingValue;
   right?: SpacingValue;

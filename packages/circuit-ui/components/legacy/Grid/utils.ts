@@ -28,7 +28,7 @@ export function normalizeToNumber(value: string | number): number {
   return isString(value) ? Number.parseInt(value, 10) : value;
 }
 
-export type CreateStylesFn<Option, ReturnValue> = (
+type CreateStylesFn<Option, ReturnValue> = (
   theme: Theme,
   grid: GridValue,
   option: Option,
