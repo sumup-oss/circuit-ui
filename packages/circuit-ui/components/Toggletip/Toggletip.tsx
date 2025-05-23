@@ -33,8 +33,8 @@ import {
   useFloating,
   type Placement,
   type Side,
+  type Strategy,
 } from '@floating-ui/react-dom';
-import type { Strategy } from '@floating-ui/utils';
 
 import type { ClickEvent } from '../../types/events.js';
 import { clsx } from '../../styles/clsx.js';
