@@ -27,6 +27,9 @@ jobs:
       - name: Build packages
         run: npm run build
 
+      - name: Check for unused code
+        run: npm run knip
+
       - name: Lint code
         run: npm run lint:ci
 
