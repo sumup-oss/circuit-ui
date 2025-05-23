@@ -1,5 +1,5 @@
 /**
- * Copyright 2023, SumUp Ltd.
+ * Copyright 2025, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,26 +13,13 @@
  * limitations under the License.
  */
 
-import {
-  Alert,
-  Confirm,
-  Info,
-  Notify,
-  type IconComponentType,
-} from '@sumup-oss/icons';
+import type { RefObject } from 'react';
 
-export type NotificationVariant = 'info' | 'success' | 'warning' | 'danger';
+import { DEFAULT_HEIGHT } from './constants.js';
 
-export const NOTIFICATION_ICONS: Record<
-  NotificationVariant,
-  IconComponentType<'16' | '24'>
-> = {
-  info: Info,
-  success: Confirm,
-  warning: Notify,
-  danger: Alert,
-};
-
-export const TRANSITION_DURATION = 200;
-
-export const DEFAULT_HEIGHT = 'auto';
+export function getElementHeight(element: RefObject<HTMLElement>): string {
+  if (!element || !element.current) {
+    return DEFAULT_HEIGHT;
+  }
+  return `${element.current.scrollHeight}px`;
+}
