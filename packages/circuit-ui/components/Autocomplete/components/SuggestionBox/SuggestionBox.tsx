@@ -23,6 +23,10 @@ import {
 } from '../Suggestion/Suggestion.js';
 import { Compact } from '../../../Compact/index.js';
 import type { AutocompleteProps } from '../../Autocomplete.js';
+import {
+  computeTabIndex,
+  isSuggestionFocused,
+} from '../../AutocompleteService.js';
 
 import classes from './SuggestionBox.module.css';
 
@@ -45,6 +49,7 @@ type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
   autocompleteId: string;
   activeSuggestion?: number;
   value: AutocompleteProps['value'];
+  isLoading?: boolean;
 };
 
 const isGroup = (
@@ -60,6 +65,7 @@ export const SuggestionBox = ({
   autocompleteId,
   activeSuggestion,
   value,
+  isLoading = false,
 }: SuggestionBoxProps) => {
   const suggestionBoxRef = useRef<HTMLUListElement>(null);
 
@@ -88,6 +94,7 @@ export const SuggestionBox = ({
       aria-multiselectable={isSelectable}
       ref={suggestionBoxRef}
       aria-label={label}
+      aria-busy={isLoading}
       tabIndex={-1}
       className={classes.base}
     >
@@ -115,19 +122,17 @@ export const SuggestionBox = ({
                     isSelectable={isSelectable}
                     selected={value === suggestionItem.value}
                     id={`suggestion-${autocompleteId}-${suggestionValues.indexOf(suggestionItem.value)}`}
-                    isFocused={
-                      activeSuggestion !== undefined
-                        ? suggestionValues[activeSuggestion] ===
-                          suggestionItem.value
-                        : false
-                    }
-                    tabIndex={
-                      activeSuggestion &&
-                      suggestionValues[activeSuggestion] ===
-                        suggestionItem.value
-                        ? 0
-                        : -1
-                    }
+                    isFocused={isSuggestionFocused(
+                      suggestionValues,
+                      suggestionItem.value,
+                      activeSuggestion,
+                    )}
+                    tabIndex={computeTabIndex(
+                      suggestionValues,
+                      suggestionItem.value,
+                      isLoading,
+                      activeSuggestion,
+                    )}
                   />
                 ))}
               </ul>
@@ -142,17 +147,17 @@ export const SuggestionBox = ({
             selected={value === suggestion.value}
             isSelectable={isSelectable}
             id={`suggestion-${autocompleteId}-${suggestionValues.indexOf(suggestion.value)}`}
-            isFocused={
-              activeSuggestion !== undefined
-                ? suggestionValues[activeSuggestion] === suggestion.value
-                : false
-            }
-            tabIndex={
-              activeSuggestion &&
-              suggestionValues[activeSuggestion] === suggestion.value
-                ? 0
-                : -1
-            }
+            isFocused={isSuggestionFocused(
+              suggestionValues,
+              suggestion.value,
+              activeSuggestion,
+            )}
+            tabIndex={computeTabIndex(
+              suggestionValues,
+              suggestion.value,
+              isLoading,
+              activeSuggestion,
+            )}
           />
         );
       })}

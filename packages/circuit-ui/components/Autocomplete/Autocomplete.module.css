@@ -29,9 +29,15 @@
   border-radius: inherit;
 }
 
-.no-results {
+.no-results,
+.loading {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: var(--cui-spacings-mega);
+}
+
+.loading {
+  gap: var(--cui-spacings-byte);
 }

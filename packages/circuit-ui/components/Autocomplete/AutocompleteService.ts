@@ -31,3 +31,22 @@ export const getSuggestionLabelByValue = (
     ''
   );
 };
+
+export const computeTabIndex = (
+  suggestionValues: string[],
+  value: string,
+  isLoading: boolean,
+  activeSuggestion?: number,
+) =>
+  !isLoading && activeSuggestion && suggestionValues[activeSuggestion] === value
+    ? 0
+    : -1;
+
+export const isSuggestionFocused = (
+  suggestionValues: string[],
+  value: string,
+  activeSuggestion?: number,
+) =>
+  activeSuggestion !== undefined
+    ? suggestionValues[activeSuggestion] === value
+    : false;

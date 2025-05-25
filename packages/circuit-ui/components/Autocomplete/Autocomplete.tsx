@@ -43,6 +43,8 @@ import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
 import { useClickOutside } from '../../hooks/useClickOutside/index.js';
 import { isArrowDown, isArrowUp } from '../../util/key-codes.js';
 import { changeInputValue } from '../../util/input-value.js';
+import { Spinner } from '../Spinner/index.js';
+import { Body } from '../Body/index.js';
 
 import { translations } from './translations/index.js';
 import {
@@ -69,6 +71,14 @@ export type AutocompleteProps = SearchInputProps & {
    * A custom message to display when no suggestions are available.
    */
   noResultsMessage?: ReactNode;
+  /**
+   * Indicated a loading state while loading suggestions.
+   */
+  isLoading?: boolean;
+  /**
+   * A label to display while loading suggestions.
+   */
+  loadingLabel?: string;
   /**
    * One of the accepted placement values.
    * @default `bottom`.
@@ -104,6 +114,8 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       value,
       onClear,
       clearLabel,
+      isLoading,
+      loadingLabel: customLoadingLabel,
       noResultsMessage: customNoResultsMessage,
       locale,
       placement = 'bottom',
@@ -114,8 +126,8 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     },
     ref,
   ) => {
-    const { noResultsMessage: defaultNoResultMessage } = useI18n(
-      { noResultsMessage: '', locale },
+    const { noResultsMessage: defaultNoResultMessage, loadingLabel } = useI18n(
+      { noResultsMessage: '', locale, loadingLabel: customLoadingLabel },
       translations,
     );
 
@@ -127,6 +139,12 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     const textBoxRef = useRef<HTMLInputElement>(null);
     const popupId = useId();
     const autocompleteId = useId();
+
+    useEffect(() => {
+      if (isLoading) {
+        setActiveSuggestion(undefined);
+      }
+    }, [isLoading]);
 
     const openSuggestionBox = () => {
       setIsOpen(true);
@@ -238,7 +256,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
           value={searchText}
           onChange={onSearchTextChange}
           onClear={onSearchTextClear}
-          onKeyDown={onInputKeyDown}
+          onKeyDown={isLoading ? undefined : onInputKeyDown}
           role="combobox"
           autoComplete="off"
           aria-autocomplete="none"
@@ -262,9 +280,15 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
               maxWidth: textBoxRef.current?.offsetWidth,
             }}
           >
-            {suggestions.length === 0 && (
+            {isLoading && suggestions.length === 0 && (
+              <div className={classes.loading} aria-busy={isLoading}>
+                <Spinner />
+                <Body>{loadingLabel}</Body>
+              </div>
+            )}
+            {!isLoading && suggestions.length === 0 && (
               <div className={classes['no-results']}>
-                {customNoResultsMessage ?? defaultNoResultMessage}
+                <Body>{customNoResultsMessage ?? defaultNoResultMessage}</Body>
               </div>
             )}
             {suggestions.length > 0 && (
@@ -276,6 +300,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
                 autocompleteId={autocompleteId}
                 activeSuggestion={activeSuggestion}
                 aria-readonly={props.readOnly}
+                isLoading={isLoading}
               />
             )}
           </div>
