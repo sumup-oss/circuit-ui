@@ -90,6 +90,7 @@ export const Suggestion = ({
   }, [isFocused]);
   return (
     <li
+      tabIndex={0}
       {...props}
       ref={suggestionRef}
       // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: list element has all necessary attributes to be interactive
@@ -101,7 +102,6 @@ export const Suggestion = ({
       )}
       aria-selected={selected}
       aria-labelledby={labelId}
-      tabIndex={0}
       onKeyDown={onSuggestionKeydown}
       onClick={() => onSuggestionClicked(value)}
     >

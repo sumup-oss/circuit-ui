@@ -14,9 +14,16 @@
  */
 
 import { type ChangeEvent, useState } from 'react';
+import { ExternalLink } from '@sumup-oss/icons';
+import { screen, userEvent, within } from 'storybook/test';
+
+import { Button } from '../Button/index.js';
 
 import { Autocomplete, type AutocompleteProps } from './Autocomplete.js';
-import { suggestions as mockSuggestions } from './fixtures.js';
+import {
+  groupedSuggestions,
+  suggestions as mockSuggestions,
+} from './fixtures.js';
 
 export default {
   title: 'Forms/Autocomplete',
@@ -35,6 +42,20 @@ const baseArgs = {
   validationHint: 'All our cats have been neutered and vaccinated.',
 };
 
+const openAutocomplete =
+  (label?: string) =>
+  async ({
+    canvasElement,
+  }: {
+    canvasElement: HTMLCanvasElement;
+  }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByLabelText(label ?? baseArgs.label);
+
+    await userEvent.type(input, 'L');
+    await screen.findByRole('listbox');
+  };
+
 const filterSuggestions = (
   searchText: string,
   allSuggestions: AutocompleteProps['suggestions'],
@@ -45,8 +66,8 @@ const filterSuggestions = (
     )
     .filter(
       (suggestion) =>
-        suggestion.value.includes(searchText) ||
-        suggestion.label.includes(searchText),
+        suggestion.value.includes(searchText.trim().toLowerCase()) ||
+        suggestion.label.includes(searchText.trim().toLowerCase()),
     );
 
 export const Base = (args: AutocompleteProps) => {
@@ -70,3 +91,82 @@ export const Base = (args: AutocompleteProps) => {
   );
 };
 Base.args = baseArgs;
+Base.play = openAutocomplete();
+
+export const Grouped = (args: AutocompleteProps) => <Autocomplete {...args} />;
+
+Grouped.args = {
+  ...baseArgs,
+  suggestions: groupedSuggestions,
+};
+Grouped.play = openAutocomplete();
+
+export const Loading = (args: AutocompleteProps) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const loadResults = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  };
+
+  return (
+    <div
+      style={{
+        display: 'grid',
+        gap: 'var(--cui-spacings-mega)',
+        gridTemplateColumns: 'repeat(2, 1fr)',
+      }}
+    >
+      <Autocomplete
+        {...args}
+        suggestions={[]}
+        label="With empty results"
+        isLoading
+      />
+      <Autocomplete
+        {...args}
+        suggestions={mockSuggestions}
+        onChange={loadResults}
+        isLoading={isLoading}
+        label="With results"
+      />
+    </div>
+  );
+};
+Loading.args = {
+  ...baseArgs,
+  isLoading: true,
+};
+Loading.play = openAutocomplete('With empty results');
+
+export const NoResults = (args: AutocompleteProps) => (
+    <Autocomplete
+      {...args}
+      suggestions={[]}
+      noResultsMessage={
+        <div
+          style={{
+            gap: 'var(--cui-spacings-mega)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          No results matched your search terms.
+          <Button
+            size="s"
+            variant="secondary"
+            href="#"
+            navigationIcon={ExternalLink}
+          >
+            contact support
+          </Button>
+        </div>
+      }
+    />
+  );
+
+NoResults.args = baseArgs;
+NoResults.play = openAutocomplete();
