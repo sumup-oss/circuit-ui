@@ -22,9 +22,9 @@
   pointer-events: none;
   content: "";
   background: linear-gradient(
-    color-mix(in sRGB, var(--cui-bg-elevated) 0%, transparent),
-    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
-    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent)
+    color-mix(in sRGB, var(--cui-bg-normal) 0%, transparent),
+    color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent)
   );
   border-radius: inherit;
 }
@@ -40,4 +40,33 @@
 
 .loading {
   gap: var(--cui-spacings-byte);
+}
+
+.action {
+  position: sticky;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: var(--cui-spacings-mega);
+  background: var(--cui-bg-normal);
+  border-top: 1px solid var(--cui-border-normal);
+}
+
+.action::before {
+  position: absolute;
+  top: calc(
+    -1 * var(--cui-spacings-mega) - 1px
+  ); /* -1px accounts for the border-top of the action */
+  right: 0;
+  left: 0;
+  display: block;
+  height: var(--cui-spacings-mega);
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(
+    color-mix(in sRGB, var(--cui-bg-normal) 0%, transparent),
+    color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent)
+  );
+  border-radius: inherit;
 }
