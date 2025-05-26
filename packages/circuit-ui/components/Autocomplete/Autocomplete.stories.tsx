@@ -171,7 +171,9 @@ export const NoResults = (args: AutocompleteProps) => (
 NoResults.args = baseArgs;
 NoResults.play = openAutocomplete();
 
-export const WithAction = (args: AutocompleteProps) => <Autocomplete {...args} />;
+export const WithAction = (args: AutocompleteProps) => (
+  <Autocomplete {...args} />
+);
 WithAction.args = {
   ...baseArgs,
   action: (

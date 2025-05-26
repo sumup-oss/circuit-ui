@@ -72,6 +72,11 @@ export type AutocompleteProps = SearchInputProps & {
    */
   noResultsMessage?: ReactNode;
   /**
+   * the minimum length of the search query
+   * @default 0
+   */
+  minQueryLength?: number;
+  /**
    * Indicated a loading state while loading suggestions.
    */
   isLoading?: boolean;
@@ -122,6 +127,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       loadingLabel: customLoadingLabel,
       noResultsMessage: customNoResultsMessage,
       locale,
+      minQueryLength = 0,
       placement = 'bottom',
       fallbackPlacements = ['top', 'right', 'left'],
       suggestions,
@@ -162,10 +168,12 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
 
     const onSearchTextChange = (event: ChangeEvent<HTMLInputElement>) => {
       setSearchText(event.target.value);
-      if (event.target.value !== '') {
-        openSuggestionBox();
+      if (event.target.value.length >= minQueryLength) {
+        if (event.target.value !== '') {
+          openSuggestionBox();
+        }
+        props.onChange?.(event);
       }
-      props.onChange?.(event);
     };
 
     const onSearchTextClear = (event: ClickEvent) => {
