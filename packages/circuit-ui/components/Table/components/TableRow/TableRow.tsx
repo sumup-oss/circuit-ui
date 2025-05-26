@@ -23,7 +23,7 @@ import { isEnter, isSpacebar } from '../../../../util/key-codes.js';
 
 import classes from './TableRow.module.css';
 
-export interface TableRowProps extends HTMLAttributes<HTMLTableRowElement> {
+interface TableRowProps extends HTMLAttributes<HTMLTableRowElement> {
   onClick?: (event: ClickEvent<HTMLTableRowElement>) => void;
 }
 

@@ -15,4 +15,4 @@
 
 export { Selector } from './Selector.js';
 
-export type { SelectorProps } from './Selector.js';
+export type { SelectorProps, SelectorSize } from './Selector.js';

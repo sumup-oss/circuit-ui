@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-export type FieldState = {
+type FieldState = {
   disabled: boolean | undefined;
   invalid: boolean | undefined;
   hasWarning: boolean | undefined;

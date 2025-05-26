@@ -19,7 +19,7 @@ import { ASPECT_RATIO } from '../../constants.js';
 
 import classes from './SlideImage.module.css';
 
-export interface SlideImageProps {
+interface SlideImageProps {
   /**
    * Specifies the source URL of an image.
    */

@@ -22,7 +22,6 @@ import {
   useState,
   type MouseEvent,
   type KeyboardEvent,
-  type RefObject,
   type HTMLAttributes,
 } from 'react';
 
@@ -35,14 +34,14 @@ import { useAnimation } from '../../hooks/useAnimation/index.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { clsx } from '../../styles/clsx.js';
 import { deprecate } from '../../util/logger.js';
+import { getElementHeight } from '../Notification/NotificationService.js';
+import { DEFAULT_HEIGHT } from '../Notification/constants.js';
 
 import classes from './NotificationBanner.module.css';
 
 type Action = Omit<ButtonProps, 'size'>;
 
 type NotificationVariant = 'system' | 'promotional';
-
-const DEFAULT_HEIGHT = 'auto';
 
 type CloseProps =
   | {
@@ -141,14 +140,14 @@ export const NotificationBanner = forwardRef<
   ) => {
     const contentElement = useRef<HTMLDivElement>(null);
     const [isOpen, setOpen] = useState(isVisible);
-    const [height, setHeight] = useState(getHeight(contentElement));
+    const [height, setHeight] = useState(getElementHeight(contentElement));
     const [, setAnimating] = useAnimation();
 
     useEffect(() => {
       setAnimating({
         duration: 200,
         onStart: () => {
-          setHeight(getHeight(contentElement));
+          setHeight(getElementHeight(contentElement));
           // Delaying the state update until the next animation frame ensures
           // that browsers render the new height before the animation starts.
           window.requestAnimationFrame(() => {
@@ -204,10 +203,3 @@ export const NotificationBanner = forwardRef<
     );
   },
 );
-
-export function getHeight(element: RefObject<HTMLElement>): string {
-  if (!element || !element.current) {
-    return DEFAULT_HEIGHT;
-  }
-  return `${element.current.scrollHeight}px`;
-}

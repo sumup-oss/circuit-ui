@@ -32,3 +32,7 @@ export const NOTIFICATION_ICONS: Record<
   warning: Notify,
   danger: Alert,
 };
+
+export const TRANSITION_DURATION = 200;
+
+export const DEFAULT_HEIGHT = 'auto';

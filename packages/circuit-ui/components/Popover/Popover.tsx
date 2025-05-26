@@ -42,7 +42,6 @@ import {
   type PublicDialogProps,
 } from '../Dialog/Dialog.js';
 import type { ClickEvent } from '../../types/events.js';
-import { useStackContext } from '../StackContext/index.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 import { sharedClasses } from '../../styles/shared.js';
 import { applyMultipleRefs } from '../../util/refs.js';
@@ -130,7 +129,6 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
     },
     ref,
   ) => {
-    const zIndex = useStackContext();
     const dialogRef = useRef<HTMLDialogElement>(null);
     const triggerId = useId();
     const contentId = useId();
@@ -233,15 +231,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
             className,
           )}
           animationDuration={animationDuration}
-          style={
-            isMobile
-              ? style
-              : {
-                  ...style,
-                  ...floatingStyles,
-                  zIndex: zIndex || 'var(--cui-z-index-popover)',
-                }
-          }
+          style={isMobile ? style : { ...style, ...floatingStyles }}
           preventOutsideClickRefs={refs.reference}
         >
           <div

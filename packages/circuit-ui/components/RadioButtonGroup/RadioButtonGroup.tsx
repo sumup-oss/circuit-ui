@@ -35,10 +35,7 @@ import {
 } from '../../util/errors.js';
 import { isEmpty } from '../../util/helpers.js';
 import { idx } from '../../util/idx.js';
-import {
-  RadioButton,
-  type RadioButtonProps,
-} from '../RadioButton/RadioButton.js';
+import { RadioButton, type RadioButtonProps } from '../RadioButton/index.js';
 
 import classes from './RadioButtonGroup.module.css';
 

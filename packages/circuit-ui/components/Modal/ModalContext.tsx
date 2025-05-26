@@ -25,7 +25,7 @@ import type { ModalDialogComponent } from './createUseModal.js';
 export type SetModalArgs<T> = Omit<T, 'open'>;
 
 // keep initial state compatible with the old version of this component
-export type ModalState<T extends ModalProps> = SetModalArgs<T> &
+type ModalState<T extends ModalProps> = SetModalArgs<T> &
   StackItem & {
     component: ModalDialogComponent<T>;
     open: boolean;

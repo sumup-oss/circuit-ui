@@ -14,3 +14,5 @@
  */
 
 export { Hr } from './Hr.js';
+
+export type { HrProps } from './Hr.js';

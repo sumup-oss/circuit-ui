@@ -105,7 +105,7 @@ function SecondaryGroup({
   );
 }
 
-export interface SecondaryLinksProps {
+interface SecondaryLinksProps {
   secondaryGroups: SecondaryGroupProps[];
   className?: string;
 }
