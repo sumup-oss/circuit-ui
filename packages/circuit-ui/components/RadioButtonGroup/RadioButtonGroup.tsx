@@ -42,10 +42,7 @@ import {
 
 import classes from './RadioButtonGroup.module.css';
 
-type Option = Omit<
-  RadioButtonProps,
-  'onChange' | 'onBlur' | 'name' | 'children'
-> & {
+type Option = Omit<RadioButtonProps, 'onChange' | 'name' | 'children'> & {
   /**
    * A clear and concise description of the option's purpose.
    */
@@ -57,10 +54,7 @@ type Option = Omit<
 };
 
 export interface RadioButtonGroupProps
-  extends Omit<
-    FieldsetHTMLAttributes<HTMLFieldSetElement>,
-    'onChange' | 'onBlur'
-  > {
+  extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, 'onChange'> {
   /**
    * A collection of available options. Each option must have at least a value
    * and a label.
@@ -71,11 +65,6 @@ export interface RadioButtonGroupProps
    * Passed on to the RadioButtons.
    */
   onChange?: RadioButtonProps['onChange'];
-  /**
-   * A callback that is called when any of the inputs lose focus.
-   * Passed on to the RadioButtons.
-   */
-  onBlur?: RadioButtonProps['onBlur'];
   /**
    * A visually hidden description of the selector group for screen readers.
    */
@@ -132,7 +121,6 @@ export const RadioButtonGroup = forwardRef(
     {
       options,
       onChange,
-      onBlur,
       value,
       defaultValue,
       'name': customName,
@@ -202,7 +190,6 @@ export const RadioButtonGroup = forwardRef(
               required={required || option.required}
               name={name}
               onChange={onChange}
-              onBlur={onBlur}
               checked={value ? option.value === value : option.checked}
               defaultChecked={
                 defaultValue
