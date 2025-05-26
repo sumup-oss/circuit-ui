@@ -14,7 +14,7 @@
  */
 
 import { type ChangeEvent, useState } from 'react';
-import { ExternalLink } from '@sumup-oss/icons';
+import { Add, ExternalLink } from '@sumup-oss/icons';
 import { screen, userEvent, within } from 'storybook/test';
 
 import { Button } from '../Button/index.js';
@@ -142,31 +142,42 @@ Loading.args = {
 Loading.play = openAutocomplete('With empty results');
 
 export const NoResults = (args: AutocompleteProps) => (
-    <Autocomplete
-      {...args}
-      suggestions={[]}
-      noResultsMessage={
-        <div
-          style={{
-            gap: 'var(--cui-spacings-mega)',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
+  <Autocomplete
+    {...args}
+    suggestions={[]}
+    noResultsMessage={
+      <div
+        style={{
+          gap: 'var(--cui-spacings-mega)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        No results matched your search terms.
+        <Button
+          size="s"
+          variant="secondary"
+          href="#"
+          navigationIcon={ExternalLink}
         >
-          No results matched your search terms.
-          <Button
-            size="s"
-            variant="secondary"
-            href="#"
-            navigationIcon={ExternalLink}
-          >
-            contact support
-          </Button>
-        </div>
-      }
-    />
-  );
+          contact support
+        </Button>
+      </div>
+    }
+  />
+);
 
 NoResults.args = baseArgs;
 NoResults.play = openAutocomplete();
+
+export const WithAction = (args: AutocompleteProps) => <Autocomplete {...args} />;
+WithAction.args = {
+  ...baseArgs,
+  action: (
+    <Button icon={Add} variant="tertiary">
+      Add
+    </Button>
+  ),
+};
+WithAction.play = openAutocomplete();

@@ -80,6 +80,10 @@ export type AutocompleteProps = SearchInputProps & {
    */
   loadingLabel?: string;
   /**
+   * An optional action to display below the Autocomplete suggestions.
+   */
+  action?: ReactNode;
+  /**
    * One of the accepted placement values.
    * @default `bottom`.
    */
@@ -122,6 +126,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       fallbackPlacements = ['top', 'right', 'left'],
       suggestions,
       onSelection,
+      action,
       ...props
     },
     ref,
@@ -303,6 +308,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
                 isLoading={isLoading}
               />
             )}
+            {action && <div className={classes.action}>{action}</div>}
           </div>
         )}
       </div>
