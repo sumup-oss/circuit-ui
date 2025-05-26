@@ -77,6 +77,10 @@ export type AutocompleteProps = SearchInputProps & {
    */
   minQueryLength?: number;
   /**
+   * An optional function that allows to update the suggestions list when user scrolls to the bottom of the suggestions box
+   */
+  loadMore?: () => void;
+  /**
    * Indicated a loading state while loading suggestions.
    */
   isLoading?: boolean;
@@ -133,6 +137,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       suggestions,
       onSelection,
       action,
+      loadMore,
       ...props
     },
     ref,
@@ -272,11 +277,12 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
           onKeyDown={isLoading ? undefined : onInputKeyDown}
           role="combobox"
           autoComplete="off"
-          aria-autocomplete="none"
+          aria-autocomplete="list"
           aria-controls={popupId}
           aria-expanded={isOpen}
+          aria-busy={isLoading}
           aria-activedescendant={
-            isOpen
+            isOpen && activeSuggestion
               ? `suggestion-${autocompleteId}-${activeSuggestion}`
               : undefined
           }
@@ -294,7 +300,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
             }}
           >
             {isLoading && suggestions.length === 0 && (
-              <div className={classes.loading} aria-busy={isLoading}>
+              <div className={classes.loading}>
                 <Spinner />
                 <Body>{loadingLabel}</Body>
               </div>
@@ -314,6 +320,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
                 activeSuggestion={activeSuggestion}
                 aria-readonly={props.readOnly}
                 isLoading={isLoading}
+                loadMore={loadMore}
               />
             )}
             {action && <div className={classes.action}>{action}</div>}

@@ -15,7 +15,13 @@
 
 'use client';
 
-import { type HTMLAttributes, useEffect, useMemo, useRef } from 'react';
+import {
+  type HTMLAttributes,
+  type UIEvent,
+  useEffect,
+  useMemo,
+  useRef,
+} from 'react';
 
 import {
   type AutocompleteSuggestion,
@@ -27,6 +33,7 @@ import {
   computeTabIndex,
   isSuggestionFocused,
 } from '../../AutocompleteService.js';
+import { Spinner } from '../../../Spinner/index.js';
 
 import classes from './SuggestionBox.module.css';
 
@@ -45,6 +52,7 @@ type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
   suggestions: AutocompleteSuggestions;
   isSelectable?: boolean;
   onSuggestionClicked: (value: string) => void;
+  loadMore?: () => void;
   label: string;
   autocompleteId: string;
   activeSuggestion?: number;
@@ -66,6 +74,7 @@ export const SuggestionBox = ({
   activeSuggestion,
   value,
   isLoading = false,
+  loadMore,
 }: SuggestionBoxProps) => {
   const suggestionBoxRef = useRef<HTMLUListElement>(null);
 
@@ -86,6 +95,13 @@ export const SuggestionBox = ({
         .map((suggestion) => suggestion.value),
     [suggestions],
   );
+  const onScroll = (event: UIEvent<HTMLUListElement>) => {
+    const tracker = event.currentTarget;
+    const limit = tracker.scrollHeight - tracker.clientHeight;
+    if (event.currentTarget.scrollTop === limit) {
+      loadMore?.();
+    }
+  };
 
   return (
     <ul
@@ -94,9 +110,10 @@ export const SuggestionBox = ({
       aria-multiselectable={isSelectable}
       ref={suggestionBoxRef}
       aria-label={label}
-      aria-busy={isLoading}
+      aria-busy={isLoading && !loadMore}
       tabIndex={-1}
       className={classes.base}
+      onScroll={loadMore ? onScroll : undefined}
     >
       {suggestions.map((suggestion) => {
         if (isGroup(suggestion)) {
@@ -133,6 +150,10 @@ export const SuggestionBox = ({
                       isLoading,
                       activeSuggestion,
                     )}
+                    aria-setsize={suggestionValues.length}
+                    aria-posinset={
+                      suggestionValues.indexOf(suggestionItem.value) + 1
+                    }
                   />
                 ))}
               </ul>
@@ -158,9 +179,14 @@ export const SuggestionBox = ({
               isLoading,
               activeSuggestion,
             )}
+            aria-setsize={suggestionValues.length}
+            aria-posinset={suggestionValues.indexOf(suggestion.value) + 1}
           />
         );
       })}
+      {loadMore && isLoading && (
+        <Spinner className={classes.spinner} size="s" />
+      )}
     </ul>
   );
 };
