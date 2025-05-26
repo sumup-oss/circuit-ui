@@ -142,3 +142,86 @@ export const groupedSuggestions = [
     suggestions: [ziggy, bella, winston, pepper],
   },
 ];
+
+export const catNames: AutocompleteSuggestion[] = [
+  {
+    label: 'Whiskers',
+    value: 'whiskers',
+  },
+  {
+    label: 'Felix',
+    value: 'felix',
+  },
+  {
+    label: 'Simba',
+    value: 'simba',
+  },
+  {
+    label: 'Nala',
+    value: 'nala',
+  },
+  {
+    label: 'Tiger',
+    value: 'tiger',
+  },
+  {
+    label: 'Mittens',
+    value: 'mittens',
+  },
+  {
+    label: 'Charlie',
+    value: 'charlie',
+  },
+  {
+    label: 'Leo',
+    value: 'leo',
+  },
+  {
+    label: 'Kitty',
+    value: 'kitty',
+  },
+  {
+    label: 'Max',
+    value: 'max',
+  },
+  {
+    label: 'Loki',
+    value: 'loki',
+  },
+  {
+    label: 'Lily',
+    value: 'lily',
+  },
+  {
+    label: 'Oscar',
+    value: 'oscar',
+  },
+  {
+    label: 'Lucy',
+    value: 'lucy',
+  },
+  {
+    label: 'Milo',
+    value: 'milo',
+  },
+  {
+    label: 'Coco',
+    value: 'coco',
+  },
+  {
+    label: 'Oreo',
+    value: 'oreo',
+  },
+  {
+    label: 'Princess',
+    value: 'princess',
+  },
+  {
+    label: 'Smokey',
+    value: 'smokey',
+  },
+  {
+    label: 'Ginger',
+    value: 'ginger',
+  },
+];

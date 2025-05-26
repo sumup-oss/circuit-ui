@@ -18,6 +18,7 @@
   background-color: var(
     --cui-bg-normal
   ); /* Change the color and opacity as needed */
+
   opacity: 0.5;
 }
 
@@ -39,4 +40,8 @@ li:last-of-type {
   padding: 0;
   margin: var(--cui-spacings-byte) 0;
   list-style-type: none;
+}
+
+.spinner {
+  margin: var(--cui-spacings-byte) auto;
 }

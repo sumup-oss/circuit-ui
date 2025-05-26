@@ -21,6 +21,7 @@ import { Button } from '../Button/index.js';
 
 import { Autocomplete, type AutocompleteProps } from './Autocomplete.js';
 import {
+  catNames,
   groupedSuggestions,
   suggestions as mockSuggestions,
 } from './fixtures.js';
@@ -183,3 +184,27 @@ WithAction.args = {
   ),
 };
 WithAction.play = openAutocomplete();
+
+export const LoadMore = (args: AutocompleteProps) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [suggestions, setSuggestions] = useState(args.suggestions);
+  const loadMore = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setSuggestions(catNames);
+      setIsLoading(false);
+    }, 3000);
+  };
+
+  return (
+    <Autocomplete
+      {...args}
+      suggestions={suggestions}
+      loadMore={suggestions.length < 20 ? loadMore : undefined}
+      isLoading={isLoading}
+    />
+  );
+};
+
+LoadMore.args = { ...baseArgs, suggestions: catNames.slice(0, 15) };
+LoadMore.play = openAutocomplete();
