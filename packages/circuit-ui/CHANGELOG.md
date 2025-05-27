@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 10.1.0
+
+### Minor Changes
+
+- [`84b97e9`](https://github.com/sumup-oss/circuit-ui/commit/84b97e9506459a4e0f3ef2f5653972316c8e5a84) Thanks [@connor-baer](https://github.com/connor-baer)! - Cleaned up internally unused files and exports. These internal changes do not affect the public API. If you've been importing private types from `@sumup-oss/circuit-ui/dist/...`, replace them with public types from `@sumup-oss/circuit-ui` instead.
+
+- [#3120](https://github.com/sumup-oss/circuit-ui/pull/3120) [`7f97e4a`](https://github.com/sumup-oss/circuit-ui/commit/7f97e4ae01a1bafe850690b31a13f7a75bd67bca) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed special handling for the `onBlur` prop in the CheckboxGroup, RadioButtonGroup and SelectorGroup components. We consider this an implementation detail, however, you might need to update your types from `FocusEventHandler<HTMLInputElement>` to `FocusEventHandler<HTMLFieldsetElement>`.
+
 ## 10.0.1
 
 ### Patch Changes
