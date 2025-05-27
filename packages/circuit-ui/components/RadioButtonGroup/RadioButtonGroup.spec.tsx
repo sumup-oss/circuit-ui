@@ -200,6 +200,16 @@ describe('RadioButtonGroup', () => {
       expect(onChange).toHaveBeenCalledTimes(1);
     });
 
+    it('should call the focus handler when gaining focus', async () => {
+      const onFocus = vi.fn();
+      render(<RadioButtonGroup {...defaultProps} onFocus={onFocus} />);
+      const inputEl = screen.getByLabelText('Option 1');
+
+      await userEvent.click(inputEl);
+
+      expect(onFocus).toHaveBeenCalledTimes(1);
+    });
+
     it('should call the blur handler when loosing focus', async () => {
       const onBlur = vi.fn();
       render(<RadioButtonGroup {...defaultProps} onBlur={onBlur} />);

@@ -39,25 +39,17 @@ import { idx } from '../../util/idx.js';
 import classes from './SelectorGroup.module.css';
 
 export interface SelectorGroupProps
-  extends Omit<
-    FieldsetHTMLAttributes<HTMLFieldSetElement>,
-    'onChange' | 'onBlur'
-  > {
+  extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, 'onChange'> {
   /**
    * A collection of available options. Each option must have at least
    * a value and label.
    */
-  options: Omit<SelectorProps, 'onChange' | 'onBlur' | 'name'>[];
+  options: Omit<SelectorProps, 'onChange' | 'name'>[];
   /**
    * A callback that is called when any of the inputs change their values.
    * Passed on to the Selectors.
    */
   onChange?: SelectorProps['onChange'];
-  /**
-   * A callback that is called when any of the inputs lose focus.
-   * Passed on to the Selectors.
-   */
-  onBlur?: SelectorProps['onBlur'];
   /**
    * The value of the currently checked options.
    */
@@ -129,7 +121,6 @@ export const SelectorGroup = forwardRef<
     {
       options,
       onChange,
-      onBlur,
       value,
       defaultValue,
       'name': customName,
@@ -197,7 +188,6 @@ export const SelectorGroup = forwardRef<
               className={clsx(classes.option, option.className)}
               name={name}
               onChange={onChange}
-              onBlur={onBlur}
               multiple={multiple}
               size={size}
               disabled={disabled || option.disabled}

@@ -40,7 +40,7 @@ import { idx } from '../../util/idx.js';
 import classes from './CheckboxGroup.module.css';
 
 // TODO: Remove the value override in the next major.
-type Options = Omit<
+type Option = Omit<
   CheckboxProps,
   'onChange' | 'validationHint' | 'name' | 'value' | 'optionalLabel'
 > & {
@@ -50,7 +50,7 @@ type Options = Omit<
 export interface CheckboxGroupProps
   extends Omit<
     FieldsetHTMLAttributes<HTMLFieldSetElement>,
-    'onChange' | 'onBlur' | 'defaultValue'
+    'onChange' | 'defaultValue'
   > {
   /**
    * A name for the CheckboxGroup. This name is shared among the individual Checkboxes.
@@ -61,25 +61,20 @@ export interface CheckboxGroupProps
    * for the respective Checkbox.
    * Pass the optional `required` prop to indicate a Checkbox is required.
    */
-  options: Options[];
+  options: Option[];
   /**
    * The values of the Checkboxes that are checked by default (uncontrolled).
    */
-  defaultValue?: Options['value'][];
+  defaultValue?: Option['value'][];
   /**
    * The values of the Checkboxes that are checked by default (controlled).
    */
-  value?: Options['value'][];
+  value?: Option['value'][];
   /**
    * A callback that is called when any of the inputs change their values.
    * Passed on to the Checkboxes.
    */
   onChange?: CheckboxProps['onChange'];
-  /**
-   * A callback that is called when any of the inputs lose focus.
-   * Passed on to the Checkboxes.
-   */
-  onBlur?: CheckboxProps['onBlur'];
   /**
    * A description of the selector group.
    */
@@ -130,7 +125,6 @@ export const CheckboxGroup = forwardRef(
       value,
       defaultValue,
       onChange,
-      onBlur,
       name,
       label,
       invalid,
@@ -190,7 +184,6 @@ export const CheckboxGroup = forwardRef(
                 {...option}
                 name={name}
                 onChange={onChange}
-                onBlur={onBlur}
                 disabled={disabled || option.disabled}
                 invalid={invalid || option.invalid}
                 checked={value ? value.includes(option.value) : option.checked}
