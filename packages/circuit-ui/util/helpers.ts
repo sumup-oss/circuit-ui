@@ -58,7 +58,22 @@ export function clamp(value: number, min: number, max: number): number {
   return Math.max(min, Math.min(value, max));
 }
 
-type Fn<T extends []> = (...args: T) => void;
+type Fn<Args extends unknown[]> = (...args: Args) => void;
+
+/**
+ * Creates a debounced function that delays invoking the provided function until after
+ * the specified wait time has elapsed since the last time it was invoked.
+ */
+export function debounce<Args extends unknown[]>(
+  fn: Fn<Args>,
+  wait: number,
+): Fn<Args> {
+  let timeoutId: ReturnType<typeof setTimeout>;
+  return (...args: Args) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => fn(...args), wait);
+  };
+}
 
 /**
  * Triggers a function at most once in a given amount of time.

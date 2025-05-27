@@ -15,13 +15,7 @@
 
 'use client';
 
-import {
-  type HTMLAttributes,
-  type UIEvent,
-  useEffect,
-  useMemo,
-  useRef,
-} from 'react';
+import { type HTMLAttributes, type UIEvent, useEffect, useRef } from 'react';
 
 import {
   type AutocompleteSuggestion,
@@ -31,6 +25,7 @@ import { Compact } from '../../../Compact/index.js';
 import type { AutocompleteProps } from '../../Autocomplete.js';
 import {
   computeTabIndex,
+  isGroup,
   isSuggestionFocused,
 } from '../../AutocompleteService.js';
 import { Spinner } from '../../../Spinner/index.js';
@@ -42,7 +37,7 @@ type AutocompleteSuggestionGroup = {
   suggestions: AutocompleteSuggestion[];
 };
 
-type AutocompleteSuggestionElement =
+export type AutocompleteSuggestionElement =
   | AutocompleteSuggestionGroup
   | AutocompleteSuggestion;
 
@@ -50,6 +45,7 @@ export type AutocompleteSuggestions = AutocompleteSuggestionElement[];
 
 type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
   suggestions: AutocompleteSuggestions;
+  suggestionValues: string[];
   isSelectable?: boolean;
   onSuggestionClicked: (value: string) => void;
   loadMore?: () => void;
@@ -60,13 +56,9 @@ type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
   isLoading?: boolean;
 };
 
-const isGroup = (
-  suggestion: AutocompleteSuggestionElement,
-): suggestion is { label: string; suggestions: AutocompleteSuggestion[] } =>
-  suggestion && 'label' in suggestion && 'suggestions' in suggestion;
-
 export const SuggestionBox = ({
   suggestions,
+  suggestionValues,
   onSuggestionClicked,
   isSelectable,
   label,
@@ -86,15 +78,6 @@ export const SuggestionBox = ({
     }, 0);
   }, []);
 
-  const suggestionValues: string[] = useMemo(
-    () =>
-      suggestions
-        .flatMap((suggestion) =>
-          isGroup(suggestion) ? suggestion.suggestions : suggestion,
-        )
-        .map((suggestion) => suggestion.value),
-    [suggestions],
-  );
   const onScroll = (event: UIEvent<HTMLUListElement>) => {
     const tracker = event.currentTarget;
     const limit = tracker.scrollHeight - tracker.clientHeight;
