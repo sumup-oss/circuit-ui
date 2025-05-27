@@ -20,8 +20,10 @@ import {
   forwardRef,
   type KeyboardEventHandler,
   type ReactNode,
+  useCallback,
   useEffect,
   useId,
+  useMemo,
   useRef,
   useState,
 } from 'react';
@@ -45,6 +47,8 @@ import { isArrowDown, isArrowUp } from '../../util/key-codes.js';
 import { changeInputValue } from '../../util/input-value.js';
 import { Spinner } from '../Spinner/index.js';
 import { Body } from '../Body/index.js';
+import { debounce } from '../../util/helpers.js';
+import { utilClasses } from '../../styles/utility.js';
 
 import { translations } from './translations/index.js';
 import {
@@ -52,7 +56,7 @@ import {
   SuggestionBox,
 } from './components/SuggestionBox/SuggestionBox.js';
 import classes from './Autocomplete.module.css';
-import { getSuggestionLabelByValue } from './AutocompleteService.js';
+import { getSuggestionLabelByValue, isGroup } from './AutocompleteService.js';
 
 export type AutocompleteProps = SearchInputProps & {
   /**
@@ -137,6 +141,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       suggestions,
       onSelection,
       action,
+      onChange,
       loadMore,
       ...props
     },
@@ -146,11 +151,20 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       { noResultsMessage: '', locale, loadingLabel: customLoadingLabel },
       translations,
     );
-
+    const suggestionValues: string[] = useMemo(
+      () =>
+        suggestions
+          .flatMap((suggestion) =>
+            isGroup(suggestion) ? suggestion.suggestions : suggestion,
+          )
+          .map((suggestion) => suggestion.value),
+      [suggestions],
+    );
     const [searchText, setSearchText] = useState<string>(
       getSuggestionLabelByValue(suggestions, value) ?? '',
     );
     const [isOpen, setIsOpen] = useState(false);
+    const [summary, setSummary] = useState<string>();
     const [activeSuggestion, setActiveSuggestion] = useState<number>();
     const textBoxRef = useRef<HTMLInputElement>(null);
     const popupId = useId();
@@ -162,24 +176,32 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       }
     }, [isLoading]);
 
-    const openSuggestionBox = () => {
+    const openSuggestionBox = useCallback(() => {
       setIsOpen(true);
-    };
+    }, []);
 
     const closeSuggestionBox = () => {
       setIsOpen(false);
       setActiveSuggestion(undefined);
     };
 
-    const onSearchTextChange = (event: ChangeEvent<HTMLInputElement>) => {
-      setSearchText(event.target.value);
-      if (event.target.value.length >= minQueryLength) {
-        if (event.target.value !== '') {
-          openSuggestionBox();
+    const onSearchTextChange = useCallback(
+      (event: ChangeEvent<HTMLInputElement>) => {
+        setSearchText(event.target.value);
+        if (event.target.value.length >= minQueryLength) {
+          const debouncedOnChange = debounce(
+            (changeEvent: ChangeEvent<HTMLInputElement>) =>
+              onChange?.(changeEvent),
+            500,
+          );
+          if (event.target.value !== '') {
+            openSuggestionBox();
+          }
+          debouncedOnChange?.(event);
         }
-        props.onChange?.(event);
-      }
-    };
+      },
+      [minQueryLength, onChange, openSuggestionBox],
+    );
 
     const onSearchTextClear = (event: ClickEvent) => {
       changeInputValue(textBoxRef.current, '');
@@ -264,6 +286,14 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       closeSuggestionBox();
     };
 
+    useEffect(() => {
+      if (isOpen) {
+        setSummary(`${suggestionValues.length} results found`);
+      } else {
+        setSummary(undefined);
+      }
+    }, [suggestionValues, isOpen]);
+
     return (
       <div>
         <SearchInput
@@ -299,6 +329,14 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
               maxWidth: textBoxRef.current?.offsetWidth,
             }}
           >
+            <div
+              role="status"
+              aria-live="polite"
+              aria-busy={isLoading}
+              className={utilClasses.hideVisually}
+            >
+              {summary}
+            </div>
             {isLoading && suggestions.length === 0 && (
               <div className={classes.loading}>
                 <Spinner />
@@ -307,13 +345,18 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
             )}
             {!isLoading && suggestions.length === 0 && (
               <div className={classes['no-results']}>
-                <Body>{customNoResultsMessage ?? defaultNoResultMessage}</Body>
+                {customNoResultsMessage ? (
+                  customNoResultsMessage
+                ) : (
+                  <Body>{defaultNoResultMessage}</Body>
+                )}
               </div>
             )}
             {suggestions.length > 0 && (
               <SuggestionBox
                 value={value}
                 suggestions={suggestions}
+                suggestionValues={suggestionValues}
                 onSuggestionClicked={onSuggestionClicked}
                 label={props.label}
                 autocompleteId={autocompleteId}
