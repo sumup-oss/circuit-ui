@@ -14,8 +14,9 @@
  */
 
 import { type ChangeEvent, useState } from 'react';
-import { Add, ExternalLink } from '@sumup-oss/icons';
+import { Add, ExternalLink, Favorite, Refresh } from '@sumup-oss/icons';
 import { screen, userEvent, within } from 'storybook/test';
+import { action } from 'storybook/actions';
 
 import { Button } from '../Button/index.js';
 
@@ -36,15 +37,16 @@ export default {
   },
 };
 
-const baseArgs = {
+const baseArgs: AutocompleteProps = {
   label: 'Choose your hero',
   placeholder: 'Whiskers',
   suggestions: mockSuggestions,
   validationHint: 'All our cats have been neutered and vaccinated.',
+  onSelection: (value: string) => action('Autocomplete')(value),
 };
 
 const openAutocomplete =
-  (label?: string) =>
+  (label?: string, text?: string) =>
   async ({
     canvasElement,
   }: {
@@ -54,7 +56,20 @@ const openAutocomplete =
     const input = canvas.getByLabelText(label ?? baseArgs.label);
 
     await userEvent.type(input, 'L');
-    await screen.findByRole('listbox');
+    await screen.findByText(text ?? 'Luna');
+  };
+
+const focusAutocomplete =
+  (label?: string) =>
+  async ({
+    canvasElement,
+  }: {
+    canvasElement: HTMLCanvasElement;
+  }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByLabelText(label ?? baseArgs.label);
+
+    await userEvent.click(input);
   };
 
 const filterSuggestions = (
@@ -139,8 +154,9 @@ export const Loading = (args: AutocompleteProps) => {
 Loading.args = {
   ...baseArgs,
   isLoading: true,
+  loadingLabel: 'Loading...',
 };
-Loading.play = openAutocomplete('With empty results');
+Loading.play = openAutocomplete('With empty results', 'Loading...');
 
 export const NoResults = (args: AutocompleteProps) => (
   <Autocomplete
@@ -170,7 +186,10 @@ export const NoResults = (args: AutocompleteProps) => (
 );
 
 NoResults.args = baseArgs;
-NoResults.play = openAutocomplete();
+NoResults.play = openAutocomplete(
+  undefined,
+  'No results matched your search terms.',
+);
 
 export const WithAction = (args: AutocompleteProps) => (
   <Autocomplete {...args} />
@@ -208,3 +227,54 @@ export const LoadMore = (args: AutocompleteProps) => {
 
 LoadMore.args = { ...baseArgs, suggestions: catNames.slice(0, 15) };
 LoadMore.play = openAutocomplete();
+
+export const DefaultSuggestions = (args: AutocompleteProps) => <Autocomplete {...args} openOnFocus />;
+
+DefaultSuggestions.args = {
+  ...baseArgs,
+  suggestions: [
+    {
+      label: 'Favorites',
+      suggestions: [
+        {
+          label: 'Ziggy',
+          value: 'ziggy',
+          description: 'High-energy troublemaker',
+          leadingMedia: {
+            icon: Favorite,
+          },
+        },
+        {
+          label: 'Bella',
+          value: 'bella',
+          description: 'Expects royal treatment at all times',
+          leadingMedia: {
+            icon: Favorite,
+          },
+        },
+      ],
+    },
+    {
+      label: 'History',
+      suggestions: [
+        {
+          label: 'Winston',
+          value: 'winston',
+          description: 'Loves contemplating sunbeams',
+          leadingMedia: {
+            icon: Refresh,
+          },
+        },
+        {
+          label: 'Pepper',
+          value: 'pepper',
+          description: 'Spicy personality',
+          leadingMedia: {
+            icon: Refresh,
+          },
+        },
+      ],
+    },
+  ],
+};
+DefaultSuggestions.play = focusAutocomplete();
