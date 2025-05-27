@@ -97,6 +97,10 @@ export type AutocompleteProps = SearchInputProps & {
    */
   action?: ReactNode;
   /**
+   * Whether to open the suggestion box when the input field gains focus
+   */
+  openOnFocus?: boolean;
+  /**
    * One of the accepted placement values.
    * @default `bottom`.
    */
@@ -143,6 +147,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       action,
       onChange,
       loadMore,
+      openOnFocus,
       ...props
     },
     ref,
@@ -210,7 +215,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     };
 
     const onSearchTextFocus = () => {
-      if (value) {
+      if (value || openOnFocus) {
         openSuggestionBox();
       }
     };
