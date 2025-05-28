@@ -7,8 +7,12 @@
   overflow-y: auto;
 }
 
+.base[aria-busy="true"] {
+  overflow-y: hidden;
+}
+
 .base[aria-busy="true"]::before {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   display: block;
