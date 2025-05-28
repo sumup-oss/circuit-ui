@@ -23,7 +23,6 @@ import {
   useCallback,
   useEffect,
   useId,
-  useMemo,
   useRef,
   useState,
 } from 'react';
@@ -45,18 +44,13 @@ import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
 import { useClickOutside } from '../../hooks/useClickOutside/index.js';
 import { isArrowDown, isArrowUp } from '../../util/key-codes.js';
 import { changeInputValue } from '../../util/input-value.js';
-import { Spinner } from '../Spinner/index.js';
-import { Body } from '../Body/index.js';
 import { debounce } from '../../util/helpers.js';
-import { utilClasses } from '../../styles/utility.js';
 
 import { translations } from './translations/index.js';
-import {
-  type AutocompleteSuggestions,
-  SuggestionBox,
-} from './components/SuggestionBox/SuggestionBox.js';
+import type { AutocompleteSuggestions } from './components/SuggestionBox/SuggestionBox.js';
 import classes from './Autocomplete.module.css';
-import { getSuggestionLabelByValue, isGroup } from './AutocompleteService.js';
+import { getSuggestionLabelByValue } from './AutocompleteService.js';
+import { AutocompleteResults } from './components/AutocompleteResults/AutocompleteResults.js';
 
 export type AutocompleteProps = SearchInputProps & {
   /**
@@ -156,20 +150,11 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       { noResultsMessage: '', locale, loadingLabel: customLoadingLabel },
       translations,
     );
-    const suggestionValues: string[] = useMemo(
-      () =>
-        suggestions
-          .flatMap((suggestion) =>
-            isGroup(suggestion) ? suggestion.suggestions : suggestion,
-          )
-          .map((suggestion) => suggestion.value),
-      [suggestions],
-    );
+
     const [searchText, setSearchText] = useState<string>(
       getSuggestionLabelByValue(suggestions, value) ?? '',
     );
     const [isOpen, setIsOpen] = useState(false);
-    const [summary, setSummary] = useState<string>();
     const [activeSuggestion, setActiveSuggestion] = useState<number>();
     const textBoxRef = useRef<HTMLInputElement>(null);
     const popupId = useId();
@@ -185,10 +170,10 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       setIsOpen(true);
     }, []);
 
-    const closeSuggestionBox = () => {
+    const closeSuggestionBox = useCallback(() => {
       setIsOpen(false);
       setActiveSuggestion(undefined);
-    };
+    }, []);
 
     const onSearchTextChange = useCallback(
       (event: ChangeEvent<HTMLInputElement>) => {
@@ -208,17 +193,21 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       [minQueryLength, onChange, openSuggestionBox],
     );
 
-    const onSearchTextClear = (event: ClickEvent) => {
-      changeInputValue(textBoxRef.current, '');
-      onSelection('');
-      onClear?.(event);
-    };
+    const onSearchTextClear = useCallback(
+      (event: ClickEvent) => {
+        changeInputValue(textBoxRef.current, '');
+        onSelection('');
+        onClear?.(event);
+      },
+      [onClear, onSelection],
+    );
 
-    const onSearchTextFocus = () => {
+    const onSearchTextFocus = useCallback(() => {
       if (value || openOnFocus) {
         openSuggestionBox();
       }
-    };
+    }, [openOnFocus, openSuggestionBox, value]);
+
     const { floatingStyles, refs, update } = useFloating<HTMLElement>({
       open: isOpen,
       placement,
@@ -230,29 +219,34 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       ],
     });
 
-    const onInputKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
-      if (isOpen) {
-        if (isArrowDown(event) || isArrowUp(event)) {
-          event.preventDefault();
-          const totalSuggestions =
-            refs.floating.current?.querySelectorAll('[role="option"]').length ??
-            0;
-          if (activeSuggestion === undefined) {
-            setActiveSuggestion(isArrowDown(event) ? 0 : totalSuggestions - 1);
-          } else {
-            const nextSuggestion =
-              (isArrowDown(event)
-                ? (activeSuggestion ?? 0) + totalSuggestions + 1
-                : (activeSuggestion ?? 0) + totalSuggestions - 1) %
-              totalSuggestions;
+    const onInputKeyDown: KeyboardEventHandler<HTMLInputElement> = useCallback(
+      (event) => {
+        if (isOpen) {
+          if (isArrowDown(event) || isArrowUp(event)) {
+            event.preventDefault();
+            const totalSuggestions =
+              refs.floating.current?.querySelectorAll('[role="option"]')
+                .length ?? 0;
+            if (activeSuggestion === undefined) {
+              setActiveSuggestion(
+                isArrowDown(event) ? 0 : totalSuggestions - 1,
+              );
+            } else {
+              const nextSuggestion =
+                (isArrowDown(event)
+                  ? (activeSuggestion ?? 0) + totalSuggestions + 1
+                  : (activeSuggestion ?? 0) + totalSuggestions - 1) %
+                totalSuggestions;
 
-            setActiveSuggestion(nextSuggestion);
+              setActiveSuggestion(nextSuggestion);
+            }
           }
+        } else if (isArrowDown(event) && searchText?.length) {
+          openSuggestionBox();
         }
-      } else if (isArrowDown(event) && searchText?.length) {
-        openSuggestionBox();
-      }
-    };
+      },
+      [isOpen, activeSuggestion, searchText, openSuggestionBox, refs.floating],
+    );
 
     // biome-ignore lint/correctness/useExhaustiveDependencies: we need to update the floating element styles if the suggestions length changes
     useEffect(() => {
@@ -282,22 +276,17 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
 
     useClickOutside([textBoxRef, refs.floating], closeSuggestionBox);
 
-    const onSuggestionClicked = (selectedValue: string) => {
-      onSelection(selectedValue);
-      changeInputValue(
-        textBoxRef.current,
-        getSuggestionLabelByValue(suggestions, selectedValue),
-      );
-      closeSuggestionBox();
-    };
-
-    useEffect(() => {
-      if (isOpen) {
-        setSummary(`${suggestionValues.length} results found`);
-      } else {
-        setSummary(undefined);
-      }
-    }, [suggestionValues, isOpen]);
+    const onSuggestionClicked = useCallback(
+      (selectedValue: string) => {
+        onSelection(selectedValue);
+        changeInputValue(
+          textBoxRef.current,
+          getSuggestionLabelByValue(suggestions, selectedValue),
+        );
+        closeSuggestionBox();
+      },
+      [suggestions, onSelection, closeSuggestionBox],
+    );
 
     return (
       <div>
@@ -334,44 +323,21 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
               maxWidth: textBoxRef.current?.offsetWidth,
             }}
           >
-            <div
-              role="status"
-              aria-live="polite"
-              aria-busy={isLoading}
-              className={utilClasses.hideVisually}
-            >
-              {summary}
-            </div>
-            {isLoading && suggestions.length === 0 && (
-              <div className={classes.loading}>
-                <Spinner />
-                <Body>{loadingLabel}</Body>
-              </div>
-            )}
-            {!isLoading && suggestions.length === 0 && (
-              <div className={classes['no-results']}>
-                {customNoResultsMessage ? (
-                  customNoResultsMessage
-                ) : (
-                  <Body>{defaultNoResultMessage}</Body>
-                )}
-              </div>
-            )}
-            {suggestions.length > 0 && (
-              <SuggestionBox
-                value={value}
-                suggestions={suggestions}
-                suggestionValues={suggestionValues}
-                onSuggestionClicked={onSuggestionClicked}
-                label={props.label}
-                autocompleteId={autocompleteId}
-                activeSuggestion={activeSuggestion}
-                aria-readonly={props.readOnly}
-                isLoading={isLoading}
-                loadMore={loadMore}
-              />
-            )}
-            {action && <div className={classes.action}>{action}</div>}
+            <AutocompleteResults
+              isLoading={isLoading}
+              loadingLabel={loadingLabel}
+              suggestions={suggestions}
+              customNoResultsMessage={customNoResultsMessage}
+              defaultNoResultMessage={defaultNoResultMessage}
+              value={value}
+              onSuggestionClicked={onSuggestionClicked}
+              label={props.label}
+              activeSuggestion={activeSuggestion}
+              loadMore={loadMore}
+              readOnly={props.readOnly}
+              action={action}
+              autocompleteId={autocompleteId}
+            />
           </div>
         )}
       </div>

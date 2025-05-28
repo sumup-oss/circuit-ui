@@ -1,0 +1,115 @@
+/**
+ * Copyright 2025, SumUp Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+'use client';
+
+import { type ReactNode, useMemo } from 'react';
+
+import classes from '../../Autocomplete.module.css';
+import { utilClasses } from '../../../../styles/utility.js';
+import { Spinner } from '../../../Spinner/index.js';
+import { Body } from '../../../Body/index.js';
+import { SuggestionBox } from '../SuggestionBox/SuggestionBox.js';
+import type { AutocompleteProps } from '../../Autocomplete.js';
+import { isGroup } from '../../AutocompleteService.js';
+
+export interface AutocompleteResultsProps
+  extends Pick<
+    AutocompleteProps,
+    | 'suggestions'
+    | 'isLoading'
+    | 'loadingLabel'
+    | 'value'
+    | 'label'
+    | 'loadMore'
+    | 'readOnly'
+    | 'action'
+  > {
+  autocompleteId: string;
+  defaultNoResultMessage?: string;
+  customNoResultsMessage?: ReactNode;
+  onSuggestionClicked: (value: string) => void;
+  activeSuggestion?: number;
+}
+
+export const AutocompleteResults = ({
+  isLoading,
+  loadingLabel,
+  suggestions,
+  customNoResultsMessage,
+  defaultNoResultMessage,
+  value,
+  onSuggestionClicked,
+  label,
+  activeSuggestion,
+  loadMore,
+  readOnly,
+  action,
+  autocompleteId,
+}: AutocompleteResultsProps) => {
+  const suggestionValues: string[] = useMemo(
+    () =>
+      suggestions
+        .flatMap((suggestion) =>
+          isGroup(suggestion) ? suggestion.suggestions : suggestion,
+        )
+        .map((suggestion) => suggestion.value),
+    [suggestions],
+  );
+
+  return (
+    <>
+      <div
+        role="status"
+        aria-live="polite"
+        aria-busy={isLoading}
+        className={utilClasses.hideVisually}
+      >
+        {suggestionValues.length} results found
+      </div>
+      {isLoading && suggestions.length === 0 && (
+        <div className={classes.loading}>
+          <Spinner />
+          <Body>{loadingLabel}</Body>
+        </div>
+      )}
+      {!isLoading && suggestions.length === 0 && (
+        <div className={classes['no-results']}>
+          {customNoResultsMessage ? (
+            customNoResultsMessage
+          ) : (
+            <Body>{defaultNoResultMessage}</Body>
+          )}
+        </div>
+      )}
+      {suggestions.length > 0 && (
+        <SuggestionBox
+          value={value}
+          suggestions={suggestions}
+          suggestionValues={suggestionValues}
+          onSuggestionClicked={onSuggestionClicked}
+          label={label}
+          autocompleteId={autocompleteId}
+          activeSuggestion={activeSuggestion}
+          aria-readonly={readOnly}
+          isLoading={isLoading}
+          loadMore={loadMore}
+        />
+      )}
+      {action && <div className={classes.action}>{action}</div>}
+    </>
+  );
+};
