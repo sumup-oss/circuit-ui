@@ -76,7 +76,7 @@ describe('errors', () => {
 
       test('when the label is undefined but the aria-labelledby is a valid string', () => {
         const label = undefined;
-        const attributes = { 'aria-labelledby': ':r1:' };
+        const attributes = { 'aria-labelledby': '«r1»' };
         expect(isSufficientlyLabelled(label, attributes)).toBe(true);
       });
     });
