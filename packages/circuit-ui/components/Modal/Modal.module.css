@@ -1,11 +1,13 @@
 .base {
   position: fixed;
   max-height: 90vh;
+  max-height: 90dvh;
   background-color: var(--cui-bg-elevated);
 }
 
 .content {
   max-height: 90vh;
+  max-height: 90dvh;
   overflow-y: auto;
 }
 

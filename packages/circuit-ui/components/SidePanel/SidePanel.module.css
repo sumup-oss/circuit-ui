@@ -35,6 +35,7 @@
     top: 0;
     min-width: 100vw;
     height: 100vh;
+    height: 100dvh;
     max-height: unset;
     margin: auto;
     border-radius: 0;
@@ -50,6 +51,7 @@
     top: var(--top-navigation-height, 0);
     width: var(--side-panel-width);
     height: calc(100vh - var(--top-navigation-height, 0));
+    height: calc(100dvh - var(--top-navigation-height, 0));
     margin: 0;
     background-color: var(--cui-bg-normal);
     box-shadow: inset var(--cui-border-width-kilo) 0 0 var(--cui-border-divider);
