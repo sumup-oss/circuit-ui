@@ -18,7 +18,7 @@ import { useEffect, useRef, type RefObject } from 'react';
 import { isArray } from '../../util/type-check.js';
 
 export function useClickOutside(
-  ref: RefObject<HTMLElement> | RefObject<HTMLElement>[],
+  ref: RefObject<HTMLElement | null> | RefObject<HTMLElement | null>[],
   callback: (event: MouseEvent) => void,
   active = true,
 ): void {
