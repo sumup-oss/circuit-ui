@@ -27,30 +27,40 @@ import {
 import { applyMultipleRefs } from '../../util/refs.js';
 import { clsx } from '../../styles/clsx.js';
 import type { ClickEvent } from '../../types/events.js';
+import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import type { Locale } from '../../util/i18n.js';
 
 import classes from './SearchInput.module.css';
+import { translations } from './translations/index.js';
 
-type ClearProps =
-  | { onClear?: never; clearLabel?: never }
-  | {
-      /**
-       * Callback function when the user clears the field.
-       */
-      onClear: (event: ClickEvent) => void;
-      /**
-       * Visually hidden text label on the clear button for screen readers.
-       * Crucial for accessibility.
-       */
-      clearLabel: string;
-    };
-
-export type SearchInputProps = InputProps & ClearProps;
+export type SearchInputProps = InputProps & {
+  /**
+   * Callback function when the user clears the field.
+   */
+  onClear?: (event: ClickEvent) => void;
+  /**
+   * Visually hidden text label on the clear button for screen readers.
+   * Crucial for accessibility.
+   */
+  clearLabel?: string;
+  /**
+   * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
+   * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
+   * When passing an array, the first supported locale is used.
+   * Defaults to `navigator.language` in supported environments.
+   */
+  locale?: Locale;
+};
 
 /**
  * SearchInput component for forms.
  */
 export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
-  ({ value, onClear, clearLabel, inputClassName, ...props }, ref) => {
+  (props, ref) => {
+    const { value, onClear, clearLabel, inputClassName, ...rest } = useI18n(
+      props,
+      translations,
+    );
     const localRef = useRef<HTMLInputElement>(null);
 
     if (
@@ -85,7 +95,7 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
             }
           : {})}
         inputClassName={clsx(classes.base, inputClassName)}
-        {...props}
+        {...rest}
         ref={applyMultipleRefs(localRef, ref)}
       />
     );
