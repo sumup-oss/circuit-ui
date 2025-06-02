@@ -2,7 +2,7 @@
   padding-right: var(--cui-spacings-exa);
 }
 
-.dialog {
+.popup {
   z-index: var(--cui-z-index-popover);
   max-height: min(400px, var(--suggestion-box-max-height));
   margin: 0;
@@ -12,7 +12,7 @@
   box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
 }
 
-.dialog::after {
+.popup::after {
   position: absolute;
   right: 0;
   bottom: env(safe-area-inset-bottom);
@@ -27,6 +27,20 @@
     color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent)
   );
   border-radius: inherit;
+}
+
+.modal {
+  height: 90dvh;
+}
+
+.modal > button {
+  display: none;
+}
+
+.modal-header {
+  display: flex;
+  gap: var(--cui-spacings-byte);
+  align-items: flex-start;
 }
 
 .no-results,
@@ -57,6 +71,7 @@
   top: calc(
     -1 * var(--cui-spacings-mega) - 1px
   ); /* -1px accounts for the border-top of the action */
+
   right: 0;
   left: 0;
   display: block;
@@ -69,4 +84,19 @@
     color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent)
   );
   border-radius: inherit;
+}
+
+@media (max-width: 767px) {
+  .input input:focus {
+    animation: blink-input-opacity-to-prevent-scrolling-when-focus 0.01s;
+  }
+}
+
+@keyframes blink-input-opacity-to-prevent-scrolling-when-focus {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
