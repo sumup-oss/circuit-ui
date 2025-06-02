@@ -36,7 +36,9 @@ export const AspectRatio = forwardRef<HTMLDivElement, AspectRatioProps>(
       return null;
     }
 
-    const child = Children.only(children);
+    const child = Children.only(children) as ReactElement<
+      HTMLAttributes<HTMLElement>
+    >;
 
     if (!aspectRatio) {
       return (
