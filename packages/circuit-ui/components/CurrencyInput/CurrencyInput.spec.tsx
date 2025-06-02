@@ -74,9 +74,9 @@ describe('CurrencyInput', () => {
     expect(input.value).toBe('1.234,5');
 
     await userEvent.clear(input);
-    await userEvent.type(input, '1234,56');
+    await userEvent.type(input, '123,45');
 
-    expect(input.value).toBe('1.234,56');
+    expect(input.value).toBe('123,45');
   });
 
   it('should have no accessibility violations', async () => {

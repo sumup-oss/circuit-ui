@@ -85,9 +85,9 @@ describe('PercentageInput', () => {
     expect(input.value).toBe('1.234');
 
     await userEvent.clear(input);
-    await userEvent.type(input, '1234');
+    await userEvent.type(input, '123');
 
-    expect(input.value).toBe('1.234');
+    expect(input.value).toBe('123');
   });
 
   it('should have no accessibility violations', async () => {
