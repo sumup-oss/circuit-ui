@@ -22,13 +22,19 @@ export class CircuitError extends Error {
   constructor(componentName: string, message: string) {
     super(`[${componentName}] ${message}`);
     this.name = 'CircuitError';
+
+    if (React.captureOwnerStack) {
+      this.stack = React.captureOwnerStack() ?? undefined;
+      return;
+    }
+
     // Adapted from https://stackoverflow.com/questions/33474179/react-access-parent-component-name
 
     /* eslint-disable max-len, no-underscore-dangle, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
     if (
       // @ts-expect-error Since this code only runs in development, it's fine to use this internal React API.
-      React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner
-        ?.return?.type
+      React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED
+        ?.ReactCurrentOwner?.return?.type
     ) {
       this.stack =
         // @ts-expect-error This is fine.
@@ -38,7 +44,7 @@ export class CircuitError extends Error {
     if (
       // @ts-expect-error Since this code only runs in development, it's fine to use this internal React API.
       React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED
-        .ReactDebugCurrentFrame?.getCurrentStack
+        ?.ReactDebugCurrentFrame?.getCurrentStack
     ) {
       this.stack =
         // @ts-expect-error This is fine.
