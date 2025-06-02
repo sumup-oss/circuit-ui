@@ -228,7 +228,9 @@ export const LoadMore = (args: AutocompleteProps) => {
 LoadMore.args = { ...baseArgs, suggestions: catNames.slice(0, 15) };
 LoadMore.play = openAutocomplete();
 
-export const DefaultSuggestions = (args: AutocompleteProps) => <Autocomplete {...args} openOnFocus />;
+export const DefaultSuggestions = (args: AutocompleteProps) => (
+  <Autocomplete {...args} openOnFocus />
+);
 
 DefaultSuggestions.args = {
   ...baseArgs,

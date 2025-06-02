@@ -51,6 +51,9 @@ import type { AutocompleteSuggestions } from './components/SuggestionBox/Suggest
 import classes from './Autocomplete.module.css';
 import { getSuggestionLabelByValue } from './AutocompleteService.js';
 import { AutocompleteResults } from './components/AutocompleteResults/AutocompleteResults.js';
+import { Modal } from '../Modal/index.js';
+import { useMedia } from '../../hooks/useMedia/index.js';
+import { Button } from '../Button/Button.js';
 
 export type AutocompleteProps = SearchInputProps & {
   /**
@@ -154,9 +157,11 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     const [searchText, setSearchText] = useState<string>(
       getSuggestionLabelByValue(suggestions, value) ?? '',
     );
+    const isMobile = useMedia('(max-width: 479px)');
     const [isOpen, setIsOpen] = useState(false);
     const [activeSuggestion, setActiveSuggestion] = useState<number>();
     const textBoxRef = useRef<HTMLInputElement>(null);
+    const dummyTextBoxRef = useRef<HTMLInputElement>(null);
     const popupId = useId();
     const autocompleteId = useId();
 
@@ -182,7 +187,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
           const debouncedOnChange = debounce(
             (changeEvent: ChangeEvent<HTMLInputElement>) =>
               onChange?.(changeEvent),
-            500,
+            300,
           );
           if (event.target.value !== '') {
             openSuggestionBox();
@@ -198,11 +203,15 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
         changeInputValue(textBoxRef.current, '');
         onSelection('');
         onClear?.(event);
+        if (isMobile) {
+          changeInputValue(dummyTextBoxRef.current, '');
+          openSuggestionBox();
+        }
       },
-      [onClear, onSelection],
+      [onClear, onSelection, isMobile, openSuggestionBox],
     );
 
-    const onSearchTextFocus = useCallback(() => {
+    const onSearchTextClick = useCallback(() => {
       if (value || openOnFocus) {
         openSuggestionBox();
       }
@@ -257,7 +266,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
        * element using CSS instead of using conditional rendering.
        * See https://floating-ui.com/docs/react-dom#updating
        */
-      if (isOpen) {
+      if (isOpen && !isMobile) {
         update();
         window.addEventListener('resize', update);
         window.addEventListener('scroll', update);
@@ -270,11 +279,17 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
         window.removeEventListener('resize', update);
         window.removeEventListener('scroll', update);
       };
-    }, [isOpen, update, suggestions]);
+    }, [isOpen, update, suggestions, isMobile]);
+
+    const handleClickOutside = useCallback(() => {
+      if (!isMobile) {
+        closeSuggestionBox();
+      }
+    }, [closeSuggestionBox, isMobile]);
 
     useEscapeKey(closeSuggestionBox, isOpen);
 
-    useClickOutside([textBoxRef, refs.floating], closeSuggestionBox);
+    useClickOutside([textBoxRef, refs.floating], handleClickOutside);
 
     const onSuggestionClicked = useCallback(
       (selectedValue: string) => {
@@ -287,6 +302,74 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       },
       [suggestions, onSelection, closeSuggestionBox],
     );
+
+    if (isMobile) {
+      return (
+        <>
+          <SearchInput
+            {...props}
+            ref={dummyTextBoxRef}
+            onClick={openSuggestionBox}
+            value={searchText}
+            onChange={onSearchTextChange}
+            onKeyDown={undefined}
+            aria-controls={popupId}
+            aria-expanded={isOpen}
+            onClear={onSearchTextClear}
+          />
+          <Modal
+            open={isOpen}
+            className={classes.modal}
+            onClose={closeSuggestionBox}
+            aria-label={props.label}
+          >
+            <div className={classes['modal-header']}>
+              <SearchInput
+                {...props}
+                ref={applyMultipleRefs(textBoxRef, ref, refs.setReference)}
+                clearLabel={clearLabel}
+                className={classes.input}
+                hideLabel
+                value={searchText}
+                onChange={onSearchTextChange}
+                onClear={onSearchTextClear}
+                onKeyDown={isLoading ? undefined : onInputKeyDown}
+                role="combobox"
+                autoComplete="off"
+                aria-autocomplete="list"
+                style={{ flex: 1 }}
+                aria-activedescendant={
+                  isOpen && activeSuggestion
+                    ? `suggestion-${autocompleteId}-${activeSuggestion}`
+                    : undefined
+                }
+                onFocus={onSearchTextClick}
+              />
+              <Button variant="tertiary" onClick={closeSuggestionBox}>
+                Cancel
+              </Button>
+            </div>
+            <div ref={refs.setFloating}>
+              <AutocompleteResults
+                isLoading={isLoading}
+                loadingLabel={loadingLabel}
+                suggestions={suggestions}
+                customNoResultsMessage={customNoResultsMessage}
+                defaultNoResultMessage={defaultNoResultMessage}
+                value={value}
+                onSuggestionClicked={onSuggestionClicked}
+                label={props.label}
+                activeSuggestion={activeSuggestion}
+                loadMore={loadMore}
+                readOnly={props.readOnly}
+                action={action}
+                autocompleteId={autocompleteId}
+              />
+            </div>
+          </Modal>
+        </>
+      );
+    }
 
     return (
       <div>
@@ -304,17 +387,16 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
           aria-autocomplete="list"
           aria-controls={popupId}
           aria-expanded={isOpen}
-          aria-busy={isLoading}
           aria-activedescendant={
             isOpen && activeSuggestion
               ? `suggestion-${autocompleteId}-${activeSuggestion}`
               : undefined
           }
-          onFocus={onSearchTextFocus}
+          onClick={onSearchTextClick}
         />
         {isOpen && (
           <div
-            className={classes.dialog}
+            className={classes.popup}
             ref={refs.setFloating}
             id={popupId}
             style={{
