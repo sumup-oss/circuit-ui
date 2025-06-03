@@ -43,7 +43,7 @@ export interface AutocompleteResultsProps
   onSuggestionClicked: (value: string) => void;
   activeSuggestion?: number;
   allowNewItems?: boolean;
-  searchText: string;
+  searchText?: string;
 }
 
 export const AutocompleteResults = ({
@@ -85,7 +85,7 @@ export const AutocompleteResults = ({
       </div>
       {isLoading && suggestions.length === 0 && (
         <div className={classes.loading}>
-          <Spinner />
+          <Spinner data-testid="suggestions-loading-spinner" />
           <Body>{loadingLabel}</Body>
         </div>
       )}

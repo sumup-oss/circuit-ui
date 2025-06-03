@@ -54,8 +54,12 @@ import type { AutocompleteSuggestions } from './components/SuggestionBox/Suggest
 import classes from './Autocomplete.module.css';
 import { getSuggestionLabelByValue } from './AutocompleteService.js';
 import { AutocompleteResults } from './components/AutocompleteResults/AutocompleteResults.js';
+import { clsx } from '../../styles/clsx.js';
 
-export type AutocompleteProps = SearchInputProps & {
+export type AutocompleteProps = Omit<
+  SearchInputProps,
+  'renderPrefix' | 'renderSuffix' | 'as'
+> & {
   /**
    * List of suggestions to display in the dropdown.
    */
@@ -150,6 +154,8 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       loadMore,
       openOnFocus,
       allowNewItems,
+      className,
+      inputClassName,
       ...props
     },
     ref,
@@ -209,10 +215,9 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     const onSearchTextClear = useCallback(
       (event: ClickEvent) => {
         changeInputValue(textBoxRef.current, '');
-        onSelection('');
         onClear?.(event);
       },
-      [onClear, onSelection],
+      [onClear],
     );
 
     const onPresentationFieldClear = useCallback(
@@ -221,10 +226,9 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
         setSearchText('');
         changeInputValue(presentationFieldRef.current, '');
         openSuggestionBox();
-        onSelection('');
         onClear?.(event);
       },
-      [onClear, onSelection, openSuggestionBox],
+      [onClear, openSuggestionBox],
     );
 
     const onSearchTextClick = useCallback(() => {
@@ -266,11 +270,11 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
               setActiveSuggestion(nextSuggestion);
             }
           }
-        } else if (isArrowDown(event) && searchText?.length) {
+        } else if (isArrowDown(event) && suggestions.length > 0) {
           openSuggestionBox();
         }
       },
-      [isOpen, activeSuggestion, searchText, openSuggestionBox, refs.floating],
+      [isOpen, activeSuggestion, suggestions, openSuggestionBox, refs.floating],
     );
 
     // biome-ignore lint/correctness/useExhaustiveDependencies: we need to update the floating element styles if the suggestions length changes
@@ -324,11 +328,24 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       [suggestions, onSelection, closeSuggestionBox, isMobile],
     );
 
+    useEffect(() => {
+      if ((props.readOnly || props.disabled) && isOpen) {
+        closeSuggestionBox();
+      }
+    }, [props.readOnly, props.disabled, isOpen, closeSuggestionBox]);
+
+    const activeDescendant =
+      isOpen && activeSuggestion !== undefined
+        ? `suggestion-${autocompleteId}-${activeSuggestion}`
+        : undefined;
+
     if (isMobile) {
       return (
         <>
           <SearchInput
             {...props}
+            className={className}
+            inputClassName={inputClassName}
             ref={presentationFieldRef}
             onClick={openSuggestionBox}
             value={presentationFieldValue}
@@ -342,14 +359,15 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
             open={isOpen}
             className={classes.modal}
             onClose={closeSuggestionBox}
-            aria-label={props.label}
           >
             <div className={classes['modal-header']}>
               <SearchInput
                 {...props}
+                data-id={autocompleteId}
                 ref={applyMultipleRefs(textBoxRef, ref, refs.setReference)}
                 clearLabel={clearLabel}
-                className={classes.input}
+                className={className}
+                inputClassName={clsx(inputClassName, classes.input)}
                 hideLabel
                 value={searchText}
                 onChange={onSearchTextChange}
@@ -359,11 +377,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
                 autoComplete="off"
                 aria-autocomplete="list"
                 style={{ flex: 1 }}
-                aria-activedescendant={
-                  isOpen && activeSuggestion
-                    ? `suggestion-${autocompleteId}-${activeSuggestion}`
-                    : undefined
-                }
+                aria-activedescendant={activeDescendant}
                 onFocus={onSearchTextClick}
               />
               <Button variant="tertiary" onClick={closeSuggestionBox}>
@@ -398,9 +412,11 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       <div>
         <SearchInput
           {...props}
+          data-id={autocompleteId}
           ref={applyMultipleRefs(textBoxRef, ref, refs.setReference)}
           clearLabel={clearLabel}
-          className={classes.input}
+          className={className}
+          inputClassName={clsx(inputClassName, classes.input)}
           value={searchText}
           onChange={onSearchTextChange}
           onClear={onSearchTextClear}
@@ -410,11 +426,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
           aria-autocomplete="list"
           aria-controls={popupId}
           aria-expanded={isOpen}
-          aria-activedescendant={
-            isOpen && activeSuggestion
-              ? `suggestion-${autocompleteId}-${activeSuggestion}`
-              : undefined
-          }
+          aria-activedescendant={activeDescendant}
           onClick={onSearchTextClick}
         />
         {isOpen && (

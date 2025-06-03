@@ -53,7 +53,7 @@ export type AutocompleteSuggestion = {
   leadingMedia?: LeadingMedia;
 };
 
-type SuggestionProps = HTMLAttributes<HTMLLIElement> &
+export type SuggestionProps = HTMLAttributes<HTMLLIElement> &
   AutocompleteSuggestion & {
     isSelectable?: boolean;
     isFocused?: boolean;
@@ -108,7 +108,11 @@ export const Suggestion = ({
       {leadingMedia && (
         <div className={classes.media}>
           {isIcon(leadingMedia) && (
-            <div aria-hidden className={classes.icon}>
+            <div
+              aria-hidden
+              data-testid={`suggestion-icon-${value}`}
+              className={classes.icon}
+            >
               <leadingMedia.icon size="16" />
             </div>
           )}
@@ -133,7 +137,10 @@ export const Suggestion = ({
         )}
       </div>
       {isSelectable && (
-        <div className={clsx(classes.checkbox, selected && classes.selected)}>
+        <div
+          data-testid={`suggestion-checkbox-${value}`}
+          className={clsx(classes.checkbox, selected && classes.selected)}
+        >
           {selected && <Checkmark />}
         </div>
       )}
