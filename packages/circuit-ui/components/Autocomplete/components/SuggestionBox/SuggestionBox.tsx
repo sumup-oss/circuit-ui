@@ -44,7 +44,7 @@ export type AutocompleteSuggestionElement =
 
 export type AutocompleteSuggestions = AutocompleteSuggestionElement[];
 
-type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
+export type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
   suggestions: AutocompleteSuggestions;
   suggestionValues: string[];
   isSelectable?: boolean;
@@ -98,7 +98,6 @@ export const SuggestionBox = ({
       aria-multiselectable={isSelectable}
       ref={suggestionBoxRef}
       aria-label={label}
-      aria-busy={isLoading && !loadMore}
       tabIndex={-1}
       className={classes.base}
       onScroll={loadMore ? onScroll : undefined}
@@ -197,7 +196,11 @@ export const SuggestionBox = ({
           />
         )}
       {loadMore && isLoading && (
-        <Spinner className={classes.spinner} size="s" />
+        <Spinner
+          data-testid="suggestions-loading"
+          className={classes.spinner}
+          size="s"
+        />
       )}
     </ul>
   );

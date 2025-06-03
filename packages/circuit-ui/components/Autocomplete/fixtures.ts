@@ -15,7 +15,7 @@
 
 import type { AutocompleteSuggestion } from './components/Suggestion/Suggestion.js';
 
-const mochi: AutocompleteSuggestion = {
+export const mochi: AutocompleteSuggestion = {
   label: 'Mochi',
   value: 'mochi',
   description: 'A gentle giant',
@@ -25,7 +25,7 @@ const mochi: AutocompleteSuggestion = {
   },
 };
 
-const luna: AutocompleteSuggestion = {
+export const luna: AutocompleteSuggestion = {
   label: 'Luna',
   value: 'luna',
   description: 'Mischievous night owl',
@@ -35,7 +35,7 @@ const luna: AutocompleteSuggestion = {
   },
 };
 
-const oliver: AutocompleteSuggestion = {
+export const oliver: AutocompleteSuggestion = {
   label: 'Oliver',
   value: 'oliver',
   description: 'Distinguished gentleman',

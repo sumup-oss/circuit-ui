@@ -1,4 +1,4 @@
-.input input {
+.input {
   padding-right: var(--cui-spacings-exa);
 }
 
@@ -87,7 +87,7 @@
 }
 
 @media (max-width: 767px) {
-  .input input:focus {
+  .input:focus {
     animation: blink-input-opacity-to-prevent-scrolling-when-focus 0.01s;
   }
 }
