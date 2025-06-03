@@ -98,6 +98,10 @@ export type AutocompleteProps = SearchInputProps & {
    */
   openOnFocus?: boolean;
   /**
+   * Whether to allow the selection of items that are not in the suggestions list.
+   */
+  allowNewItems?: boolean;
+  /**
    * One of the accepted placement values.
    * @default `bottom`.
    */
@@ -145,6 +149,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       onChange,
       loadMore,
       openOnFocus,
+      allowNewItems,
       ...props
     },
     ref,
@@ -380,6 +385,8 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
                 readOnly={props.readOnly}
                 action={action}
                 autocompleteId={autocompleteId}
+                allowNewItems={allowNewItems}
+                searchText={searchText}
               />
             </div>
           </Modal>
@@ -435,6 +442,8 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
               readOnly={props.readOnly}
               action={action}
               autocompleteId={autocompleteId}
+              allowNewItems={allowNewItems}
+              searchText={searchText}
             />
           </div>
         )}

@@ -280,3 +280,27 @@ DefaultSuggestions.args = {
   ],
 };
 DefaultSuggestions.play = focusAutocomplete();
+
+export const AllowNewItems = (args: AutocompleteProps) => {
+  const [autocompleteValue, setAutocompleteValue] = useState(args.value);
+  const [suggestions, setSuggestions] = useState(args.suggestions);
+  const onSearchTextChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const searchText = event.target.value;
+    setSuggestions(filterSuggestions(searchText, args.suggestions));
+  };
+  const onSelection = (value: string) => {
+    setAutocompleteValue(value);
+  };
+  return (
+    <Autocomplete
+      {...args}
+      value={autocompleteValue}
+      suggestions={suggestions}
+      onChange={onSearchTextChange}
+      onSelection={onSelection}
+      allowNewItems
+    />
+  );
+};
+AllowNewItems.args = baseArgs;
+AllowNewItems.play = openAutocomplete();

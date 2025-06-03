@@ -16,6 +16,7 @@
 'use client';
 
 import { type HTMLAttributes, type UIEvent, useEffect, useRef } from 'react';
+import { Plus } from '@sumup-oss/icons';
 
 import {
   type AutocompleteSuggestion,
@@ -54,6 +55,8 @@ type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
   activeSuggestion?: number;
   value: AutocompleteProps['value'];
   isLoading?: boolean;
+  allowNewItems?: boolean;
+  searchText?: string;
 };
 
 export const SuggestionBox = ({
@@ -67,6 +70,8 @@ export const SuggestionBox = ({
   value,
   isLoading = false,
   loadMore,
+  allowNewItems,
+  searchText,
 }: SuggestionBoxProps) => {
   const suggestionBoxRef = useRef<HTMLUListElement>(null);
 
@@ -167,6 +172,30 @@ export const SuggestionBox = ({
           />
         );
       })}
+
+      {allowNewItems &&
+        searchText &&
+        suggestionValues.indexOf(searchText.trim().toLowerCase()) === -1 && (
+          <Suggestion
+            value={searchText}
+            label={searchText}
+            leadingMedia={{ icon: Plus }}
+            onSuggestionClicked={onSuggestionClicked}
+            selected={value === searchText}
+            isSelectable={isSelectable}
+            id={`suggestion-${autocompleteId}-${suggestionValues.length}`}
+            isFocused={activeSuggestion === suggestionValues.length}
+            tabIndex={
+              !isLoading &&
+              activeSuggestion &&
+              activeSuggestion === suggestionValues.length
+                ? 0
+                : -1
+            }
+            aria-setsize={suggestionValues.length}
+            aria-posinset={suggestionValues.length}
+          />
+        )}
       {loadMore && isLoading && (
         <Spinner className={classes.spinner} size="s" />
       )}

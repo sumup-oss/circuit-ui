@@ -30,7 +30,7 @@ export const getSuggestionLabelByValue = (
 
   return (
     flatSuggestions.find((suggestion) => suggestion.value === value)?.label ||
-    ''
+    value
   );
 };
 
