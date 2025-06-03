@@ -42,6 +42,8 @@ export interface AutocompleteResultsProps
   customNoResultsMessage?: ReactNode;
   onSuggestionClicked: (value: string) => void;
   activeSuggestion?: number;
+  allowNewItems?: boolean;
+  searchText: string;
 }
 
 export const AutocompleteResults = ({
@@ -58,6 +60,8 @@ export const AutocompleteResults = ({
   readOnly,
   action,
   autocompleteId,
+  allowNewItems,
+  searchText,
 }: AutocompleteResultsProps) => {
   const suggestionValues: string[] = useMemo(
     () =>
@@ -85,7 +89,7 @@ export const AutocompleteResults = ({
           <Body>{loadingLabel}</Body>
         </div>
       )}
-      {!isLoading && suggestions.length === 0 && (
+      {!isLoading && suggestions.length === 0 && !allowNewItems && (
         <div className={classes['no-results']}>
           {customNoResultsMessage ? (
             customNoResultsMessage
@@ -94,7 +98,8 @@ export const AutocompleteResults = ({
           )}
         </div>
       )}
-      {suggestions.length > 0 && (
+      {(suggestions.length > 0 ||
+        (allowNewItems && suggestions.length === 0)) && (
         <SuggestionBox
           value={value}
           suggestions={suggestions}
@@ -106,6 +111,8 @@ export const AutocompleteResults = ({
           aria-readonly={readOnly}
           isLoading={isLoading}
           loadMore={loadMore}
+          searchText={searchText}
+          allowNewItems={allowNewItems}
         />
       )}
       {action && <div className={classes.action}>{action}</div>}
