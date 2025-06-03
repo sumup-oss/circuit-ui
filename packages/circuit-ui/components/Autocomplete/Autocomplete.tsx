@@ -45,15 +45,15 @@ import { useClickOutside } from '../../hooks/useClickOutside/index.js';
 import { isArrowDown, isArrowUp } from '../../util/key-codes.js';
 import { changeInputValue } from '../../util/input-value.js';
 import { debounce } from '../../util/helpers.js';
+import { Modal } from '../Modal/index.js';
+import { useMedia } from '../../hooks/useMedia/index.js';
+import { Button } from '../Button/Button.js';
 
 import { translations } from './translations/index.js';
 import type { AutocompleteSuggestions } from './components/SuggestionBox/SuggestionBox.js';
 import classes from './Autocomplete.module.css';
 import { getSuggestionLabelByValue } from './AutocompleteService.js';
 import { AutocompleteResults } from './components/AutocompleteResults/AutocompleteResults.js';
-import { Modal } from '../Modal/index.js';
-import { useMedia } from '../../hooks/useMedia/index.js';
-import { Button } from '../Button/Button.js';
 
 export type AutocompleteProps = SearchInputProps & {
   /**
@@ -157,11 +157,14 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     const [searchText, setSearchText] = useState<string>(
       getSuggestionLabelByValue(suggestions, value) ?? '',
     );
+
+    const [presentationFieldValue, setPresentationFieldValue] =
+      useState<string>(getSuggestionLabelByValue(suggestions, value) ?? '');
     const isMobile = useMedia('(max-width: 479px)');
     const [isOpen, setIsOpen] = useState(false);
     const [activeSuggestion, setActiveSuggestion] = useState<number>();
     const textBoxRef = useRef<HTMLInputElement>(null);
-    const dummyTextBoxRef = useRef<HTMLInputElement>(null);
+    const presentationFieldRef = useRef<HTMLInputElement>(null);
     const popupId = useId();
     const autocompleteId = useId();
 
@@ -203,12 +206,20 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
         changeInputValue(textBoxRef.current, '');
         onSelection('');
         onClear?.(event);
-        if (isMobile) {
-          changeInputValue(dummyTextBoxRef.current, '');
-          openSuggestionBox();
-        }
       },
-      [onClear, onSelection, isMobile, openSuggestionBox],
+      [onClear, onSelection],
+    );
+
+    const onPresentationFieldClear = useCallback(
+      (event: ClickEvent) => {
+        setPresentationFieldValue('');
+        setSearchText('');
+        changeInputValue(presentationFieldRef.current, '');
+        openSuggestionBox();
+        onSelection('');
+        onClear?.(event);
+      },
+      [onClear, onSelection, openSuggestionBox],
     );
 
     const onSearchTextClick = useCallback(() => {
@@ -299,8 +310,13 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
           getSuggestionLabelByValue(suggestions, selectedValue),
         );
         closeSuggestionBox();
+        if (isMobile) {
+          setPresentationFieldValue(
+            getSuggestionLabelByValue(suggestions, selectedValue),
+          );
+        }
       },
-      [suggestions, onSelection, closeSuggestionBox],
+      [suggestions, onSelection, closeSuggestionBox, isMobile],
     );
 
     if (isMobile) {
@@ -308,14 +324,14 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
         <>
           <SearchInput
             {...props}
-            ref={dummyTextBoxRef}
+            ref={presentationFieldRef}
             onClick={openSuggestionBox}
-            value={searchText}
-            onChange={onSearchTextChange}
+            value={presentationFieldValue}
+            onChange={onChange}
             onKeyDown={undefined}
             aria-controls={popupId}
             aria-expanded={isOpen}
-            onClear={onSearchTextClear}
+            onClear={onPresentationFieldClear}
           />
           <Modal
             open={isOpen}
