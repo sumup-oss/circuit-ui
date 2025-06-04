@@ -1,3 +1,4 @@
 {
-  "noResultsMessage": "Δεν βρέθηκαν αποτελέσματα"
+  "noResultsMessage": "Δεν υπάρχουν αποτελέσματα",
+  "loadingLabel": "Φόρτωση"
 }

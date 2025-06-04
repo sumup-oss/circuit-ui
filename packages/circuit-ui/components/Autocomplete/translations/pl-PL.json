@@ -1,3 +1,4 @@
 {
-  "noResultsMessage": "Brak wyników"
+  "noResultsMessage": "Brak wyników",
+  "loadingLabel": "Wczytuje dane"
 }

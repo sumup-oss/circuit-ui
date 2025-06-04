@@ -1,3 +1,4 @@
 {
-  "noResultsMessage": "Nincs eredmény"
+  "noResultsMessage": "Nincs találat",
+  "loadingLabel": "Betöltés"
 }
