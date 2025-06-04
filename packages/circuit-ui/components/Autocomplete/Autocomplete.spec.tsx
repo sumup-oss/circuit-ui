@@ -244,6 +244,57 @@ describe('Autocomplete', () => {
     });
   });
 
+  describe('loading state', () => {
+    it('should render loading state when isLoading is true', async () => {
+      render(
+        <Autocomplete {...props} suggestions={[]} openOnFocus isLoading />,
+      );
+      await userEvent.click(screen.getByRole('combobox'));
+
+      expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+      expect(screen.getByText('Loading')).toBeVisible();
+      expect(screen.getByTestId('suggestions-loading-spinner')).toBeVisible();
+    });
+
+    it('should render custom loading message when suggestions are empty and isLoading is true', async () => {
+      const message = 'Fetching your contacts...';
+      render(
+        <Autocomplete
+          {...props}
+          suggestions={[]}
+          openOnFocus
+          isLoading
+          loadingLabel={message}
+        />,
+      );
+      await userEvent.click(screen.getByRole('combobox'));
+      expect(screen.getByText(message)).toBeVisible();
+    });
+  });
+  describe('no results state', () => {
+    it('should render no results message when no results are found', async () => {
+      render(<Autocomplete {...props} suggestions={[]} openOnFocus />);
+      await userEvent.click(screen.getByRole('combobox'));
+
+      expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+      expect(screen.getByText('No results')).toBeVisible();
+    });
+
+    it('should render custom no results message no results are found', async () => {
+      const message = "Couldn't find any results";
+      render(
+        <Autocomplete
+          {...props}
+          suggestions={[]}
+          openOnFocus
+          noResultsMessage={message}
+        />,
+      );
+      await userEvent.click(screen.getByRole('combobox'));
+      expect(screen.getByText(message)).toBeVisible();
+    });
+  });
+
   describe('a11y', () => {
     it('should have no accessibility violations', async () => {
       const { container } = render(<Autocomplete {...props} />);

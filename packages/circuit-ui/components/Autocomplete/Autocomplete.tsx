@@ -55,6 +55,8 @@ import classes from './Autocomplete.module.css';
 import { getSuggestionLabelByValue } from './AutocompleteService.js';
 import { AutocompleteResults } from './components/AutocompleteResults/AutocompleteResults.js';
 import { clsx } from '../../styles/clsx.js';
+import { Body } from '../Body/index.js';
+import { Spinner } from '../Spinner/index.js';
 
 export type AutocompleteProps = Omit<
   SearchInputProps,
@@ -92,7 +94,7 @@ export type AutocompleteProps = Omit<
   /**
    * A label to display while loading suggestions.
    */
-  loadingLabel?: string;
+  loadingLabel?: ReactNode;
   /**
    * An optional action to display below the Autocomplete suggestions.
    */
@@ -141,8 +143,8 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       onClear,
       clearLabel,
       isLoading,
-      loadingLabel: customLoadingLabel,
-      noResultsMessage: customNoResultsMessage,
+      loadingLabel,
+      noResultsMessage,
       locale,
       minQueryLength = 0,
       placement = 'bottom',
@@ -160,10 +162,10 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     },
     ref,
   ) => {
-    const { noResultsMessage: defaultNoResultMessage, loadingLabel } = useI18n(
-      { noResultsMessage: '', locale, loadingLabel: customLoadingLabel },
-      translations,
-    );
+    const {
+      noResultsMessage: defaultNoResultsMessage,
+      loadingLabel: defaultLoadingLabel,
+    } = useI18n({}, translations);
 
     const [searchText, setSearchText] = useState<string>(
       getSuggestionLabelByValue(suggestions, value) ?? '',
@@ -339,6 +341,36 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
         ? `suggestion-${autocompleteId}-${activeSuggestion}`
         : undefined;
 
+    const noResults = noResultsMessage || (
+      <Body className={classes['no-results']}>{defaultNoResultsMessage}</Body>
+    );
+
+    const loading = loadingLabel || (
+      <div className={classes.loading}>
+        <Spinner data-testid="suggestions-loading-spinner" />
+        <Body>{defaultLoadingLabel}</Body>
+      </div>
+    );
+
+    const autocompleteResults = (
+      <AutocompleteResults
+        isLoading={isLoading}
+        suggestions={suggestions}
+        loadingLabel={loading}
+        noResultsMessage={noResults}
+        value={value}
+        onSuggestionClicked={onSuggestionClicked}
+        label={props.label}
+        activeSuggestion={activeSuggestion}
+        loadMore={loadMore}
+        readOnly={props.readOnly}
+        action={action}
+        autocompleteId={autocompleteId}
+        allowNewItems={allowNewItems}
+        searchText={searchText}
+      />
+    );
+
     if (isMobile) {
       return (
         <>
@@ -384,25 +416,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
                 Cancel
               </Button>
             </div>
-            <div ref={refs.setFloating}>
-              <AutocompleteResults
-                isLoading={isLoading}
-                loadingLabel={loadingLabel}
-                suggestions={suggestions}
-                customNoResultsMessage={customNoResultsMessage}
-                defaultNoResultMessage={defaultNoResultMessage}
-                value={value}
-                onSuggestionClicked={onSuggestionClicked}
-                label={props.label}
-                activeSuggestion={activeSuggestion}
-                loadMore={loadMore}
-                readOnly={props.readOnly}
-                action={action}
-                autocompleteId={autocompleteId}
-                allowNewItems={allowNewItems}
-                searchText={searchText}
-              />
-            </div>
+            <div ref={refs.setFloating}>{autocompleteResults}</div>
           </Modal>
         </>
       );
@@ -440,23 +454,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
               maxWidth: textBoxRef.current?.offsetWidth,
             }}
           >
-            <AutocompleteResults
-              isLoading={isLoading}
-              loadingLabel={loadingLabel}
-              suggestions={suggestions}
-              customNoResultsMessage={customNoResultsMessage}
-              defaultNoResultMessage={defaultNoResultMessage}
-              value={value}
-              onSuggestionClicked={onSuggestionClicked}
-              label={props.label}
-              activeSuggestion={activeSuggestion}
-              loadMore={loadMore}
-              readOnly={props.readOnly}
-              action={action}
-              autocompleteId={autocompleteId}
-              allowNewItems={allowNewItems}
-              searchText={searchText}
-            />
+            {autocompleteResults}
           </div>
         )}
       </div>
