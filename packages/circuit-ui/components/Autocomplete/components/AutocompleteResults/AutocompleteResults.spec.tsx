@@ -67,7 +67,7 @@ describe('AutocompleteResults', () => {
 
       expect(screen.getByRole('status')).toHaveAttribute('aria-busy', 'true');
     });
-    it('should render loading spinner when isLoading is true and suggestions are empty', () => {
+    it('should render loading message when isLoading is true and suggestions are empty', () => {
       render(
         <AutocompleteResults
           {...props}
@@ -78,36 +78,35 @@ describe('AutocompleteResults', () => {
       );
 
       expect(screen.getByText('Loading...')).toBeVisible();
-      expect(screen.getByTestId('suggestions-loading-spinner')).toBeVisible();
     });
   });
 
   describe('empty results state', () => {
-    it('should default no results message when suggestions are empty and not loading', () => {
-      const defaultNoResultsMessage = 'No results found';
+    it('should render no results message when suggestions are empty and not loading', () => {
+      const noResultsMessage = 'No results found';
       render(
         <AutocompleteResults
           {...props}
           suggestions={[]}
-          defaultNoResultMessage={defaultNoResultsMessage}
+          noResultsMessage={noResultsMessage}
         />,
       );
 
-      expect(screen.getByText(defaultNoResultsMessage)).toBeVisible();
+      expect(screen.getByText(noResultsMessage)).toBeVisible();
     });
 
-    it('should render custom no results message when suggestions are empty and not loading', () => {
-      const customNoResultsMessage =
+    it('should render no results message when suggestions are empty and not loading', () => {
+      const noResultsMessage =
         "Was not able to find the address you're looking for";
       render(
         <AutocompleteResults
           {...props}
           suggestions={[]}
-          customNoResultsMessage={customNoResultsMessage}
+          noResultsMessage={noResultsMessage}
         />,
       );
 
-      expect(screen.getByText(customNoResultsMessage)).toBeVisible();
+      expect(screen.getByText(noResultsMessage)).toBeVisible();
     });
   });
 });

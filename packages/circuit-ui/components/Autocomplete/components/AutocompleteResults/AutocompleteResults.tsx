@@ -15,12 +15,10 @@
 
 'use client';
 
-import { type ReactNode, useMemo } from 'react';
+import { useMemo } from 'react';
 
-import classes from '../../Autocomplete.module.css';
+import classes from './AutocompleteResults.module.css';
 import { utilClasses } from '../../../../styles/utility.js';
-import { Spinner } from '../../../Spinner/index.js';
-import { Body } from '../../../Body/index.js';
 import { SuggestionBox } from '../SuggestionBox/SuggestionBox.js';
 import type { AutocompleteProps } from '../../Autocomplete.js';
 import { isGroup } from '../../AutocompleteService.js';
@@ -31,6 +29,7 @@ export interface AutocompleteResultsProps
     | 'suggestions'
     | 'isLoading'
     | 'loadingLabel'
+    | 'noResultsMessage'
     | 'value'
     | 'label'
     | 'loadMore'
@@ -38,8 +37,6 @@ export interface AutocompleteResultsProps
     | 'action'
   > {
   autocompleteId: string;
-  defaultNoResultMessage?: string;
-  customNoResultsMessage?: ReactNode;
   onSuggestionClicked: (value: string) => void;
   activeSuggestion?: number;
   allowNewItems?: boolean;
@@ -49,9 +46,8 @@ export interface AutocompleteResultsProps
 export const AutocompleteResults = ({
   isLoading,
   loadingLabel,
+  noResultsMessage,
   suggestions,
-  customNoResultsMessage,
-  defaultNoResultMessage,
   value,
   onSuggestionClicked,
   label,
@@ -83,21 +79,12 @@ export const AutocompleteResults = ({
       >
         {suggestionValues.length} results found
       </div>
-      {isLoading && suggestions.length === 0 && (
-        <div className={classes.loading}>
-          <Spinner data-testid="suggestions-loading-spinner" />
-          <Body>{loadingLabel}</Body>
-        </div>
-      )}
-      {!isLoading && suggestions.length === 0 && !allowNewItems && (
-        <div className={classes['no-results']}>
-          {customNoResultsMessage ? (
-            customNoResultsMessage
-          ) : (
-            <Body>{defaultNoResultMessage}</Body>
-          )}
-        </div>
-      )}
+      {isLoading && suggestions.length === 0 && loadingLabel}
+      {!isLoading &&
+        suggestions.length === 0 &&
+        !allowNewItems &&
+        noResultsMessage}
+
       {(suggestions.length > 0 ||
         (allowNewItems && suggestions.length === 0)) && (
         <SuggestionBox
