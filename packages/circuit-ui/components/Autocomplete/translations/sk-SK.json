@@ -1,4 +1,5 @@
 {
   "noResultsMessage": "Žiadne výsledky",
-  "loadingLabel": "Prebieha načítavanie…"
+  "loadingLabel": "Prebieha načítavanie…",
+  "cancel": "Zrušiť"
 }

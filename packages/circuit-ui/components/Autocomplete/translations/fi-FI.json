@@ -1,4 +1,5 @@
 {
   "noResultsMessage": "Ei tuloksia",
-  "loadingLabel": "Lataa..."
+  "loadingLabel": "Lataa...",
+  "cancel": "Peruuta"
 }

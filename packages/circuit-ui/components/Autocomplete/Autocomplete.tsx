@@ -171,7 +171,8 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     const {
       noResultsMessage: defaultNoResultsMessage,
       loadingLabel: defaultLoadingLabel,
-    } = useI18n({}, translations);
+      cancel: cancelButtonLabel,
+    } = useI18n({ locale: locale }, translations);
 
     const [searchText, setSearchText] = useState<string>(
       getSuggestionLabelByValue(suggestions, value) ?? '',
@@ -424,7 +425,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
                 onFocus={onSearchTextClick}
               />
               <Button variant="tertiary" onClick={closeSuggestionBox}>
-                Cancel
+                {cancelButtonLabel}
               </Button>
             </div>
             <div ref={refs.setFloating}>
