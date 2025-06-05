@@ -24,10 +24,7 @@ import {
 } from 'react';
 import { Plus } from '@sumup-oss/icons';
 
-import {
-  type AutocompleteSuggestion,
-  Suggestion,
-} from '../Suggestion/Suggestion.js';
+import { type SuggestionType, Suggestion } from '../Suggestion/Suggestion.js';
 import { Compact } from '../../../Compact/index.js';
 import type { AutocompleteProps } from '../../Autocomplete.js';
 import {
@@ -40,16 +37,12 @@ import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './SuggestionBox.module.css';
 
-type AutocompleteSuggestionGroup = {
+export type SuggestionGroup = {
   label: string;
-  suggestions: AutocompleteSuggestion[];
+  suggestions: SuggestionType[];
 };
 
-export type AutocompleteSuggestionElement =
-  | AutocompleteSuggestionGroup
-  | AutocompleteSuggestion;
-
-export type AutocompleteSuggestions = AutocompleteSuggestionElement[];
+export type AutocompleteSuggestions = (SuggestionGroup | SuggestionType)[];
 
 export type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
   suggestions: AutocompleteSuggestions;

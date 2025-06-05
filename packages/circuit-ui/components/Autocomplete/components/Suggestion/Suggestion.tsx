@@ -24,7 +24,7 @@ import { Compact } from '../../../Compact/index.js';
 import classes from './Suggestion.module.css';
 import { Checkmark } from './Checkmark.js';
 
-export type AutocompleteSuggestion = {
+export type SuggestionType = {
   value: string;
   label: string;
   description?: string;
@@ -34,7 +34,7 @@ export type AutocompleteSuggestion = {
 };
 
 export type SuggestionProps = HTMLAttributes<HTMLLIElement> &
-  AutocompleteSuggestion & {
+  SuggestionType & {
     isSelectable?: boolean;
     isFocused?: boolean;
     onSuggestionClicked: (value: string) => void;
