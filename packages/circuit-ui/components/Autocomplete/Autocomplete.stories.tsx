@@ -59,6 +59,19 @@ const openAutocomplete =
     await screen.findByText(text ?? 'Luna');
   };
 
+const openLoading =
+  () =>
+  async ({
+    canvasElement,
+  }: {
+    canvasElement: HTMLCanvasElement;
+  }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByLabelText('With empty results');
+    await userEvent.click(input);
+    await screen.findByText('Loading');
+  };
+
 const focusAutocomplete =
   (label?: string) =>
   async ({
@@ -146,6 +159,7 @@ export const Loading = (args: AutocompleteProps) => {
         suggestions={[]}
         label="With empty results"
         isLoading
+        openOnFocus
       />
       <Autocomplete
         {...args}
@@ -161,7 +175,7 @@ Loading.args = {
   ...baseArgs,
   isLoading: true,
 };
-Loading.play = openAutocomplete('With empty results', 'Loading...');
+Loading.play = openLoading();
 
 export const NoResults = (args: AutocompleteProps) => (
   <Autocomplete
@@ -232,7 +246,7 @@ export const LoadMore = (args: AutocompleteProps) => {
 };
 
 LoadMore.args = { ...baseArgs, suggestions: catNames.slice(0, 15) };
-LoadMore.play = openAutocomplete();
+LoadMore.play = openAutocomplete(undefined, 'Milo');
 
 export const ModalView = (args: AutocompleteProps) => (
   <Autocomplete {...args} openOnFocus />
