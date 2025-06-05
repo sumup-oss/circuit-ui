@@ -14,8 +14,8 @@
  */
 
 import type { AutocompleteProps } from './Autocomplete.js';
-import type { AutocompleteSuggestion } from './components/Suggestion/Suggestion.js';
-import type { AutocompleteSuggestionElement } from './components/SuggestionBox/SuggestionBox.js';
+import type { SuggestionType } from './components/Suggestion/Suggestion.js';
+import type { SuggestionGroup } from './components/SuggestionBox/SuggestionBox.js';
 
 export const getSuggestionLabelByValue = (
   suggestions: AutocompleteProps['suggestions'],
@@ -56,6 +56,6 @@ export const isSuggestionFocused = (
     : false;
 
 export const isGroup = (
-  suggestion: AutocompleteSuggestionElement,
-): suggestion is { label: string; suggestions: AutocompleteSuggestion[] } =>
+  suggestion: SuggestionGroup | SuggestionType,
+): suggestion is { label: string; suggestions: SuggestionType[] } =>
   suggestion && 'label' in suggestion && 'suggestions' in suggestion;

@@ -13,72 +13,72 @@
  * limitations under the License.
  */
 
-import type { AutocompleteSuggestion } from './components/Suggestion/Suggestion.js';
+import type { SuggestionType } from './components/Suggestion/Suggestion.js';
 
-export const mochi: AutocompleteSuggestion = {
+export const mochi: SuggestionType = {
   label: 'Mochi',
   value: 'mochi',
   description: 'A gentle giant',
   image: '/images/illustration-cat-mochi.jpg',
 };
 
-export const luna: AutocompleteSuggestion = {
+export const luna: SuggestionType = {
   label: 'Luna',
   value: 'luna',
   description: 'Mischievous night owl',
   image: '/images/illustration-cat-luna.jpg',
 };
 
-export const oliver: AutocompleteSuggestion = {
+export const oliver: SuggestionType = {
   label: 'Oliver',
   value: 'oliver',
   description: 'Distinguished gentleman',
   image: '/images/illustration-cat-oliver.jpg',
 };
 
-const sushi: AutocompleteSuggestion = {
+const sushi: SuggestionType = {
   label: 'Sushi',
   value: 'sushi',
   description: 'Playful acrobat',
   image: '/images/illustration-cat-sushi.jpg',
 };
 
-const shadow: AutocompleteSuggestion = {
+const shadow: SuggestionType = {
   label: 'Shadow',
   value: 'shadow',
   description: 'Mysterious introvert',
   image: '/images/illustration-cat-shadow.jpg',
 };
 
-const maple: AutocompleteSuggestion = {
+const maple: SuggestionType = {
   label: 'Maple',
   value: 'maple',
   description: 'Sweet and clingy',
   image: '/images/illustration-cat-maple.jpg',
 };
 
-const ziggy: AutocompleteSuggestion = {
+const ziggy: SuggestionType = {
   label: 'Ziggy',
   value: 'ziggy',
   description: 'High-energy troublemaker',
   image: '/images/illustration-cat-ziggy.jpg',
 };
 
-const bella: AutocompleteSuggestion = {
+const bella: SuggestionType = {
   label: 'Bella',
   value: 'bella',
   description: 'Expects royal treatment at all times',
   image: '/images/illustration-cat-bella.jpg',
 };
 
-const winston: AutocompleteSuggestion = {
+const winston: SuggestionType = {
   label: 'Winston',
   value: 'winston',
   description: 'Loves contemplating sunbeams',
   image: '/images/illustration-cat-winston.jpg',
 };
 
-const pepper: AutocompleteSuggestion = {
+const pepper: SuggestionType = {
   label: 'Pepper',
   value: 'pepper',
   description: 'Spicy personality',
@@ -113,7 +113,7 @@ export const groupedSuggestions = [
   },
 ];
 
-export const catNames: AutocompleteSuggestion[] = [
+export const catNames: SuggestionType[] = [
   {
     label: 'Whiskers',
     value: 'whiskers',
