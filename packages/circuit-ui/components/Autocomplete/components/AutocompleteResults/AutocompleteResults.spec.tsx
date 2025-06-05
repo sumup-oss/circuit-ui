@@ -29,6 +29,7 @@ const props: AutocompleteResultsProps = {
   autocompleteId: 'autocomplete-id',
   value: '',
   label: 'label',
+  resultsSummary: 'results summary',
 };
 
 describe('AutocompleteResults', () => {
@@ -56,9 +57,7 @@ describe('AutocompleteResults', () => {
   it('should render live region', () => {
     render(<AutocompleteResults {...props} />);
 
-    expect(screen.getByRole('status')).toHaveTextContent(
-      `${props.suggestions.length} results found`,
-    );
+    expect(screen.getByRole('status')).toHaveTextContent('results summary');
   });
 
   describe('loading state', () => {

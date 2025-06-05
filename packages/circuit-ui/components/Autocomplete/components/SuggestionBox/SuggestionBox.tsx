@@ -15,7 +15,13 @@
 
 'use client';
 
-import { type HTMLAttributes, type UIEvent, useEffect, useRef } from 'react';
+import {
+  type HTMLAttributes,
+  type UIEvent,
+  useEffect,
+  useMemo,
+  useRef,
+} from 'react';
 import { Plus } from '@sumup-oss/icons';
 
 import {
@@ -47,7 +53,6 @@ export type AutocompleteSuggestions = AutocompleteSuggestionElement[];
 
 export type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
   suggestions: AutocompleteSuggestions;
-  suggestionValues: string[];
   isSelectable?: boolean;
   onSuggestionClicked: (value: string) => void;
   loadMore?: () => void;
@@ -62,7 +67,6 @@ export type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
 
 export const SuggestionBox = ({
   suggestions,
-  suggestionValues,
   onSuggestionClicked,
   isSelectable,
   label,
@@ -75,6 +79,16 @@ export const SuggestionBox = ({
   searchText,
 }: SuggestionBoxProps) => {
   const suggestionBoxRef = useRef<HTMLUListElement>(null);
+
+  const suggestionValues: string[] = useMemo(
+    () =>
+      suggestions
+        .flatMap((suggestion) =>
+          isGroup(suggestion) ? suggestion.suggestions : suggestion,
+        )
+        .map((suggestion) => suggestion.value),
+    [suggestions],
+  );
 
   useEffect(() => {
     setTimeout(() => {

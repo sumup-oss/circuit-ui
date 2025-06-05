@@ -23,6 +23,7 @@ import {
   useCallback,
   useEffect,
   useId,
+  useMemo,
   useRef,
   useState,
 } from 'react';
@@ -42,7 +43,7 @@ import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import type { Locale } from '../../util/i18n.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
 import { useClickOutside } from '../../hooks/useClickOutside/index.js';
-import { isArrowDown, isArrowUp } from '../../util/key-codes.js';
+import { isArrowDown, isArrowUp, isEnter } from '../../util/key-codes.js';
 import { changeInputValue } from '../../util/input-value.js';
 import { debounce } from '../../util/helpers.js';
 import { Modal } from '../Modal/index.js';
@@ -55,7 +56,7 @@ import { Spinner } from '../Spinner/index.js';
 import { translations } from './translations/index.js';
 import type { AutocompleteSuggestions } from './components/SuggestionBox/SuggestionBox.js';
 import classes from './Autocomplete.module.css';
-import { getSuggestionLabelByValue } from './AutocompleteService.js';
+import { getSuggestionLabelByValue, isGroup } from './AutocompleteService.js';
 import { AutocompleteResults } from './components/AutocompleteResults/AutocompleteResults.js';
 
 export type AutocompleteProps = Omit<
@@ -186,6 +187,16 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     const popupId = useId();
     const autocompleteId = useId();
 
+    const suggestionValues: string[] = useMemo(
+      () =>
+        suggestions
+          .flatMap((suggestion) =>
+            isGroup(suggestion) ? suggestion.suggestions : suggestion,
+          )
+          .map((suggestion) => suggestion.value),
+      [suggestions],
+    );
+
     useEffect(() => {
       if (isLoading) {
         setActiveSuggestion(undefined);
@@ -239,10 +250,14 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     );
 
     const onSearchTextClick = useCallback(() => {
-      if (value || openOnFocus) {
+      if (
+        value ||
+        openOnFocus ||
+        (searchText.length > 0 && suggestions.length > 0)
+      ) {
         openSuggestionBox();
       }
-    }, [openOnFocus, openSuggestionBox, value]);
+    }, [openOnFocus, openSuggestionBox, value, searchText, suggestions]);
 
     const { floatingStyles, refs, update } = useFloating<HTMLElement>({
       open: isOpen,
@@ -277,11 +292,21 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
               setActiveSuggestion(nextSuggestion);
             }
           }
+          if (isEnter(event) && activeSuggestion !== undefined) {
+            onSuggestionClicked(suggestionValues[activeSuggestion]);
+          }
         } else if (isArrowDown(event) && suggestions.length > 0) {
           openSuggestionBox();
         }
       },
-      [isOpen, activeSuggestion, suggestions, openSuggestionBox, refs.floating],
+      [
+        isOpen,
+        activeSuggestion,
+        suggestions,
+        openSuggestionBox,
+        refs.floating,
+        suggestionValues,
+      ],
     );
 
     // biome-ignore lint/correctness/useExhaustiveDependencies: we need to update the floating element styles if the suggestions length changes
@@ -309,10 +334,10 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     }, [isOpen, update, suggestions]);
 
     const handleClickOutside = useCallback(() => {
-      if (!isMobile) {
+      if (!(isMobile && modalMobileView)) {
         closeSuggestionBox();
       }
-    }, [closeSuggestionBox, isMobile]);
+    }, [closeSuggestionBox, isMobile, modalMobileView]);
 
     useEscapeKey(closeSuggestionBox, isOpen);
 
@@ -326,13 +351,13 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
           getSuggestionLabelByValue(suggestions, selectedValue),
         );
         closeSuggestionBox();
-        if (isMobile) {
+        if (isMobile && modalMobileView) {
           setPresentationFieldValue(
             getSuggestionLabelByValue(suggestions, selectedValue),
           );
         }
       },
-      [suggestions, onSelection, closeSuggestionBox, isMobile],
+      [suggestions, onSelection, closeSuggestionBox, isMobile, modalMobileView],
     );
 
     useEffect(() => {
@@ -355,25 +380,6 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
         <Spinner data-testid="suggestions-loading-spinner" />
         <Body>{defaultLoadingLabel}</Body>
       </div>
-    );
-
-    const autocompleteResults = (
-      <AutocompleteResults
-        isLoading={isLoading}
-        suggestions={suggestions}
-        loadingLabel={loading}
-        noResultsMessage={noResults}
-        value={value}
-        onSuggestionClicked={onSuggestionClicked}
-        label={props.label}
-        activeSuggestion={activeSuggestion}
-        loadMore={loadMore}
-        readOnly={props.readOnly}
-        action={action}
-        autocompleteId={autocompleteId}
-        allowNewItems={allowNewItems}
-        searchText={searchText}
-      />
     );
 
     if (isMobile && modalMobileView) {
@@ -421,7 +427,25 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
                 Cancel
               </Button>
             </div>
-            <div ref={refs.setFloating}>{autocompleteResults}</div>
+            <div ref={refs.setFloating}>
+              <AutocompleteResults
+                isLoading={isLoading}
+                suggestions={suggestions}
+                loadingLabel={loading}
+                noResultsMessage={noResults}
+                value={value}
+                onSuggestionClicked={onSuggestionClicked}
+                label={props.label}
+                activeSuggestion={activeSuggestion}
+                loadMore={loadMore}
+                readOnly={props.readOnly}
+                action={action}
+                autocompleteId={autocompleteId}
+                allowNewItems={allowNewItems}
+                searchText={searchText}
+                resultsSummary={`${suggestionValues.length} results found.`}
+              />
+            </div>
           </Modal>
         </>
       );
@@ -459,7 +483,23 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
               maxWidth: textBoxRef.current?.offsetWidth,
             }}
           >
-            {autocompleteResults}
+            <AutocompleteResults
+              isLoading={isLoading}
+              suggestions={suggestions}
+              loadingLabel={loading}
+              noResultsMessage={noResults}
+              value={value}
+              onSuggestionClicked={onSuggestionClicked}
+              label={props.label}
+              activeSuggestion={activeSuggestion}
+              loadMore={loadMore}
+              readOnly={props.readOnly}
+              action={action}
+              autocompleteId={autocompleteId}
+              allowNewItems={allowNewItems}
+              searchText={searchText}
+              resultsSummary={`${suggestionValues.length} results found.`}
+            />
           </div>
         )}
       </div>
