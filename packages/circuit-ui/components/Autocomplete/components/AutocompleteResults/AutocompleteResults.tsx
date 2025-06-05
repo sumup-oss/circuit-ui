@@ -17,11 +17,13 @@
 
 import { useMemo } from 'react';
 
-import classes from './AutocompleteResults.module.css';
 import { utilClasses } from '../../../../styles/utility.js';
 import { SuggestionBox } from '../SuggestionBox/SuggestionBox.js';
 import type { AutocompleteProps } from '../../Autocomplete.js';
 import { isGroup } from '../../AutocompleteService.js';
+import { Hr } from '../../../Hr/index.js';
+
+import classes from './AutocompleteResults.module.css';
 
 export interface AutocompleteResultsProps
   extends Pick<
@@ -102,7 +104,12 @@ export const AutocompleteResults = ({
           allowNewItems={allowNewItems}
         />
       )}
-      {action && <div className={classes.action}>{action}</div>}
+      {action && (
+        <div className={classes.action}>
+          <Hr />
+          {action}
+        </div>
+      )}
     </>
   );
 };
