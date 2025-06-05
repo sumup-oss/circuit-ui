@@ -30,6 +30,7 @@ import {
   isSuggestionFocused,
 } from '../../AutocompleteService.js';
 import { Spinner } from '../../../Spinner/index.js';
+import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './SuggestionBox.module.css';
 
@@ -99,7 +100,7 @@ export const SuggestionBox = ({
       ref={suggestionBoxRef}
       aria-label={label}
       tabIndex={-1}
-      className={classes.base}
+      className={clsx(classes.base, isLoading && classes.loading)}
       onScroll={loadMore ? onScroll : undefined}
     >
       {suggestions.map((suggestion) => {

@@ -173,14 +173,14 @@ describe('Autocomplete', () => {
       (useMedia as Mock).mockReturnValue(false);
     });
     it('should open in a modal dialog', async () => {
-      render(<Autocomplete {...props} />);
+      render(<Autocomplete {...props} modalMobileView />);
       const input = screen.getByText(props.label);
 
       await userEvent.click(input);
       expect(screen.getByRole('dialog')).toBeVisible();
     });
     it('should call onClear', async () => {
-      render(<Autocomplete {...props} value="luna" />);
+      render(<Autocomplete {...props} modalMobileView value="luna" />);
       const clearButton = screen.getByRole('button', { name: 'Clear' });
 
       await userEvent.click(clearButton);
@@ -188,7 +188,7 @@ describe('Autocomplete', () => {
       expect(props.onChange).toHaveBeenCalledOnce();
     });
     it('should call onChange when user types in field', async () => {
-      render(<Autocomplete {...props} />);
+      render(<Autocomplete {...props} modalMobileView />);
       const input = screen.getByText(props.label);
 
       await userEvent.click(input);
@@ -200,7 +200,7 @@ describe('Autocomplete', () => {
       expect(props.onChange).toHaveBeenCalledOnce();
     });
     it('should select a value, call onSelection and close dialog', async () => {
-      render(<Autocomplete {...props} openOnFocus />);
+      render(<Autocomplete {...props} modalMobileView />);
       const input = screen.getByText(props.label);
       await userEvent.click(input);
       expect(screen.getByRole('dialog')).toBeVisible();
@@ -219,7 +219,9 @@ describe('Autocomplete', () => {
 
     it('should render with selected value', async () => {
       const selectedValue = suggestions[0];
-      render(<Autocomplete {...props} value={selectedValue.value} />);
+      render(
+        <Autocomplete {...props} modalMobileView value={selectedValue.value} />,
+      );
       const input = screen.getByLabelText(props.label);
       expect(input).toHaveValue(selectedValue.label);
       await userEvent.click(input);
@@ -231,7 +233,7 @@ describe('Autocomplete', () => {
       );
     });
     it('should close dialog when cancel button is clicked', async () => {
-      render(<Autocomplete {...props} />);
+      render(<Autocomplete {...props} modalMobileView />);
       const input = screen.getByText(props.label);
       await userEvent.click(input);
       expect(screen.getByRole('dialog')).toBeVisible();
@@ -271,6 +273,7 @@ describe('Autocomplete', () => {
       expect(screen.getByText(message)).toBeVisible();
     });
   });
+
   describe('no results state', () => {
     it('should render no results message when no results are found', async () => {
       render(<Autocomplete {...props} suggestions={[]} openOnFocus />);
