@@ -16,17 +16,10 @@
 'use client';
 
 import type { IconComponentType } from '@sumup-oss/icons';
-import {
-  type HTMLAttributes,
-  type KeyboardEvent,
-  useEffect,
-  useId,
-  useRef,
-} from 'react';
+import { type HTMLAttributes, useEffect, useId, useRef } from 'react';
 
 import { clsx } from '../../../../styles/clsx.js';
 import { Compact } from '../../../Compact/index.js';
-import { isEnter, isSpacebar } from '../../../../util/key-codes.js';
 
 import classes from './Suggestion.module.css';
 import { Checkmark } from './Checkmark.js';
@@ -73,13 +66,7 @@ export const Suggestion = ({
 }: SuggestionProps) => {
   const labelId = useId();
   const suggestionRef = useRef<HTMLLIElement>(null);
-  const onSuggestionKeydown = (event: KeyboardEvent<HTMLLIElement>) => {
-    if (isEnter(event) || isSpacebar(event)) {
-      onSuggestionClicked(value);
-    } else {
-      props.onKeyDown?.(event);
-    }
-  };
+
   useEffect(() => {
     if (isFocused) {
       suggestionRef?.current?.scrollIntoView({
@@ -102,7 +89,6 @@ export const Suggestion = ({
       )}
       aria-selected={selected}
       aria-labelledby={labelId}
-      onKeyDown={onSuggestionKeydown}
       onClick={() => onSuggestionClicked(value)}
     >
       {leadingMedia && (

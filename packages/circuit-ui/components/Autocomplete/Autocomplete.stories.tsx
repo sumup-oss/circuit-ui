@@ -96,6 +96,11 @@ export const Base = (args: AutocompleteProps) => {
   const onSelection = (value: string) => {
     setAutocompleteValue(value);
   };
+
+  const onClear = () => {
+    setAutocompleteValue('');
+  };
+
   return (
     <Autocomplete
       {...args}
@@ -103,6 +108,7 @@ export const Base = (args: AutocompleteProps) => {
       suggestions={suggestions}
       onChange={onSearchTextChange}
       onSelection={onSelection}
+      onClear={onClear}
     />
   );
 };
