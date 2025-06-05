@@ -255,14 +255,16 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     );
 
     const onSearchTextClick = useCallback(() => {
-      if (
-        value ||
-        openOnFocus ||
-        (searchText.length > 0 && suggestions.length > 0)
-      ) {
+      if (value || openOnFocus || suggestions.length > 0) {
         openSuggestionBox();
+        if (isMobile) {
+          textBoxRef.current?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
+        }
       }
-    }, [openOnFocus, openSuggestionBox, value, searchText, suggestions]);
+    }, [openOnFocus, openSuggestionBox, value, suggestions, isMobile]);
 
     const { floatingStyles, refs, update } = useFloating<HTMLElement>({
       open: isOpen,
