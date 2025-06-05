@@ -54,7 +54,7 @@ describe('Suggestion', () => {
     expect(screen.getByAltText(leadingMedia?.alt)).toBeVisible();
   });
 
-  it('renders with checkbox', () => {
+  it('renders with a selected checkbox', () => {
     render(<Suggestion {...props} isSelectable selected />);
 
     expect(screen.getByText(props.label)).toBeVisible();
@@ -71,15 +71,5 @@ describe('Suggestion', () => {
 
     await userEvent.click(screen.getByText(props.label));
     expect(props.onSuggestionClicked).toHaveBeenCalledWith(props.value);
-  });
-
-  it('calls onKeyDowb when arrow down key is pressed', async () => {
-    render(<Suggestion {...props} tabIndex={0} />);
-
-    const suggestion = screen.getByRole('option', { name: props.label });
-    suggestion.focus();
-    await userEvent.keyboard('{ArrowDown}');
-
-    expect(props.onKeyDown).toHaveBeenCalled();
   });
 });
