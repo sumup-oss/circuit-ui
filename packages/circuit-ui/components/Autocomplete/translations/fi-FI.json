@@ -1,5 +1,6 @@
 {
   "noResultsMessage": "Ei tuloksia",
   "loadingLabel": "Lataa...",
-  "cancel": "Peruuta"
+  "cancel": "Peruuta",
+  "resultsFound": "tulosta löytyi"
 }

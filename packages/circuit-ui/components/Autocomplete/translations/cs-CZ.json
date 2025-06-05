@@ -1,5 +1,6 @@
 {
   "noResultsMessage": "Žádné výsledky",
   "loadingLabel": "Načítám",
-  "cancel": "Zrušit"
+  "cancel": "Zrušit",
+  "resultsFound": "nalezených výsledků"
 }

@@ -1,5 +1,6 @@
 {
   "noResultsMessage": "Ingen resultater",
   "loadingLabel": "Henter",
-  "cancel": "Annuller"
+  "cancel": "Annuller",
+  "resultsFound": "resultater fundet"
 }

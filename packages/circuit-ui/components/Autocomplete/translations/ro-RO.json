@@ -1,5 +1,6 @@
 {
   "noResultsMessage": "Nu există rezultate",
   "loadingLabel": "Se încarcă",
-  "cancel": "Anulează"
+  "cancel": "Anulează",
+  "resultsFound": "rezultate găsite"
 }

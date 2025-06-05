@@ -1,5 +1,6 @@
 {
   "noResultsMessage": "Tulemusi pole",
   "loadingLabel": "Laeb",
-  "cancel": "Tühista"
+  "cancel": "Tühista",
+  "resultsFound": "tulemust leitud"
 }
