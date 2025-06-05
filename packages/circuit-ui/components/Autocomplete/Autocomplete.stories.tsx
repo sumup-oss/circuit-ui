@@ -14,7 +14,7 @@
  */
 
 import { type ChangeEvent, useState } from 'react';
-import { Add, ExternalLink, Favorite, Refresh } from '@sumup-oss/icons';
+import { Add, ExternalLink } from '@sumup-oss/icons';
 import { screen, userEvent, within } from 'storybook/test';
 import { action } from 'storybook/actions';
 
@@ -154,7 +154,6 @@ export const Loading = (args: AutocompleteProps) => {
 Loading.args = {
   ...baseArgs,
   isLoading: true,
-  loadingLabel: 'Loading...',
 };
 Loading.play = openAutocomplete('With empty results', 'Loading...');
 
@@ -165,6 +164,7 @@ export const NoResults = (args: AutocompleteProps) => (
     noResultsMessage={
       <div
         style={{
+          padding: 'var(--cui-spacings-mega)',
           gap: 'var(--cui-spacings-mega)',
           display: 'flex',
           flexDirection: 'column',
@@ -228,58 +228,12 @@ export const LoadMore = (args: AutocompleteProps) => {
 LoadMore.args = { ...baseArgs, suggestions: catNames.slice(0, 15) };
 LoadMore.play = openAutocomplete();
 
-export const DefaultSuggestions = (args: AutocompleteProps) => (
+export const ModalView = (args: AutocompleteProps) => (
   <Autocomplete {...args} openOnFocus />
 );
 
-DefaultSuggestions.args = {
-  ...baseArgs,
-  suggestions: [
-    {
-      label: 'Favorites',
-      suggestions: [
-        {
-          label: 'Ziggy',
-          value: 'ziggy',
-          description: 'High-energy troublemaker',
-          leadingMedia: {
-            icon: Favorite,
-          },
-        },
-        {
-          label: 'Bella',
-          value: 'bella',
-          description: 'Expects royal treatment at all times',
-          leadingMedia: {
-            icon: Favorite,
-          },
-        },
-      ],
-    },
-    {
-      label: 'History',
-      suggestions: [
-        {
-          label: 'Winston',
-          value: 'winston',
-          description: 'Loves contemplating sunbeams',
-          leadingMedia: {
-            icon: Refresh,
-          },
-        },
-        {
-          label: 'Pepper',
-          value: 'pepper',
-          description: 'Spicy personality',
-          leadingMedia: {
-            icon: Refresh,
-          },
-        },
-      ],
-    },
-  ],
-};
-DefaultSuggestions.play = focusAutocomplete();
+ModalView.args = { ...baseArgs, modalMobileView: true };
+ModalView.play = focusAutocomplete();
 
 export const AllowNewItems = (args: AutocompleteProps) => {
   const [autocompleteValue, setAutocompleteValue] = useState(args.value);

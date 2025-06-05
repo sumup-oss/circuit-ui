@@ -48,15 +48,15 @@ import { debounce } from '../../util/helpers.js';
 import { Modal } from '../Modal/index.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 import { Button } from '../Button/Button.js';
+import { clsx } from '../../styles/clsx.js';
+import { Body } from '../Body/index.js';
+import { Spinner } from '../Spinner/index.js';
 
 import { translations } from './translations/index.js';
 import type { AutocompleteSuggestions } from './components/SuggestionBox/SuggestionBox.js';
 import classes from './Autocomplete.module.css';
 import { getSuggestionLabelByValue } from './AutocompleteService.js';
 import { AutocompleteResults } from './components/AutocompleteResults/AutocompleteResults.js';
-import { clsx } from '../../styles/clsx.js';
-import { Body } from '../Body/index.js';
-import { Spinner } from '../Spinner/index.js';
 
 export type AutocompleteProps = Omit<
   SearchInputProps,
@@ -104,9 +104,13 @@ export type AutocompleteProps = Omit<
    */
   openOnFocus?: boolean;
   /**
-   * Whether to allow the selection of items that are not in the suggestions list.
+   * Whether to allow the selection of items that are not in the suggestion list.
    */
   allowNewItems?: boolean;
+  /**
+   * On narrow screens, opens the suggestion list in a modal view for an immersive, focused experience.
+   */
+  modalMobileView?: boolean;
   /**
    * One of the accepted placement values.
    * @default `bottom`.
@@ -158,6 +162,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       allowNewItems,
       className,
       inputClassName,
+      modalMobileView,
       ...props
     },
     ref,
@@ -288,7 +293,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
        * element using CSS instead of using conditional rendering.
        * See https://floating-ui.com/docs/react-dom#updating
        */
-      if (isOpen && !isMobile) {
+      if (isOpen) {
         update();
         window.addEventListener('resize', update);
         window.addEventListener('scroll', update);
@@ -301,7 +306,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
         window.removeEventListener('resize', update);
         window.removeEventListener('scroll', update);
       };
-    }, [isOpen, update, suggestions, isMobile]);
+    }, [isOpen, update, suggestions]);
 
     const handleClickOutside = useCallback(() => {
       if (!isMobile) {
@@ -371,7 +376,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       />
     );
 
-    if (isMobile) {
+    if (isMobile && modalMobileView) {
       return (
         <>
           <SearchInput

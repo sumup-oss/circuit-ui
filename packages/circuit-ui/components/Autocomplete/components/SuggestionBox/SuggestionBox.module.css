@@ -4,11 +4,11 @@
   overflow-y: auto;
 }
 
-.base[aria-busy="true"] {
+.loading {
   overflow-y: hidden;
 }
 
-.base[aria-busy="true"]::before {
+.loading::before {
   position: fixed;
   top: 0;
   left: 0;
@@ -46,6 +46,7 @@ li:last-of-type {
 .spinner {
   margin: var(--cui-spacings-byte) auto;
 }
+
 @media (max-width: 767px) {
   .base {
     padding: var(--cui-spacings-mega) 2px;
