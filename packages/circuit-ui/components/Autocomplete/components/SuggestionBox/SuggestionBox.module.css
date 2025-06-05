@@ -1,5 +1,8 @@
 .base {
   position: relative;
+  height: inherit;
+  max-height: inherit;
+  padding: var(--cui-spacings-mega);
   margin: 0;
   overflow-y: auto;
 }
@@ -16,10 +19,7 @@
   width: 100%;
   height: 100%;
   content: "";
-  background-color: var(
-    --cui-bg-normal
-  ); /* Change the color and opacity as needed */
-
+  background-color: var(--cui-bg-normal);
   opacity: 0.5;
 }
 
@@ -45,18 +45,4 @@ li:last-of-type {
 
 .spinner {
   margin: var(--cui-spacings-byte) auto;
-}
-
-@media (max-width: 767px) {
-  .base {
-    padding: var(--cui-spacings-mega) 2px;
-  }
-}
-
-@media (min-width: 768px) {
-  .base {
-    height: inherit;
-    max-height: inherit;
-    padding: var(--cui-spacings-mega);
-  }
 }

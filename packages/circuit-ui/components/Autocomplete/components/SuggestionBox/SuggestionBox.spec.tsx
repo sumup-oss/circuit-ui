@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { fireEvent } from '@testing-library/react';
 
@@ -30,11 +29,10 @@ import { SuggestionBox, type SuggestionBoxProps } from './SuggestionBox.js';
 
 const props: SuggestionBoxProps = {
   suggestions,
-  suggestionValues: suggestions.map((suggestion) => suggestion.value),
   onSuggestionClicked: vi.fn(),
-  loadMore: vi.fn(),
+  loadMoreOnScrollDown: vi.fn(),
   label: 'label',
-  autocompleteId: 'autocomplete-id',
+  suggestionIdPrefix: 'autocomplete-id',
   value: '',
 };
 
@@ -68,7 +66,7 @@ describe('SuggestionBox', () => {
   });
 
   it('applies correct tabIndex based on active suggestion', () => {
-    render(
+    const { rerender } = render(
       <SuggestionBox
         {...props}
         suggestions={[mochi, luna, oliver]}
@@ -80,15 +78,32 @@ describe('SuggestionBox', () => {
     expect(boxSuggestions[0]).toHaveAttribute('tabIndex', '0');
     expect(boxSuggestions[1]).toHaveAttribute('tabIndex', '-1');
     expect(boxSuggestions[2]).toHaveAttribute('tabindex', '-1');
+
+    rerender(
+      <SuggestionBox
+        {...props}
+        suggestions={[mochi, luna, oliver]}
+        activeSuggestion={2}
+      />,
+    );
+    expect(boxSuggestions[0]).toHaveAttribute('tabIndex', '-1');
+    expect(boxSuggestions[1]).toHaveAttribute('tabIndex', '-1');
+    expect(boxSuggestions[2]).toHaveAttribute('tabindex', '0');
   });
 
-  it('shows loading spinner when isLoading is true and has loadMore prop', () => {
-    render(<SuggestionBox {...props} isLoading={true} loadMore={vi.fn()} />);
+  it('shows a loading spinner when isLoading is true and has loadMore prop', () => {
+    render(
+      <SuggestionBox
+        {...props}
+        isLoading={true}
+        loadMoreOnScrollDown={vi.fn()}
+      />,
+    );
 
     expect(screen.getByTestId('suggestions-loading')).toBeVisible();
   });
 
-  it("should render unfound suggestion when searchText doesn't match any suggestions", async () => {
+  it("suggests a new entry when searchText doesn't match any suggestions and allowNewItems is set to true", async () => {
     render(<SuggestionBox {...props} searchText={'Chewbacca'} allowNewItems />);
     const newSuggestion = screen.getByRole('option', { name: 'Chewbacca' });
     expect(newSuggestion).toBeVisible();
@@ -98,7 +113,7 @@ describe('SuggestionBox', () => {
 
   it('calls loadMore when scrolled to the bottom and loadMore is provided', async () => {
     const loadMoreMock = vi.fn();
-    render(<SuggestionBox {...props} loadMore={loadMoreMock} />);
+    render(<SuggestionBox {...props} loadMoreOnScrollDown={loadMoreMock} />);
 
     const suggestionBox = screen.getByRole('listbox');
     fireEvent.scroll(suggestionBox, { top: suggestionBox.scrollHeight });
