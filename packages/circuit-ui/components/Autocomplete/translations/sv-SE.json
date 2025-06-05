@@ -1,5 +1,6 @@
 {
   "noResultsMessage": "Inga resultat",
   "loadingLabel": "Hämtar",
-  "cancel": "Avbryt"
+  "cancel": "Avbryt",
+  "resultsFound": "resultat hittades"
 }

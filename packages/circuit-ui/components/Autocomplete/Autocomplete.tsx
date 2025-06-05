@@ -172,7 +172,8 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       noResultsMessage: defaultNoResultsMessage,
       loadingLabel: defaultLoadingLabel,
       cancel: cancelButtonLabel,
-    } = useI18n({ locale: locale }, translations);
+      resultsFound,
+    } = useI18n({ locale }, translations);
 
     const [searchText, setSearchText] = useState<string>(
       getSuggestionLabelByValue(suggestions, value) ?? '',
@@ -271,6 +272,23 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       ],
     });
 
+    const onSuggestionClicked = useCallback(
+      (selectedValue: string) => {
+        onSelection(selectedValue);
+        changeInputValue(
+          textBoxRef.current,
+          getSuggestionLabelByValue(suggestions, selectedValue),
+        );
+        closeSuggestionBox();
+        if (isMobile && modalMobileView) {
+          setPresentationFieldValue(
+            getSuggestionLabelByValue(suggestions, selectedValue),
+          );
+        }
+      },
+      [suggestions, onSelection, closeSuggestionBox, isMobile, modalMobileView],
+    );
+
     const onInputKeyDown: KeyboardEventHandler<HTMLInputElement> = useCallback(
       (event) => {
         if (isOpen) {
@@ -307,6 +325,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
         openSuggestionBox,
         refs.floating,
         suggestionValues,
+        onSuggestionClicked,
       ],
     );
 
@@ -343,23 +362,6 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     useEscapeKey(closeSuggestionBox, isOpen);
 
     useClickOutside([textBoxRef, refs.floating], handleClickOutside);
-
-    const onSuggestionClicked = useCallback(
-      (selectedValue: string) => {
-        onSelection(selectedValue);
-        changeInputValue(
-          textBoxRef.current,
-          getSuggestionLabelByValue(suggestions, selectedValue),
-        );
-        closeSuggestionBox();
-        if (isMobile && modalMobileView) {
-          setPresentationFieldValue(
-            getSuggestionLabelByValue(suggestions, selectedValue),
-          );
-        }
-      },
-      [suggestions, onSelection, closeSuggestionBox, isMobile, modalMobileView],
-    );
 
     useEffect(() => {
       if ((props.readOnly || props.disabled) && isOpen) {
@@ -444,7 +446,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
                 autocompleteId={autocompleteId}
                 allowNewItems={allowNewItems}
                 searchText={searchText}
-                resultsSummary={`${suggestionValues.length} results found.`}
+                resultsSummary={`${suggestionValues.length} ${resultsFound}.`}
               />
             </div>
           </Modal>
@@ -499,7 +501,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
               autocompleteId={autocompleteId}
               allowNewItems={allowNewItems}
               searchText={searchText}
-              resultsSummary={`${suggestionValues.length} results found.`}
+              resultsSummary={`${suggestionValues.length} ${resultsFound}.`}
             />
           </div>
         )}

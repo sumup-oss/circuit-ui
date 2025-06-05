@@ -1,5 +1,6 @@
 {
   "noResultsMessage": "Няма резултати",
   "loadingLabel": "Зареждане",
-  "cancel": "Отказ"
+  "cancel": "Отказ",
+  "resultsFound": "намерени резултати"
 }
