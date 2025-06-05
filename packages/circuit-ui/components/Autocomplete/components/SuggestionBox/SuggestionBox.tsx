@@ -193,7 +193,7 @@ export const SuggestionBox = ({
           <Suggestion
             value={searchText}
             label={searchText}
-            leadingMedia={{ icon: Plus }}
+            icon={Plus}
             onSuggestionClicked={onSuggestionClicked}
             selected={value === searchText}
             isSelectable={isSelectable}

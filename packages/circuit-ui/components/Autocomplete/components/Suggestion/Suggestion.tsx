@@ -24,26 +24,13 @@ import { Compact } from '../../../Compact/index.js';
 import classes from './Suggestion.module.css';
 import { Checkmark } from './Checkmark.js';
 
-type LeadingMedia =
-  | {
-      icon: IconComponentType;
-    }
-  | {
-      src: string;
-      alt: string;
-    };
-
-const isIcon = (media: LeadingMedia): media is { icon: IconComponentType } =>
-  media && 'icon' in media;
-const isImage = (media: LeadingMedia): media is { src: string; alt: string } =>
-  media && 'src' in media;
-
 export type AutocompleteSuggestion = {
   value: string;
   label: string;
   description?: string;
   selected?: boolean;
-  leadingMedia?: LeadingMedia;
+  icon?: IconComponentType;
+  image?: string;
 };
 
 export type SuggestionProps = HTMLAttributes<HTMLLIElement> &
@@ -56,8 +43,9 @@ export type SuggestionProps = HTMLAttributes<HTMLLIElement> &
 export const Suggestion = ({
   label,
   description,
+  image,
+  icon: Icon,
   selected,
-  leadingMedia,
   isSelectable,
   isFocused,
   onSuggestionClicked,
@@ -75,6 +63,7 @@ export const Suggestion = ({
       });
     }
   }, [isFocused]);
+
   return (
     <li
       tabIndex={0}
@@ -88,22 +77,21 @@ export const Suggestion = ({
         selected && classes.selected,
       )}
       aria-selected={selected}
-      aria-labelledby={labelId}
       onClick={() => onSuggestionClicked(value)}
     >
-      {leadingMedia && (
+      {(image || Icon) && (
         <div className={classes.media}>
-          {isIcon(leadingMedia) && (
+          {Icon && (
             <div
               aria-hidden
               data-testid={`suggestion-icon-${value}`}
               className={classes.icon}
             >
-              <leadingMedia.icon size="16" />
+              <Icon size="16" />
             </div>
           )}
-          {isImage(leadingMedia) && (
-            <img src={leadingMedia.src} alt={leadingMedia.alt} />
+          {image && (
+            <img data-testid={`suggestion-image-${value}`} src={image} alt="" />
           )}
         </div>
       )}
