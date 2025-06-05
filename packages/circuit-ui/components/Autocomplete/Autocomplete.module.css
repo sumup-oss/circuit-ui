@@ -4,7 +4,7 @@
 
 .popup {
   z-index: var(--cui-z-index-popover);
-  max-height: min(400px, var(--suggestion-box-max-height));
+  max-height: min(443px, var(--suggestion-box-max-height));
   margin: 0;
   overflow-y: auto;
   background-color: var(--cui-bg-normal);
@@ -52,7 +52,6 @@
   padding: var(--cui-spacings-mega);
 }
 
-
 .loading {
   gap: var(--cui-spacings-byte);
 }
@@ -67,6 +66,7 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
