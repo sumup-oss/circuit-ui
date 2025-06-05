@@ -125,13 +125,12 @@ export const Suggestion = ({
         <Compact
           id={labelId}
           size="s"
-          weight="bold"
-          color={selected ? 'on-strong' : 'normal'}
+          weight={description ? 'bold' : 'regular'}
         >
           {label}
         </Compact>
         {description && (
-          <Compact size="s" color={selected ? 'on-strong-subtle' : 'subtle'}>
+          <Compact size="s" color="subtle">
             {description}
           </Compact>
         )}
