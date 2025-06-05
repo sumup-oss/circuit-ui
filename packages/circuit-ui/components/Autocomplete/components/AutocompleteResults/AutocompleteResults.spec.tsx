@@ -26,7 +26,7 @@ import {
 const props: AutocompleteResultsProps = {
   suggestions,
   onSuggestionClicked: vi.fn(),
-  autocompleteId: 'autocomplete-id',
+  suggestionIdPrefix: 'autocomplete-id',
   value: '',
   label: 'label',
   resultsSummary: 'results summary',
@@ -54,19 +54,19 @@ describe('AutocompleteResults', () => {
     );
   });
 
-  it('should render live region', () => {
+  it('renders a live region', () => {
     render(<AutocompleteResults {...props} />);
 
     expect(screen.getByRole('status')).toHaveTextContent('results summary');
   });
 
   describe('loading state', () => {
-    it('should render live region as busy when loading', () => {
+    it('renders live region as busy when loading', () => {
       render(<AutocompleteResults {...props} isLoading />);
 
       expect(screen.getByRole('status')).toHaveAttribute('aria-busy', 'true');
     });
-    it('should render loading message when isLoading is true and suggestions are empty', () => {
+    it('renders loading message when isLoading is true and suggestions are empty', () => {
       render(
         <AutocompleteResults
           {...props}
@@ -81,22 +81,8 @@ describe('AutocompleteResults', () => {
   });
 
   describe('empty results state', () => {
-    it('should render no results message when suggestions are empty and not loading', () => {
+    it('renders no results message when suggestions are empty and not loading', () => {
       const noResultsMessage = 'No results found';
-      render(
-        <AutocompleteResults
-          {...props}
-          suggestions={[]}
-          noResultsMessage={noResultsMessage}
-        />,
-      );
-
-      expect(screen.getByText(noResultsMessage)).toBeVisible();
-    });
-
-    it('should render no results message when suggestions are empty and not loading', () => {
-      const noResultsMessage =
-        "Was not able to find the address you're looking for";
       render(
         <AutocompleteResults
           {...props}
