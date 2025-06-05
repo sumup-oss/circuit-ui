@@ -1,4 +1,5 @@
 {
   "noResultsMessage": "Ingen resultater",
-  "loadingLabel": "Laster"
+  "loadingLabel": "Laster",
+  "cancel": "Avbryt"
 }

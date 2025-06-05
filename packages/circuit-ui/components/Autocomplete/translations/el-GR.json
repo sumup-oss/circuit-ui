@@ -1,4 +1,5 @@
 {
   "noResultsMessage": "Δεν υπάρχουν αποτελέσματα",
-  "loadingLabel": "Φόρτωση"
+  "loadingLabel": "Φόρτωση",
+  "cancel": "Ακύρωση"
 }

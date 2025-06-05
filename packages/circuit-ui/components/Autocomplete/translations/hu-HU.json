@@ -1,4 +1,5 @@
 {
   "noResultsMessage": "Nincs találat",
-  "loadingLabel": "Betöltés"
+  "loadingLabel": "Betöltés",
+  "cancel": "Mégse"
 }

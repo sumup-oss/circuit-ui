@@ -1,4 +1,5 @@
 {
   "noResultsMessage": "Aucun résultat",
-  "loadingLabel": "Chargement"
+  "loadingLabel": "Chargement",
+  "cancel": "Annuler"
 }

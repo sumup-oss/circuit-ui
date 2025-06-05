@@ -1,4 +1,5 @@
 {
   "noResultsMessage": "Inga resultat",
-  "loadingLabel": "Hämtar"
+  "loadingLabel": "Hämtar",
+  "cancel": "Avbryt"
 }
