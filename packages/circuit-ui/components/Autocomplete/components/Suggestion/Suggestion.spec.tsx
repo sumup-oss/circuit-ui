@@ -22,16 +22,11 @@ import { Suggestion, type SuggestionProps } from './Suggestion.js';
 
 const description = 'A gentle giant';
 
-const leadingMedia = {
-  src: '/images/illustration-cat-mochi.jpg',
-  alt: 'Image of Mochi taking a nap',
-};
-
 const props: SuggestionProps = {
   label: 'Mochi',
   value: 'mochi',
   description,
-  leadingMedia,
+  image: '/images/illustration-cat-mochi.jpg',
   isSelectable: false,
   isFocused: false,
   onSuggestionClicked: vi.fn(),
@@ -40,7 +35,7 @@ const props: SuggestionProps = {
 
 describe('Suggestion', () => {
   it('renders with leading icon', () => {
-    render(<Suggestion {...props} leadingMedia={{ icon: Favorite }} />);
+    render(<Suggestion {...props} icon={Favorite} />);
 
     expect(screen.getByText(props.label)).toBeVisible();
     expect(screen.getByText(description)).toBeVisible();
@@ -51,7 +46,7 @@ describe('Suggestion', () => {
     render(<Suggestion {...props} />);
 
     expect(screen.getByText(props.label)).toBeVisible();
-    expect(screen.getByAltText(leadingMedia?.alt)).toBeVisible();
+    expect(screen.getByTestId(`suggestion-image-${props.value}`)).toBeVisible();
   });
 
   it('renders with a selected checkbox', () => {

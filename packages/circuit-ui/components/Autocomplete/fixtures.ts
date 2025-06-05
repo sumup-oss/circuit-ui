@@ -19,100 +19,70 @@ export const mochi: AutocompleteSuggestion = {
   label: 'Mochi',
   value: 'mochi',
   description: 'A gentle giant',
-  leadingMedia: {
-    src: '/images/illustration-cat-mochi.jpg',
-    alt: 'Image of Mochi taking a nap',
-  },
+  image: '/images/illustration-cat-mochi.jpg',
 };
 
 export const luna: AutocompleteSuggestion = {
   label: 'Luna',
   value: 'luna',
   description: 'Mischievous night owl',
-  leadingMedia: {
-    src: '/images/illustration-cat-luna.jpg',
-    alt: 'Image of luna mid sneeze',
-  },
+  image: '/images/illustration-cat-luna.jpg',
 };
 
 export const oliver: AutocompleteSuggestion = {
   label: 'Oliver',
   value: 'oliver',
   description: 'Distinguished gentleman',
-  leadingMedia: {
-    src: '/images/illustration-cat-oliver.jpg',
-    alt: 'Image of oliver resting',
-  },
+  image: '/images/illustration-cat-oliver.jpg',
 };
 
 const sushi: AutocompleteSuggestion = {
   label: 'Sushi',
   value: 'sushi',
   description: 'Playful acrobat',
-  leadingMedia: {
-    src: '/images/illustration-cat-sushi.jpg',
-    alt: 'Close up of sushi',
-  },
+  image: '/images/illustration-cat-sushi.jpg',
 };
 
 const shadow: AutocompleteSuggestion = {
   label: 'Shadow',
   value: 'shadow',
   description: 'Mysterious introvert',
-  leadingMedia: {
-    src: '/images/illustration-cat-shadow.jpg',
-    alt: 'Image of Shadow next to a keyboard',
-  },
+  image: '/images/illustration-cat-shadow.jpg',
 };
 
 const maple: AutocompleteSuggestion = {
   label: 'Maple',
   value: 'maple',
   description: 'Sweet and clingy',
-  leadingMedia: {
-    src: '/images/illustration-cat-maple.jpg',
-    alt: 'Image of Maple being cute',
-  },
+  image: '/images/illustration-cat-maple.jpg',
 };
 
 const ziggy: AutocompleteSuggestion = {
   label: 'Ziggy',
   value: 'ziggy',
   description: 'High-energy troublemaker',
-  leadingMedia: {
-    src: '/images/illustration-cat-ziggy.jpg',
-    alt: 'Image of Ziggy in a basket',
-  },
+  image: '/images/illustration-cat-ziggy.jpg',
 };
 
 const bella: AutocompleteSuggestion = {
   label: 'Bella',
   value: 'bella',
   description: 'Expects royal treatment at all times',
-  leadingMedia: {
-    src: '/images/illustration-cat-bella.jpg',
-    alt: 'Image of Bella with a crown',
-  },
+  image: '/images/illustration-cat-bella.jpg',
 };
 
 const winston: AutocompleteSuggestion = {
   label: 'Winston',
   value: 'winston',
   description: 'Loves contemplating sunbeams',
-  leadingMedia: {
-    src: '/images/illustration-cat-winston.jpg',
-    alt: 'Image of Winston in a sunbeam',
-  },
+  image: '/images/illustration-cat-winston.jpg',
 };
 
 const pepper: AutocompleteSuggestion = {
   label: 'Pepper',
   value: 'pepper',
   description: 'Spicy personality',
-  leadingMedia: {
-    src: '/images/illustration-cat-pepper.jpg',
-    alt: 'Image of oliver Pepper yawning',
-  },
+  image: '/images/illustration-cat-pepper.jpg',
 };
 
 export const suggestions = [
