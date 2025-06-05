@@ -16,32 +16,22 @@
 'use client';
 
 import { utilClasses } from '../../../../styles/utility.js';
-import { SuggestionBox } from '../SuggestionBox/SuggestionBox.js';
+import {
+  SuggestionBox,
+  type SuggestionBoxProps,
+} from '../SuggestionBox/SuggestionBox.js';
 import type { AutocompleteProps } from '../../Autocomplete.js';
 import { Hr } from '../../../Hr/index.js';
 
 import classes from './AutocompleteResults.module.css';
 
-export interface AutocompleteResultsProps
-  extends Pick<
+export type AutocompleteResultsProps = SuggestionBoxProps &
+  Pick<
     AutocompleteProps,
-    | 'suggestions'
-    | 'isLoading'
-    | 'loadingLabel'
-    | 'noResultsMessage'
-    | 'value'
-    | 'label'
-    | 'loadMore'
-    | 'readOnly'
-    | 'action'
-  > {
-  autocompleteId: string;
-  onSuggestionClicked: (value: string) => void;
-  activeSuggestion?: number;
-  allowNewItems?: boolean;
-  searchText?: string;
-  resultsSummary: string;
-}
+    'loadingLabel' | 'noResultsMessage' | 'loadMore' | 'readOnly' | 'action'
+  > & {
+    resultsSummary: string;
+  };
 
 export const AutocompleteResults = ({
   isLoading,
@@ -55,7 +45,7 @@ export const AutocompleteResults = ({
   loadMore,
   readOnly,
   action,
-  autocompleteId,
+  suggestionIdPrefix,
   allowNewItems,
   searchText,
   resultsSummary,
@@ -82,7 +72,7 @@ export const AutocompleteResults = ({
         suggestions={suggestions}
         onSuggestionClicked={onSuggestionClicked}
         label={label}
-        suggestionIdPrefix={autocompleteId}
+        suggestionIdPrefix={suggestionIdPrefix}
         activeSuggestion={activeSuggestion}
         aria-readonly={readOnly}
         isLoading={isLoading}
