@@ -1,6 +1,7 @@
 .base {
   display: flex;
   align-items: center;
+  min-height: 40px;
   padding: var(--cui-spacings-byte);
   margin-bottom: var(--cui-spacings-bit);
   cursor: pointer;
@@ -24,7 +25,7 @@
 }
 
 .selected {
-  background-color: var(--cui-bg-accent-strong);
+  background-color: var(--cui-bg-subtle);
 }
 
 .selected:focus,
