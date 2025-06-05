@@ -15,12 +15,9 @@
 
 'use client';
 
-import { useMemo } from 'react';
-
 import { utilClasses } from '../../../../styles/utility.js';
 import { SuggestionBox } from '../SuggestionBox/SuggestionBox.js';
 import type { AutocompleteProps } from '../../Autocomplete.js';
-import { isGroup } from '../../AutocompleteService.js';
 import { Hr } from '../../../Hr/index.js';
 
 import classes from './AutocompleteResults.module.css';
@@ -43,6 +40,7 @@ export interface AutocompleteResultsProps
   activeSuggestion?: number;
   allowNewItems?: boolean;
   searchText?: string;
+  resultsSummary: string;
 }
 
 export const AutocompleteResults = ({
@@ -60,18 +58,8 @@ export const AutocompleteResults = ({
   autocompleteId,
   allowNewItems,
   searchText,
-}: AutocompleteResultsProps) => {
-  const suggestionValues: string[] = useMemo(
-    () =>
-      suggestions
-        .flatMap((suggestion) =>
-          isGroup(suggestion) ? suggestion.suggestions : suggestion,
-        )
-        .map((suggestion) => suggestion.value),
-    [suggestions],
-  );
-
-  return (
+  resultsSummary,
+}: AutocompleteResultsProps) => (
     <>
       <div
         role="status"
@@ -79,7 +67,7 @@ export const AutocompleteResults = ({
         aria-busy={isLoading}
         className={utilClasses.hideVisually}
       >
-        {suggestionValues.length} results found
+        {resultsSummary}
       </div>
       {isLoading && suggestions.length === 0 && loadingLabel}
       {!isLoading &&
@@ -92,7 +80,6 @@ export const AutocompleteResults = ({
         <SuggestionBox
           value={value}
           suggestions={suggestions}
-          suggestionValues={suggestionValues}
           onSuggestionClicked={onSuggestionClicked}
           label={label}
           autocompleteId={autocompleteId}
@@ -112,4 +99,3 @@ export const AutocompleteResults = ({
       )}
     </>
   );
-};
