@@ -91,6 +91,25 @@ describe('Autocomplete', () => {
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
   });
 
+  it('should call onSelection when a suggestion Enter key pressed on input field', async () => {
+    render(<Autocomplete {...props} openOnFocus />);
+
+    // open suggestion box
+    const input = screen.getByLabelText(props.label);
+    await userEvent.click(input);
+    expect(screen.getByRole('listbox')).toBeVisible();
+    // select first suggestion
+    await userEvent.keyboard('{ArrowDown}');
+    expect(input).toHaveAttribute(
+      'aria-activedescendant',
+      `suggestion-${input.getAttribute('data-id')}-0`,
+    );
+    // press Enter
+    await userEvent.keyboard('{Enter}');
+
+    expect(props.onSelection).toHaveBeenCalledWith(props.suggestions[0].value);
+  });
+
   describe('opening the suggestion box', () => {
     it('should open suggestion box when suggestions are available', async () => {
       const { rerender } = render(<Autocomplete {...props} suggestions={[]} />);
@@ -107,6 +126,9 @@ describe('Autocomplete', () => {
       expect(listbox).toBeVisible();
 
       expect(screen.getAllByRole('option')).toHaveLength(suggestions.length);
+      expect(screen.getAllByRole('status')[1]).toHaveTextContent(
+        `${suggestions.length} results found`,
+      );
     });
 
     it('should open suggestion box on arrow down key press', async () => {
@@ -281,6 +303,9 @@ describe('Autocomplete', () => {
 
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
       expect(screen.getByText('No results')).toBeVisible();
+      expect(screen.getAllByRole('status')[1]).toHaveTextContent(
+        '0 results found',
+      );
     });
 
     it('should render custom no results message no results are found', async () => {

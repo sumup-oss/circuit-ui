@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 import { describe, expect, it, vi } from 'vitest';
 import { Favorite } from '@sumup-oss/icons';
 
@@ -71,19 +70,6 @@ describe('Suggestion', () => {
     render(<Suggestion {...props} />);
 
     await userEvent.click(screen.getByText(props.label));
-    expect(props.onSuggestionClicked).toHaveBeenCalledWith(props.value);
-  });
-
-  it.each([
-    ['space', '{ }'],
-    ['enter', '{Enter}'],
-  ])('calls onSuggestionClicked when %s key is pressed', async (_, key) => {
-    render(<Suggestion {...props} tabIndex={0} />);
-
-    const suggestion = screen.getByRole('option', { name: props.label });
-    suggestion.focus();
-    await userEvent.keyboard(key);
-
     expect(props.onSuggestionClicked).toHaveBeenCalledWith(props.value);
   });
 
