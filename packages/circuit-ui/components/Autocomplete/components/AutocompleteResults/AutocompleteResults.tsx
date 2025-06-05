@@ -60,42 +60,42 @@ export const AutocompleteResults = ({
   searchText,
   resultsSummary,
 }: AutocompleteResultsProps) => (
-    <>
-      <div
-        role="status"
-        aria-live="polite"
-        aria-busy={isLoading}
-        className={utilClasses.hideVisually}
-      >
-        {resultsSummary}
-      </div>
-      {isLoading && suggestions.length === 0 && loadingLabel}
-      {!isLoading &&
-        suggestions.length === 0 &&
-        !allowNewItems &&
-        noResultsMessage}
+  <>
+    <div
+      role="status"
+      aria-live="polite"
+      aria-busy={isLoading}
+      className={utilClasses.hideVisually}
+    >
+      {resultsSummary}
+    </div>
+    {isLoading && suggestions.length === 0 && loadingLabel}
+    {!isLoading &&
+      suggestions.length === 0 &&
+      !allowNewItems &&
+      noResultsMessage}
 
-      {(suggestions.length > 0 ||
-        (allowNewItems && suggestions.length === 0)) && (
-        <SuggestionBox
-          value={value}
-          suggestions={suggestions}
-          onSuggestionClicked={onSuggestionClicked}
-          label={label}
-          autocompleteId={autocompleteId}
-          activeSuggestion={activeSuggestion}
-          aria-readonly={readOnly}
-          isLoading={isLoading}
-          loadMore={loadMore}
-          searchText={searchText}
-          allowNewItems={allowNewItems}
-        />
-      )}
-      {action && (
-        <div className={classes.action}>
-          <Hr />
-          {action}
-        </div>
-      )}
-    </>
-  );
+    {(suggestions.length > 0 ||
+      (allowNewItems && suggestions.length === 0)) && (
+      <SuggestionBox
+        value={value}
+        suggestions={suggestions}
+        onSuggestionClicked={onSuggestionClicked}
+        label={label}
+        suggestionIdPrefix={autocompleteId}
+        activeSuggestion={activeSuggestion}
+        aria-readonly={readOnly}
+        isLoading={isLoading}
+        loadMoreOnScrollDown={loadMore}
+        searchText={searchText}
+        allowNewItems={allowNewItems}
+      />
+    )}
+    {action && (
+      <div className={classes.action}>
+        <Hr />
+        {action}
+      </div>
+    )}
+  </>
+);

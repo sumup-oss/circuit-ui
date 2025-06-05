@@ -48,14 +48,14 @@ export type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
   suggestions: AutocompleteSuggestions;
   isSelectable?: boolean;
   onSuggestionClicked: (value: string) => void;
-  loadMore?: () => void;
-  label: string;
-  autocompleteId: string;
-  activeSuggestion?: number;
-  value: AutocompleteProps['value'];
+  loadMoreOnScrollDown?: () => void;
   isLoading?: boolean;
-  allowNewItems?: boolean;
+  label: string;
+  suggestionIdPrefix: string;
+  activeSuggestion?: number;
   searchText?: string;
+  value: AutocompleteProps['value'];
+  allowNewItems?: boolean;
 };
 
 export const SuggestionBox = ({
@@ -63,11 +63,11 @@ export const SuggestionBox = ({
   onSuggestionClicked,
   isSelectable,
   label,
-  autocompleteId,
+  suggestionIdPrefix,
   activeSuggestion,
   value,
   isLoading = false,
-  loadMore,
+  loadMoreOnScrollDown,
   allowNewItems,
   searchText,
 }: SuggestionBoxProps) => {
@@ -84,6 +84,7 @@ export const SuggestionBox = ({
   );
 
   useEffect(() => {
+    // scroll the selected suggestion into view
     setTimeout(() => {
       suggestionBoxRef.current
         ?.querySelector('[aria-selected="true"]')
@@ -94,8 +95,9 @@ export const SuggestionBox = ({
   const onScroll = (event: UIEvent<HTMLUListElement>) => {
     const tracker = event.currentTarget;
     const limit = tracker.scrollHeight - tracker.clientHeight;
+    // if scrolled to the bottom of the list, call loadMore
     if (event.currentTarget.scrollTop === limit) {
-      loadMore?.();
+      loadMoreOnScrollDown?.();
     }
   };
 
@@ -108,7 +110,7 @@ export const SuggestionBox = ({
       aria-label={label}
       tabIndex={-1}
       className={clsx(classes.base, isLoading && classes.loading)}
-      onScroll={loadMore ? onScroll : undefined}
+      onScroll={loadMoreOnScrollDown ? onScroll : undefined}
     >
       {suggestions.map((suggestion) => {
         if (isGroup(suggestion)) {
@@ -133,7 +135,7 @@ export const SuggestionBox = ({
                     onSuggestionClicked={onSuggestionClicked}
                     isSelectable={isSelectable}
                     selected={value === suggestionItem.value}
-                    id={`suggestion-${autocompleteId}-${suggestionValues.indexOf(suggestionItem.value)}`}
+                    id={`suggestion-${suggestionIdPrefix}-${suggestionValues.indexOf(suggestionItem.value)}`}
                     isFocused={isSuggestionFocused(
                       suggestionValues,
                       suggestionItem.value,
@@ -162,7 +164,7 @@ export const SuggestionBox = ({
             onSuggestionClicked={onSuggestionClicked}
             selected={value === suggestion.value}
             isSelectable={isSelectable}
-            id={`suggestion-${autocompleteId}-${suggestionValues.indexOf(suggestion.value)}`}
+            id={`suggestion-${suggestionIdPrefix}-${suggestionValues.indexOf(suggestion.value)}`}
             isFocused={isSuggestionFocused(
               suggestionValues,
               suggestion.value,
@@ -182,6 +184,7 @@ export const SuggestionBox = ({
 
       {allowNewItems &&
         searchText &&
+        // make sure the search text is not already in the suggestions
         suggestionValues.indexOf(searchText.trim().toLowerCase()) === -1 && (
           <Suggestion
             value={searchText}
@@ -190,7 +193,7 @@ export const SuggestionBox = ({
             onSuggestionClicked={onSuggestionClicked}
             selected={value === searchText}
             isSelectable={isSelectable}
-            id={`suggestion-${autocompleteId}-${suggestionValues.length}`}
+            id={`suggestion-${suggestionIdPrefix}-${suggestionValues.length}`}
             isFocused={activeSuggestion === suggestionValues.length}
             tabIndex={
               !isLoading &&
@@ -203,7 +206,7 @@ export const SuggestionBox = ({
             aria-posinset={suggestionValues.length}
           />
         )}
-      {loadMore && isLoading && (
+      {loadMoreOnScrollDown && isLoading && (
         <Spinner
           data-testid="suggestions-loading"
           className={classes.spinner}
