@@ -31,6 +31,7 @@ import {
   flip,
   offset as offsetMiddleware,
   type Placement,
+  shift,
   size,
   type SizeOptions,
   useFloating,
@@ -140,6 +141,8 @@ const sizeOptions: SizeOptions = {
     );
   },
 };
+
+const boundaryPadding = 8;
 
 export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
   (
@@ -267,7 +270,8 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       strategy: 'fixed',
       middleware: [
         offsetMiddleware(8),
-        flip({ fallbackPlacements }),
+        shift({ padding: boundaryPadding }),
+        flip({ fallbackPlacements, padding: boundaryPadding }),
         size(sizeOptions),
       ],
     });
