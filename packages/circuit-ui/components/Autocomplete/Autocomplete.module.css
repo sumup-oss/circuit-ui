@@ -1,3 +1,8 @@
+.input {
+  /* to avoid the input resizing on focus */
+  padding-right: var(--cui-spacings-exa);
+}
+
 .popup {
   z-index: var(--cui-z-index-popover);
   max-height: min(443px, var(--suggestion-box-max-height));
