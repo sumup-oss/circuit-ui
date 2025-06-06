@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { Location } from '@sumup-oss/icons';
+
 import type { SuggestionType } from './components/Suggestion/Suggestion.js';
 
 export const mochi: SuggestionType = {
@@ -193,5 +195,38 @@ export const catNames: SuggestionType[] = [
   {
     label: 'Ginger',
     value: 'ginger',
+  },
+];
+
+export const addresses: SuggestionType[] = [
+  {
+    label: '123 Main St',
+    value: '123 Main St, Springfield, IL',
+    description: 'Springfield, IL',
+    icon: Location,
+  },
+  {
+    label: '456 Elm St',
+    value: '456 Elm St, Shelbyville, IL',
+    description: 'Shelbyville, IL',
+    icon: Location,
+  },
+  {
+    label: '789 Oak St',
+    value: '789 Oak St, Capital City, IL',
+    description: 'Capital City, IL',
+    icon: Location,
+  },
+  {
+    label: '101 Maple Ave',
+    value: '101 Maple Ave, Smalltown, IL',
+    description: 'Smalltown, IL',
+    icon: Location,
+  },
+  {
+    label: '202 Pine Rd, Big City, IL',
+    value: '202 Pine Rd, Big City, IL',
+    description: 'Big City, IL',
+    icon: Location,
   },
 ];

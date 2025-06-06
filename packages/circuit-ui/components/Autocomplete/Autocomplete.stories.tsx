@@ -24,6 +24,7 @@ import { Spinner } from '../Spinner/index.js';
 import { Stack } from '../../../../.storybook/components/index.js';
 
 import {
+  addresses,
   catNames,
   groupedSuggestions,
   suggestions as mockSuggestions,
@@ -59,7 +60,7 @@ const openAutocomplete =
     const canvas = within(canvasElement);
     const input = canvas.getByLabelText(label ?? baseArgs.label);
 
-    await userEvent.type(input, 'L');
+    await userEvent.click(input);
     await screen.findByText(text ?? 'Luna');
   };
 
@@ -130,7 +131,42 @@ export const Base = (args: AutocompleteProps) => {
   );
 };
 Base.args = baseArgs;
-// Base.play = openAutocomplete();
+Base.play = openAutocomplete();
+
+export const WithIcons = (args: AutocompleteProps) => {
+  const [autocompleteValue, setAutocompleteValue] = useState(args.value);
+  const [suggestions, setSuggestions] = useState(args.suggestions);
+  const onSearchTextChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const searchText = event.target.value;
+    setSuggestions(filterSuggestions(searchText, args.suggestions));
+  };
+  const onSelection = (value: string) => {
+    setAutocompleteValue(value);
+  };
+
+  const onClear = () => {
+    setAutocompleteValue('');
+  };
+
+  return (
+    <Autocomplete
+      {...args}
+      value={autocompleteValue}
+      suggestions={suggestions}
+      onChange={onSearchTextChange}
+      onSelection={onSelection}
+      onClear={onClear}
+    />
+  );
+};
+WithIcons.args = {
+  ...baseArgs,
+  suggestions: addresses,
+  label: 'Address',
+  placeholder: 'Type an address',
+  validationHint: undefined,
+};
+WithIcons.play = openAutocomplete('Address', '123 Main St');
 
 export const Grouped = (args: AutocompleteProps) => <Autocomplete {...args} />;
 
@@ -212,12 +248,14 @@ export const NoResults = (args: AutocompleteProps) => (
     <Autocomplete
       {...args}
       suggestions={[]}
+      openOnFocus
       label="Default no results message"
       validationHint="type something to see the no results message"
     />
     <Autocomplete
       {...args}
       suggestions={[]}
+      openOnFocus
       label="Custom no results message"
       validationHint="type something to see the no results message"
       noResultsMessage={
