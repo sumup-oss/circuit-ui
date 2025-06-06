@@ -163,7 +163,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       disabled,
       minQueryLength = 0,
       placement = 'bottom',
-      fallbackPlacements = ['top', 'right', 'left'],
+      fallbackPlacements = ['top'],
       action,
       loadMore,
       openOnFocus,
