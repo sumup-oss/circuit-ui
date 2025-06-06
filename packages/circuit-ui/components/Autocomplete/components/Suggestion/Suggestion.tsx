@@ -96,11 +96,7 @@ export const Suggestion = ({
         </div>
       )}
       <div className={classes.content}>
-        <Compact
-          id={labelId}
-          size="s"
-          weight={description ? 'bold' : 'regular'}
-        >
+        <Compact id={labelId} size="s" weight="semibold">
           {label}
         </Compact>
         {description && (
