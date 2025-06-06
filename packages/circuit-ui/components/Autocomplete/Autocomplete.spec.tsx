@@ -71,7 +71,7 @@ describe('Autocomplete', () => {
     expect(props.onChange).toHaveBeenCalledOnce();
   });
 
-  it('should call onChange when user types', async () => {
+  it('should call onChange when the user types', async () => {
     render(<Autocomplete {...props} />);
 
     await userEvent.type(screen.getByRole('combobox'), 'f');
@@ -81,9 +81,28 @@ describe('Autocomplete', () => {
     expect(props.onChange).toHaveBeenCalledOnce();
   });
 
-  it('should call onSelection when a suggestion is clicked', async () => {
+  it('should debounce onChange calls', async () => {
+    render(<Autocomplete {...props} />);
+    const input = screen.getByRole('combobox');
+
+    await userEvent.type(input, 'f');
+    expect(props.onChange).not.toHaveBeenCalled();
+
+    vi.advanceTimersByTime(100);
+
+    expect(props.onChange).not.toHaveBeenCalled();
+
+    await userEvent.type(input, 'oo');
+    expect(props.onChange).not.toHaveBeenCalled();
+
+    vi.advanceTimersByTime(300);
+
+    expect(props.onChange).toHaveBeenCalledOnce();
+  });
+
+  it('should call onSelection when a suggestion is clicked and close the suggestion box', async () => {
     render(<Autocomplete {...props} openOnFocus />);
-    await userEvent.click(screen.getByLabelText(props.label));
+    await userEvent.click(screen.getByRole('combobox', { name: props.label }));
     expect(screen.queryByRole('listbox')).toBeVisible();
 
     await userEvent.click(screen.getByText(suggestions[0].label));
@@ -91,11 +110,11 @@ describe('Autocomplete', () => {
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
   });
 
-  it('should call onSelection when a suggestion Enter key pressed on input field', async () => {
+  it('should call onSelection when Enter key pressed on a suggestion and close the suggestion box', async () => {
     render(<Autocomplete {...props} openOnFocus />);
 
     // open suggestion box
-    const input = screen.getByLabelText(props.label);
+    const input = screen.getByRole('combobox', { name: props.label });
     await userEvent.click(input);
     expect(screen.getByRole('listbox')).toBeVisible();
     // select first suggestion
@@ -108,12 +127,13 @@ describe('Autocomplete', () => {
     await userEvent.keyboard('{Enter}');
 
     expect(props.onSelection).toHaveBeenCalledWith(props.suggestions[0].value);
+    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
   });
 
-  describe('opening the suggestion box', () => {
+  describe('Opening the suggestion box', () => {
     it('should open suggestion box when suggestions are available', async () => {
       const { rerender } = render(<Autocomplete {...props} suggestions={[]} />);
-      const input = screen.getByLabelText(props.label);
+      const input = screen.getByRole('combobox', { name: props.label });
       await userEvent.type(input, 'f');
       act(() => {
         vi.runAllTimers();
@@ -144,24 +164,26 @@ describe('Autocomplete', () => {
     it('should open suggestion box on click when openOnFocus is set to true', async () => {
       render(<Autocomplete {...props} openOnFocus />);
 
-      await userEvent.click(screen.getByLabelText(props.label));
+      await userEvent.click(
+        screen.getByRole('combobox', { name: props.label }),
+      );
       expect(screen.getByRole('listbox')).toBeVisible();
     });
   });
 
   describe('closing the suggestion box', () => {
-    it('should close the suggestion box readOnly prop becomes truthy', async () => {
+    it('should close the suggestion box when the readOnly prop becomes truthy', async () => {
       const { rerender } = render(<Autocomplete {...props} openOnFocus />);
-      const input = screen.getByLabelText(props.label);
+      const input = screen.getByRole('combobox', { name: props.label });
       await userEvent.click(input);
       expect(screen.getByRole('listbox')).toBeVisible();
       rerender(<Autocomplete {...props} openOnFocus readOnly />);
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
     });
 
-    it('should close the suggestion box disabled prop becomes truthy', async () => {
+    it('should close the suggestion box when the disabled prop becomes truthy', async () => {
       const { rerender } = render(<Autocomplete {...props} openOnFocus />);
-      const input = screen.getByLabelText(props.label);
+      const input = screen.getByRole('combobox', { name: props.label });
       await userEvent.click(input);
       expect(screen.getByRole('listbox')).toBeVisible();
       rerender(<Autocomplete {...props} openOnFocus disabled />);
@@ -170,7 +192,7 @@ describe('Autocomplete', () => {
 
     it('should close the suggestion box when the escape key is pressed', async () => {
       render(<Autocomplete {...props} openOnFocus />);
-      const input = screen.getByLabelText(props.label);
+      const input = screen.getByRole('combobox', { name: props.label });
       await userEvent.click(input);
       expect(screen.getByRole('listbox')).toBeVisible();
       await userEvent.keyboard('{Escape}');
@@ -179,7 +201,7 @@ describe('Autocomplete', () => {
 
     it('should close the suggestion box on outside click', async () => {
       render(<Autocomplete {...props} openOnFocus />);
-      const input = screen.getByLabelText(props.label);
+      const input = screen.getByRole('combobox', { name: props.label });
       await userEvent.click(input);
       expect(screen.getByRole('listbox')).toBeVisible();
       await userEvent.click(document.body);
@@ -187,20 +209,22 @@ describe('Autocomplete', () => {
     });
   });
 
-  describe('on narrow viewports', () => {
+  describe('On narrow viewports', () => {
     beforeEach(() => {
       (useMedia as Mock).mockReturnValue(true);
     });
     afterAll(() => {
       (useMedia as Mock).mockReturnValue(false);
     });
+
     it('should open in a modal dialog', async () => {
       render(<Autocomplete {...props} modalMobileView />);
-      const input = screen.getByText(props.label);
+      const input = screen.getByRole('searchbox', { name: props.label });
 
       await userEvent.click(input);
       expect(screen.getByRole('dialog')).toBeVisible();
     });
+
     it('should call onClear', async () => {
       render(<Autocomplete {...props} modalMobileView value="luna" />);
       const clearButton = screen.getByRole('button', { name: 'Clear' });
@@ -209,9 +233,10 @@ describe('Autocomplete', () => {
       expect(props.onClear).toHaveBeenCalledOnce();
       expect(props.onChange).toHaveBeenCalledOnce();
     });
+
     it('should call onChange when user types in field', async () => {
       render(<Autocomplete {...props} modalMobileView />);
-      const input = screen.getByText(props.label);
+      const input = screen.getByRole('searchbox', { name: props.label });
 
       await userEvent.click(input);
       expect(screen.getByRole('dialog')).toBeVisible();
@@ -221,9 +246,10 @@ describe('Autocomplete', () => {
       });
       expect(props.onChange).toHaveBeenCalledOnce();
     });
-    it('should select a value, call onSelection and close dialog', async () => {
+
+    it('should select a value, call onSelection and close the dialog', async () => {
       render(<Autocomplete {...props} modalMobileView />);
-      const input = screen.getByText(props.label);
+      const input = screen.getByRole('searchbox', { name: props.label });
       await userEvent.click(input);
       expect(screen.getByRole('dialog')).toBeVisible();
       expect(screen.getByRole('listbox')).toBeVisible();
@@ -244,19 +270,20 @@ describe('Autocomplete', () => {
       render(
         <Autocomplete {...props} modalMobileView value={selectedValue.value} />,
       );
-      const input = screen.getByLabelText(props.label);
+      const input = screen.getByRole('searchbox', { name: props.label });
       expect(input).toHaveValue(selectedValue.label);
       await userEvent.click(input);
       const dialog = screen.getByRole('dialog');
       expect(dialog).toBeVisible();
       expect(screen.getByRole('listbox')).toBeVisible();
-      expect(within(dialog).getByRole('combobox')).toHaveValue(
-        selectedValue.label,
-      );
+      expect(
+        within(dialog).getByRole('combobox', { name: props.label }),
+      ).toHaveValue(selectedValue.label);
     });
-    it('should close dialog when cancel button is clicked', async () => {
+
+    it('should close dialog when the cancel button is clicked', async () => {
       render(<Autocomplete {...props} modalMobileView />);
-      const input = screen.getByText(props.label);
+      const input = screen.getByRole('searchbox', { name: props.label });
       await userEvent.click(input);
       expect(screen.getByRole('dialog')).toBeVisible();
       const cancelButton = screen.getByRole('button', { name: 'Cancel' });
@@ -268,8 +295,8 @@ describe('Autocomplete', () => {
     });
   });
 
-  describe('loading state', () => {
-    it('should render loading state when isLoading is true', async () => {
+  describe('Loading state', () => {
+    it('should render the default loading message when isLoading is true', async () => {
       render(
         <Autocomplete {...props} suggestions={[]} openOnFocus isLoading />,
       );
@@ -280,7 +307,7 @@ describe('Autocomplete', () => {
       expect(screen.getByTestId('suggestions-loading-spinner')).toBeVisible();
     });
 
-    it('should render custom loading message when suggestions are empty and isLoading is true', async () => {
+    it('should render custom loading message when isLoading is true', async () => {
       const message = 'Fetching your contacts...';
       render(
         <Autocomplete
@@ -296,8 +323,8 @@ describe('Autocomplete', () => {
     });
   });
 
-  describe('no results state', () => {
-    it('should render no results message when no results are found', async () => {
+  describe('No results state', () => {
+    it('should render the default no results message when no results are found', async () => {
       render(<Autocomplete {...props} suggestions={[]} openOnFocus />);
       await userEvent.click(screen.getByRole('combobox'));
 
@@ -308,7 +335,7 @@ describe('Autocomplete', () => {
       );
     });
 
-    it('should render custom no results message no results are found', async () => {
+    it('should render the custom no results message no results are found', async () => {
       const message = "Couldn't find any results";
       render(
         <Autocomplete
@@ -330,9 +357,23 @@ describe('Autocomplete', () => {
       expect(actual).toHaveNoViolations();
     });
 
-    it('should render with the right accessibility attributes');
+    it('should have the correct attributes', async () => {
+      render(<Autocomplete {...props} openOnFocus />);
+      const input = screen.getByLabelText(props.label);
+      expect(input).toHaveRole('combobox');
+      expect(input).toHaveAttribute('aria-autocomplete', 'list');
+      expect(input).toHaveAttribute('aria-expanded', 'false');
 
-    it('should apply correct aria-activedescendant attribute', async () => {
+      await userEvent.click(input);
+
+      const listbox = screen.getByRole('listbox');
+      expect(listbox).toBeVisible();
+      const popupId = listbox.parentElement?.getAttribute('id');
+      expect(input).toHaveAttribute('aria-controls', popupId);
+      expect(screen.getAllByRole('option')).toHaveLength(suggestions.length);
+    });
+
+    it('should apply the correct aria-activedescendant attribute', async () => {
       const { rerender } = render(
         <Autocomplete
           {...props}
@@ -367,23 +408,6 @@ describe('Autocomplete', () => {
         />,
       );
       expect(input).not.toHaveAttribute('aria-activedescendant');
-    });
-
-    it('should have the correct attributes', async () => {
-      render(<Autocomplete {...props} openOnFocus />);
-      const input = screen.getByLabelText(props.label);
-      expect(input).toHaveRole('combobox');
-      expect(input).toHaveAttribute('aria-autocomplete', 'list');
-      expect(input).toHaveAttribute('aria-expanded', 'false');
-
-      await userEvent.click(input);
-
-      const listbox = screen.getByRole('listbox');
-      expect(listbox).toBeVisible();
-      const popupId = listbox.parentElement?.getAttribute('id');
-      expect(input).toHaveAttribute('aria-controls', popupId);
-
-      expect(screen.getAllByRole('option')).toHaveLength(suggestions.length);
     });
   });
 });

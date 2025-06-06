@@ -1,11 +1,6 @@
-.input {
-  padding-right: var(--cui-spacings-exa);
-}
-
 .popup {
   z-index: var(--cui-z-index-popover);
   max-height: min(443px, var(--suggestion-box-max-height));
-  margin: 0;
   overflow-y: auto;
   background-color: var(--cui-bg-normal);
   border-radius: var(--cui-border-radius-byte);
@@ -22,7 +17,7 @@
   pointer-events: none;
   content: "";
   background: linear-gradient(
-    color-mix(in sRGB, var(--cui-bg-normal) 0%, transparent),
+    color-mix(in sRGB, var(--cui-bg-normal) 1%, transparent),
     color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
     color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent)
   );
@@ -31,6 +26,11 @@
 
 .modal {
   height: 90dvh;
+}
+
+.modal ul[role="listbox"] {
+  padding: 0;
+  margin-top: var(--cui-spacings-mega);
 }
 
 .modal > button {
@@ -54,20 +54,4 @@
 
 .loading {
   gap: var(--cui-spacings-byte);
-}
-
-@media (max-width: 767px) {
-  .input:focus {
-    animation: blink-input-opacity-to-prevent-scrolling-when-focus 0.01s;
-  }
-}
-
-@keyframes blink-input-opacity-to-prevent-scrolling-when-focus {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
 }

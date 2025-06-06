@@ -45,7 +45,8 @@ const baseArgs: AutocompleteProps = {
   placeholder: 'Whiskers',
   suggestions: mockSuggestions,
   validationHint: 'All our cats have been neutered and vaccinated.',
-  onSelection: (value: string) => action('Autocomplete')(value),
+  onSelection: (value: string) => action('onSelection')(value),
+  onChange: (event) => action('onChange')(event.target.value),
 };
 
 const openAutocomplete =
@@ -129,7 +130,7 @@ export const Base = (args: AutocompleteProps) => {
   );
 };
 Base.args = baseArgs;
-Base.play = openAutocomplete();
+// Base.play = openAutocomplete();
 
 export const Grouped = (args: AutocompleteProps) => <Autocomplete {...args} />;
 
@@ -311,7 +312,7 @@ export const Validations = (args: AutocompleteProps) => (
 Validations.args = baseArgs;
 
 export const ModalView = (args: AutocompleteProps) => (
-  <Autocomplete {...args} openOnFocus />
+  <Autocomplete {...args} openOnFocus modalMobileView />
 );
 
 ModalView.args = { ...baseArgs };
