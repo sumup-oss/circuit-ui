@@ -52,6 +52,7 @@ import { useMedia } from '../../hooks/useMedia/index.js';
 import { Button } from '../Button/Button.js';
 import { Body } from '../Body/index.js';
 import { Spinner } from '../Spinner/index.js';
+import { clsx } from '../../styles/clsx.js';
 
 import { translations } from './translations/index.js';
 import type { AutocompleteSuggestions } from './components/SuggestionBox/SuggestionBox.js';
@@ -470,6 +471,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
           data-id={autocompleteId}
           ref={applyMultipleRefs(textBoxRef, ref, refs.setReference)}
           clearLabel={clearLabel}
+          inputClassName={clsx(classes.input, props.inputClassName)}
           value={searchText}
           onChange={onComboboxChange}
           onClear={onComboboxClear}
