@@ -42,7 +42,7 @@ export type SuggestionGroup = {
   suggestions: SuggestionType[];
 };
 
-export type AutocompleteSuggestions = (SuggestionGroup | SuggestionType)[];
+export type AutocompleteSuggestions = SuggestionGroup[] | SuggestionType[];
 
 export type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
   suggestions: AutocompleteSuggestions;

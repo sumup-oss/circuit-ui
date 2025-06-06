@@ -150,7 +150,6 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       label,
       value,
       suggestions,
-
       onClear,
       onSelection,
       onChange,
