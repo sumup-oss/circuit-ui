@@ -13,19 +13,22 @@
  * limitations under the License.
  */
 
-import { type ChangeEvent, useState } from 'react';
+import { type ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { Add, ExternalLink } from '@sumup-oss/icons';
 import { screen, userEvent, within } from 'storybook/test';
 import { action } from 'storybook/actions';
 
 import { Button } from '../Button/index.js';
+import { Body } from '../Body/index.js';
+import { Spinner } from '../Spinner/index.js';
+import { Stack } from '../../../../.storybook/components/index.js';
 
-import { Autocomplete, type AutocompleteProps } from './Autocomplete.js';
 import {
   catNames,
   groupedSuggestions,
   suggestions as mockSuggestions,
 } from './fixtures.js';
+import { Autocomplete, type AutocompleteProps } from './Autocomplete.js';
 
 export default {
   title: 'Forms/Autocomplete',
@@ -38,7 +41,7 @@ export default {
 };
 
 const baseArgs: AutocompleteProps = {
-  label: 'Choose your hero',
+  label: 'Choose your cat',
   placeholder: 'Whiskers',
   suggestions: mockSuggestions,
   validationHint: 'All our cats have been neutered and vaccinated.',
@@ -67,7 +70,7 @@ const openLoading =
     canvasElement: HTMLCanvasElement;
   }) => {
     const canvas = within(canvasElement);
-    const input = canvas.getByLabelText('With empty results');
+    const input = canvas.getByLabelText('With default message');
     await userEvent.click(input);
     await screen.findByText('Loading');
   };
@@ -136,39 +139,65 @@ Grouped.args = {
 };
 Grouped.play = openAutocomplete();
 
-export const Loading = (args: AutocompleteProps) => {
-  const [isLoading, setIsLoading] = useState(false);
+const messages = [
+  'Please wait while the minions do their work...',
+  'Grabbing extra minions...',
+  'Doing the heavy lifting...',
+  "We're working very hard... really...",
+  'Waking up the minions...',
+  'You are number 2843684714 in the queue...',
+  '️Please wait while we serve other customers...',
+  'Our premium plan is faster...',
+];
 
-  const loadResults = () => {
-    setIsLoading(true);
+export const Loading = (args: AutocompleteProps) => {
+  const [customMessage, setCustomMessage] = useState(0);
+
+  const pickRandomMessage = useCallback(() => {
     setTimeout(() => {
-      setIsLoading(false);
+      setCustomMessage((prev) => (prev + 1) % messages.length);
+      pickRandomMessage();
     }, 3000);
-  };
+  }, []);
+
+  useEffect(() => {
+    pickRandomMessage();
+  }, [pickRandomMessage]);
 
   return (
-    <div
-      style={{
-        display: 'grid',
-        gap: 'var(--cui-spacings-mega)',
-        gridTemplateColumns: 'repeat(2, 1fr)',
-      }}
-    >
+    <Stack>
       <Autocomplete
         {...args}
         suggestions={[]}
-        label="With empty results"
+        label="With default message"
         isLoading
         openOnFocus
       />
       <Autocomplete
         {...args}
-        suggestions={mockSuggestions}
-        onChange={loadResults}
-        isLoading={isLoading}
-        label="With results"
+        suggestions={[]}
+        label="With custom message"
+        isLoading
+        openOnFocus
+        loadingLabel={
+          <div
+            style={{
+              padding: 'var(--cui-spacings-giga)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: '200px',
+              gap: 'var(--cui-spacings-mega)',
+              textAlign: 'center',
+            }}
+          >
+            <Spinner />
+            <Body>{messages[customMessage]}</Body>
+          </div>
+        }
       />
-    </div>
+    </Stack>
   );
 };
 Loading.args = {
@@ -178,38 +207,45 @@ Loading.args = {
 Loading.play = openLoading();
 
 export const NoResults = (args: AutocompleteProps) => (
-  <Autocomplete
-    {...args}
-    suggestions={[]}
-    noResultsMessage={
-      <div
-        style={{
-          padding: 'var(--cui-spacings-mega)',
-          gap: 'var(--cui-spacings-mega)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        No results matched your search terms.
-        <Button
-          size="s"
-          variant="secondary"
-          href="#"
-          navigationIcon={ExternalLink}
+  <Stack>
+    <Autocomplete
+      {...args}
+      suggestions={[]}
+      label="Default no results message"
+      validationHint="type something to see the no results message"
+    />
+    <Autocomplete
+      {...args}
+      suggestions={[]}
+      label="Custom no results message"
+      validationHint="type something to see the no results message"
+      noResultsMessage={
+        <div
+          style={{
+            padding: 'var(--cui-spacings-mega)',
+            gap: 'var(--cui-spacings-mega)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
         >
-          contact support
-        </Button>
-      </div>
-    }
-  />
+          No results matched your search terms ☹️
+          <Button
+            size="s"
+            variant="secondary"
+            href="#"
+            navigationIcon={ExternalLink}
+          >
+            contact support
+          </Button>
+        </div>
+      }
+    />
+  </Stack>
 );
 
 NoResults.args = baseArgs;
-NoResults.play = openAutocomplete(
-  undefined,
-  'No results matched your search terms.',
-);
+NoResults.play = openAutocomplete('Default no results message', 'No results');
 
 export const WithAction = (args: AutocompleteProps) => (
   <Autocomplete {...args} />
@@ -248,11 +284,37 @@ export const LoadMore = (args: AutocompleteProps) => {
 LoadMore.args = { ...baseArgs, suggestions: catNames.slice(0, 15) };
 LoadMore.play = openAutocomplete(undefined, 'Milo');
 
+export const Validations = (args: AutocompleteProps) => (
+  <Stack>
+    <Autocomplete
+      {...args}
+      value="luna"
+      validationHint="Great choice! Luna is a lovely cat."
+      showValid
+    />
+    <Autocomplete
+      {...args}
+      value="Zeus"
+      validationHint="Sorry, Zeus is a God, not a pet"
+      invalid
+    />
+    <Autocomplete
+      {...args}
+      value="sushi"
+      validationHint="Sushi is not very good with other pets."
+      hasWarning
+      modalMobileView
+    />
+  </Stack>
+);
+
+Validations.args = baseArgs;
+
 export const ModalView = (args: AutocompleteProps) => (
   <Autocomplete {...args} openOnFocus />
 );
 
-ModalView.args = { ...baseArgs, modalMobileView: true };
+ModalView.args = { ...baseArgs };
 ModalView.play = focusAutocomplete();
 
 export const AllowNewItems = (args: AutocompleteProps) => {
