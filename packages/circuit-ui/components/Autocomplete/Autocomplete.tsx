@@ -50,7 +50,6 @@ import { debounce } from '../../util/helpers.js';
 import { Modal } from '../Modal/index.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 import { Button } from '../Button/Button.js';
-import { clsx } from '../../styles/clsx.js';
 import { Body } from '../Body/index.js';
 import { Spinner } from '../Spinner/index.js';
 
@@ -147,25 +146,27 @@ const boundaryPadding = 8;
 export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
   (
     {
+      label,
       value,
+      suggestions,
+
       onClear,
+      onSelection,
+      onChange,
       clearLabel,
       isLoading,
       loadingLabel,
       noResultsMessage,
       locale,
+      readOnly,
+      disabled,
       minQueryLength = 0,
       placement = 'bottom',
       fallbackPlacements = ['top', 'right', 'left'],
-      suggestions,
-      onSelection,
       action,
-      onChange,
       loadMore,
       openOnFocus,
       allowNewItems,
-      className,
-      inputClassName,
       modalMobileView,
       ...props
     },
@@ -217,25 +218,30 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       setActiveSuggestion(undefined);
     }, []);
 
-    const onSearchTextChange = useCallback(
+    const debouncedOnChange = useMemo(
+      () =>
+        debounce(
+          (changeEvent: ChangeEvent<HTMLInputElement>) =>
+            onChange?.(changeEvent),
+          300,
+        ),
+      [onChange],
+    );
+
+    const onComboboxChange = useCallback(
       (event: ChangeEvent<HTMLInputElement>) => {
         setSearchText(event.target.value);
         if (event.target.value.length >= minQueryLength) {
-          const debouncedOnChange = debounce(
-            (changeEvent: ChangeEvent<HTMLInputElement>) =>
-              onChange?.(changeEvent),
-            300,
-          );
           if (event.target.value !== '') {
             openSuggestionBox();
           }
           debouncedOnChange?.(event);
         }
       },
-      [minQueryLength, onChange, openSuggestionBox],
+      [minQueryLength, openSuggestionBox, debouncedOnChange],
     );
 
-    const onSearchTextClear = useCallback(
+    const onComboboxClear = useCallback(
       (event: ClickEvent) => {
         changeInputValue(textBoxRef.current, '');
         onClear?.(event);
@@ -254,7 +260,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       [onClear, openSuggestionBox],
     );
 
-    const onSearchTextClick = useCallback(() => {
+    const onComboboxClick = useCallback(() => {
       if (value || openOnFocus || suggestions.length > 0) {
         openSuggestionBox();
         if (isMobile) {
@@ -300,19 +306,17 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
         if (isOpen) {
           if (isArrowDown(event) || isArrowUp(event)) {
             event.preventDefault();
-            const totalSuggestions =
-              refs.floating.current?.querySelectorAll('[role="option"]')
-                .length ?? 0;
+
             if (activeSuggestion === undefined) {
               setActiveSuggestion(
-                isArrowDown(event) ? 0 : totalSuggestions - 1,
+                isArrowDown(event) ? 0 : suggestionValues.length - 1,
               );
             } else {
               const nextSuggestion =
                 (isArrowDown(event)
-                  ? (activeSuggestion ?? 0) + totalSuggestions + 1
-                  : (activeSuggestion ?? 0) + totalSuggestions - 1) %
-                totalSuggestions;
+                  ? (activeSuggestion ?? 0) + suggestionValues.length + 1
+                  : (activeSuggestion ?? 0) + suggestionValues.length - 1) %
+                suggestionValues.length;
 
               setActiveSuggestion(nextSuggestion);
             }
@@ -329,7 +333,6 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
         activeSuggestion,
         suggestions,
         openSuggestionBox,
-        refs.floating,
         suggestionValues,
         onSuggestionClicked,
       ],
@@ -364,31 +367,50 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
         closeSuggestionBox();
       }
     }, [closeSuggestionBox, isMobile, modalMobileView]);
+    useClickOutside([textBoxRef, refs.floating], handleClickOutside);
 
     useEscapeKey(closeSuggestionBox, isOpen);
 
-    useClickOutside([textBoxRef, refs.floating], handleClickOutside);
-
     useEffect(() => {
-      if ((props.readOnly || props.disabled) && isOpen) {
+      if ((readOnly || disabled) && isOpen) {
         closeSuggestionBox();
       }
-    }, [props.readOnly, props.disabled, isOpen, closeSuggestionBox]);
+    }, [readOnly, disabled, isOpen, closeSuggestionBox]);
 
     const activeDescendant =
       isOpen && activeSuggestion !== undefined
         ? `suggestion-${autocompleteId}-${activeSuggestion}`
         : undefined;
 
-    const noResults = noResultsMessage || (
+    const noResults = noResultsMessage ?? (
       <Body className={classes['no-results']}>{defaultNoResultsMessage}</Body>
     );
 
-    const loading = loadingLabel || (
+    const loading = loadingLabel ?? (
       <div className={classes.loading}>
         <Spinner data-testid="suggestions-loading-spinner" />
         <Body>{defaultLoadingLabel}</Body>
       </div>
+    );
+
+    const results = (
+      <AutocompleteResults
+        isLoading={isLoading}
+        suggestions={suggestions}
+        loadingLabel={loading}
+        noResultsMessage={noResults}
+        value={value}
+        onSuggestionClicked={onSuggestionClicked}
+        label={label}
+        activeSuggestion={activeSuggestion}
+        loadMore={loadMore}
+        readOnly={readOnly}
+        action={action}
+        suggestionIdPrefix={autocompleteId}
+        allowNewItems={allowNewItems}
+        searchText={searchText}
+        resultsSummary={`${suggestionValues.length} ${resultsFound}.`}
+      />
     );
 
     if (isMobile && modalMobileView) {
@@ -396,9 +418,8 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
         <>
           <SearchInput
             {...props}
-            className={className}
-            inputClassName={inputClassName}
-            ref={presentationFieldRef}
+            label={label}
+            ref={applyMultipleRefs(ref, presentationFieldRef)}
             onClick={openSuggestionBox}
             value={presentationFieldValue}
             onChange={onChange}
@@ -415,63 +436,43 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
             <div className={classes['modal-header']}>
               <SearchInput
                 {...props}
+                label={label}
                 data-id={autocompleteId}
-                ref={applyMultipleRefs(textBoxRef, ref, refs.setReference)}
+                ref={textBoxRef}
                 clearLabel={clearLabel}
-                className={className}
-                inputClassName={clsx(inputClassName, classes.input)}
                 hideLabel
                 value={searchText}
-                onChange={onSearchTextChange}
-                onClear={onSearchTextClear}
+                onChange={onComboboxChange}
+                onClear={onComboboxClear}
                 onKeyDown={isLoading ? undefined : onInputKeyDown}
                 role="combobox"
                 autoComplete="off"
                 aria-autocomplete="list"
                 style={{ flex: 1 }}
                 aria-activedescendant={activeDescendant}
-                onFocus={onSearchTextClick}
+                onClick={onComboboxClick}
               />
               <Button variant="tertiary" onClick={closeSuggestionBox}>
                 {cancelButtonLabel}
               </Button>
             </div>
-            <div ref={refs.setFloating}>
-              <AutocompleteResults
-                isLoading={isLoading}
-                suggestions={suggestions}
-                loadingLabel={loading}
-                noResultsMessage={noResults}
-                value={value}
-                onSuggestionClicked={onSuggestionClicked}
-                label={props.label}
-                activeSuggestion={activeSuggestion}
-                loadMore={loadMore}
-                readOnly={props.readOnly}
-                action={action}
-                suggestionIdPrefix={autocompleteId}
-                allowNewItems={allowNewItems}
-                searchText={searchText}
-                resultsSummary={`${suggestionValues.length} ${resultsFound}.`}
-              />
-            </div>
+            {results}
           </Modal>
         </>
       );
     }
 
     return (
-      <div>
+      <>
         <SearchInput
           {...props}
+          label={label}
           data-id={autocompleteId}
           ref={applyMultipleRefs(textBoxRef, ref, refs.setReference)}
           clearLabel={clearLabel}
-          className={className}
-          inputClassName={clsx(inputClassName, classes.input)}
           value={searchText}
-          onChange={onSearchTextChange}
-          onClear={onSearchTextClear}
+          onChange={onComboboxChange}
+          onClear={onComboboxClear}
           onKeyDown={isLoading ? undefined : onInputKeyDown}
           role="combobox"
           autoComplete="off"
@@ -479,7 +480,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
           aria-controls={popupId}
           aria-expanded={isOpen}
           aria-activedescendant={activeDescendant}
-          onClick={onSearchTextClick}
+          onClick={onComboboxClick}
         />
         {isOpen && (
           <div
@@ -499,10 +500,10 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
               noResultsMessage={noResults}
               value={value}
               onSuggestionClicked={onSuggestionClicked}
-              label={props.label}
+              label={label}
               activeSuggestion={activeSuggestion}
               loadMore={loadMore}
-              readOnly={props.readOnly}
+              readOnly={readOnly}
               action={action}
               suggestionIdPrefix={autocompleteId}
               allowNewItems={allowNewItems}
@@ -511,7 +512,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
             />
           </div>
         )}
-      </div>
+      </>
     );
   },
 );
