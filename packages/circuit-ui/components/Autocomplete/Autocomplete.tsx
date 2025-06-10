@@ -90,6 +90,10 @@ export type AutocompleteProps = Omit<
    */
   loadMore?: () => void;
   /**
+   * Indicated a loading state while loading more suggestions.
+   */
+  isLoadingMore?: boolean;
+  /**
    * Indicated a loading state while loading suggestions.
    */
   isLoading?: boolean;
@@ -155,6 +159,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       onChange,
       clearLabel,
       isLoading,
+      isLoadingMore,
       loadingLabel,
       noResultsMessage,
       locale,
@@ -396,6 +401,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     const results = (
       <AutocompleteResults
         isLoading={isLoading}
+        isLoadingMore={isLoadingMore}
         suggestions={suggestions}
         loadingLabel={loading}
         noResultsMessage={noResults}
@@ -494,23 +500,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
               maxWidth: textBoxRef.current?.offsetWidth,
             }}
           >
-            <AutocompleteResults
-              isLoading={isLoading}
-              suggestions={suggestions}
-              loadingLabel={loading}
-              noResultsMessage={noResults}
-              value={value}
-              onSuggestionClicked={onSuggestionClicked}
-              label={label}
-              activeSuggestion={activeSuggestion}
-              loadMore={loadMore}
-              readOnly={readOnly}
-              action={action}
-              suggestionIdPrefix={autocompleteId}
-              allowNewItems={allowNewItems}
-              searchText={searchText}
-              resultsSummary={`${suggestionValues.length} ${resultsFound}.`}
-            />
+            {results}
           </div>
         )}
       </>

@@ -28,6 +28,7 @@ import {
 } from '../../AutocompleteService.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { Spinner } from '../../../Spinner/index.js';
+import { Button } from '../../../Button/index.js';
 
 import classes from './SuggestionBox.module.css';
 
@@ -44,6 +45,7 @@ export type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
   onSuggestionClicked: (value: string) => void;
   loadMore?: () => void;
   isLoading?: boolean;
+  isLoadingMore?: boolean;
   label: string;
   suggestionIdPrefix: string;
   activeSuggestion?: number;
@@ -62,6 +64,7 @@ export const SuggestionBox = ({
   activeSuggestion,
   value,
   isLoading = false,
+  isLoadingMore = false,
   hasAction,
   loadMore,
   allowNewItems,
@@ -209,7 +212,18 @@ export const SuggestionBox = ({
             />
           )}
       </ul>
-      {loadMore && isLoading && (
+      {loadMore && !isLoadingMore && (
+        <Button
+          variant="tertiary"
+          data-testid="loadMoreItems"
+          className={classes['load-more']}
+          size="s"
+          onClick={loadMore}
+        >
+          Load more
+        </Button>
+      )}
+      {isLoadingMore && (
         <Spinner
           data-testid="suggestions-loading"
           className={classes.spinner}
