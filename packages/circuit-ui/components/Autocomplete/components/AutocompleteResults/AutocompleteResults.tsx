@@ -24,6 +24,7 @@ import {
 } from '../SuggestionBox/SuggestionBox.js';
 import type { AutocompleteProps } from '../../Autocomplete.js';
 import { Hr } from '../../../Hr/index.js';
+import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './AutocompleteResults.module.css';
 
@@ -33,6 +34,7 @@ export type AutocompleteResultsProps = SuggestionBoxProps &
     'loadingLabel' | 'noResultsMessage' | 'loadMore' | 'readOnly' | 'action'
   > & {
     resultsSummary: string;
+    isModal?: boolean;
   };
 
 export const AutocompleteResults = ({
@@ -52,10 +54,18 @@ export const AutocompleteResults = ({
   allowNewItems,
   searchText,
   resultsSummary,
+  isModal,
 }: AutocompleteResultsProps) => {
   const actionsRef = useRef<HTMLDivElement>(null);
   return (
-    <div className={classes.base}>
+    <div
+      className={classes.base}
+      style={{
+        marginBottom: isModal
+          ? `${actionsRef?.current?.getBoundingClientRect().height}px`
+          : 0,
+      }}
+    >
       <div
         role="status"
         aria-live="polite"
@@ -87,9 +97,16 @@ export const AutocompleteResults = ({
             searchText={searchText}
             allowNewItems={allowNewItems}
             hasAction={!!action}
+            isModal={isModal}
           />
           {action && (
-            <div className={classes.action} ref={actionsRef}>
+            <div
+              className={clsx(
+                classes.action,
+                isModal && classes['action-modal'],
+              )}
+              ref={actionsRef}
+            >
               <Hr />
               {action}
             </div>
