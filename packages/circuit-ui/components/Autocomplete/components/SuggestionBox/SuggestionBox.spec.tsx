@@ -14,7 +14,6 @@
  */
 
 import { beforeAll, describe, expect, it, vi } from 'vitest';
-import { fireEvent } from '@testing-library/react';
 
 import { render, screen, userEvent } from '../../../../util/test-utils.js';
 import {
@@ -30,7 +29,7 @@ import { SuggestionBox, type SuggestionBoxProps } from './SuggestionBox.js';
 const props: SuggestionBoxProps = {
   suggestions,
   onSuggestionClicked: vi.fn(),
-  loadMoreOnScrollDown: vi.fn(),
+  loadMore: vi.fn(),
   label: 'label',
   suggestionIdPrefix: 'autocomplete-id',
   value: '',
@@ -91,14 +90,8 @@ describe('SuggestionBox', () => {
     expect(boxSuggestions[2]).toHaveAttribute('tabindex', '0');
   });
 
-  it('shows a loading spinner when isLoading is true and has loadMore prop', () => {
-    render(
-      <SuggestionBox
-        {...props}
-        isLoading={true}
-        loadMoreOnScrollDown={vi.fn()}
-      />,
-    );
+  it('shows a loading spinner when isLoading is true', () => {
+    render(<SuggestionBox {...props} isLoadingMore />);
 
     expect(screen.getByTestId('suggestions-loading')).toBeVisible();
   });
@@ -111,13 +104,11 @@ describe('SuggestionBox', () => {
     expect(props.onSuggestionClicked).toHaveBeenCalledWith('Chewbacca');
   });
 
-  it('calls loadMore when scrolled to the bottom and loadMore is provided', async () => {
-    const loadMoreMock = vi.fn();
-    render(<SuggestionBox {...props} loadMoreOnScrollDown={loadMoreMock} />);
+  it('calls loadMore when the load more button is clicked', async () => {
+    render(<SuggestionBox {...props} />);
 
-    const suggestionBox = screen.getByRole('listbox');
-    fireEvent.scroll(suggestionBox, { top: suggestionBox.scrollHeight });
+    await userEvent.click(screen.getByRole('button', { name: 'Load more' }));
 
-    expect(loadMoreMock).toHaveBeenCalled();
+    expect(props.loadMore).toHaveBeenCalled();
   });
 });

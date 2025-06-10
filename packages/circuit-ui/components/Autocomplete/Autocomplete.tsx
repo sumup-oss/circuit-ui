@@ -493,6 +493,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
         {isOpen && (
           <div
             className={classes.popup}
+            data-testid={`${autocompleteId}-popup`}
             ref={refs.setFloating}
             id={popupId}
             style={{
