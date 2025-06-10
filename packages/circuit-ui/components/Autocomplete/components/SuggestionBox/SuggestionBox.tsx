@@ -15,13 +15,7 @@
 
 'use client';
 
-import {
-  type HTMLAttributes,
-  type UIEvent,
-  useEffect,
-  useMemo,
-  useRef,
-} from 'react';
+import { type HTMLAttributes, useEffect, useMemo, useRef } from 'react';
 import { Plus } from '@sumup-oss/icons';
 
 import { type SuggestionType, Suggestion } from '../Suggestion/Suggestion.js';
@@ -32,8 +26,8 @@ import {
   isGroup,
   isSuggestionFocused,
 } from '../../AutocompleteService.js';
-import { Spinner } from '../../../Spinner/index.js';
 import { clsx } from '../../../../styles/clsx.js';
+import { Spinner } from '../../../Spinner/index.js';
 
 import classes from './SuggestionBox.module.css';
 
@@ -48,7 +42,7 @@ export type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
   suggestions: AutocompleteSuggestions;
   isSelectable?: boolean;
   onSuggestionClicked: (value: string) => void;
-  loadMoreOnScrollDown?: () => void;
+  loadMore?: () => void;
   isLoading?: boolean;
   label: string;
   suggestionIdPrefix: string;
@@ -56,6 +50,7 @@ export type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
   searchText?: string;
   value: AutocompleteProps['value'];
   allowNewItems?: boolean;
+  hasAction?: boolean;
 };
 
 export const SuggestionBox = ({
@@ -67,9 +62,11 @@ export const SuggestionBox = ({
   activeSuggestion,
   value,
   isLoading = false,
-  loadMoreOnScrollDown,
+  hasAction,
+  loadMore,
   allowNewItems,
   searchText,
+  ...rest
 }: SuggestionBoxProps) => {
   const suggestionBoxRef = useRef<HTMLUListElement>(null);
 
@@ -92,127 +89,133 @@ export const SuggestionBox = ({
     }, 0);
   }, []);
 
-  const onScroll = (event: UIEvent<HTMLUListElement>) => {
-    const tracker = event.currentTarget;
-    const limit = tracker.scrollHeight - tracker.clientHeight;
-    // if scrolled to the bottom of the list, call loadMore
-    if (event.currentTarget.scrollTop === limit) {
-      loadMoreOnScrollDown?.();
-    }
-  };
+  /*  check if the component received suggestions with or without media (icon or image)
+   we assume that all suggestions have the same details, so we check the first item */
+
+  const firstSuggestion = isGroup(suggestions[0])
+    ? suggestions[0].suggestions[0]
+    : suggestions[0];
+  const suggestionsHaveMedia = firstSuggestion?.icon || firstSuggestion?.image;
 
   return (
-    <ul
-      // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: list element has all necessary attributes to be interactive
-      role="listbox"
-      aria-multiselectable={isSelectable}
-      ref={suggestionBoxRef}
-      aria-label={label}
-      tabIndex={-1}
-      className={clsx(classes.base, isLoading && classes.loading)}
-      onScroll={loadMoreOnScrollDown ? onScroll : undefined}
-    >
-      {suggestions.map((suggestion) => {
-        if (isGroup(suggestion)) {
-          return (
-            <div key={suggestion.label} className={classes.group}>
-              <Compact
-                size="s"
-                color="subtle"
-                className={classes['group-label']}
-              >
-                {suggestion.label}
-              </Compact>
-              <ul
-                role="group"
-                aria-label={suggestion.label}
-                className={classes['group-suggestion']}
-              >
-                {suggestion.suggestions.map((suggestionItem) => (
-                  <Suggestion
-                    key={suggestionItem.value}
-                    {...suggestionItem}
-                    onSuggestionClicked={onSuggestionClicked}
-                    isSelectable={isSelectable}
-                    selected={value === suggestionItem.value}
-                    id={`suggestion-${suggestionIdPrefix}-${suggestionValues.indexOf(suggestionItem.value)}`}
-                    isFocused={isSuggestionFocused(
-                      suggestionValues,
-                      suggestionItem.value,
-                      activeSuggestion,
-                    )}
-                    tabIndex={computeTabIndex(
-                      suggestionValues,
-                      suggestionItem.value,
-                      isLoading,
-                      activeSuggestion,
-                    )}
-                    aria-setsize={suggestionValues.length}
-                    aria-posinset={
-                      suggestionValues.indexOf(suggestionItem.value) + 1
-                    }
-                  />
-                ))}
-              </ul>
-            </div>
-          );
-        }
-        return (
-          <Suggestion
-            key={suggestion.value}
-            {...suggestion}
-            onSuggestionClicked={onSuggestionClicked}
-            selected={value === suggestion.value}
-            isSelectable={isSelectable}
-            id={`suggestion-${suggestionIdPrefix}-${suggestionValues.indexOf(suggestion.value)}`}
-            isFocused={isSuggestionFocused(
-              suggestionValues,
-              suggestion.value,
-              activeSuggestion,
-            )}
-            tabIndex={computeTabIndex(
-              suggestionValues,
-              suggestion.value,
-              isLoading,
-              activeSuggestion,
-            )}
-            aria-setsize={suggestionValues.length}
-            aria-posinset={suggestionValues.indexOf(suggestion.value) + 1}
-          />
-        );
-      })}
-
-      {allowNewItems &&
-        searchText &&
-        // make sure the search text is not already in the suggestions
-        suggestionValues.indexOf(searchText.trim().toLowerCase()) === -1 && (
-          <Suggestion
-            value={searchText}
-            label={searchText}
-            icon={Plus}
-            onSuggestionClicked={onSuggestionClicked}
-            selected={value === searchText}
-            isSelectable={isSelectable}
-            id={`suggestion-${suggestionIdPrefix}-${suggestionValues.length}`}
-            isFocused={activeSuggestion === suggestionValues.length}
-            tabIndex={
-              !isLoading &&
-              activeSuggestion &&
-              activeSuggestion === suggestionValues.length
-                ? 0
-                : -1
-            }
-            aria-setsize={suggestionValues.length}
-            aria-posinset={suggestionValues.length}
-          />
+    <>
+      <ul
+        {...rest}
+        // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: list element has all necessary attributes to be interactive
+        role="listbox"
+        aria-multiselectable={isSelectable}
+        ref={suggestionBoxRef}
+        aria-label={label}
+        tabIndex={-1}
+        className={clsx(
+          classes.base,
+          isLoading && classes.loading,
+          hasAction && classes['has-action'],
         )}
-      {loadMoreOnScrollDown && isLoading && (
+      >
+        {suggestions.map((suggestion) => {
+          if (isGroup(suggestion)) {
+            return (
+              <div key={suggestion.label} className={classes.group}>
+                <Compact
+                  size="s"
+                  color="subtle"
+                  className={classes['group-label']}
+                >
+                  {suggestion.label}
+                </Compact>
+                <ul
+                  role="group"
+                  aria-label={suggestion.label}
+                  className={classes['group-suggestion']}
+                >
+                  {suggestion.suggestions.map((suggestionItem) => (
+                    <Suggestion
+                      key={suggestionItem.value}
+                      {...suggestionItem}
+                      onSuggestionClicked={onSuggestionClicked}
+                      isSelectable={isSelectable}
+                      selected={value === suggestionItem.value}
+                      id={`suggestion-${suggestionIdPrefix}-${suggestionValues.indexOf(suggestionItem.value)}`}
+                      isFocused={isSuggestionFocused(
+                        suggestionValues,
+                        suggestionItem.value,
+                        activeSuggestion,
+                      )}
+                      tabIndex={computeTabIndex(
+                        suggestionValues,
+                        suggestionItem.value,
+                        isLoading,
+                        activeSuggestion,
+                      )}
+                      aria-setsize={suggestionValues.length}
+                      aria-posinset={
+                        suggestionValues.indexOf(suggestionItem.value) + 1
+                      }
+                    />
+                  ))}
+                </ul>
+              </div>
+            );
+          }
+          return (
+            <Suggestion
+              key={suggestion.value}
+              {...suggestion}
+              onSuggestionClicked={onSuggestionClicked}
+              selected={value === suggestion.value}
+              isSelectable={isSelectable}
+              id={`suggestion-${suggestionIdPrefix}-${suggestionValues.indexOf(suggestion.value)}`}
+              isFocused={isSuggestionFocused(
+                suggestionValues,
+                suggestion.value,
+                activeSuggestion,
+              )}
+              tabIndex={computeTabIndex(
+                suggestionValues,
+                suggestion.value,
+                isLoading,
+                activeSuggestion,
+              )}
+              aria-setsize={suggestionValues.length}
+              aria-posinset={suggestionValues.indexOf(suggestion.value) + 1}
+            />
+          );
+        })}
+
+        {allowNewItems &&
+          searchText &&
+          // make sure the search text is not already in the suggestions
+          suggestionValues.indexOf(searchText.trim().toLowerCase()) === -1 && (
+            <Suggestion
+              value={searchText}
+              label={searchText}
+              icon={Plus}
+              onSuggestionClicked={onSuggestionClicked}
+              selected={value === searchText}
+              isSelectable={isSelectable}
+              id={`suggestion-${suggestionIdPrefix}-${suggestionValues.length}`}
+              isFocused={activeSuggestion === suggestionValues.length}
+              tabIndex={
+                !isLoading &&
+                activeSuggestion &&
+                activeSuggestion === suggestionValues.length
+                  ? 0
+                  : -1
+              }
+              aria-setsize={suggestionValues.length}
+              aria-posinset={suggestionValues.length}
+              className={suggestionsHaveMedia ? undefined : classes.new}
+            />
+          )}
+      </ul>
+      {loadMore && isLoading && (
         <Spinner
           data-testid="suggestions-loading"
           className={classes.spinner}
           size="s"
         />
       )}
-    </ul>
+    </>
   );
 };

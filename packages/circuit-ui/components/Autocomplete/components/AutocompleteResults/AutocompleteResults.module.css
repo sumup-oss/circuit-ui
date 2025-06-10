@@ -1,3 +1,9 @@
+.base {
+  height: inherit;
+  max-height: inherit;
+  overflow-y: auto;
+}
+
 .action {
   position: sticky;
   right: 0;

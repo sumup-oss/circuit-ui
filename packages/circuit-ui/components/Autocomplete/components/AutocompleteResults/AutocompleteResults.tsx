@@ -15,6 +15,8 @@
 
 'use client';
 
+import { type UIEvent, useRef } from 'react';
+
 import { utilClasses } from '../../../../styles/utility.js';
 import {
   SuggestionBox,
@@ -49,43 +51,57 @@ export const AutocompleteResults = ({
   allowNewItems,
   searchText,
   resultsSummary,
-}: AutocompleteResultsProps) => (
-  <>
-    <div
-      role="status"
-      aria-live="polite"
-      aria-busy={isLoading}
-      className={utilClasses.hideVisually}
-    >
-      {resultsSummary}
-    </div>
-    {isLoading && suggestions.length === 0 && loadingLabel}
-    {!isLoading &&
-      suggestions.length === 0 &&
-      !allowNewItems &&
-      noResultsMessage}
-
-    {(suggestions.length > 0 ||
-      (allowNewItems && suggestions.length === 0)) && (
-      <SuggestionBox
-        value={value}
-        suggestions={suggestions}
-        onSuggestionClicked={onSuggestionClicked}
-        label={label}
-        suggestionIdPrefix={suggestionIdPrefix}
-        activeSuggestion={activeSuggestion}
-        aria-readonly={readOnly}
-        isLoading={isLoading}
-        loadMoreOnScrollDown={loadMore}
-        searchText={searchText}
-        allowNewItems={allowNewItems}
-      />
-    )}
-    {action && (
-      <div className={classes.action}>
-        <Hr />
-        {action}
+}: AutocompleteResultsProps) => {
+  const actionsRef = useRef<HTMLDivElement>(null);
+  const onScroll = (event: UIEvent<HTMLDivElement>) => {
+    const tracker = event.currentTarget;
+    const limit = tracker.scrollHeight - tracker.clientHeight;
+    // if scrolled to the bottom of the list, call loadMore
+    if (event.currentTarget.scrollTop === limit) {
+      loadMore?.();
+    }
+  };
+  return (
+    <div className={classes.base} onScroll={loadMore && onScroll}>
+      <div
+        role="status"
+        aria-live="polite"
+        aria-busy={isLoading}
+        className={utilClasses.hideVisually}
+      >
+        {resultsSummary}
       </div>
-    )}
-  </>
-);
+      {isLoading && suggestions.length === 0 && loadingLabel}
+      {!isLoading &&
+        suggestions.length === 0 &&
+        !allowNewItems &&
+        noResultsMessage}
+
+      {(suggestions.length > 0 ||
+        (allowNewItems && suggestions.length === 0)) && (
+        <SuggestionBox
+          value={value}
+          suggestions={suggestions}
+          onSuggestionClicked={onSuggestionClicked}
+          label={label}
+          suggestionIdPrefix={suggestionIdPrefix}
+          activeSuggestion={activeSuggestion}
+          aria-readonly={readOnly}
+          isLoading={isLoading}
+          loadMore={loadMore}
+          searchText={searchText}
+          allowNewItems={allowNewItems}
+          hasAction={!!action}
+        />
+      )}
+      {action &&
+        (suggestions.length > 0 ||
+          (allowNewItems && suggestions.length === 0)) && (
+          <div className={classes.action} ref={actionsRef}>
+            <Hr />
+            {action}
+          </div>
+        )}
+    </div>
+  );
+};

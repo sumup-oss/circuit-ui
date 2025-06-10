@@ -50,6 +50,7 @@ export const Suggestion = ({
   isFocused,
   onSuggestionClicked,
   value,
+  className,
   ...props
 }: SuggestionProps) => {
   const labelId = useId();
@@ -75,6 +76,7 @@ export const Suggestion = ({
         classes.base,
         isFocused && classes.focused,
         selected && classes.selected,
+        className,
       )}
       aria-selected={selected}
       onClick={() => onSuggestionClicked(value)}
