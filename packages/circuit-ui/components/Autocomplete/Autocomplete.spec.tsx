@@ -1,3 +1,18 @@
+/**
+ * Copyright 2025, SumUp Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import {
   afterEach,
   beforeAll,
@@ -9,13 +24,14 @@ import {
   type Mock,
   vi,
 } from 'vitest';
-import { within } from '@testing-library/dom';
+import { within } from '@testing-library/react';
+import { createRef } from 'react';
 
 import { act, axe, render, userEvent, screen } from '../../util/test-utils.js';
+import { useMedia } from '../../hooks/useMedia/index.js';
+
 import { luna, mochi, oliver, suggestions } from './fixtures.js';
 import { Autocomplete, type AutocompleteProps } from './Autocomplete.js';
-import { createRef } from 'react';
-import { useMedia } from '../../hooks/useMedia/index.js';
 
 vi.mock('../../hooks/useMedia/index.js');
 
@@ -46,6 +62,7 @@ describe('Autocomplete', () => {
   it('should forward a ref', () => {
     const ref = createRef<HTMLInputElement>();
     const { container } = render(<Autocomplete {...props} ref={ref} />);
+    // eslint-disable-next-line testing-library/no-node-access
     const input = container.querySelector('input');
     expect(ref.current).toBe(input);
   });
@@ -55,6 +72,7 @@ describe('Autocomplete', () => {
     const { container } = render(
       <Autocomplete {...props} inputClassName={className} />,
     );
+    // eslint-disable-next-line testing-library/no-node-access
     const input = container.querySelector('input');
     expect(input?.className).toContain(className);
   });
@@ -366,9 +384,12 @@ describe('Autocomplete', () => {
 
       await userEvent.click(input);
 
-      const listbox = screen.getByRole('listbox');
-      expect(listbox).toBeVisible();
-      const popupId = listbox.parentElement?.getAttribute('id');
+      expect(screen.getByRole('listbox')).toBeVisible();
+      expect(input).toHaveAttribute('aria-expanded', 'true');
+
+      const popupId = screen
+        .getByTestId(`${input.getAttribute('data-id')}-popup`)
+        .getAttribute('id');
       expect(input).toHaveAttribute('aria-controls', popupId);
       expect(screen.getAllByRole('option')).toHaveLength(suggestions.length);
     });
