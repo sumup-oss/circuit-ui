@@ -53,6 +53,7 @@ export type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
   value: AutocompleteProps['value'];
   allowNewItems?: boolean;
   hasAction?: boolean;
+  isModal?: boolean;
 };
 
 export const SuggestionBox = ({
@@ -67,6 +68,7 @@ export const SuggestionBox = ({
   isLoadingMore = false,
   hasAction,
   loadMore,
+  isModal,
   allowNewItems,
   searchText,
   ...rest
@@ -216,7 +218,10 @@ export const SuggestionBox = ({
         <Button
           variant="tertiary"
           data-testid="loadMoreItems"
-          className={classes['load-more']}
+          className={clsx(
+            classes['load-more'],
+            isModal && classes['load-more-modal'],
+          )}
           size="s"
           onClick={loadMore}
         >

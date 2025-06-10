@@ -416,6 +416,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
         allowNewItems={allowNewItems}
         searchText={searchText}
         resultsSummary={`${suggestionValues.length} ${resultsFound}.`}
+        isModal={isMobile && modalMobileView}
       />
     );
 
