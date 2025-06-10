@@ -33,6 +33,7 @@ const props: SuggestionBoxProps = {
   label: 'label',
   suggestionIdPrefix: 'autocomplete-id',
   value: '',
+  loadMoreLabel: 'Load more',
 };
 
 describe('SuggestionBox', () => {

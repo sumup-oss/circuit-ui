@@ -1,6 +1,7 @@
 {
   "noResultsMessage": "Žiadne výsledky",
-  "loadingLabel": "Prebieha načítavanie…",
+  "loadingLabel": "Načítavanie",
   "cancel": "Zrušiť",
-  "resultsFound": "nájdených výsledkov"
+  "resultsFound": "nájdených výsledkov",
+  "loadMore": "Načítať viac"
 }

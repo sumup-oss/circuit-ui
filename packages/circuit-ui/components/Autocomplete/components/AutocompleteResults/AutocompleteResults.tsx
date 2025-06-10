@@ -34,6 +34,7 @@ export type AutocompleteResultsProps = SuggestionBoxProps &
     'loadingLabel' | 'noResultsMessage' | 'loadMore' | 'readOnly' | 'action'
   > & {
     resultsSummary: string;
+    loadMoreLabel: string;
     isModal?: boolean;
   };
 
@@ -55,6 +56,7 @@ export const AutocompleteResults = ({
   searchText,
   resultsSummary,
   isModal,
+  loadMoreLabel,
 }: AutocompleteResultsProps) => {
   const actionsRef = useRef<HTMLDivElement>(null);
   return (
@@ -98,6 +100,7 @@ export const AutocompleteResults = ({
             allowNewItems={allowNewItems}
             hasAction={!!action}
             isModal={isModal}
+            loadMoreLabel={loadMoreLabel}
           />
           {action && (
             <div

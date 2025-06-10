@@ -2,5 +2,6 @@
   "noResultsMessage": "No results",
   "loadingLabel": "Loading",
   "cancel": "Cancel",
-  "resultsFound": "results found"
+  "resultsFound": "results found",
+  "loadMore": "Load more"
 }

@@ -54,6 +54,7 @@ export type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
   allowNewItems?: boolean;
   hasAction?: boolean;
   isModal?: boolean;
+  loadMoreLabel: string;
 };
 
 export const SuggestionBox = ({
@@ -61,6 +62,7 @@ export const SuggestionBox = ({
   onSuggestionClicked,
   isSelectable,
   label,
+  loadMoreLabel,
   suggestionIdPrefix,
   activeSuggestion,
   value,
@@ -225,7 +227,7 @@ export const SuggestionBox = ({
           size="s"
           onClick={loadMore}
         >
-          Load more
+          {loadMoreLabel}
         </Button>
       )}
       {isLoadingMore && (
