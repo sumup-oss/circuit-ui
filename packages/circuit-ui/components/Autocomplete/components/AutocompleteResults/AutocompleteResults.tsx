@@ -15,7 +15,7 @@
 
 'use client';
 
-import { type UIEvent, useRef } from 'react';
+import { useRef } from 'react';
 
 import { utilClasses } from '../../../../styles/utility.js';
 import {
@@ -37,6 +37,7 @@ export type AutocompleteResultsProps = SuggestionBoxProps &
 
 export const AutocompleteResults = ({
   isLoading,
+  isLoadingMore,
   loadingLabel,
   noResultsMessage,
   suggestions,
@@ -53,16 +54,8 @@ export const AutocompleteResults = ({
   resultsSummary,
 }: AutocompleteResultsProps) => {
   const actionsRef = useRef<HTMLDivElement>(null);
-  const onScroll = (event: UIEvent<HTMLDivElement>) => {
-    const tracker = event.currentTarget;
-    const limit = tracker.scrollHeight - tracker.clientHeight;
-    // if scrolled to the bottom of the list, call loadMore
-    if (event.currentTarget.scrollTop === limit) {
-      loadMore?.();
-    }
-  };
   return (
-    <div className={classes.base} onScroll={loadMore && onScroll}>
+    <div className={classes.base}>
       <div
         role="status"
         aria-live="polite"
@@ -79,29 +72,30 @@ export const AutocompleteResults = ({
 
       {(suggestions.length > 0 ||
         (allowNewItems && suggestions.length === 0)) && (
-        <SuggestionBox
-          value={value}
-          suggestions={suggestions}
-          onSuggestionClicked={onSuggestionClicked}
-          label={label}
-          suggestionIdPrefix={suggestionIdPrefix}
-          activeSuggestion={activeSuggestion}
-          aria-readonly={readOnly}
-          isLoading={isLoading}
-          loadMore={loadMore}
-          searchText={searchText}
-          allowNewItems={allowNewItems}
-          hasAction={!!action}
-        />
+        <>
+          <SuggestionBox
+            value={value}
+            suggestions={suggestions}
+            onSuggestionClicked={onSuggestionClicked}
+            label={label}
+            suggestionIdPrefix={suggestionIdPrefix}
+            activeSuggestion={activeSuggestion}
+            aria-readonly={readOnly}
+            isLoading={isLoading}
+            isLoadingMore={isLoadingMore}
+            loadMore={loadMore}
+            searchText={searchText}
+            allowNewItems={allowNewItems}
+            hasAction={!!action}
+          />
+          {action && (
+            <div className={classes.action} ref={actionsRef}>
+              <Hr />
+              {action}
+            </div>
+          )}
+        </>
       )}
-      {action &&
-        (suggestions.length > 0 ||
-          (allowNewItems && suggestions.length === 0)) && (
-          <div className={classes.action} ref={actionsRef}>
-            <Hr />
-            {action}
-          </div>
-        )}
     </div>
   );
 };

@@ -45,8 +45,12 @@ li:last-of-type {
   list-style-type: none;
 }
 
+.load-more {
+  margin: 0 var(--cui-spacings-mega) var(--cui-spacings-mega);
+}
+
 .spinner {
-  margin: 0 auto var(--cui-spacings-mega);
+  margin: 0 auto var(--cui-spacings-giga);
 }
 
 .new div[aria-hidden="true"] {
