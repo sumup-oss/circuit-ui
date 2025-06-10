@@ -21,70 +21,70 @@ export const mochi: SuggestionType = {
   label: 'Mochi',
   value: 'mochi',
   description: 'A gentle giant',
-  image: '/images/illustration-cat-mochi.jpg',
+  image: '/images/illustration-cat.jpg',
 };
 
 export const luna: SuggestionType = {
   label: 'Luna',
   value: 'luna',
   description: 'Mischievous night owl',
-  image: '/images/illustration-cat-luna.jpg',
+  image: '/images/illustration-cat.jpg',
 };
 
 export const oliver: SuggestionType = {
   label: 'Oliver',
   value: 'oliver',
   description: 'Distinguished gentleman',
-  image: '/images/illustration-cat-oliver.jpg',
+  image: '/images/illustration-cat.jpg',
 };
 
 const sushi: SuggestionType = {
   label: 'Sushi',
   value: 'sushi',
   description: 'Playful acrobat',
-  image: '/images/illustration-cat-sushi.jpg',
+  image: '/images/illustration-cat.jpg',
 };
 
 const shadow: SuggestionType = {
   label: 'Shadow',
   value: 'shadow',
   description: 'Mysterious introvert',
-  image: '/images/illustration-cat-shadow.jpg',
+  image: '/images/illustration-cat.jpg',
 };
 
 const maple: SuggestionType = {
   label: 'Maple',
   value: 'maple',
   description: 'Sweet and clingy',
-  image: '/images/illustration-cat-maple.jpg',
+  image: '/images/illustration-cat.jpg',
 };
 
 const ziggy: SuggestionType = {
   label: 'Ziggy',
   value: 'ziggy',
   description: 'High-energy troublemaker',
-  image: '/images/illustration-cat-ziggy.jpg',
+  image: '/images/illustration-cat.jpg',
 };
 
 const bella: SuggestionType = {
   label: 'Bella',
   value: 'bella',
   description: 'Expects royal treatment at all times',
-  image: '/images/illustration-cat-bella.jpg',
+  image: '/images/illustration-cat.jpg',
 };
 
 const winston: SuggestionType = {
   label: 'Winston',
   value: 'winston',
   description: 'Loves contemplating sunbeams',
-  image: '/images/illustration-cat-winston.jpg',
+  image: '/images/illustration-cat.jpg',
 };
 
 const pepper: SuggestionType = {
   label: 'Pepper',
   value: 'pepper',
   description: 'Spicy personality',
-  image: '/images/illustration-cat-pepper.jpg',
+  image: '/images/illustration-cat.jpg',
 };
 
 export const suggestions = [
@@ -155,46 +155,6 @@ export const catNames: SuggestionType[] = [
   {
     label: 'Max',
     value: 'max',
-  },
-  {
-    label: 'Loki',
-    value: 'loki',
-  },
-  {
-    label: 'Lily',
-    value: 'lily',
-  },
-  {
-    label: 'Oscar',
-    value: 'oscar',
-  },
-  {
-    label: 'Lucy',
-    value: 'lucy',
-  },
-  {
-    label: 'Milo',
-    value: 'milo',
-  },
-  {
-    label: 'Coco',
-    value: 'coco',
-  },
-  {
-    label: 'Oreo',
-    value: 'oreo',
-  },
-  {
-    label: 'Princess',
-    value: 'princess',
-  },
-  {
-    label: 'Smokey',
-    value: 'smokey',
-  },
-  {
-    label: 'Ginger',
-    value: 'ginger',
   },
 ];
 

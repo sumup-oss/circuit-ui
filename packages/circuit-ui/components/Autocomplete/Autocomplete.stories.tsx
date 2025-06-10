@@ -22,6 +22,7 @@ import { Button } from '../Button/index.js';
 import { Body } from '../Body/index.js';
 import { Spinner } from '../Spinner/index.js';
 import { Stack } from '../../../../.storybook/components/index.js';
+import { modes } from '../../../../.storybook/modes.js';
 
 import {
   addresses,
@@ -38,6 +39,12 @@ export default {
   argTypes: {
     placeholder: { control: 'text' },
     disabled: { control: 'boolean' },
+  },
+  chromatic: {
+    modes: {
+      mobile: modes.smallMobile,
+      desktop: modes.desktop,
+    },
   },
 };
 
@@ -314,40 +321,14 @@ export const LoadMore = (args: AutocompleteProps) => {
     <Autocomplete
       {...args}
       suggestions={suggestions}
-      loadMore={suggestions.length < 20 ? loadMore : undefined}
-      isLoading={isLoading}
+      loadMore={suggestions.length < 10 ? loadMore : undefined}
+      isLoadingMore={isLoading}
     />
   );
 };
 
-LoadMore.args = { ...baseArgs, suggestions: catNames.slice(0, 15) };
-LoadMore.play = openAutocomplete(undefined, 'Milo');
-
-export const Validations = (args: AutocompleteProps) => (
-  <Stack>
-    <Autocomplete
-      {...args}
-      value="luna"
-      validationHint="Great choice! Luna is a lovely cat."
-      showValid
-    />
-    <Autocomplete
-      {...args}
-      value="Zeus"
-      validationHint="Sorry, Zeus is a God, not a pet"
-      invalid
-    />
-    <Autocomplete
-      {...args}
-      value="sushi"
-      validationHint="Sushi is not very good with other pets."
-      hasWarning
-      modalMobileView
-    />
-  </Stack>
-);
-
-Validations.args = baseArgs;
+LoadMore.args = { ...baseArgs, suggestions: catNames.slice(0, 5) };
+LoadMore.play = openAutocomplete(undefined, 'Tiger');
 
 export const ModalView = (args: AutocompleteProps) => (
   <Autocomplete {...args} openOnFocus modalMobileView />
@@ -357,7 +338,7 @@ ModalView.args = { ...baseArgs };
 ModalView.play = focusAutocomplete();
 
 export const AllowNewItems = (args: AutocompleteProps) => {
-  const [autocompleteValue, setAutocompleteValue] = useState(args.value);
+  const [autocompleteValue, setAutocompleteValue] = useState('Zoomies');
   const [suggestions, setSuggestions] = useState(args.suggestions);
   const onSearchTextChange = (event: ChangeEvent<HTMLInputElement>) => {
     const searchText = event.target.value;
