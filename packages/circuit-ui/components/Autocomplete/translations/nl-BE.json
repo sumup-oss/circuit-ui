@@ -2,5 +2,6 @@
   "noResultsMessage": "Geen resultaten",
   "loadingLabel": "Laden",
   "cancel": "Annuleren",
-  "resultsFound": "resultaten gevonden"
+  "resultsFound": "resultaten gevonden",
+  "loadMore": "Laad meer"
 }

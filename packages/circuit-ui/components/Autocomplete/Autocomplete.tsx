@@ -181,6 +181,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       noResultsMessage: defaultNoResultsMessage,
       loadingLabel: defaultLoadingLabel,
       cancel: cancelButtonLabel,
+      loadMore: loadMoreLabel,
       resultsFound,
     } = useI18n({ locale }, translations);
 
@@ -408,6 +409,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
         value={value}
         onSuggestionClicked={onSuggestionClicked}
         label={label}
+        loadMoreLabel={loadMoreLabel}
         activeSuggestion={activeSuggestion}
         loadMore={loadMore}
         readOnly={readOnly}

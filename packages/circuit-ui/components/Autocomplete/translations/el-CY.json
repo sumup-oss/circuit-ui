@@ -1,6 +1,7 @@
 {
-  "noResultsMessage": "Δεν υπάρχουν αποτελέσματα",
+  "noResultsMessage": "Δεν βρέθηκαν αποτελέσματα",
   "loadingLabel": "Φόρτωση",
   "cancel": "Ακύρωση",
-  "resultsFound": "αποτελέσματα βρέθηκαν"
+  "resultsFound": "αποτελέσματα βρέθηκαν",
+  "loadMore": "Φόρτωση περισσότερων"
 }
