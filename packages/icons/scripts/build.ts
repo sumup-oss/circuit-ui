@@ -123,7 +123,7 @@ function buildIndexFile(components: Component[]): string {
   const componentExports = components
     .map(({ name }) => `export { ${name} } from './${name}.js';`)
     .join('\n');
-  const helpersExport = `export * from './helpers';`;
+  const helpersExport = `export * from './helpers.js';`;
   return `
     ${helpersExport}
     ${componentExports}
