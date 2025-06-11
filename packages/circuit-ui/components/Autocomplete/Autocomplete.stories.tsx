@@ -17,6 +17,7 @@ import { type ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { Add, ExternalLink } from '@sumup-oss/icons';
 import { screen, userEvent, within } from 'storybook/test';
 import { action } from 'storybook/actions';
+import type { Decorator } from '@storybook/react-vite';
 
 import { Button } from '../Button/index.js';
 import { Body } from '../Body/index.js';
@@ -39,12 +40,6 @@ export default {
   argTypes: {
     placeholder: { control: 'text' },
     disabled: { control: 'boolean' },
-  },
-  chromatic: {
-    modes: {
-      mobile: modes.smallMobile,
-      desktop: modes.desktop,
-    },
   },
 };
 
@@ -336,6 +331,20 @@ export const ModalView = (args: AutocompleteProps) => (
 
 ModalView.args = { ...baseArgs };
 ModalView.play = focusAutocomplete();
+ModalView.parameters = {
+  chromatic: {
+    modes: {
+      mobile: modes.smallMobile,
+    },
+  },
+};
+ModalView.decorators = [
+  (Story) => (
+    <div style={{ height: '100vh', display: 'flex', alignItems: 'center' }}>
+      <Story />
+    </div>
+  ),
+] as Decorator[];
 
 export const AllowNewItems = (args: AutocompleteProps) => {
   const [autocompleteValue, setAutocompleteValue] = useState('Zoomies');
