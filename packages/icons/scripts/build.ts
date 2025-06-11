@@ -161,7 +161,16 @@ async function transpileModule(fileName: string, code: string) {
   const output = transformSync(code, {
     cwd: BASE_DIR,
     targets: { esmodules: true },
-    presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
+    presets: [
+      [
+        '@babel/preset-env',
+        {
+          modules: false,
+          exclude: ['transform-object-rest-spread'],
+        },
+      ],
+      '@babel/preset-react',
+    ],
     plugins: [
       [
         path.join(BASE_DIR, './vendor/babel-plugin-inline-react-svg/index.js'),
