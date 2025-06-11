@@ -86,9 +86,6 @@ function buildComponentFile(component: Component): string {
     component.name
   }' icon. Please use one of the available sizes: '${sizes.join("', '")}'.`;
 
-  /**
-   * TODO: look into whether we still need the React import here
-   */
   return `
     import React from 'react';
     ${iconImports.join('\n')}
@@ -114,10 +111,23 @@ function buildComponentFile(component: Component): string {
   `;
 }
 
+function buildHelpersFile(): string {
+  return `
+    export function getIconURL(name, size) {
+      return 'https://circuit.sumup.com/icons/v2/' + name + '_' + size + '.svg';
+    }
+  `;
+}
+
 function buildIndexFile(components: Component[]): string {
-  return components
+  const componentExports = components
     .map(({ name }) => `export { ${name} } from './${name}.js';`)
     .join('\n');
+  const helpersExport = `export * from './helpers';`;
+  return `
+    ${helpersExport}
+    ${componentExports}
+  `;
 }
 
 function buildDeclarationFile(components: Component[]): string {
@@ -128,7 +138,13 @@ function buildDeclarationFile(components: Component[]): string {
       ${createDeprecationComment(component.deprecation)}
       declare const ${component.name}: IconComponentType<${SizesType}>;`;
   });
-  const exportNames = components.map((file) => file.name);
+  const exportNames = components.map((component) => component.name);
+  const iconSizes = components.map((component) => {
+    const iconName = component.icons[0].name;
+    const sizes = component.icons.map(({ size }) => `'${size}'`).sort();
+    const SizesType = sizes.join(' | ');
+    return `${iconName}: ${SizesType};`;
+  });
   return `
     import type { FunctionComponent, SVGProps } from 'react';
 
@@ -154,6 +170,12 @@ function buildDeclarationFile(components: Component[]): string {
         deprecation?: string;
       }[];
     };
+
+    type Icons = {
+      ${iconSizes.join('\n')}
+    }
+
+    export function getIconURL<Name extends keyof Icons>(name: Name, size: Icons[Name]): string;
   `;
 }
 
@@ -212,6 +234,7 @@ async function main() {
   );
 
   const indexRaw = buildIndexFile(components);
+  const helpersRaw = buildHelpersFile();
   const declarationFile = buildDeclarationFile(components);
 
   await Promise.all(
@@ -223,6 +246,7 @@ async function main() {
   );
 
   await transpileModule('index.js', indexRaw);
+  await transpileModule('helpers.js', helpersRaw);
 
   await writeFile(DIST_DIR, 'index.d.ts', declarationFile);
 }
