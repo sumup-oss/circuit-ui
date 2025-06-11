@@ -41,7 +41,7 @@ import classes from './Icons.module.css';
 
 function groupBy(
   icons: IconsManifest['icons'],
-  key: 'name' | 'category' | 'size'
+  key: 'name' | 'category' | 'size',
 ) {
   return icons.reduce(
     (groups, icon) => {
@@ -49,13 +49,13 @@ function groupBy(
       groups[icon[key]].push(icon);
       return groups;
     },
-    {} as Record<string, IconsManifest['icons']>
+    {} as Record<string, IconsManifest['icons']>,
   );
 }
 
 function sortBy(
   icons: IconsManifest['icons'],
-  key: 'name' | 'category' | 'size'
+  key: 'name' | 'category' | 'size',
 ) {
   return icons.sort((iconA, iconB) => {
     return iconA[key].localeCompare(iconB[key]);
@@ -67,7 +67,7 @@ function getComponentName(name: string) {
   const words = name.split(/[^a-z0-9]/i);
   // Uppercase the first letter and lowercase the rest
   const pascalCased = words.map(
-    (part) => part.charAt(0).toUpperCase() + part.substr(1).toLowerCase()
+    (part) => part.charAt(0).toUpperCase() + part.substr(1).toLowerCase(),
   );
   return pascalCased.join('');
 }
@@ -115,7 +115,7 @@ export function Icons() {
           lowerCaseKeyword.includes(lowerCaseSearch) ||
           lowerCaseKeyword.replace(/_/g, '').includes(lowerCaseSearch)
         );
-      }
+      },
     );
     const matchesSize = size === 'all' || size === icon.size;
     return matchesKeyword && matchesSize;
@@ -158,7 +158,7 @@ export function Icons() {
           <Body>No icons found</Body>
         ) : (
           Object.entries<IconsManifest['icons']>(
-            groupBy(activeIcons, 'category')
+            groupBy(activeIcons, 'category'),
           ).map(([category, items]) => (
             <section key={category} className={classes.category}>
               <Headline as="h2" size="m" id={slugify(category)}>
@@ -195,7 +195,7 @@ function Icon({
 
   const id = `${icon.name}-${icon.size}`;
   const componentName = getComponentName(
-    icon.name
+    icon.name,
   ) as keyof typeof iconComponents;
   const Icon = iconComponents[componentName] as IconComponentType;
 
