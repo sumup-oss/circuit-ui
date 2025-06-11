@@ -61,7 +61,7 @@ export const AutocompleteResults = ({
   const actionsRef = useRef<HTMLDivElement>(null);
   return (
     <div
-      className={classes.base}
+      className={clsx(!isModal && classes.base)}
       style={{
         marginBottom: isModal
           ? `${actionsRef?.current?.getBoundingClientRect().height}px`

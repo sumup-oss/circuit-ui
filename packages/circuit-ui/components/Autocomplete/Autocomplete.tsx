@@ -136,8 +136,10 @@ export type AutocompleteProps = Omit<
    */
   locale?: Locale;
 };
+const boundaryPadding = 8;
 
 const sizeOptions: SizeOptions = {
+  padding: boundaryPadding,
   apply({ availableHeight, elements }) {
     elements.floating.style.setProperty(
       '--suggestion-box-max-height',
@@ -145,8 +147,6 @@ const sizeOptions: SizeOptions = {
     );
   },
 };
-
-const boundaryPadding = 8;
 
 export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
   (
@@ -285,7 +285,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       middleware: [
         offsetMiddleware(8),
         shift({ padding: boundaryPadding }),
-        flip({ fallbackPlacements, padding: boundaryPadding }),
+        flip({ padding: boundaryPadding, fallbackPlacements }),
         size(sizeOptions),
       ],
     });
