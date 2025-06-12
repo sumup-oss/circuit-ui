@@ -17,6 +17,11 @@ import type { AutocompleteProps } from './Autocomplete.js';
 import type { SuggestionType } from './components/Suggestion/Suggestion.js';
 import type { SuggestionGroup } from './components/SuggestionBox/SuggestionBox.js';
 
+export const isGroup = (
+  suggestion: SuggestionGroup | SuggestionType,
+): suggestion is { label: string; suggestions: SuggestionType[] } =>
+  suggestion && 'label' in suggestion && 'suggestions' in suggestion;
+
 export const getSuggestionLabelByValue = (
   suggestions: AutocompleteProps['suggestions'],
   value?: string,
@@ -25,25 +30,13 @@ export const getSuggestionLabelByValue = (
     return '';
   }
   const flatSuggestions = suggestions.flatMap((suggestion) =>
-    'suggestions' in suggestion ? suggestion.suggestions : suggestion,
+    isGroup(suggestion) ? suggestion.suggestions : suggestion,
   );
 
   return (
     flatSuggestions.find((suggestion) => suggestion.value === value)?.label ||
     value
   );
-};
-
-export const computeTabIndex = (
-  suggestionValues: string[],
-  value: string,
-  isLoading: boolean,
-  activeSuggestion?: number,
-) => {
-  if (activeSuggestion === undefined) {
-    return -1;
-  }
-  return !isLoading && suggestionValues[activeSuggestion] === value ? 0 : -1;
 };
 
 export const isSuggestionFocused = (
@@ -54,8 +47,3 @@ export const isSuggestionFocused = (
   activeSuggestion !== undefined
     ? suggestionValues[activeSuggestion] === value
     : false;
-
-export const isGroup = (
-  suggestion: SuggestionGroup | SuggestionType,
-): suggestion is { label: string; suggestions: SuggestionType[] } =>
-  suggestion && 'label' in suggestion && 'suggestions' in suggestion;
