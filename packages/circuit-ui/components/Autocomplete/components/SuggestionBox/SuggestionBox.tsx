@@ -15,7 +15,7 @@
 
 'use client';
 
-import { type HTMLAttributes, useEffect, useMemo, useRef } from 'react';
+import { type HTMLAttributes, useMemo, useRef } from 'react';
 import { Plus } from '@sumup-oss/icons';
 
 import { type SuggestionType, Suggestion } from '../Suggestion/Suggestion.js';
@@ -82,15 +82,6 @@ export const SuggestionBox = ({
         .map((suggestion) => suggestion.value),
     [suggestions],
   );
-
-  useEffect(() => {
-    // scroll the selected suggestion into view
-    setTimeout(() => {
-      suggestionBoxRef.current
-        ?.querySelector('[aria-selected="true"]')
-        ?.scrollIntoView({ behavior: 'smooth' });
-    }, 0);
-  }, []);
 
   /*  check if the component received suggestions with or without media (icon or image)
    we assume that all suggestions have the same details, so we only check the first item */
