@@ -1,7 +1,6 @@
 {
-  "noResultsMessage": "Geen resultaten",
-  "loadingLabel": "Laden",
+  "noResultsMessage": "Geen resultaten gevonden",
   "cancel": "Annuleren",
   "resultsFound": "resultaten gevonden",
-  "loadMore": "Laad meer"
+  "loadMoreLabel": "Meer laden"
 }

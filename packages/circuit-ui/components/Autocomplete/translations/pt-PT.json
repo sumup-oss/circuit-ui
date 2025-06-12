@@ -1,7 +1,6 @@
 {
-  "noResultsMessage": "Sem resultados",
-  "loadingLabel": "A carregar",
+  "noResultsMessage": "Nenhum resultado encontrado",
   "cancel": "Cancelar",
   "resultsFound": "resultados encontrados",
-  "loadMore": "Carregar mais"
+  "loadMoreLabel": "Carregar mais"
 }

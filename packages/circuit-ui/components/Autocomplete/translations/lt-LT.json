@@ -1,7 +1,6 @@
 {
-  "noResultsMessage": "Nėra rezultatų",
-  "loadingLabel": "Kraunama",
+  "noResultsMessage": "Rezultatų nėra",
   "cancel": "Atšaukti",
-  "resultsFound": "rasti rezultatai",
-  "loadMore": "Įkelti daugiau"
+  "resultsFound": "rezultatų rasta",
+  "loadMoreLabel": "Įkelti daugiau"
 }

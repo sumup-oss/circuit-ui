@@ -64,7 +64,7 @@ export type AutocompleteProps = Omit<
   'renderPrefix' | 'renderSuffix' | 'as'
 > & {
   /**
-   * List of suggestions to display in the dropdown.
+   * List of suggestions to display in the suggestion box.
    */
   suggestions: AutocompleteSuggestions;
   /**
@@ -72,42 +72,49 @@ export type AutocompleteProps = Omit<
    */
   value?: string;
   /**
-   * A function called when a suggestion is selected.
+   * A callback function fired when a suggestion is selected.
    */
   onSelection: (value: string) => void;
   /**
-   * A custom message to display when no suggestions are available.
+   * A callback function fired when the search text value has changed.
+   * Use this callback to update the `suggestions` prop based on the user's input.
+   */
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  /**
+   * Custom content to display when no suggestions are available.
    */
   noResultsMessage?: ReactNode;
   /**
-   * the minimum length of the search query
+   * The minimum length of the search query that would trigger an `onChange` event.
    * @default 0
    */
   minQueryLength?: number;
   /**
-   * An optional function that allows to update the suggestions list when user scrolls to the bottom of the suggestions box
+   * An optional function that allows to add more items to the bottom the suggestion list currently displayed.
+   * If this function is provided, a "Load more" button will be displayed at the bottom of the suggestion list.
+   * Use this to implement lazy loading of suggestions.
    */
   loadMore?: () => void;
   /**
-   * Indicated a loading state while loading more suggestions.
+   * A custom label for the "Load more" button.
+   */
+  loadMoreLabel?: string;
+  /**
+   * Indicates a loading state while loading more suggestions.
    */
   isLoadingMore?: boolean;
   /**
-   * Indicated a loading state while loading suggestions.
+   * Indicates a loading state while loading suggestions.
    */
   isLoading?: boolean;
   /**
-   * A label to display while loading suggestions.
+   * Custom content to display while loading suggestions.
    */
   loadingLabel?: ReactNode;
   /**
    * An optional action to display below the Autocomplete suggestions.
    */
   action?: ReactNode;
-  /**
-   * Whether to open the suggestion box when the input field gains focus
-   */
-  openOnFocus?: boolean;
   /**
    * Whether to allow the selection of items that are not in the suggestion list.
    */
@@ -156,7 +163,6 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       minQueryLength = 0,
       action,
       loadMore,
-      openOnFocus,
       allowNewItems,
       modalMobileView,
       ...props
@@ -165,11 +171,10 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
   ) => {
     const {
       noResultsMessage: defaultNoResultsMessage,
-      loadingLabel: defaultLoadingLabel,
       cancel: cancelButtonLabel,
-      loadMore: loadMoreLabel,
+      loadMoreLabel,
       resultsFound,
-    } = useI18n({ locale }, translations);
+    } = useI18n({ locale, loadMoreLabel: props.loadMoreLabel }, translations);
 
     const [searchText, setSearchText] = useState<string>(
       getSuggestionLabelByValue(suggestions, value) ?? '',
@@ -253,7 +258,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     );
 
     const onComboboxClick = useCallback(() => {
-      if (value || openOnFocus || suggestions.length > 0) {
+      if (suggestions.length > 0) {
         openSuggestionBox();
         if (isMobile) {
           textBoxRef.current?.scrollIntoView({
@@ -262,7 +267,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
           });
         }
       }
-    }, [openOnFocus, openSuggestionBox, value, suggestions, isMobile]);
+    }, [openSuggestionBox, suggestions, isMobile]);
 
     const { floatingStyles, refs, update } = useFloating<HTMLElement>({
       open: isOpen,
@@ -318,6 +323,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
           }
         } else if (isArrowDown(event) && suggestions.length > 0) {
           openSuggestionBox();
+          setActiveSuggestion(0);
         }
       },
       [
@@ -381,7 +387,6 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     const loading = loadingLabel ?? (
       <div className={classes.loading}>
         <Spinner data-testid="suggestions-loading-spinner" />
-        <Body>{defaultLoadingLabel}</Body>
       </div>
     );
 

@@ -1,7 +1,6 @@
 {
-  "noResultsMessage": "Ingen resultater",
-  "loadingLabel": "Laster",
+  "noResultsMessage": "Ingen resultater funnet",
   "cancel": "Avbryt",
   "resultsFound": "resultater funnet",
-  "loadMore": "Last inn mer"
+  "loadMoreLabel": "Last inn flere"
 }

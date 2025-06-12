@@ -1,7 +1,6 @@
 {
-  "noResultsMessage": "No results",
-  "loadingLabel": "Loading",
+  "noResultsMessage": "No results found",
   "cancel": "Cancel",
   "resultsFound": "results found",
-  "loadMore": "Load more"
+  "loadMoreLabel": "Load more"
 }

@@ -1,7 +1,6 @@
 {
   "noResultsMessage": "Nav rezultātu",
-  "loadingLabel": "Ielādē",
   "cancel": "Atcelt",
-  "resultsFound": "atrasti rezultāti",
-  "loadMore": "Ielādēt vairāk"
+  "resultsFound": "rezultāti atrasti",
+  "loadMoreLabel": "Ielādēt vairāk"
 }

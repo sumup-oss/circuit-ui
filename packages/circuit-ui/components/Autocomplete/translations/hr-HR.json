@@ -1,7 +1,6 @@
 {
   "noResultsMessage": "Nema rezultata",
-  "loadingLabel": "Učitavanje",
   "cancel": "Odustani",
-  "resultsFound": "pronađenih rezultata",
-  "loadMore": "Učitaj više"
+  "resultsFound": "rezultata pronađeno",
+  "loadMoreLabel": "Učitaj više"
 }

@@ -1,7 +1,6 @@
 {
-  "noResultsMessage": "Tulemusi pole",
-  "loadingLabel": "Laadimine",
+  "noResultsMessage": "Tulemusi ei leitud",
   "cancel": "Tühista",
-  "resultsFound": "tulemust leitud",
-  "loadMore": "Lae rohkem"
+  "resultsFound": "leitud tulemust",
+  "loadMoreLabel": "Laadi veel"
 }

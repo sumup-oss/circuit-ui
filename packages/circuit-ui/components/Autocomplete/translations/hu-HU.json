@@ -1,7 +1,6 @@
 {
   "noResultsMessage": "Nincs találat",
-  "loadingLabel": "Betöltés",
   "cancel": "Mégse",
   "resultsFound": "találat",
-  "loadMore": "Továbbiak betöltése"
+  "loadMoreLabel": "Több betöltése"
 }
