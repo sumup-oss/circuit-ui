@@ -258,6 +258,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     );
 
     const onComboboxClick = useCallback(() => {
+      textBoxRef?.current?.select();
       if (suggestions.length > 0) {
         openSuggestionBox();
         if (isMobile) {
@@ -450,7 +451,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
             onClose={closeSuggestionBox}
           >
             <div className={classes['modal-header']}>
-              <SearchInput {...props} {...comboboxProps} />
+              <SearchInput {...props} ref={textBoxRef} {...comboboxProps} />
               <Button variant="tertiary" onClick={closeSuggestionBox}>
                 {cancelButtonLabel}
               </Button>
