@@ -42,6 +42,13 @@ export default {
     placeholder: { control: 'text' },
     disabled: { control: 'boolean' },
   },
+  decorators: [
+    (Story) => (
+      <div style={{ height: '400px' }}>
+        <Story />
+      </div>
+    ),
+  ] as Decorator[],
 };
 
 const baseArgs: AutocompleteProps = {
@@ -310,7 +317,7 @@ ModalView.decorators = [
 ] as Decorator[];
 
 export const AllowNewItems = (args: AutocompleteProps) => (
-  <Autocomplete {...args} value={'Zoomies'} allowNewItems />
+  <Autocomplete {...args} value={'Lu'} allowNewItems />
 );
-AllowNewItems.args = baseArgs;
+AllowNewItems.args = { ...baseArgs, suggestions: [mockSuggestions[1]] };
 AllowNewItems.play = openAutocomplete();
