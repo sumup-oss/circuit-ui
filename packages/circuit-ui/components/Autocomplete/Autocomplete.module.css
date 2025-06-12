@@ -1,5 +1,5 @@
 .input {
-  /* to avoid the input resizing on focus */
+  /* to avoid the search input resizing on focus */
   padding-right: var(--cui-spacings-exa);
 }
 

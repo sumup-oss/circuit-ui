@@ -31,7 +31,7 @@ import classes from './AutocompleteResults.module.css';
 export type AutocompleteResultsProps = SuggestionBoxProps &
   Pick<
     AutocompleteProps,
-    'loadingLabel' | 'noResultsMessage' | 'loadMore' | 'readOnly' | 'action'
+    'loadingLabel' | 'noResultsMessage' | 'loadMore' | 'action'
   > & {
     resultsSummary: string;
     loadMoreLabel: string;
@@ -49,7 +49,6 @@ export const AutocompleteResults = ({
   label,
   activeSuggestion,
   loadMore,
-  readOnly,
   action,
   suggestionIdPrefix,
   allowNewItems,
@@ -61,7 +60,7 @@ export const AutocompleteResults = ({
   const actionsRef = useRef<HTMLDivElement>(null);
   return (
     <div
-      className={clsx(!isModal && classes.base)}
+      className={clsx(!isModal && classes.modal)}
       style={{
         marginBottom: isModal
           ? `${actionsRef?.current?.getBoundingClientRect().height}px`
@@ -92,7 +91,6 @@ export const AutocompleteResults = ({
             label={label}
             suggestionIdPrefix={suggestionIdPrefix}
             activeSuggestion={activeSuggestion}
-            aria-readonly={readOnly}
             isLoading={isLoading}
             isLoadingMore={isLoadingMore}
             loadMore={loadMore}

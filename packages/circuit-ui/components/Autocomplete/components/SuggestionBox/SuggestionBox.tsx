@@ -21,11 +21,7 @@ import { Plus } from '@sumup-oss/icons';
 import { type SuggestionType, Suggestion } from '../Suggestion/Suggestion.js';
 import { Compact } from '../../../Compact/index.js';
 import type { AutocompleteProps } from '../../Autocomplete.js';
-import {
-  computeTabIndex,
-  isGroup,
-  isSuggestionFocused,
-} from '../../AutocompleteService.js';
+import { isGroup, isSuggestionFocused } from '../../AutocompleteService.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { Spinner } from '../../../Spinner/index.js';
 import { Button } from '../../../Button/index.js';
@@ -40,36 +36,36 @@ export type SuggestionGroup = {
 export type AutocompleteSuggestions = SuggestionGroup[] | SuggestionType[];
 
 export type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
+  label: string;
+  value: AutocompleteProps['value'];
   suggestions: AutocompleteSuggestions;
   isSelectable?: boolean;
   onSuggestionClicked: (value: string) => void;
   loadMore?: () => void;
+  loadMoreLabel: string;
   isLoading?: boolean;
   isLoadingMore?: boolean;
-  label: string;
   suggestionIdPrefix: string;
   activeSuggestion?: number;
   searchText?: string;
-  value: AutocompleteProps['value'];
   allowNewItems?: boolean;
   hasAction?: boolean;
   isModal?: boolean;
-  loadMoreLabel: string;
 };
 
 export const SuggestionBox = ({
+  label,
+  value,
   suggestions,
   onSuggestionClicked,
   isSelectable,
-  label,
+  isLoading = false,
+  isLoadingMore = false,
+  loadMore,
   loadMoreLabel,
   suggestionIdPrefix,
   activeSuggestion,
-  value,
-  isLoading = false,
-  isLoadingMore = false,
   hasAction,
-  loadMore,
   isModal,
   allowNewItems,
   searchText,
@@ -97,7 +93,7 @@ export const SuggestionBox = ({
   }, []);
 
   /*  check if the component received suggestions with or without media (icon or image)
-   we assume that all suggestions have the same details, so we check the first item */
+   we assume that all suggestions have the same details, so we only check the first item */
 
   const firstSuggestion = isGroup(suggestions[0])
     ? suggestions[0].suggestions[0]
@@ -136,35 +132,39 @@ export const SuggestionBox = ({
                   aria-label={suggestion.label}
                   className={classes['group-suggestion']}
                 >
-                  {suggestion.suggestions.map((suggestionItem) => (
-                    <Suggestion
-                      key={suggestionItem.value}
-                      {...suggestionItem}
-                      onSuggestionClicked={onSuggestionClicked}
-                      isSelectable={isSelectable}
-                      selected={value === suggestionItem.value}
-                      id={`suggestion-${suggestionIdPrefix}-${suggestionValues.indexOf(suggestionItem.value)}`}
-                      isFocused={isSuggestionFocused(
-                        suggestionValues,
-                        suggestionItem.value,
-                        activeSuggestion,
-                      )}
-                      tabIndex={computeTabIndex(
-                        suggestionValues,
-                        suggestionItem.value,
-                        isLoading,
-                        activeSuggestion,
-                      )}
-                      aria-setsize={suggestionValues.length}
-                      aria-posinset={
-                        suggestionValues.indexOf(suggestionItem.value) + 1
-                      }
-                    />
-                  ))}
+                  {suggestion.suggestions.map((suggestionItem) => {
+                    const isFocused = isSuggestionFocused(
+                      suggestionValues,
+                      suggestionItem.value,
+                      activeSuggestion,
+                    );
+
+                    return (
+                      <Suggestion
+                        key={suggestionItem.value}
+                        {...suggestionItem}
+                        onSuggestionClicked={onSuggestionClicked}
+                        isSelectable={isSelectable}
+                        selected={value === suggestionItem.value}
+                        id={`suggestion-${suggestionIdPrefix}-${suggestionValues.indexOf(suggestionItem.value)}`}
+                        isFocused={isFocused}
+                        tabIndex={!isLoading && isFocused ? 0 : -1}
+                        aria-setsize={suggestionValues.length}
+                        aria-posinset={
+                          suggestionValues.indexOf(suggestionItem.value) + 1
+                        }
+                      />
+                    );
+                  })}
                 </ul>
               </div>
             );
           }
+          const isFocused = isSuggestionFocused(
+            suggestionValues,
+            suggestion.value,
+            activeSuggestion,
+          );
           return (
             <Suggestion
               key={suggestion.value}
@@ -173,17 +173,8 @@ export const SuggestionBox = ({
               selected={value === suggestion.value}
               isSelectable={isSelectable}
               id={`suggestion-${suggestionIdPrefix}-${suggestionValues.indexOf(suggestion.value)}`}
-              isFocused={isSuggestionFocused(
-                suggestionValues,
-                suggestion.value,
-                activeSuggestion,
-              )}
-              tabIndex={computeTabIndex(
-                suggestionValues,
-                suggestion.value,
-                isLoading,
-                activeSuggestion,
-              )}
+              isFocused={isFocused}
+              tabIndex={!isLoading && isFocused ? 0 : -1}
               aria-setsize={suggestionValues.length}
               aria-posinset={suggestionValues.indexOf(suggestion.value) + 1}
             />
@@ -219,7 +210,6 @@ export const SuggestionBox = ({
       {loadMore && !isLoadingMore && (
         <Button
           variant="tertiary"
-          data-testid="loadMoreItems"
           className={clsx(
             classes['load-more'],
             isModal && classes['load-more-modal'],

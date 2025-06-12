@@ -32,6 +32,7 @@ import {
   suggestions as mockSuggestions,
 } from './fixtures.js';
 import { Autocomplete, type AutocompleteProps } from './Autocomplete.js';
+import { isGroup } from './AutocompleteService.js';
 
 export default {
   title: 'Forms/Autocomplete',
@@ -66,45 +67,30 @@ const openAutocomplete =
     await screen.findByText(text ?? 'Luna');
   };
 
-const openLoading =
-  () =>
-  async ({
-    canvasElement,
-  }: {
-    canvasElement: HTMLCanvasElement;
-  }) => {
-    const canvas = within(canvasElement);
-    const input = canvas.getByLabelText('With default message');
-    await userEvent.click(input);
-    await screen.findByText('Loading');
-  };
-
-const focusAutocomplete =
-  (label?: string) =>
-  async ({
-    canvasElement,
-  }: {
-    canvasElement: HTMLCanvasElement;
-  }) => {
-    const canvas = within(canvasElement);
-    const input = canvas.getByLabelText(label ?? baseArgs.label);
-
-    await userEvent.click(input);
-  };
-
 const filterSuggestions = (
   searchText: string,
   allSuggestions: AutocompleteProps['suggestions'],
 ) =>
   allSuggestions
     .flatMap((suggestion) =>
-      'suggestions' in suggestion ? suggestion.suggestions : suggestion,
+      isGroup(suggestion) ? suggestion.suggestions : suggestion,
     )
     .filter(
       (suggestion) =>
         suggestion.value.includes(searchText.trim().toLowerCase()) ||
         suggestion.label.includes(searchText.trim().toLowerCase()),
     );
+
+const messages = [
+  'Please wait while the cats knock everything off the shelves...',
+  'Summoning extra cats from under the bed...',
+  'Doing the heavy purring...',
+  "We're working very hard... right after this nap...",
+  'Waking up the cats... this may take a few attempts...',
+  'You are number 2843684714 in the cuddle queue...',
+  '️Please wait while we attend to other hoomans...',
+  'Our premium plan comes with extra belly rubs...',
+];
 
 export const Base = (args: AutocompleteProps) => {
   const [autocompleteValue, setAutocompleteValue] = useState(args.value);
@@ -135,32 +121,9 @@ export const Base = (args: AutocompleteProps) => {
 Base.args = baseArgs;
 Base.play = openAutocomplete();
 
-export const WithIcons = (args: AutocompleteProps) => {
-  const [autocompleteValue, setAutocompleteValue] = useState(args.value);
-  const [suggestions, setSuggestions] = useState(args.suggestions);
-  const onSearchTextChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const searchText = event.target.value;
-    setSuggestions(filterSuggestions(searchText, args.suggestions));
-  };
-  const onSelection = (value: string) => {
-    setAutocompleteValue(value);
-  };
-
-  const onClear = () => {
-    setAutocompleteValue('');
-  };
-
-  return (
-    <Autocomplete
-      {...args}
-      value={autocompleteValue}
-      suggestions={suggestions}
-      onChange={onSearchTextChange}
-      onSelection={onSelection}
-      onClear={onClear}
-    />
-  );
-};
+export const WithIcons = (args: AutocompleteProps) => (
+  <Autocomplete {...args} />
+);
 WithIcons.args = {
   ...baseArgs,
   suggestions: addresses,
@@ -177,17 +140,6 @@ Grouped.args = {
   suggestions: groupedSuggestions,
 };
 Grouped.play = openAutocomplete();
-
-const messages = [
-  'Please wait while the minions do their work...',
-  'Grabbing extra minions...',
-  'Doing the heavy lifting...',
-  "We're working very hard... really...",
-  'Waking up the minions...',
-  'You are number 2843684714 in the queue...',
-  '️Please wait while we serve other customers...',
-  'Our premium plan is faster...',
-];
 
 export const Loading = (args: AutocompleteProps) => {
   const [customMessage, setCustomMessage] = useState(0);
@@ -243,7 +195,7 @@ Loading.args = {
   ...baseArgs,
   isLoading: true,
 };
-Loading.play = openLoading();
+Loading.play = openAutocomplete('With default message', 'Loading');
 
 export const NoResults = (args: AutocompleteProps) => (
   <Stack>
@@ -330,7 +282,7 @@ export const ModalView = (args: AutocompleteProps) => (
 );
 
 ModalView.args = { ...baseArgs };
-ModalView.play = focusAutocomplete();
+ModalView.play = openAutocomplete();
 ModalView.parameters = {
   chromatic: {
     modes: {
@@ -346,26 +298,6 @@ ModalView.decorators = [
   ),
 ] as Decorator[];
 
-export const AllowNewItems = (args: AutocompleteProps) => {
-  const [autocompleteValue, setAutocompleteValue] = useState('Zoomies');
-  const [suggestions, setSuggestions] = useState(args.suggestions);
-  const onSearchTextChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const searchText = event.target.value;
-    setSuggestions(filterSuggestions(searchText, args.suggestions));
-  };
-  const onSelection = (value: string) => {
-    setAutocompleteValue(value);
-  };
-  return (
-    <Autocomplete
-      {...args}
-      value={autocompleteValue}
-      suggestions={suggestions}
-      onChange={onSearchTextChange}
-      onSelection={onSelection}
-      allowNewItems
-    />
-  );
-};
+export const AllowNewItems = (args: AutocompleteProps) => <Autocomplete {...args} value={'Zoomies'} allowNewItems />;
 AllowNewItems.args = baseArgs;
 AllowNewItems.play = openAutocomplete();

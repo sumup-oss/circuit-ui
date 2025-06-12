@@ -30,6 +30,7 @@ const props: AutocompleteResultsProps = {
   value: '',
   label: 'label',
   resultsSummary: 'results summary',
+  loadMoreLabel: 'Load more',
 };
 
 describe('AutocompleteResults', () => {
@@ -57,7 +58,7 @@ describe('AutocompleteResults', () => {
   it('renders a live region', () => {
     render(<AutocompleteResults {...props} />);
 
-    expect(screen.getByRole('status')).toHaveTextContent('results summary');
+    expect(screen.getByRole('status')).toHaveTextContent(props.resultsSummary);
   });
 
   describe('loading state', () => {

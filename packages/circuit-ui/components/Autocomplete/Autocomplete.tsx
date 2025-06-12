@@ -30,7 +30,6 @@ import {
 import {
   flip,
   offset as offsetMiddleware,
-  type Placement,
   shift,
   size,
   type SizeOptions,
@@ -118,17 +117,6 @@ export type AutocompleteProps = Omit<
    */
   modalMobileView?: boolean;
   /**
-   * One of the accepted placement values.
-   * @default `bottom`.
-   */
-  placement?: Placement;
-  /**
-   * The placements to fallback to when there is not enough space for the
-   * Popover.
-   * @default `['top', 'right', 'left']`.
-   */
-  fallbackPlacements?: Placement[];
-  /**
    * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
    * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
    * When passing an array, the first supported locale is used.
@@ -166,8 +154,6 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       readOnly,
       disabled,
       minQueryLength = 0,
-      placement = 'bottom',
-      fallbackPlacements = ['top'],
       action,
       loadMore,
       openOnFocus,
@@ -280,12 +266,12 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
 
     const { floatingStyles, refs, update } = useFloating<HTMLElement>({
       open: isOpen,
-      placement,
+      placement: 'bottom',
       strategy: 'fixed',
       middleware: [
         offsetMiddleware(8),
         shift({ padding: boundaryPadding }),
-        flip({ padding: boundaryPadding, fallbackPlacements }),
+        flip({ padding: boundaryPadding, fallbackPlacements: ['top'] }),
         size(sizeOptions),
       ],
     });
@@ -412,7 +398,6 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
         loadMoreLabel={loadMoreLabel}
         activeSuggestion={activeSuggestion}
         loadMore={loadMore}
-        readOnly={readOnly}
         action={action}
         suggestionIdPrefix={autocompleteId}
         allowNewItems={allowNewItems}
@@ -422,18 +407,35 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       />
     );
 
+    const comboboxProps = {
+      hideLabel: true,
+      label,
+      'data-id': autocompleteId,
+      clearLabel,
+      value: searchText,
+      onChange: onComboboxChange,
+      onClear: onComboboxClear,
+      onKeyDown: isLoading ? undefined : onInputKeyDown,
+      role: 'combobox',
+      autoComplete: 'off',
+      'aria-autocomplete': 'list' as const,
+      'aria-activedescendant': activeDescendant,
+      onClick: onComboboxClick,
+    };
+
     if (isMobile && modalMobileView) {
       return (
         <>
           <SearchInput
             {...props}
+            inputClassName={clsx(classes.input, props.inputClassName)}
             label={label}
             ref={applyMultipleRefs(ref, presentationFieldRef)}
             onClick={openSuggestionBox}
             value={presentationFieldValue}
             onChange={onChange}
             onKeyDown={undefined}
-            aria-controls={popupId}
+            aria-haspopup="dialog"
             aria-expanded={isOpen}
             onClear={onPresentationFieldClear}
           />
@@ -443,24 +445,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
             onClose={closeSuggestionBox}
           >
             <div className={classes['modal-header']}>
-              <SearchInput
-                {...props}
-                label={label}
-                data-id={autocompleteId}
-                ref={textBoxRef}
-                clearLabel={clearLabel}
-                hideLabel
-                value={searchText}
-                onChange={onComboboxChange}
-                onClear={onComboboxClear}
-                onKeyDown={isLoading ? undefined : onInputKeyDown}
-                role="combobox"
-                autoComplete="off"
-                aria-autocomplete="list"
-                style={{ flex: 1 }}
-                aria-activedescendant={activeDescendant}
-                onClick={onComboboxClick}
-              />
+              <SearchInput {...props} {...comboboxProps} />
               <Button variant="tertiary" onClick={closeSuggestionBox}>
                 {cancelButtonLabel}
               </Button>
@@ -475,22 +460,12 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       <>
         <SearchInput
           {...props}
-          label={label}
-          data-id={autocompleteId}
           ref={applyMultipleRefs(textBoxRef, ref, refs.setReference)}
-          clearLabel={clearLabel}
           inputClassName={clsx(classes.input, props.inputClassName)}
-          value={searchText}
-          onChange={onComboboxChange}
-          onClear={onComboboxClear}
-          onKeyDown={isLoading ? undefined : onInputKeyDown}
-          role="combobox"
-          autoComplete="off"
-          aria-autocomplete="list"
           aria-controls={popupId}
           aria-expanded={isOpen}
-          aria-activedescendant={activeDescendant}
-          onClick={onComboboxClick}
+          aria-haspopup="listbox"
+          {...comboboxProps}
         />
         {isOpen && (
           <div
