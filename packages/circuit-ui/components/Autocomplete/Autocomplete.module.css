@@ -57,7 +57,3 @@
   justify-content: center;
   padding: var(--cui-spacings-mega);
 }
-
-.loading {
-  gap: var(--cui-spacings-byte);
-}

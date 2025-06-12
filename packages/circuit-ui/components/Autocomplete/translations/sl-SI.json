@@ -1,7 +1,6 @@
 {
   "noResultsMessage": "Ni rezultatov",
-  "loadingLabel": "Nalaganje",
   "cancel": "Prekliči",
   "resultsFound": "najdenih rezultatov",
-  "loadMore": "Naloži več"
+  "loadMoreLabel": "Naloži več"
 }

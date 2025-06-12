@@ -141,75 +141,30 @@ Grouped.args = {
 };
 Grouped.play = openAutocomplete();
 
-export const Loading = (args: AutocompleteProps) => {
-  const [customMessage, setCustomMessage] = useState(0);
-
-  const pickRandomMessage = useCallback(() => {
-    setTimeout(() => {
-      setCustomMessage((prev) => (prev + 1) % messages.length);
-      pickRandomMessage();
-    }, 3000);
-  }, []);
-
-  useEffect(() => {
-    pickRandomMessage();
-  }, [pickRandomMessage]);
-
-  return (
-    <Stack>
-      <Autocomplete
-        {...args}
-        suggestions={[]}
-        label="With default message"
-        isLoading
-        openOnFocus
-      />
-      <Autocomplete
-        {...args}
-        suggestions={[]}
-        label="With custom message"
-        isLoading
-        openOnFocus
-        loadingLabel={
-          <div
-            style={{
-              padding: 'var(--cui-spacings-giga)',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              height: '200px',
-              gap: 'var(--cui-spacings-mega)',
-              textAlign: 'center',
-            }}
-          >
-            <Spinner />
-            <Body>{messages[customMessage]}</Body>
-          </div>
-        }
-      />
-    </Stack>
-  );
-};
-Loading.args = {
+export const WithAction = (args: AutocompleteProps) => (
+  <Autocomplete {...args} />
+);
+WithAction.args = {
   ...baseArgs,
-  isLoading: true,
+  action: (
+    <Button icon={Add} variant="tertiary">
+      Add
+    </Button>
+  ),
 };
-Loading.play = openAutocomplete('With default message', 'Loading');
+WithAction.play = openAutocomplete();
 
 export const NoResults = (args: AutocompleteProps) => (
   <Stack>
     <Autocomplete
       {...args}
       suggestions={[]}
-      openOnFocus
       label="Default no results message"
       validationHint="type something to see the no results message"
     />
     <Autocomplete
       {...args}
       suggestions={[]}
-      openOnFocus
       label="Custom no results message"
       validationHint="type something to see the no results message"
       noResultsMessage={
@@ -238,20 +193,76 @@ export const NoResults = (args: AutocompleteProps) => (
 );
 
 NoResults.args = baseArgs;
-NoResults.play = openAutocomplete('Default no results message', 'No results');
+NoResults.play = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLCanvasElement;
+}) => {
+  const canvas = within(canvasElement);
+  const input = canvas.getByLabelText('Default no results message');
 
-export const WithAction = (args: AutocompleteProps) => (
-  <Autocomplete {...args} />
-);
-WithAction.args = {
-  ...baseArgs,
-  action: (
-    <Button icon={Add} variant="tertiary">
-      Add
-    </Button>
-  ),
+  await userEvent.type(input, '#/hgd*@');
+  await screen.findByText('No results found');
 };
-WithAction.play = openAutocomplete();
+
+export const Loading = (args: AutocompleteProps) => {
+  const [customMessage, setCustomMessage] = useState(0);
+
+  const pickRandomMessage = useCallback(() => {
+    setTimeout(() => {
+      setCustomMessage((prev) => (prev + 1) % messages.length);
+      pickRandomMessage();
+    }, 3000);
+  }, []);
+
+  useEffect(() => {
+    pickRandomMessage();
+  }, [pickRandomMessage]);
+
+  return (
+    <Stack>
+      <Autocomplete {...args} suggestions={[]} label="Default" isLoading />
+      <Autocomplete
+        {...args}
+        suggestions={[]}
+        label="With custom message"
+        isLoading
+        loadingLabel={
+          <div
+            style={{
+              padding: 'var(--cui-spacings-giga)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: '200px',
+              gap: 'var(--cui-spacings-mega)',
+              textAlign: 'center',
+            }}
+          >
+            <Spinner />
+            <Body>{messages[customMessage]}</Body>
+          </div>
+        }
+      />
+    </Stack>
+  );
+};
+Loading.args = {
+  ...baseArgs,
+  isLoading: true,
+};
+Loading.play = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLCanvasElement;
+}) => {
+  const canvas = within(canvasElement);
+  const input = canvas.getByLabelText('Default');
+
+  await userEvent.type(input, 'Luna');
+  await screen.findByText('Loading');
+};
 
 export const LoadMore = (args: AutocompleteProps) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -278,7 +289,7 @@ LoadMore.args = { ...baseArgs, suggestions: catNames.slice(0, 5) };
 LoadMore.play = openAutocomplete(undefined, 'Tiger');
 
 export const ModalView = (args: AutocompleteProps) => (
-  <Autocomplete {...args} openOnFocus modalMobileView />
+  <Autocomplete {...args} modalMobileView />
 );
 
 ModalView.args = { ...baseArgs };
@@ -298,6 +309,8 @@ ModalView.decorators = [
   ),
 ] as Decorator[];
 
-export const AllowNewItems = (args: AutocompleteProps) => <Autocomplete {...args} value={'Zoomies'} allowNewItems />;
+export const AllowNewItems = (args: AutocompleteProps) => (
+  <Autocomplete {...args} value={'Zoomies'} allowNewItems />
+);
 AllowNewItems.args = baseArgs;
 AllowNewItems.play = openAutocomplete();

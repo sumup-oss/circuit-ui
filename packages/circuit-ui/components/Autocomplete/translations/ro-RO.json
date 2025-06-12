@@ -1,7 +1,6 @@
 {
-  "noResultsMessage": "Nu există rezultate",
-  "loadingLabel": "Se încarcă",
-  "cancel": "Anulare",
+  "noResultsMessage": "Nu s-au găsit rezultate",
+  "cancel": "Anulează",
   "resultsFound": "rezultate găsite",
-  "loadMore": "Încarcă mai mult"
+  "loadMoreLabel": "Încarcă mai multe"
 }

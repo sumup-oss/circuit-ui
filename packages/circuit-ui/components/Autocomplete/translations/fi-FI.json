@@ -1,7 +1,6 @@
 {
   "noResultsMessage": "Ei tuloksia",
-  "loadingLabel": "Ladataan",
   "cancel": "Peruuta",
   "resultsFound": "tulosta löytyi",
-  "loadMore": "Lataa lisää"
+  "loadMoreLabel": "Lataa lisää"
 }

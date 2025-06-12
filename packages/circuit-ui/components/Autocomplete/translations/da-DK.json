@@ -1,7 +1,6 @@
 {
-  "noResultsMessage": "Ingen resultater",
-  "loadingLabel": "Indlæser",
+  "noResultsMessage": "Ingen resultater fundet",
   "cancel": "Annuller",
-  "resultsFound": "resultater fundet",
-  "loadMore": "Indlæs mere"
+  "resultsFound": "fundne resultater",
+  "loadMoreLabel": "Indlæs flere"
 }
