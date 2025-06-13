@@ -35,7 +35,7 @@ type ButtonProps = {
 };
 
 type ContentProps<T> = {
-  'ref': RefObject<T>;
+  'ref': RefObject<T | null>;
   'id': string;
   'style': {
     overflowY: Overflow;
@@ -127,7 +127,7 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
   };
 }
 
-export function getHeight(element: RefObject<HTMLElement>): string {
+export function getHeight(element: RefObject<HTMLElement | null>): string {
   if (!element || !element.current) {
     return DEFAULT_HEIGHT;
   }

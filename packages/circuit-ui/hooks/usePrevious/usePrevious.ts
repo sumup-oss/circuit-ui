@@ -19,7 +19,7 @@ const useIsomorphicLayoutEffect =
   typeof document !== 'undefined' ? useLayoutEffect : useEffect;
 
 export function usePrevious<T>(value: T) {
-  const ref = useRef<T>();
+  const ref = useRef<T>(undefined);
   useIsomorphicLayoutEffect(() => {
     ref.current = value;
   });
