@@ -81,7 +81,7 @@ import checkIcon from '@sumup-oss/icons/check_24.svg';
 
 const SuccessMessage = ({ message }) => (
   <div>
-    <img src={checkIcon} alt="" aria-hidden="true" />
+    <img src={checkIcon} alt="" />
     <span>{message}</span>
   </div>
 );
@@ -98,7 +98,7 @@ import { getIconURL } from '@sumup-oss/icons';
 
 const SuccessMessage = ({ message }) => (
   <div>
-    <img src={getIconURL('check', '24')} alt="" aria-hidden="true" />
+    <img src={getIconURL('check', '24')} alt="" />
     <span>{message}</span>
   </div>
 );
