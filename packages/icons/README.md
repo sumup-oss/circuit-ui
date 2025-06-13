@@ -104,11 +104,11 @@ const SuccessMessage = ({ message }) => (
 );
 ```
 
-Alternatively, you can manually construct the URL:
+Alternatively, you can manually construct the URL (`https://circuit.sumup.com/icons/v2/<name>_<size>.svg`). For example:
 
 ```css
 .icon {
-  background-image: url('https://circuit.sumup.com/icons/v2/checkmark_16.svg');
+  background-image: url('https://circuit.sumup.com/icons/v2/check_24.svg');
 }
 ```
 
