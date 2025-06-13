@@ -47,6 +47,20 @@ describe('Dialog', () => {
 
   let originalHTMLDialogElement: typeof window.HTMLDialogElement;
 
+  function swipeDown(dialog: Element) {
+    fireEvent.touchStart(dialog, {
+      targetTouches: [{ clientX: 0, clientY: 0 }],
+    });
+
+    fireEvent.touchMove(dialog, {
+      targetTouches: [{ clientX: 0, clientY: 300 }],
+    });
+
+    fireEvent.touchEnd(dialog, {
+      changedTouches: [{ clientX: 0, clientY: 300 }],
+    });
+  }
+
   beforeEach(() => {
     originalHTMLDialogElement = window.HTMLDialogElement;
     vi.useFakeTimers({ shouldAdvanceTime: true });
@@ -204,6 +218,18 @@ describe('Dialog', () => {
         expect(props.onCloseStart).not.toHaveBeenCalled();
         expect(dialog).toBeVisible();
       });
+      it('should not close modal on swipe down if preventOutsideClickClose is true', async () => {
+        render(<Dialog {...props} open preventOutsideClickClose />);
+        // eslint-disable-next-line testing-library/no-container
+        const dialog = screen.getByRole('dialog', { hidden: true });
+        swipeDown(dialog);
+        act(() => {
+          vi.runAllTimers();
+        });
+        expect(props.onCloseEnd).not.toHaveBeenCalled();
+        expect(props.onCloseStart).not.toHaveBeenCalled();
+        expect(dialog).toBeVisible();
+      });
       it('should not close modal on backdrop click if preventOutsideClickClose is true - polyfill', async () => {
         Object.defineProperty(window, 'HTMLDialogElement', {
           writable: true,
@@ -271,6 +297,19 @@ describe('Dialog', () => {
       vi.runAllTimers();
       expect(props.onCloseEnd).toHaveBeenCalledOnce();
       expect(props.onCloseStart).toHaveBeenCalledOnce();
+      expect(dialog).not.toBeVisible();
+    });
+
+    it('should close the dialog when user swipes down', async () => {
+      render(<Dialog {...props} open isModal />);
+
+      const dialog = screen.getByRole('dialog', { hidden: true });
+
+      swipeDown(dialog);
+
+      vi.runAllTimers();
+      expect(props.onCloseStart).toHaveBeenCalledOnce();
+      expect(props.onCloseEnd).toHaveBeenCalledOnce();
       expect(dialog).not.toBeVisible();
     });
 
