@@ -53,7 +53,7 @@ describe('Dialog', () => {
     });
 
     fireEvent.touchMove(dialog, {
-      targetTouches: [{ clientX: 0, clientY: 300 }],
+      targetTouches: [{ clientX: 0, clientY: 700 }],
     });
 
     fireEvent.touchEnd(dialog, {
