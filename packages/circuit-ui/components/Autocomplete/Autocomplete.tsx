@@ -228,6 +228,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     const onComboboxChange = useCallback(
       (event: ChangeEvent<HTMLInputElement>) => {
         setSearchText(event.target.value);
+        setActiveSuggestion(undefined);
         if (event.target.value.length >= minQueryLength) {
           if (event.target.value !== '') {
             openSuggestionBox();
@@ -303,6 +304,12 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       (event) => {
         if (isOpen) {
           if (isArrowDown(event) || isArrowUp(event)) {
+            const showsNewItem =
+              allowNewItems &&
+              searchText !== '' &&
+              suggestionValues.indexOf(searchText.trim().toLowerCase()) === -1;
+            const totalShownSuggestions =
+              suggestionValues.length + (showsNewItem ? 1 : 0);
             event.preventDefault();
 
             if (activeSuggestion === undefined) {
@@ -311,10 +318,10 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
               );
             } else {
               const nextSuggestion =
-                (isArrowDown(event)
-                  ? (activeSuggestion ?? 0) + suggestionValues.length + 1
-                  : (activeSuggestion ?? 0) + suggestionValues.length - 1) %
-                suggestionValues.length;
+                (activeSuggestion +
+                  totalShownSuggestions +
+                  (isArrowDown(event) ? 1 : -1)) %
+                totalShownSuggestions;
 
               setActiveSuggestion(nextSuggestion);
             }
@@ -334,6 +341,8 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
         openSuggestionBox,
         suggestionValues,
         onSuggestionClicked,
+        allowNewItems,
+        searchText,
       ],
     );
 
