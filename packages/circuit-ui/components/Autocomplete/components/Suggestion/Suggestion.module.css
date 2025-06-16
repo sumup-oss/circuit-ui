@@ -1,6 +1,6 @@
 .base {
   display: flex;
-  align-items: center;
+  align-items: start;
   min-height: 40px;
   padding: var(--cui-spacings-byte);
   margin-bottom: var(--cui-spacings-bit);
