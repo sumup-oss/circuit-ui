@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 10.2.0
+
+### Minor Changes
+
+- [#3139](https://github.com/sumup-oss/circuit-ui/pull/3139) [`aa0f7dc`](https://github.com/sumup-oss/circuit-ui/commit/aa0f7dc42fc94f80a1281067057308720b1a29dd) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a default localised label for the clear button of the SearchInput component. The `clearLabel` prop is now optional.
+
+- [#3148](https://github.com/sumup-oss/circuit-ui/pull/3148) [`48d1b9c`](https://github.com/sumup-oss/circuit-ui/commit/48d1b9ced8a8748775a210a7f920efd389d786d2) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the Toggle component styles for improved accessibility.
+
 ## 10.1.0
 
 ### Minor Changes
