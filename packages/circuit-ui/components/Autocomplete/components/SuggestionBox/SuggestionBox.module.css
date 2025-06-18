@@ -41,7 +41,7 @@ li:last-of-type {
 
 .group-suggestion {
   padding: 0;
-  margin: var(--cui-spacings-byte) 0;
+  margin: var(--cui-spacings-mega) 0;
   list-style-type: none;
 }
 
