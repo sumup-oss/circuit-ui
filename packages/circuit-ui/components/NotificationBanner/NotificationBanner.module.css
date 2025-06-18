@@ -34,7 +34,6 @@
   display: flex;
   flex-direction: column;
   max-width: 640px;
-  max-width: max(640px, 66vw);
 }
 
 .content-wrapper {
@@ -114,7 +113,6 @@
   .base .image {
     grid-area: image;
     align-self: center;
-    margin-left: var(--cui-spacings-giga);
   }
 }
 

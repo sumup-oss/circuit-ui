@@ -71,3 +71,30 @@ Dismissable.args = {
     alt: 'Refer a friend',
   },
 };
+
+export const LongDescriptionText = (args: NotificationBannerProps) => {
+  const [isVisible, setVisible] = useState(args.isVisible);
+  return (
+    <NotificationBanner
+      {...args}
+      isVisible={isVisible}
+      onClose={() => setVisible(false)}
+      closeButtonLabel="Close Notification"
+    />
+  );
+};
+
+LongDescriptionText.args = {
+  headline: 'Lorem ipsum dolor sit amet',
+  body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+  variant: 'promotional',
+  action: {
+    onClick: action('Action clicked'),
+    children: 'Click here',
+    variant: 'tertiary',
+  },
+  image: {
+    src: '/images/illustration-referrals.svg',
+    alt: 'Refer a friend',
+  },
+};
