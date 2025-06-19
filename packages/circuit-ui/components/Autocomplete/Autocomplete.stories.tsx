@@ -274,7 +274,7 @@ LoadMore.args = { ...baseArgs, suggestions: catNames.slice(0, 5) };
 LoadMore.play = openAutocomplete(undefined, 'Tiger');
 
 export const ModalView = (args: AutocompleteProps) => (
-  <Autocomplete {...args} modalMobileView />
+  <Autocomplete {...args} variant="immersive" />
 );
 
 ModalView.args = { ...baseArgs };
