@@ -33,7 +33,7 @@ export const Base = (args: NotificationBannerProps) => (
 
 Base.args = {
   headline: 'Software update',
-  body: 'There is updated firmware available for your card reader',
+  body: 'There is updated firmware available for your card reader. Please update to continue using your card reader.',
   action: {
     onClick: action('Action clicked'),
     children: 'Update',
@@ -60,33 +60,6 @@ export const Dismissable = (args: NotificationBannerProps) => {
 
 Dismissable.args = {
   headline: 'Refer a friend, get rewarded',
-  variant: 'promotional',
-  action: {
-    onClick: action('Action clicked'),
-    children: 'Click here',
-    variant: 'tertiary',
-  },
-  image: {
-    src: '/images/illustration-referrals.svg',
-    alt: 'Refer a friend',
-  },
-};
-
-export const LongDescriptionText = (args: NotificationBannerProps) => {
-  const [isVisible, setVisible] = useState(args.isVisible);
-  return (
-    <NotificationBanner
-      {...args}
-      isVisible={isVisible}
-      onClose={() => setVisible(false)}
-      closeButtonLabel="Close Notification"
-    />
-  );
-};
-
-LongDescriptionText.args = {
-  headline: 'Lorem ipsum dolor sit amet',
-  body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   variant: 'promotional',
   action: {
     onClick: action('Action clicked'),
