@@ -2,4 +2,4 @@
 "@sumup-oss/circuit-ui": patch
 ---
 
-Improved `NotificationBanner` tablet and desktop layouts by positioning the illustration image to the left side while keeping the fix-width text content and CTA button grouped together on the right at viewports >= 768px.
+Improved `NotificationBanner` component's responsiveness and readability by moving the illustration to the left side and aligning it with the fixed-width text content and CTA button on large viewports.
