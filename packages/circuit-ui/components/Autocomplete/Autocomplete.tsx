@@ -93,9 +93,10 @@ export type AutocompleteProps = Omit<
      */
     minQueryLength?: number;
     /**
-     * On narrow screens, opens the suggestion list in a modal view for an immersive, focused experience.
-     */
-    modalMobileView?: boolean;
+     * Use the `immersive` to open the suggestion list in a modal view on mobile, for an immersive, focused experience.
+     * @default 'contextual'
+     * */
+    variant?: 'contextual' | 'immersive';
     /**
      * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
      * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
@@ -138,7 +139,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       action,
       loadMore,
       allowNewItems,
-      modalMobileView,
+      variant = 'contextual',
       ...props
     },
     ref,
@@ -265,13 +266,13 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
           getSuggestionLabelByValue(suggestions, selectedValue),
         );
         closeSuggestionBox();
-        if (isMobile && modalMobileView) {
+        if (isMobile && variant === 'immersive') {
           setPresentationFieldValue(
             getSuggestionLabelByValue(suggestions, selectedValue),
           );
         }
       },
-      [suggestions, onSelection, closeSuggestionBox, isMobile, modalMobileView],
+      [suggestions, onSelection, closeSuggestionBox, isMobile, variant],
     );
 
     const onInputKeyDown: KeyboardEventHandler<HTMLInputElement> = useCallback(
@@ -345,10 +346,10 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     }, [isOpen, update, suggestions]);
 
     const handleClickOutside = useCallback(() => {
-      if (!(isMobile && modalMobileView)) {
+      if (!(isMobile && variant === 'immersive')) {
         closeSuggestionBox();
       }
-    }, [closeSuggestionBox, isMobile, modalMobileView]);
+    }, [closeSuggestionBox, isMobile, variant]);
     useClickOutside([textBoxRef, refs.floating], handleClickOutside);
 
     useEscapeKey(closeSuggestionBox, isOpen);
@@ -386,7 +387,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
         allowNewItems={allowNewItems}
         searchText={searchText}
         resultsSummary={`${suggestionValues.length} ${resultsFound}.`}
-        isModal={isMobile && modalMobileView}
+        isModal={isMobile && variant === 'immersive'}
       />
     );
 
@@ -405,7 +406,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       onClick: onComboboxClick,
     };
 
-    if (isMobile && modalMobileView) {
+    if (isMobile && variant === 'immersive') {
       return (
         <>
           <SearchInput

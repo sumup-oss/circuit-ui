@@ -236,7 +236,7 @@ describe('Autocomplete', () => {
     });
 
     it('should open in a modal dialog', async () => {
-      render(<Autocomplete {...props} modalMobileView />);
+      render(<Autocomplete {...props} variant="immersive" />);
       const input = screen.getByRole('searchbox', { name: props.label });
 
       await userEvent.click(input);
@@ -244,7 +244,7 @@ describe('Autocomplete', () => {
     });
 
     it('should call onClear', async () => {
-      render(<Autocomplete {...props} modalMobileView value="luna" />);
+      render(<Autocomplete {...props} variant="immersive" value="luna" />);
       const clearButton = screen.getByRole('button', { name: 'Clear' });
 
       await userEvent.click(clearButton);
@@ -253,7 +253,7 @@ describe('Autocomplete', () => {
     });
 
     it('should call onChange when user types in field', async () => {
-      render(<Autocomplete {...props} modalMobileView />);
+      render(<Autocomplete {...props} variant="immersive" />);
       const input = screen.getByRole('searchbox', { name: props.label });
 
       await userEvent.click(input);
@@ -266,7 +266,7 @@ describe('Autocomplete', () => {
     });
 
     it('should select a value, call onSelection and close the dialog', async () => {
-      render(<Autocomplete {...props} modalMobileView />);
+      render(<Autocomplete {...props} variant="immersive" />);
       const input = screen.getByRole('searchbox', { name: props.label });
       await userEvent.click(input);
       expect(screen.getByRole('dialog')).toBeVisible();
@@ -286,7 +286,11 @@ describe('Autocomplete', () => {
     it('should render with selected value', async () => {
       const selectedValue = suggestions[0];
       render(
-        <Autocomplete {...props} modalMobileView value={selectedValue.value} />,
+        <Autocomplete
+          {...props}
+          variant="immersive"
+          value={selectedValue.value}
+        />,
       );
       const input = screen.getByRole('searchbox', { name: props.label });
       expect(input).toHaveValue(selectedValue.label);
@@ -300,7 +304,7 @@ describe('Autocomplete', () => {
     });
 
     it('should close dialog when the cancel button is clicked', async () => {
-      render(<Autocomplete {...props} modalMobileView />);
+      render(<Autocomplete {...props} variant="immersive" />);
       const input = screen.getByRole('searchbox', { name: props.label });
       await userEvent.click(input);
       expect(screen.getByRole('dialog')).toBeVisible();
