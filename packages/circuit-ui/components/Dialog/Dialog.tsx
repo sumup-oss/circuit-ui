@@ -328,7 +328,9 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 
     const handleSwipe = useCallback(
       (direction: string) => {
+        const isScrolledToTop = dialogRef?.current?.scrollTop === 0;
         if (
+          isScrolledToTop &&
           open &&
           isModal &&
           direction === 'down' &&
@@ -349,7 +351,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 
     const eventHandlers = useSwipe(
       handleSwipe,
-      typeof window === 'undefined' ? 300 : window.innerHeight * 0.9,
+      typeof window === 'undefined' ? 300 : window.innerHeight * 0.5,
     );
 
     const handleOutsideClick = useCallback(() => {
