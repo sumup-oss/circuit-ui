@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 5.11.0
+
+### Minor Changes
+
+- [#3145](https://github.com/sumup-oss/circuit-ui/pull/3145) [`71e3cec`](https://github.com/sumup-oss/circuit-ui/commit/71e3cec446fd5ce45930a11dcb3265cb420bbb1e) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a `getIconURL` helper function to obtain the URL for the hosted icons with full type-safety.
+
 ## 5.10.0
 
 ### Minor Changes

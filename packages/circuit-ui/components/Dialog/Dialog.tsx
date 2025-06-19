@@ -97,7 +97,10 @@ export interface DialogProps extends PublicDialogProps {
    */
   preventOutsideClickClose?: boolean;
   /**
-   * Prevent users from closing the modal by pressing the escape key.
+   * Prevent users from closing the dialog by pressing the escape key.
+   * On Chromium-based modal dialogs, this would prevent closing on the first press of the escape key
+   * but would close the modal on the second press, as intended by Chromium.
+   * To learn more about this particular behaviour, see https://issues.chromium.org/issues/41491338
    * @default false
    */
   preventEscapeKeyClose?: boolean;

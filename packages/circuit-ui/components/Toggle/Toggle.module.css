@@ -14,40 +14,47 @@
   appearance: none;
   cursor: pointer;
   outline: 0;
-  background-color: var(--cui-bg-highlight);
-  border: 0;
+  background-color: var(--cui-bg-normal);
+  border: 1px solid var(--cui-border-normal);
   border-radius: var(--toggle-track-height);
   transition: background-color var(--toggle-animation-timing);
 }
 
 .track:hover {
-  background-color: var(--cui-bg-highlight-hovered);
+  background-color: var(--cui-bg-normal-hovered);
+  border: 1px solid var(--cui-border-normal-hovered);
 }
 
 .track:active {
-  background-color: var(--cui-bg-highlight-pressed);
+  background-color: var(--cui-bg-normal-pressed);
+  border: 1px solid var(--cui-border-normal-pressed);
 }
 
 .track[aria-checked="true"] {
-  background-color: var(--cui-bg-success-strong);
+  background-color: var(--cui-bg-strong);
+  border: 1px solid var(--cui-bg-strong);
 }
 
 .track[aria-checked="true"]:hover {
-  background-color: var(--cui-bg-success-strong-hovered);
+  background-color: var(--cui-bg-strong-hovered);
+  border: 1px solid var(--cui-bg-strong-hovered);
 }
 
 .track[aria-checked="true"]:active {
-  background-color: var(--cui-bg-success-strong-pressed);
+  background-color: var(--cui-bg-strong-pressed);
+  border: 1px solid var(--cui-bg-strong-pressed);
 }
 
 .track:disabled,
 .track[disabled] {
-  background-color: var(--cui-bg-highlight-disabled);
+  background-color: var(--cui-bg-normal);
+  border: 1px solid var(--cui-border-subtle-disabled);
 }
 
 .track[aria-checked="true"]:disabled,
 .track[aria-checked="true"][disabled] {
-  background-color: var(--cui-bg-success-strong-disabled);
+  background-color: var(--cui-bg-accent-strong-disabled);
+  border: 1px solid transparent;
 }
 
 .knob {
@@ -56,13 +63,10 @@
   display: block;
   width: var(--toggle-knob-size);
   height: var(--toggle-knob-size);
-  background-color: #fff;
+  background-color: var(--cui-bg-strong);
   border-radius: var(--toggle-knob-size);
-  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 25%);
   transform: translate3d(var(--cui-spacings-bit), -50%, 0);
-  transition:
-    box-shadow var(--toggle-animation-timing),
-    transform var(--toggle-animation-timing);
+  transition: transform var(--toggle-animation-timing);
 }
 
 [aria-checked="true"] .knob {
@@ -78,7 +82,13 @@
 
 [disabled] .knob,
 [data-disabled="true"] .knob {
-  background-color: var(--cui-fg-on-strong-disabled);
+  background-color: var(--cui-bg-subtle-disabled);
+}
+
+.track[aria-checked="true"] .knob,
+.track[aria-checked="true"]:disabled .knob,
+.track[aria-checked="true"][disabled] .knob {
+  background-color: var(--cui-fg-on-strong);
 }
 
 .wrapper {
