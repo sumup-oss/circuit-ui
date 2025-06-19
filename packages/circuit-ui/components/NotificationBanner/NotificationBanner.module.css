@@ -1,7 +1,9 @@
 .base {
   position: relative;
   display: grid;
-  grid-template-areas: "content image";
+  grid-template-areas: "content content image" "button . image";
+  padding: var(--cui-spacings-giga);
+  padding-right: 0;
   overflow: hidden;
   border-radius: var(--cui-border-radius-mega);
   transition:
@@ -12,8 +14,11 @@
 
 @media (min-width: 768px) {
   .base {
-    grid-template-areas: "image content";
+    grid-template-areas: "image content button";
     align-items: center;
+    padding: 0;
+    padding-right: var(--cui-spacings-giga);
+    padding-left: 0;
   }
 }
 
@@ -30,29 +35,16 @@
 .content {
   display: flex;
   flex-direction: column;
-  max-width: 640px;
-  margin-bottom: var(--cui-spacings-byte);
+  max-width: 583px;
+  padding-right: var(--cui-spacings-byte);
 }
 
 @media (min-width: 768px) {
   .content {
-    margin-bottom: 0;
-  }
-}
-
-.content-wrapper {
-  display: flex;
-  flex-direction: column;
-  grid-area: content;
-  padding: var(--cui-spacings-giga);
-}
-
-@media (min-width: 768px) {
-  .content-wrapper {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    grid-area: content;
     padding: var(--cui-spacings-giga);
+    padding-left: var(--cui-spacings-byte);
+    margin-bottom: 0;
   }
 }
 
@@ -91,19 +83,21 @@
 
 .button {
   grid-area: button;
-  align-self: flex-start;
+  width: fit-content;
+  margin-top: var(--cui-spacings-byte);
 }
 
 @media (min-width: 768px) {
   .button {
     align-self: center;
+    margin-top: 0;
     margin-left: var(--cui-spacings-giga);
   }
 }
 
 .base .image {
   grid-area: image;
-  align-self: center;
+  align-self: stretch;
   width: var(--notification-image-width);
   min-width: 0;
   height: auto;

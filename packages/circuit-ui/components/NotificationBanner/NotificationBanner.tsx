@@ -181,20 +181,18 @@ export const NotificationBanner = forwardRef<
         className={clsx(classes.base, classes[variant], className)}
         {...props}
       >
-        <div className={classes['content-wrapper']}>
-          <div className={classes.content}>
-            <Headline as="h2" className={classes.headline}>
-              {headline}
-            </Headline>
-            {body && <Body className={classes.body}>{body}</Body>}
-          </div>
-          <Button
-            {...action}
-            variant={action.variant === 'tertiary' ? 'secondary' : 'primary'}
-            className={clsx(action.className, classes.button)}
-            size="s"
-          />
+        <div className={classes.content}>
+          <Headline as="h2" className={classes.headline}>
+            {headline}
+          </Headline>
+          {body && <Body className={classes.body}>{body}</Body>}
         </div>
+        <Button
+          {...action}
+          variant={action.variant === 'tertiary' ? 'secondary' : 'primary'}
+          className={clsx(action.className, classes.button)}
+          size="s"
+        />
         {image?.src && <NotificationImage {...image} />}
         {onClose && closeButtonLabel && (
           <CloseButton className={classes.close} size="s" onClick={onClose}>
