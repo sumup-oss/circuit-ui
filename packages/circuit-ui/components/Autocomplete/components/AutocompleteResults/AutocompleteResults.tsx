@@ -24,6 +24,7 @@ import {
 } from '../SuggestionBox/SuggestionBox.js';
 import { Hr } from '../../../Hr/index.js';
 import { clsx } from '../../../../styles/clsx.js';
+import { Spinner } from '../../../Spinner/index.js';
 
 import classes from './AutocompleteResults.module.css';
 
@@ -31,7 +32,7 @@ export type AutocompleteResultsProps = SuggestionBoxProps & {
   /**
    * Custom content to display while loading suggestions.
    */
-  loadingLabel?: ReactNode;
+  loadingLabel?: string;
   /**
    * Custom content to display when no suggestions are available.
    */
@@ -87,7 +88,12 @@ export const AutocompleteResults = ({
       >
         {resultsSummary}
       </div>
-      {isLoading && suggestions.length === 0 && loadingLabel}
+      {isLoading && suggestions.length === 0 && (
+        <div className={classes.loading}>
+          <Spinner data-testid="suggestions-loading-spinner" />
+          {loadingLabel}
+        </div>
+      )}
       {!isLoading &&
         suggestions.length === 0 &&
         !allowNewItems &&
