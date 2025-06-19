@@ -57,7 +57,7 @@ describe('Dialog', () => {
     });
 
     fireEvent.touchEnd(dialog, {
-      changedTouches: [{ clientX: 0, clientY: 300 }],
+      changedTouches: [{ clientX: 0, clientY: 700 }],
     });
   }
 
