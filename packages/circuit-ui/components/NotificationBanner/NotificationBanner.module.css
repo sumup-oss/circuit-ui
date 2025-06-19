@@ -1,8 +1,7 @@
 .base {
   position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template-areas: "content image";
   overflow: hidden;
   border-radius: var(--cui-border-radius-mega);
   transition:
@@ -13,9 +12,7 @@
 
 @media (min-width: 768px) {
   .base {
-    display: grid;
-    grid-template-areas: "image content button";
-    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "image content";
     align-items: center;
   }
 }
@@ -34,23 +31,25 @@
   display: flex;
   flex-direction: column;
   max-width: 640px;
+  margin-bottom: var(--cui-spacings-byte);
+}
+
+@media (min-width: 768px) {
+  .content {
+    margin-bottom: 0;
+  }
 }
 
 .content-wrapper {
   display: flex;
   flex-direction: column;
+  grid-area: content;
   padding: var(--cui-spacings-giga);
-  padding-right: var(--cui-spacings-byte);
-}
-
-.content-wrapper > *:not(:last-child) {
-  margin-bottom: var(--cui-spacings-byte);
 }
 
 @media (min-width: 768px) {
   .content-wrapper {
     flex-direction: row;
-    grid-area: content;
     align-items: center;
     justify-content: space-between;
     padding: var(--cui-spacings-giga);
@@ -63,6 +62,10 @@
   margin-bottom: var(--cui-spacings-byte);
   font-size: var(--cui-headline-s-font-size);
   line-height: var(--cui-headline-s-line-height);
+}
+
+.base .headline:only-child {
+  margin-bottom: 0;
 }
 
 @media (min-width: 768px) {
@@ -87,33 +90,26 @@
 }
 
 .button {
-  flex-shrink: 0;
+  grid-area: button;
   align-self: flex-start;
 }
 
 @media (min-width: 768px) {
   .button {
-    grid-area: button;
     align-self: center;
     margin-left: var(--cui-spacings-giga);
   }
 }
 
 .base .image {
-  flex-shrink: 0;
+  grid-area: image;
+  align-self: center;
   width: var(--notification-image-width);
   min-width: 0;
   height: auto;
   object-fit: contain;
   object-position: var(--notification-image-align);
   border-radius: 0 var(--cui-border-radius-mega) var(--cui-border-radius-mega) 0;
-}
-
-@media (min-width: 768px) {
-  .base .image {
-    grid-area: image;
-    align-self: center;
-  }
 }
 
 .base .close {
