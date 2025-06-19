@@ -57,10 +57,8 @@ export type SearchInputProps = InputProps & {
  */
 export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
   (props, ref) => {
-    const { value, onClear, clearLabel, inputClassName, ...rest } = useI18n(
-      props,
-      translations,
-    );
+    const { value, onClear, clearLabel, inputClassName, locale, ...rest } =
+      useI18n(props, translations);
     const localRef = useRef<HTMLInputElement>(null);
 
     if (
