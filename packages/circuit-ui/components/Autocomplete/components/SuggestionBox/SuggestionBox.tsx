@@ -38,16 +38,31 @@ export type AutocompleteSuggestions = SuggestionGroup[] | SuggestionType[];
 export type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
   label: string;
   value: AutocompleteProps['value'];
+  /**
+   * List of suggestions to display in the suggestion box.
+   */
   suggestions: AutocompleteSuggestions;
   isSelectable?: boolean;
   onSuggestionClicked: (value: string) => void;
   loadMore?: () => void;
+  /**
+   * A custom label for the "Load more" button.
+   */
   loadMoreLabel: string;
+  /**
+   * Indicates a loading state while loading suggestions.
+   */
   isLoading?: boolean;
+  /**
+   * Indicates a loading state while loading more suggestions.
+   */
   isLoadingMore?: boolean;
   suggestionIdPrefix: string;
   activeSuggestion?: number;
   searchText?: string;
+  /**
+   * Whether to allow the selection of items that are not in the suggestion list.
+   */
   allowNewItems?: boolean;
   hasAction?: boolean;
   isModal?: boolean;

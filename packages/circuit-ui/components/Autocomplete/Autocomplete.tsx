@@ -19,7 +19,6 @@ import {
   type ChangeEvent,
   forwardRef,
   type KeyboardEventHandler,
-  type ReactNode,
   useCallback,
   useEffect,
   useId,
@@ -54,83 +53,59 @@ import { Spinner } from '../Spinner/index.js';
 import { clsx } from '../../styles/clsx.js';
 
 import { translations } from './translations/index.js';
-import type { AutocompleteSuggestions } from './components/SuggestionBox/SuggestionBox.js';
 import classes from './Autocomplete.module.css';
 import { getSuggestionLabelByValue, isGroup } from './AutocompleteService.js';
-import { AutocompleteResults } from './components/AutocompleteResults/AutocompleteResults.js';
+import {
+  AutocompleteResults,
+  type AutocompleteResultsProps,
+} from './components/AutocompleteResults/AutocompleteResults.js';
 
 export type AutocompleteProps = Omit<
   SearchInputProps,
   'renderPrefix' | 'renderSuffix' | 'as'
-> & {
-  /**
-   * List of suggestions to display in the suggestion box.
-   */
-  suggestions: AutocompleteSuggestions;
-  /**
-   * The field's value.
-   */
-  value?: string;
-  /**
-   * A callback function fired when a suggestion is selected.
-   */
-  onSelection: (value: string) => void;
-  /**
-   * A callback function fired when the search text value has changed.
-   * Use this callback to update the `suggestions` prop based on the user's input.
-   */
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  /**
-   * Custom content to display when no suggestions are available.
-   */
-  noResultsMessage?: ReactNode;
-  /**
-   * The minimum length of the search query that would trigger an `onChange` event.
-   * @default 0
-   */
-  minQueryLength?: number;
-  /**
-   * An optional function that allows to add more items to the bottom the suggestion list currently displayed.
-   * If this function is provided, a "Load more" button will be displayed at the bottom of the suggestion list.
-   * Use this to implement lazy loading of suggestions.
-   */
-  loadMore?: () => void;
-  /**
-   * A custom label for the "Load more" button.
-   */
-  loadMoreLabel?: string;
-  /**
-   * Indicates a loading state while loading more suggestions.
-   */
-  isLoadingMore?: boolean;
-  /**
-   * Indicates a loading state while loading suggestions.
-   */
-  isLoading?: boolean;
-  /**
-   * Custom content to display while loading suggestions.
-   */
-  loadingLabel?: ReactNode;
-  /**
-   * An optional action to display below the Autocomplete suggestions.
-   */
-  action?: ReactNode;
-  /**
-   * Whether to allow the selection of items that are not in the suggestion list.
-   */
-  allowNewItems?: boolean;
-  /**
-   * On narrow screens, opens the suggestion list in a modal view for an immersive, focused experience.
-   */
-  modalMobileView?: boolean;
-  /**
-   * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
-   * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
-   * When passing an array, the first supported locale is used.
-   * Defaults to `navigator.language` in supported environments.
-   */
-  locale?: Locale;
-};
+> &
+  Pick<
+    AutocompleteResultsProps,
+    | 'isLoading'
+    | 'loadingLabel'
+    | 'noResultsMessage'
+    | 'loadMore'
+    | 'isLoadingMore'
+    | 'action'
+    | 'allowNewItems'
+    | 'suggestions'
+  > & {
+    /**
+     * The field's value.
+     */
+    value?: string;
+    /**
+     * A callback function fired when a suggestion is selected.
+     */
+    onSelection: (value: string) => void;
+    /**
+     * A callback function fired when the search text value has changed.
+     * Use this callback to update the `suggestions` prop based on the user's input.
+     */
+    onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+    /**
+     * The minimum length of the search query that would trigger an `onChange` event.
+     * @default 0
+     */
+    minQueryLength?: number;
+    /**
+     * On narrow screens, opens the suggestion list in a modal view for an immersive, focused experience.
+     */
+    modalMobileView?: boolean;
+    /**
+     * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
+     * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
+     * When passing an array, the first supported locale is used.
+     * Defaults to `navigator.language` in supported environments.
+     */
+    locale?: Locale;
+    loadMoreLabel?: AutocompleteResultsProps['loadMoreLabel'];
+  };
 const boundaryPadding = 8;
 
 const sizeOptions: SizeOptions = {
