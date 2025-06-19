@@ -352,10 +352,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       ],
     );
 
-    const eventHandlers = useSwipe(
-      handleSwipe,
-      300,
-    );
+    const eventHandlers = useSwipe(handleSwipe, 300);
 
     const handleOutsideClick = useCallback(() => {
       lastFocusedElementRef.current = null;
