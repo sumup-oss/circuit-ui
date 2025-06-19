@@ -15,28 +15,40 @@
 
 'use client';
 
-import { useRef } from 'react';
+import { type ReactNode, useRef } from 'react';
 
 import { utilClasses } from '../../../../styles/utility.js';
 import {
   SuggestionBox,
   type SuggestionBoxProps,
 } from '../SuggestionBox/SuggestionBox.js';
-import type { AutocompleteProps } from '../../Autocomplete.js';
 import { Hr } from '../../../Hr/index.js';
 import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './AutocompleteResults.module.css';
 
-export type AutocompleteResultsProps = SuggestionBoxProps &
-  Pick<
-    AutocompleteProps,
-    'loadingLabel' | 'noResultsMessage' | 'loadMore' | 'action'
-  > & {
-    resultsSummary: string;
-    loadMoreLabel: string;
-    isModal?: boolean;
-  };
+export type AutocompleteResultsProps = SuggestionBoxProps & {
+  /**
+   * Custom content to display while loading suggestions.
+   */
+  loadingLabel?: ReactNode;
+  /**
+   * Custom content to display when no suggestions are available.
+   */
+  noResultsMessage?: ReactNode;
+  /**
+   * An optional function that allows to add more items to the bottom the suggestion list currently displayed.
+   * If this function is provided, a "Load more" button will be displayed at the bottom of the suggestion list.
+   * Use this to implement lazy loading of suggestions.
+   */
+  loadMore?: () => void;
+  /**
+   * An optional action to display below the Autocomplete suggestions.
+   */
+  action?: ReactNode;
+  resultsSummary: string;
+  isModal?: boolean;
+};
 
 export const AutocompleteResults = ({
   isLoading,
