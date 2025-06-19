@@ -25,6 +25,7 @@ import {
 import { Hr } from '../../../Hr/index.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { Spinner } from '../../../Spinner/index.js';
+import { Button, type ButtonProps } from '../../../Button/index.js';
 
 import classes from './AutocompleteResults.module.css';
 
@@ -44,9 +45,9 @@ export type AutocompleteResultsProps = SuggestionBoxProps & {
    */
   loadMore?: () => void;
   /**
-   * An optional action to display below the Autocomplete suggestions.
+   * An optional button to display below the Autocomplete suggestions.
    */
-  action?: ReactNode;
+  action?: Omit<ButtonProps, 'variant' | 'size'>;
   resultsSummary: string;
   isModal?: boolean;
 };
@@ -127,7 +128,7 @@ export const AutocompleteResults = ({
               ref={actionsRef}
             >
               <Hr />
-              {action}
+              {action && <Button {...action} variant="tertiary" size="s" />}
             </div>
           )}
         </>

@@ -151,11 +151,7 @@ export const WithAction = (args: AutocompleteProps) => (
 );
 WithAction.args = {
   ...baseArgs,
-  action: (
-    <Button icon={Add} variant="tertiary">
-      Add
-    </Button>
-  ),
+  action: { icon: Add, children: 'Add item' },
 };
 WithAction.play = openAutocomplete();
 
