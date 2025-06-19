@@ -49,7 +49,6 @@ import { Modal } from '../Modal/index.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 import { Button } from '../Button/Button.js';
 import { Body } from '../Body/index.js';
-import { Spinner } from '../Spinner/index.js';
 import { clsx } from '../../styles/clsx.js';
 
 import { translations } from './translations/index.js';
@@ -369,18 +368,12 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       <Body className={classes['no-results']}>{defaultNoResultsMessage}</Body>
     );
 
-    const loading = loadingLabel ?? (
-      <div className={classes.loading}>
-        <Spinner data-testid="suggestions-loading-spinner" />
-      </div>
-    );
-
     const results = (
       <AutocompleteResults
         isLoading={isLoading}
         isLoadingMore={isLoadingMore}
         suggestions={suggestions}
-        loadingLabel={loading}
+        loadingLabel={loadingLabel}
         noResultsMessage={noResults}
         value={value}
         onSuggestionClicked={onSuggestionClicked}
@@ -398,7 +391,6 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     );
 
     const comboboxProps = {
-      hideLabel: true,
       label,
       'data-id': autocompleteId,
       clearLabel,
@@ -435,7 +427,12 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
             onClose={closeSuggestionBox}
           >
             <div className={classes['modal-header']}>
-              <SearchInput {...props} ref={textBoxRef} {...comboboxProps} />
+              <SearchInput
+                {...props}
+                ref={textBoxRef}
+                {...comboboxProps}
+                hideLabel
+              />
               <Button variant="tertiary" onClick={closeSuggestionBox}>
                 {cancelButtonLabel}
               </Button>

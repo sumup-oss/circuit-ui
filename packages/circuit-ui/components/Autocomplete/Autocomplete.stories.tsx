@@ -20,8 +20,6 @@ import { action } from 'storybook/actions';
 import type { Decorator } from '@storybook/react-vite';
 
 import { Button } from '../Button/index.js';
-import { Body } from '../Body/index.js';
-import { Spinner } from '../Spinner/index.js';
 import { Stack } from '../../../../.storybook/components/index.js';
 import { modes } from '../../../../.storybook/modes.js';
 
@@ -234,23 +232,7 @@ export const Loading = (args: AutocompleteProps) => {
         suggestions={[]}
         label="With custom message"
         isLoading
-        loadingLabel={
-          <div
-            style={{
-              padding: 'var(--cui-spacings-giga)',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              height: '200px',
-              gap: 'var(--cui-spacings-mega)',
-              textAlign: 'center',
-            }}
-          >
-            <Spinner />
-            <Body>{messages[customMessage]}</Body>
-          </div>
-        }
+        loadingLabel={messages[customMessage]}
       />
     </Stack>
   );

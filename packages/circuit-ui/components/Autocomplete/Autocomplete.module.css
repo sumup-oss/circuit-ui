@@ -49,8 +49,7 @@
   align-items: flex-start;
 }
 
-.no-results,
-.loading {
+.no-results {
   display: flex;
   flex-direction: column;
   align-items: center;
