@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.2.1
+
+### Patch Changes
+
+- [#3149](https://github.com/sumup-oss/circuit-ui/pull/3149) [`d0eb8ba`](https://github.com/sumup-oss/circuit-ui/commit/d0eb8bad1196cf92d68ae655037d848329ddf198) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the SearchInput component accidentally setting the `locale` prop as an HTML attribute.
+
 ## 10.2.0
 
 ### Minor Changes
