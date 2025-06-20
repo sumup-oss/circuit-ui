@@ -15,7 +15,7 @@
 
 'use client';
 
-import { type ReactNode, useRef } from 'react';
+import { forwardRef, type ReactNode, useRef } from 'react';
 
 import { utilClasses } from '../../../../styles/utility.js';
 import {
@@ -52,87 +52,96 @@ export type AutocompleteResultsProps = SuggestionBoxProps & {
   isModal?: boolean;
 };
 
-export const AutocompleteResults = ({
-  isLoading,
-  isLoadingMore,
-  loadingLabel,
-  noResultsMessage,
-  suggestions,
-  value,
-  onSuggestionClicked,
-  label,
-  activeSuggestion,
-  loadMore,
-  action,
-  suggestionIdPrefix,
-  allowNewItems,
-  searchText,
-  resultsSummary,
-  isModal,
-  loadMoreLabel,
-}: AutocompleteResultsProps) => {
-  const actionsRef = useRef<HTMLDivElement>(null);
-  return (
-    <div
-      className={clsx(!isModal && classes.modal)}
-      style={{
-        marginBottom: isModal
-          ? `${actionsRef?.current?.getBoundingClientRect().height}px`
-          : 0,
-      }}
-    >
+export const AutocompleteResults = forwardRef<
+  HTMLDivElement,
+  AutocompleteResultsProps
+>(
+  (
+    {
+      isLoading,
+      isLoadingMore,
+      loadingLabel,
+      noResultsMessage,
+      suggestions,
+      value,
+      onSuggestionClicked,
+      label,
+      activeSuggestion,
+      loadMore,
+      action,
+      suggestionIdPrefix,
+      allowNewItems,
+      searchText,
+      resultsSummary,
+      isModal,
+      loadMoreLabel,
+    },
+    ref,
+  ) => {
+    const actionsRef = useRef<HTMLDivElement>(null);
+    return (
       <div
-        role="status"
-        aria-live="polite"
-        aria-busy={isLoading}
-        className={utilClasses.hideVisually}
+        ref={ref}
+        className={clsx(!isModal && classes.modal)}
+        style={{
+          marginBottom: isModal
+            ? `${actionsRef?.current?.getBoundingClientRect().height}px`
+            : 0,
+        }}
       >
-        {resultsSummary}
-      </div>
-      {isLoading && suggestions.length === 0 && (
-        <div className={classes.loading}>
-          <Spinner data-testid="suggestions-loading-spinner" />
-          {loadingLabel}
+        <div
+          role="status"
+          aria-live="polite"
+          aria-busy={isLoading}
+          className={utilClasses.hideVisually}
+        >
+          {resultsSummary}
         </div>
-      )}
-      {!isLoading &&
-        suggestions.length === 0 &&
-        !allowNewItems &&
-        noResultsMessage}
+        {isLoading && suggestions.length === 0 && (
+          <div className={classes.loading}>
+            <Spinner data-testid="suggestions-loading-spinner" />
+            {loadingLabel}
+          </div>
+        )}
+        {!isLoading &&
+          suggestions.length === 0 &&
+          !allowNewItems &&
+          noResultsMessage}
 
-      {(suggestions.length > 0 ||
-        (allowNewItems && suggestions.length === 0)) && (
-        <>
-          <SuggestionBox
-            value={value}
-            suggestions={suggestions}
-            onSuggestionClicked={onSuggestionClicked}
-            label={label}
-            suggestionIdPrefix={suggestionIdPrefix}
-            activeSuggestion={activeSuggestion}
-            isLoading={isLoading}
-            isLoadingMore={isLoadingMore}
-            loadMore={loadMore}
-            searchText={searchText}
-            allowNewItems={allowNewItems}
-            hasAction={!!action}
-            isModal={isModal}
-            loadMoreLabel={loadMoreLabel}
-          />
-          {action && (
-            <div
-              className={clsx(
-                classes.action,
-                isModal && classes['action-modal'],
-              )}
-              ref={actionsRef}
-            >
-              <Hr />
-              {action && <Button {...action} variant="tertiary" size="s" />}
-            </div>
-          )}
-        </>
-      )}
-    </div>
-  );
-};
+        {(suggestions.length > 0 ||
+          (allowNewItems && suggestions.length === 0)) && (
+          <>
+            <SuggestionBox
+              value={value}
+              suggestions={suggestions}
+              onSuggestionClicked={onSuggestionClicked}
+              label={label}
+              suggestionIdPrefix={suggestionIdPrefix}
+              activeSuggestion={activeSuggestion}
+              isLoading={isLoading}
+              isLoadingMore={isLoadingMore}
+              loadMore={loadMore}
+              searchText={allowNewItems ? searchText : undefined}
+              allowNewItems={allowNewItems}
+              hasAction={!!action}
+              isModal={isModal}
+              loadMoreLabel={loadMoreLabel}
+            />
+            {action && (
+              <div
+                className={clsx(
+                  classes.action,
+                  isModal && classes['action-modal'],
+                )}
+                ref={actionsRef}
+              >
+                <Hr />
+                {action && <Button {...action} variant="tertiary" size="s" />}
+              </div>
+            )}
+          </>
+        )}
+      </div>
+    );
+  },
+);

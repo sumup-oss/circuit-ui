@@ -50,6 +50,7 @@ import { useMedia } from '../../hooks/useMedia/index.js';
 import { Button } from '../Button/Button.js';
 import { Body } from '../Body/index.js';
 import { clsx } from '../../styles/clsx.js';
+import { isString } from '../../util/type-check.js';
 
 import { translations } from './translations/index.js';
 import classes from './Autocomplete.module.css';
@@ -162,6 +163,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     const [activeSuggestion, setActiveSuggestion] = useState<number>();
     const textBoxRef = useRef<HTMLInputElement>(null);
     const presentationFieldRef = useRef<HTMLInputElement>(null);
+    const resultsRef = useRef<HTMLDivElement>(null);
     const popupId = useId();
     const autocompleteId = useId();
 
@@ -235,16 +237,14 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
 
     const onComboboxClick = useCallback(() => {
       textBoxRef?.current?.select();
-      if (suggestions.length > 0) {
-        openSuggestionBox();
-        if (isMobile) {
-          textBoxRef.current?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-          });
-        }
+      openSuggestionBox();
+      if (isMobile) {
+        textBoxRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
       }
-    }, [openSuggestionBox, suggestions, isMobile]);
+    }, [openSuggestionBox, isMobile]);
 
     const { floatingStyles, refs, update } = useFloating<HTMLElement>({
       open: isOpen,
@@ -279,12 +279,9 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       (event) => {
         if (isOpen) {
           if (isArrowDown(event) || isArrowUp(event)) {
-            const showsNewItem =
-              allowNewItems &&
-              searchText !== '' &&
-              suggestionValues.indexOf(searchText.trim().toLowerCase()) === -1;
             const totalShownSuggestions =
-              suggestionValues.length + (showsNewItem ? 1 : 0);
+              resultsRef.current?.querySelectorAll('[role="option"]').length ??
+              0;
             event.preventDefault();
 
             if (activeSuggestion === undefined) {
@@ -304,7 +301,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
           if (isEnter(event) && activeSuggestion !== undefined) {
             onSuggestionClicked(suggestionValues[activeSuggestion]);
           }
-        } else if (isArrowDown(event) && suggestions.length > 0) {
+        } else if (isArrowDown(event)) {
           openSuggestionBox();
           setActiveSuggestion(0);
         }
@@ -312,12 +309,9 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       [
         isOpen,
         activeSuggestion,
-        suggestions,
         openSuggestionBox,
         suggestionValues,
         onSuggestionClicked,
-        allowNewItems,
-        searchText,
       ],
     );
 
@@ -343,7 +337,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
         window.removeEventListener('resize', update);
         window.removeEventListener('scroll', update);
       };
-    }, [isOpen, update, suggestions]);
+    }, [isOpen, update, suggestions.length]);
 
     const handleClickOutside = useCallback(() => {
       if (!(isMobile && variant === 'immersive')) {
@@ -365,12 +359,21 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
         ? `suggestion-${autocompleteId}-${activeSuggestion}`
         : undefined;
 
-    const noResults = noResultsMessage ?? (
-      <Body className={classes['no-results']}>{defaultNoResultsMessage}</Body>
+    const noResults = useMemo(
+      () =>
+        isString(noResultsMessage) || !noResultsMessage ? (
+          <Body className={classes['no-results']}>
+            {noResultsMessage ?? defaultNoResultsMessage}
+          </Body>
+        ) : (
+          noResultsMessage
+        ),
+      [noResultsMessage, defaultNoResultsMessage],
     );
 
     const results = (
       <AutocompleteResults
+        ref={resultsRef}
         isLoading={isLoading}
         isLoadingMore={isLoadingMore}
         suggestions={suggestions}
@@ -438,7 +441,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
                 {cancelButtonLabel}
               </Button>
             </div>
-            {results}
+            {(searchText || suggestions.length) && results}
           </Modal>
         </>
       );
@@ -467,7 +470,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
               maxWidth: textBoxRef.current?.offsetWidth,
             }}
           >
-            {results}
+            {(searchText || suggestions.length) && results}
           </div>
         )}
       </>
