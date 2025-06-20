@@ -1311,6 +1311,11 @@
     {
       "name": "location",
       "category": "Miscellaneous",
+      "size": "16"
+    },
+    {
+      "name": "location",
+      "category": "Miscellaneous",
       "size": "24"
     },
     {
