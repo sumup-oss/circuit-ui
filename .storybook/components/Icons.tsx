@@ -106,9 +106,16 @@ export function Icons() {
     { label: '2x', value: 'two-x' },
   ];
 
+  const lowerCaseSearch = search.toLowerCase();
   const activeIcons = iconsManifest.icons.filter((icon) => {
     const matchesKeyword = [icon.name, ...(icon.keywords || [])].some(
-      (keyword) => keyword.toLowerCase().includes(search.toLowerCase()),
+      (keyword) => {
+        const lowerCaseKeyword = keyword.toLowerCase();
+        return (
+          lowerCaseKeyword.includes(lowerCaseSearch) ||
+          lowerCaseKeyword.replace(/_/g, '').includes(lowerCaseSearch)
+        );
+      },
     );
     const matchesSize = size === 'all' || size === icon.size;
     return matchesKeyword && matchesSize;
@@ -179,7 +186,11 @@ function Icon({
   icon,
   scale,
   color,
-}: { icon: IconsManifest['icons'][number]; scale: string; color: string }) {
+}: {
+  icon: IconsManifest['icons'][number];
+  scale: string;
+  color: string;
+}) {
   const { setToast } = useNotificationToast();
 
   const id = `${icon.name}-${icon.size}`;

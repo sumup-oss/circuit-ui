@@ -37,6 +37,7 @@ import { useClickOutside } from '../../hooks/useClickOutside/index.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
 import { useLatest } from '../../hooks/useLatest/index.js';
 import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import { useSwipe } from '../../hooks/useSwipe/index.js';
 
 import classes from './Dialog.module.css';
 import { translations } from './translations/index.js';
@@ -96,7 +97,10 @@ export interface DialogProps extends PublicDialogProps {
    */
   preventOutsideClickClose?: boolean;
   /**
-   * Prevent users from closing the modal by pressing the escape key.
+   * Prevent users from closing the dialog by pressing the escape key.
+   * On Chromium-based modal dialogs, this would prevent closing on the first press of the escape key
+   * but would close the modal on the second press, as intended by Chromium.
+   * To learn more about this particular behaviour, see https://issues.chromium.org/issues/41491338
    * @default false
    */
   preventEscapeKeyClose?: boolean;
@@ -291,7 +295,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     }, [preventEscapeKeyClose]);
 
     const handleEscapeKey = useCallback(
-      (e: KeyboardEvent) => {
+      (e: Event) => {
         // get all potential dialog elements in this dialog's composed path
         // and check if it is topmost dialog .
         const isTopMostDialog =
@@ -324,6 +328,31 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       },
       [],
     );
+
+    const handleSwipe = useCallback(
+      (direction: string) => {
+        const isScrolledToTop = dialogRef?.current?.scrollTop === 0;
+        if (
+          isScrolledToTop &&
+          open &&
+          isModal &&
+          direction === 'down' &&
+          !hideCloseButton &&
+          !preventOutsideClickClose
+        ) {
+          handleDialogClose();
+        }
+      },
+      [
+        isModal,
+        open,
+        handleDialogClose,
+        hideCloseButton,
+        preventOutsideClickClose,
+      ],
+    );
+
+    const eventHandlers = useSwipe(handleSwipe, 300);
 
     const handleOutsideClick = useCallback(() => {
       lastFocusedElementRef.current = null;
@@ -420,6 +449,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
             '--dialog-animation-duration': `${animationDuration}ms`,
           }}
           {...rest}
+          {...eventHandlers}
         >
           {(open || isClosing) &&
             (typeof children === 'function'
