@@ -39,6 +39,11 @@
   gap: var(--cui-spacings-bit);
 }
 
+.has-media {
+  justify-content: center;
+  min-height: 40px;
+}
+
 .media img {
   display: block;
   width: 32px;
