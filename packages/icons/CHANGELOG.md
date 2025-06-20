@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 5.12.0
+
+### Minor Changes
+
+- [#3152](https://github.com/sumup-oss/circuit-ui/pull/3152) [`88ce66e`](https://github.com/sumup-oss/circuit-ui/commit/88ce66e5371e7b8d0ad450cdc41bd63e5ad65976) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a Location icon in size 16.
+
 ## 5.11.0
 
 ### Minor Changes
