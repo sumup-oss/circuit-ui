@@ -17,8 +17,11 @@
 
 import { forwardRef, useId } from 'react';
 import { resolveNumberFormat } from '@sumup-oss/intl';
-import { NumericFormat, type NumericFormatProps } from 'react-number-format';
 
+import {
+  NumericFormat,
+  type NumericFormatProps,
+} from '../../vendor/react-number-format/index.js';
 import { clsx } from '../../styles/clsx.js';
 import { idx } from '../../util/idx.js';
 import { Input, type InputProps } from '../Input/index.js';

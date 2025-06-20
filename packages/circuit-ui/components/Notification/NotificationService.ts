@@ -17,7 +17,9 @@ import type { RefObject } from 'react';
 
 import { DEFAULT_HEIGHT } from './constants.js';
 
-export function getElementHeight(element: RefObject<HTMLElement>): string {
+export function getElementHeight(
+  element: RefObject<HTMLElement | null>,
+): string {
   if (!element || !element.current) {
     return DEFAULT_HEIGHT;
   }
