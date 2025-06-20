@@ -186,13 +186,13 @@ export const NotificationBanner = forwardRef<
             {headline}
           </Headline>
           {body && <Body className={classes.body}>{body}</Body>}
-          <Button
-            {...action}
-            variant={action.variant === 'tertiary' ? 'secondary' : 'primary'}
-            className={clsx(action.className, classes.button)}
-            size="s"
-          />
         </div>
+        <Button
+          {...action}
+          variant={action.variant === 'tertiary' ? 'secondary' : 'primary'}
+          className={clsx(action.className, classes.button)}
+          size="s"
+        />
         {image?.src && <NotificationImage {...image} />}
         {onClose && closeButtonLabel && (
           <CloseButton className={classes.close} size="s" onClick={onClose}>

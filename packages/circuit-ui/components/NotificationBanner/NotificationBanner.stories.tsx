@@ -16,6 +16,8 @@
 import { action } from 'storybook/actions';
 import { useState } from 'react';
 
+import { modes } from '../../../../.storybook/modes.js';
+
 import {
   NotificationBanner,
   type NotificationBannerProps,
@@ -25,6 +27,14 @@ export default {
   title: 'Notification/NotificationBanner',
   component: NotificationBanner,
   tags: ['status:stable'],
+  parameters: {
+    chromatic: {
+      modes: {
+        mobile: modes.smallMobile,
+        desktop: modes.desktop,
+      },
+    },
+  },
 };
 
 export const Base = (args: NotificationBannerProps) => (
@@ -33,7 +43,7 @@ export const Base = (args: NotificationBannerProps) => (
 
 Base.args = {
   headline: 'Software update',
-  body: 'There is updated firmware available for your card reader',
+  body: 'There is updated firmware available for your card reader. Please update to continue using your card reader.',
   action: {
     onClick: action('Action clicked'),
     children: 'Update',
