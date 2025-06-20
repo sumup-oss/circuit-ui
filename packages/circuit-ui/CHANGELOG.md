@@ -1,5 +1,12 @@
 # @sumup-oss/circuit-ui
 
+## 10.3.0
+
+### Minor Changes
+
+- [#3142](https://github.com/sumup-oss/circuit-ui/pull/3142) [`8343b7c`](https://github.com/sumup-oss/circuit-ui/commit/8343b7cc971a654a55122ac30971f26c17a5b52e) Thanks [@sirineJ](https://github.com/sirineJ)! - Added support for closing modal Dialogs via swipe-down gesture.
+  This behavior is not enabled when either `hideCloseButton` or `preventOutsideClickClose` are set to true.
+
 ## 10.2.1
 
 ### Patch Changes
