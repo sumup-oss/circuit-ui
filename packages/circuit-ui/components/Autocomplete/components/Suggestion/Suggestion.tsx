@@ -97,7 +97,12 @@ export const Suggestion = ({
           )}
         </div>
       )}
-      <div className={classes.content}>
+      <div
+        className={clsx(
+          classes.content,
+          (image || Icon) && classes['has-media'],
+        )}
+      >
         <Compact id={labelId} size="s" weight="semibold">
           {label}
         </Compact>
