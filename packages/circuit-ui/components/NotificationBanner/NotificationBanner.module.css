@@ -18,7 +18,6 @@
     align-items: center;
     padding: 0;
     padding-right: var(--cui-spacings-giga);
-    padding-left: 0;
   }
 }
 
@@ -35,7 +34,7 @@
 .content {
   display: flex;
   flex-direction: column;
-  max-width: 583px;
+  max-width: 600px;
   padding-right: var(--cui-spacings-byte);
 }
 
@@ -56,10 +55,6 @@
   line-height: var(--cui-headline-s-line-height);
 }
 
-.base .headline:only-child {
-  margin-bottom: 0;
-}
-
 @media (min-width: 768px) {
   .base .headline {
     font-size: var(--cui-headline-m-font-size);
@@ -75,7 +70,6 @@
 
 @media (min-width: 768px) {
   .base .body {
-    margin-bottom: 0;
     font-size: var(--cui-body-m-font-size);
     line-height: var(--cui-body-m-line-height);
   }
