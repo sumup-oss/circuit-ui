@@ -16,8 +16,7 @@
   .base {
     grid-template-areas: "image content button";
     align-items: center;
-    padding: 0;
-    padding-right: var(--cui-spacings-giga);
+    padding: 0 var(--cui-spacings-giga);
   }
 }
 
