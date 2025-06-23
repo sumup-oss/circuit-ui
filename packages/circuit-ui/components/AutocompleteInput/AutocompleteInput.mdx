@@ -13,12 +13,14 @@ An Autocomplete component is an input field that allows users to filter and sele
 
 ## When to use
 
-- Use the Autocomplete component when you want to help users easily find and select from a large set of options.
-- Common use cases:
-    - Location picker: Address or city field
-    - Product catalog: choosing from a long list of products
-- For short lists, consider using the the [Select](Forms/Select/Docs) component instead.
-- While the Autocomplete component is accessible, it can be complex to interact with, especially for keyboard and screen reader users. Use it only when necessary, and aim to keep the interaction simple and respect the component usage recommendations as much as possible.
+Use the Autocomplete component when you want to help users easily find and select from a large set of options. Common use cases:
+
+- Location picker: Address or city field
+- Product catalog: choosing from a long list of products
+
+For short lists, consider using the the [Select](Forms/Select/Docs) component instead.
+
+While the Autocomplete component is accessible, it can be complex to interact with, especially for keyboard and screen reader users. Use it only when necessary, and aim to keep the interaction simple and respect the component usage recommendations as much as possible.
 
 ## How to use
 
@@ -26,32 +28,35 @@ An Autocomplete component is an input field that allows users to filter and sele
 - Use the `onSelect` prop to handle the selection of an option, and set the input's `value` prop to the selected option.
 - Use the `onClear` prop to handle the clearing of the input field, and reset the input's `value` prop to an empty string to reflect this change.
 - The component can receive a flat list or a list of grouped suggestion via the `suggestions` prop. To ensure a consistent and user-friendly experience, keep the visual format uniform. For example, all suggestions include (or not) an icon or a description. Keep labels and descriptions short and easy to scan.
-
 - To support custom input values not present in the suggestion box, enable the `allowNewItems` prop. This will trigger the `onSelection` callback with the user's typed value as argument.
 
 <Story of={Stories.AllowNewItems} />
 
-- For a mobile-optimized experience, enable the `modalMobileView` prop to open the Autocomplete in a modal dialog.
+- For a mobile-optimized experience, use the "immersive" `variant` to open the Autocomplete in a modal dialog on narrow viewports.
 
 ## Customisation
+
 - The "no results" screen can be customised using the `noResultsMessage` prop.
 - The "loading" screen can be customised using the `loadingLabel` prop.
 - The "load more" button label can be customised using the `loadMoreLabel` prop.
 - The suggestions can be customised by adding avatar images or icons and a description.
 - Use the `action` prop to add contextual actions at the bottom of the suggestion box, such as a button to create a new item.
+
 <Story of={Stories.WithAction} />
 
 ## Performance
-- The component's `onChange` callback is debounced by default to avoid excessive calls while the user types. The default debounce delay is set for 300ms.
-- For better performance and scalability, especially with paginated results, use the `loadMore` prop to fetch additional suggestions.
-When this prop is provided, a "Load more" button appears at the bottom of the suggestion box.
-You can customize the button label with `loadMoreLabel`, and use `isLoadingMore` to indicate that more suggestions are being fetched.
+
+The component's `onChange` callback is debounced by default to avoid excessive calls while the user types. The default debounce delay is set to 300ms.
+
+For better performance and scalability, especially with paginated results, use the `loadMore` prop to fetch additional suggestions. When this prop is provided, a "Load more" button appears at the bottom of the suggestion box. You can customize the button label with `loadMoreLabel`, and use `isLoadingMore` to indicate that more suggestions are being fetched.
+
 <Story of={Stories.LoadMore} />
 
 ## Accessibility
 
 The Autocomplete component is designed to be accessible, adopting ARIA's [Combobox pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/). It includes:
-- Keyboard navigation: Users can navigate open the suggestion box by pressing the arrow down key, close it by pressing the Escape key, navigate through suggestions using the up and down arrow keys and select an option with Enter.
+
+- Keyboard navigation: Users can open the suggestion box by pressing the arrow down key, close it by pressing the Escape key, navigate through suggestions using the up and down arrow keys and select an option with Enter.
 - Screen reader support: The component announces the number of suggestions available and the selected option, if any.
 - Focus management: The component manages focus appropriately, focus remains on the input field when the suggestion box is open, and navigated options are announced properly as users navigate through them.
 
