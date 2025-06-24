@@ -1,10 +1,10 @@
 # @sumup-oss/circuit-ui
 
-## 10.3.1
+## 10.4.0
 
-### Patch Changes
+### Minor Changes
 
-- [#3147](https://github.com/sumup-oss/circuit-ui/pull/3147) [`a4affc0`](https://github.com/sumup-oss/circuit-ui/commit/a4affc05cb47f38e0bc1aa232de31f58a915c8e7) Thanks [@tranhoangan22](https://github.com/tranhoangan22)! - Improved `NotificationBanner` component's responsiveness and readability by moving the illustration to the left side and aligning it with the fixed-width text content and CTA button on large viewports.
+- [#3147](https://github.com/sumup-oss/circuit-ui/pull/3147) [`a4affc0`](https://github.com/sumup-oss/circuit-ui/commit/a4affc05cb47f38e0bc1aa232de31f58a915c8e7) Thanks [@tranhoangan22](https://github.com/tranhoangan22)! - Improved the `NotificationBanner` component's responsiveness and readability by moving the illustration to the left side and aligning it with the fixed-width text content and CTA button on large viewports.
 
 ## 10.3.0
 
