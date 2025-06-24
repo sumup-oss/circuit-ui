@@ -1,8 +1,7 @@
 .base {
   position: relative;
   display: grid;
-  grid-template-areas: "content content image" "button . image";
-  padding-left: var(--cui-spacings-giga);
+  grid-template-areas: "content content image" "button button image";
   overflow: hidden;
   border-radius: var(--cui-border-radius-mega);
   transition:
@@ -11,12 +10,10 @@
     visibility 200ms ease-in-out;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 960px) {
   .base {
     grid-template-areas: "image content button";
     align-items: center;
-    padding: 0;
-    padding-right: var(--cui-spacings-giga);
   }
 }
 
@@ -34,16 +31,17 @@
   display: flex;
   flex-direction: column;
   max-width: 600px;
-  padding-top: var(--cui-spacings-giga);
-  padding-right: var(--cui-spacings-byte);
+  margin-top: var(--cui-spacings-giga);
+  margin-right: var(--cui-spacings-byte);
+  margin-left: var(--cui-spacings-giga);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 960px) {
   .content {
     grid-area: content;
-    padding: var(--cui-spacings-giga);
-    padding-left: var(--cui-spacings-byte);
-    margin-bottom: 0;
+    margin-right: 0;
+    margin-bottom: var(--cui-spacings-giga);
+    margin-left: var(--cui-spacings-byte);
   }
 }
 
@@ -63,7 +61,6 @@
 }
 
 .base .body {
-  margin-bottom: var(--cui-spacings-byte);
   font-size: var(--cui-body-s-font-size);
   line-height: var(--cui-body-s-line-height);
 }
@@ -79,14 +76,15 @@
   grid-area: button;
   width: fit-content;
   margin-top: var(--cui-spacings-byte);
+  margin-right: var(--cui-spacings-byte);
   margin-bottom: var(--cui-spacings-giga);
+  margin-left: var(--cui-spacings-giga);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 960px) {
   .button {
     align-self: center;
-    margin: 0;
-    margin-left: var(--cui-spacings-giga);
+    margin: var(--cui-spacings-giga);
   }
 }
 
