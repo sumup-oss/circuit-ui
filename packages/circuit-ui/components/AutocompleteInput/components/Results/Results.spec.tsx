@@ -28,9 +28,9 @@ const props: ResultsProps = {
   label: 'label',
   resultsSummary: 'results summary',
   loadMoreLabel: 'Load more',
-};
+} satisfies AutocompleteResultsProps;
 
-describe('AutocompleteResults', () => {
+describe('Results', () => {
   beforeAll(() => {
     HTMLElement.prototype.scrollIntoView = vi.fn();
   });
