@@ -23,7 +23,7 @@ import {
   type AutocompleteResultsProps,
 } from './AutocompleteResults.js';
 
-const props: AutocompleteResultsProps = {
+const props = {
   suggestions,
   onSuggestionClicked: vi.fn(),
   suggestionIdPrefix: 'autocomplete-id',
@@ -31,7 +31,7 @@ const props: AutocompleteResultsProps = {
   label: 'label',
   resultsSummary: 'results summary',
   loadMoreLabel: 'Load more',
-};
+} satisfies AutocompleteResultsProps;
 
 describe('AutocompleteResults', () => {
   beforeAll(() => {
