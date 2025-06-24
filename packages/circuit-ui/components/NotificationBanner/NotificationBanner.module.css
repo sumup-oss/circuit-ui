@@ -1,7 +1,7 @@
 .base {
   position: relative;
   display: grid;
-  grid-template-areas: "content content image" "button button image";
+  grid-template-areas: "content image" "button image";
   overflow: hidden;
   border-radius: var(--cui-border-radius-mega);
   transition:
@@ -83,7 +83,6 @@
 
 @media (min-width: 960px) {
   .button {
-    align-self: center;
     margin: var(--cui-spacings-giga);
   }
 }
