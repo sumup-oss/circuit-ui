@@ -1,0 +1,58 @@
+.input {
+  /* to avoid the search input resizing on focus */
+  padding-right: var(--cui-spacings-exa);
+}
+
+.popup {
+  z-index: var(--cui-z-index-popover);
+  max-height: min(443px, var(--suggestion-box-max-height));
+  overflow-y: auto;
+  background-color: var(--cui-bg-normal);
+  border-radius: var(--cui-border-radius-byte);
+  box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
+}
+
+.popup::after {
+  position: absolute;
+  right: 0;
+  bottom: env(safe-area-inset-bottom);
+  left: 0;
+  display: block;
+  height: var(--cui-spacings-mega);
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(
+    color-mix(in sRGB, var(--cui-bg-normal) 1%, transparent),
+    color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent)
+  );
+  border-radius: inherit;
+}
+
+.modal {
+  height: 90vh;
+  height: 90dvh;
+}
+
+.modal ul[role="listbox"] {
+  padding: 0;
+  margin-top: var(--cui-spacings-mega);
+}
+
+.modal > button {
+  display: none;
+}
+
+.modal-header {
+  display: flex;
+  gap: var(--cui-spacings-byte);
+  align-items: flex-start;
+}
+
+.no-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--cui-spacings-mega);
+}
