@@ -13,7 +13,7 @@ Calls a function when clicking outside an element.
 
 ```ts
 function useClickOutside(
-  ref: RefObject<HTMLElement>,
+  ref: RefObject<HTMLElement | null>,
   callback: (event: KeyboardEvent) => void,
   active = true,
 ): void;
