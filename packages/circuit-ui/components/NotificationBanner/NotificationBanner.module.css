@@ -12,13 +12,13 @@
 .grid {
   display: grid;
   grid-template-areas: "content image" "button image";
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(150px, 1fr) auto;
 }
 
 @container cui-notification-banner (width > 960px) {
   .grid {
     grid-template-areas: "image content button";
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-columns: auto minmax(150px, 1fr) auto;
     align-items: center;
   }
 }
