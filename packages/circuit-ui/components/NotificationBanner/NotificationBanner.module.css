@@ -1,7 +1,6 @@
 .base {
+  container: cui-notification-banner / inline-size;
   position: relative;
-  display: grid;
-  grid-template-areas: "content image" "button image";
   overflow: hidden;
   border-radius: var(--cui-border-radius-mega);
   transition:
@@ -10,9 +9,16 @@
     visibility 200ms ease-in-out;
 }
 
-@media (min-width: 960px) {
-  .base {
+.grid {
+  display: grid;
+  grid-template-areas: "content image" "button image";
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+@container cui-notification-banner (width > 960px) {
+  .grid {
     grid-template-areas: "image content button";
+    grid-template-columns: auto minmax(0, 1fr) auto;
     align-items: center;
   }
 }
@@ -37,7 +43,7 @@
   margin-left: var(--cui-spacings-giga);
 }
 
-@media (min-width: 960px) {
+@container cui-notification-banner (width > 960px) {
   .content {
     grid-area: content;
     margin-right: 0;
@@ -81,7 +87,7 @@
   margin-left: var(--cui-spacings-giga);
 }
 
-@media (min-width: 960px) {
+@container cui-notification-banner (width > 960px) {
   .button {
     margin: var(--cui-spacings-giga);
   }

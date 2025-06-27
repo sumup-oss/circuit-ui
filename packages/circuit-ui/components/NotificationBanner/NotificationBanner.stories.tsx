@@ -28,6 +28,7 @@ export default {
   component: NotificationBanner,
   tags: ['status:stable'],
   parameters: {
+    layout: 'padded',
     chromatic: {
       modes: {
         mobile: modes.smallMobile,
@@ -52,7 +53,7 @@ Base.args = {
   image: {
     src: '/images/illustration-update.svg',
     alt: 'Update',
-    width: '100',
+    width: '150',
   },
 };
 
