@@ -53,7 +53,7 @@ Base.args = {
   image: {
     src: '/images/illustration-update.svg',
     alt: 'Update',
-    width: '150',
+    width: '120',
   },
 };
 
