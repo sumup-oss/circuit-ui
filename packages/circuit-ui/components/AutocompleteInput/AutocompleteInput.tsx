@@ -443,6 +443,7 @@ export const AutocompleteInput = forwardRef<
           <Modal
             open={isOpen}
             className={classes.modal}
+            contentClassName={classes['modal-content']}
             onClose={closeSuggestionBox}
           >
             <div className={classes['modal-header']}>
