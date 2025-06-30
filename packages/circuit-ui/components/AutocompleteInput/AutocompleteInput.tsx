@@ -162,6 +162,7 @@ export const AutocompleteInput = forwardRef<
     const [presentationFieldValue, setPresentationFieldValue] =
       useState<string>(getSuggestionLabelByValue(suggestions, value) ?? '');
     const isMobile = useMedia('(max-width: 479px)');
+    const isImmersive = isMobile && variant === 'immersive';
     const [isOpen, setIsOpen] = useState(false);
     const [activeSuggestion, setActiveSuggestion] = useState<number>();
     const textBoxRef = useRef<HTMLInputElement>(null);
@@ -269,13 +270,13 @@ export const AutocompleteInput = forwardRef<
           getSuggestionLabelByValue(suggestions, selectedValue),
         );
         closeSuggestionBox();
-        if (isMobile && variant === 'immersive') {
+        if (isImmersive) {
           setPresentationFieldValue(
             getSuggestionLabelByValue(suggestions, selectedValue),
           );
         }
       },
-      [suggestions, onSelection, closeSuggestionBox, isMobile, variant],
+      [suggestions, onSelection, closeSuggestionBox, isImmersive],
     );
 
     const onInputKeyDown: KeyboardEventHandler<HTMLInputElement> = useCallback(
@@ -343,10 +344,10 @@ export const AutocompleteInput = forwardRef<
     }, [isOpen, update, suggestions.length]);
 
     const handleClickOutside = useCallback(() => {
-      if (!(isMobile && variant === 'immersive')) {
+      if (!isImmersive) {
         closeSuggestionBox();
       }
-    }, [closeSuggestionBox, isMobile, variant]);
+    }, [closeSuggestionBox, isImmersive]);
     useClickOutside([textBoxRef, refs.floating], handleClickOutside);
 
     useEscapeKey(closeSuggestionBox, isOpen);
@@ -394,7 +395,7 @@ export const AutocompleteInput = forwardRef<
           allowNewItems={allowNewItems}
           searchText={searchText}
           resultsSummary={`${suggestionValues.length} ${resultsFound}.`}
-          isModal={isMobile && variant === 'immersive'}
+          isModal={isImmersive}
         />
       ) : null;
 
@@ -413,7 +414,7 @@ export const AutocompleteInput = forwardRef<
       onClick: onComboboxClick,
     };
 
-    if (isMobile && variant === 'immersive') {
+    if (isImmersive) {
       return (
         <>
           <SearchInput
