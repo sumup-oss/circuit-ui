@@ -105,6 +105,10 @@ export type AutocompleteInputProps = Omit<
      * Defaults to `navigator.language` in supported environments.
      */
     locale?: Locale;
+    /**
+    /**
+     * A custom label for the "Load more" button.
+     */
     loadMoreLabel?: ResultsProps['loadMoreLabel'];
   };
 const boundaryPadding = 8;
@@ -442,13 +446,12 @@ export const AutocompleteInput = forwardRef<
             onClose={closeSuggestionBox}
           >
             <div className={classes['modal-header']}>
-              <SearchInput
-                {...props}
-                ref={textBoxRef}
-                {...comboboxProps}
-                hideLabel
-              />
-              <Button variant="tertiary" onClick={closeSuggestionBox}>
+              <SearchInput {...props} ref={textBoxRef} {...comboboxProps} />
+              <Button
+                variant="tertiary"
+                onClick={closeSuggestionBox}
+                className={classes['modal-close']}
+              >
                 {cancelButtonLabel}
               </Button>
             </div>

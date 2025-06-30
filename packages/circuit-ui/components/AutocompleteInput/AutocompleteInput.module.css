@@ -49,6 +49,10 @@
   align-items: flex-start;
 }
 
+.modal-close {
+  margin-top: var(--cui-spacings-giga);
+}
+
 .no-results {
   display: flex;
   flex-direction: column;
