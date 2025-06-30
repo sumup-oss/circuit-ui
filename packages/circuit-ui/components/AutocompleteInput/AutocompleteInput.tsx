@@ -319,7 +319,6 @@ export const AutocompleteInput = forwardRef<
       ],
     );
 
-    // biome-ignore lint/correctness/useExhaustiveDependencies: we need to update the floating element styles if the suggestions length changes
     useEffect(() => {
       /**
        * When we support `ResizeObserver` (https://caniuse.com/resizeobserver),
@@ -341,6 +340,13 @@ export const AutocompleteInput = forwardRef<
         window.removeEventListener('resize', update);
         window.removeEventListener('scroll', update);
       };
+    }, [isOpen, update]);
+
+    // biome-ignore lint/correctness/useExhaustiveDependencies: we need to update the floating element styles if the suggestions length changes
+    useEffect(() => {
+      if (isOpen) {
+        update();
+      }
     }, [isOpen, update, suggestions.length]);
 
     const handleClickOutside = useCallback(() => {
