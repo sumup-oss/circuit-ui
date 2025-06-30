@@ -74,6 +74,7 @@ export const Suggestion = ({
       role="option"
       className={clsx(
         classes.base,
+        !description && !image && !Icon && classes['align-center'],
         isFocused && classes.focused,
         selected && classes.selected,
         className,

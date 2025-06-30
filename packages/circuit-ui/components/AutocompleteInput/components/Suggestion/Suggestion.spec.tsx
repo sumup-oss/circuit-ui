@@ -46,7 +46,7 @@ describe('Suggestion', () => {
     render(<Suggestion {...props} />);
 
     expect(screen.getByText(props.label)).toBeVisible();
-    expect(screen.getByRole('img')).toBeVisible();
+    expect(screen.getByTestId(`suggestion-image-${props.value}`)).toBeVisible();
   });
 
   it('calls onSuggestionClick when clicked', async () => {

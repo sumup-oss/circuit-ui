@@ -10,6 +10,10 @@
   transition: all var(--cui-transitions-default);
 }
 
+.align-center {
+  align-items: center;
+}
+
 .base:hover {
   background-color: var(--cui-bg-normal-hovered);
 }
