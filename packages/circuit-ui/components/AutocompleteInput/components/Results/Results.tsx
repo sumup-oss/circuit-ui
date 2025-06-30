@@ -61,7 +61,7 @@ export const Results = forwardRef<HTMLDivElement, ResultsProps>(
       noResultsMessage,
       suggestions,
       value,
-      onSuggestionClicked,
+      onSuggestionClick,
       label,
       activeSuggestion,
       loadMore,
@@ -111,7 +111,7 @@ export const Results = forwardRef<HTMLDivElement, ResultsProps>(
             <SuggestionBox
               value={value}
               suggestions={suggestions}
-              onSuggestionClicked={onSuggestionClicked}
+              onSuggestionClick={onSuggestionClick}
               label={label}
               suggestionIdPrefix={suggestionIdPrefix}
               activeSuggestion={activeSuggestion}

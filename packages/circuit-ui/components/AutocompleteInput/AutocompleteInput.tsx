@@ -261,7 +261,7 @@ export const AutocompleteInput = forwardRef<
       ],
     });
 
-    const onSuggestionClicked = useCallback(
+    const onSuggestionClick = useCallback(
       (selectedValue: string) => {
         onSelection(selectedValue);
         changeInputValue(
@@ -302,7 +302,7 @@ export const AutocompleteInput = forwardRef<
             }
           }
           if (isEnter(event) && activeSuggestion !== undefined) {
-            onSuggestionClicked(suggestionValues[activeSuggestion]);
+            onSuggestionClick(suggestionValues[activeSuggestion]);
           }
         } else if (isArrowDown(event)) {
           openSuggestionBox();
@@ -314,7 +314,7 @@ export const AutocompleteInput = forwardRef<
         activeSuggestion,
         openSuggestionBox,
         suggestionValues,
-        onSuggestionClicked,
+        onSuggestionClick,
       ],
     );
 
@@ -374,28 +374,29 @@ export const AutocompleteInput = forwardRef<
       [noResultsMessage, defaultNoResultsMessage],
     );
 
-    const results = (
-      <Results
-        ref={resultsRef}
-        isLoading={isLoading}
-        isLoadingMore={isLoadingMore}
-        suggestions={suggestions}
-        loadingLabel={loadingLabel}
-        noResultsMessage={noResults}
-        value={value}
-        onSuggestionClicked={onSuggestionClicked}
-        label={label}
-        loadMoreLabel={loadMoreLabel}
-        activeSuggestion={activeSuggestion}
-        loadMore={loadMore}
-        action={action}
-        suggestionIdPrefix={autocompleteId}
-        allowNewItems={allowNewItems}
-        searchText={searchText}
-        resultsSummary={`${suggestionValues.length} ${resultsFound}.`}
-        isModal={isMobile && variant === 'immersive'}
-      />
-    );
+    const results =
+      searchText || suggestions.length ? (
+        <Results
+          ref={resultsRef}
+          isLoading={isLoading}
+          isLoadingMore={isLoadingMore}
+          suggestions={suggestions}
+          loadingLabel={loadingLabel}
+          noResultsMessage={noResults}
+          value={value}
+          onSuggestionClick={onSuggestionClick}
+          label={label}
+          loadMoreLabel={loadMoreLabel}
+          activeSuggestion={activeSuggestion}
+          loadMore={loadMore}
+          action={action}
+          suggestionIdPrefix={autocompleteId}
+          allowNewItems={allowNewItems}
+          searchText={searchText}
+          resultsSummary={`${suggestionValues.length} ${resultsFound}.`}
+          isModal={isMobile && variant === 'immersive'}
+        />
+      ) : null;
 
     const comboboxProps = {
       label,
@@ -444,7 +445,7 @@ export const AutocompleteInput = forwardRef<
                 {cancelButtonLabel}
               </Button>
             </div>
-            {(searchText || suggestions.length) && results}
+            {results}
           </Modal>
         </>
       );
@@ -473,7 +474,7 @@ export const AutocompleteInput = forwardRef<
               maxWidth: textBoxRef.current?.offsetWidth,
             }}
           >
-            {(searchText || suggestions.length) && results}
+            {results}
           </div>
         )}
       </>

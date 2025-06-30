@@ -37,7 +37,7 @@ export type SuggestionProps = HTMLAttributes<HTMLLIElement> &
   SuggestionType & {
     isSelectable?: boolean;
     isFocused?: boolean;
-    onSuggestionClicked: (value: string) => void;
+    onSuggestionClick: (value: string) => void;
   };
 
 export const Suggestion = ({
@@ -48,7 +48,7 @@ export const Suggestion = ({
   selected,
   isSelectable,
   isFocused,
-  onSuggestionClicked,
+  onSuggestionClick,
   value,
   className,
   ...props
@@ -79,7 +79,7 @@ export const Suggestion = ({
         className,
       )}
       aria-selected={selected}
-      onClick={() => onSuggestionClicked(value)}
+      onClick={() => onSuggestionClick(value)}
     >
       {(image || Icon) && (
         <div className={classes.media}>
