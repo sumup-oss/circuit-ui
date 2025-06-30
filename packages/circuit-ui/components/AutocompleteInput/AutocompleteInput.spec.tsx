@@ -31,11 +31,14 @@ import { act, axe, render, userEvent, screen } from '../../util/test-utils.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 
 import { luna, mochi, oliver, suggestions } from './fixtures.js';
-import { Autocomplete, type AutocompleteProps } from './Autocomplete.js';
+import {
+  AutocompleteInput,
+  type AutocompleteInputProps,
+} from './AutocompleteInput.js';
 
 vi.mock('../../hooks/useMedia/index.js');
 
-const props: AutocompleteProps = {
+const props: AutocompleteInputProps = {
   suggestions,
   onSelection: vi.fn(),
   onClear: vi.fn(),
@@ -61,7 +64,7 @@ describe('Autocomplete', () => {
 
   it('should forward a ref', () => {
     const ref = createRef<HTMLInputElement>();
-    const { container } = render(<Autocomplete {...props} ref={ref} />);
+    const { container } = render(<AutocompleteInput {...props} ref={ref} />);
     // eslint-disable-next-line testing-library/no-node-access
     const input = container.querySelector('input');
     expect(ref.current).toBe(input);
@@ -70,7 +73,7 @@ describe('Autocomplete', () => {
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
     const { container } = render(
-      <Autocomplete {...props} inputClassName={className} />,
+      <AutocompleteInput {...props} inputClassName={className} />,
     );
     // eslint-disable-next-line testing-library/no-node-access
     const input = container.querySelector('input');
@@ -78,7 +81,9 @@ describe('Autocomplete', () => {
   });
 
   it('should fire onClear when the clear button is clicked', async () => {
-    render(<Autocomplete {...props} value="foo" onClear={props.onClear} />);
+    render(
+      <AutocompleteInput {...props} value="foo" onClear={props.onClear} />,
+    );
 
     const clearButton = screen.getByRole('button', { name: 'Clear' });
     await userEvent.click(clearButton);
@@ -90,7 +95,7 @@ describe('Autocomplete', () => {
   });
 
   it('should call onChange when the user types', async () => {
-    render(<Autocomplete {...props} />);
+    render(<AutocompleteInput {...props} />);
 
     await userEvent.type(screen.getByRole('combobox'), 'f');
     act(() => {
@@ -100,7 +105,7 @@ describe('Autocomplete', () => {
   });
 
   it('should debounce onChange calls', async () => {
-    render(<Autocomplete {...props} />);
+    render(<AutocompleteInput {...props} />);
     const input = screen.getByRole('combobox');
 
     await userEvent.type(input, 'f');
@@ -119,7 +124,7 @@ describe('Autocomplete', () => {
   });
 
   it('should call onSelection when a suggestion is clicked and close the suggestion box', async () => {
-    render(<Autocomplete {...props} />);
+    render(<AutocompleteInput {...props} />);
     await userEvent.click(screen.getByRole('combobox', { name: props.label }));
     expect(screen.queryByRole('listbox')).toBeVisible();
 
@@ -129,7 +134,7 @@ describe('Autocomplete', () => {
   });
 
   it('should call onSelection when Enter key pressed on a suggestion and close the suggestion box', async () => {
-    render(<Autocomplete {...props} />);
+    render(<AutocompleteInput {...props} />);
 
     // open suggestion box
     const input = screen.getByRole('combobox', { name: props.label });
@@ -150,7 +155,9 @@ describe('Autocomplete', () => {
 
   describe('Opening the suggestion box', () => {
     it('should open suggestion box when suggestions are available', async () => {
-      const { rerender } = render(<Autocomplete {...props} suggestions={[]} />);
+      const { rerender } = render(
+        <AutocompleteInput {...props} suggestions={[]} />,
+      );
       const input = screen.getByRole('combobox', { name: props.label });
       await userEvent.type(input, 'f');
       act(() => {
@@ -158,7 +165,7 @@ describe('Autocomplete', () => {
       });
       expect(props.onChange).toHaveBeenCalledOnce();
 
-      rerender(<Autocomplete {...props} suggestions={suggestions} />);
+      rerender(<AutocompleteInput {...props} suggestions={suggestions} />);
 
       const listbox = screen.getByRole('listbox');
       expect(listbox).toBeVisible();
@@ -170,7 +177,7 @@ describe('Autocomplete', () => {
     });
 
     it('should open suggestion box on arrow down key press', async () => {
-      render(<Autocomplete {...props} />);
+      render(<AutocompleteInput {...props} />);
 
       await userEvent.click(screen.getByLabelText(props.label));
 
@@ -180,7 +187,7 @@ describe('Autocomplete', () => {
     });
 
     it('should open suggestion box on click when input is clicked and has suggestions', async () => {
-      render(<Autocomplete {...props} />);
+      render(<AutocompleteInput {...props} />);
 
       await userEvent.click(
         screen.getByRole('combobox', { name: props.label }),
@@ -191,25 +198,25 @@ describe('Autocomplete', () => {
 
   describe('closing the suggestion box', () => {
     it('should close the suggestion box when the readOnly prop becomes truthy', async () => {
-      const { rerender } = render(<Autocomplete {...props} />);
+      const { rerender } = render(<AutocompleteInput {...props} />);
       const input = screen.getByRole('combobox', { name: props.label });
       await userEvent.click(input);
       expect(screen.getByRole('listbox')).toBeVisible();
-      rerender(<Autocomplete {...props} readOnly />);
+      rerender(<AutocompleteInput {...props} readOnly />);
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
     });
 
     it('should close the suggestion box when the disabled prop becomes truthy', async () => {
-      const { rerender } = render(<Autocomplete {...props} />);
+      const { rerender } = render(<AutocompleteInput {...props} />);
       const input = screen.getByRole('combobox', { name: props.label });
       await userEvent.click(input);
       expect(screen.getByRole('listbox')).toBeVisible();
-      rerender(<Autocomplete {...props} disabled />);
+      rerender(<AutocompleteInput {...props} disabled />);
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
     });
 
     it('should close the suggestion box when the escape key is pressed', async () => {
-      render(<Autocomplete {...props} />);
+      render(<AutocompleteInput {...props} />);
       const input = screen.getByRole('combobox', { name: props.label });
       await userEvent.click(input);
       expect(screen.getByRole('listbox')).toBeVisible();
@@ -218,7 +225,7 @@ describe('Autocomplete', () => {
     });
 
     it('should close the suggestion box on outside click', async () => {
-      render(<Autocomplete {...props} />);
+      render(<AutocompleteInput {...props} />);
       const input = screen.getByRole('combobox', { name: props.label });
       await userEvent.click(input);
       expect(screen.getByRole('listbox')).toBeVisible();
@@ -236,7 +243,7 @@ describe('Autocomplete', () => {
     });
 
     it('should open in a modal dialog', async () => {
-      render(<Autocomplete {...props} variant="immersive" />);
+      render(<AutocompleteInput {...props} variant="immersive" />);
       const input = screen.getByRole('searchbox', { name: props.label });
 
       await userEvent.click(input);
@@ -244,7 +251,7 @@ describe('Autocomplete', () => {
     });
 
     it('should call onClear', async () => {
-      render(<Autocomplete {...props} variant="immersive" value="luna" />);
+      render(<AutocompleteInput {...props} variant="immersive" value="luna" />);
       const clearButton = screen.getByRole('button', { name: 'Clear' });
 
       await userEvent.click(clearButton);
@@ -253,7 +260,7 @@ describe('Autocomplete', () => {
     });
 
     it('should call onChange when user types in field', async () => {
-      render(<Autocomplete {...props} variant="immersive" />);
+      render(<AutocompleteInput {...props} variant="immersive" />);
       const input = screen.getByRole('searchbox', { name: props.label });
 
       await userEvent.click(input);
@@ -266,7 +273,7 @@ describe('Autocomplete', () => {
     });
 
     it('should select a value, call onSelection and close the dialog', async () => {
-      render(<Autocomplete {...props} variant="immersive" />);
+      render(<AutocompleteInput {...props} variant="immersive" />);
       const input = screen.getByRole('searchbox', { name: props.label });
       await userEvent.click(input);
       expect(screen.getByRole('dialog')).toBeVisible();
@@ -286,7 +293,7 @@ describe('Autocomplete', () => {
     it('should render with selected value', async () => {
       const selectedValue = suggestions[0];
       render(
-        <Autocomplete
+        <AutocompleteInput
           {...props}
           variant="immersive"
           value={selectedValue.value}
@@ -304,7 +311,7 @@ describe('Autocomplete', () => {
     });
 
     it('should close dialog when the cancel button is clicked', async () => {
-      render(<Autocomplete {...props} variant="immersive" />);
+      render(<AutocompleteInput {...props} variant="immersive" />);
       const input = screen.getByRole('searchbox', { name: props.label });
       await userEvent.click(input);
       expect(screen.getByRole('dialog')).toBeVisible();
@@ -319,7 +326,7 @@ describe('Autocomplete', () => {
 
   describe('Loading state', () => {
     it('should render the default loading message when isLoading is true', async () => {
-      render(<Autocomplete {...props} suggestions={[]} isLoading />);
+      render(<AutocompleteInput {...props} suggestions={[]} isLoading />);
       await userEvent.type(screen.getByRole('combobox'), 'l');
 
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
@@ -330,7 +337,7 @@ describe('Autocomplete', () => {
     it('should render custom loading message when isLoading is true', async () => {
       const message = 'Fetching your contacts...';
       render(
-        <Autocomplete
+        <AutocompleteInput
           {...props}
           suggestions={[]}
           isLoading
@@ -344,7 +351,7 @@ describe('Autocomplete', () => {
 
   describe('No results state', () => {
     it('should render the default no results message when no results are found', async () => {
-      render(<Autocomplete {...props} suggestions={[]} />);
+      render(<AutocompleteInput {...props} suggestions={[]} />);
       await userEvent.type(screen.getByRole('combobox'), 'l');
 
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
@@ -357,7 +364,11 @@ describe('Autocomplete', () => {
     it('should render the custom no results message no results are found', async () => {
       const message = "Couldn't find any results";
       render(
-        <Autocomplete {...props} suggestions={[]} noResultsMessage={message} />,
+        <AutocompleteInput
+          {...props}
+          suggestions={[]}
+          noResultsMessage={message}
+        />,
       );
       await userEvent.type(screen.getByRole('combobox'), 'l');
       expect(screen.getByText(message)).toBeVisible();
@@ -366,13 +377,13 @@ describe('Autocomplete', () => {
 
   describe('a11y', () => {
     it('should have no accessibility violations', async () => {
-      const { container } = render(<Autocomplete {...props} />);
+      const { container } = render(<AutocompleteInput {...props} />);
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });
 
     it('should have the correct attributes', async () => {
-      render(<Autocomplete {...props} />);
+      render(<AutocompleteInput {...props} />);
       const input = screen.getByLabelText(props.label);
       expect(input).toHaveRole('combobox');
       expect(input).toHaveAttribute('aria-autocomplete', 'list');
@@ -392,7 +403,7 @@ describe('Autocomplete', () => {
 
     it('should apply the correct aria-activedescendant attribute', async () => {
       const { rerender } = render(
-        <Autocomplete {...props} suggestions={[mochi, luna, oliver]} />,
+        <AutocompleteInput {...props} suggestions={[mochi, luna, oliver]} />,
       );
       const input = screen.getByLabelText(props.label);
       await userEvent.click(input);
@@ -413,7 +424,7 @@ describe('Autocomplete', () => {
       );
 
       rerender(
-        <Autocomplete
+        <AutocompleteInput
           {...props}
           suggestions={[mochi, luna, oliver]}
           isLoading

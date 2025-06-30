@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import type { AutocompleteProps } from './Autocomplete.js';
+import type { AutocompleteInputProps } from './AutocompleteInput.js';
 import type { SuggestionType } from './components/Suggestion/Suggestion.js';
 import type { SuggestionGroup } from './components/SuggestionBox/SuggestionBox.js';
 
@@ -23,7 +23,7 @@ export const isGroup = (
   suggestion && 'label' in suggestion && 'suggestions' in suggestion;
 
 export const getSuggestionLabelByValue = (
-  suggestions: AutocompleteProps['suggestions'],
+  suggestions: AutocompleteInputProps['suggestions'],
   value?: string,
 ): string => {
   if (!value) {

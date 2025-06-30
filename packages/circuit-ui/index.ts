@@ -68,9 +68,9 @@ export { PhoneNumberInput } from './components/PhoneNumberInput/index.js';
 export type { PhoneNumberInputProps } from './components/PhoneNumberInput/index.js';
 export { ColorInput } from './components/ColorInput/index.js';
 export type { ColorInputProps } from './components/ColorInput/index.js';
-export { Autocomplete } from './components/Autocomplete/Autocomplete.js';
-export type { AutocompleteProps } from './components/Autocomplete/Autocomplete.js';
-export type { AutocompleteSuggestions } from './components/Autocomplete/components/SuggestionBox/SuggestionBox.js';
+export { AutocompleteInput } from './components/AutocompleteInput/AutocompleteInput.js';
+export type { AutocompleteInputProps } from './components/AutocompleteInput/AutocompleteInput.js';
+export type { AutocompleteInputSuggestions } from './components/AutocompleteInput/components/SuggestionBox/SuggestionBox.js';
 
 // Actions
 export { Button } from './components/Button/index.js';
