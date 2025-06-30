@@ -43,10 +43,37 @@
   display: none;
 }
 
+.modal .modal-content {
+  position: relative;
+  padding-top: 0;
+}
+
 .modal-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
   display: flex;
   gap: var(--cui-spacings-byte);
   align-items: flex-start;
+  padding-top: var(--cui-spacings-mega);
+  background-color: var(--cui-bg-elevated);
+}
+
+.modal-header::after {
+  position: absolute;
+  right: 0;
+  bottom: calc(-1 * var(--cui-spacings-mega));
+  left: 0;
+  display: block;
+  height: var(--cui-spacings-mega);
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(
+    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 1%, transparent)
+  );
+  border-radius: inherit;
 }
 
 .modal-close {
