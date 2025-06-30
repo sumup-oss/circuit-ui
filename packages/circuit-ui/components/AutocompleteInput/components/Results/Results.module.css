@@ -16,6 +16,7 @@
 
 .action-modal {
   position: fixed;
+  bottom: env(safe-area-inset-bottom);
 }
 
 .action::before {
