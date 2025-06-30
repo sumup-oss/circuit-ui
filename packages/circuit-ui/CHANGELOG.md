@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.4.1
+
+### Patch Changes
+
+- [#3154](https://github.com/sumup-oss/circuit-ui/pull/3154) [`bf206de`](https://github.com/sumup-oss/circuit-ui/commit/bf206de022c7944bcdfefd3c63e4c6116825377b) Thanks [@connor-baer](https://github.com/connor-baer)! - Switched to using container queries to adapt the NotificationBanner component's layout in wide spaces.
+
 ## 10.4.0
 
 ### Minor Changes
