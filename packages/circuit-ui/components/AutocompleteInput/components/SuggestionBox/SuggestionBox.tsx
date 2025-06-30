@@ -46,7 +46,7 @@ export type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
    */
   suggestions: AutocompleteInputSuggestions;
   isSelectable?: boolean;
-  onSuggestionClicked: (value: string) => void;
+  onSuggestionClick: (value: string) => void;
   loadMore?: () => void;
   /**
    * A custom label for the "Load more" button.
@@ -75,7 +75,7 @@ export const SuggestionBox = ({
   label,
   value,
   suggestions,
-  onSuggestionClicked,
+  onSuggestionClick,
   isSelectable,
   isLoading = false,
   isLoadingMore = false,
@@ -152,7 +152,7 @@ export const SuggestionBox = ({
                       <Suggestion
                         key={suggestionItem.value}
                         {...suggestionItem}
-                        onSuggestionClicked={onSuggestionClicked}
+                        onSuggestionClick={onSuggestionClick}
                         isSelectable={isSelectable}
                         selected={value === suggestionItem.value}
                         id={`suggestion-${suggestionIdPrefix}-${suggestionValues.indexOf(suggestionItem.value)}`}
@@ -178,7 +178,7 @@ export const SuggestionBox = ({
             <Suggestion
               key={suggestion.value}
               {...suggestion}
-              onSuggestionClicked={onSuggestionClicked}
+              onSuggestionClick={onSuggestionClick}
               selected={value === suggestion.value}
               isSelectable={isSelectable}
               id={`suggestion-${suggestionIdPrefix}-${suggestionValues.indexOf(suggestion.value)}`}
@@ -198,7 +198,7 @@ export const SuggestionBox = ({
               value={searchText}
               label={searchText}
               icon={Plus}
-              onSuggestionClicked={onSuggestionClicked}
+              onSuggestionClick={onSuggestionClick}
               selected={value === searchText}
               isSelectable={isSelectable}
               id={`suggestion-${suggestionIdPrefix}-${suggestionValues.length}`}

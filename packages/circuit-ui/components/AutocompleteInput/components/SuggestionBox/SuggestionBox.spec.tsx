@@ -28,7 +28,7 @@ import { SuggestionBox, type SuggestionBoxProps } from './SuggestionBox.js';
 
 const props: SuggestionBoxProps = {
   suggestions,
-  onSuggestionClicked: vi.fn(),
+  onSuggestionClick: vi.fn(),
   loadMore: vi.fn(),
   label: 'label',
   suggestionIdPrefix: 'autocomplete-id',
@@ -56,13 +56,11 @@ describe('SuggestionBox', () => {
     expect(screen.getAllByRole('option')).toHaveLength(10);
   });
 
-  it('calls onSuggestionClicked when a suggestion is clicked', async () => {
+  it('calls onSuggestionClick when a suggestion is clicked', async () => {
     render(<SuggestionBox {...props} />);
 
     await userEvent.click(screen.getByText(suggestions[0].label));
-    expect(props.onSuggestionClicked).toHaveBeenCalledWith(
-      suggestions[0].value,
-    );
+    expect(props.onSuggestionClick).toHaveBeenCalledWith(suggestions[0].value);
   });
 
   it('applies correct tabIndex based on active suggestion', () => {
@@ -102,7 +100,7 @@ describe('SuggestionBox', () => {
     const newSuggestion = screen.getByRole('option', { name: 'Chewbacca' });
     expect(newSuggestion).toBeVisible();
     await userEvent.click(newSuggestion);
-    expect(props.onSuggestionClicked).toHaveBeenCalledWith('Chewbacca');
+    expect(props.onSuggestionClick).toHaveBeenCalledWith('Chewbacca');
   });
 
   it('calls loadMore when the load more button is clicked', async () => {

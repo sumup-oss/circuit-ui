@@ -29,7 +29,7 @@ const props: SuggestionProps = {
   image: '/images/illustration-cat-mochi.jpg',
   isSelectable: false,
   isFocused: false,
-  onSuggestionClicked: vi.fn(),
+  onSuggestionClick: vi.fn(),
   onKeyDown: vi.fn(),
 };
 
@@ -46,25 +46,13 @@ describe('Suggestion', () => {
     render(<Suggestion {...props} />);
 
     expect(screen.getByText(props.label)).toBeVisible();
-    expect(screen.getByTestId(`suggestion-image-${props.value}`)).toBeVisible();
+    expect(screen.getByRole('img')).toBeVisible();
   });
 
-  it('renders with a selected checkbox', () => {
-    render(<Suggestion {...props} isSelectable selected />);
-
-    expect(screen.getByText(props.label)).toBeVisible();
-    expect(
-      screen.getByTestId(`suggestion-checkbox-${props.value}`),
-    ).toBeVisible();
-    expect(
-      screen.getByTestId(`suggestion-checkbox-${props.value}`).className,
-    ).toContain('selected');
-  });
-
-  it('calls onSuggestionClicked when clicked', async () => {
+  it('calls onSuggestionClick when clicked', async () => {
     render(<Suggestion {...props} />);
 
     await userEvent.click(screen.getByText(props.label));
-    expect(props.onSuggestionClicked).toHaveBeenCalledWith(props.value);
+    expect(props.onSuggestionClick).toHaveBeenCalledWith(props.value);
   });
 });

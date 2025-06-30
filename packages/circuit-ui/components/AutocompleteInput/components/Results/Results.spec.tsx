@@ -22,7 +22,7 @@ import { Results, type ResultsProps } from './Results.js';
 
 const props: ResultsProps = {
   suggestions,
-  onSuggestionClicked: vi.fn(),
+  onSuggestionClick: vi.fn(),
   suggestionIdPrefix: 'autocomplete-id',
   value: '',
   label: 'label',
@@ -43,11 +43,11 @@ describe('AutocompleteResults', () => {
     );
   });
 
-  it('calls onSuggestionClicked when a suggestion is clicked', async () => {
+  it('calls onSuggestionClick when a suggestion is clicked', async () => {
     render(<Results {...props} />);
 
     await userEvent.click(screen.getByText(props.suggestions[0].label));
-    expect(props.onSuggestionClicked).toHaveBeenCalledWith(
+    expect(props.onSuggestionClick).toHaveBeenCalledWith(
       props.suggestions[0].value,
     );
   });
