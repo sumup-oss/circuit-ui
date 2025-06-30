@@ -190,7 +190,7 @@ export const NoResults = (args: AutocompleteInputProps) => (
             href="#"
             navigationIcon={ExternalLink}
           >
-            contact support
+            Contact support
           </Button>
         </div>
       }
@@ -278,20 +278,20 @@ export const LoadMore = (args: AutocompleteInputProps) => {
 LoadMore.args = { ...baseArgs, suggestions: catNames.slice(0, 5) };
 LoadMore.play = openAutocomplete(undefined, 'Tiger');
 
-export const ModalView = (args: AutocompleteInputProps) => (
+export const Immersive = (args: AutocompleteInputProps) => (
   <AutocompleteInput {...args} variant="immersive" />
 );
 
-ModalView.args = { ...baseArgs };
-ModalView.play = openAutocomplete();
-ModalView.parameters = {
+Immersive.args = { ...baseArgs };
+Immersive.play = openAutocomplete();
+Immersive.parameters = {
   chromatic: {
     modes: {
       mobile: modes.smallMobile,
     },
   },
 };
-ModalView.decorators = [
+Immersive.decorators = [
   (Story) => (
     <div style={{ height: '100vh', display: 'flex', alignItems: 'center' }}>
       <Story />
