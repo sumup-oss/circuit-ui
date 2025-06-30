@@ -26,7 +26,6 @@ import {
   isSuggestionFocused,
 } from '../../AutocompleteInputService.js';
 import { clsx } from '../../../../styles/clsx.js';
-import { Spinner } from '../../../Spinner/index.js';
 import { Button } from '../../../Button/index.js';
 
 import classes from './SuggestionBox.module.css';
@@ -125,7 +124,7 @@ export const SuggestionBox = ({
           hasAction && classes['has-action'],
         )}
       >
-        {suggestions.map((suggestion) => {
+        {suggestions.map((suggestion, index) => {
           if (isGroup(suggestion)) {
             return (
               <div key={suggestion.label} className={classes.group}>
@@ -133,12 +132,13 @@ export const SuggestionBox = ({
                   size="s"
                   color="subtle"
                   className={classes['group-label']}
+                  id={`${suggestionIdPrefix}-group-${index}`}
                 >
                   {suggestion.label}
                 </Compact>
                 <ul
                   role="group"
-                  aria-label={suggestion.label}
+                  aria-labelledby={`${suggestionIdPrefix}-group-${index}`}
                   className={classes['group-suggestion']}
                 >
                   {suggestion.suggestions.map((suggestionItem) => {
@@ -216,7 +216,7 @@ export const SuggestionBox = ({
             />
           )}
       </ul>
-      {loadMore && !isLoadingMore && (
+      {loadMore && (
         <Button
           variant="tertiary"
           className={clsx(
@@ -225,16 +225,10 @@ export const SuggestionBox = ({
           )}
           size="s"
           onClick={loadMore}
+          isLoading={isLoadingMore}
         >
           {loadMoreLabel}
         </Button>
-      )}
-      {isLoadingMore && (
-        <Spinner
-          data-testid="suggestions-loading"
-          className={classes.spinner}
-          size="s"
-        />
       )}
     </>
   );

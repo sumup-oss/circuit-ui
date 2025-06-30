@@ -53,10 +53,6 @@ li:last-of-type {
   margin: 0 var(--cui-spacings-byte);
 }
 
-.spinner {
-  margin: 0 auto var(--cui-spacings-giga);
-}
-
 .new div[aria-hidden="true"] {
   width: unset;
   height: unset;
