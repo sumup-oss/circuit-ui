@@ -51,8 +51,12 @@ describe('SuggestionBox', () => {
 
     expect(screen.getByLabelText(props.label)).toBeVisible();
     expect(screen.getByLabelText(groupedSuggestions[0].label)).toBeVisible();
-    expect(screen.getByLabelText(groupedSuggestions[1].label)).toBeVisible();
-    expect(screen.getByLabelText(groupedSuggestions[2].label)).toBeVisible();
+    expect(
+      screen.getByRole('group', { name: groupedSuggestions[1].label }),
+    ).toBeVisible();
+    expect(
+      screen.getByRole('group', { name: groupedSuggestions[2].label }),
+    ).toBeVisible();
     expect(screen.getAllByRole('option')).toHaveLength(10);
   });
 
@@ -89,10 +93,12 @@ describe('SuggestionBox', () => {
     expect(boxSuggestions[2]).toHaveAttribute('tabindex', '0');
   });
 
-  it('shows a loading spinner when isLoading is true', () => {
+  it('shows a button in loading state when isLoading is true', () => {
     render(<SuggestionBox {...props} isLoadingMore />);
 
-    expect(screen.getByTestId('suggestions-loading')).toBeVisible();
+    expect(
+      screen.getByRole('button', { name: 'Loading Load more' }),
+    ).toHaveAttribute('aria-busy', 'true');
   });
 
   it("suggests a new entry when searchText doesn't match any suggestions and allowNewItems is set to true", async () => {
