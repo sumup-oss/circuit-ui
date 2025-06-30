@@ -37,7 +37,7 @@ export type SuggestionGroup = {
 
 export type AutocompleteInputSuggestions = SuggestionGroup[] | SuggestionType[];
 
-export type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
+export interface SuggestionBoxProps extends HTMLAttributes<HTMLUListElement> {
   label: string;
   value: AutocompleteInputProps['value'];
   /**
@@ -68,7 +68,7 @@ export type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
   allowNewItems?: boolean;
   hasAction?: boolean;
   isModal?: boolean;
-};
+}
 
 export const SuggestionBox = ({
   label,

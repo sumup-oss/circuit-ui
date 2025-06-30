@@ -19,7 +19,7 @@ import type { SuggestionGroup } from './components/SuggestionBox/SuggestionBox.j
 
 export const isGroup = (
   suggestion: SuggestionGroup | SuggestionType,
-): suggestion is { label: string; suggestions: SuggestionType[] } =>
+): suggestion is SuggestionGroup =>
   suggestion && 'label' in suggestion && 'suggestions' in suggestion;
 
 export const getSuggestionLabelByValue = (
