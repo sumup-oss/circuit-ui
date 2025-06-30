@@ -20,8 +20,11 @@ import { Plus } from '@sumup-oss/icons';
 
 import { type SuggestionType, Suggestion } from '../Suggestion/Suggestion.js';
 import { Compact } from '../../../Compact/index.js';
-import type { AutocompleteProps } from '../../Autocomplete.js';
-import { isGroup, isSuggestionFocused } from '../../AutocompleteService.js';
+import type { AutocompleteInputProps } from '../../AutocompleteInput.js';
+import {
+  isGroup,
+  isSuggestionFocused,
+} from '../../AutocompleteInputService.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { Spinner } from '../../../Spinner/index.js';
 import { Button } from '../../../Button/index.js';
@@ -33,15 +36,15 @@ export type SuggestionGroup = {
   suggestions: SuggestionType[];
 };
 
-export type AutocompleteSuggestions = SuggestionGroup[] | SuggestionType[];
+export type AutocompleteInputSuggestions = SuggestionGroup[] | SuggestionType[];
 
 export type SuggestionBoxProps = HTMLAttributes<HTMLUListElement> & {
   label: string;
-  value: AutocompleteProps['value'];
+  value: AutocompleteInputProps['value'];
   /**
    * List of suggestions to display in the suggestion box.
    */
-  suggestions: AutocompleteSuggestions;
+  suggestions: AutocompleteInputSuggestions;
   isSelectable?: boolean;
   onSuggestionClicked: (value: string) => void;
   loadMore?: () => void;

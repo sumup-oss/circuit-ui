@@ -53,19 +53,19 @@ import { clsx } from '../../styles/clsx.js';
 import { isString } from '../../util/type-check.js';
 
 import { translations } from './translations/index.js';
-import classes from './Autocomplete.module.css';
-import { getSuggestionLabelByValue, isGroup } from './AutocompleteService.js';
+import classes from './AutocompleteInput.module.css';
 import {
-  AutocompleteResults,
-  type AutocompleteResultsProps,
-} from './components/AutocompleteResults/AutocompleteResults.js';
+  getSuggestionLabelByValue,
+  isGroup,
+} from './AutocompleteInputService.js';
+import { Results, type ResultsProps } from './components/Results/Results.js';
 
-export type AutocompleteProps = Omit<
+export type AutocompleteInputProps = Omit<
   SearchInputProps,
   'renderPrefix' | 'renderSuffix' | 'as'
 > &
   Pick<
-    AutocompleteResultsProps,
+    ResultsProps,
     | 'isLoading'
     | 'loadingLabel'
     | 'noResultsMessage'
@@ -105,7 +105,7 @@ export type AutocompleteProps = Omit<
      * Defaults to `navigator.language` in supported environments.
      */
     locale?: Locale;
-    loadMoreLabel?: AutocompleteResultsProps['loadMoreLabel'];
+    loadMoreLabel?: ResultsProps['loadMoreLabel'];
   };
 const boundaryPadding = 8;
 
@@ -119,7 +119,10 @@ const sizeOptions: SizeOptions = {
   },
 };
 
-export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
+export const AutocompleteInput = forwardRef<
+  HTMLInputElement,
+  AutocompleteInputProps
+>(
   (
     {
       label,
@@ -372,7 +375,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     );
 
     const results = (
-      <AutocompleteResults
+      <Results
         ref={resultsRef}
         isLoading={isLoading}
         isLoadingMore={isLoadingMore}

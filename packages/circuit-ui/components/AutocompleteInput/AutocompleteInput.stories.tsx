@@ -29,12 +29,15 @@ import {
   groupedSuggestions,
   suggestions as mockSuggestions,
 } from './fixtures.js';
-import { Autocomplete, type AutocompleteProps } from './Autocomplete.js';
-import { isGroup } from './AutocompleteService.js';
+import {
+  AutocompleteInput,
+  type AutocompleteInputProps,
+} from './AutocompleteInput.js';
+import { isGroup } from './AutocompleteInputService.js';
 
 export default {
   title: 'Forms/Autocomplete',
-  component: Autocomplete,
+  component: AutocompleteInput,
   tags: ['status:stable'],
   argTypes: {
     placeholder: { control: 'text' },
@@ -49,7 +52,7 @@ export default {
   ] as Decorator[],
 };
 
-const baseArgs: AutocompleteProps = {
+const baseArgs: AutocompleteInputProps = {
   label: 'Choose your cat',
   placeholder: 'Whiskers',
   suggestions: mockSuggestions,
@@ -74,7 +77,7 @@ const openAutocomplete =
 
 const filterSuggestions = (
   searchText: string,
-  allSuggestions: AutocompleteProps['suggestions'],
+  allSuggestions: AutocompleteInputProps['suggestions'],
 ) =>
   allSuggestions
     .flatMap((suggestion) =>
@@ -97,7 +100,7 @@ const messages = [
   'Our premium plan comes with extra belly rubs...',
 ];
 
-export const Base = (args: AutocompleteProps) => {
+export const Base = (args: AutocompleteInputProps) => {
   const [autocompleteValue, setAutocompleteValue] = useState(args.value);
   const [suggestions, setSuggestions] = useState(args.suggestions);
   const onSearchTextChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -113,7 +116,7 @@ export const Base = (args: AutocompleteProps) => {
   };
 
   return (
-    <Autocomplete
+    <AutocompleteInput
       {...args}
       value={autocompleteValue}
       suggestions={suggestions}
@@ -126,8 +129,8 @@ export const Base = (args: AutocompleteProps) => {
 Base.args = baseArgs;
 Base.play = openAutocomplete();
 
-export const WithIcons = (args: AutocompleteProps) => (
-  <Autocomplete {...args} />
+export const WithIcons = (args: AutocompleteInputProps) => (
+  <AutocompleteInput {...args} />
 );
 WithIcons.args = {
   ...baseArgs,
@@ -138,7 +141,9 @@ WithIcons.args = {
 };
 WithIcons.play = openAutocomplete('Address', '123 Main St');
 
-export const Grouped = (args: AutocompleteProps) => <Autocomplete {...args} />;
+export const Grouped = (args: AutocompleteInputProps) => (
+  <AutocompleteInput {...args} />
+);
 
 Grouped.args = {
   ...baseArgs,
@@ -146,8 +151,8 @@ Grouped.args = {
 };
 Grouped.play = openAutocomplete();
 
-export const WithAction = (args: AutocompleteProps) => (
-  <Autocomplete {...args} />
+export const WithAction = (args: AutocompleteInputProps) => (
+  <AutocompleteInput {...args} />
 );
 WithAction.args = {
   ...baseArgs,
@@ -155,15 +160,15 @@ WithAction.args = {
 };
 WithAction.play = openAutocomplete();
 
-export const NoResults = (args: AutocompleteProps) => (
+export const NoResults = (args: AutocompleteInputProps) => (
   <Stack>
-    <Autocomplete
+    <AutocompleteInput
       {...args}
       suggestions={[]}
       label="Default no results message"
       validationHint="type something to see the no results message"
     />
-    <Autocomplete
+    <AutocompleteInput
       {...args}
       suggestions={[]}
       label="Custom no results message"
@@ -206,7 +211,7 @@ NoResults.play = async ({
   await screen.findByText('No results found');
 };
 
-export const Loading = (args: AutocompleteProps) => {
+export const Loading = (args: AutocompleteInputProps) => {
   const [customMessage, setCustomMessage] = useState(0);
 
   const pickRandomMessage = useCallback(() => {
@@ -222,8 +227,8 @@ export const Loading = (args: AutocompleteProps) => {
 
   return (
     <Stack>
-      <Autocomplete {...args} suggestions={[]} label="Default" isLoading />
-      <Autocomplete
+      <AutocompleteInput {...args} suggestions={[]} label="Default" isLoading />
+      <AutocompleteInput
         {...args}
         suggestions={[]}
         label="With custom message"
@@ -249,7 +254,7 @@ Loading.play = async ({
   await screen.findByText('Loading');
 };
 
-export const LoadMore = (args: AutocompleteProps) => {
+export const LoadMore = (args: AutocompleteInputProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [suggestions, setSuggestions] = useState(args.suggestions);
   const loadMore = () => {
@@ -261,7 +266,7 @@ export const LoadMore = (args: AutocompleteProps) => {
   };
 
   return (
-    <Autocomplete
+    <AutocompleteInput
       {...args}
       suggestions={suggestions}
       loadMore={suggestions.length < 10 ? loadMore : undefined}
@@ -273,8 +278,8 @@ export const LoadMore = (args: AutocompleteProps) => {
 LoadMore.args = { ...baseArgs, suggestions: catNames.slice(0, 5) };
 LoadMore.play = openAutocomplete(undefined, 'Tiger');
 
-export const ModalView = (args: AutocompleteProps) => (
-  <Autocomplete {...args} variant="immersive" />
+export const ModalView = (args: AutocompleteInputProps) => (
+  <AutocompleteInput {...args} variant="immersive" />
 );
 
 ModalView.args = { ...baseArgs };
@@ -294,8 +299,8 @@ ModalView.decorators = [
   ),
 ] as Decorator[];
 
-export const AllowNewItems = (args: AutocompleteProps) => (
-  <Autocomplete {...args} value={'Lu'} allowNewItems />
+export const AllowNewItems = (args: AutocompleteInputProps) => (
+  <AutocompleteInput {...args} value={'Lu'} allowNewItems />
 );
 AllowNewItems.args = { ...baseArgs, suggestions: [mockSuggestions[1]] };
 AllowNewItems.play = openAutocomplete();

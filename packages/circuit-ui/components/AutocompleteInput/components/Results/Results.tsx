@@ -27,9 +27,9 @@ import { clsx } from '../../../../styles/clsx.js';
 import { Spinner } from '../../../Spinner/index.js';
 import { Button, type ButtonProps } from '../../../Button/index.js';
 
-import classes from './AutocompleteResults.module.css';
+import classes from './Results.module.css';
 
-export type AutocompleteResultsProps = SuggestionBoxProps & {
+export type ResultsProps = SuggestionBoxProps & {
   /**
    * Custom content to display while loading suggestions.
    */
@@ -52,10 +52,7 @@ export type AutocompleteResultsProps = SuggestionBoxProps & {
   isModal?: boolean;
 };
 
-export const AutocompleteResults = forwardRef<
-  HTMLDivElement,
-  AutocompleteResultsProps
->(
+export const Results = forwardRef<HTMLDivElement, ResultsProps>(
   (
     {
       isLoading,

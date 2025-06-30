@@ -19,7 +19,7 @@ import {
   getSuggestionLabelByValue,
   isGroup,
   isSuggestionFocused,
-} from './AutocompleteService.js';
+} from './AutocompleteInputService.js';
 
 describe('AutocompleteService', () => {
   describe('getSuggestionLabelByValue', () => {

@@ -18,12 +18,9 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { render, screen, userEvent } from '../../../../util/test-utils.js';
 import { suggestions } from '../../fixtures.js';
 
-import {
-  AutocompleteResults,
-  type AutocompleteResultsProps,
-} from './AutocompleteResults.js';
+import { Results, type ResultsProps } from './Results.js';
 
-const props: AutocompleteResultsProps = {
+const props: ResultsProps = {
   suggestions,
   onSuggestionClicked: vi.fn(),
   suggestionIdPrefix: 'autocomplete-id',
@@ -39,7 +36,7 @@ describe('AutocompleteResults', () => {
   });
 
   it('renders suggestions correctly', () => {
-    render(<AutocompleteResults {...props} />);
+    render(<Results {...props} />);
     expect(screen.getByRole('listbox')).toBeVisible();
     expect(screen.getAllByRole('option')).toHaveLength(
       props.suggestions.length,
@@ -47,7 +44,7 @@ describe('AutocompleteResults', () => {
   });
 
   it('calls onSuggestionClicked when a suggestion is clicked', async () => {
-    render(<AutocompleteResults {...props} />);
+    render(<Results {...props} />);
 
     await userEvent.click(screen.getByText(props.suggestions[0].label));
     expect(props.onSuggestionClicked).toHaveBeenCalledWith(
@@ -56,20 +53,20 @@ describe('AutocompleteResults', () => {
   });
 
   it('renders a live region', () => {
-    render(<AutocompleteResults {...props} />);
+    render(<Results {...props} />);
 
     expect(screen.getByRole('status')).toHaveTextContent(props.resultsSummary);
   });
 
   describe('loading state', () => {
     it('renders live region as busy when loading', () => {
-      render(<AutocompleteResults {...props} isLoading />);
+      render(<Results {...props} isLoading />);
 
       expect(screen.getByRole('status')).toHaveAttribute('aria-busy', 'true');
     });
     it('renders loading message when isLoading is true and suggestions are empty', () => {
       render(
-        <AutocompleteResults
+        <Results
           {...props}
           suggestions={[]}
           isLoading
@@ -85,7 +82,7 @@ describe('AutocompleteResults', () => {
     it('renders no results message when suggestions are empty and not loading', () => {
       const noResultsMessage = 'No results found';
       render(
-        <AutocompleteResults
+        <Results
           {...props}
           suggestions={[]}
           noResultsMessage={noResultsMessage}
