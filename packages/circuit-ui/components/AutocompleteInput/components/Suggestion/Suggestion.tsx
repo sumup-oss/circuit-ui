@@ -38,6 +38,7 @@ export type SuggestionProps = HTMLAttributes<HTMLLIElement> &
     isSelectable?: boolean;
     isFocused?: boolean;
     onSuggestionClick: (value: string) => void;
+    isNew?: boolean;
   };
 
 export const Suggestion = ({
@@ -51,6 +52,7 @@ export const Suggestion = ({
   onSuggestionClick,
   value,
   className,
+  isNew,
   ...props
 }: SuggestionProps) => {
   const labelId = useId();
@@ -74,7 +76,7 @@ export const Suggestion = ({
       role="option"
       className={clsx(
         classes.base,
-        !description && !image && !Icon && classes['align-center'],
+        !description && classes['align-center'],
         isFocused && classes.focused,
         selected && classes.selected,
         className,
@@ -88,7 +90,10 @@ export const Suggestion = ({
             <div
               aria-hidden
               data-testid={`suggestion-icon-${value}`}
-              className={classes.icon}
+              className={clsx(
+                classes.icon,
+                isNew && !description && classes['is-new'],
+              )}
             >
               <Icon size="16" />
             </div>
