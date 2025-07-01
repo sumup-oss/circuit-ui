@@ -3,24 +3,24 @@ import * as Stories from './AutocompleteInput.stories';
 
 <Meta of={Stories} />
 
-# Autocomplete
+# AutocompleteInput
 <Status variant="stable" />
 
-An Autocomplete component is an input field that allows users to filter and select an option from a provided set of suggestions.
+An input field that allows users to filter and select an option from a provided set of suggestions.
 
 <Story of={Stories.Base} />
 <Props />
 
 ## When to use
 
-Use the Autocomplete component when you want to help users easily find and select from a large set of options. Common use cases:
+Use the AutocompleteInput component when you want to help users find and select from a large set of options. Common use cases:
 
 - Location picker: Address or city field
 - Product catalog: choosing from a long list of products
 
-For short lists, consider using the the [Select](Forms/Select/Docs) component instead.
+For short lists, consider using the [Select](Forms/Select/Docs) component instead.
 
-While the Autocomplete component is accessible, it can be complex to interact with, especially for keyboard and screen reader users. Use it only when necessary, and aim to keep the interaction simple and respect the component usage recommendations as much as possible.
+While the AutocompleteInput component is accessible, it can be complex to interact with, especially for keyboard and screen reader users. Use it only when necessary and aim to keep the interaction simple and respect the component usage recommendations as much as possible.
 
 ## How to use
 
@@ -32,7 +32,7 @@ While the Autocomplete component is accessible, it can be complex to interact wi
 
 <Story of={Stories.AllowNewItems} />
 
-- For a mobile-optimized experience, use the "immersive" `variant` to open the Autocomplete in a modal dialog on narrow viewports.
+- For a mobile-optimized experience, use the "immersive" `variant` to open the AutocompleteInput in a modal dialog on narrow viewports.
 
 ## Customisation
 
@@ -46,7 +46,7 @@ While the Autocomplete component is accessible, it can be complex to interact wi
 
 ## Performance
 
-The component's `onChange` callback is debounced by default to avoid excessive calls while the user types. The default debounce delay is set to 300ms.
+The component's `onChange` callback is debounced by default to avoid excessive calls while the user types. The default debounce delay is set to 300 ms.
 
 For better performance and scalability, especially with paginated results, use the `loadMore` prop to fetch additional suggestions. When this prop is provided, a "Load more" button appears at the bottom of the suggestion box. You can customize the button label with `loadMoreLabel`, and use `isLoadingMore` to indicate that more suggestions are being fetched.
 
@@ -54,9 +54,9 @@ For better performance and scalability, especially with paginated results, use t
 
 ## Accessibility
 
-The Autocomplete component is designed to be accessible, adopting ARIA's [Combobox pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/). It includes:
+The AutocompleteInput component is designed to be accessible, adopting ARIA's [Combobox pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/). It includes:
 
-- Keyboard navigation: Users can open the suggestion box by pressing the arrow down key, close it by pressing the Escape key, navigate through suggestions using the up and down arrow keys and select an option with Enter.
+- Keyboard navigation: Users can open the suggestion box by pressing the arrow down key, close it by pressing the Escape key, navigate through suggestions using the up and down arrow keys, and select an option with Enter.
 - Screen reader support: The component announces the number of suggestions available and the selected option, if any.
 - Focus management: The component manages focus appropriately, focus remains on the input field when the suggestion box is open, and navigated options are announced properly as users navigate through them.
 
