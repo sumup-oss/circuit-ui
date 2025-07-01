@@ -1,6 +1,6 @@
 .base {
-  container: cui-notification-banner / inline-size;
   position: relative;
+  container: cui-notification-banner / inline-size;
   overflow: hidden;
   border-radius: var(--cui-border-radius-mega);
   transition:
