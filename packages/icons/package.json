@@ -41,7 +41,7 @@
     "@types/babel__core": "^7.20.5",
     "fast-xml-parser": "^5.2.3",
     "prettier": "^3.5.3",
-    "tsx": "^4.19.4",
+    "tsx": "^4.20.3",
     "typescript": "^5.8.3"
   },
   "peerDependencies": {
