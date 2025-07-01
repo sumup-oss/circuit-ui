@@ -42,6 +42,14 @@
       0;
   }
 
+  .base .content {
+    padding: var(--cui-spacings-mega);
+    padding-bottom: calc(
+      env(safe-area-inset-bottom) + var(--cui-spacings-mega)
+    );
+    -webkit-overflow-scrolling: touch;
+  }
+
   .immersive {
     height: 100%;
     max-height: unset;
@@ -49,11 +57,7 @@
     border-radius: unset;
   }
 
-  .base .content {
-    padding: var(--cui-spacings-mega);
-    padding-bottom: calc(
-      env(safe-area-inset-bottom) + var(--cui-spacings-mega)
-    );
-    -webkit-overflow-scrolling: touch;
+  .immersive .content {
+    max-height: unset;
   }
 }
