@@ -405,7 +405,7 @@ export const AutocompleteInput = forwardRef<
           allowNewItems={allowNewItems}
           searchText={searchText}
           resultsSummary={`${suggestionValues.length} ${resultsFound}.`}
-          isModal={isImmersive}
+          isImmersive={isImmersive}
         />
       ) : null;
 

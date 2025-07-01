@@ -49,7 +49,7 @@ export type ResultsProps = SuggestionBoxProps & {
    */
   action?: Omit<ButtonProps, 'variant' | 'size'>;
   resultsSummary: string;
-  isModal?: boolean;
+  isImmersive?: boolean;
 };
 
 export const Results = forwardRef<HTMLDivElement, ResultsProps>(
@@ -70,7 +70,7 @@ export const Results = forwardRef<HTMLDivElement, ResultsProps>(
       allowNewItems,
       searchText,
       resultsSummary,
-      isModal,
+      isImmersive,
       loadMoreLabel,
     },
     ref,
@@ -79,12 +79,10 @@ export const Results = forwardRef<HTMLDivElement, ResultsProps>(
     return (
       <div
         ref={ref}
-        className={clsx(!isModal && classes.modal)}
-        style={{
-          marginBottom: isModal
-            ? `${actionsRef?.current?.getBoundingClientRect().height}px`
-            : 0,
-        }}
+        className={clsx(
+          !isImmersive && classes.modal,
+          isImmersive && action && classes['modal-with-action'],
+        )}
       >
         <div
           role="status"
@@ -121,14 +119,14 @@ export const Results = forwardRef<HTMLDivElement, ResultsProps>(
               searchText={allowNewItems ? searchText : undefined}
               allowNewItems={allowNewItems}
               hasAction={!!action}
-              isModal={isModal}
+              isImmersive={isImmersive}
               loadMoreLabel={loadMoreLabel}
             />
             {action && (
               <div
                 className={clsx(
                   classes.action,
-                  isModal && classes['action-modal'],
+                  isImmersive && classes['action-modal'],
                 )}
                 ref={actionsRef}
               >

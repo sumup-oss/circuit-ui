@@ -67,7 +67,7 @@ export interface SuggestionBoxProps extends HTMLAttributes<HTMLUListElement> {
    */
   allowNewItems?: boolean;
   hasAction?: boolean;
-  isModal?: boolean;
+  isImmersive?: boolean;
 }
 
 export const SuggestionBox = ({
@@ -83,7 +83,7 @@ export const SuggestionBox = ({
   suggestionIdPrefix,
   activeSuggestion,
   hasAction,
-  isModal,
+  isImmersive,
   allowNewItems,
   searchText,
   ...rest
@@ -222,7 +222,7 @@ export const SuggestionBox = ({
           variant="tertiary"
           className={clsx(
             classes['load-more'],
-            isModal && classes['load-more-modal'],
+            isImmersive && classes['load-more-modal'],
           )}
           size="s"
           onClick={loadMore}
