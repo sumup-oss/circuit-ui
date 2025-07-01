@@ -96,7 +96,7 @@ const messages = [
   "We're working very hard... right after this nap...",
   'Waking up the cats... this may take a few attempts...',
   'You are number 2843684714 in the cuddle queue...',
-  '️Please wait while we attend to other hoomans...',
+  'Please wait while we attend to other hoomans...',
   'Our premium plan comes with extra belly rubs...',
 ];
 

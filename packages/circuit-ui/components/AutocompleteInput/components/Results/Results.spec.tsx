@@ -20,7 +20,7 @@ import { suggestions } from '../../fixtures.js';
 
 import { Results, type ResultsProps } from './Results.js';
 
-const props: ResultsProps = {
+const props = {
   suggestions,
   onSuggestionClick: vi.fn(),
   suggestionIdPrefix: 'autocomplete-id',
@@ -28,7 +28,7 @@ const props: ResultsProps = {
   label: 'label',
   resultsSummary: 'results summary',
   loadMoreLabel: 'Load more',
-};
+} satisfies ResultsProps;
 
 describe('AutocompleteResults', () => {
   beforeAll(() => {
