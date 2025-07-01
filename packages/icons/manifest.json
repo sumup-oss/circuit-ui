@@ -1122,11 +1122,6 @@
       "size": "24"
     },
     {
-      "name": "wealth",
-      "category": "Finance",
-      "size": "48"
-    },
-    {
       "name": "wire_transfer",
       "category": "Finance",
       "size": "24"
