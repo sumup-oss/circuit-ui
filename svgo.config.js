@@ -7,7 +7,6 @@ module.exports = {
           convertColors: {
             currentColor: '#0F131A',
           },
-          removeViewBox: false,
         },
       },
     },
