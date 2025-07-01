@@ -89,6 +89,7 @@
   },
   "overrides": {
     "storybook": "$storybook",
+    "@joshwooding/vite-plugin-react-docgen-typescript": "0.6.1",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "stylus": "^0.64.0"
