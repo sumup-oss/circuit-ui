@@ -67,7 +67,7 @@
     "github-slugger": "^2.0.0",
     "jsdom": "^26.1.0",
     "knip": "^5.57.1",
-    "lerna": "^8.2.2",
+    "lerna": "^8.2.3",
     "pkg-pr-new": "^0.0.54",
     "prettier-plugin-astro": "^0.14.1",
     "react": "^18.3.1",
