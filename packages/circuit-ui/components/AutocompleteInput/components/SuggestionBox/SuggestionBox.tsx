@@ -198,6 +198,7 @@ export const SuggestionBox = ({
               value={searchText}
               label={searchText}
               icon={Plus}
+              isNew
               onSuggestionClick={onSuggestionClick}
               selected={value === searchText}
               isSelectable={isSelectable}
