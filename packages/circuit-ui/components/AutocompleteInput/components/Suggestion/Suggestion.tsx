@@ -15,14 +15,13 @@
 
 'use client';
 
-import type { IconComponentType } from '@sumup-oss/icons';
+import { Checkmark, type IconComponentType } from '@sumup-oss/icons';
 import { type HTMLAttributes, useEffect, useId, useRef } from 'react';
 
 import { clsx } from '../../../../styles/clsx.js';
 import { Compact } from '../../../Compact/index.js';
 
 import classes from './Suggestion.module.css';
-import { Checkmark } from './Checkmark.js';
 
 export type SuggestionType = {
   value: string;
@@ -123,7 +122,7 @@ export const Suggestion = ({
           data-testid={`suggestion-checkbox-${value}`}
           className={clsx(classes.checkbox, selected && classes.selected)}
         >
-          {selected && <Checkmark />}
+          {selected && <Checkmark size="16" />}
         </div>
       )}
     </li>
