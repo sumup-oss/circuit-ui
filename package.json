@@ -59,7 +59,7 @@
     "audit-ci": "^7.1.0",
     "chromatic": "^12.0.0",
     "eslint-config-airbnb-typescript": "^18.0.0",
-    "eslint-import-resolver-typescript": "^4.4.2",
+    "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-prettier": "^5.5.1",
     "eslint-plugin-react-server-components": "^1.2.0",
     "eslint-plugin-storybook": "^9.0.14",
