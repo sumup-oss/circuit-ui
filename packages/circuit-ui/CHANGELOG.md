@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.5.0
+
+### Minor Changes
+
+- [#3138](https://github.com/sumup-oss/circuit-ui/pull/3138) [`0cf8560`](https://github.com/sumup-oss/circuit-ui/commit/0cf85600e6d1d2b96503b0c0299f37617c1fec6c) Thanks [@connor-baer](https://github.com/connor-baer)! - Declared support for React 19 in the peer dependency range.
+
 ## 10.4.2
 
 ### Patch Changes
