@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 5.13.0
+
+### Minor Changes
+
+- [#3189](https://github.com/sumup-oss/circuit-ui/pull/3189) [`0bfd92b`](https://github.com/sumup-oss/circuit-ui/commit/0bfd92b98abb698ef21647043882e7be76c04caa) Thanks [@michael-callahan-sumup](https://github.com/michael-callahan-sumup)! - Added a new `Wealth` icon in sizes 16 and 24.
+
 ## 5.12.0
 
 ### Minor Changes
@@ -217,7 +223,6 @@
 - [#2061](https://github.com/sumup-oss/circuit-ui/pull/2061) [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f) Thanks [@connor-baer](https://github.com/connor-baer)! - Raised the minimum Node.js version to 18+.
 
 - [#2061](https://github.com/sumup-oss/circuit-ui/pull/2061) [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f) Thanks [@connor-baer](https://github.com/connor-baer)! - **This package is now pure ESM**. Please [read this](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).
-
   - If you use TypeScript, you need to use TypeScript 4.7 or later ([ref](https://github.com/microsoft/TypeScript/issues/46452)).
   - If you use a bundler, make sure it supports ESM and that you have correctly configured it for ESM. (Next.js supports ESM packages out of the box since [v12](https://nextjs.org/blog/next-12#es-modules-support-and-url-imports)).
 
