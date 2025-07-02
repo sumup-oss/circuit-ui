@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.5.1
+
+### Patch Changes
+
+- [#3191](https://github.com/sumup-oss/circuit-ui/pull/3191) [`036a9f5`](https://github.com/sumup-oss/circuit-ui/commit/036a9f5abdcc167bd9d4c6ac08328a8039db7174) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the types for the CurrencyInput and PercentageInput components.
+
 ## 10.5.0
 
 ### Minor Changes
