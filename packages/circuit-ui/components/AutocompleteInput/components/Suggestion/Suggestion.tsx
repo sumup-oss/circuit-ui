@@ -15,7 +15,7 @@
 
 'use client';
 
-import { Checkmark, type IconComponentType } from '@sumup-oss/icons';
+import { Checkmark, type IconComponentType, Plus } from '@sumup-oss/icons';
 import { type HTMLAttributes, useEffect, useId, useRef } from 'react';
 
 import { clsx } from '../../../../styles/clsx.js';
@@ -44,7 +44,7 @@ export const Suggestion = ({
   label,
   description,
   image,
-  icon: Icon,
+  icon,
   selected,
   isSelectable,
   isFocused,
@@ -56,6 +56,7 @@ export const Suggestion = ({
 }: SuggestionProps) => {
   const labelId = useId();
   const suggestionRef = useRef<HTMLLIElement>(null);
+  const Icon = isNew ? Plus : icon;
 
   useEffect(() => {
     if (isFocused) {
@@ -91,10 +92,10 @@ export const Suggestion = ({
               data-testid={`suggestion-icon-${value}`}
               className={clsx(
                 classes.icon,
-                isNew && !description && classes['is-new'],
+                isNew && !description && !icon && classes['is-new'],
               )}
             >
-              <Icon size="16" />
+              {isNew ? <Plus size="16" /> : <Icon size="16" />}
             </div>
           )}
           {image && (
