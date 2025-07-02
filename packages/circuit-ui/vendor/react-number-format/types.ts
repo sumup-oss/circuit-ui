@@ -1,4 +1,4 @@
-import React, { SyntheticEvent } from 'react';
+import React, { type SyntheticEvent } from 'react';
 export declare type Timeout = ReturnType<typeof setTimeout>;
 export interface NumberFormatState {
     value?: string;

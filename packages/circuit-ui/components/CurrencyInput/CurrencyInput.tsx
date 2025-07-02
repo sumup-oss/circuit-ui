@@ -18,10 +18,8 @@
 import { forwardRef, useId } from 'react';
 import { resolveCurrencyFormat } from '@sumup-oss/intl';
 
-import {
-  NumericFormat,
-  type NumericFormatProps,
-} from '../../vendor/react-number-format/index.js';
+import { NumericFormat } from '../../vendor/react-number-format/index.js';
+import type { OnValueChange } from '../../vendor/react-number-format/types.js';
 import { clsx } from '../../styles/clsx.js';
 import { idx } from '../../util/idx.js';
 import type { Locale } from '../../util/i18n.js';
@@ -33,10 +31,9 @@ import classes from './CurrencyInput.module.css';
 
 export interface CurrencyInputProps
   extends Omit<
-      InputProps,
-      'placeholder' | 'ref' | 'value' | 'defaultValue' | 'type'
-    >,
-    Pick<NumericFormatProps, 'onValueChange' | 'allowNegative'> {
+    InputProps,
+    'placeholder' | 'ref' | 'value' | 'defaultValue' | 'type'
+  > {
   /**
    * A ISO 4217 currency code, such as 'USD' for the US dollar,
    * 'EUR' for the Euro, or 'CNY' for the Chinese RMB.
@@ -63,6 +60,8 @@ export interface CurrencyInputProps
    * The default value of the input element.
    */
   defaultValue?: string | number;
+  allowNegative?: boolean;
+  onValueChange?: OnValueChange;
 }
 
 const DEFAULT_FORMAT = {
