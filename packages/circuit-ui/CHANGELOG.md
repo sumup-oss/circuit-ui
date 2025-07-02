@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 10.4.2
+
+### Patch Changes
+
+- [#3156](https://github.com/sumup-oss/circuit-ui/pull/3156) [`c3c3c1a`](https://github.com/sumup-oss/circuit-ui/commit/c3c3c1a852674a43e3a088c44a1a1c8e25dae2e2) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed the overflow styles of the DateInput content on desktop.
+
+- [#3188](https://github.com/sumup-oss/circuit-ui/pull/3188) [`e0d2fec`](https://github.com/sumup-oss/circuit-ui/commit/e0d2fec70acef5d0da54f1d544665f039e611980) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed max-height restriction from immersive Modal content.
+
 ## 10.4.1
 
 ### Patch Changes
@@ -341,7 +349,6 @@
 - [#2786](https://github.com/sumup-oss/circuit-ui/pull/2786) [`97f8145`](https://github.com/sumup-oss/circuit-ui/commit/97f8145ed774441c641270a3ed0fa94ada0472aa) Thanks [@connor-baer](https://github.com/connor-baer)! - Added default translations for labels that don't change with the usage of the component. Translations are included for all locales where SumUp operates, namely `bg-BG`, `cs-CZ`, `da-DK`, `de-AT`, `de-CH`, `de-DE`, `de-LU`, `el-CY`, `el-GR`, `en-AU`, `en-GB`, `en-IE`, `en-MT`, `en-US`, `es-CL`, `es-CO`, `es-ES`, `es-MX`, `es-PE`, `es-US`, `et-EE`, `fi-FI`, `fr-BE`, `fr-CH`, `fr-FR`, `fr-LU`, `hr-HR`, `hu-HU`, `it-CH`, `it-IT`, `lt-LT`, `lv-LV`, `nb-NO`, `nl-BE`, `nl-NL`, `pl-PL`, `pt-BR`, `pt-PT`, `ro-RO`, `sk-SK`, `sl-SI`, and `sv-SE`. The current locale is determined based on the `locale` prop or the `navigator.language` API in environments that support it. If no supported locale is found, `en-US` is used as a fallback.
 
   The following component props are now optional:
-
   - Button, IconButton: `loadingLabel`
   - Calendar: `prevMonthButtonLabel`, `nextMonthButtonLabel`
   - DateInput: `yearInputLabel`, `monthInputLabel`, `dayInputLabel`, `openCalendarButtonLabel`, `closeCalendarButtonLabel`, `applyDateButtonLabel`, `clearDateButtonLabel`
@@ -597,7 +604,6 @@
 - [#2551](https://github.com/sumup-oss/circuit-ui/pull/2551) [`d2115fb`](https://github.com/sumup-oss/circuit-ui/commit/d2115fba00c50668081ad40a34abce7abaa6d2a2) Thanks [@connor-baer](https://github.com/connor-baer)! - Always use the secondary Button variant for the second button in a ButtonGroup. Previously, it switched to the tertiary variant in narrow spaces.
 
 - [#2551](https://github.com/sumup-oss/circuit-ui/pull/2551) [`d2115fb`](https://github.com/sumup-oss/circuit-ui/commit/d2115fba00c50668081ad40a34abce7abaa6d2a2) Thanks [@connor-baer](https://github.com/connor-baer)! - Tweaked the Button's updated design to improve its usability.
-
   - Normalized the border-radius to 8px for all sizes.
   - Removed the horizontal padding of the tertiary variant and improved the color contrast its underline.
   - Updated the disabled styles to better distinguish the button variants.
@@ -1095,7 +1101,6 @@
 - [#2061](https://github.com/sumup-oss/circuit-ui/pull/2061) [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f) Thanks [@connor-baer](https://github.com/connor-baer)! - Raised the minimum Node.js version to 18+.
 
 - [#2061](https://github.com/sumup-oss/circuit-ui/pull/2061) [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f) Thanks [@connor-baer](https://github.com/connor-baer)! - **This package is now pure ESM**. Please [read this](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).
-
   - If you use TypeScript, you need to use TypeScript 4.7 or later ([ref](https://github.com/microsoft/TypeScript/issues/46452)).
   - If you use a bundler, make sure it supports ESM and that you have correctly configured it for ESM. (Next.js supports ESM packages out of the box since [v12](https://nextjs.org/blog/next-12#es-modules-support-and-url-imports)).
 
