@@ -28,6 +28,7 @@
     "styles/**/*",
     "types/**/*",
     "util/**/*",
+    "vendor/**/*",
     "index.ts",
     "legacy.ts",
     "experimental.ts",
