@@ -197,7 +197,7 @@ export const SuggestionBox = ({
             <Suggestion
               value={searchText}
               label={searchText}
-              icon={Plus}
+              icon={suggestionsHaveMedia ? Plus : undefined}
               isNew
               onSuggestionClick={onSuggestionClick}
               selected={value === searchText}
@@ -213,7 +213,6 @@ export const SuggestionBox = ({
               }
               aria-setsize={suggestionValues.length}
               aria-posinset={suggestionValues.length}
-              className={suggestionsHaveMedia ? undefined : classes.new}
             />
           )}
       </ul>
