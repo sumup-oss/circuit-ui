@@ -113,7 +113,9 @@ export interface DialogProps extends PublicDialogProps {
    * By passing a `preventOutsideClickRefs` ref or array of refs,
    * you can prevent the dialog from closing when clicking on elements referenced by these refs.
    */
-  preventOutsideClickRefs?: RefObject<HTMLElement> | RefObject<HTMLElement>[];
+  preventOutsideClickRefs?:
+    | RefObject<HTMLElement | null>
+    | RefObject<HTMLElement | null>[];
 }
 
 export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
