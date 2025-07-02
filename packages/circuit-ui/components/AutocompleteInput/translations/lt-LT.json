@@ -1,6 +1,5 @@
 {
-  "noResultsMessage": "Rezultatų nėra",
-  "cancel": "Atšaukti",
-  "resultsFound": "rezultatų rasta",
+  "noResultsMessage": "Nerasta rezultatų",
+  "resultsFound": "rezultatai rasti",
   "loadMoreLabel": "Įkelti daugiau"
 }

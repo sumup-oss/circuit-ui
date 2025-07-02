@@ -47,7 +47,6 @@ import { changeInputValue } from '../../util/input-value.js';
 import { debounce } from '../../util/helpers.js';
 import { Modal } from '../Modal/index.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
-import { Button } from '../Button/Button.js';
 import { Body } from '../Body/index.js';
 import { clsx } from '../../styles/clsx.js';
 import { isString } from '../../util/type-check.js';
@@ -154,7 +153,6 @@ export const AutocompleteInput = forwardRef<
   ) => {
     const {
       noResultsMessage: defaultNoResultsMessage,
-      cancel: cancelButtonLabel,
       loadMoreLabel,
       resultsFound,
     } = useI18n({ locale, loadMoreLabel: props.loadMoreLabel }, translations);
@@ -246,13 +244,13 @@ export const AutocompleteInput = forwardRef<
     const onComboboxClick = useCallback(() => {
       textBoxRef?.current?.select();
       openSuggestionBox();
-      if (isMobile) {
+      if (isMobile && !isImmersive) {
         textBoxRef.current?.scrollIntoView({
           behavior: 'smooth',
           block: 'start',
         });
       }
-    }, [openSuggestionBox, isMobile]);
+    }, [openSuggestionBox, isMobile, isImmersive]);
 
     const { floatingStyles, refs, update } = useFloating<HTMLElement>({
       open: isOpen,
@@ -332,7 +330,6 @@ export const AutocompleteInput = forwardRef<
        * See https://floating-ui.com/docs/react-dom#updating
        */
       if (isOpen) {
-        update();
         window.addEventListener('resize', update);
         window.addEventListener('scroll', update);
       } else {
@@ -448,13 +445,6 @@ export const AutocompleteInput = forwardRef<
           >
             <div className={classes['modal-header']}>
               <SearchInput {...props} ref={textBoxRef} {...comboboxProps} />
-              <Button
-                variant="tertiary"
-                onClick={closeSuggestionBox}
-                className={classes['modal-close']}
-              >
-                {cancelButtonLabel}
-              </Button>
             </div>
             {results}
           </Modal>

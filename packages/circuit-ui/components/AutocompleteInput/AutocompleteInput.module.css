@@ -12,6 +12,24 @@
   box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
 }
 
+.popup::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  display: block;
+  height: var(--cui-spacings-mega);
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(
+    color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent),
+    color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-normal) 1%, transparent)
+  );
+  border-radius: inherit;
+}
+
 .popup::after {
   position: absolute;
   right: 0;
@@ -37,10 +55,6 @@
 .modal ul[role="listbox"] {
   padding: 0;
   margin-top: var(--cui-spacings-mega);
-}
-
-.modal > button {
-  display: none;
 }
 
 .modal .modal-content {
