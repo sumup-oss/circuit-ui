@@ -1,5 +1,6 @@
 {
   "noResultsMessage": "Ei tuloksia",
   "resultsFound": "tulosta löytyi",
-  "loadMoreLabel": "Lataa lisää"
+  "loadMoreLabel": "Lataa lisää",
+  "clearLabel": "Tyhjennä"
 }

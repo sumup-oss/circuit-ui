@@ -1,5 +1,6 @@
 {
   "noResultsMessage": "Δεν βρέθηκαν αποτελέσματα",
   "resultsFound": "αποτελέσματα βρέθηκαν",
-  "loadMoreLabel": "Φόρτωσε περισσότερα"
+  "loadMoreLabel": "Φόρτωσε περισσότερα",
+  "clearLabel": "Εκκαθάριση"
 }

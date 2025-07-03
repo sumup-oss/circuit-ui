@@ -1,5 +1,6 @@
 {
   "noResultsMessage": "Geen resultaten gevonden",
   "resultsFound": "resultaten gevonden",
-  "loadMoreLabel": "Meer laden"
+  "loadMoreLabel": "Meer laden",
+  "clearLabel": "Wissen"
 }

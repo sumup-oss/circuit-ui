@@ -1,5 +1,6 @@
 {
   "noResultsMessage": "Няма резултати",
   "resultsFound": "намерени резултати",
-  "loadMoreLabel": "Зареди още"
+  "loadMoreLabel": "Зареди още",
+  "clearLabel": "Изчистване"
 }
