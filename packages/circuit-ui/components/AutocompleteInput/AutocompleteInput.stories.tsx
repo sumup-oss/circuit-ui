@@ -40,8 +40,172 @@ export default {
   component: AutocompleteInput,
   tags: ['status:stable'],
   argTypes: {
-    placeholder: { control: 'text' },
-    disabled: { control: 'boolean' },
+    // Value & change handling
+    value: {
+      control: 'text',
+      table: {
+        category: 'Value & change handling',
+      },
+    },
+    onChange: {
+      description: 'Callback fired when the search text value changes.',
+      table: {
+        category: 'Value & change handling',
+      },
+    },
+    onClear: {
+      table: {
+        category: 'Value & change handling',
+      },
+    },
+    onSelection: {
+      table: {
+        category: 'Value & change handling',
+      },
+    },
+    // Suggestions & results
+    suggestions: {
+      table: {
+        category: 'Suggestions & results',
+      },
+    },
+    allowNewItems: {
+      table: {
+        category: 'Suggestions & results',
+      },
+    },
+    isLoadingMore: {
+      table: {
+        category: 'Suggestions & results',
+      },
+    },
+    loadMore: {
+      table: {
+        category: 'Suggestions & results',
+      },
+    },
+    isLoading: {
+      table: {
+        category: 'Suggestions & results',
+      },
+    },
+    action: {
+      table: {
+        category: 'Suggestions & results',
+      },
+    },
+    // Input
+    label: {
+      table: {
+        category: 'Input',
+      },
+    },
+    placeholder: {
+      control: 'text',
+      table: {
+        category: 'Input',
+      },
+    },
+    hideLabel: {
+      table: {
+        category: 'Input',
+      },
+    },
+    inputClassName: {
+      control: 'text',
+      table: {
+        category: 'Input',
+      },
+    },
+    textAlign: {
+      table: {
+        category: 'Input',
+      },
+    },
+    optionalLabel: {
+      table: {
+        category: 'Input',
+      },
+    },
+    disabled: {
+      control: 'boolean',
+      table: {
+        category: 'Input',
+      },
+    },
+    readOnly: {
+      control: 'boolean',
+      table: {
+        category: 'Input',
+      },
+    },
+    hasWarning: {
+      control: 'boolean',
+      table: {
+        category: 'Input',
+      },
+    },
+    invalid: {
+      control: 'boolean',
+      table: {
+        category: 'Input',
+      },
+    },
+    showValid: {
+      control: 'boolean',
+      table: {
+        category: 'Input',
+      },
+    },
+    validationHint: {
+      table: {
+        category: 'Input',
+      },
+    },
+    id: {
+      table: {
+        category: 'Input',
+      },
+    },
+    // Behavior & Appearance
+    variant: {
+      table: {
+        category: 'Behavior & Appearance',
+      },
+    },
+    minQueryLength: {
+      table: {
+        category: 'Behavior & Appearance',
+      },
+    },
+    // Customisation
+    locale: {
+      table: {
+        category: 'Customisation',
+      },
+    },
+    clearLabel: {
+      table: {
+        category: 'Customisation',
+      },
+    },
+    loadingLabel: {
+      table: {
+        category: 'Customisation',
+      },
+    },
+    noResultsMessage: {
+      table: {
+        category: 'Customisation',
+      },
+    },
+
+    loadMoreLabel: {
+      control: 'text',
+      table: {
+        category: 'Customisation',
+      },
+    },
   },
   decorators: [
     (Story) => (

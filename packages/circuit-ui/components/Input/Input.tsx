@@ -94,6 +94,7 @@ export interface BaseInputProps {
   readOnly?: boolean;
   /**
    * Aligns text in the input
+   * @default left
    */
   textAlign?: 'left' | 'right';
   /**
@@ -134,7 +135,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       hasWarning,
       showValid,
       disabled,
-      textAlign,
+      textAlign = 'left',
       inputClassName,
       'as': Element = 'input',
       label,
