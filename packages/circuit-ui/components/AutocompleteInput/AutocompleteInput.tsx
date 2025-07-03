@@ -35,7 +35,6 @@ import {
   useFloating,
 } from '@floating-ui/react-dom';
 
-import { SearchInput, type SearchInputProps } from '../SearchInput/index.js';
 import type { ClickEvent } from '../../types/events.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { useI18n } from '../../hooks/useI18n/useI18n.js';
@@ -58,11 +57,12 @@ import {
   isGroup,
 } from './AutocompleteInputService.js';
 import { Results, type ResultsProps } from './components/Results/Results.js';
+import {
+  ComboboxInput,
+  type ComboboxInputProps,
+} from './components/ComboboxInput/ComboboxInput.js';
 
-export type AutocompleteInputProps = Omit<
-  SearchInputProps,
-  'renderPrefix' | 'renderSuffix' | 'as'
-> &
+export type AutocompleteInputProps = ComboboxInputProps &
   Pick<
     ResultsProps,
     | 'isLoading'
@@ -134,7 +134,6 @@ export const AutocompleteInput = forwardRef<
       onClear,
       onSelection,
       onChange,
-      clearLabel,
       isLoading,
       isLoadingMore,
       loadingLabel,
@@ -155,7 +154,15 @@ export const AutocompleteInput = forwardRef<
       noResultsMessage: defaultNoResultsMessage,
       loadMoreLabel,
       resultsFound,
-    } = useI18n({ locale, loadMoreLabel: props.loadMoreLabel }, translations);
+      clearLabel,
+    } = useI18n(
+      {
+        locale,
+        loadMoreLabel: props.loadMoreLabel,
+        clearLabel: props.clearLabel,
+      },
+      translations,
+    );
 
     const [searchText, setSearchText] = useState<string>(
       getSuggestionLabelByValue(suggestions, value) ?? '',
@@ -241,16 +248,24 @@ export const AutocompleteInput = forwardRef<
       [onClear, openSuggestionBox],
     );
 
-    const onComboboxClick = useCallback(() => {
-      textBoxRef?.current?.select();
-      openSuggestionBox();
-      if (isMobile && !isImmersive) {
-        textBoxRef.current?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        });
+    const onPresentationFieldClick = useCallback(() => {
+      if (!readOnly && !disabled) {
+        openSuggestionBox();
       }
-    }, [openSuggestionBox, isMobile, isImmersive]);
+    }, [readOnly, disabled, openSuggestionBox]);
+
+    const onComboboxClick = useCallback(() => {
+      if (!readOnly && !disabled) {
+        textBoxRef?.current?.select();
+        openSuggestionBox();
+        if (isMobile && !isImmersive) {
+          textBoxRef.current?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
+        }
+      }
+    }, [openSuggestionBox, isMobile, isImmersive, disabled, readOnly]);
 
     const { floatingStyles, refs, update } = useFloating<HTMLElement>({
       open: isOpen,
@@ -419,23 +434,28 @@ export const AutocompleteInput = forwardRef<
       'aria-autocomplete': 'list' as const,
       'aria-activedescendant': activeDescendant,
       onClick: onComboboxClick,
+      readOnly,
+      disabled,
     };
 
     if (isImmersive) {
       return (
         <>
-          <SearchInput
+          <ComboboxInput
             {...props}
             inputClassName={clsx(classes.input, props.inputClassName)}
             label={label}
             ref={applyMultipleRefs(ref, presentationFieldRef)}
-            onClick={openSuggestionBox}
+            onClick={onPresentationFieldClick}
             value={presentationFieldValue}
             onChange={onChange}
             onKeyDown={undefined}
             aria-haspopup="dialog"
             aria-expanded={isOpen}
             onClear={onPresentationFieldClear}
+            clearLabel={clearLabel}
+            readOnly={readOnly}
+            disabled={disabled}
           />
           <Modal
             open={isOpen}
@@ -444,7 +464,7 @@ export const AutocompleteInput = forwardRef<
             onClose={closeSuggestionBox}
           >
             <div className={classes['modal-header']}>
-              <SearchInput {...props} ref={textBoxRef} {...comboboxProps} />
+              <ComboboxInput {...props} ref={textBoxRef} {...comboboxProps} />
             </div>
             {results}
           </Modal>
@@ -454,7 +474,7 @@ export const AutocompleteInput = forwardRef<
 
     return (
       <>
-        <SearchInput
+        <ComboboxInput
           {...props}
           ref={applyMultipleRefs(textBoxRef, ref, refs.setReference)}
           inputClassName={clsx(classes.input, props.inputClassName)}

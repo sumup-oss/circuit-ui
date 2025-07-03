@@ -1,5 +1,6 @@
 {
   "noResultsMessage": "Tulemusi ei leitud",
   "resultsFound": "tulemust leitud",
-  "loadMoreLabel": "Laadi veel"
+  "loadMoreLabel": "Laadi veel",
+  "clearLabel": "Tühjenda"
 }

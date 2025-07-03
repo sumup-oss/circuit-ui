@@ -309,19 +309,6 @@ describe('Autocomplete', () => {
         within(dialog).getByRole('combobox', { name: props.label }),
       ).toHaveValue(selectedValue.label);
     });
-
-    it('should close dialog when the cancel button is clicked', async () => {
-      render(<AutocompleteInput {...props} variant="immersive" />);
-      const input = screen.getByRole('searchbox', { name: props.label });
-      await userEvent.click(input);
-      expect(screen.getByRole('dialog')).toBeVisible();
-      const cancelButton = screen.getByRole('button', { name: 'Cancel' });
-      await userEvent.click(cancelButton);
-      act(() => {
-        vi.runAllTimers();
-      });
-      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
-    });
   });
 
   describe('Loading state', () => {

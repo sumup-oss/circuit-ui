@@ -1,5 +1,6 @@
 {
   "noResultsMessage": "Nenašli sa žiadne výsledky",
   "resultsFound": "nájdené výsledky",
-  "loadMoreLabel": "Načítať viac"
+  "loadMoreLabel": "Načítať viac",
+  "clearLabel": "Vymazať"
 }

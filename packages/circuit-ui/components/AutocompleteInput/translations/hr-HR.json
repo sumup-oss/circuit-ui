@@ -1,5 +1,6 @@
 {
   "noResultsMessage": "Nema rezultata",
   "resultsFound": "rezultata pronađeno",
-  "loadMoreLabel": "Učitaj više"
+  "loadMoreLabel": "Učitaj više",
+  "clearLabel": "Očisti"
 }

@@ -1,5 +1,6 @@
 {
   "noResultsMessage": "Nebyly nalezeny žádné výsledky",
   "resultsFound": "nalezené výsledky",
-  "loadMoreLabel": "Načíst další"
+  "loadMoreLabel": "Načíst další",
+  "clearLabel": "Vymazat"
 }

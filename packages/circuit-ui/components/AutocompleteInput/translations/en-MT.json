@@ -1,5 +1,6 @@
 {
   "noResultsMessage": "No results found",
   "resultsFound": "results found",
-  "loadMoreLabel": "Load more"
+  "loadMoreLabel": "Load more",
+  "clearLabel": "Clear"
 }

@@ -1,0 +1,104 @@
+.wrapper {
+  position: relative;
+}
+
+.base {
+  width: 100%;
+  padding: var(--cui-spacings-kilo) var(--cui-spacings-exa)
+    var(--cui-spacings-kilo) var(--cui-spacings-mega);
+  margin: 0;
+  font-size: var(--cui-body-m-font-size);
+  line-height: var(--cui-body-m-line-height);
+  appearance: none;
+  outline: 0;
+  background-color: var(--cui-bg-normal);
+  border: 1px solid var(--cui-border-normal);
+  border-radius: var(--cui-border-radius-byte);
+  box-shadow: none;
+  transition:
+    box-shadow var(--cui-transitions-default),
+    border var(--cui-transitions-default),
+    padding var(--cui-transitions-default);
+}
+
+.base:hover {
+  border: 1px solid var(--cui-border-normal-hovered);
+}
+
+.base:focus {
+  border: 1px solid var(--cui-border-accent);
+  box-shadow: inset 0 0 0 1px var(--cui-border-accent);
+}
+
+.base::placeholder {
+  color: var(--cui-fg-placeholder);
+  transition: color var(--cui-transitions-default);
+}
+
+.base:placeholder-shown {
+  text-overflow: ellipsis;
+}
+
+/* Validations */
+
+.base[aria-invalid="true"] {
+  border: 1px solid var(--cui-border-danger);
+}
+
+.base[aria-invalid="true"]:hover {
+  border: 1px solid var(--cui-border-danger-hovered);
+}
+
+.base[aria-invalid="true"]:focus {
+  border: 1px solid var(--cui-border-danger);
+  box-shadow: inset 0 0 0 1px var(--cui-border-danger);
+}
+
+.warning {
+  border: 1px solid var(--cui-border-warning);
+}
+
+.warning:hover {
+  border: 1px solid var(--cui-border-warning-hovered);
+}
+
+.warning:focus {
+  border: 1px solid var(--cui-border-warning);
+  box-shadow: inset 0 0 0 1px var(--cui-border-warning);
+}
+
+/* Disabled */
+
+.base:disabled,
+.base[disabled] {
+  color: var(--cui-fg-normal-disabled);
+  background-color: var(--cui-bg-normal-disabled);
+  border: 1px solid var(--cui-border-normal-disabled);
+}
+
+.base[readonly] {
+  background-color: var(--cui-bg-subtle-disabled);
+}
+
+.base::-webkit-search-decoration,
+.base::-webkit-search-cancel-button,
+.base::-webkit-search-results-button,
+.base::-webkit-search-results-decoration {
+  appearance: none;
+}
+
+/* Alignment */
+
+.align-right {
+  text-align: right;
+}
+
+.clear {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--cui-spacings-exa);
+  height: var(--cui-spacings-exa);
+  padding: var(--cui-spacings-kilo) var(--cui-spacings-mega);
+  color: var(--cui-fg-subtle);
+}
