@@ -39,7 +39,11 @@ import { applyMultipleRefs } from '../../../../util/refs.js';
 import classes from './ComboboxInput.module.css';
 
 export interface ComboboxInputProps
-  extends Omit<InputProps, 'renderPrefix' | 'renderSuffix' | 'as'> {
+  extends Omit<InputProps, 'renderPrefix' | 'renderSuffix' | 'as' | 'value'> {
+  /**
+   * The field's value.
+   */
+  value?: string;
   /**
    * Callback function when the user clears the field.
    */

@@ -75,10 +75,6 @@ export type AutocompleteInputProps = ComboboxInputProps &
     | 'suggestions'
   > & {
     /**
-     * The field's value.
-     */
-    value?: string;
-    /**
      * A callback function fired when a suggestion is selected.
      */
     onSelection: (value: string) => void;
@@ -104,7 +100,6 @@ export type AutocompleteInputProps = ComboboxInputProps &
      * Defaults to `navigator.language` in supported environments.
      */
     locale?: Locale;
-    /**
     /**
      * A custom label for the "Load more" button.
      */
