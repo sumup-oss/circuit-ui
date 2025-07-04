@@ -28,7 +28,7 @@ import {
 } from 'react';
 import {
   flip,
-  offset as offsetMiddleware,
+  offset,
   shift,
   size,
   type SizeOptions,
@@ -62,7 +62,7 @@ import {
   type ComboboxInputProps,
 } from './components/ComboboxInput/ComboboxInput.js';
 
-export type AutocompleteInputProps = ComboboxInputProps &
+export type AutocompleteInputProps = Omit<ComboboxInputProps, 'data-id'> &
   Pick<
     ResultsProps,
     | 'isLoading'
@@ -191,10 +191,6 @@ export const AutocompleteInput = forwardRef<
       }
     }, [isLoading]);
 
-    const openSuggestionBox = useCallback(() => {
-      setIsOpen(true);
-    }, []);
-
     const closeSuggestionBox = useCallback(() => {
       setIsOpen(false);
       setActiveSuggestion(undefined);
@@ -216,12 +212,12 @@ export const AutocompleteInput = forwardRef<
         setActiveSuggestion(undefined);
         if (event.target.value.length >= minQueryLength) {
           if (event.target.value !== '') {
-            openSuggestionBox();
+            setIsOpen(true);
           }
           debouncedOnChange?.(event);
         }
       },
-      [minQueryLength, openSuggestionBox, debouncedOnChange],
+      [minQueryLength, debouncedOnChange],
     );
 
     const onComboboxClear = useCallback(
@@ -237,37 +233,27 @@ export const AutocompleteInput = forwardRef<
         setPresentationFieldValue('');
         setSearchText('');
         changeInputValue(presentationFieldRef.current, '');
-        openSuggestionBox();
+        setIsOpen(true);
         onClear?.(event);
       },
-      [onClear, openSuggestionBox],
+      [onClear],
     );
 
     const onPresentationFieldClick = useCallback(() => {
-      if (!readOnly && !disabled) {
-        openSuggestionBox();
-      }
-    }, [readOnly, disabled, openSuggestionBox]);
+      setIsOpen(true);
+    }, []);
 
     const onComboboxClick = useCallback(() => {
-      if (!readOnly && !disabled) {
-        textBoxRef?.current?.select();
-        openSuggestionBox();
-        if (isMobile && !isImmersive) {
-          textBoxRef.current?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-          });
-        }
-      }
-    }, [openSuggestionBox, isMobile, isImmersive, disabled, readOnly]);
+      textBoxRef?.current?.select();
+      setIsOpen(true);
+    }, []);
 
     const { floatingStyles, refs, update } = useFloating<HTMLElement>({
       open: isOpen,
       placement: 'bottom',
       strategy: 'fixed',
       middleware: [
-        offsetMiddleware(8),
+        offset(8),
         shift({ padding: boundaryPadding }),
         flip({ padding: boundaryPadding, fallbackPlacements: ['top'] }),
         size(sizeOptions),
@@ -318,17 +304,11 @@ export const AutocompleteInput = forwardRef<
             onSuggestionClick(suggestionValues[activeSuggestion]);
           }
         } else if (isArrowDown(event)) {
-          openSuggestionBox();
+          setIsOpen(true);
           setActiveSuggestion(0);
         }
       },
-      [
-        isOpen,
-        activeSuggestion,
-        openSuggestionBox,
-        suggestionValues,
-        onSuggestionClick,
-      ],
+      [isOpen, activeSuggestion, suggestionValues, onSuggestionClick],
     );
 
     useEffect(() => {
