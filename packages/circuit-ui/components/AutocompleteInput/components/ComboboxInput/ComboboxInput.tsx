@@ -60,6 +60,7 @@ export interface ComboboxInputProps
    * Defaults to `navigator.language` in supported environments.
    */
   locale?: Locale;
+  'data-id'?: string;
 }
 
 export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
@@ -84,6 +85,7 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
       onClear,
       clearLabel,
       locale,
+      'data-id': comboboxInputId,
       ...props
     },
     ref,
@@ -128,7 +130,7 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
         <div className={classes.wrapper}>
           <input
             id={inputId}
-            type="search"
+            data-id={comboboxInputId}
             value={value}
             ref={applyMultipleRefs(localRef, ref)}
             aria-describedby={descriptionIds}

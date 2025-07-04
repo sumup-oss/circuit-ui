@@ -208,8 +208,9 @@ describe('Autocomplete', () => {
 
     it('should close the suggestion box when the disabled prop becomes truthy', async () => {
       const { rerender } = render(<AutocompleteInput {...props} />);
-      const input = screen.getByRole('combobox', { name: props.label });
-      await userEvent.click(input);
+      await userEvent.click(
+        screen.getByRole('combobox', { name: props.label }),
+      );
       expect(screen.getByRole('listbox')).toBeVisible();
       rerender(<AutocompleteInput {...props} disabled />);
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
@@ -217,8 +218,9 @@ describe('Autocomplete', () => {
 
     it('should close the suggestion box when the escape key is pressed', async () => {
       render(<AutocompleteInput {...props} />);
-      const input = screen.getByRole('combobox', { name: props.label });
-      await userEvent.click(input);
+      await userEvent.click(
+        screen.getByRole('combobox', { name: props.label }),
+      );
       expect(screen.getByRole('listbox')).toBeVisible();
       await userEvent.keyboard('{Escape}');
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
@@ -226,8 +228,9 @@ describe('Autocomplete', () => {
 
     it('should close the suggestion box on outside click', async () => {
       render(<AutocompleteInput {...props} />);
-      const input = screen.getByRole('combobox', { name: props.label });
-      await userEvent.click(input);
+      await userEvent.click(
+        screen.getByRole('combobox', { name: props.label }),
+      );
       expect(screen.getByRole('listbox')).toBeVisible();
       await userEvent.click(document.body);
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
@@ -244,9 +247,8 @@ describe('Autocomplete', () => {
 
     it('should open in a modal dialog', async () => {
       render(<AutocompleteInput {...props} variant="immersive" />);
-      const input = screen.getByRole('searchbox', { name: props.label });
+      await userEvent.click(screen.getByLabelText(props.label));
 
-      await userEvent.click(input);
       expect(screen.getByRole('dialog')).toBeVisible();
     });
 
@@ -261,9 +263,8 @@ describe('Autocomplete', () => {
 
     it('should call onChange when user types in field', async () => {
       render(<AutocompleteInput {...props} variant="immersive" />);
-      const input = screen.getByRole('searchbox', { name: props.label });
+      await userEvent.click(screen.getByLabelText(props.label));
 
-      await userEvent.click(input);
       expect(screen.getByRole('dialog')).toBeVisible();
       await userEvent.type(screen.getByRole('combobox'), 'f');
       act(() => {
@@ -274,8 +275,8 @@ describe('Autocomplete', () => {
 
     it('should select a value, call onSelection and close the dialog', async () => {
       render(<AutocompleteInput {...props} variant="immersive" />);
-      const input = screen.getByRole('searchbox', { name: props.label });
-      await userEvent.click(input);
+      await userEvent.click(screen.getByLabelText(props.label));
+
       expect(screen.getByRole('dialog')).toBeVisible();
       expect(screen.getByRole('listbox')).toBeVisible();
       expect(screen.getAllByRole('option')).toHaveLength(
@@ -299,7 +300,7 @@ describe('Autocomplete', () => {
           value={selectedValue.value}
         />,
       );
-      const input = screen.getByRole('searchbox', { name: props.label });
+      const input = screen.getByLabelText(props.label);
       expect(input).toHaveValue(selectedValue.label);
       await userEvent.click(input);
       const dialog = screen.getByRole('dialog');
