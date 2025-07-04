@@ -428,7 +428,7 @@ export const AutocompleteInput = forwardRef<
       autoComplete: 'off',
       'aria-autocomplete': 'list' as const,
       'aria-activedescendant': activeDescendant,
-      onClick: onComboboxClick,
+      onClick: !readOnly && !disabled ? onComboboxClick : undefined,
       readOnly,
       disabled,
     };
@@ -441,7 +441,9 @@ export const AutocompleteInput = forwardRef<
             inputClassName={clsx(classes.input, props.inputClassName)}
             label={label}
             ref={applyMultipleRefs(ref, presentationFieldRef)}
-            onClick={onPresentationFieldClick}
+            onClick={
+              readOnly || disabled ? undefined : onPresentationFieldClick
+            }
             value={presentationFieldValue}
             onChange={onChange}
             onKeyDown={undefined}

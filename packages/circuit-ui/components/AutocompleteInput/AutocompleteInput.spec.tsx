@@ -194,6 +194,22 @@ describe('Autocomplete', () => {
       );
       expect(screen.getByRole('listbox')).toBeVisible();
     });
+    it('should not open the suggestion box on click when input is readOnly', async () => {
+      render(<AutocompleteInput {...props} readOnly />);
+
+      await userEvent.click(
+        screen.getByRole('combobox', { name: props.label }),
+      );
+      expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+    });
+    it('should not open the suggestion box on click when input is disabled', async () => {
+      render(<AutocompleteInput {...props} disabled />);
+
+      await userEvent.click(
+        screen.getByRole('combobox', { name: props.label }),
+      );
+      expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+    });
   });
 
   describe('closing the suggestion box', () => {
@@ -309,6 +325,19 @@ describe('Autocomplete', () => {
       expect(
         within(dialog).getByRole('combobox', { name: props.label }),
       ).toHaveValue(selectedValue.label);
+    });
+
+    it('should not open the suggestion box on click when input is readOnly', async () => {
+      render(<AutocompleteInput {...props} variant="immersive" readOnly />);
+
+      await userEvent.click(screen.getByLabelText(props.label));
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    });
+    it('should not open the suggestion box on click when input is disabled', async () => {
+      render(<AutocompleteInput {...props} variant="immersive" disabled />);
+
+      await userEvent.click(screen.getByLabelText(props.label));
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
     });
   });
 
