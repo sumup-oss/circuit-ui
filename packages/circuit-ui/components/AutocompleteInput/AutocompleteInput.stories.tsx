@@ -33,7 +33,10 @@ import {
   AutocompleteInput,
   type AutocompleteInputProps,
 } from './AutocompleteInput.js';
-import { isGroup } from './AutocompleteInputService.js';
+import {
+  getSuggestionLabelByValue,
+  isGroup,
+} from './AutocompleteInputService.js';
 
 export default {
   title: 'Forms/Autocomplete',
@@ -43,6 +46,11 @@ export default {
     // Value & change handling
     value: {
       control: 'text',
+      table: {
+        category: 'Value & change handling',
+      },
+    },
+    getSuggestionLabel: {
       table: {
         category: 'Value & change handling',
       },
@@ -223,6 +231,8 @@ const baseArgs: AutocompleteInputProps = {
   validationHint: 'All our cats have been neutered and vaccinated.',
   onSelection: (value: string) => action('onSelection')(value),
   onChange: (event) => action('onChange')(event.target.value),
+  getSuggestionLabel: (value?: string) =>
+    getSuggestionLabelByValue(mockSuggestions, value),
 };
 
 const openAutocomplete =
