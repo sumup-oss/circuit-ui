@@ -35,6 +35,7 @@ import {
   AutocompleteInput,
   type AutocompleteInputProps,
 } from './AutocompleteInput.js';
+import { getSuggestionLabelByValue } from './AutocompleteInputService.js';
 
 vi.mock('../../hooks/useMedia/index.js');
 
@@ -45,6 +46,8 @@ const props: AutocompleteInputProps = {
   onChange: vi.fn(),
   value: '',
   label: 'label',
+  getSuggestionLabel: (value?: string) =>
+    getSuggestionLabelByValue(suggestions, value),
 };
 describe('Autocomplete', () => {
   beforeAll(() => {

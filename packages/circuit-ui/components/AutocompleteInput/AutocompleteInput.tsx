@@ -84,6 +84,12 @@ export type AutocompleteInputProps = Omit<ComboboxInputProps, 'data-id'> &
      */
     onChange: (event: ChangeEvent<HTMLInputElement>) => void;
     /**
+     * When the values and the labels of the suggestions are different,
+     * pass this function to compute the text displayed inside the input.
+     * Will default to searching in the provided `suggestions` array or returning the value as is.
+     */
+    getSuggestionLabel?: (value?: string) => string;
+    /**
      * The minimum length of the search query that would trigger an `onChange` event.
      * @default 0
      */
@@ -140,6 +146,7 @@ export const AutocompleteInput = forwardRef<
       action,
       loadMore,
       allowNewItems,
+      getSuggestionLabel: customGetSuggestionLabel,
       variant = 'contextual',
       ...props
     },
@@ -159,12 +166,20 @@ export const AutocompleteInput = forwardRef<
       translations,
     );
 
-    const [searchText, setSearchText] = useState<string>(
-      getSuggestionLabelByValue(suggestions, value) ?? '',
+    const defaultGetSuggestionLabel = useCallback(
+      (suggestionValue?: string) =>
+        getSuggestionLabelByValue(suggestions, suggestionValue),
+      [suggestions],
     );
 
-    const [presentationFieldValue, setPresentationFieldValue] =
-      useState<string>(getSuggestionLabelByValue(suggestions, value) ?? '');
+    const getSuggestionLabel =
+      customGetSuggestionLabel ?? defaultGetSuggestionLabel;
+
+    const [searchText, setSearchText] = useState(getSuggestionLabel(value));
+
+    const [presentationFieldValue, setPresentationFieldValue] = useState(
+      getSuggestionLabel(value),
+    );
     const isMobile = useMedia('(max-width: 479px)');
     const isImmersive = isMobile && variant === 'immersive';
     const [isOpen, setIsOpen] = useState(false);
@@ -267,17 +282,12 @@ export const AutocompleteInput = forwardRef<
 
     useEffect(() => {
       if (!isOpen && searchText !== value) {
-        changeInputValue(
-          textBoxRef.current,
-          getSuggestionLabelByValue(suggestions, value),
-        );
+        changeInputValue(textBoxRef.current, getSuggestionLabel(value));
         if (isImmersive) {
-          setPresentationFieldValue(
-            getSuggestionLabelByValue(suggestions, value),
-          );
+          setPresentationFieldValue(getSuggestionLabel(value));
         }
       }
-    }, [isOpen, isImmersive, value, searchText, suggestions]);
+    }, [isOpen, isImmersive, value, searchText, getSuggestionLabel]);
 
     const onInputKeyDown: KeyboardEventHandler<HTMLInputElement> = useCallback(
       (event) => {
