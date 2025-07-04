@@ -43,20 +43,20 @@ describe('ComboboxInput', () => {
 
   it('should render an invalid input', () => {
     render(<ComboboxInput invalid {...defaultProps} />);
-    const input = screen.getByRole('searchbox');
+    const input = screen.getByLabelText(defaultProps.label);
     expect(input).toBeInvalid();
     expect(input).toHaveAttribute('aria-invalid', 'true');
   });
 
   it('should render a readonly input', () => {
     render(<ComboboxInput readOnly {...defaultProps} />);
-    const input = screen.getByRole('searchbox');
+    const input = screen.getByLabelText(defaultProps.label);
     expect(input).toHaveAttribute('readonly');
   });
 
   it('should render a disabled input', () => {
     render(<ComboboxInput disabled {...defaultProps} />);
-    const input = screen.getByRole('searchbox');
+    const input = screen.getByLabelText(defaultProps.label);
     expect(input).toBeDisabled();
   });
 
@@ -80,7 +80,7 @@ describe('ComboboxInput', () => {
   describe('Labeling', () => {
     it('should have an accessible name', () => {
       render(<ComboboxInput {...defaultProps} />);
-      const inputEl = screen.getByRole('searchbox');
+      const inputEl = screen.getByLabelText(defaultProps.label);
 
       expect(inputEl).toHaveAccessibleName(defaultProps.label);
     });
@@ -88,7 +88,7 @@ describe('ComboboxInput', () => {
     it('should optionally have an accessible description', () => {
       const description = 'Description';
       render(<ComboboxInput validationHint={description} {...defaultProps} />);
-      const inputEl = screen.getByRole('searchbox');
+      const inputEl = screen.getByLabelText(defaultProps.label);
 
       expect(inputEl).toHaveAccessibleDescription(description);
     });
@@ -106,7 +106,7 @@ describe('ComboboxInput', () => {
           ,
         </>,
       );
-      const inputEl = screen.getByRole('searchbox');
+      const inputEl = screen.getByLabelText(defaultProps.label);
 
       expect(inputEl).toHaveAttribute(
         'aria-describedby',
@@ -130,7 +130,7 @@ describe('ComboboxInput', () => {
           ,
         </>,
       );
-      const inputEl = screen.getByRole('searchbox');
+      const inputEl = screen.getByLabelText(defaultProps.label);
 
       expect(inputEl).toHaveAttribute(
         'aria-describedby',
