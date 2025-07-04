@@ -5,7 +5,7 @@
   padding: var(--cui-spacings-byte);
   margin-bottom: var(--cui-spacings-bit);
   cursor: pointer;
-  background-color: var(--cui-bg-normal);
+  background-color: var(--cui-bg-elevated);
   border-radius: var(--cui-border-radius-byte);
   transition: all var(--cui-transitions-default);
 }

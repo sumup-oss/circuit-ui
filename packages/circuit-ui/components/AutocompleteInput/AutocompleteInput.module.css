@@ -7,7 +7,7 @@
   z-index: var(--cui-z-index-popover);
   max-height: min(443px, var(--suggestion-box-max-height));
   overflow-y: auto;
-  background-color: var(--cui-bg-normal);
+  background-color: var(--cui-bg-elevated);
   border-radius: var(--cui-border-radius-byte);
   box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
 }
@@ -23,9 +23,9 @@
   pointer-events: none;
   content: "";
   background: linear-gradient(
-    color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent),
-    color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
-    color-mix(in sRGB, var(--cui-bg-normal) 1%, transparent)
+    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 1%, transparent)
   );
   border-radius: inherit;
 }
@@ -40,9 +40,9 @@
   pointer-events: none;
   content: "";
   background: linear-gradient(
-    color-mix(in sRGB, var(--cui-bg-normal) 1%, transparent),
-    color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
-    color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent)
+    color-mix(in sRGB, var(--cui-bg-elevated) 1%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent)
   );
   border-radius: inherit;
 }
