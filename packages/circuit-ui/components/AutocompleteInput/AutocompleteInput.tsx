@@ -211,9 +211,6 @@ export const AutocompleteInput = forwardRef<
         setSearchText(event.target.value);
         setActiveSuggestion(undefined);
         if (event.target.value.length >= minQueryLength) {
-          if (event.target.value !== '') {
-            setIsOpen(true);
-          }
           debouncedOnChange?.(event);
         }
       },
@@ -263,19 +260,24 @@ export const AutocompleteInput = forwardRef<
     const onSuggestionClick = useCallback(
       (selectedValue: string) => {
         onSelection(selectedValue);
+        closeSuggestionBox();
+      },
+      [onSelection, closeSuggestionBox],
+    );
+
+    useEffect(() => {
+      if (!isOpen && searchText !== value) {
         changeInputValue(
           textBoxRef.current,
-          getSuggestionLabelByValue(suggestions, selectedValue),
+          getSuggestionLabelByValue(suggestions, value),
         );
-        closeSuggestionBox();
         if (isImmersive) {
           setPresentationFieldValue(
-            getSuggestionLabelByValue(suggestions, selectedValue),
+            getSuggestionLabelByValue(suggestions, value),
           );
         }
-      },
-      [suggestions, onSelection, closeSuggestionBox, isImmersive],
-    );
+      }
+    }, [isOpen, isImmersive, value, searchText, suggestions]);
 
     const onInputKeyDown: KeyboardEventHandler<HTMLInputElement> = useCallback(
       (event) => {
@@ -350,6 +352,7 @@ export const AutocompleteInput = forwardRef<
     useEscapeKey(closeSuggestionBox, isOpen);
 
     useEffect(() => {
+      // if readOnly or disabled props become truthy, close the suggestion box
       if ((readOnly || disabled) && isOpen) {
         closeSuggestionBox();
       }
