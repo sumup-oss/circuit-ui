@@ -415,7 +415,7 @@ export const AutocompleteInput = forwardRef<
       clearLabel,
       value: searchText,
       onChange: onComboboxChange,
-      onClear: onComboboxClear,
+      onClear: onClear ? onComboboxClear : undefined,
       onKeyDown: isLoading ? undefined : onInputKeyDown,
       role: 'combobox',
       autoComplete: 'off',
@@ -442,7 +442,7 @@ export const AutocompleteInput = forwardRef<
             onKeyDown={undefined}
             aria-haspopup="dialog"
             aria-expanded={isOpen}
-            onClear={onPresentationFieldClear}
+            onClear={onClear ? onPresentationFieldClear : undefined}
             clearLabel={clearLabel}
             readOnly={readOnly}
             disabled={disabled}
