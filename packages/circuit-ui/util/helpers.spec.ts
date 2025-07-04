@@ -18,6 +18,7 @@ import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 import {
   chunk,
   clamp,
+  debounce,
   eachFn,
   isEmpty,
   last,
@@ -174,6 +175,45 @@ describe('helpers', () => {
       clearInterval(interval);
 
       expect(fn).toHaveBeenCalledTimes(3);
+    });
+  });
+
+  describe('debounce', () => {
+    beforeAll(() => {
+      vi.useFakeTimers();
+    });
+    afterAll(() => {
+      vi.useRealTimers();
+    });
+
+    it('should delay invoking the function until after the specified wait time has elapsed', () => {
+      const fn = vi.fn();
+      const wait = 100;
+      const debouncedFn = debounce(fn, wait);
+
+      debouncedFn('foo');
+      expect(fn).not.toHaveBeenCalled();
+
+      vi.advanceTimersByTime(wait - 50);
+      expect(fn).not.toHaveBeenCalled();
+
+      vi.advanceTimersByTime(50);
+      expect(fn).toHaveBeenCalledExactlyOnceWith('foo');
+    });
+
+    it('should reset the timer if called again before the wait time has elapsed', () => {
+      const fn = vi.fn();
+      const wait = 100;
+      const debouncedFn = debounce(fn, wait);
+
+      debouncedFn('foo');
+      debouncedFn('bar');
+
+      vi.advanceTimersByTime(wait - 50);
+      expect(fn).not.toHaveBeenCalled();
+
+      vi.advanceTimersByTime(50);
+      expect(fn).toHaveBeenCalledExactlyOnceWith('bar');
     });
   });
 

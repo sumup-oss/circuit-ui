@@ -1,0 +1,54 @@
+.base {
+  position: relative;
+  padding: var(--cui-spacings-mega);
+  margin: 0;
+}
+
+.has-action {
+  padding-bottom: 0;
+}
+
+.loading {
+  overflow-y: hidden;
+}
+
+.loading::before {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-color: var(--cui-bg-normal);
+  opacity: 0.5;
+}
+
+li:last-of-type {
+  margin-bottom: 0;
+}
+
+.group {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.group-label {
+  margin-left: var(--cui-spacings-byte);
+}
+
+.group-suggestion {
+  padding: 0;
+  margin: var(--cui-spacings-mega) 0;
+  list-style-type: none;
+}
+
+.load-more {
+  margin: 0 var(--cui-spacings-giga) var(--cui-spacings-mega);
+}
+
+.load-more-modal {
+  margin: 0 var(--cui-spacings-byte);
+}

@@ -29,7 +29,7 @@ import { useMedia } from '../../hooks/useMedia/index.js';
 
 import classes from './Modal.module.css';
 
-export interface ModalProps extends PublicDialogProps {
+export interface ModalProps extends Omit<PublicDialogProps, 'isModal'> {
   /**
    * Use the `immersive` variant to focus the user's attention on the dialog content.
    * @default 'contextual'
