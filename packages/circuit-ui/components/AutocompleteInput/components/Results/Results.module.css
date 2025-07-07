@@ -15,7 +15,7 @@
   left: 0;
   z-index: 1;
   padding: 0 var(--cui-spacings-mega) var(--cui-spacings-mega);
-  background: var(--cui-bg-normal);
+  background: var(--cui-bg-elevated);
 }
 
 .action-modal {
@@ -33,9 +33,9 @@
   pointer-events: none;
   content: "";
   background: linear-gradient(
-    color-mix(in sRGB, var(--cui-bg-normal) 1%, transparent),
-    color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
-    color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent)
+    color-mix(in sRGB, var(--cui-bg-elevated) 1%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent)
   );
   border-radius: inherit;
 }
