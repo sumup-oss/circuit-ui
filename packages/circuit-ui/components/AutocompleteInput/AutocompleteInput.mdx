@@ -48,7 +48,7 @@ While the AutocompleteInput component is accessible, it can be complex to intera
 
 The component's `onChange` callback is debounced by default to avoid excessive calls while the user types. The default debounce delay is set to 300 ms.
 
-For better performance and scalability, especially with paginated results, use the `loadMore` prop to fetch additional suggestions. When this prop is provided, a "Load more" button appears at the bottom of the suggestion box. You can customize the button label with `loadMoreLabel`, and use `isLoadingMore` to indicate that more suggestions are being fetched.
+For better performance and scalability when loading dynamic, paginated results, use the `loadMore` prop to fetch additional suggestions. When this prop is provided, a "Load more" button appears at the bottom of the suggestion box. You can customize the button label with `loadMoreLabel`. Use `isLoadingMore` to indicate that more suggestions are being fetched, and `aria-setsize` to convey the total number of suggestions available to assistive technologies. Learn more about `aria-setsize` in the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-setsize).
 
 <Story of={Stories.LoadMore} />
 

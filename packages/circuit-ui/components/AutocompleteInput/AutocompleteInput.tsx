@@ -406,6 +406,7 @@ export const AutocompleteInput = forwardRef<
           searchText={searchText}
           resultsSummary={`${suggestionValues.length} ${resultsFound}.`}
           isImmersive={isImmersive}
+          aria-setsize={props['aria-setsize']}
         />
       ) : null;
 

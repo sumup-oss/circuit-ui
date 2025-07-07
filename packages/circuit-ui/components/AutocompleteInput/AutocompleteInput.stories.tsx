@@ -39,7 +39,7 @@ import {
 } from './AutocompleteInputService.js';
 
 export default {
-  title: 'Forms/Autocomplete',
+  title: 'Forms/AutocompleteInput',
   component: AutocompleteInput,
   tags: ['status:stable'],
   argTypes: {
@@ -445,6 +445,7 @@ export const LoadMore = (args: AutocompleteInputProps) => {
       suggestions={suggestions}
       loadMore={suggestions.length < 10 ? loadMore : undefined}
       isLoadingMore={isLoading}
+      aria-setsize={catNames.length}
     />
   );
 };

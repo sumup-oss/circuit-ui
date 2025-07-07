@@ -72,6 +72,7 @@ export const Results = forwardRef<HTMLDivElement, ResultsProps>(
       resultsSummary,
       isImmersive,
       loadMoreLabel,
+      'aria-setsize': ariaSetSize,
     },
     ref,
   ) => {
@@ -121,6 +122,7 @@ export const Results = forwardRef<HTMLDivElement, ResultsProps>(
               hasAction={!!action}
               isImmersive={isImmersive}
               loadMoreLabel={loadMoreLabel}
+              aria-setsize={ariaSetSize}
             />
             {action && (
               <div

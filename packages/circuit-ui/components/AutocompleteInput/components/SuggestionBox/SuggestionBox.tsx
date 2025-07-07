@@ -86,6 +86,7 @@ export const SuggestionBox = ({
   isImmersive,
   allowNewItems,
   searchText,
+  'aria-setsize': ariaSetSize,
   ...rest
 }: SuggestionBoxProps) => {
   const suggestionBoxRef = useRef<HTMLUListElement>(null);
@@ -158,10 +159,7 @@ export const SuggestionBox = ({
                         id={`suggestion-${suggestionIdPrefix}-${suggestionValues.indexOf(suggestionItem.value)}`}
                         isFocused={isFocused}
                         tabIndex={!isLoading && isFocused ? 0 : -1}
-                        aria-setsize={suggestionValues.length}
-                        aria-posinset={
-                          suggestionValues.indexOf(suggestionItem.value) + 1
-                        }
+                        aria-setsize={ariaSetSize}
                       />
                     );
                   })}
@@ -184,8 +182,7 @@ export const SuggestionBox = ({
               id={`suggestion-${suggestionIdPrefix}-${suggestionValues.indexOf(suggestion.value)}`}
               isFocused={isFocused}
               tabIndex={!isLoading && isFocused ? 0 : -1}
-              aria-setsize={suggestionValues.length}
-              aria-posinset={suggestionValues.indexOf(suggestion.value) + 1}
+              aria-setsize={ariaSetSize}
             />
           );
         })}
@@ -211,8 +208,7 @@ export const SuggestionBox = ({
                   ? 0
                   : -1
               }
-              aria-setsize={suggestionValues.length}
-              aria-posinset={suggestionValues.length}
+              aria-setsize={ariaSetSize}
             />
           )}
       </ul>
