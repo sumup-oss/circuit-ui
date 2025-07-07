@@ -43,7 +43,13 @@
     box-shadow var(--cui-transitions-default);
 }
 
-.primary:hover,
+@media (hover: hover) and (pointer: fine) {
+  .primary:hover {
+    width: var(--primary-navigation-width-open);
+    box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
+  }
+}
+
 .primary:focus-within {
   width: var(--primary-navigation-width-open);
   box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
