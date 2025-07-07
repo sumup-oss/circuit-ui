@@ -425,7 +425,7 @@ Loading.play = async ({
   const input = canvas.getByLabelText('Default');
 
   await userEvent.type(input, 'Luna');
-  await screen.findByText('Loading');
+  await screen.findByRole('status', { busy: true });
 };
 
 export const LoadMore = (args: AutocompleteInputProps) => {
