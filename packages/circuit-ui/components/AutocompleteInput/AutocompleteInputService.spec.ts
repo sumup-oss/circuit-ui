@@ -16,26 +16,26 @@
 import { describe, expect, it } from 'vitest';
 
 import {
-  getSuggestionLabelByValue,
+  getSuggestionByValue,
   isGroup,
   isSuggestionFocused,
 } from './AutocompleteInputService.js';
 
 describe('AutocompleteService', () => {
-  describe('getSuggestionLabelByValue', () => {
-    it('returns empty string if value is undefined', () => {
+  describe('getSuggestionByValue', () => {
+    it('returns undefined if value is undefined', () => {
       const suggestions = [{ value: 'test', label: 'Test' }];
-      expect(getSuggestionLabelByValue(suggestions)).toBe('');
+      expect(getSuggestionByValue(suggestions)).toBe(undefined);
     });
 
-    it('returns label for given value', () => {
+    it('returns an object for given value', () => {
       const suggestions = [{ value: 'test', label: 'Test' }];
-      expect(getSuggestionLabelByValue(suggestions, 'test')).toBe('Test');
+      expect(getSuggestionByValue(suggestions, 'test')).toBe(suggestions[0]);
     });
 
-    it('returns value as is if no matching suggestion was found', () => {
+    it('returns undefined if no matching suggestion was found', () => {
       const suggestions = [{ value: 'test', label: 'Test' }];
-      expect(getSuggestionLabelByValue(suggestions, 'unknown')).toBe('unknown');
+      expect(getSuggestionByValue(suggestions, 'unknown')).toBe(undefined);
     });
   });
 

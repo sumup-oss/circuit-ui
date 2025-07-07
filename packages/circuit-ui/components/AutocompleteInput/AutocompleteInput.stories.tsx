@@ -33,10 +33,7 @@ import {
   AutocompleteInput,
   type AutocompleteInputProps,
 } from './AutocompleteInput.js';
-import {
-  getSuggestionLabelByValue,
-  isGroup,
-} from './AutocompleteInputService.js';
+import { getSuggestionByValue, isGroup } from './AutocompleteInputService.js';
 
 export default {
   title: 'Forms/AutocompleteInput',
@@ -231,8 +228,6 @@ const baseArgs: AutocompleteInputProps = {
   validationHint: 'All our cats have been neutered and vaccinated.',
   onSelection: (value: string) => action('onSelection')(value),
   onChange: (event) => action('onChange')(event.target.value),
-  getSuggestionLabel: (value?: string) =>
-    getSuggestionLabelByValue(mockSuggestions, value),
 };
 
 const openAutocomplete =
@@ -282,11 +277,11 @@ export const Base = (args: AutocompleteInputProps) => {
     setSuggestions(filterSuggestions(searchText, args.suggestions));
   };
   const onSelection = (value: string) => {
-    setAutocompleteValue(value);
+    setAutocompleteValue(getSuggestionByValue(suggestions, value));
   };
 
   const onClear = () => {
-    setAutocompleteValue('');
+    setAutocompleteValue(undefined);
   };
 
   return (
@@ -475,7 +470,11 @@ Immersive.decorators = [
 ] as Decorator[];
 
 export const AllowNewItems = (args: AutocompleteInputProps) => (
-  <AutocompleteInput {...args} value={'Lu'} allowNewItems />
+  <AutocompleteInput
+    {...args}
+    value={{ label: 'Lu', value: 'Lu' }}
+    allowNewItems
+  />
 );
 AllowNewItems.args = { ...baseArgs, suggestions: [mockSuggestions[1]] };
 AllowNewItems.play = openAutocomplete();

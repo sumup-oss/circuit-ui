@@ -52,17 +52,18 @@ import { isString } from '../../util/type-check.js';
 
 import { translations } from './translations/index.js';
 import classes from './AutocompleteInput.module.css';
-import {
-  getSuggestionLabelByValue,
-  isGroup,
-} from './AutocompleteInputService.js';
+import { isGroup } from './AutocompleteInputService.js';
 import { Results, type ResultsProps } from './components/Results/Results.js';
 import {
   ComboboxInput,
   type ComboboxInputProps,
 } from './components/ComboboxInput/ComboboxInput.js';
+import type { SuggestionType } from './components/Suggestion/Suggestion.js';
 
-export type AutocompleteInputProps = Omit<ComboboxInputProps, 'data-id'> &
+export type AutocompleteInputProps = Omit<
+  ComboboxInputProps,
+  'data-id' | 'value'
+> &
   Pick<
     ResultsProps,
     | 'isLoading'
@@ -75,6 +76,10 @@ export type AutocompleteInputProps = Omit<ComboboxInputProps, 'data-id'> &
     | 'suggestions'
   > & {
     /**
+     * the selected item
+     */
+    value?: SuggestionType;
+    /**
      * A callback function fired when a suggestion is selected.
      */
     onSelection: (value: string) => void;
@@ -83,12 +88,6 @@ export type AutocompleteInputProps = Omit<ComboboxInputProps, 'data-id'> &
      * Use this callback to update the `suggestions` prop based on the user's input.
      */
     onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-    /**
-     * When the values and the labels of the suggestions are different,
-     * pass this function to compute the text displayed inside the input.
-     * Will default to searching in the provided `suggestions` array or returning the value as is.
-     */
-    getSuggestionLabel?: (value?: string) => string;
     /**
      * The minimum length of the search query that would trigger an `onChange` event.
      * @default 0
@@ -146,7 +145,6 @@ export const AutocompleteInput = forwardRef<
       action,
       loadMore,
       allowNewItems,
-      getSuggestionLabel: customGetSuggestionLabel,
       variant = 'contextual',
       ...props
     },
@@ -166,19 +164,10 @@ export const AutocompleteInput = forwardRef<
       translations,
     );
 
-    const defaultGetSuggestionLabel = useCallback(
-      (suggestionValue?: string) =>
-        getSuggestionLabelByValue(suggestions, suggestionValue),
-      [suggestions],
-    );
-
-    const getSuggestionLabel =
-      customGetSuggestionLabel ?? defaultGetSuggestionLabel;
-
-    const [searchText, setSearchText] = useState(getSuggestionLabel(value));
+    const [searchText, setSearchText] = useState(value?.label);
 
     const [presentationFieldValue, setPresentationFieldValue] = useState(
-      getSuggestionLabel(value),
+      value?.label,
     );
     const isMobile = useMedia('(max-width: 479px)');
     const isImmersive = isMobile && variant === 'immersive';
@@ -281,13 +270,13 @@ export const AutocompleteInput = forwardRef<
     );
 
     useEffect(() => {
-      if (!isOpen && searchText !== value) {
-        changeInputValue(textBoxRef.current, getSuggestionLabel(value));
+      if (!isOpen && value && searchText !== value.label) {
+        changeInputValue(textBoxRef.current, value.label);
         if (isImmersive) {
-          setPresentationFieldValue(getSuggestionLabel(value));
+          setPresentationFieldValue(value.label);
         }
       }
-    }, [isOpen, isImmersive, value, searchText, getSuggestionLabel]);
+    }, [isOpen, isImmersive, value, searchText]);
 
     const onInputKeyDown: KeyboardEventHandler<HTMLInputElement> = useCallback(
       (event) => {

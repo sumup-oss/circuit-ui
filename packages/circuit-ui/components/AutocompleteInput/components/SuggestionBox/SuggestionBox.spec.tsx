@@ -32,7 +32,6 @@ const props: SuggestionBoxProps = {
   loadMore: vi.fn(),
   label: 'label',
   suggestionIdPrefix: 'autocomplete-id',
-  value: '',
   loadMoreLabel: 'Load more',
 };
 

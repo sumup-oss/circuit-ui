@@ -155,7 +155,7 @@ export const SuggestionBox = ({
                         {...suggestionItem}
                         onSuggestionClick={onSuggestionClick}
                         isSelectable={isSelectable}
-                        selected={value === suggestionItem.value}
+                        selected={value?.value === suggestionItem.value}
                         id={`suggestion-${suggestionIdPrefix}-${suggestionValues.indexOf(suggestionItem.value)}`}
                         isFocused={isFocused}
                         tabIndex={!isLoading && isFocused ? 0 : -1}
@@ -177,7 +177,7 @@ export const SuggestionBox = ({
               key={suggestion.value}
               {...suggestion}
               onSuggestionClick={onSuggestionClick}
-              selected={value === suggestion.value}
+              selected={value?.value === suggestion.value}
               isSelectable={isSelectable}
               id={`suggestion-${suggestionIdPrefix}-${suggestionValues.indexOf(suggestion.value)}`}
               isFocused={isFocused}
@@ -197,7 +197,7 @@ export const SuggestionBox = ({
               icon={suggestionsHaveMedia ? Plus : undefined}
               isNew
               onSuggestionClick={onSuggestionClick}
-              selected={value === searchText}
+              selected={value?.value === searchText}
               isSelectable={isSelectable}
               id={`suggestion-${suggestionIdPrefix}-${suggestionValues.length}`}
               isFocused={activeSuggestion === suggestionValues.length}

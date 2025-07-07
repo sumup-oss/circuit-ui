@@ -35,7 +35,6 @@ import {
   AutocompleteInput,
   type AutocompleteInputProps,
 } from './AutocompleteInput.js';
-import { getSuggestionLabelByValue } from './AutocompleteInputService.js';
 
 vi.mock('../../hooks/useMedia/index.js');
 
@@ -44,10 +43,7 @@ const props: AutocompleteInputProps = {
   onSelection: vi.fn(),
   onClear: vi.fn(),
   onChange: vi.fn(),
-  value: '',
   label: 'label',
-  getSuggestionLabel: (value?: string) =>
-    getSuggestionLabelByValue(suggestions, value),
 };
 describe('Autocomplete', () => {
   beforeAll(() => {
@@ -85,7 +81,11 @@ describe('Autocomplete', () => {
 
   it('should fire onClear when the clear button is clicked', async () => {
     render(
-      <AutocompleteInput {...props} value="foo" onClear={props.onClear} />,
+      <AutocompleteInput
+        {...props}
+        value={{ label: 'Foo', value: 'bar' }}
+        onClear={props.onClear}
+      />,
     );
 
     const clearButton = screen.getByRole('button', { name: 'Clear' });
@@ -127,7 +127,7 @@ describe('Autocomplete', () => {
   });
 
   it('should restore value if search box text change but no value was selected', async () => {
-    render(<AutocompleteInput {...props} value={suggestions[0].value} />);
+    render(<AutocompleteInput {...props} value={suggestions[0]} />);
     const input = screen.getByRole('combobox');
     expect(input).toHaveValue(suggestions[0].label);
     await userEvent.type(input, 'oo');
@@ -286,7 +286,13 @@ describe('Autocomplete', () => {
     });
 
     it('should call onClear', async () => {
-      render(<AutocompleteInput {...props} variant="immersive" value="luna" />);
+      render(
+        <AutocompleteInput
+          {...props}
+          variant="immersive"
+          value={suggestions[0]}
+        />,
+      );
       const clearButton = screen.getByRole('button', { name: 'Clear' });
 
       await userEvent.click(clearButton);
@@ -330,7 +336,7 @@ describe('Autocomplete', () => {
         <AutocompleteInput
           {...props}
           variant="immersive"
-          value={selectedValue.value}
+          value={selectedValue}
         />,
       );
       const input = screen.getByLabelText(props.label);

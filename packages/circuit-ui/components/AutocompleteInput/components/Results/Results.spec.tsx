@@ -24,11 +24,10 @@ const props: ResultsProps = {
   suggestions,
   onSuggestionClick: vi.fn(),
   suggestionIdPrefix: 'autocomplete-id',
-  value: '',
   label: 'label',
   resultsSummary: 'results summary',
   loadMoreLabel: 'Load more',
-} satisfies AutocompleteResultsProps;
+} satisfies ResultsProps;
 
 describe('Results', () => {
   beforeAll(() => {

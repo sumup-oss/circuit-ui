@@ -22,21 +22,18 @@ export const isGroup = (
 ): suggestion is SuggestionGroup =>
   suggestion && 'label' in suggestion && 'suggestions' in suggestion;
 
-export const getSuggestionLabelByValue = (
+export const getSuggestionByValue = (
   suggestions: AutocompleteInputProps['suggestions'],
   value?: string,
-): string => {
+): SuggestionType | undefined => {
   if (!value) {
-    return '';
+    return undefined;
   }
   const flatSuggestions = suggestions.flatMap((suggestion) =>
     isGroup(suggestion) ? suggestion.suggestions : suggestion,
   );
 
-  return (
-    flatSuggestions.find((suggestion) => suggestion.value === value)?.label ||
-    value
-  );
+  return flatSuggestions.find((suggestion) => suggestion.value === value);
 };
 
 export const isSuggestionFocused = (
