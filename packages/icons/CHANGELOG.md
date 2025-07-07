@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 5.14.0
+
+### Minor Changes
+
+- [`16656f1`](https://github.com/sumup-oss/circuit-ui/commit/16656f1471e51aaa676475cd23928923af090abc) Thanks [@connor-baer](https://github.com/connor-baer)! - Declared support for React 19 in the peer dependency range.
+
 ## 5.13.0
 
 ### Minor Changes
