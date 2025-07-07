@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.5.2
+
+### Patch Changes
+
+- [#3193](https://github.com/sumup-oss/circuit-ui/pull/3193) [`2c9afee`](https://github.com/sumup-oss/circuit-ui/commit/2c9afee64e35ff29c546d0f955c968d28097c03e) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed an issue where the SideNavigation component remained expanded on touch devices after interaction due to lingering `:hover` state.
+
 ## 10.5.1
 
 ### Patch Changes
