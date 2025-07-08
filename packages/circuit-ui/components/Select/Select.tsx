@@ -73,6 +73,7 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
    * currently selected.
    */
   value?: string | number;
+  defaultValue?: string | number;
   /**
    * String to show when no selection is made.
    */
@@ -139,7 +140,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     );
 
     const prefix = RenderPrefix && (
-      <RenderPrefix className={classes.prefix} value={value} />
+      <RenderPrefix className={classes.prefix} value={value ?? defaultValue} />
     );
     const hasPrefix = Boolean(prefix);
 
