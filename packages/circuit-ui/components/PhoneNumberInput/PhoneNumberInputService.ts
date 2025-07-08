@@ -109,20 +109,6 @@ export function mapCountryCodeOptions(
     .sort((a, b) => a.label.localeCompare(b.label));
 }
 
-export function getCountryLabel(
-  country: string | undefined,
-  options: CountryCodeOption[],
-  locale: Locale | undefined,
-) {
-  const countryName = getCountryName(country, locale);
-  const option = options.find((o) => o.country === country);
-
-  if (option && countryName) {
-    return `${countryName} (${option.code})`;
-  }
-  return option ? option.code : countryName;
-}
-
 function getCountryName(
   country: string | undefined,
   locale: Locale | undefined,
@@ -142,4 +128,12 @@ function getCountryName(
   } catch {
     return country;
   }
+}
+
+export function getCountryCode(
+  options: CountryCodeOption[],
+  country: string | undefined,
+) {
+  const option = options.find((o) => o.country === country);
+  return option ? option.code : country;
 }
