@@ -28,8 +28,7 @@ export type SuggestionType = {
   label: string;
   description?: string;
   selected?: boolean;
-  icon?: IconComponentType;
-  image?: string;
+  image?: string | IconComponentType;
 };
 
 export type SuggestionProps = HTMLAttributes<HTMLLIElement> &
@@ -44,7 +43,6 @@ export const Suggestion = ({
   label,
   description,
   image,
-  icon,
   selected,
   isSelectable,
   isFocused,
@@ -56,6 +54,7 @@ export const Suggestion = ({
 }: SuggestionProps) => {
   const labelId = useId();
   const suggestionRef = useRef<HTMLLIElement>(null);
+  const icon = typeof image === 'string' ? undefined : image;
   const Icon = isNew ? Plus : icon;
 
   useEffect(() => {
@@ -84,7 +83,7 @@ export const Suggestion = ({
       aria-selected={selected}
       onClick={() => onSuggestionClick({ label, value })}
     >
-      {(image || Icon) && (
+      {image && (
         <div className={classes.media}>
           {Icon && (
             <div
@@ -98,7 +97,7 @@ export const Suggestion = ({
               {isNew ? <Plus size="16" /> : <Icon size="16" />}
             </div>
           )}
-          {image && (
+          {typeof image === 'string' && (
             <img data-testid={`suggestion-image-${value}`} src={image} alt="" />
           )}
         </div>

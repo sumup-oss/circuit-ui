@@ -35,7 +35,7 @@ const props: SuggestionProps = {
 
 describe('Suggestion', () => {
   it('renders with leading icon', () => {
-    render(<Suggestion {...props} icon={Favorite} />);
+    render(<Suggestion {...props} image={Favorite} />);
 
     expect(screen.getByText(props.label)).toBeVisible();
     expect(screen.getByText(description)).toBeVisible();

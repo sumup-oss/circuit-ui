@@ -107,7 +107,7 @@ export const SuggestionBox = ({
   const firstSuggestion = isGroup(suggestions[0])
     ? suggestions[0].suggestions[0]
     : suggestions[0];
-  const suggestionsHaveMedia = firstSuggestion?.icon || firstSuggestion?.image;
+  const suggestionsHaveMedia = firstSuggestion?.image !== undefined;
 
   return (
     <>
@@ -194,7 +194,7 @@ export const SuggestionBox = ({
             <Suggestion
               value={searchText}
               label={searchText}
-              icon={suggestionsHaveMedia ? Plus : undefined}
+              image={suggestionsHaveMedia ? Plus : undefined}
               isNew
               onSuggestionClick={onSuggestionClick}
               selected={value?.value === searchText}
