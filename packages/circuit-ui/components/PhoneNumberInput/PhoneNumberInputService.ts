@@ -98,36 +98,33 @@ export function mapCountryCodeOptions(
   countryCodeOptions: CountryCodeOption[],
   locale: Locale | undefined,
 ): Required<SelectProps>['options'] {
+  const getCountryName = (country: string) => {
+    // eslint-disable-next-line compat/compat
+    const isIntlDisplayNamesSupported = typeof Intl.DisplayNames === 'function';
+
+    // When Intl.DisplayNames is not supported, we can't provide the localized country names
+    if (!isIntlDisplayNamesSupported || !country) {
+      return country;
+    }
+
+    try {
+      // eslint-disable-next-line compat/compat
+      const displayName = new Intl.DisplayNames(locale, { type: 'region' });
+      return displayName.of(country);
+    } catch {
+      return country;
+    }
+  };
+
   return countryCodeOptions
     .map(({ code, country }) => {
-      const countryName = getCountryName(country, locale);
+      const countryName = getCountryName(country);
       return {
         label: countryName ? `${countryName} (${code})` : code,
         value: country,
       };
     })
     .sort((a, b) => a.label.localeCompare(b.label));
-}
-
-function getCountryName(
-  country: string | undefined,
-  locale: Locale | undefined,
-) {
-  // eslint-disable-next-line compat/compat
-  const isIntlDisplayNamesSupported = typeof Intl.DisplayNames === 'function';
-
-  // When Intl.DisplayNames is not supported, we can't provide the localized country names
-  if (!isIntlDisplayNamesSupported || !country) {
-    return country;
-  }
-
-  try {
-    // eslint-disable-next-line compat/compat
-    const displayName = new Intl.DisplayNames(locale, { type: 'region' });
-    return displayName.of(country);
-  } catch {
-    return country;
-  }
 }
 
 export function getCountryCode(
