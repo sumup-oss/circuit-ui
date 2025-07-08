@@ -34,7 +34,7 @@ const defaultProps = {
   label: 'Phone number',
   countryCode: {
     label: 'Country code',
-    defaultValue: '+1',
+    defaultValue: 'CA',
     options: Object.keys(countryCodeMap).map((key) => ({
       country: key,
       code: countryCodeMap[key],

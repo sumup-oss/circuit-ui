@@ -106,13 +106,17 @@ export function getCountryName(
     return country;
   }
 
-  // eslint-disable-next-line compat/compat
-  const displayName = new Intl.DisplayNames(locale, { type: 'region' });
-  return displayName.of(country);
+  try {
+    // eslint-disable-next-line compat/compat
+    const displayName = new Intl.DisplayNames(locale, { type: 'region' });
+    return displayName.of(country);
+  } catch {
+    return country;
+  }
 }
 
 export function mapCountryCodeOptions(
-  countryCodeOptions: { country: string; code: string }[],
+  countryCodeOptions: CountryCodeOption[],
   locale: Locale | undefined,
 ): Required<SelectProps>['options'] {
   return countryCodeOptions
@@ -124,4 +128,18 @@ export function mapCountryCodeOptions(
       };
     })
     .sort((a, b) => a.label.localeCompare(b.label));
+}
+
+export function getCountryLabel(
+  country: string | undefined,
+  options: CountryCodeOption[],
+  locale: Locale | undefined,
+) {
+  const countryName = getCountryName(country, locale);
+  const option = options.find((o) => o.country === country);
+
+  if (option && countryName) {
+    return `${countryName} (${option.code})`;
+  }
+  return option ? option.code : countryName;
 }

@@ -46,7 +46,7 @@ import { changeInputValue } from '../../util/input-value.js';
 import { idx } from '../../util/idx.js';
 
 import {
-  getCountryName,
+  getCountryLabel,
   mapCountryCodeOptions,
   normalizePhoneNumber,
   parsePhoneNumber,
@@ -362,9 +362,14 @@ export const PhoneNumberInput = forwardRef<
               className={classes['country-code']}
               inputClassName={classes['country-code-input']}
               {...countryCode}
-              value={getCountryName(parsedValue.countryCode, locale)}
-              defaultValue={getCountryName(
+              value={getCountryLabel(
+                parsedValue.countryCode,
+                countryCode.options,
+                locale,
+              )}
+              defaultValue={getCountryLabel(
                 parsedDefaultValue.countryCode ?? countryCode.defaultValue,
+                countryCode.options,
                 locale,
               )}
               invalid={invalid || countryCode.invalid}
