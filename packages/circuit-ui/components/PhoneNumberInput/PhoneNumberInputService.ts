@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import type { Locale } from '../../util/i18n.js';
 import type { SelectProps } from '../Select/Select.js';
 
 export type CountryCodeOption = {
@@ -94,8 +95,8 @@ export function normalizePhoneNumber(
 }
 
 export function mapCountryCodeOptions(
-  countryCodeOptions: { country: string; code: string }[],
-  locale?: string | string[],
+  countryCodeOptions: CountryCodeOption[],
+  locale: Locale | undefined,
 ): Required<SelectProps>['options'] {
   const getCountryName = (country: string) => {
     // eslint-disable-next-line compat/compat
@@ -106,9 +107,13 @@ export function mapCountryCodeOptions(
       return country;
     }
 
-    // eslint-disable-next-line compat/compat
-    const displayName = new Intl.DisplayNames(locale, { type: 'region' });
-    return displayName.of(country);
+    try {
+      // eslint-disable-next-line compat/compat
+      const displayName = new Intl.DisplayNames(locale, { type: 'region' });
+      return displayName.of(country);
+    } catch {
+      return country;
+    }
   };
 
   return countryCodeOptions
@@ -120,4 +125,12 @@ export function mapCountryCodeOptions(
       };
     })
     .sort((a, b) => a.label.localeCompare(b.label));
+}
+
+export function getCountryCode(
+  options: CountryCodeOption[],
+  country: string | undefined,
+) {
+  const option = options.find((o) => o.country === country);
+  return option ? option.code : country;
 }
