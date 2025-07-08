@@ -1,9 +1,10 @@
-import { Meta, Status, Props, Story } from '../../../../.storybook/components';
-import * as Stories from './AutocompleteInput.stories';
+import { Meta, Status, Props, Story } from "../../../../.storybook/components";
+import * as Stories from "./AutocompleteInput.stories";
 
 <Meta of={Stories} />
 
 # AutocompleteInput
+
 <Status variant="experimental" />
 
 An input field that allows users to filter and select an option from a provided set of suggestions.
@@ -52,6 +53,56 @@ For better performance and scalability when loading dynamic, paginated results, 
 
 <Story of={Stories.LoadMore} />
 
+To ensure you always show the most relevant suggestions, consider using an [Abort Controller](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) to cancel previous requests when the user types a new query. This prevents showing outdated suggestions and improves the user experience.
+
+```tsx
+import { useState, useCallback, useRef } from "react";
+import { AutocompleteInput } from "@sumup-oss/circuit-ui";
+
+const MyComponent = () => {
+  const [suggestions, setSuggestions] = useState([]);
+  const abortControllerRef = useRef<AbortController | null>(null);
+
+  const fetchSuggestions = useCallback(async (query: string) => {
+    // Abort previous request if it exists
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+    // Create a new AbortController for the new request
+    const controller = new AbortController();
+    abortControllerRef.current = controller;
+
+    try {
+      const results = await getSuggestions(query, controller.signal);
+      setSuggestions(results);
+    } catch (error) {
+      if (error.name !== "AbortError") {
+        // Handle non-abort errors (e.g., server issues)
+      }
+    }
+  }, []);
+
+  return (
+    <AutocompleteInput
+      label="Customer"
+      placeholder="Search for a customer"
+      suggestions={suggestions}
+      onSearch={fetchSuggestions}
+    />
+  );
+};
+
+async function getSuggestions(query: string, signal: AbortSignal) {
+  const response = await fetch(`https://my-search-api.com?query=${query}`, {
+    signal,
+  });
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return response.json();
+}
+```
+
 ## Accessibility
 
 The AutocompleteInput component is designed to be accessible, adopting ARIA's [Combobox pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/). It includes:
@@ -59,4 +110,3 @@ The AutocompleteInput component is designed to be accessible, adopting ARIA's [C
 - Keyboard navigation: Users can open the suggestion box by pressing the arrow down key, close it by pressing the Escape key, navigate through suggestions using the up and down arrow keys, and select an option with Enter.
 - Screen reader support: The component announces the number of suggestions available and the selected option, if any.
 - Focus management: The component manages focus appropriately, focus remains on the input field when the suggestion box is open, and navigated options are announced properly as users navigate through them.
-
