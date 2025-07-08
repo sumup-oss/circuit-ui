@@ -302,6 +302,7 @@ export const AutocompleteInput = forwardRef<
             }
           }
           if (isEnter(event) && activeSuggestion !== undefined) {
+            event.preventDefault();
             onSuggestionClick(
               getSuggestionByValue(
                 suggestions,
