@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import type { Locale } from '../../util/i18n.js';
 import type { SelectProps } from '../Select/Select.js';
 
 export type CountryCodeOption = {
@@ -93,27 +94,30 @@ export function normalizePhoneNumber(
   return `${countryCode}${normalizedSubscriberNumber}`;
 }
 
+export function getCountryName(
+  country: string | undefined,
+  locale: Locale | undefined,
+) {
+  // eslint-disable-next-line compat/compat
+  const isIntlDisplayNamesSupported = typeof Intl.DisplayNames === 'function';
+
+  // When Intl.DisplayNames is not supported, we can't provide the localized country names
+  if (!isIntlDisplayNamesSupported || !country) {
+    return country;
+  }
+
+  // eslint-disable-next-line compat/compat
+  const displayName = new Intl.DisplayNames(locale, { type: 'region' });
+  return displayName.of(country);
+}
+
 export function mapCountryCodeOptions(
   countryCodeOptions: { country: string; code: string }[],
-  locale?: string | string[],
+  locale: Locale | undefined,
 ): Required<SelectProps>['options'] {
-  const getCountryName = (country: string) => {
-    // eslint-disable-next-line compat/compat
-    const isIntlDisplayNamesSupported = typeof Intl.DisplayNames === 'function';
-
-    // When Intl.DisplayNames is not supported, we can't provide the localized country names
-    if (!isIntlDisplayNamesSupported || !country) {
-      return country;
-    }
-
-    // eslint-disable-next-line compat/compat
-    const displayName = new Intl.DisplayNames(locale, { type: 'region' });
-    return displayName.of(country);
-  };
-
   return countryCodeOptions
     .map(({ code, country }) => {
-      const countryName = getCountryName(country);
+      const countryName = getCountryName(country, locale);
       return {
         label: countryName ? `${countryName} (${code})` : code,
         value: country,
