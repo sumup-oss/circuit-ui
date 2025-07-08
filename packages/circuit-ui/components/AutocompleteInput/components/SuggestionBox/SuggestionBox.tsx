@@ -109,6 +109,11 @@ export const SuggestionBox = ({
     : suggestions[0];
   const suggestionsHaveMedia = firstSuggestion?.image !== undefined;
 
+  const showsNewSuggestion =
+    allowNewItems &&
+    searchText &&
+    // make sure the search text is not already in the suggestions
+    suggestionValues.indexOf(searchText.trim().toLowerCase()) === -1;
   return (
     <>
       <ul
@@ -159,7 +164,9 @@ export const SuggestionBox = ({
                         id={`suggestion-${suggestionIdPrefix}-${suggestionValues.indexOf(suggestionItem.value)}`}
                         isFocused={isFocused}
                         tabIndex={!isLoading && isFocused ? 0 : -1}
-                        aria-setsize={ariaSetSize}
+                        aria-setsize={
+                          ariaSetSize ?? 0 + (showsNewSuggestion ? 1 : 0)
+                        }
                       />
                     );
                   })}
@@ -182,35 +189,32 @@ export const SuggestionBox = ({
               id={`suggestion-${suggestionIdPrefix}-${suggestionValues.indexOf(suggestion.value)}`}
               isFocused={isFocused}
               tabIndex={!isLoading && isFocused ? 0 : -1}
-              aria-setsize={ariaSetSize}
+              aria-setsize={ariaSetSize ?? 0 + (showsNewSuggestion ? 1 : 0)}
             />
           );
         })}
 
-        {allowNewItems &&
-          searchText &&
-          // make sure the search text is not already in the suggestions
-          suggestionValues.indexOf(searchText.trim().toLowerCase()) === -1 && (
-            <Suggestion
-              value={searchText}
-              label={searchText}
-              image={suggestionsHaveMedia ? Plus : undefined}
-              isNew
-              onSuggestionClick={onSuggestionClick}
-              selected={value?.value === searchText}
-              isSelectable={isSelectable}
-              id={`suggestion-${suggestionIdPrefix}-${suggestionValues.length}`}
-              isFocused={activeSuggestion === suggestionValues.length}
-              tabIndex={
-                !isLoading &&
-                activeSuggestion &&
-                activeSuggestion === suggestionValues.length
-                  ? 0
-                  : -1
-              }
-              aria-setsize={ariaSetSize}
-            />
-          )}
+        {showsNewSuggestion && (
+          <Suggestion
+            value={searchText}
+            label={searchText}
+            image={suggestionsHaveMedia ? Plus : undefined}
+            isNew
+            onSuggestionClick={onSuggestionClick}
+            selected={value?.value === searchText}
+            isSelectable={isSelectable}
+            id={`suggestion-${suggestionIdPrefix}-${suggestionValues.length}`}
+            isFocused={activeSuggestion === suggestionValues.length}
+            tabIndex={
+              !isLoading &&
+              activeSuggestion &&
+              activeSuggestion === suggestionValues.length
+                ? 0
+                : -1
+            }
+            aria-setsize={ariaSetSize ?? 0 + (showsNewSuggestion ? 1 : 0)}
+          />
+        )}
       </ul>
       {loadMore && (
         <Button
