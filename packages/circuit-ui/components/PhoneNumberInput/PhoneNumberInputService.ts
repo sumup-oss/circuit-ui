@@ -94,27 +94,6 @@ export function normalizePhoneNumber(
   return `${countryCode}${normalizedSubscriberNumber}`;
 }
 
-export function getCountryName(
-  country: string | undefined,
-  locale: Locale | undefined,
-) {
-  // eslint-disable-next-line compat/compat
-  const isIntlDisplayNamesSupported = typeof Intl.DisplayNames === 'function';
-
-  // When Intl.DisplayNames is not supported, we can't provide the localized country names
-  if (!isIntlDisplayNamesSupported || !country) {
-    return country;
-  }
-
-  try {
-    // eslint-disable-next-line compat/compat
-    const displayName = new Intl.DisplayNames(locale, { type: 'region' });
-    return displayName.of(country);
-  } catch {
-    return country;
-  }
-}
-
 export function mapCountryCodeOptions(
   countryCodeOptions: CountryCodeOption[],
   locale: Locale | undefined,
@@ -142,4 +121,25 @@ export function getCountryLabel(
     return `${countryName} (${option.code})`;
   }
   return option ? option.code : countryName;
+}
+
+function getCountryName(
+  country: string | undefined,
+  locale: Locale | undefined,
+) {
+  // eslint-disable-next-line compat/compat
+  const isIntlDisplayNamesSupported = typeof Intl.DisplayNames === 'function';
+
+  // When Intl.DisplayNames is not supported, we can't provide the localized country names
+  if (!isIntlDisplayNamesSupported || !country) {
+    return country;
+  }
+
+  try {
+    // eslint-disable-next-line compat/compat
+    const displayName = new Intl.DisplayNames(locale, { type: 'region' });
+    return displayName.of(country);
+  } catch {
+    return country;
+  }
 }
