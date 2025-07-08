@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { type ChangeEvent, useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Add, ExternalLink } from '@sumup-oss/icons';
 import { screen, userEvent, within } from 'storybook/test';
 import { action } from 'storybook/actions';
@@ -33,7 +33,8 @@ import {
   AutocompleteInput,
   type AutocompleteInputProps,
 } from './AutocompleteInput.js';
-import { getSuggestionByValue, isGroup } from './AutocompleteInputService.js';
+import { isGroup } from './AutocompleteInputService.js';
+import type { SuggestionType } from './components/Suggestion/Suggestion.js';
 
 export default {
   title: 'Forms/AutocompleteInput',
@@ -226,8 +227,8 @@ const baseArgs: AutocompleteInputProps = {
   placeholder: 'Whiskers',
   suggestions: mockSuggestions,
   validationHint: 'All our cats have been neutered and vaccinated.',
-  onSelection: (value: string) => action('onSelection')(value),
-  onChange: (event) => action('onChange')(event.target.value),
+  onChange: (value?: SuggestionType) => action('onChange')(value),
+  onSearch: (text) => action('onSearch')(text),
 };
 
 const openAutocomplete =
@@ -272,12 +273,11 @@ const messages = [
 export const Base = (args: AutocompleteInputProps) => {
   const [autocompleteValue, setAutocompleteValue] = useState(args.value);
   const [suggestions, setSuggestions] = useState(args.suggestions);
-  const onSearchTextChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const searchText = event.target.value;
+  const onSearchTextChange = (searchText: string) => {
     setSuggestions(filterSuggestions(searchText, args.suggestions));
   };
-  const onSelection = (value: string) => {
-    setAutocompleteValue(getSuggestionByValue(suggestions, value));
+  const onSelection = (value?: SuggestionType) => {
+    setAutocompleteValue(value);
   };
 
   const onClear = () => {
@@ -289,8 +289,8 @@ export const Base = (args: AutocompleteInputProps) => {
       {...args}
       value={autocompleteValue}
       suggestions={suggestions}
-      onChange={onSearchTextChange}
-      onSelection={onSelection}
+      onChange={onSelection}
+      onSearch={onSearchTextChange}
       onClear={onClear}
     />
   );

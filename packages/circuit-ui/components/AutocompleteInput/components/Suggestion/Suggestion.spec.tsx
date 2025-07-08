@@ -53,6 +53,9 @@ describe('Suggestion', () => {
     render(<Suggestion {...props} />);
 
     await userEvent.click(screen.getByText(props.label));
-    expect(props.onSuggestionClick).toHaveBeenCalledWith(props.value);
+    expect(props.onSuggestionClick).toHaveBeenCalledWith({
+      value: props.value,
+      label: props.label,
+    });
   });
 });

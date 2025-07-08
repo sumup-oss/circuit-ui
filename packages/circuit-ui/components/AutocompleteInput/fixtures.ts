@@ -87,7 +87,7 @@ const pepper: SuggestionType = {
   image: '/images/illustration-cat.jpg',
 };
 
-export const suggestions = [
+export const suggestions: SuggestionType[] = [
   mochi,
   luna,
   oliver,

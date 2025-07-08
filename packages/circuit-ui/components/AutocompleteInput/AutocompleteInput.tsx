@@ -52,7 +52,7 @@ import { isString } from '../../util/type-check.js';
 
 import { translations } from './translations/index.js';
 import classes from './AutocompleteInput.module.css';
-import { isGroup } from './AutocompleteInputService.js';
+import { getSuggestionByValue, isGroup } from './AutocompleteInputService.js';
 import { Results, type ResultsProps } from './components/Results/Results.js';
 import {
   ComboboxInput,
@@ -62,7 +62,7 @@ import type { SuggestionType } from './components/Suggestion/Suggestion.js';
 
 export type AutocompleteInputProps = Omit<
   ComboboxInputProps,
-  'data-id' | 'value'
+  'data-id' | 'value' | 'onChange'
 > &
   Pick<
     ResultsProps,
@@ -80,14 +80,14 @@ export type AutocompleteInputProps = Omit<
      */
     value?: SuggestionType;
     /**
-     * A callback function fired when a suggestion is selected.
-     */
-    onSelection: (value: string) => void;
-    /**
      * A callback function fired when the search text value has changed.
      * Use this callback to update the `suggestions` prop based on the user's input.
      */
-    onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+    onSearch: (value: string) => void;
+    /**
+     * A callback function fired when a suggestion is selected.
+     */
+    onChange: (suggestion?: SuggestionType) => void;
     /**
      * The minimum length of the search query that would trigger an `onChange` event.
      * @default 0
@@ -132,7 +132,7 @@ export const AutocompleteInput = forwardRef<
       value,
       suggestions,
       onClear,
-      onSelection,
+      onSearch,
       onChange,
       isLoading,
       isLoadingMore,
@@ -204,10 +204,10 @@ export const AutocompleteInput = forwardRef<
       () =>
         debounce(
           (changeEvent: ChangeEvent<HTMLInputElement>) =>
-            onChange?.(changeEvent),
+            onSearch?.(changeEvent.target.value),
           300,
         ),
-      [onChange],
+      [onSearch],
     );
 
     const onComboboxChange = useCallback(
@@ -262,11 +262,11 @@ export const AutocompleteInput = forwardRef<
     });
 
     const onSuggestionClick = useCallback(
-      (selectedValue: string) => {
-        onSelection(selectedValue);
+      (selectedValue?: SuggestionType) => {
+        onChange(selectedValue);
         closeSuggestionBox();
       },
-      [onSelection, closeSuggestionBox],
+      [onChange, closeSuggestionBox],
     );
 
     useEffect(() => {
@@ -302,14 +302,25 @@ export const AutocompleteInput = forwardRef<
             }
           }
           if (isEnter(event) && activeSuggestion !== undefined) {
-            onSuggestionClick(suggestionValues[activeSuggestion]);
+            onSuggestionClick(
+              getSuggestionByValue(
+                suggestions,
+                suggestionValues[activeSuggestion],
+              ),
+            );
           }
         } else if (isArrowDown(event)) {
           setIsOpen(true);
           setActiveSuggestion(0);
         }
       },
-      [isOpen, activeSuggestion, suggestionValues, onSuggestionClick],
+      [
+        isOpen,
+        activeSuggestion,
+        suggestionValues,
+        onSuggestionClick,
+        suggestions,
+      ],
     );
 
     useEffect(() => {
@@ -428,7 +439,6 @@ export const AutocompleteInput = forwardRef<
               readOnly || disabled ? undefined : onPresentationFieldClick
             }
             value={presentationFieldValue}
-            onChange={onChange}
             onKeyDown={undefined}
             aria-haspopup="dialog"
             aria-expanded={isOpen}

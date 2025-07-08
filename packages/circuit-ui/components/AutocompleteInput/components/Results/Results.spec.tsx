@@ -20,7 +20,7 @@ import { suggestions } from '../../fixtures.js';
 
 import { Results, type ResultsProps } from './Results.js';
 
-const props: ResultsProps = {
+const props = {
   suggestions,
   onSuggestionClick: vi.fn(),
   suggestionIdPrefix: 'autocomplete-id',
@@ -46,9 +46,10 @@ describe('Results', () => {
     render(<Results {...props} />);
 
     await userEvent.click(screen.getByText(props.suggestions[0].label));
-    expect(props.onSuggestionClick).toHaveBeenCalledWith(
-      props.suggestions[0].value,
-    );
+    expect(props.onSuggestionClick).toHaveBeenCalledWith({
+      value: props.suggestions[0].value,
+      label: props.suggestions[0].label,
+    });
   });
 
   it('renders a live region', () => {

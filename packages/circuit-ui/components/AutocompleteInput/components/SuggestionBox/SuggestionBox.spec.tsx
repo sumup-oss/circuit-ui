@@ -63,7 +63,10 @@ describe('SuggestionBox', () => {
     render(<SuggestionBox {...props} />);
 
     await userEvent.click(screen.getByText(suggestions[0].label));
-    expect(props.onSuggestionClick).toHaveBeenCalledWith(suggestions[0].value);
+    expect(props.onSuggestionClick).toHaveBeenCalledWith({
+      label: suggestions[0].label,
+      value: suggestions[0].value,
+    });
   });
 
   it('applies correct tabIndex based on active suggestion', () => {
@@ -101,11 +104,15 @@ describe('SuggestionBox', () => {
   });
 
   it("suggests a new entry when searchText doesn't match any suggestions and allowNewItems is set to true", async () => {
-    render(<SuggestionBox {...props} searchText={'Chewbacca'} allowNewItems />);
-    const newSuggestion = screen.getByRole('option', { name: 'Chewbacca' });
+    const searchText = 'Chewbacca';
+    render(<SuggestionBox {...props} searchText={searchText} allowNewItems />);
+    const newSuggestion = screen.getByRole('option', { name: searchText });
     expect(newSuggestion).toBeVisible();
     await userEvent.click(newSuggestion);
-    expect(props.onSuggestionClick).toHaveBeenCalledWith('Chewbacca');
+    expect(props.onSuggestionClick).toHaveBeenCalledWith({
+      label: searchText,
+      value: searchText,
+    });
   });
 
   it('calls loadMore when the load more button is clicked', async () => {

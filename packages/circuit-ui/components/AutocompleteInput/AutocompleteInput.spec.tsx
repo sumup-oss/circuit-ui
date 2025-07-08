@@ -40,7 +40,7 @@ vi.mock('../../hooks/useMedia/index.js');
 
 const props: AutocompleteInputProps = {
   suggestions,
-  onSelection: vi.fn(),
+  onSearch: vi.fn(),
   onClear: vi.fn(),
   onChange: vi.fn(),
   label: 'label',
@@ -94,36 +94,35 @@ describe('Autocomplete', () => {
       vi.runAllTimers();
     });
     expect(props.onClear).toHaveBeenCalledOnce();
-    expect(props.onChange).toHaveBeenCalledOnce();
   });
 
-  it('should call onChange when the user types', async () => {
+  it('should call onSearch when the user types', async () => {
     render(<AutocompleteInput {...props} />);
 
     await userEvent.type(screen.getByRole('combobox'), 'f');
     act(() => {
       vi.runAllTimers();
     });
-    expect(props.onChange).toHaveBeenCalledOnce();
+    expect(props.onSearch).toHaveBeenCalledOnce();
   });
 
-  it('should debounce onChange calls', async () => {
+  it('should debounce onSearch calls', async () => {
     render(<AutocompleteInput {...props} />);
     const input = screen.getByRole('combobox');
 
     await userEvent.type(input, 'f');
-    expect(props.onChange).not.toHaveBeenCalled();
+    expect(props.onSearch).not.toHaveBeenCalled();
 
     vi.advanceTimersByTime(100);
 
-    expect(props.onChange).not.toHaveBeenCalled();
+    expect(props.onSearch).not.toHaveBeenCalled();
 
     await userEvent.type(input, 'oo');
-    expect(props.onChange).not.toHaveBeenCalled();
+    expect(props.onSearch).not.toHaveBeenCalled();
 
     vi.advanceTimersByTime(300);
 
-    expect(props.onChange).toHaveBeenCalledOnce();
+    expect(props.onSearch).toHaveBeenCalledOnce();
   });
 
   it('should restore value if search box text change but no value was selected', async () => {
@@ -140,17 +139,20 @@ describe('Autocomplete', () => {
     expect(input).toHaveValue(suggestions[0].label);
   });
 
-  it('should call onSelection when a suggestion is clicked and close the suggestion box', async () => {
+  it('should call onChange when a suggestion is clicked and close the suggestion box', async () => {
     render(<AutocompleteInput {...props} />);
     await userEvent.click(screen.getByRole('combobox', { name: props.label }));
     expect(screen.queryByRole('listbox')).toBeVisible();
 
     await userEvent.click(screen.getByText(suggestions[0].label));
-    expect(props.onSelection).toHaveBeenCalledWith(suggestions[0].value);
+    expect(props.onChange).toHaveBeenCalledWith({
+      label: suggestions[0].label,
+      value: suggestions[0].value,
+    });
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
   });
 
-  it('should call onSelection when Enter key pressed on a suggestion and close the suggestion box', async () => {
+  it('should call onChange when Enter key pressed on a suggestion and close the suggestion box', async () => {
     render(<AutocompleteInput {...props} />);
 
     // open suggestion box
@@ -166,7 +168,7 @@ describe('Autocomplete', () => {
     // press Enter
     await userEvent.keyboard('{Enter}');
 
-    expect(props.onSelection).toHaveBeenCalledWith(props.suggestions[0].value);
+    expect(props.onChange).toHaveBeenCalledWith(props.suggestions[0]);
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
   });
 
@@ -180,7 +182,7 @@ describe('Autocomplete', () => {
       act(() => {
         vi.runAllTimers();
       });
-      expect(props.onChange).toHaveBeenCalledOnce();
+      expect(props.onSearch).toHaveBeenCalledExactlyOnceWith('f');
 
       rerender(<AutocompleteInput {...props} suggestions={suggestions} />);
 
@@ -297,10 +299,9 @@ describe('Autocomplete', () => {
 
       await userEvent.click(clearButton);
       expect(props.onClear).toHaveBeenCalledOnce();
-      expect(props.onChange).toHaveBeenCalledOnce();
     });
 
-    it('should call onChange when user types in field', async () => {
+    it('should call onSearch when user types in field', async () => {
       render(<AutocompleteInput {...props} variant="immersive" />);
       await userEvent.click(screen.getByLabelText(props.label));
 
@@ -309,7 +310,7 @@ describe('Autocomplete', () => {
       act(() => {
         vi.runAllTimers();
       });
-      expect(props.onChange).toHaveBeenCalledOnce();
+      expect(props.onSearch).toHaveBeenCalledExactlyOnceWith('f');
     });
 
     it('should select a value, call onSelection and close the dialog', async () => {
@@ -327,7 +328,10 @@ describe('Autocomplete', () => {
         vi.runAllTimers();
       });
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
-      expect(props.onSelection).toHaveBeenCalledWith(suggestions[0].value);
+      expect(props.onChange).toHaveBeenCalledWith({
+        label: suggestions[0].label,
+        value: suggestions[0].value,
+      });
     });
 
     it('should render with selected value', async () => {

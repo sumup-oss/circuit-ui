@@ -39,13 +39,13 @@ export type AutocompleteInputSuggestions = SuggestionGroup[] | SuggestionType[];
 
 export interface SuggestionBoxProps extends HTMLAttributes<HTMLUListElement> {
   label: string;
-  value: AutocompleteInputProps['value'];
+  value?: AutocompleteInputProps['value'];
   /**
    * List of suggestions to display in the suggestion box.
    */
   suggestions: AutocompleteInputSuggestions;
   isSelectable?: boolean;
-  onSuggestionClick: (value: string) => void;
+  onSuggestionClick: (value: SuggestionType) => void;
   loadMore?: () => void;
   /**
    * A custom label for the "Load more" button.
