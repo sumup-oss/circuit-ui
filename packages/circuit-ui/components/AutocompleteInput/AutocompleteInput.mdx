@@ -25,11 +25,11 @@ While the AutocompleteInput component is accessible, it can be complex to intera
 
 ## How to use
 
-- Use the `onChange` prop to update the list of suggestions as the user types. You can optionally set the `minQueryLength` prop to delay this behavior until a minimum number of characters has been entered.
-- Use the `onSelect` prop to handle the selection of an option, and set the input's `value` prop to the selected option.
-- Use the `onClear` prop to handle the clearing of the input field, and reset the input's `value` prop to an empty string to reflect this change.
-- The component can receive a flat list or a list of grouped suggestion via the `suggestions` prop. To ensure a consistent and user-friendly experience, keep the visual format uniform. For example, all suggestions include (or not) an icon or a description. Keep labels and descriptions short and easy to scan.
-- To support custom input values not present in the suggestion box, enable the `allowNewItems` prop. This will trigger the `onSelection` callback with the user's typed value as argument.
+- Use the `onSearch` prop to update the list of suggestions as the user types. You can optionally set the `minQueryLength` prop to delay this behavior until a minimum number of characters has been typed.
+- Use the `onChange` prop to handle the selection of an option and set the input's `value` prop to the selected option.
+- Use the `onClear` prop to handle the clearing of the input field, and reset the input's `value` prop to reflect this change.
+- The component can receive a flat list or a list of grouped suggestion via the `suggestions` prop. To ensure a consistent and user-friendly experience, keep the visual format uniform. For example, make sure all suggestions include (or not) an image or a description. Keep labels and descriptions short and easy to scan.
+- To support the selection of the user's input as the field's value, enable the `allowNewItems` prop. This will display the user's input as an available option in the suggestion box.
 
 <Story of={Stories.AllowNewItems} />
 
@@ -47,13 +47,19 @@ While the AutocompleteInput component is accessible, it can be complex to intera
 
 ## Performance
 
-The component's `onChange` callback is debounced by default to avoid excessive calls while the user types. The default debounce delay is set to 300 ms.
+### Debouncing
+
+The component's `onSearch` callback is debounced by default to avoid excessive calls while the user types. The default debounce delay is set to 300 ms.
+
+### Paginated results
 
 For better performance and scalability when loading dynamic, paginated results, use the `loadMore` prop to fetch additional suggestions. When this prop is provided, a "Load more" button appears at the bottom of the suggestion box. You can customize the button label with `loadMoreLabel`. Use `isLoadingMore` to indicate that more suggestions are being fetched, and `aria-setsize` to convey the total number of suggestions available to assistive technologies. Learn more about `aria-setsize` in the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-setsize).
 
 <Story of={Stories.LoadMore} />
 
-To ensure you always show the most relevant suggestions, consider using an [Abort Controller](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) to cancel previous requests when the user types a new query. This prevents showing outdated suggestions and improves the user experience.
+### Fetching suggestions
+
+To ensure you always show the most relevant suggestions, consider using an [Abort Controller](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) to cancel previous fetch requests. This prevents showing outdated suggestions and improves the user experience.
 
 ```tsx
 import { useState, useCallback, useRef } from "react";
@@ -107,6 +113,14 @@ async function getSuggestions(query: string, signal: AbortSignal) {
 
 The AutocompleteInput component is designed to be accessible, adopting ARIA's [Combobox pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/). It includes:
 
-- Keyboard navigation: Users can open the suggestion box by pressing the arrow down key, close it by pressing the Escape key, navigate through suggestions using the up and down arrow keys, and select an option with Enter.
-- Screen reader support: The component announces the number of suggestions available and the selected option, if any.
-- Focus management: The component manages focus appropriately, focus remains on the input field when the suggestion box is open, and navigated options are announced properly as users navigate through them.
+### Keyboard navigation
+- Arrow down key: Opens the suggestion box
+- Escape key: Closes the suggestion box
+- Arrow Up/Down keys: navigate through suggestions
+- Enter key: selects an option
+
+### Screen reader support
+The component announces the number of suggestions available and the selected option, if any.
+
+### Focus management
+The component manages focus appropriately. The focus remains on the input field when the suggestion box is open, and navigated options are announced properly as the user navigates through them.

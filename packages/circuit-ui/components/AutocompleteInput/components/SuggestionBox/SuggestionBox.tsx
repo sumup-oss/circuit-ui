@@ -46,24 +46,29 @@ export interface SuggestionBoxProps extends HTMLAttributes<HTMLUListElement> {
   suggestions: AutocompleteInputSuggestions;
   isSelectable?: boolean;
   onSuggestionClick: (value: SuggestionType) => void;
+  /**
+   * An optional function that allows to add more items to the bottom the suggestion list currently displayed.
+   * If this function is provided, a "Load more" button will be displayed at the bottom of the suggestion list.
+   * Use this to implement lazy loading of suggestions.
+   */
   loadMore?: () => void;
   /**
    * A custom label for the "Load more" button.
    */
   loadMoreLabel: string;
   /**
-   * Indicates a loading state while loading suggestions.
+   * Whether suggestions are currently loading.
    */
   isLoading?: boolean;
   /**
-   * Indicates a loading state while loading more suggestions.
+   * Used with the `loadMore` prop. Indicates a loading state while loading more suggestions.
    */
   isLoadingMore?: boolean;
   suggestionIdPrefix: string;
   activeSuggestion?: number;
   searchText?: string;
   /**
-   * Whether to allow the selection of items that are not in the suggestion list.
+   * Whether to show the user's search text as an option.
    */
   allowNewItems?: boolean;
   hasAction?: boolean;

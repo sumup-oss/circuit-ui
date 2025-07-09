@@ -80,7 +80,7 @@ export type AutocompleteInputProps = Omit<
      */
     value?: SuggestionType;
     /**
-     * A callback function fired when the search text value has changed.
+     * A callback function fired when the search text value changes.
      * Use this callback to update the `suggestions` prop based on the user's input.
      */
     onSearch: (value: string) => void;

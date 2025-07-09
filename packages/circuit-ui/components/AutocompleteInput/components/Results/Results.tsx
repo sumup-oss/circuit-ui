@@ -31,7 +31,7 @@ import classes from './Results.module.css';
 
 export type ResultsProps = SuggestionBoxProps & {
   /**
-   * Custom content to display while loading suggestions.
+   * Custom label to display while loading suggestions.
    */
   loadingLabel?: string;
   /**
@@ -39,13 +39,7 @@ export type ResultsProps = SuggestionBoxProps & {
    */
   noResultsMessage?: ReactNode;
   /**
-   * An optional function that allows to add more items to the bottom the suggestion list currently displayed.
-   * If this function is provided, a "Load more" button will be displayed at the bottom of the suggestion list.
-   * Use this to implement lazy loading of suggestions.
-   */
-  loadMore?: () => void;
-  /**
-   * An optional button to display below the Autocomplete suggestions.
+   * An optional button to display below the suggestion box.
    */
   action?: Omit<ButtonProps, 'variant' | 'size'>;
   resultsSummary: string;

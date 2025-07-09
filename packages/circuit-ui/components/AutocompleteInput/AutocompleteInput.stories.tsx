@@ -43,28 +43,21 @@ export default {
   argTypes: {
     // Value & change handling
     value: {
-      control: 'text',
       table: {
         category: 'Value & change handling',
       },
     },
-    getSuggestionLabel: {
+    onSearch: {
       table: {
         category: 'Value & change handling',
       },
     },
     onChange: {
-      description: 'Callback fired when the search text value changes.',
       table: {
         category: 'Value & change handling',
       },
     },
     onClear: {
-      table: {
-        category: 'Value & change handling',
-      },
-    },
-    onSelection: {
       table: {
         category: 'Value & change handling',
       },
@@ -95,11 +88,6 @@ export default {
         category: 'Suggestions & results',
       },
     },
-    action: {
-      table: {
-        category: 'Suggestions & results',
-      },
-    },
     // Input
     label: {
       table: {
@@ -107,7 +95,6 @@ export default {
       },
     },
     placeholder: {
-      control: 'text',
       table: {
         category: 'Input',
       },
@@ -118,7 +105,6 @@ export default {
       },
     },
     inputClassName: {
-      control: 'text',
       table: {
         category: 'Input',
       },
@@ -205,9 +191,13 @@ export default {
         category: 'Customisation',
       },
     },
-
     loadMoreLabel: {
       control: 'text',
+      table: {
+        category: 'Customisation',
+      },
+    },
+    action: {
       table: {
         category: 'Customisation',
       },
@@ -276,7 +266,7 @@ export const Base = (args: AutocompleteInputProps) => {
   const onSearchTextChange = (searchText: string) => {
     setSuggestions(filterSuggestions(searchText, args.suggestions));
   };
-  const onSelection = (value?: SuggestionType) => {
+  const onChange = (value?: SuggestionType) => {
     setAutocompleteValue(value);
   };
 
@@ -289,7 +279,7 @@ export const Base = (args: AutocompleteInputProps) => {
       {...args}
       value={autocompleteValue}
       suggestions={suggestions}
-      onChange={onSelection}
+      onChange={onChange}
       onSearch={onSearchTextChange}
       onClear={onClear}
     />
