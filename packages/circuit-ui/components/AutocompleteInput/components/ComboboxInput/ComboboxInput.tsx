@@ -126,6 +126,7 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
         <div className={classes.wrapper}>
           <input
             id={inputId}
+            value={value}
             data-id={comboboxInputId}
             defaultValue={value}
             ref={applyMultipleRefs(localRef, ref)}

@@ -125,20 +125,6 @@ describe('Autocomplete', () => {
     expect(props.onSearch).toHaveBeenCalledOnce();
   });
 
-  it('should restore value if search box text change but no value was selected', async () => {
-    render(<AutocompleteInput {...props} value={suggestions[0]} />);
-    const input = screen.getByRole('combobox');
-    expect(input).toHaveValue(suggestions[0].label);
-    await userEvent.type(input, 'oo');
-
-    expect(screen.getByRole('listbox')).toBeVisible();
-    expect(input).toHaveValue('oo');
-
-    await userEvent.click(document.body);
-    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
-    expect(input).toHaveValue(suggestions[0].label);
-  });
-
   it('should call onChange when a suggestion is clicked and close the suggestion box', async () => {
     render(<AutocompleteInput {...props} />);
     await userEvent.click(screen.getByRole('combobox', { name: props.label }));

@@ -261,6 +261,13 @@ export const AutocompleteInput = forwardRef<
       ],
     });
 
+    useEffect(() => {
+      setSearchText(value?.label ?? '');
+      if (isImmersive) {
+        setPresentationFieldValue(value?.label ?? '');
+      }
+    }, [value, isImmersive]);
+
     const onSuggestionClick = useCallback(
       (selectedValue?: SuggestionType) => {
         onChange(selectedValue);
@@ -268,15 +275,6 @@ export const AutocompleteInput = forwardRef<
       },
       [onChange, closeSuggestionBox],
     );
-
-    useEffect(() => {
-      if (!isOpen && value && searchText !== value.label) {
-        changeInputValue(textBoxRef.current, value.label);
-        if (isImmersive) {
-          setPresentationFieldValue(value.label);
-        }
-      }
-    }, [isOpen, isImmersive, value, searchText]);
 
     const onInputKeyDown: KeyboardEventHandler<HTMLInputElement> = useCallback(
       (event) => {
