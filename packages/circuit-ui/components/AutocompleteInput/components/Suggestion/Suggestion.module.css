@@ -45,6 +45,7 @@
 
 .has-media {
   justify-content: center;
+  min-height: 32px;
 }
 
 .media img {
@@ -92,5 +93,9 @@
   .media .icon {
     width: 40px;
     height: 40px;
+  }
+
+  .has-media {
+    min-height: 40px;
   }
 }
