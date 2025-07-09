@@ -66,11 +66,13 @@ export const Results = forwardRef<HTMLDivElement, ResultsProps>(
       resultsSummary,
       isImmersive,
       loadMoreLabel,
+      id,
       ...rest
     },
     ref,
   ) => (
     <div
+      id={id}
       ref={ref}
       className={clsx(
         !isImmersive && classes.modal,

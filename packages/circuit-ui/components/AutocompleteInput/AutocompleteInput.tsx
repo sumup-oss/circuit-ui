@@ -146,6 +146,7 @@ export const AutocompleteInput = forwardRef<
       loadMore,
       allowNewItems,
       variant = 'contextual',
+      'aria-setsize': ariaSetSize,
       ...props
     },
     ref,
@@ -177,7 +178,7 @@ export const AutocompleteInput = forwardRef<
     const textBoxRef = useRef<HTMLInputElement>(null);
     const presentationFieldRef = useRef<HTMLInputElement>(null);
     const resultsRef = useRef<HTMLDivElement>(null);
-    const resultsWrapperId = useId();
+    const resultsId = useId();
     const autocompleteId = useId();
 
     const suggestionValues: string[] = useMemo(
@@ -406,11 +407,12 @@ export const AutocompleteInput = forwardRef<
           searchText={searchText}
           resultsSummary={`${suggestionValues.length} ${resultsFound}.`}
           isImmersive={isImmersive}
-          aria-setsize={props['aria-setsize']}
+          aria-setsize={ariaSetSize}
         />
       ) : null;
 
     const comboboxProps = {
+      ...props,
       label,
       'data-id': autocompleteId,
       clearLabel,
@@ -419,6 +421,7 @@ export const AutocompleteInput = forwardRef<
       onClear: onClear ? onComboboxClear : undefined,
       onKeyDown: isLoading ? undefined : onInputKeyDown,
       role: 'combobox',
+      'aria-controls': resultsId,
       autoComplete: 'off',
       'aria-autocomplete': 'list' as const,
       'aria-activedescendant': activeDescendant,
@@ -454,10 +457,10 @@ export const AutocompleteInput = forwardRef<
             onClose={closeSuggestionBox}
           >
             <ComboboxInput
-              {...props}
               ref={textBoxRef}
               {...comboboxProps}
               className={classes['modal-input']}
+              aria-expanded={true}
             />
 
             {results}
@@ -469,10 +472,8 @@ export const AutocompleteInput = forwardRef<
     return (
       <>
         <ComboboxInput
-          {...props}
           ref={applyMultipleRefs(textBoxRef, ref, refs.setReference)}
           inputClassName={clsx(classes.input, props.inputClassName)}
-          aria-controls={resultsWrapperId}
           aria-expanded={isOpen}
           aria-haspopup="listbox"
           {...comboboxProps}
@@ -482,7 +483,7 @@ export const AutocompleteInput = forwardRef<
             className={classes.results}
             data-testid={`${autocompleteId}-popup`}
             ref={refs.setFloating}
-            id={resultsWrapperId}
+            id={resultsId}
             style={{
               ...floatingStyles,
               width: textBoxRef.current?.offsetWidth,
