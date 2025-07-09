@@ -166,6 +166,7 @@ export const AutocompleteInput = forwardRef<
 
     const [searchText, setSearchText] = useState(value?.label);
 
+    // used only for immmersive variant
     const [presentationFieldValue, setPresentationFieldValue] = useState(
       value?.label,
     );
@@ -176,7 +177,7 @@ export const AutocompleteInput = forwardRef<
     const textBoxRef = useRef<HTMLInputElement>(null);
     const presentationFieldRef = useRef<HTMLInputElement>(null);
     const resultsRef = useRef<HTMLDivElement>(null);
-    const popupId = useId();
+    const resultsWrapperId = useId();
     const autocompleteId = useId();
 
     const suggestionValues: string[] = useMemo(
@@ -200,7 +201,7 @@ export const AutocompleteInput = forwardRef<
       setActiveSuggestion(undefined);
     }, []);
 
-    const debouncedOnChange = useMemo(
+    const debouncedOnSearch = useMemo(
       () =>
         debounce(
           (changeEvent: ChangeEvent<HTMLInputElement>) =>
@@ -215,10 +216,10 @@ export const AutocompleteInput = forwardRef<
         setSearchText(event.target.value);
         setActiveSuggestion(undefined);
         if (event.target.value.length >= minQueryLength) {
-          debouncedOnChange?.(event);
+          debouncedOnSearch?.(event);
         }
       },
-      [minQueryLength, debouncedOnChange],
+      [minQueryLength, debouncedOnSearch],
     );
 
     const onComboboxClear = useCallback(
@@ -280,10 +281,10 @@ export const AutocompleteInput = forwardRef<
       (event) => {
         if (isOpen) {
           if (isArrowDown(event) || isArrowUp(event)) {
+            event.preventDefault();
             const totalShownSuggestions =
               resultsRef.current?.querySelectorAll('[role="option"]').length ??
               0;
-            event.preventDefault();
 
             if (activeSuggestion === undefined) {
               setActiveSuggestion(
@@ -452,9 +453,13 @@ export const AutocompleteInput = forwardRef<
             contentClassName={classes['modal-content']}
             onClose={closeSuggestionBox}
           >
-            <div className={classes['modal-header']}>
-              <ComboboxInput {...props} ref={textBoxRef} {...comboboxProps} />
-            </div>
+            <ComboboxInput
+              {...props}
+              ref={textBoxRef}
+              {...comboboxProps}
+              className={classes['modal-input']}
+            />
+
             {results}
           </Modal>
         </>
@@ -467,17 +472,17 @@ export const AutocompleteInput = forwardRef<
           {...props}
           ref={applyMultipleRefs(textBoxRef, ref, refs.setReference)}
           inputClassName={clsx(classes.input, props.inputClassName)}
-          aria-controls={popupId}
+          aria-controls={resultsWrapperId}
           aria-expanded={isOpen}
           aria-haspopup="listbox"
           {...comboboxProps}
         />
         {isOpen && (
           <div
-            className={classes.popup}
+            className={classes.results}
             data-testid={`${autocompleteId}-popup`}
             ref={refs.setFloating}
-            id={popupId}
+            id={resultsWrapperId}
             style={{
               ...floatingStyles,
               width: textBoxRef.current?.offsetWidth,

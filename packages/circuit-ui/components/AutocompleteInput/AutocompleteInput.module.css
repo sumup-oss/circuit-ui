@@ -1,9 +1,8 @@
 .input {
-  /* to avoid the search input resizing on focus */
   padding-right: var(--cui-spacings-exa);
 }
 
-.popup {
+.results {
   z-index: var(--cui-z-index-popover);
   max-height: min(443px, var(--suggestion-box-max-height));
   overflow-y: auto;
@@ -12,7 +11,7 @@
   box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
 }
 
-.popup::before {
+.results::before {
   position: absolute;
   top: 0;
   right: 0;
@@ -62,18 +61,15 @@
   padding-top: 0;
 }
 
-.modal-header {
+.modal-input {
   position: sticky;
   top: 0;
   z-index: 1;
-  display: flex;
-  gap: var(--cui-spacings-byte);
-  align-items: flex-start;
   padding-top: var(--cui-spacings-giga);
   background-color: var(--cui-bg-elevated);
 }
 
-.modal-header::after {
+.modal-input::after {
   position: absolute;
   right: 0;
   bottom: calc(-1 * var(--cui-spacings-mega));
@@ -88,10 +84,6 @@
     color-mix(in sRGB, var(--cui-bg-elevated) 1%, transparent)
   );
   border-radius: inherit;
-}
-
-.modal-close {
-  margin-top: var(--cui-spacings-giga);
 }
 
 .no-results {
