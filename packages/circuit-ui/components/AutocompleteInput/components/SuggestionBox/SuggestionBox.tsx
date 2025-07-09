@@ -15,7 +15,7 @@
 
 'use client';
 
-import { type HTMLAttributes, useMemo, useRef } from 'react';
+import { type HTMLAttributes, useMemo } from 'react';
 import { Plus } from '@sumup-oss/icons';
 
 import { type SuggestionType, Suggestion } from '../Suggestion/Suggestion.js';
@@ -94,8 +94,6 @@ export const SuggestionBox = ({
   'aria-setsize': ariaSetSize,
   ...rest
 }: SuggestionBoxProps) => {
-  const suggestionBoxRef = useRef<HTMLUListElement>(null);
-
   const suggestionValues: string[] = useMemo(
     () =>
       suggestions
@@ -126,7 +124,6 @@ export const SuggestionBox = ({
         // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: list element has all necessary attributes to be interactive
         role="listbox"
         aria-multiselectable={isSelectable}
-        ref={suggestionBoxRef}
         aria-label={label}
         tabIndex={-1}
         className={clsx(

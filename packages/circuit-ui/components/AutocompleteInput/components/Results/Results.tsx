@@ -15,7 +15,7 @@
 
 'use client';
 
-import { forwardRef, type ReactNode, useRef } from 'react';
+import { forwardRef, type ReactNode } from 'react';
 
 import { utilClasses } from '../../../../styles/utility.js';
 import {
@@ -66,73 +66,69 @@ export const Results = forwardRef<HTMLDivElement, ResultsProps>(
       resultsSummary,
       isImmersive,
       loadMoreLabel,
-      'aria-setsize': ariaSetSize,
+      ...rest
     },
     ref,
-  ) => {
-    const actionsRef = useRef<HTMLDivElement>(null);
-    return (
+  ) => (
+    <div
+      ref={ref}
+      className={clsx(
+        !isImmersive && classes.modal,
+        isImmersive && action && classes['modal-with-action'],
+      )}
+    >
       <div
-        ref={ref}
-        className={clsx(
-          !isImmersive && classes.modal,
-          isImmersive && action && classes['modal-with-action'],
-        )}
+        role="status"
+        aria-live="polite"
+        aria-busy={isLoading}
+        className={utilClasses.hideVisually}
       >
-        <div
-          role="status"
-          aria-live="polite"
-          aria-busy={isLoading}
-          className={utilClasses.hideVisually}
-        >
-          {resultsSummary}
-        </div>
-        {isLoading && suggestions.length === 0 && (
-          <div className={classes.loading}>
-            <Spinner data-testid="suggestions-loading-spinner" />
-            {loadingLabel}
-          </div>
-        )}
-        {!isLoading &&
-          suggestions.length === 0 &&
-          !allowNewItems &&
-          noResultsMessage}
-
-        {(suggestions.length > 0 ||
-          (allowNewItems && suggestions.length === 0)) && (
-          <>
-            <SuggestionBox
-              value={value}
-              suggestions={suggestions}
-              onSuggestionClick={onSuggestionClick}
-              label={label}
-              suggestionIdPrefix={suggestionIdPrefix}
-              activeSuggestion={activeSuggestion}
-              isLoading={isLoading}
-              isLoadingMore={isLoadingMore}
-              loadMore={loadMore}
-              searchText={allowNewItems ? searchText : undefined}
-              allowNewItems={allowNewItems}
-              hasAction={!!action}
-              isImmersive={isImmersive}
-              loadMoreLabel={loadMoreLabel}
-              aria-setsize={ariaSetSize}
-            />
-            {action && (
-              <div
-                className={clsx(
-                  classes.action,
-                  isImmersive && classes['action-modal'],
-                )}
-                ref={actionsRef}
-              >
-                <Hr />
-                {action && <Button {...action} variant="tertiary" size="s" />}
-              </div>
-            )}
-          </>
-        )}
+        {resultsSummary}
       </div>
-    );
-  },
+      {isLoading && suggestions.length === 0 && (
+        <div className={classes.loading}>
+          <Spinner data-testid="suggestions-loading-spinner" />
+          {loadingLabel}
+        </div>
+      )}
+      {!isLoading &&
+        suggestions.length === 0 &&
+        !allowNewItems &&
+        noResultsMessage}
+
+      {(suggestions.length > 0 ||
+        (allowNewItems && suggestions.length === 0)) && (
+        <>
+          <SuggestionBox
+            value={value}
+            suggestions={suggestions}
+            onSuggestionClick={onSuggestionClick}
+            label={label}
+            suggestionIdPrefix={suggestionIdPrefix}
+            activeSuggestion={activeSuggestion}
+            isLoading={isLoading}
+            isLoadingMore={isLoadingMore}
+            loadMore={loadMore}
+            searchText={allowNewItems ? searchText : undefined}
+            allowNewItems={allowNewItems}
+            hasAction={!!action}
+            isImmersive={isImmersive}
+            loadMoreLabel={loadMoreLabel}
+            {...rest}
+          />
+          {action && (
+            <div
+              className={clsx(
+                classes.action,
+                isImmersive && classes['action-modal'],
+              )}
+            >
+              <Hr />
+              {action && <Button {...action} variant="tertiary" size="s" />}
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  ),
 );
