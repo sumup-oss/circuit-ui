@@ -63,10 +63,12 @@
   display: block;
   width: var(--toggle-knob-size);
   height: var(--toggle-knob-size);
-  background-color: var(--cui-bg-strong);
+  background-color: var(--cui-fg-placeholder);
   border-radius: var(--toggle-knob-size);
   transform: translate3d(var(--cui-spacings-bit), -50%, 0);
-  transition: transform var(--toggle-animation-timing);
+  transition:
+    transform var(--toggle-animation-timing),
+    background-color var(--toggle-animation-timing);
 }
 
 [aria-checked="true"] .knob {
