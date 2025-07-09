@@ -29,7 +29,6 @@ import { SuggestionBox, type SuggestionBoxProps } from './SuggestionBox.js';
 const props: SuggestionBoxProps = {
   suggestions,
   onSuggestionClick: vi.fn(),
-  loadMore: vi.fn(),
   label: 'label',
   suggestionIdPrefix: 'autocomplete-id',
   loadMoreLabel: 'Load more',
@@ -39,13 +38,13 @@ describe('SuggestionBox', () => {
   beforeAll(() => {
     HTMLElement.prototype.scrollIntoView = vi.fn();
   });
-  it('renders suggestions correctly', () => {
+  it('should render suggestions correctly', () => {
     render(<SuggestionBox {...props} />);
 
     expect(screen.getByLabelText(props.label)).toBeVisible();
     expect(screen.getAllByRole('option')).toHaveLength(10);
   });
-  it('renders grouped suggestions correctly', () => {
+  it('should render grouped suggestions correctly', () => {
     render(<SuggestionBox {...props} suggestions={groupedSuggestions} />);
 
     expect(screen.getByLabelText(props.label)).toBeVisible();
@@ -59,7 +58,7 @@ describe('SuggestionBox', () => {
     expect(screen.getAllByRole('option')).toHaveLength(10);
   });
 
-  it('calls onSuggestionClick when a suggestion is clicked', async () => {
+  it('should call onSuggestionClick when a suggestion is clicked', async () => {
     render(<SuggestionBox {...props} />);
 
     await userEvent.click(screen.getByText(suggestions[0].label));
@@ -69,7 +68,7 @@ describe('SuggestionBox', () => {
     });
   });
 
-  it('applies correct tabIndex based on active suggestion', () => {
+  it('should apply correct tabIndex based on active suggestion', () => {
     const { rerender } = render(
       <SuggestionBox
         {...props}
@@ -95,15 +94,15 @@ describe('SuggestionBox', () => {
     expect(boxSuggestions[2]).toHaveAttribute('tabindex', '0');
   });
 
-  it('shows a button in loading state when isLoading is true', () => {
-    render(<SuggestionBox {...props} isLoadingMore />);
+  it('should show a button in loading state when isLoadingMore is true', () => {
+    render(<SuggestionBox {...props} loadMore={vi.fn()} isLoadingMore />);
 
     expect(
       screen.getByRole('button', { name: 'Loading Load more' }),
     ).toHaveAttribute('aria-busy', 'true');
   });
 
-  it("suggests a new entry when searchText doesn't match any suggestions and allowNewItems is set to true", async () => {
+  it("should suggest a new entry when searchText doesn't match any suggestions and allowNewItems is set to true", async () => {
     const searchText = 'Chewbacca';
     render(<SuggestionBox {...props} searchText={searchText} allowNewItems />);
     const newSuggestion = screen.getByRole('option', { name: searchText });
@@ -115,11 +114,12 @@ describe('SuggestionBox', () => {
     });
   });
 
-  it('calls loadMore when the load more button is clicked', async () => {
-    render(<SuggestionBox {...props} />);
+  it('should call loadMore when the load more button is clicked', async () => {
+    const loadMore = vi.fn();
+    render(<SuggestionBox {...props} loadMore={loadMore} />);
 
     await userEvent.click(screen.getByRole('button', { name: 'Load more' }));
 
-    expect(props.loadMore).toHaveBeenCalled();
+    expect(loadMore).toHaveBeenCalled();
   });
 });

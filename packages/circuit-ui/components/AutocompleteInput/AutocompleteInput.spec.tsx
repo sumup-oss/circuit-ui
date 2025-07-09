@@ -272,7 +272,7 @@ describe('Autocomplete', () => {
     });
   });
 
-  describe('On narrow viewports', () => {
+  describe('Immersive', () => {
     beforeEach(() => {
       (useMedia as Mock).mockReturnValue(true);
     });
@@ -313,7 +313,7 @@ describe('Autocomplete', () => {
       expect(props.onSearch).toHaveBeenCalledExactlyOnceWith('f');
     });
 
-    it('should select a value, call onSelection and close the dialog', async () => {
+    it('should select a value, call onChange and close the dialog', async () => {
       render(<AutocompleteInput {...props} variant="immersive" />);
       await userEvent.click(screen.getByLabelText(props.label));
 

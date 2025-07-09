@@ -34,7 +34,7 @@ describe('Results', () => {
     HTMLElement.prototype.scrollIntoView = vi.fn();
   });
 
-  it('renders suggestions correctly', () => {
+  it('should render suggestions correctly', () => {
     render(<Results {...props} />);
     expect(screen.getByRole('listbox')).toBeVisible();
     expect(screen.getAllByRole('option')).toHaveLength(
@@ -42,7 +42,7 @@ describe('Results', () => {
     );
   });
 
-  it('calls onSuggestionClick when a suggestion is clicked', async () => {
+  it('should call onSuggestionClick when a suggestion is clicked', async () => {
     render(<Results {...props} />);
 
     await userEvent.click(screen.getByText(props.suggestions[0].label));
@@ -52,19 +52,19 @@ describe('Results', () => {
     });
   });
 
-  it('renders a live region', () => {
+  it('should render a live region', () => {
     render(<Results {...props} />);
 
     expect(screen.getByRole('status')).toHaveTextContent(props.resultsSummary);
   });
 
   describe('loading state', () => {
-    it('renders live region as busy when loading', () => {
+    it('should render live region as busy when loading', () => {
       render(<Results {...props} isLoading />);
 
       expect(screen.getByRole('status')).toHaveAttribute('aria-busy', 'true');
     });
-    it('renders loading message when isLoading is true and suggestions are empty', () => {
+    it('should render a loading message when isLoading is true and suggestions are empty', () => {
       render(
         <Results
           {...props}
@@ -79,7 +79,7 @@ describe('Results', () => {
   });
 
   describe('empty results state', () => {
-    it('renders no results message when suggestions are empty and not loading', () => {
+    it('should render a no results message when suggestions are empty and not loading', () => {
       const noResultsMessage = 'No results found';
       render(
         <Results

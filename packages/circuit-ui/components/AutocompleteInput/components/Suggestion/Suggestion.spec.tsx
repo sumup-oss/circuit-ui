@@ -34,7 +34,7 @@ const props: SuggestionProps = {
 };
 
 describe('Suggestion', () => {
-  it('renders with leading icon', () => {
+  it('should render with leading icon', () => {
     render(<Suggestion {...props} image={Favorite} />);
 
     expect(screen.getByText(props.label)).toBeVisible();
@@ -42,14 +42,14 @@ describe('Suggestion', () => {
     expect(screen.getByTestId(`suggestion-icon-${props.value}`)).toBeVisible();
   });
 
-  it('renders with leading image', () => {
+  it('should render with leading image', () => {
     render(<Suggestion {...props} />);
 
     expect(screen.getByText(props.label)).toBeVisible();
     expect(screen.getByTestId(`suggestion-image-${props.value}`)).toBeVisible();
   });
 
-  it('calls onSuggestionClick when clicked', async () => {
+  it('should call onSuggestionClick when clicked', async () => {
     render(<Suggestion {...props} />);
 
     await userEvent.click(screen.getByText(props.label));
