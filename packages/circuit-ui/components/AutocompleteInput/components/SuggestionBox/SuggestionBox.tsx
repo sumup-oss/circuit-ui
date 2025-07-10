@@ -18,7 +18,10 @@
 import { type HTMLAttributes, useMemo } from 'react';
 import { Plus } from '@sumup-oss/icons';
 
-import { type SuggestionType, Suggestion } from '../Suggestion/Suggestion.js';
+import {
+  type AutocompleteInputSuggestion,
+  Suggestion,
+} from '../Suggestion/Suggestion.js';
 import { Compact } from '../../../Compact/index.js';
 import type { AutocompleteInputProps } from '../../AutocompleteInput.js';
 import {
@@ -30,12 +33,14 @@ import { Button } from '../../../Button/index.js';
 
 import classes from './SuggestionBox.module.css';
 
-export type SuggestionGroup = {
+export type AutocompleteInputSuggestionGroup = {
   label: string;
-  suggestions: SuggestionType[];
+  suggestions: AutocompleteInputSuggestion[];
 };
 
-export type AutocompleteInputSuggestions = SuggestionGroup[] | SuggestionType[];
+export type AutocompleteInputSuggestions =
+  | AutocompleteInputSuggestionGroup[]
+  | AutocompleteInputSuggestion[];
 
 export interface SuggestionBoxProps extends HTMLAttributes<HTMLUListElement> {
   label: string;
@@ -45,7 +50,7 @@ export interface SuggestionBoxProps extends HTMLAttributes<HTMLUListElement> {
    */
   suggestions: AutocompleteInputSuggestions;
   isSelectable?: boolean;
-  onSuggestionClick: (value: SuggestionType) => void;
+  onSuggestionClick: (value: AutocompleteInputSuggestion) => void;
   /**
    * An optional function that allows to add more items to the bottom the suggestion list currently displayed.
    * If this function is provided, a "Load more" button will be displayed at the bottom of the suggestion list.

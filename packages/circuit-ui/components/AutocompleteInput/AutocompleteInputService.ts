@@ -14,18 +14,18 @@
  */
 
 import type { AutocompleteInputProps } from './AutocompleteInput.js';
-import type { SuggestionType } from './components/Suggestion/Suggestion.js';
-import type { SuggestionGroup } from './components/SuggestionBox/SuggestionBox.js';
+import type { AutocompleteInputSuggestion } from './components/Suggestion/Suggestion.js';
+import type { AutocompleteInputSuggestionGroup } from './components/SuggestionBox/SuggestionBox.js';
 
 export const isGroup = (
-  suggestion: SuggestionGroup | SuggestionType,
-): suggestion is SuggestionGroup =>
+  suggestion: AutocompleteInputSuggestionGroup | AutocompleteInputSuggestion,
+): suggestion is AutocompleteInputSuggestionGroup =>
   suggestion && 'label' in suggestion && 'suggestions' in suggestion;
 
 export const getSuggestionByValue = (
   suggestions: AutocompleteInputProps['suggestions'],
   value?: string,
-): SuggestionType | undefined => {
+): AutocompleteInputSuggestion | undefined => {
   if (!value) {
     return undefined;
   }

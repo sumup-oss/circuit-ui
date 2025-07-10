@@ -34,7 +34,7 @@ import {
   type AutocompleteInputProps,
 } from './AutocompleteInput.js';
 import { isGroup } from './AutocompleteInputService.js';
-import type { SuggestionType } from './components/Suggestion/Suggestion.js';
+import type { AutocompleteInputSuggestion } from './components/Suggestion/Suggestion.js';
 
 export default {
   title: 'Forms/AutocompleteInput',
@@ -217,7 +217,7 @@ const baseArgs: AutocompleteInputProps = {
   placeholder: 'Whiskers',
   suggestions: mockSuggestions,
   validationHint: 'All our cats have been neutered and vaccinated.',
-  onChange: (value?: SuggestionType) => action('onChange')(value),
+  onChange: (value?: AutocompleteInputSuggestion) => action('onChange')(value),
   onSearch: (text) => action('onSearch')(text),
 };
 
@@ -266,7 +266,7 @@ export const Base = (args: AutocompleteInputProps) => {
   const onSearchTextChange = (searchText: string) => {
     setSuggestions(filterSuggestions(searchText, args.suggestions));
   };
-  const onChange = (value?: SuggestionType) => {
+  const onChange = (value?: AutocompleteInputSuggestion) => {
     setAutocompleteValue(value);
   };
 

@@ -23,7 +23,7 @@ import { Compact } from '../../../Compact/index.js';
 
 import classes from './Suggestion.module.css';
 
-export type SuggestionType = {
+export type AutocompleteInputSuggestion = {
   value: string;
   label: string;
   description?: string;
@@ -32,10 +32,10 @@ export type SuggestionType = {
 };
 
 export type SuggestionProps = HTMLAttributes<HTMLLIElement> &
-  SuggestionType & {
+  AutocompleteInputSuggestion & {
     isSelectable?: boolean;
     isFocused?: boolean;
-    onSuggestionClick: (value: SuggestionType) => void;
+    onSuggestionClick: (value: AutocompleteInputSuggestion) => void;
     isNew?: boolean;
   };
 

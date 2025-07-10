@@ -58,7 +58,7 @@ import {
   ComboboxInput,
   type ComboboxInputProps,
 } from './components/ComboboxInput/ComboboxInput.js';
-import type { SuggestionType } from './components/Suggestion/Suggestion.js';
+import type { AutocompleteInputSuggestion } from './components/Suggestion/Suggestion.js';
 
 export type AutocompleteInputProps = Omit<
   ComboboxInputProps,
@@ -78,7 +78,7 @@ export type AutocompleteInputProps = Omit<
     /**
      * the selected item
      */
-    value?: SuggestionType;
+    value?: AutocompleteInputSuggestion;
     /**
      * A callback function fired when the search text value changes.
      * Use this callback to update the `suggestions` prop based on the user's input.
@@ -87,7 +87,7 @@ export type AutocompleteInputProps = Omit<
     /**
      * A callback function fired when a suggestion is selected.
      */
-    onChange: (suggestion?: SuggestionType) => void;
+    onChange: (suggestion?: AutocompleteInputSuggestion) => void;
     /**
      * The minimum length of the search query that would trigger an `onChange` event.
      * @default 0
@@ -271,7 +271,7 @@ export const AutocompleteInput = forwardRef<
     }, [value, isImmersive]);
 
     const onSuggestionClick = useCallback(
-      (selectedValue?: SuggestionType) => {
+      (selectedValue?: AutocompleteInputSuggestion) => {
         onChange(selectedValue);
         closeSuggestionBox();
       },

@@ -15,79 +15,79 @@
 
 import { Location } from '@sumup-oss/icons';
 
-import type { SuggestionType } from './components/Suggestion/Suggestion.js';
+import type { AutocompleteInputSuggestion } from './components/Suggestion/Suggestion.js';
 
-export const mochi: SuggestionType = {
+export const mochi: AutocompleteInputSuggestion = {
   label: 'Mochi',
   value: 'mochi',
   description: 'A gentle giant',
   image: '/images/illustration-cat.jpg',
 };
 
-export const luna: SuggestionType = {
+export const luna: AutocompleteInputSuggestion = {
   label: 'Luna',
   value: 'luna',
   description: 'Mischievous night owl',
   image: '/images/illustration-cat.jpg',
 };
 
-export const oliver: SuggestionType = {
+export const oliver: AutocompleteInputSuggestion = {
   label: 'Oliver',
   value: 'oliver',
   description: 'Distinguished gentleman',
   image: '/images/illustration-cat.jpg',
 };
 
-const sushi: SuggestionType = {
+const sushi: AutocompleteInputSuggestion = {
   label: 'Sushi',
   value: 'sushi',
   description: 'Playful acrobat',
   image: '/images/illustration-cat.jpg',
 };
 
-const shadow: SuggestionType = {
+const shadow: AutocompleteInputSuggestion = {
   label: 'Shadow',
   value: 'shadow',
   description: 'Mysterious introvert',
   image: '/images/illustration-cat.jpg',
 };
 
-const maple: SuggestionType = {
+const maple: AutocompleteInputSuggestion = {
   label: 'Maple',
   value: 'maple',
   description: 'Sweet and clingy',
   image: '/images/illustration-cat.jpg',
 };
 
-const ziggy: SuggestionType = {
+const ziggy: AutocompleteInputSuggestion = {
   label: 'Ziggy',
   value: 'ziggy',
   description: 'High-energy troublemaker',
   image: '/images/illustration-cat.jpg',
 };
 
-const bella: SuggestionType = {
+const bella: AutocompleteInputSuggestion = {
   label: 'Bella',
   value: 'bella',
   description: 'Expects royal treatment at all times',
   image: '/images/illustration-cat.jpg',
 };
 
-const winston: SuggestionType = {
+const winston: AutocompleteInputSuggestion = {
   label: 'Winston',
   value: 'winston',
   description: 'Loves contemplating sunbeams',
   image: '/images/illustration-cat.jpg',
 };
 
-const pepper: SuggestionType = {
+const pepper: AutocompleteInputSuggestion = {
   label: 'Pepper',
   value: 'pepper',
   description: 'Spicy personality',
   image: '/images/illustration-cat.jpg',
 };
 
-export const suggestions: SuggestionType[] = [
+export const suggestions: AutocompleteInputSuggestion[] = [
   mochi,
   luna,
   oliver,
@@ -115,7 +115,7 @@ export const groupedSuggestions = [
   },
 ];
 
-export const catNames: SuggestionType[] = [
+export const catNames: AutocompleteInputSuggestion[] = [
   {
     label: 'Whiskers',
     value: 'whiskers',
@@ -158,7 +158,7 @@ export const catNames: SuggestionType[] = [
   },
 ];
 
-export const addresses: SuggestionType[] = [
+export const addresses: AutocompleteInputSuggestion[] = [
   {
     label: '123 Main St',
     value: '123 Main St, Springfield, IL',
