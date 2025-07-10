@@ -21,7 +21,7 @@ Use the AutocompleteInput component when you want to help users find and select 
 
 For short lists, consider using the [Select](Forms/Select/Docs) component instead.
 
-While the AutocompleteInput component is accessible, it can be complex to interact with, especially for keyboard and screen reader users. Use it only when necessary and aim to keep the interaction simple and respect the component usage recommendations as much as possible.
+While the AutocompleteInput component is accessible, it can be complex to interact with, especially for keyboard and screen reader users. Use it only when necessary and aim to keep the interaction simple and to respect the component usage recommendations as much as possible.
 
 ## How to use
 
@@ -38,10 +38,10 @@ While the AutocompleteInput component is accessible, it can be complex to intera
 ## Customisation
 
 - The "no results" screen can be customised using the `noResultsMessage` prop.
-- The "loading" screen can be customised using the `loadingLabel` prop.
+- The "loading" message can be customised using the `loadingLabel` prop.
 - The "load more" button label can be customised using the `loadMoreLabel` prop.
 - The suggestions can be customised by adding avatar images or icons and a description.
-- Use the `action` prop to add contextual actions at the bottom of the suggestion box, such as a button to create a new item.
+- Use the `action` prop to add a contextual action at the bottom of the suggestion box, such as a button to create a new item.
 
 <Story of={Stories.WithAction} />
 
@@ -49,11 +49,11 @@ While the AutocompleteInput component is accessible, it can be complex to intera
 
 ### Debouncing
 
-The component's `onSearch` callback is debounced by default to avoid excessive calls while the user types. The default debounce delay is set to 300 ms.
+The component's `onSearch` callback is debounced by default to avoid excessive calls while the user types. The debounce delay is set to 300 ms.
 
 ### Paginated results
 
-For better performance and scalability when loading dynamic, paginated results, use the `loadMore` prop to fetch additional suggestions. When this prop is provided, a "Load more" button appears at the bottom of the suggestion box. You can customize the button label with `loadMoreLabel`. Use `isLoadingMore` to indicate that more suggestions are being fetched, and `aria-setsize` to convey the total number of suggestions available to assistive technologies. Learn more about `aria-setsize` in the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-setsize).
+For better performance and scalability when loading dynamic, paginated results, use the `loadMore` prop to fetch additional suggestions. When this prop is provided, a "Load more" button appears at the bottom of the suggestion box. You can customize the button label with `loadMoreLabel`. Use the `isLoadingMore` prop to indicate that more suggestions are being fetched, and `aria-setsize` to convey the total number of suggestions available to assistive technologies. Learn more about `aria-setsize` in the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-setsize).
 
 <Story of={Stories.LoadMore} />
 
@@ -114,13 +114,16 @@ async function getSuggestions(query: string, signal: AbortSignal) {
 The AutocompleteInput component is designed to be accessible, adopting ARIA's [Combobox pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/). It includes:
 
 ### Keyboard navigation
+
 - Arrow down key: Opens the suggestion box
 - Escape key: Closes the suggestion box
 - Arrow Up/Down keys: navigate through suggestions
 - Enter key: selects an option
 
 ### Screen reader support
+
 The component announces the number of suggestions available and the selected option, if any.
 
 ### Focus management
+
 The component manages focus appropriately. The focus remains on the input field when the suggestion box is open, and navigated options are announced properly as the user navigates through them.
