@@ -39,7 +39,7 @@ export default {
     pauseAnimationAtEnd: true,
   },
   parameters: {
-    layout: 'padded',
+    layout: 'fullscreen',
   },
   decorators: [
     (Story) => (
