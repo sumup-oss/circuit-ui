@@ -1,5 +1,21 @@
 # @sumup-oss/circuit-ui
 
+## 10.6.0
+
+### Minor Changes
+
+- [#3143](https://github.com/sumup-oss/circuit-ui/pull/3143) [`a9e289e`](https://github.com/sumup-oss/circuit-ui/commit/a9e289e2eaf325c38030c686e9108ed27dd39bce) Thanks [@sirineJ](https://github.com/sirineJ)! - Added an experimental AutocompleteInput component. Use it to help users find and select an option from a large list of choices. It supports keyboard navigation, dynamic loading of results, and an immersive modal view on narrow viewports.
+
+### Patch Changes
+
+- [#3196](https://github.com/sumup-oss/circuit-ui/pull/3196) [`0898b75`](https://github.com/sumup-oss/circuit-ui/commit/0898b75b5655f2280381d4ab909381db76dd9de8) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed rendering the country code when the PhoneNumberInput component is readonly.
+
+- [#3143](https://github.com/sumup-oss/circuit-ui/pull/3143) [`a9e289e`](https://github.com/sumup-oss/circuit-ui/commit/a9e289e2eaf325c38030c686e9108ed27dd39bce) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed `isModal` from the Modal component's exposed props.
+
+- [#3196](https://github.com/sumup-oss/circuit-ui/pull/3196) [`0898b75`](https://github.com/sumup-oss/circuit-ui/commit/0898b75b5655f2280381d4ab909381db76dd9de8) Thanks [@connor-baer](https://github.com/connor-baer)! - Passed the `defaultValue` to the Select component's prefix render prop when the `value` is undefined.
+
+- [#3198](https://github.com/sumup-oss/circuit-ui/pull/3198) [`5ea51a7`](https://github.com/sumup-oss/circuit-ui/commit/5ea51a73b0c9c34b59713ea03e99cf9714c7c5b8) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the Toggle knob background color to better reflect the unchecked state.
+
 ## 10.5.2
 
 ### Patch Changes
