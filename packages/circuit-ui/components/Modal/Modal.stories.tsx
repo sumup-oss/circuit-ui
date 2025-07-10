@@ -99,6 +99,7 @@ export const Base = (modal: ModalProps) => {
 Base.args = baseArgs;
 Base.play = openModal;
 Base.parameters = {
+  layout: 'fullscreen',
   chromatic: {
     cropToViewport: true,
     modes: {
