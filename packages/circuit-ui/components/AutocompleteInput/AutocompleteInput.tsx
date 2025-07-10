@@ -242,6 +242,11 @@ export const AutocompleteInput = forwardRef<
       [onClear],
     );
 
+    const onPresentationFieldKeyDown = useCallback(() => {
+      setIsOpen(true);
+      setActiveSuggestion(0);
+    }, []);
+
     const onPresentationFieldClick = useCallback(() => {
       setIsOpen(true);
     }, []);
@@ -310,7 +315,7 @@ export const AutocompleteInput = forwardRef<
               ),
             );
           }
-        } else if (isArrowDown(event)) {
+        } else {
           setIsOpen(true);
           setActiveSuggestion(0);
         }
@@ -442,7 +447,7 @@ export const AutocompleteInput = forwardRef<
               readOnly || disabled ? undefined : onPresentationFieldClick
             }
             value={presentationFieldValue}
-            onKeyDown={undefined}
+            onKeyDown={onPresentationFieldKeyDown}
             aria-haspopup="dialog"
             aria-expanded={isOpen}
             onClear={onClear ? onPresentationFieldClear : undefined}

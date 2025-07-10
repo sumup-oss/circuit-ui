@@ -159,6 +159,17 @@ describe('Autocomplete', () => {
   });
 
   describe('Opening the suggestion box', () => {
+    it('should open suggestion box if the user types anything', async () => {
+      render(<AutocompleteInput {...props} />);
+      const input = screen.getByRole('combobox', { name: props.label });
+      await userEvent.type(input, 'AZERTY');
+      act(() => {
+        vi.runAllTimers();
+      });
+      expect(props.onSearch).toHaveBeenCalledExactlyOnceWith('AZERTY');
+
+      expect(screen.getByRole('listbox')).toBeVisible();
+    });
     it('should open suggestion box when suggestions are available', async () => {
       const { rerender } = render(
         <AutocompleteInput {...props} suggestions={[]} />,
@@ -266,7 +277,22 @@ describe('Autocomplete', () => {
       (useMedia as Mock).mockReturnValue(false);
     });
 
-    it('should open in a modal dialog', async () => {
+    it('should open in a modal dialog on (any) key press', async () => {
+      render(<AutocompleteInput {...props} variant="immersive" />);
+      // focus the input
+      await userEvent.keyboard('{Tab}');
+      // press anything
+      await userEvent.keyboard('m');
+
+      const dialog = screen.getByRole('dialog');
+
+      expect(dialog).toBeVisible();
+      expect(
+        within(dialog).getByRole('combobox', { name: props.label }),
+      ).toHaveValue('m');
+    });
+
+    it('should open in a modal dialog on click', async () => {
       render(<AutocompleteInput {...props} variant="immersive" />);
       await userEvent.click(screen.getByLabelText(props.label));
 
