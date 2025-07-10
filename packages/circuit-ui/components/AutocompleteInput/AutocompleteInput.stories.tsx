@@ -446,6 +446,7 @@ Immersive.args = { ...baseArgs };
 Immersive.play = openAutocomplete();
 Immersive.parameters = {
   chromatic: {
+    cropToViewport: true,
     modes: {
       mobile: modes.smallMobile,
     },
