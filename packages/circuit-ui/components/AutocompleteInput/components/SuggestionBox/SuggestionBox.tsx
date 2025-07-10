@@ -38,7 +38,7 @@ export type AutocompleteInputSuggestionGroup = {
   suggestions: AutocompleteInputSuggestion[];
 };
 
-export type AutocompleteInputSuggestions =
+type AutocompleteInputSuggestions =
   | AutocompleteInputSuggestionGroup[]
   | AutocompleteInputSuggestion[];
 
