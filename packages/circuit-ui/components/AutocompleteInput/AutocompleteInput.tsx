@@ -165,11 +165,11 @@ export const AutocompleteInput = forwardRef<
       translations,
     );
 
-    const [searchText, setSearchText] = useState(value?.label);
+    const [searchText, setSearchText] = useState(value?.label ?? '');
 
     // used only for immmersive variant
     const [presentationFieldValue, setPresentationFieldValue] = useState(
-      value?.label,
+      value?.label ?? '',
     );
     const isMobile = useMedia('(max-width: 479px)');
     const isImmersive = isMobile && variant === 'immersive';

@@ -128,7 +128,6 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
             id={inputId}
             value={value}
             data-id={comboboxInputId}
-            defaultValue={value}
             ref={applyMultipleRefs(localRef, ref)}
             aria-describedby={descriptionIds}
             className={clsx(
