@@ -263,8 +263,13 @@ const messages = [
 export const Base = (args: AutocompleteInputProps) => {
   const [autocompleteValue, setAutocompleteValue] = useState(args.value);
   const [suggestions, setSuggestions] = useState(args.suggestions);
+  const [isLoading, setIsLoading] = useState(false);
   const onSearchTextChange = (searchText: string) => {
-    setSuggestions(filterSuggestions(searchText, args.suggestions));
+    setIsLoading(true);
+    setTimeout(() => {
+      setSuggestions(filterSuggestions(searchText, args.suggestions));
+      setIsLoading(false);
+    }, 1500);
   };
   const onChange = (value?: AutocompleteInputSuggestion) => {
     setAutocompleteValue(value);
@@ -279,6 +284,7 @@ export const Base = (args: AutocompleteInputProps) => {
       {...args}
       value={autocompleteValue}
       suggestions={suggestions}
+      isLoading={isLoading}
       onChange={onChange}
       onSearch={onSearchTextChange}
       onClear={onClear}
