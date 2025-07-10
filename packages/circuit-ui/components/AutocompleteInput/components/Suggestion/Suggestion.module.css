@@ -1,0 +1,101 @@
+.base {
+  display: flex;
+  align-items: start;
+  min-height: 40px;
+  padding: var(--cui-spacings-byte);
+  margin-bottom: var(--cui-spacings-bit);
+  cursor: pointer;
+  background-color: var(--cui-bg-elevated);
+  border-radius: var(--cui-border-radius-byte);
+  transition: all var(--cui-transitions-default);
+}
+
+.align-center {
+  align-items: center;
+}
+
+.base:hover {
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+.base:active {
+  background-color: var(--cui-bg-normal-pressed);
+}
+
+.base:focus,
+.base.focused {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--cui-border-accent);
+}
+
+.selected {
+  background-color: var(--cui-bg-subtle);
+}
+
+.media {
+  margin-right: var(--cui-spacings-kilo);
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--cui-spacings-bit);
+}
+
+.has-media {
+  justify-content: center;
+  min-height: 32px;
+}
+
+.media img {
+  display: block;
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--cui-border-radius-circle);
+}
+
+.media .icon {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  background-color: var(--cui-bg-subtle);
+  border-radius: var(--cui-border-radius-circle);
+}
+
+.media .icon.is-new {
+  width: unset;
+  height: unset;
+  background-color: transparent;
+}
+
+.checkbox {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+  margin-left: var(--cui-spacings-byte);
+  background-color: var(--cui-bg-normal);
+  border: var(--cui-border-width-kilo) solid var(--cui-border-normal);
+  border-radius: var(--cui-border-radius-bit);
+  transition: all var(--cui-transitions-default);
+}
+
+.checkbox svg,
+.media .icon svg {
+  margin: auto;
+}
+
+@media (min-width: 480px) {
+  .media img,
+  .media .icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .has-media {
+    min-height: 40px;
+  }
+}

@@ -39,7 +39,7 @@ export default {
     pauseAnimationAtEnd: true,
   },
   parameters: {
-    layout: 'padded',
+    layout: 'fullscreen',
   },
   decorators: [
     (Story) => (
@@ -98,6 +98,15 @@ export const Base = (modal: ModalProps) => {
 };
 Base.args = baseArgs;
 Base.play = openModal;
+Base.parameters = {
+  layout: 'fullscreen',
+  chromatic: {
+    cropToViewport: true,
+    modes: {
+      mobile: modes.smallMobile,
+    },
+  },
+};
 
 export const WithUseModal = (modal: ModalProps) => {
   const ComponentWithModal = () => {
@@ -165,9 +174,12 @@ export const Immersive = () => {
     </>
   );
 };
-Immersive.chromatic = {
-  modes: {
-    mobile: modes.smallMobile,
+Immersive.parameters = {
+  chromatic: {
+    cropToViewport: true,
+    modes: {
+      mobile: modes.smallMobile,
+    },
   },
 };
 Immersive.play = openModal;

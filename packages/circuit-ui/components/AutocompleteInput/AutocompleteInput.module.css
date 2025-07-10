@@ -1,0 +1,95 @@
+.input {
+  padding-right: var(--cui-spacings-exa);
+}
+
+.results {
+  z-index: var(--cui-z-index-popover);
+  max-height: min(443px, var(--suggestion-box-max-height));
+  overflow-y: auto;
+  background-color: var(--cui-bg-elevated);
+  border-radius: var(--cui-border-radius-byte);
+  box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
+}
+
+.results::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  display: block;
+  height: var(--cui-spacings-mega);
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(
+    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 1%, transparent)
+  );
+  border-radius: inherit;
+}
+
+.popup::after {
+  position: absolute;
+  right: 0;
+  bottom: env(safe-area-inset-bottom);
+  left: 0;
+  display: block;
+  height: var(--cui-spacings-mega);
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(
+    color-mix(in sRGB, var(--cui-bg-elevated) 1%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent)
+  );
+  border-radius: inherit;
+}
+
+.modal {
+  height: 90vh;
+  height: 90dvh;
+}
+
+.modal ul[role="listbox"] {
+  padding: 0;
+  margin-top: var(--cui-spacings-mega);
+}
+
+.modal .modal-content {
+  position: relative;
+  padding-top: 0;
+}
+
+.modal-input {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding-top: var(--cui-spacings-giga);
+  background-color: var(--cui-bg-elevated);
+}
+
+.modal-input::after {
+  position: absolute;
+  right: 0;
+  bottom: calc(-1 * var(--cui-spacings-mega));
+  left: 0;
+  display: block;
+  height: var(--cui-spacings-mega);
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(
+    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 1%, transparent)
+  );
+  border-radius: inherit;
+}
+
+.no-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--cui-spacings-mega);
+}
