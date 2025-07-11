@@ -1,5 +1,15 @@
 # @sumup-oss/circuit-ui
 
+## 10.7.0
+
+### Minor Changes
+
+- [#3200](https://github.com/sumup-oss/circuit-ui/pull/3200) [`f48955a`](https://github.com/sumup-oss/circuit-ui/commit/f48955aa1cf7461c10a7801b108cafc275fe76c6) Thanks [@sirineJ](https://github.com/sirineJ)! - Rename AutocompleteInput's `suggestions` prop to `options`.
+
+### Patch Changes
+
+- [#3199](https://github.com/sumup-oss/circuit-ui/pull/3199) [`499d93c`](https://github.com/sumup-oss/circuit-ui/commit/499d93cb30985520a2802cbf470e8cb37aca135d) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed rendering issues in the AutocompleteInput when rendered inside a scrollable container.
+
 ## 10.6.0
 
 ### Minor Changes
