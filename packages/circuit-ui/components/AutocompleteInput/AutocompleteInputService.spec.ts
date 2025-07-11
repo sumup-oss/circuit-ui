@@ -16,55 +16,55 @@
 import { describe, expect, it } from 'vitest';
 
 import {
-  getSuggestionByValue,
+  getOptionByValue,
   isGroup,
-  isSuggestionFocused,
+  isOptionFocused,
 } from './AutocompleteInputService.js';
 
 describe('AutocompleteService', () => {
-  describe('getSuggestionByValue', () => {
+  describe('getOptionByValue', () => {
     it('returns undefined if value is undefined', () => {
-      const suggestions = [{ value: 'test', label: 'Test' }];
-      expect(getSuggestionByValue(suggestions)).toBe(undefined);
+      const options = [{ value: 'test', label: 'Test' }];
+      expect(getOptionByValue(options)).toBe(undefined);
     });
 
     it('returns an object for given value', () => {
-      const suggestions = [{ value: 'test', label: 'Test' }];
-      expect(getSuggestionByValue(suggestions, 'test')).toBe(suggestions[0]);
+      const options = [{ value: 'test', label: 'Test' }];
+      expect(getOptionByValue(options, 'test')).toBe(options[0]);
     });
 
-    it('returns undefined if no matching suggestion was found', () => {
-      const suggestions = [{ value: 'test', label: 'Test' }];
-      expect(getSuggestionByValue(suggestions, 'unknown')).toBe(undefined);
+    it('returns undefined if no matching option was found', () => {
+      const options = [{ value: 'test', label: 'Test' }];
+      expect(getOptionByValue(options, 'unknown')).toBe(undefined);
     });
   });
 
-  describe('isSuggestionFocused', () => {
-    it('returns false if activeSuggestion is undefined', () => {
-      expect(isSuggestionFocused([], '', undefined)).toBe(false);
+  describe('isOptionFocused', () => {
+    it('returns false if activeOption is undefined', () => {
+      expect(isOptionFocused([], '', undefined)).toBe(false);
     });
 
-    it('returns true if activeSuggestion matches a value', () => {
-      expect(isSuggestionFocused(['test'], 'test', 0)).toBe(true);
+    it('returns true if activeOption matches a value', () => {
+      expect(isOptionFocused(['test'], 'test', 0)).toBe(true);
     });
 
-    it('returns false if activeSuggestion does not match any value', () => {
-      expect(isSuggestionFocused(['test'], 'other', 0)).toBe(false);
+    it('returns false if activeOption does not match any value', () => {
+      expect(isOptionFocused(['test'], 'other', 0)).toBe(false);
     });
   });
 
   describe('isGroup', () => {
-    it('returns true for group suggestion', () => {
+    it('returns true for a group of options', () => {
       const group = {
         label: 'Group',
-        suggestions: [{ value: '1', label: 'One' }],
+        options: [{ value: '1', label: 'One' }],
       };
       expect(isGroup(group)).toBe(true);
     });
 
-    it('returns false for single suggestion', () => {
-      const suggestion = { value: '1', label: 'One' };
-      expect(isGroup(suggestion)).toBe(false);
+    it('returns false for single option', () => {
+      const option = { value: '1', label: 'One' };
+      expect(isGroup(option)).toBe(false);
     });
   });
 });

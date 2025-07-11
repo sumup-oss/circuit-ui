@@ -39,7 +39,7 @@ li:last-of-type {
   margin-left: var(--cui-spacings-byte);
 }
 
-.group-suggestion {
+.group-option {
   padding: 0;
   margin: var(--cui-spacings-mega) 0;
   list-style-type: none;

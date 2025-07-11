@@ -16,14 +16,14 @@
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { render, screen, userEvent } from '../../../../util/test-utils.js';
-import { suggestions } from '../../fixtures.js';
+import { options } from '../../fixtures.js';
 
 import { Results, type ResultsProps } from './Results.js';
 
 const props = {
-  suggestions,
-  onSuggestionClick: vi.fn(),
-  suggestionIdPrefix: 'autocomplete-id',
+  options,
+  onOptionClick: vi.fn(),
+  optionIdPrefix: 'autocomplete-id',
   label: 'label',
   resultsSummary: 'results summary',
   loadMoreLabel: 'Load more',
@@ -34,21 +34,19 @@ describe('Results', () => {
     HTMLElement.prototype.scrollIntoView = vi.fn();
   });
 
-  it('should render suggestions correctly', () => {
+  it('should render options correctly', () => {
     render(<Results {...props} />);
     expect(screen.getByRole('listbox')).toBeVisible();
-    expect(screen.getAllByRole('option')).toHaveLength(
-      props.suggestions.length,
-    );
+    expect(screen.getAllByRole('option')).toHaveLength(props.options.length);
   });
 
-  it('should call onSuggestionClick when a suggestion is clicked', async () => {
+  it('should call onOptionClick when an option is clicked', async () => {
     render(<Results {...props} />);
 
-    await userEvent.click(screen.getByText(props.suggestions[0].label));
-    expect(props.onSuggestionClick).toHaveBeenCalledWith({
-      value: props.suggestions[0].value,
-      label: props.suggestions[0].label,
+    await userEvent.click(screen.getByText(props.options[0].label));
+    expect(props.onOptionClick).toHaveBeenCalledWith({
+      value: props.options[0].value,
+      label: props.options[0].label,
     });
   });
 
@@ -64,14 +62,9 @@ describe('Results', () => {
 
       expect(screen.getByRole('status')).toHaveAttribute('aria-busy', 'true');
     });
-    it('should render a loading message when isLoading is true and suggestions are empty', () => {
+    it('should render a loading message when isLoading is true and options are empty', () => {
       render(
-        <Results
-          {...props}
-          suggestions={[]}
-          isLoading
-          loadingLabel="Loading..."
-        />,
+        <Results {...props} options={[]} isLoading loadingLabel="Loading..." />,
       );
 
       expect(screen.getByText('Loading...')).toBeVisible();
@@ -79,14 +72,10 @@ describe('Results', () => {
   });
 
   describe('empty results state', () => {
-    it('should render a no results message when suggestions are empty and not loading', () => {
+    it('should render a no results message when options are empty and not loading', () => {
       const noResultsMessage = 'No results found';
       render(
-        <Results
-          {...props}
-          suggestions={[]}
-          noResultsMessage={noResultsMessage}
-        />,
+        <Results {...props} options={[]} noResultsMessage={noResultsMessage} />,
       );
 
       expect(screen.getByText(noResultsMessage)).toBeVisible();

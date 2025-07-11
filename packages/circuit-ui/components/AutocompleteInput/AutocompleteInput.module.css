@@ -4,7 +4,7 @@
 
 .results {
   z-index: var(--cui-z-index-popover);
-  max-height: min(443px, var(--suggestion-box-max-height));
+  max-height: min(443px, var(--results-max-height));
   overflow-y: auto;
   background-color: var(--cui-bg-elevated);
   border-radius: var(--cui-border-radius-byte);

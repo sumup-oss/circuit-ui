@@ -21,9 +21,9 @@ import { type HTMLAttributes, useEffect, useId, useRef } from 'react';
 import { clsx } from '../../../../styles/clsx.js';
 import { Compact } from '../../../Compact/index.js';
 
-import classes from './Suggestion.module.css';
+import classes from './Option.module.css';
 
-export type AutocompleteInputSuggestion = {
+export type AutocompleteInputOption = {
   value: string;
   label: string;
   description?: string;
@@ -31,35 +31,35 @@ export type AutocompleteInputSuggestion = {
   image?: string | IconComponentType;
 };
 
-export type SuggestionProps = HTMLAttributes<HTMLLIElement> &
-  AutocompleteInputSuggestion & {
+export type OptionProps = HTMLAttributes<HTMLLIElement> &
+  AutocompleteInputOption & {
     isSelectable?: boolean;
     isFocused?: boolean;
-    onSuggestionClick: (value: AutocompleteInputSuggestion) => void;
+    onOptionClick: (value: AutocompleteInputOption) => void;
     isNew?: boolean;
   };
 
-export const Suggestion = ({
+export const Option = ({
   label,
   description,
   image,
   selected,
   isSelectable,
   isFocused,
-  onSuggestionClick,
+  onOptionClick,
   value,
   className,
   isNew,
   ...props
-}: SuggestionProps) => {
+}: OptionProps) => {
   const labelId = useId();
-  const suggestionRef = useRef<HTMLLIElement>(null);
+  const optionRef = useRef<HTMLLIElement>(null);
   const icon = typeof image === 'string' ? undefined : image;
   const Icon = isNew ? Plus : icon;
 
   useEffect(() => {
     if (isFocused) {
-      suggestionRef?.current?.scrollIntoView({
+      optionRef?.current?.scrollIntoView({
         block: 'nearest',
         inline: 'nearest',
       });
@@ -70,7 +70,7 @@ export const Suggestion = ({
     <li
       tabIndex={0}
       {...props}
-      ref={suggestionRef}
+      ref={optionRef}
       // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: list element has all necessary attributes to be interactive
       role="option"
       className={clsx(
@@ -81,14 +81,14 @@ export const Suggestion = ({
         className,
       )}
       aria-selected={selected}
-      onClick={() => onSuggestionClick({ label, value })}
+      onClick={() => onOptionClick({ label, value })}
     >
       {image && (
         <div className={classes.media}>
           {Icon && (
             <div
               aria-hidden
-              data-testid={`suggestion-icon-${value}`}
+              data-testid={`option-icon-${value}`}
               className={clsx(
                 classes.icon,
                 isNew && !description && !icon && classes['is-new'],
@@ -98,7 +98,7 @@ export const Suggestion = ({
             </div>
           )}
           {typeof image === 'string' && (
-            <img data-testid={`suggestion-image-${value}`} src={image} alt="" />
+            <img data-testid={`option-image-${value}`} src={image} alt="" />
           )}
         </div>
       )}
@@ -119,7 +119,7 @@ export const Suggestion = ({
       </div>
       {isSelectable && (
         <div
-          data-testid={`suggestion-checkbox-${value}`}
+          data-testid={`option-checkbox-${value}`}
           className={clsx(classes.checkbox, selected && classes.selected)}
         >
           {selected && <Checkmark size="16" />}

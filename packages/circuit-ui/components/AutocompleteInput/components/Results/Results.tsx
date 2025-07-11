@@ -18,10 +18,7 @@
 import { forwardRef, type ReactNode } from 'react';
 
 import { utilClasses } from '../../../../styles/utility.js';
-import {
-  SuggestionBox,
-  type SuggestionBoxProps,
-} from '../SuggestionBox/SuggestionBox.js';
+import { Options, type OptionsProps } from '../Options/Options.js';
 import { Hr } from '../../../Hr/index.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { Spinner } from '../../../Spinner/index.js';
@@ -29,17 +26,17 @@ import { Button, type ButtonProps } from '../../../Button/index.js';
 
 import classes from './Results.module.css';
 
-export type ResultsProps = SuggestionBoxProps & {
+export type ResultsProps = OptionsProps & {
   /**
-   * Custom label to display while loading suggestions.
+   * Custom label to display while loading options.
    */
   loadingLabel?: string;
   /**
-   * Custom content to display when no suggestions are available.
+   * Custom content to display when no options are available.
    */
   noResultsMessage?: ReactNode;
   /**
-   * An optional button to display below the suggestion box.
+   * An optional button to display below the options.
    */
   action?: Omit<ButtonProps, 'variant' | 'size'>;
   resultsSummary: string;
@@ -53,14 +50,14 @@ export const Results = forwardRef<HTMLDivElement, ResultsProps>(
       isLoadingMore,
       loadingLabel,
       noResultsMessage,
-      suggestions,
+      options,
       value,
-      onSuggestionClick,
+      onOptionClick,
       label,
-      activeSuggestion,
+      activeOption,
       loadMore,
       action,
-      suggestionIdPrefix,
+      optionIdPrefix,
       allowNewItems,
       searchText,
       resultsSummary,
@@ -87,27 +84,23 @@ export const Results = forwardRef<HTMLDivElement, ResultsProps>(
       >
         {resultsSummary}
       </div>
-      {isLoading && suggestions.length === 0 && (
+      {isLoading && options.length === 0 && (
         <div className={classes.loading}>
-          <Spinner data-testid="suggestions-loading-spinner" />
+          <Spinner data-testid="options-loading-spinner" />
           {loadingLabel}
         </div>
       )}
-      {!isLoading &&
-        suggestions.length === 0 &&
-        !allowNewItems &&
-        noResultsMessage}
+      {!isLoading && options.length === 0 && !allowNewItems && noResultsMessage}
 
-      {(suggestions.length > 0 ||
-        (allowNewItems && suggestions.length === 0)) && (
+      {(options.length > 0 || (allowNewItems && options.length === 0)) && (
         <>
-          <SuggestionBox
+          <Options
             value={value}
-            suggestions={suggestions}
-            onSuggestionClick={onSuggestionClick}
+            options={options}
+            onOptionClick={onOptionClick}
             label={label}
-            suggestionIdPrefix={suggestionIdPrefix}
-            activeSuggestion={activeSuggestion}
+            optionIdPrefix={optionIdPrefix}
+            activeOption={activeOption}
             isLoading={isLoading}
             isLoadingMore={isLoadingMore}
             loadMore={loadMore}

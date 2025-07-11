@@ -18,42 +18,42 @@ import { Favorite } from '@sumup-oss/icons';
 
 import { render, screen, userEvent } from '../../../../util/test-utils.js';
 
-import { Suggestion, type SuggestionProps } from './Suggestion.js';
+import { Option, type OptionProps } from './Option.js';
 
 const description = 'A gentle giant';
 
-const props: SuggestionProps = {
+const props: OptionProps = {
   label: 'Mochi',
   value: 'mochi',
   description,
   image: '/images/illustration-cat-mochi.jpg',
   isSelectable: false,
   isFocused: false,
-  onSuggestionClick: vi.fn(),
+  onOptionClick: vi.fn(),
   onKeyDown: vi.fn(),
 };
 
-describe('Suggestion', () => {
+describe('Option', () => {
   it('should render with leading icon', () => {
-    render(<Suggestion {...props} image={Favorite} />);
+    render(<Option {...props} image={Favorite} />);
 
     expect(screen.getByText(props.label)).toBeVisible();
     expect(screen.getByText(description)).toBeVisible();
-    expect(screen.getByTestId(`suggestion-icon-${props.value}`)).toBeVisible();
+    expect(screen.getByTestId(`option-icon-${props.value}`)).toBeVisible();
   });
 
   it('should render with leading image', () => {
-    render(<Suggestion {...props} />);
+    render(<Option {...props} />);
 
     expect(screen.getByText(props.label)).toBeVisible();
-    expect(screen.getByTestId(`suggestion-image-${props.value}`)).toBeVisible();
+    expect(screen.getByTestId(`option-image-${props.value}`)).toBeVisible();
   });
 
-  it('should call onSuggestionClick when clicked', async () => {
-    render(<Suggestion {...props} />);
+  it('should call onOptionClick when clicked', async () => {
+    render(<Option {...props} />);
 
     await userEvent.click(screen.getByText(props.label));
-    expect(props.onSuggestionClick).toHaveBeenCalledWith({
+    expect(props.onOptionClick).toHaveBeenCalledWith({
       value: props.value,
       label: props.label,
     });
