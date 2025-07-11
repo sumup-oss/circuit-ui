@@ -93,3 +93,29 @@
   justify-content: center;
   padding: var(--cui-spacings-mega);
 }
+
+/* When an input element gets focused, iOS Safari tries to put it in the center by scrolling (and zooming.)
+Zooming can be easily disabled using a meta tag, but the scrolling hasn't been quite easy.
+The main quirk (I think) is that iOS Safari changes viewport when scrolling; i.e., toolbars shrink.
+Since the viewport _should_ change, it thinks the input _will_ move, so it _should_ scroll, always.
+Even times when it doesn't need to scroll—the input is fixed, all we need is the keyboard—
+the window always scrolls _up and down_ resulting in some janky animation.
+
+https://gist.github.com/kiding/72721a0553fa93198ae2bb6eefaa3299
+*/
+
+@keyframes blink-input-opacity-to-prevent-scrolling-when-focus {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 479px) {
+  .input:focus {
+    animation: blink-input-opacity-to-prevent-scrolling-when-focus 0.01s;
+  }
+}
