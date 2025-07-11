@@ -173,6 +173,7 @@ export const AutocompleteInput = forwardRef<
       value?.label ?? '',
     );
     const isMobile = useMedia('(max-width: 479px)');
+    const hasTouch = !useMedia('(hover: hover) and (pointer: fine)');
     const isImmersive = isMobile && variant === 'immersive';
     const [isOpen, setIsOpen] = useState(false);
     const [activeSuggestion, setActiveSuggestion] = useState<number>();
@@ -356,7 +357,7 @@ export const AutocompleteInput = forwardRef<
     // biome-ignore lint/correctness/useExhaustiveDependencies: we need to update the floating element styles if the suggestions length changes
     useEffect(() => {
       if (isOpen) {
-        if (isMobile) {
+        if (isMobile && hasTouch) {
           textBoxRef.current?.scrollIntoView({ behavior: 'smooth' });
         }
         update();
