@@ -27,6 +27,7 @@ import {
   useState,
 } from 'react';
 import {
+  autoUpdate,
   flip,
   offset,
   shift,
@@ -266,6 +267,7 @@ export const AutocompleteInput = forwardRef<
         flip({ padding: boundaryPadding, fallbackPlacements: ['top'] }),
         size(sizeOptions),
       ],
+      whileElementsMounted: autoUpdate,
     });
 
     useEffect(() => {
@@ -354,6 +356,9 @@ export const AutocompleteInput = forwardRef<
     // biome-ignore lint/correctness/useExhaustiveDependencies: we need to update the floating element styles if the suggestions length changes
     useEffect(() => {
       if (isOpen) {
+        if (isMobile) {
+          textBoxRef.current?.scrollIntoView({ behavior: 'smooth' });
+        }
         update();
       }
     }, [isOpen, update, suggestions.length]);
@@ -465,6 +470,7 @@ export const AutocompleteInput = forwardRef<
               ref={textBoxRef}
               {...comboboxProps}
               className={classes['modal-input']}
+              inputClassName={classes.input}
               aria-expanded={true}
             />
 
