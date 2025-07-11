@@ -15,79 +15,79 @@
 
 import { Location } from '@sumup-oss/icons';
 
-import type { AutocompleteInputSuggestion } from './components/Suggestion/Suggestion.js';
+import type { AutocompleteInputOption } from './components/Option/Option.js';
 
-export const mochi: AutocompleteInputSuggestion = {
+export const mochi: AutocompleteInputOption = {
   label: 'Mochi',
   value: 'mochi',
   description: 'A gentle giant',
   image: '/images/illustration-cat.jpg',
 };
 
-export const luna: AutocompleteInputSuggestion = {
+export const luna: AutocompleteInputOption = {
   label: 'Luna',
   value: 'luna',
   description: 'Mischievous night owl',
   image: '/images/illustration-cat.jpg',
 };
 
-export const oliver: AutocompleteInputSuggestion = {
+export const oliver: AutocompleteInputOption = {
   label: 'Oliver',
   value: 'oliver',
   description: 'Distinguished gentleman',
   image: '/images/illustration-cat.jpg',
 };
 
-const sushi: AutocompleteInputSuggestion = {
+const sushi: AutocompleteInputOption = {
   label: 'Sushi',
   value: 'sushi',
   description: 'Playful acrobat',
   image: '/images/illustration-cat.jpg',
 };
 
-const shadow: AutocompleteInputSuggestion = {
+const shadow: AutocompleteInputOption = {
   label: 'Shadow',
   value: 'shadow',
   description: 'Mysterious introvert',
   image: '/images/illustration-cat.jpg',
 };
 
-const maple: AutocompleteInputSuggestion = {
+const maple: AutocompleteInputOption = {
   label: 'Maple',
   value: 'maple',
   description: 'Sweet and clingy',
   image: '/images/illustration-cat.jpg',
 };
 
-const ziggy: AutocompleteInputSuggestion = {
+const ziggy: AutocompleteInputOption = {
   label: 'Ziggy',
   value: 'ziggy',
   description: 'High-energy troublemaker',
   image: '/images/illustration-cat.jpg',
 };
 
-const bella: AutocompleteInputSuggestion = {
+const bella: AutocompleteInputOption = {
   label: 'Bella',
   value: 'bella',
   description: 'Expects royal treatment at all times',
   image: '/images/illustration-cat.jpg',
 };
 
-const winston: AutocompleteInputSuggestion = {
+const winston: AutocompleteInputOption = {
   label: 'Winston',
   value: 'winston',
   description: 'Loves contemplating sunbeams',
   image: '/images/illustration-cat.jpg',
 };
 
-const pepper: AutocompleteInputSuggestion = {
+const pepper: AutocompleteInputOption = {
   label: 'Pepper',
   value: 'pepper',
   description: 'Spicy personality',
   image: '/images/illustration-cat.jpg',
 };
 
-export const suggestions: AutocompleteInputSuggestion[] = [
+export const options: AutocompleteInputOption[] = [
   mochi,
   luna,
   oliver,
@@ -100,22 +100,22 @@ export const suggestions: AutocompleteInputSuggestion[] = [
   pepper,
 ];
 
-export const groupedSuggestions = [
+export const groupedOptions = [
   {
     label: 'Kittens',
-    suggestions: [mochi, luna, oliver],
+    options: [mochi, luna, oliver],
   },
   {
     label: 'Adult Cats',
-    suggestions: [sushi, shadow, maple],
+    options: [sushi, shadow, maple],
   },
   {
     label: 'Senior Cats',
-    suggestions: [ziggy, bella, winston, pepper],
+    options: [ziggy, bella, winston, pepper],
   },
 ];
 
-export const catNames: AutocompleteInputSuggestion[] = [
+export const catNames: AutocompleteInputOption[] = [
   {
     label: 'Whiskers',
     value: 'whiskers',
@@ -158,7 +158,7 @@ export const catNames: AutocompleteInputSuggestion[] = [
   },
 ];
 
-export const addresses: AutocompleteInputSuggestion[] = [
+export const addresses: AutocompleteInputOption[] = [
   {
     label: '123 Main St',
     value: '123 Main St, Springfield, IL',

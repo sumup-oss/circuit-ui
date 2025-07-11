@@ -14,33 +14,31 @@
  */
 
 import type { AutocompleteInputProps } from './AutocompleteInput.js';
-import type { AutocompleteInputSuggestion } from './components/Suggestion/Suggestion.js';
-import type { AutocompleteInputSuggestionGroup } from './components/SuggestionBox/SuggestionBox.js';
+import type { AutocompleteInputOption } from './components/Option/Option.js';
+import type { AutocompleteInputOptionGroup } from './components/Options/Options.js';
 
 export const isGroup = (
-  suggestion: AutocompleteInputSuggestionGroup | AutocompleteInputSuggestion,
-): suggestion is AutocompleteInputSuggestionGroup =>
-  suggestion && 'label' in suggestion && 'suggestions' in suggestion;
+  option: AutocompleteInputOptionGroup | AutocompleteInputOption,
+): option is AutocompleteInputOptionGroup =>
+  option && 'label' in option && 'options' in option;
 
-export const getSuggestionByValue = (
-  suggestions: AutocompleteInputProps['suggestions'],
+export const getOptionByValue = (
+  options: AutocompleteInputProps['options'],
   value?: string,
-): AutocompleteInputSuggestion | undefined => {
+): AutocompleteInputOption | undefined => {
   if (!value) {
     return undefined;
   }
-  const flatSuggestions = suggestions.flatMap((suggestion) =>
-    isGroup(suggestion) ? suggestion.suggestions : suggestion,
+  const flatOptions = options.flatMap((option) =>
+    isGroup(option) ? option.options : option,
   );
 
-  return flatSuggestions.find((suggestion) => suggestion.value === value);
+  return flatOptions.find((option) => option.value === value);
 };
 
-export const isSuggestionFocused = (
-  suggestionValues: string[],
+export const isOptionFocused = (
+  optionValues: string[],
   value: string,
-  activeSuggestion?: number,
+  activeOption?: number,
 ) =>
-  activeSuggestion !== undefined
-    ? suggestionValues[activeSuggestion] === value
-    : false;
+  activeOption !== undefined ? optionValues[activeOption] === value : false;

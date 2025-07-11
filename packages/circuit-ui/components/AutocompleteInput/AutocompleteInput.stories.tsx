@@ -26,15 +26,15 @@ import { modes } from '../../../../.storybook/modes.js';
 import {
   addresses,
   catNames,
-  groupedSuggestions,
-  suggestions as mockSuggestions,
+  groupedOptions,
+  options as mockOptions,
 } from './fixtures.js';
 import {
   AutocompleteInput,
   type AutocompleteInputProps,
 } from './AutocompleteInput.js';
 import { isGroup } from './AutocompleteInputService.js';
-import type { AutocompleteInputSuggestion } from './components/Suggestion/Suggestion.js';
+import type { AutocompleteInputOption } from './components/Option/Option.js';
 
 export default {
   title: 'Forms/AutocompleteInput',
@@ -62,30 +62,30 @@ export default {
         category: 'Value & change handling',
       },
     },
-    // Suggestions & results
-    suggestions: {
+    // Options & results
+    options: {
       table: {
-        category: 'Suggestions & results',
+        category: 'Options & results',
       },
     },
     allowNewItems: {
       table: {
-        category: 'Suggestions & results',
+        category: 'Options & results',
       },
     },
     isLoadingMore: {
       table: {
-        category: 'Suggestions & results',
+        category: 'Options & results',
       },
     },
     loadMore: {
       table: {
-        category: 'Suggestions & results',
+        category: 'Options & results',
       },
     },
     isLoading: {
       table: {
-        category: 'Suggestions & results',
+        category: 'Options & results',
       },
     },
     // Input
@@ -215,9 +215,9 @@ export default {
 const baseArgs: AutocompleteInputProps = {
   label: 'Choose your cat',
   placeholder: 'Whiskers',
-  suggestions: mockSuggestions,
+  options: mockOptions,
   validationHint: 'All our cats have been neutered and vaccinated.',
-  onChange: (value?: AutocompleteInputSuggestion) => action('onChange')(value),
+  onChange: (value?: AutocompleteInputOption) => action('onChange')(value),
   onSearch: (text) => action('onSearch')(text),
 };
 
@@ -235,18 +235,16 @@ const openAutocomplete =
     await screen.findByText(text ?? 'Luna');
   };
 
-const filterSuggestions = (
+const filterOptions = (
   searchText: string,
-  allSuggestions: AutocompleteInputProps['suggestions'],
+  allOptions: AutocompleteInputProps['options'],
 ) =>
-  allSuggestions
-    .flatMap((suggestion) =>
-      isGroup(suggestion) ? suggestion.suggestions : suggestion,
-    )
+  allOptions
+    .flatMap((option) => (isGroup(option) ? option.options : option))
     .filter(
-      (suggestion) =>
-        suggestion.value.includes(searchText.trim().toLowerCase()) ||
-        suggestion.label.includes(searchText.trim().toLowerCase()),
+      (option) =>
+        option.value.includes(searchText.trim().toLowerCase()) ||
+        option.label.includes(searchText.trim().toLowerCase()),
     );
 
 const messages = [
@@ -262,16 +260,16 @@ const messages = [
 
 export const Base = (args: AutocompleteInputProps) => {
   const [autocompleteValue, setAutocompleteValue] = useState(args.value);
-  const [suggestions, setSuggestions] = useState(args.suggestions);
+  const [options, setOptions] = useState(args.options);
   const [isLoading, setIsLoading] = useState(false);
   const onSearchTextChange = (searchText: string) => {
     setIsLoading(true);
     setTimeout(() => {
-      setSuggestions(filterSuggestions(searchText, args.suggestions));
+      setOptions(filterOptions(searchText, args.options));
       setIsLoading(false);
     }, 1500);
   };
-  const onChange = (value?: AutocompleteInputSuggestion) => {
+  const onChange = (value?: AutocompleteInputOption) => {
     setAutocompleteValue(value);
   };
 
@@ -283,7 +281,7 @@ export const Base = (args: AutocompleteInputProps) => {
     <AutocompleteInput
       {...args}
       value={autocompleteValue}
-      suggestions={suggestions}
+      options={options}
       isLoading={isLoading}
       onChange={onChange}
       onSearch={onSearchTextChange}
@@ -299,7 +297,7 @@ export const WithIcons = (args: AutocompleteInputProps) => (
 );
 WithIcons.args = {
   ...baseArgs,
-  suggestions: addresses,
+  options: addresses,
   label: 'Address',
   placeholder: 'Type an address',
   validationHint: undefined,
@@ -312,7 +310,7 @@ export const Grouped = (args: AutocompleteInputProps) => (
 
 Grouped.args = {
   ...baseArgs,
-  suggestions: groupedSuggestions,
+  options: groupedOptions,
 };
 Grouped.play = openAutocomplete();
 
@@ -329,13 +327,13 @@ export const NoResults = (args: AutocompleteInputProps) => (
   <Stack>
     <AutocompleteInput
       {...args}
-      suggestions={[]}
+      options={[]}
       label="Default no results message"
       validationHint="type something to see the no results message"
     />
     <AutocompleteInput
       {...args}
-      suggestions={[]}
+      options={[]}
       label="Custom no results message"
       validationHint="type something to see the no results message"
       noResultsMessage={
@@ -392,10 +390,10 @@ export const Loading = (args: AutocompleteInputProps) => {
 
   return (
     <Stack>
-      <AutocompleteInput {...args} suggestions={[]} label="Default" isLoading />
+      <AutocompleteInput {...args} options={[]} label="Default" isLoading />
       <AutocompleteInput
         {...args}
-        suggestions={[]}
+        options={[]}
         label="With custom message"
         isLoading
         loadingLabel={messages[customMessage]}
@@ -421,11 +419,11 @@ Loading.play = async ({
 
 export const LoadMore = (args: AutocompleteInputProps) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [suggestions, setSuggestions] = useState(args.suggestions);
+  const [options, setOptions] = useState(args.options);
   const loadMore = () => {
     setIsLoading(true);
     setTimeout(() => {
-      setSuggestions(catNames);
+      setOptions(catNames);
       setIsLoading(false);
     }, 3000);
   };
@@ -433,15 +431,15 @@ export const LoadMore = (args: AutocompleteInputProps) => {
   return (
     <AutocompleteInput
       {...args}
-      suggestions={suggestions}
-      loadMore={suggestions.length < 10 ? loadMore : undefined}
+      options={options}
+      loadMore={options.length < 10 ? loadMore : undefined}
       isLoadingMore={isLoading}
       aria-setsize={catNames.length}
     />
   );
 };
 
-LoadMore.args = { ...baseArgs, suggestions: catNames.slice(0, 5) };
+LoadMore.args = { ...baseArgs, options: catNames.slice(0, 5) };
 LoadMore.play = openAutocomplete(undefined, 'Tiger');
 
 export const Immersive = (args: AutocompleteInputProps) => (
@@ -473,5 +471,5 @@ export const AllowNewItems = (args: AutocompleteInputProps) => (
     allowNewItems
   />
 );
-AllowNewItems.args = { ...baseArgs, suggestions: [mockSuggestions[1]] };
+AllowNewItems.args = { ...baseArgs, options: [mockOptions[1]] };
 AllowNewItems.play = openAutocomplete();

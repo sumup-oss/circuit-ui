@@ -53,13 +53,13 @@ import { isString } from '../../util/type-check.js';
 
 import { translations } from './translations/index.js';
 import classes from './AutocompleteInput.module.css';
-import { getSuggestionByValue, isGroup } from './AutocompleteInputService.js';
+import { getOptionByValue, isGroup } from './AutocompleteInputService.js';
 import { Results, type ResultsProps } from './components/Results/Results.js';
 import {
   ComboboxInput,
   type ComboboxInputProps,
 } from './components/ComboboxInput/ComboboxInput.js';
-import type { AutocompleteInputSuggestion } from './components/Suggestion/Suggestion.js';
+import type { AutocompleteInputOption } from './components/Option/Option.js';
 
 export type AutocompleteInputProps = Omit<
   ComboboxInputProps,
@@ -74,28 +74,28 @@ export type AutocompleteInputProps = Omit<
     | 'isLoadingMore'
     | 'action'
     | 'allowNewItems'
-    | 'suggestions'
+    | 'options'
   > & {
     /**
      * the selected item
      */
-    value?: AutocompleteInputSuggestion;
+    value?: AutocompleteInputOption;
     /**
      * A callback function fired when the search text value changes.
-     * Use this callback to update the `suggestions` prop based on the user's input.
+     * Use this callback to update the `options` prop based on the user's input.
      */
     onSearch: (value: string) => void;
     /**
-     * A callback function fired when a suggestion is selected.
+     * A callback function fired when an option is selected.
      */
-    onChange: (suggestion?: AutocompleteInputSuggestion) => void;
+    onChange: (option?: AutocompleteInputOption) => void;
     /**
      * The minimum length of the search query that would trigger an `onChange` event.
      * @default 0
      */
     minQueryLength?: number;
     /**
-     * Use the `immersive` to open the suggestion list in a modal view on mobile, for an immersive, focused experience.
+     * Use the `immersive` to open the list in a modal view on mobile, for an immersive, focused experience.
      * @default 'contextual'
      * */
     variant?: 'contextual' | 'immersive';
@@ -117,7 +117,7 @@ const sizeOptions: SizeOptions = {
   padding: boundaryPadding,
   apply({ availableHeight, elements }) {
     elements.floating.style.setProperty(
-      '--suggestion-box-max-height',
+      '--results-max-height',
       `${availableHeight}px`,
     );
   },
@@ -131,7 +131,7 @@ export const AutocompleteInput = forwardRef<
     {
       label,
       value,
-      suggestions,
+      options,
       onClear,
       onSearch,
       onChange,
@@ -176,32 +176,30 @@ export const AutocompleteInput = forwardRef<
     const hasTouch = !useMedia('(hover: hover) and (pointer: fine)');
     const isImmersive = isMobile && variant === 'immersive';
     const [isOpen, setIsOpen] = useState(false);
-    const [activeSuggestion, setActiveSuggestion] = useState<number>();
+    const [activeOption, setActiveOption] = useState<number>();
     const textBoxRef = useRef<HTMLInputElement>(null);
     const presentationFieldRef = useRef<HTMLInputElement>(null);
     const resultsRef = useRef<HTMLDivElement>(null);
     const resultsId = useId();
     const autocompleteId = useId();
 
-    const suggestionValues: string[] = useMemo(
+    const optionValues: string[] = useMemo(
       () =>
-        suggestions
-          .flatMap((suggestion) =>
-            isGroup(suggestion) ? suggestion.suggestions : suggestion,
-          )
-          .map((suggestion) => suggestion.value),
-      [suggestions],
+        options
+          .flatMap((option) => (isGroup(option) ? option.options : option))
+          .map((option) => option.value),
+      [options],
     );
 
     useEffect(() => {
       if (isLoading) {
-        setActiveSuggestion(undefined);
+        setActiveOption(undefined);
       }
     }, [isLoading]);
 
-    const closeSuggestionBox = useCallback(() => {
+    const closeResults = useCallback(() => {
       setIsOpen(false);
-      setActiveSuggestion(undefined);
+      setActiveOption(undefined);
     }, []);
 
     const debouncedOnSearch = useMemo(
@@ -217,7 +215,7 @@ export const AutocompleteInput = forwardRef<
     const onComboboxChange = useCallback(
       (event: ChangeEvent<HTMLInputElement>) => {
         setSearchText(event.target.value);
-        setActiveSuggestion(undefined);
+        setActiveOption(undefined);
         if (event.target.value.length >= minQueryLength) {
           debouncedOnSearch?.(event);
         }
@@ -246,7 +244,7 @@ export const AutocompleteInput = forwardRef<
 
     const onPresentationFieldKeyDown = useCallback(() => {
       setIsOpen(true);
-      setActiveSuggestion(0);
+      setActiveOption(0);
     }, []);
 
     const onPresentationFieldClick = useCallback(() => {
@@ -278,12 +276,12 @@ export const AutocompleteInput = forwardRef<
       }
     }, [value, isImmersive]);
 
-    const onSuggestionClick = useCallback(
-      (selectedValue?: AutocompleteInputSuggestion) => {
+    const onOptionClick = useCallback(
+      (selectedValue?: AutocompleteInputOption) => {
         onChange(selectedValue);
-        closeSuggestionBox();
+        closeResults();
       },
-      [onChange, closeSuggestionBox],
+      [onChange, closeResults],
     );
 
     const onInputKeyDown: KeyboardEventHandler<HTMLInputElement> = useCallback(
@@ -291,45 +289,34 @@ export const AutocompleteInput = forwardRef<
         if (isOpen) {
           if (isArrowDown(event) || isArrowUp(event)) {
             event.preventDefault();
-            const totalShownSuggestions =
+            const totalDisplayedOptions =
               resultsRef.current?.querySelectorAll('[role="option"]').length ??
               0;
 
-            if (activeSuggestion === undefined) {
-              setActiveSuggestion(
-                isArrowDown(event) ? 0 : suggestionValues.length - 1,
-              );
+            if (activeOption === undefined) {
+              setActiveOption(isArrowDown(event) ? 0 : optionValues.length - 1);
             } else {
-              const nextSuggestion =
-                (activeSuggestion +
-                  totalShownSuggestions +
+              const nextOption =
+                (activeOption +
+                  totalDisplayedOptions +
                   (isArrowDown(event) ? 1 : -1)) %
-                totalShownSuggestions;
+                totalDisplayedOptions;
 
-              setActiveSuggestion(nextSuggestion);
+              setActiveOption(nextOption);
             }
           }
-          if (isEnter(event) && activeSuggestion !== undefined) {
+          if (isEnter(event) && activeOption !== undefined) {
             event.preventDefault();
-            onSuggestionClick(
-              getSuggestionByValue(
-                suggestions,
-                suggestionValues[activeSuggestion],
-              ),
+            onOptionClick(
+              getOptionByValue(options, optionValues[activeOption]),
             );
           }
         } else {
           setIsOpen(true);
-          setActiveSuggestion(0);
+          setActiveOption(0);
         }
       },
-      [
-        isOpen,
-        activeSuggestion,
-        suggestionValues,
-        onSuggestionClick,
-        suggestions,
-      ],
+      [isOpen, activeOption, optionValues, onOptionClick, options],
     );
 
     useEffect(() => {
@@ -354,7 +341,7 @@ export const AutocompleteInput = forwardRef<
       };
     }, [isOpen, update]);
 
-    // biome-ignore lint/correctness/useExhaustiveDependencies: we need to update the floating element styles if the suggestions length changes
+    // biome-ignore lint/correctness/useExhaustiveDependencies: we need to update the floating element styles if the options length changes
     useEffect(() => {
       if (isOpen) {
         if (isMobile && hasTouch) {
@@ -362,27 +349,27 @@ export const AutocompleteInput = forwardRef<
         }
         update();
       }
-    }, [isOpen, update, suggestions.length]);
+    }, [isOpen, update, options.length]);
 
     const handleClickOutside = useCallback(() => {
       if (!isImmersive) {
-        closeSuggestionBox();
+        closeResults();
       }
-    }, [closeSuggestionBox, isImmersive]);
+    }, [closeResults, isImmersive]);
     useClickOutside([textBoxRef, refs.floating], handleClickOutside);
 
-    useEscapeKey(closeSuggestionBox, isOpen);
+    useEscapeKey(closeResults, isOpen);
 
     useEffect(() => {
-      // if readOnly or disabled props become truthy, close the suggestion box
+      // if readOnly or disabled props become truthy, close the list box
       if ((readOnly || disabled) && isOpen) {
-        closeSuggestionBox();
+        closeResults();
       }
-    }, [readOnly, disabled, isOpen, closeSuggestionBox]);
+    }, [readOnly, disabled, isOpen, closeResults]);
 
     const activeDescendant =
-      isOpen && activeSuggestion !== undefined
-        ? `suggestion-${autocompleteId}-${activeSuggestion}`
+      isOpen && activeOption !== undefined
+        ? `option-${autocompleteId}-${activeOption}`
         : undefined;
 
     const noResults = useMemo(
@@ -398,25 +385,25 @@ export const AutocompleteInput = forwardRef<
     );
 
     const results =
-      searchText || suggestions.length ? (
+      searchText || options.length ? (
         <Results
           ref={resultsRef}
           isLoading={isLoading}
           isLoadingMore={isLoadingMore}
-          suggestions={suggestions}
+          options={options}
           loadingLabel={loadingLabel}
           noResultsMessage={noResults}
           value={value}
-          onSuggestionClick={onSuggestionClick}
+          onOptionClick={onOptionClick}
           label={label}
           loadMoreLabel={loadMoreLabel}
-          activeSuggestion={activeSuggestion}
+          activeOption={activeOption}
           loadMore={loadMore}
           action={action}
-          suggestionIdPrefix={autocompleteId}
+          optionIdPrefix={autocompleteId}
           allowNewItems={allowNewItems}
           searchText={searchText}
-          resultsSummary={`${suggestionValues.length} ${resultsFound}.`}
+          resultsSummary={`${optionValues.length} ${resultsFound}.`}
           isImmersive={isImmersive}
           aria-setsize={ariaSetSize}
         />
@@ -465,7 +452,7 @@ export const AutocompleteInput = forwardRef<
             open={isOpen}
             className={classes.modal}
             contentClassName={classes['modal-content']}
-            onClose={closeSuggestionBox}
+            onClose={closeResults}
           >
             <ComboboxInput
               ref={textBoxRef}

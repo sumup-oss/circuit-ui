@@ -70,8 +70,8 @@ export { ColorInput } from './components/ColorInput/index.js';
 export type { ColorInputProps } from './components/ColorInput/index.js';
 export { AutocompleteInput } from './components/AutocompleteInput/AutocompleteInput.js';
 export type { AutocompleteInputProps } from './components/AutocompleteInput/AutocompleteInput.js';
-export type { AutocompleteInputSuggestion } from './components/AutocompleteInput/components/Suggestion/Suggestion.js';
-export type { AutocompleteInputSuggestionGroup } from './components/AutocompleteInput/components/SuggestionBox/SuggestionBox.js';
+export type { AutocompleteInputOption } from './components/AutocompleteInput/components/Option/Option.js';
+export type { AutocompleteInputOptionGroup } from './components/AutocompleteInput/components/Options/Options.js';
 
 // Actions
 export { Button } from './components/Button/index.js';

@@ -7,7 +7,7 @@ import * as Stories from "./AutocompleteInput.stories";
 
 <Status variant="experimental" />
 
-An input field that allows users to filter and select an option from a provided set of suggestions.
+An input field that allows users to filter and select an option from a provided set of options.
 
 <Story of={Stories.Base} />
 <Props />
@@ -25,11 +25,11 @@ While the AutocompleteInput component is accessible, it can be complex to intera
 
 ## How to use
 
-- Use the `onSearch` prop to update the list of suggestions as the user types. You can optionally set the `minQueryLength` prop to delay this behavior until a minimum number of characters has been typed.
+- Use the `onSearch` prop to update the list of options as the user types. You can optionally set the `minQueryLength` prop to delay this behavior until a minimum number of characters has been typed.
 - Use the `onChange` prop to handle the selection of an option and set the input's `value` prop to the selected option.
 - Use the `onClear` prop to handle the clearing of the input field, and reset the input's `value` prop to reflect this change.
-- The component can receive a flat list or a list of grouped suggestion via the `suggestions` prop. To ensure a consistent and user-friendly experience, keep the visual format uniform. For example, make sure all suggestions include (or not) an image or a description. Keep labels and descriptions short and easy to scan.
-- To support the selection of the user's input as the field's value, enable the `allowNewItems` prop. This will display the user's input as an available option in the suggestion box.
+- The component can receive a flat list or a list of grouped options via the `options` prop. To ensure a consistent and user-friendly experience, keep the visual format uniform. For example, make sure all options include (or not) an image or a description. Keep labels and descriptions short and easy to scan.
+- To support the selection of the user's input as the field's value, enable the `allowNewItems` prop. This will display the user's input as an available option in the list box.
 
 <Story of={Stories.AllowNewItems} />
 
@@ -40,8 +40,8 @@ While the AutocompleteInput component is accessible, it can be complex to intera
 - The "no results" screen can be customised using the `noResultsMessage` prop.
 - The "loading" message can be customised using the `loadingLabel` prop.
 - The "load more" button label can be customised using the `loadMoreLabel` prop.
-- The suggestions can be customised by adding avatar images or icons and a description.
-- Use the `action` prop to add a contextual action at the bottom of the suggestion box, such as a button to create a new item.
+- The options can be customised by adding avatar images or icons and a description.
+- Use the `action` prop to add a contextual action at the bottom of the list box, such as a button to create a new item.
 
 <Story of={Stories.WithAction} />
 
@@ -53,23 +53,23 @@ The component's `onSearch` callback is debounced by default to avoid excessive c
 
 ### Paginated results
 
-For better performance and scalability when loading dynamic, paginated results, use the `loadMore` prop to fetch additional suggestions. When this prop is provided, a "Load more" button appears at the bottom of the suggestion box. You can customize the button label with `loadMoreLabel`. Use the `isLoadingMore` prop to indicate that more suggestions are being fetched, and `aria-setsize` to convey the total number of suggestions available to assistive technologies. Learn more about `aria-setsize` in the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-setsize).
+For better performance and scalability when loading dynamic, paginated results, use the `loadMore` prop to fetch additional options. When this prop is provided, a "Load more" button appears at the bottom of the list box. You can customize the button label with `loadMoreLabel`. Use the `isLoadingMore` prop to indicate that more options are being fetched, and `aria-setsize` to convey the total number of options available to assistive technologies. Learn more about `aria-setsize` in the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-setsize).
 
 <Story of={Stories.LoadMore} />
 
-### Fetching suggestions
+### Fetching options
 
-To ensure you always show the most relevant suggestions, consider using an [Abort Controller](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) to cancel previous fetch requests. This prevents showing outdated suggestions and improves the user experience.
+To ensure you always show the most relevant options, consider using an [Abort Controller](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) to cancel previous fetch requests. This prevents showing outdated options and improves the user experience.
 
 ```tsx
 import { useState, useCallback, useRef } from "react";
 import { AutocompleteInput } from "@sumup-oss/circuit-ui";
 
 const MyComponent = () => {
-  const [suggestions, setSuggestions] = useState([]);
+  const [options, setOptions] = useState([]);
   const abortControllerRef = useRef<AbortController | null>(null);
 
-  const fetchSuggestions = useCallback(async (query: string) => {
+  const fetchOptions = useCallback(async (query: string) => {
     // Abort previous request if it exists
     if (abortControllerRef.current) {
       abortControllerRef.current.abort();
@@ -79,8 +79,8 @@ const MyComponent = () => {
     abortControllerRef.current = controller;
 
     try {
-      const results = await getSuggestions(query, controller.signal);
-      setSuggestions(results);
+      const results = await getOptions(query, controller.signal);
+      setOptions(results);
     } catch (error) {
       if (error.name !== "AbortError") {
         // Handle non-abort errors (e.g., server issues)
@@ -92,13 +92,13 @@ const MyComponent = () => {
     <AutocompleteInput
       label="Customer"
       placeholder="Search for a customer"
-      suggestions={suggestions}
-      onSearch={fetchSuggestions}
+      options={options}
+      onSearch={fetchOptions}
     />
   );
 };
 
-async function getSuggestions(query: string, signal: AbortSignal) {
+async function getOptions(query: string, signal: AbortSignal) {
   const response = await fetch(`https://my-search-api.com?query=${query}`, {
     signal,
   });
@@ -115,15 +115,15 @@ The AutocompleteInput component is designed to be accessible, adopting ARIA's [C
 
 ### Keyboard navigation
 
-- Arrow down key: Opens the suggestion box
-- Escape key: Closes the suggestion box
-- Arrow Up/Down keys: navigate through suggestions
+- Arrow down key: Opens the list box
+- Escape key: Closes the list box
+- Arrow Up/Down keys: navigate through options
 - Enter key: selects an option
 
 ### Screen reader support
 
-The component announces the number of suggestions available and the selected option, if any.
+The component announces the number of options available and the selected option, if any.
 
 ### Focus management
 
-The component manages focus appropriately. The focus remains on the input field when the suggestion box is open, and navigated options are announced properly as the user navigates through them.
+The component manages focus appropriately. The focus remains on the input field when the list box is open, and navigated options are announced properly as the user navigates through them.
