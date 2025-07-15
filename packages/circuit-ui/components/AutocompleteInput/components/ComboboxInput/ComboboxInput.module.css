@@ -30,12 +30,12 @@
   border: 1px solid var(--cui-border-normal-hovered);
 }
 
-.base:focus {
+.base:focus-within {
   border: 1px solid var(--cui-border-accent);
   box-shadow: inset 0 0 0 1px var(--cui-border-accent);
 }
 
-.base::placeholder {
+.base input::placeholder {
   color: var(--cui-fg-placeholder);
   transition: color var(--cui-transitions-default);
 }
@@ -54,7 +54,7 @@
   border: 1px solid var(--cui-border-danger-hovered);
 }
 
-.base[aria-invalid="true"]:focus {
+.base[aria-invalid="true"]:focus-within {
   border: 1px solid var(--cui-border-danger);
   box-shadow: inset 0 0 0 1px var(--cui-border-danger);
 }
@@ -67,7 +67,7 @@
   border: 1px solid var(--cui-border-warning-hovered);
 }
 
-.warning:focus {
+.warning:focus-within {
   border: 1px solid var(--cui-border-warning);
   box-shadow: inset 0 0 0 1px var(--cui-border-warning);
 }
