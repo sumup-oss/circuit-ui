@@ -19,9 +19,25 @@ import {
   getOptionByValue,
   isGroup,
   isOptionFocused,
+  isOptionSelected,
 } from './AutocompleteInputService.js';
+import { options as mockOptions } from './fixtures.js';
 
 describe('AutocompleteService', () => {
+  describe('isOptionSelected', () => {
+    it('should return false is value is undefined', () => {
+      expect(isOptionSelected('mochi', undefined)).toBe(false);
+    });
+    it('should return false is value is an empty array', () => {
+      expect(isOptionSelected('mochi', [])).toBe(false);
+    });
+    it('should return true if value is an array that includes the option', () => {
+      expect(isOptionSelected('mochi', mockOptions)).toBe(true);
+    });
+    it('should return true if value is a single option and its value matches', () => {
+      expect(isOptionSelected('mochi', mockOptions[0])).toBe(true);
+    });
+  });
   describe('getOptionByValue', () => {
     it('returns undefined if value is undefined', () => {
       const options = [{ value: 'test', label: 'Test' }];

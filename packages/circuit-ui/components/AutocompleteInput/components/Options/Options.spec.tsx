@@ -14,6 +14,7 @@
  */
 
 import { beforeAll, describe, expect, it, vi } from 'vitest';
+import { Plus } from '@sumup-oss/icons';
 
 import { render, screen, userEvent } from '../../../../util/test-utils.js';
 import {
@@ -32,6 +33,7 @@ const props: OptionsProps = {
   label: 'label',
   optionIdPrefix: 'autocomplete-id',
   loadMoreLabel: 'Load more',
+  searchText: '',
 };
 
 describe('Options', () => {
@@ -62,10 +64,7 @@ describe('Options', () => {
     render(<Options {...props} />);
 
     await userEvent.click(screen.getByText(options[0].label));
-    expect(props.onOptionClick).toHaveBeenCalledWith({
-      label: options[0].label,
-      value: options[0].value,
-    });
+    expect(props.onOptionClick).toHaveBeenCalledWith(options[0]);
   });
 
   it('should apply correct tabIndex based on active option', () => {
@@ -103,6 +102,8 @@ describe('Options', () => {
     expect(props.onOptionClick).toHaveBeenCalledWith({
       label: searchText,
       value: searchText,
+      image: Plus,
+      description: undefined,
     });
   });
 
