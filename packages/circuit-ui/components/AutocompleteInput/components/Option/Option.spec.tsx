@@ -60,4 +60,10 @@ describe('Option', () => {
       description: props.description,
     });
   });
+
+  it('should render as selected when isSelectable and selected are true', () => {
+    render(<Option {...props} isSelectable selected />);
+
+    expect(screen.getByRole('option')).toHaveAttribute('aria-selected', 'true');
+  });
 });

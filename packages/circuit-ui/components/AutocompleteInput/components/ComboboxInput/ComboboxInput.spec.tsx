@@ -18,7 +18,7 @@ import { createRef } from 'react';
 
 import { render, axe, screen, userEvent } from '../../../../util/test-utils.js';
 
-import { ComboboxInput } from './ComboboxInput.js';
+import { ComboboxInput, type ComboboxInputProps } from './ComboboxInput.js';
 
 const defaultProps = {
   label: 'Label',
@@ -78,6 +78,19 @@ describe('ComboboxInput', () => {
   });
 
   describe('Labeling', () => {
+    it('should throw accessibility error when the label prop is missing', () => {
+      const props = {
+        ...defaultProps,
+        label: undefined,
+      } as unknown as ComboboxInputProps;
+      // Silence the console.error output and switch to development mode to throw the error
+      vi.spyOn(console, 'error').mockImplementation(() => undefined);
+      process.env.NODE_ENV = 'development';
+      expect(() => render(<ComboboxInput {...props} />)).toThrow();
+      process.env.NODE_ENV = 'test';
+      vi.restoreAllMocks();
+    });
+
     it('should have an accessible name', () => {
       render(<ComboboxInput {...defaultProps} />);
       const inputEl = screen.getByLabelText(defaultProps.label);
@@ -172,6 +185,74 @@ describe('ComboboxInput', () => {
       const liveRegionEl = screen.getByRole('status');
 
       expect(liveRegionEl).toBeEmptyDOMElement();
+    });
+  });
+
+  describe('Tags', () => {
+    it('should render given tags', async () => {
+      const tags = [
+        {
+          label: 'Tag 1',
+          value: 'tag-1',
+        },
+        {
+          label: 'Tag 2',
+          value: 'tag-2',
+        },
+      ];
+      const onTagRemove = vi.fn();
+      render(
+        <ComboboxInput
+          {...defaultProps}
+          tags={tags}
+          onTagRemove={onTagRemove}
+        />,
+      );
+
+      expect(screen.getByText(tags[0].label)).toBeVisible();
+      expect(screen.getByText(tags[1].label)).toBeVisible();
+
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Remove Tag 1' }),
+      );
+      expect(onTagRemove).toHaveBeenCalledExactlyOnceWith(tags[0]);
+    });
+    it('should collapse long list of tags', async () => {
+      const tags = [
+        {
+          label: 'Tag 1',
+          value: 'tag-1',
+        },
+        {
+          label: 'Tag 2',
+          value: 'tag-2',
+        },
+        {
+          label: 'Tag 3',
+          value: 'tag-3',
+        },
+        {
+          label: 'Tag 4',
+          value: 'tag-4',
+        },
+        {
+          label: 'Tag 5',
+          value: 'tag-5',
+        },
+      ];
+      const onTagRemove = vi.fn();
+      render(
+        <ComboboxInput
+          {...defaultProps}
+          tags={tags}
+          onTagRemove={onTagRemove}
+        />,
+      );
+
+      expect(screen.queryByText(tags[4].label)).not.toBeInTheDocument();
+
+      await userEvent.click(screen.getByRole('button', { name: '+ 1 more' }));
+      expect(screen.getByText(tags[4].label)).toBeVisible();
     });
   });
 
