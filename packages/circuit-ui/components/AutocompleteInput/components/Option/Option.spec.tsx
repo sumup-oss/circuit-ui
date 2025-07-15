@@ -56,6 +56,8 @@ describe('Option', () => {
     expect(props.onOptionClick).toHaveBeenCalledWith({
       value: props.value,
       label: props.label,
+      image: props.image,
+      description: props.description,
     });
   });
 });

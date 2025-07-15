@@ -81,7 +81,7 @@ export const Option = ({
         className,
       )}
       aria-selected={selected}
-      onClick={() => onOptionClick({ label, value })}
+      onClick={() => onOptionClick({ label, value, image, description })}
     >
       {image && (
         <div className={classes.media}>
