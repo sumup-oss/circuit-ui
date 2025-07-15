@@ -237,6 +237,16 @@
       "size": "24"
     },
     {
+      "name": "move",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "move",
+      "category": "Action",
+      "size": "24"
+    },
+    {
       "name": "pause",
       "category": "Action",
       "size": "24"
