@@ -277,7 +277,10 @@ export const AutocompleteInput = forwardRef<
       middleware: [
         offset({ mainAxis: 21, crossAxis: 0 }), // 12px input padding + 1px border bottom + 8px offset
         shift({ padding: boundaryPadding }),
-        flip({ padding: boundaryPadding, fallbackPlacements: [] }),
+        flip({
+          padding: boundaryPadding,
+          fallbackPlacements: hasMultiSelection ? [] : ['top'],
+        }),
         size(sizeOptions),
       ],
       whileElementsMounted: autoUpdate,
