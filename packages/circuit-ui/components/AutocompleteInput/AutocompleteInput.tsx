@@ -275,7 +275,7 @@ export const AutocompleteInput = forwardRef<
       placement: 'bottom',
       strategy: 'fixed',
       middleware: [
-        offset({ mainAxis: 20, crossAxis: 0 }), // 12px input padding + 8px offset
+        offset({ mainAxis: 21, crossAxis: 0 }), // 12px input padding + 1px border bottom + 8px offset
         shift({ padding: boundaryPadding }),
         flip({ padding: boundaryPadding, fallbackPlacements: [] }),
         size(sizeOptions),
@@ -559,8 +559,8 @@ export const AutocompleteInput = forwardRef<
             id={resultsId}
             style={{
               ...floatingStyles,
-              width: (textBoxRef.current?.offsetWidth ?? 0) + 32, // 32px for padding
-              maxWidth: (textBoxRef.current?.offsetWidth ?? 0) + 32, // 32px for padding
+              width: (textBoxRef.current?.offsetWidth ?? 0) + 34, // 32px for padding + 2px border
+              maxWidth: (textBoxRef.current?.offsetWidth ?? 0) + 34, // 32px for padding + 2px border
             }}
           >
             {results}
