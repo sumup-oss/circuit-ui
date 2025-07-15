@@ -22,6 +22,8 @@ import { ComboboxInput, type ComboboxInputProps } from './ComboboxInput.js';
 
 const defaultProps = {
   label: 'Label',
+  removeTagButtonLabel: 'Remove',
+  moreResults: 'more',
 };
 
 describe('ComboboxInput', () => {
