@@ -22,18 +22,36 @@ export const isGroup = (
 ): option is AutocompleteInputOptionGroup =>
   option && 'label' in option && 'options' in option;
 
+export const isOptionSelected = (
+  optionValue: string,
+  value?: AutocompleteInputProps['value'],
+) => {
+  if (!value) {
+    return false;
+  }
+  if (Array.isArray(value)) {
+    return value.find((val) => val.value === optionValue) !== undefined;
+  }
+  return value.value === optionValue;
+};
+
 export const getOptionByValue = (
   options: AutocompleteInputProps['options'],
-  value?: string,
+  value?: string | string[],
 ): AutocompleteInputOption | undefined => {
-  if (!value) {
+  if (!value || Array.isArray(value)) {
     return undefined;
   }
   const flatOptions = options.flatMap((option) =>
     isGroup(option) ? option.options : option,
   );
 
-  return flatOptions.find((option) => option.value === value);
+  return (
+    flatOptions.find((option) => option.value === value) ?? {
+      label: value,
+      value,
+    }
+  );
 };
 
 export const isOptionFocused = (

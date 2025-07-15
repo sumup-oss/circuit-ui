@@ -15,7 +15,7 @@
 
 'use client';
 
-import { forwardRef, useId, useRef } from 'react';
+import { forwardRef, useEffect, useId, useRef, useState } from 'react';
 
 import type { ReturnType } from '../../../../types/return-type.js';
 import { idx } from '../../../../util/idx.js';
@@ -35,6 +35,9 @@ import type { ClickEvent } from '../../../../types/events.js';
 import type { Locale } from '../../../../util/i18n.js';
 import { CloseButton } from '../../../CloseButton/index.js';
 import { applyMultipleRefs } from '../../../../util/refs.js';
+import { Tag } from '../../../Tag/index.js';
+import { Button } from '../../../Button/index.js';
+import type { AutocompleteInputOption } from '../Option/Option.js';
 
 import classes from './ComboboxInput.module.css';
 
@@ -48,6 +51,9 @@ export interface ComboboxInputProps
    * Visually hidden text label on the clear button for screen readers.
    * Crucial for accessibility.
    */
+  tags?: AutocompleteInputOption[];
+  onTagRemove?: (tag: AutocompleteInputOption) => void;
+  isOpen?: boolean;
   clearLabel?: string;
   /**
    * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
@@ -63,6 +69,9 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
   (
     {
       value,
+      tags = [],
+      onTagRemove,
+      isOpen,
       validationHint,
       optionalLabel,
       required,
@@ -89,6 +98,7 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
     const id = useId();
     const inputId = customId || id;
     const localRef = useRef<HTMLInputElement>(null);
+    const [showAllTags, setShowAllTags] = useState(true);
 
     const validationHintId = useId();
     const descriptionIds = idx(
@@ -113,6 +123,12 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
       localRef.current?.focus();
     };
 
+    useEffect(() => {
+      if (!isOpen) {
+        setShowAllTags(false);
+      }
+    }, [isOpen]);
+
     return (
       <FieldWrapper className={className} style={style} disabled={disabled}>
         <FieldLabel htmlFor={inputId}>
@@ -123,7 +139,30 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
             required={required}
           />
         </FieldLabel>
-        <div className={classes.wrapper}>
+        <div
+          className={clsx(
+            classes.base,
+            !disabled && hasWarning && classes.warning,
+          )}
+        >
+          {tags.slice(0, isOpen || showAllTags ? tags.length : 4).map((tag) => (
+            <Tag
+              key={`${comboboxInputId}-tag-${tag.value}`}
+              removeButtonLabel={`Remove ${tag.label}`} // TODO add translations
+              onRemove={() => onTagRemove?.(tag)}
+            >
+              {tag.label}
+            </Tag>
+          ))}
+          {!showAllTags && !isOpen && tags.length > 4 && (
+            <Button
+              style={{ padding: 0 }}
+              variant="tertiary"
+              onClick={() => setShowAllTags(true)}
+            >
+              + {tags.length - 4} more
+            </Button> // TODO add translations
+          )}
           <input
             id={inputId}
             value={value}
@@ -131,8 +170,6 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
             ref={applyMultipleRefs(localRef, ref)}
             aria-describedby={descriptionIds}
             className={clsx(
-              classes.base,
-              !disabled && hasWarning && classes.warning,
               textAlign === 'right' && classes['align-right'],
               inputClassName,
             )}

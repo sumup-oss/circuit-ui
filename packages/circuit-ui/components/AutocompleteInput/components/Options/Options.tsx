@@ -21,7 +21,11 @@ import { Plus } from '@sumup-oss/icons';
 import { type AutocompleteInputOption, Option } from '../Option/Option.js';
 import { Compact } from '../../../Compact/index.js';
 import type { AutocompleteInputProps } from '../../AutocompleteInput.js';
-import { isGroup, isOptionFocused } from '../../AutocompleteInputService.js';
+import {
+  isGroup,
+  isOptionFocused,
+  isOptionSelected,
+} from '../../AutocompleteInputService.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { Button } from '../../../Button/index.js';
 
@@ -43,7 +47,11 @@ export interface OptionsProps extends HTMLAttributes<HTMLUListElement> {
    * List of options to display.
    */
   options: AutocompleteInputOptions;
-  isSelectable?: boolean;
+  /**
+   * Allows selecting multiple values
+   * @default false
+   */
+  hasMultiSelection?: boolean;
   onOptionClick: (value: AutocompleteInputOption) => void;
   /**
    * An optional function that allows to add more items to the bottom the option list currently displayed.
@@ -65,7 +73,7 @@ export interface OptionsProps extends HTMLAttributes<HTMLUListElement> {
   isLoadingMore?: boolean;
   optionIdPrefix: string;
   activeOption?: number;
-  searchText?: string;
+  searchText: string;
   /**
    * Whether to show the user's search text as an option.
    */
@@ -79,7 +87,7 @@ export const Options = ({
   value,
   options,
   onOptionClick,
-  isSelectable,
+  hasMultiSelection,
   isLoading = false,
   isLoadingMore = false,
   loadMore,
@@ -118,7 +126,7 @@ export const Options = ({
         {...rest}
         // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: list element has all necessary attributes to be interactive
         role="listbox"
-        aria-multiselectable={isSelectable}
+        aria-multiselectable={hasMultiSelection}
         aria-label={label}
         tabIndex={-1}
         className={clsx(
@@ -156,8 +164,11 @@ export const Options = ({
                         key={optionFromGroup.value}
                         {...optionFromGroup}
                         onOptionClick={onOptionClick}
-                        isSelectable={isSelectable}
-                        selected={value?.value === optionFromGroup.value}
+                        isSelectable={hasMultiSelection}
+                        selected={isOptionSelected(
+                          optionFromGroup.value,
+                          value,
+                        )}
                         id={`option-${optionIdPrefix}-${optionValues.indexOf(optionFromGroup.value)}`}
                         isFocused={isFocused}
                         tabIndex={!isLoading && isFocused ? 0 : -1}
@@ -181,8 +192,8 @@ export const Options = ({
               key={option.value}
               {...option}
               onOptionClick={onOptionClick}
-              selected={value?.value === option.value}
-              isSelectable={isSelectable}
+              selected={isOptionSelected(option.value, value)}
+              isSelectable={hasMultiSelection}
               id={`option-${optionIdPrefix}-${optionValues.indexOf(option.value)}`}
               isFocused={isFocused}
               tabIndex={!isLoading && isFocused ? 0 : -1}
@@ -198,8 +209,8 @@ export const Options = ({
             image={optionsHaveMedia ? Plus : undefined}
             isNew
             onOptionClick={onOptionClick}
-            selected={value?.value === searchText}
-            isSelectable={isSelectable}
+            selected={isOptionSelected(searchText, value)}
+            isSelectable={hasMultiSelection}
             id={`option-${optionIdPrefix}-${optionValues.length}`}
             isFocused={activeOption === optionValues.length}
             tabIndex={
