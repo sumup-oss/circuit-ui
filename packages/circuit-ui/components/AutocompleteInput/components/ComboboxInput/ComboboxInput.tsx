@@ -55,6 +55,8 @@ export interface ComboboxInputProps
   onTagRemove?: (tag: AutocompleteInputOption) => void;
   isOpen?: boolean;
   clearLabel?: string;
+  removeTagButtonLabel: string;
+  moreResults: string;
   /**
    * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
    * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
@@ -91,6 +93,8 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
       clearLabel,
       locale,
       'data-id': comboboxInputId,
+      removeTagButtonLabel,
+      moreResults,
       ...props
     },
     ref,
@@ -148,7 +152,7 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
           {tags.slice(0, isOpen || showAllTags ? tags.length : 4).map((tag) => (
             <Tag
               key={`${comboboxInputId}-tag-${tag.value}`}
-              removeButtonLabel={`Remove ${tag.label}`} // TODO add translations
+              removeButtonLabel={`${removeTagButtonLabel} ${tag.label}`}
               onRemove={() => onTagRemove?.(tag)}
             >
               {tag.label}
@@ -160,8 +164,8 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
               variant="tertiary"
               onClick={() => setShowAllTags(true)}
             >
-              + {tags.length - 4} more
-            </Button> // TODO add translations
+              + {tags.length - 4} {moreResults}
+            </Button>
           )}
           <input
             id={inputId}

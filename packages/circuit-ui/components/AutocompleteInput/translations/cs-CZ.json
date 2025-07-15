@@ -2,5 +2,7 @@
   "noResultsMessage": "Nebyly nalezeny žádné výsledky",
   "resultsFound": "nalezené výsledky",
   "loadMoreLabel": "Načíst další",
-  "clearLabel": "Vymazat"
+  "clearLabel": "Vymazat",
+  "removeTagButtonLabel": "Odebrat",
+  "moreResults": "více"
 }

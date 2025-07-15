@@ -2,5 +2,7 @@
   "noResultsMessage": "Nav rezultātu",
   "resultsFound": "rezultāti atrasti",
   "loadMoreLabel": "Ielādēt vairāk",
-  "clearLabel": "Notīrīt"
+  "clearLabel": "Notīrīt",
+  "removeTagButtonLabel": "Noņemt",
+  "moreResults": "vairāk"
 }

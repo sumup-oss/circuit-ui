@@ -68,12 +68,9 @@ import type { AutocompleteInputOption } from './components/Option/Option.js';
 
 export type AutocompleteInputProps = Omit<
   ComboboxInputProps,
-  | 'data-id'
-  | 'value'
-  | 'onChange'
-  | 'tags'
-  | 'onTagRemove'
-  | 'isOpen'
+  'data-id' | 'value' | 'onChange' | 'moreResults' | 'removeTagButtonLabel'   | 'tags'
+    | 'onTagRemove'
+    | 'isOpen'
 > &
   Pick<
     ResultsProps,
@@ -169,6 +166,8 @@ export const AutocompleteInput = forwardRef<
       loadMoreLabel,
       resultsFound,
       clearLabel,
+      moreResults,
+      removeTagButtonLabel,
     } = useI18n(
       {
         locale,
@@ -496,6 +495,8 @@ export const AutocompleteInput = forwardRef<
       tags: Array.isArray(value) ? value : undefined,
       onTagRemove,
       isOpen,
+      moreResults,
+      removeTagButtonLabel,
     };
 
     if (isImmersive) {
@@ -518,6 +519,8 @@ export const AutocompleteInput = forwardRef<
                 ? onPresentationFieldClear
                 : undefined
             }
+            moreResults={moreResults}
+            removeTagButtonLabel={removeTagButtonLabel}
             clearLabel={clearLabel}
             readOnly={readOnly}
             disabled={disabled}

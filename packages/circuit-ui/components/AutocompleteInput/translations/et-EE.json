@@ -2,5 +2,7 @@
   "noResultsMessage": "Tulemusi ei leitud",
   "resultsFound": "tulemust leitud",
   "loadMoreLabel": "Laadi veel",
-  "clearLabel": "Tühjenda"
+  "clearLabel": "Tühjenda",
+  "removeTagButtonLabel": "Eemalda",
+  "moreResults": "veel"
 }

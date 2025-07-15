@@ -2,5 +2,7 @@
   "noResultsMessage": "Nenašli sa žiadne výsledky",
   "resultsFound": "nájdené výsledky",
   "loadMoreLabel": "Načítať viac",
-  "clearLabel": "Vymazať"
+  "clearLabel": "Vymazať",
+  "removeTagButtonLabel": "Odstrániť",
+  "moreResults": "viac"
 }
