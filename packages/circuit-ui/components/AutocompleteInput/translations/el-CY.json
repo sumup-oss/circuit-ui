@@ -2,5 +2,7 @@
   "noResultsMessage": "Δεν βρέθηκαν αποτελέσματα",
   "resultsFound": "αποτελέσματα βρέθηκαν",
   "loadMoreLabel": "Φόρτωσε περισσότερα",
-  "clearLabel": "Εκκαθάριση"
+  "clearLabel": "Εκκαθάριση",
+  "removeTagButtonLabel": "Αφαίρεση",
+  "moreResults": "ακόμη"
 }

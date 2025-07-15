@@ -2,5 +2,7 @@
   "noResultsMessage": "Ni rezultatov",
   "resultsFound": "najdenih rezultatov",
   "loadMoreLabel": "Naloži več",
-  "clearLabel": "Počisti"
+  "clearLabel": "Počisti",
+  "removeTagButtonLabel": "Odstrani",
+  "moreResults": "več"
 }

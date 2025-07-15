@@ -2,5 +2,7 @@
   "noResultsMessage": "Geen resultaten gevonden",
   "resultsFound": "resultaten gevonden",
   "loadMoreLabel": "Meer laden",
-  "clearLabel": "Wissen"
+  "clearLabel": "Wissen",
+  "removeTagButtonLabel": "Verwijder",
+  "moreResults": "meer"
 }
