@@ -1,24 +1,29 @@
-.wrapper {
+.base {
   position: relative;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--cui-spacings-byte);
+  width: 100%;
+  padding: var(--cui-spacings-kilo) var(--cui-spacings-mega);
+  background-color: var(--cui-bg-normal);
+  border: 1px solid var(--cui-border-normal);
+  border-radius: var(--cui-border-radius-byte);
+  transition:
+    box-shadow var(--cui-transitions-default),
+    border var(--cui-transitions-default);
 }
 
-.base {
+.base input {
   width: 100%;
-  padding: var(--cui-spacings-kilo) var(--cui-spacings-exa)
-    var(--cui-spacings-kilo) var(--cui-spacings-mega);
+  padding: 0 var(--cui-spacings-tera) 0 0;
   margin: 0;
   font-size: var(--cui-body-m-font-size);
   line-height: var(--cui-body-m-line-height);
   appearance: none;
   outline: 0;
   background-color: var(--cui-bg-normal);
-  border: 1px solid var(--cui-border-normal);
-  border-radius: var(--cui-border-radius-byte);
+  border: none;
   box-shadow: none;
-  transition:
-    box-shadow var(--cui-transitions-default),
-    border var(--cui-transitions-default),
-    padding var(--cui-transitions-default);
 }
 
 .base:hover {
@@ -80,10 +85,10 @@
   background-color: var(--cui-bg-subtle-disabled);
 }
 
-.base::-webkit-search-decoration,
-.base::-webkit-search-cancel-button,
-.base::-webkit-search-results-button,
-.base::-webkit-search-results-decoration {
+.base input::-webkit-search-decoration,
+.base input::-webkit-search-cancel-button,
+.base input::-webkit-search-results-button,
+.base input::-webkit-search-results-decoration {
   appearance: none;
 }
 
@@ -101,4 +106,11 @@
   height: var(--cui-spacings-exa);
   padding: var(--cui-spacings-kilo) var(--cui-spacings-mega);
   color: var(--cui-fg-subtle);
+}
+
+@media (max-width: 479px) {
+  .base {
+    max-height: 150px;
+    overflow-y: auto;
+  }
 }

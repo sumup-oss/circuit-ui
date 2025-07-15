@@ -22,6 +22,7 @@ import type { Decorator } from '@storybook/react-vite';
 import { Button } from '../Button/index.js';
 import { Stack } from '../../../../.storybook/components/index.js';
 import { modes } from '../../../../.storybook/modes.js';
+import { useMedia } from '../../hooks/useMedia/index.js';
 
 import {
   addresses,
@@ -160,6 +161,11 @@ export default {
       },
     },
     // Behavior & Appearance
+    hasMultiSelection: {
+      table: {
+        category: 'Behavior & Appearance',
+      },
+    },
     variant: {
       table: {
         category: 'Behavior & Appearance',
@@ -217,7 +223,8 @@ const baseArgs: AutocompleteInputProps = {
   placeholder: 'Whiskers',
   options: mockOptions,
   validationHint: 'All our cats have been neutered and vaccinated.',
-  onChange: (value?: AutocompleteInputOption) => action('onChange')(value),
+  onChange: (value?: AutocompleteInputOption | AutocompleteInputOption[]) =>
+    action('onChange')(value),
   onSearch: (text) => action('onSearch')(text),
 };
 
@@ -315,6 +322,56 @@ Grouped.args = {
   options: groupedOptions,
 };
 Grouped.play = openAutocomplete();
+
+export const WithMultiSelection = (args: AutocompleteInputProps) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [autocompleteValue, setAutocompleteValue] = useState<
+    AutocompleteInputOption[]
+  >((args.value ?? []) as AutocompleteInputOption[]);
+  const isMobile = useMedia('(max-width: 479px)');
+  const [options, setOptions] = useState(args.options);
+  const onSearchTextChange = (searchText: string) => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setOptions(filterOptions(searchText, args.options));
+      setIsLoading(false);
+    }, 1500);
+  };
+  const onSelection = (value?: AutocompleteInputOption) => {
+    const newValues = [];
+    if (value === undefined) {
+      setAutocompleteValue([]);
+    } else if (autocompleteValue.find((v) => v.value === value.value)) {
+      // If the value is already selected, remove it
+      newValues.push(
+        ...autocompleteValue.filter((v) => v.value !== value.value),
+      );
+    } else {
+      // If the value is not selected, add it
+      newValues.push(...autocompleteValue, value);
+    }
+
+    setAutocompleteValue(newValues);
+  };
+
+  return (
+    <AutocompleteInput
+      {...args}
+      value={autocompleteValue}
+      options={options}
+      isLoading={isLoading}
+      onChange={onSelection}
+      onSearch={onSearchTextChange}
+      style={{ width: isMobile ? 'unset' : '318px' }}
+    />
+  );
+};
+WithMultiSelection.args = {
+  ...baseArgs,
+  value: mockOptions.slice(2, 4),
+  hasMultiSelection: true,
+};
+WithMultiSelection.play = openAutocomplete();
 
 export const WithAction = (args: AutocompleteInputProps) => (
   <AutocompleteInput {...args} />
