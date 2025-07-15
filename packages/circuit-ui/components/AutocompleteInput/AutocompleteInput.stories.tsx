@@ -161,7 +161,7 @@ export default {
       },
     },
     // Behavior & Appearance
-    hasMultiSelection: {
+    selectionMode: {
       table: {
         category: 'Behavior & Appearance',
       },
@@ -369,7 +369,7 @@ export const WithMultiSelection = (args: AutocompleteInputProps) => {
 WithMultiSelection.args = {
   ...baseArgs,
   value: mockOptions.slice(2, 4),
-  hasMultiSelection: true,
+  selectionMode: 'multiple',
 };
 WithMultiSelection.play = openAutocomplete();
 

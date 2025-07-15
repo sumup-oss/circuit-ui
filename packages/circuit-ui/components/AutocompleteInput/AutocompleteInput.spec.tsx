@@ -46,7 +46,7 @@ const props: AutocompleteInputProps = {
   onChange: vi.fn(),
   label: 'label',
 };
-describe('Autocomplete', () => {
+describe('AutocompleteInput', () => {
   beforeAll(() => {
     HTMLElement.prototype.scrollIntoView = vi.fn();
 
@@ -295,7 +295,7 @@ describe('Autocomplete', () => {
       render(
         <AutocompleteInput
           {...props}
-          hasMultiSelection
+          selectionMode="multiple"
           value={options.slice(0, 2)}
         />,
       );
@@ -312,7 +312,7 @@ describe('Autocomplete', () => {
       render(
         <AutocompleteInput
           {...props}
-          hasMultiSelection
+          selectionMode="multiple"
           value={options.slice(0, 2)}
         />,
       );
@@ -326,7 +326,7 @@ describe('Autocomplete', () => {
       render(
         <AutocompleteInput
           {...props}
-          hasMultiSelection
+          selectionMode="multiple"
           value={options.slice(0, 2)}
         />,
       );
@@ -341,7 +341,7 @@ describe('Autocomplete', () => {
       render(
         <AutocompleteInput
           {...props}
-          hasMultiSelection
+          selectionMode="multiple"
           value={options.slice(0, 2)}
         />,
       );

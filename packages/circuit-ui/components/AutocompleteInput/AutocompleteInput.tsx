@@ -81,7 +81,7 @@ export type AutocompleteInputProps = Omit<
     | 'isLoadingMore'
     | 'action'
     | 'allowNewItems'
-    | 'hasMultiSelection'
+    | 'selectionMode'
     | 'options'
   > & {
     /**
@@ -156,7 +156,7 @@ export const AutocompleteInput = forwardRef<
       allowNewItems,
       variant = 'contextual',
       'aria-setsize': ariaSetSize,
-      hasMultiSelection,
+      selectionMode = 'single',
       ...props
     },
     ref,
@@ -278,7 +278,7 @@ export const AutocompleteInput = forwardRef<
         shift({ padding: boundaryPadding }),
         flip({
           padding: boundaryPadding,
-          fallbackPlacements: hasMultiSelection ? [] : ['top'],
+          fallbackPlacements: selectionMode === 'single' ? ['top'] : [],
         }),
         size(sizeOptions),
       ],
@@ -296,7 +296,7 @@ export const AutocompleteInput = forwardRef<
 
     const onOptionClick = useCallback(
       (selectedValue?: AutocompleteInputOption) => {
-        if (hasMultiSelection) {
+        if (selectionMode === 'multiple') {
           setSearchText('');
           // put focus back on the input field after selection
           textBoxRef.current?.focus();
@@ -305,7 +305,7 @@ export const AutocompleteInput = forwardRef<
         closeResults();
         onChange(selectedValue);
       },
-      [onChange, closeResults, hasMultiSelection],
+      [onChange, closeResults, selectionMode],
     );
 
     const onTagRemove = useCallback(
@@ -457,7 +457,7 @@ export const AutocompleteInput = forwardRef<
           resultsSummary={`${optionValues.length} ${resultsFound}.`}
           isImmersive={isImmersive}
           aria-setsize={ariaSetSize}
-          hasMultiSelection={hasMultiSelection}
+          selectionMode={selectionMode}
         />
       ) : null;
 
@@ -481,7 +481,8 @@ export const AutocompleteInput = forwardRef<
       clearLabel,
       value: searchText,
       onChange: onComboboxChange,
-      onClear: onClear && !hasMultiSelection ? onComboboxClear : undefined,
+      onClear:
+        onClear && selectionMode === 'single' ? onComboboxClear : undefined,
       onKeyDown: isLoading ? undefined : onInputKeyDown,
       role: 'combobox',
       'aria-controls': resultsId,
@@ -515,7 +516,7 @@ export const AutocompleteInput = forwardRef<
             aria-haspopup="dialog"
             aria-expanded={isOpen}
             onClear={
-              onClear && !hasMultiSelection
+              onClear && selectionMode === 'single'
                 ? onPresentationFieldClear
                 : undefined
             }
