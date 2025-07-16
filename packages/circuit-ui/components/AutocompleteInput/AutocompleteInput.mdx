@@ -7,7 +7,7 @@ import * as Stories from "./AutocompleteInput.stories";
 
 <Status variant="experimental" />
 
-An input field that allows users to filter and select an option from a provided set of options.
+An input field that allows users to filter and select one or many options from a provided set of options.
 
 <Story of={Stories.Base} />
 <Props />
@@ -29,6 +29,7 @@ While the AutocompleteInput component is accessible, it can be complex to intera
 - Use the `onChange` prop to handle the selection of an option and set the input's `value` prop to the selected option.
 - Use the `onClear` prop to handle the clearing of the input field, and reset the input's `value` prop to reflect this change.
 - The component can receive a flat list or a list of grouped options via the `options` prop. To ensure a consistent and user-friendly experience, keep the visual format uniform. For example, make sure all options include (or not) an image or a description. Keep labels and descriptions short and easy to scan.
+- To enable multiple selections, set the `selectionMode` prop to "multiple". In this mode, the `value` prop must be an array of `AutocompleteInputOption` objects. The `onChange` callback will still receive a single AutocompleteInputOption—the option that was just selected or removed.
 - To support the selection of the user's input as the field's value, enable the `allowNewItems` prop. This will display the user's input as an available option in the list box.
 
 <Story of={Stories.AllowNewItems} />
