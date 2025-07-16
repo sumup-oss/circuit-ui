@@ -80,6 +80,17 @@ describe('AutocompleteInput', () => {
     expect(input?.className).toContain(className);
   });
 
+  it('should throw CircuitError passed an array in single selection mode', () => {
+    // Silence the console.error output and switch to development mode to throw the error
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    process.env.NODE_ENV = 'development';
+    expect(() =>
+      render(<AutocompleteInput {...props} value={options.slice(0, 2)} />),
+    ).toThrow();
+    process.env.NODE_ENV = 'test';
+    vi.restoreAllMocks();
+  });
+
   it('should fire onClear when the clear button is clicked', async () => {
     render(
       <AutocompleteInput
@@ -291,6 +302,22 @@ describe('AutocompleteInput', () => {
   });
 
   describe('multi-selection', () => {
+    it('should throw CircuitError passed a single value in multi-selection mode', () => {
+      // Silence the console.error output and switch to development mode to throw the error
+      vi.spyOn(console, 'error').mockImplementation(() => undefined);
+      process.env.NODE_ENV = 'development';
+      expect(() =>
+        render(
+          <AutocompleteInput
+            {...props}
+            value={options[0]}
+            selectionMode="multiple"
+          />,
+        ),
+      ).toThrow();
+      process.env.NODE_ENV = 'test';
+      vi.restoreAllMocks();
+    });
     it('should render the selected values as tags', () => {
       render(
         <AutocompleteInput
