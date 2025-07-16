@@ -96,6 +96,29 @@ describe('Autocomplete', () => {
     expect(props.onClear).toHaveBeenCalledOnce();
   });
 
+  it("should restore display value on blur if user doesn't make a selection", async () => {
+    render(
+      <AutocompleteInput {...props} value={{ label: 'Foo', value: 'bar' }} />,
+    );
+
+    const input = screen.getByRole('combobox', { name: props.label });
+    expect(input).toHaveValue('Foo');
+
+    // simulate user typing
+    await userEvent.type(input, 'baz');
+    // wait for debounce
+    act(() => {
+      vi.runAllTimers();
+    });
+    expect(input).toHaveValue('baz');
+
+    // simulate blur
+    act(() => {
+      input.blur();
+    });
+    expect(input).toHaveValue('Foo');
+  });
+
   it('should call onSearch when the user types', async () => {
     render(<AutocompleteInput {...props} />);
 

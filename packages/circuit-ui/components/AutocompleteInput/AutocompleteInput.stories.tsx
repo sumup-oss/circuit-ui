@@ -264,12 +264,14 @@ export const Base = (args: AutocompleteInputProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const onSearchTextChange = (searchText: string) => {
     setIsLoading(true);
+    args.onSearch(searchText);
     setTimeout(() => {
       setOptions(filterOptions(searchText, args.options));
       setIsLoading(false);
     }, 1500);
   };
   const onChange = (value?: AutocompleteInputOption) => {
+    args.onChange(value);
     setAutocompleteValue(value);
   };
 
