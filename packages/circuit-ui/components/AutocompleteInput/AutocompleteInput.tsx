@@ -55,6 +55,7 @@ import { Modal } from '../Modal/index.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 import { Body } from '../Body/index.js';
 import { isString } from '../../util/type-check.js';
+import { CircuitError } from '../../util/errors.js';
 
 import { translations } from './translations/index.js';
 import classes from './AutocompleteInput.module.css';
@@ -68,9 +69,14 @@ import type { AutocompleteInputOption } from './components/Option/Option.js';
 
 export type AutocompleteInputProps = Omit<
   ComboboxInputProps,
-  'data-id' | 'value' | 'onChange' | 'moreResults' | 'removeTagButtonLabel'   | 'tags'
-    | 'onTagRemove'
-    | 'isOpen'
+  | 'data-id'
+  | 'value'
+  | 'onChange'
+  | 'moreResults'
+  | 'removeTagButtonLabel'
+  | 'tags'
+  | 'onTagRemove'
+  | 'isOpen'
 > &
   Pick<
     ResultsProps,
@@ -195,6 +201,32 @@ export const AutocompleteInput = forwardRef<
     const resultsRef = useRef<HTMLDivElement>(null);
     const resultsId = useId();
     const autocompleteId = useId();
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      selectionMode === 'multiple' &&
+      value !== undefined &&
+      !Array.isArray(value)
+    ) {
+      throw new CircuitError(
+        'AutocompleteInput',
+        'You have passed a non array value to a multiple selection AutocompleteInput. Please pass an array of values instead.',
+      );
+    }
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      selectionMode === 'single' &&
+      value !== undefined &&
+      Array.isArray(value)
+    ) {
+      throw new CircuitError(
+        'AutocompleteInput',
+        'You have passed an array value to a single selection AutocompleteInput. Please pass an object instead.',
+      );
+    }
 
     const optionValues: string[] = useMemo(
       () =>
