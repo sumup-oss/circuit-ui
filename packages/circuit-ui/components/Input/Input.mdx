@@ -60,6 +60,12 @@ field should only be open for editing again if a button is clicked.
 
 An input field must always have a placeholder, which is a short example of the information required that helps the user to understand what kind of information is needed. (For instance, an Address Field could have a placeholder: "Grunerstrasse 13")
 
+### Accessibility Tradeoff
+
+The placeholder color does not currently satisfy the [WCAG Success Criterion](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html) 1.4.3 minimum contrast ratio of 4.5:1 for text.
+However, changing the placeholder color to fulfill this requirement would make placeholder text look too similar to user-entered content.
+That’s why we’re only aiming for 3:1 which is usually reserved for large text. This should be fine as long as placeholder text doesn’t convey any essential information (any formatting requirements should be explained in the component's `validationHint` prop).
+
 ### Usage guidelines
 
 - **Do** make the placeholder succinct (up to 3-4 words).
