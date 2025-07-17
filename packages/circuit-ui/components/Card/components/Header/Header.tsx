@@ -51,11 +51,11 @@ export type CardHeaderProps = {
  * Header used in the Card component. Used for styling and alignment
  * purposes only.
  */
-export const CardHeader = forwardRef<HTMLElement, CardHeaderProps>(
+export const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
   ({ onClose, children, closeButtonLabel, className, ...props }, ref) => {
     const noHeadline = isArray(children) && !children[0];
     return (
-      <header
+      <div
         className={clsx(
           classes.base,
           noHeadline && classes['no-headline'],
@@ -70,7 +70,7 @@ export const CardHeader = forwardRef<HTMLElement, CardHeaderProps>(
             {closeButtonLabel}
           </CloseButton>
         )}
-      </header>
+      </div>
     );
   },
 );
