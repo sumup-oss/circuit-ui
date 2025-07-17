@@ -34,7 +34,7 @@ export interface CardFooterProps extends HTMLAttributes<HTMLElement> {
  */
 export const CardFooter = forwardRef<HTMLElement, CardFooterProps>(
   (
-    { as: Element = 'footer', children, className, align = 'right', ...props },
+    { as: Element = 'div', children, className, align = 'right', ...props },
     ref,
   ) => (
     <Element
