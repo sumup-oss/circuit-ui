@@ -30,10 +30,6 @@
   background-color: var(--cui-bg-highlight);
 }
 
-.base:read-only {
-  color: var(--cui-fg-subtle);
-}
-
 .base:disabled,
 .base[disabled] {
   color: var(--cui-fg-normal-disabled);
