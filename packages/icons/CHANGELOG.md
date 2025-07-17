@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 5.15.0
+
+### Minor Changes
+
+- [#3203](https://github.com/sumup-oss/circuit-ui/pull/3203) [`65628b7`](https://github.com/sumup-oss/circuit-ui/commit/65628b73135715d476b2414db0027cc18d8dad5e) Thanks [@bradmikeburzon](https://github.com/bradmikeburzon)! - Added a new `Move` icon in sizes 16 and 24.
+
 ## 5.14.0
 
 ### Minor Changes

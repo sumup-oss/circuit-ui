@@ -1,5 +1,15 @@
 # @sumup-oss/circuit-ui
 
+## 10.7.1
+
+### Patch Changes
+
+- [#3210](https://github.com/sumup-oss/circuit-ui/pull/3210) [`1b59a4e`](https://github.com/sumup-oss/circuit-ui/commit/1b59a4e41b823674f20e8d3af0656b556b25d728) Thanks [@sirineJ](https://github.com/sirineJ)! - Refactored CardHeader and CardFooter components to use `<div>`s instead of `<header>`/`<footer>` to prevent duplicate landmark roles and ensure accessibility compliance.
+
+- [#3206](https://github.com/sumup-oss/circuit-ui/pull/3206) [`436bbcc`](https://github.com/sumup-oss/circuit-ui/commit/436bbcc2c9a8df1ab5b8ff0f073ce18b5807526d) Thanks [@sirineJ](https://github.com/sirineJ)! - Restored the AutocompleteInput's display value to the selected value's label if user edits the field without making a selection.
+
+- [#3209](https://github.com/sumup-oss/circuit-ui/pull/3209) [`dcc15ce`](https://github.com/sumup-oss/circuit-ui/commit/dcc15ce4459cf2fb8095f96c73ab88616670d2c0) Thanks [@sirineJ](https://github.com/sirineJ)! - Improved DateInput's text contrast when the field is readonly to meet WCAG AA contrast ratio.
+
 ## 10.7.0
 
 ### Minor Changes
