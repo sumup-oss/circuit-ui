@@ -17,6 +17,7 @@
 
 import {
   type ChangeEvent,
+  type FocusEventHandler,
   forwardRef,
   type KeyboardEventHandler,
   useCallback,
@@ -409,6 +410,19 @@ export const AutocompleteInput = forwardRef<
         />
       ) : null;
 
+    const restoreValue: FocusEventHandler<HTMLInputElement> = useCallback(
+      (event) => {
+        if (!Array.isArray(value) && searchText !== value?.value) {
+          setSearchText(value?.label ?? '');
+          if (isImmersive) {
+            setPresentationFieldValue(value?.label ?? '');
+          }
+        }
+        props.onBlur?.(event);
+      },
+      [value, searchText, isImmersive, props.onBlur],
+    );
+
     const comboboxProps = {
       ...props,
       label,
@@ -426,6 +440,7 @@ export const AutocompleteInput = forwardRef<
       onClick: !readOnly && !disabled ? onComboboxClick : undefined,
       readOnly,
       disabled,
+      onBlur: restoreValue,
     };
 
     if (isImmersive) {
