@@ -43,14 +43,19 @@ import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import type { Locale } from '../../util/i18n.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
 import { useClickOutside } from '../../hooks/useClickOutside/index.js';
-import { isArrowDown, isArrowUp, isEnter } from '../../util/key-codes.js';
+import {
+  isArrowDown,
+  isArrowUp,
+  isBackspace,
+  isEnter,
+} from '../../util/key-codes.js';
 import { changeInputValue } from '../../util/input-value.js';
 import { debounce } from '../../util/helpers.js';
 import { Modal } from '../Modal/index.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 import { Body } from '../Body/index.js';
-import { clsx } from '../../styles/clsx.js';
 import { isString } from '../../util/type-check.js';
+import { CircuitError } from '../../util/errors.js';
 
 import { translations } from './translations/index.js';
 import classes from './AutocompleteInput.module.css';
@@ -64,7 +69,14 @@ import type { AutocompleteInputOption } from './components/Option/Option.js';
 
 export type AutocompleteInputProps = Omit<
   ComboboxInputProps,
-  'data-id' | 'value' | 'onChange'
+  | 'data-id'
+  | 'value'
+  | 'onChange'
+  | 'moreResults'
+  | 'removeTagButtonLabel'
+  | 'tags'
+  | 'onTagRemove'
+  | 'isOpen'
 > &
   Pick<
     ResultsProps,
@@ -75,12 +87,13 @@ export type AutocompleteInputProps = Omit<
     | 'isLoadingMore'
     | 'action'
     | 'allowNewItems'
+    | 'selectionMode'
     | 'options'
   > & {
     /**
      * the selected item
      */
-    value?: AutocompleteInputOption;
+    value?: AutocompleteInputOption | AutocompleteInputOption[];
     /**
      * A callback function fired when the search text value changes.
      * Use this callback to update the `options` prop based on the user's input.
@@ -149,6 +162,7 @@ export const AutocompleteInput = forwardRef<
       allowNewItems,
       variant = 'contextual',
       'aria-setsize': ariaSetSize,
+      selectionMode = 'single',
       ...props
     },
     ref,
@@ -158,6 +172,8 @@ export const AutocompleteInput = forwardRef<
       loadMoreLabel,
       resultsFound,
       clearLabel,
+      moreResults,
+      removeTagButtonLabel,
     } = useI18n(
       {
         locale,
@@ -167,11 +183,13 @@ export const AutocompleteInput = forwardRef<
       translations,
     );
 
-    const [searchText, setSearchText] = useState(value?.label ?? '');
+    const [searchText, setSearchText] = useState(
+      Array.isArray(value) ? '' : (value?.label ?? ''),
+    );
 
     // used only for immmersive variant
     const [presentationFieldValue, setPresentationFieldValue] = useState(
-      value?.label ?? '',
+      Array.isArray(value) ? '' : (value?.label ?? ''),
     );
     const isMobile = useMedia('(max-width: 479px)');
     const hasTouch = !useMedia('(hover: hover) and (pointer: fine)');
@@ -183,6 +201,32 @@ export const AutocompleteInput = forwardRef<
     const resultsRef = useRef<HTMLDivElement>(null);
     const resultsId = useId();
     const autocompleteId = useId();
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      selectionMode === 'multiple' &&
+      value !== undefined &&
+      !Array.isArray(value)
+    ) {
+      throw new CircuitError(
+        'AutocompleteInput',
+        'You have passed a non array value to a multiple selection AutocompleteInput. Please pass an array of values instead.',
+      );
+    }
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      selectionMode === 'single' &&
+      value !== undefined &&
+      Array.isArray(value)
+    ) {
+      throw new CircuitError(
+        'AutocompleteInput',
+        'You have passed an array value to a single selection AutocompleteInput. Please pass an object instead.',
+      );
+    }
 
     const optionValues: string[] = useMemo(
       () =>
@@ -262,27 +306,46 @@ export const AutocompleteInput = forwardRef<
       placement: 'bottom',
       strategy: 'fixed',
       middleware: [
-        offset(8),
+        offset({ mainAxis: 21, crossAxis: 0 }), // 12px input padding + 1px border bottom + 8px offset
         shift({ padding: boundaryPadding }),
-        flip({ padding: boundaryPadding, fallbackPlacements: ['top'] }),
+        flip({
+          padding: boundaryPadding,
+          fallbackPlacements: selectionMode === 'single' ? ['top'] : [],
+        }),
         size(sizeOptions),
       ],
       whileElementsMounted: autoUpdate,
     });
 
     useEffect(() => {
-      setSearchText(value?.label ?? '');
-      if (isImmersive) {
-        setPresentationFieldValue(value?.label ?? '');
+      if (value && !Array.isArray(value)) {
+        setSearchText(value.label ?? '');
+        if (isImmersive) {
+          setPresentationFieldValue(value.label ?? '');
+        }
       }
     }, [value, isImmersive]);
 
     const onOptionClick = useCallback(
       (selectedValue?: AutocompleteInputOption) => {
-        onChange(selectedValue);
+        if (selectionMode === 'multiple') {
+          setSearchText('');
+          // put focus back on the input field after selection
+          textBoxRef.current?.focus();
+          textBoxRef.current?.scrollIntoView(true);
+        }
         closeResults();
+        onChange(selectedValue);
       },
-      [onChange, closeResults],
+      [onChange, closeResults, selectionMode],
+    );
+
+    const onTagRemove = useCallback(
+      (tagValue: AutocompleteInputOption) => {
+        onChange(tagValue);
+        textBoxRef.current?.focus();
+      },
+      [onChange],
     );
 
     const onInputKeyDown: KeyboardEventHandler<HTMLInputElement> = useCallback(
@@ -312,12 +375,31 @@ export const AutocompleteInput = forwardRef<
               getOptionByValue(options, optionValues[activeOption]),
             );
           }
+          if (
+            isBackspace(event) &&
+            !searchText &&
+            Array.isArray(value) &&
+            value.length > 0
+          ) {
+            // if the search text is empty and the user presses backspace,
+            // remove the last selected value
+            onChange(value[value.length - 1]);
+          }
         } else {
           setIsOpen(true);
           setActiveOption(0);
         }
       },
-      [isOpen, activeOption, optionValues, onOptionClick, options],
+      [
+        isOpen,
+        activeOption,
+        onChange,
+        optionValues,
+        onOptionClick,
+        searchText,
+        options,
+        value,
+      ],
     );
 
     useEffect(() => {
@@ -350,7 +432,7 @@ export const AutocompleteInput = forwardRef<
         }
         update();
       }
-    }, [isOpen, update, options.length]);
+    }, [isOpen, update, options.length, value]);
 
     const handleClickOutside = useCallback(() => {
       if (!isImmersive) {
@@ -407,6 +489,7 @@ export const AutocompleteInput = forwardRef<
           resultsSummary={`${optionValues.length} ${resultsFound}.`}
           isImmersive={isImmersive}
           aria-setsize={ariaSetSize}
+          selectionMode={selectionMode}
         />
       ) : null;
 
@@ -430,7 +513,8 @@ export const AutocompleteInput = forwardRef<
       clearLabel,
       value: searchText,
       onChange: onComboboxChange,
-      onClear: onClear ? onComboboxClear : undefined,
+      onClear:
+        onClear && selectionMode === 'single' ? onComboboxClear : undefined,
       onKeyDown: isLoading ? undefined : onInputKeyDown,
       role: 'combobox',
       'aria-controls': resultsId,
@@ -441,6 +525,11 @@ export const AutocompleteInput = forwardRef<
       readOnly,
       disabled,
       onBlur: restoreValue,
+      tags: Array.isArray(value) ? value : undefined,
+      onTagRemove,
+      isOpen,
+      moreResults,
+      removeTagButtonLabel,
     };
 
     if (isImmersive) {
@@ -448,7 +537,7 @@ export const AutocompleteInput = forwardRef<
         <>
           <ComboboxInput
             {...props}
-            inputClassName={clsx(classes.input, props.inputClassName)}
+            inputClassName={props.inputClassName}
             label={label}
             ref={applyMultipleRefs(ref, presentationFieldRef)}
             onClick={
@@ -458,10 +547,19 @@ export const AutocompleteInput = forwardRef<
             onKeyDown={onPresentationFieldKeyDown}
             aria-haspopup="dialog"
             aria-expanded={isOpen}
-            onClear={onClear ? onPresentationFieldClear : undefined}
+            onClear={
+              onClear && selectionMode === 'single'
+                ? onPresentationFieldClear
+                : undefined
+            }
+            moreResults={moreResults}
+            removeTagButtonLabel={removeTagButtonLabel}
             clearLabel={clearLabel}
             readOnly={readOnly}
             disabled={disabled}
+            tags={Array.isArray(value) ? value : undefined}
+            onTagRemove={onTagRemove}
+            isOpen={false}
           />
           <Modal
             open={isOpen}
@@ -487,7 +585,7 @@ export const AutocompleteInput = forwardRef<
       <>
         <ComboboxInput
           ref={applyMultipleRefs(textBoxRef, ref, refs.setReference)}
-          inputClassName={clsx(classes.input, props.inputClassName)}
+          inputClassName={props.inputClassName}
           aria-expanded={isOpen}
           aria-haspopup="listbox"
           {...comboboxProps}
@@ -500,8 +598,8 @@ export const AutocompleteInput = forwardRef<
             id={resultsId}
             style={{
               ...floatingStyles,
-              width: textBoxRef.current?.offsetWidth,
-              maxWidth: textBoxRef.current?.offsetWidth,
+              width: (textBoxRef.current?.offsetWidth ?? 0) + 34, // 32px for padding + 2px border
+              maxWidth: (textBoxRef.current?.offsetWidth ?? 0) + 34, // 32px for padding + 2px border
             }}
           >
             {results}

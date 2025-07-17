@@ -2,5 +2,7 @@
   "noResultsMessage": "Nincs találat",
   "resultsFound": "találat",
   "loadMoreLabel": "Továbbiak betöltése",
-  "clearLabel": "Törlés"
+  "clearLabel": "Törlés",
+  "removeTagButtonLabel": "Eltávolítás",
+  "moreResults": "további"
 }

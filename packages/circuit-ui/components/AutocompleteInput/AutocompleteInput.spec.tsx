@@ -29,6 +29,7 @@ import { createRef } from 'react';
 
 import { act, axe, render, userEvent, screen } from '../../util/test-utils.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
+import { Button } from '../Button/index.js';
 
 import { luna, mochi, oliver, options } from './fixtures.js';
 import {
@@ -45,7 +46,7 @@ const props: AutocompleteInputProps = {
   onChange: vi.fn(),
   label: 'label',
 };
-describe('Autocomplete', () => {
+describe('AutocompleteInput', () => {
   beforeAll(() => {
     HTMLElement.prototype.scrollIntoView = vi.fn();
 
@@ -77,6 +78,17 @@ describe('Autocomplete', () => {
     // eslint-disable-next-line testing-library/no-node-access
     const input = container.querySelector('input');
     expect(input?.className).toContain(className);
+  });
+
+  it('should throw CircuitError passed an array in single selection mode', () => {
+    // Silence the console.error output and switch to development mode to throw the error
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    process.env.NODE_ENV = 'development';
+    expect(() =>
+      render(<AutocompleteInput {...props} value={options.slice(0, 2)} />),
+    ).toThrow();
+    process.env.NODE_ENV = 'test';
+    vi.restoreAllMocks();
   });
 
   it('should fire onClear when the clear button is clicked', async () => {
@@ -154,10 +166,7 @@ describe('Autocomplete', () => {
     expect(screen.queryByRole('listbox')).toBeVisible();
 
     await userEvent.click(screen.getByText(options[0].label));
-    expect(props.onChange).toHaveBeenCalledWith({
-      label: options[0].label,
-      value: options[0].value,
-    });
+    expect(props.onChange).toHaveBeenCalledWith(options[0]);
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
   });
 
@@ -292,6 +301,84 @@ describe('Autocomplete', () => {
     });
   });
 
+  describe('multi-selection', () => {
+    it('should throw CircuitError passed a single value in multi-selection mode', () => {
+      // Silence the console.error output and switch to development mode to throw the error
+      vi.spyOn(console, 'error').mockImplementation(() => undefined);
+      process.env.NODE_ENV = 'development';
+      expect(() =>
+        render(
+          <AutocompleteInput
+            {...props}
+            value={options[0]}
+            selectionMode="multiple"
+          />,
+        ),
+      ).toThrow();
+      process.env.NODE_ENV = 'test';
+      vi.restoreAllMocks();
+    });
+    it('should render the selected values as tags', () => {
+      render(
+        <AutocompleteInput
+          {...props}
+          selectionMode="multiple"
+          value={options.slice(0, 2)}
+        />,
+      );
+      expect(screen.getByText(options[0].label)).toBeVisible();
+      expect(screen.getByText(options[1].label)).toBeVisible();
+      expect(
+        screen.getByRole('button', { name: `Remove ${options[0].label}` }),
+      ).toBeVisible();
+      expect(
+        screen.getByRole('button', { name: `Remove ${options[1].label}` }),
+      ).toBeVisible();
+    });
+    it('should call onChange with the correct value when the Remove option button is clicked', async () => {
+      render(
+        <AutocompleteInput
+          {...props}
+          selectionMode="multiple"
+          value={options.slice(0, 2)}
+        />,
+      );
+
+      await userEvent.click(
+        screen.getByRole('button', { name: `Remove ${options[0].label}` }),
+      );
+      expect(props.onChange).toHaveBeenCalledExactlyOnceWith(options[0]);
+    });
+    it('should select a value, call onChange and close the list box', async () => {
+      render(
+        <AutocompleteInput
+          {...props}
+          selectionMode="multiple"
+          value={options.slice(0, 2)}
+        />,
+      );
+      await userEvent.click(screen.getByRole('combobox'));
+      expect(screen.getByRole('listbox')).toBeVisible();
+
+      await userEvent.click(screen.queryAllByRole('option')[0]);
+      expect(props.onChange).toHaveBeenCalledExactlyOnceWith(options[0]);
+      expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+    });
+    it('should call onChange if field has values and user pressed backspace key', async () => {
+      render(
+        <AutocompleteInput
+          {...props}
+          selectionMode="multiple"
+          value={options.slice(0, 2)}
+        />,
+      );
+      await userEvent.click(screen.getByRole('combobox'));
+      await userEvent.keyboard('{Backspace}');
+
+      expect(props.onChange).toHaveBeenCalledExactlyOnceWith(options[1]);
+    });
+  });
+
   describe('Immersive', () => {
     beforeEach(() => {
       (useMedia as Mock).mockReturnValue(true);
@@ -357,10 +444,7 @@ describe('Autocomplete', () => {
         vi.runAllTimers();
       });
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
-      expect(props.onChange).toHaveBeenCalledWith({
-        label: options[0].label,
-        value: options[0].value,
-      });
+      expect(props.onChange).toHaveBeenCalledWith(options[0]);
     });
 
     it('should render with selected value', async () => {
@@ -434,7 +518,7 @@ describe('Autocomplete', () => {
       );
     });
 
-    it('should render the custom no results message no results are found', async () => {
+    it('should render the custom no results string message no results are found', async () => {
       const message = "Couldn't find any results";
       render(
         <AutocompleteInput
@@ -445,6 +529,23 @@ describe('Autocomplete', () => {
       );
       await userEvent.type(screen.getByRole('combobox'), 'l');
       expect(screen.getByText(message)).toBeVisible();
+    });
+
+    it('should render the custom no results node message no results are found', async () => {
+      const message = (
+        <Button size="s" variant="secondary" href="#">
+          Contact support
+        </Button>
+      );
+      render(
+        <AutocompleteInput
+          {...props}
+          options={[]}
+          noResultsMessage={message}
+        />,
+      );
+      await userEvent.type(screen.getByRole('combobox'), 'l');
+      expect(screen.getByText('Contact support')).toBeVisible();
     });
   });
 

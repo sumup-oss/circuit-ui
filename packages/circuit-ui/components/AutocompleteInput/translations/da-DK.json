@@ -2,5 +2,7 @@
   "noResultsMessage": "Ingen resultater fundet",
   "resultsFound": "resultater fundet",
   "loadMoreLabel": "Indlæs mere",
-  "clearLabel": "Ryd"
+  "clearLabel": "Ryd",
+  "removeTagButtonLabel": "Fjern",
+  "moreResults": "mere"
 }
