@@ -463,6 +463,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
               {closeButtonLabel}
             </CloseButton>
           )}
+          <div className={classes['scroll-indicator']} />
         </dialog>
       </>
     );
