@@ -49,7 +49,7 @@ describe('AutocompleteService', () => {
       expect(getOptionByValue(options, 'test')).toBe(options[0]);
     });
 
-    it('returns undefined if no matching option was found', () => {
+    it('returns object with the search text if no matching option was found', () => {
       const options = [{ value: 'test', label: 'Test' }];
       expect(getOptionByValue(options, 'unknown')).toStrictEqual({
         value: 'unknown',
