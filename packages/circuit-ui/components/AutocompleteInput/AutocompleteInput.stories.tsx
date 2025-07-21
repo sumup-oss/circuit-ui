@@ -22,8 +22,8 @@ import type { Decorator } from '@storybook/react-vite';
 import { Button } from '../Button/index.js';
 import { Stack } from '../../../../.storybook/components/index.js';
 import { modes } from '../../../../.storybook/modes.js';
-import { useMedia } from '../../hooks/useMedia/index.js';
 
+import classes from './AutocompleteInputStory.module.css';
 import {
   addresses,
   catNames,
@@ -328,7 +328,6 @@ export const WithMultiSelection = (args: AutocompleteInputProps) => {
   const [autocompleteValue, setAutocompleteValue] = useState<
     AutocompleteInputOption[]
   >((args.value ?? []) as AutocompleteInputOption[]);
-  const isMobile = useMedia('(max-width: 479px)');
   const [options, setOptions] = useState(args.options);
   const onSearchTextChange = (searchText: string) => {
     setIsLoading(true);
@@ -362,7 +361,7 @@ export const WithMultiSelection = (args: AutocompleteInputProps) => {
       isLoading={isLoading}
       onChange={onSelection}
       onSearch={onSearchTextChange}
-      style={{ width: isMobile ? 'unset' : '318px' }}
+      className={classes['fixed-width-input']}
     />
   );
 };
