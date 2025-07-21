@@ -223,8 +223,7 @@ const baseArgs: AutocompleteInputProps = {
   placeholder: 'Whiskers',
   options: mockOptions,
   validationHint: 'All our cats have been neutered and vaccinated.',
-  onChange: (value?: AutocompleteInputOption | AutocompleteInputOption[]) =>
-    action('onChange')(value),
+  onChange: (value?: AutocompleteInputOption) => action('onChange')(value),
   onSearch: (text) => action('onSearch')(text),
 };
 
