@@ -20,6 +20,7 @@ import {
   isGroup,
   isOptionFocused,
   isOptionSelected,
+  updateMultipleSelectionValue,
 } from './AutocompleteInputService.js';
 import { options as mockOptions } from './fixtures.js';
 
@@ -84,6 +85,27 @@ describe('AutocompleteService', () => {
     it('returns false for single option', () => {
       const option = { value: '1', label: 'One' };
       expect(isGroup(option)).toBe(false);
+    });
+  });
+  describe('updateMultipleSelectionValue', () => {
+    it("should add a new value to the current selection if it's not already selected", () => {
+      const currentValue = [{ value: '1', label: 'One' }];
+      const newValue = { value: '2', label: 'Two' };
+      const updatedValue = updateMultipleSelectionValue(currentValue, newValue);
+      expect(updatedValue).toEqual([
+        { value: '1', label: 'One' },
+        { value: '2', label: 'Two' },
+      ]);
+    });
+
+    it("should remove a value from the current selection if it's already selected", () => {
+      const currentValue = [
+        { value: '1', label: 'One' },
+        { value: '2', label: 'Two' },
+      ];
+      const newValue = { value: '2', label: 'Two' };
+      const updatedValue = updateMultipleSelectionValue(currentValue, newValue);
+      expect(updatedValue).toEqual([{ value: '1', label: 'One' }]);
     });
   });
 });

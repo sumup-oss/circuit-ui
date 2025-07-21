@@ -60,3 +60,20 @@ export const isOptionFocused = (
   activeOption?: number,
 ) =>
   activeOption !== undefined ? optionValues[activeOption] === value : false;
+
+export const updateMultipleSelectionValue = (
+  currentValue: AutocompleteInputOption[],
+  value?: AutocompleteInputOption,
+): AutocompleteInputOption[] => {
+  const newValue = [];
+  if (value) {
+    if (currentValue.find((v) => v.value === value.value)) {
+      // If the value is already selected, remove it
+      newValue.push(...currentValue.filter((v) => v.value !== value.value));
+    } else {
+      // If the value is not selected, add it
+      newValue.push(...currentValue, value);
+    }
+  }
+  return newValue;
+};

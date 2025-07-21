@@ -12,9 +12,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /* AutocompleteInput */
 export { AutocompleteInput } from './components/AutocompleteInput/AutocompleteInput.js';
 export type { AutocompleteInputProps } from './components/AutocompleteInput/AutocompleteInput.js';
 export type { AutocompleteInputOption } from './components/AutocompleteInput/components/Option/Option.js';
 export type { AutocompleteInputOptionGroup } from './components/AutocompleteInput/components/Options/Options.js';
+export { updateMultipleSelectionValue } from './components/AutocompleteInput/AutocompleteInputService.js';

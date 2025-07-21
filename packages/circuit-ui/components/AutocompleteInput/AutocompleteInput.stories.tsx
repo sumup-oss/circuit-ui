@@ -34,7 +34,10 @@ import {
   AutocompleteInput,
   type AutocompleteInputProps,
 } from './AutocompleteInput.js';
-import { isGroup } from './AutocompleteInputService.js';
+import {
+  isGroup,
+  updateMultipleSelectionValue,
+} from './AutocompleteInputService.js';
 import type { AutocompleteInputOption } from './components/Option/Option.js';
 
 export default {
@@ -336,20 +339,9 @@ export const WithMultiSelection = (args: AutocompleteInputProps) => {
     }, 1500);
   };
   const onSelection = (value?: AutocompleteInputOption) => {
-    const newValues = [];
-    if (value === undefined) {
-      setAutocompleteValue([]);
-    } else if (autocompleteValue.find((v) => v.value === value.value)) {
-      // If the value is already selected, remove it
-      newValues.push(
-        ...autocompleteValue.filter((v) => v.value !== value.value),
-      );
-    } else {
-      // If the value is not selected, add it
-      newValues.push(...autocompleteValue, value);
-    }
-
-    setAutocompleteValue(newValues);
+    setAutocompleteValue(
+      updateMultipleSelectionValue(autocompleteValue, value),
+    );
   };
 
   return (
