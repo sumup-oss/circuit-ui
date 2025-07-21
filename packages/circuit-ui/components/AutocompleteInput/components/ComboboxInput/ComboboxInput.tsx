@@ -151,7 +151,7 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
         >
           {tags.slice(0, isOpen || showAllTags ? tags.length : 4).map((tag) => (
             <Tag
-              key={`${comboboxInputId}-tag-${tag.value}`}
+              key={tag.value}
               removeButtonLabel={`${removeTagButtonLabel} ${tag.label}`}
               onRemove={() => onTagRemove?.(tag)}
             >
