@@ -26,7 +26,7 @@ While the AutocompleteInput component is accessible, it can be complex to intera
 ## How to use
 
 - Use the `onSearch` prop to update the list of options as the user types. You can optionally set the `minQueryLength` prop to delay this behavior until a minimum number of characters has been typed.
-- Use the `onChange` prop to handle the selection of an option and set the input's `value` prop to the selected option.
+- Use the `onChange` prop to handle the selection of an option and set the input's `value` prop to the selected option. After the selection, make sure to reset the value of the `options` prop.
 - Use the `onClear` prop to handle the clearing of the input field, and reset the input's `value` prop to reflect this change.
 - The component can receive a flat list or a list of grouped options via the `options` prop. To ensure a consistent and user-friendly experience, keep the visual format uniform. For example, make sure all options include (or not) an image or a description. Keep labels and descriptions short and easy to scan.
 - To enable multiple selections, set the `multiple` prop to true". In this mode, the `value` prop must be an array of `AutocompleteInputOption` objects. The `onChange` callback will still receive a single AutocompleteInputOption—the option that was just selected or removed. The `updateMultipleSelectionValue` utility function can be used to compute the new value of the field.
