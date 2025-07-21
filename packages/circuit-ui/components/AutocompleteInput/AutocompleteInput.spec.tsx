@@ -311,7 +311,7 @@ describe('AutocompleteInput', () => {
           <AutocompleteInput
             {...props}
             value={options[0]}
-            selectionMode="multiple"
+            multiple="multiple"
           />,
         ),
       ).toThrow();
@@ -322,7 +322,7 @@ describe('AutocompleteInput', () => {
       render(
         <AutocompleteInput
           {...props}
-          selectionMode="multiple"
+          multiple="multiple"
           value={options.slice(0, 2)}
         />,
       );
@@ -339,7 +339,7 @@ describe('AutocompleteInput', () => {
       render(
         <AutocompleteInput
           {...props}
-          selectionMode="multiple"
+          multiple="multiple"
           value={options.slice(0, 2)}
         />,
       );
@@ -353,7 +353,7 @@ describe('AutocompleteInput', () => {
       render(
         <AutocompleteInput
           {...props}
-          selectionMode="multiple"
+          multiple="multiple"
           value={options.slice(0, 2)}
         />,
       );
@@ -368,7 +368,7 @@ describe('AutocompleteInput', () => {
       render(
         <AutocompleteInput
           {...props}
-          selectionMode="multiple"
+          multiple="multiple"
           value={options.slice(0, 2)}
         />,
       );

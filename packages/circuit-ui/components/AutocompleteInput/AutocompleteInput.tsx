@@ -87,7 +87,7 @@ export type AutocompleteInputProps = Omit<
     | 'isLoadingMore'
     | 'action'
     | 'allowNewItems'
-    | 'selectionMode'
+    | 'multiple'
     | 'options'
   > & {
     /**
@@ -162,7 +162,7 @@ export const AutocompleteInput = forwardRef<
       allowNewItems,
       variant = 'contextual',
       'aria-setsize': ariaSetSize,
-      selectionMode = 'single',
+      multiple = false,
       ...props
     },
     ref,
@@ -205,7 +205,7 @@ export const AutocompleteInput = forwardRef<
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
-      selectionMode === 'multiple' &&
+      multiple &&
       value !== undefined &&
       !Array.isArray(value)
     ) {
@@ -218,7 +218,7 @@ export const AutocompleteInput = forwardRef<
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
-      selectionMode === 'single' &&
+      !multiple &&
       value !== undefined &&
       Array.isArray(value)
     ) {
@@ -310,7 +310,7 @@ export const AutocompleteInput = forwardRef<
         shift({ padding: boundaryPadding }),
         flip({
           padding: boundaryPadding,
-          fallbackPlacements: selectionMode === 'single' ? ['top'] : [],
+          fallbackPlacements: multiple ? [] : ['top'],
         }),
         size(sizeOptions),
       ],
@@ -328,7 +328,7 @@ export const AutocompleteInput = forwardRef<
 
     const onOptionClick = useCallback(
       (selectedValue?: AutocompleteInputOption) => {
-        if (selectionMode === 'multiple') {
+        if (multiple) {
           setSearchText('');
           // put focus back on the input field after selection
           textBoxRef.current?.focus();
@@ -337,7 +337,7 @@ export const AutocompleteInput = forwardRef<
         closeResults();
         onChange(selectedValue);
       },
-      [onChange, closeResults, selectionMode],
+      [onChange, closeResults, multiple],
     );
 
     const onTagRemove = useCallback(
@@ -489,7 +489,7 @@ export const AutocompleteInput = forwardRef<
           resultsSummary={`${optionValues.length} ${resultsFound}.`}
           isImmersive={isImmersive}
           aria-setsize={ariaSetSize}
-          selectionMode={selectionMode}
+          multiple={multiple}
         />
       ) : null;
 
@@ -513,8 +513,7 @@ export const AutocompleteInput = forwardRef<
       clearLabel,
       value: searchText,
       onChange: onComboboxChange,
-      onClear:
-        onClear && selectionMode === 'single' ? onComboboxClear : undefined,
+      onClear: onClear && !multiple ? onComboboxClear : undefined,
       onKeyDown: isLoading ? undefined : onInputKeyDown,
       role: 'combobox',
       'aria-controls': resultsId,
@@ -548,9 +547,7 @@ export const AutocompleteInput = forwardRef<
             aria-haspopup="dialog"
             aria-expanded={isOpen}
             onClear={
-              onClear && selectionMode === 'single'
-                ? onPresentationFieldClear
-                : undefined
+              onClear && !multiple ? onPresentationFieldClear : undefined
             }
             moreResults={moreResults}
             removeTagButtonLabel={removeTagButtonLabel}

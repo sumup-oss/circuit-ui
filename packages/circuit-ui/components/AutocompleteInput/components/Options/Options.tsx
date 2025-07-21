@@ -51,7 +51,7 @@ export interface OptionsProps extends HTMLAttributes<HTMLUListElement> {
    * Choose between single or multiple selection modes.
    * @default "single"
    */
-  selectionMode?: 'single' | 'multiple';
+  multiple?: boolean;
   onOptionClick: (value: AutocompleteInputOption) => void;
   /**
    * An optional function that allows to add more items to the bottom the option list currently displayed.
@@ -87,7 +87,7 @@ export const Options = ({
   value,
   options,
   onOptionClick,
-  selectionMode = 'single',
+  multiple = false,
   isLoading = false,
   isLoadingMore = false,
   loadMore,
@@ -126,7 +126,7 @@ export const Options = ({
         {...rest}
         // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: list element has all necessary attributes to be interactive
         role="listbox"
-        aria-multiselectable={selectionMode === 'multiple'}
+        aria-multiselectable={multiple}
         aria-label={label}
         tabIndex={-1}
         className={clsx(
@@ -164,7 +164,7 @@ export const Options = ({
                         key={optionFromGroup.value}
                         {...optionFromGroup}
                         onOptionClick={onOptionClick}
-                        isSelectable={selectionMode === 'multiple'}
+                        isSelectable={multiple}
                         selected={isOptionSelected(
                           optionFromGroup.value,
                           value,
@@ -193,7 +193,7 @@ export const Options = ({
               {...option}
               onOptionClick={onOptionClick}
               selected={isOptionSelected(option.value, value)}
-              isSelectable={selectionMode === 'multiple'}
+              isSelectable={multiple}
               id={`option-${optionIdPrefix}-${optionValues.indexOf(option.value)}`}
               isFocused={isFocused}
               tabIndex={!isLoading && isFocused ? 0 : -1}
@@ -210,7 +210,7 @@ export const Options = ({
             isNew
             onOptionClick={onOptionClick}
             selected={isOptionSelected(searchText, value)}
-            isSelectable={selectionMode === 'multiple'}
+            isSelectable={multiple}
             id={`option-${optionIdPrefix}-${optionValues.length}`}
             isFocused={activeOption === optionValues.length}
             tabIndex={
