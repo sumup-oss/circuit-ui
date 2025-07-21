@@ -68,10 +68,6 @@ export { PhoneNumberInput } from './components/PhoneNumberInput/index.js';
 export type { PhoneNumberInputProps } from './components/PhoneNumberInput/index.js';
 export { ColorInput } from './components/ColorInput/index.js';
 export type { ColorInputProps } from './components/ColorInput/index.js';
-export { AutocompleteInput } from './components/AutocompleteInput/AutocompleteInput.js';
-export type { AutocompleteInputProps } from './components/AutocompleteInput/AutocompleteInput.js';
-export type { AutocompleteInputOption } from './components/AutocompleteInput/components/Option/Option.js';
-export type { AutocompleteInputOptionGroup } from './components/AutocompleteInput/components/Options/Options.js';
 
 // Actions
 export { Button } from './components/Button/index.js';
