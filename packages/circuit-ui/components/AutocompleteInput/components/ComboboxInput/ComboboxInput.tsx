@@ -42,7 +42,10 @@ import type { AutocompleteInputOption } from '../Option/Option.js';
 import classes from './ComboboxInput.module.css';
 
 export interface ComboboxInputProps
-  extends Omit<InputProps, 'renderPrefix' | 'renderSuffix' | 'as'> {
+  extends Omit<
+    InputProps,
+    'renderPrefix' | 'renderSuffix' | 'as' | 'multiple'
+  > {
   /**
    * Callback function when the user clears the field.
    */

@@ -48,8 +48,7 @@ export interface OptionsProps extends HTMLAttributes<HTMLUListElement> {
    */
   options: AutocompleteInputOptions;
   /**
-   * Choose between single or multiple selection modes.
-   * @default "single"
+   * If true, allows the selection of one or more values.
    */
   multiple?: boolean;
   onOptionClick: (value: AutocompleteInputOption) => void;
