@@ -333,8 +333,9 @@ export const AutocompleteInput = forwardRef<
           // put focus back on the input field after selection
           textBoxRef.current?.focus();
           textBoxRef.current?.scrollIntoView(true);
+        } else {
+          closeResults();
         }
-        closeResults();
         onChange(selectedValue);
       },
       [onChange, closeResults, multiple],
