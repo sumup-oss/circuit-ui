@@ -196,7 +196,8 @@ export const AutocompleteInput = forwardRef<
     const isImmersive = isMobile && variant === 'immersive';
     const [isOpen, setIsOpen] = useState(false);
     const [activeOption, setActiveOption] = useState<number>();
-    const textBoxRef = useRef<HTMLInputElement>(null);
+    const comboboxRef = useRef<HTMLInputElement>(null);
+    const inputWrapperRef = useRef<HTMLDivElement>(null);
     const presentationFieldRef = useRef<HTMLInputElement>(null);
     const resultsRef = useRef<HTMLDivElement>(null);
     const resultsId = useId();
@@ -270,7 +271,7 @@ export const AutocompleteInput = forwardRef<
 
     const onComboboxClear = useCallback(
       (event: ClickEvent) => {
-        changeInputValue(textBoxRef.current, '');
+        changeInputValue(comboboxRef.current, '');
         onClear?.(event);
       },
       [onClear],
@@ -297,7 +298,7 @@ export const AutocompleteInput = forwardRef<
     }, []);
 
     const onComboboxClick = useCallback(() => {
-      textBoxRef?.current?.select();
+      comboboxRef?.current?.select();
       setIsOpen(true);
     }, []);
 
@@ -331,8 +332,8 @@ export const AutocompleteInput = forwardRef<
         if (multiple) {
           setSearchText('');
           // put focus back on the input field after selection
-          textBoxRef.current?.focus();
-          textBoxRef.current?.scrollIntoView(true);
+          comboboxRef.current?.focus();
+          comboboxRef.current?.scrollIntoView(true);
         } else {
           closeResults();
         }
@@ -344,7 +345,7 @@ export const AutocompleteInput = forwardRef<
     const onTagRemove = useCallback(
       (tagValue: AutocompleteInputOption) => {
         onChange(tagValue);
-        textBoxRef.current?.focus();
+        comboboxRef.current?.focus();
       },
       [onChange],
     );
@@ -429,7 +430,7 @@ export const AutocompleteInput = forwardRef<
     useEffect(() => {
       if (isOpen) {
         if (isMobile && hasTouch) {
-          textBoxRef.current?.scrollIntoView({ behavior: 'smooth' });
+          comboboxRef.current?.scrollIntoView({ behavior: 'smooth' });
         }
         update();
       }
@@ -440,7 +441,7 @@ export const AutocompleteInput = forwardRef<
         closeResults();
       }
     }, [closeResults, isImmersive]);
-    useClickOutside([textBoxRef, refs.floating], handleClickOutside);
+    useClickOutside([inputWrapperRef, refs.floating], handleClickOutside);
 
     useEscapeKey(closeResults, isOpen);
 
@@ -565,14 +566,14 @@ export const AutocompleteInput = forwardRef<
             contentClassName={classes['modal-content']}
             onClose={closeResults}
           >
-            <ComboboxInput
-              ref={textBoxRef}
-              {...comboboxProps}
-              className={classes['modal-input']}
-              inputClassName={classes.input}
-              aria-expanded={true}
-            />
-
+            <div ref={inputWrapperRef} className={classes['modal-input']}>
+              <ComboboxInput
+                ref={comboboxRef}
+                {...comboboxProps}
+                inputClassName={classes.input}
+                aria-expanded={true}
+              />
+            </div>
             {results}
           </Modal>
         </>
@@ -581,13 +582,15 @@ export const AutocompleteInput = forwardRef<
 
     return (
       <>
-        <ComboboxInput
-          ref={applyMultipleRefs(textBoxRef, ref, refs.setReference)}
-          inputClassName={props.inputClassName}
-          aria-expanded={isOpen}
-          aria-haspopup="listbox"
-          {...comboboxProps}
-        />
+        <div ref={inputWrapperRef}>
+          <ComboboxInput
+            ref={applyMultipleRefs(comboboxRef, ref, refs.setReference)}
+            inputClassName={props.inputClassName}
+            aria-expanded={isOpen}
+            aria-haspopup="listbox"
+            {...comboboxProps}
+          />
+        </div>
         {isOpen && (
           <div
             className={classes.results}
@@ -596,8 +599,8 @@ export const AutocompleteInput = forwardRef<
             id={resultsId}
             style={{
               ...floatingStyles,
-              width: (textBoxRef.current?.offsetWidth ?? 0) + 34, // 32px for padding + 2px border
-              maxWidth: (textBoxRef.current?.offsetWidth ?? 0) + 34, // 32px for padding + 2px border
+              width: (comboboxRef.current?.offsetWidth ?? 0) + 34, // 32px for padding + 2px border
+              maxWidth: (comboboxRef.current?.offsetWidth ?? 0) + 34, // 32px for padding + 2px border
             }}
           >
             {results}
