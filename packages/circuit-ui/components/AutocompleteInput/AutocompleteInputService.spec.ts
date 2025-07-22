@@ -40,11 +40,6 @@ describe('AutocompleteService', () => {
     });
   });
   describe('getOptionByValue', () => {
-    it('returns undefined if value is undefined', () => {
-      const options = [{ value: 'test', label: 'Test' }];
-      expect(getOptionByValue(options)).toBe(undefined);
-    });
-
     it('returns an object for given value', () => {
       const options = [{ value: 'test', label: 'Test' }];
       expect(getOptionByValue(options, 'test')).toBe(options[0]);

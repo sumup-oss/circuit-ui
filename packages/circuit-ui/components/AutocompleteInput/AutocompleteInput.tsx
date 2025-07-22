@@ -102,7 +102,7 @@ export type AutocompleteInputProps = Omit<
     /**
      * A callback function fired when an option is selected.
      */
-    onChange: (option?: AutocompleteInputOption) => void;
+    onChange: (option: AutocompleteInputOption) => void;
     /**
      * The minimum length of the search query that would trigger an `onChange` event.
      * @default 0
@@ -327,7 +327,7 @@ export const AutocompleteInput = forwardRef<
     }, [value, isImmersive]);
 
     const onOptionClick = useCallback(
-      (selectedValue?: AutocompleteInputOption) => {
+      (selectedValue: AutocompleteInputOption) => {
         if (multiple) {
           setSearchText('');
           // put focus back on the input field after selection

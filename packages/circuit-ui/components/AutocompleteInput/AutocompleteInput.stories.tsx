@@ -280,7 +280,7 @@ export const Base = (args: AutocompleteInputProps) => {
       setIsLoading(false);
     }, 1500);
   };
-  const onChange = (value?: AutocompleteInputOption) => {
+  const onChange = (value: AutocompleteInputOption) => {
     args.onChange(value);
     setAutocompleteValue(value);
   };
@@ -340,7 +340,7 @@ export const WithMultiSelection = (args: AutocompleteInputProps) => {
     }, 1500);
   };
   const onSelection = useCallback(
-    (value?: AutocompleteInputOption) => {
+    (value: AutocompleteInputOption) => {
       setAutocompleteValue((prevValue) =>
         updateMultipleSelectionValue(prevValue, value),
       );
