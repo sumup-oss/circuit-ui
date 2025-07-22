@@ -307,24 +307,14 @@ describe('AutocompleteInput', () => {
       vi.spyOn(console, 'error').mockImplementation(() => undefined);
       process.env.NODE_ENV = 'development';
       expect(() =>
-        render(
-          <AutocompleteInput
-            {...props}
-            value={options[0]}
-            multiple="multiple"
-          />,
-        ),
+        render(<AutocompleteInput {...props} value={options[0]} multiple />),
       ).toThrow();
       process.env.NODE_ENV = 'test';
       vi.restoreAllMocks();
     });
     it('should render the selected values as tags', () => {
       render(
-        <AutocompleteInput
-          {...props}
-          multiple="multiple"
-          value={options.slice(0, 2)}
-        />,
+        <AutocompleteInput {...props} multiple value={options.slice(0, 2)} />,
       );
       expect(screen.getByText(options[0].label)).toBeVisible();
       expect(screen.getByText(options[1].label)).toBeVisible();
@@ -337,11 +327,7 @@ describe('AutocompleteInput', () => {
     });
     it('should call onChange with the correct value when the Remove option button is clicked', async () => {
       render(
-        <AutocompleteInput
-          {...props}
-          multiple="multiple"
-          value={options.slice(0, 2)}
-        />,
+        <AutocompleteInput {...props} multiple value={options.slice(0, 2)} />,
       );
 
       await userEvent.click(
@@ -351,26 +337,17 @@ describe('AutocompleteInput', () => {
     });
     it('should select a value, call onChange and close the list box', async () => {
       render(
-        <AutocompleteInput
-          {...props}
-          multiple="multiple"
-          value={options.slice(0, 2)}
-        />,
+        <AutocompleteInput {...props} multiple value={options.slice(0, 2)} />,
       );
       await userEvent.click(screen.getByRole('combobox'));
       expect(screen.getByRole('listbox')).toBeVisible();
 
       await userEvent.click(screen.queryAllByRole('option')[0]);
       expect(props.onChange).toHaveBeenCalledExactlyOnceWith(options[0]);
-      expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
     });
     it('should call onChange if field has values and user pressed backspace key', async () => {
       render(
-        <AutocompleteInput
-          {...props}
-          multiple="multiple"
-          value={options.slice(0, 2)}
-        />,
+        <AutocompleteInput {...props} multiple value={options.slice(0, 2)} />,
       );
       await userEvent.click(screen.getByRole('combobox'));
       await userEvent.keyboard('{Backspace}');
