@@ -339,11 +339,16 @@ export const WithMultiSelection = (args: AutocompleteInputProps) => {
       setIsLoading(false);
     }, 1500);
   };
-  const onSelection = (value?: AutocompleteInputOption) => {
-    setAutocompleteValue(
-      updateMultipleSelectionValue(autocompleteValue, value),
-    );
-  };
+  const onSelection = useCallback(
+    (value?: AutocompleteInputOption) => {
+      setAutocompleteValue((prevValue) =>
+        updateMultipleSelectionValue(prevValue, value),
+      );
+      // reset options
+      setOptions(args.options);
+    },
+    [args.options],
+  );
 
   return (
     <AutocompleteInput
