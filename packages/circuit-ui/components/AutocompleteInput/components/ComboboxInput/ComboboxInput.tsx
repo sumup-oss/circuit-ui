@@ -125,7 +125,7 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
       );
     }
 
-    const onClick = (event: ClickEvent) => {
+    const onClearButtonClick = (event: ClickEvent) => {
       onClear?.(event);
       localRef.current?.focus();
     };
@@ -186,7 +186,11 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
             {...props}
           />
           {value && onClear && clearLabel && (
-            <CloseButton className={classes.clear} size="s" onClick={onClick}>
+            <CloseButton
+              className={classes.clear}
+              size="s"
+              onClick={onClearButtonClick}
+            >
               {clearLabel}
             </CloseButton>
           )}
