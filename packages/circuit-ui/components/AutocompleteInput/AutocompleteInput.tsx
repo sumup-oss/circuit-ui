@@ -91,9 +91,9 @@ export type AutocompleteInputProps = Omit<
     | 'options'
   > & {
     /**
-     * the selected item
+     * the selected item(s)
      */
-    value?: AutocompleteInputOption | AutocompleteInputOption[];
+    value: AutocompleteInputOption | AutocompleteInputOption[] | undefined;
     /**
      * A callback function fired when the search text value changes.
      * Use this callback to update the `options` prop based on the user's input.

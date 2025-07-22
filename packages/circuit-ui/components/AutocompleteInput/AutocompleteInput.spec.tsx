@@ -45,6 +45,7 @@ const props: AutocompleteInputProps = {
   onClear: vi.fn(),
   onChange: vi.fn(),
   label: 'label',
+  value: undefined,
 };
 describe('AutocompleteInput', () => {
   beforeAll(() => {

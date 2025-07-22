@@ -228,6 +228,7 @@ const baseArgs: AutocompleteInputProps = {
   validationHint: 'All our cats have been neutered and vaccinated.',
   onChange: (value?: AutocompleteInputOption) => action('onChange')(value),
   onSearch: (text) => action('onSearch')(text),
+  value: undefined,
 };
 
 const openAutocomplete =
