@@ -8,7 +8,7 @@ Added support to the PhoneNumberInput component for differentiating between coun
 function Component() {
   const options = [
     { country: 'US', code: '+1' },
-    { country: 'AG', code: '+1', areaCode: '268' },
+    { country: 'AG', code: '+1', areaCodes: ['268'] },
     // ...other countries
   ];
   return <PhoneNumberInput countryCode={{ options }} /* ...other props */ />;

@@ -26,11 +26,11 @@ export type CountryCodeOption = {
    */
   code: string;
   /**
-   * An optional area code for countries that share a country calling code
+   * A list of area codes for countries that share a country calling code
    * and are differentiated by area code, e.g. Antigua & Barbuda: `+1 (268)`,
    * where `268` is the area code.
    */
-  areaCode?: string;
+  areaCodes?: string[];
 };
 
 export function parsePhoneNumber(
@@ -64,19 +64,23 @@ export function parsePhoneNumber(
   const matchedOption = options
     .sort((a, b) => {
       // Match options with area code first
-      if (a.areaCode && !b.areaCode) {
+      if (a.areaCodes && !b.areaCodes) {
         return -1;
       }
-      if (!a.areaCode && b.areaCode) {
+      if (!a.areaCodes && b.areaCodes) {
         return 1;
       }
       // Match longer, more specific country codes first
       return b.code.length - a.code.length;
     })
-    .find(({ code, areaCode }) => {
-      const prefix = areaCode ? `${code}${areaCode}` : code;
+    .find(({ code, areaCodes }) => {
+      if (!areaCodes) {
+        return sanitizedValue.startsWith(code);
+      }
       const noWhitespaceValue = sanitizedValue.replace(/\s/g, '');
-      return noWhitespaceValue.startsWith(prefix);
+      return areaCodes.some((areaCode) =>
+        noWhitespaceValue.startsWith(`${code}${areaCode}`),
+      );
     });
 
   if (!matchedOption) {

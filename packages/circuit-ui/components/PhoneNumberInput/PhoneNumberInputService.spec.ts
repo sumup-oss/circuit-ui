@@ -25,7 +25,7 @@ describe('PhoneNumberInputService', () => {
   describe('parsePhoneNumber', () => {
     const options = [
       { country: 'US', code: '+1' },
-      { country: 'AG', code: '+1', areaCode: '268' },
+      { country: 'AG', code: '+1', areaCodes: ['268'] },
       { country: 'CA', code: '+1' },
       { country: 'DE', code: '+49' },
     ];
