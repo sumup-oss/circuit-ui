@@ -89,6 +89,7 @@
   "overrides": {
     "storybook": "$storybook",
     "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0"
+    "@types/react-dom": "^19.0.0",
+    "stylus": "^0.64.0"
   }
 }
