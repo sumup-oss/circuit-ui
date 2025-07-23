@@ -25,6 +25,7 @@ describe('PhoneNumberInputService', () => {
   describe('parsePhoneNumber', () => {
     const options = [
       { country: 'US', code: '+1' },
+      { country: 'AG', code: '+1', areaCode: '268' },
       { country: 'CA', code: '+1' },
       { country: 'DE', code: '+49' },
     ];
@@ -76,6 +77,13 @@ describe('PhoneNumberInputService', () => {
       const actual = parsePhoneNumber(phoneNumber, options);
       expect(actual.countryCode).toBe('DE');
       expect(actual.subscriberNumber).toBeUndefined();
+    });
+
+    it('should parse a phone number with a country-specific area code', () => {
+      const phoneNumber = '+1 (268) 32423424';
+      const actual = parsePhoneNumber(phoneNumber, options);
+      expect(actual.countryCode).toBe('AG');
+      expect(actual.subscriberNumber).toBe('268 32423424');
     });
   });
 

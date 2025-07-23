@@ -22,9 +22,15 @@ export type CountryCodeOption = {
    */
   country: string;
   /**
-   * Country calling codes, see https://en.wikipedia.org/wiki/List_of_country_calling_codes
+   * Country calling code, see https://en.wikipedia.org/wiki/List_of_country_calling_codes
    */
   code: string;
+  /**
+   * An optional area code for countries that share a country calling code
+   * and are differentiated by area code, e.g. Antigua & Barbuda: `+1 (268)`,
+   * where `268` is the area code.
+   */
+  areaCode?: string;
 };
 
 export function parsePhoneNumber(
@@ -56,9 +62,22 @@ export function parsePhoneNumber(
   }
 
   const matchedOption = options
-    // Match longer, more specific country codes first
-    .sort((a, b) => b.code.length - a.code.length)
-    .find(({ code }) => sanitizedValue.startsWith(code));
+    .sort((a, b) => {
+      // Match options with area code first
+      if (a.areaCode && !b.areaCode) {
+        return -1;
+      }
+      if (!a.areaCode && b.areaCode) {
+        return 1;
+      }
+      // Match longer, more specific country codes first
+      return b.code.length - a.code.length;
+    })
+    .find(({ code, areaCode }) => {
+      const prefix = areaCode ? `${code}${areaCode}` : code;
+      const noWhitespaceValue = sanitizedValue.replace(/\s/g, '');
+      return noWhitespaceValue.startsWith(prefix);
+    });
 
   if (!matchedOption) {
     return {
