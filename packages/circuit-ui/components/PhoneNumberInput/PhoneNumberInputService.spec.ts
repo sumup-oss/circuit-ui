@@ -25,6 +25,7 @@ describe('PhoneNumberInputService', () => {
   describe('parsePhoneNumber', () => {
     const options = [
       { country: 'US', code: '+1' },
+      { country: 'AG', code: '+1', areaCodes: ['268'] },
       { country: 'CA', code: '+1' },
       { country: 'DE', code: '+49' },
     ];
@@ -77,6 +78,13 @@ describe('PhoneNumberInputService', () => {
       expect(actual.countryCode).toBe('DE');
       expect(actual.subscriberNumber).toBeUndefined();
     });
+
+    it('should parse a phone number with a country-specific area code', () => {
+      const phoneNumber = '+1 (268) 32423424';
+      const actual = parsePhoneNumber(phoneNumber, options);
+      expect(actual.countryCode).toBe('AG');
+      expect(actual.subscriberNumber).toBe('268 32423424');
+    });
   });
 
   describe('normalizePhoneNumber', () => {
@@ -116,7 +124,8 @@ describe('PhoneNumberInputService', () => {
         { country: 'US', code: '+1' },
         { country: 'DE', code: '+49' },
       ];
-      const actual = mapCountryCodeOptions(options);
+      const locale = undefined;
+      const actual = mapCountryCodeOptions(options, locale);
       expect(actual[0].value).toBe('CA');
       expect(actual[1].value).toBe('DE');
       expect(actual[2].value).toBe('US');
@@ -128,7 +137,8 @@ describe('PhoneNumberInputService', () => {
         { country: 'US', code: '+1' },
         { country: 'DE', code: '+49' },
       ];
-      const actual = mapCountryCodeOptions(options);
+      const locale = undefined;
+      const actual = mapCountryCodeOptions(options, locale);
       expect(actual[0].label).toBe('Canada (+1)');
       expect(actual[1].label).toBe('Germany (+49)');
       expect(actual[2].label).toBe('United States (+1)');
@@ -136,7 +146,8 @@ describe('PhoneNumberInputService', () => {
 
     it('should omit the country name when it is not available', () => {
       const options = [{ country: '', code: '+49' }];
-      const actual = mapCountryCodeOptions(options);
+      const locale = undefined;
+      const actual = mapCountryCodeOptions(options, locale);
       expect(actual[0].label).toBe('+49');
     });
 
@@ -146,7 +157,8 @@ describe('PhoneNumberInputService', () => {
         { country: 'US', code: '+1' },
         { country: 'DE', code: '+49' },
       ];
-      const actual = mapCountryCodeOptions(options);
+      const locale = undefined;
+      const actual = mapCountryCodeOptions(options, locale);
       expect(actual[0].label).toBe('Canada (+1)');
       expect(actual[1].label).toBe('Germany (+49)');
       expect(actual[2].label).toBe('United States (+1)');
@@ -158,7 +170,8 @@ describe('PhoneNumberInputService', () => {
         { country: 'US', code: '+1' },
         { country: 'DE', code: '+49' },
       ];
-      const actual = mapCountryCodeOptions(options, 'DE');
+      const locale = 'DE';
+      const actual = mapCountryCodeOptions(options, locale);
       expect(actual[0].value).toBe('DE');
     });
   });
