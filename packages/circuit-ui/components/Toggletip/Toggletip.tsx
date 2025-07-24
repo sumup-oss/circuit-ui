@@ -54,7 +54,10 @@ export interface ToggletipReferenceProps {
 }
 
 export interface ToggletipProps
-  extends Omit<PublicDialogProps, 'open' | 'children'> {
+  extends Omit<
+    PublicDialogProps,
+    'open' | 'children' | 'isModal' | 'animationDuration'
+  > {
   /**
    * The button element that triggers the toggletip.
    */
