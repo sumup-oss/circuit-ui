@@ -1,5 +1,26 @@
 # @sumup-oss/circuit-ui
 
+## 10.8.0
+
+### Minor Changes
+
+- [#3214](https://github.com/sumup-oss/circuit-ui/pull/3214) [`25d93e4`](https://github.com/sumup-oss/circuit-ui/commit/25d93e4a3a6ee9770ab8137d873a7f5760b9aba9) Thanks [@connor-baer](https://github.com/connor-baer)! - Added support to the PhoneNumberInput component for differentiating between countries that share a country calling code by area code. For example, to differentiate between Antigua & Barbuda and the USA which share the `+1` country code, provide the area code for Antigua & Barbuda (`268`) in the `countryCode.options` prop:
+
+  ```tsx
+  function Component() {
+    const options = [
+      { country: "US", code: "+1" },
+      { country: "AG", code: "+1", areaCodes: ["268"] },
+      // ...other countries
+    ];
+    return <PhoneNumberInput countryCode={{ options }} /* ...other props */ />;
+  }
+  ```
+
+### Patch Changes
+
+- [#3211](https://github.com/sumup-oss/circuit-ui/pull/3211) [`de065f8`](https://github.com/sumup-oss/circuit-ui/commit/de065f848f151361708b2aba215308d2a8397b86) Thanks [@sirineJ](https://github.com/sirineJ)! - Moved the AutocompleteInput component and related types exports to the experimental module.
+
 ## 10.7.1
 
 ### Patch Changes
