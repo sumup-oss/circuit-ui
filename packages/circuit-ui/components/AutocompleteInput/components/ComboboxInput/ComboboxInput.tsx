@@ -196,6 +196,7 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
             aria-invalid={invalid && 'true'}
             required={required}
             disabled={disabled}
+            readOnly={readOnly}
             {...props}
           />
           {value && onClear && clearLabel && (
