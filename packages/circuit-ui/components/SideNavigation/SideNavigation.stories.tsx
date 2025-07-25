@@ -143,7 +143,7 @@ const placeHolderContent = (
 );
 
 export const Base = (args: SideNavigationProps) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(args.isOpen);
 
   const onSideNavigationClose = () => {
     setIsOpen(false);

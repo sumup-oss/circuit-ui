@@ -20,7 +20,6 @@ import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
-import { usePrevious } from '../../hooks/usePrevious/index.js';
 
 import { DesktopNavigation } from './components/DesktopNavigation/index.js';
 import type { DesktopNavigationProps } from './components/DesktopNavigation/DesktopNavigation.js';
@@ -71,9 +70,7 @@ export function SideNavigation({
     }
   }
 
-  const isMobile = useMedia('(max-width: 1279px)', true);
-
-  const prevOpen = usePrevious(isOpen);
+  const isMobile = useMedia('(max-width: 1279px)');
 
   return isMobile ? (
     <MobileNavigation
@@ -82,7 +79,7 @@ export function SideNavigation({
       closeButtonLabel={closeButtonLabel}
       primaryNavigationLabel={primaryNavigationLabel}
       onClose={onClose}
-      open={!prevOpen && isOpen}
+      open={isOpen}
       {...rest}
     />
   ) : (
