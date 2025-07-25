@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.9.1
+
+### Patch Changes
+
+- [#3217](https://github.com/sumup-oss/circuit-ui/pull/3217) [`ab28378`](https://github.com/sumup-oss/circuit-ui/commit/ab28378e66963d425a570a0b9b1f977ab2cc993e) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the SideNavigation component to render the desktop navigation during server-side rendering (SSR).
+
 ## 10.9.0
 
 ### Minor Changes
