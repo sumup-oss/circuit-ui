@@ -84,6 +84,7 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
       hasWarning,
       showValid,
       disabled,
+      readOnly,
       textAlign,
       inputClassName,
       label,
@@ -152,15 +153,24 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
             !disabled && hasWarning && classes.warning,
           )}
         >
-          {tags.slice(0, isOpen || showAllTags ? tags.length : 4).map((tag) => (
-            <Tag
-              key={tag.value}
-              removeButtonLabel={`${removeTagButtonLabel} ${tag.label}`}
-              onRemove={() => onTagRemove?.(tag)}
-            >
-              {tag.label}
-            </Tag>
-          ))}
+          {tags.slice(0, isOpen || showAllTags ? tags.length : 4).map((tag) => {
+            const onRemoveProps =
+              readOnly || disabled
+                ? {}
+                : {
+                    onRemove: () => onTagRemove?.(tag),
+                    removeButtonLabel: `${removeTagButtonLabel} ${tag.label}`,
+                  };
+            return (
+              <Tag
+                key={tag.value}
+                className={clsx(disabled && classes.disabledTag)}
+                {...onRemoveProps}
+              >
+                {tag.label}
+              </Tag>
+            );
+          })}
           {!showAllTags && !isOpen && tags.length > 4 && (
             <Button
               style={{ padding: 0 }}

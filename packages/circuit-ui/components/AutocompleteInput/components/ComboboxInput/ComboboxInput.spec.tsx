@@ -256,6 +256,32 @@ describe('ComboboxInput', () => {
       await userEvent.click(screen.getByRole('button', { name: '+ 1 more' }));
       expect(screen.getByText(tags[4].label)).toBeVisible();
     });
+    it('should not render tags when the input is readOnly', () => {
+      const tags = [
+        {
+          label: 'Tag 1',
+          value: 'tag-1',
+        },
+      ];
+      render(<ComboboxInput {...defaultProps} tags={tags} readOnly />);
+
+      expect(
+        screen.queryByRole('button', { name: 'Remove Tag 1' }),
+      ).not.toBeInTheDocument();
+    });
+    it('should not render tags with remove buttons when the input is disabled', () => {
+      const tags = [
+        {
+          label: 'Tag 1',
+          value: 'tag-1',
+        },
+      ];
+      render(<ComboboxInput {...defaultProps} tags={tags} disabled />);
+
+      expect(
+        screen.queryByRole('button', { name: 'Remove Tag 1' }),
+      ).not.toBeInTheDocument();
+    });
   });
 
   it('should have no accessibility violations', async () => {
