@@ -71,7 +71,7 @@ export function SideNavigation({
     }
   }
 
-  const isMobile = useMedia('(max-width: 1279px)', true);
+  const isMobile = useMedia('(max-width: 1279px)');
 
   const prevOpen = usePrevious(isOpen);
 
