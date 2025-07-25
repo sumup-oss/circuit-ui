@@ -56,6 +56,14 @@ describe('Option', () => {
     expect(props.onOptionClick).toHaveBeenCalledWith({
       value: props.value,
       label: props.label,
+      image: props.image,
+      description: props.description,
     });
+  });
+
+  it('should render as selected when isSelectable and selected are true', () => {
+    render(<Option {...props} isSelectable selected />);
+
+    expect(screen.getByRole('option')).toHaveAttribute('aria-selected', 'true');
   });
 });

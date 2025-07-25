@@ -1,7 +1,3 @@
-.input {
-  padding-right: var(--cui-spacings-exa);
-}
-
 .results {
   z-index: var(--cui-z-index-popover);
   max-height: min(443px, var(--results-max-height));

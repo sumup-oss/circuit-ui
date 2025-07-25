@@ -75,12 +75,15 @@
   display: flex;
   width: 20px;
   height: 20px;
-  margin-top: 10px;
   margin-left: var(--cui-spacings-byte);
   background-color: var(--cui-bg-normal);
   border: var(--cui-border-width-kilo) solid var(--cui-border-normal);
   border-radius: var(--cui-border-radius-bit);
   transition: all var(--cui-transitions-default);
+}
+
+.offset {
+  margin-top: 10px;
 }
 
 .checkbox svg,

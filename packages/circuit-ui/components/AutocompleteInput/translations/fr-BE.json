@@ -2,5 +2,7 @@
   "noResultsMessage": "Aucun résultat trouvé",
   "resultsFound": "résultats trouvés",
   "loadMoreLabel": "Charger plus",
-  "clearLabel": "Réinitialiser"
+  "clearLabel": "Réinitialiser",
+  "removeTagButtonLabel": "Supprimer",
+  "moreResults": "de plus"
 }

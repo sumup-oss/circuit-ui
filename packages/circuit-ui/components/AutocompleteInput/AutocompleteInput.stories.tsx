@@ -23,6 +23,7 @@ import { Button } from '../Button/index.js';
 import { Stack } from '../../../../.storybook/components/index.js';
 import { modes } from '../../../../.storybook/modes.js';
 
+import classes from './AutocompleteInputStory.module.css';
 import {
   addresses,
   catNames,
@@ -33,7 +34,10 @@ import {
   AutocompleteInput,
   type AutocompleteInputProps,
 } from './AutocompleteInput.js';
-import { isGroup } from './AutocompleteInputService.js';
+import {
+  isGroup,
+  updateMultipleSelectionValue,
+} from './AutocompleteInputService.js';
 import type { AutocompleteInputOption } from './components/Option/Option.js';
 
 export default {
@@ -160,6 +164,11 @@ export default {
       },
     },
     // Behavior & Appearance
+    multiple: {
+      table: {
+        category: 'Behavior & Appearance',
+      },
+    },
     variant: {
       table: {
         category: 'Behavior & Appearance',
@@ -219,6 +228,7 @@ const baseArgs: AutocompleteInputProps = {
   validationHint: 'All our cats have been neutered and vaccinated.',
   onChange: (value?: AutocompleteInputOption) => action('onChange')(value),
   onSearch: (text) => action('onSearch')(text),
+  value: undefined,
 };
 
 const openAutocomplete =
@@ -270,7 +280,7 @@ export const Base = (args: AutocompleteInputProps) => {
       setIsLoading(false);
     }, 1500);
   };
-  const onChange = (value?: AutocompleteInputOption) => {
+  const onChange = (value: AutocompleteInputOption) => {
     args.onChange(value);
     setAutocompleteValue(value);
   };
@@ -315,6 +325,49 @@ Grouped.args = {
   options: groupedOptions,
 };
 Grouped.play = openAutocomplete();
+
+export const WithMultiSelection = (args: AutocompleteInputProps) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [autocompleteValue, setAutocompleteValue] = useState<
+    AutocompleteInputOption[]
+  >((args.value ?? []) as AutocompleteInputOption[]);
+  const [options, setOptions] = useState(args.options);
+  const onSearchTextChange = (searchText: string) => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setOptions(filterOptions(searchText, args.options));
+      setIsLoading(false);
+    }, 1500);
+  };
+  const onSelection = useCallback(
+    (value: AutocompleteInputOption) => {
+      setAutocompleteValue((prevValue) =>
+        updateMultipleSelectionValue(prevValue, value),
+      );
+      // reset options
+      setOptions(args.options);
+    },
+    [args.options],
+  );
+
+  return (
+    <AutocompleteInput
+      {...args}
+      value={autocompleteValue}
+      options={options}
+      isLoading={isLoading}
+      onChange={onSelection}
+      onSearch={onSearchTextChange}
+      className={classes['fixed-width-input']}
+    />
+  );
+};
+WithMultiSelection.args = {
+  ...baseArgs,
+  value: mockOptions.slice(2, 4),
+  multiple: true,
+};
+WithMultiSelection.play = openAutocomplete();
 
 export const WithAction = (args: AutocompleteInputProps) => (
   <AutocompleteInput {...args} />

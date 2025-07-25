@@ -22,18 +22,33 @@ export const isGroup = (
 ): option is AutocompleteInputOptionGroup =>
   option && 'label' in option && 'options' in option;
 
+export const isOptionSelected = (
+  optionValue: string,
+  value?: AutocompleteInputProps['value'],
+) => {
+  if (!value) {
+    return false;
+  }
+  if (Array.isArray(value)) {
+    return value.find((val) => val.value === optionValue) !== undefined;
+  }
+  return value.value === optionValue;
+};
+
 export const getOptionByValue = (
   options: AutocompleteInputProps['options'],
-  value?: string,
-): AutocompleteInputOption | undefined => {
-  if (!value) {
-    return undefined;
-  }
+  value: string,
+): AutocompleteInputOption => {
   const flatOptions = options.flatMap((option) =>
     isGroup(option) ? option.options : option,
   );
 
-  return flatOptions.find((option) => option.value === value);
+  return (
+    flatOptions.find((option) => option.value === value) ?? {
+      label: value,
+      value,
+    }
+  );
 };
 
 export const isOptionFocused = (
@@ -42,3 +57,18 @@ export const isOptionFocused = (
   activeOption?: number,
 ) =>
   activeOption !== undefined ? optionValues[activeOption] === value : false;
+
+export const updateMultipleSelectionValue = (
+  currentValue: AutocompleteInputOption[],
+  value: AutocompleteInputOption,
+): AutocompleteInputOption[] => {
+  const newValue = [];
+  if (currentValue.find((v) => v.value === value.value)) {
+    // If the value is already selected, remove it
+    newValue.push(...currentValue.filter((v) => v.value !== value.value));
+  } else {
+    // If the value is not selected, add it
+    newValue.push(...currentValue, value);
+  }
+  return newValue;
+};

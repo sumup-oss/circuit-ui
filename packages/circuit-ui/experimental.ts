@@ -18,3 +18,4 @@ export { AutocompleteInput } from './components/AutocompleteInput/AutocompleteIn
 export type { AutocompleteInputProps } from './components/AutocompleteInput/AutocompleteInput.js';
 export type { AutocompleteInputOption } from './components/AutocompleteInput/components/Option/Option.js';
 export type { AutocompleteInputOptionGroup } from './components/AutocompleteInput/components/Options/Options.js';
+export { updateMultipleSelectionValue } from './components/AutocompleteInput/AutocompleteInputService.js';

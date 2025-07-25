@@ -27,6 +27,7 @@ const props = {
   label: 'label',
   resultsSummary: 'results summary',
   loadMoreLabel: 'Load more',
+  searchText: '',
 } satisfies ResultsProps;
 
 describe('Results', () => {
@@ -44,10 +45,7 @@ describe('Results', () => {
     render(<Results {...props} />);
 
     await userEvent.click(screen.getByText(props.options[0].label));
-    expect(props.onOptionClick).toHaveBeenCalledWith({
-      value: props.options[0].value,
-      label: props.options[0].label,
-    });
+    expect(props.onOptionClick).toHaveBeenCalledWith(props.options[0]);
   });
 
   it('should render a live region', () => {
@@ -80,5 +78,18 @@ describe('Results', () => {
 
       expect(screen.getByText(noResultsMessage)).toBeVisible();
     });
+  });
+
+  it('should render action', async () => {
+    const action = {
+      onClick: vi.fn(),
+      children: 'Add item',
+    };
+    render(<Results {...props} action={action} />);
+
+    const actionButton = screen.getByRole('button', { name: action.children });
+    expect(actionButton).toBeVisible();
+    await userEvent.click(actionButton);
+    expect(action.onClick).toHaveBeenCalledOnce();
   });
 });
