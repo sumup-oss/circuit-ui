@@ -1,5 +1,17 @@
 # @sumup-oss/circuit-ui
 
+## 10.9.0
+
+### Minor Changes
+
+- [#3202](https://github.com/sumup-oss/circuit-ui/pull/3202) [`b438bf9`](https://github.com/sumup-oss/circuit-ui/commit/b438bf99d51d52c67ca9616ccc8d18c2fc07d7a6) Thanks [@sirineJ](https://github.com/sirineJ)! - Changed the signature of the AutocompleteInput's `onChange` to include the entire option object.
+
+- [#3202](https://github.com/sumup-oss/circuit-ui/pull/3202) [`b438bf9`](https://github.com/sumup-oss/circuit-ui/commit/b438bf99d51d52c67ca9616ccc8d18c2fc07d7a6) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a `multiple` prop to the AutocompleteInput component to support selecting multiple values.
+
+### Patch Changes
+
+- [#3215](https://github.com/sumup-oss/circuit-ui/pull/3215) [`551ef69`](https://github.com/sumup-oss/circuit-ui/commit/551ef69f09795bb95e24471d2de4404322a1a9e0) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed Dialog specific props `isModal` and `animationDuration` from the `ToggletipProps` interface .
+
 ## 10.8.0
 
 ### Minor Changes
