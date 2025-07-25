@@ -150,6 +150,9 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
         <div
           className={clsx(
             classes.base,
+            invalid && classes.invalid,
+            disabled && classes.disabled,
+            readOnly && classes.readonly,
             !disabled && hasWarning && classes.warning,
           )}
         >
@@ -164,7 +167,7 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
             return (
               <Tag
                 key={tag.value}
-                className={clsx(disabled && classes.disabledTag)}
+                className={clsx(disabled && classes['disabled-tag'])}
                 {...onRemoveProps}
               >
                 {tag.label}

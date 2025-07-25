@@ -21,7 +21,7 @@
   line-height: var(--cui-body-m-line-height);
   appearance: none;
   outline: 0;
-  background-color: var(--cui-bg-normal);
+  background-color: transparent;
   border: none;
   box-shadow: none;
 }
@@ -46,15 +46,15 @@
 
 /* Validations */
 
-.base[aria-invalid="true"] {
+.invalid {
   border: 1px solid var(--cui-border-danger);
 }
 
-.base[aria-invalid="true"]:hover {
+.invalid:hover {
   border: 1px solid var(--cui-border-danger-hovered);
 }
 
-.base[aria-invalid="true"]:focus-within {
+.invalid:focus-within {
   border: 1px solid var(--cui-border-danger);
   box-shadow: inset 0 0 0 1px var(--cui-border-danger);
 }
@@ -73,15 +73,14 @@
 }
 
 /* Disabled */
-
-.base:disabled,
-.base[disabled] {
+.disabled,
+.disabled-tag > div {
   color: var(--cui-fg-normal-disabled);
   background-color: var(--cui-bg-normal-disabled);
   border: 1px solid var(--cui-border-normal-disabled);
 }
 
-.base[readonly] {
+.readonly {
   background-color: var(--cui-bg-subtle-disabled);
 }
 
