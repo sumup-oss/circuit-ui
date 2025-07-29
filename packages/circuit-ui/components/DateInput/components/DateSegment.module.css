@@ -1,0 +1,45 @@
+.base {
+  width: calc(var(--width) + 2 * var(--cui-spacings-bit));
+  padding: var(--cui-spacings-bit);
+  font-size: var(--cui-body-m-font-size);
+  font-variant-numeric: tabular-nums;
+  line-height: var(--cui-body-m-line-height);
+  appearance: textfield;
+  background-color: transparent;
+  border: none;
+  border-radius: var(--cui-border-radius-byte);
+  transition: background-color var(--cui-transitions-default);
+}
+
+.base::-webkit-outer-spin-button,
+.base::-webkit-inner-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+.base::placeholder {
+  color: var(--cui-fg-placeholder);
+}
+
+.base[aria-invalid="true"]:not(:focus):not([disabled])::placeholder {
+  color: var(--cui-fg-danger);
+}
+
+.base:focus {
+  outline: none;
+  background-color: var(--cui-bg-highlight);
+}
+
+.base:disabled,
+.base[disabled] {
+  color: var(--cui-fg-normal-disabled);
+}
+
+.size {
+  position: absolute;
+  visibility: hidden;
+  font-size: var(--cui-body-m-font-size);
+  font-variant-numeric: tabular-nums;
+  line-height: var(--cui-body-m-line-height);
+  pointer-events: none;
+}

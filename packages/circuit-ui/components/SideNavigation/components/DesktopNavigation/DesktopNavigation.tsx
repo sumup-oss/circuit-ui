@@ -13,16 +13,17 @@
  * limitations under the License.
  */
 
-/* eslint-disable jsx-a11y/no-redundant-roles */
+'use client';
 
-import utilityClasses from '../../../../styles/utility.js';
+import { utilClasses } from '../../../../styles/utility.js';
 import { clsx } from '../../../../styles/clsx.js';
 import { useFocusList } from '../../../../hooks/useFocusList/index.js';
-import Headline from '../../../Headline/index.js';
+import { Headline } from '../../../Headline/index.js';
 import { Skeleton, SkeletonContainer } from '../../../Skeleton/index.js';
-import { PrimaryLinkProps } from '../../types.js';
+import type { PrimaryLinkProps } from '../../types.js';
 import { SecondaryLinks } from '../SecondaryLinks/index.js';
 import { PrimaryLink } from '../PrimaryLink/index.js';
+import { SkipLink } from '../../../SkipLink/index.js';
 
 import classes from './DesktopNavigation.module.css';
 
@@ -45,6 +46,16 @@ export interface DesktopNavigationProps {
    * Important for accessibility.
    */
   secondaryNavigationLabel: string;
+  /**
+   * Hash link to the page's main content to enable keyboard and screen reader
+   * users to skip over the navigation links. Required to comply with
+   * [WCAG 2.1 SC 2.4.1](https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html)
+   */
+  skipNavigationHref?: string;
+  /**
+   * label for the skip navigation link.
+   */
+  skipNavigationLabel?: string;
 }
 
 export function DesktopNavigation({
@@ -52,12 +63,13 @@ export function DesktopNavigation({
   primaryLinks,
   primaryNavigationLabel,
   secondaryNavigationLabel,
-}: DesktopNavigationProps): JSX.Element {
+  skipNavigationHref,
+  skipNavigationLabel,
+}: DesktopNavigationProps) {
   const focusProps = useFocusList();
 
   const activePrimaryLink = primaryLinks.find((link) => link.isActive);
-  const secondaryGroups =
-    activePrimaryLink && activePrimaryLink.secondaryGroups;
+  const secondaryGroups = activePrimaryLink?.secondaryGroups;
 
   return (
     <SkeletonContainer
@@ -65,10 +77,13 @@ export function DesktopNavigation({
       className={classes.wrapper}
     >
       <nav
-        className={clsx(classes.primary, utilityClasses.hideScrollbar)}
+        className={clsx(classes.primary, utilClasses.hideScrollbar)}
         aria-label={primaryNavigationLabel}
       >
-        <ul role="list" className={classes.list}>
+        {skipNavigationHref && skipNavigationLabel && (
+          <SkipLink href={skipNavigationHref}>{skipNavigationLabel}</SkipLink>
+        )}
+        <ul className={classes.list}>
           {primaryLinks.map((link) => (
             <li key={link.label}>
               <PrimaryLink {...link} {...focusProps} />
@@ -82,8 +97,8 @@ export function DesktopNavigation({
           aria-label={secondaryNavigationLabel}
         >
           <Skeleton className={classes.headline} as="div">
-            <Headline as="h2" size="four">
-              {activePrimaryLink && activePrimaryLink.label}
+            <Headline as="h2" size="s">
+              {activePrimaryLink?.label}
             </Headline>
           </Skeleton>
           <SecondaryLinks secondaryGroups={secondaryGroups} />

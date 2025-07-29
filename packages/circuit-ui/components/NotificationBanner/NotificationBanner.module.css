@@ -1,12 +1,26 @@
 .base {
   position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  container: cui-notification-banner / inline-size;
   overflow: hidden;
   border-radius: var(--cui-border-radius-mega);
-  transition: opacity 200ms ease-in-out, height 200ms ease-in-out,
+  transition:
+    opacity 200ms ease-in-out,
+    height 200ms ease-in-out,
     visibility 200ms ease-in-out;
+}
+
+.grid {
+  display: grid;
+  grid-template-areas: "content image" "button image";
+  grid-template-columns: minmax(150px, 1fr) auto;
+}
+
+@container cui-notification-banner (width > 960px) {
+  .grid {
+    grid-template-areas: "image content button";
+    grid-template-columns: auto minmax(150px, 1fr) auto;
+    align-items: center;
+  }
 }
 
 /* Variants */
@@ -22,51 +36,72 @@
 .content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  max-width: 420px;
-  padding: var(--cui-spacings-giga);
-  padding-right: var(--cui-spacings-byte);
+  gap: var(--cui-spacings-byte);
+  max-width: 600px;
+  margin-top: var(--cui-spacings-giga);
+  margin-right: var(--cui-spacings-byte);
+  margin-left: var(--cui-spacings-giga);
+}
+
+@container cui-notification-banner (width > 960px) {
+  .content {
+    grid-area: content;
+    margin-right: 0;
+    margin-bottom: var(--cui-spacings-giga);
+    margin-left: var(--cui-spacings-byte);
+  }
 }
 
 /* Child elements */
 
 .base .headline {
-  margin-bottom: var(--cui-spacings-byte);
-  font-size: var(--cui-typography-headline-four-font-size);
-  line-height: var(--cui-typography-headline-four-line-height);
+  font-size: var(--cui-headline-s-font-size);
+  line-height: var(--cui-headline-s-line-height);
 }
 
 @media (min-width: 768px) {
   .base .headline {
-    font-size: var(--cui-typography-headline-three-font-size);
-    line-height: var(--cui-typography-headline-three-line-height);
+    font-size: var(--cui-headline-m-font-size);
+    line-height: var(--cui-headline-m-line-height);
   }
 }
 
 .base .body {
-  margin-bottom: var(--cui-spacings-byte);
-  font-size: var(--cui-typography-body-two-font-size);
-  line-height: var(--cui-typography-body-two-line-height);
+  font-size: var(--cui-body-s-font-size);
+  line-height: var(--cui-body-s-line-height);
 }
 
 @media (min-width: 768px) {
   .base .body {
-    font-size: var(--cui-typography-body-one-font-size);
-    line-height: var(--cui-typography-body-one-line-height);
+    font-size: var(--cui-body-m-font-size);
+    line-height: var(--cui-body-m-line-height);
   }
 }
 
 .button {
+  grid-area: button;
+  width: fit-content;
   margin-top: var(--cui-spacings-byte);
+  margin-right: var(--cui-spacings-byte);
+  margin-bottom: var(--cui-spacings-giga);
+  margin-left: var(--cui-spacings-giga);
+}
+
+@container cui-notification-banner (width > 960px) {
+  .button {
+    margin: var(--cui-spacings-giga);
+  }
 }
 
 .base .image {
+  grid-area: image;
+  align-self: stretch;
   width: var(--notification-image-width);
   min-width: 0;
   height: auto;
-  border-radius: 0 var(--cui-border-radius-mega) var(--cui-border-radius-mega) 0;
   object-fit: contain;
   object-position: var(--notification-image-align);
+  border-radius: 0 var(--cui-border-radius-mega) var(--cui-border-radius-mega) 0;
 }
 
 .base .close {

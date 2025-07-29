@@ -14,8 +14,9 @@
  */
 
 import styled from '@emotion/styled';
-import { Theme } from '@sumup/design-tokens';
+import type { Theme } from '@sumup-oss/design-tokens';
 
+// biome-ignore lint/style/noDefaultExport: Mirroring Emotion's exports
 export default styled;
 
 export interface StyleProps {

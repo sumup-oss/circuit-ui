@@ -17,7 +17,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { render, fireEvent, axe, screen } from '../../../../util/test-utils.js';
 
-import { PageSelect, PageSelectProps } from './PageSelect.js';
+import { PageSelect, type PageSelectProps } from './PageSelect.js';
 
 describe('PageSelect', () => {
   const baseProps: PageSelectProps = {

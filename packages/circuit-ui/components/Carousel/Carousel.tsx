@@ -13,14 +13,16 @@
  * limitations under the License.
  */
 
-import { ReactNode, useRef, useState } from 'react';
+'use client';
 
-import ProgressBar from '../ProgressBar/index.js';
-import Step from '../Step/index.js';
+import { useRef, useState, type ReactNode } from 'react';
+
+import { ProgressBar } from '../ProgressBar/index.js';
+import { Step } from '../Step/index.js';
 import { useComponentSize } from '../../hooks/useComponentSize/index.js';
-import { ImageProps } from '../Image/index.js';
+import type { ImageProps } from '../Image/index.js';
 import { isFunction } from '../../util/type-check.js';
-import { Actions, State } from '../Step/types.js';
+import type { Actions, State } from '../Step/types.js';
 
 import { Container } from './components/Container/index.js';
 import { Slides } from './components/Slides/index.js';
@@ -153,7 +155,7 @@ export function Carousel({
           <Slides ref={slidesRef}>
             {slides.map((slide, index) => (
               <Slide
-                key={index}
+                key={slide.image.src}
                 index={index}
                 step={state.step}
                 prevStep={state.previousStep}

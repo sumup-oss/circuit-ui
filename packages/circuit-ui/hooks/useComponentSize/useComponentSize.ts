@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { useCallback, useState, useEffect, RefObject } from 'react';
+import { useCallback, useState, useEffect, type RefObject } from 'react';
 
 import { throttle } from '../../util/helpers.js';
 
@@ -32,7 +32,7 @@ function getSize(element?: HTMLElement | null) {
 }
 
 export function useComponentSize(
-  ref: RefObject<HTMLElement>,
+  ref: RefObject<HTMLElement | null>,
   initialSize = { width: 0, height: 0 },
 ) {
   const [componentSize, setComponentSize] = useState(initialSize);

@@ -13,8 +13,12 @@
  * limitations under the License.
  */
 
-import { createUseModal } from '../ModalContext/index.js';
+import { createUseModal } from '../Modal/createUseModal.js';
 
-import { NotificationModal } from './NotificationModal.js';
+import {
+  NotificationModal,
+  type NotificationModalProps,
+} from './NotificationModal.js';
 
-export const useNotificationModal = createUseModal(NotificationModal);
+export const useNotificationModal =
+  createUseModal<NotificationModalProps>(NotificationModal);

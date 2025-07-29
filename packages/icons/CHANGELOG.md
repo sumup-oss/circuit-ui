@@ -1,4 +1,203 @@
-# @sumup/icons
+# @sumup-oss/icons
+
+## 5.15.0
+
+### Minor Changes
+
+- [#3203](https://github.com/sumup-oss/circuit-ui/pull/3203) [`65628b7`](https://github.com/sumup-oss/circuit-ui/commit/65628b73135715d476b2414db0027cc18d8dad5e) Thanks [@bradmikeburzon](https://github.com/bradmikeburzon)! - Added a new `Move` icon in sizes 16 and 24.
+
+## 5.14.0
+
+### Minor Changes
+
+- [`16656f1`](https://github.com/sumup-oss/circuit-ui/commit/16656f1471e51aaa676475cd23928923af090abc) Thanks [@connor-baer](https://github.com/connor-baer)! - Declared support for React 19 in the peer dependency range.
+
+## 5.13.0
+
+### Minor Changes
+
+- [#3189](https://github.com/sumup-oss/circuit-ui/pull/3189) [`0bfd92b`](https://github.com/sumup-oss/circuit-ui/commit/0bfd92b98abb698ef21647043882e7be76c04caa) Thanks [@michael-callahan-sumup](https://github.com/michael-callahan-sumup)! - Added a new `Wealth` icon in sizes 16 and 24.
+
+## 5.12.0
+
+### Minor Changes
+
+- [#3152](https://github.com/sumup-oss/circuit-ui/pull/3152) [`88ce66e`](https://github.com/sumup-oss/circuit-ui/commit/88ce66e5371e7b8d0ad450cdc41bd63e5ad65976) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a Location icon in size 16.
+
+## 5.11.0
+
+### Minor Changes
+
+- [#3145](https://github.com/sumup-oss/circuit-ui/pull/3145) [`71e3cec`](https://github.com/sumup-oss/circuit-ui/commit/71e3cec446fd5ce45930a11dcb3265cb420bbb1e) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a `getIconURL` helper function to obtain the URL for the hosted icons with full type-safety.
+
+## 5.10.0
+
+### Minor Changes
+
+- [#3117](https://github.com/sumup-oss/circuit-ui/pull/3117) [`dcca0a9`](https://github.com/sumup-oss/circuit-ui/commit/dcca0a9017e94f7297b348de7742148c9ec01aaa) Thanks [@aamirnajar](https://github.com/aamirnajar)! - Added a new `Interac` card scheme icon in sizes 24 and 32.
+
+## 5.9.0
+
+### Minor Changes
+
+- [#3075](https://github.com/sumup-oss/circuit-ui/pull/3075) [`3d0c5fc`](https://github.com/sumup-oss/circuit-ui/commit/3d0c5fcf7c9f39861a3c3289311e6129800a1357) Thanks [@giedoka](https://github.com/giedoka)! - Added new `DayView`, `WeekView`, `MonthView` icons in size 24 and `Controls` icon in size 16.
+
+## 5.8.0
+
+### Minor Changes
+
+- [#3012](https://github.com/sumup-oss/circuit-ui/pull/3012) [`ff540a3`](https://github.com/sumup-oss/circuit-ui/commit/ff540a3b93f0efe50253041a5bc0fef6281ad35f) Thanks [@pspasova](https://github.com/pspasova)! - Added a Bulk Transfer icon in size 24.
+
+- [#3015](https://github.com/sumup-oss/circuit-ui/pull/3015) [`a92a222`](https://github.com/sumup-oss/circuit-ui/commit/a92a22266d32a9e9432a395b5147be73099c2fc7) Thanks [@amelako](https://github.com/amelako)! - Added a Sumup pay icon in size 32.
+
+## 5.7.0
+
+### Minor Changes
+
+- [#2991](https://github.com/sumup-oss/circuit-ui/pull/2991) [`fea6e1d`](https://github.com/sumup-oss/circuit-ui/commit/fea6e1d61bfd2611394df5c78c651745278039bd) Thanks [@kamenlitchev](https://github.com/kamenlitchev)! - Added a new `Girocard` payment method icon in size 24.
+
+## 5.6.0
+
+### Minor Changes
+
+- [#2956](https://github.com/sumup-oss/circuit-ui/pull/2956) [`8a7ddc7`](https://github.com/sumup-oss/circuit-ui/commit/8a7ddc76658b28c52d1eb375ebf58f603a206a0e) Thanks [@sirineJ](https://github.com/sirineJ)! - Added icons for the Plus tier indicator.
+
+## 5.5.0
+
+### Minor Changes
+
+- [#2950](https://github.com/sumup-oss/circuit-ui/pull/2950) [`0d9195c`](https://github.com/sumup-oss/circuit-ui/commit/0d9195c6e4c8f2456eee607473bddd1ca6385d1a) Thanks [@kamenlitchev](https://github.com/kamenlitchev)! - Added a new `Girocard` card scheme icon in size 32.
+
+## 5.4.0
+
+### Minor Changes
+
+- [#2937](https://github.com/sumup-oss/circuit-ui/pull/2937) [`755267d`](https://github.com/sumup-oss/circuit-ui/commit/755267dbe180b608241f94c56e0cf1f97ca2461d) Thanks [@giedoka](https://github.com/giedoka)! - Added a new `Motorbike` icon in size 24.
+
+## 5.3.0
+
+### Minor Changes
+
+- [#2870](https://github.com/sumup-oss/circuit-ui/pull/2870) [`d5308e7`](https://github.com/sumup-oss/circuit-ui/commit/d5308e7b3a83f8c6d17974d43df5a9dc1f3af2e8) Thanks [@matoous](https://github.com/matoous)! - Added new Code icon.
+
+## 5.2.1
+
+### Patch Changes
+
+- [#2856](https://github.com/sumup-oss/circuit-ui/pull/2856) [`36f6217`](https://github.com/sumup-oss/circuit-ui/commit/36f621746eb60d9a7912528b5b41b1c98b22f82e) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the Calendar icon to the latest design.
+
+## 5.2.0
+
+### Minor Changes
+
+- [#2836](https://github.com/sumup-oss/circuit-ui/pull/2836) [`0f4c967`](https://github.com/sumup-oss/circuit-ui/commit/0f4c967b75ec5696a6fade9c33441457f6c71f29) Thanks [@matoous](https://github.com/matoous)! - Added a new icon for Japanese flag with correct country code `flag_jp`. Deprecated the old `flag_ja` icon.
+
+## 5.1.0
+
+### Minor Changes
+
+- [#2785](https://github.com/sumup-oss/circuit-ui/pull/2785) [`75d1105`](https://github.com/sumup-oss/circuit-ui/commit/75d1105ee3a69a9c9283d0ac3c7705f6c84588ee) Thanks [@giedoka](https://github.com/giedoka)! - Added new icon `ParcelLocker` in size 24.
+
+## 5.0.0
+
+### Major Changes
+
+- [#2707](https://github.com/sumup-oss/circuit-ui/pull/2707) [`f8016eb`](https://github.com/sumup-oss/circuit-ui/commit/f8016ebe246005ed415ed9587ecdb76892e981c6) Thanks [@sirineJ](https://github.com/sirineJ)! - Raised the minimum Node.js version to 20+.
+
+- [#2648](https://github.com/sumup-oss/circuit-ui/pull/2648) [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796) Thanks [@connor-baer](https://github.com/connor-baer)! - Renamed the package scope from `@sumup` to `@sumup-oss`. Replace `@sumup/icons` with `@sumup-oss/icons` in your `package.json` file, then update all imports:
+
+  ```diff
+  -import { Search } from '@sumup/icons';
+  +import { Search } from '@sumup-oss/icons';
+  ```
+
+  [Circuit UI's ESLint plugin](https://circuit.sumup.com/?path=/docs/packages-eslint-plugin-circuit-ui--docs) offers the `renamed-package-scope` rule to automate updating the package imports.
+
+## 4.1.3
+
+### Patch Changes
+
+- [#2715](https://github.com/sumup-oss/circuit-ui/pull/2715) [`f053eb3`](https://github.com/sumup-oss/circuit-ui/commit/f053eb3ccb3f86ca71d8f7e99d0dcb7447dc818f) Thanks [@voronianski](https://github.com/voronianski)! - Updated Swile 24px icon size to fit other 24px size icons.
+
+## 4.1.2
+
+### Patch Changes
+
+- [#2710](https://github.com/sumup-oss/circuit-ui/pull/2710) [`ab8b1fa`](https://github.com/sumup-oss/circuit-ui/commit/ab8b1fac9ec378739e9ca43d5ddeefe42005d528) Thanks [@sirineJ](https://github.com/sirineJ)! - Optimized the `Add`, `AddEmployees`, `AddItems`, `ArrowLeft`, `Calendar`, `Close`, `Edit`, and `Plus` icons to look more balanced when used alongside text.
+
+## 4.1.1
+
+### Patch Changes
+
+- [#2708](https://github.com/sumup-oss/circuit-ui/pull/2708) [`f7b96c6`](https://github.com/sumup-oss/circuit-ui/commit/f7b96c69b794428ad755f38b8ea13b0902a3549e) Thanks [@voronianski](https://github.com/voronianski)! - Updated `Conecs` and `Swile` icons to the latest logo versions (24px size only).
+
+## 4.1.0
+
+### Minor Changes
+
+- [#2649](https://github.com/sumup-oss/circuit-ui/pull/2649) [`2ced130`](https://github.com/sumup-oss/circuit-ui/commit/2ced13049997449b6c4670c0b119c6daa95344be) Thanks [@ituraj](https://github.com/ituraj)! - Added `Expenses` icon in size 24. Added `ReceiptSmart` and `ReceiptUnreviewed` in size 24. Updated `ReceiptAttached` and `ReceiptMissing` in size 24.
+
+## 4.0.0
+
+### Major Changes
+
+- [#2615](https://github.com/sumup-oss/circuit-ui/pull/2615) [`985f647`](https://github.com/sumup-oss/circuit-ui/commit/985f64789d712dac02a18f6c4975b69f12fb4bb6) Thanks [@connor-baer](https://github.com/connor-baer)! - Use default parameters for default props rather than statically assigning them as `defaultProps`. This silences React 18.3's warning about `defaultProps` being deprecated and enables tree shaking the icon components (which is prevented if they have static assignments).
+
+### Minor Changes
+
+- [#2640](https://github.com/sumup-oss/circuit-ui/pull/2640) [`aa230ca`](https://github.com/sumup-oss/circuit-ui/commit/aa230ca545252148c9f1591efcf66b0403bfa43d) Thanks [@Zayebatsu](https://github.com/Zayebatsu)! - Added `Grid` and `List` icons in size 24.
+
+## 3.9.0
+
+### Minor Changes
+
+- [`19ae1cb`](https://github.com/sumup-oss/circuit-ui/commit/19ae1cbaffb60758fece343688b029d31b224c33) Thanks [@matoous](https://github.com/matoous)! - Added the `Accessibility` (24px), `Battery` (16px), `BatteryAlert` (16px & 24px), `ColorCorrection` (24px), `ColorInversion` (24px), `Language` (24px), `NoSim` (24px), `PrintFailed` (16px & 24px), `Upgrade` (16px & 24px) and `Volume` (24px) icons.
+
+## 3.8.1
+
+### Patch Changes
+
+- [#2607](https://github.com/sumup-oss/circuit-ui/pull/2607) [`95b956d`](https://github.com/sumup-oss/circuit-ui/commit/95b956d9078963041528d496ac441478bd985b15) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the `Elo` icons to the latest logo version.
+
+- [#2607](https://github.com/sumup-oss/circuit-ui/pull/2607) [`95b956d`](https://github.com/sumup-oss/circuit-ui/commit/95b956d9078963041528d496ac441478bd985b15) Thanks [@connor-baer](https://github.com/connor-baer)! - Tweaked the `Employees` icon.
+
+## 3.8.0
+
+### Minor Changes
+
+- [#2584](https://github.com/sumup-oss/circuit-ui/pull/2584) [`0382840`](https://github.com/sumup-oss/circuit-ui/commit/038284033bc713d77dbf86ed80a609b8d8f37bff) Thanks [@vascofg](https://github.com/vascofg)! - Added a new `Sparkles` icon in size 24.
+
+## 3.7.0
+
+### Minor Changes
+
+- [#2495](https://github.com/sumup-oss/circuit-ui/pull/2495) [`7c74b3b`](https://github.com/sumup-oss/circuit-ui/commit/7c74b3be1283efeacf7d31041e46f8450a2b1bf3) Thanks [@pspasova](https://github.com/pspasova)! - Added a new `AutomaticBalanceTransfer` icon in size 24.
+
+## 3.6.1
+
+### Patch Changes
+
+- [#2458](https://github.com/sumup-oss/circuit-ui/pull/2458) [`913d959`](https://github.com/sumup-oss/circuit-ui/commit/913d9592a6957a82eacc06ddafc76055e7d002d7) Thanks [@connor-baer](https://github.com/connor-baer)! - Added missing exports for the `Manage`, `WhatsApp` and `WireTransfer` icons.
+
+- [#2458](https://github.com/sumup-oss/circuit-ui/pull/2458) [`913d959`](https://github.com/sumup-oss/circuit-ui/commit/913d9592a6957a82eacc06ddafc76055e7d002d7) Thanks [@connor-baer](https://github.com/connor-baer)! - Added missing `width`, `height`, and `viewBox` attributes to the `PostFinance` `Sparkles`, `SumUpLogo`, and `Vr` icons.
+
+## 3.6.0
+
+### Minor Changes
+
+- [#2447](https://github.com/sumup-oss/circuit-ui/pull/2447) [`390d21f`](https://github.com/sumup-oss/circuit-ui/commit/390d21fb20109061180fe824d6da4ef948281bb6) Thanks [@connor-baer](https://github.com/connor-baer)! - Renamed the `Cookie`, `Email`, `FacebookMessenger`, `Phone`, and `Reward` icons. The previous names are deprecated and will be removed in the next major version.
+
+- [#2443](https://github.com/sumup-oss/circuit-ui/pull/2443) [`a36e352`](https://github.com/sumup-oss/circuit-ui/commit/a36e35296a720415e8dfc8cab688d19b685e61ff) Thanks [@rcdutra](https://github.com/rcdutra)! - Added new country flag icons for Hong Kong, Japan, Malaysia, Mexico, New Zealand, Singapore and the United Arab Emirates.
+
+- [#2447](https://github.com/sumup-oss/circuit-ui/pull/2447) [`390d21f`](https://github.com/sumup-oss/circuit-ui/commit/390d21fb20109061180fe824d6da4ef948281bb6) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the `BancoEstado`, `Boleto`, `Items`, `Receipt`, `Refresh`, and `Vr` icons.
+
+- [#2447](https://github.com/sumup-oss/circuit-ui/pull/2447) [`390d21f`](https://github.com/sumup-oss/circuit-ui/commit/390d21fb20109061180fe824d6da4ef948281bb6) Thanks [@connor-baer](https://github.com/connor-baer)! - Added new `DriverLicense`, `Manage`, `Passport`, and `ResidencePermit` icons in size 24.
+
+## 3.5.0
+
+### Minor Changes
+
+- [#2440](https://github.com/sumup-oss/circuit-ui/pull/2440) [`16626e5`](https://github.com/sumup-oss/circuit-ui/commit/16626e5347e88faccb1a5b3dd4d7066488ee9f3a) Thanks [@NataliaSokolowska](https://github.com/NataliaSokolowska)! - Added a new `Sparkles` icon in size 16.
 
 ## 3.4.0
 
@@ -36,7 +235,6 @@
 - [#2061](https://github.com/sumup-oss/circuit-ui/pull/2061) [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f) Thanks [@connor-baer](https://github.com/connor-baer)! - Raised the minimum Node.js version to 18+.
 
 - [#2061](https://github.com/sumup-oss/circuit-ui/pull/2061) [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f) Thanks [@connor-baer](https://github.com/connor-baer)! - **This package is now pure ESM**. Please [read this](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).
-
   - If you use TypeScript, you need to use TypeScript 4.7 or later ([ref](https://github.com/microsoft/TypeScript/issues/46452)).
   - If you use a bundler, make sure it supports ESM and that you have correctly configured it for ESM. (Next.js supports ESM packages out of the box since [v12](https://nextjs.org/blog/next-12#es-modules-support-and-url-imports)).
 

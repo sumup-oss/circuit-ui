@@ -13,9 +13,11 @@
  * limitations under the License.
  */
 
-import { ComponentType, createContext } from 'react';
+'use client';
 
-import { Link, LinkProps } from './components/Link/index.js';
+import { createContext, type ComponentType } from 'react';
+
+import { Link, type LinkProps } from './components/Link/index.js';
 
 export const defaultComponents = { Link };
 

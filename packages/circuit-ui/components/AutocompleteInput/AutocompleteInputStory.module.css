@@ -1,0 +1,5 @@
+@media (min-width: 480px) {
+  .fixed-width-input {
+    width: 318px;
+  }
+}

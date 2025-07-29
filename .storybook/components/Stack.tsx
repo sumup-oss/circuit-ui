@@ -14,7 +14,7 @@
  */
 
 import type { ReactNode } from 'react';
-import { clsx } from '../../packages/circuit-ui/index.js';
+import { clsx } from '../../packages/circuit-ui/styles/clsx.js';
 
 import classes from './Stack.module.css';
 
@@ -23,7 +23,7 @@ interface StackProps {
   vertical?: boolean;
 }
 
-export default function Stack({ children, vertical }: StackProps) {
+export function Stack({ children, vertical }: StackProps) {
   return (
     <div className={clsx(classes.base, vertical && classes.vertical)}>
       {children}

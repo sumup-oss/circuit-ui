@@ -13,32 +13,36 @@
  * limitations under the License.
  */
 
+'use client';
+
 import {
   useState,
   useRef,
-  InputHTMLAttributes,
-  ChangeEvent,
-  ClipboardEvent,
-  DragEvent,
   useId,
-  ComponentType,
+  type InputHTMLAttributes,
+  type ChangeEvent,
+  type ClipboardEvent,
+  type DragEvent,
+  type ComponentType,
 } from 'react';
-import { Delete, Plus } from '@sumup/icons';
+import { Delete, Plus } from '@sumup-oss/icons';
 
-import { ClickEvent } from '../../types/events.js';
-import utilityClasses from '../../styles/utility.js';
+import type { ClickEvent } from '../../types/events.js';
+import { utilClasses } from '../../styles/utility.js';
 import {
   FieldWrapper,
   FieldLabel,
   FieldValidationHint,
+  FieldLabelText,
 } from '../Field/index.js';
 import { IconButton } from '../Button/index.js';
-import Spinner from '../Spinner/index.js';
+import { Spinner } from '../Spinner/index.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';
+import { idx } from '../../util/idx.js';
 
 import classes from './ImageInput.module.css';
 
@@ -53,7 +57,7 @@ export interface ImageInputProps
    * It should accept a `src` prop to render the image, and `aria-hidden` to
    * hide it from assistive technology.
    */
-  component: ComponentType<{ 'src'?: string; 'aria-hidden': 'true' }>;
+  component: ComponentType<{ src?: string; 'aria-hidden': 'true' }>;
   /**
    * A callback function to call when the user has selected an image.
    */
@@ -87,6 +91,15 @@ export interface ImageInputProps
    * An information or error message, displayed below the input.
    */
   validationHint?: string;
+  /**
+   * Label to indicate that the input is optional. Only displayed when the
+   * `required` prop is falsy.
+   */
+  optionalLabel?: string;
+  /**
+   * Visually hide the label. Default: `true`.
+   */
+  hideLabel?: boolean;
 }
 
 /**
@@ -95,57 +108,34 @@ export interface ImageInputProps
 export const ImageInput = ({
   label,
   src,
-  'id': customId,
+  id: customId,
   clearButtonLabel,
   onChange,
   onClear,
   disabled,
   validationHint,
+  required,
   invalid = false,
+  optionalLabel,
   loadingLabel,
-  'component': Component,
+  hideLabel = true,
+  component: Component,
   className,
   style,
   'aria-describedby': descriptionId,
   ...props
-}: ImageInputProps): JSX.Element => {
-  if (
-    process.env.NODE_ENV !== 'production' &&
-    process.env.NODE_ENV !== 'test'
-  ) {
-    if (!isSufficientlyLabelled(label)) {
-      throw new AccessibilityError(
-        'ImageInput',
-        'The `label` prop is missing or invalid.',
-      );
-    }
-    if (!isSufficientlyLabelled(clearButtonLabel)) {
-      throw new AccessibilityError(
-        'ImageInput',
-        'The `clearButtonLabel` prop is missing or invalid.',
-      );
-    }
-    if (!isSufficientlyLabelled(loadingLabel)) {
-      throw new AccessibilityError(
-        'ImageInput',
-        'The `loadingLabel` prop is missing or invalid.',
-      );
-    }
-  }
-
+}: ImageInputProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const id = useId();
   const inputId = customId || id;
   const validationHintId = useId();
-  const descriptionIds = `${
-    descriptionId ? `${descriptionId} ` : ''
-  }${validationHintId}`;
+  const descriptionIds = idx(descriptionId, validationHint && validationHintId);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isDragging, setDragging] = useState<boolean>(false);
   const [previewImage, setPreviewImage] = useState<string>('');
 
   const handleChange = (files?: FileList | null) => {
-    const file = files && files[0];
+    const file = files?.[0];
     if (!file) {
       return;
     }
@@ -214,7 +204,7 @@ export const ImageInput = ({
 
   const handleDrop = (event: DragEvent) => {
     handleDragLeave(event);
-    const files = event.dataTransfer && event.dataTransfer.files;
+    const files = event.dataTransfer?.files;
     handleChange(files);
 
     if (inputRef.current && files) {
@@ -227,17 +217,49 @@ export const ImageInput = ({
     }
   };
 
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test'
+  ) {
+    if (!isSufficientlyLabelled(label)) {
+      throw new AccessibilityError(
+        'ImageInput',
+        'The `label` prop is missing or invalid.',
+      );
+    }
+    if (!isSufficientlyLabelled(clearButtonLabel)) {
+      throw new AccessibilityError(
+        'ImageInput',
+        'The `clearButtonLabel` prop is missing or invalid.',
+      );
+    }
+    if (!isSufficientlyLabelled(loadingLabel)) {
+      throw new AccessibilityError(
+        'ImageInput',
+        'The `loadingLabel` prop is missing or invalid.',
+      );
+    }
+  }
+
   return (
     <FieldWrapper className={className} style={style} disabled={disabled}>
+      <FieldLabelText
+        label={label}
+        hideLabel={hideLabel}
+        optionalLabel={optionalLabel}
+        required={required}
+        aria-hidden="true"
+      />
       <div onPaste={handlePaste} className={classes.base}>
         <input
-          className={clsx(classes.input, utilityClasses.hideVisually)}
+          className={clsx(classes.input, utilClasses.hideVisually)}
           ref={inputRef}
           id={inputId}
           type="file"
           accept="image/*"
           onChange={handleInputChange}
           onClick={handleClick}
+          required={required}
           disabled={disabled || isLoading}
           aria-invalid={invalid && 'true'}
           aria-describedby={descriptionIds}
@@ -255,14 +277,14 @@ export const ImageInput = ({
             isDragging && classes.dragging,
           )}
         >
-          <span className={utilityClasses.hideVisually}>{label}</span>
+          <span className={utilClasses.hideVisually}>{label}</span>
           <Component src={src || previewImage} aria-hidden="true" />
         </FieldLabel>
         {src ? (
           <IconButton
             type="button"
             size="s"
-            variant="primary"
+            variant="secondary"
             destructive
             onClick={handleClear}
             disabled={isLoading || disabled}
@@ -275,7 +297,7 @@ export const ImageInput = ({
           <IconButton
             type="button"
             size="s"
-            variant="primary"
+            variant="secondary"
             aria-hidden="true"
             tabIndex={-1}
             disabled={isLoading || disabled}
@@ -286,7 +308,7 @@ export const ImageInput = ({
         <Spinner
           className={clsx(classes.spinner, isLoading && classes.loading)}
         >
-          <span className={utilityClasses.hideVisually}>{loadingLabel}</span>
+          <span className={utilClasses.hideVisually}>{loadingLabel}</span>
         </Spinner>
       </div>
       <FieldValidationHint

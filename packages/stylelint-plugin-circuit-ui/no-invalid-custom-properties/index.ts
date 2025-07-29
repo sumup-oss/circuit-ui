@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import stylelint, { Rule } from 'stylelint';
-import { schema } from '@sumup/design-tokens';
+import stylelint, { type Rule } from 'stylelint';
+import { schema } from '@sumup-oss/design-tokens';
 
 const PREFIX = '--cui-';
 const VALID_CUSTOM_PROPERTIES_WITHOUT_PREFIX = schema.map(({ name }) =>
@@ -26,7 +26,7 @@ const REGEX_STRING = `(?:${PREFIX})(?!(?:${VALID_CUSTOM_PROPERTIES_WITHOUT_PREFI
 
 export const ruleName = 'circuit-ui/no-invalid-custom-properties';
 
-export const meta = {
+const meta = {
   url: 'https://github.com/sumup-oss/circuit-ui/tree/main/packages/stylelint-plugin-circuit-ui/no-invalid-custom-properties/README.md',
 };
 

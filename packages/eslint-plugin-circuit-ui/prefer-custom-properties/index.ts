@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { ESLintUtils, TSESTree } from '@typescript-eslint/utils';
-import { schema } from '@sumup/design-tokens';
+import { ESLintUtils, type TSESTree } from '@typescript-eslint/utils';
+import { schema } from '@sumup-oss/design-tokens';
 
 /* eslint-disable */
 
@@ -36,7 +36,7 @@ export const preferCustomProperties = createRule({
     },
     messages: {
       replace:
-        "Use CSS custom properties instead of the Emotion.js theme. Replace '{{jsToken}}' with '{{cssVariable}}'.",
+        'Use CSS custom properties instead of the Emotion.js theme. Replace `{{jsToken}}` with `{{cssVariable}}`.',
       refactor: 'Use CSS custom properties instead of the Emotion.js theme.',
     },
   },
@@ -120,8 +120,7 @@ export const preferCustomProperties = createRule({
         const jsToken = `\${${identifiers.join('.')}}`;
         const cssVariable = `var(${customProperty})`;
 
-        const text = context
-          .getSourceCode()
+        const text = context.sourceCode
           .getText(node)
           .replace(jsToken, cssVariable);
 

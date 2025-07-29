@@ -15,13 +15,18 @@
 
 /* eslint-disable react/display-name */
 import { describe, expect, it, vi } from 'vitest';
-import { Home, Shop } from '@sumup/icons';
+import { Home, Shop } from '@sumup-oss/icons';
 
-import { render, axe, RenderFn } from '../../../../util/test-utils.js';
+import {
+  render,
+  axe,
+  screen,
+  type RenderFn,
+} from '../../../../util/test-utils.js';
 
 import {
   DesktopNavigation,
-  DesktopNavigationProps,
+  type DesktopNavigationProps,
 } from './DesktopNavigation.js';
 
 describe('DesktopNavigation', () => {
@@ -68,9 +73,9 @@ describe('DesktopNavigation', () => {
   };
 
   it('should render with secondary links', () => {
-    const { getAllByRole } = renderDesktopNavigation(render, defaultProps);
+    renderDesktopNavigation(render, defaultProps);
 
-    const lists = getAllByRole('list');
+    const lists = screen.getAllByRole('list');
 
     expect(lists).toHaveLength(3);
   });
@@ -88,9 +93,9 @@ describe('DesktopNavigation', () => {
         },
       ],
     };
-    const { getAllByRole } = renderDesktopNavigation(render, props);
+    renderDesktopNavigation(render, props);
 
-    const lists = getAllByRole('list');
+    const lists = screen.getAllByRole('list');
 
     expect(lists).toHaveLength(1);
   });

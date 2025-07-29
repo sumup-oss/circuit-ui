@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2024, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,57 +13,66 @@
  * limitations under the License.
  */
 
-import { describe, expect, it, vi } from 'vitest';
+import { beforeEach, afterEach, describe, expect, it, vi } from 'vitest';
+import { createRef } from 'react';
 
-import {
-  render,
-  userEvent,
-  axe,
-  waitFor,
-  screen,
-} from '../../util/test-utils.js';
+import { render, screen, axe } from '../../util/test-utils.js';
 
-import { Modal, ModalProps } from './Modal.js';
+import { Modal } from './Modal.js';
+
+vi.mock('../../hooks/useMedia/index.js');
 
 describe('Modal', () => {
-  const defaultModal: ModalProps = {
-    variant: 'immersive',
-    isOpen: true,
-    closeButtonLabel: 'Close modal',
+  const props = {
     onClose: vi.fn(),
-    // eslint-disable-next-line react/prop-types, react/display-name
-    children: <p data-testid="children">Hello world!</p>,
-    // Silences the warning about the missing app element.
-    // In user land, the modal is always rendered by the ModalProvider,
-    // which takes care of setting the app element.
-    // http://reactcommunity.org/react-modal/accessibility/#app-element
-    ariaHideApp: false,
+    open: false,
+    closeButtonLabel: 'Close',
+    children: 'Modal dialog content',
   };
 
-  it('should render the modal', async () => {
-    render(<Modal {...defaultModal} />);
+  Object.defineProperty(window, 'scrollTo', {
+    value: vi.fn(),
+    writable: true,
+  });
 
-    await waitFor(() => {
-      expect(screen.getByRole('dialog')).toBeVisible();
+  let originalHTMLDialogElement: typeof window.HTMLDialogElement;
+
+  beforeEach(() => {
+    originalHTMLDialogElement = window.HTMLDialogElement;
+    vi.clearAllMocks();
+    vi.useFakeTimers({ shouldAdvanceTime: true });
+  });
+
+  afterEach(() => {
+    vi.runOnlyPendingTimers();
+    vi.useRealTimers();
+    vi.resetAllMocks();
+    Object.defineProperty(window, 'HTMLDialogElement', {
+      writable: true,
+      value: originalHTMLDialogElement,
     });
   });
 
-  it('should call the onClose callback', async () => {
-    render(<Modal {...defaultModal} />);
-
-    await userEvent.click(screen.getByRole('button'));
-
-    expect(defaultModal.onClose).toHaveBeenCalled();
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLDialogElement>();
+    render(<Modal {...props} ref={ref} />);
+    const dialog = screen.getByRole('dialog', { hidden: true });
+    expect(ref.current).toBe(dialog);
   });
 
-  it('should render the children render prop', () => {
-    render(<Modal {...defaultModal} />);
-    expect(screen.getByTestId('children')).toHaveTextContent('Hello world!');
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    render(<Modal {...props} className={className} />);
+    // eslint-disable-next-line testing-library/no-container
+    const dialog = screen.getByRole('dialog', { hidden: true });
+    expect(dialog?.className).toContain(className);
   });
 
-  it('should meet accessibility guidelines', async () => {
-    const { container } = render(<Modal {...defaultModal} />);
-    const actual = await axe(container);
-    expect(actual).toHaveNoViolations();
+  describe('accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Modal {...props} open />);
+      const actual = await axe(container);
+      expect(actual).toHaveNoViolations();
+    });
   });
 });

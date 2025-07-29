@@ -32,23 +32,27 @@
   flex-direction: column;
   width: var(--cui-icon-sizes-tera);
   height: calc(100vh - var(--top-navigation-height, 0px));
+  height: calc(100dvh - var(--top-navigation-height, 0px));
   padding-top: var(--cui-spacings-kilo);
   overflow-x: hidden;
   overflow-y: auto;
   background-color: var(--cui-bg-normal);
   box-shadow: 1px 0 var(--cui-border-divider);
-  transition: width var(--cui-transitions-default),
+  transition:
+    width var(--cui-transitions-default),
     box-shadow var(--cui-transitions-default);
 }
 
-.primary:hover,
+@media (hover: hover) and (pointer: fine) {
+  .primary:hover {
+    width: var(--primary-navigation-width-open);
+    box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
+  }
+}
+
 .primary:focus-within {
   width: var(--primary-navigation-width-open);
-
-  /* Fallback for browsers that don't support color-mix yet */
   box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
-  box-shadow: 0 3px 8px 0
-    color-mix(in sRGB, var(--cui-border-strong) 20%, transparent);
 }
 
 @media (min-width: 1900px) {
@@ -69,6 +73,7 @@
   flex-direction: column;
   width: 200px;
   height: calc(100vh - var(--top-navigation-height, 0px));
+  height: calc(100dvh - var(--top-navigation-height, 0px));
   margin-left: var(--primary-navigation-width);
   overflow-y: auto;
   background-color: var(--cui-bg-normal);
@@ -82,6 +87,8 @@
 }
 
 .list {
+  padding: 0;
+  margin: 0;
   list-style: none;
 }
 

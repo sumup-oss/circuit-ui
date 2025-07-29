@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import { Story as StorybookStory } from '@storybook/addon-docs';
+import { Canvas } from '@storybook/addon-docs/blocks';
 
-import Preview from './Preview';
+import { Preview } from './Preview';
 
-const Story = ({ withToolbar = true, ...props }) => (
-  <Preview withToolbar={withToolbar}>
-    <StorybookStory {...props} />
-  </Preview>
-);
-
-export default Story;
+export function Story({ withToolbar = true, ...props }) {
+  return (
+    <Preview>
+      <Canvas withToolbar={withToolbar} {...props} />
+    </Preview>
+  );
+}

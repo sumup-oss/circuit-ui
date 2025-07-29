@@ -13,11 +13,12 @@
  * limitations under the License.
  */
 
-import { Headline, HeadlineProps } from './Headline.js';
+import { Headline, type HeadlineProps } from './Headline.js';
 
 export default {
   title: 'Typography/Headline',
   component: Headline,
+  tags: ['status:stable'],
 };
 
 export const Base = (args: HeadlineProps) => (
@@ -28,12 +29,12 @@ Base.args = {
   as: 'h2',
 };
 
-const sizes = ['one', 'two', 'three', 'four'] as const;
+const sizes = ['l', 'm', 's'] as const;
 
 export const Sizes = (args: HeadlineProps) =>
-  sizes.map((s) => (
-    <Headline key={s} {...args} size={s}>
-      This is a headline {s}
+  sizes.map((size) => (
+    <Headline key={size} {...args} size={size}>
+      This is size {size}
     </Headline>
   ));
 

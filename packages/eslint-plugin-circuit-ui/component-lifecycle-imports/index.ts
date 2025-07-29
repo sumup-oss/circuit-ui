@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ESLintUtils, TSESTree } from '@typescript-eslint/utils';
+import { ESLintUtils, type TSESTree } from '@typescript-eslint/utils';
 
 /* eslint-disable */
 
@@ -24,8 +24,8 @@ const createRule = ESLintUtils.RuleCreator(
 
 const mappings = [
   {
-    from: '@sumup/circuit-ui',
-    to: '@sumup/circuit-ui/legacy',
+    from: '@sumup-oss/circuit-ui',
+    to: '@sumup-oss/circuit-ui/legacy',
     specifiers: [
       'RadioButton',
       'RadioButtonProps',
@@ -54,8 +54,6 @@ const mappings = [
       'SidebarProps',
       'SidebarContextProvider',
       'SidebarContextConsumer',
-      'Tooltip',
-      'TooltipProps',
       'uniqueId',
       'cx',
       'spacing',
@@ -69,6 +67,26 @@ const mappings = [
       'inputOutline',
       'typography',
       'center',
+    ],
+  },
+  {
+    from: '@sumup-oss/circuit-ui/experimental',
+    to: '@sumup-oss/circuit-ui',
+    specifiers: [
+      'Calendar',
+      'CalendarProps',
+      'PlainDateRange',
+      'ColorInput',
+      'ColorInputProps',
+      'PhoneNumberInputProps',
+      'PhoneNumberInput',
+      'Tooltip',
+      'TooltipProps',
+      'TooltipReferenceProps',
+      'Toggletip',
+      'ToggletipProps',
+      'Timestamp',
+      'TimestampProps',
     ],
   },
 ];
@@ -94,8 +112,7 @@ export const componentLifecycleImports = createRule({
     return mappings.reduce((visitors, config) => {
       const { from, to, specifiers } = config;
 
-      return {
-        ...visitors,
+      return Object.assign(visitors, {
         [`ImportDeclaration:has(Literal[value="${from}"])`]: (
           node: TSESTree.ImportDeclaration,
         ) => {
@@ -133,8 +150,7 @@ export const componentLifecycleImports = createRule({
                   fixes.push(
                     fixer.replaceText(
                       node,
-                      context
-                        .getSourceCode()
+                      context.sourceCode
                         .getText(node)
                         .replace(importSpecifier, '')
                         .replace(' ,', ''),
@@ -155,7 +171,7 @@ export const componentLifecycleImports = createRule({
             });
           });
         },
-      };
+      });
     }, {});
   },
 });

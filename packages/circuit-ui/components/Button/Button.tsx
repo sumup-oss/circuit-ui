@@ -13,13 +13,15 @@
  * limitations under the License.
  */
 
+'use client';
+
 import type {
   ForwardRefExoticComponent,
   PropsWithoutRef,
   ReactNode,
   RefAttributes,
 } from 'react';
-import type { IconComponentType } from '@sumup/icons';
+import type { IconComponentType } from '@sumup-oss/icons';
 
 import { CircuitError } from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';
@@ -27,9 +29,9 @@ import { deprecate } from '../../util/logger.js';
 
 import classes from './Button.module.css';
 import {
-  SharedButtonProps,
   createButtonComponent,
   legacyButtonSizeMap,
+  type SharedButtonProps,
 } from './base.js';
 
 export type ButtonProps = SharedButtonProps & {
@@ -66,7 +68,7 @@ export const Button: ForwardRefExoticComponent<
   PropsWithoutRef<ButtonProps> & RefAttributes<any>
 > = createButtonComponent<ButtonProps>(
   'Button',
-  ({ className, size: legacySize = 'm', stretch, ...props }) => {
+  ({ className, size: legacySize = 'm', stretch, variant, ...props }) => {
     const size = legacyButtonSizeMap[legacySize] || legacySize;
 
     if (
@@ -92,7 +94,13 @@ export const Button: ForwardRefExoticComponent<
     }
 
     return {
-      className: clsx(className, classes[size], stretch && classes.stretch),
+      className: clsx(
+        className,
+        classes[size],
+        stretch && classes.stretch,
+        variant === 'tertiary' && classes.tertiary,
+      ),
+      variant,
       size,
       ...props,
     };

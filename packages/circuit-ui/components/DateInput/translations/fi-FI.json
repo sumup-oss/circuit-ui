@@ -1,0 +1,8 @@
+{
+  "yearInputLabel": "Vuosi",
+  "monthInputLabel": "Kuukausi",
+  "dayInputLabel": "Päivä",
+  "openCalendarButtonLabel": "Vaihda päivämäärä",
+  "applyDateButtonLabel": "Käytä päivämäärää",
+  "clearDateButtonLabel": "Tyhjennä päivämäärä"
+}

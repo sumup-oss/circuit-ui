@@ -15,12 +15,17 @@
 
 /* eslint-disable react/display-name */
 import { beforeAll, describe, expect, it, vi } from 'vitest';
-import { Shop } from '@sumup/icons';
+import { Shop } from '@sumup-oss/icons';
 
-import { render, axe, RenderFn, waitFor } from '../../util/test-utils.js';
-import { ModalProvider } from '../ModalContext/index.js';
+import {
+  render,
+  axe,
+  waitFor,
+  screen,
+  type RenderFn,
+} from '../../util/test-utils.js';
 
-import { SideNavigation, SideNavigationProps } from './SideNavigation.js';
+import { SideNavigation, type SideNavigationProps } from './SideNavigation.js';
 
 describe('SideNavigation', () => {
   function setMediaMatches(matches: boolean) {
@@ -43,23 +48,15 @@ describe('SideNavigation', () => {
     renderFn: RenderFn<T>,
     props: SideNavigationProps,
   ) {
-    return renderFn(
-      <ModalProvider>
-        <SideNavigation {...props} />
-      </ModalProvider>,
-    );
+    return renderFn(<SideNavigation {...props} />);
   }
 
-  const baseProps = {
+  const defaultProps: SideNavigationProps = {
     isOpen: false,
     onClose: vi.fn(),
     closeButtonLabel: 'Close navigation modal',
     primaryNavigationLabel: 'Primary',
     secondaryNavigationLabel: 'Secondary',
-  };
-
-  const defaultProps: SideNavigationProps = {
-    ...baseProps,
     primaryLinks: [
       {
         icon: (iconProps) => <Shop {...iconProps} size="24" />,
@@ -67,6 +64,9 @@ describe('SideNavigation', () => {
         href: '/shop',
         onClick: vi.fn(),
         isActive: true,
+        badge: {
+          children: 'New',
+        },
         secondaryGroups: [
           {
             label: 'For Kids',
@@ -80,6 +80,9 @@ describe('SideNavigation', () => {
                 label: 'Books',
                 href: '/shop/books',
                 onClick: vi.fn(),
+                badge: {
+                  children: 'New',
+                },
               },
             ],
           },
@@ -94,24 +97,36 @@ describe('SideNavigation', () => {
     });
 
     it('should open the mobile navigation', async () => {
-      const { queryByRole, rerender } = renderSideNavigation(
-        render,
-        defaultProps,
-      );
+      const { rerender } = renderSideNavigation(render, defaultProps);
 
-      expect(queryByRole('dialog')).not.toBeInTheDocument();
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
 
       renderSideNavigation(rerender, { ...defaultProps, isOpen: true });
 
       await waitFor(() => {
-        expect(queryByRole('dialog')).toBeVisible();
+        expect(screen.queryByRole('dialog')).toBeVisible();
       });
     });
   });
 
-  it('should have no accessibility violations', async () => {
-    const { container } = renderSideNavigation(render, defaultProps);
-    const actual = await axe(container);
-    expect(actual).toHaveNoViolations();
+  describe('on desktop', () => {
+    beforeAll(() => {
+      setMediaMatches(false);
+    });
+    it('should render a skip navigation link', () => {
+      renderSideNavigation(render, {
+        ...defaultProps,
+        skipNavigationHref: '#main-content',
+        skipNavigationLabel: 'Skip navigation',
+      });
+      const skipLink = screen.getByRole('link', { name: 'Skip navigation' });
+      expect(skipLink).toBeInTheDocument();
+    });
+
+    it('should have no accessibility violations', async () => {
+      const { container } = renderSideNavigation(render, defaultProps);
+      const actual = await axe(container);
+      expect(actual).toHaveNoViolations();
+    });
   });
 });

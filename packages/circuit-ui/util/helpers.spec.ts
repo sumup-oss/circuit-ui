@@ -15,7 +15,16 @@
 
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 
-import { clamp, eachFn, isEmpty, throttle } from './helpers.js';
+import {
+  chunk,
+  clamp,
+  debounce,
+  eachFn,
+  isEmpty,
+  last,
+  shiftInRange,
+  throttle,
+} from './helpers.js';
 
 describe('helpers', () => {
   describe('clamp', () => {
@@ -166,6 +175,140 @@ describe('helpers', () => {
       clearInterval(interval);
 
       expect(fn).toHaveBeenCalledTimes(3);
+    });
+  });
+
+  describe('debounce', () => {
+    beforeAll(() => {
+      vi.useFakeTimers();
+    });
+    afterAll(() => {
+      vi.useRealTimers();
+    });
+
+    it('should delay invoking the function until after the specified wait time has elapsed', () => {
+      const fn = vi.fn();
+      const wait = 100;
+      const debouncedFn = debounce(fn, wait);
+
+      debouncedFn('foo');
+      expect(fn).not.toHaveBeenCalled();
+
+      vi.advanceTimersByTime(wait - 50);
+      expect(fn).not.toHaveBeenCalled();
+
+      vi.advanceTimersByTime(50);
+      expect(fn).toHaveBeenCalledExactlyOnceWith('foo');
+    });
+
+    it('should reset the timer if called again before the wait time has elapsed', () => {
+      const fn = vi.fn();
+      const wait = 100;
+      const debouncedFn = debounce(fn, wait);
+
+      debouncedFn('foo');
+      debouncedFn('bar');
+
+      vi.advanceTimersByTime(wait - 50);
+      expect(fn).not.toHaveBeenCalled();
+
+      vi.advanceTimersByTime(50);
+      expect(fn).toHaveBeenCalledExactlyOnceWith('bar');
+    });
+  });
+
+  describe('chunk', () => {
+    it('should split an array into chunks', () => {
+      const array = [1, 2, 3, 4, 5, 6];
+      const chunkSize = 2;
+      const actual = chunk(array, chunkSize);
+      expect(actual).toEqual([
+        [1, 2],
+        [3, 4],
+        [5, 6],
+      ]);
+    });
+
+    it('should return an empty array for an empty array', () => {
+      const array: never[] = [];
+      const chunkSize = 5;
+      const actual = chunk(array, chunkSize);
+      expect(actual).toEqual([]);
+    });
+
+    it('should have a shorter end chunk if the array is not evenly divisible by the chunk size', () => {
+      const array = [1, 2, 3, 4, 5];
+      const chunkSize = 3;
+      const actual = chunk(array, chunkSize);
+      expect(actual).toEqual([
+        [1, 2, 3],
+        [4, 5],
+      ]);
+    });
+
+    it('should have a single shorter chunk if the array length is smaller than the chunk size', () => {
+      const array = [1, 2, 3];
+      const chunkSize = 4;
+      const actual = chunk(array, chunkSize);
+      expect(actual).toEqual([[1, 2, 3]]);
+    });
+  });
+
+  describe('last', () => {
+    it('should return the last item in an array', () => {
+      const array = [1, 2, 3, 4, 5, 6];
+      const actual = last(array);
+      expect(actual).toBe(6);
+    });
+
+    it('should return undefined for an empty array', () => {
+      const array: never[] = [];
+      const actual = last(array);
+      expect(actual).toBeUndefined();
+    });
+
+    it('should return undefined for an undefined array', () => {
+      const array = undefined;
+      const actual = last(array);
+      expect(actual).toBeUndefined();
+    });
+
+    it('should return undefined for null', () => {
+      const array = undefined;
+      const actual = last(array);
+      expect(actual).toBeUndefined();
+    });
+  });
+
+  describe('shiftInRange', () => {
+    it('should increase a value within a range', () => {
+      const actual = shiftInRange(4, 2, 1, 12);
+      expect(actual).toBe(6);
+    });
+
+    it('should decrease a value within a range', () => {
+      const actual = shiftInRange(4, -2, 1, 12);
+      expect(actual).toBe(2);
+    });
+
+    it('should loop around to the end', () => {
+      const actual = shiftInRange(4, -6, 1, 12);
+      expect(actual).toBe(10);
+    });
+
+    it('should loop around to the start', () => {
+      const actual = shiftInRange(7, 10, 4, 12);
+      expect(actual).toBe(8);
+    });
+
+    it('should loop around to the start', () => {
+      const actual = shiftInRange(4, 10, 2, 12);
+      expect(actual).toBe(3);
+    });
+
+    it('should loop around multiple times', () => {
+      const actual = shiftInRange(4, -9, 2, 5);
+      expect(actual).toBe(3);
     });
   });
 });

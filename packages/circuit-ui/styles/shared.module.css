@@ -54,10 +54,11 @@
   color: var(--cui-fg-normal);
   text-align: left;
   cursor: pointer;
+  outline: none;
   background-color: var(--cui-bg-normal);
   border: none;
-  outline: none;
-  transition: color var(--cui-transitions-default),
+  transition:
+    color var(--cui-transitions-default),
     background-color var(--cui-transitions-default);
 }
 
@@ -102,4 +103,146 @@
 .navigation-item[aria-current="page"][disabled] {
   color: var(--cui-fg-accent-disabled);
   background-color: var(--cui-bg-accent-disabled);
+}
+
+.animation-fade-in {
+  animation: fade-in var(--dialog-animation-duration) forwards;
+}
+
+.animation-fade-out {
+  animation: fade-out var(--dialog-animation-duration) forwards;
+}
+
+.animation-slide-up-in {
+  animation: slide-up-in var(--dialog-animation-duration) forwards;
+}
+
+.animation-slide-up-out {
+  animation: slide-up-out var(--dialog-animation-duration) forwards;
+}
+
+.animation-slide-down-in {
+  animation: slide-down-in var(--dialog-animation-duration) forwards;
+}
+
+.animation-slide-down-out {
+  animation: slide-down-out var(--dialog-animation-duration) forwards;
+}
+
+.animation-slide-left-in {
+  animation: slide-left-in var(--dialog-animation-duration) forwards;
+}
+
+.animation-slide-left-out {
+  animation: slide-left-out var(--dialog-animation-duration) forwards;
+}
+
+.animation-slide-right-in {
+  animation: slide-right-in var(--dialog-animation-duration) forwards;
+}
+
+.animation-slide-right-out {
+  animation: slide-right-out var(--dialog-animation-duration) forwards;
+}
+
+/* Animations */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-up-in {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up-out {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes slide-down-in {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-down-out {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slide-left-in {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-left-out {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slide-right-in {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-right-out {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
 }

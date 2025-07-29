@@ -13,6 +13,4 @@
  * limitations under the License.
  */
 
-export { useMobileNavigation } from './MobileNavigation.js';
-
 export type { MobileNavigationProps } from './MobileNavigation.js';

@@ -15,15 +15,15 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { axe, render } from '../../../../util/test-utils.js';
+import { axe, render, screen } from '../../../../util/test-utils.js';
 
 import { Status } from './Status.js';
 
 describe('Status', () => {
   it('should render the status', () => {
-    const { getByText } = render(<Status step={1} total={3} />);
+    render(<Status step={1} total={3} />);
 
-    expect(getByText('2 / 3')).toBeVisible();
+    expect(screen.getByText('2 / 3')).toBeVisible();
   });
 
   it('should have no accessibility violations', async () => {

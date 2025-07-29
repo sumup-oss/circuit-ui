@@ -13,13 +13,15 @@
  * limitations under the License.
  */
 
+'use client';
+
 import type { HTMLAttributes } from 'react';
-import { ArrowLeft } from '@sumup/icons';
+import { ArrowLeft } from '@sumup-oss/icons';
 
 import { clsx } from '../../../../styles/clsx.js';
 import { IconButton } from '../../../Button/index.js';
-import CloseButton from '../../../CloseButton/index.js';
-import Headline from '../../../Headline/index.js';
+import { CloseButton } from '../../../CloseButton/index.js';
+import { Headline } from '../../../Headline/index.js';
 import type { SidePanelProps } from '../../SidePanel.js';
 
 import classes from './Header.module.css';
@@ -41,7 +43,7 @@ export const Header = ({
   isSticky,
   onBack,
   onClose,
-}: HeaderProps): JSX.Element => (
+}: HeaderProps) => (
   <div className={clsx(classes.base, isSticky && classes.sticky)}>
     {onBack && backButtonLabel && (
       <IconButton
@@ -54,7 +56,7 @@ export const Header = ({
         {backButtonLabel}
       </IconButton>
     )}
-    <Headline id={id} size="four" as="h2" className={classes.headline}>
+    <Headline id={id} size="s" as="h2" className={classes.headline}>
       {headline}
     </Headline>
     {closeButtonLabel && (

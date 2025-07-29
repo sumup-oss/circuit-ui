@@ -13,21 +13,23 @@
  * limitations under the License.
  */
 
-import Image from '../../../Image/index.js';
-import AspectRatio from '../../../AspectRatio/index.js';
+import { Image } from '../../../Image/index.js';
+import { AspectRatio } from '../../../AspectRatio/index.js';
 import { ASPECT_RATIO } from '../../constants.js';
 
 import classes from './SlideImage.module.css';
 
-export interface SlideImageProps {
+interface SlideImageProps {
   /**
    * Specifies the source URL of an image.
    */
   src: string;
   /**
-   * Provides alternative information if a user cannot view the image,
-   * e.g. because of slow connection, an error in the src attribute, or if the
-   * user uses a screen reader.
+   * [Images must have text alternatives](https://www.w3.org/WAI/tutorials/images/)
+   * that describe the information or function represented by them. This
+   * ensures that images can be used by people with various disabilities. Pass
+   * an empty string if the image is [decorative](https://www.w3.org/WAI/tutorials/images/decorative/),
+   * or a localized description if the image is [informative](https://www.w3.org/WAI/tutorials/images/informative/).
    */
   alt: string;
   /**

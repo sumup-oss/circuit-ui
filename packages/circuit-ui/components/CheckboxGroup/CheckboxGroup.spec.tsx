@@ -23,8 +23,9 @@ import {
   screen,
   fireEvent,
 } from '../../util/test-utils.js';
+import { last } from '../../util/helpers.js';
 
-import { CheckboxGroup, CheckboxGroupProps } from './CheckboxGroup.js';
+import { CheckboxGroup, type CheckboxGroupProps } from './CheckboxGroup.js';
 
 const defaultProps: CheckboxGroupProps = {
   label: 'Label',
@@ -182,6 +183,16 @@ describe('CheckboxGroup', () => {
       expect(onChange).toHaveBeenCalledTimes(1);
     });
 
+    it('should call the focus handler when gaining focus', async () => {
+      const onFocus = vi.fn();
+      render(<CheckboxGroup {...defaultProps} onFocus={onFocus} />);
+      const inputEl = screen.getByLabelText('Option 1');
+
+      await userEvent.click(inputEl);
+
+      expect(onFocus).toHaveBeenCalledTimes(1);
+    });
+
     it('should call the blur handler when loosing focus', async () => {
       const onBlur = vi.fn();
       render(<CheckboxGroup {...defaultProps} onBlur={onBlur} />);
@@ -231,7 +242,7 @@ describe('CheckboxGroup', () => {
         />,
       );
       const liveRegionEls = screen.getAllByRole('status');
-      const groupLiveRegionEl = liveRegionEls[liveRegionEls.length - 1];
+      const groupLiveRegionEl = last(liveRegionEls);
       expect(groupLiveRegionEl).toHaveTextContent(validationHint);
     });
   });
@@ -246,7 +257,7 @@ describe('CheckboxGroup', () => {
     it('should render an empty live region on mount', () => {
       render(<CheckboxGroup {...defaultProps} />);
       const liveRegionEls = screen.getAllByRole('status');
-      const groupLiveRegionEl = liveRegionEls[liveRegionEls.length - 1];
+      const groupLiveRegionEl = last(liveRegionEls);
       expect(groupLiveRegionEl).toBeEmptyDOMElement();
     });
 
@@ -256,7 +267,7 @@ describe('CheckboxGroup', () => {
         <CheckboxGroup validationHint={statusMessage} {...defaultProps} />,
       );
       const liveRegionEls = screen.getAllByRole('status');
-      const groupLiveRegionEl = liveRegionEls[liveRegionEls.length - 1];
+      const groupLiveRegionEl = last(liveRegionEls);
       expect(groupLiveRegionEl).toBeEmptyDOMElement();
     });
   });

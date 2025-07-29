@@ -15,13 +15,15 @@
 
 /* istanbul ignore file */
 
-import Headline from '../../Headline/index.js';
-import Button from '../../Button/index.js';
-import ButtonGroup from '../../ButtonGroup/index.js';
-import Input from '../../Input/index.js';
-import Select from '../../Select/index.js';
-import ProgressBar from '../../ProgressBar/index.js';
-import Step from '../Step.js';
+'use client';
+
+import { Headline } from '../../Headline/index.js';
+import { Button } from '../../Button/index.js';
+import { ButtonGroup } from '../../ButtonGroup/index.js';
+import { Input } from '../../Input/index.js';
+import { Select } from '../../Select/index.js';
+import { ProgressBar } from '../../ProgressBar/index.js';
+import { Step } from '../Step.js';
 
 import classes from './MultiStepForm.module.css';
 
@@ -79,7 +81,7 @@ const Thanks = () => (
   </section>
 );
 
-export default function MultiStepForm(): JSX.Element {
+export function MultiStepForm() {
   const steps = [FormOne, FormTwo, Thanks];
   const totalSteps = steps.length;
 
@@ -91,7 +93,7 @@ export default function MultiStepForm(): JSX.Element {
 
         return (
           <div className={classes.container}>
-            <Headline as="h2" size="three" className={classes.spacing}>
+            <Headline as="h2" size="m" className={classes.spacing}>
               Step {stepNumber} of {totalSteps}
             </Headline>
             <ProgressBar

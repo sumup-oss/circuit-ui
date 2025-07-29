@@ -5,9 +5,8 @@ module.exports = {
       params: {
         overrides: {
           convertColors: {
-            currentColor: '#212933',
+            currentColor: '#0F131A',
           },
-          removeViewBox: false,
         },
       },
     },

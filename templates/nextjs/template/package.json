@@ -1,0 +1,47 @@
+{
+  "name": "next-app",
+  "version": "2.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "build:analyze": "ANALYZE=true npm run build",
+    "start": "next start",
+    "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "jest --watch",
+    "test:ci": "mkdir -p __reports__ && jest --ci --coverage --runInBand --json --outputFile=__reports__/jest-results.json --reporters default --reporters \"github-actions\""
+  },
+  "dependencies": {
+    "@next/bundle-analyzer": "^15.3.4",
+    "@sumup-oss/circuit-ui": "^10.0.0",
+    "@sumup-oss/design-tokens": "^9.0.0",
+    "@sumup-oss/icons": "^5.0.0",
+    "@sumup-oss/intl": "^3.1.1",
+    "next": "^15.3.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "temporal-polyfill": "^0.3.0"
+  },
+  "devDependencies": {
+    "@sumup-oss/eslint-plugin-circuit-ui": "^6.0.0",
+    "@sumup-oss/foundry": "^8.4.1",
+    "@sumup-oss/stylelint-plugin-circuit-ui": "^4.0.0-next.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^29.5.14",
+    "@types/jest-axe": "^3.5.9",
+    "@types/node": "^22.15.15",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint-config-next": "^15.3.4",
+    "eslint-plugin-jest": "^28.11.0",
+    "eslint-plugin-testing-library": "^7.5.3",
+    "jest": "^29.7.0",
+    "jest-axe": "^10.0.0",
+    "jest-environment-jsdom": "^30.0.2",
+    "typescript": "^5.8.3",
+    "typescript-plugin-css-modules": "^5.1.0"
+  }
+}

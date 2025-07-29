@@ -13,19 +13,20 @@
  * limitations under the License.
  */
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import {
   NotificationFullscreen,
-  NotificationFullscreenProps,
+  type NotificationFullscreenProps,
 } from './NotificationFullscreen.js';
 
 export default {
   title: 'Notification/NotificationFullscreen',
   component: NotificationFullscreen,
+  tags: ['status:stable'],
 };
 
-export const Base = (args: NotificationFullscreenProps): JSX.Element => (
+export const Base = (args: NotificationFullscreenProps) => (
   <NotificationFullscreen {...args} />
 );
 
@@ -44,9 +45,9 @@ Base.args = {
   },
 };
 
-export const WithHeading1 = (
-  args: NotificationFullscreenProps,
-): JSX.Element => <NotificationFullscreen {...args} />;
+export const WithHeading1 = (args: NotificationFullscreenProps) => (
+  <NotificationFullscreen {...args} />
+);
 
 WithHeading1.args = {
   ...Base.args,

@@ -13,16 +13,23 @@
  * limitations under the License.
  */
 
-import { ArrowRight } from '@sumup/icons';
-import { ComponentType } from 'react';
+'use client';
+
+import { ArrowRight } from '@sumup-oss/icons';
+import { useId, type ComponentType } from 'react';
 
 import type { AsPropType } from '../../../../types/prop-types.js';
 import { useComponents } from '../../../ComponentsContext/index.js';
-import Body from '../../../Body/index.js';
+import { Body } from '../../../Body/index.js';
 import { Skeleton } from '../../../Skeleton/index.js';
-import { PrimaryLinkProps as PrimaryLinkType } from '../../types.js';
+import type { PrimaryLinkProps as PrimaryLinkType } from '../../types.js';
+import { idx } from '../../../../util/idx.js';
 import { clsx } from '../../../../styles/clsx.js';
-import utilityClasses from '../../../../styles/utility.js';
+import { utilClasses } from '../../../../styles/utility.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../../../util/errors.js';
 
 import classes from './PrimaryLink.module.css';
 
@@ -36,51 +43,97 @@ export function PrimaryLink({
   activeIcon,
   label,
   isActive,
-  isExternal,
+  externalLabel,
   suffix: Suffix,
   badge,
   secondaryGroups,
   className,
+  'aria-describedby': descriptionId,
   ...props
-}: PrimaryLinkProps): JSX.Element {
+}: PrimaryLinkProps) {
   const { Link } = useComponents();
+  const badgeLabelId = useId();
+  const externalLabelId = useId();
+
+  const descriptionIds = idx(
+    badge && badgeLabelId,
+    externalLabel && externalLabelId,
+    descriptionId,
+  );
 
   const Element = props.href ? (Link as AsPropType) : 'button';
 
   const suffix = Suffix && (
     <Suffix className={classes.suffix} aria-hidden="true" />
   );
-  const isExternalLink = isExternal || props.target === '_blank';
+  const isExternalLink = props.target === '_blank' || props.rel === 'external';
+
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    isExternalLink &&
+    !externalLabel
+  ) {
+    throw new AccessibilityError(
+      'PrimaryLink',
+      'An external link is missing an alternative text. Provide an `externalLabel` prop to communicate that the link leads to an external page or opens in a new tab.',
+    );
+  }
 
   const Icon = isActive && activeIcon ? activeIcon : icon;
 
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    badge &&
+    !isSufficientlyLabelled(badge.children)
+  ) {
+    throw new AccessibilityError(
+      'SideNavigation',
+      "A primary link's badge is missing the `children` prop to describe its purpose.",
+    );
+  }
+
   return (
-    <Element
-      {...props}
-      className={clsx(
-        classes.base,
-        utilityClasses.focusVisibleInset,
-        className,
+    <>
+      <Element
+        {...props}
+        className={clsx(classes.base, utilClasses.focusVisibleInset, className)}
+        aria-current={isActive ? 'page' : undefined}
+        aria-describedby={descriptionIds}
+      >
+        <Skeleton
+          className={clsx(
+            classes.icon,
+            badge && classes.badge,
+            badge && classes[badge.variant || 'promo'],
+          )}
+        >
+          <Icon aria-hidden="true" size="24" />
+        </Skeleton>
+        <Skeleton>
+          <Body as="span" className={classes.label}>
+            {label}
+          </Body>
+        </Skeleton>
+        {isExternalLink && (
+          <ArrowRight
+            size="16"
+            aria-hidden="true"
+            className={clsx(classes.suffix, classes['external-icon'])}
+          />
+        )}
+        {suffix}
+      </Element>
+      {badge && (
+        <span id={badgeLabelId} className={utilClasses.hideVisually}>
+          {badge.children}
+        </span>
       )}
-      aria-current={isActive ? 'page' : undefined}
-    >
-      <Skeleton className={clsx(classes.icon, badge && classes['icon-badge'])}>
-        <Icon aria-hidden="true" size="24" />
-      </Skeleton>
-      <Skeleton>
-        <Body as="span" className={classes.label}>
-          {label}
-        </Body>
-      </Skeleton>
-      {/* FIXME: Make this accessible to screen readers */}
-      {isExternalLink && (
-        <ArrowRight
-          size="16"
-          aria-hidden="true"
-          className={clsx(classes.suffix, classes['external-icon'])}
-        />
+      {isExternalLink && externalLabel && (
+        <span id={externalLabelId} className={utilClasses.hideVisually}>
+          {externalLabel}
+        </span>
       )}
-      {suffix}
-    </Element>
+    </>
   );
 }

@@ -13,35 +13,36 @@
  * limitations under the License.
  */
 
+'use client';
+
 import {
-  ForwardRefExoticComponent,
-  HTMLAttributes,
-  RefAttributes,
-  RefObject,
   forwardRef,
   useEffect,
   useRef,
   useState,
+  type ForwardRefExoticComponent,
+  type HTMLAttributes,
+  type RefAttributes,
 } from 'react';
 
 import { useAnimation } from '../../hooks/useAnimation/index.js';
-import Body from '../Body/index.js';
-import CloseButton from '../CloseButton/index.js';
-import Anchor, { AnchorProps } from '../Anchor/index.js';
-import { ClickEvent } from '../../types/events.js';
+import { Body } from '../Body/index.js';
+import { CloseButton } from '../CloseButton/index.js';
+import { Anchor, type AnchorProps } from '../Anchor/index.js';
+import type { ClickEvent } from '../../types/events.js';
 import { isString } from '../../util/type-check.js';
 import {
+  DEFAULT_HEIGHT,
   NOTIFICATION_ICONS,
-  NotificationVariant,
+  TRANSITION_DURATION,
+  type NotificationVariant,
 } from '../Notification/constants.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { clsx } from '../../styles/clsx.js';
-import utilityClasses from '../../styles/utility.js';
+import { utilClasses } from '../../styles/utility.js';
+import { getElementHeight } from '../Notification/NotificationService.js';
 
 import classes from './NotificationInline.module.css';
-
-const TRANSITION_DURATION = 200;
-const DEFAULT_HEIGHT = 'auto';
 
 type Action = AnchorProps;
 
@@ -60,7 +61,7 @@ type CloseProps =
     }
   | { onClose?: never; closeButtonLabel?: never };
 
-export type BaseProps = HTMLAttributes<HTMLDivElement> & {
+type BaseProps = HTMLAttributes<HTMLDivElement> & {
   /**
    * The notification's variant. Defaults to `info`.
    */
@@ -118,17 +119,17 @@ export const NotificationInline = forwardRef<
       ...props
     },
     ref,
-  ): JSX.Element => {
+  ) => {
     const contentElement = useRef<HTMLDivElement>(null);
     const [isOpen, setOpen] = useState(isVisible);
-    const [height, setHeight] = useState(getHeight(contentElement));
+    const [height, setHeight] = useState(getElementHeight(contentElement));
     const [, setAnimating] = useAnimation();
 
     useEffect(() => {
       setAnimating({
         duration: TRANSITION_DURATION,
         onStart: () => {
-          setHeight(getHeight(contentElement));
+          setHeight(getElementHeight(contentElement));
           // Delaying the state update until the next animation frame ensures that
           // the browsers renders the new height before the animation starts.
           window.requestAnimationFrame(() => {
@@ -158,11 +159,11 @@ export const NotificationInline = forwardRef<
           <div className={classes.icon}>
             <Icon aria-hidden="true" />
           </div>
-          <span className={utilityClasses.hideVisually}>{iconLabel}</span>
+          <span className={utilClasses.hideVisually}>{iconLabel}</span>
           <div className={classes.content}>
             {headline && (
               <Body
-                variant={'highlight'}
+                weight="semibold"
                 as={isString(headline) ? 'h3' : headline.as}
               >
                 {isString(headline) ? headline : headline.label}
@@ -173,7 +174,7 @@ export const NotificationInline = forwardRef<
               <Anchor
                 {...action}
                 className={clsx(action.className, classes.action)}
-                variant="highlight"
+                weight="bold"
               />
             )}
           </div>
@@ -190,10 +191,3 @@ export const NotificationInline = forwardRef<
 ) as NotificationInlineComponent;
 
 NotificationInline.TIMEOUT = TRANSITION_DURATION;
-
-export function getHeight(element: RefObject<HTMLElement>): string {
-  if (!element || !element.current) {
-    return DEFAULT_HEIGHT;
-  }
-  return `${element.current.scrollHeight}px`;
-}

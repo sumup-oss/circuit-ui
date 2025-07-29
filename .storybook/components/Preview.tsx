@@ -13,14 +13,10 @@
  * limitations under the License.
  */
 
-import { Canvas } from '@storybook/addon-docs';
+import type { PropsWithChildren } from 'react';
 import { ThemeProvider } from '@emotion/react';
-import { light } from '@sumup/design-tokens';
+import { light } from '@sumup-oss/design-tokens';
 
-const Preview = ({ children, ...props }) => (
-  <Canvas {...props}>
-    <ThemeProvider theme={light}>{children}</ThemeProvider>
-  </Canvas>
-);
-
-export default Preview;
+export function Preview({ children }: PropsWithChildren) {
+  return <ThemeProvider theme={light}>{children}</ThemeProvider>;
+}

@@ -13,12 +13,14 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes } from 'react';
-import { ChevronUp, ChevronDown } from '@sumup/icons';
+'use client';
 
-import { Direction } from '../../types.js';
+import type { HTMLAttributes } from 'react';
+import { ChevronUp, ChevronDown } from '@sumup-oss/icons';
+
+import type { Direction } from '../../types.js';
 import { clsx } from '../../../../styles/clsx.js';
-import utilityClasses from '../../../../styles/utility.js';
+import { utilClasses } from '../../../../styles/utility.js';
 
 import classes from './SortArrow.module.css';
 
@@ -44,7 +46,7 @@ export function SortArrow({
       {direction !== 'descending' && (
         <ChevronDown size="16" aria-hidden="true" className={classes.icon} />
       )}
-      <span className={utilityClasses.hideVisually}>{label}</span>
+      <span className={utilClasses.hideVisually}>{label}</span>
     </button>
   );
 }

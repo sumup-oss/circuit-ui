@@ -1,0 +1,8 @@
+{
+  "yearInputLabel": "Rok",
+  "monthInputLabel": "Měsíc",
+  "dayInputLabel": "Den",
+  "openCalendarButtonLabel": "Změnit datum",
+  "applyDateButtonLabel": "Použít datum",
+  "clearDateButtonLabel": "Vymazat datum"
+}

@@ -1,5 +1,6 @@
 import { Meta, Status, Props, Story } from '../../../../.storybook/components';
 import * as Stories from './Button.stories';
+import * as ButtonGroupStories from '../ButtonGroup/ButtonGroup.stories';
 
 <Meta of={Stories} />
 
@@ -78,6 +79,6 @@ When the button's action is inputting/saving information, you can indicate a loa
 Used when users have two opposite actions to be taken in a certain step of a flow. It is generally used aligned to the right,
 with a primary button for the expected action and a secondary button on its left.
 
-<Story id="components-buttongroup--base" />
+<Story of={ButtonGroupStories.Base} />
 
 - **Do** use the same verb tenses for both actions

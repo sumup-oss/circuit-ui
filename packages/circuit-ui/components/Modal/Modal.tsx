@@ -13,139 +13,114 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes, ReactNode } from 'react';
-import ReactModal from 'react-modal';
+'use client';
 
-import { isFunction } from '../../util/type-check.js';
-import {
-  ModalComponent,
-  BaseModalProps,
-  createUseModal,
-} from '../ModalContext/index.js';
-import CloseButton from '../CloseButton/index.js';
-import { StackContext } from '../StackContext/index.js';
-import {
-  AccessibilityError,
-  isSufficientlyLabelled,
-} from '../../util/errors.js';
+import { forwardRef, useCallback, useState, type Ref } from 'react';
+
 import { clsx } from '../../styles/clsx.js';
+import { deprecate } from '../../util/logger.js';
+import {
+  Dialog,
+  type DialogProps,
+  type PublicDialogProps,
+} from '../Dialog/Dialog.js';
+import { sharedClasses } from '../../styles/shared.js';
+import { useMedia } from '../../hooks/useMedia/index.js';
 
 import classes from './Modal.module.css';
 
-const TRANSITION_DURATION = 300;
+export interface ModalProps extends Omit<PublicDialogProps, 'isModal'> {
+  /**
+   * Use the `immersive` variant to focus the user's attention on the dialog content.
+   * @default 'contextual'
+   * */
+  variant?: 'contextual' | 'immersive';
+  /**
+   * Callback function invoked when the modal closes.
+   */
+  onClose?: DialogProps['onCloseEnd'];
+  /**
+   * @deprecated This prop was passed to `react-modal` and is no longer relevant.
+   * Use the `preventClose` prop instead. Also see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role#required_javascript_features
+   */
+  hideCloseButton?: boolean;
+  /**
+   * Prevent users from closing the modal by clicking/tapping the overlay or
+   * pressing the escape key, and hides the close button.
+   * @default false
+   */
+  preventClose?: boolean;
+  /**
+   * An optional class name to be applied to the component's content.
+   */
+  contentClassName?: string;
+  ref?: Ref<HTMLDialogElement>;
+}
 
-type PreventCloseProps =
-  | {
-      /**
-       * Text label for the close button for screen readers.
-       * Important for accessibility.
-       */
-      closeButtonLabel?: never;
-      /**
-       * Prevent users from closing the modal by clicking/tapping the overlay or
-       * pressing the escape key. Default `false`.
-       */
-      preventClose: boolean;
+export const ANIMATION_DURATION = 300;
+
+export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
+  const {
+    hideCloseButton,
+    variant = 'contextual',
+    className,
+    contentClassName,
+    preventClose = false,
+    children,
+    onClose,
+    ...rest
+  } = props;
+  if (process.env.NODE_ENV !== 'production') {
+    if (hideCloseButton) {
+      deprecate(
+        'Modal',
+        'The `hideCloseButton` prop has been deprecated. Use the `preventClose` prop instead.',
+      );
     }
-  | {
-      closeButtonLabel: string;
-      preventClose?: never;
-    };
-
-export type ModalProps = BaseModalProps &
-  PreventCloseProps & {
-    /**
-     * The modal content. Use a render function when you need access to the
-     * `onClose` function.
-     */
-    children:
-      | ReactNode
-      | (({ onClose }: Pick<BaseModalProps, 'onClose'>) => ReactNode);
-    /**
-     * Use the `contextual` variant when the modal content requires the context
-     * of the page underneath to be understood, otherwise, use the `immersive`
-     * variant to focus the user's attention.
-     */
-    variant: 'contextual' | 'immersive';
-    /**
-     * Custom styles for the modal wrapper element.
-     */
-    className?: HTMLAttributes<HTMLDivElement>['className'];
-    /**
-     * Custom styles for the modal wrapper element.
-     */
-    style?: HTMLAttributes<HTMLDivElement>['style'];
-  };
-
-/**
- * The modal component displays self-contained tasks in a focused window that
- * overlays the page content.
- * Built on top of [`react-modal`](https://reactcommunity.org/react-modal/).
- */
-export const Modal: ModalComponent<ModalProps> = ({
-  children,
-  onClose,
-  variant = 'contextual',
-  preventClose = false,
-  closeButtonLabel,
-  className,
-  style,
-  ...props
-}) => {
-  if (
-    process.env.NODE_ENV !== 'production' &&
-    process.env.NODE_ENV !== 'test' &&
-    !preventClose &&
-    !isSufficientlyLabelled(closeButtonLabel)
-  ) {
-    throw new AccessibilityError(
-      'Modal',
-      "The `closeButtonLabel` prop is missing or invalid. Pass it in `setModal`, or pass `preventClose` if you intend to hide the Modal's close button.",
-    );
   }
+  const [isClosing, setIsClosing] = useState(false);
 
-  const reactModalProps = {
-    className: {
-      base: clsx(classes.base, classes[variant]),
-      afterOpen: classes.open,
-      beforeClose: classes.closed,
-    },
-    overlayClassName: {
-      base: classes.overlay,
-      afterOpen: classes['overlay-open'],
-      beforeClose: classes['overlay-closed'],
-    },
-    onRequestClose: onClose,
-    closeTimeoutMS: TRANSITION_DURATION,
-    shouldCloseOnOverlayClick: !preventClose,
-    shouldCloseOnEsc: !preventClose,
-    /**
-     * react-modal relies on document.activeElement to return focus after the modal is closed.
-     * Safari and Firefox don't set it properly on button click (see https://github.com/reactjs/react-modal/issues/858 and https://github.com/reactjs/react-modal/issues/389).
-     * Returning the focus to document.body or to the focus-root can cause unwanted page scroll.
-     * Preventing scroll on focus would provide better UX for mouse users and shouldn't cause any side effects for assistive technology users.
-     */
-    preventScroll: true,
-    ...props,
-  };
+  const handleModalCloseEnd = useCallback(() => {
+    setIsClosing(false);
+    onClose?.();
+  }, [onClose]);
+
+  const handleModalCloseStart = useCallback(() => {
+    setIsClosing(true);
+  }, []);
+
+  const isMobile = useMedia('(max-width: 479px)');
+
+  const outAnimation = isMobile
+    ? sharedClasses.animationSlideUpOut
+    : sharedClasses.animationFadeOut;
+  const inAnimation = isMobile
+    ? sharedClasses.animationSlideUpIn
+    : sharedClasses.animationFadeIn;
 
   return (
-    <StackContext.Provider value={'var(--cui-z-index-modal)'}>
-      <ReactModal {...reactModalProps}>
-        <div className={clsx(classes.content, className)} style={style}>
-          {!preventClose && closeButtonLabel && (
-            <CloseButton onClick={onClose} className={classes.close}>
-              {closeButtonLabel}
-            </CloseButton>
-          )}
-
-          {isFunction(children) ? children({ onClose }) : children}
-        </div>
-      </ReactModal>
-    </StackContext.Provider>
+    <Dialog
+      ref={ref}
+      isModal
+      onCloseStart={handleModalCloseStart}
+      onCloseEnd={handleModalCloseEnd}
+      animationDuration={ANIMATION_DURATION}
+      className={clsx(
+        classes.base,
+        isClosing ? outAnimation : inAnimation,
+        variant === 'immersive' && classes.immersive,
+        className,
+      )}
+      preventEscapeKeyClose={preventClose}
+      preventOutsideClickClose={preventClose}
+      hideCloseButton={preventClose}
+      {...rest}
+    >
+      <div className={clsx(classes.content, contentClassName)}>
+        {typeof children === 'function' ? children?.({ onClose }) : children}
+      </div>
+    </Dialog>
   );
-};
+});
 
-Modal.TRANSITION_DURATION = TRANSITION_DURATION;
-
-export const useModal = createUseModal(Modal);
+Modal.displayName = 'Modal';

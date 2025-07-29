@@ -72,12 +72,22 @@
       "size": "16"
     },
     {
+      "name": "controls",
+      "category": "Action",
+      "size": "16"
+    },
+    {
       "name": "copy",
       "category": "Action",
       "size": "24"
     },
     {
       "name": "crop",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "day_view",
       "category": "Action",
       "size": "24"
     },
@@ -167,12 +177,22 @@
       "size": "24"
     },
     {
+      "name": "grid",
+      "category": "Action",
+      "size": "24"
+    },
+    {
       "name": "hide",
       "category": "Action",
       "size": "24"
     },
     {
       "name": "link",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "list",
       "category": "Action",
       "size": "24"
     },
@@ -187,6 +207,11 @@
       "size": "24"
     },
     {
+      "name": "manage",
+      "category": "Action",
+      "size": "24"
+    },
+    {
       "name": "minus",
       "category": "Action",
       "size": "24"
@@ -197,12 +222,27 @@
       "size": "16"
     },
     {
+      "name": "month_view",
+      "category": "Action",
+      "size": "24"
+    },
+    {
       "name": "more",
       "category": "Action",
       "size": "24"
     },
     {
       "name": "more_circle",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "move",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "move",
       "category": "Action",
       "size": "24"
     },
@@ -302,12 +342,32 @@
       "size": "16"
     },
     {
+      "name": "sparkles",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "sparkles",
+      "category": "Action",
+      "size": "16"
+    },
+    {
       "name": "stop",
       "category": "Action",
       "size": "24"
     },
     {
       "name": "stop",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "upgrade",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "upgrade",
       "category": "Action",
       "size": "16"
     },
@@ -337,254 +397,34 @@
       "size": "16"
     },
     {
-      "name": "callback",
-      "category": "Communication",
+      "name": "week_view",
+      "category": "Action",
       "size": "24"
     },
     {
-      "name": "email_chat",
-      "category": "Communication",
+      "name": "sum_up_logo",
+      "category": "Brand",
       "size": "24"
     },
     {
-      "name": "live_chat",
-      "category": "Communication",
+      "name": "sum_up_logomark",
+      "category": "Brand",
       "size": "24"
     },
     {
-      "name": "phone_chat",
-      "category": "Communication",
+      "name": "plus_tier",
+      "category": "Brand",
+      "size": "16"
+    },
+    {
+      "name": "plus_tier",
+      "category": "Brand",
       "size": "24"
     },
     {
-      "name": "alelo",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "american_express",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "apple_pay",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "banco_estado",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "bancontact",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "bitcoin",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "blik",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "boleto",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "conecs",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "dankort",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "diners_club",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "discover",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "ec",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "eftpos",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "elo",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "elv",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "eps",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "faster_payments",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "giropay",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "google_pay",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "hiper",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "hipercard",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "ideal",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "jcb",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "klarna",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "maestro",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "mastercard",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "mybank",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "nfc_payment",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "pay_pal",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "pix_full",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "post_finance",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "przelewy24",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "red_compra",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "samsung_pay",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "satispay",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "sepa",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "sodexo",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "sofort",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "swile",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "ticket",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "union_pay",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "visa",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "visa_electron",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "vpay",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
-      "name": "vr",
-      "category": "Payment method",
-      "size": "24"
+      "name": "plus_tier",
+      "category": "Brand",
+      "size": "32"
     },
     {
       "name": "alelo",
@@ -602,6 +442,12 @@
       "size": "32"
     },
     {
+      "name": "apm",
+      "category": "Card scheme",
+      "size": "32",
+      "deprecation": "Use the `AlternativePaymentMethod` icon instead."
+    },
+    {
       "name": "apple_pay",
       "category": "Card scheme",
       "size": "32"
@@ -613,6 +459,11 @@
     },
     {
       "name": "boleto",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "card_unknown",
       "category": "Card scheme",
       "size": "32"
     },
@@ -647,6 +498,11 @@
       "size": "32"
     },
     {
+      "name": "girocard",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
       "name": "google_pay",
       "category": "Card scheme",
       "size": "32"
@@ -658,6 +514,11 @@
     },
     {
       "name": "ideal",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "interac",
       "category": "Card scheme",
       "size": "32"
     },
@@ -730,6 +591,49 @@
       "name": "vr",
       "category": "Card scheme",
       "size": "32"
+    },
+    {
+      "name": "sumup_pay",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "callback",
+      "category": "Communication",
+      "size": "24"
+    },
+    {
+      "name": "email",
+      "category": "Communication",
+      "size": "24"
+    },
+    {
+      "name": "email_chat",
+      "category": "Communication",
+      "size": "24",
+      "deprecation": "Use the `Email` icon instead."
+    },
+    {
+      "name": "live_chat",
+      "category": "Communication",
+      "size": "24"
+    },
+    {
+      "name": "phone",
+      "category": "Communication",
+      "size": "24"
+    },
+    {
+      "name": "phone_chat",
+      "category": "Communication",
+      "size": "24",
+      "deprecation": "Use the `Phone` icon instead."
+    },
+    {
+      "name": "flag_ae",
+      "category": "Country flag",
+      "keywords": ["United Arab Emirates"],
+      "size": "16"
     },
     {
       "name": "flag_ar",
@@ -852,6 +756,12 @@
       "size": "16"
     },
     {
+      "name": "flag_hk",
+      "category": "Country flag",
+      "keywords": ["Hong Kong"],
+      "size": "16"
+    },
+    {
       "name": "flag_hr",
       "category": "Country flag",
       "keywords": ["Croatia"],
@@ -873,6 +783,19 @@
       "name": "flag_it",
       "category": "Country flag",
       "keywords": ["Italy"],
+      "size": "16"
+    },
+    {
+      "name": "flag_ja",
+      "category": "Country flag",
+      "keywords": ["Japan"],
+      "size": "16",
+      "deprecation": "Use the `FlagJp` icon instead."
+    },
+    {
+      "name": "flag_jp",
+      "category": "Country flag",
+      "keywords": ["Japan"],
       "size": "16"
     },
     {
@@ -900,6 +823,18 @@
       "size": "16"
     },
     {
+      "name": "flag_mx",
+      "category": "Country flag",
+      "keywords": ["Mexico"],
+      "size": "16"
+    },
+    {
+      "name": "flag_my",
+      "category": "Country flag",
+      "keywords": ["Malaysia"],
+      "size": "16"
+    },
+    {
       "name": "flag_nl",
       "category": "Country flag",
       "keywords": ["Netherlands"],
@@ -909,6 +844,12 @@
       "name": "flag_no",
       "category": "Country flag",
       "keywords": ["Norway"],
+      "size": "16"
+    },
+    {
+      "name": "flag_nz",
+      "category": "Country flag",
+      "keywords": ["New Zeland"],
       "size": "16"
     },
     {
@@ -939,6 +880,12 @@
       "name": "flag_se",
       "category": "Country flag",
       "keywords": ["Sweden"],
+      "size": "16"
+    },
+    {
+      "name": "flag_sg",
+      "category": "Country flag",
+      "keywords": ["Singapore"],
       "size": "16"
     },
     {
@@ -1040,6 +987,11 @@
       "size": "24"
     },
     {
+      "name": "driver_license",
+      "category": "File",
+      "size": "24"
+    },
+    {
       "name": "electronic_invoice",
       "category": "File",
       "size": "24"
@@ -1065,7 +1017,17 @@
       "size": "24"
     },
     {
+      "name": "passport",
+      "category": "File",
+      "size": "24"
+    },
+    {
       "name": "recurring_invoice",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "residence_permit",
       "category": "File",
       "size": "24"
     },
@@ -1080,12 +1042,12 @@
       "size": "24"
     },
     {
-      "name": "apm",
+      "name": "atm",
       "category": "Finance",
-      "size": "32"
+      "size": "24"
     },
     {
-      "name": "atm",
+      "name": "automatic_balance_transfer",
       "category": "Finance",
       "size": "24"
     },
@@ -1095,12 +1057,7 @@
       "size": "24"
     },
     {
-      "name": "card_unknown",
-      "category": "Finance",
-      "size": "32"
-    },
-    {
-      "name": "card_unknown",
+      "name": "bulk_transfer",
       "category": "Finance",
       "size": "24"
     },
@@ -1111,6 +1068,11 @@
     },
     {
       "name": "card_out",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "card_unknown",
       "category": "Finance",
       "size": "24"
     },
@@ -1160,6 +1122,26 @@
       "size": "24"
     },
     {
+      "name": "wealth",
+      "category": "Finance",
+      "size": "16"
+    },
+    {
+      "name": "wealth",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "wire_transfer",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "accessibility",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "alarm",
       "category": "Miscellaneous",
       "size": "24"
@@ -1193,6 +1175,21 @@
       "name": "battery",
       "category": "Miscellaneous",
       "size": "24"
+    },
+    {
+      "name": "battery",
+      "category": "Miscellaneous",
+      "size": "16"
+    },
+    {
+      "name": "battery_alert",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "battery_alert",
+      "category": "Miscellaneous",
+      "size": "16"
     },
     {
       "name": "briefcase",
@@ -1236,14 +1233,35 @@
       "size": "24"
     },
     {
+      "name": "code",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "color_correction",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "color_inversion",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "company",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "cookie",
       "category": "Miscellaneous",
       "size": "24"
     },
     {
       "name": "cookie_preferences",
       "category": "Miscellaneous",
-      "size": "24"
+      "size": "24",
+      "deprecation": "Use the `Cookie` icon instead."
     },
     {
       "name": "custom_amount",
@@ -1296,6 +1314,11 @@
       "size": "24"
     },
     {
+      "name": "language",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "legal",
       "category": "Miscellaneous",
       "size": "24"
@@ -1304,6 +1327,11 @@
       "name": "like",
       "category": "Miscellaneous",
       "size": "24"
+    },
+    {
+      "name": "location",
+      "category": "Miscellaneous",
+      "size": "16"
     },
     {
       "name": "location",
@@ -1326,6 +1354,16 @@
       "size": "24"
     },
     {
+      "name": "motorbike",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "no_sim",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "package",
       "category": "Miscellaneous",
       "size": "24"
@@ -1337,6 +1375,16 @@
     },
     {
       "name": "paid_out",
+      "category": "Miscellaneous",
+      "size": "16"
+    },
+    {
+      "name": "print_failed",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "print_failed",
       "category": "Miscellaneous",
       "size": "16"
     },
@@ -1412,6 +1460,11 @@
     },
     {
       "name": "unfavorite",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "volume",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -1571,6 +1624,246 @@
       "size": "16"
     },
     {
+      "name": "alelo",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "american_express",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "apple_pay",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "banco_estado",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "bancontact",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "bitcoin",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "blik",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "boleto",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "conecs",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "dankort",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "diners_club",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "discover",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "ec",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "eftpos",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "elo",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "elv",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "eps",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "faster_payments",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "girocard",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "giropay",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "google_pay",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "hiper",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "hipercard",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "ideal",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "interac",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "jcb",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "klarna",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "maestro",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "mastercard",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "mybank",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "nfc_payment",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "pay_pal",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "pix_full",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "post_finance",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "przelewy24",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "red_compra",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "samsung_pay",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "satispay",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "sepa",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "sodexo",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "sofort",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "swile",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "ticket",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "union_pay",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "visa",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "visa_electron",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "vpay",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "vr",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "account",
       "category": "Product and feature",
       "size": "24"
@@ -1636,6 +1929,11 @@
       "size": "16"
     },
     {
+      "name": "expenses",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
       "name": "fee_calculator",
       "category": "Product and feature",
       "size": "24"
@@ -1686,17 +1984,22 @@
       "size": "24"
     },
     {
-      "name": "online_store",
-      "category": "Product and feature",
-      "size": "24"
-    },
-    {
       "name": "online_payments",
       "category": "Product and feature",
       "size": "24"
     },
     {
+      "name": "online_store",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
       "name": "orders",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "parcel_locker",
       "category": "Product and feature",
       "size": "24"
     },
@@ -1711,12 +2014,12 @@
       "size": "24"
     },
     {
-      "name": "payouts",
+      "name": "payout_settings",
       "category": "Product and feature",
       "size": "24"
     },
     {
-      "name": "payout_settings",
+      "name": "payouts",
       "category": "Product and feature",
       "size": "24"
     },
@@ -1751,9 +2054,20 @@
       "size": "24"
     },
     {
-      "name": "refer",
+      "name": "receipt_smart",
       "category": "Product and feature",
       "size": "24"
+    },
+    {
+      "name": "receipt_unreviewed",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "refer",
+      "category": "Product and feature",
+      "size": "24",
+      "deprecation": "Use the `ReferAFriend` or `Reward` icons instead."
     },
     {
       "name": "refer_a_friend",
@@ -1766,9 +2080,15 @@
       "size": "24"
     },
     {
-      "name": "sales",
+      "name": "reward",
       "category": "Product and feature",
       "size": "24"
+    },
+    {
+      "name": "sales",
+      "category": "Product and feature",
+      "size": "24",
+      "deprecation": "Use the `Receipt` icon instead."
     },
     {
       "name": "shop",
@@ -1836,6 +2156,11 @@
       "size": "24"
     },
     {
+      "name": "facebook_messenger",
+      "category": "Social media",
+      "size": "24"
+    },
+    {
       "name": "instagram",
       "category": "Social media",
       "size": "24"
@@ -1848,7 +2173,8 @@
     {
       "name": "messenger",
       "category": "Social media",
-      "size": "24"
+      "size": "24",
+      "deprecation": "Use the `FacebookMessenger` icon instead."
     },
     {
       "name": "pinterest",
@@ -1861,18 +2187,13 @@
       "size": "24"
     },
     {
-      "name": "youtube",
+      "name": "whats_app",
       "category": "Social media",
       "size": "24"
     },
     {
-      "name": "sum_up_logo",
-      "category": "Brand",
-      "size": "24"
-    },
-    {
-      "name": "sum_up_logomark",
-      "category": "Brand",
+      "name": "youtube",
+      "category": "Social media",
       "size": "24"
     }
   ]

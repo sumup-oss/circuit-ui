@@ -13,24 +13,25 @@
  * limitations under the License.
  */
 
-import { FunctionComponent, ReactElement, PropsWithChildren } from 'react';
+import type { FunctionComponent, ReactElement, PropsWithChildren } from 'react';
 import '@testing-library/jest-dom/vitest';
 import { configureAxe } from 'jest-axe';
 import {
   render as renderTest,
-  RenderOptions,
-  RenderResult,
   renderHook,
+  type RenderOptions,
+  type RenderResult,
 } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { ThemeProvider } from '@emotion/react';
-import { light } from '@sumup/design-tokens';
+import { light } from '@sumup-oss/design-tokens';
 
 import {
   ComponentsContext,
   defaultComponents,
 } from '../components/ComponentsContext/ComponentsContext.js';
 
+// biome-ignore lint/performance/noReExportAll: We re-export the package to override specific functions below
 export * from '@testing-library/react';
 
 export type RenderFn<T = unknown> = (

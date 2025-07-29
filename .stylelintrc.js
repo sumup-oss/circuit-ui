@@ -1,5 +1,5 @@
-module.exports = require('@sumup/foundry/stylelint')({
-  plugins: ['@sumup/stylelint-plugin-circuit-ui'],
+module.exports = require('@sumup-oss/foundry/stylelint')({
+  extends: ['stylelint-prettier/recommended', 'stylelint-config-css-modules'],
   rules: {
     'selector-class-pattern': [
       '^([a-z][a-z0-9]*)(-[a-z0-9]+)*$',
@@ -8,6 +8,5 @@ module.exports = require('@sumup/foundry/stylelint')({
           `Expected class selector "${selector}" to be kebab-case`,
       },
     ],
-    'circuit-ui/no-invalid-custom-properties': true,
   },
 });

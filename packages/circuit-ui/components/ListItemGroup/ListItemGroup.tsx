@@ -13,22 +13,32 @@
  * limitations under the License.
  */
 
-import { forwardRef, HTMLAttributes, ReactNode, useState } from 'react';
+'use client';
 
-import { AccessibilityError } from '../../util/errors.js';
-import Body from '../Body/index.js';
-import ListItem, { ListItemProps } from '../ListItem/index.js';
+import {
+  forwardRef,
+  useState,
+  type HTMLAttributes,
+  type ReactNode,
+} from 'react';
+
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
+import { Body } from '../Body/index.js';
+import { ListItem, type ListItemProps } from '../ListItem/index.js';
 import { isString } from '../../util/type-check.js';
 import { clsx } from '../../styles/clsx.js';
-import utilityClasses from '../../styles/utility.js';
+import { utilClasses } from '../../styles/utility.js';
 
 import classes from './ListItemGroup.module.css';
 
 type Variant = 'plain' | 'inset';
 
-export type ItemProps = ListItemProps & { key: string | number };
+type ItemProps = ListItemProps & { key: string | number };
 
-export interface BaseProps {
+interface BaseProps {
   /**
    * Choose between 'inset' (outer border and dividers) and 'plain' (only
    * dividers) variant. Defaults to 'inset'.
@@ -41,8 +51,9 @@ export interface BaseProps {
   items: ItemProps[];
   /**
    * Display a main label/headline describing the group.
+   * `aria-label` or `aria-labelledby` can alternatively be used to provide accessibility information.
    */
-  label: ReactNode;
+  label?: ReactNode;
   /**
    * Visually hide the label. This should only be used in rare cases and only
    * if the purpose of the field can be inferred from other context.
@@ -72,22 +83,23 @@ export const ListItemGroup = forwardRef<HTMLDivElement, ListItemGroupProps>(
     },
     ref,
   ) => {
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !label
-    ) {
-      throw new AccessibilityError(
-        'ListItemGroup',
-        'The `label` prop is missing. This is an accessibility requirement. Pass `hideLabel` if you intend to hide the label visually.',
-      );
-    }
     const [focusedItemKey, setFocusedItemKey] = useState<
       ItemProps['key'] | null
     >(null);
 
     const isPlain = variant === 'plain';
     const isInteractive = items.some((item) => !!item.href || !!item.onClick);
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !isSufficientlyLabelled(label, props)
+    ) {
+      throw new AccessibilityError(
+        'ListItemGroup',
+        'The `label` prop, `aria-label` or `aria-labelledby` is missing. This is an accessibility requirement. Pass `hideLabel` if you intend to hide the label visually.',
+      );
+    }
 
     return (
       <div
@@ -96,23 +108,25 @@ export const ListItemGroup = forwardRef<HTMLDivElement, ListItemGroupProps>(
         ref={ref}
       >
         <div className={classes.header}>
-          <div
-            className={clsx(
-              classes.label,
-              hideLabel && utilityClasses.hideVisually,
-            )}
-          >
-            {isString(label) ? (
-              <Body as="h4" size="two">
-                {label}
-              </Body>
-            ) : (
-              label
-            )}
-          </div>
+          {label && (
+            <div
+              className={clsx(
+                classes.label,
+                hideLabel && utilClasses.hideVisually,
+              )}
+            >
+              {isString(label) ? (
+                <Body as="h4" size="s">
+                  {label}
+                </Body>
+              ) : (
+                label
+              )}
+            </div>
+          )}
           {details && (
             <div className={classes.details}>
-              {isString(details) ? <Body size="two">{details}</Body> : details}
+              {isString(details) ? <Body size="s">{details}</Body> : details}
             </div>
           )}
         </div>
@@ -135,7 +149,7 @@ export const ListItemGroup = forwardRef<HTMLDivElement, ListItemGroupProps>(
                     if (event.currentTarget.matches(':focus-visible')) {
                       setFocusedItemKey(key);
                     }
-                  } catch (err) {
+                  } catch (_error) {
                     setFocusedItemKey(key);
                   }
                 }}

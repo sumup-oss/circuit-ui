@@ -7,16 +7,16 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [18, 20.5]
+        node: [20, 22]
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: false
 
       - name: Setup Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'
@@ -24,31 +24,30 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Check dependency licenses
-        run: npm run check:licenses
-
-      - name: Check SVG sizes
-        run: npm run check:svg-sizes
-
       - name: Build packages
         run: npm run build
 
+      - name: Check for unused code
+        run: npm run knip
+
       - name: Lint code
-        run: npm run lint
+        run: npm run lint:ci
 
       - name: Lint styles
         run: npm run lint:css
 
       - name: Run unit tests
-        run: npm run test:ci
+        # For some reason, the global script doesn't run tests in packages/eslint-plugin-circuit-ui
+        # I suspect it's because it's not an ES module.
+        run: npm run test:ci && cd packages/eslint-plugin-circuit-ui && npm run test:ci
 
       - name: Upload results to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Create release PR or publish to npm
-        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next' || github.ref == 'refs/heads/canary') && matrix.node == 20.5
+        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next' || github.ref == 'refs/heads/canary') && matrix.node == 20
         uses: changesets/action@v1
         with:
           publish: npm run release

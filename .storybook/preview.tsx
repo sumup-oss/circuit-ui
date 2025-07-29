@@ -1,20 +1,29 @@
-import '@sumup/design-tokens/light.css';
+import '@sumup-oss/design-tokens/fonts.css';
+import '@sumup-oss/design-tokens/dynamic.css';
 import '../packages/circuit-ui/styles/base.css';
 
 import { light, components } from './themes';
 import { withThemeProvider } from './decorators/withThemeProvider';
-import { withUnmountWhenHidden } from './decorators/withUnmountWhenHidden';
 import { DocsContainer } from './components';
+import { modes } from './modes';
 
 export const parameters = {
   layout: 'centered',
   versions: {
-    current: 'v8',
+    current: 'v10',
     previous: [
+      { name: 'v9', url: 'https://circuit-v9.sumup-vercel.app' },
+      { name: 'v8', url: 'https://circuit-v8.sumup-vercel.app' },
       { name: 'v7', url: 'https://circuit-v7.sumup-vercel.app' },
       { name: 'v6', url: 'https://circuit-v6.sumup-vercel.app' },
       { name: 'v5', url: 'https://circuit-v5.sumup-vercel.app' },
     ],
+  },
+  chromatic: {
+    modes: {
+      light: modes.light,
+      dark: modes.dark,
+    },
   },
   viewport: {
     viewports: {
@@ -37,7 +46,6 @@ export const parameters = {
     },
   },
   previewTabs: { 'storybook/docs/panel': { index: -1 } },
-  actions: { argTypesRegex: '^on.*' },
   controls: { expanded: true },
   options: {
     storySort: {
@@ -45,32 +53,42 @@ export const parameters = {
       includeName: true,
     },
   },
-  docs: { theme: light, components, container: DocsContainer },
+  docs: {
+    theme: light,
+    components,
+    container: DocsContainer,
+    toc: { title: 'On this page', headingSelector: 'h2, h3' },
+    codePanel: true,
+  },
 };
 
-// TODO: Re-enable once a dark theme exists
-// export const globalTypes = {
-//   theme: {
-//     name: 'Theme',
-//     description: 'Global theme for components',
-//     defaultValue: 'light',
-//     toolbar: {
-//       title: 'Theme',
-//       icon: 'paintbrush',
-//       items: [
-//         {
-//           title: 'Light',
-//           value: 'light',
-//           icon: 'circle',
-//         },
-//         {
-//           title: 'Dark (WIP)',
-//           value: 'dark',
-//           icon: 'circlehollow',
-//         },
-//       ],
-//     },
-//   },
-// };
+export const globalTypes = {
+  colorScheme: {
+    name: 'Color Scheme',
+    description: 'Global theme for components',
+    defaultValue: 'system',
+    toolbar: {
+      title: 'Color Scheme',
+      icon: 'paintbrush',
+      items: [
+        {
+          title: 'Match system',
+          value: 'system',
+          icon: 'mirror',
+        },
+        {
+          title: 'Light',
+          value: 'light',
+          icon: 'circlehollow',
+        },
+        {
+          title: 'Dark (WIP)',
+          value: 'dark',
+          icon: 'circle',
+        },
+      ],
+    },
+  },
+};
 
-export const decorators = [withThemeProvider, withUnmountWhenHidden];
+export const decorators = [withThemeProvider];

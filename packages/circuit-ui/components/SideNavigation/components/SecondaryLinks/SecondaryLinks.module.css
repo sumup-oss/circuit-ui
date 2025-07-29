@@ -1,13 +1,19 @@
 .list {
+  padding: 0;
+  margin: 0;
   list-style: none;
+}
+
+.headline {
+  text-transform: uppercase;
 }
 
 .anchor {
   flex-wrap: wrap;
   padding: var(--cui-spacings-mega) var(--cui-spacings-giga);
   hyphens: auto;
+  overflow-wrap: break-word;
   text-decoration: none;
-  word-break: break-word;
 }
 
 @media (min-width: 1280px) {

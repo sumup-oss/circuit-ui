@@ -14,7 +14,7 @@
  */
 
 // We disable the rule in this file because we explicitly test invalid cases
-/* eslint-disable @sumup/circuit-ui/no-invalid-custom-properties */
+/* eslint-disable @sumup-oss/circuit-ui/no-invalid-custom-properties */
 
 import { RuleTester } from '@typescript-eslint/rule-tester';
 
@@ -74,6 +74,24 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
       code: `
         function Component() {
           return <IconButton icon={Close}>Close</IconButton>
+        }
+      `,
+    },
+    {
+      name: 'matched Body component without the variant prop',
+      code: `
+        function Component() {
+          return <Body>Lorem ipsum</Body>
+        }
+      `,
+    },
+    {
+      name: 'matched Body component with variant="quote"',
+      code: `
+        function Component() {
+          return (
+            <Body variant="quote">Lorem ipsum</Body>
+          )
         }
       `,
     },
@@ -310,6 +328,52 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
         { messageId: 'propName' },
         { messageId: 'propName' },
         { messageId: 'propName' },
+      ],
+    },
+    {
+      name: 'matched Body component with the old prop value',
+      code: `
+        function ComponentA() {
+          return (
+            <Body variant="highlight">Lorem ipsum</Body>
+          )
+        }
+
+        function ComponentB() {
+          return (
+            <Body as="span" variant="highlight">Lorem ipsum</Body>
+          )
+        }
+
+        function ComponentC() {
+          return (
+            <Body variant="alert">Lorem ipsum</Body>
+          )
+        }
+      `,
+      output: `
+        function ComponentA() {
+          return (
+            <Body as="strong">Lorem ipsum</Body>
+          )
+        }
+
+        function ComponentB() {
+          return (
+            <Body as="span" weight="semibold">Lorem ipsum</Body>
+          )
+        }
+
+        function ComponentC() {
+          return (
+            <Body color="danger">Lorem ipsum</Body>
+          )
+        }
+      `,
+      errors: [
+        { messageId: 'bodyVariant' },
+        { messageId: 'bodyVariant' },
+        { messageId: 'bodyVariant' },
       ],
     },
   ],

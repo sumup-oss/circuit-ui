@@ -13,34 +13,35 @@
  * limitations under the License.
  */
 
+'use client';
+
 import {
-  MouseEvent,
-  KeyboardEvent,
-  useState,
-  useRef,
-  RefObject,
-  useEffect,
-  HTMLAttributes,
   forwardRef,
+  useEffect,
+  useRef,
+  useState,
+  type MouseEvent,
+  type KeyboardEvent,
+  type HTMLAttributes,
 } from 'react';
 
-import Button, { ButtonProps } from '../Button/index.js';
-import Headline from '../Headline/index.js';
-import Body from '../Body/index.js';
-import Image, { ImageProps } from '../Image/index.js';
-import CloseButton from '../CloseButton/index.js';
+import { Button, type ButtonProps } from '../Button/index.js';
+import { Headline } from '../Headline/index.js';
+import { Body } from '../Body/index.js';
+import { Image, type ImageProps } from '../Image/index.js';
+import { CloseButton } from '../CloseButton/index.js';
 import { useAnimation } from '../../hooks/useAnimation/index.js';
 import { applyMultipleRefs } from '../../util/refs.js';
 import { clsx } from '../../styles/clsx.js';
 import { deprecate } from '../../util/logger.js';
+import { getElementHeight } from '../Notification/NotificationService.js';
+import { DEFAULT_HEIGHT } from '../Notification/constants.js';
 
 import classes from './NotificationBanner.module.css';
 
 type Action = Omit<ButtonProps, 'size'>;
 
 type NotificationVariant = 'system' | 'promotional';
-
-const DEFAULT_HEIGHT = 'auto';
 
 type CloseProps =
   | {
@@ -136,17 +137,17 @@ export const NotificationBanner = forwardRef<
       ...props
     },
     ref,
-  ): JSX.Element => {
+  ) => {
     const contentElement = useRef<HTMLDivElement>(null);
     const [isOpen, setOpen] = useState(isVisible);
-    const [height, setHeight] = useState(getHeight(contentElement));
+    const [height, setHeight] = useState(getElementHeight(contentElement));
     const [, setAnimating] = useAnimation();
 
     useEffect(() => {
       setAnimating({
         duration: 200,
         onStart: () => {
-          setHeight(getHeight(contentElement));
+          setHeight(getElementHeight(contentElement));
           // Delaying the state update until the next animation frame ensures
           // that browsers render the new height before the animation starts.
           window.requestAnimationFrame(() => {
@@ -165,7 +166,7 @@ export const NotificationBanner = forwardRef<
     ) {
       deprecate(
         'NotificationBanner',
-        "The action's `tertiary` variant has been deprecated. Use the `primary` size instead.",
+        "The action's `tertiary` variant has been deprecated. Use the `primary` variant instead.",
       );
     }
 
@@ -180,32 +181,27 @@ export const NotificationBanner = forwardRef<
         className={clsx(classes.base, classes[variant], className)}
         {...props}
       >
-        <div className={classes.content}>
-          <Headline as="h2" className={classes.headline}>
-            {headline}
-          </Headline>
-          {body && <Body className={classes.body}>{body}</Body>}
+        <div className={classes.grid}>
+          <div className={classes.content}>
+            <Headline as="h2" className={classes.headline}>
+              {headline}
+            </Headline>
+            {body && <Body className={classes.body}>{body}</Body>}
+          </div>
           <Button
             {...action}
             variant={action.variant === 'tertiary' ? 'secondary' : 'primary'}
             className={clsx(action.className, classes.button)}
             size="s"
           />
+          {image?.src && <NotificationImage {...image} />}
+          {onClose && closeButtonLabel && (
+            <CloseButton className={classes.close} size="s" onClick={onClose}>
+              {closeButtonLabel}
+            </CloseButton>
+          )}
         </div>
-        {image && image.src && <NotificationImage {...image} />}
-        {onClose && closeButtonLabel && (
-          <CloseButton className={classes.close} size="s" onClick={onClose}>
-            {closeButtonLabel}
-          </CloseButton>
-        )}
       </div>
     );
   },
 );
-
-export function getHeight(element: RefObject<HTMLElement>): string {
-  if (!element || !element.current) {
-    return DEFAULT_HEIGHT;
-  }
-  return `${element.current.scrollHeight}px`;
-}

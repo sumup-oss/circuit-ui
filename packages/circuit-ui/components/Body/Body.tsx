@@ -13,10 +13,11 @@
  * limitations under the License.
  */
 
-import { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, type HTMLAttributes } from 'react';
 
 import type { AsPropType } from '../../types/prop-types.js';
 import { clsx } from '../../styles/clsx.js';
+import { deprecate } from '../../util/logger.js';
 
 import classes from './Body.module.css';
 
@@ -24,11 +25,52 @@ type Variant = 'highlight' | 'quote' | 'confirm' | 'alert' | 'subtle';
 
 export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
   /**
-   * Choose from 2 font sizes. Default `one`.
+   * Choose from 3 font sizes. Default `m`.
    */
-  size?: 'one' | 'two';
+  size?:
+    | 's'
+    | 'm'
+    | 'l'
+    /**
+     * @deprecated
+     */
+    | 'one'
+    /**
+     * @deprecated
+     */
+    | 'two';
   /**
-   * Choose from style variants.
+   * Choose from three font weights. Default: `regular`.
+   *
+   * Use the `as` prop to render the component as the `strong` HTML element
+   * if appropriate.
+   */
+  weight?: 'regular' | 'semibold' | 'bold';
+  /**
+   * Choose a style or text decoration. Underline is reserved for hyperlinks.
+   *
+   * Use the `as` prop to render the component as the `em` or `del` HTML
+   * elements if appropriate.
+   */
+  decoration?: 'italic' | 'strikethrough';
+  /**
+   * Choose a foreground color token name. Default: `normal`.
+   */
+  color?:
+    | 'normal'
+    | 'subtle'
+    | 'placeholder'
+    | 'on-strong'
+    | 'on-strong-subtle'
+    | 'accent'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | 'promo';
+  /**
+   * @deprecated Use the new `color` prop instead of the `alert`, `confirm` and
+   * `subtle` variants. Use the new `weight` prop instead of the `highlight`
+   * variant. Use custom CSS for the `quote` variant.
    */
   variant?: Variant;
   /**
@@ -47,13 +89,71 @@ function getHTMLElement(variant?: Variant): AsPropType {
   return 'p';
 }
 
+function getDefaultWeight(as?: AsPropType) {
+  if (as === 'strong') {
+    return 'semibold';
+  }
+  return 'regular';
+}
+
+export const deprecatedSizeMap: Record<string, string> = {
+  'one': 'm',
+  'two': 's',
+};
+
 /**
  * The Body component is used to present the core textual content
  * to our users.
  */
 export const Body = forwardRef<HTMLParagraphElement, BodyProps>(
-  ({ className, as, size = 'one', variant, ...props }, ref) => {
+  (
+    {
+      className,
+      as,
+      size: legacySize = 'm',
+      weight = getDefaultWeight(as),
+      decoration,
+      color = 'normal',
+      variant,
+      ...props
+    },
+    ref,
+  ) => {
     const Element = as || getHTMLElement(variant);
+
+    if (process.env.NODE_ENV !== 'production') {
+      if (variant) {
+        if (variant === 'highlight') {
+          deprecate(
+            'Body',
+            'The "highlight" variant has been deprecated. Use the new `weight` prop instead.',
+          );
+        } else if (variant === 'quote') {
+          deprecate(
+            'Body',
+            'The "quote" variant has been deprecated. Use custom CSS instead.',
+          );
+        } else {
+          deprecate(
+            'Body',
+            `The "${variant}" variant has been deprecated. Use the new \`color\` prop instead.`,
+          );
+        }
+      }
+
+      if (legacySize in deprecatedSizeMap) {
+        deprecate(
+          'Body',
+          `The "${legacySize}" size has been deprecated. Use the "${deprecatedSizeMap[legacySize]}" size instead.`,
+        );
+      }
+    }
+
+    const size = (deprecatedSizeMap[legacySize] || legacySize) as
+      | 'l'
+      | 'm'
+      | 's';
+
     return (
       <Element
         {...props}
@@ -61,6 +161,9 @@ export const Body = forwardRef<HTMLParagraphElement, BodyProps>(
         className={clsx(
           classes.base,
           classes[size],
+          classes[weight],
+          classes[color],
+          decoration && classes[decoration],
           variant && classes[variant],
           className,
         )}

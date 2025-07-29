@@ -1,0 +1,8 @@
+{
+  "yearInputLabel": "År",
+  "monthInputLabel": "Måned",
+  "dayInputLabel": "Dag",
+  "openCalendarButtonLabel": "Skift dato",
+  "applyDateButtonLabel": "Anvend dato",
+  "clearDateButtonLabel": "Slet dato"
+}

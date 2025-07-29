@@ -14,13 +14,19 @@
  */
 
 import { useState } from 'react';
-import { FlagDe, FlagUs, FlagFr, IconComponentType } from '@sumup/icons';
+import {
+  FlagDe,
+  FlagUs,
+  FlagFr,
+  type IconComponentType,
+} from '@sumup-oss/icons';
 
-import { Select, SelectProps } from './Select.js';
+import { Select, type SelectProps } from './Select.js';
 
 export default {
   title: 'Forms/Select',
   component: Select,
+  tags: ['status:stable'],
 };
 
 const baseArgs = {

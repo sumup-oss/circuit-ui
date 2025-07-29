@@ -1,9 +1,14 @@
+:root {
+  --side-panel-width: 400px;
+}
+
 .base {
   width: 100%;
-  min-height: calc(100vh - var(--top-navigation-height));
   transition: width var(--cui-transitions-slow);
 }
 
-.resized {
-  width: calc(100% - var(--side-panel-width));
+@media (min-width: 768px) {
+  .resized {
+    width: calc(100% - var(--side-panel-width));
+  }
 }

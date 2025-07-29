@@ -7,15 +7,16 @@
   color: var(--cui-fg-accent);
   text-align: left;
   text-decoration: underline;
+  text-decoration-skip-ink: auto;
+  outline: none;
   background: none;
   border: 0;
-  border-radius: var(--cui-border-radius-byte);
-  outline: none;
-  transition: opacity var(--cui-transitions-default),
+  border-radius: var(--cui-border-radius-bit);
+  transition:
+    opacity var(--cui-transitions-default),
     color var(--cui-transitions-default),
     background-color var(--cui-transitions-default),
     border-color var(--cui-transitions-default);
-  text-decoration-skip-ink: auto;
 }
 
 .base:hover {

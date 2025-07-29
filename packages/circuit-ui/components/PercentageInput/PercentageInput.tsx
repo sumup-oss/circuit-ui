@@ -13,25 +13,25 @@
  * limitations under the License.
  */
 
-import { forwardRef, useId } from 'react';
-import { resolveNumberFormat } from '@sumup/intl';
-import { NumericFormat, NumericFormatProps } from 'react-number-format';
+'use client';
 
+import { forwardRef, useId } from 'react';
+import { resolveNumberFormat } from '@sumup-oss/intl';
+
+import { NumericFormat } from '../../vendor/react-number-format/index.js';
+import type { OnValueChange } from '../../vendor/react-number-format/types.js';
 import { clsx } from '../../styles/clsx.js';
-import Input, { InputElement, InputProps } from '../Input/index.js';
+import { idx } from '../../util/idx.js';
+import { Input, type InputProps } from '../Input/index.js';
 
 import { formatPlaceholder } from './PercentageInputService.js';
 import classes from './PercentageInput.module.css';
 
 export interface PercentageInputProps
   extends Omit<
-      InputProps,
-      'placeholder' | 'ref' | 'value' | 'defaultValue' | 'type'
-    >,
-    Pick<
-      NumericFormatProps,
-      'onValueChange' | 'decimalScale' | 'fixedDecimalScale' | 'allowNegative'
-    > {
+    InputProps,
+    'placeholder' | 'ref' | 'value' | 'defaultValue' | 'type'
+  > {
   /**
    * One or more Unicode BCP 47 locale identifiers, such as `'de-DE'` or
    * `['GB', 'en-US']` (the first supported locale is used).
@@ -50,6 +50,10 @@ export interface PercentageInputProps
    * The default value of the input element.
    */
   defaultValue?: string | number;
+  allowNegative?: boolean;
+  decimalScale?: number;
+  fixedDecimalScale?: boolean;
+  onValueChange?: OnValueChange;
 }
 
 const DEFAULT_FORMAT = {
@@ -60,7 +64,10 @@ const DEFAULT_FORMAT = {
 /**
  * PercentageInput component for fractional values
  */
-export const PercentageInput = forwardRef<InputElement, PercentageInputProps>(
+export const PercentageInput = forwardRef<
+  HTMLInputElement,
+  PercentageInputProps
+>(
   (
     {
       locale,
@@ -72,7 +79,7 @@ export const PercentageInput = forwardRef<InputElement, PercentageInputProps>(
     ref,
   ) => {
     const percentageSymbolId = useId();
-    const descriptionIds = clsx(percentageSymbolId, descriptionId);
+    const descriptionIds = idx(percentageSymbolId, descriptionId);
 
     const { groupDelimiter, decimalDelimiter } =
       resolveNumberFormat(locale, {

@@ -44,8 +44,8 @@ The RadioButtonGroup can be used as a controlled or uncontrolled component.
 ### Controlled
 
 ```tsx
-import { useState, ChangeEvent } from 'react';
-import { RadioButtonGroup, RadioButtonProps } from '@sumup/circuit-ui';
+import { useState, type ChangeEvent } from 'react';
+import { RadioButtonGroup, type RadioButtonProps } from '@sumup-oss/circuit-ui';
 
 function Controlled() {
   const [value, setValue] = useState<RadioButtonProps['value']>();
@@ -73,20 +73,20 @@ function Controlled() {
 
 ```tsx
 import { useRef } from 'react';
-import { RadioButtonGroup } from '@sumup/circuit-ui';
+import { RadioButtonGroup } from '@sumup-oss/circuit-ui';
 
 function Uncontrolled() {
-  const checkboxRefs = useRef({});
+  const radioButtonRefs = useRef({});
 
-  const setCheckboxRef = (input: HTMLInputElement) => {
-    checkboxRefs.current[input.value] = input;
+  const setRadioButtonRef = (input: HTMLInputElement) => {
+    radioButtonRefs.current[input.value] = input;
   };
 
   const options = [
     {
       label: 'Apple',
       value: 'apple',
-      ref: setCheckboxRef,
+      ref: setRadioButtonRef,
     },
   ];
 
@@ -95,7 +95,6 @@ function Uncontrolled() {
       label="Favourite fruit"
       options={options}
       defaultValue={[]}
-      ref={checkboxGroupRef}
     />
   );
 }

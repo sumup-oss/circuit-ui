@@ -23,8 +23,6 @@ import { Toggle } from './Toggle.js';
 const defaultProps = {
   label: 'Label',
   description: 'A longer explanation',
-  checkedLabel: 'on',
-  uncheckedLabel: 'off',
 };
 
 describe('Toggle', () => {

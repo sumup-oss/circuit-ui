@@ -1,6 +1,6 @@
 {
-  "name": "@sumup/icons",
-  "version": "3.4.0",
+  "name": "@sumup-oss/icons",
+  "version": "5.15.0",
   "description": "A collection of icons by SumUp",
   "type": "module",
   "main": "./dist/index.js",
@@ -27,27 +27,27 @@
   },
   "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/icons/README.md",
   "scripts": {
-    "start": "tsx watch ./scripts/web.ts",
-    "build": "tsx ./scripts/web.ts",
+    "start": "tsx watch ./scripts/build.ts",
+    "build": "tsx ./scripts/build.ts",
+    "test": "vitest",
     "lint": "foundry run eslint . --ext .ts,.tsx,.js,.jsx",
     "lint:fix": "npm run lint -- --fix",
     "prepublish": "npm run build"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.9",
-    "@babel/preset-env": "^7.23.9",
-    "@babel/preset-react": "^7.23.3",
+    "@babel/core": "^7.27.7",
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1",
     "@types/babel__core": "^7.20.5",
-    "@types/prettier": "^2.7.3",
-    "babel-plugin-inline-react-svg": "^2.0.2",
-    "prettier": "^2.8.8",
-    "tsx": "^4.7.0",
-    "typescript": "^5.3.3"
+    "fast-xml-parser": "^5.2.5",
+    "prettier": "^3.5.3",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
   },
   "peerDependencies": {
-    "react": ">=16.0.0 <19.0.0"
+    "react": ">=16.0.0 <20.0.0"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   }
 }

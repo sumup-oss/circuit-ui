@@ -1,6 +1,7 @@
 .base {
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
 }
 
 :global(.docs-story) .base {

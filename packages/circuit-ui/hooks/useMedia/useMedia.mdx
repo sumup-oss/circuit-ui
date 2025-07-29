@@ -1,0 +1,22 @@
+import { Meta, Status, Story } from '../../../../.storybook/components';
+import * as Stories from './useMedia.stories';
+
+<Meta of={Stories} />
+
+# useMedia()
+
+<Status variant="stable" />
+
+Tracks the state of a [media query](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries).
+
+<Story of={Stories.Example} />
+
+```ts
+function useMedia(query: string, initialState = false): boolean;
+```
+
+## Usage
+
+[Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries) allow you to apply conditional logic depending on a device's media type (such as print vs. screen) or other features or characteristics such as screen resolution or orientation, aspect ratio, browser viewport width or height, user preferences such as preferring reduced motion, data usage, or transparency.
+
+Whenever possible, use CSS instead of JavaScript to track the state of a media query. CSS is generally faster to load and parse, while JavaScript might be loaded asynchronously and needs to be executed before it takes effect. The `useMedia` uses the `window.matchMedia` browser API and has to default to a fallback value during server-side rendering, potentially causing a flash of wrong content.

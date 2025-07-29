@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import { CloseButton } from './CloseButton.js';
+export { CloseButton } from './CloseButton.js';
 
 export type { CloseButtonProps } from './CloseButton.js';
-
-export default CloseButton;

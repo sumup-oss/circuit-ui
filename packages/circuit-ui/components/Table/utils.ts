@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import { isArray, isFunction } from '../../util/type-check.js';
 
-import {
+import type {
   Direction,
   SortByValue,
   RowCellObject,
@@ -118,22 +118,22 @@ export const descendingSort =
   };
 
 export const getSortParams = ({
-  rowIndex,
+  columnIndex,
   sortable,
   sortDirection,
   sortLabel,
-  sortedRow,
+  sortedColumn,
 }: {
-  rowIndex: number;
+  columnIndex: number;
   sortable?: boolean;
   sortDirection?: Direction;
   sortLabel?: string | (({ direction }: { direction?: Direction }) => string);
-  sortedRow?: number;
+  sortedColumn?: number;
 }): SortParams => {
   if (!sortable || !sortLabel) {
     return { sortable: false };
   }
-  const isSorted = sortedRow === rowIndex;
+  const isSorted = sortedColumn === columnIndex;
   return {
     sortable: true,
     sortLabel: isFunction(sortLabel)

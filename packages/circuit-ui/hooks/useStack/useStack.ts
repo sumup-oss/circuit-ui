@@ -13,7 +13,9 @@
  * limitations under the License.
  */
 
-import { Dispatch, useEffect, useReducer } from 'react';
+import { useEffect, useReducer, type Dispatch } from 'react';
+
+import { last } from '../../util/helpers.js';
 
 type Id = string | number;
 type Transition = {
@@ -31,7 +33,7 @@ type Action<T extends StackItem> =
   | { type: 'remove'; id: Id; transition?: Transition }
   | { type: 'update'; item: Partial<T> & StackItem };
 
-export type StackDispatch<T extends StackItem> = Dispatch<Action<T>>;
+type StackDispatch<T extends StackItem> = Dispatch<Action<T>>;
 
 function createReducer<T extends StackItem>() {
   return (state: T[], action: Action<T>) => {
@@ -44,7 +46,7 @@ function createReducer<T extends StackItem>() {
 
         if (action.transition) {
           const lastItem = {
-            ...state[state.length - 1],
+            ...last(state),
             transition: action.transition,
           };
           return [...firstItems, lastItem];
@@ -97,7 +99,7 @@ export function useStack<T extends StackItem>(
         (itemToRemove.transition as Transition).duration,
       );
     });
-  }, [state, dispatch]);
+  }, [state]);
 
   return [state, dispatch];
 }

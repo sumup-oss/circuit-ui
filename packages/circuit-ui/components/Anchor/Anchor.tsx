@@ -13,25 +13,30 @@
  * limitations under the License.
  */
 
+'use client';
+
 import {
   forwardRef,
-  AnchorHTMLAttributes,
-  ButtonHTMLAttributes,
-  ReactNode,
-  Ref,
+  type AnchorHTMLAttributes,
+  type ButtonHTMLAttributes,
+  type ReactNode,
+  type Ref,
+  useId,
 } from 'react';
 
 import type { ReturnType } from '../../types/return-type.js';
 import type { ClickEvent } from '../../types/events.js';
 import type { AsPropType } from '../../types/prop-types.js';
-import { Body, BodyProps } from '../Body/Body.js';
+import { Body, type BodyProps } from '../Body/Body.js';
 import { useComponents } from '../ComponentsContext/index.js';
+import { idx } from '../../util/idx.js';
 import { clsx } from '../../styles/clsx.js';
-import utilityClasses from '../../styles/utility.js';
+import { utilClasses } from '../../styles/utility.js';
+import { AccessibilityError } from '../../util/errors.js';
 
 import classes from './Anchor.module.css';
 
-export interface BaseProps extends BodyProps {
+interface BaseProps extends Omit<BodyProps, 'color'> {
   children: ReactNode;
   /**
    * Function that's called when the button is clicked.
@@ -40,11 +45,20 @@ export interface BaseProps extends BodyProps {
   /**
    * The ref to the HTML DOM element, it can be a button an anchor or a span, typed as any for now because of complex js manipulation with styled components
    */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ref?: Ref<any>;
+  /**
+   * Short label to describe that the link leads to an external page or opens in a new tab.
+   */
+  externalLabel?: string;
 }
-type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
-type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
+type LinkElProps = Omit<
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  'onClick' | 'color'
+>;
+type ButtonElProps = Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  'onClick' | 'color'
+>;
 
 export type AnchorProps = BaseProps & LinkElProps & ButtonElProps;
 
@@ -54,24 +68,66 @@ export type AnchorProps = BaseProps & LinkElProps & ButtonElProps;
  */
 export const Anchor = forwardRef(
   (
-    { className, ...props }: AnchorProps,
+    {
+      className,
+      externalLabel,
+      'aria-describedby': descriptionId,
+      children,
+      ...props
+    }: AnchorProps,
     ref?: BaseProps['ref'],
   ): ReturnType => {
     const components = useComponents();
     const Link = components.Link as AsPropType;
+    const isExternalLink =
+      props.rel === 'external' || props.target === '_blank';
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      isExternalLink &&
+      !externalLabel
+    ) {
+      throw new AccessibilityError(
+        'Anchor',
+        'An external link is missing an alternative text. Provide an `externalLabel` prop to communicate that the link leads to an external page or opens in a new tab.',
+      );
+    }
+
+    const externalLabelId = useId();
+    const descriptionIds = idx(
+      externalLabel && isExternalLink && externalLabelId,
+      descriptionId,
+    );
 
     if (!props.href && !props.onClick) {
-      return <Body as="span" {...props} ref={ref} />;
+      return (
+        <Body as="span" {...props} className={className} ref={ref}>
+          {children}
+        </Body>
+      );
     }
 
     if (props.href) {
       return (
         <Body
           {...props}
-          className={clsx(classes.base, className)}
+          aria-describedby={descriptionIds}
+          className={clsx(classes.base, utilClasses.focusVisible, className)}
           as={Link}
           ref={ref}
-        />
+        >
+          {children}
+          {isExternalLink && externalLabel && (
+            <span
+              aria-hidden={true}
+              id={externalLabelId}
+              className={utilClasses.hideVisually}
+            >
+              {externalLabel}
+            </span>
+          )}
+        </Body>
       );
     }
 
@@ -79,9 +135,21 @@ export const Anchor = forwardRef(
       <Body
         as="button"
         {...props}
-        className={clsx(classes.base, utilityClasses.focusVisible, className)}
+        aria-describedby={descriptionIds}
+        className={clsx(classes.base, utilClasses.focusVisible, className)}
         ref={ref}
-      />
+      >
+        {children}
+        {isExternalLink && externalLabel && (
+          <span
+            aria-hidden={true}
+            id={externalLabelId}
+            className={utilClasses.hideVisually}
+          >
+            {externalLabel}
+          </span>
+        )}
+      </Body>
     );
   },
 );

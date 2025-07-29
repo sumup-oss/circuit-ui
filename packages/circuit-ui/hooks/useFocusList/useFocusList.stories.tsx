@@ -13,15 +13,16 @@
  * limitations under the License.
  */
 
-/* eslint-disable jsx-a11y/no-redundant-roles */
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
+import { userEvent } from 'storybook/test';
 
-import sharedClasses from '../../styles/shared.js';
+import { sharedClasses } from '../../styles/shared.js';
 
 import { useFocusList } from './useFocusList.js';
 
 export default {
   title: 'Hooks/useFocusList',
+  tags: ['status:stable'],
 };
 
 const fruits = ['Apple', 'Banana', 'Mango'];
@@ -30,7 +31,7 @@ export const Example = () => {
   const focusProps = useFocusList();
 
   return (
-    <ul role="list" style={{ listStyle: 'none' }}>
+    <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
       {fruits.map((fruit) => (
         <li key={fruit}>
           <button
@@ -44,4 +45,8 @@ export const Example = () => {
       ))}
     </ul>
   );
+};
+
+Example.play = async () => {
+  await userEvent.tab();
 };

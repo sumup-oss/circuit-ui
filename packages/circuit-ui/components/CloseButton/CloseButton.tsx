@@ -14,23 +14,21 @@
  */
 
 import { forwardRef } from 'react';
-import { Close } from '@sumup/icons';
+import { Close } from '@sumup-oss/icons';
 
-import { clsx } from '../../styles/clsx.js';
-import { IconButton, IconButtonProps } from '../Button/IconButton.js';
-
-import classes from './CloseButton.module.css';
+import { IconButton, type IconButtonProps } from '../Button/IconButton.js';
 
 export type CloseButtonProps = Omit<IconButtonProps, 'icon'>;
 
 /**
  * A generic close button.
  */
+
 export const CloseButton = forwardRef<any, CloseButtonProps>(
-  ({ label = 'Close', children = label, className, ...props }, ref) => (
+  ({ label = 'Close', children = label, ...props }, ref) => (
     <IconButton
       type="button"
-      className={clsx(classes.base, className)}
+      variant="tertiary"
       {...props}
       icon={Close}
       ref={ref}

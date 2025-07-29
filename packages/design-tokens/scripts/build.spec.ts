@@ -20,28 +20,13 @@ import type { Token } from '../types/index.js';
 import {
   validateTokens,
   createCSSCustomProperties,
-  createStyles,
+  createFontFaceDeclarations,
+  type TokenConfig,
+  type FontFaceConfig,
 } from './build.js';
 
 describe('build', () => {
   describe('validateTokens', () => {
-    it('should throw an error when required tokens are missing', () => {
-      const tokens = [
-        {
-          name: '--cui-bg-normal',
-          description: 'Use as normal background color in any given interface',
-          value: '#00f2b840',
-          type: 'color',
-        },
-      ] as Token[];
-
-      const actual = () => validateTokens(tokens);
-
-      expect(actual).toThrow(
-        'The theme is missing the required "--cui-bg-normal-hovered" token.',
-      );
-    });
-
     it('should throw an error when a token does not match the expected type', () => {
       const tokens = [
         {
@@ -60,45 +45,80 @@ describe('build', () => {
     });
   });
 
-  describe('createStyles', () => {
-    const theme = {
-      name: 'test',
-      tokens: [
-        {
-          name: '--cui-bg-normal',
-          description: 'Use as normal background color in any given interface',
-          value: '#00f2b840',
-          type: 'color',
-        },
-      ] as Token[],
-      selector: ':root',
-      colorScheme: 'light',
-    } as const;
-
+  describe('createCSSCustomProperties', () => {
     it('should create CSS styles for the theme', () => {
-      const actual = createStyles(theme);
+      const config = {
+        type: 'tokens',
+        tokens: [
+          {
+            name: '--cui-bg-normal',
+            description:
+              'Use as normal background color in any given interface',
+            value: '#00f2b840',
+            type: 'color',
+          },
+        ],
+        selectors: [':root'],
+        colorScheme: 'light' as const,
+      } satisfies TokenConfig;
+
+      const actual = createCSSCustomProperties(config);
 
       expect(actual).toMatchInlineSnapshot(
-        '":root { color-scheme: light; /* Use as normal background color in any given interface */ --cui-bg-normal: #00f2b840; }"',
+        `
+        ":root {
+            color-scheme: light;
+            /* Use as normal background color in any given interface */ --cui-bg-normal: #00f2b840;
+          }"
+      `,
       );
     });
   });
 
-  describe('createCSSCustomProperties', () => {
-    const tokens = [
-      {
-        name: '--cui-bg-normal',
-        description: 'Use as normal background color in any given interface',
-        value: '#00f2b840',
-        type: 'color',
-      },
-    ] as Token[];
+  describe('createFontFaceDeclarations', () => {
+    it('should create font face declarations for a custom font face', () => {
+      const config = {
+        type: 'font-faces',
+        fontFaces: [
+          {
+            'font-family': 'Inter',
+            'font-style': 'italic',
+            'font-weight': '100 900',
+            'font-display': 'swap',
+            'src':
+              'url("https://static.sumup.com/fonts/Inter/Inter-italic-cyrillic-ext.woff2") format("woff2")',
+            'unicode-range':
+              'U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F',
+          },
+        ],
+      } satisfies FontFaceConfig;
 
-    it('should create CSS custom properties from the color tokens', () => {
-      const actual = createCSSCustomProperties(tokens);
+      const actual = createFontFaceDeclarations(config);
 
       expect(actual).toMatchInlineSnapshot(
-        '"/* Use as normal background color in any given interface */ --cui-bg-normal: #00f2b840;"',
+        `"@font-face { font-family: Inter;font-style: italic;font-weight: 100 900;font-display: swap;src: url("https://static.sumup.com/fonts/Inter/Inter-italic-cyrillic-ext.woff2") format("woff2");unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }"`,
+      );
+    });
+
+    it('should create font face declarations for a fallback font face', () => {
+      const config = {
+        type: 'font-faces',
+        fontFaces: [
+          {
+            'font-family': 'Inter-Fallback',
+            'src': 'local("Arial")',
+            'ascent-override': '90.49%',
+            'descent-override': '22.56%',
+            'line-gap-override': '0%',
+            'size-adjust': '107.06%',
+          },
+        ],
+      } satisfies FontFaceConfig;
+
+      const actual = createFontFaceDeclarations(config);
+
+      expect(actual).toMatchInlineSnapshot(
+        `"@font-face { font-family: Inter-Fallback;src: local("Arial");ascent-override: 90.49%;descent-override: 22.56%;line-gap-override: 0%;size-adjust: 107.06%; }"`,
       );
     });
   });

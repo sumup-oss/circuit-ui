@@ -13,24 +13,26 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes, RefObject, useEffect, useRef, useState } from 'react';
+'use client';
+
+import { useEffect, useRef, useState, type HTMLAttributes } from 'react';
 
 import { useAnimation } from '../../hooks/useAnimation/index.js';
-import Body from '../Body/index.js';
-import CloseButton from '../CloseButton/index.js';
-import { ClickEvent } from '../../types/events.js';
-import { BaseToastProps, createUseToast } from '../ToastContext/index.js';
-import utilityClasses from '../../styles/utility.js';
+import { Body } from '../Body/index.js';
+import { CloseButton } from '../CloseButton/index.js';
+import type { ClickEvent } from '../../types/events.js';
+import { type BaseToastProps, createUseToast } from '../ToastContext/index.js';
+import { utilClasses } from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
 import {
+  DEFAULT_HEIGHT,
   NOTIFICATION_ICONS,
-  NotificationVariant,
+  TRANSITION_DURATION,
+  type NotificationVariant,
 } from '../Notification/constants.js';
+import { getElementHeight } from '../Notification/NotificationService.js';
 
 import classes from './NotificationToast.module.css';
-
-const TRANSITION_DURATION = 200;
-const DEFAULT_HEIGHT = 'auto';
 
 export type NotificationToastProps = HTMLAttributes<HTMLDivElement> &
   BaseToastProps & {
@@ -72,17 +74,17 @@ export function NotificationToast({
   duration, // this is the auto-dismiss duration, not the animation duration. We shouldn't pass it to the wrapper along with ...props
   className,
   ...props
-}: NotificationToastProps): JSX.Element {
+}: NotificationToastProps) {
   const contentElement = useRef(null);
   const [isOpen, setOpen] = useState(false);
-  const [height, setHeight] = useState(getHeight(contentElement));
+  const [height, setHeight] = useState(getElementHeight(contentElement));
   const [, setAnimating] = useAnimation();
 
   useEffect(() => {
     setAnimating({
       duration: TRANSITION_DURATION,
       onStart: () => {
-        setHeight(getHeight(contentElement));
+        setHeight(getElementHeight(contentElement));
         // Delaying the state update until the next animation frame ensures that
         // the browsers renders the new height before the animation starts.
         window.requestAnimationFrame(() => {
@@ -112,10 +114,10 @@ export function NotificationToast({
         <div className={classes.icon}>
           <Icon aria-hidden="true" />
         </div>
-        <span className={utilityClasses.hideVisually}>{iconLabel}</span>
+        <span className={utilClasses.hideVisually}>{iconLabel}</span>
         <div className={classes.content}>
           {headline && (
-            <Body variant={'highlight'} as="h3">
+            <Body weight="semibold" as="h3">
               {headline}
             </Body>
           )}
@@ -135,12 +137,5 @@ export function NotificationToast({
 }
 
 NotificationToast.TRANSITION_DURATION = TRANSITION_DURATION;
-
-export function getHeight(element: RefObject<HTMLElement>): string {
-  if (!element || !element.current) {
-    return DEFAULT_HEIGHT;
-  }
-  return `${element.current.scrollHeight}px`;
-}
 
 export const useNotificationToast = createUseToast(NotificationToast);

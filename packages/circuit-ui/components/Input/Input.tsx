@@ -13,12 +13,13 @@
  * limitations under the License.
  */
 
+'use client';
+
 import {
-  ComponentType,
   forwardRef,
-  InputHTMLAttributes,
-  TextareaHTMLAttributes,
   useId,
+  type ComponentType,
+  type InputHTMLAttributes,
 } from 'react';
 
 import {
@@ -27,28 +28,30 @@ import {
   FieldLabelText,
   FieldValidationHint,
 } from '../Field/index.js';
-import { ReturnType } from '../../types/return-type.js';
+import type { ReturnType } from '../../types/return-type.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';
+import { idx } from '../../util/idx.js';
 
 import classes from './Input.module.css';
 
-export type InputElement = HTMLInputElement & HTMLTextAreaElement;
-type CircuitInputHTMLAttributes = InputHTMLAttributes<HTMLInputElement> &
-  TextareaHTMLAttributes<HTMLTextAreaElement>;
+export { classes };
 
-export interface InputProps extends CircuitInputHTMLAttributes {
+/**
+ * @deprecated
+ *
+ * Use the `HTMLInputElement` or `HTMLTextAreaElement` interfaces instead.
+ */
+export type InputElement = HTMLInputElement;
+
+export interface BaseInputProps {
   /**
    * A clear and concise description of the input purpose.
    */
   label: string;
-  /**
-   * The HTML input element to render.
-   */
-  as?: 'input' | 'textarea';
   /**
    * A unique identifier for the input field. If not defined, a randomly
    * generated id is used.
@@ -91,6 +94,7 @@ export interface InputProps extends CircuitInputHTMLAttributes {
   readOnly?: boolean;
   /**
    * Aligns text in the input
+   * @default left
    */
   textAlign?: 'left' | 'right';
   /**
@@ -104,10 +108,21 @@ export interface InputProps extends CircuitInputHTMLAttributes {
   inputClassName?: string;
 }
 
+export interface InputProps
+  extends BaseInputProps,
+    InputHTMLAttributes<HTMLInputElement> {
+  /**
+   * @private
+   *
+   * Use the {@link TextArea} component.
+   */
+  as?: 'input' | 'textarea';
+}
+
 /**
  * Input component for forms. Takes optional prefix and suffix as render props.
  */
-export const Input = forwardRef<InputElement, InputProps>(
+export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
     {
       value,
@@ -120,7 +135,7 @@ export const Input = forwardRef<InputElement, InputProps>(
       hasWarning,
       showValid,
       disabled,
-      textAlign,
+      textAlign = 'left',
       inputClassName,
       'as': Element = 'input',
       label,
@@ -133,6 +148,20 @@ export const Input = forwardRef<InputElement, InputProps>(
     },
     ref,
   ): ReturnType => {
+    const id = useId();
+    const inputId = customId || id;
+    const validationHintId = useId();
+    const descriptionIds = idx(
+      descriptionId,
+      validationHint && validationHintId,
+    );
+
+    const prefix = RenderPrefix && <RenderPrefix className={classes.prefix} />;
+    const suffix = RenderSuffix && <RenderSuffix className={classes.suffix} />;
+
+    const hasPrefix = Boolean(prefix);
+    const hasSuffix = Boolean(suffix);
+
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -144,19 +173,6 @@ export const Input = forwardRef<InputElement, InputProps>(
         'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
-
-    const id = useId();
-    const inputId = customId || id;
-    const validationHintId = useId();
-    const descriptionIds = `${
-      descriptionId ? `${descriptionId} ` : ''
-    }${validationHintId}`;
-
-    const prefix = RenderPrefix && <RenderPrefix className={classes.prefix} />;
-    const suffix = RenderSuffix && <RenderSuffix className={classes.suffix} />;
-
-    const hasPrefix = Boolean(prefix);
-    const hasSuffix = Boolean(suffix);
 
     return (
       <FieldWrapper className={className} style={style} disabled={disabled}>
@@ -173,6 +189,9 @@ export const Input = forwardRef<InputElement, InputProps>(
           <Element
             id={inputId}
             value={value}
+            // @ts-expect-error The Input component renders as an `input` element
+            // by default. The types are overwritten as necessary in the
+            // TextArea component.
             ref={ref}
             aria-describedby={descriptionIds}
             className={clsx(

@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { TableCellProps } from './TableCell.js';
+import type { TableCellProps } from './TableCell.js';
 
-import TableCell from './index.js';
+import { TableCell } from './index.js';
 
 export default {
   title: 'Components/Table/TableCell',

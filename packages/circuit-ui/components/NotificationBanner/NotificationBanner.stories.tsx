@@ -13,26 +13,38 @@
  * limitations under the License.
  */
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { useState } from 'react';
+
+import { modes } from '../../../../.storybook/modes.js';
 
 import {
   NotificationBanner,
-  NotificationBannerProps,
+  type NotificationBannerProps,
 } from './NotificationBanner.js';
 
 export default {
   title: 'Notification/NotificationBanner',
   component: NotificationBanner,
+  tags: ['status:stable'],
+  parameters: {
+    layout: 'padded',
+    chromatic: {
+      modes: {
+        mobile: modes.smallMobile,
+        desktop: modes.desktop,
+      },
+    },
+  },
 };
 
-export const Base = (args: NotificationBannerProps): JSX.Element => (
+export const Base = (args: NotificationBannerProps) => (
   <NotificationBanner {...args} />
 );
 
 Base.args = {
   headline: 'Software update',
-  body: 'There is updated firmware available for your card reader',
+  body: 'There is updated firmware available for your card reader. Please update to continue using your card reader.',
   action: {
     onClick: action('Action clicked'),
     children: 'Update',
@@ -41,11 +53,11 @@ Base.args = {
   image: {
     src: '/images/illustration-update.svg',
     alt: 'Update',
-    width: '100',
+    width: '120',
   },
 };
 
-export const Dismissable = (args: NotificationBannerProps): JSX.Element => {
+export const Dismissable = (args: NotificationBannerProps) => {
   const [isVisible, setVisible] = useState(args.isVisible);
   return (
     <NotificationBanner

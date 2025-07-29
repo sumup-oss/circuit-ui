@@ -15,6 +15,8 @@
 
 import { useState } from 'react';
 
+import { images } from '../../../../.storybook/fixtures.js';
+
 import { Container } from './components/Container/index.js';
 import { Slides } from './components/Slides/index.js';
 import { Slide } from './components/Slide/index.js';
@@ -26,17 +28,19 @@ import {
   PrevButton,
 } from './components/Buttons/index.js';
 import { Status } from './components/Status/index.js';
-import { Carousel, CarouselProps } from './Carousel.js';
+import { Carousel, type CarouselProps } from './Carousel.js';
 import {
   ASPECT_RATIO,
   ANIMATION_DURATION,
   SLIDE_DURATION,
 } from './constants.js';
-import { SLIDES } from './__fixtures__/index.js';
+
+const slides = images.map((image) => ({ image }));
 
 export default {
   title: 'Components/Carousel',
   component: Carousel,
+  tags: ['status:under-review'],
 };
 
 export const Stateful = (args: CarouselProps) => (
@@ -46,7 +50,7 @@ export const Stateful = (args: CarouselProps) => (
 );
 
 Stateful.args = {
-  slides: SLIDES,
+  slides,
   slideDuration: SLIDE_DURATION,
   animationDuration: ANIMATION_DURATION,
   aspectRatio: ASPECT_RATIO,
@@ -60,7 +64,7 @@ Stateful.args = {
 };
 
 export const Composed = () => {
-  const total = SLIDES.length;
+  const total = slides.length;
   const [step, setStep] = useState(0);
   const goBack = () => setStep(step === 0 ? total - 1 : step - 1);
   const goForward = () => setStep(step === total - 1 ? 0 : step + 1);
@@ -69,9 +73,9 @@ export const Composed = () => {
     <div style={{ width: '50vw' }}>
       <Container>
         <Slides>
-          {SLIDES.map(({ image }, index) => (
+          {slides.map(({ image }, index) => (
             <Slide
-              key={index}
+              key={image.src}
               index={index}
               step={step}
               style={{
@@ -85,9 +89,9 @@ export const Composed = () => {
         </Slides>
         <Controls>
           <ButtonList>
-            <PrevButton label="Previous" onClick={goBack} />
+            <PrevButton onClick={goBack}>Previous</PrevButton>
             <Status style={{ marginLeft: 8 }} step={step} total={total} />
-            <NextButton label="Next" onClick={goForward} />
+            <NextButton onClick={goForward}>Next</NextButton>
           </ButtonList>
         </Controls>
       </Container>

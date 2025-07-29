@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { ForwardedRef } from 'react';
+import type { ForwardedRef } from 'react';
 
-type Refs<T extends Element> = (ForwardedRef<T> | { current: T })[];
+type Refs<T extends Element> = (ForwardedRef<T> | { current: T } | undefined)[];
 
 export function applyMultipleRefs<T extends Element>(
   ...refs: Refs<T>
@@ -25,7 +25,6 @@ export function applyMultipleRefs<T extends Element>(
       if (typeof ref === 'function') {
         ref(instance);
       } else if (ref) {
-        // eslint-disable-next-line no-param-reassign
         ref.current = instance;
       }
     });

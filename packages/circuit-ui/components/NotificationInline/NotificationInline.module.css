@@ -1,8 +1,10 @@
 .base {
   overflow: hidden;
+  transition:
+    opacity var(--cui-transitions-slow),
+    height var(--cui-transitions-slow),
+    visibility var(--cui-transitions-slow);
   will-change: height;
-  transition: opacity var(--cui-transitions-slow),
-    height var(--cui-transitions-slow), visibility var(--cui-transitions-slow);
 }
 
 .wrapper {

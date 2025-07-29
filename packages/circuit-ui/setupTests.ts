@@ -14,7 +14,7 @@
  */
 
 import '@testing-library/jest-dom/vitest';
-import { vi } from 'vitest';
+import { vi, expect } from 'vitest';
 import { createSerializer } from '@emotion/jest';
 import { toHaveNoViolations } from 'jest-axe';
 
@@ -47,3 +47,5 @@ global.matchMedia = vi.fn().mockImplementation((query) => ({
   removeEventListener: vi.fn(),
   dispatchEvent: vi.fn(),
 }));
+
+global.scrollTo = vi.fn();

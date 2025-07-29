@@ -14,15 +14,15 @@
  */
 
 import {
-  ComponentType,
-  ReactNode,
-  SelectHTMLAttributes,
   forwardRef,
   useId,
+  type ComponentType,
+  type ReactNode,
+  type SelectHTMLAttributes,
 } from 'react';
-import { ChevronDown } from '@sumup/icons';
+import { ChevronDown } from '@sumup-oss/icons';
 
-import { ReturnType } from '../../types/return-type.js';
+import type { ReturnType } from '../../types/return-type.js';
 import {
   FieldWrapper,
   FieldLabel,
@@ -34,6 +34,7 @@ import {
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';
+import { idx } from '../../util/idx.js';
 
 import classes from './Select.module.css';
 
@@ -72,6 +73,7 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
    * currently selected.
    */
   value?: string | number;
+  defaultValue?: string | number;
   /**
    * String to show when no selection is made.
    */
@@ -129,6 +131,19 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     },
     ref,
   ): ReturnType => {
+    const id = useId();
+    const selectId = customId || id;
+    const validationHintId = useId();
+    const descriptionIds = idx(
+      descriptionId,
+      validationHint && validationHintId,
+    );
+
+    const prefix = RenderPrefix && (
+      <RenderPrefix className={classes.prefix} value={value ?? defaultValue} />
+    );
+    const hasPrefix = Boolean(prefix);
+
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -139,17 +154,6 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
       );
     }
-    const id = useId();
-    const selectId = customId || id;
-    const validationHintId = useId();
-    const descriptionIds = `${
-      descriptionId ? `${descriptionId} ` : ''
-    }${validationHintId}`;
-
-    const prefix = RenderPrefix && (
-      <RenderPrefix className={classes.prefix} value={value} />
-    );
-    const hasPrefix = Boolean(prefix);
 
     return (
       <FieldWrapper className={className} style={style} disabled={disabled}>
@@ -172,11 +176,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             required={required}
             disabled={disabled}
             defaultValue={defaultValue}
-            className={clsx(
-              classes.base,
-              hasPrefix && classes['has-prefix'],
-              className,
-            )}
+            className={clsx(classes.base, hasPrefix && classes['has-prefix'])}
             {...props}
           >
             {!value && !defaultValue && (
@@ -190,12 +190,11 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
               </option>
             )}
             {children ||
-              (options &&
-                options.map(({ label: optionLabel, ...rest }) => (
-                  <option key={rest.value} {...rest}>
-                    {optionLabel}
-                  </option>
-                )))}
+              options?.map(({ label: optionLabel, ...rest }) => (
+                <option key={rest.value} {...rest}>
+                  {optionLabel}
+                </option>
+              ))}
           </select>
           <ChevronDown className={classes.icon} size="16" aria-hidden="true" />
         </div>

@@ -14,7 +14,10 @@
  */
 
 import type { ReactNode } from 'react';
-import { Headline, Card } from '../../packages/circuit-ui/index.js';
+
+import { Card } from '../../packages/circuit-ui/components/Card/Card.js';
+import { Headline } from '../../packages/circuit-ui/components/Headline/Headline.js';
+import { slugify } from '../slugify.js';
 import classes from './Teaser.module.css';
 
 interface TeaserProps {
@@ -22,14 +25,14 @@ interface TeaserProps {
   children: ReactNode;
 }
 
-const Teaser = ({ title, children }: TeaserProps) => (
-  <Card className={classes.base}>
-    <Headline as="h2" size="three">
-      {title}
-    </Headline>
+export function Teaser({ title, children }: TeaserProps) {
+  return (
+    <Card className={classes.base}>
+      <Headline as="h2" size="s" id={slugify(title)}>
+        {title}
+      </Headline>
 
-    {children}
-  </Card>
-);
-
-export default Teaser;
+      {children}
+    </Card>
+  );
+}

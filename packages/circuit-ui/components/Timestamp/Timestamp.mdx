@@ -1,0 +1,43 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './Timestamp.stories';
+
+<Meta of={Stories} />
+
+# Timestamp
+
+<Status variant="stable" />
+
+The Timestamp component displays a human readable date time.
+
+<Story of={Stories.Base} />
+<Props />
+
+## Usage
+
+Use the component when displaying a date time to users. The date must adhere to the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format and must include an [IANA time zone identifier](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+
+## Format Styles
+
+Use the `formatStyles` prop to set the verbosity of the displayed datetime value. Keep in mind that longer formats are easier to read for humans.
+
+Use the `includeTime` prop to display the time alongside the date when shown as an [absolute](#absolute) value.
+
+<Story of={Stories.FormatStyles} />
+
+## Variants
+
+### Auto
+
+The _auto_ variant displays a [relative](#relative) value within 1 month of the date time and an [absolute](#absolute) value otherwise.
+
+### Absolute
+
+The _absolute_ variant displays the date time as an absolute value.
+
+<Story of={Stories.Absolute} />
+
+### Relative
+
+The _relative_ variant displays the date time as a relative value and updates it in regular intervals.
+
+<Story of={Stories.Relative} />

@@ -14,15 +14,16 @@
  */
 
 import type { ChangeEvent, FocusEvent } from 'react';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 
-import { CheckboxGroup, CheckboxGroupProps } from './CheckboxGroup.js';
+import { CheckboxGroup, type CheckboxGroupProps } from './CheckboxGroup.js';
 
 export default {
   title: 'Forms/CheckboxGroup',
   component: CheckboxGroup,
+  tags: ['status:stable'],
 };
 
 const storyStyles = { flex: '1', alignSelf: 'flex-start' };

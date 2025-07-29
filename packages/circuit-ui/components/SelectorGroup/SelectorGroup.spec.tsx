@@ -24,7 +24,7 @@ import {
   userEvent,
 } from '../../util/test-utils.js';
 
-import { SelectorGroup, SelectorGroupProps } from './SelectorGroup.js';
+import { SelectorGroup, type SelectorGroupProps } from './SelectorGroup.js';
 
 const defaultProps: SelectorGroupProps = {
   label: 'label',
@@ -156,6 +156,16 @@ describe('SelectorGroup', () => {
       await userEvent.click(screen.getByLabelText('Option 3'));
 
       expect(onChange).toHaveBeenCalledTimes(1);
+    });
+
+    it('should call the focus handler when loosing focus', async () => {
+      const onFocus = vi.fn();
+      render(<SelectorGroup {...defaultProps} onFocus={onFocus} />);
+      const inputEl = screen.getByLabelText('Option 1');
+
+      await userEvent.click(inputEl);
+
+      expect(onFocus).toHaveBeenCalledTimes(1);
     });
 
     it('should call the blur handler when loosing focus', async () => {

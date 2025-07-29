@@ -13,10 +13,12 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { forwardRef } from 'react';
 
 import { legacyButtonSizeMap } from '../Button/index.js';
-import { IconButton, IconButtonProps } from '../Button/IconButton.js';
+import { IconButton, type IconButtonProps } from '../Button/IconButton.js';
 import { Skeleton } from '../Skeleton/index.js';
 import {
   AccessibilityError,
@@ -48,6 +50,7 @@ export interface HamburgerProps
 /**
  * A hamburger button for menus. Morphs into a close icon when active.
  */
+
 export const Hamburger = forwardRef<any, HamburgerProps>(
   (
     {
@@ -109,7 +112,6 @@ export const Hamburger = forwardRef<any, HamburgerProps>(
         className={clsx(classes.button, className)}
         size={size}
         type="button"
-        aria-pressed={isActive}
         ref={ref}
       >
         {isActive ? activeLabel : inactiveLabel}

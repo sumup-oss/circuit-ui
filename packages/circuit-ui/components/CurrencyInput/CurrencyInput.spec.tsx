@@ -14,12 +14,11 @@
  */
 
 import { describe, expect, it } from 'vitest';
-import { ChangeEvent, createRef, useState } from 'react';
+import { createRef, useState, type ChangeEvent } from 'react';
 
-import { render, userEvent, axe } from '../../util/test-utils.js';
-import type { InputElement } from '../Input/index.js';
+import { render, userEvent, axe, screen } from '../../util/test-utils.js';
 
-import { CurrencyInput, CurrencyInputProps } from './CurrencyInput.js';
+import { CurrencyInput, type CurrencyInputProps } from './CurrencyInput.js';
 
 // Note: these defaults render a '€' as an input suffix
 const defaultProps = {
@@ -30,18 +29,16 @@ const defaultProps = {
 
 describe('CurrencyInput', () => {
   it('should forward a ref', () => {
-    const ref = createRef<InputElement>();
-    const { getByRole } = render(<CurrencyInput {...defaultProps} ref={ref} />);
-    const input = getByRole('textbox');
+    const ref = createRef<HTMLInputElement>();
+    render(<CurrencyInput {...defaultProps} ref={ref} />);
+    const input: HTMLInputElement = screen.getByRole('textbox');
     expect(ref.current).toBe(input);
   });
 
   it('should format a en-GB amount correctly', async () => {
-    const { getByRole } = render(
-      <CurrencyInput {...defaultProps} currency="GBP" locale="en-GB" />,
-    );
+    render(<CurrencyInput {...defaultProps} currency="GBP" locale="en-GB" />);
 
-    const input = getByRole('textbox') as HTMLInputElement;
+    const input: HTMLInputElement = screen.getByRole('textbox');
 
     await userEvent.type(input, '1234.56');
 
@@ -49,11 +46,9 @@ describe('CurrencyInput', () => {
   });
 
   it('should format a de-DE amount correctly', async () => {
-    const { getByRole } = render(
-      <CurrencyInput {...defaultProps} currency="EUR" locale="de-DE" />,
-    );
+    render(<CurrencyInput {...defaultProps} currency="EUR" locale="de-DE" />);
 
-    const input = getByRole('textbox') as HTMLInputElement;
+    const input: HTMLInputElement = screen.getByRole('textbox');
 
     await userEvent.type(input, '1234,56');
 
@@ -73,9 +68,9 @@ describe('CurrencyInput', () => {
         />
       );
     };
-    const { getByRole } = render(<ControlledCurrencyInput />);
+    render(<ControlledCurrencyInput />);
 
-    const input = getByRole('textbox') as HTMLInputElement;
+    const input: HTMLInputElement = screen.getByRole('textbox');
     expect(input.value).toBe('1.234,5');
 
     await userEvent.clear(input);
@@ -91,13 +86,13 @@ describe('CurrencyInput', () => {
   });
 
   describe('Labeling', () => {
-    const EUR_CURRENCY_SYMBOL = '€'; // formatted by `@sumup/intl`
+    const EUR_CURRENCY_SYMBOL = '€'; // formatted by `@sumup-oss/intl`
     /**
      * Note: further labeling logic is covered by the underlying `Input` component.
      */
     it('should have the currency symbol as part of its accessible description', () => {
-      const { getByRole } = render(<CurrencyInput {...defaultProps} />);
-      expect(getByRole('textbox')).toHaveAccessibleDescription(
+      render(<CurrencyInput {...defaultProps} />);
+      expect(screen.getByRole('textbox')).toHaveAccessibleDescription(
         EUR_CURRENCY_SYMBOL,
       );
     });
@@ -105,7 +100,7 @@ describe('CurrencyInput', () => {
     it('should accept a custom description via aria-describedby', () => {
       const customDescription = 'Custom description';
       const customDescriptionId = 'customDescriptionId';
-      const { getByRole } = render(
+      render(
         <>
           <span id={customDescriptionId}>{customDescription}</span>
           <CurrencyInput
@@ -114,7 +109,7 @@ describe('CurrencyInput', () => {
           />
         </>,
       );
-      expect(getByRole('textbox')).toHaveAccessibleDescription(
+      expect(screen.getByRole('textbox')).toHaveAccessibleDescription(
         `${EUR_CURRENCY_SYMBOL} ${customDescription}`,
       );
     });

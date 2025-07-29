@@ -13,23 +13,22 @@
  * limitations under the License.
  */
 
-import { BodyLarge } from '../../packages/circuit-ui/index.js';
-
-import type { BodyLargeProps } from '../../packages/circuit-ui/index.js';
+import {
+  Body,
+  type BodyProps,
+} from '../../packages/circuit-ui/components/Body/Body.js';
 
 import classes from './Intro.module.css';
 
-function Intro({
+export function Intro({
   children,
   ...props
 }: {
-  children: BodyLargeProps['children'];
-}): JSX.Element {
+  children: BodyProps['children'];
+}) {
   return (
-    <BodyLarge as="div" variant="subtle" className={classes.base} {...props}>
+    <Body as="div" size="s" color="subtle" className={classes.base} {...props}>
       {children}
-    </BodyLarge>
+    </Body>
   );
 }
-
-export default Intro;

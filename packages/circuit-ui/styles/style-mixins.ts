@@ -15,8 +15,8 @@
 
 /** @jsxImportSource @emotion/react */
 
-import { css, SerializedStyles } from '@emotion/react';
-import { Theme } from '@sumup/design-tokens';
+import { css, type SerializedStyles } from '@emotion/react';
+import type { Theme } from '@sumup-oss/design-tokens';
 
 import { warn } from '../util/logger.js';
 import { isFunction } from '../util/type-check.js';
@@ -54,7 +54,7 @@ type Spacing = keyof Theme['spacings'];
 
 export type SpacingValue = Spacing | 'auto' | 0;
 
-export type SpacingObject = {
+type SpacingObject = {
   top?: SpacingValue;
   bottom?: SpacingValue;
   right?: SpacingValue;
@@ -128,10 +128,7 @@ export const spacing = (
  */
 export function shadow(): SerializedStyles {
   return css`
-    /* Fallback for browsers that don't support color-mix yet */
     box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-    box-shadow: 0 3px 8px 0
-      color-mix(in sRGB, var(--cui-border-strong) 20%, transparent);
   `;
 }
 
@@ -202,7 +199,8 @@ export function focusOutline(options?: 'inset' | ThemeArgs): SerializedStyles {
   }
   return css`
     outline: 0;
-    box-shadow: 0 0 0 2px var(--cui-bg-normal),
+    box-shadow:
+      0 0 0 2px var(--cui-bg-normal),
       0 0 0 4px var(--cui-border-focus);
 
     &::-moz-focus-inner {
@@ -237,7 +235,8 @@ export function focusVisible(options?: 'inset' | ThemeArgs): SerializedStyles {
   return css`
     &:focus {
       outline: 0;
-      box-shadow: 0 0 0 2px var(--cui-bg-normal),
+      box-shadow:
+        0 0 0 2px var(--cui-bg-normal),
         0 0 0 4px var(--cui-border-focus);
 
       &::-moz-focus-inner {

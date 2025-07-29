@@ -6,17 +6,22 @@
   width: auto;
   height: auto;
   margin: 0;
-  font-size: var(--cui-typography-body-one-font-size);
-  font-weight: var(--cui-font-weight-bold);
+  font-size: var(--cui-body-m-font-size);
+  font-weight: var(--cui-font-weight-semibold);
   text-align: center;
   text-decoration: none;
   cursor: pointer;
   border-style: solid;
   border-width: var(--cui-border-width-kilo);
-  transition: opacity var(--cui-transitions-default),
+  transition:
+    opacity var(--cui-transitions-default),
     color var(--cui-transitions-default),
     background-color var(--cui-transitions-default),
     border-color var(--cui-transitions-default);
+}
+
+.base[hidden] {
+  display: none;
 }
 
 .base[aria-busy="true"] {
@@ -30,14 +35,15 @@
   top: 0;
   left: 0;
   display: grid;
+  visibility: hidden;
   grid-auto-flow: column;
   gap: var(--loader-gap);
   place-content: center;
   width: 100%;
   height: 100%;
-  visibility: hidden;
   opacity: 0;
-  transition: opacity var(--cui-transitions-default),
+  transition:
+    opacity var(--cui-transitions-default),
     visibility var(--cui-transitions-default);
 }
 
@@ -50,12 +56,12 @@
   display: block;
   width: var(--loader-diameter);
   height: var(--loader-diameter);
-  background-color: var(--cui-fg-normal);
+  background-color: currentColor;
   border-radius: var(--cui-border-radius-circle);
   animation-duration: 720ms; /* 80ms + 4 * 160ms */
-  animation-play-state: paused;
   animation-timing-function: cubic-bezier(0.75, 0, 1, 1);
   animation-iteration-count: infinite;
+  animation-play-state: paused;
 }
 
 @keyframes pulse1 {
@@ -145,12 +151,6 @@
   opacity: 0;
 }
 
-.label {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .leading-icon {
   width: var(--leading-icon-size);
   height: var(--leading-icon-size);
@@ -169,9 +169,9 @@
   --loader-gap: 3px;
   --loader-transform: scale(150%);
 
-  font-size: var(--cui-typography-body-two-font-size);
-  line-height: var(--cui-typography-body-two-line-height);
-  border-radius: 10px;
+  font-size: var(--cui-body-s-font-size);
+  line-height: var(--cui-body-s-line-height);
+  border-radius: var(--cui-border-radius-byte);
 }
 
 .m {
@@ -181,9 +181,9 @@
   --loader-gap: 5px;
   --loader-transform: scale(133%);
 
-  font-size: var(--cui-typography-body-one-font-size);
-  line-height: var(--cui-typography-body-one-line-height);
-  border-radius: var(--cui-border-radius-kilo);
+  font-size: var(--cui-body-m-font-size);
+  line-height: var(--cui-body-m-line-height);
+  border-radius: var(--cui-border-radius-byte);
 }
 
 /* Variants */
@@ -221,6 +221,22 @@
   background-color: var(--cui-bg-danger-strong-pressed);
 }
 
+.primary:disabled,
+.primary[disabled],
+.primary[aria-disabled="true"] {
+  color: var(--cui-fg-normal-disabled);
+  background-color: var(--cui-bg-highlight-disabled);
+  border-color: transparent;
+}
+
+.primary.destructive:disabled,
+.primary.destructive[disabled],
+.primary.destructive[aria-disabled="true"] {
+  color: var(--cui-fg-danger-disabled);
+  background-color: var(--cui-bg-danger-disabled);
+  border-color: transparent;
+}
+
 .secondary {
   color: var(--cui-fg-normal);
   background-color: var(--cui-bg-normal);
@@ -229,7 +245,7 @@
 
 .secondary:hover {
   color: var(--cui-fg-normal-hovered);
-  background-color: var(--cui-bg-normal-hovered);
+  background-color: var(--cui-bg-subtle-hovered);
   border-color: var(--cui-border-normal-hovered);
 }
 
@@ -237,7 +253,7 @@
 .secondary[aria-expanded="true"],
 .secondary[aria-pressed="true"] {
   color: var(--cui-fg-normal-pressed);
-  background-color: var(--cui-bg-normal-pressed);
+  background-color: var(--cui-bg-subtle-pressed);
   border-color: var(--cui-border-normal-pressed);
 }
 
@@ -259,6 +275,22 @@
   border-color: var(--cui-border-danger-pressed);
 }
 
+.secondary:disabled,
+.secondary[disabled],
+.secondary[aria-disabled="true"] {
+  color: var(--cui-fg-normal-disabled);
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal-disabled);
+}
+
+.secondary.destructive:disabled,
+.secondary.destructive[disabled],
+.secondary.destructive[aria-disabled="true"] {
+  color: var(--cui-fg-danger-disabled);
+  background-color: var(--cui-bg-normal);
+  border-color: var(--cui-border-normal-disabled);
+}
+
 .tertiary {
   color: var(--cui-fg-accent);
   background-color: transparent;
@@ -267,7 +299,7 @@
 
 .tertiary:hover {
   color: var(--cui-fg-accent-hovered);
-  background-color: var(--cui-bg-accent-hovered);
+  background-color: transparent;
   border-color: transparent;
 }
 
@@ -275,12 +307,8 @@
 .tertiary[aria-expanded="true"],
 .tertiary[aria-pressed="true"] {
   color: var(--cui-fg-accent-pressed);
-  background-color: var(--cui-bg-accent-pressed);
+  background-color: transparent;
   border-color: transparent;
-}
-
-.tertiary:focus-visible {
-  background-color: var(--cui-bg-accent-hovered);
 }
 
 .tertiary.destructive {
@@ -289,51 +317,42 @@
 
 .tertiary.destructive:hover {
   color: var(--cui-fg-danger-hovered);
-  background-color: var(--cui-bg-danger-hovered);
+  background-color: transparent;
 }
 
 .tertiary.destructive:active,
 .tertiary.destructive[aria-expanded="true"],
 .tertiary.destructive[aria-pressed="true"] {
   color: var(--cui-fg-danger-pressed);
-  background-color: var(--cui-bg-danger-pressed);
-}
-
-.tertiary.destructive:focus-visible {
-  background-color: var(--cui-bg-danger-hovered);
+  background-color: transparent;
 }
 
 .tertiary .label {
-  position: relative;
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  text-underline-position: under;
+  transition: text-decoration-color var(--cui-transitions-default);
 }
 
-.tertiary .label::after {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  content: "";
-  border-top: var(--cui-border-width-kilo) dashed var(--cui-border-normal);
-  opacity: 1;
-  transition: transform var(--cui-transitions-default),
-    opacity var(--cui-transitions-default);
+@supports (text-underline-offset: 0.25em) {
+  .tertiary .label {
+    text-underline-position: auto;
+    text-underline-offset: 0.25em;
+  }
 }
 
-.tertiary:focus-visible .label::after {
-  opacity: 0;
-  transform: translateY(2px);
+.tertiary:disabled,
+.tertiary[disabled],
+.tertiary[aria-disabled="true"] {
+  color: var(--cui-fg-normal-disabled);
+  background-color: transparent;
+  border-color: transparent;
 }
 
-.tertiary:hover .label::after,
-.tertiary:active .label::after,
-.tertiary[aria-expanded="true"] .label::after,
-.tertiary[aria-pressed="true"] .label::after,
-.tertiary[aria-busy="true"] .label::after,
-.tertiary:disabled .label::after,
-.tertiary[disabled] .label::after,
-.tertiary[aria-disabled="true"] .label::after {
-  opacity: 0;
-  transform: translateY(2px);
+.tertiary.destructive:disabled,
+.tertiary.destructive[disabled],
+.tertiary.destructive[aria-disabled="true"] {
+  color: var(--cui-fg-danger-disabled);
 }
 
 /* ButtonGroup */
@@ -343,59 +362,11 @@
   }
 }
 
-@container cui-button-group (width > 370px) {
-  /* Keep in sync with the .secondary class above */
-  .tertiary {
-    color: var(--cui-fg-normal);
-    background-color: var(--cui-bg-normal);
-    border-color: var(--cui-border-normal);
-  }
-
-  .tertiary:hover {
-    color: var(--cui-fg-normal-hovered);
-    background-color: var(--cui-bg-normal-hovered);
-    border-color: var(--cui-border-normal-hovered);
-  }
-
-  .tertiary:active,
-  .tertiary[aria-expanded="true"],
-  .tertiary[aria-pressed="true"] {
-    color: var(--cui-fg-normal-pressed);
-    background-color: var(--cui-bg-normal-pressed);
-    border-color: var(--cui-border-normal-pressed);
-  }
-
-  .tertiary.destructive {
-    color: var(--cui-fg-danger);
-  }
-
-  .tertiary.destructive:hover {
-    color: var(--cui-fg-danger-hovered);
-    background-color: var(--cui-bg-danger-hovered);
-    border-color: var(--cui-border-danger-hovered);
-  }
-
-  .tertiary.destructive:active,
-  .tertiary.destructive[aria-expanded="true"],
-  .tertiary.destructive[aria-pressed="true"] {
-    color: var(--cui-fg-danger-pressed);
-    background-color: var(--cui-bg-danger-pressed);
-    border-color: var(--cui-border-danger-pressed);
-  }
-
-  .tertiary .label::after {
-    display: none;
-  }
-}
-
 /* Disabled */
 .base:disabled,
 .base[disabled],
 .base[aria-disabled="true"] {
-  color: var(--cui-fg-normal-disabled);
   cursor: not-allowed;
-  background-color: var(--cui-bg-highlight-disabled);
-  border-color: transparent;
 }
 
 .base:disabled .content,

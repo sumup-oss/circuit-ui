@@ -185,6 +185,7 @@ export const schema = [
   { name: '--cui-font-stack-mono', type: 'fontFamily' },
   /* Font weights */
   { name: '--cui-font-weight-regular', type: 'fontWeight' },
+  { name: '--cui-font-weight-semibold', type: 'fontWeight' },
   { name: '--cui-font-weight-bold', type: 'fontWeight' },
   /* Icon sizes */
   { name: '--cui-icon-sizes-kilo', type: 'dimension' },
@@ -205,39 +206,220 @@ export const schema = [
   { name: '--cui-transitions-default', type: 'duration' },
   { name: '--cui-transitions-slow', type: 'duration' },
   /* Typography */
-  { name: '--cui-typography-headline-one-font-size', type: 'dimension' },
-  { name: '--cui-typography-headline-one-line-height', type: 'dimension' },
-  { name: '--cui-typography-headline-two-font-size', type: 'dimension' },
-  { name: '--cui-typography-headline-two-line-height', type: 'dimension' },
-  { name: '--cui-typography-headline-three-font-size', type: 'dimension' },
-  { name: '--cui-typography-headline-three-line-height', type: 'dimension' },
-  { name: '--cui-typography-headline-four-font-size', type: 'dimension' },
-  { name: '--cui-typography-headline-four-line-height', type: 'dimension' },
-  { name: '--cui-typography-title-one-font-size', type: 'dimension' },
-  { name: '--cui-typography-title-one-line-height', type: 'dimension' },
-  { name: '--cui-typography-title-two-font-size', type: 'dimension' },
-  { name: '--cui-typography-title-two-line-height', type: 'dimension' },
-  { name: '--cui-typography-title-three-font-size', type: 'dimension' },
-  { name: '--cui-typography-title-three-line-height', type: 'dimension' },
-  { name: '--cui-typography-title-four-font-size', type: 'dimension' },
-  { name: '--cui-typography-title-four-line-height', type: 'dimension' },
-  { name: '--cui-typography-sub-headline-font-size', type: 'dimension' },
-  { name: '--cui-typography-sub-headline-line-height', type: 'dimension' },
-  { name: '--cui-typography-body-one-font-size', type: 'dimension' },
-  { name: '--cui-typography-body-one-line-height', type: 'dimension' },
-  { name: '--cui-typography-body-two-font-size', type: 'dimension' },
-  { name: '--cui-typography-body-two-line-height', type: 'dimension' },
-  { name: '--cui-typography-body-large-font-size', type: 'dimension' },
-  { name: '--cui-typography-body-large-line-height', type: 'dimension' },
+  { name: '--cui-display-l-font-size', type: 'dimension' },
+  { name: '--cui-display-l-line-height', type: 'dimension' },
+  { name: '--cui-display-m-font-size', type: 'dimension' },
+  { name: '--cui-display-m-line-height', type: 'dimension' },
+  { name: '--cui-display-s-font-size', type: 'dimension' },
+  { name: '--cui-display-s-line-height', type: 'dimension' },
+  { name: '--cui-headline-l-font-size', type: 'dimension' },
+  { name: '--cui-headline-l-line-height', type: 'dimension' },
+  { name: '--cui-headline-m-font-size', type: 'dimension' },
+  { name: '--cui-headline-m-line-height', type: 'dimension' },
+  { name: '--cui-headline-s-font-size', type: 'dimension' },
+  { name: '--cui-headline-s-line-height', type: 'dimension' },
+  { name: '--cui-body-l-font-size', type: 'dimension' },
+  { name: '--cui-body-l-line-height', type: 'dimension' },
+  { name: '--cui-body-m-font-size', type: 'dimension' },
+  { name: '--cui-body-m-line-height', type: 'dimension' },
+  { name: '--cui-body-s-font-size', type: 'dimension' },
+  { name: '--cui-body-s-line-height', type: 'dimension' },
+  { name: '--cui-compact-l-font-size', type: 'dimension' },
+  { name: '--cui-compact-l-line-height', type: 'dimension' },
+  { name: '--cui-compact-m-font-size', type: 'dimension' },
+  { name: '--cui-compact-m-line-height', type: 'dimension' },
+  { name: '--cui-compact-s-font-size', type: 'dimension' },
+  { name: '--cui-compact-s-line-height', type: 'dimension' },
+  { name: '--cui-numeral-l-font-size', type: 'dimension' },
+  { name: '--cui-numeral-l-line-height', type: 'dimension' },
+  { name: '--cui-numeral-m-font-size', type: 'dimension' },
+  { name: '--cui-numeral-m-line-height', type: 'dimension' },
+  { name: '--cui-numeral-s-font-size', type: 'dimension' },
+  { name: '--cui-numeral-s-line-height', type: 'dimension' },
+  { name: '--cui-letter-spacing', type: 'dimension' },
+  { name: '--cui-letter-spacing-tight', type: 'dimension' },
+  /* eslint-disable @sumup-oss/circuit-ui/no-deprecated-custom-properties */
+  {
+    name: '--cui-typography-headline-one-font-size',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-headline-l-font-size',
+    },
+  },
+  {
+    name: '--cui-typography-headline-one-line-height',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-headline-l-line-height',
+    },
+  },
+  {
+    name: '--cui-typography-headline-two-font-size',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-headline-m-font-size',
+    },
+  },
+  {
+    name: '--cui-typography-headline-two-line-height',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-headline-m-line-height',
+    },
+  },
+  {
+    name: '--cui-typography-headline-three-font-size',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-headline-m-font-size',
+    },
+  },
+  {
+    name: '--cui-typography-headline-three-line-height',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-headline-m-line-height',
+    },
+  },
+  {
+    name: '--cui-typography-headline-four-font-size',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-headline-s-font-size',
+    },
+  },
+  {
+    name: '--cui-typography-headline-four-line-height',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-headline-s-line-height',
+    },
+  },
+  {
+    name: '--cui-typography-title-one-font-size',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-display-l-font-size',
+    },
+  },
+  {
+    name: '--cui-typography-title-one-line-height',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-display-l-line-height',
+    },
+  },
+  {
+    name: '--cui-typography-title-two-font-size',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-display-m-font-size',
+    },
+  },
+  {
+    name: '--cui-typography-title-two-line-height',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-display-m-line-height',
+    },
+  },
+  {
+    name: '--cui-typography-title-three-font-size',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-display-m-font-size',
+    },
+  },
+  {
+    name: '--cui-typography-title-three-line-height',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-display-m-line-height',
+    },
+  },
+  {
+    name: '--cui-typography-title-four-font-size',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-display-s-font-size',
+    },
+  },
+  {
+    name: '--cui-typography-title-four-line-height',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-display-s-line-height',
+    },
+  },
+  {
+    name: '--cui-typography-sub-headline-font-size',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-headline-s-font-size',
+    },
+  },
+  {
+    name: '--cui-typography-sub-headline-line-height',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-headline-s-line-height',
+    },
+  },
+  {
+    name: '--cui-typography-body-one-font-size',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-body-m-font-size',
+    },
+  },
+  {
+    name: '--cui-typography-body-one-line-height',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-body-m-line-height',
+    },
+  },
+  {
+    name: '--cui-typography-body-two-font-size',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-body-s-font-size',
+    },
+  },
+  {
+    name: '--cui-typography-body-two-line-height',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-body-s-line-height',
+    },
+  },
+  {
+    name: '--cui-typography-body-large-font-size',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-body-l-font-size',
+    },
+  },
+  {
+    name: '--cui-typography-body-large-line-height',
+    type: 'dimension',
+    deprecation: {
+      replacement: '--cui-body-l-line-height',
+    },
+  },
+  /* eslint-disable @sumup-oss/circuit-ui/no-deprecated-custom-properties */
   /* Z-indices */
   { name: '--cui-z-index-default', type: 'number' },
   { name: '--cui-z-index-absolute', type: 'number' },
   { name: '--cui-z-index-input', type: 'number' },
   { name: '--cui-z-index-popover', type: 'number' },
+  { name: '--cui-z-index-side-panel', type: 'number' },
   { name: '--cui-z-index-tooltip', type: 'number' },
   { name: '--cui-z-index-header', type: 'number' },
-  { name: '--cui-z-index-backdrop', type: 'number' },
   { name: '--cui-z-index-navigation', type: 'number' },
-  { name: '--cui-z-index-modal', type: 'number' },
   { name: '--cui-z-index-toast', type: 'number' },
-] satisfies { name: TokenName; type: TokenType }[];
+] satisfies {
+  name: TokenName;
+  type: TokenType;
+  deprecation?: { replacement: TokenName };
+}[];

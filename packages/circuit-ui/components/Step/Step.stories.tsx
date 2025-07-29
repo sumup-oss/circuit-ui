@@ -13,28 +13,32 @@
  * limitations under the License.
  */
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
-import Step from './Step.js';
-import CarouselSlider from './examples/CarouselSlider.js';
-import YesOrNoSlider from './examples/YesOrNoSlider.js';
-import MultiStepForm from './examples/MultiStepForm.js';
+import { images } from '../../../../.storybook/fixtures.js';
 
-const IMAGES = [
-  '/images/illustration-waves.jpg',
-  '/images/illustration-waves-2.jpg',
-  '/images/illustration-waves-3.jpg',
-];
+import { Step } from './Step.js';
+import {
+  CarouselSlider,
+  type CarouselSliderProps,
+} from './examples/CarouselSlider.js';
+import {
+  YesOrNoSlider,
+  type YesOrNoSliderProps,
+} from './examples/YesOrNoSlider.js';
+import { MultiStepForm } from './examples/MultiStepForm.js';
+
 const STEP_DURATION = 2000;
 const ANIMATION_DURATION = 300;
 
 export default {
   title: 'Components/Step',
   component: Step,
+  tags: ['status:under-review'],
 };
 
 const baseArgs = {
-  images: IMAGES,
+  images,
   cycle: true,
   onNext: action('onNext'),
   onPrevious: action('onPrev'),
@@ -44,7 +48,9 @@ const baseArgs = {
   onAfterChange: action('onAfterChange'),
 };
 
-export const Slider = (args) => <CarouselSlider {...args} />;
+export const Slider = (args: CarouselSliderProps) => (
+  <CarouselSlider {...args} />
+);
 
 Slider.args = {
   ...baseArgs,
@@ -52,10 +58,8 @@ Slider.args = {
   animationDuration: ANIMATION_DURATION,
 };
 
-export const Swiper = (args) => <YesOrNoSlider {...args} />;
+export const Swiper = (args: YesOrNoSliderProps) => <YesOrNoSlider {...args} />;
 
 Swiper.args = baseArgs;
 
-export const Form = (args) => <MultiStepForm {...args} />;
-
-Form.args = baseArgs;
+export const Form = () => <MultiStepForm />;

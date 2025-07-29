@@ -15,20 +15,19 @@
 
 import { useState } from 'react';
 
-import Avatar from '../Avatar/index.js';
+import { Avatar } from '../Avatar/index.js';
 
-import { ImageInputProps } from './ImageInput.js';
+import type { ImageInputProps } from './ImageInput.js';
 
-import ImageInput from './index.js';
+import { ImageInput } from './index.js';
 
 export default {
   title: 'Forms/ImageInput',
   component: ImageInput,
+  tags: ['status:stable'],
 };
 
-export const Base = (args: ImageInputProps): JSX.Element => (
-  <ImageInput {...args} />
-);
+export const Base = (args: ImageInputProps) => <ImageInput {...args} />;
 
 Base.args = {
   label: 'Upload an image',
@@ -40,7 +39,7 @@ Base.args = {
   disabled: false,
 };
 
-export const WithImage = (): JSX.Element => (
+export const WithImage = () => (
   <ImageInput
     label="Upload an image"
     clearButtonLabel="Clear"
@@ -52,7 +51,7 @@ export const WithImage = (): JSX.Element => (
   />
 );
 
-export const Invalid = (args: ImageInputProps): JSX.Element => (
+export const Invalid = (args: ImageInputProps) => (
   <ImageInput
     {...args}
     label="Upload an image"
@@ -67,7 +66,7 @@ export const Invalid = (args: ImageInputProps): JSX.Element => (
   />
 );
 
-export const Disabled = (args: ImageInputProps): JSX.Element => (
+export const Disabled = (args: ImageInputProps) => (
   <ImageInput
     {...args}
     label="Upload an image"
@@ -77,10 +76,11 @@ export const Disabled = (args: ImageInputProps): JSX.Element => (
     disabled
     loadingLabel="Uploading"
     component={(props) => <Avatar {...props} alt="" />}
+    hideLabel={false}
   />
 );
 
-export const Stateful = (): JSX.Element => {
+export const Stateful = () => {
   const [imageUrl, setImageUrl] = useState<string>('');
   const [error, setError] = useState<string>('');
 
@@ -135,7 +135,7 @@ export const Stateful = (): JSX.Element => {
   );
 };
 
-export const CustomComponentImg = (): JSX.Element => (
+export const CustomComponentImg = () => (
   <ImageInput
     label="Upload an image"
     clearButtonLabel="Clear"
@@ -165,7 +165,7 @@ export const CustomComponentImg = (): JSX.Element => (
 
 CustomComponentImg.storyName = 'Custom Component (with an img element)';
 
-export const CustomComponentDiv = (): JSX.Element => (
+export const CustomComponentDiv = () => (
   <ImageInput
     label="Upload an image"
     clearButtonLabel="Clear"

@@ -13,27 +13,25 @@
  * limitations under the License.
  */
 
-import {
-  createContext,
-  InputHTMLAttributes,
-  forwardRef,
-  useContext,
-  useId,
-} from 'react';
+'use client';
+
+import { forwardRef, useId } from 'react';
 
 import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
+import { idx } from '../../util/idx.js';
 import { FieldWrapper, FieldDescription } from '../Field/index.js';
-import { clsx } from '../../styles/clsx.js';
-import utilityClasses from '../../styles/utility.js';
-import { deprecate } from '../../util/logger.js';
+import { utilClasses } from '../../styles/utility.js';
+import {
+  RadioButtonInput,
+  type RadioButtonInputProps,
+} from '../RadioButtonGroup/RadioButtonInput.js';
 
 import classes from './RadioButton.module.css';
 
-export interface RadioButtonProps
-  extends InputHTMLAttributes<HTMLInputElement> {
+export interface RadioButtonProps extends Omit<RadioButtonInputProps, 'align'> {
   /**
    * A clear and concise description of the option's purpose.
    */
@@ -45,36 +43,26 @@ export interface RadioButtonProps
   children?: never;
 }
 
-export const RadioButtonGroupContext = createContext(false);
-
-/**
- * @deprecated Use the {@link RadioButtonGroup} component instead.
- */
 export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
   (
     {
       label,
       description,
+      disabled,
       'aria-describedby': describedBy,
       'id': customId,
-      name,
-      value,
-      checked,
-      disabled,
       className,
       style,
       ...props
     },
     ref,
   ) => {
-    const isInsideGroup = useContext(RadioButtonGroupContext);
+    const id = useId();
+    const inputId = customId || id;
+    const descriptionId = useId();
 
-    if (process.env.NODE_ENV !== 'production' && !isInsideGroup) {
-      deprecate(
-        'RadioButton',
-        'The RadioButton component has been deprecated. Use the RadioButtonGroup component instead.',
-      );
-    }
+    const descriptionIds = idx(describedBy, description && descriptionId);
+
     if (
       process.env.NODE_ENV !== 'production' &&
       process.env.NODE_ENV !== 'test' &&
@@ -85,42 +73,28 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
         'The `label` prop is missing or invalid.',
       );
     }
-    const id = useId();
-    const inputId = customId || id;
-    const descriptionId = useId();
-
-    const descriptionIds = [describedBy, description && descriptionId]
-      .filter(Boolean)
-      .join(' ');
 
     return (
       <FieldWrapper className={className} style={style} disabled={disabled}>
-        <input
+        <RadioButtonInput
           {...props}
-          type="radio"
-          name={name}
-          id={inputId}
-          value={value}
-          disabled={disabled}
-          checked={checked}
           ref={ref}
-          className={clsx(classes.base, utilityClasses.hideVisually)}
-        />
-        <label
-          htmlFor={inputId}
-          className={classes.label}
-          style={style}
+          id={inputId}
+          disabled={disabled}
           aria-describedby={descriptionIds}
+          align="start"
         >
-          {label}
-          {description && (
-            <FieldDescription aria-hidden="true">
-              {description}
-            </FieldDescription>
-          )}
-        </label>
+          <span className={classes['label-text']}>
+            {label}
+            {description && (
+              <FieldDescription aria-hidden="true">
+                {description}
+              </FieldDescription>
+            )}
+          </span>
+        </RadioButtonInput>
         {description && (
-          <p id={descriptionIds} className={utilityClasses.hideVisually}>
+          <p id={descriptionId} className={utilClasses.hideVisually}>
             {description}
           </p>
         )}

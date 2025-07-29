@@ -1,0 +1,128 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "extends": ["@sumup-oss/foundry/biome"],
+  "files": {
+    "ignore": [
+      // Generated artifacts
+      "**/build/**",
+      "**/dist/**",
+      "**/public/**",
+      "**/.next/**",
+      "**/.out/**",
+      "**/__coverage__/**",
+      "**/__reports__/**",
+      "**/*.astro",
+      "**/vendor/**"
+    ]
+  },
+  "formatter": {
+    "ignore": [
+      // Configuration files that use conflicting formatting
+      ".changeset/**",
+      "**/package.json",
+      "**/package-lock.json",
+      "**/tsconfig.json",
+      "**/tsconfig.*.json",
+      "**/lerna.json",
+      "**/.vscode/extensions.json"
+    ]
+  },
+  "organizeImports": {
+    "enabled": false
+  },
+  "css": {
+    "formatter": {
+      "enabled": false
+    }
+  },
+  "linter": {
+    "rules": {
+      "recommended": true,
+      "a11y": {
+        "noRedundantRoles": "warn",
+        "useSemanticElements": "warn"
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "error"
+      },
+      "style": {
+        "noDefaultExport": "error",
+        "useFilenamingConvention": {
+          "level": "error",
+          "options": {
+            "requireAscii": true,
+            "filenameCases": ["camelCase", "kebab-case", "PascalCase"]
+          }
+        }
+      },
+      "suspicious": {
+        "noArrayIndexKey": "warn",
+        "noExplicitAny": "warn"
+      }
+    },
+    "ignore": [
+      // The templates have their own linting setup
+      "templates/astro/**",
+      "templates/nextjs/template/**"
+    ]
+  },
+  "overrides": [
+    {
+      "include": ["*.css"],
+      "css": {
+        "formatter": {
+          "indentStyle": "space",
+          "quoteStyle": "double"
+        },
+        "linter": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "include": ["*.module.css"],
+      "css": {
+        "parser": {
+          "cssModules": true
+        }
+      }
+    },
+    {
+      "include": [
+        "*.stories.*",
+        "**/vite.config.*",
+        "**/vitest.config.*",
+        "**/vitest.workspace.*",
+        "packages/stylelint-plugin-circuit-ui/**",
+        ".storybook/main.*"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off"
+          }
+        }
+      }
+    },
+    {
+      "include": ["packages/eslint-plugin-circuit-ui/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noNonNullAssertion": "off"
+          }
+        }
+      }
+    },
+    {
+      "include": ["**/*spec.*", "**/setupTests.*", "**/test-utils.*"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noGlobalAssign": "off"
+          }
+        }
+      }
+    }
+  ]
+}

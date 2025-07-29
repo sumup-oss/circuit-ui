@@ -1,8 +1,13 @@
+import type { AnchorHTMLAttributes } from 'react';
 import LinkTo from '@storybook/addon-links/react';
 
 const LINK_PREFIXES = ['/', 'http', 'mailto', '#', 'tel'];
 
-const Link = ({ children, href, ...props }) => {
+interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  href: string;
+}
+
+export function Link({ children, href, ...props }: LinkProps) {
   const storyName = decodeURIComponent(href);
 
   const isStoryName = !LINK_PREFIXES.some((prefix) =>
@@ -10,8 +15,10 @@ const Link = ({ children, href, ...props }) => {
   );
 
   if (isStoryName) {
-    const [group, component, name = 'base'] = storyName.split('/');
-    const kind = `${group}/${component}`;
+    const parts = storyName.split('/');
+    const name = parts.length > 2 ? parts[parts.length - 1] : 'base';
+    const components = parts.slice(0, parts.length - 1);
+    const kind = components.join('/');
     return (
       <LinkTo {...props} kind={kind} story={name}>
         {children}
@@ -24,6 +31,4 @@ const Link = ({ children, href, ...props }) => {
       {children}
     </a>
   );
-};
-
-export default Link;
+}

@@ -11,25 +11,22 @@ jobs:
     strategy:
       # https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs
       matrix:
-        node: [18, 20]
-        template: [astro, nextjs, remix]
+        node: [20, 22]
+        template: [astro, nextjs]
         include:
           - template: astro
-            bootstrap: 'npx create-astro@latest ./test-app --template sumup-oss/circuit-ui/packages/astro-template --install --no-git --typescript=strictest'
+            bootstrap: 'npx create-astro@latest ./test-app --template sumup-oss/circuit-ui/templates/astro --install --no-git --typescript=strictest'
             verify: 'npm run lint && npm run astro check'
           - template: nextjs
-            bootstrap: 'npx create-next-app --example "https://github.com/sumup-oss/circuit-ui/tree/main/packages/cna-template/template" test-app'
+            bootstrap: 'npx create-next-app --example "https://github.com/sumup-oss/circuit-ui/tree/main/templates/nextjs/template" test-app'
             verify: 'npm run test:ci'
-          - template: remix
-            bootstrap: 'npx create-remix@latest ./test-app --template https://github.com/sumup-oss/circuit-ui/tree/main/packages/remix-template --install --no-git-init'
-            verify: 'npm run lint && npm run typecheck'
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'
@@ -50,4 +47,7 @@ jobs:
 
       - name: Test app
         working-directory: ./test-app
-        run: npx start-server-and-test 'npm run start -- --port=3000' localhost:3000 "node ../scripts/verify-template.js"
+        # We use aa-exec since Ubuntu 24.04's AppArmor profile blocks the use
+        # of puppeteer otherwise, see
+        # https://github.com/puppeteer/puppeteer/issues/12818
+        run: npx start-server-and-test 'npm run start -- --port=3000' localhost:3000 "aa-exec --profile=chrome node ../scripts/verify-template.js"

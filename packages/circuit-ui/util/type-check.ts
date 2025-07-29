@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-// eslint-disable-next-line @typescript-eslint/ban-types
+// biome-ignore lint/complexity/noBannedTypes: There is no better type for this type guard
 export function isFunction(value?: unknown): value is Function {
   return typeof value === 'function';
 }
@@ -38,4 +38,8 @@ export function isObject<T extends Record<string, unknown>>(
 
 export function isNil(value?: unknown): value is null | undefined {
   return value === undefined || value === null;
+}
+
+export function isHTMLElement(element: unknown): element is HTMLElement {
+  return element instanceof HTMLElement;
 }

@@ -13,12 +13,14 @@
  * limitations under the License.
  */
 
+'use client';
+
 import {
   createContext,
-  useContext,
-  ReactNode,
   forwardRef,
-  HTMLAttributes,
+  useContext,
+  type ReactNode,
+  type HTMLAttributes,
 } from 'react';
 
 import type { AsPropType } from '../../types/prop-types.js';
@@ -56,7 +58,7 @@ export const SkeletonContainer = forwardRef<
       // @ts-expect-error `inert` is a new HTML attribute to prevent user input events in an area.
       // This is a progressive enhancement since few browsers support it yet.
       // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inert
-      inert={isLoading ? '' : null}
+      inert={isLoading ? true : null}
     >
       {children}
     </div>

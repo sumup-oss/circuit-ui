@@ -14,20 +14,20 @@
  */
 
 import { describe, expect, it, vi } from 'vitest';
-import { createRef, FC } from 'react';
-import { IconProps, SumUpCard } from '@sumup/icons';
+import { createRef, type FC } from 'react';
+import { SumUpCard, type IconProps } from '@sumup-oss/icons';
 
 import {
   render,
   axe,
-  RenderFn,
   userEvent,
   screen,
+  type RenderFn,
 } from '../../util/test-utils.js';
-import Body from '../Body/index.js';
-import Badge from '../Badge/index.js';
+import { Body } from '../Body/index.js';
+import { Badge } from '../Badge/index.js';
 
-import { ListItem, ListItemProps } from './ListItem.js';
+import { ListItem, type ListItemProps } from './ListItem.js';
 
 describe('ListItem', () => {
   function renderListItem<T>(renderFn: RenderFn<T>, props: ListItemProps) {
@@ -61,7 +61,7 @@ describe('ListItem', () => {
   it('should render a ListItem with a custom label', () => {
     renderListItem(render, {
       ...baseProps,
-      label: <Body size="one">Label</Body>,
+      label: <Body size="m">Label</Body>,
     });
     expect(screen.getByText('Label')).toBeVisible();
   });
@@ -77,7 +77,7 @@ describe('ListItem', () => {
   it('should render a ListItem with a custom details line', () => {
     renderListItem(render, {
       ...baseProps,
-      details: <Body size="two">Details</Body>,
+      details: <Body size="s">Details</Body>,
     });
     expect(screen.getByText('Details')).toBeVisible();
   });
@@ -94,7 +94,7 @@ describe('ListItem', () => {
     renderListItem(render, {
       ...baseProps,
       trailingLabel: (
-        <Body size="one" variant="highlight">
+        <Body size="m" weight="bold">
           Trailing label
         </Body>
       ),
@@ -117,7 +117,7 @@ describe('ListItem', () => {
       ...baseProps,
       trailingLabel: 'Trailing label',
       trailingDetails: (
-        <Body size="two" variant="subtle">
+        <Body size="s" color="subtle">
           Trailing details
         </Body>
       ),
@@ -174,9 +174,9 @@ describe('ListItem', () => {
         ...baseProps,
         onClick: vi.fn(),
       };
-      const { getByRole } = renderListItem(render, props);
+      renderListItem(render, props);
 
-      await userEvent.click(getByRole('button'));
+      await userEvent.click(screen.getByRole('button'));
 
       expect(props.onClick).toHaveBeenCalledTimes(1);
     });

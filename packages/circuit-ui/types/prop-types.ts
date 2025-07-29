@@ -14,11 +14,11 @@
  */
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ElementType } from 'react';
+import type { ElementType } from 'react';
 
 // This is how we should type the `as` prop in Circuit components, because the
-// prop should accept either a Component or a string (for an element)
-export type AsPropType = ElementType<any> | string;
+// prop should accept either a Component or an HTMLElement name.
+export type AsPropType = ElementType<any>;
 
 // This is the type that Emotion expects
 export type EmotionAsPropType = ElementType<any> & string;

@@ -1,0 +1,8 @@
+{
+  "yearInputLabel": "Leto",
+  "monthInputLabel": "Mesec",
+  "dayInputLabel": "Dan",
+  "openCalendarButtonLabel": "Spremeni datum",
+  "applyDateButtonLabel": "Uporabi datum",
+  "clearDateButtonLabel": "Počisti datum"
+}

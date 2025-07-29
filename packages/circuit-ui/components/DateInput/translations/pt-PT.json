@@ -1,0 +1,8 @@
+{
+  "yearInputLabel": "Ano",
+  "monthInputLabel": "Mês",
+  "dayInputLabel": "Dia",
+  "openCalendarButtonLabel": "Alterar data",
+  "applyDateButtonLabel": "Aplicar data",
+  "clearDateButtonLabel": "Limpar data"
+}

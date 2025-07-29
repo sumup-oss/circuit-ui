@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import { action } from '@storybook/addon-actions';
-import { SumUpCard, Confirm } from '@sumup/icons';
+import { action } from 'storybook/actions';
+import { SumUpCard, Confirm } from '@sumup-oss/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
-import Body from '../Body/index.js';
-import Badge from '../Badge/index.js';
+import { Body } from '../Body/index.js';
+import { Badge } from '../Badge/index.js';
 
-import { ListItem, ListItemProps } from './ListItem.js';
+import { ListItem, type ListItemProps } from './ListItem.js';
 
 interface Item {
   title: string;
@@ -33,6 +33,7 @@ interface Item {
 export default {
   title: 'Components/ListItem',
   component: ListItem,
+  tags: ['status:stable'],
   argTypes: {
     label: { control: 'text' },
     details: { control: 'text' },
@@ -66,13 +67,14 @@ const Details = (
       aria-hidden="true"
     />
     <Body
-      size="two"
-      variant="highlight"
+      size="s"
+      weight="semibold"
+      color="success"
       style={{ marginRight: 'var(--cui-spacings-bit)' }}
     >
       {item.status}
     </Body>
-    <Body size="two" variant="subtle">
+    <Body size="s" color="subtle">
       &middot; {item.timestamp}
     </Body>
   </div>
@@ -83,13 +85,13 @@ const lineThrough = {
 };
 
 const TrailingLabel = (
-  <Body size="one" variant="subtle" style={lineThrough}>
+  <Body size="m" color="subtle" style={lineThrough}>
     {item.amount}
   </Body>
 );
 
 const TrailingDetails = (
-  <Body size="two" variant="subtle" style={lineThrough}>
+  <Body size="s" color="subtle" style={lineThrough}>
     {item.fee} fee
   </Body>
 );
@@ -147,7 +149,7 @@ export const WithCustomLabel = (args: ListItemProps) => (
     <ListItem
       {...args}
       leadingComponent={SumUpCard}
-      label={<Body size="one">Custom multiline label: {args.label}</Body>}
+      label={<Body size="m">Custom multiline label: {args.label}</Body>}
     />
   </Stack>
 );

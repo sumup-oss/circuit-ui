@@ -17,8 +17,9 @@ import styled from '../../../../styles/styled.js';
 import { Grid, Row, Col } from '../index.js';
 
 export default {
-  title: 'Layout/Grid/Grid',
+  title: 'Layout/Grid',
   component: Grid,
+  tags: ['status:legacy'],
   parameters: {
     layout: 'fullscreen',
     controls: { hideNoControlsWarning: true },

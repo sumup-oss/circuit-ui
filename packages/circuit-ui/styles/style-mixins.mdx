@@ -23,7 +23,7 @@ import * as Stories from './style-mixins.stories';
 ## Usage
 
 ```tsx
-import { clearfix, spacing } from '@sumup/circuit-ui';
+import { clearfix, spacing } from '@sumup-oss/circuit-ui';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
@@ -49,7 +49,7 @@ const StyledComponent = styled.div(someStyles, clearfix);
 Combines multiple style mixins and calls each one with the `theme`. Modeled after the [`classNames`](https://github.com/JedWatson/classnames) package and [Emotion's (removed) `cx` helper](https://5bb1495273f2cf57a2cf39cc--emotion.netlify.app/docs/cx).
 
 ```tsx
-import { cx, clearfix, spacing, disableVisually } from '@sumup/circuit-ui';
+import { cx, clearfix, spacing, disableVisually } from '@sumup-oss/circuit-ui';
 
 // The `cx` helper accepts any number of style mixins.
 const Multiple = () => <div css={cx(clearfix, spacing('mega'))} />;

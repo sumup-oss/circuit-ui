@@ -15,11 +15,12 @@
 
 import { Stack } from '../../../../.storybook/components/index.js';
 
-import { Badge, BadgeProps } from './Badge.js';
+import { Badge, type BadgeProps } from './Badge.js';
 
 export default {
   title: 'Components/Badge',
   component: Badge,
+  tags: ['status:stable'],
 };
 
 export const Base = (args: BadgeProps) => <Badge {...args} />;

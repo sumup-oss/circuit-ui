@@ -1,0 +1,18 @@
+.content {
+  box-sizing: border-box;
+  padding: var(--cui-spacings-byte) 0;
+  overflow-y: auto;
+  background-color: var(--cui-bg-elevated);
+  border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
+  border-radius: var(--cui-border-radius-byte);
+}
+
+.divider {
+  width: calc(100% - var(--cui-spacings-mega) * 2);
+  margin: var(--cui-spacings-byte) var(--cui-spacings-mega);
+}
+
+.base::after {
+  height: var(--cui-spacings-kilo);
+  margin: var(--cui-border-width-kilo) var(--cui-border-width-mega);
+}

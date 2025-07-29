@@ -16,10 +16,18 @@
 import _classes from './shared.module.css';
 
 // This explicit remapping is needed so TypeScript infers the types correctly
-const classes = {
+export const sharedClasses = {
   listItem: _classes['list-item'],
   listItemDestructive: _classes['list-item-destructive'],
   navigationItem: _classes['navigation-item'],
+  animationFadeIn: _classes['animation-fade-in'],
+  animationFadeOut: _classes['animation-fade-out'],
+  animationSlideUpIn: _classes['animation-slide-up-in'],
+  animationSlideUpOut: _classes['animation-slide-up-out'],
+  animationSlideDownIn: _classes['animation-slide-down-in'],
+  animationSlideDownOut: _classes['animation-slide-down-out'],
+  animationSlideRightIn: _classes['animation-slide-right-in'],
+  animationSlideRightOut: _classes['animation-slide-right-out'],
+  animationSlideLeftIn: _classes['animation-slide-left-in'],
+  animationSlideLeftOut: _classes['animation-slide-left-out'],
 };
-
-export default classes;

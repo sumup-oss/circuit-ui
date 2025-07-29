@@ -1,3 +1,12 @@
+const colorSchemes = {
+  dark: {
+    colorScheme: 'dark',
+  },
+  light: {
+    colorScheme: 'light',
+  },
+};
+
 const viewports = {
   smallMobile: {
     viewport: 'smallMobile',
@@ -14,5 +23,6 @@ const viewports = {
 };
 
 export const modes = {
+  ...colorSchemes,
   ...viewports,
 };

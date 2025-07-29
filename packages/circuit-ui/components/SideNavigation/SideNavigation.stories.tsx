@@ -13,17 +13,20 @@
  * limitations under the License.
  */
 
-import { action } from '@storybook/addon-actions';
-import { Like, Home, LiveChat, Package, Shop } from '@sumup/icons';
+import { action } from 'storybook/actions';
+import { Like, Home, LiveChat, Package, Shop } from '@sumup-oss/icons';
+import { useState } from 'react';
 
 import { modes } from '../../../../.storybook/modes.js';
-import { ModalProvider } from '../ModalContext/index.js';
+import { Headline } from '../Headline/index.js';
+import { Body } from '../Body/index.js';
 
-import { SideNavigation, SideNavigationProps } from './SideNavigation.js';
+import { SideNavigation, type SideNavigationProps } from './SideNavigation.js';
 
 export default {
   title: 'Navigation/SideNavigation',
   component: SideNavigation,
+  tags: ['status:stable'],
   parameters: {
     layout: 'fullscreen',
     chromatic: {
@@ -57,7 +60,7 @@ export const baseArgs: SideNavigationProps = {
       href: '/shop',
       onClick: action('Shop'),
       isActive: true,
-      badge: true,
+      badge: { variant: 'promo', children: 'New items' },
       secondaryGroups: [
         {
           secondaryLinks: [
@@ -71,6 +74,7 @@ export const baseArgs: SideNavigationProps = {
               label: 'Pants',
               href: '/shop/pants',
               onClick: action('Shop → Pants'),
+              tier: { variant: 'plus' },
             },
             {
               label: 'Socks',
@@ -115,18 +119,47 @@ export const baseArgs: SideNavigationProps = {
       href: 'https://support.example.com',
       onClick: action('Support'),
       target: '_blank',
+      externalLabel: 'Opens in a new tab',
     },
   ],
+  skipNavigationLabel: 'Skip Navigation',
+  skipNavigationHref: '#main-content',
 };
 
-export const Base = (args: SideNavigationProps) => (
-  <ModalProvider>
-    <div style={{ height: 'var(--top-navigation-height)' }} />
-    <div style={{ display: 'flex' }}>
-      <SideNavigation {...args} />
-      <div style={{ width: '100%', height: '100vh' }} />
-    </div>
-  </ModalProvider>
+const placeHolderContent = (
+  <main id="main-content" style={{ padding: 'var(--cui-spacings-tera)' }}>
+    <Headline as="h1">Main content</Headline>
+    <Body>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent semper
+      sed massa sit amet dapibus. Praesent sed libero in erat malesuada luctus
+      quis non justo. Maecenas massa nisl, facilisis a nunc vitae, accumsan
+      faucibus odio. Pellentesque tempus ex id lacus mattis, non dapibus elit
+      efficitur. Praesent ultricies odio ut velit efficitur, eu mattis lectus
+      blandit. Duis pretium dignissim sapien accumsan semper. Sed hendrerit eros
+      posuere, sodales sem vitae, sagittis mi. Donec finibus enim ut ligula
+      luctus viverra.
+    </Body>
+  </main>
 );
+
+export const Base = (args: SideNavigationProps) => {
+  const [isOpen, setIsOpen] = useState(args.isOpen);
+
+  const onSideNavigationClose = () => {
+    setIsOpen(false);
+  };
+  return (
+    <div style={{ width: '100%', height: '100vh' }}>
+      <div style={{ display: 'flex' }}>
+        <SideNavigation
+          {...args}
+          isOpen={isOpen}
+          onClose={onSideNavigationClose}
+        />
+        {placeHolderContent}
+      </div>
+    </div>
+  );
+};
 
 Base.args = baseArgs;

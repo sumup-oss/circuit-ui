@@ -1,0 +1,8 @@
+{
+  "yearInputLabel": "Έτος",
+  "monthInputLabel": "Μήνας",
+  "dayInputLabel": "Ημέρα",
+  "openCalendarButtonLabel": "Αλλαγή ημερομηνίας",
+  "applyDateButtonLabel": "Εφαρμογή ημερομηνίας",
+  "clearDateButtonLabel": "Εκκαθάριση ημερομηνίας"
+}

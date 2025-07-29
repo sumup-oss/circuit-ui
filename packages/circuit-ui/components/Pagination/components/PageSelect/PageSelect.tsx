@@ -13,9 +13,17 @@
  * limitations under the License.
  */
 
-import { useCallback, FunctionComponent, ChangeEvent, Fragment } from 'react';
+'use client';
 
-import Select, { SelectProps } from '../../../Select/index.js';
+import {
+  Fragment,
+  useCallback,
+  useId,
+  type FunctionComponent,
+  type ChangeEvent,
+} from 'react';
+
+import { Select, type SelectProps } from '../../../Select/index.js';
 
 import classes from './PageSelect.module.css';
 
@@ -37,10 +45,11 @@ export const PageSelect: FunctionComponent<PageSelectProps> = ({
   totalLabel,
   ...props
 }) => {
+  const descriptionId = useId();
   const pageOptions = pages.map((value) => ({ value, label: `${value}` }));
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLSelectElement>) => {
-      onChange(parseInt(event.target.value, 10));
+      onChange(Number.parseInt(event.target.value, 10));
     },
     [onChange],
   );
@@ -54,9 +63,12 @@ export const PageSelect: FunctionComponent<PageSelectProps> = ({
         options={pageOptions}
         onChange={handleChange}
         hideLabel
+        aria-describedby={descriptionId}
       />
       {totalLabel && (
-        <span className={classes.total}>{totalLabel(totalPages)}</span>
+        <span id={descriptionId} className={classes.total}>
+          {totalLabel(totalPages)}
+        </span>
       )}
     </Fragment>
   );

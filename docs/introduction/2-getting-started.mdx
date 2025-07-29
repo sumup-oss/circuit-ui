@@ -12,9 +12,8 @@ import { Meta, Intro } from '../../.storybook/components';
 
 Starting fresh? The best way to bootstrap a new project with Circuit UI is to use one of the app templates:
 
-- [Astro](https://circuit.sumup.com/?path=/docs/packages-astro-template--docs)
-- [Next.js](https://circuit.sumup.com/?path=/docs/packages-cna-template--docs)
-- [Remix](https://circuit.sumup.com/?path=/docs/packages-remix-template--docs)
+- [Astro](https://circuit.sumup.com/?path=/docs/templates-astro--docs)
+- [Next.js](https://circuit.sumup.com/?path=/docs/templates-nextjs--docs)
 
 Each template includes Circuit UI and SumUp's [Foundry](https://github.com/sumup-oss/foundry) frontend toolkit to get you started in minutes!
 
@@ -24,35 +23,36 @@ Already have a project? You can install Circuit UI via `npm` or `yarn`. In your 
 
 ```sh
 # With npm:
-npm install @sumup/circuit-ui
+npm install @sumup-oss/circuit-ui
 
 # With yarn v1
-yarn add @sumup/circuit-ui
+yarn add @sumup-oss/circuit-ui
 ```
 
-Circuit UI relies on some mandatory peer dependencies, namely [@sumup/design-tokens](https://www.npmjs.com/package/@sumup/design-tokens), [@sumup/icons](https://www.npmjs.com/package/@sumup/icons), [@sumup/intl](https://www.npmjs.com/package/@sumup/intl), and [React](https://reactjs.org/). You should install them with the following command:
+Circuit UI relies on some mandatory peer dependencies, namely [@sumup-oss/design-tokens](https://www.npmjs.com/package/@sumup-oss/design-tokens), [@sumup-oss/icons](https://www.npmjs.com/package/@sumup-oss/icons), [@sumup-oss/intl](https://www.npmjs.com/package/@sumup-oss/intl), [React](https://reactjs.org/), and [temporal-polyfill](https://www.npmjs.com/package/temporal-polyfill). You should install them with the following command:
 
 ```sh
 # With npm:
-npm install --save @sumup/design-tokens @sumup/icons @sumup/intl react react-dom
+npm install --save @sumup-oss/design-tokens @sumup-oss/icons @sumup-oss/intl react react-dom temporal-polyfill
 # With yarn v1
-yarn add @sumup/design-tokens @sumup/icons @sumup/intl react react-dom
+yarn add @sumup-oss/design-tokens @sumup-oss/icons @sumup-oss/intl react react-dom temporal-polyfill
 ```
 
-We also recommend installing and configuring [`@sumup/eslint-plugin-circuit-ui`](Packages/eslint-plugin-circuit-ui/Docs) and [`@sumup/stylelint-plugin-circuit-ui`](Packages/stylelint-plugin-circuit-ui/Docs). The plugins will lint [Circuit UI custom properties](Features/Theme/Docs) and include codemods for Circuit UI breaking changes.
+We also recommend installing and configuring [`@sumup-oss/eslint-plugin-circuit-ui`](Packages/eslint-plugin-circuit-ui/Docs) and [`@sumup-oss/stylelint-plugin-circuit-ui`](Packages/stylelint-plugin-circuit-ui/Docs). The plugins will lint [Circuit UI custom properties](Features/Theme/Docs) and include codemods for Circuit UI breaking changes.
 
 ### Importing the styles
 
 ### Configuring the theme
 
-SumUp's default theme is part of the [@sumup/design-tokens](https://www.npmjs.com/package/@sumup/design-tokens) package. Refer to the [Theme documentation](Features/Theme/Docs) to learn how to use and customize the theme.
+SumUp's default theme is part of the [@sumup-oss/design-tokens](https://www.npmjs.com/package/@sumup-oss/design-tokens) package. Refer to the [Theme documentation](Features/Theme/Docs) to learn how to use and customize the theme.
 
-To make the theme available to Circuit UI, import the theme styles _before_ the component styles:
+To make the theme available to Circuit UI, import the fonts and design tokens _before_ the component styles:
 
 ```tsx
 // /app/layout.tsx or /pages/_app.tsx for Next.js
-import '@sumup/design-tokens/light.css';
-import '@sumup/circuit-ui/styles.css';
+import '@sumup-oss/design-tokens/fonts.css';
+import '@sumup-oss/design-tokens/light.css';
+import '@sumup-oss/circuit-ui/styles.css';
 ```
 
 ### Configuring the viewport
@@ -61,15 +61,10 @@ Finally, make sure that the viewport meta tag includes `viewport-fit=cover`, and
 
 ```tsx
 // /app/layout.tsx or /pages/_app.tsx for Next.js
-import '@sumup/design-tokens/light.css';
-import '@sumup/circuit-ui/styles.css';
+import '@sumup-oss/design-tokens/fonts.css';
+import '@sumup-oss/design-tokens/light.css';
+import '@sumup-oss/circuit-ui/styles.css';
 import Head from 'next/head';
-
-const Layout = css`
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(
-      safe-area-inset-bottom
-    ) env(safe-area-inset-left);
-`;
 
 export default function App() {
   return (
@@ -80,7 +75,14 @@ export default function App() {
           content="width=device-width, initial-scale=1.0, viewport-fit=cover"
         />
       </Head>
-      <Layout>{/* Your app */}</Layout>
+      <body
+        style={{
+          padding:
+            'env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)',
+        }}
+      >
+        {/* Your app */}
+      </body>
     </>
   );
 }

@@ -16,18 +16,20 @@
 /* istanbul ignore file */
 /* eslint-disable import/no-extraneous-dependencies */
 
-import { ReactNode, useState } from 'react';
+'use client';
+
+import { useState, type ReactNode } from 'react';
 import {
-  SwipeableProps,
   useSwipeable,
-  SwipeEventData,
-  SwipeDirections,
+  type SwipeableProps,
+  type SwipeEventData,
+  type SwipeDirections,
 } from 'react-swipeable';
 
-import Image from '../../Image/index.js';
-import Button from '../../Button/index.js';
-import Step, { StepProps } from '../Step.js';
-import { Actions } from '../types.js';
+import { Image } from '../../Image/index.js';
+import { Button } from '../../Button/index.js';
+import { Step, type StepProps } from '../Step.js';
+import type { Actions } from '../types.js';
 import { clsx } from '../../../styles/clsx.js';
 
 import classes from './YesOrNoSlider.module.css';
@@ -46,14 +48,11 @@ const Swipeable = ({
   return <div {...handlers}>{children}</div>;
 };
 
-interface YesOrNoSliderProps extends StepProps {
-  images: string[];
+export interface YesOrNoSliderProps extends StepProps {
+  images: { src: string; alt: string }[];
 }
 
-export default function YesOrNoSlider({
-  images,
-  ...stepProps
-}: YesOrNoSliderProps): JSX.Element {
+export function YesOrNoSlider({ images, ...stepProps }: YesOrNoSliderProps) {
   const [swipe, setSwipe] = useState<SwipeEventData | null>(null);
   const handleSwipe = (eventData: SwipeEventData, actions: Actions) => {
     setSwipe(eventData);
@@ -85,8 +84,8 @@ export default function YesOrNoSlider({
         >
           <Swipeable onSwiped={(eventData) => handleSwipe(eventData, actions)}>
             <Image
-              src={images[state.step]}
-              alt="A random picture from Unsplash"
+              src={images[state.step].src}
+              alt={images[state.step].alt}
               className={clsx(classes.image, swipe?.dir && classes.swipe)}
             />
           </Swipeable>

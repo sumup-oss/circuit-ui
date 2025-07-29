@@ -13,41 +13,25 @@
  * limitations under the License.
  */
 
-import {
-  InputHTMLAttributes,
-  forwardRef,
-  useEffect,
-  useId,
-  useRef,
-} from 'react';
-import { Checkmark } from '@sumup/icons';
+'use client';
+
+import { forwardRef, useId } from 'react';
 
 import { FieldValidationHint, FieldWrapper } from '../Field/index.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
-import { applyMultipleRefs } from '../../util/refs.js';
-import { clsx } from '../../styles/clsx.js';
-import utilityClasses from '../../styles/utility.js';
+import { idx } from '../../util/idx.js';
 
-import { IndeterminateIcon } from './IndeterminateIcon.js';
+import { CheckboxInput, type CheckboxInputProps } from './CheckboxInput.js';
 import classes from './Checkbox.module.css';
 
-export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface CheckboxProps extends Omit<CheckboxInputProps, 'align'> {
   /**
    * A clear and concise description of the input's purpose.
    */
   label: string;
-  /**
-   * Marks the input as invalid.
-   */
-  invalid?: boolean;
-  /**
-   * Marks the input as indeterminate. This is presentational only, the value
-   * of an indeterminate checkbox is not included in form submissions.
-   */
-  indeterminate?: boolean;
   /**
    * An information or error message, displayed below the checkbox.
    */
@@ -66,9 +50,6 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (
     {
       label,
-      value,
-      'id': customId,
-      name,
       disabled,
       validationHint,
       optionalLabel,
@@ -80,23 +61,13 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       children,
       ...props
     },
-    passedRef,
+    ref,
   ) => {
-    const localRef = useRef<HTMLInputElement>(null);
-
-    useEffect(() => {
-      if (localRef.current) {
-        localRef.current.indeterminate = indeterminate;
-      }
-      // Because it came from a props, we are keeping the `indeterminate` state even if the `checked` one is changed:
-    }, [props.checked, indeterminate]);
-
-    const id = useId();
-    const checkboxId = customId || id;
     const validationHintId = useId();
-    const descriptionIds = `${
-      descriptionId ? `${descriptionId} ` : ''
-    }${validationHintId}`;
+    const descriptionIds = idx(
+      descriptionId,
+      validationHint && validationHintId,
+    );
 
     if (
       process.env.NODE_ENV !== 'production' &&
@@ -111,32 +82,22 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 
     return (
       <FieldWrapper className={className} style={style} disabled={disabled}>
-        <input
+        <CheckboxInput
           {...props}
-          id={checkboxId}
-          name={name}
-          value={value}
-          type="checkbox"
-          disabled={disabled}
-          ref={applyMultipleRefs(passedRef, localRef)}
+          ref={ref}
           aria-describedby={descriptionIds}
-          aria-checked={indeterminate ? 'mixed' : undefined}
-          className={clsx(
-            classes.base,
-            invalid && classes.invalid,
-            utilityClasses.hideVisually,
-          )}
-        />
-        <label htmlFor={checkboxId} className={classes.label}>
+          invalid={invalid}
+          disabled={disabled}
+          indeterminate={indeterminate}
+          align="start"
+        >
           <span className={classes['label-text']}>
             {label || children}
             {optionalLabel ? (
               <span className={classes.optional}>{` (${optionalLabel})`}</span>
             ) : null}
           </span>
-          <Checkmark aria-hidden="true" data-symbol="checked" />
-          <IndeterminateIcon aria-hidden="true" data-symbol="indeterminate" />
-        </label>
+        </CheckboxInput>
         <FieldValidationHint
           id={validationHintId}
           disabled={disabled}

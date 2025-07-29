@@ -13,36 +13,36 @@
  * limitations under the License.
  */
 
-import { Fragment } from 'react';
-import ReactModal from 'react-modal';
-import { ChevronDown } from '@sumup/icons';
+'use client';
 
-import {
-  BaseModalProps,
-  createUseModal,
-  ModalComponent,
-} from '../../../ModalContext/index.js';
-import { StackContext } from '../../../StackContext/index.js';
-import CloseButton from '../../../CloseButton/index.js';
+import { Fragment, useCallback, useState } from 'react';
+import { ChevronDown } from '@sumup-oss/icons';
+
 import { useCollapsible } from '../../../../hooks/useCollapsible/index.js';
 import { useFocusList } from '../../../../hooks/useFocusList/index.js';
-import { PrimaryLinkProps } from '../../types.js';
+import type { PrimaryLinkProps } from '../../types.js';
 import { PrimaryLink } from '../PrimaryLink/index.js';
 import { SecondaryLinks } from '../SecondaryLinks/index.js';
-import { Require } from '../../../../types/util.js';
-import { ClickEvent } from '../../../../types/events.js';
+import type { Require } from '../../../../types/util.js';
+import type { ClickEvent } from '../../../../types/events.js';
 import {
   ComponentsContext,
-  ComponentsContextType,
+  type ComponentsContextType,
 } from '../../../ComponentsContext/index.js';
 import { defaultComponents } from '../../../ComponentsContext/ComponentsContext.js';
 import { clsx } from '../../../../styles/clsx.js';
+import {
+  Dialog,
+  type DialogProps,
+  type PublicDialogProps,
+} from '../../../Dialog/Dialog.js';
+import { sharedClasses } from '../../../../styles/shared.js';
 
 import classes from './MobileNavigation.module.css';
 
 const TRANSITION_DURATION = 120;
 
-export interface MobileNavigationProps extends BaseModalProps {
+export interface MobileNavigationProps extends PublicDialogProps {
   /**
    * A collection of links with nested secondary groups.
    */
@@ -63,6 +63,10 @@ export interface MobileNavigationProps extends BaseModalProps {
    * **DO NOT USE.** This prop is not stable and can be removed at any time.
    */
   UNSAFE_components?: ComponentsContextType;
+  /**
+   * Callback function invoked when the mobile navigation closes.
+   */
+  onClose: DialogProps['onCloseEnd'];
 }
 
 function combineClickHandlers(
@@ -83,8 +87,8 @@ function Group({
   onClose,
   ...props
 }: Require<PrimaryLinkProps, 'secondaryGroups'> & {
-  onClose: BaseModalProps['onClose'];
-}): JSX.Element {
+  onClose: DialogProps['onCloseEnd'];
+}) {
   const { getButtonProps, getContentProps } =
     useCollapsible<HTMLUListElement>();
 
@@ -120,78 +124,73 @@ function Group({
   );
 }
 
-/**
- * TODO: Update description 👇🏻
- * The modal component displays self-contained tasks in a focused window that
- * overlays the page content.
- * Built on top of [`react-modal`](https://reactcommunity.org/react-modal/).
- */
-export const MobileNavigation: ModalComponent<MobileNavigationProps> = ({
+export const MobileNavigation = ({
   onClose,
   closeButtonLabel,
   primaryLinks,
   primaryNavigationLabel,
   UNSAFE_components = defaultComponents,
   ...props
-}) => {
+}: MobileNavigationProps) => {
   const focusProps = useFocusList();
 
-  const reactModalProps = {
-    className: {
-      base: classes.base,
-      afterOpen: classes.open,
-      beforeClose: classes.closed,
-    },
-    overlayClassName: {
-      base: classes.overlay,
-      afterOpen: classes['overlay-open'],
-      beforeClose: classes['overlay-closed'],
-    },
-    onRequestClose: onClose,
-    closeTimeoutMS: TRANSITION_DURATION,
-    shouldCloseOnOverlayClick: true,
-    shouldCloseOnEsc: true,
-    ...props,
-  };
+  const [isClosing, setIsClosing] = useState(false);
+
+  const handleDialogCloseEnd = useCallback(() => {
+    setIsClosing(false);
+    onClose?.();
+  }, [onClose]);
+
+  const handleDialogCloseStart = useCallback(() => {
+    setIsClosing(true);
+  }, []);
 
   return (
     <ComponentsContext.Provider value={UNSAFE_components}>
-      <StackContext.Provider value={'var(--cui-z-index-modal)'}>
-        <ReactModal {...reactModalProps}>
-          <div className={classes.content}>
-            <div className={classes.header}>
-              <CloseButton onClick={onClose}>{closeButtonLabel}</CloseButton>
-            </div>
-
-            <nav aria-label={primaryNavigationLabel}>
-              <ul className={classes.list}>
-                {primaryLinks.map(({ secondaryGroups, onClick, ...link }) => (
-                  <li key={link.label}>
-                    {secondaryGroups && secondaryGroups.length > 0 ? (
-                      <Group
-                        {...link}
-                        secondaryGroups={secondaryGroups}
-                        onClose={onClose}
-                        {...focusProps}
-                      />
-                    ) : (
-                      <PrimaryLink
-                        {...link}
-                        {...focusProps}
-                        onClick={combineClickHandlers(onClick, onClose)}
-                      />
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </div>
-        </ReactModal>
-      </StackContext.Provider>
+      <Dialog
+        onCloseStart={handleDialogCloseStart}
+        onCloseEnd={handleDialogCloseEnd}
+        isModal
+        className={clsx(
+          classes.base,
+          isClosing
+            ? sharedClasses.animationSlideDownOut
+            : sharedClasses.animationSlideDownIn,
+        )}
+        closeButtonLabel={closeButtonLabel}
+        animationDuration={120} /* .12s */
+        {...props}
+      >
+        <div className={classes.content}>
+          <nav
+            aria-label={primaryNavigationLabel}
+            className={classes.navigation}
+          >
+            <ul className={classes.list}>
+              {primaryLinks.map(({ secondaryGroups, onClick, ...link }) => (
+                <li key={link.label}>
+                  {secondaryGroups && secondaryGroups.length > 0 ? (
+                    <Group
+                      {...link}
+                      secondaryGroups={secondaryGroups}
+                      onClose={onClose}
+                      {...focusProps}
+                    />
+                  ) : (
+                    <PrimaryLink
+                      {...link}
+                      {...focusProps}
+                      onClick={combineClickHandlers(onClick, onClose)}
+                    />
+                  )}
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      </Dialog>
     </ComponentsContext.Provider>
   );
 };
 
 MobileNavigation.TRANSITION_DURATION = TRANSITION_DURATION;
-
-export const useMobileNavigation = createUseModal(MobileNavigation);

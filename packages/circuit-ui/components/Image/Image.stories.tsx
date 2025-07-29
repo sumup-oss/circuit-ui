@@ -13,11 +13,12 @@
  * limitations under the License.
  */
 
-import { Image, ImageProps } from './Image.js';
+import { Image, type ImageProps } from './Image.js';
 
 export default {
   title: 'Components/Image',
   component: Image,
+  tags: ['status:stable'],
   argTypes: {
     src: { control: 'text' },
     alt: { control: 'text' },
@@ -27,6 +28,6 @@ export default {
 export const Base = (args: ImageProps) => <Image {...args} />;
 
 Base.args = {
-  src: '/images/illustration-waves.jpg',
-  alt: 'Aerial photo of turbulent blue-turquoise ocean waves',
+  src: '/images/sumup-tablet-insights.jpg',
+  alt: 'A tablet shows sales insights in the SumUp POS app. On the table next to it are a SumUp Solo card reader with printer and two bowls with fruits',
 };

@@ -18,6 +18,7 @@ import { describe, expect, it, vi } from 'vitest';
 import {
   isArray,
   isFunction,
+  isHTMLElement,
   isNil,
   isNumber,
   isObject,
@@ -132,6 +133,12 @@ describe('type check', () => {
       expect(actual).toBeFalsy();
     });
 
+    it('should return false for a node list', () => {
+      const nodeList = document.querySelectorAll('div');
+      const actual = isArray(nodeList);
+      expect(actual).toBeFalsy();
+    });
+
     it('should return false for a function', () => {
       const actual = isArray(vi.fn());
       expect(actual).toBeFalsy();
@@ -202,7 +209,32 @@ describe('type check', () => {
     });
 
     it('should return false for NaN', () => {
-      const actual = isNil(NaN);
+      const actual = isNil(Number.NaN);
+      expect(actual).toBeFalsy();
+    });
+  });
+
+  describe('isHTMLElement', () => {
+    it('should return true for an HTML element', () => {
+      const element = document.createElement('div');
+      const actual = isHTMLElement(element);
+      expect(actual).toBeTruthy();
+    });
+
+    it('should return false for an array of HTML elements', () => {
+      const elements = [document.createElement('div')];
+      const actual = isHTMLElement(elements);
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false for a node list', () => {
+      const nodeList = document.querySelectorAll('div');
+      const actual = isHTMLElement(nodeList);
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false for a function', () => {
+      const actual = isHTMLElement(vi.fn());
       expect(actual).toBeFalsy();
     });
   });

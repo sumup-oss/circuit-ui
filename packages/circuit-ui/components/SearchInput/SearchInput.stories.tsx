@@ -13,26 +13,25 @@
  * limitations under the License.
  */
 
-import { useState, ChangeEvent } from 'react';
+import { useState, type ChangeEvent } from 'react';
 
-import type { InputElement } from '../Input/index.js';
-
-import { SearchInput, SearchInputProps } from './SearchInput.js';
+import { SearchInput, type SearchInputProps } from './SearchInput.js';
 
 export default {
-  title: 'Forms/Input/SearchInput',
+  title: 'Forms/SearchInput',
   component: SearchInput,
+  tags: ['status:stable'],
   argTypes: {
     placeholder: { control: 'text' },
   },
 };
 
-export const Base = (args: SearchInputProps): JSX.Element => {
+export const Base = (args: SearchInputProps) => {
   const [value, setValue] = useState('');
 
   const handleChange = ({
     target: { value: inputValue },
-  }: ChangeEvent<InputElement>) => {
+  }: ChangeEvent<HTMLInputElement>) => {
     setValue(inputValue);
   };
 
@@ -46,7 +45,6 @@ export const Base = (args: SearchInputProps): JSX.Element => {
       value={value}
       onClear={handleClear}
       onChange={handleChange}
-      clearLabel="Clear"
     />
   );
 };

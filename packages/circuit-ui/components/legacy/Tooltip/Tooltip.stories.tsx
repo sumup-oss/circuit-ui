@@ -13,16 +13,17 @@
  * limitations under the License.
  */
 
-import { Info } from '@sumup/icons';
+import { Info } from '@sumup-oss/icons';
 
 import { Stack } from '../../../../../.storybook/components/index.js';
 import styled from '../../../styles/styled.js';
 
-import { Tooltip, TooltipProps } from './Tooltip.js';
+import { Tooltip, type TooltipProps } from './Tooltip.js';
 
 export default {
-  title: 'Components/Tooltip',
+  title: 'Components/Tooltip/Legacy',
   component: Tooltip,
+  tags: ['status:deprecated'],
 };
 
 const TooltipContainer = styled('div')`

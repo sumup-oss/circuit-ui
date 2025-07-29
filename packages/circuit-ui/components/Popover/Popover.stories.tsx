@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2025, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,61 +13,92 @@
  * limitations under the License.
  */
 
-import { action } from '@storybook/addon-actions';
-import { Add, Edit, Delete } from '@sumup/icons';
-import { useState, ReactNode } from 'react';
+import { type ReactNode, useState } from 'react';
+import { NotificationCenter } from '@sumup-oss/icons';
 
-import Button from '../Button/index.js';
+import { IconButton } from '../Button/index.js';
+import { Headline } from '../Headline/index.js';
+import { Body } from '../Body/index.js';
+import { Hr } from '../Hr/index.js';
+import { modes } from '../../../../.storybook/modes.js';
 
-import { Popover, PopoverProps } from './Popover.js';
+import { Popover, type PopoverProps } from './Popover.js';
 
 export default {
   title: 'Components/Popover',
   component: Popover,
+  tags: ['status:stable'],
+  chromatic: {
+    modes: {
+      mobile: modes.smallMobile,
+      desktop: modes.desktop,
+    },
+    pauseAnimationAtEnd: true,
+  },
+  parameters: {
+    layout: 'padded',
+  },
   argTypes: {
     children: { control: 'text' },
   },
 };
 
-const actions = [
-  {
-    onClick: action('Button Click'),
-    children: 'Add',
-    icon: Add,
-  },
-  {
-    onClick: action('Button Click'),
-    children: 'Edit',
-    icon: Edit,
-  },
-  { type: 'divider' },
-  {
-    onClick: action('Button Click'),
-    children: 'Delete',
-    icon: Delete,
-    destructive: true,
-  },
-];
+const PopoverContent = (
+  <div>
+    <Headline as="h3" size="s">
+      Notifications
+    </Headline>
+    <div>
+      <Body as="p">Your monthly payment is due in 3 days 💸</Body>
+      <Body as="p" size="s" color="subtle">
+        3 hours ago
+      </Body>
+      <Hr />
+      <Body as="p">Review and confirm your contact information.</Body>
+      <Body as="p" size="s" color="subtle">
+        16 hours ago
+      </Body>
+      <Hr />
+      <Body as="p">Find out what&apos;s new in your app ✨</Body>
+      <Body as="p" size="s" color="subtle">
+        21 hours ago
+      </Body>
+    </div>
+  </div>
+);
 
-// This wrapper is necessary because the Popover's floating element renders
-// in a Portal, and Chromatic excludes it from screenshots by default.
 function PopoverWrapper({ children }: { children: ReactNode }) {
-  return <div style={{ width: 200, height: 250 }}>{children}</div>;
+  return (
+    <div
+      style={{
+        height: '350px',
+        width: '100%',
+        display: 'flex',
+        alignItems: 'start',
+        justifyContent: 'center',
+      }}
+    >
+      {children}
+    </div>
+  );
 }
-
-export const Base = (args: PopoverProps): JSX.Element => {
-  const [isOpen, setOpen] = useState(true);
-
+export const Base = (args: PopoverProps) => {
+  const [isOpen, setIsOpen] = useState(true);
   return (
     <PopoverWrapper>
       <Popover
         {...args}
         isOpen={isOpen}
-        onToggle={setOpen}
+        onToggle={setIsOpen}
         component={(props) => (
-          <Button size="s" variant="secondary" {...props}>
-            Open popover
-          </Button>
+          <IconButton
+            size="s"
+            variant="secondary"
+            icon={NotificationCenter}
+            {...props}
+          >
+            Notifications
+          </IconButton>
         )}
       />
     </PopoverWrapper>
@@ -75,29 +106,12 @@ export const Base = (args: PopoverProps): JSX.Element => {
 };
 
 Base.args = {
-  actions,
+  children: PopoverContent,
 };
 
-export const Offset = (args: PopoverProps): JSX.Element => {
-  const [isOpen, setOpen] = useState(true);
-
-  return (
-    <PopoverWrapper>
-      <Popover
-        {...args}
-        isOpen={isOpen}
-        onToggle={setOpen}
-        component={(props) => (
-          <Button size="s" variant="secondary" {...props}>
-            Open popover
-          </Button>
-        )}
-      />
-    </PopoverWrapper>
-  );
-};
+export const Offset = (args: PopoverProps) => <Base {...args} />;
 
 Offset.args = {
-  actions,
+  children: PopoverContent,
   offset: 20,
 };

@@ -39,8 +39,8 @@ describe('Select', () => {
     const { container } = render(
       <Select {...defaultProps} className={className} />,
     );
-    const select = container.querySelector('select');
-    expect(select?.className).toContain(className);
+    const wrapper = container.querySelector('div');
+    expect(wrapper?.className).toContain(className);
   });
 
   it('should forward a ref', () => {
@@ -106,7 +106,7 @@ describe('Select', () => {
         {...defaultProps}
         placeholder={placeholder}
         value={value}
-        onChange={vi.fn}
+        onChange={vi.fn()}
       />,
     );
     const selectEl = screen.getByRole('combobox');

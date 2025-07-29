@@ -14,19 +14,22 @@
  */
 
 import { useState } from 'react';
-import { action } from '@storybook/addon-actions';
-import { Shop, SumUpLogo } from '@sumup/icons';
+import { action } from 'storybook/actions';
+import { Shop, SumUpLogo } from '@sumup-oss/icons';
 
 import { modes } from '../../../../.storybook/modes.js';
 import { SideNavigation } from '../SideNavigation/index.js';
 import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories.js';
-import { ModalProvider } from '../ModalContext/index.js';
+import { Body } from '../Body/index.js';
+import type { HamburgerProps } from '../Hamburger/Hamburger.js';
+import { Headline } from '../Headline/index.js';
 
-import { TopNavigation, TopNavigationProps } from './TopNavigation.js';
+import { TopNavigation, type TopNavigationProps } from './TopNavigation.js';
 
 export default {
   title: 'Navigation/TopNavigation',
   component: TopNavigation,
+  tags: ['status:stable'],
   parameters: {
     layout: 'fullscreen',
     chromatic: {
@@ -41,6 +44,39 @@ export default {
   excludeStories: /.*Args$/,
 };
 
+function CustomComponent() {
+  return (
+    <Body
+      size="s"
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        height: '100%',
+        padding: '0 var(--cui-spacings-mega)',
+        textAlign: 'center',
+      }}
+    >
+      Test account
+    </Body>
+  );
+}
+
+const placeHolderContent = (
+  <main id="main-content" style={{ padding: 'var(--cui-spacings-tera)' }}>
+    <Headline as="h1">Main content</Headline>
+    <Body>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent semper
+      sed massa sit amet dapibus. Praesent sed libero in erat malesuada luctus
+      quis non justo. Maecenas massa nisl, facilisis a nunc vitae, accumsan
+      faucibus odio. Pellentesque tempus ex id lacus mattis, non dapibus elit
+      efficitur. Praesent ultricies odio ut velit efficitur, eu mattis lectus
+      blandit. Duis pretium dignissim sapien accumsan semper. Sed hendrerit eros
+      posuere, sodales sem vitae, sagittis mi. Donec finibus enim ut ligula
+      luctus viverra.
+    </Body>
+  </main>
+);
+
 export const baseArgs: TopNavigationProps = {
   isLoading: false,
   logo: (
@@ -53,31 +89,11 @@ export const baseArgs: TopNavigationProps = {
       <SumUpLogo />
     </a>
   ),
-  user: {
-    name: 'Jane Doe',
-    id: 'ID: AC3YULT8',
-  },
-  profileMenu: {
-    label: 'Open profile menu',
-    actions: [
-      {
-        onClick: action('View profile'),
-        children: 'View profile',
-      },
-      {
-        onClick: action('Settings'),
-        children: 'Settings',
-      },
-      { type: 'divider' },
-      {
-        onClick: action('Logout'),
-        children: 'Logout',
-        destructive: true,
-      },
-    ],
-    className: 'custom-class-name',
-  },
   links: [
+    {
+      key: 'custom',
+      children: <CustomComponent />,
+    },
     {
       icon: Shop,
       label: 'Shop',
@@ -85,39 +101,39 @@ export const baseArgs: TopNavigationProps = {
       onClick: action('Shop'),
     },
   ],
+  skipNavigationHref: '#main-content',
+  skipNavigationLabel: 'Skip navigation',
 };
 
-export const Base = (args: TopNavigationProps) => <TopNavigation {...args} />;
+export const Base = (args: TopNavigationProps) => (
+  <>
+    <TopNavigation {...args} />
+    {placeHolderContent}
+  </>
+);
 
 Base.args = baseArgs;
 
 export const WithSideNavigation = (args: TopNavigationProps) => {
   const [isSideNavigationOpen, setSideNavigationOpen] = useState(false);
   const hamburger = {
-    ...args.hamburger!,
+    ...(args.hamburger as HamburgerProps),
     isActive: isSideNavigationOpen,
     onClick: () => setSideNavigationOpen((prev) => !prev),
   };
   return (
-    <ModalProvider>
+    <>
       <TopNavigation {...args} hamburger={hamburger} />
       <div style={{ display: 'flex' }}>
         <SideNavigation
           {...sideNavigationProps}
           isOpen={isSideNavigationOpen}
+          skipNavigationHref={undefined}
           onClose={() => setSideNavigationOpen(false)}
         />
-        <div
-          style={{
-            backgroundColor: 'lightgrey',
-            width: '100%',
-            minHeight: '300px',
-            margin: '1.5rem',
-            borderRadius: '1rem',
-          }}
-        />
+        {placeHolderContent}
       </div>
-    </ModalProvider>
+    </>
   );
 };
 

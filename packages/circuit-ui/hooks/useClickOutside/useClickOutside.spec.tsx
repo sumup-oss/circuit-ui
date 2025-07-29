@@ -13,20 +13,44 @@
  * limitations under the License.
  */
 
-import { describe, expect, it, vi } from 'vitest';
+import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import { useRef, useState } from 'react';
 
-import { render, userEvent } from '../../util/test-utils.js';
+import { render, userEvent, screen } from '../../util/test-utils.js';
 
 import { useClickOutside } from './useClickOutside.js';
 
 describe('useClickOutside', () => {
+  beforeAll(() => {
+    vi.spyOn(document, 'addEventListener');
+  });
+
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
   function MockComponent({ onClickOutside = vi.fn(), isActive = true }) {
     const ref = useRef<HTMLButtonElement>(null);
 
     useClickOutside(ref, onClickOutside, isActive);
 
     return <button ref={ref}>Click outside</button>;
+  }
+
+  function MockComponents({ onClickOutside = vi.fn(), isActive = true }) {
+    const button = useRef<HTMLButtonElement>(null);
+    const list = useRef<HTMLUListElement>(null);
+
+    useClickOutside([button, list], onClickOutside, isActive);
+
+    return (
+      <div>
+        <button ref={button}>Click outside</button>
+        <ul ref={list}>
+          <li>Item</li>
+        </ul>
+      </div>
+    );
   }
 
   it('should call the callback when clicking outside the element', async () => {
@@ -37,13 +61,29 @@ describe('useClickOutside', () => {
     expect(onClickOutside).toHaveBeenCalledTimes(1);
   });
 
+  it('should call the callback when clicking outside the elements', async () => {
+    const onClickOutside = vi.fn();
+    render(<MockComponents onClickOutside={onClickOutside} />);
+    await userEvent.click(document.body);
+
+    expect(onClickOutside).toHaveBeenCalledTimes(1);
+  });
+
   it('should not call the callback when clicking (inside) the element', async () => {
     const onClickOutside = vi.fn();
-    const { getByRole } = render(
-      <MockComponent onClickOutside={onClickOutside} />,
-    );
+    render(<MockComponent onClickOutside={onClickOutside} />);
 
-    await userEvent.click(getByRole('button'));
+    await userEvent.click(screen.getByRole('button'));
+
+    expect(onClickOutside).not.toHaveBeenCalled();
+  });
+
+  it('should not call the callback when clicking (inside) the elements', async () => {
+    const onClickOutside = vi.fn();
+    render(<MockComponents onClickOutside={onClickOutside} />);
+
+    await userEvent.click(screen.getByRole('button'));
+    await userEvent.click(screen.getByRole('list'));
 
     expect(onClickOutside).not.toHaveBeenCalled();
   });
@@ -68,11 +108,9 @@ describe('useClickOutside', () => {
     }
 
     const onClickOutside = vi.fn();
-    const { getByRole } = render(
-      <MockRemoveComponent onClickOutside={onClickOutside} />,
-    );
+    render(<MockRemoveComponent onClickOutside={onClickOutside} />);
 
-    await userEvent.click(getByRole('button'));
+    await userEvent.click(screen.getByRole('button'));
 
     expect(onClickOutside).not.toHaveBeenCalled();
   });
@@ -84,5 +122,17 @@ describe('useClickOutside', () => {
     await userEvent.click(document.body);
 
     expect(onClickOutside).not.toHaveBeenCalled();
+  });
+
+  it('should not re-register the event listeners on re-render with unchanged args', () => {
+    const onClickOutside = vi.fn();
+    const { rerender } = render(
+      <MockComponents onClickOutside={onClickOutside} isActive />,
+    );
+
+    rerender(<MockComponents onClickOutside={onClickOutside} isActive />);
+
+    // `mousedown` and `click`
+    expect(document.addEventListener).toHaveBeenCalledTimes(2);
   });
 });

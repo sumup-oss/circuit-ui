@@ -19,29 +19,20 @@ import { css } from '@emotion/react';
 
 import styled from '../../../styles/styled.js';
 import type { StyleProps } from '../../../styles/styled.js';
-import { typography, shadow } from '../../../styles/style-mixins.js';
+import { typography } from '../../../styles/style-mixins.js';
 
 const baseStyles = ({ theme }: StyleProps) => css`
   display: inline-block;
-  width: auto;
-  max-width: 280px;
-  min-width: 120px;
-  background-color: var(--cui-bg-strong);
-  color: var(--cui-fg-on-strong);
-  border-radius: ${theme.borderRadius.bit};
+  width: max-content;
+  max-width: 360px;
+  background-color: var(--cui-bg-elevated);
+  border-radius: ${theme.borderRadius.byte};
+  border: ${theme.borderWidth.kilo} solid var(--cui-border-subtle);
+  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 8%);
   padding: ${theme.spacings.byte} ${theme.spacings.kilo};
   position: absolute;
   z-index: ${theme.zIndex.tooltip};
   transition: opacity 0.3s;
-
-  &::after {
-    display: block;
-    content: '';
-    width: 0;
-    height: 0;
-    position: absolute;
-    border: ${theme.spacings.byte} solid transparent;
-  }
 `;
 
 const positionMap: Record<Position, Position> = {
@@ -56,18 +47,11 @@ export type Position = 'top' | 'right' | 'bottom' | 'left';
 const getPositionStyles = ({
   theme,
   position,
-}: StyleProps & { position: Position }) => {
+}: StyleProps & Required<TooltipProps>) => {
   const absolutePosition = positionMap[position];
 
-  // The first absolute position rule is a fallback.
   return `
-    ${absolutePosition}: 100%;
-    ${absolutePosition}: calc(100% + ${theme.spacings.kilo});
-
-    &::after {
-      ${position}: 100%;
-      border-${position}-color: var(--cui-bg-strong);
-    }
+    ${absolutePosition}: calc(100% + ${theme.spacings.bit});
   `;
 };
 
@@ -89,18 +73,13 @@ const getAlignmentStyles = ({
   theme,
   position,
   align,
-}: StyleProps & TooltipProps) => {
+}: StyleProps & Required<TooltipProps>) => {
   const isHorizontal = position === 'bottom' || position === 'top';
 
   if (isHorizontal && isVerticalAlignment(align)) {
     return `
       left: 50%;
       transform: translateX(-50%);
-
-      &::after {
-        left: 50%;
-        transform: translateX(-50%);
-      }
     `;
   }
 
@@ -108,11 +87,6 @@ const getAlignmentStyles = ({
     return `
       top: 50%;
       transform: translateY(-50%);
-
-      &::after {
-        top: 50%;
-        transform: translateY(-50%);
-      }
     `;
   }
 
@@ -124,10 +98,6 @@ const getAlignmentStyles = ({
   return `
     ${absolutePosition}: 50%;
     ${absolutePosition}: calc(50% - (${theme.spacings.mega} + ${theme.spacings.bit}));
-
-    &::after {
-      ${absolutePosition}: ${theme.spacings.kilo};
-    }
   `;
   /* eslint-enable max-len */
 };
@@ -138,7 +108,7 @@ const positionAndAlignStyles = ({
   align = 'center',
 }: StyleProps & TooltipProps) => css`
   ${getAlignmentStyles({ theme, position, align })};
-  ${getPositionStyles({ theme, position })};
+  ${getPositionStyles({ theme, position, align })};
 `;
 
 export interface TooltipProps {
@@ -147,11 +117,14 @@ export interface TooltipProps {
 }
 
 /**
- * @legacy
+ * @deprecated
+ *
+ * Use the [`Tooltip`](https://circuit.sumup.com/?path=/docs/components-tooltip--docs)
+ * or [`Toggletip`](https://circuit.sumup.com/?path=/docs/components-toggletip--docs) components instead
+ * ([migration guide](https://circuit.sumup.com/?path=/docs/components-tooltip-legacy--docs#migration)).
  */
 export const Tooltip = styled.div<TooltipProps>(
   typography('two'),
   baseStyles,
-  shadow,
   positionAndAlignStyles,
 );

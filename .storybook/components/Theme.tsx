@@ -13,39 +13,44 @@
  * limitations under the License.
  */
 
-import { ComponentType, useEffect, useState } from 'react';
+import { useEffect, useState, type ComponentType } from 'react';
 import { ThemeProvider, useTheme } from '@emotion/react';
-import { Unstyled } from '@storybook/addon-docs';
-import { light, schema } from '@sumup/design-tokens';
-import { SumUpLogomark } from '@sumup/icons';
+import { Unstyled } from '@storybook/addon-docs/blocks';
+import { light, schema } from '@sumup-oss/design-tokens';
+import { SumUpLogomark } from '@sumup-oss/icons';
+import { Anchor } from '../../packages/circuit-ui/components/Anchor/Anchor.js';
+import { Body } from '../../packages/circuit-ui/components/Body/Body.js';
+import { Badge } from '../../packages/circuit-ui/components/Badge/Badge.js';
 import {
-  Anchor,
   Table,
-  TableHeaderCell,
-  TableRow,
-  ToastProvider,
-  useNotificationToast,
-} from '../../packages/circuit-ui/index.js';
+  type TableHeaderCell,
+  type TableRow,
+} from '../../packages/circuit-ui/components/Table/index.js';
+import { Tooltip } from '../../packages/circuit-ui/components/Tooltip/Tooltip.js';
+import { ToastProvider } from '../../packages/circuit-ui/components/ToastContext/ToastContext.js';
+import { useNotificationToast } from '../../packages/circuit-ui/components/NotificationToast//NotificationToast.js';
 
 type CustomPropertyName = `--cui-${string}`;
 type CustomPropertyValue = string;
-type CustomProperty = [CustomPropertyName, CustomPropertyValue];
+type CustomProperty = {
+  name: CustomPropertyName;
+  value: CustomPropertyValue;
+  deprecation?: { replacement: CustomPropertyName };
+};
 type CustomProperties = CustomProperty[];
 
 type PreviewProps = { name: CustomPropertyName };
 type PreviewComponent = ComponentType<PreviewProps>;
 
-function filterCustomProperties(
-  namespace: string,
-  type?: string,
-): CustomPropertyName[] {
-  return schema
-    .filter((token) => {
-      const isNamespace = token.name.startsWith(`--cui-${namespace}`);
-      const isType = type ? token.type === type : true;
-      return isNamespace && isType;
-    })
-    .map((token) => token.name);
+function filterCustomProperties(namespace: string | string[], type?: string) {
+  return schema.filter((token) => {
+    const isNamespace =
+      typeof namespace === 'string'
+        ? token.name.startsWith(`--cui-${namespace}`)
+        : namespace.some((ns) => token.name.startsWith(`--cui-${ns}`));
+    const isType = type ? token.type === type : true;
+    return isNamespace && isType;
+  });
 }
 
 function getCustomPropertyValue(name: CustomPropertyName): CustomPropertyValue {
@@ -57,7 +62,7 @@ function CopyButton({ name }: { name: CustomPropertyName }) {
   return (
     <Anchor
       style={{ marginLeft: '1rem' }}
-      size="two"
+      size="s"
       onClick={() =>
         navigator.clipboard
           .writeText(name)
@@ -73,17 +78,55 @@ function getRows(
   customProperties: CustomProperties,
   Preview?: PreviewComponent,
 ) {
-  return customProperties.map(([name, value]) => {
+  return customProperties.map(({ name, value, deprecation }) => {
     const row: TableRow = [
       {
         children: (
           <div style={{ display: 'flex' }}>
-            <code style={{ whiteSpace: 'nowrap' }}>{name}</code>
-            <CopyButton name={name} />
+            <Body
+              as="code"
+              size="s"
+              style={{
+                whiteSpace: 'nowrap',
+                maxWidth: '320px',
+                textOverflow: 'ellipsis',
+                overflow: 'hidden',
+                fontFamily: 'var(--cui-font-stack-mono)',
+              }}
+            >
+              {name}
+            </Body>
+            {!deprecation && <CopyButton name={name} />}
+            {deprecation && (
+              <Tooltip
+                type="description"
+                label={`Use the \`${deprecation.replacement}\` custom property instead.`}
+                component={(props) => (
+                  <Badge
+                    {...props}
+                    tabIndex={0}
+                    variant="warning"
+                    style={{ marginLeft: '1rem' }}
+                  >
+                    Deprecated
+                  </Badge>
+                )}
+              />
+            )}
           </div>
         ),
       },
-      { children: <code>{value}</code> },
+      {
+        children: (
+          <Body
+            as="code"
+            size="s"
+            style={{ fontFamily: 'var(--cui-font-stack-mono)' }}
+          >
+            {value}
+          </Body>
+        ),
+      },
     ];
 
     if (Preview) {
@@ -98,7 +141,7 @@ function getRows(
 }
 
 interface CustomPropertiesTableProps {
-  namespace: string;
+  namespace: string | string[];
   preview?: PreviewComponent;
   type?: string;
 }
@@ -111,9 +154,12 @@ export function CustomPropertiesTable({
   const [customProperties, setCustomProperties] = useState<CustomProperties>();
 
   useEffect(() => {
-    const names = filterCustomProperties(namespace, type);
+    const tokens = filterCustomProperties(namespace, type);
     setCustomProperties(
-      names.map((name) => [name, getCustomPropertyValue(name)]),
+      tokens.map((token) => ({
+        ...token,
+        value: getCustomPropertyValue(token.name),
+      })),
     );
   }, [namespace, type]);
 
@@ -199,6 +245,25 @@ export function FontWeight({ name }: PreviewProps) {
     </p>
   );
 }
+export function LetterSpacing({ name }: PreviewProps) {
+  return (
+    <p style={{ letterSpacing: `var(${name})`, whiteSpace: 'nowrap' }}>
+      Lorem ipsum
+    </p>
+  );
+}
+
+export function Typography({ name }: PreviewProps) {
+  if (name.includes('font-size')) {
+    return (
+      <p style={{ fontSize: `var(${name})`, lineHeight: 1 }}>Lorem ipsum</p>
+    );
+  }
+  if (name.includes('line-height')) {
+    return <p style={{ lineHeight: `var(${name})` }}>Lorem ipsum</p>;
+  }
+  return null;
+}
 
 export function IconSize({ name }: PreviewProps) {
   return (
@@ -263,7 +328,9 @@ function TableWrapper() {
         headers={HEADERS}
         rows={Object.keys(theme.mq).map((bp) => [
           { children: <code>{`theme.mq.${bp}`}</code> },
-          { children: <code>{theme.mq[bp]}</code> },
+          {
+            children: <code>{theme.mq[bp as keyof typeof theme.mq]}</code>,
+          },
         ])}
       />
     </Unstyled>

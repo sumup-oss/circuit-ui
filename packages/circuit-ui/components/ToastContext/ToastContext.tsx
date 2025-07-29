@@ -13,17 +13,20 @@
  * limitations under the License.
  */
 
+'use client';
+
 import {
   createContext,
-  ReactNode,
   useCallback,
   useEffect,
   useMemo,
+  type ReactNode,
 } from 'react';
 
-import { useStack, StackItem } from '../../hooks/useStack/index.js';
+import { useStack, type StackItem } from '../../hooks/useStack/index.js';
+import { clsx } from '../../styles/clsx.js';
 
-import { BaseToastProps, ToastComponent } from './types.js';
+import type { BaseToastProps, ToastComponent } from './types.js';
 import classes from './ToastContext.module.css';
 
 const DEFAULT_TOAST_DURATION = 6000;
@@ -48,11 +51,21 @@ export interface ToastProviderProps {
    * The ToastProvider should wrap your entire application.
    */
   children: ReactNode;
+  /**
+   * Choose the position of all toasts on screen (please consider sticking to default value if possible). Default: 'bottom'.
+   */
+  position?: 'bottom' | 'top' | 'top-right';
+  /**
+   * The class name to add to the toast wrapper element.
+   */
+  className?: string;
 }
 
 export function ToastProvider<TProps extends BaseToastProps>({
   children,
-}: ToastProviderProps): JSX.Element {
+  position = 'bottom',
+  className,
+}: ToastProviderProps) {
   const [toasts, dispatch] = useStack<ToastState<TProps>>([]);
 
   const setToast = useCallback(
@@ -107,7 +120,7 @@ export function ToastProvider<TProps extends BaseToastProps>({
     <ToastContext.Provider value={context}>
       {children}
       <div
-        className={classes.base}
+        className={clsx(classes.base, classes[position], className)}
         role="status"
         aria-live="polite"
         aria-atomic="false"

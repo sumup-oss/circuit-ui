@@ -14,9 +14,11 @@
  */
 
 // We disable the rule in this file because we explicitly test invalid cases
-/* eslint-disable @sumup/circuit-ui/no-invalid-custom-properties */
+/* eslint-disable @sumup-oss/circuit-ui/no-invalid-custom-properties */
 
-import { noInvalidCustomProperties, ruleName, messages } from '.';
+import { testRule } from '../setupTests.js';
+
+import { noInvalidCustomProperties, ruleName, messages } from './index.js';
 
 testRule({
   plugins: [noInvalidCustomProperties],

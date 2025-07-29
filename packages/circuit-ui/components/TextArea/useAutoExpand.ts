@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-import { FormEvent, RefObject, useCallback, useEffect } from 'react';
+import { useCallback, useEffect, type FormEvent, type RefObject } from 'react';
 
-import type { InputElement } from '../Input/Input.js';
 import { useComponentSize } from '../../hooks/useComponentSize/index.js';
 
 import type { TextAreaProps } from './index.js';
@@ -26,7 +25,7 @@ type ModifiedProps = Omit<TextAreaProps, 'minRows' | 'rows'> & {
 };
 
 export const useAutoExpand = (
-  ref: RefObject<InputElement>,
+  ref: RefObject<HTMLTextAreaElement | null>,
   { minRows, rows = minRows, onInput, ...props }: TextAreaProps,
 ): ModifiedProps => {
   const autoExpand = rows === 'auto';
@@ -53,7 +52,7 @@ export const useAutoExpand = (
   );
 
   const inputHandler = useCallback(
-    (e: FormEvent<InputElement>) => {
+    (e: FormEvent<HTMLTextAreaElement>) => {
       if (onInput) {
         onInput(e);
       }
@@ -64,6 +63,7 @@ export const useAutoExpand = (
     [onInput, updateElementHeight],
   );
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: The additional dependencies are intentional to ensure the input size is updated when the element changes size and when the `minRows` prop value changes
   useEffect(() => {
     const el = ref.current;
     if (el && autoExpand) {

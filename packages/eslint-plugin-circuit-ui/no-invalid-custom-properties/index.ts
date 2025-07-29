@@ -14,7 +14,7 @@
  */
 
 import { ESLintUtils } from '@typescript-eslint/utils';
-import { schema } from '@sumup/design-tokens';
+import { schema } from '@sumup-oss/design-tokens';
 
 const PREFIX = '--cui-';
 const VALID_CUSTOM_PROPERTIES_WITHOUT_PREFIX = schema.map(({ name }) =>
@@ -42,19 +42,18 @@ export const noInvalidCustomProperties = createRule({
       recommended: 'recommended',
     },
     messages: {
-      invalid: "'{{name}}' is not a valid Circuit UI design token.",
+      invalid: '`{{name}}` is not a valid Circuit UI design token.',
     },
   },
   defaultOptions: [],
   create(context) {
-    const sourceCode = context.getSourceCode();
     return {
       // Inspired by `no-tabs`: https://github.com/eslint/eslint/blob/b98fdd413a3b07b262bfce6f704c1c1bb8582770/lib/rules/no-tabs.js
       Program(node) {
-        sourceCode.getLines().forEach((line, index) => {
+        context.sourceCode.getLines().forEach((line, index) => {
           const regex = new RegExp(REGEX_STRING, 'g');
-          let match;
-          // eslint-disable-next-line no-cond-assign
+          let match: RegExpExecArray | null;
+          // biome-ignore lint/suspicious/noAssignInExpressions:
           while ((match = regex.exec(line)) !== null) {
             context.report({
               node,

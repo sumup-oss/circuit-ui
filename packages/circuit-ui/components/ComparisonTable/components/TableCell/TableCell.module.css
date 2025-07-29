@@ -1,0 +1,22 @@
+.base {
+  vertical-align: middle;
+  background-color: var(--cui-bg-normal);
+  border-bottom: 1px solid var(--cui-border-divider);
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-height: 64px;
+  padding: var(--cui-spacings-mega);
+  text-align: start;
+}
+
+@media (min-width: 768px) {
+  .text {
+    font-size: var(--cui-compact-m-font-size);
+    line-height: var(--cui-compact-m-line-height);
+  }
+}

@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes, useId } from 'react';
+import { useId, type HTMLAttributes } from 'react';
 
-import { ReturnType } from '../../types/return-type.js';
+import type { ReturnType } from '../../types/return-type.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
-import utilityClasses from '../../styles/utility.js';
+import { utilClasses } from '../../styles/utility.js';
 import { clsx } from '../../styles/clsx.js';
 import { deprecate } from '../../util/logger.js';
 
@@ -142,6 +142,7 @@ export function ProgressBar({
   return (
     <div className={clsx(classes.wrapper, className)} {...props}>
       {max || value ? (
+        // biome-ignore lint/a11y/useFocusableInteractive: Progress bars aren't focusable elements, but they can be accessed with a screen reader's read/browse mode.
         <span
           role="progressbar"
           aria-valuenow={value}
@@ -152,7 +153,9 @@ export function ProgressBar({
           style={{ '--pagination-width': getWidth(value, max) }}
         />
       ) : (
+        // biome-ignore lint/a11y/useFocusableInteractive: Progress bars aren't focusable elements, but they can be accessed with a screen reader's read/browse mode.
         <span
+          // biome-ignore lint/a11y/useAriaPropsForRole: FIXME?
           role="progressbar"
           aria-labelledby={ariaId}
           className={clsx(classes.base, classes[size])}
@@ -165,10 +168,7 @@ export function ProgressBar({
       )}
       <span
         id={ariaId}
-        className={clsx(
-          classes.label,
-          hideLabel && utilityClasses.hideVisually,
-        )}
+        className={clsx(classes.label, hideLabel && utilClasses.hideVisually)}
       >
         {label}
       </span>

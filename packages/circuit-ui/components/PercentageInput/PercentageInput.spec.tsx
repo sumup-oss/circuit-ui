@@ -14,12 +14,14 @@
  */
 
 import { describe, expect, it } from 'vitest';
-import { ChangeEvent, createRef, useState } from 'react';
+import { createRef, useState, type ChangeEvent } from 'react';
 
-import { render, userEvent, axe } from '../../util/test-utils.js';
-import type { InputElement } from '../Input/index.js';
+import { render, userEvent, axe, screen } from '../../util/test-utils.js';
 
-import { PercentageInput, PercentageInputProps } from './PercentageInput.js';
+import {
+  PercentageInput,
+  type PercentageInputProps,
+} from './PercentageInput.js';
 
 const defaultProps = {
   locale: 'de-DE',
@@ -28,20 +30,16 @@ const defaultProps = {
 
 describe('PercentageInput', () => {
   it('should forward a ref', () => {
-    const ref = createRef<InputElement>();
-    const { getByRole } = render(
-      <PercentageInput {...defaultProps} ref={ref} />,
-    );
-    const input = getByRole('textbox');
+    const ref = createRef<HTMLInputElement>();
+    render(<PercentageInput {...defaultProps} ref={ref} />);
+    const input = screen.getByRole('textbox');
     expect(ref.current).toBe(input);
   });
 
   it('should format an en-GB amount', async () => {
-    const { getByRole } = render(
-      <PercentageInput {...defaultProps} locale="en-GB" />,
-    );
+    render(<PercentageInput {...defaultProps} locale="en-GB" />);
 
-    const input = getByRole('textbox') as HTMLInputElement;
+    const input = screen.getByRole<HTMLInputElement>('textbox');
 
     await userEvent.type(input, '1234');
 
@@ -49,11 +47,9 @@ describe('PercentageInput', () => {
   });
 
   it('should format an de-DE amount', async () => {
-    const { getByRole } = render(
-      <PercentageInput {...defaultProps} locale="de-DE" />,
-    );
+    render(<PercentageInput {...defaultProps} locale="de-DE" />);
 
-    const input = getByRole('textbox') as HTMLInputElement;
+    const input = screen.getByRole<HTMLInputElement>('textbox');
 
     await userEvent.type(input, '1234');
 
@@ -61,11 +57,9 @@ describe('PercentageInput', () => {
   });
 
   it('should format an amount with decimals', async () => {
-    const { getByRole } = render(
-      <PercentageInput {...defaultProps} decimalScale={2} />,
-    );
+    render(<PercentageInput {...defaultProps} decimalScale={2} />);
 
-    const input = getByRole('textbox') as HTMLInputElement;
+    const input = screen.getByRole<HTMLInputElement>('textbox');
 
     await userEvent.type(input, '1234,56');
 
@@ -85,9 +79,9 @@ describe('PercentageInput', () => {
         />
       );
     };
-    const { getByRole } = render(<ControlledPercentageInput />);
+    render(<ControlledPercentageInput />);
 
-    const input = getByRole('textbox') as HTMLInputElement;
+    const input = screen.getByRole<HTMLInputElement>('textbox');
     expect(input.value).toBe('1.234');
 
     await userEvent.clear(input);
@@ -108,14 +102,16 @@ describe('PercentageInput', () => {
      * Note: further labeling logic is covered by the underlying `Input` component.
      */
     it('should have the currency symbol as part of its accessible description', () => {
-      const { getByRole } = render(<PercentageInput {...defaultProps} />);
-      expect(getByRole('textbox')).toHaveAccessibleDescription(PERCENT_SYMBOL);
+      render(<PercentageInput {...defaultProps} />);
+      expect(screen.getByRole('textbox')).toHaveAccessibleDescription(
+        PERCENT_SYMBOL,
+      );
     });
 
     it('should accept a custom description via aria-describedby', () => {
       const customDescription = 'Custom description';
       const customDescriptionId = 'customDescriptionId';
-      const { getByRole } = render(
+      render(
         <>
           <span id={customDescriptionId}>{customDescription}</span>
           <PercentageInput
@@ -124,7 +120,7 @@ describe('PercentageInput', () => {
           />
         </>,
       );
-      expect(getByRole('textbox')).toHaveAccessibleDescription(
+      expect(screen.getByRole('textbox')).toHaveAccessibleDescription(
         `${PERCENT_SYMBOL} ${customDescription}`,
       );
     });

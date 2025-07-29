@@ -1,169 +1,10 @@
-/* stylelint-disable no-duplicate-selectors -- Sections are split to separate third-party from first-party code */
-
-/* Start downloading custom fonts as soon as possible */
-@font-face {
-  font-family: aktiv-grotesk;
-  font-weight: 400;
-  src: url("https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-400.woff2")
-      format("woff2"),
-    url("https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-400.woff")
-      format("woff"),
-    url("https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-400.eot")
-      format("embedded-opentype");
-  font-display: optional;
-}
-
-@font-face {
-  font-family: aktiv-grotesk;
-  font-weight: 700;
-  src: url("https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.woff2")
-      format("woff2"),
-    url("https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.woff")
-      format("woff"),
-    url("https://static.sumup.com/fonts/latin-greek-cyrillic/aktiv-grotest-700.eot")
-      format("embedded-opentype");
-  font-display: optional;
-}
-
-/**
- * reset.css
- * http://meyerweb.com/eric/tools/css/reset/
- * v2.0 | 20110126
- * License: none (public domain)
- */
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  padding: 0;
-  margin: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-  border: 0;
-}
-
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-
-body {
-  line-height: 1;
-}
-
-blockquote,
-q {
-  quotes: none;
-}
-
-blockquote::before,
-blockquote::after,
-q::before,
-q::after {
-  content: "";
-  content: none;
-}
-
-table {
-  border-spacing: 0;
-  border-collapse: collapse;
-}
-
 /**
  * Our global resets
  */
 
 /**
- * Best practice from http://callmenick.com/post/ the-new-box-sizing-reset
- * TLDR: It’s easier to override and a slight performance boost.
+ * Best practice from http://callmenick.com/post/the-new-box-sizing-reset
+ * TL;DR: It’s easier to override and a slight performance boost.
  */
 *,
 *::before,
@@ -176,13 +17,20 @@ html {
   overflow-x: hidden;
 }
 
+/* `clip` has the same visual effect as `hidden`, but doesn't interfere with `position: sticky` on child elements */
+@supports (overflow-x: clip) {
+  html {
+    overflow-x: clip;
+  }
+}
+
 [type="button"] {
   appearance: none;
 }
 
 body {
-  font-size: var(--cui-typography-body-one-font-size);
-  line-height: var(--cui-typography-body-one-line-height);
+  font-size: var(--cui-body-m-font-size);
+  line-height: var(--cui-body-m-line-height);
   color: var(--cui-fg-normal);
   background-color: var(--cui-bg-normal);
 }

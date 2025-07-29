@@ -13,22 +13,20 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes, ReactNode, useEffect } from 'react';
+'use client';
 
-import Hamburger, { HamburgerProps } from '../Hamburger/index.js';
+import { useEffect, type HTMLAttributes, type ReactNode } from 'react';
+
+import { Hamburger, type HamburgerProps } from '../Hamburger/index.js';
 import { SkeletonContainer } from '../Skeleton/index.js';
 import { clsx } from '../../styles/clsx.js';
-import utilityClasses from '../../styles/utility.js';
+import { utilClasses } from '../../styles/utility.js';
+import { SkipLink } from '../SkipLink/index.js';
 
 import {
-  ProfileMenu,
-  ProfileMenuProps,
-} from './components/ProfileMenu/index.js';
-import {
   UtilityLinks,
-  UtilityLinksProps,
+  type UtilityLinksProps,
 } from './components/UtilityLinks/index.js';
-import { UserProps } from './types.js';
 import classes from './TopNavigation.module.css';
 
 /**
@@ -41,19 +39,27 @@ export interface TopNavigationProps
     HTMLAttributes<HTMLElement> {
   logo: ReactNode;
   hamburger?: HamburgerProps;
-  user: UserProps;
-  profileMenu: Omit<ProfileMenuProps, 'user'>;
   isLoading?: boolean;
+  /**
+   * Hash link to the page's main content to enable keyboard and screen reader
+   * users to skip over the navigation links. Required to comply with
+   * [WCAG 2.1 SC 2.4.1](https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html)
+   */
+  skipNavigationHref?: string;
+  /**
+   * label for the skip navigation link.
+   */
+  skipNavigationLabel?: string;
 }
 
 export function TopNavigation({
   logo,
-  user,
-  profileMenu,
   links,
   hamburger,
   isLoading,
   className,
+  skipNavigationHref,
+  skipNavigationLabel,
   ...props
 }: TopNavigationProps) {
   useEffect(() => {
@@ -68,15 +74,15 @@ export function TopNavigation({
 
   return (
     <header className={clsx(classes.base, className)} {...props}>
+      {skipNavigationHref && skipNavigationLabel && (
+        <SkipLink href={skipNavigationHref}>{skipNavigationLabel}</SkipLink>
+      )}
       <div className={classes.wrapper}>
         {hamburger && (
           <SkeletonContainer isLoading={Boolean(isLoading)}>
             <Hamburger
               {...hamburger}
-              className={clsx(
-                classes.hamburger,
-                utilityClasses.focusVisibleInset,
-              )}
+              className={clsx(classes.hamburger, utilClasses.focusVisibleInset)}
             />
           </SkeletonContainer>
         )}
@@ -87,7 +93,6 @@ export function TopNavigation({
         isLoading={Boolean(isLoading)}
       >
         {links && <UtilityLinks links={links} />}
-        <ProfileMenu {...profileMenu} user={user} />
       </SkeletonContainer>
     </header>
   );

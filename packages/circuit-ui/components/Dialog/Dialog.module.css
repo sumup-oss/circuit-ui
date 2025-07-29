@@ -1,0 +1,80 @@
+.base {
+  padding: 0 !important;
+  pointer-events: none;
+  outline: none;
+  background-color: var(--cui-bg-elevated);
+  border: none;
+}
+
+.base[open] {
+  pointer-events: auto;
+}
+
+.modal {
+  /* Firefox does not support animating the backdrop property.
+ As a workaround, we used the box-shadow on the dialog element as a fake backdrop,
+ which gets animated along with the dialog element itself.
+ https://stackoverflow.com/questions/75313685/animating-dialog-backdrop-in-firefox
+ */
+  margin: auto;
+  box-shadow: 0 0 0 100vmax var(--cui-bg-overlay);
+}
+
+.base::after {
+  position: absolute;
+  right: 0;
+  bottom: env(safe-area-inset-bottom);
+  left: 0;
+  display: block;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(
+    color-mix(in sRGB, var(--cui-bg-elevated) 0%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent)
+  );
+  border-radius: inherit;
+}
+
+/* Close button */
+.base .close {
+  position: absolute;
+  z-index: calc(var(--cui-z-index-input) + 1);
+}
+
+/* Native Backdrop */
+.base::backdrop {
+  background: transparent;
+}
+
+/* Polyfill Backdrop */
+.base + .backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: transparent;
+}
+
+@media (min-width: 480px) {
+  .base::after {
+    height: var(--cui-spacings-giga);
+  }
+
+  .close {
+    top: var(--cui-spacings-byte);
+    right: var(--cui-spacings-byte);
+  }
+}
+
+@media (max-width: 479px) {
+  .base::after {
+    height: var(--cui-spacings-mega);
+  }
+
+  .close {
+    top: var(--cui-spacings-bit);
+    right: var(--cui-spacings-bit);
+  }
+}

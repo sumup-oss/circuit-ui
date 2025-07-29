@@ -13,12 +13,14 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { Fragment } from 'react';
 
-import TableRow from '../TableRow/index.js';
-import TableHeader from '../TableHeader/index.js';
+import { TableRow } from '../TableRow/index.js';
+import { TableHeader } from '../TableHeader/index.js';
 import { mapCellProps, getSortParams } from '../../utils.js';
-import { Direction, HeaderCell } from '../../types.js';
+import type { Direction, HeaderCell } from '../../types.js';
 import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './TableHead.module.css';
@@ -61,9 +63,9 @@ type TableHeadProps = ScrollableOptions & {
    */
   sortDirection?: Direction;
   /**
-   * The current sorted row index
+   * The current sorted column index
    */
-  sortedRow?: number;
+  sortedColumn?: number;
   /**
    * sortEnter handler
    */
@@ -85,7 +87,7 @@ export function TableHead({
   top,
   onSortBy,
   sortDirection,
-  sortedRow,
+  sortedColumn,
   onSortEnter,
   onSortLeave,
 }: TableHeadProps) {
@@ -100,14 +102,13 @@ export function TableHead({
       {!!headers.length && (
         <TableRow>
           {headers.map((header, i) => {
-            const cellProps = mapCellProps(header);
-            const { sortable, sortLabel } = cellProps;
+            const { sortable, sortLabel, ...cellProps } = mapCellProps(header);
             const sortParams = getSortParams({
-              rowIndex: i,
+              columnIndex: i,
               sortable,
               sortDirection,
               sortLabel,
-              sortedRow,
+              sortedColumn,
             });
             return (
               <Fragment key={`table-header-${i}`}>

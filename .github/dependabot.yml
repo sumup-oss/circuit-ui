@@ -10,6 +10,49 @@ updates:
     schedule:
       interval: 'monthly'
     versioning-strategy: increase
+    open-pull-requests-limit: 15
     ignore:
       # Storybook dependencies need to be upgraded manually in unison.
+      - dependency-name: 'storybook'
       - dependency-name: '@storybook/*'
+    groups:
+      astro:
+        patterns:
+          - 'astro'
+          - '@astrojs/*'
+      babel:
+        patterns:
+          - '@babel/*'
+      changesets:
+        patterns:
+          - '@changesets/*'
+      emotion:
+        patterns:
+          - '@emotion/*'
+      nanostores:
+        patterns:
+          - 'nanostores'
+          - '@nanostores/*'
+      next:
+        patterns:
+          - 'next'
+          - '@next/*'
+      stylelint:
+        patterns:
+          - stylelint*
+      testing-library:
+        patterns:
+          - '@testing-library/*'
+      typescript-eslint:
+        patterns:
+          - '@typescript-eslint/*'
+      vitest:
+        patterns:
+          - 'vitest'
+          - '@vitest/*'
+
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'monthly'
+    open-pull-requests-limit: 3

@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import type React from 'react';
+
 export const isEnter = (event: KeyboardEvent | React.KeyboardEvent): boolean =>
   event.key === 'Enter';
 
@@ -38,3 +40,10 @@ export const isArrowRight = (
 export const isArrowDown = (
   event: KeyboardEvent | React.KeyboardEvent,
 ): boolean => event.key === 'ArrowDown';
+
+export const isBackspace = (
+  event: KeyboardEvent | React.KeyboardEvent,
+): boolean => event.key === 'Backspace';
+
+export const isDelete = (event: KeyboardEvent | React.KeyboardEvent): boolean =>
+  event.key === 'Delete';

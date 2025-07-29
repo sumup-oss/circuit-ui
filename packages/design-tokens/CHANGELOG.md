@@ -1,4 +1,116 @@
-# @sumup/design-tokens
+# @sumup-oss/design-tokens
+
+## 9.0.0
+
+### Major Changes
+
+- [#3072](https://github.com/sumup-oss/circuit-ui/pull/3072) [`e81b1b4`](https://github.com/sumup-oss/circuit-ui/commit/e81b1b4a2e09c7c35ef8e9f38b53e26eb341ce5e) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed obsolete `--cui-z-index-modal` token. Use `--cui-z-index-popover` instead.
+
+- [#3072](https://github.com/sumup-oss/circuit-ui/pull/3072) [`e81b1b4`](https://github.com/sumup-oss/circuit-ui/commit/e81b1b4a2e09c7c35ef8e9f38b53e26eb341ce5e) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed unused token `--cui-z-index-backdrop`.
+
+- [#2978](https://github.com/sumup-oss/circuit-ui/pull/2978) [`b7ff643`](https://github.com/sumup-oss/circuit-ui/commit/b7ff643cbb1d190d82a164b5116808546241a528) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the `themePropType` export. Use the `Theme` type instead or (better) migrate to CSS custom properties.
+
+### Minor Changes
+
+- [#2859](https://github.com/sumup-oss/circuit-ui/pull/2859) [`3dd75c9`](https://github.com/sumup-oss/circuit-ui/commit/3dd75c9b647eb80d5043c6cac1cbb0d299654f56) Thanks [@sirineJ](https://github.com/sirineJ)! - Added "::backdrop" to the list of selectors to apply theme custom properties to. See https://developer.chrome.com/blog/css-backdrop-inheritance.
+
+- [#3072](https://github.com/sumup-oss/circuit-ui/pull/3072) [`e81b1b4`](https://github.com/sumup-oss/circuit-ui/commit/e81b1b4a2e09c7c35ef8e9f38b53e26eb341ce5e) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a new `--cui-z-index-side-panel` token for side panels.
+
+### Patch Changes
+
+- [#3048](https://github.com/sumup-oss/circuit-ui/pull/3048) [`3927281`](https://github.com/sumup-oss/circuit-ui/commit/3927281a8530ad1ff32432ede7ad171f241066ac) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the `--cui-z-index-popover` token to align different overlay components.
+
+## 8.2.0
+
+### Minor Changes
+
+- [#2909](https://github.com/sumup-oss/circuit-ui/pull/2909) [`8f9df8d`](https://github.com/sumup-oss/circuit-ui/commit/8f9df8db449397f98b73f1f26adb9e99b58981a0) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the `--cui-letter-spacing-tight` token. Use it for very large typography.
+
+## 8.1.0
+
+### Minor Changes
+
+- [#2873](https://github.com/sumup-oss/circuit-ui/pull/2873) [`f7e1557`](https://github.com/sumup-oss/circuit-ui/commit/f7e1557edcafefb7fba4a355e655cd26db9d81c5) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the `--cui-fg-placeholder-*` color tokens to meet contrast requirements.
+
+## 8.0.1
+
+### Patch Changes
+
+- [#2782](https://github.com/sumup-oss/circuit-ui/pull/2782) [`0a6ec4e`](https://github.com/sumup-oss/circuit-ui/commit/0a6ec4efc5fcf6ac43c0ced2822a90a9ac0a35e7) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the legacy JavaScript theme to the latest typography token values to match the modern CSS custom variables.
+
+## 8.0.0
+
+### Major Changes
+
+- [#2707](https://github.com/sumup-oss/circuit-ui/pull/2707) [`f8016eb`](https://github.com/sumup-oss/circuit-ui/commit/f8016ebe246005ed415ed9587ecdb76892e981c6) Thanks [@sirineJ](https://github.com/sirineJ)! - Raised the minimum Node.js version to 20+.
+
+- [#2648](https://github.com/sumup-oss/circuit-ui/pull/2648) [`f583d05`](https://github.com/sumup-oss/circuit-ui/commit/f583d05d3af6c2ba68268ffb47b4099cecd89796) Thanks [@connor-baer](https://github.com/connor-baer)! - Renamed the package scope from `@sumup` to `@sumup-oss`. Replace `@sumup/design-tokens` with `@sumup-oss/design-tokens` in your `package.json` file, then update all imports:
+
+  ```diff
+  -import '@sumup/design-tokens/light.css';
+  +import '@sumup-oss/design-tokens/light.css';
+  ```
+
+  [Circuit UI's ESLint plugin](https://circuit.sumup.com/?path=/docs/packages-eslint-plugin-circuit-ui--docs) offers the `renamed-package-scope` rule to automate updating the package imports.
+
+- [#2654](https://github.com/sumup-oss/circuit-ui/pull/2654) [`55bf9ad`](https://github.com/sumup-oss/circuit-ui/commit/55bf9ad7569f1e1a4c739f4eac8df58ba9987ca2) Thanks [@connor-baer](https://github.com/connor-baer)! - Changed the default font from Aktiv Grotesk to Inter, a variable font. Variable fonts combine a continuous range of weights and other "axes" into a single file. This speeds up page load times and enables more creative freedom. Inter is a close match to Aktiv Grotesk, so users shouldn't notice a difference.
+
+- [#2654](https://github.com/sumup-oss/circuit-ui/pull/2654) [`55bf9ad`](https://github.com/sumup-oss/circuit-ui/commit/55bf9ad7569f1e1a4c739f4eac8df58ba9987ca2) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new `@sumup-oss/design-tokens/fonts.css` file containing the `@font-face` declarations to load the Inter font family. Refer to the documentation on [how to load fonts in your application](https://github.com/sumup-oss/circuit-ui/tree/main/packages/design-tokens#fonts).
+
+### Minor Changes
+
+- [#2653](https://github.com/sumup-oss/circuit-ui/pull/2653) [`33435cf`](https://github.com/sumup-oss/circuit-ui/commit/33435cf4a1a393bbb28fd0bcb9d63d8a2a6a5a60) Thanks [@connor-baer](https://github.com/connor-baer)! - Consolidated and renamed the `typography` tokens:
+
+  | Old                                     | New                                 |
+  | --------------------------------------- | ----------------------------------- |
+  | `typography-title-one-font-size`        | `typography-display-l-font-size`    |
+  | `typography-title-one-line-height`      | `typography-display-l-line-height`  |
+  | `typography-title-two-font-size`        | `typography-display-m-font-size`    |
+  | `typography-title-two-line-height`      | `typography-display-m-line-height`  |
+  | `typography-title-three-font-size`      | `typography-display-m-font-size`    |
+  | `typography-title-three-line-height`    | `typography-display-m-line-height`  |
+  | `typography-title-four-font-size`       | `typography-display-s-font-size`    |
+  | `typography-title-four-line-height`     | `typography-display-s-line-height`  |
+  | `typography-headline-one-font-size`     | `typography-headline-l-font-size`   |
+  | `typography-headline-one-line-height`   | `typography-headline-l-line-height` |
+  | `typography-headline-two-font-size`     | `typography-headline-m-font-size`   |
+  | `typography-headline-two-line-height`   | `typography-headline-m-line-height` |
+  | `typography-headline-three-font-size`   | `typography-headline-m-font-size`   |
+  | `typography-headline-three-line-height` | `typography-headline-m-line-height` |
+  | `typography-headline-four-font-size`    | `typography-headline-s-font-size`   |
+  | `typography-headline-four-line-height`  | `typography-headline-s-line-height` |
+  | `typography-sub-headline-font-size`     | `typography-headline-s-font-size`   |
+  | `typography-sub-headline-line-height`   | `typography-headline-s-line-height` |
+  | `typography-body-large-font-size`       | `typography-body-l-font-size`       |
+  | `typography-body-large-line-height`     | `typography-body-l-line-height`     |
+  | `typography-body-one-font-size`         | `typography-body-m-font-size`       |
+  | `typography-body-one-line-height`       | `typography-body-m-line-height`     |
+  | `typography-body-two-font-size`         | `typography-body-s-font-size`       |
+  | `typography-body-two-line-height`       | `typography-body-s-line-height`     |
+
+## 7.3.1
+
+### Patch Changes
+
+- [#2613](https://github.com/sumup-oss/circuit-ui/pull/2613) [`a1f877a`](https://github.com/sumup-oss/circuit-ui/commit/a1f877acd0ddbcc934521371ce929709f13f04f8) Thanks [@connor-baer](https://github.com/connor-baer)! - Matched the interactive variants of the `fg-normal`, `fg-subtle`, `fg-on-strong`, and `fg-on-strong-subtle` color tokens to their default values.
+
+## 7.3.0
+
+### Minor Changes
+
+- [#2551](https://github.com/sumup-oss/circuit-ui/pull/2551) [`d2115fb`](https://github.com/sumup-oss/circuit-ui/commit/d2115fba00c50668081ad40a34abce7abaa6d2a2) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the `bg-normal-disabled`, `bg-subtle-hovered`, `bg-subtle-pressed`, `bg-highlight-disabled`, `bg-accent-hovered`,`bg-accent-pressed`, `bg-accent-strong-hovered`, `bg-accent-strong-pressed`, `bg-danger-hovered`, `bg-danger-pressed`, `bg-danger-disabled`, `bg-danger-strong-hovered`, `bg-danger-strong-pressed`, `fg-subtle-hovered`, `fg-danger-hovered`, `fg-danger-disabled`, `border-normal`, `border-subtle-hovered`, `border-danger`, `border-danger-hovered`, and `border-danger-disabled` color tokens.
+
+## 7.2.0
+
+### Minor Changes
+
+- [`779a911`](https://github.com/sumup-oss/circuit-ui/commit/779a911bb080dfc129f471ab08a22cf7675adc33) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a dark theme. Import `@sumup/design-tokens/dark.css` for the standalone dark theme. Import `@sumup/design-tokens/dynamic.css` to switch between the light and dark themes automatically based on the system settings or explicitly using the `data-color-scheme` attribute.
+
+- [`779a911`](https://github.com/sumup-oss/circuit-ui/commit/779a911bb080dfc129f471ab08a22cf7675adc33) Thanks [@connor-baer](https://github.com/connor-baer)! - Added scoped light and dark themes. Import `@sumup/design-tokens/light-scoped.css` or `@sumup/design-tokens/dark-scoped.css` to theme a subset of an application marked up with the `data-color-scheme` attribute.
+
+### Patch Changes
+
+- [`779a911`](https://github.com/sumup-oss/circuit-ui/commit/779a911bb080dfc129f471ab08a22cf7675adc33) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the `border-focus` color token value.
 
 ## 7.1.0
 

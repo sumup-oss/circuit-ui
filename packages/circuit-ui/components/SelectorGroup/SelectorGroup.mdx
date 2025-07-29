@@ -30,9 +30,9 @@ Pass the `multiple` prop to allow users to select more than one option. Under th
 
 The `size` prop determines the padding of the options. There are three available sizes:
 
-- **mega**, the default size
-- **kilo**, used for compact layouts
-- **flexible**, used for more complex content within a selector which may define its own padding. Adds minimal equal padding on all sides.
+- **small**, used for compact layouts
+- **medium**, the default size
+- **flexible**, used for more complex content within a selector. Adds equal padding on all sides.
 
 <Story of={Stories.Sizes} />
 
@@ -69,8 +69,8 @@ The SelectorGroup can be used as a controlled or uncontrolled component.
 ### Controlled
 
 ```tsx
-import { useState, ChangeEvent } from 'react';
-import { SelectorGroup, SelectorProps } from '@sumup/circuit-ui';
+import { useState, type ChangeEvent } from 'react';
+import { SelectorGroup, type SelectorProps } from '@sumup-oss/circuit-ui';
 
 function Controlled() {
   const [value, setValue] = useState<SelectorProps['value']>();
@@ -98,7 +98,7 @@ function Controlled() {
 
 ```tsx
 import { useRef } from 'react';
-import { SelectorGroup } from '@sumup/circuit-ui';
+import { SelectorGroup } from '@sumup-oss/circuit-ui';
 
 function Uncontrolled() {
   const checkboxRefs = useRef({});

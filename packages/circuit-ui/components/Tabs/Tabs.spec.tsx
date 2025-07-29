@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { act, axe, fireEvent, render } from '../../util/test-utils.js';
+import { axe, render, screen, userEvent } from '../../util/test-utils.js';
 
 import { TabPanel } from './components/TabPanel/index.js';
 import { TabList } from './components/TabList/index.js';
@@ -23,8 +23,8 @@ import { Tab } from './components/Tab/index.js';
 import { Tabs } from './Tabs.js';
 
 describe('Tabs', () => {
-  it('should switch panels on tab click', () => {
-    const { getAllByTestId } = render(
+  it('should switch panels on tab click', async () => {
+    render(
       <Tabs
         items={[
           { id: 'a', tab: 'tab-a', panel: 'panel-a' },
@@ -34,24 +34,18 @@ describe('Tabs', () => {
       />,
     );
 
-    const tabEls = getAllByTestId('tab-element');
-    const panelEls = getAllByTestId('tab-panel');
+    const panelA = screen.getByRole('tabpanel');
+    expect(panelA).toHaveAccessibleName('tab-a');
 
-    expect(panelEls[0]).toBeVisible();
-    expect(panelEls[1]).not.toBeVisible();
+    const tabs = screen.getAllByRole('tab');
+    await userEvent.click(tabs[1]);
 
-    act(() => {
-      fireEvent.click(tabEls[1]);
-    });
-
-    expect(panelEls[0]).not.toBeVisible();
-    expect(panelEls[1]).toBeVisible();
+    const panelB = screen.getByRole('tabpanel');
+    expect(panelB).toHaveAccessibleName('tab-b');
   });
 
-  it('should go to the next tab on right press', () => {
-    const keyCodeRight = 39;
-
-    const { getAllByTestId } = render(
+  it('should go to the next tab on right arrow press', async () => {
+    render(
       <Tabs
         items={[
           { id: 'a', tab: 'tab-a', panel: 'panel-a' },
@@ -61,21 +55,68 @@ describe('Tabs', () => {
       />,
     );
 
-    const tabEls = getAllByTestId('tab-element');
-    const panelEls = getAllByTestId('tab-panel');
+    await userEvent.keyboard('{Tab}');
 
-    expect(panelEls[0]).toBeVisible();
-    expect(panelEls[1]).not.toBeVisible();
+    const tabs = screen.getAllByRole('tab');
+    expect(tabs[0]).toHaveFocus();
 
-    act(() => {
-      fireEvent.keyDown(tabEls[0], {
-        key: 'ArrowRight',
-        code: keyCodeRight,
-      });
-    });
+    const panelA = screen.getByRole('tabpanel');
+    expect(panelA).toHaveAccessibleName('tab-a');
 
-    expect(panelEls[0]).not.toBeVisible();
-    expect(panelEls[1]).toBeVisible();
+    await userEvent.keyboard('{ArrowRight}');
+
+    const panelB = screen.getByRole('tabpanel');
+    expect(panelB).toHaveAccessibleName('tab-b');
+    expect(tabs[1]).toHaveFocus();
+  });
+
+  it('should go to the previous tab on left arrow press', async () => {
+    render(
+      <Tabs
+        initialSelectedIndex={1}
+        items={[
+          { id: 'a', tab: 'tab-a', panel: 'panel-a' },
+          { id: 'b', tab: 'tab-b', panel: 'panel-b' },
+          { id: 'c', tab: 'tab-c', panel: 'panel-c' },
+        ]}
+      />,
+    );
+
+    await userEvent.keyboard('{Tab}');
+
+    const tabs = screen.getAllByRole('tab');
+    expect(tabs[1]).toHaveFocus();
+
+    const panelB = screen.getByRole('tabpanel');
+    expect(panelB).toHaveAccessibleName('tab-b');
+
+    await userEvent.keyboard('{ArrowLeft}');
+
+    const panelA = screen.getByRole('tabpanel');
+    expect(panelA).toHaveAccessibleName('tab-a');
+    expect(tabs[0]).toHaveFocus();
+  });
+
+  it('should focus the current panel on down arrow press', async () => {
+    render(
+      <Tabs
+        items={[
+          { id: 'a', tab: 'tab-a', panel: 'panel-a' },
+          { id: 'b', tab: 'tab-b', panel: 'panel-b' },
+          { id: 'c', tab: 'tab-c', panel: 'panel-c' },
+        ]}
+      />,
+    );
+
+    await userEvent.keyboard('{Tab}');
+
+    const tabs = screen.getAllByRole('tab');
+    expect(tabs[0]).toHaveFocus();
+
+    await userEvent.keyboard('{ArrowDown}');
+
+    const panel = screen.getByRole('tabpanel');
+    expect(panel).toHaveFocus();
   });
 
   it('should have no accessibility violations for tablist only', async () => {

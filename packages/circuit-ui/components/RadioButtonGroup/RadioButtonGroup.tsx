@@ -13,19 +13,16 @@
  * limitations under the License.
  */
 
-import {
-  FieldsetHTMLAttributes,
-  InputHTMLAttributes,
-  Ref,
-  forwardRef,
-  useId,
-} from 'react';
+'use client';
 
 import {
-  RadioButton,
-  RadioButtonGroupContext,
-  RadioButtonProps,
-} from '../RadioButton/RadioButton.js';
+  forwardRef,
+  useId,
+  type FieldsetHTMLAttributes,
+  type InputHTMLAttributes,
+  type Ref,
+} from 'react';
+
 import {
   FieldLabelText,
   FieldValidationHint,
@@ -37,27 +34,34 @@ import {
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 import { isEmpty } from '../../util/helpers.js';
+import { idx } from '../../util/idx.js';
+import { RadioButton, type RadioButtonProps } from '../RadioButton/index.js';
+
+import classes from './RadioButtonGroup.module.css';
+
+type Option = Omit<RadioButtonProps, 'onChange' | 'name' | 'children'> & {
+  /**
+   * A clear and concise description of the option's purpose.
+   */
+  label: string;
+  /**
+   * Further details about the option's purpose.
+   */
+  description?: string;
+};
 
 export interface RadioButtonGroupProps
-  extends Omit<
-    FieldsetHTMLAttributes<HTMLFieldSetElement>,
-    'onChange' | 'onBlur'
-  > {
+  extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, 'onChange'> {
   /**
    * A collection of available options. Each option must have at least a value
    * and a label.
    */
-  options: Omit<RadioButtonProps, 'onChange' | 'onBlur' | 'name'>[];
+  options: Option[];
   /**
    * A callback that is called when any of the inputs change their values.
    * Passed on to the RadioButtons.
    */
   onChange?: RadioButtonProps['onChange'];
-  /**
-   * A callback that is called when any of the inputs lose focus.
-   * Passed on to the RadioButtons.
-   */
-  onBlur?: RadioButtonProps['onBlur'];
   /**
    * A visually hidden description of the selector group for screen readers.
    */
@@ -114,7 +118,6 @@ export const RadioButtonGroup = forwardRef(
     {
       options,
       onChange,
-      onBlur,
       value,
       defaultValue,
       'name': customName,
@@ -135,9 +138,10 @@ export const RadioButtonGroup = forwardRef(
     const randomName = useId();
     const name = customName || randomName;
     const validationHintId = useId();
-    const descriptionIds = `${
-      descriptionId ? `${descriptionId} ` : ''
-    }${validationHintId}`;
+    const descriptionIds = idx(
+      descriptionId,
+      validationHint && validationHintId,
+    );
 
     if (
       process.env.NODE_ENV !== 'production' &&
@@ -174,15 +178,15 @@ export const RadioButtonGroup = forwardRef(
             required={required}
           />
         </FieldLegend>
-        <RadioButtonGroupContext.Provider value={true}>
+        <div className={classes.base}>
           {options.map((option) => (
             <RadioButton
               {...option}
-              key={option.label}
+              key={option.value?.toString() || option.label}
+              disabled={disabled || option.disabled}
+              required={required || option.required}
               name={name}
               onChange={onChange}
-              onBlur={onBlur}
-              disabled={disabled || option.disabled}
               checked={value ? option.value === value : option.checked}
               defaultChecked={
                 defaultValue
@@ -191,7 +195,7 @@ export const RadioButtonGroup = forwardRef(
               }
             />
           ))}
-        </RadioButtonGroupContext.Provider>
+        </div>
         <FieldValidationHint
           id={validationHintId}
           invalid={invalid}

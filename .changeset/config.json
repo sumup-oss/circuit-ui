@@ -1,13 +1,16 @@
 {
-  "$schema": "https://unpkg.com/@changesets/config@1.5.0/schema.json",
-  "changelog": [
-    "@changesets/changelog-github",
-    { "repo": "sumup-oss/circuit-ui" }
-  ],
-  "commit": false,
-  "linked": [],
-  "access": "public",
-  "baseBranch": "main",
-  "updateInternalDependencies": "minor",
-  "ignore": []
+	"$schema": "https://unpkg.com/@changesets/config@3.0.3/schema.json",
+	"changelog": [
+		"@changesets/changelog-github",
+		{ "repo": "sumup-oss/circuit-ui" }
+	],
+	"commit": false,
+	"linked": [],
+	"access": "public",
+	"baseBranch": "main",
+	"updateInternalDependencies": "minor",
+	"ignore": [],
+	"___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
+		"onlyUpdatePeerDependentsWhenOutOfRange": true
+	}
 }

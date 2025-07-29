@@ -1,0 +1,96 @@
+.wrapper {
+  position: relative;
+  display: flex;
+}
+
+.picker {
+  position: relative;
+  width: var(--cui-spacings-exa);
+  height: var(--cui-spacings-exa);
+  cursor: pointer;
+  border: 1px solid var(--cui-border-normal);
+  border-top-left-radius: var(--cui-border-radius-byte);
+  border-bottom-left-radius: var(--cui-border-radius-byte);
+  box-shadow: none;
+  transition:
+    box-shadow var(--cui-transitions-default),
+    border var(--cui-transitions-default);
+}
+
+.picker:hover {
+  z-index: var(--cui-z-index-absolute);
+  background: var(--cui-bg-normal-hovered);
+  border: 1px solid var(--cui-border-normal-hovered);
+}
+
+.picker:focus-within {
+  z-index: var(--cui-z-index-absolute);
+  background: var(--cui-bg-normal-pressed);
+  border: 1px solid var(--cui-border-focus);
+  box-shadow: inset 0 0 0 1px var(--cui-border-focus);
+}
+
+.picker[data-disabled="true"] {
+  color: var(--cui-fg-normal-disabled);
+  background-color: var(--cui-bg-normal-disabled);
+  border: 1px solid var(--cui-border-normal-disabled);
+}
+
+.color-input {
+  width: var(--cui-spacings-giga);
+  height: var(--cui-spacings-giga);
+  padding: 0;
+  margin: var(--cui-spacings-kilo);
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px var(--cui-border-normal);
+}
+
+.color-input::-moz-color-swatch {
+  border: none;
+}
+
+.color-input::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border-radius: 0;
+}
+
+.color-input::-webkit-color-swatch {
+  border: none;
+}
+
+.symbol {
+  position: absolute;
+  top: 0;
+  left: var(--cui-spacings-exa);
+  z-index: calc(var(--cui-z-index-absolute) + 1);
+  display: grid;
+  place-items: center center;
+  width: var(--cui-spacings-giga);
+  height: var(--cui-spacings-exa);
+  font-family: var(--cui-font-stack-mono);
+  color: var(--cui-fg-subtle);
+}
+
+.input {
+  position: relative;
+  padding-left: var(--cui-spacings-giga);
+  font-family: var(--cui-font-stack-mono);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+
+  /* to avoid having a 2px inner border separating the two inputs */
+  transform: translateX(-1px);
+}
+
+.input:hover,
+.input:focus {
+  z-index: var(--cui-z-index-absolute);
+}
+
+.input::placeholder {
+  font-family: var(--cui-font-stack-mono);
+}

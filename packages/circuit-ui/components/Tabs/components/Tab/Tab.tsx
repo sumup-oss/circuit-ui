@@ -13,15 +13,21 @@
  * limitations under the License.
  */
 
-import { AnchorHTMLAttributes, ButtonHTMLAttributes, forwardRef } from 'react';
+'use client';
+
+import {
+  forwardRef,
+  type AnchorHTMLAttributes,
+  type ButtonHTMLAttributes,
+} from 'react';
 
 import { useComponents } from '../../../ComponentsContext/index.js';
-import { EmotionAsPropType } from '../../../../types/prop-types.js';
+import type { EmotionAsPropType } from '../../../../types/prop-types.js';
 import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './Tab.module.css';
 
-export interface BaseProps {
+interface BaseProps {
   /**
    * Triggers selected styles of the component
    */
@@ -43,6 +49,7 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(
     const components = useComponents();
     const Link = components.Link as EmotionAsPropType;
     const Element = props.href ? Link : 'button';
+
     return (
       <Element
         ref={ref}

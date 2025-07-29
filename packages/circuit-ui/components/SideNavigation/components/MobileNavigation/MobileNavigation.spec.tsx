@@ -14,18 +14,22 @@
  */
 
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { Home, Shop } from '@sumup/icons';
+import { Home, Shop } from '@sumup-oss/icons';
 
-import { ClickEvent } from '../../../../types/events.js';
+import type { ClickEvent } from '../../../../types/events.js';
 import {
   render,
   axe,
-  RenderFn,
   userEvent,
   waitFor,
+  screen,
+  type RenderFn,
 } from '../../../../util/test-utils.js';
 
-import { MobileNavigation, MobileNavigationProps } from './MobileNavigation.js';
+import {
+  MobileNavigation,
+  type MobileNavigationProps,
+} from './MobileNavigation.js';
 
 describe('MobileNavigation', () => {
   function renderMobileNavigation<T>(
@@ -36,12 +40,7 @@ describe('MobileNavigation', () => {
   }
 
   const baseProps = {
-    // Silences the warning about the missing app element.
-    // In user land, the modal is always rendered by the ModalProvider,
-    // which takes care of setting the app element.
-    // http://reactcommunity.org/react-modal/accessibility/#app-element
-    ariaHideApp: false,
-    isOpen: true,
+    open: true,
     onClose: vi.fn(),
     closeButtonLabel: 'Close navigation modal',
     primaryNavigationLabel: 'Primary',
@@ -82,13 +81,10 @@ describe('MobileNavigation', () => {
   });
 
   it('should toggle the secondary navigation', async () => {
-    const { getByRole, getByText } = renderMobileNavigation(
-      render,
-      defaultProps,
-    );
+    renderMobileNavigation(render, defaultProps);
 
-    const primaryLinkEl = getByRole('button', { name: /shop/i });
-    const secondaryLinkEl = getByText(/toys/i);
+    const primaryLinkEl = screen.getByRole('button', { name: /shop/i });
+    const secondaryLinkEl = screen.getByText(/toys/i);
 
     expect(secondaryLinkEl).not.toBeVisible();
 
@@ -126,9 +122,9 @@ describe('MobileNavigation', () => {
         },
       ],
     };
-    const { getByRole } = renderMobileNavigation(render, props);
+    renderMobileNavigation(render, props);
 
-    const primaryLinkEl = getByRole('link', { name: /home/i });
+    const primaryLinkEl = screen.getByRole('link', { name: /home/i });
 
     await userEvent.click(primaryLinkEl);
 
@@ -163,10 +159,10 @@ describe('MobileNavigation', () => {
         },
       ],
     };
-    const { getByRole, getByText } = renderMobileNavigation(render, props);
+    renderMobileNavigation(render, props);
 
-    const primaryLinkEl = getByRole('button', { name: /shop/i });
-    const secondaryLinkEl = getByText(/toys/i);
+    const primaryLinkEl = screen.getByRole('button', { name: /shop/i });
+    const secondaryLinkEl = screen.getByText(/toys/i);
 
     expect(secondaryLinkEl).not.toBeVisible();
 

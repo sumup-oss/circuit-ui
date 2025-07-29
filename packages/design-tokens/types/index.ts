@@ -46,7 +46,7 @@ export type BorderWidth = {
   mega: string;
 };
 
-export type Typography = {
+type Typography = {
   fontSize: string;
   lineHeight: string;
 };
@@ -100,7 +100,7 @@ export type Grid = {
   };
 };
 
-export type Transitions = {
+type Transitions = {
   default: string;
   slow: string;
 };
@@ -121,7 +121,7 @@ export type ZIndex = {
 /**
  * @deprecated
  *
- * Use the CSS custom properties from `@sumup/design-tokens` instead.
+ * Use the CSS custom properties from `@sumup-oss/design-tokens` instead.
  * Use the [`circuit-ui/prefer-custom-properties`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/prefer-custom-properties)
  * ESLint rule to automatically migrate your code.
  */
@@ -161,6 +161,26 @@ export interface Theme {
 
 export type ColorScheme = 'light' | 'dark';
 
+export type FontFace =
+  // Custom font
+  | {
+      'font-family': string;
+      'font-style': 'normal' | 'italic' | 'oblique';
+      'font-weight': `${number}` | `${number} ${number}`;
+      'font-display': 'auto' | 'block' | 'swap' | 'fallback' | 'optional';
+      'src': string;
+      'unicode-range': string;
+    }
+  // Web safe fallback font
+  | {
+      'font-family': string;
+      'src': `local(${string})`;
+      'ascent-override'?: `${number}%`;
+      'descent-override'?: `${number}%`;
+      'line-gap-override'?: `${number}%`;
+      'size-adjust'?: `${number}%`;
+    };
+
 /**
  * The token definitions below are loosely based on
  * https://github.com/design-tokens/community-group
@@ -185,12 +205,38 @@ interface BaseToken {
   value: unknown;
 }
 
+type ColorUsage = 'fg' | 'bg' | 'border';
+type ColorSentiment =
+  | 'accent'
+  | 'promo'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'on-strong';
+type ColorVariant =
+  | 'normal'
+  | 'subtle'
+  | 'highlight'
+  | 'strong'
+  | 'placeholder'
+  | 'elevated'
+  | 'overlay'
+  | 'divider'
+  | 'focus';
+type ColorInteraction = 'hovered' | 'pressed' | 'disabled';
+
 interface ColorToken extends BaseToken {
   type: 'color';
+  // usage - sentiment - variant - interaction, with sentiment, variant and interaction being optional
+  name:
+    | `--cui-${ColorUsage}-${ColorSentiment | ColorVariant}`
+    | `--cui-${ColorUsage}-${ColorVariant}-${ColorInteraction}`
+    | `--cui-${ColorUsage}-${ColorSentiment}-${ColorVariant | ColorInteraction}`
+    | `--cui-${ColorUsage}-${ColorSentiment}-${ColorVariant}-${ColorInteraction}`;
   value: Color;
 }
 
-export type Color =
+type Color =
   | `#${string}`
   | `rgb(${number},${number},${number})`
   | `rgb(${number},${number},${number},${number})`

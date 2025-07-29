@@ -1,0 +1,8 @@
+{
+  "yearInputLabel": "Jaar",
+  "monthInputLabel": "Maand",
+  "dayInputLabel": "Dag",
+  "openCalendarButtonLabel": "Datum wijzigen",
+  "applyDateButtonLabel": "Datum toepassen",
+  "clearDateButtonLabel": "Datum wissen"
+}

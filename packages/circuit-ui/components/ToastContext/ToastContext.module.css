@@ -1,6 +1,5 @@
 .base {
   position: fixed;
-  bottom: var(--cui-spacings-giga);
   left: 0;
   z-index: var(--cui-z-index-toast);
   display: flex;
@@ -9,15 +8,33 @@
   padding: 0 var(--cui-spacings-giga);
 }
 
+.top,
+.top-right {
+  top: var(--cui-spacings-giga);
+}
+
+.bottom {
+  bottom: var(--cui-spacings-giga);
+}
+
 @media (min-width: 480px) {
   .base {
-    left: 50%;
     width: auto;
     padding: 0;
+  }
+
+  .top,
+  .bottom {
+    left: 50%;
     transform: translateX(-50%);
+  }
+
+  .top-right {
+    right: var(--cui-spacings-giga);
+    left: inherit;
   }
 }
 
 .toast {
-  margin-top: var(--cui-spacings-byte)
+  margin-top: var(--cui-spacings-byte);
 }

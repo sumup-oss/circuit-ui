@@ -6,7 +6,9 @@
 
 .input:focus + label > *:last-child {
   outline: 0;
-  box-shadow: 0 0 0 2px var(--cui-bg-normal), 0 0 0 4px var(--cui-border-focus);
+  box-shadow:
+    0 0 0 2px var(--cui-bg-normal),
+    0 0 0 4px var(--cui-border-focus);
 }
 
 .input:focus + label > *:last-child::-moz-focus-inner {
@@ -97,7 +99,9 @@
 
 .label.dragging *:last-child {
   outline: 0;
-  box-shadow: 0 0 0 2px var(--cui-bg-normal), 0 0 0 4px var(--cui-border-focus);
+  box-shadow:
+    0 0 0 2px var(--cui-bg-normal),
+    0 0 0 4px var(--cui-border-focus);
 }
 
 .label.dragging *:last-child::-moz-focus-inner {
@@ -142,13 +146,14 @@
   position: absolute;
   top: calc(50% - 16px);
   left: calc(50% - 16px);
+  visibility: hidden;
   width: var(--cui-icon-sizes-giga);
   height: var(--cui-icon-sizes-giga);
   color: var(--cui-fg-on-strong);
   pointer-events: none;
-  visibility: hidden;
   opacity: 0;
-  transition: opacity var(--cui-transitions-default),
+  transition:
+    opacity var(--cui-transitions-default),
     visibility var(--cui-transitions-default);
 }
 

@@ -13,7 +13,11 @@
  * limitations under the License.
  */
 
-import { ESLintUtils, TSESLint, TSESTree } from '@typescript-eslint/utils';
+import {
+  ESLintUtils,
+  type TSESLint,
+  type TSESTree,
+} from '@typescript-eslint/utils';
 
 /* eslint-disable */
 
@@ -42,7 +46,7 @@ const mappings: Config[] = [
       'NotificationInline',
       'NotificationToast',
       'Pagination',
-      'Popover',
+      'ActionMenu',
       'RadioButton',
       'Select',
       'Selector',
@@ -60,6 +64,12 @@ const mappings: Config[] = [
     components: ['ProgressBar'],
     props: ['variant'],
     alternative: '',
+  },
+  {
+    components: ['Body'],
+    props: ['variant'],
+    alternative:
+      'Use the new `color` prop instead of the `alert`, `confirm` and `subtle` variants. Use the new `weight` prop instead of the `highlight` variant. Use custom CSS for the `quote` variant.',
   },
 ];
 

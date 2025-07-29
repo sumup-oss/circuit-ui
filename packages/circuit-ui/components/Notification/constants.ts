@@ -13,7 +13,13 @@
  * limitations under the License.
  */
 
-import { Alert, Confirm, IconComponentType, Info, Notify } from '@sumup/icons';
+import {
+  Alert,
+  Confirm,
+  Info,
+  Notify,
+  type IconComponentType,
+} from '@sumup-oss/icons';
 
 export type NotificationVariant = 'info' | 'success' | 'warning' | 'danger';
 
@@ -26,3 +32,7 @@ export const NOTIFICATION_ICONS: Record<
   warning: Notify,
   danger: Alert,
 };
+
+export const TRANSITION_DURATION = 200;
+
+export const DEFAULT_HEIGHT = 'auto';

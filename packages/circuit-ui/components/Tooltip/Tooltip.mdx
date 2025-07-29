@@ -1,0 +1,73 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './Tooltip.stories';
+
+<Meta of={Stories} />
+
+# Tooltip
+
+<Status variant="stable" />
+
+Tooltips display additional information upon hover or focus that is contextual, helpful, and nonessential to clarify the purpose of otherwise ambiguous interactive elements.
+
+<Story of={Stories.Base} />
+<Props />
+
+## Usage
+
+Tooltips hide information by default and require user interaction to be shown. They should be used as a last resort when space truly is limited and the information cannot be shown inline.
+
+The wrapped component must be a focusable element such as `<a>`, `<button>`, `<input>`, or an element with `tabindex="0"`.
+
+The label must be a single unformatted string. Use a [Toggletip](Components/Toggletip/Docs) instead if the content should be structured or interactive.
+
+The Tooltip works without JavaScript as long as the parent element is [positioned](https://developer.mozilla.org/en-US/docs/Web/CSS/position#types_of_positioning). When JavaScript is available, the Tooltip is progressively enhanced to place itself within the viewport.
+
+## Variations
+
+### Types
+
+<Story of={Stories.Types} />
+
+#### Label
+
+Use the `label` type when the tooltip acts as the wrapped component's label (aka [accessible name](https://w3c.github.io/accname/#dfn-accessible-name)). The label text should state the element's function or action in one or two words maximum.
+
+#### Description
+
+Use the `description` type when the tooltip provides supplemental information about the wrapped component ([accessible description](https://w3c.github.io/accname/#dfn-accessible-description)). The label text should not contain information that is critical for a user to understand the wrapped element. Use sentence-case for the label text and write complete sentences with punctuation unless space is limited. Avoid exceeding 160 characters.
+
+### Placement
+
+By default, the tooltip is positioned above the wrapped component and center-aligned. Use the `placement` prop to specify a different initial position and alignment.
+
+The tooltip automatically flips to the opposite side to stay within the viewport when there isn't enough space available.
+
+<Story of={Stories.Placements} />
+
+## Related components
+
+- [Toggletip](Components/Toggletip/Docs): Toggletips display additional information that is contextual, helpful, and nonessential to the user upon pressing a UI trigger element and can contain interactive elements
+
+---
+
+## Accessibility
+
+### Best practices
+
+- Only interactive elements should trigger tooltips
+- Tooltips should directly describe the UI control that triggers them (i.e. do not create a control purely to trigger a tooltip)
+- Use `aria-describedby` or `aria-labelledby` to associate the UI control with the tooltip. Avoid `aria-haspopup` and `aria-live`
+- Do not use the `title` attribute to create a tooltip
+- Do not put essential information in tooltips
+- Provide a means to dismiss the tooltip with both keyboard and pointer
+- Allow the mouse to easily move over the tooltip without dismissing it
+- Do not use a timeout to hide the tooltip
+
+### Resources
+
+- [Tooltips in the time of WCAG 2.1](https://sarahmhigley.com/writing/tooltips-in-wcag-21/) by Sarah Highley
+- [Inclusive Components: Tooltip & Toggletips](https://inclusive-components.design/tooltips-toggletips/) by Heydon Pickering
+
+#### Related WCAG success criteria
+
+- 1.4.13: [Content on Hover or Focus](https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus.html)

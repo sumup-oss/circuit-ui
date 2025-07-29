@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 export type SortByValue = boolean | number | string | Date;
 

@@ -13,18 +13,9 @@
  * limitations under the License.
  */
 
-// eslint-disable-next-line import/no-extraneous-dependencies
-module.exports = require('@sumup/foundry/eslint')(
-  {
-    language: 'JavaScript',
-    environments: ['Node'],
-    frameworks: ['React', 'Emotion', 'Jest'],
-    openSource: true,
+module.exports = require('@sumup-oss/foundry/eslint')({
+  rules: {
+    'arrow-parens': 'off',
+    'no-console': 'off',
   },
-  {
-    rules: {
-      'arrow-parens': 'off',
-      'no-console': 'off',
-    },
-  },
-);
+});

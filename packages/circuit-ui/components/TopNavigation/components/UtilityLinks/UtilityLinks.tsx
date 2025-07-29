@@ -13,16 +13,23 @@
  * limitations under the License.
  */
 
-import type { MouseEvent, KeyboardEvent, AnchorHTMLAttributes } from 'react';
-import type { IconComponentType } from '@sumup/icons';
+'use client';
+
+import type {
+  MouseEvent,
+  KeyboardEvent,
+  AnchorHTMLAttributes,
+  ReactNode,
+} from 'react';
+import type { IconComponentType } from '@sumup-oss/icons';
 
 import type { AsPropType } from '../../../../types/prop-types.js';
-import Body from '../../../Body/index.js';
+import { Body } from '../../../Body/index.js';
 import { useComponents } from '../../../ComponentsContext/index.js';
 import { Skeleton } from '../../../Skeleton/index.js';
 import { clsx } from '../../../../styles/clsx.js';
-import utilityClasses from '../../../../styles/utility.js';
-import sharedClasses from '../../../../styles/shared.js';
+import { utilClasses } from '../../../../styles/utility.js';
+import { sharedClasses } from '../../../../styles/shared.js';
 
 import classes from './UtilityLinks.module.css';
 
@@ -72,7 +79,7 @@ function UtilityLink({
       className={clsx(
         classes.anchor,
         sharedClasses.navigationItem,
-        utilityClasses.focusVisibleInset,
+        utilClasses.focusVisibleInset,
         className,
       )}
     >
@@ -80,7 +87,7 @@ function UtilityLink({
         <Icon aria-hidden="true" size="24" />
       </Skeleton>
       <Skeleton>
-        <Body as="span" className={classes.label}>
+        <Body as="span" className={classes.label} weight="semibold">
           {label}
         </Body>
       </Skeleton>
@@ -88,18 +95,45 @@ function UtilityLink({
   );
 }
 
+type CustomLinkProps = {
+  /**
+   * A string or a number that uniquely identifies the link among other links.
+   *
+   * See https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key
+   */
+  key: string | number;
+  /**
+   * A custom component. Ensure that the element's styles fit in with the rest
+   * of the TopNavigation. If the element is interactive, it should match the
+   * hover, focus, and active styles of the regular links.
+   */
+  children: ReactNode;
+};
+
 export interface UtilityLinksProps {
-  links: UtilityLinkProps[];
+  links: (UtilityLinkProps | CustomLinkProps)[];
 }
 
-export function UtilityLinks({ links }: UtilityLinksProps): JSX.Element {
+export function UtilityLinks({ links }: UtilityLinksProps) {
   return (
     <ul className={classes.list}>
-      {links.map((link) => (
-        <li key={link.label} className={classes.item}>
-          <UtilityLink {...link} />
-        </li>
-      ))}
+      {links.map((link) =>
+        isUtilityLink(link) ? (
+          <li key={link.label} className={classes.item}>
+            <UtilityLink {...link} />
+          </li>
+        ) : (
+          <li key={link.key} className={classes.item}>
+            {link.children}
+          </li>
+        ),
+      )}
     </ul>
   );
+}
+
+function isUtilityLink(
+  link: UtilityLinkProps | CustomLinkProps,
+): link is UtilityLinkProps {
+  return 'label' in link;
 }

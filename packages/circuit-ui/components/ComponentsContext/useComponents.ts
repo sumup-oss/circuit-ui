@@ -13,12 +13,14 @@
  * limitations under the License.
  */
 
+'use client';
+
 import { useContext } from 'react';
 
 import {
-  ComponentsContext,
-  ComponentsContextType,
   defaultComponents,
+  ComponentsContext,
+  type ComponentsContextType,
 } from './ComponentsContext.js';
 
 /**

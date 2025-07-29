@@ -8,4 +8,4 @@ opera >= 60
 samsung >= 11.1
 
 # The features that the script checks for
-supports css-grid and supports object-entries and supports es6-module-dynamic-import
+supports css-grid and supports object-entries and supports es6-module-dynamic-import and not dead and not unreleased versions

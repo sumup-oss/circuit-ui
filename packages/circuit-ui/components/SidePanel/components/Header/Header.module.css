@@ -5,11 +5,12 @@
   display: flex;
   align-items: center;
   width: 100%;
-  background-color: var(--cui-bg-normal);
+  background-color: var(--cui-bg-elevated);
 }
 
 @media (min-width: 768px) {
   .base {
+    background-color: var(--cui-bg-normal);
     box-shadow: inset var(--cui-border-width-kilo) 0 0 var(--cui-border-divider);
   }
 }
@@ -35,8 +36,8 @@
   flex: 1 1 auto;
   margin-left: var(--cui-spacings-zetta);
   overflow-x: hidden;
-  text-align: center;
   text-overflow: ellipsis;
+  text-align: center;
   white-space: nowrap;
 }
 

@@ -1,0 +1,82 @@
+.wrapper {
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}
+
+.country-code.country-code,
+.subscriber-number.subscriber-number {
+  flex-grow: 1;
+}
+
+@media (max-width: 479px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .subscriber-number {
+    /* to avoid having a 2px inner border separating the two inputs */
+    transform: translateY(-1px);
+  }
+
+  .country-code.country-code select,
+  .country-code-input.country-code-input {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .subscriber-number-input.subscriber-number-input {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+
+@media (min-width: 480px) {
+  .subscriber-number {
+    /* to avoid having a 2px inner border separating the two inputs */
+    transform: translateX(-1px);
+  }
+
+  .country-code.country-code select,
+  .country-code-input.country-code-input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .country-code-input.country-code-input {
+    /* Prefix padding + country code (max 4 chars) + padding */
+    max-width: calc(var(--cui-spacings-exa) + 4ch + var(--cui-spacings-mega));
+  }
+
+  .subscriber-number.subscriber-number {
+    min-width: 50%;
+  }
+
+  .subscriber-number-input.subscriber-number-input {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+/* Elevate the subscriber number input above the country code select by default */
+.subscriber-number.subscriber-number {
+  position: relative;
+  z-index: calc(var(--cui-z-index-input) + 1);
+}
+
+/* Elevate the country code select above the subscriber number input on hover and focus */
+.country-code.country-code:hover,
+.country-code.country-code:focus,
+.country-code-input.country-code-input:hover,
+.country-code-input.country-code-input:focus {
+  position: relative;
+  z-index: calc(var(--cui-z-index-input) + 2);
+}
+
+/* Elevate the input prefix above the country code select on hover and focus */
+svg:has(+ .country-code:hover),
+svg:has(+ .country-code:focus) {
+  z-index: calc(var(--cui-z-index-input) + 3);
+}

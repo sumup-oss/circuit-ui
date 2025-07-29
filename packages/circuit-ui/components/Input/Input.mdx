@@ -7,26 +7,21 @@ import * as Stories from './Input.stories';
 
 <Status variant="stable" />
 
-A text field is an input field for inserting short text and numbers. It has
-multiple functions and supports multiple character types/formats.
+A text field is an input field for inserting short text and numbers.
 
 <Story of={Stories.Base} />
 <Props />
 
 ## When to use it
 
-When you need short textual information from the user such as email address,
-first name, phone number, street name, etc.
+When you need short textual information from the user such as email address, first name, phone number, street name, etc.
 
 ## Usage guidelines
 
 - **Do** always accompany an input field with a visible label.
-- **Do** use one input per row, unless two fields are closely interrelated
-  (e.g. first and last name).
-- **Do not** use input fields for requiring longer textual information from the
-  user.
-- **Do not** communicate that an input field is required on the label or the placeholder.
-  We assume that everything is required for the user unless explicitly said so.
+- **Do** use one input per row, unless two fields are closely interrelated (e.g. first and last name).
+- **Do not** use input fields for requiring longer textual information from the user.
+- **Do not** communicate that an input field is required on the label or the placeholder. We assume that everything is required for the user unless explicitly said so.
 - **Do not** mark required fields with asterisks.
 
 ## Validations
@@ -63,19 +58,17 @@ field should only be open for editing again if a button is clicked.
 
 ## Placeholder
 
-An input field must always have a placeholder, which is a short example of the
-information required that helps the user to understand what kind of information
-is needed. (For instance, an Address Field could have a placeholder:
-Grunerstrasse 13)
+An input field must always have a placeholder, which is a short example of the information required that helps the user to understand what kind of information is needed. (For instance, an Address Field could have a placeholder: "Grunerstrasse 13")
 
-### When to use it
+### Accessibility Tradeoff
 
-Always provide a placeholder for text input fields.
+The placeholder color does not currently satisfy the [WCAG Success Criterion](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html) 1.4.3 minimum contrast ratio of 4.5:1 for text.
+However, changing the placeholder color to fulfill this requirement would make placeholder text look too similar to user-entered content.
+That’s why we’re only aiming for 3:1 which is usually reserved for large text. This should be fine as long as placeholder text doesn’t convey any essential information (any formatting requirements should be explained in the component's `validationHint` prop).
 
 ### Usage guidelines
 
 - **Do** make the placeholder succinct (up to 3-4 words).
 - **Do** make the placeholder contextual to the language and market.
 - **Do not** repeat the same content in the placeholder as the label.
-- **Do not** communicate that a field is optional in the placeholder, you
-  should do it in the label.
+- **Do not** communicate that a field is optional in the placeholder, use the `optionalLabel` prop instead.

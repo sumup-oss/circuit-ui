@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { ImgHTMLAttributes } from 'react';
-import { Profile, Image as ImageIcon } from '@sumup/icons';
+import type { ImgHTMLAttributes } from 'react';
+import { Profile, Image as ImageIcon } from '@sumup-oss/icons';
 
 import { CircuitError } from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';
@@ -29,7 +29,11 @@ export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
    */
   src?: string;
   /**
-   * Alt text for the Avatar image. Set it to "" if the image is presentational.
+   * [Images must have text alternatives](https://www.w3.org/WAI/tutorials/images/)
+   * that describe the information or function represented by them. This
+   * ensures that images can be used by people with various disabilities. Pass
+   * an empty string if the image is [decorative](https://www.w3.org/WAI/tutorials/images/decorative/),
+   * or a localized description if the image is [informative](https://www.w3.org/WAI/tutorials/images/informative/).
    */
   alt: string;
   /**
@@ -80,7 +84,7 @@ export const Avatar = ({
   initials,
   className,
   ...props
-}: AvatarProps): JSX.Element => {
+}: AvatarProps) => {
   if (
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test'
@@ -111,6 +115,7 @@ export const Avatar = ({
 
   if (src) {
     return (
+      // biome-ignore lint/a11y/useAltText: The `alt` prop is marked as required.
       <img
         src={src}
         alt={alt}

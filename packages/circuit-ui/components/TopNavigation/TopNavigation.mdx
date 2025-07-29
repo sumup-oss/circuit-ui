@@ -14,6 +14,12 @@ The top navigation is part of the [application shell](https://developers.google.
 
 ## Usage with the side navigation
 
-<Story of={Stories.WithSideNavigation} />
+<Story of={Stories.WithSideNavigation} inline={false} />
 
 When used alongside the [SideNavigation](Navigation/SideNavigation) component, the top navigation displays a hamburger button on narrow viewports which can be used to toggle the side navigation.
+
+## Accessibility
+
+To improve the navigation experience, this component includes a skip navigation link that allows users to jump directly to the main content of the page. This is particularly useful for users who rely on screen readers or keyboard navigation.
+To enable this behaviour, pass a hash link to your main content as the `skipNavigationHref` prop and a `skipNavigationLabel` as label.
+More information about this can be found in the [SkipLink](Navigation/SkipLink/Docs) component documentation.

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import Body, { BodyProps } from '../../../Body/index.js';
+import { Body, type BodyProps } from '../../../Body/index.js';
 import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './Status.module.css';
@@ -36,11 +36,7 @@ export function Status({
   ...props
 }: StatusProps) {
   return (
-    <Body
-      variant="highlight"
-      className={clsx(classes.base, className)}
-      {...props}
-    >
+    <Body weight="bold" className={clsx(classes.base, className)} {...props}>
       {step + 1} / {total}
     </Body>
   );

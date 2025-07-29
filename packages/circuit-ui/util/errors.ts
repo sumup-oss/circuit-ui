@@ -14,7 +14,7 @@
  */
 
 /* eslint-disable max-classes-per-file */
-import React from 'react';
+import React, { type ReactNode } from 'react';
 
 import { isString } from './type-check.js';
 
@@ -22,19 +22,19 @@ export class CircuitError extends Error {
   constructor(componentName: string, message: string) {
     super(`[${componentName}] ${message}`);
     this.name = 'CircuitError';
+
+    if (React.captureOwnerStack) {
+      this.stack = React.captureOwnerStack() ?? undefined;
+      return;
+    }
+
     // Adapted from https://stackoverflow.com/questions/33474179/react-access-parent-component-name
 
     /* eslint-disable max-len, no-underscore-dangle, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
     if (
       // @ts-expect-error Since this code only runs in development, it's fine to use this internal React API.
       React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED
-        .ReactCurrentOwner &&
-      // @ts-expect-error This is fine.
-      React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner
-        .return &&
-      // @ts-expect-error This is fine.
-      React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner
-        .return.type
+        ?.ReactCurrentOwner?.return?.type
     ) {
       this.stack =
         // @ts-expect-error This is fine.
@@ -44,10 +44,7 @@ export class CircuitError extends Error {
     if (
       // @ts-expect-error Since this code only runs in development, it's fine to use this internal React API.
       React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED
-        .ReactDebugCurrentFrame &&
-      // @ts-expect-error This is fine.
-      React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED
-        .ReactDebugCurrentFrame.getCurrentStack
+        ?.ReactDebugCurrentFrame?.getCurrentStack
     ) {
       this.stack =
         // @ts-expect-error This is fine.
@@ -79,7 +76,7 @@ export class AccessibilityError extends CircuitError {
  * We allow this only as an escape hatch to use at your own risk.
  */
 export function isSufficientlyLabelled(
-  label?: string,
+  label?: ReactNode,
   attributes?: {
     'aria-label'?: string;
     'aria-labelledby'?: string;

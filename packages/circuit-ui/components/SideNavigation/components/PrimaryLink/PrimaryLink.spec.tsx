@@ -14,18 +14,19 @@
  */
 
 import { describe, expect, it, vi } from 'vitest';
-import { FC } from 'react';
-import { IconProps, Plus } from '@sumup/icons';
+import type { FC } from 'react';
+import { Plus, type IconProps } from '@sumup-oss/icons';
 
-import { ClickEvent } from '../../../../types/events.js';
+import type { ClickEvent } from '../../../../types/events.js';
 import {
   render,
   axe,
-  RenderFn,
   userEvent,
+  screen,
+  type RenderFn,
 } from '../../../../util/test-utils.js';
 
-import { PrimaryLink, PrimaryLinkProps } from './PrimaryLink.js';
+import { PrimaryLink, type PrimaryLinkProps } from './PrimaryLink.js';
 
 describe('PrimaryLink', () => {
   function renderPrimaryLink<T>(
@@ -43,31 +44,47 @@ describe('PrimaryLink', () => {
   };
 
   it('should render as active', () => {
-    const { getByRole } = renderPrimaryLink(render, {
+    renderPrimaryLink(render, {
       ...baseProps,
       isActive: true,
     });
-    expect(getByRole('link')).toHaveAttribute('aria-current', 'page');
+    expect(screen.getByRole('link')).toHaveAttribute('aria-current', 'page');
+  });
+
+  it('should render with a badge', () => {
+    renderPrimaryLink(render, {
+      ...baseProps,
+      badge: { children: 'New' },
+    });
+    expect(screen.getByRole('link')).toHaveAccessibleDescription('New');
   });
 
   it('should render with an active icon', () => {
-    const { getByTestId } = renderPrimaryLink(render, {
+    renderPrimaryLink(render, {
       ...baseProps,
       activeIcon: () => <div data-testid="active-icon" />,
       isActive: true,
     });
-    expect(getByTestId('active-icon')).toBeVisible();
+    expect(screen.getByTestId('active-icon')).toBeVisible();
   });
 
-  it.todo('should render with an external icon');
+  it('should render with an external icon', () => {
+    renderPrimaryLink(render, {
+      ...baseProps,
+      externalLabel: 'Opens in a new tab',
+      target: '_blank',
+    });
+    expect(screen.getByRole('link')).toHaveAccessibleDescription(
+      'Opens in a new tab',
+    );
+  });
 
   it('should render with a suffix icon', () => {
-    const { getByTestId } = renderPrimaryLink(render, {
+    renderPrimaryLink(render, {
       ...baseProps,
-      // eslint-disable-next-line react/display-name
       suffix: (props) => <div {...props} data-testid="suffix" />,
     });
-    expect(getByTestId('suffix')).toBeVisible();
+    expect(screen.getByTestId('suffix')).toBeVisible();
   });
 
   it('should call the onClick handler when clicked', async () => {
@@ -77,9 +94,9 @@ describe('PrimaryLink', () => {
         event.preventDefault();
       }),
     };
-    const { getByRole } = renderPrimaryLink(render, props);
+    renderPrimaryLink(render, props);
 
-    await userEvent.click(getByRole('link'));
+    await userEvent.click(screen.getByRole('link'));
 
     expect(props.onClick).toHaveBeenCalledTimes(1);
   });
@@ -88,5 +105,19 @@ describe('PrimaryLink', () => {
     const { container } = renderPrimaryLink(render, baseProps);
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
+  });
+
+  it('should throw an accessibility error when the externalLabel prop is missing', () => {
+    // Silence the console.error output and switch to development mode to throw the error
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    process.env.NODE_ENV = 'development';
+    expect(() =>
+      renderPrimaryLink(render, {
+        ...baseProps,
+        target: '_blank',
+      }),
+    ).toThrow();
+    process.env.NODE_ENV = 'test';
+    vi.restoreAllMocks();
   });
 });

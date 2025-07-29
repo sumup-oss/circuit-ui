@@ -1,0 +1,51 @@
+.modal {
+  height: inherit;
+  max-height: inherit;
+  overflow-y: auto;
+}
+
+.modal-with-action {
+  margin-bottom: 81px; /* 32px for action button + 33px for Hr and 16px padding bottom of the modal */
+}
+
+.action {
+  position: sticky;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  padding: 0 var(--cui-spacings-mega) var(--cui-spacings-mega);
+  background: var(--cui-bg-elevated);
+}
+
+.action-modal {
+  position: fixed;
+  bottom: env(safe-area-inset-bottom);
+}
+
+.action::before {
+  position: absolute;
+  top: calc(-1 * var(--cui-spacings-mega));
+  right: 0;
+  left: 0;
+  display: block;
+  height: var(--cui-spacings-mega);
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(
+    color-mix(in sRGB, var(--cui-bg-elevated) 1%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent)
+  );
+  border-radius: inherit;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cui-spacings-mega);
+  align-items: center;
+  justify-content: center;
+  padding: var(--cui-spacings-mega);
+  text-align: center;
+}

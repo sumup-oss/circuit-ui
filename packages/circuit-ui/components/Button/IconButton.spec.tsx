@@ -14,7 +14,7 @@
  */
 
 import { describe, expect, it } from 'vitest';
-import { Close } from '@sumup/icons';
+import { Close } from '@sumup-oss/icons';
 
 import { render, screen } from '../../util/test-utils.js';
 
@@ -36,6 +36,7 @@ describe('IconButton', () => {
    */
   it('should render an icon passed as children', () => {
     render(
+      // eslint-disable-next-line @sumup-oss/circuit-ui/no-renamed-props
       <IconButton label="Close">
         <svg data-testid="icon" />
       </IconButton>,
@@ -48,5 +49,11 @@ describe('IconButton', () => {
     render(<IconButton icon={Close}>Close</IconButton>);
     const label = screen.getByText('Close');
     expect(label).toBeInTheDocument();
+  });
+
+  it('should render with an accessible name', () => {
+    render(<IconButton icon={Close}>Close</IconButton>);
+    const button = screen.getByRole('button');
+    expect(button).toHaveAccessibleName('Close');
   });
 });

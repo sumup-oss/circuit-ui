@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import {
   Children,
   cloneElement,
@@ -21,7 +23,7 @@ import {
   type ReactElement,
   type RefAttributes,
 } from 'react';
-import type { IconComponentType, IconProps } from '@sumup/icons';
+import type { IconComponentType, IconProps } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
 import { CircuitError } from '../../util/errors.js';
@@ -112,6 +114,7 @@ export const IconButton: ForwardRefExoticComponent<
         if (Icon) {
           return <Icon {...iconProps} />;
         }
+        // biome-ignore lint/style/noNonNullAssertion: We check for the existence of children above
         const child = Children.only(children)!;
         // TODO: Remove with the next major
         if (isString(child)) {
@@ -122,7 +125,10 @@ export const IconButton: ForwardRefExoticComponent<
       size,
       children: isString(children) ? children : label,
       title: isString(children) ? children : label,
+      'aria-label': isString(children) ? children : label,
       ...props,
     };
   },
 );
+
+IconButton.displayName = 'IconButton';

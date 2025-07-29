@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
+import type { MouseEvent } from 'react';
 import { describe, expect, it, vi } from 'vitest';
-import { MouseEvent } from 'react';
 
 import { renderHook, act, waitFor } from '../../util/test-utils.js';
 

@@ -6,6 +6,7 @@
     "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
     "jsxImportSource": "react",
@@ -16,6 +17,7 @@
     "noUnusedParameters": true,
     "resolveJsonModule": true,
     "strict": true,
+    "skipLibCheck": true,
     "target": "es2019",
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
@@ -26,8 +28,11 @@
     "styles/**/*",
     "types/**/*",
     "util/**/*",
+    "vendor/**/*",
     "index.ts",
-    "legacy.ts"
+    "legacy.ts",
+    "experimental.ts",
+    "internal.ts"
   ],
   "exclude": ["node_modules", "dist"],
   "typeRoots": ["./types"]

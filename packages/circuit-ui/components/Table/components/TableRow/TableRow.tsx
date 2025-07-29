@@ -13,14 +13,17 @@
  * limitations under the License.
  */
 
-import type { HTMLAttributes } from 'react';
+'use client';
+
+import { type HTMLAttributes, useCallback, type KeyboardEvent } from 'react';
 
 import type { ClickEvent } from '../../../../types/events.js';
 import { clsx } from '../../../../styles/clsx.js';
+import { isEnter, isSpacebar } from '../../../../util/key-codes.js';
 
 import classes from './TableRow.module.css';
 
-export interface TableRowProps extends HTMLAttributes<HTMLTableRowElement> {
+interface TableRowProps extends HTMLAttributes<HTMLTableRowElement> {
   onClick?: (event: ClickEvent<HTMLTableRowElement>) => void;
 }
 
@@ -28,9 +31,18 @@ export interface TableRowProps extends HTMLAttributes<HTMLTableRowElement> {
  * TableRow for the Table component. The Table handles rendering it.
  */
 export function TableRow({ onClick, className, ...props }: TableRowProps) {
+  const onRowKeydown = useCallback(
+    (event: KeyboardEvent<HTMLTableRowElement>) => {
+      if (isEnter(event) || isSpacebar(event)) {
+        onClick?.(event);
+      }
+    },
+    [onClick],
+  );
   return (
     <tr
       onClick={onClick}
+      onKeyDown={onClick ? onRowKeydown : undefined}
       tabIndex={onClick ? 0 : undefined}
       className={clsx(classes.base, className)}
       {...props}

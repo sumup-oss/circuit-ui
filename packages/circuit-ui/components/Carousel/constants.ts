@@ -19,7 +19,6 @@ export const ANIMATION_DURATION = 640;
 
 export const SLIDE_DURATION = 5000;
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
 export enum SLIDE_DIRECTIONS {
   FORWARD = 'forward',
   BACK = 'back',

@@ -13,12 +13,18 @@
  * limitations under the License.
  */
 
-import { FC, HTMLAttributes, ReactNode, SVGProps, forwardRef } from 'react';
+import {
+  forwardRef,
+  type FC,
+  type HTMLAttributes,
+  type ReactNode,
+  type SVGProps,
+} from 'react';
 
-import Body from '../Body/index.js';
-import Headline from '../Headline/index.js';
-import ButtonGroup, { ButtonGroupProps } from '../ButtonGroup/index.js';
-import Image, { ImageProps } from '../Image/index.js';
+import { Body } from '../Body/index.js';
+import { Headline } from '../Headline/index.js';
+import { ButtonGroup, type ButtonGroupProps } from '../ButtonGroup/index.js';
+import { Image, type ImageProps } from '../Image/index.js';
 import { isString } from '../../util/type-check.js';
 import { clsx } from '../../styles/clsx.js';
 
@@ -29,8 +35,8 @@ export interface NotificationFullscreenProps
   /**
    * An image to illustrate the notification. Supports either passing an image
    * source to `image.src` or an SVG component to `image.svg`. Pass an empty
-   * string as alt text if the image is decorative, or a localized description
-   * if the image is informative.
+   * string as alt text if the image is [decorative](https://www.w3.org/WAI/tutorials/images/decorative/),
+   * or a localized description if the image is [informative](https://www.w3.org/WAI/tutorials/images/informative/).
    */
   image: ImageProps | { svg: FC<SVGProps<SVGSVGElement>>; alt: string };
   /**
@@ -83,7 +89,7 @@ export const NotificationFullscreen = forwardRef<
   return (
     <div ref={ref} className={clsx(classes.base, className)} {...props}>
       <NotificationImage {...image} />
-      <Headline className={classes.headline} size="two" as={headlineElement}>
+      <Headline className={classes.headline} size="m" as={headlineElement}>
         {headlineLabel}
       </Headline>
       {body && <Body className={classes.body}>{body}</Body>}

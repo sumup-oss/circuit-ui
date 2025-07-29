@@ -9,18 +9,18 @@ import * as Stories from './Headline.stories';
 
 The Headline component is used for describing the contents of a page or page section. It is an essential part of a page's structure, helping organize information for users.
 
-<Story of={Stories.Base} />
+<Story of={Stories.Base} inline={false} />
 <Props />
 
 ## Component variations
 
 ### Sizes
 
-The Headline component comes in four sizes.
+The Headline component comes in three sizes.
 
-Use the `four` size for card headers and `three` for page titles in web applications. For specific use cases such as landing pages, consider using the [Title](Typography/Title) component.
+Use the `m` size for card headers and `l` for page titles in web applications. Consider using the [Display](Typography/Display) component for specific use cases such as landing pages.
 
-<Story of={Stories.Sizes} />
+<Story of={Stories.Sizes} inline={false} />
 
 ---
 
@@ -51,7 +51,7 @@ Beyond the `<h1>`, heading levels should be nested hierarchically to make them e
 
 Don't skip heading levels: an `<h4>` should not directly follow an `<h2>`.
 
-In contrast, skipping headline _sizes_ and jumping from e.g. `<Headline size="two" as="h2" />` to `<Headline size="four" as="h4" />` does not constitute an accessibility issue, although we recommend keeping sizes visually consistent across pages.
+In contrast, skipping headline _sizes_ and jumping from e.g. `<Headline size="l" as="h2" />` to `<Headline size="s" as="h4" />` does not constitute an accessibility issue, although we recommend keeping sizes visually consistent across pages.
 
 #### Avoid sections without headings
 
@@ -62,7 +62,7 @@ Consider adding a heading to make the section's purpose clearer.
 You can also add visually hidden headings using the [`hideVisually()` style mixin](Features/Style-Mixins/Hide-Visually):
 
 ```tsx
-import { Headline, hideVisually } from '@sumup/circuit-ui';
+import { Headline, hideVisually } from '@sumup-oss/circuit-ui';
 
 function HiddenHeadline() {
   return (

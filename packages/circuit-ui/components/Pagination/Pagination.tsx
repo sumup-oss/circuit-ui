@@ -13,8 +13,10 @@
  * limitations under the License.
  */
 
-import { HTMLAttributes, ReactElement } from 'react';
-import { ChevronLeft, ChevronRight } from '@sumup/icons';
+'use client';
+
+import type { HTMLAttributes, ReactElement } from 'react';
+import { ChevronLeft, ChevronRight } from '@sumup-oss/icons';
 
 import { IconButton } from '../Button/index.js';
 import {
@@ -114,7 +116,6 @@ export const Pagination = ({
 
   return (
     <nav
-      role="navigation"
       aria-label={label}
       className={clsx(classes.base, className)}
       {...props}

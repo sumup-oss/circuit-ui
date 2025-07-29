@@ -15,8 +15,10 @@
 
 /** @jsxImportSource @emotion/react */
 
+import { userEvent } from 'storybook/test';
+
 import { Stack } from '../../../.storybook/components/index.js';
-import Button from '../components/Button/index.js';
+import { Button } from '../components/Button/index.js';
 
 import styled from './styled.js';
 import {
@@ -28,12 +30,13 @@ import {
   clearfix,
   hideVisually,
   hideScrollbar,
-  SpacingValue,
   center,
+  type SpacingValue,
 } from './style-mixins.js';
 
 export default {
   title: 'Features/Style Mixins',
+  tags: ['status:legacy'],
 };
 
 const spaceOptions = {
@@ -57,7 +60,7 @@ const spaceOptions = {
 
 const Background = styled.div`
   display: inline-block;
-  background-color: #f8cb9c;
+  background-color: var(--cui-bg-promo);
 `;
 
 type SpacingArgs = {
@@ -103,10 +106,14 @@ const Box = styled.div`
   width: 15rem;
   max-width: 100%;
   margin: 1rem;
-  background-color: white;
+  background-color: var(--cui-bg-normal);
 `;
 
-export const Shadow = () => <Box css={shadow} />;
+export const Shadow = () => (
+  <Stack>
+    <Box css={shadow} />
+  </Stack>
+);
 
 const Parent = styled.div`
   width: 100%;
@@ -118,7 +125,7 @@ const Floated = styled.div`
   float: right;
   height: 120px;
   width: 240px;
-  background-color: #ccc;
+  background-color: var(--cui-bg-highlight);
 `;
 
 export const Clearfix = () => (
@@ -136,6 +143,10 @@ export const FocusVisible = () => (
     <Box css={focusVisible('inset')} tabIndex={0} />
   </Stack>
 );
+
+FocusVisible.play = async () => {
+  await userEvent.tab();
+};
 
 export const InputOutline = () => (
   <Stack>

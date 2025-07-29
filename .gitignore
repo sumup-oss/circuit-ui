@@ -7,6 +7,8 @@ yarn.lock
 node_modules
 jest-test-results.json
 coverage
+codecov
+codecov.SHA256SUM*
 dist
 /public
 lib
@@ -16,8 +18,11 @@ circuit-ui-global.css
 
 # These are generated in CI from other files.
 docs/packages/
+docs/templates/
 docs/contributing/1-overview.mdx
 docs/contributing/*-contributing-*.mdx
+docs/introduction/*-changelog.mdx
+docs/introduction/*-migration.mdx
 
 # Packages #
 

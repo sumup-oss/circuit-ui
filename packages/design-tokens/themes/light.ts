@@ -16,7 +16,6 @@
 import type { Token } from '../types/index.js';
 
 export const light = [
-  /* Neutral backgrounds */
   {
     name: '--cui-bg-normal',
     value: '#ffffff',
@@ -24,37 +23,37 @@ export const light = [
   },
   {
     name: '--cui-bg-normal-hovered',
-    value: '#e3e7eb',
+    value: '#e9edf2',
     type: 'color',
   },
   {
     name: '--cui-bg-normal-pressed',
-    value: '#e3e7eb',
+    value: '#bfc6cf',
     type: 'color',
   },
   {
     name: '--cui-bg-normal-disabled',
-    value: 'rgba(255, 255, 255, 0.4)',
+    value: 'rgba(255, 255, 255, 0.4000)',
     type: 'color',
   },
   {
     name: '--cui-bg-subtle',
-    value: '#f6f7f9',
+    value: '#f0f1f5',
     type: 'color',
   },
   {
     name: '--cui-bg-subtle-hovered',
-    value: '#e3e7eb',
+    value: '#e0e2ea',
     type: 'color',
   },
   {
     name: '--cui-bg-subtle-pressed',
-    value: '#c2c9d1',
+    value: '#9da7b1',
     type: 'color',
   },
   {
     name: '--cui-bg-subtle-disabled',
-    value: 'rgba(227, 231, 235, 0.4)',
+    value: 'rgba(227, 231, 235, 0.4000)',
     type: 'color',
   },
   {
@@ -74,30 +73,29 @@ export const light = [
   },
   {
     name: '--cui-bg-highlight-disabled',
-    value: 'rgba(227, 231, 235, 0.4)',
+    value: 'rgba(15, 19, 26, 0.0800)',
     type: 'color',
   },
   {
     name: '--cui-bg-strong',
-    value: '#0f131a',
+    value: '#000000',
     type: 'color',
   },
   {
     name: '--cui-bg-strong-hovered',
-    value: '#000000',
+    value: '#313941',
     type: 'color',
   },
   {
     name: '--cui-bg-strong-pressed',
-    value: '#000000',
+    value: '#4f5a65',
     type: 'color',
   },
   {
     name: '--cui-bg-strong-disabled',
-    value: 'rgba(15, 19, 26, 0.4)',
+    value: 'rgba(23, 29, 36, 0.4000)',
     type: 'color',
   },
-  /* Accent backgrounds */
   {
     name: '--cui-bg-accent',
     value: '#eef0f2',
@@ -110,12 +108,12 @@ export const light = [
   },
   {
     name: '--cui-bg-accent-pressed',
-    value: '#e3e7eb',
+    value: '#c2c9d1',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-disabled',
-    value: 'rgba(238, 240, 242, 0.4)',
+    value: 'rgba(238, 240, 242, 0.4000)',
     type: 'color',
   },
   {
@@ -125,20 +123,19 @@ export const light = [
   },
   {
     name: '--cui-bg-accent-strong-hovered',
-    value: '#000000',
+    value: '#3b3f46',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-strong-pressed',
-    value: '#000000',
+    value: '#6a737c',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-strong-disabled',
-    value: 'rgba(15, 19, 26, 0.4)',
+    value: 'rgba(15, 19, 26, 0.4000)',
     type: 'color',
   },
-  /* Success backgrounds */
   {
     name: '--cui-bg-success',
     value: '#e9fbe9',
@@ -156,7 +153,7 @@ export const light = [
   },
   {
     name: '--cui-bg-success-disabled',
-    value: 'rgba(233, 251, 233, 0.4)',
+    value: 'rgba(233, 251, 233, 0.4000)',
     type: 'color',
   },
   {
@@ -176,10 +173,9 @@ export const light = [
   },
   {
     name: '--cui-bg-success-strong-disabled',
-    value: 'rgba(1, 136, 80, 0.4)',
+    value: 'rgba(1, 136, 80, 0.4000)',
     type: 'color',
   },
-  /* Warning backgrounds */
   {
     name: '--cui-bg-warning',
     value: '#fdf4db',
@@ -197,7 +193,7 @@ export const light = [
   },
   {
     name: '--cui-bg-warning-disabled',
-    value: 'rgba(253, 244, 219, 0.4)',
+    value: 'rgba(253, 244, 219, 0.4000)',
     type: 'color',
   },
   {
@@ -217,10 +213,9 @@ export const light = [
   },
   {
     name: '--cui-bg-warning-strong-disabled',
-    value: 'rgba(232, 124, 0, 0.4)',
+    value: 'rgba(232, 124, 0, 0.4000)',
     type: 'color',
   },
-  /* Danger backgrounds */
   {
     name: '--cui-bg-danger',
     value: '#fbe9e7',
@@ -233,12 +228,12 @@ export const light = [
   },
   {
     name: '--cui-bg-danger-pressed',
-    value: '#f7ccc7',
+    value: '#f2bbb5',
     type: 'color',
   },
   {
     name: '--cui-bg-danger-disabled',
-    value: 'rgba(251, 233, 231, 0.4)',
+    value: 'rgba(251, 233, 231, 0.6400)',
     type: 'color',
   },
   {
@@ -258,10 +253,9 @@ export const light = [
   },
   {
     name: '--cui-bg-danger-strong-disabled',
-    value: 'rgba(222, 51, 29, 0.4)',
+    value: 'rgba(222, 51, 29, 0.4000)',
     type: 'color',
   },
-  /* Promo backgrounds */
   {
     name: '--cui-bg-promo',
     value: '#f5edfe',
@@ -279,7 +273,7 @@ export const light = [
   },
   {
     name: '--cui-bg-promo-disabled',
-    value: 'rgba(245, 237, 254, 0.4)',
+    value: 'rgba(245, 237, 254, 0.4000)',
     type: 'color',
   },
   {
@@ -299,10 +293,9 @@ export const light = [
   },
   {
     name: '--cui-bg-promo-strong-disabled',
-    value: 'rgba(158, 51, 224, 0.4)',
+    value: 'rgba(158, 51, 224, 0.4000)',
     type: 'color',
   },
-  /* Neutral foregrounds */
   {
     name: '--cui-fg-normal',
     value: '#0f131a',
@@ -320,7 +313,7 @@ export const light = [
   },
   {
     name: '--cui-fg-normal-disabled',
-    value: 'rgba(15, 19, 26, 0.4)',
+    value: 'rgba(15, 19, 26, 0.4000)',
     type: 'color',
   },
   {
@@ -330,37 +323,37 @@ export const light = [
   },
   {
     name: '--cui-fg-subtle-hovered',
-    value: '#33373e',
+    value: '#6a737c',
     type: 'color',
   },
   {
     name: '--cui-fg-subtle-pressed',
-    value: '#0f131a',
+    value: '#6a737c',
     type: 'color',
   },
   {
     name: '--cui-fg-subtle-disabled',
-    value: 'rgba(106, 115, 124, 0.4)',
+    value: 'rgba(106, 115, 124, 0.4000)',
     type: 'color',
   },
   {
     name: '--cui-fg-placeholder',
-    value: '#9da7b1',
+    value: '#929396',
     type: 'color',
   },
   {
     name: '--cui-fg-placeholder-hovered',
-    value: '#9da7b1',
+    value: '#787A7C',
     type: 'color',
   },
   {
     name: '--cui-fg-placeholder-pressed',
-    value: '#9da7b1',
+    value: '#484A51',
     type: 'color',
   },
   {
     name: '--cui-fg-placeholder-disabled',
-    value: 'rgba(157, 167, 177, 0.4)',
+    value: 'rgba(146, 147, 150, 0.4000)',
     type: 'color',
   },
   {
@@ -380,7 +373,7 @@ export const light = [
   },
   {
     name: '--cui-fg-on-strong-disabled',
-    value: 'rgba(255, 255, 255, 0.4)',
+    value: 'rgba(255, 255, 255, 0.4000)',
     type: 'color',
   },
   {
@@ -390,12 +383,12 @@ export const light = [
   },
   {
     name: '--cui-fg-on-strong-subtle-hovered',
-    value: 'rgba(255, 255, 255, 0.8000)',
+    value: 'rgba(255, 255, 255, 0.7000)',
     type: 'color',
   },
   {
     name: '--cui-fg-on-strong-subtle-pressed',
-    value: 'rgba(255, 255, 255, 0.9000)',
+    value: 'rgba(255, 255, 255, 0.7000)',
     type: 'color',
   },
   {
@@ -403,7 +396,6 @@ export const light = [
     value: 'rgba(255, 255, 255, 0.3000)',
     type: 'color',
   },
-  /* Accent foregrounds */
   {
     name: '--cui-fg-accent',
     value: '#0f131a',
@@ -411,20 +403,19 @@ export const light = [
   },
   {
     name: '--cui-fg-accent-hovered',
-    value: '#000000',
+    value: '#52565d',
     type: 'color',
   },
   {
     name: '--cui-fg-accent-pressed',
-    value: '#000000',
+    value: '#676e7a',
     type: 'color',
   },
   {
     name: '--cui-fg-accent-disabled',
-    value: 'rgba(15, 19, 26, 0.4)',
+    value: 'rgba(15, 19, 26, 0.4000)',
     type: 'color',
   },
-  /* Success foregrounds */
   {
     name: '--cui-fg-success',
     value: '#018850',
@@ -442,10 +433,9 @@ export const light = [
   },
   {
     name: '--cui-fg-success-disabled',
-    value: 'rgba(1, 136, 80, 0.4)',
+    value: 'rgba(1, 136, 80, 0.4000)',
     type: 'color',
   },
-  /* Warning foregrounds */
   {
     name: '--cui-fg-warning',
     value: '#e27900',
@@ -463,10 +453,9 @@ export const light = [
   },
   {
     name: '--cui-fg-warning-disabled',
-    value: 'rgba(226, 121, 0, 0.4)',
+    value: 'rgba(226, 121, 0, 0.4000)',
     type: 'color',
   },
-  /* Danger foregrounds */
   {
     name: '--cui-fg-danger',
     value: '#de331d',
@@ -484,10 +473,9 @@ export const light = [
   },
   {
     name: '--cui-fg-danger-disabled',
-    value: 'rgba(222, 51, 29, 0.4)',
+    value: 'rgba(222, 51, 29, 0.6400)',
     type: 'color',
   },
-  /* Promo foregrounds */
   {
     name: '--cui-fg-promo',
     value: '#9e33e0',
@@ -505,33 +493,32 @@ export const light = [
   },
   {
     name: '--cui-fg-promo-disabled',
-    value: 'rgba(158, 51, 224, 0.4)',
+    value: 'rgba(158, 51, 224, 0.4000)',
     type: 'color',
   },
-  /* Neutral borders */
   {
     name: '--cui-border-normal',
-    value: '#c2c9d1',
+    value: '#aeb6be',
     type: 'color',
   },
   {
     name: '--cui-border-normal-hovered',
-    value: '#9da7b1',
+    value: '#85919e',
     type: 'color',
   },
   {
     name: '--cui-border-normal-pressed',
-    value: '#6a737c',
+    value: '#687686',
     type: 'color',
   },
   {
     name: '--cui-border-normal-disabled',
-    value: 'rgba(194, 201, 209, 0.4)',
+    value: 'rgba(194, 201, 209, 0.4000)',
     type: 'color',
   },
   {
     name: '--cui-border-subtle',
-    value: '#d6dbe1',
+    value: '#e3e7ec',
     type: 'color',
   },
   {
@@ -546,7 +533,7 @@ export const light = [
   },
   {
     name: '--cui-border-subtle-disabled',
-    value: 'rgba(230, 230, 230, 0.4)',
+    value: 'rgba(230, 230, 230, 0.4000)',
     type: 'color',
   },
   {
@@ -566,7 +553,7 @@ export const light = [
   },
   {
     name: '--cui-border-divider-disabled',
-    value: 'rgba(194, 201, 209, 0.4)',
+    value: 'rgba(194, 201, 209, 0.4000)',
     type: 'color',
   },
   {
@@ -576,20 +563,19 @@ export const light = [
   },
   {
     name: '--cui-border-strong-hovered',
-    value: '#000000',
+    value: '#494a4a',
     type: 'color',
   },
   {
     name: '--cui-border-strong-pressed',
-    value: '#000000',
+    value: '#696969',
     type: 'color',
   },
   {
     name: '--cui-border-strong-disabled',
-    value: 'rgba(15, 19, 26, 0.4)',
+    value: 'rgba(15, 19, 26, 0.4000)',
     type: 'color',
   },
-  /* Accent borders */
   {
     name: '--cui-border-accent',
     value: '#0f131a',
@@ -597,20 +583,19 @@ export const light = [
   },
   {
     name: '--cui-border-accent-hovered',
-    value: '#000000',
+    value: '#52565d',
     type: 'color',
   },
   {
     name: '--cui-border-accent-pressed',
-    value: '#000000',
+    value: '#676e7a',
     type: 'color',
   },
   {
     name: '--cui-border-accent-disabled',
-    value: 'rgba(15, 19, 26, 0.4)',
+    value: 'rgba(15, 19, 26, 0.4000)',
     type: 'color',
   },
-  /* Success borders */
   {
     name: '--cui-border-success',
     value: '#018850',
@@ -628,10 +613,9 @@ export const light = [
   },
   {
     name: '--cui-border-success-disabled',
-    value: 'rgba(1, 136, 80, 0.4)',
+    value: 'rgba(1, 136, 80, 0.4000)',
     type: 'color',
   },
-  /* Warning borders */
   {
     name: '--cui-border-warning',
     value: '#e87c00',
@@ -649,10 +633,9 @@ export const light = [
   },
   {
     name: '--cui-border-warning-disabled',
-    value: 'rgba(226, 121, 0, 0.4)',
+    value: 'rgba(226, 121, 0, 0.4000)',
     type: 'color',
   },
-  /* Danger borders */
   {
     name: '--cui-border-danger',
     value: '#de331d',
@@ -670,10 +653,9 @@ export const light = [
   },
   {
     name: '--cui-border-danger-disabled',
-    value: 'rgba(222, 51, 29, 0.4)',
+    value: 'rgba(222, 51, 29, 0.4000)',
     type: 'color',
   },
-  /* Promo borders */
   {
     name: '--cui-border-promo',
     value: '#9e33e0',
@@ -691,13 +673,12 @@ export const light = [
   },
   {
     name: '--cui-border-promo-disabled',
-    value: 'rgba(158, 51, 224, 0.4)',
+    value: 'rgba(158, 51, 224, 0.4000)',
     type: 'color',
   },
-  /* Special colors */
   {
     name: '--cui-bg-overlay',
-    value: 'rgba(0, 0, 0, 0.4)',
+    value: 'rgba(0, 0, 0, 0.4000)',
     type: 'color',
   },
   {
@@ -707,323 +688,7 @@ export const light = [
   },
   {
     name: '--cui-border-focus',
-    value: '#3064e3',
+    value: '#0f131a',
     type: 'color',
-  },
-  /* Border radii */
-  {
-    name: '--cui-border-radius-bit',
-    value: '4px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-border-radius-byte',
-    value: '8px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-border-radius-kilo',
-    value: '12px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-border-radius-mega',
-    value: '16px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-border-radius-circle',
-    value: '100%',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-border-radius-pill',
-    value: '999999px',
-    type: 'dimension',
-  },
-  /* Border widths */
-  {
-    name: '--cui-border-width-kilo',
-    value: '1px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-border-width-mega',
-    value: '2px',
-    type: 'dimension',
-  },
-  /* Font families */
-  {
-    name: '--cui-font-stack-default',
-    value:
-      'aktiv-grotesk, Helvetica, Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-    type: 'fontFamily',
-  },
-  {
-    name: '--cui-font-stack-mono',
-    value:
-      'Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace',
-    type: 'fontFamily',
-  },
-  /* Font weights */
-  {
-    name: '--cui-font-weight-regular',
-    value: '400',
-    type: 'fontWeight',
-  },
-  {
-    name: '--cui-font-weight-bold',
-    value: '700',
-    type: 'fontWeight',
-  },
-  /* Icon sizes */
-  {
-    name: '--cui-icon-sizes-kilo',
-    value: '16px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-icon-sizes-mega',
-    value: '24px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-icon-sizes-giga',
-    value: '32px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-icon-sizes-tera',
-    value: '48px',
-    type: 'dimension',
-  },
-  /* Spacings */
-  {
-    name: '--cui-spacings-bit',
-    value: '4px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-spacings-byte',
-    value: '8px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-spacings-kilo',
-    value: '12px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-spacings-mega',
-    value: '16px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-spacings-giga',
-    value: '24px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-spacings-tera',
-    value: '32px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-spacings-peta',
-    value: '40px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-spacings-exa',
-    value: '48px',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-spacings-zetta',
-    value: '56px',
-    type: 'dimension',
-  },
-  /* Transitions */
-  {
-    name: '--cui-transitions-default',
-    value: '120ms ease-in-out',
-    type: 'duration',
-  },
-  {
-    name: '--cui-transitions-slow',
-    value: '300ms ease-in-out',
-    type: 'duration',
-  },
-  /* Typography */
-  {
-    name: '--cui-typography-headline-one-font-size',
-    value: '2rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-headline-one-line-height',
-    value: '2.25rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-headline-two-font-size',
-    value: '1.5rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-headline-two-line-height',
-    value: '1.75rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-headline-three-font-size',
-    value: '1.25rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-headline-three-line-height',
-    value: '1.5rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-headline-four-font-size',
-    value: '1.125rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-headline-four-line-height',
-    value: '1.5rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-title-one-font-size',
-    value: '7.5rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-title-one-line-height',
-    value: '7.5rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-title-two-font-size',
-    value: '6rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-title-two-line-height',
-    value: '6rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-title-three-font-size',
-    value: '4rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-title-three-line-height',
-    value: '4rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-title-four-font-size',
-    value: '3.5rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-title-four-line-height',
-    value: '3.5rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-sub-headline-font-size',
-    value: '0.875rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-sub-headline-line-height',
-    value: '1.25rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-body-one-font-size',
-    value: '1rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-body-one-line-height',
-    value: '1.5rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-body-two-font-size',
-    value: '0.875rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-body-two-line-height',
-    value: '1.25rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-body-large-font-size',
-    value: '1.25rem',
-    type: 'dimension',
-  },
-  {
-    name: '--cui-typography-body-large-line-height',
-    value: '1.75rem',
-    type: 'dimension',
-  },
-  /* Z-indices */
-  {
-    name: '--cui-z-index-default',
-    value: 0,
-    type: 'number',
-  },
-  {
-    name: '--cui-z-index-absolute',
-    value: 1,
-    type: 'number',
-  },
-  {
-    name: '--cui-z-index-input',
-    value: 20,
-    type: 'number',
-  },
-  {
-    name: '--cui-z-index-popover',
-    value: 30,
-    type: 'number',
-  },
-  {
-    name: '--cui-z-index-tooltip',
-    value: 40,
-    type: 'number',
-  },
-  {
-    name: '--cui-z-index-header',
-    value: 600,
-    type: 'number',
-  },
-  {
-    name: '--cui-z-index-backdrop',
-    value: 700,
-    type: 'number',
-  },
-  {
-    name: '--cui-z-index-navigation',
-    value: 800,
-    type: 'number',
-  },
-  {
-    name: '--cui-z-index-modal',
-    value: 1000,
-    type: 'number',
-  },
-  {
-    name: '--cui-z-index-toast',
-    value: 1100,
-    type: 'number',
   },
 ] satisfies Token[];

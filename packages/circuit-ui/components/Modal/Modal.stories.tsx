@@ -13,34 +13,33 @@
  * limitations under the License.
  */
 
-import type { Decorator } from '@storybook/react';
-import { Fragment } from 'react';
-import { screen, userEvent, within } from '@storybook/testing-library';
+import { Fragment, useState } from 'react';
+import { screen, userEvent, within } from 'storybook/test';
+import type { Decorator } from '@storybook/react-vite';
 
-import {
-  FullViewport,
-  Stack,
-} from '../../../../.storybook/components/index.js';
 import { modes } from '../../../../.storybook/modes.js';
-import Button from '../Button/index.js';
-import Headline from '../Headline/index.js';
-import Body from '../Body/index.js';
-import Image from '../Image/index.js';
-import { ModalProvider } from '../ModalContext/index.js';
+import { Headline } from '../Headline/index.js';
+import { Body } from '../Body/index.js';
+import { Button } from '../Button/index.js';
+import { FullViewport } from '../../../../.storybook/components/index.js';
 
-import { Modal, ModalProps, useModal } from './Modal.js';
+import { ModalProvider } from './ModalContext.js';
+
+import { Modal, type ModalProps, useModal } from './index.js';
 
 export default {
   title: 'Components/Modal',
   component: Modal,
-  subcomponents: { ModalProvider },
-  parameters: {
-    chromatic: {
-      modes: {
-        mobile: modes.smallMobile,
-        desktop: modes.desktop,
-      },
+  tags: ['status:stable'],
+  chromatic: {
+    modes: {
+      mobile: modes.smallMobile,
+      desktop: modes.desktop,
     },
+    pauseAnimationAtEnd: true,
+  },
+  parameters: {
+    layout: 'fullscreen',
   },
   decorators: [
     (Story) => (
@@ -53,10 +52,10 @@ export default {
 
 const defaultModalChildren = () => (
   <Fragment>
-    <Headline as="h2" size="four" style={{ marginBottom: '1rem' }}>
+    <Headline id="title" as="h2" size="s" style={{ marginBottom: '1rem' }}>
       Hello World!
     </Headline>
-    <Body>I am a modal.</Body>
+    <Body id="description">I am a modal dialog.</Body>
   </Fragment>
 );
 
@@ -74,61 +73,45 @@ const openModal = async ({
   await screen.findByRole('dialog');
 };
 
-export const Base = (modal: ModalProps): JSX.Element => {
-  const ComponentWithModal = () => {
-    const { setModal } = useModal();
-
-    return (
-      <Button type="button" onClick={() => setModal(modal)}>
-        Open modal
-      </Button>
-    );
-  };
-  return (
-    <ModalProvider>
-      <ComponentWithModal />
-    </ModalProvider>
-  );
-};
-
-Base.args = {
-  children: defaultModalChildren,
+const baseArgs: ModalProps = {
+  open: false,
+  onClose: () => {},
   variant: 'contextual',
-  closeButtonLabel: 'Close modal',
+  children: defaultModalChildren,
 };
-Base.play = openModal;
 
-export const Variants = (modal: ModalProps): JSX.Element => {
-  const ComponentWithModal = ({ variant }: Pick<ModalProps, 'variant'>) => {
-    const { setModal } = useModal();
-
-    return (
-      <Button type="button" onClick={() => setModal({ ...modal, variant })}>
-        Open {variant} modal
-      </Button>
-    );
-  };
+export const Base = (modal: ModalProps) => {
+  const [modalOpen, setModalOpen] = useState(false);
   return (
-    <ModalProvider>
-      <Stack>
-        <ComponentWithModal variant="contextual" />
-        <ComponentWithModal variant="immersive" />
-      </Stack>
-    </ModalProvider>
+    <>
+      <Button
+        type="button"
+        onClick={() => {
+          setModalOpen(true);
+        }}
+      >
+        Open modal
+      </Button>
+      <Modal {...modal} open={modalOpen} onClose={() => setModalOpen(false)} />
+    </>
   );
 };
-
-Variants.args = {
-  children: defaultModalChildren,
-  closeButtonLabel: 'Close modal',
+Base.args = baseArgs;
+Base.play = openModal;
+Base.parameters = {
+  layout: 'fullscreen',
+  chromatic: {
+    cropToViewport: true,
+    modes: {
+      mobile: modes.smallMobile,
+    },
+  },
 };
-Variants.parameters = {
-  chromatic: { disableSnapshot: true },
-};
 
-export const PreventClose = (modal: ModalProps): JSX.Element => {
+export const WithUseModal = (modal: ModalProps) => {
   const ComponentWithModal = () => {
     const { setModal } = useModal();
+
     return (
       <Button type="button" onClick={() => setModal(modal)}>
         Open modal
@@ -142,82 +125,91 @@ export const PreventClose = (modal: ModalProps): JSX.Element => {
     </ModalProvider>
   );
 };
-
-PreventClose.args = {
-  children: ({ onClose }: { onClose: ModalProps['onClose'] }) => (
-    <Fragment>
-      <Headline as="h2" size="four" style={{ marginBottom: '1rem' }}>
-        Complete the action
-      </Headline>
-      <Body style={{ marginBottom: '1rem' }}>
-        Users have to complete the action inside the modal to close it. The
-        close button is hidden and clicking outside the modal or pressing the
-        escape key does not close the modal either.
-      </Body>
-      <Button variant="primary" onClick={onClose}>
-        Close modal
-      </Button>
-    </Fragment>
-  ),
-  variant: 'immersive',
-  preventClose: true,
+WithUseModal.args = {
+  children: defaultModalChildren,
+  closeButtonLabel: 'Close modal',
 };
-PreventClose.play = openModal;
+WithUseModal.play = openModal;
 
-export const InitiallyOpen = (modal: ModalProps): JSX.Element => {
+export const InitiallyOpen = (modal: ModalProps) => {
   const initialModal = { id: 'initial', component: Modal, ...modal };
+
   return (
     <ModalProvider initialState={[initialModal]}>
       <div />
     </ModalProvider>
   );
 };
-
 InitiallyOpen.args = {
   children: defaultModalChildren,
   variant: 'contextual',
   closeButtonLabel: 'Close modal',
 };
+InitiallyOpen.parameters = {
+  chromatic: { disableSnapshot: true },
+};
 
-export const CustomStyles = (modal: ModalProps): JSX.Element => {
-  const ComponentWithModal = () => {
-    const { setModal } = useModal();
-    return (
-      <Button type="button" onClick={() => setModal(modal)}>
+export const Immersive = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  return (
+    <>
+      <Button
+        type="button"
+        onClick={() => {
+          setModalOpen(true);
+        }}
+      >
         Open modal
       </Button>
-    );
-  };
-
-  return (
-    <ModalProvider>
-      <ComponentWithModal />
-    </ModalProvider>
+      <Modal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        closeButtonLabel="Close"
+        aria-labelledby="title"
+        aria-describedby="description"
+        variant="immersive"
+      >
+        {defaultModalChildren}
+      </Modal>
+    </>
   );
 };
-
-CustomStyles.args = {
-  children: () => (
-    <Fragment>
-      <Image
-        src="/images/illustration-waves.jpg"
-        alt=""
-        style={{
-          borderTopLeftRadius: 'var(--cui-border-radius-mega)',
-          borderTopRightRadius: 'var(--cui-border-radius-mega)',
-        }}
-      />
-      <Headline as="h2" size="four" style={{ margin: '1rem' }}>
-        Custom styles
-      </Headline>
-      <Body style={{ margin: '1rem' }}>
-        Custom styles can be applied using the <code>className</code> or{' '}
-        <code>style</code> props.
-      </Body>
-    </Fragment>
-  ),
-  style: { padding: '0' },
-  variant: 'contextual',
-  closeButtonLabel: 'Close modal',
+Immersive.parameters = {
+  chromatic: {
+    cropToViewport: true,
+    modes: {
+      mobile: modes.smallMobile,
+    },
+  },
 };
-CustomStyles.play = openModal;
+Immersive.play = openModal;
+
+export const PreventClose = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  return (
+    <>
+      <Button
+        type="button"
+        onClick={() => {
+          setModalOpen(true);
+        }}
+      >
+        Open modal
+      </Button>
+      <Modal
+        open={modalOpen}
+        preventClose
+        onClose={() => setModalOpen(false)}
+        closeButtonLabel="Close"
+        aria-labelledby="title"
+        aria-describedby="description"
+      >
+        {defaultModalChildren}
+      </Modal>
+    </>
+  );
+};
+PreventClose.parameters = {
+  chromatic: { disableSnapshot: true },
+};
+PreventClose.play = openModal;

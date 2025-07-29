@@ -14,18 +14,20 @@
  */
 
 import { useEffect, useState } from 'react';
-import { Plus } from '@sumup/icons';
+import { Plus } from '@sumup-oss/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 
-import { IconButton, IconButtonProps } from './IconButton.js';
+import { IconButton, type IconButtonProps } from './IconButton.js';
 
 export default {
   title: 'Components/Button/IconButton',
   component: IconButton,
 };
 
-export const Base = (args: IconButtonProps) => <IconButton {...args} />;
+export const Base = (args: IconButtonProps) => (
+  <IconButton {...args} icon={args.icon} />
+);
 
 Base.args = {
   children: 'Add',
@@ -34,9 +36,15 @@ Base.args = {
 
 export const Variants = (args: IconButtonProps) => (
   <Stack>
-    <IconButton {...args} variant="primary" label="Primary" />
-    <IconButton {...args} variant="secondary" label="Secondary" />
-    <IconButton {...args} variant="tertiary" label="Tertiary" />
+    <IconButton {...args} icon={args.icon} variant="primary">
+      Primary
+    </IconButton>
+    <IconButton {...args} icon={args.icon} variant="secondary">
+      Secondary
+    </IconButton>
+    <IconButton {...args} icon={args.icon} variant="tertiary">
+      Tertiary
+    </IconButton>
   </Stack>
 );
 
@@ -46,10 +54,10 @@ Variants.args = {
 
 export const Sizes = (args: IconButtonProps) => (
   <Stack>
-    <IconButton {...args} size="s">
+    <IconButton {...args} icon={args.icon} size="s">
       Small
     </IconButton>
-    <IconButton {...args} size="m">
+    <IconButton {...args} icon={args.icon} size="m">
       Medium
     </IconButton>
   </Stack>
@@ -82,7 +90,6 @@ export const Loading = (args: IconButtonProps) => {
 };
 
 Loading.args = {
-  loadingLabel: 'Loading',
   isLoading: true,
   icon: Plus,
 };

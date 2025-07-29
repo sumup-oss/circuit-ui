@@ -14,9 +14,10 @@
  */
 
 import type { MouseEvent, KeyboardEvent, AnchorHTMLAttributes } from 'react';
-import type { IconComponentType } from '@sumup/icons';
+import type { IconComponentType } from '@sumup-oss/icons';
 
-import { BadgeProps } from '../Badge/index.js';
+import type { BadgeProps } from '../Badge/index.js';
+import type { TierIndicatorProps } from '../TierIndicator/TierIndicator.js';
 
 export interface PrimaryLinkProps
   extends AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -42,14 +43,25 @@ export interface PrimaryLinkProps
    */
   isActive?: boolean;
   /**
-   * Whether the link is the currently active page.
+   * Short label to describe that the link leads to an external page or opens in a new tab.
    */
-  isExternal?: boolean;
+  externalLabel?: string;
   /**
    * Whether to show a small circular badge to indicate that a nested secondary
    * link has a badge.
    */
-  badge?: boolean;
+  badge?: {
+    /**
+     * Choose the style variant.
+     *
+     * @default 'promo'
+     */
+    variant?: BadgeProps['variant'];
+    /**
+     * A clear and concise description of the badge's meaning.
+     */
+    children: string;
+  };
   /**
    * A collection of secondary groups with nested secondary navigation links.
    */
@@ -90,4 +102,8 @@ export interface SecondaryLinkProps {
    * a new link or to indicate new content.
    */
   badge?: BadgeProps;
+  /**
+   * An optional badge to highlight elements belonging to a specific tier.
+   */
+  tier?: Omit<TierIndicatorProps, 'size'>;
 }

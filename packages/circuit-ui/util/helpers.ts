@@ -19,7 +19,7 @@ import { isArray, isFunction, isObject, isString } from './type-check.js';
  * Calls each function in an array with the arguments it receives.
  * Falsy functions are ignored.
  */
-export function eachFn<Args extends []>(
+export function eachFn<Args extends unknown[]>(
   fns: (undefined | ((...args: Args) => unknown))[],
 ) {
   return (...args: Args): void =>
@@ -46,6 +46,9 @@ export function isEmpty(value: unknown): boolean {
   return false;
 }
 
+/**
+ * Clamps a value within a range of values between a minimum and maximum limit.
+ */
 export function clamp(value: number, min: number, max: number): number {
   if (process.env.NODE_ENV !== 'production' && min >= max) {
     throw new RangeError(
@@ -55,7 +58,22 @@ export function clamp(value: number, min: number, max: number): number {
   return Math.max(min, Math.min(value, max));
 }
 
-type Fn<T extends []> = (...args: T) => void;
+type Fn<Args extends unknown[]> = (...args: Args) => void;
+
+/**
+ * Creates a debounced function that delays invoking the provided function until after
+ * the specified wait time has elapsed since the last time it was invoked.
+ */
+export function debounce<Args extends unknown[]>(
+  fn: Fn<Args>,
+  wait: number,
+): Fn<Args> {
+  let timeoutId: ReturnType<typeof setTimeout>;
+  return (...args: Args) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => fn(...args), wait);
+  };
+}
 
 /**
  * Triggers a function at most once in a given amount of time.
@@ -73,4 +91,53 @@ export function throttle<T extends []>(fn: Fn<T>, timeout: number): Fn<T> {
       ready = true;
     }, timeout);
   };
+}
+
+/**
+ * Splits an array into chunks of the specified length.
+ */
+export function chunk<T>(array: T[], chunkSize: number): T[][] {
+  const result = [];
+
+  for (let i = 0; i < array.length; i += chunkSize) {
+    result.push(array.slice(i, i + chunkSize));
+  }
+
+  return result;
+}
+
+/**
+ * Returns the last item in an array.
+ */
+export function last(array: undefined | null): undefined;
+export function last<T>(array: T[]): T;
+export function last<T>(array: T[] | undefined | null): T | undefined {
+  return isArray(array) ? array[array.length - 1] : undefined;
+}
+
+/**
+ * Increases or decreases a value by an offset and loops back around to stay
+ * within a given range.
+ */
+export function shiftInRange(
+  value: number, // must be in range
+  offset: number, // positive or negative
+  min: number, // inclusive
+  max: number, // inclusive
+) {
+  if (process.env.NODE_ENV !== 'production') {
+    if (min >= max) {
+      throw new RangeError(
+        `The minimum value (${min}) must be less than the maximum value (${max}).`,
+      );
+    }
+    if (value < min || value > max) {
+      throw new TypeError(
+        `The value (${value}) must be inside the provided range (${min}'-'${max})`,
+      );
+    }
+  }
+
+  const modulus = max - min + 1;
+  return ((value - min + (offset % modulus) + modulus) % modulus) + min;
 }

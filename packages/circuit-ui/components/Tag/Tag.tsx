@@ -13,13 +13,15 @@
  * limitations under the License.
  */
 
+'use client';
+
 import {
   forwardRef,
   type HTMLAttributes,
   type ButtonHTMLAttributes,
   type AnchorHTMLAttributes,
 } from 'react';
-import type { IconComponentType } from '@sumup/icons';
+import type { IconComponentType } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
 import type { AsPropType } from '../../types/prop-types.js';
@@ -28,8 +30,8 @@ import {
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';
-import utilityClasses from '../../styles/utility.js';
-import CloseButton from '../CloseButton/index.js';
+import { utilClasses } from '../../styles/utility.js';
+import { CloseButton } from '../CloseButton/index.js';
 import { useComponents } from '../ComponentsContext/index.js';
 
 import classes from './Tag.module.css';
@@ -69,7 +71,10 @@ type RemoveProps =
   | { onRemove?: never; removeButtonLabel?: never };
 
 type DivElProps = Omit<HTMLAttributes<HTMLDivElement>, 'onClick' | 'prefix'>;
-type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
+type LinkElProps = Omit<
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  'onClick' | 'prefix'
+>;
 type ButtonElProps = Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
   'onClick' | 'prefix'
@@ -119,6 +124,7 @@ export const Tag = forwardRef<HTMLDivElement & HTMLButtonElement, TagProps>(
     }
 
     const isRemovable = onRemove && removeButtonLabel;
+    const isButton = onClick && !props.href;
 
     return (
       <div
@@ -131,11 +137,9 @@ export const Tag = forwardRef<HTMLDivElement & HTMLButtonElement, TagProps>(
         style={style}
       >
         <Element
-          className={clsx(
-            classes.content,
-            onClick && utilityClasses.focusVisible,
-          )}
-          {...(onClick && !props.href && { type: 'button' })}
+          className={clsx(classes.content, onClick && utilClasses.focusVisible)}
+          type={isButton ? 'button' : undefined}
+          aria-pressed={isButton && selected ? 'true' : undefined}
           onClick={onClick}
           ref={ref}
           {...props}

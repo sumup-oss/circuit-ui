@@ -14,12 +14,11 @@
  */
 
 import { describe, expect, it, vi } from 'vitest';
-import { Shop, SumUpLogo } from '@sumup/icons';
+import { Shop, SumUpLogo } from '@sumup-oss/icons';
 
-import { axe, render } from '../../util/test-utils.js';
-import { PopoverProps } from '../Popover/index.js';
+import { axe, render, screen } from '../../util/test-utils.js';
 
-import { TopNavigation, TopNavigationProps } from './TopNavigation.js';
+import { TopNavigation, type TopNavigationProps } from './TopNavigation.js';
 
 describe('TopNavigation', () => {
   const baseProps: TopNavigationProps = {
@@ -39,29 +38,6 @@ describe('TopNavigation', () => {
       activeLabel: 'Close menu',
       inactiveLabel: 'Open menu',
     },
-    user: {
-      name: 'Jane Doe',
-      id: 'ID: AC3YULT8',
-    },
-    profileMenu: {
-      label: 'Open profile menu',
-      actions: [
-        {
-          onClick: vi.fn(),
-          children: 'View profile',
-        },
-        {
-          onClick: vi.fn(),
-          children: 'Settings',
-        },
-        { type: 'divider' },
-        {
-          onClick: vi.fn(),
-          children: 'Logout',
-          destructive: true,
-        },
-      ] as PopoverProps['actions'],
-    },
     links: [
       {
         icon: Shop,
@@ -71,6 +47,19 @@ describe('TopNavigation', () => {
       },
     ],
   };
+
+  it('should render a skip navigation link', () => {
+    render(
+      <TopNavigation
+        {...baseProps}
+        skipNavigationHref="#main-content"
+        skipNavigationLabel="Skip navigation"
+      />,
+    );
+
+    const skipLink = screen.getByRole('link', { name: 'Skip navigation' });
+    expect(skipLink).toBeInTheDocument();
+  });
 
   it('should have no accessibility violations', async () => {
     const { container } = render(<TopNavigation {...baseProps} />);

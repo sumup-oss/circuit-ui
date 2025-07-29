@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { useState, useRef, useCallback, RefObject, useId } from 'react';
+import { useState, useRef, useCallback, useId, type RefObject } from 'react';
 
-import { ClickEvent } from '../../types/events.js';
+import type { ClickEvent } from '../../types/events.js';
 import { useAnimation } from '../useAnimation/index.js';
 
 const DEFAULT_HEIGHT = 'auto';
@@ -35,7 +35,7 @@ type ButtonProps = {
 };
 
 type ContentProps<T> = {
-  'ref': RefObject<T>;
+  'ref': RefObject<T | null>;
   'id': string;
   'style': {
     overflowY: Overflow;
@@ -127,7 +127,7 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
   };
 }
 
-export function getHeight(element: RefObject<HTMLElement>): string {
+export function getHeight(element: RefObject<HTMLElement | null>): string {
   if (!element || !element.current) {
     return DEFAULT_HEIGHT;
   }

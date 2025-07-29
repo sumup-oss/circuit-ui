@@ -13,11 +13,34 @@
  * limitations under the License.
  */
 
+import { Fragment } from 'react';
 import {
   Image as BaseImage,
-  ImageProps,
-} from '../../packages/circuit-ui/index.js';
+  type ImageProps as BaseImageProps,
+} from '../../packages/circuit-ui/components/Image/Image.js';
+import { clsx } from '../../packages/circuit-ui/styles/clsx.js';
 
-const Image = ({ children, ...props }: ImageProps) => <BaseImage {...props} />;
+import classes from './Image.module.css';
 
-export default Image;
+interface ImageProps extends BaseImageProps {
+  darkSrc?: string;
+}
+
+export function Image({ children, src, darkSrc, ...props }: ImageProps) {
+  return (
+    <Fragment>
+      {darkSrc && (
+        <BaseImage
+          src={darkSrc}
+          {...props}
+          className={clsx(classes.dark, props.className)}
+        />
+      )}
+      <BaseImage
+        src={src}
+        {...props}
+        className={clsx(classes.light, props.className)}
+      />
+    </Fragment>
+  );
+}

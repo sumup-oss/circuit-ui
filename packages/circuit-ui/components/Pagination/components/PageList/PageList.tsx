@@ -13,9 +13,12 @@
  * limitations under the License.
  */
 
-import { FC, OlHTMLAttributes } from 'react';
+'use client';
 
-import Button from '../../../Button/index.js';
+import type { FC, OlHTMLAttributes } from 'react';
+
+import { Button } from '../../../Button/index.js';
+import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './PageList.module.css';
 
@@ -32,10 +35,10 @@ export const PageList: FC<PageListProps> = ({
   pageLabel,
   pages,
   currentPage,
+  className,
   ...props
-}: PageListProps): JSX.Element => (
-  // eslint-disable-next-line jsx-a11y/no-redundant-roles
-  <ol role="list" className={classes.base} {...props}>
+}: PageListProps) => (
+  <ol className={clsx(classes.base, className)} {...props}>
     {pages.map((page) => {
       const isCurrent = currentPage === page;
       const label = pageLabel(page);

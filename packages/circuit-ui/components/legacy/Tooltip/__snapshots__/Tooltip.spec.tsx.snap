@@ -5,48 +5,25 @@ exports[`Tooltip > should override alignment styles with position styles 1`] = `
   font-size: 0.875rem;
   line-height: 1.25rem;
   display: inline-block;
-  width: auto;
-  max-width: 280px;
-  min-width: 120px;
-  background-color: var(--cui-bg-strong);
-  color: var(--cui-fg-on-strong);
-  border-radius: 4px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 360px;
+  background-color: var(--cui-bg-elevated);
+  border-radius: 8px;
+  border: 1px solid var(--cui-border-subtle);
+  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 8%);
   padding: 8px 12px;
   position: absolute;
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  box-shadow: 0 3px 8px 0 color-mix(in sRGB, var(--cui-border-strong) 20%, transparent);
   top: 50%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  right: 100%;
-  right: calc(100% + 12px);
-}
-
-.circuit-0::after {
-  display: block;
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  border: 8px solid transparent;
-}
-
-.circuit-0::after {
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.circuit-0::after {
-  left: 100%;
-  border-left-color: var(--cui-bg-strong);
+  right: calc(100% + 4px);
 }
 
 <div>
@@ -63,41 +40,22 @@ exports[`Tooltip > should render with align bottom, when passed "bottom" for the
   font-size: 0.875rem;
   line-height: 1.25rem;
   display: inline-block;
-  width: auto;
-  max-width: 280px;
-  min-width: 120px;
-  background-color: var(--cui-bg-strong);
-  color: var(--cui-fg-on-strong);
-  border-radius: 4px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 360px;
+  background-color: var(--cui-bg-elevated);
+  border-radius: 8px;
+  border: 1px solid var(--cui-border-subtle);
+  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 8%);
   padding: 8px 12px;
   position: absolute;
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  box-shadow: 0 3px 8px 0 color-mix(in sRGB, var(--cui-border-strong) 20%, transparent);
   top: 50%;
   top: calc(50% - (16px + 4px));
-  left: 100%;
-  left: calc(100% + 12px);
-}
-
-.circuit-0::after {
-  display: block;
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  border: 8px solid transparent;
-}
-
-.circuit-0::after {
-  top: 12px;
-}
-
-.circuit-0::after {
-  right: 100%;
-  border-right-color: var(--cui-bg-strong);
+  left: calc(100% + 4px);
 }
 
 <div>
@@ -114,48 +72,25 @@ exports[`Tooltip > should render with align center, when passed "center" for the
   font-size: 0.875rem;
   line-height: 1.25rem;
   display: inline-block;
-  width: auto;
-  max-width: 280px;
-  min-width: 120px;
-  background-color: var(--cui-bg-strong);
-  color: var(--cui-fg-on-strong);
-  border-radius: 4px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 360px;
+  background-color: var(--cui-bg-elevated);
+  border-radius: 8px;
+  border: 1px solid var(--cui-border-subtle);
+  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 8%);
   padding: 8px 12px;
   position: absolute;
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  box-shadow: 0 3px 8px 0 color-mix(in sRGB, var(--cui-border-strong) 20%, transparent);
   top: 50%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  left: 100%;
-  left: calc(100% + 12px);
-}
-
-.circuit-0::after {
-  display: block;
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  border: 8px solid transparent;
-}
-
-.circuit-0::after {
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.circuit-0::after {
-  right: 100%;
-  border-right-color: var(--cui-bg-strong);
+  left: calc(100% + 4px);
 }
 
 <div>
@@ -172,48 +107,25 @@ exports[`Tooltip > should render with align left, when passed "left" for the ali
   font-size: 0.875rem;
   line-height: 1.25rem;
   display: inline-block;
-  width: auto;
-  max-width: 280px;
-  min-width: 120px;
-  background-color: var(--cui-bg-strong);
-  color: var(--cui-fg-on-strong);
-  border-radius: 4px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 360px;
+  background-color: var(--cui-bg-elevated);
+  border-radius: 8px;
+  border: 1px solid var(--cui-border-subtle);
+  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 8%);
   padding: 8px 12px;
   position: absolute;
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  box-shadow: 0 3px 8px 0 color-mix(in sRGB, var(--cui-border-strong) 20%, transparent);
   top: 50%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  left: 100%;
-  left: calc(100% + 12px);
-}
-
-.circuit-0::after {
-  display: block;
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  border: 8px solid transparent;
-}
-
-.circuit-0::after {
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.circuit-0::after {
-  right: 100%;
-  border-right-color: var(--cui-bg-strong);
+  left: calc(100% + 4px);
 }
 
 <div>
@@ -230,48 +142,25 @@ exports[`Tooltip > should render with align right, when passed "right" for the a
   font-size: 0.875rem;
   line-height: 1.25rem;
   display: inline-block;
-  width: auto;
-  max-width: 280px;
-  min-width: 120px;
-  background-color: var(--cui-bg-strong);
-  color: var(--cui-fg-on-strong);
-  border-radius: 4px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 360px;
+  background-color: var(--cui-bg-elevated);
+  border-radius: 8px;
+  border: 1px solid var(--cui-border-subtle);
+  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 8%);
   padding: 8px 12px;
   position: absolute;
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  box-shadow: 0 3px 8px 0 color-mix(in sRGB, var(--cui-border-strong) 20%, transparent);
   top: 50%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  left: 100%;
-  left: calc(100% + 12px);
-}
-
-.circuit-0::after {
-  display: block;
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  border: 8px solid transparent;
-}
-
-.circuit-0::after {
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.circuit-0::after {
-  right: 100%;
-  border-right-color: var(--cui-bg-strong);
+  left: calc(100% + 4px);
 }
 
 <div>
@@ -288,41 +177,22 @@ exports[`Tooltip > should render with align top, when passed "top" for the align
   font-size: 0.875rem;
   line-height: 1.25rem;
   display: inline-block;
-  width: auto;
-  max-width: 280px;
-  min-width: 120px;
-  background-color: var(--cui-bg-strong);
-  color: var(--cui-fg-on-strong);
-  border-radius: 4px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 360px;
+  background-color: var(--cui-bg-elevated);
+  border-radius: 8px;
+  border: 1px solid var(--cui-border-subtle);
+  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 8%);
   padding: 8px 12px;
   position: absolute;
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  box-shadow: 0 3px 8px 0 color-mix(in sRGB, var(--cui-border-strong) 20%, transparent);
   bottom: 50%;
   bottom: calc(50% - (16px + 4px));
-  left: 100%;
-  left: calc(100% + 12px);
-}
-
-.circuit-0::after {
-  display: block;
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  border: 8px solid transparent;
-}
-
-.circuit-0::after {
-  bottom: 12px;
-}
-
-.circuit-0::after {
-  right: 100%;
-  border-right-color: var(--cui-bg-strong);
+  left: calc(100% + 4px);
 }
 
 <div>
@@ -339,48 +209,25 @@ exports[`Tooltip > should render with position bottom, when passed "bottom" for 
   font-size: 0.875rem;
   line-height: 1.25rem;
   display: inline-block;
-  width: auto;
-  max-width: 280px;
-  min-width: 120px;
-  background-color: var(--cui-bg-strong);
-  color: var(--cui-fg-on-strong);
-  border-radius: 4px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 360px;
+  background-color: var(--cui-bg-elevated);
+  border-radius: 8px;
+  border: 1px solid var(--cui-border-subtle);
+  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 8%);
   padding: 8px 12px;
   position: absolute;
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  box-shadow: 0 3px 8px 0 color-mix(in sRGB, var(--cui-border-strong) 20%, transparent);
   left: 50%;
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
-  top: 100%;
-  top: calc(100% + 12px);
-}
-
-.circuit-0::after {
-  display: block;
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  border: 8px solid transparent;
-}
-
-.circuit-0::after {
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-}
-
-.circuit-0::after {
-  bottom: 100%;
-  border-bottom-color: var(--cui-bg-strong);
+  top: calc(100% + 4px);
 }
 
 <div>
@@ -397,48 +244,25 @@ exports[`Tooltip > should render with position left, when passed "left" for the 
   font-size: 0.875rem;
   line-height: 1.25rem;
   display: inline-block;
-  width: auto;
-  max-width: 280px;
-  min-width: 120px;
-  background-color: var(--cui-bg-strong);
-  color: var(--cui-fg-on-strong);
-  border-radius: 4px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 360px;
+  background-color: var(--cui-bg-elevated);
+  border-radius: 8px;
+  border: 1px solid var(--cui-border-subtle);
+  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 8%);
   padding: 8px 12px;
   position: absolute;
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  box-shadow: 0 3px 8px 0 color-mix(in sRGB, var(--cui-border-strong) 20%, transparent);
   top: 50%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  right: 100%;
-  right: calc(100% + 12px);
-}
-
-.circuit-0::after {
-  display: block;
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  border: 8px solid transparent;
-}
-
-.circuit-0::after {
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.circuit-0::after {
-  left: 100%;
-  border-left-color: var(--cui-bg-strong);
+  right: calc(100% + 4px);
 }
 
 <div>
@@ -455,48 +279,25 @@ exports[`Tooltip > should render with position right, when passed "right" for th
   font-size: 0.875rem;
   line-height: 1.25rem;
   display: inline-block;
-  width: auto;
-  max-width: 280px;
-  min-width: 120px;
-  background-color: var(--cui-bg-strong);
-  color: var(--cui-fg-on-strong);
-  border-radius: 4px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 360px;
+  background-color: var(--cui-bg-elevated);
+  border-radius: 8px;
+  border: 1px solid var(--cui-border-subtle);
+  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 8%);
   padding: 8px 12px;
   position: absolute;
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  box-shadow: 0 3px 8px 0 color-mix(in sRGB, var(--cui-border-strong) 20%, transparent);
   top: 50%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  left: 100%;
-  left: calc(100% + 12px);
-}
-
-.circuit-0::after {
-  display: block;
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  border: 8px solid transparent;
-}
-
-.circuit-0::after {
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.circuit-0::after {
-  right: 100%;
-  border-right-color: var(--cui-bg-strong);
+  left: calc(100% + 4px);
 }
 
 <div>
@@ -513,48 +314,25 @@ exports[`Tooltip > should render with position top, when passed "top" for the po
   font-size: 0.875rem;
   line-height: 1.25rem;
   display: inline-block;
-  width: auto;
-  max-width: 280px;
-  min-width: 120px;
-  background-color: var(--cui-bg-strong);
-  color: var(--cui-fg-on-strong);
-  border-radius: 4px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 360px;
+  background-color: var(--cui-bg-elevated);
+  border-radius: 8px;
+  border: 1px solid var(--cui-border-subtle);
+  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 8%);
   padding: 8px 12px;
   position: absolute;
   z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-  box-shadow: 0 3px 8px 0 color-mix(in sRGB, var(--cui-border-strong) 20%, transparent);
   left: 50%;
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
-  bottom: 100%;
-  bottom: calc(100% + 12px);
-}
-
-.circuit-0::after {
-  display: block;
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  border: 8px solid transparent;
-}
-
-.circuit-0::after {
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-}
-
-.circuit-0::after {
-  top: 100%;
-  border-top-color: var(--cui-bg-strong);
+  bottom: calc(100% + 4px);
 }
 
 <div>

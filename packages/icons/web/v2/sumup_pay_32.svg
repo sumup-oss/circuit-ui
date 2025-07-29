@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="24" fill="none" viewBox="0 0 32 24">
+    <mask id="sumup_pay_32_svg__a" width="32" height="24" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:luminance">
+        <path fill="#fff" d="M28 0H4a4 4 0 0 0-4 4v16a4 4 0 0 0 4 4h24a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4"/>
+    </mask>
+    <g mask="url(#sumup_pay_32_svg__a)">
+        <path fill="#fff" d="M28 0H4a4 4 0 0 0-4 4v16a4 4 0 0 0 4 4h24a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4"/>
+        <path fill="url(#sumup_pay_32_svg__b)" d="M0 0h32v24H0z"/>
+        <path fill="#fff" d="M19.077 17.934c-2.093 2.053-5.443 2.145-7.647.269-.008-.008-.025-.017-.034-.034a.34.34 0 0 1-.009-.48l7.442-7.286a.35.35 0 0 1 .487.008 5.42 5.42 0 0 1-.24 7.523m1.546-11.637-7.441 7.287a.35.35 0 0 1-.487-.009 5.4 5.4 0 0 1 .239-7.514c2.093-2.053 5.442-2.137 7.647-.27.008.01.025.018.034.035a.33.33 0 0 1 .008.47"/>
+    </g>
+    <defs>
+        <linearGradient id="sumup_pay_32_svg__b" x1="0" x2="32" y1="24" y2="1" gradientUnits="userSpaceOnUse">
+            <stop offset=".1" stop-color="#291059"/>
+            <stop offset=".694" stop-color="#6930D6"/>
+            <stop offset="1" stop-color="#8B90F1"/>
+        </linearGradient>
+    </defs>
+</svg>

@@ -12,7 +12,7 @@ import { Meta, Intro } from '../../.storybook/components';
 
 ```javascript
 import { Link } from 'react-router-dom';
-import { ComponentsContext, Button } from '@sumup/circuit-ui';
+import { ComponentsContext, Button } from '@sumup-oss/circuit-ui';
 
 const CustomLink = ({ to, ...props }) => <Link href={to} {...props} />;
 
@@ -30,7 +30,7 @@ Using the context provider and specifying custom components is fully optional, C
 In order to access the base components in your own application you can use the `useComponents` hook:
 
 ```javascript
-import { useComponents } from '@sumup/circuit-ui';
+import { useComponents } from '@sumup-oss/circuit-ui';
 
 const Navigation = ({ links }) => {
   const { Link } = useComponents();

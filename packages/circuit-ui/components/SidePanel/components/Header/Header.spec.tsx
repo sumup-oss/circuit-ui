@@ -15,9 +15,9 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { render, userEvent, axe } from '../../../../util/test-utils.js';
+import { render, userEvent, axe, screen } from '../../../../util/test-utils.js';
 
-import { Header, HeaderProps } from './Header.js';
+import { Header, type HeaderProps } from './Header.js';
 
 describe('Header', () => {
   const baseProps = {
@@ -34,35 +34,35 @@ describe('Header', () => {
     render(<Header {...baseProps} {...props} />);
 
   it('should render the header text', () => {
-    const { getByText } = renderComponent();
-    expect(getByText(baseProps.headline)).toBeVisible();
+    renderComponent();
+    expect(screen.getByText(baseProps.headline)).toBeVisible();
   });
 
   it('should call the onClose callback from the close button', async () => {
     const onClose = vi.fn();
-    const { getByTitle } = renderComponent({ onClose });
+    renderComponent({ onClose });
 
-    await userEvent.click(getByTitle(baseProps.closeButtonLabel));
+    await userEvent.click(screen.getByTitle(baseProps.closeButtonLabel));
 
     expect(onClose).toHaveBeenCalled();
   });
 
   it('should show the back button when onBack is passed', () => {
     const onBack = vi.fn();
-    const { getByTitle } = renderComponent({
+    renderComponent({
       onBack,
     });
 
-    expect(getByTitle(baseProps.backButtonLabel)).toBeVisible();
+    expect(screen.getByTitle(baseProps.backButtonLabel)).toBeVisible();
   });
 
   it('should call the onBack callback from the back button', async () => {
     const onBack = vi.fn();
-    const { getByTitle } = renderComponent({
+    renderComponent({
       onBack,
     });
 
-    await userEvent.click(getByTitle(baseProps.backButtonLabel));
+    await userEvent.click(screen.getByTitle(baseProps.backButtonLabel));
 
     expect(onBack).toHaveBeenCalled();
   });

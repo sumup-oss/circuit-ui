@@ -1,7 +1,6 @@
 import {
   Intro,
   Meta,
-  Preview,
   MediaQueriesTable,
   CustomPropertiesTable,
   Color,
@@ -11,9 +10,10 @@ import {
   BorderWidth,
   FontStack,
   FontWeight,
+  LetterSpacing,
+  Typography,
   Transition,
 } from '../../.storybook/components';
-import { Headline, SubHeadline, Body } from '@sumup/circuit-ui';
 
 <Meta title="Features/Theme" />
 
@@ -21,7 +21,7 @@ import { Headline, SubHeadline, Body } from '@sumup/circuit-ui';
 
 <Intro>
 
-The theme used throughout Circuit UI comes from SumUp's design token library, [`@sumup/design-tokens`](Packages/design-tokens/Docs), which is a required peer dependency of `@sumup/circuit-ui`. Refer to its [documentation](Packages/design-tokens/Docs) for installation and usage instructions.
+The theme used throughout Circuit UI comes from SumUp's design token library, [`@sumup-oss/design-tokens`](Packages/design-tokens/Docs), which is a required peer dependency of `@sumup-oss/circuit-ui`. Refer to its [documentation](Packages/design-tokens/Docs) for installation and usage instructions.
 
 </Intro>
 
@@ -43,7 +43,7 @@ Circuit UI's [ESLint plugin](Packages/eslint-plugin-circuit-ui/Docs)  includes r
 
 ## Spacings
 
-Use spacings for gutters, margins, and paddings. Don't use it for border width, border radius, icon size, font size, or line height. Use the dedicated theme properties instead.
+Use spacings for gutters, margins, and paddings. Don't use it for border width, border radius, icon size, font size, or line height. Use the dedicated design tokens instead.
 
 <CustomPropertiesTable namespace="spacings" preview={Spacing} />
 
@@ -61,7 +61,19 @@ Use spacings for gutters, margins, and paddings. Don't use it for border width, 
 
 ## Typography
 
-Avoid using the `var(--cui-typography-*)` CSS custom properties directly in your styles. Instead, use the typography components [`Title`](Typography/Title/Docs), [`Headline`](Typography/Headline/Docs), [`SubHeadline`](Typography/SubHeadline/Docs), [`Body`](Typography/Body/Docs), and [`BodyLarge`](Typography/BodyLarge/Docs).
+Avoid using the typography CSS custom properties directly in your styles. Instead, use the typography components [`Display`](Typography/Display/Docs), [`Headline`](Typography/Headline/Docs), [`Body`](Typography/Body/Docs) and [`Numeral`](Typography/Numeral/Docs).
+
+<CustomPropertiesTable
+  namespace={[
+    'body',
+    'display',
+    'headline',
+    'compact',
+    'numeral',
+    'typography',
+  ]}
+  preview={Typography}
+/>
 
 ## Font stack
 
@@ -71,7 +83,11 @@ Avoid using the `var(--cui-typography-*)` CSS custom properties directly in your
 
 <CustomPropertiesTable namespace="font-weight" preview={FontWeight} />
 
-Pass `variant="highlight"` to the `Body` component to make it bold. The font weight of the `Title`, `Headline` and `SubHeadline` components is bold by default and should not be overwritten.
+Pass the `weight` prop to the `Body` component to adjust its font-weight styling. The font weight of the `Display`, `Headline` and the `Numeral` components is bold by default and should not be overwritten.
+
+## Letter spacing
+
+<CustomPropertiesTable namespace="letter-spacing" preview={LetterSpacing} />
 
 ## Transitions
 

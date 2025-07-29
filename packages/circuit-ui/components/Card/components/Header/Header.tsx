@@ -13,10 +13,12 @@
  * limitations under the License.
  */
 
-import { ReactNode, HTMLAttributes, forwardRef } from 'react';
+'use client';
+
+import { forwardRef, type ReactNode, type HTMLAttributes } from 'react';
 
 import type { ClickEvent } from '../../../../types/events.js';
-import CloseButton from '../../../CloseButton/index.js';
+import { CloseButton } from '../../../CloseButton/index.js';
 import { isArray } from '../../../../util/type-check.js';
 import { clsx } from '../../../../styles/clsx.js';
 
@@ -49,11 +51,11 @@ export type CardHeaderProps = {
  * Header used in the Card component. Used for styling and alignment
  * purposes only.
  */
-export const CardHeader = forwardRef<HTMLElement, CardHeaderProps>(
+export const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
   ({ onClose, children, closeButtonLabel, className, ...props }, ref) => {
     const noHeadline = isArray(children) && !children[0];
     return (
-      <header
+      <div
         className={clsx(
           classes.base,
           noHeadline && classes['no-headline'],
@@ -68,7 +70,7 @@ export const CardHeader = forwardRef<HTMLElement, CardHeaderProps>(
             {closeButtonLabel}
           </CloseButton>
         )}
-      </header>
+      </div>
     );
   },
 );

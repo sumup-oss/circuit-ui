@@ -2,19 +2,24 @@ name: Chromatic
 
 on: [push]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   chromatic:
+    if: ${{ !startsWith(github.ref, 'refs/heads/dependabot/') || !startsWith(github.triggering_actor, 'dependabot') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js v18
-        uses: actions/setup-node@v3
+      - name: Setup Node.js v20
+        uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 20.x
           cache: 'npm'
 
       - name: Install dependencies
@@ -24,14 +29,17 @@ jobs:
         run: npm run build
 
       - name: Build Storybook
-        run: npm run docs:build
+        run: npm run chromatic-build
 
       - name: Publish to Chromatic
-        uses: chromaui/action@v1
+        uses: chromaui/action@latest
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           storybookBuildDir: 'public'
           exitOnceUploaded: true
           onlyChanged: true
-          externals: '.storybook/public/**'
+          externals: |
+            '.storybook/public/**'
+            'packages/design-tokens/**'
+            'packages/icons/**'

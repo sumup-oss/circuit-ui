@@ -13,12 +13,13 @@
  * limitations under the License.
  */
 
-import { forwardRef, useRef } from 'react';
-import { Search } from '@sumup/icons';
+'use client';
 
-import Input from '../Input/index.js';
-import type { InputElement, InputProps } from '../Input/index.js';
-import CloseButton from '../CloseButton/index.js';
+import { forwardRef, useRef } from 'react';
+import { Search } from '@sumup-oss/icons';
+
+import { Input, type InputProps } from '../Input/index.js';
+import { CloseButton } from '../CloseButton/index.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
@@ -26,31 +27,39 @@ import {
 import { applyMultipleRefs } from '../../util/refs.js';
 import { clsx } from '../../styles/clsx.js';
 import type { ClickEvent } from '../../types/events.js';
+import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import type { Locale } from '../../util/i18n.js';
 
 import classes from './SearchInput.module.css';
+import { translations } from './translations/index.js';
 
-type ClearProps =
-  | { onClear?: never; clearLabel?: never }
-  | {
-      /**
-       * Callback function when the user clears the field.
-       */
-      onClear: (event: ClickEvent) => void;
-      /**
-       * Visually hidden text label on the clear button for screen readers.
-       * Crucial for accessibility.
-       */
-      clearLabel: string;
-    };
-
-export type SearchInputProps = InputProps & ClearProps;
+export type SearchInputProps = InputProps & {
+  /**
+   * Callback function when the user clears the field.
+   */
+  onClear?: (event: ClickEvent) => void;
+  /**
+   * Visually hidden text label on the clear button for screen readers.
+   * Crucial for accessibility.
+   */
+  clearLabel?: string;
+  /**
+   * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
+   * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
+   * When passing an array, the first supported locale is used.
+   * Defaults to `navigator.language` in supported environments.
+   */
+  locale?: Locale;
+};
 
 /**
  * SearchInput component for forms.
  */
-export const SearchInput = forwardRef<InputElement, SearchInputProps>(
-  ({ value, onClear, clearLabel, inputClassName, ...props }, ref) => {
-    const localRef = useRef<InputElement>(null);
+export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
+  (props, ref) => {
+    const { value, onClear, clearLabel, inputClassName, locale, ...rest } =
+      useI18n(props, translations);
+    const localRef = useRef<HTMLInputElement>(null);
 
     if (
       process.env.NODE_ENV !== 'production' &&
@@ -77,22 +86,14 @@ export const SearchInput = forwardRef<InputElement, SearchInputProps>(
         {...(value && onClear && clearLabel
           ? {
               renderSuffix: (renderProps) => (
-                <CloseButton
-                  {...renderProps}
-                  size="s"
-                  onClick={onClick}
-                  className={clsx(
-                    renderProps.className,
-                    classes['clear-button'],
-                  )}
-                >
+                <CloseButton {...renderProps} size="s" onClick={onClick}>
                   {clearLabel}
                 </CloseButton>
               ),
             }
           : {})}
         inputClassName={clsx(classes.base, inputClassName)}
-        {...props}
+        {...rest}
         ref={applyMultipleRefs(localRef, ref)}
       />
     );

@@ -15,23 +15,23 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { render, axe } from '../../../../util/test-utils.js';
+import { render, axe, screen } from '../../../../util/test-utils.js';
 
-import TableBody from './index.js';
+import { TableBody } from './index.js';
 
 const fixtureRows = [['Foo', 'Bar']];
 
 describe('TableBody', () => {
   it('should render a table cell as the first element on each row with no rowHeaders', () => {
-    const { getByRole } = render(<TableBody rows={fixtureRows} />);
-    const tableCell = getByRole('row').children[0];
+    render(<TableBody rows={fixtureRows} />);
+    const tableCell = screen.getByRole('row').children[0];
 
     expect(tableCell.tagName).toBe('TD');
   });
 
   it('should render a table header as the first element of each row with rowHeaders', () => {
-    const { getByRole } = render(<TableBody rows={fixtureRows} rowHeaders />);
-    const tableCell = getByRole('row').children[0];
+    render(<TableBody rows={fixtureRows} rowHeaders />);
+    const tableCell = screen.getByRole('row').children[0];
 
     expect(tableCell.tagName).toBe('TH');
   });
@@ -39,17 +39,17 @@ describe('TableBody', () => {
   it('should forward additional props to the row', () => {
     const testId = 'row-1-testId';
     const rows = [{ 'cells': ['Foo', 'Bar'], 'data-testid': testId }];
-    const { getAllByTestId } = render(<TableBody rows={rows} />);
+    render(<TableBody rows={rows} />);
 
-    expect(getAllByTestId(testId)).toHaveLength(1);
+    expect(screen.getAllByTestId(testId)).toHaveLength(1);
   });
 
   it('should forward additional props to the cell', () => {
     const testId = 'cell-1-testId';
     const rows = [[{ 'children': 'Foo', 'data-testid': testId }, 'Bar']];
-    const { getAllByTestId } = render(<TableBody rows={rows} />);
+    render(<TableBody rows={rows} />);
 
-    expect(getAllByTestId(testId)).toHaveLength(1);
+    expect(screen.getAllByTestId(testId)).toHaveLength(1);
   });
 
   it('should have no accessibility violations', async () => {

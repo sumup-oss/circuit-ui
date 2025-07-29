@@ -14,9 +14,13 @@
  */
 
 import type { ReactNode } from 'react';
-import { Unstyled } from '@storybook/addon-docs';
+import { Unstyled } from '@storybook/addon-docs/blocks';
 import LinkTo from '@storybook/addon-links/react';
-import { Badge, BadgeProps, Body } from '../../packages/circuit-ui/index.js';
+import {
+  Badge,
+  type BadgeProps,
+} from '../../packages/circuit-ui/components/Badge/Badge.js';
+import { Body } from '../../packages/circuit-ui/components/Body/Body.js';
 
 import classes from './Statuses.module.css';
 
@@ -25,7 +29,8 @@ type Variant =
   | 'under-review'
   | 'experimental'
   | 'legacy'
-  | 'deprecated';
+  | 'deprecated'
+  | 'internal';
 
 interface StatusProps {
   variant: Variant;
@@ -41,9 +46,10 @@ const variantMap: Record<
   'under-review': { variant: 'warning', label: 'Under Review' },
   'legacy': { variant: 'warning', label: 'Legacy' },
   'deprecated': { variant: 'danger', label: 'Deprecated' },
+  'internal': { variant: 'neutral', label: 'Internal' },
 };
 
-export default function Status({
+export function Status({
   variant: status = 'stable',
   children,
   ...props
@@ -59,12 +65,7 @@ export default function Status({
         <Badge variant={variant}>{label}</Badge>
       </LinkTo>
       {children && (
-        <Body
-          size="two"
-          as="span"
-          className={classes.description}
-          variant="subtle"
-        >
+        <Body size="s" as="span" className={classes.description} color="subtle">
           {children}
         </Body>
       )}

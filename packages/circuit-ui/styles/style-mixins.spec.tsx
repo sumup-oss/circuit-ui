@@ -17,7 +17,7 @@
 
 import { describe, expect, it } from 'vitest';
 import { css } from '@emotion/react';
-import { light } from '@sumup/design-tokens';
+import { light } from '@sumup-oss/design-tokens';
 
 import { render } from '../util/test-utils.js';
 
@@ -152,10 +152,7 @@ describe('Style helpers', () => {
       expect(styles).toMatchInlineSnapshot(
         `
         "
-            /* Fallback for browsers that don't support color-mix yet */
             box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-            box-shadow: 0 3px 8px 0
-              color-mix(in sRGB, var(--cui-border-strong) 20%, transparent);
           "
       `,
       );
@@ -166,7 +163,7 @@ describe('Style helpers', () => {
     it('should match the snapshot for size one', () => {
       const { styles } = typography('one')(light);
       expect(styles).toMatchInlineSnapshot(
-        '"font-size:1rem;line-height:1.5rem;"',
+        `"font-size:1rem;line-height:1.375rem;"`,
       );
     });
 
@@ -237,7 +234,8 @@ describe('Style helpers', () => {
         `
         "
             outline: 0;
-            box-shadow: 0 0 0 2px var(--cui-bg-normal),
+            box-shadow:
+              0 0 0 2px var(--cui-bg-normal),
               0 0 0 4px var(--cui-border-focus);
 
             &::-moz-focus-inner {
@@ -273,7 +271,8 @@ describe('Style helpers', () => {
         "
             &:focus {
               outline: 0;
-              box-shadow: 0 0 0 2px var(--cui-bg-normal),
+              box-shadow:
+                0 0 0 2px var(--cui-bg-normal),
                 0 0 0 4px var(--cui-border-focus);
 
               &::-moz-focus-inner {

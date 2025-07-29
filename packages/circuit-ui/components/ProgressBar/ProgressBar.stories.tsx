@@ -15,18 +15,19 @@
 
 import { Fragment } from 'react';
 
-import { ProgressBar, ProgressBarProps } from './ProgressBar.js';
+import { ProgressBar, type ProgressBarProps } from './ProgressBar.js';
 
 export default {
   title: 'Components/ProgressBar',
   component: ProgressBar,
+  tags: ['status:stable'],
 };
 
 const sizes = ['s', 'm', 'l'] as const;
 
 const progressBarStyles = {
-  width: '90%',
-  minWidth: '500px',
+  width: '500px',
+  maxWidth: '90vw',
 };
 
 export const Steps = (args: ProgressBarProps) => (
@@ -54,10 +55,8 @@ Timer.args = {
 };
 
 export const Labelled = (args: ProgressBarProps) => {
-  /* eslint-disable @typescript-eslint/no-non-null-assertion */
-  const fraction = `${args.value!}/${args.max!}`;
-  const percentage = `${(args.value! / args.max!) * 100}%`;
-  /* eslint-enable @typescript-eslint/no-non-null-assertion */
+  const fraction = `${args.value}/${args.max}`;
+  const percentage = `${((args.value as number) / (args.max as number)) * 100}%`;
   return (
     <Fragment>
       <ProgressBar {...args} style={progressBarStyles} label={fraction} />

@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import { ClickEvent } from '../../types/events.js';
+import type { ClickEvent } from '../../types/events.js';
 
-export type Play = () => void;
-export type Pause = () => void;
-export type Next = () => void;
-export type Previous = () => void;
+type Play = () => void;
+type Pause = () => void;
+type Next = () => void;
+type Previous = () => void;
 
 export type Duration = number | ((step?: number) => number);
 

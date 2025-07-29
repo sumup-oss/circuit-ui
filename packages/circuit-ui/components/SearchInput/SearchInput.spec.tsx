@@ -16,8 +16,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { render, axe } from '../../util/test-utils.js';
-import type { InputElement } from '../Input/index.js';
+import { render, axe, screen } from '../../util/test-utils.js';
 
 import { SearchInput } from './SearchInput.js';
 
@@ -26,13 +25,11 @@ describe('SearchInput', () => {
 
   it('should display a clear icon when not empty and an onClear callback is provided', () => {
     const mockCallback = vi.fn();
-    const clearLabel = 'Clear';
 
-    const { getByRole } = render(
+    render(
       <SearchInput
         {...baseProps}
         value="Search value"
-        clearLabel={clearLabel}
         onClear={mockCallback}
         /**
          * We set onChange to silence a warning about adding a `value` without
@@ -41,11 +38,11 @@ describe('SearchInput', () => {
         onChange={mockCallback}
       />,
     );
-    expect(getByRole('button')).toBeVisible();
+    expect(screen.getByRole('button')).toBeVisible();
   });
 
   it('should forward a ref', () => {
-    const ref = createRef<InputElement>();
+    const ref = createRef<HTMLInputElement>();
     const { container } = render(<SearchInput {...baseProps} ref={ref} />);
     const input = container.querySelector('input');
     expect(ref.current).toBe(input);

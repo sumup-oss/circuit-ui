@@ -1,5 +1,5 @@
 /**
- * Copyright 2020, SumUp Ltd.
+ * Copyright 2025, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,81 +13,20 @@
  * limitations under the License.
  */
 
-import { afterEach, describe, expect, it, vi } from 'vitest';
-import { FC } from 'react';
-import { Delete, Add, Download, IconProps } from '@sumup/icons';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { createRef } from 'react';
+import { waitFor } from '@testing-library/react';
 
-import {
-  act,
-  axe,
-  RenderFn,
-  render,
-  userEvent,
-  screen,
-} from '../../util/test-utils.js';
-import { ClickEvent } from '../../types/events.js';
+import { act, axe, render, userEvent, screen } from '../../util/test-utils.js';
 
-import {
-  PopoverItem,
-  PopoverItemProps,
-  Popover,
-  PopoverProps,
-} from './Popover.js';
-
-describe('PopoverItem', () => {
-  function renderPopoverItem<T>(
-    renderFn: RenderFn<T>,
-    props: PopoverItemProps,
-  ) {
-    return renderFn(<PopoverItem {...props} />);
-  }
-
-  const baseProps = {
-    children: 'PopoverItem',
-    icon: Download as FC<IconProps>,
-  };
-
-  describe('Styles', () => {
-    it('should render as Link when an href (and onClick) is passed', () => {
-      const props = {
-        ...baseProps,
-        href: 'https://sumup.com',
-        onClick: vi.fn(),
-      };
-      const { container } = renderPopoverItem(render, props);
-      const anchorEl = container.querySelector('a');
-      expect(anchorEl).toBeVisible();
-    });
-
-    it('should render as a `button` when an onClick is passed', () => {
-      const props = { ...baseProps, onClick: vi.fn() };
-      const { container } = renderPopoverItem(render, props);
-      const buttonEl = container.querySelector('button');
-      expect(buttonEl).toBeVisible();
-    });
-  });
-
-  describe('Logic', () => {
-    it('should call onClick when rendered as Link', async () => {
-      const props = {
-        ...baseProps,
-        href: 'https://sumup.com',
-        onClick: vi.fn((event: ClickEvent) => {
-          event.preventDefault();
-        }),
-      };
-      const { container } = renderPopoverItem(render, props);
-      const anchorEl = container.querySelector('a');
-      if (anchorEl) {
-        await userEvent.click(anchorEl);
-      }
-      expect(props.onClick).toHaveBeenCalledTimes(1);
-    });
-  });
-});
+import { Popover, type PopoverProps } from './Popover.js';
 
 describe('Popover', () => {
+  beforeEach(() => {
+    vi.useFakeTimers({ shouldAdvanceTime: true });
+  });
   afterEach(() => {
+    vi.useRealTimers();
     vi.clearAllMocks();
   });
 
@@ -95,183 +34,132 @@ describe('Popover', () => {
     return render(<Popover {...props} />);
   }
 
-  function createStateSetter(initialState: boolean) {
-    return (state: boolean | ((prev: boolean) => boolean)) =>
-      typeof state === 'boolean' ? state : state(initialState);
-  }
-
-  /**
-   * Flushes microtasks to prevent act() warnings.
-   *
-   * From https://floating-ui.com/docs/react-dom#testing:
-   *
-   * > The position of floating elements is computed asynchronously, so a state
-   * > update occurs during a Promise microtask.
-   * >
-   * > The state update happens after tests complete, resulting in act warnings.
-   */
-  async function flushMicrotasks() {
-    await act(async () => {});
-  }
-
+  const popoverContent = 'Popover content';
   const baseProps: PopoverProps = {
     component: (triggerProps) => <button {...triggerProps}>Button</button>,
-    actions: [
-      {
-        onClick: vi.fn(),
-        children: 'Add',
-        icon: Add as FC<IconProps>,
-      },
-      { type: 'divider' },
-      {
-        onClick: vi.fn(),
-        children: 'Remove',
-        icon: Delete as FC<IconProps>,
-        destructive: true,
-      },
-    ],
+    children: popoverContent,
     isOpen: true,
-    onToggle: vi.fn(createStateSetter(true)),
+    onToggle: vi.fn(),
   };
-  it('should open the popover when clicking the trigger element', async () => {
-    const isOpen = false;
-    const onToggle = vi.fn(createStateSetter(isOpen));
-    renderPopover({ ...baseProps, isOpen, onToggle });
-
-    const popoverTrigger = screen.getByRole('button');
-
-    await userEvent.click(popoverTrigger);
-
-    expect(onToggle).toHaveBeenCalledTimes(1);
+  it('should forward a ref', () => {
+    const ref = createRef<HTMLDialogElement>();
+    render(<Popover {...baseProps} ref={ref} />);
+    const dialog = screen.getByRole('dialog', { hidden: true });
+    expect(ref.current).toBe(dialog);
   });
 
-  it.each([
-    ['space', '{ }'],
-    ['enter', '{Enter}'],
-    ['arrow down', '{ArrowDown}'],
-    ['arrow up', '{ArrowUp}'],
-  ])(
-    'should open the popover when pressing the %s key on the trigger element',
-    async (_, key) => {
-      const isOpen = false;
-      const onToggle = vi.fn(createStateSetter(isOpen));
-      renderPopover({ ...baseProps, isOpen, onToggle });
-
-      const popoverTrigger = screen.getByRole('button');
-
-      popoverTrigger.focus();
-      await userEvent.keyboard(key);
-
-      expect(onToggle).toHaveBeenCalledTimes(1);
-    },
-  );
-
-  it('should close the popover when clicking outside', async () => {
-    renderPopover(baseProps);
-
-    await userEvent.click(document.body);
-
-    expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
+  it('should merge a custom class name with the default ones', () => {
+    const className = 'foo';
+    render(<Popover {...baseProps} className={className} />);
+    // eslint-disable-next-line testing-library/no-container
+    const dialog = screen.getByRole('dialog', { hidden: true });
+    expect(dialog?.className).toContain(className);
   });
 
-  it('should close the popover when clicking the trigger element', async () => {
-    renderPopover(baseProps);
+  describe('when closed', () => {
+    it('should not render its content', () => {
+      renderPopover({ ...baseProps, isOpen: false });
 
-    const popoverTrigger = screen.getByRole('button');
+      expect(screen.queryByText(popoverContent)).not.toBeInTheDocument();
+    });
+    it('should open the popover when clicking the trigger element', async () => {
+      renderPopover({ ...baseProps, isOpen: false });
 
-    await userEvent.click(popoverTrigger);
+      const popoverTrigger = screen.getByRole('button', { name: 'Button' });
 
-    expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
-  });
-
-  it.each([
-    ['space', '{ }'],
-    ['enter', '{Enter}'],
-    ['arrow up', '{ArrowUp}'],
-  ])(
-    'should close the popover when pressing the %s key on the trigger element',
-    async (_, key) => {
-      renderPopover(baseProps);
-
-      const popoverTrigger = screen.getByRole('button');
-
-      popoverTrigger.focus();
-      await userEvent.keyboard(key);
+      await userEvent.click(popoverTrigger);
 
       expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
-    },
-  );
-
-  it('should close the popover when clicking the escape key', async () => {
-    renderPopover(baseProps);
-
-    await userEvent.keyboard('{Escape}');
-
-    expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
-  });
-
-  it('should close the popover when clicking a popover item', async () => {
-    renderPopover(baseProps);
-
-    const popoverItems = screen.getAllByRole('menuitem');
-
-    await userEvent.click(popoverItems[0]);
-
-    expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
-  });
-
-  it('should move focus to the first popover item after opening', async () => {
-    const isOpen = false;
-    const onToggle = vi.fn(createStateSetter(isOpen));
-
-    const { rerender } = renderPopover({
-      ...baseProps,
-      isOpen,
-      onToggle,
     });
 
-    act(() => {
-      rerender(<Popover {...baseProps} isOpen />);
-    });
+    it.each([
+      ['space', '{ }'],
+      ['enter', '{Enter}'],
+    ])(
+      'should open the popover when pressing the %s key on the trigger element',
+      async (_, key) => {
+        renderPopover({ ...baseProps, isOpen: false });
 
-    const popoverItems = screen.getAllByRole('menuitem');
+        const popoverTrigger = screen.getByRole('button');
 
-    expect(popoverItems[0]).toHaveFocus();
+        popoverTrigger.focus();
+        await userEvent.keyboard(key);
 
-    await flushMicrotasks();
+        expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
+      },
+    );
   });
 
-  it('should move focus to the trigger element after closing', async () => {
-    const { rerender } = renderPopover(baseProps);
+  describe('when open', () => {
+    it('should render its content', () => {
+      renderPopover(baseProps);
 
-    act(() => {
+      expect(screen.getByText(popoverContent)).toBeVisible();
+    });
+
+    it('should close the popover when clicking outside', async () => {
+      renderPopover(baseProps);
+
+      await userEvent.click(document.body);
+
+      await waitFor(() => {
+        expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
+      });
+    });
+
+    it('should close the popover when clicking the trigger element', async () => {
+      renderPopover(baseProps);
+
+      const popoverTrigger = screen.getByRole('button', { name: 'Button' });
+
+      await userEvent.click(popoverTrigger);
+
+      expect(baseProps.onToggle).toHaveBeenCalled();
+    });
+
+    it.each([
+      ['space', '{ }'],
+      ['enter', '{Enter}'],
+    ])(
+      'should close the popover when pressing the %s key on the trigger element',
+      async (_, key) => {
+        renderPopover(baseProps);
+        vi.runAllTimers();
+
+        const popoverTrigger = screen.getByRole('button', { name: 'Button' });
+
+        popoverTrigger.focus();
+        await userEvent.keyboard(key);
+
+        expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
+      },
+    );
+
+    it('should close the popover when clicking the escape key', async () => {
+      renderPopover(baseProps);
+
+      await userEvent.keyboard('{Escape}');
+
+      await waitFor(() => expect(baseProps.onToggle).toHaveBeenCalledTimes(1));
+    });
+
+    it('should close when the isOpen prop changes ', async () => {
+      const { rerender } = renderPopover(baseProps);
+
       rerender(<Popover {...baseProps} isOpen={false} />);
-    });
 
-    const popoverTrigger = screen.getByRole('button');
-
-    expect(popoverTrigger).toHaveFocus();
-
-    await flushMicrotasks();
-  });
-
-  it('should have no accessibility violations', async () => {
-    const { container } = renderPopover(baseProps);
-
-    await act(async () => {
-      const actual = await axe(container);
-      expect(actual).toHaveNoViolations();
+      await waitFor(() => expect(baseProps.onToggle).toHaveBeenCalledTimes(1));
     });
   });
 
-  it('should render items as role=menuitem and dividers as aria-hidden', async () => {
-    const { baseElement } = renderPopover(baseProps);
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = renderPopover(baseProps);
 
-    const items = screen.getAllByRole('menuitem');
-    const dividers = baseElement.querySelectorAll('hr[aria-hidden="true"');
-    expect(items.length).toBe(2);
-    expect(dividers.length).toBe(1);
-
-    await flushMicrotasks();
+      await act(async () => {
+        const actual = await axe(container);
+        expect(actual).toHaveNoViolations();
+      });
+    });
   });
 });

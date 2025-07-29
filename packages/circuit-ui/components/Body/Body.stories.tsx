@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { BodyProps } from './Body.js';
+import type { BodyProps } from './Body.js';
 
-import Body from './index.js';
+import { Body } from './index.js';
 
 const content =
   'An electronic circuit is composed of individual electronic components, such as resistors, transistors, capacitors, inductors and diodes, connected by conductive wires or traces through which electric current can flow.';
@@ -23,6 +23,7 @@ const content =
 export default {
   title: 'Typography/Body',
   component: Body,
+  tags: ['status:stable'],
   argTypes: {
     as: { control: 'text' },
   },
@@ -30,12 +31,59 @@ export default {
 
 export const Base = (args: BodyProps) => <Body {...args}>{content}</Body>;
 
-const sizes = ['one', 'two'] as const;
+const sizes = ['l', 'm', 's'] as const;
 
 export const Sizes = (args: BodyProps) =>
-  sizes.map((s) => (
-    <Body key={s} {...args} size={s}>
-      This is a body {s}. {content}
+  sizes.map((size) => (
+    <Body key={size} {...args} size={size}>
+      This is size {size}. {content}
+    </Body>
+  ));
+
+const weights = ['regular', 'semibold', 'bold'] as const;
+
+export const Weights = (args: BodyProps) =>
+  weights.map((weight) => (
+    <Body key={weight} {...args} weight={weight}>
+      This is the {weight} weight. {content}
+    </Body>
+  ));
+
+const decorations = ['italic', 'strikethrough'] as const;
+
+export const Decorations = (args: BodyProps) =>
+  decorations.map((decoration) => (
+    <Body key={decoration} {...args} decoration={decoration}>
+      {content}
+    </Body>
+  ));
+
+const colors = [
+  'normal',
+  'subtle',
+  'placeholder',
+  'on-strong',
+  'on-strong-subtle',
+  'accent',
+  'success',
+  'warning',
+  'danger',
+  'promo',
+] as const;
+
+export const Colors = (args: BodyProps) =>
+  colors.map((color) => (
+    <Body
+      key={color}
+      {...args}
+      color={color}
+      style={
+        color.includes('on-strong')
+          ? { background: 'var(--cui-bg-strong)' }
+          : {}
+      }
+    >
+      This is the {color} color. {content}
     </Body>
   ));
 
@@ -43,6 +91,7 @@ const variants = ['highlight', 'quote', 'confirm', 'alert', 'subtle'] as const;
 
 export const Variants = (args: BodyProps) =>
   variants.map((variant) => (
+    // eslint-disable-next-line @sumup-oss/circuit-ui/no-deprecated-props
     <Body key={variant} {...args} variant={variant}>
       This is a {variant} body
     </Body>

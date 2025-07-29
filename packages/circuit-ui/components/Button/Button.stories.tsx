@@ -14,19 +14,20 @@
  */
 
 import { useEffect, useState } from 'react';
-import { ArrowSlanted, Plus } from '@sumup/icons';
+import { ArrowSlanted, Plus } from '@sumup-oss/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
-import ButtonGroup from '../ButtonGroup/index.js';
-import CloseButton from '../CloseButton/index.js';
+import { ButtonGroup } from '../ButtonGroup/index.js';
+import { CloseButton } from '../CloseButton/index.js';
 
 import { IconButton } from './IconButton.js';
-import { Button, ButtonProps } from './Button.js';
+import { Button, type ButtonProps } from './Button.js';
 
 export default {
   title: 'Components/Button',
   component: Button,
   subcomponents: { IconButton, CloseButton, ButtonGroup },
+  tags: ['status:stable'],
   argTypes: {
     children: { control: 'text' },
     disabled: { control: 'boolean' },
@@ -109,6 +110,5 @@ export const Loading = (args: ButtonProps) => {
 };
 
 Loading.args = {
-  loadingLabel: 'Loading',
   isLoading: true,
 };

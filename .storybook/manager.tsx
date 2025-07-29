@@ -1,31 +1,131 @@
-import { addons, types } from '@storybook/addons';
+import '@sumup-oss/design-tokens/dynamic.css';
 
-import { getTheme } from './themes';
+// biome-ignore lint/correctness/noUnusedImports:
+import React, { type CSSProperties } from 'react';
+import { addons, types } from 'storybook/manager-api';
+
+import { dark, light, listenToColorScheme } from './themes.js';
 import { PARAM_KEY as VERSIONS_PARAM_KEY, Versions } from './addons/versions';
+
+type BadgeConfig = {
+  style: CSSProperties;
+  label: string;
+};
+
+const badges = {
+  // 'status:stable' is excluded to reduce visual clutter
+  'status:experimental': {
+    label: 'Experimental',
+    style: {
+      color: 'var(--cui-fg-promo)',
+      backgroundColor: 'var(--cui-bg-promo)',
+      borderColor: 'var(--cui-border-promo)',
+    },
+  },
+  'status:under-review': {
+    label: 'Under Review',
+    style: {
+      color: 'var(--cui-fg-warning)',
+      backgroundColor: 'var(--cui-bg-warning)',
+      borderColor: 'var(--cui-border-warning)',
+    },
+  },
+  'status:legacy': {
+    label: 'Legacy',
+    style: {
+      color: 'var(--cui-fg-warning)',
+      backgroundColor: 'var(--cui-bg-warning)',
+      borderColor: 'var(--cui-border-warning)',
+    },
+  },
+  'status:deprecated': {
+    label: 'Deprecated',
+    style: {
+      color: 'var(--cui-fg-danger)',
+      backgroundColor: 'var(--cui-bg-danger)',
+      borderColor: 'var(--cui-border-danger)',
+    },
+  },
+  'status:internal': {
+    label: 'Internal',
+    style: {
+      color: 'var(--cui-fg-normal)',
+      backgroundColor: 'var(--cui-bg-subtle)',
+      borderColor: 'var(--cui-border-normal)',
+    },
+  },
+} satisfies Record<string, BadgeConfig>;
 
 addons.setConfig({
   isFullscreen: false,
   showPanel: true,
   showToolbar: true,
   panelPosition: 'bottom',
+  sidebar: {
+    filters: {
+      patterns: (item) => {
+        return !item.tags?.includes('hidden');
+      },
+    },
+    renderLabel(item) {
+      if (item.type !== 'component') {
+        return item.name;
+      }
+
+      let badge: BadgeConfig | undefined;
+
+      for (const tag of item.tags) {
+        badge = badges[tag];
+        if (badge) {
+          break;
+        }
+      }
+
+      if (!badge) {
+        return item.name;
+      }
+
+      return (
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            gap: '1rem',
+            flex: 1,
+          }}
+        >
+          <span>{item.name}</span>
+          <span
+            style={{
+              ...badge.style,
+              display: 'inline-block',
+              padding: '2px 6px',
+              fontSize: '12px',
+              lineHeight: '1',
+              textAlign: 'center',
+              borderRadius: 'var(--cui-border-radius-pill)',
+              borderWidth: 'var(--cui-border-width-kilo)',
+              borderStyle: 'solid',
+            }}
+          >
+            {badge.label}
+          </span>
+        </div>
+      );
+    },
+  },
 });
 
 /**
- * Automatically switch light/dark theme based on system preferences
+ * Switch color scheme based on the global types or system preferences
  */
-addons.register('auto-theme-switcher', (api) => {
-  const setTheme = (prefersDark: boolean) => {
-    api.setOptions({ theme: getTheme(prefersDark) });
-    document.documentElement.dataset.theme = prefersDark ? 'dark' : 'light';
+addons.register('color-scheme', (api) => {
+  const setTheme = (colorScheme: 'dark' | 'light') => {
+    api.setOptions({ theme: colorScheme === 'dark' ? dark : light });
+    document.documentElement.dataset.colorScheme = colorScheme;
   };
 
-  const query = window?.matchMedia('(prefers-color-scheme: dark)');
-
-  setTheme(query.matches);
-
-  query.addEventListener('change', (event) => {
-    setTheme(event.matches);
-  });
+  listenToColorScheme(api, setTheme);
 });
 
 /**
@@ -35,7 +135,8 @@ addons.register('version-switcher', () => {
   addons.add(VERSIONS_PARAM_KEY, {
     type: types.TOOL,
     title: 'Versions',
-    match: ({ viewMode }) => !!(viewMode && viewMode?.match(/^(story|docs)$/)),
+    match: ({ viewMode }) =>
+      viewMode ? /^(story|docs)$/.test(viewMode) : false,
     render: Versions,
   });
 });

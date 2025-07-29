@@ -13,19 +13,20 @@
  * limitations under the License.
  */
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { useState } from 'react';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 
 import {
   NotificationInline,
-  NotificationInlineProps,
+  type NotificationInlineProps,
 } from './NotificationInline.js';
 
 export default {
   title: 'Notification/NotificationInline',
   component: NotificationInline,
+  tags: ['status:stable'],
 };
 
 const variants = ['info', 'success', 'warning', 'danger'] as const;
@@ -56,7 +57,7 @@ Variants.args = {
   body: 'This is an inline message',
 } as NotificationInlineProps;
 
-export const Dismissable = (args: NotificationInlineProps): JSX.Element => {
+export const Dismissable = (args: NotificationInlineProps) => {
   const [isVisible, setVisible] = useState(args.isVisible);
   return (
     <NotificationInline
@@ -73,9 +74,9 @@ Dismissable.args = {
   variant: 'info',
 } as NotificationInlineProps;
 
-export const WithHeadlineAndAction = (
-  args: NotificationInlineProps,
-): JSX.Element => <NotificationInline {...args} isVisible={args.isVisible} />;
+export const WithHeadlineAndAction = (args: NotificationInlineProps) => (
+  <NotificationInline {...args} isVisible={args.isVisible} />
+);
 
 WithHeadlineAndAction.args = {
   headline: 'Information',

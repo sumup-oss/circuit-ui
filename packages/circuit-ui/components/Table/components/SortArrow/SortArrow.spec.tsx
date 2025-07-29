@@ -15,9 +15,9 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { render, axe, userEvent } from '../../../../util/test-utils.js';
+import { render, axe, userEvent, screen } from '../../../../util/test-utils.js';
 
-import SortArrow from './index.js';
+import { SortArrow } from './index.js';
 
 describe('SortArrow', () => {
   it('should render with both arrows styles', () => {
@@ -41,10 +41,8 @@ describe('SortArrow', () => {
 
   it('should call the onClick callback', async () => {
     const onClick = vi.fn();
-    const { getByTestId } = render(
-      <SortArrow label="Sort" onClick={onClick} data-testid="sort" />,
-    );
-    await userEvent.click(getByTestId('sort'));
+    render(<SortArrow label="Sort" onClick={onClick} data-testid="sort" />);
+    await userEvent.click(screen.getByTestId('sort'));
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 

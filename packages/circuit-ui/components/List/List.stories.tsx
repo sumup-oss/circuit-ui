@@ -17,11 +17,12 @@ import { Fragment } from 'react';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 
-import { List, ListProps } from './List.js';
+import { List, type ListProps } from './List.js';
 
 export default {
   title: 'Typography/List',
   component: List,
+  tags: ['status:stable'],
 };
 
 const ListItems = () => (
@@ -49,7 +50,7 @@ export const Variants = (args: ListProps) => (
   </Stack>
 );
 
-const sizes: ListProps['size'][] = ['one', 'two'];
+const sizes: ListProps['size'][] = ['l', 'm', 's'];
 
 export const Sizes = (args: ListProps) => (
   <Stack vertical>

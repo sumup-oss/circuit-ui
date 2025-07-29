@@ -18,7 +18,7 @@ import { createRef } from 'react';
 
 import { render, axe, screen } from '../../util/test-utils.js';
 
-import { Input, InputElement } from './Input.js';
+import { Input } from './Input.js';
 
 const defaultProps = {
   label: 'Label',
@@ -35,14 +35,14 @@ describe('Input', () => {
   });
 
   it('should forward a ref to the input', () => {
-    const ref = createRef<InputElement>();
+    const ref = createRef<HTMLInputElement>();
     const { container } = render(<Input ref={ref} {...defaultProps} />);
     const input = container.querySelector('input');
     expect(ref.current).toBe(input);
   });
 
   it('should forward a ref to the textarea', () => {
-    const ref = createRef<InputElement>();
+    const ref = createRef<HTMLInputElement>();
     const { container } = render(
       <Input as="textarea" ref={ref} {...defaultProps} />,
     );
@@ -77,18 +77,16 @@ describe('Input', () => {
 
   describe('Labeling', () => {
     it('should have an accessible name', () => {
-      const { getByRole } = render(<Input {...defaultProps} />);
-      const inputEl = getByRole('textbox');
+      render(<Input {...defaultProps} />);
+      const inputEl = screen.getByRole('textbox');
 
       expect(inputEl).toHaveAccessibleName(defaultProps.label);
     });
 
     it('should optionally have an accessible description', () => {
       const description = 'Description';
-      const { getByRole } = render(
-        <Input validationHint={description} {...defaultProps} />,
-      );
-      const inputEl = getByRole('textbox');
+      render(<Input validationHint={description} {...defaultProps} />);
+      const inputEl = screen.getByRole('textbox');
 
       expect(inputEl).toHaveAccessibleDescription(description);
     });
@@ -96,13 +94,13 @@ describe('Input', () => {
     it('should accept a custom description via aria-describedby', () => {
       const customDescription = 'Custom description';
       const customDescriptionId = 'customDescriptionId';
-      const { getByRole } = render(
+      render(
         <>
           <span id={customDescriptionId}>{customDescription}</span>
           <Input aria-describedby={customDescriptionId} {...defaultProps} />,
         </>,
       );
-      const inputEl = getByRole('textbox');
+      const inputEl = screen.getByRole('textbox');
 
       expect(inputEl).toHaveAttribute(
         'aria-describedby',
@@ -115,7 +113,7 @@ describe('Input', () => {
       const customDescription = 'Custom description';
       const customDescriptionId = 'customDescriptionId';
       const description = 'Description';
-      const { getByRole } = render(
+      render(
         <>
           <span id={customDescriptionId}>{customDescription}</span>
           <Input
@@ -126,7 +124,7 @@ describe('Input', () => {
           ,
         </>,
       );
-      const inputEl = getByRole('textbox');
+      const inputEl = screen.getByRole('textbox');
 
       expect(inputEl).toHaveAttribute(
         'aria-describedby',
@@ -140,28 +138,26 @@ describe('Input', () => {
 
   describe('Status messages', () => {
     it('should render an empty live region on mount', () => {
-      const { getByRole } = render(<Input {...defaultProps} />);
-      const liveRegionEl = getByRole('status');
+      render(<Input {...defaultProps} />);
+      const liveRegionEl = screen.getByRole('status');
 
       expect(liveRegionEl).toBeEmptyDOMElement();
     });
 
     it('should render status messages in a live region', () => {
       const statusMessage = 'This field is required';
-      const { getByRole } = render(
+      render(
         <Input invalid validationHint={statusMessage} {...defaultProps} />,
       );
-      const liveRegionEl = getByRole('status');
+      const liveRegionEl = screen.getByRole('status');
 
       expect(liveRegionEl).toHaveTextContent(statusMessage);
     });
 
     it('should not render descriptions in a live region', () => {
       const statusMessage = 'This field is required';
-      const { getByRole } = render(
-        <Input validationHint={statusMessage} {...defaultProps} />,
-      );
-      const liveRegionEl = getByRole('status');
+      render(<Input validationHint={statusMessage} {...defaultProps} />);
+      const liveRegionEl = screen.getByRole('status');
 
       expect(liveRegionEl).toBeEmptyDOMElement();
     });

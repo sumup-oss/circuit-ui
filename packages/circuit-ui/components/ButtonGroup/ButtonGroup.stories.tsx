@@ -13,16 +13,17 @@
  * limitations under the License.
  */
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 import { modes } from '../../../../.storybook/modes.js';
 
-import { ButtonGroup, ButtonGroupProps } from './ButtonGroup.js';
+import { ButtonGroup, type ButtonGroupProps } from './ButtonGroup.js';
 
 export default {
   title: 'Components/ButtonGroup',
   component: ButtonGroup,
+  tags: ['status:stable'],
   parameters: {
     // we don't want to center this story to be able to see the effects of the `align` prop
     layout: 'padded',
@@ -35,9 +36,7 @@ export default {
   },
 };
 
-export const Base = (args: ButtonGroupProps): JSX.Element => (
-  <ButtonGroup {...args} />
-);
+export const Base = (args: ButtonGroupProps) => <ButtonGroup {...args} />;
 
 Base.args = {
   actions: {
@@ -52,7 +51,7 @@ Base.args = {
   },
 };
 
-export const Alignment = (args: ButtonGroupProps): JSX.Element => (
+export const Alignment = (args: ButtonGroupProps) => (
   <Stack vertical>
     <ButtonGroup {...args} align="center" />
     <ButtonGroup {...args} align="left" />

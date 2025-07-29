@@ -13,14 +13,15 @@
  * limitations under the License.
  */
 
-import { action } from '@storybook/addon-actions';
-import { Checkmark } from '@sumup/icons';
+import { action } from 'storybook/actions';
+import { Checkmark } from '@sumup-oss/icons';
 
-import { Tag, TagProps } from './Tag.js';
+import { Tag, type TagProps } from './Tag.js';
 
 export default {
   title: 'Components/Tag',
   component: Tag,
+  tags: ['status:stable'],
 };
 
 export const Base = ({ onRemove, removeButtonLabel, ...args }: TagProps) => (
@@ -65,5 +66,5 @@ export const Removable = (args: TagProps) => <Tag {...args}>Transactions</Tag>;
 
 Removable.args = {
   onRemove: action('Tag removed'),
-  removeButtonLabel: 'Remove',
+  removeButtonLabel: 'Remove transactions',
 };

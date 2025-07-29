@@ -1,0 +1,117 @@
+.results {
+  z-index: var(--cui-z-index-popover);
+  max-height: min(443px, var(--results-max-height));
+  overflow-y: auto;
+  background-color: var(--cui-bg-elevated);
+  border-radius: var(--cui-border-radius-byte);
+  box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
+}
+
+.results::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  display: block;
+  height: var(--cui-spacings-mega);
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(
+    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 1%, transparent)
+  );
+  border-radius: inherit;
+}
+
+.popup::after {
+  position: absolute;
+  right: 0;
+  bottom: env(safe-area-inset-bottom);
+  left: 0;
+  display: block;
+  height: var(--cui-spacings-mega);
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(
+    color-mix(in sRGB, var(--cui-bg-elevated) 1%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent)
+  );
+  border-radius: inherit;
+}
+
+.modal {
+  height: 90vh;
+  height: 90dvh;
+}
+
+.modal ul[role="listbox"] {
+  padding: 0;
+  margin-top: var(--cui-spacings-mega);
+}
+
+.modal .modal-content {
+  position: relative;
+  padding-top: 0;
+}
+
+.modal-input {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding-top: var(--cui-spacings-giga);
+  background-color: var(--cui-bg-elevated);
+}
+
+.modal-input::after {
+  position: absolute;
+  right: 0;
+  bottom: calc(-1 * var(--cui-spacings-mega));
+  left: 0;
+  display: block;
+  height: var(--cui-spacings-mega);
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(
+    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-elevated) 1%, transparent)
+  );
+  border-radius: inherit;
+}
+
+.no-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--cui-spacings-mega);
+}
+
+/* When an input element gets focused, iOS Safari tries to put it in the center by scrolling (and zooming.)
+Zooming can be easily disabled using a meta tag, but the scrolling hasn't been quite easy.
+The main quirk (I think) is that iOS Safari changes viewport when scrolling; i.e., toolbars shrink.
+Since the viewport _should_ change, it thinks the input _will_ move, so it _should_ scroll, always.
+Even times when it doesn't need to scroll—the input is fixed, all we need is the keyboard—
+the window always scrolls _up and down_ resulting in some janky animation.
+
+https://gist.github.com/kiding/72721a0553fa93198ae2bb6eefaa3299
+*/
+
+@keyframes blink-input-opacity-to-prevent-scrolling-when-focus {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 479px) {
+  .input:focus {
+    animation: blink-input-opacity-to-prevent-scrolling-when-focus 0.01s;
+  }
+}

@@ -13,13 +13,13 @@
  * limitations under the License.
  */
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { screen, render, axe, RenderFn } from '../../util/test-utils.js';
-import Body from '../Body/index.js';
+import { screen, render, axe, type RenderFn } from '../../util/test-utils.js';
+import { Body } from '../Body/index.js';
 
-import { ListItemGroup, ListItemGroupProps } from './ListItemGroup.js';
+import { ListItemGroup, type ListItemGroupProps } from './ListItemGroup.js';
 
 describe('ListItemGroup', () => {
   function renderListItemGroup<T>(
@@ -47,12 +47,22 @@ describe('ListItemGroup', () => {
     renderListItemGroup(render, {
       ...baseProps,
       label: (
-        <Body as="h4" size="two">
+        <Body as="h4" size="s">
           Group label
         </Body>
       ),
     });
     expect(screen.getByText('Group label')).toBeVisible();
+  });
+
+  it('should render a ListItemGroup with aria-label', () => {
+    renderListItemGroup(render, {
+      ...baseProps,
+      label: undefined,
+      'aria-label': 'Group label',
+    });
+    expect(screen.queryByRole('label')).not.toBeInTheDocument();
+    expect(screen.getByRole('list')).toBeInTheDocument();
   });
 
   it('should render a ListItemGroup with a details line', () => {
@@ -66,7 +76,7 @@ describe('ListItemGroup', () => {
   it('should render a ListItemGroup with a custom details line', () => {
     renderListItemGroup(render, {
       ...baseProps,
-      details: <Body size="two">Group details</Body>,
+      details: <Body size="s">Group details</Body>,
     });
     expect(screen.getByText('Group details')).toBeVisible();
   });
@@ -86,5 +96,21 @@ describe('ListItemGroup', () => {
     });
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
+  });
+
+  it('should throw accessibility error when there is no aria attribute or label', () => {
+    const props = {
+      ...baseProps,
+      label: undefined,
+      'aria-label': undefined,
+      'aria-labelledby': undefined,
+      'aria-hidden': undefined,
+    } as unknown as ListItemGroupProps;
+    // Silence the console.error output and switch to development mode to throw the error
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    process.env.NODE_ENV = 'development';
+    expect(() => render(<ListItemGroup {...props} />)).toThrow();
+    process.env.NODE_ENV = 'test';
+    vi.restoreAllMocks();
   });
 });

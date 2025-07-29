@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { TdHTMLAttributes, forwardRef } from 'react';
+import { forwardRef, type TdHTMLAttributes } from 'react';
 
 import { clsx } from '../../../../styles/clsx.js';
 import type { CellAlignment } from '../../types.js';

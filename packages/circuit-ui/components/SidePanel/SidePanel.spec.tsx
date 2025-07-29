@@ -13,84 +13,89 @@
  * limitations under the License.
  */
 
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, type Mock, vi, afterEach } from 'vitest';
 
-import { render, userEvent, axe, waitFor } from '../../util/test-utils.js';
+import {
+  render,
+  userEvent,
+  axe,
+  waitFor,
+  screen,
+} from '../../util/test-utils.js';
+import { useMedia } from '../../hooks/useMedia/index.js';
 
-import { SidePanel, SidePanelProps } from './SidePanel.js';
+import { SidePanel, type SidePanelProps } from './SidePanel.js';
+
+vi.mock('../../hooks/useMedia/useMedia.js');
 
 describe('SidePanel', () => {
+  const closeButtonLabel = 'Close';
   const baseProps: SidePanelProps = {
     backButtonLabel: 'Back',
     children: () => <p data-testid="children">Side panel content</p>,
-    closeButtonLabel: 'Close',
+    closeButtonLabel,
     headline: 'Side panel title',
-    isBottomPanelClosing: false,
-    isInstantOpen: false,
-    isMobile: false,
-    isStacked: false,
     onBack: undefined,
     onClose: () => {},
-    // Silences the warning about the missing app element.
-    // In user land, the side panel is always rendered by the SidePanelProvider,
-    // which takes care of setting the app element.
-    // http://reactcommunity.org/react-modal/accessibility/#app-element
-    ariaHideApp: false,
-    // Keep the modal opened by setting the react-modal isOpen prop.
+    // Keep the modal opened by setting the Dialog open prop.
     // Usually this is controlled by the SidePanelProvider.
-    isOpen: true,
-    // Close the modals instantly to prevent buildup of `ReactModalPortal__SidePanel` div elements.
-    closeTimeoutMS: 0,
+    open: true,
   };
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
 
   const renderComponent = (props: Partial<SidePanelProps> = {}) =>
     render(<SidePanel {...baseProps} {...props} />);
 
   it('should render the side panel', () => {
-    const { getByRole } = renderComponent();
-    expect(getByRole('dialog')).toBeVisible();
+    renderComponent();
+    expect(screen.getByRole('dialog')).toBeVisible();
   });
 
   it('should render the children render prop', () => {
-    const { getByTestId } = renderComponent();
-    expect(getByTestId('children')).toHaveTextContent('Side panel content');
+    renderComponent();
+    expect(screen.getByTestId('children')).toHaveTextContent(
+      'Side panel content',
+    );
   });
 
   it('should render the header', () => {
-    const { getByText } = renderComponent();
-    expect(getByText(baseProps.headline)).toBeVisible();
+    renderComponent();
+    expect(screen.getByText(baseProps.headline)).toBeVisible();
   });
 
   it('should call the onClose callback from the close button', async () => {
     const onClose = vi.fn();
-    const { getByTitle } = renderComponent({ onClose });
+    renderComponent({ onClose });
 
-    await userEvent.click(getByTitle(baseProps.closeButtonLabel));
+    await userEvent.click(screen.getByTitle(closeButtonLabel));
 
     expect(onClose).toHaveBeenCalled();
   });
 
   it('should call the onClose callback from the onClose render prop', async () => {
     const onClose = vi.fn();
-    const { getByTestId } = renderComponent({
+    renderComponent({
       children: ({ onClose: onCloseRenderProp }) => (
-        <button data-testid="close" onClick={onCloseRenderProp}>
+        <button data-testid="close" type="button" onClick={onCloseRenderProp}>
           Close
         </button>
       ),
       onClose,
     });
 
-    await userEvent.click(getByTestId('close'));
+    await userEvent.click(screen.getByTestId('close'));
 
     expect(onClose).toHaveBeenCalled();
   });
 
   it('should call the onClose callback when Esc is pressed', async () => {
     const onClose = vi.fn();
-    const { getByText } = renderComponent({ onClose });
+    renderComponent({ onClose });
 
-    const sidePanel = getByText('Close');
+    const sidePanel = screen.getByText('Close');
 
     await waitFor(() => expect(sidePanel).toBeVisible());
 
@@ -101,58 +106,54 @@ describe('SidePanel', () => {
 
   describe('when the panel is not stacked', () => {
     it('should not show the back button', () => {
-      const { queryByTitle } = renderComponent();
+      renderComponent();
 
-      expect(queryByTitle(baseProps.backButtonLabel as string)).toBeNull();
+      expect(
+        screen.queryByTitle(baseProps.backButtonLabel as string),
+      ).toBeNull();
     });
   });
 
   describe('when the panel is stacked', () => {
     it('should show the back button', () => {
       const onBack = vi.fn();
-      const { getByTitle } = renderComponent({
-        isStacked: true,
-        onBack,
-      });
+      renderComponent({ onBack });
 
-      expect(getByTitle(baseProps.backButtonLabel as string)).toBeVisible();
+      expect(
+        screen.getByTitle(baseProps.backButtonLabel as string),
+      ).toBeVisible();
     });
 
     it('should call the onBack callback from the back button', async () => {
       const onBack = vi.fn();
-      const { getByTitle } = renderComponent({
-        isStacked: true,
-        onBack,
-      });
+      renderComponent({ onBack });
 
-      await userEvent.click(getByTitle(baseProps.backButtonLabel as string));
+      await userEvent.click(
+        screen.getByTitle(baseProps.backButtonLabel as string),
+      );
 
       expect(onBack).toHaveBeenCalled();
     });
 
     it('should call the onBack callback from the onBack render prop', async () => {
       const onBack = vi.fn();
-      const { getByTestId } = renderComponent({
+      renderComponent({
         children: ({ onBack: onBackRenderProp }) => (
-          <button data-testid="back" onClick={onBackRenderProp}>
+          <button data-testid="back" type="button" onClick={onBackRenderProp}>
             Back
           </button>
         ),
-        isStacked: true,
         onBack,
       });
 
-      await userEvent.click(getByTestId('back'));
+      await userEvent.click(screen.getByTestId('back'));
 
       expect(onBack).toHaveBeenCalled();
     });
 
     it('should call the onBack callback when Esc is pressed', async () => {
       const onBack = vi.fn();
-      renderComponent({
-        isStacked: true,
-        onBack,
-      });
+      renderComponent({ onBack });
 
       await userEvent.keyboard('{Escape}');
 
@@ -161,16 +162,24 @@ describe('SidePanel', () => {
   });
 
   describe('when the panel is on desktop resolution', () => {
-    it('should describe the side panel as modal', () => {
-      const { getByRole } = renderComponent();
-      expect(getByRole('dialog')).toHaveAttribute('aria-modal', 'true');
+    it('should open the side panel as non-modal', () => {
+      const { rerender } = render(<SidePanel {...baseProps} open={false} />);
+      const dialog = screen.getByRole('dialog', { hidden: true });
+      vi.spyOn(dialog, 'show');
+      rerender(<SidePanel {...baseProps} open />);
+      expect(dialog.show).toHaveBeenCalledOnce();
     });
   });
 
   describe('when the panel is on mobile resolution', () => {
     it('should describe the side panel as modal', () => {
-      const { getByRole } = renderComponent({ isMobile: true });
-      expect(getByRole('dialog')).toHaveAttribute('aria-modal', 'true');
+      (useMedia as Mock).mockReturnValue(true);
+
+      const { rerender } = render(<SidePanel {...baseProps} open={false} />);
+      const dialog = screen.getByRole('dialog', { hidden: true });
+      vi.spyOn(dialog, 'showModal');
+      rerender(<SidePanel {...baseProps} open />);
+      expect(dialog.showModal).toHaveBeenCalledOnce();
     });
   });
 

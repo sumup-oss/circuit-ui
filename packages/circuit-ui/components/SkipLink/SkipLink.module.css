@@ -1,0 +1,24 @@
+.skip-link {
+  position: absolute;
+  top: var(--cui-spacings-byte);
+  left: var(--cui-spacings-byte);
+  z-index: calc(var(--cui-z-index-navigation) + 1);
+  width: 1px;
+  height: 1px;
+  padding: var(--cui-spacings-bit);
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: var(--cui-bg-accent);
+  clip: rect(0 0 0 0);
+  transform: translateX(-100vw);
+  transition: transform var(--cui-transitions-default);
+
+  &:focus,
+  &:hover {
+    width: auto;
+    height: auto;
+    clip: unset;
+    transform: translateX(0);
+  }
+}

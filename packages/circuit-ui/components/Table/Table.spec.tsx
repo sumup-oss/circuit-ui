@@ -16,10 +16,10 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { render, axe, userEvent, screen } from '../../util/test-utils.js';
-import Badge from '../Badge/index.js';
+import { Badge } from '../Badge/index.js';
 
-import Table from './Table.js';
-import { HeaderCell, Direction } from './types.js';
+import { Table } from './Table.js';
+import type { HeaderCell, Direction } from './types.js';
 
 const sortLabel = ({ direction }: { direction?: Direction }) => {
   const order = direction === 'ascending' ? 'descending' : 'ascending';
@@ -85,11 +85,9 @@ describe('Table', () => {
   it('should call the row click callback', async () => {
     const onRowClickMock = vi.fn();
     const index = 0;
-    const { getAllByRole } = render(
-      <Table onRowClick={onRowClickMock} headers={headers} rows={rows} />,
-    );
+    render(<Table onRowClick={onRowClickMock} headers={headers} rows={rows} />);
 
-    const rowElements = getAllByRole('row');
+    const rowElements = screen.getAllByRole('row');
 
     // rowElements[0] is the hidden first row
     await userEvent.click(rowElements[1]);
@@ -100,12 +98,10 @@ describe('Table', () => {
 
   describe('sorting', () => {
     it('should sort a column in ascending order', async () => {
-      const { getAllByRole } = render(
-        <Table rows={rows} headers={headers} rowHeaders={false} />,
-      );
+      render(<Table rows={rows} headers={headers} rowHeaders={false} />);
 
-      const letterHeaderEl = getAllByRole('columnheader')[0];
-      const cellEls = getAllByRole('cell');
+      const letterHeaderEl = screen.getAllByRole('columnheader')[0];
+      const cellEls = screen.getAllByRole('cell');
 
       await userEvent.click(letterHeaderEl);
 
@@ -117,18 +113,18 @@ describe('Table', () => {
       });
     });
 
-    it('should sort a column in ascending order when initial sort direction and initial sorted row is provided', () => {
-      const { getAllByRole } = render(
+    it('should sort a column in ascending order when initial sort direction and initial sorted column is provided', () => {
+      render(
         <Table
           rows={rows}
           headers={headers}
           rowHeaders={false}
-          initialSortedRow={1}
+          initialSortedColumn={1}
           initialSortDirection={'ascending'}
         />,
       );
 
-      const cellEls = getAllByRole('cell');
+      const cellEls = screen.getAllByRole('cell');
 
       const sortedRow = ['a', 'c', 'b'];
 
@@ -139,12 +135,10 @@ describe('Table', () => {
     });
 
     it('should sort a column in descending order', async () => {
-      const { getAllByRole } = render(
-        <Table rows={rows} headers={headers} rowHeaders={false} />,
-      );
+      render(<Table rows={rows} headers={headers} rowHeaders={false} />);
 
-      const letterHeaderEl = getAllByRole('columnheader')[0];
-      const cellEls = getAllByRole('cell');
+      const letterHeaderEl = screen.getAllByRole('columnheader')[0];
+      const cellEls = screen.getAllByRole('cell');
 
       await userEvent.click(letterHeaderEl);
       await userEvent.click(letterHeaderEl);
@@ -157,18 +151,18 @@ describe('Table', () => {
       });
     });
 
-    it('should sort a column in descending order when initial sort direction and initial sorted row is provided', () => {
-      const { getAllByRole } = render(
+    it('should sort a column in descending order when initial sort direction and initial sorted column is provided', () => {
+      render(
         <Table
           rows={rows}
           headers={headers}
           rowHeaders={false}
-          initialSortedRow={1}
+          initialSortedColumn={1}
           initialSortDirection={'descending'}
         />,
       );
 
-      const cellEls = getAllByRole('cell');
+      const cellEls = screen.getAllByRole('cell');
 
       const sortedRow = ['b', 'c', 'a'];
 
@@ -182,11 +176,9 @@ describe('Table', () => {
       const onSortByMock = vi.fn();
       const index = 0;
       const nextDirection = 'ascending';
-      const { getAllByRole } = render(
-        <Table onSortBy={onSortByMock} headers={headers} rows={rows} />,
-      );
+      render(<Table onSortBy={onSortByMock} headers={headers} rows={rows} />);
 
-      const headerElements = getAllByRole('columnheader');
+      const headerElements = screen.getAllByRole('columnheader');
 
       await userEvent.click(headerElements[0]);
 

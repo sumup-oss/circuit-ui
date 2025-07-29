@@ -13,32 +13,39 @@
  * limitations under the License.
  */
 
-import { forwardRef, useId } from 'react';
-import { resolveCurrencyFormat } from '@sumup/intl';
-import { NumericFormat, NumericFormatProps } from 'react-number-format';
+'use client';
 
+import { forwardRef, useId } from 'react';
+import { resolveCurrencyFormat } from '@sumup-oss/intl';
+
+import { NumericFormat } from '../../vendor/react-number-format/index.js';
+import type { OnValueChange } from '../../vendor/react-number-format/types.js';
 import { clsx } from '../../styles/clsx.js';
-import Input, { InputElement, InputProps } from '../Input/index.js';
+import { idx } from '../../util/idx.js';
+import type { Locale } from '../../util/i18n.js';
+import { useLocale } from '../../hooks/useLocale/useLocale.js';
+import { Input, type InputProps } from '../Input/index.js';
 
 import { formatPlaceholder } from './CurrencyInputService.js';
 import classes from './CurrencyInput.module.css';
 
 export interface CurrencyInputProps
   extends Omit<
-      InputProps,
-      'placeholder' | 'ref' | 'value' | 'defaultValue' | 'type'
-    >,
-    Pick<NumericFormatProps, 'onValueChange' | 'allowNegative'> {
+    InputProps,
+    'placeholder' | 'ref' | 'value' | 'defaultValue' | 'type'
+  > {
   /**
    * A ISO 4217 currency code, such as 'USD' for the US dollar,
    * 'EUR' for the Euro, or 'CNY' for the Chinese RMB.
    */
   currency: string;
   /**
-   * One or more Unicode BCP 47 locale identifiers, such as 'de-DE' or
-   * ['GB', 'en-US'] (the first supported locale is used).
+   * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
+   * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
+   * When passing an array, the first supported locale is used.
+   * Defaults to `navigator.language` in supported environments.
    */
-  locale?: string | string[];
+  locale?: Locale;
   /**
    * A short string that is shown inside the empty input.
    * If the placeholder is a number, it is formatted in the local
@@ -53,6 +60,8 @@ export interface CurrencyInputProps
    * The default value of the input element.
    */
   defaultValue?: string | number;
+  allowNegative?: boolean;
+  onValueChange?: OnValueChange;
 }
 
 const DEFAULT_FORMAT = {
@@ -71,10 +80,10 @@ const DUMMY_DELIMITER = '?';
  * the symbol according to the locale. The corresponding service exports a
  * parser for formatting values automatically.
  */
-export const CurrencyInput = forwardRef<InputElement, CurrencyInputProps>(
+export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
   (
     {
-      locale,
+      locale: customLocale,
       currency,
       placeholder,
       'aria-describedby': descriptionId,
@@ -82,8 +91,9 @@ export const CurrencyInput = forwardRef<InputElement, CurrencyInputProps>(
     },
     ref,
   ) => {
+    const locale = useLocale(customLocale);
     const currencySymbolId = useId();
-    const descriptionIds = clsx(currencySymbolId, descriptionId);
+    const descriptionIds = idx(currencySymbolId, descriptionId);
 
     const currencyFormat =
       resolveCurrencyFormat(locale, currency) || DEFAULT_FORMAT;
@@ -137,7 +147,9 @@ export const CurrencyInput = forwardRef<InputElement, CurrencyInputProps>(
         // react-number-format props
         thousandSeparator={groupDelimiter}
         decimalSeparator={
-          maximumFractionDigits > 0 ? decimalDelimiter : DUMMY_DELIMITER
+          maximumFractionDigits && maximumFractionDigits > 0
+            ? decimalDelimiter
+            : DUMMY_DELIMITER
         }
         decimalScale={maximumFractionDigits}
         customInput={Input}

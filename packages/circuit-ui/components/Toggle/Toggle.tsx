@@ -13,7 +13,9 @@
  * limitations under the License.
  */
 
-import { ButtonHTMLAttributes, forwardRef, useId } from 'react';
+'use client';
+
+import { forwardRef, useId, type ButtonHTMLAttributes } from 'react';
 
 import {
   AccessibilityError,
@@ -21,7 +23,8 @@ import {
 } from '../../util/errors.js';
 import { FieldDescription, FieldWrapper } from '../Field/index.js';
 import { clsx } from '../../styles/clsx.js';
-import utilityClasses from '../../styles/utility.js';
+import { utilClasses } from '../../styles/utility.js';
+import { deprecate } from '../../util/logger.js';
 
 import classes from './Toggle.module.css';
 
@@ -39,13 +42,13 @@ export interface ToggleProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    */
   checked?: boolean;
   /**
-   * Label for the 'on' state. Important for accessibility.
+   * @deprecated This prop is no longer needed.
    */
-  checkedLabel: string;
+  checkedLabel?: string;
   /**
-   * Label for the 'off' state. Important for accessibility.
+   * @deprecated This prop is no longer needed.
    */
-  uncheckedLabel: string;
+  uncheckedLabel?: string;
 }
 
 /**
@@ -67,31 +70,6 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
     },
     ref,
   ) => {
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test'
-    ) {
-      if (!isSufficientlyLabelled(label)) {
-        throw new AccessibilityError(
-          'Toggle',
-          'The `label` prop is missing or invalid.',
-        );
-      }
-
-      if (!isSufficientlyLabelled(checkedLabel)) {
-        throw new AccessibilityError(
-          'Toggle',
-          'The `checkedLabel` prop is missing or invalid.',
-        );
-      }
-      if (!isSufficientlyLabelled(uncheckedLabel)) {
-        throw new AccessibilityError(
-          'Toggle',
-          'The `checkedLabel` prop is missing or invalid.',
-        );
-      }
-    }
-
     const switchId = useId();
     const labelId = useId();
     const descriptionId = useId();
@@ -99,6 +77,35 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
     const descriptionIds = [describedBy, description && descriptionId]
       .filter(Boolean)
       .join(' ');
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !isSufficientlyLabelled(label)
+    ) {
+      throw new AccessibilityError(
+        'Toggle',
+        'The `label` prop is missing or invalid.',
+      );
+    }
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test'
+    ) {
+      if (checkedLabel) {
+        deprecate(
+          'Toggle',
+          'The `checkedLabel` prop is deprecated and can be removed.',
+        );
+      }
+      if (uncheckedLabel) {
+        deprecate(
+          'Toggle',
+          'The `uncheckedLabel` prop is deprecated and can be removed.',
+        );
+      }
+    }
 
     return (
       <FieldWrapper
@@ -114,14 +121,11 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
           aria-labelledby={labelId}
           aria-describedby={descriptionIds}
           id={switchId}
-          className={clsx(classes.track, utilityClasses.focusVisible)}
+          className={clsx(classes.track, utilClasses.focusVisible)}
           {...props}
           ref={ref}
         >
           <span className={classes.knob} />
-          <span className={utilityClasses.hideVisually}>
-            {checked ? checkedLabel : uncheckedLabel}
-          </span>
         </button>
         <label className={classes.label} id={labelId} htmlFor={switchId}>
           {label}
@@ -132,9 +136,9 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
           )}
         </label>
         {description && (
-          <p id={descriptionId} className={utilityClasses.hideVisually}>
+          <span id={descriptionId} className={utilClasses.hideVisually}>
             {description}
-          </p>
+          </span>
         )}
       </FieldWrapper>
     );

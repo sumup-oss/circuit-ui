@@ -15,11 +15,15 @@
 
 import { Stack } from '../../../../.storybook/components/index.js';
 
-import { PercentageInput, PercentageInputProps } from './PercentageInput.js';
+import {
+  PercentageInput,
+  type PercentageInputProps,
+} from './PercentageInput.js';
 
 export default {
-  title: 'Forms/Input/PercentageInput',
+  title: 'Forms/PercentageInput',
   component: PercentageInput,
+  tags: ['status:stable'],
 };
 
 const baseArgs = {

@@ -32,7 +32,7 @@ We appreciate pull requests (PRs) for smaller changes and bug fixes. For larger 
 
 ### Prerequisites
 
-- [Node.js v18](https://nodejs.org/)
+- [Node.js v20](https://nodejs.org/)
 
 ### Installation
 

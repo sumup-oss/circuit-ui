@@ -13,19 +13,20 @@
  * limitations under the License.
  */
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
-import Badge from '../Badge/index.js';
+import { Badge } from '../Badge/index.js';
 import { isString } from '../../util/type-check.js';
 
-import { TableProps } from './Table.js';
-import { Direction } from './types.js';
+import type { TableProps } from './Table.js';
+import type { Direction } from './types.js';
 
-import Table from './index.js';
+import { Table } from './index.js';
 
 export default {
   title: 'Components/Table',
   component: Table,
+  tags: ['status:stable'],
 };
 
 const sortLabel = ({ direction }: { direction?: Direction }) => {
@@ -33,9 +34,7 @@ const sortLabel = ({ direction }: { direction?: Direction }) => {
   return `Sort in ${order} order`;
 };
 
-export const Base = ({ onSortBy, ...args }: TableProps): JSX.Element => (
-  <Table {...args} />
-);
+export const Base = ({ onSortBy, ...args }: TableProps) => <Table {...args} />;
 
 const baseProps: TableProps = {
   headers: [
@@ -72,10 +71,9 @@ const baseProps: TableProps = {
 
 Base.args = baseProps;
 
-export const WithComponentRows = ({
-  onSortBy,
-  ...args
-}: TableProps): JSX.Element => <Table {...args} />;
+export const WithComponentRows = ({ onSortBy, ...args }: TableProps) => (
+  <Table {...args} />
+);
 
 WithComponentRows.args = {
   headers: ['Name', 'Type'],
@@ -86,7 +84,7 @@ WithComponentRows.args = {
   ],
 };
 
-export const Sortable = ({ onSortBy, ...args }: TableProps): JSX.Element => (
+export const Sortable = ({ onSortBy, ...args }: TableProps) => (
   <Table {...args} />
 );
 
@@ -120,7 +118,7 @@ Sortable.args = {
   ],
 };
 
-export const CustomSort = (args: TableProps): JSX.Element => {
+export const CustomSort = (args: TableProps) => {
   const onSortBy: TableProps['onSortBy'] = (_i, rows, direction) => {
     if (direction === 'ascending') {
       return rows.sort(

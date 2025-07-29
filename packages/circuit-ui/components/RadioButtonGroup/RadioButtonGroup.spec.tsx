@@ -23,8 +23,12 @@ import {
   screen,
   fireEvent,
 } from '../../util/test-utils.js';
+import { last } from '../../util/helpers.js';
 
-import { RadioButtonGroup, RadioButtonGroupProps } from './RadioButtonGroup.js';
+import {
+  RadioButtonGroup,
+  type RadioButtonGroupProps,
+} from './RadioButtonGroup.js';
 
 const defaultProps: RadioButtonGroupProps = {
   label: 'label',
@@ -85,6 +89,18 @@ describe('RadioButtonGroup', () => {
         'name',
         defaultProps.name,
       );
+    });
+
+    it('should have option descriptions', () => {
+      const options = defaultProps.options.map((option) => ({
+        ...option,
+        description: 'Some explanation',
+      }));
+      render(<RadioButtonGroup {...defaultProps} options={options} />);
+      const inputs = screen.getAllByRole('radio');
+      inputs.forEach((input) => {
+        expect(input).toHaveAccessibleDescription('Some explanation');
+      });
     });
 
     it('should have a label (accessible name)', () => {
@@ -184,6 +200,16 @@ describe('RadioButtonGroup', () => {
       expect(onChange).toHaveBeenCalledTimes(1);
     });
 
+    it('should call the focus handler when gaining focus', async () => {
+      const onFocus = vi.fn();
+      render(<RadioButtonGroup {...defaultProps} onFocus={onFocus} />);
+      const inputEl = screen.getByLabelText('Option 1');
+
+      await userEvent.click(inputEl);
+
+      expect(onFocus).toHaveBeenCalledTimes(1);
+    });
+
     it('should call the blur handler when loosing focus', async () => {
       const onBlur = vi.fn();
       render(<RadioButtonGroup {...defaultProps} onBlur={onBlur} />);
@@ -233,15 +259,13 @@ describe('RadioButtonGroup', () => {
         />,
       );
       const liveRegionEls = screen.getAllByRole('status');
-      const groupLiveRegionEl = liveRegionEls[liveRegionEls.length - 1];
+      const groupLiveRegionEl = last(liveRegionEls);
       expect(groupLiveRegionEl).toHaveTextContent(validationHint);
     });
 
     it('should mark the group as required', () => {
-      const { getByRole } = render(
-        <RadioButtonGroup {...defaultProps} required />,
-      );
-      expect(getByRole('radiogroup')).toBeRequired();
+      render(<RadioButtonGroup {...defaultProps} required />);
+      expect(screen.getByRole('radiogroup')).toBeRequired();
     });
   });
 
@@ -253,30 +277,30 @@ describe('RadioButtonGroup', () => {
     });
 
     it('should render an empty live region on mount', () => {
-      const { getByRole } = render(<RadioButtonGroup {...defaultProps} />);
-      const liveRegionEl = getByRole('status');
+      render(<RadioButtonGroup {...defaultProps} />);
+      const liveRegionEl = screen.getByRole('status');
       expect(liveRegionEl).toBeEmptyDOMElement();
     });
 
     it('should render status messages in a live region', () => {
       const statusMessage = 'This field is required';
-      const { getByRole } = render(
+      render(
         <RadioButtonGroup
           invalid
           validationHint={statusMessage}
           {...defaultProps}
         />,
       );
-      const liveRegionEl = getByRole('status');
+      const liveRegionEl = screen.getByRole('status');
       expect(liveRegionEl).toHaveTextContent(statusMessage);
     });
 
     it('should not render descriptions in a live region', () => {
       const statusMessage = 'This field is required';
-      const { getByRole } = render(
+      render(
         <RadioButtonGroup validationHint={statusMessage} {...defaultProps} />,
       );
-      const liveRegionEl = getByRole('status');
+      const liveRegionEl = screen.getByRole('status');
       expect(liveRegionEl).toBeEmptyDOMElement();
     });
   });

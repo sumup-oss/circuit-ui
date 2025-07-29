@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
+'use client';
+
 import {
-  ComponentType,
   Fragment,
-  InputHTMLAttributes,
-  createContext,
   forwardRef,
-  useContext,
   useId,
+  type ComponentType,
+  type InputHTMLAttributes,
 } from 'react';
 
 import {
@@ -29,7 +29,7 @@ import {
 } from '../../util/errors.js';
 import { FieldWrapper } from '../Field/index.js';
 import { clsx } from '../../styles/clsx.js';
-import utilityClasses from '../../styles/utility.js';
+import { utilClasses } from '../../styles/utility.js';
 import { deprecate } from '../../util/logger.js';
 
 import classes from './Selector.module.css';
@@ -96,16 +96,11 @@ export interface SelectorProps
   children?: never;
 }
 
-export const SelectorGroupContext = createContext(false);
-
 const legacySizeMap: Record<string, 's' | 'm'> = {
   kilo: 's',
   mega: 'm',
 };
 
-/**
- * @deprecated Use the {@link SelectorGroup} component instead.
- */
 export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
   (
     {
@@ -116,6 +111,7 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
       'id': customId,
       name,
       disabled,
+      required,
       invalid,
       multiple,
       onChange,
@@ -136,16 +132,7 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
       .join(' ');
     const type = multiple ? 'checkbox' : 'radio';
 
-    const isInsideGroup = useContext(SelectorGroupContext);
-
     if (process.env.NODE_ENV !== 'production') {
-      if (!isInsideGroup) {
-        deprecate(
-          'Selector',
-          'The Selector component has been deprecated. Use the SelectorGroup component instead.',
-        );
-      }
-
       if (legacySizeMap[legacySize]) {
         deprecate(
           'Selector',
@@ -178,6 +165,7 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
           name={name}
           value={value}
           disabled={disabled}
+          required={multiple ? undefined : required}
           // @ts-expect-error Change is handled by onClick for browser support, see https://stackoverflow.com/a/5575369
           onClick={onChange}
           // Noop to silence React warning: https://github.com/facebook/react/issues/3070#issuecomment-73311114
@@ -185,7 +173,7 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
           className={clsx(
             classes.base,
             invalid && classes.invalid,
-            utilityClasses.hideVisually,
+            utilClasses.hideVisually,
           )}
           ref={ref}
           {...props}
@@ -211,7 +199,7 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
           )}
         </label>
         {hasDescription && (
-          <p id={descriptionId} className={utilityClasses.hideVisually}>
+          <p id={descriptionId} className={utilClasses.hideVisually}>
             {description}
           </p>
         )}

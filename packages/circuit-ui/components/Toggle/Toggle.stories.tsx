@@ -15,17 +15,18 @@
 
 import { useState } from 'react';
 
-import { Toggle, ToggleProps } from './Toggle.js';
+import { Stack } from '../../../../.storybook/components/index.js';
+
+import { Toggle, type ToggleProps } from './Toggle.js';
 
 export default {
   title: 'Forms/Toggle',
   component: Toggle,
+  tags: ['status:stable'],
 };
 
 const baseArgs = {
   label: 'Short label',
-  checkedLabel: 'on',
-  uncheckedLabel: 'off',
   disabled: false,
 };
 
@@ -35,7 +36,12 @@ export const Base = (args: ToggleProps) => {
   const handleChange = () => {
     setChecked((prev) => !prev);
   };
-  return <Toggle {...args} checked={checked} onChange={handleChange} />;
+  return (
+    <Stack vertical>
+      <Toggle {...args} checked={checked} onChange={handleChange} />
+      <Toggle {...args} checked={!checked} onChange={handleChange} />
+    </Stack>
+  );
 };
 
 Base.args = baseArgs;
@@ -54,7 +60,12 @@ WithDescription.args = {
   description: 'Some more detailed text of what this means',
 };
 
-export const Disabled = (args: ToggleProps) => <Toggle {...args} />;
+export const Disabled = (args: ToggleProps) => (
+  <Stack vertical>
+    <Toggle {...args} />
+    <Toggle {...args} checked />
+  </Stack>
+);
 
 Disabled.args = {
   ...baseArgs,

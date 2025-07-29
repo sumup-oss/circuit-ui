@@ -13,28 +13,30 @@
  * limitations under the License.
  */
 
+'use client';
+
 import {
-  ReactNode,
   forwardRef,
-  ButtonHTMLAttributes,
-  AnchorHTMLAttributes,
-  HTMLAttributes,
+  type ReactNode,
+  type ButtonHTMLAttributes,
+  type AnchorHTMLAttributes,
+  type HTMLAttributes,
 } from 'react';
-import { ChevronRight, IconComponentType } from '@sumup/icons';
+import { ChevronRight, type IconComponentType } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
 import type { AsPropType } from '../../types/prop-types.js';
 import { isFunction, isString } from '../../util/type-check.js';
 import { CircuitError } from '../../util/errors.js';
 import { useComponents } from '../ComponentsContext/index.js';
-import Body from '../Body/index.js';
+import { Body } from '../Body/index.js';
 import { clsx } from '../../styles/clsx.js';
 
 import classes from './ListItem.module.css';
 
 type Variant = 'action' | 'navigation';
 
-export interface BaseProps {
+interface BaseProps {
   /**
    * Choose between 'action' and 'navigation' variant. Default: 'action'.
    * The `navigation` variant renders a chevron in the trailing section.
@@ -42,7 +44,7 @@ export interface BaseProps {
   variant?: Variant;
   /**
    * Display a leading component.
-   * Pass an icon from `@sumup/icons` or a custom component.
+   * Pass an icon from `@sumup-oss/icons` or a custom component.
    */
   leadingComponent?: IconComponentType | ReactNode;
   /**
@@ -170,7 +172,7 @@ export const ListItem = forwardRef<
         <div className={classes.content}>
           <div className={classes.main}>
             {isString(label) ? (
-              <Body size="one" className={classes.label}>
+              <Body size="m" className={classes.label}>
                 {label}
               </Body>
             ) : (
@@ -179,7 +181,7 @@ export const ListItem = forwardRef<
             {details && (
               <div className={classes.details}>
                 {isString(details) ? (
-                  <Body size="two" variant="subtle">
+                  <Body size="s" color="subtle">
                     {details}
                   </Body>
                 ) : (
@@ -197,7 +199,7 @@ export const ListItem = forwardRef<
             >
               <div className={classes.chevron}>
                 {isString(trailingLabel) ? (
-                  <Body size="one" variant="highlight">
+                  <Body size="m" weight="semibold">
                     {trailingLabel}
                   </Body>
                 ) : (
@@ -209,7 +211,7 @@ export const ListItem = forwardRef<
               {trailingDetails && (
                 <div className={classes.details}>
                   {isString(trailingDetails) ? (
-                    <Body size="two" variant="subtle">
+                    <Body size="s" color="subtle">
                       {trailingDetails}
                     </Body>
                   ) : (

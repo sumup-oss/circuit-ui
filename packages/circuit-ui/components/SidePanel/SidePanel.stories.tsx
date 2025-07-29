@@ -14,27 +14,31 @@
  */
 
 import { useState } from 'react';
-import { within, userEvent } from '@storybook/testing-library';
+import { within, userEvent } from 'storybook/test';
+import type { Decorator } from '@storybook/react-vite';
 
 import { modes } from '../../../../.storybook/modes.js';
-import Body from '../Body/index.js';
-import Button from '../Button/index.js';
-import ListItemGroup from '../ListItemGroup/index.js';
-import { ModalProvider } from '../ModalContext/index.js';
+import { Body } from '../Body/index.js';
+import { Button } from '../Button/index.js';
+import { ListItemGroup } from '../ListItemGroup/index.js';
 import { TopNavigation } from '../TopNavigation/index.js';
 import { baseArgs as topNavigationProps } from '../TopNavigation/TopNavigation.stories.js';
 import { SideNavigation } from '../SideNavigation/index.js';
 import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories.js';
+import { FullViewport } from '../../../../.storybook/components/index.js';
 
 import { SidePanelProvider } from './SidePanelContext.js';
 import {
   useSidePanel,
-  ChildrenRenderProps,
-  SidePanelHookProps,
+  type ChildrenRenderProps,
+  type SidePanelHookProps,
 } from './useSidePanel.js';
+import { SidePanel } from './SidePanel.js';
 
 export default {
   title: 'Navigation/SidePanel',
+  component: SidePanel,
+  tags: ['status:stable'],
   parameters: {
     layout: 'fullscreen',
     chromatic: {
@@ -46,8 +50,14 @@ export default {
   },
   argTypes: {
     backButtonLabel: { control: 'text' },
-    group: { control: 'text' },
   },
+  decorators: [
+    (Story) => (
+      <FullViewport>
+        <Story />
+      </FullViewport>
+    ),
+  ] as Decorator[],
 };
 
 const items = Array.from(Array(10).keys()).map((i) => ({
@@ -56,12 +66,11 @@ const items = Array.from(Array(10).keys()).map((i) => ({
 }));
 
 const baseArgs: SidePanelHookProps = {
-  backButtonLabel: undefined,
-  children: undefined,
-  closeButtonLabel: 'Close',
-  group: undefined,
   headline: 'Item details',
+  children: undefined,
   onClose: undefined,
+  closeButtonLabel: 'Close',
+  backButtonLabel: undefined,
 };
 
 const basePlay = async ({
@@ -196,7 +205,7 @@ const ComponentWithSidePanel = (props: SidePanelHookProps) => {
   );
 };
 
-export const Base = (props: SidePanelHookProps): JSX.Element => (
+export const Base = (props: SidePanelHookProps) => (
   <div style={{ display: 'flex' }}>
     <SidePanelProvider>
       <StoryInstructions />
@@ -207,7 +216,7 @@ export const Base = (props: SidePanelHookProps): JSX.Element => (
 Base.args = baseArgs;
 Base.play = basePlay;
 
-export const WithTopNavigation = (props: SidePanelHookProps): JSX.Element => {
+export const WithTopNavigation = (props: SidePanelHookProps) => {
   const [isSideNavigationOpen, setSideNavigationOpen] = useState(false);
   const hamburger = {
     activeLabel: 'Close side navigation',
@@ -216,7 +225,7 @@ export const WithTopNavigation = (props: SidePanelHookProps): JSX.Element => {
     onClick: () => setSideNavigationOpen((prev) => !prev),
   };
   return (
-    <ModalProvider>
+    <>
       <TopNavigation {...topNavigationProps} hamburger={hamburger} />
       <div style={{ display: 'flex' }}>
         <SideNavigation
@@ -231,7 +240,7 @@ export const WithTopNavigation = (props: SidePanelHookProps): JSX.Element => {
           </SidePanelProvider>
         </div>
       </div>
-    </ModalProvider>
+    </>
   );
 };
 WithTopNavigation.storyName = 'With TopNavigation';
@@ -299,7 +308,7 @@ const ComponentWithSidePanelExtended = (props: SidePanelHookProps) => {
   );
 };
 
-export const UpdateAndRemove = (props: SidePanelHookProps): JSX.Element => (
+export const UpdateAndRemove = (props: SidePanelHookProps) => (
   <div style={{ display: 'flex' }}>
     <SidePanelProvider>
       <StoryInstructions />

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {
+import type {
   Spacings,
   IconSizes,
   BorderRadius,
@@ -67,43 +67,43 @@ export const typography = {
     },
     two: {
       fontSize: '1.5rem',
-      lineHeight: '1.75rem',
+      lineHeight: '1.625rem',
     },
     three: {
-      fontSize: '1.25rem',
-      lineHeight: '1.5rem',
+      fontSize: '1.125rem',
+      lineHeight: '1.375rem',
     },
     four: {
       fontSize: '1.125rem',
-      lineHeight: '1.5rem',
+      lineHeight: '1.375rem',
     },
   },
   title: {
     one: {
-      fontSize: '7.5rem',
-      lineHeight: '7.5rem',
+      fontSize: '4rem',
+      lineHeight: '4.5rem',
     },
     two: {
-      fontSize: '6rem',
-      lineHeight: '6rem',
+      fontSize: '3rem',
+      lineHeight: '3.5rem',
     },
     three: {
-      fontSize: '4rem',
-      lineHeight: '4rem',
+      fontSize: '3rem',
+      lineHeight: '3.5rem',
     },
     four: {
-      fontSize: '3.5rem',
-      lineHeight: '3.5rem',
+      fontSize: '2.5rem',
+      lineHeight: '2.875rem',
     },
   },
   subHeadline: {
-    fontSize: '0.875rem',
-    lineHeight: '1.25rem',
+    fontSize: '1.125rem',
+    lineHeight: '1.375rem',
   },
   body: {
     one: {
       fontSize: '1rem',
-      lineHeight: '1.5rem',
+      lineHeight: '1.375rem',
     },
     two: {
       fontSize: '0.875rem',
@@ -112,19 +112,19 @@ export const typography = {
   },
   bodyLarge: {
     fontSize: '1.25rem',
-    lineHeight: '1.75rem',
+    lineHeight: '1.5rem',
   },
 };
 
 export const fontStack: FontStack = {
   default:
-    'aktiv-grotesk, Helvetica, Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    '"Inter", Helvetica, Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
   mono: 'Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace',
 };
 
 export const fontWeight: FontWeight = {
-  regular: '400',
-  bold: '700',
+  regular: '375',
+  bold: '630',
 };
 
 export const grid: Grid = {

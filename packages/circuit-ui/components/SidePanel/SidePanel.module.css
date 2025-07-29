@@ -1,4 +1,23 @@
 .base {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: unset;
+  z-index: var(--cui-z-index-side-panel);
+  box-shadow: none;
+  transform: translateX(100%);
+  transition: transform var(--dialog-animation-duration) ease-in-out;
+}
+
+.open {
+  transform: translateX(0);
+}
+
+.content {
+  width: 100%;
+}
+
+.wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,19 +30,47 @@
   -webkit-overflow-scrolling: touch;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 767px) {
   .base {
-    padding-left: 0;
+    top: 0;
+    min-width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    max-height: unset;
+    margin: auto;
+    border-radius: 0;
+  }
+
+  .content {
+    padding: 0 var(--cui-spacings-mega);
   }
 }
 
-.content {
-  width: 100%;
-  max-width: 480px;
-  padding: 0 var(--cui-spacings-mega);
-}
-
 @media (min-width: 768px) {
+  .base {
+    top: var(--top-navigation-height, 0);
+    width: var(--side-panel-width);
+    height: calc(100vh - var(--top-navigation-height, 0));
+    height: calc(100dvh - var(--top-navigation-height, 0));
+    margin: 0;
+    background-color: var(--cui-bg-normal);
+    box-shadow: inset var(--cui-border-width-kilo) 0 0 var(--cui-border-divider);
+  }
+
+  .base::after {
+    /* to account for inset box shadow */
+    margin-left: 1px;
+    background: linear-gradient(
+      color-mix(in sRGB, var(--cui-bg-normal) 0%, transparent),
+      color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
+      color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent)
+    );
+  }
+
+  .wrapper {
+    padding-left: 0;
+  }
+
   .content {
     padding: 0 var(--cui-spacings-giga);
   }

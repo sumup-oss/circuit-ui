@@ -14,35 +14,43 @@
  */
 
 import {
+  useState,
   type Dispatch,
   type SetStateAction,
-  useState,
-  ChangeEvent,
+  type ChangeEvent,
 } from 'react';
-import { Unstyled } from '@storybook/addon-docs';
-import * as iconComponents from '@sumup/icons';
-import type { IconsManifest } from '@sumup/icons';
-import iconsManifest from '@sumup/icons/manifest.json';
-import {
-  Headline,
-  Body,
-  SearchInput,
-  Select,
-  Badge,
-  SelectorGroup,
-  clsx,
-  utilClasses,
-} from '../../packages/circuit-ui/index.js';
+import { Unstyled } from '@storybook/addon-docs/blocks';
+import * as iconComponents from '@sumup-oss/icons';
+import type { IconComponentType } from '@sumup-oss/icons';
+import type { IconsManifest } from '@sumup-oss/icons';
+import iconsManifest from '@sumup-oss/icons/manifest.json';
+import { Badge } from '../../packages/circuit-ui/components/Badge/Badge.js';
+import { Body } from '../../packages/circuit-ui/components/Body/Body.js';
+import { Headline } from '../../packages/circuit-ui/components/Headline/Headline.js';
+import { SearchInput } from '../../packages/circuit-ui/components/SearchInput/SearchInput.js';
+import { Select } from '../../packages/circuit-ui/components/Select/Select.js';
+import { SelectorGroup } from '../../packages/circuit-ui/components/SelectorGroup/SelectorGroup.js';
+import { Tooltip } from '../../packages/circuit-ui/components/Tooltip/Tooltip.js';
+import { IconButton } from '../../packages/circuit-ui/components/Button/IconButton.js';
+import { ToastProvider } from '../../packages/circuit-ui/components/ToastContext/ToastContext.js';
+import { useNotificationToast } from '../../packages/circuit-ui/components/NotificationToast/NotificationToast.js';
+import { clsx } from '../../packages/circuit-ui/styles/clsx.js';
+import { utilClasses } from '../../packages/circuit-ui/styles/utility.js';
+import { slugify } from '../slugify.js';
 import classes from './Icons.module.css';
 
 function groupBy(
   icons: IconsManifest['icons'],
   key: 'name' | 'category' | 'size',
 ) {
-  return icons.reduce((groups, icon) => {
-    (groups[icon[key]] = groups[icon[key]] || []).push(icon);
-    return groups;
-  }, {});
+  return icons.reduce(
+    (groups, icon) => {
+      groups[icon[key]] = groups[icon[key]] || [];
+      groups[icon[key]].push(icon);
+      return groups;
+    },
+    {} as Record<string, IconsManifest['icons']>,
+  );
 }
 
 function sortBy(
@@ -64,7 +72,7 @@ function getComponentName(name: string) {
   return pascalCased.join('');
 }
 
-const Icons = () => {
+export function Icons() {
   const [search, setSearch] = useState('');
   const [size, setSize] = useState('all');
   const [color, setColor] = useState('var(--cui-fg-normal)');
@@ -72,7 +80,7 @@ const Icons = () => {
 
   const handleChange =
     (setState: Dispatch<SetStateAction<string>>) =>
-    (event: ChangeEvent<any>) => {
+    (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
       setState(event.target.value);
     };
 
@@ -98,9 +106,16 @@ const Icons = () => {
     { label: '2x', value: 'two-x' },
   ];
 
+  const lowerCaseSearch = search.toLowerCase();
   const activeIcons = iconsManifest.icons.filter((icon) => {
     const matchesKeyword = [icon.name, ...(icon.keywords || [])].some(
-      (keyword) => keyword.toLowerCase().includes(search.toLowerCase()),
+      (keyword) => {
+        const lowerCaseKeyword = keyword.toLowerCase();
+        return (
+          lowerCaseKeyword.includes(lowerCaseSearch) ||
+          lowerCaseKeyword.replace(/_/g, '').includes(lowerCaseSearch)
+        );
+      },
     );
     const matchesSize = size === 'all' || size === icon.size;
     return matchesKeyword && matchesSize;
@@ -108,93 +123,148 @@ const Icons = () => {
 
   return (
     <Unstyled>
-      <fieldset className={classes.filters}>
-        <legend className={utilClasses.hideVisually}>Icon filters</legend>
-        <SearchInput
-          label="Search by name or keyword"
-          placeholder="Search..."
-          value={search}
-          onChange={handleChange(setSearch)}
-          onClear={() => setSearch('')}
-          clearLabel="Clear"
-        />
-        <Select
-          label="Size"
-          options={sizeOptions}
-          value={size}
-          onChange={handleChange(setSize)}
-        />
-        <Select
-          label="Color"
-          options={colorOptions}
-          value={color}
-          onChange={handleChange(setColor)}
-        />
-        <SelectorGroup
-          label="Scale"
-          options={scaleOptions}
-          value={scale}
-          onChange={handleChange(setScale)}
-        />
-      </fieldset>
+      <ToastProvider>
+        <fieldset className={classes.filters}>
+          <legend className={utilClasses.hideVisually}>Icon filters</legend>
+          <SearchInput
+            label="Search by name or keyword"
+            placeholder="Search..."
+            value={search}
+            onChange={handleChange(setSearch)}
+            onClear={() => setSearch('')}
+            clearLabel="Clear"
+          />
+          <Select
+            label="Size"
+            options={sizeOptions}
+            value={size}
+            onChange={handleChange(setSize)}
+          />
+          <Select
+            label="Color"
+            options={colorOptions}
+            value={color}
+            onChange={handleChange(setColor)}
+          />
+          <SelectorGroup
+            label="Scale"
+            options={scaleOptions}
+            value={scale}
+            onChange={handleChange(setScale)}
+          />
+        </fieldset>
 
-      {activeIcons.length <= 0 ? (
-        <Body>No icons found</Body>
-      ) : (
-        Object.entries<IconsManifest['icons']>(
-          groupBy(activeIcons, 'category'),
-        ).map(([category, items]) => (
-          <section key={category} className={classes.category}>
-            <Headline as="h3" size="three">
-              {category}
-            </Headline>
-            <div className={classes.list}>
-              {sortBy(items, 'name').map((icon) => {
-                const id = `${icon.name}-${icon.size}`;
-                const componentName = getComponentName(icon.name);
-                const Icon = iconComponents[componentName];
-                return (
-                  <div key={id} className={classes.wrapper}>
-                    <div
-                      className={clsx(classes['icon-wrapper'], classes[scale])}
-                    >
-                      <Icon
-                        aria-labelledby={id}
-                        size={icon.size}
-                        className={classes.icon}
-                        style={{
-                          color,
-                          backgroundColor:
-                            color === 'var(--cui-fg-on-strong)'
-                              ? 'var(--cui-bg-strong)'
-                              : 'var(--cui-bg-normal)',
-                        }}
-                      />
-                    </div>
-                    <span id={id} className={classes.label}>
-                      {icon.name}
-                      {size === 'all' && (
-                        <span className={classes.size}>{icon.size}</span>
-                      )}
-                    </span>
-                    {icon.deprecation && (
-                      <Badge
-                        title={icon.deprecation}
-                        variant="warning"
-                        className={classes.badge}
-                      >
-                        Deprecated
-                      </Badge>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-        ))
-      )}
+        {activeIcons.length <= 0 ? (
+          <Body>No icons found</Body>
+        ) : (
+          Object.entries<IconsManifest['icons']>(
+            groupBy(activeIcons, 'category'),
+          ).map(([category, items]) => (
+            <section key={category} className={classes.category}>
+              <Headline as="h2" size="m" id={slugify(category)}>
+                {category}
+              </Headline>
+              <div className={classes.list}>
+                {sortBy(items, 'name').map((icon) => (
+                  <Icon
+                    key={`${icon.name}-${icon.size}`}
+                    icon={icon}
+                    scale={scale}
+                    color={color}
+                  />
+                ))}
+              </div>
+            </section>
+          ))
+        )}
+      </ToastProvider>
     </Unstyled>
   );
-};
+}
 
-export default Icons;
+function Icon({
+  icon,
+  scale,
+  color,
+}: {
+  icon: IconsManifest['icons'][number];
+  scale: string;
+  color: string;
+}) {
+  const { setToast } = useNotificationToast();
+
+  const id = `${icon.name}-${icon.size}`;
+  const componentName = getComponentName(
+    icon.name,
+  ) as keyof typeof iconComponents;
+  const Icon = iconComponents[componentName] as IconComponentType;
+
+  const copyIconURL = () => {
+    const iconURL = `https://circuit.sumup.com/icons/v2/${icon.name}_${icon.size}.svg`;
+    navigator.clipboard
+      .writeText(iconURL)
+      .then(() => {
+        setToast({
+          variant: 'success',
+          body: `Copied the ${componentName} (${icon.size}) icon URL to the clipboard.`,
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+        setToast({
+          variant: 'danger',
+          body: `Failed to copy the ${componentName} (${icon.size}) icon URL to the clipboard.`,
+        });
+      });
+  };
+
+  return (
+    <div className={classes.wrapper}>
+      <div className={clsx(classes['icon-wrapper'], classes[scale])}>
+        <Icon
+          aria-labelledby={id}
+          size={icon.size}
+          className={classes.icon}
+          style={{
+            color,
+            backgroundColor:
+              color === 'var(--cui-fg-on-strong)'
+                ? 'var(--cui-bg-strong)'
+                : 'var(--cui-bg-normal)',
+          }}
+        />
+      </div>
+      <span id={id} className={classes.label}>
+        {componentName}
+        <span className={classes.size}>{icon.size}</span>
+      </span>
+      {icon.deprecation && (
+        <Tooltip
+          type="description"
+          label={icon.deprecation}
+          component={(props) => (
+            <Badge
+              {...props}
+              tabIndex={0}
+              variant="warning"
+              className={classes.badge}
+            >
+              Deprecated
+            </Badge>
+          )}
+        />
+      )}
+      {navigator.clipboard && (
+        <IconButton
+          variant="tertiary"
+          size="s"
+          icon={iconComponents.Link}
+          className={classes.copy}
+          onClick={copyIconURL}
+        >
+          Copy URL
+        </IconButton>
+      )}
+    </div>
+  );
+}

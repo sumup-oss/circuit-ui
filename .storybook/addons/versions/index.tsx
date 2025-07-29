@@ -1,11 +1,12 @@
+// biome-ignore lint/correctness/noUnusedImports: React isn't injected globally in this file
 import React, { useState } from 'react';
 import {
-  Icons,
   IconButton,
   WithTooltip,
   TooltipLinkList,
-} from '@storybook/components';
-import { useParameter } from '@storybook/manager-api';
+} from 'storybook/internal/components';
+import { ChevronSmallDownIcon } from '@storybook/icons';
+import { useParameter } from 'storybook/manager-api';
 
 type Version = {
   name:
@@ -24,6 +25,10 @@ export function Versions() {
   const config = useParameter<VersionsParameter>(PARAM_KEY, DEFAULT_CONFIG);
 
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
+
+  if (!config.current) {
+    return null;
+  }
 
   return (
     <WithTooltip
@@ -49,7 +54,7 @@ export function Versions() {
         title="Switch to previous versions of the documentation"
         active={isTooltipVisible}
       >
-        {config.current} <Icons icon="arrowdown" />
+        {config.current} <ChevronSmallDownIcon aria-hidden="true" />
       </IconButton>
     </WithTooltip>
   );

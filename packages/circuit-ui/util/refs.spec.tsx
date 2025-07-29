@@ -14,6 +14,7 @@
  */
 
 import { describe, expect, test, vi } from 'vitest';
+import type React from 'react';
 import { useRef } from 'react';
 
 import { render, renderHook } from './test-utils.js';
@@ -23,9 +24,9 @@ describe('applyMultipleRefs function', () => {
   test("should populate a reference's `current` member'", () => {
     const {
       result: { current: refAsObject },
-    } = renderHook(() => useRef<HTMLDivElement>());
+    } = renderHook(() => useRef<HTMLDivElement>(null));
 
-    render(<div ref={applyMultipleRefs(refAsObject)} />);
+    render(<div ref={applyMultipleRefs<HTMLDivElement>(refAsObject)} />);
     expect(refAsObject.current).toMatchInlineSnapshot('<div />');
   });
 
@@ -34,7 +35,7 @@ describe('applyMultipleRefs function', () => {
 
     render(<div ref={applyMultipleRefs(refAsFunction)} />);
 
-    const lastCall = refAsFunction.mock.calls[0] as JSX.Element[];
+    const lastCall = refAsFunction.mock.calls[0] as React.JSX.Element[];
     expect(lastCall[0]).toMatchInlineSnapshot('<div />');
   });
 

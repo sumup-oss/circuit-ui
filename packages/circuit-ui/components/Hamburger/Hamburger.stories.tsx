@@ -15,11 +15,12 @@
 
 import { useState } from 'react';
 
-import { Hamburger, HamburgerProps } from './Hamburger.js';
+import { Hamburger, type HamburgerProps } from './Hamburger.js';
 
 export default {
   title: 'Navigation/Hamburger',
   component: Hamburger,
+  tags: ['status:stable'],
 };
 
 export const Base = (args: HamburgerProps) => {

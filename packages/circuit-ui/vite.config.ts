@@ -15,15 +15,11 @@
 
 import crypto from 'node:crypto';
 import path from 'node:path';
+import preserveDirectives from 'rollup-plugin-preserve-directives';
 
-import { UserConfig, defineConfig } from 'vite';
-import noBundlePlugin from 'vite-plugin-no-bundle';
+import { defineConfig, type UserConfig } from 'vitest/config';
 
-import {
-  dependencies,
-  peerDependencies,
-  optionalDependencies,
-} from './package.json';
+import { dependencies, peerDependencies } from './package.json';
 
 export const css: UserConfig['css'] = {
   modules: {
@@ -77,29 +73,33 @@ export default defineConfig({
     lib: {
       entry: [
         path.resolve(__dirname, 'index.ts'),
+        path.resolve(__dirname, 'internal.ts'),
+        path.resolve(__dirname, 'experimental.ts'),
         path.resolve(__dirname, 'legacy.ts'),
       ],
       formats: ['es'],
       fileName: (_, entryName: string) => `${entryName}.js`,
+      cssFileName: 'styles',
     },
     minify: false,
     rollupOptions: {
+      plugins: [
+        // @ts-expect-error rollup-plugin-preserve-directives is bundled in a non-standard way.
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+        (preserveDirectives.default || preserveDirectives)(),
+      ],
+      output: {
+        preserveModules: true,
+      },
       external: [
         ...Object.keys(dependencies),
         ...Object.keys(peerDependencies),
-        ...Object.keys(optionalDependencies),
         // Subfolder imports
         'react/jsx-runtime',
         '@emotion/react/jsx-runtime',
-        'react-dates/initialize.js',
       ],
     },
   },
-  plugins: [
-    // @ts-expect-error vite-plugin-no-bundle is bundled in a non-standard way.
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    (noBundlePlugin.default || noBundlePlugin)({ root: './' }),
-  ],
   test: {
     globals: true,
     environment: 'jsdom',

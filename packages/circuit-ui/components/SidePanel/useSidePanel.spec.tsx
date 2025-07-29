@@ -14,6 +14,7 @@
  */
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import type { PropsWithChildren } from 'react';
 
 import { renderHook } from '../../util/test-utils.js';
 
@@ -23,7 +24,7 @@ import { SidePanelContext } from './SidePanelContext.js';
 const defaultId = '1';
 const testId = 'test';
 
-vi.mock('../../util/id', () => ({
+vi.mock('../../util/id.js', () => ({
   uniqueId: () => defaultId,
 }));
 
@@ -36,7 +37,7 @@ describe('useSidePanel', () => {
   const updateSidePanel = vi.fn();
   const removeSidePanel = vi.fn().mockResolvedValue(undefined);
 
-  const wrapper = ({ children }) => (
+  const wrapper = ({ children }: PropsWithChildren) => (
     <SidePanelContext.Provider
       value={{
         setSidePanel,
@@ -66,8 +67,9 @@ describe('useSidePanel', () => {
 
     const expected = {
       ...panel,
-      group: ':r0:',
+      group: '«r0»',
       id: '1',
+      open: true,
     };
     expect(setSidePanel).toHaveBeenCalledWith(expected);
   });
@@ -82,6 +84,7 @@ describe('useSidePanel', () => {
       ...panel,
       group: testId,
       id: defaultId,
+      open: true,
     };
     expect(setSidePanel).toHaveBeenCalledWith(expected);
   });
@@ -95,7 +98,7 @@ describe('useSidePanel', () => {
 
     const expected = {
       children: <p data-testid="children">Updated content</p>,
-      group: ':r2:',
+      group: '«r2»',
     };
     expect(updateSidePanel).toHaveBeenCalledWith(expected);
   });
@@ -121,7 +124,7 @@ describe('useSidePanel', () => {
     result.current.setSidePanel(panel);
     result.current.removeSidePanel();
 
-    const expected = ':r4:';
+    const expected = '«r4»';
     expect(removeSidePanel).toHaveBeenCalledWith(expected);
   });
 
@@ -146,7 +149,7 @@ describe('useSidePanel', () => {
 
     unmount();
 
-    const expected = ':r6:';
+    const expected = '«r6»';
     expect(removeSidePanel).toHaveBeenCalledWith(expected);
   });
 });

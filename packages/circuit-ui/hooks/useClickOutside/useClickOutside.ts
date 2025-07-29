@@ -13,29 +13,36 @@
  * limitations under the License.
  */
 
-import { RefObject, useEffect, useRef } from 'react';
+import { useEffect, useRef, type RefObject } from 'react';
+
+import { isArray } from '../../util/type-check.js';
 
 export function useClickOutside(
-  ref: RefObject<HTMLElement>,
+  ref: RefObject<HTMLElement | null> | RefObject<HTMLElement | null>[],
   callback: (event: MouseEvent) => void,
   active = true,
 ): void {
   const isOutsideClick = useRef(false);
+
+  const refs = isArray(ref) ? ref : [ref];
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: The `refs` array is recreated on each render, but the ref objects inside don't necessarily change. Spreading the array allows React to compare the ref objects themselves.
   useEffect(() => {
     if (!active) {
       return undefined;
     }
 
     const handleOutsideMousedown = (event: MouseEvent) => {
-      isOutsideClick.current = ref.current
-        ? !ref.current.contains(event.target as Node)
-        : false;
+      isOutsideClick.current = !refs.some((r) =>
+        r.current ? r.current.contains(event.target as Node) : true,
+      );
     };
 
     const handleOutsideClick = (event: MouseEvent) => {
       if (isOutsideClick.current) {
         callback(event);
       }
+      isOutsideClick.current = false;
     };
 
     document.addEventListener('mousedown', handleOutsideMousedown);
@@ -44,5 +51,5 @@ export function useClickOutside(
       document.removeEventListener('mousedown', handleOutsideMousedown);
       document.removeEventListener('click', handleOutsideClick);
     };
-  }, [ref, callback, active]);
+  }, [...refs, callback, active]);
 }

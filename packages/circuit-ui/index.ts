@@ -15,82 +15,92 @@
 
 import './styles/base.css';
 
-export { default as utilClasses } from './styles/utility.js';
+export { utilClasses } from './styles/utility.js';
 export { clsx } from './styles/clsx.js';
+export { idx } from './util/idx.js';
 
 // Typography
-export { default as Headline } from './components/Headline/index.js';
+export { Headline } from './components/Headline/index.js';
 export type { HeadlineProps } from './components/Headline/index.js';
-export { default as Title } from './components/Title/index.js';
-export type { TitleProps } from './components/Title/index.js';
-export { default as SubHeadline } from './components/SubHeadline/index.js';
-export type { SubHeadlineProps } from './components/SubHeadline/index.js';
-export { default as Body } from './components/Body/index.js';
+export { Display } from './components/Display/index.js';
+export type { DisplayProps } from './components/Display/index.js';
+export { Body } from './components/Body/index.js';
 export type { BodyProps } from './components/Body/index.js';
-export { default as BodyLarge } from './components/BodyLarge/index.js';
+export { BodyLarge } from './components/BodyLarge/index.js';
 export type { BodyLargeProps } from './components/BodyLarge/index.js';
-export { default as Anchor } from './components/Anchor/index.js';
+export { Compact } from './components/Compact/index.js';
+export type { CompactProps } from './components/Compact/index.js';
+export { Numeral } from './components/Numeral/index.js';
+export type { NumeralProps } from './components/Numeral/index.js';
+export { Anchor } from './components/Anchor/index.js';
 export type { AnchorProps } from './components/Anchor/index.js';
-export { default as List } from './components/List/index.js';
+export { List } from './components/List/index.js';
 export type { ListProps } from './components/List/index.js';
 
 // Forms
-export { default as Checkbox } from './components/Checkbox/index.js';
+export { Checkbox } from './components/Checkbox/index.js';
 export type { CheckboxProps } from './components/Checkbox/index.js';
-export { default as CheckboxGroup } from './components/CheckboxGroup/index.js';
+export { CheckboxGroup } from './components/CheckboxGroup/index.js';
 export type { CheckboxGroupProps } from './components/CheckboxGroup/index.js';
-export { default as Input } from './components/Input/index.js';
+export { Input } from './components/Input/index.js';
 export type { InputProps, InputElement } from './components/Input/index.js';
-export type { RadioButtonProps } from './components/RadioButton/index.js';
-export { default as RadioButtonGroup } from './components/RadioButtonGroup/index.js';
+export { RadioButtonGroup } from './components/RadioButtonGroup/index.js';
 export type { RadioButtonGroupProps } from './components/RadioButtonGroup/index.js';
-export { default as SearchInput } from './components/SearchInput/index.js';
+export { SearchInput } from './components/SearchInput/index.js';
 export type { SearchInputProps } from './components/SearchInput/index.js';
-export { default as DateInput } from './components/DateInput/index.js';
+export { DateInput } from './components/DateInput/index.js';
 export type { DateInputProps } from './components/DateInput/index.js';
-export { default as Select } from './components/Select/index.js';
+export { Select } from './components/Select/index.js';
 export type { SelectProps, SelectOption } from './components/Select/index.js';
-export { default as TextArea } from './components/TextArea/index.js';
+export { TextArea } from './components/TextArea/index.js';
 export type { TextAreaProps } from './components/TextArea/index.js';
-export { default as CurrencyInput } from './components/CurrencyInput/index.js';
+export { CurrencyInput } from './components/CurrencyInput/index.js';
 export type { CurrencyInputProps } from './components/CurrencyInput/index.js';
-export { default as PercentageInput } from './components/PercentageInput/index.js';
+export { PercentageInput } from './components/PercentageInput/index.js';
 export type { PercentageInputProps } from './components/PercentageInput/index.js';
-export { default as ImageInput } from './components/ImageInput/index.js';
+export { ImageInput } from './components/ImageInput/index.js';
 export type { ImageInputProps } from './components/ImageInput/index.js';
+export { Calendar } from './components/Calendar/index.js';
+export type { CalendarProps } from './components/Calendar/index.js';
+export { updatePlainDateRange } from './util/date.js';
+export type { PlainDateRange } from './util/date.js';
+export { PhoneNumberInput } from './components/PhoneNumberInput/index.js';
+export type { PhoneNumberInputProps } from './components/PhoneNumberInput/index.js';
+export { ColorInput } from './components/ColorInput/index.js';
+export type { ColorInputProps } from './components/ColorInput/index.js';
 
 // Actions
-export { default as Button } from './components/Button/index.js';
+export { Button } from './components/Button/index.js';
 export type { ButtonProps } from './components/Button/index.js';
-export { default as ButtonGroup } from './components/ButtonGroup/index.js';
+export { ButtonGroup } from './components/ButtonGroup/index.js';
 export type { ButtonGroupProps } from './components/ButtonGroup/index.js';
-export { default as CloseButton } from './components/CloseButton/index.js';
+export { CloseButton } from './components/CloseButton/index.js';
 export type { CloseButtonProps } from './components/CloseButton/index.js';
 export { IconButton } from './components/Button/index.js';
 export type { IconButtonProps } from './components/Button/index.js';
-export { default as Toggle } from './components/Toggle/index.js';
+export { Toggle } from './components/Toggle/index.js';
 export type { ToggleProps } from './components/Toggle/index.js';
 export type { SelectorProps } from './components/Selector/index.js';
-export { default as SelectorGroup } from './components/SelectorGroup/index.js';
+export { SelectorGroup } from './components/SelectorGroup/index.js';
 export type { SelectorGroupProps } from './components/SelectorGroup/index.js';
 export type { ClickEvent } from './types/events.js';
 
 // Notifications
-export { default as NotificationBanner } from './components/NotificationBanner/index.js';
+export { NotificationBanner } from './components/NotificationBanner/index.js';
 export type { NotificationBannerProps } from './components/NotificationBanner/index.js';
-export { default as NotificationFullscreen } from './components/NotificationFullscreen/index.js';
+export { NotificationFullscreen } from './components/NotificationFullscreen/index.js';
 export type { NotificationFullscreenProps } from './components/NotificationFullscreen/index.js';
 export { useNotificationToast } from './components/NotificationToast/index.js';
 export type { NotificationToastProps } from './components/NotificationToast/index.js';
 export { ToastProvider } from './components/ToastContext/index.js';
 export type { ToastProviderProps } from './components/ToastContext/index.js';
-export { default as NotificationInline } from './components/NotificationInline/index.js';
+export { NotificationInline } from './components/NotificationInline/index.js';
 export type { NotificationInlineProps } from './components/NotificationInline/index.js';
 
 // Navigation
-export { default as Hamburger } from './components/Hamburger/index.js';
+export { Hamburger } from './components/Hamburger/index.js';
 export type { HamburgerProps } from './components/Hamburger/index.js';
-export { default as Pagination } from './components/Pagination/index.js';
+export { Pagination } from './components/Pagination/index.js';
 export type { PaginationProps } from './components/Pagination/index.js';
 export {
   TopNavigation,
@@ -111,14 +121,15 @@ export type {
   TabPanelProps,
   TabProps,
 } from './components/Tabs/index.js';
-
+export { SkipLink } from './components/SkipLink/index.js';
+export type { SkipLinkProps } from './components/SkipLink/index.js';
 // Miscellaneous
-export { default as Spinner } from './components/Spinner/index.js';
+export { Spinner } from './components/Spinner/index.js';
 export type { SpinnerProps } from './components/Spinner/index.js';
-export { default as Badge } from './components/Badge/index.js';
+export { Badge } from './components/Badge/index.js';
 export type { BadgeProps } from './components/Badge/index.js';
 export {
-  default as Card,
+  Card,
   CardHeader,
   CardFooter,
 } from './components/Card/index.js';
@@ -127,27 +138,35 @@ export type {
   CardHeaderProps,
   CardFooterProps,
 } from './components/Card/index.js';
-export { default as Hr } from './components/Hr/index.js';
-export { default as Image } from './components/Image/index.js';
+export { Hr } from './components/Hr/index.js';
+export type { HrProps } from './components/Hr/index.js';
+export { Image } from './components/Image/index.js';
 export type { ImageProps } from './components/Image/index.js';
-export { default as ProgressBar } from './components/ProgressBar/index.js';
+export { ProgressBar } from './components/ProgressBar/index.js';
 export type { ProgressBarProps } from './components/ProgressBar/index.js';
-export { default as Tag } from './components/Tag/index.js';
+export { Tag } from './components/Tag/index.js';
 export type { TagProps } from './components/Tag/index.js';
-export { default as Popover } from './components/Popover/index.js';
+export { ActionMenu } from './components/ActionMenu/index.js';
+export type {
+  ActionMenuProps,
+  ActionMenuItemProps,
+} from './components/ActionMenu/index.js';
+export { Popover } from './components/Popover/Popover.js';
 export type {
   PopoverProps,
-  PopoverItemProps,
-} from './components/Popover/index.js';
-export { ModalProvider } from './components/ModalContext/index.js';
-export type { ModalProviderProps } from './components/ModalContext/index.js';
+  PopoverReferenceProps,
+} from './components/Popover/Popover.js';
+export { ModalProvider } from './components/Modal/ModalContext.js';
+export type { ModalProviderProps } from './components/Modal/ModalContext.js';
 export { useModal } from './components/Modal/index.js';
 export type { ModalProps } from './components/Modal/index.js';
+export { Modal } from './components/Modal/index.js';
 export { useNotificationModal } from './components/NotificationModal/index.js';
 export type { NotificationModalProps } from './components/NotificationModal/index.js';
-export { default as ListItem } from './components/ListItem/index.js';
+export { NotificationModal } from './components/NotificationModal/index.js';
+export { ListItem } from './components/ListItem/index.js';
 export type { ListItemProps } from './components/ListItem/index.js';
-export { default as ListItemGroup } from './components/ListItemGroup/index.js';
+export { ListItemGroup } from './components/ListItemGroup/index.js';
 export type { ListItemGroupProps } from './components/ListItemGroup/index.js';
 export {
   SidePanelProvider,
@@ -159,7 +178,7 @@ export type {
   SidePanelHookProps,
 } from './components/SidePanel/index.js';
 
-export { default as Table } from './components/Table/index.js';
+export { Table } from './components/Table/index.js';
 export type {
   TableProps,
   TableSortDirection,
@@ -170,16 +189,18 @@ export type {
   TableRow,
 } from './components/Table/index.js';
 
-export { default as Step, useStep } from './components/Step/index.js';
+export { Step, useStep } from './components/Step/index.js';
 export type { StepProps, StepOptions } from './components/Step/index.js';
-export { default as AspectRatio } from './components/AspectRatio/index.js';
+export { AspectRatio } from './components/AspectRatio/index.js';
 export type { AspectRatioProps } from './components/AspectRatio/index.js';
 export {
-  default as Carousel,
+  Carousel,
   CarouselComposer,
 } from './components/Carousel/index.js';
 export type { CarouselProps } from './components/Carousel/index.js';
-export { default as Avatar } from './components/Avatar/index.js';
+export { CarouselPagination } from './components/CarouselPagination/index.js';
+export type { CarouselPaginationProps } from './components/CarouselPagination/index.js';
+export { Avatar } from './components/Avatar/index.js';
 export type { AvatarProps } from './components/Avatar/index.js';
 
 export {
@@ -187,9 +208,35 @@ export {
   useComponents,
 } from './components/ComponentsContext/index.js';
 export type { ComponentsContextType } from './components/ComponentsContext/index.js';
+export {
+  Tooltip,
+  type TooltipProps,
+  type TooltipReferenceProps,
+} from './components/Tooltip/index.js';
+export {
+  Toggletip,
+  type ToggletipProps,
+} from './components/Toggletip/index.js';
+export {
+  Timestamp,
+  type TimestampProps,
+} from './components/Timestamp/index.js';
+export {
+  ComparisonTable,
+  type ComparisonTableProps,
+} from './components/ComparisonTable/ComparisonTable.js';
+
+// Brand
+export {
+  TierIndicator,
+  type TierIndicatorProps,
+} from './components/TierIndicator/TierIndicator.js';
 
 // Hooks
 export { useClickOutside } from './hooks/useClickOutside/index.js';
 export { useEscapeKey } from './hooks/useEscapeKey/index.js';
 export { useFocusList } from './hooks/useFocusList/index.js';
 export { useCollapsible } from './hooks/useCollapsible/index.js';
+export { useSwipe } from './hooks/useSwipe/index.js';
+export { useMedia } from './hooks/useMedia/index.js';
+export { useScrollLock } from './hooks/useScrollLock/useScrollLock.js';

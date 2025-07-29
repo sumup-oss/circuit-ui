@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+'use client';
+
 import {
   createContext,
   useCallback,
@@ -21,73 +23,34 @@ import {
   type ReactNode,
   type HTMLAttributes,
 } from 'react';
-import ReactModal, { type Props as ReactModalProps } from 'react-modal';
 
-import { useMedia } from '../../hooks/useMedia/index.js';
-import { useStack, StackItem } from '../../hooks/useStack/index.js';
-import { Require } from '../../types/util.js';
-import { warn } from '../../util/logger.js';
+import { useStack, type StackItem } from '../../hooks/useStack/index.js';
+import { promisify } from '../../util/promises.js';
 import { clsx } from '../../styles/clsx.js';
 import { useLatest } from '../../hooks/useLatest/useLatest.js';
 
 import { SidePanel, type SidePanelProps } from './SidePanel.js';
 import { TRANSITION_DURATION } from './constants.js';
-import type { SidePanelHookProps } from './useSidePanel.js';
 import classes from './SidePanelContext.module.css';
-import './SidePanelContext.css';
+import type { SidePanelHookProps } from './useSidePanel.js';
 
-// It is important for users of screen readers that other page content be hidden
-// (via the `aria-hidden` attribute) while the side panel is open on mobile.
-// To allow react-modal to do this, Circuit UI calls `ReactModal.setAppElement`
-// with a query selector identifying the root of the app.
-// http://reactcommunity.org/react-modal/accessibility/#app-element
-if (typeof window !== 'undefined') {
-  // These are the default app elements in Next.js, Docusaurus, CRA and Storybook.
-  const appElement =
-    document.getElementById('__next') ||
-    document.getElementById('__docusaurus') ||
-    document.getElementById('root') ||
-    document.getElementById('storybook-root');
-
-  if (appElement) {
-    ReactModal.setAppElement(appElement);
-  } else if (
-    process.env.NODE_ENV !== 'production' &&
-    process.env.NODE_ENV !== 'test'
-  ) {
-    warn(
-      'SidePanelProvider',
-      'Could not find the app root element to hide it when a side panel is open.',
-      'Add an element with the id `#root` at the root of your application.',
-    );
-  }
-}
-
-export type SidePanelContextProps = Require<SidePanelHookProps, 'group'>;
-
-export type SetSidePanel = (
-  sidePanel: SidePanelContextProps & Pick<StackItem, 'id'>,
-) => void;
+export type SetSidePanel = (sidePanel: SidePanelContextItem) => void;
 
 export type UpdateSidePanel = (
-  sidePanel: Partial<SidePanelContextProps> &
-    Pick<Required<SidePanelContextProps>, 'group'>,
+  sidePanel: Partial<SidePanelHookProps> &
+    Pick<Required<SidePanelHookProps>, 'group'>,
 ) => void;
 
 export type RemoveSidePanel = (
-  group: SidePanelContextProps['group'],
+  group: SidePanelHookProps['group'],
   isInstantClose?: boolean,
-) => Promise<void | void[]>;
+) => Promise<void>;
 
-type SidePanelContextItem = SidePanelContextProps &
-  Pick<SidePanelProps, 'isInstantOpen'> &
-  Pick<
-    ReactModalProps,
-    'closeTimeoutMS' | 'onAfterClose' | 'shouldReturnFocusAfterClose'
-  > &
-  StackItem;
+export type SidePanelContextItem = SidePanelHookProps &
+  Pick<SidePanelProps, 'onCloseEnd' | 'open'> &
+  StackItem & { isInstantOpen?: boolean; isInstantClose?: boolean };
 
-export type SidePanelContextValue = {
+type SidePanelContextValue = {
   setSidePanel: SetSidePanel;
   updateSidePanel: UpdateSidePanel;
   removeSidePanel: RemoveSidePanel;
@@ -115,14 +78,13 @@ export function SidePanelProvider({
   children,
   ...props
 }: SidePanelProviderProps) {
-  const isMobile = useMedia('(max-width: 767px)');
   const [sidePanels, dispatch] = useStack<SidePanelContextItem>();
   const [isPrimaryContentResized, setIsPrimaryContentResized] = useState(false);
 
   const sidePanelsRef = useLatest(sidePanels);
 
   const findSidePanel = useCallback(
-    (group: SidePanelContextProps['group']) =>
+    (group: SidePanelHookProps['group']) =>
       sidePanelsRef.current.find(
         (panel) => panel.group === group && !panel.transition,
       ),
@@ -130,54 +92,63 @@ export function SidePanelProvider({
   );
 
   const removeSidePanel = useCallback<RemoveSidePanel>(
-    (group, isInstantClose) => {
+    async (group, isInstantClose) => {
       const panel = findSidePanel(group);
 
       if (!panel) {
-        return Promise.resolve();
+        return;
       }
 
       const sidePanelIndex = sidePanelsRef.current.indexOf(panel);
 
-      if (!isInstantClose) {
-        setIsPrimaryContentResized(sidePanelIndex !== 0);
-      }
-
       // Remove the side panel and all panels above it in reverse order
-      return Promise.all(
-        sidePanelsRef.current
-          .slice(sidePanelIndex)
-          .reverse()
-          .map(
-            (sidePanel) =>
-              new Promise<void>((res) => {
-                if (sidePanel.onClose) {
-                  sidePanel.onClose();
-                }
+      const sidePanelsToRemove = sidePanelsRef.current
+        .slice(sidePanelIndex)
+        .reverse();
 
-                let updatedPanel = { ...sidePanel, onAfterClose: res };
-                if (isInstantClose) {
-                  updatedPanel = {
-                    ...updatedPanel,
-                    shouldReturnFocusAfterClose: false,
-                    closeTimeoutMS: 0,
-                  };
-                }
+      // The side panels must be closed in series in case an onClose callback
+      // rejects to prevent the remaining side panels from closing.
+      /* eslint-disable no-await-in-loop */
+      for (let index = 0; index < sidePanelsToRemove.length; index += 1) {
+        try {
+          const sidePanel = sidePanelsToRemove[index];
 
-                dispatch({
-                  type: 'update',
-                  item: updatedPanel,
-                });
-                dispatch({
-                  type: 'remove',
-                  id: sidePanel.id,
-                  transition: {
-                    duration: isInstantClose ? 0 : TRANSITION_DURATION,
-                  },
-                });
-              }),
-          ),
-      );
+          if (sidePanel.onClose) {
+            await promisify(sidePanel.onClose);
+          }
+
+          if (!isInstantClose) {
+            setIsPrimaryContentResized(sidePanelIndex !== 0);
+          }
+
+          await new Promise<void>((resolve) => {
+            const lastPanel = index === sidePanelsToRemove.length - 1;
+
+            // Panels shouldn't wait for the animation of the previous panel to finish.
+            // However, `removeSidePanel` should only resolve once the last panel has animated out.
+            if (lastPanel) {
+              sidePanel.onCloseEnd = resolve;
+            } else {
+              resolve();
+            }
+
+            dispatch({
+              type: 'update',
+              item: { ...sidePanel, open: false, isInstantClose },
+            });
+            dispatch({
+              type: 'remove',
+              id: sidePanel.id,
+              transition: {
+                duration: isInstantClose ? 0 : TRANSITION_DURATION,
+              },
+            });
+          });
+        } catch (_error) {
+          break;
+        }
+      }
+      /* eslint-enable no-await-in-loop */
     },
     [findSidePanel, dispatch, sidePanelsRef],
   );
@@ -190,7 +161,7 @@ export function SidePanelProvider({
         setIsPrimaryContentResized(true);
         dispatch({
           type: 'push',
-          item: { ...sidePanel, isInstantOpen },
+          item: { ...sidePanel, isInstantOpen, open: true },
         });
       };
 
@@ -224,16 +195,10 @@ export function SidePanelProvider({
       setSidePanel,
       updateSidePanel,
       removeSidePanel,
-      isPrimaryContentResized: !isMobile && isPrimaryContentResized,
+      isPrimaryContentResized,
       transitionDuration: TRANSITION_DURATION,
     }),
-    [
-      setSidePanel,
-      updateSidePanel,
-      removeSidePanel,
-      isMobile,
-      isPrimaryContentResized,
-    ],
+    [setSidePanel, updateSidePanel, removeSidePanel, isPrimaryContentResized],
   );
 
   return (
@@ -242,36 +207,48 @@ export function SidePanelProvider({
         {...props}
         className={clsx(
           classes.base,
-          !isMobile && isPrimaryContentResized && classes.resized,
+          isPrimaryContentResized && classes.resized,
           props.className,
         )}
       >
         {children}
+        {sidePanels.map((sidePanel) => {
+          const {
+            open,
+            group,
+            id,
+            transition,
+            isInstantOpen,
+            isInstantClose,
+            ...sidePanelProps
+          } = sidePanel;
+
+          const isStacked = group !== sidePanels[0].group;
+          const isTopPanel = group === sidePanels[sidePanels?.length - 1].group;
+          const handleClose = () => {
+            void removeSidePanel(sidePanels[0].group);
+          };
+          const handleBack = isStacked
+            ? () => removeSidePanel(group)
+            : undefined;
+
+          return (
+            <SidePanel
+              {...sidePanelProps}
+              key={id}
+              open={open}
+              animationDuration={
+                (open && isInstantOpen) || (!open && isInstantClose)
+                  ? 0
+                  : TRANSITION_DURATION
+              }
+              onBack={handleBack}
+              onClose={handleClose}
+              preventEscapeKeyClose={!isTopPanel}
+            />
+          );
+        })}
       </div>
-
-      {sidePanels.map((sidePanel) => {
-        const { group, id, transition, ...sidePanelProps } = sidePanel;
-
-        const isBottomPanelClosing = !!sidePanels[0].transition;
-        const isStacked = group !== sidePanels[0].group;
-        const handleClose = () => {
-          void removeSidePanel(sidePanels[0].group);
-        };
-        const handleBack = isStacked ? () => removeSidePanel(group) : undefined;
-
-        return (
-          <SidePanel
-            {...sidePanelProps}
-            key={id}
-            isBottomPanelClosing={isBottomPanelClosing}
-            isMobile={isMobile}
-            isOpen={!transition}
-            isStacked={isStacked}
-            onBack={handleBack}
-            onClose={handleClose}
-          />
-        );
-      })}
     </SidePanelContext.Provider>
   );
 }

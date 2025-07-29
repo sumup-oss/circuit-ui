@@ -13,13 +13,14 @@
  * limitations under the License.
  */
 
-import { ChangeEvent, useState } from 'react';
+import { useState, type ChangeEvent } from 'react';
 
-import { Checkbox, CheckboxProps } from './Checkbox.js';
+import { Checkbox, type CheckboxProps } from './Checkbox.js';
 
 export default {
   title: 'Forms/Checkbox',
   component: Checkbox,
+  tags: ['status:stable'],
   argTypes: {
     disabled: { control: 'boolean' },
   },
@@ -102,13 +103,14 @@ export const Indeterminate = (args: {
   const allChecked = options.every((option) => values.includes(option.value));
 
   return (
-    <fieldset name={name}>
+    <fieldset name={name} style={{ border: 'none', margin: 0, padding: 0 }}>
       <legend
         style={{
           display: 'block',
           marginBottom: 'var(--cui-spacings-bit)',
-          fontSize: 'var(--cui-typography-body-two-font-size)',
-          lineHeight: 'var(--cui-typography-body-two-line-height)',
+          fontSize: 'var(--cui-body-s-font-size)',
+          lineHeight: 'var(--cui-body-s-line-height)',
+          padding: 0,
         }}
       >
         {label}
@@ -120,7 +122,9 @@ export const Indeterminate = (args: {
         indeterminate={someChecked && !allChecked}
         checked={allChecked}
       />
-      <ul style={{ listStyle: 'none', marginLeft: '26px' }}>
+      <ul
+        style={{ listStyle: 'none', margin: 0, padding: 0, marginLeft: '26px' }}
+      >
         {options.map((option) => (
           <li key={option.label}>
             <Checkbox

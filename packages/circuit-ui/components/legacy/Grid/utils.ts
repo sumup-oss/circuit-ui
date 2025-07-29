@@ -16,19 +16,19 @@
 
 /** @jsxImportSource @emotion/react */
 
-import type { Theme } from '@sumup/design-tokens';
+import type { Theme } from '@sumup-oss/design-tokens';
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 
 import { isString } from '../../../util/type-check.js';
 
-import { GridKey, BreakpointOptions, GridValue } from './types.js';
+import type { GridKey, BreakpointOptions, GridValue } from './types.js';
 
 export function normalizeToNumber(value: string | number): number {
-  return isString(value) ? parseInt(value, 10) : value;
+  return isString(value) ? Number.parseInt(value, 10) : value;
 }
 
-export type CreateStylesFn<Option, ReturnValue> = (
+type CreateStylesFn<Option, ReturnValue> = (
   theme: Theme,
   grid: GridValue,
   option: Option,

@@ -13,28 +13,42 @@
  * limitations under the License.
  */
 
-/* eslint-disable jsx-a11y/no-redundant-roles */
+'use client';
 
 import { forwardRef } from 'react';
 
 import type { AsPropType } from '../../../../types/prop-types.js';
 import {
   useFocusList,
-  FocusProps,
+  type FocusProps,
 } from '../../../../hooks/useFocusList/index.js';
-import SubHeadline from '../../../SubHeadline/index.js';
-import Body from '../../../Body/index.js';
-import Badge from '../../../Badge/index.js';
+import { Body } from '../../../Body/index.js';
+import { Badge } from '../../../Badge/index.js';
 import { useComponents } from '../../../ComponentsContext/index.js';
 import { Skeleton } from '../../../Skeleton/index.js';
-import { SecondaryGroupProps, SecondaryLinkProps } from '../../types.js';
+import type { SecondaryGroupProps, SecondaryLinkProps } from '../../types.js';
 import { clsx } from '../../../../styles/clsx.js';
-import utilityClasses from '../../../../styles/utility.js';
-import sharedClasses from '../../../../styles/shared.js';
+import { utilClasses } from '../../../../styles/utility.js';
+import { sharedClasses } from '../../../../styles/shared.js';
+import { TierIndicator } from '../../../TierIndicator/TierIndicator.js';
+import { CircuitError } from '../../../../util/errors.js';
 
 import classes from './SecondaryLinks.module.css';
 
-function SecondaryLink({ label, badge, ...props }: SecondaryLinkProps) {
+function SecondaryLink({
+  label,
+  badge,
+  tier,
+  isActive,
+  ...props
+}: SecondaryLinkProps) {
+  if (process.env.NODE_ENV !== 'production' && tier && badge) {
+    throw new CircuitError(
+      'SideNavigation',
+      'The `badge` and `tier` props cannot be used simultaneously.',
+    );
+  }
+
   const { Link } = useComponents();
 
   const Element = props.href ? (Link as AsPropType) : 'button';
@@ -46,20 +60,17 @@ function SecondaryLink({ label, badge, ...props }: SecondaryLinkProps) {
         className={clsx(
           classes.anchor,
           sharedClasses.navigationItem,
-          utilityClasses.focusVisibleInset,
+          utilClasses.focusVisibleInset,
         )}
-        aria-current={props.isActive ? 'page' : undefined}
+        aria-current={isActive ? 'page' : undefined}
       >
         <Skeleton className={classes.label}>
-          <Body
-            as="span"
-            size="one"
-            variant={props.isActive ? 'highlight' : undefined}
-          >
+          <Body as="span" size="m" weight={isActive ? 'bold' : undefined}>
             {label}
           </Body>
         </Skeleton>
         {badge && <Badge variant="promo" as="span" {...badge} />}
+        {tier && <TierIndicator {...tier} size="s" />}
       </Element>
     </li>
   );
@@ -69,15 +80,23 @@ function SecondaryGroup({
   label,
   secondaryLinks,
   focusProps,
-}: SecondaryGroupProps & { focusProps: FocusProps }): JSX.Element {
+}: SecondaryGroupProps & { focusProps: FocusProps }) {
   return (
     <li>
       {label && (
         <Skeleton className={classes['group-headline']} as="div">
-          <SubHeadline as="h3">{label}</SubHeadline>
+          <Body
+            color="subtle"
+            className={classes.headline}
+            weight="semibold"
+            as="h3"
+            size="s"
+          >
+            {label}
+          </Body>
         </Skeleton>
       )}
-      <ul role="list" className={classes.list}>
+      <ul className={classes.list}>
         {secondaryLinks.map((link) => (
           <SecondaryLink key={link.label} {...link} {...focusProps} />
         ))}
@@ -86,7 +105,7 @@ function SecondaryGroup({
   );
 }
 
-export interface SecondaryLinksProps {
+interface SecondaryLinksProps {
   secondaryGroups: SecondaryGroupProps[];
   className?: string;
 }
@@ -95,14 +114,13 @@ export const SecondaryLinks = forwardRef<HTMLUListElement, SecondaryLinksProps>(
   ({ secondaryGroups, className, ...props }, ref) => {
     const focusProps = useFocusList();
     return (
-      <ul
-        role="list"
-        ref={ref}
-        className={clsx(classes.list, className)}
-        {...props}
-      >
-        {secondaryGroups.map((group, index) => (
-          <SecondaryGroup key={index} {...group} focusProps={focusProps} />
+      <ul ref={ref} className={clsx(classes.list, className)} {...props}>
+        {secondaryGroups.map((group) => (
+          <SecondaryGroup
+            key={group.label}
+            {...group}
+            focusProps={focusProps}
+          />
         ))}
       </ul>
     );

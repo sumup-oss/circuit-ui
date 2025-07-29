@@ -14,22 +14,24 @@
  */
 
 import {
-  Mock,
   afterAll,
   afterEach,
+  beforeAll,
   beforeEach,
   describe,
   expect,
   it,
   vi,
+  type Mock,
 } from 'vitest';
-import { ComponentType, useContext } from 'react';
+import { useContext, type ComponentType } from 'react';
 
 import {
   render,
   act,
   userEvent as baseUserEvent,
   waitFor,
+  screen,
 } from '../../util/test-utils.js';
 import { uniqueId } from '../../util/id.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
@@ -37,13 +39,14 @@ import { useMedia } from '../../hooks/useMedia/index.js';
 import {
   SidePanelProvider,
   SidePanelContext,
-  SetSidePanel,
-  RemoveSidePanel,
-  UpdateSidePanel,
-  SidePanelContextProps,
+  type SetSidePanel,
+  type RemoveSidePanel,
+  type UpdateSidePanel,
+  type SidePanelContextItem,
 } from './SidePanelContext.js';
+import type { SidePanelHookProps } from './useSidePanel.js';
 
-vi.mock('../../hooks/useMedia');
+vi.mock('../../hooks/useMedia/index.js');
 
 describe('SidePanelContext', () => {
   beforeAll(() => {
@@ -90,11 +93,6 @@ describe('SidePanelContext', () => {
       headline: 'Side panel title',
       id: uniqueId(),
       onClose: undefined,
-      // Silences the warning about the missing app element.
-      // In user land, the side panel is always rendered by the SidePanelProvider,
-      // which takes care of setting the app element.
-      // http://reactcommunity.org/react-modal/accessibility/#app-element
-      ariaHideApp: false,
     });
 
     const renderComponent = (Trigger: ComponentType, props = {}) =>
@@ -106,7 +104,7 @@ describe('SidePanelContext', () => {
 
     const renderOpenButton = (
       hookFn: SetSidePanel,
-      props: Partial<SidePanelContextProps> = {},
+      props: Partial<SidePanelContextItem> = {},
       label = 'Open panel',
     ) => (
       <button onClick={() => hookFn({ ...getPanel(), ...props })}>
@@ -116,7 +114,7 @@ describe('SidePanelContext', () => {
 
     const renderCloseButton = (
       hookFn: RemoveSidePanel,
-      group: SidePanelContextProps['group'] = 'primary',
+      group: SidePanelHookProps['group'] = 'primary',
     ) => (
       <button
         onClick={() => {
@@ -129,8 +127,8 @@ describe('SidePanelContext', () => {
 
     const renderUpdateButton = (
       hookFn: UpdateSidePanel,
-      props: Partial<SidePanelContextProps> = {},
-      group: SidePanelContextProps['group'] = 'primary',
+      props: Partial<SidePanelContextItem> = {},
+      group: SidePanelHookProps['group'] = 'primary',
     ) => (
       <button onClick={() => hookFn({ group, ...props })}>Update panel</button>
     );
@@ -142,8 +140,9 @@ describe('SidePanelContext', () => {
           <span />
         </SidePanelProvider>,
       );
-      const button = container.querySelector('div');
-      expect(button?.className).toContain(className);
+      // eslint-disable-next-line testing-library/no-container
+      const wrapper = container.querySelector('div');
+      expect(wrapper?.className).toContain(className);
     });
 
     describe('setSidePanel', () => {
@@ -153,11 +152,11 @@ describe('SidePanelContext', () => {
           return renderOpenButton(setSidePanel);
         };
 
-        const { getByRole, getByText } = renderComponent(Trigger);
+        renderComponent(Trigger);
 
-        await userEvent.click(getByText('Open panel'));
+        await userEvent.click(screen.getByText('Open panel'));
 
-        expect(getByRole('dialog')).toBeVisible();
+        expect(screen.getByRole('dialog')).toBeVisible();
       });
 
       it('should replace a side panel opened in the same group', async () => {
@@ -166,13 +165,13 @@ describe('SidePanelContext', () => {
           return renderOpenButton(setSidePanel);
         };
 
-        const { getAllByRole, getByText } = renderComponent(Trigger);
+        renderComponent(Trigger);
 
-        await userEvent.click(getByText('Open panel'));
-        await userEvent.click(getByText('Open panel'));
+        await userEvent.click(screen.getByText('Open panel'));
+        await userEvent.click(screen.getByText('Open panel'));
 
         await waitFor(() => {
-          expect(getAllByRole('dialog')).toHaveLength(1);
+          expect(screen.getAllByRole('dialog')).toHaveLength(1);
         });
       });
 
@@ -191,12 +190,12 @@ describe('SidePanelContext', () => {
           );
         };
 
-        const { getAllByRole, getByText } = renderComponent(Trigger);
+        renderComponent(Trigger);
 
-        await userEvent.click(getByText('Open panel'));
-        await userEvent.click(getByText('Open second panel'));
+        await userEvent.click(screen.getByText('Open panel'));
+        await userEvent.click(screen.getByText('Open second panel'));
 
-        expect(getAllByRole('dialog')).toHaveLength(2);
+        expect(screen.getAllByRole('dialog')).toHaveLength(2);
       });
 
       it('should close all stacked side panels when opening a panel from a lower group', async () => {
@@ -214,17 +213,17 @@ describe('SidePanelContext', () => {
           );
         };
 
-        const { getAllByRole, getByText } = renderComponent(Trigger);
+        renderComponent(Trigger);
 
-        await userEvent.click(getByText('Open panel'));
-        await userEvent.click(getByText('Open second panel'));
+        await userEvent.click(screen.getByText('Open panel'));
+        await userEvent.click(screen.getByText('Open second panel'));
 
-        expect(getAllByRole('dialog')).toHaveLength(2);
+        expect(screen.getAllByRole('dialog')).toHaveLength(2);
 
-        await userEvent.click(getByText('Open panel'));
+        await userEvent.click(screen.getByText('Open panel'));
 
         await waitFor(() => {
-          expect(getAllByRole('dialog')).toHaveLength(1);
+          expect(screen.getAllByRole('dialog')).toHaveLength(1);
         });
       });
     });
@@ -242,19 +241,47 @@ describe('SidePanelContext', () => {
           );
         };
 
-        const { getByRole, queryByRole, getByText } = renderComponent(Trigger);
+        renderComponent(Trigger);
 
-        await userEvent.click(getByText('Open panel'));
+        await userEvent.click(screen.getByText('Open panel'));
 
-        expect(getByRole('dialog')).toBeVisible();
+        expect(screen.getByRole('dialog')).toBeVisible();
 
-        await userEvent.click(getByText('Close panel'));
+        await userEvent.click(screen.getByText('Close panel'));
 
         act(() => {
           vi.runAllTimers();
         });
 
-        expect(queryByRole('dialog')).toBeNull();
+        expect(screen.queryByRole('dialog')).toBeNull();
+      });
+
+      it('should not close the side panel when the `onClose` callback rejects', async () => {
+        const onClose = vi.fn().mockRejectedValue('');
+        const Trigger = () => {
+          const { setSidePanel, removeSidePanel } =
+            useContext(SidePanelContext);
+          return (
+            <>
+              {renderOpenButton(setSidePanel, { onClose })}
+              {renderCloseButton(removeSidePanel)}
+            </>
+          );
+        };
+
+        renderComponent(Trigger);
+
+        await userEvent.click(screen.getByText('Open panel'));
+
+        expect(screen.getByRole('dialog')).toBeVisible();
+
+        await userEvent.click(screen.getByText('Close panel'));
+
+        act(() => {
+          vi.runAllTimers();
+        });
+
+        expect(screen.getByRole('dialog')).toBeVisible();
       });
 
       it('should close all side panels stacked above the one being closed', async () => {
@@ -274,20 +301,21 @@ describe('SidePanelContext', () => {
           );
         };
 
-        const { getAllByRole, queryByRole, getByText } =
-          renderComponent(Trigger);
+        renderComponent(Trigger);
 
-        await userEvent.click(getByText('Open panel'));
-        await userEvent.click(getByText('Open second panel'));
+        await userEvent.click(screen.getByText('Open panel'));
+        await userEvent.click(screen.getByText('Open second panel'));
 
-        expect(getAllByRole('dialog')).toHaveLength(2);
+        expect(screen.getAllByRole('dialog')).toHaveLength(2);
 
-        await userEvent.click(getByText('Close panel'));
+        await userEvent.click(screen.getByText('Close panel'));
         act(() => {
           vi.runAllTimers();
         });
 
-        expect(queryByRole('dialog')).toBeNull();
+        await waitFor(() => {
+          expect(screen.queryByRole('dialog')).toBeNull();
+        });
       });
 
       it('should not close side panels stacked below the one being closed', async () => {
@@ -307,19 +335,19 @@ describe('SidePanelContext', () => {
           );
         };
 
-        const { getAllByRole, getByText } = renderComponent(Trigger);
+        renderComponent(Trigger);
 
-        await userEvent.click(getByText('Open panel'));
-        await userEvent.click(getByText('Open second panel'));
+        await userEvent.click(screen.getByText('Open panel'));
+        await userEvent.click(screen.getByText('Open second panel'));
 
-        expect(getAllByRole('dialog')).toHaveLength(2);
+        expect(screen.getAllByRole('dialog')).toHaveLength(2);
 
-        await userEvent.click(getByText('Close panel'));
+        await userEvent.click(screen.getByText('Close panel'));
         act(() => {
           vi.runAllTimers();
         });
 
-        expect(getAllByRole('dialog')).toHaveLength(1);
+        expect(screen.getAllByRole('dialog')).toHaveLength(1);
       });
 
       it('should not close the side panel when there is no match', async () => {
@@ -334,18 +362,18 @@ describe('SidePanelContext', () => {
           );
         };
 
-        const { getByRole, getByText } = renderComponent(Trigger);
+        renderComponent(Trigger);
 
-        await userEvent.click(getByText('Open panel'));
+        await userEvent.click(screen.getByText('Open panel'));
 
-        expect(getByRole('dialog')).toBeVisible();
+        expect(screen.getByRole('dialog')).toBeVisible();
 
-        await userEvent.click(getByText('Close panel'));
+        await userEvent.click(screen.getByText('Close panel'));
         act(() => {
           vi.runAllTimers();
         });
 
-        expect(getByRole('dialog')).toBeVisible();
+        expect(screen.getByRole('dialog')).toBeVisible();
       });
 
       it('should call the onClose callback of the side panel', async () => {
@@ -361,11 +389,11 @@ describe('SidePanelContext', () => {
           );
         };
 
-        const { getByText } = renderComponent(Trigger);
+        renderComponent(Trigger);
 
-        await userEvent.click(getByText('Open panel'));
+        await userEvent.click(screen.getByText('Open panel'));
 
-        await userEvent.click(getByText('Close panel'));
+        await userEvent.click(screen.getByText('Close panel'));
         act(() => {
           vi.runAllTimers();
         });
@@ -389,18 +417,22 @@ describe('SidePanelContext', () => {
           );
         };
 
-        const { getByTestId, getByText } = renderComponent(Trigger);
+        renderComponent(Trigger);
 
-        await userEvent.click(getByText('Open panel'));
+        await userEvent.click(screen.getByText('Open panel'));
 
-        expect(getByTestId('children')).toHaveTextContent('Side panel content');
+        expect(screen.getByTestId('children')).toHaveTextContent(
+          'Side panel content',
+        );
 
-        await userEvent.click(getByText('Update panel'));
+        await userEvent.click(screen.getByText('Update panel'));
         act(() => {
           vi.runAllTimers();
         });
 
-        expect(getByTestId('children')).toHaveTextContent('Updated content');
+        expect(screen.getByTestId('children')).toHaveTextContent(
+          'Updated content',
+        );
       });
 
       it('should not update the side panel when there is no match', async () => {
@@ -421,18 +453,22 @@ describe('SidePanelContext', () => {
           );
         };
 
-        const { getByTestId, getByText } = renderComponent(Trigger);
+        renderComponent(Trigger);
 
-        await userEvent.click(getByText('Open panel'));
+        await userEvent.click(screen.getByText('Open panel'));
 
-        expect(getByTestId('children')).toHaveTextContent('Side panel content');
+        expect(screen.getByTestId('children')).toHaveTextContent(
+          'Side panel content',
+        );
 
-        await userEvent.click(getByText('Update panel'));
+        await userEvent.click(screen.getByText('Update panel'));
         act(() => {
           vi.runAllTimers();
         });
 
-        expect(getByTestId('children')).toHaveTextContent('Side panel content');
+        expect(screen.getByTestId('children')).toHaveTextContent(
+          'Side panel content',
+        );
       });
     });
   });

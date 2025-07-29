@@ -1,8 +1,8 @@
 <div align="center">
 
-# @sumup/circuit-ui
+# @sumup-oss/circuit-ui
 
-[![Stars](https://img.shields.io/github/stars/sumup-oss/circuit-ui?style=social)](https://github.com/sumup-oss/circuit-ui/) [![Version](https://img.shields.io/npm/v/@sumup/circuit-ui)](https://www.npmjs.com/package/@sumup/circuit-ui) [![Coverage](https://img.shields.io/codecov/c/github/sumup-oss/circuit-ui)](https://codecov.io/gh/sumup-oss/circuit-ui) [![License](https://img.shields.io/github/license/sumup-oss/circuit-ui)](https://github.com/sumup-oss/circuit-ui/tree/main/packages/circuit-ui/LICENSE) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.1%20adopted-ff69b4.svg)](https://github.com/sumup-oss/circuit-ui/tree/main/CODE_OF_CONDUCT.md)
+[![Stars](https://img.shields.io/github/stars/sumup-oss/circuit-ui?style=social)](https://github.com/sumup-oss/circuit-ui/) [![Version](https://img.shields.io/npm/v/@sumup-oss/circuit-ui)](https://www.npmjs.com/package/@sumup-oss/circuit-ui) [![Coverage](https://img.shields.io/codecov/c/github/sumup-oss/circuit-ui)](https://codecov.io/gh/sumup-oss/circuit-ui) [![License](https://img.shields.io/github/license/sumup-oss/circuit-ui)](https://github.com/sumup-oss/circuit-ui/tree/main/packages/circuit-ui/LICENSE) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.1%20adopted-ff69b4.svg)](https://github.com/sumup-oss/circuit-ui/tree/main/CODE_OF_CONDUCT.md)
 
 A React component library designed to help developers build inclusive, performant, and trusted user interfaces.
 
@@ -14,18 +14,18 @@ Depending on your preference, run one of the following in your terminal:
 
 ```sh
 # With npm
-npm install --save @sumup/circuit-ui
+npm install --save @sumup-oss/circuit-ui
 # With yarn v1
-yarn add @sumup/circuit-ui
+yarn add @sumup-oss/circuit-ui
 ```
 
-`@sumup/circuit-ui` has a number of required peer dependencies. If your project doesn't have them already, you can install them by running:
+`@sumup-oss/circuit-ui` has a number of required peer dependencies. If your project doesn't have them already, you can install them by running:
 
 ```sh
 # With npm
-npm install --save react react-dom @emotion/react @emotion/styled @sumup/design-tokens @sumup/icons @sumup/intl @sumup/collector
+npm install --save react react-dom @sumup-oss/design-tokens @sumup-oss/icons @sumup-oss/intl
 # With yarn v1
-yarn add react react-dom @emotion/react @emotion/styled @sumup/design-tokens @sumup/icons @sumup/intl @sumup/collector
+yarn add react react-dom @sumup-oss/design-tokens @sumup-oss/icons @sumup-oss/intl
 ```
 
 ## Usage

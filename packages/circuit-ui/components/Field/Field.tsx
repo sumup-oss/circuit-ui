@@ -14,20 +14,20 @@
  */
 
 import {
-  FieldsetHTMLAttributes,
-  HTMLAttributes,
-  LabelHTMLAttributes,
   forwardRef,
+  type FieldsetHTMLAttributes,
+  type HTMLAttributes,
+  type LabelHTMLAttributes,
 } from 'react';
-import { Confirm, Notify, Alert } from '@sumup/icons';
+import { Confirm, Notify, Alert } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
-import utilityClasses from '../../styles/utility.js';
+import { utilClasses } from '../../styles/utility.js';
 
 import classes from './Field.module.css';
 import { getFieldValidity } from './FieldService.js';
 
-export interface FieldWrapperProps extends HTMLAttributes<HTMLDivElement> {
+interface FieldWrapperProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Trigger disabled styles on the component.
    */
@@ -50,7 +50,7 @@ export const FieldWrapper = forwardRef<HTMLDivElement, FieldWrapperProps>(
   ),
 );
 
-export type FieldSetProps = FieldsetHTMLAttributes<HTMLFieldSetElement>;
+type FieldSetProps = FieldsetHTMLAttributes<HTMLFieldSetElement>;
 
 /**
  * @private
@@ -65,7 +65,7 @@ export const FieldSet = forwardRef<HTMLFieldSetElement, FieldSetProps>(
   ),
 );
 
-export interface FieldLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
+interface FieldLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   /**
    * The identifier of the corresponding form element.
    */
@@ -80,6 +80,7 @@ export const FieldLabel = ({
   htmlFor,
   ...props
 }: FieldLabelProps) => (
+  // biome-ignore lint/a11y/noLabelWithoutControl: The control is rendered separately
   <label
     {...props}
     htmlFor={htmlFor}
@@ -87,13 +88,13 @@ export const FieldLabel = ({
   />
 );
 
-export type FieldLegendProps = HTMLAttributes<HTMLLegendElement>;
+type FieldLegendProps = HTMLAttributes<HTMLLegendElement>;
 
 export const FieldLegend = ({ className, ...props }: FieldLegendProps) => (
   <legend {...props} className={clsx(classes.legend, className)} />
 );
 
-export interface FieldLabelTextProps {
+interface FieldLabelTextProps {
   /**
    * A clear and concise description of the input purpose.
    */
@@ -122,13 +123,15 @@ export function FieldLabelText({
   hideLabel,
   optionalLabel,
   required,
+  ...props
 }: FieldLabelTextProps) {
   return (
     <span
       className={clsx(
         classes['label-text'],
-        hideLabel && utilityClasses.hideVisually,
+        hideLabel && utilClasses.hideVisually,
       )}
+      {...props}
     >
       {label}
       {optionalLabel && !required ? (
@@ -140,7 +143,7 @@ export function FieldLabelText({
   );
 }
 
-export interface FieldDescriptionProps extends HTMLAttributes<HTMLSpanElement> {
+interface FieldDescriptionProps extends HTMLAttributes<HTMLSpanElement> {
   validationHint?: string;
 }
 
@@ -154,8 +157,7 @@ export const FieldDescription = ({
   <span {...props} className={clsx(classes.description, className)} />
 );
 
-export interface FieldValidationHintProps
-  extends HTMLAttributes<HTMLSpanElement> {
+interface FieldValidationHintProps extends HTMLAttributes<HTMLSpanElement> {
   validationHint?: string;
   disabled?: boolean;
   invalid?: boolean;
@@ -180,7 +182,7 @@ export const FieldValidationHint = ({
   invalid,
   disabled,
   ...props
-}: FieldValidationHintProps): JSX.Element | null => {
+}: FieldValidationHintProps) => {
   const validity = getFieldValidity({
     hasWarning,
     showValid,

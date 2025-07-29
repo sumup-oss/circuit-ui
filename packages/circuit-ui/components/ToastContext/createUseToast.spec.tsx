@@ -14,7 +14,7 @@
  */
 
 import { describe, expect, it, vi } from 'vitest';
-import { ReactElement } from 'react';
+import type { PropsWithChildren } from 'react';
 
 import { renderHook, act } from '../../util/test-utils.js';
 
@@ -35,7 +35,7 @@ describe('createUseToast', () => {
   const setToast = vi.fn();
   const removeToast = vi.fn();
 
-  const wrapper = ({ children }: { children: ReactElement }) => (
+  const wrapper = ({ children }: PropsWithChildren) => (
     <ToastContext.Provider value={{ setToast, removeToast }}>
       {children}
     </ToastContext.Provider>
