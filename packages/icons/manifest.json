@@ -1616,9 +1616,24 @@
       "size": "24"
     },
     {
+      "name": "employee",
+      "category": "Product and feature",
+      "size": "16"
+    },
+    {
       "name": "employees",
       "category": "Product and feature",
       "size": "24"
+    },
+    {
+      "name": "employees",
+      "category": "Product and feature",
+      "size": "16"
+    },
+    {
+      "name": "employee_side_by_side",
+      "category": "Product and feature",
+      "size": "16"
     },
     {
       "name": "fee_calculator",
