@@ -14,7 +14,7 @@
  */
 
 import { describe, it, vi, expect } from 'vitest';
-import { createRef } from 'react';
+import { createRef, useState, type ChangeEvent } from 'react';
 
 import { axe, render, screen, userEvent } from '../../util/test-utils.js';
 
@@ -186,6 +186,32 @@ describe('PhoneNumberInput', () => {
     expect(input).toHaveValue('+112345678');
     expect(countryCode).toHaveValue('CA');
     expect(subscriberNumber).toHaveValue('12345678');
+  });
+
+  it('should retain the correct country code in a controlled input', async () => {
+    const onChange = vi.fn();
+
+    function ControlledPhoneNumberInput(props: PhoneNumberInputProps) {
+      const [phoneNumber, setPhoneNumber] = useState('');
+
+      const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        onChange(event);
+        setPhoneNumber(event.target.value);
+      };
+
+      return (
+        <PhoneNumberInput
+          {...props}
+          value={phoneNumber}
+          onChange={handleChange}
+        />
+      );
+    }
+    render(<ControlledPhoneNumberInput {...defaultProps} />);
+    const select = screen.getByRole('combobox');
+    await userEvent.selectOptions(select, 'US');
+    expect(onChange).toHaveBeenCalledOnce();
+    expect(select).toHaveValue('US');
   });
 
   it('should call onChange when there is a change', async () => {
