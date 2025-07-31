@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.9.2
+
+### Patch Changes
+
+- [#3220](https://github.com/sumup-oss/circuit-ui/pull/3220) [`da62860`](https://github.com/sumup-oss/circuit-ui/commit/da62860019a49fb9625a4d2dda86e484e19eb4a4) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed selection of the country code in the PhoneNumberInput component when the country code is used in multiple countries, a subscriber number hasn't been entered yet and the component is used as a controlled input.
+
 ## 10.9.1
 
 ### Patch Changes
