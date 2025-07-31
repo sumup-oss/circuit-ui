@@ -32,56 +32,56 @@ describe('PhoneNumberInputService', () => {
 
     it('should parse an empty phone number', () => {
       const phoneNumber = '';
-      const actual = parsePhoneNumber(options, phoneNumber);
+      const actual = parsePhoneNumber(phoneNumber, options);
       expect(actual.countryCode).toBeUndefined();
       expect(actual.subscriberNumber).toBeUndefined();
     });
 
     it('should parse a full, well-formatted phone number', () => {
       const phoneNumber = '+1 707 555 2323';
-      const actual = parsePhoneNumber(options, phoneNumber);
+      const actual = parsePhoneNumber(phoneNumber, options);
       expect(actual.countryCode).toBe('US');
       expect(actual.subscriberNumber).toBe('707 555 2323');
     });
 
     it('should parse a full phone number with unsupported characters', () => {
       const phoneNumber = '+1 (707) 555-2323';
-      const actual = parsePhoneNumber(options, phoneNumber);
+      const actual = parsePhoneNumber(phoneNumber, options);
       expect(actual.countryCode).toBe('US');
       expect(actual.subscriberNumber).toBe('707 555 2323');
     });
 
     it('should parse a phone number with a double-0 prefixed country code', () => {
       const phoneNumber = '001 (707) 555-2323';
-      const actual = parsePhoneNumber(options, phoneNumber);
+      const actual = parsePhoneNumber(phoneNumber, options);
       expect(actual.countryCode).toBe('US');
       expect(actual.subscriberNumber).toBe('707 555 2323');
     });
 
     it('should parse a phone number without a country code', () => {
       const phoneNumber = '(707) 555-2323';
-      const actual = parsePhoneNumber(options, phoneNumber);
+      const actual = parsePhoneNumber(phoneNumber, options);
       expect(actual.countryCode).toBeUndefined();
       expect(actual.subscriberNumber).toBe('707 555 2323');
     });
 
     it('should parse a phone number with an unsupported country code', () => {
       const phoneNumber = '+99 (707) 555-2323';
-      const actual = parsePhoneNumber(options, phoneNumber);
+      const actual = parsePhoneNumber(phoneNumber, options);
       expect(actual.countryCode).toBeUndefined();
       expect(actual.subscriberNumber).toBe('+99 707 555 2323');
     });
 
     it('should parse a phone number without a subscriber number', () => {
       const phoneNumber = '+49';
-      const actual = parsePhoneNumber(options, phoneNumber);
+      const actual = parsePhoneNumber(phoneNumber, options);
       expect(actual.countryCode).toBe('DE');
       expect(actual.subscriberNumber).toBeUndefined();
     });
 
     it('should parse a phone number with a country-specific area code', () => {
       const phoneNumber = '+1 (268) 32423424';
-      const actual = parsePhoneNumber(options, phoneNumber);
+      const actual = parsePhoneNumber(phoneNumber, options);
       expect(actual.countryCode).toBe('AG');
       expect(actual.subscriberNumber).toBe('268 32423424');
     });
@@ -89,7 +89,7 @@ describe('PhoneNumberInputService', () => {
     it('should parse an incomplete phone number with an ambiguous country code', () => {
       const phoneNumber = '+1';
       const currentCountry = 'US';
-      const actual = parsePhoneNumber(options, phoneNumber, currentCountry);
+      const actual = parsePhoneNumber(phoneNumber, options, currentCountry);
       expect(actual.countryCode).toBe('US');
       expect(actual.subscriberNumber).toBeUndefined();
     });

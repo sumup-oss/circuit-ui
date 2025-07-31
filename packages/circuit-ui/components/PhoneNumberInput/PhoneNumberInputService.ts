@@ -35,8 +35,8 @@ export type CountryCodeOption = {
 };
 
 export function parsePhoneNumber(
-  options: CountryCodeOption[],
   value: string | undefined,
+  options: CountryCodeOption[],
   currentCountry?: string,
 ): {
   countryCode?: string;
