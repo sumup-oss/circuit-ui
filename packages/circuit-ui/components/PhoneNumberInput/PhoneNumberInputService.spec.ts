@@ -85,6 +85,14 @@ describe('PhoneNumberInputService', () => {
       expect(actual.countryCode).toBe('AG');
       expect(actual.subscriberNumber).toBe('268 32423424');
     });
+
+    it('should parse an incomplete phone number with an ambiguous country code', () => {
+      const phoneNumber = '+1';
+      const currentCountry = 'US';
+      const actual = parsePhoneNumber(phoneNumber, options, currentCountry);
+      expect(actual.countryCode).toBe('US');
+      expect(actual.subscriberNumber).toBeUndefined();
+    });
   });
 
   describe('normalizePhoneNumber', () => {
