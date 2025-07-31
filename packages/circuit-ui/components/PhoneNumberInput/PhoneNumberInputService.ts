@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { isEmpty } from '../../util/helpers.js';
 import type { Locale } from '../../util/i18n.js';
 import type { SelectProps } from '../Select/Select.js';
 
@@ -34,8 +35,9 @@ export type CountryCodeOption = {
 };
 
 export function parsePhoneNumber(
-  value: string | undefined,
   options: CountryCodeOption[],
+  value: string | undefined,
+  currentCountry?: string,
 ): {
   countryCode?: string;
   subscriberNumber?: string;
@@ -61,7 +63,7 @@ export function parsePhoneNumber(
     };
   }
 
-  const matchedOption = options
+  const matchedOptions = options
     .sort((a, b) => {
       // Match options with area code first
       if (a.areaCodes && !b.areaCodes) {
@@ -73,7 +75,7 @@ export function parsePhoneNumber(
       // Match longer, more specific country codes first
       return b.code.length - a.code.length;
     })
-    .find(({ code, areaCodes }) => {
+    .filter(({ code, areaCodes }) => {
       if (!areaCodes) {
         return sanitizedValue.startsWith(code);
       }
@@ -83,11 +85,21 @@ export function parsePhoneNumber(
       );
     });
 
-  if (!matchedOption) {
+  if (isEmpty(matchedOptions)) {
     return {
       subscriberNumber: sanitizedValue,
     };
   }
+
+  // When a user selects a country code, the PhoneNumberInput emits a change
+  // event which contains only the country code (e.g. "+1") when the subscriber
+  // number is empty. When used as a controlled input, this is passed back down
+  // as the `value` prop. We can't definitely determine the country from an
+  // incomplete phone number, thus we check the current input value to retain
+  // the currently selected country if it matches the `value`.
+  const matchedOption =
+    matchedOptions.find((option) => option.country === currentCountry) ||
+    matchedOptions[0];
 
   const subscriberNumber = sanitizedValue.split(matchedOption.code)[1].trim();
 

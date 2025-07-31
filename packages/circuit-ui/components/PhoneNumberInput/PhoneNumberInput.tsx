@@ -273,8 +273,9 @@ export const PhoneNumberInput = forwardRef<
       event.preventDefault();
 
       const pastedPhoneNumber = parsePhoneNumber(
-        event.clipboardData.getData('text/plain'),
         countryCode.options,
+        event.clipboardData.getData('text/plain'),
+        countryCodeRef.current.value,
       );
 
       if (pastedPhoneNumber.countryCode) {
@@ -288,10 +289,14 @@ export const PhoneNumberInput = forwardRef<
       }
     };
 
-    const parsedValue = parsePhoneNumber(value, countryCode.options);
-    const parsedDefaultValue = parsePhoneNumber(
-      defaultValue,
+    const parsedValue = parsePhoneNumber(
       countryCode.options,
+      value,
+      countryCodeRef.current?.value,
+    );
+    const parsedDefaultValue = parsePhoneNumber(
+      countryCode.options,
+      defaultValue,
     );
 
     if (
