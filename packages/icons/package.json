@@ -42,7 +42,7 @@
     "fast-xml-parser": "^5.2.5",
     "prettier": "^3.5.3",
     "tsx": "^4.20.3",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.2"
   },
   "peerDependencies": {
     "react": ">=16.0.0 <20.0.0"
