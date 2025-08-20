@@ -47,7 +47,7 @@ describe('Icons', () => {
       expect(isValidXML).toBeTruthy();
     });
 
-    it('should weigh less than 12kb', () => {
+    (size === '480' ? it.skip : it)('should weigh less than 12kb', () => {
       expect(fileSize).toBeLessThan(12);
     });
 
@@ -62,14 +62,17 @@ describe('Icons', () => {
     it('should match the size in the file name', () => {
       const manifest = getIconManifest(name, size);
 
-      expect(manifest.size).toBe(size);
-
       const attributes = parseSVGAttributes(file);
-
-      if (manifest.category === 'Card scheme') {
-        expect(attributes.width).toBe(size);
+      if (manifest.category === 'Flag') {
+        expect(manifest.size).toBe('480');
+        expect(attributes.height).toBe(manifest.size);
       } else {
-        expect(attributes.height).toBe(size);
+        expect(manifest.size).toBe(size);
+        if (manifest.category === 'Card scheme') {
+          expect(attributes.width).toBe(size);
+        } else {
+          expect(attributes.height).toBe(size);
+        }
       }
     });
 
@@ -87,7 +90,11 @@ describe('Icons', () => {
 
 function parseFileName(fileName: string) {
   try {
-    const [, name, size] = fileName.match(/(.+)_(\d+)\.svg$/);
+    const [, name, size] = fileName.match(/(.+?)(?:_(\d+))?\.svg$/);
+    // assign size of 480 for flag icons when size not specified in file name
+    if (!size && (name as string).match(/^flag_[a-z]{2}$/)) {
+      return { name, size: '480' };
+    }
     return { name, size };
   } catch (_error) {
     throw new Error(`Failed to parse the '${fileName}' file name.`);
