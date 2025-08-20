@@ -909,1799 +909,1799 @@
 
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Andorra"],
       "name": "flag_ad",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["United Arab Emirates"],
       "name": "flag_ae",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Afghanistan"],
       "name": "flag_af",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Antigua and Barbuda"],
       "name": "flag_ag",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Anguilla"],
       "name": "flag_ai",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Albania"],
       "name": "flag_al",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Armenia"],
       "name": "flag_am",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Angola"],
       "name": "flag_ao",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Antarctica"],
       "name": "flag_aq",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Argentina"],
       "name": "flag_ar",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["American Samoa"],
       "name": "flag_as",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Austria"],
       "name": "flag_at",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Australia"],
       "name": "flag_au",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Aruba"],
       "name": "flag_aw",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Åland Islands"],
       "name": "flag_ax",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Azerbaijan"],
       "name": "flag_az",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Bosnia and Herzegovina"],
       "name": "flag_ba",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Barbados"],
       "name": "flag_bb",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Bangladesh"],
       "name": "flag_bd",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Belgium"],
       "name": "flag_be",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Burkina Faso"],
       "name": "flag_bf",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Bulgaria"],
       "name": "flag_bg",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Bahrain"],
       "name": "flag_bh",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Burundi"],
       "name": "flag_bi",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Benin"],
       "name": "flag_bj",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Saint Barthélemy"],
       "name": "flag_bl",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Bermuda"],
       "name": "flag_bm",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Brunei Darussalam"],
       "name": "flag_bn",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Bolivia"],
       "name": "flag_bo",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Bonaire, Sint Eustatius and Saba"],
       "name": "flag_bq",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Brazil"],
       "name": "flag_br",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Bahamas"],
       "name": "flag_bs",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Bhutan"],
       "name": "flag_bt",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Bouvet Island"],
       "name": "flag_bv",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Botswana"],
       "name": "flag_bw",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Belarus"],
       "name": "flag_by",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Belize"],
       "name": "flag_bz",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Canada"],
       "name": "flag_ca",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Cocos (Keeling) Islands"],
       "name": "flag_cc",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Congo (Democratic Republic)"],
       "name": "flag_cd",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Central African Republic"],
       "name": "flag_cf",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Congo"],
       "name": "flag_cg",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Switzerland"],
       "name": "flag_ch",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Côte d’Ivoire"],
       "name": "flag_ci",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Cook Islands"],
       "name": "flag_ck",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Chile"],
       "name": "flag_cl",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Cameroon"],
       "name": "flag_cm",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["China"],
       "name": "flag_cn",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Colombia"],
       "name": "flag_co",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Clipperton Island"],
       "name": "flag_cp",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Costa Rica"],
       "name": "flag_cr",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Cuba"],
       "name": "flag_cu",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Cabo Verde"],
       "name": "flag_cv",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Curaçao"],
       "name": "flag_cw",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Christmas Island"],
       "name": "flag_cx",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Cyprus"],
       "name": "flag_cy",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Czechia"],
       "name": "flag_cz",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Germany"],
       "name": "flag_de",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Diego Garcia"],
       "name": "flag_dg",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Djibouti"],
       "name": "flag_dj",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Denmark"],
       "name": "flag_dk",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Dominica"],
       "name": "flag_dm",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Dominican Republic"],
       "name": "flag_do",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Algeria"],
       "name": "flag_dz",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Ecuador"],
       "name": "flag_ec",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Estonia"],
       "name": "flag_ee",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Egypt"],
       "name": "flag_eg",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Western Sahara"],
       "name": "flag_eh",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Eritrea"],
       "name": "flag_er",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Spain"],
       "name": "flag_es",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Ethiopia"],
       "name": "flag_et",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["European Union"],
       "name": "flag_eu",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Finland"],
       "name": "flag_fi",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Fiji"],
       "name": "flag_fj",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Falkland Islands"],
       "name": "flag_fk",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Micronesia"],
       "name": "flag_fm",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Faroe Islands"],
       "name": "flag_fo",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["France"],
       "name": "flag_fr",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Gabon"],
       "name": "flag_ga",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["United Kingdom"],
       "name": "flag_gb",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Grenada"],
       "name": "flag_gd",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Georgia"],
       "name": "flag_ge",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["French Guiana"],
       "name": "flag_gf",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Guernsey"],
       "name": "flag_gg",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Ghana"],
       "name": "flag_gh",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Gibraltar"],
       "name": "flag_gi",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Greenland"],
       "name": "flag_gl",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Gambia"],
       "name": "flag_gm",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Guinea"],
       "name": "flag_gn",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Guadeloupe"],
       "name": "flag_gp",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Equatorial Guinea"],
       "name": "flag_gq",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Greece"],
       "name": "flag_gr",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["South Georgia and the South Sandwich Islands"],
       "name": "flag_gs",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Guatemala"],
       "name": "flag_gt",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Guam"],
       "name": "flag_gu",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Guinea-Bissau"],
       "name": "flag_gw",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Guyana"],
       "name": "flag_gy",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Hong Kong"],
       "name": "flag_hk",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Heard Island and McDonald Islands"],
       "name": "flag_hm",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Honduras"],
       "name": "flag_hn",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Croatia"],
       "name": "flag_hr",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Haiti"],
       "name": "flag_ht",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Hungary"],
       "name": "flag_hu",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Canary Islands"],
       "name": "flag_ic",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Indonesia"],
       "name": "flag_id",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Ireland"],
       "name": "flag_ie",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Israel"],
       "name": "flag_il",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Isle of Man"],
       "name": "flag_im",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["India"],
       "name": "flag_in",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["British Indian Ocean Territory"],
       "name": "flag_io",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Iraq"],
       "name": "flag_iq",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Iran"],
       "name": "flag_ir",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Iceland"],
       "name": "flag_is",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Italy"],
       "name": "flag_it",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Jersey"],
       "name": "flag_je",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Jamaica"],
       "name": "flag_jm",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Jordan"],
       "name": "flag_jo",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Japan"],
       "name": "flag_jp",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Kenya"],
       "name": "flag_ke",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Kyrgyzstan"],
       "name": "flag_kg",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Cambodia"],
       "name": "flag_kh",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Kiribati"],
       "name": "flag_ki",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Comoros"],
       "name": "flag_km",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Saint Kitts and Nevis"],
       "name": "flag_kn",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["North Korea"],
       "name": "flag_kp",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["South Korea"],
       "name": "flag_kr",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Kuwait"],
       "name": "flag_kw",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Cayman Islands"],
       "name": "flag_ky",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Kazakhstan"],
       "name": "flag_kz",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Lao PDR"],
       "name": "flag_la",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Lebanon"],
       "name": "flag_lb",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Saint Lucia"],
       "name": "flag_lc",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Liechtenstein"],
       "name": "flag_li",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Sri Lanka"],
       "name": "flag_lk",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Liberia"],
       "name": "flag_lr",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Lesotho"],
       "name": "flag_ls",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Lithuania"],
       "name": "flag_lt",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Luxembourg"],
       "name": "flag_lu",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Latvia"],
       "name": "flag_lv",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Libya"],
       "name": "flag_ly",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Morocco"],
       "name": "flag_ma",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Monaco"],
       "name": "flag_mc",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Moldova"],
       "name": "flag_md",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Montenegro"],
       "name": "flag_me",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Saint Martin"],
       "name": "flag_mf",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Madagascar"],
       "name": "flag_mg",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Marshall Islands"],
       "name": "flag_mh",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["North Macedonia"],
       "name": "flag_mk",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Mali"],
       "name": "flag_ml",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Myanmar"],
       "name": "flag_mm",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Mongolia"],
       "name": "flag_mn",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Macao"],
       "name": "flag_mo",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Northern Mariana Islands"],
       "name": "flag_mp",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Martinique"],
       "name": "flag_mq",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Mauritania"],
       "name": "flag_mr",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Montserrat"],
       "name": "flag_ms",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Malta"],
       "name": "flag_mt",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Mauritius"],
       "name": "flag_mu",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Maldives"],
       "name": "flag_mv",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Malawi"],
       "name": "flag_mw",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Mexico"],
       "name": "flag_mx",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Malaysia"],
       "name": "flag_my",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Mozambique"],
       "name": "flag_mz",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Namibia"],
       "name": "flag_na",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["New Caledonia"],
       "name": "flag_nc",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Niger"],
       "name": "flag_ne",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Norfolk Island"],
       "name": "flag_nf",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Nigeria"],
       "name": "flag_ng",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Nicaragua"],
       "name": "flag_ni",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Netherlands"],
       "name": "flag_nl",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Norway"],
       "name": "flag_no",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Nepal"],
       "name": "flag_np",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Nauru"],
       "name": "flag_nr",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Niue"],
       "name": "flag_nu",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["New Zealand"],
       "name": "flag_nz",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Oman"],
       "name": "flag_om",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Panama"],
       "name": "flag_pa",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Pacific Islands Trust Territory"],
       "name": "flag_pc",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Peru"],
       "name": "flag_pe",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["French Polynesia"],
       "name": "flag_pf",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Papua New Guinea"],
       "name": "flag_pg",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Philippines"],
       "name": "flag_ph",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Pakistan"],
       "name": "flag_pk",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Poland"],
       "name": "flag_pl",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Saint Pierre and Miquelon"],
       "name": "flag_pm",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Pitcairn Islands"],
       "name": "flag_pn",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Puerto Rico"],
       "name": "flag_pr",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Palestine"],
       "name": "flag_ps",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Portugal"],
       "name": "flag_pt",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Palau"],
       "name": "flag_pw",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Paraguay"],
       "name": "flag_py",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Qatar"],
       "name": "flag_qa",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Réunion"],
       "name": "flag_re",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Romania"],
       "name": "flag_ro",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Serbia"],
       "name": "flag_rs",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Russia"],
       "name": "flag_ru",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Rwanda"],
       "name": "flag_rw",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Saudi Arabia"],
       "name": "flag_sa",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Solomon Islands"],
       "name": "flag_sb",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Seychelles"],
       "name": "flag_sc",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Sudan"],
       "name": "flag_sd",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Sweden"],
       "name": "flag_se",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Singapore"],
       "name": "flag_sg",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Saint Helena"],
       "name": "flag_sh",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Slovenia"],
       "name": "flag_si",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Svalbard and Jan Mayen"],
       "name": "flag_sj",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Slovakia"],
       "name": "flag_sk",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Sierra Leone"],
       "name": "flag_sl",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["San Marino"],
       "name": "flag_sm",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Senegal"],
       "name": "flag_sn",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Somalia"],
       "name": "flag_so",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Suriname"],
       "name": "flag_sr",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["South Sudan"],
       "name": "flag_ss",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["São Tomé and Príncipe"],
       "name": "flag_st",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["El Salvador"],
       "name": "flag_sv",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Sint Maarten"],
       "name": "flag_sx",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Syria"],
       "name": "flag_sy",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Eswatini"],
       "name": "flag_sz",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Turks and Caicos Islands"],
       "name": "flag_tc",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Chad"],
       "name": "flag_td",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["French Southern Territories"],
       "name": "flag_tf",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Togo"],
       "name": "flag_tg",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Thailand"],
       "name": "flag_th",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Tajikistan"],
       "name": "flag_tj",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Tokelau"],
       "name": "flag_tk",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Timor-Leste"],
       "name": "flag_tl",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Turkmenistan"],
       "name": "flag_tm",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Tunisia"],
       "name": "flag_tn",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Tonga"],
       "name": "flag_to",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Turkey"],
       "name": "flag_tr",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Trinidad and Tobago"],
       "name": "flag_tt",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Tuvalu"],
       "name": "flag_tv",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Taiwan"],
       "name": "flag_tw",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Tanzania"],
       "name": "flag_tz",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Ukraine"],
       "name": "flag_ua",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Uganda"],
       "name": "flag_ug",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["U.S. Outlying Islands"],
       "name": "flag_um",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["United Nations"],
       "name": "flag_un",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["United States"],
       "name": "flag_us",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Uruguay"],
       "name": "flag_uy",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Uzbekistan"],
       "name": "flag_uz",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Holy See (Vatican City)"],
       "name": "flag_va",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Saint Vincent and the Grenadines"],
       "name": "flag_vc",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Venezuela"],
       "name": "flag_ve",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["British Virgin Islands"],
       "name": "flag_vg",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["U.S. Virgin Islands"],
       "name": "flag_vi",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Vietnam"],
       "name": "flag_vn",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Vanuatu"],
       "name": "flag_vu",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Wallis and Futuna"],
       "name": "flag_wf",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Samoa"],
       "name": "flag_ws",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Kosovo"],
       "name": "flag_xk",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Unknown"],
       "name": "flag_xx",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Yemen"],
       "name": "flag_ye",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Mayotte"],
       "name": "flag_yt",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["South Africa"],
       "name": "flag_za",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Zambia"],
       "name": "flag_zm",
       "size": "480"
     },
     {
       "category": "Flag",
-      "excluded": true,
+      "skipComponentFile": true,
       "keywords": ["Zimbabwe"],
       "name": "flag_zw",
       "size": "480"

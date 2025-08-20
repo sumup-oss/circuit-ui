@@ -118,7 +118,7 @@ export function Icons() {
       },
     );
     const matchesSize = size === 'all' || size === icon.size;
-    const allowedIcon = !icon.excluded;
+    const allowedIcon = !icon.skipComponentFile;
     return matchesKeyword && matchesSize && allowedIcon;
   }) as IconsManifest['icons'];
 
