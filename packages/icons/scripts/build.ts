@@ -36,6 +36,7 @@ type Icon = {
   keywords?: string[];
   size: (typeof SIZES)[number];
   deprecation?: string;
+  excluded?: boolean;
 };
 
 type Component = {
@@ -69,11 +70,13 @@ function getFilePath(icon: Icon): string {
 }
 
 function buildComponentFile(component: Component): string {
-  const icons = component.icons.map((icon) => ({
-    size: icon.size,
-    filePath: getFilePath(icon),
-    name: getComponentName(`${icon.name}-${icon.size}`),
-  }));
+  const icons = component.icons
+    .filter((icon) => !icon.excluded)
+    .map((icon) => ({
+      size: icon.size,
+      filePath: getFilePath(icon),
+      name: getComponentName(`${icon.name}-${icon.size}`),
+    }));
 
   const iconImports = icons.map(
     (icon) =>
@@ -114,7 +117,7 @@ function buildComponentFile(component: Component): string {
 function buildHelpersFile(): string {
   return `
     export function getIconURL(name, size) {
-      return 'https://circuit.sumup.com/icons/v2/' + name + '_' + size + '.svg';
+      return 'https://circuit.sumup.com/icons/v2/' + name + (size ? '_' + size : '') + '.svg';
     }
   `;
 }
@@ -131,14 +134,18 @@ function buildIndexFile(components: Component[]): string {
 }
 
 function buildDeclarationFile(components: Component[]): string {
-  const declarationStatements = components.map((component) => {
-    const sizes = component.icons.map(({ size }) => `'${size}'`).sort();
-    const SizesType = sizes.join(' | ');
-    return `
+  const declarationStatements = components
+    .filter(({ icons }) => icons.filter((icon) => !icon.excluded).length > 0)
+    .map((component) => {
+      const sizes = component.icons.map(({ size }) => `'${size}'`).sort();
+      const SizesType = sizes.join(' | ');
+      return `
       ${createDeprecationComment(component.deprecation)}
       declare const ${component.name}: IconComponentType<${SizesType}>;`;
-  });
-  const exportNames = components.map((component) => component.name);
+    });
+  const exportNames = components
+    .filter(({ icons }) => icons.filter((icon) => !icon.excluded).length > 0)
+    .map((component) => component.name);
   const iconSizes = components.map((component) => {
     const iconName = component.icons[0].name;
     const sizes = component.icons.map(({ size }) => `'${size}'`).sort();
@@ -175,7 +182,7 @@ function buildDeclarationFile(components: Component[]): string {
       ${iconSizes.join('\n')}
     }
 
-    export function getIconURL<Name extends keyof Icons>(name: Name, size: Icons[Name]): string;
+    export function getIconURL<Name extends keyof Icons>(name: Name, size?: Icons[Name]): string;
   `;
 }
 

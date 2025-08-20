@@ -118,7 +118,8 @@ export function Icons() {
       },
     );
     const matchesSize = size === 'all' || size === icon.size;
-    return matchesKeyword && matchesSize;
+    const allowedIcon = !icon.excluded;
+    return matchesKeyword && matchesSize && allowedIcon;
   }) as IconsManifest['icons'];
 
   return (

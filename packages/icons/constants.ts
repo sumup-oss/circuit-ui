@@ -22,13 +22,14 @@ export const BASE_DIR = path.dirname(fileURLToPath(import.meta.url));
 export const ICON_DIR = path.join(BASE_DIR, './web/v2');
 export const DIST_DIR = path.join(BASE_DIR, 'dist');
 
-export const SIZES = ['16', '24', '32'] as const;
+export const SIZES = ['16', '24', '32', '480'] as const;
 export const CATEGORIES = [
   'Action',
   'Communication',
   'Payment method',
   'Card scheme',
   'Country flag',
+  'Flag',
   'Device',
   'File',
   'Finance',
