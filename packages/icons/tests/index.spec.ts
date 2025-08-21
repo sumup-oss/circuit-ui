@@ -66,6 +66,7 @@ describe('Icons', () => {
       if (manifest.category === 'Flag') {
         expect(manifest.size).toBe('480');
         expect(attributes.height).toBe(manifest.size);
+        expect(attributes.width).toBe('640');
       } else {
         expect(manifest.size).toBe(size);
         if (manifest.category === 'Card scheme') {

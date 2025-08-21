@@ -135,9 +135,7 @@ function buildIndexFile(components: Component[]): string {
 
 function buildDeclarationFile(components: Component[]): string {
   const declarationStatements = components
-    .filter(
-      ({ icons }) => icons.filter((icon) => !icon.skipComponentFile).length > 0,
-    )
+    .filter(({ icons }) => !icons.some((icon) => icon.skipComponentFile))
     .map((component) => {
       const sizes = component.icons.map(({ size }) => `'${size}'`).sort();
       const SizesType = sizes.join(' | ');
@@ -146,9 +144,7 @@ function buildDeclarationFile(components: Component[]): string {
       declare const ${component.name}: IconComponentType<${SizesType}>;`;
     });
   const exportNames = components
-    .filter(
-      ({ icons }) => icons.filter((icon) => !icon.skipComponentFile).length > 0,
-    )
+    .filter(({ icons }) => !icons.some((icon) => icon.skipComponentFile))
     .map((component) => component.name);
   const iconSizes = components.map((component) => {
     const iconName = component.icons[0].name;

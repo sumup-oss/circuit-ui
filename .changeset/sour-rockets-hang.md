@@ -11,20 +11,20 @@ import flagFr from '@sumup-oss/icons/flag_fr.svg';
 
 const FrenchFlag = () => (
     <div>
-        <img src={flagFr} alt="The French flag" />
+        <img src={flagFr} alt="" />
         <span>The French flag</span>
     </div>
 );
 ```
 
-Alternatively, you can generate a flag URL with the getIconURL helper by omitting the size argument:
+Alternatively, you can generate a flag URL with the `getIconURL` helper by omitting the size argument:
 
 ```tsx
 import { getIconURL } from '@sumup-oss/icons';
 
 const FrenchFlag = () => (
   <div>
-      <img src={getIconURL('flag_fr')} alt="The French flag" />
+      <img src={getIconURL('flag_fr')} alt="" />
       <span>The French flag</span>
   </div>
 );
