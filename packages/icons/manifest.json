@@ -1469,6 +1469,16 @@
       "size": "24"
     },
     {
+      "name": "contractors",
+      "category": "Miscellaneous",
+      "size": "16"
+    },
+    {
+      "name": "contractors",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "arrow_down",
       "category": "Navigation",
       "size": "24"
@@ -2132,6 +2142,11 @@
     },
     {
       "name": "webspace",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "deposit",
       "category": "Product and feature",
       "size": "24"
     },
