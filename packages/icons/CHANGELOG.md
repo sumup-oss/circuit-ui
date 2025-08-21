@@ -1,5 +1,13 @@
 # @sumup-oss/icons
 
+## 5.16.0
+
+### Minor Changes
+
+- [#3239](https://github.com/sumup-oss/circuit-ui/pull/3239) [`ea6a419`](https://github.com/sumup-oss/circuit-ui/commit/ea6a419b72981260cc90de4595023a1980d746a6) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a new Contractors icon in sizes 16 and 24.
+
+- [#3239](https://github.com/sumup-oss/circuit-ui/pull/3239) [`ea6a419`](https://github.com/sumup-oss/circuit-ui/commit/ea6a419b72981260cc90de4595023a1980d746a6) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a new Deposit icon in size 24.
+
 ## 5.15.0
 
 ### Minor Changes
