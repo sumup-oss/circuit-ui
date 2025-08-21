@@ -1,0 +1,12 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+
+.base {
+  border: 0.5px solid #ccc;
+  border-radius: 2px;
+}
