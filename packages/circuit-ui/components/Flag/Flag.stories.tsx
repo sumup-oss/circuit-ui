@@ -60,3 +60,6 @@ export const Example = () => (
   <Flag countryCode="PR" alt="Puerto Rico" width={32} />
 );
 Example.tags = ['!dev'];
+Example.parameters = {
+  chromatic: { disableSnapshot: true },
+};
