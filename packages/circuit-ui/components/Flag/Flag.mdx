@@ -1,0 +1,24 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './Flag.stories';
+
+<Meta of={Stories} />
+
+# Flag
+
+<Status variant="stable" />
+
+The Flag component is used to display a country flag given its ISO 3166-1 alpha-2 code.
+
+<Props />
+
+<Story of={Stories.Example} />
+
+
+## How to use
+
+- The Flag component accepts a `countryCode` prop, which should be a valid ISO 3166-1 alpha-2 code (e.g. `US`, `FR`, `DE`). The component will render the corresponding flag.
+- The size of the flag can be controlled using either the `height` or `width` prop. By providing one of these props, the other will be automatically calculated to maintain the 4:3 aspect ratio of the flag.
+
+## Accessibility
+
+The `alt` prop is required for the Flag component to ensure accessibility for visually impaired users. However, if the flag is purely decorative and does not convey any additional information, you can set `alt=""` to make it invisible to assistive technology.
