@@ -225,6 +225,7 @@ export {
   ComparisonTable,
   type ComparisonTableProps,
 } from './components/ComparisonTable/ComparisonTable.js';
+export { Flag, type FlagProps } from './components/Flag/Flag.js';
 
 // Brand
 export {
