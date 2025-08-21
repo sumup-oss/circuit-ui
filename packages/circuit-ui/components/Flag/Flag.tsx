@@ -20,9 +20,7 @@ import { clsx } from '../../styles/clsx.js';
 import classes from './Flag.module.css';
 import type { COUNTRIES } from './constants.js';
 
-
-
-export type CountryCode = keyof typeof COUNTRIES;
+type CountryCode = keyof typeof COUNTRIES;
 
 type Dimensions =
   | {
