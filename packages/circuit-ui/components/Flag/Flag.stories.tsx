@@ -31,7 +31,7 @@ export const Base = () => (
       <div key={code} className={classes.wrapper}>
         <Flag
           key={code}
-          countryCode={code.toLowerCase() as FlagProps['countryCode']}
+          countryCode={code.toUpperCase() as FlagProps['countryCode']}
           alt=""
           width={32}
         />
