@@ -118,8 +118,7 @@ export function Icons() {
       },
     );
     const matchesSize = size === 'all' || size === icon.size;
-    const allowedIcon = !icon.skipComponentFile;
-    return matchesKeyword && matchesSize && allowedIcon;
+    return matchesKeyword && matchesSize;
   }) as IconsManifest['icons'];
 
   return (
@@ -236,7 +235,7 @@ function Icon({
         />
       </div>
       <span id={id} className={classes.label}>
-        {componentName}
+        {icon.name}
         <span className={classes.size}>{icon.size}</span>
       </span>
       {icon.deprecation && (
