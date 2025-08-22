@@ -95,7 +95,7 @@
   transform: translate(-50%, -50%) rotate(-30deg);
 }
 
-.copy {
+.actions {
   position: absolute;
   right: 50%;
   bottom: 0;
@@ -103,6 +103,6 @@
   transform: translateX(50%);
 }
 
-.wrapper:hover .copy {
-  display: block;
+.wrapper:hover .actions {
+  display: flex;
 }

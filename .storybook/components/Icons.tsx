@@ -21,7 +21,7 @@ import {
 } from 'react';
 import { Unstyled } from '@storybook/addon-docs/blocks';
 import * as iconComponents from '@sumup-oss/icons';
-import type { IconComponentType } from '@sumup-oss/icons';
+import { getIconURL, type IconComponentType } from '@sumup-oss/icons';
 import type { IconsManifest } from '@sumup-oss/icons';
 import iconsManifest from '@sumup-oss/icons/manifest.json';
 import { Badge } from '../../packages/circuit-ui/components/Badge/Badge.js';
@@ -38,7 +38,7 @@ import { clsx } from '../../packages/circuit-ui/styles/clsx.js';
 import { utilClasses } from '../../packages/circuit-ui/styles/utility.js';
 import { slugify } from '../slugify.js';
 import classes from './Icons.module.css';
-
+import ReactIcon from '../public/images/react.svg';
 function groupBy(
   icons: IconsManifest['icons'],
   key: 'name' | 'category' | 'size',
@@ -218,21 +218,50 @@ function Icon({
       });
   };
 
+  const copyIconReactName = () => {
+    const reactName = getComponentName(icon.name);
+    navigator.clipboard
+      .writeText(reactName)
+      .then(() => {
+        setToast({
+          variant: 'success',
+          body: `Copied the ${icon.name} icon's React name to the clipboard.`,
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+        setToast({
+          variant: 'danger',
+          body: `Failed to copy the ${icon.name} icon's React name to the clipboard.`,
+        });
+      });
+  };
+
   return (
     <div className={classes.wrapper}>
       <div className={clsx(classes['icon-wrapper'], classes[scale])}>
-        <Icon
-          aria-labelledby={id}
-          size={icon.size}
-          className={classes.icon}
-          style={{
-            color,
-            backgroundColor:
-              color === 'var(--cui-fg-on-strong)'
-                ? 'var(--cui-bg-strong)'
-                : 'var(--cui-bg-normal)',
-          }}
-        />
+        {icon.skipComponentFile ? (
+          <img
+            src={getIconURL(icon.name)}
+            aria-labelledby={id}
+            alt={icon.name}
+            height={14}
+            width={18}
+          />
+        ) : (
+          <Icon
+            aria-labelledby={id}
+            size={icon.size}
+            className={classes.icon}
+            style={{
+              color,
+              backgroundColor:
+                color === 'var(--cui-fg-on-strong)'
+                  ? 'var(--cui-bg-strong)'
+                  : 'var(--cui-bg-normal)',
+            }}
+          />
+        )}
       </div>
       <span id={id} className={classes.label}>
         {icon.name}
@@ -254,17 +283,28 @@ function Icon({
           )}
         />
       )}
-      {navigator.clipboard && (
-        <IconButton
-          variant="tertiary"
-          size="s"
-          icon={iconComponents.Link}
-          className={classes.copy}
-          onClick={copyIconURL}
-        >
-          Copy URL
-        </IconButton>
-      )}
+      <div className={classes.actions}>
+        {navigator.clipboard && (
+          <IconButton
+            variant="tertiary"
+            size="s"
+            icon={iconComponents.Link}
+            onClick={copyIconURL}
+          >
+            Copy URL
+          </IconButton>
+        )}
+        {!icon.skipComponentFile && (
+          <IconButton
+            variant="tertiary"
+            size="s"
+            icon={() => <img src={ReactIcon} alt="React Logo" />}
+            onClick={copyIconReactName}
+          >
+            Copy React component name
+          </IconButton>
+        )}
+      </div>
     </div>
   );
 }
