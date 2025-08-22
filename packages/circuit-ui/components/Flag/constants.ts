@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-export const COUNTRIES = {
+export const FLAGS = {
   'ad': 'Andorra',
   'ae': 'United Arab Emirates',
   'af': 'Afghanistan',
@@ -79,6 +79,7 @@ export const COUNTRIES = {
   'er': 'Eritrea',
   'es': 'Spain',
   'et': 'Ethiopia',
+  'eu': 'European Union',
   'fi': 'Finland',
   'fj': 'Fiji',
   'fk': 'Falkland Islands (Malvinas)',

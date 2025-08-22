@@ -19,11 +19,11 @@ import { getIconURL } from '@sumup-oss/icons';
 import { clsx } from '../../styles/clsx.js';
 
 import classes from './Flag.module.css';
-import type { COUNTRIES } from './constants.js';
+import type { FLAGS } from './constants.js';
 
-type CountryCode = Uppercase<keyof typeof COUNTRIES>;
+type CountryCode = Uppercase<keyof typeof FLAGS>;
 
-type FlagName = `flag_${keyof typeof COUNTRIES}`;
+type FlagName = `flag_${keyof typeof FLAGS}`;
 
 type Dimensions =
   | {

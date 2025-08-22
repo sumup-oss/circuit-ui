@@ -16,7 +16,7 @@
 import { Body } from '../Body/index.js';
 
 import { Flag, type FlagProps } from './Flag.js';
-import { COUNTRIES } from './constants.js';
+import { FLAGS } from './constants.js';
 import classes from './FlagStory.module.css';
 
 export default {
@@ -27,7 +27,7 @@ export default {
 
 export const Base = () => (
   <div className={classes.list}>
-    {Object.entries(COUNTRIES).map(([code, name]) => (
+    {Object.entries(FLAGS).map(([code, name]) => (
       <div key={code} className={classes.wrapper}>
         <Flag
           key={code}
