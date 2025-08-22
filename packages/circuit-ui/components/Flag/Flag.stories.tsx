@@ -17,6 +17,7 @@ import { Body } from '../Body/index.js';
 
 import { Flag, type FlagProps } from './Flag.js';
 import { COUNTRIES } from './constants.js';
+import classes from './FlagStory.module.css';
 
 export default {
   title: 'Components/Flag',
@@ -25,31 +26,17 @@ export default {
 };
 
 export const Base = () => (
-  <div
-    style={{
-      display: 'grid',
-      gridTemplateColumns: '1fr 1fr 1fr 1fr',
-      rowGap: 'var(--cui-spacings-giga)',
-    }}
-  >
+  <div className={classes.list}>
     {Object.entries(COUNTRIES).map(([code, name]) => (
-      <div
-        key={code}
-        style={{
-          display: 'flex',
-          justifyContent: 'start',
-          alignItems: 'center',
-          gap: 'var(--cui-spacings-mega)',
-        }}
-      >
+      <div key={code} className={classes.wrapper}>
         <Flag
           key={code}
-          countryCode={code as FlagProps['countryCode']}
+          countryCode={code.toLowerCase() as FlagProps['countryCode']}
           alt=""
           width={32}
         />
         <Body>
-          {name} ({code})
+          {name} ({code.toUpperCase()})
         </Body>
       </div>
     ))}

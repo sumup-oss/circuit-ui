@@ -14,13 +14,16 @@
  */
 
 import { forwardRef, type HTMLAttributes } from 'react';
+import { getIconURL } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
 
 import classes from './Flag.module.css';
 import type { COUNTRIES } from './constants.js';
 
-type CountryCode = keyof typeof COUNTRIES;
+type CountryCode = Uppercase<keyof typeof COUNTRIES>;
+
+type FlagName = `flag_${keyof typeof COUNTRIES}`;
 
 type Dimensions =
   | {
@@ -68,6 +71,8 @@ export const Flag = forwardRef<HTMLImageElement, FlagProps>(
     { countryCode, alt, className, imageClassName, width, height, ...props },
     ref,
   ) => {
+    const flagName = `flag_${countryCode.toLowerCase()}` as FlagName;
+    // default dimensions
     const dimensions = {
       width: '15px',
       height: '11.5px',
@@ -88,7 +93,7 @@ export const Flag = forwardRef<HTMLImageElement, FlagProps>(
           ref={ref}
           className={clsx(classes.base, imageClassName)}
           {...dimensions}
-          src={`https://oss-circuit-ui-git-add-coountry-flags.sumup-vercel.app/icons/v2/flag_${countryCode.toLowerCase()}.svg`}
+          src={getIconURL(flagName)}
           {...props}
           alt={alt}
         />
