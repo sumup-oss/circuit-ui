@@ -100,7 +100,7 @@
   position: absolute;
   width: var(--cui-spacings-exa);
   height: var(--cui-spacings-exa);
-  padding: var(--cui-spacings-kilo) var(--cui-spacings-mega);
+  padding: var(--cui-spacings-mega);
   color: var(--cui-fg-subtle);
   pointer-events: none;
 }
