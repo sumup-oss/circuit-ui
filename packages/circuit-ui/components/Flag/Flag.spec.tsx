@@ -21,7 +21,7 @@ import { axe, render, screen } from '../../util/test-utils.js';
 import { Flag, type FlagProps } from './Flag.js';
 
 describe('Flag', () => {
-  const baseProps: FlagProps = { countryCode: 'fr', alt: 'France' };
+  const baseProps: FlagProps = { countryCode: 'FR', alt: 'France' };
 
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
@@ -39,15 +39,15 @@ describe('Flag', () => {
   });
 
   it('should size the image correctly when given a width', () => {
-    render(<Flag countryCode="de" alt="Germany" width={100} />);
+    render(<Flag countryCode="DE" alt="Germany" width={100} />);
     const image = screen.getByAltText('Germany');
-    expect(image.getAttribute('height')).toBe('77px');
+    expect(image.getAttribute('height')).toBe('75px');
   });
 
   it('should size the image correctly when given a height', () => {
-    render(<Flag countryCode="de" alt="Germany" height={100} />);
+    render(<Flag countryCode="DE" alt="Germany" height={120} />);
     const image = screen.getByAltText('Germany');
-    expect(image.getAttribute('width')).toBe('130px');
+    expect(image.getAttribute('width')).toBe('160px');
   });
 
   it('should have no accessibility violations', async () => {
