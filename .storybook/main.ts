@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-vite';
+import svgr from 'vite-plugin-svgr';
 import path from 'node:path';
 import remarkGfm from 'remark-gfm';
 import { mergeConfig } from 'vite';
@@ -31,6 +32,15 @@ const config: StorybookConfig = {
     options: {},
   },
   async viteFinal(config) {
+    // Add SVGR plugin
+    config.plugins = [
+      ...(config.plugins || []),
+      svgr({
+        // svgr options: https://react-svgr.com/docs/options/
+        include: '**/*.svg',
+      }),
+    ];
+
     return mergeConfig(config, {
       define: {
         'process.env.UNSAFE_DISABLE_ELEMENT_ERRORS': false,
