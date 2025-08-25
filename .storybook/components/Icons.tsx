@@ -298,7 +298,7 @@ function Icon({
           <IconButton
             variant="tertiary"
             size="s"
-            icon={(iconProps) => <ReactIcon {...iconProps} />}
+            icon={ReactIcon}
             onClick={copyIconReactName}
           >
             Copy React component name
