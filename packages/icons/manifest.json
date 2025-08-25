@@ -633,278 +633,323 @@
       "name": "flag_ae",
       "category": "Country flag",
       "keywords": ["United Arab Emirates"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_ar",
       "category": "Country flag",
       "keywords": ["Argentina"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_at",
       "category": "Country flag",
       "keywords": ["Austria"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_au",
       "category": "Country flag",
       "keywords": ["Australia"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_be",
       "category": "Country flag",
       "keywords": ["Belgium"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_bg",
       "category": "Country flag",
       "keywords": ["Bulgaria"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_br",
       "category": "Country flag",
       "keywords": ["Brazil"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_ca",
       "category": "Country flag",
       "keywords": ["Canada"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_ch",
       "category": "Country flag",
       "keywords": ["Switzerland"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_cl",
       "category": "Country flag",
       "keywords": ["Chile"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_co",
       "category": "Country flag",
       "keywords": ["Colombia"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_cy",
       "category": "Country flag",
       "keywords": ["Cypress"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_cz",
       "category": "Country flag",
       "keywords": ["Czech Republic"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_de",
       "category": "Country flag",
       "keywords": ["Germany"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_dk",
       "category": "Country flag",
       "keywords": ["Denmark"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_ee",
       "category": "Country flag",
       "keywords": ["Estonia"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_es",
       "category": "Country flag",
       "keywords": ["Spain"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_fi",
       "category": "Country flag",
       "keywords": ["Finland"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_fr",
       "category": "Country flag",
       "keywords": ["France"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_gb",
       "category": "Country flag",
       "keywords": ["Great Britain", "United Kingdom", "UK", "England"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_gr",
       "category": "Country flag",
       "keywords": ["Greece"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_hk",
       "category": "Country flag",
       "keywords": ["Hong Kong"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_hr",
       "category": "Country flag",
       "keywords": ["Croatia"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_hu",
       "category": "Country flag",
       "keywords": ["Hungary"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_ie",
       "category": "Country flag",
       "keywords": ["Ireland"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_it",
       "category": "Country flag",
       "keywords": ["Italy"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_ja",
       "category": "Country flag",
       "keywords": ["Japan"],
       "size": "16",
-      "deprecation": "Use the `FlagJp` icon instead."
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_jp",
       "category": "Country flag",
       "keywords": ["Japan"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_lt",
       "category": "Country flag",
       "keywords": ["Lithuania"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_lu",
       "category": "Country flag",
       "keywords": ["Luxembourg"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_lv",
       "category": "Country flag",
       "keywords": ["Latvia"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_mt",
       "category": "Country flag",
       "keywords": ["Montenegro"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_mx",
       "category": "Country flag",
       "keywords": ["Mexico"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_my",
       "category": "Country flag",
       "keywords": ["Malaysia"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_nl",
       "category": "Country flag",
       "keywords": ["Netherlands"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_no",
       "category": "Country flag",
       "keywords": ["Norway"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_nz",
       "category": "Country flag",
       "keywords": ["New Zeland"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_pe",
       "category": "Country flag",
       "keywords": ["Peru"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_pl",
       "category": "Country flag",
       "keywords": ["Poland"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_pt",
       "category": "Country flag",
       "keywords": ["Portugal"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_ro",
       "category": "Country flag",
       "keywords": ["Romania"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_se",
       "category": "Country flag",
       "keywords": ["Sweden"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_sg",
       "category": "Country flag",
       "keywords": ["Singapore"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_si",
       "category": "Country flag",
       "keywords": ["Slovenia"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_sk",
       "category": "Country flag",
       "keywords": ["Slovakia"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
     {
       "name": "flag_us",
       "category": "Country flag",
       "keywords": ["United States of America", "USA"],
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the Flag component instead."
     },
 
     {

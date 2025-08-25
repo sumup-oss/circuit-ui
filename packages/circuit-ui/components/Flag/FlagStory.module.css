@@ -1,0 +1,15 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  row-gap: var(--cui-spacings-giga);
+  column-gap: var(--cui-spacings-giga);
+  width: 100vw;
+  padding: var(--cui-spacings-mega);
+}
+
+.wrapper {
+  display: flex;
+  gap: var(--cui-spacings-mega);
+  align-items: center;
+  justify-content: start;
+}
