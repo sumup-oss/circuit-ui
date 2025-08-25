@@ -15,7 +15,7 @@
 
 import { Body } from '../Body/index.js';
 
-import { Flag, type FlagProps } from './Flag.js';
+import { Flag } from './Flag.js';
 import { FLAGS } from './constants.js';
 import classes from './FlagStory.module.css';
 
@@ -25,23 +25,23 @@ export default {
   tags: ['status:stable'],
 };
 
-export const Base = () => (
-  <div className={classes.list}>
-    {Object.entries(FLAGS).map(([code, name]) => (
-      <div key={code} className={classes.wrapper}>
-        <Flag
-          key={code}
-          countryCode={code.toUpperCase() as FlagProps['countryCode']}
-          alt=""
-          width={32}
-        />
-        <Body>
-          {name} ({code.toUpperCase()})
-        </Body>
-      </div>
-    ))}
-  </div>
-);
+export const Base = () => {
+  // eslint-disable-next-line compat/compat
+  const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
+
+  return (
+    <div className={classes.list}>
+      {FLAGS.map((code) => (
+        <div key={code} className={classes.wrapper}>
+          <Flag key={code} countryCode={code} alt="" width={32} />
+          <Body>
+            {regionNames.of(code)} ({code})
+          </Body>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 export const Example = () => (
   <Flag countryCode="PR" alt="Puerto Rico" width={32} />

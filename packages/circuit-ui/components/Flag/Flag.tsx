@@ -21,9 +21,9 @@ import { clsx } from '../../styles/clsx.js';
 import classes from './Flag.module.css';
 import type { FLAGS } from './constants.js';
 
-type CountryCode = Uppercase<keyof typeof FLAGS>;
+type CountryCode = (typeof FLAGS)[number];
 
-type FlagName = `flag_${keyof typeof FLAGS}`;
+type FlagName = `flag_${Lowercase<CountryCode>}`;
 
 type Dimensions =
   | {
