@@ -44,6 +44,8 @@ import { applyMultipleRefs } from '../../util/refs.js';
 import { eachFn } from '../../util/helpers.js';
 import { changeInputValue } from '../../util/input-value.js';
 import { idx } from '../../util/idx.js';
+import { Flag, type FlagProps } from '../Flag/Flag.js';
+import { clsx } from '../../styles/clsx.js';
 
 import {
   getCountryCode,
@@ -187,6 +189,15 @@ export interface PhoneNumberInputProps
     ref?: ForwardedRef<HTMLInputElement>;
   };
 }
+
+const DefaultPrefix: SelectProps['renderPrefix'] = ({ value, className }) =>
+  value ? (
+    <Flag
+      countryCode={value as FlagProps['countryCode']}
+      alt=""
+      className={clsx(className, classes.flag)}
+    />
+  ) : null;
 
 /**
  * Provides a straightforward way for users to type their phone number in an
@@ -408,7 +419,7 @@ export const PhoneNumberInput = forwardRef<
                 countryCodeRef as RefObject<HTMLSelectElement>,
                 countryCode.ref as ForwardedRef<HTMLSelectElement>,
               )}
-              renderPrefix={countryCode.renderPrefix}
+              renderPrefix={countryCode.renderPrefix ?? DefaultPrefix}
             />
           )}
           <Input

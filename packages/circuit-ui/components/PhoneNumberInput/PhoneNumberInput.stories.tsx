@@ -14,9 +14,9 @@
  */
 
 import {
-  FlagCa,
-  FlagDe,
-  FlagUs,
+  Alert,
+  Checkmark,
+  Notify,
   type IconComponentType,
 } from '@sumup-oss/icons';
 import { useState } from 'react';
@@ -39,9 +39,9 @@ export default {
 };
 
 const flagIconMap: { [key: string]: IconComponentType<'16'> } = {
-  CA: FlagCa,
-  US: FlagUs,
-  DE: FlagDe,
+  CA: Checkmark,
+  US: Notify,
+  DE: Alert,
 };
 
 const countryCodeMap: { [key: string]: string } = {
