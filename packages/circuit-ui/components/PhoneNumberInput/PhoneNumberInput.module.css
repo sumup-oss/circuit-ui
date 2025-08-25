@@ -11,6 +11,11 @@
   flex-grow: 1;
 }
 
+.flag {
+  top: var(--cui-spacings-byte);
+  left: var(--cui-spacings-byte);
+}
+
 @media (max-width: 479px) {
   .wrapper {
     flex-direction: column;
