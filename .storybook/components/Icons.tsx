@@ -245,8 +245,8 @@ function Icon({
             src={getIconURL(icon.name)}
             aria-labelledby={id}
             alt={icon.name}
-            height={14}
-            width={18}
+            height={15}
+            width={20}
           />
         ) : (
           <Icon
@@ -298,7 +298,7 @@ function Icon({
           <IconButton
             variant="tertiary"
             size="s"
-            icon={() => <img src={ReactIcon} alt="React Logo" />}
+            icon={(iconProps) => <ReactIcon {...iconProps} />}
             onClick={copyIconReactName}
           >
             Copy React component name
