@@ -74,25 +74,32 @@ export const Flag = forwardRef<HTMLImageElement, FlagProps>(
     const flagName = `flag_${countryCode.toLowerCase()}` as FlagName;
     // default dimensions
     const dimensions = {
-      width: '15px',
-      height: '11.5px',
+      width: 16,
+      height: 12,
     };
     // for a consistent aspect ratio
     if (height) {
-      dimensions.height = `${height}px`;
-      dimensions.width = `${height * ASPECT_RATIO}px`;
+      dimensions.height = height;
+      dimensions.width = height * ASPECT_RATIO;
     }
     if (width) {
-      dimensions.width = `${width}px`;
-      dimensions.height = `${width / ASPECT_RATIO}px`;
+      dimensions.width = width;
+      dimensions.height = width / ASPECT_RATIO;
     }
 
     return (
-      <div className={clsx(classes.wrapper, className)}>
+      <div
+        className={clsx(classes.wrapper, className)}
+        style={{
+          height: Math.max(dimensions.width, dimensions.height),
+          width: Math.max(dimensions.width, dimensions.height),
+        }}
+      >
         <img
           ref={ref}
           className={clsx(classes.base, imageClassName)}
-          {...dimensions}
+          height={`${dimensions.height}px`}
+          width={`${dimensions.width}px`}
           src={getIconURL(flagName)}
           {...props}
           alt={alt}
