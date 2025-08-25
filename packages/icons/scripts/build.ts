@@ -146,6 +146,9 @@ function buildDeclarationFile(components: Component[]): string {
   const exportNames = components
     .filter(({ icons }) => icons.some((icon) => !icon.skipComponentFile))
     .map((component) => component.name);
+  const iconNames = components.map(
+    (component) => `'${component.icons[0].name}'`,
+  );
   const iconSizes = components.map((component) => {
     const iconName = component.icons[0].name;
     const sizes = component.icons.map(({ size }) => `'${size}'`).sort();
@@ -168,9 +171,11 @@ function buildDeclarationFile(components: Component[]): string {
 
     export { ${exportNames.join(', ')} };
 
+    export type IconName = ${iconNames.join(' | ')};
+
     export type IconsManifest = {
       icons: {
-        name: string;
+        name: IconName;
         category: string;
         skipComponentFile?: boolean;
         keywords?: string[];
@@ -183,7 +188,7 @@ function buildDeclarationFile(components: Component[]): string {
       ${iconSizes.join('\n')}
     }
 
-    export function getIconURL<Name extends keyof Icons>(name: Name, size?: Icons[Name]): string;
+    export function getIconURL<Name extends IconName>(name: Name, size?: Icons[Name]): string;
   `;
 }
 
