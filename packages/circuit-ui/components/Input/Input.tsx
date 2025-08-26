@@ -61,7 +61,10 @@ export interface BaseInputProps {
    * Render prop that should render a left-aligned overlay icon or element.
    * Receives a className prop.
    */
-  renderPrefix?: ComponentType<{ className?: string }>;
+  renderPrefix?: ComponentType<{
+    className?: string;
+    value?: InputHTMLAttributes<HTMLInputElement>['value'];
+  }>;
   /**
    * Render prop that should render a right-aligned overlay icon or element.
    * Receives a className prop.
@@ -126,6 +129,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
     {
       value,
+      defaultValue,
       'renderPrefix': RenderPrefix,
       'renderSuffix': RenderSuffix,
       validationHint,
@@ -156,7 +160,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       validationHint && validationHintId,
     );
 
-    const prefix = RenderPrefix && <RenderPrefix className={classes.prefix} />;
+    const prefix = RenderPrefix && (
+      <RenderPrefix value={value ?? defaultValue} className={classes.prefix} />
+    );
     const suffix = RenderSuffix && <RenderSuffix className={classes.suffix} />;
 
     const hasPrefix = Boolean(prefix);
@@ -189,6 +195,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           <Element
             id={inputId}
             value={value}
+            defaultValue={defaultValue}
             // @ts-expect-error The Input component renders as an `input` element
             // by default. The types are overwritten as necessary in the
             // TextArea component.
