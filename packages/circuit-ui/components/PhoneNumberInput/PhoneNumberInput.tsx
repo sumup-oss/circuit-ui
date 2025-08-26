@@ -53,6 +53,7 @@ import {
   normalizePhoneNumber,
   parsePhoneNumber,
   type CountryCodeOption,
+  getCountry,
 } from './PhoneNumberInputService.js';
 import classes from './PhoneNumberInput.module.css';
 
@@ -190,7 +191,10 @@ export interface PhoneNumberInputProps
   };
 }
 
-const DefaultPrefix: SelectProps['renderPrefix'] = ({ value, className }) =>
+const DefaultPrefix: ComponentType<{
+  value?: string | number;
+  className?: string;
+}> = ({ value, className }) =>
   value ? (
     <Flag
       countryCode={value as FlagProps['countryCode']}
@@ -393,7 +397,18 @@ export const PhoneNumberInput = forwardRef<
                 countryCodeRef as RefObject<HTMLInputElement>,
                 countryCode.ref as ForwardedRef<HTMLInputElement>,
               )}
-              renderPrefix={countryCode.renderPrefix}
+              renderPrefix={
+                (countryCode.renderPrefix as InputProps['renderPrefix']) ??
+                (({ value: inputValue, ...rest }) => (
+                  <DefaultPrefix
+                    value={getCountry(
+                      countryCode.options,
+                      inputValue?.toString(),
+                    )}
+                    {...rest}
+                  />
+                ))
+              }
             />
           ) : (
             <Select
