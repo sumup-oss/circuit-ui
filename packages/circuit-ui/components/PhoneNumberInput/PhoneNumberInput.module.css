@@ -14,6 +14,7 @@
 .flag {
   top: var(--cui-spacings-byte);
   left: var(--cui-spacings-byte);
+  display: flex;
 }
 
 @media (max-width: 479px) {
