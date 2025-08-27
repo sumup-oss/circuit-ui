@@ -403,7 +403,7 @@ export const PhoneNumberInput = forwardRef<
                   <DefaultPrefix
                     value={getCountry(
                       countryCode.options,
-                      inputValue?.toString(),
+                      inputValue as string,
                     )}
                     {...rest}
                   />

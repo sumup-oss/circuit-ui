@@ -65,7 +65,9 @@ export type FlagProps = HTMLAttributes<HTMLImageElement> & {
 
 const ASPECT_RATIO = 4 / 3;
 
-// Renders an SVG icon of a flag. Flags are sourced from: https://flagicons.lipis.dev/
+/**
+ * Renders an SVG icon of a flag. Flags are sourced from: https://flagicons.lipis.dev/
+ */
 export const Flag = forwardRef<HTMLImageElement, FlagProps>(
   (
     { countryCode, alt, className, imageClassName, width, height, ...props },
