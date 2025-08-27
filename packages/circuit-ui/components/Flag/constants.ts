@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-export const FLAGS = [
+export const COUNTRIES = [
   'AD',
   'AE',
   'AF',
@@ -38,13 +38,14 @@ export const FLAGS = [
   'BH',
   'BI',
   'BJ',
+  'BL',
   'BM',
   'BN',
   'BO',
-  'BQ',
   'BR',
   'BS',
   'BT',
+  'BV',
   'BW',
   'BY',
   'BZ',
@@ -76,10 +77,10 @@ export const FLAGS = [
   'EC',
   'EE',
   'EG',
+  'EH',
   'ER',
   'ES',
   'ET',
-  'EU',
   'FI',
   'FJ',
   'FK',
@@ -106,6 +107,7 @@ export const FLAGS = [
   'GW',
   'GY',
   'HK',
+  'HM',
   'HN',
   'HR',
   'HT',
@@ -219,7 +221,6 @@ export const FLAGS = [
   'SS',
   'ST',
   'SV',
-  'SX',
   'SY',
   'SZ',
   'TC',
@@ -259,3 +260,18 @@ export const FLAGS = [
   'ZM',
   'ZW',
 ] as const;
+
+export const TERRITORIES = [
+  'AQ',
+  'BQ',
+  'CP',
+  'DG',
+  'IC',
+  'MF',
+  'SX',
+  'UM',
+] as const;
+
+export const SPECIAL_FLAGS = ['EU', 'UN', 'XX', 'PC'] as const;
+
+export const FLAGS = [...COUNTRIES, ...TERRITORIES, ...SPECIAL_FLAGS] as const;
