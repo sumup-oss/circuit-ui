@@ -1,5 +1,31 @@
 # @sumup-oss/icons
 
+## 5.19.0
+
+### Minor Changes
+
+- [#3248](https://github.com/sumup-oss/circuit-ui/pull/3248) [`28d78de`](https://github.com/sumup-oss/circuit-ui/commit/28d78deb75311346600e17bea603b4501ec95cd8) Thanks [@connor-baer](https://github.com/connor-baer)! - Marked the React component exports of the icons in the "Card scheme" and "Payment method" categories as deprecated. [Load them from a URL instead](https://circuit.sumup.com/?path=/docs/packages-icons--docs#load-from-a-url).
+
+- [#3244](https://github.com/sumup-oss/circuit-ui/pull/3244) [`feb9c17`](https://github.com/sumup-oss/circuit-ui/commit/feb9c17c0a020e06686d426f26ef62c7b5c9b890) Thanks [@sirineJ](https://github.com/sirineJ)! - Marked icons from the "Country flag" category as deprecated. Use the Flag component from Circuit UI instead.
+
+  ```diff
+  -import { FlagFr } from '@sumup-oss/icons';
+  +import { Flag } from '@sumup/circuit-ui';
+
+  function Example() {
+    return (
+      <>
+  -      {/* Deprecated icon usage */}
+  -      <FlagFr size="16" />
+
+  +      {/* Recommended usage with the Flag component */}
+  +      <Flag countryCode="FR"/>
+      </>
+    );
+  }
+
+  ```
+
 ## 5.18.0
 
 ### Minor Changes
