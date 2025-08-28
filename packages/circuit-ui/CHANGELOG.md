@@ -1,5 +1,19 @@
 # @sumup-oss/circuit-ui
 
+## 10.10.0
+
+### Minor Changes
+
+- [#3241](https://github.com/sumup-oss/circuit-ui/pull/3241) [`34ef860`](https://github.com/sumup-oss/circuit-ui/commit/34ef860d43380757d99baf83c623a2db8b9b6c28) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a default value to the PhoneNumberInput's `renderPrefix` property of the `countryCode` prop, displaying the country's[flag](https://circuit.sumup.com/?path=/docs/components-flag--docs).
+
+- [#3241](https://github.com/sumup-oss/circuit-ui/pull/3241) [`34ef860`](https://github.com/sumup-oss/circuit-ui/commit/34ef860d43380757d99baf83c623a2db8b9b6c28) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a new Flag component that displays country flags based on ISO 3166-1 alpha-2 codes.
+
+### Patch Changes
+
+- [#3241](https://github.com/sumup-oss/circuit-ui/pull/3241) [`34ef860`](https://github.com/sumup-oss/circuit-ui/commit/34ef860d43380757d99baf83c623a2db8b9b6c28) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the Input component's `renderPrefix` prop to accept an optional `value` argument. This enhancement aligns it with the Select component's `renderPrefix` prop, allowing for more dynamic and context-aware prefix rendering based on the current input value.
+
+- [#3241](https://github.com/sumup-oss/circuit-ui/pull/3241) [`34ef860`](https://github.com/sumup-oss/circuit-ui/commit/34ef860d43380757d99baf83c623a2db8b9b6c28) Thanks [@sirineJ](https://github.com/sirineJ)! - Changed Input's prefix padding to match the Select component's.
+
 ## 10.9.2
 
 ### Patch Changes
