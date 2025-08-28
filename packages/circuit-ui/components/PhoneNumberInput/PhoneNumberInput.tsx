@@ -44,6 +44,7 @@ import { applyMultipleRefs } from '../../util/refs.js';
 import { eachFn } from '../../util/helpers.js';
 import { changeInputValue } from '../../util/input-value.js';
 import { idx } from '../../util/idx.js';
+import { Flag, type FlagProps } from '../Flag/Flag.js';
 
 import {
   getCountryCode,
@@ -51,6 +52,7 @@ import {
   normalizePhoneNumber,
   parsePhoneNumber,
   type CountryCodeOption,
+  getCountry,
 } from './PhoneNumberInputService.js';
 import classes from './PhoneNumberInput.module.css';
 
@@ -187,6 +189,14 @@ export interface PhoneNumberInputProps
     ref?: ForwardedRef<HTMLInputElement>;
   };
 }
+
+const DefaultPrefix: ComponentType<{
+  value?: string | number;
+  className?: string;
+}> = ({ value, ...rest }) =>
+  value ? (
+    <Flag countryCode={value as FlagProps['countryCode']} alt="" {...rest} />
+  ) : null;
 
 /**
  * Provides a straightforward way for users to type their phone number in an
@@ -382,7 +392,18 @@ export const PhoneNumberInput = forwardRef<
                 countryCodeRef as RefObject<HTMLInputElement>,
                 countryCode.ref as ForwardedRef<HTMLInputElement>,
               )}
-              renderPrefix={countryCode.renderPrefix}
+              renderPrefix={
+                (countryCode.renderPrefix as InputProps['renderPrefix']) ??
+                (({ value: inputValue, ...rest }) => (
+                  <DefaultPrefix
+                    value={getCountry(
+                      countryCode.options,
+                      inputValue as string,
+                    )}
+                    {...rest}
+                  />
+                ))
+              }
             />
           ) : (
             <Select
@@ -408,7 +429,7 @@ export const PhoneNumberInput = forwardRef<
                 countryCodeRef as RefObject<HTMLSelectElement>,
                 countryCode.ref as ForwardedRef<HTMLSelectElement>,
               )}
-              renderPrefix={countryCode.renderPrefix}
+              renderPrefix={countryCode.renderPrefix ?? DefaultPrefix}
             />
           )}
           <Input

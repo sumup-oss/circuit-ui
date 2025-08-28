@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@supports not (aspect-ratio: 1 / 1) {
+  .wrapper {
+    height: var(--flag-wrapper-height);
+  }
+}
+
+@supports (aspect-ratio: 1 / 1) {
+  .wrapper {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.base {
+  border: 0.5px solid #ccc;
+  border-radius: 2px;
+}

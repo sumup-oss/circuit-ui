@@ -169,3 +169,11 @@ export function getCountryCode(
   const option = options.find((o) => o.country === country);
   return option ? option.code : country;
 }
+
+export function getCountry(
+  options: CountryCodeOption[],
+  code: string | undefined,
+) {
+  const option = options.find((o) => o.code === code);
+  return option?.country;
+}

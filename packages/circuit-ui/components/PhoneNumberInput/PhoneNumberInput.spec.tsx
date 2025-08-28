@@ -15,6 +15,7 @@
 
 import { describe, it, vi, expect } from 'vitest';
 import { createRef, useState, type ChangeEvent } from 'react';
+import { getIconURL } from '@sumup-oss/icons';
 
 import { axe, render, screen, userEvent } from '../../util/test-utils.js';
 
@@ -173,6 +174,16 @@ describe('PhoneNumberInput', () => {
     expect(input).toHaveValue('+4912345678');
     expect(countryCode).toHaveValue('DE');
     expect(subscriberNumber).toHaveValue('12345678');
+  });
+
+  it('should display a default flag prefix', () => {
+    const props = {
+      ...defaultProps,
+      value: '+4912345678',
+    };
+    render(<PhoneNumberInput {...props} />);
+    const flag = screen.getByRole('presentation');
+    expect(flag).toHaveAttribute('src', getIconURL('flag_de'));
   });
 
   it('should update the displayed value', () => {

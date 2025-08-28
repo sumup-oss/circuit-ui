@@ -74,7 +74,6 @@
 .prefix {
   position: absolute;
   z-index: calc(var(--cui-z-index-input) + 1);
-  display: block;
   width: var(--cui-spacings-exa);
   height: var(--cui-spacings-exa);
   padding: var(--cui-spacings-mega);

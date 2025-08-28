@@ -50,12 +50,12 @@ Use the `optionalLabel` prop to indicate that the field is optional. This can he
 
 ## Disabled
 
-You should use only when its a critical information from the user that we already have or need and we do not want the user to edit it easily. A disabled field should only be open for editing again if a user event is triggered.
+You should use only when the value is a critical information from the user that we already have and we do not want the user to edit it easily. A disabled field should only be open for editing again if a user event is triggered.
 
 <Story of={Stories.Disabled} />
 
 ## With Prefix
 
-Use the `renderPrefix` prop to add a small prefix to the country code selected input field. This can be useful for adding a flag icon, which can help the user recognize the selected country.
+Use the `renderPrefix` prop to add a small prefix to the country code selected input field. By default, the component will display the selected country's [Flag](Components/Flag/Docs). You can override that behavior by providing your own prefix component.
 
 <Story of={Stories.WithPrefix} />
