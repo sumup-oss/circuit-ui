@@ -82,7 +82,13 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
       <Input
         value={value}
         type="search"
-        renderPrefix={(renderProps) => <Search size="16" {...renderProps} />}
+        renderPrefix={(prefixProps) => (
+          <Search
+            size="16"
+            className={prefixProps.className}
+            aria-hidden="true"
+          />
+        )}
         {...(value && onClear && clearLabel
           ? {
               renderSuffix: (renderProps) => (
