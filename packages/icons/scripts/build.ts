@@ -45,14 +45,26 @@ type Component = {
   deprecation?: string;
 };
 
-function createDeprecationComment(deprecation?: string) {
-  if (!deprecation) {
-    return '';
-  }
-  return `
+const DEPRECATED_CATEGORIES = ['Card scheme', 'Payment method'];
+
+function createDeprecationComment(component: Component) {
+  if (component.deprecation) {
+    return `
     /**
-     * @deprecated ${deprecation}
+     * @deprecated ${component.deprecation}
      */`;
+  }
+  if (
+    component.icons.some((icon) =>
+      DEPRECATED_CATEGORIES.includes(icon.category),
+    )
+  ) {
+    return `
+    /**
+     * @deprecated This icon is too heavy to be inlined as a React component. [Load it from a URL instead](https://circuit.sumup.com/?path=/docs/packages-icons--docs#load-from-a-url).
+     */`;
+  }
+  return '';
 }
 
 function getComponentName(name: string): string {
@@ -97,7 +109,7 @@ function buildComponentFile(component: Component): string {
       ${sizeMap.join('\n')}
     }
 
-    ${createDeprecationComment(component.deprecation)}
+    ${createDeprecationComment(component)}
     export function ${component.name}({ size = '${defaultSize}', ...props }) {
       const Icon = sizeMap[size] || sizeMap['${defaultSize}'];
 
@@ -140,7 +152,7 @@ function buildDeclarationFile(components: Component[]): string {
       const sizes = component.icons.map(({ size }) => `'${size}'`).sort();
       const SizesType = sizes.join(' | ');
       return `
-      ${createDeprecationComment(component.deprecation)}
+      ${createDeprecationComment(component)}
       declare const ${component.name}: IconComponentType<${SizesType}>;`;
     });
   const exportNames = components
