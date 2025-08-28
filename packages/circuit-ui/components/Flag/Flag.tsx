@@ -14,7 +14,7 @@
  */
 
 import { forwardRef, type HTMLAttributes } from 'react';
-import { getIconURL } from '@sumup-oss/icons';
+import { getIconURL, type IconName } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
 
@@ -22,8 +22,6 @@ import classes from './Flag.module.css';
 import type { FLAGS } from './constants.js';
 
 type CountryCode = (typeof FLAGS)[number];
-
-type FlagName = `flag_${Lowercase<CountryCode>}`;
 
 type Dimensions =
   | {
@@ -73,7 +71,7 @@ export const Flag = forwardRef<HTMLImageElement, FlagProps>(
     { countryCode, alt, className, imageClassName, width, height, ...props },
     ref,
   ) => {
-    const flagName = `flag_${countryCode.toLowerCase()}` as FlagName;
+    const flagName = `flag_${countryCode.toLowerCase()}` as IconName;
     // default dimensions
     const dimensions = {
       width: 16,
