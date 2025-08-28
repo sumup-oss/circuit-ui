@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 5.18.0
+
+### Minor Changes
+
+- [#3245](https://github.com/sumup-oss/circuit-ui/pull/3245) [`08a72e6`](https://github.com/sumup-oss/circuit-ui/commit/08a72e68d60a0afc102f2e3cdb3dc9e4e0827a31) Thanks [@connor-baer](https://github.com/connor-baer)! - Added an `IconName` type export which holds a union of the raw icon names in snake case, matching the icon names expected by the `getIconURL` helper.
+
 ## 5.17.0
 
 ### Minor Changes
