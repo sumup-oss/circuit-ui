@@ -45,7 +45,6 @@ import { eachFn } from '../../util/helpers.js';
 import { changeInputValue } from '../../util/input-value.js';
 import { idx } from '../../util/idx.js';
 import { Flag, type FlagProps } from '../Flag/Flag.js';
-import { clsx } from '../../styles/clsx.js';
 
 import {
   getCountryCode,
@@ -194,13 +193,9 @@ export interface PhoneNumberInputProps
 const DefaultPrefix: ComponentType<{
   value?: string | number;
   className?: string;
-}> = ({ value, className }) =>
+}> = ({ value, ...rest }) =>
   value ? (
-    <Flag
-      countryCode={value as FlagProps['countryCode']}
-      alt=""
-      className={clsx(className, classes.flag)}
-    />
+    <Flag countryCode={value as FlagProps['countryCode']} alt="" {...rest} />
   ) : null;
 
 /**

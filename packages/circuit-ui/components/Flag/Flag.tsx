@@ -93,8 +93,7 @@ export const Flag = forwardRef<HTMLImageElement, FlagProps>(
       <div
         className={clsx(classes.wrapper, className)}
         style={{
-          height: dimensions.width,
-          width: dimensions.width,
+          '--flag-wrapper-height': `${dimensions.width}px`,
         }}
       >
         <img
