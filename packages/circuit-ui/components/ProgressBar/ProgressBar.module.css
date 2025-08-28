@@ -65,8 +65,8 @@
   border-radius: var(--cui-border-radius-pill);
   animation-name: one;
   animation-duration: var(--pagination-animation-duration);
-  animation-play-state: var(--pagination-animation-play-state);
   animation-fill-mode: forwards;
+  animation-play-state: var(--pagination-animation-play-state);
 }
 
 .base:not([aria-valuenow])[data-loop]::after {

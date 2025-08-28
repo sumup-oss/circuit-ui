@@ -37,15 +37,15 @@
 .animate-in {
   animation-name: slide-in;
   animation-duration: var(--slide-animation-duration);
-  animation-fill-mode: forwards;
   animation-timing-function: var(--cui-transitions-slow);
+  animation-fill-mode: forwards;
 }
 
 .animate-out {
   animation-name: slide-out;
   animation-duration: var(--slide-animation-duration);
-  animation-fill-mode: forwards;
   animation-timing-function: var(--cui-transitions-slow);
+  animation-fill-mode: forwards;
 }
 
 .content {
