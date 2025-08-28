@@ -35,7 +35,7 @@ export const Base = () => {
         <div key={code} className={classes.wrapper}>
           <Flag key={code} countryCode={code} alt="" width={32} />
           <Body>
-            {regionNames.of(code)} ({code})
+            {code === 'XX' ? 'Unknown' : regionNames.of(code)} ({code})
           </Body>
         </div>
       ))}
