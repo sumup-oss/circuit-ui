@@ -9,7 +9,7 @@
   overflow: hidden;
   white-space: nowrap;
   border: 0;
-  clip: rect(0 0 0 0);
+  clip-path: rect(0 0 0 0);
 }
 
 /* Sizes */

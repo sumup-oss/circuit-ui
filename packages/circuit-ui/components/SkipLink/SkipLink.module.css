@@ -10,7 +10,7 @@
   overflow: hidden;
   white-space: nowrap;
   background-color: var(--cui-bg-accent);
-  clip: rect(0 0 0 0);
+  clip-path: rect(0 0 0 0);
   transform: translateX(-100vw);
   transition: transform var(--cui-transitions-default);
 
@@ -18,7 +18,7 @@
   &:hover {
     width: auto;
     height: auto;
-    clip: unset;
+    clip-path: unset;
     transform: translateX(0);
   }
 }
