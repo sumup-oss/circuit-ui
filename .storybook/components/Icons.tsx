@@ -182,6 +182,8 @@ export function Icons() {
   );
 }
 
+const DEPRECATED_CATEGORIES = ['Card scheme', 'Payment method'];
+
 function Icon({
   icon,
   scale,
@@ -219,20 +221,19 @@ function Icon({
   };
 
   const copyIconReactName = () => {
-    const reactName = getComponentName(icon.name);
     navigator.clipboard
-      .writeText(reactName)
+      .writeText(componentName)
       .then(() => {
         setToast({
           variant: 'success',
-          body: `Copied the ${icon.name} icon's React name to the clipboard.`,
+          body: `Copied the ${componentName} React component name to the clipboard.`,
         });
       })
       .catch((error) => {
         console.error(error);
         setToast({
           variant: 'danger',
-          body: `Failed to copy the ${icon.name} icon's React name to the clipboard.`,
+          body: `Failed to copy the ${componentName} React component name to the clipboard.`,
         });
       });
   };
@@ -294,16 +295,17 @@ function Icon({
             Copy URL
           </IconButton>
         )}
-        {!icon.skipComponentFile && (
-          <IconButton
-            variant="tertiary"
-            size="s"
-            icon={ReactIcon}
-            onClick={copyIconReactName}
-          >
-            Copy React component name
-          </IconButton>
-        )}
+        {!icon.skipComponentFile &&
+          !DEPRECATED_CATEGORIES.includes(icon.category) && (
+            <IconButton
+              variant="tertiary"
+              size="s"
+              icon={ReactIcon}
+              onClick={copyIconReactName}
+            >
+              Copy React component name
+            </IconButton>
+          )}
       </div>
     </div>
   );
