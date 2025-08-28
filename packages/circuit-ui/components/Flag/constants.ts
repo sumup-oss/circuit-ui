@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-export const COUNTRIES = [
+const COUNTRIES = [
   'AD',
   'AE',
   'AF',
@@ -261,17 +261,8 @@ export const COUNTRIES = [
   'ZW',
 ] as const;
 
-export const TERRITORIES = [
-  'AQ',
-  'BQ',
-  'CP',
-  'DG',
-  'IC',
-  'MF',
-  'SX',
-  'UM',
-] as const;
+const TERRITORIES = ['AQ', 'BQ', 'CP', 'DG', 'IC', 'MF', 'SX', 'UM'] as const;
 
-export const SPECIAL_FLAGS = ['EU', 'UN', 'XX', 'PC'] as const;
+const SPECIAL_FLAGS = ['EU', 'UN', 'XX', 'PC'] as const;
 
 export const FLAGS = [...COUNTRIES, ...TERRITORIES, ...SPECIAL_FLAGS] as const;
