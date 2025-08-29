@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.10.1
+
+### Patch Changes
+
+- [#3250](https://github.com/sumup-oss/circuit-ui/pull/3250) [`772f89a`](https://github.com/sumup-oss/circuit-ui/commit/772f89ac5b56b6ca918d51b474cd803fc3142729) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed invalid HTML attributes from the CurrencyInput and SearchInput's prefix elements.
+
 ## 10.10.0
 
 ### Minor Changes
