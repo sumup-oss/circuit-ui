@@ -120,7 +120,6 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
       currencyPosition === 'prefix'
         ? (prefixProps: { className?: string }) => (
             <span
-              {...prefixProps}
               className={clsx(prefixProps.className, classes.currency)}
               id={currencySymbolId}
             >
