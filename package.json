@@ -44,7 +44,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@changesets/changelog-github": "^0.5.1",
-    "@changesets/cli": "^2.29.5",
+    "@changesets/cli": "^2.29.6",
     "@emotion/eslint-plugin": "^11.12.0",
     "@storybook/addon-a11y": "^9.0.14",
     "@storybook/addon-docs": "^9.0.14",
