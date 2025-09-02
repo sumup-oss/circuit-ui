@@ -21,8 +21,10 @@ import { Headline } from '../Headline/index.js';
 import { Button } from '../Button/index.js';
 
 import type { TabsProps } from './Tabs.js';
-
-import { Tabs, TabList, TabPanel, Tab } from './index.js';
+import { Tabs } from './Tabs.js';
+import { TabList } from './components/TabList/TabList.js';
+import { TabPanel } from './components/TabPanel/TabPanel.js';
+import { Tab } from './components/Tab/Tab.js';
 
 export default {
   title: 'Navigation/Tabs',

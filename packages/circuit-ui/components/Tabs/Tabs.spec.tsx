@@ -17,9 +17,9 @@ import { describe, expect, it } from 'vitest';
 
 import { axe, render, screen, userEvent } from '../../util/test-utils.js';
 
-import { TabPanel } from './components/TabPanel/index.js';
-import { TabList } from './components/TabList/index.js';
-import { Tab } from './components/Tab/index.js';
+import { TabPanel } from './components/TabPanel/TabPanel.js';
+import { TabList } from './components/TabList/TabList.js';
+import { Tab } from './components/Tab/Tab.js';
 import { Tabs } from './Tabs.js';
 
 describe('Tabs', () => {
