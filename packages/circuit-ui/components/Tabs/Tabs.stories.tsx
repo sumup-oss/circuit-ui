@@ -19,6 +19,7 @@ import { ArrowLeft, ExternalLink } from '@sumup-oss/icons';
 import { Body } from '../Body/index.js';
 import { Headline } from '../Headline/index.js';
 import { Button } from '../Button/index.js';
+import { modes } from '../../../../.storybook/modes.js';
 
 import type { TabsProps } from './Tabs.js';
 import { Tabs } from './Tabs.js';
@@ -33,6 +34,12 @@ export default {
   tags: ['status:under-review'],
   parameters: {
     layout: 'fullscreen',
+    chromatic: {
+      modes: {
+        mobile: modes.smallMobile,
+        desktop: modes.desktop,
+      },
+    },
   },
 };
 
