@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { axe, render, screen, userEvent } from '../../util/test-utils.js';
 
@@ -23,6 +23,9 @@ import { Tab } from './components/Tab/Tab.js';
 import { Tabs } from './Tabs.js';
 
 describe('Tabs', () => {
+  beforeAll(() => {
+    HTMLElement.prototype.scrollIntoView = vi.fn();
+  });
   it('should switch panels on tab click', async () => {
     render(
       <Tabs
