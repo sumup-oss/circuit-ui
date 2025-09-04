@@ -8,7 +8,7 @@
 
 .wrapper {
   padding: 0;
-  vertical-align: bottom;
+  vertical-align: top;
 }
 
 .title {
@@ -32,7 +32,6 @@
 
 @media (min-width: 768px) {
   .base {
-    min-height: 96px;
     padding: 0 var(--cui-spacings-mega);
   }
 
