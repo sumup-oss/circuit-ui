@@ -33,6 +33,10 @@ import { isArrowLeft, isArrowRight } from '../../../../util/key-codes.js';
 import classes from './TabList.module.css';
 
 export interface TabListProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * If true, the tabs will stretch to fill the width of their container.
+   * @default false
+   */
   stretched?: boolean;
 }
 
