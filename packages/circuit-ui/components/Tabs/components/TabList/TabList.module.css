@@ -30,9 +30,9 @@
   content: none;
   background: linear-gradient(
     90deg,
-    color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent),
-    color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
-    color-mix(in sRGB, var(--cui-bg-elevated) 1%, transparent)
+    color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent),
+    color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
+    color-mix(in sRGB, var(--cui-bg-normal) 1%, transparent)
   );
 }
 
