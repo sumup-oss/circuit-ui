@@ -87,6 +87,16 @@ const tabs = [
     tab: 'Tab 4',
     panel: <ContentWithInteractiveElements index={4} />,
   },
+  {
+    id: 'five',
+    tab: 'Tab 5',
+    panel: <ContentWithInteractiveElements index={5} />,
+  },
+  {
+    id: 'six',
+    tab: 'Tab 6',
+    panel: <ContentWithInteractiveElements index={6} />,
+  },
 ];
 
 export const Base = (args: TabsProps) => <Tabs {...args} />;
