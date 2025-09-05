@@ -17,7 +17,6 @@ import { Tab } from '../Tab/Tab.js';
 
 import { TabList } from './TabList.js';
 
-
 export default {
   title: 'Navigation/Tabs/TabList',
   component: TabList,

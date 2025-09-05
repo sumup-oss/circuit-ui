@@ -17,7 +17,6 @@ import { Body } from '../../../Body/index.js';
 
 import { TabPanel } from './TabPanel.js';
 
-
 export default {
   title: 'Navigation/Tabs/TabPanel',
   component: TabPanel,
