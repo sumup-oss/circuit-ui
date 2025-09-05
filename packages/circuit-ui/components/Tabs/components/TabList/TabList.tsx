@@ -118,11 +118,8 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
       (event) => {
         onClick?.(event);
         const target = event.target as HTMLDivElement;
-        const activeTab = tabListRef.current?.querySelector<HTMLElement>(
-          '[role="tab"][aria-selected="true"]',
-        );
-        if (target.role === 'tab' && activeTab) {
-          updateGliderStyles(activeTab);
+        if (target.role === 'tab') {
+          updateGliderStyles(target);
         }
       },
       [onClick, updateGliderStyles],

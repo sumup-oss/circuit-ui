@@ -113,18 +113,20 @@ Base.args = {
   stretched: false,
 };
 
+export const Stretched = (args: TabsProps) => <Tabs {...args} />;
+
+Stretched.args = {
+  items: tabs,
+  stretched: true,
+};
+
 export const Links = () => (
   <TabList>
     <Tab selected>Home</Tab>
-    <Tab href="https://github.com/sumup-oss/circuit-ui" target="_blank">
-      GitHub
+    <Tab href="#posts" target="">
+      Posts
     </Tab>
-    <Tab
-      href="https://www.npmjs.com/package/@sumup-oss/circuit-ui"
-      target="_blank"
-    >
-      NPM
-    </Tab>
+    <Tab href="#reviews">Reviews</Tab>
   </TabList>
 );
 
