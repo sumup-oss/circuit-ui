@@ -114,13 +114,15 @@ export type {
   SecondaryGroupProps,
   SecondaryLinkProps,
 } from './components/SideNavigation/index.js';
-export { Tabs, TabList, TabPanel, Tab } from './components/Tabs/index.js';
-export type {
-  TabsProps,
-  TabListProps,
-  TabPanelProps,
-  TabProps,
-} from './components/Tabs/index.js';
+
+export { Tabs } from './components/Tabs/Tabs.js';
+export type { TabsProps } from './components/Tabs/Tabs.js';
+export { Tab } from './components/Tabs/components/Tab/Tab.js';
+export type { TabProps } from './components/Tabs/components/Tab/Tab.js';
+export { TabPanel } from './components/Tabs/components/TabPanel/TabPanel.js';
+export type { TabPanelProps } from './components/Tabs/components/TabPanel/TabPanel.js';
+export { TabList } from './components/Tabs/components/TabList/TabList.js';
+export type { TabListProps } from './components/Tabs/components/TabList/TabList.js';
 export { SkipLink } from './components/SkipLink/index.js';
 export type { SkipLinkProps } from './components/SkipLink/index.js';
 // Miscellaneous

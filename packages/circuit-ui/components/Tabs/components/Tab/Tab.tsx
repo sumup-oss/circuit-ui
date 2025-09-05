@@ -27,17 +27,16 @@ import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './Tab.module.css';
 
-interface BaseProps {
-  /**
-   * Triggers selected styles of the component
-   */
-  selected?: boolean;
-}
-
 type LinkElProps = AnchorHTMLAttributes<HTMLAnchorElement>;
 type ButtonElProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
-export type TabProps = BaseProps & LinkElProps & ButtonElProps;
+export type TabProps = LinkElProps &
+  ButtonElProps & {
+    /**
+     * Triggers selected styles of the component
+     */
+    selected?: boolean;
+  };
 
 const tabIndex = (selected: boolean) => (selected ? undefined : -1);
 
