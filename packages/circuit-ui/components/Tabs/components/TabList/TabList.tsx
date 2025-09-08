@@ -46,22 +46,10 @@ const MOBILE_AUTOSTRETCH_ITEMS_MAX = 3;
  * TabList component that wraps the Tab components
  */
 export const TabList = forwardRef<HTMLDivElement, TabListProps>(
-  (
-    {
-      className,
-      style = {},
-      stretched,
-      children,
-      onClick,
-      onKeyDown,
-      ...props
-    },
-    ref,
-  ) => {
+  ({ className, stretched, children, onClick, onKeyDown, ...props }, ref) => {
     const gliderRef = useRef<HTMLSpanElement>(null);
     const tabListRef = useRef<HTMLDivElement>(null);
     const numberOfTabs = Children.toArray(children).length;
-    const tabWidth = Math.floor(100 / numberOfTabs);
     const stretchOnMobile = numberOfTabs <= MOBILE_AUTOSTRETCH_ITEMS_MAX;
 
     const updateGliderStyles = useCallback((tab: HTMLElement) => {
@@ -74,6 +62,10 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
     }, []);
 
     useEffect(() => {
+      tabListRef.current?.style.setProperty(
+        '--tab-list-width',
+        `${tabListRef.current.getBoundingClientRect().width / numberOfTabs}px`,
+      );
       // apply initial styles to glider
       if (tabListRef.current && gliderRef.current) {
         const activeTab = tabListRef.current.querySelector<HTMLElement>(
@@ -84,7 +76,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
           activeTab.scrollIntoView({ behavior: 'smooth', inline: 'start' });
         }
       }
-    }, [updateGliderStyles]);
+    }, [updateGliderStyles, numberOfTabs]);
 
     useEffect(() => {
       // shows / hides scroll indicators
@@ -140,11 +132,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
       [onKeyDown, updateGliderStyles],
     );
     return (
-      <div
-        ref={ref}
-        className={clsx(classes.wrapper, className)}
-        style={{ ...style, '--tab-list-width': tabWidth }}
-      >
+      <div ref={ref} className={clsx(classes.wrapper, className)}>
         {/* eslint-disable-next-line  jsx-a11y/interactive-supports-focus */}
         <div
           ref={tabListRef}
@@ -152,6 +140,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
             classes.base,
             utilClasses.hideScrollbar,
             stretched && classes.stretched,
+
             stretchOnMobile && classes['stretched-mobile'],
           )}
           {...props}
