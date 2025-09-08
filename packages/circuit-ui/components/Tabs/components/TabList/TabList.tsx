@@ -42,6 +42,11 @@ export interface TabListProps extends HTMLAttributes<HTMLDivElement> {
 
 const MOBILE_AUTOSTRETCH_ITEMS_MAX = 3;
 
+const getCurrentTab = (node?: HTMLElement | null) =>
+  node
+    ? node.querySelector<HTMLElement>('[role="tab"][aria-selected="true"]')
+    : undefined;
+
 /**
  * TabList component that wraps the Tab components
  */
@@ -62,20 +67,30 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
     }, []);
 
     useEffect(() => {
+      // scrolls the active tab into view on initial render
+      const activeTab = getCurrentTab(tabListRef.current);
+      activeTab?.scrollIntoView({ behavior: 'smooth', inline: 'start' });
+    }, []);
+
+    useEffect(() => {
       tabListRef.current?.style.setProperty(
         '--tab-list-width',
         `${tabListRef.current.getBoundingClientRect().width / numberOfTabs}px`,
       );
-      // apply initial styles to glider
-      if (tabListRef.current && gliderRef.current) {
-        const activeTab = tabListRef.current.querySelector<HTMLElement>(
-          '[role="tab"][aria-selected="true"]',
-        );
-        if (activeTab) {
-          updateGliderStyles(activeTab);
-          activeTab.scrollIntoView({ behavior: 'smooth', inline: 'start' });
+      const gliderCallback = () => {
+        if (tabListRef.current && gliderRef.current) {
+          const activeTab = getCurrentTab(tabListRef.current);
+          if (activeTab) {
+            updateGliderStyles(activeTab);
+          }
         }
-      }
+      };
+      // apply initial styles to glider
+      gliderCallback();
+
+      // listen to resize events
+      window.addEventListener('resize', gliderCallback);
+      return () => window.removeEventListener('resize', gliderCallback);
     }, [updateGliderStyles, numberOfTabs]);
 
     useEffect(() => {
