@@ -63,3 +63,13 @@
 .promo {
   color: var(--cui-fg-promo);
 }
+
+/* Decorations & styles */
+
+.italic {
+  font-style: italic;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
