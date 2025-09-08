@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.10.2
+
+### Patch Changes
+
+- [#3273](https://github.com/sumup-oss/circuit-ui/pull/3273) [`23d5381`](https://github.com/sumup-oss/circuit-ui/commit/23d53811faa213ba3da4617bdc0736820d99a376) Thanks [@oalpatov](https://github.com/oalpatov)! - Adjusted the alignment of table header content in the ComparisonTable component.
+
 ## 10.10.1
 
 ### Patch Changes
