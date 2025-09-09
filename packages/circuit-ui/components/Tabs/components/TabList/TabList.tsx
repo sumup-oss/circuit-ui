@@ -69,7 +69,9 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
     useEffect(() => {
       // scrolls the active tab into view on initial render
       const activeTab = getCurrentTab(tabListRef.current);
-      activeTab?.scrollIntoView({ behavior: 'smooth', inline: 'start' });
+      if (tabListRef.current && activeTab) {
+        tabListRef.current.scrollLeft += activeTab.offsetLeft;
+      }
     }, []);
 
     useEffect(() => {
