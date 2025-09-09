@@ -43,6 +43,13 @@ export interface NumeralProps extends HTMLAttributes<HTMLParagraphElement> {
    * Render the text using any HTML element.
    */
   as?: AsPropType;
+  /**
+   * Choose a style or text decoration. Underline is reserved for hyperlinks.
+   *
+   * Use the `as` prop to render the component as the `em` or `del` HTML
+   * elements if appropriate.
+   */
+  decoration?: 'italic' | 'strikethrough';
 }
 
 /**
@@ -51,13 +58,26 @@ export interface NumeralProps extends HTMLAttributes<HTMLParagraphElement> {
  */
 export const Numeral = forwardRef<HTMLParagraphElement, NumeralProps>(
   (
-    { className, as: Element = 'p', size = 'm', color = 'normal', ...props },
+    {
+      className,
+      as: Element = 'p',
+      size = 'm',
+      color = 'normal',
+      decoration,
+      ...props
+    },
     ref,
   ) => (
     <Element
       {...props}
       ref={ref}
-      className={clsx(classes.base, classes[size], classes[color], className)}
+      className={clsx(
+        classes.base,
+        classes[size],
+        classes[color],
+        decoration && classes[decoration],
+        className,
+      )}
     />
   ),
 );
