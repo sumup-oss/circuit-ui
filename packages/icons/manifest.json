@@ -3634,6 +3634,11 @@
       "size": "24"
     },
     {
+      "name": "partial",
+      "category": "Payment method",
+      "size": "32"
+    },
+    {
       "name": "pay_pal",
       "category": "Payment method",
       "size": "24"
