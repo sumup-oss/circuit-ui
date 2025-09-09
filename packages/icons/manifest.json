@@ -3634,7 +3634,7 @@
       "size": "24"
     },
     {
-      "name": "partial",
+      "name": "partial_payment",
       "category": "Payment method",
       "size": "24"
     },
