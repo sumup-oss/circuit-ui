@@ -46,7 +46,7 @@ export interface TabsProps extends TabListProps {
 
 export function Tabs({ items, initialSelectedIndex = 0, ...props }: TabsProps) {
   const [selectedId, setSelectedId] = useState(
-    items[initialSelectedIndex >= items.length ? 0 : initialSelectedIndex]?.id,
+    items[initialSelectedIndex]?.id ?? items[0]?.id,
   );
 
   const handleTabKeyDown = (event: KeyboardEvent) => {
