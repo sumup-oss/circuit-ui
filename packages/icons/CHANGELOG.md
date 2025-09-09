@@ -1,5 +1,15 @@
 # @sumup-oss/icons
 
+## 5.20.0
+
+### Minor Changes
+
+- [#3276](https://github.com/sumup-oss/circuit-ui/pull/3276) [`e1e3a8d`](https://github.com/sumup-oss/circuit-ui/commit/e1e3a8d2b1de2faa15264b0ba7535c106de2ac99) Thanks [@sirineJ](https://github.com/sirineJ)! - Added SumUpLogomark icon in size 32.
+
+- [#3279](https://github.com/sumup-oss/circuit-ui/pull/3279) [`763265e`](https://github.com/sumup-oss/circuit-ui/commit/763265e581304db77a791eb01a00755e481184d7) Thanks [@amelako](https://github.com/amelako)! - Added Split icon in size 24.
+
+- [#3280](https://github.com/sumup-oss/circuit-ui/pull/3280) [`5265107`](https://github.com/sumup-oss/circuit-ui/commit/5265107326fb6c301ab0b324cd915f3d972ecacf) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a Profile icon in size 16.
+
 ## 5.19.0
 
 ### Minor Changes
