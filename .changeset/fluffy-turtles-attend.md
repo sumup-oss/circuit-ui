@@ -2,4 +2,4 @@
 "@sumup-oss/icons": minor
 ---
 
-Added Partial icon in size 32.
+Added Partial icon in size 24.

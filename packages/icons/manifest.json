@@ -3636,7 +3636,7 @@
     {
       "name": "partial",
       "category": "Payment method",
-      "size": "32"
+      "size": "24"
     },
     {
       "name": "pay_pal",
