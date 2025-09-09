@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.11.0
+
+### Minor Changes
+
+- [#3277](https://github.com/sumup-oss/circuit-ui/pull/3277) [`bb8e190`](https://github.com/sumup-oss/circuit-ui/commit/bb8e190a447cbebb403a116306fff397488b5fe1) Thanks [@sirineJ](https://github.com/sirineJ)! - Added italic and stikethrough decoration styles to the Numeral typography component.
+
 ## 10.10.2
 
 ### Patch Changes
