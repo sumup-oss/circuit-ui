@@ -2,4 +2,4 @@
 "@sumup-oss/icons": minor
 ---
 
-Added Partial payment icon in size 24.
+Added Split icon in size 24.

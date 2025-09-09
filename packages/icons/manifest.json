@@ -3634,11 +3634,6 @@
       "size": "24"
     },
     {
-      "name": "partial_payment",
-      "category": "Payment method",
-      "size": "24"
-    },
-    {
       "name": "pay_pal",
       "category": "Payment method",
       "size": "24"
@@ -3685,6 +3680,11 @@
     },
     {
       "name": "sofort",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "split",
       "category": "Payment method",
       "size": "24"
     },
