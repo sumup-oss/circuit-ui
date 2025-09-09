@@ -3689,6 +3689,11 @@
       "size": "24"
     },
     {
+      "name": "split",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "swile",
       "category": "Payment method",
       "size": "24"
