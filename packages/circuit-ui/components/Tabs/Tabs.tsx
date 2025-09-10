@@ -23,9 +23,9 @@ import {
   isArrowDown,
 } from '../../util/key-codes.js';
 
-import { TabList, type TabListProps } from './components/TabList/index.js';
-import { Tab } from './components/Tab/index.js';
-import { TabPanel } from './components/TabPanel/index.js';
+import { TabList, type TabListProps } from './components/TabList/TabList.js';
+import { Tab } from './components/Tab/Tab.js';
+import { TabPanel } from './components/TabPanel/TabPanel.js';
 
 export interface TabsProps extends TabListProps {
   /**
@@ -45,7 +45,9 @@ export interface TabsProps extends TabListProps {
 }
 
 export function Tabs({ items, initialSelectedIndex = 0, ...props }: TabsProps) {
-  const [selectedId, setSelectedId] = useState(items[initialSelectedIndex]?.id);
+  const [selectedId, setSelectedId] = useState(
+    items[initialSelectedIndex]?.id ?? items[0]?.id,
+  );
 
   const handleTabKeyDown = (event: KeyboardEvent) => {
     const selectedIndex = items.findIndex((item) => item.id === selectedId);

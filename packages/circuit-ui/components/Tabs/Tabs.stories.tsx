@@ -19,10 +19,13 @@ import { ArrowLeft, ExternalLink } from '@sumup-oss/icons';
 import { Body } from '../Body/index.js';
 import { Headline } from '../Headline/index.js';
 import { Button } from '../Button/index.js';
+import { modes } from '../../../../.storybook/modes.js';
 
 import type { TabsProps } from './Tabs.js';
-
-import { Tabs, TabList, TabPanel, Tab } from './index.js';
+import { Tabs } from './Tabs.js';
+import { TabList } from './components/TabList/TabList.js';
+import { TabPanel } from './components/TabPanel/TabPanel.js';
+import { Tab } from './components/Tab/Tab.js';
 
 export default {
   title: 'Navigation/Tabs',
@@ -31,6 +34,12 @@ export default {
   tags: ['status:under-review'],
   parameters: {
     layout: 'fullscreen',
+    chromatic: {
+      modes: {
+        mobile: modes.smallMobile,
+        desktop: modes.desktop,
+      },
+    },
   },
 };
 
@@ -85,6 +94,16 @@ const tabs = [
     tab: 'Tab 4',
     panel: <ContentWithInteractiveElements index={4} />,
   },
+  {
+    id: 'five',
+    tab: 'Tab 5',
+    panel: <ContentWithInteractiveElements index={5} />,
+  },
+  {
+    id: 'six',
+    tab: 'Tab 6',
+    panel: <ContentWithInteractiveElements index={6} />,
+  },
 ];
 
 export const Base = (args: TabsProps) => <Tabs {...args} />;
@@ -94,18 +113,20 @@ Base.args = {
   stretched: false,
 };
 
+export const Stretched = (args: TabsProps) => <Tabs {...args} />;
+
+Stretched.args = {
+  items: tabs,
+  stretched: true,
+};
+
 export const Links = () => (
   <TabList>
     <Tab selected>Home</Tab>
-    <Tab href="https://github.com/sumup-oss/circuit-ui" target="_blank">
-      GitHub
+    <Tab href="#posts" target="">
+      Posts
     </Tab>
-    <Tab
-      href="https://www.npmjs.com/package/@sumup-oss/circuit-ui"
-      target="_blank"
-    >
-      NPM
-    </Tab>
+    <Tab href="#reviews">Reviews</Tab>
   </TabList>
 );
 

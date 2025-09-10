@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2025, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,11 +13,23 @@
  * limitations under the License.
  */
 
-export { Tabs } from './Tabs.js';
-export type { TabsProps } from './Tabs.js';
-export { Tab } from './components/Tab/index.js';
-export type { TabProps } from './components/Tab/index.js';
-export { TabPanel } from './components/TabPanel/index.js';
-export type { TabPanelProps } from './components/TabPanel/index.js';
-export { TabList } from './components/TabList/index.js';
-export type { TabListProps } from './components/TabList/index.js';
+import { Tab } from './Tab.js';
+
+export default {
+  title: 'Navigation/Tabs/Tab',
+  component: Tab,
+  tags: ['status:internal'],
+  parameters: {
+    chromatic: {
+      disableSnapshot: true,
+    },
+  },
+};
+
+export const Base = () => (
+  <div>
+    <Tab>Button</Tab>
+    <Tab href="#link">Link</Tab>
+    <Tab selected>Selected</Tab>
+  </div>
+);

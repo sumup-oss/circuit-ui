@@ -1,30 +1,73 @@
-import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import { Meta, Status, Props, Story } from "../../../../.storybook/components";
 
-import * as Stories from './Tabs.stories';
+import * as Stories from "./Tabs.stories";
 
 <Meta of={Stories} />
 
 # Tabs
 
-<Status variant="under-review">
-  Does not handle content overflow on mobile. Unclear use case compared to
-  subnavigation.
-</Status>
+<Status variant="stable" />
+
+The Tabs component allows users to navigate between different views or sections of content within the same context.
 
 <Story of={Stories.Base} />
 
 <Props />
 
-## Variations
+## When to use it
 
-If you need more control on the tabs, you can build you own tabs list instead of passing an array of items to the `Tabs` component. This can be useful to style any of the components individually.
+### Group related content
+
+Tabs help optimize space by organizing large amounts of content into easily scannable sections, reducing cognitive load for users. They provide simple navigation between related sections that don’t require side-by-side comparison.
+
+Examples include:
+
+- Switching between subsets of the same data: Active Orders | Completed Orders | Cancelled Orders
+
+- Breaking a long process into steps: Personal Info | Delivery Details | Payment Details | Review
+
+### Navigation
+
+Use tabs to navigate between a set of related pages within a larger website or application. For example, in a user profile section:
+
+Overview | Posts | Comments | Settings
+
+## How to use it
+
+### Use the Tabs component directly
+
+You can use the Tabs component out of the box to create a tabbed view by providing an array of tab items. Each tab should include:
+
+- a unique id
+- a clear, concise label
+- the content to display when the tab is active
+
+### Use subcomponents independently
+
+If you need finer control over your layout, you can use the `Tab`, `TabList`, and `TabPanel` components independently. This gives you flexibility to customize the structure and behavior of your tabs while still relying on the core functionality provided by Tabs.
+
+⚠️ When doing so, you are responsible for ensuring accessibility and managing state correctly.
+
+- Using Tab:
+  - Provide a unique `id` for each tab.
+  - Add an `aria-controls` attribute that points to the id of its corresponding panel.
+  - Implement keyboard navigation (e.g., arrow keys, Home/End) to support keyboard users.
+- Using TabPanel:
+  - Assign a unique id to each panel.
+  - Ensure this id matches the `aria-controls` value of its corresponding tab.
+  - Set `aria-labelledby` to reference the id of the associated tab.
 
 <Story of={Stories.ControlledState} />
 
-## With links
+### With links
+
+Tabs render as buttons by default. In navigation contexts, you can pass a `href` prop to render them as links.
+Avoid using external links, as this can create an inconsistent user experience across tabs.
 
 <Story of={Stories.Links} />
 
-## When to use it
+### Stretched
 
-## Usage guidelines
+Set the `stretched` prop to true to make all tabs expand and share the available space evenly.
+
+<Story of={Stories.Stretched} />
