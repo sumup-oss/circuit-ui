@@ -98,7 +98,7 @@
   bottom: var(--cui-border-width-kilo);
   left: 0;
   z-index: var(--cui-z-index-absolute);
-  width: 0;
+  display: none;
   height: 3px;
   background-color: var(--cui-border-accent);
   border-top-left-radius: var(--cui-border-radius-byte);

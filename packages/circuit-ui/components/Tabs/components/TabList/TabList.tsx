@@ -64,6 +64,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
         'transform',
         `translateX(${offsetLeft}px)`,
       );
+      gliderRef.current?.style?.setProperty('display', 'block');
       gliderRef.current?.style?.setProperty('width', `${offsetWidth}px`);
     }, []);
 
