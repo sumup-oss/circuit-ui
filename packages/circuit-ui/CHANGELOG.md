@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.12.0
+
+### Minor Changes
+
+- [#3274](https://github.com/sumup-oss/circuit-ui/pull/3274) [`e6f77e7`](https://github.com/sumup-oss/circuit-ui/commit/e6f77e783d1e3a7bf1a89169a7ccfdf9dda36614) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the styles of the Tabs component to align with the updated design system guidelines.
+
 ## 10.11.0
 
 ### Minor Changes
