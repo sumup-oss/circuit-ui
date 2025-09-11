@@ -20,6 +20,10 @@
   transition: color var(--cui-transitions-default);
 }
 
+.base > * {
+  pointer-events: none;
+}
+
 .base:hover {
   color: var(--cui-fg-normal-hovered);
 }
