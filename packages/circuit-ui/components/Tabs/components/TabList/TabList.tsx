@@ -58,7 +58,10 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
     const stretchOnMobile = numberOfTabs <= MOBILE_AUTOSTRETCH_ITEMS_MAX;
 
     const updateGliderStyles = useCallback((tab: HTMLElement) => {
-      tab.style.setProperty('--selected-tab-pseudo-content', 'unset');
+      tabListRef.current?.style.setProperty(
+        '--selected-tab-pseudo-content',
+        'unset',
+      );
       const { offsetLeft, offsetWidth } = tab;
       gliderRef.current?.style?.setProperty(
         'transform',

@@ -51,6 +51,8 @@
 }
 
 .base {
+  --selected-tab-pseudo-content: "";
+
   position: relative;
   display: flex;
   flex-wrap: nowrap;

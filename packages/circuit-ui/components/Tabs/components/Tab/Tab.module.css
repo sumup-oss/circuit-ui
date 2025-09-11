@@ -1,6 +1,4 @@
 .base {
-  --selected-tab-pseudo-content: "";
-
   float: left;
   display: flex;
   flex-direction: column;
@@ -20,6 +18,10 @@
   border: none;
   border-radius: var(--cui-border-radius-bit);
   transition: color var(--cui-transitions-default);
+}
+
+.base > * {
+  pointer-events: none;
 }
 
 .base:hover {
