@@ -1,7 +1,7 @@
 import { defineConfig } from '@sumup-oss/foundry/stylelint';
 
 export default defineConfig({
-  extends: ['stylelint-prettier/recommended', 'stylelint-config-css-modules'],
+  extends: ['stylelint-config-css-modules'],
   rules: {
     'selector-class-pattern': [
       '^([a-z][a-z0-9]*)(-[a-z0-9]+)*$',
