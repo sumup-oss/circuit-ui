@@ -23,7 +23,7 @@ import { Timestamp, type TimestampProps } from './Timestamp.js';
 export default {
   title: 'Components/Timestamp',
   component: Timestamp,
-  tags: ['status:experimental'],
+  tags: ['status:stable'],
 };
 
 function getDatetimes(variant: TimestampProps['variant']) {
