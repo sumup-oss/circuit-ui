@@ -9,25 +9,20 @@ Components are renamed as part of a major release. When upgrading Circuit UI, ru
 Examples of **incorrect** code for this rule:
 
 ```tsx
-import {Popover} from '@sumup-oss/circuit-ui';
+import { Popover } from '@sumup-oss/circuit-ui';
 
 function Component() {
-    return (
-        <Popover isOpen={true}/>
-    );
+  return <Popover isOpen={true} />;
 }
 ```
 
 Examples of **correct** code for this rule:
 
 ```tsx
-import {ActionMenu} from '@sumup-oss/circuit-ui/components/ActionMenu';
+import { ActionMenu } from '@sumup-oss/circuit-ui/components/ActionMenu';
 
 function Component() {
-    return (
-        <ActionMenu isOpen={true}/>
-
-    );
+  return <ActionMenu isOpen={true} />;
 }
 ```
 

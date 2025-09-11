@@ -43,22 +43,6 @@ function Component() {
     </div>
   );
 }
-
-// Since Circuit UI v6.8
-function Component() {
-  return <Toggle explanation="Description" />;
-}
-
-// Since Circuit UI v6.4
-function Component() {
-  return (
-    <div>
-      <Badge variant="confirm" />
-      <NotificationInline variant="confirm" />
-      <NotificationToast variant="confirm" />
-    </div>
-  );
-}
 ```
 
 Examples of **correct** code for this rule:
@@ -88,22 +72,6 @@ function Component() {
       <IconButton size="s" icon={Add}>
         Add to card
       </IconButton>
-    </div>
-  );
-}
-
-// Since Circuit UI v6.8
-function Component() {
-  return <Toggle description="Description" />;
-}
-
-// Since Circuit UI v6.4
-function Component() {
-  return (
-    <div>
-      <Badge variant="success" />
-      <NotificationInline variant="success" />
-      <NotificationToast variant="success" />
     </div>
   );
 }
