@@ -1,6 +1,4 @@
 .base {
-  --selected-tab-pseudo-content: "";
-
   float: left;
   display: flex;
   flex-direction: column;
