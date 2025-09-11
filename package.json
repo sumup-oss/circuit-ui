@@ -52,7 +52,7 @@
     "@storybook/icons": "^1.4.0",
     "@storybook/react-vite": "^9.0.14",
     "@sumup-oss/eslint-plugin-circuit-ui": "^6.0.0",
-    "@sumup-oss/foundry": "^8.4.1",
+    "@sumup-oss/foundry": "https://pkg.pr.new/sumup-oss/foundry/@sumup-oss/foundry@1066",
     "@sumup-oss/stylelint-plugin-circuit-ui": "^4.0.0",
     "@types/node": "^22.15.15",
     "@vitest/coverage-v8": "^3.2.4",
