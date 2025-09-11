@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.12.1
+
+### Patch Changes
+
+- [#3283](https://github.com/sumup-oss/circuit-ui/pull/3283) [`a1d2880`](https://github.com/sumup-oss/circuit-ui/commit/a1d2880c778810a9ccd04d1291e45b9234302b82) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed minor styling issues with the selected tab indicator in the TabList component.
+
 ## 10.12.0
 
 ### Minor Changes
