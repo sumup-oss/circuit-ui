@@ -1,4 +1,6 @@
-module.exports = require('@sumup-oss/foundry/stylelint')({
+import { defineConfig } from '@sumup-oss/foundry/stylelint';
+
+export default defineConfig({
   extends: ['stylelint-prettier/recommended', 'stylelint-config-css-modules'],
   rules: {
     'selector-class-pattern': [
