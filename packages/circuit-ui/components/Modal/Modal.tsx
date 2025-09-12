@@ -70,13 +70,11 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
     onClose,
     ...rest
   } = props;
-  if (process.env.NODE_ENV !== 'production') {
-    if (hideCloseButton) {
-      deprecate(
-        'Modal',
-        'The `hideCloseButton` prop has been deprecated. Use the `preventClose` prop instead.',
-      );
-    }
+  if (process.env.NODE_ENV !== 'production' && hideCloseButton) {
+    deprecate(
+      'Modal',
+      'The `hideCloseButton` prop has been deprecated. Use the `preventClose` prop instead.',
+    );
   }
   const [isClosing, setIsClosing] = useState(false);
 

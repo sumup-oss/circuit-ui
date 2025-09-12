@@ -387,6 +387,8 @@ function Month({
       >
         {headline}
       </Headline>
+      {/** biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: 'grid' is an appropriate role for a table element */}
+      {/** biome-ignore lint/a11y/useSemanticElements: 'grid' is more specific than 'table */}
       <table role="grid" className={classes.grid}>
         <thead>
           <tr>

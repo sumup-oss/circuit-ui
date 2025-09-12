@@ -21,8 +21,11 @@ import {
 } from 'react';
 import { Unstyled } from '@storybook/addon-docs/blocks';
 import * as iconComponents from '@sumup-oss/icons';
-import { getIconURL, type IconComponentType } from '@sumup-oss/icons';
-import type { IconsManifest } from '@sumup-oss/icons';
+import {
+  getIconURL,
+  type IconComponentType,
+  type IconsManifest,
+} from '@sumup-oss/icons';
 import iconsManifest from '@sumup-oss/icons/manifest.json';
 import { Badge } from '../../packages/circuit-ui/components/Badge/Badge.js';
 import { Body } from '../../packages/circuit-ui/components/Body/Body.js';
@@ -39,6 +42,7 @@ import { utilClasses } from '../../packages/circuit-ui/styles/utility.js';
 import { slugify } from '../slugify.js';
 import classes from './Icons.module.css';
 import ReactIcon from '../public/images/react.svg';
+
 function groupBy(
   icons: IconsManifest['icons'],
   key: 'name' | 'category' | 'size',
@@ -57,9 +61,7 @@ function sortBy(
   icons: IconsManifest['icons'],
   key: 'name' | 'category' | 'size',
 ) {
-  return icons.sort((iconA, iconB) => {
-    return iconA[key].localeCompare(iconB[key]);
-  });
+  return icons.sort((iconA, iconB) => iconA[key].localeCompare(iconB[key]));
 }
 
 function getComponentName(name: string) {
@@ -199,7 +201,7 @@ function Icon({
   const componentName = getComponentName(
     icon.name,
   ) as keyof typeof iconComponents;
-  const Icon = iconComponents[componentName] as IconComponentType;
+  const IconComponent = iconComponents[componentName] as IconComponentType;
 
   const copyIconURL = () => {
     const iconURL = `https://circuit.sumup.com/icons/v2/${icon.name}_${icon.size}.svg`;
@@ -250,7 +252,7 @@ function Icon({
             width={20}
           />
         ) : (
-          <Icon
+          <IconComponent
             aria-labelledby={id}
             size={icon.size}
             className={classes.icon}

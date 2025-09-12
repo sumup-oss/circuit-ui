@@ -147,10 +147,8 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     // Focus Management
     useEffect(() => {
       // save the opening element to restore focus after the dialog closes
-      if (open) {
-        if (document.activeElement instanceof HTMLElement) {
-          lastFocusedElementRef.current = document.activeElement;
-        }
+      if (open && document.activeElement instanceof HTMLElement) {
+        lastFocusedElementRef.current = document.activeElement;
       }
       return () => {
         // restore focus to the opening element
@@ -189,8 +187,6 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     useEffect(() => {
       // register the dialog element with the polyfill
       if (dialogRef.current) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore The package is bundled incorrectly
         dialogPolyfill.registerDialog(dialogRef.current);
       }
     }, []);
@@ -441,7 +437,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 
     return (
       <>
-        {/* eslint-disable-next-line  jsx-a11y/no-noninteractive-element-interactions */}
+        {/* biome-ignore lint/a11y/useKeyWithClickEvents: The click event captures outside clicks */}
         <dialog
           onClick={onDialogClick}
           className={clsx(classes.base, isModal && classes.modal, className)}

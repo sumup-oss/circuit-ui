@@ -28,7 +28,7 @@ import {
 } from '../../packages/circuit-ui/components/Table/index.js';
 import { Tooltip } from '../../packages/circuit-ui/components/Tooltip/Tooltip.js';
 import { ToastProvider } from '../../packages/circuit-ui/components/ToastContext/ToastContext.js';
-import { useNotificationToast } from '../../packages/circuit-ui/components/NotificationToast//NotificationToast.js';
+import { useNotificationToast } from '../../packages/circuit-ui/components/NotificationToast/NotificationToast.js';
 
 type CustomPropertyName = `--cui-${string}`;
 type CustomPropertyValue = string;

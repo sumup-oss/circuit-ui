@@ -23,8 +23,6 @@ const REGEX_STRING = DEPRECATED_CUSTOM_PROPERTIES.map(({ name }) => name).join(
   '|',
 );
 
-/* eslint-disable */
-
 const createRule = ESLintUtils.RuleCreator(
   (name) =>
     `https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/${name}`,
@@ -53,7 +51,7 @@ export const noDeprecatedCustomProperties = createRule({
         context.sourceCode.getLines().forEach((line, index) => {
           const regex = new RegExp(REGEX_STRING, 'g');
           let match: RegExpExecArray | null;
-          // biome-ignore lint/suspicious/noAssignInExpressions:
+          // biome-ignore lint/suspicious/noAssignInExpressions: This is fine
           while ((match = regex.exec(line)) !== null) {
             const name = match[0];
             const { replacement } = DEPRECATED_CUSTOM_PROPERTIES.find(

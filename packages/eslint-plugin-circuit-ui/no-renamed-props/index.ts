@@ -181,7 +181,7 @@ const configs: (Config & { components: string[] })[] = [
         .name;
 
       context.report({
-        node: node,
+        node,
         messageId: 'propName',
         data: { component, current, replacement },
         fix(fixer) {
@@ -502,7 +502,6 @@ export const noRenamedProps = createRule({
 
     const componentVisitors = Object.entries(components).reduce(
       (visitors, [component, configs]) => {
-        // eslint-disable-next-line no-param-reassign
         visitors[`JSXElement[openingElement.name.name="${component}"]`] = (
           node: TSESTree.JSXElement,
         ) => {
@@ -539,7 +538,6 @@ export const noRenamedProps = createRule({
 
     const hookVisitors = Object.entries(hooks).reduce(
       (visitors, [hook, configs]) => {
-        // eslint-disable-next-line no-param-reassign
         visitors[`CallExpression[callee.name="${hook}"]`] = (
           node: TSESTree.CallExpression,
         ) => {

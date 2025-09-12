@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-
 import { RuleTester } from '@typescript-eslint/rule-tester';
 
 import { noRenamedComponents } from './index';
@@ -28,7 +26,6 @@ const ruleTester = new RuleTester({
   },
 });
 
-// eslint-disable-next-line  @typescript-eslint/no-unsafe-member-access
 ruleTester.run('no-renamed-components', noRenamedComponents, {
   valid: [
     {

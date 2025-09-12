@@ -28,6 +28,7 @@ import {
 } from '../constants.js';
 
 import manifest from '../manifest.json' with { type: 'json' };
+// eslint-disable-next-line import-x/no-relative-packages
 import config from '../../../biome.json' with { type: 'json' };
 
 type Icon = {
@@ -236,10 +237,7 @@ async function writeFile(dir: string, fileName: string, fileContent: string) {
   const biome = new Biome();
   const { projectKey } = biome.openProject();
 
-  biome.applyConfiguration(projectKey, {
-    formatter: config.formatter,
-    javascript: config.javascript,
-  } as Configuration);
+  biome.applyConfiguration(projectKey, config as Configuration);
 
   const formatted = biome.formatContent(projectKey, fileContent, {
     filePath,

@@ -9,7 +9,7 @@ const themes = { light, dark };
  * Switch color scheme based on the global types or system preferences
  */
 export const DocsContainer: typeof BaseContainer = ({ children, context }) => {
-  const [colorScheme, setColorScheme] = useState('light');
+  const [colorScheme, setColorScheme] = useState<'light' | 'dark'>('light');
 
   useEffect(
     () => listenToColorScheme(context.channel, setColorScheme),

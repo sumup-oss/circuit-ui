@@ -63,7 +63,6 @@ describe('Modal', () => {
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
     render(<Modal {...props} className={className} />);
-    // eslint-disable-next-line testing-library/no-container
     const dialog = screen.getByRole('dialog', { hidden: true });
     expect(dialog?.className).toContain(className);
   });

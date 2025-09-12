@@ -88,7 +88,6 @@ export function getDefaultLocale(): Locale {
 export function findSupportedLocale(locale: Locale): SupportedLocale {
   const locales = isString(locale) ? [locale] : locale;
 
-  // eslint-disable-next-line no-restricted-syntax
   for (const l of locales) {
     const matcher =
       locale.length === 5
@@ -114,19 +113,15 @@ export function transformModulesToTranslations<
       const { default: unused, ...strings } = exports;
       const matches = importPath.match(/[a-z]{2}-[A-Z]{2}/);
 
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore This is fine, but ESLint complains because it's configured for CJS at the project root.
       if (import.meta.env.DEV && !matches) {
         throw new Error(
           `Failed to extract a locale from the import path: ${importPath}`,
         );
       }
 
-      // biome-ignore lint/style/noNonNullAssertion:
+      // biome-ignore lint/style/noNonNullAssertion: matches is guaranteed to be defined
       const locale = matches![0] as SupportedLocale;
 
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore This is fine, but ESLint complains because it's configured for CJS at the project root.
       if (import.meta.env.DEV && !SUPPORTED_LOCALES.includes(locale)) {
         throw new Error(`Unsupported locale: ${importPath}`);
       }
@@ -136,8 +131,6 @@ export function transformModulesToTranslations<
     },
     {} as Translations<Key>,
   );
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore This is fine, but ESLint complains because it's configured for CJS at the project root.
   if (import.meta.env.DEV) {
     SUPPORTED_LOCALES.forEach((locale) => {
       if (!translations[locale]) {

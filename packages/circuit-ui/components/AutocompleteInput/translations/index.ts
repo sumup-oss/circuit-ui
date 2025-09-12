@@ -18,8 +18,6 @@ import { transformModulesToTranslations } from '../../../util/i18n.js';
 export const translations = transformModulesToTranslations<
   typeof import('./en-US.json')
 >(
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore import.meta.glob is supported by Vite
   import.meta.glob('./*.json', {
     eager: true,
   }),

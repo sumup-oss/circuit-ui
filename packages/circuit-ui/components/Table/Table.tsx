@@ -187,8 +187,8 @@ export class Table extends Component<TableProps, TableState> {
 
   getInitialRows = (
     rows: Row[],
-    initialSortDirection?: Direction | undefined,
-    initialSortedColumn?: number | undefined,
+    initialSortDirection: Direction | undefined,
+    initialSortedColumn: number | undefined,
   ): Row[] =>
     initialSortedColumn && initialSortDirection
       ? this.getSortedRows(initialSortDirection, initialSortedColumn)

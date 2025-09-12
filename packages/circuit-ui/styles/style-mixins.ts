@@ -62,14 +62,16 @@ type SpacingObject = {
 };
 
 const mapSpacingValue = (theme: Theme, value: SpacingValue) => {
-  if (process.env.NODE_ENV !== 'production') {
-    if (typeof value === 'number' && value !== 0) {
-      warn(
-        'spacing',
-        `The number "${value as number}" was passed to the spacing mixin.`,
-        "This is not supported. Pass a spacing constant, 'auto', or 0 instead.",
-      );
-    }
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    typeof value === 'number' &&
+    value !== 0
+  ) {
+    warn(
+      'spacing',
+      `The number "${value as number}" was passed to the spacing mixin.`,
+      "This is not supported. Pass a spacing constant, 'auto', or 0 instead.",
+    );
   }
 
   if (value === 0 || value === 'auto') {

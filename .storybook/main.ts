@@ -31,17 +31,17 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
-  async viteFinal(config) {
+  async viteFinal(viteConfig) {
     // Add SVGR plugin
-    config.plugins = [
-      ...(config.plugins || []),
+    viteConfig.plugins = [
+      ...(viteConfig.plugins || []),
       svgr({
         // svgr options: https://react-svgr.com/docs/options/
         include: '**/*.svg',
       }),
     ];
 
-    return mergeConfig(config, {
+    return mergeConfig(viteConfig, {
       define: {
         'process.env.UNSAFE_DISABLE_ELEMENT_ERRORS': false,
       },

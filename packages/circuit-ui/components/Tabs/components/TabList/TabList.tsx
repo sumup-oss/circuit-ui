@@ -142,20 +142,18 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
     const onTabListKeydown: KeyboardEventHandler<HTMLDivElement> = useCallback(
       (event) => {
         onKeyDown?.(event);
-        if (isArrowLeft(event) || isArrowRight(event)) {
-          if (
-            document.activeElement &&
-            document.activeElement?.role === 'tab'
-          ) {
-            updateGliderStyles(document.activeElement as HTMLElement);
-          }
+        if (
+          (isArrowLeft(event) || isArrowRight(event)) &&
+          document.activeElement &&
+          document.activeElement?.role === 'tab'
+        ) {
+          updateGliderStyles(document.activeElement as HTMLElement);
         }
       },
       [onKeyDown, updateGliderStyles],
     );
     return (
       <div ref={ref} className={clsx(classes.wrapper, className)}>
-        {/* eslint-disable-next-line  jsx-a11y/interactive-supports-focus */}
         <div
           ref={tabListRef}
           className={clsx(

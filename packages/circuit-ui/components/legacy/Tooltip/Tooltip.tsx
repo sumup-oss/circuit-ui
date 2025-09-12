@@ -94,12 +94,10 @@ const getAlignmentStyles = ({
   // as a Position.
   const absolutePosition = positionMap[align as Position];
 
-  /* eslint-disable max-len */
   return `
     ${absolutePosition}: 50%;
     ${absolutePosition}: calc(50% - (${theme.spacings.mega} + ${theme.spacings.bit}));
   `;
-  /* eslint-enable max-len */
 };
 
 const positionAndAlignStyles = ({

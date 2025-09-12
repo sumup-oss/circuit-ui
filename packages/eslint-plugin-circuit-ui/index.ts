@@ -23,8 +23,6 @@ import { preferCustomProperties } from './prefer-custom-properties';
 import { renamedPackageScope } from './renamed-package-scope';
 import { noRenamedComponents } from './no-renamed-components';
 
-/* eslint-disable */
-
 export const rules = {
   'component-lifecycle-imports': componentLifecycleImports,
   'no-invalid-custom-properties': noInvalidCustomProperties,

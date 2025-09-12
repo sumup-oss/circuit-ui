@@ -1,6 +1,6 @@
 import '@sumup-oss/design-tokens/dynamic.css';
 
-// biome-ignore lint/correctness/noUnusedImports:
+// biome-ignore lint/correctness/noUnusedImports: React must be in scope to use JSX
 import React, { type CSSProperties } from 'react';
 import { addons, types } from 'storybook/manager-api';
 
@@ -12,7 +12,7 @@ type BadgeConfig = {
   label: string;
 };
 
-const badges = {
+const badges: Record<string, BadgeConfig> = {
   // 'status:stable' is excluded to reduce visual clutter
   'status:experimental': {
     label: 'Experimental',
@@ -54,7 +54,7 @@ const badges = {
       borderColor: 'var(--cui-border-normal)',
     },
   },
-} satisfies Record<string, BadgeConfig>;
+};
 
 addons.setConfig({
   isFullscreen: false,
@@ -63,9 +63,7 @@ addons.setConfig({
   panelPosition: 'bottom',
   sidebar: {
     filters: {
-      patterns: (item) => {
-        return !item.tags?.includes('hidden');
-      },
+      patterns: (item) => !item.tags?.includes('hidden'),
     },
     renderLabel(item) {
       if (item.type !== 'component') {

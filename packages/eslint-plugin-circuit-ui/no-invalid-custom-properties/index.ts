@@ -24,8 +24,6 @@ const REGEX_STRING = `(?:${PREFIX})(?!(?:${VALID_CUSTOM_PROPERTIES_WITHOUT_PREFI
   '|',
 )})[^\\w-])[\\w-]+`;
 
-/* eslint-disable */
-
 const createRule = ESLintUtils.RuleCreator(
   (name) =>
     `https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/${name}`,
@@ -53,7 +51,7 @@ export const noInvalidCustomProperties = createRule({
         context.sourceCode.getLines().forEach((line, index) => {
           const regex = new RegExp(REGEX_STRING, 'g');
           let match: RegExpExecArray | null;
-          // biome-ignore lint/suspicious/noAssignInExpressions:
+          // biome-ignore lint/suspicious/noAssignInExpressions: This is fine
           while ((match = regex.exec(line)) !== null) {
             context.report({
               node,

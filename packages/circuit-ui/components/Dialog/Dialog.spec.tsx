@@ -85,21 +85,18 @@ describe('Dialog', () => {
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
     render(<Dialog {...props} className={className} />);
-    // eslint-disable-next-line testing-library/no-container
     const dialog = screen.getByRole('dialog', { hidden: true });
     expect(dialog?.className).toContain(className);
   });
 
   it('should render in closed state by default', () => {
     render(<Dialog {...props} />);
-    // eslint-disable-next-line testing-library/no-container
     const dialog = screen.getByRole('dialog', { hidden: true });
     expect(dialog).not.toBeVisible();
   });
 
   it('should open the modal dialog when the open prop becomes truthy', () => {
     const { rerender } = render(<Dialog {...props} isModal />);
-    // eslint-disable-next-line testing-library/no-container
     const dialog = screen.getByRole('dialog', {
       hidden: true,
     });
@@ -111,7 +108,6 @@ describe('Dialog', () => {
 
   it('should open the dialog when the open prop becomes truthy', () => {
     const { rerender } = render(<Dialog {...props} />);
-    // eslint-disable-next-line testing-library/no-container
     const dialog = screen.getByRole('dialog', {
       hidden: true,
     });
@@ -123,7 +119,6 @@ describe('Dialog', () => {
 
   it('should switch to modal mode when the isModal prop becomes truthy', () => {
     const { rerender } = render(<Dialog {...props} open />);
-    // eslint-disable-next-line testing-library/no-container
     const dialog = screen.getByRole('dialog', {
       hidden: true,
     });
@@ -137,7 +132,6 @@ describe('Dialog', () => {
 
   it('should close the dialog when the open prop becomes falsy', () => {
     const { rerender } = render(<Dialog {...props} open />);
-    // eslint-disable-next-line testing-library/no-container
     const dialog = screen.getByRole('dialog', {
       hidden: true,
     });
@@ -150,7 +144,6 @@ describe('Dialog', () => {
 
   it('should close the dialog when the component is unmounted', async () => {
     const { unmount } = render(<Dialog {...props} open />);
-    // eslint-disable-next-line testing-library/no-container
     const dialog = screen.getByRole('dialog', {
       hidden: true,
     });
@@ -186,7 +179,6 @@ describe('Dialog', () => {
 
     it('should not show the close button if hideCloseButton is true', async () => {
       render(<Dialog {...props} open hideCloseButton />);
-      // eslint-disable-next-line testing-library/no-container
       expect(
         screen.queryByRole('button', { name: 'Close' }),
       ).not.toBeInTheDocument();
@@ -195,7 +187,6 @@ describe('Dialog', () => {
     describe('preventOutsideClickClose', () => {
       it('should close modal on backdrop click if preventOutsideClickClose is false', async () => {
         render(<Dialog {...props} open />);
-        // eslint-disable-next-line testing-library/no-container
         const dialog = screen.getByRole('dialog', { hidden: true });
         vi.spyOn(dialog, 'close');
         await userEvent.click(document.body);
@@ -208,7 +199,6 @@ describe('Dialog', () => {
       });
       it('should not close modal on backdrop click if preventOutsideClickClose is true', async () => {
         render(<Dialog {...props} open preventOutsideClickClose />);
-        // eslint-disable-next-line testing-library/no-container
         const dialog = screen.getByRole('dialog', { hidden: true });
         await userEvent.click(dialog);
         act(() => {
@@ -220,7 +210,6 @@ describe('Dialog', () => {
       });
       it('should not close modal on swipe down if preventOutsideClickClose is true', async () => {
         render(<Dialog {...props} open preventOutsideClickClose />);
-        // eslint-disable-next-line testing-library/no-container
         const dialog = screen.getByRole('dialog', { hidden: true });
         swipeDown(dialog);
         act(() => {
@@ -236,7 +225,6 @@ describe('Dialog', () => {
           value: undefined,
         });
         render(<Dialog {...props} open preventOutsideClickClose />);
-        // eslint-disable-next-line testing-library/no-container
         const dialog = screen.getByRole('dialog', { hidden: true });
         await userEvent.click(dialog);
         vi.runAllTimers();
@@ -370,7 +358,6 @@ describe('Dialog', () => {
               <button type="button" name="btn">
                 Button
               </button>
-              {/* eslint-disable react/no-unknown-property */}
               {/* @ts-expect-error React purposefully breaks the `autoFocus` property. Using the lowercase DOM attribute name instead forces it to be added to the DOM but will produce a console warning that can be safely ignored. https://github.com/facebook/react/issues/23301 */}
               <button type="button" name="btn" autofocus="true">
                 Special button

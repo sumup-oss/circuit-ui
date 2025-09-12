@@ -35,10 +35,8 @@ type ToastState<TProps extends BaseToastProps> = TProps &
   StackItem & { component: ToastComponent<TProps> };
 
 type ToastContextValue = {
-  /* eslint-disable @typescript-eslint/no-explicit-any */
   setToast: (toast: ToastState<any>) => void;
   removeToast: (toast: ToastState<any>) => void;
-  /* eslint-enable @typescript-eslint/no-explicit-any */
 };
 
 export const ToastContext = createContext<ToastContextValue>({

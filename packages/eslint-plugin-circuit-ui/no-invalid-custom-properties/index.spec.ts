@@ -20,17 +20,16 @@ import { RuleTester } from '@typescript-eslint/rule-tester';
 
 import { noInvalidCustomProperties } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-call
-const ruleTester = new RuleTester({
-  parser: '@typescript-eslint/parser',
+const ruleTester = new RuleTester();
+
+const languageOptions = {
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
   },
-});
+};
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
 ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
   valid: [
     {
@@ -41,6 +40,7 @@ ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
           active: "var(--cui-fg-normal-pressed)",
         }
       `,
+      languageOptions,
     },
     {
       name: 'custom properties in a tagged template literal',
@@ -50,6 +50,7 @@ ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
           background-color: var(--cui-fg-normal-pressed);
         \`;
       `,
+      languageOptions,
     },
     {
       name: 'custom properties in inline styles',
@@ -64,6 +65,7 @@ ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
           );
         }
       `,
+      languageOptions,
     },
   ],
   invalid: [
@@ -83,6 +85,7 @@ ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
           messageId: 'invalid',
         },
       ],
+      languageOptions,
     },
     {
       name: 'custom properties in a tagged template literal',
@@ -100,6 +103,7 @@ ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
           messageId: 'invalid',
         },
       ],
+      languageOptions,
     },
     {
       name: 'custom properties in inline styles',
@@ -122,6 +126,7 @@ ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
           messageId: 'invalid',
         },
       ],
+      languageOptions,
     },
     {
       name: 'string interpolation in custom properties',
@@ -135,6 +140,7 @@ ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
           messageId: 'invalid',
         },
       ],
+      languageOptions,
     },
   ],
 });

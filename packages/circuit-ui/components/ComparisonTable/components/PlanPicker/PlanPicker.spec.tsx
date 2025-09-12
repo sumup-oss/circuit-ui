@@ -48,8 +48,12 @@ const baseProps: PlanPickerProps = {
 describe('PlanPicker', () => {
   it('should render correctly', async () => {
     render(<PlanPicker {...baseProps} />);
-    const firstSelect = screen.getByLabelText(baseProps.selectFirstPlanLabel);
-    const secondSelect = screen.getByLabelText(baseProps.selectSecondPlanLabel);
+    const firstSelect = screen.getByLabelText<HTMLSelectElement>(
+      baseProps.selectFirstPlanLabel,
+    );
+    const secondSelect = screen.getByLabelText<HTMLSelectElement>(
+      baseProps.selectSecondPlanLabel,
+    );
     expect(firstSelect).toBeVisible();
     expect(secondSelect).toBeVisible();
     expect(firstSelect.value).toBe('plan_1');
@@ -66,7 +70,7 @@ describe('PlanPicker', () => {
 
   it('should disable options that are already selected', async () => {
     render(<PlanPicker {...baseProps} />);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
     const [_, plan1] = screen.getAllByRole('option', {
       name: 'Plan 1',
     });

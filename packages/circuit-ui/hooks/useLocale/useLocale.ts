@@ -23,7 +23,6 @@ const listeners = new Set<(locale: Locale) => void>();
 
 function updateLocale() {
   const currentLocale = getDefaultLocale();
-  // eslint-disable-next-line no-restricted-syntax
   for (const listener of listeners) {
     listener(currentLocale);
   }
