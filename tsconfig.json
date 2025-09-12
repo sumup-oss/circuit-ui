@@ -19,18 +19,12 @@
     "strict": true,
     "target": "es2019"
   },
-  "include": ["**/*"],
+  "include": ["**/*", ".storybook/**/*"],
   "exclude": [
     "node_modules",
     "public/**/*",
     "**/dist/**/*",
-    "**/template/**/*",
-    "templates/astro/astro.config.ts",
-    "**/__tests__/**/*",
-    "**/__testfixtures__/**/*",
-    "**/*.spec.*",
-    "**/*.stories.*",
-    "packages/eslint-plugin-circuit-ui/**/*"
+    "**/template/**/*"
   ],
   "typeRoots": ["./global.d.ts"]
 }

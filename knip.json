@@ -24,11 +24,9 @@
     "@sumup-oss/eslint-plugin-circuit-ui",
     "eslint-config-airbnb-typescript",
     "eslint-import-resolver-typescript",
-    "eslint-plugin-prettier",
     "eslint-plugin-react-server-components",
     "eslint-plugin-storybook",
     "eslint-plugin-testing-library",
-    "prettier-plugin-astro",
     "svgo"
   ]
 }

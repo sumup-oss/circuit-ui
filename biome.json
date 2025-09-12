@@ -1,0 +1,143 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
+  "extends": ["@sumup-oss/foundry/biome"],
+  "files": {
+    "includes": [
+      "**",
+      "!**/build",
+      "!**/dist",
+      "!**/public",
+      "!**/.next",
+      "!**/.out",
+      "!**/__coverage__",
+      "!**/__reports__",
+      "!**/*.astro",
+      "!**/vendor"
+    ]
+  },
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "off"
+      }
+    }
+  },
+  "css": {
+    "formatter": {
+      "enabled": false
+    },
+    "linter": {
+      "enabled": true
+    },
+    "parser": {
+      "cssModules": true
+    }
+  },
+  "linter": {
+    "rules": {
+      "recommended": true,
+      "a11y": {
+        "noRedundantRoles": "warn",
+        "useSemanticElements": "warn"
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "error"
+      },
+      "style": {
+        "noDefaultExport": "error",
+        "useFilenamingConvention": {
+          "level": "error",
+          "options": {
+            "requireAscii": true,
+            "filenameCases": ["camelCase", "kebab-case", "PascalCase"]
+          }
+        }
+      },
+      "suspicious": {
+        "noArrayIndexKey": "warn",
+        "noExplicitAny": "warn"
+      }
+    },
+    "includes": ["**", "!templates/astro", "!templates/nextjs/template"]
+  },
+  "overrides": [
+    {
+      "includes": [
+        ".storybook/main.*",
+        "**/*.stories.*",
+        "**/*.config.*",
+        "**/vitest.workspace.*",
+        "packages/stylelint-plugin-circuit-ui/**",
+        "templates/nextjs/template/app/**"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [".storybook/**", "**/*.stories.*"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUndeclaredDependencies": "warn"
+          },
+          "suspicious": {
+            "noAlert": "warn",
+            "noConsole": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["**/scripts/**"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUndeclaredDependencies": {
+              "level": "error",
+              "options": {
+                "devDependencies": true
+              }
+            }
+          },
+          "suspicious": {
+            "noConsole": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["packages/eslint-plugin-circuit-ui/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noNonNullAssertion": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "templates/nextjs/**/*.spec.*",
+        "templates/nextjs/**/jest.*"
+      ],
+      "javascript": {
+        "globals": ["jest", "describe", "it", "expect"]
+      }
+    },
+    {
+      "includes": ["**/*spec.*", "**/setupTests.*", "**/test-utils.*"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noGlobalAssign": "off"
+          }
+        }
+      }
+    }
+  ]
+}

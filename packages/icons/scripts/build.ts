@@ -16,7 +16,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-import prettier from 'prettier';
+import { Biome, type Configuration } from '@biomejs/js-api/nodejs';
 import { transformSync } from '@babel/core';
 
 import {
@@ -26,9 +26,9 @@ import {
   type CATEGORIES,
   type SIZES,
 } from '../constants.js';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore Import assertions are fine
-import manifest from '../manifest.json' assert { type: 'json' };
+
+import manifest from '../manifest.json' with { type: 'json' };
+import config from '../../../biome.json' with { type: 'json' };
 
 type Icon = {
   name: string;
@@ -225,20 +225,30 @@ async function transpileModule(fileName: string, code: string) {
       ],
     ],
     filename: fileName,
-  })?.code as string;
+  })?.code;
   return writeFile(DIST_DIR, fileName, output);
 }
 
 async function writeFile(dir: string, fileName: string, fileContent: string) {
   const filePath = path.join(dir, fileName);
   const directory = path.dirname(filePath);
-  const formattedContent = await prettier.format(fileContent, {
-    filepath: filePath,
+
+  const biome = new Biome();
+  const { projectKey } = biome.openProject();
+
+  biome.applyConfiguration(projectKey, {
+    formatter: config.formatter,
+    javascript: config.javascript,
+  } as Configuration);
+
+  const formatted = biome.formatContent(projectKey, fileContent, {
+    filePath,
   });
+
   if (directory && directory !== '.') {
     await fs.mkdir(directory, { recursive: true });
   }
-  return fs.writeFile(filePath, formattedContent, { flag: 'w' });
+  return fs.writeFile(filePath, formatted.content, { flag: 'w' });
 }
 
 async function main() {
