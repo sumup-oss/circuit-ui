@@ -3,25 +3,6 @@ import testingLibrary from 'eslint-plugin-testing-library';
 
 export default defineConfig([
   configs.ignores,
-  // node_modules/
-  // build/
-  // dist/
-  // public/
-  // .next/
-  // .out/
-  // __coverage__/
-  // __reports__/
-  // *.config.*
-  // package.json
-  // package-lock.json
-  // *rc.*
-  // /scripts/
-  // # disable linting for templates because they will have their own rules when used in a new app
-  // templates/nextjs/template
-  // templates/astro/src/env.d.ts
-  // packages/circuit-ui/vendor
-  // packages/icons/vendor
-
   configs.javascript,
   {
     extends: [configs.typescript],
