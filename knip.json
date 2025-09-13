@@ -12,21 +12,21 @@
     ".storybook/**/*",
     "scripts/**/*",
     "*rc.js",
-    "*.config.js",
+    "*.config.*",
     "**/vendor/**/*"
   ],
   "ignoreWorkspaces": ["templates/**/*"],
-  "ignoreBinaries": ["start-server-and-test"],
+  "ignoreBinaries": ["biome", "eslint", "start-server-and-test"],
   "ignoreDependencies": [
     "@babel/preset-env",
     "@babel/preset-react",
     "@emotion/eslint-plugin",
     "@sumup-oss/eslint-plugin-circuit-ui",
-    "eslint-config-airbnb-typescript",
-    "eslint-import-resolver-typescript",
+    "@sumup-oss/stylelint-plugin-circuit-ui",
     "eslint-plugin-react-server-components",
     "eslint-plugin-storybook",
     "eslint-plugin-testing-library",
     "svgo"
-  ]
+  ],
+  "tags": ["-lintignore"]
 }

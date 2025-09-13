@@ -38,6 +38,7 @@ type Variant = 'plain' | 'inset';
 
 type ItemProps = ListItemProps & { key: string | number };
 
+/** @lintignore */
 export interface BaseProps {
   /**
    * Choose between 'inset' (outer border and dividers) and 'plain' (only
