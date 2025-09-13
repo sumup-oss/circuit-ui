@@ -3,13 +3,14 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "alwaysStrict": true,
-    "declaration": true,
+    "declaration": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
     "jsxImportSource": "react",
-    "moduleResolution": "node",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -20,11 +21,6 @@
     "target": "es2019"
   },
   "include": ["**/*", ".storybook/**/*"],
-  "exclude": [
-    "node_modules",
-    "public/**/*",
-    "**/dist/**/*",
-    "**/template/**/*"
-  ],
+  "exclude": ["node_modules", "public/**/*", "**/dist/**/*"],
   "typeRoots": ["./global.d.ts"]
 }

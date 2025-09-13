@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { DocsContainer as BaseContainer } from '@storybook/addon-docs/blocks';
 
-import { dark, light, listenToColorScheme } from '../themes';
+import { dark, light, listenToColorScheme } from '../themes.js';
 
 const themes = { light, dark };
 

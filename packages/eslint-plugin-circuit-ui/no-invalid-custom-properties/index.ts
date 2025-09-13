@@ -16,6 +16,8 @@
 import { ESLintUtils } from '@typescript-eslint/utils';
 import { schema } from '@sumup-oss/design-tokens';
 
+import type { RuleDocs } from '../utils/meta.js';
+
 const PREFIX = '--cui-';
 const VALID_CUSTOM_PROPERTIES_WITHOUT_PREFIX = schema.map(({ name }) =>
   name.replace(PREFIX, ''),
@@ -24,7 +26,7 @@ const REGEX_STRING = `(?:${PREFIX})(?!(?:${VALID_CUSTOM_PROPERTIES_WITHOUT_PREFI
   '|',
 )})[^\\w-])[\\w-]+`;
 
-const createRule = ESLintUtils.RuleCreator(
+const createRule = ESLintUtils.RuleCreator<RuleDocs>(
   (name) =>
     `https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/${name}`,
 );
@@ -37,7 +39,7 @@ export const noInvalidCustomProperties = createRule({
     docs: {
       description:
         'Custom properties prefixed with `--cui-` should be valid Circuit UI design tokens.',
-      recommended: 'recommended',
+      recommended: 'error',
     },
     messages: {
       invalid: '`{{name}}` is not a valid Circuit UI design token.',

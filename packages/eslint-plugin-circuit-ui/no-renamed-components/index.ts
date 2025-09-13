@@ -12,10 +12,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* eslint-disable */
-import { ESLintUtils } from '@typescript-eslint/utils';
 
-const createRule = ESLintUtils.RuleCreator(
+import { ESLintUtils, TSESTree } from '@typescript-eslint/utils';
+
+import type { RuleDocs } from '../utils/meta.js';
+
+const createRule = ESLintUtils.RuleCreator<RuleDocs>(
   (name) =>
     `https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/${name}`,
 );
@@ -44,7 +46,7 @@ export const noRenamedComponents = createRule({
     docs: {
       description:
         'Renamed components should be renamed to suggested alternatives',
-      recommended: 'strict',
+      recommended: 'off',
     },
     messages: {
       renamed: 'The {{name}} component has been renamed to {{alternative}}',
@@ -58,12 +60,16 @@ export const noRenamedComponents = createRule({
       ImportDeclaration(node) {
         if (node.source.value === '@sumup-oss/circuit-ui') {
           node.specifiers.forEach((specifier) => {
-            if (specifier.type === 'ImportSpecifier') {
+            if (specifier.type === TSESTree.AST_NODE_TYPES.ImportSpecifier) {
               trackedImports.set(specifier.local.name, node.source.value);
+              const importedName =
+                specifier.imported.type === TSESTree.AST_NODE_TYPES.Identifier
+                  ? specifier.imported.name
+                  : specifier.imported.value;
               const renamedComponent = components.find(
                 (comp) =>
                   comp.name === specifier.local.name ||
-                  comp.name === specifier.imported.name,
+                  comp.name === importedName,
               );
               if (!renamedComponent) {
                 return;

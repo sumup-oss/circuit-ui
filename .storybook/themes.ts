@@ -1,7 +1,7 @@
 import { create } from 'storybook/theming';
 import { GLOBALS_UPDATED } from 'storybook/internal/core-events';
 
-import { Link } from './components/Link';
+import { Link } from './components/Link.js';
 
 const brand = {
   brandTitle: 'Circuit UI',

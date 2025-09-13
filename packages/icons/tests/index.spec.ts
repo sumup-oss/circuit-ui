@@ -91,7 +91,7 @@ describe('Icons', () => {
 
 function parseFileName(fileName: string) {
   try {
-    const [, name, size] = fileName.match(/(.+?)(?:_(\d+))?\.svg$/);
+    const [, name, size] = fileName.match(/(.+?)(?:_(\d+))?\.svg$/)!;
     // assign size of 480 for flag icons when size not specified in file name
     if (!size && name.match(/^flag_[a-z]{2}$/)) {
       return { name, size: '480' };
@@ -122,12 +122,15 @@ function parseSVGAttributes(file: string) {
   return ast.svg.attributes;
 }
 
-function getIconManifest(name?: string, size?: string) {
-  if (!name || !size) {
-    return null;
-  }
-
+function getIconManifest(name: string, size: string) {
   return manifest.icons.find(
     (icon) => icon.name === name && icon.size === size,
-  );
+  ) as {
+    name: string;
+    category: string;
+    keywords: string[];
+    size: string;
+    deprecation: string;
+    skipComponentFile?: undefined;
+  };
 }

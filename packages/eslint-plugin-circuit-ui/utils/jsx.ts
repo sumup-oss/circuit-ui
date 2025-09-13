@@ -13,9 +13,7 @@
  * limitations under the License.
  */
 
-import type { TSESTree, TSESLint } from '@typescript-eslint/utils';
-
-/* eslint-disable */
+import { TSESTree, type TSESLint } from '@typescript-eslint/utils';
 
 export function findAttribute(
   node: TSESTree.JSXElement,
@@ -23,8 +21,8 @@ export function findAttribute(
 ) {
   return node.openingElement.attributes.find(
     (attribute) =>
-      attribute.type === 'JSXAttribute' &&
-      attribute.name.type === 'JSXIdentifier' &&
+      attribute.type === TSESTree.AST_NODE_TYPES.JSXAttribute &&
+      attribute.name.type === TSESTree.AST_NODE_TYPES.JSXIdentifier &&
       attribute.name.name === attributeName,
   ) as TSESTree.JSXAttribute | undefined;
 }
@@ -33,14 +31,14 @@ export function getAttributeValue(
   attribute: TSESTree.JSXAttribute,
 ): string | null {
   if (
-    attribute.value?.type === 'Literal' &&
+    attribute.value?.type === TSESTree.AST_NODE_TYPES.Literal &&
     typeof attribute.value.value === 'string'
   ) {
     return attribute.value.value;
   }
   if (
-    attribute.value?.type === 'JSXExpressionContainer' &&
-    attribute.value.expression.type === 'Literal'
+    attribute.value?.type === TSESTree.AST_NODE_TYPES.JSXExpressionContainer &&
+    attribute.value.expression.type === TSESTree.AST_NODE_TYPES.Literal
   ) {
     return attribute.value.expression.value as string;
   }
@@ -51,7 +49,7 @@ export function filterWhitespaceChildren(
   children: TSESTree.JSXChild[],
 ): TSESTree.JSXChild[] {
   return children.filter((child) => {
-    if (child.type !== 'JSXText') {
+    if (child.type !== TSESTree.AST_NODE_TYPES.JSXText) {
       return true;
     }
     const nonWhiteSpaceText = child.value.trim();
@@ -67,14 +65,14 @@ export function transformAttributeValueToChildren(
     return null;
   }
   switch (attribute.value.type) {
-    case 'Literal':
+    case TSESTree.AST_NODE_TYPES.Literal:
       return sourceCode
         .getText(attribute.value)
         .replace(/^"/, '')
         .replace(/"$/, '');
-    case 'JSXExpressionContainer':
+    case TSESTree.AST_NODE_TYPES.JSXExpressionContainer:
       switch (attribute.value.expression.type) {
-        case 'JSXElement':
+        case TSESTree.AST_NODE_TYPES.JSXElement:
           return sourceCode.getText(attribute.value.expression);
         default:
           return sourceCode.getText(attribute.value);

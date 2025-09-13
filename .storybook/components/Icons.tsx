@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+/* eslint-disable compat/compat */
+
 import {
   useState,
   type Dispatch,
@@ -26,7 +28,9 @@ import {
   type IconComponentType,
   type IconsManifest,
 } from '@sumup-oss/icons';
-import iconsManifest from '@sumup-oss/icons/manifest.json';
+import iconsManifest from '@sumup-oss/icons/manifest.json' with {
+  type: 'json',
+};
 import { Badge } from '../../packages/circuit-ui/components/Badge/Badge.js';
 import { Body } from '../../packages/circuit-ui/components/Body/Body.js';
 import { Headline } from '../../packages/circuit-ui/components/Headline/Headline.js';
@@ -201,6 +205,7 @@ function Icon({
   const componentName = getComponentName(
     icon.name,
   ) as keyof typeof iconComponents;
+  // eslint-disable-next-line import-x/namespace
   const IconComponent = iconComponents[componentName] as IconComponentType;
 
   const copyIconURL = () => {
@@ -302,6 +307,7 @@ function Icon({
             <IconButton
               variant="tertiary"
               size="s"
+              // @ts-expect-error ReactIcon is a React component
               icon={ReactIcon}
               onClick={copyIconReactName}
             >

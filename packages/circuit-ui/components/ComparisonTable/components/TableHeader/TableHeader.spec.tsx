@@ -18,16 +18,16 @@ import { describe, expect, it } from 'vitest';
 import { render, screen } from '../../../../util/test-utils.js';
 import { standardPlan } from '../../fixtures.js';
 
-import { TableHeader, type TableHeaderProps } from './TableHeader.js';
+import { TableHeader } from './TableHeader.js';
 
 describe('TableHeader', () => {
-  const baseProps: TableHeaderProps = standardPlan;
+  const baseProps = standardPlan;
 
   it('should render all plan information', () => {
     render(<TableHeader {...baseProps} tier={{ variant: 'plus' }} />);
     expect(screen.getByText(baseProps.title)).toBeVisible();
     expect(screen.getByText(baseProps.description)).toBeVisible();
-    expect(screen.getByText(baseProps.action.children as string)).toBeVisible();
+    expect(screen.getByText(baseProps.action.children)).toBeVisible();
     expect(screen.getByText('plus')).toBeVisible();
   });
 });

@@ -14,17 +14,18 @@
  */
 
 // We disable the rule in this file because we explicitly test invalid cases
-/* eslint-disable @sumup-oss/circuit-ui/no-invalid-custom-properties */
+ 
 
 import { RuleTester } from '@typescript-eslint/rule-tester';
 
-import { noDeprecatedComponents } from '.';
+import { noDeprecatedComponents } from './index.js';
 
 const ruleTester = new RuleTester({
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
+  languageOptions: {
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
     },
   },
 });

@@ -1,5 +1,6 @@
 import { configs, defineConfig, files } from '@sumup-oss/foundry/eslint';
 import testingLibrary from 'eslint-plugin-testing-library';
+import circuitUI from '@sumup-oss/eslint-plugin-circuit-ui';
 
 export default defineConfig([
   configs.ignores,
@@ -12,6 +13,18 @@ export default defineConfig([
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
+    },
+  },
+  {
+    files: [...files.javascript, ...files.typescript],
+    extends: [circuitUI.configs.recommended],
+    rules: {
+      'circuit-ui/no-invalid-custom-properties': 'error',
+      'circuit-ui/no-deprecated-custom-properties': 'error',
+      'circuit-ui/no-deprecated-props': 'error',
+      'circuit-ui/no-deprecated-components': 'error',
+      'circuit-ui/no-renamed-props': 'error',
+      'circuit-ui/prefer-custom-properties': 'warn',
     },
   },
   configs.browser,

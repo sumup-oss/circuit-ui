@@ -78,26 +78,32 @@ describe('Dialog', () => {
   it('should forward a ref', () => {
     const ref = createRef<HTMLDialogElement>();
     render(<Dialog {...props} ref={ref} />);
-    const dialog = screen.getByRole('dialog', { hidden: true });
+    const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
+      hidden: true,
+    });
     expect(ref.current).toBe(dialog);
   });
 
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
     render(<Dialog {...props} className={className} />);
-    const dialog = screen.getByRole('dialog', { hidden: true });
+    const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
+      hidden: true,
+    });
     expect(dialog?.className).toContain(className);
   });
 
   it('should render in closed state by default', () => {
     render(<Dialog {...props} />);
-    const dialog = screen.getByRole('dialog', { hidden: true });
+    const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
+      hidden: true,
+    });
     expect(dialog).not.toBeVisible();
   });
 
   it('should open the modal dialog when the open prop becomes truthy', () => {
     const { rerender } = render(<Dialog {...props} isModal />);
-    const dialog = screen.getByRole('dialog', {
+    const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
       hidden: true,
     });
     vi.spyOn(dialog, 'showModal');
@@ -108,7 +114,7 @@ describe('Dialog', () => {
 
   it('should open the dialog when the open prop becomes truthy', () => {
     const { rerender } = render(<Dialog {...props} />);
-    const dialog = screen.getByRole('dialog', {
+    const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
       hidden: true,
     });
     vi.spyOn(dialog, 'show');
@@ -119,7 +125,7 @@ describe('Dialog', () => {
 
   it('should switch to modal mode when the isModal prop becomes truthy', () => {
     const { rerender } = render(<Dialog {...props} open />);
-    const dialog = screen.getByRole('dialog', {
+    const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
       hidden: true,
     });
     vi.spyOn(dialog, 'showModal');
@@ -132,7 +138,7 @@ describe('Dialog', () => {
 
   it('should close the dialog when the open prop becomes falsy', () => {
     const { rerender } = render(<Dialog {...props} open />);
-    const dialog = screen.getByRole('dialog', {
+    const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
       hidden: true,
     });
     vi.spyOn(dialog, 'close');
@@ -144,7 +150,7 @@ describe('Dialog', () => {
 
   it('should close the dialog when the component is unmounted', async () => {
     const { unmount } = render(<Dialog {...props} open />);
-    const dialog = screen.getByRole('dialog', {
+    const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
       hidden: true,
     });
     vi.spyOn(dialog, 'close');
@@ -187,7 +193,9 @@ describe('Dialog', () => {
     describe('preventOutsideClickClose', () => {
       it('should close modal on backdrop click if preventOutsideClickClose is false', async () => {
         render(<Dialog {...props} open />);
-        const dialog = screen.getByRole('dialog', { hidden: true });
+        const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
+          hidden: true,
+        });
         vi.spyOn(dialog, 'close');
         await userEvent.click(document.body);
         act(() => {
@@ -199,7 +207,9 @@ describe('Dialog', () => {
       });
       it('should not close modal on backdrop click if preventOutsideClickClose is true', async () => {
         render(<Dialog {...props} open preventOutsideClickClose />);
-        const dialog = screen.getByRole('dialog', { hidden: true });
+        const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
+          hidden: true,
+        });
         await userEvent.click(dialog);
         act(() => {
           vi.runAllTimers();
@@ -210,7 +220,9 @@ describe('Dialog', () => {
       });
       it('should not close modal on swipe down if preventOutsideClickClose is true', async () => {
         render(<Dialog {...props} open preventOutsideClickClose />);
-        const dialog = screen.getByRole('dialog', { hidden: true });
+        const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
+          hidden: true,
+        });
         swipeDown(dialog);
         act(() => {
           vi.runAllTimers();
@@ -225,7 +237,9 @@ describe('Dialog', () => {
           value: undefined,
         });
         render(<Dialog {...props} open preventOutsideClickClose />);
-        const dialog = screen.getByRole('dialog', { hidden: true });
+        const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
+          hidden: true,
+        });
         await userEvent.click(dialog);
         vi.runAllTimers();
         expect(props.onCloseEnd).not.toHaveBeenCalled();
@@ -237,7 +251,9 @@ describe('Dialog', () => {
     describe('preventEscapeKeyClose', () => {
       it('should close the dialog pressing the Escape key and preventEscapeKeyClose is false', async () => {
         render(<Dialog {...props} open />);
-        const dialog = screen.getByRole('dialog', { hidden: true });
+        const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
+          hidden: true,
+        });
         vi.spyOn(dialog, 'close');
         await userEvent.keyboard('{Escape}');
         expect(dialog.close).toHaveBeenCalled();
@@ -247,7 +263,9 @@ describe('Dialog', () => {
 
       it('should not close the dialog pressing the Escape key and preventEscapeKeyClose is true', async () => {
         render(<Dialog {...props} open preventEscapeKeyClose />);
-        const dialog = screen.getByRole('dialog', { hidden: true });
+        const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
+          hidden: true,
+        });
         vi.spyOn(dialog, 'close');
         await userEvent.keyboard('{Escape}');
         expect(dialog.close).not.toHaveBeenCalled();
@@ -262,7 +280,9 @@ describe('Dialog', () => {
             <button>Some button</button>
           </>,
         );
-        const dialog = screen.getByRole('dialog', { hidden: true });
+        const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
+          hidden: true,
+        });
         const button = screen.getByText('Some button');
         vi.spyOn(dialog, 'close');
 
@@ -276,7 +296,9 @@ describe('Dialog', () => {
 
     it('should close the dialog when pressing the backdrop', async () => {
       render(<Dialog {...props} open isModal />);
-      const dialog = screen.getByRole('dialog', { hidden: true });
+      const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
+        hidden: true,
+      });
       vi.spyOn(dialog, 'getBoundingClientRect').mockImplementation(
         () => new DOMRect(100, 100, 500, 500),
       );
@@ -291,7 +313,9 @@ describe('Dialog', () => {
     it('should close the dialog when user swipes down', async () => {
       render(<Dialog {...props} open isModal />);
 
-      const dialog = screen.getByRole('dialog', { hidden: true });
+      const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
+        hidden: true,
+      });
 
       swipeDown(dialog);
 
@@ -303,7 +327,9 @@ describe('Dialog', () => {
 
     it('should close the dialog when pressing the backdrop - polyfill', async () => {
       render(<Dialog {...props} open />);
-      const dialog = screen.getByRole('dialog', { hidden: true });
+      const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
+        hidden: true,
+      });
       const backdrop = document.getElementsByClassName('backdrop')[0];
       await userEvent.click(backdrop);
       vi.runAllTimers();
@@ -314,7 +340,9 @@ describe('Dialog', () => {
 
     it('should close the modal dialog when the close button is clicked', async () => {
       render(<Dialog {...props} open isModal />);
-      const dialog = screen.getByRole('dialog', { hidden: true });
+      const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
+        hidden: true,
+      });
       await userEvent.click(screen.getByRole('button', { name: 'Close' }));
       vi.runAllTimers();
       expect(props.onCloseEnd).toHaveBeenCalledOnce();

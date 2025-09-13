@@ -21,6 +21,10 @@ import type { ClickEvent } from '../../types/events.js';
 
 import { Anchor } from './Anchor.js';
 
+declare const process: {
+  env: { NODE_ENV: string };
+};
+
 describe('Anchor', () => {
   const baseProps = { children: 'Anchor' };
 

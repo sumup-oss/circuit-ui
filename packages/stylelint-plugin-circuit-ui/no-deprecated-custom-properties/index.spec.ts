@@ -14,7 +14,7 @@
  */
 
 // We disable the rule in this file because we explicitly test invalid cases
-/* eslint-disable @sumup-oss/circuit-ui/no-deprecated-custom-properties */
+/* eslint-disable circuit-ui/no-deprecated-custom-properties */
 
 import { testRule } from '../setupTests.js';
 

@@ -14,21 +14,21 @@
  */
 
 // We disable the rule in this file because we explicitly test invalid cases
-/* eslint-disable @sumup-oss/circuit-ui/no-invalid-custom-properties */
+/* eslint-disable circuit-ui/no-invalid-custom-properties */
 
 import { RuleTester } from '@typescript-eslint/rule-tester';
 
-import { noInvalidCustomProperties } from '.';
+import { noInvalidCustomProperties } from './index.js';
 
-const ruleTester = new RuleTester();
-
-const languageOptions = {
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
+const ruleTester = new RuleTester({
+  languageOptions: {
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
     },
   },
-};
+});
 
 ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
   valid: [
@@ -40,7 +40,6 @@ ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
           active: "var(--cui-fg-normal-pressed)",
         }
       `,
-      languageOptions,
     },
     {
       name: 'custom properties in a tagged template literal',
@@ -50,7 +49,6 @@ ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
           background-color: var(--cui-fg-normal-pressed);
         \`;
       `,
-      languageOptions,
     },
     {
       name: 'custom properties in inline styles',
@@ -65,7 +63,6 @@ ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
           );
         }
       `,
-      languageOptions,
     },
   ],
   invalid: [
@@ -85,7 +82,6 @@ ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
           messageId: 'invalid',
         },
       ],
-      languageOptions,
     },
     {
       name: 'custom properties in a tagged template literal',
@@ -103,7 +99,6 @@ ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
           messageId: 'invalid',
         },
       ],
-      languageOptions,
     },
     {
       name: 'custom properties in inline styles',
@@ -126,7 +121,6 @@ ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
           messageId: 'invalid',
         },
       ],
-      languageOptions,
     },
     {
       name: 'string interpolation in custom properties',
@@ -140,7 +134,6 @@ ruleTester.run('no-invalid-custom-properties', noInvalidCustomProperties, {
           messageId: 'invalid',
         },
       ],
-      languageOptions,
     },
   ],
 });

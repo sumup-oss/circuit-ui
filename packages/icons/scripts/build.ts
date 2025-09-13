@@ -226,7 +226,7 @@ async function transpileModule(fileName: string, code: string) {
       ],
     ],
     filename: fileName,
-  })?.code;
+  })?.code as string;
   return writeFile(DIST_DIR, fileName, output);
 }
 

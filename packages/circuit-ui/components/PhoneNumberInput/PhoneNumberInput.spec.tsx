@@ -24,6 +24,10 @@ import {
   type PhoneNumberInputProps,
 } from './PhoneNumberInput.js';
 
+declare const process: {
+  env: { NODE_ENV: string };
+};
+
 const countryCodeMap: { [key: string]: string } = {
   CA: '+1',
   US: '+1',

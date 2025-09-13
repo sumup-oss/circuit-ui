@@ -14,17 +14,18 @@
  */
 
 // We disable the rule in this file because we explicitly test invalid cases
-/* eslint-disable @sumup-oss/circuit-ui/no-invalid-custom-properties */
+ 
 
 import { RuleTester } from '@typescript-eslint/rule-tester';
 
-import { componentLifecycleImports } from '.';
+import { componentLifecycleImports } from './index.js';
 
 const ruleTester = new RuleTester({
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
+  languageOptions: {
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
     },
   },
 });
@@ -92,10 +93,14 @@ ruleTester.run('component-lifecycle-imports', componentLifecycleImports, {
       code: `
         import { RangePicker, RangePickerController } from '@sumup-oss/circuit-ui';
       `,
-      // The other component will be migrated on the second pass.
-      output: `
+      output: [
+        `
         import { RangePickerController } from '@sumup-oss/circuit-ui';import { RangePicker } from '@sumup-oss/circuit-ui/legacy';
       `,
+        `
+        import { RangePickerController } from '@sumup-oss/circuit-ui/legacy';import { RangePicker } from '@sumup-oss/circuit-ui/legacy';
+      `,
+      ],
       errors: [{ messageId: 'refactor' }, { messageId: 'refactor' }],
     },
     {

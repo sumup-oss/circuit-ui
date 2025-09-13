@@ -29,6 +29,7 @@ describe('DateInput', () => {
   const props = {
     onChange: vi.fn(),
     label: 'Date of birth',
+    openCalendarButtonLabel: 'Change date',
   };
 
   beforeEach(() => {

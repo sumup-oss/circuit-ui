@@ -13,11 +13,10 @@
  * limitations under the License.
  */
 
-import { ESLintUtils, type TSESTree } from '@typescript-eslint/utils';
+import { ESLintUtils, TSESTree } from '@typescript-eslint/utils';
+import type { RuleDocs } from '../utils/meta.js';
 
-/* eslint-disable */
-
-const createRule = ESLintUtils.RuleCreator(
+const createRule = ESLintUtils.RuleCreator<RuleDocs>(
   (name) =>
     `https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/${name}`,
 );
@@ -53,7 +52,7 @@ export const noDeprecatedComponents = createRule({
     schema: [],
     docs: {
       description: 'Deprecated components should be removed or replaced',
-      recommended: 'strict',
+      recommended: 'warn',
     },
     messages: {
       deprecated: 'The {{name}} component has been deprecated. {{alternative}}',
@@ -66,12 +65,17 @@ export const noDeprecatedComponents = createRule({
         node: TSESTree.ImportDeclaration,
       ) => {
         node.specifiers.forEach((specifier) => {
-          if (specifier.type !== 'ImportSpecifier') {
+          if (specifier.type !== TSESTree.AST_NODE_TYPES.ImportSpecifier) {
             return;
           }
 
+          const importedName =
+            specifier.imported.type === TSESTree.AST_NODE_TYPES.Identifier
+              ? specifier.imported.name
+              : specifier.imported.value;
+
           const component = components.find(
-            ({ name }) => name === specifier.imported.name,
+            ({ name }) => name === importedName,
           );
 
           if (!component) {

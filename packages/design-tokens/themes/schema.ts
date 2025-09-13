@@ -238,7 +238,7 @@ export const schema = [
   { name: '--cui-numeral-s-line-height', type: 'dimension' },
   { name: '--cui-letter-spacing', type: 'dimension' },
   { name: '--cui-letter-spacing-tight', type: 'dimension' },
-  /* eslint-disable @sumup-oss/circuit-ui/no-deprecated-custom-properties */
+  /* eslint-disable circuit-ui/no-deprecated-custom-properties */
   {
     name: '--cui-typography-headline-one-font-size',
     type: 'dimension',
@@ -407,7 +407,7 @@ export const schema = [
       replacement: '--cui-body-l-line-height',
     },
   },
-  /* eslint-disable @sumup-oss/circuit-ui/no-deprecated-custom-properties */
+   
   /* Z-indices */
   { name: '--cui-z-index-default', type: 'number' },
   { name: '--cui-z-index-absolute', type: 'number' },

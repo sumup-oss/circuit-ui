@@ -14,8 +14,9 @@
  */
 
 import { ESLintUtils, TSESTree, type TSESLint } from '@typescript-eslint/utils';
+import type { RuleDocs } from '../utils/meta.js';
 
-const createRule = ESLintUtils.RuleCreator(
+const createRule = ESLintUtils.RuleCreator<RuleDocs>(
   (name) =>
     `https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/${name}`,
 );
@@ -74,7 +75,7 @@ export const noDeprecatedProps = createRule({
     schema: [],
     docs: {
       description: 'Deprecated component props should be removed or replaced',
-      recommended: 'strict',
+      recommended: 'warn',
     },
     messages: {
       deprecated:

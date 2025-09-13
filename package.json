@@ -2,6 +2,7 @@
   "name": "circuit-ui-web",
   "description": "The web implementation of Circuit UI, SumUp's design system",
   "private": true,
+  "type": "module",
   "workspaces": [
     "packages/*",
     "templates/*",

@@ -1,11 +1,15 @@
 import '@sumup-oss/design-tokens/dynamic.css';
 
-// biome-ignore lint/correctness/noUnusedImports: React must be in scope to use JSX
+// @ts-expect-error React isn't injected globally in this file
+// biome-ignore lint/correctness/noUnusedImports: React isn't injected globally in this file
 import React, { type CSSProperties } from 'react';
 import { addons, types } from 'storybook/manager-api';
 
 import { dark, light, listenToColorScheme } from './themes.js';
-import { PARAM_KEY as VERSIONS_PARAM_KEY, Versions } from './addons/versions';
+import {
+  PARAM_KEY as VERSIONS_PARAM_KEY,
+  Versions,
+} from './addons/versions/index.js';
 
 type BadgeConfig = {
   style: CSSProperties;
