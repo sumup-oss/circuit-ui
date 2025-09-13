@@ -86,7 +86,7 @@ const baseStyles = ({
 
     > * {
       &:not(:last-of-type) {
-        margin-bottom: ${theme.spacings.byte};
+        margin-bottom: var(--cui-spacings-byte);
       }
     }
 
@@ -101,7 +101,7 @@ const baseStyles = ({
 
         &:not(:last-of-type) {
           margin-bottom: 0;
-          margin-right: ${theme.spacings.byte};
+          margin-right: var(--cui-spacings-byte);
         }
       }
 
@@ -150,7 +150,7 @@ const inlineMobileStyles = ({
       > * {
         &:not(:last-of-type) {
           margin-bottom: 0;
-          margin-right: ${theme.spacings.byte};
+          margin-right: var(--cui-spacings-byte);
         }
       }
     }

@@ -407,7 +407,7 @@ export const schema = [
       replacement: '--cui-body-l-line-height',
     },
   },
-   
+
   /* Z-indices */
   { name: '--cui-z-index-default', type: 'number' },
   { name: '--cui-z-index-absolute', type: 'number' },

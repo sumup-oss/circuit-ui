@@ -14,7 +14,6 @@
  */
 
 // We disable the rule in this file because we explicitly test invalid cases
- 
 
 import { RuleTester } from '@typescript-eslint/rule-tester';
 

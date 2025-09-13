@@ -64,6 +64,7 @@ function CopyButton({ name }: { name: CustomPropertyName }) {
       style={{ marginLeft: '1rem' }}
       size="s"
       onClick={() =>
+        // eslint-disable-next-line compat/compat
         navigator.clipboard
           .writeText(name)
           .then(() => setToast({ body: 'Copied!', variant: 'success' }))
