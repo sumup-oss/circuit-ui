@@ -62,10 +62,8 @@
   }
 
   .table thead .offset {
-    top: calc(
-      var(--top-navigation-height, 0px) + 80px
-    ); /* height of the sticky plan picker on mobile */
-
+    /* height of the sticky plan picker on mobile */
+    top: calc(var(--top-navigation-height, 0px) + 80px);
     padding-top: 0;
   }
 
@@ -85,10 +83,8 @@
 
 @media (min-width: 480px) and (max-width: 767px) {
   .table thead .offset {
-    top: calc(
-      var(--top-navigation-height, 0px) + 96px
-    ); /* height of the sticky plan picker on tablet */
-
+    /* height of the sticky plan picker on tablet */
+    top: calc(var(--top-navigation-height, 0px) + 96px);
     padding-top: 0;
   }
 }

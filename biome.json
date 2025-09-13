@@ -2,18 +2,7 @@
   "$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
   "extends": ["@sumup-oss/foundry/biome"],
   "files": {
-    "includes": [
-      "**",
-      "!**/build",
-      "!**/dist",
-      "!**/public",
-      "!**/.next",
-      "!**/.out",
-      "!**/__coverage__",
-      "!**/__reports__",
-      "!**/*.astro",
-      "!**/vendor"
-    ]
+    "includes": ["**", "!**/vendor"]
   },
   "assist": {
     "actions": {
@@ -23,12 +12,6 @@
     }
   },
   "css": {
-    "formatter": {
-      "enabled": false
-    },
-    "linter": {
-      "enabled": true
-    },
     "parser": {
       "cssModules": true
     }
@@ -57,8 +40,7 @@
         "noArrayIndexKey": "warn",
         "noExplicitAny": "warn"
       }
-    },
-    "includes": ["**", "!templates/astro", "!templates/nextjs/template"]
+    }
   },
   "overrides": [
     {

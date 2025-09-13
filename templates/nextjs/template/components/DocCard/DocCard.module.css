@@ -3,7 +3,7 @@
 }
 
 .title::after {
-  content: ' →'
+  content: " →";
 }
 
 .title a {
