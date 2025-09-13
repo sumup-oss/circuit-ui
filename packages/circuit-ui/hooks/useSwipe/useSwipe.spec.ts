@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-/* eslint-disable max-classes-per-file */
-
 import { describe, expect, it, vi } from 'vitest';
 import type { TouchEvent } from 'react';
 

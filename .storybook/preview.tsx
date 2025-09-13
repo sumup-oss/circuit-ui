@@ -2,10 +2,10 @@ import '@sumup-oss/design-tokens/fonts.css';
 import '@sumup-oss/design-tokens/dynamic.css';
 import '../packages/circuit-ui/styles/base.css';
 
-import { light, components } from './themes';
-import { withThemeProvider } from './decorators/withThemeProvider';
-import { DocsContainer } from './components';
-import { modes } from './modes';
+import { light, components } from './themes.js';
+import { withThemeProvider } from './decorators/withThemeProvider.js';
+import { DocsContainer } from './components/DocsContainer.js';
+import { modes } from './modes.js';
 
 export const parameters = {
   layout: 'centered',

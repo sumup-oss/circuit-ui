@@ -19,7 +19,7 @@ export const ANIMATION_DURATION = 640;
 
 export const SLIDE_DURATION = 5000;
 
-export enum SLIDE_DIRECTIONS {
+export enum SlideDirection {
   FORWARD = 'forward',
   BACK = 'back',
 }

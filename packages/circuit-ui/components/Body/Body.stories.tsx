@@ -91,7 +91,7 @@ const variants = ['highlight', 'quote', 'confirm', 'alert', 'subtle'] as const;
 
 export const Variants = (args: BodyProps) =>
   variants.map((variant) => (
-    // eslint-disable-next-line @sumup-oss/circuit-ui/no-deprecated-props
+    // eslint-disable-next-line circuit-ui/no-deprecated-props
     <Body key={variant} {...args} variant={variant}>
       This is a {variant} body
     </Body>

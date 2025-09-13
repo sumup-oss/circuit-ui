@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-/* eslint-disable react/display-name */
 import { describe, expect, it, vi } from 'vitest';
 import { Home, Shop } from '@sumup-oss/icons';
 

@@ -40,7 +40,7 @@ import {
   ASPECT_RATIO,
   ANIMATION_DURATION,
   SLIDE_DURATION,
-  SLIDE_DIRECTIONS,
+  SlideDirection,
 } from './constants.js';
 import classes from './Carousel.module.css';
 
@@ -124,14 +124,14 @@ export function Carousel({
   const slidesTotal = slides.length;
   const slidesRef = useRef(null);
   const slideSize = useComponentSize(slidesRef);
-  const [slideDirection, setSlideDirection] = useState<SLIDE_DIRECTIONS>();
+  const [slideDirection, setSlideDirection] = useState<SlideDirection>();
 
   if (!slidesTotal) {
     return null;
   }
 
-  const handleNextSlide = () => setSlideDirection(SLIDE_DIRECTIONS.FORWARD);
-  const handlePreviousSlide = () => setSlideDirection(SLIDE_DIRECTIONS.BACK);
+  const handleNextSlide = () => setSlideDirection(SlideDirection.FORWARD);
+  const handlePreviousSlide = () => setSlideDirection(SlideDirection.BACK);
 
   return (
     <Step

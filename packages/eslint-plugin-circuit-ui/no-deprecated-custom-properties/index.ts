@@ -15,6 +15,7 @@
 
 import { ESLintUtils } from '@typescript-eslint/utils';
 import { schema } from '@sumup-oss/design-tokens';
+import type { RuleDocs } from '../utils/meta.js';
 
 const DEPRECATED_CUSTOM_PROPERTIES = schema.filter(({ deprecation }) =>
   Boolean(deprecation),
@@ -23,9 +24,7 @@ const REGEX_STRING = DEPRECATED_CUSTOM_PROPERTIES.map(({ name }) => name).join(
   '|',
 );
 
-/* eslint-disable */
-
-const createRule = ESLintUtils.RuleCreator(
+const createRule = ESLintUtils.RuleCreator<RuleDocs>(
   (name) =>
     `https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/${name}`,
 );
@@ -38,7 +37,7 @@ export const noDeprecatedCustomProperties = createRule({
     fixable: 'code',
     docs: {
       description: 'Deprecated custom properties should be removed or replaced',
-      recommended: 'strict',
+      recommended: 'warn',
     },
     messages: {
       deprecated:
@@ -53,7 +52,7 @@ export const noDeprecatedCustomProperties = createRule({
         context.sourceCode.getLines().forEach((line, index) => {
           const regex = new RegExp(REGEX_STRING, 'g');
           let match: RegExpExecArray | null;
-          // biome-ignore lint/suspicious/noAssignInExpressions:
+          // biome-ignore lint/suspicious/noAssignInExpressions: This is fine
           while ((match = regex.exec(line)) !== null) {
             const name = match[0];
             const { replacement } = DEPRECATED_CUSTOM_PROPERTIES.find(

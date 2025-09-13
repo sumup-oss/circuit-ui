@@ -27,6 +27,8 @@
   flex-shrink: 0;
   width: 80vw;
   height: min(60vw, 80vh);
+
+  /* biome-ignore lint/suspicious/noDuplicateProperties: Browser compatibility */
   height: min(60vw, 80dvh);
   scroll-snap-align: start;
 }

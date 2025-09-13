@@ -15,7 +15,7 @@
 
 import type { HTMLAttributes, ReactNode } from 'react';
 
-import { ANIMATION_DURATION, SLIDE_DIRECTIONS } from '../../constants.js';
+import { ANIMATION_DURATION, SlideDirection } from '../../constants.js';
 import { clsx } from '../../../../styles/clsx.js';
 
 import * as SlideService from './SlideService.js';
@@ -44,7 +44,7 @@ export interface SlideProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Indicates slide direction of a carousel (required for animation).
    */
-  slideDirection?: SLIDE_DIRECTIONS;
+  slideDirection?: SlideDirection;
   /**
    * Indicates duration of animation between slides (in milliseconds)
    */
@@ -97,10 +97,10 @@ export function Slide({
         className={clsx(
           classes.inner,
           isAnimating &&
-            slideDirection === SLIDE_DIRECTIONS.FORWARD &&
+            slideDirection === SlideDirection.FORWARD &&
             classes['animate-in'],
           isAnimating &&
-            slideDirection === SLIDE_DIRECTIONS.BACK &&
+            slideDirection === SlideDirection.BACK &&
             classes['animate-out'],
         )}
       >

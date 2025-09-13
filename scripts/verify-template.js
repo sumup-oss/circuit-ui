@@ -1,3 +1,5 @@
+// biome-ignore-all lint/correctness/noUndeclaredDependencies: This dependency is only installed in CI.
+
 /**
  * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,12 +15,13 @@
  * limitations under the License.
  */
 
-const puppeteer = require('puppeteer');
+// eslint-disable-next-line import-x/no-unresolved
+import puppeteer from 'puppeteer';
 
 /**
  * This script is used to check for runtime errors in the app templates.
  */
-(async () => {
+void (async () => {
   const expected = 'Welcome to Circuit UI';
 
   try {
@@ -43,7 +46,6 @@ const puppeteer = require('puppeteer');
 
     await browser.close();
 
-    // biome-ignore lint/suspicious/noConsoleLog: Okay in this test file
     console.log(`Found page heading containing "${expected}".`);
   } catch (error) {
     console.error(error);

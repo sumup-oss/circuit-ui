@@ -102,6 +102,9 @@ export const ActionMenu = forwardRef<HTMLDialogElement, ActionMenuProps>(
       };
 
     const isMenu = role === 'menu';
+    const menuProps = isMenu
+      ? { 'role': 'menu', 'aria-labelledby': triggerId }
+      : {};
 
     return (
       <Popover
@@ -111,16 +114,15 @@ export const ActionMenu = forwardRef<HTMLDialogElement, ActionMenuProps>(
         hideCloseButton={!isMobile}
         onToggle={onToggle}
         component={(refProps) => (
-          <Component {...refProps} onKeyDown={handleTriggerKeyDown} />
+          <Component
+            {...refProps}
+            id={triggerId}
+            onKeyDown={handleTriggerKeyDown}
+          />
         )}
         {...props}
       >
-        <div
-          id={menuId}
-          ref={menuEl}
-          aria-labelledby={isMenu ? triggerId : undefined}
-          role={isMenu ? 'menu' : undefined}
-        >
+        <div id={menuId} ref={menuEl} {...menuProps}>
           {actions.map((action, index) =>
             isDivider(action) ? (
               <Hr className={classes.divider} key={index} />

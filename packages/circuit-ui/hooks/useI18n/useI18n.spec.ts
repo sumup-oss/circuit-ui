@@ -16,7 +16,7 @@
 import { describe, expect, it, vi } from 'vitest';
 
 import { renderHook } from '../../util/test-utils.js';
-import type { Locale } from '../../util/i18n.js';
+import type { Locale, Translations } from '../../util/i18n.js';
 
 import { useI18n } from './useI18n.js';
 
@@ -31,7 +31,7 @@ describe('useI18n', () => {
   const translations = {
     'en-US': { greeting: 'Hello' },
     'de-DE': { greeting: 'Hallo' },
-  };
+  } as Translations<'greeting'>;
 
   it('should return translations for the provided locale', () => {
     const props: Props = { locale: 'de-DE' };

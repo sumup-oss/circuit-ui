@@ -1,6 +1,8 @@
 .base {
   width: 100vw;
   height: 100vh;
+
+  /* biome-ignore lint/suspicious/noDuplicateProperties: Browser compatibility */
   height: 100dvh;
 }
 

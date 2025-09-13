@@ -41,13 +41,14 @@ export const List = forwardRef<HTMLOListElement, ListProps>(
     { className, variant = 'unordered', size: legacySize = 'm', ...props },
     ref,
   ) => {
-    if (process.env.NODE_ENV !== 'production') {
-      if (legacySize in deprecatedSizeMap) {
-        deprecate(
-          'List',
-          `The "${legacySize}" size has been deprecated. Use the "${deprecatedSizeMap[legacySize]}" size instead.`,
-        );
-      }
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      legacySize in deprecatedSizeMap
+    ) {
+      deprecate(
+        'List',
+        `The "${legacySize}" size has been deprecated. Use the "${deprecatedSizeMap[legacySize]}" size instead.`,
+      );
     }
     const Element = variant === 'ordered' ? 'ol' : 'ul';
     const size = (deprecatedSizeMap[legacySize] || legacySize) as

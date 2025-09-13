@@ -16,8 +16,6 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore `import.meta` is fine
 export const BASE_DIR = path.dirname(fileURLToPath(import.meta.url));
 export const ICON_DIR = path.join(BASE_DIR, './web/v2');
 export const DIST_DIR = path.join(BASE_DIR, 'dist');

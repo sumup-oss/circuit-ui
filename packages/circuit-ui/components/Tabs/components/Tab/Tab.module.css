@@ -55,7 +55,8 @@
   position: absolute;
   right: 0;
   bottom: calc(
-    -1 * calc(var(--cui-spacings-kilo) - var(--cui-border-width-kilo))
+    -1 *
+    calc(var(--cui-spacings-kilo) - var(--cui-border-width-kilo))
   );
   left: 0;
   z-index: var(--cui-z-index-absolute);

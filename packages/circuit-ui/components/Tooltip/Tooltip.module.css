@@ -7,6 +7,8 @@
   z-index: var(--cui-z-index-tooltip);
   width: max-content;
   max-width: 360px;
+
+  /* biome-ignore lint/suspicious/noDuplicateProperties: Browser compatibility */
   max-width: min(360px, calc(100vw - 8px));
   pointer-events: none;
   opacity: 0;

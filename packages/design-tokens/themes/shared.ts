@@ -326,7 +326,7 @@ export const shared = [
     value: '1.375rem',
     type: 'dimension',
   },
-  /* eslint-disable @sumup-oss/circuit-ui/no-deprecated-custom-properties */
+  /* eslint-disable circuit-ui/no-deprecated-custom-properties */
   {
     name: '--cui-typography-headline-one-font-size',
     value: '2rem',
@@ -447,7 +447,7 @@ export const shared = [
     value: '1.5rem',
     type: 'dimension',
   },
-  /* eslint-enable @sumup-oss/circuit-ui/no-deprecated-custom-properties */
+  /* eslint-enable circuit-ui/no-deprecated-custom-properties */
   /* Z-indices */
   {
     name: '--cui-z-index-default',

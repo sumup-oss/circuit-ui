@@ -1,3 +1,4 @@
+// @ts-expect-error React isn't injected globally in this file
 // biome-ignore lint/correctness/noUnusedImports: React isn't injected globally in this file
 import React, { useState } from 'react';
 import {
@@ -49,6 +50,7 @@ export function Versions() {
       )}
       onVisibleChange={setIsTooltipVisible}
     >
+      {/* eslint-disable-next-line circuit-ui/no-renamed-props */}
       <IconButton
         key="versions"
         title="Switch to previous versions of the documentation"

@@ -13,13 +13,11 @@
  * limitations under the License.
  */
 
-import type { TSESTree } from '@typescript-eslint/utils';
-
-/* eslint-disable */
+import { TSESTree } from '@typescript-eslint/utils';
 
 export function getPropertyValue(property: TSESTree.Property): string | null {
   if (
-    property.value.type === 'Literal' &&
+    property.value.type === TSESTree.AST_NODE_TYPES.Literal &&
     typeof property.value.value === 'string'
   ) {
     return property.value.value;

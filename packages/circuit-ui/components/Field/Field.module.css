@@ -102,7 +102,8 @@
   width: var(--cui-icon-sizes-kilo);
   height: var(--cui-icon-sizes-kilo);
   margin-top: calc(
-    (var(--cui-body-s-line-height) - var(--cui-icon-sizes-kilo)) / 2
+    (var(--cui-body-s-line-height) - var(--cui-icon-sizes-kilo)) /
+    2
   );
   margin-right: var(--cui-spacings-bit);
 }

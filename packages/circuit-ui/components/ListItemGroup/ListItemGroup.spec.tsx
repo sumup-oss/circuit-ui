@@ -21,6 +21,10 @@ import { Body } from '../Body/index.js';
 
 import { ListItemGroup, type ListItemGroupProps } from './ListItemGroup.js';
 
+declare const process: {
+  env: { NODE_ENV: string };
+};
+
 describe('ListItemGroup', () => {
   function renderListItemGroup<T>(
     renderFn: RenderFn<T>,

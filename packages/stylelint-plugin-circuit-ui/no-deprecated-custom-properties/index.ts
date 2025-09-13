@@ -43,10 +43,10 @@ const rule: Rule = (enabled, _options, context) => (root, result) => {
   root.walkDecls((decl) => {
     const regex = new RegExp(REGEX_STRING, 'g');
     let match: RegExpExecArray | null;
-    // biome-ignore lint/suspicious/noAssignInExpressions:
+    // biome-ignore lint/suspicious/noAssignInExpressions: This is fine
     while ((match = regex.exec(decl.value)) !== null) {
       const name = match[0];
-      // biome-ignore lint/style/noNonNullAssertion:
+      // biome-ignore lint/style/noNonNullAssertion: Each item is guaranteed to have a deprecation.
       const { replacement } = DEPRECATED_CUSTOM_PROPERTIES.find(
         (token) => token.name === name,
       )!.deprecation!;

@@ -22,6 +22,7 @@ import { coverageConfigDefaults } from 'vitest/config';
 export default defineConfig({
   css,
   test: {
+    projects: ['packages/**/vitest.config.ts', 'packages/**/vite.config.ts'],
     reporters: process.env.GITHUB_ACTIONS
       ? ['default', new GithubActionsReporter()]
       : 'default',

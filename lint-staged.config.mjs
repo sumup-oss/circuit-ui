@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-module.exports = require('@sumup-oss/foundry/eslint')({
-  rules: {
-    'arrow-parens': 'off',
-    'no-console': 'off',
-  },
+import { defineConfig } from '@sumup-oss/foundry/lint-staged';
+
+export default defineConfig({
+  '*.svg': ['svgo --config svgo.config.js --pretty'],
 });

@@ -17,6 +17,10 @@ import { beforeEach, describe, expect, it } from 'vitest';
 
 import { getEnvVariable } from './env.js';
 
+declare let process: {
+  env: Record<string, string>;
+};
+
 describe('env', () => {
   describe('getEnvVariable', () => {
     const originalProcess = process;

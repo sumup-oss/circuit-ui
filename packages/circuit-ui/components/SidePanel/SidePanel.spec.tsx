@@ -51,7 +51,7 @@ describe('SidePanel', () => {
 
   it('should render the side panel', () => {
     renderComponent();
-    expect(screen.getByRole('dialog')).toBeVisible();
+    expect(screen.getByRole<HTMLDialogElement>('dialog')).toBeVisible();
   });
 
   it('should render the children render prop', () => {
@@ -164,7 +164,9 @@ describe('SidePanel', () => {
   describe('when the panel is on desktop resolution', () => {
     it('should open the side panel as non-modal', () => {
       const { rerender } = render(<SidePanel {...baseProps} open={false} />);
-      const dialog = screen.getByRole('dialog', { hidden: true });
+      const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
+        hidden: true,
+      });
       vi.spyOn(dialog, 'show');
       rerender(<SidePanel {...baseProps} open />);
       expect(dialog.show).toHaveBeenCalledOnce();
@@ -176,7 +178,9 @@ describe('SidePanel', () => {
       (useMedia as Mock).mockReturnValue(true);
 
       const { rerender } = render(<SidePanel {...baseProps} open={false} />);
-      const dialog = screen.getByRole('dialog', { hidden: true });
+      const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
+        hidden: true,
+      });
       vi.spyOn(dialog, 'showModal');
       rerender(<SidePanel {...baseProps} open />);
       expect(dialog.showModal).toHaveBeenCalledOnce();

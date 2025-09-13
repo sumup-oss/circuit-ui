@@ -13,22 +13,20 @@
  * limitations under the License.
  */
 
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-
 import { RuleTester } from '@typescript-eslint/rule-tester';
 
-import { noRenamedComponents } from './index';
+import { noRenamedComponents } from './index.js';
 
 const ruleTester = new RuleTester({
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
+  languageOptions: {
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
     },
   },
 });
 
-// eslint-disable-next-line  @typescript-eslint/no-unsafe-member-access
 ruleTester.run('no-renamed-components', noRenamedComponents, {
   valid: [
     {

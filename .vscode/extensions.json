@@ -1,8 +1,8 @@
 {
   "recommendations": [
     "andrewleedham.vscode-css-modules",
+    "biomejs.biome",
     "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
     "stylelint.vscode-stylelint",
     "unifiedjs.vscode-mdx"
   ]

@@ -32,6 +32,8 @@
   flex-direction: column;
   width: var(--cui-icon-sizes-tera);
   height: calc(100vh - var(--top-navigation-height, 0px));
+
+  /* biome-ignore lint/suspicious/noDuplicateProperties: Browser compatibility */
   height: calc(100dvh - var(--top-navigation-height, 0px));
   padding-top: var(--cui-spacings-kilo);
   overflow-x: hidden;
@@ -73,6 +75,8 @@
   flex-direction: column;
   width: 200px;
   height: calc(100vh - var(--top-navigation-height, 0px));
+
+  /* biome-ignore lint/suspicious/noDuplicateProperties: Browser compatibility */
   height: calc(100dvh - var(--top-navigation-height, 0px));
   margin-left: var(--primary-navigation-width);
   overflow-y: auto;

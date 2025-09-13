@@ -1,4 +1,7 @@
 {
-  "extends": "@tsconfig/node18/tsconfig.json",
-  "compilerOptions": { "outDir": "dist" }
+  "extends": "@tsconfig/node20/tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "nodenext",
+    "outDir": "dist"
+  }
 }

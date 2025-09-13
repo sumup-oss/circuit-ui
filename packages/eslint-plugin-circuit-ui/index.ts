@@ -13,17 +13,17 @@
  * limitations under the License.
  */
 
-import { componentLifecycleImports } from './component-lifecycle-imports';
-import { noInvalidCustomProperties } from './no-invalid-custom-properties';
-import { noDeprecatedCustomProperties } from './no-deprecated-custom-properties';
-import { noDeprecatedComponents } from './no-deprecated-components';
-import { noDeprecatedProps } from './no-deprecated-props';
-import { noRenamedProps } from './no-renamed-props';
-import { preferCustomProperties } from './prefer-custom-properties';
-import { renamedPackageScope } from './renamed-package-scope';
-import { noRenamedComponents } from './no-renamed-components';
+import pkg from './package.json' with { type: 'json' };
 
-/* eslint-disable */
+import { componentLifecycleImports } from './component-lifecycle-imports/index.js';
+import { noInvalidCustomProperties } from './no-invalid-custom-properties/index.js';
+import { noDeprecatedCustomProperties } from './no-deprecated-custom-properties/index.js';
+import { noDeprecatedComponents } from './no-deprecated-components/index.js';
+import { noDeprecatedProps } from './no-deprecated-props/index.js';
+import { noRenamedProps } from './no-renamed-props/index.js';
+import { preferCustomProperties } from './prefer-custom-properties/index.js';
+import { renamedPackageScope } from './renamed-package-scope/index.js';
+import { noRenamedComponents } from './no-renamed-components/index.js';
 
 export const rules = {
   'component-lifecycle-imports': componentLifecycleImports,
@@ -36,3 +36,35 @@ export const rules = {
   'renamed-package-scope': renamedPackageScope,
   'no-renamed-components': noRenamedComponents,
 };
+
+const namespace = 'circuit-ui';
+
+const plugin = {
+  meta: {
+    name: pkg.name,
+    version: pkg.version,
+    namespace,
+  },
+  configs: {},
+  rules,
+};
+
+// Assign configs here so we can reference `plugin`
+Object.assign(plugin.configs, {
+  recommended: {
+    name: 'circuit-ui/recommended',
+    plugins: { 'circuit-ui': plugin },
+    rules: Object.entries(rules).reduce(
+      (acc, [name, rule]) => {
+        if (rule.meta.docs?.recommended) {
+          acc[`${namespace}/${name}`] = 'error';
+        }
+        return acc;
+      },
+      {} as Record<string, string>,
+    ),
+  },
+});
+
+// biome-ignore lint/style/noDefaultExport: Recommended by ESLint
+export default plugin;

@@ -19,7 +19,7 @@ import { Badge } from '../Badge/index.js';
 import { isString } from '../../util/type-check.js';
 
 import type { TableProps } from './Table.js';
-import type { Direction } from './types.js';
+import type { Direction, RowCell } from './types.js';
 
 import { Table } from './index.js';
 
@@ -120,13 +120,14 @@ Sortable.args = {
 
 export const CustomSort = (args: TableProps) => {
   const onSortBy: TableProps['onSortBy'] = (_i, rows, direction) => {
+    const rowCells = rows as RowCell[][];
     if (direction === 'ascending') {
-      return rows.sort(
-        (a, b) => isString(a[0]) && isString(b[0]) && a[0].localeCompare(b[0]),
+      return rowCells.sort((a, b) =>
+        isString(a[0]) && isString(b[0]) ? a[0].localeCompare(b[0]) : 0,
       );
     }
-    return rows.sort(
-      (a, b) => isString(a[0]) && isString(b[0]) && b[0].localeCompare(a[0]),
+    return rowCells.sort((a, b) =>
+      isString(a[0]) && isString(b[0]) ? b[0].localeCompare(a[0]) : 0,
     );
   };
   return <Table {...args} onSortBy={onSortBy} />;

@@ -74,8 +74,9 @@
 [aria-checked="true"] .knob {
   transform: translate3d(
     calc(
-      var(--toggle-track-width) - var(--toggle-knob-size) -
-        var(--cui-spacings-bit)
+      var(--toggle-track-width) -
+      var(--toggle-knob-size) -
+      var(--cui-spacings-bit)
     ),
     -50%,
     0

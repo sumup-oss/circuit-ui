@@ -15,7 +15,7 @@
 
 import { Canvas } from '@storybook/addon-docs/blocks';
 
-import { Preview } from './Preview';
+import { Preview } from './Preview.js';
 
 export function Story({ withToolbar = true, ...props }) {
   return (

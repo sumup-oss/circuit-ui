@@ -42,10 +42,12 @@
 
 .headline {
   min-width: calc(
-    var(--calendar-days-in-week, 7) * var(--calendar-day-min-width)
+    var(--calendar-days-in-week, 7) *
+    var(--calendar-day-min-width)
   );
   max-width: calc(
-    var(--calendar-days-in-week, 7) * var(--calendar-day-max-width)
+    var(--calendar-days-in-week, 7) *
+    var(--calendar-day-max-width)
   );
   margin-top: var(--cui-spacings-bit);
   margin-bottom: var(--cui-spacings-mega);
@@ -55,10 +57,12 @@
 .grid {
   width: 100%;
   min-width: calc(
-    var(--calendar-days-in-week, 7) * var(--calendar-day-min-width)
+    var(--calendar-days-in-week, 7) *
+    var(--calendar-day-min-width)
   );
   max-width: calc(
-    var(--calendar-days-in-week, 7) * var(--calendar-day-max-width)
+    var(--calendar-days-in-week, 7) *
+    var(--calendar-day-max-width)
   );
   table-layout: fixed;
   border-spacing: 0;
@@ -104,10 +108,14 @@
   .day,
   .weekday {
     width: calc(
-      var(--calendar-day-min-width) - 2 * var(--calendar-day-padding)
+      var(--calendar-day-min-width) -
+      2 *
+      var(--calendar-day-padding)
     );
     height: calc(
-      var(--calendar-day-min-width) - 2 * var(--calendar-day-padding)
+      var(--calendar-day-min-width) -
+      2 *
+      var(--calendar-day-padding)
     );
   }
 }

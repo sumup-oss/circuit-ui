@@ -14,23 +14,21 @@
  */
 
 // We disable the rule in this file because we explicitly test invalid cases
-/* eslint-disable @sumup-oss/circuit-ui/no-invalid-custom-properties */
 
 import { RuleTester } from '@typescript-eslint/rule-tester';
 
-import { noRenamedProps } from '.';
+import { noRenamedProps } from './index.js';
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 const ruleTester = new RuleTester({
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
+  languageOptions: {
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
     },
   },
 });
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
 ruleTester.run('no-renamed-props', noRenamedProps, {
   valid: [
     {
@@ -156,82 +154,85 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
       errors: [{ messageId: 'propValue' }],
     },
     {
-      name: 'matched IconButton component with the old children prop',
+      name: 'matched IconButton component with icon component as child',
       code: `
-        // icon component as child
-        function ComponentA() {
+        function Component() {
           return <IconButton label="Close"><Close /></IconButton>
         }
-
-        // icon component with size prop as child
-        function ComponentB() {
+        `,
+      output: [
+        `
+        function Component() {
+          return <IconButton label="Close" icon={Close} />
+        }
+        `,
+        `
+        function Component() {
+          return <IconButton  icon={Close} >Close</IconButton>
+        }
+        `,
+      ],
+      errors: [{ messageId: 'propName' }, { messageId: 'propName' }],
+    },
+    {
+      name: 'matched IconButton component with icon component with size prop as child',
+      code: `
+        function Component() {
           return (
             <IconButton label="Close">
               <Close size="16" />
             </IconButton>
           )
         }
-
-        // icon component with size prop and text as children
-        function ComponentC() {
-          return (
-            <IconButton label="Close">
-              Close <Close size="16" />
-            </IconButton>
-          )
-        }
-
-        // icon component with size and className props as child
-        function ComponentD() {
-          return (
-            <IconButton label="Close">
-              <Close size="16" className="icon" />
-            </IconButton>
-          )
-        }
-
-        // span element as child
-        function ComponentE() {
-          return (
-            <IconButton label="Close">
-              <span>x</span>
-            </IconButton>
-          )
-        }
         `,
-      output: `
-        // icon component as child
-        function ComponentA() {
-          return <IconButton label="Close" icon={Close} />
-        }
-
-        // icon component with size prop as child
-        function ComponentB() {
+      output: [
+        `
+        function Component() {
           return (
             <IconButton label="Close" icon={Close} />
           )
         }
-
-        // icon component with size prop and text as children
-        function ComponentC() {
+        `,
+        `
+        function Component() {
+          return (
+            <IconButton  icon={Close} >Close</IconButton>
+          )
+        }
+        `,
+      ],
+      errors: [{ messageId: 'propName' }, { messageId: 'propName' }],
+    },
+    {
+      name: 'matched IconButton component with icon component with size prop and text as children',
+      code: `
+        function Component() {
           return (
             <IconButton label="Close">
               Close <Close size="16" />
             </IconButton>
           )
         }
-
-        // icon component with size and className props as child
-        function ComponentD() {
+        `,
+      errors: [{ messageId: 'propName' }, { messageId: 'propName' }],
+    },
+    {
+      name: 'matched IconButton component with icon component with size and className props as child',
+      code: `
+        function Component() {
           return (
             <IconButton label="Close">
               <Close size="16" className="icon" />
             </IconButton>
           )
         }
-
-        // span element as child
-        function ComponentE() {
+        `,
+      errors: [{ messageId: 'propName' }, { messageId: 'propName' }],
+    },
+    {
+      name: 'matched IconButton component with span element as child',
+      code: `
+        function Component() {
           return (
             <IconButton label="Close">
               <span>x</span>
@@ -239,18 +240,7 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
           )
         }
         `,
-      errors: [
-        { messageId: 'propName' },
-        { messageId: 'propName' },
-        { messageId: 'propName' },
-        { messageId: 'propName' },
-        { messageId: 'propName' },
-        { messageId: 'propName' },
-        { messageId: 'propName' },
-        { messageId: 'propName' },
-        { messageId: 'propName' },
-        { messageId: 'propName' },
-      ],
+      errors: [{ messageId: 'propName' }, { messageId: 'propName' }],
     },
     {
       name: 'matched IconButton component with the old label prop',

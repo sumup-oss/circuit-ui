@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-/* eslint-disable prefer-destructuring */
-
 import { useCallback, useRef, type TouchEvent } from 'react';
 
 import { useLatest } from '../useLatest/useLatest.js';
@@ -22,7 +20,7 @@ import { useLatest } from '../useLatest/useLatest.js';
 type Direction = 'up' | 'right' | 'down' | 'left';
 
 /**
- * Detects swipe gestures on touch screen devices.
+ * Detects swipe gestures on touchscreen devices.
  */
 export function useSwipe<T = Element>(
   onSwipe: (direction: Direction) => void,
@@ -55,11 +53,12 @@ export function useSwipe<T = Element>(
     const distanceY = touchStart.current.clientY - touchEnd.current.clientY;
 
     // Horizontal
-    if (Math.abs(distanceX) > Math.abs(distanceY)) {
-      if (Math.abs(distanceX) > minSwipeDistance) {
-        const direction = distanceX > 0 ? 'left' : 'right';
-        swipeHandler.current(direction);
-      }
+    if (
+      Math.abs(distanceX) > Math.abs(distanceY) &&
+      Math.abs(distanceX) > minSwipeDistance
+    ) {
+      const direction = distanceX > 0 ? 'left' : 'right';
+      swipeHandler.current(direction);
     }
 
     // Vertical

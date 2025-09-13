@@ -23,7 +23,11 @@ export function eachFn<Args extends unknown[]>(
   fns: (undefined | ((...args: Args) => unknown))[],
 ) {
   return (...args: Args): void =>
-    fns.forEach((fn) => isFunction(fn) && fn(...args));
+    fns.forEach((fn) => {
+      if (isFunction(fn)) {
+        fn(...args);
+      }
+    });
 }
 
 /**

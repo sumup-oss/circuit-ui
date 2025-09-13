@@ -13,23 +13,18 @@
  * limitations under the License.
  */
 
-import {
-  ESLintUtils,
-  type TSESTree,
-  type TSESLint,
-} from '@typescript-eslint/utils';
+import { ESLintUtils, TSESTree, type TSESLint } from '@typescript-eslint/utils';
 
 import {
   filterWhitespaceChildren,
   findAttribute,
   getAttributeValue,
   transformAttributeValueToChildren,
-} from '../utils/jsx';
-import { getPropertyValue } from '../utils/object';
+} from '../utils/jsx.js';
+import { getPropertyValue } from '../utils/object.js';
+import type { RuleDocs } from '../utils/meta.js';
 
-/* eslint-disable */
-
-const createRule = ESLintUtils.RuleCreator(
+const createRule = ESLintUtils.RuleCreator<RuleDocs>(
   (name) =>
     `https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/${name}`,
 );
@@ -161,12 +156,14 @@ const configs: (Config & { components: string[] })[] = [
         // No or multiple children
         children.length !== 1 ||
         // Non-element child
-        child.type !== 'JSXElement' ||
+        child.type !== TSESTree.AST_NODE_TYPES.JSXElement ||
         // Element with children
         child.children.length > 0 ||
         // Element with props other than `size`
         child.openingElement.attributes.filter(
-          (attr) => attr.type !== 'JSXAttribute' || attr.name.name !== 'size',
+          (attr) =>
+            attr.type !== TSESTree.AST_NODE_TYPES.JSXAttribute ||
+            attr.name.name !== 'size',
         ).length > 0
       ) {
         context.report({
@@ -181,7 +178,7 @@ const configs: (Config & { components: string[] })[] = [
         .name;
 
       context.report({
-        node: node,
+        node,
         messageId: 'propName',
         data: { component, current, replacement },
         fix(fixer) {
@@ -246,7 +243,7 @@ const configs: (Config & { components: string[] })[] = [
           ];
 
           return [
-            fixer.remove(labelAttribute!),
+            fixer.remove(labelAttribute),
             fixer.replaceTextRange(range, `>${labelValue}</${elementName}>`),
           ];
         },
@@ -298,8 +295,8 @@ const configs: (Config & { components: string[] })[] = [
     transform: (node, component, context) => {
       node.openingElement.attributes.forEach((attribute) => {
         if (
-          attribute.type !== 'JSXAttribute' ||
-          attribute.name.type !== 'JSXIdentifier' ||
+          attribute.type !== TSESTree.AST_NODE_TYPES.JSXAttribute ||
+          attribute.name.type !== TSESTree.AST_NODE_TYPES.JSXIdentifier ||
           attribute.name.name !== 'variant'
         ) {
           return;
@@ -336,9 +333,7 @@ const configs: (Config & { components: string[] })[] = [
             data: { component, current, replacement },
             fix: colorAttribute
               ? undefined
-              : (fixer) => {
-                  return fixer.replaceText(attribute, replacement);
-                },
+              : (fixer) => fixer.replaceText(attribute, replacement),
           });
         }
       });
@@ -354,7 +349,7 @@ export const noRenamedProps = createRule({
     fixable: 'code',
     docs: {
       description: 'Component props should use the latest names',
-      recommended: 'recommended',
+      recommended: 'off',
     },
     messages: {
       propName:
@@ -376,8 +371,8 @@ export const noRenamedProps = createRule({
 
       node.openingElement.attributes.forEach((attribute) => {
         if (
-          attribute.type !== 'JSXAttribute' ||
-          attribute.name.type !== 'JSXIdentifier'
+          attribute.type !== TSESTree.AST_NODE_TYPES.JSXAttribute ||
+          attribute.name.type !== TSESTree.AST_NODE_TYPES.JSXIdentifier
         ) {
           return;
         }
@@ -411,7 +406,10 @@ export const noRenamedProps = createRule({
       const { prop, values } = config;
 
       node.openingElement.attributes.forEach((attribute) => {
-        if (attribute.type !== 'JSXAttribute' || attribute.name.name !== prop) {
+        if (
+          attribute.type !== TSESTree.AST_NODE_TYPES.JSXAttribute ||
+          attribute.name.name !== prop
+        ) {
           return;
         }
 
@@ -448,14 +446,14 @@ export const noRenamedProps = createRule({
       const { hook, prop, values } = config;
 
       node.arguments.forEach((argument) => {
-        if (argument.type !== 'ObjectExpression') {
+        if (argument.type !== TSESTree.AST_NODE_TYPES.ObjectExpression) {
           return;
         }
 
         argument.properties.forEach((property) => {
           if (
-            property.type !== 'Property' ||
-            property.key.type !== 'Identifier' ||
+            property.type !== TSESTree.AST_NODE_TYPES.Property ||
+            property.key.type !== TSESTree.AST_NODE_TYPES.Identifier ||
             property.key.name !== prop
           ) {
             return;
@@ -488,7 +486,7 @@ export const noRenamedProps = createRule({
       });
     }
 
-    const components = configs.reduce(
+    const componentConfigs = configs.reduce(
       (acc, config) => {
         const { components, ...rest } = config;
         config.components.forEach((component) => {
@@ -500,13 +498,12 @@ export const noRenamedProps = createRule({
       {} as Record<string, Config[]>,
     );
 
-    const componentVisitors = Object.entries(components).reduce(
-      (visitors, [component, configs]) => {
-        // eslint-disable-next-line no-param-reassign
+    const componentVisitors = Object.entries(componentConfigs).reduce(
+      (visitors, [component, configurations]) => {
         visitors[`JSXElement[openingElement.name.name="${component}"]`] = (
           node: TSESTree.JSXElement,
         ) => {
-          configs.forEach((config) => {
+          configurations.forEach((config) => {
             switch (config.type) {
               case 'name':
                 replaceComponentPropName(node, component, config);
@@ -525,7 +522,7 @@ export const noRenamedProps = createRule({
       {} as TSESLint.RuleListener,
     );
 
-    const hooks = configs.reduce(
+    const hookConfigs = configs.reduce(
       (acc, config) => {
         if (!config.hook) {
           return acc;
@@ -537,13 +534,12 @@ export const noRenamedProps = createRule({
       {} as Record<string, Config[]>,
     );
 
-    const hookVisitors = Object.entries(hooks).reduce(
-      (visitors, [hook, configs]) => {
-        // eslint-disable-next-line no-param-reassign
+    const hookVisitors = Object.entries(hookConfigs).reduce(
+      (visitors, [hook, configurations]) => {
         visitors[`CallExpression[callee.name="${hook}"]`] = (
           node: TSESTree.CallExpression,
         ) => {
-          configs.forEach((config) => {
+          configurations.forEach((config) => {
             switch (config.type) {
               case 'values':
                 replaceHookPropValues(node, config);

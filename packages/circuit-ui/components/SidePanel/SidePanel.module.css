@@ -24,6 +24,8 @@
   width: 100%;
   height: 100%;
   padding: 0;
+
+  /* biome-ignore lint/suspicious/noDuplicateProperties: Browser compatibility */
   padding: env(safe-area-inset-top) env(safe-area-inset-right)
     env(safe-area-inset-bottom) env(safe-area-inset-left);
   overflow-y: auto;
@@ -35,6 +37,8 @@
     top: 0;
     min-width: 100vw;
     height: 100vh;
+
+    /* biome-ignore lint/suspicious/noDuplicateProperties: Browser compatibility */
     height: 100dvh;
     max-height: unset;
     margin: auto;
@@ -51,6 +55,8 @@
     top: var(--top-navigation-height, 0);
     width: var(--side-panel-width);
     height: calc(100vh - var(--top-navigation-height, 0));
+
+    /* biome-ignore lint/suspicious/noDuplicateProperties: Browser compatibility */
     height: calc(100dvh - var(--top-navigation-height, 0));
     margin: 0;
     background-color: var(--cui-bg-normal);

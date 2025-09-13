@@ -2,7 +2,7 @@ import type { StorybookConfig } from '@storybook/react-vite';
 import svgr from 'vite-plugin-svgr';
 import path from 'node:path';
 import remarkGfm from 'remark-gfm';
-import { mergeConfig } from 'vite';
+import { mergeConfig, type Plugin } from 'vite';
 
 const config: StorybookConfig = {
   staticDirs: [path.join(process.cwd(), '.storybook/public')],
@@ -31,17 +31,17 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
-  async viteFinal(config) {
+  async viteFinal(viteConfig: { plugins: Plugin[] }) {
     // Add SVGR plugin
-    config.plugins = [
-      ...(config.plugins || []),
+    viteConfig.plugins = [
+      ...(viteConfig.plugins || []),
       svgr({
         // svgr options: https://react-svgr.com/docs/options/
         include: '**/*.svg',
       }),
     ];
 
-    return mergeConfig(config, {
+    return mergeConfig(viteConfig, {
       define: {
         'process.env.UNSAFE_DISABLE_ELEMENT_ERRORS': false,
       },

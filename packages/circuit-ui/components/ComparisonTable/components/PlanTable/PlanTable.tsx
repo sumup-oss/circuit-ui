@@ -156,7 +156,7 @@ export const PlanTable = forwardRef<HTMLTableElement, PlanTableProps>(
         // set focus to the first row of the added rows when the table is expanded
         tableRef.current
           ?.querySelectorAll('tr')
-          [COLLAPSE_THRESHOLD + 1]?.focus({ preventScroll: true });
+          ?.[COLLAPSE_THRESHOLD + 1]?.focus({ preventScroll: true });
       }
     }, [isCollapsed]);
 

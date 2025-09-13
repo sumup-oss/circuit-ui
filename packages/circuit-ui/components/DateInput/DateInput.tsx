@@ -298,7 +298,8 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
               defaultValue={defaultValue}
               {...rest}
             />
-            {/* biome-ignore lint/a11y/useKeyWithClickEvents: */}
+            {/** biome-ignore lint/a11y/noStaticElementInteractions: Progressive enhancement */}
+            {/* biome-ignore lint/a11y/useKeyWithClickEvents: This element isn't keyboard-focusable */}
             <div
               onClick={handleClick}
               className={clsx(

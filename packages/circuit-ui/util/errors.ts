@@ -30,7 +30,7 @@ export class CircuitError extends Error {
 
     // Adapted from https://stackoverflow.com/questions/33474179/react-access-parent-component-name
 
-    /* eslint-disable max-len, no-underscore-dangle, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
+    /* eslint-disable no-underscore-dangle, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
     if (
       // @ts-expect-error Since this code only runs in development, it's fine to use this internal React API.
       React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED
@@ -50,7 +50,7 @@ export class CircuitError extends Error {
         // @ts-expect-error This is fine.
         React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactDebugCurrentFrame.getCurrentStack() as string;
     }
-    /* eslint-enable max-len, no-underscore-dangle, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
+    /* eslint-enable no-underscore-dangle, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
   }
 }
 

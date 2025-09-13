@@ -44,6 +44,8 @@
 
 .modal {
   height: 90vh;
+
+  /* biome-ignore lint/suspicious/noDuplicateProperties: Browser compatibility */
   height: 90dvh;
 }
 

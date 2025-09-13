@@ -41,7 +41,6 @@ docs/introduction/*-migration.mdx
 
 *.sublime-workspace
 *.sublime-project
-*.editorconfig
 *.swp
 .idea
 

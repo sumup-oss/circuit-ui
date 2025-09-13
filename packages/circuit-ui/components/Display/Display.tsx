@@ -82,13 +82,14 @@ export const Display = forwardRef<HTMLHeadingElement, DisplayProps>(
       throw new CircuitError('Display', 'The `as` prop is required.');
     }
 
-    if (process.env.NODE_ENV !== 'production') {
-      if (legacySize in deprecatedSizeMap) {
-        deprecate(
-          'Display',
-          `The "${legacySize}" size has been deprecated. Use the "${deprecatedSizeMap[legacySize]}" size instead.`,
-        );
-      }
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      legacySize in deprecatedSizeMap
+    ) {
+      deprecate(
+        'Display',
+        `The "${legacySize}" size has been deprecated. Use the "${deprecatedSizeMap[legacySize]}" size instead.`,
+      );
     }
 
     const Element = as || 'h1';

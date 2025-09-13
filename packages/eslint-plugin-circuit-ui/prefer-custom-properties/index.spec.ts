@@ -14,23 +14,21 @@
  */
 
 // We disable the rule in this file because we explicitly test invalid cases
-/* eslint-disable @sumup-oss/circuit-ui/no-invalid-custom-properties */
 
 import { RuleTester } from '@typescript-eslint/rule-tester';
 
-import { preferCustomProperties } from '.';
+import { preferCustomProperties } from './index.js';
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 const ruleTester = new RuleTester({
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
+  languageOptions: {
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
     },
   },
 });
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
 ruleTester.run('prefer-custom-properties', preferCustomProperties, {
   valid: [
     {
@@ -81,13 +79,20 @@ ruleTester.run('prefer-custom-properties', preferCustomProperties, {
           margin: \${theme.spacings.kilo};
         \`;
       `,
-      // The second occurrence would be auto-fixed on the second pass.
-      output: `
+      output: [
+        `
         const styles = (theme) => css\`
           padding: var(--cui-spacings-kilo);
           margin: \${theme.spacings.kilo};
         \`;
       `,
+        `
+        const styles = (theme) => css\`
+          padding: var(--cui-spacings-kilo);
+          margin: var(--cui-spacings-kilo);
+        \`;
+      `,
+      ],
       errors: [{ messageId: 'replace' }, { messageId: 'replace' }],
     },
     {
@@ -97,12 +102,18 @@ ruleTester.run('prefer-custom-properties', preferCustomProperties, {
           padding: \${theme.spacings.kilo} \${theme.spacings.kilo};
         \`;
       `,
-      // The second occurrence would be auto-fixed on the second pass.
-      output: `
+      output: [
+        `
         const styles = (theme) => css\`
           padding: var(--cui-spacings-kilo) \${theme.spacings.kilo};
         \`;
       `,
+        `
+        const styles = (theme) => css\`
+          padding: var(--cui-spacings-kilo) var(--cui-spacings-kilo);
+        \`;
+      `,
+      ],
       errors: [{ messageId: 'replace' }, { messageId: 'replace' }],
     },
     {

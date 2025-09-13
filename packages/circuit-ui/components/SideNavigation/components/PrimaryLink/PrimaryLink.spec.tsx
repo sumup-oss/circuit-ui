@@ -28,6 +28,10 @@ import {
 
 import { PrimaryLink, type PrimaryLinkProps } from './PrimaryLink.js';
 
+declare const process: {
+  env: { NODE_ENV: string };
+};
+
 describe('PrimaryLink', () => {
   function renderPrimaryLink<T>(
     renderFn: RenderFn<T>,

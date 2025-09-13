@@ -19,7 +19,7 @@ import preserveDirectives from 'rollup-plugin-preserve-directives';
 
 import { defineConfig, type UserConfig } from 'vitest/config';
 
-import { dependencies, peerDependencies } from './package.json';
+import pkg from './package.json' with { type: 'json' };
 
 export const css: UserConfig['css'] = {
   modules: {
@@ -92,8 +92,8 @@ export default defineConfig({
         preserveModules: true,
       },
       external: [
-        ...Object.keys(dependencies),
-        ...Object.keys(peerDependencies),
+        ...Object.keys(pkg.dependencies),
+        ...Object.keys(pkg.peerDependencies),
         // Subfolder imports
         'react/jsx-runtime',
         '@emotion/react/jsx-runtime',

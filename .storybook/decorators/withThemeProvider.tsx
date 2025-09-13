@@ -3,13 +3,15 @@ import { ThemeProvider } from '@emotion/react';
 import type { Decorator } from '@storybook/react-vite';
 import { light } from '@sumup-oss/design-tokens';
 
-function setColorScheme(colorScheme: 'light' | 'dark') {
+type ColorScheme = 'light' | 'dark';
+
+function setColorScheme(colorScheme: ColorScheme) {
   document.documentElement.dataset.colorScheme = colorScheme;
 }
 
 export const withThemeProvider: Decorator = (Story, context) => {
-  const colorScheme =
-    context.parameters.colorScheme || context.globals.colorScheme;
+  const colorScheme = (context.parameters.colorScheme ||
+    context.globals.colorScheme) as ColorScheme | 'system';
 
   useEffect(() => {
     if (colorScheme !== 'system') {

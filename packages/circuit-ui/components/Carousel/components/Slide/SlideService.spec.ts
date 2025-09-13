@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { SLIDE_DIRECTIONS } from '../../constants.js';
+import { SlideDirection } from '../../constants.js';
 
 import * as SlideService from './SlideService.js';
 
@@ -28,19 +28,19 @@ describe('SlideService', () => {
     describe('when going forward', () => {
       it('should return top index for active slide', () => {
         expect(
-          SlideService.getStackOrder(0, 0, 2, SLIDE_DIRECTIONS.FORWARD),
+          SlideService.getStackOrder(0, 0, 2, SlideDirection.FORWARD),
         ).toEqual(2);
       });
 
       it('should return under top index for previous active slide', () => {
         expect(
-          SlideService.getStackOrder(2, 0, 2, SLIDE_DIRECTIONS.FORWARD),
+          SlideService.getStackOrder(2, 0, 2, SlideDirection.FORWARD),
         ).toEqual(1);
       });
 
       it('should return negative index for other slides', () => {
         expect(
-          SlideService.getStackOrder(1, 0, 2, SLIDE_DIRECTIONS.FORWARD),
+          SlideService.getStackOrder(1, 0, 2, SlideDirection.FORWARD),
         ).toEqual(-1);
       });
     });
@@ -48,19 +48,19 @@ describe('SlideService', () => {
     describe('when going back', () => {
       it('should return top index for previous active slide', () => {
         expect(
-          SlideService.getStackOrder(2, 0, 2, SLIDE_DIRECTIONS.BACK),
+          SlideService.getStackOrder(2, 0, 2, SlideDirection.BACK),
         ).toEqual(2);
       });
 
       it('should return under top index for active slide', () => {
         expect(
-          SlideService.getStackOrder(0, 0, 2, SLIDE_DIRECTIONS.BACK),
+          SlideService.getStackOrder(0, 0, 2, SlideDirection.BACK),
         ).toEqual(1);
       });
 
       it('should return negative index for other slides', () => {
         expect(
-          SlideService.getStackOrder(1, 0, 2, SLIDE_DIRECTIONS.BACK),
+          SlideService.getStackOrder(1, 0, 2, SlideDirection.BACK),
         ).toEqual(-1);
       });
     });
@@ -70,13 +70,13 @@ describe('SlideService', () => {
     describe('when going forward', () => {
       it('should animate slide with index for current active step', () => {
         expect(
-          SlideService.shouldAnimate(0, 0, 2, SLIDE_DIRECTIONS.FORWARD),
+          SlideService.shouldAnimate(0, 0, 2, SlideDirection.FORWARD),
         ).toEqual(true);
       });
 
       it('should not animate slide for not matching index and steps', () => {
         expect(
-          SlideService.shouldAnimate(0, 1, 2, SLIDE_DIRECTIONS.FORWARD),
+          SlideService.shouldAnimate(0, 1, 2, SlideDirection.FORWARD),
         ).toEqual(false);
       });
     });
@@ -84,13 +84,13 @@ describe('SlideService', () => {
     describe('when going back', () => {
       it('should animate slide with index for previous active step', () => {
         expect(
-          SlideService.shouldAnimate(2, 0, 2, SLIDE_DIRECTIONS.BACK),
+          SlideService.shouldAnimate(2, 0, 2, SlideDirection.BACK),
         ).toEqual(true);
       });
 
       it('should not animate slide for not matching index steps when going back', () => {
         expect(
-          SlideService.shouldAnimate(0, 1, 2, SLIDE_DIRECTIONS.BACK),
+          SlideService.shouldAnimate(0, 1, 2, SlideDirection.BACK),
         ).toEqual(false);
       });
     });
