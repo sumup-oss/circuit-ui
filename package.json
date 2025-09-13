@@ -28,7 +28,7 @@
     "knip": "knip",
     "lint": "biome check --diagnostic-level=error && eslint . --quiet --concurrency=auto",
     "lint:fix": "biome check --write --diagnostic-level=error && eslint . --quiet --concurrency=auto --fix",
-    "lint:ci": "biome ci && eslint . --quiet",
+    "lint:ci": "biome ci --diagnostic-level=error && eslint . --quiet --concurrency=auto",
     "lint:css": "stylelint '**/*.css'",
     "lint:css:fix": "stylelint '**/*.css' --fix",
     "dev": "npm run docs:start",
