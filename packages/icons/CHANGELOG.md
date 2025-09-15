@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 5.21.0
+
+### Minor Changes
+
+- [#3287](https://github.com/sumup-oss/circuit-ui/pull/3287) [`24e7bef`](https://github.com/sumup-oss/circuit-ui/commit/24e7bef28e4e56cae39a4feaa35753d043ec6bfc) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a new GeneralPreferences icon in size 24.
+
 ## 5.20.0
 
 ### Minor Changes
