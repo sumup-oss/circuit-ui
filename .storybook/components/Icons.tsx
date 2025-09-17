@@ -75,6 +75,7 @@ function getComponentName(name: string) {
 export function Icons() {
   const [search, setSearch] = useState('');
   const [size, setSize] = useState('all');
+  const [variant, setVariant] = useState('all');
   const [color, setColor] = useState('var(--cui-fg-normal)');
   const [scale, setScale] = useState('one-x');
 
@@ -89,6 +90,12 @@ export function Icons() {
     { label: '16', value: '16' },
     { label: '24', value: '24' },
     { label: '32', value: '32' },
+  ];
+
+  const variants = [
+    { label: 'all', value: 'all' },
+    { label: 'Regular', value: 'regular' },
+    { label: 'Outlined', value: 'outlined' },
   ];
 
   const colorOptions = [
@@ -118,7 +125,11 @@ export function Icons() {
       },
     );
     const matchesSize = size === 'all' || size === icon.size;
-    return matchesKeyword && matchesSize;
+    const matchVariant =
+      variant === 'all' ||
+      variant === icon.variant ||
+      (!icon.variant && variant === 'regular');
+    return matchesKeyword && matchesSize && matchVariant;
   }) as IconsManifest['icons'];
 
   return (
@@ -139,6 +150,12 @@ export function Icons() {
             options={sizeOptions}
             value={size}
             onChange={handleChange(setSize)}
+          />
+          <Select
+            label="Variant"
+            options={variants}
+            value={variant}
+            onChange={handleChange(setVariant)}
           />
           <Select
             label="Color"
@@ -167,7 +184,7 @@ export function Icons() {
               <div className={classes.list}>
                 {sortBy(items, 'name').map((icon) => (
                   <Icon
-                    key={`${icon.name}-${icon.size}`}
+                    key={`${icon.name}-${icon.size}-${icon.variant ?? 'regular'}`}
                     icon={icon}
                     scale={scale}
                     color={color}
@@ -202,7 +219,7 @@ function Icon({
   const Icon = iconComponents[componentName] as IconComponentType;
 
   const copyIconURL = () => {
-    const iconURL = `https://circuit.sumup.com/icons/v2/${icon.name}_${icon.size}.svg`;
+    const iconURL = getIconURL(icon.name, icon.size, icon.variant);
     navigator.clipboard
       .writeText(iconURL)
       .then(() => {
@@ -253,6 +270,7 @@ function Icon({
           <Icon
             aria-labelledby={id}
             size={icon.size}
+            variant={icon.variant}
             className={classes.icon}
             style={{
               color,
