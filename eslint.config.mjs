@@ -12,7 +12,7 @@ export default defineConfig([
     extends: [configs.typescript],
     languageOptions: {
       parserOptions: {
-        project: ['./packages/*/tsconfig.json', './tsconfig.eslint.json'],
+        project: ['./packages/*/tsconfig.json', './tsconfig.json'],
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
