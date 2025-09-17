@@ -3,6 +3,8 @@ import storybook from 'eslint-plugin-storybook';
 import testingLibrary from 'eslint-plugin-testing-library';
 import circuitUI from '@sumup-oss/eslint-plugin-circuit-ui';
 
+// TODO: Re-add react-server-components plugin once it supports ESLint v9
+
 export default defineConfig([
   configs.ignores,
   configs.javascript,
@@ -60,10 +62,3 @@ export default defineConfig([
     },
   },
 ]);
-
-// module.exports = require('@sumup-oss/foundry/eslint')({
-//   extends: [
-//     'plugin:react-server-components/recommended',
-//   ],
-//   },
-// });
