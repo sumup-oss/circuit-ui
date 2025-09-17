@@ -212,6 +212,12 @@
       "size": "24"
     },
     {
+      "name": "manage",
+      "size": "24",
+      "category": "Action",
+      "variant": "outlined"
+    },
+    {
       "name": "minus",
       "category": "Action",
       "size": "24"
@@ -235,6 +241,12 @@
       "name": "more_circle",
       "category": "Action",
       "size": "24"
+    },
+    {
+      "name": "more_circle",
+      "size": "24",
+      "category": "Action",
+      "variant": "outlined"
     },
     {
       "name": "move",
@@ -390,6 +402,12 @@
       "name": "view",
       "category": "Action",
       "size": "24"
+    },
+    {
+      "name": "view",
+      "size": "24",
+      "category": "Action",
+      "variant": "outlined"
     },
     {
       "name": "view",
@@ -2798,6 +2816,12 @@
       "size": "24"
     },
     {
+      "name": "card_reader_solo_lite",
+      "size": "24",
+      "category": "Device",
+      "variant": "outlined"
+    },
+    {
       "name": "laptop",
       "category": "Device",
       "size": "24"
@@ -2873,6 +2897,12 @@
       "size": "24"
     },
     {
+      "name": "history",
+      "size": "24",
+      "category": "File",
+      "variant": "outlined"
+    },
+    {
       "name": "image",
       "category": "File",
       "size": "24"
@@ -2918,6 +2948,12 @@
       "size": "24"
     },
     {
+      "name": "bank",
+      "size": "24",
+      "category": "Finance",
+      "variant": "outlined"
+    },
+    {
       "name": "bulk_transfer",
       "category": "Finance",
       "size": "24"
@@ -2941,6 +2977,13 @@
       "name": "cash",
       "category": "Finance",
       "size": "24"
+    },
+
+    {
+      "name": "cash",
+      "size": "24",
+      "category": "Finance",
+      "variant": "outlined"
     },
     {
       "name": "cash_stack",
@@ -3074,6 +3117,12 @@
       "size": "24"
     },
     {
+      "name": "calendar",
+      "size": "24",
+      "category": "Miscellaneous",
+      "variant": "outlined"
+    },
+    {
       "name": "checkmark",
       "category": "Miscellaneous",
       "size": "24"
@@ -3135,6 +3184,12 @@
       "size": "24"
     },
     {
+      "name": "customize",
+      "size": "24",
+      "category": "Miscellaneous",
+      "variant": "outlined"
+    },
+    {
       "name": "favorite",
       "category": "Miscellaneous",
       "size": "24"
@@ -3163,6 +3218,12 @@
       "name": "hospitality",
       "category": "Miscellaneous",
       "size": "24"
+    },
+    {
+      "name": "hospitality",
+      "size": "24",
+      "category": "Miscellaneous",
+      "variant": "outlined"
     },
     {
       "name": "id",
@@ -3260,6 +3321,12 @@
       "size": "24"
     },
     {
+      "name": "profile",
+      "size": "24",
+      "category": "Miscellaneous",
+      "variant": "outlined"
+    },
+    {
       "name": "refunded",
       "category": "Miscellaneous",
       "size": "24"
@@ -3275,6 +3342,12 @@
       "size": "24"
     },
     {
+      "name": "secure",
+      "size": "24",
+      "category": "Miscellaneous",
+      "variant": "outlined"
+    },
+    {
       "name": "secure_payments",
       "category": "Miscellaneous",
       "size": "24"
@@ -3288,6 +3361,12 @@
       "name": "settings",
       "category": "Miscellaneous",
       "size": "24"
+    },
+    {
+      "name": "settings",
+      "size": "24",
+      "category": "Miscellaneous",
+      "variant": "outlined"
     },
     {
       "name": "sim_card",
@@ -3433,6 +3512,12 @@
       "name": "help",
       "category": "Notification",
       "size": "24"
+    },
+    {
+      "name": "help",
+      "size": "24",
+      "category": "Notification",
+      "variant": "outlined"
     },
     {
       "name": "help",
@@ -3754,10 +3839,23 @@
       "category": "Product and feature",
       "size": "24"
     },
+
+    {
+      "name": "accounting",
+      "size": "24",
+      "category": "Product and feature",
+      "variant": "outlined"
+    },
     {
       "name": "apps",
       "category": "Product and feature",
       "size": "24"
+    },
+    {
+      "name": "apps",
+      "size": "24",
+      "category": "Product and feature",
+      "variant": "outlined"
     },
     {
       "name": "card_security",
@@ -3770,6 +3868,12 @@
       "size": "24"
     },
     {
+      "name": "cash_advance",
+      "size": "24",
+      "category": "Product and feature",
+      "variant": "outlined"
+    },
+    {
       "name": "challenge",
       "category": "Product and feature",
       "size": "24"
@@ -3778,6 +3882,12 @@
       "name": "checkout",
       "category": "Product and feature",
       "size": "24"
+    },
+    {
+      "name": "checkout",
+      "size": "24",
+      "category": "Product and feature",
+      "variant": "outlined"
     },
     {
       "name": "contact_picker",
@@ -3795,14 +3905,32 @@
       "size": "24"
     },
     {
+      "name": "employees",
+      "size": "24",
+      "category": "Product and feature",
+      "variant": "outlined"
+    },
+    {
       "name": "expenses",
       "category": "Product and feature",
       "size": "24"
     },
     {
+      "name": "expenses",
+      "size": "24",
+      "category": "Product and feature",
+      "variant": "outlined"
+    },
+    {
       "name": "fee_calculator",
       "category": "Product and feature",
       "size": "24"
+    },
+    {
+      "name": "fee_calculator",
+      "size": "24",
+      "category": "Product and feature",
+      "variant": "outlined"
     },
     {
       "name": "general_settings",
@@ -3815,9 +3943,21 @@
       "size": "24"
     },
     {
+      "name": "gift_card",
+      "size": "24",
+      "category": "Product and feature",
+      "variant": "outlined"
+    },
+    {
       "name": "home",
       "category": "Product and feature",
       "size": "24"
+    },
+    {
+      "name": "home",
+      "size": "24",
+      "category": "Product and feature",
+      "variant": "outlined"
     },
     {
       "name": "insurance",
@@ -3835,9 +3975,21 @@
       "size": "24"
     },
     {
+      "name": "invoice",
+      "size": "24",
+      "category": "Product and feature",
+      "variant": "outlined"
+    },
+    {
       "name": "items",
       "category": "Product and feature",
       "size": "24"
+    },
+    {
+      "name": "items",
+      "size": "24",
+      "category": "Product and feature",
+      "variant": "outlined"
     },
     {
       "name": "loja",
@@ -3860,6 +4012,12 @@
       "size": "24"
     },
     {
+      "name": "online_store",
+      "size": "24",
+      "category": "Product and feature",
+      "variant": "outlined"
+    },
+    {
       "name": "orders",
       "category": "Product and feature",
       "size": "24"
@@ -3873,6 +4031,12 @@
       "name": "payment_link",
       "category": "Product and feature",
       "size": "24"
+    },
+    {
+      "name": "payment_link",
+      "size": "24",
+      "category": "Product and feature",
+      "variant": "outlined"
     },
     {
       "name": "payment_methods",
@@ -3894,10 +4058,23 @@
       "category": "Product and feature",
       "size": "24"
     },
+
+    {
+      "name": "pix",
+      "size": "24",
+      "category": "Product and feature",
+      "variant": "outlined"
+    },
     {
       "name": "promote",
       "category": "Product and feature",
       "size": "24"
+    },
+    {
+      "name": "promote",
+      "size": "24",
+      "category": "Product and feature",
+      "variant": "outlined"
     },
     {
       "name": "qr_code",
@@ -3905,9 +4082,21 @@
       "size": "24"
     },
     {
+      "name": "qr_code",
+      "size": "24",
+      "category": "Product and feature",
+      "variant": "outlined"
+    },
+    {
       "name": "receipt",
       "category": "Product and feature",
       "size": "24"
+    },
+    {
+      "name": "receipt",
+      "size": "24",
+      "category": "Product and feature",
+      "variant": "outlined"
     },
     {
       "name": "receipt_attached",
@@ -3946,6 +4135,12 @@
       "size": "24"
     },
     {
+      "name": "reports",
+      "size": "24",
+      "category": "Product and feature",
+      "variant": "outlined"
+    },
+    {
       "name": "reward",
       "category": "Product and feature",
       "size": "24"
@@ -3962,6 +4157,12 @@
       "size": "24"
     },
     {
+      "name": "shop",
+      "size": "24",
+      "category": "Product and feature",
+      "variant": "outlined"
+    },
+    {
       "name": "store_editor",
       "category": "Product and feature",
       "size": "24"
@@ -3970,6 +4171,12 @@
       "name": "sum_up_card",
       "category": "Product and feature",
       "size": "24"
+    },
+    {
+      "name": "sum_up_card",
+      "size": "24",
+      "category": "Product and feature",
+      "variant": "outlined"
     },
     {
       "name": "sum_up_connect",
@@ -4007,14 +4214,33 @@
       "size": "24"
     },
     {
+      "name": "transactions",
+      "size": "24",
+      "category": "Product and feature",
+      "variant": "outlined"
+    },
+    {
       "name": "virtual_terminal",
       "category": "Product and feature",
       "size": "24"
     },
     {
+      "name": "virtual_terminal",
+      "size": "24",
+      "category": "Product and feature",
+      "variant": "outlined"
+    },
+    {
       "name": "webspace",
       "category": "Product and feature",
       "size": "24"
+    },
+
+    {
+      "name": "webspace",
+      "size": "24",
+      "category": "Product and feature",
+      "variant": "outlined"
     },
     {
       "name": "deposit",
@@ -4066,6 +4292,12 @@
       "name": "whats_app",
       "category": "Social media",
       "size": "24"
+    },
+    {
+      "name": "whats_app",
+      "size": "24",
+      "category": "Social media",
+      "variant": "outlined"
     },
     {
       "name": "youtube",
