@@ -2762,6 +2762,17 @@
       "size": "24"
     },
     {
+      "name": "kiosk",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "kiosk",
+      "category": "Device",
+      "size": "24",
+      "variant": "outlined"
+    },
+    {
       "name": "bluetooth",
       "category": "Device",
       "size": "16"
