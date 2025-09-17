@@ -30,11 +30,14 @@ import {
 // @ts-ignore Import assertions are fine
 import manifest from '../manifest.json' assert { type: 'json' };
 
+const Variants = ['regular', 'outlined'] as const;
+
 type Icon = {
   name: string;
   category: (typeof CATEGORIES)[number];
   keywords?: string[];
   size: (typeof SIZES)[number];
+  variant?: (typeof Variants)[number];
   deprecation?: string;
   skipComponentFile?: boolean;
 };
@@ -77,48 +80,91 @@ function getComponentName(name: string): string {
   return pascalCased.join('');
 }
 
+function capitalizeVariant(name: string) {
+  if (name === 'regular') {
+    return '';
+  }
+  return name.charAt(0).toUpperCase() + name.slice(1);
+}
+
 function getFilePath(icon: Icon): string {
-  return path.join(ICON_DIR, `${icon.name}_${icon.size}.svg`);
+  const { name, size, variant = 'regular' } = icon;
+  return path.join(
+    ICON_DIR,
+    `${name}_${size}${variant !== 'regular' ? `_${variant}` : ''}.svg`,
+  );
 }
 
 function buildComponentFile(component: Component): string {
   const icons = component.icons
     .filter((icon) => !icon.skipComponentFile)
-    .map((icon) => ({
-      size: icon.size,
-      filePath: getFilePath(icon),
-      name: getComponentName(`${icon.name}-${icon.size}`),
-    }));
+    .map((icon) => {
+      const { name, size, variant = 'regular' } = icon;
+      return {
+        size,
+        filePath: getFilePath(icon),
+        variant,
+        name: getComponentName(
+          `${name}-${size}${variant !== 'regular' ? `-${icon.variant}` : ''}`,
+        ),
+      };
+    });
 
   const iconImports = icons.map(
     (icon) =>
       `import { ReactComponent as ${icon.name} } from '${icon.filePath}';`,
   );
+
   const sizes = icons.map((icon) => Number.parseInt(icon.size, 10)).sort();
   const defaultSize = sizes.includes(24) ? '24' : Math.min(...sizes).toString();
-  const sizeMap = icons.map((icon) => `'${icon.size}': ${icon.name},`);
+
+  const iconsMap = icons.map(
+    (icon) => `'${icon.size}${capitalizeVariant(icon.variant)}': ${icon.name},`,
+  );
   const invalidSizeWarning = `The '\${size}' size is not supported by the '${
     component.name
   }' icon. Please use one of the available sizes: '${sizes.join("', '")}'.`;
 
+  const invalidVariantWarning = `The outlined variant is not supported for the '${
+    component.name
+  }' icon in size '\${size}'. It will be ignored.`;
+
   return `
     import React from 'react';
+
     ${iconImports.join('\n')}
 
-    const sizeMap = {
-      ${sizeMap.join('\n')}
+    const iconsMap = {
+      ${iconsMap.join('\n')}
+    }
+    
+    function capitalizeVariant(name) {
+      if (name === 'regular') return '';
+      return name.charAt(0).toUpperCase() + name.slice(1);
     }
 
     ${createDeprecationComment(component)}
-    export function ${component.name}({ size = '${defaultSize}', ...props }) {
-      const Icon = sizeMap[size] || sizeMap['${defaultSize}'];
+    export function ${component.name}({ size = '${defaultSize}', variant = 'regular', ...props }) {
+      const requestedIcon = size + capitalizeVariant(variant);
+      const defaultSizeWithVariantId = '${defaultSize}' + capitalizeVariant(variant);
+      // prioritise size over variant
+      const Icon = iconsMap[requestedIcon] ?? iconsMap[size] ?? iconsMap[defaultSizeWithVariantId] ?? iconsMap['${defaultSize}'];
+      if (
+        process.env.NODE_ENV !== 'production' &&
+        process.env.NODE_ENV !== 'test' &&
+        !iconsMap[requestedIcon] &&
+        iconsMap[defaultSizeWithVariantId]
+      ) {
+        console.warn(new Error(\`${invalidSizeWarning}\`));
+      }
 
       if (
         process.env.NODE_ENV !== 'production' &&
         process.env.NODE_ENV !== 'test' &&
-        !sizeMap[size]
+        iconsMap[size] &&
+        !iconsMap[requestedIcon]
       ) {
-        console.warn(new Error(\`${invalidSizeWarning}\`));
+        console.warn(new Error(\`${invalidVariantWarning}\`));
       }
 
       return <Icon {...props} />;
@@ -128,8 +174,8 @@ function buildComponentFile(component: Component): string {
 
 function buildHelpersFile(): string {
   return `
-    export function getIconURL(name, size) {
-      return 'https://circuit.sumup.com/icons/v2/' + name + (size ? '_' + size : '') + '.svg';
+    export function getIconURL(name, size, variant) {
+      return 'https://circuit.sumup.com/icons/v2/' + name + (size ? '_' + size : '') + (variant ? '_' + variant : '') + '.svg';
     }
   `;
 }
@@ -170,14 +216,18 @@ function buildDeclarationFile(components: Component[]): string {
   return `
     import type { FunctionComponent, SVGProps } from 'react';
 
-    export interface IconProps<Sizes extends string = any> extends SVGProps<SVGSVGElement> {
+    export interface IconProps<Sizes extends string = any, Variants extends string = any> extends SVGProps<SVGSVGElement> {
       /**
        * Choose between one of the available sizes. Defaults to '24', if supported, or to the smallest available size.
        */
       size?: Sizes;
+      /**
+       * Choose between one of the available variants. Defaults to 'regular'.
+       */
+      variant?: Variants;
     }
 
-    export type IconComponentType<Sizes extends string = any> = FunctionComponent<IconProps<Sizes>>;
+    export type IconComponentType<Sizes extends string = any, Variants extends string = any> = FunctionComponent<IconProps<Sizes, Variants>>;
 
     ${declarationStatements.join('\n')}
 
