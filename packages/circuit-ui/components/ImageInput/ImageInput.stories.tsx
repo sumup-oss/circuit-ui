@@ -93,7 +93,7 @@ export const Stateful = () => {
       setTimeout(() => {
         const shouldFail = Math.random() < 0.3;
         if (shouldFail) {
-          reject(new Error());
+          reject(new Error('Failed to upload file'));
         } else {
           resolve('/images/illustration-coffee.jpg');
         }

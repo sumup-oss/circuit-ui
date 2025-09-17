@@ -407,6 +407,7 @@ export const schema = [
       replacement: '--cui-body-l-line-height',
     },
   },
+  /* eslint-enable circuit-ui/no-deprecated-custom-properties */
 
   /* Z-indices */
   { name: '--cui-z-index-default', type: 'number' },
