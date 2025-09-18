@@ -131,16 +131,12 @@ function buildComponentFile(component: Component): string {
 
   return `
     import React from 'react';
+    import { capitalizeVariant } from './helpers.js';
 
     ${iconImports.join('\n')}
 
     const iconsMap = {
       ${iconsMap.join('\n')}
-    }
-    
-    function capitalizeVariant(name) {
-      if (name === 'regular') return '';
-      return name.charAt(0).toUpperCase() + name.slice(1);
     }
 
     ${createDeprecationComment(component)}
@@ -176,6 +172,11 @@ function buildHelpersFile(): string {
   return `
     export function getIconURL(name, size, variant) {
       return 'https://circuit.sumup.com/icons/v2/' + name + (size ? '_' + size : '') + (variant ? '_' + variant : '') + '.svg';
+    }
+    
+    export function capitalizeVariant(name) {
+      if (name === 'regular') return '';
+      return name.charAt(0).toUpperCase() + name.slice(1);
     }
   `;
 }
