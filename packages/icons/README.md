@@ -50,6 +50,20 @@ const SuccessMessage = ({ description }) => (
 );
 ```
 
+Some icons support more than one variant. The default variant is `"regular"`. Use the `variant` prop to choose the variant you want:
+
+```tsx
+import { Profile } from '@sumup-oss/icons';
+
+const UserProfile = ({ userName }) => (
+  <div>
+    <Profile variant="outlined" />
+    <span>{userName}</span>
+  </div>
+);
+```
+If the variant is not available for the requested size, it will be ignored.
+
 To change the color of an icon, set the `color` property in CSS. The color will [cascade down](https://css-tricks.com/cascading-svg-fill-color/) since the `fill` and `stroke` attributes of all monochrome icons are set to `currentColor`. Here's an example using CSS Modules:
 
 ```css
