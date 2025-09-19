@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
+
 import pkg from './package.json' with { type: 'json' };
 
 import { componentLifecycleImports } from './component-lifecycle-imports/index.js';
@@ -41,7 +43,7 @@ const plugin = {
     version: pkg.version,
     namespace,
   },
-  configs: {},
+  configs: {} as { recommended: FlatConfig.Config },
   rules,
 };
 
