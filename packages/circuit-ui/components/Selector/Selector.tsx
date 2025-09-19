@@ -132,13 +132,11 @@ export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
       .join(' ');
     const type = multiple ? 'checkbox' : 'radio';
 
-    if (process.env.NODE_ENV !== 'production') {
-      if (legacySizeMap[legacySize]) {
-        deprecate(
-          'Selector',
-          `The \`${legacySize}\` size has been deprecated. Use the \`${legacySizeMap[legacySize]}\` size instead.`,
-        );
-      }
+    if (process.env.NODE_ENV !== 'production' && legacySizeMap[legacySize]) {
+      deprecate(
+        'Selector',
+        `The \`${legacySize}\` size has been deprecated. Use the \`${legacySizeMap[legacySize]}\` size instead.`,
+      );
     }
 
     if (

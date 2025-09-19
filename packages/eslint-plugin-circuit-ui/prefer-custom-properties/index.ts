@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import { ESLintUtils, type TSESTree } from '@typescript-eslint/utils';
+import { ESLintUtils, TSESTree } from '@typescript-eslint/utils';
 import { schema } from '@sumup-oss/design-tokens';
 
-/* eslint-disable */
+import type { RuleDocs } from '../utils/meta.js';
 
-const createRule = ESLintUtils.RuleCreator(
+const createRule = ESLintUtils.RuleCreator<RuleDocs>(
   (name) =>
     `https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/${name}`,
 );
@@ -32,7 +32,7 @@ export const preferCustomProperties = createRule({
     docs: {
       description:
         'Custom properties prefixed with `--cui-` should be valid Circuit UI design tokens.',
-      recommended: 'recommended',
+      recommended: 'warn',
     },
     messages: {
       replace:
@@ -69,17 +69,17 @@ export const preferCustomProperties = createRule({
       identifiers: string[] = [],
       computed = false,
     ): { identifiers: string[]; computed: boolean } {
-      if (expression.type === 'MemberExpression') {
+      if (expression.type === TSESTree.AST_NODE_TYPES.MemberExpression) {
         return flattenMemberExpression(
           expression.object,
-          expression.property.type === 'Identifier'
+          expression.property.type === TSESTree.AST_NODE_TYPES.Identifier
             ? [expression.property.name, ...identifiers]
             : identifiers,
           computed || expression.computed,
         );
       }
 
-      if (expression.type !== 'Identifier') {
+      if (expression.type !== TSESTree.AST_NODE_TYPES.Identifier) {
         return { identifiers, computed: true };
       }
 
@@ -136,7 +136,7 @@ export const preferCustomProperties = createRule({
     }
 
     function checkMemberExpression(node: TSESTree.MemberExpression) {
-      if (node.parent?.type === 'TemplateLiteral') {
+      if (node.parent?.type === TSESTree.AST_NODE_TYPES.TemplateLiteral) {
         return;
       }
 
@@ -150,7 +150,10 @@ export const preferCustomProperties = createRule({
       }
 
       // Computed expressions cannot be auto-fixed.
-      if (computed || node.parent?.type === 'BinaryExpression') {
+      if (
+        computed ||
+        node.parent?.type === TSESTree.AST_NODE_TYPES.BinaryExpression
+      ) {
         context.report({
           node,
           messageId: 'refactor',

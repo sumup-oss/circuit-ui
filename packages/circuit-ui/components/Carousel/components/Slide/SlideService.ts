@@ -13,27 +13,27 @@
  * limitations under the License.
  */
 
-import { SLIDE_DIRECTIONS } from '../../constants.js';
+import { SlideDirection } from '../../constants.js';
 
 export function getStackOrder(
   slideIndex?: number,
   step?: number,
   prevStep?: number,
-  slideDirection?: SLIDE_DIRECTIONS,
+  slideDirection?: SlideDirection,
 ) {
   const isActive = step === slideIndex;
   const wasActive = prevStep === slideIndex;
 
   if (
-    (slideDirection === SLIDE_DIRECTIONS.FORWARD && isActive) ||
-    (slideDirection === SLIDE_DIRECTIONS.BACK && wasActive)
+    (slideDirection === SlideDirection.FORWARD && isActive) ||
+    (slideDirection === SlideDirection.BACK && wasActive)
   ) {
     return 2;
   }
 
   if (
-    (slideDirection === SLIDE_DIRECTIONS.FORWARD && wasActive) ||
-    (slideDirection === SLIDE_DIRECTIONS.BACK && isActive)
+    (slideDirection === SlideDirection.FORWARD && wasActive) ||
+    (slideDirection === SlideDirection.BACK && isActive)
   ) {
     return 1;
   }
@@ -45,16 +45,16 @@ export function shouldAnimate(
   slideIndex?: number,
   step?: number,
   prevStep?: number,
-  slideDirection?: SLIDE_DIRECTIONS,
+  slideDirection?: SlideDirection,
 ) {
   const isActive = step === slideIndex;
   const wasActive = prevStep === slideIndex;
 
-  if (slideDirection === SLIDE_DIRECTIONS.FORWARD) {
+  if (slideDirection === SlideDirection.FORWARD) {
     return isActive;
   }
 
-  if (slideDirection === SLIDE_DIRECTIONS.BACK) {
+  if (slideDirection === SlideDirection.BACK) {
     return wasActive;
   }
 

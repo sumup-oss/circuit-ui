@@ -42,7 +42,7 @@ describe('applyMultipleRefs function', () => {
   test('should allow multiple refs as arguments', () => {
     const {
       result: { current: refAsObject },
-    } = renderHook(() => useRef<HTMLDivElement>());
+    } = renderHook(() => useRef<HTMLDivElement>(null));
 
     const refAsFunction = vi.fn();
 

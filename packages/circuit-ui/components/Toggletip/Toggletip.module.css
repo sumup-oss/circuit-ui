@@ -5,6 +5,8 @@
   z-index: var(--cui-z-index-tooltip);
   width: max-content;
   max-width: 360px;
+
+  /* biome-ignore lint/suspicious/noDuplicateProperties: Browser compatibility */
   max-width: min(360px, 100vw);
   padding: 0;
   margin: 0;

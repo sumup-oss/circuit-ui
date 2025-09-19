@@ -38,11 +38,12 @@
     "@babel/core": "^7.28.3",
     "@babel/preset-env": "^7.28.3",
     "@babel/preset-react": "^7.27.1",
+    "@biomejs/js-api": "^3.0.0",
     "@types/babel__core": "^7.20.5",
     "fast-xml-parser": "^5.2.5",
-    "prettier": "^3.5.3",
     "tsx": "^4.20.5",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "vitest": "^3.0.9"
   },
   "peerDependencies": {
     "react": ">=16.0.0 <20.0.0"

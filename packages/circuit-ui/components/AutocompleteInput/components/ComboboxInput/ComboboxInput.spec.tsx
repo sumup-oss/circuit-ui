@@ -20,6 +20,10 @@ import { render, axe, screen, userEvent } from '../../../../util/test-utils.js';
 
 import { ComboboxInput, type ComboboxInputProps } from './ComboboxInput.js';
 
+declare const process: {
+  env: { NODE_ENV: string };
+};
+
 const defaultProps = {
   label: 'Label',
   removeTagButtonLabel: 'Remove',

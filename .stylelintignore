@@ -1,5 +1,11 @@
 node_modules/
 build/
 dist/
+.next/
+.out/
+static/
 public/
+coverage/
+__coverage__/
+__reports__/
 packages/design-tokens/*.css

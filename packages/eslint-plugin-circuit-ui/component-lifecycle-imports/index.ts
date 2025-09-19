@@ -13,11 +13,10 @@
  * limitations under the License.
  */
 
-import { ESLintUtils, type TSESTree } from '@typescript-eslint/utils';
+import { ESLintUtils, TSESTree } from '@typescript-eslint/utils';
+import type { RuleDocs } from '../utils/meta.js';
 
-/* eslint-disable */
-
-const createRule = ESLintUtils.RuleCreator(
+const createRule = ESLintUtils.RuleCreator<RuleDocs>(
   (name) =>
     `https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/${name}`,
 );
@@ -100,7 +99,7 @@ export const componentLifecycleImports = createRule({
     docs: {
       description:
         'Components that have moved to a different stage in their lifecycle should be imported from the relevant path.',
-      recommended: 'recommended',
+      recommended: 'off',
     },
     messages: {
       refactor:
@@ -117,11 +116,14 @@ export const componentLifecycleImports = createRule({
           node: TSESTree.ImportDeclaration,
         ) => {
           node.specifiers.forEach((specifier) => {
-            if (specifier.type !== 'ImportSpecifier') {
+            if (specifier.type !== TSESTree.AST_NODE_TYPES.ImportSpecifier) {
               return;
             }
 
-            const importedName = specifier.imported.name;
+            const importedName =
+              specifier.imported.type === TSESTree.AST_NODE_TYPES.Identifier
+                ? specifier.imported.name
+                : specifier.imported.value;
             const localName = specifier.local.name;
 
             if (!specifiers.includes(importedName)) {

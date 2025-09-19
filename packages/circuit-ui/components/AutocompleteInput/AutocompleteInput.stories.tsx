@@ -233,11 +233,7 @@ const baseArgs: AutocompleteInputProps = {
 
 const openAutocomplete =
   (label?: string, text?: string) =>
-  async ({
-    canvasElement,
-  }: {
-    canvasElement: HTMLCanvasElement;
-  }) => {
+  async ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
     const canvas = within(canvasElement);
     const input = canvas.getByLabelText(label ?? baseArgs.label);
 

@@ -7,8 +7,8 @@
     "build": "next build",
     "build:analyze": "ANALYZE=true npm run build",
     "start": "next start",
-    "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "npm run lint -- --fix",
+    "lint": "biome check --diagnostic-level=error && eslint . --quiet --concurrency=auto",
+    "lint:fix": "biome check --write --diagnostic-level=error && eslint . --quiet --concurrency=auto --fix",
     "test": "jest --watch",
     "test:ci": "mkdir -p __reports__ && jest --ci --coverage --runInBand --json --outputFile=__reports__/jest-results.json --reporters default --reporters \"github-actions\""
   },
@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@sumup-oss/eslint-plugin-circuit-ui": "^6.0.0",
-    "@sumup-oss/foundry": "^8.4.1",
+    "@sumup-oss/foundry": "^9.0.0-next.0",
     "@sumup-oss/stylelint-plugin-circuit-ui": "^4.0.0-next.0",
     "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^16.3.0",

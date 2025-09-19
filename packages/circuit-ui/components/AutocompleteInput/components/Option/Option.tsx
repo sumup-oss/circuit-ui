@@ -67,6 +67,7 @@ export const Option = ({
   }, [isFocused]);
 
   return (
+    // biome-ignore lint/a11y/useKeyWithClickEvents: The options is already keyboard-selectable.
     <li
       tabIndex={0}
       {...props}

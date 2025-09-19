@@ -13,15 +13,10 @@
  * limitations under the License.
  */
 
-import {
-  ESLintUtils,
-  type TSESLint,
-  type TSESTree,
-} from '@typescript-eslint/utils';
+import { ESLintUtils, TSESTree, type TSESLint } from '@typescript-eslint/utils';
+import type { RuleDocs } from '../utils/meta.js';
 
-/* eslint-disable */
-
-const createRule = ESLintUtils.RuleCreator(
+const createRule = ESLintUtils.RuleCreator<RuleDocs>(
   (name) =>
     `https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/${name}`,
 );
@@ -80,7 +75,7 @@ export const noDeprecatedProps = createRule({
     schema: [],
     docs: {
       description: 'Deprecated component props should be removed or replaced',
-      recommended: 'strict',
+      recommended: 'warn',
     },
     messages: {
       deprecated:
@@ -91,7 +86,6 @@ export const noDeprecatedProps = createRule({
   create(context) {
     return mappings.reduce((visitors, config) => {
       config.components.forEach((component) => {
-        // eslint-disable-next-line no-param-reassign
         visitors[`JSXElement[openingElement.name.name="${component}"]`] = (
           node: TSESTree.JSXElement,
         ) => {
@@ -99,8 +93,8 @@ export const noDeprecatedProps = createRule({
 
           node.openingElement.attributes.forEach((attribute) => {
             if (
-              attribute.type !== 'JSXAttribute' ||
-              attribute.name.type !== 'JSXIdentifier'
+              attribute.type !== TSESTree.AST_NODE_TYPES.JSXAttribute ||
+              attribute.name.type !== TSESTree.AST_NODE_TYPES.JSXIdentifier
             ) {
               return;
             }

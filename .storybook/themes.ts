@@ -1,7 +1,7 @@
 import { create } from 'storybook/theming';
 import { GLOBALS_UPDATED } from 'storybook/internal/core-events';
 
-import { Link } from './components/Link';
+import { Link } from './components/Link.js';
 
 const brand = {
   brandTitle: 'Circuit UI',
@@ -63,9 +63,15 @@ export const components = {
 
 type ColorScheme = 'light' | 'dark';
 
+type Context = {
+  globals: {
+    colorScheme: string;
+  };
+};
+
 type EventListener = (
   eventName: string,
-  callback: (context: { globals: Record<string, unknown> }) => void,
+  callback: (context: Context) => void,
 ) => void;
 
 export function listenToColorScheme(
@@ -78,12 +84,12 @@ export function listenToColorScheme(
     callback(event.matches ? 'dark' : 'light');
   };
 
-  const handleGlobalsChange = ({ globals }) => {
+  const handleGlobalsChange = ({ globals }: Context) => {
     if (globals.colorScheme === 'system') {
       callback(query.matches ? 'dark' : 'light');
       query.addEventListener('change', handleMediaChange);
     } else {
-      callback(globals.colorScheme);
+      callback(globals.colorScheme as ColorScheme);
       query.removeEventListener('change', handleMediaChange);
     }
   };
@@ -94,7 +100,8 @@ export function listenToColorScheme(
     if (globals) {
       const [key, value] = globals.split(':');
       if (key === 'colorScheme') {
-        return handleGlobalsChange({ globals: { colorScheme: value } });
+        handleGlobalsChange({ globals: { colorScheme: value } });
+        return;
       }
     }
 

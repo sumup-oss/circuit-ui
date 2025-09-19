@@ -32,7 +32,6 @@ describe('ColorInput', () => {
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
     render(<ColorInput {...baseProps} inputClassName={className} />);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, textInput] = screen.getAllByLabelText(baseProps.label);
     expect(textInput?.className).toContain(className);
   });
@@ -80,7 +79,6 @@ describe('ColorInput', () => {
 
     it('should render as required', async () => {
       render(<ColorInput {...baseProps} required />);
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const [_, textInput] = screen.getAllByLabelText(baseProps.label);
       expect(textInput).toBeRequired(); // text input
     });

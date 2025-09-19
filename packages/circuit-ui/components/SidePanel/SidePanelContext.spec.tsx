@@ -107,7 +107,10 @@ describe('SidePanelContext', () => {
       props: Partial<SidePanelContextItem> = {},
       label = 'Open panel',
     ) => (
-      <button onClick={() => hookFn({ ...getPanel(), ...props })}>
+      <button
+        type="button"
+        onClick={() => hookFn({ ...getPanel(), ...props, open: true })}
+      >
         {label}
       </button>
     );
@@ -117,6 +120,7 @@ describe('SidePanelContext', () => {
       group: SidePanelHookProps['group'] = 'primary',
     ) => (
       <button
+        type="button"
         onClick={() => {
           void hookFn(group);
         }}
@@ -130,7 +134,9 @@ describe('SidePanelContext', () => {
       props: Partial<SidePanelContextItem> = {},
       group: SidePanelHookProps['group'] = 'primary',
     ) => (
-      <button onClick={() => hookFn({ group, ...props })}>Update panel</button>
+      <button type="button" onClick={() => hookFn({ group, ...props })}>
+        Update panel
+      </button>
     );
 
     it('should merge a custom class name with the default ones', () => {

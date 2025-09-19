@@ -1,18 +1,22 @@
 import '@sumup-oss/design-tokens/dynamic.css';
 
-// biome-ignore lint/correctness/noUnusedImports:
+// @ts-expect-error React isn't injected globally in this file
+// biome-ignore lint/correctness/noUnusedImports: React isn't injected globally in this file
 import React, { type CSSProperties } from 'react';
 import { addons, types } from 'storybook/manager-api';
 
 import { dark, light, listenToColorScheme } from './themes.js';
-import { PARAM_KEY as VERSIONS_PARAM_KEY, Versions } from './addons/versions';
+import {
+  PARAM_KEY as VERSIONS_PARAM_KEY,
+  Versions,
+} from './addons/versions/index.js';
 
 type BadgeConfig = {
   style: CSSProperties;
   label: string;
 };
 
-const badges = {
+const badges: Record<string, BadgeConfig> = {
   // 'status:stable' is excluded to reduce visual clutter
   'status:experimental': {
     label: 'Experimental',
@@ -54,7 +58,7 @@ const badges = {
       borderColor: 'var(--cui-border-normal)',
     },
   },
-} satisfies Record<string, BadgeConfig>;
+};
 
 addons.setConfig({
   isFullscreen: false,
@@ -63,9 +67,7 @@ addons.setConfig({
   panelPosition: 'bottom',
   sidebar: {
     filters: {
-      patterns: (item) => {
-        return !item.tags?.includes('hidden');
-      },
+      patterns: (item) => !item.tags?.includes('hidden'),
     },
     renderLabel(item) {
       if (item.type !== 'component') {

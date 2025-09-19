@@ -7,4 +7,5 @@ export const axe = configureAxe({
   },
 });
 
+// biome-ignore lint/performance/noReExportAll: Proxying the testing-library methods enables overriding them if necessary.
 export * from '@testing-library/react';

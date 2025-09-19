@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
-import { ESLintUtils, type TSESTree } from '@typescript-eslint/utils';
+import { ESLintUtils, TSESTree } from '@typescript-eslint/utils';
 
-/* eslint-disable */
+import type { RuleDocs } from '../utils/meta.js';
 
-const createRule = ESLintUtils.RuleCreator(
+const createRule = ESLintUtils.RuleCreator<RuleDocs>(
   (name) =>
     `https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/${name}`,
 );
@@ -50,7 +50,7 @@ export const renamedPackageScope = createRule({
     docs: {
       description:
         'Imports from Circuit UI packages should use the new `@sumup-oss` scope.',
-      recommended: 'recommended',
+      recommended: 'off',
     },
     messages: {
       refactor:
@@ -86,7 +86,7 @@ export const renamedPackageScope = createRule({
         ) => {
           const { source } = node;
 
-          if (source.type !== 'Literal') {
+          if (source.type !== TSESTree.AST_NODE_TYPES.Literal) {
             return;
           }
 
@@ -97,7 +97,7 @@ export const renamedPackageScope = createRule({
         ) => {
           const { source } = node;
 
-          if (source.type !== 'Literal') {
+          if (source.type !== TSESTree.AST_NODE_TYPES.Literal) {
             return;
           }
 
@@ -107,7 +107,7 @@ export const renamedPackageScope = createRule({
           (node: TSESTree.CallExpression) => {
             const firstArg = node.arguments[0];
 
-            if (firstArg.type !== 'Literal') {
+            if (firstArg.type !== TSESTree.AST_NODE_TYPES.Literal) {
               return;
             }
 
@@ -118,13 +118,13 @@ export const renamedPackageScope = createRule({
         ) => {
           const { argument } = node;
 
-          if (argument.type !== 'TSLiteralType') {
+          if (argument.type !== TSESTree.AST_NODE_TYPES.TSLiteralType) {
             return;
           }
 
           const { literal } = argument;
 
-          if (literal.type !== 'Literal') {
+          if (literal.type !== TSESTree.AST_NODE_TYPES.Literal) {
             return;
           }
 

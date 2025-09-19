@@ -14,7 +14,6 @@
  */
 
 /* istanbul ignore file */
-/* eslint-disable import/no-extraneous-dependencies */
 
 'use client';
 
@@ -24,6 +23,7 @@ import {
   type SwipeableProps,
   type SwipeEventData,
   type SwipeDirections,
+  // biome-ignore lint/correctness/noUndeclaredDependencies: This is only imported in story files.
 } from 'react-swipeable';
 
 import { Image } from '../../Image/index.js';

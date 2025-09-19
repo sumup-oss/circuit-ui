@@ -23,13 +23,13 @@ import type {
   FeatureSection,
 } from './components/PlanTable/PlanTable.js';
 
-export const basicPlan: TableHeaderProps = {
+export const basicPlan = {
   title: 'Basic',
   id: 'basic',
   description: 'Essential features',
-};
+} satisfies TableHeaderProps;
 
-export const standardPlan: TableHeaderProps = {
+export const standardPlan = {
   title: 'Standard',
   id: 'standard',
   description: 'Most popular',
@@ -37,9 +37,9 @@ export const standardPlan: TableHeaderProps = {
     children: 'Get started',
     href: '#',
   },
-};
+} satisfies TableHeaderProps;
 
-export const premiumPlan: TableHeaderProps = {
+export const premiumPlan = {
   title: 'Premium',
   id: 'premium',
   description: 'Full feature set',
@@ -47,7 +47,7 @@ export const premiumPlan: TableHeaderProps = {
     children: 'Get started',
     href: '#',
   },
-};
+} satisfies TableHeaderProps;
 
 const coreFeature: Feature = {
   featureDescription: {

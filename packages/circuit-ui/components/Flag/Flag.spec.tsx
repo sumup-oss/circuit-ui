@@ -26,7 +26,6 @@ describe('Flag', () => {
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
     render(<Flag {...baseProps} imageClassName={className} />);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const image = screen.getByRole('img');
     expect(image?.className).toContain(className);
   });

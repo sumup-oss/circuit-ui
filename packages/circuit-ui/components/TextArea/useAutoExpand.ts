@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 /**
  * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");

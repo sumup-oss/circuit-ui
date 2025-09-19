@@ -20,7 +20,7 @@ import { describe, expect, it } from 'vitest';
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
 
 import { CATEGORIES, ICON_DIR, SIZES } from '../constants.js';
-import { icons } from '../manifest.json' assert { type: 'json' };
+import manifest from '../manifest.json' with { type: 'json' };
 
 describe('Icons', () => {
   const files = fs
@@ -52,24 +52,24 @@ describe('Icons', () => {
     });
 
     it('should have a valid manifest', () => {
-      const manifest = getIconManifest(name, size);
+      const iconManifest = getIconManifest(name, size);
 
-      expect(manifest.name).toBeTypeOf('string');
-      expect(SIZES).toContain(manifest.size);
-      expect(CATEGORIES).toContain(manifest.category);
+      expect(iconManifest.name).toBeTypeOf('string');
+      expect(SIZES).toContain(iconManifest.size);
+      expect(CATEGORIES).toContain(iconManifest.category);
     });
 
     it('should match the size in the file name', () => {
-      const manifest = getIconManifest(name, size);
+      const iconManifest = getIconManifest(name, size);
 
       const attributes = parseSVGAttributes(file);
-      if (manifest.category === 'Flag') {
-        expect(manifest.size).toBe('480');
-        expect(attributes.height).toBe(manifest.size);
+      if (iconManifest.category === 'Flag') {
+        expect(iconManifest.size).toBe('480');
+        expect(attributes.height).toBe(iconManifest.size);
         expect(attributes.width).toBe('640');
       } else {
-        expect(manifest.size).toBe(size);
-        if (manifest.category === 'Card scheme') {
+        expect(iconManifest.size).toBe(size);
+        if (iconManifest.category === 'Card scheme') {
           expect(attributes.width).toBe(size);
         } else {
           expect(attributes.height).toBe(size);
@@ -91,9 +91,9 @@ describe('Icons', () => {
 
 function parseFileName(fileName: string) {
   try {
-    const [, name, size] = fileName.match(/(.+?)(?:_(\d+))?\.svg$/);
+    const [, name, size] = fileName.match(/(.+?)(?:_(\d+))?\.svg$/)!;
     // assign size of 480 for flag icons when size not specified in file name
-    if (!size && (name as string).match(/^flag_[a-z]{2}$/)) {
+    if (!size && name.match(/^flag_[a-z]{2}$/)) {
       return { name, size: '480' };
     }
     return { name, size };
@@ -122,10 +122,15 @@ function parseSVGAttributes(file: string) {
   return ast.svg.attributes;
 }
 
-function getIconManifest(name?: string, size?: string) {
-  if (!name || !size) {
-    return null;
-  }
-
-  return icons.find((icon) => icon.name === name && icon.size === size);
+function getIconManifest(name: string, size: string) {
+  return manifest.icons.find(
+    (icon) => icon.name === name && icon.size === size,
+  ) as {
+    name: string;
+    category: string;
+    keywords: string[];
+    size: string;
+    deprecation: string;
+    skipComponentFile?: undefined;
+  };
 }

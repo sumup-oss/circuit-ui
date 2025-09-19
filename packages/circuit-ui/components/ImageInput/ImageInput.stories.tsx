@@ -87,14 +87,13 @@ export const Stateful = () => {
   /**
    * Fakes a network request that fails 30% of the time
    */
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const uploadFile = (_file: File) =>
     // upload the file to storage
     new Promise<string>((resolve, reject) => {
       setTimeout(() => {
         const shouldFail = Math.random() < 0.3;
         if (shouldFail) {
-          reject();
+          reject(new Error('Failed to upload file'));
         } else {
           resolve('/images/illustration-coffee.jpg');
         }

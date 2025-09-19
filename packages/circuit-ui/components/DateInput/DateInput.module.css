@@ -123,6 +123,8 @@
   .dialog {
     width: max-content;
     max-width: 410px;
+
+    /* biome-ignore lint/suspicious/noDuplicateProperties: Browser compatibility */
     max-width: min(410px, 100vw);
     overflow: scroll;
     border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);

@@ -64,7 +64,6 @@ describe('errors', () => {
       test('when the label is defined but not a string', () => {
         const label = <div>Label</div>;
         const attributes = undefined;
-        // @ts-expect-error We're testing for this error.
         expect(isSufficientlyLabelled(label, attributes)).toBe(true);
       });
 

@@ -21,17 +21,17 @@ import styled from '../../../styles/styled.js';
 import type { StyleProps } from '../../../styles/styled.js';
 import { typography } from '../../../styles/style-mixins.js';
 
-const baseStyles = ({ theme }: StyleProps) => css`
+const baseStyles = () => css`
   display: inline-block;
   width: max-content;
   max-width: 360px;
   background-color: var(--cui-bg-elevated);
-  border-radius: ${theme.borderRadius.byte};
-  border: ${theme.borderWidth.kilo} solid var(--cui-border-subtle);
+  border-radius: var(--cui-border-radius-byte);
+  border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
   box-shadow: 0 2px 6px 0 rgb(0 0 0 / 8%);
-  padding: ${theme.spacings.byte} ${theme.spacings.kilo};
+  padding: var(--cui-spacings-byte) var(--cui-spacings-kilo);
   position: absolute;
-  z-index: ${theme.zIndex.tooltip};
+  z-index: var(--cui-z-index-tooltip);
   transition: opacity 0.3s;
 `;
 
@@ -94,12 +94,10 @@ const getAlignmentStyles = ({
   // as a Position.
   const absolutePosition = positionMap[align as Position];
 
-  /* eslint-disable max-len */
   return `
     ${absolutePosition}: 50%;
     ${absolutePosition}: calc(50% - (${theme.spacings.mega} + ${theme.spacings.bit}));
   `;
-  /* eslint-enable max-len */
 };
 
 const positionAndAlignStyles = ({

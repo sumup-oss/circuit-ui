@@ -38,6 +38,10 @@ import {
   premiumPlan,
 } from './fixtures.js';
 
+declare const process: {
+  env: { NODE_ENV: string };
+};
+
 vi.mock('../../hooks/useMedia/index.js');
 
 const baseProps: ComparisonTableProps = {

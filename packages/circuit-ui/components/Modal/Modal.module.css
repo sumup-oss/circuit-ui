@@ -1,12 +1,16 @@
 .base {
   position: fixed;
   max-height: 90vh;
+
+  /* biome-ignore lint/suspicious/noDuplicateProperties: Browser compatibility */
   max-height: 90dvh;
   background-color: var(--cui-bg-elevated);
 }
 
 .content {
   max-height: 90vh;
+
+  /* biome-ignore lint/suspicious/noDuplicateProperties: Browser compatibility */
   max-height: 90dvh;
   overflow-y: auto;
 }
@@ -25,7 +29,8 @@
   .base .content {
     padding: var(--cui-spacings-giga);
     padding-bottom: calc(
-      env(safe-area-inset-bottom) + var(--cui-spacings-giga)
+      env(safe-area-inset-bottom) +
+      var(--cui-spacings-giga)
     );
   }
 }
@@ -45,7 +50,8 @@
   .base .content {
     padding: var(--cui-spacings-mega);
     padding-bottom: calc(
-      env(safe-area-inset-bottom) + var(--cui-spacings-mega)
+      env(safe-area-inset-bottom) +
+      var(--cui-spacings-mega)
     );
     -webkit-overflow-scrolling: touch;
   }

@@ -61,6 +61,7 @@ export function Status({
 
   return (
     <Unstyled {...props}>
+      {/* @ts-expect-error LinkTo is a valid JSX element */}
       <LinkTo {...props} kind={kind} name={name}>
         <Badge variant={variant}>{label}</Badge>
       </LinkTo>

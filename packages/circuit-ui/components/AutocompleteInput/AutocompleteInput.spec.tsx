@@ -37,6 +37,10 @@ import {
   type AutocompleteInputProps,
 } from './AutocompleteInput.js';
 
+declare const process: {
+  env: { NODE_ENV: string };
+};
+
 vi.mock('../../hooks/useMedia/index.js');
 
 const props: AutocompleteInputProps = {

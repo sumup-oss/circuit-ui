@@ -1,6 +1,6 @@
 .base.base {
-  box-sizing: border-box;
   float: left;
+  box-sizing: border-box;
   width: 100%;
   margin-top: var(--cui-spacings-giga);
 }

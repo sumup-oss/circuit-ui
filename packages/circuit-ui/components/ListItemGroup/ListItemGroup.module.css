@@ -81,7 +81,8 @@
 li .child {
   border: none;
   border-radius: calc(
-    var(--cui-border-radius-mega) - var(--cui-border-width-mega)
+    var(--cui-border-radius-mega) -
+    var(--cui-border-width-mega)
   );
 }
 
