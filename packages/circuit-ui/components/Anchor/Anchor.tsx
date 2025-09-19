@@ -111,10 +111,10 @@ export const Anchor = forwardRef(
     if (props.href) {
       return (
         <Body
+          as={Link}
           {...props}
           aria-describedby={descriptionIds}
           className={clsx(classes.base, utilClasses.focusVisible, className)}
-          as={Link}
           ref={ref}
         >
           {children}

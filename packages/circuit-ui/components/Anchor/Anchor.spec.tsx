@@ -91,6 +91,19 @@ describe('Anchor', () => {
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });
+
+    it('should respect a custom `as` prop when href is passed', () => {
+      const CustomLink = ({ children, ...rest }: any) => (
+        <span data-testid="custom" {...rest}>
+          {children}
+        </span>
+      );
+      render(
+        <Anchor {...baseProps} href="https://sumup.com" as={CustomLink} />,
+      );
+      const el = screen.getByTestId('custom');
+      expect(el.tagName).toBe('SPAN');
+    });
   });
 
   describe('as a button', () => {
