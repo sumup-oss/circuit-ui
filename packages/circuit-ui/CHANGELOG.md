@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 10.12.2
+
+### Patch Changes
+
+- [#3290](https://github.com/sumup-oss/circuit-ui/pull/3290) [`77b3ac9`](https://github.com/sumup-oss/circuit-ui/commit/77b3ac962b56a2c214d86bbabc4b0ee67fc07d67) Thanks [@lionralfs](https://github.com/lionralfs)! - Fixed the Anchor component to respect the provided `as` prop when an `href` is present.
+
+- [#3291](https://github.com/sumup-oss/circuit-ui/pull/3291) [`c3e3903`](https://github.com/sumup-oss/circuit-ui/commit/c3e390386f6a22696757e672b8796f8736d28e56) Thanks [@michael-callahan-sumup](https://github.com/michael-callahan-sumup)! - Fixed an issue in the ProgressBar component where the animation continued looping even when the `loop` prop was set to `false`.
+
 ## 10.12.1
 
 ### Patch Changes
