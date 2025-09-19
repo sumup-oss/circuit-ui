@@ -34,91 +34,81 @@ ruleTester.run('component-lifecycle-imports', componentLifecycleImports, {
     {
       name: 'matching component import from unrelated package',
       code: `
-        import { RangePicker } from 'material-ui';
+        import { Timestamp } from 'material-ui';
       `,
     },
     {
       name: 'matching import from correct package',
       code: `
-        import { RangePicker } from '@sumup-oss/circuit-ui/legacy';
+        import { Timestamp } from '@sumup-oss/circuit-ui';
       `,
     },
     {
       name: 'unrelated import from matching package',
       code: `
-        import { Button } from '@sumup-oss/circuit-ui';
+        import { Button } from '@sumup-oss/circuit-ui/experimental';
       `,
     },
     {
       name: 'unrelated import with matching local name',
       code: `
-        import { Button as RangePicker } from '@sumup-oss/circuit-ui';
+        import { Button as Timestamp } from '@sumup-oss/circuit-ui';
       `,
     },
   ],
   invalid: [
     {
-      name: '[Legacy] single import with single match',
+      name: 'single import with single match',
       code: `
-        import { RangePicker } from '@sumup-oss/circuit-ui';
+        import { Timestamp } from '@sumup-oss/circuit-ui/experimental';
       `,
       output: `
-        import { RangePicker } from '@sumup-oss/circuit-ui/legacy';
+        import { Timestamp } from '@sumup-oss/circuit-ui';
       `,
       errors: [{ messageId: 'refactor' }],
     },
     {
-      name: '[Legacy] single import with single match with local name',
+      name: 'single import with single match with local name',
       code: `
-        import { RangePicker as RangeInput } from '@sumup-oss/circuit-ui';
+        import { Timestamp as DateTimestamp } from '@sumup-oss/circuit-ui/experimental';
       `,
       output: `
-        import { RangePicker as RangeInput } from '@sumup-oss/circuit-ui/legacy';
+        import { Timestamp as DateTimestamp } from '@sumup-oss/circuit-ui';
       `,
       errors: [{ messageId: 'refactor' }],
     },
     {
-      name: '[Legacy] multiple imports with single match',
+      name: 'multiple imports with single match',
       code: `
-        import { RangePicker, Button } from '@sumup-oss/circuit-ui';
+        import { Timestamp, Button } from '@sumup-oss/circuit-ui/experimental';
       `,
       output: `
-        import { Button } from '@sumup-oss/circuit-ui';import { RangePicker } from '@sumup-oss/circuit-ui/legacy';
+        import { Button } from '@sumup-oss/circuit-ui/experimental';import { Timestamp } from '@sumup-oss/circuit-ui';
       `,
       errors: [{ messageId: 'refactor' }],
     },
     {
-      name: '[Legacy] multiple imports with multiple matches',
+      name: 'multiple imports with multiple matches',
       code: `
-        import { RangePicker, RangePickerController } from '@sumup-oss/circuit-ui';
+        import { Timestamp, TimestampProps } from '@sumup-oss/circuit-ui/experimental';
       `,
       output: [
         `
-        import { RangePickerController } from '@sumup-oss/circuit-ui';import { RangePicker } from '@sumup-oss/circuit-ui/legacy';
+        import { TimestampProps } from '@sumup-oss/circuit-ui/experimental';import { Timestamp } from '@sumup-oss/circuit-ui';
       `,
         `
-        import { RangePickerController } from '@sumup-oss/circuit-ui/legacy';import { RangePicker } from '@sumup-oss/circuit-ui/legacy';
+        import { TimestampProps } from '@sumup-oss/circuit-ui';import { Timestamp } from '@sumup-oss/circuit-ui';
       `,
       ],
       errors: [{ messageId: 'refactor' }, { messageId: 'refactor' }],
     },
     {
-      name: '[Legacy] single type import with single match',
+      name: 'single type import with single match',
       code: `
-        import type { RangePickerProps } from '@sumup-oss/circuit-ui';
+        import type { TimestampProps } from '@sumup-oss/circuit-ui/experimental';
       `,
       output: `
-        import type { RangePickerProps } from '@sumup-oss/circuit-ui/legacy';
-      `,
-      errors: [{ messageId: 'refactor' }],
-    },
-    {
-      name: '[Experimental] single import with single match',
-      code: `
-        import { Calendar } from '@sumup-oss/circuit-ui/experimental';
-      `,
-      output: `
-        import { Calendar } from '@sumup-oss/circuit-ui';
+        import type { TimestampProps } from '@sumup-oss/circuit-ui';
       `,
       errors: [{ messageId: 'refactor' }],
     },

@@ -44,9 +44,7 @@ Rules are configured under the rules section:
 
 - [`component-lifecycle-imports`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/component-lifecycle-imports)
 - [`no-invalid-custom-properties`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-invalid-custom-properties)
-- [`no-deprecated-components`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-deprecated-components)
 - [`no-deprecated-props`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-deprecated-props)
 - [`no-renamed-props`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-renamed-props)
 - [`prefer-custom-properties`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/prefer-custom-properties)
-- [`renamed-organization-imports`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/renamed-organization-imports)
 - [`no-renamed-components`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-renamed-components)

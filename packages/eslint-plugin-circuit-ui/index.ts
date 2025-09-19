@@ -18,22 +18,18 @@ import pkg from './package.json' with { type: 'json' };
 import { componentLifecycleImports } from './component-lifecycle-imports/index.js';
 import { noInvalidCustomProperties } from './no-invalid-custom-properties/index.js';
 import { noDeprecatedCustomProperties } from './no-deprecated-custom-properties/index.js';
-import { noDeprecatedComponents } from './no-deprecated-components/index.js';
 import { noDeprecatedProps } from './no-deprecated-props/index.js';
 import { noRenamedProps } from './no-renamed-props/index.js';
 import { preferCustomProperties } from './prefer-custom-properties/index.js';
-import { renamedPackageScope } from './renamed-package-scope/index.js';
 import { noRenamedComponents } from './no-renamed-components/index.js';
 
 export const rules = {
   'component-lifecycle-imports': componentLifecycleImports,
   'no-invalid-custom-properties': noInvalidCustomProperties,
   'no-deprecated-custom-properties': noDeprecatedCustomProperties,
-  'no-deprecated-components': noDeprecatedComponents,
   'no-deprecated-props': noDeprecatedProps,
   'no-renamed-props': noRenamedProps,
   'prefer-custom-properties': preferCustomProperties,
-  'renamed-package-scope': renamedPackageScope,
   'no-renamed-components': noRenamedComponents,
 };
 

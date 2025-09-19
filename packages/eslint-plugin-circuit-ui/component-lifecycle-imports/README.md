@@ -9,23 +9,15 @@ This rule flags components that have moved to a different stage and can automati
 Examples of **incorrect** code for this rule:
 
 ```tsx
-import { RangePicker } from '@sumup-oss/circuit-ui';
-import type { RangePickerProps } from '@sumup-oss/circuit-ui';
-```
-```tsx
-import { Calendar } from '@sumup-oss/circuit-ui/experimental';
-import type { CalendarProps } from '@sumup-oss/circuit-ui/experimental';
+import { Timestamp } from '@sumup-oss/circuit-ui/experimental';
+import type { TimestampProps } from '@sumup-oss/circuit-ui/experimental';
 ```
 
 Examples of **correct** code for this rule:
 
 ```tsx
-import { RangePicker } from '@sumup-oss/circuit-ui/legacy';
-import type { RangePickerProps } from '@sumup-oss/circuit-ui/legacy';
-```
-```tsx
-import { Calendar } from '@sumup-oss/circuit-ui';
-import type { CalendarProps } from '@sumup-oss/circuit-ui';
+import { Timestamp } from '@sumup-oss/circuit-ui';
+import type { TimestampProps } from '@sumup-oss/circuit-ui';
 ```
 
 ### Options
