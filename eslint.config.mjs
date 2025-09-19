@@ -1,6 +1,7 @@
 import { configs, defineConfig, files } from '@sumup-oss/foundry/eslint';
 import storybook from 'eslint-plugin-storybook';
 import testingLibrary from 'eslint-plugin-testing-library';
+// eslint-disable-next-line import-x/namespace, import-x/no-deprecated, import-x/default, import-x/no-named-as-default, import-x/no-named-as-default-member
 import circuitUI from '@sumup-oss/eslint-plugin-circuit-ui';
 
 // TODO: Re-add react-server-components plugin once it supports ESLint v9
