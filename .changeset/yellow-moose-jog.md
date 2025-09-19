@@ -2,4 +2,4 @@
 "@sumup-oss/circuit-ui": minor
 ---
 
-Fix ProgressBar component duration / loop bug
+Fixed an issue in the ProgressBar component where the animation continued looping even when the `loop` prop was set to `false`.
