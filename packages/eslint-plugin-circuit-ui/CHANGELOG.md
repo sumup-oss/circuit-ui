@@ -1,5 +1,34 @@
 # @sumup-oss/eslint-plugin-circuit-ui
 
+## 7.0.0
+
+### Major Changes
+
+- [#3286](https://github.com/sumup-oss/circuit-ui/pull/3286) [`c043d65`](https://github.com/sumup-oss/circuit-ui/commit/c043d653f6d0ddaceae6628948470271b6490d4e) Thanks [@connor-baer](https://github.com/connor-baer)! - Upgraded to ESLint v9 and `typescript-eslint` v8.
+
+- [#3286](https://github.com/sumup-oss/circuit-ui/pull/3286) [`c043d65`](https://github.com/sumup-oss/circuit-ui/commit/c043d653f6d0ddaceae6628948470271b6490d4e) Thanks [@connor-baer](https://github.com/connor-baer)! - Migrated to [ESLint's new flat config system](https://eslint.org/blog/2022/08/new-config-system-part-2/) and exported a new recommended config:
+
+  ```js
+  // eslint.config.js
+  import { defineConfig, files } from "@sumup-oss/foundry/eslint";
+  import circuitUI from "@sumup-oss/eslint-plugin-circuit-ui";
+
+  export default defineConfig([
+    {
+      files: [...files.javascript, ...files.typescript],
+      extends: [circuitUI.configs.recommended],
+    },
+  ]);
+  ```
+
+- [#2976](https://github.com/sumup-oss/circuit-ui/pull/2976) [`070ab9b`](https://github.com/sumup-oss/circuit-ui/commit/070ab9bf4d8262d30178a34d26d4a20aac109165) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the obsolete `no-deprecated-components` and `renamed-package-scope` rules.
+
+- [#2976](https://github.com/sumup-oss/circuit-ui/pull/2976) [`070ab9b`](https://github.com/sumup-oss/circuit-ui/commit/070ab9bf4d8262d30178a34d26d4a20aac109165) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed obsolete configs from the `component-lifecycle-imports`, `no-renamed-props`, and `renamed-package-scope` rules.
+
+### Minor Changes
+
+- [#3294](https://github.com/sumup-oss/circuit-ui/pull/3294) [`964223b`](https://github.com/sumup-oss/circuit-ui/commit/964223b3f9399b089b18460c129415011acf0c12) Thanks [@connor-baer](https://github.com/connor-baer)! - Added type declarations to the published package.
+
 ## 6.0.0
 
 ### Minor Changes
