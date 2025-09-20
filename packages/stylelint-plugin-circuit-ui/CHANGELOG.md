@@ -1,5 +1,11 @@
 # @sumup-oss/stylelint-plugin-circuit-ui
 
+## 4.1.0
+
+### Minor Changes
+
+- [#3294](https://github.com/sumup-oss/circuit-ui/pull/3294) [`964223b`](https://github.com/sumup-oss/circuit-ui/commit/964223b3f9399b089b18460c129415011acf0c12) Thanks [@connor-baer](https://github.com/connor-baer)! - Added type declarations to the published package.
+
 ## 4.0.0
 
 ### Patch Changes
