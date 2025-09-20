@@ -12,7 +12,7 @@
     "astro": "astro",
     "lint": "biome check --diagnostic-level=error  && eslint . --quiet",
     "lint:fix": "biome check --write --diagnostic-level=error && eslint . --fix --quiet",
-    "lint:css": "stylelint '**/*.css'"
+    "lint:css": "stylelint '**/*.css' --quiet"
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",

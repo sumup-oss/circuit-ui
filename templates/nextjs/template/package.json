@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "biome check --diagnostic-level=error && eslint . --quiet --concurrency=auto",
     "lint:fix": "biome check --write --diagnostic-level=error && eslint . --quiet --concurrency=auto --fix",
+    "lint:css": "stylelint '**/*.css' --quiet",
     "test": "jest --watch",
     "test:ci": "mkdir -p __reports__ && jest --ci --coverage --runInBand --json --outputFile=__reports__/jest-results.json --reporters default --reporters \"github-actions\""
   },
