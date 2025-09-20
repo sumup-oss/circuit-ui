@@ -1,3 +1,5 @@
+export type RuleSeverity = 'off' | 'error' | 'warn';
+
 export type RuleDocs = {
-  recommended: 'error' | 'warn' | 'off';
+  recommended: RuleSeverity;
 };

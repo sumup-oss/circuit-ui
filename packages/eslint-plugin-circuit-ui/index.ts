@@ -17,6 +17,7 @@ import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
 
 import pkg from './package.json' with { type: 'json' };
 
+import type { RuleSeverity } from './utils/meta.js';
 import { componentLifecycleImports } from './component-lifecycle-imports/index.js';
 import { noInvalidCustomProperties } from './no-invalid-custom-properties/index.js';
 import { noDeprecatedCustomProperties } from './no-deprecated-custom-properties/index.js';
@@ -43,12 +44,26 @@ const plugin = {
     version: pkg.version,
     namespace,
   },
-  configs: {} as { recommended: FlatConfig.Config },
+  configs: {} as {
+    all: FlatConfig.Config;
+    recommended: FlatConfig.Config;
+  },
   rules,
 };
 
 // Assign configs here so we can reference `plugin`
 Object.assign(plugin.configs, {
+  all: {
+    name: 'circuit-ui/recommended',
+    plugins: { 'circuit-ui': plugin },
+    rules: Object.entries(rules).reduce(
+      (acc, [name]) => {
+        acc[`${namespace}/${name}`] = 'error';
+        return acc;
+      },
+      {} as Record<string, RuleSeverity>,
+    ),
+  },
   recommended: {
     name: 'circuit-ui/recommended',
     plugins: { 'circuit-ui': plugin },
@@ -57,7 +72,7 @@ Object.assign(plugin.configs, {
         acc[`${namespace}/${name}`] = rule.meta.docs?.recommended || 'off';
         return acc;
       },
-      {} as Record<string, string>,
+      {} as Record<string, RuleSeverity>,
     ),
   },
 });
