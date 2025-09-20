@@ -54,9 +54,7 @@ Object.assign(plugin.configs, {
     plugins: { 'circuit-ui': plugin },
     rules: Object.entries(rules).reduce(
       (acc, [name, rule]) => {
-        if (rule.meta.docs?.recommended) {
-          acc[`${namespace}/${name}`] = 'error';
-        }
+        acc[`${namespace}/${name}`] = rule.meta.docs?.recommended || 'off';
         return acc;
       },
       {} as Record<string, string>,
