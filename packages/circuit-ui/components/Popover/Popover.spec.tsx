@@ -142,7 +142,7 @@ describe('Popover', () => {
       await waitFor(() => expect(baseProps.onToggle).toHaveBeenCalledTimes(1));
     });
 
-    it('should close when the isOpen prop changes ', async () => {
+    it('should close when the isOpen prop changes', async () => {
       const { rerender } = renderPopover(baseProps);
 
       rerender(<Popover {...baseProps} isOpen={false} />);

@@ -216,7 +216,7 @@ describe('ActionMenu', () => {
     });
   });
 
-  it('should render the action menu with menu semantics by default ', async () => {
+  it('should render the action menu with menu semantics by default', async () => {
     renderActionMenu(baseProps);
 
     const menu = screen.getByRole('menu');
@@ -227,7 +227,7 @@ describe('ActionMenu', () => {
     await flushMicrotasks();
   });
 
-  it('should render the action menu without menu semantics ', async () => {
+  it('should render the action menu without menu semantics', async () => {
     renderActionMenu({ ...baseProps, role: null });
 
     const menu = screen.queryByRole('menu');

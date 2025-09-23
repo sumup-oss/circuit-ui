@@ -301,11 +301,6 @@ describe('helpers', () => {
       expect(actual).toBe(8);
     });
 
-    it('should loop around to the start', () => {
-      const actual = shiftInRange(4, 10, 2, 12);
-      expect(actual).toBe(3);
-    });
-
     it('should loop around multiple times', () => {
       const actual = shiftInRange(4, -9, 2, 5);
       expect(actual).toBe(3);

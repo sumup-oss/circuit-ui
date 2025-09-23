@@ -3,6 +3,7 @@ import { configs, defineConfig, files } from '@sumup-oss/foundry/eslint';
 import react from 'eslint-plugin-react';
 import storybook from 'eslint-plugin-storybook';
 import testingLibrary from 'eslint-plugin-testing-library';
+import vitest from '@vitest/eslint-plugin';
 
 // TODO: Re-add react-server-components plugin once it supports ESLint v9
 
@@ -32,8 +33,11 @@ export default defineConfig([
   },
   configs.browser,
   {
-    extends: [testingLibrary.configs['flat/react'], configs.tests],
-    plugins: { 'testing-library': testingLibrary },
+    extends: [
+      testingLibrary.configs['flat/react'],
+      vitest.configs.recommended,
+      configs.tests,
+    ],
     rules: {
       'testing-library/no-container': 'warn',
     },
