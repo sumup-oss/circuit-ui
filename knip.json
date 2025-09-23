@@ -23,6 +23,7 @@
     "@emotion/eslint-plugin",
     "@sumup-oss/eslint-plugin-circuit-ui",
     "@sumup-oss/stylelint-plugin-circuit-ui",
+    "@vitest/eslint-plugin",
     "eslint-plugin-react-server-components",
     "eslint-plugin-react",
     "eslint-plugin-storybook",
