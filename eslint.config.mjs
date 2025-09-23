@@ -8,7 +8,6 @@ import testingLibrary from 'eslint-plugin-testing-library';
 
 export default defineConfig([
   configs.ignores,
-  configs.javascript,
   {
     extends: [configs.typescript],
     languageOptions: {
