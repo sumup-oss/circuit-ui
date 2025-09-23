@@ -1,6 +1,6 @@
-import { render, axe, screen } from '../../test-utils';
+import { render, axe, screen } from '../../test-utils.js';
 
-import { DocCard } from './DocCard';
+import { DocCard } from './DocCard.js';
 
 describe('DocCard', () => {
   const baseProps = {

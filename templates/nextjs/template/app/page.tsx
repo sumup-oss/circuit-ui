@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Display, Body } from '@sumup-oss/circuit-ui';
 import { SumUpLogo } from '@sumup-oss/icons';
 
-import { DocCard } from '../components/DocCard';
+import { DocCard } from '../components/DocCard/index.js';
 
 import styles from './page.module.css';
 

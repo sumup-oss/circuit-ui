@@ -4,7 +4,7 @@ import '@sumup-oss/design-tokens/fonts.css';
 import '@sumup-oss/design-tokens/light.css';
 import '@sumup-oss/circuit-ui/styles.css';
 
-import { PreloadResources } from './preload-resources';
+import { PreloadResources } from './preload-resources.js';
 
 export const metadata: Metadata = {
   title: {
