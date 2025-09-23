@@ -6,6 +6,9 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['@sumup-oss/circuit-ui'],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default withBundleAnalyzer({
