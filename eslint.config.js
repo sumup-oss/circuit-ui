@@ -21,8 +21,11 @@ export default defineConfig([
   },
   {
     files: [...files.javascript, ...files.typescript],
-    extends: [configs.react, circuitUI.configs.recommended],
-    plugins: { react },
+    extends: [
+      react.configs.flat.recommended,
+      circuitUI.configs.recommended,
+      configs.react,
+    ],
     rules: {
       'circuit-ui/no-invalid-custom-properties': 'error',
       'circuit-ui/no-deprecated-custom-properties': 'error',
@@ -64,6 +67,12 @@ export default defineConfig([
     files: ['templates/astro/**/*'],
     rules: {
       'notice/notice': 'off',
+    },
+  },
+  {
+    files: ['templates/nextjs/**/*'],
+    rules: {
+      'react/react-in-jsx-scope': 'off',
     },
   },
 ]);
