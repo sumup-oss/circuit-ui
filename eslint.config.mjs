@@ -1,4 +1,3 @@
-// eslint-disable-next-line import-x/namespace, import-x/no-deprecated, import-x/default, import-x/no-named-as-default, import-x/no-named-as-default-member
 import circuitUI from '@sumup-oss/eslint-plugin-circuit-ui';
 import { configs, defineConfig, files } from '@sumup-oss/foundry/eslint';
 import react from 'eslint-plugin-react';
@@ -41,6 +40,7 @@ export default defineConfig([
     },
   },
   {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     extends: [storybook.configs['flat/recommended'], configs.stories],
   },
   {

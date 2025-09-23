@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 // biome-ignore-all lint/correctness/noUndeclaredDependencies: This dependency is only installed in CI.
 
 /**
@@ -15,7 +19,6 @@
  * limitations under the License.
  */
 
-// eslint-disable-next-line import-x/no-unresolved
 import puppeteer from 'puppeteer';
 
 /**
