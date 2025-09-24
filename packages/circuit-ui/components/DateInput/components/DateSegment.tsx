@@ -88,7 +88,7 @@ export function DateSegment({
       // Try again after up to 1 second using exponential backoff
       if (retryDelay <= 1000) {
         timerRef.current = setTimeout(() => {
-          calculateWidth(retryDelay ** 2);
+          calculateWidth(retryDelay * 10);
         }, retryDelay);
         return () => {
           if (timerRef.current) {
