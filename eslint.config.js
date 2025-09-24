@@ -67,15 +67,9 @@ export default defineConfig([
     },
   },
   {
-    files: ['templates/astro/**/*'],
+    files: ['templates/**/*'],
     rules: {
       'notice/notice': 'off',
-    },
-  },
-  {
-    files: ['templates/nextjs/**/*'],
-    rules: {
-      'react/react-in-jsx-scope': 'off',
     },
   },
 ]);
