@@ -229,6 +229,11 @@
     {
       "name": "more",
       "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "more",
+      "category": "Action",
       "size": "24"
     },
     {
