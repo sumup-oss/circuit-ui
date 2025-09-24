@@ -36,6 +36,7 @@ export default defineConfig({
         '**/*.json.js',
         '**/*.module.css.js',
         '**/dist/**',
+        '**/*.config.*',
       ],
     },
   },

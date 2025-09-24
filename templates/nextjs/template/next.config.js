@@ -1,13 +1,16 @@
+import withBundleAnalyzer from '@next/bundle-analyzer';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
     optimizePackageImports: ['@sumup-oss/circuit-ui'],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
+export default withBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
-});
-
-module.exports = withBundleAnalyzer(nextConfig);
+})(nextConfig);

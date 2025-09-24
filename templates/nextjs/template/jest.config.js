@@ -1,4 +1,7 @@
-const nextJest = require('next/jest');
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+import nextJest from 'next/jest.js';
 
 const esModules = [
   '@sumup-oss/circuit-ui',
@@ -31,7 +34,7 @@ const customJestConfig = {
 // next/jest has a `transformIgnorePatterns` on the whole `node_modules`.
 // Some of the packages needs to be transformed as they are ES6 modules.
 // See https://github.com/vercel/next.js/issues/35634
-module.exports = async () => {
+export default async () => {
   const config = await createJestConfig(customJestConfig)();
   // `/node_modules/` is the first pattern
   config.transformIgnorePatterns[0] = `/node_modules/(?!${esModules}/)`;

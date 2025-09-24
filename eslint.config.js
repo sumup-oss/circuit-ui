@@ -1,14 +1,14 @@
+import circuitUI from '@sumup-oss/eslint-plugin-circuit-ui';
 import { configs, defineConfig, files } from '@sumup-oss/foundry/eslint';
+import react from 'eslint-plugin-react';
 import storybook from 'eslint-plugin-storybook';
 import testingLibrary from 'eslint-plugin-testing-library';
-// eslint-disable-next-line import-x/namespace, import-x/no-deprecated, import-x/default, import-x/no-named-as-default, import-x/no-named-as-default-member
-import circuitUI from '@sumup-oss/eslint-plugin-circuit-ui';
+import vitest from '@vitest/eslint-plugin';
 
 // TODO: Re-add react-server-components plugin once it supports ESLint v9
 
 export default defineConfig([
   configs.ignores,
-  configs.javascript,
   {
     extends: [configs.typescript],
     languageOptions: {
@@ -21,8 +21,15 @@ export default defineConfig([
   },
   {
     files: [...files.javascript, ...files.typescript],
-    extends: [circuitUI.configs.recommended],
+    extends: [
+      react.configs.flat.recommended,
+      circuitUI.configs.recommended,
+      configs.react,
+    ],
     rules: {
+      'react/react-in-jsx-scope': 'off',
+      'react/no-unknown-property': ['error', { ignore: ['autofocus', 'css'] }],
+
       'circuit-ui/no-invalid-custom-properties': 'error',
       'circuit-ui/no-deprecated-custom-properties': 'error',
       'circuit-ui/no-deprecated-props': 'error',
@@ -32,17 +39,21 @@ export default defineConfig([
   },
   configs.browser,
   {
-    extends: [testingLibrary.configs['flat/react'], configs.tests],
-    plugins: { 'testing-library': testingLibrary },
+    extends: [
+      testingLibrary.configs['flat/react'],
+      vitest.configs.recommended,
+      configs.tests,
+    ],
     rules: {
       'testing-library/no-container': 'warn',
     },
   },
   {
-    extends: [storybook.configs['flat/recommended'], configs.stories],
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    extends: [storybook.configs['flat/recommended'], configs.storybook],
   },
   {
-    files: [...files.stories, ...files.tests],
+    files: [...files.storybook, ...files.tests],
     rules: {
       'import-x/no-relative-packages': 'off',
       'react-server-components/use-client': 'off',
@@ -56,7 +67,7 @@ export default defineConfig([
     },
   },
   {
-    files: ['templates/astro/**/*'],
+    files: ['templates/**/*'],
     rules: {
       'notice/notice': 'off',
     },

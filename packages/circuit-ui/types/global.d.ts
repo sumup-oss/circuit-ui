@@ -20,7 +20,6 @@ import type { Theme as CircuitTheme } from '@sumup-oss/design-tokens';
 import 'react';
 
 declare module '@emotion/react' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
   export interface Theme extends CircuitTheme {}
 }
 
