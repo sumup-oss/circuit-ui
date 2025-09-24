@@ -234,6 +234,11 @@
     {
       "name": "more_circle",
       "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "more_circle",
+      "category": "Action",
       "size": "24"
     },
     {
