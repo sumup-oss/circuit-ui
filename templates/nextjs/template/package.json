@@ -18,7 +18,7 @@
     "@next/bundle-analyzer": "^15.5.2",
     "@sumup-oss/circuit-ui": "^10.0.0",
     "@sumup-oss/design-tokens": "^9.0.0",
-    "@sumup-oss/icons": "^5.0.0",
+    "@sumup-oss/icons": "^5.22.0",
     "@sumup-oss/intl": "^3.1.1",
     "next": "^15.5.4",
     "react": "^19.0.0",
@@ -26,9 +26,9 @@
     "temporal-polyfill": "^0.3.0"
   },
   "devDependencies": {
-    "@sumup-oss/eslint-plugin-circuit-ui": "^6.0.0",
+    "@sumup-oss/eslint-plugin-circuit-ui": "^7.0.0",
     "@sumup-oss/foundry": "^9.0.0",
-    "@sumup-oss/stylelint-plugin-circuit-ui": "^4.0.0",
+    "@sumup-oss/stylelint-plugin-circuit-ui": "^4.1.0",
     "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
