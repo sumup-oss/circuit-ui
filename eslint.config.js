@@ -27,6 +27,9 @@ export default defineConfig([
       configs.react,
     ],
     rules: {
+      'react/react-in-jsx-scope': 'off',
+      'react/no-unknown-property': ['error', { ignore: ['autofocus', 'css'] }],
+
       'circuit-ui/no-invalid-custom-properties': 'error',
       'circuit-ui/no-deprecated-custom-properties': 'error',
       'circuit-ui/no-deprecated-props': 'error',
