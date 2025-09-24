@@ -67,6 +67,7 @@ export function DateSegment({
   ...props
 }: DateSegmentProps) {
   const sizeRef = useRef<HTMLSpanElement>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout>>(null);
   const [width, setWidth] = useState('4ch');
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: The width needs to be recalculated when the value changes
@@ -86,11 +87,13 @@ export function DateSegment({
 
       // Try again after up to 1 second using exponential backoff
       if (retryDelay <= 1000) {
-        const timerId = setTimeout(() => {
+        timerRef.current = setTimeout(() => {
           calculateWidth(retryDelay ** 2);
         }, retryDelay);
         return () => {
-          clearTimeout(timerId);
+          if (timerRef.current) {
+            clearTimeout(timerRef.current);
+          }
         };
       }
 
