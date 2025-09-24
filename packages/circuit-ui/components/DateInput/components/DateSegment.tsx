@@ -71,7 +71,7 @@ export function DateSegment({
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: The width needs to be recalculated when the value changes
   useLayoutEffect(() => {
-    function calculateWidth(attempt = 1) {
+    function calculateWidth(retryDelay = 10) {
       if (sizeRef.current) {
         const cursorWidth = 1;
         const elementSize = sizeRef.current.getBoundingClientRect();
@@ -84,11 +84,11 @@ export function DateSegment({
         }
       }
 
-      // Try again on the next tick up to 5 times
-      if (attempt <= 5) {
+      // Try again after up to 1 second using exponential backoff
+      if (retryDelay <= 1000) {
         const timerId = setTimeout(() => {
-          calculateWidth(attempt + 1);
-        }, 1);
+          calculateWidth(retryDelay ** 2);
+        }, retryDelay);
         return () => {
           clearTimeout(timerId);
         };
