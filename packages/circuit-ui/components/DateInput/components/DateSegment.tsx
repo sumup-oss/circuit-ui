@@ -71,15 +71,33 @@ export function DateSegment({
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: The width needs to be recalculated when the value changes
   useLayoutEffect(() => {
-    if (sizeRef.current) {
-      const cursorWidth = 1;
-      const elementSize = sizeRef.current.getBoundingClientRect();
-      const elementWidth = Math.ceil(elementSize.width);
-      // The element width can be 0 if a parent element isn't rendered to the DOM (yet)
-      if (elementWidth > 0) {
-        setWidth(`${cursorWidth + elementWidth}px`);
+    function calculateWidth(attempt = 1) {
+      if (sizeRef.current) {
+        const cursorWidth = 1;
+        const elementSize = sizeRef.current.getBoundingClientRect();
+        const elementWidth = Math.ceil(elementSize.width);
+
+        // The element width can be 0 if a parent element isn't rendered to the DOM (yet)
+        if (elementWidth > 0) {
+          setWidth(`${cursorWidth + elementWidth}px`);
+          return undefined;
+        }
       }
+
+      // Try again on the next tick up to 5 times
+      if (attempt <= 5) {
+        const timerId = setTimeout(() => {
+          calculateWidth(attempt + 1);
+        }, 1);
+        return () => {
+          clearTimeout(timerId);
+        };
+      }
+
+      return undefined;
     }
+
+    return calculateWidth();
   }, [props.value]);
 
   const onKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
