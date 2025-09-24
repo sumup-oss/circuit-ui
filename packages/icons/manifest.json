@@ -304,6 +304,11 @@
     {
       "name": "remove",
       "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "remove",
+      "category": "Action",
       "size": "24"
     },
     {
