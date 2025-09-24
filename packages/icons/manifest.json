@@ -229,7 +229,17 @@
     {
       "name": "more",
       "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "more",
+      "category": "Action",
       "size": "24"
+    },
+    {
+      "name": "more_circle",
+      "category": "Action",
+      "size": "16"
     },
     {
       "name": "more_circle",
@@ -288,6 +298,11 @@
     },
     {
       "name": "refresh",
+      "category": "Action",
+      "size": "16"
+    },
+    {
+      "name": "remove",
       "category": "Action",
       "size": "16"
     },
