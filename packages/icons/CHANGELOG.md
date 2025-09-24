@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 5.22.0
+
+### Minor Changes
+
+- [#3296](https://github.com/sumup-oss/circuit-ui/pull/3296) [`741c465`](https://github.com/sumup-oss/circuit-ui/commit/741c465966718e8ad2059f51a644ed50397991b8) Thanks [@jandriescher](https://github.com/jandriescher)! - Added More, MoreCircle, and Remove icons in size 16.
+
 ## 5.21.0
 
 ### Minor Changes

@@ -18,7 +18,7 @@
     "@astrojs/react": "^4.3.0",
     "@sumup-oss/circuit-ui": "^10.0.0",
     "@sumup-oss/design-tokens": "^9.0.0",
-    "@sumup-oss/icons": "^5.0.0",
+    "@sumup-oss/icons": "^5.22.0",
     "@sumup-oss/intl": "^3.1.1",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
@@ -29,9 +29,9 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
-    "@sumup-oss/eslint-plugin-circuit-ui": "^6.0.0",
+    "@sumup-oss/eslint-plugin-circuit-ui": "^7.0.0",
     "@sumup-oss/foundry": "^9.0.0",
-    "@sumup-oss/stylelint-plugin-circuit-ui": "^4.0.0",
+    "@sumup-oss/stylelint-plugin-circuit-ui": "^4.1.0",
     "typescript": "^5.9.2"
   }
 }
