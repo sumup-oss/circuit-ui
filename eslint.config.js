@@ -50,10 +50,10 @@ export default defineConfig([
   },
   {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    extends: [storybook.configs['flat/recommended'], configs.stories],
+    extends: [storybook.configs['flat/recommended'], configs.storybook],
   },
   {
-    files: [...files.stories, ...files.tests],
+    files: [...files.storybook, ...files.tests],
     rules: {
       'import-x/no-relative-packages': 'off',
       'react-server-components/use-client': 'off',
