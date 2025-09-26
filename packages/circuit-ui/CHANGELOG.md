@@ -1,5 +1,15 @@
 # @sumup-oss/circuit-ui
 
+## 10.12.3
+
+### Patch Changes
+
+- [#3299](https://github.com/sumup-oss/circuit-ui/pull/3299) [`09378bd`](https://github.com/sumup-oss/circuit-ui/commit/09378bd7a31e499280ff8363feb6d56c35731214) Thanks [@sirineJ](https://github.com/sirineJ)! - Improved the calculation of `availableHeight` against the viewport instead of clipping ancestors for the Popover component. This ensures that nested Popovers take available viewport space to display their content.
+
+- [#3299](https://github.com/sumup-oss/circuit-ui/pull/3299) [`09378bd`](https://github.com/sumup-oss/circuit-ui/commit/09378bd7a31e499280ff8363feb6d56c35731214) Thanks [@sirineJ](https://github.com/sirineJ)! - Limited the AutocompleteInput text field height to 200px.
+
+- [#3297](https://github.com/sumup-oss/circuit-ui/pull/3297) [`b1bbfbe`](https://github.com/sumup-oss/circuit-ui/commit/b1bbfbeb46b2eaec9de352f0454d79e9049293fa) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed calculating the input widths when the DateInput component is rendered inside the Dialog component.
+
 ## 10.12.2
 
 ### Patch Changes
