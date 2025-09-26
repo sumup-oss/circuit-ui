@@ -135,6 +135,7 @@ const sizeOptions: SizeOptions = {
       `${availableHeight}px`,
     );
   },
+  boundary: document.documentElement,
 };
 
 export const AutocompleteInput = forwardRef<

@@ -110,6 +110,7 @@ const sizeOptions: SizeOptions = {
       `${availableHeight}px`,
     );
   },
+  boundary: document.documentElement,
 };
 
 export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
