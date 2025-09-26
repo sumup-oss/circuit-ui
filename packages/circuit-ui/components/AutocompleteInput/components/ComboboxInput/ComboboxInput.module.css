@@ -4,7 +4,9 @@
   flex-wrap: wrap;
   gap: var(--cui-spacings-byte);
   width: 100%;
+  max-height: 200px;
   padding: var(--cui-spacings-kilo) var(--cui-spacings-mega);
+  overflow-y: scroll;
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-normal);
   border-radius: var(--cui-border-radius-byte);
