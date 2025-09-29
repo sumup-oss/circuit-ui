@@ -333,8 +333,7 @@ export const AutocompleteInput = forwardRef<
         if (multiple) {
           setSearchText('');
           // put focus back on the input field after selection
-          comboboxRef.current?.focus();
-          comboboxRef.current?.scrollIntoView(true);
+          comboboxRef.current?.focus({ preventScroll: true });
         } else {
           closeResults();
         }
@@ -346,7 +345,7 @@ export const AutocompleteInput = forwardRef<
     const onTagRemove = useCallback(
       (tagValue: AutocompleteInputOption) => {
         onChange(tagValue);
-        comboboxRef.current?.focus();
+        comboboxRef.current?.focus({ preventScroll: true });
       },
       [onChange],
     );
@@ -431,7 +430,7 @@ export const AutocompleteInput = forwardRef<
     useEffect(() => {
       if (isOpen) {
         if (isMobile && hasTouch) {
-          comboboxRef.current?.scrollIntoView({ behavior: 'smooth' });
+          comboboxRef.current?.focus({ preventScroll: true });
         }
         update();
       }
