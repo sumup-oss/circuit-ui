@@ -32,6 +32,7 @@ import {
   useCallback,
   useEffect,
   useId,
+  useMemo,
   useRef,
   useState,
 } from 'react';
@@ -102,17 +103,6 @@ export interface PopoverProps
 
 const boundaryPadding = 8;
 
-const sizeOptions: SizeOptions = {
-  padding: boundaryPadding,
-  apply({ availableHeight, elements }) {
-    elements.floating.style.setProperty(
-      '--popover-max-height',
-      `${availableHeight}px`,
-    );
-  },
-  boundary: document.documentElement,
-};
-
 export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
   (
     {
@@ -137,6 +127,20 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
     const isMobile = useMedia('(max-width: 479px)');
     const animationDuration = isMobile ? 300 : 0;
     const prevOpen = usePrevious(isOpen);
+
+    const sizeOptions: SizeOptions = useMemo(
+      () => ({
+        padding: boundaryPadding,
+        apply({ availableHeight, elements }) {
+          elements.floating.style.setProperty(
+            '--popover-max-height',
+            `${availableHeight}px`,
+          );
+        },
+        boundary: document.querySelector('body') as HTMLElement,
+      }),
+      [],
+    );
 
     const { floatingStyles, refs, update } = useFloating<HTMLElement>({
       open: isOpen,

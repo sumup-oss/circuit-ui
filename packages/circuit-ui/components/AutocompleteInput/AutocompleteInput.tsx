@@ -127,17 +127,6 @@ export type AutocompleteInputProps = Omit<
   };
 const boundaryPadding = 8;
 
-const sizeOptions: SizeOptions = {
-  padding: boundaryPadding,
-  apply({ availableHeight, elements }) {
-    elements.floating.style.setProperty(
-      '--results-max-height',
-      `${availableHeight}px`,
-    );
-  },
-  boundary: document.documentElement,
-};
-
 export const AutocompleteInput = forwardRef<
   HTMLInputElement,
   AutocompleteInputProps
@@ -302,6 +291,20 @@ export const AutocompleteInput = forwardRef<
       comboboxRef?.current?.select();
       setIsOpen(true);
     }, []);
+
+    const sizeOptions: SizeOptions = useMemo(
+      () => ({
+        padding: boundaryPadding,
+        apply({ availableHeight, elements }) {
+          elements.floating.style.setProperty(
+            '--results-max-height',
+            `${availableHeight}px`,
+          );
+        },
+        boundary: document.querySelector('body') as HTMLElement,
+      }),
+      [],
+    );
 
     const { floatingStyles, refs, update } = useFloating<HTMLElement>({
       open: isOpen,
