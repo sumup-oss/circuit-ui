@@ -25,7 +25,7 @@
   border-radius: inherit;
 }
 
-.popup::after {
+.results::after {
   position: absolute;
   right: 0;
   bottom: env(safe-area-inset-bottom);
