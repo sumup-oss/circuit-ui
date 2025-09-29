@@ -301,7 +301,8 @@ export const AutocompleteInput = forwardRef<
             `${availableHeight}px`,
           );
         },
-        boundary: document.documentElement,
+        boundary:
+          typeof window !== 'undefined' ? document.documentElement : undefined,
       }),
       [],
     );

@@ -137,7 +137,8 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
             `${availableHeight}px`,
           );
         },
-        boundary: document.documentElement,
+        boundary:
+          typeof window !== 'undefined' ? document.documentElement : undefined,
       }),
       [],
     );
