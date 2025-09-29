@@ -127,17 +127,6 @@ export type AutocompleteInputProps = Omit<
   };
 const boundaryPadding = 8;
 
-const sizeOptions: SizeOptions = {
-  padding: boundaryPadding,
-  apply({ availableHeight, elements }) {
-    elements.floating.style.setProperty(
-      '--results-max-height',
-      `${availableHeight}px`,
-    );
-  },
-  boundary: document.documentElement,
-};
-
 export const AutocompleteInput = forwardRef<
   HTMLInputElement,
   AutocompleteInputProps
@@ -303,6 +292,21 @@ export const AutocompleteInput = forwardRef<
       setIsOpen(true);
     }, []);
 
+    const sizeOptions: SizeOptions = useMemo(
+      () => ({
+        padding: boundaryPadding,
+        apply({ availableHeight, elements }) {
+          elements.floating.style.setProperty(
+            '--results-max-height',
+            `${availableHeight}px`,
+          );
+        },
+        boundary:
+          typeof window !== 'undefined' ? document.documentElement : undefined,
+      }),
+      [],
+    );
+
     const { floatingStyles, refs, update } = useFloating<HTMLElement>({
       open: isOpen,
       placement: 'bottom',
@@ -333,8 +337,7 @@ export const AutocompleteInput = forwardRef<
         if (multiple) {
           setSearchText('');
           // put focus back on the input field after selection
-          comboboxRef.current?.focus();
-          comboboxRef.current?.scrollIntoView(true);
+          comboboxRef.current?.focus({ preventScroll: true });
         } else {
           closeResults();
         }
@@ -346,7 +349,7 @@ export const AutocompleteInput = forwardRef<
     const onTagRemove = useCallback(
       (tagValue: AutocompleteInputOption) => {
         onChange(tagValue);
-        comboboxRef.current?.focus();
+        comboboxRef.current?.focus({ preventScroll: true });
       },
       [onChange],
     );
@@ -431,7 +434,7 @@ export const AutocompleteInput = forwardRef<
     useEffect(() => {
       if (isOpen) {
         if (isMobile && hasTouch) {
-          comboboxRef.current?.scrollIntoView({ behavior: 'smooth' });
+          comboboxRef.current?.focus({ preventScroll: true });
         }
         update();
       }
