@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 10.12.4
+
+### Patch Changes
+
+- [#3300](https://github.com/sumup-oss/circuit-ui/pull/3300) [`de20fd5`](https://github.com/sumup-oss/circuit-ui/commit/de20fd516e0fdd74a32d573c86d9eab38f2b4da0) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed issue when accessing `document.documentElement` during server rendering in the Popover and AutocompleteInput components.
+
+- [#3300](https://github.com/sumup-oss/circuit-ui/pull/3300) [`de20fd5`](https://github.com/sumup-oss/circuit-ui/commit/de20fd516e0fdd74a32d573c86d9eab38f2b4da0) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed scroll issue in multi selection mode of the AutocompleteInput.
+
 ## 10.12.3
 
 ### Patch Changes
