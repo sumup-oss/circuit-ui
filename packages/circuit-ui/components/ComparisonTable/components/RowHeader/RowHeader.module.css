@@ -9,7 +9,7 @@
   display: flex;
   gap: var(--cui-spacings-byte);
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .description {
