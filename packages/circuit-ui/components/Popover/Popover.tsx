@@ -138,7 +138,14 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
           );
         },
         boundary:
-          typeof window !== 'undefined' ? document.documentElement : undefined,
+          typeof window !== 'undefined'
+            ? ({
+                x: 0,
+                y: 0,
+                width: window.innerWidth,
+                height: window.innerHeight,
+              } as DOMRect)
+            : undefined,
       }),
       [],
     );

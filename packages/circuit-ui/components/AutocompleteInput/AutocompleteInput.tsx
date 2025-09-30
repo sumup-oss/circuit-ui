@@ -33,6 +33,7 @@ import {
   offset,
   shift,
   size,
+  type SizeOptions,
   useFloating,
 } from '@floating-ui/react-dom';
 
@@ -291,6 +292,28 @@ export const AutocompleteInput = forwardRef<
       setIsOpen(true);
     }, []);
 
+    const sizeOptions: SizeOptions = useMemo(
+      () => ({
+        padding: boundaryPadding,
+        apply({ availableHeight, elements }) {
+          elements.floating.style.setProperty(
+            '--results-max-height',
+            `${availableHeight}px`,
+          );
+        },
+        boundary:
+          typeof window !== 'undefined'
+            ? ({
+                x: 0,
+                y: 0,
+                width: window.innerWidth,
+                height: window.innerHeight,
+              } as DOMRect)
+            : undefined,
+      }),
+      [],
+    );
+
     const { floatingStyles, refs, update } = useFloating<HTMLElement>({
       open: isOpen,
       placement: 'bottom',
@@ -302,19 +325,7 @@ export const AutocompleteInput = forwardRef<
           padding: boundaryPadding,
           fallbackPlacements: multiple ? [] : ['top'],
         }),
-        size({
-          padding: boundaryPadding,
-          apply({ availableHeight, elements }) {
-            elements.floating.style.setProperty(
-              '--results-max-height',
-              `${availableHeight}px`,
-            );
-          },
-          boundary:
-            typeof window !== 'undefined'
-              ? document.documentElement
-              : undefined,
-        }),
+        size(sizeOptions),
       ],
       whileElementsMounted: autoUpdate,
     });
