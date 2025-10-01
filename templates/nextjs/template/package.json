@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@sumup-oss/eslint-plugin-circuit-ui": "^7.0.0",
-    "@sumup-oss/foundry": "^9.0.0",
+    "@sumup-oss/foundry": "^9.0.2",
     "@sumup-oss/stylelint-plugin-circuit-ui": "^4.1.0",
     "@testing-library/jest-dom": "^6.9.0",
     "@testing-library/react": "^16.3.0",
