@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 10.12.5
+
+### Patch Changes
+
+- [#3303](https://github.com/sumup-oss/circuit-ui/pull/3303) [`8367c5d`](https://github.com/sumup-oss/circuit-ui/commit/8367c5d66d157e77818ee423e39fb2e76ca082d7) Thanks [@sirineJ](https://github.com/sirineJ)! - Improved the sizing of floating elements in the Popover and AutocompleteInput components using a custom Rect as boundary.
+
+- [#3302](https://github.com/sumup-oss/circuit-ui/pull/3302) [`42894f3`](https://github.com/sumup-oss/circuit-ui/commit/42894f352c04c23a36d3dc01601a868b9005a94f) Thanks [@jandriescher](https://github.com/jandriescher)! - Replaced CSS rules in the AutocompleteInput and ComparisonTable components that aren't supported in older browsers.
+
 ## 10.12.4
 
 ### Patch Changes
