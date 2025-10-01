@@ -2,4 +2,4 @@
 "@sumup-oss/circuit-ui": patch
 ---
 
-fixed mixed support for align-items and justify-content in Option and RowHeader components
+Replaced CSS rules in the AutocompleteInput and ComparisonTable components that aren't supported in older browsers.
