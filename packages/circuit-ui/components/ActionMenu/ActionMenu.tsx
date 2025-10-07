@@ -111,7 +111,7 @@ export const ActionMenu = forwardRef<HTMLDialogElement, ActionMenuProps>(
         className={clsx(className, classes.base)}
         contentClassName={classes.content}
         ref={ref}
-        hideCloseButton={!isMobile}
+        hideCloseButton={!isMobile || props.disableModalOnMobile}
         onToggle={onToggle}
         component={(refProps) => (
           <Component

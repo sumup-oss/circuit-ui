@@ -60,7 +60,7 @@ export interface PopoverReferenceProps {
 type OnToggle = (open: boolean | ((prevOpen: boolean) => boolean)) => void;
 
 export interface PopoverProps
-  extends Omit<PublicDialogProps, 'open' | 'onToggle'>,
+  extends Omit<PublicDialogProps, 'open' | 'onToggle' | 'isModal'>,
     Pick<DialogProps, 'hideCloseButton'> {
   /**
    * The state of the Popover.
@@ -98,6 +98,10 @@ export interface PopoverProps
    * An optional class name to be applied to the component's content.
    */
   contentClassName?: string;
+  /**
+   * If set to true, the Popover will not render as a modal on mobile
+   */
+  disableModalOnMobile?: boolean;
 }
 
 const boundaryPadding = 8;
@@ -125,6 +129,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
       className,
       contentClassName,
       style,
+      disableModalOnMobile,
       ...props
     },
     ref,
@@ -134,7 +139,8 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
     const contentId = useId();
     const [isClosing, setClosing] = useState(false);
     const isMobile = useMedia('(max-width: 479px)');
-    const animationDuration = isMobile ? 300 : 0;
+    const isModalOnMobile = !disableModalOnMobile && isMobile;
+    const animationDuration = isModalOnMobile ? 300 : 0;
     const prevOpen = usePrevious(isOpen);
 
     const { floatingStyles, refs, update } = useFloating<HTMLElement>({
@@ -206,10 +212,12 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
       setClosing(true);
     }, []);
 
-    const outAnimation = isMobile
+    const outAnimation = isModalOnMobile
       ? sharedClasses.animationSlideUpOut
       : undefined;
-    const inAnimation = isMobile ? sharedClasses.animationSlideUpIn : undefined;
+    const inAnimation = isModalOnMobile
+      ? sharedClasses.animationSlideUpIn
+      : undefined;
 
     useEffect(() => {
       // Focus the reference element after closing
@@ -234,15 +242,16 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
           open={isOpen}
           onCloseStart={handleCloseStart}
           onCloseEnd={handleCloseEnd}
-          isModal={isMobile}
+          isModal={isModalOnMobile}
           ref={applyMultipleRefs(ref, refs.setFloating, dialogRef)}
           className={clsx(
             classes.base,
             isClosing ? outAnimation : inAnimation,
+            isModalOnMobile ? classes.modal : classes['non-modal'],
             className,
           )}
           animationDuration={animationDuration}
-          style={isMobile ? style : { ...style, ...floatingStyles }}
+          style={isModalOnMobile ? style : { ...style, ...floatingStyles }}
           preventOutsideClickRefs={refs.reference}
         >
           <div
