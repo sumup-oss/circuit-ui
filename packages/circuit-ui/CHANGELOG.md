@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.13.0
+
+### Minor Changes
+
+- [#3322](https://github.com/sumup-oss/circuit-ui/pull/3322) [`fe4d953`](https://github.com/sumup-oss/circuit-ui/commit/fe4d953b964304fbc99d80fa5a1cd368479ed68a) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a `disableModalOnMobile` prop to render Popover and ActionMenu content as a floating container on narrow screens.
+
 ## 10.12.5
 
 ### Patch Changes
