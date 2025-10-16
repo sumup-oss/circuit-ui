@@ -97,7 +97,7 @@ export const SidePanel = forwardRef<HTMLDialogElement, SidePanelProps>(
           aria-labelledby={headerAriaId}
           animationDuration={animationDuration}
           className={clsx(classes.base, animationClass, className)}
-          onCloseStart={onBack || onClose}
+          onCloseEnd={onBack || onClose}
           preventOutsideClickClose={true}
           preventEscapeKeyClose={true}
           hideCloseButton
