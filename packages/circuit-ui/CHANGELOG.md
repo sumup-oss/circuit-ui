@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.13.1
+
+### Patch Changes
+
+- [#3325](https://github.com/sumup-oss/circuit-ui/pull/3325) [`73ff584`](https://github.com/sumup-oss/circuit-ui/commit/73ff5840e49a9b370116f1d3ba1f71d336fb39fe) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed a timing issue where SidePanel effects could run before the component was properly unmounted.
+
 ## 10.13.0
 
 ### Minor Changes
