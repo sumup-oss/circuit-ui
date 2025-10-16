@@ -236,7 +236,7 @@ export function SidePanelProvider({
             <SidePanel
               {...sidePanelProps}
               key={id}
-              open={open}
+              open={true}
               animationDuration={
                 (open && isInstantOpen) || (!open && isInstantClose)
                   ? 0
@@ -245,6 +245,7 @@ export function SidePanelProvider({
               onBack={handleBack}
               onClose={handleClose}
               preventEscapeKeyClose={!isTopPanel}
+              style={open ? undefined : { transform: 'translateX(100%)' }}
             />
           );
         })}
