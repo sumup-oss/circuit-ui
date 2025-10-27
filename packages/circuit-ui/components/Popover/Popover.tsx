@@ -247,7 +247,8 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
           className={clsx(
             classes.base,
             isClosing ? outAnimation : inAnimation,
-            isModalOnMobile ? classes.modal : classes['non-modal'],
+            isMobile && !disableModalOnMobile && classes.modal,
+            isMobile && disableModalOnMobile && classes['non-modal'],
             className,
           )}
           animationDuration={animationDuration}
