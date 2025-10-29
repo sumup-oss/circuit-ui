@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.13.2
+
+### Patch Changes
+
+- [#3330](https://github.com/sumup-oss/circuit-ui/pull/3330) [`8673a7b`](https://github.com/sumup-oss/circuit-ui/commit/8673a7bb75bbc771351df71b31aebe9af8516bad) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed unnecessary className assignement on large screens for the Popover component.
+
 ## 10.13.1
 
 ### Patch Changes
