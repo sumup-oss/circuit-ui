@@ -15,12 +15,12 @@
     "test:ci": "mkdir -p __reports__ && jest --ci --coverage --runInBand --json --outputFile=__reports__/jest-results.json --reporters default --reporters \"github-actions\""
   },
   "dependencies": {
-    "@next/bundle-analyzer": "^15.5.4",
+    "@next/bundle-analyzer": "^16.0.1",
     "@sumup-oss/circuit-ui": "^10.0.0",
     "@sumup-oss/design-tokens": "^9.0.0",
     "@sumup-oss/icons": "^5.22.0",
     "@sumup-oss/intl": "^3.2.0",
-    "next": "^15.5.4",
+    "next": "^16.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "temporal-polyfill": "^0.3.0"
