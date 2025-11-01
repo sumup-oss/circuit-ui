@@ -35,9 +35,9 @@
     "prepublish": "npm run build"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.4",
-    "@babel/preset-env": "^7.28.3",
-    "@babel/preset-react": "^7.27.1",
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "@babel/preset-react": "^7.28.5",
     "@biomejs/js-api": "^3.0.0",
     "@types/babel__core": "^7.20.5",
     "fast-xml-parser": "^5.2.5",
