@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.13.3
+
+### Patch Changes
+
+- [#3349](https://github.com/sumup-oss/circuit-ui/pull/3349) [`379abac`](https://github.com/sumup-oss/circuit-ui/commit/379abac2f618ca7662464bc33597eadabc66fffe) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed support for custom `className` prop in the SkipLink component.
+
 ## 10.13.2
 
 ### Patch Changes
