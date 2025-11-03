@@ -24,6 +24,7 @@ expect.extend(toHaveNoViolations);
 // Add a snapshot serializer that removes random hashes
 // from emotion class names.
 expect.addSnapshotSerializer(
+  // @ts-expect-error -- Legacy code
   createSerializer({
     classNameReplacer(_, index) {
       return `circuit-${index}`;
