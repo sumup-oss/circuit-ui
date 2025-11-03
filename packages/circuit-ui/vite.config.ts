@@ -17,11 +17,11 @@ import crypto from 'node:crypto';
 import path from 'node:path';
 import preserveDirectives from 'rollup-plugin-preserve-directives';
 
-import { defineConfig, type UserConfig } from 'vitest/config';
+import { defineConfig, type ViteUserConfig } from 'vitest/config';
 
 import pkg from './package.json' with { type: 'json' };
 
-export const css: UserConfig['css'] = {
+export const css: ViteUserConfig['css'] = {
   modules: {
     generateScopedName(className, file) {
       const prefix = 'cui';
@@ -70,6 +70,7 @@ function last<T>(collection: T[]): T {
 export default defineConfig({
   css,
   build: {
+    target: ['es2019'],
     lib: {
       entry: [
         path.resolve(__dirname, 'index.ts'),
