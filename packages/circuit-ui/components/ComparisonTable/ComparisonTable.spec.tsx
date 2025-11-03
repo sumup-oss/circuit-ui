@@ -55,10 +55,13 @@ const baseProps: ComparisonTableProps = {
 
 describe('ComparisonTable', () => {
   beforeEach(() => {
-    window.ResizeObserver = vi.fn().mockImplementation(() => ({
-      observe: vi.fn(),
-      unobserve: vi.fn(),
-    }));
+    // biome-ignore lint/complexity/useArrowFunction: Vitest requires the mock to use the function keyword
+    window.ResizeObserver = vi.fn().mockImplementation(function () {
+      return {
+        observe: vi.fn(),
+        unobserve: vi.fn(),
+      };
+    });
     (useMedia as Mock).mockReturnValue(false);
   });
 

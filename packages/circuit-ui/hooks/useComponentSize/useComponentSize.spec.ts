@@ -25,7 +25,7 @@ vi.mock('../../util/helpers.js', () => ({
 
 describe('useComponentSize', () => {
   afterAll(() => {
-    vi.resetModules();
+    vi.clearAllMocks();
   });
 
   it('should return the current element size', () => {
@@ -50,11 +50,13 @@ describe('useComponentSize', () => {
     beforeAll(() => {
       originalResizeObserver = global.ResizeObserver;
 
-      global.ResizeObserver = vi.fn(() => ({
-        observe,
-        disconnect,
-        unobserve,
-      }));
+      global.ResizeObserver = vi.fn(
+        class MockResizeObserver {
+          observe = observe;
+          disconnect = disconnect;
+          unobserve = unobserve;
+        },
+      );
     });
 
     afterAll(() => {
@@ -70,15 +72,19 @@ describe('useComponentSize', () => {
       };
 
       const { unmount } = renderHook(() => useComponentSize(ref));
-      expect(observe).toHaveBeenCalledTimes(1);
+      expect(observe).toHaveBeenCalledOnce();
 
       unmount();
-      expect(disconnect).toHaveBeenCalledTimes(1);
+
+      expect(disconnect).toHaveBeenCalledOnce();
     });
   });
 
   describe('when ResizeObserver is not supported', () => {
     it('should update on window resize events', () => {
+      vi.spyOn(window, 'addEventListener');
+      vi.spyOn(window, 'removeEventListener');
+
       const ref = {
         current: {
           offsetWidth: 800,
@@ -87,6 +93,8 @@ describe('useComponentSize', () => {
       };
 
       const { result, unmount } = renderHook(() => useComponentSize(ref));
+
+      expect(window.addEventListener).toHaveBeenCalledOnce();
 
       act(() => {
         // @ts-expect-error The value is mocked
@@ -97,6 +105,7 @@ describe('useComponentSize', () => {
 
       expect(result.current).toEqual({ width: 400, height: 450 });
       unmount();
+      expect(window.removeEventListener).toHaveBeenCalledOnce();
     });
   });
 });

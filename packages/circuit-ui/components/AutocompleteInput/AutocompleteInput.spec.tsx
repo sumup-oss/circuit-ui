@@ -64,7 +64,7 @@ describe('AutocompleteInput', () => {
 
   afterEach(() => {
     vi.useRealTimers();
-    vi.restoreAllMocks();
+    vi.clearAllMocks();
   });
 
   it('should forward a ref', () => {

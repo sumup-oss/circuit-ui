@@ -130,8 +130,9 @@ describe('Toggletip', () => {
     const actionButton = screen.getByRole('button', { name: /learn more/i });
     await userEvent.click(actionButton);
     expect(dialog).not.toHaveAttribute('open');
-    expect(baseProps.action.onClick).toHaveBeenCalledOnce();
-    expect(baseProps.action.onClick).toHaveBeenCalledWith(expect.any(Object));
+    expect(baseProps.action.onClick).toHaveBeenCalledExactlyOnceWith(
+      expect.any(Object),
+    );
   });
 
   it('should have no accessibility violations', async () => {

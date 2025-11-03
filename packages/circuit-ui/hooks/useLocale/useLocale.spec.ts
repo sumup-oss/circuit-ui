@@ -46,8 +46,7 @@ describe('useLocale', () => {
     renderHook(() => useLocale());
     renderHook(() => useLocale());
 
-    expect(addEventListener).toHaveBeenCalledOnce();
-    expect(addEventListener).toHaveBeenCalledWith(
+    expect(addEventListener).toHaveBeenCalledExactlyOnceWith(
       'languagechange',
       expect.any(Function),
     );

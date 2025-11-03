@@ -68,7 +68,7 @@ describe('Dialog', () => {
 
   afterEach(() => {
     vi.useRealTimers();
-    vi.restoreAllMocks();
+    vi.clearAllMocks();
     Object.defineProperty(window, 'HTMLDialogElement', {
       writable: true,
       value: originalHTMLDialogElement,
