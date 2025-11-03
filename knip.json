@@ -1,20 +1,11 @@
 {
   "$schema": "node_modules/knip/schema.json",
-  "entry": [
-    "**/*.stories.*",
-    "**/*.mdx",
-    "packages/circuit-ui/experimental.ts!",
-    "packages/circuit-ui/internal.ts!",
-    "packages/circuit-ui/legacy.ts!",
-    "packages/circuit-ui/index.ts!"
-  ],
-  "ignore": [
-    ".storybook/**/*",
-    "scripts/**/*",
-    "*rc.js",
-    "*.config.*",
-    "**/vendor/**/*"
-  ],
+  "workspaces": {
+    "packages/circuit-ui": {
+      "entry": "{index,internal,experimental,legacy}.ts"
+    }
+  },
+  "ignore": [".storybook/**/*", "scripts/**/*", "*.config.*", "**/vendor/**/*"],
   "ignoreWorkspaces": ["templates/**/*"],
   "ignoreBinaries": ["biome", "eslint", "start-server-and-test"],
   "ignoreDependencies": [
@@ -22,10 +13,8 @@
     "@babel/preset-react",
     "@emotion/eslint-plugin",
     "@sumup-oss/eslint-plugin-circuit-ui",
-    "@sumup-oss/stylelint-plugin-circuit-ui",
     "@vitest/eslint-plugin",
     "eslint-plugin-react-server-components",
-    "eslint-plugin-react",
     "eslint-plugin-storybook",
     "eslint-plugin-testing-library",
     "svgo"
