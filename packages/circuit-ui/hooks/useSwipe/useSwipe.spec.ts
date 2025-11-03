@@ -42,8 +42,7 @@ describe('useSwipe', () => {
       onTouchEnd();
     });
 
-    expect(onSwipe).toHaveBeenCalledOnce();
-    expect(onSwipe).toHaveBeenCalledWith('right');
+    expect(onSwipe).toHaveBeenCalledExactlyOnceWith('right');
   });
 
   it('should call the callback when a user swipes left', () => {
@@ -58,8 +57,7 @@ describe('useSwipe', () => {
       onTouchEnd();
     });
 
-    expect(onSwipe).toHaveBeenCalledOnce();
-    expect(onSwipe).toHaveBeenCalledWith('left');
+    expect(onSwipe).toHaveBeenCalledExactlyOnceWith('left');
   });
 
   it('should call the callback when a user swipes up', () => {
@@ -74,8 +72,7 @@ describe('useSwipe', () => {
       onTouchEnd();
     });
 
-    expect(onSwipe).toHaveBeenCalledOnce();
-    expect(onSwipe).toHaveBeenCalledWith('up');
+    expect(onSwipe).toHaveBeenCalledExactlyOnceWith('up');
   });
 
   it('should call the callback when a user swipes down', () => {
@@ -90,8 +87,7 @@ describe('useSwipe', () => {
       onTouchEnd();
     });
 
-    expect(onSwipe).toHaveBeenCalledOnce();
-    expect(onSwipe).toHaveBeenCalledWith('down');
+    expect(onSwipe).toHaveBeenCalledExactlyOnceWith('down');
   });
 
   it('should prioritize the dimension with the larger swipe distance', () => {
@@ -106,8 +102,7 @@ describe('useSwipe', () => {
       onTouchEnd();
     });
 
-    expect(onSwipe).toHaveBeenCalledOnce();
-    expect(onSwipe).toHaveBeenCalledWith('down');
+    expect(onSwipe).toHaveBeenCalledExactlyOnceWith('down');
   });
 
   it('should not call the callback when a user swipes less than the minimum distance', () => {
