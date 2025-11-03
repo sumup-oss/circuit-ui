@@ -20,7 +20,6 @@ export function Link({ children, href, ...props }: LinkProps) {
     const components = parts.slice(0, parts.length - 1);
     const kind = components.join('/');
     return (
-      // @ts-expect-error LinkTo is a valid JSX element
       <LinkTo {...props} kind={kind} story={name}>
         {children}
       </LinkTo>

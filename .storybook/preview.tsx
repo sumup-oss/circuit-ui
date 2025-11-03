@@ -26,7 +26,7 @@ export const parameters = {
     },
   },
   viewport: {
-    viewports: {
+    options: {
       smallMobile: {
         name: 'Small mobile',
         styles: { width: '320px', height: '568px' },

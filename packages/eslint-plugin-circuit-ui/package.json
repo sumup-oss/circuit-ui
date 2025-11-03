@@ -30,12 +30,12 @@
     "test:ci": "vitest --coverage"
   },
   "dependencies": {
-    "@typescript-eslint/utils": "^8.43.0"
+    "@typescript-eslint/utils": "^8.46.2"
   },
   "devDependencies": {
     "@sumup-oss/design-tokens": "^9.0.0",
     "@tsconfig/node20": "^20.1.6",
-    "@typescript-eslint/rule-tester": "^8.43.0",
+    "@typescript-eslint/rule-tester": "^8.46.2",
     "typescript": "^5.9.2",
     "vitest": "^3.0.9"
   },
