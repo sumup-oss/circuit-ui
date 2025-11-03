@@ -13,12 +13,13 @@
  * limitations under the License.
  */
 
+import { clsx } from '../../styles/clsx.js';
 import { Anchor, type AnchorProps } from '../Anchor/index.js';
 
 import classes from './SkipLink.module.css';
 
 export type SkipLinkProps = AnchorProps;
 
-export const SkipLink = (props: SkipLinkProps) => (
-  <Anchor className={classes['skip-link']} {...props} />
+export const SkipLink = ({ className, ...props }: SkipLinkProps) => (
+  <Anchor className={clsx(classes['skip-link'], className)} {...props} />
 );
