@@ -70,14 +70,7 @@ function last<T>(collection: T[]): T {
 export default defineConfig({
   css,
   build: {
-    target: [
-      'chrome73',
-      'edge79',
-      'firefox67',
-      'ios12.2',
-      'opera60',
-      'safari12.1',
-    ],
+    target: ['es2019'],
     lib: {
       entry: [
         path.resolve(__dirname, 'index.ts'),
