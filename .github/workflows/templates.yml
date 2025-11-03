@@ -16,7 +16,7 @@ jobs:
         include:
           - template: astro
             bootstrap: 'npx create-astro@latest ./test-app --template sumup-oss/circuit-ui/templates/astro --install --no-git --typescript=strictest'
-            verify: 'npm run lint && npm run astro check'
+            verify: 'npm run lint:fix && npm run astro check'
           - template: nextjs
             bootstrap: 'npx create-next-app --example "https://github.com/sumup-oss/circuit-ui/tree/main/templates/nextjs/template" test-app'
             verify: 'npm run test:ci'
