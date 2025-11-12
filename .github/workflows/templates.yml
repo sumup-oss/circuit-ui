@@ -1,6 +1,9 @@
 name: Circuit UI App Templates
 
 on:
+  push:
+    paths:
+      - 'templates/**'
   schedule:
     - cron: '0 3 * * 1'
   workflow_dispatch:
