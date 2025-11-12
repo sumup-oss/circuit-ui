@@ -1,6 +1,6 @@
-import type { Metadata } from 'next';
-import { Display, Body } from '@sumup-oss/circuit-ui';
+import { Body, Display } from '@sumup-oss/circuit-ui';
 import { SumUpLogo } from '@sumup-oss/icons';
+import type { Metadata } from 'next';
 
 import { DocCard } from '../components/DocCard/index.js';
 

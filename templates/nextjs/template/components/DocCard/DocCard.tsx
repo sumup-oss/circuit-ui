@@ -1,5 +1,5 @@
-import { useId } from 'react';
 import { Body, Card, Headline } from '@sumup-oss/circuit-ui';
+import { useId } from 'react';
 
 import styles from './DocCard.module.css';
 

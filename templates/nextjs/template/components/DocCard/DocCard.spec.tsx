@@ -1,4 +1,4 @@
-import { render, axe, screen } from '../../test-utils.js';
+import { axe, render, screen } from '../../test-utils.js';
 
 import { DocCard } from './DocCard.js';
 
