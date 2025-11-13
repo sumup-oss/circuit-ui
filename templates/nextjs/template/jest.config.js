@@ -15,6 +15,10 @@ const createJestConfig = nextJest({ dir: './' });
 
 /** @type {import('jest').Config} */
 const customJestConfig = {
+  moduleNameMapper: {
+    // Jest doesn't yet support full absolute import paths in TypeScript projects
+    '^(\\.{1,2}/.*)\\.js$': '$1',
+  },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.tsx'],
   testEnvironment: 'jsdom',
   transformIgnorePatterns: [`/node_modules/(?!${esModules}/)`],

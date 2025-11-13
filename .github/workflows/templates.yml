@@ -1,6 +1,9 @@
 name: Circuit UI App Templates
 
 on:
+  push:
+    paths:
+      - 'templates/**'
   schedule:
     - cron: '0 3 * * 1'
   workflow_dispatch:
@@ -19,7 +22,7 @@ jobs:
             verify: 'npm run lint:fix && npm run astro check'
           - template: nextjs
             bootstrap: 'npx create-next-app --example "https://github.com/sumup-oss/circuit-ui/tree/main/templates/nextjs/template" test-app'
-            verify: 'npm run test:ci'
+            verify: 'npm run lint:fix && npm run test:ci'
 
     steps:
       - name: Checkout repository
