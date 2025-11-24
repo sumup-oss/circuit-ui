@@ -33,6 +33,7 @@ import {
   useCallback,
   useEffect,
   useId,
+  useMemo,
   useRef,
   useState,
 } from 'react';
@@ -57,6 +58,7 @@ export interface PopoverReferenceProps {
   'id': string;
   'aria-controls': string;
   'aria-expanded': boolean;
+  ref?: RefObject<any>;
 }
 type OnToggle = (open: boolean | ((prevOpen: boolean) => boolean)) => void;
 
@@ -96,7 +98,7 @@ export interface PopoverProps
    */
   component: ComponentType<PopoverReferenceProps>;
 
-  componentRef?: RefObject<HTMLDivElement>;
+  componentRef?: RefObject<any>;
   /**
    * An optional class name to be applied to the component's content.
    */
@@ -173,7 +175,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
       ],
     });
 
-    const handleTriggerClick = () => {
+    const handleTriggerClick = useCallback(() => {
       onToggle((prev) => {
         if (prev) {
           setClosing(true);
@@ -182,7 +184,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
 
         return true;
       });
-    };
+    }, [onToggle]);
 
     useEffect(() => {
       /**
@@ -231,18 +233,30 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
         triggerButton.focus();
       }
     }, [isOpen, prevOpen, refs.reference]);
+
+    const reference = useMemo(
+      () => (
+        <Component
+          id={triggerId}
+          aria-controls={contentId}
+          aria-expanded={isOpen}
+          onClick={handleTriggerClick}
+          ref={componentRef}
+        />
+      ),
+      [
+        isOpen,
+        triggerId,
+        handleTriggerClick,
+        Component,
+        componentRef,
+        contentId,
+      ],
+    );
     return (
       <Fragment>
-        <div
-          className={classes.trigger}
-          ref={applyMultipleRefs(refs.setReference, componentRef)}
-        >
-          <Component
-            id={triggerId}
-            aria-controls={contentId}
-            aria-expanded={isOpen}
-            onClick={handleTriggerClick}
-          />
+        <div className={classes.trigger} ref={refs.setReference}>
+          {reference}
         </div>
         <Dialog
           {...props}
