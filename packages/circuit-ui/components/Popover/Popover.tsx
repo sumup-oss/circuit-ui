@@ -29,6 +29,7 @@ import {
   forwardRef,
   Fragment,
   type KeyboardEvent,
+  type RefObject,
   useCallback,
   useEffect,
   useId,
@@ -94,6 +95,8 @@ export interface PopoverProps
    * reference element.
    */
   component: ComponentType<PopoverReferenceProps>;
+
+  componentRef?: RefObject<HTMLDivElement>;
   /**
    * An optional class name to be applied to the component's content.
    */
@@ -130,6 +133,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
       contentClassName,
       style,
       disableModalOnMobile,
+      componentRef,
       ...props
     },
     ref,
@@ -229,7 +233,10 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
     }, [isOpen, prevOpen, refs.reference]);
     return (
       <Fragment>
-        <div className={classes.trigger} ref={refs.setReference}>
+        <div
+          className={classes.trigger}
+          ref={applyMultipleRefs(refs.setReference, componentRef)}
+        >
           <Component
             id={triggerId}
             aria-controls={contentId}
