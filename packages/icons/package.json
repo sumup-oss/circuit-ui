@@ -38,7 +38,7 @@
     "@babel/core": "^7.28.5",
     "@babel/preset-env": "^7.28.5",
     "@babel/preset-react": "^7.28.5",
-    "@biomejs/js-api": "^3.0.0",
+    "@biomejs/js-api": "^4.0.0",
     "@types/babel__core": "^7.20.5",
     "fast-xml-parser": "^5.2.5",
     "tsx": "^4.20.6",
