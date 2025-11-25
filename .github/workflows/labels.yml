@@ -2,6 +2,10 @@ name: PR Labels
 
 on: pull_request
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   packages:
     runs-on: ubuntu-latest
@@ -10,7 +14,7 @@ jobs:
         uses: adamzolyak/monorepo-pr-labeler-action@4.2.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BASE_DIRS: 'packages'
+          BASE_DIRS: "packages"
         with:
-          prefix: '🗂'
-          separator: ' '
+          prefix: "🗂"
+          separator: " "

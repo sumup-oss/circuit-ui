@@ -2,15 +2,19 @@ name: Bundle Size
 
 on: [pull_request]
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   size:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Check compressed bundle sizes
         uses: preactjs/compressed-size-action@v2
         with:
-          pattern: 'packages/**/dist/**/*.{js,css,json}'
-          exclude: '{**/*.map,**/node_modules/**,**/eslint-plugin-circuit-ui/**,**/stylelint-plugin-circuit-ui/**,**/*.index.*,**/*.module.css.js}'
+          pattern: "packages/**/dist/**/*.{js,css,json}"
+          exclude: "{**/*.map,**/node_modules/**,**/eslint-plugin-circuit-ui/**,**/stylelint-plugin-circuit-ui/**,**/*.index.*,**/*.module.css.js}"

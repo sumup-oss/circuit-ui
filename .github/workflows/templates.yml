@@ -3,10 +3,13 @@ name: Circuit UI App Templates
 on:
   push:
     paths:
-      - 'templates/**'
+      - "templates/**"
   schedule:
-    - cron: '0 3 * * 1'
+    - cron: "0 3 * * 1"
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   test:
@@ -14,25 +17,25 @@ jobs:
     strategy:
       # https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs
       matrix:
-        node: [20, 22]
+        node: [22, 24]
         template: [astro, nextjs]
         include:
           - template: astro
-            bootstrap: 'npx create-astro@latest ./test-app --template sumup-oss/circuit-ui/templates/astro --install --no-git --typescript=strictest'
-            verify: 'npm run lint:fix && npm run astro check'
+            bootstrap: "npx create-astro@latest ./test-app --template sumup-oss/circuit-ui/templates/astro --install --no-git --typescript=strictest"
+            verify: "npm run lint:fix && npm run astro check"
           - template: nextjs
             bootstrap: 'npx create-next-app --example "https://github.com/sumup-oss/circuit-ui/tree/main/templates/nextjs/template" test-app'
-            verify: 'npm run lint:fix && npm run test:ci'
+            verify: "npm run lint:fix && npm run test:ci"
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Setup Node.js ${{ matrix.node }}
         uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node }}
-          cache: 'npm'
+          cache: "npm"
 
       - name: Bootstrap app
         run: ${{ matrix.bootstrap }}

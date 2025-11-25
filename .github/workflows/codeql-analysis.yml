@@ -7,7 +7,11 @@ on:
     branches: [main]
   schedule:
     # At 7pm every Thursday
-    - cron: '0 19 * * 4'
+    - cron: "0 19 * * 4"
+
+permissions:
+  contents: read
+  security-events: write
 
 jobs:
   CodeQL-Build:
@@ -15,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           # We must fetch at least the immediate parents so that if this is
           # a pull request then we can checkout the head.
