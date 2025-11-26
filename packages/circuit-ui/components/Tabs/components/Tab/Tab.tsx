@@ -33,6 +33,11 @@ type ButtonElProps = ButtonHTMLAttributes<HTMLButtonElement>;
 export type TabProps = LinkElProps &
   ButtonElProps & {
     /**
+     * Determines whether the component renders with full tab semantics or as a list item.
+     * @default 'tabs'
+     */
+    as?: 'tab' | 'listitem';
+    /**
      * Triggers selected styles of the component
      */
     selected?: boolean;
@@ -44,20 +49,29 @@ const tabIndex = (selected: boolean) => (selected ? undefined : -1);
  * Tab component that represents a single tab inside a Tabs wrapper
  */
 export const Tab = forwardRef<HTMLButtonElement, TabProps>(
-  ({ selected = false, className, ...props }, ref) => {
+  ({ selected = false, as = 'tab', className, ...props }, ref) => {
     const components = useComponents();
     const Link = components.Link as EmotionAsPropType;
     const Element = props.href ? Link : 'button';
 
-    return (
+    return as === 'tab' ? (
       <Element
         ref={ref}
-        role="tab"
-        aria-selected={selected}
-        tabIndex={tabIndex(selected)}
+        role={as}
         className={clsx(classes.base, className)}
         {...props}
+        aria-selected={selected}
+        tabindex={tabIndex(selected)}
       />
+    ) : (
+      <div role="listitem">
+        <Element
+          ref={ref}
+          className={clsx(classes.base, className)}
+          {...props}
+          aria-current={selected ? 'page' : undefined}
+        />
+      </div>
     );
   },
 );

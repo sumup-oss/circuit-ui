@@ -15,19 +15,14 @@
 
 'use client';
 
-import { Fragment, useState, type KeyboardEvent, type ReactNode } from 'react';
-
-import {
-  isArrowLeft,
-  isArrowRight,
-  isArrowDown,
-} from '../../util/key-codes.js';
+import { Fragment, type ReactNode } from 'react';
 
 import { TabList, type TabListProps } from './components/TabList/TabList.js';
 import { Tab } from './components/Tab/Tab.js';
 import { TabPanel } from './components/TabPanel/TabPanel.js';
+import { useTabState } from './helper.js';
 
-export interface TabsProps extends TabListProps {
+export interface TabsProps extends Omit<TabListProps, 'as'> {
   /**
    * The index of the initially selected tab.
    *
@@ -45,44 +40,28 @@ export interface TabsProps extends TabListProps {
 }
 
 export function Tabs({ items, initialSelectedIndex = 0, ...props }: TabsProps) {
-  const [selectedId, setSelectedId] = useState(
-    items[initialSelectedIndex]?.id ?? items[0]?.id,
+  const {
+    selectedId,
+    handleTabKeyDown: onKeyDown,
+    handleTabClick: onClick,
+  } = useTabState(
+    items.map(({ id }) => id),
+    initialSelectedIndex,
   );
-
-  const handleTabKeyDown = (event: KeyboardEvent) => {
-    const selectedIndex = items.findIndex((item) => item.id === selectedId);
-
-    if (isArrowLeft(event)) {
-      const previousIndex = selectedIndex - 1;
-      if (previousIndex >= 0) {
-        const previousId = items[previousIndex].id;
-        setSelectedId(previousId);
-        document.getElementById(`tab-${previousId}`)?.focus();
-      }
-    } else if (isArrowRight(event)) {
-      const nextIndex = selectedIndex + 1;
-      if (nextIndex <= items.length - 1) {
-        const nextId = items[nextIndex].id;
-        setSelectedId(nextId);
-        document.getElementById(`tab-${nextId}`)?.focus();
-      }
-    } else if (isArrowDown(event)) {
-      document.getElementById(`panel-${selectedId}`)?.focus();
-    }
-  };
 
   return (
     <Fragment>
-      <TabList {...props}>
+      <TabList as="tablist" {...props}>
         {items.map(({ id, tab }) => (
           <Tab
+            as="tab"
             key={id}
+            id={`tab-${id}`}
             data-testid="tab-element"
             selected={selectedId === id}
-            onClick={() => setSelectedId(id)}
-            id={`tab-${id}`}
             aria-controls={`panel-${id}`}
-            onKeyDown={handleTabKeyDown}
+            onClick={() => onClick(id)}
+            onKeyDown={onKeyDown}
           >
             {tab}
           </Tab>
