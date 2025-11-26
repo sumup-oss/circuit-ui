@@ -89,7 +89,7 @@ describe('Options', () => {
     render(<Options {...props} loadMore={vi.fn()} isLoadingMore />);
 
     expect(
-      screen.getByRole('button', { name: 'Loading Load more' }),
+      screen.getByRole('button', { name: 'LoadingLoad more' }),
     ).toHaveAttribute('aria-busy', 'true');
   });
 
