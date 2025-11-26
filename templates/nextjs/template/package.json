@@ -15,7 +15,7 @@
     "test:ci": "mkdir -p __reports__ && jest --ci --coverage --runInBand --json --outputFile=__reports__/jest-results.json --reporters default --reporters \"github-actions\""
   },
   "dependencies": {
-    "@next/bundle-analyzer": "^16.0.1",
+    "@next/bundle-analyzer": "^16.0.3",
     "@sumup-oss/circuit-ui": "^10.0.0",
     "@sumup-oss/design-tokens": "^9.0.0",
     "@sumup-oss/icons": "^5.22.0",
@@ -26,7 +26,7 @@
     "temporal-polyfill": "^0.3.0"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^16.0.1",
+    "@next/eslint-plugin-next": "^16.0.3",
     "@sumup-oss/eslint-plugin-circuit-ui": "^7.0.0",
     "@sumup-oss/foundry": "^9.0.5",
     "@sumup-oss/stylelint-plugin-circuit-ui": "^4.1.0",
