@@ -298,9 +298,11 @@ export const AutocompleteInput = forwardRef<
     }, []);
 
     const onComboboxClick = useCallback(() => {
-      comboboxRef?.current?.select();
-      setIsOpen(true);
-    }, []);
+      if (!isOpen) {
+        comboboxRef?.current?.select();
+        setIsOpen(true);
+      }
+    }, [isOpen]);
 
     const { floatingStyles, refs, update } = useFloating<HTMLElement>({
       open: isOpen,
