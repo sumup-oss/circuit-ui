@@ -48,6 +48,7 @@ describe('Icons', () => {
     });
 
     (size === '480' ? it.skip : it)('should weigh less than 12kb', () => {
+      // eslint-disable-next-line vitest/no-standalone-expect
       expect(fileSize).toBeLessThan(12);
     });
 
@@ -63,6 +64,7 @@ describe('Icons', () => {
       const iconManifest = getIconManifest(name, size);
 
       const attributes = parseSVGAttributes(file);
+      /* eslint-disable vitest/no-conditional-expect */
       if (iconManifest.category === 'Flag') {
         expect(iconManifest.size).toBe('480');
         expect(attributes.height).toBe(iconManifest.size);
@@ -75,6 +77,7 @@ describe('Icons', () => {
           expect(attributes.height).toBe(size);
         }
       }
+      /* eslint-enable vitest/no-conditional-expect */
     });
 
     it("should have valid  'width', 'height' and 'viewBox' attributes", () => {
