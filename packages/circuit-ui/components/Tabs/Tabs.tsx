@@ -42,8 +42,8 @@ export interface TabsProps extends Omit<TabListProps, 'as'> {
 export function Tabs({ items, initialSelectedIndex = 0, ...props }: TabsProps) {
   const {
     selectedId,
-    handleTabKeyDown: onKeyDown,
-    handleTabClick: onClick,
+    onTabKeyDown: onKeyDown,
+    onTabClick: onClick,
   } = useTabState(
     items.map(({ id }) => id),
     initialSelectedIndex,

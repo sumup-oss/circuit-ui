@@ -36,7 +36,7 @@ export interface TabListProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Determines whether the component renders with full tab semantics or as a navigation list inside a <nav> using tab-like visuals.
    *
-   * @default 'tabs'
+   * @default tabs
    */
   as?: 'tablist' | 'navigation';
   /**

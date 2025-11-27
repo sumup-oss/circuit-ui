@@ -34,7 +34,7 @@ export type TabProps = LinkElProps &
   ButtonElProps & {
     /**
      * Determines whether the component renders with full tab semantics or as a list item.
-     * @default 'tabs'
+     * @default tab
      */
     as?: 'tab' | 'listitem';
     /**

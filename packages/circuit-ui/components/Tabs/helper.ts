@@ -14,7 +14,7 @@ import {
 export const useTabState = (items: string[], initialSelectedId?: number) => {
   const [selectedId, setSelectedId] = useState(items[initialSelectedId ?? 0]);
 
-  const handleTabKeyDown = (event: KeyboardEvent) => {
+  const onTabKeyDown = (event: KeyboardEvent) => {
     const selectedIndex = items.indexOf(selectedId);
 
     if (isArrowLeft(event)) {
@@ -37,13 +37,13 @@ export const useTabState = (items: string[], initialSelectedId?: number) => {
     }
   };
 
-  const handleTabClick = (id: string) => {
+  const onTabClick = (id: string) => {
     setSelectedId(id);
   };
 
   return {
-    handleTabKeyDown,
-    handleTabClick,
+    onTabKeyDown,
+    onTabClick,
     selectedId,
   };
 };

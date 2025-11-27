@@ -44,14 +44,14 @@ export const Base = () => (
 
 export const Navigation = () => (
   <TabList as="navigation">
-    <Tab as="listitem" id="tab-1">
-      Button
+    <Tab as="listitem" href="/home">
+      Home
     </Tab>
-    <Tab as="listitem" id="tab-2">
-      Button
+    <Tab as="listitem" href="/about">
+      About
     </Tab>
-    <Tab as="listitem" id="tab-3" selected>
-      Button
+    <Tab as="listitem" href="/contact" selected>
+      Contact
     </Tab>
   </TabList>
 );
