@@ -1,5 +1,17 @@
 # @sumup-oss/circuit-ui
 
+## 10.14.0
+
+### Minor Changes
+
+- [#3377](https://github.com/sumup-oss/circuit-ui/pull/3377) [`36ba15c`](https://github.com/sumup-oss/circuit-ui/commit/36ba15c93c76e6e945f3db9ed0221a3e78818ec1) Thanks [@sirineJ](https://github.com/sirineJ)! - Exposed a `useTabState` helper hook to simplify state and interaction management of tab elements used independently.
+
+- [#3377](https://github.com/sumup-oss/circuit-ui/pull/3377) [`36ba15c`](https://github.com/sumup-oss/circuit-ui/commit/36ba15c93c76e6e945f3db9ed0221a3e78818ec1) Thanks [@sirineJ](https://github.com/sirineJ)! - Added an `as` prop to TabList and Tab components to support tab-like navigation patterns.
+
+### Patch Changes
+
+- [#3353](https://github.com/sumup-oss/circuit-ui/pull/3353) [`bf696d0`](https://github.com/sumup-oss/circuit-ui/commit/bf696d06aacaf868240c929320a7afbcedd8ae86) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed an issue in the AutocompleteInput component when clicking the field with a prefilled value persistently selected the entire text, making editing difficult.
+
 ## 10.13.3
 
 ### Patch Changes
