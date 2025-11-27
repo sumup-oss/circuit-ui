@@ -15,7 +15,7 @@
     "lint:css": "stylelint '**/*.css' --quiet"
   },
   "dependencies": {
-    "@astrojs/react": "^4.4.1",
+    "@astrojs/react": "^4.4.2",
     "@sumup-oss/circuit-ui": "^10.0.0",
     "@sumup-oss/design-tokens": "^9.0.0",
     "@sumup-oss/icons": "^5.22.0",
