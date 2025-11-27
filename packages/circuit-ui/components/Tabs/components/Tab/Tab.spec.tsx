@@ -34,4 +34,34 @@ describe('Tab', () => {
     const tab = screen.getByRole('tab');
     expect(ref.current).toBe(tab);
   });
+  it('should render with tab semantics', () => {
+    const { rerender } = render(<Tab>Tab title</Tab>);
+    expect(screen.getByText('Tab title')).toHaveRole('tab');
+    expect(screen.getByText('Tab title')).toHaveAttribute(
+      'aria-selected',
+      'false',
+    );
+    expect(screen.getByText('Tab title')).toHaveAttribute('tabindex', '-1');
+    rerender(<Tab selected>Tab title</Tab>);
+    expect(screen.getByText('Tab title')).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+    expect(screen.getByText('Tab title')).not.toHaveAttribute('tabindex');
+  });
+  it('should render with listitem semantics', () => {
+    const { rerender } = render(<Tab as="listitem">Tab title</Tab>);
+    expect(screen.getByText('Tab title').parentElement).toHaveRole('listitem');
+    expect(screen.getByText('Tab title')).not.toHaveAttribute('aria-selected');
+    expect(screen.getByText('Tab title')).not.toHaveAttribute('tabindex');
+    rerender(
+      <Tab as="listitem" selected>
+        Tab title
+      </Tab>,
+    );
+    expect(screen.getByText('Tab title')).toHaveAttribute(
+      'aria-current',
+      'page',
+    );
+  });
 });

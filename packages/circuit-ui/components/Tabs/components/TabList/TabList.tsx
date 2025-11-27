@@ -34,6 +34,12 @@ import classes from './TabList.module.css';
 
 export interface TabListProps extends HTMLAttributes<HTMLDivElement> {
   /**
+   * Determines whether the component renders with full tab semantics or as a navigation list inside a <nav> using tab-like visuals.
+   *
+   * @default tabs
+   */
+  as?: 'tablist' | 'navigation';
+  /**
    * If true, the tabs will stretch to fill the width of their container.
    * @default false
    */
@@ -51,7 +57,18 @@ const getCurrentTab = (node?: HTMLElement | null) =>
  * TabList component that wraps the Tab components
  */
 export const TabList = forwardRef<HTMLDivElement, TabListProps>(
-  ({ className, stretched, children, onClick, onKeyDown, ...props }, ref) => {
+  (
+    {
+      className,
+      stretched,
+      children,
+      onClick,
+      onKeyDown,
+      as = 'tablist',
+      ...props
+    },
+    ref,
+  ) => {
     const gliderRef = useRef<HTMLSpanElement>(null);
     const tabListRef = useRef<HTMLDivElement>(null);
     const numberOfTabs = Children.toArray(children).length;
@@ -152,28 +169,30 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
       },
       [onKeyDown, updateGliderStyles],
     );
+    const Element = as === 'navigation' ? 'nav' : 'div';
     return (
-      <div ref={ref} className={clsx(classes.wrapper, className)}>
+      <Element ref={ref} className={clsx(classes.wrapper, className)}>
         <div
           ref={tabListRef}
           className={clsx(
             classes.base,
             utilClasses.hideScrollbar,
             stretched && classes.stretched,
-
             stretchOnMobile && classes['stretched-mobile'],
           )}
           {...props}
-          role="tablist"
-          onClick={onTabListClick}
-          onKeyDown={onTabListKeydown}
+          role={as === 'tablist' ? 'tablist' : 'list'}
+          {...(as === 'tablist' && {
+            onClick: onTabListClick,
+            onKeyDown: onTabListKeydown,
+          })}
         >
           {children}
           <span className={classes.glider} ref={gliderRef} />
         </div>
         <span className={classes['left-scroll-indicator']} />
         <span className={classes['right-scroll-indicator']} />
-      </div>
+      </Element>
     );
   },
 );

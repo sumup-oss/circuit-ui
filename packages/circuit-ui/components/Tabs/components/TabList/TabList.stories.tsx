@@ -41,3 +41,17 @@ export const Base = () => (
     </Tab>
   </TabList>
 );
+
+export const Navigation = () => (
+  <TabList as="navigation">
+    <Tab as="listitem" href="/home">
+      Home
+    </Tab>
+    <Tab as="listitem" href="/about">
+      About
+    </Tab>
+    <Tab as="listitem" href="/contact" selected>
+      Contact
+    </Tab>
+  </TabList>
+);

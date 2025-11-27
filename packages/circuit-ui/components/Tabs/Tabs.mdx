@@ -1,6 +1,7 @@
 import { Meta, Status, Props, Story } from "../../../../.storybook/components";
 
 import * as Stories from "./Tabs.stories";
+import * as TabListStories from "./components/TabList/TabList.stories";
 
 <Meta of={Stories} />
 
@@ -51,7 +52,7 @@ If you need finer control over your layout, you can use the `Tab`, `TabList`, an
 - Using Tab:
   - Provide a unique `id` for each tab.
   - Add an `aria-controls` attribute that points to the id of its corresponding panel.
-  - Implement keyboard navigation (e.g., arrow keys, Home/End) to support keyboard users.
+  - Implement keyboard navigation (e.g., arrow keys, Home/End) to support keyboard users, or use the `useTabState` helper [hook](#usetabstate) to manage state and interactions. This is not necessary for [tab-like navigation](#tab-like-navigation).
 - Using TabPanel:
   - Assign a unique id to each panel.
   - Ensure this id matches the `aria-controls` value of its corresponding tab.
@@ -59,10 +60,48 @@ If you need finer control over your layout, you can use the `Tab`, `TabList`, an
 
 <Story of={Stories.ControlledState} />
 
+#### useTabState
+
+Use this hook to manage tab state and handle user interactions. The hook accepts an array of tab IDs and an optional initially selected index, and returns:
+- `selectedId` : the id of the currently selected tab.
+- `onTabKeyDown` : an `onKeyDown` handler for your Tab component that manages arrow-key navigation and updates selectedId.
+- `onTabClick` : an `onClick` handler for your Tab component that updates selectedId when a tab is clicked.
+
+```tsx
+import {useTabState} from '@sumup-oss/circuit-ui';
+
+const {
+    selectedId,
+    onTabKeyDown,
+    onTabClick,
+  } = useTabState(
+    ['tab-1', 'tab-2', 'tab-3'],
+    2,
+  );
+```
+
+### Tab-like navigation
+
+If you need to implement a tab-like navigation rather than true tab semantics, you can control the rendering behavior of the TabList and Tab components to achieve this.
+- Set the `as` prop of Tablist to `"navigation"` to render a native `<nav>` containing an element with the role `list` to wrap its children.
+- Set the `as` prop of Tab component to `"listitem"` to wrap your tab in an element with role `listitem`.
+
+The components would render styled to look like tabs but without any tab ARIA roles. This ensures a correctly structured and accessible navigation pattern that visually matches the tab design.
+
+```tsx
+<TabList as="navigation">
+  <Tab as="listitem" href="/home">Home</Tab>
+  <Tab as="listitem" href="/about">About</Tab>
+  <Tab as="listitem" href="/contact">Contact</Tab>
+</TabList>
+```
+
+<Story of={TabListStories.Navigation} />
+
 ### With links
 
 Tabs render as buttons by default. In navigation contexts, you can pass a `href` prop to render them as links.
-Avoid using external links, as this can create an inconsistent user experience across tabs.
+Avoid using external links, as this can create an inconsistent user experience across tabs. Instead, place the external link outside the Tabs component to maintain predictable behavior.
 
 <Story of={Stories.Links} />
 

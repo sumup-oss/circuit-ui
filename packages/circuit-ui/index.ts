@@ -125,6 +125,7 @@ export { TabList } from './components/Tabs/components/TabList/TabList.js';
 export type { TabListProps } from './components/Tabs/components/TabList/TabList.js';
 export { SkipLink } from './components/SkipLink/index.js';
 export type { SkipLinkProps } from './components/SkipLink/index.js';
+
 // Miscellaneous
 export { Spinner } from './components/Spinner/index.js';
 export type { SpinnerProps } from './components/Spinner/index.js';
