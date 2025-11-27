@@ -182,12 +182,10 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
           )}
           {...props}
           role={as === 'tablist' ? 'tablist' : 'list'}
-          {...{
-            ...(as === 'tablist' && {
-              onClick: onTabListClick,
-              onKeyDown: onTabListKeydown,
-            }),
-          }}
+          {...(as === 'tablist' && {
+            onClick: onTabListClick,
+            onKeyDown: onTabListKeydown,
+          })}
         >
           {children}
           <span className={classes.glider} ref={gliderRef} />

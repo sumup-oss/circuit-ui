@@ -59,17 +59,17 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(
         ref={ref}
         role={as}
         className={clsx(classes.base, className)}
-        {...props}
         aria-selected={selected}
         tabindex={tabIndex(selected)}
+        {...props}
       />
     ) : (
       <div role="listitem">
         <Element
           ref={ref}
           className={clsx(classes.base, className)}
-          {...props}
           aria-current={selected ? 'page' : undefined}
+          {...props}
         />
       </div>
     );
