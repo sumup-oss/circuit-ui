@@ -34,6 +34,6 @@
     "@sumup-oss/stylelint-plugin-circuit-ui": "^4.1.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-testing-library": "^7.13.5",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   }
 }
