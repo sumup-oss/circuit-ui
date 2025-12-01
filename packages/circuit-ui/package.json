@@ -67,7 +67,7 @@
   },
   "devDependencies": {
     "@emotion/is-prop-valid": "^1.4.0",
-    "@emotion/jest": "^11.13.0",
+    "@emotion/jest": "^11.14.2",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@sumup-oss/design-tokens": "^9.0.0",
