@@ -22,11 +22,19 @@ import type { OnValueChange } from '../../vendor/react-number-format/types.js';
 import { idx } from '../../util/idx.js';
 import { Input, type InputProps } from '../Input/index.js';
 
-export interface SortCodeInputProps
+export interface PatternInputProps
   extends Omit<
     InputProps,
     'placeholder' | 'ref' | 'value' | 'defaultValue' | 'type'
   > {
+  /**
+   * The pattern to be followed by the input value.
+   */
+  pattern: string;
+  /**
+   * The mask to be used for the input value.
+   */
+  mask?: string;
   /**
    * A short string that is shown inside the empty input.
    */
@@ -44,12 +52,14 @@ export interface SortCodeInputProps
 
 
 /**
- * SortCodeInput component for forms.
+ * PatternInput component for forms.
  */
-export const SortCodeInput = forwardRef<HTMLInputElement, SortCodeInputProps>(
+export const PatternInput = forwardRef<HTMLInputElement, PatternInputProps>(
   (
     {
       'aria-describedby': descriptionId,
+      pattern,
+      mask = '_',
       ...props
     },
     ref,
@@ -60,10 +70,10 @@ export const SortCodeInput = forwardRef<HTMLInputElement, SortCodeInputProps>(
     return (
       <PatternFormat
         customInput={Input}
-        format="##-##-##"
+        format={pattern}
         getInputRef={ref}
         inputMode="numeric"
-        mask="_"
+        mask={mask}
         type="text"
         aria-describedby={descriptionIds}
         {...props}
@@ -72,4 +82,4 @@ export const SortCodeInput = forwardRef<HTMLInputElement, SortCodeInputProps>(
   },
 );
 
-SortCodeInput.displayName = 'SortCodeInput';
+PatternInput.displayName = 'PatternInput';

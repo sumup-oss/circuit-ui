@@ -18,45 +18,101 @@ import { createRef, useState, type ChangeEvent } from 'react';
 
 import { render, userEvent, axe, screen } from '../../util/test-utils.js';
 
-import { SortCodeInput, type SortCodeInputProps } from './SortCodeInput.js';
+import { PatternInput, type PatternInputProps } from './PatternInput.js';
 
 const defaultProps = {
   label: 'Sort code',
+  pattern: '##-##-##',
 };
 
-describe('SortCodeInput', () => {
+describe('PatternInput', () => {
   it('should forward a ref', () => {
     const ref = createRef<HTMLInputElement>();
-    render(<SortCodeInput {...defaultProps} ref={ref} />);
+    render(<PatternInput {...defaultProps} ref={ref} />);
     const input: HTMLInputElement = screen.getByRole('textbox');
     expect(ref.current).toBe(input);
   });
 
-  it('should format a sort code correctly', async () => {
-    render(<SortCodeInput {...defaultProps} />);
+  describe('Pattern prop', () => {
+    it('should format input with a sort code pattern', async () => {
+      render(<PatternInput {...defaultProps} pattern="##-##-##" />);
 
-    const input: HTMLInputElement = screen.getByRole('textbox');
+      const input: HTMLInputElement = screen.getByRole('textbox');
 
-    await userEvent.type(input, '123456');
+      await userEvent.type(input, '123456');
 
-    expect(input.value).toBe('12-34-56');
+      expect(input.value).toBe('12-34-56');
+    });
+
+    it('should format input with a phone number pattern', async () => {
+      render(
+        <PatternInput
+          label="Phone"
+          pattern="(###) ###-####"
+        />,
+      );
+
+      const input: HTMLInputElement = screen.getByRole('textbox');
+
+      await userEvent.type(input, '1234567890');
+
+      expect(input.value).toBe('(123) 456-7890');
+    });
+
+    it('should format input with a date pattern', async () => {
+      render(<PatternInput label="Date" pattern="##/##/####" />);
+
+      const input: HTMLInputElement = screen.getByRole('textbox');
+
+      await userEvent.type(input, '31122023');
+
+      expect(input.value).toBe('31/12/2023');
+    });
   });
 
-  it('should format a partial sort code correctly', async () => {
-    render(<SortCodeInput {...defaultProps} />);
+  describe('Mask prop', () => {
+    it('should use default underscore mask for partial input', async () => {
+      render(<PatternInput {...defaultProps} pattern="##-##-##" />);
 
-    const input: HTMLInputElement = screen.getByRole('textbox');
+      const input: HTMLInputElement = screen.getByRole('textbox');
 
-    await userEvent.type(input, '1234');
+      await userEvent.type(input, '1234');
 
-    expect(input.value).toBe('12-34-__');
+      expect(input.value).toBe('12-34-__');
+    });
+
+    it('should use custom mask character', async () => {
+      render(<PatternInput {...defaultProps} pattern="##-##-##" mask="#" />);
+
+      const input: HTMLInputElement = screen.getByRole('textbox');
+
+      await userEvent.type(input, '1234');
+
+      expect(input.value).toBe('12-34-##');
+    });
+
+    it('should use custom mask for phone pattern', async () => {
+      render(
+        <PatternInput
+          label="Phone"
+          pattern="(###) ###-####"
+          mask="X"
+        />,
+      );
+
+      const input: HTMLInputElement = screen.getByRole('textbox');
+
+      await userEvent.type(input, '12345');
+
+      expect(input.value).toBe('(123) 45X-XXXX');
+    });
   });
 
-  it('should format a sort code in a controlled input with an initial string value', async () => {
-    const ControlledSortCodeInput = () => {
-      const [value, setValue] = useState<SortCodeInputProps['value']>('123456');
+  it('should format in a controlled input with an initial string value', async () => {
+    const ControlledPatternInput = () => {
+      const [value, setValue] = useState<PatternInputProps['value']>('123456');
       return (
-        <SortCodeInput
+        <PatternInput
           {...defaultProps}
           value={value}
           onChange={(e: ChangeEvent<HTMLInputElement & HTMLTextAreaElement>) =>
@@ -65,7 +121,7 @@ describe('SortCodeInput', () => {
         />
       );
     };
-    render(<ControlledSortCodeInput />);
+    render(<ControlledPatternInput />);
 
     const input: HTMLInputElement = screen.getByRole('textbox');
     expect(input.value).toBe('12-34-56');
@@ -76,11 +132,11 @@ describe('SortCodeInput', () => {
     expect(input.value).toBe('98-76-54');
   });
 
-  it('should format a sort code in a controlled input with an initial numeric value', async () => {
-    const ControlledSortCodeInput = () => {
-      const [value, setValue] = useState<SortCodeInputProps['value']>(123456);
+  it('should format in a controlled input with an initial numeric value', async () => {
+    const ControlledPatternInput = () => {
+      const [value, setValue] = useState<PatternInputProps['value']>(123456);
       return (
-        <SortCodeInput
+        <PatternInput
           {...defaultProps}
           value={value}
           onChange={(e: ChangeEvent<HTMLInputElement & HTMLTextAreaElement>) =>
@@ -89,7 +145,7 @@ describe('SortCodeInput', () => {
         />
       );
     };
-    render(<ControlledSortCodeInput />);
+    render(<ControlledPatternInput />);
 
     const input: HTMLInputElement = screen.getByRole('textbox');
     expect(input.value).toBe('12-34-56');
@@ -101,13 +157,13 @@ describe('SortCodeInput', () => {
   });
 
   it('should have inputMode set to numeric', () => {
-    render(<SortCodeInput {...defaultProps} />);
+    render(<PatternInput {...defaultProps} />);
     const input: HTMLInputElement = screen.getByRole('textbox');
     expect(input.inputMode).toBe('numeric');
   });
 
   it('should have no accessibility violations', async () => {
-    const { container } = render(<SortCodeInput {...defaultProps} />);
+    const { container } = render(<PatternInput {...defaultProps} />);
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
@@ -122,7 +178,7 @@ describe('SortCodeInput', () => {
       render(
         <>
           <span id={customDescriptionId}>{customDescription}</span>
-          <SortCodeInput
+          <PatternInput
             {...defaultProps}
             aria-describedby={customDescriptionId}
           />

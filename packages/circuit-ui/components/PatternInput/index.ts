@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { SortCodeInput } from './SortCodeInput.js';
+export { PatternInput } from './PatternInput.js';
 
-export type { SortCodeInputProps } from './SortCodeInput.js';
+export type { PatternInputProps } from './PatternInput.js';

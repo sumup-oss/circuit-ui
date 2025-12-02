@@ -68,8 +68,8 @@ export { PhoneNumberInput } from './components/PhoneNumberInput/index.js';
 export type { PhoneNumberInputProps } from './components/PhoneNumberInput/index.js';
 export { ColorInput } from './components/ColorInput/index.js';
 export type { ColorInputProps } from './components/ColorInput/index.js';
-export { SortCodeInput } from './components/SortCodeInput/index.js';
-export type { SortCodeInputProps } from './components/SortCodeInput/index.js';
+export { PatternInput } from './components/PatternInput/index.js';
+export type { PatternInputProps } from './components/PatternInput/index.js';
 
 // Actions
 export { Button } from './components/Button/index.js';
