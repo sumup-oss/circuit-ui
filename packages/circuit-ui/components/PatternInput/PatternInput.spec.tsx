@@ -45,12 +45,7 @@ describe('PatternInput', () => {
     });
 
     it('should format input with a phone number pattern', async () => {
-      render(
-        <PatternInput
-          label="Phone"
-          pattern="(###) ###-####"
-        />,
-      );
+      render(<PatternInput label="Phone" pattern="(###) ###-####" />);
 
       const input: HTMLInputElement = screen.getByRole('textbox');
 
@@ -92,13 +87,7 @@ describe('PatternInput', () => {
     });
 
     it('should use custom mask for phone pattern', async () => {
-      render(
-        <PatternInput
-          label="Phone"
-          pattern="(###) ###-####"
-          mask="X"
-        />,
-      );
+      render(<PatternInput label="Phone" pattern="(###) ###-####" mask="X" />);
 
       const input: HTMLInputElement = screen.getByRole('textbox');
 

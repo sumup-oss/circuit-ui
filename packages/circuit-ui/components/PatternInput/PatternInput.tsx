@@ -50,22 +50,16 @@ export interface PatternInputProps
   onValueChange?: OnValueChange;
 }
 
-
 /**
  * PatternInput component for forms.
  */
 export const PatternInput = forwardRef<HTMLInputElement, PatternInputProps>(
   (
-    {
-      'aria-describedby': descriptionId,
-      pattern,
-      mask = '_',
-      ...props
-    },
+    { 'aria-describedby': descriptionId, pattern, mask = '_', ...props },
     ref,
   ) => {
-    const sortCodeSymbolId = useId();
-    const descriptionIds = idx(sortCodeSymbolId, descriptionId);
+    const patternSymbolId = useId();
+    const descriptionIds = idx(patternSymbolId, descriptionId);
 
     return (
       <PatternFormat
