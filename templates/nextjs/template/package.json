@@ -20,9 +20,9 @@
     "@sumup-oss/design-tokens": "^9.0.0",
     "@sumup-oss/icons": "^5.22.0",
     "@sumup-oss/intl": "^3.3.0",
-    "next": "^16.0.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "next": "^16.0.7",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
     "temporal-polyfill": "^0.3.0"
   },
   "devDependencies": {
