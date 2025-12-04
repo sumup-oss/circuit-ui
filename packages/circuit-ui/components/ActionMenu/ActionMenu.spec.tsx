@@ -194,11 +194,14 @@ describe('ActionMenu', () => {
   });
 
   it('should move focus to the trigger element after closing', async () => {
-    const { rerender } = renderActionMenu(baseProps);
+    renderActionMenu({ ...baseProps, isOpen: false });
+    const trigger = screen.getByRole('button', { name: 'Trigger Button' });
 
-    rerender(<ActionMenu {...baseProps} isOpen={false} />);
+    // open actio menu
+    await userEvent.click(trigger);
 
-    const trigger = screen.getByRole('button');
+    // close action menu
+    await userEvent.keyboard('{Escape}');
 
     await waitFor(() => {
       expect(trigger).toHaveFocus();
