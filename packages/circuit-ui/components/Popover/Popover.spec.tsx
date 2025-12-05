@@ -14,7 +14,7 @@
  */
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { createRef } from 'react';
+import { createRef, useState } from 'react';
 import { waitFor } from '@testing-library/react';
 
 import { act, axe, render, userEvent, screen } from '../../util/test-utils.js';
@@ -87,6 +87,67 @@ describe('Popover', () => {
         expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
       },
     );
+
+    it('should not return focus to the previous trigger when another popover opens', async () => {
+      function Wrapper() {
+        const [open1, setOpen1] = useState(false);
+        const [open2, setOpen2] = useState(false);
+
+        return (
+          <>
+            <Popover
+              id="popover1"
+              isOpen={open1}
+              onToggle={setOpen1}
+              component={(triggerProps) => (
+                <button {...triggerProps}>Open Popover 1</button>
+              )}
+            >
+              Popover 1
+            </Popover>
+
+            <Popover
+              aria-describedby="popover2"
+              isOpen={open2}
+              onToggle={setOpen2}
+              component={(triggerProps) => (
+                <button {...triggerProps}>Open Popover 2</button>
+              )}
+            >
+              Popover 2
+            </Popover>
+          </>
+        );
+      }
+
+      render(<Wrapper />);
+
+      const firstTrigger = screen.getByRole('button', {
+        name: 'Open Popover 1',
+      });
+
+      // Open the first popover
+      await userEvent.click(firstTrigger);
+      expect(screen.getByText('Popover 1')).toBeVisible();
+
+      // Open the second popover, which should close the first
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Open Popover 2' }),
+      );
+
+      // Popover 1 should be closed
+      expect(screen.queryByText('Popover 1')).not.toBeInTheDocument();
+
+      // Popover 2 should now be open
+      const secondPopover = screen.getByRole('dialog', { hidden: false });
+      expect(secondPopover).toBeVisible();
+      expect(secondPopover).toHaveTextContent('Popover 2');
+
+      // Focus should not return to the first trigger
+      expect(firstTrigger).not.toHaveFocus();
+      // eslint-disable-next-line testing-library/no-node-access
+      expect(secondPopover.contains(document.activeElement)).toBe(true);
+    });
   });
 
   describe('when open', () => {

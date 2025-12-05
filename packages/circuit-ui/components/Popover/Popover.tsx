@@ -49,6 +49,8 @@ import { clsx } from '../../styles/clsx.js';
 import { usePrevious } from '../../hooks/usePrevious/index.js';
 
 import classes from './Popover.module.css';
+import { atom } from 'nanostores';
+import { useStore } from '@nanostores/react';
 
 export interface PopoverReferenceProps {
   'onClick': (event: ClickEvent) => void;
@@ -115,6 +117,7 @@ const sizeOptions: SizeOptions = {
     );
   },
 };
+const $activePopoverId = atom<string | null>(null);
 
 export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
   (
@@ -142,6 +145,9 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
     const isModalOnMobile = !disableModalOnMobile && isMobile;
     const animationDuration = isModalOnMobile ? 300 : 0;
     const prevOpen = usePrevious(isOpen);
+
+    const activePopoverId = useStore($activePopoverId);
+    const popoverId = useId();
 
     const { floatingStyles, refs, update } = useFloating<HTMLElement>({
       open: isOpen,
@@ -175,7 +181,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
           setClosing(true);
           return false;
         }
-
+        $activePopoverId.set(popoverId);
         return true;
       });
     };
@@ -221,12 +227,13 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
 
     useEffect(() => {
       // Focus the reference element after closing
-      if (prevOpen && !isOpen) {
+      if (prevOpen && !isOpen && activePopoverId === popoverId) {
         const triggerButton = refs.reference.current
           ?.firstElementChild as HTMLElement;
-        triggerButton.focus();
+        triggerButton.focus({ preventScroll: true });
+        $activePopoverId.set(null);
       }
-    }, [isOpen, prevOpen, refs.reference]);
+    }, [isOpen, prevOpen, refs.reference, activePopoverId, popoverId]);
     return (
       <Fragment>
         <div className={classes.trigger} ref={refs.setReference}>
