@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.14.1
+
+### Patch Changes
+
+- [#3391](https://github.com/sumup-oss/circuit-ui/pull/3391) [`2afd335`](https://github.com/sumup-oss/circuit-ui/commit/2afd335430abf9a8eb775c8d589ae3baef0786a3) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed incorrect focus restoration when opening Popover-based components consecutively.
+
 ## 10.14.0
 
 ### Minor Changes
@@ -562,6 +568,7 @@
 - [#2786](https://github.com/sumup-oss/circuit-ui/pull/2786) [`97f8145`](https://github.com/sumup-oss/circuit-ui/commit/97f8145ed774441c641270a3ed0fa94ada0472aa) Thanks [@connor-baer](https://github.com/connor-baer)! - Added default translations for labels that don't change with the usage of the component. Translations are included for all locales where SumUp operates, namely `bg-BG`, `cs-CZ`, `da-DK`, `de-AT`, `de-CH`, `de-DE`, `de-LU`, `el-CY`, `el-GR`, `en-AU`, `en-GB`, `en-IE`, `en-MT`, `en-US`, `es-CL`, `es-CO`, `es-ES`, `es-MX`, `es-PE`, `es-US`, `et-EE`, `fi-FI`, `fr-BE`, `fr-CH`, `fr-FR`, `fr-LU`, `hr-HR`, `hu-HU`, `it-CH`, `it-IT`, `lt-LT`, `lv-LV`, `nb-NO`, `nl-BE`, `nl-NL`, `pl-PL`, `pt-BR`, `pt-PT`, `ro-RO`, `sk-SK`, `sl-SI`, and `sv-SE`. The current locale is determined based on the `locale` prop or the `navigator.language` API in environments that support it. If no supported locale is found, `en-US` is used as a fallback.
 
   The following component props are now optional:
+
   - Button, IconButton: `loadingLabel`
   - Calendar: `prevMonthButtonLabel`, `nextMonthButtonLabel`
   - DateInput: `yearInputLabel`, `monthInputLabel`, `dayInputLabel`, `openCalendarButtonLabel`, `closeCalendarButtonLabel`, `applyDateButtonLabel`, `clearDateButtonLabel`
@@ -1314,6 +1321,7 @@
 - [#2061](https://github.com/sumup-oss/circuit-ui/pull/2061) [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f) Thanks [@connor-baer](https://github.com/connor-baer)! - Raised the minimum Node.js version to 18+.
 
 - [#2061](https://github.com/sumup-oss/circuit-ui/pull/2061) [`bc882426`](https://github.com/sumup-oss/circuit-ui/commit/bc882426a859e68ec7c029e1b56adbaa63f8260f) Thanks [@connor-baer](https://github.com/connor-baer)! - **This package is now pure ESM**. Please [read this](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).
+
   - If you use TypeScript, you need to use TypeScript 4.7 or later ([ref](https://github.com/microsoft/TypeScript/issues/46452)).
   - If you use a bundler, make sure it supports ESM and that you have correctly configured it for ESM. (Next.js supports ESM packages out of the box since [v12](https://nextjs.org/blog/next-12#es-modules-support-and-url-imports)).
 
