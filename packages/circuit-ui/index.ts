@@ -123,6 +123,7 @@ export { TabPanel } from './components/Tabs/components/TabPanel/TabPanel.js';
 export type { TabPanelProps } from './components/Tabs/components/TabPanel/TabPanel.js';
 export { TabList } from './components/Tabs/components/TabList/TabList.js';
 export type { TabListProps } from './components/Tabs/components/TabList/TabList.js';
+export { useTabState } from './components/Tabs/helper.js';
 export { SkipLink } from './components/SkipLink/index.js';
 export type { SkipLinkProps } from './components/SkipLink/index.js';
 
