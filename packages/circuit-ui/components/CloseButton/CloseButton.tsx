@@ -16,7 +16,9 @@
 import { forwardRef } from 'react';
 import { Close } from '@sumup-oss/icons';
 
-import { IconButton, type IconButtonProps } from '../Button/IconButton.js';
+import { IconButton, type IconButtonProps } from '../Button/index.js';
+import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import { translations } from './translations/index.js';
 
 export type CloseButtonProps = Omit<IconButtonProps, 'icon'>;
 
@@ -24,18 +26,19 @@ export type CloseButtonProps = Omit<IconButtonProps, 'icon'>;
  * A generic close button.
  */
 
-export const CloseButton = forwardRef<any, CloseButtonProps>(
-  ({ label = 'Close', children = label, ...props }, ref) => (
+export const CloseButton = forwardRef<any, CloseButtonProps>((props, ref) => {
+  const { label, children = label, ...rest } = useI18n(props, translations);
+  return (
     <IconButton
       type="button"
       variant="tertiary"
-      {...props}
+      {...rest}
       icon={Close}
       ref={ref}
     >
       {children}
     </IconButton>
-  ),
-);
+  );
+});
 
 CloseButton.displayName = 'CloseButton';

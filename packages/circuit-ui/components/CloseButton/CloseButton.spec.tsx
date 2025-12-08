@@ -16,29 +16,32 @@
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { axe, render } from '../../util/test-utils.js';
+import { axe, render, screen } from '../../util/test-utils.js';
 
 import { CloseButton } from './CloseButton.js';
 
 describe('CloseButton', () => {
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
-    const { container } = render(
-      <CloseButton label="Close" className={className} />,
-    );
-    const button = container.querySelector('button');
+    render(<CloseButton className={className}>Close</CloseButton>);
+    const button = screen.getByRole('button', { name: 'Close' });
     expect(button?.className).toContain(className);
   });
 
   it('should forward a ref', () => {
     const ref = createRef<HTMLHRElement>();
-    const { container } = render(<CloseButton label="Close" ref={ref} />);
-    const button = container.querySelector('button');
+    render(<CloseButton ref={ref}>Close</CloseButton>);
+    const button = screen.getByRole('button', { name: 'Close' });
     expect(ref.current).toBe(button);
   });
 
+  it('should render with default translated label', () => {
+    render(<CloseButton locale="fr-FR" />);
+    expect(screen.getByText('Fermer')).toBeVisible();
+  });
+
   it('should meet accessibility guidelines', async () => {
-    const { container } = render(<CloseButton label="Close" />);
+    const { container } = render(<CloseButton>Close</CloseButton>);
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
