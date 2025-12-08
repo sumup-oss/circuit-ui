@@ -66,7 +66,7 @@ type RemoveProps =
        * Text label for the remove icon for screen readers.
        * Important for accessibility.
        */
-      removeButtonLabel: string;
+      removeButtonLabel?: string;
     }
   | { onRemove?: never; removeButtonLabel?: never };
 

@@ -199,7 +199,7 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
             readOnly={readOnly}
             {...props}
           />
-          {value && onClear && clearLabel && (
+          {value && onClear && (
             <CloseButton
               className={classes.clear}
               size="s"
