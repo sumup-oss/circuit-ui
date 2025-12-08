@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.14.2
+
+### Patch Changes
+
+- [#3394](https://github.com/sumup-oss/circuit-ui/pull/3394) [`abe11fd`](https://github.com/sumup-oss/circuit-ui/commit/abe11fdcb7869991bd4474c5b9581d3741a192f6) Thanks [@sirineJ](https://github.com/sirineJ)! - Add missing export of the `useTabState` component method.
+
 ## 10.14.1
 
 ### Patch Changes
