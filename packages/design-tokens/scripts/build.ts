@@ -26,7 +26,7 @@ import { shared } from '../themes/shared.js';
 import { light } from '../themes/light.js';
 import { dark } from '../themes/dark.js';
 import type { ColorScheme, FontFace, Token } from '../types/index.js';
-import { inter } from '../themes/fonts.js';
+import { holo } from '../themes/fonts.js';
 
 export type TokenConfig = {
   type: 'tokens';
@@ -105,7 +105,7 @@ function main(): void {
     'fonts': [
       {
         type: 'font-faces',
-        fontFaces: inter,
+        fontFaces: holo,
       },
     ],
   };
