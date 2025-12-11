@@ -61,7 +61,25 @@ export const shared = [
   {
     name: '--cui-font-stack-default',
     value:
-      '"Inter", "Inter-Fallback", Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+      '"Holo", "Inter-Fallback", Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    type: 'fontFamily',
+  },
+  {
+    name: '--cui-font-stack-bold',
+    value:
+      '"HoloBold", "Inter-Fallback", Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    type: 'fontFamily',
+  },
+  {
+    name: '--cui-font-stack-black',
+    value:
+      '"HoloBlack", "Inter-Fallback", Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    type: 'fontFamily',
+  },
+  {
+    name: '--cui-font-stack-semibold',
+    value:
+      '"HoloSemiBold", "Inter-Fallback", Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
     type: 'fontFamily',
   },
   {
