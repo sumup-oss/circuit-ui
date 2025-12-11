@@ -8,7 +8,8 @@
   "sideEffects": false,
   "files": [
     "dist",
-    "*.css"
+    "*.css",
+    "assets/fonts/**/*"
   ],
   "repository": {
     "type": "git",

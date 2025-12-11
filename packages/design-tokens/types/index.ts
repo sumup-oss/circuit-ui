@@ -165,11 +165,11 @@ export type FontFace =
   // Custom font
   | {
       'font-family': string;
-      'font-style': 'normal' | 'italic' | 'oblique';
+      'font-style': 'normal' | 'italic' | 'oblique' | 'Black';
       'font-weight': `${number}` | `${number} ${number}`;
       'font-display': 'auto' | 'block' | 'swap' | 'fallback' | 'optional';
       'src': string;
-      'unicode-range': string;
+      'unicode-range'?: string;
     }
   // Web safe fallback font
   | {
