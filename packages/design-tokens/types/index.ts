@@ -169,7 +169,7 @@ export type FontFace =
       'font-weight': `${number}` | `${number} ${number}`;
       'font-display': 'auto' | 'block' | 'swap' | 'fallback' | 'optional';
       'src': string;
-      'unicode-range': string;
+      'unicode-range'?: string;
     }
   // Web safe fallback font
   | {
