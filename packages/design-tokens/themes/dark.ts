@@ -18,7 +18,7 @@ import type { Token } from '../types/index.js';
 export const dark = [
   {
     name: '--cui-bg-normal',
-    value: '#171d24',
+    value: '#1E1C1C',
     type: 'color',
   },
   {
@@ -78,7 +78,7 @@ export const dark = [
   },
   {
     name: '--cui-bg-strong',
-    value: '#ffffff',
+    value: '#F0F1E7',
     type: 'color',
   },
   {
@@ -123,12 +123,12 @@ export const dark = [
   },
   {
     name: '--cui-bg-accent-strong-hovered',
-    value: '#ffffff',
+    value: '#F0F1E7',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-strong-pressed',
-    value: '#ffffff',
+    value: '#F0F1E7',
     type: 'color',
   },
   {
@@ -158,7 +158,7 @@ export const dark = [
   },
   {
     name: '--cui-bg-success-strong',
-    value: '#0cd368',
+    value: '#20B839',
     type: 'color',
   },
   {
@@ -198,7 +198,7 @@ export const dark = [
   },
   {
     name: '--cui-bg-warning-strong',
-    value: '#f5b81c',
+    value: '#F8AB2F',
     type: 'color',
   },
   {
@@ -238,7 +238,7 @@ export const dark = [
   },
   {
     name: '--cui-bg-danger-strong',
-    value: '#ff4e37',
+    value: '#FF4800',
     type: 'color',
   },
   {
@@ -298,7 +298,7 @@ export const dark = [
   },
   {
     name: '--cui-fg-normal',
-    value: '#ffffff',
+    value: '#F0F1E7',
     type: 'color',
   },
   {
@@ -403,12 +403,12 @@ export const dark = [
   },
   {
     name: '--cui-fg-accent-hovered',
-    value: '#ffffff',
+    value: '#F0F1E7',
     type: 'color',
   },
   {
     name: '--cui-fg-accent-pressed',
-    value: '#ffffff',
+    value: '#F0F1E7',
     type: 'color',
   },
   {
@@ -558,7 +558,7 @@ export const dark = [
   },
   {
     name: '--cui-border-strong',
-    value: '#ffffff',
+    value: '#F0F1E7',
     type: 'color',
   },
   {
@@ -578,7 +578,7 @@ export const dark = [
   },
   {
     name: '--cui-border-accent',
-    value: '#ffffff',
+    value: '#F0F1E7',
     type: 'color',
   },
   {
@@ -683,12 +683,12 @@ export const dark = [
   },
   {
     name: '--cui-bg-elevated',
-    value: '#2f3438',
+    value: '#332F2F',
     type: 'color',
   },
   {
     name: '--cui-border-focus',
-    value: '#ffffff',
+    value: '#F0F1E7',
     type: 'color',
   },
 ] satisfies Token[];
