@@ -6,11 +6,6 @@
   display: none;
 }
 
-.country-code.country-code,
-.subscriber-number.subscriber-number {
-  flex-grow: 1;
-}
-
 @media (max-width: 479px) {
   .wrapper {
     flex-direction: column;
@@ -64,6 +59,7 @@
 .subscriber-number.subscriber-number {
   position: relative;
   z-index: calc(var(--cui-z-index-input) + 1);
+  flex-grow: 1;
 }
 
 /* Elevate the country code select above the subscriber number input on hover and focus */

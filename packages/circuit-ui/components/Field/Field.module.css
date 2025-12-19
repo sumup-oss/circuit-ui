@@ -1,4 +1,6 @@
 .fieldset {
+  /* This ensures that the fieldset fills the available width when rendered in a flexbox container, to match other input components */
+  flex-grow: 1;
   padding: 0;
   margin: 0;
   border: none;
