@@ -206,12 +206,10 @@ const ComponentWithSidePanel = (props: SidePanelHookProps) => {
 };
 
 export const Base = (props: SidePanelHookProps) => (
-  <div style={{ display: 'flex' }}>
-    <SidePanelProvider>
-      <StoryInstructions />
-      <ComponentWithSidePanel {...props} />
-    </SidePanelProvider>
-  </div>
+  <SidePanelProvider>
+    <StoryInstructions />
+    <ComponentWithSidePanel {...props} />
+  </SidePanelProvider>
 );
 Base.args = baseArgs;
 Base.play = basePlay;
@@ -225,7 +223,7 @@ export const WithTopNavigation = (props: SidePanelHookProps) => {
     onClick: () => setSideNavigationOpen((prev) => !prev),
   };
   return (
-    <>
+    <SidePanelProvider>
       <TopNavigation {...topNavigationProps} hamburger={hamburger} />
       <div style={{ display: 'flex' }}>
         <SideNavigation
@@ -234,13 +232,11 @@ export const WithTopNavigation = (props: SidePanelHookProps) => {
           onClose={() => setSideNavigationOpen(false)}
         />
         <div style={{ flex: '1' }}>
-          <SidePanelProvider>
-            <StoryInstructions />
-            <ComponentWithSidePanel {...props} />
-          </SidePanelProvider>
+          <StoryInstructions />
+          <ComponentWithSidePanel {...props} />
         </div>
       </div>
-    </>
+    </SidePanelProvider>
   );
 };
 WithTopNavigation.storyName = 'With TopNavigation';
@@ -309,12 +305,10 @@ const ComponentWithSidePanelExtended = (props: SidePanelHookProps) => {
 };
 
 export const UpdateAndRemove = (props: SidePanelHookProps) => (
-  <div style={{ display: 'flex' }}>
-    <SidePanelProvider>
-      <StoryInstructions />
-      <ComponentWithSidePanelExtended {...props} />
-    </SidePanelProvider>
-  </div>
+  <SidePanelProvider>
+    <StoryInstructions />
+    <ComponentWithSidePanelExtended {...props} />
+  </SidePanelProvider>
 );
 UpdateAndRemove.args = baseArgs;
 UpdateAndRemove.play = basePlay;

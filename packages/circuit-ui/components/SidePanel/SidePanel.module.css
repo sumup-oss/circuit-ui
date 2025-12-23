@@ -1,3 +1,7 @@
+:root {
+  --side-panel-width: 400px;
+}
+
 .base {
   position: fixed;
   right: 0;
@@ -46,30 +50,35 @@
   }
 
   .content {
-    padding: 0 var(--cui-spacings-mega);
+    padding: var(--cui-spacings-mega);
+  }
+
+  .with-header {
+    padding: 0 var(--cui-spacings-mega) var(--cui-spacings-mega)
+      var(--cui-spacings-mega);
   }
 }
 
 @media (min-width: 768px) {
   .base {
-    top: var(--top-navigation-height, 0);
+    top: 0;
     width: var(--side-panel-width);
-    height: calc(100vh - var(--top-navigation-height, 0));
+    height: 100vh;
 
     /* biome-ignore lint/suspicious/noDuplicateProperties: Browser compatibility */
-    height: calc(100dvh - var(--top-navigation-height, 0));
+    height: 100dvh;
     margin: 0;
-    background-color: var(--cui-bg-normal);
-    box-shadow: inset var(--cui-border-width-kilo) 0 0 var(--cui-border-divider);
+    background-color: var(--cui-bg-elevated);
+    box-shadow: 0 -3px 12px 0 rgb(0 0 0 / 10%);
   }
 
   .base::after {
     /* to account for inset box shadow */
     margin-left: 1px;
     background: linear-gradient(
-      color-mix(in sRGB, var(--cui-bg-normal) 0%, transparent),
-      color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
-      color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent)
+      color-mix(in sRGB, var(--cui-bg-elevated) 0%, transparent),
+      color-mix(in sRGB, var(--cui-bg-elevated) 66%, transparent),
+      color-mix(in sRGB, var(--cui-bg-elevated) 100%, transparent)
     );
   }
 
@@ -78,6 +87,11 @@
   }
 
   .content {
-    padding: 0 var(--cui-spacings-giga);
+    padding: var(--cui-spacings-giga);
+  }
+
+  .with-header {
+    padding: 0 var(--cui-spacings-giga) var(--cui-spacings-giga)
+      var(--cui-spacings-giga);
   }
 }

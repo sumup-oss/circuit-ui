@@ -5,14 +5,8 @@
   display: flex;
   align-items: center;
   width: 100%;
+  height: var(--cui-spacings-zetta);
   background-color: var(--cui-bg-elevated);
-}
-
-@media (min-width: 768px) {
-  .base {
-    background-color: var(--cui-bg-normal);
-    box-shadow: inset var(--cui-border-width-kilo) 0 0 var(--cui-border-divider);
-  }
 }
 
 .sticky {
@@ -22,19 +16,21 @@
 
 @media (min-width: 768px) {
   .sticky {
-    box-shadow: inset var(--cui-border-width-kilo)
-      calc(-1 * var(--cui-border-width-kilo)) 0 var(--cui-border-divider);
+    box-shadow: inset 0 calc(-1 * var(--cui-border-width-kilo)) 0
+      var(--cui-border-divider);
   }
 }
 
 .base .button {
+  position: absolute;
+  right: 0;
   flex: none;
   margin: var(--cui-spacings-bit);
 }
 
 .headline {
   flex: 1 1 auto;
-  margin-left: var(--cui-spacings-zetta);
+  padding: var(--cui-spacings-mega) 0;
   overflow-x: hidden;
   text-overflow: ellipsis;
   text-align: center;

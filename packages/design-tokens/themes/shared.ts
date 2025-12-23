@@ -471,7 +471,7 @@ export const shared = [
   },
   {
     name: '--cui-z-index-side-panel',
-    value: 30,
+    value: 900,
     type: 'number',
   },
   {
