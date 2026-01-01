@@ -118,7 +118,7 @@ export const typography = {
 
 export const fontStack: FontStack = {
   default:
-    '"Inter", Helvetica, Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    '"NaN Holo", Helvetica, Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
   mono: 'Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace',
 };
 

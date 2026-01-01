@@ -18,7 +18,7 @@ import type { Token } from '../types/index.js';
 export const light = [
   {
     name: '--cui-bg-normal',
-    value: '#ffffff',
+    value: '#FBFBF9',
     type: 'color',
   },
   {
@@ -78,7 +78,7 @@ export const light = [
   },
   {
     name: '--cui-bg-strong',
-    value: '#000000',
+    value: '#1E1C1C',
     type: 'color',
   },
   {
@@ -118,7 +118,7 @@ export const light = [
   },
   {
     name: '--cui-bg-accent-strong',
-    value: '#0f131a',
+    value: '#1E1C1C',
     type: 'color',
   },
   {
@@ -158,7 +158,7 @@ export const light = [
   },
   {
     name: '--cui-bg-success-strong',
-    value: '#018850',
+    value: '#20B839',
     type: 'color',
   },
   {
@@ -198,7 +198,7 @@ export const light = [
   },
   {
     name: '--cui-bg-warning-strong',
-    value: '#e87c00',
+    value: '#F8AB2F',
     type: 'color',
   },
   {
@@ -238,7 +238,7 @@ export const light = [
   },
   {
     name: '--cui-bg-danger-strong',
-    value: '#de331d',
+    value: '#FF4800',
     type: 'color',
   },
   {
@@ -298,17 +298,17 @@ export const light = [
   },
   {
     name: '--cui-fg-normal',
-    value: '#0f131a',
+    value: '#1E1C1C',
     type: 'color',
   },
   {
     name: '--cui-fg-normal-hovered',
-    value: '#0f131a',
+    value: '#1E1C1C',
     type: 'color',
   },
   {
     name: '--cui-fg-normal-pressed',
-    value: '#0f131a',
+    value: '#1E1C1C',
     type: 'color',
   },
   {
@@ -358,17 +358,17 @@ export const light = [
   },
   {
     name: '--cui-fg-on-strong',
-    value: '#ffffff',
+    value: '#F0F1E7',
     type: 'color',
   },
   {
     name: '--cui-fg-on-strong-hovered',
-    value: '#ffffff',
+    value: '#F0F1E7',
     type: 'color',
   },
   {
     name: '--cui-fg-on-strong-pressed',
-    value: '#ffffff',
+    value: '#F0F1E7',
     type: 'color',
   },
   {
@@ -398,7 +398,7 @@ export const light = [
   },
   {
     name: '--cui-fg-accent',
-    value: '#0f131a',
+    value: '#1E1C1C',
     type: 'color',
   },
   {
@@ -418,7 +418,7 @@ export const light = [
   },
   {
     name: '--cui-fg-success',
-    value: '#018850',
+    value: '#20B839',
     type: 'color',
   },
   {
@@ -438,7 +438,7 @@ export const light = [
   },
   {
     name: '--cui-fg-warning',
-    value: '#e27900',
+    value: '#F8AB2F',
     type: 'color',
   },
   {
@@ -458,7 +458,7 @@ export const light = [
   },
   {
     name: '--cui-fg-danger',
-    value: '#de331d',
+    value: '#FF4800',
     type: 'color',
   },
   {
@@ -478,7 +478,7 @@ export const light = [
   },
   {
     name: '--cui-fg-promo',
-    value: '#9e33e0',
+    value: '#34D5EB',
     type: 'color',
   },
   {
@@ -558,7 +558,7 @@ export const light = [
   },
   {
     name: '--cui-border-strong',
-    value: '#0f131a',
+    value: '#1E1C1C',
     type: 'color',
   },
   {
@@ -578,7 +578,7 @@ export const light = [
   },
   {
     name: '--cui-border-accent',
-    value: '#0f131a',
+    value: '#1E1C1C',
     type: 'color',
   },
   {
@@ -683,12 +683,12 @@ export const light = [
   },
   {
     name: '--cui-bg-elevated',
-    value: '#ffffff',
+    value: '#F0F1E7',
     type: 'color',
   },
   {
     name: '--cui-border-focus',
-    value: '#0f131a',
+    value: '#1E1C1C',
     type: 'color',
   },
 ] satisfies Token[];
