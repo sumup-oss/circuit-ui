@@ -65,7 +65,7 @@ export const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
         {...props}
       >
         {children}
-        {onClose && closeButtonLabel && (
+        {onClose && (
           <CloseButton className={classes.close} onClick={onClose}>
             {closeButtonLabel}
           </CloseButton>
