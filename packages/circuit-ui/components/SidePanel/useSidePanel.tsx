@@ -79,7 +79,6 @@ type UseSidePanelHook = () => {
   setSidePanel: SetSidePanel;
   updateSidePanel: UpdateSidePanel;
   removeSidePanel: RemoveSidePanel;
-  isPrimaryContentResized: boolean;
   transitionDuration: number;
 };
 
@@ -90,7 +89,6 @@ export const useSidePanel: UseSidePanelHook = () => {
     setSidePanel: setSidePanelContext,
     updateSidePanel: updateSidePanelContext,
     removeSidePanel: removeSidePanelContext,
-    isPrimaryContentResized,
     transitionDuration,
   } = useContext(SidePanelContext);
 
@@ -146,7 +144,6 @@ export const useSidePanel: UseSidePanelHook = () => {
     setSidePanel,
     updateSidePanel,
     removeSidePanel,
-    isPrimaryContentResized,
     transitionDuration,
   };
 };

@@ -43,7 +43,6 @@ describe('useSidePanel', () => {
         setSidePanel,
         updateSidePanel,
         removeSidePanel,
-        isPrimaryContentResized: false,
         transitionDuration: 200,
       }}
     >

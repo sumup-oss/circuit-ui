@@ -19,19 +19,16 @@ import {
   createContext,
   useCallback,
   useMemo,
-  useState,
   type ReactNode,
   type HTMLAttributes,
 } from 'react';
 
 import { useStack, type StackItem } from '../../hooks/useStack/index.js';
 import { promisify } from '../../util/promises.js';
-import { clsx } from '../../styles/clsx.js';
 import { useLatest } from '../../hooks/useLatest/useLatest.js';
 
 import { SidePanel, type SidePanelProps } from './SidePanel.js';
 import { TRANSITION_DURATION } from './constants.js';
-import classes from './SidePanelContext.module.css';
 import type { SidePanelHookProps } from './useSidePanel.js';
 
 export type SetSidePanel = (sidePanel: SidePanelContextItem) => void;
@@ -54,7 +51,6 @@ type SidePanelContextValue = {
   setSidePanel: SetSidePanel;
   updateSidePanel: UpdateSidePanel;
   removeSidePanel: RemoveSidePanel;
-  isPrimaryContentResized: boolean;
   transitionDuration: number;
 };
 
@@ -62,7 +58,6 @@ export const SidePanelContext = createContext<SidePanelContextValue>({
   setSidePanel: () => {},
   updateSidePanel: () => {},
   removeSidePanel: () => Promise.resolve(),
-  isPrimaryContentResized: false,
   transitionDuration: TRANSITION_DURATION,
 });
 
@@ -79,7 +74,6 @@ export function SidePanelProvider({
   ...props
 }: SidePanelProviderProps) {
   const [sidePanels, dispatch] = useStack<SidePanelContextItem>();
-  const [isPrimaryContentResized, setIsPrimaryContentResized] = useState(false);
 
   const sidePanelsRef = useLatest(sidePanels);
 
@@ -115,10 +109,6 @@ export function SidePanelProvider({
 
           if (sidePanel.onClose) {
             await promisify(sidePanel.onClose);
-          }
-
-          if (!isInstantClose) {
-            setIsPrimaryContentResized(sidePanelIndex !== 0);
           }
 
           await new Promise<void>((resolve) => {
@@ -158,7 +148,6 @@ export function SidePanelProvider({
       const panel = findSidePanel(sidePanel.group);
 
       const pushPanel = (isInstantOpen: boolean) => {
-        setIsPrimaryContentResized(true);
         dispatch({
           type: 'push',
           item: { ...sidePanel, isInstantOpen, open: true },
@@ -195,22 +184,14 @@ export function SidePanelProvider({
       setSidePanel,
       updateSidePanel,
       removeSidePanel,
-      isPrimaryContentResized,
       transitionDuration: TRANSITION_DURATION,
     }),
-    [setSidePanel, updateSidePanel, removeSidePanel, isPrimaryContentResized],
+    [setSidePanel, updateSidePanel, removeSidePanel],
   );
 
   return (
     <SidePanelContext.Provider value={context}>
-      <div
-        {...props}
-        className={clsx(
-          classes.base,
-          isPrimaryContentResized && classes.resized,
-          props.className,
-        )}
-      >
+      <div {...props}>
         {children}
         {sidePanels.map((sidePanel) => {
           const {

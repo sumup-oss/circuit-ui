@@ -112,7 +112,12 @@ export const SidePanel = forwardRef<HTMLDialogElement, SidePanelProps>(
               onClose={onClose}
               isSticky={isHeaderSticky}
             />
-            <div className={classes.content}>
+            <div
+              className={clsx(
+                classes.content,
+                closeButtonLabel && headline && classes['with-header'],
+              )}
+            >
               {isFunction(children) ? children({ onBack, onClose }) : children}
             </div>
           </div>
