@@ -67,7 +67,7 @@ describe('useSidePanel', () => {
 
     const expected = {
       ...panel,
-      group: '«r0»',
+      group: '_r_0_',
       id: '1',
       open: true,
     };
@@ -98,7 +98,7 @@ describe('useSidePanel', () => {
 
     const expected = {
       children: <p data-testid="children">Updated content</p>,
-      group: '«r2»',
+      group: '_r_2_',
     };
     expect(updateSidePanel).toHaveBeenCalledWith(expected);
   });
@@ -124,7 +124,7 @@ describe('useSidePanel', () => {
     result.current.setSidePanel(panel);
     result.current.removeSidePanel();
 
-    const expected = '«r4»';
+    const expected = '_r_4_';
     expect(removeSidePanel).toHaveBeenCalledWith(expected);
   });
 
@@ -149,7 +149,7 @@ describe('useSidePanel', () => {
 
     unmount();
 
-    const expected = '«r6»';
+    const expected = '_r_6_';
     expect(removeSidePanel).toHaveBeenCalledWith(expected);
   });
 });
