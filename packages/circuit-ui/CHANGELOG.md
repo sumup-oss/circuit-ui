@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.14.3
+
+### Patch Changes
+
+- [#3398](https://github.com/sumup-oss/circuit-ui/pull/3398) [`0831542`](https://github.com/sumup-oss/circuit-ui/commit/08315420380a615c53c3d2966133695d73be446f) Thanks [@connor-baer](https://github.com/connor-baer)! - Ensured that the PhoneNumberInput component fills the available width when rendered inside a flexbox container. This matches the behavior of other input components.
+
 ## 10.14.2
 
 ### Patch Changes
