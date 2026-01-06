@@ -38,8 +38,7 @@ jobs:
           cache: "npm"
 
       - name: Update npm
-        # Match https://github.com/dependabot/dependabot-core/blob/main/npm_and_yarn/Dockerfile#L24
-        run: npm install npm@11.6.2 -g
+        run: npm update -g npm
 
       - name: Bootstrap app
         run: ${{ matrix.bootstrap }}
