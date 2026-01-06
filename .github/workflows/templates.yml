@@ -38,7 +38,7 @@ jobs:
           cache: "npm"
 
       - name: Update npm
-        run: npm update -g npm
+        run: npm install -g npm@11.7.0
 
       - name: Bootstrap app
         run: ${{ matrix.bootstrap }}

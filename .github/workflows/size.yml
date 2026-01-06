@@ -13,8 +13,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: "npm"
+
       - name: Update npm
-        run: npm update -g npm
+        run: npm install -g npm@11.7.0
 
       - name: Check compressed bundle sizes
         uses: preactjs/compressed-size-action@v2
