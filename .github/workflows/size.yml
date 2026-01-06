@@ -13,8 +13,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
+      - name: Update npm
+        run: npm update -g npm
+
       - name: Check compressed bundle sizes
-        uses: preactjs/compressed-size-action@v3
+        uses: preactjs/compressed-size-action@v2
         with:
           pattern: "packages/**/dist/**/*.{js,css,json}"
           exclude: "{**/*.map,**/node_modules/**,**/eslint-plugin-circuit-ui/**,**/stylelint-plugin-circuit-ui/**,**/*.index.*,**/*.module.css.js}"
