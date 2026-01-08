@@ -91,10 +91,10 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
       },
       onEnd: () => {
         setHeight(DEFAULT_HEIGHT);
-        setOverflow('visible');
+        setOverflow(isOpen ? 'hidden' : 'visible');
       },
     });
-  }, [setAnimating, duration]);
+  }, [setAnimating, duration, isOpen]);
 
   return {
     isOpen,
