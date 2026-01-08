@@ -188,6 +188,38 @@ describe('useCollapsible', () => {
         expect(result.current.isOpen).toBeTruthy();
       });
     });
+
+    it('should reset the overflow when the animation ends on open', async () => {
+      const { result } = renderHook(() => useCollapsible());
+      const { toggleOpen } = result.current;
+
+      act(() => {
+        toggleOpen();
+      });
+      await waitFor(() => {
+        expect(result.current.isAnimating).toBeFalsy();
+      });
+
+      const contentProps = result.current.getContentProps();
+      expect(contentProps.style.overflowY).toBe('visible');
+    });
+
+    it('should reset the overflow when the animation ends on close', async () => {
+      const { result } = renderHook(() =>
+        useCollapsible({ initialOpen: true }),
+      );
+      const { toggleOpen } = result.current;
+
+      act(() => {
+        toggleOpen();
+      });
+      await waitFor(() => {
+        expect(result.current.isAnimating).toBeFalsy();
+      });
+
+      const contentProps = result.current.getContentProps();
+      expect(contentProps.style.overflowY).toBe('hidden');
+    });
   });
 
   describe('getHeight', () => {
