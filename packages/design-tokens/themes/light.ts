@@ -98,42 +98,42 @@ export const light = [
   },
   {
     name: '--cui-bg-accent',
-    value: '#eef0f2',
+    value: '#FFDDFC',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-hovered',
-    value: '#e3e7eb',
+    value: '#FDE1FF',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-pressed',
-    value: '#c2c9d1',
+    value: '#DFC1D6',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-disabled',
-    value: 'rgba(238, 240, 242, 0.4000)',
+    value: 'rgba(244, 238, 255, 0.4000)',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-strong',
-    value: '#0f131a',
+    value: '#FF61F2',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-strong-hovered',
-    value: '#3b3f46',
+    value: '#F374FF',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-strong-pressed',
-    value: '#6a737c',
+    value: '#DF53B7',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-strong-disabled',
-    value: 'rgba(15, 19, 26, 0.4000)',
+    value: 'rgba(210, 156, 255, 0.4000)',
     type: 'color',
   },
   {
@@ -398,22 +398,22 @@ export const light = [
   },
   {
     name: '--cui-fg-accent',
-    value: '#0f131a',
+    value: '#FF61F2',
     type: 'color',
   },
   {
     name: '--cui-fg-accent-hovered',
-    value: '#52565d',
+    value: '#F374FF',
     type: 'color',
   },
   {
     name: '--cui-fg-accent-pressed',
-    value: '#676e7a',
+    value: '#DF53B7',
     type: 'color',
   },
   {
     name: '--cui-fg-accent-disabled',
-    value: 'rgba(15, 19, 26, 0.4000)',
+    value: 'rgba(210, 156, 255, 0.4000)',
     type: 'color',
   },
   {
@@ -578,22 +578,22 @@ export const light = [
   },
   {
     name: '--cui-border-accent',
-    value: '#0f131a',
+    value: '#FF61F2',
     type: 'color',
   },
   {
     name: '--cui-border-accent-hovered',
-    value: '#52565d',
+    value: '#F374FF',
     type: 'color',
   },
   {
     name: '--cui-border-accent-pressed',
-    value: '#676e7a',
+    value: '#DF53B7',
     type: 'color',
   },
   {
     name: '--cui-border-accent-disabled',
-    value: 'rgba(15, 19, 26, 0.4000)',
+    value: 'rgba(210, 156, 255, 0.4000)',
     type: 'color',
   },
   {
