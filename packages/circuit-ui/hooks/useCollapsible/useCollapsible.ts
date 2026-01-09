@@ -72,9 +72,6 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
   const contentElement = useRef<T>(null);
   const [isOpen, setOpen] = useState(initialOpen);
   const [height, setHeight] = useState(getHeight(contentElement));
-  const [overflow, setOverflow] = useState<Overflow>(
-    initialOpen ? 'visible' : 'hidden',
-  );
   const [isAnimating, setAnimating] = useAnimation();
 
   const toggleOpen = useCallback(() => {
@@ -82,7 +79,6 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
       duration,
       onStart: () => {
         setHeight(getHeight(contentElement));
-        setOverflow('hidden');
         // Delaying the state update until the next animation frame ensures that
         // the browsers renders the new height before the animation starts.
         window.requestAnimationFrame(() => {
@@ -91,10 +87,9 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
       },
       onEnd: () => {
         setHeight(DEFAULT_HEIGHT);
-        setOverflow(isOpen ? 'hidden' : 'visible');
       },
     });
-  }, [setAnimating, duration, isOpen]);
+  }, [setAnimating, duration]);
 
   return {
     isOpen,
@@ -114,7 +109,7 @@ export function useCollapsible<T extends HTMLElement = HTMLElement>({
       'ref': contentElement,
       'id': contentId,
       'style': {
-        overflowY: overflow,
+        overflowY: isOpen && !isAnimating ? 'visible' : 'hidden',
         willChange: 'height',
         opacity: isOpen ? 1 : 0,
         height: isOpen ? height : 0,
