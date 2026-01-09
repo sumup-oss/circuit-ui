@@ -36,11 +36,9 @@ import { clsx } from '../../styles/clsx.js';
 import { useClickOutside } from '../../hooks/useClickOutside/index.js';
 import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
 import { useLatest } from '../../hooks/useLatest/index.js';
-import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import { useSwipe } from '../../hooks/useSwipe/index.js';
 
 import classes from './Dialog.module.css';
-import { translations } from './translations/index.js';
 
 type DataAttribute = `data-${string}`;
 
@@ -119,8 +117,8 @@ export interface DialogProps extends PublicDialogProps {
 }
 
 export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
-  (props, ref) => {
-    const {
+  (
+    {
       open,
       isModal = false,
       children,
@@ -136,7 +134,9 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       locale,
       style,
       ...rest
-    } = useI18n(props, translations);
+    },
+    ref,
+  ) => {
     const dialogRef = useRef<HTMLDialogElement>(null);
     const openRef = useLatest<boolean>(open);
     const isModalRef = useLatest<boolean>(isModal);
