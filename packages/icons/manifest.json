@@ -3401,6 +3401,11 @@
     {
       "name": "hamburger_menu",
       "category": "Navigation",
+      "size": "16"
+    },
+    {
+      "name": "hamburger_menu",
+      "category": "Navigation",
       "size": "24"
     },
     {
