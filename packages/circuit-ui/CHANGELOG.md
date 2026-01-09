@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.14.4
+
+### Patch Changes
+
+- [#3422](https://github.com/sumup-oss/circuit-ui/pull/3422) [`1614cb0`](https://github.com/sumup-oss/circuit-ui/commit/1614cb0059cf6fb38c0c5089f1ad56c863c9ad35) Thanks [@jandriescher](https://github.com/jandriescher)! - Fixed the content overflow in the `useCollapsible` hook in order to prevent residual space in the parent element after collapsing.
+
 ## 10.14.3
 
 ### Patch Changes
