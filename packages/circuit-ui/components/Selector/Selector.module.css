@@ -63,7 +63,7 @@
   white-space: nowrap;
   cursor: pointer;
   background-color: var(--cui-bg-normal);
-  border-radius: var(--cui-border-radius-byte);
+  border-radius: var(--cui-border-radius-kilo);
   transition: box-shadow var(--cui-transitions-default);
 }
 
@@ -78,7 +78,7 @@
   height: 100%;
   content: "";
   border: var(--cui-border-width-kilo) solid var(--cui-border-normal);
-  border-radius: var(--cui-border-radius-byte);
+  border-radius: var(--cui-border-radius-kilo);
   transition: border var(--cui-transitions-default);
 }
 
