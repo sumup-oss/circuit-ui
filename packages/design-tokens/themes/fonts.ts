@@ -17,51 +17,21 @@ import type { FontFace } from '../types/index.js';
 
 export const holo = [
   {
-    'font-family': 'NaN Holo Narrow Blond',
-    'font-style': 'normal',
-    'font-weight': '300',
-    'font-display': 'swap',
-    'src':
-      'url("https://static.sumup.com/fonts/holo/NaNHoloNarrow-Blond.ttf") format("truetype")',
-  },
-  {
-    'font-family': 'NaN Holo Condensed Medium',
-    'font-style': 'normal',
-    'font-weight': '300',
-    'font-display': 'swap',
-    'src':
-      'url("https://static.sumup.com/fonts/holo/NaNHoloCondensed-Medium.ttf") format("truetype")',
-  },
-  {
     'font-family': 'NaN Holo Narrow',
     'font-style': 'normal',
-    'font-weight': '700',
+    'font-weight': '300 900',
     'font-display': 'swap',
     'src':
-      'url("https://static.sumup.com/fonts/holo/NaNHoloNarrow-Bold.ttf") format("truetype")',
+      'url("https://static.sumup.com/fonts/holo/nan-holo-for-testing-only.woff2") format("woff2-variations")',
+    'font-variation-settings': '"mono" 0',
   },
   {
-    'font-family': '"NaN Holo"',
+    'font-family': 'NaN Holo Black',
     'font-style': 'normal',
-    'font-weight': '900',
+    'font-weight': 'normal',
     'font-display': 'swap',
+    'font-variation-settings': '"wdth" 100, "wght" 900',
     'src':
-      'url("https://static.sumup.com/fonts/holo/NaNHolo-Black.ttf") format("truetype")',
-  },
-  {
-    'font-family': 'NaN Holo Narrow',
-    'font-style': 'normal',
-    'font-weight': '700',
-    'font-display': 'swap',
-    'src':
-      'url("https://static.sumup.com/fonts/holo/HoloNarrow-Bold.ttf") format("ttf")',
-  },
-  {
-    'font-family': 'HoloSemiBold',
-    'font-style': 'normal',
-    'font-weight': '100 900',
-    'font-display': 'swap',
-    'src':
-      'url("https://static.sumup.com/fonts/holo/HoloCondensed-Medium.ttf") format("ttf")',
+      'url("https://static.sumup.com/fonts/holo/nan-holo-for-testing-only.woff2") format("woff2-variations")',
   },
 ] satisfies FontFace[];

@@ -1,7 +1,6 @@
 .base {
   margin: 0;
-  font-family: var(--cui-font-stack-black);
-  font-weight: 900;
+  font-family: var(--cui-font-stack-display);
   color: var(--cui-fg-normal);
   letter-spacing: var(--cui-letter-spacing);
 }

@@ -27,12 +27,10 @@
 }
 
 .semibold {
-  font-family: var(--cui-font-stack-semibold);
   font-weight: var(--cui-font-weight-semibold);
 }
 
 .bold {
-  font-family: var(--cui-font-stack-bold);
   font-weight: var(--cui-font-weight-bold);
 }
 
