@@ -182,6 +182,7 @@ export const schema = [
   { name: '--cui-border-width-mega', type: 'dimension' },
   /* Font families */
   { name: '--cui-font-stack-default', type: 'fontFamily' },
+  { name: '--cui-font-stack-display', type: 'fontFamily' },
   { name: '--cui-font-stack-mono', type: 'fontFamily' },
   /* Font weights */
   { name: '--cui-font-weight-regular', type: 'fontWeight' },
