@@ -20,6 +20,7 @@ import {
   useCallback,
   useEffect,
   useMemo,
+  useRef,
   type ReactNode,
 } from 'react';
 
@@ -28,6 +29,7 @@ import { clsx } from '../../styles/clsx.js';
 
 import type { BaseToastProps, ToastComponent } from './types.js';
 import classes from './ToastContext.module.css';
+import { usePrevious } from '../../hooks/usePrevious/usePrevious.js';
 
 const DEFAULT_TOAST_DURATION = 6000;
 
@@ -64,7 +66,9 @@ export function ToastProvider<TProps extends BaseToastProps>({
   position = 'bottom',
   className,
 }: ToastProviderProps) {
+  const popoverRef = useRef<HTMLDivElement>(null);
   const [toasts, dispatch] = useStack<ToastState<TProps>>([]);
+  const prevToastLength = usePrevious(toasts.length);
 
   const setToast = useCallback(
     (toast: ToastState<TProps>) => {
@@ -114,35 +118,63 @@ export function ToastProvider<TProps extends BaseToastProps>({
     };
   }, [toasts, context]);
 
+  useEffect(() => {
+    const supportsPopover =
+      // @ts-expect-error
+      // eslint-disable-next-line compat/compat
+      (typeof Object.hasOwn === 'function' &&
+        // @ts-expect-error
+        // eslint-disable-next-line compat/compat, @typescript-eslint/no-unsafe-call
+        Object.hasOwn(HTMLElement.prototype, 'popover')) as boolean;
+
+    if (!supportsPopover) {
+      return;
+    }
+
+    const firstToastOpened = prevToastLength === 0 && toasts.length > 0;
+    if (firstToastOpened) {
+      popoverRef.current?.showPopover();
+    }
+
+    const lastToastClosed =
+      prevToastLength && prevToastLength > 0 && toasts.length === 0;
+    if (lastToastClosed) {
+      popoverRef.current?.hidePopover();
+    }
+  }, [prevToastLength, toasts.length]);
+
   return (
     <ToastContext.Provider value={context}>
       {children}
       <div
-        className={clsx(classes.base, classes[position], className)}
+        ref={popoverRef}
+        className={classes.base}
         role="status"
         aria-live="polite"
         aria-atomic="false"
+        popover="manual"
       >
-        {toasts.map((toast) => {
-          const {
-            id,
-            onClose,
-            transition,
-            component: Component,
-            ...toastProps
-          } = toast;
-          return (
-            // @ts-expect-error The props are enforced by the toast hooks,
-            // so this warning can be safely ignored.
-            <Component
-              className={classes.toast}
-              {...toastProps}
-              key={id}
-              isVisible={!transition}
-              onClose={() => context.removeToast(toast)}
-            />
-          );
-        })}
+        <div className={clsx(classes.toasts, classes[position], className)}>
+          {toasts.map((toast) => {
+            const {
+              id,
+              onClose,
+              transition,
+              component: Component,
+              ...toastProps
+            } = toast;
+            return (
+              // @ts-expect-error The props are enforced by the toast hooks,
+              // so this warning can be safely ignored.
+              <Component
+                {...toastProps}
+                key={id}
+                isVisible={!transition}
+                onClose={() => context.removeToast(toast)}
+              />
+            );
+          })}
+        </div>
       </div>
     </ToastContext.Provider>
   );

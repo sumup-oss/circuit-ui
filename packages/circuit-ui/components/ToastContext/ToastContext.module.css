@@ -1,11 +1,19 @@
 .base {
+  margin: 0;
+  background: none;
+  border: none;
+}
+
+.toasts {
   position: fixed;
   left: 0;
-  z-index: var(--cui-z-index-toast);
   display: flex;
   flex-direction: column-reverse;
+  gap: var(--cui-spacings-byte);
   width: 100%;
   padding: 0 var(--cui-spacings-giga);
+  background: none;
+  border: none;
 }
 
 .top,
@@ -18,7 +26,7 @@
 }
 
 @media (min-width: 480px) {
-  .base {
+  .toasts {
     width: auto;
     padding: 0;
   }
@@ -32,9 +40,7 @@
   .top-right {
     right: var(--cui-spacings-giga);
     left: inherit;
+    width: fit-content;
+    margin-left: auto;
   }
-}
-
-.toast {
-  margin-top: var(--cui-spacings-byte);
 }
