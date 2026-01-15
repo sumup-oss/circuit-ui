@@ -156,6 +156,11 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
       refs.setReference(referenceElement);
     });
 
+    /**
+     * We can't use Floating UI's `whileElementsMounted` option because our
+     * implementation hides the floating element using CSS instead of using
+     * conditional rendering.
+     */
     useEffect(() => {
       if (open && refs.reference.current && refs.floating.current) {
         return autoUpdate(

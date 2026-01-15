@@ -188,6 +188,11 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       refs.setReference(referenceElement);
     });
 
+    /**
+     * We can't use Floating UI's `whileElementsMounted` option because our
+     * implementation hides the floating element using CSS instead of using
+     * conditional rendering.
+     */
     useEffect(() => {
       if (
         state === State.open &&

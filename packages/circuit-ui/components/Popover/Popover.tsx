@@ -187,6 +187,11 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
       });
     };
 
+    /**
+     * We can't use Floating UI's `whileElementsMounted` option because our
+     * implementation hides the floating element using CSS instead of using
+     * conditional rendering.
+     */
     useEffect(() => {
       if (isOpen && refs.reference.current && refs.floating.current) {
         return autoUpdate(
