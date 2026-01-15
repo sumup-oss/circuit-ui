@@ -49,7 +49,7 @@ ruleTester.run('prefer-custom-properties', preferCustomProperties, {
       name: 'tagged template expression that uses an unsupported `theme` property',
       code: `
         const styles = (theme) => css\`
-          \${theme.mq.kilo} {
+          \${theme.grid.kilo.breakpoint} {
             display: flex;
           }
         \`;
@@ -172,6 +172,24 @@ ruleTester.run('prefer-custom-properties', preferCustomProperties, {
       errors: [{ messageId: 'replace' }],
     },
     {
+      name: 'tagged template expression that uses media query',
+      code: `
+        const styles = (theme) => css\`
+          \${theme.mq.kilo} {
+            display: flex;
+          }
+        \`;
+      `,
+      output: `
+        const styles = (theme) => css\`
+          @media (min-width: 480px) {
+            display: flex;
+          }
+        \`;
+      `,
+      errors: [{ messageId: 'replaceMediaQuery' }],
+    },
+    {
       name: 'member expression',
       code: `
         const borderRadius = theme.borderRadius.kilo;
@@ -180,6 +198,16 @@ ruleTester.run('prefer-custom-properties', preferCustomProperties, {
         const borderRadius = 'var(--cui-border-radius-kilo)';
       `,
       errors: [{ messageId: 'replace' }],
+    },
+    {
+      name: 'member expression with breakpoint',
+      code: `
+        const isMobile = useMedia(theme.breakpoints.kilo);
+      `,
+      output: `
+        const isMobile = useMedia('(min-width: 480px)');
+      `,
+      errors: [{ messageId: 'replaceMediaQuery' }],
     },
   ],
 });
