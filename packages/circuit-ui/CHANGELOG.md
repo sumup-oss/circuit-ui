@@ -1,5 +1,15 @@
 # @sumup-oss/circuit-ui
 
+## 10.14.4
+
+### Patch Changes
+
+- [#3430](https://github.com/sumup-oss/circuit-ui/pull/3430) [`2af155b`](https://github.com/sumup-oss/circuit-ui/commit/2af155b25d75b77374d25d240c4f207d71ce6d83) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed showing the NotificationToast component on top of `dialog`-based components such as the Modal, SidePanel, and Popover by rendering toasts in the [top layer](https://developer.mozilla.org/en-US/docs/Glossary/Top_layer) in browsers that support it.
+
+- [#3429](https://github.com/sumup-oss/circuit-ui/pull/3429) [`58aa6dd`](https://github.com/sumup-oss/circuit-ui/commit/58aa6ddf153746c1c1621fc7d91374d0d7423288) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed floating elements such as the Popover, ToggleTip, and Tooltip to update their position when ancestor scroll containers are scrolled.
+
+- [#3422](https://github.com/sumup-oss/circuit-ui/pull/3422) [`1614cb0`](https://github.com/sumup-oss/circuit-ui/commit/1614cb0059cf6fb38c0c5089f1ad56c863c9ad35) Thanks [@jandriescher](https://github.com/jandriescher)! - Fixed the content overflow in the `useCollapsible` hook in order to prevent residual space in the parent element after collapsing.
+
 ## 10.14.3
 
 ### Patch Changes
