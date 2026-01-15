@@ -153,6 +153,9 @@ export function ToastProvider<TProps extends BaseToastProps>({
         aria-live="polite"
         aria-atomic="false"
         popover="manual"
+        // JSDOM doesn't support the Popover API but React Testing Library still
+        // regards elements with the `popover` attribute as invisible.
+        style={{ display: 'block' }}
       >
         <div className={clsx(classes.toasts, classes[position], className)}>
           {toasts.map((toast) => {
