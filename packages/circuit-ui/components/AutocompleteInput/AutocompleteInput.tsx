@@ -416,28 +416,6 @@ export const AutocompleteInput = forwardRef<
       ],
     );
 
-    useEffect(() => {
-      /**
-       * When we support `ResizeObserver` (https://caniuse.com/resizeobserver),
-       * we can look into using Floating UI's `autoUpdate` (but we can't use
-       * `whileElementIsMounted` because our implementation hides the floating
-       * element using CSS instead of using conditional rendering.
-       * See https://floating-ui.com/docs/react-dom#updating
-       */
-      if (isOpen) {
-        window.addEventListener('resize', update);
-        window.addEventListener('scroll', update);
-      } else {
-        window.removeEventListener('resize', update);
-        window.removeEventListener('scroll', update);
-      }
-
-      return () => {
-        window.removeEventListener('resize', update);
-        window.removeEventListener('scroll', update);
-      };
-    }, [isOpen, update]);
-
     // biome-ignore lint/correctness/useExhaustiveDependencies: we need to update the floating element styles if the options length changes
     useEffect(() => {
       if (isOpen) {

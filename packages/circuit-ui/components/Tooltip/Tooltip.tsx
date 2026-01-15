@@ -34,6 +34,7 @@ import {
   shift,
   type Placement,
   type Side,
+  autoUpdate,
 } from '@floating-ui/react-dom';
 import { atom } from 'nanostores';
 import { useStore } from '@nanostores/react';
@@ -188,29 +189,19 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     });
 
     useEffect(() => {
-      /**
-       * When we support `ResizeObserver` (https://caniuse.com/resizeobserver),
-       * we can look into using Floating UI's `autoUpdate` (but we can't use
-       * `whileElementIsMounted` because our implementation hides the floating
-       * element using CSS instead of using conditional rendering.
-       * See https://floating-ui.com/docs/react-dom#updating
-       */
-      if (state === State.open) {
-        update();
-        window.addEventListener('resize', update);
-        window.addEventListener('scroll', update);
-
-        return () => {
-          window.removeEventListener('resize', update);
-          window.removeEventListener('scroll', update);
-        };
+      if (
+        state === State.open &&
+        refs.reference.current &&
+        refs.floating.current
+      ) {
+        return autoUpdate(
+          refs.reference.current,
+          refs.floating.current,
+          update,
+        );
       }
-
-      window.removeEventListener('resize', update);
-      window.removeEventListener('scroll', update);
-
       return undefined;
-    }, [state, update]);
+    }, [state, refs.reference, refs.floating, update]);
 
     if (process.env.NODE_ENV !== 'production') {
       if (!type) {
