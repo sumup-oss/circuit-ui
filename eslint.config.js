@@ -13,7 +13,6 @@ export default defineConfig([
     extends: [configs.typescript],
     languageOptions: {
       parserOptions: {
-        project: ['./packages/*/tsconfig.json', './tsconfig.json'],
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
@@ -49,7 +48,6 @@ export default defineConfig([
     },
   },
   {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     extends: [storybook.configs['flat/recommended'], configs.storybook],
   },
   {
