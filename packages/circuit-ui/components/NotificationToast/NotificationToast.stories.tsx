@@ -18,7 +18,10 @@ import isChromatic from 'chromatic/isChromatic';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 import { Button } from '../Button/index.js';
-import { ToastProvider } from '../ToastContext/index.js';
+import {
+  ToastProvider,
+  type ToastProviderProps,
+} from '../ToastContext/index.js';
 
 import {
   useNotificationToast,
@@ -89,16 +92,20 @@ const play = async ({
   await screen.findByRole('status');
 };
 
-export const Base = (toast: NotificationToastProps) => (
-  <ToastProvider>
+type StoryProps = NotificationToastProps & {
+  position: ToastProviderProps['position'];
+};
+
+export const Base = ({ position, ...toast }: StoryProps) => (
+  <ToastProvider position={position}>
     <App toast={toast} />
   </ToastProvider>
 );
 
 Base.play = play;
 
-export const Position = (toast: NotificationToastProps) => (
-  <ToastProvider {...toast}>
+export const Position = ({ position, ...toast }: StoryProps) => (
+  <ToastProvider position={position}>
     <App toast={toast} />
   </ToastProvider>
 );

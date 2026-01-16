@@ -27,6 +27,7 @@ import {
 } from 'react';
 import {
   arrow,
+  autoUpdate,
   flip,
   offset as offsetMiddleware,
   shift,
@@ -155,27 +156,21 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
       refs.setReference(referenceElement);
     });
 
+    /**
+     * We can't use Floating UI's `whileElementsMounted` option because our
+     * implementation hides the floating element using CSS instead of using
+     * conditional rendering.
+     */
     useEffect(() => {
-      /**
-       * When we support `ResizeObserver` (https://caniuse.com/resizeobserver),
-       * we can look into using Floating UI's `autoUpdate` (but we can't use
-       * `whileElementInMounted` because our implementation hides the floating
-       * element using CSS instead of using conditional rendering.
-       * See https://floating-ui.com/docs/react-dom#updating
-       */
-      if (open) {
-        update();
-        window.addEventListener('resize', update);
-        window.addEventListener('scroll', update);
-      } else {
-        window.removeEventListener('resize', update);
-        window.removeEventListener('scroll', update);
+      if (open && refs.reference.current && refs.floating.current) {
+        return autoUpdate(
+          refs.reference.current,
+          refs.floating.current,
+          update,
+        );
       }
-      return () => {
-        window.removeEventListener('resize', update);
-        window.removeEventListener('scroll', update);
-      };
-    }, [open, update]);
+      return undefined;
+    }, [open, refs.reference, refs.floating, update]);
 
     const closeDialog = useCallback(() => {
       setOpen(false);

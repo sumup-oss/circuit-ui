@@ -16,6 +16,7 @@
 'use client';
 
 import {
+  autoUpdate,
   flip,
   offset as offsetMiddleware,
   type Placement,
@@ -186,28 +187,21 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
       });
     };
 
+    /**
+     * We can't use Floating UI's `whileElementsMounted` option because our
+     * implementation hides the floating element using CSS instead of using
+     * conditional rendering.
+     */
     useEffect(() => {
-      /**
-       * When we support `ResizeObserver` (https://caniuse.com/resizeobserver),
-       * we can look into using Floating UI's `autoUpdate` (but we can't use
-       * `whileElementIsMounted` because our implementation hides the floating
-       * element using CSS instead of using conditional rendering.
-       * See https://floating-ui.com/docs/react-dom#updating
-       */
-      if (isOpen) {
-        update();
-        window.addEventListener('resize', update);
-        window.addEventListener('scroll', update);
-      } else {
-        window.removeEventListener('resize', update);
-        window.removeEventListener('scroll', update);
+      if (isOpen && refs.reference.current && refs.floating.current) {
+        return autoUpdate(
+          refs.reference.current,
+          refs.floating.current,
+          update,
+        );
       }
-
-      return () => {
-        window.removeEventListener('resize', update);
-        window.removeEventListener('scroll', update);
-      };
-    }, [isOpen, update]);
+      return undefined;
+    }, [isOpen, refs.reference, refs.floating, update]);
 
     const handleCloseEnd = useCallback(() => {
       setClosing(false);

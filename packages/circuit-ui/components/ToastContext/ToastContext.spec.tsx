@@ -40,7 +40,9 @@ const closeButtonLabel = 'Close';
 const Toast: ToastComponent = ({ onClose }) => (
   <>
     <p>{toastMessage}</p>
-    <button onClick={onClose}>{closeButtonLabel}</button>
+    <button type="button" onClick={onClose}>
+      {closeButtonLabel}
+    </button>
   </>
 );
 Toast.TRANSITION_DURATION = 200;
@@ -87,7 +89,9 @@ describe('ToastContext', () => {
       const Trigger = () => {
         const { setToast } = useContext(ToastContext);
         return (
-          <button onClick={() => setToast(toast)}>{openButtonLabel}</button>
+          <button type="button" onClick={() => setToast(toast)}>
+            {openButtonLabel}
+          </button>
         );
       };
 
@@ -108,7 +112,9 @@ describe('ToastContext', () => {
       const Trigger = () => {
         const { setToast } = useContext(ToastContext);
         return (
-          <button onClick={() => setToast(toast)}>{openButtonLabel}</button>
+          <button type="button" onClick={() => setToast(toast)}>
+            {openButtonLabel}
+          </button>
         );
       };
 
