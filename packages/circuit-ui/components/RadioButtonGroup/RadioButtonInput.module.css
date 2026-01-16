@@ -1,9 +1,9 @@
 .label {
-  --radio-button-size: 20px;
+  --radio-button-size: var(--cui-icon-sizes-mega);
 
   position: relative;
   display: inline-block;
-  min-height: var(--cui-body-m-line-height);
+  min-height: var(--radio-button-size);
   padding-left: var(--radio-button-size);
   color: var(--cui-fg-normal);
   cursor: pointer;

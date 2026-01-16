@@ -2,7 +2,7 @@
 
 exports[`Tooltip > should override alignment styles with position styles 1`] = `
 .circuit-0 {
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   line-height: 1.25rem;
   display: inline-block;
   width: -webkit-max-content;
@@ -37,7 +37,7 @@ exports[`Tooltip > should override alignment styles with position styles 1`] = `
 
 exports[`Tooltip > should render with align bottom, when passed "bottom" for the align prop 1`] = `
 .circuit-0 {
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   line-height: 1.25rem;
   display: inline-block;
   width: -webkit-max-content;
@@ -69,7 +69,7 @@ exports[`Tooltip > should render with align bottom, when passed "bottom" for the
 
 exports[`Tooltip > should render with align center, when passed "center" for the align prop 1`] = `
 .circuit-0 {
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   line-height: 1.25rem;
   display: inline-block;
   width: -webkit-max-content;
@@ -104,7 +104,7 @@ exports[`Tooltip > should render with align center, when passed "center" for the
 
 exports[`Tooltip > should render with align left, when passed "left" for the align prop 1`] = `
 .circuit-0 {
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   line-height: 1.25rem;
   display: inline-block;
   width: -webkit-max-content;
@@ -139,7 +139,7 @@ exports[`Tooltip > should render with align left, when passed "left" for the ali
 
 exports[`Tooltip > should render with align right, when passed "right" for the align prop 1`] = `
 .circuit-0 {
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   line-height: 1.25rem;
   display: inline-block;
   width: -webkit-max-content;
@@ -174,7 +174,7 @@ exports[`Tooltip > should render with align right, when passed "right" for the a
 
 exports[`Tooltip > should render with align top, when passed "top" for the align prop 1`] = `
 .circuit-0 {
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   line-height: 1.25rem;
   display: inline-block;
   width: -webkit-max-content;
@@ -206,7 +206,7 @@ exports[`Tooltip > should render with align top, when passed "top" for the align
 
 exports[`Tooltip > should render with position bottom, when passed "bottom" for the position prop 1`] = `
 .circuit-0 {
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   line-height: 1.25rem;
   display: inline-block;
   width: -webkit-max-content;
@@ -241,7 +241,7 @@ exports[`Tooltip > should render with position bottom, when passed "bottom" for 
 
 exports[`Tooltip > should render with position left, when passed "left" for the position prop 1`] = `
 .circuit-0 {
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   line-height: 1.25rem;
   display: inline-block;
   width: -webkit-max-content;
@@ -276,7 +276,7 @@ exports[`Tooltip > should render with position left, when passed "left" for the 
 
 exports[`Tooltip > should render with position right, when passed "right" for the position prop 1`] = `
 .circuit-0 {
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   line-height: 1.25rem;
   display: inline-block;
   width: -webkit-max-content;
@@ -311,7 +311,7 @@ exports[`Tooltip > should render with position right, when passed "right" for th
 
 exports[`Tooltip > should render with position top, when passed "top" for the position prop 1`] = `
 .circuit-0 {
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   line-height: 1.25rem;
   display: inline-block;
   width: -webkit-max-content;

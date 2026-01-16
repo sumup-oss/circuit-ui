@@ -1,5 +1,17 @@
 # @sumup-oss/design-tokens
 
+## 9.1.0-next.0
+
+### Minor Changes
+
+- [#3400](https://github.com/sumup-oss/circuit-ui/pull/3400) [`8af405a`](https://github.com/sumup-oss/circuit-ui/commit/8af405aea55299a033f951eb6feeae3773e22ad3) Thanks [@connor-baer](https://github.com/connor-baer)! - Refreshed the color palette for SumUp's new brand design.
+
+- [#3425](https://github.com/sumup-oss/circuit-ui/pull/3425) [`95858c3`](https://github.com/sumup-oss/circuit-ui/commit/95858c3ed55b420c90c1a7c1d70b5c7bd5a3dc0d) Thanks [@connor-baer](https://github.com/connor-baer)! - Replaced Inter with NaN Holo as the default font family.
+
+- [#3425](https://github.com/sumup-oss/circuit-ui/pull/3425) [`95858c3`](https://github.com/sumup-oss/circuit-ui/commit/95858c3ed55b420c90c1a7c1d70b5c7bd5a3dc0d) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new `--cui-font-family-display` token for headlines and other display text.
+
+- [#3424](https://github.com/sumup-oss/circuit-ui/pull/3424) [`472a334`](https://github.com/sumup-oss/circuit-ui/commit/472a334502261747b7ab8afe0d6f057d9b51b10c) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the small border radii to be rounder. `--cui-border-radius-bit` has increased from 4px to 6px and `--cui-border-radius-byte` has increased from 8px to 9px.
+
 ## 9.0.0
 
 ### Major Changes

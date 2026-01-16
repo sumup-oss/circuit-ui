@@ -24,7 +24,7 @@
   outline: none;
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-normal);
-  border-radius: var(--cui-border-radius-byte);
+  border-radius: var(--cui-border-radius-kilo);
   box-shadow: none;
   transition:
     box-shadow var(--cui-transitions-default),

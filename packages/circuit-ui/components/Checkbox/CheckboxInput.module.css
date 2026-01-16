@@ -1,9 +1,9 @@
 .label {
-  --checkbox-size: 20px;
+  --checkbox-size: var(--cui-icon-sizes-mega);
 
   position: relative;
   display: inline-block;
-  min-height: var(--cui-body-m-line-height);
+  min-height: var(--checkbox-size);
   padding-left: var(--checkbox-size);
   color: var(--cui-fg-normal);
   cursor: pointer;
@@ -32,8 +32,8 @@
 .label::before {
   content: "";
   background-color: var(--cui-bg-normal);
-  border: 1px solid var(--cui-border-normal);
-  border-radius: 3px;
+  border: var(--cui-border-width-kilo) solid var(--cui-border-normal);
+  border-radius: var(--cui-border-radius-bit);
   box-shadow: none;
   transform: translateY(-50%);
   transition:

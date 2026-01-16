@@ -1,5 +1,22 @@
 # @sumup-oss/circuit-ui
 
+## 10.15.0-next.0
+
+### Minor Changes
+
+- [#3424](https://github.com/sumup-oss/circuit-ui/pull/3424) [`472a334`](https://github.com/sumup-oss/circuit-ui/commit/472a334502261747b7ab8afe0d6f057d9b51b10c) Thanks [@connor-baer](https://github.com/connor-baer)! - Increased the border radius of all input components (Input and its variations, Textarea, Select, CheckboxGroup, RadioButtonGroup, and Selector).
+
+- [#3424](https://github.com/sumup-oss/circuit-ui/pull/3424) [`472a334`](https://github.com/sumup-oss/circuit-ui/commit/472a334502261747b7ab8afe0d6f057d9b51b10c) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the design of the NotificationInline and NotificationToast components, replacing the colored border with a lightly colored background.
+
+- [#3425](https://github.com/sumup-oss/circuit-ui/pull/3425) [`95858c3`](https://github.com/sumup-oss/circuit-ui/commit/95858c3ed55b420c90c1a7c1d70b5c7bd5a3dc0d) Thanks [@connor-baer](https://github.com/connor-baer)! - Replaced Inter with NaN Holo as the default font family.
+
+- [#3424](https://github.com/sumup-oss/circuit-ui/pull/3424) [`472a334`](https://github.com/sumup-oss/circuit-ui/commit/472a334502261747b7ab8afe0d6f057d9b51b10c) Thanks [@connor-baer](https://github.com/connor-baer)! - Increased the border radius of medium-sized Buttons from byte (8px) to kilo (12px).
+
+### Patch Changes
+
+- Updated dependencies [[`8af405a`](https://github.com/sumup-oss/circuit-ui/commit/8af405aea55299a033f951eb6feeae3773e22ad3), [`95858c3`](https://github.com/sumup-oss/circuit-ui/commit/95858c3ed55b420c90c1a7c1d70b5c7bd5a3dc0d), [`95858c3`](https://github.com/sumup-oss/circuit-ui/commit/95858c3ed55b420c90c1a7c1d70b5c7bd5a3dc0d), [`472a334`](https://github.com/sumup-oss/circuit-ui/commit/472a334502261747b7ab8afe0d6f057d9b51b10c)]:
+  - @sumup-oss/design-tokens@9.1.0-next.0
+
 ## 10.14.4
 
 ### Patch Changes

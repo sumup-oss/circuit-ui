@@ -183,7 +183,7 @@
 
   font-size: var(--cui-body-m-font-size);
   line-height: var(--cui-body-m-line-height);
-  border-radius: var(--cui-border-radius-byte);
+  border-radius: var(--cui-border-radius-kilo);
 }
 
 /* Variants */

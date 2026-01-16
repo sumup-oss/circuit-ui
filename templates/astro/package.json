@@ -1,7 +1,7 @@
 {
   "name": "@sumup-oss/astro-template-circuit-ui",
   "type": "module",
-  "version": "4.0.1",
+  "version": "4.0.2-next.0",
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -16,8 +16,8 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
-    "@sumup-oss/circuit-ui": "^10.0.0",
-    "@sumup-oss/design-tokens": "^9.0.0",
+    "@sumup-oss/circuit-ui": "^10.15.0-next.0",
+    "@sumup-oss/design-tokens": "^9.1.0-next.0",
     "@sumup-oss/icons": "^5.22.0",
     "@sumup-oss/intl": "^3.3.0",
     "@types/react": "^19.0.0",
@@ -29,9 +29,9 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
-    "@sumup-oss/eslint-plugin-circuit-ui": "^7.0.0",
+    "@sumup-oss/eslint-plugin-circuit-ui": "^7.2.0-next.0",
     "@sumup-oss/foundry": "^9.0.6",
-    "@sumup-oss/stylelint-plugin-circuit-ui": "^4.1.0",
+    "@sumup-oss/stylelint-plugin-circuit-ui": "^4.2.0-next.0",
     "@types/node": "^24.10.8",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-testing-library": "^7.15.3",

@@ -19,12 +19,12 @@ export const shared = [
   /* Border radii */
   {
     name: '--cui-border-radius-bit',
-    value: '4px',
+    value: '6px',
     type: 'dimension',
   },
   {
     name: '--cui-border-radius-byte',
-    value: '8px',
+    value: '9px',
     type: 'dimension',
   },
   {
@@ -58,10 +58,17 @@ export const shared = [
     value: '2px',
     type: 'dimension',
   },
+  /* Font stacks */
   {
     name: '--cui-font-stack-default',
     value:
-      '"Inter", "Inter-Fallback", Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+      '"NaN Holo Narrow", "NaN Holo", "Inter", Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    type: 'fontFamily',
+  },
+  {
+    name: '--cui-font-stack-display',
+    value:
+      '"NaN Holo Black", "NaN Holo", "Inter", Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
     type: 'fontFamily',
   },
   {
@@ -78,23 +85,23 @@ export const shared = [
   },
   {
     name: '--cui-font-weight-semibold',
-    value: '560',
+    value: '550',
     type: 'fontWeight',
   },
   {
     name: '--cui-font-weight-bold',
-    value: '630',
+    value: '650',
     type: 'fontWeight',
   },
   /* Letter spacing */
   {
     name: '--cui-letter-spacing',
-    value: '-0.01375rem',
+    value: '0rem',
     type: 'dimension',
   },
   {
     name: '--cui-letter-spacing-tight',
-    value: '-0.08rem',
+    value: '0rem',
     type: 'dimension',
   },
   /* Icon sizes */
@@ -208,7 +215,7 @@ export const shared = [
   },
   {
     name: '--cui-headline-l-font-size',
-    value: '2rem',
+    value: '2.0625rem',
     type: 'dimension',
   },
   {
@@ -218,7 +225,7 @@ export const shared = [
   },
   {
     name: '--cui-headline-m-font-size',
-    value: '1.5rem',
+    value: '1.5625rem',
     type: 'dimension',
   },
   {
@@ -228,7 +235,7 @@ export const shared = [
   },
   {
     name: '--cui-headline-s-font-size',
-    value: '1.125rem',
+    value: '1.1875rem',
     type: 'dimension',
   },
   {
@@ -238,7 +245,7 @@ export const shared = [
   },
   {
     name: '--cui-body-l-font-size',
-    value: '1.25rem',
+    value: '1.3125rem',
     type: 'dimension',
   },
   {
@@ -248,7 +255,7 @@ export const shared = [
   },
   {
     name: '--cui-body-m-font-size',
-    value: '1rem',
+    value: '1.0625rem',
     type: 'dimension',
   },
   {
@@ -258,7 +265,7 @@ export const shared = [
   },
   {
     name: '--cui-body-s-font-size',
-    value: '0.875rem',
+    value: '0.9375rem',
     type: 'dimension',
   },
   {
@@ -308,7 +315,7 @@ export const shared = [
   },
   {
     name: '--cui-numeral-m-font-size',
-    value: '1.5rem',
+    value: '1.5625rem',
     type: 'dimension',
   },
   {
@@ -318,7 +325,7 @@ export const shared = [
   },
   {
     name: '--cui-numeral-s-font-size',
-    value: '1rem',
+    value: '1.0625rem',
     type: 'dimension',
   },
   {
@@ -329,7 +336,7 @@ export const shared = [
   /* eslint-disable circuit-ui/no-deprecated-custom-properties */
   {
     name: '--cui-typography-headline-one-font-size',
-    value: '2rem',
+    value: '2.0625rem',
     type: 'dimension',
   },
   {
@@ -339,7 +346,7 @@ export const shared = [
   },
   {
     name: '--cui-typography-headline-two-font-size',
-    value: '1.375rem',
+    value: '1.5625rem',
     type: 'dimension',
   },
   {
@@ -349,7 +356,7 @@ export const shared = [
   },
   {
     name: '--cui-typography-headline-three-font-size',
-    value: '1.375rem',
+    value: '1.5625rem',
     type: 'dimension',
   },
   {
@@ -359,7 +366,7 @@ export const shared = [
   },
   {
     name: '--cui-typography-headline-four-font-size',
-    value: '1.125rem',
+    value: '1.1875rem',
     type: 'dimension',
   },
   {
@@ -419,7 +426,7 @@ export const shared = [
   },
   {
     name: '--cui-typography-body-one-font-size',
-    value: '1rem',
+    value: '1.0625rem',
     type: 'dimension',
   },
   {
@@ -429,7 +436,7 @@ export const shared = [
   },
   {
     name: '--cui-typography-body-two-font-size',
-    value: '0.875rem',
+    value: '0.9375rem',
     type: 'dimension',
   },
   {
@@ -439,7 +446,7 @@ export const shared = [
   },
   {
     name: '--cui-typography-body-large-font-size',
-    value: '1.25rem',
+    value: '1.3125rem',
     type: 'dimension',
   },
   {

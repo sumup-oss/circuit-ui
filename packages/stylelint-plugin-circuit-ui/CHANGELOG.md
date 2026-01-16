@@ -1,5 +1,12 @@
 # @sumup-oss/stylelint-plugin-circuit-ui
 
+## 4.2.0-next.0
+
+### Patch Changes
+
+- Updated dependencies [[`8af405a`](https://github.com/sumup-oss/circuit-ui/commit/8af405aea55299a033f951eb6feeae3773e22ad3), [`95858c3`](https://github.com/sumup-oss/circuit-ui/commit/95858c3ed55b420c90c1a7c1d70b5c7bd5a3dc0d), [`95858c3`](https://github.com/sumup-oss/circuit-ui/commit/95858c3ed55b420c90c1a7c1d70b5c7bd5a3dc0d), [`472a334`](https://github.com/sumup-oss/circuit-ui/commit/472a334502261747b7ab8afe0d6f057d9b51b10c)]:
+  - @sumup-oss/design-tokens@9.1.0-next.0
+
 ## 4.1.0
 
 ### Minor Changes

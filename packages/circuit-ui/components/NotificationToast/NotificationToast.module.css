@@ -1,7 +1,6 @@
 .base {
   overflow: hidden;
-  background-color: var(--cui-bg-elevated);
-  border-radius: var(--cui-border-radius-byte);
+  border-radius: var(--cui-border-radius-kilo);
   transition:
     opacity var(--cui-transitions-slow),
     height var(--cui-transitions-slow),
@@ -27,7 +26,7 @@
 /* Variants */
 
 .info {
-  border: var(--cui-border-width-mega) solid var(--cui-border-accent);
+  background-color: var(--cui-bg-subtle);
 }
 
 .info .icon {
@@ -35,7 +34,7 @@
 }
 
 .success {
-  border: var(--cui-border-width-mega) solid var(--cui-border-success);
+  background-color: var(--cui-bg-success);
 }
 
 .success .icon {
@@ -43,7 +42,7 @@
 }
 
 .warning {
-  border: var(--cui-border-width-mega) solid var(--cui-border-warning);
+  background-color: var(--cui-bg-warning);
 }
 
 .warning .icon {
@@ -51,7 +50,7 @@
 }
 
 .danger {
-  border: var(--cui-border-width-mega) solid var(--cui-border-danger);
+  background-color: var(--cui-bg-danger);
 }
 
 .danger .icon {
