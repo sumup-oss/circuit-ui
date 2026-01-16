@@ -11,5 +11,13 @@
     "@sumup-oss/cna-template": "6.0.1",
     "next-app": "2.0.1"
   },
-  "changesets": []
+  "changesets": [
+    "clean-foxes-write",
+    "clever-cats-turn",
+    "early-cobras-remain",
+    "green-buses-do",
+    "metal-trains-sniff",
+    "rare-rings-clap",
+    "thin-files-rush"
+  ]
 }
