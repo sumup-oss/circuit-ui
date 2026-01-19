@@ -32,7 +32,7 @@ function getSize(element?: HTMLElement | null) {
 }
 
 export function useComponentSize(
-  ref: RefObject<HTMLElement>,
+  ref: RefObject<HTMLElement | null>,
   initialSize = { width: 0, height: 0 },
 ) {
   const [componentSize, setComponentSize] = useState(initialSize);

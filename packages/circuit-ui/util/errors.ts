@@ -22,6 +22,12 @@ export class CircuitError extends Error {
   constructor(componentName: string, message: string) {
     super(`[${componentName}] ${message}`);
     this.name = 'CircuitError';
+
+    if (React.captureOwnerStack) {
+      this.stack = React.captureOwnerStack() ?? undefined;
+      return;
+    }
+
     // Adapted from https://stackoverflow.com/questions/33474179/react-access-parent-component-name
 
     /* eslint-disable max-len, no-underscore-dangle, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */

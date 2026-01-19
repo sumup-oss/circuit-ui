@@ -15,6 +15,15 @@
 
 'use client';
 
+import {
+  flip,
+  offset as offsetMiddleware,
+  size,
+  useFloating,
+  type Placement,
+  type SizeOptions,
+} from '@floating-ui/react-dom';
+import type { IconComponentType } from '@sumup-oss/icons';
 import type React from 'react';
 import {
   Fragment,
@@ -22,35 +31,26 @@ import {
   useEffect,
   useId,
   useRef,
-  type KeyboardEvent,
   type AnchorHTMLAttributes,
   type ButtonHTMLAttributes,
+  type KeyboardEvent,
 } from 'react';
-import {
-  useFloating,
-  flip,
-  offset as offsetMiddleware,
-  size,
-  type Placement,
-  type SizeOptions,
-} from '@floating-ui/react-dom';
-import type { IconComponentType } from '@sumup-oss/icons';
 
+import { useClickOutside } from '../../hooks/useClickOutside/index.js';
+import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
+import { useFocusList } from '../../hooks/useFocusList/index.js';
+import { useMedia } from '../../hooks/useMedia/index.js';
+import { usePrevious } from '../../hooks/usePrevious/index.js';
+import { clsx } from '../../styles/clsx.js';
+import { sharedClasses } from '../../styles/shared.js';
 import type { ClickEvent } from '../../types/events.js';
 import type { EmotionAsPropType } from '../../types/prop-types.js';
 import { isArrowDown, isArrowUp } from '../../util/key-codes.js';
 import { isFunction } from '../../util/type-check.js';
-import { clsx } from '../../styles/clsx.js';
-import { useEscapeKey } from '../../hooks/useEscapeKey/index.js';
-import { useClickOutside } from '../../hooks/useClickOutside/index.js';
-import { useMedia } from '../../hooks/useMedia/index.js';
-import { useFocusList } from '../../hooks/useFocusList/index.js';
-import { usePrevious } from '../../hooks/usePrevious/index.js';
-import { useStackContext } from '../StackContext/index.js';
 import { useComponents } from '../ComponentsContext/index.js';
-import { Portal } from '../Portal/index.js';
 import { Hr } from '../Hr/index.js';
-import { sharedClasses } from '../../styles/shared.js';
+import { Portal } from '../Portal/index.js';
+import { useStackContext } from '../StackContext/index.js';
 
 import classes from './Popover.module.css';
 
