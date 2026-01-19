@@ -23,7 +23,7 @@ export const holo = [
     'font-display': 'swap',
     'src':
       'url("https://static.sumup.com/fonts/holo/nan-holo-for-testing-only.woff2") format("woff2-variations")',
-    'font-variation-settings': '"mono" 0',
+    'font-variation-settings': '"wdth" 95, "mono" 0 ',
   },
   {
     'font-family': 'NaN Holo Black',
