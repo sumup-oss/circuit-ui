@@ -1,5 +1,11 @@
 # @sumup-oss/design-tokens
 
+## 9.1.0-next.1
+
+### Patch Changes
+
+- [#3427](https://github.com/sumup-oss/circuit-ui/pull/3427) [`f61fe66`](https://github.com/sumup-oss/circuit-ui/commit/f61fe6668e1e4c97ee1bf0ff1fd71aff8fb0fb69) Thanks [@connor-baer](https://github.com/connor-baer)! - Reduced the width of the new body font.
+
 ## 9.1.0-next.0
 
 ### Minor Changes
