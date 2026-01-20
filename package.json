@@ -56,7 +56,7 @@
 		"@storybook/addon-storysource": "^8.4.5",
 		"@storybook/addon-toolbars": "^8.4.5",
 		"@storybook/addon-viewport": "^8.4.5",
-		"@storybook/icons": "^1.2.12",
+		"@storybook/icons": "^1.6.0",
 		"@storybook/manager-api": "^8.4.5",
 		"@storybook/preview-api": "^8.4.5",
 		"@storybook/react": "^8.4.5",
