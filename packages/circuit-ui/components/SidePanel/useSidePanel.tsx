@@ -117,7 +117,7 @@ export const useSidePanel: UseSidePanelHook = () => {
       const sidePanelGroup = group || defaultGroup;
       removeSidePanelContext(sidePanelGroup).catch(() => {});
       if (bottomSidePanelGroupRef.current === sidePanelGroup) {
-        bottomSidePanelGroupRef.current = undefined;
+        bottomSidePanelGroupRef.current = null;
       }
     },
     [removeSidePanelContext, defaultGroup],

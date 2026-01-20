@@ -205,7 +205,7 @@ export const NotificationBanner = forwardRef<
   },
 );
 
-export function getHeight(element: RefObject<HTMLElement>): string {
+export function getHeight(element: RefObject<HTMLElement | null>): string {
   if (!element || !element.current) {
     return DEFAULT_HEIGHT;
   }

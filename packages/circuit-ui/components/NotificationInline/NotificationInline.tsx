@@ -193,7 +193,7 @@ export const NotificationInline = forwardRef<
 
 NotificationInline.TIMEOUT = TRANSITION_DURATION;
 
-export function getHeight(element: RefObject<HTMLElement>): string {
+export function getHeight(element: RefObject<HTMLElement | null>): string {
   if (!element || !element.current) {
     return DEFAULT_HEIGHT;
   }
