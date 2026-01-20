@@ -81,7 +81,7 @@ export function NotificationToast({
   className,
   ...props
 }: NotificationToastProps) {
-  const contentElement = useRef(null);
+  const contentElement = useRef<HTMLDivElement>(null);
   const [isOpen, setOpen] = useState(false);
   const [height, setHeight] = useState(getHeight(contentElement));
   const [, setAnimating] = useAnimation();
@@ -144,7 +144,7 @@ export function NotificationToast({
 
 NotificationToast.TRANSITION_DURATION = TRANSITION_DURATION;
 
-export function getHeight(element: RefObject<HTMLElement>): string {
+export function getHeight(element: RefObject<HTMLElement | null>): string {
   if (!element || !element.current) {
     return DEFAULT_HEIGHT;
   }

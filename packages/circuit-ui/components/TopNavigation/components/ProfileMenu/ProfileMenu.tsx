@@ -29,7 +29,8 @@ import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './ProfileMenu.module.css';
 
-interface ProfileProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ProfileProps
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onToggle'> {
   /**
    * A description of the button which opens the profile menu.
    */

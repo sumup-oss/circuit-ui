@@ -20,11 +20,11 @@
     "@sumup-oss/design-tokens": "^8.0.0",
     "@sumup-oss/icons": "^5.0.0",
     "@sumup-oss/intl": "^3.1.1",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.1",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "astro": "^5.2.4",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "temporal-polyfill": "^0.3.0"
   },
   "devDependencies": {
