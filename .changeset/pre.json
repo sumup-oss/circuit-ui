@@ -12,6 +12,7 @@
     "next-app": "2.0.1"
   },
   "changesets": [
+    "bitter-pugs-battle",
     "clean-foxes-write",
     "clever-cats-turn",
     "early-cobras-remain",
