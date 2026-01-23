@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.14.5
+
+### Patch Changes
+
+- [`4e4ecd5`](https://github.com/sumup-oss/circuit-ui/commit/4e4ecd5d3ac89261722eb16f960fbb4356cabf28) Thanks [@connor-baer](https://github.com/connor-baer)! - Ensured that the hash suffix of CSS class names remains stable between builds.
+
 ## 10.14.4
 
 ### Patch Changes
