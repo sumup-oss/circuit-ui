@@ -34,7 +34,7 @@
     "dev": "npm run docs:start",
     "docs": "npm run docs:start",
     "docs:start": "storybook dev -p 6006",
-    "docs:build": "storybook build -c .storybook -o public && cp -R ./packages/icons/web ./public/icons",
+    "docs:build": "storybook build -c .storybook -o public && cp -R ./packages/icons/web ./public/icons && mkdir ./public/design-tokens && cp -R ./packages/design-tokens/*.css ./public/design-tokens && mkdir ./public/components && cp -R ./packages/circuit-ui/dist/styles.css ./public/components",
     "chromatic-build": "storybook build -c .storybook -o public --test --stats-json",
     "vercel-build": "npm run copy-docs && npm run build && npm run docs:build",
     "check:security": "audit-ci --critical",

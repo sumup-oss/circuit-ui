@@ -62,19 +62,19 @@ export const borderWidth: BorderWidth = {
 export const typography = {
   headline: {
     one: {
-      fontSize: '2rem',
+      fontSize: '2.0625rem',
       lineHeight: '2.25rem',
     },
     two: {
-      fontSize: '1.5rem',
+      fontSize: '1.5625rem',
       lineHeight: '1.625rem',
     },
     three: {
-      fontSize: '1.125rem',
+      fontSize: '1.5625rem',
       lineHeight: '1.375rem',
     },
     four: {
-      fontSize: '1.125rem',
+      fontSize: '1.1875rem',
       lineHeight: '1.375rem',
     },
   },
@@ -102,29 +102,29 @@ export const typography = {
   },
   body: {
     one: {
-      fontSize: '1rem',
+      fontSize: '1.0625rem',
       lineHeight: '1.375rem',
     },
     two: {
-      fontSize: '0.875rem',
+      fontSize: '0.9375rem',
       lineHeight: '1.25rem',
     },
   },
   bodyLarge: {
-    fontSize: '1.25rem',
+    fontSize: '1.3125rem',
     lineHeight: '1.5rem',
   },
 };
 
 export const fontStack: FontStack = {
   default:
-    '"Inter", Helvetica, Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    '"NaN Holo Narrow", "NaN Holo", "Inter", Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
   mono: 'Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace',
 };
 
 export const fontWeight: FontWeight = {
   regular: '375',
-  bold: '630',
+  bold: '650',
 };
 
 export const grid: Grid = {
