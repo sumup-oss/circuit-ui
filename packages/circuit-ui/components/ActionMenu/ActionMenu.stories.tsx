@@ -27,6 +27,10 @@ export default {
   tags: ['status:stable'],
   argTypes: {
     children: { control: 'text' },
+    size: {
+      control: 'inline-radio',
+      options: ['s', 'm'],
+    },
   },
 };
 

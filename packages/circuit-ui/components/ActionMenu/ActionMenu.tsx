@@ -50,6 +50,10 @@ export interface ActionMenuProps extends Omit<PopoverProps, 'role'> {
    */
   actions: Action[];
   /**
+   * Choose from 2 sizes. Default: 'm'.
+   */
+  size?: 's' | 'm';
+  /**
    * Remove the [`menu` role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/roles/menu_role)
    * when its semantics aren't appropriate for the use case, for example when
    * the ActionMenu is used as part of a navigation.
@@ -65,6 +69,7 @@ export const ActionMenu = forwardRef<HTMLDialogElement, ActionMenuProps>(
   (
     {
       actions,
+      size = 'm',
       role = 'menu',
       className,
       onToggle,
@@ -109,7 +114,7 @@ export const ActionMenu = forwardRef<HTMLDialogElement, ActionMenuProps>(
     return (
       <Popover
         className={clsx(className, classes.base)}
-        contentClassName={classes.content}
+        contentClassName={clsx(classes.content, classes[`content-${size}`])}
         ref={ref}
         hideCloseButton={!isMobile || props.disableModalOnMobile}
         onToggle={onToggle}
@@ -125,12 +130,16 @@ export const ActionMenu = forwardRef<HTMLDialogElement, ActionMenuProps>(
         <div id={menuId} ref={menuEl} {...menuProps}>
           {actions.map((action, index) =>
             isDivider(action) ? (
-              <Hr className={classes.divider} key={index} />
+              <Hr
+                className={clsx(classes.divider, classes[`divider-${size}`])}
+                key={index}
+              />
             ) : (
               <ActionMenuItem
                 key={index}
                 {...action}
                 {...focusProps}
+                size={size}
                 role={isMenu ? 'menuitem' : undefined}
                 onClick={handleActionMenuItemClick(action.onClick)}
               />
