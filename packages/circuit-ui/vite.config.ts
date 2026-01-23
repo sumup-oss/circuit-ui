@@ -27,7 +27,7 @@ export const css: ViteUserConfig['css'] = {
       const prefix = 'cui';
       const parts = [prefix];
 
-      const filePath = file.split('?')[0];
+      const filePath = last(file.split('?')[0].split('/packages/circuit-ui'));
       const fileName = path.basename(filePath, '.module.css');
       const folderName = last(path.dirname(filePath).split(path.sep));
       const isComponent = filePath.includes('/components');
