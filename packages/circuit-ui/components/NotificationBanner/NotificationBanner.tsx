@@ -54,7 +54,7 @@ type CloseProps =
        * Text label for the close button for screen readers.
        * Important for accessibility.
        */
-      closeButtonLabel: string;
+      closeButtonLabel?: string;
     }
   | { onClose?: never; closeButtonLabel?: never };
 
@@ -195,7 +195,7 @@ export const NotificationBanner = forwardRef<
             size="s"
           />
           {image?.src && <NotificationImage {...image} />}
-          {onClose && closeButtonLabel && (
+          {onClose && (
             <CloseButton className={classes.close} size="s" onClick={onClose}>
               {closeButtonLabel}
             </CloseButton>
