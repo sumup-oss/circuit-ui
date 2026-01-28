@@ -14,7 +14,9 @@
  */
 
 import { ESLintUtils, type TSESTree } from '@typescript-eslint/utils';
-import { schema } from '@sumup-oss/design-tokens';
+import { schema, light } from '@sumup-oss/design-tokens';
+
+import { get } from '../utils/helpers.js';
 
 /* eslint-disable */
 
@@ -37,6 +39,8 @@ export const preferCustomProperties = createRule({
     messages: {
       replace:
         'Use CSS custom properties instead of the Emotion.js theme. Replace `{{jsToken}}` with `{{cssVariable}}`.',
+      replaceMediaQuery:
+        'Use plain media queries instead of the Emotion.js theme. Replace `{{jsToken}}` with `{{mediaQuery}}`.',
       refactor: 'Use CSS custom properties instead of the Emotion.js theme.',
     },
   },
@@ -53,6 +57,13 @@ export const preferCustomProperties = createRule({
 
     function isValidCustomProperty(customProperty: string) {
       return schema.findIndex((token) => token.name === customProperty) !== -1;
+    }
+
+    function isMediaQuery(identifiers: string[]) {
+      return (
+        (identifiers[0] === 'mq' || identifiers[0] === 'breakpoints') &&
+        identifiers.length === 2
+      );
     }
 
     function reportColorToken(node: TSESTree.Node, identifiers: string[]) {
@@ -111,27 +122,47 @@ export const preferCustomProperties = createRule({
         }
 
         const customProperty = createCSSCustomProperty(rest);
+        const jsToken = `\${${identifiers.join('.')}}`;
 
-        if (!isValidCustomProperty(customProperty)) {
-          reportColorToken(expression, identifiers);
-          return;
+        if (isValidCustomProperty(customProperty)) {
+          const cssVariable = `var(${customProperty})`;
+
+          const text = context.sourceCode
+            .getText(node)
+            .replace(jsToken, cssVariable);
+
+          context.report({
+            node: expression,
+            messageId: 'replace',
+            data: { jsToken, cssVariable },
+            fix(fixer) {
+              return fixer.replaceText(node, text);
+            },
+          });
         }
 
-        const jsToken = `\${${identifiers.join('.')}}`;
-        const cssVariable = `var(${customProperty})`;
+        if (isMediaQuery(rest)) {
+          const mediaQuery = get(light, rest) as string;
 
-        const text = context.sourceCode
-          .getText(node)
-          .replace(jsToken, cssVariable);
+          if (!mediaQuery) {
+            return;
+          }
 
-        context.report({
-          node: expression,
-          messageId: 'replace',
-          data: { jsToken, cssVariable },
-          fix(fixer) {
-            return fixer.replaceText(node, text);
-          },
-        });
+          const text = context.sourceCode
+            .getText(node)
+            .replace(jsToken, mediaQuery);
+
+          context.report({
+            node: expression,
+            messageId: 'replaceMediaQuery',
+            data: { jsToken, mediaQuery },
+            fix(fixer) {
+              return fixer.replaceText(node, text);
+            },
+          });
+        }
+
+        reportColorToken(expression, identifiers);
       });
     }
 
@@ -159,23 +190,39 @@ export const preferCustomProperties = createRule({
       }
 
       const customProperty = createCSSCustomProperty(rest);
+      const jsToken = `\${${identifiers.join('.')}}`;
 
-      if (!isValidCustomProperty(customProperty)) {
-        reportColorToken(node, identifiers);
-        return;
+      if (isValidCustomProperty(customProperty)) {
+        const cssVariable = `var(${customProperty})`;
+
+        context.report({
+          node,
+          messageId: 'replace',
+          data: { jsToken, cssVariable },
+          fix(fixer) {
+            return fixer.replaceText(node, `'${cssVariable}'`);
+          },
+        });
       }
 
-      const jsToken = `\${${identifiers.join('.')}}`;
-      const cssVariable = `var(${customProperty})`;
+      if (isMediaQuery(rest)) {
+        const mediaQuery = get(light, rest) as string;
 
-      context.report({
-        node,
-        messageId: 'replace',
-        data: { jsToken, cssVariable },
-        fix(fixer) {
-          return fixer.replaceText(node, `'${cssVariable}'`);
-        },
-      });
+        if (!mediaQuery) {
+          return;
+        }
+
+        context.report({
+          node,
+          messageId: 'replaceMediaQuery',
+          data: { jsToken, mediaQuery },
+          fix(fixer) {
+            return fixer.replaceText(node, `'${mediaQuery}'`);
+          },
+        });
+      }
+
+      reportColorToken(node, identifiers);
     }
 
     return {
