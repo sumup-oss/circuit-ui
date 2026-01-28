@@ -1,5 +1,11 @@
 # @sumup-oss/eslint-plugin-circuit-ui
 
+## 6.1.0
+
+### Minor Changes
+
+- [`881a33d`](https://github.com/sumup-oss/circuit-ui/commit/881a33d58c488afe014ba9972e6fdace5fb0aabe) Thanks [@connor-baer](https://github.com/connor-baer)! - Added support for replacing `theme.mq.*` and `theme.breakpoints.*` values to the `prefer-custom-properties` rule.
+
 ## 6.0.0
 
 ### Minor Changes
