@@ -49,7 +49,13 @@ export interface NumeralProps extends HTMLAttributes<HTMLParagraphElement> {
    * Use the `as` prop to render the component as the `em` or `del` HTML
    * elements if appropriate.
    */
-  decoration?: 'italic' | 'strikethrough';
+  decoration?:
+    | 'strikethrough'
+    /**
+     * @deprecated After the upcoming brand refresh, italic text will no longer be supported.
+     * The `italic` decoration value will be removed in the next major version.
+     */
+    | 'italic';
 }
 
 /**
