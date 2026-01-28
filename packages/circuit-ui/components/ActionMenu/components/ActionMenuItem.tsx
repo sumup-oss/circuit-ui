@@ -48,6 +48,10 @@ interface ActionMenuItemBaseProps {
    * Disabled variant. Visually and functionally disable the button.
    */
   disabled?: boolean;
+  /**
+   * Choose from 2 sizes. Default: 'm'.
+   */
+  size?: 's' | 'm';
 }
 
 type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
@@ -62,23 +66,32 @@ export const ActionMenuItem = ({
   icon: Icon,
   destructive,
   className,
+  size = 'm',
   ...props
 }: ActionMenuItemProps) => {
   const { Link } = useComponents();
 
   const Element = props.href ? (Link as AsPropType) : 'button';
+  const iconSize = size === 's' ? '16' : '24';
 
   return (
     <Element
       className={clsx(
         classes.item,
+        classes[size],
         sharedClasses.listItem,
         destructive && sharedClasses.listItemDestructive,
         className,
       )}
       {...props}
     >
-      {Icon && <Icon className={classes.icon} size="24" aria-hidden="true" />}
+      {Icon && (
+        <Icon
+          className={clsx(classes.icon, classes[`icon-${size}`])}
+          size={iconSize}
+          aria-hidden="true"
+        />
+      )}
       {children}
     </Element>
   );
