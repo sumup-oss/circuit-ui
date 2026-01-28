@@ -24,7 +24,10 @@ import classes from './Display.module.css';
 
 export interface DisplayProps extends HTMLAttributes<HTMLHeadingElement> {
   /**
-   * Choose from three font weights. Default: `regular`.
+   * @deprecated After the upcoming brand refresh, only `bold` will be supported.
+   * The `weight` prop will be removed in the next major version.
+   *
+   * Choose from three font weights. Default: `bold`.
    */
   weight?: 'regular' | 'semibold' | 'bold';
   /**
