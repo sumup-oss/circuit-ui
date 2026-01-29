@@ -55,7 +55,7 @@ export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
   decoration?:
     | 'strikethrough'
     /**
-     * @deprecated After the upcoming brand refresh, italic text will no longer be supported.
+     * @deprecated Since the brand refresh, italic text is no longer supported.
      * The `italic` decoration value will be removed in the next major version.
      */
     | 'italic';
@@ -169,7 +169,7 @@ export const Body = forwardRef<HTMLParagraphElement, BodyProps>(
           classes[size],
           classes[weight],
           classes[color],
-          decoration && classes[decoration],
+          decoration === 'strikethrough' && classes.strikethrough,
           variant && classes[variant],
           className,
         )}

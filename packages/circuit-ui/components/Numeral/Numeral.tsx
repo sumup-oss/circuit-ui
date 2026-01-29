@@ -52,7 +52,7 @@ export interface NumeralProps extends HTMLAttributes<HTMLParagraphElement> {
   decoration?:
     | 'strikethrough'
     /**
-     * @deprecated After the upcoming brand refresh, italic text will no longer be supported.
+     * @deprecated Since the brand refresh, italic text is no longer supported.
      * The `italic` decoration value will be removed in the next major version.
      */
     | 'italic';
@@ -81,7 +81,7 @@ export const Numeral = forwardRef<HTMLParagraphElement, NumeralProps>(
         classes.base,
         classes[size],
         classes[color],
-        decoration && classes[decoration],
+        decoration === 'strikethrough' && classes.strikethrough,
         className,
       )}
     />
