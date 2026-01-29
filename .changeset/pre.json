@@ -12,14 +12,18 @@
     "next-app": "2.0.1"
   },
   "changesets": [
+    "bitter-candles-pick",
     "bitter-pugs-battle",
     "clean-foxes-write",
     "clever-cats-turn",
     "early-cobras-remain",
+    "gold-pants-grab",
     "green-buses-do",
     "metal-trains-sniff",
     "moody-weeks-leave",
     "rare-rings-clap",
-    "thin-files-rush"
+    "thin-files-rush",
+    "thirty-moles-heal",
+    "wild-trams-pull"
   ]
 }

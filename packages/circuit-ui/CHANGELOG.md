@@ -1,5 +1,17 @@
 # @sumup-oss/circuit-ui
 
+## 10.15.0-next.2
+
+### Minor Changes
+
+- [#3440](https://github.com/sumup-oss/circuit-ui/pull/3440) [`4acb03f`](https://github.com/sumup-oss/circuit-ui/commit/4acb03f95fe98b4a5b1aec538661bcbd1bfcf70e) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the InlineElements component. Use [CSS Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) or [CSS Grid](https://css-tricks.com/css-grid-layout-guide/) instead.
+
+- [#3440](https://github.com/sumup-oss/circuit-ui/pull/3440) [`4acb03f`](https://github.com/sumup-oss/circuit-ui/commit/4acb03f95fe98b4a5b1aec538661bcbd1bfcf70e) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the style mixins. Use the `utilClasses` instead. We strongly recommend migrating from Emotion.js to CSS Modules.
+
+- [#3440](https://github.com/sumup-oss/circuit-ui/pull/3440) [`4acb03f`](https://github.com/sumup-oss/circuit-ui/commit/4acb03f95fe98b4a5b1aec538661bcbd1bfcf70e) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the Body and Numeral components' italic decoration value. Since the brand refresh, italic text is no longer supported and the value will be removed in the next major release.
+
+- [#3440](https://github.com/sumup-oss/circuit-ui/pull/3440) [`4acb03f`](https://github.com/sumup-oss/circuit-ui/commit/4acb03f95fe98b4a5b1aec538661bcbd1bfcf70e) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the Display component's `weight` prop. Since the brand refresh, only `bold` is supported. The `weight` prop will be removed in the next major version.
+
 ## 10.15.0-next.1
 
 ### Patch Changes
