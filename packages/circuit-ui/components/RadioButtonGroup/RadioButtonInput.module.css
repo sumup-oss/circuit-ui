@@ -1,5 +1,5 @@
 .label {
-  --radio-button-size: var(--cui-icon-sizes-mega);
+  --radio-button-size: 1.25rem;
 
   position: relative;
   display: inline-block;
