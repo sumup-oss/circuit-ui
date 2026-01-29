@@ -54,8 +54,6 @@ const colors = [
   'promo',
 ] as const;
 
-const decorations = ['italic', 'strikethrough'] as const;
-
 export const Colors = (args: NumeralProps) =>
   colors.map((color) => (
     <Numeral
@@ -72,9 +70,8 @@ export const Colors = (args: NumeralProps) =>
     </Numeral>
   ));
 
-export const Decorations = (args: NumeralProps) =>
-  decorations.map((decoration) => (
-    <Numeral key={decoration} {...args} decoration={decoration}>
-      {decoration}: {content}.
-    </Numeral>
-  ));
+export const Decorations = (args: NumeralProps) => (
+  <Numeral {...args} decoration="strikethrough">
+    {content}
+  </Numeral>
+);

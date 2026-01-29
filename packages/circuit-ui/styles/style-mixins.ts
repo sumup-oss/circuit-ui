@@ -42,6 +42,8 @@ type StyleFn =
   | undefined;
 
 /**
+ * @deprecated Migrate to CSS Modules and use the `clsx` helper to join class names instead.
+ *
  * Helper to pass multiple style mixins to the `css` prop.
  * Mixins can be applied conditionally, falsy values are omitted.
  */
@@ -125,6 +127,8 @@ export const spacing = (
 };
 
 /**
+ * @deprecated
+ *
  * Adds a drop shadow to an element to visually elevate it above the
  * surrounding content.
  */
@@ -134,9 +138,13 @@ export function shadow(): SerializedStyles {
   `;
 }
 
+/* eslint-disable circuit-ui/no-invalid-custom-properties */
 /**
+ * @deprecated Use the `--cui-body-<size>-font-size` and `--cui-body-<size>-line-height` CSS custom properties instead.
+ *
  * Sets the font size and line height matching the Body component.
  */
+/* eslint-enable circuit-ui/no-invalid-custom-properties */
 export function typography(
   size: keyof Theme['typography']['body'],
 ): (args: ThemeArgs) => SerializedStyles {
@@ -160,6 +168,8 @@ export const disableVisually = (): SerializedStyles => css`
 `;
 
 /**
+ * @deprecated Use the `utilClasses.hideVisually` class name instead.
+ *
  * Visually hides an element while keeping it accessible to users
  * who rely on a screen reader.
  */
@@ -176,6 +186,8 @@ export const hideVisually = (): SerializedStyles => css`
 `;
 
 /**
+ * @deprecated Use the `utilClasses.center` class name instead.
+ *
  * Centers the content horizontally and vertically.
  */
 export const center = (): SerializedStyles => css`
@@ -186,6 +198,8 @@ export const center = (): SerializedStyles => css`
 `;
 
 /**
+ * @deprecated Use the `utilClasses.focusVisible` or `utilClasses.focusVisibleInset` class names instead.
+ *
  * Visually communicates to the user that an element is focused.
  */
 export function focusOutline(options?: 'inset' | ThemeArgs): SerializedStyles {
@@ -212,6 +226,8 @@ export function focusOutline(options?: 'inset' | ThemeArgs): SerializedStyles {
 }
 
 /**
+ * @deprecated Use the `utilClasses.focusVisible` or `utilClasses.focusVisibleInset` class names instead.
+ *
  * Visually communicates to the user that an element is focused when
  * the user agent determines via heuristics that the focus should be
  * made evident on the element.
@@ -253,6 +269,8 @@ export function focusVisible(options?: 'inset' | ThemeArgs): SerializedStyles {
 }
 
 /**
+ * @deprecated
+ *
  * Forces an element to self-clear its floated children.
  * Taken from [CSS Tricks](https://css-tricks.com/clearfix-a-lesson-in-web-development-evolution/).
  */
@@ -268,6 +286,8 @@ export const clearfix = (): SerializedStyles => css`
 `;
 
 /**
+ * @deprecated Use the `utilClasses.hideScrollbar` class name instead.
+ *
  * Hides the browser scrollbar on a scrollable element, e.g. with overflow.
  */
 export const hideScrollbar = (): SerializedStyles => css`

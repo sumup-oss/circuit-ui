@@ -66,10 +66,6 @@
 
 /* Decorations & styles */
 
-.italic {
-  font-style: italic;
-}
-
 .strikethrough {
   text-decoration: line-through;
 }

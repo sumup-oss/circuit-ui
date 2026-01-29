@@ -127,6 +127,9 @@ export const fontWeight: FontWeight = {
   bold: '650',
 };
 
+/**
+ * @deprecated
+ */
 export const grid: Grid = {
   default: {
     priority: 0,

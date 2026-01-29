@@ -26,7 +26,7 @@ import { InlineElements } from './InlineElements.js';
 export default {
   title: 'Layout/InlineElements',
   component: InlineElements,
-  tags: ['status:legacy'],
+  tags: ['status:deprecated'],
   parameters: {
     controls: { hideNoControlsWarning: true },
     chromatic: {

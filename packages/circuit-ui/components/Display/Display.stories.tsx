@@ -41,16 +41,3 @@ export const Sizes = (args: DisplayProps) =>
 Sizes.args = {
   as: 'h1',
 };
-
-const weights = ['regular', 'semibold', 'bold'] as const;
-
-export const Weights = (args: DisplayProps) =>
-  weights.map((weight) => (
-    <Display key={weight} {...args} weight={weight}>
-      This is weight {weight}
-    </Display>
-  ));
-
-Weights.args = {
-  as: 'h1',
-};

@@ -52,7 +52,13 @@ export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
    * Use the `as` prop to render the component as the `em` or `del` HTML
    * elements if appropriate.
    */
-  decoration?: 'italic' | 'strikethrough';
+  decoration?:
+    | 'strikethrough'
+    /**
+     * @deprecated Since the brand refresh, italic text is no longer supported.
+     * The `italic` decoration value will be removed in the next major version.
+     */
+    | 'italic';
   /**
    * Choose a foreground color token name. Default: `normal`.
    */
@@ -163,7 +169,7 @@ export const Body = forwardRef<HTMLParagraphElement, BodyProps>(
           classes[size],
           classes[weight],
           classes[color],
-          decoration && classes[decoration],
+          decoration === 'strikethrough' && classes.strikethrough,
           variant && classes[variant],
           className,
         )}

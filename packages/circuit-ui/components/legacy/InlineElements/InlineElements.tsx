@@ -18,7 +18,7 @@
 import { Children, type ReactElement } from 'react';
 import { css } from '@emotion/react';
 
-import styled, { type StyleProps } from '../../../styles/styled.js';
+import styled from '../../../styles/styled.js';
 import { clearfix } from '../../../styles/style-mixins.js';
 
 export interface InlineElementsProps {
@@ -37,36 +37,26 @@ export interface InlineElementsProps {
   inlineMobile?: boolean;
 }
 
-const fallbackBaseStyles = ({
-  theme,
-  children,
-}: StyleProps & InlineElementsProps) => {
+const fallbackBaseStyles = ({ children }: InlineElementsProps) => {
   const childrenCount = Children.count(children);
-  const width = `(100% - ${childrenCount - 1} * ${
-    theme.spacings.byte
-  }) / ${childrenCount}`;
 
   return css`
     > * {
       display: block;
       width: 100%;
     }
-    ${theme.mq.kilo} {
+    @media (min-width: 480px) {
       > * {
         float: left;
         width: ${(1 / childrenCount) * 95}%;
-        width: calc(${width});
+        width: calc((100% - ${childrenCount - 1} * var(--cui-spacings-byte)) / ${childrenCount});
       }
       ${clearfix()};
     }
   `;
 };
 
-const baseStyles = ({
-  theme,
-  ratios = [],
-  children,
-}: StyleProps & InlineElementsProps) => {
+const baseStyles = ({ ratios = [], children }: InlineElementsProps) => {
   const flexGrows =
     ratios.length &&
     Children.map(
@@ -90,7 +80,7 @@ const baseStyles = ({
       }
     }
 
-    ${theme.mq.kilo} {
+    @media (min-width: 480px) {
       align-items: stretch;
       flex-direction: row;
       justify-content: stretch;
@@ -111,38 +101,31 @@ const baseStyles = ({
 };
 
 const fallbackInlineMobileStyles = ({
-  theme,
   inlineMobile,
   children,
-}: StyleProps & InlineElementsProps) => {
+}: InlineElementsProps) => {
   if (!inlineMobile) {
     return null;
   }
 
   const childrenCount = Children.count(children);
-  const width = `(100% - ${childrenCount - 1} * ${
-    theme.spacings.byte
-  }) / ${childrenCount}`;
 
   return css`
-    ${theme.mq.untilKilo} {
+    @media (max-width: 479px) {
       > * {
         float: left;
         width: ${(1 / childrenCount) * 95}%;
-        width: calc(${width});
+        width: calc((100% - ${childrenCount - 1} * var(--cui-spacings-byte)) / ${childrenCount});
       }
       ${clearfix()};
     }
   `;
 };
 
-const inlineMobileStyles = ({
-  theme,
-  inlineMobile,
-}: StyleProps & InlineElementsProps) =>
+const inlineMobileStyles = ({ inlineMobile }: InlineElementsProps) =>
   inlineMobile &&
   css`
-    ${theme.mq.untilKilo} {
+    @media (max-width: 479px) {
       flex-direction: row;
       flex-grow: 1;
       width: auto;
@@ -157,7 +140,7 @@ const inlineMobileStyles = ({
   `;
 
 /**
- * @legacy
+ * @deprecated Use [CSS Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) or [CSS Grid](https://css-tricks.com/css-grid-layout-guide/) instead.
  *
  * Layout helper that displays child elements inline. Useful for form elements.
  */
