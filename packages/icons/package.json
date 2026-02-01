@@ -44,7 +44,7 @@
     "@biomejs/js-api": "^3.0.0",
     "@types/babel__core": "^7.20.5",
     "fast-xml-parser": "^5.3.2",
-    "tsx": "^4.20.6",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "vitest": "^4.0.6"
   },
