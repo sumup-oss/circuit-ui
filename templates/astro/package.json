@@ -32,7 +32,7 @@
     "@sumup-oss/eslint-plugin-circuit-ui": "^7.0.0",
     "@sumup-oss/foundry": "^9.0.6",
     "@sumup-oss/stylelint-plugin-circuit-ui": "^4.1.0",
-    "@types/node": "^24.10.8",
+    "@types/node": "^25.0.10",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-testing-library": "^7.15.4",
     "typescript": "^5.9.3"

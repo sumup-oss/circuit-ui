@@ -54,7 +54,7 @@
     "@sumup-oss/eslint-plugin-circuit-ui": "^7.0.0",
     "@sumup-oss/foundry": "^9.0.6",
     "@sumup-oss/stylelint-plugin-circuit-ui": "^4.1.0",
-    "@types/node": "^25.0.3",
+    "@types/node": "^25.0.10",
     "@vitest/coverage-v8": "^4.0.16",
     "@vitest/eslint-plugin": "^1.6.4",
     "audit-ci": "^7.1.0",
