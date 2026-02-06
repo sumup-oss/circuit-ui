@@ -45,6 +45,11 @@ const config: StorybookConfig = {
       define: {
         'process.env.UNSAFE_DISABLE_ELEMENT_ERRORS': false,
       },
+      resolve: {
+        alias: {
+          'storybook/internal/theming': 'storybook/theming',
+        },
+      },
     });
   },
   typescript: {
