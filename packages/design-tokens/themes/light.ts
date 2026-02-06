@@ -158,7 +158,7 @@ export const light = [
   },
   {
     name: '--cui-bg-success-strong',
-    value: '#20b839',
+    value: '#1ba532',
     type: 'color',
   },
   {
@@ -198,7 +198,7 @@ export const light = [
   },
   {
     name: '--cui-bg-warning-strong',
-    value: '#f8ab2f',
+    value: '#d37101',
     type: 'color',
   },
   {
@@ -238,7 +238,7 @@ export const light = [
   },
   {
     name: '--cui-bg-danger-strong',
-    value: '#ff4800',
+    value: '#ed4b0b',
     type: 'color',
   },
   {
@@ -258,7 +258,7 @@ export const light = [
   },
   {
     name: '--cui-bg-promo',
-    value: '#ff61f2',
+    value: '#ffe4fd',
     type: 'color',
   },
   {
@@ -278,22 +278,22 @@ export const light = [
   },
   {
     name: '--cui-bg-promo-strong',
-    value: '#ed54e0',
+    value: '#ff61f2',
     type: 'color',
   },
   {
     name: '--cui-bg-promo-strong-hovered',
-    value: '#df49d2',
+    value: '#ec58e0',
     type: 'color',
   },
   {
     name: '--cui-bg-promo-strong-pressed',
-    value: '#c934bd',
+    value: '#e04fd4',
     type: 'color',
   },
   {
     name: '--cui-bg-promo-strong-disabled',
-    value: 'rgba(237, 84, 224, 0.1000)',
+    value: 'rgba(255, 97, 242, 0.1000)',
     type: 'color',
   },
   {
@@ -418,7 +418,7 @@ export const light = [
   },
   {
     name: '--cui-fg-success',
-    value: '#147e26',
+    value: '#1ba532',
     type: 'color',
   },
   {
@@ -438,7 +438,7 @@ export const light = [
   },
   {
     name: '--cui-fg-warning',
-    value: '#805b19',
+    value: '#de7103',
     type: 'color',
   },
   {
@@ -458,7 +458,7 @@ export const light = [
   },
   {
     name: '--cui-fg-danger',
-    value: '#ad3100',
+    value: '#ed4b0b',
     type: 'color',
   },
   {
@@ -468,7 +468,7 @@ export const light = [
   },
   {
     name: '--cui-fg-danger-pressed',
-    value: '#b93502',
+    value: '#ac3100',
     type: 'color',
   },
   {
@@ -598,7 +598,7 @@ export const light = [
   },
   {
     name: '--cui-border-success',
-    value: '#20b839',
+    value: '#1ba532',
     type: 'color',
   },
   {
@@ -618,7 +618,7 @@ export const light = [
   },
   {
     name: '--cui-border-warning',
-    value: '#f8ab2f',
+    value: '#df7000',
     type: 'color',
   },
   {
@@ -638,7 +638,7 @@ export const light = [
   },
   {
     name: '--cui-border-danger',
-    value: '#ff4800',
+    value: '#ed4b0b',
     type: 'color',
   },
   {
@@ -653,7 +653,7 @@ export const light = [
   },
   {
     name: '--cui-border-danger-disabled',
-    value: 'rgba(255, 72, 0, 0.4000)',
+    value: 'rgba(204, 58, 0, 0.4000)',
     type: 'color',
   },
   {
@@ -683,7 +683,7 @@ export const light = [
   },
   {
     name: '--cui-bg-elevated',
-    value: '#fbfbf9',
+    value: '#ffffff',
     type: 'color',
   },
   {
