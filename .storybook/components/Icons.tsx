@@ -21,7 +21,7 @@ import {
   type SetStateAction,
   type ChangeEvent,
 } from 'react';
-import { Unstyled } from '@storybook/addon-docs/blocks';
+import { Unstyled } from '@storybook/blocks';
 import * as iconComponents from '@sumup-oss/icons';
 import {
   getIconURL,

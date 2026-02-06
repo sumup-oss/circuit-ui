@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Meta, Controls as Props } from '@storybook/addon-docs/blocks';
+import { Meta, Controls as Props } from '@storybook/blocks';
 
 export { Props, Meta };
 
