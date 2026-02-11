@@ -15,7 +15,11 @@
 
 import { forwardRef, type HTMLAttributes } from 'react';
 
-import { Button, type ButtonProps } from '../Button/index.js';
+import {
+  Button,
+  legacyButtonSizeMap,
+  type ButtonProps,
+} from '../Button/index.js';
 import { clsx } from '../../styles/clsx.js';
 import { deprecate } from '../../util/logger.js';
 
@@ -52,7 +56,13 @@ export interface ButtonGroupProps
  */
 export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
   (
-    { actions, className, align = 'center', size, ...props }: ButtonGroupProps,
+    {
+      actions,
+      className,
+      align = 'center',
+      size: legacySize = 'm',
+      ...props
+    }: ButtonGroupProps,
     ref,
   ) => {
     if (process.env.NODE_ENV !== 'production') {
@@ -70,9 +80,11 @@ export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
       }
     }
 
+    const size = legacyButtonSizeMap[legacySize] || legacySize;
+
     return (
       <div {...props} className={clsx(styles.container, className)} ref={ref}>
-        <div className={clsx(styles.base, styles[align])}>
+        <div className={clsx(styles.base, styles[align], styles[size])}>
           <Button
             {...actions.primary}
             size={size || actions.primary.size}
@@ -82,7 +94,6 @@ export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
             <Button
               {...actions.secondary}
               size={size || actions.secondary.size}
-              className={clsx(styles.secondary, actions.secondary.className)}
               variant="secondary"
             />
           )}
