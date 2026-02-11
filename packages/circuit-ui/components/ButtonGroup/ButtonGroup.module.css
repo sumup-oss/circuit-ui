@@ -6,20 +6,21 @@
 .base {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-
-.s {
   gap: var(--cui-spacings-kilo);
-}
-
-.m {
-  gap: var(--cui-spacings-mega);
+  align-items: center;
 }
 
 @container cui-button-group (width > 370px) {
   .base {
     flex-direction: row-reverse;
+  }
+
+  .s {
+    gap: var(--cui-spacings-kilo);
+  }
+
+  .m {
+    gap: var(--cui-spacings-mega);
   }
 
   .left {
