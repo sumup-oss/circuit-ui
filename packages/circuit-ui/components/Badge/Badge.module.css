@@ -1,21 +1,19 @@
 .base {
-  display: inline-block;
-  padding: 2px var(--cui-spacings-byte);
-  font-size: var(--cui-body-s-font-size);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 24px;
+  padding: var(--cui-spacings-bit) var(--cui-spacings-kilo);
+  font-size: var(--cui-compact-s-font-size);
   font-weight: var(--cui-font-weight-semibold);
-  line-height: var(--cui-body-s-line-height);
+  line-height: var(--cui-compact-s-line-height);
   text-align: center;
-  letter-spacing: 0.25px;
   border-radius: var(--cui-border-radius-pill);
 }
 
 .circle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: var(--badge-width);
-  height: 24px;
-  padding: 2px 4px;
+  padding: 2px var(--cui-spacings-bit);
 }
 
 /* Variants */
