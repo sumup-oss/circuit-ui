@@ -9,8 +9,12 @@
   align-items: center;
 }
 
-.base .secondary {
-  margin-top: var(--cui-spacings-kilo);
+.s {
+  gap: var(--cui-spacings-kilo);
+}
+
+.m {
+  gap: var(--cui-spacings-mega);
 }
 
 @container cui-button-group (width > 370px) {
@@ -28,10 +32,5 @@
 
   .right {
     justify-content: flex-start;
-  }
-
-  .base .secondary {
-    margin-top: 0;
-    margin-right: var(--cui-spacings-mega);
   }
 }
