@@ -3,29 +3,13 @@
   align-items: center;
   justify-content: flex-start;
   width: 100%;
+  min-height: 40px;
   text-align: left;
+  font-size: var(--cui-body-m-font-size);
+  line-height: var(--cui-body-m-line-height);
   background: var(--cui-bg-elevated);
 }
 
 .icon {
   margin-right: var(--cui-spacings-kilo);
-}
-
-.m {
-  font-size: var(--cui-body-m-font-size);
-  line-height: var(--cui-body-m-line-height);
-}
-
-.s {
-  font-size: var(--cui-body-s-font-size);
-  line-height: var(--cui-body-s-line-height);
-}
-
-.item.s {
-  padding: var(--cui-spacings-byte) var(--cui-spacings-tera)
-    var(--cui-spacings-byte) var(--cui-spacings-mega);
-}
-
-.icon-s {
-  margin-right: var(--cui-spacings-byte);
 }

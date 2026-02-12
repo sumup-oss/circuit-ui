@@ -4,29 +4,15 @@
   background-color: var(--cui-bg-elevated);
   border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
   border-radius: var(--cui-border-radius-byte);
+  padding: var(--cui-spacings-byte) 0;
 }
 
 .divider {
   width: calc(100% - var(--cui-spacings-mega) * 2);
+  margin: var(--cui-spacings-byte) var(--cui-spacings-mega);
 }
 
 .base::after {
   height: var(--cui-spacings-kilo);
   margin: var(--cui-border-width-kilo) var(--cui-border-width-mega);
-}
-
-.content-m {
-  padding: var(--cui-spacings-byte) 0;
-}
-
-.content-s {
-  padding: var(--cui-spacings-bit) 0;
-}
-
-.divider-m {
-  margin: var(--cui-spacings-byte) var(--cui-spacings-mega);
-}
-
-.divider-s {
-  margin: var(--cui-spacings-bit) var(--cui-spacings-mega);
 }

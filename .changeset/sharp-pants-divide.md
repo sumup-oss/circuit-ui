@@ -1,5 +1,5 @@
 ---
-"@sumup-oss/circuit-ui": minor
+"@sumup-oss/circuit-ui": patch
 ---
 
-Added size prop to ActionMenu allowing to pick between `m` (current, default) and `s` size.
+Updated ActionMenu sizing to use a fixed action item height of `40px`, regardless of trigger button size.
