@@ -50,9 +50,18 @@ const countryCodeMap: { [key: string]: string } = {
   DE: '+49',
 };
 
-export const Base = (args: PhoneNumberInputProps) => (
-  <PhoneNumberInput {...args} />
-);
+export const Base = (args: PhoneNumberInputProps) => {
+  const [value, setValue] = useState(args.value);
+  return (
+    <PhoneNumberInput
+      {...args}
+      value={value}
+      onChange={(event) => {
+        setValue(event.target.value);
+      }}
+    />
+  );
+};
 
 Base.args = {
   label: 'Phone number',
