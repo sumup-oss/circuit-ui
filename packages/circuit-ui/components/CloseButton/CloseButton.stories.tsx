@@ -24,7 +24,3 @@ export default {
 };
 
 export const Base = (args: CloseButtonProps) => <CloseButton {...args} />;
-
-Base.args = {
-  children: 'Close',
-};

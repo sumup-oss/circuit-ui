@@ -59,10 +59,8 @@ export const Header = ({
     <Headline id={id} size="s" as="h2" className={classes.headline}>
       {headline}
     </Headline>
-    {closeButtonLabel && (
-      <CloseButton className={classes.button} onClick={onClose}>
-        {closeButtonLabel}
-      </CloseButton>
-    )}
+    <CloseButton className={classes.button} onClick={onClose}>
+      {closeButtonLabel}
+    </CloseButton>
   </div>
 );
