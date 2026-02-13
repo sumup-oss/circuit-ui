@@ -1,6 +1,8 @@
 .content {
+  --vertical-spacing: var(--cui-spacings-byte);
+
   box-sizing: border-box;
-  padding: var(--cui-spacings-byte) 0;
+  padding: var(--vertical-spacing) 0;
   overflow-y: auto;
   background-color: var(--cui-bg-elevated);
   border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
@@ -8,11 +10,11 @@
 }
 
 .divider {
-  width: calc(100% - var(--cui-spacings-mega) * 2);
-  margin: var(--cui-spacings-byte) var(--cui-spacings-mega);
+  width: calc(100% - var(--cui-spacings-kilo) * 2);
+  margin: calc(var(--vertical-spacing) / 2) var(--cui-spacings-kilo);
 }
 
 .base::after {
-  height: var(--cui-spacings-kilo);
+  height: var(--vertical-spacing);
   margin: var(--cui-border-width-kilo) var(--cui-border-width-mega);
 }

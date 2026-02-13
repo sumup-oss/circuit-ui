@@ -10,5 +10,7 @@
 }
 
 .icon {
-  margin-right: var(--cui-spacings-kilo);
+  width: var(--cui-icon-sizes-mega);
+  height: var(--cui-icon-sizes-mega);
+  margin-right: var(--cui-spacings-byte);
 }
