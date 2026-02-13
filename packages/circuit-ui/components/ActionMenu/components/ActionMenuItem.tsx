@@ -78,9 +78,7 @@ export const ActionMenuItem = ({
       )}
       {...props}
     >
-      {Icon && (
-        <Icon className={classes.icon} size="24" aria-hidden="true" />
-      )}
+      {Icon && <Icon className={classes.icon} size="24" aria-hidden="true" />}
       {children}
     </Element>
   );

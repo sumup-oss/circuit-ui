@@ -3,13 +3,14 @@
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  min-height: 40px;
-  text-align: left;
   font-size: var(--cui-body-m-font-size);
   line-height: var(--cui-body-m-line-height);
+  text-align: left;
   background: var(--cui-bg-elevated);
 }
 
 .icon {
-  margin-right: var(--cui-spacings-kilo);
+  width: var(--cui-icon-sizes-mega);
+  height: var(--cui-icon-sizes-mega);
+  margin-right: var(--cui-spacings-byte);
 }
