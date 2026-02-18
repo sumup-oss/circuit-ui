@@ -1,5 +1,15 @@
 # @sumup-oss/circuit-ui
 
+## 10.14.6
+
+### Patch Changes
+
+- [#3461](https://github.com/sumup-oss/circuit-ui/pull/3461) [`34cc29b`](https://github.com/sumup-oss/circuit-ui/commit/34cc29bac595a12fd9bd4bffece81e957cd24b3e) Thanks [@connor-baer](https://github.com/connor-baer)! - Reduced the spacing between small buttons in the ButtonGroup component.
+
+- [#3436](https://github.com/sumup-oss/circuit-ui/pull/3436) [`838b8b2`](https://github.com/sumup-oss/circuit-ui/commit/838b8b2e7c18b0c4e19e7178d9b754150c13667d) Thanks [@matoous](https://github.com/matoous)! - Increased the density of the ActionMenu.
+
+- [#3463](https://github.com/sumup-oss/circuit-ui/pull/3463) [`36a9236`](https://github.com/sumup-oss/circuit-ui/commit/36a9236b8802d9689ada21d36e5c42a747c1edd7) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed updating the PhoneNumberInput's country code input when switching between two countries with matching country codes (e.g. Canada and USA which share `+1`).
+
 ## 10.14.5
 
 ### Patch Changes
