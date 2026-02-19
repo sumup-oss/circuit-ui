@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.14.7
+
+### Patch Changes
+
+- [#3465](https://github.com/sumup-oss/circuit-ui/pull/3465) [`dd0cb25`](https://github.com/sumup-oss/circuit-ui/commit/dd0cb25f7cd235fb66e5798ac4fd733cd93085d6) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed unnecessary scrollbars from the DateInput component's calendar popover.
+
 ## 10.14.6
 
 ### Patch Changes
