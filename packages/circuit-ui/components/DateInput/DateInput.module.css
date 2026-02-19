@@ -126,7 +126,7 @@
 
     /* biome-ignore lint/suspicious/noDuplicateProperties: Browser compatibility */
     max-width: min(410px, 100vw);
-    overflow: scroll;
+    overflow: auto;
     border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
   }
 
