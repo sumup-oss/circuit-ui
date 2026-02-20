@@ -53,7 +53,7 @@ export const dark = [
   },
   {
     name: '--cui-bg-subtle-disabled',
-    value: 'rgba(183, 176, 169, 0.4000)',
+    value: 'rgba(51, 47, 47, 0.4000)',
     type: 'color',
   },
   {
@@ -258,7 +258,7 @@ export const dark = [
   },
   {
     name: '--cui-bg-promo',
-    value: 'rgba(255, 97, 242, 0.3000)',
+    value: '#ffe4fd',
     type: 'color',
   },
   {
@@ -278,7 +278,7 @@ export const dark = [
   },
   {
     name: '--cui-bg-promo-strong',
-    value: '#ff61f2',
+    value: '#e155d6',
     type: 'color',
   },
   {
@@ -308,7 +308,7 @@ export const dark = [
   },
   {
     name: '--cui-fg-normal-pressed',
-    value: '#d0cdc3',
+    value: '#332f2f',
     type: 'color',
   },
   {
@@ -363,12 +363,12 @@ export const dark = [
   },
   {
     name: '--cui-fg-on-strong-hovered',
-    value: '#ffffff',
+    value: 'rgba(30, 28, 28, 0.7000)',
     type: 'color',
   },
   {
     name: '--cui-fg-on-strong-pressed',
-    value: '#ffffff',
+    value: '#1e1c1c',
     type: 'color',
   },
   {
@@ -438,7 +438,7 @@ export const dark = [
   },
   {
     name: '--cui-fg-warning',
-    value: '#f8ab2f',
+    value: '#df9d30',
     type: 'color',
   },
   {
@@ -458,27 +458,27 @@ export const dark = [
   },
   {
     name: '--cui-fg-danger',
-    value: '#ff4c05',
+    value: '#ff845f',
     type: 'color',
   },
   {
     name: '--cui-fg-danger-hovered',
-    value: '#b21e00',
+    value: '#ce3c02',
     type: 'color',
   },
   {
     name: '--cui-fg-danger-pressed',
-    value: '#681d00',
+    value: '#b93502',
     type: 'color',
   },
   {
     name: '--cui-fg-danger-disabled',
-    value: 'rgba(230, 65, 0, 0.1000)',
+    value: 'rgba(230, 65, 0, 0.2000)',
     type: 'color',
   },
   {
     name: '--cui-fg-promo',
-    value: '#ff61f2',
+    value: '#e155d6',
     type: 'color',
   },
   {
@@ -513,7 +513,7 @@ export const dark = [
   },
   {
     name: '--cui-border-normal-disabled',
-    value: 'rgba(227, 226, 214, 0.3000)',
+    value: 'rgba(227, 226, 214, 0.2000)',
     type: 'color',
   },
   {
@@ -643,22 +643,22 @@ export const dark = [
   },
   {
     name: '--cui-border-danger-hovered',
-    value: '#b21e00',
+    value: '#bd2c19',
     type: 'color',
   },
   {
     name: '--cui-border-danger-pressed',
-    value: '#681d00',
+    value: '#cc3a00',
     type: 'color',
   },
   {
     name: '--cui-border-danger-disabled',
-    value: 'rgba(104, 29, 0, 0.4000)',
+    value: 'rgba(255, 72, 0, 0.4000)',
     type: 'color',
   },
   {
     name: '--cui-border-promo',
-    value: '#ff61f2',
+    value: '#e155d6',
     type: 'color',
   },
   {
