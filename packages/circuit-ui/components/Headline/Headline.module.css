@@ -1,6 +1,5 @@
 .base {
   margin: 0;
-  font-family: var(--cui-font-stack-display);
   color: var(--cui-fg-normal);
   letter-spacing: var(--cui-letter-spacing);
 }
@@ -8,16 +7,19 @@
 /* Sizes */
 
 .l {
+  font-family: var(--cui-font-stack-display);
   font-size: var(--cui-headline-l-font-size);
   line-height: var(--cui-headline-l-line-height);
 }
 
 .m {
+  font-family: var(--cui-font-stack-default);
   font-size: var(--cui-headline-m-font-size);
   line-height: var(--cui-headline-m-line-height);
 }
 
 .s {
+  font-family: var(--cui-font-stack-default);
   font-size: var(--cui-headline-s-font-size);
   line-height: var(--cui-headline-s-line-height);
 }
