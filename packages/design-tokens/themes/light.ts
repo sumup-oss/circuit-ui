@@ -17,6 +17,11 @@ import type { Token } from '../types/index.js';
 
 export const light = [
   {
+    name: '--cui-bg-brand',
+    value: '#ff61f2',
+    type: 'color',
+  },
+  {
     name: '--cui-bg-normal',
     value: '#fbfbf9',
     type: 'color',
@@ -134,6 +139,21 @@ export const light = [
   {
     name: '--cui-bg-accent-strong-disabled',
     value: 'rgba(51, 47, 47, 0.4000)',
+    type: 'color',
+  },
+  {
+    name: '--cui-bg-brand-hovered',
+    value: '#eb58df',
+    type: 'color',
+  },
+  {
+    name: '--cui-bg-brand-pressed',
+    value: '#da4ece',
+    type: 'color',
+  },
+  {
+    name: '--cui-bg-brand-disabled',
+    value: 'rgba(255, 97, 242, 0.1000)',
     type: 'color',
   },
   {
@@ -417,6 +437,26 @@ export const light = [
     type: 'color',
   },
   {
+    name: '--cui-fg-brand',
+    value: '#ff61f2',
+    type: 'color',
+  },
+  {
+    name: '--cui-fg-brand-hovered',
+    value: '#eb58df',
+    type: 'color',
+  },
+  {
+    name: '--cui-fg-brand-pressed',
+    value: '#da4ece',
+    type: 'color',
+  },
+  {
+    name: '--cui-fg-brand-disabled',
+    value: 'rgba(255, 97, 242, 0.1000)',
+    type: 'color',
+  },
+  {
     name: '--cui-fg-success',
     value: '#20b839',
     type: 'color',
@@ -594,6 +634,26 @@ export const light = [
   {
     name: '--cui-border-accent-disabled',
     value: 'rgba(51, 47, 47, 0.2000)',
+    type: 'color',
+  },
+  {
+    name: '--cui-border-brand',
+    value: '#ff61f2',
+    type: 'color',
+  },
+  {
+    name: '--cui-border-brand-hovered',
+    value: '#eb58df',
+    type: 'color',
+  },
+  {
+    name: '--cui-border-brand-pressed',
+    value: '#da4ece',
+    type: 'color',
+  },
+  {
+    name: '--cui-border-brand-disabled',
+    value: 'rgba(255, 97, 242, 0.2000)',
     type: 'color',
   },
   {
