@@ -10,13 +10,9 @@ Use this skill for questions and implementation work related to Circuit UI token
 
 ## Entrypoint
 
-1. Read `references/design-tokens.md` for the source-of-truth token inventory.
-2. Read `references/components.md` for the source-of-truth exported component inventory.
-3. If inventories might be stale, regenerate them:
-
-```bash
-npm run skills:generate:circuit-ui
-```
+- Read `references/design-tokens.md` for the source-of-truth token inventory.
+- Read `references/components.md` for the source-of-truth exported component inventory index.
+- Open linked files in `references/components/` for component usage guidance copied from MDX stories/docs.
 
 ## Required Workflow
 
@@ -29,4 +25,5 @@ npm run skills:generate:circuit-ui
 
 - Token inventory is generated from `packages/design-tokens/themes/schema.ts`.
 - Component inventory is generated from `packages/circuit-ui/index.ts`.
+- Component usage references are copied from `packages/circuit-ui/components/**/*.mdx`.
 - Treat generated references as the primary interface docs for this skill.

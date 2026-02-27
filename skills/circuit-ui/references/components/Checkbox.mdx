@@ -1,0 +1,108 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './Checkbox.stories';
+
+<Meta of={Stories} />
+
+# Checkbox
+
+<Status variant="stable" />
+
+A checkbox provides a way for users to make a binary choice between two options — checked or unchecked.
+
+<Story of={Stories.Base} />
+<Props />
+
+## When to use it
+
+Use it to ask users to confirm something, like the acceptance of terms and conditions. Use a [CheckboxGroup](Forms/CheckboxGroup/Docs) when a user can select multiple options. Use a [Toggle](Forms/Toggle/Docs) for settings.
+
+## Usage guidelines
+
+- **Do** accompany the checkbox with a descriptive label
+- **Do** write the label in a positive manner (e.g. _"Send me reports"_ instead of _"Do not send me reports"_)
+- **Do** be as specific as possible
+- **Do** use sentence case (e.g. _"I agree..."_ not _"You agree..."_)
+- **Do not** use the checkbox as an action button
+- **Do not** rely on tooltips to explain the checkbox
+- **Do not** put interactive elements in the checkbox label
+
+## Validations
+
+The only validation that can be applied to a checkbox is marking it as required. To show a validation error, pass the `invalid` and `validationHint` props to explain to users why the checkbox is required.
+
+<Story of={Stories.Validations} />
+
+### Disabled
+
+Disabled form fields can be confusing to users, so use them with caution. Consider not displaying the field at all or add an explanation why the field is disabled.
+
+<Story of={Stories.Disabled} />
+
+### Indeterminate
+
+The indeterminate state of a checkbox can be used to display and control the collective state of a group of nested checkboxes.
+
+A checkbox is a binary input: either it is checked or it is not. A group of checkboxes, however, can be thought of as having three states: all unchecked, all checked or some checked. The mixed state can be represented by the `indeterminate` prop. It is purely presentational and should not be relied upon to submit data since a native form submission won't include an indeterminate checkbox.
+
+When building a checkbox group with a parent checkbox, make sure to adhere to the following best practices:
+
+- The checkbox group should be wrapped in a `fieldset` and labelled using the `legend` element.
+- Validation messages should be associated with the `fieldset` using `aria-describedby` and should be announced to screen readers using a live region.
+- Toggling the state of the parent checkbox should toggle the state of all child options to match the parent's state.
+- Toggling the state of a child option should update the parent's state.
+
+<Story of={Stories.Indeterminate} />
+
+## State
+
+The Checkbox can be used as a controlled or uncontrolled component.
+
+### Controlled
+
+```tsx
+import { useState } from 'react';
+import { Checkbox } from '@sumup-oss/circuit-ui';
+
+function Controlled() {
+  const [checked, setChecked] = useState(false);
+
+  const onChange = () => {
+    setChecked((prevChecked) => !prevChecked);
+  };
+
+  return (
+    <Checkbox
+      label="I accept the terms and conditions"
+      value="consent"
+      checked={checked}
+      onChange={onChange}
+    />
+  );
+}
+```
+
+### Uncontrolled
+
+```tsx
+import { useRef } from 'react';
+import { Checkbox } from '@sumup-oss/circuit-ui';
+
+function Uncontrolled() {
+  const checkboxRef = useRef(null);
+
+  return (
+    <Checkbox
+      label="I accept the terms and conditions"
+      value="consent"
+      defaultChecked={false}
+      ref={checkboxRef}
+    />
+  );
+}
+```
+
+## Accessibility
+
+The label should describe the essence of the input in a concise manner. If additional context can or should be provided, display it close to the Checkbox and associate it with the input using the [`aria-describedby` attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby).
+
+The `label` prop only accepts a plain, unformatted string because its value is exposed to assistive technology as the input's [accessible name](https://www.tpgi.com/what-is-an-accessible-name/). Accessible names don't have semantics or structure, so rendering e.g. an anchor or a tooltip in the label would be an accessibility issue.

@@ -1,6 +1,13 @@
 #!/usr/bin/env node
 
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import {
+  mkdir,
+  readdir,
+  readFile,
+  rm,
+  stat,
+  writeFile,
+} from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -24,8 +31,10 @@ const sharedTokensPath = path.join(
   repoRoot,
   'packages/design-tokens/themes/shared.ts',
 );
+const circuitUIPackagePath = path.join(repoRoot, 'packages/circuit-ui');
 const exportsPath = path.join(repoRoot, 'packages/circuit-ui/index.ts');
 const referencesDir = path.join(repoRoot, 'skills/circuit-ui/references');
+const componentReferencesDir = path.join(referencesDir, 'components');
 
 function parseTokens(schemaSource) {
   const tokens = [];
@@ -130,6 +139,75 @@ function parseComponents(exportsSource) {
   return components;
 }
 
+async function exists(filePath) {
+  try {
+    await stat(filePath);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function resolveComponentDirectory(sourcePath) {
+  const relativePath = sourcePath.replace(/^\.\//, '');
+  return path.dirname(path.join(circuitUIPackagePath, relativePath));
+}
+
+async function resolveComponentMdxPath(component) {
+  const componentDir = resolveComponentDirectory(component.source);
+  const exportFileName = path.basename(component.source, '.js');
+  const prioritized = [
+    path.join(componentDir, `${component.name}.mdx`),
+    path.join(componentDir, `${exportFileName}.mdx`),
+  ];
+
+  for (const candidate of prioritized) {
+    if (await exists(candidate)) {
+      return candidate;
+    }
+  }
+
+  try {
+    const entries = await readdir(componentDir);
+    const mdxFiles = entries
+      .filter((entry) => entry.endsWith('.mdx'))
+      .toSorted((a, b) => a.localeCompare(b));
+
+    if (mdxFiles.length > 0) {
+      return path.join(componentDir, mdxFiles[0]);
+    }
+  } catch {
+    return null;
+  }
+
+  return null;
+}
+
+async function buildComponentResources(components) {
+  await rm(componentReferencesDir, { recursive: true, force: true });
+  await mkdir(componentReferencesDir, { recursive: true });
+
+  const resolved = [];
+
+  for (const component of components) {
+    const mdxPath = await resolveComponentMdxPath(component);
+    let docsPath = null;
+
+    if (mdxPath) {
+      const mdxSource = await readFile(mdxPath, 'utf8');
+      docsPath = `components/${component.name}.mdx`;
+      await writeFile(path.join(referencesDir, docsPath), mdxSource, 'utf8');
+    }
+
+    resolved.push({
+      ...component,
+      docsPath,
+    });
+  }
+
+  return resolved;
+}
+
 function renderTokensMarkdown(tokens, lightValues, darkValues, sharedValues) {
   const counts = tokens.reduce((acc, token) => {
     acc[token.type] = (acc[token.type] ?? 0) + 1;
@@ -187,6 +265,9 @@ ${tokenRows}
 
 function renderComponentsMarkdown(components) {
   const bySection = new Map();
+  const withDocsCount = components.filter(
+    (component) => component.docsPath,
+  ).length;
 
   for (const component of components) {
     const sectionItems = bySection.get(component.section) ?? [];
@@ -200,21 +281,26 @@ function renderComponentsMarkdown(components) {
       const rows = bySection
         .get(section)
         .toSorted((a, b) => a.name.localeCompare(b.name))
-        .map(
-          (component) =>
-            `| \`${component.name}\` | \`@sumup-oss/circuit-ui\` | \`${component.source}\` |`,
-        )
+        .map((component) => {
+          const docsLink = component.docsPath
+            ? `[Read MDX reference](${component.docsPath})`
+            : 'Not available';
+
+          return `| \`${component.name}\` | \`@sumup-oss/circuit-ui\` | \`${component.source}\` | ${docsLink} |`;
+        })
         .join('\n');
 
-      return `### ${section}\n\n| Component | Package | Source export |\n| --- | --- | --- |\n${rows}`;
+      return `### ${section}\n\n| Component | Package | Source export | Usage reference |\n| --- | --- | --- | --- |\n${rows}`;
     })
     .join('\n\n');
 
   return `# Circuit UI Components
 
 Generated from \`packages/circuit-ui/index.ts\`.
+Component references are copied from \`packages/circuit-ui/components/**/*.mdx\`.
 
 - Total exported components: **${components.length}**
+- Components with copied MDX references: **${withDocsCount}**
 
 ## Sections
 
@@ -251,6 +337,7 @@ async function main() {
   }
 
   await mkdir(referencesDir, { recursive: true });
+  const componentsWithDocs = await buildComponentResources(components);
 
   await Promise.all([
     writeFile(
@@ -260,13 +347,13 @@ async function main() {
     ),
     writeFile(
       path.join(referencesDir, 'components.md'),
-      renderComponentsMarkdown(components),
+      renderComponentsMarkdown(componentsWithDocs),
       'utf8',
     ),
   ]);
 
   process.stdout.write(
-    `Generated ${tokens.length} tokens and ${components.length} components in skills/circuit-ui/references.\n`,
+    `Generated ${tokens.length} tokens and ${components.length} component index entries in skills/circuit-ui/references.\n`,
   );
 }
 
