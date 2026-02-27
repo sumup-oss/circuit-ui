@@ -1,0 +1,74 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './Input.stories';
+
+<Meta of={Stories} />
+
+# Input
+
+<Status variant="stable" />
+
+A text field is an input field for inserting short text and numbers.
+
+<Story of={Stories.Base} />
+<Props />
+
+## When to use it
+
+When you need short textual information from the user such as email address, first name, phone number, street name, etc.
+
+## Usage guidelines
+
+- **Do** always accompany an input field with a visible label.
+- **Do** use one input per row, unless two fields are closely interrelated (e.g. first and last name).
+- **Do not** use input fields for requiring longer textual information from the user.
+- **Do not** communicate that an input field is required on the label or the placeholder. We assume that everything is required for the user unless explicitly said so.
+- **Do not** mark required fields with asterisks.
+
+## Validations
+
+Use the `validationHint` to communicate the expected response to users. Communicate validation issues to users with the following props:
+
+- `invalid`: The user needs to change the value to proceed.
+- `hasWarning`: The user is recommended to change the value, but can proceed without doing so. Use it when the provided value could have unintended side-effects.
+- `showValid`: The user is reassured that the value is valid. Use sparingly.
+
+<Story of={Stories.Validations} />
+
+### Optional
+
+Mark optional text fields instead of mandatory ones. Do not use the asterisk character “\*” to mark text fields, but use the explicit “(optional)” label.
+
+<Story of={Stories.Optional} />
+
+### Disabled
+
+You should use only when its a critical information from the user that we
+already have or need and we do not want the user to edit it easily. A disabled
+field should only be open for editing again if a button is clicked.
+
+<Story of={Stories.Disabled} />
+
+#### Usage guidelines
+
+- **Do** try to tell that a text input is not valid as soon as we realize it.
+- **Do** display the error message that corresponds to the input above the input field.
+- **Do** use passive voice in the error message to avoid giving direct blame to our users, for example "Password is required" instead of "You didn't set a password"
+- **Do not** use long sentences to describe why something is invalid, be direct and tell the user how to fix it.
+- **Do not** place validation descriptions for formatting such as "Use only numbers". We should always try to take care of this automatically for our users (such as eliminating space in credit card inputs)
+
+## Placeholder
+
+An input field must always have a placeholder, which is a short example of the information required that helps the user to understand what kind of information is needed. (For instance, an Address Field could have a placeholder: "Grunerstrasse 13")
+
+### Accessibility Tradeoff
+
+The placeholder color does not currently satisfy the [WCAG Success Criterion](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html) 1.4.3 minimum contrast ratio of 4.5:1 for text.
+However, changing the placeholder color to fulfill this requirement would make placeholder text look too similar to user-entered content.
+That’s why we’re only aiming for 3:1 which is usually reserved for large text. This should be fine as long as placeholder text doesn’t convey any essential information (any formatting requirements should be explained in the component's `validationHint` prop).
+
+### Usage guidelines
+
+- **Do** make the placeholder succinct (up to 3-4 words).
+- **Do** make the placeholder contextual to the language and market.
+- **Do not** repeat the same content in the placeholder as the label.
+- **Do not** communicate that a field is optional in the placeholder, use the `optionalLabel` prop instead.

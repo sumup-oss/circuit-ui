@@ -1,0 +1,27 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './CurrencyInput.stories';
+
+<Meta of={Stories} />
+
+# CurrencyInput
+
+<Status variant="stable" />
+
+The CurrencyInput component indicates to the user that a number should be entered in a given currency.
+
+<Story of={Stories.Base} />
+<Props />
+
+## Component Variations
+
+### Currency
+
+Use the `currency` prop to specify which currency the input should use.
+
+<Story of={Stories.Currencies} />
+
+### Locale
+
+Use the `locale` prop to format the currency value according to that locale's formatting style. For example, euros could be formatted differently based on locale:
+
+<Story of={Stories.Locales} />

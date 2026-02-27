@@ -1,0 +1,152 @@
+import {
+  Meta,
+  Status,
+  Props,
+  Story,
+  Preview,
+} from '../../../../.storybook/components';
+import * as Stories from './SelectorGroup.stories';
+
+<Meta of={Stories} />
+
+# SelectorGroup
+
+<Status variant="stable" />
+
+A selector group offers users the choice to select a single or multiple options from a predefined list.
+
+<Story of={Stories.Base} />
+<Props />
+
+## Component variations
+
+### Multiple selection
+
+Pass the `multiple` prop to allow users to select more than one option. Under the hood, the component switches the default radio buttons for checkboxes.
+
+<Story of={Stories.Multiple} />
+
+### Sizes
+
+The `size` prop determines the padding of the options. There are three available sizes:
+
+- **small**, used for compact layouts
+- **medium**, the default size
+- **flexible**, used for more complex content within a selector. Adds equal padding on all sides.
+
+<Story of={Stories.Sizes} />
+
+### Descriptions
+
+Use the `description` prop to add relevant context to each option.
+
+<Story of={Stories.WithDescriptions} />
+
+### Icons
+
+Use the `icon` prop to illustrate the option visually.
+
+<Story of={Stories.WithIcons} />
+
+## Validations
+
+Use the `validationHint` to communicate the expected response to users. Use the `invalid` prop to require a change.
+
+<Story of={Stories.Validations} />
+
+## Disabled
+
+Disabled form fields can be confusing to users, so use them with caution. Use a disabled selector only if you need to communicate to the user that an option that existed before is not available for choosing now. Consider not displaying the field at all or add an explanation why the field is disabled.
+
+The selector group can be disabled entirely or in part.
+
+<Story of={Stories.Disabled} />
+
+## State
+
+The SelectorGroup can be used as a controlled or uncontrolled component.
+
+### Controlled
+
+```tsx
+import { useState, type ChangeEvent } from 'react';
+import { SelectorGroup, type SelectorProps } from '@sumup-oss/circuit-ui';
+
+function Controlled() {
+  const [value, setValue] = useState<SelectorProps['value']>();
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
+  };
+
+  const options = [
+    // ...
+  ];
+
+  return (
+    <SelectorGroup
+      label="Favourite fruit"
+      options={options}
+      value={value}
+      onChange={onChange}
+    />
+  );
+}
+```
+
+### Uncontrolled
+
+```tsx
+import { useRef } from 'react';
+import { SelectorGroup } from '@sumup-oss/circuit-ui';
+
+function Uncontrolled() {
+  const checkboxRefs = useRef({});
+
+  const setCheckboxRef = (input: HTMLInputElement) => {
+    checkboxRefs.current[input.value] = input;
+  };
+
+  const options = [
+    {
+      label: 'Apple',
+      value: 'apple',
+      ref: setCheckboxRef,
+    },
+  ];
+
+  return (
+    <SelectorGroup
+      label="Favourite fruit"
+      options={options}
+      defaultValue={[]}
+      ref={checkboxGroupRef}
+    />
+  );
+}
+```
+
+## Accessibility
+
+Selectors are semantically either radio buttons or checkboxes. When it comes to accessibility, this means that they should be treated as input elements, with considerations such as proper labeling, keyboard operability, etc.
+
+### Best practices
+
+#### Write clear and concise labels
+
+The `label` prop passed to the SelectorGroup and the `options` prop's `label` property constitute the group's and the input's labels respectively. The labels should be clear and concise, and should not contain any formatted or semantic content (such as headings or lists).
+
+The label acts as the input's accessible name, exposed to assistive technology as plain text. Using non-phrasing content in a label element is invalid HTML.
+
+### Resources
+
+#### Testing label accessibility
+
+Use a tool like [Wave](https://wave.webaim.org/) to turn off styles (in Wave, you can use the "Styles" toggle). _Note: this feature doesn't work on this page since Storybook renders the docs in an iframe._
+
+This will expose the component's underlying checkboxes or radio buttons. Verify that the labels are appropriate.
+
+#### Related WCAG success criteria
+
+- 2.4.6: [Headings and Labels](https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels.html)
+- 4.1.1: [Parsing](https://www.w3.org/WAI/WCAG21/Understanding/parsing)

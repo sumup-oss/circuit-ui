@@ -1,0 +1,25 @@
+import { Meta, Status, Props, Story } from "../../../../.storybook/components";
+import * as Stories from "./ComparisonTable.stories";
+
+<Meta of={Stories} />
+
+# Comparison Table
+
+<Status variant="stable" />
+
+Allows users to quickly compare different plans side by side by highlighting key features in a structured, easy-to-scan format.
+
+<Story of={Stories.Base} />
+<Props />
+
+## Usage guidelines
+
+- This component was designed for the specific case of comparing pricing tiers offered by Sumup. It may not be suitable for other use cases.
+- Limit the number of plans to compare to a maximum of 4.
+- When used with a sticky top navigation component, the table's stickiness can be adjusted to match the navigation's height. This can be achieved by providing a `--top-navigation-height` custom property in component's scope.
+
+## Content guidelines
+
+- Keep feature titles short and self-explanatory: users should understand the feature at a glance without needing extra explanation.
+- A feature can have an optional `description` when needed. Use descriptions only when necessary: too much text can overwhelm users.
+- When a feature requires additional clarification that wouldn’t fit naturally in the table, you can add a `toggletip` property that could contain a more detailed description of the feature and will appear as a [Toggletip](Components/Toggletip/Docs) component in the table. Toggletips should be the exception, not the rule, so use them sparingly. If a feature requires a lengthy explanation, it’s better to link to a help page instead.

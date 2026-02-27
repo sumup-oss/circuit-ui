@@ -1,0 +1,20 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './Hr.stories';
+
+<Meta of={Stories} />
+
+# Hr
+
+<Status variant="stable" />
+
+A [horizontal rule](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr) visually and semantically separates content into sections.
+
+<Story of={Stories.Base} />
+<Props />
+
+## Usage
+
+Use a horizontal to indicate a thematic break between paragraphs of text or to split a list of items into thematic groups.
+
+Most often, horizontal rules are used for purely visual or aesthetic purposes, so by default the element is hidden from the accessibility tree. If the horizontal rule is useful or essential to understanding the structure of the content, pass the `aria-hidden="false"` attribute to restore its semantics.
+

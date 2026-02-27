@@ -1,0 +1,26 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './Step.stories';
+
+<Meta of={Stories} />
+
+# Step
+
+<Status variant="under-review">
+  The component doesn't meet our accessibility standards.
+</Status>
+
+<Props />
+
+## Component usage examples
+
+### Basic Carousel Slider
+
+<Story of={Stories.Slider} />
+
+### Yes/No Swipe Slider
+
+<Story of={Stories.Swiper} />
+
+### Multi Step Form
+
+<Story of={Stories.Form} inline={false} />
