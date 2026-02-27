@@ -12,8 +12,14 @@ const tokensSchemaPath = path.join(
   repoRoot,
   'packages/design-tokens/themes/schema.ts',
 );
-const lightTokensPath = path.join(repoRoot, 'packages/design-tokens/themes/light.ts');
-const darkTokensPath = path.join(repoRoot, 'packages/design-tokens/themes/dark.ts');
+const lightTokensPath = path.join(
+  repoRoot,
+  'packages/design-tokens/themes/light.ts',
+);
+const darkTokensPath = path.join(
+  repoRoot,
+  'packages/design-tokens/themes/dark.ts',
+);
 const sharedTokensPath = path.join(
   repoRoot,
   'packages/design-tokens/themes/shared.ts',
@@ -141,8 +147,10 @@ function renderTokensMarkdown(tokens, lightValues, darkValues, sharedValues) {
     .map((token) => {
       const deprecated = token.replacement ? 'yes' : 'no';
       const replacement = token.replacement ? `\`${token.replacement}\`` : '';
-      const light = lightValues.get(token.name) ?? sharedValues.get(token.name) ?? '';
-      const dark = darkValues.get(token.name) ?? sharedValues.get(token.name) ?? '';
+      const light =
+        lightValues.get(token.name) ?? sharedValues.get(token.name) ?? '';
+      const dark =
+        darkValues.get(token.name) ?? sharedValues.get(token.name) ?? '';
 
       if (!light || !dark) {
         missingValues.push(token.name);
@@ -231,11 +239,15 @@ async function main() {
   const components = parseComponents(exportsSource);
 
   if (tokens.length === 0) {
-    throw new Error('No tokens were parsed from packages/design-tokens/themes/schema.ts');
+    throw new Error(
+      'No tokens were parsed from packages/design-tokens/themes/schema.ts',
+    );
   }
 
   if (components.length === 0) {
-    throw new Error('No components were parsed from packages/circuit-ui/index.ts');
+    throw new Error(
+      'No components were parsed from packages/circuit-ui/index.ts',
+    );
   }
 
   await mkdir(referencesDir, { recursive: true });
@@ -259,6 +271,8 @@ async function main() {
 }
 
 main().catch((error) => {
-  process.stderr.write(`${error instanceof Error ? error.message : String(error)}\n`);
+  process.stderr.write(
+    `${error instanceof Error ? error.message : String(error)}\n`,
+  );
   process.exit(1);
 });
