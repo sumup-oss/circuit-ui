@@ -33,4 +33,7 @@ jobs:
         run: npm run skills:check:circuit-ui
 
       - name: Lint skills markdown
-        run: npm run lint:md
+        uses: rvben/rumdl@v0.1.30
+        with:
+          path: skills/circuit-ui
+          config: .rumdl.toml
