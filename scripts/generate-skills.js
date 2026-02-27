@@ -13,7 +13,7 @@ import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const repoRoot = path.resolve(__dirname, '../..');
+const repoRoot = path.resolve(__dirname, '..');
 
 const tokensSchemaPath = path.join(
   repoRoot,
@@ -36,19 +36,23 @@ const exportsPath = path.join(repoRoot, 'packages/circuit-ui/index.ts');
 const referencesDir = path.join(repoRoot, 'skills/circuit-ui/references');
 const componentReferencesDir = path.join(referencesDir, 'components');
 
+const TOKEN_SCHEMA_PATTERN =
+  /\{\s*name:\s*'([^']+)'\s*,\s*type:\s*'([^']+)'\s*(?:,\s*deprecation:\s*\{\s*replacement:\s*'([^']+)'\s*\}\s*)?\}/gms;
+const TOKEN_VALUE_PATTERN =
+  /\{\s*name:\s*'([^']+)'\s*,\s*value:\s*(?:'((?:\\'|[^'])*)'|(-?\d+(?:\.\d+)?))\s*,\s*type:\s*'([^']+)'\s*,?\s*\}/gms;
+const EXPORT_STATEMENT_PATTERN =
+  /export\s*\{([\s\S]*?)\}\s*from\s*'([^']+)'\s*;/m;
+
 function parseTokens(schemaSource) {
   const tokens = [];
-  const tokenPattern =
-    /\{\s*name:\s*'([^']+)'\s*,\s*type:\s*'([^']+)'\s*(?:,\s*deprecation:\s*\{\s*replacement:\s*'([^']+)'\s*\}\s*)?\}/gms;
-
-  let match = tokenPattern.exec(schemaSource);
+  let match = TOKEN_SCHEMA_PATTERN.exec(schemaSource);
   while (match !== null) {
     tokens.push({
       name: match[1],
       type: match[2],
       replacement: match[3] ?? null,
     });
-    match = tokenPattern.exec(schemaSource);
+    match = TOKEN_SCHEMA_PATTERN.exec(schemaSource);
   }
 
   return tokens;
@@ -56,17 +60,59 @@ function parseTokens(schemaSource) {
 
 function parseTokenValues(themeSource) {
   const values = new Map();
-  const tokenPattern =
-    /\{\s*name:\s*'([^']+)'\s*,\s*value:\s*(?:'((?:\\'|[^'])*)'|(-?\d+(?:\.\d+)?))\s*,\s*type:\s*'([^']+)'\s*,?\s*\}/gms;
-
-  let match = tokenPattern.exec(themeSource);
+  let match = TOKEN_VALUE_PATTERN.exec(themeSource);
   while (match !== null) {
     const value = match[2] ?? match[3] ?? '';
     values.set(match[1], value);
-    match = tokenPattern.exec(themeSource);
+    match = TOKEN_VALUE_PATTERN.exec(themeSource);
   }
 
   return values;
+}
+
+function shouldIncludeComponentName(name) {
+  return /^[A-Z][A-Za-z0-9]*$/.test(name) && /[a-z]/.test(name);
+}
+
+function parseExportedNames(exportClause) {
+  return exportClause
+    .split(',')
+    .map((entry) => entry.trim())
+    .filter(Boolean)
+    .filter((entry) => !entry.startsWith('type '))
+    .map((entry) => entry.replace(/^type\s+/, ''));
+}
+
+function addComponentsFromExportStatement(
+  statement,
+  section,
+  components,
+  seen,
+) {
+  const statementMatch = statement.match(EXPORT_STATEMENT_PATTERN);
+  if (!statementMatch) {
+    return;
+  }
+
+  const source = statementMatch[2];
+  if (!source.includes('/components/')) {
+    return;
+  }
+
+  const names = parseExportedNames(statementMatch[1]);
+
+  for (const name of names) {
+    if (!shouldIncludeComponentName(name) || seen.has(name)) {
+      continue;
+    }
+
+    components.push({
+      name,
+      section,
+      source,
+    });
+    seen.add(name);
+  }
 }
 
 function parseComponents(exportsSource) {
@@ -75,8 +121,8 @@ function parseComponents(exportsSource) {
   const seen = new Set();
   let section = 'Uncategorized';
 
-  let statement = '';
-  let statementSection = section;
+  let exportLines = [];
+  let exportSection = section;
 
   for (const line of lines) {
     const sectionMatch = line.match(/^\/\/\s+(.+)$/);
@@ -85,54 +131,36 @@ function parseComponents(exportsSource) {
       continue;
     }
 
-    if (!statement && line.trim().startsWith('export {')) {
-      statement = line;
-      statementSection = section;
-    } else if (statement) {
-      statement += `\n${line}`;
+    if (exportLines.length === 0 && line.trim().startsWith('export {')) {
+      exportLines = [line];
+      exportSection = section;
+      if (line.trim().endsWith(';')) {
+        addComponentsFromExportStatement(
+          exportLines.join('\n'),
+          exportSection,
+          components,
+          seen,
+        );
+        exportLines = [];
+        exportSection = section;
+      }
+      continue;
     }
 
-    if (statement && line.includes(';')) {
-      const statementMatch = statement.match(
-        /export\s*\{([\s\S]*?)\}\s*from\s*'([^']+)'\s*;/m,
-      );
-
-      if (statementMatch) {
-        const names = statementMatch[1]
-          .split(',')
-          .map((entry) => entry.trim())
-          .filter(Boolean)
-          .filter((entry) => !entry.startsWith('type '))
-          .map((entry) => entry.replace(/^type\s+/, ''));
-
-        for (const name of names) {
-          if (!/^[A-Z][A-Za-z0-9]*$/.test(name)) {
-            continue;
-          }
-
-          if (!/[a-z]/.test(name)) {
-            continue;
-          }
-
-          if (!statementMatch[2].includes('/components/')) {
-            continue;
-          }
-
-          if (seen.has(name)) {
-            continue;
-          }
-
-          components.push({
-            name,
-            section: statementSection,
-            source: statementMatch[2],
-          });
-          seen.add(name);
-        }
+    if (exportLines.length > 0) {
+      exportLines.push(line);
+      if (!line.trim().endsWith(';')) {
+        continue;
       }
 
-      statement = '';
-      statementSection = section;
+      addComponentsFromExportStatement(
+        exportLines.join('\n'),
+        exportSection,
+        components,
+        seen,
+      );
+      exportLines = [];
+      exportSection = section;
     }
   }
 
@@ -156,6 +184,8 @@ function resolveComponentDirectory(sourcePath) {
 async function resolveComponentMdxPath(component) {
   const componentDir = resolveComponentDirectory(component.source);
   const exportFileName = path.basename(component.source, '.js');
+
+  // Most components colocate docs by either export name or base file name.
   const prioritized = [
     path.join(componentDir, `${component.name}.mdx`),
     path.join(componentDir, `${exportFileName}.mdx`),
@@ -168,6 +198,7 @@ async function resolveComponentMdxPath(component) {
   }
 
   try {
+    // Fallback: some component folders only contain one MDX guide with a generic name.
     const entries = await readdir(componentDir);
     const mdxFiles = entries
       .filter((entry) => entry.endsWith('.mdx'))
