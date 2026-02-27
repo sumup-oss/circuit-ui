@@ -76,6 +76,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "remark-gfm": "^4.0.1",
+    "rumdl": "^0.1.30",
     "storybook": "^10.2.7",
     "stylelint": "^16.26.1",
     "stylelint-config-css-modules": "^4.5.1",
