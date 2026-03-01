@@ -61,7 +61,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@floating-ui/react-dom": "^2.1.6",
+    "@floating-ui/react-dom": "^2.1.7",
     "@nanostores/react": "^1.0.0",
     "nanostores": "^1.1.0"
   },
