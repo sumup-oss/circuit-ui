@@ -63,7 +63,7 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-server-components": "^1.2.0",
     "eslint-plugin-storybook": "^10.2.10",
-    "eslint-plugin-testing-library": "^7.15.4",
+    "eslint-plugin-testing-library": "^7.16.0",
     "github-slugger": "^2.0.0",
     "jsdom": "^27.2.0",
     "knip": "^5.85.0",
