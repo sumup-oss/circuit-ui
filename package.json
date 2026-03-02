@@ -65,7 +65,7 @@
     "eslint-plugin-storybook": "^10.2.10",
     "eslint-plugin-testing-library": "^7.16.0",
     "github-slugger": "^2.0.0",
-    "jsdom": "^27.2.0",
+    "jsdom": "^28.1.0",
     "knip": "^5.85.0",
     "lerna": "^9.0.4",
     "pkg-pr-new": "^0.0.63",
