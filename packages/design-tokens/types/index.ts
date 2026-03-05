@@ -210,6 +210,7 @@ interface BaseToken {
 type ColorUsage = 'fg' | 'bg' | 'border';
 type ColorSentiment =
   | 'accent'
+  | 'brand'
   | 'promo'
   | 'success'
   | 'warning'

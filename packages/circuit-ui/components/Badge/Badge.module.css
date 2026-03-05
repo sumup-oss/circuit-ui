@@ -1,11 +1,10 @@
 .base {
   display: inline-block;
-  padding: 2px var(--cui-spacings-byte);
-  font-size: var(--cui-body-s-font-size);
+  padding: var(--cui-spacings-bit) var(--cui-spacings-byte);
+  font-size: var(--cui-compact-s-font-size);
   font-weight: var(--cui-font-weight-semibold);
-  line-height: var(--cui-body-s-line-height);
+  line-height: var(--cui-compact-s-line-height);
   text-align: center;
-  letter-spacing: 0.25px;
   border-radius: var(--cui-border-radius-pill);
 }
 
@@ -14,8 +13,10 @@
   align-items: center;
   justify-content: center;
   width: var(--badge-width);
-  height: 24px;
-  padding: 2px 4px;
+
+  /* FIXME: Doesn't add up to 24px */
+  height: calc(var(--cui-compact-s-line-height) + 2 * var(--cui-spacings-bit));
+  padding: var(--cui-spacings-bit);
 }
 
 /* Variants */

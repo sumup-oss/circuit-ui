@@ -17,6 +17,26 @@ import type { Token } from '../types/index.js';
 
 export const light = [
   {
+    name: '--cui-bg-brand',
+    value: '#ff61f2',
+    type: 'color',
+  },
+  {
+    name: '--cui-bg-brand-hovered',
+    value: '#eb58df',
+    type: 'color',
+  },
+  {
+    name: '--cui-bg-brand-pressed',
+    value: '#da4ece',
+    type: 'color',
+  },
+  {
+    name: '--cui-bg-brand-disabled',
+    value: 'rgba(255, 97, 242, 0.2000)',
+    type: 'color',
+  },
+  {
     name: '--cui-bg-normal',
     value: '#fbfbf9',
     type: 'color',
@@ -33,7 +53,7 @@ export const light = [
   },
   {
     name: '--cui-bg-normal-disabled',
-    value: 'rgba(227, 226, 214, 0.4000)',
+    value: 'rgba(227, 226, 214, 0.6000)',
     type: 'color',
   },
   {
@@ -53,7 +73,7 @@ export const light = [
   },
   {
     name: '--cui-bg-subtle-disabled',
-    value: 'rgba(240, 241, 231, 0.4000)',
+    value: 'rgba(240, 241, 231, 0.6000)',
     type: 'color',
   },
   {
@@ -73,7 +93,7 @@ export const light = [
   },
   {
     name: '--cui-bg-highlight-disabled',
-    value: 'rgba(117, 108, 108, 0.2000)',
+    value: 'rgba(117, 108, 108, 0.4000)',
     type: 'color',
   },
   {
@@ -93,7 +113,7 @@ export const light = [
   },
   {
     name: '--cui-bg-strong-disabled',
-    value: 'rgba(23, 29, 36, 0.4000)',
+    value: 'rgba(30, 28, 28, 0.2000)',
     type: 'color',
   },
   {
@@ -113,12 +133,12 @@ export const light = [
   },
   {
     name: '--cui-bg-accent-disabled',
-    value: 'rgba(227, 226, 214, 0.4000)',
+    value: 'rgba(227, 226, 214, 0.6000)',
     type: 'color',
   },
   {
     name: '--cui-bg-accent-strong',
-    value: '#1e1c1c',
+    value: '#332f2f',
     type: 'color',
   },
   {
@@ -153,7 +173,7 @@ export const light = [
   },
   {
     name: '--cui-bg-success-disabled',
-    value: 'rgba(237, 249, 239, 0.4000)',
+    value: 'rgba(237, 249, 239, 0.6000)',
     type: 'color',
   },
   {
@@ -173,7 +193,7 @@ export const light = [
   },
   {
     name: '--cui-bg-success-strong-disabled',
-    value: 'rgba(32, 184, 57, 0.1000)',
+    value: 'rgba(32, 184, 57, 0.4000)',
     type: 'color',
   },
   {
@@ -193,7 +213,7 @@ export const light = [
   },
   {
     name: '--cui-bg-warning-disabled',
-    value: 'rgba(254, 238, 213, 0.3000)',
+    value: 'rgba(254, 238, 213, 0.6000)',
     type: 'color',
   },
   {
@@ -213,7 +233,7 @@ export const light = [
   },
   {
     name: '--cui-bg-warning-strong-disabled',
-    value: 'rgba(248, 171, 47, 0.1000)',
+    value: 'rgba(248, 171, 47, 0.4000)',
     type: 'color',
   },
   {
@@ -233,12 +253,12 @@ export const light = [
   },
   {
     name: '--cui-bg-danger-disabled',
-    value: 'rgba(255, 218, 204, 0.2000)',
+    value: 'rgba(255, 218, 204, 0.6000)',
     type: 'color',
   },
   {
     name: '--cui-bg-danger-strong',
-    value: '#ff4800',
+    value: '#e34405',
     type: 'color',
   },
   {
@@ -248,52 +268,72 @@ export const light = [
   },
   {
     name: '--cui-bg-danger-strong-pressed',
-    value: '#d24008',
+    value: '#b63502',
     type: 'color',
   },
   {
     name: '--cui-bg-danger-strong-disabled',
-    value: 'rgba(255, 72, 0, 0.1000)',
+    value: 'rgba(227, 68, 5, 0.4000)',
     type: 'color',
   },
   {
     name: '--cui-bg-promo',
-    value: '#ff61f2',
+    value: '#ffe4fd',
     type: 'color',
   },
   {
     name: '--cui-bg-promo-hovered',
-    value: '#ec58e0',
+    value: '#ffd7fc',
     type: 'color',
   },
   {
     name: '--cui-bg-promo-pressed',
-    value: '#e04fd4',
+    value: '#ffcafb',
     type: 'color',
   },
   {
     name: '--cui-bg-promo-disabled',
-    value: 'rgba(255, 97, 242, 0.1000)',
+    value: 'rgba(255, 228, 253, 0.6000)',
     type: 'color',
   },
   {
     name: '--cui-bg-promo-strong',
-    value: '#ed54e0',
+    value: '#e155d6',
     type: 'color',
   },
   {
     name: '--cui-bg-promo-strong-hovered',
-    value: '#df49d2',
+    value: '#cb49c1',
     type: 'color',
   },
   {
     name: '--cui-bg-promo-strong-pressed',
-    value: '#c934bd',
+    value: '#e04fd4',
     type: 'color',
   },
   {
     name: '--cui-bg-promo-strong-disabled',
-    value: 'rgba(237, 84, 224, 0.1000)',
+    value: 'rgba(225, 85, 214, 0.4000)',
+    type: 'color',
+  },
+  {
+    name: '--cui-fg-brand',
+    value: '#ff61f2',
+    type: 'color',
+  },
+  {
+    name: '--cui-fg-brand-hovered',
+    value: '#eb58df',
+    type: 'color',
+  },
+  {
+    name: '--cui-fg-brand-pressed',
+    value: '#da4ece',
+    type: 'color',
+  },
+  {
+    name: '--cui-fg-brand-disabled',
+    value: 'rgba(255, 97, 242, 0.6000)',
     type: 'color',
   },
   {
@@ -303,12 +343,12 @@ export const light = [
   },
   {
     name: '--cui-fg-normal-hovered',
-    value: '#0f131a',
+    value: '#9c948d',
     type: 'color',
   },
   {
     name: '--cui-fg-normal-pressed',
-    value: '#0f131a',
+    value: '#756c6c',
     type: 'color',
   },
   {
@@ -363,17 +403,17 @@ export const light = [
   },
   {
     name: '--cui-fg-on-strong-hovered',
-    value: '#ffffff',
+    value: 'rgba(251, 251, 249, 0.7000)',
     type: 'color',
   },
   {
     name: '--cui-fg-on-strong-pressed',
-    value: '#ffffff',
+    value: '#e3e2d6',
     type: 'color',
   },
   {
     name: '--cui-fg-on-strong-disabled',
-    value: 'rgba(255, 255, 255, 0.4000)',
+    value: 'rgba(63, 58, 58, 0.4000)',
     type: 'color',
   },
   {
@@ -413,12 +453,12 @@ export const light = [
   },
   {
     name: '--cui-fg-accent-disabled',
-    value: 'rgba(51, 47, 47, 0.2000)',
+    value: 'rgba(51, 47, 47, 0.4000)',
     type: 'color',
   },
   {
     name: '--cui-fg-success',
-    value: '#147e26',
+    value: '#20b839',
     type: 'color',
   },
   {
@@ -433,12 +473,12 @@ export const light = [
   },
   {
     name: '--cui-fg-success-disabled',
-    value: 'rgba(20, 126, 38, 0.1000)',
+    value: 'rgba(20, 126, 38, 0.6000)',
     type: 'color',
   },
   {
     name: '--cui-fg-warning',
-    value: '#805b19',
+    value: '#c78100',
     type: 'color',
   },
   {
@@ -453,12 +493,12 @@ export const light = [
   },
   {
     name: '--cui-fg-warning-disabled',
-    value: 'rgba(174, 121, 35, 0.2000)',
+    value: 'rgba(174, 121, 35, 0.6000)',
     type: 'color',
   },
   {
     name: '--cui-fg-danger',
-    value: '#ad3100',
+    value: '#e34405',
     type: 'color',
   },
   {
@@ -473,12 +513,12 @@ export const light = [
   },
   {
     name: '--cui-fg-danger-disabled',
-    value: 'rgba(230, 65, 0, 0.1000)',
+    value: 'rgba(255, 72, 0, 0.6000)',
     type: 'color',
   },
   {
     name: '--cui-fg-promo',
-    value: '#ff61f2',
+    value: '#e155d6',
     type: 'color',
   },
   {
@@ -493,7 +533,27 @@ export const light = [
   },
   {
     name: '--cui-fg-promo-disabled',
-    value: 'rgba(255, 97, 242, 0.2000)',
+    value: 'rgba(255, 97, 242, 0.6000)',
+    type: 'color',
+  },
+  {
+    name: '--cui-border-brand',
+    value: '#ff61f2',
+    type: 'color',
+  },
+  {
+    name: '--cui-border-brand-hovered',
+    value: '#eb58df',
+    type: 'color',
+  },
+  {
+    name: '--cui-border-brand-pressed',
+    value: '#da4ece',
+    type: 'color',
+  },
+  {
+    name: '--cui-border-brand-disabled',
+    value: 'rgba(255, 97, 242, 0.4000)',
     type: 'color',
   },
   {
@@ -503,17 +563,17 @@ export const light = [
   },
   {
     name: '--cui-border-normal-hovered',
-    value: '#d0cdc3',
-    type: 'color',
-  },
-  {
-    name: '--cui-border-normal-pressed',
     value: '#b7b0a9',
     type: 'color',
   },
   {
+    name: '--cui-border-normal-pressed',
+    value: '#9e9893',
+    type: 'color',
+  },
+  {
     name: '--cui-border-normal-disabled',
-    value: 'rgba(227, 226, 214, 0.3000)',
+    value: 'rgba(227, 226, 214, 0.5000)',
     type: 'color',
   },
   {
@@ -523,12 +583,12 @@ export const light = [
   },
   {
     name: '--cui-border-subtle-hovered',
-    value: '#e3e2d6',
+    value: '#d0cdc3',
     type: 'color',
   },
   {
     name: '--cui-border-subtle-pressed',
-    value: '#d0cdc3',
+    value: '#b7b0a9',
     type: 'color',
   },
   {
@@ -613,7 +673,7 @@ export const light = [
   },
   {
     name: '--cui-border-success-disabled',
-    value: 'rgba(32, 184, 57, 0.2000)',
+    value: 'rgba(32, 184, 57, 0.4000)',
     type: 'color',
   },
   {
@@ -638,17 +698,17 @@ export const light = [
   },
   {
     name: '--cui-border-danger',
-    value: '#ff4800',
+    value: '#e34405',
     type: 'color',
   },
   {
     name: '--cui-border-danger-hovered',
-    value: '#ee4401',
+    value: '#c73a01',
     type: 'color',
   },
   {
     name: '--cui-border-danger-pressed',
-    value: '#cc3a00',
+    value: '#b63502',
     type: 'color',
   },
   {
@@ -658,7 +718,7 @@ export const light = [
   },
   {
     name: '--cui-border-promo',
-    value: '#ff61f2',
+    value: '#e155d6',
     type: 'color',
   },
   {
@@ -683,7 +743,7 @@ export const light = [
   },
   {
     name: '--cui-bg-elevated',
-    value: '#fbfbf9',
+    value: '#ffffff',
     type: 'color',
   },
   {
