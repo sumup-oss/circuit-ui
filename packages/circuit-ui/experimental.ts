@@ -19,3 +19,6 @@ export type { AutocompleteInputProps } from './components/AutocompleteInput/Auto
 export type { AutocompleteInputOption } from './components/AutocompleteInput/components/Option/Option.js';
 export type { AutocompleteInputOptionGroup } from './components/AutocompleteInput/components/Options/Options.js';
 export { updateMultipleSelectionValue } from './components/AutocompleteInput/AutocompleteInputService.js';
+
+export { TimeInput } from './components/TimeInput/TimeInput.js';
+export type { TimeInputProps } from './components/TimeInput/TimeInput.js';
