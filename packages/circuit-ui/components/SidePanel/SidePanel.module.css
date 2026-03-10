@@ -18,10 +18,10 @@
 }
 
 .wrapper {
+  outline: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
   height: 100%;
   padding: 0;
 
@@ -54,27 +54,36 @@
   .base {
     top: var(--top-navigation-height, 0);
     width: var(--side-panel-width);
-    height: calc(100vh - var(--top-navigation-height, 0));
+    height: calc(
+      100vh -
+      (var(--top-navigation-height, 0px) + var(--cui-spacings-giga))
+    );
 
     /* biome-ignore lint/suspicious/noDuplicateProperties: Browser compatibility */
-    height: calc(100dvh - var(--top-navigation-height, 0));
+    height: calc(
+      100dvh -
+      (var(--top-navigation-height, 0px) + var(--cui-spacings-giga))
+    );
     margin: 0;
-    background-color: var(--cui-bg-normal);
-    box-shadow: inset var(--cui-border-width-kilo) 0 0 var(--cui-border-divider);
+    background-color: transparent;
   }
 
   .base::after {
-    /* to account for inset box shadow */
-    margin-left: 1px;
+    bottom: calc(-1 * var(--cui-spacings-kilo));
+    left: var(--cui-spacings-giga);
+    width: calc(var(--side-panel-width) - calc(2 * var(--cui-spacings-giga)));
     background: linear-gradient(
-      color-mix(in sRGB, var(--cui-bg-normal) 0%, transparent),
-      color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
-      color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent)
+      color-mix(in sRGB, var(--cui-bg-subtle) 0%, transparent),
+      color-mix(in sRGB, var(--cui-bg-subtle) 66%, transparent),
+      color-mix(in sRGB, var(--cui-bg-subtle) 100%, transparent)
     );
+    border-radius: var(--cui-border-radius-mega);
   }
 
   .wrapper {
-    padding-left: 0;
+    margin: var(--cui-spacings-kilo) var(--cui-spacings-giga);
+    background: var(--cui-bg-subtle);
+    border-radius: var(--cui-border-radius-mega);
   }
 
   .content {
