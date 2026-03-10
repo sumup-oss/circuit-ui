@@ -60,7 +60,7 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(
         role={as}
         className={clsx(classes.base, className)}
         aria-selected={selected}
-        tabindex={tabIndex(selected)}
+        tabIndex={tabIndex(selected)}
         {...props}
       />
     ) : (
