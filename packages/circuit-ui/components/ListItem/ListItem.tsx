@@ -36,7 +36,6 @@ import classes from './ListItem.module.css';
 
 type Variant = 'action' | 'navigation';
 
-/** @lintignore */
 export interface BaseProps {
   /**
    * Choose between 'action' and 'navigation' variant. Default: 'action'.
