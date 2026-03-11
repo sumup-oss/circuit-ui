@@ -17,26 +17,6 @@ import type { Token } from '../types/index.js';
 
 export const light = [
   {
-    name: '--cui-bg-brand',
-    value: '#ff61f2',
-    type: 'color',
-  },
-  {
-    name: '--cui-bg-brand-hovered',
-    value: '#eb58df',
-    type: 'color',
-  },
-  {
-    name: '--cui-bg-brand-pressed',
-    value: '#da4ece',
-    type: 'color',
-  },
-  {
-    name: '--cui-bg-brand-disabled',
-    value: 'rgba(255, 97, 242, 0.2000)',
-    type: 'color',
-  },
-  {
     name: '--cui-bg-normal',
     value: '#fbfbf9',
     type: 'color',
@@ -317,23 +297,23 @@ export const light = [
     type: 'color',
   },
   {
-    name: '--cui-fg-brand',
+    name: '--cui-bg-brand',
     value: '#ff61f2',
     type: 'color',
   },
   {
-    name: '--cui-fg-brand-hovered',
+    name: '--cui-bg-brand-hovered',
     value: '#eb58df',
     type: 'color',
   },
   {
-    name: '--cui-fg-brand-pressed',
+    name: '--cui-bg-brand-pressed',
     value: '#da4ece',
     type: 'color',
   },
   {
-    name: '--cui-fg-brand-disabled',
-    value: 'rgba(255, 97, 242, 0.6000)',
+    name: '--cui-bg-brand-disabled',
+    value: 'rgba(255, 97, 242, 0.2000)',
     type: 'color',
   },
   {
@@ -537,23 +517,23 @@ export const light = [
     type: 'color',
   },
   {
-    name: '--cui-border-brand',
+    name: '--cui-fg-brand',
     value: '#ff61f2',
     type: 'color',
   },
   {
-    name: '--cui-border-brand-hovered',
+    name: '--cui-fg-brand-hovered',
     value: '#eb58df',
     type: 'color',
   },
   {
-    name: '--cui-border-brand-pressed',
+    name: '--cui-fg-brand-pressed',
     value: '#da4ece',
     type: 'color',
   },
   {
-    name: '--cui-border-brand-disabled',
-    value: 'rgba(255, 97, 242, 0.4000)',
+    name: '--cui-fg-brand-disabled',
+    value: 'rgba(255, 97, 242, 0.6000)',
     type: 'color',
   },
   {
@@ -729,6 +709,26 @@ export const light = [
   {
     name: '--cui-border-promo-pressed',
     value: '#e04fd4',
+    type: 'color',
+  },
+  {
+    name: '--cui-border-brand',
+    value: '#ff61f2',
+    type: 'color',
+  },
+  {
+    name: '--cui-border-brand-hovered',
+    value: '#eb58df',
+    type: 'color',
+  },
+  {
+    name: '--cui-border-brand-pressed',
+    value: '#da4ece',
+    type: 'color',
+  },
+  {
+    name: '--cui-border-brand-disabled',
+    value: 'rgba(255, 97, 242, 0.4000)',
     type: 'color',
   },
   {
