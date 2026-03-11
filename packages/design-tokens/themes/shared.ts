@@ -290,7 +290,7 @@ export const shared = [
   },
   {
     name: '--cui-compact-m-line-height',
-    value: '1.0625rem',
+    value: '1.125rem',
     type: 'dimension',
   },
   {
@@ -300,12 +300,12 @@ export const shared = [
   },
   {
     name: '--cui-compact-s-line-height',
-    value: '0.9375rem',
+    value: '1rem',
     type: 'dimension',
   },
   {
     name: '--cui-numeral-l-font-size',
-    value: '3rem',
+    value: '2.5rem',
     type: 'dimension',
   },
   {
