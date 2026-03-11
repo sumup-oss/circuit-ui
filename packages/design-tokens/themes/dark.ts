@@ -53,7 +53,7 @@ export const dark = [
   },
   {
     name: '--cui-bg-subtle-disabled',
-    value: 'rgba(183, 176, 169, 0.4000)',
+    value: 'rgba(51, 47, 47, 0.4000)',
     type: 'color',
   },
   {
@@ -78,7 +78,7 @@ export const dark = [
   },
   {
     name: '--cui-bg-strong',
-    value: '#f0f1e7',
+    value: '#fbfbf9',
     type: 'color',
   },
   {
@@ -258,7 +258,7 @@ export const dark = [
   },
   {
     name: '--cui-bg-promo',
-    value: '#ff61f2',
+    value: '#ffe4fd',
     type: 'color',
   },
   {
@@ -278,7 +278,7 @@ export const dark = [
   },
   {
     name: '--cui-bg-promo-strong',
-    value: '#ed54e0',
+    value: '#e155d6',
     type: 'color',
   },
   {
@@ -297,6 +297,26 @@ export const dark = [
     type: 'color',
   },
   {
+    name: '--cui-bg-brand',
+    value: '#ff61f2',
+    type: 'color',
+  },
+  {
+    name: '--cui-bg-brand-hovered',
+    value: '#ff3def',
+    type: 'color',
+  },
+  {
+    name: '--cui-bg-brand-pressed',
+    value: '#da4ece',
+    type: 'color',
+  },
+  {
+    name: '--cui-bg-brand-disabled',
+    value: 'rgba(255, 97, 242, 0.1000)',
+    type: 'color',
+  },
+  {
     name: '--cui-fg-normal',
     value: '#f0f1e7',
     type: 'color',
@@ -308,7 +328,7 @@ export const dark = [
   },
   {
     name: '--cui-fg-normal-pressed',
-    value: '#d0cdc3',
+    value: '#332f2f',
     type: 'color',
   },
   {
@@ -363,12 +383,12 @@ export const dark = [
   },
   {
     name: '--cui-fg-on-strong-hovered',
-    value: '#ffffff',
+    value: 'rgba(30, 28, 28, 0.7000)',
     type: 'color',
   },
   {
     name: '--cui-fg-on-strong-pressed',
-    value: '#ffffff',
+    value: '#1e1c1c',
     type: 'color',
   },
   {
@@ -473,12 +493,12 @@ export const dark = [
   },
   {
     name: '--cui-fg-danger-disabled',
-    value: 'rgba(230, 65, 0, 0.1000)',
+    value: 'rgba(230, 65, 0, 0.2000)',
     type: 'color',
   },
   {
     name: '--cui-fg-promo',
-    value: '#ff61f2',
+    value: '#e155d6',
     type: 'color',
   },
   {
@@ -493,6 +513,26 @@ export const dark = [
   },
   {
     name: '--cui-fg-promo-disabled',
+    value: 'rgba(255, 97, 242, 0.2000)',
+    type: 'color',
+  },
+  {
+    name: '--cui-fg-brand',
+    value: '#ff61f2',
+    type: 'color',
+  },
+  {
+    name: '--cui-fg-brand-hovered',
+    value: '#eb58df',
+    type: 'color',
+  },
+  {
+    name: '--cui-fg-brand-pressed',
+    value: '#da4ece',
+    type: 'color',
+  },
+  {
+    name: '--cui-fg-brand-disabled',
     value: 'rgba(255, 97, 242, 0.2000)',
     type: 'color',
   },
@@ -513,7 +553,7 @@ export const dark = [
   },
   {
     name: '--cui-border-normal-disabled',
-    value: 'rgba(227, 226, 214, 0.3000)',
+    value: 'rgba(227, 226, 214, 0.2000)',
     type: 'color',
   },
   {
@@ -658,7 +698,7 @@ export const dark = [
   },
   {
     name: '--cui-border-promo',
-    value: '#ff61f2',
+    value: '#e155d6',
     type: 'color',
   },
   {
@@ -674,6 +714,26 @@ export const dark = [
   {
     name: '--cui-border-promo-disabled',
     value: 'rgba(237, 84, 224, 0.4000)',
+    type: 'color',
+  },
+  {
+    name: '--cui-border-brand',
+    value: '#ff61f2',
+    type: 'color',
+  },
+  {
+    name: '--cui-border-brand-hovered',
+    value: '#eb58df',
+    type: 'color',
+  },
+  {
+    name: '--cui-border-brand-pressed',
+    value: '#da4ece',
+    type: 'color',
+  },
+  {
+    name: '--cui-border-brand-disabled',
+    value: 'rgba(255, 97, 242, 0.2000)',
     type: 'color',
   },
   {
