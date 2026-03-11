@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 10.14.8
+
+### Patch Changes
+
+- [#3501](https://github.com/sumup-oss/circuit-ui/pull/3501) [`0ab2aa0`](https://github.com/sumup-oss/circuit-ui/commit/0ab2aa04ffc7cc9935ab72e4b661d9a70fe7bc14) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed an issue where disabled or read-only input fields could still be cleared via the clear button (SeachInput and AutocompleteInput). The clear button is now only shown when the input is editable.
+
+- [#3498](https://github.com/sumup-oss/circuit-ui/pull/3498) [`2d9e5d2`](https://github.com/sumup-oss/circuit-ui/commit/2d9e5d285eec8005932c9a35d525d9f81a5f505a) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed incorrect `tabIndex` prop name in the Tab component.
+
 ## 10.14.7
 
 ### Patch Changes
