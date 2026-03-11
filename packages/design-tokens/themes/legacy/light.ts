@@ -63,7 +63,7 @@ export const typography = {
   headline: {
     one: {
       fontSize: '2.0625rem',
-      lineHeight: '2.25rem',
+      lineHeight: '2.125rem',
     },
     two: {
       fontSize: '1.5625rem',
@@ -103,7 +103,7 @@ export const typography = {
   body: {
     one: {
       fontSize: '1.0625rem',
-      lineHeight: '1.375rem',
+      lineHeight: '1.5rem',
     },
     two: {
       fontSize: '0.9375rem',
@@ -112,7 +112,7 @@ export const typography = {
   },
   bodyLarge: {
     fontSize: '1.3125rem',
-    lineHeight: '1.5rem',
+    lineHeight: '1.625rem',
   },
 };
 

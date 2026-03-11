@@ -62,13 +62,13 @@ export const shared = [
   {
     name: '--cui-font-stack-default',
     value:
-      '"NaN Holo Narrow", "NaN Holo", "Inter", Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+      '"NaN Holo Narrow", "NaN Holo", Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
     type: 'fontFamily',
   },
   {
     name: '--cui-font-stack-display',
     value:
-      '"NaN Holo Black", "NaN Holo", "Inter", Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+      '"NaN Holo Black", "NaN Holo", Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
     type: 'fontFamily',
   },
   {
@@ -220,7 +220,7 @@ export const shared = [
   },
   {
     name: '--cui-headline-l-line-height',
-    value: '2.25rem',
+    value: '2.125rem',
     type: 'dimension',
   },
   {
@@ -250,7 +250,7 @@ export const shared = [
   },
   {
     name: '--cui-body-l-line-height',
-    value: '1.5rem',
+    value: '1.625rem',
     type: 'dimension',
   },
   {
@@ -260,7 +260,7 @@ export const shared = [
   },
   {
     name: '--cui-body-m-line-height',
-    value: '1.375rem',
+    value: '1.5rem',
     type: 'dimension',
   },
   {
@@ -285,32 +285,32 @@ export const shared = [
   },
   {
     name: '--cui-compact-m-font-size',
-    value: '0.9375rem',
+    value: '1rem',
     type: 'dimension',
   },
   {
     name: '--cui-compact-m-line-height',
-    value: '1.0625rem',
+    value: '1.125rem',
     type: 'dimension',
   },
   {
     name: '--cui-compact-s-font-size',
-    value: '0.8125rem',
+    value: '0.875rem',
     type: 'dimension',
   },
   {
     name: '--cui-compact-s-line-height',
-    value: '0.9375rem',
+    value: '1rem',
     type: 'dimension',
   },
   {
     name: '--cui-numeral-l-font-size',
-    value: '3rem',
+    value: '2.5rem',
     type: 'dimension',
   },
   {
     name: '--cui-numeral-l-line-height',
-    value: '3.375rem',
+    value: '2.5rem',
     type: 'dimension',
   },
   {
@@ -330,7 +330,7 @@ export const shared = [
   },
   {
     name: '--cui-numeral-s-line-height',
-    value: '1.375rem',
+    value: '1.5rem',
     type: 'dimension',
   },
   /* eslint-disable circuit-ui/no-deprecated-custom-properties */
@@ -341,7 +341,7 @@ export const shared = [
   },
   {
     name: '--cui-typography-headline-one-line-height',
-    value: '2.25rem',
+    value: '2.125rem',
     type: 'dimension',
   },
   {
@@ -431,7 +431,7 @@ export const shared = [
   },
   {
     name: '--cui-typography-body-one-line-height',
-    value: '1.375rem',
+    value: '1.5rem',
     type: 'dimension',
   },
   {
@@ -451,7 +451,7 @@ export const shared = [
   },
   {
     name: '--cui-typography-body-large-line-height',
-    value: '1.5rem',
+    value: '1.625rem',
     type: 'dimension',
   },
   /* eslint-enable circuit-ui/no-deprecated-custom-properties */

@@ -1,6 +1,5 @@
 .base {
   margin: 0;
-  font-weight: var(--cui-font-weight-semibold);
   font-variant-numeric: tabular-nums;
   letter-spacing: var(--cui-letter-spacing);
 }
@@ -9,16 +8,19 @@
 
 .l {
   font-size: var(--cui-numeral-l-font-size);
+  font-weight: var(--cui-font-weight-bold);
   line-height: var(--cui-numeral-l-line-height);
 }
 
 .m {
   font-size: var(--cui-numeral-m-font-size);
+  font-weight: var(--cui-font-weight-semibold);
   line-height: var(--cui-numeral-m-line-height);
 }
 
 .s {
   font-size: var(--cui-numeral-s-font-size);
+  font-weight: var(--cui-font-weight-regular);
   line-height: var(--cui-numeral-s-line-height);
 }
 
