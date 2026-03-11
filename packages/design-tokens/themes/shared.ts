@@ -19,12 +19,12 @@ export const shared = [
   /* Border radii */
   {
     name: '--cui-border-radius-bit',
-    value: '6px',
+    value: '4px',
     type: 'dimension',
   },
   {
     name: '--cui-border-radius-byte',
-    value: '9px',
+    value: '10px',
     type: 'dimension',
   },
   {

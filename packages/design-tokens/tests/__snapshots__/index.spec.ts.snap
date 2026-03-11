@@ -4,7 +4,7 @@ exports[`Themes > light > should match the snapshot 1`] = `
 {
   "borderRadius": {
     "bit": "4px",
-    "byte": "8px",
+    "byte": "10px",
     "circle": "100%",
     "kilo": "12px",
     "mega": "16px",
