@@ -14,7 +14,7 @@ The TimeInput component allows users to type or select a specific time. The inpu
 
 ## Usage
 
-Use the component whenever asking for a specific time such as a meeting time, shift start, or opening hours. The time is in the `HH:mm` or `HH:mm:ss` format with leading zeros and using a 24-hour clock regardless of the locale.
+Use the component whenever asking for a specific time such as a meeting time, shift start, or opening hours. The time is in the `HH:mm` format with leading zeros and using a 24-hour clock regardless of the locale. Use the [`steps`](#steps) prop to collect a time including seconds (`HH:mm:ss`).
 
 For selecting a time range, we recommend using a combination of two input fields (one for the start and the other for the end time).
 
@@ -24,7 +24,7 @@ Use the `validationHint` prop to communicate the expected response to users. The
 
 ### Steps
 
-Use the `step` prop to restrict the times a user is allowed to enter in intervals relative to the minimum time. The `step` value is in seconds. Using a value that is not divisible by `60` enables the user to add seconds to the time.
+Use the `step` prop to restrict the times a user is allowed to enter in intervals relative to the minimum time. The `step` value is in seconds. Using a value that is not divisible by `60` enables the user to add seconds to the time and changes the value to the `HH:mm:ss` format.
 
 ### Invalid
 
