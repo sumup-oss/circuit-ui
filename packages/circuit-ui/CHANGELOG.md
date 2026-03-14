@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.15.0
+
+### Minor Changes
+
+- [#3497](https://github.com/sumup-oss/circuit-ui/pull/3497) [`4cc262d`](https://github.com/sumup-oss/circuit-ui/commit/4cc262dca6c5a9f82a6cd416ec235af9ec953386) Thanks [@connor-baer](https://github.com/connor-baer)! - Added an experimental TimeInput component based on the native `input[type="time"]` element.
+
 ## 10.14.8
 
 ### Patch Changes
