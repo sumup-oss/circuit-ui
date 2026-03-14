@@ -1,0 +1,39 @@
+name: Skills
+
+on:
+  pull_request:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  skills:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Setup Node.js 24
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: "npm"
+
+      - name: Update npm
+        run: npm install -g npm@11.7.0
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify generated skill resources are up to date
+        run: npm run skills:check:circuit-ui
+
+      - name: Lint skills markdown
+        uses: rvben/rumdl@v0.1.30
+        with:
+          path: skills/circuit-ui
+          config: .rumdl.toml

@@ -1,0 +1,32 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './Image.stories';
+
+<Meta of={Stories} />
+
+# Image
+
+A responsive image that adapts to the available width.
+
+<Status variant="stable" />
+
+<Story of={Stories.Base} />
+
+<Props />
+
+## Usage
+
+Use the image component when you need to showcase visual files and ensure responsiveness. Do not use unauthorized images from external sources.
+
+---
+
+## Accessibility
+
+### Resources
+
+- [Write helpful Alt Text to describe images](https://accessibility.huit.harvard.edu/describe-content-images) from _Harvard University_
+
+#### Related WCAG success criteria
+
+- 1.1.1: [Non-text Content](https://www.w3.org/WAI/WCAG21/quickref/#qr-text-equiv-all) (Level A)
+- 1.4.5: [Images of Text](https://www.w3.org/WAI/WCAG21/quickref/#qr-visual-audio-contrast-text-presentation) (Level AA)
+- 1.4.9: [Images of Text (No Exception)](https://www.w3.org/WAI/WCAG21/quickref/#qr-visual-audio-contrast-text-images) (Level AAA)
