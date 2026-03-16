@@ -26,16 +26,17 @@ describe('Tabs', () => {
   beforeAll(() => {
     HTMLElement.prototype.scrollIntoView = vi.fn();
   });
+  const onTabChange = vi.fn();
+  const props = {
+    items: [
+      { id: 'a', tab: 'tab-a', panel: 'panel-a' },
+      { id: 'b', tab: 'tab-b', panel: 'panel-b' },
+      { id: 'c', tab: 'tab-c', panel: 'panel-c' },
+    ],
+    onTabChange,
+  };
   it('should switch panels on tab click', async () => {
-    render(
-      <Tabs
-        items={[
-          { id: 'a', tab: 'tab-a', panel: 'panel-a' },
-          { id: 'b', tab: 'tab-b', panel: 'panel-b' },
-          { id: 'c', tab: 'tab-c', panel: 'panel-c' },
-        ]}
-      />,
-    );
+    render(<Tabs {...props} />);
 
     const panelA = screen.getByRole('tabpanel');
     expect(panelA).toHaveAccessibleName('tab-a');
@@ -45,18 +46,11 @@ describe('Tabs', () => {
 
     const panelB = screen.getByRole('tabpanel');
     expect(panelB).toHaveAccessibleName('tab-b');
+    expect(onTabChange).toHaveBeenCalledExactlyOnceWith('b');
   });
 
   it('should go to the next tab on right arrow press', async () => {
-    render(
-      <Tabs
-        items={[
-          { id: 'a', tab: 'tab-a', panel: 'panel-a' },
-          { id: 'b', tab: 'tab-b', panel: 'panel-b' },
-          { id: 'c', tab: 'tab-c', panel: 'panel-c' },
-        ]}
-      />,
-    );
+    render(<Tabs {...props} />);
 
     await userEvent.keyboard('{Tab}');
 
@@ -70,25 +64,18 @@ describe('Tabs', () => {
 
     const panelB = screen.getByRole('tabpanel');
     expect(panelB).toHaveAccessibleName('tab-b');
+    expect(onTabChange).toHaveBeenCalledWith('b');
     expect(tabs[1]).toHaveFocus();
   });
 
   it('should go to the previous tab on left arrow press', async () => {
-    render(
-      <Tabs
-        initialSelectedIndex={1}
-        items={[
-          { id: 'a', tab: 'tab-a', panel: 'panel-a' },
-          { id: 'b', tab: 'tab-b', panel: 'panel-b' },
-          { id: 'c', tab: 'tab-c', panel: 'panel-c' },
-        ]}
-      />,
-    );
+    render(<Tabs initialSelectedIndex={1} {...props} />);
 
     await userEvent.keyboard('{Tab}');
 
     const tabs = screen.getAllByRole('tab');
     expect(tabs[1]).toHaveFocus();
+    expect(onTabChange).toHaveBeenCalledWith('b');
 
     const panelB = screen.getByRole('tabpanel');
     expect(panelB).toHaveAccessibleName('tab-b');
@@ -97,19 +84,12 @@ describe('Tabs', () => {
 
     const panelA = screen.getByRole('tabpanel');
     expect(panelA).toHaveAccessibleName('tab-a');
+    expect(onTabChange).toHaveBeenCalledWith('a');
     expect(tabs[0]).toHaveFocus();
   });
 
   it('should focus the current panel on down arrow press', async () => {
-    render(
-      <Tabs
-        items={[
-          { id: 'a', tab: 'tab-a', panel: 'panel-a' },
-          { id: 'b', tab: 'tab-b', panel: 'panel-b' },
-          { id: 'c', tab: 'tab-c', panel: 'panel-c' },
-        ]}
-      />,
-    );
+    render(<Tabs {...props} />);
 
     await userEvent.keyboard('{Tab}');
 
