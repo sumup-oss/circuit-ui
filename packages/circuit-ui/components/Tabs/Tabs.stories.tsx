@@ -26,6 +26,7 @@ import { Tabs } from './Tabs.js';
 import { TabList } from './components/TabList/TabList.js';
 import { TabPanel } from './components/TabPanel/TabPanel.js';
 import { Tab } from './components/Tab/Tab.js';
+import { action } from 'storybook/actions';
 
 export default {
   title: 'Navigation/Tabs',
@@ -111,6 +112,7 @@ export const Base = (args: TabsProps) => <Tabs {...args} />;
 Base.args = {
   items: tabs,
   stretched: false,
+  onTabChange: action('Changed to tab with id:'),
 };
 
 export const Stretched = (args: TabsProps) => <Tabs {...args} />;
