@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 10.15.0
+
+### Minor Changes
+
+- [#3506](https://github.com/sumup-oss/circuit-ui/pull/3506) [`3b4ca57`](https://github.com/sumup-oss/circuit-ui/commit/3b4ca570727e428b070ae66c15141e125245b366) Thanks [@sirineJ](https://github.com/sirineJ)! - Added an `onTabChange` props to the Tabs component and a `onTabChange` argument to the `useTabState` helper hook.
+
+- [#3497](https://github.com/sumup-oss/circuit-ui/pull/3497) [`4cc262d`](https://github.com/sumup-oss/circuit-ui/commit/4cc262dca6c5a9f82a6cd416ec235af9ec953386) Thanks [@connor-baer](https://github.com/connor-baer)! - Added an experimental TimeInput component based on the native `input[type="time"]` element.
+
 ## 10.14.8
 
 ### Patch Changes
