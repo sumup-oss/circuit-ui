@@ -362,59 +362,74 @@ export const AutocompleteInput = forwardRef<
       [onChange],
     );
 
-    const onInputKeyDown: KeyboardEventHandler<HTMLInputElement> = useCallback(
-      (event) => {
-        if (isOpen) {
-          if (isArrowDown(event) || isArrowUp(event)) {
-            event.preventDefault();
-            const totalDisplayedOptions =
-              resultsRef.current?.querySelectorAll('[role="option"]').length ??
-              0;
+    const onComboboxKeyDown: KeyboardEventHandler<HTMLInputElement> =
+      useCallback(
+        (event) => {
+          if (isOpen) {
+            if (isArrowDown(event) || isArrowUp(event)) {
+              event.preventDefault();
+              const totalDisplayedOptions =
+                resultsRef.current?.querySelectorAll('[role="option"]')
+                  .length ?? 0;
 
-            if (activeOption === undefined) {
-              setActiveOption(isArrowDown(event) ? 0 : optionValues.length - 1);
-            } else {
-              const nextOption =
-                (activeOption +
-                  totalDisplayedOptions +
-                  (isArrowDown(event) ? 1 : -1)) %
-                totalDisplayedOptions;
+              if (activeOption === undefined) {
+                setActiveOption(
+                  isArrowDown(event) ? 0 : optionValues.length - 1,
+                );
+              } else {
+                const nextOption =
+                  (activeOption +
+                    totalDisplayedOptions +
+                    (isArrowDown(event) ? 1 : -1)) %
+                  totalDisplayedOptions;
 
-              setActiveOption(nextOption);
+                setActiveOption(nextOption);
+              }
             }
+            if (isEnter(event)) {
+              event.preventDefault();
+              event.stopPropagation();
+              if (allowNewItems && searchText !== '') {
+                onOptionClick({
+                  value: searchText,
+                  label: searchText,
+                });
+              } else if (activeOption !== undefined) {
+                onOptionClick(
+                  getOptionByValue(options, optionValues[activeOption]),
+                );
+              }
+              if (!activeOption || !searchText) {
+                setIsOpen(false);
+              }
+            }
+            if (
+              isBackspace(event) &&
+              !searchText &&
+              Array.isArray(value) &&
+              value.length > 0
+            ) {
+              // if the search text is empty and the user presses backspace,
+              // remove the last selected value
+              onChange(value[value.length - 1]);
+            }
+          } else if (!isEnter(event)) {
+            setIsOpen(true);
+            setActiveOption(0);
           }
-          if (isEnter(event) && activeOption !== undefined) {
-            event.preventDefault();
-            onOptionClick(
-              getOptionByValue(options, optionValues[activeOption]),
-            );
-          }
-          if (
-            isBackspace(event) &&
-            !searchText &&
-            Array.isArray(value) &&
-            value.length > 0
-          ) {
-            // if the search text is empty and the user presses backspace,
-            // remove the last selected value
-            onChange(value[value.length - 1]);
-          }
-        } else {
-          setIsOpen(true);
-          setActiveOption(0);
-        }
-      },
-      [
-        isOpen,
-        activeOption,
-        onChange,
-        optionValues,
-        onOptionClick,
-        searchText,
-        options,
-        value,
-      ],
-    );
+        },
+        [
+          isOpen,
+          activeOption,
+          onChange,
+          optionValues,
+          onOptionClick,
+          searchText,
+          options,
+          allowNewItems,
+          value,
+        ],
+      );
 
     // biome-ignore lint/correctness/useExhaustiveDependencies: we need to update the floating element styles if the options length changes
     useEffect(() => {
@@ -506,7 +521,7 @@ export const AutocompleteInput = forwardRef<
       value: searchText,
       onChange: onComboboxChange,
       onClear: onClear && !multiple ? onComboboxClear : undefined,
-      onKeyDown: isLoading ? undefined : onInputKeyDown,
+      onKeyDown: isLoading ? undefined : onComboboxKeyDown,
       role: 'combobox',
       'aria-controls': resultsId,
       autoComplete: 'off',
@@ -515,7 +530,7 @@ export const AutocompleteInput = forwardRef<
       onClick: !readOnly && !disabled ? onComboboxClick : undefined,
       readOnly,
       disabled,
-      onBlur: restoreValue,
+      onBlur: allowNewItems ? undefined : restoreValue,
       tags: Array.isArray(value) ? value : undefined,
       onTagRemove,
       isOpen,
