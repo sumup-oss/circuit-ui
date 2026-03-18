@@ -232,7 +232,9 @@ describe('AutocompleteInput', () => {
     it('should open list box on arrow down key press', async () => {
       render(<AutocompleteInput {...props} />);
 
-      await userEvent.click(screen.getByLabelText(props.label));
+      await userEvent.keyboard('{Tab}');
+
+      expect(screen.getByRole('combobox', { name: props.label })).toHaveFocus();
 
       await userEvent.keyboard('{ArrowDown}');
 
@@ -242,7 +244,9 @@ describe('AutocompleteInput', () => {
     it('should open list box on arrow up key press', async () => {
       render(<AutocompleteInput {...props} />);
 
-      await userEvent.click(screen.getByLabelText(props.label));
+      await userEvent.keyboard('{Tab}');
+
+      expect(screen.getByRole('combobox', { name: props.label })).toHaveFocus();
 
       await userEvent.keyboard('{ArrowUp}');
 
