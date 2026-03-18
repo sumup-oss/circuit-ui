@@ -241,6 +241,16 @@ const openAutocomplete =
     await screen.findByText(text ?? 'Luna');
   };
 
+const openAutocompleteAndType =
+  (label?: string, text?: string) =>
+  async ({ canvasElement }: { canvasElement: HTMLCanvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByLabelText(label ?? baseArgs.label);
+
+    await userEvent.type(input, 'Lu');
+    await screen.findByText(text ?? 'Luna');
+  };
+
 const filterOptions = (
   searchText: string,
   allOptions: AutocompleteInputProps['options'],
@@ -516,11 +526,7 @@ Immersive.decorators = [
 ] as Decorator[];
 
 export const AllowNewItems = (args: AutocompleteInputProps) => (
-  <AutocompleteInput
-    {...args}
-    value={{ label: 'Lu', value: 'Lu' }}
-    allowNewItems
-  />
+  <AutocompleteInput {...args} allowNewItems />
 );
 AllowNewItems.args = { ...baseArgs, options: [mockOptions[1]] };
-AllowNewItems.play = openAutocomplete();
+AllowNewItems.play = openAutocompleteAndType();

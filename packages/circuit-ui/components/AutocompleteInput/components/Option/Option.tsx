@@ -84,7 +84,7 @@ export const Option = ({
       aria-selected={selected}
       onClick={() => onOptionClick({ label, value, image, description })}
     >
-      {image && (
+      {(image || isNew) && (
         <div className={classes.media}>
           {Icon && (
             <div
