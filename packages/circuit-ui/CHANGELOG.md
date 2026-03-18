@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.15.1
+
+### Patch Changes
+
+- [#3509](https://github.com/sumup-oss/circuit-ui/pull/3509) [`d532a2c`](https://github.com/sumup-oss/circuit-ui/commit/d532a2c5612fb1016b78492205f1ce7ee05e5e26) Thanks [@sirineJ](https://github.com/sirineJ)! - Improved keyboard interaction handling for freeform input in the AutocompleteInput component.
+
 ## 10.15.0
 
 ### Minor Changes
