@@ -1,0 +1,27 @@
+import { Meta, Status, Story } from '../../../../.storybook/components';
+import * as Stories from './useFocusList.stories';
+
+<Meta of={Stories} />
+
+# useFocusList()
+
+<Status variant="stable" />
+
+Enables keyboard navigation for a list of focusable elements.
+
+<Story of={Stories.Example} />
+
+```ts
+function useFocusList(): {
+  'data-focus-list': string;
+  'onKeyDown': (event: KeyboardEvent) => void;
+};
+```
+
+## Usage
+
+Application menus such as popover menus, custom select dropdowns, and navigation lists should be [navigatable by keyboard](https://inclusive-components.design/menus-menu-buttons/#keyboardandfocusbehavior). Whenever possible, use standard Circuit UI components since they have keyboard support and other accessibility features built-in by default.
+
+In the rare case when you need to build a custom application menu, you should use this hook to enable users to navigate between menu items using the arrow up/down keys.
+
+Note that this hook only covers one part of (keyboard) accessibility. For example, it does not manage focus when opening/closing a menu. Research and implement additional keyboard support as necessary for your specific component.

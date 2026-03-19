@@ -1,0 +1,27 @@
+import { Meta, Status, Story } from '../../../../.storybook/components';
+import * as Stories from './useSwipe.stories';
+
+<Meta of={Stories} />
+
+# useSwipe()
+
+<Status variant="stable" />
+
+Calls a function when a user swipes a minimum distance on an element.
+
+<Story of={Stories.Example} />
+
+```ts
+function useSwipe<T = Element>(
+  callback: (direction: 'up' | 'right' | 'down' | 'left') => void,
+  minSwipeDistance = 50,
+): {
+  onTouchStart: (event: TouchEvent<T>) => void;
+  onTouchMove: (event: TouchEvent<T>) => void;
+  onTouchEnd: () => void;
+};
+```
+
+## Usage
+
+Whenever possible, use standard Circuit UI components since they have touch screen support and other accessibility features built-in by default. In the rare case when you need to build a custom component, you can use this hook to enable users to trigger an action by swiping on an element.

@@ -1,0 +1,25 @@
+import { Meta, Status, Story } from '../../../../.storybook/components';
+import * as Stories from './useEscapeKey.stories';
+
+<Meta of={Stories} />
+
+# useEscapeKey()
+
+<Status variant="stable" />
+
+Calls a function when the escape key is pressed.
+
+<Story of={Stories.Example} />
+
+```ts
+function useEscapeKey(
+  callback: (event: KeyboardEvent) => void,
+  active = true,
+): void;
+```
+
+## Usage
+
+Application menus, modals, and other components with an "open" state should be dismissable by pressing the escape key. Whenever possible, use standard Circuit UI components since they have keyboard support and other accessibility features built-in by default.
+
+In the rare case when you need to build a custom component, you can use this hook to enable users to dismiss it by pressing the escape key. The hook's event listener can be deactivated when the component isn't active (i.e. closed) to improve performance.

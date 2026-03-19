@@ -37,6 +37,8 @@
     "docs:build": "storybook build -c .storybook -o public && cp -R ./packages/icons/web ./public/icons",
     "chromatic-build": "storybook build -c .storybook -o public --test --stats-json",
     "vercel-build": "npm run copy-docs && npm run build && npm run docs:build",
+    "skills:generate:circuit-ui": "node ./scripts/generate-skills.js",
+    "skills:check:circuit-ui": "npm run skills:generate:circuit-ui && git diff --exit-code -- skills/circuit-ui/references",
     "check:security": "audit-ci --critical",
     "copy-docs": "./scripts/copy-docs.sh",
     "bootstrap": "npm run build && npm run copy-docs && cd templates/nextjs/template && npm ci",
