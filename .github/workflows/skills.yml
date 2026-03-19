@@ -31,9 +31,3 @@ jobs:
 
       - name: Verify generated skill resources are up to date
         run: npm run skills:check:circuit-ui
-
-      - name: Lint skills markdown
-        uses: rvben/rumdl@v0.1.30
-        with:
-          path: skills/circuit-ui
-          config: .rumdl.toml

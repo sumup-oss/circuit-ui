@@ -11,7 +11,8 @@ Use this skill for questions and implementation work related to Circuit UI token
 ## Entrypoint
 
 - Read `references/design-tokens.md` for the source-of-truth token inventory.
-- Read `references/components.md` for the source-of-truth exported API inventory index for components and hooks.
+- Read `references/components.md` for the source-of-truth exported API inventory index for available components.
+- Read `references/hooks.md` for the source-of-truth exported API inventory index for available hooks.
 - Open linked files in `references/components/` and `references/hooks/` for usage guidance copied from MDX stories/docs.
 
 ## Required Workflow

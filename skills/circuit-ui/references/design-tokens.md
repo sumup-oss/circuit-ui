@@ -1,23 +1,6 @@
 # Circuit UI Design Tokens
 
-Generated from `packages/design-tokens/themes/schema.ts`.
-Values resolved from `themes/light.ts`, `themes/dark.ts`, and `themes/shared.ts`.
-
-- Total tokens: **204**
-- Tokens without full light/dark values: **0**
-
-## Token Types
-
-| Type | Count |
-| --- | ---: |
-| `color` | 135 |
-| `dimension` | 53 |
-| `duration` | 2 |
-| `fontFamily` | 2 |
-| `fontWeight` | 3 |
-| `number` | 9 |
-
-## Token Inventory
+CSS variables provided by the Circuit UI design system and their values.
 
 | Token | Type | Deprecated | Replacement | Light Value | Dark Value |
 | --- | --- | --- | --- | --- | --- |

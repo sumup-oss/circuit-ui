@@ -45,8 +45,6 @@ const EXPORT_STATEMENT_PATTERN =
   /export\s*\{([\s\S]*?)\}\s*from\s*'([^']+)'\s*;/m;
 const STATUS_MDX_PATTERN = /<Status\s+variant="([^"]+)"/;
 const STATUS_TAG_PATTERN = /status:([a-z-]+)/;
-const GENERATED_MDX_PREFIX =
-  '<!-- markdownlint-disable-file MD041 MD036 MD057 MD032 -->\n\n';
 
 function parseTokens(schemaSource) {
   const tokens = [];
@@ -292,11 +290,7 @@ async function buildExportResources(exportsList) {
     if (mdxPath) {
       const mdxSource = await readFile(mdxPath, 'utf8');
       docsPath = `${apiExport.kind === 'hook' ? 'hooks' : 'components'}/${apiExport.name}.mdx`;
-      await writeFile(
-        path.join(referencesDir, docsPath),
-        `${GENERATED_MDX_PREFIX}${mdxSource}`,
-        'utf8',
-      );
+      await writeFile(path.join(referencesDir, docsPath), mdxSource, 'utf8');
     }
 
     const status = await resolveExportStatus(apiExport, mdxPath);
@@ -312,16 +306,6 @@ async function buildExportResources(exportsList) {
 }
 
 function renderTokensMarkdown(tokens, lightValues, darkValues, sharedValues) {
-  const counts = tokens.reduce((acc, token) => {
-    acc[token.type] = (acc[token.type] ?? 0) + 1;
-    return acc;
-  }, {});
-
-  const sortedTypes = Object.keys(counts).sort();
-  const summaryRows = sortedTypes
-    .map((type) => `| \`${type}\` | ${counts[type]} |`)
-    .join('\n');
-
   const missingValues = [];
 
   const tokenRows = tokens
@@ -346,19 +330,7 @@ function renderTokensMarkdown(tokens, lightValues, darkValues, sharedValues) {
 
   return `# Circuit UI Design Tokens
 
-Generated from \`packages/design-tokens/themes/schema.ts\`.
-Values resolved from \`themes/light.ts\`, \`themes/dark.ts\`, and \`themes/shared.ts\`.
-
-- Total tokens: **${tokens.length}**
-- Tokens without full light/dark values: **${missingValues.length}**
-
-## Token Types
-
-| Type | Count |
-| --- | ---: |
-${summaryRows}
-
-## Token Inventory
+CSS variables provided by the Circuit UI design system and their values.
 
 | Token | Type | Deprecated | Replacement | Light Value | Dark Value |
 | --- | --- | --- | --- | --- | --- |
@@ -402,25 +374,29 @@ function renderSectionTable(items, kindLabel) {
     .join('\n\n');
 }
 
+function renderApiMarkdown(items, kindLabel, title) {
+  const sections = renderSectionTable(items, kindLabel);
+
+  return `# ${title}
+
+${sections}
+`;
+}
+
 function renderComponentsMarkdown(apiExports) {
   const components = apiExports.filter((item) => item.kind === 'component');
+
+  return renderApiMarkdown(
+    components,
+    'Component',
+    'Circuit UI Component References',
+  );
+}
+
+function renderHooksMarkdown(apiExports) {
   const hooks = apiExports.filter((item) => item.kind === 'hook');
 
-  const componentSections = renderSectionTable(components, 'Component');
-  const hookSections = renderSectionTable(hooks, 'Hook');
-
-  return `<!-- markdownlint-disable-file MD057 -->
-
-# Circuit UI API References
-
-## Components
-
-${componentSections}
-
-## Hooks
-
-${hookSections}
-`;
+  return renderApiMarkdown(hooks, 'Hook', 'Circuit UI Hook References');
 }
 
 async function main() {
@@ -461,6 +437,11 @@ async function main() {
     writeFile(
       path.join(referencesDir, 'components.md'),
       renderComponentsMarkdown(apiExportsWithDocs),
+      'utf8',
+    ),
+    writeFile(
+      path.join(referencesDir, 'hooks.md'),
+      renderHooksMarkdown(apiExportsWithDocs),
       'utf8',
     ),
   ]);
