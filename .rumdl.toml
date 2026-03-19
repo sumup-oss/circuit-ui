@@ -1,3 +1,7 @@
 [global]
 disable = ["MD013"]
-exclude = ["skills/circuit-ui/references/components/**"]
+exclude = [
+  "skills/circuit-ui/references/components.md",
+  "skills/circuit-ui/references/components/**",
+  "skills/circuit-ui/references/hooks/**",
+]

@@ -35,6 +35,7 @@ const circuitUIPackagePath = path.join(repoRoot, 'packages/circuit-ui');
 const exportsPath = path.join(repoRoot, 'packages/circuit-ui/index.ts');
 const referencesDir = path.join(repoRoot, 'skills/circuit-ui/references');
 const componentReferencesDir = path.join(referencesDir, 'components');
+const hookReferencesDir = path.join(referencesDir, 'hooks');
 
 const TOKEN_SCHEMA_PATTERN =
   /\{\s*name:\s*'([^']+)'\s*,\s*type:\s*'([^']+)'\s*(?:,\s*deprecation:\s*\{\s*replacement:\s*'([^']+)'\s*\}\s*)?\}/gms;
@@ -42,6 +43,10 @@ const TOKEN_VALUE_PATTERN =
   /\{\s*name:\s*'([^']+)'\s*,\s*value:\s*(?:'((?:\\'|[^'])*)'|(-?\d+(?:\.\d+)?))\s*,\s*type:\s*'([^']+)'\s*,?\s*\}/gms;
 const EXPORT_STATEMENT_PATTERN =
   /export\s*\{([\s\S]*?)\}\s*from\s*'([^']+)'\s*;/m;
+const STATUS_MDX_PATTERN = /<Status\s+variant="([^"]+)"/;
+const STATUS_TAG_PATTERN = /status:([a-z-]+)/;
+const GENERATED_MDX_PREFIX =
+  '<!-- markdownlint-disable-file MD041 MD036 MD057 MD032 -->\n\n';
 
 function parseTokens(schemaSource) {
   const tokens = [];
@@ -74,19 +79,39 @@ function shouldIncludeComponentName(name) {
   return /^[A-Z][A-Za-z0-9]*$/.test(name) && /[a-z]/.test(name);
 }
 
+function shouldIncludeHookName(name) {
+  return /^use[A-Z][A-Za-z0-9]*$/.test(name);
+}
+
 function parseExportedNames(exportClause) {
   return exportClause
     .split(',')
     .map((entry) => entry.trim())
     .filter(Boolean)
     .filter((entry) => !entry.startsWith('type '))
-    .map((entry) => entry.replace(/^type\s+/, ''));
+    .map((entry) => entry.replace(/^type\s+/, ''))
+    .map((entry) => {
+      const aliasMatch = entry.match(/^(.+?)\s+as\s+(.+)$/);
+      return aliasMatch ? aliasMatch[2].trim() : entry;
+    });
 }
 
-function addComponentsFromExportStatement(
+function classifyExport(name, source) {
+  if (shouldIncludeHookName(name)) {
+    return 'hook';
+  }
+
+  if (source.includes('/components/') && shouldIncludeComponentName(name)) {
+    return 'component';
+  }
+
+  return null;
+}
+
+function addExportsFromExportStatement(
   statement,
   section,
-  components,
+  exportsList,
   seen,
 ) {
   const statementMatch = statement.match(EXPORT_STATEMENT_PATTERN);
@@ -95,18 +120,20 @@ function addComponentsFromExportStatement(
   }
 
   const source = statementMatch[2];
-  if (!source.includes('/components/')) {
+  if (!source.includes('/components/') && !source.includes('/hooks/')) {
     return;
   }
 
   const names = parseExportedNames(statementMatch[1]);
 
   for (const name of names) {
-    if (!shouldIncludeComponentName(name) || seen.has(name)) {
+    const kind = classifyExport(name, source);
+    if (!kind || seen.has(name)) {
       continue;
     }
 
-    components.push({
+    exportsList.push({
+      kind,
       name,
       section,
       source,
@@ -115,9 +142,9 @@ function addComponentsFromExportStatement(
   }
 }
 
-function parseComponents(exportsSource) {
+function parseExports(exportsSource) {
   const lines = exportsSource.split('\n');
-  const components = [];
+  const exportsList = [];
   const seen = new Set();
   let section = 'Uncategorized';
 
@@ -135,10 +162,10 @@ function parseComponents(exportsSource) {
       exportLines = [line];
       exportSection = section;
       if (line.trim().endsWith(';')) {
-        addComponentsFromExportStatement(
+        addExportsFromExportStatement(
           exportLines.join('\n'),
           exportSection,
-          components,
+          exportsList,
           seen,
         );
         exportLines = [];
@@ -153,10 +180,10 @@ function parseComponents(exportsSource) {
         continue;
       }
 
-      addComponentsFromExportStatement(
+      addExportsFromExportStatement(
         exportLines.join('\n'),
         exportSection,
-        components,
+        exportsList,
         seen,
       );
       exportLines = [];
@@ -164,7 +191,7 @@ function parseComponents(exportsSource) {
     }
   }
 
-  return components;
+  return exportsList;
 }
 
 async function exists(filePath) {
@@ -214,25 +241,75 @@ async function resolveComponentMdxPath(component) {
   return null;
 }
 
-async function buildComponentResources(components) {
-  await rm(componentReferencesDir, { recursive: true, force: true });
-  await mkdir(componentReferencesDir, { recursive: true });
+async function resolveExportStatus(apiExport, mdxPath) {
+  const exportDir = resolveComponentDirectory(apiExport.source);
+  const candidates = [];
+
+  if (mdxPath) {
+    candidates.push(mdxPath);
+  }
+
+  try {
+    const entries = await readdir(exportDir);
+    const storyFiles = entries
+      .filter((entry) => entry.includes('.stories.'))
+      .toSorted((a, b) => a.localeCompare(b));
+
+    for (const storyFile of storyFiles) {
+      candidates.push(path.join(exportDir, storyFile));
+    }
+  } catch {
+    return null;
+  }
+
+  for (const candidate of candidates) {
+    const source = await readFile(candidate, 'utf8');
+    const mdxMatch = source.match(STATUS_MDX_PATTERN);
+    if (mdxMatch) {
+      return mdxMatch[1];
+    }
+
+    const tagMatch = source.match(STATUS_TAG_PATTERN);
+    if (tagMatch) {
+      return tagMatch[1];
+    }
+  }
+
+  return null;
+}
+
+async function buildExportResources(exportsList) {
+  await Promise.all([
+    rm(componentReferencesDir, { recursive: true, force: true }),
+    rm(hookReferencesDir, { recursive: true, force: true }),
+  ]);
+  await Promise.all([
+    mkdir(componentReferencesDir, { recursive: true }),
+    mkdir(hookReferencesDir, { recursive: true }),
+  ]);
 
   const resolved = [];
 
-  for (const component of components) {
-    const mdxPath = await resolveComponentMdxPath(component);
+  for (const apiExport of exportsList) {
+    const mdxPath = await resolveComponentMdxPath(apiExport);
     let docsPath = null;
 
     if (mdxPath) {
       const mdxSource = await readFile(mdxPath, 'utf8');
-      docsPath = `components/${component.name}.mdx`;
-      await writeFile(path.join(referencesDir, docsPath), mdxSource, 'utf8');
+      docsPath = `${apiExport.kind === 'hook' ? 'hooks' : 'components'}/${apiExport.name}.mdx`;
+      await writeFile(
+        path.join(referencesDir, docsPath),
+        `${GENERATED_MDX_PREFIX}${mdxSource}`,
+        'utf8',
+      );
     }
 
+    const status = await resolveExportStatus(apiExport, mdxPath);
+
     resolved.push({
-      ...component,
+      ...apiExport,
       docsPath,
+      status,
     });
   }
 
@@ -294,48 +371,78 @@ ${tokenRows}
 `;
 }
 
-function renderComponentsMarkdown(components) {
+function groupBySection(items) {
   const bySection = new Map();
-  const withDocsCount = components.filter(
-    (component) => component.docsPath,
-  ).length;
 
-  for (const component of components) {
-    const sectionItems = bySection.get(component.section) ?? [];
-    sectionItems.push(component);
-    bySection.set(component.section, sectionItems);
+  for (const item of items) {
+    const sectionItems = bySection.get(item.section) ?? [];
+    sectionItems.push(item);
+    bySection.set(item.section, sectionItems);
   }
 
+  return bySection;
+}
+
+function renderSectionTable(items, kindLabel) {
+  const bySection = groupBySection(items);
   const sections = [...bySection.keys()].sort();
-  const sectionBlocks = sections
+
+  return sections
     .map((section) => {
       const rows = bySection
         .get(section)
         .toSorted((a, b) => a.name.localeCompare(b.name))
-        .map((component) => {
-          const docsLink = component.docsPath
-            ? `[Read MDX reference](${component.docsPath})`
+        .map((item) => {
+          const docsLink = item.docsPath
+            ? `[Read MDX reference](${item.docsPath})`
             : 'Not available';
+          const status = item.status ? `\`${item.status}\`` : 'Unknown';
 
-          return `| \`${component.name}\` | \`@sumup-oss/circuit-ui\` | \`${component.source}\` | ${docsLink} |`;
+          return `| \`${item.name}\` | ${status} | \`@sumup-oss/circuit-ui\` | \`${item.source}\` | ${docsLink} |`;
         })
         .join('\n');
 
-      return `### ${section}\n\n| Component | Package | Source export | Usage reference |\n| --- | --- | --- | --- |\n${rows}`;
+      return `### ${section}\n\n| ${kindLabel} | Status | Package | Source export | Usage reference |\n| --- | --- | --- | --- | --- |\n${rows}`;
     })
     .join('\n\n');
+}
 
-  return `# Circuit UI Components
+function renderComponentsMarkdown(apiExports) {
+  const components = apiExports.filter((item) => item.kind === 'component');
+  const hooks = apiExports.filter((item) => item.kind === 'hook');
+  const componentsWithDocsCount = components.filter(
+    (component) => component.docsPath,
+  ).length;
+  const hooksWithDocsCount = hooks.filter((hook) => hook.docsPath).length;
+  const componentsWithStatusCount = components.filter(
+    (component) => component.status,
+  ).length;
+  const hooksWithStatusCount = hooks.filter((hook) => hook.status).length;
+
+  const componentSections = renderSectionTable(components, 'Component');
+  const hookSections = renderSectionTable(hooks, 'Hook');
+
+  return `<!-- markdownlint-disable-file MD057 -->
+
+# Circuit UI API References
 
 Generated from \`packages/circuit-ui/index.ts\`.
-Component references are copied from \`packages/circuit-ui/components/**/*.mdx\`.
+References are copied from \`packages/circuit-ui/components/**/*.mdx\` and \`packages/circuit-ui/hooks/**/*.mdx\`.
 
 - Total exported components: **${components.length}**
-- Components with copied MDX references: **${withDocsCount}**
+- Components with copied MDX references: **${componentsWithDocsCount}**
+- Components with detected status: **${componentsWithStatusCount}**
+- Total exported hooks: **${hooks.length}**
+- Hooks with copied MDX references: **${hooksWithDocsCount}**
+- Hooks with detected status: **${hooksWithStatusCount}**
 
-## Sections
+## Components
 
-${sectionBlocks}
+${componentSections}
+
+## Hooks
+
+${hookSections}
 `;
 }
 
@@ -353,7 +460,7 @@ async function main() {
   const lightValues = parseTokenValues(lightSource);
   const darkValues = parseTokenValues(darkSource);
   const sharedValues = parseTokenValues(sharedSource);
-  const components = parseComponents(exportsSource);
+  const apiExports = parseExports(exportsSource);
 
   if (tokens.length === 0) {
     throw new Error(
@@ -361,14 +468,14 @@ async function main() {
     );
   }
 
-  if (components.length === 0) {
+  if (apiExports.length === 0) {
     throw new Error(
-      'No components were parsed from packages/circuit-ui/index.ts',
+      'No exports were parsed from packages/circuit-ui/index.ts',
     );
   }
 
   await mkdir(referencesDir, { recursive: true });
-  const componentsWithDocs = await buildComponentResources(components);
+  const apiExportsWithDocs = await buildExportResources(apiExports);
 
   await Promise.all([
     writeFile(
@@ -378,13 +485,13 @@ async function main() {
     ),
     writeFile(
       path.join(referencesDir, 'components.md'),
-      renderComponentsMarkdown(componentsWithDocs),
+      renderComponentsMarkdown(apiExportsWithDocs),
       'utf8',
     ),
   ]);
 
   process.stdout.write(
-    `Generated ${tokens.length} tokens and ${components.length} component index entries in skills/circuit-ui/references.\n`,
+    `Generated ${tokens.length} tokens and ${apiExports.length} API index entries in skills/circuit-ui/references.\n`,
   );
 }
 
