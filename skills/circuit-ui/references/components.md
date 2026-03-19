@@ -2,16 +2,6 @@
 
 # Circuit UI API References
 
-Generated from `packages/circuit-ui/index.ts`.
-References are copied from `packages/circuit-ui/components/**/*.mdx` and `packages/circuit-ui/hooks/**/*.mdx`.
-
-- Total exported components: **72**
-- Components with copied MDX references: **63**
-- Components with detected status: **69**
-- Total exported hooks: **14**
-- Hooks with copied MDX references: **13**
-- Hooks with detected status: **13**
-
 ## Components
 
 ### Actions

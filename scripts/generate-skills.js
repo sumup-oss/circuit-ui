@@ -108,12 +108,7 @@ function classifyExport(name, source) {
   return null;
 }
 
-function addExportsFromExportStatement(
-  statement,
-  section,
-  exportsList,
-  seen,
-) {
+function addExportsFromExportStatement(statement, section, exportsList, seen) {
   const statementMatch = statement.match(EXPORT_STATEMENT_PATTERN);
   if (!statementMatch) {
     return;
@@ -410,14 +405,6 @@ function renderSectionTable(items, kindLabel) {
 function renderComponentsMarkdown(apiExports) {
   const components = apiExports.filter((item) => item.kind === 'component');
   const hooks = apiExports.filter((item) => item.kind === 'hook');
-  const componentsWithDocsCount = components.filter(
-    (component) => component.docsPath,
-  ).length;
-  const hooksWithDocsCount = hooks.filter((hook) => hook.docsPath).length;
-  const componentsWithStatusCount = components.filter(
-    (component) => component.status,
-  ).length;
-  const hooksWithStatusCount = hooks.filter((hook) => hook.status).length;
 
   const componentSections = renderSectionTable(components, 'Component');
   const hookSections = renderSectionTable(hooks, 'Hook');
@@ -425,16 +412,6 @@ function renderComponentsMarkdown(apiExports) {
   return `<!-- markdownlint-disable-file MD057 -->
 
 # Circuit UI API References
-
-Generated from \`packages/circuit-ui/index.ts\`.
-References are copied from \`packages/circuit-ui/components/**/*.mdx\` and \`packages/circuit-ui/hooks/**/*.mdx\`.
-
-- Total exported components: **${components.length}**
-- Components with copied MDX references: **${componentsWithDocsCount}**
-- Components with detected status: **${componentsWithStatusCount}**
-- Total exported hooks: **${hooks.length}**
-- Hooks with copied MDX references: **${hooksWithDocsCount}**
-- Hooks with detected status: **${hooksWithStatusCount}**
 
 ## Components
 
@@ -469,9 +446,7 @@ async function main() {
   }
 
   if (apiExports.length === 0) {
-    throw new Error(
-      'No exports were parsed from packages/circuit-ui/index.ts',
-    );
+    throw new Error('No exports were parsed from packages/circuit-ui/index.ts');
   }
 
   await mkdir(referencesDir, { recursive: true });
