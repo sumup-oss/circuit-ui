@@ -170,8 +170,7 @@ export type FontFace =
       'font-variation-settings'?: string;
       'font-display': 'auto' | 'block' | 'swap' | 'fallback' | 'optional';
       'src': string;
-      // TODO: Make required again once we have the final values
-      'unicode-range'?: string;
+      'unicode-range': string;
     }
   // Web safe fallback font
   | {

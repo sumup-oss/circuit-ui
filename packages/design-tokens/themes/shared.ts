@@ -62,13 +62,13 @@ export const shared = [
   {
     name: '--cui-font-stack-default',
     value:
-      '"NaN Holo Narrow", "NaN Holo", Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+      '"SumUp Narrow", Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
     type: 'fontFamily',
   },
   {
     name: '--cui-font-stack-display',
     value:
-      '"NaN Holo Black", "NaN Holo", Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+      '"SumUp Black", Arial, system-ui, sans-serif, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
     type: 'fontFamily',
   },
   {
