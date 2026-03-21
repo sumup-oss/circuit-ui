@@ -61,7 +61,7 @@ export const sumup = [
   {
     'font-family': 'SumUp Black',
     'font-style': 'normal',
-    'font-weight': '900',
+    'font-weight': 'bold',
     'font-display': 'swap',
     'src':
       'url("https://static.sumup.com/fonts/sumup/sumup-black-latin-s.woff2") format("woff2")',
@@ -71,7 +71,7 @@ export const sumup = [
   {
     'font-family': 'SumUp Black',
     'font-style': 'normal',
-    'font-weight': '900',
+    'font-weight': 'bold',
     'font-display': 'swap',
     'src':
       'url("https://static.sumup.com/fonts/sumup/sumup-black-latin-l.woff2") format("woff2")',
@@ -81,7 +81,7 @@ export const sumup = [
   {
     'font-family': 'SumUp Black',
     'font-style': 'normal',
-    'font-weight': '900',
+    'font-weight': 'bold',
     'font-display': 'swap',
     'src':
       'url("https://static.sumup.com/fonts/sumup/sumup-black-greek.woff2") format("woff2")',
@@ -91,7 +91,7 @@ export const sumup = [
   {
     'font-family': 'SumUp Black',
     'font-style': 'normal',
-    'font-weight': '900',
+    'font-weight': 'bold',
     'font-display': 'swap',
     'src':
       'url("https://static.sumup.com/fonts/sumup/sumup-black-cyrillic.woff2") format("woff2")',

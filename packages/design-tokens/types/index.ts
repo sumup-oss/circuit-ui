@@ -166,7 +166,7 @@ export type FontFace =
   | {
       'font-family': string;
       'font-style': 'normal' | 'italic' | 'oblique';
-      'font-weight': 'normal' | `${number}` | `${number} ${number}`;
+      'font-weight': 'normal' | 'bold' | `${number}` | `${number} ${number}`;
       'font-variation-settings'?: string;
       'font-display': 'auto' | 'block' | 'swap' | 'fallback' | 'optional';
       'src': string;
