@@ -29,7 +29,7 @@ Base.args = {
   as: 'h1',
 };
 
-const sizes = ['l', 'm', 's'] as const;
+const sizes = ['xl', 'l', 'm', 's'] as const;
 
 export const Sizes = (args: DisplayProps) =>
   sizes.map((size) => (

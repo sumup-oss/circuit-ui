@@ -24,7 +24,7 @@ export interface NumeralProps extends HTMLAttributes<HTMLParagraphElement> {
   /**
    * Choose from 3 font sizes. Default `m`.
    */
-  size?: 's' | 'm' | 'l';
+  size?: 's' | 'm' | 'l' | 'xl';
   /**
    * Choose a foreground color. Default: `normal`.
    */

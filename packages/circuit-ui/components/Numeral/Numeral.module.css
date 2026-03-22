@@ -6,6 +6,12 @@
 
 /* Sizes */
 
+.xl {
+  font-size: var(--cui-numeral-xl-font-size);
+  font-weight: var(--cui-font-weight-bold);
+  line-height: var(--cui-numeral-xl-line-height);
+}
+
 .l {
   font-size: var(--cui-numeral-l-font-size);
   font-weight: var(--cui-font-weight-bold);

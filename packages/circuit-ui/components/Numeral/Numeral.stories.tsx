@@ -32,7 +32,7 @@ export const Base = (args: NumeralProps) => (
   <Numeral {...args}>{content}</Numeral>
 );
 
-const sizes = ['l', 'm', 's'] as const;
+const sizes = ['xl', 'l', 'm', 's'] as const;
 
 export const Sizes = (args: NumeralProps) =>
   sizes.map((size) => (

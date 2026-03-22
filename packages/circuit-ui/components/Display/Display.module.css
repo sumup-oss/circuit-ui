@@ -8,6 +8,11 @@
 
 /* Sizes */
 
+.xl {
+  font-size: var(--cui-display-xl-font-size);
+  line-height: var(--cui-display-xl-line-height);
+}
+
 .l {
   font-size: var(--cui-display-l-font-size);
   line-height: var(--cui-display-l-line-height);

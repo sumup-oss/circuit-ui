@@ -184,13 +184,23 @@ export const shared = [
   },
   /* Typography */
   {
+    name: '--cui-display-xl-font-size',
+    value: '6rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-display-xl-line-height',
+    value: '90%',
+    type: 'dimension',
+  },
+  {
     name: '--cui-display-l-font-size',
     value: '4rem',
     type: 'dimension',
   },
   {
     name: '--cui-display-l-line-height',
-    value: '4.5rem',
+    value: '85%',
     type: 'dimension',
   },
   {
@@ -200,7 +210,7 @@ export const shared = [
   },
   {
     name: '--cui-display-m-line-height',
-    value: '3.5rem',
+    value: '90%',
     type: 'dimension',
   },
   {
@@ -210,7 +220,7 @@ export const shared = [
   },
   {
     name: '--cui-display-s-line-height',
-    value: '2.875rem',
+    value: '95%',
     type: 'dimension',
   },
   {
@@ -301,6 +311,16 @@ export const shared = [
   {
     name: '--cui-compact-s-line-height',
     value: '1rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-numeral-xl-font-size',
+    value: '4rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-numeral-xl-line-height',
+    value: '4rem',
     type: 'dimension',
   },
   {
@@ -500,5 +520,29 @@ export const shared = [
     name: '--cui-z-index-toast',
     value: 1100,
     type: 'number',
+  },
+] satisfies Token[];
+
+export const sharedUntilGiga = [
+  /* Typography */
+  {
+    name: '--cui-display-xl-font-size',
+    value: '4rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-display-l-font-size',
+    value: '3rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-display-m-font-size',
+    value: '2.5rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-display-s-font-size',
+    value: '2.5rem',
+    type: 'dimension',
   },
 ] satisfies Token[];

@@ -37,6 +37,7 @@ export interface DisplayProps extends HTMLAttributes<HTMLHeadingElement> {
     | 's'
     | 'm'
     | 'l'
+    | 'xl'
     /**
      * @deprecated
      */
