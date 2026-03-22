@@ -1,4 +1,5 @@
 import '@sumup-oss/design-tokens/dynamic.css';
+import '@sumup-oss/design-tokens/consumer-scoped.css';
 
 // @ts-expect-error React isn't injected globally in this file
 // biome-ignore lint/correctness/noUnusedImports: React isn't injected globally in this file

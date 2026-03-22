@@ -5,6 +5,9 @@ const colorSchemes = {
   light: {
     colorScheme: 'light',
   },
+  consumer: {
+    colorScheme: 'consumer',
+  },
 };
 
 const viewports = {
