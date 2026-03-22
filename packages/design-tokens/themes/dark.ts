@@ -137,6 +137,46 @@ export const dark = [
     type: 'color',
   },
   {
+    name: '--cui-bg-neutral',
+    value: '#443e3e',
+    type: 'color',
+  },
+  {
+    name: '--cui-bg-neutral-hovered',
+    value: '#ec58e0',
+    type: 'color',
+  },
+  {
+    name: '--cui-bg-neutral-pressed',
+    value: '#e04fd4',
+    type: 'color',
+  },
+  {
+    name: '--cui-bg-neutral-disabled',
+    value: 'rgba(255, 97, 242, 0.1000)',
+    type: 'color',
+  },
+  {
+    name: '--cui-bg-neutral-strong',
+    value: '#443e3e',
+    type: 'color',
+  },
+  {
+    name: '--cui-bg-neutral-strong-hovered',
+    value: '#ec58e0',
+    type: 'color',
+  },
+  {
+    name: '--cui-bg-neutral-strong-pressed',
+    value: '#e04fd4',
+    type: 'color',
+  },
+  {
+    name: '--cui-bg-neutral-strong-disabled',
+    value: 'rgba(255, 97, 242, 0.1000)',
+    type: 'color',
+  },
+  {
     name: '--cui-bg-success',
     value: 'rgba(32, 184, 57, 0.2000)',
     type: 'color',

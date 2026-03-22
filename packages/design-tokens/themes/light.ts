@@ -38,17 +38,17 @@ export const light = [
   },
   {
     name: '--cui-bg-subtle',
-    value: '#f0f1e7',
+    value: '#f5f4ed',
     type: 'color',
   },
   {
     name: '--cui-bg-subtle-hovered',
-    value: '#e3e2d6',
+    value: '#f0eee7',
     type: 'color',
   },
   {
     name: '--cui-bg-subtle-pressed',
-    value: '#d0cdc3',
+    value: '#e8e6dc',
     type: 'color',
   },
   {
@@ -58,17 +58,17 @@ export const light = [
   },
   {
     name: '--cui-bg-highlight',
-    value: '#d0cdc3',
+    value: '#e8e6dc',
     type: 'color',
   },
   {
     name: '--cui-bg-highlight-hovered',
-    value: '#b7b0a9',
+    value: '#d9d6c7',
     type: 'color',
   },
   {
     name: '--cui-bg-highlight-pressed',
-    value: '#756c6c',
+    value: '#d6d2c0',
     type: 'color',
   },
   {
@@ -118,7 +118,7 @@ export const light = [
   },
   {
     name: '--cui-bg-accent-strong',
-    value: '#332f2f',
+    value: '#1e1c1c',
     type: 'color',
   },
   {
@@ -128,7 +128,7 @@ export const light = [
   },
   {
     name: '--cui-bg-accent-strong-pressed',
-    value: '#756c6c',
+    value: '#383333',
     type: 'color',
   },
   {
@@ -137,8 +137,48 @@ export const light = [
     type: 'color',
   },
   {
+    name: '--cui-bg-neutral',
+    value: '#f0eee7',
+    type: 'color',
+  },
+  {
+    name: '--cui-bg-neutral-hovered',
+    value: '#e8e6dc',
+    type: 'color',
+  },
+  {
+    name: '--cui-bg-neutral-pressed',
+    value: '#d9d6c7',
+    type: 'color',
+  },
+  {
+    name: '--cui-bg-neutral-disabled',
+    value: 'rgba(217, 214, 199, 0.3000)',
+    type: 'color',
+  },
+  {
+    name: '--cui-bg-neutral-strong',
+    value: '#c7c3b3',
+    type: 'color',
+  },
+  {
+    name: '--cui-bg-neutral-strong-hovered',
+    value: '#c3bfaf',
+    type: 'color',
+  },
+  {
+    name: '--cui-bg-neutral-strong-pressed',
+    value: '#bebaab',
+    type: 'color',
+  },
+  {
+    name: '--cui-bg-neutral-strong-disabled',
+    value: 'rgba(195, 191, 175, 0.3000)',
+    type: 'color',
+  },
+  {
     name: '--cui-bg-success',
-    value: '#edf9ef',
+    value: '#dff4e2',
     type: 'color',
   },
   {
@@ -158,17 +198,17 @@ export const light = [
   },
   {
     name: '--cui-bg-success-strong',
-    value: '#20b839',
+    value: '#1e862d',
     type: 'color',
   },
   {
     name: '--cui-bg-success-strong-hovered',
-    value: '#12a129',
+    value: '#23a235',
     type: 'color',
   },
   {
     name: '--cui-bg-success-strong-pressed',
-    value: '#0f9024',
+    value: '#29bd3e',
     type: 'color',
   },
   {
@@ -198,17 +238,17 @@ export const light = [
   },
   {
     name: '--cui-bg-warning-strong',
-    value: '#f8ab2f',
+    value: '#da7603',
     type: 'color',
   },
   {
     name: '--cui-bg-warning-strong-hovered',
-    value: '#e89c21',
+    value: '#fb8804',
     type: 'color',
   },
   {
     name: '--cui-bg-warning-strong-pressed',
-    value: '#d0850c',
+    value: '#fd9a27',
     type: 'color',
   },
   {
@@ -238,17 +278,17 @@ export const light = [
   },
   {
     name: '--cui-bg-danger-strong',
-    value: '#e34405',
+    value: '#d43e05',
     type: 'color',
   },
   {
     name: '--cui-bg-danger-strong-hovered',
-    value: '#e94201',
+    value: '#f55316',
     type: 'color',
   },
   {
     name: '--cui-bg-danger-strong-pressed',
-    value: '#b63502',
+    value: '#f76933',
     type: 'color',
   },
   {
@@ -278,17 +318,17 @@ export const light = [
   },
   {
     name: '--cui-bg-promo-strong',
-    value: '#e155d6',
+    value: '#cd1bbe',
     type: 'color',
   },
   {
     name: '--cui-bg-promo-strong-hovered',
-    value: '#cb49c1',
+    value: '#e52bd5',
     type: 'color',
   },
   {
     name: '--cui-bg-promo-strong-pressed',
-    value: '#e04fd4',
+    value: '#ed53e0',
     type: 'color',
   },
   {
@@ -338,7 +378,7 @@ export const light = [
   },
   {
     name: '--cui-fg-subtle',
-    value: '#756c6c',
+    value: '#706464',
     type: 'color',
   },
   {
@@ -418,7 +458,7 @@ export const light = [
   },
   {
     name: '--cui-fg-accent',
-    value: '#332f2f',
+    value: '#1e1c1c',
     type: 'color',
   },
   {
@@ -438,17 +478,17 @@ export const light = [
   },
   {
     name: '--cui-fg-success',
-    value: '#20b839',
+    value: '#3c7411',
     type: 'color',
   },
   {
     name: '--cui-fg-success-hovered',
-    value: '#0b721c',
+    value: '#529d18',
     type: 'color',
   },
   {
     name: '--cui-fg-success-pressed',
-    value: '#075b15',
+    value: '#65b527',
     type: 'color',
   },
   {
@@ -458,17 +498,17 @@ export const light = [
   },
   {
     name: '--cui-fg-warning',
-    value: '#c78100',
+    value: '#a65a03',
     type: 'color',
   },
   {
     name: '--cui-fg-warning-hovered',
-    value: '#9d6814',
+    value: '#ce7106',
     type: 'color',
   },
   {
     name: '--cui-fg-warning-pressed',
-    value: '#8e5c0c',
+    value: '#e77e06',
     type: 'color',
   },
   {
@@ -478,17 +518,17 @@ export const light = [
   },
   {
     name: '--cui-fg-danger',
-    value: '#e34405',
+    value: '#b13606',
     type: 'color',
   },
   {
     name: '--cui-fg-danger-hovered',
-    value: '#ce3c02',
+    value: '#e04306',
     type: 'color',
   },
   {
     name: '--cui-fg-danger-pressed',
-    value: '#b93502',
+    value: '#f54703',
     type: 'color',
   },
   {
@@ -498,12 +538,12 @@ export const light = [
   },
   {
     name: '--cui-fg-promo',
-    value: '#e155d6',
+    value: '#a63f9d',
     type: 'color',
   },
   {
     name: '--cui-fg-promo-hovered',
-    value: '#ec58e0',
+    value: '#c150b7',
     type: 'color',
   },
   {
@@ -578,7 +618,7 @@ export const light = [
   },
   {
     name: '--cui-border-divider',
-    value: '#e3e2d6',
+    value: '#f1f1eb',
     type: 'color',
   },
   {
@@ -618,7 +658,7 @@ export const light = [
   },
   {
     name: '--cui-border-accent',
-    value: '#332f2f',
+    value: '#1e1c1c',
     type: 'color',
   },
   {
@@ -638,17 +678,17 @@ export const light = [
   },
   {
     name: '--cui-border-success',
-    value: '#20b839',
+    value: '#3c7411',
     type: 'color',
   },
   {
     name: '--cui-border-success-hovered',
-    value: '#12a129',
+    value: '#529d18',
     type: 'color',
   },
   {
     name: '--cui-border-success-pressed',
-    value: '#0f9024',
+    value: '#65b527',
     type: 'color',
   },
   {
@@ -658,17 +698,17 @@ export const light = [
   },
   {
     name: '--cui-border-warning',
-    value: '#f8ab2f',
+    value: '#a65a03',
     type: 'color',
   },
   {
     name: '--cui-border-warning-hovered',
-    value: '#e89c21',
+    value: '#ce7106',
     type: 'color',
   },
   {
     name: '--cui-border-warning-pressed',
-    value: '#d0850c',
+    value: '#e77e06',
     type: 'color',
   },
   {
@@ -678,17 +718,17 @@ export const light = [
   },
   {
     name: '--cui-border-danger',
-    value: '#e34405',
+    value: '#b13606',
     type: 'color',
   },
   {
     name: '--cui-border-danger-hovered',
-    value: '#c73a01',
+    value: '#e04306',
     type: 'color',
   },
   {
     name: '--cui-border-danger-pressed',
-    value: '#b63502',
+    value: '#f54703',
     type: 'color',
   },
   {
@@ -698,12 +738,12 @@ export const light = [
   },
   {
     name: '--cui-border-promo',
-    value: '#e155d6',
+    value: '#a63f9d',
     type: 'color',
   },
   {
     name: '--cui-border-promo-hovered',
-    value: '#ec58e0',
+    value: '#c150b7',
     type: 'color',
   },
   {

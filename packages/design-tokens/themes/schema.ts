@@ -42,6 +42,15 @@ export const schema = [
   { name: '--cui-bg-accent-strong-hovered', type: 'color' },
   { name: '--cui-bg-accent-strong-pressed', type: 'color' },
   { name: '--cui-bg-accent-strong-disabled', type: 'color' },
+  /* Neutral backgrounds */
+  { name: '--cui-bg-neutral', type: 'color' },
+  { name: '--cui-bg-neutral-hovered', type: 'color' },
+  { name: '--cui-bg-neutral-pressed', type: 'color' },
+  { name: '--cui-bg-neutral-disabled', type: 'color' },
+  { name: '--cui-bg-neutral-strong', type: 'color' },
+  { name: '--cui-bg-neutral-strong-hovered', type: 'color' },
+  { name: '--cui-bg-neutral-strong-pressed', type: 'color' },
+  { name: '--cui-bg-neutral-strong-disabled', type: 'color' },
   /* Success backgrounds */
   { name: '--cui-bg-success', type: 'color' },
   { name: '--cui-bg-success-hovered', type: 'color' },

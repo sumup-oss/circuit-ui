@@ -212,6 +212,7 @@ type ColorSentiment =
   | 'accent'
   | 'brand'
   | 'promo'
+  | 'neutral'
   | 'success'
   | 'warning'
   | 'danger'
