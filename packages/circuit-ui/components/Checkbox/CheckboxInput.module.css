@@ -1,5 +1,5 @@
 .label {
-  --checkbox-size: var(--cui-icon-sizes-mega);
+  --checkbox-size: 1.25rem;
 
   position: relative;
   display: inline-block;
@@ -42,7 +42,7 @@
 }
 
 .label svg {
-  padding: 2px;
+  padding: 4px;
   line-height: 0;
   color: var(--cui-fg-on-strong);
   opacity: 0;
