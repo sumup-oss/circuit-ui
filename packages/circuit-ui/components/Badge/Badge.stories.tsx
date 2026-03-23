@@ -51,13 +51,19 @@ export const Variants = (args: BadgeProps) => (
 
 export const Circular = (args: BadgeProps) => (
   <Stack>
-    <Badge {...args} circle>
+    <Badge {...args} circle variant="neutral">
       1
     </Badge>
-    <Badge {...args} circle>
+    <Badge {...args} circle variant="success">
+      2
+    </Badge>
+    <Badge {...args} circle variant="warning">
+      3
+    </Badge>
+    <Badge {...args} circle variant="danger">
       42
     </Badge>
-    <Badge {...args} circle>
+    <Badge {...args} circle variant="promo">
       999
     </Badge>
   </Stack>

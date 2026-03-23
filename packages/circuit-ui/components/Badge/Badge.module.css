@@ -8,14 +8,6 @@
   border-radius: var(--cui-border-radius-pill);
 }
 
-.circle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--badge-width);
-  padding: var(--cui-spacings-bit);
-}
-
 /* Variants */
 
 .success {
@@ -34,11 +26,43 @@
 }
 
 .neutral {
-  color: var(--cui-fg-normal);
-  background-color: var(--cui-bg-accent);
+  color: var(--cui-fg-neutral);
+  background-color: var(--cui-bg-neutral);
 }
 
 .promo {
   color: var(--cui-fg-promo);
   background-color: var(--cui-bg-promo);
+}
+
+/* Circular */
+
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--badge-width);
+  padding: var(--cui-spacings-bit);
+  color: var(--cui-fg-on-strong);
+}
+
+.circle.neutral {
+  color: var(--cui-fg-normal);
+  background-color: var(--cui-bg-neutral-strong);
+}
+
+.circle.promo {
+  background-color: var(--cui-bg-promo-strong);
+}
+
+.circle.success {
+  background-color: var(--cui-bg-success-strong);
+}
+
+.circle.warning {
+  background-color: var(--cui-bg-warning-strong);
+}
+
+.circle.danger {
+  background-color: var(--cui-bg-danger-strong);
 }
