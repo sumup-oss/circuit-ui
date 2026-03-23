@@ -22,18 +22,18 @@ import browserslist from 'browserslist';
 import { transform, browserslistToTargets } from 'lightningcss';
 
 import { schema } from '../themes/schema.js';
-import { shared } from '../themes/shared.js';
+import { shared, sharedUntilGiga } from '../themes/shared.js';
 import { light } from '../themes/light.js';
 import { dark } from '../themes/dark.js';
 import { consumer } from '../themes/consumer.js';
 import type { ColorScheme, FontFace, Token } from '../types/index.js';
-import { holo } from '../themes/fonts.js';
+import { sumup } from '../themes/fonts.js';
 
 export type TokenConfig = {
   type: 'tokens';
   selectors: string[];
   tokens: Token[];
-  colorScheme: ColorScheme;
+  colorScheme?: ColorScheme;
 };
 
 export type FontFaceConfig = {
@@ -52,6 +52,11 @@ function main(): void {
         selectors: [':root, ::backdrop'],
         colorScheme: 'light',
       },
+      {
+        type: 'tokens',
+        tokens: sharedUntilGiga,
+        selectors: ['@media (max-width: 959px)', ':root, ::backdrop'],
+      },
     ],
     'dark': [
       {
@@ -59,6 +64,11 @@ function main(): void {
         tokens: [...dark, ...shared],
         selectors: [':root, ::backdrop'],
         colorScheme: 'dark',
+      },
+      {
+        type: 'tokens',
+        tokens: sharedUntilGiga,
+        selectors: ['@media (max-width: 959px)', ':root, ::backdrop'],
       },
     ],
     'light-scoped': [
@@ -68,6 +78,11 @@ function main(): void {
         selectors: ['[data-color-scheme="light"]'],
         colorScheme: 'light',
       },
+      {
+        type: 'tokens',
+        tokens: sharedUntilGiga,
+        selectors: ['@media (max-width: 959px)', '[data-color-scheme="light"]'],
+      },
     ],
     'dark-scoped': [
       {
@@ -76,6 +91,11 @@ function main(): void {
         selectors: ['[data-color-scheme="dark"]'],
         colorScheme: 'dark',
       },
+      {
+        type: 'tokens',
+        tokens: sharedUntilGiga,
+        selectors: ['@media (max-width: 959px)', '[data-color-scheme="dark"]'],
+      },
     ],
     'dynamic': [
       {
@@ -83,6 +103,11 @@ function main(): void {
         tokens: [...light, ...shared],
         selectors: [':root, ::backdrop'],
         colorScheme: 'light',
+      },
+      {
+        type: 'tokens',
+        tokens: sharedUntilGiga,
+        selectors: ['@media (max-width: 959px)', ':root, ::backdrop'],
       },
       {
         type: 'tokens',
@@ -123,7 +148,7 @@ function main(): void {
     'fonts': [
       {
         type: 'font-faces',
-        fontFaces: holo,
+        fontFaces: sumup,
       },
     ],
   };
@@ -189,6 +214,9 @@ export function createCSSCustomProperties(config: TokenConfig) {
     .map((selector) => `${selector} {`)
     .join('');
   const selectorEnd = config.selectors.map(() => '}').join('');
+  const colorScheme = config.colorScheme
+    ? `color-scheme: ${config.colorScheme};`
+    : '';
   const customProperties = config.tokens
     .flatMap((token) => {
       const { description, name, value } = token;
@@ -205,7 +233,7 @@ export function createCSSCustomProperties(config: TokenConfig) {
     .join(' ');
 
   return `${selectorStart}
-    color-scheme: ${config.colorScheme};
+    ${colorScheme}
     ${customProperties}
   ${selectorEnd}`;
 }

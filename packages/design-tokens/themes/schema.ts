@@ -236,6 +236,8 @@ export const schema = [
   { name: '--cui-transitions-default', type: 'duration' },
   { name: '--cui-transitions-slow', type: 'duration' },
   /* Typography */
+  { name: '--cui-display-xl-font-size', type: 'dimension' },
+  { name: '--cui-display-xl-line-height', type: 'dimension' },
   { name: '--cui-display-l-font-size', type: 'dimension' },
   { name: '--cui-display-l-line-height', type: 'dimension' },
   { name: '--cui-display-m-font-size', type: 'dimension' },
@@ -260,6 +262,8 @@ export const schema = [
   { name: '--cui-compact-m-line-height', type: 'dimension' },
   { name: '--cui-compact-s-font-size', type: 'dimension' },
   { name: '--cui-compact-s-line-height', type: 'dimension' },
+  { name: '--cui-numeral-xl-font-size', type: 'dimension' },
+  { name: '--cui-numeral-xl-line-height', type: 'dimension' },
   { name: '--cui-numeral-l-font-size', type: 'dimension' },
   { name: '--cui-numeral-l-line-height', type: 'dimension' },
   { name: '--cui-numeral-m-font-size', type: 'dimension' },

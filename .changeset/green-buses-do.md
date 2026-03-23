@@ -3,4 +3,4 @@
 "@sumup-oss/circuit-ui": minor
 ---
 
-Replaced Inter with NaN Holo as the default font family.
+Replaced Inter with SumUp Black and SumUp Narrow as the default font families.

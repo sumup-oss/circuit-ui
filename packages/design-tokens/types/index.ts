@@ -166,12 +166,11 @@ export type FontFace =
   | {
       'font-family': string;
       'font-style': 'normal' | 'italic' | 'oblique';
-      'font-weight': 'normal' | `${number}` | `${number} ${number}`;
+      'font-weight': 'normal' | 'bold' | `${number}` | `${number} ${number}`;
       'font-variation-settings'?: string;
       'font-display': 'auto' | 'block' | 'swap' | 'fallback' | 'optional';
       'src': string;
-      // TODO: Make required again once we have the final values
-      'unicode-range'?: string;
+      'unicode-range': string;
     }
   // Web safe fallback font
   | {
