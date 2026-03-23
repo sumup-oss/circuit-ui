@@ -19,12 +19,12 @@ export const shared = [
   /* Border radii */
   {
     name: '--cui-border-radius-bit',
-    value: '6px',
+    value: '4px',
     type: 'dimension',
   },
   {
     name: '--cui-border-radius-byte',
-    value: '9px',
+    value: '10px',
     type: 'dimension',
   },
   {
@@ -35,6 +35,21 @@ export const shared = [
   {
     name: '--cui-border-radius-mega',
     value: '16px',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-border-radius-giga',
+    value: '24px',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-border-radius-tera',
+    value: '32px',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-border-radius-peta',
+    value: '40px',
     type: 'dimension',
   },
   {
@@ -169,6 +184,21 @@ export const shared = [
   {
     name: '--cui-spacings-zetta',
     value: '56px',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-spacings-yotta',
+    value: '72px',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-spacings-ronna',
+    value: '96px',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-spacings-quetta',
+    value: '128px',
     type: 'dimension',
   },
   /* Transitions */
