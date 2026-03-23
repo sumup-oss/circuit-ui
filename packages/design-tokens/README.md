@@ -46,19 +46,24 @@ Import the stylesheet that contains the font face declarations globally in your 
 import '@sumup-oss/design-tokens/fonts.css';
 ```
 
-To speed up the loading of the fonts, add preload links to the global `<head>` element of your application. Choose which subsets to preload based on the languages your app supports. The available subsets are `latin`, `latin-ext`, `cyrillic`, `cyrillic-ext`, `greek`, `greek-ext`, and `vietnamese`.
+To speed up the loading of the fonts, add preload links to the global `<head>` element of your application. Choose which subsets to preload based on the languages your app supports. The available subsets are `latin-s`, `latin-l`, `cyrillic`, and `greek`.
 
 ```html
 <link
   rel="preload"
-  href="https://static.sumup.com/fonts/Inter/Inter-normal-latin.woff2"
+  href="https://static.sumup.com/fonts/sumup/sumup-narrow-latin-s.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="https://static.sumup.com/fonts/sumup/sumup-black-latin-s.woff2"
   as="font"
   type="font/woff2"
   crossorigin
 />
 ```
-
-Do not use Next.js' built-in font optimization as it doesn't support Inter's italic axis.
 
 ### Color schemes
 
