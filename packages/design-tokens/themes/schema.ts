@@ -204,6 +204,9 @@ export const schema = [
   { name: '--cui-border-radius-byte', type: 'dimension' },
   { name: '--cui-border-radius-kilo', type: 'dimension' },
   { name: '--cui-border-radius-mega', type: 'dimension' },
+  { name: '--cui-border-radius-giga', type: 'dimension' },
+  { name: '--cui-border-radius-tera', type: 'dimension' },
+  { name: '--cui-border-radius-peta', type: 'dimension' },
   { name: '--cui-border-radius-circle', type: 'dimension' },
   { name: '--cui-border-radius-pill', type: 'dimension' },
   /* Border widths */
@@ -232,6 +235,9 @@ export const schema = [
   { name: '--cui-spacings-peta', type: 'dimension' },
   { name: '--cui-spacings-exa', type: 'dimension' },
   { name: '--cui-spacings-zetta', type: 'dimension' },
+  { name: '--cui-spacings-yotta', type: 'dimension' },
+  { name: '--cui-spacings-ronna', type: 'dimension' },
+  { name: '--cui-spacings-quetta', type: 'dimension' },
   /* Transitions */
   { name: '--cui-transitions-default', type: 'duration' },
   { name: '--cui-transitions-slow', type: 'duration' },
