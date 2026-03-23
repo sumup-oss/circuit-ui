@@ -42,6 +42,15 @@ export const schema = [
   { name: '--cui-bg-accent-strong-hovered', type: 'color' },
   { name: '--cui-bg-accent-strong-pressed', type: 'color' },
   { name: '--cui-bg-accent-strong-disabled', type: 'color' },
+  /* Neutral backgrounds */
+  { name: '--cui-bg-neutral', type: 'color' },
+  { name: '--cui-bg-neutral-hovered', type: 'color' },
+  { name: '--cui-bg-neutral-pressed', type: 'color' },
+  { name: '--cui-bg-neutral-disabled', type: 'color' },
+  { name: '--cui-bg-neutral-strong', type: 'color' },
+  { name: '--cui-bg-neutral-strong-hovered', type: 'color' },
+  { name: '--cui-bg-neutral-strong-pressed', type: 'color' },
+  { name: '--cui-bg-neutral-strong-disabled', type: 'color' },
   /* Success backgrounds */
   { name: '--cui-bg-success', type: 'color' },
   { name: '--cui-bg-success-hovered', type: 'color' },
@@ -78,6 +87,11 @@ export const schema = [
   { name: '--cui-bg-promo-strong-hovered', type: 'color' },
   { name: '--cui-bg-promo-strong-pressed', type: 'color' },
   { name: '--cui-bg-promo-strong-disabled', type: 'color' },
+  /* Brand backgrounds */
+  { name: '--cui-bg-brand', type: 'color' },
+  { name: '--cui-bg-brand-hovered', type: 'color' },
+  { name: '--cui-bg-brand-pressed', type: 'color' },
+  { name: '--cui-bg-brand-disabled', type: 'color' },
   /* Neutral foregrounds */
   { name: '--cui-fg-normal', type: 'color' },
   { name: '--cui-fg-normal-hovered', type: 'color' },
@@ -104,6 +118,11 @@ export const schema = [
   { name: '--cui-fg-accent-hovered', type: 'color' },
   { name: '--cui-fg-accent-pressed', type: 'color' },
   { name: '--cui-fg-accent-disabled', type: 'color' },
+  /* Neutral foregrounds */
+  { name: '--cui-fg-neutral', type: 'color' },
+  { name: '--cui-fg-neutral-hovered', type: 'color' },
+  { name: '--cui-fg-neutral-pressed', type: 'color' },
+  { name: '--cui-fg-neutral-disabled', type: 'color' },
   /* Success foregrounds */
   { name: '--cui-fg-success', type: 'color' },
   { name: '--cui-fg-success-hovered', type: 'color' },
@@ -124,6 +143,11 @@ export const schema = [
   { name: '--cui-fg-promo-hovered', type: 'color' },
   { name: '--cui-fg-promo-pressed', type: 'color' },
   { name: '--cui-fg-promo-disabled', type: 'color' },
+  /* Brand foregrounds */
+  { name: '--cui-fg-brand', type: 'color' },
+  { name: '--cui-fg-brand-hovered', type: 'color' },
+  { name: '--cui-fg-brand-pressed', type: 'color' },
+  { name: '--cui-fg-brand-disabled', type: 'color' },
   /* Neutral borders */
   { name: '--cui-border-normal', type: 'color' },
   { name: '--cui-border-normal-hovered', type: 'color' },
@@ -166,6 +190,11 @@ export const schema = [
   { name: '--cui-border-promo-hovered', type: 'color' },
   { name: '--cui-border-promo-pressed', type: 'color' },
   { name: '--cui-border-promo-disabled', type: 'color' },
+  /* Brand borders */
+  { name: '--cui-border-brand', type: 'color' },
+  { name: '--cui-border-brand-hovered', type: 'color' },
+  { name: '--cui-border-brand-pressed', type: 'color' },
+  { name: '--cui-border-brand-disabled', type: 'color' },
   /* Special colors */
   { name: '--cui-bg-overlay', type: 'color' },
   { name: '--cui-bg-elevated', type: 'color' },

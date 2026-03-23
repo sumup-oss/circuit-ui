@@ -3,7 +3,7 @@ import { ThemeProvider } from '@emotion/react';
 import type { Decorator } from '@storybook/react-vite';
 import { light } from '@sumup-oss/design-tokens';
 
-type ColorScheme = 'light' | 'dark';
+type ColorScheme = 'light' | 'dark' | 'consumer';
 
 function setColorScheme(colorScheme: ColorScheme) {
   document.documentElement.dataset.colorScheme = colorScheme;

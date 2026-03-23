@@ -26,8 +26,8 @@ The design tokens are exported as [CSS custom properties](https://developer.mozi
 
 ```tsx
 // app/layout.tsx
-import '@sumup-oss/design-tokens/fonts.css';
-import '@sumup-oss/design-tokens/light.css';
+import "@sumup-oss/design-tokens/fonts.css";
+import "@sumup-oss/design-tokens/light.css";
 
 function App({ Component, pageProps }) {
   return <Component {...pageProps} />;
@@ -43,7 +43,7 @@ Refer to the [theme documentation](https://circuit.sumup.com/?path=/docs/feature
 Import the stylesheet that contains the font face declarations globally in your application, such as in a global layout file:
 
 ```ts
-import '@sumup-oss/design-tokens/fonts.css';
+import "@sumup-oss/design-tokens/fonts.css";
 ```
 
 To speed up the loading of the fonts, add preload links to the global `<head>` element of your application. Choose which subsets to preload based on the languages your app supports. The available subsets are `latin`, `latin-ext`, `cyrillic`, `cyrillic-ext`, `greek`, `greek-ext`, and `vietnamese`.
@@ -64,11 +64,11 @@ Do not use Next.js' built-in font optimization as it doesn't support Inter's ita
 
 #### Single color scheme
 
-For applications that support a single color scheme, import the `@sumup-oss/design-tokens/light.css` or `@sumup-oss/design-tokens/dark.css` themes. They contain the complete set of design tokens, in light and dark mode respectively. The tokens are defined globally on the `:root` element. The themes can be used independently or with a [scoped theme](#scoped-color-scheme).
+For merchant-facing applications that support a single color scheme, import the `@sumup-oss/design-tokens/light.css` or `@sumup-oss/design-tokens/dark.css` themes. For consumer-facing applications, import the `@sumup-oss/design-tokens/consumer.css` theme. The themes contain the complete set of design tokens, in light and dark mode respectively. The tokens are defined globally on the `:root` element. The themes can be used independently or with a [scoped theme](#scoped-color-scheme).
 
 #### Scoped color scheme
 
-To apply a different color scheme to a subset of an application, import the `@sumup-oss/design-tokens/light-scoped.css` or `@sumup-oss/design-tokens/dark-scoped.css` themes. They contain only color tokens which are scoped to the `data-color-scheme="light"` and `data-color-scheme="dark"` selectors respectively. The themes must be used alongside a [full theme](#single-color-scheme) to ensure that all design tokens are defined.
+To apply a different color scheme to a subset of an application, import the `@sumup-oss/design-tokens/light-scoped.css`, `@sumup-oss/design-tokens/dark-scoped.css` or `@sumup-oss/design-tokens/consumer-scoped.css` themes. They contain only color tokens which are scoped to the `data-color-scheme="light"`, `data-color-scheme="dark"` and `data-color-scheme="consumer"` selectors respectively. The themes must be used alongside a [full theme](#single-color-scheme) to ensure that all design tokens are defined.
 
 #### Multiple color schemes
 
@@ -84,9 +84,9 @@ Ensure that users have full control over their preferred color mode: dark, light
 The `light` theme is meant to be used with Emotion.js' [`ThemeProvider`](https://emotion.sh/docs/theming):
 
 ```tsx
-import { light } from '@sumup-oss/design-tokens';
-import { ThemeProvider } from '@emotion/react';
-import styled from '@emotion/styled';
+import { light } from "@sumup-oss/design-tokens";
+import { ThemeProvider } from "@emotion/react";
+import styled from "@emotion/styled";
 
 const Bold = styled.strong`
   font-weight: ${(p) => p.theme.fontWeight.bold};
@@ -108,10 +108,10 @@ The theme is a plain JavaScript object, so you can use it in other ways, too.
 The package exports a `Theme` interface that can be used to augment Emotion.js' types as described in the [Emotion.js docs](https://emotion.sh/docs/typescript#define-a-theme):
 
 ```ts
-import '@emotion/react';
-import type { Theme as CircuitUITheme } from '@sumup-oss/design-tokens';
+import "@emotion/react";
+import type { Theme as CircuitUITheme } from "@sumup-oss/design-tokens";
 
-declare module '@emotion/react' {
+declare module "@emotion/react" {
   export interface Theme extends CircuitUITheme {}
 }
 ```

@@ -87,6 +87,11 @@ export const globalTypes = {
           value: 'dark',
           icon: 'circle',
         },
+        {
+          title: 'Consumer (WIP)',
+          value: 'consumer',
+          icon: 'diamond',
+        },
       ],
     },
   },

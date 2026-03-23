@@ -25,6 +25,7 @@ import { schema } from '../themes/schema.js';
 import { shared } from '../themes/shared.js';
 import { light } from '../themes/light.js';
 import { dark } from '../themes/dark.js';
+import { consumer } from '../themes/consumer.js';
 import type { ColorScheme, FontFace, Token } from '../types/index.js';
 import { holo } from '../themes/fonts.js';
 
@@ -99,6 +100,23 @@ function main(): void {
         type: 'tokens',
         tokens: dark,
         selectors: ['[data-color-scheme="dark"]'],
+        colorScheme: 'dark',
+      },
+    ],
+
+    'consumer': [
+      {
+        type: 'tokens',
+        tokens: [...consumer, ...shared],
+        selectors: [':root, ::backdrop'],
+        colorScheme: 'dark',
+      },
+    ],
+    'consumer-scoped': [
+      {
+        type: 'tokens',
+        tokens: [...consumer, ...shared],
+        selectors: ['[data-color-scheme="consumer"]'],
         colorScheme: 'dark',
       },
     ],
