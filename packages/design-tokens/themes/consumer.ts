@@ -138,42 +138,42 @@ export const consumer = [
   },
   {
     name: '--cui-bg-neutral',
-    value: '#4f374a',
+    value: '#443e3e',
     type: 'color',
   },
   {
     name: '--cui-bg-neutral-hovered',
-    value: '#0ab1db',
+    value: '#756c6c',
     type: 'color',
   },
   {
     name: '--cui-bg-neutral-pressed',
-    value: '#0ab3de',
+    value: '#b7b0a9',
     type: 'color',
   },
   {
     name: '--cui-bg-neutral-disabled',
-    value: 'rgba(11, 203, 251, 0.1000)',
+    value: 'rgba(51, 47, 47, 0.4000)',
     type: 'color',
   },
   {
     name: '--cui-bg-neutral-strong',
-    value: '#4f374a',
+    value: '#635757',
     type: 'color',
   },
   {
     name: '--cui-bg-neutral-strong-hovered',
-    value: '#0ab1db',
+    value: '#605a5a',
     type: 'color',
   },
   {
     name: '--cui-bg-neutral-strong-pressed',
-    value: '#0ab3de',
+    value: '#756c6c',
     type: 'color',
   },
   {
     name: '--cui-bg-neutral-strong-disabled',
-    value: 'rgba(11, 203, 251, 0.1000)',
+    value: 'rgba(117, 108, 108, 0.2000)',
     type: 'color',
   },
   {
@@ -474,6 +474,26 @@ export const consumer = [
   {
     name: '--cui-fg-accent-disabled',
     value: 'rgba(185, 174, 173, 0.2000)',
+    type: 'color',
+  },
+  {
+    name: '--cui-fg-neutral',
+    value: '#9a8d94',
+    type: 'color',
+  },
+  {
+    name: '--cui-fg-neutral-hovered',
+    value: '#584e4e',
+    type: 'color',
+  },
+  {
+    name: '--cui-fg-neutral-pressed',
+    value: '#332f2f',
+    type: 'color',
+  },
+  {
+    name: '--cui-fg-neutral-disabled',
+    value: 'rgba(117, 108, 108, 0.4000)',
     type: 'color',
   },
   {

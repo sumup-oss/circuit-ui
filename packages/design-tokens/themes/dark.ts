@@ -143,37 +143,37 @@ export const dark = [
   },
   {
     name: '--cui-bg-neutral-hovered',
-    value: '#ec58e0',
+    value: '#756c6c',
     type: 'color',
   },
   {
     name: '--cui-bg-neutral-pressed',
-    value: '#e04fd4',
+    value: '#b7b0a9',
     type: 'color',
   },
   {
     name: '--cui-bg-neutral-disabled',
-    value: 'rgba(255, 97, 242, 0.1000)',
+    value: 'rgba(51, 47, 47, 0.4000)',
     type: 'color',
   },
   {
     name: '--cui-bg-neutral-strong',
-    value: '#443e3e',
+    value: '#635757',
     type: 'color',
   },
   {
     name: '--cui-bg-neutral-strong-hovered',
-    value: '#ec58e0',
+    value: '#605a5a',
     type: 'color',
   },
   {
     name: '--cui-bg-neutral-strong-pressed',
-    value: '#e04fd4',
+    value: '#756c6c',
     type: 'color',
   },
   {
     name: '--cui-bg-neutral-strong-disabled',
-    value: 'rgba(255, 97, 242, 0.1000)',
+    value: 'rgba(117, 108, 108, 0.2000)',
     type: 'color',
   },
   {
@@ -318,17 +318,17 @@ export const dark = [
   },
   {
     name: '--cui-bg-promo-strong',
-    value: '#e155d6',
+    value: '#c544ba',
     type: 'color',
   },
   {
     name: '--cui-bg-promo-strong-hovered',
-    value: '#df49d2',
+    value: '#d25fc7',
     type: 'color',
   },
   {
     name: '--cui-bg-promo-strong-pressed',
-    value: '#c934bd',
+    value: '#e269d7',
     type: 'color',
   },
   {
@@ -474,6 +474,26 @@ export const dark = [
   {
     name: '--cui-fg-accent-disabled',
     value: 'rgba(185, 174, 173, 0.2000)',
+    type: 'color',
+  },
+  {
+    name: '--cui-fg-neutral',
+    value: '#999190',
+    type: 'color',
+  },
+  {
+    name: '--cui-fg-neutral-hovered',
+    value: '#584e4e',
+    type: 'color',
+  },
+  {
+    name: '--cui-fg-neutral-pressed',
+    value: '#332f2f',
+    type: 'color',
+  },
+  {
+    name: '--cui-fg-neutral-disabled',
+    value: 'rgba(117, 108, 108, 0.4000)',
     type: 'color',
   },
   {

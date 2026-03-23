@@ -118,6 +118,11 @@ export const schema = [
   { name: '--cui-fg-accent-hovered', type: 'color' },
   { name: '--cui-fg-accent-pressed', type: 'color' },
   { name: '--cui-fg-accent-disabled', type: 'color' },
+  /* Neutral foregrounds */
+  { name: '--cui-fg-neutral', type: 'color' },
+  { name: '--cui-fg-neutral-hovered', type: 'color' },
+  { name: '--cui-fg-neutral-pressed', type: 'color' },
+  { name: '--cui-fg-neutral-disabled', type: 'color' },
   /* Success foregrounds */
   { name: '--cui-fg-success', type: 'color' },
   { name: '--cui-fg-success-hovered', type: 'color' },
