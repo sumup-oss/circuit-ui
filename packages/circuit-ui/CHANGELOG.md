@@ -1,5 +1,25 @@
 # @sumup-oss/circuit-ui
 
+## 10.15.0-next.2
+
+### Minor Changes
+
+- [#3440](https://github.com/sumup-oss/circuit-ui/pull/3440) [`4acb03f`](https://github.com/sumup-oss/circuit-ui/commit/4acb03f95fe98b4a5b1aec538661bcbd1bfcf70e) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the InlineElements component. Use [CSS Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) or [CSS Grid](https://css-tricks.com/css-grid-layout-guide/) instead.
+
+- [#3441](https://github.com/sumup-oss/circuit-ui/pull/3441) [`aca875d`](https://github.com/sumup-oss/circuit-ui/commit/aca875da2e13261199a1daa600fc7b4bc9498d15) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the design of the Badge component to use a light background color.
+
+- [#3440](https://github.com/sumup-oss/circuit-ui/pull/3440) [`4acb03f`](https://github.com/sumup-oss/circuit-ui/commit/4acb03f95fe98b4a5b1aec538661bcbd1bfcf70e) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the style mixins. Use the `utilClasses` instead. We strongly recommend migrating from Emotion.js to CSS Modules.
+
+- [#3467](https://github.com/sumup-oss/circuit-ui/pull/3467) [`a566187`](https://github.com/sumup-oss/circuit-ui/commit/a56618796dbe4ee6c2e33a6a616921d9810454e6) Thanks [@connor-baer](https://github.com/connor-baer)! - Added XL sizes to the Display and Numeral components.
+
+- [#3440](https://github.com/sumup-oss/circuit-ui/pull/3440) [`4acb03f`](https://github.com/sumup-oss/circuit-ui/commit/4acb03f95fe98b4a5b1aec538661bcbd1bfcf70e) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the Body and Numeral components' italic decoration value. Since the brand refresh, italic text is no longer supported and the value will be removed in the next major release.
+
+- [#3440](https://github.com/sumup-oss/circuit-ui/pull/3440) [`4acb03f`](https://github.com/sumup-oss/circuit-ui/commit/4acb03f95fe98b4a5b1aec538661bcbd1bfcf70e) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the Display component's `weight` prop. Since the brand refresh, only `bold` is supported. The `weight` prop will be removed in the next major version.
+
+### Patch Changes
+
+- [#3467](https://github.com/sumup-oss/circuit-ui/pull/3467) [`a566187`](https://github.com/sumup-oss/circuit-ui/commit/a56618796dbe4ee6c2e33a6a616921d9810454e6) Thanks [@connor-baer](https://github.com/connor-baer)! - Tweaked the font sizes, weights, and line heights of the typography components.
+
 ## 10.15.0-next.1
 
 ### Patch Changes

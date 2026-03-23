@@ -12,14 +12,27 @@
     "next-app": "2.0.1"
   },
   "changesets": [
+    "big-ends-happen",
+    "bitter-candles-pick",
     "bitter-pugs-battle",
+    "chatty-tables-take",
     "clean-foxes-write",
     "clever-cats-turn",
+    "cute-hairs-grab",
+    "dirty-chairs-care",
     "early-cobras-remain",
+    "gold-pants-grab",
     "green-buses-do",
+    "khaki-melons-live",
+    "long-lines-burn",
     "metal-trains-sniff",
     "moody-weeks-leave",
+    "quiet-parks-warn",
     "rare-rings-clap",
-    "thin-files-rush"
+    "thin-files-rush",
+    "thirty-humans-occur",
+    "thirty-moles-heal",
+    "whole-otters-heal",
+    "wild-trams-pull"
   ]
 }

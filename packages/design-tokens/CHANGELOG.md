@@ -1,5 +1,27 @@
 # @sumup-oss/design-tokens
 
+## 9.1.0-next.2
+
+### Minor Changes
+
+- [#3460](https://github.com/sumup-oss/circuit-ui/pull/3460) [`5a05db1`](https://github.com/sumup-oss/circuit-ui/commit/5a05db1c20c8cf47f0c90cfa4cf1439c0cf42c2a) Thanks [@connor-baer](https://github.com/connor-baer)! - Added new neutral color tokens. Similar to the success, warning, and danger semantic colors, neutral should be used to highlight messages or components that have a neutral semantic meaning.
+
+- [#3460](https://github.com/sumup-oss/circuit-ui/pull/3460) [`5a05db1`](https://github.com/sumup-oss/circuit-ui/commit/5a05db1c20c8cf47f0c90cfa4cf1439c0cf42c2a) Thanks [@connor-baer](https://github.com/connor-baer)! - Added new brand color tokens.
+
+- [#3513](https://github.com/sumup-oss/circuit-ui/pull/3513) [`ed58345`](https://github.com/sumup-oss/circuit-ui/commit/ed58345c24e9c6643cd1794faf30d5ce94d1d529) Thanks [@connor-baer](https://github.com/connor-baer)! - Added larger spacing tokens: `--cui-spacings-yotta`, `--cui-spacings-ronna`, and `--cui-spacings-quetta`.
+
+- [#3467](https://github.com/sumup-oss/circuit-ui/pull/3467) [`a566187`](https://github.com/sumup-oss/circuit-ui/commit/a56618796dbe4ee6c2e33a6a616921d9810454e6) Thanks [@connor-baer](https://github.com/connor-baer)! - Added XL sizes to the Display and Numeral components.
+
+- [#3513](https://github.com/sumup-oss/circuit-ui/pull/3513) [`ed58345`](https://github.com/sumup-oss/circuit-ui/commit/ed58345c24e9c6643cd1794faf30d5ce94d1d529) Thanks [@connor-baer](https://github.com/connor-baer)! - Added larger border radius tokens: `--cui-border-radius-giga`, `--cui-border-radius-tera`, and `--cui-border-radius-peta`.
+
+- [#3460](https://github.com/sumup-oss/circuit-ui/pull/3460) [`5a05db1`](https://github.com/sumup-oss/circuit-ui/commit/5a05db1c20c8cf47f0c90cfa4cf1439c0cf42c2a) Thanks [@connor-baer](https://github.com/connor-baer)! - Added new themes for consumer-facing applications. Import the `@sumup-oss/design-tokens/consumer.css` theme to apply it globally. Import the `@sumup-oss/design-tokens/consumer-scoped.css` theme to apply it to any elements with the `data-color-scheme="consumer"` selector.
+
+### Patch Changes
+
+- [#3467](https://github.com/sumup-oss/circuit-ui/pull/3467) [`a566187`](https://github.com/sumup-oss/circuit-ui/commit/a56618796dbe4ee6c2e33a6a616921d9810454e6) Thanks [@connor-baer](https://github.com/connor-baer)! - Tweaked the font sizes, weights, and line heights of the typography components.
+
+- [#3460](https://github.com/sumup-oss/circuit-ui/pull/3460) [`5a05db1`](https://github.com/sumup-oss/circuit-ui/commit/5a05db1c20c8cf47f0c90cfa4cf1439c0cf42c2a) Thanks [@connor-baer](https://github.com/connor-baer)! - Tweaked the refreshed color palette.
+
 ## 9.1.0-next.1
 
 ### Patch Changes
