@@ -14,33 +14,33 @@ export const light = create({
   base: 'light',
   ...brand,
   brandImage: '/images/logo-name-light.png',
-  colorPrimary: '#0f131a', // var(--cui-fg-accent)
-  colorSecondary: '#0f131a', // var(--cui-fg-normal)
+  colorPrimary: '#1e1c1c', // var(--cui-fg-accent)
+  colorSecondary: '#1e1c1c', // var(--cui-fg-normal)
 
   // UI
-  appBg: '#ffffff', // var(--cui-bg-normal)
-  appContentBg: '#ffffff', // var(--cui-bg-normal)
-  appPreviewBg: '#ffffff', // var(--cui-bg-normal)
-  appBorderColor: '#aeb6be', // var(--cui-border-normal)
+  appBg: '#fbfbf9', // var(--cui-bg-normal)
+  appContentBg: '#fbfbf9', // var(--cui-bg-normal)
+  appPreviewBg: '#fbfbf9', // var(--cui-bg-normal)
+  appBorderColor: '#d0cdc3', // var(--cui-border-normal)
   appBorderRadius: 0,
 
   // Text colors
-  textColor: '#0f131a', // var(--cui-fg-normal)
-  textMutedColor: '#6a737c', // var(--cui-fg-subtle)
-  textInverseColor: '#ffffff', // var(--cui-fg-on-strong)
+  textColor: '#1e1c1c', // var(--cui-fg-normal)
+  textMutedColor: '#706464', // var(--cui-fg-subtle)
+  textInverseColor: '#fbfbf9', // var(--cui-fg-on-strong)
 
   // Toolbar default and active colors
-  barTextColor: '#6a737c', // var(--cui-fg-subtle)
-  barHoverColor: '#6a737c', // var(--cui-fg-subtle-hovered)
-  barSelectedColor: '#6a737c', // var(--cui-fg-subtle-pressed)
-  barBg: '#ffffff', // var(--cui-bg-normal)
+  barTextColor: '#706464', // var(--cui-fg-subtle)
+  barHoverColor: '#9c948d', // var(--cui-fg-subtle-hovered)
+  barSelectedColor: '#756c6c', // var(--cui-fg-subtle-pressed)
+  barBg: '#fbfbf9', // var(--cui-bg-normal)
 
   // Form colors
-  buttonBg: '#f0f1f5', // var(--cui-bg-subtle)
-  buttonBorder: '#e3e7ec', // var(--cui-border-subtle)
-  inputBg: '#ffffff', // var(--cui-bg-normal)
-  inputBorder: '#aeb6be', // var(--cui-border-normal)
-  inputTextColor: '#0f131a', // var(--cui-fg-normal)
+  buttonBg: '#f5f4ed', // var(--cui-bg-subtle)
+  buttonBorder: '#e3e2d6', // var(--cui-border-subtle)
+  inputBg: '#fbfbf9', // var(--cui-bg-normal)
+  inputBorder: '#d0cdc3', // var(--cui-border-normal)
+  inputTextColor: '#1e1c1c', // var(--cui-fg-normal)
   inputBorderRadius: 4, // var(--cui-border-radius-bit)
 });
 
@@ -48,13 +48,13 @@ export const dark = create({
   base: 'dark',
   ...brand,
   brandImage: '/images/logo-name-dark.png',
-  colorPrimary: '#e1e7ef', // var(--cui-fg-accent)
-  colorSecondary: '#ffffff', // var(--cui-fg-normal)
+  colorPrimary: '#b9aead', // var(--cui-fg-accent)
+  colorSecondary: '#f0f1e7', // var(--cui-fg-normal)
 
   // UI
-  appBg: '#171d24', // var(--cui-bg-normal)
-  appContentBg: '#171d24', // var(--cui-bg-normal)
-  appPreviewBg: '#171d24', // var(--cui-bg-normal)
+  appBg: '#1e1c1c', // var(--cui-bg-normal)
+  appContentBg: '#1e1c1c', // var(--cui-bg-normal)
+  appPreviewBg: '#1e1c1c', // var(--cui-bg-normal)
 });
 
 export const components = {
