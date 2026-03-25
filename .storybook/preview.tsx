@@ -1,5 +1,6 @@
 import '@sumup-oss/design-tokens/fonts.css';
 import '@sumup-oss/design-tokens/dynamic.css';
+import '@sumup-oss/design-tokens/consumer-scoped.css';
 import '../packages/circuit-ui/styles/base.css';
 
 import { light, components } from './themes.js';
