@@ -3724,6 +3724,11 @@
       "size": "24"
     },
     {
+      "name": "twint",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "union_pay",
       "category": "Payment method",
       "size": "24"
