@@ -473,6 +473,11 @@
       "size": "32"
     },
     {
+      "name": "bancomat",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
       "name": "bancontact",
       "category": "Card scheme",
       "size": "32"
