@@ -60,8 +60,12 @@ import { getCalendarButtonLabel, getDateSegments } from './DateInputService.js';
 import classes from './DateInput.module.css';
 import { translations } from './translations/index.js';
 
-export interface DateInputProps
-  extends InputHTMLAttributes<HTMLInputElement>,
+export interface DateInputProps<
+  Value extends Temporal.PlainDate | string = string,
+> extends Omit<
+      InputHTMLAttributes<HTMLInputElement>,
+      'value' | 'defaultValue' | 'min' | 'max'
+    >,
     Pick<
       InputProps,
       | 'label'
@@ -87,12 +91,12 @@ export interface DateInputProps
    * The currently selected date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
    * format (`YYYY-MM-DD`).
    */
-  value?: string;
+  value?: Value;
   /**
    * The initially selected date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
    * format (`YYYY-MM-DD`).
    */
-  defaultValue?: string;
+  defaultValue?: Value;
   /**
    * Visually hidden label for the year input.
    */
@@ -125,12 +129,12 @@ export interface DateInputProps
    * The minimum selectable date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
    * format (`YYYY-MM-DD`) (inclusive).
    */
-  min?: string;
+  min?: Value;
   /**
    * The maximum selectable date in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
    * format (`YYYY-MM-DD`) (inclusive).
    */
-  max?: string;
+  max?: Value;
   /**
    * A hint to the user agent specifying how to prefill the input.
    */
@@ -285,8 +289,8 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
               type="date"
               ref={applyMultipleRefs(ref, inputRef)}
               className={classes.hidden}
-              min={min}
-              max={max}
+              min={min?.toString()}
+              max={max?.toString()}
               required={required}
               disabled={disabled}
               readOnly={readOnly}
@@ -294,8 +298,8 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
               aria-invalid={invalid}
               aria-hidden="true"
               tabIndex={-1}
-              value={value}
-              defaultValue={defaultValue}
+              value={value?.toString()}
+              defaultValue={defaultValue?.toString()}
               {...rest}
             />
             {/** biome-ignore lint/a11y/noStaticElementInteractions: Progressive enhancement */}

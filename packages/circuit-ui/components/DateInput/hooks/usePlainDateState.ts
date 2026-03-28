@@ -56,8 +56,8 @@ export function usePlainDateState({
   maxDate,
   locale,
 }: {
-  value: string | undefined;
-  defaultValue: string | undefined;
+  value: Temporal.PlainDate | string | undefined;
+  defaultValue: Temporal.PlainDate | string | undefined;
   onChange: ((date: string) => void) | undefined;
   minDate: Temporal.PlainDate | undefined;
   maxDate: Temporal.PlainDate | undefined;
@@ -157,7 +157,7 @@ export function usePlainDateState({
   return { date, update, props };
 }
 
-function parseValue(value?: string): DateValues {
+function parseValue(value?: Temporal.PlainDate | string): DateValues {
   const plainDate = toPlainDate(value);
   if (!plainDate) {
     return { day: '', month: '', year: '' };

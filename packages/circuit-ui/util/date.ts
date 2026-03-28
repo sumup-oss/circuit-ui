@@ -43,7 +43,9 @@ export function isPlainDate(date: unknown): date is Temporal.PlainDate {
   return date instanceof Temporal.PlainDate;
 }
 
-export function toPlainDate(date?: string): Temporal.PlainDate | undefined {
+export function toPlainDate(
+  date?: Temporal.PlainDate | string,
+): Temporal.PlainDate | undefined {
   if (!date) {
     return undefined;
   }

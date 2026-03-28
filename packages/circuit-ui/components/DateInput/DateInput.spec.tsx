@@ -22,6 +22,7 @@ import { render, screen, axe, userEvent } from '../../util/test-utils.js';
 import { useMedia } from '../../hooks/useMedia/useMedia.js';
 
 import { DateInput } from './DateInput.js';
+import { Temporal } from 'temporal-polyfill';
 
 vi.mock('../../hooks/useMedia/useMedia.js');
 
@@ -181,6 +182,22 @@ describe('DateInput', () => {
   });
 
   describe('state', () => {
+    it('should display a default PlainDate', () => {
+      const ref = createRef<HTMLInputElement>();
+      render(
+        <DateInput
+          {...props}
+          ref={ref}
+          defaultValue={new Temporal.PlainDate(2000, 1, 12)}
+        />,
+      );
+
+      expect(ref.current).toHaveValue('2000-01-12');
+      expect(screen.getByLabelText(/day/i)).toHaveValue('12');
+      expect(screen.getByLabelText(/month/i)).toHaveValue('1');
+      expect(screen.getByLabelText(/year/i)).toHaveValue('2000');
+    });
+
     it('should display a default value', () => {
       const ref = createRef<HTMLInputElement>();
       render(<DateInput {...props} ref={ref} defaultValue="2000-01-12" />);
