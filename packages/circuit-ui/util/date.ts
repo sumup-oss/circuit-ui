@@ -35,8 +35,23 @@ export const MAX_MONTH = 12;
 export const MIN_DAY = 1;
 // MAX_DAY is not constant as it depends on the year and month
 
+// FIXME: This isn't accurate for the `h12` hourcycle
+export const MIN_HOUR = 0;
+export const MAX_HOUR = 23;
+
+export const MIN_MINUTE = 0;
+export const MAX_MINUTE = 59;
+
+export const MIN_SECOND = 0;
+export const MAX_SECOND = 59;
+
+// TODO: Rename to getCurrentDate?
 export function getTodaysDate() {
   return Temporal.Now.plainDateISO();
+}
+
+export function getCurrentTime() {
+  return Temporal.Now.plainTimeISO();
 }
 
 export function isPlainDate(date: unknown): date is Temporal.PlainDate {
@@ -49,6 +64,17 @@ export function toPlainDate(date?: string): Temporal.PlainDate | undefined {
   }
   try {
     return Temporal.PlainDate.from(date);
+  } catch {
+    return undefined;
+  }
+}
+
+export function toPlainTime(time?: string): Temporal.PlainTime | undefined {
+  if (!time) {
+    return undefined;
+  }
+  try {
+    return Temporal.PlainTime.from(time);
   } catch {
     return undefined;
   }

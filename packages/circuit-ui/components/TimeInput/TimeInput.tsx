@@ -15,11 +15,29 @@
 
 'use client';
 
-import { forwardRef, type InputHTMLAttributes } from 'react';
+import { forwardRef, useId, useRef, type InputHTMLAttributes } from 'react';
 
-import type { Locale } from '../../util/i18n.js';
+import type { ClickEvent } from '../../types/events.js';
+import { clsx } from '../../styles/clsx.js';
+import { toPlainTime } from '../../util/date.js';
 import { CircuitError } from '../../util/errors.js';
-import { Input, type InputProps } from '../Input/index.js';
+import type { Locale } from '../../util/i18n.js';
+import { idx } from '../../util/idx.js';
+import { changeInputValue } from '../../util/input-value.js';
+import { applyMultipleRefs } from '../../util/refs.js';
+import {
+  FieldLabelText,
+  FieldLegend,
+  FieldSet,
+  FieldValidationHint,
+  FieldWrapper,
+} from '../Field/index.js';
+import type { InputProps } from '../Input/index.js';
+import { useSegmentFocus } from '../DateInput/hooks/useSegmentFocus.js';
+import { DateSegment } from '../DateInput/components/DateSegment.js';
+
+import { usePlainTimeState } from './hooks/usePlainTimeState.js';
+import { getTimeSegments } from './TimeInputService.js';
 import classes from './TimeInput.module.css';
 
 export interface TimeInputProps
@@ -47,6 +65,18 @@ export interface TimeInputProps
    * with leading zeros and using a 24-hour clock regardless of the locale.
    */
   defaultValue?: string;
+  /**
+   * Visually hidden label for the hour input.
+   */
+  hourInputLabel?: string;
+  /**
+   * Visually hidden label for the minute input.
+   */
+  minuteInputLabel?: string;
+  /**
+   * Visually hidden label for the second input.
+   */
+  secondInputLabel?: string;
   /**
    * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
    * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
@@ -79,18 +109,82 @@ export interface TimeInputProps
  * The input value is always a string in the `HH:mm` or `HH:mm:ss` format.
  */
 export const TimeInput = forwardRef<HTMLInputElement, TimeInputProps>(
-  (props, ref) => {
+  (
+    {
+      label,
+      optionalLabel,
+      hideLabel,
+      value,
+      defaultValue,
+      min,
+      max,
+      locale,
+      // TODO: Add default translations
+      hourInputLabel,
+      minuteInputLabel,
+      secondInputLabel,
+      required,
+      readOnly,
+      disabled,
+      invalid,
+      hasWarning,
+      showValid,
+      validationHint,
+      'aria-describedby': descriptionId,
+      autoComplete,
+      className,
+      style,
+      ...rest
+    },
+    ref,
+  ) => {
+    const inputRef = useRef<HTMLInputElement>(null);
+    const validationHintId = useId();
+
+    const descriptionIds = idx(
+      descriptionId,
+      validationHint && validationHintId,
+    );
+
+    const minTime = toPlainTime(min);
+    const maxTime = toPlainTime(max);
+
+    const handleChange = (newValue: string) => {
+      changeInputValue(inputRef.current, newValue);
+    };
+
+    const focus = useSegmentFocus();
+    const state = usePlainTimeState({
+      value,
+      defaultValue,
+      onChange: handleChange,
+      minTime,
+      maxTime,
+    });
+
+    // Focus the first date segment when clicking anywhere on the field...
+    const handleClick = (event: ClickEvent) => {
+      const element = event.target as HTMLElement;
+      // ...except when clicking on a specific segment input.
+      if (element.getAttribute('role') === 'spinbutton') {
+        return;
+      }
+      focus.next();
+    };
+
+    const segments = getTimeSegments(locale);
+
     if (process.env.NODE_ENV !== 'production') {
       const TIME_REGEX = /^\d{2}:\d{2}(?::\d{2})?$/;
 
-      if (props.min && !TIME_REGEX.test(props.min)) {
+      if (min && !TIME_REGEX.test(min)) {
         throw new CircuitError(
           'TimeInput',
           'The `min` prop must be in the format `HH:mm` or `HH:mm:ss`.',
         );
       }
 
-      if (props.max && !TIME_REGEX.test(props.max)) {
+      if (max && !TIME_REGEX.test(max)) {
         throw new CircuitError(
           'TimeInput',
           'The `max` prop must be in the format `HH:mm` or `HH:mm:ss`.',
@@ -99,7 +193,119 @@ export const TimeInput = forwardRef<HTMLInputElement, TimeInputProps>(
     }
 
     return (
-      <Input {...props} ref={ref} type="time" inputClassName={classes.base} />
+      <FieldWrapper disabled={disabled} className={className} style={style}>
+        <FieldSet aria-describedby={descriptionIds}>
+          <FieldLegend onClick={handleClick}>
+            <FieldLabelText
+              label={label}
+              hideLabel={hideLabel}
+              required={required}
+              optionalLabel={optionalLabel}
+            />
+          </FieldLegend>
+          <div className={classes.wrapper}>
+            <input
+              type="date"
+              ref={applyMultipleRefs(ref, inputRef)}
+              className={classes.hidden}
+              min={min}
+              max={max}
+              required={required}
+              disabled={disabled}
+              readOnly={readOnly}
+              autoComplete={autoComplete}
+              aria-invalid={invalid}
+              aria-hidden="true"
+              tabIndex={-1}
+              value={value}
+              defaultValue={defaultValue}
+              {...rest}
+            />
+            {/** biome-ignore lint/a11y/noStaticElementInteractions: Progressive enhancement */}
+            {/* biome-ignore lint/a11y/useKeyWithClickEvents: This element isn't keyboard-focusable */}
+            <div
+              onClick={handleClick}
+              className={clsx(
+                classes.segments,
+                invalid && classes.invalid,
+                hasWarning && classes.warning,
+                readOnly && classes.readonly,
+              )}
+            >
+              {segments.map((segment, index) => {
+                const segmentProps = {
+                  required,
+                  invalid,
+                  disabled,
+                  readOnly,
+                  focus,
+                  // Only the first segment should be associated with the validation hint to reduce verbosity.
+                  'aria-describedby': index === 0 ? descriptionIds : undefined,
+                };
+                switch (segment.type) {
+                  case 'hour':
+                    return (
+                      <DateSegment
+                        key={segment.type}
+                        aria-label={hourInputLabel}
+                        autoComplete={
+                          autoComplete === 'bday' ? 'bday-year' : undefined
+                        }
+                        {...segmentProps}
+                        {...state.props.hour}
+                      />
+                    );
+                  case 'minute':
+                    return (
+                      <DateSegment
+                        key={segment.type}
+                        aria-label={minuteInputLabel}
+                        autoComplete={
+                          autoComplete === 'bday' ? 'bday-month' : undefined
+                        }
+                        {...segmentProps}
+                        {...state.props.minute}
+                      />
+                    );
+                  case 'second':
+                    return (
+                      <DateSegment
+                        key={segment.type}
+                        aria-label={secondInputLabel}
+                        autoComplete={
+                          autoComplete === 'bday' ? 'bday-day' : undefined
+                        }
+                        {...segmentProps}
+                        {...state.props.second}
+                      />
+                    );
+                  case 'literal':
+                    return (
+                      <div
+                        // biome-ignore lint/suspicious/noArrayIndexKey: The order of the literals is static
+                        key={segment.type + index}
+                        className={classes.literal}
+                        aria-hidden="true"
+                      >
+                        {segment.value}
+                      </div>
+                    );
+                  default:
+                    return null;
+                }
+              })}
+            </div>
+          </div>
+          <FieldValidationHint
+            id={validationHintId}
+            disabled={disabled}
+            invalid={invalid}
+            hasWarning={hasWarning}
+            showValid={showValid}
+            validationHint={validationHint}
+          />
+        </FieldSet>
+      </FieldWrapper>
     );
   },
 );
