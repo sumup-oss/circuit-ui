@@ -20,6 +20,7 @@ import { createRef } from 'react';
 import { render, screen, axe, act } from '../../util/test-utils.js';
 
 import { Timestamp } from './Timestamp.js';
+import { Temporal } from 'temporal-polyfill';
 
 describe('Calendar', () => {
   beforeEach(() => {
@@ -46,6 +47,15 @@ describe('Calendar', () => {
 
   it('should have a valid `datetime` attribute', () => {
     render(<Timestamp {...baseProps} />);
+    const element = screen.getByRole('time');
+    expect(element).toHaveAttribute('datetime', '2020-01-01T00:00:00+01:00');
+  });
+
+  it('should accept Temporal.ZonedDateTime object', () => {
+    const zonedDateTime = Temporal.ZonedDateTime.from(
+      '2020-01-01T00:00+01:00[Europe/Berlin]',
+    );
+    render(<Timestamp datetime={zonedDateTime} />);
     const element = screen.getByRole('time');
     expect(element).toHaveAttribute('datetime', '2020-01-01T00:00:00+01:00');
   });

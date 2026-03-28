@@ -83,7 +83,7 @@ export function getInitialState({
   formatStyle,
   includeTime,
 }: {
-  datetime: string;
+  datetime: Temporal.ZonedDateTime | string;
   locale: Locale | undefined;
   formatStyle: 'long' | 'short' | 'narrow';
   includeTime: boolean;
@@ -108,7 +108,7 @@ export function getState({
   variant,
   includeTime,
 }: {
-  datetime: string;
+  datetime: Temporal.ZonedDateTime | string;
   locale: Locale | undefined;
   formatStyle: 'long' | 'short' | 'narrow';
   variant: 'auto' | 'relative' | 'absolute';

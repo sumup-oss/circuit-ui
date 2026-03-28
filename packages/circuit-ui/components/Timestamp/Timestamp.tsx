@@ -26,12 +26,12 @@ import classes from './Timestamp.module.css';
 
 export interface TimestampProps extends HTMLAttributes<HTMLTimeElement> {
   /**
-   * A datetime in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
-   * format (`YYYY-MM-DDThh:mm:ss.sss[time-zone-id]`). Must include an
-   * [IANA time zone identifier](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
-   * in brackets.
+   * A `Temporal.ZonedDateTime` object or a string in the
+   * [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format
+   * (`YYYY-MM-DDThh:mm:ss.sss[time-zone-id]`) including an
+   * [IANA time zone identifier](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    */
-  datetime: string;
+  datetime: Temporal.ZonedDateTime | string;
   /**
    * Whether to include the time when displaying the datetime as an absolute
    * value.
