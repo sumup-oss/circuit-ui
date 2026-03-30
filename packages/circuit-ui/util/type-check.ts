@@ -54,12 +54,12 @@ export function isReactComponent(
     return true;
   }
 
-  // Components that are wrapped e.g. in `React.forwardRef` or `React.memo`
-  // are objects, not functions. To definitively identify React components
-  // we would need to verify whether the value of the`$$typeof` property
-  // matches a long list of special symbols. Checking that the `$$typeof`
-  // property exists should be sufficient for our use cases.
-  if (isObject(component) && '$$typeof' in component) {
+  if (
+    isObject(component) &&
+    '$$typeof' in component &&
+    (component.$$typeof === Symbol.for('react.forward_ref') ||
+      component.$$typeof === Symbol.for('react.memo'))
+  ) {
     return true;
   }
 
