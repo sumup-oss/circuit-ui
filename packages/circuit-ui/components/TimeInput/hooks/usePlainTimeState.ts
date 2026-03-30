@@ -54,12 +54,14 @@ export function usePlainTimeState({
   onChange,
   minTime,
   maxTime,
+  step,
 }: {
   value: string | undefined;
   defaultValue: string | undefined;
   onChange: ((time: string) => void) | undefined;
   minTime: Temporal.PlainTime | undefined;
   maxTime: Temporal.PlainTime | undefined;
+  step: number;
 }): PlainTimeState {
   const [values, setValues] = useState<TimeValues>(
     parseValue(defaultValue || value),
@@ -119,26 +121,25 @@ export function usePlainTimeState({
       value: values.hour,
       defaultValue: now.hour,
       placeholder: 'HH',
-      step: 1,
+      step: Math.max(1, Math.floor(step / 60 / 60)),
       min: minTime ? minTime.hour : MIN_HOUR,
       max: maxTime ? maxTime.hour : MAX_HOUR,
       onChange: (hour: TimeValue) => update({ hour }),
     },
     minute: {
-      value: values.minute,
-      defaultValue: now.minute,
+      value: pad(values.minute),
+      defaultValue: pad(now.minute),
       placeholder: 'mm',
-      step: 5,
+      step: Math.max(1, Math.floor(step / 60)),
       min: sameHourLimit || currentMinHour ? minTime.minute : MIN_MINUTE,
       max: sameHourLimit || currentMaxHour ? maxTime.minute : MAX_MINUTE,
       onChange: (minute: TimeValue) => update({ minute }),
     },
-    // TODO: Conditionally include based on `step` value (or separate granularity prop?)
     second: {
-      value: values.second,
-      defaultValue: now.second,
+      value: pad(values.second),
+      defaultValue: pad(now.second),
       placeholder: 'ss',
-      step: 5,
+      step,
       min: sameMinuteLimit || currentMinMinute ? minTime.second : MIN_SECOND,
       max: sameMinuteLimit || currentMaxMinute ? maxTime.second : MAX_SECOND,
       onChange: (second: TimeValue) => update({ second }),
@@ -182,4 +183,8 @@ function safePlainTime(
   } catch {
     return undefined;
   }
+}
+
+function pad(value: TimeValue) {
+  return value ? value.toString().padStart(2, '0') : value;
 }

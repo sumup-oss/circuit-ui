@@ -118,6 +118,7 @@ export const TimeInput = forwardRef<HTMLInputElement, TimeInputProps>(
       defaultValue,
       min,
       max,
+      step = 60,
       locale,
       // TODO: Add default translations
       hourInputLabel,
@@ -160,6 +161,7 @@ export const TimeInput = forwardRef<HTMLInputElement, TimeInputProps>(
       onChange: handleChange,
       minTime,
       maxTime,
+      step,
     });
 
     // Focus the first date segment when clicking anywhere on the field...
@@ -172,7 +174,8 @@ export const TimeInput = forwardRef<HTMLInputElement, TimeInputProps>(
       focus.next();
     };
 
-    const segments = getTimeSegments(locale);
+    const includeSeconds = step % 60 !== 0;
+    const segments = getTimeSegments(locale, includeSeconds);
 
     if (process.env.NODE_ENV !== 'production') {
       const TIME_REGEX = /^\d{2}:\d{2}(?::\d{2})?$/;

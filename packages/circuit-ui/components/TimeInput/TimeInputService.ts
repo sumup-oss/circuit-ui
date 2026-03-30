@@ -14,15 +14,32 @@
  */
 
 import { Temporal } from 'temporal-polyfill';
-import { formatDateTimeToParts } from '@sumup-oss/intl';
+import { formatDateTimeToParts, resolveDateTimeFormat } from '@sumup-oss/intl';
 
 import type { Locale } from '../../util/i18n.js';
 
 const TEST_VALUE = new Temporal.PlainTime(16, 20);
 
-export function getTimeSegments(locale?: Locale) {
-  const parts = formatDateTimeToParts(TEST_VALUE, locale);
-  return parts.map(({ type, value }) =>
-    type === 'literal' ? { type, value } : { type },
-  );
+export function getTimeSegments(
+  locale: Locale | undefined,
+  includeSeconds: boolean,
+) {
+  const defaultOptions = {
+    hour: 'numeric',
+    minute: '2-digit',
+    second: '2-digit',
+  } satisfies Intl.DateTimeFormatOptions;
+  const { hour, minute, second } =
+    resolveDateTimeFormat(locale, defaultOptions) || defaultOptions;
+  const options = (
+    includeSeconds ? { hour, minute, second } : { hour, minute }
+  ) as Intl.DateTimeFormatOptions;
+  const parts = formatDateTimeToParts(TEST_VALUE, locale, options);
+  return parts.map(({ type, value }) => {
+    if (type === 'literal') {
+      return { type, value };
+    }
+    const format = options[type];
+    return { type, format };
+  });
 }
