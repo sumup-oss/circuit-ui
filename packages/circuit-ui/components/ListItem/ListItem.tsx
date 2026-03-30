@@ -26,7 +26,7 @@ import { ChevronRight, type IconComponentType } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
 import type { AsPropType } from '../../types/prop-types.js';
-import { isFunction, isString } from '../../util/type-check.js';
+import { isReactComponent, isString } from '../../util/type-check.js';
 import { CircuitError } from '../../util/errors.js';
 import { useComponents } from '../ComponentsContext/index.js';
 import { Body } from '../Body/index.js';
@@ -162,7 +162,7 @@ export const ListItem = forwardRef<
       >
         {LeadingComponent && (
           <div className={classes.leading}>
-            {isFunction(LeadingComponent) ? (
+            {isReactComponent(LeadingComponent) ? (
               <LeadingComponent size="24" aria-hidden="true" />
             ) : (
               LeadingComponent

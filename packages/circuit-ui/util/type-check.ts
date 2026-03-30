@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import type { ComponentType } from 'react';
+
 // biome-ignore lint/complexity/noBannedTypes: There is no better type for this type guard
 export function isFunction(value?: unknown): value is Function {
   return typeof value === 'function';
@@ -42,4 +44,24 @@ export function isNil(value?: unknown): value is null | undefined {
 
 export function isHTMLElement(element: unknown): element is HTMLElement {
   return element instanceof HTMLElement;
+}
+
+export function isReactComponent(
+  component: unknown,
+  // biome-ignore lint/complexity/noBannedTypes: There is no better type for this type guard
+): component is Function | ComponentType {
+  if (isFunction(component)) {
+    return true;
+  }
+
+  // Components that are wrapped e.g. in `React.forwardRef` or `React.memo`
+  // are objects, not functions. To definitively identify React components
+  // we would need to verify whether the value of the`$$typeof` property
+  // matches a long list of special symbols. Checking that the `$$typeof`
+  // property exists should be sufficient for our use cases.
+  if (isObject(component) && '$$typeof' in component) {
+    return true;
+  }
+
+  return false;
 }
