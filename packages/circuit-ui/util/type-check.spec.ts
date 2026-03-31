@@ -14,6 +14,7 @@
  */
 
 import { describe, expect, it, vi } from 'vitest';
+import { forwardRef, memo } from 'react';
 
 import {
   isArray,
@@ -22,6 +23,7 @@ import {
   isNil,
   isNumber,
   isObject,
+  isReactComponent,
   isString,
 } from './type-check.js';
 
@@ -235,6 +237,58 @@ describe('type check', () => {
 
     it('should return false for a function', () => {
       const actual = isHTMLElement(vi.fn());
+      expect(actual).toBeFalsy();
+    });
+  });
+
+  describe('isReactComponent', () => {
+    it('should return true for a React function component', () => {
+      const component = () => 'Hello world';
+      const actual = isReactComponent(component);
+      expect(actual).toBeTruthy();
+    });
+
+    it('should return true for a React component wrapped in React.forwardRef', () => {
+      const component = forwardRef(() => 'Hello world');
+      const actual = isReactComponent(component);
+      expect(actual).toBeTruthy();
+    });
+
+    it('should return true for a React component wrapped in React.memo', () => {
+      const component = memo(() => 'Hello world');
+      const actual = isReactComponent(component);
+      expect(actual).toBeTruthy();
+    });
+
+    it('should return false for an array of React components', () => {
+      const component = () => 'Hello world';
+      const actual = isReactComponent([component, component]);
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false for an HTML element', () => {
+      const element = document.createElement('div');
+      const actual = isReactComponent(element);
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false for null', () => {
+      const actual = isReactComponent(null);
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false for undefined', () => {
+      const actual = isReactComponent(undefined);
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false for a string', () => {
+      const actual = isReactComponent('');
+      expect(actual).toBeFalsy();
+    });
+
+    it('should return false for an integer', () => {
+      const actual = isReactComponent(1);
       expect(actual).toBeFalsy();
     });
   });

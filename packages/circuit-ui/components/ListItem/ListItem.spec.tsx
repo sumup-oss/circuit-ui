@@ -14,7 +14,7 @@
  */
 
 import { describe, expect, it, vi } from 'vitest';
-import { createRef, type FC } from 'react';
+import { createRef, forwardRef, type FC } from 'react';
 import { SumUpCard, type IconProps } from '@sumup-oss/icons';
 
 import {
@@ -42,6 +42,16 @@ describe('ListItem', () => {
     const { container } = renderListItem(render, {
       ...baseProps,
       leadingComponent: SumUpCard,
+    });
+    expect(container.querySelector('svg')).toBeVisible();
+  });
+
+  it('should render a ListItem with a leading icon wrapped in forwardRef', () => {
+    const { container } = renderListItem(render, {
+      ...baseProps,
+      leadingComponent: forwardRef((props, ref) => (
+        <SumUpCard {...props} ref={ref} />
+      )),
     });
     expect(container.querySelector('svg')).toBeVisible();
   });
