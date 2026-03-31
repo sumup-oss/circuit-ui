@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.15.2
+
+### Patch Changes
+
+- [#3523](https://github.com/sumup-oss/circuit-ui/pull/3523) [`6a3e10b`](https://github.com/sumup-oss/circuit-ui/commit/6a3e10b0a2616ab66ac680971d77e2ec384b91c2) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the type check for the ListItemGroup's `leadingComponent` prop when passing a component that is wrapped in `React.forwardRef` or `React.memo`.
+
 ## 10.15.1
 
 ### Patch Changes
