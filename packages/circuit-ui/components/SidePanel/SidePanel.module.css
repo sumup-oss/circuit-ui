@@ -54,39 +54,33 @@
   .base {
     top: var(--top-navigation-height, 0);
     width: var(--side-panel-width);
-    height: calc(
-      100vh -
-      (var(--top-navigation-height, 0px) + var(--cui-spacings-giga))
-    );
+    height: calc(100vh - var(--top-navigation-height, 0));
 
     /* biome-ignore lint/suspicious/noDuplicateProperties: Browser compatibility */
-    height: calc(
-      100dvh -
-      (var(--top-navigation-height, 0px) + var(--cui-spacings-giga))
-    );
+    height: calc(100dvh - var(--top-navigation-height, 0));
     margin: 0;
-    background-color: transparent;
+    background-color: var(--cui-bg-normal);
   }
 
   .base::after {
-    bottom: calc(-1 * var(--cui-spacings-kilo));
     left: var(--cui-spacings-giga);
     width: calc(var(--side-panel-width) - calc(2 * var(--cui-spacings-giga)));
     background: linear-gradient(
-      color-mix(in sRGB, var(--cui-bg-subtle) 0%, transparent),
-      color-mix(in sRGB, var(--cui-bg-subtle) 66%, transparent),
-      color-mix(in sRGB, var(--cui-bg-subtle) 100%, transparent)
+      color-mix(in sRGB, var(--cui-bg-normal) 0%, transparent),
+      color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
+      color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent)
     );
-    border-radius: var(--cui-border-radius-mega);
   }
 
   .wrapper {
     margin: var(--cui-spacings-kilo) var(--cui-spacings-giga);
-    background: var(--cui-bg-subtle);
-    border-radius: var(--cui-border-radius-mega);
+    border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
+    border-bottom: none;
+    border-top-left-radius: var(--cui-border-radius-mega);
+    border-top-right-radius: var(--cui-border-radius-mega);
   }
 
   .content {
-    padding: 0 var(--cui-spacings-giga);
+    padding: 0 var(--cui-spacings-giga) var(--cui-spacings-giga);
   }
 }

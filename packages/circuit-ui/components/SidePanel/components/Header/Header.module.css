@@ -10,7 +10,7 @@
 
 @media (min-width: 768px) {
   .base {
-    background-color: var(--cui-bg-subtle);
+    background-color: var(--cui-bg-normal);
     border-top-left-radius: var(--cui-border-radius-mega);
     border-top-right-radius: var(--cui-border-radius-mega);
   }
