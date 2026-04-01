@@ -69,7 +69,7 @@
     "github-slugger": "^2.0.0",
     "jsdom": "^28.1.0",
     "knip": "^5.85.0",
-    "lerna": "^9.0.4",
+    "lerna": "^9.0.7",
     "pkg-pr-new": "^0.0.63",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
