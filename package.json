@@ -68,7 +68,7 @@
     "eslint-plugin-testing-library": "^7.16.0",
     "github-slugger": "^2.0.0",
     "jsdom": "^28.1.0",
-    "knip": "^5.85.0",
+    "knip": "^6.0.5",
     "lerna": "^9.0.7",
     "pkg-pr-new": "^0.0.63",
     "react": "^19.2.4",
