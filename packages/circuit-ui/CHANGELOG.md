@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.15.3
+
+### Patch Changes
+
+- [#3545](https://github.com/sumup-oss/circuit-ui/pull/3545) [`32f6e95`](https://github.com/sumup-oss/circuit-ui/commit/32f6e953e43af08de2257639e4442b78c4ad8fee) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed an issue in NotificationModal where passing a ReactNode to the body prop caused it to be incorrectly wrapped in a `paragraph` element. The body prop of type ReactNode now renders as-is.
+
 ## 10.15.2
 
 ### Patch Changes
