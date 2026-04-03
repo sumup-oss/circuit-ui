@@ -28,6 +28,7 @@ import { clsx } from '../../styles/clsx.js';
 import { CircuitError } from '../../util/errors.js';
 
 import classes from './NotificationModal.module.css';
+import { isString } from '../../util/type-check.js';
 
 export type NotificationModalProps = Omit<ModalProps, 'children'> & {
   /**
@@ -122,7 +123,7 @@ export const NotificationModal = ({
           >
             {headline}
           </Headline>
-          {body && <Body>{body}</Body>}
+          {body && isString(body) ? <Body>{body}</Body> : body}
           {actions && (
             <ButtonGroup
               actions={{
