@@ -1,5 +1,12 @@
 # @sumup-oss/icons
 
+## 5.24.0
+
+### Minor Changes
+
+- [#3549](https://github.com/sumup-oss/circuit-ui/pull/3549) [`64e4074`](https://github.com/sumup-oss/circuit-ui/commit/64e40746a17037aa6b52b918952e782fe9ba7083) Thanks [@ToniPetrov03](https://github.com/ToniPetrov03)! - Added SumUp card scheme icon in size 32px.
+  Updated Bancomat card scheme icon in size 32px.
+
 ## 5.23.0
 
 ### Minor Changes
