@@ -623,6 +623,11 @@
       "size": "32"
     },
     {
+      "name": "sumup_scheme",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
       "name": "callback",
       "category": "Communication",
       "size": "24"
