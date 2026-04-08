@@ -11,20 +11,13 @@
 @media (min-width: 768px) {
   .base {
     background-color: var(--cui-bg-normal);
-    box-shadow: inset var(--cui-border-width-kilo) 0 0 var(--cui-border-divider);
+    border-top-left-radius: var(--cui-border-radius-mega);
   }
 }
 
 .sticky {
   box-shadow: inset 0 calc(-1 * var(--cui-border-width-kilo)) 0
     var(--cui-border-divider);
-}
-
-@media (min-width: 768px) {
-  .sticky {
-    box-shadow: inset var(--cui-border-width-kilo)
-      calc(-1 * var(--cui-border-width-kilo)) 0 var(--cui-border-divider);
-  }
 }
 
 .base .button {
