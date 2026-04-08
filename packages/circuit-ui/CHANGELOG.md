@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.16.0
+
+### Minor Changes
+
+- [#3500](https://github.com/sumup-oss/circuit-ui/pull/3500) [`fe1c091`](https://github.com/sumup-oss/circuit-ui/commit/fe1c0919584f733f7a75828e5ab134492d1615c6) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the SidePanel's design to visually distance it from adjacent elements above (e.g., the viewport or top navigation). This serves as an intermediate step ahead of an upcoming navigation redesign.
+
 ## 10.15.3
 
 ### Patch Changes
