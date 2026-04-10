@@ -3404,6 +3404,26 @@
       "size": "24"
     },
     {
+      "name": "customers",
+      "category": "Navigation",
+      "size": "24"
+    },
+    {
+      "name": "investments",
+      "category": "Navigation",
+      "size": "24"
+    },
+    {
+      "name": "kiosk",
+      "category": "Navigation",
+      "size": "24"
+    },
+    {
+      "name": "loyalty",
+      "category": "Navigation",
+      "size": "24"
+    },
+    {
       "name": "active",
       "category": "Notification",
       "size": "24"
