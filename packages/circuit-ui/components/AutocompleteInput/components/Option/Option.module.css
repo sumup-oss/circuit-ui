@@ -41,11 +41,19 @@
   flex: 1;
   flex-direction: column;
   gap: var(--cui-spacings-bit);
+  min-width: 0;
 }
 
 .has-media {
   justify-content: center;
   min-height: 32px;
+}
+
+.label,
+.description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .media img {
