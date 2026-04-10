@@ -1,3 +1,10 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M23 2a.884.884 0 0 1-.06.33l-7 20a1 1 0 0 1-1.79.2L9.82 15.6l4.89-4.89a1.004 1.004 0 0 0-1.42-1.42L8.4 14.18 1.47 9.85a1 1 0 0 1 .2-1.79l20-7A.885.885 0 0 1 22 1a1 1 0 0 1 1 1z" fill="currentColor"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+    <g clip-path="url(#send_24_svg__a)">
+        <path fill="currentColor" d="M19.111 3.081a1.42 1.42 0 0 1 1.32.203l.153.132.132.152q.12.163.192.351l.058.193.03.2a1.4 1.4 0 0 1-.077.576h.002l-5.524 16.148v.001a1.425 1.425 0 0 1-2.67.069h-.001l-2.703-6.74-.065-.126a.7.7 0 0 0-.323-.263h-.001l-6.74-2.703A1.42 1.42 0 0 1 2 9.914l.008-.108a1.43 1.43 0 0 1 .955-1.203l16.148-5.525zm-7.26 10.48q.015.028.028.057v.002l2.127 5.304L17.913 7.5zM5.076 9.993l5.304 2.127h-.001q.03.013.059.027l6.062-6.061z"/>
+    </g>
+    <defs>
+        <clipPath id="send_24_svg__a">
+            <path fill="#fff" d="M0 0h24v24H0z"/>
+        </clipPath>
+    </defs>
 </svg>
