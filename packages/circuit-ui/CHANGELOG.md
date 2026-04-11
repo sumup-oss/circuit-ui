@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 10.16.1
+
+### Patch Changes
+
+- [#3554](https://github.com/sumup-oss/circuit-ui/pull/3554) [`d1f0f37`](https://github.com/sumup-oss/circuit-ui/commit/d1f0f373b1a9987a70dd8fc375b10c6197e5dac4) Thanks [@matoous](https://github.com/matoous)! - Fixed autocomplete option labels and descriptions overflowing horizontally.
+
 ## 10.16.0
 
 ### Minor Changes
