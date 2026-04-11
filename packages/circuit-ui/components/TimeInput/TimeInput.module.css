@@ -1,4 +1,87 @@
-.base {
-  height: calc(var(--cui-body-m-line-height) + 2 * var(--cui-spacings-kilo));
-  color: var(--cui-fg-normal);
+.wrapper {
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}
+
+.segments {
+  position: relative;
+  z-index: var(--cui-z-index-absolute);
+  display: flex;
+  flex-grow: 1;
+  gap: 2px;
+  min-width: 170px;
+  padding: var(--cui-spacings-byte) var(--cui-spacings-mega);
+  cursor: text;
+  outline: 0;
+  background-color: var(--cui-bg-normal);
+  border: 1px solid var(--cui-border-normal);
+  border-radius: var(--cui-border-radius-byte);
+  box-shadow: none;
+  transition: box-shadow var(--cui-transitions-default);
+}
+
+.segments:hover {
+  border-color: var(--cui-border-normal-hovered);
+}
+
+.segments:focus-within {
+  border-color: var(--cui-border-accent);
+  box-shadow: inset 0 0 0 1px var(--cui-border-accent);
+}
+
+.invalid {
+  border-color: var(--cui-border-danger);
+}
+
+.invalid:hover {
+  border-color: var(--cui-border-danger-hovered);
+}
+
+.invalid:focus-within {
+  border-color: var(--cui-border-danger);
+  box-shadow: inset 0 0 0 1px var(--cui-border-danger);
+}
+
+.invalid:not(:focus-within):not([disabled])::placeholder {
+  color: var(--cui-fg-danger);
+}
+
+.warning {
+  border-color: var(--cui-border-warning);
+}
+
+.warning:hover {
+  border-color: var(--cui-border-warning-hovered);
+}
+
+.warning:focus-within {
+  border-color: var(--cui-border-warning);
+  box-shadow: inset 0 0 0 1px var(--cui-border-warning);
+}
+
+.warning:not(:focus-within):not([disabled])::placeholder {
+  color: var(--cui-fg-warning);
+}
+
+:global([data-disabled="true"]) .wrapper {
+  color: var(--cui-fg-normal-disabled);
+  background-color: var(--cui-bg-normal-disabled);
+  border-color: var(--cui-border-normal-disabled);
+}
+
+.readonly {
+  background-color: var(--cui-bg-subtle-disabled);
+}
+
+.literal {
+  padding: var(--cui-spacings-bit) 0;
+  font-size: var(--cui-body-m-font-size);
+  line-height: var(--cui-body-m-line-height);
+}
+
+.readonly .literal {
+  color: var(--cui-fg-subtle);
 }
