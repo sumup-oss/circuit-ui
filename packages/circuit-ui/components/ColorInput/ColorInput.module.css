@@ -75,7 +75,8 @@
   color: var(--cui-fg-subtle);
 }
 
-.input {
+/* Repeat the local class to outrank the shared Input base radius styles. */
+.input.input {
   position: relative;
   padding-left: var(--cui-spacings-giga);
   font-family: var(--cui-font-stack-mono);
