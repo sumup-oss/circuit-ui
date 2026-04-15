@@ -21,6 +21,7 @@ import type { RuleSeverity } from './utils/meta.js';
 import { componentLifecycleImports } from './component-lifecycle-imports/index.js';
 import { noInvalidCustomProperties } from './no-invalid-custom-properties/index.js';
 import { noDeprecatedCustomProperties } from './no-deprecated-custom-properties/index.js';
+import { noDefaultProps } from './no-default-props/index.js';
 import { noDeprecatedProps } from './no-deprecated-props/index.js';
 import { noRenamedProps } from './no-renamed-props/index.js';
 import { preferCustomProperties } from './prefer-custom-properties/index.js';
@@ -30,6 +31,7 @@ export const rules = {
   'component-lifecycle-imports': componentLifecycleImports,
   'no-invalid-custom-properties': noInvalidCustomProperties,
   'no-deprecated-custom-properties': noDeprecatedCustomProperties,
+  'no-default-props': noDefaultProps,
   'no-deprecated-props': noDeprecatedProps,
   'no-renamed-props': noRenamedProps,
   'prefer-custom-properties': preferCustomProperties,
