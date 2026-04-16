@@ -75,8 +75,7 @@
   color: var(--cui-fg-subtle);
 }
 
-/* Repeat the local class to outrank the shared Input base radius styles. */
-.input.input {
+.wrapper .input {
   position: relative;
   padding-left: var(--cui-spacings-giga);
   font-family: var(--cui-font-stack-mono);
@@ -87,11 +86,11 @@
   transform: translateX(-1px);
 }
 
-.input:hover,
+.wrapper .input:hover,
 .input:focus {
   z-index: var(--cui-z-index-absolute);
 }
 
-.input::placeholder {
+.wrapper .input::placeholder {
   font-family: var(--cui-font-stack-mono);
 }
