@@ -103,7 +103,6 @@ function buildComponentFile(component: Component): string {
   }' icon. Please use one of the available sizes: '${sizes.join("', '")}'.`;
 
   return `
-    import React from 'react';
     ${iconImports.join('\n')}
 
     const sizeMap = {
