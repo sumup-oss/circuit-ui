@@ -1,5 +1,15 @@
 # @sumup-oss/circuit-ui
 
+## 10.16.1
+
+### Patch Changes
+
+- [#3559](https://github.com/sumup-oss/circuit-ui/pull/3559) [`847c6da`](https://github.com/sumup-oss/circuit-ui/commit/847c6dab1bb97df52bae3a067400e47fad3e8b7c) Thanks [@matoous](https://github.com/matoous)! - Fixed a style specificity issue in the ColorInput component that caused the text field to have a border radius towards the color swatch.
+
+- [#3554](https://github.com/sumup-oss/circuit-ui/pull/3554) [`d1f0f37`](https://github.com/sumup-oss/circuit-ui/commit/d1f0f373b1a9987a70dd8fc375b10c6197e5dac4) Thanks [@matoous](https://github.com/matoous)! - Fixed autocomplete option labels and descriptions overflowing horizontally.
+
+- [#3566](https://github.com/sumup-oss/circuit-ui/pull/3566) [`67ce5a4`](https://github.com/sumup-oss/circuit-ui/commit/67ce5a4370387d59ee5f5d25b0df59f96c0d915d) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the Table header not being sticky when scrolling horizontally on narrow viewports.
+
 ## 10.16.0
 
 ### Minor Changes
