@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 5.24.1
+
+### Patch Changes
+
+- [#3503](https://github.com/sumup-oss/circuit-ui/pull/3503) [`1cedd39`](https://github.com/sumup-oss/circuit-ui/commit/1cedd39fb8185a26f19534fa9ffc8444f18b4678) Thanks [@tsigno](https://github.com/tsigno)! - Updated the icon of iDEAL payment method to the new iDEAL | Wero combined branding.
+
 ## 5.24.0
 
 ### Minor Changes
