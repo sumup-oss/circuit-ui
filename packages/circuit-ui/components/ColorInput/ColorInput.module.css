@@ -78,6 +78,7 @@
 .wrapper .input {
   position: relative;
   padding-left: var(--cui-spacings-giga);
+  overflow: hidden;
   font-family: var(--cui-font-stack-mono);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
