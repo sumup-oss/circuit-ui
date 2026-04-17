@@ -217,7 +217,12 @@ async function transpileModule(fileName: string, code: string) {
           exclude: ['transform-object-rest-spread'],
         },
       ],
-      '@babel/preset-react',
+      [
+        '@babel/preset-react',
+        {
+          'runtime': 'automatic',
+        },
+      ],
     ],
     plugins: [
       [
