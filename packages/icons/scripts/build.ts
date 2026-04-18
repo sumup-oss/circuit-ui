@@ -262,13 +262,15 @@ async function main() {
     },
     {} as Record<string, Icon[]>,
   );
-  const components = Object.entries(iconsByName).map(
-    ([name, icons]): Component => ({
-      name: getComponentName(name),
-      icons,
-      deprecation: icons.find((icon) => icon.deprecation)?.deprecation,
-    }),
-  );
+  const components = Object.entries(iconsByName)
+    .map(
+      ([name, icons]): Component => ({
+        name: getComponentName(name),
+        icons,
+        deprecation: icons.find((icon) => icon.deprecation)?.deprecation,
+      }),
+    )
+    .filter(({ icons }) => icons.some((icon) => !icon.skipComponentFile));
 
   const indexRaw = buildIndexFile(components);
   const helpersRaw = buildHelpersFile();
