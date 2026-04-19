@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { useState, type ChangeEvent, type FocusEvent } from 'react';
+import { useState, type ChangeEvent } from 'react';
 import { action } from 'storybook/actions';
 import { CardReaderAir, CardReaderSolo, MobilePhone } from '@sumup-oss/icons';
 
@@ -44,10 +44,8 @@ Base.args = {
   ],
   // Storybook displays the default mocked function props poorly,
   // so we override them for the default story.
-  onChange: (event: ChangeEvent<HTMLInputElement>) =>
-    action('SelectorGroup')(event),
-  onBlur: (event: FocusEvent<HTMLInputElement>) =>
-    action('SelectorGroup')(event),
+  onChange: action('onChange'),
+  onBlur: action('onBlur'),
 };
 
 export const Multiple = (args: SelectorGroupProps) => (
