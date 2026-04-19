@@ -146,18 +146,14 @@ function buildIndexFile(components: Component[]): string {
 }
 
 function buildDeclarationFile(components: Component[]): string {
-  const declarationStatements = components
-    .filter(({ icons }) => icons.some((icon) => !icon.skipComponentFile))
-    .map((component) => {
-      const sizes = component.icons.map(({ size }) => `'${size}'`).sort();
-      const SizesType = sizes.join(' | ');
-      return `
+  const declarationStatements = components.map((component) => {
+    const sizes = component.icons.map(({ size }) => `'${size}'`).sort();
+    const SizesType = sizes.join(' | ');
+    return `
       ${createDeprecationComment(component)}
       declare const ${component.name}: IconComponentType<${SizesType}>;`;
-    });
-  const exportNames = components
-    .filter(({ icons }) => icons.some((icon) => !icon.skipComponentFile))
-    .map((component) => component.name);
+  });
+  const exportNames = components.map((component) => component.name);
   const iconNames = components.map(
     (component) => `'${component.icons[0].name}'`,
   );
