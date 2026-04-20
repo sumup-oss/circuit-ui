@@ -23,13 +23,16 @@ import {
 
 describe('ColorInputService', () => {
   describe('isValidColor', () => {
-    it.each(['3F2', '#f3d', '123456', '#ABCDEF', '#A9C7d3'])(
-      'should return true for %s',
-      (color) => {
-        const actual = isValidColor(color);
-        expect(actual).toBe(true);
-      },
-    );
+    it.each([
+      '3F2',
+      '#f3d',
+      '123456',
+      '#ABCDEF',
+      '#A9C7d3',
+    ])('should return true for %s', (color) => {
+      const actual = isValidColor(color);
+      expect(actual).toBe(true);
+    });
 
     it('should return false if the color contains letters outside the range A-F', () => {
       const actual = isValidColor('#ABG');
@@ -62,25 +65,19 @@ describe('ColorInputService', () => {
       ['#f0d', '#ff00dd'],
       ['a04f28', '#a04f28'],
       ['#aabbcc', '#AABBCC'],
-    ])(
-      'should return true if the colors are equivalent (%s, %s)',
-      (colorA, colorB) => {
-        const actual = isSameColor(colorA, colorB);
-        expect(actual).toBe(true);
-      },
-    );
+    ])('should return true if the colors are equivalent (%s, %s)', (colorA, colorB) => {
+      const actual = isSameColor(colorA, colorB);
+      expect(actual).toBe(true);
+    });
 
     it.each([
       ['#f0e', '#ff00dd'],
       ['a04f28', '#a04f27'],
       ['#a04f28', '#a04f27'],
-    ])(
-      'should return false if the colors are different (%s, %s)',
-      (colorA, colorB) => {
-        const actual = isSameColor(colorA, colorB);
-        expect(actual).toBe(false);
-      },
-    );
+    ])('should return false if the colors are different (%s, %s)', (colorA, colorB) => {
+      const actual = isSameColor(colorA, colorB);
+      expect(actual).toBe(false);
+    });
   });
 
   describe('normalizeColor', () => {

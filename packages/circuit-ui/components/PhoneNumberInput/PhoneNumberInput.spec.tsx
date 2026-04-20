@@ -297,31 +297,31 @@ describe('PhoneNumberInput', () => {
     expect(onChange).toHaveBeenCalledOnce();
   });
 
-  it.each(['+4912345678', '004912345678'])(
-    'should set the country code and subscriber number when pasting a full phone number',
-    async (phoneNumber) => {
-      const props = {
-        ...defaultProps,
+  it.each([
+    '+4912345678',
+    '004912345678',
+  ])('should set the country code and subscriber number when pasting a full phone number', async (phoneNumber) => {
+    const props = {
+      ...defaultProps,
+      onChange: vi.fn(),
+      subscriberNumber: {
+        ...defaultProps.subscriberNumber,
         onChange: vi.fn(),
-        subscriberNumber: {
-          ...defaultProps.subscriberNumber,
-          onChange: vi.fn(),
-        },
-        countryCode: {
-          ...defaultProps.countryCode,
-          onChange: vi.fn(),
-        },
-      };
-      render(<PhoneNumberInput {...props} />);
-      const input = screen.getByLabelText(/Subscriber number/);
-      await userEvent.click(input);
-      await userEvent.paste(phoneNumber);
-      expect(props.ref.current).toHaveValue('+4912345678');
-      expect(props.onChange).toHaveBeenCalledTimes(2);
-      expect(props.countryCode.onChange).toHaveBeenCalledOnce();
-      expect(props.subscriberNumber.onChange).toHaveBeenCalledOnce();
-    },
-  );
+      },
+      countryCode: {
+        ...defaultProps.countryCode,
+        onChange: vi.fn(),
+      },
+    };
+    render(<PhoneNumberInput {...props} />);
+    const input = screen.getByLabelText(/Subscriber number/);
+    await userEvent.click(input);
+    await userEvent.paste(phoneNumber);
+    expect(props.ref.current).toHaveValue('+4912345678');
+    expect(props.onChange).toHaveBeenCalledTimes(2);
+    expect(props.countryCode.onChange).toHaveBeenCalledOnce();
+    expect(props.subscriberNumber.onChange).toHaveBeenCalledOnce();
+  });
 
   it('should set only the subscriber number when pasting a phone number without country code', async () => {
     const props = {

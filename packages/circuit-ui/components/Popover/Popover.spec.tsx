@@ -74,19 +74,16 @@ describe('Popover', () => {
     it.each([
       ['space', '{ }'],
       ['enter', '{Enter}'],
-    ])(
-      'should open the popover when pressing the %s key on the trigger element',
-      async (_, key) => {
-        renderPopover({ ...baseProps, isOpen: false });
+    ])('should open the popover when pressing the %s key on the trigger element', async (_, key) => {
+      renderPopover({ ...baseProps, isOpen: false });
 
-        const popoverTrigger = screen.getByRole('button');
+      const popoverTrigger = screen.getByRole('button');
 
-        popoverTrigger.focus();
-        await userEvent.keyboard(key);
+      popoverTrigger.focus();
+      await userEvent.keyboard(key);
 
-        expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
-      },
-    );
+      expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
+    });
 
     it('should not return focus to the previous trigger when another popover opens', async () => {
       function Wrapper() {
@@ -180,20 +177,17 @@ describe('Popover', () => {
     it.each([
       ['space', '{ }'],
       ['enter', '{Enter}'],
-    ])(
-      'should close the popover when pressing the %s key on the trigger element',
-      async (_, key) => {
-        renderPopover(baseProps);
-        vi.runAllTimers();
+    ])('should close the popover when pressing the %s key on the trigger element', async (_, key) => {
+      renderPopover(baseProps);
+      vi.runAllTimers();
 
-        const popoverTrigger = screen.getByRole('button', { name: 'Button' });
+      const popoverTrigger = screen.getByRole('button', { name: 'Button' });
 
-        popoverTrigger.focus();
-        await userEvent.keyboard(key);
+      popoverTrigger.focus();
+      await userEvent.keyboard(key);
 
-        expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
-      },
-    );
+      expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
+    });
 
     it('should close the popover when clicking the escape key', async () => {
       renderPopover(baseProps);

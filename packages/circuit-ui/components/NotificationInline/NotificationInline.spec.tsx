@@ -61,22 +61,25 @@ describe('NotificationInline', () => {
     expect(headingEl).toHaveTextContent('Information');
   });
 
-  it.each(['h2', 'h3', 'h4', 'h5', 'h6'] as const)(
-    'should render notification inline as an %s headline',
-    (level) => {
-      renderNotificationInline({
-        ...baseProps,
-        headline: {
-          label: `${level} headline`,
-          as: level,
-        },
-      });
+  it.each([
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+  ] as const)('should render notification inline as an %s headline', (level) => {
+    renderNotificationInline({
+      ...baseProps,
+      headline: {
+        label: `${level} headline`,
+        as: level,
+      },
+    });
 
-      const headingEl = screen.getByRole('heading');
+    const headingEl = screen.getByRole('heading');
 
-      expect(headingEl.tagName).toBe(level.toUpperCase());
-    },
-  );
+    expect(headingEl.tagName).toBe(level.toUpperCase());
+  });
 
   it('should render notification toast with an action button', () => {
     renderNotificationInline({
