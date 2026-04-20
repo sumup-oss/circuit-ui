@@ -79,6 +79,12 @@
     {
       "name": "copy",
       "category": "Action",
+      "size": "24",
+      "deprecation": "Use the `CopyPaste` icon instead."
+    },
+    {
+      "name": "copy_paste",
+      "category": "Action",
       "size": "24"
     },
     {
@@ -2819,6 +2825,13 @@
     {
       "name": "mobile_phone",
       "category": "Device",
+      "size": "24",
+      "deprecation": "Use the 'Mobile' icon instead."
+    },
+    {
+      "name": "mobile",
+      "category": "Device",
+      "keywords": ["phone", "mobile"],
       "size": "24"
     },
     {
@@ -3115,6 +3128,13 @@
     {
       "name": "color_correction",
       "category": "Miscellaneous",
+      "size": "24",
+      "deprecation": "Use the `ColorPicker` icon instead."
+    },
+    {
+      "name": "color_picker",
+      "category": "Miscellaneous",
+      "keywords": ["color", "correction"],
       "size": "24"
     },
     {
@@ -3146,15 +3166,33 @@
     {
       "name": "customize",
       "category": "Miscellaneous",
-      "size": "24"
+      "size": "24",
+      "deprecation": "Use the `Customise` icon instead."
     },
     {
-      "name": "favorite",
+      "name": "customise",
       "category": "Miscellaneous",
       "size": "24"
     },
     {
       "name": "favorite",
+      "category": "Miscellaneous",
+      "size": "24",
+      "deprecation": "Use the `Favourite` icon instead."
+    },
+    {
+      "name": "favourite",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "favorite",
+      "category": "Miscellaneous",
+      "size": "16",
+      "deprecation": "Use the `Favourite` icon instead."
+    },
+    {
+      "name": "favourite",
       "category": "Miscellaneous",
       "size": "16"
     },
@@ -3236,6 +3274,12 @@
     {
       "name": "no_sim",
       "category": "Miscellaneous",
+      "size": "24",
+      "deprecation": "Use the `NoSimcard` icon instead."
+    },
+    {
+      "name": "no_simcard",
+      "category": "Miscellaneous",
       "size": "24"
     },
     {
@@ -3256,10 +3300,22 @@
     {
       "name": "print_failed",
       "category": "Miscellaneous",
+      "size": "24",
+      "deprecation": "Use the `PrinterFailed` icon instead."
+    },
+    {
+      "name": "printer_failed",
+      "category": "Miscellaneous",
       "size": "24"
     },
     {
       "name": "print_failed",
+      "category": "Miscellaneous",
+      "size": "16",
+      "deprecation": "Use the `PrinterFailed` icon instead."
+    },
+    {
+      "name": "printer_failed",
       "category": "Miscellaneous",
       "size": "16"
     },
@@ -3341,6 +3397,12 @@
     {
       "name": "unfavorite",
       "category": "Miscellaneous",
+      "size": "24",
+      "deprecation": "Use the `Unfavourite` icon instead."
+    },
+    {
+      "name": "unfavourite",
+      "category": "Miscellaneous",
       "size": "24"
     },
     {
@@ -3351,12 +3413,25 @@
     {
       "name": "contractors",
       "category": "Miscellaneous",
+      "size": "16",
+      "deprecation": "Use the `Contractor` icon instead."
+    },
+    {
+      "name": "contractor",
+      "category": "Miscellaneous",
       "size": "16"
     },
     {
       "name": "contractors",
       "category": "Miscellaneous",
-      "size": "24"
+      "size": "24",
+      "deprecation": "Use the `Contractor` icon instead."
+    },
+    {
+      "name": "contractor",
+      "category": "Miscellaneous",
+      "size": "24",
+      "deprecation": "Use the `Contractor` icon instead."
     },
     {
       "name": "arrow_down",
@@ -3496,12 +3571,14 @@
     {
       "name": "notify_circle",
       "category": "Notification",
-      "size": "24"
+      "size": "24",
+      "deprecation": "Use the `Notify` icon instead."
     },
     {
       "name": "notify_circle",
       "category": "Notification",
-      "size": "16"
+      "size": "16",
+      "deprecation": "Use the `Notify` icon instead."
     },
     {
       "name": "paused",
@@ -3851,6 +3928,12 @@
     {
       "name": "gift_card",
       "category": "Product and feature",
+      "size": "24",
+      "deprecation": "Use the `GiftCards` icon instead."
+    },
+    {
+      "name": "gift_cards",
+      "category": "Product and feature",
       "size": "24"
     },
     {
@@ -3910,6 +3993,12 @@
     },
     {
       "name": "payment_link",
+      "category": "Product and feature",
+      "size": "24",
+      "deprecation": "Use the `PaymentLinks` icon instead."
+    },
+    {
+      "name": "payment_links",
       "category": "Product and feature",
       "size": "24"
     },
