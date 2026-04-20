@@ -41,7 +41,7 @@ export interface DisplayProps extends HTMLAttributes<HTMLHeadingElement> {
      */
     | 'regular';
   /**
-   * Choose from 3 font sizes.
+   * Choose from 4 font sizes.
    *
    * @default 'm'
    */
