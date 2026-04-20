@@ -103,7 +103,6 @@ function buildComponentFile(component: Component): string {
   }' icon. Please use one of the available sizes: '${sizes.join("', '")}'.`;
 
   return `
-    import React from 'react';
     ${iconImports.join('\n')}
 
     const sizeMap = {
@@ -147,18 +146,14 @@ function buildIndexFile(components: Component[]): string {
 }
 
 function buildDeclarationFile(components: Component[]): string {
-  const declarationStatements = components
-    .filter(({ icons }) => icons.some((icon) => !icon.skipComponentFile))
-    .map((component) => {
-      const sizes = component.icons.map(({ size }) => `'${size}'`).sort();
-      const SizesType = sizes.join(' | ');
-      return `
+  const declarationStatements = components.map((component) => {
+    const sizes = component.icons.map(({ size }) => `'${size}'`).sort();
+    const SizesType = sizes.join(' | ');
+    return `
       ${createDeprecationComment(component)}
       declare const ${component.name}: IconComponentType<${SizesType}>;`;
-    });
-  const exportNames = components
-    .filter(({ icons }) => icons.some((icon) => !icon.skipComponentFile))
-    .map((component) => component.name);
+  });
+  const exportNames = components.map((component) => component.name);
   const iconNames = components.map(
     (component) => `'${component.icons[0].name}'`,
   );
@@ -217,7 +212,12 @@ async function transpileModule(fileName: string, code: string) {
           exclude: ['transform-object-rest-spread'],
         },
       ],
-      '@babel/preset-react',
+      [
+        '@babel/preset-react',
+        {
+          'runtime': 'automatic',
+        },
+      ],
     ],
     plugins: [
       [
@@ -258,13 +258,15 @@ async function main() {
     },
     {} as Record<string, Icon[]>,
   );
-  const components = Object.entries(iconsByName).map(
-    ([name, icons]): Component => ({
-      name: getComponentName(name),
-      icons,
-      deprecation: icons.find((icon) => icon.deprecation)?.deprecation,
-    }),
-  );
+  const components = Object.entries(iconsByName)
+    .map(
+      ([name, icons]): Component => ({
+        name: getComponentName(name),
+        icons,
+        deprecation: icons.find((icon) => icon.deprecation)?.deprecation,
+      }),
+    )
+    .filter(({ icons }) => icons.some((icon) => !icon.skipComponentFile));
 
   const indexRaw = buildIndexFile(components);
   const helpersRaw = buildHelpersFile();
