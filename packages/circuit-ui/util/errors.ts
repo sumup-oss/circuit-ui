@@ -89,6 +89,7 @@ export function isSufficientlyLabelled(
   ) {
     return true;
   }
+  // biome-ignore lint/nursery/noMisusedPromises: A pending promise should also trigger this condition
   if (label) {
     return isString(label) ? Boolean(label.trim()) : true;
   }
