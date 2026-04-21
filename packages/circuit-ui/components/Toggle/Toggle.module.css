@@ -63,7 +63,7 @@
   display: block;
   width: var(--toggle-knob-size);
   height: var(--toggle-knob-size);
-  background-color: var(--cui-fg-placeholder);
+  background-color: var(--cui-fg-subtle);
   border-radius: var(--toggle-knob-size);
   transform: translate3d(var(--cui-spacings-bit), -50%, 0);
   transition:
