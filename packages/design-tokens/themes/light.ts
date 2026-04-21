@@ -23,7 +23,7 @@ export const light = [
   },
   {
     name: '--cui-bg-normal-hovered',
-    value: '#f0f1e7',
+    value: '#f1f0e9',
     type: 'color',
   },
   {
@@ -53,7 +53,7 @@ export const light = [
   },
   {
     name: '--cui-bg-subtle-disabled',
-    value: 'rgba(240, 241, 231, 0.6000)',
+    value: 'rgba(221, 220, 212, 0.9000)',
     type: 'color',
   },
   {
@@ -263,12 +263,12 @@ export const light = [
   },
   {
     name: '--cui-bg-danger-hovered',
-    value: '#f3ccbe',
+    value: '#ffeae3',
     type: 'color',
   },
   {
     name: '--cui-bg-danger-pressed',
-    value: '#f3ccbe',
+    value: '#fdddd1',
     type: 'color',
   },
   {
@@ -278,7 +278,7 @@ export const light = [
   },
   {
     name: '--cui-bg-danger-strong',
-    value: '#e34405',
+    value: '#d23f04',
     type: 'color',
   },
   {
@@ -478,7 +478,7 @@ export const light = [
   },
   {
     name: '--cui-fg-neutral',
-    value: '#655454',
+    value: '#786464',
     type: 'color',
   },
   {
@@ -633,7 +633,7 @@ export const light = [
   },
   {
     name: '--cui-border-subtle-disabled',
-    value: 'rgba(240, 241, 231, 0.5000)',
+    value: 'rgba(221, 220, 212, 0.9000)',
     type: 'color',
   },
   {
@@ -743,12 +743,12 @@ export const light = [
   },
   {
     name: '--cui-border-danger-hovered',
-    value: '#d53d02',
+    value: '#bf3802',
     type: 'color',
   },
   {
     name: '--cui-border-danger-pressed',
-    value: '#e94403',
+    value: '#ad3302',
     type: 'color',
   },
   {

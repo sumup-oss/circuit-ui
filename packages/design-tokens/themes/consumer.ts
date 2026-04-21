@@ -803,7 +803,7 @@ export const consumer = [
   },
   {
     name: '--cui-bg-elevated',
-    value: '#473143',
+    value: '#322430',
     type: 'color',
   },
   {

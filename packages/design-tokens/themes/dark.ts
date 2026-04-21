@@ -138,7 +138,7 @@ export const dark = [
   },
   {
     name: '--cui-bg-neutral',
-    value: '#181716',
+    value: '#2b2927',
     type: 'color',
   },
   {
@@ -178,7 +178,7 @@ export const dark = [
   },
   {
     name: '--cui-bg-success',
-    value: '#0d1f0e',
+    value: '#122913',
     type: 'color',
   },
   {
@@ -218,7 +218,7 @@ export const dark = [
   },
   {
     name: '--cui-bg-warning',
-    value: '#1f1508',
+    value: '#39260f',
     type: 'color',
   },
   {
@@ -258,7 +258,7 @@ export const dark = [
   },
   {
     name: '--cui-bg-danger',
-    value: '#1f0f09',
+    value: '#3c1e13',
     type: 'color',
   },
   {
@@ -298,7 +298,7 @@ export const dark = [
   },
   {
     name: '--cui-bg-promo',
-    value: '#1a0c18',
+    value: '#30182d',
     type: 'color',
   },
   {
