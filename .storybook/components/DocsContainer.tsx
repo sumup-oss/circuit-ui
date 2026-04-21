@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import { DocsContainer as BaseContainer } from '@storybook/addon-docs/blocks';
 
-import { dark, light, listenToColorScheme } from '../themes.js';
-
-const themes = { light, dark };
+import { themes, listenToColorScheme } from '../themes.js';
 
 /**
  * Switch color scheme based on the global types or system preferences
  */
 export const DocsContainer: typeof BaseContainer = ({ children, context }) => {
-  const [colorScheme, setColorScheme] = useState<'light' | 'dark'>('light');
+  const [colorScheme, setColorScheme] = useState<'light' | 'dark' | 'consumer'>(
+    'light',
+  );
 
   useEffect(
     () => listenToColorScheme(context.channel, setColorScheme),
