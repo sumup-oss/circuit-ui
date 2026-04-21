@@ -89,9 +89,23 @@ type EventListener = (
   callback: (context: Context) => void,
 ) => void;
 
+function parseGlobals(queryParam: string | null | undefined) {
+  if (!queryParam) {
+    return {};
+  }
+  return queryParam.split(';').reduce(
+    (acc, global) => {
+      const [key, value] = global.split(':');
+      acc[key] = value;
+      return acc;
+    },
+    {} as Record<string, string>,
+  );
+}
+
 export function listenToColorScheme(
   eventEmitter: { on: EventListener; off: EventListener },
-  callback: (colorMode: ColorScheme) => void,
+  callback: (colorScheme: ColorScheme) => void,
 ) {
   const query = window.matchMedia('(prefers-color-scheme: dark)');
 
@@ -111,16 +125,8 @@ export function listenToColorScheme(
 
   const initColorScheme = () => {
     const globals = new URL(window.location.href).searchParams.get('globals');
-
-    if (globals) {
-      const [key, value] = globals.split(':');
-      if (key === 'colorScheme') {
-        handleGlobalsChange({ globals: { colorScheme: value } });
-        return;
-      }
-    }
-
-    handleGlobalsChange({ globals: { colorScheme: 'system' } });
+    const { colorScheme } = parseGlobals(globals);
+    handleGlobalsChange({ globals: { colorScheme: colorScheme || 'system' } });
   };
 
   initColorScheme();
