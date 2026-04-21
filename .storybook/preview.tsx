@@ -25,6 +25,7 @@ export const parameters = {
     modes: {
       light: modes.light,
       dark: modes.dark,
+      consumer: modes.consumer,
     },
   },
   viewport: {
@@ -84,12 +85,12 @@ export const globalTypes = {
           icon: 'circlehollow',
         },
         {
-          title: 'Dark (WIP)',
+          title: 'Dark',
           value: 'dark',
           icon: 'circle',
         },
         {
-          title: 'Consumer (WIP)',
+          title: 'Consumer',
           value: 'consumer',
           icon: 'diamond',
         },
