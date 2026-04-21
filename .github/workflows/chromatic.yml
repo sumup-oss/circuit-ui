@@ -38,7 +38,7 @@ jobs:
         run: npm run chromatic-build
 
       - name: Publish to Chromatic
-        uses: chromaui/action@v13
+        uses: chromaui/action@v16
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
