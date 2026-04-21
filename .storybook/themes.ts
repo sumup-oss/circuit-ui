@@ -76,11 +76,11 @@ export const components = {
   a: Link,
 };
 
-type ColorScheme = 'light' | 'dark' | 'consumer';
+type Theme = 'light' | 'dark' | 'consumer';
 
 type Context = {
   globals: {
-    colorScheme: string;
+    theme: string;
   };
 };
 
@@ -103,9 +103,9 @@ function parseGlobals(queryParam: string | null | undefined) {
   );
 }
 
-export function listenToColorScheme(
+export function listenToTheme(
   eventEmitter: { on: EventListener; off: EventListener },
-  callback: (colorScheme: ColorScheme) => void,
+  callback: (theme: Theme) => void,
 ) {
   const query = window.matchMedia('(prefers-color-scheme: dark)');
 
@@ -114,22 +114,22 @@ export function listenToColorScheme(
   };
 
   const handleGlobalsChange = ({ globals }: Context) => {
-    if (globals.colorScheme === 'system') {
+    if (globals.theme === 'system') {
       callback(query.matches ? 'dark' : 'light');
       query.addEventListener('change', handleMediaChange);
     } else {
-      callback(globals.colorScheme as ColorScheme);
+      callback(globals.theme as Theme);
       query.removeEventListener('change', handleMediaChange);
     }
   };
 
-  const initColorScheme = () => {
+  const initTheme = () => {
     const globals = new URL(window.location.href).searchParams.get('globals');
-    const { colorScheme } = parseGlobals(globals);
-    handleGlobalsChange({ globals: { colorScheme: colorScheme || 'system' } });
+    const { theme } = parseGlobals(globals);
+    handleGlobalsChange({ globals: { theme: theme || 'system' } });
   };
 
-  initColorScheme();
+  initTheme();
 
   eventEmitter.on(GLOBALS_UPDATED, handleGlobalsChange);
 

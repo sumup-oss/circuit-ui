@@ -66,12 +66,12 @@ export const parameters = {
 };
 
 export const globalTypes = {
-  colorScheme: {
-    name: 'Color Scheme',
-    description: 'Global theme for components',
+  theme: {
+    name: 'Theme',
+    description: 'Theme',
     defaultValue: 'system',
     toolbar: {
-      title: 'Color Scheme',
+      title: 'Theme',
       icon: 'paintbrush',
       items: [
         {

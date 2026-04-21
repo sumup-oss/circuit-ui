@@ -6,7 +6,7 @@ import '@sumup-oss/design-tokens/consumer-scoped.css';
 import React, { type CSSProperties } from 'react';
 import { addons, types } from 'storybook/manager-api';
 
-import { themes, listenToColorScheme } from './themes.js';
+import { themes, listenToTheme } from './themes.js';
 import {
   PARAM_KEY as VERSIONS_PARAM_KEY,
   Versions,
@@ -120,15 +120,15 @@ addons.setConfig({
 });
 
 /**
- * Switch color scheme based on the global types or system preferences
+ * Switch theme based on the global types or system preferences
  */
-addons.register('color-scheme', (api) => {
-  const setTheme = (colorScheme: 'dark' | 'light' | 'consumer') => {
-    api.setOptions({ theme: themes[colorScheme] });
-    document.documentElement.dataset.colorScheme = colorScheme;
+addons.register('theme', (api) => {
+  const setTheme = (theme: 'dark' | 'light' | 'consumer') => {
+    api.setOptions({ theme: themes[theme] });
+    document.documentElement.dataset.colorScheme = theme;
   };
 
-  listenToColorScheme(api, setTheme);
+  listenToTheme(api, setTheme);
 });
 
 /**
