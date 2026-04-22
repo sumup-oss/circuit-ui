@@ -18,6 +18,36 @@ import type { FontFace } from '../types/index.js';
 export const sumup = [
   // Narrow
   {
+    'font-family': 'SumUp Narrow fallback',
+    'font-style': 'normal',
+    'font-weight': '375',
+    'src': 'local("Arial")',
+    'size-adjust': '95%',
+    'ascent-override': '101.1%',
+    'descent-override': '26.6%',
+    'line-gap-override': '0%',
+  },
+  {
+    'font-family': 'SumUp Narrow fallback',
+    'font-style': 'normal',
+    'font-weight': '550',
+    'src': 'local("Arial")',
+    'size-adjust': '97.5%',
+    'ascent-override': '101.1%',
+    'descent-override': '26.6%',
+    'line-gap-override': '0%',
+  },
+  {
+    'font-family': 'SumUp Narrow fallback',
+    'font-style': 'normal',
+    'font-weight': '650',
+    'src': 'local("Arial Bold"), local("Arial")',
+    'size-adjust': '90%',
+    'ascent-override': '101%',
+    'descent-override': '26.6%',
+    'line-gap-override': '0%',
+  },
+  {
     'font-family': 'SumUp Narrow',
     'font-style': 'normal',
     'font-weight': '300 700',
@@ -58,6 +88,16 @@ export const sumup = [
       'U+0020-U+007E, U+00A0-U+00A9, U+00AB-U+00B9, U+00BB-U+00BF, U+00D7, U+00F7, U+02B9, U+02BB-U+02BC, U+02C6-U+02C7, U+02C9, U+02D8-U+02DD, U+0300-U+0304, U+0306-U+0308, U+030A-U+030D, U+030F, U+0311-U+0313, U+0315, U+0320, U+0324-U+0329, U+032D-U+0332, U+0335, U+035C-U+035D, U+0361, U+0400-U+045F, U+0462-U+0463, U+0472-U+0475, U+0490-U+0493, U+0496-U+0497, U+049A-U+049B, U+04A2-U+04A3, U+04AE-U+04B3, U+04B6-U+04B7, U+04BA-U+04BB, U+04C0, U+04CF, U+04D8-U+04D9, U+04E2-U+04E3, U+04E8-U+04E9, U+04EE-U+04EF, U+1DC6-U+1DC7, U+2013-U+2014, U+2018-U+201F, U+2022, U+2026, U+2030, U+2039-U+203A, U+2044, U+2070, U+2074-U+2079, U+2080-U+2089, U+20A1, U+20A3-U+20A4, U+20A6-U+20A7, U+20A9, U+20AB-U+20AD, U+20B1-U+20B2, U+20B5, U+20B9-U+20BA, U+20BC-U+20BD, U+2116-U+2117, U+2122, U+212E, U+2153-U+2154, U+215B-U+215E, U+2190-U+2199, U+21A4, U+21A6, U+21A9-U+21AA, U+2212, U+2248, U+2260, U+2264-U+2265, U+27F5-U+27F6, U+FB01-U+FB02',
   },
   // Black
+  {
+    'font-family': 'SumUp Black fallback',
+    'font-style': 'normal',
+    'font-weight': 'bold',
+    'src': 'local("Arial Black"), local("Arial Bold"), local("Arial")',
+    'size-adjust': '90.1%',
+    'ascent-override': '102%',
+    'descent-override': '28%',
+    'line-gap-override': '0%',
+  },
   {
     'font-family': 'SumUp Black',
     'font-style': 'normal',
