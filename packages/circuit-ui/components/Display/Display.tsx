@@ -24,14 +24,26 @@ import classes from './Display.module.css';
 
 export interface DisplayProps extends HTMLAttributes<HTMLHeadingElement> {
   /**
-   * @deprecated Since the brand refresh, only `bold` is supported.
-   * The `weight` prop will be removed in the next major version.
+   * Choose from two font weights.
    *
-   * Choose from three font weights. Default: `bold`.
+   * @default 'bold' for sizes s, m, l
+   * @default 'black' for size xl
    */
-  weight?: 'regular' | 'semibold' | 'bold';
+  weight?:
+    | 'black'
+    | 'bold'
+    /**
+     * @deprecated
+     */
+    | 'semibold'
+    /**
+     * @deprecated
+     */
+    | 'regular';
   /**
-   * Choose from 3 font sizes. Defaults to `m`.
+   * Choose from 4 font sizes.
+   *
+   * @default 'm'
    */
   size?:
     | 's'
@@ -69,6 +81,17 @@ const deprecatedSizeMap: Record<string, string> = {
   'four': 's',
 };
 
+function getWeight(weight: DisplayProps['weight'], size: DisplayProps['size']) {
+  switch (weight) {
+    case 'black':
+      return 'black';
+    case 'bold':
+      return 'bold';
+    default:
+      return size === 'xl' ? 'black' : 'bold';
+  }
+}
+
 /**
  * A flexible title component capable of rendering any HTML heading element.
  */
@@ -85,6 +108,16 @@ export const Display = forwardRef<HTMLHeadingElement, DisplayProps>(
 
     if (
       process.env.NODE_ENV !== 'production' &&
+      (weight === 'regular' || weight === 'semibold')
+    ) {
+      deprecate(
+        'Display',
+        `The "${weight}" weight has been deprecated. Use the "bold" or "black" weights instead.`,
+      );
+    }
+
+    if (
+      process.env.NODE_ENV !== 'production' &&
       legacySize in deprecatedSizeMap
     ) {
       deprecate(
@@ -96,6 +129,7 @@ export const Display = forwardRef<HTMLHeadingElement, DisplayProps>(
     const Element = as || 'h1';
 
     const size = (deprecatedSizeMap[legacySize] || legacySize) as
+      | 'xl'
       | 'l'
       | 'm'
       | 's';
@@ -104,7 +138,12 @@ export const Display = forwardRef<HTMLHeadingElement, DisplayProps>(
       <Element
         {...props}
         ref={ref}
-        className={clsx(classes.base, classes[size], className)}
+        className={clsx(
+          classes.base,
+          classes[size],
+          classes[getWeight(weight, size)],
+          className,
+        )}
       />
     );
   },

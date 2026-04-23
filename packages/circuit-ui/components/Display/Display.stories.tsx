@@ -26,7 +26,7 @@ export const Base = (args: DisplayProps) => (
 );
 
 Base.args = {
-  as: 'h1',
+  as: 'h2',
 };
 
 const sizes = ['xl', 'l', 'm', 's'] as const;
@@ -39,5 +39,18 @@ export const Sizes = (args: DisplayProps) =>
   ));
 
 Sizes.args = {
-  as: 'h1',
+  as: 'h2',
+};
+
+const weights = ['black', 'bold'] as const;
+
+export const Weights = (args: DisplayProps) =>
+  weights.map((weight) => (
+    <Display key={weight} {...args} weight={weight}>
+      This is {weight}
+    </Display>
+  ));
+
+Weights.args = {
+  as: 'h2',
 };

@@ -2,4 +2,4 @@
 "@sumup-oss/circuit-ui": minor
 ---
 
-Deprecated the Display component's `weight` prop. Since the brand refresh, only `bold` is supported. The `weight` prop will be removed in the next major version.
+Deprecated the Display component's `regular` and `semibold` weights and added a new `black` weight. By default, sizes `s`, `m`, and `l` render as `bold` and size `xl` renders as `black`.
