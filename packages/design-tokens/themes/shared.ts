@@ -300,7 +300,7 @@ export const shared = [
   },
   {
     name: '--cui-body-m-line-height',
-    value: '1.5rem',
+    value: '1.375rem',
     type: 'dimension',
   },
   {
