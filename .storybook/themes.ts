@@ -31,8 +31,8 @@ export const light = create({
 
   // Toolbar default and active colors
   barTextColor: '#706464', // var(--cui-fg-subtle)
-  barHoverColor: '#9c948d', // var(--cui-fg-subtle-hovered)
-  barSelectedColor: '#756c6c', // var(--cui-fg-subtle-pressed)
+  barHoverColor: '#7f7373', // var(--cui-fg-subtle-hovered)
+  barSelectedColor: '#8e8282', // var(--cui-fg-subtle-pressed)
   barBg: '#fbfbf9', // var(--cui-bg-normal)
 
   // Form colors
@@ -48,24 +48,39 @@ export const dark = create({
   base: 'dark',
   ...brand,
   brandImage: '/images/logo-name-dark.png',
-  colorPrimary: '#b9aead', // var(--cui-fg-accent)
-  colorSecondary: '#f0f1e7', // var(--cui-fg-normal)
+  colorPrimary: '#f0eee7', // var(--cui-fg-accent)
+  colorSecondary: '#f0eee7', // var(--cui-fg-normal)
 
   // UI
-  appBg: '#1e1c1c', // var(--cui-bg-normal)
-  appContentBg: '#1e1c1c', // var(--cui-bg-normal)
-  appPreviewBg: '#1e1c1c', // var(--cui-bg-normal)
+  appBg: '#000000', // var(--cui-bg-normal)
+  appContentBg: '#000000', // var(--cui-bg-normal)
+  appPreviewBg: '#000000', // var(--cui-bg-normal)
 });
+
+export const consumer = create({
+  base: 'dark',
+  ...brand,
+  brandImage: '/images/logo-name-dark.png',
+  colorPrimary: '#fbfbf9', // var(--cui-fg-accent)
+  colorSecondary: '#fbfbf9', // var(--cui-fg-normal)
+
+  // UI
+  appBg: '#250723', // var(--cui-bg-normal)
+  appContentBg: '#250723', // var(--cui-bg-normal)
+  appPreviewBg: '#250723', // var(--cui-bg-normal)
+});
+
+export const themes = { light, dark, consumer };
 
 export const components = {
   a: Link,
 };
 
-type ColorScheme = 'light' | 'dark';
+type Theme = 'light' | 'dark' | 'consumer';
 
 type Context = {
   globals: {
-    colorScheme: string;
+    theme: string;
   };
 };
 
@@ -74,9 +89,23 @@ type EventListener = (
   callback: (context: Context) => void,
 ) => void;
 
-export function listenToColorScheme(
+function parseGlobals(queryParam: string | null | undefined) {
+  if (!queryParam) {
+    return {};
+  }
+  return queryParam.split(';').reduce(
+    (acc, global) => {
+      const [key, value] = global.split(':');
+      acc[key] = value;
+      return acc;
+    },
+    {} as Record<string, string>,
+  );
+}
+
+export function listenToTheme(
   eventEmitter: { on: EventListener; off: EventListener },
-  callback: (colorMode: ColorScheme) => void,
+  callback: (theme: Theme) => void,
 ) {
   const query = window.matchMedia('(prefers-color-scheme: dark)');
 
@@ -85,30 +114,22 @@ export function listenToColorScheme(
   };
 
   const handleGlobalsChange = ({ globals }: Context) => {
-    if (globals.colorScheme === 'system') {
+    if (globals.theme === 'system') {
       callback(query.matches ? 'dark' : 'light');
       query.addEventListener('change', handleMediaChange);
     } else {
-      callback(globals.colorScheme as ColorScheme);
+      callback(globals.theme as Theme);
       query.removeEventListener('change', handleMediaChange);
     }
   };
 
-  const initColorScheme = () => {
+  const initTheme = () => {
     const globals = new URL(window.location.href).searchParams.get('globals');
-
-    if (globals) {
-      const [key, value] = globals.split(':');
-      if (key === 'colorScheme') {
-        handleGlobalsChange({ globals: { colorScheme: value } });
-        return;
-      }
-    }
-
-    handleGlobalsChange({ globals: { colorScheme: 'system' } });
+    const { theme } = parseGlobals(globals);
+    handleGlobalsChange({ globals: { theme: theme || 'system' } });
   };
 
-  initColorScheme();
+  initTheme();
 
   eventEmitter.on(GLOBALS_UPDATED, handleGlobalsChange);
 

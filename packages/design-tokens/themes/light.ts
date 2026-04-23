@@ -23,7 +23,7 @@ export const light = [
   },
   {
     name: '--cui-bg-normal-hovered',
-    value: '#f0f1e7',
+    value: '#f1f0e9',
     type: 'color',
   },
   {
@@ -53,7 +53,7 @@ export const light = [
   },
   {
     name: '--cui-bg-subtle-disabled',
-    value: 'rgba(240, 241, 231, 0.6000)',
+    value: 'rgba(221, 220, 212, 0.9000)',
     type: 'color',
   },
   {
@@ -133,7 +133,7 @@ export const light = [
   },
   {
     name: '--cui-bg-accent-strong-disabled',
-    value: 'rgba(51, 47, 47, 0.4000)',
+    value: 'rgba(30, 28, 28, 0.1000)',
     type: 'color',
   },
   {
@@ -263,12 +263,12 @@ export const light = [
   },
   {
     name: '--cui-bg-danger-hovered',
-    value: '#f3ccbe',
+    value: '#ffeae3',
     type: 'color',
   },
   {
     name: '--cui-bg-danger-pressed',
-    value: '#f3ccbe',
+    value: '#fdddd1',
     type: 'color',
   },
   {
@@ -278,12 +278,12 @@ export const light = [
   },
   {
     name: '--cui-bg-danger-strong',
-    value: '#e34405',
+    value: '#d23f04',
     type: 'color',
   },
   {
     name: '--cui-bg-danger-strong-hovered',
-    value: '#f55316',
+    value: '#cf3e05',
     type: 'color',
   },
   {
@@ -363,17 +363,17 @@ export const light = [
   },
   {
     name: '--cui-fg-normal-hovered',
-    value: '#9c948d',
+    value: 'rgba(30, 28, 28, 0.9000)',
     type: 'color',
   },
   {
     name: '--cui-fg-normal-pressed',
-    value: '#756c6c',
+    value: 'rgba(30, 28, 28, 0.8000)',
     type: 'color',
   },
   {
     name: '--cui-fg-normal-disabled',
-    value: 'rgba(15, 19, 26, 0.4000)',
+    value: 'rgba(30, 28, 28, 0.5000)',
     type: 'color',
   },
   {
@@ -383,17 +383,17 @@ export const light = [
   },
   {
     name: '--cui-fg-subtle-hovered',
-    value: '#9c948d',
+    value: 'rgba(112, 100, 100, 0.9000)',
     type: 'color',
   },
   {
     name: '--cui-fg-subtle-pressed',
-    value: '#756c6c',
+    value: 'rgba(112, 100, 100, 0.8000)',
     type: 'color',
   },
   {
     name: '--cui-fg-subtle-disabled',
-    value: 'rgba(183, 176, 169, 0.4000)',
+    value: 'rgba(112, 100, 100, 0.5000)',
     type: 'color',
   },
   {
@@ -403,17 +403,17 @@ export const light = [
   },
   {
     name: '--cui-fg-placeholder-hovered',
-    value: '#584e4e',
+    value: 'rgba(118, 113, 107, 0.9000)',
     type: 'color',
   },
   {
     name: '--cui-fg-placeholder-pressed',
-    value: '#332f2f',
+    value: 'rgba(118, 113, 107, 0.8000)',
     type: 'color',
   },
   {
     name: '--cui-fg-placeholder-disabled',
-    value: 'rgba(117, 108, 108, 0.4000)',
+    value: 'rgba(118, 113, 107, 0.5000)',
     type: 'color',
   },
   {
@@ -423,17 +423,17 @@ export const light = [
   },
   {
     name: '--cui-fg-on-strong-hovered',
-    value: 'rgba(251, 251, 249, 0.7000)',
+    value: 'rgba(251, 251, 249, 0.9000)',
     type: 'color',
   },
   {
     name: '--cui-fg-on-strong-pressed',
-    value: '#e3e2d6',
+    value: 'rgba(251, 251, 249, 0.8000)',
     type: 'color',
   },
   {
     name: '--cui-fg-on-strong-disabled',
-    value: 'rgba(63, 58, 58, 0.4000)',
+    value: 'rgba(251, 251, 249, 0.4000)',
     type: 'color',
   },
   {
@@ -443,17 +443,17 @@ export const light = [
   },
   {
     name: '--cui-fg-on-strong-subtle-hovered',
-    value: 'rgba(255, 255, 255, 0.7000)',
+    value: 'rgba(212, 201, 194, 0.9000)',
     type: 'color',
   },
   {
     name: '--cui-fg-on-strong-subtle-pressed',
-    value: 'rgba(255, 255, 255, 0.7000)',
+    value: 'rgba(212, 201, 194, 0.8000)',
     type: 'color',
   },
   {
     name: '--cui-fg-on-strong-subtle-disabled',
-    value: 'rgba(255, 255, 255, 0.3000)',
+    value: 'rgba(212, 201, 194, 0.3000)',
     type: 'color',
   },
   {
@@ -463,22 +463,22 @@ export const light = [
   },
   {
     name: '--cui-fg-accent-hovered',
-    value: '#1d1a1a',
+    value: '#726767',
     type: 'color',
   },
   {
     name: '--cui-fg-accent-pressed',
-    value: '#000000',
+    value: '#887a7a',
     type: 'color',
   },
   {
     name: '--cui-fg-accent-disabled',
-    value: 'rgba(51, 47, 47, 0.4000)',
+    value: 'rgba(30, 28, 28, 0.5000)',
     type: 'color',
   },
   {
     name: '--cui-fg-neutral',
-    value: '#655454',
+    value: '#786464',
     type: 'color',
   },
   {
@@ -543,12 +543,12 @@ export const light = [
   },
   {
     name: '--cui-fg-danger-hovered',
-    value: '#ce3c02',
+    value: '#d53d02',
     type: 'color',
   },
   {
     name: '--cui-fg-danger-pressed',
-    value: '#b93502',
+    value: '#e94403',
     type: 'color',
   },
   {
@@ -558,7 +558,7 @@ export const light = [
   },
   {
     name: '--cui-fg-promo',
-    value: '#a63f9d',
+    value: '#a33e9a',
     type: 'color',
   },
   {
@@ -603,17 +603,17 @@ export const light = [
   },
   {
     name: '--cui-border-normal-hovered',
-    value: '#b7b0a9',
+    value: '#ded7cf',
     type: 'color',
   },
   {
     name: '--cui-border-normal-pressed',
-    value: '#9e9893',
+    value: '#cac4be',
     type: 'color',
   },
   {
     name: '--cui-border-normal-disabled',
-    value: 'rgba(227, 226, 214, 0.5000)',
+    value: 'rgba(207, 206, 194, 0.5000)',
     type: 'color',
   },
   {
@@ -633,7 +633,7 @@ export const light = [
   },
   {
     name: '--cui-border-subtle-disabled',
-    value: 'rgba(240, 241, 231, 0.5000)',
+    value: 'rgba(221, 220, 212, 0.9000)',
     type: 'color',
   },
   {
@@ -683,17 +683,17 @@ export const light = [
   },
   {
     name: '--cui-border-accent-hovered',
-    value: '#1d1a1a',
+    value: '#726767',
     type: 'color',
   },
   {
     name: '--cui-border-accent-pressed',
-    value: '#000000',
+    value: '#887a7a',
     type: 'color',
   },
   {
     name: '--cui-border-accent-disabled',
-    value: 'rgba(51, 47, 47, 0.2000)',
+    value: 'rgba(30, 28, 28, 0.5000)',
     type: 'color',
   },
   {
@@ -743,12 +743,12 @@ export const light = [
   },
   {
     name: '--cui-border-danger-hovered',
-    value: '#e04306',
+    value: '#bf3802',
     type: 'color',
   },
   {
     name: '--cui-border-danger-pressed',
-    value: '#f54703',
+    value: '#ad3302',
     type: 'color',
   },
   {
@@ -798,12 +798,12 @@ export const light = [
   },
   {
     name: '--cui-bg-overlay',
-    value: 'rgba(0, 0, 0, 0.6000)',
+    value: 'rgba(30, 28, 28, 0.7000)',
     type: 'color',
   },
   {
     name: '--cui-bg-elevated',
-    value: '#ffffff',
+    value: '#fbfbf9',
     type: 'color',
   },
   {

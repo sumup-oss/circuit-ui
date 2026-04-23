@@ -25,6 +25,7 @@ export const parameters = {
     modes: {
       light: modes.light,
       dark: modes.dark,
+      consumer: modes.consumer,
     },
   },
   viewport: {
@@ -65,12 +66,12 @@ export const parameters = {
 };
 
 export const globalTypes = {
-  colorScheme: {
-    name: 'Color Scheme',
-    description: 'Global theme for components',
+  theme: {
+    name: 'Theme',
+    description: 'Theme',
     defaultValue: 'system',
     toolbar: {
-      title: 'Color Scheme',
+      title: 'Theme',
       icon: 'paintbrush',
       items: [
         {
@@ -81,17 +82,17 @@ export const globalTypes = {
         {
           title: 'Light',
           value: 'light',
-          icon: 'circlehollow',
+          icon: 'sun',
         },
         {
-          title: 'Dark (WIP)',
+          title: 'Dark',
           value: 'dark',
-          icon: 'circle',
+          icon: 'moon',
         },
         {
-          title: 'Consumer (WIP)',
+          title: 'Consumer',
           value: 'consumer',
-          icon: 'diamond',
+          icon: 'lightning',
         },
       ],
     },

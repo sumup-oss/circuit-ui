@@ -3,28 +3,27 @@ import { ThemeProvider } from '@emotion/react';
 import type { Decorator } from '@storybook/react-vite';
 import { light } from '@sumup-oss/design-tokens';
 
-type ColorScheme = 'light' | 'dark' | 'consumer';
+type Theme = 'light' | 'dark' | 'consumer';
 
-function setColorScheme(colorScheme: ColorScheme) {
-  document.documentElement.dataset.colorScheme = colorScheme;
+function setTheme(theme: Theme) {
+  document.documentElement.dataset.colorScheme = theme;
 }
 
 export const withThemeProvider: Decorator = (Story, context) => {
-  const colorScheme = (context.parameters.colorScheme ||
-    context.globals.colorScheme) as ColorScheme | 'system';
+  const theme = context.globals.theme as Theme | 'system';
 
   useEffect(() => {
-    if (colorScheme !== 'system') {
-      setColorScheme(colorScheme);
+    if (theme !== 'system') {
+      setTheme(theme);
       return undefined;
     }
 
     const query = window.matchMedia('(prefers-color-scheme: dark)');
 
-    setColorScheme(query.matches ? 'dark' : 'light');
+    setTheme(query.matches ? 'dark' : 'light');
 
     const handleChange = (event: MediaQueryListEvent) => {
-      setColorScheme(event.matches ? 'dark' : 'light');
+      setTheme(event.matches ? 'dark' : 'light');
     };
 
     query.addEventListener('change', handleChange);
@@ -32,7 +31,7 @@ export const withThemeProvider: Decorator = (Story, context) => {
     return () => {
       query.removeEventListener('change', handleChange);
     };
-  }, [colorScheme]);
+  }, [theme]);
 
   return (
     <ThemeProvider theme={light}>

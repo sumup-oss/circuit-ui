@@ -1,12 +1,12 @@
-const colorSchemes = {
+const themes = {
   dark: {
-    colorScheme: 'dark',
+    theme: 'dark',
   },
   light: {
-    colorScheme: 'light',
+    theme: 'light',
   },
   consumer: {
-    colorScheme: 'consumer',
+    theme: 'consumer',
   },
 };
 
@@ -26,6 +26,6 @@ const viewports = {
 };
 
 export const modes = {
-  ...colorSchemes,
+  ...themes,
   ...viewports,
 };
