@@ -1,47 +1,76 @@
 # @sumup-oss/circuit-ui
 
-## 10.15.0-next.2
-
-### Minor Changes
-
-- [#3440](https://github.com/sumup-oss/circuit-ui/pull/3440) [`4acb03f`](https://github.com/sumup-oss/circuit-ui/commit/4acb03f95fe98b4a5b1aec538661bcbd1bfcf70e) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the InlineElements component. Use [CSS Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) or [CSS Grid](https://css-tricks.com/css-grid-layout-guide/) instead.
-
-- [#3441](https://github.com/sumup-oss/circuit-ui/pull/3441) [`aca875d`](https://github.com/sumup-oss/circuit-ui/commit/aca875da2e13261199a1daa600fc7b4bc9498d15) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the design of the Badge component to use a light background color.
-
-- [#3440](https://github.com/sumup-oss/circuit-ui/pull/3440) [`4acb03f`](https://github.com/sumup-oss/circuit-ui/commit/4acb03f95fe98b4a5b1aec538661bcbd1bfcf70e) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the style mixins. Use the `utilClasses` instead. We strongly recommend migrating from Emotion.js to CSS Modules.
-
-- [#3467](https://github.com/sumup-oss/circuit-ui/pull/3467) [`a566187`](https://github.com/sumup-oss/circuit-ui/commit/a56618796dbe4ee6c2e33a6a616921d9810454e6) Thanks [@connor-baer](https://github.com/connor-baer)! - Added XL sizes to the Display and Numeral components.
-
-- [#3440](https://github.com/sumup-oss/circuit-ui/pull/3440) [`4acb03f`](https://github.com/sumup-oss/circuit-ui/commit/4acb03f95fe98b4a5b1aec538661bcbd1bfcf70e) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the Body and Numeral components' italic decoration value. Since the brand refresh, italic text is no longer supported and the value will be removed in the next major release.
-
-- [#3440](https://github.com/sumup-oss/circuit-ui/pull/3440) [`4acb03f`](https://github.com/sumup-oss/circuit-ui/commit/4acb03f95fe98b4a5b1aec538661bcbd1bfcf70e) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the Display component's `weight` prop. Since the brand refresh, only `bold` is supported. The `weight` prop will be removed in the next major version.
+## 10.16.1
 
 ### Patch Changes
 
-- [#3467](https://github.com/sumup-oss/circuit-ui/pull/3467) [`a566187`](https://github.com/sumup-oss/circuit-ui/commit/a56618796dbe4ee6c2e33a6a616921d9810454e6) Thanks [@connor-baer](https://github.com/connor-baer)! - Tweaked the font sizes, weights, and line heights of the typography components.
+- [#3559](https://github.com/sumup-oss/circuit-ui/pull/3559) [`847c6da`](https://github.com/sumup-oss/circuit-ui/commit/847c6dab1bb97df52bae3a067400e47fad3e8b7c) Thanks [@matoous](https://github.com/matoous)! - Fixed a style specificity issue in the ColorInput component that caused the text field to have a border radius towards the color swatch.
 
-## 10.15.0-next.1
+- [#3554](https://github.com/sumup-oss/circuit-ui/pull/3554) [`d1f0f37`](https://github.com/sumup-oss/circuit-ui/commit/d1f0f373b1a9987a70dd8fc375b10c6197e5dac4) Thanks [@matoous](https://github.com/matoous)! - Fixed autocomplete option labels and descriptions overflowing horizontally.
+
+- [#3566](https://github.com/sumup-oss/circuit-ui/pull/3566) [`67ce5a4`](https://github.com/sumup-oss/circuit-ui/commit/67ce5a4370387d59ee5f5d25b0df59f96c0d915d) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the Table header not being sticky when scrolling horizontally on narrow viewports.
+
+## 10.16.0
+
+### Minor Changes
+
+- [#3500](https://github.com/sumup-oss/circuit-ui/pull/3500) [`fe1c091`](https://github.com/sumup-oss/circuit-ui/commit/fe1c0919584f733f7a75828e5ab134492d1615c6) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the SidePanel's design to visually distance it from adjacent elements above (e.g., the viewport or top navigation). This serves as an intermediate step ahead of an upcoming navigation redesign.
+
+## 10.15.3
+
+### Patch Changes
+
+- [#3545](https://github.com/sumup-oss/circuit-ui/pull/3545) [`32f6e95`](https://github.com/sumup-oss/circuit-ui/commit/32f6e953e43af08de2257639e4442b78c4ad8fee) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed an issue in NotificationModal where passing a ReactNode to the body prop caused it to be incorrectly wrapped in a `paragraph` element. The body prop of type ReactNode now renders as-is.
+
+## 10.15.2
+
+### Patch Changes
+
+- [#3523](https://github.com/sumup-oss/circuit-ui/pull/3523) [`6a3e10b`](https://github.com/sumup-oss/circuit-ui/commit/6a3e10b0a2616ab66ac680971d77e2ec384b91c2) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the type check for the ListItemGroup's `leadingComponent` prop when passing a component that is wrapped in `React.forwardRef` or `React.memo`.
+
+## 10.15.1
+
+### Patch Changes
+
+- [#3509](https://github.com/sumup-oss/circuit-ui/pull/3509) [`d532a2c`](https://github.com/sumup-oss/circuit-ui/commit/d532a2c5612fb1016b78492205f1ce7ee05e5e26) Thanks [@sirineJ](https://github.com/sirineJ)! - Improved keyboard interaction handling for freeform input in the AutocompleteInput component.
+
+## 10.15.0
+
+### Minor Changes
+
+- [#3506](https://github.com/sumup-oss/circuit-ui/pull/3506) [`3b4ca57`](https://github.com/sumup-oss/circuit-ui/commit/3b4ca570727e428b070ae66c15141e125245b366) Thanks [@sirineJ](https://github.com/sirineJ)! - Added an `onTabChange` props to the Tabs component and a `onTabChange` argument to the `useTabState` helper hook.
+
+- [#3497](https://github.com/sumup-oss/circuit-ui/pull/3497) [`4cc262d`](https://github.com/sumup-oss/circuit-ui/commit/4cc262dca6c5a9f82a6cd416ec235af9ec953386) Thanks [@connor-baer](https://github.com/connor-baer)! - Added an experimental TimeInput component based on the native `input[type="time"]` element.
+
+## 10.14.8
+
+### Patch Changes
+
+- [#3501](https://github.com/sumup-oss/circuit-ui/pull/3501) [`0ab2aa0`](https://github.com/sumup-oss/circuit-ui/commit/0ab2aa04ffc7cc9935ab72e4b661d9a70fe7bc14) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed an issue where disabled or read-only input fields could still be cleared via the clear button (SeachInput and AutocompleteInput). The clear button is now only shown when the input is editable.
+
+- [#3498](https://github.com/sumup-oss/circuit-ui/pull/3498) [`2d9e5d2`](https://github.com/sumup-oss/circuit-ui/commit/2d9e5d285eec8005932c9a35d525d9f81a5f505a) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed incorrect `tabIndex` prop name in the Tab component.
+
+## 10.14.7
+
+### Patch Changes
+
+- [#3465](https://github.com/sumup-oss/circuit-ui/pull/3465) [`dd0cb25`](https://github.com/sumup-oss/circuit-ui/commit/dd0cb25f7cd235fb66e5798ac4fd733cd93085d6) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed unnecessary scrollbars from the DateInput component's calendar popover.
+
+## 10.14.6
+
+### Patch Changes
+
+- [#3461](https://github.com/sumup-oss/circuit-ui/pull/3461) [`34cc29b`](https://github.com/sumup-oss/circuit-ui/commit/34cc29bac595a12fd9bd4bffece81e957cd24b3e) Thanks [@connor-baer](https://github.com/connor-baer)! - Reduced the spacing between small buttons in the ButtonGroup component.
+
+- [#3436](https://github.com/sumup-oss/circuit-ui/pull/3436) [`838b8b2`](https://github.com/sumup-oss/circuit-ui/commit/838b8b2e7c18b0c4e19e7178d9b754150c13667d) Thanks [@matoous](https://github.com/matoous)! - Increased the density of the ActionMenu.
+
+- [#3463](https://github.com/sumup-oss/circuit-ui/pull/3463) [`36a9236`](https://github.com/sumup-oss/circuit-ui/commit/36a9236b8802d9689ada21d36e5c42a747c1edd7) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed updating the PhoneNumberInput's country code input when switching between two countries with matching country codes (e.g. Canada and USA which share `+1`).
+
+## 10.14.5
 
 ### Patch Changes
 
 - [`4e4ecd5`](https://github.com/sumup-oss/circuit-ui/commit/4e4ecd5d3ac89261722eb16f960fbb4356cabf28) Thanks [@connor-baer](https://github.com/connor-baer)! - Ensured that the hash suffix of CSS class names remains stable between builds.
-
-## 10.15.0-next.0
-
-### Minor Changes
-
-- [#3424](https://github.com/sumup-oss/circuit-ui/pull/3424) [`472a334`](https://github.com/sumup-oss/circuit-ui/commit/472a334502261747b7ab8afe0d6f057d9b51b10c) Thanks [@connor-baer](https://github.com/connor-baer)! - Increased the border radius of all input components (Input and its variations, Textarea, Select, CheckboxGroup, RadioButtonGroup, and Selector).
-
-- [#3424](https://github.com/sumup-oss/circuit-ui/pull/3424) [`472a334`](https://github.com/sumup-oss/circuit-ui/commit/472a334502261747b7ab8afe0d6f057d9b51b10c) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the design of the NotificationInline and NotificationToast components, replacing the colored border with a lightly colored background.
-
-- [#3425](https://github.com/sumup-oss/circuit-ui/pull/3425) [`95858c3`](https://github.com/sumup-oss/circuit-ui/commit/95858c3ed55b420c90c1a7c1d70b5c7bd5a3dc0d) Thanks [@connor-baer](https://github.com/connor-baer)! - Replaced Inter with NaN Holo as the default font family.
-
-- [#3424](https://github.com/sumup-oss/circuit-ui/pull/3424) [`472a334`](https://github.com/sumup-oss/circuit-ui/commit/472a334502261747b7ab8afe0d6f057d9b51b10c) Thanks [@connor-baer](https://github.com/connor-baer)! - Increased the border radius of medium-sized Buttons from byte (8px) to kilo (12px).
-
-### Patch Changes
-
-- Updated dependencies [[`8af405a`](https://github.com/sumup-oss/circuit-ui/commit/8af405aea55299a033f951eb6feeae3773e22ad3), [`95858c3`](https://github.com/sumup-oss/circuit-ui/commit/95858c3ed55b420c90c1a7c1d70b5c7bd5a3dc0d), [`95858c3`](https://github.com/sumup-oss/circuit-ui/commit/95858c3ed55b420c90c1a7c1d70b5c7bd5a3dc0d), [`472a334`](https://github.com/sumup-oss/circuit-ui/commit/472a334502261747b7ab8afe0d6f057d9b51b10c)]:
-  - @sumup-oss/design-tokens@9.1.0-next.0
 
 ## 10.14.4
 

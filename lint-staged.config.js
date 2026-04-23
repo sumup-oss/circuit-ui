@@ -17,4 +17,5 @@ import { defineConfig } from '@sumup-oss/foundry/lint-staged';
 
 export default defineConfig({
   '*.svg': ['svgo --config svgo.config.js --pretty'],
+  '*': ['npm run skills:generate:circuit-ui'],
 });

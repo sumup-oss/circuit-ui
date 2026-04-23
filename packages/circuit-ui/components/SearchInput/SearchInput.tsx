@@ -89,7 +89,11 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
             aria-hidden="true"
           />
         )}
-        {...(value && onClear && clearLabel
+        {...(value &&
+        !props.disabled &&
+        !props.readOnly &&
+        onClear &&
+        clearLabel
           ? {
               renderSuffix: (renderProps) => (
                 <CloseButton {...renderProps} size="s" onClick={onClick}>

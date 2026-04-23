@@ -66,7 +66,7 @@ describe('ComboboxInput', () => {
     expect(input).toBeDisabled();
   });
 
-  it('should display a clear icon when not empty and an onClear callback is provided', async () => {
+  it('should display a clear button when not empty and an onClear callback is provided', async () => {
     const onClear = vi.fn();
     const clearLabel = 'Clear';
 
@@ -81,6 +81,42 @@ describe('ComboboxInput', () => {
     expect(screen.getByRole('button', { name: clearLabel })).toBeVisible();
     await userEvent.click(screen.getByRole('button', { name: clearLabel }));
     expect(onClear).toHaveBeenCalledOnce();
+  });
+
+  it('should not display a clear button when not empty and an onClear callback is provided and input is disabled', async () => {
+    const onClear = vi.fn();
+    const clearLabel = 'Clear';
+
+    render(
+      <ComboboxInput
+        {...defaultProps}
+        clearLabel={clearLabel}
+        value="Search value"
+        disabled
+        onClear={onClear}
+      />,
+    );
+    expect(
+      screen.queryByRole('button', { name: clearLabel }),
+    ).not.toBeInTheDocument();
+  });
+
+  it('should not display a clear button when not empty and an onClear callback is provided and input is read only', async () => {
+    const onClear = vi.fn();
+    const clearLabel = 'Clear';
+
+    render(
+      <ComboboxInput
+        {...defaultProps}
+        clearLabel={clearLabel}
+        value="Search value"
+        readOnly
+        onClear={onClear}
+      />,
+    );
+    expect(
+      screen.queryByRole('button', { name: clearLabel }),
+    ).not.toBeInTheDocument();
   });
 
   describe('Labeling', () => {

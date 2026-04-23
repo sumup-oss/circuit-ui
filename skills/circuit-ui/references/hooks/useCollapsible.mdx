@@ -1,0 +1,31 @@
+import { Meta, Status, Story } from '../../../../.storybook/components';
+import * as Stories from './useCollapsible.stories';
+
+<Meta of={Stories} />
+
+# useCollapsible()
+
+<Status variant="stable" />
+
+A hook to build accessible and smoothly animated [collapsible sections](https://inclusive-components.design/collapsible-sections/).
+
+<Story of={Stories.Example} />
+
+```ts
+function useCollapsible({
+  initialOpen?: boolean;
+  duration?: number;
+  id?: string;
+}): {
+  isOpen: boolean;
+  toggleOpen: () => void;
+  getButtonProps: (props?: { onClick?: (event: MouseEvent | KeyboardEvent) => void; }) => ButtonProps;
+  getContentProps: (props?: { style?: Record<string, string>; }) => ContentProps;
+};
+```
+
+## Usage
+
+Collapsible sections are a common interaction pattern on the web. They let users toggle the visibility of content by clicking that content's label.
+
+This hook provides the basic building blocks to build such a component. It returns [prop getters](https://kentcdodds.com/blog/how-to-give-rendering-control-to-users-with-prop-getters) for the content and content label which ensures an accessible and smooth user experience. Refer to [Inclusive Components](https://inclusive-components.design/collapsible-sections/) by Heydon Pickering for detailed instructions on how to build a collapsible section component.

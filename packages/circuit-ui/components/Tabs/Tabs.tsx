@@ -37,9 +37,18 @@ export interface TabsProps extends Omit<TabListProps, 'as'> {
     tab: ReactNode;
     panel: ReactNode;
   }[];
+  /**
+   * A callback for when the selected tab changes.
+   */
+  onTabChange?: (id: string) => void;
 }
 
-export function Tabs({ items, initialSelectedIndex = 0, ...props }: TabsProps) {
+export function Tabs({
+  items,
+  initialSelectedIndex = 0,
+  onTabChange,
+  ...props
+}: TabsProps) {
   const {
     selectedId,
     onTabKeyDown: onKeyDown,
@@ -47,6 +56,7 @@ export function Tabs({ items, initialSelectedIndex = 0, ...props }: TabsProps) {
   } = useTabState(
     items.map(({ id }) => id),
     initialSelectedIndex,
+    onTabChange,
   );
 
   return (

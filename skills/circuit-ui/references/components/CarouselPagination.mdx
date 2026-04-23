@@ -1,0 +1,25 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './CarouselPagination.stories';
+
+<Meta of={Stories} />
+
+# CarouselPagination
+
+<Status variant="stable" />
+
+The carousel pagination component allows users to navigate content that is divided into multiple slides or pages.
+
+<Story of={Stories.Base} />
+<Props />
+
+## Usage
+
+Consider adjusting the layout or using a different component if the number of slides/pages exceeds five.
+
+For inline use cases, create an illusion of continuity through cropped images or text, so users quickly understand that they can get more content by moving beyond the screen edge.
+
+Do not place the carousel pagination on busy, dynamic backgrounds (i.e. on images, illustrations), in order to ensure optimal contrast and discoverability.
+
+Ensure that content outside the viewport is searchable and becomes visible when focused. Consider lazy-loading content that is initially hidden to optimize performance.
+
+<Story of={Stories.Carousel} />

@@ -84,7 +84,7 @@ export const Option = ({
       aria-selected={selected}
       onClick={() => onOptionClick({ label, value, image, description })}
     >
-      {image && (
+      {(image || isNew) && (
         <div className={classes.media}>
           {Icon && (
             <div
@@ -109,11 +109,16 @@ export const Option = ({
           (image || Icon) && classes['has-media'],
         )}
       >
-        <Compact id={labelId} size="s" weight="semibold">
+        <Compact
+          id={labelId}
+          size="s"
+          weight="semibold"
+          className={classes.label}
+        >
           {label}
         </Compact>
         {description && (
-          <Compact size="s" color="subtle">
+          <Compact size="s" color="subtle" className={classes.description}>
             {description}
           </Compact>
         )}

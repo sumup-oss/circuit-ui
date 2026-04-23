@@ -15,7 +15,7 @@
 
 'use client';
 
-import { type HTMLAttributes, useMemo } from 'react';
+import { type HTMLAttributes, useMemo, useRef } from 'react';
 import { Plus } from '@sumup-oss/icons';
 
 import { type AutocompleteInputOption, Option } from '../Option/Option.js';
@@ -100,6 +100,7 @@ export const Options = ({
   'aria-setsize': ariaSetSize,
   ...rest
 }: OptionsProps) => {
+  const optionsHaveMedia = useRef<boolean | null>(null);
   const optionValues: string[] = useMemo(
     () =>
       options
@@ -112,7 +113,9 @@ export const Options = ({
    we assume that all options have the same details, so we only check the first item */
 
   const firstOption = isGroup(options[0]) ? options[0].options[0] : options[0];
-  const optionsHaveMedia = firstOption?.image !== undefined;
+  if (typeof optionsHaveMedia.current !== 'boolean') {
+    optionsHaveMedia.current = firstOption?.image !== undefined;
+  }
 
   const showsNewOption =
     allowNewItems &&
@@ -205,7 +208,7 @@ export const Options = ({
           <Option
             value={searchText}
             label={searchText}
-            image={optionsHaveMedia ? Plus : undefined}
+            image={optionsHaveMedia.current ? Plus : undefined}
             isNew
             onOptionClick={onOptionClick}
             selected={isOptionSelected(searchText, value)}

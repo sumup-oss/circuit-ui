@@ -39,6 +39,12 @@ updates:
         patterns:
           - "next"
           - "@next/*"
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
       stylelint:
         patterns:
           - stylelint*

@@ -20,6 +20,7 @@ import {
   useId,
   useMemo,
   useRef,
+  useState,
   type ChangeEvent,
   type ClipboardEvent,
   type ComponentType,
@@ -234,6 +235,12 @@ export const PhoneNumberInput = forwardRef<
     const countryCodeRef = useRef<HTMLSelectElement | HTMLInputElement>(null);
     const subscriberNumberRef = useRef<HTMLInputElement>(null);
 
+    // This state is used to trigger a re-render when selecting a different
+    // country with the same country code as the current one (e.g. Canada → USA).
+    // When the country codes match, the `value` prop doesn't change
+    // (which would normally cause a re-render).
+    const [, setVersion] = useState(1);
+
     const validationHintId = useId();
 
     const descriptionIds = idx(
@@ -268,6 +275,7 @@ export const PhoneNumberInput = forwardRef<
       );
 
       changeInputValue(hiddenInputRef.current, phoneNumber);
+      setVersion((prev) => prev + 1);
     };
 
     const handlePaste = (event: ClipboardEvent) => {

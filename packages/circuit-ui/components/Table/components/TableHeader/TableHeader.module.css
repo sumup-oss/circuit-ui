@@ -22,26 +22,6 @@
   background-color: var(--cui-bg-normal-hovered);
 }
 
-@media (max-width: 767px) {
-  .fixed {
-    position: sticky;
-    left: 0;
-    z-index: var(--cui-z-index-absolute);
-    width: 145px;
-    overflow-wrap: break-word;
-  }
-
-  .fixed::after {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    width: 6px;
-    height: 100%;
-    content: "";
-    background: linear-gradient(90deg, rgb(0 0 0 / 12%), rgb(255 255 255 / 0%));
-  }
-}
-
 .condensed {
   padding: var(--cui-spacings-kilo) var(--cui-spacings-mega)
     var(--cui-spacings-kilo) var(--cui-spacings-giga);
@@ -113,4 +93,24 @@
 .base[aria-sort="ascending"] > button,
 .base[aria-sort="descending"] > button {
   opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .base.fixed {
+    position: sticky;
+    left: 0;
+    z-index: var(--cui-z-index-absolute);
+    width: 145px;
+    overflow-wrap: break-word;
+  }
+
+  .base.fixed::after {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 6px;
+    height: 100%;
+    content: "";
+    background: linear-gradient(90deg, rgb(0 0 0 / 12%), rgb(255 255 255 / 0%));
+  }
 }

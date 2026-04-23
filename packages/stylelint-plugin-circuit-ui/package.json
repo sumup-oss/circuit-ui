@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@sumup-oss/design-tokens": "^9.1.0-next.0",
-    "@tsconfig/node20": "^20.1.8",
+    "@tsconfig/node20": "^20.1.9",
     "jest-preset-stylelint": "^8.0.0",
     "typescript": "^5.9.3",
     "vitest": "^4.0.6"

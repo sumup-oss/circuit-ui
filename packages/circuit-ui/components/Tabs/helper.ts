@@ -10,8 +10,13 @@ import {
  *
  * @param {string[]} items - An array of strings representing the IDs of the tabs.
  * @param {number} [initialSelectedId] - An optional index of the initially selected tab. Defaults to 0 if not provided.
+ * @param onTabChange
  */
-export const useTabState = (items: string[], initialSelectedId?: number) => {
+export const useTabState = (
+  items: string[],
+  initialSelectedId?: number,
+  onTabChange?: (id: string) => void,
+) => {
   const [selectedId, setSelectedId] = useState(items[initialSelectedId ?? 0]);
 
   const onTabKeyDown = (event: KeyboardEvent) => {
@@ -22,6 +27,7 @@ export const useTabState = (items: string[], initialSelectedId?: number) => {
       if (previousIndex >= 0) {
         const previousId = items[previousIndex];
         setSelectedId(previousId);
+        onTabChange?.(previousId);
         document.getElementById(`tab-${previousId}`)?.focus();
       }
     } else if (isArrowRight(event)) {
@@ -29,6 +35,7 @@ export const useTabState = (items: string[], initialSelectedId?: number) => {
       if (nextIndex <= items.length - 1) {
         const nextId = items[nextIndex];
         setSelectedId(nextId);
+        onTabChange?.(nextId);
 
         document.getElementById(`tab-${nextId}`)?.focus();
       }
@@ -39,6 +46,7 @@ export const useTabState = (items: string[], initialSelectedId?: number) => {
 
   const onTabClick = (id: string) => {
     setSelectedId(id);
+    onTabChange?.(id);
   };
 
   return {

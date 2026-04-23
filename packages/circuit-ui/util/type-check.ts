@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import type { ComponentType } from 'react';
+
 // biome-ignore lint/complexity/noBannedTypes: There is no better type for this type guard
 export function isFunction(value?: unknown): value is Function {
   return typeof value === 'function';
@@ -42,4 +44,24 @@ export function isNil(value?: unknown): value is null | undefined {
 
 export function isHTMLElement(element: unknown): element is HTMLElement {
   return element instanceof HTMLElement;
+}
+
+export function isReactComponent(
+  component: unknown,
+  // biome-ignore lint/complexity/noBannedTypes: There is no better type for this type guard
+): component is Function | ComponentType {
+  if (isFunction(component)) {
+    return true;
+  }
+
+  if (
+    isObject(component) &&
+    '$$typeof' in component &&
+    (component.$$typeof === Symbol.for('react.forward_ref') ||
+      component.$$typeof === Symbol.for('react.memo'))
+  ) {
+    return true;
+  }
+
+  return false;
 }

@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import type { ChangeEvent, FocusEvent } from 'react';
 import { action } from 'storybook/actions';
 
 import { Stack } from '../../../../.storybook/components/index.js';
@@ -52,10 +51,8 @@ Base.args = {
   ],
   // Storybook displays the default mocked function props poorly,
   // so we override them for the default story.
-  onChange: (event: ChangeEvent<HTMLInputElement>) =>
-    action('CheckboxGroup')(event),
-  onBlur: (event: FocusEvent<HTMLInputElement>) =>
-    action('CheckboxGroup')(event),
+  onChange: action('onChange'),
+  onBlur: action('onBlur'),
 };
 
 export const Validations = (args: RadioButtonGroupProps) => (

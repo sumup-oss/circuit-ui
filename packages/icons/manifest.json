@@ -473,6 +473,11 @@
       "size": "32"
     },
     {
+      "name": "bancomat",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
       "name": "bancontact",
       "category": "Card scheme",
       "size": "32"
@@ -614,6 +619,11 @@
     },
     {
       "name": "sumup_pay",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
+      "name": "sumup_scheme",
       "category": "Card scheme",
       "size": "32"
     },
@@ -3720,6 +3730,11 @@
     },
     {
       "name": "ticket",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
+      "name": "twint",
       "category": "Payment method",
       "size": "24"
     },

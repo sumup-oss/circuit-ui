@@ -232,9 +232,23 @@ describe('AutocompleteInput', () => {
     it('should open list box on arrow down key press', async () => {
       render(<AutocompleteInput {...props} />);
 
-      await userEvent.click(screen.getByLabelText(props.label));
+      await userEvent.keyboard('{Tab}');
+
+      expect(screen.getByRole('combobox', { name: props.label })).toHaveFocus();
 
       await userEvent.keyboard('{ArrowDown}');
+
+      expect(screen.getByRole('listbox')).toBeVisible();
+    });
+
+    it('should open list box on arrow up key press', async () => {
+      render(<AutocompleteInput {...props} />);
+
+      await userEvent.keyboard('{Tab}');
+
+      expect(screen.getByRole('combobox', { name: props.label })).toHaveFocus();
+
+      await userEvent.keyboard('{ArrowUp}');
 
       expect(screen.getByRole('listbox')).toBeVisible();
     });
@@ -265,7 +279,7 @@ describe('AutocompleteInput', () => {
     });
   });
 
-  describe('closing the list box', () => {
+  describe('Closing the list box', () => {
     it('should close the list box when the readOnly prop becomes truthy', async () => {
       const { rerender } = render(<AutocompleteInput {...props} />);
       const input = screen.getByRole('combobox', { name: props.label });
@@ -304,9 +318,22 @@ describe('AutocompleteInput', () => {
       await userEvent.click(document.body);
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
     });
+
+    it('should close the list box when Enter key is pressed', async () => {
+      render(<AutocompleteInput {...props} />);
+
+      await userEvent.click(screen.getByLabelText(props.label));
+
+      await userEvent.keyboard('{ArrowDown}');
+
+      expect(screen.getByRole('listbox')).toBeVisible();
+
+      await userEvent.keyboard('{Enter}');
+      expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+    });
   });
 
-  describe('multi-selection', () => {
+  describe('Multi-selection', () => {
     it('should throw CircuitError passed a single value in multi-selection mode', () => {
       // Silence the console.error output and switch to development mode to throw the error
       vi.spyOn(console, 'error').mockImplementation(() => undefined);
@@ -358,6 +385,59 @@ describe('AutocompleteInput', () => {
       await userEvent.keyboard('{Backspace}');
 
       expect(props.onChange).toHaveBeenCalledExactlyOnceWith(options[1]);
+    });
+  });
+
+  describe('Free form', () => {
+    it('should display new suggestion', async () => {
+      render(<AutocompleteInput {...props} allowNewItems />);
+      const input = screen.getByRole('combobox', { name: props.label });
+      await userEvent.type(input, 'AZERTY');
+      act(() => {
+        vi.runAllTimers();
+      });
+      expect(props.onSearch).toHaveBeenCalledExactlyOnceWith('AZERTY');
+
+      expect(screen.getByRole('listbox')).toBeVisible();
+      expect(screen.getByRole('option', { name: 'AZERTY' })).toBeVisible();
+    });
+
+    it("should allow setting new suggestion's value on Enter press", async () => {
+      render(<AutocompleteInput {...props} allowNewItems />);
+      const input = screen.getByRole('combobox', { name: props.label });
+      await userEvent.type(input, 'AZERTY');
+      act(() => {
+        vi.runAllTimers();
+      });
+      expect(props.onSearch).toHaveBeenCalledExactlyOnceWith('AZERTY');
+
+      expect(screen.getByRole('listbox')).toBeVisible();
+      await userEvent.keyboard('{Enter}');
+
+      expect(props.onChange).toHaveBeenCalledWith({
+        label: 'AZERTY',
+        value: 'AZERTY',
+      });
+    });
+
+    it("should allow setting new suggestion's value when clicked", async () => {
+      render(<AutocompleteInput {...props} allowNewItems />);
+      const input = screen.getByRole('combobox', { name: props.label });
+      await userEvent.type(input, 'AZERTY');
+      act(() => {
+        vi.runAllTimers();
+      });
+      expect(props.onSearch).toHaveBeenCalledExactlyOnceWith('AZERTY');
+
+      expect(screen.getByRole('listbox')).toBeVisible();
+      await userEvent.click(screen.getByRole('option', { name: 'AZERTY' }));
+
+      expect(props.onChange).toHaveBeenCalledWith(
+        expect.objectContaining({
+          label: 'AZERTY',
+          value: 'AZERTY',
+        }),
+      );
     });
   });
 

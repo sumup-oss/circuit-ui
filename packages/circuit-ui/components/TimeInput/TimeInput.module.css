@@ -1,0 +1,4 @@
+.base {
+  height: calc(var(--cui-body-m-line-height) + 2 * var(--cui-spacings-kilo));
+  color: var(--cui-fg-normal);
+}

@@ -31,6 +31,7 @@ describe('SearchInput', () => {
         {...baseProps}
         value="Search value"
         onClear={mockCallback}
+        clearLabel={'Clear'}
         /**
          * We set onChange to silence a warning about adding a `value` without
          * `onChange` or `readOnly`.
@@ -38,7 +39,51 @@ describe('SearchInput', () => {
         onChange={mockCallback}
       />,
     );
-    expect(screen.getByRole('button')).toBeVisible();
+    expect(screen.getByRole('button', { name: 'Clear' })).toBeVisible();
+  });
+
+  it('should not display a clear button when not empty and an onClear callback is provided and input is disabled', () => {
+    const mockCallback = vi.fn();
+
+    render(
+      <SearchInput
+        {...baseProps}
+        value="Search value"
+        onClear={mockCallback}
+        clearLabel={'Clear'}
+        /**
+         * We set onChange to silence a warning about adding a `value` without
+         * `onChange` or `readOnly`.
+         */
+        onChange={mockCallback}
+        disabled
+      />,
+    );
+    expect(
+      screen.queryByRole('button', { name: 'Clear' }),
+    ).not.toBeInTheDocument();
+  });
+
+  it('should not display a clear button when not empty and an onClear callback is provided and input is read only', () => {
+    const mockCallback = vi.fn();
+
+    render(
+      <SearchInput
+        {...baseProps}
+        value="Search value"
+        onClear={mockCallback}
+        clearLabel={'Clear'}
+        /**
+         * We set onChange to silence a warning about adding a `value` without
+         * `onChange` or `readOnly`.
+         */
+        onChange={mockCallback}
+        readOnly
+      />,
+    );
+    expect(
+      screen.queryByRole('button', { name: 'Clear' }),
+    ).not.toBeInTheDocument();
   });
 
   it('should forward a ref', () => {

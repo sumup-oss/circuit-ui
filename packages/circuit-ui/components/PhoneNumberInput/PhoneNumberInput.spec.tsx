@@ -229,6 +229,32 @@ describe('PhoneNumberInput', () => {
     expect(select).toHaveValue('US');
   });
 
+  it('should switch between countries with the same country code in a controlled input', async () => {
+    const onChange = vi.fn();
+
+    function ControlledPhoneNumberInput(props: PhoneNumberInputProps) {
+      const [phoneNumber, setPhoneNumber] = useState('');
+
+      const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        onChange(event);
+        setPhoneNumber(event.target.value);
+      };
+
+      return (
+        <PhoneNumberInput
+          {...props}
+          value={phoneNumber}
+          onChange={handleChange}
+        />
+      );
+    }
+    render(<ControlledPhoneNumberInput {...defaultProps} />);
+    const select = screen.getByRole('combobox');
+    await userEvent.selectOptions(select, 'US');
+    await userEvent.selectOptions(select, 'CA');
+    expect(select).toHaveValue('CA');
+  });
+
   it('should call onChange when there is a change', async () => {
     const onChange = vi.fn();
     const props = {

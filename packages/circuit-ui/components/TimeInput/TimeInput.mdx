@@ -1,0 +1,59 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './TimeInput.stories';
+
+<Meta of={Stories} />
+
+# TimeInput
+
+<Status variant="experimental" />
+
+The TimeInput component allows users to type or select a specific time. The input value is always a string in the `HH:mm` or `HH:mm:ss` format.
+
+<Story of={Stories.Base} />
+<Props />
+
+## Usage
+
+Use the component whenever asking for a specific time such as a meeting time, shift start, or opening hours. The time is in the `HH:mm` format with leading zeros and using a 24-hour clock regardless of the locale. Use the [`steps`](#steps) prop to collect a time including seconds (`HH:mm:ss`).
+
+For selecting a time range, we recommend using a combination of two input fields (one for the start and the other for the end time).
+
+## Validations
+
+Use the `validationHint` prop to communicate the expected response to users. The TimeInput component ensures that the entered time is a valid time, but does not validate whether it falls within the minimum or maximum time range.
+
+### Steps
+
+Use the `step` prop to restrict the times a user is allowed to enter in intervals relative to the minimum time. The `step` value is in seconds. Using a value that is not divisible by `60` enables the user to add seconds to the time and changes the value to the `HH:mm:ss` format.
+
+### Invalid
+
+The user needs to change the value to proceed. This could be because they entered a time outside of the allowed range.
+
+### Warning
+
+The user is recommended to change the value, but can proceed without doing so. Use it when the provided value could have unintended side-effects, such as a time in the middle of the night.
+
+### Valid
+
+The user is reassured that the value is valid. Use sparingly.
+
+<Story of={Stories.Validations} />
+
+## Optional
+
+Use the `optionalLabel` prop to indicate that the field is optional. This can help reduce the cognitive load for the user by clearly indicating which fields are required and which are not. This label is only displayed when the `required` prop is falsy.
+
+<Story of={Stories.Optional} />
+
+## Readonly
+
+Use the `readOnly` prop to indicate that the field is not currently editable. This can be useful in situations where the user needs to view but not edit the time, such as in a summary or review screen.
+
+<Story of={Stories.Readonly} />
+
+## Internationalization
+
+Pass one or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) locale identifiers such as `'de-DE'` or `['GB', 'en-US']` to the `locale` prop to display the time in the local format. When passing an array, the first supported locale is used. Defaults to `navigator.language` in supported environments.
+
+<Story of={Stories.Locales} />

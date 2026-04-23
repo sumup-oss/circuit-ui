@@ -1,0 +1,46 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './Card.stories';
+
+<Meta of={Stories} />
+
+# Card
+
+<Status variant="stable" />
+
+Cards are one of the most important elements that give structure to the content we are showing to our users. They group related information and make our product easy to scan and understand.
+
+<Story of={Stories.Base} />
+
+<Props />
+
+## When to use it
+
+You should use cards whenever you need to present related information in an easy and scannable way for our user.
+
+## Usage guidelines
+
+- **Do** always write a heading for your card that expresses clearly what to expect from it
+- **Do** order the information on the card according to priority for our users
+- **Do** place primary buttons on the bottom of the card, especially the main call to action for the next step
+- **Do not** place more than one primary button on a card
+- **Do not** fill the card with a lot of content. If the card requires too much scrolling, consider breaking it into multiple sections with different cards
+
+## Component variations
+
+### Card Spacings
+
+Cards come in two spacing variations, `mega` and `giga`. `giga` is the default and should be used for most cases.
+
+<Story of={Stories.Spacings} />
+
+### CardHeader
+
+Cards can also include several components as children, such as a configurable CardHeader.
+
+<Story of={Stories.WithHeader} />
+
+### CardFooter
+
+Besides the CardHeader mentioned above, the card can make use of other components such as the CardFooter with different alignments.
+
+<Story of={Stories.WithFooter} />

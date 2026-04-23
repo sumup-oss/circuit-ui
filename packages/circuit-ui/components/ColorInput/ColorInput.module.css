@@ -75,9 +75,10 @@
   color: var(--cui-fg-subtle);
 }
 
-.input {
+.wrapper .input {
   position: relative;
   padding-left: var(--cui-spacings-giga);
+  overflow: hidden;
   font-family: var(--cui-font-stack-mono);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -86,11 +87,11 @@
   transform: translateX(-1px);
 }
 
-.input:hover,
+.wrapper .input:hover,
 .input:focus {
   z-index: var(--cui-z-index-absolute);
 }
 
-.input::placeholder {
+.wrapper .input::placeholder {
   font-family: var(--cui-font-stack-mono);
 }

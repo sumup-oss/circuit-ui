@@ -50,12 +50,12 @@ jobs:
         run: npm run test:ci && cd packages/eslint-plugin-circuit-ui && npm run test:ci
 
       - name: Upload results to Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Create release PR or publish to npm
-        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next' || github.ref == 'refs/heads/canary') && matrix.node == 24
+        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next' || github.ref == 'refs/heads/canary' || startsWith(github.ref, 'refs/heads/release')) && matrix.node == 24
         uses: changesets/action@v1
         with:
           publish: npm run release
