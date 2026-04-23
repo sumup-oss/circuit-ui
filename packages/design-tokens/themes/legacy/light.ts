@@ -103,7 +103,7 @@ export const typography = {
   body: {
     one: {
       fontSize: '1.0625rem',
-      lineHeight: '1.5rem',
+      lineHeight: '1.375rem',
     },
     two: {
       fontSize: '0.9375rem',
