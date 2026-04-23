@@ -34,12 +34,12 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "@types/node": "^25.3.0",
-    "browserslist": "^4.28.1",
-    "lightningcss": "^1.31.1",
+    "@types/node": "^25.6.0",
+    "browserslist": "^4.28.2",
+    "lightningcss": "^1.32.0",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.6"
+    "vitest": "^4.1.5"
   },
   "engines": {
     "node": ">=22"
