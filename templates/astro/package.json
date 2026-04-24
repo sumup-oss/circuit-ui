@@ -1,7 +1,7 @@
 {
   "name": "@sumup-oss/astro-template-circuit-ui",
   "type": "module",
-  "version": "4.0.2",
+  "version": "5.0.0",
   "private": true,
   "sideEffects": false,
   "scripts": {
