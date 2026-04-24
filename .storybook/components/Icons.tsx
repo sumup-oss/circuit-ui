@@ -105,6 +105,7 @@ export function Icons() {
     { label: 'Warning', value: 'var(--cui-fg-warning)' },
     { label: 'Danger', value: 'var(--cui-fg-danger)' },
     { label: 'On Strong', value: 'var(--cui-fg-on-strong)' },
+    { label: 'Brand', value: 'var(--cui-fg-brand)' },
   ];
 
   const scaleOptions = [
