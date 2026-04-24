@@ -3430,8 +3430,7 @@
     {
       "name": "contractor",
       "category": "Miscellaneous",
-      "size": "24",
-      "deprecation": "Use the `Contractor` icon instead."
+      "size": "24"
     },
     {
       "name": "arrow_down",
