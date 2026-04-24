@@ -15,7 +15,7 @@
 
 'use client';
 
-import { ArrowRight } from '@sumup-oss/icons';
+import { ExternalLink } from '@sumup-oss/icons';
 import { useId, type ComponentType } from 'react';
 
 import type { AsPropType } from '../../../../types/prop-types.js';
@@ -116,10 +116,10 @@ export function PrimaryLink({
           </Body>
         </Skeleton>
         {isExternalLink && (
-          <ArrowRight
-            size="16"
+          <ExternalLink
+            size="24"
             aria-hidden="true"
-            className={clsx(classes.suffix, classes['external-icon'])}
+            className={classes.suffix}
           />
         )}
         {suffix}

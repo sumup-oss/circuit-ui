@@ -42,7 +42,6 @@
 }
 
 .label svg {
-  padding: 4px;
   line-height: 0;
   color: var(--cui-fg-on-strong);
   opacity: 0;

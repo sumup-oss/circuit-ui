@@ -24,6 +24,6 @@ export const IndeterminateIcon = (
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <rect width="10" height="2" x="3" y="7" rx="1" />
+    <rect width="10" height="1.5" x="3" y="7.25" rx="0.75" />
   </svg>
 );

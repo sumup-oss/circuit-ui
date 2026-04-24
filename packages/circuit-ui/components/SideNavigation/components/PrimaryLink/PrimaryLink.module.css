@@ -150,12 +150,8 @@
 
 .suffix {
   flex-shrink: 0;
-  width: var(--cui-icon-sizes-kilo);
-  height: var(--cui-icon-sizes-kilo);
+  width: var(--cui-icon-sizes-mega);
+  height: var(--cui-icon-sizes-mega);
   margin-left: auto;
   transition: transform var(--cui-transitions-default);
-}
-
-.external-icon {
-  transform: rotate(-45deg);
 }

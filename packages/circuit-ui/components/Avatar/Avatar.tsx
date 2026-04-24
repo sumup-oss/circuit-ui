@@ -64,8 +64,8 @@ export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
 }
 
 const placeholders = {
-  object: <ImageIcon />,
-  identity: <Profile />,
+  object: <ImageIcon size="24" />,
+  identity: <Profile size="24" />,
 };
 
 const legacySizeMap: Record<string, 's' | 'm'> = {
