@@ -1,5 +1,7 @@
 # @sumup-oss/stylelint-plugin-circuit-ui
 
+## 4.2.0
+
 ## 4.1.0
 
 ### Minor Changes

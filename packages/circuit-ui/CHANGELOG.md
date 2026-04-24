@@ -1,5 +1,39 @@
 # @sumup-oss/circuit-ui
 
+## 11.0.0
+
+### Major Changes
+
+- [#3576](https://github.com/sumup-oss/circuit-ui/pull/3576) [`ac6072a`](https://github.com/sumup-oss/circuit-ui/commit/ac6072adefdd076b20c15595f92814282cd184b8) Thanks [@connor-baer](https://github.com/connor-baer)! - Raised the minimum Node.js version to 22+.
+
+### Minor Changes
+
+- [#3565](https://github.com/sumup-oss/circuit-ui/pull/3565) [`2334da2`](https://github.com/sumup-oss/circuit-ui/commit/2334da259027dd3d917d4232dfd43c47195edf1f) Thanks [@connor-baer](https://github.com/connor-baer)! - Bring back the `weight` prop for the Display component. The `regular` and `semibold` values remain deprecated and a new `black` weight has been added.
+
+- [#3440](https://github.com/sumup-oss/circuit-ui/pull/3440) [`4acb03f`](https://github.com/sumup-oss/circuit-ui/commit/4acb03f95fe98b4a5b1aec538661bcbd1bfcf70e) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the InlineElements component. Use [CSS Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) or [CSS Grid](https://css-tricks.com/css-grid-layout-guide/) instead.
+
+- [#3424](https://github.com/sumup-oss/circuit-ui/pull/3424) [`472a334`](https://github.com/sumup-oss/circuit-ui/commit/472a334502261747b7ab8afe0d6f057d9b51b10c) Thanks [@connor-baer](https://github.com/connor-baer)! - Increased the border radius of all input components (Input and its variations, Textarea, Select, CheckboxGroup, RadioButtonGroup, and Selector).
+
+- [#3441](https://github.com/sumup-oss/circuit-ui/pull/3441) [`aca875d`](https://github.com/sumup-oss/circuit-ui/commit/aca875da2e13261199a1daa600fc7b4bc9498d15) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the design of the Badge component to use a light background color.
+
+- [#3424](https://github.com/sumup-oss/circuit-ui/pull/3424) [`472a334`](https://github.com/sumup-oss/circuit-ui/commit/472a334502261747b7ab8afe0d6f057d9b51b10c) Thanks [@connor-baer](https://github.com/connor-baer)! - Updated the design of the NotificationInline and NotificationToast components, replacing the colored border with a lightly colored background.
+
+- [#3440](https://github.com/sumup-oss/circuit-ui/pull/3440) [`4acb03f`](https://github.com/sumup-oss/circuit-ui/commit/4acb03f95fe98b4a5b1aec538661bcbd1bfcf70e) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the style mixins. Use the `utilClasses` instead. We strongly recommend migrating from Emotion.js to CSS Modules.
+
+- [#3425](https://github.com/sumup-oss/circuit-ui/pull/3425) [`95858c3`](https://github.com/sumup-oss/circuit-ui/commit/95858c3ed55b420c90c1a7c1d70b5c7bd5a3dc0d) Thanks [@connor-baer](https://github.com/connor-baer)! - Replaced Inter with SumUp Black and SumUp Narrow as the default font families.
+
+- [#3467](https://github.com/sumup-oss/circuit-ui/pull/3467) [`a566187`](https://github.com/sumup-oss/circuit-ui/commit/a56618796dbe4ee6c2e33a6a616921d9810454e6) Thanks [@connor-baer](https://github.com/connor-baer)! - Added XL sizes to the Display and Numeral components.
+
+- [#3424](https://github.com/sumup-oss/circuit-ui/pull/3424) [`472a334`](https://github.com/sumup-oss/circuit-ui/commit/472a334502261747b7ab8afe0d6f057d9b51b10c) Thanks [@connor-baer](https://github.com/connor-baer)! - Increased the border radius of medium-sized Buttons from byte (8px) to kilo (12px).
+
+- [#3440](https://github.com/sumup-oss/circuit-ui/pull/3440) [`4acb03f`](https://github.com/sumup-oss/circuit-ui/commit/4acb03f95fe98b4a5b1aec538661bcbd1bfcf70e) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the Body and Numeral components' italic decoration value. Since the brand refresh, italic text is no longer supported and the value will be removed in the next major release.
+
+- [#3440](https://github.com/sumup-oss/circuit-ui/pull/3440) [`4acb03f`](https://github.com/sumup-oss/circuit-ui/commit/4acb03f95fe98b4a5b1aec538661bcbd1bfcf70e) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the Display component's `regular` and `semibold` weights and added a new `black` weight. By default, sizes `s`, `m`, and `l` render as `bold` and size `xl` renders as `black`.
+
+### Patch Changes
+
+- [#3467](https://github.com/sumup-oss/circuit-ui/pull/3467) [`a566187`](https://github.com/sumup-oss/circuit-ui/commit/a56618796dbe4ee6c2e33a6a616921d9810454e6) Thanks [@connor-baer](https://github.com/connor-baer)! - Tweaked the font sizes, weights, and line heights of the typography components.
+
 ## 10.16.1
 
 ### Patch Changes
