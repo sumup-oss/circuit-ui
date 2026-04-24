@@ -93,7 +93,7 @@ button.prefix,
   display: block;
   width: var(--cui-spacings-exa);
   height: var(--cui-spacings-exa);
-  padding: var(--cui-spacings-mega);
+  padding: var(--cui-spacings-kilo);
   color: var(--cui-fg-subtle);
   pointer-events: none;
 }

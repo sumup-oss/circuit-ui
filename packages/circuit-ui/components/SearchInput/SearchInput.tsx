@@ -84,7 +84,7 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
         type="search"
         renderPrefix={(prefixProps) => (
           <Search
-            size="16"
+            size="24"
             className={prefixProps.className}
             aria-hidden="true"
           />

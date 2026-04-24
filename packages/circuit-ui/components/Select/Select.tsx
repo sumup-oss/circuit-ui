@@ -196,7 +196,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                 </option>
               ))}
           </select>
-          <ChevronDown className={classes.icon} size="16" aria-hidden="true" />
+          <ChevronDown className={classes.icon} size="24" aria-hidden="true" />
         </div>
         <FieldValidationHint
           id={validationHintId}

@@ -111,7 +111,7 @@ function Group({
           <ChevronDown
             {...suffixProps}
             className={clsx(className, classes.chevron)}
-            size="16"
+            size="24"
           />
         )}
       />
