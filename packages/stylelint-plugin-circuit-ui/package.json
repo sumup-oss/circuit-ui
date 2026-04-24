@@ -1,6 +1,6 @@
 {
   "name": "@sumup-oss/stylelint-plugin-circuit-ui",
-  "version": "4.2.0",
+  "version": "4.1.0",
   "description": "Stylelint rules to lint Circuit UI.",
   "exports": "./dist/index.js",
   "type": "module",
@@ -40,7 +40,7 @@
     "vitest": "^4.1.5"
   },
   "peerDependencies": {
-    "@sumup-oss/design-tokens": ">=9.1.0-next.0",
+    "@sumup-oss/design-tokens": ">=9.0.0",
     "stylelint": "^16.16.0"
   }
 }
