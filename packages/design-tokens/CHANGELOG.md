@@ -1,5 +1,21 @@
 # @sumup-oss/design-tokens
 
+## 10.0.0-next.3
+
+### Major Changes
+
+- [#3576](https://github.com/sumup-oss/circuit-ui/pull/3576) [`ac6072a`](https://github.com/sumup-oss/circuit-ui/commit/ac6072adefdd076b20c15595f92814282cd184b8) Thanks [@connor-baer](https://github.com/connor-baer)! - Raised the minimum Node.js version to 22+.
+
+### Minor Changes
+
+- [#3570](https://github.com/sumup-oss/circuit-ui/pull/3570) [`1635a19`](https://github.com/sumup-oss/circuit-ui/commit/1635a1920219036ee3f2ed781518c8f952364fa9) Thanks [@connor-baer](https://github.com/connor-baer)! - Tweaked the color tokens of the light, dark, and consumer themes.
+
+- [#3571](https://github.com/sumup-oss/circuit-ui/pull/3571) [`94a779a`](https://github.com/sumup-oss/circuit-ui/commit/94a779acddc04eb01b6e1d0e9c8758673cfa407b) Thanks [@connor-baer](https://github.com/connor-baer)! - Added fallback fonts to minimize the layout shift when loading the custom SumUp Narrow and SumUp Black fonts.
+
+### Patch Changes
+
+- [#3575](https://github.com/sumup-oss/circuit-ui/pull/3575) [`bd4ffaf`](https://github.com/sumup-oss/circuit-ui/commit/bd4ffaf1ffaabd7d156d1de11b27d14e07df2281) Thanks [@connor-baer](https://github.com/connor-baer)! - Reverted the `--cui-body-m-line-height` token value to 22px.
+
 ## 9.0.0
 
 ### Major Changes

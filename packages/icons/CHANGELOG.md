@@ -1,5 +1,36 @@
 # @sumup-oss/icons
 
+## 6.0.0-next.0
+
+### Major Changes
+
+- [#3576](https://github.com/sumup-oss/circuit-ui/pull/3576) [`ac6072a`](https://github.com/sumup-oss/circuit-ui/commit/ac6072adefdd076b20c15595f92814282cd184b8) Thanks [@connor-baer](https://github.com/connor-baer)! - Raised the minimum Node.js version to 22+.
+
+- [#3558](https://github.com/sumup-oss/circuit-ui/pull/3558) [`b95b954`](https://github.com/sumup-oss/circuit-ui/commit/b95b9546e36af0fce46929661d517143d9a566a7) Thanks [@sirineJ](https://github.com/sirineJ)! - Migrate the entire icon library from filled to outlined variants, updating all existing icons. This introduces a global visual change and may impact layouts or styling where icons are used.
+
+### Minor Changes
+
+- [#3558](https://github.com/sumup-oss/circuit-ui/pull/3558) [`b95b954`](https://github.com/sumup-oss/circuit-ui/commit/b95b9546e36af0fce46929661d517143d9a566a7) Thanks [@sirineJ](https://github.com/sirineJ)! - Renamed and deprecated a number of icons to align their names with Figma.
+
+  | Deprecated      | Replacement   |
+  | --------------- | ------------- |
+  | ColorCorrection | ColorPicker   |
+  | Contractors     | Contractor    |
+  | Copy            | CopyPaste     |
+  | Customize       | Customise     |
+  | Favorite        | Favourite     |
+  | GiftCard        | GiftCards     |
+  | MobilePhone     | Mobile        |
+  | NoSim           | NoSimcard     |
+  | NotifyCircle    | Notify        |
+  | PaymentLink     | PaymentLinks  |
+  | PrintFailed     | PrinterFailed |
+  | Unfavorite      | Unfavourite   |
+
+- [#3558](https://github.com/sumup-oss/circuit-ui/pull/3558) [`b95b954`](https://github.com/sumup-oss/circuit-ui/commit/b95b9546e36af0fce46929661d517143d9a566a7) Thanks [@sirineJ](https://github.com/sirineJ)! - Added new icons: Customers, Investments, Kiosk and Loyalty in size 24.
+
+- [#3567](https://github.com/sumup-oss/circuit-ui/pull/3567) [`3093ae0`](https://github.com/sumup-oss/circuit-ui/commit/3093ae0fb362fbc7f6faacc5a8fe5bf973706f69) Thanks [@connor-baer](https://github.com/connor-baer)! - Switched to using React's new JSX runtime to improve compatibility with React 19.
+
 ## 5.24.1
 
 ### Patch Changes
