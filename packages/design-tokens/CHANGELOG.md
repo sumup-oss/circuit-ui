@@ -1,5 +1,33 @@
 # @sumup-oss/design-tokens
 
+## 10.0.0
+
+### Major Changes
+
+- [#3576](https://github.com/sumup-oss/circuit-ui/pull/3576) [`ac6072a`](https://github.com/sumup-oss/circuit-ui/commit/ac6072adefdd076b20c15595f92814282cd184b8) Thanks [@connor-baer](https://github.com/connor-baer)! - Raised the minimum Node.js version to 22+.
+
+- [#3400](https://github.com/sumup-oss/circuit-ui/pull/3400) [`8af405a`](https://github.com/sumup-oss/circuit-ui/commit/8af405aea55299a033f951eb6feeae3773e22ad3) Thanks [@connor-baer](https://github.com/connor-baer)! - Refreshed the color palette for SumUp's new brand design.
+
+- [#3425](https://github.com/sumup-oss/circuit-ui/pull/3425) [`95858c3`](https://github.com/sumup-oss/circuit-ui/commit/95858c3ed55b420c90c1a7c1d70b5c7bd5a3dc0d) Thanks [@connor-baer](https://github.com/connor-baer)! - Replaced Inter with SumUp Black and SumUp Narrow as the default font families.
+
+- [#3460](https://github.com/sumup-oss/circuit-ui/pull/3460) [`5a05db1`](https://github.com/sumup-oss/circuit-ui/commit/5a05db1c20c8cf47f0c90cfa4cf1439c0cf42c2a) Thanks [@connor-baer](https://github.com/connor-baer)! - Added new themes for consumer-facing applications. Import the `@sumup-oss/design-tokens/consumer.css` theme to apply it globally. Import the `@sumup-oss/design-tokens/consumer-scoped.css` theme to apply it to any elements with the `data-color-scheme="consumer"` selector.
+
+### Minor Changes
+
+- [#3425](https://github.com/sumup-oss/circuit-ui/pull/3425) [`95858c3`](https://github.com/sumup-oss/circuit-ui/commit/95858c3ed55b420c90c1a7c1d70b5c7bd5a3dc0d) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new `--cui-font-family-display` token for headlines and other display text.
+
+- [#3460](https://github.com/sumup-oss/circuit-ui/pull/3460) [`5a05db1`](https://github.com/sumup-oss/circuit-ui/commit/5a05db1c20c8cf47f0c90cfa4cf1439c0cf42c2a) Thanks [@connor-baer](https://github.com/connor-baer)! - Added new neutral color tokens. Similar to the success, warning, and danger semantic colors, neutral should be used to highlight messages or components that have a neutral semantic meaning.
+
+- [#3460](https://github.com/sumup-oss/circuit-ui/pull/3460) [`5a05db1`](https://github.com/sumup-oss/circuit-ui/commit/5a05db1c20c8cf47f0c90cfa4cf1439c0cf42c2a) Thanks [@connor-baer](https://github.com/connor-baer)! - Added new brand color tokens.
+
+- [#3513](https://github.com/sumup-oss/circuit-ui/pull/3513) [`ed58345`](https://github.com/sumup-oss/circuit-ui/commit/ed58345c24e9c6643cd1794faf30d5ce94d1d529) Thanks [@connor-baer](https://github.com/connor-baer)! - Added larger spacing tokens: `--cui-spacings-yotta`, `--cui-spacings-ronna`, and `--cui-spacings-quetta`.
+
+- [#3467](https://github.com/sumup-oss/circuit-ui/pull/3467) [`a566187`](https://github.com/sumup-oss/circuit-ui/commit/a56618796dbe4ee6c2e33a6a616921d9810454e6) Thanks [@connor-baer](https://github.com/connor-baer)! - Added XL sizes to the Display and Numeral components.
+
+- [#3513](https://github.com/sumup-oss/circuit-ui/pull/3513) [`ed58345`](https://github.com/sumup-oss/circuit-ui/commit/ed58345c24e9c6643cd1794faf30d5ce94d1d529) Thanks [@connor-baer](https://github.com/connor-baer)! - Added larger border radius tokens: `--cui-border-radius-giga`, `--cui-border-radius-tera`, and `--cui-border-radius-peta`.
+
+- [#3424](https://github.com/sumup-oss/circuit-ui/pull/3424) [`472a334`](https://github.com/sumup-oss/circuit-ui/commit/472a334502261747b7ab8afe0d6f057d9b51b10c) Thanks [@connor-baer](https://github.com/connor-baer)! - Increased `--cui-border-radius-byte` from 8px to 10px.
+
 ## 9.0.0
 
 ### Major Changes
