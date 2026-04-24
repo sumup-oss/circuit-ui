@@ -41,6 +41,6 @@
   },
   "peerDependencies": {
     "@sumup-oss/design-tokens": ">=9.0.0",
-    "stylelint": "^16.16.0"
+    "stylelint": ">=16.0.0"
   }
 }
