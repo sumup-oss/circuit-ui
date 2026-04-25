@@ -254,8 +254,8 @@ function Icon({
             src={getIconURL(icon.name)}
             aria-labelledby={id}
             alt={icon.name}
-            height={15}
-            width={20}
+            height={scale === 'one-x' ? 15 : 30}
+            width={scale === 'one-x' ? 20 : 40}
           />
         ) : (
           <IconComponent
