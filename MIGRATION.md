@@ -8,6 +8,22 @@ We encourage you to enable and apply the rules incrementally and review the chan
 
 Prior to v5, codemods were implemented using [jscodeshift](#-codemods-jscodeshift).
 
+## From v10.x to v11
+
+Circuit UI v11 refreshes SumUp's brand language with warmer colors, rounder corners, strong authentic typography, and outlined icons. While this is a major visual change, there are no breaking changes to developer-facing APIs to make the migration as smooth as possible.
+
+### Upgrading
+
+Circuit UI now requires at minimum Node.js v22. Note that [Node 20](https://nodejs.org/en/about/previous-releases) reached its end-of-life in April 2026.
+
+To get started, upgrade `@sumup-oss/circuit-ui` and its peer dependencies:
+
+```sh
+npm upgrade @sumup-oss/circuit-ui @sumup-oss/design-tokens @sumup-oss/icons
+```
+
+Review your screens for any visual regressions. Pay special attention to custom components and the proper usage of colors and typography.
+
 ## From v9.x to v10
 
 Circuit UI v10 improves the accessibility of the overlay components using the native [`dialog`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) element's capabilities and API.
@@ -24,15 +40,14 @@ npm upgrade @sumup-oss/circuit-ui @sumup-oss/design-tokens @sumup-oss/icons @sum
 
 ### Overlay components: now using native `dialog`
 
-All overlay components have been refactored to use the native `dialog` element instead of [react-modal](https://www.npmjs.com/package/react-modal). As a result, the modal dialog is now rendered in the DOM's [Top Layer](https://developer.mozilla.org/en-US/docs/Glossary/Top_layer), a special rendering layer that sits above the browser's `document`, previously reserved for browser controlled UI elements like alerts, permission prompts or autofill popups. 
-This is an important concept to consider when building UI, as it changes our perception of how content is rendered. 
-
+All overlay components have been refactored to use the native `dialog` element instead of [react-modal](https://www.npmjs.com/package/react-modal). As a result, the modal dialog is now rendered in the DOM's [Top Layer](https://developer.mozilla.org/en-US/docs/Glossary/Top_layer), a special rendering layer that sits above the browser's `document`, previously reserved for browser controlled UI elements like alerts, permission prompts or autofill popups.
+This is an important concept to consider when building UI, as it changes our perception of how content is rendered.
 
 All children of a modal dialog are rendered in the Top Layer as well. However, [portal-based](https://react.dev/reference/react-dom/createPortal) components might not be part of the Top Layer, since they render their content outside the normal DOM hierarchy. When possible, try refactoring these components with the Popover or Dialog components.
 
 The Modal component can now be rendered inline, without the `useModal` hook, thus allowing the modal content to be placed naturally within the component tree. This improves performance and simplifies state management. The `useModal` hook continues to be supported.
 
-Overlay components that are rendered inline can inherit styles from their parent elements, which may cause slight visual changes. This applies to the ActionMenu (previously Popover) component, so make sure to test your application thoroughly after upgrading. 
+Overlay components that are rendered inline can inherit styles from their parent elements, which may cause slight visual changes. This applies to the ActionMenu (previously Popover) component, so make sure to test your application thoroughly after upgrading.
 
 The `closeButtonLabel` and `backButtonLabel` props are now localized and optional.
 
@@ -48,7 +63,6 @@ The following components have been added:
 
 - Popover
 - Dialog
-
 
 ### Style reset
 
@@ -96,7 +110,7 @@ The [Timestamp](https://circuit.sumup.com/?path=/docs/components-timestamp--docs
 ### Other changes
 
 - Calendar: Removed the deprecated `calendar` prop. Support for the gregory calendar was removed in v9.4 since it never fully worked.
-- SideNavigation: 
+- SideNavigation:
   - Now requires an accessible name for the primary link badge to ensure it can be perceived by visually impaired users. The `badge.label` prop was renamed to `badge.children` for consistency.
   - Removed the `isExternal` prop for primary links. Instead, use a combination of the `target`, `rel`, and `externalLabel` props.
 - TopNavigation: Removed the deprecated `profileMenu` and `user` props.
@@ -163,7 +177,7 @@ The default typeface has changed from [Aktiv Grotesk](https://www.daltonmaag.com
 Circuit UI no longer loads the fonts by default. Instead, import the stylesheet that contains the font face declarations globally in your application, such as in a global layout file:
 
 ```ts
-import '@sumup-oss/design-tokens/fonts.css';
+import "@sumup-oss/design-tokens/fonts.css";
 ```
 
 To speed up the loading of the fonts, add preload links to the global `<head>` element of your application. Choose which subsets to preload based on the languages your app supports. The available subsets are `latin`, `latin-ext`, `cyrillic`, `cyrillic-ext`, `greek`, `greek-ext`, and `vietnamese`.
@@ -272,8 +286,8 @@ Update the related imports (🤖 `component-lifecycle-imports`). For example:
 - Changed the `PlainDateRange` type from an array to an object with start and end properties. This affects the Calendar component's `selection` prop. Use the new `updatePlainDateRange` helper function to update a date range when a user selects a date:
 
   ```tsx
-  import { useState } from 'react';
-  import { Calendar, updatePlainDateRange } from '@sumup-oss/circuit-ui';
+  import { useState } from "react";
+  import { Calendar, updatePlainDateRange } from "@sumup-oss/circuit-ui";
 
   function Component() {
     const [selection, setSelection] = useState({});
@@ -343,12 +357,12 @@ This change might break tests that use `@testing-library/jest-dom`'s [`toBeDisab
 
 ```js
 // jest.setup.js
-import { toBeDisabled, toBeEnabled } from '@testing-library/jest-dom/matchers';
+import { toBeDisabled, toBeEnabled } from "@testing-library/jest-dom/matchers";
 
 function isAriaDisabled(element) {
   return (
-    element.hasAttribute('aria-disabled') &&
-    element.getAttribute('aria-disabled') === 'true'
+    element.hasAttribute("aria-disabled") &&
+    element.getAttribute("aria-disabled") === "true"
   );
 }
 
@@ -359,17 +373,17 @@ expect.extend({
     return {
       pass: isDisabled,
       message: () => {
-        const is = isDisabled ? 'is' : 'is not';
+        const is = isDisabled ? "is" : "is not";
         return [
           this.utils.matcherHint(
-            `${this.isNot ? '.not' : ''}.toBeDisabled`,
-            'element',
-            ''
+            `${this.isNot ? ".not" : ""}.toBeDisabled`,
+            "element",
+            ""
           ),
-          '',
+          "",
           `Received element ${is} disabled:`,
           `  ${this.utils.printReceived(element.cloneNode(false))}`,
-        ].join('\n');
+        ].join("\n");
       },
     };
   },
@@ -380,17 +394,17 @@ expect.extend({
     return {
       pass: isEnabled,
       message: () => {
-        const is = isEnabled ? 'is' : 'is not';
+        const is = isEnabled ? "is" : "is not";
         return [
           this.utils.matcherHint(
-            `${this.isNot ? '.not' : ''}.toBeEnabled`,
-            'element',
-            ''
+            `${this.isNot ? ".not" : ""}.toBeEnabled`,
+            "element",
+            ""
           ),
-          '',
+          "",
           `Received element ${is} enabled:`,
           `  ${this.utils.printReceived(element.cloneNode(false))}`,
-        ].join('\n');
+        ].join("\n");
       },
     };
   },
@@ -538,7 +552,7 @@ For applications that don’t use Emotion.js, Circuit UI exports a new, smaller 
   <summary>Example</summary>
 
 ```tsx
-import { clsx, utilClasses } from '@sumup/circuit-ui';
+import { clsx, utilClasses } from "@sumup/circuit-ui";
 
 function Component() {
   return <div className={clsx(utilClasses.center, utilClasses.hideVisually)} />;
@@ -1000,8 +1014,8 @@ Previously, many apps would use `CreateStyled`:
 
 ```ts
 // utils/styled.ts
-import styled, { CreateStyled } from '@emotion/styled';
-import { Theme } from '@sumup/design-tokens';
+import styled, { CreateStyled } from "@emotion/styled";
+import { Theme } from "@sumup/design-tokens";
 
 export default styled as CreateStyled<Theme>;
 ```
@@ -1010,9 +1024,9 @@ export default styled as CreateStyled<Theme>;
 
 ```tsx
 // components/RedCard.tsx
-import { css } from '@emotion/core';
+import { css } from "@emotion/core";
 
-import styled from 'util/styled';
+import styled from "util/styled";
 
 const RedCard = styled(Card)(
   ({ theme }) => css`
@@ -1025,10 +1039,10 @@ Now, you can type the theme by adding it to `@emotion/react`'s declaration:
 
 ```ts
 // types/emotion.d.ts (don't forget to include this file in tsconfig.json under `typeRoots`)
-import { Theme as CircuitTheme } from '@sumup/design-tokens';
-import {} from '@emotion/react/types/css-prop'; // See https://github.com/emotion-js/emotion/pull/1941
+import { Theme as CircuitTheme } from "@sumup/design-tokens";
+import {} from "@emotion/react/types/css-prop"; // See https://github.com/emotion-js/emotion/pull/1941
 
-declare module '@emotion/react' {
+declare module "@emotion/react" {
   export interface Theme extends CircuitTheme {}
 }
 ```
@@ -1037,8 +1051,8 @@ declare module '@emotion/react' {
 
 ```tsx
 // components/RedCard.tsx
-import { css } from '@emotion/core';
-import styled from '@emotion/styled';
+import { css } from "@emotion/core";
+import styled from "@emotion/styled";
 
 const RedCard = styled(Card)(
   ({ theme }) => css`
@@ -1056,7 +1070,7 @@ Make sure that references to Emotion packages inside Storybook are pointing to t
 ```js
 // .storybook/main.js
 
-const path = require('path');
+const path = require("path");
 const toPath = (_path) => path.join(process.cwd(), _path);
 
 module.exports = {
@@ -1064,9 +1078,9 @@ module.exports = {
     // Add compatibility with Emotion 11
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@emotion/core': toPath('node_modules/@emotion/react'),
-      '@emotion/styled': toPath('node_modules/@emotion/styled'),
-      'emotion-theming': toPath('node_modules/@emotion/react'),
+      "@emotion/core": toPath("node_modules/@emotion/react"),
+      "@emotion/styled": toPath("node_modules/@emotion/styled"),
+      "emotion-theming": toPath("node_modules/@emotion/react"),
     };
     return config;
   },
