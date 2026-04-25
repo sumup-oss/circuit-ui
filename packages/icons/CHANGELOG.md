@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 6.0.1
+
+### Patch Changes
+
+- [#3581](https://github.com/sumup-oss/circuit-ui/pull/3581) [`e9dcae4`](https://github.com/sumup-oss/circuit-ui/commit/e9dcae4210166aacf079eebc50e363f0636ed63c) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed unnecessary SVG `clipPath` elements from the new outlined icons to avoid duplicate ids on a page.
+
 ## 6.0.0
 
 ### Major Changes
