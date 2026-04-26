@@ -1,0 +1,53 @@
+.base {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  min-width: 0;
+  padding: var(--cui-spacings-kilo) var(--cui-spacings-mega);
+}
+
+.value {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.action {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  align-self: stretch;
+  justify-content: center;
+  width: calc(
+    var(--cui-body-m-line-height) +
+    var(--cui-spacings-kilo) *
+    2 +
+    var(--cui-border-width-kilo) *
+    2
+  );
+  min-width: calc(
+    var(--cui-body-m-line-height) +
+    var(--cui-spacings-kilo) *
+    2 +
+    var(--cui-border-width-kilo) *
+    2
+  );
+  border-left: var(--cui-border-width-kilo) solid var(--cui-border-normal);
+}
+
+.button {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+}

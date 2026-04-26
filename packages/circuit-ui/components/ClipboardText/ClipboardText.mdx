@@ -1,0 +1,29 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './ClipboardText.stories';
+
+<Meta of={Stories} />
+
+# ClipboardText
+
+<Status variant="experimental" />
+
+ClipboardText displays a value in an input-like field and provides an inline button to copy it to a clipboard.
+
+<Story of={Stories.Base} />
+<Props />
+
+## Usage
+
+Use ClipboardText when a value should be easy to copy but not directly editable, such as API tokens, webhook secrets, or reference IDs.
+
+The `value` prop is always the copied value. If you need to display a different string, such as a masked token, pass it through the `text` prop while keeping the original `value` intact.
+
+<Story of={Stories.MaskedValue} />
+
+## Content
+
+Keep the visible label clear and specific so users understand what will be copied. Use concise button copy such as `"Copy token"` or `"Copy secret"` to make the action predictable for assistive technology and sighted users alike.
+
+For longer strings, ClipboardText truncates the visible text while preserving the full copied value.
+
+<Story of={Stories.LongValue} />
