@@ -44,6 +44,8 @@ export { CheckboxGroup } from './components/CheckboxGroup/index.js';
 export type { CheckboxGroupProps } from './components/CheckboxGroup/index.js';
 export { Input } from './components/Input/index.js';
 export type { InputProps, InputElement } from './components/Input/index.js';
+export { ClipboardText } from './components/ClipboardText/index.js';
+export type { ClipboardTextProps } from './components/ClipboardText/index.js';
 export { RadioButtonGroup } from './components/RadioButtonGroup/index.js';
 export type { RadioButtonGroupProps } from './components/RadioButtonGroup/index.js';
 export { SearchInput } from './components/SearchInput/index.js';
