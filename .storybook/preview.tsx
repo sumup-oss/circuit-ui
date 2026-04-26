@@ -12,7 +12,7 @@ export const parameters = {
   versions: {
     current: 'v10',
     previous: [
-      { name: 'next', url: 'https://circuit-next.sumup-vercel.app' },
+      { name: 'v11', url: 'https://circuit.sumup.com' },
       { name: 'v9', url: 'https://circuit-v9.sumup-vercel.app' },
       { name: 'v8', url: 'https://circuit-v8.sumup-vercel.app' },
       { name: 'v7', url: 'https://circuit-v7.sumup-vercel.app' },
