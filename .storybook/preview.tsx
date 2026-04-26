@@ -11,7 +11,7 @@ import { modes } from './modes.js';
 export const parameters = {
   layout: 'centered',
   versions: {
-    current: 'v10',
+    current: 'v11',
     previous: [
       { name: 'v10', url: 'https://circuit-v10.sumup-vercel.app' },
       { name: 'v9', url: 'https://circuit-v9.sumup-vercel.app' },
