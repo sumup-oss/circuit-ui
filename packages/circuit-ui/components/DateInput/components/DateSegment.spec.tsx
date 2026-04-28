@@ -85,34 +85,44 @@ describe('DateSegment', () => {
       expect(props.focus.next).toHaveBeenCalled();
     });
 
-    it.each(['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End'])(
-      'should not change the value when pressing the %s key when the input is disabled',
-      async (key) => {
-        render(<DateSegment {...props} disabled />);
-        const input = screen.getByRole('spinbutton');
-        await userEvent.type(input, `{${key}}`);
-        expect(props.onChange).not.toHaveBeenCalled();
-      },
-    );
-    it.each(['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End'])(
-      'should not change the value when pressing the %s key when the input is read-only',
-      async (key) => {
-        render(<DateSegment {...props} readOnly />);
-        const input = screen.getByRole('spinbutton');
-        await userEvent.type(input, `{${key}}`);
-        expect(props.onChange).not.toHaveBeenCalled();
-      },
-    );
+    it.each([
+      'ArrowUp',
+      'ArrowDown',
+      'PageUp',
+      'PageDown',
+      'Home',
+      'End',
+    ])('should not change the value when pressing the %s key when the input is disabled', async (key) => {
+      render(<DateSegment {...props} disabled />);
+      const input = screen.getByRole('spinbutton');
+      await userEvent.type(input, `{${key}}`);
+      expect(props.onChange).not.toHaveBeenCalled();
+    });
+    it.each([
+      'ArrowUp',
+      'ArrowDown',
+      'PageUp',
+      'PageDown',
+      'Home',
+      'End',
+    ])('should not change the value when pressing the %s key when the input is read-only', async (key) => {
+      render(<DateSegment {...props} readOnly />);
+      const input = screen.getByRole('spinbutton');
+      await userEvent.type(input, `{${key}}`);
+      expect(props.onChange).not.toHaveBeenCalled();
+    });
 
-    it.each(['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown'])(
-      'should set the default value when pressing the %s key',
-      async (key) => {
-        render(<DateSegment {...props} value="" />);
-        const input = screen.getByRole('spinbutton');
-        await userEvent.type(input, `{${key}}`);
-        expect(props.onChange).toHaveBeenCalledWith(3);
-      },
-    );
+    it.each([
+      'ArrowUp',
+      'ArrowDown',
+      'PageUp',
+      'PageDown',
+    ])('should set the default value when pressing the %s key', async (key) => {
+      render(<DateSegment {...props} value="" />);
+      const input = screen.getByRole('spinbutton');
+      await userEvent.type(input, `{${key}}`);
+      expect(props.onChange).toHaveBeenCalledWith(3);
+    });
 
     it('should increment the value when pressing the ArrowUp key', async () => {
       render(<DateSegment {...props} />);

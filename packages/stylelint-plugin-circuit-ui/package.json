@@ -35,12 +35,12 @@
   "devDependencies": {
     "@sumup-oss/design-tokens": "^10.0.0",
     "@tsconfig/node20": "^20.1.9",
-    "jest-preset-stylelint": "^8.0.0",
+    "jest-preset-stylelint": "^9.1.0",
     "typescript": "^5.9.3",
     "vitest": "^4.1.5"
   },
   "peerDependencies": {
     "@sumup-oss/design-tokens": ">=9.0.0",
-    "stylelint": "^16.16.0"
+    "stylelint": ">=16.0.0"
   }
 }

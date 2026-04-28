@@ -100,21 +100,18 @@ describe('ActionMenu', () => {
     ['enter', '{Enter}'],
     ['arrow down', '{ArrowDown}'],
     ['arrow up', '{ArrowUp}'],
-  ])(
-    'should open the action menu when pressing the %s key on the trigger element',
-    async (_, key) => {
-      const isOpen = false;
-      const onToggle = vi.fn(createStateSetter(isOpen));
-      renderActionMenu({ ...baseProps, isOpen, onToggle });
+  ])('should open the action menu when pressing the %s key on the trigger element', async (_, key) => {
+    const isOpen = false;
+    const onToggle = vi.fn(createStateSetter(isOpen));
+    renderActionMenu({ ...baseProps, isOpen, onToggle });
 
-      const trigger = screen.getByRole('button');
+    const trigger = screen.getByRole('button');
 
-      trigger.focus();
-      await userEvent.keyboard(key);
+    trigger.focus();
+    await userEvent.keyboard(key);
 
-      expect(onToggle).toHaveBeenCalledTimes(1);
-    },
-  );
+    expect(onToggle).toHaveBeenCalledTimes(1);
+  });
 
   it('should close the action menu when clicking outside', async () => {
     renderActionMenu(baseProps);
@@ -141,20 +138,17 @@ describe('ActionMenu', () => {
     ['space', '{ }'],
     ['enter', '{Enter}'],
     ['arrow up', '{ArrowUp}'],
-  ])(
-    'should close the action menu when pressing the %s key on the trigger element',
-    async (_, key) => {
-      renderActionMenu(baseProps);
-      vi.runAllTimers();
+  ])('should close the action menu when pressing the %s key on the trigger element', async (_, key) => {
+    renderActionMenu(baseProps);
+    vi.runAllTimers();
 
-      const trigger = screen.getByRole('button', { name: 'Trigger Button' });
+    const trigger = screen.getByRole('button', { name: 'Trigger Button' });
 
-      trigger.focus();
-      await userEvent.keyboard(key);
+    trigger.focus();
+    await userEvent.keyboard(key);
 
-      expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
-    },
-  );
+    expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
+  });
 
   it('should close the action menu when clicking the escape key', async () => {
     renderActionMenu(baseProps);
