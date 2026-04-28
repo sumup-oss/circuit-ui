@@ -319,12 +319,12 @@ export const AutocompleteInput = forwardRef<
           ...sizeOptions,
           boundary:
             typeof window !== 'undefined'
-              ? ({
+              ? {
                   x: 0,
                   y: 0,
                   width: window.innerWidth,
                   height: window.innerHeight,
-                } as DOMRect)
+                }
               : undefined,
         })),
       ],

@@ -32,12 +32,7 @@ describe('Icons', () => {
       const file = fs.readFileSync(filePath).toString();
       const fileStats = fs.statSync(filePath);
       const fileSize = fileStats.size / 1024; // kilobytes
-      return { name, size, file, fileSize } as {
-        name: string;
-        size: string;
-        file: string;
-        fileSize: number;
-      };
+      return { name, size, file, fileSize };
     });
 
   describe.each(files)('$name ($size)', ({ name, size, file, fileSize }) => {

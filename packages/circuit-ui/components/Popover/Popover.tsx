@@ -165,12 +165,12 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
           ...sizeOptions,
           boundary:
             typeof window !== 'undefined'
-              ? ({
+              ? {
                   x: 0,
                   y: 0,
                   width: window.innerWidth,
                   height: window.innerHeight,
-                } as DOMRect)
+                }
               : undefined,
         })),
       ],
