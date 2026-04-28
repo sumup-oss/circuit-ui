@@ -2,6 +2,12 @@
 
 ## 4.2.0
 
+### Minor Changes
+
+- [#3578](https://github.com/sumup-oss/circuit-ui/pull/3578) [`7f19742`](https://github.com/sumup-oss/circuit-ui/commit/7f19742d5cd7d011c2904da99d12d084717184da) Thanks [@connor-baer](https://github.com/connor-baer)! - Declared support for Stylelint 17 in the peer dependency range.
+
+## 4.2.0
+
 ## 4.1.0
 
 ### Minor Changes

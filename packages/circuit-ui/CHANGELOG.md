@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 11.0.1
+
+### Patch Changes
+
+- [#3584](https://github.com/sumup-oss/circuit-ui/pull/3584) [`98a4e3f`](https://github.com/sumup-oss/circuit-ui/commit/98a4e3fe195a3a4b2a521f4c4c9e4dcf0689262f) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the font weight of the Headline component in sizes "s" und "l".
+
 ## 11.0.0
 
 ### Major Changes
