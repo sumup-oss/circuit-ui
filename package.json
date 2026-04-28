@@ -55,7 +55,7 @@
     "@storybook/icons": "^2.0.1",
     "@storybook/react-vite": "^10.3.5",
     "@sumup-oss/eslint-plugin-circuit-ui": "^7.1.0",
-    "@sumup-oss/foundry": "^10.0.0-next",
+    "@sumup-oss/foundry": "^10.0.0",
     "@sumup-oss/stylelint-plugin-circuit-ui": "^4.1.0",
     "@types/node": "^25.6.0",
     "@vitest/coverage-v8": "^4.1.5",

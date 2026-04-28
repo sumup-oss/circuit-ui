@@ -30,7 +30,7 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
     "@sumup-oss/eslint-plugin-circuit-ui": "^7.1.0",
-    "@sumup-oss/foundry": "^10.0.0-next",
+    "@sumup-oss/foundry": "^10.0.0",
     "@sumup-oss/stylelint-plugin-circuit-ui": "^4.1.0",
     "@types/node": "^25.6.0",
     "eslint-plugin-react": "^7.37.5",
