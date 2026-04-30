@@ -1,0 +1,55 @@
+{
+  "name": "@sumup-oss/illustrations",
+  "version": "0.1.0",
+  "description": "SumUp's illustrations set",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./manifest.json": "./manifest.json"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "manifest.json"
+  ],
+  "repository": {
+    "type": "git",
+    "directory": "packages/illustrations",
+    "url": "git+https://github.com/sumup-oss/circuit-ui.git"
+  },
+  "publishConfig": {
+    "provenance": true
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/sumup-oss/circuit-ui/issues"
+  },
+  "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/illustrations/README.md",
+  "scripts": {
+    "start": "tsx watch ./scripts/build.ts",
+    "build": "tsx ./scripts/build.ts",
+    "test": "vitest",
+    "lint": "foundry run eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "npm run lint -- --fix",
+    "prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.2",
+    "@babel/preset-react": "^7.28.5",
+    "@biomejs/js-api": "^3.0.0",
+    "@types/babel__core": "^7.20.5",
+    "fast-xml-parser": "^5.7.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.5"
+  },
+  "peerDependencies": {
+    "react": ">=16.0.0 <20.0.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
