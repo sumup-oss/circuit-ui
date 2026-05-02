@@ -43,7 +43,7 @@
     "jest": "^30.3.0",
     "jest-axe": "^10.0.0",
     "jest-environment-jsdom": "^30.3.0",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.3",
     "typescript-plugin-css-modules": "^5.2.0"
   }
 }
