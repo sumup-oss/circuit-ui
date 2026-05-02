@@ -16,7 +16,7 @@
 import { Temporal } from 'temporal-polyfill';
 import isChromatic from 'chromatic/isChromatic';
 
-import { Stack } from '../../../../.storybook/components/Stack.js';
+import { Stack, Matrix } from '../../../../.storybook/components/index.js';
 
 import { Timestamp, type TimestampProps } from './Timestamp.js';
 
@@ -93,34 +93,12 @@ Absolute.args = {
 };
 
 export const FormatStyles = (args: TimestampProps) => (
-  <table style={{ textAlign: 'center' }}>
-    <thead>
-      <tr>
-        <th />
-        {variants.map((variant) => (
-          <th key={variant} scope="col">
-            {variant}
-          </th>
-        ))}
-      </tr>
-    </thead>
-    <tbody>
-      {formatStyles.map((formatStyle) => (
-        <tr key={formatStyle}>
-          <th scope="row">{formatStyle}</th>
-          {variants.map((variant) => (
-            <td key={formatStyle} style={{ padding: '8px' }}>
-              <Timestamp
-                {...args}
-                variant={variant}
-                formatStyle={formatStyle}
-              />
-            </td>
-          ))}
-        </tr>
-      ))}
-    </tbody>
-  </table>
+  <Matrix
+    component={Timestamp}
+    args={args}
+    horizontal={{ prop: 'variant', values: variants }}
+    vertical={{ prop: 'formatStyle', values: formatStyles }}
+  />
 );
 
 FormatStyles.args = {

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Stack } from '../../../../.storybook/components/index.js';
+import { Matrix } from '../../../../.storybook/components/index.js';
 
 import { TierIndicator, type TierIndicatorProps } from './TierIndicator.js';
 
@@ -25,39 +25,11 @@ export default {
 
 export const Base = (args: TierIndicatorProps) => <TierIndicator {...args} />;
 
-export const Sizes = (args: TierIndicatorProps) => (
-  <dl
-    style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'flex-start',
-      gap: 'var(--cui-spacings-giga)',
-    }}
-  >
-    <Stack key="small">
-      <dt>
-        Size <strong>s</strong>:
-      </dt>
-      <dd>
-        <TierIndicator {...args} size="s" />
-      </dd>
-    </Stack>
-    <Stack key="medium">
-      <dt>
-        Size <strong>m</strong>:
-      </dt>
-      <dd>
-        <TierIndicator {...args} size="m" />
-      </dd>
-    </Stack>
-    <Stack key="large">
-      <dt>
-        {' '}
-        Size <strong>l</strong>:
-      </dt>
-      <dd>
-        <TierIndicator {...args} size="l" />
-      </dd>
-    </Stack>
-  </dl>
+export const Variations = (args: TierIndicatorProps) => (
+  <Matrix
+    component={TierIndicator}
+    args={args}
+    horizontal={{ prop: 'variant', values: ['plus'] }}
+    vertical={{ prop: 'size', values: ['s', 'm', 'l'] }}
+  />
 );
