@@ -54,6 +54,7 @@ export interface DateSegmentProps
   showValid?: boolean;
   readOnly?: boolean;
   focus: SegmentFocus;
+  format?: 'numeric' | '2-digit';
 }
 
 export function DateSegment({
@@ -64,6 +65,7 @@ export function DateSegment({
   min,
   max,
   step,
+  format,
   ...props
 }: DateSegmentProps) {
   const sizeRef = useRef<HTMLSpanElement>(null);
@@ -213,6 +215,8 @@ export function DateSegment({
         onChange={handleChange}
         {...focus.props}
         {...props}
+        // TODO: format 2-digit
+        value={props.value}
       />
       <span ref={sizeRef} className={classes.size} aria-hidden="true">
         {props.value || props.placeholder}
