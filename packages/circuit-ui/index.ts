@@ -236,6 +236,10 @@ export {
   TierIndicator,
   type TierIndicatorProps,
 } from './components/TierIndicator/TierIndicator.js';
+export {
+  SumUpLogo,
+  type SumUpLogoProps,
+} from './components/SumUpLogo/SumUpLogo.js';
 
 // Hooks
 export { useClickOutside } from './hooks/useClickOutside/index.js';
