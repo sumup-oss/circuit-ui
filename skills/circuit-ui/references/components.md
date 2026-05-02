@@ -24,6 +24,7 @@
 | `Calendar` | `stable` | `@sumup-oss/circuit-ui` | `./components/Calendar/index.js` | [Read MDX reference](components/Calendar.mdx) |
 | `Checkbox` | `stable` | `@sumup-oss/circuit-ui` | `./components/Checkbox/index.js` | [Read MDX reference](components/Checkbox.mdx) |
 | `CheckboxGroup` | `stable` | `@sumup-oss/circuit-ui` | `./components/CheckboxGroup/index.js` | [Read MDX reference](components/CheckboxGroup.mdx) |
+| `ClipboardText` | `experimental` | `@sumup-oss/circuit-ui` | `./components/ClipboardText/index.js` | [Read MDX reference](components/ClipboardText.mdx) |
 | `ColorInput` | `stable` | `@sumup-oss/circuit-ui` | `./components/ColorInput/index.js` | [Read MDX reference](components/ColorInput.mdx) |
 | `CurrencyInput` | `stable` | `@sumup-oss/circuit-ui` | `./components/CurrencyInput/index.js` | [Read MDX reference](components/CurrencyInput.mdx) |
 | `DateInput` | `stable` | `@sumup-oss/circuit-ui` | `./components/DateInput/index.js` | [Read MDX reference](components/DateInput.mdx) |
