@@ -15,6 +15,7 @@
 
 | Component | Status | Package | Source export | Usage reference |
 | --- | --- | --- | --- | --- |
+| `SumUpLogo` | `stable` | `@sumup-oss/circuit-ui` | `./components/SumUpLogo/SumUpLogo.js` | [Read MDX reference](components/SumUpLogo.mdx) |
 | `TierIndicator` | `stable` | `@sumup-oss/circuit-ui` | `./components/TierIndicator/TierIndicator.js` | [Read MDX reference](components/TierIndicator.mdx) |
 
 ### Forms
