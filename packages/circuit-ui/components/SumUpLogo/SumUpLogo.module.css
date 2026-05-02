@@ -1,0 +1,21 @@
+/* Variants */
+.full {
+  aspect-ratio: 95 / 24;
+}
+
+.short {
+  aspect-ratio: 1 / 1;
+}
+
+/* Sizes */
+.s {
+  height: var(--cui-icon-sizes-mega);
+}
+
+.m {
+  height: var(--cui-icon-sizes-giga);
+}
+
+.l {
+  height: var(--cui-icon-sizes-tera);
+}

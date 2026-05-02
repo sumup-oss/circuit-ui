@@ -425,17 +425,20 @@
     {
       "name": "sum_up_logo",
       "category": "Brand",
-      "size": "24"
+      "size": "24",
+      "deprecation": "Use the `SumUpLogo` component instead."
     },
     {
       "name": "sum_up_logomark",
       "category": "Brand",
-      "size": "24"
+      "size": "24",
+      "deprecation": "Use the `SumUpLogo` component's 'short' variant instead."
     },
     {
       "name": "sum_up_logomark",
       "category": "Brand",
-      "size": "32"
+      "size": "32",
+      "deprecation": "Use the `SumUpLogo` component's 'short' variant instead."
     },
     {
       "name": "plus_tier",
