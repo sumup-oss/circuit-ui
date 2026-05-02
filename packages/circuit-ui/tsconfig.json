@@ -19,6 +19,7 @@
     "strict": true,
     "skipLibCheck": true,
     "target": "es2019",
+    "types": ["node"],
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "include": [
