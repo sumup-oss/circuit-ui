@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 11.1.0
+
+### Minor Changes
+
+- [#3594](https://github.com/sumup-oss/circuit-ui/pull/3594) [`fa2b5ac`](https://github.com/sumup-oss/circuit-ui/commit/fa2b5ac99d56866fcdfde25bd94b0bf937962b13) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the SumUpLogo component to display SumUp's logo in full or short variations.
+
 ## 11.0.1
 
 ### Patch Changes

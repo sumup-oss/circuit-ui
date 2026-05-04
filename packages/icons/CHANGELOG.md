@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 6.1.0
+
+### Minor Changes
+
+- [#3594](https://github.com/sumup-oss/circuit-ui/pull/3594) [`fa2b5ac`](https://github.com/sumup-oss/circuit-ui/commit/fa2b5ac99d56866fcdfde25bd94b0bf937962b13) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the SumUpLogo and SumUpLogomark icons in favor of the new SumUpLogo component and updated them to match the latest brand guidelines.
+
 ## 6.0.1
 
 ### Patch Changes
