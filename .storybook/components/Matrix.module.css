@@ -1,0 +1,4 @@
+.cell {
+  padding: var(--cui-spacings-byte) var(--cui-spacings-kilo);
+  text-align: left;
+}

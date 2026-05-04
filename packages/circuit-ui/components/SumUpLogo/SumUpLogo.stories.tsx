@@ -1,5 +1,5 @@
 /**
- * Copyright 2025, SumUp Ltd.
+ * Copyright 2026, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,21 +15,21 @@
 
 import { Matrix } from '../../../../.storybook/components/index.js';
 
-import { TierIndicator, type TierIndicatorProps } from './TierIndicator.js';
+import { SumUpLogo, type SumUpLogoProps } from './SumUpLogo.js';
 
 export default {
-  title: 'Brand/TierIndicator',
-  component: TierIndicator,
+  title: 'Brand/SumUpLogo',
+  component: SumUpLogo,
   tags: ['status:stable'],
 };
 
-export const Base = (args: TierIndicatorProps) => <TierIndicator {...args} />;
+export const Base = (args: SumUpLogoProps) => <SumUpLogo {...args} />;
 
-export const Variations = (args: TierIndicatorProps) => (
+export const Variations = (args: SumUpLogoProps) => (
   <Matrix
-    component={TierIndicator}
+    component={SumUpLogo}
     args={args}
-    horizontal={{ prop: 'variant', values: ['plus'] }}
+    horizontal={{ prop: 'variant', values: ['full', 'short'] }}
     vertical={{ prop: 'size', values: ['s', 'm', 'l'] }}
   />
 );

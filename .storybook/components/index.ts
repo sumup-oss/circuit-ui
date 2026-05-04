@@ -26,6 +26,7 @@ export { Intro } from './Intro.js';
 export { Teaser } from './Teaser.js';
 export { Link } from './Link.js';
 export { Image } from './Image.js';
+export { Matrix } from './Matrix.js';
 export { Stack } from './Stack.js';
 export { FullViewport } from './FullViewport.js';
 
