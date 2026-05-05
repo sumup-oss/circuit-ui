@@ -3,7 +3,7 @@
 "@sumup-oss/icons": minor
 ---
 
-Added the flag of Catalonia. Load it using `Flag` component or the `getIconURL` helper:
+Added the flag of Catalonia. Load it using the `Flag` component or the `getIconURL()` helper:
 
 ```jsx
 import { Flag } from '@sumup-oss/circuit-ui';
