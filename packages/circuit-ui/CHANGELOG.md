@@ -1,5 +1,19 @@
 # @sumup-oss/circuit-ui
 
+## 11.2.0
+
+### Minor Changes
+
+- [#3598](https://github.com/sumup-oss/circuit-ui/pull/3598) [`0a169d8`](https://github.com/sumup-oss/circuit-ui/commit/0a169d878c945e15ad049aebfb93a093d239e93a) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the flag of Catalonia. Load it using the `Flag` component or the `getIconURL()` helper:
+
+  ```jsx
+  import { Flag } from '@sumup-oss/circuit-ui';
+  import { getIconURL } from '@sumup-oss/icons';
+
+  <Flag countryCode="ES-CT" />
+  <img src={getIconURL("flag_es-ct")} alt="Catalonia" />
+  ```
+
 ## 11.1.0
 
 ### Minor Changes
