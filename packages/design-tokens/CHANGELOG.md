@@ -1,5 +1,11 @@
 # @sumup-oss/design-tokens
 
+## 10.0.1
+
+### Patch Changes
+
+- [#3600](https://github.com/sumup-oss/circuit-ui/pull/3600) [`436f34d`](https://github.com/sumup-oss/circuit-ui/commit/436f34d541b3ed1ba9caad832e22651e4c16fdac) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the display of characters with diacritics in Google Chrome.
+
 ## 10.0.0
 
 ### Major Changes
