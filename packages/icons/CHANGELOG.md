@@ -1,5 +1,21 @@
 # @sumup-oss/icons
 
+## 6.2.0
+
+### Minor Changes
+
+- [#3596](https://github.com/sumup-oss/circuit-ui/pull/3596) [`f43db0b`](https://github.com/sumup-oss/circuit-ui/commit/f43db0b2a136a982cbc0bb932d0985dd64b38e04) Thanks [@sirineJ](https://github.com/sirineJ)! - Revert status icons (alert, confirm, help, notify, refunded) to a filled version to improve affordance clarity.
+
+- [#3598](https://github.com/sumup-oss/circuit-ui/pull/3598) [`0a169d8`](https://github.com/sumup-oss/circuit-ui/commit/0a169d878c945e15ad049aebfb93a093d239e93a) Thanks [@connor-baer](https://github.com/connor-baer)! - Added the flag of Catalonia. Load it using the `Flag` component or the `getIconURL()` helper:
+
+  ```jsx
+  import { Flag } from '@sumup-oss/circuit-ui';
+  import { getIconURL } from '@sumup-oss/icons';
+
+  <Flag countryCode="ES-CT" />
+  <img src={getIconURL("flag_es-ct")} alt="Catalonia" />
+  ```
+
 ## 6.1.0
 
 ### Minor Changes
