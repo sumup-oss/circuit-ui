@@ -29,13 +29,23 @@ export const Base = () => {
   // eslint-disable-next-line compat/compat
   const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
 
+  function formatCountryName(countryCode: string) {
+    if (countryCode === 'XX') {
+      return 'Unknown';
+    }
+    if (countryCode === 'ES-CT') {
+      return 'Catalonia';
+    }
+    return regionNames.of(countryCode);
+  }
+
   return (
     <div className={classes.list}>
       {FLAGS.map((code) => (
         <div key={code} className={classes.wrapper}>
           <Flag key={code} countryCode={code} alt="" width={32} />
           <Body>
-            {code === 'XX' ? 'Unknown' : regionNames.of(code)} ({code})
+            {formatCountryName(code)} ({code})
           </Body>
         </div>
       ))}
