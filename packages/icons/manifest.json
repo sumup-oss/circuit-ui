@@ -1484,6 +1484,13 @@
     {
       "category": "Flag",
       "skipComponentFile": true,
+      "keywords": ["Catalonia"],
+      "name": "flag_es-ct",
+      "size": "480"
+    },
+    {
+      "category": "Flag",
+      "skipComponentFile": true,
       "keywords": ["Ethiopia"],
       "name": "flag_et",
       "size": "480"

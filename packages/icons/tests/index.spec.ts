@@ -91,7 +91,7 @@ function parseFileName(fileName: string) {
   try {
     const [, name, size] = fileName.match(/(.+?)(?:_(\d+))?\.svg$/)!;
     // assign size of 480 for flag icons when size not specified in file name
-    if (!size && name.match(/^flag_[a-z]{2}$/)) {
+    if (!size && name.match(/^flag_[a-z]{2}(?:-[a-z]{2})?$/)) {
       return { name, size: '480' };
     }
     return { name, size };

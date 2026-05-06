@@ -263,6 +263,6 @@ const COUNTRIES = [
 
 const TERRITORIES = ['AQ', 'BQ', 'CP', 'DG', 'IC', 'MF', 'SX', 'UM'] as const;
 
-const SPECIAL_FLAGS = ['EU', 'UN', 'XX', 'PC'] as const;
+const SPECIAL_FLAGS = ['EU', 'UN', 'XX', 'PC', 'ES-CT'] as const;
 
 export const FLAGS = [...COUNTRIES, ...TERRITORIES, ...SPECIAL_FLAGS] as const;
