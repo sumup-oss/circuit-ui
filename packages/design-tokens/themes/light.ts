@@ -33,7 +33,7 @@ export const light = [
   },
   {
     name: '--cui-bg-normal-disabled',
-    value: 'rgba(227, 226, 214, 0.6000)',
+    value: 'rgba(251, 251, 249, 0.4000)',
     type: 'color',
   },
   {

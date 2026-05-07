@@ -21,6 +21,11 @@
   border-color: var(--cui-border-subtle-disabled);
 }
 
+.base:disabled *,
+.base[disabled] * {
+  color: var(--cui-fg-normal-disabled);
+}
+
 /* Interactive */
 
 a.base,
