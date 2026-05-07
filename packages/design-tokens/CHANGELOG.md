@@ -1,5 +1,11 @@
 # @sumup-oss/design-tokens
 
+## 10.0.2
+
+### Patch Changes
+
+- [#3603](https://github.com/sumup-oss/circuit-ui/pull/3603) [`bc5c2e3`](https://github.com/sumup-oss/circuit-ui/commit/bc5c2e3101ec40e785475282d802ef848aefb3d4) Thanks [@connor-baer](https://github.com/connor-baer)! - Lightened the `--cui-bg-normal-disabled` color to reduce the visual prominence of disabled elements.
+
 ## 10.0.1
 
 ### Patch Changes
