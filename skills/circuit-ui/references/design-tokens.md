@@ -7,7 +7,7 @@ CSS variables provided by the Circuit UI design system and their values.
 | `--cui-bg-normal` | `color` | no |  | `#fbfbf9` | `#000000` |
 | `--cui-bg-normal-hovered` | `color` | no |  | `#f1f0e9` | `#0f0e0c` |
 | `--cui-bg-normal-pressed` | `color` | no |  | `#e3e2d6` | `#1a1816` |
-| `--cui-bg-normal-disabled` | `color` | no |  | `rgba(227, 226, 214, 0.6000)` | `rgba(10, 9, 8, 0.6000)` |
+| `--cui-bg-normal-disabled` | `color` | no |  | `rgba(251, 251, 249, 0.4000)` | `rgba(10, 9, 8, 0.6000)` |
 | `--cui-bg-subtle` | `color` | no |  | `#f5f4ed` | `#141311` |
 | `--cui-bg-subtle-hovered` | `color` | no |  | `#f0eee7` | `#1a1816` |
 | `--cui-bg-subtle-pressed` | `color` | no |  | `#e8e6dc` | `#1e1c18` |
