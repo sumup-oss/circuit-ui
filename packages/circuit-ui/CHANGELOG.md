@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 11.2.1
+
+### Patch Changes
+
+- [#3603](https://github.com/sumup-oss/circuit-ui/pull/3603) [`bc5c2e3`](https://github.com/sumup-oss/circuit-ui/commit/bc5c2e3101ec40e785475282d802ef848aefb3d4) Thanks [@connor-baer](https://github.com/connor-baer)! - Dimmed the text of disabled ListItems so they actually look disabled.
+
 ## 11.2.0
 
 ### Minor Changes
