@@ -46,6 +46,6 @@ jobs:
           exitOnceUploaded: true
           onlyChanged: true
           externals: |
-            '.storybook/public/**'
-            'packages/design-tokens/**'
-            'packages/icons/**'
+            .storybook/public/**
+            packages/design-tokens/**
+            packages/icons/**
