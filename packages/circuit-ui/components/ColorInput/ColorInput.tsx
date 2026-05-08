@@ -95,6 +95,7 @@ export const ColorInput = forwardRef<HTMLInputElement, ColorInputProps>(
       inputClassName,
       style,
       value,
+      size: _size,
       ...props
     },
     ref,

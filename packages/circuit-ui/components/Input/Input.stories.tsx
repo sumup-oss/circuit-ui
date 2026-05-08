@@ -28,6 +28,9 @@ export default {
   argTypes: {
     placeholder: { control: 'text' },
     disabled: { control: 'boolean' },
+    size: {
+      options: ['s', 'm'],
+    },
   },
 };
 
@@ -113,4 +116,31 @@ HiddenLabel.args = {
   type: 'email',
   validationHint: '',
   hideLabel: true,
+};
+
+export const Sizes = (args: InputProps) => (
+  <Stack>
+    <Input {...args} size="s" label="Small" validationHint="Small size" />
+    <Input {...args} size="m" label="Medium" validationHint="Medium size" />
+    <Input
+      {...args}
+      size="s"
+      label="Small"
+      validationHint="This field is required"
+      invalid
+    />
+    <Input
+      {...args}
+      size="s"
+      label="Small"
+      validationHint="Disabled"
+      defaultValue="cannot edit"
+      disabled
+    />
+  </Stack>
+);
+
+Sizes.args = {
+  placeholder: 'Placeholder',
+  validationHint: 'Validation hint',
 };

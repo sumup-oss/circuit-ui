@@ -4,15 +4,16 @@
 
 .base {
   width: 100%;
-  padding: var(--cui-spacings-kilo) var(--cui-spacings-mega);
+  padding: var(--input-padding-block, var(--cui-spacings-kilo))
+    var(--input-padding-inline, var(--cui-spacings-mega));
   margin: 0;
-  font-size: var(--cui-body-m-font-size);
-  line-height: var(--cui-body-m-line-height);
+  font-size: var(--input-font-size, var(--cui-body-m-font-size));
+  line-height: var(--input-line-height, var(--cui-body-m-line-height));
   appearance: none;
   outline: 0;
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-normal);
-  border-radius: var(--cui-border-radius-kilo);
+  border-radius: var(--input-border-radius, var(--cui-border-radius-kilo));
   box-shadow: none;
   transition:
     box-shadow var(--cui-transitions-default),
@@ -85,22 +86,41 @@
   text-align: right;
 }
 
+/* Sizes */
+
+.s {
+  --input-padding-block: calc(
+    var(--cui-spacings-bit) -
+    var(--cui-border-width-kilo)
+  );
+  --input-padding-inline: calc(
+    var(--cui-spacings-kilo) -
+    var(--cui-border-width-kilo)
+  );
+  --input-font-size: var(--cui-body-s-font-size);
+  --input-line-height: var(--cui-body-s-line-height);
+  --input-border-radius: var(--cui-border-radius-byte);
+  --input-affix-size: var(--cui-spacings-tera);
+  --input-affix-padding: var(--cui-spacings-byte);
+  --input-affix-padding-offset: var(--cui-spacings-tera);
+}
+
 /* Prefix & suffix */
 
 .has-prefix {
-  padding-left: var(--cui-spacings-exa);
+  padding-left: var(--input-affix-padding-offset, var(--cui-spacings-exa));
 }
 
 .has-suffix {
-  padding-right: var(--cui-spacings-exa);
+  padding-right: var(--input-affix-padding-offset, var(--cui-spacings-exa));
 }
 
 .wrapper .prefix,
 .wrapper .suffix {
   position: absolute;
-  width: var(--cui-spacings-exa);
-  height: var(--cui-spacings-exa);
-  padding: var(--cui-spacings-kilo);
+  width: var(--input-affix-size, var(--cui-spacings-exa));
+  height: var(--input-affix-size, var(--cui-spacings-exa));
+  padding: var(--input-affix-padding, var(--cui-spacings-kilo));
   color: var(--cui-fg-subtle);
   pointer-events: none;
 }
@@ -116,5 +136,5 @@
 .wrapper .prefix button,
 .wrapper .suffix button {
   pointer-events: auto;
-  border-radius: var(--cui-border-radius-kilo);
+  border-radius: var(--input-border-radius, var(--cui-border-radius-kilo));
 }

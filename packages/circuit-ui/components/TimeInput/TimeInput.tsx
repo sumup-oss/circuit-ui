@@ -23,7 +23,7 @@ import { Input, type InputProps } from '../Input/index.js';
 import classes from './TimeInput.module.css';
 
 export interface TimeInputProps
-  extends InputHTMLAttributes<HTMLInputElement>,
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>,
     Pick<
       InputProps,
       | 'label'

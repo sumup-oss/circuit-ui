@@ -99,6 +99,7 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
       'data-id': comboboxInputId,
       removeTagButtonLabel,
       moreResults,
+      size: _size,
       ...props
     },
     ref,

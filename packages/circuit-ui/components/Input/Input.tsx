@@ -27,6 +27,7 @@ import {
   FieldLabel,
   FieldLabelText,
   FieldValidationHint,
+  type FieldSize,
 } from '../Field/index.js';
 import type { ReturnType } from '../../types/return-type.js';
 import {
@@ -47,6 +48,7 @@ export { classes };
  */
 export type InputElement = HTMLInputElement;
 
+export type InputSize = FieldSize;
 export interface BaseInputProps {
   /**
    * A clear and concise description of the input purpose.
@@ -109,11 +111,18 @@ export interface BaseInputProps {
    * Class to overwrite the input element styles.
    */
   inputClassName?: string;
+
+  /**
+   * The sizes available for the Input component.
+   * 's' - should ideally be used in space-constrained environments.
+   * @default 'm'
+   */
+  size?: InputSize;
 }
 
 export interface InputProps
   extends BaseInputProps,
-    InputHTMLAttributes<HTMLInputElement> {
+    Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   /**
    * @private
    *
@@ -148,6 +157,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       className,
       style,
       'aria-describedby': descriptionId,
+      size = 'm',
       ...props
     },
     ref,
@@ -181,7 +191,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     }
 
     return (
-      <FieldWrapper className={className} style={style} disabled={disabled}>
+      <FieldWrapper
+        className={clsx(size === 's' && classes.s, className)}
+        style={style}
+        disabled={disabled}
+        size={size}
+      >
         <FieldLabel htmlFor={inputId}>
           <FieldLabelText
             label={label}
