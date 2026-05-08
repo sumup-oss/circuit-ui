@@ -12,7 +12,7 @@ This page outlines the process of contributing an icon to the `@sumup-oss/icons`
 3. Paste the SVG into your file and verify the code — refer to the ["Caveats"](#caveats) section below.
 4. Commit the icons, they will automatically be optimized in the precommit hook using `svgo`.
 5. Add an icon object to the icons manifest file at [`packages/icons/manifest.json`](https://github.com/sumup-oss/circuit-ui/blob/9146e47a21dcd6880f437d1a47a0c54d5a164bfd/packages/icons/manifest.json). The icons are ordered alphabetically by icon category, then name (should match the file name), and finally by size (descending). You can sort the file for example using [jq](https://github.com/jqlang/jq) - `jq '.icons|=sort_by(.category,.name,-(.size|tonumber))' packages/icons/manifest.json > tmp.json && mv tmp.json packages/icons/manifest.json`
-6. Build the icons package (`npx lerna run build --scope=@sumup-oss/icons`) and run the Storybook (`npm run docs`). Verify that your icon renders correctly on the [Icons page](http://localhost:6006/?path=/docs/features-icons--docs) (local link).
+6. Build the icons package (`npm run build --workspace=@sumup-oss/icons`) and run the Storybook (`npm run docs`). Verify that your icon renders correctly on the [Icons page](http://localhost:6006/?path=/docs/features-icons--docs) (local link).
 
 ### Caveats
 

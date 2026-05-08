@@ -41,7 +41,7 @@ We appreciate pull requests (PRs) for smaller changes and bug fixes. For larger 
 
 ### Available Scripts
 
-All packages related to the design system are organized in this monorepo. Thanks to [`npm workspaces`](https://docs.npmjs.com/cli/v9/using-npm/workspaces) packages that depend on each other always use the latest version. [`lerna`](https://lerna.js.org/) makes it possible to run scripts across all packages at the same time. The list of scripts below can be run in each package directory individually, or in the repository's root directory for all packages at once.
+All packages related to the design system are organized in this monorepo. Thanks to [`npm workspaces`](https://docs.npmjs.com/cli/v9/using-npm/workspaces) packages that depend on each other always use the latest version. The list of scripts below can be run in each package directory individually, or in the repository's root directory for all packages at once.
 
 - `npm run start` — will build packages on every change
 - `npm run build` — will build packages once

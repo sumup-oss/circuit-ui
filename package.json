@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/sumup-oss/circuit-ui#readme",
   "scripts": {
-    "start": "lerna run start --stream",
-    "build": "lerna run build",
+    "start": "npm run start --workspaces",
+    "build": "npm run build --workspaces",
     "test": "vitest",
     "test:ci": "vitest run --coverage",
     "knip": "knip",
@@ -69,7 +69,6 @@
     "github-slugger": "^2.0.0",
     "jsdom": "^29.0.2",
     "knip": "^6.6.2",
-    "lerna": "^9.0.7",
     "pkg-pr-new": "^0.0.66",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
