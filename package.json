@@ -89,6 +89,7 @@
   "overrides": {
     "@types/react-dom": "^19.0.0",
     "@types/react": "^19.0.0",
+    "nx": "22.6.3",
     "eslint": "^9.0.0",
     "storybook": "$storybook",
     "stylus": "^0.64.0"
