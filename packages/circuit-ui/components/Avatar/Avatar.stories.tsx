@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Stack } from '../../../../.storybook/components/index.js';
+import { Matrix } from '../../../../.storybook/components/index.js';
 
 import { Avatar, type AvatarProps } from './Avatar.js';
 
@@ -32,62 +32,15 @@ Base.args = {
   alt: 'A cup of coffee on a table',
 };
 
-export const ObjectVariant = () => (
-  <Stack>
-    <Avatar
-      src="/images/illustration-coffee.jpg"
-      variant="object"
-      alt="A cup of coffee on a table"
-    />
-    <Avatar variant="object" alt="A cup of coffee on a table" />
-  </Stack>
+export const Variants = (args: AvatarProps) => (
+  <Matrix
+    component={Avatar}
+    args={args}
+    horizontal={{ prop: 'size', values: ['s', 'm'] }}
+    vertical={{ prop: 'variant', values: ['object', 'business', 'identity'] }}
+  />
 );
 
-export const IdentityVariant = () => (
-  <Stack>
-    <Avatar
-      src="/images/illustration-cat.jpg"
-      variant="identity"
-      alt="A portrait of a grey cat"
-    />
-    <Avatar variant="identity" alt="" />
-    <Avatar variant="identity" alt="John Dorian" initials="JD" />
-  </Stack>
-);
-
-export const Sizes = () => (
-  <Stack>
-    <Stack>
-      <Avatar
-        src="/images/illustration-coffee.jpg"
-        variant="object"
-        size="m"
-        alt="A cup of coffee on a table"
-      />
-      <Avatar
-        src="/images/illustration-coffee.jpg"
-        variant="object"
-        size="s"
-        alt="A cup of coffee on a table"
-      />
-    </Stack>
-    <Stack>
-      <Avatar
-        src="/images/illustration-cat.jpg"
-        variant="identity"
-        size="m"
-        alt="A portrait of a grey cat"
-      />
-      <Avatar
-        src="/images/illustration-cat.jpg"
-        variant="identity"
-        size="s"
-        alt="A portrait of a grey cat"
-      />
-    </Stack>
-    <Stack>
-      <Avatar variant="identity" alt="John Dorian" initials="JD" size="m" />
-      <Avatar variant="identity" alt="John Dorian" initials="JD" size="s" />
-    </Stack>
-  </Stack>
-);
+Variants.args = {
+  alt: '',
+};

@@ -14,7 +14,7 @@
  */
 
 import type { ImgHTMLAttributes } from 'react';
-import { Profile, Image as ImageIcon } from '@sumup-oss/icons';
+import { Profile, Image as ImageIcon, Company } from '@sumup-oss/icons';
 
 import { CircuitError } from '../../util/errors.js';
 import { clsx } from '../../styles/clsx.js';
@@ -37,13 +37,16 @@ export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
    */
   alt: string;
   /**
-   * The variant of the Avatar, either identity or object. Refer to the docs for usage guidelines.
+   * The variant of the Avatar. Refer to the docs for usage guidelines.
    * The variant also changes which placeholder is rendered when the `src` prop is not provided.
-   * Defaults to `object`.
+   *
+   * @default 'object'
    */
-  variant?: 'object' | 'identity';
+  variant?: 'object' | 'identity' | 'business';
   /**
-   * Choose from 2 sizes. Default: 'm'.
+   * Choose from 2 sizes.
+   *
+   * @default 'm'
    */
   size?:
     | 's'
@@ -66,6 +69,7 @@ export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
 const placeholders = {
   object: <ImageIcon size="24" />,
   identity: <Profile size="24" />,
+  business: <Company size="24" />,
 };
 
 const legacySizeMap: Record<string, 's' | 'm'> = {
@@ -115,7 +119,6 @@ export const Avatar = ({
 
   if (src) {
     return (
-      // biome-ignore lint/a11y/useAltText: The `alt` prop is marked as required.
       <img
         src={src}
         alt={alt}
