@@ -114,7 +114,7 @@ export interface BaseInputProps {
 
   /**
    * The sizes available for the Input component.
-   * 's' - should ideally be used in space-constrained environments.
+   * 's' should be used to better utilise limited space in certain contexts.
    * @default 'm'
    */
   size?: InputSize;
