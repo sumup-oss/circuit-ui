@@ -6,7 +6,7 @@ This page outlines the process of contributing an icon to the `@sumup-oss/icons`
 
 ## Adding a new icon
 
-1. Create a new SVG file for each icon size in [`packages/web/icons/v2/`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/icons/web/v2) with the name `name_size.svg` (e.g. `add_items_24`—this will generate an `<AddItems />` component).
+1. Create a new SVG file for each icon size in [`packages/icons/web/v2/`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/icons/web/v2) with the name `name_size.svg` (e.g. `add_items_24`—this will generate an `<AddItems />` component).
 2. Export the icon as SVG from the [Figma icons library](https://www.figma.com/file/vnFVuPNlqF45rkw1u9toBC/SumUp-Iconography) (internal link). If the icon isn't in the library, make a request with the design team first.
    ![Right click on the group in Figma and choose "Copy as SVG"](https://github.com/sumup-oss/circuit-ui/raw/main/assets/contributing-icons-export.png)
 3. Paste the SVG into your file and verify the code — refer to the ["Caveats"](#caveats) section below.
