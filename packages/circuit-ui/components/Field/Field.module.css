@@ -15,10 +15,10 @@
 
 .wrapper[data-size="s"],
 .fieldset[data-size="s"] {
-  --field-label-font-size: var(--cui-compact-m-font-size);
-  --field-label-line-height: var(--cui-compact-m-line-height);
-  --field-validation-font-size: var(--cui-compact-m-font-size);
-  --field-validation-line-height: var(--cui-compact-m-line-height);
+  --field-label-font-size: var(--cui-compact-s-font-size);
+  --field-label-line-height: var(--cui-compact-s-line-height);
+  --field-validation-font-size: var(--cui-compact-s-font-size);
+  --field-validation-line-height: var(--cui-compact-s-line-height);
 }
 
 .label,

@@ -188,6 +188,7 @@ describe('Input', () => {
       const { container } = render(
         <Input
           size="s"
+          invalid
           {...defaultProps}
           validationHint="This field is required"
         />,

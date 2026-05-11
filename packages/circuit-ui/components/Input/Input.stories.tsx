@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Stack } from '../../../../.storybook/components/index.js';
+import { Stack, Matrix } from '../../../../.storybook/components/index.js';
 import { SearchInput } from '../SearchInput/index.js';
 import { CurrencyInput } from '../CurrencyInput/index.js';
 import { DateInput } from '../DateInput/index.js';
@@ -119,25 +119,13 @@ HiddenLabel.args = {
 };
 
 export const Sizes = (args: InputProps) => (
-  <Stack>
-    <Input {...args} size="s" label="Small" validationHint="Small size" />
-    <Input {...args} size="m" label="Medium" validationHint="Medium size" />
-    <Input
-      {...args}
-      size="s"
-      label="Small"
-      validationHint="This field is required"
-      invalid
-    />
-    <Input
-      {...args}
-      size="s"
-      label="Small"
-      validationHint="Disabled"
-      defaultValue="cannot edit"
-      disabled
-    />
-  </Stack>
+  <Matrix
+    component={Input}
+    args={args}
+    layout="paired"
+    horizontal={{ prop: 'size', values: ['s', 'm'] }}
+    vertical={{ prop: 'label', values: ['Small', 'Medium'] }}
+  />
 );
 
 Sizes.args = {

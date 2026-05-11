@@ -23,6 +23,7 @@ import {
   useRef,
   type ChangeEventHandler,
   type ClipboardEventHandler,
+  type InputHTMLAttributes,
 } from 'react';
 
 import { classes as inputClasses } from '../Input/index.js';
@@ -59,7 +60,12 @@ export interface ColorInputProps
     | 'as'
     | 'textAlign'
     | 'renderSuffix'
+    | 'size'
   > {
+  /**
+   * `s` / `m`: field scale (same as {@link InputProps#size})
+   */
+  size?: InputProps['size'] | InputHTMLAttributes<HTMLInputElement>['size'];
   /**
    * A short string that is shown inside the empty input.
    */
@@ -95,7 +101,7 @@ export const ColorInput = forwardRef<HTMLInputElement, ColorInputProps>(
       inputClassName,
       style,
       value,
-      size: _size,
+      size,
       ...props
     },
     ref,
@@ -163,7 +169,12 @@ export const ColorInput = forwardRef<HTMLInputElement, ColorInputProps>(
     };
 
     return (
-      <FieldSet className={className} style={style} disabled={disabled}>
+      <FieldSet
+        className={className}
+        style={style}
+        disabled={disabled}
+        size={size === 's' || size === 'm' ? size : undefined}
+      >
         <FieldLegend id={labelId}>
           <FieldLabelText
             label={label}
@@ -216,6 +227,7 @@ export const ColorInput = forwardRef<HTMLInputElement, ColorInputProps>(
             placeholder={placeholder?.replace('#', '')}
             onChange={onInputChange}
             onPaste={handlePaste}
+            {...(typeof size === 'number' ? { size } : {})}
           />
         </div>
         <FieldValidationHint

@@ -15,7 +15,14 @@
 
 'use client';
 
-import { forwardRef, useEffect, useId, useRef, useState } from 'react';
+import {
+  forwardRef,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type InputHTMLAttributes,
+} from 'react';
 
 import type { ReturnType } from '../../../../types/return-type.js';
 import { idx } from '../../../../util/idx.js';
@@ -44,8 +51,12 @@ import classes from './ComboboxInput.module.css';
 export interface ComboboxInputProps
   extends Omit<
     InputProps,
-    'renderPrefix' | 'renderSuffix' | 'as' | 'multiple'
+    'renderPrefix' | 'renderSuffix' | 'as' | 'multiple' | 'size'
   > {
+  /**
+   * `s` / `m`: field scale (same as {@link InputProps#size})
+   */
+  size?: InputProps['size'] | InputHTMLAttributes<HTMLInputElement>['size'];
   /**
    * Callback function when the user clears the field.
    */
@@ -99,7 +110,7 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
       'data-id': comboboxInputId,
       removeTagButtonLabel,
       moreResults,
-      size: _size,
+      size,
       ...props
     },
     ref,
@@ -139,7 +150,12 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
     }, [isOpen]);
 
     return (
-      <FieldWrapper className={className} style={style} disabled={disabled}>
+      <FieldWrapper
+        className={className}
+        style={style}
+        disabled={disabled}
+        size={size === 's' || size === 'm' ? size : undefined}
+      >
         <FieldLabel htmlFor={inputId}>
           <FieldLabelText
             label={label}
@@ -199,6 +215,7 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
             disabled={disabled}
             readOnly={readOnly}
             {...props}
+            {...(typeof size === 'number' ? { size } : {})}
           />
           {value && !disabled && !readOnly && onClear && clearLabel && (
             <CloseButton
