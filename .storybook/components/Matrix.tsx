@@ -18,25 +18,11 @@ import type { ComponentType } from 'react';
 import classes from './Matrix.module.css';
 import { Compact } from '../../packages/circuit-ui/components/Compact/Compact.js';
 
-export type MatrixLayout = 'single' | 'paired';
-
 interface MatrixProps<Props> {
   component: ComponentType<Props>;
   args: Props;
   horizontal: { prop: keyof Props; values: string[] | readonly string[] };
   vertical: { prop: keyof Props; values: string[] | readonly string[] };
-  /**
-   * `single` (default): full combination grid, allows horizontal value & every vertical value.
-   * `paired`: one column per index; `horizontal.values[i]` with `vertical.values[i]`.
-   * Paired mode requires both arrays to have the same length.
-   */
-  layout?: MatrixLayout;
-  /**
-   * Set to `false` when the vertical prop is already visible on the component
-   * (eg `label` on form fields) to avoid duplicating it in the table.
-   * Ignored when `layout` is `paired` (no row header column).
-   */
-  showRowHeaders?: boolean;
 }
 
 export function Matrix<Props>({
@@ -44,64 +30,14 @@ export function Matrix<Props>({
   args,
   horizontal,
   vertical,
-  layout = 'single',
-  showRowHeaders = true,
 }: MatrixProps<Props>) {
-  if (layout === 'paired') {
-    if (horizontal.values.length !== vertical.values.length) {
-      throw new Error(
-        'Matrix: paired layout requires horizontal.values and vertical.values to have the same length.',
-      );
-    }
-
-    return (
-      <table>
-        <thead>
-          <tr>
-            {horizontal.values.map((horizontalValue) => (
-              <th
-                key={String(horizontalValue)}
-                scope="col"
-                className={classes.cell}
-              >
-                <Compact color="subtle">{horizontalValue}</Compact>
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            {horizontal.values.map((horizontalValue, index) => (
-              <td
-                key={`${String(horizontalValue)}-${String(vertical.values[index])}`}
-                className={classes.cell}
-              >
-                <Component
-                  {...args}
-                  {...{
-                    [horizontal.prop]: horizontalValue,
-                    [vertical.prop]: vertical.values[index],
-                  }}
-                />
-              </td>
-            ))}
-          </tr>
-        </tbody>
-      </table>
-    );
-  }
-
   return (
     <table>
       <thead>
         <tr>
-          {showRowHeaders ? <th /> : null}
+          <th />
           {horizontal.values.map((horizontalValue) => (
-            <th
-              key={String(horizontalValue)}
-              scope="col"
-              className={classes.cell}
-            >
+            <th key={horizontalValue} scope="col" className={classes.cell}>
               <Compact color="subtle">{horizontalValue}</Compact>
             </th>
           ))}
@@ -109,17 +45,12 @@ export function Matrix<Props>({
       </thead>
       <tbody>
         {vertical.values.map((verticalValue) => (
-          <tr key={String(verticalValue)}>
-            {showRowHeaders ? (
-              <th scope="row" className={classes.cell}>
-                <Compact color="subtle">{verticalValue}</Compact>
-              </th>
-            ) : null}
+          <tr key={verticalValue}>
+            <th scope="row" className={classes.cell}>
+              <Compact color="subtle">{verticalValue}</Compact>
+            </th>
             {horizontal.values.map((horizontalValue) => (
-              <td
-                key={`${String(verticalValue)}-${String(horizontalValue)}`}
-                className={classes.cell}
-              >
+              <td key={horizontalValue} className={classes.cell}>
                 <Component
                   {...args}
                   {...{
