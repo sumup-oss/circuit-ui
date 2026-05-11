@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 6.3.0
+
+### Minor Changes
+
+- [#3602](https://github.com/sumup-oss/circuit-ui/pull/3602) [`6910a04`](https://github.com/sumup-oss/circuit-ui/commit/6910a04622245f7f43dc575118e955ed4fffeeb9) Thanks [@amelako](https://github.com/amelako)! - Added POS icon in size 24.
+
 ## 6.2.0
 
 ### Minor Changes
