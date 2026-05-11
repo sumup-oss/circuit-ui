@@ -13,6 +13,7 @@ export default defineConfig([
         projectService: {
           allowDefaultProject: ['*.js', '*.cjs'],
         },
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         tsconfigRootDir: import.meta.dirname,
       },
     },
