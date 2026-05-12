@@ -190,7 +190,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <FieldWrapper
-        className={clsx(size === 's' && classes.s, className)}
+        className={className}
         style={style}
         disabled={disabled}
         size={size}
@@ -203,7 +203,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             required={required}
           />
         </FieldLabel>
-        <div className={classes.wrapper}>
+        <div className={clsx(classes.wrapper, classes[size])}>
           {prefix}
           <Element
             id={inputId}

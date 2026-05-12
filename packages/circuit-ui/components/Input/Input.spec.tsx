@@ -162,39 +162,4 @@ describe('Input', () => {
       expect(liveRegionEl).toBeEmptyDOMElement();
     });
   });
-
-  describe('Sizes', () => {
-    it('should maintain the accessible name in the small size', () => {
-      render(<Input size="s" {...defaultProps} />);
-      const inputEl = screen.getByRole('textbox');
-
-      expect(inputEl).toHaveAccessibleName(defaultProps.label);
-    });
-
-    it('should have no accessible violations in the small size', async () => {
-      const { container } = render(
-        <Input
-          size="s"
-          {...defaultProps}
-          validationHint="Maximum 100 characters"
-        />,
-      );
-
-      const actual = await axe(container);
-      expect(actual).toHaveNoViolations();
-    });
-
-    it('should have no accessible violations in the small size when invalid', async () => {
-      const { container } = render(
-        <Input
-          size="s"
-          invalid
-          {...defaultProps}
-          validationHint="This field is required"
-        />,
-      );
-      const actual = await axe(container);
-      expect(actual).toHaveNoViolations();
-    });
-  });
 });

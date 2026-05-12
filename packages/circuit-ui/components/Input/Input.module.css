@@ -4,16 +4,11 @@
 
 .base {
   width: 100%;
-  padding: var(--input-padding-block, var(--cui-spacings-kilo))
-    var(--input-padding-inline, var(--cui-spacings-mega));
   margin: 0;
-  font-size: var(--input-font-size, var(--cui-body-m-font-size));
-  line-height: var(--input-line-height, var(--cui-body-m-line-height));
   appearance: none;
   outline: 0;
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-normal);
-  border-radius: var(--input-border-radius, var(--cui-border-radius-kilo));
   box-shadow: none;
   transition:
     box-shadow var(--cui-transitions-default),
@@ -86,55 +81,89 @@
   text-align: right;
 }
 
-/* Sizes */
-
-.s {
-  --input-padding-block: calc(
-    var(--cui-spacings-bit) -
-    var(--cui-border-width-kilo)
-  );
-  --input-padding-inline: calc(
-    var(--cui-spacings-kilo) -
-    var(--cui-border-width-kilo)
-  );
-  --input-font-size: var(--cui-body-s-font-size);
-  --input-line-height: var(--cui-body-s-line-height);
-  --input-border-radius: var(--cui-border-radius-byte);
-  --input-affix-size: var(--cui-spacings-tera);
-  --input-affix-padding: var(--cui-spacings-byte);
-  --input-affix-padding-offset: var(--cui-spacings-tera);
-}
-
 /* Prefix & suffix */
 
-.has-prefix {
-  padding-left: var(--input-affix-padding-offset, var(--cui-spacings-exa));
-}
-
-.has-suffix {
-  padding-right: var(--input-affix-padding-offset, var(--cui-spacings-exa));
-}
-
-.wrapper .prefix,
-.wrapper .suffix {
+.prefix,
+.suffix {
   position: absolute;
-  width: var(--input-affix-size, var(--cui-spacings-exa));
-  height: var(--input-affix-size, var(--cui-spacings-exa));
-  padding: var(--input-affix-padding, var(--cui-spacings-kilo));
+  top: 50%;
   color: var(--cui-fg-subtle);
   pointer-events: none;
+  transform: translateY(-50%);
 }
 
-.wrapper .suffix {
-  top: 0;
+.prefix {
+  left: 0;
+}
+
+.suffix {
   right: 0;
   transition: right var(--cui-transitions-default);
 }
 
-.wrapper button.prefix,
-.wrapper button.suffix,
-.wrapper .prefix button,
-.wrapper .suffix button {
+button.prefix,
+button.suffix,
+.prefix button,
+.suffix button {
   pointer-events: auto;
-  border-radius: var(--input-border-radius, var(--cui-border-radius-kilo));
+}
+
+/* Sizes */
+
+.s .base {
+  padding: var(--cui-spacings-bit) var(--cui-spacings-byte);
+  font-size: var(--cui-body-s-font-size);
+  line-height: var(--cui-body-s-line-height);
+  border-radius: var(--cui-border-radius-byte);
+}
+
+.m .base {
+  padding: var(--cui-spacings-kilo) var(--cui-spacings-mega);
+  font-size: var(--cui-body-m-font-size);
+  line-height: var(--cui-body-m-line-height);
+  border-radius: var(--cui-border-radius-kilo);
+}
+
+.s .has-prefix {
+  padding-left: var(--cui-spacings-tera);
+}
+
+.m .has-prefix {
+  padding-left: var(--cui-spacings-exa);
+}
+
+.s .has-suffix {
+  padding-right: var(--cui-spacings-tera);
+}
+
+.m .has-suffix {
+  padding-right: var(--cui-spacings-exa);
+}
+
+.s .prefix,
+.s .suffix {
+  width: var(--cui-spacings-tera);
+  height: var(--cui-spacings-tera);
+  padding: var(--cui-spacings-byte);
+}
+
+.m .prefix,
+.m .suffix {
+  width: var(--cui-spacings-exa);
+  height: var(--cui-spacings-exa);
+  padding: var(--cui-spacings-kilo);
+}
+
+.s button.prefix,
+.s button.suffix,
+.s .prefix button,
+.s .suffix button {
+  border-radius: var(--cui-border-radius-byte);
+}
+
+.m button.prefix,
+.m button.suffix,
+.m .prefix button,
+.m .suffix button {
+  border-radius: var(--cui-border-radius-kilo);
 }

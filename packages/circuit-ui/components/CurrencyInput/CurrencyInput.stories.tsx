@@ -86,8 +86,8 @@ Locales.args = baseArgs;
 
 export const Sizes = (args: CurrencyInputProps) => (
   <Stack>
-    <CurrencyInput {...args} size="s" validationHint="Excluding VAT" />
-    <CurrencyInput {...args} size="m" validationHint="Excluding VAT" />
+    <CurrencyInput {...args} size="s" />
+    <CurrencyInput {...args} size="m" />
   </Stack>
 );
 
