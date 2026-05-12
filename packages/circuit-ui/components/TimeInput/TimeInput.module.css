@@ -1,10 +1,23 @@
 .base {
+  color: var(--cui-fg-normal);
+}
+
+.s {
   height: calc(
-    var(--input-line-height, var(--cui-body-m-line-height)) +
+    var(--cui-body-s-line-height) +
     2 *
-    var(--input-padding-block, var(--cui-spacings-kilo)) +
+    var(--cui-spacings-bit) +
     2 *
     var(--cui-border-width-kilo)
   );
-  color: var(--cui-fg-normal);
+}
+
+.m {
+  height: calc(
+    var(--cui-body-m-line-height) +
+    2 *
+    var(--cui-spacings-kilo) +
+    2 *
+    var(--cui-border-width-kilo)
+  );
 }

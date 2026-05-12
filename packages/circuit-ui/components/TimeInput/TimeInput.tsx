@@ -19,6 +19,7 @@ import { forwardRef, type InputHTMLAttributes } from 'react';
 
 import type { Locale } from '../../util/i18n.js';
 import { CircuitError } from '../../util/errors.js';
+import { clsx } from '../../styles/clsx.js';
 import { Input, type InputProps } from '../Input/index.js';
 import classes from './TimeInput.module.css';
 
@@ -80,7 +81,7 @@ export interface TimeInputProps
  * The input value is always a string in the `HH:mm` or `HH:mm:ss` format.
  */
 export const TimeInput = forwardRef<HTMLInputElement, TimeInputProps>(
-  (props, ref) => {
+  ({ size = 'm', ...props }, ref) => {
     if (process.env.NODE_ENV !== 'production') {
       const TIME_REGEX = /^\d{2}:\d{2}(?::\d{2})?$/;
 
@@ -100,7 +101,13 @@ export const TimeInput = forwardRef<HTMLInputElement, TimeInputProps>(
     }
 
     return (
-      <Input {...props} ref={ref} type="time" inputClassName={classes.base} />
+      <Input
+        {...props}
+        size={size}
+        ref={ref}
+        type="time"
+        inputClassName={clsx(classes.base, classes[size])}
+      />
     );
   },
 );
