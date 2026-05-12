@@ -118,12 +118,14 @@
 
 .s .validation-hint-icon {
   margin-top: calc(
-    (var(--cui-compact-s-line-height) - var(--cui-icon-sizes-kilo)) / 2
+    (var(--cui-compact-s-line-height) - var(--cui-icon-sizes-kilo)) /
+    2
   );
 }
 
 .m .validation-hint-icon {
   margin-top: calc(
-    (var(--cui-body-s-line-height) - var(--cui-icon-sizes-kilo)) / 2
+    (var(--cui-body-s-line-height) - var(--cui-icon-sizes-kilo)) /
+    2
   );
 }
