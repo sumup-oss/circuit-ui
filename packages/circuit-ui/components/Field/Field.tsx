@@ -48,11 +48,11 @@ interface FieldWrapperProps extends HTMLAttributes<HTMLDivElement> {
  * @private
  */
 export const FieldWrapper = forwardRef<HTMLDivElement, FieldWrapperProps>(
-  ({ children, disabled, size, className, ...props }, ref) => (
+  ({ children, disabled, size = 'm', className, ...props }, ref) => (
     <div
       ref={ref}
       data-disabled={disabled}
-      className={clsx(classes.wrapper, size === 's' && classes.s, className)}
+      className={clsx(classes.wrapper, classes[size], className)}
       {...props}
     >
       {children}
@@ -71,11 +71,11 @@ interface FieldSetProps extends FieldsetHTMLAttributes<HTMLFieldSetElement> {
  * @private
  */
 export const FieldSet = forwardRef<HTMLFieldSetElement, FieldSetProps>(
-  ({ size, className, ...props }, ref) => (
+  ({ size = 'm', className, ...props }, ref) => (
     <fieldset
       {...props}
       ref={ref}
-      className={clsx(classes.fieldset, size === 's' && classes.s, className)}
+      className={clsx(classes.fieldset, classes[size], className)}
     />
   ),
 );
