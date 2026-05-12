@@ -113,7 +113,9 @@ export interface BaseInputProps {
   inputClassName?: string;
 
   /**
-   * Choose from 2 sizes. Default: 'm'.
+   * Choose from 2 sizes.
+   * @default `m`
+   
    */
   size?: InputSize;
 }
