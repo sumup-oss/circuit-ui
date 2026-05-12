@@ -113,9 +113,7 @@ export interface BaseInputProps {
   inputClassName?: string;
 
   /**
-   * The sizes available for the Input component.
-   * 's' should be used to better utilise limited space in certain contexts.
-   * @default 'm'
+   * Choose from 2 sizes. Default: 'm'.
    */
   size?: InputSize;
 }

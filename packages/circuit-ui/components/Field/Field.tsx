@@ -52,8 +52,7 @@ export const FieldWrapper = forwardRef<HTMLDivElement, FieldWrapperProps>(
     <div
       ref={ref}
       data-disabled={disabled}
-      data-size={size}
-      className={clsx(classes.wrapper, className)}
+      className={clsx(classes.wrapper, size === 's' && classes.s, className)}
       {...props}
     >
       {children}
@@ -76,8 +75,7 @@ export const FieldSet = forwardRef<HTMLFieldSetElement, FieldSetProps>(
     <fieldset
       {...props}
       ref={ref}
-      data-size={size}
-      className={clsx(classes.fieldset, className)}
+      className={clsx(classes.fieldset, size === 's' && classes.s, className)}
     />
   ),
 );

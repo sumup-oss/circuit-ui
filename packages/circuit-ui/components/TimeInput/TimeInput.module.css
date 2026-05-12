@@ -1,4 +1,10 @@
 .base {
-  height: calc(var(--cui-body-m-line-height) + 2 * var(--cui-spacings-kilo));
+  height: calc(
+    var(--input-line-height, var(--cui-body-m-line-height)) +
+    2 *
+    var(--input-padding-block, var(--cui-spacings-kilo)) +
+    2 *
+    var(--cui-border-width-kilo)
+  );
   color: var(--cui-fg-normal);
 }

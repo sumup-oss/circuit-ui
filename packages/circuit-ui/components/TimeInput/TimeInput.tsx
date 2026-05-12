@@ -36,6 +36,7 @@ export interface TimeInputProps
       | 'readOnly'
       | 'validationHint'
       | 'optionalLabel'
+      | 'size'
     > {
   /**
    * The currently selected time in the `HH:mm` or `HH:mm:ss` format,

@@ -120,15 +120,9 @@ HiddenLabel.args = {
 
 export const Sizes = (args: InputProps) => (
   <Stack>
-    <Input {...args} size="s" validationHint="Maximum 100 characters" />
-    <Input {...args} size="m" validationHint="Maximum 100 characters" />
-    <Input {...args} size="s" validationHint="This field is required" invalid />
-    <Input {...args} size="s" validationHint="Disabled" disabled />
+    <Input {...args} size="s" />
+    <Input {...args} size="m" />
   </Stack>
 );
 
-Sizes.args = {
-  label: 'First name',
-  placeholder: 'Jane',
-  validationHint: 'Maximum 100 characters',
-};
+Sizes.args = baseArgs;
