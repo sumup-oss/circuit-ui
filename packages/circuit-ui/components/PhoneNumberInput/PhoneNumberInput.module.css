@@ -17,12 +17,12 @@
   }
 
   .country-code.country-code select,
-  .country-code-input.country-code-input {
+  .country-code .country-code-input.country-code-input {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
 
-  .subscriber-number-input.subscriber-number-input {
+  .subscriber-number .subscriber-number-input.subscriber-number-input {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
@@ -35,12 +35,12 @@
   }
 
   .country-code.country-code select,
-  .country-code-input.country-code-input {
+  .country-code .country-code-input.country-code-input {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
 
-  .country-code-input.country-code-input {
+  .country-code .country-code-input.country-code-input {
     /* Prefix padding + country code (max 4 chars) + padding */
     max-width: calc(var(--cui-spacings-exa) + 4ch + var(--cui-spacings-mega));
   }
@@ -49,7 +49,7 @@
     min-width: 50%;
   }
 
-  .subscriber-number-input.subscriber-number-input {
+  .subscriber-number .subscriber-number-input.subscriber-number-input {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
