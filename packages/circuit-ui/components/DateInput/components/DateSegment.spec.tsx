@@ -85,6 +85,13 @@ describe('DateSegment', () => {
       expect(props.focus.next).toHaveBeenCalled();
     });
 
+    it('should move the focus to the next segment when typing a complete value with a leading zero', async () => {
+      render(<DateSegment {...props} value="" />);
+      const input = screen.getByRole('spinbutton');
+      await userEvent.type(input, '01');
+      expect(props.focus.next).toHaveBeenCalled();
+    });
+
     it.each([
       'ArrowUp',
       'ArrowDown',
