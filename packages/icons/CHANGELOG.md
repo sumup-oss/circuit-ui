@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 6.4.0
+
+### Minor Changes
+
+- [#3615](https://github.com/sumup-oss/circuit-ui/pull/3615) [`dd7d75a`](https://github.com/sumup-oss/circuit-ui/commit/dd7d75ab4306fdca7a3812784d9f786b06c5b348) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the tier indicator icons.
+
 ## 6.3.0
 
 ### Minor Changes
