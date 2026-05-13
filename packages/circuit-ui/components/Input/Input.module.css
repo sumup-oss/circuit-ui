@@ -83,8 +83,8 @@
 
 /* Prefix & suffix */
 
-.prefix,
-.suffix {
+.wrapper .prefix,
+.wrapper .suffix {
   position: absolute;
   top: 50%;
   color: var(--cui-fg-subtle);
@@ -92,78 +92,82 @@
   transform: translateY(-50%);
 }
 
-.prefix {
+.wrapper .prefix {
   left: 0;
 }
 
-.suffix {
+.wrapper .suffix {
   right: 0;
   transition: right var(--cui-transitions-default);
 }
 
-button.prefix,
-button.suffix,
-.prefix button,
-.suffix button {
+.wrapper button.prefix,
+.wrapper button.suffix,
+.wrapper .prefix button,
+.wrapper .suffix button {
   pointer-events: auto;
 }
 
 /* Sizes */
 
-.s .base {
+/* s */
+
+.wrapper.s .base {
   padding: var(--cui-spacings-bit) var(--cui-spacings-byte);
   font-size: var(--cui-body-s-font-size);
   line-height: var(--cui-body-s-line-height);
   border-radius: var(--cui-border-radius-byte);
 }
 
-.m .base {
+.wrapper.s .has-prefix {
+  padding-left: var(--cui-spacings-tera);
+}
+
+.wrapper.s .has-suffix {
+  padding-right: var(--cui-spacings-tera);
+}
+
+.wrapper.s .prefix,
+.wrapper.s .suffix {
+  width: var(--cui-spacings-tera);
+  height: var(--cui-spacings-tera);
+  padding: var(--cui-spacings-byte);
+}
+
+.wrapper.s button.prefix,
+.wrapper.s button.suffix,
+.wrapper.s .prefix button,
+.wrapper.s .suffix button {
+  border-radius: var(--cui-border-radius-byte);
+}
+
+/* m */
+
+.wrapper.m .base {
   padding: var(--cui-spacings-kilo) var(--cui-spacings-mega);
   font-size: var(--cui-body-m-font-size);
   line-height: var(--cui-body-m-line-height);
   border-radius: var(--cui-border-radius-kilo);
 }
 
-.s .has-prefix {
-  padding-left: var(--cui-spacings-tera);
-}
-
-.m .has-prefix {
+.wrapper.m .has-prefix {
   padding-left: var(--cui-spacings-exa);
 }
 
-.s .has-suffix {
-  padding-right: var(--cui-spacings-tera);
-}
-
-.m .has-suffix {
+.wrapper.m .has-suffix {
   padding-right: var(--cui-spacings-exa);
 }
 
-.s .prefix,
-.s .suffix {
-  width: var(--cui-spacings-tera);
-  height: var(--cui-spacings-tera);
-  padding: var(--cui-spacings-byte);
-}
-
-.m .prefix,
-.m .suffix {
+.wrapper.m .prefix,
+.wrapper.m .suffix {
   width: var(--cui-spacings-exa);
   height: var(--cui-spacings-exa);
   padding: var(--cui-spacings-kilo);
 }
 
-.s button.prefix,
-.s button.suffix,
-.s .prefix button,
-.s .suffix button {
-  border-radius: var(--cui-border-radius-byte);
-}
-
-.m button.prefix,
-.m button.suffix,
-.m .prefix button,
-.m .suffix button {
+.wrapper.m button.prefix,
+.wrapper.m button.suffix,
+.wrapper.m .prefix button,
+.wrapper.m .suffix button {
   border-radius: var(--cui-border-radius-kilo);
 }

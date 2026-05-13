@@ -77,11 +77,13 @@
 
 .wrapper .input {
   position: relative;
-  padding-left: var(--cui-spacings-giga);
+  padding: var(--cui-spacings-kilo) var(--cui-spacings-mega)
+    var(--cui-spacings-kilo) var(--cui-spacings-giga);
   overflow: hidden;
   font-family: var(--cui-font-stack-mono);
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  font-size: var(--cui-body-m-font-size);
+  line-height: var(--cui-body-m-line-height);
+  border-radius: 0 var(--cui-border-radius-kilo) var(--cui-border-radius-kilo) 0;
 
   /* to avoid having a 2px inner border separating the two inputs */
   transform: translateX(-1px);
