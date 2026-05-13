@@ -124,8 +124,8 @@ export function usePlainDateState({
       defaultValue: today.year,
       placeholder: 'yyyy',
       step: 10,
-      min: minDate ? minDate.year : 1,
-      max: maxDate ? maxDate.year : 9999,
+      min: minDate ? minDate.year : MIN_YEAR,
+      max: maxDate ? maxDate.year : MAX_YEAR,
       onChange: (year: DateValue) => update({ year }),
     },
     month: {
@@ -145,7 +145,7 @@ export function usePlainDateState({
       defaultValue: today.day,
       placeholder: 'dd',
       step: 7,
-      min: sameMonthLimit || currentMinMonth ? minDate.day : 1,
+      min: sameMonthLimit || currentMinMonth ? minDate.day : MIN_DAY,
       max:
         sameMonthLimit || currentMaxMonth
           ? maxDate.day
