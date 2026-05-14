@@ -16,7 +16,6 @@
 'use client';
 
 import {
-  useEffect,
   useLayoutEffect,
   useRef,
   useState,
@@ -71,12 +70,6 @@ export function DateSegment({
   const timerRef = useRef<ReturnType<typeof setTimeout>>(null);
   const [width, setWidth] = useState('4ch');
   const [draftValue, setDraftValue] = useState('');
-
-  useEffect(() => {
-    if (props.value !== '' && draftValue) {
-      setDraftValue('');
-    }
-  }, [draftValue, props.value]);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: The width needs to be recalculated when the value changes
   useLayoutEffect(() => {
@@ -191,21 +184,21 @@ export function DateSegment({
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const nextValue = event.currentTarget.value;
+    const rawValue = event.currentTarget.value;
 
-    if (!nextValue) {
+    if (!rawValue) {
       setDraftValue('');
       onChange('');
       return;
     }
 
-    if (nextValue === '0') {
-      setDraftValue(nextValue);
+    if (rawValue === '0') {
+      setDraftValue(rawValue);
       onChange('');
       return;
     }
 
-    const value = Number.parseInt(nextValue, 10);
+    const value = Number.parseInt(rawValue, 10);
 
     setDraftValue('');
 
@@ -214,7 +207,7 @@ export function DateSegment({
     // Focus the next segment once the segment is complete or typing any
     // other digit would exceed the maximum value.
     if (
-      nextValue.length >= props.placeholder.length ||
+      rawValue.length >= props.placeholder.length ||
       (value && value > Math.floor(max / 10))
     ) {
       focus.next();
@@ -240,7 +233,7 @@ export function DateSegment({
         onChange={handleChange}
         {...focus.props}
         {...props}
-        value={draftValue || props.value}
+        value={props.value === '' ? draftValue : props.value}
       />
       <span ref={sizeRef} className={classes.size} aria-hidden="true">
         {props.value || props.placeholder}
