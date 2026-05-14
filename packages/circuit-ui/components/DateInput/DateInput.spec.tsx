@@ -249,6 +249,33 @@ describe('DateInput', () => {
       expect(ref.current).toHaveValue('2017-08-28');
     });
 
+    it('should allow leading zeros when typing a day', async () => {
+      const ref = createRef<HTMLInputElement>();
+
+      render(<DateInput {...props} ref={ref} />);
+
+      await userEvent.type(screen.getByLabelText('Year'), '2017');
+      await userEvent.type(screen.getByLabelText('Month'), '8');
+
+      const dayInput = screen.getByLabelText('Day');
+
+      await userEvent.type(dayInput, '0');
+      expect(dayInput).toHaveValue('0');
+
+      await userEvent.type(dayInput, '2');
+      expect(ref.current).toHaveValue('2017-08-02');
+    });
+
+    it('should move focus to the next segment after typing a complete day with a leading zero', async () => {
+      render(<DateInput {...props} />);
+
+      await userEvent.type(screen.getByLabelText('Year'), '2017');
+      await userEvent.type(screen.getByLabelText('Month'), '8');
+      await userEvent.type(screen.getByLabelText('Day'), '01');
+
+      expect(screen.getByLabelText('Year')).toHaveFocus();
+    });
+
     it('should update the minimum and maximum input values as the user types', async () => {
       render(<DateInput {...props} min="2000-04-29" max="2001-02-15" />);
 
