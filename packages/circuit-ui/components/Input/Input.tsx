@@ -109,6 +109,11 @@ export interface BaseInputProps {
    * Class to overwrite the input element styles.
    */
   inputClassName?: string;
+  /**
+   * Disable password manager overlayes on non-credential inputs that might
+   * be incorrectly classify as login fields.
+   */
+  passwordManagerIgnore?: boolean;
 }
 
 export interface InputProps
@@ -141,6 +146,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       disabled,
       textAlign = 'left',
       inputClassName,
+      passwordManagerIgnore,
       'as': Element = 'input',
       label,
       hideLabel,
@@ -212,6 +218,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             aria-invalid={invalid && 'true'}
             required={required}
             disabled={disabled}
+            data-1p-ignore={passwordManagerIgnore}
+            data-bwignore={passwordManagerIgnore}
+            data-lpignore={passwordManagerIgnore}
+            data-op-ignore={passwordManagerIgnore}
+            data-protonpass-ignore={passwordManagerIgnore}
             {...props}
           />
           {suffix}
