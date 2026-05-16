@@ -167,6 +167,8 @@ function getAttributeValues(
   }, {} as AttributeValues);
 }
 
+// Used to delete surrounding spaces of the remove redundant attribute.
+// E.g. `<Body as="p">...</Body>` becomes `<Body>...</Body>`.
 function getFixRange(
   sourceCode: TSESLint.SourceCode,
   attribute: TSESTree.JSXAttribute,
@@ -204,6 +206,18 @@ function getFixRange(
   return [start, attribute.range[1]];
 }
 
+function removeRange(
+  text: string,
+  range: [number, number],
+  offset: number,
+): string {
+  const [start, end] = range;
+  const relativeStart = start - offset;
+  const relativeEnd = end - offset;
+
+  return text.slice(0, relativeStart) + text.slice(relativeEnd);
+}
+
 function removeRanges(
   text: string,
   ranges: [number, number][],
@@ -224,16 +238,11 @@ function removeRanges(
         return acc;
       },
       [] as [number, number][],
-    )
-    .toSorted((a, b) => b[0] - a[0]);
+    );
 
   return mergedRanges
     .toSorted((a, b) => b[0] - a[0])
-    .reduce((acc, [start, end]) => {
-      const relativeStart = start - offset;
-      const relativeEnd = end - offset;
-      return acc.slice(0, relativeStart) + acc.slice(relativeEnd);
-    }, text);
+    .reduce((acc, range) => removeRange(acc, range, offset), text);
 }
 
 function getLineIndent(source: string, index: number): string {
@@ -247,6 +256,8 @@ function getLineIndent(source: string, index: number): string {
   return source.slice(lineStart, cursor);
 }
 
+// Normalizes the element after removal of redundant props.
+// E.g. `<Tooltip/>` to `<Tooltip />`.
 function normalizeOpeningElement(
   text: string,
   sourceCode: TSESLint.SourceCode,
@@ -265,6 +276,7 @@ export const noDefaultProps = createRule({
   meta: {
     type: 'suggestion',
     fixable: 'code',
+    hasSuggestions: true,
     schema: [],
     docs: {
       description:
@@ -274,6 +286,8 @@ export const noDefaultProps = createRule({
     messages: {
       redundant:
         "The {{component}}'s `{{propName}}` prop is redundant because `{{value}}` is the default value.",
+      removeSingle:
+        'Remove the redundant `{{propName}}` prop without changing the other attributes.',
     },
   },
   defaultOptions: [],
@@ -370,7 +384,7 @@ export const noDefaultProps = createRule({
           node.openingElement,
         );
 
-        node.openingElement.attributes.forEach((attribute) => {
+        removableAttributes.forEach((attribute) => {
           if (
             attribute.type !== TSESTree.AST_NODE_TYPES.JSXAttribute ||
             attribute.name.type !== TSESTree.AST_NODE_TYPES.JSXIdentifier
@@ -413,6 +427,30 @@ export const noDefaultProps = createRule({
                 fixedOpeningElement,
               );
             },
+            suggest: [
+              {
+                messageId: 'removeSingle',
+                data: {
+                  propName: config.propName,
+                },
+                fix(fixer) {
+                  const singleFixOpeningElement = normalizeOpeningElement(
+                    removeRange(
+                      context.sourceCode.getText(node.openingElement),
+                      getFixRange(context.sourceCode, attribute),
+                      node.openingElement.range[0],
+                    ),
+                    context.sourceCode,
+                    node.openingElement,
+                  );
+
+                  return fixer.replaceText(
+                    node.openingElement,
+                    singleFixOpeningElement,
+                  );
+                },
+              },
+            ],
           });
         });
       },
