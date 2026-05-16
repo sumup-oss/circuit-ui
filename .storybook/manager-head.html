@@ -2,58 +2,6 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
 <style>
-  body,
-  .sidebar-container,
-  .search-field input {
-    font-family: "SumUp Narrow", Arial, system-ui, sans-serif, "Segoe UI",
-      Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  }
-
-  .sidebar-container {
-    background:
-      linear-gradient(
-        180deg,
-        var(--cui-bg-subtle) 0,
-        var(--cui-bg-normal) 14rem
-      ),
-      var(--cui-bg-normal);
-  }
-
-  .search-field input,
-  .sidebar-subheading button,
-  .toolbar-item {
-    border-radius: var(--cui-border-radius-pill);
-  }
-
-  .search-field input {
-    background-color: var(--cui-bg-normal);
-    border-color: var(--cui-border-subtle);
-    box-shadow: none;
-  }
-
-  .sidebar-item {
-    border-radius: var(--cui-border-radius-pill);
-  }
-
-  .sidebar-item:hover,
-  .sidebar-item:focus-visible,
-  .sidebar-item[data-highlighted="true"] {
-    background-color: var(--cui-bg-subtle-hovered);
-  }
-
-  .sidebar-subheading {
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-
-  .sidebar-subheading button,
-  .toolbar-item {
-    transition:
-      background-color 120ms ease-in-out,
-      color 120ms ease-in-out,
-      border-color 120ms ease-in-out;
-  }
-
   [data-color-scheme="dark"] .sidebar-item[data-selected="true"],
   [data-color-scheme="dark"] .sidebar-item[data-selected="true"] svg,
   [data-color-scheme="consumer"] .sidebar-item[data-selected="true"],
