@@ -42,7 +42,14 @@ export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
    *
    * @default 'object'
    */
-  variant?: 'object' | 'identity' | 'business';
+  variant?:
+    | 'object'
+    | 'business'
+    | 'person'
+    /**
+     * @deprecated Use the 'person' variant instead.
+     */
+    | 'identity';
   /**
    * Choose from 2 sizes.
    *
@@ -52,11 +59,11 @@ export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
     | 's'
     | 'm'
     /**
-     * @deprecated
+     * @deprecated Use size 's' instead.
      */
     | 'giga'
     /**
-     * @deprecated
+     * @deprecated Use size 'm' instead.
      */
     | 'yotta';
   /**
@@ -68,13 +75,16 @@ export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
 
 const placeholders = {
   object: <ImageIcon size="24" />,
-  identity: <Profile size="24" />,
+  person: <Profile size="24" />,
   business: <Company size="24" />,
 };
 
 const legacySizeMap: Record<string, 's' | 'm'> = {
   giga: 's',
   yotta: 'm',
+};
+const legacyVariantMap: Record<string, 'person' | 'object' | 'business'> = {
+  identity: 'person',
 };
 
 /**
@@ -83,12 +93,28 @@ const legacySizeMap: Record<string, 's' | 'm'> = {
 export const Avatar = ({
   src,
   alt = '', // This default should be removed in the next major
-  variant = 'object',
+  variant: legacyVariant = 'object',
   size: legacySize = 'm',
   initials,
   className,
   ...props
 }: AvatarProps) => {
+  if (process.env.NODE_ENV !== 'production' && legacySizeMap[legacySize]) {
+    deprecate(
+      'Avatar',
+      `The \`${legacySize}\` size has been deprecated. Use the \`${legacySizeMap[legacySize]}\` size instead.`,
+    );
+  }
+
+  if (process.env.NODE_ENV !== 'production' && legacyVariant === 'identity') {
+    deprecate(
+      'Avatar',
+      `The \`identity\` variant has been deprecated. Use the \`person\` variant instead.`,
+    );
+  }
+
+  const variant = legacyVariantMap[legacyVariant] || legacyVariant;
+
   if (
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test'
@@ -108,13 +134,6 @@ export const Avatar = ({
     }
   }
 
-  if (process.env.NODE_ENV !== 'production' && legacySizeMap[legacySize]) {
-    deprecate(
-      'Avatar',
-      `The \`${legacySize}\` size has been deprecated. Use the \`${legacySizeMap[legacySize]}\` size instead.`,
-    );
-  }
-
   const size = legacySizeMap[legacySize] || legacySize;
 
   if (src) {
@@ -125,7 +144,7 @@ export const Avatar = ({
         className={clsx(
           classes.base,
           classes[size],
-          variant === 'identity' && classes.identity,
+          variant === 'person' && classes.person,
           className,
         )}
         {...props}
@@ -134,7 +153,7 @@ export const Avatar = ({
   }
 
   const placeholder =
-    variant === 'identity' && initials
+    variant === 'person' && initials
       ? initials.slice(0, 2).toUpperCase()
       : placeholders[variant];
 
@@ -146,7 +165,7 @@ export const Avatar = ({
       className={clsx(
         classes.base,
         classes[size],
-        variant === 'identity' && classes.identity,
+        variant === 'person' && classes.person,
         className,
       )}
       {...props}

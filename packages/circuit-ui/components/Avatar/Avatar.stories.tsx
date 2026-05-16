@@ -37,7 +37,7 @@ export const Variants = (args: AvatarProps) => (
     component={Avatar}
     args={args}
     horizontal={{ prop: 'size', values: ['s', 'm'] }}
-    vertical={{ prop: 'variant', values: ['object', 'business', 'identity'] }}
+    vertical={{ prop: 'variant', values: ['object', 'business', 'person'] }}
   />
 );
 
