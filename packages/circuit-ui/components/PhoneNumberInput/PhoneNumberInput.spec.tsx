@@ -372,6 +372,42 @@ describe('PhoneNumberInput', () => {
     expect(input).toBeInvalid();
   });
 
+  describe('country code autocomplete', () => {
+    const autocompleteProps = {
+      ...defaultProps,
+      countryCode: {
+        ...defaultProps.countryCode,
+        variant: 'autocomplete' as const,
+      },
+    };
+
+    it('should render a combobox for country selection', () => {
+      render(<PhoneNumberInput {...autocompleteProps} />);
+      expect(
+        screen.getByRole('combobox', { name: 'Country code' }),
+      ).toBeInTheDocument();
+    });
+
+    it('should call onChange when a country is selected', async () => {
+      const onChange = vi.fn();
+      render(<PhoneNumberInput {...autocompleteProps} onChange={onChange} />);
+
+      const countryCode = screen.getByRole('combobox', { name: 'Country code' });
+      await userEvent.click(countryCode);
+      await userEvent.click(screen.getByRole('option', { name: /Germany/ }));
+
+      expect(onChange).toHaveBeenCalled();
+    });
+
+    it('should meet accessibility guidelines', async () => {
+      const { container } = render(
+        <PhoneNumberInput {...autocompleteProps} />,
+      );
+      const actual = await axe(container);
+      expect(actual).toHaveNoViolations();
+    });
+  });
+
   it('should meet accessibility guidelines', async () => {
     const { container } = render(<PhoneNumberInput {...defaultProps} />);
     const actual = await axe(container);

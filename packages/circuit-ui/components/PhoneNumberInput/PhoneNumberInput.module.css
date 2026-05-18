@@ -17,6 +17,7 @@
   }
 
   .country-code.country-code select,
+  .country-code.country-code input,
   .country-code-input.country-code-input {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
@@ -35,6 +36,7 @@
   }
 
   .country-code.country-code select,
+  .country-code.country-code input,
   .country-code-input.country-code-input {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;

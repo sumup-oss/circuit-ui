@@ -15,6 +15,7 @@
 
 import { isEmpty } from '../../util/helpers.js';
 import type { Locale } from '../../util/i18n.js';
+import type { AutocompleteInputOption } from '../AutocompleteInput/components/Option/Option.js';
 import type { SelectProps } from '../Select/Select.js';
 
 export type CountryCodeOption = {
@@ -129,6 +130,8 @@ export function normalizePhoneNumber(
   return `${countryCode}${normalizedSubscriberNumber}`;
 }
 
+export type CountryCodeSelectorVariant = 'select' | 'autocomplete';
+
 export function mapCountryCodeOptions(
   countryCodeOptions: CountryCodeOption[],
   locale: Locale | undefined,
@@ -160,6 +163,46 @@ export function mapCountryCodeOptions(
       };
     })
     .sort((a, b) => a.label.localeCompare(b.label));
+}
+
+export function mapCountryCodeAutocompleteOptions(
+  countryCodeOptions: CountryCodeOption[],
+  locale: Locale | undefined,
+): AutocompleteInputOption[] {
+  return mapCountryCodeOptions(countryCodeOptions, locale).map(
+    ({ label, value }) => ({
+      label,
+      value,
+    }),
+  );
+}
+
+export function filterCountryCodeAutocompleteOptions(
+  options: AutocompleteInputOption[],
+  query: string,
+): AutocompleteInputOption[] {
+  const normalizedQuery = query.trim().toLowerCase();
+
+  if (!normalizedQuery) {
+    return options;
+  }
+
+  return options.filter(
+    ({ label, value }) =>
+      label.toLowerCase().includes(normalizedQuery) ||
+      value.toLowerCase().includes(normalizedQuery),
+  );
+}
+
+export function getCountryCodeAutocompleteValue(
+  options: AutocompleteInputOption[],
+  country: string | undefined,
+): AutocompleteInputOption | undefined {
+  if (!country) {
+    return undefined;
+  }
+
+  return options.find((option) => option.value === country);
 }
 
 export function getCountryCode(
