@@ -28,6 +28,9 @@ export default {
   argTypes: {
     placeholder: { control: 'text' },
     disabled: { control: 'boolean' },
+    size: {
+      options: ['s', 'm'],
+    },
   },
 };
 
@@ -114,3 +117,12 @@ HiddenLabel.args = {
   validationHint: '',
   hideLabel: true,
 };
+
+export const Sizes = (args: InputProps) => (
+  <Stack>
+    <Input {...args} size="s" />
+    <Input {...args} size="m" />
+  </Stack>
+);
+
+Sizes.args = baseArgs;

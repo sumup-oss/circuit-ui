@@ -44,7 +44,7 @@ import classes from './ComboboxInput.module.css';
 export interface ComboboxInputProps
   extends Omit<
     InputProps,
-    'renderPrefix' | 'renderSuffix' | 'as' | 'multiple'
+    'renderPrefix' | 'renderSuffix' | 'as' | 'multiple' | 'size'
   > {
   /**
    * Callback function when the user clears the field.

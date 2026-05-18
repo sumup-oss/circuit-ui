@@ -59,6 +59,7 @@ export interface ColorInputProps
     | 'as'
     | 'textAlign'
     | 'renderSuffix'
+    | 'size'
   > {
   /**
    * A short string that is shown inside the empty input.

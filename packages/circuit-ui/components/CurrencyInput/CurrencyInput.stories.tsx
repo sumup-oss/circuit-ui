@@ -21,6 +21,11 @@ export default {
   title: 'Forms/CurrencyInput',
   component: CurrencyInput,
   tags: ['status:stable'],
+  argTypes: {
+    size: {
+      options: ['s', 'm'],
+    },
+  },
 };
 
 const baseArgs = {
@@ -78,3 +83,12 @@ export const Locales = (args: CurrencyInputProps) => (
 );
 
 Locales.args = baseArgs;
+
+export const Sizes = (args: CurrencyInputProps) => (
+  <Stack>
+    <CurrencyInput {...args} size="s" />
+    <CurrencyInput {...args} size="m" />
+  </Stack>
+);
+
+Sizes.args = baseArgs;

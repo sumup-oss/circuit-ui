@@ -24,6 +24,11 @@ export default {
   title: 'Forms/PercentageInput',
   component: PercentageInput,
   tags: ['status:stable'],
+  argTypes: {
+    size: {
+      options: ['s', 'm'],
+    },
+  },
 };
 
 const baseArgs = {
@@ -68,3 +73,12 @@ Decimals.args = {
   ...baseArgs,
   decimalScale: 2,
 };
+
+export const Sizes = (args: PercentageInputProps) => (
+  <Stack>
+    <PercentageInput {...args} size="s" />
+    <PercentageInput {...args} size="m" />
+  </Stack>
+);
+
+Sizes.args = baseArgs;
