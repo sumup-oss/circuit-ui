@@ -15,8 +15,6 @@
 
 import { TextArea, type TextAreaProps } from './TextArea.js';
 
-import { Stack } from '../../../../.storybook/components/index.js';
-
 export default {
   title: 'Forms/TextArea',
   component: TextArea,
@@ -24,9 +22,6 @@ export default {
   argTypes: {
     placeholder: { control: 'text' },
     disabled: { control: 'boolean' },
-    size: {
-      options: ['s', 'm'],
-    },
   },
 };
 
@@ -87,12 +82,3 @@ AutoExpand.args = {
     'Try writing a long text, textarea auto adapt its height to your text.',
   rows: 'auto',
 };
-
-export const Sizes = (args: TextAreaProps) => (
-  <Stack>
-    <TextArea {...args} size="s" />
-    <TextArea {...args} size="m" />
-  </Stack>
-);
-
-Sizes.args = baseArgs;
