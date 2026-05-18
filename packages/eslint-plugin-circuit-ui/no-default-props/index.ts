@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ESLintUtils, TSESTree, type TSESLint } from '@typescript-eslint/utils';
+import { ESLintUtils, TSESTree } from '@typescript-eslint/utils';
 
 import type { RuleDocs } from '../utils/meta.js';
 
@@ -167,116 +167,11 @@ function getAttributeValues(
   }, {} as AttributeValues);
 }
 
-// Used to delete surrounding spaces of the remove redundant attribute.
-// E.g. `<Body as="p">...</Body>` becomes `<Body>...</Body>`.
-function getFixRange(
-  sourceCode: TSESLint.SourceCode,
-  attribute: TSESTree.JSXAttribute,
-): [number, number] {
-  const source = sourceCode.text;
-  let start = attribute.range[0];
-  let end = attribute.range[1];
-
-  while ([' ', '\t'].includes(source[end])) {
-    end += 1;
-  }
-
-  if (source[end] === '\r') {
-    end += 1;
-  }
-
-  if (source[end] === '\n') {
-    end += 1;
-
-    while ([' ', '\t'].includes(source[end])) {
-      end += 1;
-    }
-
-    return [start, end];
-  }
-
-  if (end > attribute.range[1]) {
-    return [start, end];
-  }
-
-  while (start > 0 && [' ', '\t'].includes(source[start - 1])) {
-    start -= 1;
-  }
-
-  return [start, attribute.range[1]];
-}
-
-function removeRange(
-  text: string,
-  range: [number, number],
-  offset: number,
-): string {
-  const [start, end] = range;
-  const relativeStart = start - offset;
-  const relativeEnd = end - offset;
-
-  return text.slice(0, relativeStart) + text.slice(relativeEnd);
-}
-
-function removeRanges(
-  text: string,
-  ranges: [number, number][],
-  offset: number,
-): string {
-  const mergedRanges = ranges
-    .toSorted((a, b) => a[0] - b[0])
-    .reduce(
-      (acc, [start, end]) => {
-        const previous = acc.at(-1);
-
-        if (!previous || start > previous[1]) {
-          acc.push([start, end]);
-          return acc;
-        }
-
-        previous[1] = Math.max(previous[1], end);
-        return acc;
-      },
-      [] as [number, number][],
-    );
-
-  return mergedRanges
-    .toSorted((a, b) => b[0] - a[0])
-    .reduce((acc, range) => removeRange(acc, range, offset), text);
-}
-
-function getLineIndent(source: string, index: number): string {
-  const lineStart = source.lastIndexOf('\n', index - 1) + 1;
-  let cursor = lineStart;
-
-  while ([' ', '\t'].includes(source[cursor])) {
-    cursor += 1;
-  }
-
-  return source.slice(lineStart, cursor);
-}
-
-// Normalizes the element after removal of redundant props.
-// E.g. `<Tooltip/>` to `<Tooltip />`.
-function normalizeOpeningElement(
-  text: string,
-  sourceCode: TSESLint.SourceCode,
-  openingElement: TSESTree.JSXOpeningElement,
-): string {
-  const openingIndent = getLineIndent(sourceCode.text, openingElement.range[0]);
-
-  return text
-    .replace(/ +(?=>)/g, '')
-    .replace(/ +\/>/g, ' />')
-    .replace(/\n[ \t]*\/>$/, `\n${openingIndent}/>`);
-}
-
 export const noDefaultProps = createRule({
   name: 'no-default-props',
   meta: {
     type: 'suggestion',
     fixable: 'code',
-    hasSuggestions: true,
     schema: [],
     docs: {
       description:
@@ -286,8 +181,6 @@ export const noDefaultProps = createRule({
     messages: {
       redundant:
         "The {{component}}'s `{{propName}}` prop is redundant because `{{value}}` is the default value.",
-      removeSingle:
-        'Remove the redundant `{{propName}}` prop without changing the other attributes.',
     },
   },
   defaultOptions: [],
@@ -337,54 +230,8 @@ export const noDefaultProps = createRule({
           node.openingElement.attributes,
         );
         const component = localName;
-        const removableAttributes = node.openingElement.attributes
-          .filter(
-            (attribute): attribute is TSESTree.JSXAttribute =>
-              attribute.type === TSESTree.AST_NODE_TYPES.JSXAttribute &&
-              attribute.name.type === TSESTree.AST_NODE_TYPES.JSXIdentifier,
-          )
-          .filter((attribute) => {
-            const config = componentConfigs.find(
-              ({ propName }) => propName === attribute.name.name,
-            );
 
-            if (!config) {
-              return false;
-            }
-
-            const attributeValue = getAttributeValue(attribute);
-
-            if (attributeValue !== config.value) {
-              return false;
-            }
-
-            if (
-              config.isSafeToRemove &&
-              !config.isSafeToRemove({ attributeValues })
-            ) {
-              return false;
-            }
-
-            return true;
-          });
-
-        if (removableAttributes.length === 0) {
-          return;
-        }
-
-        const fixedOpeningElement = normalizeOpeningElement(
-          removeRanges(
-            context.sourceCode.getText(node.openingElement),
-            removableAttributes.map((attribute) =>
-              getFixRange(context.sourceCode, attribute),
-            ),
-            node.openingElement.range[0],
-          ),
-          context.sourceCode,
-          node.openingElement,
-        );
-
-        removableAttributes.forEach((attribute) => {
+        node.openingElement.attributes.forEach((attribute) => {
           if (
             attribute.type !== TSESTree.AST_NODE_TYPES.JSXAttribute ||
             attribute.name.type !== TSESTree.AST_NODE_TYPES.JSXIdentifier
@@ -422,35 +269,8 @@ export const noDefaultProps = createRule({
               value: String(config.value),
             },
             fix(fixer) {
-              return fixer.replaceText(
-                node.openingElement,
-                fixedOpeningElement,
-              );
+              return fixer.remove(attribute);
             },
-            suggest: [
-              {
-                messageId: 'removeSingle',
-                data: {
-                  propName: config.propName,
-                },
-                fix(fixer) {
-                  const singleFixOpeningElement = normalizeOpeningElement(
-                    removeRange(
-                      context.sourceCode.getText(node.openingElement),
-                      getFixRange(context.sourceCode, attribute),
-                      node.openingElement.range[0],
-                    ),
-                    context.sourceCode,
-                    node.openingElement,
-                  );
-
-                  return fixer.replaceText(
-                    node.openingElement,
-                    singleFixOpeningElement,
-                  );
-                },
-              },
-            ],
           });
         });
       },

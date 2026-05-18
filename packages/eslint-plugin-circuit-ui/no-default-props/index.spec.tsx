@@ -60,39 +60,15 @@ ruleTester.run('no-default-props', noDefaultProps, {
         import { Button } from '@sumup-oss/circuit-ui';
 
         function Component() {
-          return <Button>Submit</Button>;
+          return <Button  >Submit</Button>;
         }
       `,
       errors: [
         {
           messageId: 'redundant',
-          suggestions: [
-            {
-              messageId: 'removeSingle',
-              output: `
-        import { Button } from '@sumup-oss/circuit-ui';
-
-        function Component() {
-          return <Button variant="secondary">Submit</Button>;
-        }
-      `,
-            },
-          ],
         },
         {
           messageId: 'redundant',
-          suggestions: [
-            {
-              messageId: 'removeSingle',
-              output: `
-        import { Button } from '@sumup-oss/circuit-ui';
-
-        function Component() {
-          return <Button size="m">Submit</Button>;
-        }
-      `,
-            },
-          ],
         },
       ],
     },
@@ -112,78 +88,22 @@ ruleTester.run('no-default-props', noDefaultProps, {
 
         function Component() {
           return (
-            <Body>Hello</Body>
+            <Body    >Hello</Body>
           );
         }
       `,
       errors: [
         {
           messageId: 'redundant',
-          suggestions: [
-            {
-              messageId: 'removeSingle',
-              output: `
-        import { Body } from '@sumup-oss/circuit-ui';
-
-        function Component() {
-          return (
-            <Body weight="regular" size="m" color="normal">Hello</Body>
-          );
-        }
-      `,
-            },
-          ],
         },
         {
           messageId: 'redundant',
-          suggestions: [
-            {
-              messageId: 'removeSingle',
-              output: `
-        import { Body } from '@sumup-oss/circuit-ui';
-
-        function Component() {
-          return (
-            <Body as="p" size="m" color="normal">Hello</Body>
-          );
-        }
-      `,
-            },
-          ],
         },
         {
           messageId: 'redundant',
-          suggestions: [
-            {
-              messageId: 'removeSingle',
-              output: `
-        import { Body } from '@sumup-oss/circuit-ui';
-
-        function Component() {
-          return (
-            <Body as="p" weight="regular" color="normal">Hello</Body>
-          );
-        }
-      `,
-            },
-          ],
         },
         {
           messageId: 'redundant',
-          suggestions: [
-            {
-              messageId: 'removeSingle',
-              output: `
-        import { Body } from '@sumup-oss/circuit-ui';
-
-        function Component() {
-          return (
-            <Body as="p" weight="regular" size="m">Hello</Body>
-          );
-        }
-      `,
-            },
-          ],
         },
       ],
     },
