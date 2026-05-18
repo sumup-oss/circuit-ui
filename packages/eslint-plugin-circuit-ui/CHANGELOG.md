@@ -2,6 +2,12 @@
 
 ## 7.2.0
 
+### Minor Changes
+
+- [#3562](https://github.com/sumup-oss/circuit-ui/pull/3562) [`b15b2f5`](https://github.com/sumup-oss/circuit-ui/commit/b15b2f5baf3cc389232d62e0f1e482f0fbc4cf59) Thanks [@matoous](https://github.com/matoous)! - Added the `no-default-props` rule to remove redundant Circuit UI props that match component defaults.
+
+## 7.2.0
+
 ## 7.1.0
 
 ### Minor Changes
