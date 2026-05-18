@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 11.2.2
+
+### Patch Changes
+
+- [#3616](https://github.com/sumup-oss/circuit-ui/pull/3616) [`3284582`](https://github.com/sumup-oss/circuit-ui/commit/328458295c01d8d075b396880bb6a64ff8bee42f) Thanks [@matoous](https://github.com/matoous)! - Fixed `DateInput` segment entry to accept leading zeros and advance focus after a complete day or month value is typed.
+
 ## 11.2.1
 
 ### Patch Changes
