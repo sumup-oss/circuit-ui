@@ -8,7 +8,6 @@
 
 .country-code-autocomplete-shell {
   position: relative;
-  z-index: calc(var(--cui-z-index-input) + 2);
   flex: 0 0 auto;
   margin-right: -1px;
 }
@@ -108,11 +107,15 @@
   flex-grow: 1;
 }
 
-/* Elevate the country code select above the subscriber number input on hover and focus */
+/* Elevate the focused or hovered field above its sibling */
+.country-code-autocomplete-shell:hover,
+.country-code-autocomplete-shell:focus-within,
 .country-code.country-code:hover,
 .country-code.country-code:focus-within,
 .country-code-input.country-code-input:hover,
-.country-code-input.country-code-input:focus {
+.country-code-input.country-code-input:focus,
+.subscriber-number.subscriber-number:hover,
+.subscriber-number.subscriber-number:focus-within {
   position: relative;
   z-index: calc(var(--cui-z-index-input) + 2);
 }
