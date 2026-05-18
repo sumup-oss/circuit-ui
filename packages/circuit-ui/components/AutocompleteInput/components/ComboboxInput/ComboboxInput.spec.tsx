@@ -18,6 +18,8 @@ import { createRef } from 'react';
 
 import { render, axe, screen, userEvent } from '../../../../util/test-utils.js';
 
+import type { InputProps } from '../../../Input/index.js';
+
 import { ComboboxInput, type ComboboxInputProps } from './ComboboxInput.js';
 
 declare const process: {
@@ -48,8 +50,13 @@ describe('ComboboxInput', () => {
   });
 
   it('should render a prefix', () => {
-    const Prefix = ({ value }: { value?: string | number }) => (
-      <span data-testid="prefix">{value}</span>
+    const Prefix: NonNullable<InputProps['renderPrefix']> = ({
+      value,
+      className,
+    }) => (
+      <span data-testid="prefix" className={className}>
+        {value}
+      </span>
     );
     render(
       <ComboboxInput

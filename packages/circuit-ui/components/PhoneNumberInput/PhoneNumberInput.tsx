@@ -475,10 +475,7 @@ export const PhoneNumberInput = forwardRef<
                 (countryCode.renderPrefix as InputProps['renderPrefix']) ??
                 (({ value: inputValue, ...rest }) => (
                   <DefaultPrefix
-                    value={getCountry(
-                      countryCodeOptions,
-                      inputValue as string,
-                    )}
+                    value={getCountry(countryCodeOptions, inputValue as string)}
                     {...rest}
                   />
                 ))

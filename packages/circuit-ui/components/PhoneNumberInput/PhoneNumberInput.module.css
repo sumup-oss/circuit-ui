@@ -85,13 +85,13 @@
     white-space: nowrap;
   }
 
+  .subscriber-number.subscriber-number {
+    min-width: 50%;
+  }
+
   .country-code-autocomplete-shell + .subscriber-number.subscriber-number {
     flex: 1 1 0;
     min-width: 0;
-  }
-
-  .subscriber-number.subscriber-number {
-    min-width: 50%;
   }
 
   .subscriber-number-input.subscriber-number-input {

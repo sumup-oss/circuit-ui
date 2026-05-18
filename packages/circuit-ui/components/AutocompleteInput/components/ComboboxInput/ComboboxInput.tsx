@@ -146,10 +146,7 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
     }, [isOpen]);
 
     const prefix = RenderPrefix && (
-      <RenderPrefix
-        className={classes.prefix}
-        value={prefixValue ?? value}
-      />
+      <RenderPrefix className={classes.prefix} value={prefixValue ?? value} />
     );
     const hasPrefix = Boolean(prefix);
 

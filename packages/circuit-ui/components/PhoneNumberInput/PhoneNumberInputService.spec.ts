@@ -255,7 +255,9 @@ describe('PhoneNumberInputService', () => {
     });
 
     it('should return undefined when the country is missing', () => {
-      expect(getCountryCodeAutocompleteValue(options, undefined)).toBeUndefined();
+      expect(
+        getCountryCodeAutocompleteValue(options, undefined),
+      ).toBeUndefined();
     });
   });
 });

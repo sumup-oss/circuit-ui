@@ -178,8 +178,8 @@ export function mapCountryCodeAutocompleteOptions(
   return mapCountryCodeOptions(countryCodeOptions, locale).map(
     ({ label, value }) => ({
       label,
-      value,
-      image: getCountryFlagIcon(value),
+      value: String(value),
+      image: getCountryFlagIcon(String(value)),
     }),
   );
 }

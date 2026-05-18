@@ -419,7 +419,9 @@ describe('PhoneNumberInput', () => {
       const onChange = vi.fn();
       render(<PhoneNumberInput {...autocompleteProps} onChange={onChange} />);
 
-      const countryCode = screen.getByRole('combobox', { name: 'Country code' });
+      const countryCode = screen.getByRole('combobox', {
+        name: 'Country code',
+      });
       await userEvent.click(countryCode);
       await userEvent.click(screen.getByRole('option', { name: /Germany/ }));
 
@@ -427,9 +429,7 @@ describe('PhoneNumberInput', () => {
     });
 
     it('should meet accessibility guidelines', async () => {
-      const { container } = render(
-        <PhoneNumberInput {...autocompleteProps} />,
-      );
+      const { container } = render(<PhoneNumberInput {...autocompleteProps} />);
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });
