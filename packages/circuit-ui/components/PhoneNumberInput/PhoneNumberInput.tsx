@@ -50,6 +50,7 @@ import { eachFn } from '../../util/helpers.js';
 import { changeInputValue } from '../../util/input-value.js';
 import { idx } from '../../util/idx.js';
 import { Flag, type FlagProps } from '../Flag/Flag.js';
+import { clsx } from '../../styles/clsx.js';
 
 import {
   filterCountryCodeAutocompleteOptions,
@@ -209,9 +210,14 @@ export interface PhoneNumberInputProps
 const DefaultPrefix: ComponentType<{
   value?: string | number;
   className?: string;
-}> = ({ value, ...rest }) =>
+}> = ({ value, className }) =>
   value ? (
-    <Flag countryCode={value as FlagProps['countryCode']} alt="" {...rest} />
+    <Flag
+      countryCode={value as FlagProps['countryCode']}
+      alt=""
+      className={className}
+      width={16}
+    />
   ) : null;
 
 /**
@@ -479,7 +485,7 @@ export const PhoneNumberInput = forwardRef<
               }
             />
           ) : useCountryCodeAutocomplete ? (
-            <>
+            <div className={classes['country-code-autocomplete-shell']}>
               <input
                 type="hidden"
                 ref={countryCodeRef as RefObject<HTMLInputElement>}
@@ -496,8 +502,12 @@ export const PhoneNumberInput = forwardRef<
                 aria-describedby={descriptionIds}
                 required={required}
                 disabled={disabled}
-                className={classes['country-code']}
-                inputClassName={classes['country-code-input']}
+                className={clsx(
+                  classes['country-code'],
+                  classes['country-code-autocomplete'],
+                )}
+                comboboxClassName={classes['country-code-combobox']}
+                inputClassName={classes['country-code-autocomplete-input']}
                 label={countryCode.label}
                 invalid={invalid || countryCode.invalid}
                 value={selectedCountryAutocompleteValue}
@@ -509,16 +519,11 @@ export const PhoneNumberInput = forwardRef<
                   countryCode.ref as ForwardedRef<HTMLInputElement> | undefined
                 }
                 renderPrefix={
-                  countryCode.renderPrefix ??
-                  ((prefixProps) => (
-                    <DefaultPrefix
-                      value={selectedCountry}
-                      {...prefixProps}
-                    />
-                  ))
+                  (countryCode.renderPrefix ??
+                    DefaultPrefix) as InputProps['renderPrefix']
                 }
               />
-            </>
+            </div>
           ) : (
             <Select
               hideLabel

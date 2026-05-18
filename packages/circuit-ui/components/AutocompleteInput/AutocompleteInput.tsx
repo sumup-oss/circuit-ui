@@ -536,6 +536,7 @@ export const AutocompleteInput = forwardRef<
       isOpen,
       moreResults,
       removeTagButtonLabel,
+      prefixValue: Array.isArray(value) ? undefined : value?.value,
     };
 
     if (isImmersive) {
@@ -543,6 +544,7 @@ export const AutocompleteInput = forwardRef<
         <>
           <ComboboxInput
             {...props}
+            prefixValue={Array.isArray(value) ? undefined : value?.value}
             inputClassName={props.inputClassName}
             label={label}
             ref={applyMultipleRefs(ref, presentationFieldRef)}

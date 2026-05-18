@@ -388,6 +388,33 @@ describe('PhoneNumberInput', () => {
       ).toBeInTheDocument();
     });
 
+    it('should display a default flag prefix', () => {
+      render(
+        <PhoneNumberInput {...autocompleteProps} defaultValue="+4912345678" />,
+      );
+      expect(screen.getByRole('presentation')).toHaveAttribute(
+        'src',
+        getIconURL('flag_de'),
+      );
+    });
+
+    it('should display flags in the country list', async () => {
+      render(<PhoneNumberInput {...autocompleteProps} />);
+
+      await userEvent.click(
+        screen.getByRole('combobox', { name: 'Country code' }),
+      );
+
+      expect(screen.getByTestId('option-image-CA')).toHaveAttribute(
+        'src',
+        getIconURL('flag_ca'),
+      );
+      expect(screen.getByTestId('option-image-DE')).toHaveAttribute(
+        'src',
+        getIconURL('flag_de'),
+      );
+    });
+
     it('should call onChange when a country is selected', async () => {
       const onChange = vi.fn();
       render(<PhoneNumberInput {...autocompleteProps} onChange={onChange} />);

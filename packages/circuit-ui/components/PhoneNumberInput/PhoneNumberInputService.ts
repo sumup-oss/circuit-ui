@@ -13,10 +13,16 @@
  * limitations under the License.
  */
 
+import { getIconURL, type IconName } from '@sumup-oss/icons';
+
 import { isEmpty } from '../../util/helpers.js';
 import type { Locale } from '../../util/i18n.js';
 import type { AutocompleteInputOption } from '../AutocompleteInput/components/Option/Option.js';
 import type { SelectProps } from '../Select/Select.js';
+
+export function getCountryFlagIcon(country: string): string {
+  return getIconURL(`flag_${country.toLowerCase()}` as IconName);
+}
 
 export type CountryCodeOption = {
   /**
@@ -173,6 +179,7 @@ export function mapCountryCodeAutocompleteOptions(
     ({ label, value }) => ({
       label,
       value,
+      image: getCountryFlagIcon(value),
     }),
   );
 }

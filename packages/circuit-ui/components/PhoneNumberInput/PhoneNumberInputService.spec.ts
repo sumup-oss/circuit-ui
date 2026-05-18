@@ -15,9 +15,12 @@
 
 import { describe, expect, it } from 'vitest';
 
+import { getIconURL } from '@sumup-oss/icons';
+
 import {
   filterCountryCodeAutocompleteOptions,
   getCountryCodeAutocompleteValue,
+  getCountryFlagIcon,
   mapCountryCodeAutocompleteOptions,
   mapCountryCodeOptions,
   normalizePhoneNumber,
@@ -187,6 +190,12 @@ describe('PhoneNumberInputService', () => {
     });
   });
 
+  describe('getCountryFlagIcon', () => {
+    it('should return the flag icon URL for a country code', () => {
+      expect(getCountryFlagIcon('DE')).toBe(getIconURL('flag_de'));
+    });
+  });
+
   describe('mapCountryCodeAutocompleteOptions', () => {
     it('should map select options to autocomplete options', () => {
       const options = [
@@ -196,8 +205,16 @@ describe('PhoneNumberInputService', () => {
       const actual = mapCountryCodeAutocompleteOptions(options, undefined);
 
       expect(actual).toEqual([
-        { label: 'Canada (+1)', value: 'CA' },
-        { label: 'Germany (+49)', value: 'DE' },
+        {
+          label: 'Canada (+1)',
+          value: 'CA',
+          image: getIconURL('flag_ca'),
+        },
+        {
+          label: 'Germany (+49)',
+          value: 'DE',
+          image: getIconURL('flag_de'),
+        },
       ]);
     });
   });

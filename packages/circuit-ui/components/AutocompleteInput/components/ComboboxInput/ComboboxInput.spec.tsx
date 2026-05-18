@@ -47,6 +47,20 @@ describe('ComboboxInput', () => {
     expect(ref.current).toBe(input);
   });
 
+  it('should render a prefix', () => {
+    const Prefix = ({ value }: { value?: string | number }) => (
+      <span data-testid="prefix">{value}</span>
+    );
+    render(
+      <ComboboxInput
+        {...defaultProps}
+        prefixValue="CA"
+        renderPrefix={Prefix}
+      />,
+    );
+    expect(screen.getByTestId('prefix')).toHaveTextContent('CA');
+  });
+
   it('should render an invalid input', () => {
     render(<ComboboxInput invalid {...defaultProps} />);
     const input = screen.getByLabelText(defaultProps.label);
