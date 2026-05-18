@@ -113,7 +113,8 @@
 /* s */
 
 .wrapper.s .base {
-  padding: var(--cui-spacings-bit) var(--cui-spacings-byte);
+  /* :TODO: move hardcoded styles */
+  padding: 5px var(--cui-spacings-byte);
   font-size: var(--cui-body-s-font-size);
   line-height: var(--cui-body-s-line-height);
   border-radius: var(--cui-border-radius-byte);

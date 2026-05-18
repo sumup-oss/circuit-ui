@@ -530,3 +530,12 @@ export const AllowNewItems = (args: AutocompleteInputProps) => (
 );
 AllowNewItems.args = { ...baseArgs, options: [mockOptions[1]] };
 AllowNewItems.play = openAutocompleteAndType();
+
+export const Sizes = (args: AutocompleteInputProps) => (
+  <Stack>
+    <AutocompleteInput {...args} size="s" />
+    <AutocompleteInput {...args} size="m" />
+  </Stack>
+);
+
+Sizes.args = baseArgs;

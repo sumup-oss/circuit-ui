@@ -69,3 +69,12 @@ export const Validations = (args: ColorInputProps) => (
 );
 
 Validations.args = baseArgs;
+
+export const Sizes = (args: ColorInputProps) => (
+  <Stack>
+    <ColorInput {...args} size="s" />
+    <ColorInput {...args} size="m" />
+  </Stack>
+);
+
+Sizes.args = baseArgs;

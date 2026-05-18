@@ -59,7 +59,6 @@ export interface ColorInputProps
     | 'as'
     | 'textAlign'
     | 'renderSuffix'
-    | 'size'
   > {
   /**
    * A short string that is shown inside the empty input.
@@ -96,6 +95,7 @@ export const ColorInput = forwardRef<HTMLInputElement, ColorInputProps>(
       inputClassName,
       style,
       value,
+      size = 'm',
       ...props
     },
     ref,
@@ -163,7 +163,12 @@ export const ColorInput = forwardRef<HTMLInputElement, ColorInputProps>(
     };
 
     return (
-      <FieldSet className={className} style={style} disabled={disabled}>
+      <FieldSet
+        className={className}
+        style={style}
+        size={size}
+        disabled={disabled}
+      >
         <FieldLegend id={labelId}>
           <FieldLabelText
             label={label}
@@ -172,7 +177,7 @@ export const ColorInput = forwardRef<HTMLInputElement, ColorInputProps>(
             required={required}
           />
         </FieldLegend>
-        <div className={classes.wrapper}>
+        <div className={clsx(classes.wrapper, classes[size])}>
           <label
             htmlFor={pickerId}
             className={classes.picker}

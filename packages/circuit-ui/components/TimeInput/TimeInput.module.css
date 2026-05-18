@@ -6,7 +6,7 @@
   height: calc(
     var(--cui-body-s-line-height) +
     2 *
-    var(--cui-spacings-bit) +
+    5px +
     2 *
     var(--cui-border-width-kilo)
   );
