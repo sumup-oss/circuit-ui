@@ -6,9 +6,26 @@
   display: none;
 }
 
+.country-code-autocomplete-shell {
+  position: relative;
+  flex: 0 0 auto;
+  margin-right: -1px;
+}
+
 @media (max-width: 479px) {
   .wrapper {
     flex-direction: column;
+  }
+
+  .country-code-autocomplete-shell {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .country-code-autocomplete {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
   }
 
   .subscriber-number {
@@ -17,7 +34,9 @@
   }
 
   .country-code.country-code select,
-  .country-code-input.country-code-input {
+  .country-code.country-code input,
+  .country-code-input.country-code-input,
+  .country-code-combobox {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
@@ -35,7 +54,9 @@
   }
 
   .country-code.country-code select,
-  .country-code-input.country-code-input {
+  .country-code.country-code input,
+  .country-code-input.country-code-input,
+  .country-code-combobox {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
@@ -45,8 +66,32 @@
     max-width: calc(var(--cui-spacings-exa) + 4ch + var(--cui-spacings-mega));
   }
 
+  .country-code-autocomplete {
+    width: auto;
+  }
+
+  .country-code-combobox {
+    width: max-content;
+    min-width: 12rem;
+    max-width: min(20rem, 45vw);
+  }
+
+  .country-code-autocomplete-input {
+    flex: 1 0 auto;
+    width: auto;
+    min-width: 9rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .subscriber-number.subscriber-number {
     min-width: 50%;
+  }
+
+  .country-code-autocomplete-shell + .subscriber-number.subscriber-number {
+    flex: 1 1 0;
+    min-width: 0;
   }
 
   .subscriber-number-input.subscriber-number-input {
@@ -62,11 +107,15 @@
   flex-grow: 1;
 }
 
-/* Elevate the country code select above the subscriber number input on hover and focus */
+/* Elevate the focused or hovered field above its sibling */
+.country-code-autocomplete-shell:hover,
+.country-code-autocomplete-shell:focus-within,
 .country-code.country-code:hover,
-.country-code.country-code:focus,
+.country-code.country-code:focus-within,
 .country-code-input.country-code-input:hover,
-.country-code-input.country-code-input:focus {
+.country-code-input.country-code-input:focus,
+.subscriber-number.subscriber-number:hover,
+.subscriber-number.subscriber-number:focus-within {
   position: relative;
   z-index: calc(var(--cui-z-index-input) + 2);
 }

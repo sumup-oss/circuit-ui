@@ -59,3 +59,9 @@ You should use only when the value is a critical information from the user that 
 Use the `renderPrefix` prop to add a small prefix to the country code selected input field. By default, the component will display the selected country's [Flag](Components/Flag/Docs). You can override that behavior by providing your own prefix component.
 
 <Story of={Stories.WithPrefix} />
+
+## Country code autocomplete
+
+Use `countryCode.variant="autocomplete"` to render a searchable country selector instead of a native select. This is useful when the list of countries is long.
+
+<Story of={Stories.CountryCodeAutocomplete} />

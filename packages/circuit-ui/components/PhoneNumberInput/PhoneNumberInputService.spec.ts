@@ -15,7 +15,13 @@
 
 import { describe, expect, it } from 'vitest';
 
+import { getIconURL } from '@sumup-oss/icons';
+
 import {
+  filterCountryCodeAutocompleteOptions,
+  getCountryCodeAutocompleteValue,
+  getCountryFlagIcon,
+  mapCountryCodeAutocompleteOptions,
   mapCountryCodeOptions,
   normalizePhoneNumber,
   parsePhoneNumber,
@@ -181,6 +187,77 @@ describe('PhoneNumberInputService', () => {
       const locale = 'DE';
       const actual = mapCountryCodeOptions(options, locale);
       expect(actual[0].value).toBe('DE');
+    });
+  });
+
+  describe('getCountryFlagIcon', () => {
+    it('should return the flag icon URL for a country code', () => {
+      expect(getCountryFlagIcon('DE')).toBe(getIconURL('flag_de'));
+    });
+  });
+
+  describe('mapCountryCodeAutocompleteOptions', () => {
+    it('should map select options to autocomplete options', () => {
+      const options = [
+        { country: 'CA', code: '+1' },
+        { country: 'DE', code: '+49' },
+      ];
+      const actual = mapCountryCodeAutocompleteOptions(options, undefined);
+
+      expect(actual).toEqual([
+        {
+          label: 'Canada (+1)',
+          value: 'CA',
+          image: getIconURL('flag_ca'),
+        },
+        {
+          label: 'Germany (+49)',
+          value: 'DE',
+          image: getIconURL('flag_de'),
+        },
+      ]);
+    });
+  });
+
+  describe('filterCountryCodeAutocompleteOptions', () => {
+    const options = [
+      { label: 'Canada (+1)', value: 'CA' },
+      { label: 'Germany (+49)', value: 'DE' },
+      { label: 'United States (+1)', value: 'US' },
+    ];
+
+    it('should return all options for an empty query', () => {
+      expect(filterCountryCodeAutocompleteOptions(options, '')).toEqual(
+        options,
+      );
+    });
+
+    it('should filter options by label', () => {
+      expect(filterCountryCodeAutocompleteOptions(options, 'germ')).toEqual([
+        { label: 'Germany (+49)', value: 'DE' },
+      ]);
+    });
+
+    it('should filter options by country code', () => {
+      expect(filterCountryCodeAutocompleteOptions(options, 'us')).toEqual([
+        { label: 'United States (+1)', value: 'US' },
+      ]);
+    });
+  });
+
+  describe('getCountryCodeAutocompleteValue', () => {
+    const options = [{ label: 'Canada (+1)', value: 'CA' }];
+
+    it('should return the matching option', () => {
+      expect(getCountryCodeAutocompleteValue(options, 'CA')).toEqual(
+        options[0],
+      );
+    });
+
+    it('should return undefined when the country is missing', () => {
+      expect(
+        getCountryCodeAutocompleteValue(options, undefined),
+      ).toBeUndefined();
     });
   });
 });
