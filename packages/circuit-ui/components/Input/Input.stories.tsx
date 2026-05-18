@@ -114,3 +114,21 @@ HiddenLabel.args = {
   validationHint: '',
   hideLabel: true,
 };
+
+export const Password = (args: InputProps) => (
+  <Stack>
+    <Input {...args} label="Password" />
+    <Input {...args} label="One time code" passwordManagerIgnore />
+  </Stack>
+);
+
+Password.args = {
+  label: 'Password',
+  placeholder: 'Enter password',
+  type: 'password',
+  validationHint: 'Use at least 8 characters.',
+};
+
+Password.parameters = {
+  chromatic: { disableSnapshot: true },
+};
