@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 5.26.0
+
+### Minor Changes
+
+- [#3626](https://github.com/sumup-oss/circuit-ui/pull/3626) [`829f3ba`](https://github.com/sumup-oss/circuit-ui/commit/829f3ba4949d1481ffaf8daa9d6e9e852d34b3a4) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new icon (card scheme) in size 32: `Pluxee`.
+
 ## 5.25.0
 
 ### Minor Changes
