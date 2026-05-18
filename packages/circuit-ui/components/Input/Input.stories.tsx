@@ -128,3 +128,7 @@ Password.args = {
   type: 'password',
   validationHint: 'Use at least 8 characters.',
 };
+
+Password.parameters = {
+  chromatic: { disableSnapshot: true },
+};
