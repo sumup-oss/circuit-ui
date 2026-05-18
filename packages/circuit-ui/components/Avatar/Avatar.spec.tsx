@@ -30,14 +30,14 @@ describe('Avatar', () => {
 
   it('should render with an image', () => {
     const src = '/images/illustration-coffee.jpg';
-    renderAvatar({ src, variant: 'identity', alt: '' });
+    renderAvatar({ src, variant: 'person', alt: '' });
     const image = screen.getByRole('presentation');
     expect(image).toBeVisible();
     expect(image).toHaveAttribute('src', src);
   });
 
   it('should render with initials', () => {
-    renderAvatar({ initials: 'JD', variant: 'identity', alt: '' });
+    renderAvatar({ initials: 'JD', variant: 'person', alt: '' });
     expect(screen.getByText('JD')).toBeVisible();
   });
 

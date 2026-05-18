@@ -42,6 +42,6 @@ div.m {
 
 /* Variants */
 
-.identity {
+.person {
   border-radius: var(--cui-border-radius-circle);
 }
