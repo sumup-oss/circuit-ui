@@ -15,7 +15,7 @@
 
 import { Body } from '../Body/index.js';
 
-import { Flag } from './Flag.js';
+import { Flag, type FlagProps } from './Flag.js';
 import { FLAGS } from './constants.js';
 import classes from './FlagStory.module.css';
 
@@ -53,10 +53,13 @@ export const Base = () => {
   );
 };
 
-export const Example = () => (
-  <Flag countryCode="PR" alt="Puerto Rico" width={32} />
-);
+export const Example = (args: FlagProps) => <Flag {...args} />;
 Example.tags = ['!dev'];
 Example.parameters = {
   chromatic: { disableSnapshot: true },
+};
+Example.args = {
+  countryCode: 'PR',
+  alt: 'Puerto Rico',
+  width: 32,
 };
