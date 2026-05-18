@@ -1,5 +1,19 @@
 # @sumup-oss/circuit-ui
 
+## 11.3.0
+
+### Minor Changes
+
+- [#3605](https://github.com/sumup-oss/circuit-ui/pull/3605) [`c33f3ef`](https://github.com/sumup-oss/circuit-ui/commit/c33f3ef326a58bb7114ab270a2c383e2ec7bad79) Thanks [@connor-baer](https://github.com/connor-baer)! - Deprecated the Avatar component's "identity" variant. Use the new "person" variant instead.
+
+- [#3605](https://github.com/sumup-oss/circuit-ui/pull/3605) [`c33f3ef`](https://github.com/sumup-oss/circuit-ui/commit/c33f3ef326a58bb7114ab270a2c383e2ec7bad79) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new "business" variant to the Avatar component for commercial entities such as a merchant.
+
+### Patch Changes
+
+- [#3623](https://github.com/sumup-oss/circuit-ui/pull/3623) [`49b6ca1`](https://github.com/sumup-oss/circuit-ui/commit/49b6ca173f2dca7205a282f8a773ed0bd8d91015) Thanks [@matoous](https://github.com/matoous)! - Added a `passwordManagerIgnore` prop to `Input`. `passwordManagerIgnore` prevents password overlays on the `Input` component in case it might be incorrectly considered a login input. Use-cases include inputs one-time-codes delivered via a side-channel (such as SMS or email).
+
+- [#3616](https://github.com/sumup-oss/circuit-ui/pull/3616) [`3284582`](https://github.com/sumup-oss/circuit-ui/commit/328458295c01d8d075b396880bb6a64ff8bee42f) Thanks [@matoous](https://github.com/matoous)! - Fixed `DateInput` segment entry to accept leading zeros and advance focus after a complete day or month value is typed.
+
 ## 11.2.1
 
 ### Patch Changes
