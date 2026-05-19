@@ -1,45 +1,45 @@
 {
   "illustrations": [
     {
-      "name": "no-data",
-      "category": "Empty states",
-      "size": "m",
-      "theme": "light"
-    },
-    {
-      "name": "no-data",
-      "category": "Empty states",
-      "size": "l",
-      "theme": "light"
-    },
-    {
-      "name": "error",
-      "category": "Feedback",
-      "size": "m",
-      "theme": "light"
-    },
-    {
-      "name": "error",
-      "category": "Feedback",
-      "size": "l",
-      "theme": "light"
-    },
-    {
-      "name": "warning",
-      "category": "Feedback",
-      "size": "m",
-      "theme": "light"
-    },
-    {
-      "name": "warning",
-      "category": "Feedback",
-      "size": "l",
-      "theme": "light"
-    },
-    {
       "name": "success",
       "category": "Feedback",
       "size": "m",
+      "theme": "light"
+    },
+    {
+      "name": "error",
+      "category": "Feedback",
+      "size": "m",
+      "theme": "light"
+    },
+    {
+      "name": "error",
+      "category": "Feedback",
+      "size": "l",
+      "theme": "light"
+    },
+    {
+      "name": "warning",
+      "category": "Feedback",
+      "size": "m",
+      "theme": "light"
+    },
+    {
+      "name": "warning",
+      "category": "Feedback",
+      "size": "l",
+      "theme": "light"
+    },
+    {
+      "name": "no-data",
+      "category": "Empty states",
+      "size": "m",
+      "theme": "light"
+    },
+    {
+      "name": "no-data",
+      "category": "Empty states",
+      "size": "l",
       "theme": "light"
     },
     {

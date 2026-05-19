@@ -66,14 +66,14 @@ function IllustrationPreview({
       .then(() => {
         setToast({
           variant: 'success',
-          body: `Copied the ${illustration.name} (${illustration.size}) illustration in the ${illustration.theme} theme URL to the clipboard.`,
+          body: `Copied the URL for the ${illustration.name} (${illustration.size}) illustration in the ${illustration.theme} theme to the clipboard.`,
         });
       })
       .catch((error) => {
         console.error(error);
         setToast({
           variant: 'danger',
-          body: `Failed to copy the ${illustration.name} (${illustration.size}) illustration in the ${illustration.theme} theme URL to the clipboard.`,
+          body: `Failed to copy the URL for the ${illustration.name} (${illustration.size}) illustration in the ${illustration.theme} theme to the clipboard.`,
         });
       });
   };
