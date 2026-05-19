@@ -55,6 +55,27 @@ export const dark = create({
   appBg: '#000000', // var(--cui-bg-normal)
   appContentBg: '#000000', // var(--cui-bg-normal)
   appPreviewBg: '#000000', // var(--cui-bg-normal)
+  appBorderColor: '#444138', // var(--cui-border-normal)
+  appBorderRadius: 8, // var(--cui-border-radius-byte)
+
+  // Text colors
+  textColor: '#f0eee7', // var(--cui-fg-normal)
+  textMutedColor: '#c4b8b8', // var(--cui-fg-subtle)
+  textInverseColor: '#1e1c1c', // var(--cui-fg-on-strong)
+
+  // Toolbar default and active colors
+  barTextColor: '#c4b8b8', // var(--cui-fg-subtle)
+  barHoverColor: '#d3c7c7', // var(--cui-fg-subtle-hovered)
+  barSelectedColor: '#000000', // var(--cui-fg-on-strong)
+  barBg: '#000000', // var(--cui-bg-normal)
+
+  // Form colors
+  buttonBg: '#1e1c1c', // var(--cui-bg-subtle)
+  buttonBorder: '#444138', // var(--cui-border-normal)
+  inputBg: '#1e1c1c', // var(--cui-bg-subtle)
+  inputBorder: '#444138', // var(--cui-border-normal)
+  inputTextColor: '#f0eee7', // var(--cui-fg-normal)
+  inputBorderRadius: 16, // var(--cui-border-radius-pill)
 });
 
 export const consumer = create({
@@ -68,6 +89,27 @@ export const consumer = create({
   appBg: '#250723', // var(--cui-bg-normal)
   appContentBg: '#250723', // var(--cui-bg-normal)
   appPreviewBg: '#250723', // var(--cui-bg-normal)
+  appBorderColor: '#684466', // var(--cui-border-normal)
+  appBorderRadius: 8, // var(--cui-border-radius-byte)
+
+  // Text colors
+  textColor: '#fbfbf9', // var(--cui-fg-normal)
+  textMutedColor: '#f8d8f0', // var(--cui-fg-subtle)
+  textInverseColor: '#250723', // var(--cui-fg-on-strong)
+
+  // Toolbar default and active colors
+  barTextColor: '#f8d8f0', // var(--cui-fg-subtle)
+  barHoverColor: '#fbfbf9', // var(--cui-fg-normal)
+  barSelectedColor: '#250723', // var(--cui-fg-on-strong)
+  barBg: '#250723', // var(--cui-bg-normal)
+
+  // Form colors
+  buttonBg: '#4b2049', // var(--cui-bg-subtle)
+  buttonBorder: '#684466', // var(--cui-border-normal)
+  inputBg: '#4b2049', // var(--cui-bg-subtle)
+  inputBorder: '#684466', // var(--cui-border-normal)
+  inputTextColor: '#fbfbf9', // var(--cui-fg-normal)
+  inputBorderRadius: 16, // var(--cui-border-radius-pill)
 });
 
 export const themes = { light, dark, consumer };

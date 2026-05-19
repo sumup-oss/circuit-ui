@@ -587,6 +587,11 @@
       "size": "32"
     },
     {
+      "name": "pluxee",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
       "name": "sodexo",
       "category": "Card scheme",
       "size": "32"
@@ -4028,6 +4033,11 @@
     },
     {
       "name": "pix",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "pos",
       "category": "Product and feature",
       "size": "24"
     },

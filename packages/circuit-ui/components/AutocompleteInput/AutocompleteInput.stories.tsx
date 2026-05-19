@@ -43,7 +43,7 @@ import type { AutocompleteInputOption } from './components/Option/Option.js';
 export default {
   title: 'Forms/AutocompleteInput',
   component: AutocompleteInput,
-  tags: ['status:stable'],
+  tags: ['status:experimental'],
   argTypes: {
     // Value & change handling
     value: {

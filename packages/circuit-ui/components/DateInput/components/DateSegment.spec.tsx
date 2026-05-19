@@ -85,6 +85,21 @@ describe('DateSegment', () => {
       expect(props.focus.next).toHaveBeenCalled();
     });
 
+    it('should move the focus to the next segment when typing a complete value with a leading zero', async () => {
+      render(<DateSegment {...props} value="" />);
+      const input = screen.getByRole('spinbutton');
+      await userEvent.type(input, '01');
+      expect(props.focus.next).toHaveBeenCalled();
+    });
+
+    it('should preserve a single leading zero while the value is still incomplete', async () => {
+      render(<DateSegment {...props} value="" />);
+      const input = screen.getByRole('spinbutton');
+      await userEvent.type(input, '0');
+      expect(input).toHaveValue('0');
+      expect(props.onChange).toHaveBeenCalledWith('');
+    });
+
     it.each([
       'ArrowUp',
       'ArrowDown',

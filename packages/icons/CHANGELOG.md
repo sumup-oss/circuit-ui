@@ -1,5 +1,23 @@
 # @sumup-oss/icons
 
+## 6.5.0
+
+### Minor Changes
+
+- [#3625](https://github.com/sumup-oss/circuit-ui/pull/3625) [`f28fff3`](https://github.com/sumup-oss/circuit-ui/commit/f28fff39eed100a6c386432a8e04c367d5cb210d) Thanks [@cecisousa](https://github.com/cecisousa)! - Added a new icon (card scheme) in size 32: `Pluxee`.
+
+## 6.4.0
+
+### Minor Changes
+
+- [#3615](https://github.com/sumup-oss/circuit-ui/pull/3615) [`dd7d75a`](https://github.com/sumup-oss/circuit-ui/commit/dd7d75ab4306fdca7a3812784d9f786b06c5b348) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the tier indicator icons.
+
+## 6.3.0
+
+### Minor Changes
+
+- [#3602](https://github.com/sumup-oss/circuit-ui/pull/3602) [`6910a04`](https://github.com/sumup-oss/circuit-ui/commit/6910a04622245f7f43dc575118e955ed4fffeeb9) Thanks [@amelako](https://github.com/amelako)! - Added POS icon in size 24.
+
 ## 6.2.0
 
 ### Minor Changes

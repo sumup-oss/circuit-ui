@@ -7,7 +7,7 @@ import * as Stories from './Avatar.stories';
 
 <Status variant="stable" />
 
-The Avatar component displays an identity or an object image. It can be passed to the [ImageInput](Forms/ImageInput) to allow users to upload an avatar.
+The Avatar component displays an image representing an object, person or business. It can be passed to the [ImageInput](Forms/ImageInput) to allow users to upload an avatar.
 
 <Story of={Stories.Base} />
 
@@ -28,20 +28,11 @@ However, if the image is purely presentational, the alt text can be set to `""`.
 
 ## Variants
 
-There are two variants and two sizes available for the component.
+There are three variants and two sizes available for the component.
 
-### Object variant
+<Story of={Stories.Variants} />
 
-Use the object variant with a square shape for product item purposes (e.g. product catalogue).
+- **Object**: Use for product item purposes (e.g. product catalogue).
+- **Business**: Use for commercial entities (e.g. merchant, company).
+- **Person**: Use for individual persons (e.g. profile, customer). The person variant supports `initials` as an alternative placeholder.
 
-<Story of={Stories.ObjectVariant} />
-
-### Identity variant
-
-Use the identity variant with a circle shape for identity account purposes (e.g. profile, contact, business).
-
-<Story of={Stories.IdentityVariant} />
-
-### Sizes
-
-<Story of={Stories.Sizes} />
