@@ -174,40 +174,22 @@
 
 /* Sizes */
 
-/* s */
-
-.wrapper.s {
-  --segment-font-size: var(--cui-body-s-font-size);
-  --segment-line-height: var(--cui-body-s-line-height);
-}
-
-.wrapper.s .segments {
-  padding: calc(var(--field-input-padding-y) - var(--cui-spacings-bit))
-    var(--cui-spacings-byte);
-  border-top-left-radius: var(--cui-border-radius-byte);
-  border-bottom-left-radius: var(--cui-border-radius-byte);
-}
-
-.wrapper.s .literal {
-  font-size: var(--cui-body-s-font-size);
-  line-height: var(--cui-body-s-line-height);
-}
-
-/* m */
-
+.wrapper.s,
 .wrapper.m {
-  --segment-font-size: var(--cui-body-m-font-size);
-  --segment-line-height: var(--cui-body-m-line-height);
+  --segment-font-size: var(--field-input-font-size);
+  --segment-line-height: var(--field-input-line-height);
 }
 
+.wrapper.s .segments,
 .wrapper.m .segments {
   padding: calc(var(--field-input-padding-y) - var(--cui-spacings-bit))
-    var(--cui-spacings-mega);
-  border-top-left-radius: var(--cui-border-radius-kilo);
-  border-bottom-left-radius: var(--cui-border-radius-kilo);
+    var(--field-input-padding-x);
+  border-top-left-radius: var(--field-input-border-radius);
+  border-bottom-left-radius: var(--field-input-border-radius);
 }
 
+.wrapper.s .literal,
 .wrapper.m .literal {
-  font-size: var(--cui-body-m-font-size);
-  line-height: var(--cui-body-m-line-height);
+  font-size: var(--field-input-font-size);
+  line-height: var(--field-input-line-height);
 }
