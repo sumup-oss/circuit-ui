@@ -102,11 +102,11 @@ button.prefix,
 /* s */
 
 .wrapper.s .base {
-  padding: var(--cui-spacings-bit) var(--cui-spacings-tera)
-    var(--cui-spacings-bit) var(--cui-spacings-kilo);
-  font-size: var(--cui-body-s-font-size);
-  line-height: var(--cui-body-m-line-height);
-  border-radius: var(--cui-border-radius-byte);
+  padding: var(--field-input-padding-y) var(--cui-spacings-tera)
+    var(--field-input-padding-y) var(--cui-spacings-kilo);
+  font-size: var(--field-input-font-size);
+  line-height: var(--field-input-line-height);
+  border-radius: var(--field-input-border-radius);
 }
 
 .wrapper.s .has-prefix {
@@ -128,11 +128,11 @@ button.prefix,
 /* m */
 
 .wrapper.m .base {
-  padding: var(--cui-spacings-kilo) var(--cui-spacings-exa)
-    var(--cui-spacings-kilo) var(--cui-spacings-mega);
-  font-size: var(--cui-body-m-font-size);
-  line-height: var(--cui-body-m-line-height);
-  border-radius: var(--cui-border-radius-kilo);
+  padding: var(--field-input-padding-y) var(--cui-spacings-exa)
+    var(--field-input-padding-y) var(--cui-spacings-mega);
+  font-size: var(--field-input-font-size);
+  line-height: var(--field-input-line-height);
+  border-radius: var(--field-input-border-radius);
 }
 
 .wrapper.m .has-prefix {

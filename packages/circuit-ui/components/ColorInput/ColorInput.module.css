@@ -107,11 +107,12 @@
 }
 
 .wrapper.s .input {
-  /* :TODO: move hardcoded styles */
-  padding: 5px var(--cui-spacings-byte) 5px var(--cui-spacings-giga);
-  font-size: var(--cui-body-s-font-size);
-  line-height: var(--cui-body-s-line-height);
-  border-radius: 0 var(--cui-border-radius-byte) var(--cui-border-radius-byte) 0;
+  padding: var(--field-input-padding-y) var(--cui-spacings-byte)
+    var(--field-input-padding-y) var(--cui-spacings-giga);
+  font-size: var(--field-input-font-size);
+  line-height: var(--field-input-line-height);
+  border-radius: 0 var(--field-input-border-radius)
+    var(--field-input-border-radius) 0;
 }
 
 /* m */
@@ -133,9 +134,10 @@
 }
 
 .wrapper.m .input {
-  padding: var(--cui-spacings-kilo) var(--cui-spacings-mega)
-    var(--cui-spacings-kilo) var(--cui-spacings-giga);
-  font-size: var(--cui-body-m-font-size);
-  line-height: var(--cui-body-m-line-height);
-  border-radius: 0 var(--cui-border-radius-kilo) var(--cui-border-radius-kilo) 0;
+  padding: var(--field-input-padding-y) var(--cui-spacings-mega)
+    var(--field-input-padding-y) var(--cui-spacings-giga);
+  font-size: var(--field-input-font-size);
+  line-height: var(--field-input-line-height);
+  border-radius: 0 var(--field-input-border-radius)
+    var(--field-input-border-radius) 0;
 }

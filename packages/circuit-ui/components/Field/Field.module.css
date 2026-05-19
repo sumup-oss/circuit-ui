@@ -104,6 +104,14 @@
 
 /* s */
 
+.s {
+  --field-input-padding-y: 5px;
+  --field-input-padding-x: var(--cui-spacings-byte);
+  --field-input-font-size: var(--cui-body-s-font-size);
+  --field-input-line-height: var(--cui-body-s-line-height);
+  --field-input-border-radius: var(--cui-border-radius-byte);
+}
+
 .s .label-text,
 .s .description,
 .s .validation-hint {
@@ -119,6 +127,14 @@
 }
 
 /* m */
+
+.m {
+  --field-input-padding-y: var(--cui-spacings-kilo);
+  --field-input-padding-x: var(--cui-spacings-mega);
+  --field-input-font-size: var(--cui-body-m-font-size);
+  --field-input-line-height: var(--cui-body-m-line-height);
+  --field-input-border-radius: var(--cui-border-radius-kilo);
+}
 
 .m .label-text,
 .m .description,

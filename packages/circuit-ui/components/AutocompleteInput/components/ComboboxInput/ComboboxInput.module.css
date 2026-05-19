@@ -114,36 +114,35 @@
 /* s */
 
 .s {
-  /* :TODO: move hardcoded styles */
-  padding: 5px var(--cui-spacings-byte);
-  border-radius: var(--cui-border-radius-byte);
+  padding: var(--field-input-padding-y) var(--field-input-padding-x);
+  border-radius: var(--field-input-border-radius);
 }
 
 .s input {
-  font-size: var(--cui-body-s-font-size);
-  line-height: var(--cui-body-s-line-height);
+  font-size: var(--field-input-font-size);
+  line-height: var(--field-input-line-height);
 }
 
 .s .clear {
   width: var(--cui-spacings-tera);
   height: var(--cui-spacings-tera);
-  padding: 5px var(--cui-spacings-byte);
+  padding: var(--field-input-padding-y) var(--field-input-padding-x);
 }
 
 /* m */
 
 .m {
-  padding: var(--cui-spacings-kilo) var(--cui-spacings-mega);
-  border-radius: var(--cui-border-radius-kilo);
+  padding: var(--field-input-padding-y) var(--field-input-padding-x);
+  border-radius: var(--field-input-border-radius);
 }
 
 .m input {
-  font-size: var(--cui-body-m-font-size);
-  line-height: var(--cui-body-m-line-height);
+  font-size: var(--field-input-font-size);
+  line-height: var(--field-input-line-height);
 }
 
 .m .clear {
   width: var(--cui-spacings-exa);
   height: var(--cui-spacings-exa);
-  padding: var(--cui-spacings-kilo) var(--cui-spacings-mega);
+  padding: var(--field-input-padding-y) var(--field-input-padding-x);
 }

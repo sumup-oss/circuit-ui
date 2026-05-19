@@ -182,7 +182,7 @@
 }
 
 .wrapper.s .segments {
-  /* :TODO: move hardcoded styles */
+  /* hardcode padding to achieve 32px height on size s */
   padding: 1px var(--cui-spacings-byte);
   border-top-left-radius: var(--cui-border-radius-byte);
   border-bottom-left-radius: var(--cui-border-radius-byte);

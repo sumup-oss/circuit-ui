@@ -4,11 +4,15 @@
 
 .base {
   width: 100%;
+  padding: var(--field-input-padding-y) var(--field-input-padding-x);
   margin: 0;
+  font-size: var(--field-input-font-size);
+  line-height: var(--field-input-line-height);
   appearance: none;
   outline: 0;
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-normal);
+  border-radius: var(--field-input-border-radius);
   box-shadow: none;
   transition:
     box-shadow var(--cui-transitions-default),
@@ -86,10 +90,9 @@
 .wrapper .prefix,
 .wrapper .suffix {
   position: absolute;
-  top: 50%;
+  top: 0;
   color: var(--cui-fg-subtle);
   pointer-events: none;
-  transform: translateY(-50%);
 }
 
 .wrapper .prefix {
@@ -111,14 +114,6 @@
 /* Sizes */
 
 /* s */
-
-.wrapper.s .base {
-  /* :TODO: move hardcoded styles */
-  padding: 5px var(--cui-spacings-byte);
-  font-size: var(--cui-body-s-font-size);
-  line-height: var(--cui-body-s-line-height);
-  border-radius: var(--cui-border-radius-byte);
-}
 
 .wrapper.s .has-prefix {
   padding-left: var(--cui-spacings-tera);
@@ -143,13 +138,6 @@
 }
 
 /* m */
-
-.wrapper.m .base {
-  padding: var(--cui-spacings-kilo) var(--cui-spacings-mega);
-  font-size: var(--cui-body-m-font-size);
-  line-height: var(--cui-body-m-line-height);
-  border-radius: var(--cui-border-radius-kilo);
-}
 
 .wrapper.m .has-prefix {
   padding-left: var(--cui-spacings-exa);
