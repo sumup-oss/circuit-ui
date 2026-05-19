@@ -1,11 +1,11 @@
 /* Theme follows a root/layout ancestor, e.g. <html data-color-scheme="light">. */
 .base {
-  --illus-size-small: 120px;
   --illus-size-medium: 240px;
   --illus-size-large: 320px;
+  --illus-size-small: 120px;
 
-  background-repeat: no-repeat;
   background-image: var(--illustration-url-light);
+  background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 }
@@ -31,16 +31,16 @@
 }
 
 .s {
-  block-size: var(--illus-size-small);
   inline-size: var(--illus-size-small);
+  block-size: var(--illus-size-small);
 }
 
 .m {
-  block-size: var(--illus-size-medium);
   inline-size: var(--illus-size-medium);
+  block-size: var(--illus-size-medium);
 }
 
 .l {
-  block-size: var(--illus-size-large);
   inline-size: var(--illus-size-large);
+  block-size: var(--illus-size-large);
 }

@@ -4,4 +4,5 @@ declare const classes: {
   readonly m: string;
   readonly l: string;
 };
+// biome-ignore lint/style/noDefaultExport: will resolve later
 export default classes;
