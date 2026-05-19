@@ -182,8 +182,8 @@
 }
 
 .wrapper.s .segments {
-  /* hardcode padding to achieve 32px height on size s */
-  padding: 1px var(--cui-spacings-byte);
+  padding: calc(var(--field-input-padding-y) - var(--cui-spacings-bit))
+    var(--cui-spacings-byte);
   border-top-left-radius: var(--cui-border-radius-byte);
   border-bottom-left-radius: var(--cui-border-radius-byte);
 }
@@ -201,7 +201,8 @@
 }
 
 .wrapper.m .segments {
-  padding: var(--cui-spacings-byte) var(--cui-spacings-mega);
+  padding: calc(var(--field-input-padding-y) - var(--cui-spacings-bit))
+    var(--cui-spacings-mega);
   border-top-left-radius: var(--cui-border-radius-kilo);
   border-bottom-left-radius: var(--cui-border-radius-kilo);
 }

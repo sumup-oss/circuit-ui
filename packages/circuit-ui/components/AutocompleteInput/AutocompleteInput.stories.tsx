@@ -163,6 +163,11 @@ export default {
         category: 'Input',
       },
     },
+    passwordManagerIgnore: {
+      table: {
+        category: 'Input',
+      },
+    },
     // Behavior & Appearance
     multiple: {
       table: {
@@ -175,6 +180,11 @@ export default {
       },
     },
     minQueryLength: {
+      table: {
+        category: 'Behavior & Appearance',
+      },
+    },
+    size: {
       table: {
         category: 'Behavior & Appearance',
       },

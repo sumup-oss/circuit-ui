@@ -2,5 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  line-height: var(--cui-spacings-mega);
+  font-size: var(--field-input-font-size);
+  line-height: var(--field-input-line-height);
 }
