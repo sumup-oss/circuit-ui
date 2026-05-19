@@ -1,0 +1,37 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './CopyButton.stories';
+
+<Meta of={Stories} />
+
+# CopyButton
+
+<Status variant="experimental" />
+
+CopyButton copies a value to the clipboard and can render as a read-only input, a full button, or an icon button.
+
+<Story of={Stories.Input} />
+<Props />
+
+## Usage
+
+Use CopyButton when copying is the primary action, such as copying API tokens, webhook secrets, reference IDs, or shareable links.
+
+Wrap your application in `ToastProvider` to display the success feedback toast after a copy action.
+
+## Variants
+
+Use the input variant when users need to inspect the copied value before copying it.
+
+<Story of={Stories.MaskedInput} />
+
+Use the full button or icon-only button when the value itself does not need to stay visible in the UI.
+
+<Story of={Stories.AllVariants} />
+
+## Content
+
+Keep the visible label clear and specific so users understand what will be copied. Use concise copy such as `"Copy token"` or `"Copy secret"`, and customize `copiedBody` when the success message should refer to a specific object.
+
+For longer strings, the input variant truncates the visible text while preserving the full copied value.
+
+<Story of={Stories.LongValue} />
