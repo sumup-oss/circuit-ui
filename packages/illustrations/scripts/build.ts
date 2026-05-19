@@ -268,13 +268,19 @@ async function main() {
   await transpileModule('index.js', indexRaw);
   await transpileModule('illustration.js', illustrationComponentRaw);
   await transpileModule('helpers.js', helpersRaw);
-  await fs.copyFile(
+  const illustrationCss = await fs.readFile(
     path.join(BASE_DIR, 'styles/Illustration.module.css'),
-    path.join(DIST_DIR, 'Illustration.module.css'),
+    'utf8',
   );
-  await fs.copyFile(
+  await writeFile(DIST_DIR, 'Illustration.module.css', illustrationCss);
+  const illustrationCssTypes = await fs.readFile(
     path.join(BASE_DIR, 'styles/Illustration.module.css.d.ts'),
-    path.join(DIST_DIR, 'Illustration.module.css.d.ts'),
+    'utf8',
+  );
+  await writeFile(
+    DIST_DIR,
+    'Illustration.module.css.d.ts',
+    illustrationCssTypes,
   );
   await writeFile(DIST_DIR, 'index.d.ts', declarationFile);
 }
