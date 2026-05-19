@@ -1,0 +1,88 @@
+{
+  "illustrations": [
+    {
+      "name": "no-data",
+      "category": "Empty states",
+      "size": "m",
+      "theme": "light"
+    },
+    {
+      "name": "no-data",
+      "category": "Empty states",
+      "size": "l",
+      "theme": "light"
+    },
+    {
+      "name": "error",
+      "category": "Feedback",
+      "size": "m",
+      "theme": "light"
+    },
+    {
+      "name": "error",
+      "category": "Feedback",
+      "size": "l",
+      "theme": "light"
+    },
+    {
+      "name": "warning",
+      "category": "Feedback",
+      "size": "m",
+      "theme": "light"
+    },
+    {
+      "name": "warning",
+      "category": "Feedback",
+      "size": "l",
+      "theme": "light"
+    },
+    {
+      "name": "success",
+      "category": "Feedback",
+      "size": "m",
+      "theme": "light"
+    },
+    {
+      "name": "no-results",
+      "category": "Empty states",
+      "size": "m",
+      "theme": "light"
+    },
+    {
+      "name": "no-results",
+      "category": "Empty states",
+      "size": "m",
+      "theme": "dark"
+    },
+    {
+      "name": "no-results",
+      "category": "Empty states",
+      "size": "l",
+      "theme": "light"
+    },
+    {
+      "name": "celebration",
+      "category": "Communication",
+      "size": "m",
+      "theme": "light"
+    },
+    {
+      "name": "device-problems",
+      "category": "System",
+      "size": "m",
+      "theme": "light"
+    },
+    {
+      "name": "solo",
+      "category": "SumUp Devices",
+      "size": "m",
+      "theme": "light"
+    },
+    {
+      "name": "bank",
+      "category": "Merchant Products",
+      "size": "m",
+      "theme": "light"
+    }
+  ]
+}
