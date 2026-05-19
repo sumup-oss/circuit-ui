@@ -10,6 +10,15 @@
       ]
     },
     {
+      "source": "/illustrations/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, maxage=604800, stale-while-revalidate=2592000"
+        }
+      ]
+    },
+    {
       "source": "/(.*)",
       "headers": [
         {
