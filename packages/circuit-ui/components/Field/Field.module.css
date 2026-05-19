@@ -105,7 +105,10 @@
 /* s */
 
 .s {
-  --field-input-padding-y: 5px;
+  --field-input-padding-y: calc(
+    calc(var(--cui-spacings-kilo) / 2) -
+    var(--cui-border-width-kilo)
+  );
   --field-input-padding-x: var(--cui-spacings-byte);
   --field-input-font-size: var(--cui-body-s-font-size);
   --field-input-line-height: var(--cui-body-s-line-height);
