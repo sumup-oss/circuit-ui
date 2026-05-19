@@ -7,6 +7,7 @@
 | `Button` | `stable` | `@sumup-oss/circuit-ui` | `./components/Button/index.js` | [Read MDX reference](components/Button.mdx) |
 | `ButtonGroup` | `stable` | `@sumup-oss/circuit-ui` | `./components/ButtonGroup/index.js` | [Read MDX reference](components/ButtonGroup.mdx) |
 | `CloseButton` | `stable` | `@sumup-oss/circuit-ui` | `./components/CloseButton/index.js` | Not available |
+| `CopyButton` | `experimental` | `@sumup-oss/circuit-ui` | `./components/CopyButton/index.js` | [Read MDX reference](components/CopyButton.mdx) |
 | `IconButton` | `stable` | `@sumup-oss/circuit-ui` | `./components/Button/index.js` | [Read MDX reference](components/IconButton.mdx) |
 | `SelectorGroup` | `stable` | `@sumup-oss/circuit-ui` | `./components/SelectorGroup/index.js` | [Read MDX reference](components/SelectorGroup.mdx) |
 | `Toggle` | `stable` | `@sumup-oss/circuit-ui` | `./components/Toggle/index.js` | [Read MDX reference](components/Toggle.mdx) |
@@ -25,7 +26,6 @@
 | `Calendar` | `stable` | `@sumup-oss/circuit-ui` | `./components/Calendar/index.js` | [Read MDX reference](components/Calendar.mdx) |
 | `Checkbox` | `stable` | `@sumup-oss/circuit-ui` | `./components/Checkbox/index.js` | [Read MDX reference](components/Checkbox.mdx) |
 | `CheckboxGroup` | `stable` | `@sumup-oss/circuit-ui` | `./components/CheckboxGroup/index.js` | [Read MDX reference](components/CheckboxGroup.mdx) |
-| `ClipboardText` | `experimental` | `@sumup-oss/circuit-ui` | `./components/ClipboardText/index.js` | [Read MDX reference](components/ClipboardText.mdx) |
 | `ColorInput` | `stable` | `@sumup-oss/circuit-ui` | `./components/ColorInput/index.js` | [Read MDX reference](components/ColorInput.mdx) |
 | `CurrencyInput` | `stable` | `@sumup-oss/circuit-ui` | `./components/CurrencyInput/index.js` | [Read MDX reference](components/CurrencyInput.mdx) |
 | `DateInput` | `stable` | `@sumup-oss/circuit-ui` | `./components/DateInput/index.js` | [Read MDX reference](components/DateInput.mdx) |

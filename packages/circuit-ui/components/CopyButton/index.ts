@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-export { ClipboardText } from './ClipboardText.js';
+export { CopyButton } from './CopyButton.js';
 
-export type { ClipboardTextProps } from './ClipboardText.js';
+export type { CopyButtonProps } from './CopyButton.js';

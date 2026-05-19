@@ -2,4 +2,4 @@
 '@sumup-oss/circuit-ui': minor
 ---
 
-Added the `ClipboardText` component.
+Added the `CopyButton` component.
