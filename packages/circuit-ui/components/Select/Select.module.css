@@ -120,8 +120,8 @@ button.prefix,
 }
 
 .wrapper.s .icon {
-  width: var(--cui-spacings-tera);
-  height: var(--cui-spacings-tera);
+  width: var(--cui-icon-sizes-giga);
+  height: var(--cui-icon-sizes-giga);
   padding: var(--cui-spacings-byte);
 }
 
