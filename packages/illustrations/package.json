@@ -48,7 +48,8 @@
     "@types/babel__core": "^7.20.5",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
-    "vitest": "^4.1.5"
+    "vitest": "^4.1.5",
+    "fast-xml-parser": "^5.7.1"
   },
   "peerDependencies": {
     "react": ">=16.0.0 <20.0.0"

@@ -31,6 +31,12 @@
       "theme": "light"
     },
     {
+      "name": "pending",
+      "category": "Feedback",
+      "size": "m",
+      "theme": "light"
+    },
+    {
       "name": "no-data",
       "category": "Empty states",
       "size": "m",

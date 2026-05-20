@@ -18,10 +18,16 @@ import { fileURLToPath } from 'node:url';
 
 export const BASE_DIR = path.dirname(fileURLToPath(import.meta.url));
 export const DIST_DIR = path.join(BASE_DIR, 'dist');
+export const ILLUSTRATIONS_DIR = path.join(BASE_DIR, './assets');
 export const BASE_URL =
   'https://oss-circuit-ui-git-illustrations-package.sumup-vercel.app/'; //TODO replace with https://circuit.sumup.com/illustrations/'
 
 export const SIZES = ['s', 'm', 'l'] as const;
+export const SIZE_MAP: Record<string, string> = {
+  s: '120',
+  m: '240',
+  l: '320',
+};
 export const THEMES = ['light', 'dark', 'consumer'] as const;
 export const VARIANTS = [
   // Feedback
