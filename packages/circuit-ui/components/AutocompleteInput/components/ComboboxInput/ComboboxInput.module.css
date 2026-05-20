@@ -97,8 +97,6 @@
 
 .clear {
   position: absolute;
-  top: var(--cui-spacings-byte);
-  right: var(--cui-spacings-byte);
   color: var(--cui-fg-subtle);
 }
 
@@ -124,9 +122,8 @@
 }
 
 .s .clear {
-  width: var(--cui-spacings-tera);
-  height: var(--cui-spacings-tera);
-  padding: var(--field-input-padding-block) var(--field-input-padding-inline);
+  right: var(--cui-spacings-bit);
+  bottom: 0;
 }
 
 /* m */
@@ -142,7 +139,6 @@
 }
 
 .m .clear {
-  width: var(--cui-spacings-exa);
-  height: var(--cui-spacings-exa);
-  padding: var(--field-input-padding-block) var(--field-input-padding-inline);
+  right: var(--cui-spacings-byte);
+  bottom: var(--cui-spacings-byte);
 }
