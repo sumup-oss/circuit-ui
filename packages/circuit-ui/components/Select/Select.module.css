@@ -146,7 +146,7 @@ button.prefix,
 }
 
 .wrapper.m .icon {
-  width: var(--cui-spacings-exa);
-  height: var(--cui-spacings-exa);
+  width: var(--cui-icon-sizes-tera);
+  height: var(--cui-icon-sizes-tera);
   padding: var(--cui-spacings-kilo);
 }
