@@ -101,11 +101,8 @@
 
 .clear {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: var(--cui-spacings-exa);
-  height: var(--cui-spacings-exa);
-  padding: var(--cui-spacings-kilo) var(--cui-spacings-mega);
+  top: var(--cui-spacings-byte);
+  right: var(--cui-spacings-byte);
   color: var(--cui-fg-subtle);
 }
 
