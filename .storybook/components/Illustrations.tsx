@@ -1,6 +1,6 @@
 import {
   getIllustrationUrl,
-  IllustrationManifest,
+  type IllustrationManifest,
   Illustration,
   type Category,
 } from '@sumup-oss/illustrations';
@@ -57,6 +57,7 @@ function IllustrationPreview({
 
   const copyIllustrationURL = () => {
     const illustrationURL = getIllustrationUrl(
+      // @ts-ignore arguments are from the manifest file
       illustration.name,
       illustration.size,
       illustration.theme,

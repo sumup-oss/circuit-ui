@@ -26,6 +26,61 @@ type Illustration = {
   theme: (typeof THEMES)[number];
 };
 
+type IllustrationsByVariantAndSize = Record<
+  string,
+  {
+    s?: string[];
+    m?: string[];
+    l?: string[];
+  }
+>;
+
+function aggregateIllustrationsFromManifest(): IllustrationsByVariantAndSize {
+  return (manifest.illustrations as Illustration[]).reduce(
+    (acc, { name, size, theme }) => {
+      acc[name] = acc[name] || {};
+      const illustration = acc[name];
+      if (illustration[size] !== undefined) {
+        illustration[size]?.push(theme);
+      } else {
+        illustration[size] = [theme];
+      }
+      return acc;
+    },
+    {} as IllustrationsByVariantAndSize,
+  );
+}
+
+function buildIllustrationUrlMapType(): string {
+  const illustrations = aggregateIllustrationsFromManifest();
+  const orderedVariants = Object.keys(illustrations)/*.sort((a, b) =>
+    a.localeCompare(b),
+  );*/
+
+  const entries = orderedVariants.flatMap((variantKey) => {
+    const sizes = illustrations[variantKey];
+    const sizeBlocks = SIZES.flatMap((size) => {
+      const themes = sizes[size];
+      if (!themes?.length) {
+        return [];
+      }
+      const themeUnion = [...new Set(themes)]
+        .map((t) => JSON.stringify(t))
+        .join(' | ');
+      return [`    readonly ${size}: ${themeUnion};`];
+    });
+
+    if (sizeBlocks.length === 0) {
+      return [];
+    }
+
+    const variantLiteral = `${JSON.stringify(variantKey)}`;
+    return [`  ${variantLiteral}: {\n${sizeBlocks.join('\n')}\n  };`];
+  });
+
+  return `{\n${entries.join('\n')}\n}`;
+}
+
 function buildHelpersFile(): string {
   return `
     export function getIllustrationUrl(variant, size, theme) {
@@ -34,6 +89,8 @@ function buildHelpersFile(): string {
   `;
 }
 function buildDeclarationFile(): string {
+  const illustrationUrlMap = buildIllustrationUrlMapType();
+
   return `
     import type { HTMLAttributes, ReactElement } from 'react';
 
@@ -55,8 +112,25 @@ function buildDeclarationFile(): string {
         keywords?: string[],
       }[]
     };
-    // TODO add type safety 
-    export function getIllustrationUrl(name: Variant, size?: Size, theme?: Theme): string;
+    type IllustrationUrlMap = ${illustrationUrlMap};
+
+    type ManifestIllustration = {
+      [V in keyof IllustrationUrlMap]: {
+        [S in keyof IllustrationUrlMap[V]]: {
+          name: V,
+          category: Category,
+          size: S,
+          theme: IllustrationUrlMap[V][S],
+          keywords?: string[],
+        };
+      }[keyof IllustrationUrlMap[V]];
+    }[keyof IllustrationUrlMap];
+
+    export function getIllustrationUrl <V extends keyof IllustrationUrlMap,
+      S extends keyof IllustrationUrlMap[V]>(
+        variant: V,
+        size: S,
+        theme: IllustrationUrlMap[V][S]): string;
 
     export interface IllustrationProps extends HTMLAttributes<HTMLDivElement> {
        /**
@@ -82,25 +156,7 @@ function buildDeclarationFile(): string {
 }
 
 function buildIllustrationComponentFile(): string {
-  const illustrations = (manifest.illustrations as Illustration[]).reduce(
-    (acc, { name, size, theme }) => {
-      acc[name] = acc[name] || {};
-      if (acc[name][size] !== undefined) {
-        acc[name][size]?.push(theme);
-      } else {
-        acc[name][size] = [theme];
-      }
-      return acc;
-    },
-    {} as Record<
-      string,
-      {
-        s?: string[];
-        m?: string[];
-        l?: string[];
-      }
-    >,
-  );
+  const illustrations = aggregateIllustrationsFromManifest()
 
   const helperImport = `import { getIllustrationUrl } from './helpers.js';`;
   const stylesImport = `import classes from './Illustration.module.css';`;
@@ -167,7 +223,7 @@ function buildIllustrationComponentFile(): string {
         availableSizes.includes(size) &&
         !theme
       ) {
-        themeToUse = availableThemes.includes('light') ? 'light': availablethemes[0];
+        themeToUse = availableThemes.includes('light') ? 'light': availableThemes[0];
         console.warn(new Error(\`${defaultThemeWarning}\`));
       }
 
@@ -181,7 +237,7 @@ function buildIllustrationComponentFile(): string {
       ) {
         const availableThemesString = illustration[sizeToUse].join(', ');
         console.warn(new Error(\`${invalidThemeWarning}\`));
-        themeToUse = availableThemes.includes('light') ? 'light': availablethemes[0];
+        themeToUse = availableThemes.includes('light') ? 'light': availableThemes[0];
       }
       // if the requested theme is supported, use it exclusively
       // otherwise, make the illustration available in all available themes according to
