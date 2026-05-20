@@ -8,15 +8,9 @@
   position: relative;
   z-index: var(--cui-z-index-input);
   width: 100%;
-  padding-top: var(--cui-spacings-kilo);
-  padding-right: var(--cui-spacings-exa);
-  padding-bottom: var(--cui-spacings-kilo);
-  padding-left: var(--cui-spacings-mega);
   margin: 0;
   overflow-x: hidden;
   text-overflow: ellipsis;
-  font-size: var(--cui-body-m-font-size);
-  line-height: var(--cui-body-m-line-height);
   color: var(--cui-fg-normal);
   white-space: nowrap;
   appearance: none;
@@ -24,7 +18,6 @@
   outline: none;
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-normal);
-  border-radius: var(--cui-border-radius-kilo);
   box-shadow: none;
   transition:
     box-shadow var(--cui-transitions-default),
@@ -67,17 +60,14 @@
   border: 1px solid var(--cui-border-normal-disabled);
 }
 
-.has-prefix {
-  padding-left: var(--cui-spacings-exa);
-}
+/* Prefix */
 
-.prefix {
+.wrapper .prefix {
   position: absolute;
+  top: 50%;
   z-index: calc(var(--cui-z-index-input) + 1);
-  width: var(--cui-spacings-exa);
-  height: var(--cui-spacings-exa);
-  padding: var(--cui-spacings-mega);
   pointer-events: none;
+  transform: translateY(-50%);
 }
 
 button.prefix,
@@ -85,24 +75,78 @@ button.prefix,
   pointer-events: auto;
 }
 
-.icon {
+/* Icon (chevron) */
+
+.wrapper .icon {
   position: absolute;
-  top: 0;
+  top: 50%;
   right: 0;
   z-index: calc(var(--cui-z-index-input) + 3);
   display: block;
-  width: var(--cui-spacings-exa);
-  height: var(--cui-spacings-exa);
-  padding: var(--cui-spacings-kilo);
   color: var(--cui-fg-subtle);
   pointer-events: none;
+  transform: translateY(-50%);
 }
 
 .base:active ~ .icon {
-  transform: rotate(180deg);
+  transform: translateY(-50%) rotate(180deg);
 }
 
 .base:disabled ~ .icon,
 .base[disabled] ~ .icon {
   color: var(--cui-fg-subtle-disabled);
+}
+
+/* Sizes */
+
+/* s */
+
+.wrapper.s .base {
+  padding: var(--field-input-padding-block) var(--cui-spacings-tera)
+    var(--field-input-padding-block) var(--cui-spacings-kilo);
+  font-size: var(--field-input-font-size);
+  line-height: var(--field-input-line-height);
+  border-radius: var(--field-input-border-radius);
+}
+
+.wrapper.s .has-prefix {
+  padding-left: var(--cui-spacings-tera);
+}
+
+.wrapper.s .prefix {
+  width: var(--cui-spacings-tera);
+  height: var(--cui-spacings-tera);
+  padding: var(--cui-spacings-byte);
+}
+
+.wrapper.s .icon {
+  width: var(--cui-icon-sizes-giga);
+  height: var(--cui-icon-sizes-giga);
+  padding: var(--cui-spacings-byte);
+}
+
+/* m */
+
+.wrapper.m .base {
+  padding: var(--field-input-padding-block) var(--cui-spacings-exa)
+    var(--field-input-padding-block) var(--cui-spacings-mega);
+  font-size: var(--field-input-font-size);
+  line-height: var(--field-input-line-height);
+  border-radius: var(--field-input-border-radius);
+}
+
+.wrapper.m .has-prefix {
+  padding-left: var(--cui-spacings-exa);
+}
+
+.wrapper.m .prefix {
+  width: var(--cui-spacings-exa);
+  height: var(--cui-spacings-exa);
+  padding: var(--cui-spacings-mega);
+}
+
+.wrapper.m .icon {
+  width: var(--cui-icon-sizes-tera);
+  height: var(--cui-icon-sizes-tera);
+  padding: var(--cui-spacings-kilo);
 }

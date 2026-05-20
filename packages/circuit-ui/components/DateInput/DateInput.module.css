@@ -1,4 +1,7 @@
 .wrapper {
+  --segment-font-size: var(--field-input-font-size);
+  --segment-line-height: var(--field-input-line-height);
+
   display: flex;
 }
 
@@ -13,13 +16,10 @@
   flex-grow: 1;
   gap: 2px;
   min-width: 170px;
-  padding: var(--cui-spacings-byte) var(--cui-spacings-mega);
   cursor: text;
   outline: 0;
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-normal);
-  border-top-left-radius: var(--cui-border-radius-byte);
-  border-bottom-left-radius: var(--cui-border-radius-byte);
   box-shadow: none;
   transition:
     box-shadow var(--cui-transitions-default),
@@ -81,8 +81,6 @@
 
 .literal {
   padding: var(--cui-spacings-bit) 0;
-  font-size: var(--cui-body-m-font-size);
-  line-height: var(--cui-body-m-line-height);
 }
 
 .readonly .literal {
@@ -175,4 +173,18 @@
     bottom: 0;
     margin-top: var(--cui-spacings-mega);
   }
+}
+
+/* Sizes */
+
+.wrapper .segments {
+  padding: calc(var(--field-input-padding-block) - var(--cui-spacings-bit))
+    var(--field-input-padding-inline);
+  border-top-left-radius: var(--field-input-border-radius);
+  border-bottom-left-radius: var(--field-input-border-radius);
+}
+
+.wrapper .literal {
+  font-size: var(--field-input-font-size);
+  line-height: var(--field-input-line-height);
 }

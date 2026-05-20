@@ -27,22 +27,32 @@ import { utilClasses } from '../../styles/utility.js';
 import classes from './Field.module.css';
 import { getFieldValidity } from './FieldService.js';
 
+/**
+ * The sizes supported by the Field component.
+ * @default: 'm'.
+ */
+export type FieldSize = 's' | 'm';
 interface FieldWrapperProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Trigger disabled styles on the component.
    */
   disabled?: boolean;
+
+  /**
+   * The size of the Field component.
+   */
+  size?: FieldSize;
 }
 
 /**
  * @private
  */
 export const FieldWrapper = forwardRef<HTMLDivElement, FieldWrapperProps>(
-  ({ children, disabled, className, ...props }, ref) => (
+  ({ children, disabled, size = 'm', className, ...props }, ref) => (
     <div
       ref={ref}
       data-disabled={disabled}
-      className={clsx(classes.wrapper, className)}
+      className={clsx(classes.wrapper, classes[size], className)}
       {...props}
     >
       {children}
@@ -50,17 +60,22 @@ export const FieldWrapper = forwardRef<HTMLDivElement, FieldWrapperProps>(
   ),
 );
 
-type FieldSetProps = FieldsetHTMLAttributes<HTMLFieldSetElement>;
+interface FieldSetProps extends FieldsetHTMLAttributes<HTMLFieldSetElement> {
+  /**
+   * The size of the Field component.
+   */
+  size?: FieldSize;
+}
 
 /**
  * @private
  */
 export const FieldSet = forwardRef<HTMLFieldSetElement, FieldSetProps>(
-  ({ className, ...props }, ref) => (
+  ({ size = 'm', className, ...props }, ref) => (
     <fieldset
       {...props}
       ref={ref}
-      className={clsx(classes.fieldset, className)}
+      className={clsx(classes.fieldset, classes[size], className)}
     />
   ),
 );

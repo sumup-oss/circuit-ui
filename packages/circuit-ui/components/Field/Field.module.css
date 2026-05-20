@@ -26,8 +26,6 @@
 .label-text {
   display: block;
   margin-bottom: var(--cui-spacings-bit);
-  font-size: var(--cui-body-s-font-size);
-  line-height: var(--cui-body-s-line-height);
 }
 
 [disabled] .label-text,
@@ -46,8 +44,6 @@
 
 .description {
   display: block;
-  font-size: var(--cui-body-s-font-size);
-  line-height: var(--cui-body-s-line-height);
   color: var(--cui-fg-subtle);
 }
 
@@ -59,8 +55,6 @@
 .validation-hint {
   display: flex;
   margin-top: var(--cui-spacings-bit);
-  font-size: var(--cui-body-s-font-size);
-  line-height: var(--cui-body-s-line-height);
   color: var(--cui-fg-subtle);
   transition: color var(--cui-transitions-default);
 }
@@ -103,9 +97,58 @@
   align-self: flex-start;
   width: var(--cui-icon-sizes-kilo);
   height: var(--cui-icon-sizes-kilo);
+  margin-right: var(--cui-spacings-bit);
+}
+
+/* Sizes */
+
+/* s */
+
+.s {
+  --field-input-padding-block: calc(
+    calc(var(--cui-spacings-kilo) / 2) -
+    var(--cui-border-width-kilo)
+  );
+  --field-input-padding-inline: var(--cui-spacings-byte);
+  --field-input-font-size: var(--cui-body-s-font-size);
+  --field-input-line-height: var(--cui-body-s-line-height);
+  --field-input-border-radius: var(--cui-border-radius-byte);
+}
+
+.s .label-text,
+.s .description,
+.s .validation-hint {
+  font-size: var(--cui-compact-s-font-size);
+  line-height: var(--cui-compact-s-line-height);
+}
+
+.s .validation-hint-icon {
+  margin-top: calc(
+    (var(--cui-compact-s-line-height) - var(--cui-icon-sizes-kilo)) /
+    2
+  );
+}
+
+/* m */
+
+.m {
+  --field-input-padding-block: var(--cui-spacings-kilo);
+  --field-input-padding-inline: var(--cui-spacings-mega);
+  --field-input-font-size: var(--cui-body-m-font-size);
+  --field-input-line-height: var(--cui-body-m-line-height);
+  --field-input-border-radius: var(--cui-border-radius-kilo);
+}
+
+.m .label-text,
+.m .description,
+.m .validation-hint {
+  font-size: var(--cui-body-s-font-size);
+  line-height: var(--cui-body-s-line-height);
+}
+
+.m .validation-hint-icon {
   margin-top: calc(
     (var(--cui-body-s-line-height) - var(--cui-icon-sizes-kilo)) /
     2
   );
-  margin-right: var(--cui-spacings-bit);
 }

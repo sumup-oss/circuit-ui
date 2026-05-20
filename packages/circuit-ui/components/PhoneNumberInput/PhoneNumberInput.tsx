@@ -36,7 +36,9 @@ import {
   FieldLegend,
   FieldSet,
   FieldValidationHint,
+  type FieldSize,
 } from '../Field/index.js';
+import { clsx } from '../../styles/clsx.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
@@ -58,7 +60,7 @@ import {
 import classes from './PhoneNumberInput.module.css';
 
 export interface PhoneNumberInputProps
-  extends InputHTMLAttributes<HTMLInputElement> {
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   /**
    * The normalized phone number in the [E.164 format](https://en.wikipedia.org/wiki/E.164).
    *
@@ -115,6 +117,11 @@ export interface PhoneNumberInputProps
    * preselected country code. Defaults to `navigator.languages`.
    */
   locale?: string | string[];
+  /**
+   * Choose from 2 sizes.
+   * @default m
+   */
+  size?: FieldSize;
   /**
    * Country code selector details.
    */
@@ -225,6 +232,7 @@ export const PhoneNumberInput = forwardRef<
       readOnly,
       'aria-describedby': descriptionId,
       locale,
+      size = 'm',
       className,
       style,
       ...props
@@ -349,6 +357,7 @@ export const PhoneNumberInput = forwardRef<
         aria-invalid={invalid && 'true'}
         aria-required={required && 'true'}
         disabled={disabled}
+        size={size}
         className={className}
         style={style}
       >
@@ -360,7 +369,7 @@ export const PhoneNumberInput = forwardRef<
             required={required}
           />
         </FieldLegend>
-        <div className={classes.wrapper}>
+        <div className={clsx(classes.wrapper, classes[size])}>
           <input
             type="text"
             ref={applyMultipleRefs(ref, hiddenInputRef)}
@@ -382,6 +391,7 @@ export const PhoneNumberInput = forwardRef<
               autoComplete="tel-country-code"
               required={required}
               disabled={disabled}
+              size={size}
               className={classes['country-code']}
               inputClassName={classes['country-code-input']}
               {...countryCode}
@@ -420,6 +430,7 @@ export const PhoneNumberInput = forwardRef<
               autoComplete="tel-country-code"
               required={required}
               disabled={disabled}
+              size={size}
               className={classes['country-code']}
               {...countryCode}
               value={parsedValue.countryCode}
@@ -449,6 +460,7 @@ export const PhoneNumberInput = forwardRef<
             inputMode="tel"
             required={required}
             disabled={disabled}
+            size={size}
             className={classes['subscriber-number']}
             inputClassName={classes['subscriber-number-input']}
             hasWarning={hasWarning}

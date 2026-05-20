@@ -24,7 +24,7 @@ import { clsx } from '../../styles/clsx.js';
 import { useAutoExpand } from './useAutoExpand.js';
 import classes from './TextArea.module.css';
 
-export type TextAreaProps = BaseInputProps &
+export type TextAreaProps = Omit<BaseInputProps, 'size'> &
   Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'rows'> & {
     /**
      * The number of visible text lines for the control.

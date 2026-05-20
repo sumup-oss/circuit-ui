@@ -15,6 +15,8 @@
 
 import { useState, type ChangeEvent } from 'react';
 
+import { Stack } from '../../../../.storybook/components/index.js';
+
 import { SearchInput, type SearchInputProps } from './SearchInput.js';
 
 export default {
@@ -23,6 +25,9 @@ export default {
   tags: ['status:stable'],
   argTypes: {
     placeholder: { control: 'text' },
+    size: {
+      options: ['s', 'm'],
+    },
   },
 };
 
@@ -54,3 +59,12 @@ Base.args = {
   label: 'Search',
   onClear: null, // by default on* functions send Storybook actions, and trigger accessibility errors
 };
+
+export const Sizes = (args: SearchInputProps) => (
+  <Stack>
+    <SearchInput {...args} size="s" />
+    <SearchInput {...args} size="m" />
+  </Stack>
+);
+
+Sizes.args = Base.args;

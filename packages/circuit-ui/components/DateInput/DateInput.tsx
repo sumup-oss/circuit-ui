@@ -46,6 +46,7 @@ import {
   FieldSet,
   FieldValidationHint,
   FieldWrapper,
+  type FieldSize,
 } from '../Field/Field.js';
 import { toPlainDate } from '../../util/date.js';
 import { applyMultipleRefs } from '../../util/refs.js';
@@ -61,7 +62,7 @@ import classes from './DateInput.module.css';
 import { translations } from './translations/index.js';
 
 export interface DateInputProps
-  extends InputHTMLAttributes<HTMLInputElement>,
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>,
     Pick<
       InputProps,
       | 'label'
@@ -139,6 +140,11 @@ export interface DateInputProps
    * One of the accepted placement values. Defaults to `bottom-end`.
    */
   placement?: Placement;
+  /**
+   * Choose from 2 sizes.
+   * @default m
+   */
+  size?: FieldSize;
 }
 
 /**
@@ -179,6 +185,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       placement = 'bottom-end',
       className,
       style,
+      size = 'm',
       ...rest
     } = useI18n(props, translations);
     const isMobile = useMedia('(max-width: 479px)');
@@ -270,8 +277,13 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     }
 
     return (
-      <FieldWrapper disabled={disabled} className={className} style={style}>
-        <FieldSet aria-describedby={descriptionIds}>
+      <FieldWrapper
+        disabled={disabled}
+        className={className}
+        size={size}
+        style={style}
+      >
+        <FieldSet aria-describedby={descriptionIds} size={size}>
           <FieldLegend onClick={handleClick}>
             <FieldLabelText
               label={label}
@@ -392,6 +404,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                   type="button"
                   icon={CalendarIcon}
                   variant="secondary"
+                  size={size}
                   className={classes['calendar-button']}
                   disabled={disabled || readOnly}
                   onClick={(event) => {

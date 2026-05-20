@@ -22,3 +22,5 @@ export {
   FieldDescription,
   FieldValidationHint,
 } from './Field.js';
+
+export type { FieldSize } from './Field.js';

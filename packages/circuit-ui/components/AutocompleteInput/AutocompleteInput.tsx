@@ -32,7 +32,7 @@ import {
   flip,
   offset,
   shift,
-  size,
+  size as floatingSize,
   type SizeOptions,
   useFloating,
 } from '@floating-ui/react-dom';
@@ -161,6 +161,7 @@ export const AutocompleteInput = forwardRef<
       loadMore,
       allowNewItems,
       variant = 'contextual',
+      size = 'm',
       'aria-setsize': ariaSetSize,
       multiple = false,
       ...props
@@ -309,13 +310,13 @@ export const AutocompleteInput = forwardRef<
       placement: 'bottom',
       strategy: 'fixed',
       middleware: [
-        offset({ mainAxis: 21, crossAxis: 0 }), // 12px input padding + 1px border bottom + 8px offset
+        offset({ mainAxis: size === 's' ? 14 : 21, crossAxis: 0 }), // bottom padding + 1px border + 8px gap
         shift({ padding: boundaryPadding }),
         flip({
           padding: boundaryPadding,
           fallbackPlacements: multiple ? [] : ['top'],
         }),
-        size(() => ({
+        floatingSize(() => ({
           ...sizeOptions,
           boundary:
             typeof window !== 'undefined'
@@ -516,6 +517,7 @@ export const AutocompleteInput = forwardRef<
     const comboboxProps = {
       ...props,
       label,
+      size,
       'data-id': autocompleteId,
       clearLabel,
       value: searchText,
@@ -545,6 +547,7 @@ export const AutocompleteInput = forwardRef<
             {...props}
             inputClassName={props.inputClassName}
             label={label}
+            size={size}
             ref={applyMultipleRefs(ref, presentationFieldRef)}
             onClick={
               readOnly || disabled ? undefined : onPresentationFieldClick
@@ -604,8 +607,8 @@ export const AutocompleteInput = forwardRef<
             id={resultsId}
             style={{
               ...floatingStyles,
-              width: (comboboxRef.current?.offsetWidth ?? 0) + 34, // 32px for padding + 2px border
-              maxWidth: (comboboxRef.current?.offsetWidth ?? 0) + 34, // 32px for padding + 2px border
+              width: comboboxRef.current?.parentElement?.offsetWidth ?? 0,
+              maxWidth: comboboxRef.current?.parentElement?.offsetWidth ?? 0,
             }}
           >
             {results}

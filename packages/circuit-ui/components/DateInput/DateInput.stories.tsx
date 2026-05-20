@@ -30,6 +30,7 @@ export default {
   argTypes: {
     disabled: { control: 'boolean' },
     required: { control: 'boolean' },
+    size: { options: ['s', 'm '] },
   },
 };
 
@@ -144,3 +145,12 @@ export const Locales = (args: DateInputProps) => (
 );
 
 Locales.args = baseArgs;
+
+export const Sizes = (args: DateInputProps) => (
+  <Stack>
+    <DateInput {...args} size="s" />
+    <DateInput {...args} size="m" />
+  </Stack>
+);
+
+Sizes.args = baseArgs;

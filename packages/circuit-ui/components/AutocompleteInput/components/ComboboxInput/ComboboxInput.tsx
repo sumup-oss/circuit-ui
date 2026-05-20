@@ -92,6 +92,7 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
       'id': customId,
       className,
       style,
+      size = 'm',
       'aria-describedby': descriptionId,
       onClear,
       clearLabel,
@@ -138,7 +139,12 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
     }, [isOpen]);
 
     return (
-      <FieldWrapper className={className} style={style} disabled={disabled}>
+      <FieldWrapper
+        size={size}
+        className={className}
+        style={style}
+        disabled={disabled}
+      >
         <FieldLabel htmlFor={inputId}>
           <FieldLabelText
             label={label}
@@ -150,6 +156,7 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
         <div
           className={clsx(
             classes.base,
+            classes[size],
             invalid && classes.invalid,
             disabled && classes.disabled,
             readOnly && classes.readonly,

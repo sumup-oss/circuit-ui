@@ -5,8 +5,6 @@
 
 .picker {
   position: relative;
-  width: var(--cui-spacings-exa);
-  height: var(--cui-spacings-exa);
   cursor: pointer;
   border: 1px solid var(--cui-border-normal);
   border-top-left-radius: var(--cui-border-radius-byte);
@@ -37,10 +35,7 @@
 }
 
 .color-input {
-  width: var(--cui-spacings-giga);
-  height: var(--cui-spacings-giga);
   padding: 0;
-  margin: var(--cui-spacings-kilo);
   appearance: none;
   cursor: pointer;
   outline: none;
@@ -65,23 +60,18 @@
 .symbol {
   position: absolute;
   top: 0;
-  left: var(--cui-spacings-exa);
   z-index: calc(var(--cui-z-index-absolute) + 1);
   display: grid;
   place-items: center center;
   width: var(--cui-spacings-giga);
-  height: var(--cui-spacings-exa);
   font-family: var(--cui-font-stack-mono);
   color: var(--cui-fg-subtle);
 }
 
 .wrapper .input {
   position: relative;
-  padding-left: var(--cui-spacings-giga);
   overflow: hidden;
   font-family: var(--cui-font-stack-mono);
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
 
   /* to avoid having a 2px inner border separating the two inputs */
   transform: translateX(-1px);
@@ -94,4 +84,60 @@
 
 .wrapper .input::placeholder {
   font-family: var(--cui-font-stack-mono);
+}
+
+/* Sizes */
+
+/* s */
+
+.wrapper.s .picker {
+  width: var(--cui-spacings-tera);
+  height: var(--cui-spacings-tera);
+}
+
+.wrapper.s .color-input {
+  width: var(--cui-spacings-mega);
+  height: var(--cui-spacings-mega);
+  margin: var(--cui-spacings-byte);
+}
+
+.wrapper.s .symbol {
+  left: var(--cui-spacings-tera);
+  height: var(--cui-spacings-tera);
+}
+
+.wrapper.s .input {
+  padding: var(--field-input-padding-block) var(--cui-spacings-byte)
+    var(--field-input-padding-block) var(--cui-spacings-giga);
+  font-size: var(--field-input-font-size);
+  line-height: var(--field-input-line-height);
+  border-radius: 0 var(--field-input-border-radius)
+    var(--field-input-border-radius) 0;
+}
+
+/* m */
+
+.wrapper.m .picker {
+  width: var(--cui-spacings-exa);
+  height: var(--cui-spacings-exa);
+}
+
+.wrapper.m .color-input {
+  width: var(--cui-spacings-giga);
+  height: var(--cui-spacings-giga);
+  margin: var(--cui-spacings-kilo);
+}
+
+.wrapper.m .symbol {
+  left: var(--cui-spacings-exa);
+  height: var(--cui-spacings-exa);
+}
+
+.wrapper.m .input {
+  padding: var(--field-input-padding-block) var(--cui-spacings-mega)
+    var(--field-input-padding-block) var(--cui-spacings-giga);
+  font-size: var(--field-input-font-size);
+  line-height: var(--field-input-line-height);
+  border-radius: 0 var(--field-input-border-radius)
+    var(--field-input-border-radius) 0;
 }

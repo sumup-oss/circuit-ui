@@ -22,6 +22,7 @@ import {
 } from '@sumup-oss/icons';
 
 import { Select, type SelectProps } from './Select.js';
+import { Stack } from '../../../../.storybook/components/index.js';
 
 export default {
   title: 'Forms/Select',
@@ -96,3 +97,12 @@ WithPrefix.args = baseArgs;
 export const HiddenLabel = (args: SelectProps) => <Select {...args} />;
 
 HiddenLabel.args = { ...baseArgs, hideLabel: true };
+
+export const Sizes = (args: SelectProps) => (
+  <Stack>
+    <Select {...args} size="s" />
+    <Select {...args} size="m" />
+  </Stack>
+);
+
+Sizes.args = baseArgs;
