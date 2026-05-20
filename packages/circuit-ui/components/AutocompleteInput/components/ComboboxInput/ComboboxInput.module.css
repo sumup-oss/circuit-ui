@@ -97,8 +97,8 @@
 
 .clear {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: var(--cui-spacings-byte);
+  right: var(--cui-spacings-byte);
   color: var(--cui-fg-subtle);
 }
 
