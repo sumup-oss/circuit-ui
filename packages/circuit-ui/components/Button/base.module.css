@@ -225,7 +225,7 @@
 .primary[disabled],
 .primary[aria-disabled="true"] {
   color: var(--cui-fg-normal-disabled);
-  background-color: var(--cui-bg-highlight-disabled);
+  background-color: var(--cui-bg-accent-strong-disabled);
   border-color: transparent;
 }
 
