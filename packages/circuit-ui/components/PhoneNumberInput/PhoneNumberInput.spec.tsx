@@ -54,6 +54,12 @@ function getHiddenInput(container: HTMLElement) {
   return container.querySelectorAll('input')[0];
 }
 
+async function selectCountry(label: RegExp | string) {
+  const countryCode = screen.getByRole('combobox', { name: 'Country code' });
+  await userEvent.click(countryCode);
+  await userEvent.click(screen.getByRole('option', { name: label }));
+}
+
 describe('PhoneNumberInput', () => {
   it('should merge a custom class name with the default ones', () => {
     const props = {
@@ -75,24 +81,13 @@ describe('PhoneNumberInput', () => {
   });
 
   it('should forward a ref to the country code selector', () => {
-    const ref = createRef<HTMLSelectElement>();
+    const ref = createRef<HTMLInputElement>();
     const props = {
       ...defaultProps,
       countryCode: { ...defaultProps.countryCode, ref },
     };
     render(<PhoneNumberInput {...props} />);
-    const select = screen.getByLabelText('Country code');
-    expect(ref.current).toBe(select);
-  });
-
-  it('should forward a ref to the country code input', () => {
-    const ref = createRef<HTMLSelectElement>();
-    const props = {
-      ...defaultProps,
-      countryCode: { ...defaultProps.countryCode, ref },
-    };
-    render(<PhoneNumberInput {...props} />);
-    const input = screen.getByLabelText('Country code');
+    const input = screen.getByRole('combobox', { name: 'Country code' });
     expect(ref.current).toBe(input);
   });
 
@@ -120,7 +115,9 @@ describe('PhoneNumberInput', () => {
           />
         </>,
       );
-      const countryCode = screen.getByLabelText('Country code');
+      const countryCode = screen.getByRole('combobox', {
+        name: 'Country code',
+      });
       const subscriberNumber = screen.getByLabelText('Subscriber number');
       expect(countryCode).toHaveAccessibleDescription(customDescription);
       expect(subscriberNumber).toHaveAccessibleDescription(customDescription);
@@ -129,7 +126,9 @@ describe('PhoneNumberInput', () => {
     it('should render as disabled', async () => {
       render(<PhoneNumberInput {...defaultProps} disabled />);
 
-      const countryCode = screen.getByLabelText('Country code');
+      const countryCode = screen.getByRole('combobox', {
+        name: 'Country code',
+      });
       const subscriberNumber = screen.getByLabelText('Subscriber number');
       expect(countryCode).toBeDisabled();
       expect(subscriberNumber).toBeDisabled();
@@ -145,7 +144,9 @@ describe('PhoneNumberInput', () => {
 
     it('should render as required', async () => {
       render(<PhoneNumberInput {...defaultProps} required />);
-      const countryCode = screen.getByLabelText('Country code');
+      const countryCode = screen.getByRole('combobox', {
+        name: 'Country code',
+      });
       const subscriberNumber = screen.getByLabelText('Subscriber number');
       expect(countryCode).toBeRequired();
       expect(subscriberNumber).toBeRequired();
@@ -159,10 +160,10 @@ describe('PhoneNumberInput', () => {
     };
     const { container } = render(<PhoneNumberInput {...props} />);
     const input = getHiddenInput(container);
-    const countryCode = screen.getByLabelText('Country code');
+    const countryCode = screen.getByRole('combobox', { name: 'Country code' });
     const subscriberNumber = screen.getByLabelText(/Subscriber number/);
     expect(input).toHaveValue('+4912345678');
-    expect(countryCode).toHaveValue('DE');
+    expect(countryCode).toHaveValue('Germany (+49)');
     expect(subscriberNumber).toHaveValue('12345678');
   });
 
@@ -173,10 +174,10 @@ describe('PhoneNumberInput', () => {
     };
     const { container } = render(<PhoneNumberInput {...props} />);
     const input = getHiddenInput(container);
-    const countryCode = screen.getByLabelText('Country code');
+    const countryCode = screen.getByRole('combobox', { name: 'Country code' });
     const subscriberNumber = screen.getByLabelText(/Subscriber number/);
     expect(input).toHaveValue('+4912345678');
-    expect(countryCode).toHaveValue('DE');
+    expect(countryCode).toHaveValue('Germany (+49)');
     expect(subscriberNumber).toHaveValue('12345678');
   });
 
@@ -190,16 +191,33 @@ describe('PhoneNumberInput', () => {
     expect(flag).toHaveAttribute('src', getIconURL('flag_de'));
   });
 
+  it('should display flags in the country list', async () => {
+    render(<PhoneNumberInput {...defaultProps} />);
+
+    await userEvent.click(
+      screen.getByRole('combobox', { name: 'Country code' }),
+    );
+
+    expect(screen.getByTestId('option-image-CA')).toHaveAttribute(
+      'src',
+      getIconURL('flag_ca'),
+    );
+    expect(screen.getByTestId('option-image-DE')).toHaveAttribute(
+      'src',
+      getIconURL('flag_de'),
+    );
+  });
+
   it('should update the displayed value', () => {
     const { container, rerender } = render(
       <PhoneNumberInput {...defaultProps} value="+4912345678" />,
     );
     rerender(<PhoneNumberInput {...defaultProps} value="+112345678" />);
     const input = getHiddenInput(container);
-    const countryCode = screen.getByLabelText('Country code');
+    const countryCode = screen.getByRole('combobox', { name: 'Country code' });
     const subscriberNumber = screen.getByLabelText(/Subscriber number/);
     expect(input).toHaveValue('+112345678');
-    expect(countryCode).toHaveValue('CA');
+    expect(countryCode).toHaveValue('Canada (+1)');
     expect(subscriberNumber).toHaveValue('12345678');
   });
 
@@ -223,10 +241,11 @@ describe('PhoneNumberInput', () => {
       );
     }
     render(<ControlledPhoneNumberInput {...defaultProps} />);
-    const select = screen.getByRole('combobox');
-    await userEvent.selectOptions(select, 'US');
+    await selectCountry(/United States/);
     expect(onChange).toHaveBeenCalledOnce();
-    expect(select).toHaveValue('US');
+    expect(screen.getByRole('combobox', { name: 'Country code' })).toHaveValue(
+      'United States (+1)',
+    );
   });
 
   it('should switch between countries with the same country code in a controlled input', async () => {
@@ -249,10 +268,11 @@ describe('PhoneNumberInput', () => {
       );
     }
     render(<ControlledPhoneNumberInput {...defaultProps} />);
-    const select = screen.getByRole('combobox');
-    await userEvent.selectOptions(select, 'US');
-    await userEvent.selectOptions(select, 'CA');
-    expect(select).toHaveValue('CA');
+    await selectCountry(/United States/);
+    await selectCountry(/Canada/);
+    expect(screen.getByRole('combobox', { name: 'Country code' })).toHaveValue(
+      'Canada (+1)',
+    );
   });
 
   it('should call onChange when there is a change', async () => {
@@ -262,8 +282,7 @@ describe('PhoneNumberInput', () => {
       onChange,
     };
     render(<PhoneNumberInput {...props} />);
-    const select = screen.getByRole('combobox');
-    await userEvent.selectOptions(select, 'DE');
+    await selectCountry(/Germany/);
     expect(onChange).toHaveBeenCalledOnce();
   });
 
@@ -277,8 +296,7 @@ describe('PhoneNumberInput', () => {
       },
     };
     render(<PhoneNumberInput {...props} />);
-    const select = screen.getByRole('combobox');
-    await userEvent.selectOptions(select, 'DE');
+    await selectCountry(/Germany/);
     expect(onChange).toHaveBeenCalledOnce();
   });
 
@@ -370,69 +388,6 @@ describe('PhoneNumberInput', () => {
     render(<PhoneNumberInput {...props} />);
     const input = screen.getByLabelText(/Subscriber number/);
     expect(input).toBeInvalid();
-  });
-
-  describe('country code autocomplete', () => {
-    const autocompleteProps = {
-      ...defaultProps,
-      countryCode: {
-        ...defaultProps.countryCode,
-        variant: 'autocomplete' as const,
-      },
-    };
-
-    it('should render a combobox for country selection', () => {
-      render(<PhoneNumberInput {...autocompleteProps} />);
-      expect(
-        screen.getByRole('combobox', { name: 'Country code' }),
-      ).toBeInTheDocument();
-    });
-
-    it('should display a default flag prefix', () => {
-      render(
-        <PhoneNumberInput {...autocompleteProps} defaultValue="+4912345678" />,
-      );
-      expect(screen.getByRole('presentation')).toHaveAttribute(
-        'src',
-        getIconURL('flag_de'),
-      );
-    });
-
-    it('should display flags in the country list', async () => {
-      render(<PhoneNumberInput {...autocompleteProps} />);
-
-      await userEvent.click(
-        screen.getByRole('combobox', { name: 'Country code' }),
-      );
-
-      expect(screen.getByTestId('option-image-CA')).toHaveAttribute(
-        'src',
-        getIconURL('flag_ca'),
-      );
-      expect(screen.getByTestId('option-image-DE')).toHaveAttribute(
-        'src',
-        getIconURL('flag_de'),
-      );
-    });
-
-    it('should call onChange when a country is selected', async () => {
-      const onChange = vi.fn();
-      render(<PhoneNumberInput {...autocompleteProps} onChange={onChange} />);
-
-      const countryCode = screen.getByRole('combobox', {
-        name: 'Country code',
-      });
-      await userEvent.click(countryCode);
-      await userEvent.click(screen.getByRole('option', { name: /Germany/ }));
-
-      expect(onChange).toHaveBeenCalled();
-    });
-
-    it('should meet accessibility guidelines', async () => {
-      const { container } = render(<PhoneNumberInput {...autocompleteProps} />);
-      const actual = await axe(container);
-      expect(actual).toHaveNoViolations();
-    });
   });
 
   it('should meet accessibility guidelines', async () => {

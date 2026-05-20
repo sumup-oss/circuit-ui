@@ -136,8 +136,6 @@ export function normalizePhoneNumber(
   return `${countryCode}${normalizedSubscriberNumber}`;
 }
 
-export type CountryCodeSelectorVariant = 'select' | 'autocomplete';
-
 export function mapCountryCodeOptions(
   countryCodeOptions: CountryCodeOption[],
   locale: Locale | undefined,

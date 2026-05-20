@@ -160,25 +160,3 @@ export const WithPrefix = (args: PhoneNumberInputProps) => {
 };
 
 WithPrefix.args = Base.args;
-
-export const CountryCodeAutocomplete = (args: PhoneNumberInputProps) => {
-  const [value, setValue] = useState(args.value);
-
-  return (
-    <PhoneNumberInput
-      {...args}
-      value={value}
-      onChange={(event) => {
-        setValue(event.target.value);
-      }}
-    />
-  );
-};
-
-CountryCodeAutocomplete.args = {
-  ...Base.args,
-  countryCode: {
-    ...Base.args.countryCode,
-    variant: 'autocomplete',
-  },
-};

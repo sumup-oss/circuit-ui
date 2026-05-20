@@ -15,7 +15,7 @@ The PhoneNumberInput component provides a straightforward way for users to type 
 ## Usage
 
 When you need to collect a phone number from the user. This could be for contact information, two-factor authentication, or other purposes where a phone number is required.
-The component allows the user to select their country code, and normalizes the input to the [E.164 format](https://www.itu.int/rec/t-rec-e.164/en).
+The component allows the user to search and select their country code, and normalizes the input to the [E.164 format](https://www.itu.int/rec/t-rec-e.164/en).
 
 ## Validations
 
@@ -59,9 +59,3 @@ You should use only when the value is a critical information from the user that 
 Use the `renderPrefix` prop to add a small prefix to the country code selected input field. By default, the component will display the selected country's [Flag](Components/Flag/Docs). You can override that behavior by providing your own prefix component.
 
 <Story of={Stories.WithPrefix} />
-
-## Country code autocomplete
-
-Use `countryCode.variant="autocomplete"` to render a searchable country selector instead of a native select. This is useful when the list of countries is long.
-
-<Story of={Stories.CountryCodeAutocomplete} />
