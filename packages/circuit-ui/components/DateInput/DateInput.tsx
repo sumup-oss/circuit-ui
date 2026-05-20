@@ -292,7 +292,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
               optionalLabel={optionalLabel}
             />
           </FieldLegend>
-          <div className={clsx(classes.wrapper, classes[size])}>
+          <div className={classes.wrapper}>
             <input
               type="date"
               ref={applyMultipleRefs(ref, inputRef)}

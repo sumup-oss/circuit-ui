@@ -6,7 +6,7 @@
   height: calc(
     var(--field-input-line-height) +
     2 *
-    var(--field-input-padding-y) +
+    var(--field-input-padding-block) +
     2 *
     var(--cui-border-width-kilo)
   );
@@ -16,7 +16,7 @@
   height: calc(
     var(--field-input-line-height) +
     2 *
-    var(--field-input-padding-y) +
+    var(--field-input-padding-block) +
     2 *
     var(--cui-border-width-kilo)
   );

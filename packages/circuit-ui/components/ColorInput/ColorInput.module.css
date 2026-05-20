@@ -107,8 +107,8 @@
 }
 
 .wrapper.s .input {
-  padding: var(--field-input-padding-y) var(--cui-spacings-byte)
-    var(--field-input-padding-y) var(--cui-spacings-giga);
+  padding: var(--field-input-padding-block) var(--cui-spacings-byte)
+    var(--field-input-padding-block) var(--cui-spacings-giga);
   font-size: var(--field-input-font-size);
   line-height: var(--field-input-line-height);
   border-radius: 0 var(--field-input-border-radius)
@@ -134,8 +134,8 @@
 }
 
 .wrapper.m .input {
-  padding: var(--field-input-padding-y) var(--cui-spacings-mega)
-    var(--field-input-padding-y) var(--cui-spacings-giga);
+  padding: var(--field-input-padding-block) var(--cui-spacings-mega)
+    var(--field-input-padding-block) var(--cui-spacings-giga);
   font-size: var(--field-input-font-size);
   line-height: var(--field-input-line-height);
   border-radius: 0 var(--field-input-border-radius)

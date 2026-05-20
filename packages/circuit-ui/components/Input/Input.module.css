@@ -4,7 +4,7 @@
 
 .base {
   width: 100%;
-  padding: var(--field-input-padding-y) var(--field-input-padding-x);
+  padding: var(--field-input-padding-block) var(--field-input-padding-inline);
   margin: 0;
   font-size: var(--field-input-font-size);
   line-height: var(--field-input-line-height);

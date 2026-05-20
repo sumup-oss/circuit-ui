@@ -105,11 +105,11 @@
 /* s */
 
 .s {
-  --field-input-padding-y: calc(
+  --field-input-padding-block: calc(
     calc(var(--cui-spacings-kilo) / 2) -
     var(--cui-border-width-kilo)
   );
-  --field-input-padding-x: var(--cui-spacings-byte);
+  --field-input-padding-inline: var(--cui-spacings-byte);
   --field-input-font-size: var(--cui-body-s-font-size);
   --field-input-line-height: var(--cui-body-s-line-height);
   --field-input-border-radius: var(--cui-border-radius-byte);
@@ -132,8 +132,8 @@
 /* m */
 
 .m {
-  --field-input-padding-y: var(--cui-spacings-kilo);
-  --field-input-padding-x: var(--cui-spacings-mega);
+  --field-input-padding-block: var(--cui-spacings-kilo);
+  --field-input-padding-inline: var(--cui-spacings-mega);
   --field-input-font-size: var(--cui-body-m-font-size);
   --field-input-line-height: var(--cui-body-m-line-height);
   --field-input-border-radius: var(--cui-border-radius-kilo);

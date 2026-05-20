@@ -102,8 +102,8 @@ button.prefix,
 /* s */
 
 .wrapper.s .base {
-  padding: var(--field-input-padding-y) var(--cui-spacings-tera)
-    var(--field-input-padding-y) var(--cui-spacings-kilo);
+  padding: var(--field-input-padding-block) var(--cui-spacings-tera)
+    var(--field-input-padding-block) var(--cui-spacings-kilo);
   font-size: var(--field-input-font-size);
   line-height: var(--field-input-line-height);
   border-radius: var(--field-input-border-radius);
@@ -128,8 +128,8 @@ button.prefix,
 /* m */
 
 .wrapper.m .base {
-  padding: var(--field-input-padding-y) var(--cui-spacings-exa)
-    var(--field-input-padding-y) var(--cui-spacings-mega);
+  padding: var(--field-input-padding-block) var(--cui-spacings-exa)
+    var(--field-input-padding-block) var(--cui-spacings-mega);
   font-size: var(--field-input-font-size);
   line-height: var(--field-input-line-height);
   border-radius: var(--field-input-border-radius);
