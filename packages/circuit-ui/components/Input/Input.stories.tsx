@@ -28,6 +28,9 @@ export default {
   argTypes: {
     placeholder: { control: 'text' },
     disabled: { control: 'boolean' },
+    size: {
+      options: ['s', 'm'],
+    },
   },
 };
 
@@ -114,3 +117,30 @@ HiddenLabel.args = {
   validationHint: '',
   hideLabel: true,
 };
+
+export const Password = (args: InputProps) => (
+  <Stack>
+    <Input {...args} label="Password" />
+    <Input {...args} label="One time code" passwordManagerIgnore />
+  </Stack>
+);
+
+Password.args = {
+  label: 'Password',
+  placeholder: 'Enter password',
+  type: 'password',
+  validationHint: 'Use at least 8 characters.',
+};
+
+Password.parameters = {
+  chromatic: { disableSnapshot: true },
+};
+
+export const Sizes = (args: InputProps) => (
+  <Stack>
+    <Input {...args} size="s" />
+    <Input {...args} size="m" />
+  </Stack>
+);
+
+Sizes.args = baseArgs;

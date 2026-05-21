@@ -1,9 +1,9 @@
 .base {
   width: calc(var(--width) + 2 * var(--cui-spacings-bit));
   padding: var(--cui-spacings-bit);
-  font-size: var(--cui-body-m-font-size);
+  font-size: var(--segment-font-size, var(--cui-body-m-font-size));
   font-variant-numeric: tabular-nums;
-  line-height: var(--cui-body-m-line-height);
+  line-height: var(--segment-line-height, var(--cui-body-m-line-height));
   appearance: textfield;
   background-color: transparent;
   border: none;
@@ -38,8 +38,8 @@
 .size {
   position: absolute;
   visibility: hidden;
-  font-size: var(--cui-body-m-font-size);
+  font-size: var(--segment-font-size, var(--cui-body-m-font-size));
   font-variant-numeric: tabular-nums;
-  line-height: var(--cui-body-m-line-height);
+  line-height: var(--segment-line-height, var(--cui-body-m-line-height));
   pointer-events: none;
 }

@@ -28,6 +28,7 @@ import {
   FieldLabel,
   FieldLabelText,
   FieldValidationHint,
+  type FieldSize,
 } from '../Field/index.js';
 import {
   AccessibilityError,
@@ -45,7 +46,8 @@ export type SelectOption = {
   [key: string]: unknown;
 };
 
-export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
+export interface SelectProps
+  extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'size'> {
   children?: ReactNode;
   /**
    * A clear and concise description of the select purpose.
@@ -102,6 +104,11 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
    * generated id is used.
    */
   id?: string;
+  /**
+   * Choose from 2 sizes.
+   * @default m
+   */
+  size?: FieldSize;
 }
 
 /**
@@ -127,6 +134,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
       style,
       'id': customId,
       'aria-describedby': descriptionId,
+      size = 'm',
       ...props
     },
     ref,
@@ -156,7 +164,12 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     }
 
     return (
-      <FieldWrapper className={className} style={style} disabled={disabled}>
+      <FieldWrapper
+        className={className}
+        style={style}
+        disabled={disabled}
+        size={size}
+      >
         <FieldLabel htmlFor={selectId}>
           <FieldLabelText
             label={label}
@@ -165,7 +178,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             required={required}
           />
         </FieldLabel>
-        <div className={classes.wrapper}>
+        <div className={clsx(classes.wrapper, classes[size])}>
           {prefix}
           <select
             id={selectId}
@@ -196,7 +209,11 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                 </option>
               ))}
           </select>
-          <ChevronDown className={classes.icon} size="24" aria-hidden="true" />
+          <ChevronDown
+            className={classes.icon}
+            size={size === 's' ? '16' : '24'}
+            aria-hidden="true"
+          />
         </div>
         <FieldValidationHint
           id={validationHintId}

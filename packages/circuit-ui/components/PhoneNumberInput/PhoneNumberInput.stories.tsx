@@ -35,6 +35,7 @@ export default {
   tags: ['status:stable'],
   argTypes: {
     disabled: { control: 'boolean' },
+    size: { options: ['s', 'm'] },
   },
 };
 
@@ -160,3 +161,12 @@ export const WithPrefix = (args: PhoneNumberInputProps) => {
 };
 
 WithPrefix.args = Base.args;
+
+export const Sizes = (args: PhoneNumberInputProps) => (
+  <Stack>
+    <PhoneNumberInput {...args} size="s" />
+    <PhoneNumberInput {...args} size="m" />
+  </Stack>
+);
+
+Sizes.args = Base.args;

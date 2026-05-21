@@ -1,4 +1,23 @@
 .base {
-  height: calc(var(--cui-body-m-line-height) + 2 * var(--cui-spacings-kilo));
   color: var(--cui-fg-normal);
+}
+
+.s {
+  height: calc(
+    var(--field-input-line-height) +
+    2 *
+    var(--field-input-padding-block) +
+    2 *
+    var(--cui-border-width-kilo)
+  );
+}
+
+.m {
+  height: calc(
+    var(--field-input-line-height) +
+    2 *
+    var(--field-input-padding-block) +
+    2 *
+    var(--cui-border-width-kilo)
+  );
 }

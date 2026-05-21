@@ -5,10 +5,8 @@
   gap: var(--cui-spacings-byte);
   align-items: center;
   width: 100%;
-  padding: var(--cui-spacings-kilo) var(--cui-spacings-mega);
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-normal);
-  border-radius: var(--cui-border-radius-kilo);
   transition:
     box-shadow var(--cui-transitions-default),
     border var(--cui-transitions-default);
@@ -39,8 +37,6 @@
   min-width: 0;
   padding: 0 var(--cui-spacings-tera) 0 0;
   margin: 0;
-  font-size: var(--cui-body-m-font-size);
-  line-height: var(--cui-body-m-line-height);
   appearance: none;
   outline: 0;
   background-color: transparent;
@@ -125,11 +121,6 @@
 
 .clear {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: var(--cui-spacings-exa);
-  height: var(--cui-spacings-exa);
-  padding: var(--cui-spacings-kilo) var(--cui-spacings-mega);
   color: var(--cui-fg-subtle);
 }
 
@@ -142,4 +133,40 @@
   .scrollable {
     max-height: 150px;
   }
+}
+
+/* Sizes */
+
+/* s */
+
+.s {
+  padding: var(--field-input-padding-block) var(--field-input-padding-inline);
+  border-radius: var(--field-input-border-radius);
+}
+
+.s input {
+  font-size: var(--field-input-font-size);
+  line-height: var(--field-input-line-height);
+}
+
+.s .clear {
+  right: var(--cui-spacings-bit);
+  bottom: 0;
+}
+
+/* m */
+
+.m {
+  padding: var(--field-input-padding-block) var(--field-input-padding-inline);
+  border-radius: var(--field-input-border-radius);
+}
+
+.m input {
+  font-size: var(--field-input-font-size);
+  line-height: var(--field-input-line-height);
+}
+
+.m .clear {
+  right: var(--cui-spacings-byte);
+  bottom: var(--cui-spacings-byte);
 }
