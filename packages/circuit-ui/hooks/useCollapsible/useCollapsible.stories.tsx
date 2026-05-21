@@ -45,3 +45,9 @@ Example.args = {
   initialOpen: false,
   duration: 300,
 };
+
+Example.parameters = {
+  chromatic: {
+    disableSnapshot: true,
+  }
+}

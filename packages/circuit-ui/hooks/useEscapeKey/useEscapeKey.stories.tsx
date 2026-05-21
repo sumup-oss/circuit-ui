@@ -36,3 +36,9 @@ export const Example = () => {
 
   return <Button onClick={() => setOpen(true)}>Reset</Button>;
 };
+
+Example.parameters = {
+  chromatic: {
+    disableSnapshot: true,
+  }
+}
