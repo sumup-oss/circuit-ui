@@ -24,6 +24,11 @@ export default {
   title: 'Components/Tooltip/Legacy',
   component: Tooltip,
   tags: ['status:deprecated'],
+  parameters: {
+    chromatic: {
+      disableSnapshot: true,
+    },
+  },
 };
 
 const TooltipContainer = styled('div')`

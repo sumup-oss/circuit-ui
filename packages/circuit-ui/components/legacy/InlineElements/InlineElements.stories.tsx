@@ -30,6 +30,7 @@ export default {
   parameters: {
     controls: { hideNoControlsWarning: true },
     chromatic: {
+      disableSnapshot: true,
       modes: {
         mobile: modes.smallMobile,
         desktop: modes.desktop,

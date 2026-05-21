@@ -37,6 +37,11 @@ import {
 export default {
   title: 'Features/Style Mixins',
   tags: ['status:deprecated'],
+  parameters: {
+    chromatic: {
+      disableSnapshot: true,
+    },
+  },
 };
 
 const spaceOptions = {
