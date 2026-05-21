@@ -141,7 +141,7 @@ WithLeadingContent.args = baseArgs;
 WithLeadingContent.parameters = {
   // Covered by Base story
   chromatic: { disableSnapshot: true },
-}
+};
 
 export const WithCustomLabel = (args: ListItemProps) => (
   <Stack vertical>
@@ -173,7 +173,7 @@ WithDetails.args = baseArgs;
 WithDetails.parameters = {
   // covered in Base story
   chromatic: { disableSnapshot: true },
-}
+};
 
 export const WithTrailingContent = (args: ListItemProps) => (
   <Stack vertical>
@@ -195,7 +195,7 @@ WithTrailingContent.args = baseArgs;
 WithTrailingContent.parameters = {
   // covered in Base story
   chromatic: { disableSnapshot: true },
-}
+};
 
 export const Interactive = (args: ListItemProps) => (
   <Stack vertical>
@@ -212,7 +212,7 @@ Interactive.args = baseArgs;
 Interactive.parameters = {
   // no visual difference in the snapshots,
   chromatic: { disableSnapshot: true },
-}
+};
 
 export const Selected = (args: ListItemProps) => <ListItem {...args} />;
 Selected.args = {

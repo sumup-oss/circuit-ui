@@ -37,8 +37,8 @@ Base.parameters = {
   chromatic: {
     // covered in the Sizes story
     disableSnapshot: true,
-  }
-}
+  },
+};
 
 const sizes = ['l', 'm', 's'] as const;
 

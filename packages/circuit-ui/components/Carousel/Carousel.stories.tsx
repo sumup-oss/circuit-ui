@@ -34,7 +34,7 @@ import {
   ANIMATION_DURATION,
   SLIDE_DURATION,
 } from './constants.js';
-import {Headline} from '../Headline/index.js';
+import { Headline } from '../Headline/index.js';
 
 const slides = images.map((image) => ({ image }));
 

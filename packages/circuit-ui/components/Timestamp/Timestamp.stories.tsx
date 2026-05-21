@@ -29,7 +29,7 @@ export default {
       // the theme does not impact the component
       dark: { disable: true },
       consumer: { disable: true },
-    }
+    },
   },
 };
 
@@ -61,8 +61,8 @@ Base.parameters = {
   chromatic: {
     // covered in the Relative story
     disableSnapshot: true,
-  }
-}
+  },
+};
 
 export const Relative = (args: TimestampProps) => (
   <Stack>

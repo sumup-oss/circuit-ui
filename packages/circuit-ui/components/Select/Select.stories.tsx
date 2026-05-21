@@ -64,8 +64,8 @@ Base.parameters = {
   chromatic: {
     // covered in the Sizes story
     disableSnapshot: true,
-  }
-}
+  },
+};
 export const Invalid = (args: SelectProps) => <Select {...args} />;
 
 Invalid.args = {

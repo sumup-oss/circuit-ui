@@ -24,7 +24,8 @@ export default {
       modes: {
         // theme variation has no impact on the story
         dark: { disable: true },
-        consumer: { disable: true },      }
+        consumer: { disable: true },
+      },
     },
   },
 };

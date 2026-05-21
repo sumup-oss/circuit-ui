@@ -120,5 +120,6 @@ Offset.parameters = {
       // theme variation does not impact the offset
       dark: { disable: true },
       consumer: { disable: true },
-    }  },
-}
+    },
+  },
+};

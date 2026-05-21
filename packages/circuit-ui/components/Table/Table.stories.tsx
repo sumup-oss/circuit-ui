@@ -22,7 +22,7 @@ import type { TableProps } from './Table.js';
 import type { Direction, RowCell } from './types.js';
 
 import { Table } from './index.js';
-import { userEvent, within} from 'storybook/test';
+import { userEvent, within } from 'storybook/test';
 
 export default {
   title: 'Components/Table',
@@ -120,8 +120,8 @@ Sortable.args = {
 };
 
 Sortable.play = async ({
-                         canvasElement,
-                       }: {
+  canvasElement,
+}: {
   canvasElement: HTMLCanvasElement;
 }) => {
   const canvas = within(canvasElement);

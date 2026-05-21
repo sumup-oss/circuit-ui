@@ -16,7 +16,7 @@
 import { Card } from '../../components/Card/Card.js';
 
 import { useMedia } from './useMedia.js';
-import {modes} from '../../../../.storybook/modes.js';
+import { modes } from '../../../../.storybook/modes.js';
 
 export default {
   title: 'Hooks/useMedia',

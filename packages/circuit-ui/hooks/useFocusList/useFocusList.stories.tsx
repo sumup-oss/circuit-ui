@@ -54,5 +54,5 @@ Example.play = async () => {
 Example.parameters = {
   chromatic: {
     disableSnapshot: true,
-  }
-}
+  },
+};

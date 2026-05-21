@@ -35,8 +35,8 @@ Base.parameters = {
   chromatic: {
     // covered in the Sizes story
     disableSnapshot: true,
-  }
-}
+  },
+};
 export const Optional = (args: ColorInputProps) => <ColorInput {...args} />;
 
 Optional.args = { ...baseArgs, optionalLabel: 'optional' };

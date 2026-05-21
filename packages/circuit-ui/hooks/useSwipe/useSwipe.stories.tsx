@@ -57,5 +57,5 @@ Example.args = {
 Example.parameters = {
   chromatic: {
     disableSnapshot: true,
-  }
-}
+  },
+};

@@ -45,8 +45,8 @@ Base.parameters = {
   chromatic: {
     // covered in the Sizes story
     disableSnapshot: true,
-  }
-}
+  },
+};
 export const Currencies = (args: CurrencyInputProps) => (
   <Stack>
     <CurrencyInput

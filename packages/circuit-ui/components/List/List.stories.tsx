@@ -42,8 +42,8 @@ Base.parameters = {
   chromatic: {
     // covered in the Variants story
     disableSnapshot: true,
-  }
-}
+  },
+};
 
 const variants: ListProps['variant'][] = ['unordered', 'ordered'];
 

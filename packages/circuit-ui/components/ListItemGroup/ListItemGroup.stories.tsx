@@ -160,7 +160,7 @@ export const WithLabelAndDetails = (args: ListItemGroupProps) => (
 WithLabelAndDetails.parameters = {
   // covered in Base story
   chromatic: { disableSnapshot: true },
-}
+};
 WithLabelAndDetails.args = {
   ...baseArgs,
   details: '€26.20',

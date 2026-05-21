@@ -41,5 +41,5 @@ export const Example = () => {
 Example.parameters = {
   chromatic: {
     disableSnapshot: true,
-  }
-}
+  },
+};

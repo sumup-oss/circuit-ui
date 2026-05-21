@@ -16,7 +16,7 @@ const viewports = {
   },
   smallMobileDark: {
     viewport: 'smallMobile',
-    theme: 'dark'
+    theme: 'dark',
   },
   smallMobileConsumer: {
     viewport: 'smallMobile',

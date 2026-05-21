@@ -528,10 +528,9 @@ Immersive.parameters = {
         ...modes.smallMobileDark,
         ...modes.smallMobileConsumer,
         // disable theme variations
-        dark: {disabled: true},
-        light: {disabled: true},
-        consumer: {disabled: true},
-
+        dark: { disabled: true },
+        light: { disabled: true },
+        consumer: { disabled: true },
       },
     },
   },

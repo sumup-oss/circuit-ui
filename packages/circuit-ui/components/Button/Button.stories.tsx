@@ -46,8 +46,8 @@ Base.parameters = {
   chromatic: {
     // covered in the Variants story
     disableSnapshot: true,
-  }
-}
+  },
+};
 
 export const Variants = (args: ButtonProps) => (
   <Stack>

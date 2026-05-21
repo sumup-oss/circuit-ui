@@ -14,7 +14,7 @@
  */
 
 import { TextArea, type TextAreaProps } from './TextArea.js';
-import {Stack} from '../../../../.storybook/components/index.js';
+import { Stack } from '../../../../.storybook/components/index.js';
 
 export default {
   title: 'Forms/TextArea',
@@ -37,15 +37,18 @@ Base.args = baseArgs;
 
 export const Validations = (args: TextAreaProps) => (
   <Stack>
-    <TextArea {...args}
+    <TextArea
+      {...args}
       validationHint="Please fill in this field."
-    invalid={true}/>
-    <TextArea {...args}
+      invalid={true}
+    />
+    <TextArea
+      {...args}
       validationHint="We recommend that you fill in this field"
-    hasWarning={true}/>
+      hasWarning={true}
+    />
   </Stack>
 );
-
 
 Validations.args = {
   ...baseArgs,

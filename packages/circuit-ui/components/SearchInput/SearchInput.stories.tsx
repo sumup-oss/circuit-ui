@@ -64,8 +64,8 @@ Base.parameters = {
   chromatic: {
     // covered in the Sizes story
     disableSnapshot: true,
-  }
-}
+  },
+};
 export const Sizes = (args: SearchInputProps) => (
   <Stack>
     <SearchInput {...args} size="s" />

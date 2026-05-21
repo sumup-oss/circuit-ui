@@ -48,8 +48,8 @@ Base.parameters = {
   chromatic: {
     // covered in the Sizes story
     disableSnapshot: true,
-  }
-}
+  },
+};
 
 export const Validations = (args: InputProps) => (
   <Stack>

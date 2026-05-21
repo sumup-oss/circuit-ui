@@ -36,8 +36,8 @@ Base.parameters = {
   chromatic: {
     // covered in the Sizes story
     disableSnapshot: true,
-  }
-}
+  },
+};
 
 export const Sizes = () => (
   <Stack>

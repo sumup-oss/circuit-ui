@@ -29,8 +29,8 @@ Base.parameters = {
   chromatic: {
     // covered in the Variations story
     disableSnapshot: true,
-  }
-}
+  },
+};
 export const Variations = (args: TierIndicatorProps) => (
   <Matrix
     component={TierIndicator}

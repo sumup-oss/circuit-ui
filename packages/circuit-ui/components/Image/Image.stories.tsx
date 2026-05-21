@@ -38,7 +38,6 @@ Base.parameters = {
       // theme variation has no impact on the story
       dark: { disable: true },
       consumer: { disable: true },
-    }
+    },
   },
-}
-
+};
