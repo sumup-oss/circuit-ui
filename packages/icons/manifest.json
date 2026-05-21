@@ -3390,6 +3390,11 @@
       "size": "24"
     },
     {
+      "name": "profile_filled",
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "refunded",
       "category": "Miscellaneous",
       "size": "24"
@@ -3417,6 +3422,11 @@
     {
       "name": "settings",
       "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "settings_filled",
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -3553,8 +3563,18 @@
       "size": "24"
     },
     {
+      "name": "customers_filled",
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "investments",
       "category": "Navigation",
+      "size": "24"
+    },
+    {
+      "name": "investments_filled",
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -3563,8 +3583,18 @@
       "size": "24"
     },
     {
+      "name": "kiosk_filled",
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "loyalty",
       "category": "Navigation",
+      "size": "24"
+    },
+    {
+      "name": "loyalty_filled",
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -3930,8 +3960,18 @@
       "size": "24"
     },
     {
+      "name": "account_filled",
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "accounting",
       "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "accounting_filled",
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -3950,6 +3990,11 @@
       "size": "24"
     },
     {
+      "name": "cash_advance_filled",
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "challenge",
       "category": "Product and feature",
       "size": "24"
@@ -3957,6 +4002,11 @@
     {
       "name": "checkout",
       "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "checkout_filled",
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -3975,8 +4025,18 @@
       "size": "24"
     },
     {
+      "name": "employees_filled",
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "expenses",
       "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "expenses_filled",
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -3987,6 +4047,7 @@
     {
       "name": "general_settings",
       "category": "Product and feature",
+      "deprecation": "Use the `Settings` icon instead.",
       "size": "24"
     },
     {
@@ -4001,8 +4062,18 @@
       "size": "24"
     },
     {
+      "name": "gift_cards_filled",
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "bookings",
       "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "bookings_filled",
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4011,8 +4082,18 @@
       "size": "24"
     },
     {
+      "name": "receivables_filled",
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "tools",
       "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "tools_filled",
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4021,8 +4102,18 @@
       "size": "24"
     },
     {
+      "name": "us_pos_backoffice_filled",
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "home",
       "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "home_filled",
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4041,8 +4132,18 @@
       "size": "24"
     },
     {
+      "name": "invoice_filled",
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "items",
       "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "items_filled",
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4063,6 +4164,11 @@
     {
       "name": "online_store",
       "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "online_store_filled",
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4087,6 +4193,11 @@
       "size": "24"
     },
     {
+      "name": "payment_links_filled",
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "payment_methods",
       "category": "Product and feature",
       "size": "24"
@@ -4099,6 +4210,11 @@
     {
       "name": "payouts",
       "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "payouts_filled",
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4117,6 +4233,11 @@
       "size": "24"
     },
     {
+      "name": "promote_filled",
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "qr_code",
       "category": "Product and feature",
       "size": "24"
@@ -4124,6 +4245,11 @@
     {
       "name": "receipt",
       "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "receipt_filled",
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4163,6 +4289,11 @@
       "size": "24"
     },
     {
+      "name": "reports_filled",
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "reward",
       "category": "Product and feature",
       "size": "24"
@@ -4191,6 +4322,11 @@
     {
       "name": "sum_up_connect",
       "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "sum_up_connect_filled",
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4226,6 +4362,11 @@
     {
       "name": "virtual_terminal",
       "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "virtual_terminal_filled",
+      "category": "Filled",
       "size": "24"
     },
     {
