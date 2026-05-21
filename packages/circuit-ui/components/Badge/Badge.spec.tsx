@@ -16,25 +16,21 @@
 import { describe, expect, it } from 'vitest';
 import { createRef, type Ref } from 'react';
 
-import { render, axe } from '../../util/test-utils.js';
+import { render, screen, axe } from '../../util/test-utils.js';
 
 import { Badge } from './Badge.js';
 
 describe('Badge', () => {
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
-    const { container } = render(<Badge className={className}>Badge</Badge>);
-    const badge = container.querySelector('span');
-    expect(badge?.className).toContain(className);
+    render(<Badge className={className}>Badge</Badge>);
+    expect(screen.getByText('Badge')).toHaveClass(className);
   });
 
   it('should forward a ref', () => {
     const ref = createRef<HTMLSpanElement>();
-    const { container } = render(
-      <Badge ref={ref as Ref<HTMLDivElement>}>Badge</Badge>,
-    );
-    const badge = container.querySelector('span');
-    expect(ref.current).toBe(badge);
+    render(<Badge ref={ref as Ref<HTMLDivElement>}>Badge</Badge>);
+    expect(ref.current).toBe(screen.getByText('Badge'));
   });
 
   it('should meet accessibility guidelines', async () => {

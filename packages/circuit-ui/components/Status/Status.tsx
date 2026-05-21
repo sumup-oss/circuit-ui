@@ -13,11 +13,16 @@
  * limitations under the License.
  */
 
-import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
+import { forwardRef, type HTMLAttributes } from 'react';
 
 import type { IconComponentType } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
+import { utilClasses } from '../../styles/utility.js';
+import {
+  AccessibilityError,
+  isSufficientlyLabelled,
+} from '../../util/errors.js';
 
 import classes from './Status.module.css';
 
@@ -44,19 +49,20 @@ export interface StatusProps extends HTMLAttributes<HTMLSpanElement> {
   /**
    * Label text to be shown. Omit for dot.
    */
-  children?: ReactNode;
+  children?: string | number;
+  /**
+   * A visually hidden label for screen readers. Required for the dot and badge
+   * variants where the visible content alone may lack sufficient context.
+   */
+  label: string;
   /**
    * Leading icon for the line variant.
    */
   icon?: IconComponentType;
 }
 
-const isDynamicWidth = (children: StatusProps['children']) => {
-  if (typeof children === 'string') {
-    return children.length > 2;
-  }
-  return false;
-};
+const isDynamicWidth = (children: StatusProps['children']) =>
+  String(children ?? '').length > 2;
 
 /**
  * The status component communicates the condition of an entity
@@ -68,6 +74,7 @@ export const Status = forwardRef<HTMLSpanElement, StatusProps>(
       variant = 'pill',
       color = 'neutral',
       icon: Icon,
+      label,
       className,
       style = {},
       children,
@@ -75,6 +82,17 @@ export const Status = forwardRef<HTMLSpanElement, StatusProps>(
     },
     ref,
   ) => {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test' &&
+      !isSufficientlyLabelled(label)
+    ) {
+      throw new AccessibilityError(
+        'Status',
+        'The `label` prop is missing or invalid. It is required for screen reader accessibility.',
+      );
+    }
+
     const width =
       variant === 'badge' && isDynamicWidth(children) ? 'auto' : undefined;
 
@@ -85,19 +103,17 @@ export const Status = forwardRef<HTMLSpanElement, StatusProps>(
         className={clsx(
           classes.base,
           classes[variant],
-          variant !== 'line' && classes[color],
+          classes[color],
           variant === 'badge' && classes.circle,
           className,
         )}
         style={width ? { ...style, '--status-width': width } : style}
       >
         {variant === 'line' && Icon && (
-          <Icon
-            aria-hidden="true"
-            className={clsx(classes.icon, classes[color])}
-          />
+          <Icon aria-hidden="true" className={classes.icon} />
         )}
         {variant !== 'dot' && children}
+        <span className={utilClasses.hideVisually}>{label}</span>
       </span>
     );
   },

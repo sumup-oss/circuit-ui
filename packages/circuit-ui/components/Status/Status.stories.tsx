@@ -13,7 +13,14 @@
  * limitations under the License.
  */
 
-import { Confirm } from '@sumup-oss/icons';
+import {
+  Confirm,
+  Time,
+  Notify,
+  Alert,
+  PaidOut,
+  Promote,
+} from '@sumup-oss/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 
@@ -25,9 +32,14 @@ export default {
   tags: ['status:stable'],
 };
 
+const baseArgs = {
+  label: 'Status',
+};
+
 export const Base = (args: StatusProps) => <Status {...args} />;
 
 Base.args = {
+  ...baseArgs,
   children: 'Status',
 };
 
@@ -45,6 +57,8 @@ export const Variants = (args: StatusProps) => (
     </Status>
   </Stack>
 );
+
+Variants.args = baseArgs;
 
 export const Colors = (args: StatusProps) => (
   <Stack>
@@ -69,6 +83,8 @@ export const Colors = (args: StatusProps) => (
   </Stack>
 );
 
+Colors.args = baseArgs;
+
 export const Pill = (args: StatusProps) => (
   <Stack>
     <Status {...args} variant="pill" color="confirm">
@@ -91,6 +107,8 @@ export const Pill = (args: StatusProps) => (
     </Status>
   </Stack>
 );
+
+Pill.args = baseArgs;
 
 export const Badge = (args: StatusProps) => (
   <Stack>
@@ -115,6 +133,8 @@ export const Badge = (args: StatusProps) => (
   </Stack>
 );
 
+Badge.args = baseArgs;
+
 export const Dot = (args: StatusProps) => (
   <Stack>
     <Status {...args} variant="dot" color="confirm" />
@@ -126,25 +146,29 @@ export const Dot = (args: StatusProps) => (
   </Stack>
 );
 
+Dot.args = baseArgs;
+
 export const Line = (args: StatusProps) => (
   <Stack>
     <Status {...args} variant="line" color="confirm" icon={Confirm}>
       Confirm
     </Status>
-    <Status {...args} variant="line" color="neutral" icon={Confirm}>
+    <Status {...args} variant="line" color="neutral" icon={Notify}>
       Neutral
     </Status>
-    <Status {...args} variant="line" color="notify" icon={Confirm}>
+    <Status {...args} variant="line" color="notify" icon={Time}>
       Notify
     </Status>
-    <Status {...args} variant="line" color="alert" icon={Confirm}>
+    <Status {...args} variant="line" color="alert" icon={Alert}>
       Alert
     </Status>
-    <Status {...args} variant="line" color="promo" icon={Confirm}>
+    <Status {...args} variant="line" color="promo" icon={Promote}>
       Promo
     </Status>
-    <Status {...args} variant="line" color="special" icon={Confirm}>
+    <Status {...args} variant="line" color="special" icon={PaidOut}>
       Special
     </Status>
   </Stack>
 );
+
+Line.args = baseArgs;

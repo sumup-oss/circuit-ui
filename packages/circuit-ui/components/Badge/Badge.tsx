@@ -63,6 +63,8 @@ export const Badge = forwardRef<HTMLDivElement, BadgeProps>(
     }
 
     return (
+      // @ts-expect-error Badge is deprecated and does not expose the `label`
+      // prop from StatusProps. Consumers migrating to Status should add it.
       <Status
         ref={ref}
         variant={circle ? 'badge' : 'pill'}
