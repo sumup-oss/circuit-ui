@@ -1,0 +1,70 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './Status.stories';
+
+<Meta of={Stories} />
+
+# Status
+
+<Status variant="stable" />
+
+Status is a non-actionable component used to communicate and indicate the
+condition of an element. It comes in four visual representations to suit
+different layout contexts.
+
+<Story of={Stories.Base} />
+<Props />
+
+## Best practices
+
+- Keep the label short and concise — one to two words maximum.
+- Never truncate the label within a status component.
+- Position the status in close proximity to the element it refers to.
+- Use the status component only for static, informational display. If clicking
+  should trigger an action, use a different component.
+
+## Usage guidelines
+
+- **Do** use the `confirm` color to communicate a successful state.
+- **Do** use the `neutral` color to communicate an intermediate or pending state.
+- **Do** use the `notify` color to communicate a warning tendency.
+- **Do** use the `alert` color to communicate a critical or error state.
+- **Do** use the `promo` color to raise awareness or attract interest (e.g. new feature, discount).
+- **Do** use the `special` color when no other semantic applies, or the state is already occupied by another color.
+- **Do not** use more than one status variant per element.
+
+## Component variations
+
+### Variants
+
+<Story of={Stories.Variants} />
+
+### Pill
+
+Use the pill variant to communicate the condition of an element where a
+prominent label is appropriate.
+
+<Story of={Stories.Pill} />
+
+### Badge
+
+Use the badge variant to indicate a count of items related to an element.
+
+<Story of={Stories.Badge} />
+
+### Dot
+
+Use the dot variant to communicate a status in a space-constrained context or
+where the count is unknown.
+
+<Story of={Stories.Dot} />
+
+### Line
+
+Use the line variant for a more subtle appearance in high-density environments.
+Pair with an icon that matches the semantic meaning of the status.
+
+<Story of={Stories.Line} />
+
+### Colors
+
+<Story of={Stories.Colors} />
