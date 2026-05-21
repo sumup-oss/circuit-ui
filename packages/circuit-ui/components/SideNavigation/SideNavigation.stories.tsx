@@ -33,7 +33,6 @@ export default {
       modes: {
         mobile: modes.smallMobile,
         tablet: modes.tablet,
-        desktop: modes.desktop,
       },
     },
   },

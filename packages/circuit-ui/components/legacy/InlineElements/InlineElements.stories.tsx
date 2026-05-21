@@ -33,7 +33,6 @@ export default {
       disableSnapshot: true,
       modes: {
         mobile: modes.smallMobile,
-        desktop: modes.desktop,
       },
     },
   },

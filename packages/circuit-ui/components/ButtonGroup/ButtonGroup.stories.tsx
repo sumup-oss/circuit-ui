@@ -30,7 +30,6 @@ export default {
     chromatic: {
       modes: {
         mobile: modes.smallMobile,
-        desktop: modes.desktop,
       },
     },
   },

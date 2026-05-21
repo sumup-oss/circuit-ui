@@ -44,7 +44,6 @@ export default {
     chromatic: {
       modes: {
         mobile: modes.smallMobile,
-        desktop: modes.desktop,
       },
     },
   },
@@ -251,7 +250,6 @@ WithTopNavigation.parameters = {
     modes: {
       mobile: modes.smallMobile,
       tablet: modes.tablet,
-      desktop: modes.desktop,
     },
   },
 };
