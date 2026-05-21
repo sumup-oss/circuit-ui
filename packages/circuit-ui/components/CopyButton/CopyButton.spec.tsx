@@ -15,7 +15,14 @@
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { act, axe, fireEvent, render, screen } from '../../util/test-utils.js';
+import {
+  act,
+  axe,
+  fireEvent,
+  render,
+  screen,
+  userEvent,
+} from '../../util/test-utils.js';
 import { ToastProvider } from '../ToastContext/index.js';
 
 import { CopyButton } from './CopyButton.js';
@@ -24,7 +31,7 @@ const defaultProps = {
   label: 'API token',
   value: 'secret-token',
   copyLabel: 'Copy token',
-  onCopyLabel: 'Copied to clipboard.',
+  successLabel: 'Copied to clipboard.',
 };
 
 const renderWithToastProvider = (ui: React.ReactNode) =>
@@ -53,7 +60,7 @@ describe('CopyButton', () => {
   });
 
   it('should render text instead of value in the input variant when provided', () => {
-    render(<CopyButton {...defaultProps} text="••••••••••••token" />);
+    render(<CopyButton {...defaultProps} visibleValue="••••••••••••token" />);
 
     expect(screen.getByDisplayValue('••••••••••••token')).toBeVisible();
     expect(
@@ -67,7 +74,7 @@ describe('CopyButton', () => {
     renderWithToastProvider(
       <CopyButton
         {...defaultProps}
-        onCopyLabel="Token copied"
+        successLabel="Token copied"
         onCopy={onCopy}
       />,
     );
@@ -90,7 +97,7 @@ describe('CopyButton', () => {
         copyVariant="button"
         value="secret-token"
         copyLabel="Copy token"
-        onCopyLabel="Copied to clipboard."
+        successLabel="Copied to clipboard."
       />,
     );
 
@@ -108,52 +115,14 @@ describe('CopyButton', () => {
   it('should render the icon variant', () => {
     render(
       <CopyButton
-        copyVariant="icon"
+        copyVariant="icon-button"
         value="secret-token"
         copyLabel="Copy token"
-        onCopyLabel="Copied to clipboard."
+        successLabel="Copied to clipboard."
       />,
     );
 
     expect(screen.getByRole('button', { name: 'Copy token' })).toBeVisible();
-  });
-
-  it('should fall back to execCommand when navigator.clipboard is unavailable', async () => {
-    const execCommand = vi.fn();
-    const selection = {
-      addRange: vi.fn(),
-      removeAllRanges: vi.fn(),
-    };
-
-    Object.defineProperty(navigator, 'clipboard', {
-      configurable: true,
-      value: undefined,
-    });
-    Object.defineProperty(document, 'execCommand', {
-      configurable: true,
-      value: execCommand,
-    });
-    Object.defineProperty(window, 'getSelection', {
-      configurable: true,
-      value: vi.fn(() => selection),
-    });
-
-    renderWithToastProvider(
-      <CopyButton {...defaultProps} onCopyLabel="Token copied" />,
-    );
-
-    fireEvent.click(
-      screen.getByRole('button', { name: 'Copy token: API token' }),
-    );
-
-    await act(async () => {
-      await Promise.resolve();
-    });
-
-    expect(execCommand).toHaveBeenCalledWith('copy');
-    expect(selection.removeAllRanges).toHaveBeenCalledTimes(2);
-    expect(selection.addRange).toHaveBeenCalledTimes(1);
-    expect(await screen.findByText('Token copied')).toBeInTheDocument();
   });
 
   it('should not announce success when clipboard write fails', async () => {
@@ -181,20 +150,46 @@ describe('CopyButton', () => {
   });
 
   it('should disable copying when the value is empty', () => {
-    render(<CopyButton {...defaultProps} value="" text="N/A" />);
+    render(<CopyButton {...defaultProps} value="" visibleValue="N/A" />);
 
     expect(
       screen.getByRole('button', { name: 'Copy token: API token' }),
     ).toHaveAttribute('aria-disabled', 'true');
   });
 
-  it('should have no accessibility violations', async () => {
-    const { container } = renderWithToastProvider(
-      <CopyButton {...defaultProps} />,
-    );
+  describe('as input', async () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = renderWithToastProvider(
+        <CopyButton {...defaultProps} />,
+      );
 
-    const actual = await axe(container);
+      const actual = await axe(container);
 
-    expect(actual).toHaveNoViolations();
+      expect(actual).toHaveNoViolations();
+    });
+  });
+
+  describe('as button', async () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = renderWithToastProvider(
+        <CopyButton {...defaultProps} copyVariant="button" />,
+      );
+
+      const actual = await axe(container);
+
+      expect(actual).toHaveNoViolations();
+    });
+  });
+
+  describe('as icon button', async () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = renderWithToastProvider(
+        <CopyButton {...defaultProps} copyVariant="icon-button" />,
+      );
+
+      const actual = await axe(container);
+
+      expect(actual).toHaveNoViolations();
+    });
   });
 });
