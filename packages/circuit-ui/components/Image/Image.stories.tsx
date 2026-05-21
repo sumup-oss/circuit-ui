@@ -31,3 +31,14 @@ Base.args = {
   src: '/images/sumup-tablet-insights.jpg',
   alt: 'A tablet shows sales insights in the SumUp POS app. On the table next to it are a SumUp Solo card reader with printer and two bowls with fruits',
 };
+
+Base.parameters = {
+  chromatic: {
+    modes: {
+      // theme variation has no impact on the story
+      dark: { disable: true },
+      consumer: { disable: true },
+    }
+  },
+}
+

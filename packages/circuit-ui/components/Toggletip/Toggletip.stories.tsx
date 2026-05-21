@@ -99,3 +99,12 @@ Placements.args = {
 };
 
 Placements.play = showToggletip;
+Placements.parameters =  {
+  chromatic: {
+    modes: {
+      // the theme does not impact the story
+      dark: { disable: true },
+      consumer: { disable: true },
+    }
+  }
+}

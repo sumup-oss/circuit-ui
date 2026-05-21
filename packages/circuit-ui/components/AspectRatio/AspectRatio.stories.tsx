@@ -19,6 +19,14 @@ export default {
   title: 'Components/AspectRatio',
   component: AspectRatio,
   tags: ['status:stable'],
+  parameters: {
+    chromatic: {
+      modes: {
+        // theme variation has no impact on the story
+        dark: { disable: true },
+        consumer: { disable: true },      }
+    },
+  },
 };
 
 export const Base = (args: AspectRatioProps) => (

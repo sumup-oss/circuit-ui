@@ -24,6 +24,13 @@ export default {
   title: 'Components/Timestamp',
   component: Timestamp,
   tags: ['status:stable'],
+  chromatic: {
+    modes: {
+      // the theme does not impact the component
+      dark: { disable: true },
+      consumer: { disable: true },
+    }
+  },
 };
 
 function getDatetimes(variant: TimestampProps['variant']) {
