@@ -4001,6 +4001,26 @@
       "size": "24"
     },
     {
+      "name": "bookings",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "receivables",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "tools",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "us_pos_backoffice",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
       "name": "home",
       "category": "Product and feature",
       "size": "24"
