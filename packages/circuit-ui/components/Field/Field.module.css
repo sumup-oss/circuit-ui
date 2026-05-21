@@ -59,6 +59,12 @@
   transition: color var(--cui-transitions-default);
 }
 
+/* Prevent hint glyphs from bleeding through semi-transparent dropdown corners */
+.fieldset:has([aria-expanded="true"]) .validation-hint,
+.wrapper:has([aria-expanded="true"]) .validation-hint {
+  visibility: hidden;
+}
+
 [disabled] .validation-hint,
 :global([data-disabled="true"]) .validation-hint {
   color: var(--cui-fg-subtle-disabled);
