@@ -18,6 +18,12 @@ import { Status, type StatusProps } from './Status.js';
 export default {
   title: 'Components/Carousel/Status',
   component: Status,
+  parameters: {
+    chromatic: {
+      // tested in the Carousel snapshots
+      disableSnapshot: true,
+    },
+  },
 };
 
 export const Base = (args: StatusProps) => <Status {...args} />;

@@ -27,3 +27,8 @@ export const Base = (args: TableCellProps) => (
     Cell
   </TableCell>
 );
+
+Base.parameters = {
+  // covered by the Table stories
+  chromatic: { disableSnapshot: true },
+};

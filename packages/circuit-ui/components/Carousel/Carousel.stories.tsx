@@ -34,6 +34,7 @@ import {
   ANIMATION_DURATION,
   SLIDE_DURATION,
 } from './constants.js';
+import {Headline} from '../Headline/index.js';
 
 const slides = images.map((image) => ({ image }));
 
@@ -84,6 +85,19 @@ export const Composed = () => {
               }}
             >
               <SlideImage src={image.src} alt={image.alt} aspectRatio={2.5} />
+              <Headline
+                style={{
+                  color: '#fff',
+                  position: 'absolute',
+                  bottom: 0,
+                  left: '25px',
+                  zIndex: 2,
+                  marginBottom: 'var(--cui-spacings-giga)',
+                }}
+                as="h4"
+              >
+                Get The SumUp Card Reader Today!
+              </Headline>
             </Slide>
           ))}
         </Slides>
