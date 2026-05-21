@@ -209,6 +209,10 @@ export const Interactive = (args: ListItemProps) => (
   </Stack>
 );
 Interactive.args = baseArgs;
+Interactive.parameters = {
+  // no visual difference in the snapshots,
+  chromatic: { disableSnapshot: true },
+}
 
 export const Selected = (args: ListItemProps) => <ListItem {...args} />;
 Selected.args = {

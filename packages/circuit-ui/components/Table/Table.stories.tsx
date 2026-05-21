@@ -143,3 +143,8 @@ CustomSort.args = {
     ['Italien'],
   ],
 };
+
+CustomSort.parameters = {
+  // no visual changes
+  chromatic: { disableSnapshot: true },
+};
