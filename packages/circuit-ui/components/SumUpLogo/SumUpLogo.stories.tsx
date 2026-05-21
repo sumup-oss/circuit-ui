@@ -25,6 +25,12 @@ export default {
 
 export const Base = (args: SumUpLogoProps) => <SumUpLogo {...args} />;
 
+Base.parameters = {
+  chromatic: {
+    // covered in the Variations story
+    disableSnapshot: true,
+  }
+}
 export const Variations = (args: SumUpLogoProps) => (
   <Matrix
     component={SumUpLogo}

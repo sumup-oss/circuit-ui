@@ -60,6 +60,12 @@ Base.args = {
   onClear: null, // by default on* functions send Storybook actions, and trigger accessibility errors
 };
 
+Base.parameters = {
+  chromatic: {
+    // covered in the Sizes story
+    disableSnapshot: true,
+  }
+}
 export const Sizes = (args: SearchInputProps) => (
   <Stack>
     <SearchInput {...args} size="s" />

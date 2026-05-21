@@ -29,6 +29,13 @@ Base.args = {
   as: 'h2',
 };
 
+Base.parameters = {
+  chromatic: {
+    // covered in the Sizes story
+    disableSnapshot: true,
+  }
+}
+
 const sizes = ['l', 'm', 's'] as const;
 
 export const Sizes = (args: HeadlineProps) =>

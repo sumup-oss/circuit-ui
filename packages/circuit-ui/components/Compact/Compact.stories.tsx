@@ -33,6 +33,13 @@ export const Base = (args: CompactProps) => (
   <Compact {...args}>{content}</Compact>
 );
 
+Base.parameters = {
+  chromatic: {
+    // covered in the Sizes story
+    disableSnapshot: true,
+  }
+}
+
 const sizes = ['l', 'm', 's'] as const;
 
 export const Sizes = (args: CompactProps) =>

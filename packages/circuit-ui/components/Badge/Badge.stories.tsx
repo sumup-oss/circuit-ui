@@ -28,6 +28,12 @@ export const Base = (args: BadgeProps) => <Badge {...args} />;
 Base.args = {
   children: 'Badge',
 };
+Base.parameters = {
+  chromatic: {
+    // covered in the Variants story
+    disableSnapshot: true,
+  }
+}
 
 export const Variants = (args: BadgeProps) => (
   <Stack>

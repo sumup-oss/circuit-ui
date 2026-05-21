@@ -50,6 +50,12 @@ Base.args = {
     },
   },
 };
+Base.parameters = {
+  chromatic: {
+    // covered in the Alignment story
+    disableSnapshot: true,
+  }
+}
 
 export const Alignment = (args: ButtonGroupProps) => (
   <Stack vertical>

@@ -53,6 +53,12 @@ export const Base = (args: TimeInputProps) => {
 
 Base.args = baseArgs;
 
+Base.parameters = {
+  chromatic: {
+    // covered in the Sizes story
+    disableSnapshot: true,
+  }
+}
 export const Validations = (args: TimeInputProps) => (
   <Stack vertical>
     <Stack>

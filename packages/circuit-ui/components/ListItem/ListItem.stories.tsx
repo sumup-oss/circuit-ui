@@ -138,6 +138,10 @@ export const WithLeadingContent = (args: ListItemProps) => (
   </Stack>
 );
 WithLeadingContent.args = baseArgs;
+WithLeadingContent.parameters = {
+  // Covered by Base story
+  chromatic: { disableSnapshot: true },
+}
 
 export const WithCustomLabel = (args: ListItemProps) => (
   <Stack vertical>
@@ -166,6 +170,10 @@ export const WithDetails = (args: ListItemProps) => (
   </Stack>
 );
 WithDetails.args = baseArgs;
+WithDetails.parameters = {
+  // covered in Base story
+  chromatic: { disableSnapshot: true },
+}
 
 export const WithTrailingContent = (args: ListItemProps) => (
   <Stack vertical>
@@ -184,6 +192,10 @@ export const WithTrailingContent = (args: ListItemProps) => (
   </Stack>
 );
 WithTrailingContent.args = baseArgs;
+WithTrailingContent.parameters = {
+  // covered in Base story
+  chromatic: { disableSnapshot: true },
+}
 
 export const Interactive = (args: ListItemProps) => (
   <Stack vertical>

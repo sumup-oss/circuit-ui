@@ -156,6 +156,11 @@ WithHiddenLabel.args = {
 export const WithLabelAndDetails = (args: ListItemGroupProps) => (
   <ListItemGroup {...args} />
 );
+
+WithLabelAndDetails.parameters = {
+  // covered in Base story
+  chromatic: { disableSnapshot: true },
+}
 WithLabelAndDetails.args = {
   ...baseArgs,
   details: '€26.20',

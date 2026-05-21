@@ -31,6 +31,13 @@ export default {
 
 export const Base = (args: BodyProps) => <Body {...args}>{content}</Body>;
 
+Base.parameters = {
+  chromatic: {
+    // covered in the Sizes story
+    disableSnapshot: true,
+  }
+}
+
 const sizes = ['l', 'm', 's'] as const;
 
 export const Sizes = (args: BodyProps) =>

@@ -44,6 +44,13 @@ export const Base = (args: InputProps) => <Input {...args} />;
 
 Base.args = baseArgs;
 
+Base.parameters = {
+  chromatic: {
+    // covered in the Sizes story
+    disableSnapshot: true,
+  }
+}
+
 export const Validations = (args: InputProps) => (
   <Stack>
     <Input {...args} validationHint="This field is required." invalid />

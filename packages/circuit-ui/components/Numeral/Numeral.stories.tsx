@@ -32,6 +32,13 @@ export const Base = (args: NumeralProps) => (
   <Numeral {...args}>{content}</Numeral>
 );
 
+Base.parameters = {
+  chromatic: {
+    // covered in the Sizes story
+    disableSnapshot: true,
+  }
+}
+
 const sizes = ['xl', 'l', 'm', 's'] as const;
 
 export const Sizes = (args: NumeralProps) =>
