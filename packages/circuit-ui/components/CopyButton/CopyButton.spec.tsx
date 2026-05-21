@@ -94,7 +94,7 @@ describe('CopyButton', () => {
       />,
     );
 
-    fireEvent.click(screen.getByRole('button', { name: 'Copy token' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Copy token' }));
 
     await act(async () => {
       await Promise.resolve();
