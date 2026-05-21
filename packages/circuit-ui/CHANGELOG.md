@@ -1,5 +1,18 @@
 # @sumup-oss/circuit-ui
 
+## 11.4.0
+
+### Minor Changes
+
+- [#3606](https://github.com/sumup-oss/circuit-ui/pull/3606) [`752d04b`](https://github.com/sumup-oss/circuit-ui/commit/752d04b67160fe75a1e12cc47d9ae17a1a69f64b) Thanks [@missating](https://github.com/missating)! - Added a new `size` prop to the AutocompleteInput, ColorInput, CurrencyInput, DateInput, Input, PercentageInput,
+  PhoneNumberInput, SearchInput, Select and TimeInput components with 's' and 'm' variants.
+
+### Patch Changes
+
+- [#3630](https://github.com/sumup-oss/circuit-ui/pull/3630) [`af95a0a`](https://github.com/sumup-oss/circuit-ui/commit/af95a0a5988242ff0841089195b790c7f0c7b9d8) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed the background color of disabled primary buttons.
+
+- [#3629](https://github.com/sumup-oss/circuit-ui/pull/3629) [`857bd0c`](https://github.com/sumup-oss/circuit-ui/commit/857bd0cb7adf240c19c09ec17c97c1750c47458f) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed an overflow issue caused by the AutocompleteInput clear button being slightly too large.
+
 ## 11.3.0
 
 ### Minor Changes
