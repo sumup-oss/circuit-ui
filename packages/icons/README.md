@@ -113,3 +113,7 @@ Alternatively, you can manually construct the URL (`https://circuit.sumup.com/ic
 ```
 
 It is not possible to change the color of an external SVG using the CSS `color` property. Instead, you can use the [CSS `filter` hack](https://blog.union.io/code/2017/08/10/img-svg-fill/) to colorize the icon.
+
+
+### Filled icons
+Outlined icons are the default. Use the filled icons for specific cases to help emphasize the icon's meaning or state, like an active link or a selected option.
