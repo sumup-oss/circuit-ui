@@ -30,10 +30,10 @@ export default {
     ),
   ],
   argTypes: {
-    onCopyLabel: { control: 'text' },
+    successLabel: { control: 'text' },
     copyLabel: { control: 'text' },
     copyVariant: {
-      options: ['input', 'button', 'icon'],
+      options: ['input', 'button', 'icon-button'],
       control: { type: 'select' },
     },
     disabled: { control: 'boolean' },
@@ -54,7 +54,7 @@ const inputArgs = {
   label: 'API token',
   value: 'sk_live_1234567890',
   copyLabel: 'Copy token',
-  onCopyLabel: 'Token copied',
+  successLabel: 'Token copied',
 } satisfies CopyButtonProps;
 
 export const Input = (args: CopyButtonProps) => <CopyButton {...args} />;
@@ -74,7 +74,7 @@ LongValue.args = {
   label: 'Webhook secret',
   value: 'whsec_4VbX8i2LwY7nQp3Rk5Tm9Uc1Fd6Hs0Za',
   copyLabel: 'Copy secret',
-  onCopyLabel: 'Secret copied',
+  successLabel: 'Secret copied',
 } satisfies CopyButtonProps;
 
 export const FullButton = (args: CopyButtonProps) => <CopyButton {...args} />;
@@ -83,16 +83,16 @@ FullButton.args = {
   copyVariant: 'button',
   value: 'ref_1234567890',
   copyLabel: 'Copy reference',
-  onCopyLabel: 'Reference copied',
+  successLabel: 'Reference copied',
 } satisfies CopyButtonProps;
 
 export const IconOnly = (args: CopyButtonProps) => <CopyButton {...args} />;
 
 IconOnly.args = {
-  copyVariant: 'icon',
+  copyVariant: 'icon-button',
   value: 'ref_1234567890',
   copyLabel: 'Copy reference',
-  onCopyLabel: 'Reference copied',
+  successLabel: 'Reference copied',
 } satisfies CopyButtonProps;
 
 export const Disabled = (args: CopyButtonProps) => <CopyButton {...args} />;
@@ -128,13 +128,13 @@ export const AllVariants = () => (
       copyVariant="button"
       value="ref_1234567890"
       copyLabel="Copy reference"
-      onCopyLabel="Reference copied"
+      successLabel="Reference copied"
     />
     <CopyButton
-      copyVariant="icon"
+      copyVariant="icon-button"
       value="ref_1234567890"
       copyLabel="Copy reference"
-      onCopyLabel="Reference copied"
+      successLabel="Reference copied"
     />
   </Stack>
 );
