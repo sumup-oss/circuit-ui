@@ -17,6 +17,7 @@ import { action } from 'storybook/actions';
 import { Checkmark } from '@sumup-oss/icons';
 
 import { Tag, type TagProps } from './Tag.js';
+import {Stack} from '../../../../.storybook/components/index.js';
 
 export default {
   title: 'Components/Tag',
@@ -36,21 +37,12 @@ export const Selected = ({
 
 Selected.args = { selected: true };
 
-export const WithPrefix = ({
-  onRemove,
-  removeButtonLabel,
-  ...args
-}: TagProps) => <Tag {...args}>Transactions</Tag>;
+export const PrefixSuffix = () => <Stack>
+  <Tag prefix={Checkmark}>With Prefix</Tag>
+  <Tag suffix={Checkmark}>with Suffix</Tag>
+</Stack>;
 
-WithPrefix.args = { prefix: Checkmark };
 
-export const WithSuffix = ({
-  onRemove,
-  removeButtonLabel,
-  ...args
-}: TagProps) => <Tag {...args}>Transactions</Tag>;
-
-WithSuffix.args = { suffix: Checkmark };
 
 export const Interactive = ({
   onRemove,
@@ -60,6 +52,11 @@ export const Interactive = ({
 
 Interactive.args = {
   onClick: action('Tag clicked'),
+};
+
+Interactive.parameters = {
+  // no visual changes
+  chromatic: { disableSnapshot: true },
 };
 
 export const Removable = (args: TagProps) => <Tag {...args}>Transactions</Tag>;
