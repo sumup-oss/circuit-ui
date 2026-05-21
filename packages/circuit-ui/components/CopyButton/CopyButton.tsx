@@ -16,7 +16,6 @@
 'use client';
 
 import { CopyPaste } from '@sumup-oss/icons';
-import { useId } from 'react';
 
 import { Button, IconButton } from '../Button/index.js';
 import { Input, type InputProps } from '../Input/index.js';
@@ -40,7 +39,7 @@ type CommonCopyButtonProps = {
   /**
    * Test copy shown in as a notification after a successful copy action.
    */
-  onCopyLabel: string;
+  successLabel: string;
 };
 
 type InputCopyButtonProps = CommonCopyButtonProps &
@@ -57,7 +56,7 @@ type InputCopyButtonProps = CommonCopyButtonProps &
     /**
      * Optional text rendered inside the field instead of the copied value.
      */
-    text?: string;
+    visibleValue?: string;
   };
 
 type ButtonCopyButtonProps = CommonCopyButtonProps &
@@ -73,7 +72,7 @@ type IconCopyButtonProps = CommonCopyButtonProps &
     /**
      * The CopyButton variant.
      */
-    copyVariant: 'icon';
+    copyVariant: 'icon-button';
   };
 
 export type CopyButtonProps =
@@ -81,54 +80,21 @@ export type CopyButtonProps =
   | ButtonCopyButtonProps
   | IconCopyButtonProps;
 
-async function copyToClipboard(text: string): Promise<void> {
-  if (navigator.clipboard?.writeText) {
-    await navigator.clipboard.writeText(text);
-    return;
-  }
-
-  // Fallback behaviour for older browsers,
-  // see: https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand#browser_compatibility
-  if (typeof document === 'undefined') {
-    return;
-  }
-
-  const selection = window.getSelection();
-  const range = document.createRange();
-  const tempNode = document.createElement('span');
-  tempNode.textContent = text;
-  tempNode.style.position = 'fixed';
-  tempNode.style.opacity = '0';
-  document.body.append(tempNode);
-
-  range.selectNodeContents(tempNode);
-  selection?.removeAllRanges();
-  selection?.addRange(range);
-  document.execCommand?.('copy');
-  selection?.removeAllRanges();
-  tempNode.remove();
-}
-
 /**
  * The CopyButton component copies a provided value to the clipboard and
  * can render as a read-only input, a button, or an icon button.
  */
 export function CopyButton(props: CopyButtonProps) {
-  const generatedId = useId();
   const { setToast } = useNotificationToast();
-  const { onCopyLabel, copyLabel, onCopy, value } = props;
+  const { successLabel, copyLabel, onCopy, value } = props;
   const isCopyDisabled = Boolean(props.disabled || value.length === 0);
 
   const handleCopy = async (event: ClickEvent) => {
-    if (isCopyDisabled) {
-      return;
-    }
-
     try {
-      await copyToClipboard(value);
+      // eslint-disable-next-line compat/compat
+      await navigator.clipboard.writeText(value);
       setToast({
-        body: onCopyLabel,
-        iconLabel: '',
+        body: successLabel,
       });
       onCopy?.(event);
     } catch {
@@ -139,7 +105,7 @@ export function CopyButton(props: CopyButtonProps) {
   if (props.copyVariant === 'button') {
     const {
       copyVariant,
-      onCopyLabel: _onCopyLabel,
+      successLabel: _successLabel,
       copyLabel: _copyLabel,
       onCopy: _onCopy,
       value: _value,
@@ -159,10 +125,10 @@ export function CopyButton(props: CopyButtonProps) {
     );
   }
 
-  if (props.copyVariant === 'icon') {
+  if (props.copyVariant === 'icon-button') {
     const {
       copyVariant,
-      onCopyLabel: _onCopyLabel,
+      successLabel: _successLabel,
       copyLabel: _copyLabel,
       onCopy: _onCopy,
       value: _value,
@@ -184,23 +150,20 @@ export function CopyButton(props: CopyButtonProps) {
 
   const {
     copyVariant,
-    onCopyLabel: _onCopyLabel,
+    successLabel: _successLabel,
     copyLabel: _copyLabel,
-    id: customId,
     inputClassName,
     onCopy: _onCopy,
-    text,
+    visibleValue,
     value: _value,
     ...inputProps
   } = props;
-  const fieldId = customId || generatedId;
-  const displayText = text ?? value;
+  const displayText = visibleValue ?? value;
   const buttonLabel = `${copyLabel}: ${props.label}`;
 
   return (
     <Input
       {...inputProps}
-      id={fieldId}
       value={displayText}
       readOnly
       renderSuffix={(renderProps) => (
@@ -208,14 +171,12 @@ export function CopyButton(props: CopyButtonProps) {
           className={renderProps.className}
           type="button"
           size="s"
-          variant="tertiary"
+          variant="secondary"
           disabled={isCopyDisabled}
           onClick={handleCopy}
-          aria-label={buttonLabel}
-          aria-controls={fieldId}
           icon={CopyPaste}
         >
-          {copyLabel}
+          {buttonLabel}
         </IconButton>
       )}
       inputClassName={inputClassName}
