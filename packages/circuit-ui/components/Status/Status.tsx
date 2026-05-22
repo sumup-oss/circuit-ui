@@ -51,8 +51,7 @@ export interface StatusProps extends HTMLAttributes<HTMLSpanElement> {
    */
   children?: string | number;
   /**
-   * A visually hidden label for screen readers. Required for the dot and badge
-   * variants where the visible content alone may lack sufficient context.
+   * A visually hidden label for screen reader users.
    */
   label: string;
   /**

@@ -22,7 +22,7 @@ import {
   Promote,
 } from '@sumup-oss/icons';
 
-import { Stack } from '../../../../.storybook/components/index.js';
+import { Stack, Matrix } from '../../../../.storybook/components/index.js';
 
 import { Status, type StatusProps } from './Status.js';
 
@@ -61,114 +61,30 @@ export const Variants = (args: StatusProps) => (
 Variants.args = baseArgs;
 
 export const Colors = (args: StatusProps) => (
-  <Stack>
-    <Status {...args} color="confirm">
-      Confirm
-    </Status>
-    <Status {...args} color="neutral">
-      Neutral
-    </Status>
-    <Status {...args} color="notify">
-      Notify
-    </Status>
-    <Status {...args} color="alert">
-      Alert
-    </Status>
-    <Status {...args} color="promo">
-      Promo
-    </Status>
-    <Status {...args} color="special">
-      Special
-    </Status>
-  </Stack>
+  <Matrix
+    component={Status}
+    args={args}
+    vertical={{
+      prop: 'variant',
+      values: [
+        { value: 'pill', args: { children: 'Status' } },
+        { value: 'badge', args: { children: 0 } },
+        { value: 'dot' },
+        { value: 'line' },
+      ],
+    }}
+    horizontal={{
+      prop: 'color',
+      values: [
+        { value: 'confirm', args: { icon: Confirm, children: 'Confirm' } },
+        { value: 'neutral', args: { icon: Notify, children: 'Neutral' } },
+        { value: 'notify', args: { icon: Time, children: 'Notify' } },
+        { value: 'alert', args: { icon: Alert, children: 'Alert' } },
+        { value: 'promo', args: { icon: Promote, children: 'Promo' } },
+        { value: 'special', args: { icon: PaidOut, children: 'Special' } },
+      ],
+    }}
+  />
 );
 
 Colors.args = baseArgs;
-
-export const Pill = (args: StatusProps) => (
-  <Stack>
-    <Status {...args} variant="pill" color="confirm">
-      Confirm
-    </Status>
-    <Status {...args} variant="pill" color="neutral">
-      Neutral
-    </Status>
-    <Status {...args} variant="pill" color="notify">
-      Notify
-    </Status>
-    <Status {...args} variant="pill" color="alert">
-      Alert
-    </Status>
-    <Status {...args} variant="pill" color="promo">
-      Promo
-    </Status>
-    <Status {...args} variant="pill" color="special">
-      Special
-    </Status>
-  </Stack>
-);
-
-Pill.args = baseArgs;
-
-export const Badge = (args: StatusProps) => (
-  <Stack>
-    <Status {...args} variant="badge" color="confirm">
-      0
-    </Status>
-    <Status {...args} variant="badge" color="neutral">
-      0
-    </Status>
-    <Status {...args} variant="badge" color="notify">
-      123
-    </Status>
-    <Status {...args} variant="badge" color="alert">
-      0
-    </Status>
-    <Status {...args} variant="badge" color="promo">
-      0
-    </Status>
-    <Status {...args} variant="badge" color="special">
-      0
-    </Status>
-  </Stack>
-);
-
-Badge.args = baseArgs;
-
-export const Dot = (args: StatusProps) => (
-  <Stack>
-    <Status {...args} variant="dot" color="confirm" />
-    <Status {...args} variant="dot" color="neutral" />
-    <Status {...args} variant="dot" color="notify" />
-    <Status {...args} variant="dot" color="alert" />
-    <Status {...args} variant="dot" color="promo" />
-    <Status {...args} variant="dot" color="special" />
-  </Stack>
-);
-
-Dot.args = baseArgs;
-
-export const Line = (args: StatusProps) => (
-  <Stack>
-    <Status {...args} variant="line" color="confirm" icon={Confirm}>
-      Confirm
-    </Status>
-    <Status {...args} variant="line" color="neutral" icon={Notify}>
-      Neutral
-    </Status>
-    <Status {...args} variant="line" color="notify" icon={Time}>
-      Notify
-    </Status>
-    <Status {...args} variant="line" color="alert" icon={Alert}>
-      Alert
-    </Status>
-    <Status {...args} variant="line" color="promo" icon={Promote}>
-      Promo
-    </Status>
-    <Status {...args} variant="line" color="special" icon={PaidOut}>
-      Special
-    </Status>
-  </Stack>
-);
-
-Line.args = baseArgs;

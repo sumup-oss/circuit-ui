@@ -54,7 +54,7 @@ const colorMap: Record<NonNullable<BadgeProps['variant']>, StatusColor> = {
  * related to an element.
  */
 export const Badge = forwardRef<HTMLDivElement, BadgeProps>(
-  ({ variant = 'neutral', circle, color: _color, ...props }, ref) => {
+  ({ variant = 'neutral', circle, color: _color, children, ...props }, ref) => {
     if (process.env.NODE_ENV !== 'production') {
       deprecate(
         'Badge',
@@ -63,14 +63,19 @@ export const Badge = forwardRef<HTMLDivElement, BadgeProps>(
     }
 
     return (
-      // @ts-expect-error Badge is deprecated and does not expose the `label`
-      // prop from StatusProps. Consumers migrating to Status should add it.
       <Status
         ref={ref}
         variant={circle ? 'badge' : 'pill'}
         color={colorMap[variant]}
         {...props}
-      />
+        label={
+          typeof children === 'string' || typeof children === 'number'
+            ? String(children)
+            : ''
+        }
+      >
+        {children as string | number | undefined}
+      </Status>
     );
   },
 );
