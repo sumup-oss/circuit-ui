@@ -19,7 +19,7 @@ import {
   Notify,
   Alert,
   PaidOut,
-  Promote,
+  Sparkles,
 } from '@sumup-oss/icons';
 
 import { Stack, Matrix } from '../../../../.storybook/components/index.js';
@@ -80,7 +80,7 @@ export const Colors = (args: StatusProps) => (
         { value: 'neutral', args: { icon: Notify, children: 'Neutral' } },
         { value: 'notify', args: { icon: Time, children: 'Notify' } },
         { value: 'alert', args: { icon: Alert, children: 'Alert' } },
-        { value: 'promo', args: { icon: Promote, children: 'Promo' } },
+        { value: 'promo', args: { icon: Sparkles, children: 'Promo' } },
         { value: 'special', args: { icon: PaidOut, children: 'Special' } },
       ],
     }}

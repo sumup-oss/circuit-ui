@@ -57,7 +57,7 @@ export interface StatusProps extends HTMLAttributes<HTMLSpanElement> {
   /**
    * Leading icon for the line variant.
    */
-  icon?: IconComponentType;
+  icon?: IconComponentType<'16'>;
 }
 
 const isDynamicWidth = (children: StatusProps['children']) =>
@@ -103,13 +103,12 @@ export const Status = forwardRef<HTMLSpanElement, StatusProps>(
           classes.base,
           classes[variant],
           classes[color],
-          variant === 'badge' && classes.circle,
           className,
         )}
         style={width ? { ...style, '--status-width': width } : style}
       >
         {variant === 'line' && Icon && (
-          <Icon aria-hidden="true" className={classes.icon} />
+          <Icon aria-hidden="true" size="16" className={classes.icon} />
         )}
         {variant !== 'dot' && children}
         <span className={utilClasses.hideVisually}>{label}</span>
