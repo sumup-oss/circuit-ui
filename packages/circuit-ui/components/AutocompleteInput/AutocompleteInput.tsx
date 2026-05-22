@@ -310,7 +310,7 @@ export const AutocompleteInput = forwardRef<
       placement: 'bottom',
       strategy: 'fixed',
       middleware: [
-        offset({ mainAxis: size === 's' ? 14 : 21, crossAxis: 0 }), // bottom padding + 1px border + 8px gap
+        offset({ mainAxis: size === 's' ? 10 : 17, crossAxis: 0 }), // bottom padding + 1px border + 4px gap
         shift({ padding: boundaryPadding }),
         flip({
           padding: boundaryPadding,
