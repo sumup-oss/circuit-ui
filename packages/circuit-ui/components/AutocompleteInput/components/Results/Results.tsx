@@ -39,6 +39,10 @@ export type ResultsProps = OptionsProps & {
    * An optional button to display below the options.
    */
   action?: Omit<ButtonProps, 'variant' | 'size'>;
+  /**
+   * Id of the listbox element.
+   */
+  listboxId: string;
   resultsSummary: string;
   isImmersive?: boolean;
 };
@@ -63,13 +67,12 @@ export const Results = forwardRef<HTMLDivElement, ResultsProps>(
       resultsSummary,
       isImmersive,
       loadMoreLabel,
-      id,
+      listboxId,
       ...rest
     },
     ref,
   ) => (
     <div
-      id={id}
       ref={ref}
       className={clsx(
         !isImmersive && classes.modal,
@@ -95,6 +98,7 @@ export const Results = forwardRef<HTMLDivElement, ResultsProps>(
       {(options.length > 0 || (allowNewItems && options.length === 0)) && (
         <>
           <Options
+            id={listboxId}
             value={value}
             options={options}
             onOptionClick={onOptionClick}
