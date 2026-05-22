@@ -14,14 +14,6 @@ const viewports = {
   smallMobile: {
     viewport: 'smallMobile',
   },
-  smallMobileDark: {
-    viewport: 'smallMobile',
-    theme: 'dark',
-  },
-  smallMobileConsumer: {
-    viewport: 'smallMobile',
-    theme: 'consumer',
-  },
   largeMobile: {
     viewport: 'largeMobile',
   },

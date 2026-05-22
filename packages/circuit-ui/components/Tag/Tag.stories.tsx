@@ -37,7 +37,7 @@ export const Selected = ({
 
 Selected.args = { selected: true };
 
-export const PrefixSuffix = () => (
+export const Affix = () => (
   <Stack>
     <Tag prefix={Checkmark}>With Prefix</Tag>
     <Tag suffix={Checkmark}>with Suffix</Tag>
@@ -52,11 +52,6 @@ export const Interactive = ({
 
 Interactive.args = {
   onClick: action('Tag clicked'),
-};
-
-Interactive.parameters = {
-  // no visual changes
-  chromatic: { disableSnapshot: true },
 };
 
 export const Removable = (args: TagProps) => <Tag {...args}>Transactions</Tag>;

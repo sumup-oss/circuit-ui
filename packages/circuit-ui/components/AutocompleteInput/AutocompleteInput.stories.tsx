@@ -523,14 +523,18 @@ Immersive.parameters = {
   chromatic: {
     cropToViewport: true,
     modes: {
-      mobile: {
+      // only test the small mobile view
+      light: {
+        ...modes.light,
         ...modes.smallMobile,
-        ...modes.smallMobileDark,
-        ...modes.smallMobileConsumer,
-        // disable theme variations
-        dark: { disabled: true },
-        light: { disabled: true },
-        consumer: { disabled: true },
+      },
+      dark: {
+        ...modes.dark,
+        ...modes.smallMobile,
+      },
+      consumer: {
+        ...modes.consumer,
+        ...modes.smallMobile,
       },
     },
   },
