@@ -3750,6 +3750,11 @@
       "size": "24"
     },
     {
+      "name": "iris",
+      "category": "Payment method",
+      "size": "24"
+    },
+    {
       "name": "jcb",
       "category": "Payment method",
       "size": "24"
