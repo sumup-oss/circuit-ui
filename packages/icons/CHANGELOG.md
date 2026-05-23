@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 6.6.0
+
+### Minor Changes
+
+- [#3636](https://github.com/sumup-oss/circuit-ui/pull/3636) [`c30589c`](https://github.com/sumup-oss/circuit-ui/commit/c30589cb8b598e29ec374a10fa16dc20f237e965) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a new `Iris` payment method icon in size 24.
+
 ## 6.5.0
 
 ### Minor Changes
