@@ -120,5 +120,7 @@
 
 .special-outline {
   padding: calc(var(--cui-spacings-bit) - var(--cui-border-width-kilo));
+  color: var(--cui-fg-normal);
+  background-color: var(--cui-bg-normal);
   border: var(--cui-border-width-kilo) solid var(--cui-fg-normal);
 }
