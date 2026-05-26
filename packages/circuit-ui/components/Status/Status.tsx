@@ -33,7 +33,8 @@ export type StatusColor =
   | 'notify'
   | 'alert'
   | 'promo'
-  | 'special';
+  | 'special'
+  | 'special-outline';
 
 export interface StatusProps extends HTMLAttributes<HTMLSpanElement> {
   /**
@@ -83,13 +84,20 @@ export const Status = forwardRef<HTMLSpanElement, StatusProps>(
   ) => {
     if (
       process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !isSufficientlyLabelled(label)
+      process.env.NODE_ENV !== 'test'
     ) {
-      throw new AccessibilityError(
-        'Status',
-        'The `label` prop is missing or invalid. It is required for screen reader accessibility.',
-      );
+      if (!isSufficientlyLabelled(label)) {
+        throw new AccessibilityError(
+          'Status',
+          'The `label` prop is missing or invalid. It is required for screen reader accessibility.',
+        );
+      }
+
+      if (color === 'special-outline' && variant !== 'badge') {
+        throw new Error(
+          '[Status] The `special-outline` color is only supported on the `badge` variant.',
+        );
+      }
     }
 
     const width =

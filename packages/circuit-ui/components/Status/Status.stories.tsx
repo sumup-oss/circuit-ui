@@ -60,6 +60,19 @@ export const Variants = (args: StatusProps) => (
 
 Variants.args = baseArgs;
 
+export const SpecialOutline = (args: StatusProps) => (
+  <Stack>
+    <Status {...args} variant="badge" color="special-outline">
+      0
+    </Status>
+    <Status {...args} variant="badge" color="special-outline">
+      123
+    </Status>
+  </Stack>
+);
+
+SpecialOutline.args = baseArgs;
+
 export const Colors = (args: StatusProps) => (
   <Matrix
     component={Status}

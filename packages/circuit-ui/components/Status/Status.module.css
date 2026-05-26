@@ -117,3 +117,8 @@
   --status-dot-color: var(--cui-fg-normal);
   --status-icon-color: var(--cui-fg-normal);
 }
+
+.special-outline {
+  padding: calc(var(--cui-spacings-bit) - var(--cui-border-width-kilo));
+  border: var(--cui-border-width-kilo) solid var(--cui-fg-normal);
+}
