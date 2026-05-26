@@ -65,7 +65,8 @@ describe('Table', () => {
           ]}
         />,
       );
-      expect(screen.getByText('Unknown')).toBeVisible();
+      const [badge] = screen.getAllByText('Unknown');
+      expect(badge).toBeVisible();
     });
 
     it('should render "null" or "undefined" cells', () => {

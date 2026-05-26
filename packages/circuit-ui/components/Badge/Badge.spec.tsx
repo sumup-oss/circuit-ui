@@ -24,13 +24,15 @@ describe('Badge', () => {
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
     render(<Badge className={className}>Badge</Badge>);
-    expect(screen.getByText('Badge')).toHaveClass(className);
+    const [badge] = screen.getAllByText('Badge');
+    expect(badge).toHaveClass(className);
   });
 
   it('should forward a ref', () => {
     const ref = createRef<HTMLSpanElement>();
     render(<Badge ref={ref as Ref<HTMLDivElement>}>Badge</Badge>);
-    expect(ref.current).toBe(screen.getByText('Badge'));
+    const [badge] = screen.getAllByText('Badge');
+    expect(ref.current).toBe(badge);
   });
 
   it('should meet accessibility guidelines', async () => {

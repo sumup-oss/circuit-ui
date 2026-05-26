@@ -16,7 +16,7 @@ different layout contexts.
 
 ## Best practices
 
-- Keep the label short and concise — one to two words maximum.
+- Keep the label short and concise as possible. It should be oneline-only.
 - Never truncate the label within a status component.
 - Position the status in close proximity to the element it refers to.
 - Use the status component only for static, informational display. If clicking
@@ -36,14 +36,15 @@ different layout contexts.
 
 ### Variants
 
-Use the pill variant to communicate the condition of an element where a
-prominent label is appropriate. Use the badge variant to indicate a count of
-items related to an element. Use the dot variant to communicate a status in a
-space-constrained context or where the count is unknown. Use the line variant
-for a more subtle appearance in high-density environments.
-
 <Story of={Stories.Variants} />
 
+- The **pill** variant should be used to communicate the condition of an element where a prominent label is appropriate
+- The **badge** variant should be used to indicate a count of items related to an element.
+- The **dot** variant should be used to communicate a status in a space-constrained context or where the count is unknown
+- The **line** variant should be used for a more subtle appearance in high-density environments
+
 ### Colors
+
+The Status component come in a number of colors to help convery different semantic meaning
 
 <Story of={Stories.Colors} />

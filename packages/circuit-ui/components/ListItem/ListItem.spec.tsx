@@ -65,7 +65,8 @@ describe('ListItem', () => {
         </Badge>
       ),
     });
-    expect(screen.getByText('3')).toBeVisible();
+    const [badge] = screen.getAllByText('3');
+    expect(badge).toBeVisible();
   });
 
   it('should render a ListItem with a custom label', () => {
