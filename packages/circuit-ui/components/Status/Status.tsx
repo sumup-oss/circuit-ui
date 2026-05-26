@@ -22,6 +22,7 @@ import { utilClasses } from '../../styles/utility.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
+  CircuitError,
 } from '../../util/errors.js';
 
 import classes from './Status.module.css';
@@ -94,8 +95,9 @@ export const Status = forwardRef<HTMLSpanElement, StatusProps>(
       }
 
       if (color === 'special-outline' && variant !== 'badge') {
-        throw new Error(
-          '[Status] The `special-outline` color is only supported on the `badge` variant.',
+        throw new CircuitError(
+          '[Status]',
+          'The `special-outline` color is only supported on the `badge` variant.',
         );
       }
     }
