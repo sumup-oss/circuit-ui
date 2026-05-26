@@ -13,13 +13,17 @@
  * limitations under the License.
  */
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 import type { IconProps } from '@sumup-oss/icons';
 
 import { render, screen, axe } from '../../util/test-utils.js';
 
 import { Status } from './Status.js';
+
+declare const process: {
+  env: { NODE_ENV: string };
+};
 
 describe('Status', () => {
   it('should merge a custom class name with the default ones', () => {
@@ -88,6 +92,20 @@ describe('Status', () => {
     expect(screen.queryByTestId('icon')).toBeNull();
   });
 
+  it('should throw an error when special-outline color is used on a non-badge variant', () => {
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    process.env.NODE_ENV = 'development';
+    expect(() =>
+      render(
+        <Status variant="pill" color="special-outline" label="Status">
+          Status
+        </Status>,
+      ),
+    ).toThrow();
+    process.env.NODE_ENV = 'test';
+    vi.restoreAllMocks();
+  });
+
   describe('accessibility', () => {
     const variants = ['pill', 'line', 'badge', 'dot'] as const;
     const colors = [
@@ -112,5 +130,15 @@ describe('Status', () => {
         });
       }
     }
+
+    it('should throw an accessibility error when the label prop is missing', () => {
+      vi.spyOn(console, 'error').mockImplementation(() => undefined);
+      process.env.NODE_ENV = 'development';
+      expect(() =>
+        render(<Status label={undefined as unknown as string}>Status</Status>),
+      ).toThrow();
+      process.env.NODE_ENV = 'test';
+      vi.restoreAllMocks();
+    });
   });
 });
