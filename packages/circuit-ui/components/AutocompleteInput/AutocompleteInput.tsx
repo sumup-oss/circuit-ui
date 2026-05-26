@@ -201,7 +201,7 @@ export const AutocompleteInput = forwardRef<
     const inputWrapperRef = useRef<HTMLDivElement>(null);
     const presentationFieldRef = useRef<HTMLInputElement>(null);
     const resultsRef = useRef<HTMLDivElement>(null);
-    const resultsId = useId();
+    const listboxId = useId();
     const autocompleteId = useId();
 
     if (
@@ -478,6 +478,7 @@ export const AutocompleteInput = forwardRef<
     const results =
       searchText || options.length ? (
         <Results
+          listboxId={listboxId}
           ref={resultsRef}
           isLoading={isLoading}
           isLoadingMore={isLoadingMore}
@@ -525,7 +526,7 @@ export const AutocompleteInput = forwardRef<
       onClear: onClear && !multiple ? onComboboxClear : undefined,
       onKeyDown: isLoading ? undefined : onComboboxKeyDown,
       role: 'combobox',
-      'aria-controls': resultsId,
+      'aria-controls': listboxId,
       autoComplete: 'off',
       'aria-autocomplete': 'list' as const,
       'aria-activedescendant': activeDescendant,
@@ -602,9 +603,7 @@ export const AutocompleteInput = forwardRef<
         {isOpen && (
           <div
             className={classes.results}
-            data-testid={`${autocompleteId}-popup`}
             ref={refs.setFloating}
-            id={resultsId}
             style={{
               ...floatingStyles,
               width: comboboxRef.current?.parentElement?.offsetWidth ?? 0,

@@ -28,6 +28,7 @@ const props = {
   resultsSummary: 'results summary',
   loadMoreLabel: 'Load more',
   searchText: '',
+  listboxId: 'listbox-id',
 } satisfies ResultsProps;
 
 describe('Results', () => {

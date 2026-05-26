@@ -630,10 +630,8 @@ describe('AutocompleteInput', () => {
       expect(screen.getByRole('listbox')).toBeVisible();
       expect(input).toHaveAttribute('aria-expanded', 'true');
 
-      const popupId = screen
-        .getByTestId(`${input.getAttribute('data-id')}-popup`)
-        .getAttribute('id');
-      expect(input).toHaveAttribute('aria-controls', popupId);
+      const listboxId = screen.getByRole('listbox').getAttribute('id');
+      expect(input).toHaveAttribute('aria-controls', listboxId);
       expect(screen.getAllByRole('option')).toHaveLength(options.length);
     });
 
