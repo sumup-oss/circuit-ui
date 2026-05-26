@@ -31,7 +31,6 @@ export default {
   chromatic: {
     modes: {
       mobile: modes.smallMobile,
-      desktop: modes.desktop,
     },
     pauseAnimationAtEnd: true,
   },
@@ -114,4 +113,13 @@ export const Offset = (args: PopoverProps) => <Base {...args} />;
 Offset.args = {
   children: PopoverContent,
   offset: 20,
+};
+Offset.parameters = {
+  chromatic: {
+    modes: {
+      // theme variation does not impact the offset
+      dark: { disable: true },
+      consumer: { disable: true },
+    },
+  },
 };

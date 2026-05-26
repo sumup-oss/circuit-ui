@@ -24,6 +24,13 @@ export default {
   title: 'Components/Timestamp',
   component: Timestamp,
   tags: ['status:stable'],
+  chromatic: {
+    modes: {
+      // the theme does not impact the component
+      dark: { disable: true },
+      consumer: { disable: true },
+    },
+  },
 };
 
 function getDatetimes(variant: TimestampProps['variant']) {
@@ -50,6 +57,13 @@ Base.args = {
   datetime: getDatetimes('relative')[2].toString(),
 };
 
+Base.parameters = {
+  chromatic: {
+    // covered in the Relative story
+    disableSnapshot: true,
+  },
+};
+
 export const Relative = (args: TimestampProps) => (
   <Stack>
     {locales.map((locale) => (
@@ -69,6 +83,11 @@ export const Relative = (args: TimestampProps) => (
 
 Relative.args = {
   variant: 'relative',
+};
+Relative.parameters = {
+  // covered in the Format styles story
+  // TODO merge Relative and Absolute stories in one Variant story and add a Locale story
+  chromatic: { disableSnapshot: true },
 };
 
 export const Absolute = (args: TimestampProps) => (

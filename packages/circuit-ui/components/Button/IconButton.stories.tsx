@@ -33,6 +33,12 @@ Base.args = {
   children: 'Add',
   icon: Plus,
 };
+Base.parameters = {
+  chromatic: {
+    // covered in the Variants story
+    disableSnapshot: true,
+  },
+};
 
 export const Variants = (args: IconButtonProps) => (
   <Stack>

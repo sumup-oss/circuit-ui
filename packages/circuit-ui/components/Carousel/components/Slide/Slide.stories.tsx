@@ -21,6 +21,12 @@ import { Slide, type SlideProps } from './Slide.js';
 export default {
   title: 'Components/Carousel/Slide',
   component: Slide,
+  parameters: {
+    chromatic: {
+      // tested in the Carousel snapshots
+      disableSnapshot: true,
+    },
+  },
 };
 
 export const OnlyImage = (args: SlideProps) => (

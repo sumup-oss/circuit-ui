@@ -22,6 +22,7 @@ import type { TableProps } from './Table.js';
 import type { Direction, RowCell } from './types.js';
 
 import { Table } from './index.js';
+import { userEvent, within } from 'storybook/test';
 
 export default {
   title: 'Components/Table',
@@ -118,6 +119,19 @@ Sortable.args = {
   ],
 };
 
+Sortable.play = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLCanvasElement;
+}) => {
+  const canvas = within(canvasElement);
+  const header = canvas.getByRole('columnheader', {
+    name: 'Sort in ascending order Name',
+  });
+
+  await userEvent.hover(header);
+};
+
 export const CustomSort = (args: TableProps) => {
   const onSortBy: TableProps['onSortBy'] = (_i, rows, direction) => {
     const rowCells = rows as RowCell[][];
@@ -142,4 +156,9 @@ CustomSort.args = {
     ['Liechtenstein'],
     ['Italien'],
   ],
+};
+
+CustomSort.parameters = {
+  // no visual changes
+  chromatic: { disableSnapshot: true },
 };

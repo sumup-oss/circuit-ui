@@ -60,6 +60,12 @@ export const Base = (args: SelectProps) => <Select {...args} />;
 
 Base.args = baseArgs;
 
+Base.parameters = {
+  chromatic: {
+    // covered in the Sizes story
+    disableSnapshot: true,
+  },
+};
 export const Invalid = (args: SelectProps) => <Select {...args} />;
 
 Invalid.args = {

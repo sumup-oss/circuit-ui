@@ -105,3 +105,13 @@ export const Placements = (args: TooltipProps) => (
 
 Placements.args = descriptionProps;
 Placements.play = showTooltip;
+
+Placements.parameters = {
+  chromatic: {
+    modes: {
+      // the theme does not impact the component
+      dark: { disable: true },
+      consumer: { disable: true },
+    },
+  },
+};

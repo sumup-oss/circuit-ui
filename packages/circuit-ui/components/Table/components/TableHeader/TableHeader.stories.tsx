@@ -27,3 +27,8 @@ export const Base = (args: TableHeaderProps) => (
     Header
   </TableHeader>
 );
+
+Base.parameters = {
+  // covered by the Table stories
+  chromatic: { disableSnapshot: true },
+};

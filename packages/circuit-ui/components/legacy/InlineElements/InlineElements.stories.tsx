@@ -19,7 +19,6 @@ import { css } from '@emotion/react';
 
 import { Stack } from '../../../../../.storybook/components/index.js';
 import styled from '../../../styles/styled.js';
-import { modes } from '../../../../../.storybook/modes.js';
 
 import { InlineElements } from './InlineElements.js';
 
@@ -30,10 +29,7 @@ export default {
   parameters: {
     controls: { hideNoControlsWarning: true },
     chromatic: {
-      modes: {
-        mobile: modes.smallMobile,
-        desktop: modes.desktop,
-      },
+      disableSnapshot: true,
     },
   },
 };

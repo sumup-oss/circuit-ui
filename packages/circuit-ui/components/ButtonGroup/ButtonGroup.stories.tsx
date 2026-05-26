@@ -30,7 +30,6 @@ export default {
     chromatic: {
       modes: {
         mobile: modes.smallMobile,
-        desktop: modes.desktop,
       },
     },
   },
@@ -48,6 +47,12 @@ Base.args = {
       children: 'Go elsewhere',
       href: 'https://sumup.com',
     },
+  },
+};
+Base.parameters = {
+  chromatic: {
+    // covered in the Alignment story
+    disableSnapshot: true,
   },
 };
 

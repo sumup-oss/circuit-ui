@@ -23,6 +23,9 @@ export default {
   parameters: {
     layout: 'fullscreen',
     controls: { hideNoControlsWarning: true },
+    chromatic: {
+      disableSnapshot: true,
+    },
   },
 };
 

@@ -32,6 +32,13 @@ const style = {
 
 export const Base = () => <Spinner style={style} />;
 
+Base.parameters = {
+  chromatic: {
+    // covered in the Sizes story
+    disableSnapshot: true,
+  },
+};
+
 export const Sizes = () => (
   <Stack>
     <Spinner style={style} size="s" />

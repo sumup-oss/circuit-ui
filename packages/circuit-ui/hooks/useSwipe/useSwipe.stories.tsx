@@ -53,3 +53,9 @@ export const Example = (args: { minSwipeDistance: number }) => {
 Example.args = {
   minSwipeDistance: 50,
 };
+
+Example.parameters = {
+  chromatic: {
+    disableSnapshot: true,
+  },
+};

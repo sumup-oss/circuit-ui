@@ -50,3 +50,9 @@ export const Example = () => {
 Example.play = async () => {
   await userEvent.tab();
 };
+
+Example.parameters = {
+  chromatic: {
+    disableSnapshot: true,
+  },
+};

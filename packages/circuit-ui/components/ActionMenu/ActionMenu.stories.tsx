@@ -92,3 +92,12 @@ Offset.args = {
   actions,
   offset: 20,
 };
+Offset.parameters = {
+  chromatic: {
+    modes: {
+      // theme variation does not impact the offset
+      dark: { disable: true },
+      consumer: { disable: true },
+    },
+  },
+};

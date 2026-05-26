@@ -43,6 +43,12 @@ export const Base = (args: PercentageInputProps) => (
 
 Base.args = baseArgs;
 
+Base.parameters = {
+  chromatic: {
+    // covered in the Sizes story
+    disableSnapshot: true,
+  },
+};
 export const Locales = (args: PercentageInputProps) => (
   <Stack>
     <PercentageInput

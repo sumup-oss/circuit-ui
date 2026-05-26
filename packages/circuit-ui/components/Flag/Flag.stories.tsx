@@ -53,6 +53,16 @@ export const Base = () => {
   );
 };
 
+Base.parameters = {
+  chromatic: {
+    modes: {
+      // the theme does not impact flags
+      dark: { disable: true },
+      consumer: { disable: true },
+    },
+  },
+};
+
 export const Example = (args: FlagProps) => <Flag {...args} />;
 Example.tags = ['!dev'];
 Example.parameters = {

@@ -40,6 +40,12 @@ Base.args = {
   variant: 'info',
 } as NotificationInlineProps;
 
+Base.parameters = {
+  chromatic: {
+    // covered in the Variants story
+    disableSnapshot: true,
+  },
+};
 export const Variants = (args: NotificationInlineProps) => (
   <Stack vertical>
     {variants.map((variant) => (

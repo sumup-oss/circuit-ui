@@ -32,6 +32,9 @@ export default {
   tags: ['status:legacy'],
   parameters: {
     layout: 'fullscreen',
+    chromatic: {
+      disableSnapshot: true,
+    },
   },
   argTypes: {
     span: colControl,

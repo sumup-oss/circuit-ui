@@ -48,7 +48,7 @@ Our quality requirements evolve over time. Existing components that haven't been
 
 <Status variant="legacy" aria-hidden="true" />
 
-Legacy components are going to be phased out eventually, but don't have a stable replacement yet. You can continue to use them in existing code until a stable alternative becomes available. We don't recommend adopting legacy components in new code. Legacy components won't receive any updates apart from bugfixes.
+Legacy components are going to be phased out eventually, but don't have a stable replacement yet. You can continue to use them in existing code until a stable alternative becomes available. We don't recommend adopting legacy components in new code. Legacy components won't receive any updates apart from bugfixes and could have reduced test coverage over time.
 
 Legacy components are exported separately from stable components. Import them from `@sumup-oss/circuit-ui/legacy`:
 
@@ -62,6 +62,6 @@ Some legacy components require third-party dependencies which aren't bundled wit
 
 <Status variant="deprecated" aria-hidden="true" />
 
-Deprecated components are going to be removed in the next major release. When used, they log a deprecation warning during local development. Replace them with the alternative that's suggested in the components' documentation. Deprecated components won't receive any updates or bugfixes.
+Deprecated components are going to be removed in the next major release. When used, they log a deprecation warning during local development. Replace them with the alternative that's suggested in the components' documentation. Deprecated components won't receive any updates or bugfixes and could have reduced test coverage over time.
 
 Deprecated components can be exported from `@sumup-oss/circuit-ui` or `@sumup-oss/circuit-ui/legacy`, depending on their previous status.
