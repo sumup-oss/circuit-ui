@@ -142,7 +142,9 @@ describe('ListItem', () => {
       ...baseProps,
       trailingComponent: <Badge variant="promo">Promo</Badge>,
     });
-    expect(screen.getByText('Promo')).toBeVisible();
+
+    const [badge] = screen.getAllByText('Promo');
+    expect(badge).toBeVisible();
   });
 
   it('should render a selected ListItem', () => {

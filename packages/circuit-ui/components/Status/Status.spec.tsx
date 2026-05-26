@@ -87,6 +87,7 @@ describe('Status', () => {
     );
     expect(screen.queryByTestId('icon')).toBeNull();
   });
+
   describe('accessibility', () => {
     const variants = ['pill', 'line', 'badge', 'dot'] as const;
     const colors = [
