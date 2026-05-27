@@ -423,6 +423,16 @@
       "size": "24"
     },
     {
+      "name": "zoom_in",
+      "category": "Action",
+      "size": "24"
+    },
+    {
+      "name": "zoom_out",
+      "category": "Action",
+      "size": "24"
+    },
+    {
       "name": "sum_up_logo",
       "category": "Brand",
       "size": "24",
@@ -3031,6 +3041,11 @@
     },
     {
       "name": "wealth",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "piggy_bank",
       "category": "Finance",
       "size": "24"
     },
