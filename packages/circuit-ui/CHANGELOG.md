@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 11.4.1
+
+### Patch Changes
+
+- [#3638](https://github.com/sumup-oss/circuit-ui/pull/3638) [`812c337`](https://github.com/sumup-oss/circuit-ui/commit/812c3372fdecc6078ff9ef1cb1530a0ee9c0b600) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed the accessibility relationship between the `AutocompleteInput` combobox and its controlled listbox.
+
 ## 11.4.0
 
 ### Minor Changes
