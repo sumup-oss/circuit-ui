@@ -1,5 +1,15 @@
 # @sumup-oss/icons
 
+## 6.7.0
+
+### Minor Changes
+
+- [#3642](https://github.com/sumup-oss/circuit-ui/pull/3642) [`b5b218d`](https://github.com/sumup-oss/circuit-ui/commit/b5b218da52e5f48edd4a518dd328510e0a5210c7) Thanks [@giedoka](https://github.com/giedoka)! - Added new `FullReturn`, `PartialReturn`, `OrderPlaced` icons in size 16 and 24.
+
+### Patch Changes
+
+- [#3643](https://github.com/sumup-oss/circuit-ui/pull/3643) [`7de2236`](https://github.com/sumup-oss/circuit-ui/commit/7de223649f7d1323f1fe86904e191582e206992d) Thanks [@sirineJ](https://github.com/sirineJ)! - Added ZoomIn, ZoomOut and PiggyBank icons in size 24.
+
 ## 6.6.0
 
 ### Minor Changes
