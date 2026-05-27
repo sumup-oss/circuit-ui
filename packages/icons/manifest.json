@@ -3212,6 +3212,16 @@
       "size": "16"
     },
     {
+      "name": "full_return",
+      "category": "Miscellaneous",
+      "size": "16"
+    },
+    {
+      "name": "full_return",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "gauge",
       "category": "Miscellaneous",
       "size": "24"
@@ -3298,6 +3308,16 @@
       "size": "24"
     },
     {
+      "name": "order_placed",
+      "category": "Miscellaneous",
+      "size": "16"
+    },
+    {
+      "name": "order_placed",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "package",
       "category": "Miscellaneous",
       "size": "24"
@@ -3311,6 +3331,16 @@
       "name": "paid_out",
       "category": "Miscellaneous",
       "size": "16"
+    },
+    {
+      "name": "partial_return",
+      "category": "Miscellaneous",
+      "size": "16"
+    },
+    {
+      "name": "partial_return",
+      "category": "Miscellaneous",
+      "size": "24"
     },
     {
       "name": "print_failed",
