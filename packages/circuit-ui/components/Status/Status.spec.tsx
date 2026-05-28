@@ -39,16 +39,7 @@ describe('Status', () => {
     expect(ref.current).toBeInstanceOf(HTMLDivElement);
   });
 
-  it('should render a visually hidden label for the dot variant', () => {
-    render(
-      <Status variant="dot" color="confirm">
-        Confirmed
-      </Status>,
-    );
-    expect(screen.getByText('Confirmed')).toBeInTheDocument();
-  });
-
-  it('should not render visible text for the dot variant', () => {
+  it('should render a visually hidden children for the dot variant', () => {
     render(
       <Status variant="dot" color="confirm">
         Confirmed
