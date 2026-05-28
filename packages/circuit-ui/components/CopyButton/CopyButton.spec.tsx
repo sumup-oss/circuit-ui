@@ -112,6 +112,21 @@ describe('CopyButton', () => {
     );
   });
 
+  it('should expose the copied value as a description for the button variant', () => {
+    render(
+      <CopyButton
+        copyVariant="button"
+        value="secret-token"
+        copyLabel="Copy token"
+        successLabel="Copied to clipboard."
+      />,
+    );
+
+    expect(
+      screen.getByRole('button', { name: 'Copy token' }),
+    ).toHaveAccessibleDescription('secret-token');
+  });
+
   it('should render the icon variant', () => {
     render(
       <CopyButton
@@ -123,6 +138,21 @@ describe('CopyButton', () => {
     );
 
     expect(screen.getByRole('button', { name: 'Copy token' })).toBeVisible();
+  });
+
+  it('should expose the copied value as a description for the icon button variant', () => {
+    render(
+      <CopyButton
+        copyVariant="icon-button"
+        value="secret-token"
+        copyLabel="Copy token"
+        successLabel="Copied to clipboard."
+      />,
+    );
+
+    expect(
+      screen.getByRole('button', { name: 'Copy token' }),
+    ).toHaveAccessibleDescription('secret-token');
   });
 
   it('should not announce success when clipboard write fails', async () => {
