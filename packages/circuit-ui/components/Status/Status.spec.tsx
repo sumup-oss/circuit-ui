@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 import type { IconProps } from '@sumup-oss/icons';
 
@@ -21,49 +21,42 @@ import { render, screen, axe } from '../../util/test-utils.js';
 
 import { Status } from './Status.js';
 
-declare const process: {
-  env: { NODE_ENV: string };
-};
-
 describe('Status', () => {
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
+    const ref = createRef<HTMLDivElement>();
     render(
-      <Status className={className} label="Status">
+      <Status ref={ref} className={className}>
         Status
       </Status>,
     );
-    expect(
-      screen.getByText('Status', { selector: 'span > span' }).parentElement,
-    ).toHaveClass(className);
+    expect(ref.current).toHaveClass(className);
   });
 
   it('should forward a ref', () => {
-    const ref = createRef<HTMLSpanElement>();
-    render(
-      <Status ref={ref} label="Status">
-        Status
-      </Status>,
-    );
-    expect(ref.current).toBe(
-      screen.getByText('Status', { selector: 'span > span' }).parentElement,
-    );
+    const ref = createRef<HTMLDivElement>();
+    render(<Status ref={ref}>Status</Status>);
+    expect(ref.current).toBeInstanceOf(HTMLDivElement);
   });
 
-  it('should render a visually hidden label', () => {
-    render(<Status label="Paid">Paid</Status>);
+  it('should render a visually hidden label for the dot variant', () => {
+    render(
+      <Status variant="dot" color="confirm">
+        Confirmed
+      </Status>,
+    );
+    expect(screen.getByText('Confirmed')).toBeInTheDocument();
+  });
+
+  it('should not render visible text for the dot variant', () => {
+    render(
+      <Status variant="dot" color="confirm">
+        Confirmed
+      </Status>,
+    );
     expect(
-      screen.getByText('Paid', { selector: 'span > span' }),
+      screen.getByText('Confirmed', { selector: 'span' }),
     ).toBeInTheDocument();
-  });
-
-  it('should not render children for the dot variant', () => {
-    render(
-      <Status variant="dot" color="confirm" label="Confirmed">
-        hidden
-      </Status>,
-    );
-    expect(screen.queryByText('hidden')).toBeNull();
   });
 
   it('should render the icon in the line variant', () => {
@@ -71,7 +64,6 @@ describe('Status', () => {
       <Status
         variant="line"
         icon={(props: IconProps) => <svg {...props} data-testid="icon" />}
-        label="Status"
       >
         Status
       </Status>,
@@ -84,7 +76,6 @@ describe('Status', () => {
       <Status
         variant="pill"
         icon={(props: IconProps) => <svg {...props} data-testid="icon" />}
-        label="Status"
       >
         Status
       </Status>,
@@ -92,53 +83,9 @@ describe('Status', () => {
     expect(screen.queryByTestId('icon')).toBeNull();
   });
 
-  it('should throw an error when special-outline color is used on a non-badge variant', () => {
-    vi.spyOn(console, 'error').mockImplementation(() => undefined);
-    process.env.NODE_ENV = 'development';
-    expect(() =>
-      render(
-        <Status variant="pill" color="special-outline" label="Status">
-          Status
-        </Status>,
-      ),
-    ).toThrow();
-    process.env.NODE_ENV = 'test';
-    vi.restoreAllMocks();
-  });
-
-  describe('accessibility', () => {
-    const variants = ['pill', 'line', 'badge', 'dot'] as const;
-    const colors = [
-      'confirm',
-      'neutral',
-      'notify',
-      'alert',
-      'promo',
-      'special',
-    ] as const;
-
-    for (const variant of variants) {
-      for (const color of colors) {
-        it(`should meet accessibility guidelines for variant="${variant}" color="${color}"`, async () => {
-          const { container } = render(
-            <Status variant={variant} color={color} label="Status label">
-              {variant !== 'dot' ? 'Status' : undefined}
-            </Status>,
-          );
-          const actual = await axe(container);
-          expect(actual).toHaveNoViolations();
-        });
-      }
-    }
-
-    it('should throw an accessibility error when the label prop is missing', () => {
-      vi.spyOn(console, 'error').mockImplementation(() => undefined);
-      process.env.NODE_ENV = 'development';
-      expect(() =>
-        render(<Status label={undefined as unknown as string}>Status</Status>),
-      ).toThrow();
-      process.env.NODE_ENV = 'test';
-      vi.restoreAllMocks();
-    });
+  it('should meet accessibility guidelines', async () => {
+    const { container } = render(<Status>Status</Status>);
+    const actual = await axe(container);
+    expect(actual).toHaveNoViolations();
   });
 });

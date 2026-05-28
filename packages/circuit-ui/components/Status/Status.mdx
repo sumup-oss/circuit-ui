@@ -7,49 +7,49 @@ import * as Stories from './Status.stories';
 
 <Status variant="stable" />
 
-Status is a non-actionable component used to communicate and indicate the
-condition of an element. It comes in four visual representations to suit
-different layout contexts.
+A non-actionable component used to communicate the condition of an element.
 
 <Story of={Stories.Base} />
 <Props />
 
-## Best practices
+## When to use
 
-- Keep the label short and concise as possible. It should be oneline-only.
+Use the Status component to convey the state of an entity at a glance. Common use cases:
+
+- Order or payment status (e.g. "Paid", "Pending", "Failed")
+- Feature or component lifecycle state (e.g. "New", "Deprecated")
+- Item counts related to an element (e.g. unread notifications)
+- Presence or activity indicators in space-constrained environments
+
+If the status should trigger an action when clicked, use the [Tag](Components/Tag/Docs) or [Toggletip](Components/Toggletip/Docs) component instead.
+
+## How to use
+
+- Keep the label short and concise. one to two words maximum.
 - Never truncate the label within a status component.
 - Position the status in close proximity to the element it refers to.
-- Use the status component only for static, informational display. If clicking
-  should trigger an action, use a different component.
-
-## Usage guidelines
-
-- **Do** use the `confirm` color to communicate a successful state.
-- **Do** use the `neutral` color to communicate an intermediate or pending state.
-- **Do** use the `notify` color to communicate a warning tendency.
-- **Do** use the `alert` color to communicate a critical or error state.
-- **Do** use the `promo` color to raise awareness or attract interest (e.g. new feature, discount).
-- **Do** use the `special` color when no other semantic applies, or the state is already occupied by another color.
-- **Do not** use more than one status variant per element.
+- Use no more than one status variant per element.
 
 ## Component variations
 
 ### Variants
-
-<Story of={Stories.Variants} />
 
 - The **pill** variant should be used to communicate the condition of an element where a prominent label is appropriate
 - The **badge** variant should be used to indicate a count of items related to an element.
 - The **dot** variant should be used to communicate a status in a space-constrained context or where the count is unknown
 - The **line** variant should be used for a more subtle appearance in high-density environments
 
+<Story of={Stories.Variants} />
+
 ### Colors
 
-The Status component come in a number of colors to help convery different semantic meaning
+The Status component come in a number of colors to help convery different semantic meanings.
+
+- Use the `confirm` color to communicate a successful state.
+- Use the `neutral` color to communicate an intermediate or pending state.
+- Use the `notify` color to communicate a warning tendency.
+- Use the `alert` color to communicate a critical or error state.
+- Use the `promo` color to raise awareness or attract interest (e.g. new feature, discount).
+- Use the `special` color when no other semantic applies, or when the other colors are already in use.
 
 <Story of={Stories.Colors} />
-
-The badge variant can also be used with a `special-outline` color only in the context of the shopping cart item listing
-
-
-<Story of={Stories.SpecialOutline} />

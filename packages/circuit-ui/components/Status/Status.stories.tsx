@@ -32,14 +32,9 @@ export default {
   tags: ['status:stable'],
 };
 
-const baseArgs = {
-  label: 'Status',
-};
-
 export const Base = (args: StatusProps) => <Status {...args} />;
 
 Base.args = {
-  ...baseArgs,
   children: 'Status',
 };
 
@@ -57,21 +52,6 @@ export const Variants = (args: StatusProps) => (
     </Status>
   </Stack>
 );
-
-Variants.args = baseArgs;
-
-export const SpecialOutline = (args: StatusProps) => (
-  <Stack>
-    <Status {...args} variant="badge" color="special-outline">
-      0
-    </Status>
-    <Status {...args} variant="badge" color="special-outline">
-      123
-    </Status>
-  </Stack>
-);
-
-SpecialOutline.args = baseArgs;
 
 export const Colors = (args: StatusProps) => (
   <Matrix
@@ -99,5 +79,3 @@ export const Colors = (args: StatusProps) => (
     }}
   />
 );
-
-Colors.args = baseArgs;

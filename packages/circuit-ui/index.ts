@@ -230,12 +230,7 @@ export {
   type ComparisonTableProps,
 } from './components/ComparisonTable/ComparisonTable.js';
 export { Flag, type FlagProps } from './components/Flag/Flag.js';
-export { Status } from './components/Status/index.js';
-export type {
-  StatusProps,
-  StatusVariant,
-  StatusColor,
-} from './components/Status/index.js';
+export { Status, type StatusProps } from './components/Status/index.js';
 
 // Brand
 export {

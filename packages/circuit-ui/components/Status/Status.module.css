@@ -1,12 +1,11 @@
 /* Base */
 
 .base {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   font-size: var(--cui-compact-s-font-size);
   font-weight: var(--cui-font-weight-semibold);
   line-height: var(--cui-compact-s-line-height);
+  text-align: center;
   letter-spacing: var(--cui-letter-spacing);
 }
 
@@ -51,7 +50,9 @@
 }
 
 .line {
+  display: inline-flex;
   gap: var(--cui-spacings-bit);
+  align-items: center;
   padding: var(--cui-spacings-bit) 0;
   color: var(--cui-fg-normal);
   background: none;
@@ -116,11 +117,4 @@
   --status-bg-strong: var(--cui-fg-normal);
   --status-dot-color: var(--cui-fg-normal);
   --status-icon-color: var(--cui-fg-normal);
-}
-
-.special-outline {
-  padding: calc(var(--cui-spacings-bit) - var(--cui-border-width-kilo));
-  color: var(--cui-fg-normal);
-  background-color: var(--cui-bg-normal);
-  border: var(--cui-border-width-kilo) solid var(--cui-fg-normal);
 }

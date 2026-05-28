@@ -15,4 +15,4 @@
 
 export { Status } from './Status.js';
 
-export type { StatusProps, StatusVariant, StatusColor } from './Status.js';
+export type { StatusProps } from './Status.js';

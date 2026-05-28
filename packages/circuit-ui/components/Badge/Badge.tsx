@@ -68,11 +68,6 @@ export const Badge = forwardRef<HTMLDivElement, BadgeProps>(
         variant={circle ? 'badge' : 'pill'}
         color={colorMap[variant]}
         {...props}
-        label={
-          typeof children === 'string' || typeof children === 'number'
-            ? String(children)
-            : ''
-        }
       >
         {children as string | number | undefined}
       </Status>

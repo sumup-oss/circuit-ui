@@ -14,24 +14,24 @@
  */
 
 import { describe, expect, it } from 'vitest';
-import { createRef, type Ref } from 'react';
+import { createRef } from 'react';
 
-import { render, screen, axe } from '../../util/test-utils.js';
+import { render, axe } from '../../util/test-utils.js';
 
 import { Badge } from './Badge.js';
 
 describe('Badge', () => {
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
-    render(<Badge className={className}>Badge</Badge>);
-    const [badge] = screen.getAllByText('Badge');
-    expect(badge).toHaveClass(className);
+    const { container } = render(<Badge className={className}>Badge</Badge>);
+    const badge = container.querySelector('div');
+    expect(badge?.className).toContain(className);
   });
 
   it('should forward a ref', () => {
-    const ref = createRef<HTMLSpanElement>();
-    render(<Badge ref={ref as Ref<HTMLDivElement>}>Badge</Badge>);
-    const [badge] = screen.getAllByText('Badge');
+    const ref = createRef<HTMLDivElement>();
+    const { container } = render(<Badge ref={ref}>Badge</Badge>);
+    const badge = container.querySelector('div');
     expect(ref.current).toBe(badge);
   });
 

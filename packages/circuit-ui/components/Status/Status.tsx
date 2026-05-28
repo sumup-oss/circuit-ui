@@ -19,11 +19,6 @@ import type { IconComponentType } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';
-import {
-  AccessibilityError,
-  isSufficientlyLabelled,
-  CircuitError,
-} from '../../util/errors.js';
 
 import classes from './Status.module.css';
 
@@ -34,10 +29,9 @@ export type StatusColor =
   | 'notify'
   | 'alert'
   | 'promo'
-  | 'special'
-  | 'special-outline';
+  | 'special';
 
-export interface StatusProps extends HTMLAttributes<HTMLSpanElement> {
+export interface StatusProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Choose the style variant.
    * @default 'pill'
@@ -53,10 +47,6 @@ export interface StatusProps extends HTMLAttributes<HTMLSpanElement> {
    */
   children?: string | number;
   /**
-   * A visually hidden label for screen reader users.
-   */
-  label: string;
-  /**
    * Leading icon for the line variant.
    */
   icon?: IconComponentType<'16'>;
@@ -69,13 +59,12 @@ const isDynamicWidth = (children: StatusProps['children']) =>
  * The status component communicates the condition of an entity
  * by conveying semantic meaning or indicating new, important information.
  */
-export const Status = forwardRef<HTMLSpanElement, StatusProps>(
+export const Status = forwardRef<HTMLDivElement, StatusProps>(
   (
     {
       variant = 'pill',
       color = 'neutral',
       icon: Icon,
-      label,
       className,
       style = {},
       children,
@@ -83,30 +72,11 @@ export const Status = forwardRef<HTMLSpanElement, StatusProps>(
     },
     ref,
   ) => {
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test'
-    ) {
-      if (!isSufficientlyLabelled(label)) {
-        throw new AccessibilityError(
-          'Status',
-          'The `label` prop is missing or invalid. It is required for screen reader accessibility.',
-        );
-      }
-
-      if (color === 'special-outline' && variant !== 'badge') {
-        throw new CircuitError(
-          '[Status]',
-          'The `special-outline` color is only supported on the `badge` variant.',
-        );
-      }
-    }
-
     const width =
       variant === 'badge' && isDynamicWidth(children) ? 'auto' : undefined;
 
     return (
-      <span
+      <div
         {...props}
         ref={ref}
         className={clsx(
@@ -120,9 +90,12 @@ export const Status = forwardRef<HTMLSpanElement, StatusProps>(
         {variant === 'line' && Icon && (
           <Icon aria-hidden="true" size="16" className={classes.icon} />
         )}
-        {variant !== 'dot' && children}
-        <span className={utilClasses.hideVisually}>{label}</span>
-      </span>
+        {variant === 'dot' ? (
+          <span className={utilClasses.hideVisually}>{children}</span>
+        ) : (
+          children
+        )}
+      </div>
     );
   },
 );
