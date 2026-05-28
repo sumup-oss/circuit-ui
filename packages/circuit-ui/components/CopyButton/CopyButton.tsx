@@ -15,6 +15,7 @@
 
 'use client';
 
+import { useId } from 'react';
 import { CopyPaste } from '@sumup-oss/icons';
 
 import { Button, IconButton } from '../Button/index.js';
@@ -22,6 +23,8 @@ import { Input, type InputProps } from '../Input/index.js';
 import { useNotificationToast } from '../NotificationToast/index.js';
 import type { ClickEvent } from '../../types/events.js';
 import type { ButtonProps, IconButtonProps } from '../Button/index.js';
+import { utilClasses } from '../../styles/utility.js';
+import { idx } from '../../util/idx.js';
 
 type CommonCopyButtonProps = {
   /**
@@ -88,6 +91,7 @@ export function CopyButton(props: CopyButtonProps) {
   const { setToast } = useNotificationToast();
   const { successLabel, copyLabel, onCopy, value } = props;
   const isCopyDisabled = Boolean(props.disabled || value.length === 0);
+  const valueDescriptionId = useId();
 
   const handleCopy = async (event: ClickEvent) => {
     try {
@@ -104,6 +108,7 @@ export function CopyButton(props: CopyButtonProps) {
 
   if (props.copyVariant === 'button') {
     const {
+      'aria-describedby': ariaDescribedBy,
       copyVariant,
       successLabel: _successLabel,
       copyLabel: _copyLabel,
@@ -113,20 +118,27 @@ export function CopyButton(props: CopyButtonProps) {
     } = props;
 
     return (
-      <Button
-        {...buttonProps}
-        type="button"
-        disabled={isCopyDisabled}
-        onClick={handleCopy}
-        icon={CopyPaste}
-      >
-        {copyLabel}
-      </Button>
+      <>
+        <Button
+          {...buttonProps}
+          type="button"
+          disabled={isCopyDisabled}
+          onClick={handleCopy}
+          icon={CopyPaste}
+          aria-describedby={idx(ariaDescribedBy, valueDescriptionId)}
+        >
+          {copyLabel}
+        </Button>
+        <span id={valueDescriptionId} className={utilClasses.hideVisually}>
+          {value}
+        </span>
+      </>
     );
   }
 
   if (props.copyVariant === 'icon-button') {
     const {
+      'aria-describedby': ariaDescribedBy,
       copyVariant,
       successLabel: _successLabel,
       copyLabel: _copyLabel,
@@ -136,15 +148,21 @@ export function CopyButton(props: CopyButtonProps) {
     } = props;
 
     return (
-      <IconButton
-        {...iconButtonProps}
-        type="button"
-        disabled={isCopyDisabled}
-        onClick={handleCopy}
-        icon={CopyPaste}
-      >
-        {copyLabel}
-      </IconButton>
+      <>
+        <IconButton
+          {...iconButtonProps}
+          type="button"
+          disabled={isCopyDisabled}
+          onClick={handleCopy}
+          icon={CopyPaste}
+          aria-describedby={idx(ariaDescribedBy, valueDescriptionId)}
+        >
+          {copyLabel}
+        </IconButton>
+        <span id={valueDescriptionId} className={utilClasses.hideVisually}>
+          {value}
+        </span>
+      </>
     );
   }
 
