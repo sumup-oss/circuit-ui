@@ -14,14 +14,14 @@ A non-actionable component used to communicate the condition of an element.
 
 ## When to use
 
+The status component should only be used for static, informational display. If clicking should trigger an action, use the [Tag](Components/Tag/Docs) or [Toggletip](Components/Toggletip/Docs) component instead.
+
 Use the Status component to convey the state of an entity at a glance. Common use cases:
 
 - Order or payment status (e.g. "Paid", "Pending", "Failed")
 - Feature or component lifecycle state (e.g. "New", "Deprecated")
 - Item counts related to an element (e.g. unread notifications)
 - Presence or activity indicators in space-constrained environments
-
-If the status should trigger an action when clicked, use the [Tag](Components/Tag/Docs) or [Toggletip](Components/Toggletip/Docs) component instead.
 
 ## How to use
 
@@ -43,7 +43,7 @@ If the status should trigger an action when clicked, use the [Tag](Components/Ta
 
 ### Colors
 
-The Status component come in a number of colors to help convery different semantic meanings.
+The Status component comes in a number of colors to help convery different semantic meanings.
 
 - Use the `confirm` color to communicate a successful state.
 - Use the `neutral` color to communicate an intermediate or pending state.
