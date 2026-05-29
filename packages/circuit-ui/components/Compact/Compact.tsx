@@ -35,7 +35,6 @@ export interface CompactProps extends HTMLAttributes<HTMLParagraphElement> {
   color?:
     | 'normal'
     | 'subtle'
-    | 'placeholder'
     | 'on-strong'
     | 'on-strong-subtle'
     | 'accent'
