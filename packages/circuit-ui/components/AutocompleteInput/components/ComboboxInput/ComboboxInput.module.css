@@ -16,7 +16,6 @@
   position: absolute;
   top: 50%;
   left: 0;
-  z-index: calc(var(--cui-z-index-input) + 1);
   display: flex;
   align-items: center;
   justify-content: center;
