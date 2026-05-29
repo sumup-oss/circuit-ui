@@ -9,7 +9,6 @@
 .country-code-autocomplete-shell {
   position: relative;
   flex: 0 0 auto;
-  margin-right: -1px;
 }
 
 .country-code-autocomplete-shell [role="option"] img {
@@ -25,18 +24,12 @@
 
   .country-code-autocomplete-shell {
     width: 100%;
-    margin-right: 0;
   }
 
   .country-code-autocomplete-shell .country-code {
     width: 100%;
     min-width: 0;
     max-width: none;
-  }
-
-  .subscriber-number {
-    /* to avoid having a 2px inner border separating the two inputs */
-    transform: translateY(-1px);
   }
 
   .wrapper .country-code-autocomplete-shell .country-code > div,
@@ -53,11 +46,6 @@
 }
 
 @media (min-width: 480px) {
-  .subscriber-number {
-    /* to avoid having a 2px inner border separating the two inputs */
-    transform: translateX(-1px);
-  }
-
   .wrapper .country-code-autocomplete-shell .country-code > div,
   .wrapper .country-code.country-code input,
   .wrapper .country-code .country-code-input.country-code-input {
@@ -102,28 +90,6 @@
   }
 }
 
-/* Elevate the subscriber number input above the country code field by default */
 .subscriber-number.subscriber-number {
-  position: relative;
-  z-index: calc(var(--cui-z-index-input) + 1);
   flex-grow: 1;
-}
-
-/* Elevate the focused or hovered field above its sibling */
-.country-code-autocomplete-shell:hover,
-.country-code-autocomplete-shell:focus-within,
-.country-code.country-code:hover,
-.country-code.country-code:focus-within,
-.country-code-input.country-code-input:hover,
-.country-code-input.country-code-input:focus,
-.subscriber-number.subscriber-number:hover,
-.subscriber-number.subscriber-number:focus-within {
-  position: relative;
-  z-index: calc(var(--cui-z-index-input) + 2);
-}
-
-/* Elevate the input prefix above the country code field on hover and focus */
-svg:has(+ .country-code:hover),
-svg:has(+ .country-code:focus) {
-  z-index: calc(var(--cui-z-index-input) + 3);
 }
