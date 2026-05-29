@@ -69,10 +69,6 @@ export interface ComboboxInputProps
    */
   locale?: Locale;
   'data-id'?: string;
-  /**
-   * Class name for the combobox container element.
-   */
-  comboboxClassName?: string;
 }
 
 export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
@@ -107,7 +103,6 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
       moreResults,
       'renderPrefix': RenderPrefix,
       prefixValue,
-      comboboxClassName,
       ...props
     },
     ref,
@@ -170,7 +165,6 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
           className={clsx(
             classes.base,
             classes[size],
-            comboboxClassName,
             tags.length > 0 && classes.scrollable,
             invalid && classes.invalid,
             disabled && classes.disabled,

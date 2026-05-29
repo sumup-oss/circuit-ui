@@ -12,6 +12,12 @@
   margin-right: -1px;
 }
 
+.country-code-autocomplete-shell [role="option"] img {
+  width: var(--cui-icon-sizes-giga);
+  height: var(--cui-icon-sizes-mega);
+  border-radius: var(--cui-border-radius-bit);
+}
+
 @media (max-width: 479px) {
   .wrapper {
     flex-direction: column;
@@ -22,7 +28,7 @@
     margin-right: 0;
   }
 
-  .country-code-autocomplete {
+  .country-code-autocomplete-shell .country-code {
     width: 100%;
     min-width: 0;
     max-width: none;
@@ -33,9 +39,9 @@
     transform: translateY(-1px);
   }
 
+  .wrapper .country-code-autocomplete-shell .country-code > div,
   .wrapper .country-code.country-code input,
-  .wrapper .country-code .country-code-input.country-code-input,
-  .wrapper .country-code .country-code-combobox {
+  .wrapper .country-code .country-code-input.country-code-input {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
@@ -52,9 +58,9 @@
     transform: translateX(-1px);
   }
 
+  .wrapper .country-code-autocomplete-shell .country-code > div,
   .wrapper .country-code.country-code input,
-  .wrapper .country-code .country-code-input.country-code-input,
-  .wrapper .country-code .country-code-combobox {
+  .wrapper .country-code .country-code-input.country-code-input {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
@@ -68,20 +74,14 @@
     max-width: calc(var(--cui-spacings-exa) + 4ch + var(--cui-spacings-mega));
   }
 
-  .country-code-autocomplete {
-    width: auto;
+  .country-code-autocomplete-shell .country-code {
+    width: fit-content;
   }
 
-  .country-code-combobox {
-    width: max-content;
-    min-width: 12rem;
+  .country-code-autocomplete-shell .country-code-autocomplete-input {
+    field-sizing: content;
+    min-width: var(--cui-spacings-yotta);
     max-width: min(20rem, 45vw);
-  }
-
-  .country-code-autocomplete-input {
-    flex: 1 0 auto;
-    width: auto;
-    min-width: 9rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

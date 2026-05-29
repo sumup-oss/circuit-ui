@@ -142,6 +142,25 @@ describe('PhoneNumberInput', () => {
       expect(subscriberNumber).toHaveAttribute('readonly');
     });
 
+    it('should render country code as read-only dial code input when countryCode.readonly is set', () => {
+      render(
+        <PhoneNumberInput
+          {...defaultProps}
+          defaultValue="+4912345678"
+          countryCode={{
+            ...defaultProps.countryCode,
+            readonly: true,
+          }}
+        />,
+      );
+      const countryCode = screen.getByLabelText('Country code');
+      expect(countryCode).toHaveAttribute('readonly');
+      expect(countryCode).toHaveValue('+49');
+      expect(
+        screen.queryByRole('combobox', { name: 'Country code' }),
+      ).not.toBeInTheDocument();
+    });
+
     it('should render as required', async () => {
       render(<PhoneNumberInput {...defaultProps} required />);
       const countryCode = screen.getByRole('combobox', {

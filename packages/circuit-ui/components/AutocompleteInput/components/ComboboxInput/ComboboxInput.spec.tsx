@@ -53,11 +53,7 @@ describe('ComboboxInput', () => {
     const Prefix: NonNullable<InputProps['renderPrefix']> = ({
       value,
       className,
-    }) => (
-      <span data-testid="prefix" className={className}>
-        {value}
-      </span>
-    );
+    }) => <span className={className}>{value}</span>;
     render(
       <ComboboxInput
         {...defaultProps}
@@ -65,7 +61,7 @@ describe('ComboboxInput', () => {
         renderPrefix={Prefix}
       />,
     );
-    expect(screen.getByTestId('prefix')).toHaveTextContent('CA');
+    expect(screen.getByText('CA')).toBeVisible();
   });
 
   it('should render an invalid input', () => {

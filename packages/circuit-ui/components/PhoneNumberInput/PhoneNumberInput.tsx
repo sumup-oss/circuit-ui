@@ -211,7 +211,6 @@ const DefaultPrefix: ComponentType<{
       countryCode={value as FlagProps['countryCode']}
       alt=""
       className={className}
-      width={16}
     />
   ) : null;
 
@@ -330,7 +329,8 @@ export const PhoneNumberInput = forwardRef<
         !countryCodeRef.current ||
         !subscriberNumberRef.current ||
         countryCodeRef.current.disabled ||
-        countryCodeRef.current.readOnly
+        readOnly ||
+        countryCode.readonly
       ) {
         return;
       }
@@ -482,9 +482,6 @@ export const PhoneNumberInput = forwardRef<
                   ? { value: selectedCountry ?? '' }
                   : { defaultValue: selectedCountry ?? '' })}
                 disabled={disabled}
-                readOnly={readOnly}
-                tabIndex={-1}
-                aria-hidden="true"
               />
               <AutocompleteInput
                 hideLabel
@@ -492,11 +489,7 @@ export const PhoneNumberInput = forwardRef<
                 required={required}
                 disabled={disabled}
                 size={size}
-                className={clsx(
-                  classes['country-code'],
-                  classes['country-code-autocomplete'],
-                )}
-                comboboxClassName={classes['country-code-combobox']}
+                className={classes['country-code']}
                 inputClassName={classes['country-code-autocomplete-input']}
                 label={countryCode.label}
                 invalid={invalid || countryCode.invalid}
