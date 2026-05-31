@@ -49,6 +49,23 @@ describe('NotificationInline', () => {
     });
   });
 
+  it.each([
+    'info',
+    'success',
+    'warning',
+    'danger',
+    'promo',
+  ] as const)('should render the %s variant', async (variant) => {
+    renderNotificationInline({
+      ...baseProps,
+      variant,
+    });
+
+    await waitFor(() => {
+      expect(screen.getByText(baseProps.body)).toBeVisible();
+    });
+  });
+
   it('should render notification inline with headline', () => {
     renderNotificationInline({
       ...baseProps,

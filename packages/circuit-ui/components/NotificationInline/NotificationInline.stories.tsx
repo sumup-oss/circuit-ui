@@ -29,7 +29,7 @@ export default {
   tags: ['status:stable'],
 };
 
-const variants = ['info', 'success', 'warning', 'danger'] as const;
+const variants = ['info', 'success', 'warning', 'danger', 'promo'] as const;
 
 export const Base = (args: NotificationInlineProps) => (
   <NotificationInline {...args} isVisible={true} />

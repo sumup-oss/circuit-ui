@@ -57,6 +57,14 @@
   color: var(--cui-fg-danger);
 }
 
+.promo {
+  background-color: var(--cui-bg-promo);
+}
+
+.promo .icon {
+  color: var(--cui-fg-promo);
+}
+
 .content {
   display: flex;
   flex-direction: column;

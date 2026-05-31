@@ -18,10 +18,16 @@ import {
   Confirm,
   Info,
   Notify,
+  Sparkles,
   type IconComponentType,
 } from '@sumup-oss/icons';
 
-export type NotificationVariant = 'info' | 'success' | 'warning' | 'danger';
+export type NotificationVariant =
+  | 'info'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'promo';
 
 export const NOTIFICATION_ICONS: Record<
   NotificationVariant,
@@ -31,6 +37,7 @@ export const NOTIFICATION_ICONS: Record<
   success: Confirm,
   warning: Notify,
   danger: Alert,
+  promo: Sparkles,
 };
 
 export const TRANSITION_DURATION = 200;
