@@ -19,10 +19,11 @@ export const light = create({
 
   // UI
   appBg: '#fbfbf9', // var(--cui-bg-normal)
-  appContentBg: '#fbfbf9', // var(--cui-bg-normal)
-  appPreviewBg: '#fbfbf9', // var(--cui-bg-normal)
   appBorderColor: '#d0cdc3', // var(--cui-border-normal)
   appBorderRadius: 0,
+  appContentBg: '#fbfbf9', // var(--cui-bg-normal)
+  appHoverBg: '#f1f0e9', // var(--cui-bg-normal-hovered)
+  appPreviewBg: '#fbfbf9', // var(--cui-bg-normal)
 
   // Text colors
   textColor: '#1e1c1c', // var(--cui-fg-normal)
@@ -53,10 +54,11 @@ export const dark = create({
 
   // UI
   appBg: '#000000', // var(--cui-bg-normal)
-  appContentBg: '#000000', // var(--cui-bg-normal)
-  appPreviewBg: '#000000', // var(--cui-bg-normal)
   appBorderColor: '#444138', // var(--cui-border-normal)
   appBorderRadius: 8, // var(--cui-border-radius-byte)
+  appContentBg: '#000000', // var(--cui-bg-normal)
+  appHoverBg: '#0f0e0c', // var(--cui-bg-normal-hovered)
+  appPreviewBg: '#000000', // var(--cui-bg-normal)
 
   // Text colors
   textColor: '#f0eee7', // var(--cui-fg-normal)
@@ -87,10 +89,11 @@ export const consumer = create({
 
   // UI
   appBg: '#250723', // var(--cui-bg-normal)
-  appContentBg: '#250723', // var(--cui-bg-normal)
-  appPreviewBg: '#250723', // var(--cui-bg-normal)
   appBorderColor: '#684466', // var(--cui-border-normal)
   appBorderRadius: 8, // var(--cui-border-radius-byte)
+  appContentBg: '#250723', // var(--cui-bg-normal)
+  appHoverBg: '#34152f', // var(--cui-bg-normal-hovered)
+  appPreviewBg: '#250723', // var(--cui-bg-normal)
 
   // Text colors
   textColor: '#fbfbf9', // var(--cui-fg-normal)
