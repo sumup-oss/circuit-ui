@@ -26,6 +26,7 @@ import { noDeprecatedProps } from './no-deprecated-props/index.js';
 import { noRenamedProps } from './no-renamed-props/index.js';
 import { preferCustomProperties } from './prefer-custom-properties/index.js';
 import { noRenamedComponents } from './no-renamed-components/index.js';
+import { noDeprecatedSpacingsMixin } from './no-deprecated-spacing-mixin/index.js';
 
 export const rules = {
   'component-lifecycle-imports': componentLifecycleImports,
@@ -36,6 +37,7 @@ export const rules = {
   'no-renamed-props': noRenamedProps,
   'prefer-custom-properties': preferCustomProperties,
   'no-renamed-components': noRenamedComponents,
+  'no-deprecated-spacing-mixin': noDeprecatedSpacingsMixin,
 };
 
 const namespace = 'circuit-ui';
