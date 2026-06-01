@@ -1,19 +1,4 @@
-/**
- * Copyright 2023, SumUp Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-import { ESLintUtils, TSESTree } from '@typescript-eslint/utils';
+import { ESLintUtils, TSESLint, TSESTree } from '@typescript-eslint/utils';
 import type { RuleDocs } from '../utils/meta.js';
 import { transformAttributeValueToChildren } from '../utils/jsx.js';
 
@@ -96,6 +81,49 @@ function parseSpacingObject(raw: string): SpacingObject {
   return result;
 }
 
+function getImportInsertionIndex(program: TSESTree.Program): number {
+  for (let index = program.body.length - 1; index >= 0; index -= 1) {
+    const node = program.body[index];
+
+    if (
+      node.type === TSESTree.AST_NODE_TYPES.ExpressionStatement &&
+      typeof node.directive === 'string'
+    ) {
+      return node.range[1];
+    }
+  }
+
+  return 0;
+}
+
+function removeLegacySpacingImport(
+  fixer: TSESLint.RuleFixer,
+  importDeclaration: TSESTree.ImportDeclaration,
+  spacingSpecifier: TSESTree.ImportSpecifier,
+  sourceCode: Readonly<TSESLint.SourceCode>,
+): TSESLint.RuleFix {
+  const importSpecifiers = importDeclaration.specifiers.filter(
+    (specifier): specifier is TSESTree.ImportSpecifier =>
+      specifier.type === TSESTree.AST_NODE_TYPES.ImportSpecifier,
+  );
+
+  if (importSpecifiers.length === 1) {
+    return fixer.remove(importDeclaration);
+  }
+
+  const tokenAfter = sourceCode.getTokenAfter(spacingSpecifier);
+  const tokenBefore = sourceCode.getTokenBefore(spacingSpecifier);
+
+  if (tokenAfter?.value === ',') {
+    return fixer.removeRange([spacingSpecifier.range[0], tokenAfter.range[1]]);
+  }
+
+  if (tokenBefore?.value === ',') {
+    return fixer.removeRange([tokenBefore.range[0], spacingSpecifier.range[1]]);
+  }
+
+  return fixer.remove(spacingSpecifier);
+}
 export const noDeprecatedSpacingsMixin = createRule({
   name: 'no-deprecated-spacing-mixin',
   meta: {
@@ -116,21 +144,27 @@ export const noDeprecatedSpacingsMixin = createRule({
 
   create(context) {
     const spacingImportNames = new Set<string>();
+    let legacySpacingImportDeclaration: TSESTree.ImportDeclaration | null =
+      null;
+    let legacySpacingSpecifier: TSESTree.ImportSpecifier | null = null;
     return {
       ImportDeclaration(node) {
         if (node.source.value !== '@sumup-oss/circuit-ui/legacy') {
           return;
         }
 
-        node.specifiers.forEach((specifier) => {
-          if (
+        const spacingSpecifier = node.specifiers.find(
+          (specifier): specifier is TSESTree.ImportSpecifier =>
             specifier.type === TSESTree.AST_NODE_TYPES.ImportSpecifier &&
             specifier.imported.type === TSESTree.AST_NODE_TYPES.Identifier &&
-            specifier.imported.name === 'spacing'
-          ) {
-            spacingImportNames.add(specifier.local.name);
-          }
-        });
+            specifier.imported.name === 'spacing',
+        );
+        if (!spacingSpecifier) {
+          return;
+        }
+        spacingImportNames.add(spacingSpecifier.local.name);
+        legacySpacingSpecifier = spacingSpecifier;
+        legacySpacingImportDeclaration = node;
       },
       'JSXElement[openingElement.name.type="JSXIdentifier"]': (
         node: TSESTree.JSXElement,
@@ -235,10 +269,13 @@ export const noDeprecatedSpacingsMixin = createRule({
             data: { mixin: 'spacing', name: attributeName },
             fix(fixer) {
               const fixes = [];
+              const importInsertionIndex = getImportInsertionIndex(
+                context.sourceCode.ast,
+              );
               fixes.push(
-                fixer.insertTextBeforeRange(
-                  [0, 0],
-                  "import { utilClasses } from '@sumup-oss/circuit-ui';",
+                fixer.insertTextAfterRange(
+                  [importInsertionIndex, importInsertionIndex],
+                  `${importInsertionIndex === 0 ? '' : '\n'}import { utilClasses } from '@sumup-oss/circuit-ui';`,
                 ),
               );
               if (existingClassNameAttribute) {
@@ -252,6 +289,16 @@ export const noDeprecatedSpacingsMixin = createRule({
               } else {
                 fixes.push(
                   fixer.replaceText(attribute, `className={${className}}`),
+                );
+              }
+              if (legacySpacingImportDeclaration && legacySpacingSpecifier) {
+                fixes.push(
+                  removeLegacySpacingImport(
+                    fixer,
+                    legacySpacingImportDeclaration,
+                    legacySpacingSpecifier,
+                    context.sourceCode,
+                  ),
                 );
               }
               return fixes;

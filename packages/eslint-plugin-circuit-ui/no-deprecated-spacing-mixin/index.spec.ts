@@ -58,7 +58,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingsMixin, {
         }
       `,
       output: `import { utilClasses } from '@sumup-oss/circuit-ui';
-        import { spacing } from '@sumup-oss/circuit-ui/legacy';
+        
         function Component() {
           return <div className={utilClasses.marginGiga} />
         }
@@ -68,13 +68,13 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingsMixin, {
     {
       name: 'matched a div element with the deprecated all spacing mixin with a name alias',
       code: `
-        import { spacing as legacySpacing } from '@sumup-oss/circuit-ui/legacy';
+        import {spacing as legacySpacing, foo } from '@sumup-oss/circuit-ui/legacy';
         function Component() {
           return <div css={legacySpacing('giga')} />
         }
       `,
       output: `import { utilClasses } from '@sumup-oss/circuit-ui';
-        import { spacing as legacySpacing } from '@sumup-oss/circuit-ui/legacy';
+        import { foo } from '@sumup-oss/circuit-ui/legacy';
         function Component() {
           return <div className={utilClasses.marginGiga} />
         }
@@ -90,7 +90,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingsMixin, {
         }
       `,
       output: `import { utilClasses } from '@sumup-oss/circuit-ui';
-        import { spacing } from '@sumup-oss/circuit-ui/legacy';
+        
         function Component() {
           return <Body className={utilClasses.marginGiga}/>
         }
@@ -106,7 +106,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingsMixin, {
           }
         `,
       output: `import { utilClasses } from '@sumup-oss/circuit-ui';
-          import { spacing } from '@sumup-oss/circuit-ui/legacy';
+          
           function Component() {
             return <Body className={utilClasses.marginLeftMega} />
           }
@@ -122,7 +122,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingsMixin, {
           }
         `,
       output: `import { utilClasses } from '@sumup-oss/circuit-ui';
-          import { spacing } from '@sumup-oss/circuit-ui/legacy';
+          
           function Component() {
             return <Anchor className={clsx(utilClasses.marginLeftMega, utilClasses.marginTopKilo)} />
           }
@@ -138,7 +138,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingsMixin, {
          }
        `,
       output: `import { utilClasses } from '@sumup-oss/circuit-ui';
-         import { spacing } from '@sumup-oss/circuit-ui/legacy';
+         
          function Component() {
            return <Body className={clsx("title", utilClasses.marginLeftMega, utilClasses.marginTopKilo)}  />
          }
@@ -155,7 +155,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingsMixin, {
          }
        `,
       output: `import { utilClasses } from '@sumup-oss/circuit-ui';
-         import { spacing } from '@sumup-oss/circuit-ui/legacy';
+         
          import styles from './styles.module.css';
          function Component() {
            return <Body className={clsx(styles.title, utilClasses.marginLeftMega, utilClasses.marginTopKilo)}  />
