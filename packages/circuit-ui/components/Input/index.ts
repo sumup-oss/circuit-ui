@@ -15,4 +15,8 @@
 
 export { Input, classes } from './Input.js';
 
-export type { InputProps, BaseInputProps, InputElement } from './Input.js';
+export type {
+  InputProps,
+  BaseInputProps,
+  InputElement,
+} from './Input.js';
