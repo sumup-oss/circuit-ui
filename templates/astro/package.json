@@ -15,14 +15,14 @@
     "lint:css": "stylelint '**/*.css' --quiet"
   },
   "dependencies": {
-    "@astrojs/react": "^5.0.4",
+    "@astrojs/react": "^5.0.5",
     "@sumup-oss/circuit-ui": "^11.0.0",
     "@sumup-oss/design-tokens": "^10.0.0",
     "@sumup-oss/icons": "^6.0.0",
     "@sumup-oss/intl": "^3.3.0",
     "@types/react": "^19.2.15",
     "@types/react-dom": "^19.2.3",
-    "astro": "^6.1.10",
+    "astro": "^6.3.7",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "temporal-polyfill": "^0.3.2"
