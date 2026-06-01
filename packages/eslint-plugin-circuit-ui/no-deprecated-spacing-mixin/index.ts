@@ -7,6 +7,12 @@ const createRule = ESLintUtils.RuleCreator<RuleDocs>(
     `https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/${name}`,
 );
 
+type SpacingUsage = {
+  node: TSESTree.JSXAttribute;
+  existingClassNameAttribute?: TSESTree.JSXAttribute;
+  className: string;
+};
+
 type Direction = 'top' | 'right' | 'bottom' | 'left';
 type Size =
   | 'bit'
@@ -20,11 +26,6 @@ type Size =
   | 'zetta';
 
 type SpacingObject = Partial<Record<Direction, Size>>;
-
-/*
-const allDirectionsRegex =
-  /^spacing\('(?:bit|byte|kilo|mega|giga|tera|peta|exa|zetta)'\)$/;
-*/
 
 function testAllDirectionRegex(spacingAlias: string, text: string): boolean {
   const allDirectionsRegex = new RegExp(
@@ -144,6 +145,7 @@ export const noDeprecatedSpacingsMixin = createRule({
 
   create(context) {
     const spacingImportNames = new Set<string>();
+    const usages: SpacingUsage[] = [];
     let legacySpacingImportDeclaration: TSESTree.ImportDeclaration | null =
       null;
     let legacySpacingSpecifier: TSESTree.ImportSpecifier | null = null;
@@ -169,33 +171,6 @@ export const noDeprecatedSpacingsMixin = createRule({
       'JSXElement[openingElement.name.type="JSXIdentifier"]': (
         node: TSESTree.JSXElement,
       ) => {
-        // check for imports of the mixin
-
-        const existingClassNameAttribute = node.openingElement.attributes.find(
-          (attr): attr is TSESTree.JSXAttribute =>
-            attr.type === TSESTree.AST_NODE_TYPES.JSXAttribute &&
-            attr.name.type === TSESTree.AST_NODE_TYPES.JSXIdentifier &&
-            attr.name.name === 'className',
-        );
-        let className: string;
-
-        if (existingClassNameAttribute?.value) {
-          if (
-            existingClassNameAttribute.value.type ===
-            TSESTree.AST_NODE_TYPES.JSXExpressionContainer
-          ) {
-            className = context.sourceCode.getText(
-              existingClassNameAttribute?.value?.expression,
-            );
-          }
-          if (
-            existingClassNameAttribute.value?.type ===
-            TSESTree.AST_NODE_TYPES.Literal
-          ) {
-            className = existingClassNameAttribute.value.raw;
-          }
-        }
-
         node.openingElement.attributes.forEach((attribute) => {
           if (
             attribute.type !== TSESTree.AST_NODE_TYPES.JSXAttribute ||
@@ -217,18 +192,18 @@ export const noDeprecatedSpacingsMixin = createRule({
             return;
           }
 
+          const existingClassNameAttribute =
+            node.openingElement.attributes.find(
+              (attr): attr is TSESTree.JSXAttribute =>
+                attr.type === TSESTree.AST_NODE_TYPES.JSXAttribute &&
+                attr.name.type === TSESTree.AST_NODE_TYPES.JSXIdentifier &&
+                attr.name.name === 'className',
+            );
+
           if (
             attribute.value.type ===
             TSESTree.AST_NODE_TYPES.JSXExpressionContainer
           ) {
-            const expression = transformAttributeValueToChildren(
-              context.sourceCode,
-              attribute,
-            );
-            if (!expression) {
-              return;
-            }
-
             if (
               !isSpacingMixinCall(
                 attribute.value.expression,
@@ -238,72 +213,130 @@ export const noDeprecatedSpacingsMixin = createRule({
               return;
             }
 
+            const expression = transformAttributeValueToChildren(
+              context.sourceCode,
+              attribute,
+            );
+            if (!expression) {
+              return;
+            }
+
             const raw = expression.slice(1, -1);
+
+            let classNameToAssign: string = '';
+
+            if (existingClassNameAttribute?.value) {
+              if (
+                existingClassNameAttribute.value.type ===
+                TSESTree.AST_NODE_TYPES.JSXExpressionContainer
+              ) {
+                classNameToAssign = context.sourceCode.getText(
+                  existingClassNameAttribute?.value?.expression,
+                );
+              }
+              if (
+                existingClassNameAttribute.value?.type ===
+                TSESTree.AST_NODE_TYPES.Literal
+              ) {
+                classNameToAssign = existingClassNameAttribute.value.raw;
+              }
+            }
 
             if (directionObjectRegex.test(raw)) {
               const values = Object.entries(parseSpacingObject(raw));
 
               if (values.length === 1) {
                 const [property, value] = values[0];
-                className = `utilClasses.${mapValueToUtilClassName(value, property)}`;
+                classNameToAssign = `utilClasses.${mapValueToUtilClassName(value, property)}`;
+                usages.push({
+                  node: attribute,
+                  existingClassNameAttribute,
+                  className: classNameToAssign,
+                });
               } else {
-                className = values.reduce((reducerClassName, [key, value]) => {
-                  const directionClass = `utilClasses.${mapValueToUtilClassName(value, key)}`;
+                classNameToAssign = values.reduce(
+                  (reducerClassName, [key, value]) => {
+                    const directionClass = `utilClasses.${mapValueToUtilClassName(value, key)}`;
 
-                  return reducerClassName
-                    ? `${reducerClassName}, ${directionClass}`
-                    : directionClass;
-                }, className);
-                className = `clsx(${className})`;
+                    return reducerClassName
+                      ? `${reducerClassName}, ${directionClass}`
+                      : directionClass;
+                  },
+                  classNameToAssign,
+                );
+                classNameToAssign = `clsx(${classNameToAssign})`;
+                usages.push({
+                  node: attribute,
+                  existingClassNameAttribute,
+                  className: classNameToAssign,
+                });
               }
             }
             if (testAllDirectionRegex(Array.from(spacingImportNames)[0], raw)) {
               const value: string = raw.split("'")[1].split("'")[0];
-              className = `utilClasses.${mapValueToUtilClassName(value)}`;
+              classNameToAssign = `utilClasses.${mapValueToUtilClassName(value)}`;
+              usages.push({
+                node: attribute,
+                existingClassNameAttribute,
+                className: classNameToAssign,
+              });
             }
           }
+        });
+      },
+      'Program:exit'(program: TSESTree.Program) {
+        if (usages.length === 0) {
+          return;
+        }
 
-          context.report({
-            node: attribute,
-            messageId: 'deprecated',
-            data: { mixin: 'spacing', name: attributeName },
-            fix(fixer) {
-              const fixes = [];
-              const importInsertionIndex = getImportInsertionIndex(
-                context.sourceCode.ast,
-              );
-              fixes.push(
-                fixer.insertTextAfterRange(
-                  [importInsertionIndex, importInsertionIndex],
-                  `${importInsertionIndex === 0 ? '' : '\n'}import { utilClasses } from '@sumup-oss/circuit-ui';`,
-                ),
-              );
-              if (existingClassNameAttribute) {
+        context.report({
+          node: usages[0].node,
+          messageId: 'deprecated',
+          fix(fixer) {
+            const fixes: TSESLint.RuleFix[] = [];
+
+            const importInsertionIndex = getImportInsertionIndex(program);
+
+            fixes.push(
+              fixer.insertTextAfterRange(
+                [importInsertionIndex, importInsertionIndex],
+                `${importInsertionIndex === 0 ? '' : '\n'}import { utilClasses } from '@sumup-oss/circuit-ui';`,
+              ),
+            );
+
+            usages.forEach((usage) => {
+              if (usage.existingClassNameAttribute) {
                 fixes.push(
                   fixer.replaceText(
-                    existingClassNameAttribute,
-                    `className={${className}}`,
+                    usage.existingClassNameAttribute,
+                    `className={${usage.className}}`,
                   ),
                 );
-                fixes.push(fixer.replaceText(attribute, ''));
+
+                fixes.push(fixer.remove(usage.node));
               } else {
                 fixes.push(
-                  fixer.replaceText(attribute, `className={${className}}`),
-                );
-              }
-              if (legacySpacingImportDeclaration && legacySpacingSpecifier) {
-                fixes.push(
-                  removeLegacySpacingImport(
-                    fixer,
-                    legacySpacingImportDeclaration,
-                    legacySpacingSpecifier,
-                    context.sourceCode,
+                  fixer.replaceText(
+                    usage.node,
+                    `className={${usage.className}}`,
                   ),
                 );
               }
-              return fixes;
-            },
-          });
+            });
+
+            if (legacySpacingImportDeclaration && legacySpacingSpecifier) {
+              fixes.push(
+                removeLegacySpacingImport(
+                  fixer,
+                  legacySpacingImportDeclaration,
+                  legacySpacingSpecifier,
+                  context.sourceCode,
+                ),
+              );
+            }
+
+            return fixes;
+          },
         });
       },
     };

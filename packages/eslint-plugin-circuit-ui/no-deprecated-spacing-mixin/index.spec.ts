@@ -114,6 +114,24 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingsMixin, {
       errors: [{ messageId: 'deprecated' }],
     },
     {
+      name: 'matched component with the deprecated spacing mixin with a specific direction and an existing className',
+      code: `
+          import { spacing } from '@sumup-oss/circuit-ui/legacy';
+          import styles from './styles.module.css';
+          function Component() {
+            return <Body className={styles.title} css={spacing({left: 'mega'})} />
+          }
+        `,
+      output: `import { utilClasses } from '@sumup-oss/circuit-ui';
+          
+          import styles from './styles.module.css';
+          function Component() {
+            return <Body className={utilClasses.marginLeftMega}  />
+          }
+        `,
+      errors: [{ messageId: 'deprecated' }],
+    },
+    {
       name: 'matched component with the deprecated spacing mixin and multiple directions',
       code: `
           import { spacing } from '@sumup-oss/circuit-ui/legacy';
@@ -160,6 +178,26 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingsMixin, {
          function Component() {
            return <Body className={clsx(styles.title, utilClasses.marginLeftMega, utilClasses.marginTopKilo)}  />
          }
+       `,
+      errors: [{ messageId: 'deprecated' }],
+    },
+    {
+      name: 'matched several components with the deprecated spacing mixins',
+      code: `
+         import { spacing } from '@sumup-oss/circuit-ui/legacy';
+         
+         const NotifyIcon = <StyledNotify size="16" css={spacing({ right: 'bit' })} />;
+         const AlertIcon = <StyledAlert size="16" css={spacing({ right: 'bit' })} />;
+         const ConfirmIcon = <StyledConfirm size="16" css={spacing({ right: 'bit' })} />;
+         const TimeIcon = <StyledTime css={spacing({ right: 'bit' })} />;
+       `,
+      output: `import { utilClasses } from '@sumup-oss/circuit-ui';
+         
+         
+         const NotifyIcon = <StyledNotify size="16" className={utilClasses.marginRightBit} />;
+         const AlertIcon = <StyledAlert size="16" className={utilClasses.marginRightBit} />;
+         const ConfirmIcon = <StyledConfirm size="16" className={utilClasses.marginRightBit} />;
+         const TimeIcon = <StyledTime className={utilClasses.marginRightBit} />;
        `,
       errors: [{ messageId: 'deprecated' }],
     },
