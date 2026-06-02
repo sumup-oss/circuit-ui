@@ -33,8 +33,14 @@ function testAllDirectionRegex(spacingAlias: string, text: string): boolean {
   );
   return allDirectionsRegex.test(text);
 }
-const directionObjectRegex =
-  /^spacing\(\{\s*(?:(?:top|right|bottom|left):\s*'(?:bit|byte|kilo|mega|giga|tera|peta|exa|zetta)'\s*,\s*){0,3}(?:top|right|bottom|left):\s*'(?:bit|byte|kilo|mega|giga|tera|peta|exa|zetta)'\s*\}\)$/;
+
+function testDirectionObjectRegex(spacingAlias: string, text: string): boolean {
+  const directionObjectRegex = new RegExp(
+    `^${spacingAlias}\\(\\{\\s*(?:(?:top|right|bottom|left):\\s*'(?:bit|byte|kilo|mega|giga|tera|peta|exa|zetta)'\\s*,\\s*){0,3}(?:top|right|bottom|left):\\s*'(?:bit|byte|kilo|mega|giga|tera|peta|exa|zetta)'\\s*\\}\\)$`,
+  );
+
+  return directionObjectRegex.test(text);
+}
 
 const spacingPairRegex =
   /(?<property>top|right|bottom|left):\s*'(?<value>bit|byte|kilo|mega|giga|tera|peta|exa|zetta)'/g;
@@ -62,10 +68,6 @@ function mapValueToUtilClassName(size: string, direction?: string): string {
 }
 
 function parseSpacingObject(raw: string): SpacingObject {
-  if (!directionObjectRegex.test(raw)) {
-    return {};
-  }
-
   const result: SpacingObject = {};
 
   for (const match of raw.matchAll(spacingPairRegex)) {
@@ -242,12 +244,16 @@ export const noDeprecatedSpacingsMixin = createRule({
               }
             }
 
-            if (directionObjectRegex.test(raw)) {
+            if (
+              testDirectionObjectRegex(Array.from(spacingImportNames)[0], raw)
+            ) {
               const values = Object.entries(parseSpacingObject(raw));
 
               if (values.length === 1) {
                 const [property, value] = values[0];
-                classNameToAssign = `utilClasses.${mapValueToUtilClassName(value, property)}`;
+                classNameToAssign = classNameToAssign
+                  ? `clsx(${classNameToAssign}, utilClasses.${mapValueToUtilClassName(value, property)})`
+                  : `utilClasses.${mapValueToUtilClassName(value, property)}`;
                 usages.push({
                   node: attribute,
                   existingClassNameAttribute,

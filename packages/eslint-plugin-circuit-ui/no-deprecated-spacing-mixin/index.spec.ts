@@ -126,7 +126,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingsMixin, {
           
           import styles from './styles.module.css';
           function Component() {
-            return <Body className={utilClasses.marginLeftMega}  />
+            return <Body className={clsx(styles.title, utilClasses.marginLeftMega)}  />
           }
         `,
       errors: [{ messageId: 'deprecated' }],
