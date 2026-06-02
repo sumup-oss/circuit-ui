@@ -135,7 +135,7 @@ export const noDeprecatedSpacingMixin = createRule({
     fixable: 'code',
     docs: {
       description:
-        'Deprecated spacing mixins should be replaced with equivaled utility class names from utilClasses',
+        'The deprecated spacing mixin should be replaced with the matching utility class names from utilClasses',
       recommended: 'warn',
     },
     messages: {
