@@ -221,7 +221,7 @@ export const noDeprecatedSpacingsMixin = createRule({
               return;
             }
 
-            const raw = expression.slice(1, -1);
+            const raw = expression.slice(1, -1).replace(/\s+/g, ' ').trim();
 
             let classNameToAssign: string = '';
 

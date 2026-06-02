@@ -148,6 +148,25 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingsMixin, {
       errors: [{ messageId: 'deprecated' }],
     },
     {
+      name: 'matched component with the deprecated spacing mixin and multiple directions split on multiple lines',
+      code: `
+          import { spacing } from '@sumup-oss/circuit-ui/legacy';
+          function Component() {
+            return <Anchor css={spacing({left: 'mega',
+             top: 'kilo', 
+             bottom: 'bit',
+             right: 'exa'})} />
+          }
+        `,
+      output: `import { utilClasses } from '@sumup-oss/circuit-ui';
+          
+          function Component() {
+            return <Anchor className={clsx(utilClasses.marginLeftMega, utilClasses.marginTopKilo, utilClasses.marginBottomBit, utilClasses.marginRightExa)} />
+          }
+        `,
+      errors: [{ messageId: 'deprecated' }],
+    },
+    {
       name: 'matched component with the deprecated combined spacing mixins and a another className (literal)',
       code: `
          import { spacing } from '@sumup-oss/circuit-ui/legacy';
@@ -187,17 +206,17 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingsMixin, {
          import { spacing } from '@sumup-oss/circuit-ui/legacy';
          
          const NotifyIcon = <StyledNotify size="16" css={spacing({ right: 'bit' })} />;
-         const AlertIcon = <StyledAlert size="16" css={spacing({ right: 'bit' })} />;
-         const ConfirmIcon = <StyledConfirm size="16" css={spacing({ right: 'bit' })} />;
-         const TimeIcon = <StyledTime css={spacing({ right: 'bit' })} />;
+         const AlertIcon = <StyledAlert size="16" css={spacing({ left: 'zetta' })} />;
+         const ConfirmIcon = <StyledConfirm size="16" css={spacing({ bottom: 'exa' })} />;
+         const TimeIcon = <StyledTime css={spacing({ top: 'peta' })} />;
        `,
       output: `import { utilClasses } from '@sumup-oss/circuit-ui';
          
          
          const NotifyIcon = <StyledNotify size="16" className={utilClasses.marginRightBit} />;
-         const AlertIcon = <StyledAlert size="16" className={utilClasses.marginRightBit} />;
-         const ConfirmIcon = <StyledConfirm size="16" className={utilClasses.marginRightBit} />;
-         const TimeIcon = <StyledTime className={utilClasses.marginRightBit} />;
+         const AlertIcon = <StyledAlert size="16" className={utilClasses.marginLeftZetta} />;
+         const ConfirmIcon = <StyledConfirm size="16" className={utilClasses.marginBottomExa} />;
+         const TimeIcon = <StyledTime className={utilClasses.marginTopPeta} />;
        `,
       errors: [{ messageId: 'deprecated' }],
     },
