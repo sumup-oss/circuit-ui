@@ -22,7 +22,7 @@ import { utilClasses } from '../../styles/utility.js';
 
 import classes from './Status.module.css';
 
-export type StatusVariant = 'pill' | 'line' | 'badge' | 'dot';
+type StatusVariant = 'pill' | 'line' | 'badge' | 'dot';
 export type StatusColor =
   | 'confirm'
   | 'neutral'
