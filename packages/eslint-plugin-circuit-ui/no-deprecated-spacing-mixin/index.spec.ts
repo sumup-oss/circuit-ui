@@ -15,7 +15,7 @@ const ruleTester = new RuleTester({
 ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingMixin, {
   valid: [
     {
-      name: 'matched component without the deprecated css attribute',
+      name: 'a component without the deprecated css attribute',
       code: `
         function Component() {
           return <Body />
@@ -23,7 +23,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingMixin, {
       `,
     },
     {
-      name: 'matched div without the deprecated css attribute',
+      name: 'a div without the deprecated css attribute',
       code: `
         function Component() {
           return <div />
@@ -31,7 +31,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingMixin, {
       `,
     },
     {
-      name: 'matched component without the deprecated css mixin',
+      name: 'a component with a css prop and without the deprecated spacing mixin',
       code: `
         function Component() {
           return <Anchor css={{ marginTop: 'var(--cui-spacings-giga)'}} />
@@ -39,7 +39,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingMixin, {
       `,
     },
     {
-      name: 'matched the spacing mixin name but from different packages',
+      name: 'a component with the same mixin name but from different packages',
       code: `
         import { spacing } from 'some-package';
         function Component() {
@@ -48,7 +48,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingMixin, {
       `,
     },
     {
-      name: 'do nothing if value is 0',
+      name: 'spacing mixin with a value of 0 (do nothing)',
       code: `
           import { spacing } from '@sumup-oss/circuit-ui/legacy';
           function Component() {
@@ -57,7 +57,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingMixin, {
         `,
     },
     {
-      name: 'do nothing if values is auto',
+      name: 'spacing mixin with a value of auto (do nothing)',
       code: `
           import { spacing } from '@sumup-oss/circuit-ui/legacy';
           function Component() {
@@ -68,7 +68,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingMixin, {
   ],
   invalid: [
     {
-      name: 'matched a div element with the deprecated all spacing mixin',
+      name: 'a div with the deprecated spacing mixin for all directions',
       code: `
         import { spacing } from '@sumup-oss/circuit-ui/legacy';
         function Component() {
@@ -84,7 +84,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingMixin, {
       errors: [{ messageId: 'deprecated' }],
     },
     {
-      name: 'matched a div element with the deprecated all spacing mixin with a name alias',
+      name: 'a div with the deprecated spacing mixin for all directions and with a name alias',
       code: `
         import {spacing as legacySpacing, foo } from '@sumup-oss/circuit-ui/legacy';
         function Component() {
@@ -100,7 +100,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingMixin, {
       errors: [{ messageId: 'deprecated' }],
     },
     {
-      name: 'matched component with the deprecated all spacing mixin',
+      name: 'a component with the deprecated spacing mixin for all directions',
       code: `
         import { spacing } from '@sumup-oss/circuit-ui/legacy';
         function Component() {
@@ -116,7 +116,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingMixin, {
       errors: [{ messageId: 'deprecated' }],
     },
     {
-      name: 'matched component with the deprecated spacing mixin with a specific direction',
+      name: 'a component with the deprecated spacing mixin with specific directions',
       code: `
           import { spacing } from '@sumup-oss/circuit-ui/legacy';
           function Component() {
@@ -132,7 +132,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingMixin, {
       errors: [{ messageId: 'deprecated' }],
     },
     {
-      name: 'matched component with the deprecated spacing mixin with a specific direction and an existing className',
+      name: 'a component with the deprecated spacing mixin with a specific direction and an existing className',
       code: `
           import { spacing } from '@sumup-oss/circuit-ui/legacy';
           import styles from './styles.module.css';
@@ -150,23 +150,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingMixin, {
       errors: [{ messageId: 'deprecated' }],
     },
     {
-      name: 'matched component with the deprecated spacing mixin and multiple directions',
-      code: `
-          import { spacing } from '@sumup-oss/circuit-ui/legacy';
-          function Component() {
-            return <Anchor css={spacing({left: 'mega', top: 'kilo'})} />
-          }
-        `,
-      output: `import { utilClasses, clsx } from '@sumup-oss/circuit-ui';
-          
-          function Component() {
-            return <Anchor className={clsx(utilClasses.marginLeftMega, utilClasses.marginTopKilo)} />
-          }
-        `,
-      errors: [{ messageId: 'deprecated' }],
-    },
-    {
-      name: 'does not import clsx if already imported',
+      name: 'should not import clsx if already imported',
       code: `
           import { spacing } from '@sumup-oss/circuit-ui/legacy';
           import { clsx } from '@sumup-oss/circuit-ui';
@@ -186,7 +170,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingMixin, {
       errors: [{ messageId: 'deprecated' }],
     },
     {
-      name: 'matched component with the deprecated spacing mixin and multiple directions split on multiple lines',
+      name: 'a component with the deprecated spacing mixin and multiple directions on multiple lines',
       code: `
           import { spacing } from '@sumup-oss/circuit-ui/legacy';
           function Component() {
@@ -205,7 +189,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingMixin, {
       errors: [{ messageId: 'deprecated' }],
     },
     {
-      name: 'matched component with the deprecated combined spacing mixins and a another className (literal)',
+      name: 'a component with the deprecated multi-direction spacing mixin and a another className (literal)',
       code: `
          import { spacing } from '@sumup-oss/circuit-ui/legacy';
          function Component() {
@@ -221,7 +205,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingMixin, {
       errors: [{ messageId: 'deprecated' }],
     },
     {
-      name: 'matched component with the deprecated combined spacing mixins and a another className (expression)',
+      name: 'a component with the deprecated multi-direction spacing mixin and a another className (expression)',
       code: `
          import { spacing } from '@sumup-oss/circuit-ui/legacy';
          import styles from './styles.module.css';
@@ -239,7 +223,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingMixin, {
       errors: [{ messageId: 'deprecated' }],
     },
     {
-      name: 'matched several components with the deprecated spacing mixins',
+      name: 'several components with the deprecated spacing mixins',
       code: `
          import { spacing } from '@sumup-oss/circuit-ui/legacy';
          
