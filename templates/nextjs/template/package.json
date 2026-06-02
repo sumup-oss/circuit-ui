@@ -15,18 +15,18 @@
     "test:ci": "mkdir -p __reports__ && jest --ci --coverage --runInBand --json --outputFile=__reports__/jest-results.json --reporters default --reporters \"github-actions\""
   },
   "dependencies": {
-    "@next/bundle-analyzer": "^16.2.4",
+    "@next/bundle-analyzer": "^16.2.6",
     "@sumup-oss/circuit-ui": "^11.0.0",
     "@sumup-oss/design-tokens": "^10.0.0",
     "@sumup-oss/icons": "^6.0.0",
     "@sumup-oss/intl": "^3.3.0",
     "next": "^16.2.4",
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
     "temporal-polyfill": "^0.3.2"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^16.2.4",
+    "@next/eslint-plugin-next": "^16.2.6",
     "@sumup-oss/eslint-plugin-circuit-ui": "^7.1.0",
     "@sumup-oss/foundry": "^10.0.0",
     "@sumup-oss/stylelint-plugin-circuit-ui": "^4.1.0",
@@ -35,14 +35,14 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/jest": "^30.0.0",
     "@types/jest-axe": "^3.5.9",
-    "@types/node": "^25.6.0",
-    "@types/react": "^19.2.14",
+    "@types/node": "^25.9.1",
+    "@types/react": "^19.2.15",
     "@types/react-dom": "^19.2.3",
     "eslint-plugin-jest": "^29.15.2",
     "eslint-plugin-testing-library": "^7.16.2",
     "jest": "^30.3.0",
     "jest-axe": "^10.0.0",
-    "jest-environment-jsdom": "^30.3.0",
+    "jest-environment-jsdom": "^30.4.1",
     "typescript": "^6.0.3",
     "typescript-plugin-css-modules": "^5.2.0"
   }

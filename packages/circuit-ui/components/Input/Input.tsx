@@ -48,7 +48,6 @@ export { classes };
  */
 export type InputElement = HTMLInputElement;
 
-export type InputSize = FieldSize;
 export interface BaseInputProps {
   /**
    * A clear and concise description of the input purpose.
@@ -115,7 +114,7 @@ export interface BaseInputProps {
    * Choose from 2 sizes.
    * @default m
    */
-  size?: InputSize;
+  size?: FieldSize;
   /**
    * Disable password manager overlayes on non-credential inputs that might
    * be incorrectly classify as login fields.

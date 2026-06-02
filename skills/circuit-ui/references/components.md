@@ -65,6 +65,7 @@
 | `ProgressBar` | `stable` | `@sumup-oss/circuit-ui` | `./components/ProgressBar/index.js` | [Read MDX reference](components/ProgressBar.mdx) |
 | `SidePanelProvider` | `stable` | `@sumup-oss/circuit-ui` | `./components/SidePanel/index.js` | [Read MDX reference](components/SidePanelProvider.mdx) |
 | `Spinner` | `under-review` | `@sumup-oss/circuit-ui` | `./components/Spinner/index.js` | [Read MDX reference](components/Spinner.mdx) |
+| `Status` | `stable` | `@sumup-oss/circuit-ui` | `./components/Status/index.js` | [Read MDX reference](components/Status.mdx) |
 | `Step` | `under-review` | `@sumup-oss/circuit-ui` | `./components/Step/index.js` | [Read MDX reference](components/Step.mdx) |
 | `Table` | `stable` | `@sumup-oss/circuit-ui` | `./components/Table/index.js` | [Read MDX reference](components/Table.mdx) |
 | `Tag` | `stable` | `@sumup-oss/circuit-ui` | `./components/Tag/index.js` | [Read MDX reference](components/Tag.mdx) |
