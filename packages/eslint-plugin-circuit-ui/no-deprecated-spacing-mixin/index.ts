@@ -127,7 +127,7 @@ function removeLegacySpacingImport(
 
   return fixer.remove(spacingSpecifier);
 }
-export const noDeprecatedSpacingsMixin = createRule({
+export const noDeprecatedSpacingMixin = createRule({
   name: 'no-deprecated-spacing-mixin',
   meta: {
     type: 'suggestion',
@@ -148,11 +148,24 @@ export const noDeprecatedSpacingsMixin = createRule({
   create(context) {
     const spacingImportNames = new Set<string>();
     const usages: SpacingUsage[] = [];
+    let hasClsxImport = false;
     let legacySpacingImportDeclaration: TSESTree.ImportDeclaration | null =
       null;
     let legacySpacingSpecifier: TSESTree.ImportSpecifier | null = null;
     return {
       ImportDeclaration(node) {
+        const clsxSpecifier = node.specifiers.find(
+          (specifier): specifier is TSESTree.ImportSpecifier =>
+            node.source.value === '@sumup-oss/circuit-ui' &&
+            specifier.type === TSESTree.AST_NODE_TYPES.ImportSpecifier &&
+            specifier.imported.type === TSESTree.AST_NODE_TYPES.Identifier &&
+            specifier.imported.name === 'clsx',
+        );
+
+        if (clsxSpecifier) {
+          hasClsxImport = true;
+        }
+
         if (node.source.value !== '@sumup-oss/circuit-ui/legacy') {
           return;
         }
@@ -303,10 +316,16 @@ export const noDeprecatedSpacingsMixin = createRule({
 
             const importInsertionIndex = getImportInsertionIndex(program);
 
+            const usesClsx = usages.some((usage) =>
+              usage.className.includes('clsx'),
+            );
+
+            const imports =
+              !hasClsxImport && usesClsx ? 'utilClasses, clsx' : 'utilClasses';
             fixes.push(
               fixer.insertTextAfterRange(
                 [importInsertionIndex, importInsertionIndex],
-                `${importInsertionIndex === 0 ? '' : '\n'}import { utilClasses } from '@sumup-oss/circuit-ui';`,
+                `${importInsertionIndex === 0 ? '' : '\n'}import { ${imports} } from '@sumup-oss/circuit-ui';`,
               ),
             );
 

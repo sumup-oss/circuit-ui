@@ -1,6 +1,6 @@
 import { RuleTester } from '@typescript-eslint/rule-tester';
 
-import { noDeprecatedSpacingsMixin } from './index.js';
+import { noDeprecatedSpacingMixin } from './index.js';
 
 const ruleTester = new RuleTester({
   languageOptions: {
@@ -12,7 +12,7 @@ const ruleTester = new RuleTester({
   },
 });
 
-ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingsMixin, {
+ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingMixin, {
   valid: [
     {
       name: 'matched component without the deprecated css attribute',
@@ -46,6 +46,24 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingsMixin, {
           return <Anchor css={spacing('foo')} />
         }
       `,
+    },
+    {
+      name: 'do nothing if value is 0',
+      code: `
+          import { spacing } from '@sumup-oss/circuit-ui/legacy';
+          function Component() {
+            return <Anchor css={spacing(0)} />
+          }
+        `,
+    },
+    {
+      name: 'do nothing if values is auto',
+      code: `
+          import { spacing } from '@sumup-oss/circuit-ui/legacy';
+          function Component() {
+            return <Anchor css={spacing({left: 'auto', top: 'auto'})} />
+          }
+        `,
     },
   ],
   invalid: [
@@ -122,7 +140,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingsMixin, {
             return <Body className={styles.title} css={spacing({left: 'mega'})} />
           }
         `,
-      output: `import { utilClasses } from '@sumup-oss/circuit-ui';
+      output: `import { utilClasses, clsx } from '@sumup-oss/circuit-ui';
           
           import styles from './styles.module.css';
           function Component() {
@@ -139,7 +157,27 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingsMixin, {
             return <Anchor css={spacing({left: 'mega', top: 'kilo'})} />
           }
         `,
+      output: `import { utilClasses, clsx } from '@sumup-oss/circuit-ui';
+          
+          function Component() {
+            return <Anchor className={clsx(utilClasses.marginLeftMega, utilClasses.marginTopKilo)} />
+          }
+        `,
+      errors: [{ messageId: 'deprecated' }],
+    },
+    {
+      name: 'does not import clsx if already imported',
+      code: `
+          import { spacing } from '@sumup-oss/circuit-ui/legacy';
+          import { clsx } from '@sumup-oss/circuit-ui';
+          
+          function Component() {
+            return <Anchor css={spacing({left: 'mega', top: 'kilo'})} />
+          }
+        `,
       output: `import { utilClasses } from '@sumup-oss/circuit-ui';
+          
+          import { clsx } from '@sumup-oss/circuit-ui';
           
           function Component() {
             return <Anchor className={clsx(utilClasses.marginLeftMega, utilClasses.marginTopKilo)} />
@@ -153,12 +191,12 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingsMixin, {
           import { spacing } from '@sumup-oss/circuit-ui/legacy';
           function Component() {
             return <Anchor css={spacing({left: 'mega',
-             top: 'kilo', 
+             top: 'kilo',
              bottom: 'bit',
              right: 'exa'})} />
           }
         `,
-      output: `import { utilClasses } from '@sumup-oss/circuit-ui';
+      output: `import { utilClasses, clsx } from '@sumup-oss/circuit-ui';
           
           function Component() {
             return <Anchor className={clsx(utilClasses.marginLeftMega, utilClasses.marginTopKilo, utilClasses.marginBottomBit, utilClasses.marginRightExa)} />
@@ -174,7 +212,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingsMixin, {
            return <Body className="title" css={spacing({left: 'mega', top: 'kilo'})} />
          }
        `,
-      output: `import { utilClasses } from '@sumup-oss/circuit-ui';
+      output: `import { utilClasses, clsx } from '@sumup-oss/circuit-ui';
          
          function Component() {
            return <Body className={clsx("title", utilClasses.marginLeftMega, utilClasses.marginTopKilo)}  />
@@ -191,7 +229,7 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingsMixin, {
            return <Body className={styles.title} css={spacing({left: 'mega', top: 'kilo'})} />
          }
        `,
-      output: `import { utilClasses } from '@sumup-oss/circuit-ui';
+      output: `import { utilClasses, clsx } from '@sumup-oss/circuit-ui';
          
          import styles from './styles.module.css';
          function Component() {
