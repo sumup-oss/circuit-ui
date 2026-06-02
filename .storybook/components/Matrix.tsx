@@ -18,11 +18,29 @@ import type { ComponentType } from 'react';
 import classes from './Matrix.module.css';
 import { Compact } from '../../packages/circuit-ui/components/Compact/Compact.js';
 
+type AxisValue<Props> = string | { value: string; args?: Partial<Props> };
+
+function resolveAxisValue<Props>(entry: AxisValue<Props>): {
+  value: string;
+  args: Partial<Props>;
+} {
+  if (typeof entry === 'string') {
+    return { value: entry, args: {} };
+  }
+  return { value: entry.value, args: entry.args ?? {} };
+}
+
 interface MatrixProps<Props> {
   component: ComponentType<Props>;
   args: Props;
-  horizontal: { prop: keyof Props; values: string[] | readonly string[] };
-  vertical: { prop: keyof Props; values: string[] | readonly string[] };
+  horizontal: {
+    prop: keyof Props;
+    values: AxisValue<Props>[] | readonly AxisValue<Props>[];
+  };
+  vertical: {
+    prop: keyof Props;
+    values: AxisValue<Props>[] | readonly AxisValue<Props>[];
+  };
 }
 
 export function Matrix<Props>({
@@ -31,35 +49,42 @@ export function Matrix<Props>({
   horizontal,
   vertical,
 }: MatrixProps<Props>) {
+  const horizontalEntries = horizontal.values.map(resolveAxisValue<Props>);
+  const verticalEntries = vertical.values.map(resolveAxisValue<Props>);
+
   return (
     <table>
       <thead>
         <tr>
           <th />
-          {horizontal.values.map((horizontalValue) => (
-            <th key={horizontalValue} scope="col" className={classes.cell}>
-              <Compact color="subtle">{horizontalValue}</Compact>
+          {horizontalEntries.map(({ value }) => (
+            <th key={value} scope="col" className={classes.cell}>
+              <Compact color="subtle">{value}</Compact>
             </th>
           ))}
         </tr>
       </thead>
       <tbody>
-        {vertical.values.map((verticalValue) => (
+        {verticalEntries.map(({ value: verticalValue, args: verticalArgs }) => (
           <tr key={verticalValue}>
             <th scope="row" className={classes.cell}>
               <Compact color="subtle">{verticalValue}</Compact>
             </th>
-            {horizontal.values.map((horizontalValue) => (
-              <td key={horizontalValue} className={classes.cell}>
-                <Component
-                  {...args}
-                  {...{
-                    [horizontal.prop]: horizontalValue,
-                    [vertical.prop]: verticalValue,
-                  }}
-                />
-              </td>
-            ))}
+            {horizontalEntries.map(
+              ({ value: horizontalValue, args: horizontalArgs }) => (
+                <td key={horizontalValue} className={classes.cell}>
+                  <Component
+                    {...args}
+                    {...horizontalArgs}
+                    {...verticalArgs}
+                    {...{
+                      [horizontal.prop]: horizontalValue,
+                      [vertical.prop]: verticalValue,
+                    }}
+                  />
+                </td>
+              ),
+            )}
           </tr>
         ))}
       </tbody>

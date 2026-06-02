@@ -103,7 +103,8 @@ describe('SecondaryLinks', () => {
 
   it('should show a badge when the badge prop is passed', () => {
     renderSecondaryLinks(render, baseProps);
-    expect(screen.getByText('New')).toBeVisible();
+    const [badge] = screen.getAllByText('New');
+    expect(badge).toBeVisible();
   });
 
   it('should show a tier indicator when the tier prop is passed', () => {
