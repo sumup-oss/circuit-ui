@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2026, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,10 +13,6 @@
  * limitations under the License.
  */
 
-export { Input, classes } from './Input.js';
+export { Status } from './Status.js';
 
-export type {
-  InputProps,
-  BaseInputProps,
-  InputElement,
-} from './Input.js';
+export type { StatusProps } from './Status.js';

@@ -1,0 +1,55 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './Status.stories';
+
+<Meta of={Stories} />
+
+# Status
+
+<Status variant="stable" />
+
+A non-actionable component used to communicate the condition of an element.
+
+<Story of={Stories.Base} />
+<Props />
+
+## When to use
+
+The status component should only be used for static, informational display. If clicking should trigger an action, use the [Tag](Components/Tag/Docs) or [Toggletip](Components/Toggletip/Docs) component instead.
+
+Use the Status component to convey the state of an entity at a glance. Common use cases:
+
+- Order or payment status (e.g. "Paid", "Pending", "Failed")
+- Feature or component lifecycle state (e.g. "New", "Deprecated")
+- Item counts related to an element (e.g. unread notifications)
+- Presence or activity indicators in space-constrained environments
+
+## How to use
+
+- Keep the label short and concise. one to two words maximum.
+- Never truncate the label within a status component.
+- Position the status in close proximity to the element it refers to.
+- Use no more than one status variant per element.
+
+## Component variations
+
+### Variants
+
+- The **pill** variant should be used to communicate the condition of an element where a prominent label is appropriate
+- The **badge** variant should be used to indicate a count of items related to an element.
+- The **dot** variant should be used to communicate a status in a space-constrained context or where the count is unknown
+- The **line** variant should be used for a more subtle appearance in high-density environments
+
+<Story of={Stories.Variants} />
+
+### Colors
+
+The Status component comes in a number of colors to help convery different semantic meanings.
+
+- Use the `confirm` color to communicate a successful state.
+- Use the `neutral` color to communicate an intermediate or pending state.
+- Use the `notify` color to communicate a warning tendency.
+- Use the `alert` color to communicate a critical or error state.
+- Use the `promo` color to raise awareness or attract interest (e.g. new feature, discount).
+- Use the `special` color when no other semantic applies, or when the other colors are already in use.
+
+<Story of={Stories.Colors} />
