@@ -1,5 +1,13 @@
 # @sumup-oss/circuit-ui
 
+## 11.5.0
+
+### Minor Changes
+
+- [#3637](https://github.com/sumup-oss/circuit-ui/pull/3637) [`e3a6f6c`](https://github.com/sumup-oss/circuit-ui/commit/e3a6f6cd67c5a49ef58102ce12018db948b80830) Thanks [@missating](https://github.com/missating)! - Deprecated the `Badge` component, use the new `Status` component instead.
+
+- [#3637](https://github.com/sumup-oss/circuit-ui/pull/3637) [`e3a6f6c`](https://github.com/sumup-oss/circuit-ui/commit/e3a6f6cd67c5a49ef58102ce12018db948b80830) Thanks [@missating](https://github.com/missating)! - Added a new `Status` component with `pill`, `badge`, `line`, and `dot` variant.
+
 ## 11.4.1
 
 ### Patch Changes
