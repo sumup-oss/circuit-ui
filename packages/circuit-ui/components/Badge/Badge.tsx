@@ -16,16 +16,20 @@
 import { forwardRef, type HTMLAttributes } from 'react';
 
 import type { AsPropType } from '../../types/prop-types.js';
-import { clsx } from '../../styles/clsx.js';
+import { deprecate } from '../../util/logger.js';
+import { Status, type StatusColor } from '../Status/Status.js';
 
-import classes from './Badge.module.css';
-
+/**
+ * @deprecated Use the Status component instead.
+ */
 export interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
   /**
+   * @deprecated Use the Status component's `color` prop instead.
    * Choose the style variant. Default: 'neutral'.
    */
   variant?: 'neutral' | 'success' | 'warning' | 'danger' | 'promo';
   /**
+   * @deprecated Use `<Status variant="badge">` instead.
    * Use the circular badge to indicate a count of items related to an element.
    */
   circle?: boolean;
@@ -35,45 +39,38 @@ export interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
   as?: AsPropType;
 }
 
-const isDynamicWidth = (children: BadgeProps['children']) => {
-  if (typeof children === 'string') {
-    return children.length > 2;
-  }
-  return false;
+const colorMap: Record<NonNullable<BadgeProps['variant']>, StatusColor> = {
+  success: 'confirm',
+  warning: 'notify',
+  danger: 'alert',
+  neutral: 'neutral',
+  promo: 'promo',
 };
 
 /**
+ * @deprecated Use the Status component instead.
+ *
  * A badge communicates the status of an element or the count of items
  * related to an element.
  */
 export const Badge = forwardRef<HTMLDivElement, BadgeProps>(
-  (
-    {
-      as: Element = 'div',
-      className,
-      style = {},
-      variant = 'neutral',
-      circle,
-      children,
-      ...props
-    },
-    ref,
-  ) => {
-    const width = isDynamicWidth(children) ? 'auto' : '24px';
+  ({ variant = 'neutral', circle, color: _color, children, ...props }, ref) => {
+    if (process.env.NODE_ENV !== 'production') {
+      deprecate(
+        'Badge',
+        'The Badge component is deprecated. Use the Status component with variant="pill" or variant="badge" instead.',
+      );
+    }
+
     return (
-      <Element
-        {...props}
+      <Status
         ref={ref}
-        className={clsx(
-          classes.base,
-          classes[variant],
-          circle && classes.circle,
-          className,
-        )}
-        style={{ ...style, '--badge-width': width }}
+        variant={circle ? 'badge' : 'pill'}
+        color={colorMap[variant]}
+        {...props}
       >
-        {children}
-      </Element>
+        {children as string | number | undefined}
+      </Status>
     );
   },
 );

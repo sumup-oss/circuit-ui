@@ -17,9 +17,9 @@ import type { ReactNode } from 'react';
 import { Unstyled } from '@storybook/blocks';
 import LinkTo from '@storybook/addon-links/react';
 import {
-  Badge,
-  type BadgeProps,
-} from '../../packages/circuit-ui/components/Badge/Badge.js';
+  Status as StatusPill,
+  type StatusProps as StatusPillProps,
+} from '../../packages/circuit-ui/components/Status/Status.js';
 import { Body } from '../../packages/circuit-ui/components/Body/Body.js';
 
 import classes from './Statuses.module.css';
@@ -39,14 +39,14 @@ interface StatusProps {
 
 const variantMap: Record<
   Variant,
-  { variant: BadgeProps['variant']; label: string }
+  Pick<StatusPillProps, 'color' | 'children'>
 > = {
-  'stable': { variant: 'success', label: 'Stable' },
-  'experimental': { variant: 'promo', label: 'Experimental' },
-  'under-review': { variant: 'warning', label: 'Under Review' },
-  'legacy': { variant: 'warning', label: 'Legacy' },
-  'deprecated': { variant: 'danger', label: 'Deprecated' },
-  'internal': { variant: 'neutral', label: 'Internal' },
+  stable: { color: 'confirm', children: 'Stable' },
+  experimental: { color: 'promo', children: 'Experimental' },
+  'under-review': { color: 'notify', children: 'Under Review' },
+  legacy: { color: 'notify', children: 'Legacy' },
+  deprecated: { color: 'alert', children: 'Deprecated' },
+  internal: { color: 'neutral', children: 'Internal' },
 };
 
 export function Status({
@@ -54,15 +54,13 @@ export function Status({
   children,
   ...props
 }: StatusProps) {
-  const { variant, label } = variantMap[status];
-
   const kind = 'Introduction/Component-Lifecycle';
   const name = 'Docs';
 
   return (
     <Unstyled {...props}>
       <LinkTo {...props} kind={kind} name={name}>
-        <Badge variant={variant}>{label}</Badge>
+        <StatusPill {...variantMap[status]} />
       </LinkTo>
       {children && (
         <Body size="s" as="span" className={classes.description} color="subtle">
