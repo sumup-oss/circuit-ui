@@ -65,7 +65,6 @@ export const Decorations = (args: BodyProps) => (
 const colors = [
   'normal',
   'subtle',
-  'placeholder',
   'on-strong',
   'on-strong-subtle',
   'accent',
