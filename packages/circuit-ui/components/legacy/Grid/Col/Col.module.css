@@ -1,10 +1,10 @@
 .base {
-  box-sizing: border-box;
-  float: left;
-  padding-left: var(--cui-spacings-bit);
-  padding-right: var(--cui-spacings-bit);
-  width: calc(100% * var(--span) / 12);
   left: calc(100% * var(--skip, 0) / 12);
+  float: left;
+  box-sizing: border-box;
+  width: calc(100% * var(--span) / 12);
+  padding-right: var(--cui-spacings-bit);
+  padding-left: var(--cui-spacings-bit);
 }
 
 .skip {
@@ -14,43 +14,43 @@
 /* Until Kilo */
 @media (max-width: 479px) {
   .base {
+    left: calc(100% * var(--skip-until-kilo, var(--skip)) / 12);
     width: calc(100% * var(--span-until-kilo, var(--span)) / 12);
-  left: calc( 100% * var(--skip-until-kilo, var(--skip)) / 12);
   }
 }
 
 /* Kilo */
 @media (min-width: 480px) {
   .base {
-    padding-left: var(--cui-spacings-byte);
-    padding-right: var(--cui-spacings-byte);
+    left: calc(100% * var(--skip-kilo, var(--skip)) / 12);
     width: calc(100% * var(--span-kilo, var(--span)) / 12);
-  left: calc( 100% * var(--skip-kilo, var(--skip)) / 12);
+    padding-right: var(--cui-spacings-byte);
+    padding-left: var(--cui-spacings-byte);
   }
 }
 
 /* Giga */
 @media (min-width: 768px) {
   .base {
-    padding-left: var(--cui-spacings-kilo);
-    padding-right: var(--cui-spacings-kilo);
+    left: calc(100% * var(--skip-giga, var(--skip)) / 12);
     width: calc(100% * var(--span-giga, var(--span)) / 12);
-  left: calc( 100% * var(--skip-giga, var(--skip)) / 12);
+    padding-right: var(--cui-spacings-kilo);
+    padding-left: var(--cui-spacings-kilo);
   }
 }
 
 /* Mega */
 @media (min-width: 960px) {
   .base {
+    left: calc(100% * var(--skip-mega, var(--skip)) / 12);
     width: calc(100% * var(--span-mega, var(--span)) / 12);
-    left: calc( 100% * var(--skip-mega, var(--skip)) / 12);
   }
 }
 
 /* Tera */
 @media (min-width: 1280px) {
   .base {
+    left: calc(100% * var(--skip-tera, var(--skip)) / 12);
     width: calc(100% * var(--span-tera, var(--span)) / 12);
-    left: calc( 100% * var(--skip-tera, var(--skip)) / 12);
   }
 }

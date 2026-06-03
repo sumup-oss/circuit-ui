@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import {forwardRef, type HTMLAttributes} from 'react';
-import {clsx} from '../../../../styles/clsx.js';
+import { forwardRef, type HTMLAttributes } from 'react';
+import { clsx } from '../../../../styles/clsx.js';
 import styles from './Grid.module.css';
 
 /**
@@ -22,7 +22,8 @@ import styles from './Grid.module.css';
  *
  * A basic 12-column grid component.
  */
-export const Grid = forwardRef<HTMLDivElement , HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props}, ref) =>
-    <div ref={ref} className={clsx(styles.base, className)} {...props}></div>
-)
+export const Grid = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={clsx(styles.base, className)} {...props} />
+  ),
+);

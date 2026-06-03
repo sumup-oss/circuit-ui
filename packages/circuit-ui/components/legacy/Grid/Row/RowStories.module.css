@@ -1,10 +1,10 @@
 .col {
-  text-align: center;
+  height: 48px;
+  padding: 12px;
   font-size: 16px;
   font-weight: bold;
   line-height: 24px;
-  height: 48px;
-  padding: 12px;
+  text-align: center;
 }
 
 .col:nth-of-type(n) {
@@ -16,6 +16,6 @@
 }
 
 .row {
-  border: 1px solid magenta;
   margin-bottom: 8px;
+  border: 1px solid magenta;
 }
