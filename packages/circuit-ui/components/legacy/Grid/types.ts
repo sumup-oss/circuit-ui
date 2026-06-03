@@ -16,7 +16,6 @@
 import type { Theme } from '@sumup-oss/design-tokens';
 
 export type GridKey = keyof Theme['grid'];
-export type GridValue = Theme['grid'][GridKey];
 
 export type BreakpointOptions<Option> = {
   [key in GridKey]?: Option;
