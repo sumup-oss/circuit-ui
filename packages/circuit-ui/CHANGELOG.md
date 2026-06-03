@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 11.6.0
+
+### Minor Changes
+
+- [#3666](https://github.com/sumup-oss/circuit-ui/pull/3666) [`5a9ec33`](https://github.com/sumup-oss/circuit-ui/commit/5a9ec33c23c695e2071bf4de9e66184734fdd7bc) Thanks [@sirineJ](https://github.com/sirineJ)! - Added spacing utility classes to `utilClasses` based on the spacing scale. They are available for all spacing sizes (`bit`, `byte`, `kilo`, `mega`, `giga`, `tera`, `peta`, `exa`, and `zetta`) and can be applied either uniformly (`.marginSize`) or directionally (`.marginDirectionSize`).
+
 ## 11.5.0
 
 ### Minor Changes
