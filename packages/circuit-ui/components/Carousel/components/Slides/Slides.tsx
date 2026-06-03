@@ -19,7 +19,9 @@ import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './Slides.module.css';
 
-type SlidesProps = HTMLAttributes<HTMLDivElement> & { ref?: Ref<HTMLDivElement> };
+type SlidesProps = HTMLAttributes<HTMLDivElement> & {
+  ref?: Ref<HTMLDivElement>;
+};
 
 export function Slides({ className, ref, ...props }: SlidesProps) {
   return <div className={clsx(classes.base, className)} ref={ref} {...props} />;

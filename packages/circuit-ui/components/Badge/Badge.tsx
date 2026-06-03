@@ -54,23 +54,29 @@ const colorMap: Record<NonNullable<BadgeProps['variant']>, StatusColor> = {
  * A badge communicates the status of an element or the count of items
  * related to an element.
  */
-export function Badge({ variant = 'neutral', circle, color: _color, children, ref, ...props }: BadgeProps) {
-    if (process.env.NODE_ENV !== 'production') {
-      deprecate(
-        'Badge',
-        'The Badge component is deprecated. Use the Status component with variant="pill" or variant="badge" instead.',
-      );
-    }
-
-    return (
-      <Status
-        ref={ref}
-        variant={circle ? 'badge' : 'pill'}
-        color={colorMap[variant]}
-        {...props}
-      >
-        {children as string | number | undefined}
-      </Status>
+export function Badge({
+  variant = 'neutral',
+  circle,
+  color: _color,
+  children,
+  ref,
+  ...props
+}: BadgeProps) {
+  if (process.env.NODE_ENV !== 'production') {
+    deprecate(
+      'Badge',
+      'The Badge component is deprecated. Use the Status component with variant="pill" or variant="badge" instead.',
     );
-}
+  }
 
+  return (
+    <Status
+      ref={ref}
+      variant={circle ? 'badge' : 'pill'}
+      color={colorMap[variant]}
+      {...props}
+    >
+      {children as string | number | undefined}
+    </Status>
+  );
+}

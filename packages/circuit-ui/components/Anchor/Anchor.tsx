@@ -73,63 +73,40 @@ export function Anchor({
   ref,
   ...props
 }: AnchorProps): ReturnType {
-    const components = useComponents();
-    const Link = components.Link as AsPropType;
-    const isExternalLink =
-      props.rel === 'external' || props.target === '_blank';
+  const components = useComponents();
+  const Link = components.Link as AsPropType;
+  const isExternalLink = props.rel === 'external' || props.target === '_blank';
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      isExternalLink &&
-      !externalLabel
-    ) {
-      throw new AccessibilityError(
-        'Anchor',
-        'An external link is missing an alternative text. Provide an `externalLabel` prop to communicate that the link leads to an external page or opens in a new tab.',
-      );
-    }
-
-    const externalLabelId = useId();
-    const descriptionIds = idx(
-      externalLabel && isExternalLink && externalLabelId,
-      descriptionId,
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    isExternalLink &&
+    !externalLabel
+  ) {
+    throw new AccessibilityError(
+      'Anchor',
+      'An external link is missing an alternative text. Provide an `externalLabel` prop to communicate that the link leads to an external page or opens in a new tab.',
     );
+  }
 
-    if (!props.href && !props.onClick) {
-      return (
-        <Body as="span" {...props} className={className} ref={ref}>
-          {children}
-        </Body>
-      );
-    }
+  const externalLabelId = useId();
+  const descriptionIds = idx(
+    externalLabel && isExternalLink && externalLabelId,
+    descriptionId,
+  );
 
-    if (props.href) {
-      return (
-        <Body
-          as={Link}
-          {...props}
-          aria-describedby={descriptionIds}
-          className={clsx(classes.base, utilClasses.focusVisible, className)}
-          ref={ref}
-        >
-          {children}
-          {isExternalLink && externalLabel && (
-            <span
-              aria-hidden={true}
-              id={externalLabelId}
-              className={utilClasses.hideVisually}
-            >
-              {externalLabel}
-            </span>
-          )}
-        </Body>
-      );
-    }
+  if (!props.href && !props.onClick) {
+    return (
+      <Body as="span" {...props} className={className} ref={ref}>
+        {children}
+      </Body>
+    );
+  }
 
+  if (props.href) {
     return (
       <Body
-        as="button"
+        as={Link}
         {...props}
         aria-describedby={descriptionIds}
         className={clsx(classes.base, utilClasses.focusVisible, className)}
@@ -147,4 +124,26 @@ export function Anchor({
         )}
       </Body>
     );
+  }
+
+  return (
+    <Body
+      as="button"
+      {...props}
+      aria-describedby={descriptionIds}
+      className={clsx(classes.base, utilClasses.focusVisible, className)}
+      ref={ref}
+    >
+      {children}
+      {isExternalLink && externalLabel && (
+        <span
+          aria-hidden={true}
+          id={externalLabelId}
+          className={utilClasses.hideVisually}
+        >
+          {externalLabel}
+        </span>
+      )}
+    </Body>
+  );
 }

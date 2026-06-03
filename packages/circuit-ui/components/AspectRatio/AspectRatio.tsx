@@ -31,34 +31,41 @@ export interface AspectRatioProps extends HTMLAttributes<HTMLDivElement> {
   aspectRatio?: number;
 }
 
-export function AspectRatio({ aspectRatio, className, style = {}, children, ref, ...props }: AspectRatioProps) {
-    if (!children) {
-      return null;
-    }
+export function AspectRatio({
+  aspectRatio,
+  className,
+  style = {},
+  children,
+  ref,
+  ...props
+}: AspectRatioProps) {
+  if (!children) {
+    return null;
+  }
 
-    const child = Children.only(children) as ReactElement<
-      HTMLAttributes<HTMLElement>
-    >;
+  const child = Children.only(children) as ReactElement<
+    HTMLAttributes<HTMLElement>
+  >;
 
-    if (!aspectRatio) {
-      return (
-        <div ref={ref} className={className} {...props}>
-          {child}
-        </div>
-      );
-    }
-
+  if (!aspectRatio) {
     return (
-      <div
-        ref={ref}
-        className={clsx(classes.base, className)}
-        style={{
-          ...style,
-          '--aspect-ratio': `${Math.round((1 / aspectRatio) * 100)}%`,
-        }}
-        {...props}
-      >
-        {cloneElement(child, { className: classes.child })}
+      <div ref={ref} className={className} {...props}>
+        {child}
       </div>
     );
+  }
+
+  return (
+    <div
+      ref={ref}
+      className={clsx(classes.base, className)}
+      style={{
+        ...style,
+        '--aspect-ratio': `${Math.round((1 / aspectRatio) * 100)}%`,
+      }}
+      {...props}
+    >
+      {cloneElement(child, { className: classes.child })}
+    </div>
+  );
 }
