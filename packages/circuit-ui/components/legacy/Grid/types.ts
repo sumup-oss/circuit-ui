@@ -13,10 +13,11 @@
  * limitations under the License.
  */
 
-import type { Theme } from '@sumup-oss/design-tokens';
-
-export type GridKey = keyof Theme['grid'];
-
 export type BreakpointOptions<Option> = {
-  [key in GridKey]?: Option;
+  default?: Option;
+  untilKilo?: Option;
+  kilo?: Option;
+  mega?: Option;
+  giga?: Option;
+  tera?: Option;
 };
