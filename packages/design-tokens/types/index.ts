@@ -13,6 +13,18 @@
  * limitations under the License.
  */
 
+export type Spacings = {
+  bit: string;
+  byte: string;
+  kilo: string;
+  mega: string;
+  giga: string;
+  tera: string;
+  peta: string;
+  exa: string;
+  zetta: string;
+};
+
 export type ColorScheme = 'light' | 'dark';
 
 export type FontFace =
