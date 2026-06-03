@@ -19,10 +19,6 @@ export type { ColProps } from './components/legacy/Grid/index.js';
 export { InlineElements } from './components/legacy/InlineElements/index.js';
 export type { InlineElementsProps } from './components/legacy/InlineElements/index.js';
 
-// Miscellaneous
-export { Tooltip } from './components/legacy/Tooltip/index.js';
-export type { TooltipProps } from './components/legacy/Tooltip/index.js';
-
 export {
   cx,
   spacing,
