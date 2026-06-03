@@ -42,26 +42,22 @@ export interface ColProps extends HTMLAttributes<HTMLDivElement> {
 
 export const Col =forwardRef<HTMLDivElement , ColProps>(
   ( { span, skip, className, ...props }, ref) => {
-  let spanStyles: string[] = [];
-  let skipStyles: string[] = [];
 
+  const customProperties: Record<string, Option> = {}
 
   // Span
   if(span) {
     if(isNumber(span) || isString(span)) {
-      // @ts-ignore
-      spanStyles.push(styles[`span-${span}`])
+      customProperties['--span'] = span
     } else {
-      spanStyles = Object.entries(span).reduce((classes, [breakpoint, spanSize]) => {
+      Object.entries(span).forEach(( [breakpoint, spanSize]) => {
         if(breakpoint === 'default') {
-          // @ts-ignore
-          classes.push(styles[`span-${spanSize}`])
+          customProperties['--span'] = spanSize
         }else {
           const bpToUse = breakpoint === 'untilKilo' ? 'until-kilo' : breakpoint;
-          // @ts-ignore
-          classes.push(styles[`span-${bpToUse}-${spanSize}`])
+          customProperties[`--span-${bpToUse}`] = spanSize
+
         }
-        return classes
       }, [styles.base])
     }
   }
@@ -69,35 +65,23 @@ export const Col =forwardRef<HTMLDivElement , ColProps>(
   // Skip
   if(skip) {
     if(isNumber(skip) || isString(skip)) {
-      // @ts-ignore
-      skipStyles.push(styles[`skip-${Math.abs(skip)}`])
-      if( Number(skip) < 0)
-        skipStyles.push(styles['negative-skip'])
+      customProperties['--skip'] = skip
     } else {
-      skipStyles = Object.entries(skip).reduce((classes, [breakpoint, skipBy]) => {
+      Object.entries(skip).forEach(( [breakpoint, skipBy]) => {
         if(breakpoint === 'default') {
-          // @ts-ignore
-          classes.push(styles[`skip-${Math.abs(skipBy)}`])
-          if( Number(skipBy) < 0){
-            classes.push(styles['negative-skip'])
-          }
-
+          customProperties['--skip'] = skipBy
         }else {
           const bpToUse = breakpoint === 'untilKilo' ? 'until-kilo' : breakpoint;
-          // @ts-ignore
-          classes.push(styles[`skip-${bpToUse}-${Math.abs(skipBy)}`])
-          if( Number(skipBy) < 0){
-            // @ts-ignore
-            classes.push(styles[`negative-skip${bpToUse}`])
-          }
+          customProperties[`--skip-${bpToUse}`] = skipBy
         }
-        return classes
       }, [styles.base])
     }
   }
 
   return (
     // @ts-ignore
-    <div ref={ref} className={clsx(styles.base, ...spanStyles, ...skipStyles, Boolean(skip) && styles.skip, className)} {...props} />
+    <div ref={ref}
+         style={customProperties}
+         className={clsx(styles.base, Boolean(skip) && styles.skip, className)} {...props} />
   )
 });
