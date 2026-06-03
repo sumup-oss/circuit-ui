@@ -1,13 +1,13 @@
 .base {
   position: relative;
-  margin-left: calc(var(--cui-spacings-bit) * -1);
   margin-right: calc(var(--cui-spacings-bit) * -1);
+  margin-left: calc(var(--cui-spacings-bit) * -1);
 }
 
 .base::before,
 .base::after {
-  content: ' ';
   display: table;
+  content: " ";
 }
 
 .base::after {
@@ -16,14 +16,14 @@
 
 @media (min-width: 480px) {
   .base {
-    margin-left: calc(var(--cui-spacings-byte) * -1);
     margin-right: calc(var(--cui-spacings-byte) * -1);
+    margin-left: calc(var(--cui-spacings-byte) * -1);
   }
 }
 
 @media (min-width: 768px) {
   .base {
-    margin-left: calc(var(--cui-spacings-kilo) * -1);
     margin-right: calc(var(--cui-spacings-kilo) * -1);
+    margin-left: calc(var(--cui-spacings-kilo) * -1);
   }
 }

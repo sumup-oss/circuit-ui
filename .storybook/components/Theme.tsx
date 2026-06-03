@@ -43,19 +43,19 @@ type CustomProperties = CustomProperty[];
 type PreviewProps = { name: CustomPropertyName };
 type PreviewComponent = ComponentType<PreviewProps>;
 
-const BREAKPOINTS =  {
-    'untilKilo': '@media (max-width: 479px)',
-    'kilo':	'@media (min-width: 480px)',
-    'kiloToMega':	'@media (min-width: 480px) and (max-width: 767px)',
-    'mega':	'@media (min-width: 768px)',
-    'untilMega':	'@media (max-width: 767px)',
-    'megaToGiga':	'@media (min-width: 768px) and (max-width: 959px)',
-    'giga':	'@media (min-width: 960px)',
-    'untilGiga':	'@media (max-width: 959px)',
-    'gigaToTera':	'@media (min-width: 960px) and (max-width: 1279px)',
-    'tera':	'@media (min-width: 1280px)',
-    'untilTera':	'@media (max-width: 1279px)',
-  }
+const BREAKPOINTS = {
+  'untilKilo': '@media (max-width: 479px)',
+  'kilo': '@media (min-width: 480px)',
+  'kiloToMega': '@media (min-width: 480px) and (max-width: 767px)',
+  'mega': '@media (min-width: 768px)',
+  'untilMega': '@media (max-width: 767px)',
+  'megaToGiga': '@media (min-width: 768px) and (max-width: 959px)',
+  'giga': '@media (min-width: 960px)',
+  'untilGiga': '@media (max-width: 959px)',
+  'gigaToTera': '@media (min-width: 960px) and (max-width: 1279px)',
+  'tera': '@media (min-width: 1280px)',
+  'untilTera': '@media (max-width: 1279px)',
+};
 
 function filterCustomProperties(namespace: string | string[], type?: string) {
   return schema.filter((token) => {
@@ -348,7 +348,9 @@ function TableWrapper() {
         rows={Object.keys(BREAKPOINTS).map((bp) => [
           { children: <code>{`theme.mq.${bp}`}</code> },
           {
-            children: <code>{BREAKPOINTS[bp as keyof typeof BREAKPOINTS]}</code>,
+            children: (
+              <code>{BREAKPOINTS[bp as keyof typeof BREAKPOINTS]}</code>
+            ),
           },
         ])}
       />
@@ -357,7 +359,5 @@ function TableWrapper() {
 }
 
 export function MediaQueriesTable() {
-  return (
-    <TableWrapper />
-  );
+  return <TableWrapper />;
 }

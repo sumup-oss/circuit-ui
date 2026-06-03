@@ -14,7 +14,7 @@
  */
 
 import { Row, Col } from '../index.js';
-import styles from "./RowStories.module.css"
+import styles from './RowStories.module.css';
 
 export default {
   title: 'Layout/Row',
@@ -29,11 +29,16 @@ export default {
   },
 };
 
-
 export const Base = () => (
   <Row className={styles.row}>
-    <Col className={styles.col} span="4">Col 4</Col>
-    <Col className={styles.col} span="4">Col 4</Col>
-    <Col className={styles.col} span="4">Col 4</Col>
+    <Col className={styles.col} span="4">
+      Col 4
+    </Col>
+    <Col className={styles.col} span="4">
+      Col 4
+    </Col>
+    <Col className={styles.col} span="4">
+      Col 4
+    </Col>
   </Row>
 );

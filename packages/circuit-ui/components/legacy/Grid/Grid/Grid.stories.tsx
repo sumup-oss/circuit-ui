@@ -14,7 +14,7 @@
  */
 
 import { Grid, Row, Col } from '../index.js';
-import styles from './GridStories.module.css'
+import styles from './GridStories.module.css';
 
 export default {
   title: 'Layout/Grid',
@@ -29,48 +29,86 @@ export default {
   },
 };
 
-
-
 const rowStyles = {
   border: '1px solid magenta',
-  'margin-bottom': '8px'
-}
+  'margin-bottom': '8px',
+};
 
 export const StaticColumns = () => (
   <Grid>
     <Row style={rowStyles}>
-      <Col className={styles.col} span="2">Col 2</Col>
-      <Col className={styles.col} span="2">Col 2</Col>
-      <Col className={styles.col} span="2">Col 2</Col>
-      <Col className={styles.col} span="2">Col 2</Col>
-      <Col className={styles.col} span="2">Col 2</Col>
-      <Col className={styles.col} span="2">Col 2</Col>
+      <Col className={styles.col} span="2">
+        Col 2
+      </Col>
+      <Col className={styles.col} span="2">
+        Col 2
+      </Col>
+      <Col className={styles.col} span="2">
+        Col 2
+      </Col>
+      <Col className={styles.col} span="2">
+        Col 2
+      </Col>
+      <Col className={styles.col} span="2">
+        Col 2
+      </Col>
+      <Col className={styles.col} span="2">
+        Col 2
+      </Col>
     </Row>
 
     <Row style={rowStyles}>
-      <Col className={styles.col} span="3">Col 3</Col>
-      <Col className={styles.col} span="3">Col 3</Col>
-      <Col className={styles.col} span="3">Col 3</Col>
-      <Col className={styles.col} span="3">Col 3</Col>
+      <Col className={styles.col} span="3">
+        Col 3
+      </Col>
+      <Col className={styles.col} span="3">
+        Col 3
+      </Col>
+      <Col className={styles.col} span="3">
+        Col 3
+      </Col>
+      <Col className={styles.col} span="3">
+        Col 3
+      </Col>
     </Row>
 
     <Row style={rowStyles}>
-      <Col className={styles.col} span="4">Col 4</Col>
-      <Col className={styles.col} span="4">Col 4</Col>
-      <Col className={styles.col} span="4">Col 4</Col>
+      <Col className={styles.col} span="4">
+        Col 4
+      </Col>
+      <Col className={styles.col} span="4">
+        Col 4
+      </Col>
+      <Col className={styles.col} span="4">
+        Col 4
+      </Col>
     </Row>
 
     <Row style={rowStyles}>
-      <Col className={styles.col} span="4">Col 4</Col>
-      <Col className={styles.col} span="2">Col 2</Col>
-      <Col className={styles.col} span="2">Col 2</Col>
-      <Col className={styles.col} span="1">Col 1</Col>
-      <Col className={styles.col} span="3">Col 4</Col>
+      <Col className={styles.col} span="4">
+        Col 4
+      </Col>
+      <Col className={styles.col} span="2">
+        Col 2
+      </Col>
+      <Col className={styles.col} span="2">
+        Col 2
+      </Col>
+      <Col className={styles.col} span="1">
+        Col 1
+      </Col>
+      <Col className={styles.col} span="3">
+        Col 4
+      </Col>
     </Row>
 
     <Row style={rowStyles}>
-      <Col className={styles.col} span="6">Col 6</Col>
-      <Col className={styles.col} span="6">Col 6</Col>
+      <Col className={styles.col} span="6">
+        Col 6
+      </Col>
+      <Col className={styles.col} span="6">
+        Col 6
+      </Col>
     </Row>
   </Grid>
 );
@@ -78,15 +116,27 @@ export const StaticColumns = () => (
 export const ResponsiveColumns = () => (
   <Grid>
     <Row style={rowStyles}>
-      <Col className={styles.col} span={{ default: 12, mega: 3, kilo: 6 }}>resize me</Col>
-      <Col className={styles.col} span={{ default: 12, mega: 3, kilo: 6 }}>resize me</Col>
-      <Col className={styles.col} span={{ default: 12, mega: 3, kilo: 6 }}>resize me</Col>
-      <Col className={styles.col} span={{ default: 12, mega: 3, kilo: 6 }}>resize me</Col>
+      <Col className={styles.col} span={{ default: 12, mega: 3, kilo: 6 }}>
+        resize me
+      </Col>
+      <Col className={styles.col} span={{ default: 12, mega: 3, kilo: 6 }}>
+        resize me
+      </Col>
+      <Col className={styles.col} span={{ default: 12, mega: 3, kilo: 6 }}>
+        resize me
+      </Col>
+      <Col className={styles.col} span={{ default: 12, mega: 3, kilo: 6 }}>
+        resize me
+      </Col>
     </Row>
 
     <Row style={rowStyles}>
-      <Col className={styles.col} span={{ default: 12, mega: 3, kilo: 6 }}>resize me</Col>
-      <Col className={styles.col} span="6">half</Col>
+      <Col className={styles.col} span={{ default: 12, mega: 3, kilo: 6 }}>
+        resize me
+      </Col>
+      <Col className={styles.col} span="6">
+        half
+      </Col>
     </Row>
   </Grid>
 );
@@ -94,8 +144,12 @@ export const ResponsiveColumns = () => (
 export const SkippingColumns = () => (
   <Grid>
     <Row style={rowStyles}>
-      <Col className={styles.col} span="3">Col 3</Col>
-      <Col className={styles.col} span="3">Col 3</Col>
+      <Col className={styles.col} span="3">
+        Col 3
+      </Col>
+      <Col className={styles.col} span="3">
+        Col 3
+      </Col>
       <Col className={styles.col} span="3" skip="3">
         Col 3
       </Col>
@@ -115,9 +169,13 @@ export const SkippingColumns = () => (
 export const ResponsiveSkipping = () => (
   <Grid>
     <Row style={rowStyles}>
-      <Col className={styles.col} span="3">Col 3</Col>
-      <Col className={styles.col} span="3">Col 3</Col>
-      <Col className={styles.col}  span="3" skip={{ default: 0, untilKilo: 3 }}>
+      <Col className={styles.col} span="3">
+        Col 3
+      </Col>
+      <Col className={styles.col} span="3">
+        Col 3
+      </Col>
+      <Col className={styles.col} span="3" skip={{ default: 0, untilKilo: 3 }}>
         skip mobile
       </Col>
     </Row>
