@@ -16,8 +16,6 @@
 // Layout
 export { Grid, Row, Col } from './components/legacy/Grid/index.js';
 export type { ColProps } from './components/legacy/Grid/index.js';
-export { InlineElements } from './components/legacy/InlineElements/index.js';
-export type { InlineElementsProps } from './components/legacy/InlineElements/index.js';
 
 export {
   cx,
