@@ -3,7 +3,8 @@
 exports[`Col > default breakpoint > should render with span based styles 1`] = `
 <div>
   <div
-    class="_base_e5430b _span-6_e5430b"
+    class="_base_e5430b"
+    style="--span: 6;"
   />
 </div>
 `;
@@ -11,7 +12,8 @@ exports[`Col > default breakpoint > should render with span based styles 1`] = `
 exports[`Col > default breakpoint > should render with span/skip based styles 1`] = `
 <div>
   <div
-    class="_base_e5430b _span-6_e5430b _skip-6_e5430b _skip_e5430b"
+    class="_base_e5430b _skip_e5430b"
+    style="--span: 6; --skip: 6;"
   />
 </div>
 `;
@@ -19,7 +21,8 @@ exports[`Col > default breakpoint > should render with span/skip based styles 1`
 exports[`Col > mobile breakpoint > should render with span based styles 1`] = `
 <div>
   <div
-    class="_base_e5430b _base_e5430b _span-6_e5430b _span-kilo-12_e5430b"
+    class="_base_e5430b"
+    style="--span: 6; --span-kilo: 12;"
   />
 </div>
 `;
@@ -27,7 +30,8 @@ exports[`Col > mobile breakpoint > should render with span based styles 1`] = `
 exports[`Col > mobile breakpoint > should render with span/skip based styles 1`] = `
 <div>
   <div
-    class="_base_e5430b _base_e5430b _span-6_e5430b _span-kilo-12_e5430b _base_e5430b _skip-6_e5430b _skip-kilo-3_e5430b _skip_e5430b"
+    class="_base_e5430b _skip_e5430b"
+    style="--span: 6; --span-kilo: 12; --skip: 6; --skip-kilo: 3;"
   />
 </div>
 `;
