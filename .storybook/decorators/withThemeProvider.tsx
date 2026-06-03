@@ -31,7 +31,5 @@ export const withThemeProvider: Decorator = (Story, context) => {
     };
   }, [theme]);
 
-  return (
-    <Story />
-  );
+  return <Story />;
 };

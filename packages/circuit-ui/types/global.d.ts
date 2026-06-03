@@ -15,8 +15,6 @@
 
 /// <reference types="vite/client" />
 
-import type { Theme as CircuitTheme } from '@sumup-oss/design-tokens';
-
 import 'react';
 
 declare module 'react' {

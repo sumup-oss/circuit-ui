@@ -1,10 +1,10 @@
 .col {
-  font-size: 16px;
-  font-weight: bold;
-  line-height: 24px;
   height: 48px;
   padding-top: 12px;
   padding-bottom: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 24px;
 }
 
 .col:nth-of-type(n) {

@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 import { Col, type ColProps } from './Col.js';
 
 const colControl = {
@@ -43,15 +42,19 @@ export default {
 
 const styles = {
   'background-color': 'var(--cui-bg-highlight)',
-'text-align': 'center',
-'font-size': '16px',
-'font-weight': 'bold',
-'line-height': '24px',
-'height': '48px',
-'padding': '12px',
-}
+  'text-align': 'center',
+  'font-size': '16px',
+  'font-weight': 'bold',
+  'line-height': '24px',
+  'height': '48px',
+  'padding': '12px',
+};
 
-export const Base = (args: ColProps) => <Col style={styles} {...args}>Column</Col>;
+export const Base = (args: ColProps) => (
+  <Col style={styles} {...args}>
+    Column
+  </Col>
+);
 
 Base.args = {
   span: 12,

@@ -16,7 +16,5 @@
 import { Canvas } from '@storybook/blocks';
 
 export function Story({ withToolbar = true, ...props }) {
-  return (
-    <Canvas withToolbar={withToolbar} {...props} />
-  );
+  return <Canvas withToolbar={withToolbar} {...props} />;
 }
