@@ -1,0 +1,16 @@
+.col {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 24px;
+  height: 48px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.col:nth-of-type(n) {
+  background-color: var(--cui-bg-highlight);
+}
+
+.col:nth-of-type(2n) {
+  background-color: var(--cui-bg-subtle);
+}
