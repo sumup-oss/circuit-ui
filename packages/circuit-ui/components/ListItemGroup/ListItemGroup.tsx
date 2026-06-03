@@ -15,12 +15,7 @@
 
 'use client';
 
-import {
-  forwardRef,
-  useState,
-  type HTMLAttributes,
-  type ReactNode,
-} from 'react';
+import { useState, type HTMLAttributes, type ReactNode, type Ref } from 'react';
 
 import {
   AccessibilityError,
@@ -65,96 +60,91 @@ interface BaseProps {
   details?: ReactNode;
 }
 
-export type ListItemGroupProps = BaseProps & HTMLAttributes<HTMLDivElement>;
+export type ListItemGroupProps = BaseProps &
+  HTMLAttributes<HTMLDivElement> & {
+    ref?: Ref<HTMLDivElement>;
+  };
 
 /**
  * The ListItemGroup component enables the user to render a named list of ListItem components.
  */
-export const ListItemGroup = forwardRef<HTMLDivElement, ListItemGroupProps>(
-  (
-    {
-      variant = 'inset',
-      items,
-      label,
-      hideLabel,
-      details,
-      className,
-      ...props
-    },
-    ref,
-  ) => {
-    const [focusedItemKey, setFocusedItemKey] = useState<
-      ItemProps['key'] | null
-    >(null);
+export function ListItemGroup({
+  variant = 'inset',
+  items,
+  label,
+  hideLabel,
+  details,
+  className,
+  ...props
+}: ListItemGroupProps) {
+  const [focusedItemKey, setFocusedItemKey] = useState<ItemProps['key'] | null>(
+    null,
+  );
 
-    const isPlain = variant === 'plain';
-    const isInteractive = items.some((item) => !!item.href || !!item.onClick);
+  const isPlain = variant === 'plain';
+  const isInteractive = items.some((item) => !!item.href || !!item.onClick);
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !isSufficientlyLabelled(label, props)
-    ) {
-      throw new AccessibilityError(
-        'ListItemGroup',
-        'The `label` prop, `aria-label` or `aria-labelledby` is missing. This is an accessibility requirement. Pass `hideLabel` if you intend to hide the label visually.',
-      );
-    }
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !isSufficientlyLabelled(label, props)
+  ) {
+    throw new AccessibilityError(
+      'ListItemGroup',
+      'The `label` prop, `aria-label` or `aria-labelledby` is missing. This is an accessibility requirement. Pass `hideLabel` if you intend to hide the label visually.',
+    );
+  }
 
-    return (
-      <div
-        className={clsx(classes.base, isPlain && classes.plain, className)}
-        {...props}
-        ref={ref}
-      >
-        <div className={classes.header}>
-          {label && (
-            <div
-              className={clsx(
-                classes.label,
-                hideLabel && utilClasses.hideVisually,
-              )}
-            >
-              {isString(label) ? <Body size="s">{label}</Body> : label}
-            </div>
-          )}
-          {details && (
-            <div className={classes.details}>
-              {isString(details) ? <Body size="s">{details}</Body> : details}
-            </div>
-          )}
-        </div>
-        <ul className={classes.items}>
-          {items.map(({ key, ...item }) => (
-            <li
-              className={clsx(
-                classes.item,
-                isInteractive && classes.interactive,
-                focusedItemKey === key && classes.focused,
-                item.selected && classes.selected,
-              )}
-              key={key}
-            >
-              <ListItem
-                {...item}
-                className={classes.child}
-                onFocus={(event) => {
-                  try {
-                    if (event.currentTarget.matches(':focus-visible')) {
-                      setFocusedItemKey(key);
-                    }
-                  } catch (_error) {
+  return (
+    <div
+      className={clsx(classes.base, isPlain && classes.plain, className)}
+      {...props}
+    >
+      <div className={classes.header}>
+        {label && (
+          <div
+            className={clsx(
+              classes.label,
+              hideLabel && utilClasses.hideVisually,
+            )}
+          >
+            {isString(label) ? <Body size="s">{label}</Body> : label}
+          </div>
+        )}
+        {details && (
+          <div className={classes.details}>
+            {isString(details) ? <Body size="s">{details}</Body> : details}
+          </div>
+        )}
+      </div>
+      <ul className={classes.items}>
+        {items.map(({ key, ...item }) => (
+          <li
+            className={clsx(
+              classes.item,
+              isInteractive && classes.interactive,
+              focusedItemKey === key && classes.focused,
+              item.selected && classes.selected,
+            )}
+            key={key}
+          >
+            <ListItem
+              {...item}
+              className={classes.child}
+              onFocus={(event) => {
+                try {
+                  if (event.currentTarget.matches(':focus-visible')) {
                     setFocusedItemKey(key);
                   }
-                }}
-                onBlur={() => setFocusedItemKey(null)}
-              />
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  },
-);
-
-ListItemGroup.displayName = 'ListItemGroup';
+                } catch (_error) {
+                  setFocusedItemKey(key);
+                }
+              }}
+              onBlur={() => setFocusedItemKey(null)}
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}

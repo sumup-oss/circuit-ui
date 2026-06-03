@@ -15,7 +15,7 @@
 
 'use client';
 
-import { forwardRef, useCallback, useState } from 'react';
+import { useCallback, useState, type Ref } from 'react';
 
 import {
   AccessibilityError,
@@ -35,93 +35,88 @@ import classes from './ComparisonTable.module.css';
 
 export interface ComparisonTableProps
   extends Omit<PlanTableProps, 'activePlans' | 'isCollapsed'>,
-    Pick<PlanPickerProps, 'selectFirstPlanLabel' | 'selectSecondPlanLabel'> {}
+    Pick<PlanPickerProps, 'selectFirstPlanLabel' | 'selectSecondPlanLabel'> {
+  ref?: Ref<HTMLTableElement>;
+}
 
-export const ComparisonTable = forwardRef<
-  HTMLTableElement,
-  ComparisonTableProps
->(
-  (
-    {
-      caption,
-      sections,
-      headers,
-      showAllFeaturesLabel,
-      selectFirstPlanLabel,
-      selectSecondPlanLabel,
-      className,
-      ...props
-    },
-    ref,
-  ) => {
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test'
-    ) {
-      if (!isSufficientlyLabelled(showAllFeaturesLabel)) {
-        throw new AccessibilityError(
-          'ComparisonTable',
-          'The `showAllFeaturesLabel` prop is missing or invalid.',
-        );
-      }
-      if (!isSufficientlyLabelled(caption)) {
-        throw new AccessibilityError(
-          'ComparisonTable',
-          'The `caption` prop is missing or invalid.',
-        );
-      }
-      if (!isSufficientlyLabelled(selectFirstPlanLabel)) {
-        throw new AccessibilityError(
-          'ComparisonTable',
-          'The `selectFirstPlanLabel` prop is missing or invalid.',
-        );
-      }
-      if (!isSufficientlyLabelled(selectSecondPlanLabel)) {
-        throw new AccessibilityError(
-          'ComparisonTable',
-          'The `selectSecondPlanLabel` prop is missing or invalid.',
-        );
-      }
+export function ComparisonTable({
+  caption,
+  sections,
+  headers,
+  showAllFeaturesLabel,
+  selectFirstPlanLabel,
+  selectSecondPlanLabel,
+  className,
+  ref,
+  ...props
+}: ComparisonTableProps) {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test'
+  ) {
+    if (!isSufficientlyLabelled(showAllFeaturesLabel)) {
+      throw new AccessibilityError(
+        'ComparisonTable',
+        'The `showAllFeaturesLabel` prop is missing or invalid.',
+      );
     }
+    if (!isSufficientlyLabelled(caption)) {
+      throw new AccessibilityError(
+        'ComparisonTable',
+        'The `caption` prop is missing or invalid.',
+      );
+    }
+    if (!isSufficientlyLabelled(selectFirstPlanLabel)) {
+      throw new AccessibilityError(
+        'ComparisonTable',
+        'The `selectFirstPlanLabel` prop is missing or invalid.',
+      );
+    }
+    if (!isSufficientlyLabelled(selectSecondPlanLabel)) {
+      throw new AccessibilityError(
+        'ComparisonTable',
+        'The `selectSecondPlanLabel` prop is missing or invalid.',
+      );
+    }
+  }
 
-    const [activePlans, setActivePlans] = useState([
-      headers[0].id,
-      headers[1].id,
-    ]);
+  const [activePlans, setActivePlans] = useState([
+    headers[0].id,
+    headers[1].id,
+  ]);
 
-    const planOptions = headers.map((plan) => ({
-      label: plan.title,
-      value: plan.id,
-    }));
+  const planOptions = headers.map((plan) => ({
+    label: plan.title,
+    value: plan.id,
+  }));
 
-    const onPlanSelect = useCallback((value: string[]) => {
-      setActivePlans(value);
-    }, []);
+  const onPlanSelect = useCallback((value: string[]) => {
+    setActivePlans(value);
+  }, []);
 
-    return (
-      <div className={clsx(classes.base, className)} {...props}>
-        {headers.length >= 3 && (
-          <PlanPicker
-            className={classes.picker}
-            plans={planOptions}
-            selectedPlans={activePlans}
-            onPlanSelect={onPlanSelect}
-            selectSecondPlanLabel={selectSecondPlanLabel}
-            selectFirstPlanLabel={selectFirstPlanLabel}
-          />
-        )}
-        <PlanTable
-          ref={ref}
-          caption={caption}
-          sections={sections}
-          headers={headers}
-          activePlans={[
-            headers.findIndex(({ id }) => id === activePlans[0]),
-            headers.findIndex(({ id }) => id === activePlans[1]),
-          ]}
-          showAllFeaturesLabel={showAllFeaturesLabel}
+  return (
+    <div className={clsx(classes.base, className)} {...props}>
+      {headers.length >= 3 && (
+        <PlanPicker
+          className={classes.picker}
+          plans={planOptions}
+          selectedPlans={activePlans}
+          onPlanSelect={onPlanSelect}
+          selectSecondPlanLabel={selectSecondPlanLabel}
+          selectFirstPlanLabel={selectFirstPlanLabel}
         />
-      </div>
-    );
-  },
-);
+      )}
+      <PlanTable
+        ref={ref}
+        caption={caption}
+        sections={sections}
+        headers={headers}
+        activePlans={[
+          headers.findIndex(({ id }) => id === activePlans[0]),
+          headers.findIndex(({ id }) => id === activePlans[1]),
+        ]}
+        showAllFeaturesLabel={showAllFeaturesLabel}
+      />
+    </div>
+  );
+}

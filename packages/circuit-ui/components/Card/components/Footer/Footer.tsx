@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { forwardRef, type HTMLAttributes } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
 
 import { clsx } from '../../../../styles/clsx.js';
 import type { AsPropType } from '../../../../types/prop-types.js';
@@ -21,6 +21,7 @@ import type { AsPropType } from '../../../../types/prop-types.js';
 import classes from './Footer.module.css';
 
 export interface CardFooterProps extends HTMLAttributes<HTMLElement> {
+  ref?: Ref<HTMLElement>;
   /**
    * Direction to align the content. Either left/right
    */
@@ -32,11 +33,15 @@ export interface CardFooterProps extends HTMLAttributes<HTMLElement> {
  * Footer used in the Card component. Used for styling and alignment purposes
  * only.
  */
-export const CardFooter = forwardRef<HTMLElement, CardFooterProps>(
-  (
-    { as: Element = 'div', children, className, align = 'right', ...props },
-    ref,
-  ) => (
+export function CardFooter({
+  as: Element = 'div',
+  children,
+  className,
+  align = 'right',
+  ref,
+  ...props
+}: CardFooterProps) {
+  return (
     <Element
       ref={ref}
       className={clsx(classes.base, classes[align], className)}
@@ -44,7 +49,5 @@ export const CardFooter = forwardRef<HTMLElement, CardFooterProps>(
     >
       {children}
     </Element>
-  ),
-);
-
-CardFooter.displayName = 'CardFooter';
+  );
+}

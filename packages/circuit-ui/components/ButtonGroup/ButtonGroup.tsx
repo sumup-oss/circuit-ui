@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { forwardRef, type HTMLAttributes } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
 
 import {
   Button,
@@ -34,6 +34,7 @@ type Action = Omit<ButtonProps, 'variant' | 'size'> & {
 
 export interface ButtonGroupProps
   extends Omit<HTMLAttributes<HTMLDivElement>, 'align'> {
+  ref?: Ref<HTMLDivElement>;
   /**
    * The buttons to group. Expects a primary and optionally a secondary button.
    */
@@ -54,53 +55,47 @@ export interface ButtonGroupProps
 /**
  * The ButtonGroup component groups and formats two buttons.
  */
-export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
-  (
-    {
-      actions,
-      className,
-      align = 'center',
-      size: legacySize = 'm',
-      ...props
-    }: ButtonGroupProps,
-    ref,
-  ) => {
-    if (process.env.NODE_ENV !== 'production') {
-      if (actions.primary.size) {
-        deprecate(
-          'ButtonGroup',
-          'The `actions.primary.size` prop has been deprecated. Use the top-level `size` prop instead.',
-        );
-      }
-      if (actions.secondary?.size) {
-        deprecate(
-          'ButtonGroup',
-          'The `actions.secondary.size` prop has been deprecated. Use the top-level `size` prop instead.',
-        );
-      }
+export function ButtonGroup({
+  actions,
+  className,
+  align = 'center',
+  size: legacySize = 'm',
+  ref,
+  ...props
+}: ButtonGroupProps) {
+  if (process.env.NODE_ENV !== 'production') {
+    if (actions.primary.size) {
+      deprecate(
+        'ButtonGroup',
+        'The `actions.primary.size` prop has been deprecated. Use the top-level `size` prop instead.',
+      );
     }
+    if (actions.secondary?.size) {
+      deprecate(
+        'ButtonGroup',
+        'The `actions.secondary.size` prop has been deprecated. Use the top-level `size` prop instead.',
+      );
+    }
+  }
 
-    const size = legacyButtonSizeMap[legacySize] || legacySize;
+  const size = legacyButtonSizeMap[legacySize] || legacySize;
 
-    return (
-      <div {...props} className={clsx(styles.container, className)} ref={ref}>
-        <div className={clsx(styles.base, styles[align], styles[size])}>
+  return (
+    <div {...props} className={clsx(styles.container, className)} ref={ref}>
+      <div className={clsx(styles.base, styles[align], styles[size])}>
+        <Button
+          {...actions.primary}
+          size={size || actions.primary.size}
+          variant="primary"
+        />
+        {actions.secondary && (
           <Button
-            {...actions.primary}
-            size={size || actions.primary.size}
-            variant="primary"
+            {...actions.secondary}
+            size={size || actions.secondary.size}
+            variant="secondary"
           />
-          {actions.secondary && (
-            <Button
-              {...actions.secondary}
-              size={size || actions.secondary.size}
-              variant="secondary"
-            />
-          )}
-        </div>
+        )}
       </div>
-    );
-  },
-);
-
-ButtonGroup.displayName = 'ButtonGroup';
+    </div>
+  );
+}
