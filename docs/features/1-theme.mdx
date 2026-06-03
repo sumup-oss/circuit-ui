@@ -121,13 +121,3 @@ theme.breakpoints.[untilKilo|kilo|kiloToMega|mega|untilMega|megaToGiga|giga|giga
 Avoid using `theme.breakpoints` directly, instead use the named media query helpers. The following media queries are available:
 
 <MediaQueriesTable />
-
-```ts
-import { css } from '@emotion/react';
-
-const styles = ({ theme }) => css`
-  ${theme.mq.mega} {
-    padding-top: ${theme.spacings.peta};
-  }
-`;
-```

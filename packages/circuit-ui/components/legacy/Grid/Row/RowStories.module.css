@@ -1,0 +1,21 @@
+.col {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 24px;
+  height: 48px;
+  padding: 12px;
+}
+
+.col:nth-of-type(n) {
+  background-color: var(--cui-bg-highlight);
+}
+
+.col:nth-of-type(2n) {
+  background-color: var(--cui-bg-subtle);
+}
+
+.row {
+  border: 1px solid magenta;
+  margin-bottom: 8px;
+}

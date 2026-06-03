@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import styled from '../../../../styles/styled.js';
 import { Grid, Row, Col } from '../index.js';
 import styles from './GridStories.module.css'
 
@@ -32,104 +31,104 @@ export default {
 
 
 
-const StyledRow = styled(Row)`
-  border: 1px solid magenta;
-  margin-bottom: 8px;
-`;
+const rowStyles = {
+  border: '1px solid magenta',
+  'margin-bottom': '8px'
+}
 
 export const StaticColumns = () => (
   <Grid>
-    <StyledRow>
+    <Row style={rowStyles}>
       <Col className={styles.col} span="2">Col 2</Col>
       <Col className={styles.col} span="2">Col 2</Col>
       <Col className={styles.col} span="2">Col 2</Col>
       <Col className={styles.col} span="2">Col 2</Col>
       <Col className={styles.col} span="2">Col 2</Col>
       <Col className={styles.col} span="2">Col 2</Col>
-    </StyledRow>
+    </Row>
 
-    <StyledRow>
+    <Row style={rowStyles}>
       <Col className={styles.col} span="3">Col 3</Col>
       <Col className={styles.col} span="3">Col 3</Col>
       <Col className={styles.col} span="3">Col 3</Col>
       <Col className={styles.col} span="3">Col 3</Col>
-    </StyledRow>
+    </Row>
 
-    <StyledRow>
+    <Row style={rowStyles}>
       <Col className={styles.col} span="4">Col 4</Col>
       <Col className={styles.col} span="4">Col 4</Col>
       <Col className={styles.col} span="4">Col 4</Col>
-    </StyledRow>
+    </Row>
 
-    <StyledRow>
+    <Row style={rowStyles}>
       <Col className={styles.col} span="4">Col 4</Col>
       <Col className={styles.col} span="2">Col 2</Col>
       <Col className={styles.col} span="2">Col 2</Col>
       <Col className={styles.col} span="1">Col 1</Col>
       <Col className={styles.col} span="3">Col 4</Col>
-    </StyledRow>
+    </Row>
 
-    <StyledRow>
+    <Row style={rowStyles}>
       <Col className={styles.col} span="6">Col 6</Col>
       <Col className={styles.col} span="6">Col 6</Col>
-    </StyledRow>
+    </Row>
   </Grid>
 );
 
 export const ResponsiveColumns = () => (
   <Grid>
-    <StyledRow>
+    <Row style={rowStyles}>
       <Col className={styles.col} span={{ default: 12, mega: 3, kilo: 6 }}>resize me</Col>
       <Col className={styles.col} span={{ default: 12, mega: 3, kilo: 6 }}>resize me</Col>
       <Col className={styles.col} span={{ default: 12, mega: 3, kilo: 6 }}>resize me</Col>
       <Col className={styles.col} span={{ default: 12, mega: 3, kilo: 6 }}>resize me</Col>
-    </StyledRow>
+    </Row>
 
-    <StyledRow>
+    <Row style={rowStyles}>
       <Col className={styles.col} span={{ default: 12, mega: 3, kilo: 6 }}>resize me</Col>
       <Col className={styles.col} span="6">half</Col>
-    </StyledRow>
+    </Row>
   </Grid>
 );
 
 export const SkippingColumns = () => (
   <Grid>
-    <StyledRow>
+    <Row style={rowStyles}>
       <Col className={styles.col} span="3">Col 3</Col>
       <Col className={styles.col} span="3">Col 3</Col>
       <Col className={styles.col} span="3" skip="3">
         Col 3
       </Col>
-    </StyledRow>
+    </Row>
 
-    <StyledRow>
+    <Row style={rowStyles}>
       <Col className={styles.col} span="6" skip="6">
         First column
       </Col>
       <Col className={styles.col} span="6" skip="-6">
         Second Column
       </Col>
-    </StyledRow>
+    </Row>
   </Grid>
 );
 
 export const ResponsiveSkipping = () => (
   <Grid>
-    <StyledRow>
+    <Row style={rowStyles}>
       <Col className={styles.col} span="3">Col 3</Col>
       <Col className={styles.col} span="3">Col 3</Col>
       <Col className={styles.col}  span="3" skip={{ default: 0, untilKilo: 3 }}>
         skip mobile
       </Col>
-    </StyledRow>
+    </Row>
 
-    <StyledRow>
+    <Row style={rowStyles}>
       <Col className={styles.col} span="6" skip={{ default: 6, untilKilo: 0 }}>
         first column
       </Col>
       <Col className={styles.col} span="6" skip={{ default: -6, untilKilo: 0 }}>
         second column
       </Col>
-    </StyledRow>
+    </Row>
   </Grid>
 );
