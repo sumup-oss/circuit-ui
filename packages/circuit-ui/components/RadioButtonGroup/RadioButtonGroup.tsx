@@ -16,7 +16,6 @@
 'use client';
 
 import {
-  forwardRef,
   useId,
   type FieldsetHTMLAttributes,
   type InputHTMLAttributes,
@@ -113,100 +112,91 @@ export interface RadioButtonGroupProps
 /**
  * A group of RadioButtons.
  */
-export const RadioButtonGroup = forwardRef(
-  (
-    {
-      options,
-      onChange,
-      value,
-      defaultValue,
-      'name': customName,
-      label,
-      invalid,
-      validationHint,
-      showValid,
-      disabled,
-      hasWarning,
-      hideLabel,
-      optionalLabel,
-      required,
-      'aria-describedby': descriptionId,
-      ...props
-    }: RadioButtonGroupProps,
-    ref: RadioButtonGroupProps['ref'],
-  ) => {
-    const randomName = useId();
-    const name = customName || randomName;
-    const validationHintId = useId();
-    const descriptionIds = idx(
-      descriptionId,
-      validationHint && validationHintId,
+export function RadioButtonGroup({
+  options,
+  onChange,
+  value,
+  defaultValue,
+  'name': customName,
+  label,
+  invalid,
+  validationHint,
+  showValid,
+  disabled,
+  hasWarning,
+  hideLabel,
+  optionalLabel,
+  required,
+  'aria-describedby': descriptionId,
+  ref,
+  ...props
+}: RadioButtonGroupProps) {
+  const randomName = useId();
+  const name = customName || randomName;
+  const validationHintId = useId();
+  const descriptionIds = idx(descriptionId, validationHint && validationHintId);
+
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !isSufficientlyLabelled(label)
+  ) {
+    throw new AccessibilityError(
+      'RadioButtonGroup',
+      'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
     );
+  }
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !isSufficientlyLabelled(label)
-    ) {
-      throw new AccessibilityError(
-        'RadioButtonGroup',
-        'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
-      );
-    }
+  if (isEmpty(options)) {
+    return null;
+  }
 
-    if (isEmpty(options)) {
-      return null;
-    }
-
-    return (
-      <FieldSet
-        role="radiogroup"
-        aria-describedby={descriptionIds}
-        aria-orientation="vertical"
-        aria-invalid={invalid && 'true'}
-        aria-required={required && 'true'}
-        name={name}
-        ref={ref}
-        disabled={disabled}
-        {...props}
-      >
-        <FieldLegend>
-          <FieldLabelText
-            label={label}
-            hideLabel={hideLabel}
-            optionalLabel={optionalLabel}
-            required={required}
-          />
-        </FieldLegend>
-        <div className={classes.base}>
-          {options.map((option) => (
-            <RadioButton
-              {...option}
-              key={option.value?.toString() || option.label}
-              disabled={disabled || option.disabled}
-              required={required || option.required}
-              name={name}
-              onChange={onChange}
-              checked={value ? option.value === value : option.checked}
-              defaultChecked={
-                defaultValue
-                  ? option.value === defaultValue
-                  : option.defaultChecked
-              }
-            />
-          ))}
-        </div>
-        <FieldValidationHint
-          id={validationHintId}
-          invalid={invalid}
-          showValid={showValid}
-          disabled={disabled}
-          hasWarning={hasWarning}
-          validationHint={validationHint}
+  return (
+    <FieldSet
+      role="radiogroup"
+      aria-describedby={descriptionIds}
+      aria-orientation="vertical"
+      aria-invalid={invalid && 'true'}
+      aria-required={required && 'true'}
+      name={name}
+      ref={ref}
+      disabled={disabled}
+      {...props}
+    >
+      <FieldLegend>
+        <FieldLabelText
+          label={label}
+          hideLabel={hideLabel}
+          optionalLabel={optionalLabel}
+          required={required}
         />
-      </FieldSet>
-    );
-  },
-);
-
-RadioButtonGroup.displayName = 'RadioButtonGroup';
+      </FieldLegend>
+      <div className={classes.base}>
+        {options.map((option) => (
+          <RadioButton
+            {...option}
+            key={option.value?.toString() || option.label}
+            disabled={disabled || option.disabled}
+            required={required || option.required}
+            name={name}
+            onChange={onChange}
+            checked={value ? option.value === value : option.checked}
+            defaultChecked={
+              defaultValue
+                ? option.value === defaultValue
+                : option.defaultChecked
+            }
+          />
+        ))}
+      </div>
+      <FieldValidationHint
+        id={validationHintId}
+        invalid={invalid}
+        showValid={showValid}
+        disabled={disabled}
+        hasWarning={hasWarning}
+        validationHint={validationHint}
+      />
+    </FieldSet>
+  );
+}

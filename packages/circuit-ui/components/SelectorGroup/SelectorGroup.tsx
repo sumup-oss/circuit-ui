@@ -15,7 +15,7 @@
 
 'use client';
 
-import { forwardRef, useId, type FieldsetHTMLAttributes } from 'react';
+import { useId, type FieldsetHTMLAttributes, type Ref } from 'react';
 
 import {
   Selector,
@@ -40,6 +40,7 @@ import classes from './SelectorGroup.module.css';
 
 export interface SelectorGroupProps
   extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, 'onChange'> {
+  ref?: Ref<HTMLFieldSetElement>;
   /**
    * A collection of available options. Each option must have at least
    * a value and label.
@@ -113,106 +114,94 @@ function isChecked(
 /**
  * A group of Selectors.
  */
-export const SelectorGroup = forwardRef<
-  HTMLFieldSetElement,
-  SelectorGroupProps
->(
-  (
-    {
-      options,
-      onChange,
-      value,
-      defaultValue,
-      'name': customName,
-      'aria-describedby': descriptionId,
-      label,
-      required,
-      optionalLabel,
-      disabled,
-      multiple,
-      size,
-      stretch = false,
-      validationHint,
-      invalid,
-      hideLabel,
-      ...props
-    },
-    ref,
-  ) => {
-    const randomName = useId();
-    const name = customName || randomName;
-    const validationHintId = useId();
-    const descriptionIds = idx(
-      descriptionId,
-      validationHint && validationHintId,
+export function SelectorGroup({
+  options,
+  onChange,
+  value,
+  defaultValue,
+  'name': customName,
+  'aria-describedby': descriptionId,
+  label,
+  required,
+  optionalLabel,
+  disabled,
+  multiple,
+  size,
+  stretch = false,
+  validationHint,
+  invalid,
+  hideLabel,
+  ref,
+  ...props
+}: SelectorGroupProps) {
+  const randomName = useId();
+  const name = customName || randomName;
+  const validationHintId = useId();
+  const descriptionIds = idx(descriptionId, validationHint && validationHintId);
+
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !isSufficientlyLabelled(label)
+  ) {
+    throw new AccessibilityError(
+      'SelectorGroup',
+      'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
     );
+  }
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !isSufficientlyLabelled(label)
-    ) {
-      throw new AccessibilityError(
-        'SelectorGroup',
-        'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
-      );
-    }
+  if (isEmpty(options)) {
+    return null;
+  }
 
-    if (isEmpty(options)) {
-      return null;
-    }
-
-    return (
-      <FieldSet
-        name={name}
-        aria-describedby={descriptionIds}
-        ref={ref}
-        disabled={disabled}
-        role={multiple ? undefined : 'radiogroup'}
-        aria-orientation={multiple ? undefined : 'horizontal'}
-        {...props}
-      >
-        <FieldLegend>
-          <FieldLabelText
-            label={label}
-            hideLabel={hideLabel}
-            optionalLabel={optionalLabel}
-            required={required}
-          />
-        </FieldLegend>
-        <div className={clsx(classes.base, stretch && classes.stretch)}>
-          {options.map((option) => (
-            <Selector
-              {...option}
-              key={option.value || option.label}
-              className={clsx(classes.option, option.className)}
-              name={name}
-              onChange={onChange}
-              multiple={multiple}
-              size={size}
-              disabled={disabled || option.disabled}
-              required={required || option.required}
-              invalid={invalid || option.invalid}
-              checked={
-                value ? isChecked(option, value, multiple) : option.checked
-              }
-              defaultChecked={
-                defaultValue
-                  ? isChecked(option, defaultValue, multiple)
-                  : option.defaultChecked
-              }
-            />
-          ))}
-        </div>
-        <FieldValidationHint
-          id={validationHintId}
-          invalid={invalid}
-          disabled={disabled}
-          validationHint={validationHint}
+  return (
+    <FieldSet
+      name={name}
+      aria-describedby={descriptionIds}
+      ref={ref}
+      disabled={disabled}
+      role={multiple ? undefined : 'radiogroup'}
+      aria-orientation={multiple ? undefined : 'horizontal'}
+      {...props}
+    >
+      <FieldLegend>
+        <FieldLabelText
+          label={label}
+          hideLabel={hideLabel}
+          optionalLabel={optionalLabel}
+          required={required}
         />
-      </FieldSet>
-    );
-  },
-);
-
-SelectorGroup.displayName = 'SelectorGroup';
+      </FieldLegend>
+      <div className={clsx(classes.base, stretch && classes.stretch)}>
+        {options.map((option) => (
+          <Selector
+            {...option}
+            key={option.value || option.label}
+            className={clsx(classes.option, option.className)}
+            name={name}
+            onChange={onChange}
+            multiple={multiple}
+            size={size}
+            disabled={disabled || option.disabled}
+            required={required || option.required}
+            invalid={invalid || option.invalid}
+            checked={
+              value ? isChecked(option, value, multiple) : option.checked
+            }
+            defaultChecked={
+              defaultValue
+                ? isChecked(option, defaultValue, multiple)
+                : option.defaultChecked
+            }
+          />
+        ))}
+      </div>
+      <FieldValidationHint
+        id={validationHintId}
+        invalid={invalid}
+        disabled={disabled}
+        validationHint={validationHint}
+      />
+    </FieldSet>
+  );
+}

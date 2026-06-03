@@ -14,10 +14,10 @@
  */
 
 import {
-  forwardRef,
   useId,
   type ComponentType,
   type ReactNode,
+  type Ref,
   type SelectHTMLAttributes,
 } from 'react';
 import { ChevronDown } from '@sumup-oss/icons';
@@ -48,6 +48,7 @@ export type SelectOption = {
 
 export interface SelectProps
   extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'size'> {
+  ref?: Ref<HTMLSelectElement>;
   children?: ReactNode;
   /**
    * A clear and concise description of the select purpose.
@@ -114,116 +115,107 @@ export interface SelectProps
 /**
  * A native select component.
  */
-export const Select = forwardRef<HTMLSelectElement, SelectProps>(
-  (
-    {
-      value,
-      defaultValue,
-      placeholder,
-      disabled,
-      invalid,
-      required,
-      options,
-      children,
-      'renderPrefix': RenderPrefix,
-      validationHint,
-      optionalLabel,
-      label,
-      hideLabel,
-      className,
-      style,
-      'id': customId,
-      'aria-describedby': descriptionId,
-      size = 'm',
-      ...props
-    },
-    ref,
-  ): ReturnType => {
-    const id = useId();
-    const selectId = customId || id;
-    const validationHintId = useId();
-    const descriptionIds = idx(
-      descriptionId,
-      validationHint && validationHintId,
+export function Select({
+  value,
+  defaultValue,
+  placeholder,
+  disabled,
+  invalid,
+  required,
+  options,
+  children,
+  'renderPrefix': RenderPrefix,
+  validationHint,
+  optionalLabel,
+  label,
+  hideLabel,
+  className,
+  style,
+  'id': customId,
+  'aria-describedby': descriptionId,
+  size = 'm',
+  ref,
+  ...props
+}: SelectProps): ReturnType {
+  const id = useId();
+  const selectId = customId || id;
+  const validationHintId = useId();
+  const descriptionIds = idx(descriptionId, validationHint && validationHintId);
+
+  const prefix = RenderPrefix && (
+    <RenderPrefix className={classes.prefix} value={value ?? defaultValue} />
+  );
+  const hasPrefix = Boolean(prefix);
+
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !isSufficientlyLabelled(label)
+  ) {
+    throw new AccessibilityError(
+      'Select',
+      'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
     );
+  }
 
-    const prefix = RenderPrefix && (
-      <RenderPrefix className={classes.prefix} value={value ?? defaultValue} />
-    );
-    const hasPrefix = Boolean(prefix);
-
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !isSufficientlyLabelled(label)
-    ) {
-      throw new AccessibilityError(
-        'Select',
-        'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
-      );
-    }
-
-    return (
-      <FieldWrapper
-        className={className}
-        style={style}
-        disabled={disabled}
-        size={size}
-      >
-        <FieldLabel htmlFor={selectId}>
-          <FieldLabelText
-            label={label}
-            hideLabel={hideLabel}
-            optionalLabel={optionalLabel}
-            required={required}
-          />
-        </FieldLabel>
-        <div className={clsx(classes.wrapper, classes[size])}>
-          {prefix}
-          <select
-            id={selectId}
-            value={value}
-            ref={ref}
-            aria-describedby={descriptionIds}
-            aria-invalid={invalid && 'true'}
-            required={required}
-            disabled={disabled}
-            defaultValue={defaultValue}
-            className={clsx(classes.base, hasPrefix && classes['has-prefix'])}
-            {...props}
-          >
-            {!value && !defaultValue && (
-              /**
-               * We need a key here just like when mapping over options.
-               * We're prefixing the key with an underscore to avoid clashes
-               * with option values.
-               */
-              <option key="_placeholder" value="">
-                {placeholder}
-              </option>
-            )}
-            {children ||
-              options?.map(({ label: optionLabel, ...rest }) => (
-                <option key={rest.value} {...rest}>
-                  {optionLabel}
-                </option>
-              ))}
-          </select>
-          <ChevronDown
-            className={classes.icon}
-            size={size === 's' ? '16' : '24'}
-            aria-hidden="true"
-          />
-        </div>
-        <FieldValidationHint
-          id={validationHintId}
-          disabled={disabled}
-          invalid={invalid}
-          validationHint={validationHint}
+  return (
+    <FieldWrapper
+      className={className}
+      style={style}
+      disabled={disabled}
+      size={size}
+    >
+      <FieldLabel htmlFor={selectId}>
+        <FieldLabelText
+          label={label}
+          hideLabel={hideLabel}
+          optionalLabel={optionalLabel}
+          required={required}
         />
-      </FieldWrapper>
-    );
-  },
-);
-
-Select.displayName = 'Select';
+      </FieldLabel>
+      <div className={clsx(classes.wrapper, classes[size])}>
+        {prefix}
+        <select
+          id={selectId}
+          value={value}
+          ref={ref}
+          aria-describedby={descriptionIds}
+          aria-invalid={invalid && 'true'}
+          required={required}
+          disabled={disabled}
+          defaultValue={defaultValue}
+          className={clsx(classes.base, hasPrefix && classes['has-prefix'])}
+          {...props}
+        >
+          {!value && !defaultValue && (
+            /**
+             * We need a key here just like when mapping over options.
+             * We're prefixing the key with an underscore to avoid clashes
+             * with option values.
+             */
+            <option key="_placeholder" value="">
+              {placeholder}
+            </option>
+          )}
+          {children ||
+            options?.map(({ label: optionLabel, ...rest }) => (
+              <option key={rest.value} {...rest}>
+                {optionLabel}
+              </option>
+            ))}
+        </select>
+        <ChevronDown
+          className={classes.icon}
+          size={size === 's' ? '16' : '24'}
+          aria-hidden="true"
+        />
+      </div>
+      <FieldValidationHint
+        id={validationHintId}
+        disabled={disabled}
+        invalid={invalid}
+        validationHint={validationHint}
+      />
+    </FieldWrapper>
+  );
+}
