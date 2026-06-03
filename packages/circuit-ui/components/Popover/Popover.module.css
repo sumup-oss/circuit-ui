@@ -5,10 +5,6 @@
   border-radius: var(--cui-border-radius-byte);
 }
 
-.trigger {
-  display: inline-block;
-}
-
 .modal {
   top: unset;
   right: 0;
