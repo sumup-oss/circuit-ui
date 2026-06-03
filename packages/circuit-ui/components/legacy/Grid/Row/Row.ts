@@ -15,10 +15,9 @@
 
 /** @jsxImportSource @emotion/react */
 
-import { css } from '@emotion/react';
+import { css, type SerializedStyles } from '@emotion/react';
 import type { Theme } from '@sumup-oss/design-tokens';
 
-import { clearfix } from '../../../../styles/style-mixins.js';
 import styled, {
   type NoTheme,
   type StyleProps,
@@ -46,4 +45,14 @@ const gutterStyles = ({ theme }: StyleProps) =>
  *
  * Row wrapping for the Col component.
  */
+const clearfix = (): SerializedStyles => css`
+  &::before,
+  &::after {
+    content: ' ';
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+`;
 export const Row = styled('div')<NoTheme>(baseStyles, clearfix, gutterStyles);
