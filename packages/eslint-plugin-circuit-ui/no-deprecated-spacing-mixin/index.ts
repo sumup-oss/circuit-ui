@@ -293,7 +293,9 @@ export const noDeprecatedSpacingMixin = createRule({
             }
             if (testAllDirectionRegex(Array.from(spacingImportNames)[0], raw)) {
               const value: string = raw.split("'")[1].split("'")[0];
-              classNameToAssign = `utilClasses.${mapValueToUtilClassName(value)}`;
+              classNameToAssign = classNameToAssign
+                ? `clsx(${classNameToAssign}, utilClasses.${mapValueToUtilClassName(value)})`
+                : `utilClasses.${mapValueToUtilClassName(value)}`;
               usages.push({
                 node: attribute,
                 existingClassNameAttribute,

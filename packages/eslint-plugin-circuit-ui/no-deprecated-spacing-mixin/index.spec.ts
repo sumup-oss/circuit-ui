@@ -132,6 +132,24 @@ ruleTester.run('no-deprecated-spacing-mixin', noDeprecatedSpacingMixin, {
       errors: [{ messageId: 'deprecated' }],
     },
     {
+      name: 'a component with the deprecated spacing mixin with in all directions and an existing className',
+      code: `
+          import { spacing } from '@sumup-oss/circuit-ui/legacy';
+          import styles from './styles.module.css';
+          function Component() {
+            return <Body className={styles.title} css={spacing('mega')} />
+          }
+        `,
+      output: `import { utilClasses, clsx } from '@sumup-oss/circuit-ui';
+          
+          import styles from './styles.module.css';
+          function Component() {
+            return <Body className={clsx(styles.title, utilClasses.marginMega)}  />
+          }
+        `,
+      errors: [{ messageId: 'deprecated' }],
+    },
+    {
       name: 'a component with the deprecated spacing mixin with a specific direction and an existing className',
       code: `
           import { spacing } from '@sumup-oss/circuit-ui/legacy';
