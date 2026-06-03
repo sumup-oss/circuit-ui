@@ -100,3 +100,8 @@ export const globalTypes = {
 };
 
 export const decorators = [withThemeProvider];
+
+// hide React 19 ref prop on all function components
+export const argTypes = {
+  ref: { table: { disable: true } },
+};

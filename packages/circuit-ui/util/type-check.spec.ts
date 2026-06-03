@@ -14,7 +14,7 @@
  */
 
 import { describe, expect, it, vi } from 'vitest';
-import { forwardRef, memo } from 'react';
+import { memo } from 'react';
 
 import {
   isArray,
@@ -244,12 +244,6 @@ describe('type check', () => {
   describe('isReactComponent', () => {
     it('should return true for a React function component', () => {
       const component = () => 'Hello world';
-      const actual = isReactComponent(component);
-      expect(actual).toBeTruthy();
-    });
-
-    it('should return true for a React component wrapped in React.forwardRef', () => {
-      const component = forwardRef(() => 'Hello world');
       const actual = isReactComponent(component);
       expect(actual).toBeTruthy();
     });

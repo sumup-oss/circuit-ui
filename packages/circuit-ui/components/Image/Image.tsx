@@ -13,13 +13,14 @@
  * limitations under the License.
  */
 
-import { forwardRef, type ImgHTMLAttributes } from 'react';
+import type { ImgHTMLAttributes, Ref } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
 
 import classes from './Image.module.css';
 
 export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
+  ref?: Ref<HTMLImageElement>;
   /**
    * The source URL of the image. Do not use unauthorized images from external sources.
    */
@@ -43,16 +44,13 @@ export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
 /**
  * The Image component. Responsive by default.
  */
-export const Image = forwardRef<HTMLImageElement, ImageProps>(
-  ({ className, alt, ...props }, ref) => (
-    // biome-ignore lint/a11y/useAltText: The `alt` prop is marked as required.
+export function Image({ className, alt, ref, ...props }: ImageProps) {
+  return (
     <img
       alt={alt}
       ref={ref}
       className={clsx(classes.base, className)}
       {...props}
     />
-  ),
-);
-
-Image.displayName = 'Image';
+  );
+}

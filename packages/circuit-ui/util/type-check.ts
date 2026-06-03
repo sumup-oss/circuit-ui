@@ -57,8 +57,7 @@ export function isReactComponent(
   if (
     isObject(component) &&
     '$$typeof' in component &&
-    (component.$$typeof === Symbol.for('react.forward_ref') ||
-      component.$$typeof === Symbol.for('react.memo'))
+    component.$$typeof === Symbol.for('react.memo')
   ) {
     return true;
   }

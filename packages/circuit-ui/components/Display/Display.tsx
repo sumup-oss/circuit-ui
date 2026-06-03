@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { forwardRef, type HTMLAttributes } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
 import { CircuitError } from '../../util/errors.js';
@@ -23,6 +23,7 @@ import { getEnvVariable } from '../../util/env.js';
 import classes from './Display.module.css';
 
 export interface DisplayProps extends HTMLAttributes<HTMLHeadingElement> {
+  ref?: Ref<HTMLHeadingElement>;
   /**
    * Choose from two font weights.
    *
@@ -95,58 +96,61 @@ function getWeight(weight: DisplayProps['weight'], size: DisplayProps['size']) {
 /**
  * A flexible title component capable of rendering any HTML heading element.
  */
-export const Display = forwardRef<HTMLHeadingElement, DisplayProps>(
-  ({ className, as, size: legacySize = 'm', weight, ...props }, ref) => {
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !getEnvVariable('UNSAFE_DISABLE_ELEMENT_ERRORS') &&
-      !as
-    ) {
-      throw new CircuitError('Display', 'The `as` prop is required.');
-    }
+export function Display({
+  className,
+  as,
+  size: legacySize = 'm',
+  weight,
+  ref,
+  ...props
+}: DisplayProps) {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !getEnvVariable('UNSAFE_DISABLE_ELEMENT_ERRORS') &&
+    !as
+  ) {
+    throw new CircuitError('Display', 'The `as` prop is required.');
+  }
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      (weight === 'regular' || weight === 'semibold')
-    ) {
-      deprecate(
-        'Display',
-        `The "${weight}" weight has been deprecated. Use the "bold" or "black" weights instead.`,
-      );
-    }
-
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      legacySize in deprecatedSizeMap
-    ) {
-      deprecate(
-        'Display',
-        `The "${legacySize}" size has been deprecated. Use the "${deprecatedSizeMap[legacySize]}" size instead.`,
-      );
-    }
-
-    const Element = as || 'h1';
-
-    const size = (deprecatedSizeMap[legacySize] || legacySize) as
-      | 'xl'
-      | 'l'
-      | 'm'
-      | 's';
-
-    return (
-      <Element
-        {...props}
-        ref={ref}
-        className={clsx(
-          classes.base,
-          classes[size],
-          classes[getWeight(weight, size)],
-          className,
-        )}
-      />
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    (weight === 'regular' || weight === 'semibold')
+  ) {
+    deprecate(
+      'Display',
+      `The "${weight}" weight has been deprecated. Use the "bold" or "black" weights instead.`,
     );
-  },
-);
+  }
 
-Display.displayName = 'Display';
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    legacySize in deprecatedSizeMap
+  ) {
+    deprecate(
+      'Display',
+      `The "${legacySize}" size has been deprecated. Use the "${deprecatedSizeMap[legacySize]}" size instead.`,
+    );
+  }
+
+  const Element = as || 'h1';
+
+  const size = (deprecatedSizeMap[legacySize] || legacySize) as
+    | 'xl'
+    | 'l'
+    | 'm'
+    | 's';
+
+  return (
+    <Element
+      {...props}
+      ref={ref}
+      className={clsx(
+        classes.base,
+        classes[size],
+        classes[getWeight(weight, size)],
+        className,
+      )}
+    />
+  );
+}

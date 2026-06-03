@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { forwardRef, type HTMLAttributes } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
 import { getIconURL, type IconName } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
@@ -46,6 +46,7 @@ type Dimensions =
     };
 
 export type FlagProps = HTMLAttributes<HTMLImageElement> & {
+  ref?: Ref<HTMLImageElement>;
   countryCode: CountryCode;
   /**
    * The alt text for the flag image.
@@ -66,44 +67,48 @@ const ASPECT_RATIO = 4 / 3;
 /**
  * Renders an SVG icon of a flag. Flags are sourced from: https://flagicons.lipis.dev/
  */
-export const Flag = forwardRef<HTMLImageElement, FlagProps>(
-  (
-    { countryCode, alt, className, imageClassName, width, height, ...props },
-    ref,
-  ) => {
-    const flagName = `flag_${countryCode.toLowerCase()}` as IconName;
-    // default dimensions
-    const dimensions = {
-      width: 16,
-      height: 12,
-    };
-    // for a consistent aspect ratio
-    if (height) {
-      dimensions.height = height;
-      dimensions.width = height * ASPECT_RATIO;
-    }
-    if (width) {
-      dimensions.width = width;
-      dimensions.height = width / ASPECT_RATIO;
-    }
+export function Flag({
+  countryCode,
+  alt,
+  className,
+  imageClassName,
+  width,
+  height,
+  ref,
+  ...props
+}: FlagProps) {
+  const flagName = `flag_${countryCode.toLowerCase()}` as IconName;
+  // default dimensions
+  const dimensions = {
+    width: 16,
+    height: 12,
+  };
+  // for a consistent aspect ratio
+  if (height) {
+    dimensions.height = height;
+    dimensions.width = height * ASPECT_RATIO;
+  }
+  if (width) {
+    dimensions.width = width;
+    dimensions.height = width / ASPECT_RATIO;
+  }
 
-    return (
-      <div
-        className={clsx(classes.wrapper, className)}
-        style={{
-          '--flag-wrapper-height': `${dimensions.width}px`,
-        }}
-      >
-        <img
-          ref={ref}
-          className={clsx(classes.base, imageClassName)}
-          height={`${dimensions.height}px`}
-          width={`${dimensions.width}px`}
-          src={getIconURL(flagName)}
-          {...props}
-          alt={alt}
-        />
-      </div>
-    );
-  },
-);
+  return (
+    <div
+      className={clsx(classes.wrapper, className)}
+      style={{
+        '--flag-wrapper-height': `${dimensions.width}px`,
+      }}
+    >
+      <img
+        ref={ref}
+        className={clsx(classes.base, imageClassName)}
+        height={`${dimensions.height}px`}
+        width={`${dimensions.width}px`}
+        src={getIconURL(flagName)}
+        {...props}
+        alt={alt}
+      />
+    </div>
+  );
+}

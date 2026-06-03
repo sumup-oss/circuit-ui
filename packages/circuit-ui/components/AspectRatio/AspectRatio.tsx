@@ -15,10 +15,10 @@
 
 import {
   Children,
-  forwardRef,
   cloneElement,
   type ReactElement,
   type HTMLAttributes,
+  type Ref,
 } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
@@ -26,12 +26,12 @@ import { clsx } from '../../styles/clsx.js';
 import classes from './AspectRatio.module.css';
 
 export interface AspectRatioProps extends HTMLAttributes<HTMLDivElement> {
+  ref?: Ref<HTMLDivElement>;
   children?: ReactElement;
   aspectRatio?: number;
 }
 
-export const AspectRatio = forwardRef<HTMLDivElement, AspectRatioProps>(
-  ({ aspectRatio, className, style = {}, children, ...props }, ref) => {
+export function AspectRatio({ aspectRatio, className, style = {}, children, ref, ...props }: AspectRatioProps) {
     if (!children) {
       return null;
     }
@@ -61,7 +61,4 @@ export const AspectRatio = forwardRef<HTMLDivElement, AspectRatioProps>(
         {cloneElement(child, { className: classes.child })}
       </div>
     );
-  },
-);
-
-AspectRatio.displayName = 'AspectRatio';
+}

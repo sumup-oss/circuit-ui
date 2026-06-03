@@ -407,7 +407,7 @@ export const PhoneNumberInput = forwardRef<
               readOnly={true}
               onChange={() => {}}
               ref={applyMultipleRefs(
-                countryCodeRef as RefObject<HTMLInputElement>,
+                countryCodeRef as RefObject<HTMLInputElement | null>,
                 countryCode.ref as ForwardedRef<HTMLInputElement>,
               )}
               renderPrefix={
@@ -445,7 +445,7 @@ export const PhoneNumberInput = forwardRef<
                 handleChange,
               ])}
               ref={applyMultipleRefs(
-                countryCodeRef as RefObject<HTMLSelectElement>,
+                countryCodeRef as RefObject<HTMLSelectElement | null>,
                 countryCode.ref as ForwardedRef<HTMLSelectElement>,
               )}
               renderPrefix={countryCode.renderPrefix ?? DefaultPrefix}

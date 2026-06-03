@@ -16,7 +16,6 @@
 'use client';
 
 import {
-  forwardRef,
   type AnchorHTMLAttributes,
   type ButtonHTMLAttributes,
   type ReactNode,
@@ -66,17 +65,14 @@ export type AnchorProps = BaseProps & LinkElProps & ButtonElProps;
  * The Anchor is used to display a link or button that visually looks like
  * a hyperlink. Based on the Body component, so it also supports its props.
  */
-export const Anchor = forwardRef(
-  (
-    {
-      className,
-      externalLabel,
-      'aria-describedby': descriptionId,
-      children,
-      ...props
-    }: AnchorProps,
-    ref?: BaseProps['ref'],
-  ): ReturnType => {
+export function Anchor({
+  className,
+  externalLabel,
+  'aria-describedby': descriptionId,
+  children,
+  ref,
+  ...props
+}: AnchorProps): ReturnType {
     const components = useComponents();
     const Link = components.Link as AsPropType;
     const isExternalLink =
@@ -151,7 +147,4 @@ export const Anchor = forwardRef(
         )}
       </Body>
     );
-  },
-);
-
-Anchor.displayName = 'Anchor';
+}
