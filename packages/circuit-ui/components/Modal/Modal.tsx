@@ -15,7 +15,7 @@
 
 'use client';
 
-import { forwardRef, useCallback, useState, type Ref } from 'react';
+import { useCallback, useState, type Ref } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
 import {
@@ -53,8 +53,9 @@ export interface ModalProps extends Omit<PublicDialogProps, 'isModal'> {
 
 export const ANIMATION_DURATION = 300;
 
-export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
+export function Modal(props: ModalProps) {
   const {
+    ref,
     variant = 'contextual',
     className,
     contentClassName,
@@ -107,6 +108,4 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
       </div>
     </Dialog>
   );
-});
-
-Modal.displayName = 'Modal';
+}

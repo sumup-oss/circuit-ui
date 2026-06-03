@@ -16,13 +16,13 @@
 'use client';
 
 import {
-  forwardRef,
   useEffect,
   useRef,
   useState,
   type MouseEvent,
   type KeyboardEvent,
   type HTMLAttributes,
+  type Ref,
 } from 'react';
 
 import { Button, type ButtonProps } from '../Button/index.js';
@@ -66,6 +66,7 @@ interface NotificationImageProps extends ImageProps {
 }
 
 interface BaseProps extends Omit<HTMLAttributes<HTMLDivElement>, 'action'> {
+  ref?: Ref<HTMLDivElement>;
   /**
    * Use the `system` variant for system notification use cases, otherwise,
    * use the `promotional` variant for promotional notification use cases.
@@ -119,89 +120,79 @@ function NotificationImage({
  * The NotificationBanner displays a notification with text, a call-to-action,
  * and optionally an image.
  */
-export const NotificationBanner = forwardRef<
-  HTMLDivElement,
-  NotificationBannerProps
->(
-  (
-    {
-      headline,
-      body,
-      action,
-      variant = 'system',
-      image,
-      onClose,
-      closeButtonLabel,
-      isVisible = true,
-      className,
-      ...props
-    },
-    ref,
-  ) => {
-    const contentElement = useRef<HTMLDivElement>(null);
-    const [isOpen, setOpen] = useState(isVisible);
-    const [height, setHeight] = useState(getElementHeight(contentElement));
-    const [, setAnimating] = useAnimation();
+export function NotificationBanner({
+  headline,
+  body,
+  action,
+  variant = 'system',
+  image,
+  onClose,
+  closeButtonLabel,
+  isVisible = true,
+  className,
+  ref,
+  ...props
+}: NotificationBannerProps) {
+  const contentElement = useRef<HTMLDivElement>(null);
+  const [isOpen, setOpen] = useState(isVisible);
+  const [height, setHeight] = useState(getElementHeight(contentElement));
+  const [, setAnimating] = useAnimation();
 
-    useEffect(() => {
-      setAnimating({
-        duration: 200,
-        onStart: () => {
-          setHeight(getElementHeight(contentElement));
-          // Delaying the state update until the next animation frame ensures
-          // that browsers render the new height before the animation starts.
-          window.requestAnimationFrame(() => {
-            setOpen(isVisible);
-          });
-        },
-        onEnd: () => {
-          setHeight(DEFAULT_HEIGHT);
-        },
-      });
-    }, [isVisible, setAnimating]);
+  useEffect(() => {
+    setAnimating({
+      duration: 200,
+      onStart: () => {
+        setHeight(getElementHeight(contentElement));
+        // Delaying the state update until the next animation frame ensures
+        // that browsers render the new height before the animation starts.
+        window.requestAnimationFrame(() => {
+          setOpen(isVisible);
+        });
+      },
+      onEnd: () => {
+        setHeight(DEFAULT_HEIGHT);
+      },
+    });
+  }, [isVisible, setAnimating]);
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      action.variant === 'tertiary'
-    ) {
-      deprecate(
-        'NotificationBanner',
-        "The action's `tertiary` variant has been deprecated. Use the `primary` variant instead.",
-      );
-    }
-
-    return (
-      <div
-        ref={applyMultipleRefs(ref, contentElement)}
-        style={{
-          opacity: isOpen ? 1 : 0,
-          height: isOpen ? height : 0,
-          visibility: isOpen ? 'visible' : 'hidden',
-        }}
-        className={clsx(classes.base, classes[variant], className)}
-        {...props}
-      >
-        <div className={classes.grid}>
-          <div className={classes.content}>
-            <Headline as="h2" className={classes.headline}>
-              {headline}
-            </Headline>
-            {body && <Body className={classes.body}>{body}</Body>}
-          </div>
-          <Button
-            {...action}
-            variant={action.variant === 'tertiary' ? 'secondary' : 'primary'}
-            className={clsx(action.className, classes.button)}
-            size="s"
-          />
-          {image?.src && <NotificationImage {...image} />}
-          {onClose && closeButtonLabel && (
-            <CloseButton className={classes.close} size="s" onClick={onClose}>
-              {closeButtonLabel}
-            </CloseButton>
-          )}
-        </div>
-      </div>
+  if (process.env.NODE_ENV !== 'production' && action.variant === 'tertiary') {
+    deprecate(
+      'NotificationBanner',
+      "The action's `tertiary` variant has been deprecated. Use the `primary` variant instead.",
     );
-  },
-);
+  }
+
+  return (
+    <div
+      ref={applyMultipleRefs(ref, contentElement)}
+      style={{
+        opacity: isOpen ? 1 : 0,
+        height: isOpen ? height : 0,
+        visibility: isOpen ? 'visible' : 'hidden',
+      }}
+      className={clsx(classes.base, classes[variant], className)}
+      {...props}
+    >
+      <div className={classes.grid}>
+        <div className={classes.content}>
+          <Headline as="h2" className={classes.headline}>
+            {headline}
+          </Headline>
+          {body && <Body className={classes.body}>{body}</Body>}
+        </div>
+        <Button
+          {...action}
+          variant={action.variant === 'tertiary' ? 'secondary' : 'primary'}
+          className={clsx(action.className, classes.button)}
+          size="s"
+        />
+        {image?.src && <NotificationImage {...image} />}
+        {onClose && closeButtonLabel && (
+          <CloseButton className={classes.close} size="s" onClick={onClose}>
+            {closeButtonLabel}
+          </CloseButton>
+        )}
+      </div>
+    </div>
+  );
+}

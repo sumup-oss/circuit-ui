@@ -17,10 +17,10 @@
 
 import {
   Children,
-  forwardRef,
   type HTMLAttributes,
   type KeyboardEventHandler,
   type MouseEventHandler,
+  type Ref,
   useCallback,
   useEffect,
   useRef,
@@ -33,6 +33,7 @@ import { isArrowLeft, isArrowRight } from '../../../../util/key-codes.js';
 import classes from './TabList.module.css';
 
 export interface TabListProps extends HTMLAttributes<HTMLDivElement> {
+  ref?: Ref<HTMLDivElement>;
   /**
    * Determines whether the component renders with full tab semantics or as a navigation list inside a <nav> using tab-like visuals.
    *
@@ -56,143 +57,139 @@ const getCurrentTab = (node?: HTMLElement | null) =>
 /**
  * TabList component that wraps the Tab components
  */
-export const TabList = forwardRef<HTMLDivElement, TabListProps>(
-  (
-    {
-      className,
-      stretched,
-      children,
-      onClick,
-      onKeyDown,
-      as = 'tablist',
-      ...props
+export function TabList({
+  className,
+  stretched,
+  children,
+  onClick,
+  onKeyDown,
+  as = 'tablist',
+  ref,
+  ...props
+}: TabListProps) {
+  const gliderRef = useRef<HTMLSpanElement>(null);
+  const tabListRef = useRef<HTMLDivElement>(null);
+  const numberOfTabs = Children.toArray(children).length;
+  const stretchOnMobile = numberOfTabs <= MOBILE_AUTOSTRETCH_ITEMS_MAX;
+
+  const updateGliderStyles = useCallback((tab: HTMLElement) => {
+    tabListRef.current?.style.setProperty(
+      '--selected-tab-pseudo-content',
+      'unset',
+    );
+    const { offsetLeft, offsetWidth } = tab;
+    gliderRef.current?.style?.setProperty(
+      'transform',
+      `translateX(${offsetLeft}px)`,
+    );
+    gliderRef.current?.style?.setProperty('display', 'block');
+    gliderRef.current?.style?.setProperty('width', `${offsetWidth}px`);
+  }, []);
+
+  useEffect(() => {
+    // scrolls the active tab into view on initial render
+    const activeTab = getCurrentTab(tabListRef.current);
+    if (tabListRef.current && activeTab) {
+      tabListRef.current.scrollLeft += activeTab.offsetLeft;
+    }
+  }, []);
+
+  useEffect(() => {
+    tabListRef.current?.style.setProperty(
+      '--tab-list-width',
+      `${tabListRef.current.getBoundingClientRect().width / numberOfTabs}px`,
+    );
+    const gliderCallback = () => {
+      if (tabListRef.current && gliderRef.current) {
+        const activeTab = getCurrentTab(tabListRef.current);
+        if (activeTab) {
+          updateGliderStyles(activeTab);
+        }
+      }
+    };
+    // apply initial styles to glider
+    gliderCallback();
+
+    // listen to resize events
+    window.addEventListener('resize', gliderCallback);
+    return () => window.removeEventListener('resize', gliderCallback);
+  }, [updateGliderStyles, numberOfTabs]);
+
+  useEffect(() => {
+    // shows / hides scroll indicators
+    const scrollListener = () => {
+      if (tabListRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = tabListRef.current;
+
+        tabListRef.current?.classList.toggle(
+          classes['scroll-start'],
+          scrollLeft !== 0,
+        );
+        tabListRef.current?.classList.toggle(
+          classes['scroll-end'],
+          scrollLeft + clientWidth < scrollWidth,
+        );
+      }
+    };
+
+    if (!tabListRef.current) {
+      return undefined;
+    }
+    scrollListener();
+
+    tabListRef.current.addEventListener('scroll', scrollListener);
+    return () => {
+      tabListRef.current?.removeEventListener('scroll', scrollListener);
+    };
+  }, []);
+
+  const onTabListClick: MouseEventHandler<HTMLDivElement> = useCallback(
+    (event) => {
+      onClick?.(event);
+      const target = event.target as HTMLDivElement;
+      if (target.role === 'tab') {
+        updateGliderStyles(target);
+      }
     },
-    ref,
-  ) => {
-    const gliderRef = useRef<HTMLSpanElement>(null);
-    const tabListRef = useRef<HTMLDivElement>(null);
-    const numberOfTabs = Children.toArray(children).length;
-    const stretchOnMobile = numberOfTabs <= MOBILE_AUTOSTRETCH_ITEMS_MAX;
+    [onClick, updateGliderStyles],
+  );
 
-    const updateGliderStyles = useCallback((tab: HTMLElement) => {
-      tabListRef.current?.style.setProperty(
-        '--selected-tab-pseudo-content',
-        'unset',
-      );
-      const { offsetLeft, offsetWidth } = tab;
-      gliderRef.current?.style?.setProperty(
-        'transform',
-        `translateX(${offsetLeft}px)`,
-      );
-      gliderRef.current?.style?.setProperty('display', 'block');
-      gliderRef.current?.style?.setProperty('width', `${offsetWidth}px`);
-    }, []);
-
-    useEffect(() => {
-      // scrolls the active tab into view on initial render
-      const activeTab = getCurrentTab(tabListRef.current);
-      if (tabListRef.current && activeTab) {
-        tabListRef.current.scrollLeft += activeTab.offsetLeft;
+  const onTabListKeydown: KeyboardEventHandler<HTMLDivElement> = useCallback(
+    (event) => {
+      onKeyDown?.(event);
+      if (
+        (isArrowLeft(event) || isArrowRight(event)) &&
+        document.activeElement &&
+        document.activeElement?.role === 'tab'
+      ) {
+        updateGliderStyles(document.activeElement as HTMLElement);
       }
-    }, []);
-
-    useEffect(() => {
-      tabListRef.current?.style.setProperty(
-        '--tab-list-width',
-        `${tabListRef.current.getBoundingClientRect().width / numberOfTabs}px`,
-      );
-      const gliderCallback = () => {
-        if (tabListRef.current && gliderRef.current) {
-          const activeTab = getCurrentTab(tabListRef.current);
-          if (activeTab) {
-            updateGliderStyles(activeTab);
-          }
-        }
-      };
-      // apply initial styles to glider
-      gliderCallback();
-
-      // listen to resize events
-      window.addEventListener('resize', gliderCallback);
-      return () => window.removeEventListener('resize', gliderCallback);
-    }, [updateGliderStyles, numberOfTabs]);
-
-    useEffect(() => {
-      // shows / hides scroll indicators
-      const scrollListener = () => {
-        if (tabListRef.current) {
-          const { scrollLeft, scrollWidth, clientWidth } = tabListRef.current;
-
-          tabListRef.current?.classList.toggle(
-            classes['scroll-start'],
-            scrollLeft !== 0,
-          );
-          tabListRef.current?.classList.toggle(
-            classes['scroll-end'],
-            scrollLeft + clientWidth < scrollWidth,
-          );
-        }
-      };
-
-      if (!tabListRef.current) {
-        return undefined;
-      }
-      scrollListener();
-
-      tabListRef.current.addEventListener('scroll', scrollListener);
-      return () => {
-        tabListRef.current?.removeEventListener('scroll', scrollListener);
-      };
-    }, []);
-
-    const onTabListClick: MouseEventHandler<HTMLDivElement> = useCallback(
-      (event) => {
-        onClick?.(event);
-        const target = event.target as HTMLDivElement;
-        if (target.role === 'tab') {
-          updateGliderStyles(target);
-        }
-      },
-      [onClick, updateGliderStyles],
-    );
-
-    const onTabListKeydown: KeyboardEventHandler<HTMLDivElement> = useCallback(
-      (event) => {
-        onKeyDown?.(event);
-        if (
-          (isArrowLeft(event) || isArrowRight(event)) &&
-          document.activeElement &&
-          document.activeElement?.role === 'tab'
-        ) {
-          updateGliderStyles(document.activeElement as HTMLElement);
-        }
-      },
-      [onKeyDown, updateGliderStyles],
-    );
-    const Element = as === 'navigation' ? 'nav' : 'div';
-    return (
-      <Element ref={ref} className={clsx(classes.wrapper, className)}>
-        <div
-          ref={tabListRef}
-          className={clsx(
-            classes.base,
-            utilClasses.hideScrollbar,
-            stretched && classes.stretched,
-            stretchOnMobile && classes['stretched-mobile'],
-          )}
-          {...props}
-          role={as === 'tablist' ? 'tablist' : 'list'}
-          {...(as === 'tablist' && {
-            onClick: onTabListClick,
-            onKeyDown: onTabListKeydown,
-          })}
-        >
-          {children}
-          <span className={classes.glider} ref={gliderRef} />
-        </div>
-        <span className={classes['left-scroll-indicator']} />
-        <span className={classes['right-scroll-indicator']} />
-      </Element>
-    );
-  },
-);
+    },
+    [onKeyDown, updateGliderStyles],
+  );
+  const Element = as === 'navigation' ? 'nav' : 'div';
+  return (
+    <Element ref={ref} className={clsx(classes.wrapper, className)}>
+      <div
+        ref={tabListRef}
+        className={clsx(
+          classes.base,
+          utilClasses.hideScrollbar,
+          stretched && classes.stretched,
+          stretchOnMobile && classes['stretched-mobile'],
+        )}
+        {...props}
+        role={as === 'tablist' ? 'tablist' : 'list'}
+        {...(as === 'tablist' && {
+          onClick: onTabListClick,
+          onKeyDown: onTabListKeydown,
+        })}
+      >
+        {children}
+        <span className={classes.glider} ref={gliderRef} />
+      </div>
+      <span className={classes['left-scroll-indicator']} />
+      <span className={classes['right-scroll-indicator']} />
+    </Element>
+  );
+}

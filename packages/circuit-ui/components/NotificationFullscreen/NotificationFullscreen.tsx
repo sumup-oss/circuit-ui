@@ -13,13 +13,7 @@
  * limitations under the License.
  */
 
-import {
-  forwardRef,
-  type FC,
-  type HTMLAttributes,
-  type ReactNode,
-  type SVGProps,
-} from 'react';
+import type { FC, HTMLAttributes, ReactNode, Ref, SVGProps } from 'react';
 
 import { Body } from '../Body/index.js';
 import { Headline } from '../Headline/index.js';
@@ -32,6 +26,7 @@ import classes from './NotificationFullscreen.module.css';
 
 export interface NotificationFullscreenProps
   extends HTMLAttributes<HTMLDivElement> {
+  ref?: Ref<HTMLDivElement>;
   /**
    * An image to illustrate the notification. Supports either passing an image
    * source to `image.src` or an SVG component to `image.svg`. Pass an empty
@@ -80,10 +75,15 @@ function NotificationImage(image: NotificationFullscreenProps['image']) {
  * The `NotificationFullscreen` component provides important information or
  * feedback as part of a process flow.
  */
-export const NotificationFullscreen = forwardRef<
-  HTMLDivElement,
-  NotificationFullscreenProps
->(({ image, headline, body, actions, className, ...props }, ref) => {
+export function NotificationFullscreen({
+  image,
+  headline,
+  body,
+  actions,
+  className,
+  ref,
+  ...props
+}: NotificationFullscreenProps) {
   const headlineLabel = isString(headline) ? headline : headline.label;
   const headlineElement = isString(headline) ? 'h2' : headline.as;
   return (
@@ -96,4 +96,4 @@ export const NotificationFullscreen = forwardRef<
       {actions && <ButtonGroup actions={actions} className={classes.buttons} />}
     </div>
   );
-});
+}

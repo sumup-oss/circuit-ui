@@ -17,7 +17,6 @@
 
 import {
   Fragment,
-  forwardRef,
   useCallback,
   useEffect,
   useId,
@@ -108,150 +107,143 @@ export interface ToggletipProps
   strategy?: Strategy;
 }
 
-export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
-  (props, ref) => {
-    const {
-      defaultOpen = false,
-      placement: defaultPlacement = 'top',
-      offset = 12,
-      headline,
-      body,
-      action,
-      component: Component,
-      closeButtonLabel,
-      className,
-      style,
-      locale,
-      strategy = 'fixed',
-      ...rest
-    } = props;
-    const isMobile = useMedia('(max-width: 479px)');
-    const arrowRef = useRef<HTMLDivElement>(null);
-    const referenceId = useId();
-    const headlineId = useId();
-    const bodyId = useId();
-    const [open, setOpen] = useState(defaultOpen);
+export function Toggletip(props: ToggletipProps) {
+  const {
+    ref,
+    defaultOpen = false,
+    placement: defaultPlacement = 'top',
+    offset = 12,
+    headline,
+    body,
+    action,
+    component: Component,
+    closeButtonLabel,
+    className,
+    style,
+    locale,
+    strategy = 'fixed',
+    ...rest
+  } = props;
+  const isMobile = useMedia('(max-width: 479px)');
+  const arrowRef = useRef<HTMLDivElement>(null);
+  const referenceId = useId();
+  const headlineId = useId();
+  const bodyId = useId();
+  const [open, setOpen] = useState(defaultOpen);
 
-    const { refs, floatingStyles, middlewareData, update, placement } =
-      useFloating({
-        open,
-        strategy,
-        placement: defaultPlacement,
-        middleware: [
-          offsetMiddleware(offset),
-          flip(),
-          shift(),
-          arrow({ element: arrowRef, padding: 12 }),
-        ],
-      });
-
-    useEffect(() => {
-      /* Intentionally running useEffect without dependencies
-       * to ensure that the reference element is always up-to-date.
-       * to fix the issue of the tooltip rendering in the wrong position
-       * whenever the reference component re-renders.
-       * */
-      const referenceElement = document.getElementById(referenceId);
-
-      refs.setReference(referenceElement);
+  const { refs, floatingStyles, middlewareData, update, placement } =
+    useFloating({
+      open,
+      strategy,
+      placement: defaultPlacement,
+      middleware: [
+        offsetMiddleware(offset),
+        flip(),
+        shift(),
+        arrow({ element: arrowRef, padding: 12 }),
+      ],
     });
 
-    /**
-     * We can't use Floating UI's `whileElementsMounted` option because our
-     * implementation hides the floating element using CSS instead of using
-     * conditional rendering.
-     */
-    useEffect(() => {
-      if (open && refs.reference.current && refs.floating.current) {
-        return autoUpdate(
-          refs.reference.current,
-          refs.floating.current,
-          update,
-        );
-      }
-      return undefined;
-    }, [open, refs.reference, refs.floating, update]);
+  useEffect(() => {
+    /* Intentionally running useEffect without dependencies
+     * to ensure that the reference element is always up-to-date.
+     * to fix the issue of the tooltip rendering in the wrong position
+     * whenever the reference component re-renders.
+     * */
+    const referenceElement = document.getElementById(referenceId);
 
-    const closeDialog = useCallback(() => {
-      setOpen(false);
-    }, []);
+    refs.setReference(referenceElement);
+  });
 
-    const handleReferenceClick = useCallback(() => {
-      setOpen(true);
-    }, []);
+  /**
+   * We can't use Floating UI's `whileElementsMounted` option because our
+   * implementation hides the floating element using CSS instead of using
+   * conditional rendering.
+   */
+  useEffect(() => {
+    if (open && refs.reference.current && refs.floating.current) {
+      return autoUpdate(refs.reference.current, refs.floating.current, update);
+    }
+    return undefined;
+  }, [open, refs.reference, refs.floating, update]);
 
-    const handleActionClick = (event: ClickEvent) => {
-      action?.onClick?.(event);
-      closeDialog();
-    };
+  const closeDialog = useCallback(() => {
+    setOpen(false);
+  }, []);
 
-    const side = placement.split('-')[0] as Side;
+  const handleReferenceClick = useCallback(() => {
+    setOpen(true);
+  }, []);
 
-    const mobileStyles = {
-      position: 'fixed',
-      bottom: '0px',
-      left: '0px',
-      right: '0px',
-    } as const;
+  const handleActionClick = (event: ClickEvent) => {
+    action?.onClick?.(event);
+    closeDialog();
+  };
 
-    const dialogStyles = isMobile ? mobileStyles : floatingStyles;
+  const side = placement.split('-')[0] as Side;
 
-    return (
-      <Fragment>
-        <Component
-          id={referenceId}
-          aria-haspopup="dialog"
-          onClick={handleReferenceClick}
+  const mobileStyles = {
+    position: 'fixed',
+    bottom: '0px',
+    left: '0px',
+    right: '0px',
+  } as const;
+
+  const dialogStyles = isMobile ? mobileStyles : floatingStyles;
+
+  return (
+    <Fragment>
+      <Component
+        id={referenceId}
+        aria-haspopup="dialog"
+        onClick={handleReferenceClick}
+      />
+      <Dialog
+        {...rest}
+        open={open}
+        isModal={isMobile}
+        onCloseEnd={closeDialog}
+        ref={applyMultipleRefs(ref, refs.setFloating)}
+        data-side={side}
+        aria-labelledby={headline ? headlineId : bodyId}
+        aria-describedby={headline ? bodyId : undefined}
+        className={clsx(classes.base, className)}
+        closeButtonLabel={closeButtonLabel}
+        style={{ ...style, ...dialogStyles }}
+      >
+        <div className={classes.content}>
+          {headline && (
+            <Headline
+              as="h2"
+              size="s"
+              id={headlineId}
+              className={classes.headline}
+            >
+              {headline}
+            </Headline>
+          )}
+          <Body size="s" id={bodyId} className={classes.body}>
+            {body}
+          </Body>
+          {action && (
+            <Button
+              {...action}
+              onClick={handleActionClick}
+              variant="secondary"
+              size="s"
+              className={classes.action}
+            />
+          )}
+        </div>
+        <div
+          ref={arrowRef}
+          className={classes.arrow}
+          style={{
+            top: middlewareData.arrow?.y,
+            left: middlewareData.arrow?.x,
+          }}
         />
-        <Dialog
-          {...rest}
-          open={open}
-          isModal={isMobile}
-          onCloseEnd={closeDialog}
-          ref={applyMultipleRefs(ref, refs.setFloating)}
-          data-side={side}
-          aria-labelledby={headline ? headlineId : bodyId}
-          aria-describedby={headline ? bodyId : undefined}
-          className={clsx(classes.base, className)}
-          closeButtonLabel={closeButtonLabel}
-          style={{ ...style, ...dialogStyles }}
-        >
-          <div className={classes.content}>
-            {headline && (
-              <Headline
-                as="h2"
-                size="s"
-                id={headlineId}
-                className={classes.headline}
-              >
-                {headline}
-              </Headline>
-            )}
-            <Body size="s" id={bodyId} className={classes.body}>
-              {body}
-            </Body>
-            {action && (
-              <Button
-                {...action}
-                onClick={handleActionClick}
-                variant="secondary"
-                size="s"
-                className={classes.action}
-              />
-            )}
-          </div>
-          <div
-            ref={arrowRef}
-            className={classes.arrow}
-            style={{
-              top: middlewareData.arrow?.y,
-              left: middlewareData.arrow?.x,
-            }}
-          />
-        </Dialog>
-      </Fragment>
-    );
-  },
-);
-
-Toggletip.displayName = 'Toggletip';
+      </Dialog>
+    </Fragment>
+  );
+}

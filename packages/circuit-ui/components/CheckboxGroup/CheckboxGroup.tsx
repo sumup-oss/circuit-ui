@@ -16,7 +16,6 @@
 'use client';
 
 import {
-  forwardRef,
   useId,
   type FieldsetHTMLAttributes,
   type InputHTMLAttributes,
@@ -118,95 +117,86 @@ export interface CheckboxGroupProps
 /**
  * A group of Checkboxes.
  */
-export const CheckboxGroup = forwardRef(
-  (
-    {
-      options,
-      value,
-      defaultValue,
-      onChange,
-      name,
-      label,
-      invalid,
-      validationHint,
-      showValid,
-      disabled,
-      hasWarning,
-      hideLabel,
-      optionalLabel,
-      required,
-      'aria-describedby': descriptionId,
-      ...props
-    }: CheckboxGroupProps,
-    ref: CheckboxGroupProps['ref'],
-  ) => {
-    const validationHintId = useId();
-    const descriptionIds = idx(
-      descriptionId,
-      validationHint && validationHintId,
+export function CheckboxGroup({
+  options,
+  value,
+  defaultValue,
+  onChange,
+  name,
+  label,
+  invalid,
+  validationHint,
+  showValid,
+  disabled,
+  hasWarning,
+  hideLabel,
+  optionalLabel,
+  required,
+  ref,
+  'aria-describedby': descriptionId,
+  ...props
+}: CheckboxGroupProps) {
+  const validationHintId = useId();
+  const descriptionIds = idx(descriptionId, validationHint && validationHintId);
+
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !isSufficientlyLabelled(label)
+  ) {
+    throw new AccessibilityError(
+      'CheckboxGroup',
+      'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
     );
+  }
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !isSufficientlyLabelled(label)
-    ) {
-      throw new AccessibilityError(
-        'CheckboxGroup',
-        'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
-      );
-    }
+  if (isEmpty(options)) {
+    return null;
+  }
 
-    if (isEmpty(options)) {
-      return null;
-    }
-
-    return (
-      <FieldSet
-        aria-describedby={descriptionIds}
-        name={name}
-        ref={ref}
-        disabled={disabled}
-        {...props}
-      >
-        <FieldLegend>
-          <FieldLabelText
-            label={label}
-            hideLabel={hideLabel}
-            required={required}
-            optionalLabel={optionalLabel}
-          />
-        </FieldLegend>
-        <ul className={classes.base}>
-          {options.map((option) => (
-            <li key={option.value || option.label}>
-              <Checkbox
-                {...option}
-                name={name}
-                onChange={onChange}
-                disabled={disabled || option.disabled}
-                invalid={invalid || option.invalid}
-                checked={value ? value.includes(option.value) : option.checked}
-                defaultChecked={
-                  defaultValue
-                    ? defaultValue.includes(option.value)
-                    : option.defaultChecked
-                }
-              />
-            </li>
-          ))}
-        </ul>
-        <FieldValidationHint
-          id={validationHintId}
-          invalid={invalid}
-          showValid={showValid}
-          disabled={disabled}
-          hasWarning={hasWarning}
-          validationHint={validationHint}
+  return (
+    <FieldSet
+      aria-describedby={descriptionIds}
+      name={name}
+      ref={ref}
+      disabled={disabled}
+      {...props}
+    >
+      <FieldLegend>
+        <FieldLabelText
+          label={label}
+          hideLabel={hideLabel}
+          required={required}
+          optionalLabel={optionalLabel}
         />
-      </FieldSet>
-    );
-  },
-);
-
-CheckboxGroup.displayName = 'CheckboxGroup';
+      </FieldLegend>
+      <ul className={classes.base}>
+        {options.map((option) => (
+          <li key={option.value || option.label}>
+            <Checkbox
+              {...option}
+              name={name}
+              onChange={onChange}
+              disabled={disabled || option.disabled}
+              invalid={invalid || option.invalid}
+              checked={value ? value.includes(option.value) : option.checked}
+              defaultChecked={
+                defaultValue
+                  ? defaultValue.includes(option.value)
+                  : option.defaultChecked
+              }
+            />
+          </li>
+        ))}
+      </ul>
+      <FieldValidationHint
+        id={validationHintId}
+        invalid={invalid}
+        showValid={showValid}
+        disabled={disabled}
+        hasWarning={hasWarning}
+        validationHint={validationHint}
+      />
+    </FieldSet>
+  );
+}

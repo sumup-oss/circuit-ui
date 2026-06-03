@@ -15,7 +15,12 @@
 
 'use client';
 
-import { forwardRef, useId, type ButtonHTMLAttributes } from 'react';
+import {
+  useId,
+  type MouseEventHandler,
+  type Ref,
+  type ButtonHTMLAttributes,
+} from 'react';
 
 import {
   AccessibilityError,
@@ -27,7 +32,13 @@ import { utilClasses } from '../../styles/utility.js';
 
 import classes from './Toggle.module.css';
 
-export interface ToggleProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ToggleProps
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onChange'> {
+  ref?: Ref<HTMLButtonElement>;
+  /**
+   * Callback when the toggle state changes.
+   */
+  onChange?: MouseEventHandler<HTMLButtonElement>;
   /**
    * Describes the function of the toggle. Should not change depending on the state.
    */
@@ -45,75 +56,67 @@ export interface ToggleProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 /**
  * A toggle component with support for labels and additional explanations.
  */
-export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
-  (
-    {
-      label,
-      description,
-      'aria-describedby': describedBy,
-      checked = false,
-      onChange,
-      className,
-      style,
-      ...props
-    },
-    ref,
-  ) => {
-    const switchId = useId();
-    const labelId = useId();
-    const descriptionId = useId();
+export function Toggle({
+  label,
+  description,
+  'aria-describedby': describedBy,
+  checked = false,
+  onChange,
+  className,
+  style,
+  ref,
+  ...props
+}: ToggleProps) {
+  const switchId = useId();
+  const labelId = useId();
+  const descriptionId = useId();
 
-    const descriptionIds = [describedBy, description && descriptionId]
-      .filter(Boolean)
-      .join(' ');
+  const descriptionIds = [describedBy, description && descriptionId]
+    .filter(Boolean)
+    .join(' ');
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !isSufficientlyLabelled(label)
-    ) {
-      throw new AccessibilityError(
-        'Toggle',
-        'The `label` prop is missing or invalid.',
-      );
-    }
-
-    return (
-      <FieldWrapper
-        disabled={props.disabled}
-        className={clsx(classes.wrapper, className)}
-        style={style}
-      >
-        <button
-          type="button"
-          onClick={onChange}
-          role="switch"
-          aria-checked={checked}
-          aria-labelledby={labelId}
-          aria-describedby={descriptionIds}
-          id={switchId}
-          className={clsx(classes.track, utilClasses.focusVisible)}
-          {...props}
-          ref={ref}
-        >
-          <span className={classes.knob} />
-        </button>
-        <label className={classes.label} id={labelId} htmlFor={switchId}>
-          {label}
-          {description && (
-            <FieldDescription aria-hidden="true">
-              {description}
-            </FieldDescription>
-          )}
-        </label>
-        {description && (
-          <span id={descriptionId} className={utilClasses.hideVisually}>
-            {description}
-          </span>
-        )}
-      </FieldWrapper>
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !isSufficientlyLabelled(label)
+  ) {
+    throw new AccessibilityError(
+      'Toggle',
+      'The `label` prop is missing or invalid.',
     );
-  },
-);
+  }
 
-Toggle.displayName = 'Toggle';
+  return (
+    <FieldWrapper
+      disabled={props.disabled}
+      className={clsx(classes.wrapper, className)}
+      style={style}
+    >
+      <button
+        type="button"
+        onClick={onChange}
+        role="switch"
+        aria-checked={checked}
+        aria-labelledby={labelId}
+        aria-describedby={descriptionIds}
+        id={switchId}
+        className={clsx(classes.track, utilClasses.focusVisible)}
+        {...props}
+        ref={ref}
+      >
+        <span className={classes.knob} />
+      </button>
+      <label className={classes.label} id={labelId} htmlFor={switchId}>
+        {label}
+        {description && (
+          <FieldDescription aria-hidden="true">{description}</FieldDescription>
+        )}
+      </label>
+      {description && (
+        <span id={descriptionId} className={utilClasses.hideVisually}>
+          {description}
+        </span>
+      )}
+    </FieldWrapper>
+  );
+}
