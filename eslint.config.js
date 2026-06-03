@@ -36,7 +36,6 @@ export default defineConfig([
       'circuit-ui/no-deprecated-custom-properties': 'error',
       'circuit-ui/no-deprecated-props': 'error',
       'circuit-ui/no-renamed-props': 'error',
-      'circuit-ui/prefer-custom-properties': 'warn',
     },
   },
   configs.browser,
