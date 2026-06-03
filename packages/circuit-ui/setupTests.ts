@@ -15,22 +15,10 @@
 
 import '@testing-library/jest-dom/vitest';
 import { vi, expect } from 'vitest';
-import { createSerializer } from '@emotion/jest';
 import { toHaveNoViolations } from 'jest-axe';
 
 // Add custom matchers
 expect.extend(toHaveNoViolations);
-
-// Add a snapshot serializer that removes random hashes
-// from emotion class names.
-expect.addSnapshotSerializer(
-  // @ts-expect-error -- Legacy code
-  createSerializer({
-    classNameReplacer(_, index) {
-      return `circuit-${index}`;
-    },
-  }),
-);
 
 global.matchMedia = vi.fn().mockImplementation((query) => ({
   matches: false,
