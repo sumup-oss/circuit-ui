@@ -89,10 +89,7 @@ export const ActionMenu = forwardRef<HTMLDialogElement, ActionMenuProps>(
         hideCloseButton={!isMobile || props.disableModalOnMobile}
         onToggle={onToggle}
         component={(refProps) => (
-          <Component
-            {...refProps}
-            onKeyDown={handleTriggerKeyDown}
-          />
+          <Component {...refProps} onKeyDown={handleTriggerKeyDown} />
         )}
         {...props}
       >
