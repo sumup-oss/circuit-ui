@@ -24,7 +24,6 @@ import {
 import { FieldDescription, FieldWrapper } from '../Field/index.js';
 import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';
-import { deprecate } from '../../util/logger.js';
 
 import classes from './Toggle.module.css';
 
@@ -41,14 +40,6 @@ export interface ToggleProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * Is the Switch on?
    */
   checked?: boolean;
-  /**
-   * @deprecated This prop is no longer needed.
-   */
-  checkedLabel?: string;
-  /**
-   * @deprecated This prop is no longer needed.
-   */
-  uncheckedLabel?: string;
 }
 
 /**
@@ -60,8 +51,6 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
       label,
       description,
       'aria-describedby': describedBy,
-      checkedLabel,
-      uncheckedLabel,
       checked = false,
       onChange,
       className,
@@ -87,24 +76,6 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
         'Toggle',
         'The `label` prop is missing or invalid.',
       );
-    }
-
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test'
-    ) {
-      if (checkedLabel) {
-        deprecate(
-          'Toggle',
-          'The `checkedLabel` prop is deprecated and can be removed.',
-        );
-      }
-      if (uncheckedLabel) {
-        deprecate(
-          'Toggle',
-          'The `uncheckedLabel` prop is deprecated and can be removed.',
-        );
-      }
     }
 
     return (
