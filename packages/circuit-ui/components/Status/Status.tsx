@@ -64,7 +64,7 @@ const isDynamicWidth = (children: StatusProps['children']) =>
  * The status component communicates the condition of an entity
  * by conveying semantic meaning or indicating new, important information.
  */
-export const Status = forwardRef<any, StatusProps>(
+export const Status = forwardRef<HTMLDivElement, StatusProps>(
   (
     {
       as: Element = 'div',
