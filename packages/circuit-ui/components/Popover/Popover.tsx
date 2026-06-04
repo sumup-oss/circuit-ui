@@ -33,6 +33,7 @@ import {
   useCallback,
   useEffect,
   useId,
+  useLayoutEffect,
   useRef,
   useState,
 } from 'react';
@@ -59,6 +60,7 @@ export interface PopoverReferenceProps {
   'id': string;
   'aria-controls': string;
   'aria-expanded': boolean;
+  'ref'?: (el: HTMLElement | null) => void;
 }
 type OnToggle = (open: boolean | ((prevOpen: boolean) => boolean)) => void;
 
@@ -142,6 +144,7 @@ export function Popover({
   ...props
 }: PopoverProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const triggerElementRef = useRef<HTMLElement | null>(null);
   const triggerId = useId();
   const contentId = useId();
   const [isClosing, setClosing] = useState(false);
@@ -190,13 +193,15 @@ export function Popover({
     });
   };
 
-  useEffect(() => {
-    /* Intentionally running useEffect without dependencies
-     * to ensure that the reference element is always up-to-date,
-     * matching the same pattern used in Tooltip and Toggletip.
+  useLayoutEffect(() => {
+    /* Intentionally running without dependencies to ensure that the
+     * reference element is always up-to-date. useLayoutEffect (rather than
+     * useEffect) guarantees the reference is set before useClickOutside in
+     * Dialog installs its listeners, which also run in useEffect.
+     * triggerElementRef is populated by React's commit phase (via the ref
+     * callback on Component) before this effect runs.
      */
-    const referenceElement = document.getElementById(triggerId);
-    refs.setReference(referenceElement);
+    refs.setReference(triggerElementRef.current);
   });
 
   /**
@@ -241,6 +246,9 @@ export function Popover({
         aria-controls={contentId}
         aria-expanded={isOpen}
         onClick={handleTriggerClick}
+        ref={(el) => {
+          triggerElementRef.current = el;
+        }}
       />
       <Dialog
         {...props}
