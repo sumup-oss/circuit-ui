@@ -1,5 +1,11 @@
 # @sumup-oss/design-tokens
 
+## 10.0.3
+
+### Patch Changes
+
+- [#3676](https://github.com/sumup-oss/circuit-ui/pull/3676) [`3bfc481`](https://github.com/sumup-oss/circuit-ui/commit/3bfc4816f9ff71d584c9927eb4c6f9f8e93e33c7) Thanks [@sirineJ](https://github.com/sirineJ)! - Adjusted the light theme divider color tokens to improve visual contrast and visibility.
+
 ## 10.0.2
 
 ### Patch Changes

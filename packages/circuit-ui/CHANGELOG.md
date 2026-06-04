@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 11.7.0
+
+### Minor Changes
+
+- [#3677](https://github.com/sumup-oss/circuit-ui/pull/3677) [`78f8cd3`](https://github.com/sumup-oss/circuit-ui/commit/78f8cd3c52f26db1303e491a176ca68200dda2e6) Thanks [@missating](https://github.com/missating)! - Added a new `as` prop to the Status component.
+
 ## 11.6.0
 
 ### Minor Changes
