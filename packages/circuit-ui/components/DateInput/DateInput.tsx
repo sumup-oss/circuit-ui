@@ -192,7 +192,6 @@ export function DateInput(rawProps: DateInputProps) {
   const isMobile = useMedia('(max-width: 479px)');
 
   const inputRef = useRef<HTMLInputElement>(null);
-  const calendarButtonRef = useRef<HTMLDivElement>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   const dialogId = useId();
@@ -395,7 +394,6 @@ export function DateInput(rawProps: DateInputProps) {
             component={(btnProps) => (
               <IconButton
                 {...btnProps}
-                ref={calendarButtonRef}
                 type="button"
                 icon={CalendarIcon}
                 variant="secondary"

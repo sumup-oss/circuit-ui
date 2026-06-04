@@ -57,7 +57,11 @@ export function isReactComponent(
   if (
     isObject(component) &&
     '$$typeof' in component &&
-    component.$$typeof === Symbol.for('react.memo')
+    (component.$$typeof === Symbol.for('react.memo') ||
+      // forwardRef is deprecated in React 19 but consumers may still use it.
+      // forwardRef-wrapped components are objects, not functions, so we need
+      // this to avoid rendering them as React children directly.
+      component.$$typeof === Symbol.for('react.forward_ref'))
   ) {
     return true;
   }

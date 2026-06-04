@@ -30,7 +30,6 @@ import {
   Fragment,
   type HTMLAttributes,
   type KeyboardEvent,
-  type Ref,
   useCallback,
   useEffect,
   useId,
@@ -60,7 +59,6 @@ export interface PopoverReferenceProps {
   'id': string;
   'aria-controls': string;
   'aria-expanded': boolean;
-  'ref'?: Ref<any>;
 }
 type OnToggle = (open: boolean | ((prevOpen: boolean) => boolean)) => void;
 
@@ -192,6 +190,15 @@ export function Popover({
     });
   };
 
+  useEffect(() => {
+    /* Intentionally running useEffect without dependencies
+     * to ensure that the reference element is always up-to-date,
+     * matching the same pattern used in Tooltip and Toggletip.
+     */
+    const referenceElement = document.getElementById(triggerId);
+    refs.setReference(referenceElement);
+  });
+
   /**
    * We can't use Floating UI's `whileElementsMounted` option because our
    * implementation hides the floating element using CSS instead of using
@@ -234,7 +241,6 @@ export function Popover({
         aria-controls={contentId}
         aria-expanded={isOpen}
         onClick={handleTriggerClick}
-        ref={refs.setReference}
       />
       <Dialog
         {...props}
