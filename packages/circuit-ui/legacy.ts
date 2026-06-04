@@ -31,5 +31,3 @@ export {
   typography,
   center,
 } from './styles/style-mixins.js';
-
-export { uniqueId } from './util/id.js';
