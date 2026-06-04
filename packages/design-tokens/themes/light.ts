@@ -638,22 +638,22 @@ export const light = [
   },
   {
     name: '--cui-border-divider',
-    value: '#f1f1eb',
+    value: '#E7E6DF',
     type: 'color',
   },
   {
     name: '--cui-border-divider-hovered',
-    value: '#e3e2d6',
+    value: '#D8D7CA',
     type: 'color',
   },
   {
     name: '--cui-border-divider-pressed',
-    value: '#d0cdc3',
+    value: '#CBC8BD',
     type: 'color',
   },
   {
     name: '--cui-border-divider-disabled',
-    value: 'rgba(240, 241, 231, 0.5000)',
+    value: '#E7E6DF',
     type: 'color',
   },
   {
