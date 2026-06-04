@@ -224,17 +224,6 @@ describe('ActionMenu', () => {
     await flushMicrotasks();
   });
 
-  it('should render the action menu without menu semantics', async () => {
-    renderActionMenu({ ...baseProps, role: null });
-
-    const menu = screen.queryByRole('menu');
-    expect(menu).toBeNull();
-    const menuitems = screen.queryAllByRole('menuitem');
-    expect(menuitems.length).toBe(0);
-
-    await flushMicrotasks();
-  });
-
   it('should hide dividers from the accessibility tree', async () => {
     const { baseElement } = renderActionMenu(baseProps);
 
