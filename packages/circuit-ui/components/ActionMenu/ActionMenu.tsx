@@ -56,7 +56,6 @@ export const ActionMenu = forwardRef<HTMLDialogElement, ActionMenuProps>(
   ({ actions, className, onToggle, component: Component, ...props }, ref) => {
     const menuEl = useRef<HTMLDivElement>(null);
     const triggerKey = useRef<TriggerKey | null>(null);
-    const triggerId = useId();
     const menuId = useId();
     const isMobile = useMedia('(max-width: 479px)');
 
@@ -92,13 +91,12 @@ export const ActionMenu = forwardRef<HTMLDialogElement, ActionMenuProps>(
         component={(refProps) => (
           <Component
             {...refProps}
-            id={triggerId}
             onKeyDown={handleTriggerKeyDown}
           />
         )}
         {...props}
       >
-        <div id={menuId} ref={menuEl} role="menu" aria-labelledby={triggerId}>
+        <div id={menuId} ref={menuEl}>
           {actions.map((action, index) => {
             const key = isDivider(action)
               ? `divider-${index}`
@@ -108,7 +106,6 @@ export const ActionMenu = forwardRef<HTMLDialogElement, ActionMenuProps>(
             ) : (
               <ActionMenuItem
                 key={key}
-                role="menuitem"
                 {...action}
                 {...focusProps}
                 onClick={handleActionMenuItemClick(action.onClick)}

@@ -2,4 +2,4 @@
 "@sumup-oss/circuit-ui": major
 ---
 
-Removed `role` prop from `ActionMenu` component. The component now renders with correct `menu` ARIA semantics.
+Removed the `menu` ARIA role from the `ActionMenu` component. The `role="menu"` pattern triggers screen reader "Application mode" which requires non-standard keystrokes that most users are unaware of.

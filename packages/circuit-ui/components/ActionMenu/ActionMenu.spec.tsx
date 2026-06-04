@@ -161,9 +161,7 @@ describe('ActionMenu', () => {
   it('should close the action menu when clicking a action menu item', async () => {
     renderActionMenu(baseProps);
 
-    const actionMenuItems = screen.getAllByRole('menuitem');
-
-    await userEvent.click(actionMenuItems[0]);
+    await userEvent.click(screen.getByRole('button', { name: 'Add' }));
 
     expect(baseProps.onToggle).toHaveBeenCalledTimes(1);
   });
@@ -180,9 +178,7 @@ describe('ActionMenu', () => {
 
     rerender(<ActionMenu {...baseProps} isOpen />);
 
-    const actionMenuItems = screen.getAllByRole('menuitem');
-
-    expect(actionMenuItems[0]).toHaveFocus();
+    expect(screen.getByRole('button', { name: 'Add' })).toHaveFocus();
 
     await flushMicrotasks();
   });
@@ -211,17 +207,6 @@ describe('ActionMenu', () => {
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });
-  });
-
-  it('should render the action menu with menu semantics by default', async () => {
-    renderActionMenu(baseProps);
-
-    const menu = screen.getByRole('menu');
-    expect(menu).toBeVisible();
-    const menuitems = screen.getAllByRole('menuitem');
-    expect(menuitems.length).toBe(2);
-
-    await flushMicrotasks();
   });
 
   it('should hide dividers from the accessibility tree', async () => {
