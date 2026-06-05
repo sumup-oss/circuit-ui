@@ -92,7 +92,7 @@ const legacyVariantMap: Record<string, 'person' | 'object' | 'business'> = {
  */
 export const Avatar = ({
   src,
-  alt = '', // This default should be removed in the next major
+  alt,
   variant: legacyVariant = 'object',
   size: legacySize = 'm',
   initials,
