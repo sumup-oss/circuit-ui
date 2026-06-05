@@ -2,4 +2,4 @@
 "@sumup-oss/circuit-ui": major
 ---
 
-Removed the `menu` ARIA role from the `ActionMenu` component. The `role="menu"` pattern triggers screen reader "Application mode" which requires non-standard keystrokes that most users are unaware of.
+Removed the `menu` ARIA role from the `ActionMenu` component. The `role="menu"` pattern is reserved for complex, desktop-like applications and is not appropriate for the ActionMenu component.
