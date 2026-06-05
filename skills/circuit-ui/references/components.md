@@ -22,6 +22,7 @@
 
 | Component | Status | Package | Source export | Usage reference |
 | --- | --- | --- | --- | --- |
+| `AutocompleteInput` | `stable` | `@sumup-oss/circuit-ui` | `./components/AutocompleteInput/index.js` | [Read MDX reference](components/AutocompleteInput.mdx) |
 | `Calendar` | `stable` | `@sumup-oss/circuit-ui` | `./components/Calendar/index.js` | [Read MDX reference](components/Calendar.mdx) |
 | `Checkbox` | `stable` | `@sumup-oss/circuit-ui` | `./components/Checkbox/index.js` | [Read MDX reference](components/Checkbox.mdx) |
 | `CheckboxGroup` | `stable` | `@sumup-oss/circuit-ui` | `./components/CheckboxGroup/index.js` | [Read MDX reference](components/CheckboxGroup.mdx) |
