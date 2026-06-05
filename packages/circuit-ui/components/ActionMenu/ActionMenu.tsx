@@ -15,13 +15,7 @@
 
 'use client';
 
-import {
-  useId,
-  useRef,
-  forwardRef,
-  useCallback,
-  type KeyboardEvent,
-} from 'react';
+import { useRef, forwardRef, useCallback, type KeyboardEvent } from 'react';
 
 import type { ClickEvent } from '../../types/events.js';
 import { Hr } from '../Hr/index.js';
@@ -54,9 +48,7 @@ type TriggerKey = 'ArrowUp' | 'ArrowDown';
 
 export const ActionMenu = forwardRef<HTMLDialogElement, ActionMenuProps>(
   ({ actions, className, onToggle, component: Component, ...props }, ref) => {
-    const menuEl = useRef<HTMLDivElement>(null);
     const triggerKey = useRef<TriggerKey | null>(null);
-    const menuId = useId();
     const isMobile = useMedia('(max-width: 479px)');
 
     const focusProps = useFocusList();
@@ -93,23 +85,19 @@ export const ActionMenu = forwardRef<HTMLDialogElement, ActionMenuProps>(
         )}
         {...props}
       >
-        <div id={menuId} ref={menuEl}>
-          {actions.map((action, index) => {
-            const key = isDivider(action)
-              ? `divider-${index}`
-              : action.children;
-            return isDivider(action) ? (
-              <Hr className={classes.divider} key={key} />
-            ) : (
-              <ActionMenuItem
-                key={key}
-                {...action}
-                {...focusProps}
-                onClick={handleActionMenuItemClick(action.onClick)}
-              />
-            );
-          })}
-        </div>
+        {actions.map((action, index) => {
+          const key = isDivider(action) ? `divider-${index}` : action.children;
+          return isDivider(action) ? (
+            <Hr className={classes.divider} key={key} />
+          ) : (
+            <ActionMenuItem
+              key={key}
+              {...action}
+              {...focusProps}
+              onClick={handleActionMenuItemClick(action.onClick)}
+            />
+          );
+        })}
       </Popover>
     );
   },
