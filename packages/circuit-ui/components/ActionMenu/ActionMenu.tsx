@@ -44,7 +44,7 @@ function isDivider(action: Action): action is Divider {
   return 'type' in action && action.type === 'divider';
 }
 
-export interface ActionMenuProps extends Omit<PopoverProps, 'role'> {
+export interface ActionMenuProps extends PopoverProps {
   /**
    * An array of ActionMenuItem or Divider.
    */
