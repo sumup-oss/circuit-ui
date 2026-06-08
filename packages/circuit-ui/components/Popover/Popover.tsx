@@ -30,6 +30,7 @@ import {
   Fragment,
   type HTMLAttributes,
   type KeyboardEvent,
+  type RefObject,
   useCallback,
   useEffect,
   useId,
@@ -60,7 +61,7 @@ export interface PopoverReferenceProps {
   'id': string;
   'aria-controls': string;
   'aria-expanded': boolean;
-  'ref'?: (el: HTMLElement | null) => void;
+  'ref'?: (el: Element | null) => void;
 }
 type OnToggle = (open: boolean | ((prevOpen: boolean) => boolean)) => void;
 
@@ -144,7 +145,7 @@ export function Popover({
   ...props
 }: PopoverProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const triggerElementRef = useRef<HTMLElement | null>(null);
+  const triggerElementRef = useRef<Element | null>(null);
   const triggerId = useId();
   const contentId = useId();
   const [isClosing, setClosing] = useState(false);
@@ -156,7 +157,7 @@ export function Popover({
   const activePopoverId = useStore($activePopoverId);
   const popoverId = useId();
 
-  const { floatingStyles, refs, update } = useFloating<HTMLElement>({
+  const { floatingStyles, refs, update } = useFloating<Element>({
     open: isOpen,
     placement,
     strategy: 'fixed',
@@ -266,7 +267,7 @@ export function Popover({
         )}
         animationDuration={animationDuration}
         style={isModalOnMobile ? style : { ...style, ...floatingStyles }}
-        preventOutsideClickRefs={refs.reference}
+        preventOutsideClickRefs={refs.reference as RefObject<HTMLElement>}
       >
         <div
           id={contentId}
