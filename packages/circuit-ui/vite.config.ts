@@ -19,6 +19,7 @@ import preserveDirectives from 'rollup-plugin-preserve-directives';
 
 import { defineConfig, type ViteUserConfig } from 'vitest/config';
 
+import { reorderUtilityCssVitePlugin } from './build/reorder-utility-css-plugin.js';
 import pkg from './package.json' with { type: 'json' };
 
 export const css: ViteUserConfig['css'] = {
@@ -69,6 +70,7 @@ function last<T>(collection: T[]): T {
 
 export default defineConfig({
   css,
+  plugins: [reorderUtilityCssVitePlugin()],
   build: {
     target: ['es2019'],
     lib: {
