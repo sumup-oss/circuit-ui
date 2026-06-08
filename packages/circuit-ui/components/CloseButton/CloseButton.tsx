@@ -19,7 +19,8 @@ import { Close } from '@sumup-oss/icons';
 import { IconButton, type IconButtonProps } from '../Button/IconButton.js';
 
 export type CloseButtonProps = Omit<IconButtonProps, 'icon'> & {
-  ref?: Ref<HTMLElement>;
+  // biome-ignore lint/suspicious/noExplicitAny: Inherits polymorphic ref from IconButton (button, anchor, or custom element)
+  ref?: Ref<any>;
 };
 
 /**

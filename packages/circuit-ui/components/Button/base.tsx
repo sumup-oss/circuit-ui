@@ -137,7 +137,8 @@ export function createButtonComponent<Props>(
   // TODO: Refactor to `mapClassName` once the deprecations have been removed.
   mapProps: (props: Props) => CreateButtonComponentProps,
 ) {
-  function Button({ ref, ...rest }: Props & { ref?: Ref<HTMLElement> }) {
+  // biome-ignore lint/suspicious/noExplicitAny: Polymorphic component supports button, anchor, and custom elements
+  function Button({ ref, ...rest }: Props & { ref?: Ref<any> }) {
     const {
       children,
       onClick,
