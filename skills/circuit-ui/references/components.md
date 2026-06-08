@@ -102,7 +102,6 @@
 | --- | --- | --- | --- | --- |
 | `Anchor` | `stable` | `@sumup-oss/circuit-ui` | `./components/Anchor/index.js` | [Read MDX reference](components/Anchor.mdx) |
 | `Body` | `stable` | `@sumup-oss/circuit-ui` | `./components/Body/index.js` | [Read MDX reference](components/Body.mdx) |
-| `BodyLarge` | Unknown | `@sumup-oss/circuit-ui` | `./components/BodyLarge/index.js` | Not available |
 | `Compact` | `stable` | `@sumup-oss/circuit-ui` | `./components/Compact/index.js` | [Read MDX reference](components/Compact.mdx) |
 | `Display` | `stable` | `@sumup-oss/circuit-ui` | `./components/Display/index.js` | [Read MDX reference](components/Display.mdx) |
 | `Headline` | `stable` | `@sumup-oss/circuit-ui` | `./components/Headline/index.js` | [Read MDX reference](components/Headline.mdx) |
