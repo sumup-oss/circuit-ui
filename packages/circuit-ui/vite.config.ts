@@ -22,6 +22,8 @@ import { defineConfig, type ViteUserConfig } from 'vitest/config';
 import { reorderUtilityCssVitePlugin } from './build/reorder-utility-css-plugin.js';
 import pkg from './package.json' with { type: 'json' };
 
+const stylesFileName = 'styles';
+
 export const css: ViteUserConfig['css'] = {
   modules: {
     generateScopedName(className, file) {
@@ -70,7 +72,7 @@ function last<T>(collection: T[]): T {
 
 export default defineConfig({
   css,
-  plugins: [reorderUtilityCssVitePlugin()],
+  plugins: [reorderUtilityCssVitePlugin(`${stylesFileName}.css`)],
   build: {
     target: ['es2019'],
     lib: {
@@ -82,7 +84,7 @@ export default defineConfig({
       ],
       formats: ['es'],
       fileName: (_, entryName: string) => `${entryName}.js`,
-      cssFileName: 'styles',
+      cssFileName: stylesFileName,
     },
     minify: false,
     rollupOptions: {

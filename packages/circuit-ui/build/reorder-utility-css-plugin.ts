@@ -20,7 +20,6 @@ import { fileURLToPath } from 'node:url';
 import type { Plugin as VitePlugin } from 'vite';
 
 const packageRoot = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const stylesFileName = 'styles.css';
 
 export const UTILITY_MARKER_START = 'UTIL CLASSES MARKER START';
 export const UTILITY_MARKER_END = 'UTIL CLASSES MARKER END';
@@ -40,14 +39,14 @@ function findCommentBlock(
   }
 
   const end = source.indexOf('*/', markerIndex);
-  if (end === -1) {
+  if (end === -1 || end !== start + marker.length + 4) {
     return null;
   }
 
   return { start, end: end + 2 };
 }
 
-function removeRanges(source: string, ranges: Array<[number, number]>): string {
+function removeRanges(source: string, ranges: [number, number][]): string {
   return ranges
     .sort(([left], [right]) => right - left)
     .reduce(
@@ -61,21 +60,17 @@ export function reorderUtilityCss(source: string): string {
   const endBlock = findCommentBlock(source, UTILITY_MARKER_END);
 
   if (!startBlock || !endBlock) {
-    return source;
+    throw new Error('Could not find utility CSS marker in the CSS file.');
   }
 
   let utilityCss: string;
-  let rangesToRemove: Array<[number, number]>;
+  let rangesToRemove: [number, number][];
 
   if (startBlock.start < endBlock.start) {
     utilityCss = source.slice(startBlock.end, endBlock.start).trim();
     rangesToRemove = [[startBlock.start, endBlock.end]];
   } else {
-    utilityCss = source.slice(startBlock.end).trim();
-    rangesToRemove = [
-      [endBlock.start, endBlock.end],
-      [startBlock.start, startBlock.end],
-    ];
+    throw new Error('Utility CSS marker is not in the correct order.');
   }
 
   if (!utilityCss) {
@@ -87,7 +82,9 @@ export function reorderUtilityCss(source: string): string {
   return `${withoutUtility}\n\n${utilityCss}\n`;
 }
 
-export function reorderUtilityCssVitePlugin(): VitePlugin {
+export function reorderUtilityCssVitePlugin(
+  stylesFileName: string,
+): VitePlugin {
   return {
     name: 'reorder-utility-css',
     apply: 'build',
