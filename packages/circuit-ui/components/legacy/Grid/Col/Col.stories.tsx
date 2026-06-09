@@ -14,7 +14,7 @@
  */
 
 import { Col, type ColProps } from './Col.js';
-import styles from "../Grid/GridStories.module.css";
+import styles from '../Grid/GridStories.module.css';
 
 const colControl = {
   control: {
