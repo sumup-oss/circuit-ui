@@ -32,8 +32,8 @@
 /* Giga */
 @media (min-width: 768px) {
   .base {
-    left: calc(100% * var(--skip-giga, var(--skip)) / 12);
-    width: calc(100% * var(--span-giga, var(--span)) / 12);
+    left: calc(100% * var(--skip-giga, var(--skip-kilo, var(--skip))) / 12);
+    width: calc(100% * var(--span-giga, var(--span-kilo, var(--span))) / 12);
     padding-right: var(--cui-spacings-kilo);
     padding-left: var(--cui-spacings-kilo);
   }
@@ -42,15 +42,37 @@
 /* Mega */
 @media (min-width: 960px) {
   .base {
-    left: calc(100% * var(--skip-mega, var(--skip)) / 12);
-    width: calc(100% * var(--span-mega, var(--span)) / 12);
+    left: calc(
+      100% *
+      var(--skip-mega, var(--skip-giga, var(--skip-kilo, var(--skip)))) /
+      12
+    );
+    width: calc(
+      100% *
+      var(--span-mega, var(--span-giga, var(--span-kilo, var(--span)))) /
+      12
+    );
   }
 }
 
 /* Tera */
 @media (min-width: 1280px) {
   .base {
-    left: calc(100% * var(--skip-tera, var(--skip)) / 12);
-    width: calc(100% * var(--span-tera, var(--span)) / 12);
+    left: calc(
+      100% *
+      var(
+        --skip-tera,
+        var(--skip-mega, var(--skip-giga, var(--skip-kilo, var(--skip))))
+      ) /
+      12
+    );
+    width: calc(
+      100% *
+      var(
+        --span-tera,
+        var(--span-mega, var(--span-giga, var(--span-kilo, var(--span))))
+      ) /
+      12
+    );
   }
 }
