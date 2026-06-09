@@ -26,8 +26,6 @@ export { Display } from './components/Display/index.js';
 export type { DisplayProps } from './components/Display/index.js';
 export { Body } from './components/Body/index.js';
 export type { BodyProps } from './components/Body/index.js';
-export { BodyLarge } from './components/BodyLarge/index.js';
-export type { BodyLargeProps } from './components/BodyLarge/index.js';
 export { Compact } from './components/Compact/index.js';
 export type { CompactProps } from './components/Compact/index.js';
 export { Numeral } from './components/Numeral/index.js';
