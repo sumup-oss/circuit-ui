@@ -44,13 +44,6 @@ export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
 /**
  * The Image component. Responsive by default.
  */
-export function Image({ className, alt, ref, ...props }: ImageProps) {
-  return (
-    <img
-      alt={alt}
-      ref={ref}
-      className={clsx(classes.base, className)}
-      {...props}
-    />
-  );
+export function Image({ className, alt, ...props }: ImageProps) {
+  return <img alt={alt} className={clsx(classes.base, className)} {...props} />;
 }

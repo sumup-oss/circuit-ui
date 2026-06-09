@@ -67,7 +67,6 @@ export function Status({
   className,
   style = {},
   children,
-  ref,
   ...props
 }: StatusProps) {
   const width =
@@ -76,7 +75,6 @@ export function Status({
   return (
     <div
       {...props}
-      ref={ref}
       className={clsx(
         classes.base,
         classes[variant],

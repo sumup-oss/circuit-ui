@@ -62,13 +62,11 @@ export function Numeral({
   size = 'm',
   color = 'normal',
   decoration,
-  ref,
   ...props
 }: NumeralProps) {
   return (
     <Element
       {...props}
-      ref={ref}
       className={clsx(
         classes.base,
         classes[size],

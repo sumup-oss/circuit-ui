@@ -22,6 +22,6 @@ export interface TabPanelProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * TabPanel wrapping content being showed by tabs
  */
-export function TabPanel({ ref, ...props }: TabPanelProps) {
-  return <div ref={ref} {...props} role="tabpanel" tabIndex={-1} />;
+export function TabPanel({ ...props }: TabPanelProps) {
+  return <div {...props} role="tabpanel" tabIndex={-1} />;
 }

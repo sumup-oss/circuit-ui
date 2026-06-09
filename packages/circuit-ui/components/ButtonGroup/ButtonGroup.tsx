@@ -60,7 +60,6 @@ export function ButtonGroup({
   className,
   align = 'center',
   size: legacySize = 'm',
-  ref,
   ...props
 }: ButtonGroupProps) {
   if (process.env.NODE_ENV !== 'production') {
@@ -81,7 +80,7 @@ export function ButtonGroup({
   const size = legacyButtonSizeMap[legacySize] || legacySize;
 
   return (
-    <div {...props} className={clsx(styles.container, className)} ref={ref}>
+    <div {...props} className={clsx(styles.container, className)}>
       <div className={clsx(styles.base, styles[align], styles[size])}>
         <Button
           {...actions.primary}

@@ -81,13 +81,12 @@ export function NotificationFullscreen({
   body,
   actions,
   className,
-  ref,
   ...props
 }: NotificationFullscreenProps) {
   const headlineLabel = isString(headline) ? headline : headline.label;
   const headlineElement = isString(headline) ? 'h2' : headline.as;
   return (
-    <div ref={ref} className={clsx(classes.base, className)} {...props}>
+    <div className={clsx(classes.base, className)} {...props}>
       <NotificationImage {...image} />
       <Headline className={classes.headline} size="m" as={headlineElement}>
         {headlineLabel}

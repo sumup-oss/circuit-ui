@@ -74,7 +74,6 @@ export function Timestamp({
   includeTime = false,
   locale,
   className,
-  ref,
   ...props
 }: TimestampProps) {
   const zonedDateTime = Temporal.ZonedDateTime.from(datetime);
@@ -120,7 +119,6 @@ export function Timestamp({
 
   return (
     <time
-      ref={ref}
       dateTime={zonedDateTime.toString({ timeZoneName: 'never' })}
       title={zonedDateTime.toLocaleString(locale, {
         year: 'numeric',

@@ -69,7 +69,6 @@ export function Headline({
   className,
   as,
   size: legacySize = 'm',
-  ref,
   ...props
 }: HeadlineProps) {
   if (
@@ -98,7 +97,6 @@ export function Headline({
   return (
     <Element
       {...props}
-      ref={ref}
       className={clsx(classes.base, classes[size], className)}
     />
   );

@@ -35,13 +35,11 @@ export function Hr({
   className,
   'as': Element = 'hr',
   'aria-hidden': ariaHidden = 'true',
-  ref,
   ...props
 }: HrProps) {
   return (
     <Element
       {...props}
-      ref={ref}
       className={clsx(classes.base, className)}
       aria-hidden={ariaHidden}
     />

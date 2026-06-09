@@ -55,7 +55,6 @@ const legacySizeMap: Record<string, 's' | 'm' | 'l'> = {
 export function Spinner({
   size: legacySize = 'm',
   className,
-  ref,
   ...props
 }: SpinnerProps) {
   if (process.env.NODE_ENV !== 'production' && legacySizeMap[legacySize]) {
@@ -68,10 +67,6 @@ export function Spinner({
   const size = legacySizeMap[legacySize] || legacySize;
 
   return (
-    <span
-      className={clsx(classes.base, classes[size], className)}
-      {...props}
-      ref={ref}
-    />
+    <span className={clsx(classes.base, classes[size], className)} {...props} />
   );
 }

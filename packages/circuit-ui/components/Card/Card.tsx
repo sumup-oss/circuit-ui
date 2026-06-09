@@ -36,13 +36,11 @@ export function Card({
   className,
   spacing = 'giga',
   as: Element = 'div',
-  ref,
   ...props
 }: CardProps) {
   return (
     <Element
       {...props}
-      ref={ref}
       className={clsx(classes.base, classes[spacing], className)}
     />
   );

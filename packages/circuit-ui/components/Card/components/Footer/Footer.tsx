@@ -38,12 +38,10 @@ export function CardFooter({
   children,
   className,
   align = 'right',
-  ref,
   ...props
 }: CardFooterProps) {
   return (
     <Element
-      ref={ref}
       className={clsx(classes.base, classes[align], className)}
       {...props}
     >

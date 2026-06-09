@@ -101,7 +101,6 @@ export function Display({
   as,
   size: legacySize = 'm',
   weight,
-  ref,
   ...props
 }: DisplayProps) {
   if (
@@ -144,7 +143,6 @@ export function Display({
   return (
     <Element
       {...props}
-      ref={ref}
       className={clsx(
         classes.base,
         classes[size],

@@ -53,18 +53,15 @@ export interface ModalProps extends Omit<PublicDialogProps, 'isModal'> {
 
 export const ANIMATION_DURATION = 300;
 
-export function Modal(props: ModalProps) {
-  const {
-    ref,
-    variant = 'contextual',
-    className,
-    contentClassName,
-    preventClose = false,
-    children,
-    onClose,
-    ...rest
-  } = props;
-
+export function Modal({
+  variant = 'contextual',
+  className,
+  contentClassName,
+  preventClose = false,
+  children,
+  onClose,
+  ...rest
+}: ModalProps) {
   const [isClosing, setIsClosing] = useState(false);
 
   const handleModalCloseEnd = useCallback(() => {
@@ -87,7 +84,6 @@ export function Modal(props: ModalProps) {
 
   return (
     <Dialog
-      ref={ref}
       isModal
       onCloseStart={handleModalCloseStart}
       onCloseEnd={handleModalCloseEnd}

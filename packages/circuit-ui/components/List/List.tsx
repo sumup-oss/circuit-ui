@@ -41,7 +41,6 @@ export function List({
   className,
   variant = 'unordered',
   size: legacySize = 'm',
-  ref,
   ...props
 }: ListProps) {
   if (
@@ -59,7 +58,6 @@ export function List({
     <Element
       className={clsx(classes.base, classes[size], className)}
       {...props}
-      ref={ref}
     />
   );
 }

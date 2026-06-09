@@ -128,7 +128,6 @@ export function RadioButtonGroup({
   optionalLabel,
   required,
   'aria-describedby': descriptionId,
-  ref,
   ...props
 }: RadioButtonGroupProps) {
   const randomName = useId();
@@ -159,7 +158,6 @@ export function RadioButtonGroup({
       aria-invalid={invalid && 'true'}
       aria-required={required && 'true'}
       name={name}
-      ref={ref}
       disabled={disabled}
       {...props}
     >

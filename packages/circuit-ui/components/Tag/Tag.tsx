@@ -98,7 +98,6 @@ export function Tag({
   onClick,
   className,
   style,
-  ref,
   ...props
 }: TagProps) {
   const { Link } = useComponents();
@@ -140,7 +139,6 @@ export function Tag({
         type={isButton ? 'button' : undefined}
         aria-pressed={isButton && selected ? 'true' : undefined}
         onClick={onClick}
-        ref={ref}
         {...props}
       >
         {Prefix && <Prefix className={classes.prefix} aria-hidden="true" />}

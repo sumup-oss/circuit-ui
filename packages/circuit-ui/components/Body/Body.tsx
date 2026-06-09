@@ -113,7 +113,6 @@ export function Body({
   decoration,
   color = 'normal',
   variant,
-  ref,
   ...props
 }: BodyProps) {
   const Element = as || getHTMLElement(variant);
@@ -151,7 +150,6 @@ export function Body({
   return (
     <Element
       {...props}
-      ref={ref}
       className={clsx(
         classes.base,
         classes[size],

@@ -132,7 +132,6 @@ export function CheckboxGroup({
   hideLabel,
   optionalLabel,
   required,
-  ref,
   'aria-describedby': descriptionId,
   ...props
 }: CheckboxGroupProps) {
@@ -158,7 +157,6 @@ export function CheckboxGroup({
     <FieldSet
       aria-describedby={descriptionIds}
       name={name}
-      ref={ref}
       disabled={disabled}
       {...props}
     >

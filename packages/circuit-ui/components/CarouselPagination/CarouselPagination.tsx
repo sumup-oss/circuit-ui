@@ -76,14 +76,13 @@ export function CarouselPagination({
   currentId,
   type,
   className,
-  ref,
   ...props
 }: CarouselPaginationProps) {
   const components = useComponents();
   const Link = components.Link as AsPropType;
 
   return (
-    <ul ref={ref} className={clsx(classes.base, className)} {...props}>
+    <ul className={clsx(classes.base, className)} {...props}>
       {slides.map(({ id, label, ...item }) => {
         let Element: AsPropType;
         if (item.href) {

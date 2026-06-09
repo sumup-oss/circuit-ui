@@ -152,8 +152,7 @@ export interface DateInputProps
  * The DateInput component allows users to type or select a specific date.
  * The input value is always a string in the format `YYYY-MM-DD`.
  */
-export function DateInput(rawProps: DateInputProps) {
-  const { ref, ...props } = rawProps;
+export function DateInput({ ref, ...props }: DateInputProps) {
   const {
     label,
     value,

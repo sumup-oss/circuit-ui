@@ -59,7 +59,6 @@ export function Badge({
   circle,
   color: _color,
   children,
-  ref,
   ...props
 }: BadgeProps) {
   if (process.env.NODE_ENV !== 'production') {
@@ -71,7 +70,6 @@ export function Badge({
 
   return (
     <Status
-      ref={ref}
       variant={circle ? 'badge' : 'pill'}
       color={colorMap[variant]}
       {...props}

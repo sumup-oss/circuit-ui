@@ -28,13 +28,11 @@ import {
 import {
   type ComponentType,
   Fragment,
-  type HTMLAttributes,
   type KeyboardEvent,
   type RefObject,
   useCallback,
   useEffect,
   useId,
-  useLayoutEffect,
   useRef,
   useState,
 } from 'react';
@@ -105,11 +103,6 @@ export interface PopoverProps
    */
   contentClassName?: string;
   /**
-   * Additional HTML attributes to apply to the inner content wrapper div.
-   * Use this to pass ARIA attributes like `role` and `aria-labelledby`.
-   */
-  contentProps?: HTMLAttributes<HTMLDivElement>;
-  /**
    * If set to true, the Popover will not render as a modal on mobile
    */
   disableModalOnMobile?: boolean;
@@ -138,14 +131,12 @@ export function Popover({
   offset,
   className,
   contentClassName,
-  contentProps,
   style,
   disableModalOnMobile,
   ref,
   ...props
 }: PopoverProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const triggerElementRef = useRef<Element | null>(null);
   const triggerId = useId();
   const contentId = useId();
   const [isClosing, setClosing] = useState(false);
@@ -194,17 +185,6 @@ export function Popover({
     });
   };
 
-  useLayoutEffect(() => {
-    /* Intentionally running without dependencies to ensure that the
-     * reference element is always up-to-date. useLayoutEffect (rather than
-     * useEffect) guarantees the reference is set before useClickOutside in
-     * Dialog installs its listeners, which also run in useEffect.
-     * triggerElementRef is populated by React's commit phase (via the ref
-     * callback on Component) before this effect runs.
-     */
-    refs.setReference(triggerElementRef.current);
-  });
-
   /**
    * We can't use Floating UI's `whileElementsMounted` option because our
    * implementation hides the floating element using CSS instead of using
@@ -247,9 +227,7 @@ export function Popover({
         aria-controls={contentId}
         aria-expanded={isOpen}
         onClick={handleTriggerClick}
-        ref={(el) => {
-          triggerElementRef.current = el;
-        }}
+        ref={refs.setReference}
       />
       <Dialog
         {...props}
@@ -269,11 +247,7 @@ export function Popover({
         style={isModalOnMobile ? style : { ...style, ...floatingStyles }}
         preventOutsideClickRefs={refs.reference as RefObject<HTMLElement>}
       >
-        <div
-          id={contentId}
-          className={clsx(classes.content, contentClassName)}
-          {...contentProps}
-        >
+        <div id={contentId} className={clsx(classes.content, contentClassName)}>
           {typeof children === 'function'
             ? children?.({ onClose: handleCloseEnd })
             : children}

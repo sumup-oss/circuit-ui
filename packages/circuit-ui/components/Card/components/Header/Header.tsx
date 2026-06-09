@@ -57,7 +57,6 @@ export function CardHeader({
   children,
   closeButtonLabel,
   className,
-  ref,
   ...props
 }: CardHeaderProps) {
   const noHeadline = isArray(children) && !children[0];
@@ -68,7 +67,6 @@ export function CardHeader({
         noHeadline && classes['no-headline'],
         className,
       )}
-      ref={ref}
       {...props}
     >
       {children}

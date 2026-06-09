@@ -24,5 +24,5 @@ type SlidesProps = HTMLAttributes<HTMLDivElement> & {
 };
 
 export function Slides({ className, ref, ...props }: SlidesProps) {
-  return <div className={clsx(classes.base, className)} ref={ref} {...props} />;
+  return <div className={clsx(classes.base, className)} {...props} />;
 }

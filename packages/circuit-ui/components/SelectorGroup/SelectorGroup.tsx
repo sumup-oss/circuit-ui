@@ -131,7 +131,6 @@ export function SelectorGroup({
   validationHint,
   invalid,
   hideLabel,
-  ref,
   ...props
 }: SelectorGroupProps) {
   const randomName = useId();
@@ -158,7 +157,6 @@ export function SelectorGroup({
     <FieldSet
       name={name}
       aria-describedby={descriptionIds}
-      ref={ref}
       disabled={disabled}
       role={multiple ? undefined : 'radiogroup'}
       aria-orientation={multiple ? undefined : 'horizontal'}

@@ -53,12 +53,10 @@ export function FieldWrapper({
   disabled,
   size = 'm',
   className,
-  ref,
   ...props
 }: FieldWrapperProps) {
   return (
     <div
-      ref={ref}
       data-disabled={disabled}
       className={clsx(classes.wrapper, classes[size], className)}
       {...props}
@@ -79,16 +77,10 @@ interface FieldSetProps extends FieldsetHTMLAttributes<HTMLFieldSetElement> {
 /**
  * @private
  */
-export function FieldSet({
-  size = 'm',
-  className,
-  ref,
-  ...props
-}: FieldSetProps) {
+export function FieldSet({ size = 'm', className, ...props }: FieldSetProps) {
   return (
     <fieldset
       {...props}
-      ref={ref}
       className={clsx(classes.fieldset, classes[size], className)}
     />
   );

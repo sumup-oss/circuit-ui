@@ -15,17 +15,13 @@
 
 'use client';
 
-import {
-  useId,
-  type MouseEventHandler,
-  type Ref,
-  type ButtonHTMLAttributes,
-} from 'react';
+import { useId, type Ref, type ButtonHTMLAttributes } from 'react';
 
 import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
+import type { ClickEvent } from '../../types/events.js';
 import { FieldDescription, FieldWrapper } from '../Field/index.js';
 import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';
@@ -36,9 +32,10 @@ export interface ToggleProps
   extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onChange'> {
   ref?: Ref<HTMLButtonElement>;
   /**
-   * Callback when the toggle state changes.
+   * Callback when the toggle state changes. Can be triggered by mouse or
+   * keyboard interactions.
    */
-  onChange?: MouseEventHandler<HTMLButtonElement>;
+  onChange?: (event: ClickEvent<HTMLButtonElement>) => void;
   /**
    * Describes the function of the toggle. Should not change depending on the state.
    */
