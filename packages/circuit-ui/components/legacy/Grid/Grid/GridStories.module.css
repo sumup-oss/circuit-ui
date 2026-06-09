@@ -1,11 +1,11 @@
 .col {
   height: 48px;
-  text-align: center;
   padding-top: var(--cui-spacings-kilo);
   padding-bottom: var(--cui-spacings-kilo);
   font-size: var(--cui-body-m-font-size);
   font-weight: var(--cui-font-weight-bold);
   line-height: var(--cui-body-m-line-height);
+  text-align: center;
 }
 
 .col:nth-of-type(n) {

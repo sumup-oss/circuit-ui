@@ -3,9 +3,9 @@
   --span-value: var(--span, 1);
 
   left: calc(100% * var(--skip-value, 0) / 12);
-  width: calc(100% * var(--span-value) / 12);
   float: left;
   box-sizing: border-box;
+  width: calc(100% * var(--span-value) / 12);
   padding-right: var(--cui-spacings-bit);
   padding-left: var(--cui-spacings-bit);
 }

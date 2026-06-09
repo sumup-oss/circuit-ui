@@ -43,7 +43,6 @@ export interface ColProps extends HTMLAttributes<HTMLDivElement> {
 export const Col = forwardRef<HTMLDivElement, ColProps>(
   ({ span, skip, className, style, ...props }, ref) => {
     const customProperties: Record<string, Option> = {};
-    console.log(span, skip);
 
     // Span
     if (span) {
