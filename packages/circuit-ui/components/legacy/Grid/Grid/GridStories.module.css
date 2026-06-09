@@ -1,10 +1,11 @@
 .col {
   height: 48px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  line-height: 24px;
+  text-align: center;
+  padding-top: var(--cui-spacings-kilo);
+  padding-bottom: var(--cui-spacings-kilo);
+  font-size: var(--cui-body-m-font-size);
+  font-weight: var(--cui-font-weight-bold);
+  line-height: var(--cui-body-m-line-height);
 }
 
 .col:nth-of-type(n) {
@@ -13,4 +14,9 @@
 
 .col:nth-of-type(2n) {
   background-color: var(--cui-bg-subtle);
+}
+
+.row {
+  margin-bottom: 8px;
+  border: 1px solid magenta;
 }
