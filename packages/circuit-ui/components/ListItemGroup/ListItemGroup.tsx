@@ -115,13 +115,7 @@ export const ListItemGroup = forwardRef<HTMLDivElement, ListItemGroupProps>(
                 hideLabel && utilClasses.hideVisually,
               )}
             >
-              {isString(label) ? (
-                <Body as="h4" size="s">
-                  {label}
-                </Body>
-              ) : (
-                label
-              )}
+              {isString(label) ? <Body size="s">{label}</Body> : label}
             </div>
           )}
           {details && (
