@@ -42,10 +42,11 @@ import type { AutocompleteInputOption } from '../Option/Option.js';
 import classes from './ComboboxInput.module.css';
 
 export interface ComboboxInputProps
-  extends Omit<
-    InputProps,
-    'renderPrefix' | 'renderSuffix' | 'as' | 'multiple'
-  > {
+  extends Omit<InputProps, 'renderSuffix' | 'as' | 'multiple'> {
+  /**
+   * Value passed to `renderPrefix`. Defaults to the input `value` when omitted.
+   */
+  prefixValue?: string | number;
   /**
    * Callback function when the user clears the field.
    */
@@ -100,6 +101,8 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
       'data-id': comboboxInputId,
       removeTagButtonLabel,
       moreResults,
+      'renderPrefix': RenderPrefix,
+      prefixValue,
       ...props
     },
     ref,
@@ -138,6 +141,11 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
       }
     }, [isOpen]);
 
+    const prefix = RenderPrefix && (
+      <RenderPrefix className={classes.prefix} value={prefixValue ?? value} />
+    );
+    const hasPrefix = Boolean(prefix);
+
     return (
       <FieldWrapper
         size={size}
@@ -157,12 +165,14 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
           className={clsx(
             classes.base,
             classes[size],
+            tags.length > 0 && classes.scrollable,
             invalid && classes.invalid,
             disabled && classes.disabled,
             readOnly && classes.readonly,
             !disabled && hasWarning && classes.warning,
           )}
         >
+          {prefix}
           {tags.slice(0, isOpen || showAllTags ? tags.length : 4).map((tag) => {
             const onRemoveProps =
               readOnly || disabled
@@ -198,6 +208,7 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
             aria-describedby={descriptionIds}
             className={clsx(
               textAlign === 'right' && classes['align-right'],
+              hasPrefix && classes['has-prefix'],
               inputClassName,
             )}
             aria-invalid={invalid && 'true'}

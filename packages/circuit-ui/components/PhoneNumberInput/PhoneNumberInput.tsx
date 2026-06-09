@@ -17,6 +17,8 @@
 
 import {
   forwardRef,
+  useCallback,
+  useEffect,
   useId,
   useMemo,
   useRef,
@@ -26,10 +28,10 @@ import {
   type ComponentType,
   type InputHTMLAttributes,
   type ForwardedRef,
-  type RefObject,
 } from 'react';
 
-import { Select, type SelectProps } from '../Select/index.js';
+import { AutocompleteInput } from '../AutocompleteInput/AutocompleteInput.js';
+import type { AutocompleteInputOption } from '../AutocompleteInput/components/Option/Option.js';
 import { Input, type InputProps } from '../Input/index.js';
 import {
   FieldLabelText,
@@ -50,12 +52,14 @@ import { idx } from '../../util/idx.js';
 import { Flag, type FlagProps } from '../Flag/Flag.js';
 
 import {
+  filterCountryCodeAutocompleteOptions,
+  getCountry,
   getCountryCode,
-  mapCountryCodeOptions,
+  getCountryCodeAutocompleteValue,
+  mapCountryCodeAutocompleteOptions,
   normalizePhoneNumber,
   parsePhoneNumber,
   type CountryCodeOption,
-  getCountry,
 } from './PhoneNumberInputService.js';
 import classes from './PhoneNumberInput.module.css';
 
@@ -149,11 +153,11 @@ export interface PhoneNumberInputProps
     /**
      * Callback when the country code changes.
      */
-    onChange?: SelectProps['onChange'];
+    onChange?: InputProps['onChange'];
     /**
      * The ref to the country code selector HTML DOM element.
      */
-    ref?: ForwardedRef<HTMLSelectElement | HTMLInputElement>;
+    ref?: ForwardedRef<HTMLInputElement>;
     /**
      * Render prop that should render a left-aligned overlay icon or element.
      * Receives a className prop.
@@ -201,9 +205,13 @@ export interface PhoneNumberInputProps
 const DefaultPrefix: ComponentType<{
   value?: string | number;
   className?: string;
-}> = ({ value, ...rest }) =>
+}> = ({ value, className }) =>
   value ? (
-    <Flag countryCode={value as FlagProps['countryCode']} alt="" {...rest} />
+    <Flag
+      countryCode={value as FlagProps['countryCode']}
+      alt=""
+      className={className}
+    />
   ) : null;
 
 /**
@@ -240,8 +248,10 @@ export const PhoneNumberInput = forwardRef<
     ref,
   ) => {
     const hiddenInputRef = useRef<HTMLInputElement>(null);
-    const countryCodeRef = useRef<HTMLSelectElement | HTMLInputElement>(null);
+    const countryCodeRef = useRef<HTMLInputElement>(null);
     const subscriberNumberRef = useRef<HTMLInputElement>(null);
+    const { options: countryCodeOptions, ...countryCodeFieldProps } =
+      countryCode;
 
     // This state is used to trigger a re-render when selecting a different
     // country with the same country code as the current one (e.g. Canada → USA).
@@ -256,12 +266,19 @@ export const PhoneNumberInput = forwardRef<
       validationHint && validationHintId,
     );
 
-    const options = useMemo(
-      () => mapCountryCodeOptions(countryCode.options, locale),
-      [countryCode.options, locale],
+    const autocompleteOptions = useMemo(
+      () => mapCountryCodeAutocompleteOptions(countryCodeOptions, locale),
+      [countryCodeOptions, locale],
     );
 
-    const handleChange = () => {
+    const [filteredAutocompleteOptions, setFilteredAutocompleteOptions] =
+      useState(autocompleteOptions);
+
+    useEffect(() => {
+      setFilteredAutocompleteOptions(autocompleteOptions);
+    }, [autocompleteOptions]);
+
+    const handleChange = useCallback(() => {
       if (!countryCodeRef.current || !subscriberNumberRef.current) {
         return;
       }
@@ -270,7 +287,7 @@ export const PhoneNumberInput = forwardRef<
       if (!selectedCountry) {
         return;
       }
-      const code = countryCode.options.find(
+      const code = countryCodeOptions.find(
         ({ country }) => country === selectedCountry,
       )?.code;
 
@@ -284,14 +301,36 @@ export const PhoneNumberInput = forwardRef<
 
       changeInputValue(hiddenInputRef.current, phoneNumber);
       setVersion((prev) => prev + 1);
-    };
+    }, [countryCodeOptions]);
+
+    const handleCountryCodeSearch = useCallback(
+      (query: string) => {
+        setFilteredAutocompleteOptions(
+          filterCountryCodeAutocompleteOptions(autocompleteOptions, query),
+        );
+      },
+      [autocompleteOptions],
+    );
+
+    const handleCountryAutocompleteChange = useCallback(
+      (option: AutocompleteInputOption) => {
+        changeInputValue(countryCodeRef.current, option.value);
+        countryCode.onChange?.({
+          target: countryCodeRef.current,
+        } as ChangeEvent<HTMLInputElement>);
+        handleChange();
+        setFilteredAutocompleteOptions(autocompleteOptions);
+      },
+      [autocompleteOptions, countryCode.onChange, handleChange],
+    );
 
     const handlePaste = (event: ClipboardEvent) => {
       if (
         !countryCodeRef.current ||
         !subscriberNumberRef.current ||
         countryCodeRef.current.disabled ||
-        (countryCodeRef.current as HTMLInputElement).readOnly
+        readOnly ||
+        countryCode.readonly
       ) {
         return;
       }
@@ -300,12 +339,16 @@ export const PhoneNumberInput = forwardRef<
 
       const pastedPhoneNumber = parsePhoneNumber(
         event.clipboardData.getData('text/plain'),
-        countryCode.options,
+        countryCodeOptions,
         countryCodeRef.current.value,
       );
 
       if (pastedPhoneNumber.countryCode) {
         changeInputValue(countryCodeRef.current, pastedPhoneNumber.countryCode);
+        countryCode.onChange?.({
+          target: countryCodeRef.current,
+        } as ChangeEvent<HTMLInputElement>);
+        handleChange();
       }
       if (pastedPhoneNumber.subscriberNumber) {
         changeInputValue(
@@ -317,12 +360,22 @@ export const PhoneNumberInput = forwardRef<
 
     const parsedValue = parsePhoneNumber(
       value,
-      countryCode.options,
+      countryCodeOptions,
       countryCodeRef.current?.value,
     );
     const parsedDefaultValue = parsePhoneNumber(
       defaultValue,
-      countryCode.options,
+      countryCodeOptions,
+    );
+
+    const selectedCountry =
+      parsedValue.countryCode ??
+      parsedDefaultValue.countryCode ??
+      countryCode.defaultValue;
+
+    const selectedCountryAutocompleteValue = getCountryCodeAutocompleteValue(
+      autocompleteOptions,
+      selectedCountry,
     );
 
     if (
@@ -394,62 +447,64 @@ export const PhoneNumberInput = forwardRef<
               size={size}
               className={classes['country-code']}
               inputClassName={classes['country-code-input']}
-              {...countryCode}
+              {...countryCodeFieldProps}
               value={getCountryCode(
-                countryCode.options,
+                countryCodeOptions,
                 parsedValue.countryCode,
               )}
               defaultValue={getCountryCode(
-                countryCode.options,
+                countryCodeOptions,
                 parsedDefaultValue.countryCode ?? countryCode.defaultValue,
               )}
               invalid={invalid || countryCode.invalid}
               readOnly={true}
               onChange={() => {}}
               ref={applyMultipleRefs(
-                countryCodeRef as RefObject<HTMLInputElement>,
+                countryCodeRef,
                 countryCode.ref as ForwardedRef<HTMLInputElement>,
               )}
               renderPrefix={
                 (countryCode.renderPrefix as InputProps['renderPrefix']) ??
                 (({ value: inputValue, ...rest }) => (
                   <DefaultPrefix
-                    value={getCountry(
-                      countryCode.options,
-                      inputValue as string,
-                    )}
+                    value={getCountry(countryCodeOptions, inputValue as string)}
                     {...rest}
                   />
                 ))
               }
             />
           ) : (
-            <Select
-              hideLabel
-              aria-describedby={descriptionIds}
-              autoComplete="tel-country-code"
-              required={required}
-              disabled={disabled}
-              size={size}
-              className={classes['country-code']}
-              {...countryCode}
-              value={parsedValue.countryCode}
-              defaultValue={
-                parsedDefaultValue.countryCode ?? countryCode.defaultValue
-              }
-              invalid={invalid || countryCode.invalid}
-              aria-readonly={true}
-              options={options}
-              onChange={eachFn<[ChangeEvent<HTMLSelectElement>]>([
-                countryCode.onChange,
-                handleChange,
-              ])}
-              ref={applyMultipleRefs(
-                countryCodeRef as RefObject<HTMLSelectElement>,
-                countryCode.ref as ForwardedRef<HTMLSelectElement>,
-              )}
-              renderPrefix={countryCode.renderPrefix ?? DefaultPrefix}
-            />
+            <div className={classes['country-code-autocomplete-shell']}>
+              <input
+                type="hidden"
+                ref={countryCodeRef}
+                {...(value !== undefined
+                  ? { value: selectedCountry ?? '' }
+                  : { defaultValue: selectedCountry ?? '' })}
+                disabled={disabled}
+              />
+              <AutocompleteInput
+                hideLabel
+                aria-describedby={descriptionIds}
+                required={required}
+                disabled={disabled}
+                size={size}
+                className={classes['country-code']}
+                inputClassName={classes['country-code-autocomplete-input']}
+                label={countryCode.label}
+                invalid={invalid || countryCode.invalid}
+                value={selectedCountryAutocompleteValue}
+                options={filteredAutocompleteOptions}
+                onSearch={handleCountryCodeSearch}
+                onChange={handleCountryAutocompleteChange}
+                variant="contextual"
+                ref={countryCode.ref}
+                renderPrefix={
+                  (countryCode.renderPrefix ??
+                    DefaultPrefix) as InputProps['renderPrefix']
+                }
+              />
+            </div>
           )}
           <Input
             hideLabel
