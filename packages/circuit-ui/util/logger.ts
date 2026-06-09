@@ -1,4 +1,5 @@
 /* biome-ignore-all lint/suspicious/noConsole: It's okay in the logger */
+/* biome-ignore-all lint/correctness/noUnusedVariables: It's okay in the logger */
 /**
  * Copyright 2021, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,7 +21,8 @@ import { DeprecationError } from './errors.js';
  * Always wrap in `process.env.NODE_ENV !== 'production'` to enable dead code
  * elimination.
  */
-export function warn(componentName: string, ...message: unknown[]): void {
+// @ts-expect-error: We're keeping the function for now
+function warn(componentName: string, ...message: unknown[]): void {
   console.warn(`[${componentName}]`, ...message);
 }
 
