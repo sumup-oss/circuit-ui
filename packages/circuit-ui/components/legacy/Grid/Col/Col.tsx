@@ -41,8 +41,9 @@ export interface ColProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const Col = forwardRef<HTMLDivElement, ColProps>(
-  ({ span, skip, className, ...props }, ref) => {
+  ({ span, skip, className, style, ...props }, ref) => {
     const customProperties: Record<string, Option> = {};
+    console.log(span, skip);
 
     // Span
     if (span) {
@@ -87,7 +88,7 @@ export const Col = forwardRef<HTMLDivElement, ColProps>(
     return (
       <div
         ref={ref}
-        style={customProperties}
+        style={{ ...customProperties, ...style }}
         className={clsx(styles.base, Boolean(skip) && styles.skip, className)}
         {...props}
       />

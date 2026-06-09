@@ -77,10 +77,10 @@ function HiddenHeadline() {
 
 Headings typically use large typography, but not all large typography should be a heading.
 
-If you need to render large text that doesn't describe a section, don't use a semantic heading element, and instead use CSS to enlarge the text, or use the [Numeral](Numeral) component for a more accessible way to display numbers.
+If you need to render large text that doesn't describe a section, don't use a semantic heading element, and instead use CSS to enlarge the text:
 
 ```tsx
-const price = {
+const description = {
   'font-size': 'var(--cui-headline-l-font-size)',
   'line-height': 'var(--cui-headline-l-line-height)',
   'font-weight':'bold'
@@ -92,12 +92,16 @@ function Product() {
       <Headline as="h2" size="four">
         My product
       </Headline>
-      <Body style={price}>9,99 €</Body>
-      <Body>A description of my product.</Body>
+      <Body style={description}>A description of my product.</Body>
     </section>
   );
 }
+}
+```
 
+If you need to render large text to display numbers, use the [Numeral](Numeral) component for better accessibility:
+
+```tsx
 // Or better yet:
 function Product() {
   return (
@@ -111,7 +115,6 @@ function Product() {
   );
 }
 ```
-
 ### Resources
 
 #### Testing heading accessibility

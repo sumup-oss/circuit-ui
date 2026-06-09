@@ -14,7 +14,7 @@
  */
 
 import { Row, Col } from '../index.js';
-import styles from './RowStories.module.css';
+import styles from '../Grid/GridStories.module.css';
 
 export default {
   title: 'Layout/Row',

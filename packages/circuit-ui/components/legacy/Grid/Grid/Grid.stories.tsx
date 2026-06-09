@@ -31,7 +31,7 @@ export default {
 
 const rowStyles = {
   border: '1px solid magenta',
-  'margin-bottom': '8px',
+  'margin-bottom': 'var(--cui-spacings-byte)',
 };
 
 export const StaticColumns = () => (

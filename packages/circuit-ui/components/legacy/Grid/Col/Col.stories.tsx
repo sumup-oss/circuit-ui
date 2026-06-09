@@ -14,6 +14,7 @@
  */
 
 import { Col, type ColProps } from './Col.js';
+import styles from "../Grid/GridStories.module.css";
 
 const colControl = {
   control: {
@@ -40,18 +41,8 @@ export default {
   },
 };
 
-const styles = {
-  'background-color': 'var(--cui-bg-highlight)',
-  'text-align': 'center',
-  'font-size': '16px',
-  'font-weight': 'bold',
-  'line-height': '24px',
-  'height': '48px',
-  'padding': '12px',
-};
-
 export const Base = (args: ColProps) => (
-  <Col style={styles} {...args}>
+  <Col className={styles.col} {...args}>
     Column
   </Col>
 );
