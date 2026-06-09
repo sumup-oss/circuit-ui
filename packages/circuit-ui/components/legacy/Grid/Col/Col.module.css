@@ -1,8 +1,11 @@
 .base {
-  left: calc(100% * var(--skip, 0) / 12);
+  --skip-value: var(--skip, 0);
+  --span-value: var(--span, 1);
+
+  left: calc(100% * var(--skip-value, 0) / 12);
+  width: calc(100% * var(--span-value) / 12);
   float: left;
   box-sizing: border-box;
-  width: calc(100% * var(--span) / 12);
   padding-right: var(--cui-spacings-bit);
   padding-left: var(--cui-spacings-bit);
 }
@@ -14,16 +17,17 @@
 /* Until Kilo */
 @media (max-width: 479px) {
   .base {
-    left: calc(100% * var(--skip-until-kilo, var(--skip)) / 12);
-    width: calc(100% * var(--span-until-kilo, var(--span)) / 12);
+    --skip-value: var(--skip-until-kilo, var(--skip));
+    --span-value: var(--span-until-kilo, var(--span));
   }
 }
 
 /* Kilo */
 @media (min-width: 480px) {
   .base {
-    left: calc(100% * var(--skip-kilo, var(--skip)) / 12);
-    width: calc(100% * var(--span-kilo, var(--span)) / 12);
+    --skip-value: var(--skip-kilo, var(--skip));
+    --span-value: var(--span-kilo, var(--span));
+
     padding-right: var(--cui-spacings-byte);
     padding-left: var(--cui-spacings-byte);
   }
@@ -32,8 +36,9 @@
 /* Giga */
 @media (min-width: 768px) {
   .base {
-    left: calc(100% * var(--skip-giga, var(--skip-kilo, var(--skip))) / 12);
-    width: calc(100% * var(--span-giga, var(--span-kilo, var(--span))) / 12);
+    --skip-value: var(--skip-giga, var(--skip-kilo, var(--skip)));
+    --span-value: var(--span-giga, var(--span-kilo, var(--span)));
+
     padding-right: var(--cui-spacings-kilo);
     padding-left: var(--cui-spacings-kilo);
   }
@@ -42,15 +47,13 @@
 /* Mega */
 @media (min-width: 960px) {
   .base {
-    left: calc(
-      100% *
-      var(--skip-mega, var(--skip-giga, var(--skip-kilo, var(--skip)))) /
-      12
+    --skip-value: var(
+      --skip-mega,
+      var(--skip-giga, var(--skip-kilo, var(--skip)))
     );
-    width: calc(
-      100% *
-      var(--span-mega, var(--span-giga, var(--span-kilo, var(--span)))) /
-      12
+    --span-value: var(
+      --span-mega,
+      var(--span-giga, var(--span-kilo, var(--span)))
     );
   }
 }
@@ -58,21 +61,13 @@
 /* Tera */
 @media (min-width: 1280px) {
   .base {
-    left: calc(
-      100% *
-      var(
-        --skip-tera,
-        var(--skip-mega, var(--skip-giga, var(--skip-kilo, var(--skip))))
-      ) /
-      12
+    --skip-value: var(
+      --skip-tera,
+      var(--skip-mega, var(--skip-giga, var(--skip-kilo, var(--skip))))
     );
-    width: calc(
-      100% *
-      var(
-        --span-tera,
-        var(--span-mega, var(--span-giga, var(--span-kilo, var(--span))))
-      ) /
-      12
+    --span-value: var(
+      --span-tera,
+      var(--span-mega, var(--span-giga, var(--span-kilo, var(--span))))
     );
   }
 }
