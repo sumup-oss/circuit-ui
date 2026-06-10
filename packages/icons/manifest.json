@@ -4287,6 +4287,18 @@
       "size": "24"
     },
     {
+      "name": "open_orders",
+      "keywords": ["Navigation"],
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "open_orders_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "qr_code",
       "category": "Product and feature",
       "size": "24"
