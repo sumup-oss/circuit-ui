@@ -1,4 +1,4 @@
-import { ESLintUtils, TSESLint, TSESTree } from '@typescript-eslint/utils';
+import { ESLintUtils, type TSESLint, TSESTree } from '@typescript-eslint/utils';
 import type { RuleDocs } from '../utils/meta.js';
 import { transformAttributeValueToChildren } from '../utils/jsx.js';
 
