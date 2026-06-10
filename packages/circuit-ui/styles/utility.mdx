@@ -1,0 +1,65 @@
+import { Meta, Intro, Story, Status } from "../../../.storybook/components";
+import * as Stories from "./utility.stories";
+
+<Meta of={Stories} />
+
+# Utility classes
+
+<Status variant="stable" />
+
+<Intro>
+  Utility classes provide reusable `className` values for applying some common
+  Circuit UI styling patterns to elements and components.
+</Intro>
+
+## Usage
+
+Import the `utilClasses` object from `@sumup-oss/circuit-ui` and pass the desired utility class to the `className` prop.
+
+```tsx
+import { utilClasses } from "@sumup-oss/circuit-ui";
+
+function MyComponent() {
+  return <div className={utilClasses["<className>"]} />;
+}
+```
+
+## Center
+
+`utilClasses.center`
+
+Pass the utility class to a parent element to center its children.
+
+<Story of={Stories.Center} />
+
+## Hide Visually
+
+`utilClasses.hideVisually`
+
+Visually hides an element while keeping it accessible to users
+who rely on a screen reader.
+
+<Story of={Stories.HideVisually} />
+
+## Hide scrollbar
+
+`utilClasses.hideScrollbar`
+
+Hides the browser scrollbar on a scrollable element, e.g. with overflow.
+
+<Story of={Stories.HideScrollbar} />
+
+## Focus
+
+`utilClasses.focusVisible` or `utilClasses.focusVisibleInset`
+
+Shows a focus indicator when the browser determines that focus should be visible, such as during keyboard navigation.
+
+<Story of={Stories.FocusVisible} />
+<Story of={Stories.FocusVisibleInset} />
+
+## Spacing
+
+Applies Circuit-UI spacing values as margins to one or all sides of an element.
+
+<Story of={Stories.Spacing} />

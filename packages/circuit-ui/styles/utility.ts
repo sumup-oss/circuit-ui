@@ -32,6 +32,9 @@ export const utilClasses = {
   marginPeta: _classes['margin-peta'],
   marginExa: _classes['margin-exa'],
   marginZetta: _classes['margin-zetta'],
+  marginYotta: _classes['margin-yotta'],
+  marginRonna: _classes['margin-ronna'],
+  marginQuetta: _classes['margin-quetta'],
   // left
   marginLeftBit: _classes['margin-left-bit'],
   marginLeftByte: _classes['margin-left-byte'],
@@ -42,6 +45,9 @@ export const utilClasses = {
   marginLeftPeta: _classes['margin-left-peta'],
   marginLeftExa: _classes['margin-left-exa'],
   marginLeftZetta: _classes['margin-left-zetta'],
+  marginLeftYotta: _classes['margin-left-yotta'],
+  marginLeftRonna: _classes['margin-left-ronna'],
+  marginLeftQuetta: _classes['margin-left-quetta'],
   // right
   marginRightBit: _classes['margin-right-bit'],
   marginRightByte: _classes['margin-right-byte'],
@@ -52,6 +58,9 @@ export const utilClasses = {
   marginRightPeta: _classes['margin-right-peta'],
   marginRightExa: _classes['margin-right-exa'],
   marginRightZetta: _classes['margin-right-zetta'],
+  marginRightYotta: _classes['margin-right-yotta'],
+  marginRightRonna: _classes['margin-right-ronna'],
+  marginRightQuetta: _classes['margin-right-quetta'],
   // top
   marginTopBit: _classes['margin-top-bit'],
   marginTopByte: _classes['margin-top-byte'],
@@ -62,6 +71,9 @@ export const utilClasses = {
   marginTopPeta: _classes['margin-top-peta'],
   marginTopExa: _classes['margin-top-exa'],
   marginTopZetta: _classes['margin-top-zetta'],
+  marginTopYotta: _classes['margin-top-yotta'],
+  marginTopRonna: _classes['margin-top-ronna'],
+  marginTopQuetta: _classes['margin-top-quetta'],
   // bottom
   marginBottomBit: _classes['margin-bottom-bit'],
   marginBottomByte: _classes['margin-bottom-byte'],
@@ -72,4 +84,7 @@ export const utilClasses = {
   marginBottomPeta: _classes['margin-bottom-peta'],
   marginBottomExa: _classes['margin-bottom-exa'],
   marginBottomZetta: _classes['margin-bottom-zetta'],
+  marginBottomYotta: _classes['margin-bottom-yotta'],
+  marginBottomRonna: _classes['margin-bottom-ronna'],
+  marginBottomQuetta: _classes['margin-bottom-quetta'],
 };
