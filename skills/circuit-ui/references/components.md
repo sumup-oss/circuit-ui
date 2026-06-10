@@ -81,7 +81,6 @@
 | `Pagination` | `stable` | `@sumup-oss/circuit-ui` | `./components/Pagination/index.js` | [Read MDX reference](components/Pagination.mdx) |
 | `SideNavigation` | `stable` | `@sumup-oss/circuit-ui` | `./components/SideNavigation/index.js` | [Read MDX reference](components/SideNavigation.mdx) |
 | `SkipLink` | `experimental` | `@sumup-oss/circuit-ui` | `./components/SkipLink/index.js` | [Read MDX reference](components/SkipLink.mdx) |
-| `Tab` | `internal` | `@sumup-oss/circuit-ui` | `./components/Tabs/components/Tab/Tab.js` | Not available |
 | `TabList` | `internal` | `@sumup-oss/circuit-ui` | `./components/Tabs/components/TabList/TabList.js` | Not available |
 | `TabPanel` | `internal` | `@sumup-oss/circuit-ui` | `./components/Tabs/components/TabPanel/TabPanel.js` | Not available |
 | `Tabs` | `stable` | `@sumup-oss/circuit-ui` | `./components/Tabs/Tabs.js` | [Read MDX reference](components/Tabs.mdx) |
