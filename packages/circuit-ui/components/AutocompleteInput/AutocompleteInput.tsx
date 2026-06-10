@@ -249,33 +249,20 @@ export const AutocompleteInput = forwardRef<
       setActiveOption(undefined);
     }, []);
 
-    const resetSearchQuery = useCallback(() => {
+    const syncSearchOnDismiss = useCallback(() => {
+      if (!Array.isArray(value)) {
+        if (searchText !== value?.value) {
+          setSearchText(value?.label ?? '');
+          if (isImmersive) {
+            setPresentationFieldValue(value?.label ?? '');
+          }
+        }
+      } else if (searchText) {
+        setSearchText('');
+      }
       onSearch?.('');
-    }, [onSearch]);
-
-    const restoreSearchToSelectedValue = useCallback(() => {
-      if (Array.isArray(value)) {
-        return;
-      }
-      setSearchText(value?.label ?? '');
-      if (isImmersive) {
-        setPresentationFieldValue(value?.label ?? '');
-      }
-    }, [value, isImmersive]);
-
-    const dismissWithoutSelection = useCallback(() => {
-      if (!Array.isArray(value) && searchText !== value?.value) {
-        restoreSearchToSelectedValue();
-      }
-      resetSearchQuery();
       closeResults();
-    }, [
-      value,
-      searchText,
-      restoreSearchToSelectedValue,
-      resetSearchQuery,
-      closeResults,
-    ]);
+    }, [value, searchText, isImmersive, onSearch, closeResults]);
 
     const debouncedOnSearch = useMemo(
       () =>
@@ -301,10 +288,10 @@ export const AutocompleteInput = forwardRef<
     const onComboboxClear = useCallback(
       (event: ClickEvent) => {
         changeInputValue(comboboxRef.current, '');
-        resetSearchQuery();
+        onSearch?.('');
         onClear?.(event);
       },
-      [onClear, resetSearchQuery],
+      [onClear, onSearch],
     );
 
     const onPresentationFieldClear = useCallback(
@@ -313,10 +300,10 @@ export const AutocompleteInput = forwardRef<
         setSearchText('');
         changeInputValue(presentationFieldRef.current, '');
         setIsOpen(true);
-        resetSearchQuery();
+        onSearch?.('');
         onClear?.(event);
       },
-      [onClear, resetSearchQuery],
+      [onClear, onSearch],
     );
 
     const onPresentationFieldKeyDown = useCallback(() => {
@@ -375,16 +362,14 @@ export const AutocompleteInput = forwardRef<
       (selectedValue: AutocompleteInputOption) => {
         if (multiple) {
           setSearchText('');
-          resetSearchQuery();
           // put focus back on the input field after selection
           comboboxRef.current?.focus({ preventScroll: true });
         } else {
-          resetSearchQuery();
           closeResults();
         }
         onChange(selectedValue);
       },
-      [onChange, closeResults, multiple, resetSearchQuery],
+      [onChange, closeResults, multiple],
     );
 
     const onTagRemove = useCallback(
@@ -476,12 +461,12 @@ export const AutocompleteInput = forwardRef<
 
     const handleClickOutside = useCallback(() => {
       if (!isImmersive) {
-        dismissWithoutSelection();
+        closeResults();
       }
-    }, [dismissWithoutSelection, isImmersive]);
+    }, [closeResults, isImmersive]);
     useClickOutside([inputWrapperRef, refs.floating], handleClickOutside);
 
-    useEscapeKey(dismissWithoutSelection, isOpen);
+    useEscapeKey(syncSearchOnDismiss, isOpen);
 
     useEffect(() => {
       // if readOnly or disabled props become truthy, close the list box
@@ -536,32 +521,18 @@ export const AutocompleteInput = forwardRef<
 
     const restoreValue: FocusEventHandler<HTMLInputElement> = useCallback(
       (event) => {
-        if (!Array.isArray(value)) {
-          const nextTarget = event.relatedTarget as Node | null;
-          const movingInside =
-            inputWrapperRef.current?.contains(nextTarget) ||
-            refs.floating.current?.contains(nextTarget) ||
-            resultsRef.current?.contains(nextTarget);
+        const nextTarget = event.relatedTarget as Node | null;
+        const movingInside =
+          inputWrapperRef.current?.contains(nextTarget) ||
+          refs.floating.current?.contains(nextTarget) ||
+          resultsRef.current?.contains(nextTarget);
 
-          if (!movingInside) {
-            if (searchText !== value?.value) {
-              restoreSearchToSelectedValue();
-            }
-            resetSearchQuery();
-            closeResults();
-          }
+        if (!movingInside) {
+          syncSearchOnDismiss();
         }
         props.onBlur?.(event);
       },
-      [
-        value,
-        searchText,
-        restoreSearchToSelectedValue,
-        resetSearchQuery,
-        closeResults,
-        refs.floating,
-        props.onBlur,
-      ],
+      [syncSearchOnDismiss, refs.floating, props.onBlur],
     );
 
     const comboboxProps = {
@@ -622,7 +593,7 @@ export const AutocompleteInput = forwardRef<
             open={isOpen}
             className={classes.modal}
             contentClassName={classes['modal-content']}
-            onClose={dismissWithoutSelection}
+            onClose={syncSearchOnDismiss}
           >
             <div ref={inputWrapperRef} className={classes['modal-input']}>
               <ComboboxInput
