@@ -126,7 +126,6 @@ describe('TabList', () => {
 
   describe('Accessibility', () => {
     it('should have no violations as tablist', async () => {
-      // aria-controls must reference existing elements, so panels are rendered alongside
       const { container } = render(
         <div>
           <TabList tabs={tabs} />
