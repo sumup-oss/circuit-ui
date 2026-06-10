@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { useState } from 'react';
+
 import { ArrowLeft, ExternalLink } from '@sumup-oss/icons';
 
 import { Body } from '../Body/index.js';
@@ -24,7 +26,6 @@ import type { TabsProps } from './Tabs.js';
 import { Tabs } from './Tabs.js';
 import { TabList } from './components/TabList/TabList.js';
 import { TabPanel } from './components/TabPanel/TabPanel.js';
-import { Tab } from './components/Tab/Tab.js';
 import { action } from 'storybook/actions';
 
 export default {
@@ -120,28 +121,30 @@ Stretched.args = {
   stretched: true,
 };
 
-export const Links = () => (
-  <TabList>
-    <Tab selected>Home</Tab>
-    <Tab href="#posts" target="">
-      Posts
-    </Tab>
-    <Tab href="#reviews">Reviews</Tab>
-  </TabList>
-);
+export const WithTabPanel = () => {
+  const items = tabs.slice(0, 3);
+  const [selectedId, setSelectedId] = useState(items[0].id);
 
-Links.parameters = {
-  controls: { hideNoControlsWarning: true },
+  return (
+    <div>
+      <TabList
+        tabs={items.map(({ id, tab }) => ({ id, tab }))}
+        onTabChange={setSelectedId}
+      />
+      {items.map(({ id, panel }) => (
+        <TabPanel
+          key={id}
+          id={`panel-${id}`}
+          aria-labelledby={`tab-${id}`}
+          hidden={selectedId !== id}
+        >
+          {panel}
+        </TabPanel>
+      ))}
+    </div>
+  );
 };
 
-export const WithTabChangeCallback = () => (
-  <Tabs
-    items={tabs.slice(0, 3)}
-    onTabChange={action('Changed to tab with id:')}
-  />
-);
-
-WithTabChangeCallback.storyName = 'With TabChange';
-WithTabChangeCallback.parameters = {
+WithTabPanel.parameters = {
   controls: { hideNoControlsWarning: true },
 };
