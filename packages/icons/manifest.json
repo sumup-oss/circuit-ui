@@ -4272,6 +4272,13 @@
     {
       "name": "pos",
       "category": "Product and feature",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "pos_filled",
+      "category": "Filled",
+      "keywords": ["Navigation"],
       "size": "24"
     },
     {
