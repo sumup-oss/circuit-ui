@@ -18,7 +18,6 @@ import type { HTMLAttributes, Ref } from 'react';
 import { clsx } from '../../styles/clsx.js';
 import { CircuitError } from '../../util/errors.js';
 import { deprecate } from '../../util/logger.js';
-import { getEnvVariable } from '../../util/env.js';
 
 import classes from './Display.module.css';
 
@@ -106,7 +105,6 @@ export function Display({
   if (
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test' &&
-    !getEnvVariable('UNSAFE_DISABLE_ELEMENT_ERRORS') &&
     !as
   ) {
     throw new CircuitError('Display', 'The `as` prop is required.');
