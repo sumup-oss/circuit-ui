@@ -141,6 +141,7 @@ export const WithTabChangeCallback = () => (
   />
 );
 
+WithTabChangeCallback.storyName = 'With TabChange';
 WithTabChangeCallback.parameters = {
   controls: { hideNoControlsWarning: true },
 };
