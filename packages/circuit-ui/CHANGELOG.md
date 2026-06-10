@@ -1,5 +1,15 @@
 # @sumup-oss/circuit-ui
 
+## 11.8.0
+
+### Minor Changes
+
+- [#3683](https://github.com/sumup-oss/circuit-ui/pull/3683) [`364af66`](https://github.com/sumup-oss/circuit-ui/commit/364af661103165b2779fde0bbae577cc1391cc37) Thanks [@sirineJ](https://github.com/sirineJ)! - Added new spacing utility classes for new spacing values `yotta`, `ronna` and `quetta`
+
+### Patch Changes
+
+- [#3682](https://github.com/sumup-oss/circuit-ui/pull/3682) [`034a9fa`](https://github.com/sumup-oss/circuit-ui/commit/034a9fa2eded1dddb0f5d51e9bdac621ed30fe0a) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed the ordering of bundled CSS in Vite builds so utility class styles are emitted after component styles, preventing unintended style conflicts.
+
 ## 11.7.0
 
 ### Minor Changes
