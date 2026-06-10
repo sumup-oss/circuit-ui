@@ -19,7 +19,7 @@ import {
   Children,
   type HTMLAttributes,
   type KeyboardEventHandler,
-  type MouseEventHandler,
+  type ReactNode,
   type Ref,
   useCallback,
   useEffect,
@@ -28,8 +28,9 @@ import {
 
 import { clsx } from '../../../../styles/clsx.js';
 import { utilClasses } from '../../../../styles/utility.js';
-import { isArrowLeft, isArrowRight } from '../../../../util/key-codes.js';
+import { useTabState } from '../../helper.js';
 
+import { Tab } from '../Tab/Tab.js';
 import classes from './TabList.module.css';
 
 export interface TabListProps extends HTMLAttributes<HTMLDivElement> {
@@ -45,14 +46,22 @@ export interface TabListProps extends HTMLAttributes<HTMLDivElement> {
    * @default false
    */
   stretched?: boolean;
+  /**
+   * The tabs to render. When provided, TabList manages selection state internally.
+   */
+  tabs?: { id: string; tab: ReactNode }[];
+  /**
+   * The index of the initially selected tab.
+   * @default 0
+   */
+  initialSelectedIndex?: number;
+  /**
+   * A callback for when the selected tab changes.
+   */
+  onTabChange?: (id: string) => void;
 }
 
 const MOBILE_AUTOSTRETCH_ITEMS_MAX = 3;
-
-const getCurrentTab = (node?: HTMLElement | null) =>
-  node
-    ? node.querySelector<HTMLElement>('[role="tab"][aria-selected="true"]')
-    : undefined;
 
 /**
  * TabList component that wraps the Tab components
@@ -61,7 +70,9 @@ export function TabList({
   className,
   stretched,
   children,
-  onClick,
+  tabs,
+  initialSelectedIndex,
+  onTabChange: onTabChangeProp,
   onKeyDown,
   as = 'tablist',
   ref,
@@ -69,7 +80,18 @@ export function TabList({
 }: TabListProps) {
   const gliderRef = useRef<HTMLSpanElement>(null);
   const tabListRef = useRef<HTMLDivElement>(null);
-  const numberOfTabs = Children.toArray(children).length;
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const initialScrollIndexRef = useRef(initialSelectedIndex ?? 0);
+
+  const ids = tabs?.map(({ id }) => id) ?? [];
+  const { selectedId, onTabKeyDown, onTabClick } = useTabState(
+    ids,
+    initialSelectedIndex,
+    onTabChangeProp,
+  );
+
+  const selectedIndex = ids.indexOf(selectedId);
+  const numberOfTabs = tabs ? tabs.length : Children.toArray(children).length;
   const stretchOnMobile = numberOfTabs <= MOBILE_AUTOSTRETCH_ITEMS_MAX;
 
   const updateGliderStyles = useCallback((tab: HTMLElement) => {
@@ -88,7 +110,7 @@ export function TabList({
 
   useEffect(() => {
     // scrolls the active tab into view on initial render
-    const activeTab = getCurrentTab(tabListRef.current);
+    const activeTab = tabRefs.current[initialScrollIndexRef.current];
     if (tabListRef.current && activeTab) {
       tabListRef.current.scrollLeft += activeTab.offsetLeft;
     }
@@ -100,11 +122,9 @@ export function TabList({
       `${tabListRef.current.getBoundingClientRect().width / numberOfTabs}px`,
     );
     const gliderCallback = () => {
-      if (tabListRef.current && gliderRef.current) {
-        const activeTab = getCurrentTab(tabListRef.current);
-        if (activeTab) {
-          updateGliderStyles(activeTab);
-        }
+      const activeTab = tabRefs.current[selectedIndex];
+      if (activeTab) {
+        updateGliderStyles(activeTab);
       }
     };
     // apply initial styles to glider
@@ -113,7 +133,7 @@ export function TabList({
     // listen to resize events
     window.addEventListener('resize', gliderCallback);
     return () => window.removeEventListener('resize', gliderCallback);
-  }, [updateGliderStyles, numberOfTabs]);
+  }, [selectedIndex, updateGliderStyles, numberOfTabs]);
 
   useEffect(() => {
     // shows / hides scroll indicators
@@ -143,30 +163,14 @@ export function TabList({
     };
   }, []);
 
-  const onTabListClick: MouseEventHandler<HTMLDivElement> = useCallback(
-    (event) => {
-      onClick?.(event);
-      const target = event.target as HTMLDivElement;
-      if (target.role === 'tab') {
-        updateGliderStyles(target);
-      }
-    },
-    [onClick, updateGliderStyles],
-  );
-
   const onTabListKeydown: KeyboardEventHandler<HTMLDivElement> = useCallback(
     (event) => {
       onKeyDown?.(event);
-      if (
-        (isArrowLeft(event) || isArrowRight(event)) &&
-        document.activeElement &&
-        document.activeElement?.role === 'tab'
-      ) {
-        updateGliderStyles(document.activeElement as HTMLElement);
-      }
+      onTabKeyDown(event);
     },
-    [onKeyDown, updateGliderStyles],
+    [onKeyDown, onTabKeyDown],
   );
+
   const Element = as === 'navigation' ? 'nav' : 'div';
   return (
     <Element ref={ref} className={clsx(classes.wrapper, className)}>
@@ -181,11 +185,25 @@ export function TabList({
         {...props}
         role={as === 'tablist' ? 'tablist' : 'list'}
         {...(as === 'tablist' && {
-          onClick: onTabListClick,
           onKeyDown: onTabListKeydown,
         })}
       >
-        {children}
+        {tabs
+          ? tabs.map((item, index) => (
+              <Tab
+                key={item.id}
+                ref={(el) => {
+                  tabRefs.current[index] = el;
+                }}
+                id={`tab-${item.id}`}
+                aria-controls={`panel-${item.id}`}
+                selected={selectedId === item.id}
+                onClick={() => onTabClick(item.id)}
+              >
+                {item.tab}
+              </Tab>
+            ))
+          : children}
         <span className={classes.glider} ref={gliderRef} />
       </div>
       <span className={classes['left-scroll-indicator']} />

@@ -29,17 +29,14 @@ export default {
 };
 
 export const Base = () => (
-  <TabList>
-    <Tab id="tab-1" aria-controls="panel-1">
-      Button
-    </Tab>
-    <Tab id="tab-2" aria-controls="panel-2">
-      Button
-    </Tab>
-    <Tab id="tab-3" selected aria-controls="panel-3">
-      Button
-    </Tab>
-  </TabList>
+  <TabList
+    tabs={[
+      { id: '1', tab: 'Button' },
+      { id: '2', tab: 'Button' },
+      { id: '3', tab: 'Button' },
+    ]}
+    initialSelectedIndex={2}
+  />
 );
 
 export const Navigation = () => (
