@@ -191,7 +191,6 @@ export function DateInput({ ref, ...props }: DateInputProps) {
   const isMobile = useMedia('(max-width: 479px)');
 
   const inputRef = useRef<HTMLInputElement>(null);
-  const dialogRef = useRef<HTMLDialogElement>(null);
 
   const dialogId = useId();
   const headlineId = useId();
@@ -378,7 +377,6 @@ export function DateInput({ ref, ...props }: DateInputProps) {
             })}
           </div>
           <Popover
-            ref={dialogRef}
             id={dialogId}
             isOpen={open}
             onToggle={setOpen}

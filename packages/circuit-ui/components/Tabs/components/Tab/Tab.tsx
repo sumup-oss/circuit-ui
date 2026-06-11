@@ -49,7 +49,6 @@ export function Tab({
   selected = false,
   as = 'tab',
   className,
-  ref,
   ...props
 }: TabProps) {
   const components = useComponents();
@@ -58,7 +57,6 @@ export function Tab({
 
   return as === 'tab' ? (
     <Element
-      ref={ref}
       role={as}
       className={clsx(classes.base, className)}
       aria-selected={selected}
@@ -68,7 +66,6 @@ export function Tab({
   ) : (
     <div role="listitem">
       <Element
-        ref={ref}
         className={clsx(classes.base, className)}
         aria-current={selected ? 'page' : undefined}
         {...props}
