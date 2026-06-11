@@ -69,19 +69,15 @@ describe('AutocompleteInput', () => {
 
   it('should forward a ref', () => {
     const ref = createRef<HTMLInputElement>();
-    const { container } = render(<AutocompleteInput {...props} ref={ref} />);
-    // eslint-disable-next-line testing-library/no-node-access
-    const input = container.querySelector('input');
+    render(<AutocompleteInput {...props} ref={ref} />);
+    const input = screen.queryByRole('combobox');
     expect(ref.current).toBe(input);
   });
 
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
-    const { container } = render(
-      <AutocompleteInput {...props} inputClassName={className} />,
-    );
-    // eslint-disable-next-line testing-library/no-node-access
-    const input = container.querySelector('input');
+    render(<AutocompleteInput {...props} inputClassName={className} />);
+    const input = screen.queryByRole('combobox');
     expect(input?.className).toContain(className);
   });
 

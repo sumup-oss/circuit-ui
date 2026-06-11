@@ -303,7 +303,7 @@ export function AutocompleteInput({
     placement: 'bottom',
     strategy: 'fixed',
     middleware: [
-      offset({ mainAxis: size === 's' ? 10 : 17, crossAxis: 0 }), // bottom padding + 1px border + 4px gap
+      offset({ mainAxis: 4, crossAxis: 0 }),
       shift({ padding: boundaryPadding }),
       flip({
         padding: boundaryPadding,
@@ -578,7 +578,8 @@ export function AutocompleteInput({
     <>
       <div ref={inputWrapperRef}>
         <ComboboxInput
-          ref={applyMultipleRefs(comboboxRef, ref, refs.setReference)}
+          ref={applyMultipleRefs(comboboxRef, ref)}
+          comboboxRef={refs.setReference}
           inputClassName={props.inputClassName}
           aria-expanded={isOpen}
           aria-haspopup="listbox"
@@ -591,8 +592,8 @@ export function AutocompleteInput({
           ref={refs.setFloating}
           style={{
             ...floatingStyles,
-            width: comboboxRef.current?.parentElement?.offsetWidth ?? 0,
-            maxWidth: comboboxRef.current?.parentElement?.offsetWidth ?? 0,
+            width: refs.reference.current?.parentElement?.offsetWidth ?? 0,
+            maxWidth: refs.reference.current?.parentElement?.offsetWidth ?? 0,
           }}
         >
           {results}

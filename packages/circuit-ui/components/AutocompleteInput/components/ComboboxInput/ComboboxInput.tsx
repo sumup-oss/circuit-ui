@@ -15,7 +15,7 @@
 
 'use client';
 
-import { useEffect, useId, useRef, useState } from 'react';
+import { type Ref, useEffect, useId, useRef, useState } from 'react';
 
 import type { ReturnType } from '../../../../types/return-type.js';
 import { idx } from '../../../../util/idx.js';
@@ -68,6 +68,7 @@ export interface ComboboxInputProps
    */
   locale?: Locale;
   'data-id'?: string;
+  comboboxRef?: Ref<HTMLDivElement>;
 }
 
 export function ComboboxInput({
@@ -99,6 +100,7 @@ export function ComboboxInput({
   removeTagButtonLabel,
   moreResults,
   ref,
+  comboboxRef,
   ...props
 }: ComboboxInputProps): ReturnType {
   const id = useId();
@@ -156,6 +158,7 @@ export function ComboboxInput({
           readOnly && classes.readonly,
           !disabled && hasWarning && classes.warning,
         )}
+        ref={comboboxRef}
       >
         {tags.slice(0, isOpen || showAllTags ? tags.length : 4).map((tag) => {
           const onRemoveProps =
