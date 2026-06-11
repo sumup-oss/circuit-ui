@@ -1,5 +1,57 @@
 # @sumup-oss/icons
 
+## 6.8.0
+
+### Minor Changes
+
+- [#3692](https://github.com/sumup-oss/circuit-ui/pull/3692) [`8366140`](https://github.com/sumup-oss/circuit-ui/commit/836614048dc94cf74ec74cfa89dae7fe3f04f4d8) Thanks [@sirineJ](https://github.com/sirineJ)! - Added filled variants for a set of existing outlined icons. Outlined icons remain the default; use filled variants selectively to emphasize meaning or state, such as active navigation links or selected options.
+
+  New filled icon variants:
+
+  - Account
+  - Accounting
+  - Bookings
+  - CashAdvance
+  - Checkout
+  - Customers
+  - Employees
+  - Expenses
+  - GiftCards
+  - Home
+  - Investments
+  - Invoice
+  - Items
+  - Kiosk
+  - Loyalty
+  - OnlineStore
+  - Open orders
+  - PaymentLinks
+  - Payouts
+  - Pos
+  - Profile
+  - Promote
+  - Receipt
+  - Receivables
+  - Reports
+  - Settings
+  - SumUpConnect
+  - ThumbUp
+  - Tools
+  - UsPosBackoffice
+  - VirtualTerminal
+
+- [#3692](https://github.com/sumup-oss/circuit-ui/pull/3692) [`8366140`](https://github.com/sumup-oss/circuit-ui/commit/836614048dc94cf74ec74cfa89dae7fe3f04f4d8) Thanks [@sirineJ](https://github.com/sirineJ)! - Deprecated the GeneralSettings icon, use the Settings icon instead.
+
+- [#3692](https://github.com/sumup-oss/circuit-ui/pull/3692) [`8366140`](https://github.com/sumup-oss/circuit-ui/commit/836614048dc94cf74ec74cfa89dae7fe3f04f4d8) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a new set of product icons:
+
+  - Bookings
+  - OpenOrders
+  - Receivables
+  - Tools
+  - UsPosBackoffice
+
+- [#3692](https://github.com/sumup-oss/circuit-ui/pull/3692) [`8366140`](https://github.com/sumup-oss/circuit-ui/commit/836614048dc94cf74ec74cfa89dae7fe3f04f4d8) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the Accounting and Investments icons.
+
 ## 6.7.0
 
 ### Minor Changes
