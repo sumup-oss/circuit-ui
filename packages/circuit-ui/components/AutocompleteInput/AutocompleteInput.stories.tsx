@@ -45,6 +45,8 @@ export default {
   component: AutocompleteInput,
   tags: ['status:stable'],
   argTypes: {
+    comboboxRef: { table: { disable: true } },
+
     // Value & change handling
     value: {
       table: {
