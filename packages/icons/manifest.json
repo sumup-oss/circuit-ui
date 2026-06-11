@@ -3382,11 +3382,19 @@
     {
       "name": "profile",
       "category": "Miscellaneous",
+      "keywords": ["User"],
       "size": "16"
     },
     {
       "name": "profile",
       "category": "Miscellaneous",
+      "keywords": ["Navigation", "User"],
+      "size": "24"
+    },
+    {
+      "name": "profile_filled",
+      "category": "Filled",
+      "keywords": ["Navigation", "User"],
       "size": "24"
     },
     {
@@ -3417,6 +3425,13 @@
     {
       "name": "settings",
       "category": "Miscellaneous",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "settings_filled",
+      "category": "Filled",
+      "keywords": ["Navigation"],
       "size": "24"
     },
     {
@@ -3437,6 +3452,13 @@
     {
       "name": "thumb_up",
       "category": "Miscellaneous",
+      "keywords": ["Navigation", "Reviews"],
+      "size": "24"
+    },
+    {
+      "name": "thumb_up_filled",
+      "category": "Filled",
+      "keywords": ["Navigation", "Reviews"],
       "size": "24"
     },
     {
@@ -3550,21 +3572,49 @@
     {
       "name": "customers",
       "category": "Navigation",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "customers_filled",
+      "category": "Filled",
+      "keywords": ["Navigation"],
       "size": "24"
     },
     {
       "name": "investments",
       "category": "Navigation",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "investments_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
       "name": "kiosk",
       "category": "Navigation",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "kiosk_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
       "name": "loyalty",
       "category": "Navigation",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "loyalty_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -3926,12 +3976,26 @@
     },
     {
       "name": "account",
+      "keywords": ["Navigation"],
       "category": "Product and feature",
       "size": "24"
     },
     {
+      "name": "account_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "accounting",
+      "keywords": ["Navigation"],
       "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "accounting_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -3947,6 +4011,13 @@
     {
       "name": "cash_advance",
       "category": "Product and feature",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "cash_advance_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -3972,11 +4043,25 @@
     {
       "name": "employees",
       "category": "Product and feature",
+      "keywords": ["Navigation", "Users"],
+      "size": "24"
+    },
+    {
+      "name": "employees_filled",
+      "keywords": ["Navigation", "Users"],
+      "category": "Filled",
       "size": "24"
     },
     {
       "name": "expenses",
       "category": "Product and feature",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "expenses_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -3987,6 +4072,7 @@
     {
       "name": "general_settings",
       "category": "Product and feature",
+      "deprecation": "Use the `Settings` icon instead.",
       "size": "24"
     },
     {
@@ -3998,11 +4084,73 @@
     {
       "name": "gift_cards",
       "category": "Product and feature",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "gift_cards_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
+      "size": "24"
+    },
+    {
+      "name": "bookings",
+      "keywords": ["Navigation"],
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "bookings_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
+      "size": "24"
+    },
+    {
+      "name": "receivables",
+      "keywords": ["Navigation"],
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "receivables_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
+      "size": "24"
+    },
+    {
+      "name": "tools",
+      "keywords": ["Navigation"],
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "tools_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
+      "size": "24"
+    },
+    {
+      "name": "us_pos_backoffice",
+      "keywords": ["Navigation"],
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "us_pos_backoffice_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
       "name": "home",
+      "keywords": ["Navigation"],
       "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "home_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4017,12 +4165,26 @@
     },
     {
       "name": "invoice",
+      "keywords": ["Navigation"],
       "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "invoice_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
       "name": "items",
       "category": "Product and feature",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "items_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4043,6 +4205,13 @@
     {
       "name": "online_store",
       "category": "Product and feature",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "online_store_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4064,6 +4233,13 @@
     {
       "name": "payment_links",
       "category": "Product and feature",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "payment_links_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4079,6 +4255,13 @@
     {
       "name": "payouts",
       "category": "Product and feature",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "payouts_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4089,11 +4272,37 @@
     {
       "name": "pos",
       "category": "Product and feature",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "pos_filled",
+      "category": "Filled",
+      "keywords": ["Navigation"],
       "size": "24"
     },
     {
       "name": "promote",
+      "keywords": ["Navigation", "Business Profile"],
       "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "promote_filled",
+      "keywords": ["Navigation", "Business Profile"],
+      "category": "Filled",
+      "size": "24"
+    },
+    {
+      "name": "open_orders",
+      "keywords": ["Navigation"],
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "open_orders_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4104,6 +4313,13 @@
     {
       "name": "receipt",
       "category": "Product and feature",
+      "keywords": ["Navigation", "Sales"],
+      "size": "24"
+    },
+    {
+      "name": "receipt_filled",
+      "keywords": ["Navigation", "Sales"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4140,6 +4356,13 @@
     {
       "name": "reports",
       "category": "Product and feature",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "reports_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4155,7 +4378,14 @@
     },
     {
       "name": "shop",
+      "keywords": ["Navigation"],
       "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "shop_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4171,6 +4401,13 @@
     {
       "name": "sum_up_connect",
       "category": "Product and feature",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "sum_up_connect_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4205,7 +4442,14 @@
     },
     {
       "name": "virtual_terminal",
+      "keywords": ["Navigation"],
       "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "virtual_terminal_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
