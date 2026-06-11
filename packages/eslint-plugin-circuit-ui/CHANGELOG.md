@@ -1,5 +1,11 @@
 # @sumup-oss/eslint-plugin-circuit-ui
 
+## 7.3.0
+
+### Minor Changes
+
+- [#3666](https://github.com/sumup-oss/circuit-ui/pull/3666) [`5a9ec33`](https://github.com/sumup-oss/circuit-ui/commit/5a9ec33c23c695e2071bf4de9e66184734fdd7bc) Thanks [@sirineJ](https://github.com/sirineJ)! - Added an ESLint rule `no-deprecated-spacing-mixin` to help migrate from the legacy `spacing` mixin to spacing utility classes from `utilClasses`.
+
 ## 7.2.0
 
 ### Minor Changes

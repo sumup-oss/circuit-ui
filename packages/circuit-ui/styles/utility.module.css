@@ -1,3 +1,6 @@
+/*
+UTIL CLASSES MARKER START
+*/
 .center {
   display: flex;
   flex-direction: column;
@@ -57,3 +60,254 @@
 .shadow {
   box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
 }
+
+/* Spacings */
+
+/* All directions */
+.margin-bit {
+  margin: var(--cui-spacings-bit);
+}
+
+.margin-byte {
+  margin: var(--cui-spacings-byte);
+}
+
+.margin-kilo {
+  margin: var(--cui-spacings-kilo);
+}
+
+.margin-mega {
+  margin: var(--cui-spacings-mega);
+}
+
+.margin-giga {
+  margin: var(--cui-spacings-giga);
+}
+
+.margin-tera {
+  margin: var(--cui-spacings-tera);
+}
+
+.margin-peta {
+  margin: var(--cui-spacings-peta);
+}
+
+.margin-exa {
+  margin: var(--cui-spacings-exa);
+}
+
+.margin-zetta {
+  margin: var(--cui-spacings-zetta);
+}
+
+.margin-yotta {
+  margin: var(--cui-spacings-yotta);
+}
+
+.margin-ronna {
+  margin: var(--cui-spacings-ronna);
+}
+
+.margin-quetta {
+  margin: var(--cui-spacings-quetta);
+}
+
+/* Left */
+.margin-left-bit {
+  margin-left: var(--cui-spacings-bit);
+}
+
+.margin-left-byte {
+  margin-left: var(--cui-spacings-byte);
+}
+
+.margin-left-kilo {
+  margin-left: var(--cui-spacings-kilo);
+}
+
+.margin-left-mega {
+  margin-left: var(--cui-spacings-mega);
+}
+
+.margin-left-giga {
+  margin-left: var(--cui-spacings-giga);
+}
+
+.margin-left-tera {
+  margin-left: var(--cui-spacings-tera);
+}
+
+.margin-left-peta {
+  margin-left: var(--cui-spacings-peta);
+}
+
+.margin-left-exa {
+  margin-left: var(--cui-spacings-exa);
+}
+
+.margin-left-zetta {
+  margin-left: var(--cui-spacings-zetta);
+}
+
+.margin-left-yotta {
+  margin-left: var(--cui-spacings-yotta);
+}
+
+.margin-left-ronna {
+  margin-left: var(--cui-spacings-ronna);
+}
+
+.margin-left-quetta {
+  margin-left: var(--cui-spacings-quetta);
+}
+
+/* Right */
+.margin-right-bit {
+  margin-right: var(--cui-spacings-bit);
+}
+
+.margin-right-byte {
+  margin-right: var(--cui-spacings-byte);
+}
+
+.margin-right-kilo {
+  margin-right: var(--cui-spacings-kilo);
+}
+
+.margin-right-mega {
+  margin-right: var(--cui-spacings-mega);
+}
+
+.margin-right-giga {
+  margin-right: var(--cui-spacings-giga);
+}
+
+.margin-right-tera {
+  margin-right: var(--cui-spacings-tera);
+}
+
+.margin-right-peta {
+  margin-right: var(--cui-spacings-peta);
+}
+
+.margin-right-exa {
+  margin-right: var(--cui-spacings-exa);
+}
+
+.margin-right-zetta {
+  margin-right: var(--cui-spacings-zetta);
+}
+
+.margin-right-yotta {
+  margin-right: var(--cui-spacings-yotta);
+}
+
+.margin-right-ronna {
+  margin-right: var(--cui-spacings-ronna);
+}
+
+.margin-right-quetta {
+  margin-right: var(--cui-spacings-quetta);
+}
+
+/* Top */
+.margin-top-bit {
+  margin-top: var(--cui-spacings-bit);
+}
+
+.margin-top-byte {
+  margin-top: var(--cui-spacings-byte);
+}
+
+.margin-top-kilo {
+  margin-top: var(--cui-spacings-kilo);
+}
+
+.margin-top-mega {
+  margin-top: var(--cui-spacings-mega);
+}
+
+.margin-top-giga {
+  margin-top: var(--cui-spacings-giga);
+}
+
+.margin-top-tera {
+  margin-top: var(--cui-spacings-tera);
+}
+
+.margin-top-peta {
+  margin-top: var(--cui-spacings-peta);
+}
+
+.margin-top-exa {
+  margin-top: var(--cui-spacings-exa);
+}
+
+.margin-top-zetta {
+  margin-top: var(--cui-spacings-zetta);
+}
+
+.margin-top-yotta {
+  margin-top: var(--cui-spacings-yotta);
+}
+
+.margin-top-ronna {
+  margin-top: var(--cui-spacings-ronna);
+}
+
+.margin-top-quetta {
+  margin-top: var(--cui-spacings-quetta);
+}
+
+/* Bottom */
+.margin-bottom-bit {
+  margin-bottom: var(--cui-spacings-bit);
+}
+
+.margin-bottom-byte {
+  margin-bottom: var(--cui-spacings-byte);
+}
+
+.margin-bottom-kilo {
+  margin-bottom: var(--cui-spacings-kilo);
+}
+
+.margin-bottom-mega {
+  margin-bottom: var(--cui-spacings-mega);
+}
+
+.margin-bottom-giga {
+  margin-bottom: var(--cui-spacings-giga);
+}
+
+.margin-bottom-tera {
+  margin-bottom: var(--cui-spacings-tera);
+}
+
+.margin-bottom-peta {
+  margin-bottom: var(--cui-spacings-peta);
+}
+
+.margin-bottom-exa {
+  margin-bottom: var(--cui-spacings-exa);
+}
+
+.margin-bottom-zetta {
+  margin-bottom: var(--cui-spacings-zetta);
+}
+
+.margin-bottom-yotta {
+  margin-bottom: var(--cui-spacings-yotta);
+}
+
+.margin-bottom-ronna {
+  margin-bottom: var(--cui-spacings-ronna);
+}
+
+.margin-bottom-quetta {
+  margin-bottom: var(--cui-spacings-quetta);
+}
+
+/*
+UTIL CLASSES MARKER END
+*/

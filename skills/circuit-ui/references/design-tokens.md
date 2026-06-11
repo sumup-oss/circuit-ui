@@ -128,10 +128,10 @@ CSS variables provided by the Circuit UI design system and their values.
 | `--cui-border-subtle-hovered` | `color` | no |  | `#d0cdc3` | `#2c2923` |
 | `--cui-border-subtle-pressed` | `color` | no |  | `#b7b0a9` | `#36332c` |
 | `--cui-border-subtle-disabled` | `color` | no |  | `rgba(221, 220, 212, 0.9000)` | `rgba(34, 31, 27, 0.4000)` |
-| `--cui-border-divider` | `color` | no |  | `#f1f1eb` | `#171614` |
-| `--cui-border-divider-hovered` | `color` | no |  | `#e3e2d6` | `#201e1a` |
-| `--cui-border-divider-pressed` | `color` | no |  | `#d0cdc3` | `#2a2822` |
-| `--cui-border-divider-disabled` | `color` | no |  | `rgba(240, 241, 231, 0.5000)` | `rgba(23, 22, 20, 0.4000)` |
+| `--cui-border-divider` | `color` | no |  | `#E7E6DF` | `#171614` |
+| `--cui-border-divider-hovered` | `color` | no |  | `#D8D7CA` | `#201e1a` |
+| `--cui-border-divider-pressed` | `color` | no |  | `#CBC8BD` | `#2a2822` |
+| `--cui-border-divider-disabled` | `color` | no |  | `#E7E6DF` | `rgba(23, 22, 20, 0.4000)` |
 | `--cui-border-strong` | `color` | no |  | `#1e1c1c` | `#f0eee7` |
 | `--cui-border-strong-hovered` | `color` | no |  | `#494a4a` | `#e0ded6` |
 | `--cui-border-strong-pressed` | `color` | no |  | `#696969` | `#d0cdc5` |

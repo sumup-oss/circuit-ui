@@ -17,6 +17,7 @@ import type { Ref, HTMLAttributes } from 'react';
 
 import type { IconComponentType } from '@sumup-oss/icons';
 
+import type { AsPropType } from '../../types/prop-types.js';
 import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';
 
@@ -51,6 +52,10 @@ export interface StatusProps extends HTMLAttributes<HTMLDivElement> {
    * Leading icon for the line variant.
    */
   icon?: IconComponentType<'16'>;
+  /**
+   * Render the status using any HTML element.
+   */
+  as?: AsPropType;
 }
 
 const isDynamicWidth = (children: StatusProps['children']) =>
@@ -61,6 +66,7 @@ const isDynamicWidth = (children: StatusProps['children']) =>
  * by conveying semantic meaning or indicating new, important information.
  */
 export function Status({
+  as: Element = 'div',
   variant = 'pill',
   color = 'neutral',
   icon: Icon,
@@ -73,7 +79,7 @@ export function Status({
     variant === 'badge' && isDynamicWidth(children) ? 'auto' : undefined;
 
   return (
-    <div
+    <Element
       {...props}
       className={clsx(
         classes.base,
@@ -91,6 +97,6 @@ export function Status({
       ) : (
         children
       )}
-    </div>
+    </Element>
   );
 }
