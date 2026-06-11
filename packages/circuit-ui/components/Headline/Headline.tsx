@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { forwardRef, type HTMLAttributes } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
 import { CircuitError } from '../../util/errors.js';
@@ -23,6 +23,7 @@ import { getEnvVariable } from '../../util/env.js';
 import classes from './Headline.module.css';
 
 export interface HeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
+  ref?: Ref<HTMLHeadingElement>;
   /**
    * Choose from 3 font sizes. Defaults to `m`.
    */
@@ -64,42 +65,39 @@ const deprecatedSizeMap: Record<string, string> = {
 /**
  * A flexible headline component capable of rendering any HTML heading element.
  */
-export const Headline = forwardRef<HTMLHeadingElement, HeadlineProps>(
-  ({ className, as, size: legacySize = 'm', ...props }, ref) => {
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !getEnvVariable('UNSAFE_DISABLE_ELEMENT_ERRORS') &&
-      !as
-    ) {
-      throw new CircuitError('Headline', 'The `as` prop is required.');
-    }
+export function Headline({
+  className,
+  as,
+  size: legacySize = 'm',
+  ...props
+}: HeadlineProps) {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !getEnvVariable('UNSAFE_DISABLE_ELEMENT_ERRORS') &&
+    !as
+  ) {
+    throw new CircuitError('Headline', 'The `as` prop is required.');
+  }
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      legacySize in deprecatedSizeMap
-    ) {
-      deprecate(
-        'Headline',
-        `The "${legacySize}" size has been deprecated. Use the "${deprecatedSizeMap[legacySize]}" size instead.`,
-      );
-    }
-
-    const Element = as || 'h2';
-
-    const size = (deprecatedSizeMap[legacySize] || legacySize) as
-      | 'l'
-      | 'm'
-      | 's';
-
-    return (
-      <Element
-        {...props}
-        ref={ref}
-        className={clsx(classes.base, classes[size], className)}
-      />
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    legacySize in deprecatedSizeMap
+  ) {
+    deprecate(
+      'Headline',
+      `The "${legacySize}" size has been deprecated. Use the "${deprecatedSizeMap[legacySize]}" size instead.`,
     );
-  },
-);
+  }
 
-Headline.displayName = 'Headline';
+  const Element = as || 'h2';
+
+  const size = (deprecatedSizeMap[legacySize] || legacySize) as 'l' | 'm' | 's';
+
+  return (
+    <Element
+      {...props}
+      className={clsx(classes.base, classes[size], className)}
+    />
+  );
+}

@@ -16,9 +16,9 @@
 'use client';
 
 import {
-  forwardRef,
   type HTMLAttributes,
   type ReactNode,
+  type Ref,
   type RefObject,
   useCallback,
   useEffect,
@@ -46,6 +46,7 @@ type DataAttribute = `data-${string}`;
 
 export interface PublicDialogProps
   extends Omit<HTMLAttributes<HTMLDialogElement>, 'children'> {
+  ref?: Ref<HTMLDialogElement>;
   /**
    * Whether the modal dialog is open or not. Learn more about the `dialog` api https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/open.
    */
@@ -118,349 +119,347 @@ export interface DialogProps extends PublicDialogProps {
     | RefObject<HTMLElement | null>[];
 }
 
-export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
-  (props, ref) => {
-    const {
+export function Dialog(props: DialogProps) {
+  const {
+    ref,
+    open,
+    isModal = false,
+    children,
+    onCloseEnd,
+    closeButtonLabel,
+    className,
+    preventOutsideClickRefs,
+    preventOutsideClickClose = false,
+    hideCloseButton = false,
+    preventEscapeKeyClose = false,
+    animationDuration = 0,
+    onCloseStart,
+    locale,
+    style,
+    ...rest
+  } = useI18n(props, translations);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const openRef = useLatest<boolean>(open);
+  const isModalRef = useLatest<boolean>(isModal);
+  const animationDurationRef = useLatest<number>(animationDuration);
+  const lastFocusedElementRef = useRef<HTMLElement | null>(null);
+  const [isClosing, setIsClosing] = useState(false);
+
+  // Focus Management
+  useEffect(() => {
+    // save the opening element to restore focus after the dialog closes
+    if (open && document.activeElement instanceof HTMLElement) {
+      lastFocusedElementRef.current = document.activeElement;
+    }
+    return () => {
+      // restore focus to the opening element
+      if (
+        !dialogRef.current?.contains(document.activeElement) &&
+        document.body !== document.activeElement
+      ) {
+        return;
+      }
+      if (lastFocusedElementRef.current) {
+        setTimeout(
+          () => lastFocusedElementRef.current?.focus(),
+          animationDurationRef.current,
+        );
+      }
+    };
+  }, [open, animationDurationRef]);
+
+  // Component  opening/closing logic
+  const handleDialogClose = useCallback(() => {
+    const dialogElement = dialogRef.current;
+    if (!dialogElement) {
+      return;
+    }
+    onCloseStart?.();
+    setIsClosing(true);
+    // trigger closing of the dialog after animation
+    setTimeout(() => {
+      if (dialogElement.open) {
+        dialogElement.close();
+        setIsClosing(false);
+      }
+    }, animationDurationRef.current);
+  }, [animationDurationRef, onCloseStart]);
+
+  useEffect(() => {
+    // register the dialog element with the polyfill
+    if (dialogRef.current) {
+      dialogPolyfill.registerDialog(dialogRef.current);
+    }
+  }, []);
+
+  useEffect(() => {
+    const dialogElement = dialogRef.current;
+
+    if (!dialogElement) {
+      return undefined;
+    }
+
+    if (!openRef.current) {
+      dialogElement.returnValue = '';
+    }
+    if (openRef.current && !dialogElement.open) {
+      if (isModal) {
+        dialogElement.showModal();
+      } else {
+        dialogElement.show();
+      }
+    }
+
+    return () => {
+      if (dialogElement.open) {
+        dialogElement.close('skipOnClose');
+      }
+    };
+  }, [isModal, openRef]);
+
+  useEffect(() => {
+    const dialogElement = dialogRef.current;
+
+    if (!dialogElement) {
+      return;
+    }
+
+    if (!open) {
+      dialogElement.returnValue = '';
+    }
+    if (open && !dialogElement.open) {
+      if (isModalRef.current) {
+        dialogElement.showModal();
+      } else {
+        dialogElement.show();
+      }
+    }
+  }, [isModalRef, open]);
+
+  useEffect(() => {
+    const dialogElement = dialogRef.current;
+
+    if (!dialogElement) {
+      return;
+    }
+    if (!open && dialogElement.open) {
+      handleDialogClose();
+    }
+  }, [open, handleDialogClose]);
+
+  useEffect(() => {
+    const dialogElement = dialogRef.current;
+    if (!dialogElement) {
+      return undefined;
+    }
+
+    const handleClose = () => {
+      // the effect assigning the 'close' event listener to the dialog
+      // causes the `onCloseEnd` callback to be called if the effect's
+      // dependencies change.
+      // To avoid that we set the dialog's returnValue to 'skipOnClose'
+      // in the effect's cleanup fn and reset it afterward.
+      if (dialogElement?.returnValue !== 'skipOnClose') {
+        onCloseEnd?.();
+      }
+      if (dialogElement?.returnValue === 'skipOnClose') {
+        dialogElement.returnValue = '';
+      }
+    };
+
+    if (onCloseEnd) {
+      dialogElement.addEventListener('close', handleClose);
+    }
+
+    return () => {
+      dialogElement.removeEventListener('close', handleClose);
+    };
+  }, [onCloseEnd]);
+
+  // DOM manipulation and event handling
+  useScrollLock(open && isModal);
+
+  useEffect(() => {
+    const dialogElement = dialogRef.current;
+    if (!preventEscapeKeyClose) {
+      return undefined;
+    }
+    const handleCancel = (event: Event) => {
+      event.preventDefault(); // Prevent dialog from closing
+    };
+    if (dialogElement) {
+      dialogElement.addEventListener('cancel', handleCancel);
+    }
+    return () => dialogElement?.removeEventListener('cancel', handleCancel);
+  }, [preventEscapeKeyClose]);
+
+  const handleEscapeKey = useCallback(
+    (e: Event) => {
+      // get all potential dialog elements in this dialog's composed path
+      // and check if it is topmost dialog .
+      const isTopMostDialog =
+        e
+          .composedPath()
+          .filter((el) => el instanceof Node && el.nodeName === 'DIALOG')[0] ===
+        dialogRef.current;
+      if (
+        // if the event happened on another dialog element that is not a child of the current dialog, we don't want to close it
+        !dialogRef.current?.contains(e.target as Node) ||
+        // if the dialog is not the topmost dialog, we don't want to close it
+        !isTopMostDialog
+      ) {
+        return;
+      }
+      e.preventDefault();
+      handleDialogClose();
+    },
+    [handleDialogClose],
+  );
+
+  useEscapeKey(handleEscapeKey, open && !preventEscapeKeyClose);
+
+  useEffect(
+    () => () => {
+      if (dialogRef.current?.open) {
+        dialogRef.current?.close();
+      }
+    },
+    [],
+  );
+
+  const handleSwipe = useCallback(
+    (direction: string) => {
+      const isScrolledToTop = dialogRef?.current?.scrollTop === 0;
+      if (
+        isScrolledToTop &&
+        open &&
+        isModal &&
+        direction === 'down' &&
+        !hideCloseButton &&
+        !preventOutsideClickClose
+      ) {
+        handleDialogClose();
+      }
+    },
+    [
+      isModal,
       open,
-      isModal = false,
-      children,
-      onCloseEnd,
-      closeButtonLabel,
-      className,
-      preventOutsideClickRefs,
-      preventOutsideClickClose = false,
-      hideCloseButton = false,
-      preventEscapeKeyClose = false,
-      animationDuration = 0,
-      onCloseStart,
-      locale,
-      style,
-      ...rest
-    } = useI18n(props, translations);
-    const dialogRef = useRef<HTMLDialogElement>(null);
-    const openRef = useLatest<boolean>(open);
-    const isModalRef = useLatest<boolean>(isModal);
-    const animationDurationRef = useLatest<number>(animationDuration);
-    const lastFocusedElementRef = useRef<HTMLElement | null>(null);
-    const [isClosing, setIsClosing] = useState(false);
+      handleDialogClose,
+      hideCloseButton,
+      preventOutsideClickClose,
+    ],
+  );
 
-    // Focus Management
-    useEffect(() => {
-      // save the opening element to restore focus after the dialog closes
-      if (open && document.activeElement instanceof HTMLElement) {
-        lastFocusedElementRef.current = document.activeElement;
+  const eventHandlers = useSwipe(handleSwipe, 300);
+
+  const handleOutsideClick = useCallback(() => {
+    lastFocusedElementRef.current = null;
+    handleDialogClose();
+  }, [handleDialogClose]);
+
+  const useClickOutsideRefs = preventOutsideClickRefs
+    ? // eslint-disable-next-line compat/compat
+      [dialogRef, preventOutsideClickRefs].flat()
+    : [dialogRef];
+
+  useClickOutside(
+    useClickOutsideRefs,
+    handleOutsideClick,
+    open && !preventOutsideClickClose,
+  );
+
+  const onPolyfillBackdropClick = useCallback(
+    (event: MouseEvent) => {
+      if (preventOutsideClickClose) {
+        event.preventDefault();
       }
-      return () => {
-        // restore focus to the opening element
+    },
+    [preventOutsideClickClose],
+  );
+
+  useEffect(() => {
+    // eslint-disable-next-line compat/compat
+    const hasNativeDialog = window.HTMLDialogElement !== undefined;
+    const dialogElement = dialogRef.current;
+    if (!dialogElement || hasNativeDialog) {
+      return undefined;
+    }
+    if (open && !hasNativeDialog && dialogElement?.nextSibling) {
+      // use the polyfill backdrop
+      (dialogElement.nextSibling as HTMLDivElement).classList.add(
+        classes.backdrop,
+      );
+      // intercept and prevent modal closing if preventClose is true
+      (dialogElement.nextSibling as HTMLDivElement).addEventListener(
+        'click',
+        onPolyfillBackdropClick,
+      );
+    }
+    return () => {
+      (dialogElement?.nextSibling as HTMLDivElement)?.removeEventListener(
+        'click',
+        onPolyfillBackdropClick,
+      );
+    };
+  }, [open, onPolyfillBackdropClick]);
+
+  const onDialogClick = useCallback(
+    (event: ReactMouseEvent<HTMLDialogElement>) => {
+      if (!preventOutsideClickClose) {
+        const isTargetChildNode = dialogRef.current?.contains(
+          event.target as Node,
+        );
+
+        let isWithingDialogBoundingRect = false;
+        const rect = dialogRef.current?.getBoundingClientRect();
+        if (rect) {
+          isWithingDialogBoundingRect =
+            rect.top <= event.clientY &&
+            event.clientY <= rect.top + rect.height &&
+            rect.left <= event.clientX &&
+            event.clientX <= rect.left + rect.width;
+        }
+        const isBackdropClick =
+          event.target === dialogRef.current && !isWithingDialogBoundingRect;
+
         if (
-          !dialogRef.current?.contains(document.activeElement) &&
-          document.body !== document.activeElement
-        ) {
-          return;
-        }
-        if (lastFocusedElementRef.current) {
-          setTimeout(
-            () => lastFocusedElementRef.current?.focus(),
-            animationDurationRef.current,
-          );
-        }
-      };
-    }, [open, animationDurationRef]);
-
-    // Component  opening/closing logic
-    const handleDialogClose = useCallback(() => {
-      const dialogElement = dialogRef.current;
-      if (!dialogElement) {
-        return;
-      }
-      onCloseStart?.();
-      setIsClosing(true);
-      // trigger closing of the dialog after animation
-      setTimeout(() => {
-        if (dialogElement.open) {
-          dialogElement.close();
-          setIsClosing(false);
-        }
-      }, animationDurationRef.current);
-    }, [animationDurationRef, onCloseStart]);
-
-    useEffect(() => {
-      // register the dialog element with the polyfill
-      if (dialogRef.current) {
-        dialogPolyfill.registerDialog(dialogRef.current);
-      }
-    }, []);
-
-    useEffect(() => {
-      const dialogElement = dialogRef.current;
-
-      if (!dialogElement) {
-        return undefined;
-      }
-
-      if (!openRef.current) {
-        dialogElement.returnValue = '';
-      }
-      if (openRef.current && !dialogElement.open) {
-        if (isModal) {
-          dialogElement.showModal();
-        } else {
-          dialogElement.show();
-        }
-      }
-
-      return () => {
-        if (dialogElement.open) {
-          dialogElement.close('skipOnClose');
-        }
-      };
-    }, [isModal, openRef]);
-
-    useEffect(() => {
-      const dialogElement = dialogRef.current;
-
-      if (!dialogElement) {
-        return;
-      }
-
-      if (!open) {
-        dialogElement.returnValue = '';
-      }
-      if (open && !dialogElement.open) {
-        if (isModalRef.current) {
-          dialogElement.showModal();
-        } else {
-          dialogElement.show();
-        }
-      }
-    }, [isModalRef, open]);
-
-    useEffect(() => {
-      const dialogElement = dialogRef.current;
-
-      if (!dialogElement) {
-        return;
-      }
-      if (!open && dialogElement.open) {
-        handleDialogClose();
-      }
-    }, [open, handleDialogClose]);
-
-    useEffect(() => {
-      const dialogElement = dialogRef.current;
-      if (!dialogElement) {
-        return undefined;
-      }
-
-      const handleClose = () => {
-        // the effect assigning the 'close' event listener to the dialog
-        // causes the `onCloseEnd` callback to be called if the effect's
-        // dependencies change.
-        // To avoid that we set the dialog's returnValue to 'skipOnClose'
-        // in the effect's cleanup fn and reset it afterward.
-        if (dialogElement?.returnValue !== 'skipOnClose') {
-          onCloseEnd?.();
-        }
-        if (dialogElement?.returnValue === 'skipOnClose') {
-          dialogElement.returnValue = '';
-        }
-      };
-
-      if (onCloseEnd) {
-        dialogElement.addEventListener('close', handleClose);
-      }
-
-      return () => {
-        dialogElement.removeEventListener('close', handleClose);
-      };
-    }, [onCloseEnd]);
-
-    // DOM manipulation and event handling
-    useScrollLock(open && isModal);
-
-    useEffect(() => {
-      const dialogElement = dialogRef.current;
-      if (!preventEscapeKeyClose) {
-        return undefined;
-      }
-      const handleCancel = (event: Event) => {
-        event.preventDefault(); // Prevent dialog from closing
-      };
-      if (dialogElement) {
-        dialogElement.addEventListener('cancel', handleCancel);
-      }
-      return () => dialogElement?.removeEventListener('cancel', handleCancel);
-    }, [preventEscapeKeyClose]);
-
-    const handleEscapeKey = useCallback(
-      (e: Event) => {
-        // get all potential dialog elements in this dialog's composed path
-        // and check if it is topmost dialog .
-        const isTopMostDialog =
-          e
-            .composedPath()
-            .filter(
-              (el) => el instanceof Node && el.nodeName === 'DIALOG',
-            )[0] === dialogRef.current;
-        if (
-          // if the event happened on another dialog element that is not a child of the current dialog, we don't want to close it
-          !dialogRef.current?.contains(e.target as Node) ||
-          // if the dialog is not the topmost dialog, we don't want to close it
-          !isTopMostDialog
-        ) {
-          return;
-        }
-        e.preventDefault();
-        handleDialogClose();
-      },
-      [handleDialogClose],
-    );
-
-    useEscapeKey(handleEscapeKey, open && !preventEscapeKeyClose);
-
-    useEffect(
-      () => () => {
-        if (dialogRef.current?.open) {
-          dialogRef.current?.close();
-        }
-      },
-      [],
-    );
-
-    const handleSwipe = useCallback(
-      (direction: string) => {
-        const isScrolledToTop = dialogRef?.current?.scrollTop === 0;
-        if (
-          isScrolledToTop &&
-          open &&
-          isModal &&
-          direction === 'down' &&
-          !hideCloseButton &&
-          !preventOutsideClickClose
+          // if the click happened outside the dialog by an element that is not a child of the dialog
+          (!isWithingDialogBoundingRect && !isTargetChildNode) ||
+          // if the click happened on the backdrop
+          isBackdropClick
         ) {
           handleDialogClose();
         }
-      },
-      [
-        isModal,
-        open,
-        handleDialogClose,
-        hideCloseButton,
-        preventOutsideClickClose,
-      ],
-    );
-
-    const eventHandlers = useSwipe(handleSwipe, 300);
-
-    const handleOutsideClick = useCallback(() => {
-      lastFocusedElementRef.current = null;
-      handleDialogClose();
-    }, [handleDialogClose]);
-
-    const useClickOutsideRefs = preventOutsideClickRefs
-      ? // eslint-disable-next-line compat/compat
-        [dialogRef, preventOutsideClickRefs].flat()
-      : [dialogRef];
-
-    useClickOutside(
-      useClickOutsideRefs,
-      handleOutsideClick,
-      open && !preventOutsideClickClose,
-    );
-
-    const onPolyfillBackdropClick = useCallback(
-      (event: MouseEvent) => {
-        if (preventOutsideClickClose) {
-          event.preventDefault();
-        }
-      },
-      [preventOutsideClickClose],
-    );
-
-    useEffect(() => {
-      // eslint-disable-next-line compat/compat
-      const hasNativeDialog = window.HTMLDialogElement !== undefined;
-      const dialogElement = dialogRef.current;
-      if (!dialogElement || hasNativeDialog) {
-        return undefined;
       }
-      if (open && !hasNativeDialog && dialogElement?.nextSibling) {
-        // use the polyfill backdrop
-        (dialogElement.nextSibling as HTMLDivElement).classList.add(
-          classes.backdrop,
-        );
-        // intercept and prevent modal closing if preventClose is true
-        (dialogElement.nextSibling as HTMLDivElement).addEventListener(
-          'click',
-          onPolyfillBackdropClick,
-        );
-      }
-      return () => {
-        (dialogElement?.nextSibling as HTMLDivElement)?.removeEventListener(
-          'click',
-          onPolyfillBackdropClick,
-        );
-      };
-    }, [open, onPolyfillBackdropClick]);
+    },
+    [handleDialogClose, preventOutsideClickClose],
+  );
 
-    const onDialogClick = useCallback(
-      (event: ReactMouseEvent<HTMLDialogElement>) => {
-        if (!preventOutsideClickClose) {
-          const isTargetChildNode = dialogRef.current?.contains(
-            event.target as Node,
-          );
+  return (
+    <>
+      {/* biome-ignore lint/a11y/useKeyWithClickEvents: The click event captures outside clicks */}
+      <dialog
+        onClick={onDialogClick}
+        className={clsx(classes.base, isModal && classes.modal, className)}
+        ref={applyMultipleRefs(ref, dialogRef)}
+        style={{
+          ...style,
+          '--dialog-animation-duration': `${animationDuration}ms`,
+        }}
+        {...rest}
+        {...eventHandlers}
+      >
+        {(open || isClosing) &&
+          (typeof children === 'function'
+            ? children?.({ onClose: onCloseEnd })
+            : children)}
 
-          let isWithingDialogBoundingRect = false;
-          const rect = dialogRef.current?.getBoundingClientRect();
-          if (rect) {
-            isWithingDialogBoundingRect =
-              rect.top <= event.clientY &&
-              event.clientY <= rect.top + rect.height &&
-              rect.left <= event.clientX &&
-              event.clientX <= rect.left + rect.width;
-          }
-          const isBackdropClick =
-            event.target === dialogRef.current && !isWithingDialogBoundingRect;
-
-          if (
-            // if the click happened outside the dialog by an element that is not a child of the dialog
-            (!isWithingDialogBoundingRect && !isTargetChildNode) ||
-            // if the click happened on the backdrop
-            isBackdropClick
-          ) {
-            handleDialogClose();
-          }
-        }
-      },
-      [handleDialogClose, preventOutsideClickClose],
-    );
-
-    return (
-      <>
-        {/* biome-ignore lint/a11y/useKeyWithClickEvents: The click event captures outside clicks */}
-        <dialog
-          onClick={onDialogClick}
-          className={clsx(classes.base, isModal && classes.modal, className)}
-          ref={applyMultipleRefs(ref, dialogRef)}
-          style={{
-            ...style,
-            '--dialog-animation-duration': `${animationDuration}ms`,
-          }}
-          {...rest}
-          {...eventHandlers}
-        >
-          {(open || isClosing) &&
-            (typeof children === 'function'
-              ? children?.({ onClose: onCloseEnd })
-              : children)}
-
-          {!hideCloseButton && (
-            <CloseButton onClick={handleDialogClose} className={classes.close}>
-              {closeButtonLabel}
-            </CloseButton>
-          )}
-        </dialog>
-      </>
-    );
-  },
-);
+        {!hideCloseButton && (
+          <CloseButton onClick={handleDialogClose} className={classes.close}>
+            {closeButtonLabel}
+          </CloseButton>
+        )}
+      </dialog>
+    </>
+  );
+}

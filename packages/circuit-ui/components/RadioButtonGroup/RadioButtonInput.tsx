@@ -15,7 +15,7 @@
 
 'use client';
 
-import { forwardRef, useId, type InputHTMLAttributes } from 'react';
+import { useId, type InputHTMLAttributes, type Ref } from 'react';
 
 import {
   AccessibilityError,
@@ -28,6 +28,7 @@ import classes from './RadioButtonInput.module.css';
 
 export interface RadioButtonInputProps
   extends InputHTMLAttributes<HTMLInputElement> {
+  ref?: Ref<HTMLInputElement>;
   /**
    * Alignment of the radio button in relation to its label.
    * @default 'center'
@@ -35,47 +36,45 @@ export interface RadioButtonInputProps
   align?: 'center' | 'start';
 }
 
-export const RadioButtonInput = forwardRef<
-  HTMLInputElement,
-  RadioButtonInputProps
->(
-  (
-    { 'id': customId, className, style, children, align = 'center', ...props },
-    ref,
-  ) => {
-    const id = useId();
-    const inputId = customId || id;
+export function RadioButtonInput({
+  'id': customId,
+  className,
+  style,
+  children,
+  align = 'center',
+  ref,
+  ...props
+}: RadioButtonInputProps) {
+  const id = useId();
+  const inputId = customId || id;
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !isSufficientlyLabelled(children, props)
-    ) {
-      throw new AccessibilityError(
-        'RadioButtonInput',
-        'The input is missing a valid label.',
-      );
-    }
-
-    return (
-      <>
-        <input
-          {...props}
-          ref={ref}
-          id={inputId}
-          type="radio"
-          className={clsx(classes.base, utilClasses.hideVisually)}
-        />
-        <label
-          htmlFor={inputId}
-          className={clsx(className, classes.label, classes[align])}
-          style={style}
-        >
-          {children}
-        </label>
-      </>
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !isSufficientlyLabelled(children, props)
+  ) {
+    throw new AccessibilityError(
+      'RadioButtonInput',
+      'The input is missing a valid label.',
     );
-  },
-);
+  }
 
-RadioButtonInput.displayName = 'RadioButtonInput';
+  return (
+    <>
+      <input
+        {...props}
+        ref={ref}
+        id={inputId}
+        type="radio"
+        className={clsx(classes.base, utilClasses.hideVisually)}
+      />
+      <label
+        htmlFor={inputId}
+        className={clsx(className, classes.label, classes[align])}
+        style={style}
+      >
+        {children}
+      </label>
+    </>
+  );
+}

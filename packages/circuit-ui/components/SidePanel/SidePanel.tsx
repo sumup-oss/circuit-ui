@@ -20,7 +20,7 @@ import {
   useId,
   useState,
   type UIEventHandler,
-  forwardRef,
+  type Ref,
   useCallback,
 } from 'react';
 
@@ -36,88 +36,88 @@ import type { SidePanelHookProps } from './useSidePanel.js';
 import classes from './SidePanel.module.css';
 import { translations } from './translations/index.js';
 
-export type SidePanelProps = Omit<DialogProps, 'children'> & SidePanelHookProps;
+export type SidePanelProps = Omit<DialogProps, 'children'> &
+  SidePanelHookProps & { ref?: Ref<HTMLDialogElement> };
 
-export const SidePanel = forwardRef<HTMLDialogElement, SidePanelProps>(
-  (props, ref) => {
-    const {
-      open,
-      backButtonLabel,
-      children,
-      closeButtonLabel,
-      headline,
-      onBack,
-      onCloseEnd,
-      onClose,
-      preventOutsideClickClose,
-      animationDuration = 0,
-      preventEscapeKeyClose,
-      className,
-      ...rest
-    } = useI18n(props, translations);
-    const isMobile = useMedia('(max-width: 767px)');
+export function SidePanel(props: SidePanelProps) {
+  const {
+    ref,
+    open,
+    backButtonLabel,
+    children,
+    closeButtonLabel,
+    headline,
+    onBack,
+    onCloseEnd,
+    onClose,
+    preventOutsideClickClose,
+    animationDuration = 0,
+    preventEscapeKeyClose,
+    className,
+    ...rest
+  } = useI18n(props, translations);
+  const isMobile = useMedia('(max-width: 767px)');
 
-    {
-      const [animationClass, setAnimationClass] = useState<string>();
-      const [isHeaderSticky, setHeaderSticky] = useState(false);
-      const headerAriaId = useId();
+  {
+    const [animationClass, setAnimationClass] = useState<string>();
+    const [isHeaderSticky, setHeaderSticky] = useState(false);
+    const headerAriaId = useId();
 
-      // biome-ignore lint/correctness/useExhaustiveDependencies: Not sure why this effect is necessary
-      useEffect(() => {
-        setHeaderSticky(false);
-      }, [isMobile]);
+    // biome-ignore lint/correctness/useExhaustiveDependencies: Not sure why this effect is necessary
+    useEffect(() => {
+      setHeaderSticky(false);
+    }, [isMobile]);
 
-      const handleScroll: UIEventHandler<HTMLDivElement> = (event) => {
-        setHeaderSticky(event.currentTarget.scrollTop > 0);
-      };
+    const handleScroll: UIEventHandler<HTMLDivElement> = (event) => {
+      setHeaderSticky(event.currentTarget.scrollTop > 0);
+    };
 
-      useEffect(() => {
-        setAnimationClass(open ? classes.open : undefined);
-      }, [open]);
+    useEffect(() => {
+      setAnimationClass(open ? classes.open : undefined);
+    }, [open]);
 
-      useEffect(
-        () => () => {
-          onCloseEnd?.();
-        },
-        [onCloseEnd],
-      );
+    useEffect(
+      () => () => {
+        onCloseEnd?.();
+      },
+      [onCloseEnd],
+    );
 
-      const escapeHandler = useCallback(() => {
-        (onBack || onClose)?.();
-      }, [onBack, onClose]);
+    const escapeHandler = useCallback(() => {
+      (onBack || onClose)?.();
+    }, [onBack, onClose]);
 
-      useEscapeKey(escapeHandler, open && !preventEscapeKeyClose);
+    useEscapeKey(escapeHandler, open && !preventEscapeKeyClose);
 
-      return (
-        <Dialog
-          {...rest}
-          ref={ref}
-          open={open}
-          isModal={isMobile}
-          aria-labelledby={headerAriaId}
-          animationDuration={animationDuration}
-          className={clsx(classes.base, animationClass, className)}
-          onCloseEnd={onBack || onClose}
-          preventOutsideClickClose={true}
-          preventEscapeKeyClose={true}
-          hideCloseButton
-        >
-          <div className={classes.wrapper} onScroll={handleScroll}>
-            <Header
-              backButtonLabel={backButtonLabel}
-              closeButtonLabel={closeButtonLabel}
-              headline={headline}
-              id={headerAriaId}
-              onBack={onBack}
-              onClose={onClose}
-              isSticky={isHeaderSticky}
-            />
-            <div className={classes.content}>
-              {isFunction(children) ? children({ onBack, onClose }) : children}
-            </div>
+    return (
+      <Dialog
+        {...rest}
+        ref={ref}
+        open={open}
+        isModal={isMobile}
+        aria-labelledby={headerAriaId}
+        animationDuration={animationDuration}
+        className={clsx(classes.base, animationClass, className)}
+        onCloseEnd={onBack || onClose}
+        preventOutsideClickClose={true}
+        preventEscapeKeyClose={true}
+        hideCloseButton
+      >
+        <div className={classes.wrapper} onScroll={handleScroll}>
+          <Header
+            backButtonLabel={backButtonLabel}
+            closeButtonLabel={closeButtonLabel}
+            headline={headline}
+            id={headerAriaId}
+            onBack={onBack}
+            onClose={onClose}
+            isSticky={isHeaderSticky}
+          />
+          <div className={classes.content}>
+            {isFunction(children) ? children({ onBack, onClose }) : children}
           </div>
-        </Dialog>
-      );
-    }
-  },
-);
+        </div>
+      </Dialog>
+    );
+  }
+}

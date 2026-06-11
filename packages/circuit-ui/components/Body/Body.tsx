@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { forwardRef, type HTMLAttributes } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
 
 import type { AsPropType } from '../../types/prop-types.js';
 import { clsx } from '../../styles/clsx.js';
@@ -24,6 +24,7 @@ import classes from './Body.module.css';
 type Variant = 'highlight' | 'quote' | 'confirm' | 'alert' | 'subtle';
 
 export interface BodyProps extends HTMLAttributes<HTMLParagraphElement> {
+  ref?: Ref<HTMLParagraphElement>;
   /**
    * Choose from 3 font sizes. Default `m`.
    */
@@ -104,71 +105,60 @@ export const deprecatedSizeMap: Record<string, string> = {
  * The Body component is used to present the core textual content
  * to our users.
  */
-export const Body = forwardRef<HTMLParagraphElement, BodyProps>(
-  (
-    {
-      className,
-      as,
-      size: legacySize = 'm',
-      weight = getDefaultWeight(as),
-      decoration,
-      color = 'normal',
-      variant,
-      ...props
-    },
-    ref,
-  ) => {
-    const Element = as || getHTMLElement(variant);
+export function Body({
+  className,
+  as,
+  size: legacySize = 'm',
+  weight = getDefaultWeight(as),
+  decoration,
+  color = 'normal',
+  variant,
+  ...props
+}: BodyProps) {
+  const Element = as || getHTMLElement(variant);
 
-    if (process.env.NODE_ENV !== 'production') {
-      if (variant) {
-        if (variant === 'highlight') {
-          deprecate(
-            'Body',
-            'The "highlight" variant has been deprecated. Use the new `weight` prop instead.',
-          );
-        } else if (variant === 'quote') {
-          deprecate(
-            'Body',
-            'The "quote" variant has been deprecated. Use custom CSS instead.',
-          );
-        } else {
-          deprecate(
-            'Body',
-            `The "${variant}" variant has been deprecated. Use the new \`color\` prop instead.`,
-          );
-        }
-      }
-
-      if (legacySize in deprecatedSizeMap) {
+  if (process.env.NODE_ENV !== 'production') {
+    if (variant) {
+      if (variant === 'highlight') {
         deprecate(
           'Body',
-          `The "${legacySize}" size has been deprecated. Use the "${deprecatedSizeMap[legacySize]}" size instead.`,
+          'The "highlight" variant has been deprecated. Use the new `weight` prop instead.',
+        );
+      } else if (variant === 'quote') {
+        deprecate(
+          'Body',
+          'The "quote" variant has been deprecated. Use custom CSS instead.',
+        );
+      } else {
+        deprecate(
+          'Body',
+          `The "${variant}" variant has been deprecated. Use the new \`color\` prop instead.`,
         );
       }
     }
 
-    const size = (deprecatedSizeMap[legacySize] || legacySize) as
-      | 'l'
-      | 'm'
-      | 's';
+    if (legacySize in deprecatedSizeMap) {
+      deprecate(
+        'Body',
+        `The "${legacySize}" size has been deprecated. Use the "${deprecatedSizeMap[legacySize]}" size instead.`,
+      );
+    }
+  }
 
-    return (
-      <Element
-        {...props}
-        ref={ref}
-        className={clsx(
-          classes.base,
-          classes[size],
-          classes[weight],
-          classes[color],
-          decoration === 'strikethrough' && classes.strikethrough,
-          variant && classes[variant],
-          className,
-        )}
-      />
-    );
-  },
-);
+  const size = (deprecatedSizeMap[legacySize] || legacySize) as 'l' | 'm' | 's';
 
-Body.displayName = 'Body';
+  return (
+    <Element
+      {...props}
+      className={clsx(
+        classes.base,
+        classes[size],
+        classes[weight],
+        classes[color],
+        decoration === 'strikethrough' && classes.strikethrough,
+        variant && classes[variant],
+        className,
+      )}
+    />
+  );
+}

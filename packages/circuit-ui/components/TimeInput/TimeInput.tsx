@@ -15,7 +15,7 @@
 
 'use client';
 
-import { forwardRef, type InputHTMLAttributes } from 'react';
+import type { InputHTMLAttributes, Ref } from 'react';
 
 import type { Locale } from '../../util/i18n.js';
 import { CircuitError } from '../../util/errors.js';
@@ -39,6 +39,7 @@ export interface TimeInputProps
       | 'optionalLabel'
       | 'size'
     > {
+  ref?: Ref<HTMLInputElement>;
   /**
    * The currently selected time in the `HH:mm` or `HH:mm:ss` format,
    * with leading zeros and using a 24-hour clock regardless of the locale.
@@ -80,36 +81,32 @@ export interface TimeInputProps
  * The TimeInput component allows users to type or select a specific time.
  * The input value is always a string in the `HH:mm` or `HH:mm:ss` format.
  */
-export const TimeInput = forwardRef<HTMLInputElement, TimeInputProps>(
-  ({ size = 'm', ...props }, ref) => {
-    if (process.env.NODE_ENV !== 'production') {
-      const TIME_REGEX = /^\d{2}:\d{2}(?::\d{2})?$/;
+export function TimeInput({ size = 'm', ref, ...props }: TimeInputProps) {
+  if (process.env.NODE_ENV !== 'production') {
+    const TIME_REGEX = /^\d{2}:\d{2}(?::\d{2})?$/;
 
-      if (props.min && !TIME_REGEX.test(props.min)) {
-        throw new CircuitError(
-          'TimeInput',
-          'The `min` prop must be in the format `HH:mm` or `HH:mm:ss`.',
-        );
-      }
-
-      if (props.max && !TIME_REGEX.test(props.max)) {
-        throw new CircuitError(
-          'TimeInput',
-          'The `max` prop must be in the format `HH:mm` or `HH:mm:ss`.',
-        );
-      }
+    if (props.min && !TIME_REGEX.test(props.min)) {
+      throw new CircuitError(
+        'TimeInput',
+        'The `min` prop must be in the format `HH:mm` or `HH:mm:ss`.',
+      );
     }
 
-    return (
-      <Input
-        {...props}
-        size={size}
-        ref={ref}
-        type="time"
-        inputClassName={clsx(classes.base, classes[size])}
-      />
-    );
-  },
-);
+    if (props.max && !TIME_REGEX.test(props.max)) {
+      throw new CircuitError(
+        'TimeInput',
+        'The `max` prop must be in the format `HH:mm` or `HH:mm:ss`.',
+      );
+    }
+  }
 
-TimeInput.displayName = 'TimeInput';
+  return (
+    <Input
+      {...props}
+      size={size}
+      ref={ref}
+      type="time"
+      inputClassName={clsx(classes.base, classes[size])}
+    />
+  );
+}

@@ -27,9 +27,9 @@ import {
 } from '@floating-ui/react-dom';
 import {
   type ComponentType,
-  forwardRef,
   Fragment,
   type KeyboardEvent,
+  type RefObject,
   useCallback,
   useEffect,
   useId,
@@ -59,6 +59,7 @@ export interface PopoverReferenceProps {
   'id': string;
   'aria-controls': string;
   'aria-expanded': boolean;
+  'ref'?: (el: Element | null) => void;
 }
 type OnToggle = (open: boolean | ((prevOpen: boolean) => boolean)) => void;
 
@@ -120,152 +121,138 @@ const sizeOptions: SizeOptions = {
 };
 const $activePopoverId = atom<string | null>(null);
 
-export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
-  (
-    {
-      isOpen = false,
-      onToggle,
-      children,
-      placement = 'bottom',
-      fallbackPlacements = ['top', 'right', 'left'],
-      component: Component,
-      offset,
-      className,
-      contentClassName,
-      style,
-      disableModalOnMobile,
-      ...props
-    },
-    ref,
-  ) => {
-    const dialogRef = useRef<HTMLDialogElement>(null);
-    const triggerId = useId();
-    const contentId = useId();
-    const [isClosing, setClosing] = useState(false);
-    const isMobile = useMedia('(max-width: 479px)');
-    const isModalOnMobile = !disableModalOnMobile && isMobile;
-    const animationDuration = isModalOnMobile ? 300 : 0;
-    const prevOpen = usePrevious(isOpen);
+export function Popover({
+  isOpen = false,
+  onToggle,
+  children,
+  placement = 'bottom',
+  fallbackPlacements = ['top', 'right', 'left'],
+  component: Component,
+  offset,
+  className,
+  contentClassName,
+  style,
+  disableModalOnMobile,
+  ref,
+  ...props
+}: PopoverProps) {
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const triggerId = useId();
+  const contentId = useId();
+  const [isClosing, setClosing] = useState(false);
+  const isMobile = useMedia('(max-width: 479px)');
+  const isModalOnMobile = !disableModalOnMobile && isMobile;
+  const animationDuration = isModalOnMobile ? 300 : 0;
+  const prevOpen = usePrevious(isOpen);
 
-    const activePopoverId = useStore($activePopoverId);
-    const popoverId = useId();
+  const activePopoverId = useStore($activePopoverId);
+  const popoverId = useId();
 
-    const { floatingStyles, refs, update } = useFloating<HTMLElement>({
-      open: isOpen,
-      placement,
-      strategy: 'fixed',
-      middleware: [
-        offset ? offsetMiddleware(offset) : undefined,
-        shift({ padding: boundaryPadding }),
-        flip({
-          padding: boundaryPadding,
-          fallbackPlacements,
-        }),
-        size(() => ({
-          ...sizeOptions,
-          boundary:
-            typeof window !== 'undefined'
-              ? {
-                  x: 0,
-                  y: 0,
-                  width: window.innerWidth,
-                  height: window.innerHeight,
-                }
-              : undefined,
-        })),
-      ],
+  const { floatingStyles, refs, update } = useFloating<Element>({
+    open: isOpen,
+    placement,
+    strategy: 'fixed',
+    middleware: [
+      offset ? offsetMiddleware(offset) : undefined,
+      shift({ padding: boundaryPadding }),
+      flip({
+        padding: boundaryPadding,
+        fallbackPlacements,
+      }),
+      size(() => ({
+        ...sizeOptions,
+        boundary:
+          typeof window !== 'undefined'
+            ? {
+                x: 0,
+                y: 0,
+                width: window.innerWidth,
+                height: window.innerHeight,
+              }
+            : undefined,
+      })),
+    ],
+  });
+
+  const handleTriggerClick = () => {
+    onToggle((prev) => {
+      if (prev) {
+        setClosing(true);
+        return false;
+      }
+      $activePopoverId.set(popoverId);
+      return true;
     });
+  };
 
-    const handleTriggerClick = () => {
-      onToggle((prev) => {
-        if (prev) {
-          setClosing(true);
-          return false;
-        }
-        $activePopoverId.set(popoverId);
-        return true;
-      });
-    };
+  /**
+   * We can't use Floating UI's `whileElementsMounted` option because our
+   * implementation hides the floating element using CSS instead of using
+   * conditional rendering.
+   */
+  useEffect(() => {
+    if (isOpen && refs.reference.current && refs.floating.current) {
+      return autoUpdate(refs.reference.current, refs.floating.current, update);
+    }
+    return undefined;
+  }, [isOpen, refs.reference, refs.floating, update]);
 
-    /**
-     * We can't use Floating UI's `whileElementsMounted` option because our
-     * implementation hides the floating element using CSS instead of using
-     * conditional rendering.
-     */
-    useEffect(() => {
-      if (isOpen && refs.reference.current && refs.floating.current) {
-        return autoUpdate(
-          refs.reference.current,
-          refs.floating.current,
-          update,
-        );
-      }
-      return undefined;
-    }, [isOpen, refs.reference, refs.floating, update]);
+  const handleCloseEnd = useCallback(() => {
+    setClosing(false);
+    onToggle(false);
+  }, [onToggle]);
 
-    const handleCloseEnd = useCallback(() => {
-      setClosing(false);
-      onToggle(false);
-    }, [onToggle]);
+  const handleCloseStart = useCallback(() => {
+    setClosing(true);
+  }, []);
 
-    const handleCloseStart = useCallback(() => {
-      setClosing(true);
-    }, []);
+  const outAnimation = isModalOnMobile
+    ? sharedClasses.animationSlideUpOut
+    : undefined;
+  const inAnimation = isModalOnMobile
+    ? sharedClasses.animationSlideUpIn
+    : undefined;
 
-    const outAnimation = isModalOnMobile
-      ? sharedClasses.animationSlideUpOut
-      : undefined;
-    const inAnimation = isModalOnMobile
-      ? sharedClasses.animationSlideUpIn
-      : undefined;
-
-    useEffect(() => {
-      // Focus the reference element after closing
-      if (prevOpen && !isOpen && activePopoverId === popoverId) {
-        const triggerButton = refs.reference.current
-          ?.firstElementChild as HTMLElement;
-        triggerButton.focus({ preventScroll: true });
-        $activePopoverId.set(null);
-      }
-    }, [isOpen, prevOpen, refs.reference, activePopoverId, popoverId]);
-    return (
-      <Fragment>
-        <div className={classes.trigger} ref={refs.setReference}>
-          <Component
-            id={triggerId}
-            aria-controls={contentId}
-            aria-expanded={isOpen}
-            onClick={handleTriggerClick}
-          />
+  useEffect(() => {
+    // Focus the reference element after closing
+    if (prevOpen && !isOpen && activePopoverId === popoverId) {
+      (refs.reference.current as HTMLElement)?.focus({ preventScroll: true });
+      $activePopoverId.set(null);
+    }
+  }, [isOpen, prevOpen, refs.reference, activePopoverId, popoverId]);
+  return (
+    <Fragment>
+      <Component
+        id={triggerId}
+        aria-controls={contentId}
+        aria-expanded={isOpen}
+        onClick={handleTriggerClick}
+        ref={refs.setReference}
+      />
+      <Dialog
+        {...props}
+        open={isOpen}
+        onCloseStart={handleCloseStart}
+        onCloseEnd={handleCloseEnd}
+        isModal={isModalOnMobile}
+        ref={applyMultipleRefs(ref, refs.setFloating, dialogRef)}
+        className={clsx(
+          classes.base,
+          isClosing ? outAnimation : inAnimation,
+          isMobile && !disableModalOnMobile && classes.modal,
+          isMobile && disableModalOnMobile && classes['non-modal'],
+          className,
+        )}
+        animationDuration={animationDuration}
+        style={isModalOnMobile ? style : { ...style, ...floatingStyles }}
+        preventOutsideClickRefs={refs.reference as RefObject<HTMLElement>}
+      >
+        <div id={contentId} className={clsx(classes.content, contentClassName)}>
+          {typeof children === 'function'
+            ? children?.({ onClose: handleCloseEnd })
+            : children}
         </div>
-        <Dialog
-          {...props}
-          open={isOpen}
-          onCloseStart={handleCloseStart}
-          onCloseEnd={handleCloseEnd}
-          isModal={isModalOnMobile}
-          ref={applyMultipleRefs(ref, refs.setFloating, dialogRef)}
-          className={clsx(
-            classes.base,
-            isClosing ? outAnimation : inAnimation,
-            isMobile && !disableModalOnMobile && classes.modal,
-            isMobile && disableModalOnMobile && classes['non-modal'],
-            className,
-          )}
-          animationDuration={animationDuration}
-          style={isModalOnMobile ? style : { ...style, ...floatingStyles }}
-          preventOutsideClickRefs={refs.reference}
-        >
-          <div
-            id={contentId}
-            className={clsx(classes.content, contentClassName)}
-          >
-            {typeof children === 'function'
-              ? children?.({ onClose: handleCloseEnd })
-              : children}
-          </div>
-        </Dialog>
-      </Fragment>
-    );
-  },
-);
+      </Dialog>
+    </Fragment>
+  );
+}

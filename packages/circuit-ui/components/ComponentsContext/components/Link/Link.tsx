@@ -13,19 +13,19 @@
  * limitations under the License.
  */
 
-import { forwardRef, type AnchorHTMLAttributes } from 'react';
+import type { AnchorHTMLAttributes, Ref } from 'react';
 
-export type LinkProps = AnchorHTMLAttributes<HTMLAnchorElement>;
+export type LinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
+  ref?: Ref<HTMLAnchorElement>;
+};
 
 /**
  * A barebones Link component that's basically just an `<a>` tag
  */
-export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
-  ({ children, ...props }, ref) => (
+export function Link({ children, ref, ...props }: LinkProps) {
+  return (
     <a {...props} ref={ref}>
       {children}
     </a>
-  ),
-);
-
-Link.displayName = 'Link';
+  );
+}

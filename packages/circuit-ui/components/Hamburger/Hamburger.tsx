@@ -15,7 +15,7 @@
 
 'use client';
 
-import { forwardRef } from 'react';
+import type React from 'react';
 
 import { legacyButtonSizeMap } from '../Button/index.js';
 import { IconButton, type IconButtonProps } from '../Button/IconButton.js';
@@ -31,6 +31,8 @@ import classes from './Hamburger.module.css';
 
 export interface HamburgerProps
   extends Omit<IconButtonProps, 'ref' | 'children' | 'label' | 'type'> {
+  // biome-ignore lint/suspicious/noExplicitAny: ref can target button or anchor
+  ref?: React.Ref<any>;
   /**
    * When active, the Hamburger transform into a close button.
    */
@@ -51,71 +53,63 @@ export interface HamburgerProps
  * A hamburger button for menus. Morphs into a close icon when active.
  */
 
-export const Hamburger = forwardRef<any, HamburgerProps>(
-  (
-    {
-      isActive = false,
-      activeLabel,
-      inactiveLabel,
-      size: legacySize = 'm',
-      className,
-      ...props
-    },
-    ref,
-  ) => {
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test'
-    ) {
-      if (!isSufficientlyLabelled(activeLabel)) {
-        throw new AccessibilityError(
-          'Hamburger',
-          'The `activeLabel` prop is missing or invalid.',
-        );
-      }
-      if (!isSufficientlyLabelled(inactiveLabel)) {
-        throw new AccessibilityError(
-          'Hamburger',
-          'The `inactiveLabel` prop is missing or invalid.',
-        );
-      }
-    }
-
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      legacyButtonSizeMap[legacySize]
-    ) {
-      deprecate(
+export function Hamburger({
+  isActive = false,
+  activeLabel,
+  inactiveLabel,
+  size: legacySize = 'm',
+  className,
+  ref,
+  ...props
+}: HamburgerProps) {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test'
+  ) {
+    if (!isSufficientlyLabelled(activeLabel)) {
+      throw new AccessibilityError(
         'Hamburger',
-        `The \`${legacySize}\` size has been deprecated. Use the \`${legacyButtonSizeMap[legacySize]}\` size instead.`,
+        'The `activeLabel` prop is missing or invalid.',
       );
     }
+    if (!isSufficientlyLabelled(inactiveLabel)) {
+      throw new AccessibilityError(
+        'Hamburger',
+        'The `inactiveLabel` prop is missing or invalid.',
+      );
+    }
+  }
 
-    const size = legacyButtonSizeMap[legacySize] || legacySize;
-
-    return (
-      <IconButton
-        {...props}
-        icon={({ size: _size, ...iconProps }) => (
-          // @ts-expect-error This doesn't have to be an SVG element.
-          <Skeleton
-            {...iconProps}
-            className={clsx(
-              iconProps.className,
-              classes.skeleton,
-              classes[size],
-            )}
-          >
-            <span className={clsx(classes.base, classes[size])} />
-          </Skeleton>
-        )}
-        className={clsx(classes.button, className)}
-        size={size}
-        type="button"
-        ref={ref}
-      >
-        {isActive ? activeLabel : inactiveLabel}
-      </IconButton>
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    legacyButtonSizeMap[legacySize]
+  ) {
+    deprecate(
+      'Hamburger',
+      `The \`${legacySize}\` size has been deprecated. Use the \`${legacyButtonSizeMap[legacySize]}\` size instead.`,
     );
-  },
-);
+  }
+
+  const size = legacyButtonSizeMap[legacySize] || legacySize;
+
+  return (
+    <IconButton
+      {...props}
+      icon={({ size: _size, ...iconProps }) => (
+        // @ts-expect-error This doesn't have to be an SVG element.
+        <Skeleton
+          {...iconProps}
+          className={clsx(iconProps.className, classes.skeleton, classes[size])}
+        >
+          <span className={clsx(classes.base, classes[size])} />
+        </Skeleton>
+      )}
+      className={clsx(classes.button, className)}
+      size={size}
+      type="button"
+      ref={ref}
+    >
+      {isActive ? activeLabel : inactiveLabel}
+    </IconButton>
+  );
+}

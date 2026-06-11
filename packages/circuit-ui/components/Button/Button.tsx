@@ -15,12 +15,7 @@
 
 'use client';
 
-import type {
-  ForwardRefExoticComponent,
-  PropsWithoutRef,
-  ReactNode,
-  RefAttributes,
-} from 'react';
+import type { ReactNode } from 'react';
 import type { IconComponentType } from '@sumup-oss/icons';
 
 import { CircuitError } from '../../util/errors.js';
@@ -64,9 +59,7 @@ export type ButtonProps = SharedButtonProps & {
  * The Button component enables the user to perform an action or navigate
  * to a different screen.
  */
-export const Button: ForwardRefExoticComponent<
-  PropsWithoutRef<ButtonProps> & RefAttributes<any>
-> = createButtonComponent<ButtonProps>(
+export const Button = createButtonComponent<ButtonProps>(
   'Button',
   ({ className, size: legacySize = 'm', stretch, variant, ...props }) => {
     const size = legacyButtonSizeMap[legacySize] || legacySize;

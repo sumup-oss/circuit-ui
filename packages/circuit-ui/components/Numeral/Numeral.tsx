@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { forwardRef, type HTMLAttributes } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
 
 import type { AsPropType } from '../../types/prop-types.js';
 import { clsx } from '../../styles/clsx.js';
@@ -21,6 +21,7 @@ import { clsx } from '../../styles/clsx.js';
 import classes from './Numeral.module.css';
 
 export interface NumeralProps extends HTMLAttributes<HTMLParagraphElement> {
+  ref?: Ref<HTMLParagraphElement>;
   /**
    * Choose from 3 font sizes. Default `m`.
    */
@@ -55,21 +56,17 @@ export interface NumeralProps extends HTMLAttributes<HTMLParagraphElement> {
  * The Numeral component is used to present the core textual content
  * to our users.
  */
-export const Numeral = forwardRef<HTMLParagraphElement, NumeralProps>(
-  (
-    {
-      className,
-      as: Element = 'p',
-      size = 'm',
-      color = 'normal',
-      decoration,
-      ...props
-    },
-    ref,
-  ) => (
+export function Numeral({
+  className,
+  as: Element = 'p',
+  size = 'm',
+  color = 'normal',
+  decoration,
+  ...props
+}: NumeralProps) {
+  return (
     <Element
       {...props}
-      ref={ref}
       className={clsx(
         classes.base,
         classes[size],
@@ -78,7 +75,5 @@ export const Numeral = forwardRef<HTMLParagraphElement, NumeralProps>(
         className,
       )}
     />
-  ),
-);
-
-Numeral.displayName = 'Numeral';
+  );
+}
