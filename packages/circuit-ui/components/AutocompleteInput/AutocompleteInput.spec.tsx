@@ -125,10 +125,8 @@ describe('AutocompleteInput', () => {
     });
     expect(input).toHaveValue('baz');
 
-    // simulate blur
-    act(() => {
-      input.blur();
-    });
+    // simulate click outside
+    await userEvent.click(document.body);
     expect(input).toHaveValue('Foo');
   });
 

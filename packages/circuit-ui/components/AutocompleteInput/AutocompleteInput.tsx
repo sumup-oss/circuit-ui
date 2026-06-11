@@ -17,7 +17,6 @@
 
 import {
   type ChangeEvent,
-  type FocusEventHandler,
   type KeyboardEventHandler,
   useCallback,
   useEffect,
@@ -295,8 +294,13 @@ export function AutocompleteInput({
     if (!isOpen) {
       comboboxRef?.current?.select();
       setIsOpen(true);
+      // when we close the listbox, set the search text to the value of the combobox,
+      // otherwise, reset it.
+      if (!Array.isArray(value)) {
+        setSearchText(value?.label ?? '');
+      }
     }
-  }, [isOpen]);
+  }, [isOpen, value]);
 
   const { floatingStyles, refs, update } = useFloating<HTMLElement>({
     open: isOpen,
@@ -491,26 +495,13 @@ export function AutocompleteInput({
       />
     ) : null;
 
-  const restoreValue: FocusEventHandler<HTMLInputElement> = useCallback(
-    (event) => {
-      if (!Array.isArray(value) && searchText !== value?.value) {
-        setSearchText(value?.label ?? '');
-        if (isImmersive) {
-          setPresentationFieldValue(value?.label ?? '');
-        }
-      }
-      props.onBlur?.(event);
-    },
-    [value, searchText, isImmersive, props.onBlur],
-  );
-
   const comboboxProps = {
     ...props,
     label,
     size,
     'data-id': autocompleteId,
     clearLabel,
-    value: searchText,
+    value: !Array.isArray(value) && !isOpen ? value?.label : searchText,
     onChange: onComboboxChange,
     onClear: onClear && !multiple ? onComboboxClear : undefined,
     onKeyDown: isLoading ? undefined : onComboboxKeyDown,
@@ -522,7 +513,6 @@ export function AutocompleteInput({
     onClick: !readOnly && !disabled ? onComboboxClick : undefined,
     readOnly,
     disabled,
-    onBlur: allowNewItems ? undefined : restoreValue,
     tags: Array.isArray(value) ? value : undefined,
     onTagRemove,
     isOpen,
