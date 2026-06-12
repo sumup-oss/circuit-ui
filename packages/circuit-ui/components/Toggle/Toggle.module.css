@@ -53,7 +53,6 @@
 }
 
 .track:disabled {
-  cursor: default;
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-subtle-disabled);
 }
