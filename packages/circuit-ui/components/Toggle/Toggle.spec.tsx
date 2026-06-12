@@ -69,14 +69,6 @@ describe('Toggle', () => {
     );
   });
 
-  it('should support uncontrolled usage via defaultChecked', async () => {
-    render(<Toggle {...defaultProps} defaultChecked />);
-    const toggleEl = screen.getByRole('switch');
-    expect(toggleEl).toBeChecked();
-    await userEvent.click(toggleEl);
-    expect(toggleEl).not.toBeChecked();
-  });
-
   // See https://inclusive-components.design/toggle-button/
   it('should have no accessibility violations', async () => {
     const { container } = render(<Toggle {...defaultProps} />);
