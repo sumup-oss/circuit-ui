@@ -36,10 +36,10 @@ describe('Toggle', () => {
   });
 
   it('should forward a ref', () => {
-    const ref = createRef<HTMLButtonElement>();
+    const ref = createRef<HTMLInputElement>();
     const { container } = render(<Toggle {...defaultProps} ref={ref} />);
-    const button = container.querySelector('button');
-    expect(ref.current).toBe(button);
+    const input = container.querySelector('input');
+    expect(ref.current).toBe(input);
   });
 
   it('should call the change handler when toggled', async () => {
@@ -67,6 +67,14 @@ describe('Toggle', () => {
     expect(toggleEl).toHaveAccessibleDescription(
       `${customDescription} ${defaultProps.description}`,
     );
+  });
+
+  it('should support uncontrolled usage via defaultChecked', async () => {
+    render(<Toggle {...defaultProps} defaultChecked />);
+    const toggleEl = screen.getByRole('switch');
+    expect(toggleEl).toBeChecked();
+    await userEvent.click(toggleEl);
+    expect(toggleEl).not.toBeChecked();
   });
 
   // See https://inclusive-components.design/toggle-button/

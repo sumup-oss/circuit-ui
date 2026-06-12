@@ -15,27 +15,20 @@
 
 'use client';
 
-import { useId, type Ref, type ButtonHTMLAttributes } from 'react';
+import { useId, type Ref, type InputHTMLAttributes } from 'react';
 
 import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
-import type { ClickEvent } from '../../types/events.js';
 import { FieldDescription, FieldWrapper } from '../Field/index.js';
 import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';
 
 import classes from './Toggle.module.css';
 
-export interface ToggleProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onChange'> {
-  ref?: Ref<HTMLButtonElement>;
-  /**
-   * Callback when the toggle state changes. Can be triggered by mouse or
-   * keyboard interactions.
-   */
-  onChange?: (event: ClickEvent<HTMLButtonElement>) => void;
+export interface ToggleProps extends InputHTMLAttributes<HTMLInputElement> {
+  ref?: Ref<HTMLInputElement>;
   /**
    * Describes the function of the toggle. Should not change depending on the state.
    */
@@ -44,10 +37,6 @@ export interface ToggleProps
    * Further explanation of the toggle. Can change depending on the state.
    */
   description?: string;
-  /**
-   * Is the Switch on?
-   */
-  checked?: boolean;
 }
 
 /**
@@ -57,8 +46,6 @@ export function Toggle({
   label,
   description,
   'aria-describedby': describedBy,
-  checked = false,
-  onChange,
   className,
   style,
   ref,
@@ -89,20 +76,21 @@ export function Toggle({
       className={clsx(classes.wrapper, className)}
       style={style}
     >
-      <button
-        type="button"
-        onClick={onChange}
-        role="switch"
-        aria-checked={checked}
-        aria-labelledby={labelId}
-        aria-describedby={descriptionIds}
-        id={switchId}
-        className={clsx(classes.track, utilClasses.focusVisible)}
-        {...props}
-        ref={ref}
-      >
-        <span className={classes.knob} />
-      </button>
+      <span className={classes['track-wrapper']}>
+        <input
+          type="checkbox"
+          //  All browsers in our support matrix handle this correctly. See https://www.w3.org/WAI/ARIA/apg/patterns/switch/
+          // biome-ignore lint/a11y/useAriaPropsForRole: <input type="checkbox"> natively maps its checked state to aria-checked for role="switch" per the HTML-AAM spec.
+          role="switch"
+          id={switchId}
+          aria-labelledby={labelId}
+          aria-describedby={descriptionIds || undefined}
+          className={clsx(classes.track, utilClasses.focusVisible)}
+          {...props}
+          ref={ref}
+        />
+        <span className={classes.knob} aria-hidden="true" />
+      </span>
       <label className={classes.label} id={labelId} htmlFor={switchId}>
         {label}
         {description && (

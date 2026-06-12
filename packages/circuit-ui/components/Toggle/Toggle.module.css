@@ -1,13 +1,20 @@
-.track {
-  --toggle-track-width: 40px;
-  --toggle-track-height: 24px;
-  --toggle-knob-size: 16px;
+.track-wrapper {
+  --toggle-track-width: var(--cui-spacings-peta);
+  --toggle-track-height: var(--cui-spacings-giga);
+  --toggle-knob-size: var(--cui-spacings-mega);
   --toggle-animation-timing: var(--cui-transitions-default);
 
   position: relative;
   flex: 0 0 var(--toggle-track-width);
   width: var(--toggle-track-width);
   height: var(--toggle-track-height);
+}
+
+.track {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   padding: 0;
   margin: 0;
   overflow: visible;
@@ -30,29 +37,28 @@
   border: 1px solid var(--cui-border-normal-pressed);
 }
 
-.track[aria-checked="true"] {
+.track:checked {
   background-color: var(--cui-bg-strong);
   border: 1px solid var(--cui-bg-strong);
 }
 
-.track[aria-checked="true"]:hover {
+.track:checked:hover {
   background-color: var(--cui-bg-strong-hovered);
   border: 1px solid var(--cui-bg-strong-hovered);
 }
 
-.track[aria-checked="true"]:active {
+.track:checked:active {
   background-color: var(--cui-bg-strong-pressed);
   border: 1px solid var(--cui-bg-strong-pressed);
 }
 
-.track:disabled,
-.track[disabled] {
+.track:disabled {
+  cursor: default;
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-subtle-disabled);
 }
 
-.track[aria-checked="true"]:disabled,
-.track[aria-checked="true"][disabled] {
+.track:checked:disabled {
   background-color: var(--cui-bg-accent-strong-disabled);
   border: 1px solid transparent;
 }
@@ -63,6 +69,7 @@
   display: block;
   width: var(--toggle-knob-size);
   height: var(--toggle-knob-size);
+  pointer-events: none;
   background-color: var(--cui-fg-subtle);
   border-radius: var(--toggle-knob-size);
   transform: translate3d(var(--cui-spacings-bit), -50%, 0);
@@ -71,7 +78,8 @@
     background-color var(--toggle-animation-timing);
 }
 
-[aria-checked="true"] .knob {
+.track:checked ~ .knob {
+  background-color: var(--cui-fg-on-strong);
   transform: translate3d(
     calc(
       var(--toggle-track-width) -
@@ -83,14 +91,11 @@
   );
 }
 
-[disabled] .knob,
-[data-disabled="true"] .knob {
+.track:disabled ~ .knob {
   background-color: var(--cui-bg-subtle-disabled);
 }
 
-.track[aria-checked="true"] .knob,
-.track[aria-checked="true"]:disabled .knob,
-.track[aria-checked="true"][disabled] .knob {
+.track:checked:disabled ~ .knob {
   background-color: var(--cui-fg-on-strong);
 }
 
