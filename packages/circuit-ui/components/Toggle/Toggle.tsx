@@ -79,7 +79,7 @@ export function Toggle({
       <span className={classes['track-wrapper']}>
         <input
           type="checkbox"
-          //  All browsers in our support matrix handle this correctly. See https://www.w3.org/WAI/ARIA/apg/patterns/switch/
+          // All browsers in our support matrix handle this correctly. See https://www.w3.org/WAI/ARIA/apg/patterns/switch/
           // biome-ignore lint/a11y/useAriaPropsForRole: <input type="checkbox"> natively maps its checked state to aria-checked for role="switch" per the HTML-AAM spec.
           role="switch"
           id={switchId}
