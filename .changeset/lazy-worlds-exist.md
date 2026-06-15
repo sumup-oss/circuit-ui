@@ -2,4 +2,4 @@
 "@sumup-oss/icons": minor
 ---
 
-Add unsplash icon
+Added unsplash icon in size 24.
