@@ -251,14 +251,16 @@ export const AutocompleteInput = forwardRef<
 
     const syncSearchOnDismiss = useCallback(() => {
       if (!Array.isArray(value)) {
-        if (searchText !== value?.value) {
+        if (!value && searchText !== '') {
+          changeInputValue(comboboxRef.current, '');
+        } else if (searchText !== value?.value) {
           setSearchText(value?.label ?? '');
           if (isImmersive) {
             setPresentationFieldValue(value?.label ?? '');
           }
         }
       } else if (searchText) {
-        setSearchText('');
+        changeInputValue(comboboxRef.current, '');
       }
       onSearch?.('');
       closeResults();
