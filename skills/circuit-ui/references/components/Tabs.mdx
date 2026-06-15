@@ -74,7 +74,7 @@ const { selectedId, onTabKeyDown, onTabClick } = useTabState(
 
 ### Tab-like navigation
 
-If you need to implement a tab-like navigation rather than true tab semantics, set the `as` prop of `TabList` to `"navigation"`. This renders a native `<nav>` containing an element with the role `list` to wrap its children.
+If you need to implement a tab-like navigation rather than true tab semantics, set the `as` prop of `TabList` to `"navigation"`. Pass an `href` on each item in the `tabs` prop to render them as links. This renders a native `<nav>` containing an element with the role `list`.
 
 The component renders styled to look like tabs but without any tab ARIA roles. This ensures a correctly structured and accessible navigation pattern that visually matches the tab design.
 

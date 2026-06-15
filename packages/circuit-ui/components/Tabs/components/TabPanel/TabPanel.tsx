@@ -13,15 +13,16 @@
  * limitations under the License.
  */
 
-import type { Ref, HTMLAttributes } from 'react';
+import type { HTMLAttributes, RefAttributes } from 'react';
 
-export interface TabPanelProps extends HTMLAttributes<HTMLDivElement> {
-  ref?: Ref<HTMLDivElement>;
-}
+export interface TabPanelProps extends HTMLAttributes<HTMLDivElement> {}
 
 /**
  * TabPanel wrapping content being showed by tabs
  */
-export function TabPanel({ ...props }: TabPanelProps) {
-  return <div {...props} role="tabpanel" tabIndex={-1} />;
+export function TabPanel({
+  ref,
+  ...props
+}: TabPanelProps & RefAttributes<HTMLDivElement>) {
+  return <div ref={ref} {...props} role="tabpanel" tabIndex={-1} />;
 }

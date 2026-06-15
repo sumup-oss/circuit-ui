@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import { Tab } from '../Tab/Tab.js';
-
 import { TabList } from './TabList.js';
 
 export default {
@@ -40,15 +38,13 @@ export const Base = () => (
 );
 
 export const Navigation = () => (
-  <TabList as="navigation">
-    <Tab as="listitem" href="/home">
-      Home
-    </Tab>
-    <Tab as="listitem" href="/about">
-      About
-    </Tab>
-    <Tab as="listitem" href="/contact" selected>
-      Contact
-    </Tab>
-  </TabList>
+  <TabList
+    as="navigation"
+    tabs={[
+      { id: 'home', tab: 'Home', href: '/home' },
+      { id: 'about', tab: 'About', href: '/about' },
+      { id: 'contact', tab: 'Contact', href: '/contact' },
+    ]}
+    initialSelectedIndex={2}
+  />
 );

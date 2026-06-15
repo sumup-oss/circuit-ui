@@ -18,7 +18,6 @@ import { createRef } from 'react';
 
 import { axe, render, screen, userEvent } from '../../../../util/test-utils.js';
 
-import { Tab } from '../Tab/Tab.js';
 import { TabList } from './TabList.js';
 
 const tabs = [
@@ -147,17 +146,15 @@ describe('TabList', () => {
 
     it('should have no violations as navigation', async () => {
       const { container } = render(
-        <TabList as="navigation">
-          <Tab as="listitem" href="/home">
-            Home
-          </Tab>
-          <Tab as="listitem" href="/about">
-            About
-          </Tab>
-          <Tab as="listitem" href="/contact" selected>
-            Contact
-          </Tab>
-        </TabList>,
+        <TabList
+          as="navigation"
+          tabs={[
+            { id: 'home', tab: 'Home', href: '/home' },
+            { id: 'about', tab: 'About', href: '/about' },
+            { id: 'contact', tab: 'Contact', href: '/contact' },
+          ]}
+          initialSelectedIndex={2}
+        />,
       );
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();
