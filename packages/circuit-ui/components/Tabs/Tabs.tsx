@@ -17,28 +17,18 @@
 
 import { Fragment, useState, type ReactNode } from 'react';
 
-import { TabList, type TabListProps } from './components/TabList/TabList.js';
+import {
+  TabList,
+  type TabItem,
+  type TabListProps,
+} from './components/TabList/TabList.js';
 import { TabPanel } from './components/TabPanel/TabPanel.js';
 
 export interface TabsProps extends Omit<TabListProps, 'as' | 'tabs'> {
   /**
-   * The index of the initially selected tab.
-   *
-   * @default 0
-   */
-  initialSelectedIndex?: number;
-  /**
    * A collection of tabs with an id, the tab label, and panel content.
    */
-  items: {
-    id: string;
-    tab: ReactNode;
-    panel: ReactNode;
-  }[];
-  /**
-   * A callback for when the selected tab changes.
-   */
-  onTabChange?: (id: string) => void;
+  items: (TabItem & { panel: ReactNode })[];
 }
 
 export function Tabs({

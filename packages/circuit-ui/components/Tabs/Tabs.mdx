@@ -78,6 +78,8 @@ If you need to implement a tab-like navigation rather than true tab semantics, s
 
 The component renders styled to look like tabs but without any tab ARIA roles. This ensures a correctly structured and accessible navigation pattern that visually matches the tab design.
 
+Avoid using external links, as this can create an inconsistent user experience across tabs. Instead, place the external link outside the Tabs component to maintain predictable behavior.
+
 <Story of={TabListStories.Navigation} />
 
 ### Stretched

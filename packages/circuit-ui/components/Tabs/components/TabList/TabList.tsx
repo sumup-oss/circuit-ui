@@ -35,6 +35,11 @@ import { useTabState } from '../../helper.js';
 import { Tab } from '../Tab/Tab.js';
 import classes from './TabList.module.css';
 
+export interface TabItem {
+  id: string;
+  tab: ReactNode;
+}
+
 export interface TabListProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Determines whether the component renders with full tab semantics or as a navigation list inside a <nav> using tab-like visuals.
@@ -50,7 +55,7 @@ export interface TabListProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * The tabs to render. When provided, TabList manages selection state internally.
    */
-  tabs?: { id: string; tab: ReactNode }[];
+  tabs?: TabItem[];
   /**
    * The index of the initially selected tab.
    * @default 0
