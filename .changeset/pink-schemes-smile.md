@@ -2,4 +2,4 @@
 "@sumup-oss/icons": patch
 ---
 
-Update sumup_scheme card-scheme icon to pink design (SLP-3524)
+Updated the size 32 of the SumupScheme icon to the pink design
