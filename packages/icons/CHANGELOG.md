@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 6.9.0
+
+### Minor Changes
+
+- [#3697](https://github.com/sumup-oss/circuit-ui/pull/3697) [`cd2167e`](https://github.com/sumup-oss/circuit-ui/commit/cd2167e9e07094be28286292637fa0341b987b37) Thanks [@Burtchen](https://github.com/Burtchen)! - Added unsplash icon in size 24.
+
 ## 6.8.0
 
 ### Minor Changes
