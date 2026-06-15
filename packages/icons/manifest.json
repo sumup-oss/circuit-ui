@@ -642,6 +642,11 @@
       "size": "32"
     },
     {
+      "name": "sumup_card",
+      "category": "Card scheme",
+      "size": "32"
+    },
+    {
       "name": "sumup_pay",
       "category": "Card scheme",
       "size": "32"
