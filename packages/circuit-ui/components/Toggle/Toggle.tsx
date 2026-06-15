@@ -21,6 +21,7 @@ import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
+import { idx } from '../../util/idx.js';
 import { FieldDescription, FieldWrapper } from '../Field/index.js';
 import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';
@@ -55,10 +56,6 @@ export function Toggle({
   const labelId = useId();
   const descriptionId = useId();
 
-  const descriptionIds = [describedBy, description && descriptionId]
-    .filter(Boolean)
-    .join(' ');
-
   if (
     process.env.NODE_ENV !== 'production' &&
     process.env.NODE_ENV !== 'test' &&
@@ -76,7 +73,7 @@ export function Toggle({
       className={clsx(classes.wrapper, className)}
       style={style}
     >
-      <span className={classes['track-wrapper']}>
+      <span className={classes['base-wrapper']}>
         <input
           type="checkbox"
           // All browsers in our support matrix handle this correctly. See https://www.w3.org/WAI/ARIA/apg/patterns/switch/
@@ -84,8 +81,8 @@ export function Toggle({
           role="switch"
           id={switchId}
           aria-labelledby={labelId}
-          aria-describedby={descriptionIds || undefined}
-          className={clsx(classes.track, utilClasses.focusVisible)}
+          aria-describedby={idx(describedBy, description && descriptionId)}
+          className={clsx(classes.base, utilClasses.focusVisible)}
           {...props}
           ref={ref}
         />

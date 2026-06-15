@@ -1,4 +1,4 @@
-.track-wrapper {
+.base-wrapper {
   --toggle-track-width: var(--cui-spacings-peta);
   --toggle-track-height: var(--cui-spacings-giga);
   --toggle-knob-size: var(--cui-spacings-mega);
@@ -10,7 +10,7 @@
   height: var(--toggle-track-height);
 }
 
-.track {
+.base {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -27,37 +27,37 @@
   transition: background-color var(--toggle-animation-timing);
 }
 
-.track:hover {
+.base:hover {
   background-color: var(--cui-bg-normal-hovered);
   border: 1px solid var(--cui-border-normal-hovered);
 }
 
-.track:active {
+.base:active {
   background-color: var(--cui-bg-normal-pressed);
   border: 1px solid var(--cui-border-normal-pressed);
 }
 
-.track:checked {
+.base:checked {
   background-color: var(--cui-bg-strong);
   border: 1px solid var(--cui-bg-strong);
 }
 
-.track:checked:hover {
+.base:checked:hover {
   background-color: var(--cui-bg-strong-hovered);
   border: 1px solid var(--cui-bg-strong-hovered);
 }
 
-.track:checked:active {
+.base:checked:active {
   background-color: var(--cui-bg-strong-pressed);
   border: 1px solid var(--cui-bg-strong-pressed);
 }
 
-.track:disabled {
+.base:disabled {
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-subtle-disabled);
 }
 
-.track:checked:disabled {
+.base:checked:disabled {
   background-color: var(--cui-bg-accent-strong-disabled);
   border: 1px solid transparent;
 }
@@ -77,7 +77,7 @@
     background-color var(--toggle-animation-timing);
 }
 
-.track:checked ~ .knob {
+.base:checked ~ .knob {
   background-color: var(--cui-fg-on-strong);
   transform: translate3d(
     calc(
@@ -90,11 +90,11 @@
   );
 }
 
-.track:disabled ~ .knob {
+.base:disabled ~ .knob {
   background-color: var(--cui-bg-subtle-disabled);
 }
 
-.track:checked:disabled ~ .knob {
+.base:checked:disabled ~ .knob {
   background-color: var(--cui-fg-on-strong);
 }
 
