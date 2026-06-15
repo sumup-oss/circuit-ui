@@ -18,6 +18,7 @@ import { createRef } from 'react';
 
 import { axe, render, screen, userEvent } from '../../../../util/test-utils.js';
 
+import { Tab } from '../Tab/Tab.js';
 import { TabList } from './TabList.js';
 
 const tabs = [
@@ -34,7 +35,7 @@ describe('TabList', () => {
   it('should render tabs from the tabs prop', () => {
     render(<TabList tabs={tabs} />);
     expect(screen.getAllByRole('tab')).toHaveLength(3);
-    expect(screen.getByRole('tab', { name: 'Tab A' })).toBeInTheDocument();
+    expect(screen.getByRole('tab', { name: 'Tab A' })).toBeVisible();
   });
 
   it('should select the first tab by default', () => {
@@ -145,7 +146,19 @@ describe('TabList', () => {
     });
 
     it('should have no violations as navigation', async () => {
-      const { container } = render(<TabList as="navigation" />);
+      const { container } = render(
+        <TabList as="navigation">
+          <Tab as="listitem" href="/home">
+            Home
+          </Tab>
+          <Tab as="listitem" href="/about">
+            About
+          </Tab>
+          <Tab as="listitem" href="/contact" selected>
+            Contact
+          </Tab>
+        </TabList>,
+      );
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });
