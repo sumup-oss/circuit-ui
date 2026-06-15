@@ -60,15 +60,6 @@ WithDescription.args = {
   description: 'Some more detailed text of what this means',
 };
 
-export const Uncontrolled = (args: ToggleProps) => (
-  <Stack vertical>
-    <Toggle {...args} />
-    <Toggle {...args} defaultChecked />
-  </Stack>
-);
-
-Uncontrolled.args = baseArgs;
-
 export const Disabled = (args: ToggleProps) => (
   <Stack vertical>
     <Toggle {...args} />
