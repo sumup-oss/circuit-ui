@@ -1,5 +1,15 @@
 # @sumup-oss/icons
 
+## 6.10.0
+
+### Minor Changes
+
+- [#3698](https://github.com/sumup-oss/circuit-ui/pull/3698) [`d7c6faf`](https://github.com/sumup-oss/circuit-ui/commit/d7c6faf370b31812718da52527f2416cd5a23e20) Thanks [@hgkhanh-sumup](https://github.com/hgkhanh-sumup)! - Added SumupCard icon in size 32
+
+### Patch Changes
+
+- [#3698](https://github.com/sumup-oss/circuit-ui/pull/3698) [`d7c6faf`](https://github.com/sumup-oss/circuit-ui/commit/d7c6faf370b31812718da52527f2416cd5a23e20) Thanks [@hgkhanh-sumup](https://github.com/hgkhanh-sumup)! - Updated the size 32 of the SumupScheme icon to the pink design
+
 ## 6.9.0
 
 ### Minor Changes
