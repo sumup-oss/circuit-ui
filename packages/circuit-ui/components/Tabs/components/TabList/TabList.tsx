@@ -38,6 +38,10 @@ import classes from './TabList.module.css';
 export interface TabItem {
   id: string;
   tab: ReactNode;
+  /**
+   * Renders the tab as a navigation link. Use with `as="navigation"`.
+   */
+  href?: string;
 }
 
 export interface TabListProps extends HTMLAttributes<HTMLDivElement> {
@@ -234,20 +238,34 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
           })}
         >
           {tabs
-            ? tabs.map((item, index) => (
-                <Tab
-                  key={item.id}
-                  ref={(el) => {
-                    tabRefs.current[index] = el;
-                  }}
-                  id={`tab-${item.id}`}
-                  aria-controls={`panel-${item.id}`}
-                  selected={selectedId === item.id}
-                  onClick={() => onTabClick(item.id)}
-                >
-                  {item.tab}
-                </Tab>
-              ))
+            ? tabs.map((item, index) =>
+                as === 'navigation' ? (
+                  <Tab
+                    key={item.id}
+                    ref={(el) => {
+                      tabRefs.current[index] = el;
+                    }}
+                    as="listitem"
+                    href={item.href}
+                    selected={selectedId === item.id}
+                  >
+                    {item.tab}
+                  </Tab>
+                ) : (
+                  <Tab
+                    key={item.id}
+                    ref={(el) => {
+                      tabRefs.current[index] = el;
+                    }}
+                    id={`tab-${item.id}`}
+                    aria-controls={`panel-${item.id}`}
+                    selected={selectedId === item.id}
+                    onClick={() => onTabClick(item.id)}
+                  >
+                    {item.tab}
+                  </Tab>
+                ),
+              )
             : children}
           <span className={classes.glider} ref={gliderRef} />
         </div>
