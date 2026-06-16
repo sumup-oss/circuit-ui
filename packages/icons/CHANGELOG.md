@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 6.10.1
+
+### Patch Changes
+
+- [#3702](https://github.com/sumup-oss/circuit-ui/pull/3702) [`b0f0f8a`](https://github.com/sumup-oss/circuit-ui/commit/b0f0f8a9f346ac6a9693691ff2d21c86ae60bcfc) Thanks [@missating](https://github.com/missating)! - Fixed a broken case-insensitive filename collision on icons package `v6.10.0` (`SumupCard.js` vs `SumUpCard.js`) that caused the build to produce only one of the two files, resulting in "Module not found: Can't resolve './SumUpCard.js'" for consumers. Both `SumUpCard` and `SumupCard` can be imported safely.
+
 ## 6.10.0
 
 ### Minor Changes
