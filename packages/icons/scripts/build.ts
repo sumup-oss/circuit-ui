@@ -97,6 +97,9 @@ function buildComponentFile(component: Component): string {
   );
   const sizes = icons.map((icon) => Number.parseInt(icon.size, 10)).sort();
   const defaultSize = sizes.includes(24) ? '24' : Math.min(...sizes).toString();
+  // Use a component-scoped variable name to avoid collisions when multiple
+  // components are combined into a single file (case-insensitive FS).
+  const sizeMapVar = `${component.name}SizeMap`;
   const sizeMap = icons.map((icon) => `'${icon.size}': ${icon.name},`);
   const invalidSizeWarning = `The '\${size}' size is not supported by the '${
     component.name
@@ -105,18 +108,18 @@ function buildComponentFile(component: Component): string {
   return `
     ${iconImports.join('\n')}
 
-    const sizeMap = {
+    const ${sizeMapVar} = {
       ${sizeMap.join('\n')}
     }
 
     ${createDeprecationComment(component)}
     export function ${component.name}({ size = '${defaultSize}', ...props }) {
-      const Icon = sizeMap[size] || sizeMap['${defaultSize}'];
+      const Icon = ${sizeMapVar}[size] || ${sizeMapVar}['${defaultSize}'];
 
       if (
         process.env.NODE_ENV !== 'production' &&
         process.env.NODE_ENV !== 'test' &&
-        !sizeMap[size]
+        !${sizeMapVar}[size]
       ) {
         console.warn(new Error(\`${invalidSizeWarning}\`));
       }
@@ -134,9 +137,15 @@ function buildHelpersFile(): string {
   `;
 }
 
-function buildIndexFile(components: Component[]): string {
+function buildIndexFile(
+  components: Component[],
+  canonicalNames: Map<string, string>,
+): string {
   const componentExports = components
-    .map(({ name }) => `export { ${name} } from './${name}.js';`)
+    .map(({ name }) => {
+      const fileName = canonicalNames.get(name) ?? name;
+      return `export { ${name} } from './${fileName}.js';`;
+    })
     .join('\n');
   const helpersExport = `export * from './helpers.js';`;
   return `
@@ -268,14 +277,36 @@ async function main() {
     )
     .filter(({ icons }) => icons.some((icon) => !icon.skipComponentFile));
 
-  const indexRaw = buildIndexFile(components);
+  // Group components by lowercase name to detect case-insensitive collisions
+  // (e.g. SumUpCard / SumupCard on macOS HFS+/APFS).  Components that share a
+  // lowercase name are combined into a single file so concurrent writes to the
+  // same physical inode don't corrupt each other.
+  const collisionGroups = new Map<string, Component[]>();
+  for (const component of components) {
+    const key = component.name.toLowerCase();
+    collisionGroups.set(key, [...(collisionGroups.get(key) ?? []), component]);
+  }
+
+  // Map each component name → the canonical filename it will be exported from.
+  const canonicalNames = new Map<string, string>();
+  for (const group of collisionGroups.values()) {
+    // Sort alphabetically; the first entry becomes the canonical filename.
+    const sorted = [...group].sort((a, b) => a.name.localeCompare(b.name));
+    const canonicalName = sorted[0].name;
+    for (const component of group) {
+      canonicalNames.set(component.name, canonicalName);
+    }
+  }
+
+  const indexRaw = buildIndexFile(components, canonicalNames);
   const helpersRaw = buildHelpersFile();
   const declarationFile = buildDeclarationFile(components);
 
   await Promise.all(
-    components.map((component) => {
-      const componentFileName = `${component.name}.js`;
-      const componentRaw = buildComponentFile(component);
+    [...collisionGroups.values()].map((group) => {
+      const sorted = [...group].sort((a, b) => a.name.localeCompare(b.name));
+      const componentFileName = `${sorted[0].name}.js`;
+      const componentRaw = group.map((c) => buildComponentFile(c)).join('\n\n');
       return transpileModule(componentFileName, componentRaw);
     }),
   );
