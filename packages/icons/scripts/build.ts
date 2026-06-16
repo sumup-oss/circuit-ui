@@ -98,7 +98,7 @@ function buildComponentFile(component: Component): string {
   const sizes = icons.map((icon) => Number.parseInt(icon.size, 10)).sort();
   const defaultSize = sizes.includes(24) ? '24' : Math.min(...sizes).toString();
   // Use a component-scoped variable name to avoid collisions when multiple
-  // components are combined into a single file (case-insensitive FS).
+  // components are combined into a single file (case-insensitive FS)
   const sizeMapVar = `${component.name}SizeMap`;
   const sizeMap = icons.map((icon) => `'${icon.size}': ${icon.name},`);
   const invalidSizeWarning = `The '\${size}' size is not supported by the '${
@@ -277,17 +277,19 @@ async function main() {
     )
     .filter(({ icons }) => icons.some((icon) => !icon.skipComponentFile));
 
-  // Group components by lowercase name to detect case-insensitive collisions
-  // (e.g. SumUpCard / SumupCard on macOS HFS+/APFS).  Components that share a
-  // lowercase name are combined into a single file so concurrent writes to the
-  // same physical inode don't corrupt each other.
+  // Group components by lowercase name to detect case-insensitive filename
+  // collisions (e.g. SumUpCard / SumupCard).  When two names differ only in
+  // case, a build on a case-insensitive filesystem produces only one physical
+  // file, leaving the other reference in index.js unresolvable for consumers.
+  // Merging colliding components into a single canonical file avoids the issue
+  // regardless of the filesystem the build runs on.
   const collisionGroups = new Map<string, Component[]>();
   for (const component of components) {
     const key = component.name.toLowerCase();
     collisionGroups.set(key, [...(collisionGroups.get(key) ?? []), component]);
   }
 
-  // Map each component name → the canonical filename it will be exported from.
+  // Map each component name to the canonical filename it will be exported from.
   const canonicalNames = new Map<string, string>();
   for (const group of collisionGroups.values()) {
     // Sort alphabetically; the first entry becomes the canonical filename.
