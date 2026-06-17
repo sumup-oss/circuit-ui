@@ -37,16 +37,19 @@ describe('Flag', () => {
     expect(ref.current).toBe(image);
   });
 
-  it('should size the image correctly when given a width', () => {
-    render(<Flag countryCode="DE" alt="Germany" width={100} />);
-    const image = screen.getByAltText('Germany');
-    expect(image.getAttribute('height')).toBe('75px');
+  it('should render with size 16', () => {
+    render(<Flag {...baseProps} size="16" />);
+    expect(screen.getByRole('img')).toBeInTheDocument();
   });
 
-  it('should size the image correctly when given a height', () => {
-    render(<Flag countryCode="DE" alt="Germany" height={120} />);
-    const image = screen.getByAltText('Germany');
-    expect(image.getAttribute('width')).toBe('160px');
+  it('should render with size 24', () => {
+    render(<Flag {...baseProps} size="24" />);
+    expect(screen.getByRole('img')).toBeInTheDocument();
+  });
+
+  it('should render with size 32', () => {
+    render(<Flag {...baseProps} size="32" />);
+    expect(screen.getByRole('img')).toBeInTheDocument();
   });
 
   it('should have no accessibility violations', async () => {

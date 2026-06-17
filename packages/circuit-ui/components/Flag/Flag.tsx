@@ -125,17 +125,10 @@ export function Flag({
   }
 
   return (
-    <div
-      className={clsx(classes.wrapper, className)}
-      style={{
-        '--flag-wrapper-height': `${dimensions.width}px`,
-      }}
-    >
+    <div className={clsx(classes.wrapper, className)}>
       <img
         ref={ref}
         className={clsx(classes.base, imageClassName)}
-        height={`${dimensions.height}px`}
-        width={`${dimensions.width}px`}
         src={getIconURL(flagName)}
         {...props}
         alt={alt}
