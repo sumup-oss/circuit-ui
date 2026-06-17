@@ -1,5 +1,79 @@
 # @sumup-oss/icons
 
+## 6.10.1
+
+### Patch Changes
+
+- [#3702](https://github.com/sumup-oss/circuit-ui/pull/3702) [`b0f0f8a`](https://github.com/sumup-oss/circuit-ui/commit/b0f0f8a9f346ac6a9693691ff2d21c86ae60bcfc) Thanks [@missating](https://github.com/missating)! - Fixed a broken case-insensitive filename collision on icons package `v6.10.0` (`SumupCard.js` vs `SumUpCard.js`) that caused the build to produce only one of the two files, resulting in "Module not found: Can't resolve './SumUpCard.js'" for consumers. Both `SumUpCard` and `SumupCard` can be imported safely.
+
+## 6.10.0
+
+### Minor Changes
+
+- [#3698](https://github.com/sumup-oss/circuit-ui/pull/3698) [`d7c6faf`](https://github.com/sumup-oss/circuit-ui/commit/d7c6faf370b31812718da52527f2416cd5a23e20) Thanks [@hgkhanh-sumup](https://github.com/hgkhanh-sumup)! - Added SumupCard icon in size 32
+
+### Patch Changes
+
+- [#3698](https://github.com/sumup-oss/circuit-ui/pull/3698) [`d7c6faf`](https://github.com/sumup-oss/circuit-ui/commit/d7c6faf370b31812718da52527f2416cd5a23e20) Thanks [@hgkhanh-sumup](https://github.com/hgkhanh-sumup)! - Updated the size 32 of the SumupScheme icon to the pink design
+
+## 6.9.0
+
+### Minor Changes
+
+- [#3697](https://github.com/sumup-oss/circuit-ui/pull/3697) [`cd2167e`](https://github.com/sumup-oss/circuit-ui/commit/cd2167e9e07094be28286292637fa0341b987b37) Thanks [@Burtchen](https://github.com/Burtchen)! - Added unsplash icon in size 24.
+
+## 6.8.0
+
+### Minor Changes
+
+- [#3692](https://github.com/sumup-oss/circuit-ui/pull/3692) [`8366140`](https://github.com/sumup-oss/circuit-ui/commit/836614048dc94cf74ec74cfa89dae7fe3f04f4d8) Thanks [@sirineJ](https://github.com/sirineJ)! - Added filled variants for a set of existing outlined icons. Outlined icons remain the default; use filled variants selectively to emphasize meaning or state, such as active navigation links or selected options.
+
+  New filled icon variants:
+
+  - Account
+  - Accounting
+  - Bookings
+  - CashAdvance
+  - Checkout
+  - Customers
+  - Employees
+  - Expenses
+  - GiftCards
+  - Home
+  - Investments
+  - Invoice
+  - Items
+  - Kiosk
+  - Loyalty
+  - OnlineStore
+  - Open orders
+  - PaymentLinks
+  - Payouts
+  - Pos
+  - Profile
+  - Promote
+  - Receipt
+  - Receivables
+  - Reports
+  - Settings
+  - SumUpConnect
+  - ThumbUp
+  - Tools
+  - UsPosBackoffice
+  - VirtualTerminal
+
+- [#3692](https://github.com/sumup-oss/circuit-ui/pull/3692) [`8366140`](https://github.com/sumup-oss/circuit-ui/commit/836614048dc94cf74ec74cfa89dae7fe3f04f4d8) Thanks [@sirineJ](https://github.com/sirineJ)! - Deprecated the GeneralSettings icon, use the Settings icon instead.
+
+- [#3692](https://github.com/sumup-oss/circuit-ui/pull/3692) [`8366140`](https://github.com/sumup-oss/circuit-ui/commit/836614048dc94cf74ec74cfa89dae7fe3f04f4d8) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a new set of product icons:
+
+  - Bookings
+  - OpenOrders
+  - Receivables
+  - Tools
+  - UsPosBackoffice
+
+- [#3692](https://github.com/sumup-oss/circuit-ui/pull/3692) [`8366140`](https://github.com/sumup-oss/circuit-ui/commit/836614048dc94cf74ec74cfa89dae7fe3f04f4d8) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the Accounting and Investments icons.
+
 ## 6.7.0
 
 ### Minor Changes

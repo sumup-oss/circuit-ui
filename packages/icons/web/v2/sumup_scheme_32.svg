@@ -1,8 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="24" fill="none" viewBox="0 0 32 24">
     <g clip-path="url(#sumup_scheme_32_svg__a)">
-        <rect width="32" height="24" fill="#fff" rx="4"/>
-        <rect width="31" height="23" x=".5" y=".5" fill="#000" stroke="#ccc" rx="3.5"/>
-        <path fill="#fff" d="M11.5 17.507a5.06 5.06 0 0 0 7.18 0 5.11 5.11 0 0 0 0-7.207zm8.808-11.014a5.06 5.06 0 0 0-7.18 0 5.11 5.11 0 0 0 0 7.207z"/>
+        <rect width="31" height="23" x=".5" y=".5" fill="#ff61f2" stroke="#d0cdc3" rx="3.5"/>
+        <path fill="#1e1c1c" d="M11.5 17.507a5.06 5.06 0 0 0 7.18 0 5.11 5.11 0 0 0 0-7.207zm8.808-11.014a5.06 5.06 0 0 0-7.18 0 5.11 5.11 0 0 0 0 7.207z"/>
     </g>
     <defs>
         <clipPath id="sumup_scheme_32_svg__a">

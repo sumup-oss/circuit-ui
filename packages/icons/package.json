@@ -1,6 +1,6 @@
 {
   "name": "@sumup-oss/icons",
-  "version": "6.7.0",
+  "version": "6.10.1",
   "description": "A collection of icons by SumUp",
   "type": "module",
   "main": "./dist/index.js",
@@ -38,7 +38,7 @@
     "prepublish": "npm run build"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.0",
+    "@babel/core": "^7.29.7",
     "@babel/preset-env": "^7.29.5",
     "@babel/preset-react": "^7.28.5",
     "@biomejs/js-api": "^3.0.0",
