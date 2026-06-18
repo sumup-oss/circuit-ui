@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { Tab } from '../Tab/Tab.js';
 import { TabList } from './TabList.js';
 
 export default {
@@ -27,17 +28,34 @@ export default {
 };
 
 export const Base = () => (
-  <TabList
-    tabs={[
-      { id: '1', tab: 'Button' },
-      { id: '2', tab: 'Button' },
-      { id: '3', tab: 'Button' },
-    ]}
-    initialSelectedIndex={2}
-  />
+  <TabList>
+    <Tab id="tab-1" aria-controls="panel-1">
+      Button
+    </Tab>
+    <Tab id="tab-2" aria-controls="panel-2">
+      Button
+    </Tab>
+    <Tab id="tab-3" selected aria-controls="panel-3">
+      Button
+    </Tab>
+  </TabList>
 );
 
 export const Navigation = () => (
+  <TabList as="navigation">
+    <Tab as="listitem" href="/home">
+      Home
+    </Tab>
+    <Tab as="listitem" href="/about">
+      About
+    </Tab>
+    <Tab as="listitem" href="/contact" selected>
+      Contact
+    </Tab>
+  </TabList>
+);
+
+export const NavigationWithTabsProp = () => (
   <TabList
     as="navigation"
     tabs={[

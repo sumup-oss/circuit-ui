@@ -15,7 +15,7 @@
 
 import { forwardRef, type HTMLAttributes } from 'react';
 
-export interface TabPanelProps extends HTMLAttributes<HTMLDivElement> {}
+export type TabPanelProps = HTMLAttributes<HTMLDivElement>;
 
 /**
  * TabPanel wrapping content being showed by tabs

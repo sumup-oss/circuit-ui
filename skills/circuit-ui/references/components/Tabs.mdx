@@ -55,7 +55,7 @@ Pass your tabs as a `tabs` array to `TabList`. Selection state, keyboard navigat
 - Use `onTabChange` to receive the selected tab's id and toggle panel visibility.
 - For `TabPanel`, assign a unique `id` following the `panel-{id}` convention and set `aria-labelledby` to `tab-{id}`.
 
-<Story of={Stories.WithTabPanel} />
+<Story of={Stories.WithTabsProp} />
 
 #### Flexible with `Tab` children
 
@@ -112,7 +112,7 @@ The components would render styled to look like tabs but without any tab ARIA ro
 
 Alternatively, use the `tabs` prop and include an `href` on each item for a simpler setup:
 
-<Story of={TabListStories.Navigation} />
+<Story of={TabListStories.NavigationWithTabsProp} />
 
 ### With links
 

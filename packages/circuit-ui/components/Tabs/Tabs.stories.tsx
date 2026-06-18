@@ -122,7 +122,7 @@ Stretched.args = {
   stretched: true,
 };
 
-export const WithTabPanel = () => {
+export const WithTabsProp = () => {
   const items = tabs.slice(0, 3);
   const [selectedId, setSelectedId] = useState(items[0].id);
 
@@ -146,7 +146,7 @@ export const WithTabPanel = () => {
   );
 };
 
-WithTabPanel.parameters = {
+WithTabsProp.parameters = {
   controls: { hideNoControlsWarning: true },
 };
 
