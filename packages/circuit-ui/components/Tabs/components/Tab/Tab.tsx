@@ -46,7 +46,7 @@ export type TabProps = LinkElProps &
 const tabIndex = (selected: boolean) => (selected ? undefined : -1);
 
 /**
- * Tab component that represents a single tab inside a Tabs wrapper
+ * Tab component that represents a single tab inside a Tabs wrapper.
  */
 export const Tab = forwardRef<HTMLButtonElement, TabProps>(
   ({ selected = false, as = 'tab', className, ...props }, ref) => {

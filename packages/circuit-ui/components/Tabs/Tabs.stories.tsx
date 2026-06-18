@@ -24,15 +24,17 @@ import { modes } from '../../../../.storybook/modes.js';
 
 import type { TabsProps } from './Tabs.js';
 import { Tabs } from './Tabs.js';
+import { Tab } from './components/Tab/Tab.js';
 import { TabList } from './components/TabList/TabList.js';
 import { TabPanel } from './components/TabPanel/TabPanel.js';
+import { useTabState } from './helper.js';
 import { action } from 'storybook/actions';
 
 export default {
   title: 'Navigation/Tabs',
   component: Tabs,
-  subcomponents: { TabList, TabPanel },
-  tags: ['status:under-review'],
+  subcomponents: { TabList, TabPanel, Tab },
+  tags: ['status:stable'],
   parameters: {
     layout: 'fullscreen',
     chromatic: {
@@ -146,5 +148,58 @@ export const WithTabPanel = () => {
 };
 
 WithTabPanel.parameters = {
+  controls: { hideNoControlsWarning: true },
+};
+
+export const Links = () => (
+  <TabList>
+    <Tab selected>Home</Tab>
+    <Tab href="#posts" target="">
+      Posts
+    </Tab>
+    <Tab href="#reviews">Reviews</Tab>
+  </TabList>
+);
+
+Links.parameters = {
+  controls: { hideNoControlsWarning: true },
+};
+
+const tabIds = ['tab-1', 'tab-2', 'tab-3'];
+
+export const ControlledState = () => {
+  const { selectedId, onTabKeyDown, onTabClick } = useTabState(tabIds);
+  const items = tabs.slice(0, 3);
+
+  return (
+    <div>
+      <TabList onKeyDown={onTabKeyDown}>
+        {items.map(({ id, tab }, index) => (
+          <Tab
+            key={id}
+            id={`tab-${index + 1}`}
+            aria-controls={`panel-${index + 1}`}
+            selected={selectedId === tabIds[index]}
+            onClick={() => onTabClick(tabIds[index])}
+          >
+            {tab}
+          </Tab>
+        ))}
+      </TabList>
+      {items.map(({ id, panel }, index) => (
+        <TabPanel
+          key={id}
+          id={`panel-${index + 1}`}
+          aria-labelledby={`tab-${index + 1}`}
+          hidden={selectedId !== tabIds[index]}
+        >
+          {panel}
+        </TabPanel>
+      ))}
+    </div>
+  );
+};
+
+ControlledState.parameters = {
   controls: { hideNoControlsWarning: true },
 };

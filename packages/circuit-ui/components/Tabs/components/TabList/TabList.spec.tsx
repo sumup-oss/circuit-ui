@@ -17,7 +17,9 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
 import { axe, render, screen, userEvent } from '../../../../util/test-utils.js';
+import { useTabState } from '../../helper.js';
 
+import { Tab } from '../Tab/Tab.js';
 import { TabList } from './TabList.js';
 
 const tabs = [
@@ -122,6 +124,60 @@ describe('TabList', () => {
     const navigation = screen.getByRole('navigation');
     expect(ref.current).toBe(navigation);
     expect(screen.getByRole('list')).toBeVisible();
+  });
+
+  describe('Tab children (flexible pattern)', () => {
+    const TabChildrenFixture = ({
+      initialIndex = 0,
+      onTabChange,
+    }: {
+      initialIndex?: number;
+      onTabChange?: (id: string) => void;
+    }) => {
+      const ids = ['a', 'b', 'c'];
+      const { selectedId, onTabKeyDown, onTabClick } = useTabState(
+        ids,
+        initialIndex,
+        onTabChange,
+      );
+      return (
+        <TabList onKeyDown={onTabKeyDown}>
+          {tabs.map(({ id, tab }) => (
+            <Tab
+              key={id}
+              id={`tab-${id}`}
+              aria-controls={`panel-${id}`}
+              selected={selectedId === id}
+              onClick={() => onTabClick(id)}
+            >
+              {tab}
+            </Tab>
+          ))}
+        </TabList>
+      );
+    };
+
+    it('should render Tab children', () => {
+      render(<TabChildrenFixture />);
+      expect(screen.getAllByRole('tab')).toHaveLength(3);
+    });
+
+    it('should mark the first tab selected by default', () => {
+      render(<TabChildrenFixture />);
+      const [first, second, third] = screen.getAllByRole('tab');
+      expect(first).toHaveAttribute('aria-selected', 'true');
+      expect(second).toHaveAttribute('aria-selected', 'false');
+      expect(third).toHaveAttribute('aria-selected', 'false');
+    });
+
+    it('should switch the selected tab on click', async () => {
+      render(<TabChildrenFixture />);
+      await userEvent.click(screen.getByRole('tab', { name: 'Tab B' }));
+      expect(screen.getByRole('tab', { name: 'Tab B' })).toHaveAttribute(
+        'aria-selected',
+        'true',
+      );
+    });
   });
 
   describe('Accessibility', () => {

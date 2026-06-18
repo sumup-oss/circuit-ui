@@ -1,5 +1,5 @@
 ---
-"@sumup-oss/circuit-ui": major
+"@sumup-oss/circuit-ui": minor
 ---
 
-Removed the Tab component from public exports and refactored TabList to accept a `tabs` prop and manage selection state, keyboard navigation, and accessibility attributes internally. The Tab component is now an internal implementation detail of TabList.
+Added a `tabs` prop to `TabList` that manages selection state, keyboard navigation, and ARIA attributes internally. Exported the `TabItem` type. The existing `Tab` children pattern continues to work unchanged for consumers who need finer control.
