@@ -13,29 +13,109 @@
  * limitations under the License.
  */
 
-import { describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { render, screen } from '../../../../util/test-utils.js';
+import { axe, render, screen, userEvent } from '../../../../util/test-utils.js';
 
 import { TabList } from './TabList.js';
-import { axe } from 'jest-axe';
-import { Tab } from '../Tab/Tab.js';
+
+const tabs = [
+  { id: 'a', tab: 'Tab A' },
+  { id: 'b', tab: 'Tab B' },
+  { id: 'c', tab: 'Tab C' },
+];
 
 describe('TabList', () => {
+  beforeAll(() => {
+    HTMLElement.prototype.scrollIntoView = vi.fn();
+  });
+
+  it('should render tabs from the tabs prop', () => {
+    render(<TabList tabs={tabs} />);
+    expect(screen.getAllByRole('tab')).toHaveLength(3);
+    expect(screen.getByRole('tab', { name: 'Tab A' })).toBeInTheDocument();
+  });
+
+  it('should select the first tab by default', () => {
+    render(<TabList tabs={tabs} />);
+    const [first, second, third] = screen.getAllByRole('tab');
+    expect(first).toHaveAttribute('aria-selected', 'true');
+    expect(second).toHaveAttribute('aria-selected', 'false');
+    expect(third).toHaveAttribute('aria-selected', 'false');
+  });
+
+  it('should respect initialSelectedIndex', () => {
+    render(<TabList tabs={tabs} initialSelectedIndex={1} />);
+    const [first, second] = screen.getAllByRole('tab');
+    expect(first).toHaveAttribute('aria-selected', 'false');
+    expect(second).toHaveAttribute('aria-selected', 'true');
+  });
+
+  it('should switch the selected tab on click', async () => {
+    render(<TabList tabs={tabs} />);
+    await userEvent.click(screen.getByRole('tab', { name: 'Tab B' }));
+    expect(screen.getByRole('tab', { name: 'Tab A' })).toHaveAttribute(
+      'aria-selected',
+      'false',
+    );
+    expect(screen.getByRole('tab', { name: 'Tab B' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+  });
+
+  it('should call onTabChange with the tab id on click', async () => {
+    const onTabChange = vi.fn();
+    render(<TabList tabs={tabs} onTabChange={onTabChange} />);
+    await userEvent.click(screen.getByRole('tab', { name: 'Tab B' }));
+    expect(onTabChange).toHaveBeenCalledExactlyOnceWith('b');
+  });
+
+  it('should navigate to the next tab on right arrow press', async () => {
+    const onTabChange = vi.fn();
+    render(<TabList tabs={tabs} onTabChange={onTabChange} />);
+    screen.getByRole('tab', { name: 'Tab A' }).focus();
+    await userEvent.keyboard('{ArrowRight}');
+    expect(screen.getByRole('tab', { name: 'Tab B' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+    expect(onTabChange).toHaveBeenCalledWith('b');
+  });
+
+  it('should navigate to the previous tab on left arrow press', async () => {
+    const onTabChange = vi.fn();
+    render(
+      <TabList
+        tabs={tabs}
+        initialSelectedIndex={1}
+        onTabChange={onTabChange}
+      />,
+    );
+    screen.getByRole('tab', { name: 'Tab B' }).focus();
+    await userEvent.keyboard('{ArrowLeft}');
+    expect(screen.getByRole('tab', { name: 'Tab A' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+    expect(onTabChange).toHaveBeenCalledWith('a');
+  });
+
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
-    render(<TabList className={className} />);
+    render(<TabList tabs={tabs} className={className} />);
     const element = screen.getByRole('tablist').parentElement as HTMLDivElement;
     expect(element.className).toContain(className);
   });
 
   it('should forward a ref', () => {
     const ref = createRef<HTMLDivElement>();
-    render(<TabList ref={ref} />);
+    render(<TabList tabs={tabs} ref={ref} />);
     const tabList = screen.getByRole('tablist').parentElement as HTMLDivElement;
     expect(ref.current).toBe(tabList);
   });
+
   it('should render with navigation semantics', () => {
     const ref = createRef<HTMLDivElement>();
     render(<TabList as="navigation" ref={ref} />);
@@ -43,22 +123,30 @@ describe('TabList', () => {
     expect(ref.current).toBe(navigation);
     expect(screen.getByRole('list')).toBeVisible();
   });
+
   describe('Accessibility', () => {
-    it('should have no violations as tab', async () => {
+    it('should have no violations as tablist', async () => {
+      // aria-controls must reference existing elements, so panels are rendered alongside
       const { container } = render(
-        <TabList>
-          <Tab>Tab title</Tab>
-        </TabList>,
+        <div>
+          <TabList tabs={tabs} />
+          {tabs.map(({ id }) => (
+            <div
+              key={id}
+              id={`panel-${id}`}
+              role="tabpanel"
+              tabIndex={-1}
+              aria-labelledby={`tab-${id}`}
+            />
+          ))}
+        </div>,
       );
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });
+
     it('should have no violations as navigation', async () => {
-      const { container } = render(
-        <TabList as="navigation">
-          <Tab as="listitem">Tab title </Tab>
-        </TabList>,
-      );
+      const { container } = render(<TabList as="navigation" />);
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });

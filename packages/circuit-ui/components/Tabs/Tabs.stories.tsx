@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import { useState, Fragment } from 'react';
 import { ArrowLeft, ExternalLink } from '@sumup-oss/icons';
 
 import { Body } from '../Body/index.js';
@@ -31,7 +30,7 @@ import { action } from 'storybook/actions';
 export default {
   title: 'Navigation/Tabs',
   component: Tabs,
-  subcomponents: { TabList, TabPanel, Tab },
+  subcomponents: { TabList, TabPanel },
   tags: ['status:under-review'],
   parameters: {
     layout: 'fullscreen',
@@ -135,27 +134,13 @@ Links.parameters = {
   controls: { hideNoControlsWarning: true },
 };
 
-export const ControlledState = () => {
-  const [selected, setSelected] = useState(0);
+export const WithTabChangeCallback = () => (
+  <Tabs
+    items={tabs.slice(0, 3)}
+    onTabChange={action('Changed to tab with id:')}
+  />
+);
 
-  return (
-    <Fragment>
-      <TabList>
-        {tabs.map(({ tab }, index) => (
-          <Tab
-            key={tab}
-            selected={index === selected}
-            onClick={() => setSelected(index)}
-          >
-            {tab}
-          </Tab>
-        ))}
-      </TabList>
-      <TabPanel>{tabs[selected].panel}</TabPanel>
-    </Fragment>
-  );
-};
-
-ControlledState.parameters = {
+WithTabChangeCallback.parameters = {
   controls: { hideNoControlsWarning: true },
 };
