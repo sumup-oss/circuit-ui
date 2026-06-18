@@ -15,7 +15,7 @@
 
 'use client';
 
-import { Fragment, useState, type ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 
 import {
   TabList,
@@ -46,7 +46,7 @@ export function Tabs({
   };
 
   return (
-    <Fragment>
+    <>
       <TabList
         as="tablist"
         tabs={items.map(({ id, tab }) => ({ id, tab }))}
@@ -65,6 +65,6 @@ export function Tabs({
           {panel}
         </TabPanel>
       ))}
-    </Fragment>
+    </>
   );
 }

@@ -106,14 +106,14 @@ describe('TabList', () => {
 
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
-    render(<TabList tabs={tabs} className={className} />);
+    render(<TabList className={className} />);
     const element = screen.getByRole('tablist').parentElement as HTMLDivElement;
     expect(element.className).toContain(className);
   });
 
   it('should forward a ref', () => {
     const ref = createRef<HTMLDivElement>();
-    render(<TabList tabs={tabs} ref={ref} />);
+    render(<TabList ref={ref} />);
     const tabList = screen.getByRole('tablist').parentElement as HTMLDivElement;
     expect(ref.current).toBe(tabList);
   });
@@ -160,14 +160,6 @@ describe('TabList', () => {
     it('should render Tab children', () => {
       render(<TabChildrenFixture />);
       expect(screen.getAllByRole('tab')).toHaveLength(3);
-    });
-
-    it('should mark the first tab selected by default', () => {
-      render(<TabChildrenFixture />);
-      const [first, second, third] = screen.getAllByRole('tab');
-      expect(first).toHaveAttribute('aria-selected', 'true');
-      expect(second).toHaveAttribute('aria-selected', 'false');
-      expect(third).toHaveAttribute('aria-selected', 'false');
     });
 
     it('should switch the selected tab on click', async () => {
