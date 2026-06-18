@@ -1,8 +1,21 @@
 // We disable the rule in this file because we explicitly test invalid cases
 
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 import { RuleTester } from '@typescript-eslint/rule-tester';
 
 import { noDeprecatedIcons } from './index.js';
+
+const testDir = path.dirname(fileURLToPath(import.meta.url));
+const circuitUiFilename = path.join(
+  testDir,
+  '../../circuit-ui/src/example.tsx',
+);
+const stylelintPluginFilename = path.join(
+  testDir,
+  '../../stylelint-plugin-circuit-ui/src/example.tsx',
+);
 
 const ruleTester = new RuleTester({
   languageOptions: {
@@ -18,20 +31,30 @@ ruleTester.run('no-deprecated-icons', noDeprecatedIcons, {
   valid: [
     {
       name: 'Non deprecated icon from Circuit UI',
+      filename: circuitUiFilename,
       code: `
         import { Add } from '@sumup-oss/icons';
       `,
     },
     {
       name: 'matched icon name from different package',
+      filename: circuitUiFilename,
       code: `
         import { Copy } from 'material-ui';
+      `,
+    },
+    {
+      name: 'skips when icons is not a declared dependency',
+      filename: stylelintPluginFilename,
+      code: `
+        import { Copy } from '@sumup-oss/icons';
       `,
     },
   ],
   invalid: [
     {
       name: 'matched multiple deprecated icons from Circuit UI',
+      filename: circuitUiFilename,
       code: `
         import { Copy, EmailChat, Home } from '@sumup-oss/icons';
         function Component() {
@@ -59,6 +82,7 @@ ruleTester.run('no-deprecated-icons', noDeprecatedIcons, {
     },
     {
       name: 'matched multiple deprecated icons from Circuit UI in different import statements',
+      filename: circuitUiFilename,
       code: `
         import { Copy, Home } from '@sumup-oss/icons';
         import { EmailChat } from '@sumup-oss/icons';
@@ -88,6 +112,7 @@ ruleTester.run('no-deprecated-icons', noDeprecatedIcons, {
     },
     {
       name: 'matched country flag icon from Circuit UI',
+      filename: circuitUiFilename,
       code: `
         import { FlagFr } from '@sumup-oss/icons';
         function Component() {
@@ -104,6 +129,7 @@ ruleTester.run('no-deprecated-icons', noDeprecatedIcons, {
     },
     {
       name: 'matched locally renamed icon from Circuit UI',
+      filename: circuitUiFilename,
       code: `
          import { FlagFr as FrenchFlag } from '@sumup-oss/icons';
          function Component() {
@@ -120,6 +146,7 @@ ruleTester.run('no-deprecated-icons', noDeprecatedIcons, {
     },
     {
       name: 'matched deprecated icon in object expression',
+      filename: circuitUiFilename,
       code: `
         import { Copy } from '@sumup-oss/icons';
         const myObject = {
@@ -138,6 +165,7 @@ ruleTester.run('no-deprecated-icons', noDeprecatedIcons, {
     },
     {
       name: 'matched renamed deprecated icon in object expression',
+      filename: circuitUiFilename,
       code: `
         import { Copy as CopyIcon } from '@sumup-oss/icons';
         const myObject = {

@@ -1,8 +1,91 @@
 import { ESLintUtils, type TSESLint, TSESTree } from '@typescript-eslint/utils';
 import type { RuleDocs } from '../utils/meta.js';
-import iconsManifest from '@sumup-oss/icons/manifest.json' with {
-  type: 'json',
-};
+
+import { existsSync, readFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
+import path from 'node:path';
+
+type DeprecatedIcon = {
+  name: string;
+  deprecation: string;
+  alternative: string;
+  alternativeProps?: Record<string, string>;
+}
+
+const ICONS_PACKAGE = '@sumup-oss/icons';
+
+const iconsCache = new Map<string, DeprecatedIcon[]>();
+
+function findPackageRoot(startDir: string): string {
+  let dir = startDir;
+
+  while (dir !== path.dirname(dir)) {
+    if (existsSync(path.join(dir, 'package.json'))) {
+      return dir;
+    }
+    dir = path.dirname(dir);
+  }
+
+  return startDir;
+}
+
+function getProjectRoot(cwd: string, filename?: string): string {
+  return findPackageRoot(filename ? path.dirname(filename) : cwd);
+}
+
+function hasDeclaredDependency(
+  projectRoot: string,
+): boolean {
+  try {
+    const pkg = JSON.parse(
+      readFileSync(path.join(projectRoot, 'package.json'), 'utf8'),
+    ) as {
+      dependencies?: Record<string, string>;
+      devDependencies?: Record<string, string>;
+      peerDependencies?: Record<string, string>;
+      optionalDependencies?: Record<string, string>;
+    };
+
+    return [
+      pkg.dependencies,
+      pkg.devDependencies,
+      pkg.peerDependencies,
+      pkg.optionalDependencies,
+    ].some((deps) => deps && ICONS_PACKAGE in deps);
+  } catch {
+    return false;
+  }
+}
+
+function getDeprecatedIcons(projectRoot: string): DeprecatedIcon[] {
+  if (iconsCache.has(projectRoot)) {
+    return iconsCache.get(projectRoot)!;
+  }
+
+  if (!hasDeclaredDependency(projectRoot)) {
+    iconsCache.set(projectRoot, []);
+    return [];
+  }
+
+  try {
+    const require = createRequire(path.join(projectRoot, 'package.json'));
+    // eslint-disable-next-line import-x/no-dynamic-require
+    const manifest = require(`${ICONS_PACKAGE}/manifest.json`) as {
+      icons: DeprecatedIcon[];
+    };
+    const icons = manifest.icons
+      .filter(({ deprecation, alternative }) => Boolean(deprecation) && Boolean(alternative))
+      .map(({ name, ...rest }) => ({
+        name: getIconReactName(name),
+        ...rest,
+      }));
+    iconsCache.set(projectRoot, icons);
+    return icons;
+  } catch {
+    iconsCache.set(projectRoot, []);
+    return [];
+  }
+}
 
 function getIconReactName(name: string): string {
   // Split on non-word characters
@@ -56,20 +139,6 @@ function referencesImportBinding(
   );
 }
 
-const icons = iconsManifest.icons
-  .filter(
-    ({ deprecation, alternative }) =>
-      Boolean(deprecation) && Boolean(alternative),
-  )
-  .map(({ name, ...rest }) => ({
-    name: getIconReactName(name),
-    ...rest,
-  })) as {
-  name: string;
-  alternative: string;
-  alternativeProps?: Record<string, string>;
-}[];
-
 export const noDeprecatedIcons = createRule({
   name: 'no-deprecated-icons',
   meta: {
@@ -86,6 +155,14 @@ export const noDeprecatedIcons = createRule({
     },
   },
   create(context) {
+    const projectRoot = getProjectRoot(context.cwd, context.filename);
+    const icons = getDeprecatedIcons(projectRoot);
+
+    // skip if the current project does not depend on the icons package
+    if (icons.length === 0) {
+      return {};
+    }
+
     const trackedImports = new Map<TSESTree.Node, TrackedImport[]>(); // Track imported icons and their sources.
     const trackedUsages: TrackedUsage[] = [];
     const { sourceCode } = context;
