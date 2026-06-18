@@ -290,7 +290,7 @@ export const noDeprecatedIcons = createRule({
                     : [];
 
                 // insert alternative props for JSX usages only
-                if (kind === 'jsx' && alternativeProps) {
+                if (kind === 'jsx' && alternativeProps && node.parent?.type === TSESTree.AST_NODE_TYPES.JSXOpeningElement) {
                   fixes.push(
                     fixer.insertTextAfter(
                       node,

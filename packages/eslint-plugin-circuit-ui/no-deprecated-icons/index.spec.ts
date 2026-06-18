@@ -116,16 +116,16 @@ ruleTester.run('no-deprecated-icons', noDeprecatedIcons, {
       code: `
         import { FlagFr } from '@sumup-oss/icons';
         function Component() {
-          return <FlagFr />
+          return <FlagFr>France</FlagFr>
         }
       `,
       output: `
         import { Flag } from '@sumup-oss/icons';
         function Component() {
-          return <Flag countryCode="FR" width="16" />
+          return <Flag countryCode="FR" width="16">France</Flag>
         }
       `,
-      errors: [{ messageId: 'deprecated' }, { messageId: 'deprecated' }],
+      errors: [{ messageId: 'deprecated' }, { messageId: 'deprecated' }, { messageId: 'deprecated' }],
     },
     {
       name: 'matched locally renamed icon from Circuit UI',
