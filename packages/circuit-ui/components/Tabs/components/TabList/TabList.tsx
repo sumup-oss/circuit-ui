@@ -16,6 +16,7 @@
  */
 
 import {
+  Children,
   forwardRef,
   type HTMLAttributes,
   type KeyboardEventHandler,
@@ -70,6 +71,11 @@ export interface TabListProps extends HTMLAttributes<HTMLDivElement> {
 
 const MOBILE_AUTOSTRETCH_ITEMS_MAX = 3;
 
+const getCurrentTab = (node?: HTMLElement | null) =>
+  node
+    ? node.querySelector<HTMLElement>('[role="tab"][aria-selected="true"]')
+    : undefined;
+
 /**
  * TabList component that wraps the Tab components
  */
@@ -91,8 +97,6 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
     const gliderRef = useRef<HTMLSpanElement>(null);
     const tabListRef = useRef<HTMLDivElement>(null);
     const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
-    const initialScrollIndexRef = useRef(initialSelectedIndex ?? 0);
-
     const ids = tabs?.map(({ id }) => id) ?? [];
     const { selectedId, onTabKeyDown, onTabClick } = useTabState(
       ids,
@@ -101,7 +105,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
     );
 
     const selectedIndex = ids.indexOf(selectedId);
-    const numberOfTabs = tabs?.length ?? 0;
+    const numberOfTabs = tabs?.length ?? Children.toArray(children).length;
     const stretchOnMobile = numberOfTabs <= MOBILE_AUTOSTRETCH_ITEMS_MAX;
 
     const updateGliderStyles = useCallback((tab: HTMLElement) => {
@@ -120,7 +124,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
 
     useEffect(() => {
       // scrolls the active tab into view on initial render
-      const activeTab = tabRefs.current[initialScrollIndexRef.current];
+      const activeTab = getCurrentTab(tabListRef.current);
       if (tabListRef.current && activeTab) {
         tabListRef.current.scrollLeft += activeTab.offsetLeft;
       }
