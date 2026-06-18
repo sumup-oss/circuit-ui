@@ -41,8 +41,7 @@ export interface TabItem {
   href?: string;
 }
 
-export interface TabListProps
-  extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
+export interface TabListProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Determines whether the component renders with full tab semantics or as a navigation list inside a <nav> using tab-like visuals.
    *
@@ -78,6 +77,7 @@ export function TabList({
   className,
   stretched,
   tabs,
+  children,
   initialSelectedIndex,
   onTabChange: onTabChangeProp,
   onKeyDown,
@@ -142,6 +142,20 @@ export function TabList({
     return () => window.removeEventListener('resize', gliderCallback);
   }, [selectedIndex, updateGliderStyles, numberOfTabs]);
 
+  // Fallback glider update for the children path.
+  // Runs after every render since selection is controlled externally.
+  useEffect(() => {
+    if (tabs) {
+      return;
+    }
+    const activeTab = tabListRef.current?.querySelector<HTMLElement>(
+      '[aria-selected="true"]',
+    );
+    if (activeTab) {
+      updateGliderStyles(activeTab);
+    }
+  });
+
   useEffect(() => {
     // shows / hides scroll indicators
     const scrollListener = () => {
@@ -195,34 +209,36 @@ export function TabList({
           onKeyDown: onTabListKeydown,
         })}
       >
-        {tabs?.map((item, index) =>
-          as === 'navigation' ? (
-            <Tab
-              key={item.id}
-              ref={(el) => {
-                tabRefs.current[index] = el;
-              }}
-              as="listitem"
-              href={item.href}
-              selected={selectedId === item.id}
-            >
-              {item.tab}
-            </Tab>
-          ) : (
-            <Tab
-              key={item.id}
-              ref={(el) => {
-                tabRefs.current[index] = el;
-              }}
-              id={`tab-${item.id}`}
-              aria-controls={`panel-${item.id}`}
-              selected={selectedId === item.id}
-              onClick={() => onTabClick(item.id)}
-            >
-              {item.tab}
-            </Tab>
-          ),
-        )}
+        {tabs
+          ? tabs.map((item, index) =>
+              as === 'navigation' ? (
+                <Tab
+                  key={item.id}
+                  ref={(el) => {
+                    tabRefs.current[index] = el;
+                  }}
+                  as="listitem"
+                  href={item.href}
+                  selected={selectedId === item.id}
+                >
+                  {item.tab}
+                </Tab>
+              ) : (
+                <Tab
+                  key={item.id}
+                  ref={(el) => {
+                    tabRefs.current[index] = el;
+                  }}
+                  id={`tab-${item.id}`}
+                  aria-controls={`panel-${item.id}`}
+                  selected={selectedId === item.id}
+                  onClick={() => onTabClick(item.id)}
+                >
+                  {item.tab}
+                </Tab>
+              ),
+            )
+          : children}
         <span className={classes.glider} ref={gliderRef} />
       </div>
       <span className={classes['left-scroll-indicator']} />

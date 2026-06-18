@@ -126,8 +126,13 @@ export { Tabs } from './components/Tabs/Tabs.js';
 export type { TabsProps } from './components/Tabs/Tabs.js';
 export { TabPanel } from './components/Tabs/components/TabPanel/TabPanel.js';
 export type { TabPanelProps } from './components/Tabs/components/TabPanel/TabPanel.js';
+export { Tab } from './components/Tabs/components/Tab/Tab.js';
+export type { TabProps } from './components/Tabs/components/Tab/Tab.js';
 export { TabList } from './components/Tabs/components/TabList/TabList.js';
-export type { TabListProps } from './components/Tabs/components/TabList/TabList.js';
+export type {
+  TabListProps,
+  TabItem,
+} from './components/Tabs/components/TabList/TabList.js';
 export { useTabState } from './components/Tabs/helper.js';
 export { SkipLink } from './components/SkipLink/index.js';
 export type { SkipLinkProps } from './components/SkipLink/index.js';
