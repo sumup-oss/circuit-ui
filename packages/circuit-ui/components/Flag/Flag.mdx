@@ -17,7 +17,8 @@ The Flag component is used to display a country flag given its ISO 3166-1 alpha-
 ## How to use
 
 - The Flag component accepts a `countryCode` prop, which should be a valid ISO 3166-1 alpha-2 code (e.g. `US`, `FR`, `DE`). The component will render the corresponding flag.
-- The size of the flag can be controlled using either the `height` or `width` prop. By providing one of these props, the other will be automatically calculated to maintain the 4:3 aspect ratio of the flag.
+- The size of the flag is controlled with the `size` prop. The three available sizes `'s'` (16px), `'m'` (24px, default), and `'l'` (32px) match the standard icon sizes. The flag's width is automatically derived from the height to maintain the 4:3 aspect ratio.
+- The `width` and `height` props are deprecated. Use the `size` prop instead.
 
 ## Accessibility
 

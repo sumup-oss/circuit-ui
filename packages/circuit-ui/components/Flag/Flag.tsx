@@ -17,32 +17,41 @@ import { forwardRef, type HTMLAttributes } from 'react';
 import { getIconURL, type IconName } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
+import { deprecate } from '../../util/logger.js';
 
 import classes from './Flag.module.css';
 import type { FLAGS } from './constants.js';
 
 type CountryCode = (typeof FLAGS)[number];
 
-type Dimensions =
+type WithSize = {
+  /**
+   * The size of the flag. Matches the standard icon sizes.
+   * @default 'm'
+   */
+  size?: 's' | 'm' | 'l';
+  width?: never;
+  height?: never;
+};
+
+type WithHeightWidth =
   | {
       /**
-       * The width of the flag image. To size the flag correctly, either width or height must be provided.
+       * The width of the flag image.
+       * @deprecated Use the `size` prop instead.
        */
-      width?: never;
-      /**
-       * The height of the flag image. To size the flag correctly, either width or height must be provided.
-       */
-      height?: number;
+      width?: number;
+      height?: never;
+      size?: never;
     }
   | {
       /**
-       * The width of the flag image. To size the flag correctly, either width or height must be provided.
+       * The height of the flag image.
+       * @deprecated Use the `size` prop instead.
        */
-      width?: number;
-      /**
-       * The height of the flag image. To size the flag correctly, either width or height must be provided.
-       */
-      height?: never;
+      height?: number;
+      width?: never;
+      size?: never;
     };
 
 export type FlagProps = HTMLAttributes<HTMLImageElement> & {
@@ -59,7 +68,7 @@ export type FlagProps = HTMLAttributes<HTMLImageElement> & {
    * Additional class name to apply to the flag's inner image.
    */
   imageClassName?: string;
-} & Dimensions;
+} & (WithSize | WithHeightWidth);
 
 const ASPECT_RATIO = 4 / 3;
 
@@ -68,37 +77,60 @@ const ASPECT_RATIO = 4 / 3;
  */
 export const Flag = forwardRef<HTMLImageElement, FlagProps>(
   (
-    { countryCode, alt, className, imageClassName, width, height, ...props },
+    {
+      countryCode,
+      alt,
+      className,
+      imageClassName,
+      size,
+      width,
+      height,
+      ...props
+    },
     ref,
   ) => {
     const flagName = `flag_${countryCode.toLowerCase()}` as IconName;
-    // default dimensions
-    const dimensions = {
-      width: 16,
-      height: 12,
-    };
-    // for a consistent aspect ratio
-    if (height) {
-      dimensions.height = height;
-      dimensions.width = height * ASPECT_RATIO;
+
+    if (process.env.NODE_ENV !== 'production' && (width || height)) {
+      deprecate(
+        'Flag',
+        'The `width` and `height` props are deprecated. Use the `size` prop instead.',
+      );
     }
-    if (width) {
-      dimensions.width = width;
-      dimensions.height = width / ASPECT_RATIO;
+
+    if (width || height) {
+      const dimensions = { width: 16, height: 12 };
+      if (height) {
+        dimensions.height = height;
+        dimensions.width = height * ASPECT_RATIO;
+      }
+      if (width) {
+        dimensions.width = width;
+        dimensions.height = width / ASPECT_RATIO;
+      }
+      return (
+        <div
+          className={clsx(classes.wrapper, className)}
+          style={{ '--flag-wrapper-height': `${dimensions.width}px` }}
+        >
+          <img
+            ref={ref}
+            className={clsx(classes.base, imageClassName)}
+            height={`${dimensions.height}px`}
+            width={`${dimensions.width}px`}
+            src={getIconURL(flagName)}
+            {...props}
+            alt={alt}
+          />
+        </div>
+      );
     }
 
     return (
-      <div
-        className={clsx(classes.wrapper, className)}
-        style={{
-          '--flag-wrapper-height': `${dimensions.width}px`,
-        }}
-      >
+      <div className={clsx(classes.wrapper, className)}>
         <img
           ref={ref}
-          className={clsx(classes.base, imageClassName)}
-          height={`${dimensions.height}px`}
-          width={`${dimensions.width}px`}
+          className={clsx(classes.base, classes[size ?? 'm'], imageClassName)}
           src={getIconURL(flagName)}
           {...props}
           alt={alt}
@@ -107,3 +139,5 @@ export const Flag = forwardRef<HTMLImageElement, FlagProps>(
     );
   },
 );
+
+Flag.displayName = 'Flag';
