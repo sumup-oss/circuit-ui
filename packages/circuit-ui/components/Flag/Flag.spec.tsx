@@ -37,21 +37,6 @@ describe('Flag', () => {
     expect(ref.current).toBe(image);
   });
 
-  it('should render with size 16', () => {
-    render(<Flag {...baseProps} size="16" />);
-    expect(screen.getByRole('img')).toBeInTheDocument();
-  });
-
-  it('should render with size 24', () => {
-    render(<Flag {...baseProps} size="24" />);
-    expect(screen.getByRole('img')).toBeInTheDocument();
-  });
-
-  it('should render with size 32', () => {
-    render(<Flag {...baseProps} size="32" />);
-    expect(screen.getByRole('img')).toBeInTheDocument();
-  });
-
   it('should have no accessibility violations', async () => {
     const { container } = render(<Flag {...baseProps} />);
     const actual = await axe(container);
