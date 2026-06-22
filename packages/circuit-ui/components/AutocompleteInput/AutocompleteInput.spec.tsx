@@ -293,28 +293,34 @@ describe('AutocompleteInput', () => {
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
     });
 
-    it('should close the list box when the escape key is pressed', async () => {
-      render(<AutocompleteInput {...props} />);
+    it('should close the list box and restore value when the escape key is pressed', async () => {
+      render(<AutocompleteInput {...props} value={options[0]} />);
       await userEvent.click(
         screen.getByRole('combobox', { name: props.label }),
       );
       expect(screen.getByRole('listbox')).toBeVisible();
       await userEvent.keyboard('{Escape}');
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+      expect(screen.getByRole('combobox', { name: props.label })).toHaveValue(
+        'Mochi',
+      );
     });
 
-    it('should close the list box on outside click', async () => {
-      render(<AutocompleteInput {...props} />);
+    it('should close the list box and restore value on outside click', async () => {
+      render(<AutocompleteInput {...props} value={options[0]} />);
       await userEvent.click(
         screen.getByRole('combobox', { name: props.label }),
       );
       expect(screen.getByRole('listbox')).toBeVisible();
       await userEvent.click(document.body);
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+      expect(screen.getByRole('combobox', { name: props.label })).toHaveValue(
+        'Mochi',
+      );
     });
 
-    it('should close the list box when Enter key is pressed', async () => {
-      render(<AutocompleteInput {...props} />);
+    it('should close the list box and restore value when Enter key is pressed', async () => {
+      render(<AutocompleteInput {...props} value={options[0]} />);
 
       await userEvent.click(screen.getByLabelText(props.label));
 
@@ -324,6 +330,15 @@ describe('AutocompleteInput', () => {
 
       await userEvent.keyboard('{Enter}');
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+
+      expect(screen.getByRole('combobox', { name: props.label })).toHaveValue(
+        'Mochi',
+      );
+      // reopen the list box
+      await userEvent.keyboard('{ArrowDown}');
+      expect(screen.getByRole('combobox', { name: props.label })).toHaveValue(
+        'Mochi',
+      );
     });
   });
 

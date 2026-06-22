@@ -238,8 +238,13 @@ export function AutocompleteInput({
 
   const closeResults = useCallback(() => {
     setIsOpen(false);
+    // when we close the listbox, set the search text to the value of the combobox,
+    // otherwise, reset it.
+    if (!Array.isArray(value)) {
+      changeInputValue(comboboxRef.current, value?.label ?? '');
+    }
     setActiveOption(undefined);
-  }, []);
+  }, [value]);
 
   const debouncedOnSearch = useMemo(
     () =>
@@ -294,13 +299,8 @@ export function AutocompleteInput({
     if (!isOpen) {
       comboboxRef?.current?.select();
       setIsOpen(true);
-      // when we close the listbox, set the search text to the value of the combobox,
-      // otherwise, reset it.
-      if (!Array.isArray(value)) {
-        setSearchText(value?.label ?? '');
-      }
     }
-  }, [isOpen, value]);
+  }, [isOpen]);
 
   const { floatingStyles, refs, update } = useFloating<HTMLElement>({
     open: isOpen,
@@ -394,7 +394,7 @@ export function AutocompleteInput({
             );
           }
           if (!activeOption || !searchText) {
-            setIsOpen(false);
+            closeResults();
           }
         }
         if (
@@ -422,6 +422,7 @@ export function AutocompleteInput({
       options,
       allowNewItems,
       value,
+      closeResults,
     ],
   );
 
