@@ -19,7 +19,7 @@
       "name": "add_items",
       "category": "Action",
       "size": "24",
-      "alternative": "Add",
+      "alternative": ["Add", "Items"],
       "deprecation": "Use the `Add` or `Items` icons instead."
     },
     {
@@ -81,7 +81,7 @@
       "name": "copy",
       "category": "Action",
       "size": "24",
-      "alternative": "CopyPaste",
+      "alternative": ["CopyPaste"],
       "deprecation": "Use the `CopyPaste` icon instead."
     },
     {
@@ -438,19 +438,19 @@
       "name": "sum_up_logo",
       "category": "Brand",
       "size": "24",
-      "deprecation": "Use the `SumUpLogo` component instead."
+      "deprecation": "Use the SumUpLogo component from '@sumup-oss/circuit-ui' instead."
     },
     {
       "name": "sum_up_logomark",
       "category": "Brand",
       "size": "24",
-      "deprecation": "Use the `SumUpLogo` component's 'short' variant instead."
+      "deprecation": "Use the SumUpLogo component from '@sumup-oss/circuit-ui' in its 'short' variant instead."
     },
     {
       "name": "sum_up_logomark",
       "category": "Brand",
       "size": "32",
-      "deprecation": "Use the `SumUpLogo` component's 'short' variant instead."
+      "deprecation": "Use the SumUpLogo component from '@sumup-oss/circuit-ui' in its 'short' variant instead."
     },
     {
       "name": "plus_tier",
@@ -486,7 +486,7 @@
       "name": "apm",
       "category": "Card scheme",
       "size": "32",
-      "alternative": "AlternativePaymentMethod",
+      "alternative": ["AlternativePaymentMethod"],
       "deprecation": "Use the `AlternativePaymentMethod` icon instead."
     },
     {
@@ -673,7 +673,7 @@
       "name": "email_chat",
       "category": "Communication",
       "size": "24",
-      "alternative": "Email",
+      "alternative": ["Email"],
       "deprecation": "Use the `Email` icon instead."
     },
     {
@@ -690,7 +690,7 @@
       "name": "phone_chat",
       "category": "Communication",
       "size": "24",
-      "alternative": "Phone",
+      "alternative": ["Phone"],
       "deprecation": "Use the `Phone` icon instead."
     },
     {
@@ -698,7 +698,7 @@
       "category": "Country flag",
       "keywords": ["United Arab Emirates"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "AE",
         "width": "16"
@@ -710,7 +710,7 @@
       "category": "Country flag",
       "keywords": ["Argentina"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "AR",
         "width": "16"
@@ -722,7 +722,7 @@
       "category": "Country flag",
       "keywords": ["Austria"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "AT",
         "width": "16"
@@ -734,7 +734,7 @@
       "category": "Country flag",
       "keywords": ["Australia"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "AU",
         "width": "16"
@@ -746,7 +746,7 @@
       "category": "Country flag",
       "keywords": ["Belgium"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "BE",
         "width": "16"
@@ -758,7 +758,7 @@
       "category": "Country flag",
       "keywords": ["Bulgaria"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "BG",
         "width": "16"
@@ -770,7 +770,7 @@
       "category": "Country flag",
       "keywords": ["Brazil"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "BR",
         "width": "16"
@@ -782,7 +782,7 @@
       "category": "Country flag",
       "keywords": ["Canada"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "CA",
         "width": "16"
@@ -794,7 +794,7 @@
       "category": "Country flag",
       "keywords": ["Switzerland"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "CH",
         "width": "16"
@@ -806,7 +806,7 @@
       "category": "Country flag",
       "keywords": ["Chile"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "CL",
         "width": "16"
@@ -818,7 +818,7 @@
       "category": "Country flag",
       "keywords": ["Colombia"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "CO",
         "width": "16"
@@ -830,7 +830,7 @@
       "category": "Country flag",
       "keywords": ["Cypress"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "CY",
         "width": "16"
@@ -842,7 +842,7 @@
       "category": "Country flag",
       "keywords": ["Czech Republic"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "CZ",
         "width": "16"
@@ -854,7 +854,7 @@
       "category": "Country flag",
       "keywords": ["Germany"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "DE",
         "width": "16"
@@ -866,7 +866,7 @@
       "category": "Country flag",
       "keywords": ["Denmark"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "DK",
         "width": "16"
@@ -878,7 +878,7 @@
       "category": "Country flag",
       "keywords": ["Estonia"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "EE",
         "width": "16"
@@ -890,7 +890,7 @@
       "category": "Country flag",
       "keywords": ["Spain"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "ES",
         "width": "16"
@@ -902,7 +902,7 @@
       "category": "Country flag",
       "keywords": ["Finland"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "FI",
         "width": "16"
@@ -914,7 +914,7 @@
       "category": "Country flag",
       "keywords": ["France"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "FR",
         "width": "16"
@@ -926,7 +926,7 @@
       "category": "Country flag",
       "keywords": ["Great Britain", "United Kingdom", "UK", "England"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "GB",
         "width": "16"
@@ -938,7 +938,7 @@
       "category": "Country flag",
       "keywords": ["Greece"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "GR",
         "width": "16"
@@ -950,7 +950,7 @@
       "category": "Country flag",
       "keywords": ["Hong Kong"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "HK",
         "width": "16"
@@ -962,7 +962,7 @@
       "category": "Country flag",
       "keywords": ["Croatia"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "HR",
         "width": "16"
@@ -974,7 +974,7 @@
       "category": "Country flag",
       "keywords": ["Hungary"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "HU",
         "width": "16"
@@ -986,7 +986,7 @@
       "category": "Country flag",
       "keywords": ["Ireland"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "IE",
         "width": "16"
@@ -998,7 +998,7 @@
       "category": "Country flag",
       "keywords": ["Italy"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "IT",
         "width": "16"
@@ -1010,7 +1010,7 @@
       "category": "Country flag",
       "keywords": ["Japan"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "JP",
         "width": "16"
@@ -1022,7 +1022,7 @@
       "category": "Country flag",
       "keywords": ["Japan"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "JP",
         "width": "16"
@@ -1034,7 +1034,7 @@
       "category": "Country flag",
       "keywords": ["Lithuania"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "LT",
         "width": "16"
@@ -1046,7 +1046,7 @@
       "category": "Country flag",
       "keywords": ["Luxembourg"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "LU",
         "width": "16"
@@ -1058,7 +1058,7 @@
       "category": "Country flag",
       "keywords": ["Latvia"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "LV",
         "width": "16"
@@ -1070,7 +1070,7 @@
       "category": "Country flag",
       "keywords": ["Montenegro"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "MT",
         "width": "16"
@@ -1082,7 +1082,7 @@
       "category": "Country flag",
       "keywords": ["Mexico"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "MX",
         "width": "16"
@@ -1094,7 +1094,7 @@
       "category": "Country flag",
       "keywords": ["Malaysia"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "MY",
         "width": "16"
@@ -1106,7 +1106,7 @@
       "category": "Country flag",
       "keywords": ["Netherlands"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "NL",
         "width": "16"
@@ -1118,7 +1118,7 @@
       "category": "Country flag",
       "keywords": ["Norway"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "NO",
         "width": "16"
@@ -1130,7 +1130,7 @@
       "category": "Country flag",
       "keywords": ["New Zeland"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "NZ",
         "width": "16"
@@ -1142,7 +1142,7 @@
       "category": "Country flag",
       "keywords": ["Peru"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "PE",
         "width": "16"
@@ -1154,7 +1154,7 @@
       "category": "Country flag",
       "keywords": ["Poland"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "PL",
         "width": "16"
@@ -1166,7 +1166,7 @@
       "category": "Country flag",
       "keywords": ["Portugal"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "PT",
         "width": "16"
@@ -1178,7 +1178,7 @@
       "category": "Country flag",
       "keywords": ["Romania"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "RO",
         "width": "16"
@@ -1190,7 +1190,7 @@
       "category": "Country flag",
       "keywords": ["Sweden"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "SE",
         "width": "16"
@@ -1202,7 +1202,7 @@
       "category": "Country flag",
       "keywords": ["Singapore"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "SG",
         "width": "16"
@@ -1214,7 +1214,7 @@
       "category": "Country flag",
       "keywords": ["Slovenia"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "SI",
         "width": "16"
@@ -1226,7 +1226,7 @@
       "category": "Country flag",
       "keywords": ["Slovakia"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "SK",
         "width": "16"
@@ -1238,7 +1238,7 @@
       "category": "Country flag",
       "keywords": ["United States of America", "USA"],
       "size": "16",
-      "alternative": "Flag",
+      "alternative": ["Flag"],
       "alternativeProps": {
         "countryCode": "US",
         "width": "16"
@@ -3091,7 +3091,7 @@
       "name": "mobile_phone",
       "category": "Device",
       "size": "24",
-      "alternative": "Mobile",
+      "alternative": ["Mobile"],
       "deprecation": "Use the 'Mobile' icon instead."
     },
     {
@@ -3400,7 +3400,7 @@
       "name": "color_correction",
       "category": "Miscellaneous",
       "size": "24",
-      "alternative": "ColorPicker",
+      "alternative": ["ColorPicker"],
       "deprecation": "Use the `ColorPicker` icon instead."
     },
     {
@@ -3428,7 +3428,7 @@
       "name": "cookie_preferences",
       "category": "Miscellaneous",
       "size": "24",
-      "alternative": "Cookie",
+      "alternative": ["Cookie"],
       "deprecation": "Use the `Cookie` icon instead."
     },
     {
@@ -3440,7 +3440,7 @@
       "name": "customize",
       "category": "Miscellaneous",
       "size": "24",
-      "alternative": "Customise",
+      "alternative": ["Customise"],
       "deprecation": "Use the `Customise` icon instead."
     },
     {
@@ -3452,7 +3452,7 @@
       "name": "favorite",
       "category": "Miscellaneous",
       "size": "24",
-      "alternative": "Favourite",
+      "alternative": ["Favourite"],
       "deprecation": "Use the `Favourite` icon instead."
     },
     {
@@ -3464,7 +3464,7 @@
       "name": "favorite",
       "category": "Miscellaneous",
       "size": "16",
-      "alternative": "Favourite",
+      "alternative": ["Favourite"],
       "deprecation": "Use the `Favourite` icon instead."
     },
     {
@@ -3561,7 +3561,7 @@
       "name": "no_sim",
       "category": "Miscellaneous",
       "size": "24",
-      "alternative": "NoSimcard",
+      "alternative": ["NoSimcard"],
       "deprecation": "Use the `NoSimcard` icon instead."
     },
     {
@@ -3608,7 +3608,7 @@
       "name": "print_failed",
       "category": "Miscellaneous",
       "size": "24",
-      "alternative": "PrinterFailed",
+      "alternative": ["PrinterFailed"],
       "deprecation": "Use the `PrinterFailed` icon instead."
     },
     {
@@ -3620,7 +3620,7 @@
       "name": "print_failed",
       "category": "Miscellaneous",
       "size": "16",
-      "alternative": "PrinterFailed",
+      "alternative": ["PrinterFailed"],
       "deprecation": "Use the `PrinterFailed` icon instead."
     },
     {
@@ -3729,7 +3729,7 @@
       "name": "unfavorite",
       "category": "Miscellaneous",
       "size": "24",
-      "alternative": "Unfavourite",
+      "alternative": ["Unfavourite"],
       "deprecation": "Use the `Unfavourite` icon instead."
     },
     {
@@ -3746,7 +3746,7 @@
       "name": "contractors",
       "category": "Miscellaneous",
       "size": "16",
-      "alternative": "Contractor",
+      "alternative": ["Contractor"],
       "deprecation": "Use the `Contractor` icon instead."
     },
     {
@@ -3758,7 +3758,7 @@
       "name": "contractors",
       "category": "Miscellaneous",
       "size": "24",
-      "alternative": "Contractor",
+      "alternative": ["Contractor"],
       "deprecation": "Use the `Contractor` icon instead."
     },
     {
@@ -3933,14 +3933,14 @@
       "name": "notify_circle",
       "category": "Notification",
       "size": "24",
-      "alternative": "Notify",
+      "alternative": ["Notify"],
       "deprecation": "Use the `Notify` icon instead."
     },
     {
       "name": "notify_circle",
       "category": "Notification",
       "size": "16",
-      "alternative": "Notify",
+      "alternative": ["Notify"],
       "deprecation": "Use the `Notify` icon instead."
     },
     {
@@ -4326,7 +4326,7 @@
     {
       "name": "general_settings",
       "category": "Product and feature",
-      "alternative": "Settings",
+      "alternative": ["Settings"],
       "deprecation": "Use the `Settings` icon instead.",
       "size": "24"
     },
@@ -4334,7 +4334,7 @@
       "name": "gift_card",
       "category": "Product and feature",
       "size": "24",
-      "alternative": "GiftCards",
+      "alternative": ["GiftCards"],
       "deprecation": "Use the `GiftCards` icon instead."
     },
     {
@@ -4484,7 +4484,7 @@
       "name": "payment_link",
       "category": "Product and feature",
       "size": "24",
-      "alternative": "PaymentLinks",
+      "alternative": ["PaymentLinks"],
       "deprecation": "Use the `PaymentLinks` icon instead."
     },
     {
@@ -4603,7 +4603,7 @@
       "name": "refer",
       "category": "Product and feature",
       "size": "24",
-      "alternative": "ReferAFriend",
+      "alternative": ["ReferAFriend", "Reward"],
       "deprecation": "Use the `ReferAFriend` or `Reward` icons instead."
     },
     {
@@ -4632,7 +4632,7 @@
       "name": "sales",
       "category": "Product and feature",
       "size": "24",
-      "alternative": "Receipt",
+      "alternative": ["Receipt"],
       "deprecation": "Use the `Receipt` icon instead."
     },
     {
@@ -4750,7 +4750,7 @@
       "name": "messenger",
       "category": "Social media",
       "size": "24",
-      "alternative": "FacebookMessenger",
+      "alternative": ["FacebookMessenger"],
       "deprecation": "Use the `FacebookMessenger` icon instead."
     },
     {

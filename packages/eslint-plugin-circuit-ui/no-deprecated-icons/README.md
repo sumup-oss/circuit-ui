@@ -7,6 +7,10 @@ Icons are marked as deprecated in minor releases to be later removed in major re
 Set this rule to warn (or 1) to get a warning when using deprecated icons with minor releases.
 When upgrading Circuit UI to the next major, set the rule's error level to error (or 2) to help migrate deprecated icons.
 
+- If the icon has no direct replacement, show the deprecation message as is, no fixes are applied.
+- If the icon has a direct replacement, the rule warns about/replaces the icon import and usages with the proposed alternative.
+- If the icon has multiple direct alternatives, propose suggestions for all of them; no fixes are applied.
+
 Examples of **incorrect** code for this rule:
 
 ```tsx

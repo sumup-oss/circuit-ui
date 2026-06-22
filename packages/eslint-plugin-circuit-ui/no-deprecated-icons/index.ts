@@ -8,9 +8,9 @@ import path from 'node:path';
 type DeprecatedIcon = {
   name: string;
   deprecation: string;
-  alternative: string;
+  alternative: string[];
   alternativeProps?: Record<string, string>;
-}
+};
 
 const ICONS_PACKAGE = '@sumup-oss/icons';
 
@@ -33,9 +33,7 @@ function getProjectRoot(cwd: string, filename?: string): string {
   return findPackageRoot(filename ? path.dirname(filename) : cwd);
 }
 
-function hasDeclaredDependency(
-  projectRoot: string,
-): boolean {
+function hasDeclaredDependency(projectRoot: string): boolean {
   try {
     const pkg = JSON.parse(
       readFileSync(path.join(projectRoot, 'package.json'), 'utf8'),
@@ -57,6 +55,17 @@ function hasDeclaredDependency(
   }
 }
 
+function formatAlternativeText(alternative: string[]): string {
+  if (alternative.length === 1) {
+    return alternative[0];
+  }
+  if (alternative.length === 2) {
+    return `${alternative[0]} or ${alternative[1]}`;
+  }
+  const commaSeparated = alternative.slice(0, -1).join(', ');
+  return `${commaSeparated} or ${alternative[alternative.length - 1]}`;
+}
+
 function getDeprecatedIcons(projectRoot: string): DeprecatedIcon[] {
   if (iconsCache.has(projectRoot)) {
     return iconsCache.get(projectRoot)!;
@@ -74,7 +83,7 @@ function getDeprecatedIcons(projectRoot: string): DeprecatedIcon[] {
       icons: DeprecatedIcon[];
     };
     const icons = manifest.icons
-      .filter(({ deprecation, alternative }) => Boolean(deprecation) && Boolean(alternative))
+      .filter(({ deprecation }) => Boolean(deprecation))
       .map(({ name, ...rest }) => ({
         name: getIconReactName(name),
         ...rest,
@@ -106,7 +115,8 @@ type TrackedImport = {
   key: string;
   node: TSESTree.Node;
   specifier: TSESTree.ImportSpecifier;
-  alternative: string;
+  alternative?: string[];
+  deprecation?: string;
   localName: string;
   alternativeProps?: Record<string, string>;
 };
@@ -114,14 +124,15 @@ type TrackedImport = {
 type TrackedUsage = {
   key: string;
   node: TSESTree.Node;
-  alternative: string;
+  alternative?: string[];
+  deprecation?: string;
   localName: string;
   alternativeProps?: Record<string, string>;
   kind: 'jsx' | 'expression';
 };
 
 function referencesImportBinding(
-  node: TSESTree.Identifier,
+  node: TSESTree.Identifier | TSESTree.JSXIdentifier,
   specifier: TSESTree.ImportSpecifier,
   localName: string,
   sourceCode: Readonly<TSESLint.SourceCode>,
@@ -145,13 +156,17 @@ export const noDeprecatedIcons = createRule({
     type: 'suggestion',
     fixable: 'code',
     schema: [],
+    hasSuggestions: true,
     docs: {
       description: 'Deprecated icons should be removed or replaced',
       recommended: 'warn',
     },
     messages: {
-      deprecated:
+      deprecated: 'The {{name}} icon has been deprecated. {{deprecation}}',
+      deprecatedWithAlternative:
         'The {{name}} icon has been deprecated. Use the {{alternative}} icon instead',
+      deprecatedWithSuggestion:
+        'Replace the deprecated {{name}} icon with the {{alternative}} icon',
     },
   },
   create(context) {
@@ -195,6 +210,7 @@ export const noDeprecatedIcons = createRule({
                 alternative: renamedIcon.alternative,
                 localName: specifier.local.name ?? importedName,
                 alternativeProps: renamedIcon.alternativeProps,
+                deprecation: renamedIcon.deprecation,
               });
             }
           });
@@ -203,8 +219,9 @@ export const noDeprecatedIcons = createRule({
       JSXIdentifier(node) {
         // Check if the JSX element matches the tracked icon
         for (const value of Array.from(trackedImports.values()).flat()) {
-          const { key, alternative, localName, alternativeProps } = value;
-          if (node.name === key || node.name === localName) {
+          const { key, alternative, localName, alternativeProps, specifier } =
+            value;
+          if (referencesImportBinding(node, specifier, localName, sourceCode)) {
             trackedUsages.push({
               key,
               node,
@@ -253,55 +270,139 @@ export const noDeprecatedIcons = createRule({
         }
         for (const [_, imports] of trackedImports) {
           // Report each tracked import
-          imports.forEach(({ key, node, alternative, specifier }) => {
-            context.report({
-              node,
-              data: {
-                name: key,
-                alternative,
-              },
-              messageId: 'deprecated',
-              fix(fixer) {
-                return fixer.replaceText(specifier?.imported, alternative);
-              },
-            });
-          });
+          imports.forEach(
+            ({ key, node, alternative, deprecation, specifier }) => {
+              if (!alternative) {
+                context.report({
+                  node,
+                  data: {
+                    name: key,
+                    deprecation,
+                  },
+                  messageId: 'deprecated',
+                });
+              } else {
+                const hasMultipleAlternatives =
+                  alternative?.length && alternative.length > 1;
+                const alternativeName = formatAlternativeText(alternative);
+                context.report({
+                  node,
+                  data: {
+                    name: key,
+                    alternative: alternativeName,
+                  },
+                  suggest: hasMultipleAlternatives
+                    ? alternative.map((alt) => ({
+                        messageId: 'deprecatedWithSuggestion',
+                        data: {
+                          name: key,
+                          alternative: alt,
+                        },
+                        fix(fixer) {
+                          return fixer.replaceText(specifier?.imported, alt);
+                        },
+                      }))
+                    : undefined,
+                  messageId: hasMultipleAlternatives
+                    ? 'deprecatedWithSuggestion'
+                    : 'deprecatedWithAlternative',
+                  fix: hasMultipleAlternatives
+                    ? undefined
+                    : (fixer) =>
+                        fixer.replaceText(specifier?.imported, alternativeName),
+                });
+              }
+            },
+          );
         }
 
         // replace icons and add potential props
         trackedUsages.forEach(
           ({ node, key, alternative, localName, alternativeProps, kind }) => {
+            if (!alternative) {
+              return;
+            }
+            const hasMultipleAlternatives =
+              alternative?.length && alternative.length > 1;
+            const alternativeName = formatAlternativeText(alternative);
             context.report({
               node,
               data: {
                 name: key,
-                alternative,
+                alternative: alternativeName,
               },
-              messageId: 'deprecated',
-              fix(fixer) {
-                const fixes =
-                  localName === key
-                    ? [
-                        fixer.replaceText(
-                          node,
-                          sourceCode.getText(node).replace(key, alternative),
-                        ),
-                      ]
-                    : [];
+              messageId: 'deprecatedWithAlternative',
+              suggest: hasMultipleAlternatives
+                ? alternative.map((alt) => ({
+                    messageId: 'deprecatedWithSuggestion',
+                    data: {
+                      name: key,
+                      alternative: alt,
+                    },
+                    fix(fixer) {
+                      const fixes =
+                        localName === key
+                          ? [
+                              fixer.replaceText(
+                                node,
+                                sourceCode.getText(node).replace(key, alt),
+                              ),
+                            ]
+                          : [];
 
-                // insert alternative props for JSX usages only
-                if (kind === 'jsx' && alternativeProps && node.parent?.type === TSESTree.AST_NODE_TYPES.JSXOpeningElement) {
-                  fixes.push(
-                    fixer.insertTextAfter(
-                      node,
-                      ` ${Object.entries(alternativeProps)
-                        .map(([name, value]) => `${name}="${value}"`)
-                        .join(' ')}`,
-                    ),
-                  );
-                }
-                return fixes;
-              },
+                      // insert alternative props for JSX usages only
+                      if (
+                        kind === 'jsx' &&
+                        alternativeProps &&
+                        node.parent?.type ===
+                          TSESTree.AST_NODE_TYPES.JSXOpeningElement
+                      ) {
+                        fixes.push(
+                          fixer.insertTextAfter(
+                            node,
+                            ` ${Object.entries(alternativeProps)
+                              .map(([name, value]) => `${name}="${value}"`)
+                              .join(' ')}`,
+                          ),
+                        );
+                      }
+                      return fixes;
+                    },
+                  }))
+                : undefined,
+              fix: hasMultipleAlternatives
+                ? undefined
+                : (fixer) => {
+                    const fixes =
+                      localName === key
+                        ? [
+                            fixer.replaceText(
+                              node,
+                              sourceCode
+                                .getText(node)
+                                .replace(key, alternativeName),
+                            ),
+                          ]
+                        : [];
+
+                    // insert alternative props for JSX usages only
+                    if (
+                      kind === 'jsx' &&
+                      alternativeProps &&
+                      node.parent?.type ===
+                        TSESTree.AST_NODE_TYPES.JSXOpeningElement
+                    ) {
+                      fixes.push(
+                        fixer.insertTextAfter(
+                          node,
+                          ` ${Object.entries(alternativeProps)
+                            .map(([name, value]) => `${name}="${value}"`)
+                            .join(' ')}`,
+                        ),
+                      );
+                    }
+                    return fixes;
+                  },
             });
           },
         );
