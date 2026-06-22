@@ -19,9 +19,11 @@ import { createRef } from 'react';
 
 import { render, screen, axe, act } from '../../util/test-utils.js';
 
+import bodyClasses from '../Body/Body.module.css';
+
 import { Timestamp } from './Timestamp.js';
 
-describe('Calendar', () => {
+describe('Timestamp', () => {
   beforeEach(() => {
     MockDate.set('2020-01-01T01:00+01:00');
   });
@@ -35,6 +37,15 @@ describe('Calendar', () => {
     render(<Timestamp {...baseProps} className={className} />);
     const element = screen.getByRole('time');
     expect(element?.className).toContain(className);
+  });
+
+  it('should accept Body props', () => {
+    render(<Timestamp {...baseProps} size="s" weight="bold" color="accent" />);
+
+    const element = screen.getByRole('time');
+    expect(element.className).toContain(bodyClasses.s);
+    expect(element.className).toContain(bodyClasses.bold);
+    expect(element.className).toContain(bodyClasses.accent);
   });
 
   it('should forward a ref to the outer element', () => {
