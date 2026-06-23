@@ -45,11 +45,11 @@ You can use the Tabs component out of the box to create a tabbed view by providi
 
 ### Use subcomponents independently
 
-`TabList` and `TabPanel` can be used independently, depending on how much control you need, there are two approaches.
+`TabList` and `TabPanel` can be used independently, depending on how much control you need, you can opt for one of the following approaches:
 
 #### Simplified with the `tabs` prop
 
-Pass your tabs as a `tabs` array to `TabList`. Selection state, keyboard navigation, and ARIA attributes are managed internally. Use the `onTabChange` callback to track which panel to show.
+Pass your tabs as a `tabs` array to `TabList`. Selection state, keyboard navigation, and ARIA attributes are managed internally.
 
 - Provide a `tabs` array with a unique `id` and label for each tab.
 - Use `onTabChange` to receive the selected tab's id and toggle panel visibility.
@@ -97,8 +97,8 @@ const {
 ### Tab-like navigation
 
 If you need to implement a tab-like navigation rather than true tab semantics, you can control the rendering behavior of the TabList and Tab components to achieve this.
-- Set the `as` prop of `TabList` to `"navigation"` to render a native `<nav>` containing an element with the role `list` to wrap its children.
-- Set the `as` prop of `Tab` to `"listitem"` to wrap your tab in an element with role `listitem`.
+- Set the `as` prop of TabList to `"navigation"` to render a native `<nav>` containing an element with the role `list` to wrap its children.
+- Set the `as` prop of Tab to `"listitem"` to wrap your tab in an element with role `listitem`.
 
 The components would render styled to look like tabs but without any tab ARIA roles. This ensures a correctly structured and accessible navigation pattern that visually matches the tab design.
 
