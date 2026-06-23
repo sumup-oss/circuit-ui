@@ -98,26 +98,12 @@ export const Flag = forwardRef<HTMLImageElement, FlagProps>(
       );
     }
 
-    if (width || height) {
-      const dimensions = { width: 16, height: 12 };
-      if (height) {
-        dimensions.height = height;
-        dimensions.width = height * ASPECT_RATIO;
-      }
-      if (width) {
-        dimensions.width = width;
-        dimensions.height = width / ASPECT_RATIO;
-      }
+    if (size) {
       return (
-        <div
-          className={clsx(classes.wrapper, className)}
-          style={{ '--flag-wrapper-height': `${dimensions.width}px` }}
-        >
+        <div className={clsx(classes.wrapper, className)}>
           <img
             ref={ref}
-            className={clsx(classes.base, imageClassName)}
-            height={`${dimensions.height}px`}
-            width={`${dimensions.width}px`}
+            className={clsx(classes.base, classes[size], imageClassName)}
             src={getIconURL(flagName)}
             {...props}
             alt={alt}
@@ -125,12 +111,27 @@ export const Flag = forwardRef<HTMLImageElement, FlagProps>(
         </div>
       );
     }
-
+    // default dimensions
+    const dimensions = { width: 16, height: 12 };
+    // for a consistent aspect ratio
+    if (height) {
+      dimensions.height = height;
+      dimensions.width = height * ASPECT_RATIO;
+    }
+    if (width) {
+      dimensions.width = width;
+      dimensions.height = width / ASPECT_RATIO;
+    }
     return (
-      <div className={clsx(classes.wrapper, className)}>
+      <div
+        className={clsx(classes.wrapper, className)}
+        style={{ '--flag-wrapper-height': `${dimensions.width}px` }}
+      >
         <img
           ref={ref}
-          className={clsx(classes.base, classes[size ?? 'm'], imageClassName)}
+          className={clsx(classes.base, imageClassName)}
+          height={`${dimensions.height}px`}
+          width={`${dimensions.width}px`}
           src={getIconURL(flagName)}
           {...props}
           alt={alt}

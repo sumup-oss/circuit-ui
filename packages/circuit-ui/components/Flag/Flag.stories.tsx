@@ -23,6 +23,12 @@ export default {
   title: 'Components/Flag',
   component: Flag,
   tags: ['status:stable'],
+  argTypes: {
+    size: {
+      options: ['s', 'm', 'l'],
+      control: { type: 'radio' },
+    },
+  },
 };
 
 export const Base = () => {
