@@ -15,7 +15,7 @@
 
 'use client';
 
-import { useEffect, useId, useRef, useState } from 'react';
+import { type Ref, useEffect, useId, useRef, useState } from 'react';
 
 import type { ReturnType } from '../../../../types/return-type.js';
 import { idx } from '../../../../util/idx.js';
@@ -40,6 +40,7 @@ import { Button } from '../../../Button/index.js';
 import type { AutocompleteInputOption } from '../Option/Option.js';
 
 import classes from './ComboboxInput.module.css';
+import { utilClasses } from '../../../../styles/utility.js';
 
 export interface ComboboxInputProps
   extends Omit<
@@ -68,6 +69,7 @@ export interface ComboboxInputProps
    */
   locale?: Locale;
   'data-id'?: string;
+  comboboxRef?: Ref<HTMLDivElement>;
 }
 
 export function ComboboxInput({
@@ -99,6 +101,7 @@ export function ComboboxInput({
   removeTagButtonLabel,
   moreResults,
   ref,
+  comboboxRef,
   ...props
 }: ComboboxInputProps): ReturnType {
   const id = useId();
@@ -156,59 +159,62 @@ export function ComboboxInput({
           readOnly && classes.readonly,
           !disabled && hasWarning && classes.warning,
         )}
+        ref={comboboxRef}
       >
-        {tags.slice(0, isOpen || showAllTags ? tags.length : 4).map((tag) => {
-          const onRemoveProps =
-            readOnly || disabled
-              ? {}
-              : {
-                  onRemove: () => onTagRemove?.(tag),
-                  removeButtonLabel: `${removeTagButtonLabel} ${tag.label}`,
-                };
-          return (
-            <Tag
-              key={tag.value}
-              className={clsx(disabled && classes['disabled-tag'])}
-              {...onRemoveProps}
+        <div className={clsx(classes.content, utilClasses.hideScrollbar)}>
+          {tags.slice(0, isOpen || showAllTags ? tags.length : 4).map((tag) => {
+            const onRemoveProps =
+              readOnly || disabled
+                ? {}
+                : {
+                    onRemove: () => onTagRemove?.(tag),
+                    removeButtonLabel: `${removeTagButtonLabel} ${tag.label}`,
+                  };
+            return (
+              <Tag
+                key={tag.value}
+                className={clsx(disabled && classes['disabled-tag'])}
+                {...onRemoveProps}
+              >
+                {tag.label}
+              </Tag>
+            );
+          })}
+          {!showAllTags && !isOpen && tags.length > 4 && (
+            <Button
+              style={{ padding: 0 }}
+              variant="tertiary"
+              onClick={() => setShowAllTags(true)}
             >
-              {tag.label}
-            </Tag>
-          );
-        })}
-        {!showAllTags && !isOpen && tags.length > 4 && (
-          <Button
-            style={{ padding: 0 }}
-            variant="tertiary"
-            onClick={() => setShowAllTags(true)}
-          >
-            + {tags.length - 4} {moreResults}
-          </Button>
-        )}
-        <input
-          id={inputId}
-          value={value}
-          data-id={comboboxInputId}
-          ref={applyMultipleRefs(localRef, ref)}
-          aria-describedby={descriptionIds}
-          className={clsx(
-            textAlign === 'right' && classes['align-right'],
-            inputClassName,
+              + {tags.length - 4} {moreResults}
+            </Button>
           )}
-          aria-invalid={invalid && 'true'}
-          required={required}
-          disabled={disabled}
-          readOnly={readOnly}
-          {...props}
-        />
-        {value && !disabled && !readOnly && onClear && clearLabel && (
-          <CloseButton
-            className={classes.clear}
-            size="s"
-            onClick={onClearButtonClick}
-          >
-            {clearLabel}
-          </CloseButton>
-        )}
+          <input
+            id={inputId}
+            value={value}
+            data-id={comboboxInputId}
+            ref={applyMultipleRefs(localRef, ref)}
+            aria-describedby={descriptionIds}
+            className={clsx(
+              textAlign === 'right' && classes['align-right'],
+              inputClassName,
+            )}
+            aria-invalid={invalid && 'true'}
+            required={required}
+            disabled={disabled}
+            readOnly={readOnly}
+            {...props}
+          />
+          {value && !disabled && !readOnly && onClear && clearLabel && (
+            <CloseButton
+              className={classes.clear}
+              size="s"
+              onClick={onClearButtonClick}
+            >
+              {clearLabel}
+            </CloseButton>
+          )}
+        </div>
       </div>
       <FieldValidationHint
         id={validationHintId}

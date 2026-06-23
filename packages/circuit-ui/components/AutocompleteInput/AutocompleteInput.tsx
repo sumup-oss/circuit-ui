@@ -17,7 +17,6 @@
 
 import {
   type ChangeEvent,
-  type FocusEventHandler,
   type KeyboardEventHandler,
   useCallback,
   useEffect,
@@ -239,8 +238,13 @@ export function AutocompleteInput({
 
   const closeResults = useCallback(() => {
     setIsOpen(false);
+    // when we close the listbox, set the search text to the value of the combobox,
+    // otherwise, reset it.
+    if (!Array.isArray(value)) {
+      changeInputValue(comboboxRef.current, value?.label ?? '');
+    }
     setActiveOption(undefined);
-  }, []);
+  }, [value]);
 
   const debouncedOnSearch = useMemo(
     () =>
@@ -303,7 +307,7 @@ export function AutocompleteInput({
     placement: 'bottom',
     strategy: 'fixed',
     middleware: [
-      offset({ mainAxis: size === 's' ? 10 : 17, crossAxis: 0 }), // bottom padding + 1px border + 4px gap
+      offset({ mainAxis: 4, crossAxis: 0 }),
       shift({ padding: boundaryPadding }),
       flip({
         padding: boundaryPadding,
@@ -390,7 +394,7 @@ export function AutocompleteInput({
             );
           }
           if (!activeOption || !searchText) {
-            setIsOpen(false);
+            closeResults();
           }
         }
         if (
@@ -418,6 +422,7 @@ export function AutocompleteInput({
       options,
       allowNewItems,
       value,
+      closeResults,
     ],
   );
 
@@ -491,26 +496,13 @@ export function AutocompleteInput({
       />
     ) : null;
 
-  const restoreValue: FocusEventHandler<HTMLInputElement> = useCallback(
-    (event) => {
-      if (!Array.isArray(value) && searchText !== value?.value) {
-        setSearchText(value?.label ?? '');
-        if (isImmersive) {
-          setPresentationFieldValue(value?.label ?? '');
-        }
-      }
-      props.onBlur?.(event);
-    },
-    [value, searchText, isImmersive, props.onBlur],
-  );
-
   const comboboxProps = {
     ...props,
     label,
     size,
     'data-id': autocompleteId,
     clearLabel,
-    value: searchText,
+    value: !Array.isArray(value) && !isOpen ? value?.label : searchText,
     onChange: onComboboxChange,
     onClear: onClear && !multiple ? onComboboxClear : undefined,
     onKeyDown: isLoading ? undefined : onComboboxKeyDown,
@@ -522,7 +514,6 @@ export function AutocompleteInput({
     onClick: !readOnly && !disabled ? onComboboxClick : undefined,
     readOnly,
     disabled,
-    onBlur: allowNewItems ? undefined : restoreValue,
     tags: Array.isArray(value) ? value : undefined,
     onTagRemove,
     isOpen,
@@ -578,7 +569,8 @@ export function AutocompleteInput({
     <>
       <div ref={inputWrapperRef}>
         <ComboboxInput
-          ref={applyMultipleRefs(comboboxRef, ref, refs.setReference)}
+          ref={applyMultipleRefs(comboboxRef, ref)}
+          comboboxRef={refs.setReference}
           inputClassName={props.inputClassName}
           aria-expanded={isOpen}
           aria-haspopup="listbox"
@@ -591,8 +583,8 @@ export function AutocompleteInput({
           ref={refs.setFloating}
           style={{
             ...floatingStyles,
-            width: comboboxRef.current?.parentElement?.offsetWidth ?? 0,
-            maxWidth: comboboxRef.current?.parentElement?.offsetWidth ?? 0,
+            width: refs.reference.current?.parentElement?.offsetWidth ?? 0,
+            maxWidth: refs.reference.current?.parentElement?.offsetWidth ?? 0,
           }}
         >
           {results}
