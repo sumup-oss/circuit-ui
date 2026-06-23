@@ -26,7 +26,7 @@ type CountryCode = (typeof FLAGS)[number];
 
 type WithSize = {
   /**
-   * The size of the flag. Matches the standard icon sizes.
+   * Choose from 3 sizes.
    * @default 'm'
    */
   size?: 's' | 'm' | 'l';
