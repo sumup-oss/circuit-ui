@@ -22,16 +22,16 @@
 }
 
 .s {
-  width: calc(var(--cui-icon-sizes-kilo) * 4 / 3);
-  height: var(--cui-icon-sizes-kilo);
+  width: var(--cui-icon-sizes-kilo);
+  height: calc(var(--cui-icon-sizes-kilo) * 3 / 4);
 }
 
 .m {
-  width: calc(var(--cui-icon-sizes-mega) * 4 / 3);
-  height: var(--cui-icon-sizes-mega);
+  width: var(--cui-icon-sizes-mega);
+  height: calc(var(--cui-icon-sizes-mega) * 3 / 4);
 }
 
 .l {
-  width: calc(var(--cui-icon-sizes-giga) * 4 / 3);
-  height: var(--cui-icon-sizes-giga);
+  width: var(--cui-icon-sizes-giga);
+  height: calc(var(--cui-icon-sizes-giga) * 3 / 4);
 }

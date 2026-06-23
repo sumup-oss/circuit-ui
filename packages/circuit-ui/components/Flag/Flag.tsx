@@ -27,7 +27,6 @@ type CountryCode = (typeof FLAGS)[number];
 type WithSize = {
   /**
    * Choose from 3 sizes.
-   * @default 'm'
    */
   size?: 's' | 'm' | 'l';
   width?: never;
