@@ -217,34 +217,24 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
           })}
         >
           {tabs
-            ? tabs.map((item, index) =>
-                as === 'navigation' ? (
-                  <Tab
-                    key={item.id}
-                    ref={(el) => {
-                      tabRefs.current[index] = el;
-                    }}
-                    as="listitem"
-                    href={item.href}
-                    selected={selectedId === item.id}
-                  >
-                    {item.tab}
-                  </Tab>
-                ) : (
-                  <Tab
-                    key={item.id}
-                    ref={(el) => {
-                      tabRefs.current[index] = el;
-                    }}
-                    id={`tab-${item.id}`}
-                    aria-controls={`panel-${item.id}`}
-                    selected={selectedId === item.id}
-                    onClick={() => onTabClick(item.id)}
-                  >
-                    {item.tab}
-                  </Tab>
-                ),
-              )
+            ? tabs.map(({ id, ...item }, index) => (
+                <Tab
+                  key={id}
+                  id={`tab-${id}`}
+                  ref={(el) => {
+                    tabRefs.current[index] = el;
+                  }}
+                  as={as === 'navigation' ? 'listitem' : 'tab'}
+                  aria-controls={
+                    as === 'navigation' ? undefined : `panel-${id}`
+                  }
+                  selected={selectedId === id}
+                  onClick={() => onTabClick(id)}
+                  {...item}
+                >
+                  {item.tab}
+                </Tab>
+              ))
             : children}
           <span className={classes.glider} ref={gliderRef} />
         </div>
