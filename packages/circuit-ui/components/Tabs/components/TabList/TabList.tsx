@@ -105,7 +105,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
     );
 
     const selectedIndex = ids.indexOf(selectedId);
-    const numberOfTabs = tabs?.length ?? Children.toArray(children).length;
+    const numberOfTabs = tabs?.length || Children.toArray(children).length;
     const stretchOnMobile = numberOfTabs <= MOBILE_AUTOSTRETCH_ITEMS_MAX;
 
     const updateGliderStyles = useCallback((tab: HTMLElement) => {
