@@ -33,6 +33,8 @@ const meta = {
 export const messages = stylelint.utils.ruleMessages(ruleName, {
   deprecated: (name: string, replacement: string) =>
     `The \`${name}\` custom property has been deprecated. Use the \`${replacement}\` custom property instead.`,
+  deprecatedNoReplacement: (name: string, additionalInfo: string) =>
+    `The \`${name}\` custom property has been deprecated. ${additionalInfo}`,
 });
 
 const rule: Rule = (enabled, _options, context) => (root, result) => {
@@ -47,20 +49,32 @@ const rule: Rule = (enabled, _options, context) => (root, result) => {
     while ((match = regex.exec(decl.value)) !== null) {
       const name = match[0];
       // biome-ignore lint/style/noNonNullAssertion: Each item is guaranteed to have a deprecation.
-      const { replacement } = DEPRECATED_CUSTOM_PROPERTIES.find(
+      const deprecation = DEPRECATED_CUSTOM_PROPERTIES.find(
         (token) => token.name === name,
       )!.deprecation!;
 
-      if (context?.fix) {
-        decl.value = decl.value.replace(name, replacement);
+      if ('replacement' in deprecation) {
+        const replacement = String(deprecation.replacement);
+        if (context?.fix) {
+          decl.value = decl.value.replace(name, replacement);
+        }
+        stylelint.utils.report({
+          message: messages.deprecated(name, replacement),
+          node: decl,
+          result,
+          ruleName,
+        });
+      } else {
+        const additionalInfo = String(
+          (deprecation as { additionalInfo: string }).additionalInfo,
+        );
+        stylelint.utils.report({
+          message: messages.deprecatedNoReplacement(name, additionalInfo),
+          node: decl,
+          result,
+          ruleName,
+        });
       }
-
-      stylelint.utils.report({
-        message: messages.deprecated(name, replacement),
-        node: decl,
-        result,
-        ruleName,
-      });
     }
   });
 };

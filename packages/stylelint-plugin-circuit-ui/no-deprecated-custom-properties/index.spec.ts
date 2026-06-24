@@ -109,5 +109,19 @@ testRule({
         },
       ],
     },
+    {
+      code: `.class {
+        z-index: var(--cui-z-index-toast);
+      }`,
+      description: 'Disallow deprecated custom property with no replacement',
+      message: messages.deprecatedNoReplacement(
+        '--cui-z-index-toast',
+        'Use one of the existing z-index tokens instead.',
+      ),
+      line: 2,
+      column: 9,
+      endLine: 2,
+      endColumn: 41,
+    },
   ],
 });

@@ -116,6 +116,7 @@ export const consumer = [
     value: 'rgba(58, 16, 55, 0.6000)',
     type: 'color',
   },
+  /* eslint-disable circuit-ui/no-deprecated-custom-properties */
   {
     name: '--cui-bg-accent-strong',
     value: '#fbfbf9',
@@ -136,6 +137,7 @@ export const consumer = [
     value: 'rgba(251, 251, 249, 0.1500)',
     type: 'color',
   },
+  /* eslint-enable circuit-ui/no-deprecated-custom-properties */
   {
     name: '--cui-bg-neutral',
     value: 'rgba(104, 79, 98, 0.3500)',
