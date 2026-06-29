@@ -24,10 +24,6 @@ CSS variables provided by the Circuit UI design system and their values.
 | `--cui-bg-accent-hovered` | `color` | no |  | `#e8e6dc` | `#222018` |
 | `--cui-bg-accent-pressed` | `color` | no |  | `#d9d6c7` | `#2a2820` |
 | `--cui-bg-accent-disabled` | `color` | no |  | `rgba(227, 226, 214, 0.6000)` | `rgba(26, 24, 22, 0.6000)` |
-| `--cui-bg-accent-strong` | `color` | no |  | `#1e1c1c` | `#f5f4ed` |
-| `--cui-bg-accent-strong-hovered` | `color` | no |  | `#332f2f` | `#e8e6dc` |
-| `--cui-bg-accent-strong-pressed` | `color` | no |  | `#4d4949` | `#d9d6c7` |
-| `--cui-bg-accent-strong-disabled` | `color` | no |  | `rgba(30, 28, 28, 0.1000)` | `rgba(245, 244, 237, 0.1000)` |
 | `--cui-bg-neutral` | `color` | no |  | `#f0eee7` | `#2b2927` |
 | `--cui-bg-neutral-hovered` | `color` | no |  | `#e8e6dc` | `#201f1e` |
 | `--cui-bg-neutral-pressed` | `color` | no |  | `#d9d6c7` | `#282726` |
@@ -242,4 +238,3 @@ CSS variables provided by the Circuit UI design system and their values.
 | `--cui-z-index-tooltip` | `number` | no |  | `40` | `40` |
 | `--cui-z-index-header` | `number` | no |  | `600` | `600` |
 | `--cui-z-index-navigation` | `number` | no |  | `800` | `800` |
-| `--cui-z-index-toast` | `number` | no |  | `1100` | `1100` |
