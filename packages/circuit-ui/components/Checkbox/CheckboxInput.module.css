@@ -81,7 +81,7 @@
 
 .base:checked + .label::before,
 .base:indeterminate + .label::before {
-  background-color: var(--cui-bg-accent-strong);
+  background-color: var(--cui-bg-strong);
   border-color: var(--cui-border-accent);
 }
 
@@ -89,7 +89,7 @@
 .base:checked[disabled] + .label::before,
 .base:indeterminate:disabled + .label::before,
 .base:indeterminate[disabled] + .label::before {
-  background-color: var(--cui-bg-accent-strong-disabled);
+  background-color: var(--cui-bg-strong-disabled);
   border-color: var(--cui-border-accent-disabled);
 }
 
@@ -135,6 +135,6 @@
 
 .base:disabled:checked + .label::before,
 .base[disabled]:checked + .label::before {
-  background-color: var(--cui-bg-accent-strong-disabled);
+  background-color: var(--cui-bg-strong-disabled);
   border-color: var(--cui-border-accent-disabled);
 }
