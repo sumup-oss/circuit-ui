@@ -30,16 +30,13 @@ import { clsx } from '../../../../styles/clsx.js';
 import { utilClasses } from '../../../../styles/utility.js';
 import { useTabState } from '../../helper.js';
 
-import { Tab } from '../Tab/Tab.js';
+import { Tab, type TabProps } from '../Tab/Tab.js';
 import classes from './TabList.module.css';
 
-export interface TabItem {
+export interface TabItem
+  extends Omit<TabProps, 'selected' | 'as' | 'children' | 'id'> {
   id: string;
   tab: ReactNode;
-  /**
-   * Renders the tab as a navigation link. Use with `as="navigation"`.
-   */
-  href?: string;
 }
 
 export interface TabListProps extends HTMLAttributes<HTMLDivElement> {
@@ -217,24 +214,33 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
           })}
         >
           {tabs
-            ? tabs.map(({ id, ...item }, index) => (
-                <Tab
-                  key={id}
-                  id={`tab-${id}`}
-                  ref={(el) => {
-                    tabRefs.current[index] = el;
-                  }}
-                  as={as === 'navigation' ? 'listitem' : 'tab'}
-                  aria-controls={
-                    as === 'navigation' ? undefined : `panel-${id}`
-                  }
-                  selected={selectedId === id}
-                  onClick={() => onTabClick(id)}
-                  {...item}
-                >
-                  {item.tab}
-                </Tab>
-              ))
+            ? tabs.map(
+                ({ id, tab, onClick: tabItemOnClick, ...restItem }, index) => (
+                  <Tab
+                    key={id}
+                    {...restItem}
+                    id={`tab-${id}`}
+                    ref={(el) => {
+                      tabRefs.current[index] = el;
+                    }}
+                    as={as === 'navigation' ? 'listitem' : 'tab'}
+                    aria-controls={
+                      as === 'navigation' ? undefined : `panel-${id}`
+                    }
+                    selected={selectedId === id}
+                    onClick={(e) => {
+                      tabItemOnClick?.(
+                        e as React.MouseEvent<
+                          HTMLButtonElement & HTMLAnchorElement
+                        >,
+                      );
+                      onTabClick(id);
+                    }}
+                  >
+                    {tab}
+                  </Tab>
+                ),
+              )
             : children}
           <span className={classes.glider} ref={gliderRef} />
         </div>
