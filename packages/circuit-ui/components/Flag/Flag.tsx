@@ -61,14 +61,6 @@ export type FlagProps = HTMLAttributes<HTMLImageElement> & {
    */
   alt: string;
   /**
-<<<<<<< HEAD
-=======
-   * The size of the flag. Matches the standard icon sizes.
-   * @default 'm'
-   */
-  size?: 's' | 'm' | 'l';
-  /**
->>>>>>> a8a295c4 (update styles to use tshirt sizes)
    * Additional class name to apply to the flag wrapper.
    */
   className?: string;
@@ -86,10 +78,6 @@ const ASPECT_RATIO = 4 / 3;
 export function Flag({
   countryCode,
   alt,
-<<<<<<< HEAD
-=======
-  size = 'm',
->>>>>>> a8a295c4 (update styles to use tshirt sizes)
   className,
   imageClassName,
   size,
@@ -140,11 +128,7 @@ export function Flag({
     <div className={clsx(classes.wrapper, className)}>
       <img
         ref={ref}
-<<<<<<< HEAD
         className={clsx(classes.base, imageClassName)}
-=======
-        className={clsx(classes.base, classes[size], imageClassName)}
->>>>>>> a8a295c4 (update styles to use tshirt sizes)
         src={getIconURL(flagName)}
         {...props}
         alt={alt}

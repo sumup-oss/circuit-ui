@@ -5,23 +5,8 @@
 }
 
 .base {
-  border: var(--cui-border-width-kilo) solid var(--cui-border-strong);
-  border-radius: var(--cui-border-radius-bit);
-}
-
-.s {
-  width: calc(var(--cui-icon-sizes-kilo) * 4 / 3);
-  height: var(--cui-icon-sizes-kilo);
-}
-
-.m {
-  width: calc(var(--cui-icon-sizes-mega) * 4 / 3);
-  height: var(--cui-icon-sizes-mega);
-}
-
-.l {
-  width: calc(var(--cui-icon-sizes-giga) * 4 / 3);
-  height: var(--cui-icon-sizes-giga);
+  border: 0.5px solid #ccc;
+  border-radius: 2px;
 }
 
 .s {
