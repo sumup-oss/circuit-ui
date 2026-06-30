@@ -1,5 +1,6 @@
 // We disable the rule in this file because we explicitly test invalid cases
 
+import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -7,14 +8,32 @@ import { RuleTester } from '@typescript-eslint/rule-tester';
 
 import { noDeprecatedIcons } from './index.js';
 
-const testDir = path.dirname(fileURLToPath(import.meta.url));
-const circuitUiFilename = path.join(
-  testDir,
-  '../../circuit-ui/src/example.tsx',
+function resolveMonorepoPackagePath(
+  packageName: string,
+  filePath: string,
+): string {
+  let dir = path.dirname(fileURLToPath(import.meta.url));
+
+  while (dir !== path.dirname(dir)) {
+    const packageJsonPath = path.join(dir, packageName, 'package.json');
+
+    if (existsSync(packageJsonPath)) {
+      return path.join(dir, packageName, filePath);
+    }
+
+    dir = path.dirname(dir);
+  }
+
+  throw new Error(`Could not find monorepo package "${packageName}"`);
+}
+
+const circuitUiFilename = resolveMonorepoPackagePath(
+  'circuit-ui',
+  'src/example.tsx',
 );
-const stylelintPluginFilename = path.join(
-  testDir,
-  '../../stylelint-plugin-circuit-ui/src/example.tsx',
+const stylelintPluginFilename = resolveMonorepoPackagePath(
+  'stylelint-plugin-circuit-ui',
+  'src/example.tsx',
 );
 
 const ruleTester = new RuleTester({
