@@ -23,6 +23,12 @@ export default {
   title: 'Components/Flag',
   component: Flag,
   tags: ['status:stable'],
+  argTypes: {
+    size: {
+      options: ['s', 'm', 'l'],
+      control: { type: 'radio' },
+    },
+  },
 };
 
 export const Base = () => {
@@ -43,7 +49,7 @@ export const Base = () => {
     <div className={classes.list}>
       {FLAGS.map((code) => (
         <div key={code} className={classes.wrapper}>
-          <Flag key={code} countryCode={code} alt="" width={32} />
+          <Flag key={code} countryCode={code} alt="" size="l" />
           <Body>
             {formatCountryName(code)} ({code})
           </Body>
@@ -71,5 +77,5 @@ Example.parameters = {
 Example.args = {
   countryCode: 'PR',
   alt: 'Puerto Rico',
-  width: 32,
+  size: 'l',
 };
