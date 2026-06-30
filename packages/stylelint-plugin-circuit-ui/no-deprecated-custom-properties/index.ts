@@ -37,7 +37,7 @@ export const messages = stylelint.utils.ruleMessages(ruleName, {
     `The \`${name}\` custom property has been deprecated. ${additionalInfo}`,
 });
 
-const rule: Rule = (enabled, _options, context) => (root, result) => {
+const rule: Rule = (enabled) => (root, result) => {
   if (!enabled || DEPRECATED_CUSTOM_PROPERTIES.length === 0) {
     return;
   }
@@ -55,14 +55,14 @@ const rule: Rule = (enabled, _options, context) => (root, result) => {
 
       if ('replacement' in deprecation) {
         const replacement = String(deprecation.replacement);
-        if (context?.fix) {
-          decl.value = decl.value.replace(name, replacement);
-        }
         stylelint.utils.report({
           message: messages.deprecated(name, replacement),
           node: decl,
           result,
           ruleName,
+          fix: () => {
+            decl.value = decl.value.replace(name, replacement);
+          },
         });
       } else {
         const additionalInfo = String(deprecation.additionalInfo);
