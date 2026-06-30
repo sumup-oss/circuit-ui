@@ -44,12 +44,6 @@
   },
   "peerDependencies": {
     "@sumup-oss/circuit-ui": ">=10.0.0",
-    "@sumup-oss/design-tokens": ">=9.0.0",
-    "@sumup-oss/icons": ">=6.8.0"
-  },
-  "peerDependenciesMeta": {
-    "@sumup-oss/icons": {
-      "optional": true
-    }
+    "@sumup-oss/design-tokens": ">=9.0.0"
   }
 }
