@@ -17,32 +17,40 @@ import type { HTMLAttributes, Ref } from 'react';
 import { getIconURL, type IconName } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
+import { deprecate } from '../../util/logger.js';
 
 import classes from './Flag.module.css';
 import type { FLAGS } from './constants.js';
 
 type CountryCode = (typeof FLAGS)[number];
 
-type Dimensions =
+type WithSize = {
+  /**
+   * Choose from 3 sizes.
+   */
+  size?: 's' | 'm' | 'l';
+  width?: never;
+  height?: never;
+};
+
+type WithHeightWidth =
   | {
       /**
-       * The width of the flag image. To size the flag correctly, either width or height must be provided.
+       * The width of the flag image.
+       * @deprecated Use the `size` prop instead.
        */
-      width?: never;
-      /**
-       * The height of the flag image. To size the flag correctly, either width or height must be provided.
-       */
-      height?: number;
+      width?: number;
+      height?: never;
+      size?: never;
     }
   | {
       /**
-       * The width of the flag image. To size the flag correctly, either width or height must be provided.
+       * The height of the flag image.
+       * @deprecated Use the `size` prop instead.
        */
-      width?: number;
-      /**
-       * The height of the flag image. To size the flag correctly, either width or height must be provided.
-       */
-      height?: never;
+      height?: number;
+      width?: never;
+      size?: never;
     };
 
 export type FlagProps = HTMLAttributes<HTMLImageElement> & {
@@ -60,7 +68,7 @@ export type FlagProps = HTMLAttributes<HTMLImageElement> & {
    * Additional class name to apply to the flag's inner image.
    */
   imageClassName?: string;
-} & Dimensions;
+} & (WithSize | WithHeightWidth);
 
 const ASPECT_RATIO = 4 / 3;
 
@@ -72,12 +80,35 @@ export function Flag({
   alt,
   className,
   imageClassName,
+  size,
   width,
   height,
   ref,
   ...props
 }: FlagProps) {
   const flagName = `flag_${countryCode.toLowerCase()}` as IconName;
+
+  if (process.env.NODE_ENV !== 'production' && (width || height)) {
+    deprecate(
+      'Flag',
+      'The `width` and `height` props are deprecated. Use the `size` prop instead.',
+    );
+  }
+
+  if (size) {
+    return (
+      <div className={clsx(classes.wrapper, className)}>
+        <img
+          ref={ref}
+          className={clsx(classes.base, classes[size], imageClassName)}
+          src={getIconURL(flagName)}
+          {...props}
+          alt={alt}
+        />
+      </div>
+    );
+  }
+
   // default dimensions
   const dimensions = {
     width: 16,
