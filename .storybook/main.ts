@@ -3,6 +3,7 @@ import svgr from 'vite-plugin-svgr';
 import path from 'node:path';
 import remarkGfm from 'remark-gfm';
 import { mergeConfig } from 'vite';
+import type { PropItem } from 'react-docgen-typescript';
 
 const config: StorybookConfig = {
   staticDirs: [path.join(process.cwd(), '.storybook/public')],
@@ -54,6 +55,24 @@ const config: StorybookConfig = {
   },
   typescript: {
     reactDocgen: 'react-docgen-typescript',
+    // @ts-expect-error unknown type issue
+    reactDocgenTypescriptOptions: {
+      exclude: ['.storybook/**/*'],
+      shouldRemoveUndefinedFromOptional: true,
+      propFilter: (prop: PropItem) => {
+        // @ts-expect-error deprecated tag exists
+        const deprecation = prop.tags.deprecated as string;
+        if (deprecation) {
+          prop.description = `<strong>⚠️ Deprecated:</strong> ${deprecation}<br/>${prop.description}`;
+        }
+
+        if (prop.name === 'children') {
+          return true;
+        }
+
+        return prop.parent ? !/node_modules/.test(prop.parent.fileName) : true;
+      },
+    },
   },
 };
 
