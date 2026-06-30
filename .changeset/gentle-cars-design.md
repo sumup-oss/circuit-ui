@@ -2,4 +2,4 @@
 "@sumup-oss/icons": patch
 ---
 
-Update Gauge icon
+Updated the Gauge icon.
