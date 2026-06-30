@@ -20,9 +20,9 @@ import type { RuleDocs } from '../utils/meta.js';
 const DEPRECATED_CUSTOM_PROPERTIES = schema.filter(({ deprecation }) =>
   Boolean(deprecation),
 );
-const REGEX_STRING = DEPRECATED_CUSTOM_PROPERTIES.map(({ name }) => name).join(
-  '|',
-);
+const REGEX_STRING = DEPRECATED_CUSTOM_PROPERTIES.map(({ name }) => name)
+  .sort((a, b) => b.length - a.length)
+  .join('|');
 
 const createRule = ESLintUtils.RuleCreator<RuleDocs>(
   (name) =>
@@ -82,9 +82,7 @@ export const noDeprecatedCustomProperties = createRule({
                 },
               });
             } else {
-              const additionalInfo = String(
-                (deprecation as { additionalInfo: string }).additionalInfo,
-              );
+              const additionalInfo = String(deprecation.additionalInfo);
               context.report({
                 node,
                 loc,

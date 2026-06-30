@@ -19,9 +19,9 @@ import { schema } from '@sumup-oss/design-tokens';
 const DEPRECATED_CUSTOM_PROPERTIES = schema.filter(({ deprecation }) =>
   Boolean(deprecation),
 );
-const REGEX_STRING = DEPRECATED_CUSTOM_PROPERTIES.map(({ name }) => name).join(
-  '|',
-);
+const REGEX_STRING = DEPRECATED_CUSTOM_PROPERTIES.map(({ name }) => name)
+  .sort((a, b) => b.length - a.length)
+  .join('|');
 
 export const ruleName = 'circuit-ui/no-deprecated-custom-properties';
 
@@ -65,9 +65,7 @@ const rule: Rule = (enabled, _options, context) => (root, result) => {
           ruleName,
         });
       } else {
-        const additionalInfo = String(
-          (deprecation as { additionalInfo: string }).additionalInfo,
-        );
+        const additionalInfo = String(deprecation.additionalInfo);
         stylelint.utils.report({
           message: messages.deprecatedNoReplacement(name, additionalInfo),
           node: decl,
