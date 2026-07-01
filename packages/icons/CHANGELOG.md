@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 6.10.2
+
+### Patch Changes
+
+- [#3716](https://github.com/sumup-oss/circuit-ui/pull/3716) [`90e8f85`](https://github.com/sumup-oss/circuit-ui/commit/90e8f859febd4613a1b2685953530ca1e0578d94) Thanks [@pspasova](https://github.com/pspasova)! - Updated the Gauge icon.
+
 ## 6.10.1
 
 ### Patch Changes

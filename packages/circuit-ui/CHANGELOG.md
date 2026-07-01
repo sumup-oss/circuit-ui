@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 11.9.0
+
+### Minor Changes
+
+- [#3714](https://github.com/sumup-oss/circuit-ui/pull/3714) [`1fa81ce`](https://github.com/sumup-oss/circuit-ui/commit/1fa81cea1307f90491eefdecc3c8edc162473f12) Thanks [@missating](https://github.com/missating)! - Added a `size` prop to the Flag component (`'s'` | `'m'` | `'l'`) that maps to the standard icon sizes of 16px, 24px, and 32px. Deprecated the `width` and `height` props in favour of `size`.
+
 ## 11.8.0
 
 ### Minor Changes
