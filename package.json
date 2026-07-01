@@ -93,6 +93,6 @@
     "eslint": "^9.0.0",
     "storybook": "$storybook",
     "stylus": "^0.64.0",
-    "undici": ">=7.28.0"
+    "undici": "^7.28.0"
   }
 }
