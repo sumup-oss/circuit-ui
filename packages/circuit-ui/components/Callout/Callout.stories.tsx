@@ -1,0 +1,71 @@
+/**
+ * Copyright 2026, SumUp Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+import { Stack } from '../../../../.storybook/components/index.js';
+import { Anchor } from '../Anchor/Anchor.js';
+import { List } from '../List/List.js';
+
+import { Callout, type CalloutProps } from './Callout.js';
+
+export default {
+  title: 'Components/Callout',
+  component: Callout,
+  tags: ['status:experimental'],
+};
+
+const variants = ['info', 'success', 'warning', 'danger', 'promo'] as const;
+
+export const Base = (args: CalloutProps) => <Callout {...args} />;
+
+Base.args = {
+  body: 'Callout is a newly available component for static inline guidance or emphasis.',
+  variant: 'promo',
+} as CalloutProps;
+
+Base.parameters = {
+  chromatic: {
+    // covered in the Variants story
+    disableSnapshot: true,
+  },
+};
+
+export const Variants = (args: CalloutProps) => (
+  <Stack vertical>
+    {variants.map((variant) => (
+      <Callout key={variant} {...args} variant={variant} />
+    ))}
+  </Stack>
+);
+
+Variants.args = {
+  body: 'This is a callout message',
+} as CalloutProps;
+
+export const WithRichContent = (args: CalloutProps) => <Callout {...args} />;
+
+WithRichContent.args = {
+  body: (
+    <div id="callout-rich-content">
+      Callouts can include{' '}
+      <Anchor href="#callout-rich-content">links to related content</Anchor> and
+      lists:
+      <List>
+        <li>Keep the content static.</li>
+        <li>Place it near the related interface.</li>
+      </List>
+    </div>
+  ),
+  variant: 'promo',
+} as CalloutProps;

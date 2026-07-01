@@ -91,6 +91,7 @@
 
 | Component | Status | Package | Source export | Usage reference |
 | --- | --- | --- | --- | --- |
+| `Callout` | `experimental` | `@sumup-oss/circuit-ui` | `./components/Callout/index.js` | [Read MDX reference](components/Callout.mdx) |
 | `NotificationBanner` | `stable` | `@sumup-oss/circuit-ui` | `./components/NotificationBanner/index.js` | [Read MDX reference](components/NotificationBanner.mdx) |
 | `NotificationFullscreen` | `stable` | `@sumup-oss/circuit-ui` | `./components/NotificationFullscreen/index.js` | [Read MDX reference](components/NotificationFullscreen.mdx) |
 | `NotificationInline` | `stable` | `@sumup-oss/circuit-ui` | `./components/NotificationInline/index.js` | [Read MDX reference](components/NotificationInline.mdx) |
