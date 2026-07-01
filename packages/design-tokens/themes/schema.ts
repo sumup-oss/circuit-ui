@@ -221,10 +221,32 @@ export const schema = [
   { name: '--cui-font-weight-semibold', type: 'fontWeight' },
   { name: '--cui-font-weight-bold', type: 'fontWeight' },
   /* Icon sizes */
-  { name: '--cui-icon-sizes-kilo', type: 'dimension' },
-  { name: '--cui-icon-sizes-mega', type: 'dimension' },
-  { name: '--cui-icon-sizes-giga', type: 'dimension' },
-  { name: '--cui-icon-sizes-tera', type: 'dimension' },
+  { name: '--cui-icon-sizes-s', type: 'dimension' },
+  { name: '--cui-icon-sizes-m', type: 'dimension' },
+  { name: '--cui-icon-sizes-l', type: 'dimension' },
+  { name: '--cui-icon-sizes-xl', type: 'dimension' },
+  /* eslint-disable circuit-ui/no-deprecated-custom-properties */
+  {
+    name: '--cui-icon-sizes-kilo',
+    type: 'dimension',
+    deprecation: { replacement: '--cui-icon-sizes-s' },
+  },
+  {
+    name: '--cui-icon-sizes-mega',
+    type: 'dimension',
+    deprecation: { replacement: '--cui-icon-sizes-m' },
+  },
+  {
+    name: '--cui-icon-sizes-giga',
+    type: 'dimension',
+    deprecation: { replacement: '--cui-icon-sizes-l' },
+  },
+  {
+    name: '--cui-icon-sizes-tera',
+    type: 'dimension',
+    deprecation: { replacement: '--cui-icon-sizes-xl' },
+  },
+  /* eslint-enable circuit-ui/no-deprecated-custom-properties */
   /* Spacings */
   { name: '--cui-spacings-bit', type: 'dimension' },
   { name: '--cui-spacings-byte', type: 'dimension' },
