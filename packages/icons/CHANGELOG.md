@@ -1,5 +1,15 @@
 # @sumup-oss/icons
 
+## 7.0.0-next.0
+
+### Major Changes
+
+- [#3647](https://github.com/sumup-oss/circuit-ui/pull/3647) [`1ea4fe8`](https://github.com/sumup-oss/circuit-ui/commit/1ea4fe88cf5bb6e4574e3a0f1f322d969a70ebd3) Thanks [@missating](https://github.com/missating)! - Dropped support for Node.js 22. Node.js 24 or higher is now required.
+
+### Patch Changes
+
+- [#3716](https://github.com/sumup-oss/circuit-ui/pull/3716) [`90e8f85`](https://github.com/sumup-oss/circuit-ui/commit/90e8f859febd4613a1b2685953530ca1e0578d94) Thanks [@pspasova](https://github.com/pspasova)! - Updated the Gauge icon.
+
 ## 6.10.1
 
 ### Patch Changes

@@ -11,5 +11,30 @@
     "@sumup-oss/cna-template": "6.0.1",
     "next-app": "2.0.2"
   },
-  "changesets": []
+  "changesets": [
+    "angry-baths-drum",
+    "bitter-dancers-grin",
+    "bumpy-tools-fall",
+    "cold-papayas-tan",
+    "curvy-snakes-heal",
+    "fuzzy-bees-enter",
+    "gentle-cars-design",
+    "hip-ducks-mix",
+    "many-stars-count",
+    "nice-pillows-shake",
+    "ninety-carrots-rule",
+    "petite-rooms-trade",
+    "ripe-symbols-film",
+    "salty-banks-serve",
+    "slow-bikes-admire",
+    "smart-rings-talk",
+    "soft-lies-invite",
+    "some-eggs-laugh",
+    "strong-facts-march",
+    "ten-parks-kneel",
+    "ten-tires-shake",
+    "warm-things-shine",
+    "weak-paths-cheat",
+    "young-otters-walk"
+  ]
 }
