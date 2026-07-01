@@ -16,7 +16,6 @@
 'use client';
 
 import {
-  forwardRef,
   useId,
   useMemo,
   useRef,
@@ -26,6 +25,7 @@ import {
   type ComponentType,
   type InputHTMLAttributes,
   type ForwardedRef,
+  type Ref,
   type RefObject,
 } from 'react';
 
@@ -61,6 +61,7 @@ import classes from './PhoneNumberInput.module.css';
 
 export interface PhoneNumberInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
+  ref?: Ref<HTMLInputElement>;
   /**
    * The normalized phone number in the [E.164 format](https://en.wikipedia.org/wiki/E.164).
    *
@@ -210,288 +211,269 @@ const DefaultPrefix: ComponentType<{
  * Provides a straightforward way for users to type their phone number in an
  * accurate, consistent format including the country code and subscriber number.
  */
-export const PhoneNumberInput = forwardRef<
-  HTMLInputElement,
-  PhoneNumberInputProps
->(
-  (
-    {
-      label,
-      hideLabel,
-      value,
-      defaultValue,
-      countryCode,
-      subscriberNumber,
-      optionalLabel,
-      required,
-      invalid,
-      hasWarning,
-      showValid,
-      disabled,
-      validationHint,
-      readOnly,
-      'aria-describedby': descriptionId,
-      locale,
-      size = 'm',
-      className,
-      style,
-      ...props
-    },
-    ref,
-  ) => {
-    const hiddenInputRef = useRef<HTMLInputElement>(null);
-    const countryCodeRef = useRef<HTMLSelectElement | HTMLInputElement>(null);
-    const subscriberNumberRef = useRef<HTMLInputElement>(null);
+export function PhoneNumberInput({
+  label,
+  hideLabel,
+  value,
+  defaultValue,
+  countryCode,
+  subscriberNumber,
+  optionalLabel,
+  required,
+  invalid,
+  hasWarning,
+  showValid,
+  disabled,
+  validationHint,
+  readOnly,
+  ref,
+  'aria-describedby': descriptionId,
+  locale,
+  size = 'm',
+  className,
+  style,
+  ...props
+}: PhoneNumberInputProps) {
+  const hiddenInputRef = useRef<HTMLInputElement>(null);
+  const countryCodeRef = useRef<HTMLSelectElement | HTMLInputElement>(null);
+  const subscriberNumberRef = useRef<HTMLInputElement>(null);
 
-    // This state is used to trigger a re-render when selecting a different
-    // country with the same country code as the current one (e.g. Canada → USA).
-    // When the country codes match, the `value` prop doesn't change
-    // (which would normally cause a re-render).
-    const [, setVersion] = useState(1);
+  // This state is used to trigger a re-render when selecting a different
+  // country with the same country code as the current one (e.g. Canada → USA).
+  // When the country codes match, the `value` prop doesn't change
+  // (which would normally cause a re-render).
+  const [, setVersion] = useState(1);
 
-    const validationHintId = useId();
+  const validationHintId = useId();
 
-    const descriptionIds = idx(
-      descriptionId,
-      validationHint && validationHintId,
-    );
+  const descriptionIds = idx(descriptionId, validationHint && validationHintId);
 
-    const options = useMemo(
-      () => mapCountryCodeOptions(countryCode.options, locale),
-      [countryCode.options, locale],
-    );
+  const options = useMemo(
+    () => mapCountryCodeOptions(countryCode.options, locale),
+    [countryCode.options, locale],
+  );
 
-    const handleChange = () => {
-      if (!countryCodeRef.current || !subscriberNumberRef.current) {
-        return;
-      }
-
-      const selectedCountry = countryCodeRef?.current?.value;
-      if (!selectedCountry) {
-        return;
-      }
-      const code = countryCode.options.find(
-        ({ country }) => country === selectedCountry,
-      )?.code;
-
-      if (!code) {
-        return;
-      }
-      const phoneNumber = normalizePhoneNumber(
-        code,
-        subscriberNumberRef.current.value,
-      );
-
-      changeInputValue(hiddenInputRef.current, phoneNumber);
-      setVersion((prev) => prev + 1);
-    };
-
-    const handlePaste = (event: ClipboardEvent) => {
-      if (
-        !countryCodeRef.current ||
-        !subscriberNumberRef.current ||
-        countryCodeRef.current.disabled ||
-        (countryCodeRef.current as HTMLInputElement).readOnly
-      ) {
-        return;
-      }
-
-      event.preventDefault();
-
-      const pastedPhoneNumber = parsePhoneNumber(
-        event.clipboardData.getData('text/plain'),
-        countryCode.options,
-        countryCodeRef.current.value,
-      );
-
-      if (pastedPhoneNumber.countryCode) {
-        changeInputValue(countryCodeRef.current, pastedPhoneNumber.countryCode);
-      }
-      if (pastedPhoneNumber.subscriberNumber) {
-        changeInputValue(
-          subscriberNumberRef.current,
-          pastedPhoneNumber.subscriberNumber,
-        );
-      }
-    };
-
-    const parsedValue = parsePhoneNumber(
-      value,
-      countryCode.options,
-      countryCodeRef.current?.value,
-    );
-    const parsedDefaultValue = parsePhoneNumber(
-      defaultValue,
-      countryCode.options,
-    );
-
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test'
-    ) {
-      if (!isSufficientlyLabelled(label)) {
-        throw new AccessibilityError(
-          'PhoneNumberInput',
-          'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
-        );
-      }
-
-      if (!isSufficientlyLabelled(countryCode.label)) {
-        throw new AccessibilityError(
-          'PhoneNumberInput',
-          'The `countryCode.label` prop is missing or invalid.',
-        );
-      }
-
-      if (!isSufficientlyLabelled(subscriberNumber.label)) {
-        throw new AccessibilityError(
-          'PhoneNumberInput',
-          'The `subscriberNumber.label` prop is missing or invalid.',
-        );
-      }
+  const handleChange = () => {
+    if (!countryCodeRef.current || !subscriberNumberRef.current) {
+      return;
     }
 
-    return (
-      <FieldSet
-        aria-describedby={descriptionIds}
-        aria-invalid={invalid && 'true'}
-        aria-required={required && 'true'}
-        disabled={disabled}
-        size={size}
-        className={className}
-        style={style}
-      >
-        <FieldLegend>
-          <FieldLabelText
-            label={label}
-            hideLabel={hideLabel}
-            optionalLabel={optionalLabel}
-            required={required}
-          />
-        </FieldLegend>
-        <div className={clsx(classes.wrapper, classes[size])}>
-          <input
-            type="text"
-            ref={applyMultipleRefs(ref, hiddenInputRef)}
-            className={classes.hidden}
-            required={required}
-            disabled={disabled}
-            readOnly={readOnly}
-            aria-invalid={invalid}
-            aria-hidden="true"
-            tabIndex={-1}
-            value={value}
-            defaultValue={defaultValue}
-            {...props}
-          />
-          {readOnly || countryCode.readonly ? (
-            <Input
-              hideLabel
-              aria-describedby={descriptionIds}
-              autoComplete="tel-country-code"
-              required={required}
-              disabled={disabled}
-              size={size}
-              className={classes['country-code']}
-              inputClassName={classes['country-code-input']}
-              {...countryCode}
-              value={getCountryCode(
-                countryCode.options,
-                parsedValue.countryCode,
-              )}
-              defaultValue={getCountryCode(
-                countryCode.options,
-                parsedDefaultValue.countryCode ?? countryCode.defaultValue,
-              )}
-              invalid={invalid || countryCode.invalid}
-              readOnly={true}
-              onChange={() => {}}
-              ref={applyMultipleRefs(
-                countryCodeRef as RefObject<HTMLInputElement>,
-                countryCode.ref as ForwardedRef<HTMLInputElement>,
-              )}
-              renderPrefix={
-                (countryCode.renderPrefix as InputProps['renderPrefix']) ??
-                (({ value: inputValue, ...rest }) => (
-                  <DefaultPrefix
-                    value={getCountry(
-                      countryCode.options,
-                      inputValue as string,
-                    )}
-                    {...rest}
-                  />
-                ))
-              }
-            />
-          ) : (
-            <Select
-              hideLabel
-              aria-describedby={descriptionIds}
-              autoComplete="tel-country-code"
-              required={required}
-              disabled={disabled}
-              size={size}
-              className={classes['country-code']}
-              {...countryCode}
-              value={parsedValue.countryCode}
-              defaultValue={
-                parsedDefaultValue.countryCode ?? countryCode.defaultValue
-              }
-              invalid={invalid || countryCode.invalid}
-              aria-readonly={true}
-              options={options}
-              onChange={eachFn<[ChangeEvent<HTMLSelectElement>]>([
-                countryCode.onChange,
-                handleChange,
-              ])}
-              ref={applyMultipleRefs(
-                countryCodeRef as RefObject<HTMLSelectElement>,
-                countryCode.ref as ForwardedRef<HTMLSelectElement>,
-              )}
-              renderPrefix={countryCode.renderPrefix ?? DefaultPrefix}
-            />
-          )}
+    const selectedCountry = countryCodeRef?.current?.value;
+    if (!selectedCountry) {
+      return;
+    }
+    const code = countryCode.options.find(
+      ({ country }) => country === selectedCountry,
+    )?.code;
+
+    if (!code) {
+      return;
+    }
+    const phoneNumber = normalizePhoneNumber(
+      code,
+      subscriberNumberRef.current.value,
+    );
+
+    changeInputValue(hiddenInputRef.current, phoneNumber);
+    setVersion((prev) => prev + 1);
+  };
+
+  const handlePaste = (event: ClipboardEvent) => {
+    if (
+      !countryCodeRef.current ||
+      !subscriberNumberRef.current ||
+      countryCodeRef.current.disabled ||
+      (countryCodeRef.current as HTMLInputElement).readOnly
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+
+    const pastedPhoneNumber = parsePhoneNumber(
+      event.clipboardData.getData('text/plain'),
+      countryCode.options,
+      countryCodeRef.current.value,
+    );
+
+    if (pastedPhoneNumber.countryCode) {
+      changeInputValue(countryCodeRef.current, pastedPhoneNumber.countryCode);
+    }
+    if (pastedPhoneNumber.subscriberNumber) {
+      changeInputValue(
+        subscriberNumberRef.current,
+        pastedPhoneNumber.subscriberNumber,
+      );
+    }
+  };
+
+  const parsedValue = parsePhoneNumber(
+    value,
+    countryCode.options,
+    countryCodeRef.current?.value,
+  );
+  const parsedDefaultValue = parsePhoneNumber(
+    defaultValue,
+    countryCode.options,
+  );
+
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test'
+  ) {
+    if (!isSufficientlyLabelled(label)) {
+      throw new AccessibilityError(
+        'PhoneNumberInput',
+        'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
+      );
+    }
+
+    if (!isSufficientlyLabelled(countryCode.label)) {
+      throw new AccessibilityError(
+        'PhoneNumberInput',
+        'The `countryCode.label` prop is missing or invalid.',
+      );
+    }
+
+    if (!isSufficientlyLabelled(subscriberNumber.label)) {
+      throw new AccessibilityError(
+        'PhoneNumberInput',
+        'The `subscriberNumber.label` prop is missing or invalid.',
+      );
+    }
+  }
+
+  return (
+    <FieldSet
+      aria-describedby={descriptionIds}
+      aria-invalid={invalid && 'true'}
+      aria-required={required && 'true'}
+      disabled={disabled}
+      size={size}
+      className={className}
+      style={style}
+    >
+      <FieldLegend>
+        <FieldLabelText
+          label={label}
+          hideLabel={hideLabel}
+          optionalLabel={optionalLabel}
+          required={required}
+        />
+      </FieldLegend>
+      <div className={clsx(classes.wrapper, classes[size])}>
+        <input
+          type="text"
+          ref={applyMultipleRefs(ref, hiddenInputRef)}
+          className={classes.hidden}
+          required={required}
+          disabled={disabled}
+          readOnly={readOnly}
+          aria-invalid={invalid}
+          aria-hidden="true"
+          tabIndex={-1}
+          value={value}
+          defaultValue={defaultValue}
+          {...props}
+        />
+        {readOnly || countryCode.readonly ? (
           <Input
             hideLabel
             aria-describedby={descriptionIds}
-            autoComplete="tel-national"
-            placeholder={subscriberNumber.placeholder}
-            pattern="^(?:[0-9]\s?){0,14}[0-9]$"
-            inputMode="tel"
+            autoComplete="tel-country-code"
             required={required}
             disabled={disabled}
             size={size}
-            className={classes['subscriber-number']}
-            inputClassName={classes['subscriber-number-input']}
-            hasWarning={hasWarning}
-            showValid={showValid}
-            {...subscriberNumber}
-            value={parsedValue.subscriberNumber}
-            defaultValue={
-              parsedDefaultValue.subscriberNumber ??
-              subscriberNumber.defaultValue
+            className={classes['country-code']}
+            inputClassName={classes['country-code-input']}
+            {...countryCode}
+            value={getCountryCode(countryCode.options, parsedValue.countryCode)}
+            defaultValue={getCountryCode(
+              countryCode.options,
+              parsedDefaultValue.countryCode ?? countryCode.defaultValue,
+            )}
+            invalid={invalid || countryCode.invalid}
+            readOnly={true}
+            onChange={() => {}}
+            ref={applyMultipleRefs(
+              countryCodeRef as RefObject<HTMLInputElement | null>,
+              countryCode.ref as ForwardedRef<HTMLInputElement>,
+            )}
+            renderPrefix={
+              (countryCode.renderPrefix as InputProps['renderPrefix']) ??
+              (({ value: inputValue, ...rest }) => (
+                <DefaultPrefix
+                  value={getCountry(countryCode.options, inputValue as string)}
+                  {...rest}
+                />
+              ))
             }
-            invalid={invalid || subscriberNumber.invalid}
-            readOnly={readOnly || subscriberNumber.readonly}
-            onChange={eachFn<[ChangeEvent<HTMLInputElement>]>([
-              subscriberNumber.onChange,
+          />
+        ) : (
+          <Select
+            hideLabel
+            aria-describedby={descriptionIds}
+            autoComplete="tel-country-code"
+            required={required}
+            disabled={disabled}
+            size={size}
+            className={classes['country-code']}
+            {...countryCode}
+            value={parsedValue.countryCode}
+            defaultValue={
+              parsedDefaultValue.countryCode ?? countryCode.defaultValue
+            }
+            invalid={invalid || countryCode.invalid}
+            aria-readonly={true}
+            options={options}
+            onChange={eachFn<[ChangeEvent<HTMLSelectElement>]>([
+              countryCode.onChange,
               handleChange,
             ])}
-            onPaste={handlePaste}
-            ref={applyMultipleRefs(subscriberNumberRef, subscriberNumber.ref)}
+            ref={applyMultipleRefs(
+              countryCodeRef as RefObject<HTMLSelectElement | null>,
+              countryCode.ref as ForwardedRef<HTMLSelectElement>,
+            )}
+            renderPrefix={countryCode.renderPrefix ?? DefaultPrefix}
           />
-        </div>
-        <FieldValidationHint
-          id={validationHintId}
+        )}
+        <Input
+          hideLabel
+          aria-describedby={descriptionIds}
+          autoComplete="tel-national"
+          placeholder={subscriberNumber.placeholder}
+          pattern="^(?:[0-9]\s?){0,14}[0-9]$"
+          inputMode="tel"
+          required={required}
           disabled={disabled}
-          invalid={invalid}
+          size={size}
+          className={classes['subscriber-number']}
+          inputClassName={classes['subscriber-number-input']}
           hasWarning={hasWarning}
           showValid={showValid}
-          validationHint={validationHint}
+          {...subscriberNumber}
+          value={parsedValue.subscriberNumber}
+          defaultValue={
+            parsedDefaultValue.subscriberNumber ?? subscriberNumber.defaultValue
+          }
+          invalid={invalid || subscriberNumber.invalid}
+          readOnly={readOnly || subscriberNumber.readonly}
+          onChange={eachFn<[ChangeEvent<HTMLInputElement>]>([
+            subscriberNumber.onChange,
+            handleChange,
+          ])}
+          onPaste={handlePaste}
+          ref={applyMultipleRefs(subscriberNumberRef, subscriberNumber.ref)}
         />
-      </FieldSet>
-    );
-  },
-);
-
-PhoneNumberInput.displayName = 'PhoneNumberInput';
+      </div>
+      <FieldValidationHint
+        id={validationHintId}
+        disabled={disabled}
+        invalid={invalid}
+        hasWarning={hasWarning}
+        showValid={showValid}
+        validationHint={validationHint}
+      />
+    </FieldSet>
+  );
+}

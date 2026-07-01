@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { useState } from 'react';
+import { type ChangeEvent, useState } from 'react';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 
@@ -33,8 +33,8 @@ const baseArgs = {
 export const Base = (args: ToggleProps) => {
   const [checked, setChecked] = useState(false);
 
-  const handleChange = () => {
-    setChecked((prev) => !prev);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setChecked(e.target.checked);
   };
   return (
     <Stack vertical>
@@ -49,8 +49,8 @@ Base.args = baseArgs;
 export const WithDescription = (args: ToggleProps) => {
   const [checked, setChecked] = useState(false);
 
-  const handleChange = () => {
-    setChecked((prev) => !prev);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setChecked(e.target.checked);
   };
   return <Toggle {...args} checked={checked} onChange={handleChange} />;
 };

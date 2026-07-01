@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
-import {
-  forwardRef,
-  type FieldsetHTMLAttributes,
-  type HTMLAttributes,
-  type LabelHTMLAttributes,
+import type {
+  FieldsetHTMLAttributes,
+  HTMLAttributes,
+  LabelHTMLAttributes,
+  Ref,
 } from 'react';
 import { Confirm, Notify, Alert } from '@sumup-oss/icons';
 
@@ -33,6 +33,7 @@ import { getFieldValidity } from './FieldService.js';
  */
 export type FieldSize = 's' | 'm';
 interface FieldWrapperProps extends HTMLAttributes<HTMLDivElement> {
+  ref?: Ref<HTMLDivElement>;
   /**
    * Trigger disabled styles on the component.
    */
@@ -47,20 +48,26 @@ interface FieldWrapperProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * @private
  */
-export const FieldWrapper = forwardRef<HTMLDivElement, FieldWrapperProps>(
-  ({ children, disabled, size = 'm', className, ...props }, ref) => (
+export function FieldWrapper({
+  children,
+  disabled,
+  size = 'm',
+  className,
+  ...props
+}: FieldWrapperProps) {
+  return (
     <div
-      ref={ref}
       data-disabled={disabled}
       className={clsx(classes.wrapper, classes[size], className)}
       {...props}
     >
       {children}
     </div>
-  ),
-);
+  );
+}
 
 interface FieldSetProps extends FieldsetHTMLAttributes<HTMLFieldSetElement> {
+  ref?: Ref<HTMLFieldSetElement>;
   /**
    * The size of the Field component.
    */
@@ -70,15 +77,14 @@ interface FieldSetProps extends FieldsetHTMLAttributes<HTMLFieldSetElement> {
 /**
  * @private
  */
-export const FieldSet = forwardRef<HTMLFieldSetElement, FieldSetProps>(
-  ({ size = 'm', className, ...props }, ref) => (
+export function FieldSet({ size = 'm', className, ...props }: FieldSetProps) {
+  return (
     <fieldset
       {...props}
-      ref={ref}
       className={clsx(classes.fieldset, classes[size], className)}
     />
-  ),
-);
+  );
+}
 
 interface FieldLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   /**

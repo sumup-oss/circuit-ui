@@ -15,10 +15,9 @@
 
 'use client';
 
-import { forwardRef, useCallback, useState, type Ref } from 'react';
+import { useCallback, useState, type Ref } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
-import { deprecate } from '../../util/logger.js';
 import {
   Dialog,
   type DialogProps,
@@ -40,11 +39,6 @@ export interface ModalProps extends Omit<PublicDialogProps, 'isModal'> {
    */
   onClose?: DialogProps['onCloseEnd'];
   /**
-   * @deprecated This prop was passed to `react-modal` and is no longer relevant.
-   * Use the `preventClose` prop instead. Also see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role#required_javascript_features
-   */
-  hideCloseButton?: boolean;
-  /**
    * Prevent users from closing the modal by clicking/tapping the overlay or
    * pressing the escape key, and hides the close button.
    * @default false
@@ -59,23 +53,15 @@ export interface ModalProps extends Omit<PublicDialogProps, 'isModal'> {
 
 export const ANIMATION_DURATION = 300;
 
-export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
-  const {
-    hideCloseButton,
-    variant = 'contextual',
-    className,
-    contentClassName,
-    preventClose = false,
-    children,
-    onClose,
-    ...rest
-  } = props;
-  if (process.env.NODE_ENV !== 'production' && hideCloseButton) {
-    deprecate(
-      'Modal',
-      'The `hideCloseButton` prop has been deprecated. Use the `preventClose` prop instead.',
-    );
-  }
+export function Modal({
+  variant = 'contextual',
+  className,
+  contentClassName,
+  preventClose = false,
+  children,
+  onClose,
+  ...rest
+}: ModalProps) {
   const [isClosing, setIsClosing] = useState(false);
 
   const handleModalCloseEnd = useCallback(() => {
@@ -98,7 +84,6 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
 
   return (
     <Dialog
-      ref={ref}
       isModal
       onCloseStart={handleModalCloseStart}
       onCloseEnd={handleModalCloseEnd}
@@ -119,6 +104,4 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>((props, ref) => {
       </div>
     </Dialog>
   );
-});
-
-Modal.displayName = 'Modal';
+}

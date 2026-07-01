@@ -13,47 +13,18 @@
  * limitations under the License.
  */
 
-import { forwardRef, type HTMLAttributes } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
 import { getIconURL, type IconName } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
-import { deprecate } from '../../util/logger.js';
 
 import classes from './Flag.module.css';
 import type { FLAGS } from './constants.js';
 
 type CountryCode = (typeof FLAGS)[number];
 
-type WithSize = {
-  /**
-   * Choose from 3 sizes.
-   */
-  size?: 's' | 'm' | 'l';
-  width?: never;
-  height?: never;
-};
-
-type WithHeightWidth =
-  | {
-      /**
-       * The width of the flag image.
-       * @deprecated Use the `size` prop instead.
-       */
-      width?: number;
-      height?: never;
-      size?: never;
-    }
-  | {
-      /**
-       * The height of the flag image.
-       * @deprecated Use the `size` prop instead.
-       */
-      height?: number;
-      width?: never;
-      size?: never;
-    };
-
 export type FlagProps = HTMLAttributes<HTMLImageElement> & {
+  ref?: Ref<HTMLImageElement>;
   countryCode: CountryCode;
   /**
    * The alt text for the flag image.
@@ -67,77 +38,36 @@ export type FlagProps = HTMLAttributes<HTMLImageElement> & {
    * Additional class name to apply to the flag's inner image.
    */
   imageClassName?: string;
-} & (WithSize | WithHeightWidth);
-
-const ASPECT_RATIO = 4 / 3;
+  /**
+   * Choose from 3 sizes.
+   * @default m
+   */
+  size?: 's' | 'm' | 'l';
+};
 
 /**
  * Renders an SVG icon of a flag. Flags are sourced from: https://flagicons.lipis.dev/
  */
-export const Flag = forwardRef<HTMLImageElement, FlagProps>(
-  (
-    {
-      countryCode,
-      alt,
-      className,
-      imageClassName,
-      size,
-      width,
-      height,
-      ...props
-    },
-    ref,
-  ) => {
-    const flagName = `flag_${countryCode.toLowerCase()}` as IconName;
+export function Flag({
+  countryCode,
+  alt,
+  className,
+  imageClassName,
+  size = 'm',
+  ref,
+  ...props
+}: FlagProps) {
+  const flagName = `flag_${countryCode.toLowerCase()}` as IconName;
 
-    if (process.env.NODE_ENV !== 'production' && (width || height)) {
-      deprecate(
-        'Flag',
-        'The `width` and `height` props are deprecated. Use the `size` prop instead.',
-      );
-    }
-
-    if (size) {
-      return (
-        <div className={clsx(classes.wrapper, className)}>
-          <img
-            ref={ref}
-            className={clsx(classes.base, classes[size], imageClassName)}
-            src={getIconURL(flagName)}
-            {...props}
-            alt={alt}
-          />
-        </div>
-      );
-    }
-    // default dimensions
-    const dimensions = { width: 16, height: 12 };
-    // for a consistent aspect ratio
-    if (height) {
-      dimensions.height = height;
-      dimensions.width = height * ASPECT_RATIO;
-    }
-    if (width) {
-      dimensions.width = width;
-      dimensions.height = width / ASPECT_RATIO;
-    }
-    return (
-      <div
-        className={clsx(classes.wrapper, className)}
-        style={{ '--flag-wrapper-height': `${dimensions.width}px` }}
-      >
-        <img
-          ref={ref}
-          className={clsx(classes.base, imageClassName)}
-          height={`${dimensions.height}px`}
-          width={`${dimensions.width}px`}
-          src={getIconURL(flagName)}
-          {...props}
-          alt={alt}
-        />
-      </div>
-    );
-  },
-);
-
-Flag.displayName = 'Flag';
+  return (
+    <div className={clsx(classes.wrapper, className)}>
+      <img
+        ref={ref}
+        className={clsx(classes.base, classes[size], imageClassName)}
+        src={getIconURL(flagName)}
+        {...props}
+        alt={alt}
+      />
+    </div>
+  );
+}

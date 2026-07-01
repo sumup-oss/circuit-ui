@@ -17,8 +17,6 @@
 
 import {
   type ChangeEvent,
-  type FocusEventHandler,
-  forwardRef,
   type KeyboardEventHandler,
   useCallback,
   useEffect,
@@ -137,483 +135,461 @@ const sizeOptions: SizeOptions = {
   },
 };
 
-export const AutocompleteInput = forwardRef<
-  HTMLInputElement,
-  AutocompleteInputProps
->(
-  (
+export function AutocompleteInput({
+  label,
+  value,
+  options,
+  onClear,
+  onSearch,
+  onChange,
+  isLoading,
+  isLoadingMore,
+  loadingLabel,
+  noResultsMessage,
+  locale,
+  readOnly,
+  disabled,
+  minQueryLength = 0,
+  action,
+  loadMore,
+  allowNewItems,
+  variant = 'contextual',
+  size = 'm',
+  'aria-setsize': ariaSetSize,
+  multiple = false,
+  ref,
+  ...props
+}: AutocompleteInputProps) {
+  const {
+    noResultsMessage: defaultNoResultsMessage,
+    loadMoreLabel,
+    resultsFound,
+    clearLabel,
+    moreResults,
+    removeTagButtonLabel,
+  } = useI18n(
     {
-      label,
-      value,
-      options,
-      onClear,
-      onSearch,
-      onChange,
-      isLoading,
-      isLoadingMore,
-      loadingLabel,
-      noResultsMessage,
       locale,
-      readOnly,
-      disabled,
-      minQueryLength = 0,
-      action,
-      loadMore,
-      allowNewItems,
-      variant = 'contextual',
-      size = 'm',
-      'aria-setsize': ariaSetSize,
-      multiple = false,
-      ...props
+      loadMoreLabel: props.loadMoreLabel,
+      clearLabel: props.clearLabel,
     },
-    ref,
-  ) => {
-    const {
-      noResultsMessage: defaultNoResultsMessage,
-      loadMoreLabel,
-      resultsFound,
-      clearLabel,
-      moreResults,
-      removeTagButtonLabel,
-    } = useI18n(
-      {
-        locale,
-        loadMoreLabel: props.loadMoreLabel,
-        clearLabel: props.clearLabel,
-      },
-      translations,
+    translations,
+  );
+
+  const [searchText, setSearchText] = useState(
+    Array.isArray(value) ? '' : (value?.label ?? ''),
+  );
+
+  // used only for immmersive variant
+  const [presentationFieldValue, setPresentationFieldValue] = useState(
+    Array.isArray(value) ? '' : (value?.label ?? ''),
+  );
+  const isMobile = useMedia('(max-width: 479px)');
+  const hasTouch = !useMedia('(hover: hover) and (pointer: fine)');
+  const isImmersive = isMobile && variant === 'immersive';
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeOption, setActiveOption] = useState<number>();
+  const comboboxRef = useRef<HTMLInputElement>(null);
+  const inputWrapperRef = useRef<HTMLDivElement>(null);
+  const presentationFieldRef = useRef<HTMLInputElement>(null);
+  const resultsRef = useRef<HTMLDivElement>(null);
+  const listboxId = useId();
+  const autocompleteId = useId();
+
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    multiple &&
+    value !== undefined &&
+    !Array.isArray(value)
+  ) {
+    throw new CircuitError(
+      'AutocompleteInput',
+      'You have passed a non array value to a multiple selection AutocompleteInput. Please pass an array of values instead.',
     );
+  }
 
-    const [searchText, setSearchText] = useState(
-      Array.isArray(value) ? '' : (value?.label ?? ''),
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !multiple &&
+    value !== undefined &&
+    Array.isArray(value)
+  ) {
+    throw new CircuitError(
+      'AutocompleteInput',
+      'You have passed an array value to a single selection AutocompleteInput. Please pass an object instead.',
     );
+  }
 
-    // used only for immmersive variant
-    const [presentationFieldValue, setPresentationFieldValue] = useState(
-      Array.isArray(value) ? '' : (value?.label ?? ''),
-    );
-    const isMobile = useMedia('(max-width: 479px)');
-    const hasTouch = !useMedia('(hover: hover) and (pointer: fine)');
-    const isImmersive = isMobile && variant === 'immersive';
-    const [isOpen, setIsOpen] = useState(false);
-    const [activeOption, setActiveOption] = useState<number>();
-    const comboboxRef = useRef<HTMLInputElement>(null);
-    const inputWrapperRef = useRef<HTMLDivElement>(null);
-    const presentationFieldRef = useRef<HTMLInputElement>(null);
-    const resultsRef = useRef<HTMLDivElement>(null);
-    const listboxId = useId();
-    const autocompleteId = useId();
+  const optionValues: string[] = useMemo(
+    () =>
+      options
+        .flatMap((option) => (isGroup(option) ? option.options : option))
+        .map((option) => option.value),
+    [options],
+  );
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      multiple &&
-      value !== undefined &&
-      !Array.isArray(value)
-    ) {
-      throw new CircuitError(
-        'AutocompleteInput',
-        'You have passed a non array value to a multiple selection AutocompleteInput. Please pass an array of values instead.',
-      );
-    }
-
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !multiple &&
-      value !== undefined &&
-      Array.isArray(value)
-    ) {
-      throw new CircuitError(
-        'AutocompleteInput',
-        'You have passed an array value to a single selection AutocompleteInput. Please pass an object instead.',
-      );
-    }
-
-    const optionValues: string[] = useMemo(
-      () =>
-        options
-          .flatMap((option) => (isGroup(option) ? option.options : option))
-          .map((option) => option.value),
-      [options],
-    );
-
-    useEffect(() => {
-      if (isLoading) {
-        setActiveOption(undefined);
-      }
-    }, [isLoading]);
-
-    const closeResults = useCallback(() => {
-      setIsOpen(false);
+  useEffect(() => {
+    if (isLoading) {
       setActiveOption(undefined);
-    }, []);
-
-    const debouncedOnSearch = useMemo(
-      () =>
-        debounce(
-          (changeEvent: ChangeEvent<HTMLInputElement>) =>
-            onSearch?.(changeEvent.target.value),
-          300,
-        ),
-      [onSearch],
-    );
-
-    const onComboboxChange = useCallback(
-      (event: ChangeEvent<HTMLInputElement>) => {
-        setSearchText(event.target.value);
-        setActiveOption(undefined);
-        if (event.target.value.length >= minQueryLength) {
-          debouncedOnSearch?.(event);
-        }
-      },
-      [minQueryLength, debouncedOnSearch],
-    );
-
-    const onComboboxClear = useCallback(
-      (event: ClickEvent) => {
-        changeInputValue(comboboxRef.current, '');
-        onClear?.(event);
-      },
-      [onClear],
-    );
-
-    const onPresentationFieldClear = useCallback(
-      (event: ClickEvent) => {
-        setPresentationFieldValue('');
-        setSearchText('');
-        changeInputValue(presentationFieldRef.current, '');
-        setIsOpen(true);
-        onClear?.(event);
-      },
-      [onClear],
-    );
-
-    const onPresentationFieldKeyDown = useCallback(() => {
-      setIsOpen(true);
-      setActiveOption(0);
-    }, []);
-
-    const onPresentationFieldClick = useCallback(() => {
-      setIsOpen(true);
-    }, []);
-
-    const onComboboxClick = useCallback(() => {
-      if (!isOpen) {
-        comboboxRef?.current?.select();
-        setIsOpen(true);
-      }
-    }, [isOpen]);
-
-    const { floatingStyles, refs, update } = useFloating<HTMLElement>({
-      open: isOpen,
-      placement: 'bottom',
-      strategy: 'fixed',
-      middleware: [
-        offset({ mainAxis: size === 's' ? 10 : 17, crossAxis: 0 }), // bottom padding + 1px border + 4px gap
-        shift({ padding: boundaryPadding }),
-        flip({
-          padding: boundaryPadding,
-          fallbackPlacements: multiple ? [] : ['top'],
-        }),
-        floatingSize(() => ({
-          ...sizeOptions,
-          boundary:
-            typeof window !== 'undefined'
-              ? {
-                  x: 0,
-                  y: 0,
-                  width: window.innerWidth,
-                  height: window.innerHeight,
-                }
-              : undefined,
-        })),
-      ],
-      whileElementsMounted: autoUpdate,
-    });
-
-    useEffect(() => {
-      if (value && !Array.isArray(value)) {
-        setSearchText(value.label ?? '');
-        if (isImmersive) {
-          setPresentationFieldValue(value.label ?? '');
-        }
-      }
-    }, [value, isImmersive]);
-
-    const onOptionClick = useCallback(
-      (selectedValue: AutocompleteInputOption) => {
-        if (multiple) {
-          setSearchText('');
-          // put focus back on the input field after selection
-          comboboxRef.current?.focus({ preventScroll: true });
-        } else {
-          closeResults();
-        }
-        onChange(selectedValue);
-      },
-      [onChange, closeResults, multiple],
-    );
-
-    const onTagRemove = useCallback(
-      (tagValue: AutocompleteInputOption) => {
-        onChange(tagValue);
-        comboboxRef.current?.focus({ preventScroll: true });
-      },
-      [onChange],
-    );
-
-    const onComboboxKeyDown: KeyboardEventHandler<HTMLInputElement> =
-      useCallback(
-        (event) => {
-          if (isOpen) {
-            if (isArrowDown(event) || isArrowUp(event)) {
-              event.preventDefault();
-              const totalDisplayedOptions =
-                resultsRef.current?.querySelectorAll('[role="option"]')
-                  .length ?? 0;
-
-              if (activeOption === undefined) {
-                setActiveOption(
-                  isArrowDown(event) ? 0 : optionValues.length - 1,
-                );
-              } else {
-                const nextOption =
-                  (activeOption +
-                    totalDisplayedOptions +
-                    (isArrowDown(event) ? 1 : -1)) %
-                  totalDisplayedOptions;
-
-                setActiveOption(nextOption);
-              }
-            }
-            if (isEnter(event)) {
-              event.preventDefault();
-              event.stopPropagation();
-              if (allowNewItems && searchText !== '') {
-                onOptionClick({
-                  value: searchText,
-                  label: searchText,
-                });
-              } else if (activeOption !== undefined) {
-                onOptionClick(
-                  getOptionByValue(options, optionValues[activeOption]),
-                );
-              }
-              if (!activeOption || !searchText) {
-                setIsOpen(false);
-              }
-            }
-            if (
-              isBackspace(event) &&
-              !searchText &&
-              Array.isArray(value) &&
-              value.length > 0
-            ) {
-              // if the search text is empty and the user presses backspace,
-              // remove the last selected value
-              onChange(value[value.length - 1]);
-            }
-          } else if (!isEnter(event)) {
-            setIsOpen(true);
-            setActiveOption(0);
-          }
-        },
-        [
-          isOpen,
-          activeOption,
-          onChange,
-          optionValues,
-          onOptionClick,
-          searchText,
-          options,
-          allowNewItems,
-          value,
-        ],
-      );
-
-    // biome-ignore lint/correctness/useExhaustiveDependencies: we need to update the floating element styles if the options length changes
-    useEffect(() => {
-      if (isOpen) {
-        if (isMobile && hasTouch) {
-          comboboxRef.current?.focus({ preventScroll: true });
-        }
-        update();
-      }
-    }, [isOpen, update, options.length, value]);
-
-    const handleClickOutside = useCallback(() => {
-      if (!isImmersive) {
-        closeResults();
-      }
-    }, [closeResults, isImmersive]);
-    useClickOutside([inputWrapperRef, refs.floating], handleClickOutside);
-
-    useEscapeKey(closeResults, isOpen);
-
-    useEffect(() => {
-      // if readOnly or disabled props become truthy, close the list box
-      if ((readOnly || disabled) && isOpen) {
-        closeResults();
-      }
-    }, [readOnly, disabled, isOpen, closeResults]);
-
-    const activeDescendant =
-      isOpen && activeOption !== undefined
-        ? `option-${autocompleteId}-${activeOption}`
-        : undefined;
-
-    const noResults = useMemo(
-      () =>
-        isString(noResultsMessage) || !noResultsMessage ? (
-          <Body className={classes['no-results']}>
-            {noResultsMessage ?? defaultNoResultsMessage}
-          </Body>
-        ) : (
-          noResultsMessage
-        ),
-      [noResultsMessage, defaultNoResultsMessage],
-    );
-
-    const results =
-      searchText || options.length ? (
-        <Results
-          listboxId={listboxId}
-          ref={resultsRef}
-          isLoading={isLoading}
-          isLoadingMore={isLoadingMore}
-          options={options}
-          loadingLabel={loadingLabel}
-          noResultsMessage={noResults}
-          value={value}
-          onOptionClick={onOptionClick}
-          label={label}
-          loadMoreLabel={loadMoreLabel}
-          activeOption={activeOption}
-          loadMore={loadMore}
-          action={action}
-          optionIdPrefix={autocompleteId}
-          allowNewItems={allowNewItems}
-          searchText={searchText}
-          resultsSummary={`${optionValues.length} ${resultsFound}.`}
-          isImmersive={isImmersive}
-          aria-setsize={ariaSetSize}
-          multiple={multiple}
-        />
-      ) : null;
-
-    const restoreValue: FocusEventHandler<HTMLInputElement> = useCallback(
-      (event) => {
-        if (!Array.isArray(value) && searchText !== value?.value) {
-          setSearchText(value?.label ?? '');
-          if (isImmersive) {
-            setPresentationFieldValue(value?.label ?? '');
-          }
-        }
-        props.onBlur?.(event);
-      },
-      [value, searchText, isImmersive, props.onBlur],
-    );
-
-    const comboboxProps = {
-      ...props,
-      label,
-      size,
-      'data-id': autocompleteId,
-      clearLabel,
-      value: searchText,
-      onChange: onComboboxChange,
-      onClear: onClear && !multiple ? onComboboxClear : undefined,
-      onKeyDown: isLoading ? undefined : onComboboxKeyDown,
-      role: 'combobox',
-      'aria-controls': listboxId,
-      autoComplete: 'off',
-      'aria-autocomplete': 'list' as const,
-      'aria-activedescendant': activeDescendant,
-      onClick: !readOnly && !disabled ? onComboboxClick : undefined,
-      readOnly,
-      disabled,
-      onBlur: allowNewItems ? undefined : restoreValue,
-      tags: Array.isArray(value) ? value : undefined,
-      onTagRemove,
-      isOpen,
-      moreResults,
-      removeTagButtonLabel,
-    };
-
-    if (isImmersive) {
-      return (
-        <>
-          <ComboboxInput
-            {...props}
-            inputClassName={props.inputClassName}
-            label={label}
-            size={size}
-            ref={applyMultipleRefs(ref, presentationFieldRef)}
-            onClick={
-              readOnly || disabled ? undefined : onPresentationFieldClick
-            }
-            value={presentationFieldValue}
-            onKeyDown={onPresentationFieldKeyDown}
-            aria-haspopup="dialog"
-            aria-expanded={isOpen}
-            onClear={
-              onClear && !multiple ? onPresentationFieldClear : undefined
-            }
-            moreResults={moreResults}
-            removeTagButtonLabel={removeTagButtonLabel}
-            clearLabel={clearLabel}
-            readOnly={readOnly}
-            disabled={disabled}
-            tags={Array.isArray(value) ? value : undefined}
-            onTagRemove={onTagRemove}
-            isOpen={false}
-          />
-          <Modal
-            open={isOpen}
-            className={classes.modal}
-            contentClassName={classes['modal-content']}
-            onClose={closeResults}
-          >
-            <div ref={inputWrapperRef} className={classes['modal-input']}>
-              <ComboboxInput
-                ref={comboboxRef}
-                {...comboboxProps}
-                inputClassName={classes.input}
-                aria-expanded={true}
-              />
-            </div>
-            {results}
-          </Modal>
-        </>
-      );
     }
+  }, [isLoading]);
 
+  const closeResults = useCallback(() => {
+    setIsOpen(false);
+    // when we close the listbox, set the search text to the value of the combobox,
+    // otherwise, reset it.
+    if (!Array.isArray(value)) {
+      changeInputValue(comboboxRef.current, value?.label ?? '');
+    }
+    setActiveOption(undefined);
+  }, [value]);
+
+  const debouncedOnSearch = useMemo(
+    () =>
+      debounce(
+        (changeEvent: ChangeEvent<HTMLInputElement>) =>
+          onSearch?.(changeEvent.target.value),
+        300,
+      ),
+    [onSearch],
+  );
+
+  const onComboboxChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      setSearchText(event.target.value);
+      setActiveOption(undefined);
+      if (event.target.value.length >= minQueryLength) {
+        debouncedOnSearch?.(event);
+      }
+    },
+    [minQueryLength, debouncedOnSearch],
+  );
+
+  const onComboboxClear = useCallback(
+    (event: ClickEvent) => {
+      changeInputValue(comboboxRef.current, '');
+      onClear?.(event);
+    },
+    [onClear],
+  );
+
+  const onPresentationFieldClear = useCallback(
+    (event: ClickEvent) => {
+      setPresentationFieldValue('');
+      setSearchText('');
+      changeInputValue(presentationFieldRef.current, '');
+      setIsOpen(true);
+      onClear?.(event);
+    },
+    [onClear],
+  );
+
+  const onPresentationFieldKeyDown = useCallback(() => {
+    setIsOpen(true);
+    setActiveOption(0);
+  }, []);
+
+  const onPresentationFieldClick = useCallback(() => {
+    setIsOpen(true);
+  }, []);
+
+  const onComboboxClick = useCallback(() => {
+    if (!isOpen) {
+      comboboxRef?.current?.select();
+      setIsOpen(true);
+    }
+  }, [isOpen]);
+
+  const { floatingStyles, refs, update } = useFloating<HTMLElement>({
+    open: isOpen,
+    placement: 'bottom',
+    strategy: 'fixed',
+    middleware: [
+      offset({ mainAxis: 4, crossAxis: 0 }),
+      shift({ padding: boundaryPadding }),
+      flip({
+        padding: boundaryPadding,
+        fallbackPlacements: multiple ? [] : ['top'],
+      }),
+      floatingSize(() => ({
+        ...sizeOptions,
+        boundary:
+          typeof window !== 'undefined'
+            ? {
+                x: 0,
+                y: 0,
+                width: window.innerWidth,
+                height: window.innerHeight,
+              }
+            : undefined,
+      })),
+    ],
+    whileElementsMounted: autoUpdate,
+  });
+
+  useEffect(() => {
+    if (value && !Array.isArray(value)) {
+      setSearchText(value.label ?? '');
+      if (isImmersive) {
+        setPresentationFieldValue(value.label ?? '');
+      }
+    }
+  }, [value, isImmersive]);
+
+  const onOptionClick = useCallback(
+    (selectedValue: AutocompleteInputOption) => {
+      if (multiple) {
+        setSearchText('');
+        // put focus back on the input field after selection
+        comboboxRef.current?.focus({ preventScroll: true });
+      } else {
+        closeResults();
+      }
+      onChange(selectedValue);
+    },
+    [onChange, closeResults, multiple],
+  );
+
+  const onTagRemove = useCallback(
+    (tagValue: AutocompleteInputOption) => {
+      onChange(tagValue);
+      comboboxRef.current?.focus({ preventScroll: true });
+    },
+    [onChange],
+  );
+
+  const onComboboxKeyDown: KeyboardEventHandler<HTMLInputElement> = useCallback(
+    (event) => {
+      if (isOpen) {
+        if (isArrowDown(event) || isArrowUp(event)) {
+          event.preventDefault();
+          const totalDisplayedOptions =
+            resultsRef.current?.querySelectorAll('[role="option"]').length ?? 0;
+
+          if (activeOption === undefined) {
+            setActiveOption(isArrowDown(event) ? 0 : optionValues.length - 1);
+          } else {
+            const nextOption =
+              (activeOption +
+                totalDisplayedOptions +
+                (isArrowDown(event) ? 1 : -1)) %
+              totalDisplayedOptions;
+
+            setActiveOption(nextOption);
+          }
+        }
+        if (isEnter(event)) {
+          event.preventDefault();
+          event.stopPropagation();
+          if (allowNewItems && searchText !== '') {
+            onOptionClick({
+              value: searchText,
+              label: searchText,
+            });
+          } else if (activeOption !== undefined) {
+            onOptionClick(
+              getOptionByValue(options, optionValues[activeOption]),
+            );
+          }
+          if (!activeOption || !searchText) {
+            closeResults();
+          }
+        }
+        if (
+          isBackspace(event) &&
+          !searchText &&
+          Array.isArray(value) &&
+          value.length > 0
+        ) {
+          // if the search text is empty and the user presses backspace,
+          // remove the last selected value
+          onChange(value[value.length - 1]);
+        }
+      } else if (!isEnter(event)) {
+        setIsOpen(true);
+        setActiveOption(0);
+      }
+    },
+    [
+      isOpen,
+      activeOption,
+      onChange,
+      optionValues,
+      onOptionClick,
+      searchText,
+      options,
+      allowNewItems,
+      value,
+      closeResults,
+    ],
+  );
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: we need to update the floating element styles if the options length changes
+  useEffect(() => {
+    if (isOpen) {
+      if (isMobile && hasTouch) {
+        comboboxRef.current?.focus({ preventScroll: true });
+      }
+      update();
+    }
+  }, [isOpen, update, options.length, value]);
+
+  const handleClickOutside = useCallback(() => {
+    if (!isImmersive) {
+      closeResults();
+    }
+  }, [closeResults, isImmersive]);
+  useClickOutside([inputWrapperRef, refs.floating], handleClickOutside);
+
+  useEscapeKey(closeResults, isOpen);
+
+  useEffect(() => {
+    // if readOnly or disabled props become truthy, close the list box
+    if ((readOnly || disabled) && isOpen) {
+      closeResults();
+    }
+  }, [readOnly, disabled, isOpen, closeResults]);
+
+  const activeDescendant =
+    isOpen && activeOption !== undefined
+      ? `option-${autocompleteId}-${activeOption}`
+      : undefined;
+
+  const noResults = useMemo(
+    () =>
+      isString(noResultsMessage) || !noResultsMessage ? (
+        <Body className={classes['no-results']}>
+          {noResultsMessage ?? defaultNoResultsMessage}
+        </Body>
+      ) : (
+        noResultsMessage
+      ),
+    [noResultsMessage, defaultNoResultsMessage],
+  );
+
+  const results =
+    searchText || options.length ? (
+      <Results
+        listboxId={listboxId}
+        ref={resultsRef}
+        isLoading={isLoading}
+        isLoadingMore={isLoadingMore}
+        options={options}
+        loadingLabel={loadingLabel}
+        noResultsMessage={noResults}
+        value={value}
+        onOptionClick={onOptionClick}
+        label={label}
+        loadMoreLabel={loadMoreLabel}
+        activeOption={activeOption}
+        loadMore={loadMore}
+        action={action}
+        optionIdPrefix={autocompleteId}
+        allowNewItems={allowNewItems}
+        searchText={searchText}
+        resultsSummary={`${optionValues.length} ${resultsFound}.`}
+        isImmersive={isImmersive}
+        aria-setsize={ariaSetSize}
+        multiple={multiple}
+      />
+    ) : null;
+
+  const comboboxProps = {
+    ...props,
+    label,
+    size,
+    'data-id': autocompleteId,
+    clearLabel,
+    value: !Array.isArray(value) && !isOpen ? value?.label : searchText,
+    onChange: onComboboxChange,
+    onClear: onClear && !multiple ? onComboboxClear : undefined,
+    onKeyDown: isLoading ? undefined : onComboboxKeyDown,
+    role: 'combobox',
+    'aria-controls': listboxId,
+    autoComplete: 'off',
+    'aria-autocomplete': 'list' as const,
+    'aria-activedescendant': activeDescendant,
+    onClick: !readOnly && !disabled ? onComboboxClick : undefined,
+    readOnly,
+    disabled,
+    tags: Array.isArray(value) ? value : undefined,
+    onTagRemove,
+    isOpen,
+    moreResults,
+    removeTagButtonLabel,
+  };
+
+  if (isImmersive) {
     return (
       <>
-        <div ref={inputWrapperRef}>
-          <ComboboxInput
-            ref={applyMultipleRefs(comboboxRef, ref, refs.setReference)}
-            inputClassName={props.inputClassName}
-            aria-expanded={isOpen}
-            aria-haspopup="listbox"
-            {...comboboxProps}
-          />
-        </div>
-        {isOpen && (
-          <div
-            className={classes.results}
-            ref={refs.setFloating}
-            style={{
-              ...floatingStyles,
-              width: comboboxRef.current?.parentElement?.offsetWidth ?? 0,
-              maxWidth: comboboxRef.current?.parentElement?.offsetWidth ?? 0,
-            }}
-          >
-            {results}
+        <ComboboxInput
+          {...props}
+          inputClassName={props.inputClassName}
+          label={label}
+          size={size}
+          ref={applyMultipleRefs(ref, presentationFieldRef)}
+          onClick={readOnly || disabled ? undefined : onPresentationFieldClick}
+          value={presentationFieldValue}
+          onKeyDown={onPresentationFieldKeyDown}
+          aria-haspopup="dialog"
+          aria-expanded={isOpen}
+          onClear={onClear && !multiple ? onPresentationFieldClear : undefined}
+          moreResults={moreResults}
+          removeTagButtonLabel={removeTagButtonLabel}
+          clearLabel={clearLabel}
+          readOnly={readOnly}
+          disabled={disabled}
+          tags={Array.isArray(value) ? value : undefined}
+          onTagRemove={onTagRemove}
+          isOpen={false}
+        />
+        <Modal
+          open={isOpen}
+          className={classes.modal}
+          contentClassName={classes['modal-content']}
+          onClose={closeResults}
+        >
+          <div ref={inputWrapperRef} className={classes['modal-input']}>
+            <ComboboxInput
+              ref={comboboxRef}
+              {...comboboxProps}
+              inputClassName={classes.input}
+              aria-expanded={true}
+            />
           </div>
-        )}
+          {results}
+        </Modal>
       </>
     );
-  },
-);
+  }
+
+  return (
+    <>
+      <div ref={inputWrapperRef}>
+        <ComboboxInput
+          ref={applyMultipleRefs(comboboxRef, ref)}
+          comboboxRef={refs.setReference}
+          inputClassName={props.inputClassName}
+          aria-expanded={isOpen}
+          aria-haspopup="listbox"
+          {...comboboxProps}
+        />
+      </div>
+      {isOpen && (
+        <div
+          className={classes.results}
+          ref={refs.setFloating}
+          style={{
+            ...floatingStyles,
+            width: refs.reference.current?.parentElement?.offsetWidth ?? 0,
+            maxWidth: refs.reference.current?.parentElement?.offsetWidth ?? 0,
+          }}
+        >
+          {results}
+        </div>
+      )}
+    </>
+  );
+}

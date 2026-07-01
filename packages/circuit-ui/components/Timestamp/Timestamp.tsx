@@ -15,7 +15,7 @@
 
 'use client';
 
-import { forwardRef, useEffect, useState, type HTMLAttributes } from 'react';
+import { useEffect, useState, type HTMLAttributes, type Ref } from 'react';
 import { Temporal } from 'temporal-polyfill';
 
 import type { Locale } from '../../util/i18n.js';
@@ -25,6 +25,7 @@ import { getInitialState, getState } from './TimestampService.js';
 import classes from './Timestamp.module.css';
 
 export interface TimestampProps extends HTMLAttributes<HTMLTimeElement> {
+  ref?: Ref<HTMLTimeElement>;
   /**
    * A datetime in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
    * format (`YYYY-MM-DDThh:mm:ss.sss[time-zone-id]`). Must include an
@@ -66,26 +67,40 @@ export interface TimestampProps extends HTMLAttributes<HTMLTimeElement> {
 /**
  * The Timestamp component displays a human readable date time.
  */
-export const Timestamp = forwardRef<HTMLTimeElement, TimestampProps>(
-  (
-    {
-      datetime,
-      variant = 'auto',
-      formatStyle = 'long',
-      includeTime = false,
-      locale,
-      className,
-      ...props
-    },
-    ref,
-  ) => {
-    const zonedDateTime = Temporal.ZonedDateTime.from(datetime);
-    const [state, setState] = useState(
-      getInitialState({ datetime, locale, formatStyle, includeTime }),
-    );
+export function Timestamp({
+  datetime,
+  variant = 'auto',
+  formatStyle = 'long',
+  includeTime = false,
+  locale,
+  className,
+  ...props
+}: TimestampProps) {
+  const zonedDateTime = Temporal.ZonedDateTime.from(datetime);
+  const [state, setState] = useState(
+    getInitialState({ datetime, locale, formatStyle, includeTime }),
+  );
 
-    // Update state on props change
-    useEffect(() => {
+  // Update state on props change
+  useEffect(() => {
+    setState(
+      getState({
+        datetime,
+        locale,
+        formatStyle,
+        variant,
+        includeTime,
+      }),
+    );
+  }, [datetime, variant, formatStyle, locale, includeTime]);
+
+  // Update state in regular intervals for relative times
+  useEffect(() => {
+    if (!state.interval) {
+      return undefined;
+    }
+
+    const timer = setInterval(() => {
       setState(
         getState({
           datetime,
@@ -95,48 +110,28 @@ export const Timestamp = forwardRef<HTMLTimeElement, TimestampProps>(
           includeTime,
         }),
       );
-    }, [datetime, variant, formatStyle, locale, includeTime]);
+    }, state.interval);
 
-    // Update state in regular intervals for relative times
-    useEffect(() => {
-      if (!state.interval) {
-        return undefined;
-      }
+    return () => {
+      clearInterval(timer);
+    };
+  }, [state.interval, datetime, variant, formatStyle, locale, includeTime]);
 
-      const timer = setInterval(() => {
-        setState(
-          getState({
-            datetime,
-            locale,
-            formatStyle,
-            variant,
-            includeTime,
-          }),
-        );
-      }, state.interval);
-
-      return () => {
-        clearInterval(timer);
-      };
-    }, [state.interval, datetime, variant, formatStyle, locale, includeTime]);
-
-    return (
-      <time
-        ref={ref}
-        dateTime={zonedDateTime.toString({ timeZoneName: 'never' })}
-        title={zonedDateTime.toLocaleString(locale, {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit',
-          timeZoneName: 'short',
-        })}
-        className={clsx(className, classes.base)}
-        {...props}
-      >
-        {state.label}
-      </time>
-    );
-  },
-);
+  return (
+    <time
+      dateTime={zonedDateTime.toString({ timeZoneName: 'never' })}
+      title={zonedDateTime.toLocaleString(locale, {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        timeZoneName: 'short',
+      })}
+      className={clsx(className, classes.base)}
+      {...props}
+    >
+      {state.label}
+    </time>
+  );
+}

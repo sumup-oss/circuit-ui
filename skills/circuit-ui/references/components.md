@@ -22,6 +22,7 @@
 
 | Component | Status | Package | Source export | Usage reference |
 | --- | --- | --- | --- | --- |
+| `AutocompleteInput` | `stable` | `@sumup-oss/circuit-ui` | `./components/AutocompleteInput/index.js` | [Read MDX reference](components/AutocompleteInput.mdx) |
 | `Calendar` | `stable` | `@sumup-oss/circuit-ui` | `./components/Calendar/index.js` | [Read MDX reference](components/Calendar.mdx) |
 | `Checkbox` | `stable` | `@sumup-oss/circuit-ui` | `./components/Checkbox/index.js` | [Read MDX reference](components/Checkbox.mdx) |
 | `CheckboxGroup` | `stable` | `@sumup-oss/circuit-ui` | `./components/CheckboxGroup/index.js` | [Read MDX reference](components/CheckboxGroup.mdx) |
@@ -102,7 +103,6 @@
 | --- | --- | --- | --- | --- |
 | `Anchor` | `stable` | `@sumup-oss/circuit-ui` | `./components/Anchor/index.js` | [Read MDX reference](components/Anchor.mdx) |
 | `Body` | `stable` | `@sumup-oss/circuit-ui` | `./components/Body/index.js` | [Read MDX reference](components/Body.mdx) |
-| `BodyLarge` | Unknown | `@sumup-oss/circuit-ui` | `./components/BodyLarge/index.js` | Not available |
 | `Compact` | `stable` | `@sumup-oss/circuit-ui` | `./components/Compact/index.js` | [Read MDX reference](components/Compact.mdx) |
 | `Display` | `stable` | `@sumup-oss/circuit-ui` | `./components/Display/index.js` | [Read MDX reference](components/Display.mdx) |
 | `Headline` | `stable` | `@sumup-oss/circuit-ui` | `./components/Headline/index.js` | [Read MDX reference](components/Headline.mdx) |

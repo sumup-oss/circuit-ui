@@ -15,11 +15,11 @@
 
 'use client';
 
-import {
-  forwardRef,
-  type ButtonHTMLAttributes,
-  type AnchorHTMLAttributes,
-  type ReactNode,
+import type {
+  ButtonHTMLAttributes,
+  AnchorHTMLAttributes,
+  ReactNode,
+  Ref,
 } from 'react';
 import type { IconComponentType } from '@sumup-oss/icons';
 
@@ -137,7 +137,8 @@ export function createButtonComponent<Props>(
   // TODO: Refactor to `mapClassName` once the deprecations have been removed.
   mapProps: (props: Props) => CreateButtonComponentProps,
 ) {
-  const Button = forwardRef<any, Props>((props, ref) => {
+  // biome-ignore lint/suspicious/noExplicitAny: Polymorphic component supports button, anchor, and custom elements
+  function Button({ ref, ...rest }: Props & { ref?: Ref<any> }) {
     const {
       children,
       onClick,
@@ -153,7 +154,7 @@ export function createButtonComponent<Props>(
       as,
       locale,
       ...sharedProps
-    } = useI18n(mapProps(props as Props), translations);
+    } = useI18n(mapProps(rest as Props), translations);
 
     const components = useComponents();
     const Link = components.Link as AsPropType;
@@ -235,7 +236,7 @@ export function createButtonComponent<Props>(
         </span>
       </Element>
     );
-  });
+  }
 
   Button.displayName = componentName;
 

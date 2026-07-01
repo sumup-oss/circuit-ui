@@ -17,9 +17,9 @@
 
 import {
   createContext,
-  forwardRef,
   useContext,
   type ReactNode,
+  type Ref,
   type HTMLAttributes,
 } from 'react';
 
@@ -31,6 +31,7 @@ import classes from './Skeleton.module.css';
 const SkeletonContext = createContext(false);
 
 export interface SkeletonContainerProps extends HTMLAttributes<HTMLDivElement> {
+  ref?: Ref<HTMLDivElement>;
   /**
    * The SkeletonContainer should wrap the entire section that's loading.
    */
@@ -45,29 +46,33 @@ export interface SkeletonContainerProps extends HTMLAttributes<HTMLDivElement> {
  * The SkeletonContainer wraps a section that's loading. It disables user
  * interactions and signals to screen readers that content is being loaded.
  */
-export const SkeletonContainer = forwardRef<
-  HTMLDivElement,
-  SkeletonContainerProps
->(({ children, className, isLoading, ...props }, ref) => (
-  <SkeletonContext.Provider value={isLoading}>
-    <div
-      {...props}
-      className={clsx(classes.container, className)}
-      ref={ref}
-      aria-busy={isLoading}
-      // @ts-expect-error `inert` is a new HTML attribute to prevent user input events in an area.
-      // This is a progressive enhancement since few browsers support it yet.
-      // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inert
-      inert={isLoading ? true : null}
-    >
-      {children}
-    </div>
-  </SkeletonContext.Provider>
-));
-
-SkeletonContainer.displayName = 'SkeletonContainer';
+export function SkeletonContainer({
+  children,
+  className,
+  isLoading,
+  ref,
+  ...props
+}: SkeletonContainerProps) {
+  return (
+    <SkeletonContext.Provider value={isLoading}>
+      <div
+        {...props}
+        className={clsx(classes.container, className)}
+        ref={ref}
+        aria-busy={isLoading}
+        // @ts-expect-error `inert` is a new HTML attribute to prevent user input events in an area.
+        // This is a progressive enhancement since few browsers support it yet.
+        // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inert
+        inert={isLoading ? true : null}
+      >
+        {children}
+      </div>
+    </SkeletonContext.Provider>
+  );
+}
 
 export interface SkeletonProps extends HTMLAttributes<HTMLSpanElement> {
+  ref?: Ref<HTMLSpanElement>;
   /**
    * The content that should be replaced by a skeleton element when it being
    * loaded.
@@ -88,33 +93,36 @@ export interface SkeletonProps extends HTMLAttributes<HTMLSpanElement> {
  * A placeholder for asynchronously loaded content with a subtle loading
  * animation. Only works when wrapped in a SkeletonContainer.
  */
-export const Skeleton = forwardRef<HTMLSpanElement, SkeletonProps>(
-  ({ children, className, as: Element = 'span', circle, ...props }, ref) => {
-    const isLoading = useContext(SkeletonContext);
+export function Skeleton({
+  children,
+  className,
+  as: Element = 'span',
+  circle,
+  ref,
+  ...props
+}: SkeletonProps) {
+  const isLoading = useContext(SkeletonContext);
 
-    if (isLoading) {
-      return (
-        <Element
-          {...props}
-          className={clsx(
-            classes.base,
-            classes.placeholder,
-            circle && classes.circle,
-            className,
-          )}
-          ref={ref}
-        >
-          {children}
-        </Element>
-      );
-    }
-
+  if (isLoading) {
     return (
-      <Element {...props} className={clsx(classes.base, className)} ref={ref}>
+      <Element
+        {...props}
+        className={clsx(
+          classes.base,
+          classes.placeholder,
+          circle && classes.circle,
+          className,
+        )}
+        ref={ref}
+      >
         {children}
       </Element>
     );
-  },
-);
+  }
 
-Skeleton.displayName = 'Skeleton';
+  return (
+    <Element {...props} className={clsx(classes.base, className)} ref={ref}>
+      {children}
+    </Element>
+  );
+}

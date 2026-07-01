@@ -61,7 +61,6 @@ export const Weights = (args: CompactProps) =>
 const colors = [
   'normal',
   'subtle',
-  'placeholder',
   'on-strong',
   'on-strong-subtle',
   'accent',

@@ -15,14 +15,7 @@
 
 'use client';
 
-import {
-  Children,
-  cloneElement,
-  type ForwardRefExoticComponent,
-  type PropsWithoutRef,
-  type ReactElement,
-  type RefAttributes,
-} from 'react';
+import { Children, cloneElement, type ReactElement } from 'react';
 import type { IconComponentType, IconProps } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
@@ -62,9 +55,7 @@ export type IconButtonProps = SharedButtonProps & {
  * The IconButton component enables the user to perform an action or navigate
  * to a different screen.
  */
-export const IconButton: ForwardRefExoticComponent<
-  PropsWithoutRef<IconButtonProps> & RefAttributes<any>
-> = createButtonComponent<IconButtonProps>(
+export const IconButton = createButtonComponent<IconButtonProps>(
   'IconButton',
   ({
     className,
@@ -110,7 +101,7 @@ export const IconButton: ForwardRefExoticComponent<
 
     return {
       className: clsx(classes.base, classes[size], className),
-      icon: (iconProps) => {
+      icon: (iconProps: IconProps) => {
         if (Icon) {
           return <Icon {...iconProps} />;
         }
@@ -130,5 +121,3 @@ export const IconButton: ForwardRefExoticComponent<
     };
   },
 );
-
-IconButton.displayName = 'IconButton';
