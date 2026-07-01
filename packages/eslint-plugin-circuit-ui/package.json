@@ -1,6 +1,6 @@
 {
   "name": "@sumup-oss/eslint-plugin-circuit-ui",
-  "version": "7.3.0",
+  "version": "8.0.0-next.0",
   "description": "ESLint rules to lint Circuit UI.",
   "keywords": [
     "sumup",
@@ -36,14 +36,14 @@
     "@typescript-eslint/utils": "^8.59.4"
   },
   "devDependencies": {
-    "@sumup-oss/design-tokens": "^10.0.0",
+    "@sumup-oss/design-tokens": "^11.0.0-next.0",
     "@tsconfig/node20": "^20.1.9",
     "@typescript-eslint/rule-tester": "^8.59.4",
     "typescript": "^6.0.3",
     "vitest": "^4.1.5"
   },
   "peerDependencies": {
-    "@sumup-oss/circuit-ui": ">=10.0.0",
-    "@sumup-oss/design-tokens": ">=9.0.0"
+    "@sumup-oss/circuit-ui": ">=12.0.0-next.0",
+    "@sumup-oss/design-tokens": ">=11.0.0-next.0"
   }
 }
