@@ -92,6 +92,7 @@
     "nx": "22.6.3",
     "eslint": "^9.0.0",
     "storybook": "$storybook",
-    "stylus": "^0.64.0"
+    "stylus": "^0.64.0",
+    "undici": ">=7.28.0"
   }
 }
