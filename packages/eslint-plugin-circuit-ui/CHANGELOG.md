@@ -1,5 +1,11 @@
 # @sumup-oss/eslint-plugin-circuit-ui
 
+## 7.4.0
+
+### Minor Changes
+
+- [#3696](https://github.com/sumup-oss/circuit-ui/pull/3696) [`7f41894`](https://github.com/sumup-oss/circuit-ui/commit/7f4189458453fce501715d3ddaa73b10f4c6ab24) Thanks [@sirineJ](https://github.com/sirineJ)! - Added a `no-deprecated-icons` rule to flag and replace deprecated icons with their suggested alternatives.
+
 ## 7.3.0
 
 ### Minor Changes
