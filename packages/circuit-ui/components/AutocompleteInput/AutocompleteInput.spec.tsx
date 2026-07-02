@@ -25,9 +25,16 @@ import {
   vi,
 } from 'vitest';
 import { within } from '@testing-library/react';
-import { createRef } from 'react';
+import { createRef, useCallback, useState } from 'react';
 
-import { act, axe, render, userEvent, screen } from '../../util/test-utils.js';
+import {
+  act,
+  axe,
+  render,
+  userEvent,
+  screen,
+  waitFor,
+} from '../../util/test-utils.js';
 import { useMedia } from '../../hooks/useMedia/index.js';
 import { Button } from '../Button/index.js';
 
@@ -111,6 +118,7 @@ describe('AutocompleteInput', () => {
       vi.runAllTimers();
     });
     expect(props.onClear).toHaveBeenCalledOnce();
+    expect(props.onSearch).toHaveBeenLastCalledWith('');
   });
 
   it("should restore display value on blur if user doesn't make a selection", async () => {
@@ -134,6 +142,53 @@ describe('AutocompleteInput', () => {
       input.blur();
     });
     expect(input).toHaveValue('Foo');
+    expect(props.onSearch).toHaveBeenLastCalledWith('');
+  });
+
+  it('should reset filtered options after blur without selection when options are derived from onSearch', async () => {
+    const selected = options[0];
+    const filterByQuery = (query: string) =>
+      options.filter((option) =>
+        option.label.toLowerCase().includes(query.trim().toLowerCase()),
+      );
+
+    function ControlledAutocomplete() {
+      const [value, setValue] = useState(selected);
+      const [filteredOptions, setFilteredOptions] = useState(options);
+      const onSearch = useCallback((query: string) => {
+        props.onSearch(query);
+        setFilteredOptions(filterByQuery(query));
+      }, []);
+
+      return (
+        <AutocompleteInput
+          {...props}
+          value={value}
+          options={filteredOptions}
+          onSearch={onSearch}
+          onChange={setValue}
+        />
+      );
+    }
+
+    render(<ControlledAutocomplete />);
+    const input = screen.getByRole('combobox', { name: props.label });
+
+    await userEvent.click(input);
+    await userEvent.clear(input);
+    await userEvent.type(input, 'lu');
+    act(() => {
+      vi.runAllTimers();
+    });
+    expect(screen.getAllByRole('option')).toHaveLength(1);
+
+    act(() => {
+      input.blur();
+    });
+    expect(props.onSearch).toHaveBeenLastCalledWith('');
+
+    await userEvent.click(input);
+    expect(screen.getAllByRole('option')).toHaveLength(options.length);
   });
 
   it('should call onSearch when the user types', async () => {
@@ -329,6 +384,23 @@ describe('AutocompleteInput', () => {
       expect(screen.getByRole('listbox')).toBeVisible();
 
       await userEvent.keyboard('{Enter}');
+      expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+    });
+
+    it('should close the list box when focus moves to another element via Tab', async () => {
+      render(
+        <>
+          <AutocompleteInput {...props} />
+          <Button>Next field</Button>
+        </>,
+      );
+      await userEvent.click(
+        screen.getByRole('combobox', { name: props.label }),
+      );
+      expect(screen.getByRole('listbox')).toBeVisible();
+
+      await userEvent.tab();
+
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
     });
   });
@@ -540,6 +612,33 @@ describe('AutocompleteInput', () => {
 
       await userEvent.click(screen.getByLabelText(props.label));
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    });
+
+    it('should call onSearch with an empty string when the modal is dismissed without selection', async () => {
+      render(
+        <AutocompleteInput {...props} variant="immersive" value={options[0]} />,
+      );
+
+      await userEvent.click(screen.getByLabelText(props.label));
+      const dialog = screen.getByRole('dialog');
+      const combobox = within(dialog).getByRole('combobox', {
+        name: props.label,
+      });
+
+      await userEvent.type(combobox, 'zzz');
+      act(() => {
+        vi.runAllTimers();
+      });
+
+      await userEvent.click(screen.getByRole('button', { name: 'Close' }));
+      act(() => {
+        vi.advanceTimersByTime(300);
+      });
+
+      await waitFor(() => {
+        expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+      });
+      expect(props.onSearch).toHaveBeenLastCalledWith('');
     });
   });
 
