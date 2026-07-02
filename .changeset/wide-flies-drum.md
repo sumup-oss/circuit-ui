@@ -2,4 +2,4 @@
 "@sumup-oss/icons": minor
 ---
 
-Added cash_drawer icon in size 24.
+Added a CashDrawer icon in size 24.
