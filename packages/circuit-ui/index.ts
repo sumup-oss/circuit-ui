@@ -76,6 +76,8 @@ export { ButtonGroup } from './components/ButtonGroup/index.js';
 export type { ButtonGroupProps } from './components/ButtonGroup/index.js';
 export { CloseButton } from './components/CloseButton/index.js';
 export type { CloseButtonProps } from './components/CloseButton/index.js';
+export { CopyButton } from './components/CopyButton/index.js';
+export type { CopyButtonProps } from './components/CopyButton/index.js';
 export { IconButton } from './components/Button/index.js';
 export type { IconButtonProps } from './components/Button/index.js';
 export { Toggle } from './components/Toggle/index.js';
