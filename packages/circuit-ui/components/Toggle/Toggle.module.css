@@ -53,7 +53,7 @@
 
 .track[aria-checked="true"]:disabled,
 .track[aria-checked="true"][disabled] {
-  background-color: var(--cui-bg-accent-strong-disabled);
+  background-color: var(--cui-bg-strong-disabled);
   border: 1px solid transparent;
 }
 

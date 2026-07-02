@@ -135,6 +135,38 @@ ruleTester.run(
           },
         ],
       },
+      {
+        name: 'deprecated custom property with a replacement token',
+        code: `
+          const styles = css\`
+            background-color: var(--cui-bg-accent-strong);
+          \`;
+        `,
+        output: `
+          const styles = css\`
+            background-color: var(--cui-bg-strong);
+          \`;
+        `,
+        errors: [
+          {
+            messageId: 'deprecated',
+          },
+        ],
+      },
+      {
+        name: 'deprecated custom property with no replacement token',
+        code: `
+          const styles = css\`
+            z-index: var(--cui-z-index-toast);
+          \`;
+        `,
+        output: null,
+        errors: [
+          {
+            messageId: 'deprecatedNoReplacement',
+          },
+        ],
+      },
     ],
   },
 );

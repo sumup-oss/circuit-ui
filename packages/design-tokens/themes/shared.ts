@@ -546,11 +546,13 @@ export const shared = [
     value: 800,
     type: 'number',
   },
+  /* eslint-disable circuit-ui/no-deprecated-custom-properties */
   {
     name: '--cui-z-index-toast',
     value: 1100,
     type: 'number',
   },
+  /* eslint-enable circuit-ui/no-deprecated-custom-properties */
 ] satisfies Token[];
 
 export const sharedUntilGiga = [

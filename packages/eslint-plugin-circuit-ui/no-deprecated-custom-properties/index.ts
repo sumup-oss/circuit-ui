@@ -20,9 +20,9 @@ import type { RuleDocs } from '../utils/meta.js';
 const DEPRECATED_CUSTOM_PROPERTIES = schema.filter(({ deprecation }) =>
   Boolean(deprecation),
 );
-const REGEX_STRING = DEPRECATED_CUSTOM_PROPERTIES.map(({ name }) => name).join(
-  '|',
-);
+const REGEX_STRING = DEPRECATED_CUSTOM_PROPERTIES.map(({ name }) => name)
+  .sort((a, b) => b.length - a.length)
+  .join('|');
 
 const createRule = ESLintUtils.RuleCreator<RuleDocs>(
   (name) =>
@@ -42,6 +42,8 @@ export const noDeprecatedCustomProperties = createRule({
     messages: {
       deprecated:
         'The `{{name}}` custom property has been deprecated. Use the `{{replacement}}` custom property instead.',
+      deprecatedNoReplacement:
+        'The `{{name}}` custom property has been deprecated. {{additionalInfo}}',
     },
   },
   defaultOptions: [],
@@ -55,33 +57,39 @@ export const noDeprecatedCustomProperties = createRule({
           // biome-ignore lint/suspicious/noAssignInExpressions: This is fine
           while ((match = regex.exec(line)) !== null) {
             const name = match[0];
-            const { replacement } = DEPRECATED_CUSTOM_PROPERTIES.find(
+            const deprecation = DEPRECATED_CUSTOM_PROPERTIES.find(
               (token) => token.name === name,
             )!.deprecation!;
-            context.report({
-              node,
-              loc: {
-                start: {
-                  line: index + 1,
-                  column: match.index,
+            const loc = {
+              start: { line: index + 1, column: match.index },
+              end: {
+                line: index + 1,
+                column: match.index + match[0].length,
+              },
+            };
+            if ('replacement' in deprecation) {
+              const replacement = String(deprecation.replacement);
+              context.report({
+                node,
+                loc,
+                messageId: 'deprecated',
+                data: { name, replacement },
+                fix(fixer) {
+                  return fixer.replaceText(
+                    node,
+                    context.sourceCode.getText(node).replace(name, replacement),
+                  );
                 },
-                end: {
-                  line: index + 1,
-                  column: match.index + match[0].length,
-                },
-              },
-              messageId: 'deprecated',
-              data: {
-                name,
-                replacement,
-              },
-              fix(fixer) {
-                return fixer.replaceText(
-                  node,
-                  context.sourceCode.getText(node).replace(name, replacement),
-                );
-              },
-            });
+              });
+            } else {
+              const additionalInfo = String(deprecation.additionalInfo);
+              context.report({
+                node,
+                loc,
+                messageId: 'deprecatedNoReplacement',
+                data: { name, additionalInfo },
+              });
+            }
           }
         });
       },

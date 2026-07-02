@@ -189,13 +189,13 @@
 /* Variants */
 .primary {
   color: var(--cui-fg-on-strong);
-  background-color: var(--cui-bg-accent-strong);
+  background-color: var(--cui-bg-strong);
   border-color: transparent;
 }
 
 .primary:hover {
   color: var(--cui-fg-on-strong-hovered);
-  background-color: var(--cui-bg-accent-strong-hovered);
+  background-color: var(--cui-bg-strong-hovered);
   border-color: transparent;
 }
 
@@ -203,7 +203,7 @@
 .primary[aria-expanded="true"],
 .primary[aria-pressed="true"] {
   color: var(--cui-fg-on-strong-pressed);
-  background-color: var(--cui-bg-accent-strong-pressed);
+  background-color: var(--cui-bg-strong-pressed);
   border-color: transparent;
 }
 
