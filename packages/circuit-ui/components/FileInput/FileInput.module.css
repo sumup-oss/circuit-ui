@@ -1,0 +1,61 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cui-spacings-bit);
+}
+
+.base {
+  position: relative;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cui-spacings-byte);
+  align-items: center;
+  justify-content: center;
+  padding: var(--cui-spacings-giga) var(--cui-spacings-tera);
+  color: var(--cui-fg-normal);
+  cursor: pointer;
+  background-color: var(--cui-bg-normal);
+  border: var(--cui-border-width-mega) dashed var(--cui-border-normal);
+  border-radius: var(--cui-border-radius-byte);
+  transition:
+    border-color var(--cui-transitions-default),
+    background-color var(--cui-transitions-default);
+}
+
+.label:hover {
+  border-color: var(--cui-border-accent);
+}
+
+.label:active {
+  background-color: var(--cui-bg-subtle);
+}
+
+.title {
+  display: flex;
+  gap: var(--cui-spacings-bit);
+}
+
+.files {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dragging {
+  background-color: var(--cui-bg-subtle);
+  border-color: var(--cui-border-focus);
+}
+
+.invalid {
+  border-color: var(--cui-border-danger);
+}
+
+[data-disabled="true"] .label {
+  color: var(--cui-fg-disabled);
+  cursor: not-allowed;
+  background-color: var(--cui-bg-subtle);
+  border-color: var(--cui-border-disabled);
+}
