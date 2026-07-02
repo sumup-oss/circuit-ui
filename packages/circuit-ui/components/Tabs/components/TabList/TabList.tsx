@@ -20,6 +20,8 @@ import {
   forwardRef,
   type HTMLAttributes,
   type KeyboardEventHandler,
+  type MouseEvent,
+  type MouseEventHandler,
   type ReactNode,
   useCallback,
   useEffect,
@@ -85,6 +87,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
       children,
       initialSelectedIndex,
       onTabChange: onTabChangeProp,
+      onClick,
       onKeyDown,
       as = 'tablist',
       ...props
@@ -118,6 +121,17 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
       gliderRef.current?.style?.setProperty('display', 'block');
       gliderRef.current?.style?.setProperty('width', `${offsetWidth}px`);
     }, []);
+
+    const onTabListClick: MouseEventHandler<HTMLDivElement> = useCallback(
+      (event) => {
+        onClick?.(event);
+        const target = event.target as HTMLDivElement;
+        if (target.role === 'tab') {
+          updateGliderStyles(target);
+        }
+      },
+      [onClick, updateGliderStyles],
+    );
 
     useEffect(() => {
       // scrolls the active tab into view on initial render
@@ -210,6 +224,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
           {...props}
           role={as === 'tablist' ? 'tablist' : 'list'}
           {...(as === 'tablist' && {
+            onClick: onTabListClick,
             onKeyDown: onTabListKeydown,
           })}
         >
@@ -230,7 +245,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
                     selected={selectedId === id}
                     onClick={(e) => {
                       tabItemOnClick?.(
-                        e as React.MouseEvent<
+                        e as MouseEvent<
                           HTMLButtonElement & HTMLAnchorElement
                         >,
                       );
