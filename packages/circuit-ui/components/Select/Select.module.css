@@ -120,8 +120,8 @@ button.prefix,
 }
 
 .wrapper.s .icon {
-  width: var(--cui-icon-sizes-giga);
-  height: var(--cui-icon-sizes-giga);
+  width: var(--cui-icon-sizes-l);
+  height: var(--cui-icon-sizes-l);
   padding: var(--cui-spacings-byte);
 }
 
@@ -146,7 +146,7 @@ button.prefix,
 }
 
 .wrapper.m .icon {
-  width: var(--cui-icon-sizes-tera);
-  height: var(--cui-icon-sizes-tera);
+  width: var(--cui-icon-sizes-xl);
+  height: var(--cui-icon-sizes-xl);
   padding: var(--cui-spacings-kilo);
 }

@@ -97,8 +97,8 @@
 .icon {
   position: relative;
   flex-shrink: 0;
-  width: var(--cui-icon-sizes-mega);
-  height: var(--cui-icon-sizes-mega);
+  width: var(--cui-icon-sizes-m);
+  height: var(--cui-icon-sizes-m);
   margin-right: var(--cui-spacings-kilo);
 }
 
@@ -150,8 +150,8 @@
 
 .suffix {
   flex-shrink: 0;
-  width: var(--cui-icon-sizes-mega);
-  height: var(--cui-icon-sizes-mega);
+  width: var(--cui-icon-sizes-m);
+  height: var(--cui-icon-sizes-m);
   margin-left: auto;
   transition: transform var(--cui-transitions-default);
 }

@@ -121,6 +121,27 @@ export const shared = [
   },
   /* Icon sizes */
   {
+    name: '--cui-icon-sizes-s',
+    value: '1rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-icon-sizes-m',
+    value: '1.5rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-icon-sizes-l',
+    value: '2rem',
+    type: 'dimension',
+  },
+  {
+    name: '--cui-icon-sizes-xl',
+    value: '3rem',
+    type: 'dimension',
+  },
+  /* eslint-disable circuit-ui/no-deprecated-custom-properties */
+  {
     name: '--cui-icon-sizes-kilo',
     value: '16px',
     type: 'dimension',
@@ -140,6 +161,7 @@ export const shared = [
     value: '48px',
     type: 'dimension',
   },
+
   /* Spacings */
   {
     name: '--cui-spacings-bit',
