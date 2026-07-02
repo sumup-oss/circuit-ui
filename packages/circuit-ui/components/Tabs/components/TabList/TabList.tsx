@@ -245,9 +245,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
                     selected={selectedId === id}
                     onClick={(e) => {
                       tabItemOnClick?.(
-                        e as MouseEvent<
-                          HTMLButtonElement & HTMLAnchorElement
-                        >,
+                        e as MouseEvent<HTMLButtonElement & HTMLAnchorElement>,
                       );
                       onTabClick(id);
                     }}
