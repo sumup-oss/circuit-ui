@@ -1,0 +1,22 @@
+.col {
+  height: 48px;
+  padding-top: var(--cui-spacings-kilo);
+  padding-bottom: var(--cui-spacings-kilo);
+  font-size: var(--cui-body-m-font-size);
+  font-weight: var(--cui-font-weight-bold);
+  line-height: var(--cui-body-m-line-height);
+  text-align: center;
+}
+
+.col:nth-of-type(n) {
+  background-color: var(--cui-bg-highlight);
+}
+
+.col:nth-of-type(2n) {
+  background-color: var(--cui-bg-subtle);
+}
+
+.row {
+  margin-bottom: 8px;
+  border: 1px solid magenta;
+}

@@ -24,7 +24,6 @@ import { noDeprecatedCustomProperties } from './no-deprecated-custom-properties/
 import { noDefaultProps } from './no-default-props/index.js';
 import { noDeprecatedProps } from './no-deprecated-props/index.js';
 import { noRenamedProps } from './no-renamed-props/index.js';
-import { preferCustomProperties } from './prefer-custom-properties/index.js';
 import { noRenamedComponents } from './no-renamed-components/index.js';
 import { noDeprecatedSpacingMixin } from './no-deprecated-spacing-mixin/index.js';
 
@@ -35,7 +34,6 @@ export const rules = {
   'no-default-props': noDefaultProps,
   'no-deprecated-props': noDeprecatedProps,
   'no-renamed-props': noRenamedProps,
-  'prefer-custom-properties': preferCustomProperties,
   'no-renamed-components': noRenamedComponents,
   'no-deprecated-spacing-mixin': noDeprecatedSpacingMixin,
 };

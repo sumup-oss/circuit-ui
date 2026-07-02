@@ -15,12 +15,6 @@
 
 import { Canvas } from '@storybook/blocks';
 
-import { Preview } from './Preview.js';
-
 export function Story({ withToolbar = true, ...props }) {
-  return (
-    <Preview>
-      <Canvas withToolbar={withToolbar} {...props} />
-    </Preview>
-  );
+  return <Canvas withToolbar={withToolbar} {...props} />;
 }

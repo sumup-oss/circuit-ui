@@ -16,18 +16,3 @@
 // Layout
 export { Grid, Row, Col } from './components/legacy/Grid/index.js';
 export type { ColProps } from './components/legacy/Grid/index.js';
-
-export {
-  cx,
-  spacing,
-  shadow,
-  disableVisually,
-  hideVisually,
-  focusOutline,
-  focusVisible,
-  clearfix,
-  hideScrollbar,
-  inputOutline,
-  typography,
-  center,
-} from './styles/style-mixins.js';
