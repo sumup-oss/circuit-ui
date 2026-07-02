@@ -20,10 +20,39 @@ import { Stack, Matrix } from '../../../../.storybook/components/index.js';
 
 import { Timestamp, type TimestampProps } from './Timestamp.js';
 
+const sizes = ['l', 'm', 's'] as const;
+const weights = ['regular', 'semibold', 'bold'] as const;
+const colors = [
+  'normal',
+  'subtle',
+  'placeholder',
+  'on-strong',
+  'on-strong-subtle',
+  'accent',
+  'success',
+  'warning',
+  'danger',
+  'promo',
+] as const;
+
 export default {
   title: 'Components/Timestamp',
   component: Timestamp,
   tags: ['status:stable'],
+  argTypes: {
+    size: {
+      control: 'select',
+      options: sizes,
+    },
+    weight: {
+      control: 'select',
+      options: weights,
+    },
+    color: {
+      control: 'select',
+      options: colors,
+    },
+  },
   chromatic: {
     modes: {
       // the theme does not impact the component
@@ -55,6 +84,9 @@ export const Base = (args: TimestampProps) => <Timestamp {...args} />;
 
 Base.args = {
   datetime: getDatetimes('relative')[2].toString(),
+  size: 'm',
+  weight: 'regular',
+  color: 'normal',
 };
 
 Base.parameters = {
