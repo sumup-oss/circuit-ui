@@ -1,0 +1,43 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './Callout.stories';
+
+<Meta of={Stories} />
+
+# Callout
+
+<Status variant="experimental" />
+
+The `Callout` component renders static inline guidance or emphasis within the content flow.
+
+<Story of={Stories.Base} />
+<Props />
+
+## Component variations
+
+### Callout variants
+
+<Story of={Stories.Variants} />
+
+- Use the 'info' variant for informational, neutral messages.
+- Use the 'success' variant for successful messages.
+- Use the 'warning' variant for warning messages, and other information a user should be aware of.
+- Use the 'danger' variant for error messages. Be descriptive and give users clear next steps.
+- Use the 'promo' variant for promotional or upgrade-related messages.
+
+### Callouts with rich content
+
+The callout body supports arbitrary React nodes.
+
+<Story of={Stories.WithRichContent} />
+
+## Accessibility
+
+### Best practices
+
+#### Place callouts close to their related content
+
+Callouts are part of the content flow, and should be placed near their related content. Make use of headings and semantic markup to programmatically group content into meaningful sections.
+
+#### Avoid dynamically rendering a callout
+
+The `Callout` component is meant for static content. If you need to render a message dynamically, you most likely want to use the [`NotificationInline`](Notifications/NotificationInline) component instead.
