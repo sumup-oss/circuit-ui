@@ -16,13 +16,6 @@
       "size": "24"
     },
     {
-      "name": "add_items",
-      "category": "Action",
-      "size": "24",
-      "alternative": ["Add", "Items"],
-      "deprecation": "Use the `Add` or `Items` icons instead."
-    },
-    {
       "name": "chevron_down",
       "category": "Action",
       "size": "24"
@@ -76,13 +69,6 @@
       "name": "controls",
       "category": "Action",
       "size": "16"
-    },
-    {
-      "name": "copy",
-      "category": "Action",
-      "size": "24",
-      "alternative": ["CopyPaste"],
-      "deprecation": "Use the `CopyPaste` icon instead."
     },
     {
       "name": "copy_paste",
@@ -435,24 +421,6 @@
       "size": "24"
     },
     {
-      "name": "sum_up_logo",
-      "category": "Brand",
-      "size": "24",
-      "deprecation": "Use the SumUpLogo component from '@sumup-oss/circuit-ui' instead."
-    },
-    {
-      "name": "sum_up_logomark",
-      "category": "Brand",
-      "size": "24",
-      "deprecation": "Use the SumUpLogo component from '@sumup-oss/circuit-ui' in its 'short' variant instead."
-    },
-    {
-      "name": "sum_up_logomark",
-      "category": "Brand",
-      "size": "32",
-      "deprecation": "Use the SumUpLogo component from '@sumup-oss/circuit-ui' in its 'short' variant instead."
-    },
-    {
       "name": "plus_tier",
       "category": "Brand",
       "size": "16"
@@ -481,13 +449,6 @@
       "name": "american_express",
       "category": "Card scheme",
       "size": "32"
-    },
-    {
-      "name": "apm",
-      "category": "Card scheme",
-      "size": "32",
-      "alternative": ["AlternativePaymentMethod"],
-      "deprecation": "Use the `AlternativePaymentMethod` icon instead."
     },
     {
       "name": "apple_pay",
@@ -670,13 +631,6 @@
       "size": "24"
     },
     {
-      "name": "email_chat",
-      "category": "Communication",
-      "size": "24",
-      "alternative": ["Email"],
-      "deprecation": "Use the `Email` icon instead."
-    },
-    {
       "name": "live_chat",
       "category": "Communication",
       "size": "24"
@@ -687,2368 +641,2324 @@
       "size": "24"
     },
     {
-      "name": "phone_chat",
-      "category": "Communication",
-      "size": "24",
-      "alternative": ["Phone"],
-      "deprecation": "Use the `Phone` icon instead."
-    },
-    {
-      "name": "flag_ae",
-      "category": "Country flag",
-      "keywords": ["United Arab Emirates"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "AE",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_ar",
-      "category": "Country flag",
-      "keywords": ["Argentina"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "AR",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_at",
-      "category": "Country flag",
-      "keywords": ["Austria"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "AT",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_au",
-      "category": "Country flag",
-      "keywords": ["Australia"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "AU",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_be",
-      "category": "Country flag",
-      "keywords": ["Belgium"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "BE",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_bg",
-      "category": "Country flag",
-      "keywords": ["Bulgaria"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "BG",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_br",
-      "category": "Country flag",
-      "keywords": ["Brazil"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "BR",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_ca",
-      "category": "Country flag",
-      "keywords": ["Canada"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "CA",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_ch",
-      "category": "Country flag",
-      "keywords": ["Switzerland"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "CH",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_cl",
-      "category": "Country flag",
-      "keywords": ["Chile"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "CL",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_co",
-      "category": "Country flag",
-      "keywords": ["Colombia"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "CO",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_cy",
-      "category": "Country flag",
-      "keywords": ["Cypress"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "CY",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_cz",
-      "category": "Country flag",
-      "keywords": ["Czech Republic"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "CZ",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_de",
-      "category": "Country flag",
-      "keywords": ["Germany"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "DE",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_dk",
-      "category": "Country flag",
-      "keywords": ["Denmark"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "DK",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_ee",
-      "category": "Country flag",
-      "keywords": ["Estonia"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "EE",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_es",
-      "category": "Country flag",
-      "keywords": ["Spain"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "ES",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_fi",
-      "category": "Country flag",
-      "keywords": ["Finland"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "FI",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_fr",
-      "category": "Country flag",
-      "keywords": ["France"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "FR",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_gb",
-      "category": "Country flag",
-      "keywords": ["Great Britain", "United Kingdom", "UK", "England"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "GB",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_gr",
-      "category": "Country flag",
-      "keywords": ["Greece"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "GR",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_hk",
-      "category": "Country flag",
-      "keywords": ["Hong Kong"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "HK",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_hr",
-      "category": "Country flag",
-      "keywords": ["Croatia"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "HR",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_hu",
-      "category": "Country flag",
-      "keywords": ["Hungary"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "HU",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_ie",
-      "category": "Country flag",
-      "keywords": ["Ireland"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "IE",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_it",
-      "category": "Country flag",
-      "keywords": ["Italy"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "IT",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_ja",
-      "category": "Country flag",
-      "keywords": ["Japan"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "JP",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_jp",
-      "category": "Country flag",
-      "keywords": ["Japan"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "JP",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_lt",
-      "category": "Country flag",
-      "keywords": ["Lithuania"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "LT",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_lu",
-      "category": "Country flag",
-      "keywords": ["Luxembourg"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "LU",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_lv",
-      "category": "Country flag",
-      "keywords": ["Latvia"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "LV",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_mt",
-      "category": "Country flag",
-      "keywords": ["Montenegro"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "MT",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_mx",
-      "category": "Country flag",
-      "keywords": ["Mexico"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "MX",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_my",
-      "category": "Country flag",
-      "keywords": ["Malaysia"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "MY",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_nl",
-      "category": "Country flag",
-      "keywords": ["Netherlands"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "NL",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_no",
-      "category": "Country flag",
-      "keywords": ["Norway"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "NO",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_nz",
-      "category": "Country flag",
-      "keywords": ["New Zeland"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "NZ",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_pe",
-      "category": "Country flag",
-      "keywords": ["Peru"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "PE",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_pl",
-      "category": "Country flag",
-      "keywords": ["Poland"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "PL",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_pt",
-      "category": "Country flag",
-      "keywords": ["Portugal"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "PT",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_ro",
-      "category": "Country flag",
-      "keywords": ["Romania"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "RO",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_se",
-      "category": "Country flag",
-      "keywords": ["Sweden"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "SE",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_sg",
-      "category": "Country flag",
-      "keywords": ["Singapore"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "SG",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_si",
-      "category": "Country flag",
-      "keywords": ["Slovenia"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "SI",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_sk",
-      "category": "Country flag",
-      "keywords": ["Slovakia"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "SK",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-    {
-      "name": "flag_us",
-      "category": "Country flag",
-      "keywords": ["United States of America", "USA"],
-      "size": "16",
-      "alternative": ["Flag"],
-      "alternativeProps": {
-        "countryCode": "US",
-        "width": "16"
-      },
-      "deprecation": "Use the Flag component instead."
-    },
-
-    {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Andorra"],
+      "keywords": [
+        "Andorra"
+      ],
       "name": "flag_ad",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["United Arab Emirates"],
+      "keywords": [
+        "United Arab Emirates"
+      ],
       "name": "flag_ae",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Afghanistan"],
+      "keywords": [
+        "Afghanistan"
+      ],
       "name": "flag_af",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Antigua and Barbuda"],
+      "keywords": [
+        "Antigua and Barbuda"
+      ],
       "name": "flag_ag",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Anguilla"],
+      "keywords": [
+        "Anguilla"
+      ],
       "name": "flag_ai",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Albania"],
+      "keywords": [
+        "Albania"
+      ],
       "name": "flag_al",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Armenia"],
+      "keywords": [
+        "Armenia"
+      ],
       "name": "flag_am",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Angola"],
+      "keywords": [
+        "Angola"
+      ],
       "name": "flag_ao",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Antarctica"],
+      "keywords": [
+        "Antarctica"
+      ],
       "name": "flag_aq",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Argentina"],
+      "keywords": [
+        "Argentina"
+      ],
       "name": "flag_ar",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["American Samoa"],
+      "keywords": [
+        "American Samoa"
+      ],
       "name": "flag_as",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Austria"],
+      "keywords": [
+        "Austria"
+      ],
       "name": "flag_at",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Australia"],
+      "keywords": [
+        "Australia"
+      ],
       "name": "flag_au",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Aruba"],
+      "keywords": [
+        "Aruba"
+      ],
       "name": "flag_aw",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Åland Islands"],
+      "keywords": [
+        "Åland Islands"
+      ],
       "name": "flag_ax",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Azerbaijan"],
+      "keywords": [
+        "Azerbaijan"
+      ],
       "name": "flag_az",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Bosnia and Herzegovina"],
+      "keywords": [
+        "Bosnia and Herzegovina"
+      ],
       "name": "flag_ba",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Barbados"],
+      "keywords": [
+        "Barbados"
+      ],
       "name": "flag_bb",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Bangladesh"],
+      "keywords": [
+        "Bangladesh"
+      ],
       "name": "flag_bd",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Belgium"],
+      "keywords": [
+        "Belgium"
+      ],
       "name": "flag_be",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Burkina Faso"],
+      "keywords": [
+        "Burkina Faso"
+      ],
       "name": "flag_bf",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Bulgaria"],
+      "keywords": [
+        "Bulgaria"
+      ],
       "name": "flag_bg",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Bahrain"],
+      "keywords": [
+        "Bahrain"
+      ],
       "name": "flag_bh",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Burundi"],
+      "keywords": [
+        "Burundi"
+      ],
       "name": "flag_bi",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Benin"],
+      "keywords": [
+        "Benin"
+      ],
       "name": "flag_bj",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Saint Barthélemy"],
+      "keywords": [
+        "Saint Barthélemy"
+      ],
       "name": "flag_bl",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Bermuda"],
+      "keywords": [
+        "Bermuda"
+      ],
       "name": "flag_bm",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Brunei Darussalam"],
+      "keywords": [
+        "Brunei Darussalam"
+      ],
       "name": "flag_bn",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Bolivia"],
+      "keywords": [
+        "Bolivia"
+      ],
       "name": "flag_bo",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Bonaire, Sint Eustatius and Saba"],
+      "keywords": [
+        "Bonaire, Sint Eustatius and Saba"
+      ],
       "name": "flag_bq",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Brazil"],
+      "keywords": [
+        "Brazil"
+      ],
       "name": "flag_br",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Bahamas"],
+      "keywords": [
+        "Bahamas"
+      ],
       "name": "flag_bs",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Bhutan"],
+      "keywords": [
+        "Bhutan"
+      ],
       "name": "flag_bt",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Bouvet Island"],
+      "keywords": [
+        "Bouvet Island"
+      ],
       "name": "flag_bv",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Botswana"],
+      "keywords": [
+        "Botswana"
+      ],
       "name": "flag_bw",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Belarus"],
+      "keywords": [
+        "Belarus"
+      ],
       "name": "flag_by",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Belize"],
+      "keywords": [
+        "Belize"
+      ],
       "name": "flag_bz",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Canada"],
+      "keywords": [
+        "Canada"
+      ],
       "name": "flag_ca",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Cocos (Keeling) Islands"],
+      "keywords": [
+        "Cocos (Keeling) Islands"
+      ],
       "name": "flag_cc",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Congo (Democratic Republic)"],
+      "keywords": [
+        "Congo (Democratic Republic)"
+      ],
       "name": "flag_cd",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Central African Republic"],
+      "keywords": [
+        "Central African Republic"
+      ],
       "name": "flag_cf",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Congo"],
+      "keywords": [
+        "Congo"
+      ],
       "name": "flag_cg",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Switzerland"],
+      "keywords": [
+        "Switzerland"
+      ],
       "name": "flag_ch",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Côte d’Ivoire"],
+      "keywords": [
+        "Côte d’Ivoire"
+      ],
       "name": "flag_ci",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Cook Islands"],
+      "keywords": [
+        "Cook Islands"
+      ],
       "name": "flag_ck",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Chile"],
+      "keywords": [
+        "Chile"
+      ],
       "name": "flag_cl",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Cameroon"],
+      "keywords": [
+        "Cameroon"
+      ],
       "name": "flag_cm",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["China"],
+      "keywords": [
+        "China"
+      ],
       "name": "flag_cn",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Colombia"],
+      "keywords": [
+        "Colombia"
+      ],
       "name": "flag_co",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Clipperton Island"],
+      "keywords": [
+        "Clipperton Island"
+      ],
       "name": "flag_cp",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Costa Rica"],
+      "keywords": [
+        "Costa Rica"
+      ],
       "name": "flag_cr",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Cuba"],
+      "keywords": [
+        "Cuba"
+      ],
       "name": "flag_cu",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Cabo Verde"],
+      "keywords": [
+        "Cabo Verde"
+      ],
       "name": "flag_cv",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Curaçao"],
+      "keywords": [
+        "Curaçao"
+      ],
       "name": "flag_cw",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Christmas Island"],
+      "keywords": [
+        "Christmas Island"
+      ],
       "name": "flag_cx",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Cyprus"],
+      "keywords": [
+        "Cyprus"
+      ],
       "name": "flag_cy",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Czechia"],
+      "keywords": [
+        "Czechia"
+      ],
       "name": "flag_cz",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Germany"],
+      "keywords": [
+        "Germany"
+      ],
       "name": "flag_de",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Diego Garcia"],
+      "keywords": [
+        "Diego Garcia"
+      ],
       "name": "flag_dg",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Djibouti"],
+      "keywords": [
+        "Djibouti"
+      ],
       "name": "flag_dj",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Denmark"],
+      "keywords": [
+        "Denmark"
+      ],
       "name": "flag_dk",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Dominica"],
+      "keywords": [
+        "Dominica"
+      ],
       "name": "flag_dm",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Dominican Republic"],
+      "keywords": [
+        "Dominican Republic"
+      ],
       "name": "flag_do",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Algeria"],
+      "keywords": [
+        "Algeria"
+      ],
       "name": "flag_dz",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Ecuador"],
+      "keywords": [
+        "Ecuador"
+      ],
       "name": "flag_ec",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Estonia"],
+      "keywords": [
+        "Estonia"
+      ],
       "name": "flag_ee",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Egypt"],
+      "keywords": [
+        "Egypt"
+      ],
       "name": "flag_eg",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Western Sahara"],
+      "keywords": [
+        "Western Sahara"
+      ],
       "name": "flag_eh",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Eritrea"],
+      "keywords": [
+        "Eritrea"
+      ],
       "name": "flag_er",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Spain"],
+      "keywords": [
+        "Spain"
+      ],
       "name": "flag_es",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Catalonia"],
+      "keywords": [
+        "Catalonia"
+      ],
       "name": "flag_es-ct",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Ethiopia"],
+      "keywords": [
+        "Ethiopia"
+      ],
       "name": "flag_et",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["European Union"],
+      "keywords": [
+        "European Union"
+      ],
       "name": "flag_eu",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Finland"],
+      "keywords": [
+        "Finland"
+      ],
       "name": "flag_fi",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Fiji"],
+      "keywords": [
+        "Fiji"
+      ],
       "name": "flag_fj",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Falkland Islands"],
+      "keywords": [
+        "Falkland Islands"
+      ],
       "name": "flag_fk",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Micronesia"],
+      "keywords": [
+        "Micronesia"
+      ],
       "name": "flag_fm",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Faroe Islands"],
+      "keywords": [
+        "Faroe Islands"
+      ],
       "name": "flag_fo",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["France"],
+      "keywords": [
+        "France"
+      ],
       "name": "flag_fr",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Gabon"],
+      "keywords": [
+        "Gabon"
+      ],
       "name": "flag_ga",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["United Kingdom"],
+      "keywords": [
+        "United Kingdom"
+      ],
       "name": "flag_gb",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Grenada"],
+      "keywords": [
+        "Grenada"
+      ],
       "name": "flag_gd",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Georgia"],
+      "keywords": [
+        "Georgia"
+      ],
       "name": "flag_ge",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["French Guiana"],
+      "keywords": [
+        "French Guiana"
+      ],
       "name": "flag_gf",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Guernsey"],
+      "keywords": [
+        "Guernsey"
+      ],
       "name": "flag_gg",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Ghana"],
+      "keywords": [
+        "Ghana"
+      ],
       "name": "flag_gh",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Gibraltar"],
+      "keywords": [
+        "Gibraltar"
+      ],
       "name": "flag_gi",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Greenland"],
+      "keywords": [
+        "Greenland"
+      ],
       "name": "flag_gl",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Gambia"],
+      "keywords": [
+        "Gambia"
+      ],
       "name": "flag_gm",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Guinea"],
+      "keywords": [
+        "Guinea"
+      ],
       "name": "flag_gn",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Guadeloupe"],
+      "keywords": [
+        "Guadeloupe"
+      ],
       "name": "flag_gp",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Equatorial Guinea"],
+      "keywords": [
+        "Equatorial Guinea"
+      ],
       "name": "flag_gq",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Greece"],
+      "keywords": [
+        "Greece"
+      ],
       "name": "flag_gr",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["South Georgia and the South Sandwich Islands"],
+      "keywords": [
+        "South Georgia and the South Sandwich Islands"
+      ],
       "name": "flag_gs",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Guatemala"],
+      "keywords": [
+        "Guatemala"
+      ],
       "name": "flag_gt",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Guam"],
+      "keywords": [
+        "Guam"
+      ],
       "name": "flag_gu",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Guinea-Bissau"],
+      "keywords": [
+        "Guinea-Bissau"
+      ],
       "name": "flag_gw",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Guyana"],
+      "keywords": [
+        "Guyana"
+      ],
       "name": "flag_gy",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Hong Kong"],
+      "keywords": [
+        "Hong Kong"
+      ],
       "name": "flag_hk",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Heard Island and McDonald Islands"],
+      "keywords": [
+        "Heard Island and McDonald Islands"
+      ],
       "name": "flag_hm",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Honduras"],
+      "keywords": [
+        "Honduras"
+      ],
       "name": "flag_hn",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Croatia"],
+      "keywords": [
+        "Croatia"
+      ],
       "name": "flag_hr",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Haiti"],
+      "keywords": [
+        "Haiti"
+      ],
       "name": "flag_ht",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Hungary"],
+      "keywords": [
+        "Hungary"
+      ],
       "name": "flag_hu",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Canary Islands"],
+      "keywords": [
+        "Canary Islands"
+      ],
       "name": "flag_ic",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Indonesia"],
+      "keywords": [
+        "Indonesia"
+      ],
       "name": "flag_id",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Ireland"],
+      "keywords": [
+        "Ireland"
+      ],
       "name": "flag_ie",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Israel"],
+      "keywords": [
+        "Israel"
+      ],
       "name": "flag_il",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Isle of Man"],
+      "keywords": [
+        "Isle of Man"
+      ],
       "name": "flag_im",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["India"],
+      "keywords": [
+        "India"
+      ],
       "name": "flag_in",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["British Indian Ocean Territory"],
+      "keywords": [
+        "British Indian Ocean Territory"
+      ],
       "name": "flag_io",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Iraq"],
+      "keywords": [
+        "Iraq"
+      ],
       "name": "flag_iq",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Iran"],
+      "keywords": [
+        "Iran"
+      ],
       "name": "flag_ir",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Iceland"],
+      "keywords": [
+        "Iceland"
+      ],
       "name": "flag_is",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Italy"],
+      "keywords": [
+        "Italy"
+      ],
       "name": "flag_it",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Jersey"],
+      "keywords": [
+        "Jersey"
+      ],
       "name": "flag_je",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Jamaica"],
+      "keywords": [
+        "Jamaica"
+      ],
       "name": "flag_jm",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Jordan"],
+      "keywords": [
+        "Jordan"
+      ],
       "name": "flag_jo",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Japan"],
+      "keywords": [
+        "Japan"
+      ],
       "name": "flag_jp",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Kenya"],
+      "keywords": [
+        "Kenya"
+      ],
       "name": "flag_ke",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Kyrgyzstan"],
+      "keywords": [
+        "Kyrgyzstan"
+      ],
       "name": "flag_kg",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Cambodia"],
+      "keywords": [
+        "Cambodia"
+      ],
       "name": "flag_kh",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Kiribati"],
+      "keywords": [
+        "Kiribati"
+      ],
       "name": "flag_ki",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Comoros"],
+      "keywords": [
+        "Comoros"
+      ],
       "name": "flag_km",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Saint Kitts and Nevis"],
+      "keywords": [
+        "Saint Kitts and Nevis"
+      ],
       "name": "flag_kn",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["North Korea"],
+      "keywords": [
+        "North Korea"
+      ],
       "name": "flag_kp",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["South Korea"],
+      "keywords": [
+        "South Korea"
+      ],
       "name": "flag_kr",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Kuwait"],
+      "keywords": [
+        "Kuwait"
+      ],
       "name": "flag_kw",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Cayman Islands"],
+      "keywords": [
+        "Cayman Islands"
+      ],
       "name": "flag_ky",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Kazakhstan"],
+      "keywords": [
+        "Kazakhstan"
+      ],
       "name": "flag_kz",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Lao PDR"],
+      "keywords": [
+        "Lao PDR"
+      ],
       "name": "flag_la",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Lebanon"],
+      "keywords": [
+        "Lebanon"
+      ],
       "name": "flag_lb",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Saint Lucia"],
+      "keywords": [
+        "Saint Lucia"
+      ],
       "name": "flag_lc",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Liechtenstein"],
+      "keywords": [
+        "Liechtenstein"
+      ],
       "name": "flag_li",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Sri Lanka"],
+      "keywords": [
+        "Sri Lanka"
+      ],
       "name": "flag_lk",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Liberia"],
+      "keywords": [
+        "Liberia"
+      ],
       "name": "flag_lr",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Lesotho"],
+      "keywords": [
+        "Lesotho"
+      ],
       "name": "flag_ls",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Lithuania"],
+      "keywords": [
+        "Lithuania"
+      ],
       "name": "flag_lt",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Luxembourg"],
+      "keywords": [
+        "Luxembourg"
+      ],
       "name": "flag_lu",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Latvia"],
+      "keywords": [
+        "Latvia"
+      ],
       "name": "flag_lv",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Libya"],
+      "keywords": [
+        "Libya"
+      ],
       "name": "flag_ly",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Morocco"],
+      "keywords": [
+        "Morocco"
+      ],
       "name": "flag_ma",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Monaco"],
+      "keywords": [
+        "Monaco"
+      ],
       "name": "flag_mc",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Moldova"],
+      "keywords": [
+        "Moldova"
+      ],
       "name": "flag_md",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Montenegro"],
+      "keywords": [
+        "Montenegro"
+      ],
       "name": "flag_me",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Saint Martin"],
+      "keywords": [
+        "Saint Martin"
+      ],
       "name": "flag_mf",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Madagascar"],
+      "keywords": [
+        "Madagascar"
+      ],
       "name": "flag_mg",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Marshall Islands"],
+      "keywords": [
+        "Marshall Islands"
+      ],
       "name": "flag_mh",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["North Macedonia"],
+      "keywords": [
+        "North Macedonia"
+      ],
       "name": "flag_mk",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Mali"],
+      "keywords": [
+        "Mali"
+      ],
       "name": "flag_ml",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Myanmar"],
+      "keywords": [
+        "Myanmar"
+      ],
       "name": "flag_mm",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Mongolia"],
+      "keywords": [
+        "Mongolia"
+      ],
       "name": "flag_mn",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Macao"],
+      "keywords": [
+        "Macao"
+      ],
       "name": "flag_mo",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Northern Mariana Islands"],
+      "keywords": [
+        "Northern Mariana Islands"
+      ],
       "name": "flag_mp",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Martinique"],
+      "keywords": [
+        "Martinique"
+      ],
       "name": "flag_mq",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Mauritania"],
+      "keywords": [
+        "Mauritania"
+      ],
       "name": "flag_mr",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Montserrat"],
+      "keywords": [
+        "Montserrat"
+      ],
       "name": "flag_ms",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Malta"],
+      "keywords": [
+        "Malta"
+      ],
       "name": "flag_mt",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Mauritius"],
+      "keywords": [
+        "Mauritius"
+      ],
       "name": "flag_mu",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Maldives"],
+      "keywords": [
+        "Maldives"
+      ],
       "name": "flag_mv",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Malawi"],
+      "keywords": [
+        "Malawi"
+      ],
       "name": "flag_mw",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Mexico"],
+      "keywords": [
+        "Mexico"
+      ],
       "name": "flag_mx",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Malaysia"],
+      "keywords": [
+        "Malaysia"
+      ],
       "name": "flag_my",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Mozambique"],
+      "keywords": [
+        "Mozambique"
+      ],
       "name": "flag_mz",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Namibia"],
+      "keywords": [
+        "Namibia"
+      ],
       "name": "flag_na",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["New Caledonia"],
+      "keywords": [
+        "New Caledonia"
+      ],
       "name": "flag_nc",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Niger"],
+      "keywords": [
+        "Niger"
+      ],
       "name": "flag_ne",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Norfolk Island"],
+      "keywords": [
+        "Norfolk Island"
+      ],
       "name": "flag_nf",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Nigeria"],
+      "keywords": [
+        "Nigeria"
+      ],
       "name": "flag_ng",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Nicaragua"],
+      "keywords": [
+        "Nicaragua"
+      ],
       "name": "flag_ni",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Netherlands"],
+      "keywords": [
+        "Netherlands"
+      ],
       "name": "flag_nl",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Norway"],
+      "keywords": [
+        "Norway"
+      ],
       "name": "flag_no",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Nepal"],
+      "keywords": [
+        "Nepal"
+      ],
       "name": "flag_np",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Nauru"],
+      "keywords": [
+        "Nauru"
+      ],
       "name": "flag_nr",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Niue"],
+      "keywords": [
+        "Niue"
+      ],
       "name": "flag_nu",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["New Zealand"],
+      "keywords": [
+        "New Zealand"
+      ],
       "name": "flag_nz",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Oman"],
+      "keywords": [
+        "Oman"
+      ],
       "name": "flag_om",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Panama"],
+      "keywords": [
+        "Panama"
+      ],
       "name": "flag_pa",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Pacific Islands Trust Territory"],
+      "keywords": [
+        "Pacific Islands Trust Territory"
+      ],
       "name": "flag_pc",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Peru"],
+      "keywords": [
+        "Peru"
+      ],
       "name": "flag_pe",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["French Polynesia"],
+      "keywords": [
+        "French Polynesia"
+      ],
       "name": "flag_pf",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Papua New Guinea"],
+      "keywords": [
+        "Papua New Guinea"
+      ],
       "name": "flag_pg",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Philippines"],
+      "keywords": [
+        "Philippines"
+      ],
       "name": "flag_ph",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Pakistan"],
+      "keywords": [
+        "Pakistan"
+      ],
       "name": "flag_pk",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Poland"],
+      "keywords": [
+        "Poland"
+      ],
       "name": "flag_pl",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Saint Pierre and Miquelon"],
+      "keywords": [
+        "Saint Pierre and Miquelon"
+      ],
       "name": "flag_pm",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Pitcairn Islands"],
+      "keywords": [
+        "Pitcairn Islands"
+      ],
       "name": "flag_pn",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Puerto Rico"],
+      "keywords": [
+        "Puerto Rico"
+      ],
       "name": "flag_pr",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Palestine"],
+      "keywords": [
+        "Palestine"
+      ],
       "name": "flag_ps",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Portugal"],
+      "keywords": [
+        "Portugal"
+      ],
       "name": "flag_pt",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Palau"],
+      "keywords": [
+        "Palau"
+      ],
       "name": "flag_pw",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Paraguay"],
+      "keywords": [
+        "Paraguay"
+      ],
       "name": "flag_py",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Qatar"],
+      "keywords": [
+        "Qatar"
+      ],
       "name": "flag_qa",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Réunion"],
+      "keywords": [
+        "Réunion"
+      ],
       "name": "flag_re",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Romania"],
+      "keywords": [
+        "Romania"
+      ],
       "name": "flag_ro",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Serbia"],
+      "keywords": [
+        "Serbia"
+      ],
       "name": "flag_rs",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Russia"],
+      "keywords": [
+        "Russia"
+      ],
       "name": "flag_ru",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Rwanda"],
+      "keywords": [
+        "Rwanda"
+      ],
       "name": "flag_rw",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Saudi Arabia"],
+      "keywords": [
+        "Saudi Arabia"
+      ],
       "name": "flag_sa",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Solomon Islands"],
+      "keywords": [
+        "Solomon Islands"
+      ],
       "name": "flag_sb",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Seychelles"],
+      "keywords": [
+        "Seychelles"
+      ],
       "name": "flag_sc",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Sudan"],
+      "keywords": [
+        "Sudan"
+      ],
       "name": "flag_sd",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Sweden"],
+      "keywords": [
+        "Sweden"
+      ],
       "name": "flag_se",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Singapore"],
+      "keywords": [
+        "Singapore"
+      ],
       "name": "flag_sg",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Saint Helena"],
+      "keywords": [
+        "Saint Helena"
+      ],
       "name": "flag_sh",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Slovenia"],
+      "keywords": [
+        "Slovenia"
+      ],
       "name": "flag_si",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Svalbard and Jan Mayen"],
+      "keywords": [
+        "Svalbard and Jan Mayen"
+      ],
       "name": "flag_sj",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Slovakia"],
+      "keywords": [
+        "Slovakia"
+      ],
       "name": "flag_sk",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Sierra Leone"],
+      "keywords": [
+        "Sierra Leone"
+      ],
       "name": "flag_sl",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["San Marino"],
+      "keywords": [
+        "San Marino"
+      ],
       "name": "flag_sm",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Senegal"],
+      "keywords": [
+        "Senegal"
+      ],
       "name": "flag_sn",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Somalia"],
+      "keywords": [
+        "Somalia"
+      ],
       "name": "flag_so",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Suriname"],
+      "keywords": [
+        "Suriname"
+      ],
       "name": "flag_sr",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["South Sudan"],
+      "keywords": [
+        "South Sudan"
+      ],
       "name": "flag_ss",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["São Tomé and Príncipe"],
+      "keywords": [
+        "São Tomé and Príncipe"
+      ],
       "name": "flag_st",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["El Salvador"],
+      "keywords": [
+        "El Salvador"
+      ],
       "name": "flag_sv",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Sint Maarten"],
+      "keywords": [
+        "Sint Maarten"
+      ],
       "name": "flag_sx",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Syria"],
+      "keywords": [
+        "Syria"
+      ],
       "name": "flag_sy",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Eswatini"],
+      "keywords": [
+        "Eswatini"
+      ],
       "name": "flag_sz",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Turks and Caicos Islands"],
+      "keywords": [
+        "Turks and Caicos Islands"
+      ],
       "name": "flag_tc",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Chad"],
+      "keywords": [
+        "Chad"
+      ],
       "name": "flag_td",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["French Southern Territories"],
+      "keywords": [
+        "French Southern Territories"
+      ],
       "name": "flag_tf",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Togo"],
+      "keywords": [
+        "Togo"
+      ],
       "name": "flag_tg",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Thailand"],
+      "keywords": [
+        "Thailand"
+      ],
       "name": "flag_th",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Tajikistan"],
+      "keywords": [
+        "Tajikistan"
+      ],
       "name": "flag_tj",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Tokelau"],
+      "keywords": [
+        "Tokelau"
+      ],
       "name": "flag_tk",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Timor-Leste"],
+      "keywords": [
+        "Timor-Leste"
+      ],
       "name": "flag_tl",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Turkmenistan"],
+      "keywords": [
+        "Turkmenistan"
+      ],
       "name": "flag_tm",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Tunisia"],
+      "keywords": [
+        "Tunisia"
+      ],
       "name": "flag_tn",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Tonga"],
+      "keywords": [
+        "Tonga"
+      ],
       "name": "flag_to",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Turkey"],
+      "keywords": [
+        "Turkey"
+      ],
       "name": "flag_tr",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Trinidad and Tobago"],
+      "keywords": [
+        "Trinidad and Tobago"
+      ],
       "name": "flag_tt",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Tuvalu"],
+      "keywords": [
+        "Tuvalu"
+      ],
       "name": "flag_tv",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Taiwan"],
+      "keywords": [
+        "Taiwan"
+      ],
       "name": "flag_tw",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Tanzania"],
+      "keywords": [
+        "Tanzania"
+      ],
       "name": "flag_tz",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Ukraine"],
+      "keywords": [
+        "Ukraine"
+      ],
       "name": "flag_ua",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Uganda"],
+      "keywords": [
+        "Uganda"
+      ],
       "name": "flag_ug",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["U.S. Outlying Islands"],
+      "keywords": [
+        "U.S. Outlying Islands"
+      ],
       "name": "flag_um",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["United Nations"],
+      "keywords": [
+        "United Nations"
+      ],
       "name": "flag_un",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["United States"],
+      "keywords": [
+        "United States"
+      ],
       "name": "flag_us",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Uruguay"],
+      "keywords": [
+        "Uruguay"
+      ],
       "name": "flag_uy",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Uzbekistan"],
+      "keywords": [
+        "Uzbekistan"
+      ],
       "name": "flag_uz",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Holy See (Vatican City)"],
+      "keywords": [
+        "Holy See (Vatican City)"
+      ],
       "name": "flag_va",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Saint Vincent and the Grenadines"],
+      "keywords": [
+        "Saint Vincent and the Grenadines"
+      ],
       "name": "flag_vc",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Venezuela"],
+      "keywords": [
+        "Venezuela"
+      ],
       "name": "flag_ve",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["British Virgin Islands"],
+      "keywords": [
+        "British Virgin Islands"
+      ],
       "name": "flag_vg",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["U.S. Virgin Islands"],
+      "keywords": [
+        "U.S. Virgin Islands"
+      ],
       "name": "flag_vi",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Vietnam"],
+      "keywords": [
+        "Vietnam"
+      ],
       "name": "flag_vn",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Vanuatu"],
+      "keywords": [
+        "Vanuatu"
+      ],
       "name": "flag_vu",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Wallis and Futuna"],
+      "keywords": [
+        "Wallis and Futuna"
+      ],
       "name": "flag_wf",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Samoa"],
+      "keywords": [
+        "Samoa"
+      ],
       "name": "flag_ws",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Kosovo"],
+      "keywords": [
+        "Kosovo"
+      ],
       "name": "flag_xk",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Unknown"],
+      "keywords": [
+        "Unknown"
+      ],
       "name": "flag_xx",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Yemen"],
+      "keywords": [
+        "Yemen"
+      ],
       "name": "flag_ye",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Mayotte"],
+      "keywords": [
+        "Mayotte"
+      ],
       "name": "flag_yt",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["South Africa"],
+      "keywords": [
+        "South Africa"
+      ],
       "name": "flag_za",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Zambia"],
+      "keywords": [
+        "Zambia"
+      ],
       "name": "flag_zm",
       "size": "480"
     },
     {
       "category": "Flag",
       "skipComponentFile": true,
-      "keywords": ["Zimbabwe"],
+      "keywords": [
+        "Zimbabwe"
+      ],
       "name": "flag_zw",
       "size": "480"
     },
@@ -3088,16 +2998,12 @@
       "size": "24"
     },
     {
-      "name": "mobile_phone",
-      "category": "Device",
-      "size": "24",
-      "alternative": ["Mobile"],
-      "deprecation": "Use the 'Mobile' icon instead."
-    },
-    {
       "name": "mobile",
       "category": "Device",
-      "keywords": ["phone", "mobile"],
+      "keywords": [
+        "phone",
+        "mobile"
+      ],
       "size": "24"
     },
     {
@@ -3363,7 +3269,10 @@
     {
       "name": "cafe",
       "category": "Miscellaneous",
-      "keywords": ["restaurant", "coffee"],
+      "keywords": [
+        "restaurant",
+        "coffee"
+      ],
       "size": "24"
     },
     {
@@ -3397,16 +3306,12 @@
       "size": "24"
     },
     {
-      "name": "color_correction",
-      "category": "Miscellaneous",
-      "size": "24",
-      "alternative": ["ColorPicker"],
-      "deprecation": "Use the `ColorPicker` icon instead."
-    },
-    {
       "name": "color_picker",
       "category": "Miscellaneous",
-      "keywords": ["color", "correction"],
+      "keywords": [
+        "color",
+        "correction"
+      ],
       "size": "24"
     },
     {
@@ -3425,23 +3330,9 @@
       "size": "24"
     },
     {
-      "name": "cookie_preferences",
-      "category": "Miscellaneous",
-      "size": "24",
-      "alternative": ["Cookie"],
-      "deprecation": "Use the `Cookie` icon instead."
-    },
-    {
       "name": "custom_amount",
       "category": "Miscellaneous",
       "size": "24"
-    },
-    {
-      "name": "customize",
-      "category": "Miscellaneous",
-      "size": "24",
-      "alternative": ["Customise"],
-      "deprecation": "Use the `Customise` icon instead."
     },
     {
       "name": "customise",
@@ -3449,23 +3340,9 @@
       "size": "24"
     },
     {
-      "name": "favorite",
-      "category": "Miscellaneous",
-      "size": "24",
-      "alternative": ["Favourite"],
-      "deprecation": "Use the `Favourite` icon instead."
-    },
-    {
       "name": "favourite",
       "category": "Miscellaneous",
       "size": "24"
-    },
-    {
-      "name": "favorite",
-      "category": "Miscellaneous",
-      "size": "16",
-      "alternative": ["Favourite"],
-      "deprecation": "Use the `Favourite` icon instead."
     },
     {
       "name": "favourite",
@@ -3558,13 +3435,6 @@
       "size": "24"
     },
     {
-      "name": "no_sim",
-      "category": "Miscellaneous",
-      "size": "24",
-      "alternative": ["NoSimcard"],
-      "deprecation": "Use the `NoSimcard` icon instead."
-    },
-    {
       "name": "no_simcard",
       "category": "Miscellaneous",
       "size": "24"
@@ -3605,25 +3475,11 @@
       "size": "24"
     },
     {
-      "name": "print_failed",
-      "category": "Miscellaneous",
-      "size": "24",
-      "alternative": ["PrinterFailed"],
-      "deprecation": "Use the `PrinterFailed` icon instead."
-    },
-    {
       "name": "printer_failed",
       "category": "Miscellaneous",
       "size": "24"
     },
     {
-      "name": "print_failed",
-      "category": "Miscellaneous",
-      "size": "16",
-      "alternative": ["PrinterFailed"],
-      "deprecation": "Use the `PrinterFailed` icon instead."
-    },
-    {
       "name": "printer_failed",
       "category": "Miscellaneous",
       "size": "16"
@@ -3631,19 +3487,27 @@
     {
       "name": "profile",
       "category": "Miscellaneous",
-      "keywords": ["User"],
+      "keywords": [
+        "User"
+      ],
       "size": "16"
     },
     {
       "name": "profile",
       "category": "Miscellaneous",
-      "keywords": ["Navigation", "User"],
+      "keywords": [
+        "Navigation",
+        "User"
+      ],
       "size": "24"
     },
     {
       "name": "profile_filled",
       "category": "Filled",
-      "keywords": ["Navigation", "User"],
+      "keywords": [
+        "Navigation",
+        "User"
+      ],
       "size": "24"
     },
     {
@@ -3674,13 +3538,17 @@
     {
       "name": "settings",
       "category": "Miscellaneous",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "size": "24"
     },
     {
       "name": "settings_filled",
       "category": "Filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "size": "24"
     },
     {
@@ -3701,13 +3569,19 @@
     {
       "name": "thumb_up",
       "category": "Miscellaneous",
-      "keywords": ["Navigation", "Reviews"],
+      "keywords": [
+        "Navigation",
+        "Reviews"
+      ],
       "size": "24"
     },
     {
       "name": "thumb_up_filled",
       "category": "Filled",
-      "keywords": ["Navigation", "Reviews"],
+      "keywords": [
+        "Navigation",
+        "Reviews"
+      ],
       "size": "24"
     },
     {
@@ -3726,13 +3600,6 @@
       "size": "24"
     },
     {
-      "name": "unfavorite",
-      "category": "Miscellaneous",
-      "size": "24",
-      "alternative": ["Unfavourite"],
-      "deprecation": "Use the `Unfavourite` icon instead."
-    },
-    {
       "name": "unfavourite",
       "category": "Miscellaneous",
       "size": "24"
@@ -3743,23 +3610,9 @@
       "size": "24"
     },
     {
-      "name": "contractors",
-      "category": "Miscellaneous",
-      "size": "16",
-      "alternative": ["Contractor"],
-      "deprecation": "Use the `Contractor` icon instead."
-    },
-    {
       "name": "contractor",
       "category": "Miscellaneous",
       "size": "16"
-    },
-    {
-      "name": "contractors",
-      "category": "Miscellaneous",
-      "size": "24",
-      "alternative": ["Contractor"],
-      "deprecation": "Use the `Contractor` icon instead."
     },
     {
       "name": "contractor",
@@ -3824,48 +3677,64 @@
     {
       "name": "customers",
       "category": "Navigation",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "size": "24"
     },
     {
       "name": "customers_filled",
       "category": "Filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "size": "24"
     },
     {
       "name": "investments",
       "category": "Navigation",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "size": "24"
     },
     {
       "name": "investments_filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Filled",
       "size": "24"
     },
     {
       "name": "kiosk",
       "category": "Navigation",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "size": "24"
     },
     {
       "name": "kiosk_filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Filled",
       "size": "24"
     },
     {
       "name": "loyalty",
       "category": "Navigation",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "size": "24"
     },
     {
       "name": "loyalty_filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Filled",
       "size": "24"
     },
@@ -3928,20 +3797,6 @@
       "name": "notify",
       "category": "Notification",
       "size": "16"
-    },
-    {
-      "name": "notify_circle",
-      "category": "Notification",
-      "size": "24",
-      "alternative": ["Notify"],
-      "deprecation": "Use the `Notify` icon instead."
-    },
-    {
-      "name": "notify_circle",
-      "category": "Notification",
-      "size": "16",
-      "alternative": ["Notify"],
-      "deprecation": "Use the `Notify` icon instead."
     },
     {
       "name": "paused",
@@ -4230,25 +4085,33 @@
     },
     {
       "name": "account",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Product and feature",
       "size": "24"
     },
     {
       "name": "account_filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Filled",
       "size": "24"
     },
     {
       "name": "accounting",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Product and feature",
       "size": "24"
     },
     {
       "name": "accounting_filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Filled",
       "size": "24"
     },
@@ -4265,12 +4128,16 @@
     {
       "name": "cash_advance",
       "category": "Product and feature",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "size": "24"
     },
     {
       "name": "cash_advance_filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Filled",
       "size": "24"
     },
@@ -4302,24 +4169,34 @@
     {
       "name": "employees",
       "category": "Product and feature",
-      "keywords": ["Navigation", "Users"],
+      "keywords": [
+        "Navigation",
+        "Users"
+      ],
       "size": "24"
     },
     {
       "name": "employees_filled",
-      "keywords": ["Navigation", "Users"],
+      "keywords": [
+        "Navigation",
+        "Users"
+      ],
       "category": "Filled",
       "size": "24"
     },
     {
       "name": "expenses",
       "category": "Product and feature",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "size": "24"
     },
     {
       "name": "expenses_filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Filled",
       "size": "24"
     },
@@ -4329,88 +4206,98 @@
       "size": "24"
     },
     {
-      "name": "general_settings",
-      "category": "Product and feature",
-      "alternative": ["Settings"],
-      "deprecation": "Use the `Settings` icon instead.",
-      "size": "24"
-    },
-    {
-      "name": "gift_card",
-      "category": "Product and feature",
-      "size": "24",
-      "alternative": ["GiftCards"],
-      "deprecation": "Use the `GiftCards` icon instead."
-    },
-    {
       "name": "gift_cards",
       "category": "Product and feature",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "size": "24"
     },
     {
       "name": "gift_cards_filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Filled",
       "size": "24"
     },
     {
       "name": "bookings",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Product and feature",
       "size": "24"
     },
     {
       "name": "bookings_filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Filled",
       "size": "24"
     },
     {
       "name": "receivables",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Product and feature",
       "size": "24"
     },
     {
       "name": "receivables_filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Filled",
       "size": "24"
     },
     {
       "name": "tools",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Product and feature",
       "size": "24"
     },
     {
       "name": "tools_filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Filled",
       "size": "24"
     },
     {
       "name": "us_pos_backoffice",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Product and feature",
       "size": "24"
     },
     {
       "name": "us_pos_backoffice_filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Filled",
       "size": "24"
     },
     {
       "name": "home",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Product and feature",
       "size": "24"
     },
     {
       "name": "home_filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Filled",
       "size": "24"
     },
@@ -4426,25 +4313,33 @@
     },
     {
       "name": "invoice",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Product and feature",
       "size": "24"
     },
     {
       "name": "invoice_filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Filled",
       "size": "24"
     },
     {
       "name": "items",
       "category": "Product and feature",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "size": "24"
     },
     {
       "name": "items_filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Filled",
       "size": "24"
     },
@@ -4466,12 +4361,16 @@
     {
       "name": "online_store",
       "category": "Product and feature",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "size": "24"
     },
     {
       "name": "online_store_filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Filled",
       "size": "24"
     },
@@ -4486,21 +4385,18 @@
       "size": "24"
     },
     {
-      "name": "payment_link",
-      "category": "Product and feature",
-      "size": "24",
-      "alternative": ["PaymentLinks"],
-      "deprecation": "Use the `PaymentLinks` icon instead."
-    },
-    {
       "name": "payment_links",
       "category": "Product and feature",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "size": "24"
     },
     {
       "name": "payment_links_filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Filled",
       "size": "24"
     },
@@ -4517,12 +4413,16 @@
     {
       "name": "payouts",
       "category": "Product and feature",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "size": "24"
     },
     {
       "name": "payouts_filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Filled",
       "size": "24"
     },
@@ -4534,36 +4434,50 @@
     {
       "name": "pos",
       "category": "Product and feature",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "size": "24"
     },
     {
       "name": "pos_filled",
       "category": "Filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "size": "24"
     },
     {
       "name": "promote",
-      "keywords": ["Navigation", "Business Profile"],
+      "keywords": [
+        "Navigation",
+        "Business Profile"
+      ],
       "category": "Product and feature",
       "size": "24"
     },
     {
       "name": "promote_filled",
-      "keywords": ["Navigation", "Business Profile"],
+      "keywords": [
+        "Navigation",
+        "Business Profile"
+      ],
       "category": "Filled",
       "size": "24"
     },
     {
       "name": "open_orders",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Product and feature",
       "size": "24"
     },
     {
       "name": "open_orders_filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Filled",
       "size": "24"
     },
@@ -4575,12 +4489,18 @@
     {
       "name": "receipt",
       "category": "Product and feature",
-      "keywords": ["Navigation", "Sales"],
+      "keywords": [
+        "Navigation",
+        "Sales"
+      ],
       "size": "24"
     },
     {
       "name": "receipt_filled",
-      "keywords": ["Navigation", "Sales"],
+      "keywords": [
+        "Navigation",
+        "Sales"
+      ],
       "category": "Filled",
       "size": "24"
     },
@@ -4605,13 +4525,6 @@
       "size": "24"
     },
     {
-      "name": "refer",
-      "category": "Product and feature",
-      "size": "24",
-      "alternative": ["ReferAFriend", "Reward"],
-      "deprecation": "Use the `ReferAFriend` or `Reward` icons instead."
-    },
-    {
       "name": "refer_a_friend",
       "category": "Product and feature",
       "size": "24"
@@ -4619,12 +4532,16 @@
     {
       "name": "reports",
       "category": "Product and feature",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "size": "24"
     },
     {
       "name": "reports_filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Filled",
       "size": "24"
     },
@@ -4634,21 +4551,18 @@
       "size": "24"
     },
     {
-      "name": "sales",
-      "category": "Product and feature",
-      "size": "24",
-      "alternative": ["Receipt"],
-      "deprecation": "Use the `Receipt` icon instead."
-    },
-    {
       "name": "shop",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Product and feature",
       "size": "24"
     },
     {
       "name": "shop_filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Filled",
       "size": "24"
     },
@@ -4665,12 +4579,16 @@
     {
       "name": "sum_up_connect",
       "category": "Product and feature",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "size": "24"
     },
     {
       "name": "sum_up_connect_filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Filled",
       "size": "24"
     },
@@ -4706,13 +4624,17 @@
     },
     {
       "name": "virtual_terminal",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Product and feature",
       "size": "24"
     },
     {
       "name": "virtual_terminal_filled",
-      "keywords": ["Navigation"],
+      "keywords": [
+        "Navigation"
+      ],
       "category": "Filled",
       "size": "24"
     },
@@ -4750,13 +4672,6 @@
       "name": "linkedin",
       "category": "Social media",
       "size": "24"
-    },
-    {
-      "name": "messenger",
-      "category": "Social media",
-      "size": "24",
-      "alternative": ["FacebookMessenger"],
-      "deprecation": "Use the `FacebookMessenger` icon instead."
     },
     {
       "name": "pinterest",
