@@ -1,5 +1,15 @@
 # @sumup-oss/design-tokens
 
+## 10.1.0
+
+### Minor Changes
+
+- [#3741](https://github.com/sumup-oss/circuit-ui/pull/3741) [`d2e43a7`](https://github.com/sumup-oss/circuit-ui/commit/d2e43a76a6a5d0bc7cf54020e5facc1b21630ed4) Thanks [@missating](https://github.com/missating)! - Deprecated `--cui-icon-sizes-kilo`, `--cui-icon-sizes-mega`, `--cui-icon-sizes-giga`, and `--cui-icon-sizes-tera` in favour of new t-shirt-sized tokens that use `rem` units so that icons scale with the user's base font size (WCAG SC 1.4.4).
+
+- [#3715](https://github.com/sumup-oss/circuit-ui/pull/3715) [`cb98b22`](https://github.com/sumup-oss/circuit-ui/commit/cb98b2232001b192ce2d9240c3a5e2d69f9d5d75) Thanks [@missating](https://github.com/missating)! - Deprecated the `--cui-bg-accent-strong-*` token family, use the `--cui-bg-strong-*` tokens instead.
+
+- [#3715](https://github.com/sumup-oss/circuit-ui/pull/3715) [`cb98b22`](https://github.com/sumup-oss/circuit-ui/commit/cb98b2232001b192ce2d9240c3a5e2d69f9d5d75) Thanks [@missating](https://github.com/missating)! - Deprecated the `--cui-z-index-toast` token, no direct replacement, update z-index based on the context manually.
+
 ## 10.0.3
 
 ### Patch Changes
