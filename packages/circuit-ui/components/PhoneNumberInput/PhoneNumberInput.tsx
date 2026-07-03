@@ -199,13 +199,20 @@ export interface PhoneNumberInputProps
   };
 }
 
-const DefaultPrefix: ComponentType<{
+type DefaultPrefixProps = {
   value?: string | number;
   className?: string;
-}> = ({ value, ...rest }) =>
+  size?: FieldSize;
+};
+
+const DefaultPrefix = ({ value, ...rest }: DefaultPrefixProps) =>
   value ? (
     <Flag countryCode={value as FlagProps['countryCode']} alt="" {...rest} />
   ) : null;
+
+const getDefaultPrefix = (size: FieldSize) => (args: DefaultPrefixProps) => (
+  <DefaultPrefix size={size} {...args} />
+);
 
 /**
  * Provides a straightforward way for users to type their phone number in an
@@ -404,6 +411,7 @@ export function PhoneNumberInput({
               (({ value: inputValue, ...rest }) => (
                 <DefaultPrefix
                   value={getCountry(countryCode.options, inputValue as string)}
+                  size={size}
                   {...rest}
                 />
               ))
@@ -434,7 +442,7 @@ export function PhoneNumberInput({
               countryCodeRef as RefObject<HTMLSelectElement | null>,
               countryCode.ref as ForwardedRef<HTMLSelectElement>,
             )}
-            renderPrefix={countryCode.renderPrefix ?? DefaultPrefix}
+            renderPrefix={countryCode.renderPrefix ?? getDefaultPrefix(size)}
           />
         )}
         <Input
