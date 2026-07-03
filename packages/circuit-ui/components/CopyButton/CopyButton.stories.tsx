@@ -30,15 +30,77 @@ export default {
     ),
   ],
   argTypes: {
-    successLabel: { control: 'text' },
-    copyLabel: { control: 'text' },
+    value: {
+      control: 'text',
+      table: {
+        category: 'Copy action',
+      },
+    },
+    copyLabel: {
+      control: 'text',
+      table: {
+        category: 'Copy action',
+      },
+    },
+    successLabel: {
+      control: 'text',
+      table: {
+        category: 'Copy action',
+      },
+    },
+    onCopy: {
+      table: {
+        category: 'Copy action',
+      },
+    },
     copyVariant: {
       options: ['input', 'button', 'icon-button'],
       control: { type: 'select' },
+      table: {
+        category: 'Display',
+      },
     },
-    disabled: { control: 'boolean' },
-    hideLabel: { control: 'boolean' },
-    text: { control: 'text' },
+    visibleValue: {
+      control: 'text',
+      table: {
+        category: 'Display',
+      },
+    },
+    label: {
+      table: {
+        category: 'Input',
+      },
+    },
+    hideLabel: {
+      control: 'boolean',
+      table: {
+        category: 'Input',
+      },
+    },
+    disabled: {
+      control: 'boolean',
+      table: {
+        category: 'State',
+      },
+    },
+    invalid: {
+      control: 'boolean',
+      table: {
+        category: 'State',
+      },
+    },
+    hasWarning: {
+      control: 'boolean',
+      table: {
+        category: 'State',
+      },
+    },
+    validationHint: {
+      control: 'text',
+      table: {
+        category: 'State',
+      },
+    },
   },
   parameters: {
     docs: {
@@ -53,19 +115,25 @@ export default {
 const inputArgs = {
   label: 'API token',
   value: 'sk_live_1234567890',
-  copyLabel: 'Copy token',
+  copyLabel: 'Copy API token',
   successLabel: 'Token copied',
 } satisfies CopyButtonProps;
 
-export const Input = (args: CopyButtonProps) => <CopyButton {...args} />;
+export const Base = (args: CopyButtonProps) => <CopyButton {...args} />;
 
-Input.args = inputArgs;
+Base.args = inputArgs;
+
+Base.parameters = {
+  chromatic: {
+    disableSnapshot: true,
+  },
+};
 
 export const MaskedInput = (args: CopyButtonProps) => <CopyButton {...args} />;
 
 MaskedInput.args = {
   ...inputArgs,
-  text: 'sk_live_******',
+  visibleValue: 'sk_live_******',
 };
 
 export const LongValue = (args: CopyButtonProps) => <CopyButton {...args} />;
@@ -77,30 +145,31 @@ LongValue.args = {
   successLabel: 'Secret copied',
 } satisfies CopyButtonProps;
 
-export const FullButton = (args: CopyButtonProps) => <CopyButton {...args} />;
-
-FullButton.args = {
-  copyVariant: 'button',
-  value: 'ref_1234567890',
-  copyLabel: 'Copy reference',
-  successLabel: 'Reference copied',
-} satisfies CopyButtonProps;
-
-export const IconOnly = (args: CopyButtonProps) => <CopyButton {...args} />;
-
-IconOnly.args = {
-  copyVariant: 'icon-button',
-  value: 'ref_1234567890',
-  copyLabel: 'Copy reference',
-  successLabel: 'Reference copied',
-} satisfies CopyButtonProps;
-
-export const Disabled = (args: CopyButtonProps) => <CopyButton {...args} />;
-
-Disabled.args = {
-  ...inputArgs,
-  disabled: true,
+LongValue.parameters = {
+  chromatic: {
+    disableSnapshot: true,
+  },
 };
+
+export const Disabled = () => (
+  <Stack vertical>
+    <CopyButton {...inputArgs} disabled />
+    <CopyButton
+      copyVariant="button"
+      value="ref_1234567890"
+      copyLabel="Copy reference"
+      successLabel="Reference copied"
+      disabled
+    />
+    <CopyButton
+      copyVariant="icon-button"
+      value="ref_1234567890"
+      copyLabel="Copy reference"
+      successLabel="Reference copied"
+      disabled
+    />
+  </Stack>
+);
 
 export const ValidationStates = (args: CopyButtonProps) => (
   <Stack>
