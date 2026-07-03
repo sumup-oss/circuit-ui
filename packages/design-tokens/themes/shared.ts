@@ -161,7 +161,7 @@ export const shared = [
     value: '48px',
     type: 'dimension',
   },
-   
+  /* eslint-enable circuit-ui/no-deprecated-custom-properties */
   /* Spacings */
   {
     name: '--cui-spacings-bit',
