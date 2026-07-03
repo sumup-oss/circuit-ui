@@ -116,6 +116,7 @@ export const dark = [
     value: 'rgba(26, 24, 22, 0.6000)',
     type: 'color',
   },
+  /* eslint-disable circuit-ui/no-deprecated-custom-properties */
   {
     name: '--cui-bg-accent-strong',
     value: '#f5f4ed',
@@ -136,6 +137,7 @@ export const dark = [
     value: 'rgba(245, 244, 237, 0.1000)',
     type: 'color',
   },
+  /* eslint-enable circuit-ui/no-deprecated-custom-properties */
   {
     name: '--cui-bg-neutral',
     value: '#2b2927',

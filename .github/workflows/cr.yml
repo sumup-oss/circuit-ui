@@ -33,7 +33,7 @@ jobs:
         run: npm run build
 
       - name: Publish packages
-        run: npx pkg-pr-new publish './packages/circuit-ui'  './packages/design-tokens'  './packages/icons' './packages/eslint-plugin-circuit-ui' --json output.json --comment=off
+        run: npx pkg-pr-new publish './packages/circuit-ui'  './packages/design-tokens'  './packages/icons' './packages/eslint-plugin-circuit-ui' './packages/stylelint-plugin-circuit-ui' --json output.json --comment=off
 
       - name: Post or update comment
         uses: actions/github-script@v9
@@ -106,4 +106,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          gh pr edit $PR_NUMBER --remove-label "preview"
+          gh pr edit "$PR_NUMBER" --remove-label "preview"

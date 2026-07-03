@@ -35,7 +35,9 @@ type CustomPropertyValue = string;
 type CustomProperty = {
   name: CustomPropertyName;
   value: CustomPropertyValue;
-  deprecation?: { replacement: CustomPropertyName };
+  deprecation?:
+    | { replacement: CustomPropertyName }
+    | { additionalInfo: string };
 };
 type CustomProperties = CustomProperty[];
 
@@ -101,7 +103,11 @@ function getRows(
             {deprecation && (
               <Tooltip
                 type="description"
-                label={`Use the \`${deprecation.replacement}\` custom property instead.`}
+                label={
+                  'replacement' in deprecation
+                    ? `Use the \`${deprecation.replacement}\` custom property instead.`
+                    : deprecation.additionalInfo
+                }
                 component={(props) => (
                   <Badge
                     {...props}
@@ -196,7 +202,7 @@ export function BorderRadius({ name }: PreviewProps) {
             ? 'var(--cui-spacings-mega)'
             : 'var(--cui-spacings-tera)',
         borderRadius: `var(${name})`,
-        backgroundColor: 'var(--cui-bg-accent-strong)',
+        backgroundColor: 'var(--cui-bg-strong)',
       }}
     />
   );
@@ -285,7 +291,7 @@ export function Spacing({ name }: PreviewProps) {
         display: 'inline-block',
         width: `var(${name})`,
         height: `var(${name})`,
-        backgroundColor: 'var(--cui-bg-accent-strong)',
+        backgroundColor: 'var(--cui-bg-strong)',
       }}
     />
   );
@@ -310,7 +316,7 @@ export function Transition({ name }: PreviewProps) {
         display: 'inline-block',
         width: 'var(--cui-spacings-tera)',
         height: 'var(--cui-spacings-tera)',
-        backgroundColor: 'var(--cui-bg-accent-strong)',
+        backgroundColor: 'var(--cui-bg-strong)',
         borderRadius: 'var(--cui-border-radius-circle)',
         transition: `transform var(${name})`,
         transform: `scale(${scale}%)`,
