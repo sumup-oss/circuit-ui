@@ -45,7 +45,7 @@
     "release": "changeset publish"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.6.0",
+    "@changesets/changelog-github": "^0.7.0",
     "@changesets/cli": "^2.31.0",
     "@emotion/eslint-plugin": "^11.12.0",
     "@storybook/addon-a11y": "^10.3.5",
@@ -58,8 +58,8 @@
     "@sumup-oss/foundry": "^10.0.0",
     "@sumup-oss/stylelint-plugin-circuit-ui": "^4.1.0",
     "@types/node": "^25.9.1",
-    "@vitest/coverage-v8": "^4.1.7",
-    "@vitest/eslint-plugin": "^1.6.18",
+    "@vitest/coverage-v8": "^4.1.9",
+    "@vitest/eslint-plugin": "^1.6.20",
     "audit-ci": "^7.1.0",
     "chromatic": "^16.6.0",
     "eslint-plugin-react": "^7.37.5",
@@ -75,7 +75,7 @@
     "react-dom": "^19.2.6",
     "remark-gfm": "^4.0.1",
     "storybook": "^10.3.5",
-    "stylelint": "^17.9.0",
+    "stylelint": "^17.13.0",
     "stylelint-config-css-modules": "^4.6.0",
     "stylelint-config-standard": "^40.0.0",
     "stylelint-no-unsupported-browser-features": "^8.1.1",
@@ -92,6 +92,7 @@
     "nx": "22.6.3",
     "eslint": "^9.0.0",
     "storybook": "$storybook",
-    "stylus": "^0.64.0"
+    "stylus": "^0.64.0",
+    "undici": "^7.28.0"
   }
 }

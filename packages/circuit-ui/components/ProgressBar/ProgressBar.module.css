@@ -21,7 +21,7 @@
   width: 1px;
   height: 100%;
   content: "";
-  background-color: var(--cui-bg-accent-strong);
+  background-color: var(--cui-bg-strong);
   transition: width 0.05s ease-out;
 }
 

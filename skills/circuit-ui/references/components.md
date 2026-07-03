@@ -45,7 +45,7 @@
 | `ActionMenu` | `stable` | `@sumup-oss/circuit-ui` | `./components/ActionMenu/index.js` | [Read MDX reference](components/ActionMenu.mdx) |
 | `AspectRatio` | `stable` | `@sumup-oss/circuit-ui` | `./components/AspectRatio/index.js` | Not available |
 | `Avatar` | `stable` | `@sumup-oss/circuit-ui` | `./components/Avatar/index.js` | [Read MDX reference](components/Avatar.mdx) |
-| `Badge` | `stable` | `@sumup-oss/circuit-ui` | `./components/Badge/index.js` | [Read MDX reference](components/Badge.mdx) |
+| `Badge` | `deprecated` | `@sumup-oss/circuit-ui` | `./components/Badge/index.js` | [Read MDX reference](components/Badge.mdx) |
 | `Card` | `stable` | `@sumup-oss/circuit-ui` | `./components/Card/index.js` | [Read MDX reference](components/Card.mdx) |
 | `CardFooter` | `stable` | `@sumup-oss/circuit-ui` | `./components/Card/index.js` | [Read MDX reference](components/CardFooter.mdx) |
 | `CardHeader` | `stable` | `@sumup-oss/circuit-ui` | `./components/Card/index.js` | [Read MDX reference](components/CardHeader.mdx) |

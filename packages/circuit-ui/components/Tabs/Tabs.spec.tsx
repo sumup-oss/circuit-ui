@@ -17,9 +17,6 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { axe, render, screen, userEvent } from '../../util/test-utils.js';
 
-import { TabPanel } from './components/TabPanel/TabPanel.js';
-import { TabList } from './components/TabList/TabList.js';
-import { Tab } from './components/Tab/Tab.js';
 import { Tabs } from './Tabs.js';
 
 describe('Tabs', () => {
@@ -102,32 +99,7 @@ describe('Tabs', () => {
     expect(panel).toHaveFocus();
   });
 
-  it('should have no accessibility violations for tablist only', async () => {
-    const { container } = render(
-      <TabList>
-        <Tab>tab #1</Tab>
-        <Tab selected>tab #2</Tab>
-      </TabList>,
-    );
-    const actual = await axe(container);
-    expect(actual).toHaveNoViolations();
-  });
-
-  it('should have no accessibility violations for full usage', async () => {
-    const { container } = render(
-      <div>
-        <TabList>
-          <Tab>tab #1</Tab>
-          <Tab selected>tab #2</Tab>
-        </TabList>
-        <TabPanel>Tab content</TabPanel>
-      </div>,
-    );
-    const actual = await axe(container);
-    expect(actual).toHaveNoViolations();
-  });
-
-  it('should have no accessibility violations for stateful usage', async () => {
+  it('should have no accessibility violations', async () => {
     const { container } = render(
       <div>
         <Tabs

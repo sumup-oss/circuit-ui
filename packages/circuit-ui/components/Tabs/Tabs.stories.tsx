@@ -13,7 +13,8 @@
  * limitations under the License.
  */
 
-import { useState, Fragment } from 'react';
+import { useState } from 'react';
+
 import { ArrowLeft, ExternalLink } from '@sumup-oss/icons';
 
 import { Body } from '../Body/index.js';
@@ -23,16 +24,16 @@ import { modes } from '../../../../.storybook/modes.js';
 
 import type { TabsProps } from './Tabs.js';
 import { Tabs } from './Tabs.js';
+import { Tab } from './components/Tab/Tab.js';
 import { TabList } from './components/TabList/TabList.js';
 import { TabPanel } from './components/TabPanel/TabPanel.js';
-import { Tab } from './components/Tab/Tab.js';
 import { action } from 'storybook/actions';
 
 export default {
   title: 'Navigation/Tabs',
   component: Tabs,
   subcomponents: { TabList, TabPanel, Tab },
-  tags: ['status:under-review'],
+  tags: ['status:stable'],
   parameters: {
     layout: 'fullscreen',
     chromatic: {
@@ -121,6 +122,34 @@ Stretched.args = {
   stretched: true,
 };
 
+export const WithTabsProp = () => {
+  const items = tabs.slice(0, 3);
+  const [selectedId, setSelectedId] = useState(items[0].id);
+
+  return (
+    <div>
+      <TabList
+        tabs={items.map(({ id, tab }) => ({ id, tab }))}
+        onTabChange={setSelectedId}
+      />
+      {items.map(({ id, panel }) => (
+        <TabPanel
+          key={id}
+          id={`panel-${id}`}
+          aria-labelledby={`tab-${id}`}
+          hidden={selectedId !== id}
+        >
+          {panel}
+        </TabPanel>
+      ))}
+    </div>
+  );
+};
+
+WithTabsProp.parameters = {
+  controls: { hideNoControlsWarning: true },
+};
+
 export const Links = () => (
   <TabList>
     <Tab selected>Home</Tab>
@@ -139,7 +168,7 @@ export const ControlledState = () => {
   const [selected, setSelected] = useState(0);
 
   return (
-    <Fragment>
+    <>
       <TabList>
         {tabs.map(({ tab }, index) => (
           <Tab
@@ -152,7 +181,7 @@ export const ControlledState = () => {
         ))}
       </TabList>
       <TabPanel>{tabs[selected].panel}</TabPanel>
-    </Fragment>
+    </>
   );
 };
 

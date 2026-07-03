@@ -19,9 +19,9 @@ import { schema } from '@sumup-oss/design-tokens';
 const DEPRECATED_CUSTOM_PROPERTIES = schema.filter(({ deprecation }) =>
   Boolean(deprecation),
 );
-const REGEX_STRING = DEPRECATED_CUSTOM_PROPERTIES.map(({ name }) => name).join(
-  '|',
-);
+const REGEX_STRING = DEPRECATED_CUSTOM_PROPERTIES.map(({ name }) => name)
+  .sort((a, b) => b.length - a.length)
+  .join('|');
 
 export const ruleName = 'circuit-ui/no-deprecated-custom-properties';
 
@@ -33,9 +33,11 @@ const meta = {
 export const messages = stylelint.utils.ruleMessages(ruleName, {
   deprecated: (name: string, replacement: string) =>
     `The \`${name}\` custom property has been deprecated. Use the \`${replacement}\` custom property instead.`,
+  deprecatedNoReplacement: (name: string, additionalInfo: string) =>
+    `The \`${name}\` custom property has been deprecated. ${additionalInfo}`,
 });
 
-const rule: Rule = (enabled, _options, context) => (root, result) => {
+const rule: Rule = (enabled) => (root, result) => {
   if (!enabled || DEPRECATED_CUSTOM_PROPERTIES.length === 0) {
     return;
   }
@@ -47,20 +49,30 @@ const rule: Rule = (enabled, _options, context) => (root, result) => {
     while ((match = regex.exec(decl.value)) !== null) {
       const name = match[0];
       // biome-ignore lint/style/noNonNullAssertion: Each item is guaranteed to have a deprecation.
-      const { replacement } = DEPRECATED_CUSTOM_PROPERTIES.find(
+      const deprecation = DEPRECATED_CUSTOM_PROPERTIES.find(
         (token) => token.name === name,
       )!.deprecation!;
 
-      if (context?.fix) {
-        decl.value = decl.value.replace(name, replacement);
+      if ('replacement' in deprecation) {
+        const replacement = String(deprecation.replacement);
+        stylelint.utils.report({
+          message: messages.deprecated(name, replacement),
+          node: decl,
+          result,
+          ruleName,
+          fix: () => {
+            decl.value = decl.value.replace(name, replacement);
+          },
+        });
+      } else {
+        const additionalInfo = String(deprecation.additionalInfo);
+        stylelint.utils.report({
+          message: messages.deprecatedNoReplacement(name, additionalInfo),
+          node: decl,
+          result,
+          ruleName,
+        });
       }
-
-      stylelint.utils.report({
-        message: messages.deprecated(name, replacement),
-        node: decl,
-        result,
-        ruleName,
-      });
     }
   });
 };

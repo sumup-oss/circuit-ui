@@ -1,5 +1,17 @@
 # @sumup-oss/circuit-ui
 
+## 11.10.0
+
+### Minor Changes
+
+- [#3710](https://github.com/sumup-oss/circuit-ui/pull/3710) [`a63f6a8`](https://github.com/sumup-oss/circuit-ui/commit/a63f6a85b460f92877f648538217c3a92509ef7f) Thanks [@missating](https://github.com/missating)! - Added a new, simplified way to manage tabs internally in the TabList component. Similar to the Tabs component, pass a `tabs` prop to Tablist to have selection state, keyboard navigation, and ARIA attributes managed out of the box. Tabs as `children` are still supported.
+
+## 11.9.0
+
+### Minor Changes
+
+- [#3714](https://github.com/sumup-oss/circuit-ui/pull/3714) [`1fa81ce`](https://github.com/sumup-oss/circuit-ui/commit/1fa81cea1307f90491eefdecc3c8edc162473f12) Thanks [@missating](https://github.com/missating)! - Added a `size` prop to the Flag component (`'s'` | `'m'` | `'l'`) that maps to the standard icon sizes of 16px, 24px, and 32px. Deprecated the `width` and `height` props in favour of `size`.
+
 ## 11.8.0
 
 ### Minor Changes

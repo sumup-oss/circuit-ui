@@ -15,7 +15,7 @@ jobs:
         node: [24, 26]
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -50,7 +50,7 @@ jobs:
         run: npm run test:ci && cd packages/eslint-plugin-circuit-ui && npm run test:ci
 
       - name: Upload results to Codecov
-        uses: codecov/codecov-action@v6
+        uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 

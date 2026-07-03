@@ -38,10 +38,28 @@ export const schema = [
   { name: '--cui-bg-accent-hovered', type: 'color' },
   { name: '--cui-bg-accent-pressed', type: 'color' },
   { name: '--cui-bg-accent-disabled', type: 'color' },
-  { name: '--cui-bg-accent-strong', type: 'color' },
-  { name: '--cui-bg-accent-strong-hovered', type: 'color' },
-  { name: '--cui-bg-accent-strong-pressed', type: 'color' },
-  { name: '--cui-bg-accent-strong-disabled', type: 'color' },
+  /* eslint-disable circuit-ui/no-deprecated-custom-properties */
+  {
+    name: '--cui-bg-accent-strong',
+    type: 'color',
+    deprecation: { replacement: '--cui-bg-strong' },
+  },
+  {
+    name: '--cui-bg-accent-strong-hovered',
+    type: 'color',
+    deprecation: { replacement: '--cui-bg-strong-hovered' },
+  },
+  {
+    name: '--cui-bg-accent-strong-pressed',
+    type: 'color',
+    deprecation: { replacement: '--cui-bg-strong-pressed' },
+  },
+  {
+    name: '--cui-bg-accent-strong-disabled',
+    type: 'color',
+    deprecation: { replacement: '--cui-bg-strong-disabled' },
+  },
+  /* eslint-enable circuit-ui/no-deprecated-custom-properties */
   /* Neutral backgrounds */
   { name: '--cui-bg-neutral', type: 'color' },
   { name: '--cui-bg-neutral-hovered', type: 'color' },
@@ -221,10 +239,32 @@ export const schema = [
   { name: '--cui-font-weight-semibold', type: 'fontWeight' },
   { name: '--cui-font-weight-bold', type: 'fontWeight' },
   /* Icon sizes */
-  { name: '--cui-icon-sizes-kilo', type: 'dimension' },
-  { name: '--cui-icon-sizes-mega', type: 'dimension' },
-  { name: '--cui-icon-sizes-giga', type: 'dimension' },
-  { name: '--cui-icon-sizes-tera', type: 'dimension' },
+  { name: '--cui-icon-sizes-s', type: 'dimension' },
+  { name: '--cui-icon-sizes-m', type: 'dimension' },
+  { name: '--cui-icon-sizes-l', type: 'dimension' },
+  { name: '--cui-icon-sizes-xl', type: 'dimension' },
+  /* eslint-disable circuit-ui/no-deprecated-custom-properties */
+  {
+    name: '--cui-icon-sizes-kilo',
+    type: 'dimension',
+    deprecation: { replacement: '--cui-icon-sizes-s' },
+  },
+  {
+    name: '--cui-icon-sizes-mega',
+    type: 'dimension',
+    deprecation: { replacement: '--cui-icon-sizes-m' },
+  },
+  {
+    name: '--cui-icon-sizes-giga',
+    type: 'dimension',
+    deprecation: { replacement: '--cui-icon-sizes-l' },
+  },
+  {
+    name: '--cui-icon-sizes-tera',
+    type: 'dimension',
+    deprecation: { replacement: '--cui-icon-sizes-xl' },
+  },
+  /* eslint-enable circuit-ui/no-deprecated-custom-properties */
   /* Spacings */
   { name: '--cui-spacings-bit', type: 'dimension' },
   { name: '--cui-spacings-byte', type: 'dimension' },
@@ -458,9 +498,18 @@ export const schema = [
   { name: '--cui-z-index-tooltip', type: 'number' },
   { name: '--cui-z-index-header', type: 'number' },
   { name: '--cui-z-index-navigation', type: 'number' },
-  { name: '--cui-z-index-toast', type: 'number' },
+
+  /* eslint-disable circuit-ui/no-deprecated-custom-properties */
+  {
+    name: '--cui-z-index-toast',
+    type: 'number',
+    deprecation: {
+      additionalInfo: 'Use one of the existing z-index tokens instead.',
+    },
+  },
+  /* eslint-enable circuit-ui/no-deprecated-custom-properties */
 ] satisfies {
   name: TokenName;
   type: TokenType;
-  deprecation?: { replacement: TokenName };
+  deprecation?: { replacement: TokenName } | { additionalInfo: string };
 }[];

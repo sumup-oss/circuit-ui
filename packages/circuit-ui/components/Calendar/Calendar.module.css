@@ -141,19 +141,19 @@
 [aria-pressed="true"].range-end {
   font-weight: var(--cui-font-weight-bold);
   color: var(--cui-fg-on-strong);
-  background: var(--cui-bg-accent-strong);
+  background: var(--cui-bg-strong);
 }
 
 .selected:hover,
 [aria-pressed="true"].range-start:hover,
 [aria-pressed="true"].range-end:hover {
-  background: var(--cui-bg-accent-strong-hovered);
+  background: var(--cui-bg-strong-hovered);
 }
 
 .selected:active,
 .range-start:active,
 .range-end:active {
-  background: var(--cui-bg-accent-strong-pressed);
+  background: var(--cui-bg-strong-pressed);
 }
 
 .range-start::before,
@@ -217,7 +217,7 @@ td:not(:last-of-type) .range-end.last-day::before {
 .day[aria-disabled="true"].range-start,
 .day[aria-disabled="true"].range-end {
   color: var(--cui-fg-on-strong-disabled);
-  background: var(--cui-bg-accent-strong-disabled);
+  background: var(--cui-bg-strong-disabled);
 }
 
 .day[aria-disabled="true"].range-start::before,

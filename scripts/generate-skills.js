@@ -38,7 +38,7 @@ const componentReferencesDir = path.join(referencesDir, 'components');
 const hookReferencesDir = path.join(referencesDir, 'hooks');
 
 const TOKEN_SCHEMA_PATTERN =
-  /\{\s*name:\s*'([^']+)'\s*,\s*type:\s*'([^']+)'\s*(?:,\s*deprecation:\s*\{\s*replacement:\s*'([^']+)'\s*\}\s*)?\}/gms;
+  /\{\s*name:\s*'([^']+)'\s*,\s*type:\s*'([^']+)'\s*(?:,\s*deprecation:\s*(\{[^}]*\}),?\s*)?\}/gms;
 const TOKEN_VALUE_PATTERN =
   /\{\s*name:\s*'([^']+)'\s*,\s*value:\s*(?:'((?:\\'|[^'])*)'|(-?\d+(?:\.\d+)?))\s*,\s*type:\s*'([^']+)'\s*,?\s*\}/gms;
 const EXPORT_STATEMENT_PATTERN =
@@ -50,10 +50,13 @@ function parseTokens(schemaSource) {
   const tokens = [];
   let match = TOKEN_SCHEMA_PATTERN.exec(schemaSource);
   while (match !== null) {
+    const deprecationStr = match[3] ?? null;
+    const replacementMatch = deprecationStr?.match(/replacement:\s*'([^']+)'/);
     tokens.push({
       name: match[1],
       type: match[2],
-      replacement: match[3] ?? null,
+      deprecated: deprecationStr !== null,
+      replacement: replacementMatch?.[1] ?? null,
     });
     match = TOKEN_SCHEMA_PATTERN.exec(schemaSource);
   }
@@ -310,7 +313,7 @@ function renderTokensMarkdown(tokens, lightValues, darkValues, sharedValues) {
 
   const tokenRows = tokens
     .map((token) => {
-      const deprecated = token.replacement ? 'yes' : 'no';
+      const deprecated = token.deprecated ? 'yes' : 'no';
       const replacement = token.replacement ? `\`${token.replacement}\`` : '';
       const light =
         lightValues.get(token.name) ?? sharedValues.get(token.name) ?? '';

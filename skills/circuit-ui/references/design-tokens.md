@@ -24,10 +24,10 @@ CSS variables provided by the Circuit UI design system and their values.
 | `--cui-bg-accent-hovered` | `color` | no |  | `#e8e6dc` | `#222018` |
 | `--cui-bg-accent-pressed` | `color` | no |  | `#d9d6c7` | `#2a2820` |
 | `--cui-bg-accent-disabled` | `color` | no |  | `rgba(227, 226, 214, 0.6000)` | `rgba(26, 24, 22, 0.6000)` |
-| `--cui-bg-accent-strong` | `color` | no |  | `#1e1c1c` | `#f5f4ed` |
-| `--cui-bg-accent-strong-hovered` | `color` | no |  | `#332f2f` | `#e8e6dc` |
-| `--cui-bg-accent-strong-pressed` | `color` | no |  | `#4d4949` | `#d9d6c7` |
-| `--cui-bg-accent-strong-disabled` | `color` | no |  | `rgba(30, 28, 28, 0.1000)` | `rgba(245, 244, 237, 0.1000)` |
+| `--cui-bg-accent-strong` | `color` | yes | `--cui-bg-strong` | `#1e1c1c` | `#f5f4ed` |
+| `--cui-bg-accent-strong-hovered` | `color` | yes | `--cui-bg-strong-hovered` | `#332f2f` | `#e8e6dc` |
+| `--cui-bg-accent-strong-pressed` | `color` | yes | `--cui-bg-strong-pressed` | `#4d4949` | `#d9d6c7` |
+| `--cui-bg-accent-strong-disabled` | `color` | yes | `--cui-bg-strong-disabled` | `rgba(30, 28, 28, 0.1000)` | `rgba(245, 244, 237, 0.1000)` |
 | `--cui-bg-neutral` | `color` | no |  | `#f0eee7` | `#2b2927` |
 | `--cui-bg-neutral-hovered` | `color` | no |  | `#e8e6dc` | `#201f1e` |
 | `--cui-bg-neutral-pressed` | `color` | no |  | `#d9d6c7` | `#282726` |
@@ -180,10 +180,14 @@ CSS variables provided by the Circuit UI design system and their values.
 | `--cui-font-weight-regular` | `fontWeight` | no |  | `375` | `375` |
 | `--cui-font-weight-semibold` | `fontWeight` | no |  | `550` | `550` |
 | `--cui-font-weight-bold` | `fontWeight` | no |  | `650` | `650` |
-| `--cui-icon-sizes-kilo` | `dimension` | no |  | `16px` | `16px` |
-| `--cui-icon-sizes-mega` | `dimension` | no |  | `24px` | `24px` |
-| `--cui-icon-sizes-giga` | `dimension` | no |  | `32px` | `32px` |
-| `--cui-icon-sizes-tera` | `dimension` | no |  | `48px` | `48px` |
+| `--cui-icon-sizes-s` | `dimension` | no |  | `1rem` | `1rem` |
+| `--cui-icon-sizes-m` | `dimension` | no |  | `1.5rem` | `1.5rem` |
+| `--cui-icon-sizes-l` | `dimension` | no |  | `2rem` | `2rem` |
+| `--cui-icon-sizes-xl` | `dimension` | no |  | `3rem` | `3rem` |
+| `--cui-icon-sizes-kilo` | `dimension` | yes | `--cui-icon-sizes-s` | `16px` | `16px` |
+| `--cui-icon-sizes-mega` | `dimension` | yes | `--cui-icon-sizes-m` | `24px` | `24px` |
+| `--cui-icon-sizes-giga` | `dimension` | yes | `--cui-icon-sizes-l` | `32px` | `32px` |
+| `--cui-icon-sizes-tera` | `dimension` | yes | `--cui-icon-sizes-xl` | `48px` | `48px` |
 | `--cui-spacings-bit` | `dimension` | no |  | `4px` | `4px` |
 | `--cui-spacings-byte` | `dimension` | no |  | `8px` | `8px` |
 | `--cui-spacings-kilo` | `dimension` | no |  | `12px` | `12px` |
@@ -234,6 +238,30 @@ CSS variables provided by the Circuit UI design system and their values.
 | `--cui-numeral-s-line-height` | `dimension` | no |  | `1.5rem` | `1.5rem` |
 | `--cui-letter-spacing` | `dimension` | no |  | `0rem` | `0rem` |
 | `--cui-letter-spacing-tight` | `dimension` | no |  | `0rem` | `0rem` |
+| `--cui-typography-headline-one-font-size` | `dimension` | yes | `--cui-headline-l-font-size` | `2.0625rem` | `2.0625rem` |
+| `--cui-typography-headline-one-line-height` | `dimension` | yes | `--cui-headline-l-line-height` | `2.125rem` | `2.125rem` |
+| `--cui-typography-headline-two-font-size` | `dimension` | yes | `--cui-headline-m-font-size` | `1.5625rem` | `1.5625rem` |
+| `--cui-typography-headline-two-line-height` | `dimension` | yes | `--cui-headline-m-line-height` | `1.625rem` | `1.625rem` |
+| `--cui-typography-headline-three-font-size` | `dimension` | yes | `--cui-headline-m-font-size` | `1.5625rem` | `1.5625rem` |
+| `--cui-typography-headline-three-line-height` | `dimension` | yes | `--cui-headline-m-line-height` | `1.625rem` | `1.625rem` |
+| `--cui-typography-headline-four-font-size` | `dimension` | yes | `--cui-headline-s-font-size` | `1.1875rem` | `1.1875rem` |
+| `--cui-typography-headline-four-line-height` | `dimension` | yes | `--cui-headline-s-line-height` | `1.375rem` | `1.375rem` |
+| `--cui-typography-title-one-font-size` | `dimension` | yes | `--cui-display-l-font-size` | `4rem` | `4rem` |
+| `--cui-typography-title-one-line-height` | `dimension` | yes | `--cui-display-l-line-height` | `4.5rem` | `4.5rem` |
+| `--cui-typography-title-two-font-size` | `dimension` | yes | `--cui-display-m-font-size` | `3rem` | `3rem` |
+| `--cui-typography-title-two-line-height` | `dimension` | yes | `--cui-display-m-line-height` | `3.5rem` | `3.5rem` |
+| `--cui-typography-title-three-font-size` | `dimension` | yes | `--cui-display-m-font-size` | `3rem` | `3rem` |
+| `--cui-typography-title-three-line-height` | `dimension` | yes | `--cui-display-m-line-height` | `3.5rem` | `3.5rem` |
+| `--cui-typography-title-four-font-size` | `dimension` | yes | `--cui-display-s-font-size` | `2.5rem` | `2.5rem` |
+| `--cui-typography-title-four-line-height` | `dimension` | yes | `--cui-display-s-line-height` | `2.875rem` | `2.875rem` |
+| `--cui-typography-sub-headline-font-size` | `dimension` | yes | `--cui-headline-s-font-size` | `1.125rem` | `1.125rem` |
+| `--cui-typography-sub-headline-line-height` | `dimension` | yes | `--cui-headline-s-line-height` | `1.375rem` | `1.375rem` |
+| `--cui-typography-body-one-font-size` | `dimension` | yes | `--cui-body-m-font-size` | `1.0625rem` | `1.0625rem` |
+| `--cui-typography-body-one-line-height` | `dimension` | yes | `--cui-body-m-line-height` | `1.5rem` | `1.5rem` |
+| `--cui-typography-body-two-font-size` | `dimension` | yes | `--cui-body-s-font-size` | `0.9375rem` | `0.9375rem` |
+| `--cui-typography-body-two-line-height` | `dimension` | yes | `--cui-body-s-line-height` | `1.25rem` | `1.25rem` |
+| `--cui-typography-body-large-font-size` | `dimension` | yes | `--cui-body-l-font-size` | `1.3125rem` | `1.3125rem` |
+| `--cui-typography-body-large-line-height` | `dimension` | yes | `--cui-body-l-line-height` | `1.625rem` | `1.625rem` |
 | `--cui-z-index-default` | `number` | no |  | `0` | `0` |
 | `--cui-z-index-absolute` | `number` | no |  | `1` | `1` |
 | `--cui-z-index-input` | `number` | no |  | `20` | `20` |
@@ -242,4 +270,4 @@ CSS variables provided by the Circuit UI design system and their values.
 | `--cui-z-index-tooltip` | `number` | no |  | `40` | `40` |
 | `--cui-z-index-header` | `number` | no |  | `600` | `600` |
 | `--cui-z-index-navigation` | `number` | no |  | `800` | `800` |
-| `--cui-z-index-toast` | `number` | no |  | `1100` | `1100` |
+| `--cui-z-index-toast` | `number` | yes |  | `1100` | `1100` |

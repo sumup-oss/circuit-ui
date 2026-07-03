@@ -69,6 +69,6 @@ button.hamburger {
 }
 
 .logo svg {
-  height: var(--cui-icon-sizes-mega);
+  height: var(--cui-icon-sizes-m);
   color: var(--cui-fg-normal);
 }
