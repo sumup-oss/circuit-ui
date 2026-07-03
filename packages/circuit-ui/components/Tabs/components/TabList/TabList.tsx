@@ -260,4 +260,3 @@ export function TabList({
     </Element>
   );
 }
-
