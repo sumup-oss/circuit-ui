@@ -1,5 +1,11 @@
 # @sumup-oss/stylelint-plugin-circuit-ui
 
+## 4.2.1
+
+### Patch Changes
+
+- [#3715](https://github.com/sumup-oss/circuit-ui/pull/3715) [`cb98b22`](https://github.com/sumup-oss/circuit-ui/commit/cb98b2232001b192ce2d9240c3a5e2d69f9d5d75) Thanks [@missating](https://github.com/missating)! - Updated the `no-deprecated-custom-properties` rule to support deprecated tokens that have no direct replacement. The rule now requires an additional message for deprecated tokens with no direct replacement.
+
 ## 4.2.0
 
 ### Minor Changes

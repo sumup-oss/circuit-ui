@@ -184,6 +184,10 @@ CSS variables provided by the Circuit UI design system and their values.
 | `--cui-icon-sizes-m` | `dimension` | no |  | `1.5rem` | `1.5rem` |
 | `--cui-icon-sizes-l` | `dimension` | no |  | `2rem` | `2rem` |
 | `--cui-icon-sizes-xl` | `dimension` | no |  | `3rem` | `3rem` |
+| `--cui-icon-sizes-kilo` | `dimension` | yes | `--cui-icon-sizes-s` | `16px` | `16px` |
+| `--cui-icon-sizes-mega` | `dimension` | yes | `--cui-icon-sizes-m` | `24px` | `24px` |
+| `--cui-icon-sizes-giga` | `dimension` | yes | `--cui-icon-sizes-l` | `32px` | `32px` |
+| `--cui-icon-sizes-tera` | `dimension` | yes | `--cui-icon-sizes-xl` | `48px` | `48px` |
 | `--cui-spacings-bit` | `dimension` | no |  | `4px` | `4px` |
 | `--cui-spacings-byte` | `dimension` | no |  | `8px` | `8px` |
 | `--cui-spacings-kilo` | `dimension` | no |  | `12px` | `12px` |
