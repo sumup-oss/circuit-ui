@@ -147,8 +147,8 @@
   top: calc(50% - 16px);
   left: calc(50% - 16px);
   visibility: hidden;
-  width: var(--cui-icon-sizes-giga);
-  height: var(--cui-icon-sizes-giga);
+  width: var(--cui-icon-sizes-l);
+  height: var(--cui-icon-sizes-l);
   color: var(--cui-fg-on-strong);
   pointer-events: none;
   opacity: 0;

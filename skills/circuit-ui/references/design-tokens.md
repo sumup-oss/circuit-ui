@@ -180,10 +180,10 @@ CSS variables provided by the Circuit UI design system and their values.
 | `--cui-font-weight-regular` | `fontWeight` | no |  | `375` | `375` |
 | `--cui-font-weight-semibold` | `fontWeight` | no |  | `550` | `550` |
 | `--cui-font-weight-bold` | `fontWeight` | no |  | `650` | `650` |
-| `--cui-icon-sizes-kilo` | `dimension` | no |  | `16px` | `16px` |
-| `--cui-icon-sizes-mega` | `dimension` | no |  | `24px` | `24px` |
-| `--cui-icon-sizes-giga` | `dimension` | no |  | `32px` | `32px` |
-| `--cui-icon-sizes-tera` | `dimension` | no |  | `48px` | `48px` |
+| `--cui-icon-sizes-s` | `dimension` | no |  | `1rem` | `1rem` |
+| `--cui-icon-sizes-m` | `dimension` | no |  | `1.5rem` | `1.5rem` |
+| `--cui-icon-sizes-l` | `dimension` | no |  | `2rem` | `2rem` |
+| `--cui-icon-sizes-xl` | `dimension` | no |  | `3rem` | `3rem` |
 | `--cui-spacings-bit` | `dimension` | no |  | `4px` | `4px` |
 | `--cui-spacings-byte` | `dimension` | no |  | `8px` | `8px` |
 | `--cui-spacings-kilo` | `dimension` | no |  | `12px` | `12px` |

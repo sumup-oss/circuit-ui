@@ -30,7 +30,7 @@
   z-index: var(--cui-z-index-navigation);
   display: flex;
   flex-direction: column;
-  width: var(--cui-icon-sizes-tera);
+  width: var(--cui-icon-sizes-xl);
   height: calc(100vh - var(--top-navigation-height, 0px));
 
   /* biome-ignore lint/suspicious/noDuplicateProperties: Browser compatibility */

@@ -10,13 +10,13 @@
 }
 
 .skeleton.s {
-  width: var(--cui-icon-sizes-kilo);
-  height: var(--cui-icon-sizes-kilo);
+  width: var(--cui-icon-sizes-s);
+  height: var(--cui-icon-sizes-s);
 }
 
 .skeleton.m {
-  width: var(--cui-icon-sizes-mega);
-  height: var(--cui-icon-sizes-mega);
+  width: var(--cui-icon-sizes-m);
+  height: var(--cui-icon-sizes-m);
 }
 
 .base {
@@ -59,14 +59,14 @@
 .base.s,
 .base.s::after,
 .base.s::before {
-  --hamburger-width: calc(var(--cui-icon-sizes-kilo) - 2px);
+  --hamburger-width: calc(var(--cui-icon-sizes-s) - 2px);
   --hamburger-offset: 5px;
 }
 
 .base.m,
 .base.m::after,
 .base.m::before {
-  --hamburger-width: calc(var(--cui-icon-sizes-mega) - 2px);
+  --hamburger-width: calc(var(--cui-icon-sizes-m) - 2px);
   --hamburger-offset: 7px;
 }
 

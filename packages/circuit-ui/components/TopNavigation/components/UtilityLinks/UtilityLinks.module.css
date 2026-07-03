@@ -19,8 +19,8 @@
 
 .icon {
   flex-shrink: 0;
-  width: var(--cui-icon-sizes-mega);
-  height: var(--cui-icon-sizes-mega);
+  width: var(--cui-icon-sizes-m);
+  height: var(--cui-icon-sizes-m);
 }
 
 @media (min-width: 480px) {
