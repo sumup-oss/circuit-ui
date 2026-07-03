@@ -48,7 +48,14 @@ type CommonCopyButtonProps = {
 type InputCopyButtonProps = CommonCopyButtonProps &
   Omit<
     InputProps,
-    'defaultValue' | 'onCopy' | 'renderSuffix' | 'showValid' | 'type' | 'value'
+    | 'defaultValue'
+    | 'onCopy'
+    | 'passwordManagerIgnore'
+    | 'readOnly'
+    | 'renderSuffix'
+    | 'showValid'
+    | 'type'
+    | 'value'
   > & {
     /**
      * The CopyButton variant.
@@ -63,7 +70,16 @@ type InputCopyButtonProps = CommonCopyButtonProps &
   };
 
 type ButtonCopyButtonProps = CommonCopyButtonProps &
-  Omit<ButtonProps, 'children' | 'icon' | 'onClick' | 'type'> & {
+  Omit<
+    ButtonProps,
+    | 'children'
+    | 'destructive'
+    | 'icon'
+    | 'navigationIcon'
+    | 'onClick'
+    | 'type'
+    | 'value'
+  > & {
     /**
      * The CopyButton variant.
      */
@@ -71,7 +87,10 @@ type ButtonCopyButtonProps = CommonCopyButtonProps &
   };
 
 type IconCopyButtonProps = CommonCopyButtonProps &
-  Omit<IconButtonProps, 'children' | 'icon' | 'label' | 'onClick' | 'type'> & {
+  Omit<
+    IconButtonProps,
+    'children' | 'icon' | 'label' | 'onClick' | 'type' | 'value'
+  > & {
     /**
      * The CopyButton variant.
      */
@@ -177,7 +196,6 @@ export function CopyButton(props: CopyButtonProps) {
     ...inputProps
   } = props;
   const displayText = visibleValue ?? value;
-  const buttonLabel = `${copyLabel}: ${props.label}`;
 
   return (
     <Input
@@ -194,7 +212,7 @@ export function CopyButton(props: CopyButtonProps) {
           onClick={handleCopy}
           icon={CopyPaste}
         >
-          {buttonLabel}
+          {copyLabel}
         </IconButton>
       )}
       inputClassName={inputClassName}
