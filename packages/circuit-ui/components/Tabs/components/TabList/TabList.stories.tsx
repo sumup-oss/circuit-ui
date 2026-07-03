@@ -14,7 +14,6 @@
  */
 
 import { Tab } from '../Tab/Tab.js';
-
 import { TabList } from './TabList.js';
 
 export default {
@@ -54,4 +53,16 @@ export const Navigation = () => (
       Contact
     </Tab>
   </TabList>
+);
+
+export const NavigationWithTabsProp = () => (
+  <TabList
+    as="navigation"
+    tabs={[
+      { id: 'home', tab: 'Home', href: '/home' },
+      { id: 'about', tab: 'About', href: '/about' },
+      { id: 'contact', tab: 'Contact', href: '/contact' },
+    ]}
+    initialSelectedIndex={2}
+  />
 );

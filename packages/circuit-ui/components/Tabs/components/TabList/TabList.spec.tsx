@@ -13,16 +13,24 @@
  * limitations under the License.
  */
 
-import { describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { createRef } from 'react';
 
-import { render, screen } from '../../../../util/test-utils.js';
+import { axe, render, screen, userEvent } from '../../../../util/test-utils.js';
 
 import { TabList } from './TabList.js';
-import { axe } from 'jest-axe';
-import { Tab } from '../Tab/Tab.js';
+
+const tabs = [
+  { id: 'a', tab: 'Tab A' },
+  { id: 'b', tab: 'Tab B' },
+  { id: 'c', tab: 'Tab C' },
+];
 
 describe('TabList', () => {
+  beforeAll(() => {
+    HTMLElement.prototype.scrollIntoView = vi.fn();
+  });
+
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
     render(<TabList className={className} />);
@@ -36,6 +44,7 @@ describe('TabList', () => {
     const tabList = screen.getByRole('tablist').parentElement as HTMLDivElement;
     expect(ref.current).toBe(tabList);
   });
+
   it('should render with navigation semantics', () => {
     const ref = createRef<HTMLDivElement>();
     render(<TabList as="navigation" ref={ref} />);
@@ -43,21 +52,84 @@ describe('TabList', () => {
     expect(ref.current).toBe(navigation);
     expect(screen.getByRole('list')).toBeVisible();
   });
+
+  it('should render tabs and select the first one by default', () => {
+    render(<TabList tabs={tabs} />);
+    const [first, second, third] = screen.getAllByRole('tab');
+    expect(first).toHaveAttribute('aria-selected', 'true');
+    expect(second).toHaveAttribute('aria-selected', 'false');
+    expect(third).toHaveAttribute('aria-selected', 'false');
+  });
+
+  it('should respect initialSelectedIndex', () => {
+    render(<TabList tabs={tabs} initialSelectedIndex={1} />);
+    const [first, second] = screen.getAllByRole('tab');
+    expect(first).toHaveAttribute('aria-selected', 'false');
+    expect(second).toHaveAttribute('aria-selected', 'true');
+  });
+
+  it('should switch the selected tab and call onTabChange on click', async () => {
+    const onTabChange = vi.fn();
+    render(<TabList tabs={tabs} onTabChange={onTabChange} />);
+    await userEvent.click(screen.getByRole('tab', { name: 'Tab B' }));
+    expect(screen.getByRole('tab', { name: 'Tab B' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+    expect(onTabChange).toHaveBeenCalledExactlyOnceWith('b');
+  });
+
+  it('should navigate to the next tab on right arrow press', async () => {
+    render(<TabList tabs={tabs} />);
+    screen.getByRole('tab', { name: 'Tab A' }).focus();
+    await userEvent.keyboard('{ArrowRight}');
+    expect(screen.getByRole('tab', { name: 'Tab B' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+  });
+
+  it('should navigate to the previous tab on left arrow press', async () => {
+    render(<TabList tabs={tabs} initialSelectedIndex={1} />);
+    screen.getByRole('tab', { name: 'Tab B' }).focus();
+    await userEvent.keyboard('{ArrowLeft}');
+    expect(screen.getByRole('tab', { name: 'Tab A' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+  });
+
   describe('Accessibility', () => {
-    it('should have no violations as tab', async () => {
+    it('should have no violations as tablist', async () => {
       const { container } = render(
-        <TabList>
-          <Tab>Tab title</Tab>
-        </TabList>,
+        <div>
+          <TabList tabs={tabs} />
+          {tabs.map(({ id }) => (
+            <div
+              key={id}
+              id={`panel-${id}`}
+              role="tabpanel"
+              tabIndex={-1}
+              aria-labelledby={`tab-${id}`}
+            />
+          ))}
+        </div>,
       );
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });
+
     it('should have no violations as navigation', async () => {
       const { container } = render(
-        <TabList as="navigation">
-          <Tab as="listitem">Tab title </Tab>
-        </TabList>,
+        <TabList
+          as="navigation"
+          tabs={[
+            { id: 'home', tab: 'Home', href: '/home' },
+            { id: 'about', tab: 'About', href: '/about' },
+            { id: 'contact', tab: 'Contact', href: '/contact' },
+          ]}
+          initialSelectedIndex={2}
+        />,
       );
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();

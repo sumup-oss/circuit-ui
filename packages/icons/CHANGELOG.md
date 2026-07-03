@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 6.11.0
+
+### Minor Changes
+
+- [#3739](https://github.com/sumup-oss/circuit-ui/pull/3739) [`fd5f7c4`](https://github.com/sumup-oss/circuit-ui/commit/fd5f7c4f190aa1ea27b7857571c6824c2fc189e1) Thanks [@a5e](https://github.com/a5e)! - Added a CashDrawer icon in size 24.
+
 ## 6.10.2
 
 ### Patch Changes

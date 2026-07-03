@@ -58,8 +58,8 @@
     "@sumup-oss/foundry": "^10.0.0",
     "@sumup-oss/stylelint-plugin-circuit-ui": "^4.1.0",
     "@types/node": "^25.9.1",
-    "@vitest/coverage-v8": "^4.1.7",
-    "@vitest/eslint-plugin": "^1.6.18",
+    "@vitest/coverage-v8": "^4.1.9",
+    "@vitest/eslint-plugin": "^1.6.20",
     "audit-ci": "^7.1.0",
     "chromatic": "^16.6.0",
     "eslint-plugin-react": "^7.37.5",
@@ -92,6 +92,7 @@
     "nx": "22.6.3",
     "eslint": "^9.0.0",
     "storybook": "$storybook",
-    "stylus": "^0.64.0"
+    "stylus": "^0.64.0",
+    "undici": "^7.28.0"
   }
 }

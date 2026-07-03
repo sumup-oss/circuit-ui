@@ -15,32 +15,20 @@
 
 'use client';
 
-import { Fragment, type ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 
-import { TabList, type TabListProps } from './components/TabList/TabList.js';
-import { Tab } from './components/Tab/Tab.js';
+import {
+  TabList,
+  type TabItem,
+  type TabListProps,
+} from './components/TabList/TabList.js';
 import { TabPanel } from './components/TabPanel/TabPanel.js';
-import { useTabState } from './helper.js';
 
-export interface TabsProps extends Omit<TabListProps, 'as'> {
-  /**
-   * The index of the initially selected tab.
-   *
-   * @default 0
-   */
-  initialSelectedIndex?: number;
+export interface TabsProps extends Omit<TabListProps, 'as' | 'tabs'> {
   /**
    * A collection of tabs with an id, the tab label, and panel content.
    */
-  items: {
-    id: string;
-    tab: ReactNode;
-    panel: ReactNode;
-  }[];
-  /**
-   * A callback for when the selected tab changes.
-   */
-  onTabChange?: (id: string) => void;
+  items: (TabItem & { panel: ReactNode })[];
 }
 
 export function Tabs({
@@ -49,34 +37,23 @@ export function Tabs({
   onTabChange,
   ...props
 }: TabsProps) {
-  const {
-    selectedId,
-    onTabKeyDown: onKeyDown,
-    onTabClick: onClick,
-  } = useTabState(
-    items.map(({ id }) => id),
-    initialSelectedIndex,
-    onTabChange,
-  );
+  const ids = items.map(({ id }) => id);
+  const [selectedId, setSelectedId] = useState(ids[initialSelectedIndex]);
+
+  const handleTabChange = (id: string) => {
+    setSelectedId(id);
+    onTabChange?.(id);
+  };
 
   return (
-    <Fragment>
-      <TabList as="tablist" {...props}>
-        {items.map(({ id, tab }) => (
-          <Tab
-            as="tab"
-            key={id}
-            id={`tab-${id}`}
-            data-testid="tab-element"
-            selected={selectedId === id}
-            aria-controls={`panel-${id}`}
-            onClick={() => onClick(id)}
-            onKeyDown={onKeyDown}
-          >
-            {tab}
-          </Tab>
-        ))}
-      </TabList>
+    <>
+      <TabList
+        as="tablist"
+        tabs={items.map(({ id, tab }) => ({ id, tab }))}
+        initialSelectedIndex={initialSelectedIndex}
+        onTabChange={handleTabChange}
+        {...props}
+      />
       {items.map(({ id, panel }) => (
         <TabPanel
           key={id}
@@ -88,6 +65,6 @@ export function Tabs({
           {panel}
         </TabPanel>
       ))}
-    </Fragment>
+    </>
   );
 }

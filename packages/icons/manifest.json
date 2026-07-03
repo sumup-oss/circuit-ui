@@ -4275,6 +4275,11 @@
       "size": "24"
     },
     {
+      "name": "cash_drawer",
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
       "name": "challenge",
       "category": "Product and feature",
       "size": "24"
