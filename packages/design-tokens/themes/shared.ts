@@ -162,7 +162,6 @@ export const shared = [
     type: 'dimension',
   },
    
-
   /* Spacings */
   {
     name: '--cui-spacings-bit',
