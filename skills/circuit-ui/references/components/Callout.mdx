@@ -7,14 +7,20 @@ import * as Stories from './Callout.stories';
 
 <Status variant="experimental" />
 
-The `Callout` component renders static inline guidance or emphasis within the content flow.
+The `Callout` component renders static guidance or emphasis content within the content flow.
 
 <Story of={Stories.Base} />
 <Props />
 
-## Component variations
+## When to use it
 
-### Callout variants
+Use callouts to highlight persistent guidance, contextual tips, or extra information that belongs next to related content.
+
+Keep callout copy concise and static. For semantic feedback to user actions, use [`NotificationInline`](Notifications/NotificationInline). For dismissible content or content with a call to action, use [`NotificationBanner`](Notifications/NotificationBanner).
+
+## How to use it
+
+### Variants
 
 <Story of={Stories.Variants} />
 
@@ -24,9 +30,9 @@ The `Callout` component renders static inline guidance or emphasis within the co
 - Use the 'danger' variant for error messages. Be descriptive and give users clear next steps.
 - Use the 'promo' variant for promotional or upgrade-related messages.
 
-### Callouts with rich content
+### Links
 
-The callout body supports arbitrary React nodes.
+The callout body supports links to related content. Avoid placing other interactive content inside a callout.
 
 <Story of={Stories.WithRichContent} />
 

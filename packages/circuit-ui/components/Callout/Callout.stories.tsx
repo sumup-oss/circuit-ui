@@ -15,12 +15,11 @@
 
 import { Stack } from '../../../../.storybook/components/index.js';
 import { Anchor } from '../Anchor/Anchor.js';
-import { List } from '../List/List.js';
 
 import { Callout, type CalloutProps } from './Callout.js';
 
 export default {
-  title: 'Components/Callout',
+  title: 'Notifications/Callout',
   component: Callout,
   tags: ['status:experimental'],
 };
@@ -59,12 +58,7 @@ WithRichContent.args = {
   body: (
     <div id="callout-rich-content">
       Callouts can include{' '}
-      <Anchor href="#callout-rich-content">links to related content</Anchor> and
-      lists:
-      <List>
-        <li>Keep the content static.</li>
-        <li>Place it near the related interface.</li>
-      </List>
+      <Anchor href="#callout-rich-content">links to related content</Anchor>.
     </div>
   ),
   variant: 'promo',

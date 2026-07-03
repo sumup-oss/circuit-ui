@@ -24,7 +24,6 @@ import {
   type IconComponentType,
 } from '@sumup-oss/icons';
 
-import { Body } from '../Body/index.js';
 import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';
 
@@ -87,9 +86,7 @@ export const Callout = forwardRef<HTMLDivElement, CalloutProps>(
           <Icon aria-hidden="true" size="24" />
         </div>
         <span className={utilClasses.hideVisually}>{iconLabel}</span>
-        <Body as="div" className={classes.content}>
-          {body}
-        </Body>
+        <div className={classes.content}>{body}</div>
       </div>
     );
   },
