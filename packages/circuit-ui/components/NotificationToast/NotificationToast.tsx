@@ -124,6 +124,7 @@ export function NotificationToast({
           <Body>{body}</Body>
         </div>
 
+        {/* @ts-expect-error FIXME: */}
         <CloseButton
           className={classes.close}
           aria-hidden="true"

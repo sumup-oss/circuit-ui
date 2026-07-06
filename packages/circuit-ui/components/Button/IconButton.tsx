@@ -15,13 +15,11 @@
 
 'use client';
 
-import { Children, cloneElement, type ReactElement } from 'react';
-import type { IconComponentType, IconProps } from '@sumup-oss/icons';
+import type { IconComponentType } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
 import { CircuitError } from '../../util/errors.js';
 import { deprecate } from '../../util/logger.js';
-import { isString } from '../../util/type-check.js';
 
 import {
   createButtonComponent,
@@ -37,18 +35,12 @@ export type IconButtonProps = SharedButtonProps & {
    * one-word object if needed to clarify.
    * Displayed on hover and accessible to screen readers.
    */
-  children?: ReactElement<IconProps> | string;
-  /**
-   * @deprecated
-   *
-   * Use the `children` prop instead.
-   */
-  label?: string;
+  children: string;
   /**
    * The icon provides context for the button, such as a “search” icon for a
    * search field submission.
    */
-  icon?: IconComponentType;
+  icon: IconComponentType;
 };
 
 /**
@@ -57,36 +49,11 @@ export type IconButtonProps = SharedButtonProps & {
  */
 export const IconButton = createButtonComponent<IconButtonProps>(
   'IconButton',
-  ({
-    className,
-    icon: Icon,
-    label,
-    children,
-    size: legacySize = 'm',
-    ...props
-  }) => {
+  ({ className, size: legacySize = 'm', ...props }) => {
     const size = legacyButtonSizeMap[legacySize] || legacySize;
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      !Icon &&
-      Children.count(children) !== 1
-    ) {
+    if (process.env.NODE_ENV !== 'production' && !props.icon) {
       throw new CircuitError('IconButton', 'The `icon` prop is missing.');
-    }
-
-    if (process.env.NODE_ENV !== 'production' && !isString(children)) {
-      deprecate(
-        'IconButton',
-        'The `children` prop has been deprecated for passing the icon. Use the `icon` prop instead.',
-      );
-    }
-
-    if (process.env.NODE_ENV !== 'production' && label) {
-      deprecate(
-        'IconButton',
-        'The `label` prop has been deprecated. Use the `children` prop instead.',
-      );
     }
 
     if (
@@ -101,22 +68,9 @@ export const IconButton = createButtonComponent<IconButtonProps>(
 
     return {
       className: clsx(classes.base, classes[size], className),
-      icon: (iconProps: IconProps) => {
-        if (Icon) {
-          return <Icon {...iconProps} />;
-        }
-        // biome-ignore lint/style/noNonNullAssertion: We check for the existence of children above
-        const child = Children.only(children)!;
-        // TODO: Remove with the next major
-        if (isString(child)) {
-          return null;
-        }
-        return cloneElement(child, iconProps);
-      },
       size,
-      children: isString(children) ? children : label,
-      title: isString(children) ? children : label,
-      'aria-label': isString(children) ? children : label,
+      title: props.children,
+      'aria-label': props.children,
       ...props,
     };
   },
