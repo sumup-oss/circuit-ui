@@ -189,7 +189,7 @@ export function Icons() {
   );
 }
 
-const DEPRECATED_CATEGORIES = ['Card scheme', 'Payment method'];
+const URL_ONLY_CATEGORIES = ['Flag', 'Payment method', 'Card scheme'];
 
 function Icon({
   icon,
@@ -208,6 +208,7 @@ function Icon({
   ) as keyof typeof iconComponents;
   // eslint-disable-next-line import-x/namespace
   const IconComponent = iconComponents[componentName] as IconComponentType;
+  const isFlag = icon.category === 'Flag';
 
   const copyIconURL = () => {
     const iconURL = `https://circuit.sumup.com/icons/v2/${icon.name}_${icon.size}.svg`;
@@ -246,16 +247,21 @@ function Icon({
       });
   };
 
+  const flagDimensions = {
+    height: scale === 'one-x' ? 15 : 30,
+    width: scale === 'one-x' ? 20 : 40,
+  };
+
   return (
     <div className={classes.wrapper}>
       <div className={clsx(classes['icon-wrapper'], classes[scale])}>
-        {icon.skipComponentFile ? (
+        {URL_ONLY_CATEGORIES.includes(icon.category) ? (
           <img
-            src={getIconURL(icon.name)}
+            src={getIconURL(icon.name, icon.size)}
+            className={classes.icon}
             aria-labelledby={id}
             alt={icon.name}
-            height={scale === 'one-x' ? 15 : 30}
-            width={scale === 'one-x' ? 20 : 40}
+            {...(isFlag ? flagDimensions : {})}
           />
         ) : (
           <IconComponent
@@ -303,18 +309,17 @@ function Icon({
             Copy URL
           </IconButton>
         )}
-        {!icon.skipComponentFile &&
-          !DEPRECATED_CATEGORIES.includes(icon.category) && (
-            <IconButton
-              variant="tertiary"
-              size="s"
-              // @ts-expect-error ReactIcon is a React component
-              icon={ReactIcon}
-              onClick={copyIconReactName}
-            >
-              Copy React component name
-            </IconButton>
-          )}
+        {!URL_ONLY_CATEGORIES.includes(icon.category) && (
+          <IconButton
+            variant="tertiary"
+            size="s"
+            // @ts-expect-error ReactIcon is a React component
+            icon={ReactIcon}
+            onClick={copyIconReactName}
+          >
+            Copy React component name
+          </IconButton>
+        )}
       </div>
     </div>
   );
