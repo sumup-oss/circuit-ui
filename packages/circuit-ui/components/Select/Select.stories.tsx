@@ -14,15 +14,10 @@
  */
 
 import { useState } from 'react';
-import {
-  FlagDe,
-  FlagUs,
-  FlagFr,
-  type IconComponentType,
-} from '@sumup-oss/icons';
 
 import { Select, type SelectProps } from './Select.js';
 import { Stack } from '../../../../.storybook/components/index.js';
+import { Flag, type FlagProps } from '../Flag/Flag.js';
 
 export default {
   title: 'Forms/Select',
@@ -48,12 +43,6 @@ const baseArgs = {
       value: 'FR',
     },
   ],
-};
-
-const flagIconMap: { [key: string]: IconComponentType<'16'> } = {
-  DE: FlagDe,
-  US: FlagUs,
-  FR: FlagFr,
 };
 
 export const Base = (args: SelectProps) => <Select {...args} />;
@@ -90,10 +79,17 @@ export const WithPrefix = (args: SelectProps) => {
       onChange={(event) => {
         setValue(event.target.value);
       }}
-      renderPrefix={(props) => {
-        const Icon = props.value && flagIconMap[props.value];
-        return Icon ? <Icon {...props} aria-hidden="true" /> : null;
-      }}
+      renderPrefix={(props) =>
+        props.value ? (
+          <Flag
+            {...props}
+            alt=""
+            countryCode={props.value as FlagProps['countryCode']}
+            size="s"
+            aria-hidden="true"
+          />
+        ) : null
+      }
     />
   );
 };
