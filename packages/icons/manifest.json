@@ -16,6 +16,14 @@
       "size": "24"
     },
     {
+      "name": "add_items",
+      "category": "Action",
+      "size": "24",
+      "alternative": ["Add", "Items"],
+      "deprecation": "Use the `Add` or `Items` icons instead.",
+      "inactive": true
+    },
+    {
       "name": "chevron_down",
       "category": "Action",
       "size": "24"
@@ -69,6 +77,14 @@
       "name": "controls",
       "category": "Action",
       "size": "16"
+    },
+    {
+      "name": "copy",
+      "category": "Action",
+      "size": "24",
+      "alternative": ["CopyPaste"],
+      "deprecation": "Use the `CopyPaste` icon instead.",
+      "inactive": true
     },
     {
       "name": "copy_paste",
@@ -421,6 +437,27 @@
       "size": "24"
     },
     {
+      "name": "sum_up_logo",
+      "category": "Brand",
+      "size": "24",
+      "deprecation": "Use the SumUpLogo component from '@sumup-oss/circuit-ui' instead.",
+      "inactive": true
+    },
+    {
+      "name": "sum_up_logomark",
+      "category": "Brand",
+      "size": "24",
+      "deprecation": "Use the SumUpLogo component from '@sumup-oss/circuit-ui' in its 'short' variant instead.",
+      "inactive": true
+    },
+    {
+      "name": "sum_up_logomark",
+      "category": "Brand",
+      "size": "32",
+      "deprecation": "Use the SumUpLogo component from '@sumup-oss/circuit-ui' in its 'short' variant instead.",
+      "inactive": true
+    },
+    {
       "name": "plus_tier",
       "category": "Brand",
       "size": "16"
@@ -449,6 +486,14 @@
       "name": "american_express",
       "category": "Card scheme",
       "size": "32"
+    },
+    {
+      "name": "apm",
+      "category": "Card scheme",
+      "size": "32",
+      "alternative": ["AlternativePaymentMethod"],
+      "deprecation": "Use the `AlternativePaymentMethod` icon instead.",
+      "inactive": true
     },
     {
       "name": "apple_pay",
@@ -631,6 +676,14 @@
       "size": "24"
     },
     {
+      "name": "email_chat",
+      "category": "Communication",
+      "size": "24",
+      "alternative": ["Email"],
+      "deprecation": "Use the `Email` icon instead.",
+      "inactive": true
+    },
+    {
       "name": "live_chat",
       "category": "Communication",
       "size": "24"
@@ -641,7 +694,615 @@
       "size": "24"
     },
     {
+      "name": "phone_chat",
+      "category": "Communication",
+      "size": "24",
+      "alternative": ["Phone"],
+      "deprecation": "Use the `Phone` icon instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_ae",
+      "category": "Country flag",
+      "keywords": ["United Arab Emirates"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "AE",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_ar",
+      "category": "Country flag",
+      "keywords": ["Argentina"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "AR",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_at",
+      "category": "Country flag",
+      "keywords": ["Austria"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "AT",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_au",
+      "category": "Country flag",
+      "keywords": ["Australia"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "AU",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_be",
+      "category": "Country flag",
+      "keywords": ["Belgium"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "BE",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_bg",
+      "category": "Country flag",
+      "keywords": ["Bulgaria"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "BG",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_br",
+      "category": "Country flag",
+      "keywords": ["Brazil"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "BR",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_ca",
+      "category": "Country flag",
+      "keywords": ["Canada"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "CA",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_ch",
+      "category": "Country flag",
+      "keywords": ["Switzerland"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "CH",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_cl",
+      "category": "Country flag",
+      "keywords": ["Chile"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "CL",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_co",
+      "category": "Country flag",
+      "keywords": ["Colombia"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "CO",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_cy",
+      "category": "Country flag",
+      "keywords": ["Cypress"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "CY",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_cz",
+      "category": "Country flag",
+      "keywords": ["Czech Republic"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "CZ",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_de",
+      "category": "Country flag",
+      "keywords": ["Germany"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "DE",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_dk",
+      "category": "Country flag",
+      "keywords": ["Denmark"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "DK",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_ee",
+      "category": "Country flag",
+      "keywords": ["Estonia"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "EE",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_es",
+      "category": "Country flag",
+      "keywords": ["Spain"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "ES",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_fi",
+      "category": "Country flag",
+      "keywords": ["Finland"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "FI",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_fr",
+      "category": "Country flag",
+      "keywords": ["France"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "FR",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_gb",
+      "category": "Country flag",
+      "keywords": ["Great Britain", "United Kingdom", "UK", "England"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "GB",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_gr",
+      "category": "Country flag",
+      "keywords": ["Greece"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "GR",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_hk",
+      "category": "Country flag",
+      "keywords": ["Hong Kong"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "HK",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_hr",
+      "category": "Country flag",
+      "keywords": ["Croatia"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "HR",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_hu",
+      "category": "Country flag",
+      "keywords": ["Hungary"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "HU",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_ie",
+      "category": "Country flag",
+      "keywords": ["Ireland"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "IE",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_it",
+      "category": "Country flag",
+      "keywords": ["Italy"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "IT",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_ja",
+      "category": "Country flag",
+      "keywords": ["Japan"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "JP",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_jp",
+      "category": "Country flag",
+      "keywords": ["Japan"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "JP",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_lt",
+      "category": "Country flag",
+      "keywords": ["Lithuania"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "LT",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_lu",
+      "category": "Country flag",
+      "keywords": ["Luxembourg"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "LU",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_lv",
+      "category": "Country flag",
+      "keywords": ["Latvia"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "LV",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_mt",
+      "category": "Country flag",
+      "keywords": ["Montenegro"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "MT",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_mx",
+      "category": "Country flag",
+      "keywords": ["Mexico"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "MX",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_my",
+      "category": "Country flag",
+      "keywords": ["Malaysia"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "MY",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_nl",
+      "category": "Country flag",
+      "keywords": ["Netherlands"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "NL",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_no",
+      "category": "Country flag",
+      "keywords": ["Norway"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "NO",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_nz",
+      "category": "Country flag",
+      "keywords": ["New Zeland"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "NZ",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_pe",
+      "category": "Country flag",
+      "keywords": ["Peru"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "PE",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_pl",
+      "category": "Country flag",
+      "keywords": ["Poland"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "PL",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_pt",
+      "category": "Country flag",
+      "keywords": ["Portugal"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "PT",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_ro",
+      "category": "Country flag",
+      "keywords": ["Romania"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "RO",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_se",
+      "category": "Country flag",
+      "keywords": ["Sweden"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "SE",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_sg",
+      "category": "Country flag",
+      "keywords": ["Singapore"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "SG",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_si",
+      "category": "Country flag",
+      "keywords": ["Slovenia"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "SI",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_sk",
+      "category": "Country flag",
+      "keywords": ["Slovakia"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "SK",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+    {
+      "name": "flag_us",
+      "category": "Country flag",
+      "keywords": ["United States of America", "USA"],
+      "size": "16",
+      "alternative": ["Flag"],
+      "alternativeProps": {
+        "countryCode": "US",
+        "width": "16"
+      },
+      "deprecation": "Use the Flag component instead.",
+      "inactive": true
+    },
+
+    {
       "category": "Flag",
+      "inactive": true,
       "keywords": ["Andorra"],
       "name": "flag_ad",
       "size": "480"
@@ -2224,6 +2885,14 @@
       "size": "24"
     },
     {
+      "name": "mobile_phone",
+      "category": "Device",
+      "size": "24",
+      "alternative": ["Mobile"],
+      "deprecation": "Use the 'Mobile' icon instead.",
+      "inactive": true
+    },
+    {
       "name": "mobile",
       "category": "Device",
       "keywords": ["phone", "mobile"],
@@ -2526,6 +3195,14 @@
       "size": "24"
     },
     {
+      "name": "color_correction",
+      "category": "Miscellaneous",
+      "size": "24",
+      "alternative": ["ColorPicker"],
+      "deprecation": "Use the `ColorPicker` icon instead.",
+      "inactive": true
+    },
+    {
       "name": "color_picker",
       "category": "Miscellaneous",
       "keywords": ["color", "correction"],
@@ -2547,9 +3224,25 @@
       "size": "24"
     },
     {
+      "name": "cookie_preferences",
+      "category": "Miscellaneous",
+      "size": "24",
+      "alternative": ["Cookie"],
+      "deprecation": "Use the `Cookie` icon instead.",
+      "inactive": true
+    },
+    {
       "name": "custom_amount",
       "category": "Miscellaneous",
       "size": "24"
+    },
+    {
+      "name": "customize",
+      "category": "Miscellaneous",
+      "size": "24",
+      "alternative": ["Customise"],
+      "deprecation": "Use the `Customise` icon instead.",
+      "inactive": true
     },
     {
       "name": "customise",
@@ -2557,9 +3250,25 @@
       "size": "24"
     },
     {
+      "name": "favorite",
+      "category": "Miscellaneous",
+      "size": "24",
+      "alternative": ["Favourite"],
+      "deprecation": "Use the `Favourite` icon instead.",
+      "inactive": true
+    },
+    {
       "name": "favourite",
       "category": "Miscellaneous",
       "size": "24"
+    },
+    {
+      "name": "favorite",
+      "category": "Miscellaneous",
+      "size": "16",
+      "alternative": ["Favourite"],
+      "deprecation": "Use the `Favourite` icon instead.",
+      "inactive": true
     },
     {
       "name": "favourite",
@@ -2652,6 +3361,14 @@
       "size": "24"
     },
     {
+      "name": "no_sim",
+      "category": "Miscellaneous",
+      "size": "24",
+      "alternative": ["NoSimcard"],
+      "deprecation": "Use the `NoSimcard` icon instead.",
+      "inactive": true
+    },
+    {
       "name": "no_simcard",
       "category": "Miscellaneous",
       "size": "24"
@@ -2692,9 +3409,25 @@
       "size": "24"
     },
     {
+      "name": "print_failed",
+      "category": "Miscellaneous",
+      "size": "24",
+      "alternative": ["PrinterFailed"],
+      "deprecation": "Use the `PrinterFailed` icon instead.",
+      "inactive": true
+    },
+    {
       "name": "printer_failed",
       "category": "Miscellaneous",
       "size": "24"
+    },
+    {
+      "name": "print_failed",
+      "category": "Miscellaneous",
+      "size": "16",
+      "alternative": ["PrinterFailed"],
+      "deprecation": "Use the `PrinterFailed` icon instead.",
+      "inactive": true
     },
     {
       "name": "printer_failed",
@@ -2799,6 +3532,14 @@
       "size": "24"
     },
     {
+      "name": "unfavorite",
+      "category": "Miscellaneous",
+      "size": "24",
+      "alternative": ["Unfavourite"],
+      "deprecation": "Use the `Unfavourite` icon instead.",
+      "inactive": true
+    },
+    {
       "name": "unfavourite",
       "category": "Miscellaneous",
       "size": "24"
@@ -2809,9 +3550,25 @@
       "size": "24"
     },
     {
+      "name": "contractors",
+      "category": "Miscellaneous",
+      "size": "16",
+      "alternative": ["Contractor"],
+      "deprecation": "Use the `Contractor` icon instead.",
+      "inactive": true
+    },
+    {
       "name": "contractor",
       "category": "Miscellaneous",
       "size": "16"
+    },
+    {
+      "name": "contractors",
+      "category": "Miscellaneous",
+      "size": "24",
+      "alternative": ["Contractor"],
+      "deprecation": "Use the `Contractor` icon instead.",
+      "inactive": true
     },
     {
       "name": "contractor",
@@ -2980,6 +3737,22 @@
       "name": "notify",
       "category": "Notification",
       "size": "16"
+    },
+    {
+      "name": "notify_circle",
+      "category": "Notification",
+      "size": "24",
+      "alternative": ["Notify"],
+      "deprecation": "Use the `Notify` icon instead.",
+      "inactive": true
+    },
+    {
+      "name": "notify_circle",
+      "category": "Notification",
+      "size": "16",
+      "alternative": ["Notify"],
+      "deprecation": "Use the `Notify` icon instead.",
+      "inactive": true
     },
     {
       "name": "paused",
@@ -3367,6 +4140,22 @@
       "size": "24"
     },
     {
+      "name": "general_settings",
+      "category": "Product and feature",
+      "alternative": ["Settings"],
+      "deprecation": "Use the `Settings` icon instead.",
+      "size": "24",
+      "inactive": true
+    },
+    {
+      "name": "gift_card",
+      "category": "Product and feature",
+      "size": "24",
+      "alternative": ["GiftCards"],
+      "deprecation": "Use the `GiftCards` icon instead.",
+      "inactive": true
+    },
+    {
       "name": "gift_cards",
       "category": "Product and feature",
       "keywords": ["Navigation"],
@@ -3510,6 +4299,14 @@
       "size": "24"
     },
     {
+      "name": "payment_link",
+      "category": "Product and feature",
+      "size": "24",
+      "alternative": ["PaymentLinks"],
+      "deprecation": "Use the `PaymentLinks` icon instead.",
+      "inactive": true
+    },
+    {
       "name": "payment_links",
       "category": "Product and feature",
       "keywords": ["Navigation"],
@@ -3622,6 +4419,14 @@
       "size": "24"
     },
     {
+      "name": "refer",
+      "category": "Product and feature",
+      "size": "24",
+      "alternative": ["ReferAFriend", "Reward"],
+      "deprecation": "Use the `ReferAFriend` or `Reward` icons instead.",
+      "inactive": true
+    },
+    {
       "name": "refer_a_friend",
       "category": "Product and feature",
       "size": "24"
@@ -3642,6 +4447,14 @@
       "name": "reward",
       "category": "Product and feature",
       "size": "24"
+    },
+    {
+      "name": "sales",
+      "category": "Product and feature",
+      "size": "24",
+      "alternative": ["Receipt"],
+      "deprecation": "Use the `Receipt` icon instead.",
+      "inactive": true
     },
     {
       "name": "shop",
@@ -3753,6 +4566,14 @@
       "name": "linkedin",
       "category": "Social media",
       "size": "24"
+    },
+    {
+      "name": "messenger",
+      "category": "Social media",
+      "size": "24",
+      "alternative": ["FacebookMessenger"],
+      "deprecation": "Use the `FacebookMessenger` icon instead.",
+      "inactive": true
     },
     {
       "name": "pinterest",

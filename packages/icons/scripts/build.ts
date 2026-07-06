@@ -37,6 +37,7 @@ type Icon = {
   keywords?: string[];
   size: (typeof SIZES)[number];
   deprecation?: string;
+  inactive?: boolean;
 };
 
 type Component = {
@@ -260,14 +261,16 @@ async function writeFile(dir: string, fileName: string, fileContent: string) {
 }
 
 async function main() {
-  const iconsByName = (manifest.icons as Icon[]).reduce(
-    (acc, icon) => {
-      acc[icon.name] = acc[icon.name] || [];
-      acc[icon.name].push(icon);
-      return acc;
-    },
-    {} as Record<string, Icon[]>,
-  );
+  const iconsByName = (manifest.icons as Icon[])
+    .filter((icon) => !icon.inactive)
+    .reduce(
+      (acc, icon) => {
+        acc[icon.name] = acc[icon.name] || [];
+        acc[icon.name].push(icon);
+        return acc;
+      },
+      {} as Record<string, Icon[]>,
+    );
   const allIcons = Object.entries(iconsByName).map(
     ([name, icons]): Component => ({
       name: getComponentName(name),

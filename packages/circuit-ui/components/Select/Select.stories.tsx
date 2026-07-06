@@ -86,7 +86,6 @@ export const WithPrefix = (args: SelectProps) => {
             alt=""
             countryCode={props.value as FlagProps['countryCode']}
             size="s"
-            aria-hidden="true"
           />
         ) : null
       }

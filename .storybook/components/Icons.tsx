@@ -125,7 +125,7 @@ export function Icons() {
       },
     );
     const matchesSize = size === 'all' || size === icon.size;
-    return matchesKeyword && matchesSize;
+    return !icon.inactive && matchesKeyword && matchesSize;
   }) as IconsManifest['icons'];
 
   return (
