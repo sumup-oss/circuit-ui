@@ -99,9 +99,11 @@ export type SharedButtonProps = LinkElProps &
      * Defaults to `navigator.language` in supported environments.
      */
     locale?: Locale;
+    // biome-ignore lint/suspicious/noExplicitAny: Polymorphic component supports button, anchor, and custom elements
+    ref?: Ref<any>;
   };
 
-type CreateButtonComponentProps = SharedButtonProps & {
+type BaseButtonProps = SharedButtonProps & {
   /**
    * Communicates the action that will be performed when the user interacts
    * with the button. Use one strong, clear imperative verb and follow with a
@@ -125,6 +127,7 @@ type CreateButtonComponentProps = SharedButtonProps & {
    * context for the button.
    */
   navigationIcon?: IconComponentType;
+  componentName: string;
 };
 
 export const legacyButtonSizeMap: Record<string, 's' | 'm'> = {
@@ -132,113 +135,104 @@ export const legacyButtonSizeMap: Record<string, 's' | 'm'> = {
   giga: 'm',
 };
 
-export function createButtonComponent<Props>(
-  componentName: string,
-  // TODO: Refactor to `mapClassName` once the deprecations have been removed.
-  mapProps: (props: Props) => CreateButtonComponentProps,
-) {
-  // biome-ignore lint/suspicious/noExplicitAny: Polymorphic component supports button, anchor, and custom elements
-  function Button({ ref, ...rest }: Props & { ref?: Ref<any> }) {
-    const {
-      children,
-      onClick,
-      disabled,
-      destructive,
-      size = 'm',
-      variant = 'secondary',
-      isLoading,
-      loadingLabel,
-      className,
-      icon: LeadingIcon,
-      navigationIcon: TrailingIcon,
-      as,
-      locale,
-      ...sharedProps
-    } = useI18n(mapProps(rest as Props), translations);
+export function BaseButton(props: BaseButtonProps) {
+  const {
+    ref,
+    componentName,
+    children,
+    onClick,
+    disabled,
+    destructive,
+    size = 'm',
+    variant = 'secondary',
+    isLoading,
+    loadingLabel,
+    className,
+    icon: LeadingIcon,
+    navigationIcon: TrailingIcon,
+    as,
+    locale,
+    ...sharedProps
+  } = useI18n(props, translations);
 
-    const components = useComponents();
-    const Link = components.Link as AsPropType;
+  const components = useComponents();
+  const Link = components.Link as AsPropType;
 
-    const isLink = Boolean(sharedProps.href);
+  const isLink = Boolean(sharedProps.href);
 
-    const Element = as || (isLink ? Link : 'button');
+  const Element = as || (isLink ? Link : 'button');
 
-    const leadingIconSize = size === 's' ? '16' : '24';
-    const trailingIconSize = '16';
+  const leadingIconSize = size === 's' ? '16' : '24';
+  const trailingIconSize = '16';
 
-    const hasLoadingState = typeof isLoading !== 'undefined';
+  const hasLoadingState = typeof isLoading !== 'undefined';
 
-    const isDisabled = Boolean(disabled || isLoading);
-    const onDisabledClick = (event: ClickEvent) => {
-      event.preventDefault();
-      event.stopPropagation();
-      event.nativeEvent.stopImmediatePropagation();
-    };
+  const isDisabled = Boolean(disabled || isLoading);
+  const onDisabledClick = (event: ClickEvent) => {
+    event.preventDefault();
+    event.stopPropagation();
+    event.nativeEvent.stopImmediatePropagation();
+  };
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !isSufficientlyLabelled(children as string, sharedProps)
-    ) {
-      throw new AccessibilityError(
-        componentName,
-        'The `children` prop is missing or invalid.',
-      );
-    }
-
-    return (
-      <Element
-        {...sharedProps}
-        {...(hasLoadingState && {
-          'aria-live': 'polite',
-          'aria-busy': Boolean(isLoading),
-        })}
-        {...(isDisabled && {
-          'aria-disabled': true,
-        })}
-        onClick={isDisabled ? onDisabledClick : onClick}
-        className={clsx(
-          classes.base,
-          classes[variant],
-          classes[size],
-          destructive && classes.destructive,
-          utilClasses.focusVisible,
-          className,
-        )}
-        ref={ref}
-      >
-        <span className={classes.loader} aria-hidden={!isLoading}>
-          <span className={classes.dot} />
-          <span className={classes.dot} />
-          <span className={classes.dot} />
-          <span className={utilClasses.hideVisually}>{loadingLabel}</span>
-        </span>
-        <span className={classes.content}>
-          {LeadingIcon && (
-            <LeadingIcon
-              aria-hidden="true"
-              className={classes['leading-icon']}
-              size={leadingIconSize}
-              width={leadingIconSize}
-              height={leadingIconSize}
-            />
-          )}
-          <span className={classes.label}>{children}</span>
-          {TrailingIcon && (
-            <TrailingIcon
-              aria-hidden="true"
-              className={classes['trailing-icon']}
-              size={trailingIconSize}
-              width={trailingIconSize}
-              height={trailingIconSize}
-            />
-          )}
-        </span>
-      </Element>
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !isSufficientlyLabelled(children as string, sharedProps)
+  ) {
+    throw new AccessibilityError(
+      componentName,
+      'The `children` prop is missing or invalid.',
     );
   }
 
-  Button.displayName = componentName;
-
-  return Button;
+  return (
+    <Element
+      {...sharedProps}
+      {...(hasLoadingState && {
+        'aria-live': 'polite',
+        'aria-busy': Boolean(isLoading),
+      })}
+      {...(isDisabled && {
+        'aria-disabled': true,
+      })}
+      onClick={isDisabled ? onDisabledClick : onClick}
+      className={clsx(
+        classes.base,
+        classes[variant],
+        classes[size],
+        destructive && classes.destructive,
+        utilClasses.focusVisible,
+        className,
+      )}
+      ref={ref}
+    >
+      <span className={classes.loader} aria-hidden={!isLoading}>
+        <span className={classes.dot} />
+        <span className={classes.dot} />
+        <span className={classes.dot} />
+        <span className={utilClasses.hideVisually}>{loadingLabel}</span>
+      </span>
+      <span className={classes.content}>
+        {LeadingIcon && (
+          <LeadingIcon
+            aria-hidden="true"
+            className={classes['leading-icon']}
+            size={leadingIconSize}
+            width={leadingIconSize}
+            height={leadingIconSize}
+          />
+        )}
+        <span className={classes.label}>{children}</span>
+        {TrailingIcon && (
+          <TrailingIcon
+            aria-hidden="true"
+            className={classes['trailing-icon']}
+            size={trailingIconSize}
+            width={trailingIconSize}
+            height={trailingIconSize}
+          />
+        )}
+      </span>
+    </Element>
+  );
 }

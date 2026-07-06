@@ -22,7 +22,7 @@ import { CircuitError } from '../../util/errors.js';
 import { deprecate } from '../../util/logger.js';
 
 import {
-  createButtonComponent,
+  BaseButton,
   legacyButtonSizeMap,
   type SharedButtonProps,
 } from './base.js';
@@ -47,31 +47,35 @@ export type IconButtonProps = SharedButtonProps & {
  * The IconButton component enables the user to perform an action or navigate
  * to a different screen.
  */
-export const IconButton = createButtonComponent<IconButtonProps>(
-  'IconButton',
-  ({ className, size: legacySize = 'm', ...props }) => {
-    const size = legacyButtonSizeMap[legacySize] || legacySize;
+export function IconButton({
+  className,
+  size: legacySize = 'm',
+  ...props
+}: IconButtonProps) {
+  const size = legacyButtonSizeMap[legacySize] || legacySize;
 
-    if (process.env.NODE_ENV !== 'production' && !props.icon) {
-      throw new CircuitError('IconButton', 'The `icon` prop is missing.');
-    }
+  if (process.env.NODE_ENV !== 'production' && !props.icon) {
+    throw new CircuitError('IconButton', 'The `icon` prop is missing.');
+  }
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      legacyButtonSizeMap[legacySize]
-    ) {
-      deprecate(
-        'IconButton',
-        `The \`${legacySize}\` size has been deprecated. Use the \`${legacyButtonSizeMap[legacySize]}\` size instead.`,
-      );
-    }
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    legacyButtonSizeMap[legacySize]
+  ) {
+    deprecate(
+      'IconButton',
+      `The \`${legacySize}\` size has been deprecated. Use the \`${legacyButtonSizeMap[legacySize]}\` size instead.`,
+    );
+  }
 
-    return {
-      className: clsx(classes.base, classes[size], className),
-      size,
-      title: props.children,
-      'aria-label': props.children,
-      ...props,
-    };
-  },
-);
+  return (
+    <BaseButton
+      componentName="IconButton"
+      className={clsx(classes.base, classes[size], className)}
+      size={size}
+      title={props.children}
+      aria-label={props.children}
+      {...props}
+    />
+  );
+}
