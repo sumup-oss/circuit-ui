@@ -135,8 +135,8 @@ describe('PhoneNumberInputService', () => {
       const locale = undefined;
       const actual = mapCountryCodeOptions(options, locale);
       expect(actual[0].value).toBe('CA');
-      expect(actual[1].value).toBe('DE');
-      expect(actual[2].value).toBe('US');
+      expect(actual[1].value).toBe('US');
+      expect(actual[2].value).toBe('DE');
     });
 
     it('should use the country name and code as the option label', () => {
@@ -146,7 +146,7 @@ describe('PhoneNumberInputService', () => {
         { country: 'DE', code: '+49' },
       ];
       const locale = undefined;
-      const actual = mapCountryCodeOptions(options, locale);
+      const actual = mapCountryCodeOptions(options, locale, true);
       expect(actual[0].label).toBe('Canada (+1)');
       expect(actual[1].label).toBe('Germany (+49)');
       expect(actual[2].label).toBe('United States (+1)');
@@ -155,7 +155,7 @@ describe('PhoneNumberInputService', () => {
     it('should omit the country name when it is not available', () => {
       const options = [{ country: '', code: '+49' }];
       const locale = undefined;
-      const actual = mapCountryCodeOptions(options, locale);
+      const actual = mapCountryCodeOptions(options, locale, true);
       expect(actual[0].label).toBe('+49');
     });
 
@@ -166,7 +166,7 @@ describe('PhoneNumberInputService', () => {
         { country: 'DE', code: '+49' },
       ];
       const locale = undefined;
-      const actual = mapCountryCodeOptions(options, locale);
+      const actual = mapCountryCodeOptions(options, locale, true);
       expect(actual[0].label).toBe('Canada (+1)');
       expect(actual[1].label).toBe('Germany (+49)');
       expect(actual[2].label).toBe('United States (+1)');
@@ -179,17 +179,17 @@ describe('PhoneNumberInputService', () => {
         { country: 'DE', code: '+49' },
       ];
       const locale = 'DE';
-      const actual = mapCountryCodeOptions(options, locale);
+      const actual = mapCountryCodeOptions(options, locale, true);
       expect(actual[0].value).toBe('DE');
     });
 
-    it('should use calling codes as labels when shouldDisplayCountryNames is false', () => {
+    it('should use calling codes as labels by default', () => {
       const options = [
         { country: 'CA', code: '+1' },
         { country: 'US', code: '+1' },
         { country: 'DE', code: '+49' },
       ];
-      const actual = mapCountryCodeOptions(options, undefined, false);
+      const actual = mapCountryCodeOptions(options, undefined);
       expect(actual[0].label).toBe('+1');
       expect(actual[0].value).toBe('CA');
       expect(actual[1].label).toBe('+1');
@@ -198,13 +198,13 @@ describe('PhoneNumberInputService', () => {
       expect(actual[2].value).toBe('DE');
     });
 
-    it('should sort calling code labels when shouldDisplayCountryNames is false', () => {
+    it('should sort calling code labels by default', () => {
       const options = [
         { country: 'DE', code: '+49' },
         { country: 'CA', code: '+1' },
         { country: 'US', code: '+1' },
       ];
-      const actual = mapCountryCodeOptions(options, undefined, false);
+      const actual = mapCountryCodeOptions(options, undefined);
       expect(actual.map(({ label }) => label)).toEqual(['+1', '+1', '+49']);
     });
   });

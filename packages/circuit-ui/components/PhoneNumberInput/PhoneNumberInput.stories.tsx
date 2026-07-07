@@ -67,6 +67,7 @@ export const Base = (args: PhoneNumberInputProps) => {
 Base.args = {
   value: '',
   label: 'Phone number',
+  shouldDisplayCountryNames: true,
   countryCode: {
     label: 'Country code',
     defaultValue: 'CA',
