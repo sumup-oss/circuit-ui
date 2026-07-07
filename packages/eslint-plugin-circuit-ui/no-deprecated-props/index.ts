@@ -21,18 +21,28 @@ const createRule = ESLintUtils.RuleCreator<RuleDocs>(
     `https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/${name}`,
 );
 
-type Config = {
+type ValueConfig = {
   components: string[];
-  props: [string];
+  prop: string;
+  values: string[];
   alternative: string;
 };
 
-const mappings: Config[] = [
+// TODO: When a deprecated value is removed from a component in a major version,
+// remove the corresponding entry here
+const valueMappings: ValueConfig[] = [
   {
     components: ['Body'],
-    props: ['variant'],
+    prop: 'size',
+    values: ['one', 'two'],
+    alternative: 'Use "m" instead of "one" and "s" instead of "two".',
+  },
+  {
+    components: ['Body', 'Numeral'],
+    prop: 'decoration',
+    values: ['italic'],
     alternative:
-      'Use the new `color` prop instead of the `alert`, `confirm` and `subtle` variants. Use the new `weight` prop instead of the `highlight` variant. Use custom CSS for the `quote` variant.',
+      'Since the brand refresh, italic text is no longer supported. The `italic` decoration will be removed in the next major version.',
   },
 ];
 
@@ -46,42 +56,68 @@ export const noDeprecatedProps = createRule({
       recommended: 'warn',
     },
     messages: {
-      deprecated:
-        "The {{component}}'s `{{prop}}` prop has been deprecated. {{alternative}}",
+      deprecatedValue:
+        'The {{component}}\'s `{{prop}}` prop value "{{value}}" has been deprecated. {{alternative}}',
     },
   },
   defaultOptions: [],
   create(context) {
-    return mappings.reduce((visitors, config) => {
-      config.components.forEach((component) => {
-        visitors[`JSXElement[openingElement.name.name="${component}"]`] = (
-          node: TSESTree.JSXElement,
-        ) => {
-          const { props, alternative } = config;
+    const visitors: TSESLint.RuleListener = {};
 
+    valueMappings.forEach((config) => {
+      config.components.forEach((component) => {
+        const key = `JSXElement[openingElement.name.name="${component}"]`;
+        const existing = visitors[key] as
+          | ((node: TSESTree.JSXElement) => void)
+          | undefined;
+
+        visitors[key] = (node: TSESTree.JSXElement) => {
+          existing?.(node);
           node.openingElement.attributes.forEach((attribute) => {
             if (
               attribute.type !== TSESTree.AST_NODE_TYPES.JSXAttribute ||
-              attribute.name.type !== TSESTree.AST_NODE_TYPES.JSXIdentifier
+              attribute.name.type !== TSESTree.AST_NODE_TYPES.JSXIdentifier ||
+              attribute.name.name !== config.prop
             ) {
               return;
             }
 
-            const prop = attribute.name.name;
+            let value: string | null = null;
 
-            if (!props.includes(prop)) {
+            if (
+              attribute.value?.type === TSESTree.AST_NODE_TYPES.Literal &&
+              typeof attribute.value.value === 'string'
+            ) {
+              value = attribute.value.value;
+            } else if (
+              attribute.value?.type ===
+                TSESTree.AST_NODE_TYPES.JSXExpressionContainer &&
+              attribute.value.expression.type ===
+                TSESTree.AST_NODE_TYPES.Literal &&
+              typeof attribute.value.expression.value === 'string'
+            ) {
+              value = attribute.value.expression.value;
+            }
+
+            if (value === null || !config.values.includes(value)) {
               return;
             }
 
             context.report({
               node: attribute,
-              messageId: 'deprecated',
-              data: { component, prop, alternative },
+              messageId: 'deprecatedValue',
+              data: {
+                component,
+                prop: config.prop,
+                value,
+                alternative: config.alternative,
+              },
             });
           });
         };
       });
-      return visitors;
-    }, {} as TSESLint.RuleListener);
+    });
+
+    return visitors;
   },
 });

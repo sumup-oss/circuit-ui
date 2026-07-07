@@ -30,23 +30,75 @@ const ruleTester = new RuleTester({
 ruleTester.run('no-deprecated-props', noDeprecatedProps, {
   valid: [
     {
-      name: 'matched component without the deprecated prop',
+      name: 'Body without any deprecated prop values',
       code: `
         function Component() {
           return <Body />
         }
       `,
     },
+    {
+      name: 'Body with a valid size value',
+      code: `
+        function Component() {
+          return <Body size="m" />
+        }
+      `,
+    },
+    {
+      name: 'Body with a valid decoration value',
+      code: `
+        function Component() {
+          return <Body decoration="strikethrough" />
+        }
+      `,
+    },
   ],
   invalid: [
     {
-      name: 'matched component with the deprecated prop',
+      name: 'Body with deprecated size "one"',
       code: `
         function Component() {
-          return <Body variant="alert" />
+          return <Body size="one" />
         }
       `,
-      errors: [{ messageId: 'deprecated' }],
+      errors: [{ messageId: 'deprecatedValue' }],
+    },
+    {
+      name: 'Body with deprecated size "two"',
+      code: `
+        function Component() {
+          return <Body size="two" />
+        }
+      `,
+      errors: [{ messageId: 'deprecatedValue' }],
+    },
+    {
+      name: 'Body with deprecated size "one" as JSX expression',
+      code: `
+        function Component() {
+          return <Body size={'one'} />
+        }
+      `,
+      errors: [{ messageId: 'deprecatedValue' }],
+    },
+    {
+      name: 'Body with deprecated decoration "italic"',
+      code: `
+        function Component() {
+          return <Body decoration="italic" />
+        }
+      `,
+      errors: [{ messageId: 'deprecatedValue' }],
+    },
+    {
+      name: 'Numeral with deprecated decoration "italic"',
+      code: `
+        function Component() {
+          return <Numeral decoration="italic" />
+        }
+      `,
+      errors: [{ messageId: 'deprecatedValue' }],
     },
   ],
 });
