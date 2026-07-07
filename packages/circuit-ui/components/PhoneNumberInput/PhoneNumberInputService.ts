@@ -132,7 +132,17 @@ export function normalizePhoneNumber(
 export function mapCountryCodeOptions(
   countryCodeOptions: CountryCodeOption[],
   locale: Locale | undefined,
+  shouldDisplayCountryNames = true,
 ): Required<SelectProps>['options'] {
+  if (!shouldDisplayCountryNames) {
+    return countryCodeOptions
+      .map(({ code, country }) => ({
+        label: code,
+        value: country,
+      }))
+      .sort((a, b) => a.label.localeCompare(b.label));
+  }
+
   const getCountryName = (country: string) => {
     // eslint-disable-next-line compat/compat
     const isIntlDisplayNamesSupported = typeof Intl.DisplayNames === 'function';
