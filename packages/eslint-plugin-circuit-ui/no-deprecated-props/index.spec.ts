@@ -53,8 +53,25 @@ ruleTester.run('no-deprecated-props', noDeprecatedProps, {
         }
       `,
     },
+    {
+      name: 'Toggle without any deprecated props',
+      code: `
+        function Component() {
+          return <Toggle label="label" checked onChange={() => {}} />
+        }
+      `,
+    },
   ],
   invalid: [
+    {
+      name: 'Body with the deprecated variant prop',
+      code: `
+        function Component() {
+          return <Body variant="alert" />
+        }
+      `,
+      errors: [{ messageId: 'deprecated' }],
+    },
     {
       name: 'Body with deprecated size "one"',
       code: `
@@ -99,6 +116,24 @@ ruleTester.run('no-deprecated-props', noDeprecatedProps, {
         }
       `,
       errors: [{ messageId: 'deprecatedValue' }],
+    },
+    {
+      name: 'Toggle with the deprecated checkedLabel prop',
+      code: `
+        function Component() {
+          return <Toggle label="label" checkedLabel="on" />
+        }
+      `,
+      errors: [{ messageId: 'deprecated' }],
+    },
+    {
+      name: 'Toggle with the deprecated uncheckedLabel prop',
+      code: `
+        function Component() {
+          return <Toggle label="label" uncheckedLabel="off" />
+        }
+      `,
+      errors: [{ messageId: 'deprecated' }],
     },
   ],
 });
