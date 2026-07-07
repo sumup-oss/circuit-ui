@@ -132,7 +132,7 @@ export function normalizePhoneNumber(
 export function mapCountryCodeOptions(
   countryCodeOptions: CountryCodeOption[],
   locale: Locale | undefined,
-  shouldDisplayCountryNames = false,
+  shouldDisplayCountryNames = true,
 ): Required<SelectProps>['options'] {
   if (!shouldDisplayCountryNames) {
     return countryCodeOptions

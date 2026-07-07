@@ -122,7 +122,7 @@ export interface PhoneNumberInputProps
    * `Intl.DisplayNames`. When `false`, displays the calling codes from
    * `countryCode.options` without localization.
    *
-   * @default false
+   * @default true
    */
   shouldDisplayCountryNames?: boolean;
   /**
@@ -240,7 +240,7 @@ export const PhoneNumberInput = forwardRef<
       readOnly,
       'aria-describedby': descriptionId,
       locale,
-      shouldDisplayCountryNames = false,
+      shouldDisplayCountryNames = true,
       size = 'm',
       className,
       style,
