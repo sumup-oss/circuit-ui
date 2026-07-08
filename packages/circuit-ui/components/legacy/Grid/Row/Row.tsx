@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { forwardRef, type HTMLAttributes } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
 import styles from './Row.module.css';
 import { clsx } from '../../../../styles/clsx.js';
 
@@ -22,8 +22,9 @@ import { clsx } from '../../../../styles/clsx.js';
  *
  * Row wrapping for the Col component.
  */
-export const Row = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={clsx(styles.base, className)} {...props} />
-  ),
+export interface RowProps extends HTMLAttributes<HTMLDivElement> {
+  ref?: Ref<HTMLDivElement>;
+}
+export const Row = ({ className, ...props }: RowProps) => (
+  <div className={clsx(styles.base, className)} {...props} />
 );
