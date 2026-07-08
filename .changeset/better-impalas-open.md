@@ -31,4 +31,4 @@ Removed the following deprecated icons:
 | messenger         | FacebookMessenger                  |
 |
 
-Use the `no-deprecated-icons` to automatically apply the replacements. 
+Use the `no-deprecated-icons` ESLint rule to automatically apply the replacements. 
