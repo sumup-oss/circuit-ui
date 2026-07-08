@@ -124,7 +124,7 @@ export function NotificationToast({
           <Body>{body}</Body>
         </div>
 
-        {/* @ts-expect-error FIXME: */}
+        {/* @ts-expect-error The button isn't meant to be accessible to screen reader users and thus doesn't need a label. */}
         <CloseButton
           className={classes.close}
           aria-hidden="true"
