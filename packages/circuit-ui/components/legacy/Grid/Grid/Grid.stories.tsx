@@ -29,14 +29,9 @@ export default {
   },
 };
 
-const rowStyles = {
-  border: '1px solid magenta',
-  'margin-bottom': 'var(--cui-spacings-byte)',
-};
-
 export const StaticColumns = () => (
   <Grid>
-    <Row style={rowStyles}>
+    <Row className={styles.row}>
       <Col className={styles.col} span="2">
         Col 2
       </Col>
@@ -57,7 +52,7 @@ export const StaticColumns = () => (
       </Col>
     </Row>
 
-    <Row style={rowStyles}>
+    <Row className={styles.row}>
       <Col className={styles.col} span="3">
         Col 3
       </Col>
@@ -72,7 +67,7 @@ export const StaticColumns = () => (
       </Col>
     </Row>
 
-    <Row style={rowStyles}>
+    <Row className={styles.row}>
       <Col className={styles.col} span="4">
         Col 4
       </Col>
@@ -84,7 +79,7 @@ export const StaticColumns = () => (
       </Col>
     </Row>
 
-    <Row style={rowStyles}>
+    <Row className={styles.row}>
       <Col className={styles.col} span="4">
         Col 4
       </Col>
@@ -102,7 +97,7 @@ export const StaticColumns = () => (
       </Col>
     </Row>
 
-    <Row style={rowStyles}>
+    <Row className={styles.row}>
       <Col className={styles.col} span="6">
         Col 6
       </Col>
@@ -115,7 +110,7 @@ export const StaticColumns = () => (
 
 export const ResponsiveColumns = () => (
   <Grid>
-    <Row style={rowStyles}>
+    <Row className={styles.row}>
       <Col className={styles.col} span={{ default: 12, mega: 3, kilo: 6 }}>
         resize me
       </Col>
@@ -130,7 +125,7 @@ export const ResponsiveColumns = () => (
       </Col>
     </Row>
 
-    <Row style={rowStyles}>
+    <Row className={styles.row}>
       <Col className={styles.col} span={{ default: 12, mega: 3, kilo: 6 }}>
         resize me
       </Col>
@@ -143,7 +138,7 @@ export const ResponsiveColumns = () => (
 
 export const SkippingColumns = () => (
   <Grid>
-    <Row style={rowStyles}>
+    <Row className={styles.row}>
       <Col className={styles.col} span="3">
         Col 3
       </Col>
@@ -155,7 +150,7 @@ export const SkippingColumns = () => (
       </Col>
     </Row>
 
-    <Row style={rowStyles}>
+    <Row className={styles.row}>
       <Col className={styles.col} span="6" skip="6">
         First column
       </Col>
@@ -168,7 +163,7 @@ export const SkippingColumns = () => (
 
 export const ResponsiveSkipping = () => (
   <Grid>
-    <Row style={rowStyles}>
+    <Row className={styles.row}>
       <Col className={styles.col} span="3">
         Col 3
       </Col>
@@ -180,7 +175,7 @@ export const ResponsiveSkipping = () => (
       </Col>
     </Row>
 
-    <Row style={rowStyles}>
+    <Row className={styles.row}>
       <Col className={styles.col} span="6" skip={{ default: 6, untilKilo: 0 }}>
         first column
       </Col>
