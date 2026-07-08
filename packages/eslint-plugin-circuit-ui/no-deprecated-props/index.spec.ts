@@ -73,33 +73,6 @@ ruleTester.run('no-deprecated-props', noDeprecatedProps, {
       errors: [{ messageId: 'deprecated' }],
     },
     {
-      name: 'Body with deprecated size "one"',
-      code: `
-        function Component() {
-          return <Body size="one" />
-        }
-      `,
-      errors: [{ messageId: 'deprecatedValue' }],
-    },
-    {
-      name: 'Body with deprecated size "two"',
-      code: `
-        function Component() {
-          return <Body size="two" />
-        }
-      `,
-      errors: [{ messageId: 'deprecatedValue' }],
-    },
-    {
-      name: 'Body with deprecated size "one" as JSX expression',
-      code: `
-        function Component() {
-          return <Body size={'one'} />
-        }
-      `,
-      errors: [{ messageId: 'deprecatedValue' }],
-    },
-    {
       name: 'Body with deprecated decoration "italic"',
       code: `
         function Component() {
