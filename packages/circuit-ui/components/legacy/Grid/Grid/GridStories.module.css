@@ -17,6 +17,6 @@
 }
 
 .row {
-  margin-bottom: 8px;
-  border: 1px solid magenta;
+  margin-bottom: var(--cui-spacings-byte);
+  border: var(--cui-border-width-kilo) solid magenta;
 }
