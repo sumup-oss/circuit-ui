@@ -79,28 +79,24 @@ export function generatePropGetters(actions: Actions): PropGetters {
     // @ts-expect-error The type will be inferred correctly as long as the
     // generic type isn't manually overridden.
     getPlayControlProps: (props = {}) => ({
-      'aria-label': 'play',
       ...props,
       'onClick': eachFn([props.onClick, actions.play]),
     }),
     // @ts-expect-error The type will be inferred correctly as long as the
     // generic type isn't manually overridden.
     getPauseControlProps: (props = {}) => ({
-      'aria-label': 'pause',
       ...props,
       'onClick': eachFn([props.onClick, actions.pause]),
     }),
     // @ts-expect-error The type will be inferred correctly as long as the
     // generic type isn't manually overridden.
     getNextControlProps: (props = {}) => ({
-      'aria-label': 'next',
       ...props,
       'onClick': eachFn([props.onClick, actions.next]),
     }),
     // @ts-expect-error The type will be inferred correctly as long as the
     // generic type isn't manually overridden.
     getPreviousControlProps: (props = {}) => ({
-      'aria-label': 'previous',
       ...props,
       'onClick': eachFn([props.onClick, actions.previous]),
     }),
