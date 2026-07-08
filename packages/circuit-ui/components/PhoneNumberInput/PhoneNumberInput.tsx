@@ -118,7 +118,7 @@ export interface PhoneNumberInputProps
    */
   locale?: string | string[];
   /**
-   * When `true`, localizes country names in the country code selector using
+   * When `true`, displays the localised country name in the country code selector using
    * `Intl.DisplayNames`. When `false`, displays the calling codes from
    * `countryCode.options` without localization.
    *
