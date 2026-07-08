@@ -18,11 +18,12 @@ import type { BreakpointOptions } from '../types.js';
 
 import styles from './Col.module.css';
 import { clsx } from '../../../../styles/clsx.js';
-import { forwardRef, type HTMLAttributes } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
 
 type Option = string | number;
 
 export interface ColProps extends HTMLAttributes<HTMLDivElement> {
+  ref?: Ref<HTMLDivElement>;
   /**
    * The amount to skip for a column. If the value is a number/string it will
    * be applied with no media query. If the value is an object it will apply
@@ -40,57 +41,54 @@ export interface ColProps extends HTMLAttributes<HTMLDivElement> {
   span?: Option | BreakpointOptions<Option>;
 }
 
-export const Col = forwardRef<HTMLDivElement, ColProps>(
-  ({ span, skip, className, style, ...props }, ref) => {
-    const customProperties: Record<string, Option> = {};
+export const Col = ({ span, skip, className, style, ...props }: ColProps) => {
+  const customProperties: Record<string, Option> = {};
 
-    // Span
-    if (span) {
-      if (isNumber(span) || isString(span)) {
-        customProperties['--span'] = span;
-      } else {
-        Object.entries(span).forEach(
-          ([breakpoint, spanSize]) => {
-            if (breakpoint === 'default') {
-              customProperties['--span'] = spanSize;
-            } else {
-              const bpToUse =
-                breakpoint === 'untilKilo' ? 'until-kilo' : breakpoint;
-              customProperties[`--span-${bpToUse}`] = spanSize;
-            }
-          },
-          [styles.base],
-        );
-      }
+  // Span
+  if (span) {
+    if (isNumber(span) || isString(span)) {
+      customProperties['--span'] = span;
+    } else {
+      Object.entries(span).forEach(
+        ([breakpoint, spanSize]) => {
+          if (breakpoint === 'default') {
+            customProperties['--span'] = spanSize;
+          } else {
+            const bpToUse =
+              breakpoint === 'untilKilo' ? 'until-kilo' : breakpoint;
+            customProperties[`--span-${bpToUse}`] = spanSize;
+          }
+        },
+        [styles.base],
+      );
     }
+  }
 
-    // Skip
-    if (skip) {
-      if (isNumber(skip) || isString(skip)) {
-        customProperties['--skip'] = skip;
-      } else {
-        Object.entries(skip).forEach(
-          ([breakpoint, skipBy]) => {
-            if (breakpoint === 'default') {
-              customProperties['--skip'] = skipBy;
-            } else {
-              const bpToUse =
-                breakpoint === 'untilKilo' ? 'until-kilo' : breakpoint;
-              customProperties[`--skip-${bpToUse}`] = skipBy;
-            }
-          },
-          [styles.base],
-        );
-      }
+  // Skip
+  if (skip) {
+    if (isNumber(skip) || isString(skip)) {
+      customProperties['--skip'] = skip;
+    } else {
+      Object.entries(skip).forEach(
+        ([breakpoint, skipBy]) => {
+          if (breakpoint === 'default') {
+            customProperties['--skip'] = skipBy;
+          } else {
+            const bpToUse =
+              breakpoint === 'untilKilo' ? 'until-kilo' : breakpoint;
+            customProperties[`--skip-${bpToUse}`] = skipBy;
+          }
+        },
+        [styles.base],
+      );
     }
+  }
 
-    return (
-      <div
-        ref={ref}
-        style={{ ...customProperties, ...style }}
-        className={clsx(styles.base, Boolean(skip) && styles.skip, className)}
-        {...props}
-      />
-    );
-  },
-);
+  return (
+    <div
+      style={{ ...customProperties, ...style }}
+      className={clsx(styles.base, Boolean(skip) && styles.skip, className)}
+      {...props}
+    />
+  );
+};
