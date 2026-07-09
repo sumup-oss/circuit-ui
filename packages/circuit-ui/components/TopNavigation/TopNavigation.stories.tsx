@@ -15,7 +15,7 @@
 
 import { useState } from 'react';
 import { action } from 'storybook/actions';
-import { Shop, SumUpLogo } from '@sumup-oss/icons';
+import { Shop } from '@sumup-oss/icons';
 
 import { modes } from '../../../../.storybook/modes.js';
 import { SideNavigation } from '../SideNavigation/index.js';
@@ -25,6 +25,7 @@ import type { HamburgerProps } from '../Hamburger/Hamburger.js';
 import { Headline } from '../Headline/index.js';
 
 import { TopNavigation, type TopNavigationProps } from './TopNavigation.js';
+import { SumUpLogo } from '../SumUpLogo/SumUpLogo.js';
 
 export default {
   title: 'Navigation/TopNavigation',

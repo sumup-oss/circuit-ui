@@ -37,7 +37,7 @@ type Icon = {
   keywords?: string[];
   size: (typeof SIZES)[number];
   deprecation?: string;
-  skipComponentFile?: boolean;
+  inactive?: boolean;
 };
 
 type Component = {
@@ -46,7 +46,8 @@ type Component = {
   deprecation?: string;
 };
 
-const DEPRECATED_CATEGORIES = ['Card scheme', 'Payment method'];
+const DEPRECATED_CATEGORIES: string[] = [];
+const URL_ONLY_CATEGORIES = ['Flag', 'Card scheme', 'Payment method'];
 
 function createDeprecationComment(component: Component) {
   if (component.deprecation) {
@@ -83,13 +84,11 @@ function getFilePath(icon: Icon): string {
 }
 
 function buildComponentFile(component: Component): string {
-  const icons = component.icons
-    .filter((icon) => !icon.skipComponentFile)
-    .map((icon) => ({
-      size: icon.size,
-      filePath: getFilePath(icon),
-      name: getComponentName(`${icon.name}-${icon.size}`),
-    }));
+  const icons = component.icons.map((icon) => ({
+    size: icon.size,
+    filePath: getFilePath(icon),
+    name: getComponentName(`${icon.name}-${icon.size}`),
+  }));
 
   const iconImports = icons.map(
     (icon) =>
@@ -154,23 +153,27 @@ function buildIndexFile(
   `;
 }
 
-function buildDeclarationFile(components: Component[]): string {
-  const declarationStatements = components.map((component) => {
+function buildDeclarationFile(allIcons: Component[]): string {
+  const componentIcons = allIcons.filter(
+    (component) =>
+      !component.icons.some((icon) =>
+        URL_ONLY_CATEGORIES.includes(icon.category),
+      ),
+  );
+  const declarationStatements = componentIcons.map((component) => {
     const sizes = component.icons.map(({ size }) => `'${size}'`).sort();
     const SizesType = sizes.join(' | ');
     return `
       ${createDeprecationComment(component)}
       declare const ${component.name}: IconComponentType<${SizesType}>;`;
   });
-  const exportNames = components.map((component) => component.name);
-  const iconNames = components.map(
-    (component) => `'${component.icons[0].name}'`,
-  );
-  const iconSizes = components.map((component) => {
+  const exportNames = componentIcons.map((component) => component.name);
+  const iconNames = allIcons.map((component) => `'${component.icons[0].name}'`);
+  const iconSizes = allIcons.map((component) => {
     const iconName = component.icons[0].name;
     const sizes = component.icons.map(({ size }) => `'${size}'`).sort();
     const SizesType = sizes.join(' | ');
-    return `${iconName}: ${SizesType};`;
+    return `'${iconName}': ${SizesType};`;
   });
   return `
     import type { FunctionComponent, SVGProps } from 'react';
@@ -194,7 +197,6 @@ function buildDeclarationFile(components: Component[]): string {
       icons: {
         name: IconName;
         category: string;
-        skipComponentFile?: boolean;
         keywords?: string[];
         size: '16' | '24' | '32';
         deprecation?: string;
@@ -259,23 +261,27 @@ async function writeFile(dir: string, fileName: string, fileContent: string) {
 }
 
 async function main() {
-  const iconsByName = (manifest.icons as Icon[]).reduce(
-    (acc, icon) => {
-      acc[icon.name] = acc[icon.name] || [];
-      acc[icon.name].push(icon);
-      return acc;
-    },
-    {} as Record<string, Icon[]>,
+  const iconsByName = (manifest.icons as Icon[])
+    .filter((icon) => !icon.inactive)
+    .reduce(
+      (acc, icon) => {
+        acc[icon.name] = acc[icon.name] || [];
+        acc[icon.name].push(icon);
+        return acc;
+      },
+      {} as Record<string, Icon[]>,
+    );
+  const allIcons = Object.entries(iconsByName).map(
+    ([name, icons]): Component => ({
+      name: getComponentName(name),
+      icons,
+      deprecation: icons.find((icon) => icon.deprecation)?.deprecation,
+    }),
   );
-  const components = Object.entries(iconsByName)
-    .map(
-      ([name, icons]): Component => ({
-        name: getComponentName(name),
-        icons,
-        deprecation: icons.find((icon) => icon.deprecation)?.deprecation,
-      }),
-    )
-    .filter(({ icons }) => icons.some((icon) => !icon.skipComponentFile));
+
+  const components = allIcons.filter(({ icons }) =>
+    icons.some((icon) => !URL_ONLY_CATEGORIES.includes(icon.category)),
+  );
 
   // Group components by lowercase name to detect case-insensitive filename
   // collisions (e.g. SumUpCard / SumupCard).  When two names differ only in
@@ -302,7 +308,7 @@ async function main() {
 
   const indexRaw = buildIndexFile(components, canonicalNames);
   const helpersRaw = buildHelpersFile();
-  const declarationFile = buildDeclarationFile(components);
+  const declarationFile = buildDeclarationFile(allIcons);
 
   await Promise.all(
     [...collisionGroups.values()].map((group) => {

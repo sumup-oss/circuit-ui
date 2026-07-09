@@ -14,7 +14,7 @@
  */
 
 import { describe, expect, it, vi } from 'vitest';
-import { Favorite } from '@sumup-oss/icons';
+import { Favourite } from '@sumup-oss/icons';
 
 import { render, screen, userEvent } from '../../../../util/test-utils.js';
 
@@ -35,7 +35,7 @@ const props: OptionProps = {
 
 describe('Option', () => {
   it('should render with leading icon', () => {
-    render(<Option {...props} image={Favorite} />);
+    render(<Option {...props} image={Favourite} />);
 
     expect(screen.getByText(props.label)).toBeVisible();
     expect(screen.getByText(description)).toBeVisible();
