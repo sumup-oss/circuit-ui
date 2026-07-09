@@ -28,6 +28,7 @@ import { dark } from '../themes/dark.js';
 import { consumer } from '../themes/consumer.js';
 import type { ColorScheme, FontFace, Token } from '../types/index.js';
 import { sumup } from '../themes/fonts.js';
+import { fileURLToPath } from 'node:url';
 
 export type TokenConfig = {
   type: 'tokens';
@@ -157,6 +158,8 @@ function main(): void {
 
   Object.entries(files).forEach(([name, configs]) => {
     const filename = `${name}.css`;
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = path.dirname(__filename);
     const filepath = path.join(__dirname, '../', filename);
     const styles = configs
       .map((config) => {
