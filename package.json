@@ -56,7 +56,7 @@
     "@storybook/react-vite": "^10.3.5",
     "@sumup-oss/eslint-plugin-circuit-ui": "^7.1.0",
     "@sumup-oss/foundry": "^10.0.0",
-    "@sumup-oss/stylelint-plugin-circuit-ui": "^4.1.0",
+    "@sumup-oss/stylelint-plugin-circuit-ui": "^5.0.0-next.0",
     "@types/node": "^25.9.1",
     "@vitest/coverage-v8": "^4.1.9",
     "@vitest/eslint-plugin": "^1.6.20",
@@ -93,6 +93,9 @@
     "eslint": "^9.0.0",
     "storybook": "$storybook",
     "stylus": "^0.64.0",
-    "undici": "^7.28.0"
+    "undici": "^7.28.0",
+    "@sumup-oss/foundry": {
+      "@sumup-oss/stylelint-plugin-circuit-ui": "$@sumup-oss/stylelint-plugin-circuit-ui"
+    }
   }
 }

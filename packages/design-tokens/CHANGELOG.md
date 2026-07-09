@@ -1,5 +1,11 @@
 # @sumup-oss/design-tokens
 
+## 11.0.0-next.0
+
+### Major Changes
+
+- [#3647](https://github.com/sumup-oss/circuit-ui/pull/3647) [`1ea4fe8`](https://github.com/sumup-oss/circuit-ui/commit/1ea4fe88cf5bb6e4574e3a0f1f322d969a70ebd3) Thanks [@missating](https://github.com/missating)! - Dropped support for Node.js 22. Node.js 24 or higher is now required.
+
 ## 10.1.0
 
 ### Minor Changes
