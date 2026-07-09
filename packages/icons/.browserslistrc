@@ -6,6 +6,3 @@ ios_saf >= 14
 edge >= 85
 opera >= 71
 samsung >= 14
-
-# The features that the script checks for
-supports css-grid and supports object-entries and supports es6-module-dynamic-import
