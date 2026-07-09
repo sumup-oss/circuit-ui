@@ -16,7 +16,7 @@ The `Callout` component renders static guidance or emphasis content within the c
 
 Use callouts to highlight persistent guidance, contextual tips, or extra information that belongs next to related content.
 
-Keep callout copy concise and static. For semantic feedback to user actions, use [`NotificationInline`](Notifications/NotificationInline). For dismissible content or content with a call to action, use [`NotificationBanner`](Notifications/NotificationBanner).
+Keep callout copy concise and static. For semantic feedback in response to user actions, such as success or error messages, use the [`NotificationInline`](Notifications/NotificationInline) component. For dismissible content or content with a call to action, use the [`NotificationBanner`](Notifications/NotificationBanner) component.
 
 ## How to use it
 
@@ -25,25 +25,10 @@ Keep callout copy concise and static. For semantic feedback to user actions, use
 <Story of={Stories.Variants} />
 
 - Use the 'info' variant for informational, neutral messages.
-- Use the 'success' variant for successful messages.
-- Use the 'warning' variant for warning messages, and other information a user should be aware of.
-- Use the 'danger' variant for error messages. Be descriptive and give users clear next steps.
 - Use the 'promo' variant for promotional or upgrade-related messages.
 
-### Links
+### Content
 
-The callout body supports links to related content. Avoid placing other interactive content inside a callout.
+The body of the Callout should be static and purely informational. Keep the content limited to text and links to related resources, and avoid placing other interactive elements such as buttons, form controls, or custom actions.
 
 <Story of={Stories.WithRichContent} />
-
-## Accessibility
-
-### Best practices
-
-#### Place callouts close to their related content
-
-Callouts are part of the content flow, and should be placed near their related content. Make use of headings and semantic markup to programmatically group content into meaningful sections.
-
-#### Avoid dynamically rendering a callout
-
-The `Callout` component is meant for static content. If you need to render a message dynamically, you most likely want to use the [`NotificationInline`](Notifications/NotificationInline) component instead.

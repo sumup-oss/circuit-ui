@@ -19,12 +19,12 @@ import { Anchor } from '../Anchor/Anchor.js';
 import { Callout, type CalloutProps } from './Callout.js';
 
 export default {
-  title: 'Notifications/Callout',
+  title: 'Notification/Callout',
   component: Callout,
   tags: ['status:experimental'],
 };
 
-const variants = ['info', 'success', 'warning', 'danger', 'promo'] as const;
+const variants = ['info', 'promo'] as const;
 
 export const Base = (args: CalloutProps) => <Callout {...args} />;
 
