@@ -13,5 +13,19 @@
  * limitations under the License.
  */
 
-export const MIN_COL_SPAN = 1;
-export const MAX_COL_WIDTH = 100;
+import type { HTMLAttributes, Ref } from 'react';
+import { clsx } from '../../../../styles/clsx.js';
+import styles from './Grid.module.css';
+
+/**
+ * @legacy
+ *
+ * A basic 12-column grid component.
+ */
+export interface GridProps extends HTMLAttributes<HTMLDivElement> {
+  ref?: Ref<HTMLDivElement>;
+}
+
+export const Grid = ({ className, ...props }: GridProps) => (
+  <div className={clsx(styles.base, className)} {...props} />
+);

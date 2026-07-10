@@ -1,10 +1,11 @@
 # Do not use invalid Circuit UI custom properties (`prefer-custom-properties`)
 
-Circuit UI's Emotion.js theme is being replaced with CSS custom properties (a.k.a. CSS variables). This rule flags uses of the Emotion.js theme and can automatically rewrite them to CSS custom properties.
+Circuit UI's Emotion.js theme has been removed in favor of CSS custom properties (a.k.a. CSS variables). This rule flags uses of the Emotion.js theme and automatically replaces them with CSS custom properties.
 
 ## Rule Details
 
-This rule aims to automate the migration to CSS custom properties. CSS custom properties are widely supported and more performant to update than Emotion.js' theme object that is passed to components via React context. Setting the rule's error level to `warn` (or `1`) is recommended.
+This rule automates the migration to CSS custom properties. 
+Circuit UI v12 and newer no longer export an Emotion.js theme object, and setting the rule's error level to `error` (or `2`) will help you identify and fix any remaining uses of the theme.
 
 Examples of **incorrect** code for this rule:
 

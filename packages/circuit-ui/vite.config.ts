@@ -101,7 +101,6 @@ export default defineConfig({
         ...Object.keys(pkg.peerDependencies),
         // Subfolder imports
         'react/jsx-runtime',
-        '@emotion/react/jsx-runtime',
       ],
     },
   },

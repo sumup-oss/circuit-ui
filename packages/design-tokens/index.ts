@@ -12,21 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import type { Spacings } from './types/index.js';
 
-import type { Theme } from './types/index.js';
-import * as legacy from './themes/legacy/light.js';
+export type { Spacings };
 
 export { schema } from './themes/schema.js';
-
-/**
- * @deprecated
- *
- * Use the CSS custom properties from `@sumup-oss/design-tokens` instead.
- * Use the [`circuit-ui/prefer-custom-properties`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/prefer-custom-properties)
- * ESLint rule to automatically migrate your code.
- */
-// HACK: Copy the theme, otherwise, it gets exported as 'module'.
-const light: Theme = { ...legacy };
-
-export type { Theme };
-export { light };
