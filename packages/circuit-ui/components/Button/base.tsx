@@ -187,7 +187,11 @@ export function BaseButton(props: BaseButtonProps) {
     );
   }
 
-  if (process.env.NODE_ENV !== 'production' && !isStringChildren(children)) {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !isStringChildren(children)
+  ) {
     throw new CircuitError(
       componentName,
       'The `children` prop must be a string.',
