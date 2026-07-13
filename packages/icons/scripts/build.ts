@@ -129,13 +129,7 @@ function buildComponentFile(component: Component): string {
   `;
 }
 
-function buildHelpersFile(): string {
-  return `
-    export function getIconURL(name, size) {
-      return 'https://circuit.sumup.com/icons/v2/' + name + (size ? '_' + size : '') + '.svg';
-    }
-  `;
-}
+const MANUAL_COMPONENTS: string[] = [];
 
 function buildIndexFile(
   components: Component[],
@@ -147,10 +141,14 @@ function buildIndexFile(
       return `export { ${name} } from './${fileName}.js';`;
     })
     .join('\n');
+  const manualExports = MANUAL_COMPONENTS.map(
+    (name) => `export { ${name} } from './${name}.js';`,
+  ).join('\n');
   const helpersExport = `export * from './helpers.js';`;
   return `
     ${helpersExport}
     ${componentExports}
+    ${manualExports}
   `;
 }
 
@@ -172,6 +170,10 @@ function buildDeclarationFile(components: Component[]): string {
     const SizesType = sizes.join(' | ');
     return `${iconName}: ${SizesType};`;
   });
+  const manualExports = MANUAL_COMPONENTS.map(
+    (name) =>
+      `export { ${name} } from './${name}.js';\nexport type { ${name}Props } from './${name}.js';`,
+  ).join('\n');
   return `
     import type { FunctionComponent, SVGProps } from 'react';
 
@@ -206,6 +208,8 @@ function buildDeclarationFile(components: Component[]): string {
     }
 
     export function getIconURL<Name extends IconName>(name: Name, size?: Icons[Name]): string;
+
+    ${manualExports}
   `;
 }
 
@@ -301,7 +305,6 @@ async function main() {
   }
 
   const indexRaw = buildIndexFile(components, canonicalNames);
-  const helpersRaw = buildHelpersFile();
   const declarationFile = buildDeclarationFile(components);
 
   await Promise.all(
@@ -314,7 +317,6 @@ async function main() {
   );
 
   await transpileModule('index.js', indexRaw);
-  await transpileModule('helpers.js', helpersRaw);
 
   await writeFile(DIST_DIR, 'index.d.ts', declarationFile);
 }
