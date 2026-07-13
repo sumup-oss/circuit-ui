@@ -1,5 +1,21 @@
 # @sumup-oss/circuit-ui
 
+## 12.0.0-next.1
+
+### Major Changes
+
+- [#3749](https://github.com/sumup-oss/circuit-ui/pull/3749) [`6bf75c1`](https://github.com/sumup-oss/circuit-ui/commit/6bf75c1e1e687d8701ffc6bfdbd6a9b606b66ea0) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the browser support policy.
+
+  | Browser          | Previous | New |
+  | ---------------- | -------- | --- |
+  | Chrome           | 73+      | 85+ |
+  | Firefox          | 67+      | 79+ |
+  | Edge             | 79+      | 85+ |
+  | Safari iOS       | 12.2+    | 14+ |
+  | Safari macOS     | 12.1+    | 14+ |
+  | Opera            | 60+      | 71+ |
+  | Samsung Internet | 11.1+    | 14+ |
+
 ## 12.0.0-next.0
 
 ### Major Changes
