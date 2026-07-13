@@ -30,6 +30,16 @@ export default {
   title: 'Components/Status',
   component: Status,
   tags: ['status:stable'],
+  argTypes: {
+    variant: {
+      options: ['pill', 'badge', 'dot', 'line'],
+      control: { type: 'radio' },
+    },
+    color: {
+      options: ['confirm', 'neutral', 'notify', 'alert', 'promo', 'special'],
+      control: { type: 'radio' },
+    },
+  },
 };
 
 export const Base = (args: StatusProps) => <Status {...args} />;

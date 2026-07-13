@@ -104,6 +104,12 @@
   - @sumup-oss/icons@7.0.0-next.0
   - @sumup-oss/design-tokens@11.0.0-next.0
 
+## 11.11.0
+
+### Minor Changes
+
+- [#3746](https://github.com/sumup-oss/circuit-ui/pull/3746) [`ddda466`](https://github.com/sumup-oss/circuit-ui/commit/ddda466852fa46543870c2f5285e52b56c79ffb8) Thanks [@pdrmdrs](https://github.com/pdrmdrs)! - Added a new `shouldDisplayCountryNames` prop to PhoneNumberInput to opt out of `Intl.DisplayNames` localization and display calling codes from `countryCode.options` directly.
+
 ## 11.10.0
 
 ### Minor Changes

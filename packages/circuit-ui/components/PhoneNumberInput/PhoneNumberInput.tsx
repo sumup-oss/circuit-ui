@@ -119,6 +119,14 @@ export interface PhoneNumberInputProps
    */
   locale?: string | string[];
   /**
+   * When `true`, displays the localised country name in the country code selector using
+   * `Intl.DisplayNames`. When `false`, displays the calling codes from
+   * `countryCode.options` without localization.
+   *
+   * @default true
+   */
+  shouldDisplayCountryNames?: boolean;
+  /**
    * Choose from 2 sizes.
    * @default m
    */
@@ -236,6 +244,7 @@ export function PhoneNumberInput({
   ref,
   'aria-describedby': descriptionId,
   locale,
+  shouldDisplayCountryNames = true,
   size = 'm',
   className,
   style,
@@ -256,8 +265,13 @@ export function PhoneNumberInput({
   const descriptionIds = idx(descriptionId, validationHint && validationHintId);
 
   const options = useMemo(
-    () => mapCountryCodeOptions(countryCode.options, locale),
-    [countryCode.options, locale],
+    () =>
+      mapCountryCodeOptions(
+        countryCode.options,
+        locale,
+        shouldDisplayCountryNames,
+      ),
+    [countryCode.options, locale, shouldDisplayCountryNames],
   );
 
   const handleChange = () => {

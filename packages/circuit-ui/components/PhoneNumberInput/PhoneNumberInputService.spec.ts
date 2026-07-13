@@ -182,5 +182,30 @@ describe('PhoneNumberInputService', () => {
       const actual = mapCountryCodeOptions(options, locale);
       expect(actual[0].value).toBe('DE');
     });
+
+    it('should use calling codes as labels when shouldDisplayCountryNames is false', () => {
+      const options = [
+        { country: 'CA', code: '+1' },
+        { country: 'US', code: '+1' },
+        { country: 'DE', code: '+49' },
+      ];
+      const actual = mapCountryCodeOptions(options, undefined, false);
+      expect(actual[0].label).toBe('+1');
+      expect(actual[0].value).toBe('CA');
+      expect(actual[1].label).toBe('+1');
+      expect(actual[1].value).toBe('US');
+      expect(actual[2].label).toBe('+49');
+      expect(actual[2].value).toBe('DE');
+    });
+
+    it('should sort calling code labels when shouldDisplayCountryNames is false', () => {
+      const options = [
+        { country: 'DE', code: '+49' },
+        { country: 'CA', code: '+1' },
+        { country: 'US', code: '+1' },
+      ];
+      const actual = mapCountryCodeOptions(options, undefined, false);
+      expect(actual.map(({ label }) => label)).toEqual(['+1', '+1', '+49']);
+    });
   });
 });
