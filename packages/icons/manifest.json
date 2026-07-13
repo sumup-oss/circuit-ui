@@ -618,6 +618,14 @@
     {
       "name": "sumup_card",
       "category": "Card scheme",
+      "size": "32",
+      "alternative": ["SumupCardScheme"],
+      "deprecation": "Use the `SumupCardScheme` icon instead.",
+      "inactive": true
+    },
+    {
+      "name": "sumup_card_scheme",
+      "category": "Card scheme",
       "size": "32"
     },
     {
