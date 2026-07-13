@@ -1,11 +1,10 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "esModuleInterop": true,
+    "module": "NodeNext",
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "moduleResolution": "Node",
-    "outDir": "./dist/es",
+    "outDir": "./dist",
     "resolveJsonModule": true,
     "strict": true,
     "skipLibCheck": true,
