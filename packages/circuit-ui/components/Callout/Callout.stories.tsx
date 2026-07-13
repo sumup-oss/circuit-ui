@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { Info, Sparkles } from '@sumup-oss/icons';
+
 import { Stack } from '../../../../.storybook/components/index.js';
 import { Anchor } from '../Anchor/Anchor.js';
 
@@ -24,32 +26,34 @@ export default {
   tags: ['status:experimental'],
 };
 
-const variants = ['info', 'promo'] as const;
+const colors = ['info', 'promo'] as const;
 
 export const Base = (args: CalloutProps) => <Callout {...args} />;
 
 Base.args = {
   body: 'Callout is a newly available component for static inline guidance or emphasis.',
-  variant: 'promo',
+  color: 'promo',
+  icon: Sparkles,
 } as CalloutProps;
 
 Base.parameters = {
   chromatic: {
-    // covered in the Variants story
+    // covered in the Colors story
     disableSnapshot: true,
   },
 };
 
-export const Variants = (args: CalloutProps) => (
+export const Colors = (args: CalloutProps) => (
   <Stack vertical>
-    {variants.map((variant) => (
-      <Callout key={variant} {...args} variant={variant} />
+    {colors.map((color) => (
+      <Callout key={color} {...args} color={color} />
     ))}
   </Stack>
 );
 
-Variants.args = {
+Colors.args = {
   body: 'This is a callout message',
+  icon: Info,
 } as CalloutProps;
 
 export const WithRichContent = (args: CalloutProps) => <Callout {...args} />;
@@ -61,5 +65,6 @@ WithRichContent.args = {
       <Anchor href="#callout-rich-content">links to related content</Anchor>.
     </div>
   ),
-  variant: 'promo',
+  color: 'promo',
+  icon: Sparkles,
 } as CalloutProps;

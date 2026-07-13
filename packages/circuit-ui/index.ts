@@ -88,8 +88,8 @@ export type { ClickEvent } from './types/events.js';
 // Notifications
 export { Callout } from './components/Callout/index.js';
 export type {
+  CalloutColor,
   CalloutProps,
-  CalloutVariant,
 } from './components/Callout/index.js';
 export { NotificationBanner } from './components/NotificationBanner/index.js';
 export type { NotificationBannerProps } from './components/NotificationBanner/index.js';

@@ -15,41 +15,21 @@
 
 import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
 
-import {
-  Alert,
-  Confirm,
-  Info,
-  Notify,
-  Sparkles,
-  type IconComponentType,
-} from '@sumup-oss/icons';
+import { Info, type IconComponentType } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';
 
 import classes from './Callout.module.css';
 
-export type CalloutVariant =
-  | 'info'
-  | 'success'
-  | 'warning'
-  | 'danger'
-  | 'promo';
-
-const CALLOUT_ICONS: Record<CalloutVariant, IconComponentType<'24'>> = {
-  info: Info,
-  success: Confirm,
-  warning: Notify,
-  danger: Alert,
-  promo: Sparkles,
-};
+export type CalloutColor = 'info' | 'success' | 'warning' | 'danger' | 'promo';
 
 export interface CalloutProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * The callout's variant.
+   * The callout's color.
    * @default 'info'
    */
-  variant?: CalloutVariant;
+  color?: CalloutColor;
   /**
    * The callout's body content.
    */
@@ -71,25 +51,28 @@ export interface CalloutProps extends HTMLAttributes<HTMLDivElement> {
  */
 export const Callout = forwardRef<HTMLDivElement, CalloutProps>(
   (
-    { variant = 'info', body, icon, iconLabel = '', className, ...props },
+    {
+      color = 'info',
+      body,
+      icon: Icon = Info,
+      iconLabel = '',
+      className,
+      ...props
+    },
     ref,
-  ) => {
-    const Icon = icon || CALLOUT_ICONS[variant];
-
-    return (
-      <div
-        ref={ref}
-        className={clsx(classes.base, classes[variant], className)}
-        {...props}
-      >
-        <div className={classes.icon}>
-          <Icon aria-hidden="true" size="24" />
-        </div>
-        <span className={utilClasses.hideVisually}>{iconLabel}</span>
-        <div className={classes.content}>{body}</div>
+  ) => (
+    <div
+      ref={ref}
+      className={clsx(classes.base, classes[color], className)}
+      {...props}
+    >
+      <div className={classes.icon}>
+        <Icon aria-hidden="true" size="24" />
       </div>
-    );
-  },
+      <span className={utilClasses.hideVisually}>{iconLabel}</span>
+      <div className={classes.content}>{body}</div>
+    </div>
+  ),
 );
 
 Callout.displayName = 'Callout';

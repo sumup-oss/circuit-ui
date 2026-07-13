@@ -14,4 +14,4 @@
  */
 
 export { Callout } from './Callout.js';
-export type { CalloutProps, CalloutVariant } from './Callout.js';
+export type { CalloutColor, CalloutProps } from './Callout.js';

@@ -41,10 +41,10 @@ describe('Callout', () => {
     'warning',
     'danger',
     'promo',
-  ] as const)('should render the %s variant', (variant) => {
-    const { container } = renderCallout({ ...baseProps, variant });
+  ] as const)('should render the %s color', (color) => {
+    const { container } = renderCallout({ ...baseProps, color });
 
-    expect(container.firstElementChild?.className).toContain(`_${variant}_`);
+    expect(container.firstElementChild?.className).toContain(`_${color}_`);
   });
 
   it('should render a custom icon', () => {
