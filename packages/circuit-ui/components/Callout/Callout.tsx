@@ -22,12 +22,17 @@ import { utilClasses } from '../../styles/utility.js';
 
 import classes from './Callout.module.css';
 
-export type CalloutColor = 'info' | 'success' | 'warning' | 'danger' | 'promo';
+export type CalloutColor =
+  | 'confirm'
+  | 'neutral'
+  | 'notify'
+  | 'alert'
+  | 'promo';
 
 export interface CalloutProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * The callout's color.
-   * @default 'info'
+   * @default 'neutral'
    */
   color?: CalloutColor;
   /**
@@ -52,7 +57,7 @@ export interface CalloutProps extends HTMLAttributes<HTMLDivElement> {
 export const Callout = forwardRef<HTMLDivElement, CalloutProps>(
   (
     {
-      color = 'info',
+      color = 'neutral',
       body,
       icon: Icon = Info,
       iconLabel = '',

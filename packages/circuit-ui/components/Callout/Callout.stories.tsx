@@ -26,7 +26,7 @@ export default {
   tags: ['status:experimental'],
 };
 
-const colors = ['info', 'promo'] as const;
+const colors = ['confirm', 'neutral', 'notify', 'alert', 'promo'] as const;
 
 export const Base = (args: CalloutProps) => <Callout {...args} />;
 

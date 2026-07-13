@@ -36,10 +36,10 @@ describe('Callout', () => {
   });
 
   it.each([
-    'info',
-    'success',
-    'warning',
-    'danger',
+    'confirm',
+    'neutral',
+    'notify',
+    'alert',
     'promo',
   ] as const)('should render the %s color', (color) => {
     const { container } = renderCallout({ ...baseProps, color });

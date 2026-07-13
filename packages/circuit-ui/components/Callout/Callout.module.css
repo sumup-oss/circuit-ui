@@ -27,35 +27,35 @@
 
 /* Colors */
 
-.info {
-  background-color: var(--cui-bg-subtle);
-}
-
-.info .icon {
-  color: var(--cui-fg-accent);
-}
-
-.success {
+.confirm {
   background-color: var(--cui-bg-success);
 }
 
-.success .icon {
+.confirm .icon {
   color: var(--cui-fg-success);
 }
 
-.warning {
+.neutral {
+  background-color: var(--cui-bg-neutral);
+}
+
+.neutral .icon {
+  color: var(--cui-fg-neutral);
+}
+
+.notify {
   background-color: var(--cui-bg-warning);
 }
 
-.warning .icon {
+.notify .icon {
   color: var(--cui-fg-warning);
 }
 
-.danger {
+.alert {
   background-color: var(--cui-bg-danger);
 }
 
-.danger .icon {
+.alert .icon {
   color: var(--cui-fg-danger);
 }
 
