@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 7.0.0-next.2
+
+### Major Changes
+
+- [#3753](https://github.com/sumup-oss/circuit-ui/pull/3753) [`f85020d`](https://github.com/sumup-oss/circuit-ui/commit/f85020d6aebfaf5d38ac6ce5bb518e72d9e8cb81) Thanks [@missating](https://github.com/missating)! - Renamed the `sumup_card` icon to `sumup_card_scheme` to resolve a naming collision with the `SumUpCard` icon. Load it from a URL using `getIconURL('sumup_card_scheme', '32')` instead of `getIconURL('sumup_card', '32')`.
+
 ## 7.0.0-next.1
 
 ### Major Changes

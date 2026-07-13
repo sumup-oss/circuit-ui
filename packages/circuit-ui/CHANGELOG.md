@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 12.0.0-next.2
+
+### Major Changes
+
+- [#3745](https://github.com/sumup-oss/circuit-ui/pull/3745) [`001e42c`](https://github.com/sumup-oss/circuit-ui/commit/001e42c312b2203729707967390917e8a696015b) Thanks [@connor-baer](https://github.com/connor-baer)! - Removed the deprecated `label` prop from the IconButton component. Use the `children` prop for the label and the `icon` prop for the icon instead.
+
 ## 12.0.0-next.1
 
 ### Major Changes
