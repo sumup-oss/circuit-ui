@@ -18,7 +18,6 @@
 import type { IconComponentType } from '@sumup-oss/icons';
 
 import { clsx } from '../../styles/clsx.js';
-import { CircuitError } from '../../util/errors.js';
 import { deprecate } from '../../util/logger.js';
 
 import {
@@ -53,10 +52,6 @@ export function IconButton({
   ...props
 }: IconButtonProps) {
   const size = legacyButtonSizeMap[legacySize] || legacySize;
-
-  if (process.env.NODE_ENV !== 'production' && !props.icon) {
-    throw new CircuitError('IconButton', 'The `icon` prop is missing.');
-  }
 
   if (
     process.env.NODE_ENV !== 'production' &&
