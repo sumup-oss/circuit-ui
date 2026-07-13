@@ -28,8 +28,7 @@ export type CloseButtonProps = Omit<IconButtonProps, 'icon'> & {
  */
 
 export function CloseButton({
-  label = 'Close',
-  children = label,
+  children = 'Close',
   ref,
   ...props
 }: CloseButtonProps) {

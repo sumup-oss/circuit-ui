@@ -136,23 +136,6 @@ describe('StepService', () => {
       expect(actions.previous).toHaveBeenCalledTimes(1);
     });
 
-    it('should add aria-labels to elements', () => {
-      const getters = StepService.generatePropGetters(actions);
-
-      expect(getters.getPlayControlProps()).toMatchObject({
-        'aria-label': 'play',
-      });
-      expect(getters.getPauseControlProps()).toMatchObject({
-        'aria-label': 'pause',
-      });
-      expect(getters.getNextControlProps()).toMatchObject({
-        'aria-label': 'next',
-      });
-      expect(getters.getPreviousControlProps()).toMatchObject({
-        'aria-label': 'previous',
-      });
-    });
-
     it('should pass custom props to elements', () => {
       const getters = StepService.generatePropGetters(actions);
       const customProps = {

@@ -30,7 +30,7 @@ import { clsx } from '../../styles/clsx.js';
 import classes from './Hamburger.module.css';
 
 export interface HamburgerProps
-  extends Omit<IconButtonProps, 'ref' | 'children' | 'label' | 'type'> {
+  extends Omit<IconButtonProps, 'ref' | 'children' | 'icon' | 'type'> {
   // biome-ignore lint/suspicious/noExplicitAny: ref can target button or anchor
   ref?: React.Ref<any>;
   /**

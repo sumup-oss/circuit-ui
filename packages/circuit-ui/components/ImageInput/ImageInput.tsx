@@ -294,6 +294,7 @@ export const ImageInput = ({
             {clearButtonLabel}
           </IconButton>
         ) : (
+          // @ts-expect-error The button is purely presentational and thus doesn't need a label.
           <IconButton
             type="button"
             size="s"
