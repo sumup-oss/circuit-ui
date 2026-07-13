@@ -129,7 +129,7 @@ function buildComponentFile(component: Component): string {
   `;
 }
 
-const MANUAL_COMPONENTS: string[] = [];
+const MANUAL_COMPONENTS: string[] = ['Flag'];
 
 function buildIndexFile(
   components: Component[],
@@ -142,7 +142,7 @@ function buildIndexFile(
     })
     .join('\n');
   const manualExports = MANUAL_COMPONENTS.map(
-    (name) => `export { ${name} } from './${name}.js';`,
+    (name) => `export * from './components/${name}/${name}.js';`,
   ).join('\n');
   const helpersExport = `export * from './helpers.js';`;
   return `
@@ -171,8 +171,7 @@ function buildDeclarationFile(components: Component[]): string {
     return `${iconName}: ${SizesType};`;
   });
   const manualExports = MANUAL_COMPONENTS.map(
-    (name) =>
-      `export { ${name} } from './${name}.js';\nexport type { ${name}Props } from './${name}.js';`,
+    (name) => `export * from './components/${name}/${name}.js';`,
   ).join('\n');
   return `
     import type { FunctionComponent, SVGProps } from 'react';

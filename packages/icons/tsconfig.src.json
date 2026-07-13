@@ -3,11 +3,12 @@
   "compilerOptions": {
     "lib": ["DOM", "ES2022"],
     "jsx": "react-jsx",
-    "types": ["react"],
+    "types": ["node", "react"],
     "rootDir": "./src",
     "outDir": "./dist",
     "declaration": true,
     "noEmit": false
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["src/**/*.spec.*"]
 }

@@ -13,10 +13,10 @@
  * limitations under the License.
  */
 
+import { Flag, type FlagProps, FLAGS } from '@sumup-oss/icons';
+
 import { Body } from '../Body/index.js';
 
-import { Flag, type FlagProps } from './Flag.js';
-import { FLAGS } from './constants.js';
 import classes from './FlagStory.module.css';
 
 export default {

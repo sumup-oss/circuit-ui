@@ -1,5 +1,5 @@
 /**
- * Copyright 2025, SumUp Ltd.
+ * Copyright 2026, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,15 +13,26 @@
  * limitations under the License.
  */
 
+/** @vitest-environment jsdom */
+
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { axe, render, screen } from '../../util/test-utils.js';
+import { axe, render, screen } from '../../../tests/test-utils.js';
 
-import { Flag, type FlagProps } from './Flag.js';
+import { FLAGS, Flag, type FlagProps } from './Flag.js';
 
 describe('Flag', () => {
   const baseProps: FlagProps = { countryCode: 'FR', alt: 'France' };
+
+  it('exports the list of supported country codes', () => {
+    expect(FLAGS).toContain('FR');
+  });
+
+  it('renders', () => {
+    const { container } = render(<Flag {...baseProps} />);
+    expect(container.firstChild).toBeInTheDocument();
+  });
 
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';

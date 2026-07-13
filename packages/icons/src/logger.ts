@@ -1,5 +1,6 @@
+/* biome-ignore-all lint/suspicious/noConsole: It's okay in the logger */
 /**
- * Copyright 2023, SumUp Ltd.
+ * Copyright 2026, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,14 +14,18 @@
  * limitations under the License.
  */
 
-import { defineConfig } from 'vitest/config';
+const DEPRECATED: { [key: string]: true } = {};
 
-export default defineConfig({
-  esbuild: {
-    jsx: 'automatic',
-  },
-  test: {
-    globals: false,
-    environment: 'node',
-  },
-});
+/**
+ * Always wrap in `process.env.NODE_ENV !== 'production'` to enable dead code
+ * elimination.
+ */
+export function deprecate(componentName: string, message: string): void {
+  if (DEPRECATED[componentName]) {
+    return;
+  }
+
+  DEPRECATED[componentName] = true;
+
+  console.warn(new Error(`[${componentName}] ${message}`));
+}
