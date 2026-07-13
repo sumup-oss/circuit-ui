@@ -99,6 +99,8 @@ export type SharedButtonProps = LinkElProps &
      * Defaults to `navigator.language` in supported environments.
      */
     locale?: Locale;
+    // biome-ignore lint/suspicious/noExplicitAny: Polymorphic component supports button, anchor, and custom elements (including consumer-provided ones such as Next.js Link)
+    ref?: Ref<any>;
   };
 
 type CreateButtonComponentProps = SharedButtonProps & {
@@ -132,13 +134,14 @@ export const legacyButtonSizeMap: Record<string, 's' | 'm'> = {
   giga: 'm',
 };
 
-export function createButtonComponent<Props>(
+export function createButtonComponent<
+  Props extends Pick<SharedButtonProps, 'ref'>,
+>(
   componentName: string,
   // TODO: Refactor to `mapClassName` once the deprecations have been removed.
   mapProps: (props: Props) => CreateButtonComponentProps,
 ) {
-  // biome-ignore lint/suspicious/noExplicitAny: Polymorphic component supports button, anchor, and custom elements
-  function Button({ ref, ...rest }: Props & { ref?: Ref<any> }) {
+  function Button({ ref, ...rest }: Props) {
     const {
       children,
       onClick,
