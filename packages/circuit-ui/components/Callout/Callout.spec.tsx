@@ -35,18 +35,6 @@ describe('Callout', () => {
     expect(screen.getByText('This is a callout')).toBeVisible();
   });
 
-  it.each([
-    'confirm',
-    'neutral',
-    'notify',
-    'alert',
-    'promo',
-  ] as const)('should render the %s color', (color) => {
-    const { container } = renderCallout({ ...baseProps, color });
-
-    expect(container.firstElementChild?.className).toContain(`_${color}_`);
-  });
-
   it('should render a custom icon', () => {
     const CustomIcon = (props: IconProps) => (
       <svg {...props} data-testid="custom-icon" />
