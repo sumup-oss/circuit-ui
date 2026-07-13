@@ -29,8 +29,7 @@
   "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/design-tokens/README.md",
   "scripts": {
     "start": "tsc --watch",
-    "build": "npm run build:es && npm run build:styles",
-    "build:es": "tsc",
+    "build": "tsc && npm run build:styles",
     "build:styles": "tsx ./scripts/build.ts",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
