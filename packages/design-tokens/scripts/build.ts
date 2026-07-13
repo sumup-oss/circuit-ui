@@ -158,9 +158,11 @@ function main(): void {
 
   Object.entries(files).forEach(([name, configs]) => {
     const filename = `${name}.css`;
+    /* eslint-disable no-underscore-dangle, @typescript-eslint/naming-convention */
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = path.dirname(__filename);
-    const filepath = path.join(__dirname, '../', filename);
+    /* eslint-enable no-underscore-dangle, @typescript-eslint/naming-convention */
+    const filepath = path.join(__dirname, '../dist/', filename);
     const styles = configs
       .map((config) => {
         switch (config.type) {

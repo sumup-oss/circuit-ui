@@ -2,9 +2,14 @@
   "name": "@sumup-oss/design-tokens",
   "version": "10.1.0",
   "description": "Visual primitives such as typography, color, and spacing that are shared across platforms.",
-  "types": "dist/index.d.ts",
-  "sideEffects": false,
   "type": "module",
+  "main": "./dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./*.css": "./dist/*.css"
+  },
+  "sideEffects": false,
   "files": [
     "dist",
     "*.css"
