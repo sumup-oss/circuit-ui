@@ -1,5 +1,11 @@
 # @sumup-oss/design-tokens
 
+## 11.0.0-next.2
+
+### Major Changes
+
+- [#3750](https://github.com/sumup-oss/circuit-ui/pull/3750) [`ee603e3`](https://github.com/sumup-oss/circuit-ui/commit/ee603e33c7e37b97c309a1b989c7b9a0c69bc7da) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed the CommonJS entry point from the design tokens package exports. The package now only exposes ES module builds, aligning with modern ESM-based JavaScript tooling.
+
 ## 11.0.0-next.1
 
 ### Major Changes
