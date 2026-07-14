@@ -20,10 +20,8 @@ import {
   PAYMENT_METHODS,
 } from './PaymentMethod.js';
 
-import { Body } from '@sumup-oss/circuit-ui';
-
 export default {
-  title: 'Components/PaymentMethod',
+  title: 'Icons/PaymentMethod',
   component: PaymentMethod,
   tags: ['status:stable'],
   argTypes: {
@@ -62,7 +60,7 @@ export const Base = () => (
     {PAYMENT_METHODS.map((name) => (
       <div key={name} style={WRAPPER_STYLE}>
         <PaymentMethod name={name} alt="" size="l" />
-        <Body>{formatName(name)}</Body>
+        <p>{formatName(name)}</p>
       </div>
     ))}
   </div>

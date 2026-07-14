@@ -20,10 +20,8 @@ import {
   CARD_SCHEMES,
 } from './CardScheme.js';
 
-import { Body } from '@sumup-oss/circuit-ui';
-
 export default {
-  title: 'Components/CardScheme',
+  title: 'Icons/CardScheme',
   component: CardScheme,
   tags: ['status:stable'],
   argTypes: {
@@ -62,7 +60,7 @@ export const Base = () => (
     {CARD_SCHEMES.map((name) => (
       <div key={name} style={WRAPPER_STYLE}>
         <CardScheme name={name} alt="" size="l" />
-        <Body>{formatName(name)}</Body>
+        <p>{formatName(name)}</p>
       </div>
     ))}
   </div>

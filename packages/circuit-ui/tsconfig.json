@@ -33,8 +33,7 @@
     "index.ts",
     "legacy.ts",
     "experimental.ts",
-    "internal.ts",, "../icons/src/components/PaymentMethod/PaymentMethod.stories.tsx"
-    "../icons/src/components/PaymentMethod/PaymentMethod.mdx"
+    "internal.ts"
   ],
   "exclude": ["node_modules", "dist"],
   "typeRoots": ["./types"]

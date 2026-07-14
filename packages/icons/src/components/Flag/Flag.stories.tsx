@@ -16,10 +16,8 @@
 import type { CSSProperties } from 'react';
 import { Flag, type FlagProps, FLAGS } from './Flag.js';
 
-import { Body } from '@sumup-oss/circuit-ui';
-
 export default {
-  title: 'Components/Flag',
+  title: 'Icons/Flag',
   component: Flag,
   tags: ['status:stable'],
   argTypes: {
@@ -65,9 +63,9 @@ export const Base = () => {
       {FLAGS.map((code) => (
         <div key={code} style={WRAPPER_STYLE}>
           <Flag key={code} countryCode={code} alt="" size="l" />
-          <Body>
+          <p>
             {formatCountryName(code)} ({code})
-          </Body>
+          </p>
         </div>
       ))}
     </div>
