@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 11.12.0
+
+### Minor Changes
+
+- [#3733](https://github.com/sumup-oss/circuit-ui/pull/3733) [`02a2d25`](https://github.com/sumup-oss/circuit-ui/commit/02a2d25e1154dc1c05a52b1bbb84bd0601bc12a2) Thanks [@matoous](https://github.com/matoous)! - Added the experimental Callout component for static inline guidance or emphasis.
+
 ## 11.11.0
 
 ### Minor Changes
