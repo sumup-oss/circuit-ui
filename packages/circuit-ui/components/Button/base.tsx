@@ -28,6 +28,7 @@ import type { AsPropType } from '../../types/prop-types.js';
 import { useComponents } from '../ComponentsContext/index.js';
 import {
   AccessibilityError,
+  CircuitError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
 import { utilClasses } from '../../styles/utility.js';
@@ -37,6 +38,7 @@ import type { Locale } from '../../util/i18n.js';
 
 import classes from './base.module.css';
 import { translations } from './translations/index.js';
+import { isStringChildren } from '../../util/type-check.js';
 
 type LinkElProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'>;
 type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
@@ -182,6 +184,17 @@ export function BaseButton(props: BaseButtonProps) {
     throw new AccessibilityError(
       componentName,
       'The `children` prop is missing or invalid.',
+    );
+  }
+
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !isStringChildren(children)
+  ) {
+    throw new CircuitError(
+      componentName,
+      'The `children` prop must be a string.',
     );
   }
 

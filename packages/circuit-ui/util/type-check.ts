@@ -68,3 +68,12 @@ export function isReactComponent(
 
   return false;
 }
+
+export function isStringChildren(value?: unknown): value is string {
+  if (isArray(value)) {
+    // @ts-expect-error This is a boolean and you know it.
+    return value.reduce((acc, chunk) => acc && isStringChildren(chunk), true);
+  }
+
+  return isString(value) || isNumber(value);
+}
