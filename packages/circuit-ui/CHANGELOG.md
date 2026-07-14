@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 12.0.0-next.3
+
+### Major Changes
+
+- [#3756](https://github.com/sumup-oss/circuit-ui/pull/3756) [`17930d4`](https://github.com/sumup-oss/circuit-ui/commit/17930d447b2f8dbd2df24928d7c8bbf544d8566a) Thanks [@connor-baer](https://github.com/connor-baer)! - Added a development-time error to the Button component when passing children that aren't a string or a number. This will be enforced by the prop types in the next major.
+
 ## 12.0.0-next.2
 
 ### Major Changes
