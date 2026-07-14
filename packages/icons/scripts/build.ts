@@ -129,7 +129,7 @@ function buildComponentFile(component: Component): string {
   `;
 }
 
-const MANUAL_COMPONENTS: string[] = ['Flag'];
+const MANUAL_COMPONENTS: string[] = ['Flag', 'PaymentMethod', 'CardScheme'];
 
 function buildIndexFile(
   components: Component[],

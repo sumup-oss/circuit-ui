@@ -16,6 +16,7 @@
 import { forwardRef, type CSSProperties, type HTMLAttributes } from 'react';
 
 import { getIconURL } from '../../helpers.js';
+import { ICON_SIZES } from '../../icon-sizes.js';
 import { deprecate } from '../../logger.js';
 
 import { FLAGS } from './constants.js';
@@ -83,12 +84,6 @@ const IMAGE_STYLE: CSSProperties = {
   borderRadius: '2px',
 };
 
-const SIZES: Record<'s' | 'm' | 'l', string> = {
-  s: 'var(--cui-icon-sizes-s)',
-  m: 'var(--cui-icon-sizes-m)',
-  l: 'var(--cui-icon-sizes-l)',
-};
-
 /**
  * Renders an SVG icon of a flag. Flags are sourced from: https://flagicons.lipis.dev/
  */
@@ -117,7 +112,7 @@ export const Flag = forwardRef<HTMLImageElement, FlagProps>(
     }
 
     if (size) {
-      const sizeValue = SIZES[size];
+      const sizeValue = ICON_SIZES[size];
       return (
         <div className={className} style={WRAPPER_STYLE}>
           <img

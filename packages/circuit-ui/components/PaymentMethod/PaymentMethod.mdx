@@ -1,0 +1,23 @@
+import { Meta, Status, Props, Story } from '../../../../.storybook/components';
+import * as Stories from './PaymentMethod.stories';
+
+<Meta of={Stories} />
+
+# PaymentMethod
+
+<Status variant="stable" />
+
+The PaymentMethod component displays the logo of a payment method, loaded as an image from a URL rather than inlined as an SVG.
+
+<Props />
+
+<Story of={Stories.Example} />
+
+## How to use
+
+- The PaymentMethod component accepts a `name` prop identifying the payment method (e.g. `visa`, `apple_pay`, `klarna`). The component will render the corresponding logo.
+- Choose one of the three available sizes: `'s'` (16px), `'m'` (24px), and `'l'` (32px). The logo's width scales automatically to preserve its natural aspect ratio.
+
+## Accessibility
+
+The `alt` prop is required for the PaymentMethod component to ensure accessibility for visually impaired users. However, if the logo is purely decorative and does not convey any additional information, you can set `alt=""` to make it invisible to assistive technology.

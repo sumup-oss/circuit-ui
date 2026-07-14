@@ -238,6 +238,14 @@ export {
   type ComparisonTableProps,
 } from './components/ComparisonTable/ComparisonTable.js';
 export { Flag, type FlagProps } from './components/Flag/Flag.js';
+export {
+  PaymentMethod,
+  type PaymentMethodProps,
+} from './components/PaymentMethod/PaymentMethod.js';
+export {
+  CardScheme,
+  type CardSchemeProps,
+} from './components/CardScheme/CardScheme.js';
 export { Status, type StatusProps } from './components/Status/index.js';
 
 // Brand
