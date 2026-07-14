@@ -13,11 +13,10 @@
  * limitations under the License.
  */
 
-import { Flag, type FlagProps, FLAGS } from '@sumup-oss/icons';
+import type { CSSProperties } from 'react';
+import { Flag, type FlagProps, FLAGS } from './Flag.js';
 
-import { Body } from '../Body/index.js';
-
-import classes from './FlagStory.module.css';
+import { Body } from '@sumup-oss/circuit-ui';
 
 export default {
   title: 'Components/Flag',
@@ -29,6 +28,22 @@ export default {
       control: { type: 'radio' },
     },
   },
+};
+
+const LIST_STYLE: CSSProperties = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+  rowGap: 'var(--cui-spacings-giga)',
+  columnGap: 'var(--cui-spacings-giga)',
+  width: '100vw',
+  padding: 'var(--cui-spacings-mega)',
+};
+
+const WRAPPER_STYLE: CSSProperties = {
+  display: 'flex',
+  gap: 'var(--cui-spacings-mega)',
+  alignItems: 'center',
+  justifyContent: 'start',
 };
 
 export const Base = () => {
@@ -46,9 +61,9 @@ export const Base = () => {
   }
 
   return (
-    <div className={classes.list}>
+    <div style={LIST_STYLE}>
       {FLAGS.map((code) => (
-        <div key={code} className={classes.wrapper}>
+        <div key={code} style={WRAPPER_STYLE}>
           <Flag key={code} countryCode={code} alt="" size="l" />
           <Body>
             {formatCountryName(code)} ({code})

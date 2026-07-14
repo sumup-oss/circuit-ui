@@ -13,15 +13,14 @@
  * limitations under the License.
  */
 
+import type { CSSProperties } from 'react';
 import {
   PaymentMethod,
   type PaymentMethodProps,
   PAYMENT_METHODS,
-} from '@sumup-oss/icons';
+} from './PaymentMethod.js';
 
-import { Body } from '../Body/index.js';
-
-import classes from './PaymentMethodStory.module.css';
+import { Body } from '@sumup-oss/circuit-ui';
 
 export default {
   title: 'Components/PaymentMethod',
@@ -35,6 +34,22 @@ export default {
   },
 };
 
+const LIST_STYLE: CSSProperties = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+  rowGap: 'var(--cui-spacings-giga)',
+  columnGap: 'var(--cui-spacings-giga)',
+  width: '100vw',
+  padding: 'var(--cui-spacings-mega)',
+};
+
+const WRAPPER_STYLE: CSSProperties = {
+  display: 'flex',
+  gap: 'var(--cui-spacings-mega)',
+  alignItems: 'center',
+  justifyContent: 'start',
+};
+
 function formatName(name: string) {
   return name
     .split('_')
@@ -43,9 +58,9 @@ function formatName(name: string) {
 }
 
 export const Base = () => (
-  <div className={classes.list}>
+  <div style={LIST_STYLE}>
     {PAYMENT_METHODS.map((name) => (
-      <div key={name} className={classes.wrapper}>
+      <div key={name} style={WRAPPER_STYLE}>
         <PaymentMethod name={name} alt="" size="l" />
         <Body>{formatName(name)}</Body>
       </div>
