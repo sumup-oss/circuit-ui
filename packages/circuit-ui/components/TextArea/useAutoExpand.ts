@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { useCallback, useEffect, type FormEvent, type RefObject } from 'react';
+import { useCallback, useEffect, type InputEvent, type RefObject } from 'react';
 
 import { useComponentSize } from '../../hooks/useComponentSize/index.js';
 
@@ -51,7 +51,7 @@ export const useAutoExpand = (
   );
 
   const inputHandler = useCallback(
-    (e: FormEvent<HTMLTextAreaElement>) => {
+    (e: InputEvent<HTMLTextAreaElement>) => {
       if (onInput) {
         onInput(e);
       }

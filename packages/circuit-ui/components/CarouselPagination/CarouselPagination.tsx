@@ -15,11 +15,11 @@
 
 'use client';
 
-import {
-  forwardRef,
-  type AnchorHTMLAttributes,
-  type ButtonHTMLAttributes,
-  type HTMLAttributes,
+import type {
+  Ref,
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  HTMLAttributes,
 } from 'react';
 
 import { useComponents } from '../ComponentsContext/useComponents.js';
@@ -46,6 +46,7 @@ type Slide = LinkElProps &
 
 export interface CarouselPaginationProps
   extends HTMLAttributes<HTMLUListElement> {
+  ref?: Ref<HTMLUListElement>;
   /**
    * The collection of slides that can be navigated using this component.
    */
@@ -70,15 +71,18 @@ export interface CarouselPaginationProps
  * The carousel pagination component allows users to navigate content that is
  * divided into multiple slides or pages.
  */
-export const CarouselPagination = forwardRef<
-  HTMLUListElement,
-  CarouselPaginationProps
->(({ slides, currentId, type, className, ...props }, ref) => {
+export function CarouselPagination({
+  slides,
+  currentId,
+  type,
+  className,
+  ...props
+}: CarouselPaginationProps) {
   const components = useComponents();
   const Link = components.Link as AsPropType;
 
   return (
-    <ul ref={ref} className={clsx(classes.base, className)} {...props}>
+    <ul className={clsx(classes.base, className)} {...props}>
       {slides.map(({ id, label, ...item }) => {
         let Element: AsPropType;
         if (item.href) {
@@ -103,4 +107,4 @@ export const CarouselPagination = forwardRef<
       })}
     </ul>
   );
-});
+}

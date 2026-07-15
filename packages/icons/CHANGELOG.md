@@ -1,5 +1,39 @@
 # @sumup-oss/icons
 
+## 7.0.0-next.2
+
+### Major Changes
+
+- [#3753](https://github.com/sumup-oss/circuit-ui/pull/3753) [`f85020d`](https://github.com/sumup-oss/circuit-ui/commit/f85020d6aebfaf5d38ac6ce5bb518e72d9e8cb81) Thanks [@missating](https://github.com/missating)! - Renamed the `sumup_card` icon to `sumup_card_scheme` to resolve a naming collision with the `SumUpCard` icon. Load it from a URL using `getIconURL('sumup_card_scheme', '32')` instead of `getIconURL('sumup_card', '32')`.
+
+## 7.0.0-next.1
+
+### Major Changes
+
+- [#3749](https://github.com/sumup-oss/circuit-ui/pull/3749) [`6bf75c1`](https://github.com/sumup-oss/circuit-ui/commit/6bf75c1e1e687d8701ffc6bfdbd6a9b606b66ea0) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the browser support policy.
+
+  | Browser          | Previous | New |
+  | ---------------- | -------- | --- |
+  | Chrome           | 73+      | 85+ |
+  | Firefox          | 67+      | 79+ |
+  | Edge             | 79+      | 85+ |
+  | Safari iOS       | 12.2+    | 14+ |
+  | Safari macOS     | 12.1+    | 14+ |
+  | Opera            | 60+      | 71+ |
+  | Samsung Internet | 11.1+    | 14+ |
+
+## 7.0.0-next.0
+
+### Major Changes
+
+- [#3744](https://github.com/sumup-oss/circuit-ui/pull/3744) [`601c687`](https://github.com/sumup-oss/circuit-ui/commit/601c687d63fc0ef2866a9a98171155035b108eeb) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed the deprecated Country Flag icons. Use the [Flag](https://circuit.sumup.com/?path=/docs/components-flag--docs) component instead or load the icon with its URL using the [`getIconUrl()`](https://circuit.sumup.com/?path=/docs/packages-icons--docs#load-from-a-url) helper.
+
+- [#3647](https://github.com/sumup-oss/circuit-ui/pull/3647) [`1ea4fe8`](https://github.com/sumup-oss/circuit-ui/commit/1ea4fe88cf5bb6e4574e3a0f1f322d969a70ebd3) Thanks [@missating](https://github.com/missating)! - Dropped support for Node.js 22. Node.js 24 or higher is now required.
+
+- [#3744](https://github.com/sumup-oss/circuit-ui/pull/3744) [`601c687`](https://github.com/sumup-oss/circuit-ui/commit/601c687d63fc0ef2866a9a98171155035b108eeb) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed the deprecated Card Scheme icons. Use the new CardScheme component instead or load the icon with its URL using the [`getIconUrl()`](https://circuit.sumup.com/?path=/docs/packages-icons--docs#load-from-a-url) helper.
+
+- [#3744](https://github.com/sumup-oss/circuit-ui/pull/3744) [`601c687`](https://github.com/sumup-oss/circuit-ui/commit/601c687d63fc0ef2866a9a98171155035b108eeb) Thanks [@sirineJ](https://github.com/sirineJ)! - Remove the deprecated Payment Method icons. Use the new PaymentMethod component instead or load the icon with its URL using the [`getIconUrl()`](https://circuit.sumup.com/?path=/docs/packages-icons--docs#load-from-a-url) helper.
+
 ## 6.11.0
 
 ### Minor Changes

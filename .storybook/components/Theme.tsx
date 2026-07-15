@@ -17,7 +17,7 @@ import { useEffect, useState, type ComponentType } from 'react';
 import { ThemeProvider, useTheme } from '@emotion/react';
 import { Unstyled } from '@storybook/blocks';
 import { light, schema } from '@sumup-oss/design-tokens';
-import { SumUpLogomark } from '@sumup-oss/icons';
+import { Home } from '@sumup-oss/icons';
 import { Anchor } from '../../packages/circuit-ui/components/Anchor/Anchor.js';
 import { Body } from '../../packages/circuit-ui/components/Body/Body.js';
 import { Badge } from '../../packages/circuit-ui/components/Badge/Badge.js';
@@ -274,7 +274,7 @@ export function Typography({ name }: PreviewProps) {
 
 export function IconSize({ name }: PreviewProps) {
   return (
-    <SumUpLogomark
+    <Home
       style={{
         width: `var(${name})`,
         height: `var(${name})`,

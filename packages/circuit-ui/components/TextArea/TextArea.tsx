@@ -15,7 +15,7 @@
 
 'use client';
 
-import { forwardRef, useRef, type TextareaHTMLAttributes } from 'react';
+import { useRef, type Ref, type TextareaHTMLAttributes } from 'react';
 
 import { Input, type BaseInputProps } from '../Input/index.js';
 import { applyMultipleRefs } from '../../util/refs.js';
@@ -26,6 +26,7 @@ import classes from './TextArea.module.css';
 
 export type TextAreaProps = Omit<BaseInputProps, 'size'> &
   Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'rows'> & {
+    ref?: Ref<HTMLTextAreaElement>;
     /**
      * The number of visible text lines for the control.
      * If set to `auto`, the control will auto-expand vertically to show the whole value.
@@ -41,21 +42,17 @@ export type TextAreaProps = Omit<BaseInputProps, 'size'> &
 /**
  * TextArea component for forms.
  */
-export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
-  ({ inputClassName, ...props }, ref) => {
-    const localRef = useRef<HTMLTextAreaElement>(null);
-    const modifiedProps = useAutoExpand(localRef, props);
+export function TextArea({ inputClassName, ref, ...props }: TextAreaProps) {
+  const localRef = useRef<HTMLTextAreaElement>(null);
+  const modifiedProps = useAutoExpand(localRef, props);
 
-    return (
-      <Input
-        {...modifiedProps}
-        inputClassName={clsx(classes.base, inputClassName)}
-        as="textarea"
-        // @ts-expect-error The input is rendered as a `textarea` element above.
-        ref={applyMultipleRefs(localRef, ref)}
-      />
-    );
-  },
-);
-
-TextArea.displayName = 'TextArea';
+  return (
+    <Input
+      {...modifiedProps}
+      inputClassName={clsx(classes.base, inputClassName)}
+      as="textarea"
+      // @ts-expect-error The input is rendered as a `textarea` element above.
+      ref={applyMultipleRefs(localRef, ref)}
+    />
+  );
+}

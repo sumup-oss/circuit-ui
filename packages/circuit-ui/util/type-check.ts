@@ -57,11 +57,23 @@ export function isReactComponent(
   if (
     isObject(component) &&
     '$$typeof' in component &&
-    (component.$$typeof === Symbol.for('react.forward_ref') ||
-      component.$$typeof === Symbol.for('react.memo'))
+    (component.$$typeof === Symbol.for('react.memo') ||
+      // forwardRef is deprecated in React 19 but consumers may still use it.
+      // forwardRef-wrapped components are objects, not functions, so we need
+      // this to avoid rendering them as React children directly.
+      component.$$typeof === Symbol.for('react.forward_ref'))
   ) {
     return true;
   }
 
   return false;
+}
+
+export function isStringChildren(value?: unknown): value is string {
+  if (isArray(value)) {
+    // @ts-expect-error This is a boolean and you know it.
+    return value.reduce((acc, chunk) => acc && isStringChildren(chunk), true);
+  }
+
+  return isString(value) || isNumber(value);
 }

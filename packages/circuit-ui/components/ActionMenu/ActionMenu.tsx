@@ -15,13 +15,7 @@
 
 'use client';
 
-import {
-  useId,
-  useRef,
-  forwardRef,
-  useCallback,
-  type KeyboardEvent,
-} from 'react';
+import { useRef, useCallback, type KeyboardEvent } from 'react';
 
 import type { ClickEvent } from '../../types/events.js';
 import { Hr } from '../Hr/index.js';
@@ -44,100 +38,70 @@ function isDivider(action: Action): action is Divider {
   return 'type' in action && action.type === 'divider';
 }
 
-export interface ActionMenuProps extends Omit<PopoverProps, 'role'> {
+export interface ActionMenuProps extends PopoverProps {
   /**
    * An array of ActionMenuItem or Divider.
    */
   actions: Action[];
-  /**
-   * Remove the [`menu` role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/roles/menu_role)
-   * when its semantics aren't appropriate for the use case, for example when
-   * the ActionMenu is used as part of a navigation.
-   * @default 'menu'.
-   *
-   * Learn more: https://inclusive-components.design/menus-menu-buttons/
-   */
-  role?: 'menu' | null;
 }
 type TriggerKey = 'ArrowUp' | 'ArrowDown';
 
-export const ActionMenu = forwardRef<HTMLDialogElement, ActionMenuProps>(
-  (
-    {
-      actions,
-      role = 'menu',
-      className,
-      onToggle,
-      component: Component,
-      ...props
+export function ActionMenu({
+  actions,
+  className,
+  onToggle,
+  component: Component,
+  ...props
+}: ActionMenuProps) {
+  const triggerKey = useRef<TriggerKey | null>(null);
+  const isMobile = useMedia('(max-width: 479px)');
+
+  const focusProps = useFocusList();
+
+  const handleTriggerKeyDown = useCallback(
+    (event: KeyboardEvent) => {
+      if (isArrowDown(event)) {
+        triggerKey.current = 'ArrowDown';
+        onToggle(true);
+      }
+      if (isArrowUp(event)) {
+        triggerKey.current = 'ArrowUp';
+        onToggle((prev) => !prev);
+      }
     },
-    ref,
-  ) => {
-    const menuEl = useRef<HTMLDivElement>(null);
-    const triggerKey = useRef<TriggerKey | null>(null);
-    const triggerId = useId();
-    const menuId = useId();
-    const isMobile = useMedia('(max-width: 479px)');
+    [onToggle],
+  );
 
-    const focusProps = useFocusList();
+  const handleActionMenuItemClick =
+    (onClick: ActionMenuItemProps['onClick']) => (event: ClickEvent) => {
+      onClick?.(event);
+      onToggle(false);
+    };
 
-    const handleTriggerKeyDown = useCallback(
-      (event: KeyboardEvent) => {
-        if (isArrowDown(event)) {
-          triggerKey.current = 'ArrowDown';
-          onToggle(true);
-        }
-        if (isArrowUp(event)) {
-          triggerKey.current = 'ArrowUp';
-          onToggle((prev) => !prev);
-        }
-      },
-      [onToggle],
-    );
-
-    const handleActionMenuItemClick =
-      (onClick: ActionMenuItemProps['onClick']) => (event: ClickEvent) => {
-        onClick?.(event);
-        onToggle(false);
-      };
-
-    const isMenu = role === 'menu';
-    const menuProps = isMenu
-      ? { 'role': 'menu', 'aria-labelledby': triggerId }
-      : {};
-
-    return (
-      <Popover
-        className={clsx(className, classes.base)}
-        contentClassName={classes.content}
-        ref={ref}
-        hideCloseButton={!isMobile || props.disableModalOnMobile}
-        onToggle={onToggle}
-        component={(refProps) => (
-          <Component
-            {...refProps}
-            id={triggerId}
-            onKeyDown={handleTriggerKeyDown}
+  return (
+    <Popover
+      className={clsx(className, classes.base)}
+      contentClassName={classes.content}
+      hideCloseButton={!isMobile || props.disableModalOnMobile}
+      onToggle={onToggle}
+      component={(refProps) => (
+        <Component {...refProps} onKeyDown={handleTriggerKeyDown} />
+      )}
+      {...props}
+    >
+      {actions.map((action, index) => {
+        const key = isDivider(action) ? `divider-${index}` : action.children;
+        return isDivider(action) ? (
+          <Hr className={classes.divider} key={key} />
+        ) : (
+          <ActionMenuItem
+            key={key}
+            {...action}
+            {...focusProps}
+            onClick={handleActionMenuItemClick(action.onClick)}
           />
-        )}
-        {...props}
-      >
-        <div id={menuId} ref={menuEl} {...menuProps}>
-          {actions.map((action, index) =>
-            isDivider(action) ? (
-              <Hr className={classes.divider} key={index} />
-            ) : (
-              <ActionMenuItem
-                key={index}
-                {...action}
-                {...focusProps}
-                role={isMenu ? 'menuitem' : undefined}
-                onClick={handleActionMenuItemClick(action.onClick)}
-              />
-            ),
-          )}
-        </div>
-      </Popover>
-    );
-  },
-);
+        );
+      })}
+    </Popover>
+  );
+}

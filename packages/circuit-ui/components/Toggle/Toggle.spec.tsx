@@ -36,10 +36,10 @@ describe('Toggle', () => {
   });
 
   it('should forward a ref', () => {
-    const ref = createRef<HTMLButtonElement>();
+    const ref = createRef<HTMLInputElement>();
     const { container } = render(<Toggle {...defaultProps} ref={ref} />);
-    const button = container.querySelector('button');
-    expect(ref.current).toBe(button);
+    const input = container.querySelector('input');
+    expect(ref.current).toBe(input);
   });
 
   it('should call the change handler when toggled', async () => {

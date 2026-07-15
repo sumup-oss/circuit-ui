@@ -15,7 +15,7 @@
 
 'use client';
 
-import { forwardRef, useId } from 'react';
+import { useId, type Ref } from 'react';
 import { resolveNumberFormat } from '@sumup-oss/intl';
 
 import { NumericFormat } from '../../vendor/react-number-format/index.js';
@@ -32,6 +32,7 @@ export interface PercentageInputProps
     InputProps,
     'placeholder' | 'ref' | 'value' | 'defaultValue' | 'type'
   > {
+  ref?: Ref<HTMLInputElement>;
   /**
    * One or more Unicode BCP 47 locale identifiers, such as `'de-DE'` or
    * `['GB', 'en-US']` (the first supported locale is used).
@@ -64,73 +65,64 @@ const DEFAULT_FORMAT = {
 /**
  * PercentageInput component for fractional values
  */
-export const PercentageInput = forwardRef<
-  HTMLInputElement,
-  PercentageInputProps
->(
-  (
-    {
-      locale,
-      placeholder = '0',
-      decimalScale = 0,
-      'aria-describedby': descriptionId,
-      ...props
-    },
-    ref,
-  ) => {
-    const percentageSymbolId = useId();
-    const descriptionIds = idx(percentageSymbolId, descriptionId);
+export function PercentageInput({
+  locale,
+  placeholder = '0',
+  decimalScale = 0,
+  'aria-describedby': descriptionId,
+  ref,
+  ...props
+}: PercentageInputProps) {
+  const percentageSymbolId = useId();
+  const descriptionIds = idx(percentageSymbolId, descriptionId);
 
-    const { groupDelimiter, decimalDelimiter } =
-      resolveNumberFormat(locale, {
-        style: 'percent',
-        // There must be at least 1 decimal for the decimalDelimiter to be resolved
-        minimumFractionDigits: 1,
-        maximumFractionDigits: 1,
-      }) || DEFAULT_FORMAT;
+  const { groupDelimiter, decimalDelimiter } =
+    resolveNumberFormat(locale, {
+      style: 'percent',
+      // There must be at least 1 decimal for the decimalDelimiter to be resolved
+      minimumFractionDigits: 1,
+      maximumFractionDigits: 1,
+    }) || DEFAULT_FORMAT;
 
-    const placeholderString = formatPlaceholder(placeholder, locale, {
-      minimumFractionDigits: decimalScale,
-      maximumFractionDigits: decimalScale,
-    });
+  const placeholderString = formatPlaceholder(placeholder, locale, {
+    minimumFractionDigits: decimalScale,
+    maximumFractionDigits: decimalScale,
+  });
 
-    // Allow common decimal signs as well as the one from resolveNumberFormat()
-    const allowedDecimalSeparators = [
-      '.',
-      ',',
-      ...(decimalDelimiter ? [decimalDelimiter] : []),
-    ];
+  // Allow common decimal signs as well as the one from resolveNumberFormat()
+  const allowedDecimalSeparators = [
+    '.',
+    ',',
+    ...(decimalDelimiter ? [decimalDelimiter] : []),
+  ];
 
-    const renderSuffix = (suffixProps: { className?: string }) => (
-      <span
-        {...suffixProps}
-        className={clsx(suffixProps.className, classes.symbol)}
-        id={percentageSymbolId}
-      >
-        %
-      </span>
-    );
+  const renderSuffix = (suffixProps: { className?: string }) => (
+    <span
+      {...suffixProps}
+      className={clsx(suffixProps.className, classes.symbol)}
+      id={percentageSymbolId}
+    >
+      %
+    </span>
+  );
 
-    return (
-      <NumericFormat
-        // react-number-format props
-        thousandSeparator={groupDelimiter}
-        decimalSeparator={decimalDelimiter}
-        decimalScale={decimalScale}
-        customInput={Input}
-        getInputRef={ref}
-        allowedDecimalSeparators={allowedDecimalSeparators}
-        // Circuit input props
-        renderSuffix={renderSuffix}
-        placeholder={placeholderString}
-        textAlign="right"
-        type="text"
-        inputMode="decimal"
-        aria-describedby={descriptionIds}
-        {...props}
-      />
-    );
-  },
-);
-
-PercentageInput.displayName = 'PercentageInput';
+  return (
+    <NumericFormat
+      // react-number-format props
+      thousandSeparator={groupDelimiter}
+      decimalSeparator={decimalDelimiter}
+      decimalScale={decimalScale}
+      customInput={Input}
+      getInputRef={ref}
+      allowedDecimalSeparators={allowedDecimalSeparators}
+      // Circuit input props
+      renderSuffix={renderSuffix}
+      placeholder={placeholderString}
+      textAlign="right"
+      type="text"
+      inputMode="decimal"
+      aria-describedby={descriptionIds}
+      {...props}
+    />
+  );
+}

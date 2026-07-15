@@ -15,7 +15,7 @@
 
 'use client';
 
-import { forwardRef, useEffect, useId, useRef, useState } from 'react';
+import { type Ref, useEffect, useId, useRef, useState } from 'react';
 
 import type { ReturnType } from '../../../../types/return-type.js';
 import { idx } from '../../../../util/idx.js';
@@ -40,6 +40,7 @@ import { Button } from '../../../Button/index.js';
 import type { AutocompleteInputOption } from '../Option/Option.js';
 
 import classes from './ComboboxInput.module.css';
+import { utilClasses } from '../../../../styles/utility.js';
 
 export interface ComboboxInputProps
   extends Omit<
@@ -68,101 +69,99 @@ export interface ComboboxInputProps
    */
   locale?: Locale;
   'data-id'?: string;
+  comboboxRef?: Ref<HTMLDivElement>;
 }
 
-export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
-  (
-    {
-      value,
-      tags = [],
-      onTagRemove,
-      isOpen,
-      validationHint,
-      optionalLabel,
-      required,
-      invalid,
-      hasWarning,
-      showValid,
-      disabled,
-      readOnly,
-      textAlign,
-      inputClassName,
-      label,
-      hideLabel,
-      'id': customId,
-      className,
-      style,
-      size = 'm',
-      'aria-describedby': descriptionId,
-      onClear,
-      clearLabel,
-      locale,
-      'data-id': comboboxInputId,
-      removeTagButtonLabel,
-      moreResults,
-      ...props
-    },
-    ref,
-  ): ReturnType => {
-    const id = useId();
-    const inputId = customId || id;
-    const localRef = useRef<HTMLInputElement>(null);
-    const [showAllTags, setShowAllTags] = useState(true);
+export function ComboboxInput({
+  value,
+  tags = [],
+  onTagRemove,
+  isOpen,
+  validationHint,
+  optionalLabel,
+  required,
+  invalid,
+  hasWarning,
+  showValid,
+  disabled,
+  readOnly,
+  textAlign,
+  inputClassName,
+  label,
+  hideLabel,
+  'id': customId,
+  className,
+  style,
+  size = 'm',
+  'aria-describedby': descriptionId,
+  onClear,
+  clearLabel,
+  locale,
+  'data-id': comboboxInputId,
+  removeTagButtonLabel,
+  moreResults,
+  ref,
+  comboboxRef,
+  ...props
+}: ComboboxInputProps): ReturnType {
+  const id = useId();
+  const inputId = customId || id;
+  const localRef = useRef<HTMLInputElement>(null);
+  const [showAllTags, setShowAllTags] = useState(true);
 
-    const validationHintId = useId();
-    const descriptionIds = idx(
-      descriptionId,
-      validationHint && validationHintId,
+  const validationHintId = useId();
+  const descriptionIds = idx(descriptionId, validationHint && validationHintId);
+
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    props.type !== 'hidden' &&
+    !isSufficientlyLabelled(label)
+  ) {
+    throw new AccessibilityError(
+      'AutocompleteInput',
+      'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
     );
+  }
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      props.type !== 'hidden' &&
-      !isSufficientlyLabelled(label)
-    ) {
-      throw new AccessibilityError(
-        'AutocompleteInput',
-        'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
-      );
+  const onClearButtonClick = (event: ClickEvent) => {
+    onClear?.(event);
+    localRef.current?.focus();
+  };
+
+  useEffect(() => {
+    if (!isOpen) {
+      setShowAllTags(false);
     }
+  }, [isOpen]);
 
-    const onClearButtonClick = (event: ClickEvent) => {
-      onClear?.(event);
-      localRef.current?.focus();
-    };
-
-    useEffect(() => {
-      if (!isOpen) {
-        setShowAllTags(false);
-      }
-    }, [isOpen]);
-
-    return (
-      <FieldWrapper
-        size={size}
-        className={className}
-        style={style}
-        disabled={disabled}
+  return (
+    <FieldWrapper
+      size={size}
+      className={className}
+      style={style}
+      disabled={disabled}
+    >
+      <FieldLabel htmlFor={inputId}>
+        <FieldLabelText
+          label={label}
+          hideLabel={hideLabel}
+          optionalLabel={optionalLabel}
+          required={required}
+        />
+      </FieldLabel>
+      <div
+        className={clsx(
+          classes.base,
+          classes[size],
+          invalid && classes.invalid,
+          disabled && classes.disabled,
+          readOnly && classes.readonly,
+          !disabled && hasWarning && classes.warning,
+        )}
+        ref={comboboxRef}
       >
-        <FieldLabel htmlFor={inputId}>
-          <FieldLabelText
-            label={label}
-            hideLabel={hideLabel}
-            optionalLabel={optionalLabel}
-            required={required}
-          />
-        </FieldLabel>
-        <div
-          className={clsx(
-            classes.base,
-            classes[size],
-            invalid && classes.invalid,
-            disabled && classes.disabled,
-            readOnly && classes.readonly,
-            !disabled && hasWarning && classes.warning,
-          )}
-        >
+        <div className={clsx(classes.content, utilClasses.hideScrollbar)}>
           {tags.slice(0, isOpen || showAllTags ? tags.length : 4).map((tag) => {
             const onRemoveProps =
               readOnly || disabled
@@ -216,17 +215,15 @@ export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
             </CloseButton>
           )}
         </div>
-        <FieldValidationHint
-          id={validationHintId}
-          disabled={disabled}
-          invalid={invalid}
-          hasWarning={hasWarning}
-          showValid={showValid}
-          validationHint={validationHint}
-        />
-      </FieldWrapper>
-    );
-  },
-);
-
-ComboboxInput.displayName = 'ComboboxInput';
+      </div>
+      <FieldValidationHint
+        id={validationHintId}
+        disabled={disabled}
+        invalid={invalid}
+        hasWarning={hasWarning}
+        showValid={showValid}
+        validationHint={validationHint}
+      />
+    </FieldWrapper>
+  );
+}

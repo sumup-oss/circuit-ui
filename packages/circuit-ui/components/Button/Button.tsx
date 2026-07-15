@@ -15,12 +15,7 @@
 
 'use client';
 
-import type {
-  ForwardRefExoticComponent,
-  PropsWithoutRef,
-  ReactNode,
-  RefAttributes,
-} from 'react';
+import type { ReactNode } from 'react';
 import type { IconComponentType } from '@sumup-oss/icons';
 
 import { CircuitError } from '../../util/errors.js';
@@ -29,7 +24,7 @@ import { deprecate } from '../../util/logger.js';
 
 import classes from './Button.module.css';
 import {
-  createButtonComponent,
+  BaseButton,
   legacyButtonSizeMap,
   type SharedButtonProps,
 } from './base.js';
@@ -64,45 +59,49 @@ export type ButtonProps = SharedButtonProps & {
  * The Button component enables the user to perform an action or navigate
  * to a different screen.
  */
-export const Button: ForwardRefExoticComponent<
-  PropsWithoutRef<ButtonProps> & RefAttributes<any>
-> = createButtonComponent<ButtonProps>(
-  'Button',
-  ({ className, size: legacySize = 'm', stretch, variant, ...props }) => {
-    const size = legacyButtonSizeMap[legacySize] || legacySize;
+export function Button({
+  className,
+  size: legacySize = 'm',
+  stretch,
+  variant,
+  ...props
+}: ButtonProps) {
+  const size = legacyButtonSizeMap[legacySize] || legacySize;
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      props.icon &&
-      props.navigationIcon
-    ) {
-      throw new CircuitError(
-        'Button',
-        'The leading and trailing icons cannot be used at the same time. Remove either the `icon` or the `navigationIcon` prop.',
-      );
-    }
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    props.icon &&
+    props.navigationIcon
+  ) {
+    throw new CircuitError(
+      'Button',
+      'The leading and trailing icons cannot be used at the same time. Remove either the `icon` or the `navigationIcon` prop.',
+    );
+  }
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      legacyButtonSizeMap[legacySize]
-    ) {
-      deprecate(
-        'Button',
-        `The \`${legacySize}\` size has been deprecated. Use the \`${legacyButtonSizeMap[legacySize]}\` size instead.`,
-      );
-    }
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    legacyButtonSizeMap[legacySize]
+  ) {
+    deprecate(
+      'Button',
+      `The \`${legacySize}\` size has been deprecated. Use the \`${legacyButtonSizeMap[legacySize]}\` size instead.`,
+    );
+  }
 
-    return {
-      className: clsx(
+  return (
+    <BaseButton
+      componentName="Button"
+      className={clsx(
         className,
         classes[size],
         stretch && classes.stretch,
         variant === 'tertiary' && classes.tertiary,
-      ),
-      variant,
-      size,
-      ...props,
-    };
-  },
-);
+      )}
+      variant={variant}
+      size={size}
+      {...props}
+    />
+  );
+}

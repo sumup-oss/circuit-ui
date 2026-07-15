@@ -4,7 +4,6 @@
   flex-wrap: wrap;
   gap: var(--cui-spacings-byte);
   width: 100%;
-  max-height: 200px;
   overflow-y: auto;
   background-color: var(--cui-bg-normal);
   border: 1px solid var(--cui-border-normal);
@@ -40,6 +39,14 @@
 
 .base:placeholder-shown {
   text-overflow: ellipsis;
+}
+
+.content {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--cui-spacings-byte);
+  width: 100%;
+  overflow-y: auto;
 }
 
 /* Validations */
@@ -102,8 +109,23 @@
 
 @media (max-width: 479px) {
   .base {
-    max-height: 150px;
     overflow-y: auto;
+  }
+
+  .m {
+    max-height: 150px;
+  }
+
+  .m .content {
+    max-height: 124px;
+  }
+
+  .s {
+    max-height: 120px;
+  }
+
+  .s .content {
+    max-height: 108px;
   }
 }
 
@@ -112,8 +134,13 @@
 /* s */
 
 .s {
+  max-height: 150px;
   padding: var(--field-input-padding-block) var(--field-input-padding-inline);
   border-radius: var(--field-input-border-radius);
+}
+
+.s .content {
+  max-height: 138px;
 }
 
 .s input {
@@ -129,8 +156,13 @@
 /* m */
 
 .m {
+  max-height: 200px;
   padding: var(--field-input-padding-block) var(--field-input-padding-inline);
   border-radius: var(--field-input-border-radius);
+}
+
+.m .content {
+  max-height: 174px;
 }
 
 .m input {

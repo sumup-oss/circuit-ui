@@ -1,6 +1,6 @@
 {
   "name": "@sumup-oss/icons",
-  "version": "6.11.0",
+  "version": "7.0.0-next.2",
   "description": "A collection of icons by SumUp",
   "type": "module",
   "main": "./dist/index.js",
@@ -52,6 +52,6 @@
     "react": ">=16.0.0 <20.0.0"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=24"
   }
 }

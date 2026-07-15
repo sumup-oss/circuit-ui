@@ -16,7 +16,6 @@
 'use client';
 
 import {
-  forwardRef,
   useCallback,
   useEffect,
   useId,
@@ -26,6 +25,7 @@ import {
   type HTMLAttributes,
   type KeyboardEvent,
   type MouseEvent,
+  type Ref,
 } from 'react';
 import { Temporal } from 'temporal-polyfill';
 import { ArrowLeft, ArrowRight } from '@sumup-oss/icons';
@@ -113,6 +113,7 @@ interface SharedProps {
 export interface CalendarProps
   extends SharedProps,
     Omit<HTMLAttributes<HTMLDivElement>, 'onSelect'> {
+  ref?: Ref<HTMLDivElement>;
   /**
    * A callback that is called with the visible months on the initial render and
    * whenever a user navigates to different months.
@@ -137,196 +138,193 @@ export interface CalendarProps
  * component for advanced use cases; you likely want to use the DateInput
  * component instead.
  */
-export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
-  (props, ref) => {
-    const {
-      selection,
-      onSelect,
-      onMonthsChange,
-      minDate,
-      maxDate,
-      firstDayOfWeek = 1,
-      locale,
-      prevMonthButtonLabel,
-      nextMonthButtonLabel,
-      modifiers,
-      numberOfMonths = 1,
-      ...rest
-    } = useI18n(props, translations);
-    const [{ months, focusedDate, hoveredDate, today }, dispatch] = useReducer(
-      calendarReducer,
-      { selection, minDate, maxDate, numberOfMonths },
-      initCalendar,
-    );
+export function Calendar(props: CalendarProps) {
+  const {
+    ref,
+    selection,
+    onSelect,
+    onMonthsChange,
+    minDate,
+    maxDate,
+    firstDayOfWeek = 1,
+    locale,
+    prevMonthButtonLabel,
+    nextMonthButtonLabel,
+    modifiers,
+    numberOfMonths = 1,
+    ...rest
+  } = useI18n(props, translations);
+  const [{ months, focusedDate, hoveredDate, today }, dispatch] = useReducer(
+    calendarReducer,
+    { selection, minDate, maxDate, numberOfMonths },
+    initCalendar,
+  );
 
-    useEffect(() => {
-      onMonthsChange?.(months);
-    }, [onMonthsChange, months]);
+  useEffect(() => {
+    onMonthsChange?.(months);
+  }, [onMonthsChange, months]);
 
-    useEffect(() => {
-      dispatch({ type: CalendarActionType.NUMBER_OF_MONTHS, numberOfMonths });
-    }, [numberOfMonths]);
+  useEffect(() => {
+    dispatch({ type: CalendarActionType.NUMBER_OF_MONTHS, numberOfMonths });
+  }, [numberOfMonths]);
 
-    const calendarRef = useRef<HTMLDivElement>(null);
+  const calendarRef = useRef<HTMLDivElement>(null);
 
-    const { daysInWeek } = focusedDate;
+  const { daysInWeek } = focusedDate;
 
-    const isPrevMonthDisabled = minDate
-      ? Temporal.PlainYearMonth.compare(months[0], minDate) <= 0
-      : false;
-    const isNextMonthDisabled = maxDate
-      ? Temporal.PlainYearMonth.compare(last(months), maxDate) >= 0
-      : false;
+  const isPrevMonthDisabled = minDate
+    ? Temporal.PlainYearMonth.compare(months[0], minDate) <= 0
+    : false;
+  const isNextMonthDisabled = maxDate
+    ? Temporal.PlainYearMonth.compare(last(months), maxDate) >= 0
+    : false;
 
-    const touchHandlers = useSwipe((direction) => {
-      if (direction === 'right' && !isPrevMonthDisabled) {
-        dispatch({ type: CalendarActionType.PREV_MONTH });
+  const touchHandlers = useSwipe((direction) => {
+    if (direction === 'right' && !isPrevMonthDisabled) {
+      dispatch({ type: CalendarActionType.PREV_MONTH });
+    }
+    if (direction === 'left' && !isNextMonthDisabled) {
+      dispatch({ type: CalendarActionType.NEXT_MONTH });
+    }
+  });
+
+  const handleFocusDate = useCallback((date: Temporal.PlainDate) => {
+    dispatch({ type: CalendarActionType.FOCUS_DATE, date });
+    // Focus the button on the next tick after React has rerendered the UI
+    window.requestAnimationFrame(() => {
+      calendarRef.current
+        ?.querySelector<HTMLButtonElement>('button[tabindex="0"]')
+        ?.focus();
+    });
+  }, []);
+
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent) => {
+      let nextFocusedDate: Temporal.PlainDate;
+
+      switch (event.key) {
+        case 'ArrowRight':
+          nextFocusedDate = focusedDate.add({ days: 1 });
+          break;
+        case 'ArrowLeft':
+          nextFocusedDate = focusedDate.subtract({ days: 1 });
+          break;
+        case 'ArrowDown':
+          nextFocusedDate = focusedDate.add({ days: focusedDate.daysInWeek });
+          break;
+        case 'ArrowUp':
+          nextFocusedDate = focusedDate.subtract({
+            days: focusedDate.daysInWeek,
+          });
+          break;
+        case 'PageUp':
+          nextFocusedDate = focusedDate.subtract(
+            event.shiftKey ? { years: 1 } : { months: 1 },
+          );
+          break;
+        case 'PageDown':
+          nextFocusedDate = focusedDate.add(
+            event.shiftKey ? { years: 1 } : { months: 1 },
+          );
+          break;
+        case 'Home':
+          nextFocusedDate = getFirstDateOfWeek(focusedDate, firstDayOfWeek);
+          break;
+        case 'End':
+          nextFocusedDate = getLastDateOfWeek(focusedDate, firstDayOfWeek);
+          break;
+        default:
+          return;
       }
-      if (direction === 'left' && !isNextMonthDisabled) {
-        dispatch({ type: CalendarActionType.NEXT_MONTH });
+
+      event.preventDefault();
+
+      if (isDateInMonthRange(nextFocusedDate, minDate, maxDate)) {
+        handleFocusDate(nextFocusedDate);
+      }
+    },
+    [handleFocusDate, focusedDate, minDate, maxDate, firstDayOfWeek],
+  );
+
+  const handleMouseEnter = useCallback((date: Temporal.PlainDate) => {
+    dispatch({ type: CalendarActionType.MOUSE_ENTER_DATE, date });
+  }, []);
+  const handleMouseLeave = useCallback(() => {
+    dispatch({ type: CalendarActionType.MOUSE_LEAVE_DATE });
+  }, []);
+
+  if (process.env.NODE_ENV !== 'production' && modifiers) {
+    Object.keys(modifiers).forEach((key) => {
+      try {
+        Temporal.PlainDate.from(key);
+      } catch (_error) {
+        throw new CircuitError(
+          'Calendar',
+          `The "${key}" key of the \`modifiers\` prop is not a valid ISO 8601 date string.`,
+        );
       }
     });
+  }
 
-    const handleFocusDate = useCallback((date: Temporal.PlainDate) => {
-      dispatch({ type: CalendarActionType.FOCUS_DATE, date });
-      // Focus the button on the next tick after React has rerendered the UI
-      window.requestAnimationFrame(() => {
-        calendarRef.current
-          ?.querySelector<HTMLButtonElement>('button[tabindex="0"]')
-          ?.focus();
-      });
-    }, []);
-
-    const handleKeyDown = useCallback(
-      (event: KeyboardEvent) => {
-        let nextFocusedDate: Temporal.PlainDate;
-
-        switch (event.key) {
-          case 'ArrowRight':
-            nextFocusedDate = focusedDate.add({ days: 1 });
-            break;
-          case 'ArrowLeft':
-            nextFocusedDate = focusedDate.subtract({ days: 1 });
-            break;
-          case 'ArrowDown':
-            nextFocusedDate = focusedDate.add({ days: focusedDate.daysInWeek });
-            break;
-          case 'ArrowUp':
-            nextFocusedDate = focusedDate.subtract({
-              days: focusedDate.daysInWeek,
-            });
-            break;
-          case 'PageUp':
-            nextFocusedDate = focusedDate.subtract(
-              event.shiftKey ? { years: 1 } : { months: 1 },
-            );
-            break;
-          case 'PageDown':
-            nextFocusedDate = focusedDate.add(
-              event.shiftKey ? { years: 1 } : { months: 1 },
-            );
-            break;
-          case 'Home':
-            nextFocusedDate = getFirstDateOfWeek(focusedDate, firstDayOfWeek);
-            break;
-          case 'End':
-            nextFocusedDate = getLastDateOfWeek(focusedDate, firstDayOfWeek);
-            break;
-          default:
-            return;
-        }
-
-        event.preventDefault();
-
-        if (isDateInMonthRange(nextFocusedDate, minDate, maxDate)) {
-          handleFocusDate(nextFocusedDate);
-        }
-      },
-      [handleFocusDate, focusedDate, minDate, maxDate, firstDayOfWeek],
-    );
-
-    const handleMouseEnter = useCallback((date: Temporal.PlainDate) => {
-      dispatch({ type: CalendarActionType.MOUSE_ENTER_DATE, date });
-    }, []);
-    const handleMouseLeave = useCallback(() => {
-      dispatch({ type: CalendarActionType.MOUSE_LEAVE_DATE });
-    }, []);
-
-    if (process.env.NODE_ENV !== 'production' && modifiers) {
-      Object.keys(modifiers).forEach((key) => {
-        try {
-          Temporal.PlainDate.from(key);
-        } catch (_error) {
-          throw new CircuitError(
-            'Calendar',
-            `The "${key}" key of the \`modifiers\` prop is not a valid ISO 8601 date string.`,
-          );
-        }
-      });
-    }
-
-    return (
-      <div ref={applyMultipleRefs(ref, calendarRef)} role="group" {...rest}>
-        <div className={classes.header}>
-          <div className={classes.prev}>
-            <IconButton
-              type="button"
-              icon={ArrowLeft}
-              size="s"
-              variant="tertiary"
-              disabled={isPrevMonthDisabled}
-              onClick={() => {
-                dispatch({ type: CalendarActionType.PREV_MONTH });
-              }}
-            >
-              {prevMonthButtonLabel}
-            </IconButton>
-          </div>
-          <div className={classes.next}>
-            <IconButton
-              type="button"
-              icon={ArrowRight}
-              size="s"
-              variant="tertiary"
-              disabled={isNextMonthDisabled}
-              onClick={() => {
-                dispatch({ type: CalendarActionType.NEXT_MONTH });
-              }}
-            >
-              {nextMonthButtonLabel}
-            </IconButton>
-          </div>
+  return (
+    <div ref={applyMultipleRefs(ref, calendarRef)} role="group" {...rest}>
+      <div className={classes.header}>
+        <div className={classes.prev}>
+          <IconButton
+            type="button"
+            icon={ArrowLeft}
+            size="s"
+            variant="tertiary"
+            disabled={isPrevMonthDisabled}
+            onClick={() => {
+              dispatch({ type: CalendarActionType.PREV_MONTH });
+            }}
+          >
+            {prevMonthButtonLabel}
+          </IconButton>
         </div>
-        <div className={classes.months}>
-          {months.map((month) => (
-            <Month
-              key={month.toString()}
-              yearMonth={month}
-              selection={selection}
-              focusedDate={focusedDate}
-              hoveredDate={hoveredDate}
-              minDate={minDate}
-              maxDate={maxDate}
-              today={today}
-              firstDayOfWeek={firstDayOfWeek}
-              daysInWeek={daysInWeek}
-              locale={locale}
-              modifiers={modifiers}
-              onFocus={handleFocusDate}
-              onSelect={onSelect}
-              onKeyDown={handleKeyDown}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              {...touchHandlers}
-            />
-          ))}
+        <div className={classes.next}>
+          <IconButton
+            type="button"
+            icon={ArrowRight}
+            size="s"
+            variant="tertiary"
+            disabled={isNextMonthDisabled}
+            onClick={() => {
+              dispatch({ type: CalendarActionType.NEXT_MONTH });
+            }}
+          >
+            {nextMonthButtonLabel}
+          </IconButton>
         </div>
       </div>
-    );
-  },
-);
-
-Calendar.displayName = 'Calendar';
+      <div className={classes.months}>
+        {months.map((month) => (
+          <Month
+            key={month.toString()}
+            yearMonth={month}
+            selection={selection}
+            focusedDate={focusedDate}
+            hoveredDate={hoveredDate}
+            minDate={minDate}
+            maxDate={maxDate}
+            today={today}
+            firstDayOfWeek={firstDayOfWeek}
+            daysInWeek={daysInWeek}
+            locale={locale}
+            modifiers={modifiers}
+            onFocus={handleFocusDate}
+            onSelect={onSelect}
+            onKeyDown={handleKeyDown}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            {...touchHandlers}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 interface MonthProps extends SharedProps {
   yearMonth: Temporal.PlainYearMonth;
@@ -388,7 +386,6 @@ function Month({
         {headline}
       </Headline>
       {/** biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: 'grid' is an appropriate role for a table element */}
-      {/** biome-ignore lint/a11y/useSemanticElements: 'grid' is more specific than 'table */}
       <table role="grid" className={classes.grid}>
         <thead>
           <tr>

@@ -15,11 +15,7 @@
 
 'use client';
 
-import {
-  forwardRef,
-  type AnchorHTMLAttributes,
-  type ButtonHTMLAttributes,
-} from 'react';
+import type { Ref, AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 
 import { useComponents } from '../../../ComponentsContext/index.js';
 import type { EmotionAsPropType } from '../../../../types/prop-types.js';
@@ -41,6 +37,7 @@ export type TabProps = LinkElProps &
      * Triggers selected styles of the component
      */
     selected?: boolean;
+    ref?: Ref<HTMLButtonElement>;
   };
 
 const tabIndex = (selected: boolean) => (selected ? undefined : -1);
@@ -48,32 +45,31 @@ const tabIndex = (selected: boolean) => (selected ? undefined : -1);
 /**
  * Tab component that represents a single tab inside a Tabs wrapper
  */
-export const Tab = forwardRef<HTMLButtonElement, TabProps>(
-  ({ selected = false, as = 'tab', className, ...props }, ref) => {
-    const components = useComponents();
-    const Link = components.Link as EmotionAsPropType;
-    const Element = props.href ? Link : 'button';
+export function Tab({
+  selected = false,
+  as = 'tab',
+  className,
+  ...props
+}: TabProps) {
+  const components = useComponents();
+  const Link = components.Link as EmotionAsPropType;
+  const Element = props.href ? Link : 'button';
 
-    return as === 'tab' ? (
+  return as === 'tab' ? (
+    <Element
+      role={as}
+      className={clsx(classes.base, className)}
+      aria-selected={selected}
+      tabIndex={tabIndex(selected)}
+      {...props}
+    />
+  ) : (
+    <div role="listitem">
       <Element
-        ref={ref}
-        role={as}
         className={clsx(classes.base, className)}
-        aria-selected={selected}
-        tabIndex={tabIndex(selected)}
+        aria-current={selected ? 'page' : undefined}
         {...props}
       />
-    ) : (
-      <div role="listitem">
-        <Element
-          ref={ref}
-          className={clsx(classes.base, className)}
-          aria-current={selected ? 'page' : undefined}
-          {...props}
-        />
-      </div>
-    );
-  },
-);
-
-Tab.displayName = 'Tab';
+    </div>
+  );
+}

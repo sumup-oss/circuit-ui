@@ -28,6 +28,7 @@ import { dark } from '../themes/dark.js';
 import { consumer } from '../themes/consumer.js';
 import type { ColorScheme, FontFace, Token } from '../types/index.js';
 import { sumup } from '../themes/fonts.js';
+import { fileURLToPath } from 'node:url';
 
 export type TokenConfig = {
   type: 'tokens';
@@ -157,7 +158,11 @@ function main(): void {
 
   Object.entries(files).forEach(([name, configs]) => {
     const filename = `${name}.css`;
-    const filepath = path.join(__dirname, '../', filename);
+    /* eslint-disable no-underscore-dangle, @typescript-eslint/naming-convention */
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = path.dirname(__filename);
+    /* eslint-enable no-underscore-dangle, @typescript-eslint/naming-convention */
+    const filepath = path.join(__dirname, '../dist/', filename);
     const styles = configs
       .map((config) => {
         switch (config.type) {

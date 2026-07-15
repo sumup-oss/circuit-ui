@@ -15,7 +15,7 @@
 
 'use client';
 
-import { forwardRef, useId } from 'react';
+import { useId, type Ref } from 'react';
 import { resolveCurrencyFormat } from '@sumup-oss/intl';
 
 import { NumericFormat } from '../../vendor/react-number-format/index.js';
@@ -34,6 +34,7 @@ export interface CurrencyInputProps
     InputProps,
     'placeholder' | 'ref' | 'value' | 'defaultValue' | 'type'
   > {
+  ref?: Ref<HTMLInputElement>;
   /**
    * A ISO 4217 currency code, such as 'USD' for the US dollar,
    * 'EUR' for the Euro, or 'CNY' for the Chinese RMB.
@@ -80,92 +81,86 @@ const DUMMY_DELIMITER = '?';
  * the symbol according to the locale. The corresponding service exports a
  * parser for formatting values automatically.
  */
-export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
-  (
-    {
-      locale: customLocale,
-      currency,
-      placeholder,
-      'aria-describedby': descriptionId,
-      ...props
-    },
-    ref,
-  ) => {
-    const locale = useLocale(customLocale);
-    const currencySymbolId = useId();
-    const descriptionIds = idx(currencySymbolId, descriptionId);
+export function CurrencyInput({
+  locale: customLocale,
+  currency,
+  placeholder,
+  'aria-describedby': descriptionId,
+  ref,
+  ...props
+}: CurrencyInputProps) {
+  const locale = useLocale(customLocale);
+  const currencySymbolId = useId();
+  const descriptionIds = idx(currencySymbolId, descriptionId);
 
-    const currencyFormat =
-      resolveCurrencyFormat(locale, currency) || DEFAULT_FORMAT;
-    const {
-      currencyPosition,
-      currencySymbol,
-      minimumFractionDigits,
-      maximumFractionDigits,
-      decimalDelimiter,
-      groupDelimiter,
-    } = currencyFormat;
-    const placeholderString = formatPlaceholder(placeholder, locale, {
-      minimumFractionDigits,
-      maximumFractionDigits,
-    });
-    // Allow common decimal signs as well as the one from resolveCurrencyFormat()
-    const allowedDecimalSeparators = [
-      '.',
-      ',',
-      ...(decimalDelimiter ? [decimalDelimiter] : []),
-    ];
+  const currencyFormat =
+    resolveCurrencyFormat(locale, currency) || DEFAULT_FORMAT;
+  const {
+    currencyPosition,
+    currencySymbol,
+    minimumFractionDigits,
+    maximumFractionDigits,
+    decimalDelimiter,
+    groupDelimiter,
+  } = currencyFormat;
+  const placeholderString = formatPlaceholder(placeholder, locale, {
+    minimumFractionDigits,
+    maximumFractionDigits,
+  });
+  // Allow common decimal signs as well as the one from resolveCurrencyFormat()
+  const allowedDecimalSeparators = [
+    '.',
+    ',',
+    ...(decimalDelimiter ? [decimalDelimiter] : []),
+  ];
 
-    const renderPrefix =
-      currencyPosition === 'prefix'
-        ? (prefixProps: { className?: string }) => (
-            <span
-              className={clsx(prefixProps.className, classes.currency)}
-              id={currencySymbolId}
-            >
-              {currencySymbol}
-            </span>
-          )
-        : undefined;
+  const renderPrefix =
+    currencyPosition === 'prefix'
+      ? (prefixProps: { className?: string }) => (
+          <span
+            className={clsx(prefixProps.className, classes.currency)}
+            id={currencySymbolId}
+          >
+            {currencySymbol}
+          </span>
+        )
+      : undefined;
 
-    const renderSuffix =
-      currencyPosition === 'suffix'
-        ? (suffixProps: { className?: string }) => (
-            <span
-              {...suffixProps}
-              className={clsx(suffixProps.className, classes.currency)}
-              id={currencySymbolId}
-            >
-              {currencySymbol}
-            </span>
-          )
-        : undefined;
+  const renderSuffix =
+    currencyPosition === 'suffix'
+      ? (suffixProps: { className?: string }) => (
+          <span
+            {...suffixProps}
+            className={clsx(suffixProps.className, classes.currency)}
+            id={currencySymbolId}
+          >
+            {currencySymbol}
+          </span>
+        )
+      : undefined;
 
-    return (
-      <NumericFormat
-        // react-number-format props
-        thousandSeparator={groupDelimiter}
-        decimalSeparator={
-          maximumFractionDigits && maximumFractionDigits > 0
-            ? decimalDelimiter
-            : DUMMY_DELIMITER
-        }
-        decimalScale={maximumFractionDigits}
-        customInput={Input}
-        getInputRef={ref}
-        allowedDecimalSeparators={allowedDecimalSeparators}
-        // Circuit input props
-        renderPrefix={renderPrefix}
-        renderSuffix={renderSuffix}
-        placeholder={placeholderString}
-        textAlign="right"
-        type="text"
-        inputMode="decimal"
-        aria-describedby={descriptionIds}
-        {...props}
-      />
-    );
-  },
-);
-
-CurrencyInput.displayName = 'CurrencyInput';
+  return (
+    <NumericFormat
+      // react-number-format props
+      thousandSeparator={groupDelimiter}
+      decimalSeparator={
+        maximumFractionDigits && maximumFractionDigits > 0
+          ? decimalDelimiter
+          : DUMMY_DELIMITER
+      }
+      decimalScale={maximumFractionDigits}
+      customInput={Input}
+      getInputRef={ref}
+      allowedDecimalSeparators={allowedDecimalSeparators}
+      // Circuit input props
+      renderPrefix={renderPrefix}
+      renderSuffix={renderSuffix}
+      placeholder={placeholderString}
+      textAlign="right"
+      type="text"
+      inputMode="decimal"
+      aria-describedby={descriptionIds}
+      {...props}
+    />
+  );
+}

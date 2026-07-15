@@ -17,7 +17,12 @@ import { useReducer, useEffect, useRef } from 'react';
 
 import { CircuitError } from '../../../util/errors.js';
 import { isFunction } from '../../../util/type-check.js';
-import * as StepService from '../StepService.js';
+import {
+  calculatePreviousStep,
+  calculateNextStep,
+  generatePropGetters,
+  reducer,
+} from '../StepService.js';
 import type { Duration, StateAndHelpers, StepOptions } from '../types.js';
 
 export function useStep({
@@ -49,7 +54,7 @@ export function useStep({
 
   const initialState = {
     step: initialStep,
-    previousStep: StepService.calculatePreviousStep({
+    previousStep: calculatePreviousStep({
       step: initialStep,
       totalSteps,
       stepInterval,
@@ -57,7 +62,7 @@ export function useStep({
     }),
     paused: !autoPlay,
   };
-  const [state, dispatch] = useReducer(StepService.reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
   const playingInterval = useRef<ReturnType<typeof setInterval> | null>(null);
   const animationEndCallback = useRef<ReturnType<typeof setTimeout> | null>(
     null,
@@ -78,7 +83,7 @@ export function useStep({
 
   // ACTIONS
   function next() {
-    const newStep = StepService.calculateNextStep({
+    const newStep = calculateNextStep({
       step: state.step,
       stepInterval,
       totalSteps,
@@ -93,7 +98,7 @@ export function useStep({
   }
 
   function previous() {
-    const newStep = StepService.calculatePreviousStep({
+    const newStep = calculatePreviousStep({
       step: state.step,
       stepInterval,
       totalSteps,
@@ -210,7 +215,7 @@ export function useStep({
       play,
       pause,
     };
-    const propGetters = StepService.generatePropGetters(actions);
+    const propGetters = generatePropGetters(actions);
 
     return {
       state: {

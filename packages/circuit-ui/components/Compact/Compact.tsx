@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { forwardRef, type HTMLAttributes } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
 
 import type { AsPropType } from '../../types/prop-types.js';
 import { clsx } from '../../styles/clsx.js';
@@ -21,6 +21,7 @@ import { clsx } from '../../styles/clsx.js';
 import classes from './Compact.module.css';
 
 export interface CompactProps extends HTMLAttributes<HTMLParagraphElement> {
+  ref?: Ref<HTMLParagraphElement>;
   /**
    * Choose from 3 font sizes. Default `m`.
    */
@@ -35,7 +36,6 @@ export interface CompactProps extends HTMLAttributes<HTMLParagraphElement> {
   color?:
     | 'normal'
     | 'subtle'
-    | 'placeholder'
     | 'on-strong'
     | 'on-strong-subtle'
     | 'accent'
@@ -53,18 +53,16 @@ export interface CompactProps extends HTMLAttributes<HTMLParagraphElement> {
  * The Compact component is used to present the core textual content
  * to our users.
  */
-export const Compact = forwardRef<HTMLParagraphElement, CompactProps>(
-  (
-    {
-      className,
-      as: Element = 'p',
-      size = 'm',
-      weight = 'regular',
-      color = 'normal',
-      ...props
-    },
-    ref,
-  ) => (
+export function Compact({
+  className,
+  as: Element = 'p',
+  size = 'm',
+  weight = 'regular',
+  color = 'normal',
+  ref,
+  ...props
+}: CompactProps) {
+  return (
     <Element
       {...props}
       ref={ref}
@@ -76,7 +74,5 @@ export const Compact = forwardRef<HTMLParagraphElement, CompactProps>(
         className,
       )}
     />
-  ),
-);
-
-Compact.displayName = 'Compact';
+  );
+}

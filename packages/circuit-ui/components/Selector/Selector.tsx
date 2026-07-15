@@ -17,10 +17,10 @@
 
 import {
   Fragment,
-  forwardRef,
   useId,
   type ComponentType,
   type InputHTMLAttributes,
+  type Ref,
 } from 'react';
 
 import {
@@ -49,6 +49,7 @@ export type SelectorSize =
 
 export interface SelectorProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
+  ref?: Ref<HTMLInputElement>;
   /**
    * A clear and concise description of the input's purpose.
    */
@@ -101,109 +102,103 @@ const legacySizeMap: Record<string, 's' | 'm'> = {
   mega: 'm',
 };
 
-export const Selector = forwardRef<HTMLInputElement, SelectorProps>(
-  (
-    {
-      label,
-      description,
-      'icon': Icon,
-      value,
-      'id': customId,
-      name,
-      disabled,
-      required,
-      invalid,
-      multiple,
-      onChange,
-      'aria-describedby': describedBy,
-      className,
-      style,
-      'size': legacySize = 'm',
-      children,
-      ...props
-    },
-    ref,
-  ) => {
-    const randomId = useId();
-    const inputId = customId || randomId;
-    const descriptionId = useId();
-    const descriptionIds = [describedBy, description && descriptionId]
-      .filter(Boolean)
-      .join(' ');
-    const type = multiple ? 'checkbox' : 'radio';
+export function Selector({
+  label,
+  description,
+  'icon': Icon,
+  value,
+  'id': customId,
+  name,
+  disabled,
+  required,
+  invalid,
+  multiple,
+  onChange,
+  'aria-describedby': describedBy,
+  className,
+  style,
+  'size': legacySize = 'm',
+  children,
+  ref,
+  ...props
+}: SelectorProps) {
+  const randomId = useId();
+  const inputId = customId || randomId;
+  const descriptionId = useId();
+  const descriptionIds = [describedBy, description && descriptionId]
+    .filter(Boolean)
+    .join(' ');
+  const type = multiple ? 'checkbox' : 'radio';
 
-    if (process.env.NODE_ENV !== 'production' && legacySizeMap[legacySize]) {
-      deprecate(
-        'Selector',
-        `The \`${legacySize}\` size has been deprecated. Use the \`${legacySizeMap[legacySize]}\` size instead.`,
-      );
-    }
-
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !isSufficientlyLabelled(label)
-    ) {
-      throw new AccessibilityError(
-        'Selector',
-        'The `label` prop is missing or invalid.',
-      );
-    }
-
-    const size = legacySizeMap[legacySize] || legacySize;
-
-    const hasDescription = Boolean(description);
-
-    return (
-      <FieldWrapper className={className} style={style} disabled={disabled}>
-        <input
-          type={type}
-          id={inputId}
-          aria-describedby={descriptionIds}
-          name={name}
-          value={value}
-          disabled={disabled}
-          required={multiple ? undefined : required}
-          // @ts-expect-error Change is handled by onClick for browser support, see https://stackoverflow.com/a/5575369
-          onClick={onChange}
-          // Noop to silence React warning: https://github.com/facebook/react/issues/3070#issuecomment-73311114
-          onChange={() => {}}
-          className={clsx(
-            classes.base,
-            invalid && classes.invalid,
-            utilClasses.hideVisually,
-          )}
-          ref={ref}
-          {...props}
-        />
-        <label
-          htmlFor={inputId}
-          className={clsx(
-            classes.label,
-            classes[size],
-            hasDescription && classes['has-description'],
-          )}
-        >
-          {Icon && <Icon className={classes.icon} aria-hidden="true" />}
-          {hasDescription ? (
-            <Fragment>
-              <span className={classes.title}>{label || children}</span>
-              <span className={classes.description} aria-hidden="true">
-                {description}
-              </span>
-            </Fragment>
-          ) : (
-            label || children
-          )}
-        </label>
-        {hasDescription && (
-          <p id={descriptionId} className={utilClasses.hideVisually}>
-            {description}
-          </p>
-        )}
-      </FieldWrapper>
+  if (process.env.NODE_ENV !== 'production' && legacySizeMap[legacySize]) {
+    deprecate(
+      'Selector',
+      `The \`${legacySize}\` size has been deprecated. Use the \`${legacySizeMap[legacySize]}\` size instead.`,
     );
-  },
-);
+  }
 
-Selector.displayName = 'Selector';
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !isSufficientlyLabelled(label)
+  ) {
+    throw new AccessibilityError(
+      'Selector',
+      'The `label` prop is missing or invalid.',
+    );
+  }
+
+  const size = legacySizeMap[legacySize] || legacySize;
+
+  const hasDescription = Boolean(description);
+
+  return (
+    <FieldWrapper className={className} style={style} disabled={disabled}>
+      <input
+        type={type}
+        id={inputId}
+        aria-describedby={descriptionIds}
+        name={name}
+        value={value}
+        disabled={disabled}
+        required={multiple ? undefined : required}
+        // @ts-expect-error Change is handled by onClick for browser support, see https://stackoverflow.com/a/5575369
+        onClick={onChange}
+        // Noop to silence React warning: https://github.com/facebook/react/issues/3070#issuecomment-73311114
+        onChange={() => {}}
+        className={clsx(
+          classes.base,
+          invalid && classes.invalid,
+          utilClasses.hideVisually,
+        )}
+        ref={ref}
+        {...props}
+      />
+      <label
+        htmlFor={inputId}
+        className={clsx(
+          classes.label,
+          classes[size],
+          hasDescription && classes['has-description'],
+        )}
+      >
+        {Icon && <Icon className={classes.icon} aria-hidden="true" />}
+        {hasDescription ? (
+          <Fragment>
+            <span className={classes.title}>{label || children}</span>
+            <span className={classes.description} aria-hidden="true">
+              {description}
+            </span>
+          </Fragment>
+        ) : (
+          label || children
+        )}
+      </label>
+      {hasDescription && (
+        <p id={descriptionId} className={utilClasses.hideVisually}>
+          {description}
+        </p>
+      )}
+    </FieldWrapper>
+  );
+}

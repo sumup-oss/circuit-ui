@@ -16,13 +16,11 @@
 'use client';
 
 import {
-  forwardRef,
   useEffect,
   useRef,
   useState,
-  type ForwardRefExoticComponent,
   type HTMLAttributes,
-  type RefAttributes,
+  type Ref,
 } from 'react';
 
 import { useAnimation } from '../../hooks/useAnimation/index.js';
@@ -62,6 +60,7 @@ type CloseProps =
   | { onClose?: never; closeButtonLabel?: never };
 
 type BaseProps = HTMLAttributes<HTMLDivElement> & {
+  ref?: Ref<HTMLDivElement>;
   /**
    * The notification's variant. Defaults to `info`.
    */
@@ -97,97 +96,88 @@ type BaseProps = HTMLAttributes<HTMLDivElement> & {
 
 export type NotificationInlineProps = BaseProps & CloseProps;
 
-type NotificationInlineComponent = ForwardRefExoticComponent<
-  NotificationInlineProps & RefAttributes<HTMLDivElement>
-> & { TIMEOUT: number };
+function NotificationInlineBase({
+  variant = 'info',
+  body,
+  headline,
+  action,
+  onClose,
+  closeButtonLabel,
+  iconLabel = '',
+  isVisible = true,
+  className,
+  ref,
+  ...props
+}: NotificationInlineProps) {
+  const contentElement = useRef<HTMLDivElement>(null);
+  const [isOpen, setOpen] = useState(isVisible);
+  const [height, setHeight] = useState(getElementHeight(contentElement));
+  const [, setAnimating] = useAnimation();
 
-export const NotificationInline = forwardRef<
-  HTMLDivElement,
-  NotificationInlineProps
->(
-  (
-    {
-      variant = 'info',
-      body,
-      headline,
-      action,
-      onClose,
-      closeButtonLabel,
-      iconLabel = '',
-      isVisible = true,
-      className,
-      ...props
-    },
-    ref,
-  ) => {
-    const contentElement = useRef<HTMLDivElement>(null);
-    const [isOpen, setOpen] = useState(isVisible);
-    const [height, setHeight] = useState(getElementHeight(contentElement));
-    const [, setAnimating] = useAnimation();
+  useEffect(() => {
+    setAnimating({
+      duration: TRANSITION_DURATION,
+      onStart: () => {
+        setHeight(getElementHeight(contentElement));
+        // Delaying the state update until the next animation frame ensures that
+        // the browsers renders the new height before the animation starts.
+        window.requestAnimationFrame(() => {
+          setOpen(isVisible);
+        });
+      },
+      onEnd: () => {
+        setHeight(DEFAULT_HEIGHT);
+      },
+    });
+  }, [isVisible, setAnimating]);
 
-    useEffect(() => {
-      setAnimating({
-        duration: TRANSITION_DURATION,
-        onStart: () => {
-          setHeight(getElementHeight(contentElement));
-          // Delaying the state update until the next animation frame ensures that
-          // the browsers renders the new height before the animation starts.
-          window.requestAnimationFrame(() => {
-            setOpen(isVisible);
-          });
-        },
-        onEnd: () => {
-          setHeight(DEFAULT_HEIGHT);
-        },
-      });
-    }, [isVisible, setAnimating]);
+  const Icon = NOTIFICATION_ICONS[variant];
 
-    const Icon = NOTIFICATION_ICONS[variant];
-
-    return (
-      <div
-        ref={applyMultipleRefs(ref, contentElement)}
-        style={{
-          opacity: isOpen ? 1 : 0,
-          height: isOpen ? height : 0,
-          visibility: isOpen ? 'visible' : 'hidden',
-        }}
-        className={clsx(classes.base, className)}
-        {...props}
-      >
-        <div className={clsx(classes.wrapper, classes[variant])}>
-          <div className={classes.icon}>
-            <Icon aria-hidden="true" />
-          </div>
-          <span className={utilClasses.hideVisually}>{iconLabel}</span>
-          <div className={classes.content}>
-            {headline && (
-              <Body
-                weight="semibold"
-                as={isString(headline) ? 'h3' : headline.as}
-              >
-                {isString(headline) ? headline : headline.label}
-              </Body>
-            )}
-            <Body>{body}</Body>
-            {action && (
-              <Anchor
-                {...action}
-                className={clsx(action.className, classes.action)}
-                weight="bold"
-              />
-            )}
-          </div>
-
-          {onClose && closeButtonLabel && (
-            <CloseButton className={classes.close} size="s" onClick={onClose}>
-              {closeButtonLabel}
-            </CloseButton>
+  return (
+    <div
+      ref={applyMultipleRefs(ref, contentElement)}
+      style={{
+        opacity: isOpen ? 1 : 0,
+        height: isOpen ? height : 0,
+        visibility: isOpen ? 'visible' : 'hidden',
+      }}
+      className={clsx(classes.base, className)}
+      {...props}
+    >
+      <div className={clsx(classes.wrapper, classes[variant])}>
+        <div className={classes.icon}>
+          <Icon aria-hidden="true" />
+        </div>
+        <span className={utilClasses.hideVisually}>{iconLabel}</span>
+        <div className={classes.content}>
+          {headline && (
+            <Body
+              weight="semibold"
+              as={isString(headline) ? 'h3' : headline.as}
+            >
+              {isString(headline) ? headline : headline.label}
+            </Body>
+          )}
+          <Body>{body}</Body>
+          {action && (
+            <Anchor
+              {...action}
+              className={clsx(action.className, classes.action)}
+              weight="bold"
+            />
           )}
         </div>
-      </div>
-    );
-  },
-) as NotificationInlineComponent;
 
-NotificationInline.TIMEOUT = TRANSITION_DURATION;
+        {onClose && closeButtonLabel && (
+          <CloseButton className={classes.close} size="s" onClick={onClose}>
+            {closeButtonLabel}
+          </CloseButton>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export const NotificationInline = Object.assign(NotificationInlineBase, {
+  TIMEOUT: TRANSITION_DURATION,
+});

@@ -15,7 +15,7 @@
 
 'use client';
 
-import { forwardRef } from 'react';
+import type { Ref } from 'react';
 
 import type { AsPropType } from '../../../../types/prop-types.js';
 import {
@@ -106,25 +106,23 @@ function SecondaryGroup({
 }
 
 export interface SecondaryLinksProps {
+  ref?: Ref<HTMLUListElement>;
   secondaryGroups: SecondaryGroupProps[];
   className?: string;
 }
 
-export const SecondaryLinks = forwardRef<HTMLUListElement, SecondaryLinksProps>(
-  ({ secondaryGroups, className, ...props }, ref) => {
-    const focusProps = useFocusList();
-    return (
-      <ul ref={ref} className={clsx(classes.list, className)} {...props}>
-        {secondaryGroups.map((group) => (
-          <SecondaryGroup
-            key={group.label}
-            {...group}
-            focusProps={focusProps}
-          />
-        ))}
-      </ul>
-    );
-  },
-);
-
-SecondaryLinks.displayName = 'SecondaryLinks';
+export function SecondaryLinks({
+  secondaryGroups,
+  className,
+  ref,
+  ...props
+}: SecondaryLinksProps) {
+  const focusProps = useFocusList();
+  return (
+    <ul ref={ref} className={clsx(classes.list, className)} {...props}>
+      {secondaryGroups.map((group) => (
+        <SecondaryGroup key={group.label} {...group} focusProps={focusProps} />
+      ))}
+    </ul>
+  );
+}

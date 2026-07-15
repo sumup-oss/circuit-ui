@@ -43,8 +43,10 @@ import type { AutocompleteInputOption } from './components/Option/Option.js';
 export default {
   title: 'Forms/AutocompleteInput',
   component: AutocompleteInput,
-  tags: ['status:experimental'],
+  tags: ['status:stable'],
   argTypes: {
+    comboboxRef: { table: { disable: true } },
+
     // Value & change handling
     value: {
       table: {
