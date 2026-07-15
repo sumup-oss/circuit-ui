@@ -51,7 +51,7 @@ const countryCodeMap: { [key: string]: string } = {
   DE: '+49',
 };
 
-export const Base = (args: PhoneNumberInputProps) => {
+const StatefulPhoneNumberInput = (args: PhoneNumberInputProps) => {
   const [value, setValue] = useState(args.value);
   return (
     <PhoneNumberInput
@@ -63,6 +63,10 @@ export const Base = (args: PhoneNumberInputProps) => {
     />
   );
 };
+
+export const Base = (args: PhoneNumberInputProps) => (
+  <StatefulPhoneNumberInput {...args} />
+);
 
 Base.args = {
   value: '',
@@ -89,9 +93,10 @@ Base.parameters = {
     disableSnapshot: true,
   },
 };
+
 export const Validations = (args: PhoneNumberInputProps) => (
   <Stack>
-    <PhoneNumberInput
+    <StatefulPhoneNumberInput
       {...args}
       required
       validationHint="This is not valid"
@@ -100,12 +105,12 @@ export const Validations = (args: PhoneNumberInputProps) => (
         invalid: true,
       }}
     />
-    <PhoneNumberInput
+    <StatefulPhoneNumberInput
       {...args}
       hasWarning
       validationHint="This may include additional charges"
     />
-    <PhoneNumberInput
+    <StatefulPhoneNumberInput
       {...args}
       defaultValue="+1202 555 0132"
       validationHint="This looks good"
@@ -129,7 +134,7 @@ Readonly.args = {
 };
 
 export const Optional = (args: PhoneNumberInputProps) => (
-  <PhoneNumberInput {...args} />
+  <StatefulPhoneNumberInput {...args} />
 );
 
 Optional.args = {
@@ -169,7 +174,7 @@ export const WithPrefix = (args: PhoneNumberInputProps) => {
 WithPrefix.args = Base.args;
 
 export const WithoutCountryNames = (args: PhoneNumberInputProps) => (
-  <PhoneNumberInput {...args} />
+  <StatefulPhoneNumberInput {...args} />
 );
 
 WithoutCountryNames.args = {
@@ -179,8 +184,8 @@ WithoutCountryNames.args = {
 
 export const Sizes = (args: PhoneNumberInputProps) => (
   <Stack>
-    <PhoneNumberInput {...args} size="s" />
-    <PhoneNumberInput {...args} size="m" />
+    <StatefulPhoneNumberInput {...args} size="s" />
+    <StatefulPhoneNumberInput {...args} size="m" />
   </Stack>
 );
 
