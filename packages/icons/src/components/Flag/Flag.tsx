@@ -144,10 +144,7 @@ export const Flag = forwardRef<HTMLImageElement, FlagProps>(
       dimensions.height = width / ASPECT_RATIO;
     }
     return (
-      <div
-        className={className}
-        style={{ ...WRAPPER_STYLE, height: `${dimensions.width}px` }}
-      >
+      <div className={className} style={WRAPPER_STYLE}>
         <img
           ref={ref}
           className={imageClassName}
