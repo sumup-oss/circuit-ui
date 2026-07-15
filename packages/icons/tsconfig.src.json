@@ -10,5 +10,5 @@
     "noEmit": false
   },
   "include": ["src/**/*"],
-  "exclude": ["src/**/*.spec.*", "src/**/*.stories.*"]
+  "exclude": ["src/**/*.spec.*", "src/**/*.stories.*", "src/story-helpers.ts"]
 }

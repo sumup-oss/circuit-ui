@@ -48,13 +48,12 @@
 | `Card` | `stable` | `@sumup-oss/circuit-ui` | `./components/Card/index.js` | [Read MDX reference](components/Card.mdx) |
 | `CardFooter` | `stable` | `@sumup-oss/circuit-ui` | `./components/Card/index.js` | [Read MDX reference](components/CardFooter.mdx) |
 | `CardHeader` | `stable` | `@sumup-oss/circuit-ui` | `./components/Card/index.js` | [Read MDX reference](components/CardHeader.mdx) |
-| `CardScheme` | `stable` | `@sumup-oss/circuit-ui` | `./components/CardScheme/CardScheme.js` | [Read MDX reference](components/CardScheme.mdx) |
 | `Carousel` | `under-review` | `@sumup-oss/circuit-ui` | `./components/Carousel/index.js` | [Read MDX reference](components/Carousel.mdx) |
 | `CarouselComposer` | `under-review` | `@sumup-oss/circuit-ui` | `./components/Carousel/index.js` | [Read MDX reference](components/CarouselComposer.mdx) |
 | `CarouselPagination` | `stable` | `@sumup-oss/circuit-ui` | `./components/CarouselPagination/index.js` | [Read MDX reference](components/CarouselPagination.mdx) |
 | `ComparisonTable` | `stable` | `@sumup-oss/circuit-ui` | `./components/ComparisonTable/ComparisonTable.js` | [Read MDX reference](components/ComparisonTable.mdx) |
 | `ComponentsContext` | Unknown | `@sumup-oss/circuit-ui` | `./components/ComponentsContext/index.js` | Not available |
-| `Flag` | `stable` | `@sumup-oss/circuit-ui` | `./components/Flag/Flag.js` | [Read MDX reference](components/Flag.mdx) |
+| `Flag` | Unknown | `@sumup-oss/circuit-ui` | `./components/Flag/Flag.js` | Not available |
 | `Hr` | `stable` | `@sumup-oss/circuit-ui` | `./components/Hr/index.js` | [Read MDX reference](components/Hr.mdx) |
 | `Image` | `stable` | `@sumup-oss/circuit-ui` | `./components/Image/index.js` | [Read MDX reference](components/Image.mdx) |
 | `ListItem` | `stable` | `@sumup-oss/circuit-ui` | `./components/ListItem/index.js` | [Read MDX reference](components/ListItem.mdx) |
@@ -62,7 +61,6 @@
 | `Modal` | `stable` | `@sumup-oss/circuit-ui` | `./components/Modal/index.js` | [Read MDX reference](components/Modal.mdx) |
 | `ModalProvider` | `stable` | `@sumup-oss/circuit-ui` | `./components/Modal/ModalContext.js` | [Read MDX reference](components/ModalProvider.mdx) |
 | `NotificationModal` | `stable` | `@sumup-oss/circuit-ui` | `./components/NotificationModal/index.js` | [Read MDX reference](components/NotificationModal.mdx) |
-| `PaymentMethod` | `stable` | `@sumup-oss/circuit-ui` | `./components/PaymentMethod/PaymentMethod.js` | [Read MDX reference](components/PaymentMethod.mdx) |
 | `Popover` | `stable` | `@sumup-oss/circuit-ui` | `./components/Popover/Popover.js` | [Read MDX reference](components/Popover.mdx) |
 | `ProgressBar` | `stable` | `@sumup-oss/circuit-ui` | `./components/ProgressBar/index.js` | [Read MDX reference](components/ProgressBar.mdx) |
 | `SidePanelProvider` | `stable` | `@sumup-oss/circuit-ui` | `./components/SidePanel/index.js` | [Read MDX reference](components/SidePanelProvider.mdx) |

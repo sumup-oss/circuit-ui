@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import type { CSSProperties } from 'react';
 import { Flag, type FlagProps, FLAGS } from './Flag.js';
+import { LIST_STYLE, WRAPPER_STYLE } from '../../story-helpers.js';
 
 export default {
   title: 'Icons/Flag',
@@ -26,22 +26,6 @@ export default {
       control: { type: 'radio' },
     },
   },
-};
-
-const LIST_STYLE: CSSProperties = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-  rowGap: 'var(--cui-spacings-giga)',
-  columnGap: 'var(--cui-spacings-giga)',
-  width: '100vw',
-  padding: 'var(--cui-spacings-mega)',
-};
-
-const WRAPPER_STYLE: CSSProperties = {
-  display: 'flex',
-  gap: 'var(--cui-spacings-mega)',
-  alignItems: 'center',
-  justifyContent: 'start',
 };
 
 export const Base = () => {

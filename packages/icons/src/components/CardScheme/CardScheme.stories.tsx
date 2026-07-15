@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import type { CSSProperties } from 'react';
 import {
   CardScheme,
   type CardSchemeProps,
   CARD_SCHEMES,
 } from './CardScheme.js';
+import { LIST_STYLE, WRAPPER_STYLE, formatName } from '../../story-helpers.js';
 
 export default {
   title: 'Icons/CardScheme',
@@ -31,29 +31,6 @@ export default {
     },
   },
 };
-
-const LIST_STYLE: CSSProperties = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-  rowGap: 'var(--cui-spacings-giga)',
-  columnGap: 'var(--cui-spacings-giga)',
-  width: '100vw',
-  padding: 'var(--cui-spacings-mega)',
-};
-
-const WRAPPER_STYLE: CSSProperties = {
-  display: 'flex',
-  gap: 'var(--cui-spacings-mega)',
-  alignItems: 'center',
-  justifyContent: 'start',
-};
-
-function formatName(name: string) {
-  return name
-    .split('_')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-}
 
 export const Base = () => (
   <div style={LIST_STYLE}>
