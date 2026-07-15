@@ -15,7 +15,7 @@
 
 'use client';
 
-import { useId } from 'react';
+import { forwardRef, useId } from 'react';
 import { CopyPaste } from '@sumup-oss/icons';
 
 import { Button, IconButton } from '../Button/index.js';
@@ -106,7 +106,10 @@ export type CopyButtonProps =
  * The CopyButton component copies a provided value to the clipboard and
  * can render as a read-only input, a button, or an icon button.
  */
-export function CopyButton(props: CopyButtonProps) {
+export const CopyButton = forwardRef<
+  HTMLInputElement & HTMLButtonElement,
+  CopyButtonProps
+>((props, ref) => {
   const { setToast } = useNotificationToast();
   const { successLabel, copyLabel, onCopy, value } = props;
   const isCopyDisabled = Boolean(props.disabled || value.length === 0);
@@ -140,6 +143,7 @@ export function CopyButton(props: CopyButtonProps) {
       <>
         <Button
           {...buttonProps}
+          ref={ref}
           type="button"
           disabled={isCopyDisabled}
           onClick={handleCopy}
@@ -170,6 +174,7 @@ export function CopyButton(props: CopyButtonProps) {
       <>
         <IconButton
           {...iconButtonProps}
+          ref={ref}
           type="button"
           disabled={isCopyDisabled}
           onClick={handleCopy}
@@ -200,6 +205,7 @@ export function CopyButton(props: CopyButtonProps) {
   return (
     <Input
       {...inputProps}
+      ref={ref}
       value={displayText}
       readOnly
       renderSuffix={(renderProps) => (
@@ -218,4 +224,6 @@ export function CopyButton(props: CopyButtonProps) {
       inputClassName={inputClassName}
     />
   );
-}
+});
+
+CopyButton.displayName = 'CopyButton';
