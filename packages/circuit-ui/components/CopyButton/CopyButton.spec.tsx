@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { createRef } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import {
@@ -130,6 +131,46 @@ describe('CopyButton', () => {
 
       expect(actual).toHaveNoViolations();
     });
+
+    it('should disable copying when the value is empty', () => {
+      render(<CopyButton {...props} value="" />);
+
+      expect(screen.getByRole('button', { name: buttonName })).toHaveAttribute(
+        'aria-disabled',
+        'true',
+      );
+    });
+
+    it('should forward refs to the control', () => {
+      const ref = createRef<HTMLInputElement | HTMLButtonElement>();
+
+      render(<CopyButton {...props} ref={ref} />);
+
+      expect(ref.current).toBeInstanceOf(
+        props.copyVariant === 'button' || props.copyVariant === 'icon-button'
+          ? HTMLButtonElement
+          : HTMLInputElement,
+      );
+    });
+
+    it('should merge a custom class name with the default ones', () => {
+      const className = 'custom-class';
+      const { container } = render(
+        <CopyButton {...props} className={className} />,
+      );
+
+      if (
+        props.copyVariant === 'button' ||
+        props.copyVariant === 'icon-button'
+      ) {
+        expect(screen.getByRole('button', { name: buttonName })).toHaveClass(
+          className,
+        );
+        return;
+      }
+
+      expect(container.firstElementChild).toHaveClass(className);
+    });
   });
 
   describe.each(buttonVariants)('as $name', ({
@@ -166,14 +207,5 @@ describe('CopyButton', () => {
 
     expect(onCopy).not.toHaveBeenCalled();
     expect(screen.queryByText('Copied to clipboard.')).not.toBeInTheDocument();
-  });
-
-  it('should disable copying when the value is empty', () => {
-    render(<CopyButton {...defaultProps} value="" visibleValue="N/A" />);
-
-    expect(screen.getByRole('button', { name: 'Copy token' })).toHaveAttribute(
-      'aria-disabled',
-      'true',
-    );
   });
 });

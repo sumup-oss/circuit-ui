@@ -30,6 +30,7 @@ export default {
     ),
   ],
   argTypes: {
+    // Copy action
     value: {
       control: 'text',
       table: {
@@ -53,17 +54,19 @@ export default {
         category: 'Copy action',
       },
     },
+    // Variant
     copyVariant: {
       options: ['input', 'button', 'icon-button'],
       control: { type: 'select' },
       table: {
-        category: 'Display',
+        category: 'Variant',
       },
     },
+    // Input
     visibleValue: {
       control: 'text',
       table: {
-        category: 'Display',
+        category: 'Input',
       },
     },
     label: {
@@ -77,26 +80,40 @@ export default {
         category: 'Input',
       },
     },
-    disabled: {
-      control: 'boolean',
-      table: {
-        category: 'State',
-      },
-    },
     invalid: {
       control: 'boolean',
       table: {
-        category: 'State',
+        category: 'Input',
       },
     },
     hasWarning: {
       control: 'boolean',
       table: {
-        category: 'State',
+        category: 'Input',
       },
     },
     validationHint: {
       control: 'text',
+      table: {
+        category: 'Input',
+      },
+    },
+    // Button
+    size: {
+      control: 'select',
+      table: {
+        category: 'Button',
+      },
+    },
+    stretch: {
+      control: 'boolean',
+      table: {
+        category: 'Button',
+      },
+    },
+    // State
+    disabled: {
+      control: 'boolean',
       table: {
         category: 'State',
       },
@@ -190,7 +207,7 @@ export const ValidationStates = (args: CopyButtonProps) => (
 
 ValidationStates.args = inputArgs;
 
-export const AllVariants = () => (
+export const Variants = () => (
   <Stack vertical>
     <CopyButton {...inputArgs} />
     <CopyButton
