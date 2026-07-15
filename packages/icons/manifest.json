@@ -3356,11 +3356,6 @@
       "size": "24"
     },
     {
-      "name": "browser_secure",
-      "category": "Miscellaneous",
-      "size": "24"
-    },
-    {
       "name": "cafe",
       "category": "Miscellaneous",
       "keywords": ["restaurant", "coffee"],
@@ -3504,11 +3499,6 @@
     },
     {
       "name": "id",
-      "category": "Miscellaneous",
-      "size": "24"
-    },
-    {
-      "name": "key",
       "category": "Miscellaneous",
       "size": "24"
     },
@@ -3657,16 +3647,6 @@
       "size": "16"
     },
     {
-      "name": "secure",
-      "category": "Miscellaneous",
-      "size": "24"
-    },
-    {
-      "name": "secure_payments",
-      "category": "Miscellaneous",
-      "size": "24"
-    },
-    {
       "name": "services",
       "category": "Miscellaneous",
       "size": "24"
@@ -3764,6 +3744,51 @@
     {
       "name": "contractor",
       "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "browser_secure",
+      "category": "Security",
+      "size": "24"
+    },
+    {
+      "name": "card_security",
+      "category": "Security",
+      "size": "24"
+    },
+    {
+      "name": "key",
+      "category": "Security",
+      "size": "24"
+    },
+    {
+      "name": "passkey",
+      "category": "Security",
+      "size": "24"
+    },
+    {
+      "name": "secure",
+      "category": "Security",
+      "size": "24"
+    },
+    {
+      "name": "secure_payments",
+      "category": "Security",
+      "size": "24"
+    },
+    {
+      "name": "security_time_sensitive",
+      "category": "Security",
+      "size": "24"
+    },
+    {
+      "name": "trusted_company",
+      "category": "Security",
+      "size": "24"
+    },
+    {
+      "name": "unlock",
+      "category": "Security",
       "size": "24"
     },
     {
@@ -4254,11 +4279,6 @@
     },
     {
       "name": "apps",
-      "category": "Product and feature",
-      "size": "24"
-    },
-    {
-      "name": "card_security",
       "category": "Product and feature",
       "size": "24"
     },

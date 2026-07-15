@@ -35,6 +35,7 @@ export const CATEGORIES = [
   'Navigation',
   'Notification',
   'Product and feature',
+  'Security',
   'Social media',
   'Brand',
   'Filled',
