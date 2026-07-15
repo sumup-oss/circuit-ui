@@ -2,4 +2,9 @@
 "@sumup-oss/icons": minor
 ---
 
-Added new icons for security-related use-cases. Moved, security-related icons into dedicated "Security" section.
+Added a new set of security icons in size 24:
+
+- `Passkey`
+- `SecurityTimeSensitive`
+- `TrustedCompany`
+- `Unlock`
