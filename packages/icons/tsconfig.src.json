@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "lib": ["DOM", "ES2022"],
+    "lib": ["DOM", "ES2019"],
     "jsx": "react-jsx",
     "types": ["node", "react"],
     "rootDir": "./src",
