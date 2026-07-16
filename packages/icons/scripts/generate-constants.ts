@@ -15,14 +15,13 @@
 
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { execFile } from 'node:child_process';
-import { promisify } from 'node:util';
 
+import { Biome, type Configuration } from '@biomejs/js-api/nodejs';
 import { BASE_DIR } from '../constants.js';
 
 import manifest from '../manifest.json' with { type: 'json' };
-
-const execFileAsync = promisify(execFile);
+// eslint-disable-next-line import-x/no-relative-packages
+import config from '../../../biome.json' with { type: 'json' };
 
 type Icon = {
   name: string;
@@ -56,11 +55,14 @@ function buildConstantsFile(exportName: string, names: string[]): string {
 }
 
 async function writeFile(filePath: string, fileContent: string) {
-  await fs.writeFile(filePath, fileContent, { flag: 'w' });
-  // Format with the project's real Biome config (including the
-  // `@sumup-oss/foundry/biome` extends chain), which the `@biomejs/js-api`
-  // used elsewhere in this package doesn't resolve on its own.
-  await execFileAsync('npx', ['biome', 'check', '--write', filePath]);
+  const biome = new Biome();
+  const { projectKey } = biome.openProject();
+
+  biome.applyConfiguration(projectKey, config as Configuration);
+
+  const formatted = biome.formatContent(projectKey, fileContent, { filePath });
+
+  await fs.writeFile(filePath, formatted.content, { flag: 'w' });
 }
 
 async function main() {
