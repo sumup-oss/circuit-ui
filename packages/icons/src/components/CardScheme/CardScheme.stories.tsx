@@ -13,11 +13,8 @@
  * limitations under the License.
  */
 
-import {
-  CardScheme,
-  type CardSchemeProps,
-  CARD_SCHEMES,
-} from './CardScheme.js';
+import { CardScheme, type CardSchemeProps } from './CardScheme.js';
+import { CARD_SCHEMES } from './constants.js';
 import { LIST_STYLE, WRAPPER_STYLE, formatName } from '../../story-helpers.js';
 
 export default {

@@ -18,9 +18,7 @@ import { forwardRef, type HTMLAttributes } from 'react';
 import { getIconURL } from '../../helpers.js';
 import { ICON_SIZES } from '../../icon-sizes.js';
 
-import { CARD_SCHEMES } from './constants.js';
-
-export { CARD_SCHEMES };
+import type { CARD_SCHEMES } from './constants.js';
 
 type CardSchemeName = (typeof CARD_SCHEMES)[number];
 

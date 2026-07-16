@@ -13,7 +13,8 @@
  * limitations under the License.
  */
 
-import { Flag, type FlagProps, FLAGS } from './Flag.js';
+import { Flag, type FlagProps } from './Flag.js';
+import { FLAGS } from './constants.js';
 import { LIST_STYLE, WRAPPER_STYLE } from '../../story-helpers.js';
 
 export default {

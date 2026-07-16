@@ -1,19 +1,10 @@
 /**
- * Copyright 2026, SumUp Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * This file is auto-generated from manifest.json by `npm run build`.
+ * Do not edit it by hand, your changes will be overwritten.
+ * To add or remove an entry, edit manifest.json instead.
  */
 
-const COUNTRIES = [
+export const FLAGS = [
   'AD',
   'AE',
   'AF',
@@ -22,6 +13,7 @@ const COUNTRIES = [
   'AL',
   'AM',
   'AO',
+  'AQ',
   'AR',
   'AS',
   'AT',
@@ -42,6 +34,7 @@ const COUNTRIES = [
   'BM',
   'BN',
   'BO',
+  'BQ',
   'BR',
   'BS',
   'BT',
@@ -61,6 +54,7 @@ const COUNTRIES = [
   'CM',
   'CN',
   'CO',
+  'CP',
   'CR',
   'CU',
   'CV',
@@ -69,6 +63,7 @@ const COUNTRIES = [
   'CY',
   'CZ',
   'DE',
+  'DG',
   'DJ',
   'DK',
   'DM',
@@ -80,7 +75,9 @@ const COUNTRIES = [
   'EH',
   'ER',
   'ES',
+  'ES-CT',
   'ET',
+  'EU',
   'FI',
   'FJ',
   'FK',
@@ -112,6 +109,7 @@ const COUNTRIES = [
   'HR',
   'HT',
   'HU',
+  'IC',
   'ID',
   'IE',
   'IL',
@@ -152,6 +150,7 @@ const COUNTRIES = [
   'MC',
   'MD',
   'ME',
+  'MF',
   'MG',
   'MH',
   'MK',
@@ -184,6 +183,7 @@ const COUNTRIES = [
   'NZ',
   'OM',
   'PA',
+  'PC',
   'PE',
   'PF',
   'PG',
@@ -221,6 +221,7 @@ const COUNTRIES = [
   'SS',
   'ST',
   'SV',
+  'SX',
   'SY',
   'SZ',
   'TC',
@@ -241,6 +242,8 @@ const COUNTRIES = [
   'TZ',
   'UA',
   'UG',
+  'UM',
+  'UN',
   'US',
   'UY',
   'UZ',
@@ -254,15 +257,10 @@ const COUNTRIES = [
   'WF',
   'WS',
   'XK',
+  'XX',
   'YE',
   'YT',
   'ZA',
   'ZM',
   'ZW',
 ] as const;
-
-const TERRITORIES = ['AQ', 'BQ', 'CP', 'DG', 'IC', 'MF', 'SX', 'UM'] as const;
-
-const SPECIAL_FLAGS = ['EU', 'UN', 'XX', 'PC', 'ES-CT'] as const;
-
-export const FLAGS = [...COUNTRIES, ...TERRITORIES, ...SPECIAL_FLAGS] as const;

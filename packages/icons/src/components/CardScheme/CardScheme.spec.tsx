@@ -19,27 +19,11 @@ import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
 import { axe, render, screen } from '../../../tests/test-utils.js';
-import manifest from '../../../manifest.json' with { type: 'json' };
 
-import {
-  CARD_SCHEMES,
-  CardScheme,
-  type CardSchemeProps,
-} from './CardScheme.js';
+import { CardScheme, type CardSchemeProps } from './CardScheme.js';
 
 describe('CardScheme', () => {
   const baseProps: CardSchemeProps = { name: 'visa', alt: 'Visa' };
-
-  it('exports the list of supported card schemes', () => {
-    expect(CARD_SCHEMES).toContain('visa');
-  });
-
-  it('stays in sync with the manifest', () => {
-    const manifestNames = manifest.icons
-      .filter((icon) => icon.category === 'Card scheme' && !icon.deprecation)
-      .map((icon) => icon.name);
-    expect([...CARD_SCHEMES].sort()).toEqual(manifestNames.sort());
-  });
 
   it('renders', () => {
     const { container } = render(<CardScheme {...baseProps} />);

@@ -19,27 +19,11 @@ import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
 import { axe, render, screen } from '../../../tests/test-utils.js';
-import manifest from '../../../manifest.json' with { type: 'json' };
 
-import {
-  PAYMENT_METHODS,
-  PaymentMethod,
-  type PaymentMethodProps,
-} from './PaymentMethod.js';
+import { PaymentMethod, type PaymentMethodProps } from './PaymentMethod.js';
 
 describe('PaymentMethod', () => {
   const baseProps: PaymentMethodProps = { name: 'visa', alt: 'Visa' };
-
-  it('exports the list of supported payment methods', () => {
-    expect(PAYMENT_METHODS).toContain('visa');
-  });
-
-  it('stays in sync with the manifest', () => {
-    const manifestNames = manifest.icons
-      .filter((icon) => icon.category === 'Payment method' && !icon.deprecation)
-      .map((icon) => icon.name);
-    expect([...PAYMENT_METHODS].sort()).toEqual(manifestNames.sort());
-  });
 
   it('renders', () => {
     const { container } = render(<PaymentMethod {...baseProps} />);

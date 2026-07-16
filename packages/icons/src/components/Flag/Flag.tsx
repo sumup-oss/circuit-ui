@@ -19,9 +19,7 @@ import { getIconURL } from '../../helpers.js';
 import { ICON_SIZES } from '../../icon-sizes.js';
 import { deprecate } from '../../logger.js';
 
-import { FLAGS } from './constants.js';
-
-export { FLAGS };
+import type { FLAGS } from './constants.js';
 
 type CountryCode = (typeof FLAGS)[number];
 

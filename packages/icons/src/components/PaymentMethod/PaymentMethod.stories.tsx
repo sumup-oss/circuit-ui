@@ -13,11 +13,8 @@
  * limitations under the License.
  */
 
-import {
-  PaymentMethod,
-  type PaymentMethodProps,
-  PAYMENT_METHODS,
-} from './PaymentMethod.js';
+import { PaymentMethod, type PaymentMethodProps } from './PaymentMethod.js';
+import { PAYMENT_METHODS } from './constants.js';
 import { LIST_STYLE, WRAPPER_STYLE, formatName } from '../../story-helpers.js';
 
 export default {

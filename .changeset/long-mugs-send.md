@@ -1,5 +1,5 @@
 ---
-"@sumup-oss/circuit-ui": patch
+"@sumup-oss/circuit-ui": minor
 ---
 
-The Flag's componnent was moved to `@sumup-oss/icons`; it's re-exported here unchanged, with no consumer-facing impact.
+Deprecated `import { Flag } from '@sumup-oss/circuit-ui';` export. Its implementation has moved to `@sumup-oss/icons` so `import { Flag } from '@sumup-oss/icons';` instead.

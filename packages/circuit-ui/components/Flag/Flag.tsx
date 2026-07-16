@@ -13,4 +13,25 @@
  * limitations under the License.
  */
 
-export { Flag, type FlagProps } from '@sumup-oss/icons';
+import { forwardRef } from 'react';
+import { Flag as IconsFlag, type FlagProps } from '@sumup-oss/icons';
+
+import { deprecate } from '../../util/logger.js';
+
+export type { FlagProps };
+
+/**
+ * @deprecated Import `Flag` from `@sumup-oss/icons` instead.
+ */
+export const Flag = forwardRef<HTMLImageElement, FlagProps>((props, ref) => {
+  if (process.env.NODE_ENV !== 'production') {
+    deprecate(
+      'Flag',
+      'The Flag component has moved. Import it from `@sumup-oss/icons` instead.',
+    );
+  }
+
+  return <IconsFlag {...props} ref={ref} />;
+});
+
+Flag.displayName = 'Flag';

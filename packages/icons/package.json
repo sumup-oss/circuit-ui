@@ -31,7 +31,7 @@
   "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/icons/README.md",
   "scripts": {
     "start": "tsx watch ./scripts/build.ts",
-    "build": "tsc -p tsconfig.src.json && tsx ./scripts/build.ts",
+    "build": "tsx ./scripts/generate-constants.ts && tsc -p tsconfig.src.json && tsx ./scripts/build.ts",
     "test": "vitest",
     "lint": "foundry run eslint . --ext .ts,.tsx,.js,.jsx",
     "lint:fix": "npm run lint -- --fix",

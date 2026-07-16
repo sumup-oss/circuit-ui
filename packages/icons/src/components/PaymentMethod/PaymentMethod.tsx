@@ -18,9 +18,7 @@ import { forwardRef, type HTMLAttributes } from 'react';
 import { getIconURL } from '../../helpers.js';
 import { ICON_SIZES } from '../../icon-sizes.js';
 
-import { PAYMENT_METHODS } from './constants.js';
-
-export { PAYMENT_METHODS };
+import type { PAYMENT_METHODS } from './constants.js';
 
 type PaymentMethodName = (typeof PAYMENT_METHODS)[number];
 

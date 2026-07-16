@@ -19,23 +19,11 @@ import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
 import { axe, render, screen } from '../../../tests/test-utils.js';
-import manifest from '../../../manifest.json' with { type: 'json' };
 
-import { FLAGS, Flag, type FlagProps } from './Flag.js';
+import { Flag, type FlagProps } from './Flag.js';
 
 describe('Flag', () => {
   const baseProps: FlagProps = { countryCode: 'FR', alt: 'France' };
-
-  it('exports the list of supported country codes', () => {
-    expect(FLAGS).toContain('FR');
-  });
-
-  it('stays in sync with the manifest', () => {
-    const manifestCodes = manifest.icons
-      .filter((icon) => icon.category === 'Flag' && !icon.deprecation)
-      .map((icon) => icon.name.replace(/^flag_/, '').toUpperCase());
-    expect([...FLAGS].sort()).toEqual(manifestCodes.sort());
-  });
 
   it('renders', () => {
     const { container } = render(<Flag {...baseProps} />);
