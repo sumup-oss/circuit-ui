@@ -26,6 +26,28 @@ function Component() {
 }
 ```
 
+`Badge` is renamed to `Status` in the same way:
+
+```tsx
+import { Badge } from '@sumup-oss/circuit-ui';
+
+function Component() {
+  return <Badge variant="danger">1</Badge>;
+}
+```
+
+becomes:
+
+```tsx
+import { Status } from '@sumup-oss/circuit-ui';
+
+function Component() {
+  return <Status variant="danger">1</Status>;
+}
+```
+
+This rule only renames the element and import - `Badge`'s `variant` and `circle` props still need remapping to `Status`'s `color` and `variant` props. Run [`no-renamed-props`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-renamed-props) as well to fix those automatically.
+
 ### Options
 
 n/a

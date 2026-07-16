@@ -19,6 +19,8 @@ import {
   filterWhitespaceChildren,
   findAttribute,
   getAttributeValue,
+  isAttributeTruthy,
+  isStaticAttribute,
   transformAttributeValueToChildren,
 } from '../utils/jsx.js';
 import type { RuleDocs } from '../utils/meta.js';
@@ -47,6 +49,16 @@ type CustomConfig = {
 };
 
 type Config = PropValuesConfig | CustomConfig;
+
+// Mirrors the `colorMap` in Badge.tsx that the deprecated component uses
+// internally to render a Status.
+const badgeColorMap: Record<string, string> = {
+  neutral: 'neutral',
+  success: 'confirm',
+  warning: 'notify',
+  danger: 'alert',
+  promo: 'promo',
+};
 
 const configs: (Config & { components: string[] })[] = [
   {
@@ -302,6 +314,98 @@ const configs: (Config & { components: string[] })[] = [
               : (fixer) => fixer.replaceText(attribute, replacement),
           });
         }
+      });
+    },
+  },
+  {
+    type: 'custom',
+    components: ['Badge'],
+    // variant → color
+    transform: (node, component, context) => {
+      const attribute = findAttribute(node, 'variant');
+
+      if (!attribute) {
+        return;
+      }
+
+      const current = 'variant';
+      const replacement = 'color';
+
+      if (!isStaticAttribute(attribute)) {
+        context.report({
+          node: attribute,
+          messageId: 'propName',
+          data: { component, current, replacement },
+        });
+        return;
+      }
+
+      const currentValue = getAttributeValue(attribute);
+      const color = currentValue ? badgeColorMap[currentValue] : undefined;
+
+      if (!currentValue || !color) {
+        return;
+      }
+
+      context.report({
+        node: attribute,
+        messageId: 'propName',
+        data: { component, current, replacement },
+        fix(fixer) {
+          const fixes = [fixer.replaceText(attribute.name, replacement)];
+          if (color !== currentValue) {
+            fixes.push(
+              fixer.replaceText(
+                attribute.value as TSESTree.Literal,
+                `"${color}"`,
+              ),
+            );
+          }
+          return fixes;
+        },
+      });
+    },
+  },
+  {
+    type: 'custom',
+    components: ['Badge'],
+    // circle → variant
+    transform: (node, component, context) => {
+      const attribute = findAttribute(node, 'circle');
+
+      if (!attribute) {
+        return;
+      }
+
+      const current = 'circle';
+      const replacement = 'variant';
+
+      if (!isStaticAttribute(attribute)) {
+        context.report({
+          node: attribute,
+          messageId: 'propName',
+          data: { component, current, replacement },
+        });
+        return;
+      }
+
+      context.report({
+        node: attribute,
+        messageId: 'propName',
+        data: { component, current, replacement },
+        fix(fixer) {
+          if (isAttributeTruthy(attribute)) {
+            return fixer.replaceText(attribute, 'variant="badge"');
+          }
+          // Also remove the whitespace preceding the attribute so we don't
+          // leave a stray space behind, e.g. `<Status >`.
+          const { text } = context.sourceCode;
+          let start = attribute.range[0];
+          while (start > 0 && /\s/.test(text[start - 1])) {
+            start -= 1;
+          }
+          return fixer.removeRange([start, attribute.range[1]]);
+        },
       });
     },
   },
