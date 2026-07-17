@@ -354,6 +354,15 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
       errors: [{ messageId: 'propName' }],
     },
     {
+      name: 'matched Badge component with a dynamic variant value and circle - neither is fixed, to avoid a duplicate `variant` attribute',
+      code: `
+        function Component({ variant }) {
+          return <Badge variant={variant} circle>1</Badge>
+        }
+      `,
+      errors: [{ messageId: 'propName' }, { messageId: 'propName' }],
+    },
+    {
       name: 'matched Badge component with the circle shorthand',
       code: `
         function Component() {
