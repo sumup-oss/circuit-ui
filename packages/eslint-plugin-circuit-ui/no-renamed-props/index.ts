@@ -50,8 +50,7 @@ type CustomConfig = {
 
 type Config = PropValuesConfig | CustomConfig;
 
-// Mirrors the `colorMap` in Badge.tsx that the deprecated component uses
-// internally to render a Status.
+// Mirrors the `colorMap` in Badge.tsx
 const badgeColorMap: Record<string, string> = {
   neutral: 'neutral',
   success: 'confirm',

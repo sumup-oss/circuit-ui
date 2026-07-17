@@ -59,7 +59,6 @@ export function isStaticAttribute(attribute: TSESTree.JSXAttribute): boolean {
 }
 
 export function isAttributeTruthy(attribute: TSESTree.JSXAttribute): boolean {
-  // Boolean shorthand, e.g. `circle`, is equivalent to `circle={true}`.
   if (!attribute.value) {
     return true;
   }
