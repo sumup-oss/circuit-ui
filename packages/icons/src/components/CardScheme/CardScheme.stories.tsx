@@ -15,7 +15,7 @@
 
 import { CardScheme, type CardSchemeProps } from './CardScheme.js';
 import { CARD_SCHEMES } from './constants.js';
-import { LIST_STYLE, WRAPPER_STYLE, formatName } from '../../story-helpers.js';
+import classes from '../../story-helpers.module.css';
 
 export default {
   title: 'Icons/CardScheme',
@@ -29,10 +29,17 @@ export default {
   },
 };
 
+function formatName(name: string): string {
+  return name
+    .split('_')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
 export const Base = () => (
-  <div style={LIST_STYLE}>
+  <div className={classes.list}>
     {CARD_SCHEMES.map((name) => (
-      <div key={name} style={WRAPPER_STYLE}>
+      <div key={name} className={classes.wrapper}>
         <CardScheme name={name} alt="" size="l" />
         <p>{formatName(name)}</p>
       </div>

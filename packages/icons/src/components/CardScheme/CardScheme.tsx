@@ -28,11 +28,13 @@ export type CardSchemeProps = HTMLAttributes<HTMLImageElement> & {
    */
   name: CardSchemeName;
   /**
-   * The alt text for the card scheme logo.
+   * The alt text for the card scheme logo. Pass an empty string to hide
+   * purely decorative logos from assistive technology.
    */
   alt: string;
   /**
    * Choose from 3 sizes.
+   * @default m
    */
   size?: 's' | 'm' | 'l';
   /**
@@ -45,12 +47,11 @@ export type CardSchemeProps = HTMLAttributes<HTMLImageElement> & {
  * Renders the logo of a card scheme as an image, loaded from a URL.
  */
 export const CardScheme = forwardRef<HTMLImageElement, CardSchemeProps>(
-  ({ name, alt, className, style, size = 'm', ...props }, ref) => {
+  ({ name, alt, style, size = 'm', ...props }, ref) => {
     const sizeValue = ICON_SIZES[size];
     return (
       <img
         ref={ref}
-        className={className}
         style={{
           width: sizeValue,
           height: `calc(${sizeValue} * 3 / 4)`,

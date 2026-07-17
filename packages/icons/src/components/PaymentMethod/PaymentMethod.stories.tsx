@@ -15,7 +15,7 @@
 
 import { PaymentMethod, type PaymentMethodProps } from './PaymentMethod.js';
 import { PAYMENT_METHODS } from './constants.js';
-import { LIST_STYLE, WRAPPER_STYLE, formatName } from '../../story-helpers.js';
+import classes from '../../story-helpers.module.css';
 
 export default {
   title: 'Icons/PaymentMethod',
@@ -29,10 +29,17 @@ export default {
   },
 };
 
+function formatName(name: string): string {
+  return name
+    .split('_')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
 export const Base = () => (
-  <div style={LIST_STYLE}>
+  <div className={classes.list}>
     {PAYMENT_METHODS.map((name) => (
-      <div key={name} style={WRAPPER_STYLE}>
+      <div key={name} className={classes.wrapper}>
         <PaymentMethod name={name} alt="" size="l" />
         <p>{formatName(name)}</p>
       </div>

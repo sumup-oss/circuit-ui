@@ -15,7 +15,7 @@
 
 import { Flag, type FlagProps } from './Flag.js';
 import { FLAGS } from './constants.js';
-import { LIST_STYLE, WRAPPER_STYLE } from '../../story-helpers.js';
+import classes from '../../story-helpers.module.css';
 
 export default {
   title: 'Icons/Flag',
@@ -44,9 +44,9 @@ export const Base = () => {
   }
 
   return (
-    <div style={LIST_STYLE}>
+    <div className={classes.list}>
       {FLAGS.map((code) => (
-        <div key={code} style={WRAPPER_STYLE}>
+        <div key={code} className={classes.wrapper}>
           <Flag key={code} countryCode={code} alt="" size="l" />
           <p>
             {formatCountryName(code)} ({code})

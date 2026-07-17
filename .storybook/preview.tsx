@@ -52,7 +52,12 @@ export const parameters = {
   controls: { expanded: true },
   options: {
     storySort: {
-      order: ['Introduction', 'Features'],
+      order: [
+        'Introduction',
+        'Features',
+        'Icons',
+        ['Overview', 'CardScheme', 'Flag', 'PaymentMethod'],
+      ],
       includeName: true,
     },
   },

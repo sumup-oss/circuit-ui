@@ -28,11 +28,13 @@ export type PaymentMethodProps = HTMLAttributes<HTMLImageElement> & {
    */
   name: PaymentMethodName;
   /**
-   * The alt text for the payment method logo.
+   * The alt text for the payment method logo. Pass an empty string to hide
+   * purely decorative logos from assistive technology.
    */
   alt: string;
   /**
    * Choose from 3 sizes.
+   * @default m
    */
   size?: 's' | 'm' | 'l';
   /**
@@ -45,10 +47,9 @@ export type PaymentMethodProps = HTMLAttributes<HTMLImageElement> & {
  * Renders the logo of a payment method as an image, loaded from a URL.
  */
 export const PaymentMethod = forwardRef<HTMLImageElement, PaymentMethodProps>(
-  ({ name, alt, className, style, size = 'm', ...props }, ref) => (
+  ({ name, alt, style, size = 'm', ...props }, ref) => (
     <img
       ref={ref}
-      className={className}
       style={{ height: ICON_SIZES[size], width: 'auto', ...style }}
       src={getIconURL(name, '24')}
       {...props}

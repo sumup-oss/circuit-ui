@@ -53,9 +53,13 @@ type WithHeightWidth =
     };
 
 export type FlagProps = HTMLAttributes<HTMLImageElement> & {
+  /**
+   * The code of the country flag to display, e.g. `'DE'`.
+   */
   countryCode: CountryCode;
   /**
-   * The alt text for the flag image.
+   * The alt text for the flag image. Pass an empty string to hide purely
+   * decorative flags from assistive technology.
    */
   alt: string;
   /**
@@ -70,6 +74,9 @@ export type FlagProps = HTMLAttributes<HTMLImageElement> & {
 
 const ASPECT_RATIO = 4 / 3;
 
+// Inline styles can't use an `@supports` feature query, so `aspect-ratio`
+// is applied as a progressive enhancement with no fallback for browsers
+// that don't support it.
 const WRAPPER_STYLE: CSSProperties = {
   display: 'flex',
   alignItems: 'center',
