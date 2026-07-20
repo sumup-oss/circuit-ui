@@ -18,7 +18,7 @@ import { SumUpCard, Confirm } from '@sumup-oss/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 import { Body } from '../Body/index.js';
-import { Badge } from '../Badge/index.js';
+import { Status } from '../Status/index.js';
 
 import { ListItem, type ListItemProps } from './ListItem.js';
 
@@ -51,9 +51,9 @@ const item: Item = {
 };
 
 const LeadingBadge = (
-  <Badge variant="danger" circle>
+  <Status color="alert" variant="badge">
     3
-  </Badge>
+  </Status>
 );
 
 const Details = (
@@ -96,7 +96,7 @@ const TrailingDetails = (
   </Body>
 );
 
-const TrailingBadge = <Badge variant="promo">Promo</Badge>;
+const TrailingBadge = <Status color="promo">Promo</Status>;
 
 const baseArgs: ListItemProps = {
   variant: undefined,

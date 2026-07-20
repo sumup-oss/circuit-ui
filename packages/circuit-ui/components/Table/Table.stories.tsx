@@ -15,7 +15,7 @@
 
 import { action } from 'storybook/actions';
 
-import { Badge } from '../Badge/index.js';
+import { Status } from '../Status/index.js';
 import { isString } from '../../util/type-check.js';
 
 import type { TableProps } from './Table.js';
@@ -79,9 +79,9 @@ export const WithComponentRows = ({ onSortBy, ...args }: TableProps) => (
 WithComponentRows.args = {
   headers: ['Name', 'Type'],
   rows: [
-    ['Apple', { children: <Badge variant="danger">Fruit</Badge> }],
-    ['Broccoli', { children: <Badge variant="success">Vegetable</Badge> }],
-    ['Chickpeas', { children: <Badge variant="warning">Legume</Badge> }],
+    ['Apple', { children: <Status color="alert">Fruit</Status> }],
+    ['Broccoli', { children: <Status color="confirm">Vegetable</Status> }],
+    ['Chickpeas', { children: <Status color="notify">Legume</Status> }],
   ],
 };
 
