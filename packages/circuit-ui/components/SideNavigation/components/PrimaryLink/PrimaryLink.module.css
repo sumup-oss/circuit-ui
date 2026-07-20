@@ -128,15 +128,15 @@
   border-radius: var(--cui-border-radius-circle);
 }
 
-.success::after {
+.confirm::after {
   background-color: var(--cui-bg-success-strong);
 }
 
-.warning::after {
+.notify::after {
   background-color: var(--cui-bg-warning-strong);
 }
 
-.danger::after {
+.alert::after {
   background-color: var(--cui-bg-danger-strong);
 }
 
@@ -146,6 +146,10 @@
 
 .promo::after {
   background-color: var(--cui-bg-promo-strong);
+}
+
+.special::after {
+  background-color: var(--cui-fg-normal);
 }
 
 .suffix {

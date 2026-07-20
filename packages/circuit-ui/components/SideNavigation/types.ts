@@ -16,7 +16,7 @@
 import type { MouseEvent, KeyboardEvent, AnchorHTMLAttributes } from 'react';
 import type { IconComponentType } from '@sumup-oss/icons';
 
-import type { BadgeProps } from '../Badge/index.js';
+import type { StatusProps } from '../Status/index.js';
 import type { TierIndicatorProps } from '../TierIndicator/TierIndicator.js';
 
 export interface PrimaryLinkProps
@@ -52,11 +52,11 @@ export interface PrimaryLinkProps
    */
   badge?: {
     /**
-     * Choose the style variant.
+     * The semantic color of the badge.
      *
      * @default 'promo'
      */
-    variant?: BadgeProps['variant'];
+    color?: StatusProps['color'];
     /**
      * A clear and concise description of the badge's meaning.
      */
@@ -101,7 +101,7 @@ export interface SecondaryLinkProps {
    * An optional badge to highlight the secondary link, e.g. to promote
    * a new link or to indicate new content.
    */
-  badge?: BadgeProps;
+  badge?: StatusProps;
   /**
    * An optional badge to highlight elements belonging to a specific tier.
    */

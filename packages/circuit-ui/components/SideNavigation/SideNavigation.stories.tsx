@@ -59,7 +59,7 @@ export const baseArgs: SideNavigationProps = {
       href: '/shop',
       onClick: action('Shop'),
       isActive: true,
-      badge: { variant: 'promo', children: 'New items' },
+      badge: { color: 'promo', children: 'New items' },
       secondaryGroups: [
         {
           secondaryLinks: [

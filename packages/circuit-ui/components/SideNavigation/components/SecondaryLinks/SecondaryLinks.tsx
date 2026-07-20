@@ -23,7 +23,7 @@ import {
   type FocusProps,
 } from '../../../../hooks/useFocusList/index.js';
 import { Body } from '../../../Body/index.js';
-import { Badge } from '../../../Badge/index.js';
+import { Status } from '../../../Status/index.js';
 import { useComponents } from '../../../ComponentsContext/index.js';
 import { Skeleton } from '../../../Skeleton/index.js';
 import type { SecondaryGroupProps, SecondaryLinkProps } from '../../types.js';
@@ -69,7 +69,7 @@ function SecondaryLink({
             {label}
           </Body>
         </Skeleton>
-        {badge && <Badge variant="promo" as="span" {...badge} />}
+        {badge && <Status color="promo" as="span" {...badge} />}
         {tier && <TierIndicator {...tier} size="s" />}
       </Element>
     </li>

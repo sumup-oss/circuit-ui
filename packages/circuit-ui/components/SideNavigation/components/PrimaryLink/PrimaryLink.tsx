@@ -105,7 +105,7 @@ export function PrimaryLink({
           className={clsx(
             classes.icon,
             badge && classes.badge,
-            badge && classes[badge.variant || 'promo'],
+            badge && classes[badge.color || 'promo'],
           )}
         >
           <Icon aria-hidden="true" size="24" />
