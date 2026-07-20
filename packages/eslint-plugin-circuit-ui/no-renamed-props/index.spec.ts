@@ -73,6 +73,14 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
         }
       `,
     },
+    {
+      name: 'matched Badge component with an already-migrated Status-style variant value',
+      code: `
+        function Component() {
+          return <Badge variant="badge" color="neutral">1</Badge>
+        }
+      `,
+    },
   ],
   invalid: [
     {

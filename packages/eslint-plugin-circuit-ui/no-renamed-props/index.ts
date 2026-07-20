@@ -333,18 +333,24 @@ const configs: (Config & { components: string[] })[] = [
         ? getAttributeValue(variantAttribute)
         : null;
       const color = variantValue ? badgeColorMap[variantValue] : undefined;
+      // A static value that is not recognised (e.g. `"badge"`, `"pill"`) isn't
+      // an old Badge `variant`. it's already Status-shaped data
+      // (typically our own `circle` fix, applied in an earlier pass), so
+      // do nothing instead of reporting a false positive.
+      const isKnownOldVariant = Boolean(variantValue && color);
+      const variantNeedsAttention =
+        variantAttribute &&
+        (!isStaticAttribute(variantAttribute) || isKnownOldVariant);
 
       // Both props are fixed together, or neither is: `circle` maps onto
       // `variant`, so if the pre-existing `variant` (Badge's) can't be
       // safely renamed to `color`, inserting `variant="badge"` for `circle`
       // would collide with the untouched original `variant` attribute.
       const canFix =
-        (!variantAttribute ||
-          (isStaticAttribute(variantAttribute) &&
-            Boolean(variantValue && color))) &&
+        (!variantNeedsAttention || isKnownOldVariant) &&
         (!circleAttribute || isStaticAttribute(circleAttribute));
 
-      if (variantAttribute) {
+      if (variantNeedsAttention) {
         context.report({
           node: variantAttribute,
           messageId: 'propName',
