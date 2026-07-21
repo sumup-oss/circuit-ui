@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 6.13.0
+
+### Minor Changes
+
+- [#3757](https://github.com/sumup-oss/circuit-ui/pull/3757) [`a440e71`](https://github.com/sumup-oss/circuit-ui/commit/a440e71289d5928841ae03753ffac0723d4a72f2) Thanks [@missating](https://github.com/missating)! - Added `PaymentMethod` and `CardScheme` components. They were previously available as individual SVG icon components, but inlining their full-color SVG source made bundles heavy, so these components load the icons as an image from a URL instead.
+
 ## 6.12.0
 
 ### Minor Changes
