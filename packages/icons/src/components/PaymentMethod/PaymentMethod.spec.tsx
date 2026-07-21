@@ -1,5 +1,5 @@
 /**
- * Copyright 2025, SumUp Ltd.
+ * Copyright 2026, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,44 +13,45 @@
  * limitations under the License.
  */
 
+/** @vitest-environment jsdom */
+
 import { describe, expect, it } from 'vitest';
 import { createRef } from 'react';
 
-import { axe, render, screen } from '../../util/test-utils.js';
+import { axe, render, screen } from '../../../tests/test-utils.js';
 
-import { Flag, type FlagProps } from './Flag.js';
+import { PaymentMethod, type PaymentMethodProps } from './PaymentMethod.js';
 
-describe('Flag', () => {
-  const baseProps: FlagProps = { countryCode: 'FR', alt: 'France' };
+describe('PaymentMethod', () => {
+  const baseProps: PaymentMethodProps = { name: 'visa', alt: 'Visa' };
 
-  it('should merge a custom class name with the default ones', () => {
+  it('renders', () => {
+    const { container } = render(<PaymentMethod {...baseProps} />);
+    expect(container.firstChild).toBeInTheDocument();
+  });
+
+  it('renders the icon for the given payment method', () => {
+    render(<PaymentMethod {...baseProps} />);
+    const image = screen.getByAltText('Visa');
+    expect(image.getAttribute('src')).toContain('visa_24');
+  });
+
+  it('should merge a custom class name', () => {
     const className = 'foo';
-    render(<Flag {...baseProps} imageClassName={className} />);
-    const image = screen.getByRole('img');
+    render(<PaymentMethod {...baseProps} className={className} />);
+    const image = screen.getByAltText(baseProps.alt);
     expect(image?.className).toContain(className);
   });
 
   it('should forward a ref', () => {
     const ref = createRef<HTMLImageElement>();
-    render(<Flag {...baseProps} ref={ref} />);
+    render(<PaymentMethod {...baseProps} ref={ref} />);
     const image = screen.getByAltText(baseProps.alt);
     expect(ref.current).toBe(image);
   });
 
-  it('should size the image correctly when given a width', () => {
-    render(<Flag countryCode="DE" alt="Germany" width={100} />);
-    const image = screen.getByAltText('Germany');
-    expect(image.getAttribute('height')).toBe('75px');
-  });
-
-  it('should size the image correctly when given a height', () => {
-    render(<Flag countryCode="DE" alt="Germany" height={120} />);
-    const image = screen.getByAltText('Germany');
-    expect(image.getAttribute('width')).toBe('160px');
-  });
-
   it('should have no accessibility violations', async () => {
-    const { container } = render(<Flag {...baseProps} />);
+    const { container } = render(<PaymentMethod {...baseProps} />);
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });

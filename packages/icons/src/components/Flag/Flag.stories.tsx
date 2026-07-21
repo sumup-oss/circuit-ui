@@ -13,14 +13,12 @@
  * limitations under the License.
  */
 
-import { Body } from '../Body/index.js';
-
 import { Flag, type FlagProps } from './Flag.js';
 import { FLAGS } from './constants.js';
-import classes from './FlagStory.module.css';
+import classes from '../../story-helpers.module.css';
 
 export default {
-  title: 'Components/Flag',
+  title: 'Icons/Flag',
   component: Flag,
   tags: ['status:stable'],
   argTypes: {
@@ -50,9 +48,9 @@ export const Base = () => {
       {FLAGS.map((code) => (
         <div key={code} className={classes.wrapper}>
           <Flag key={code} countryCode={code} alt="" size="l" />
-          <Body>
+          <p>
             {formatCountryName(code)} ({code})
-          </Body>
+          </p>
         </div>
       ))}
     </div>

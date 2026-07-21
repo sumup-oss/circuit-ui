@@ -8,7 +8,7 @@ import type { PropItem } from 'react-docgen-typescript';
 const config: StorybookConfig = {
   staticDirs: [path.join(process.cwd(), '.storybook/public')],
   stories: [
-    '../packages/circuit-ui/**/*.@(mdx|stories.@(js|jsx|ts|tsx))',
+    '../packages/**/*.@(mdx|stories.@(js|jsx|ts|tsx))',
     '../docs/**/*.@(mdx|stories.@(js|jsx|ts|tsx))',
   ],
   addons: [

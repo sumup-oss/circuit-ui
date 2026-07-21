@@ -1,0 +1,23 @@
+import { Meta, Status, Props, Story } from '../../../../../.storybook/components';
+import * as Stories from './CardScheme.stories';
+
+<Meta of={Stories} />
+
+# CardScheme
+
+<Status variant="stable" />
+
+The CardScheme component displays the logo of a card scheme on a card-shaped background, loaded as an image from a URL rather than inlined as an SVG.
+
+<Props />
+
+<Story of={Stories.Example} />
+
+## How to use
+
+- The CardScheme component accepts a `name` prop identifying the card scheme (e.g. `visa`, `mastercard`, `american_express`). The component will render the corresponding logo, pre-composed on a card-shaped background.
+- Choose one of the three available sizes: `'s'` (16×12px), `'m'` (24×18px), and `'l'` (32×24px). Card scheme logos have a 4:3 aspect ratio.
+
+## Accessibility
+
+The `alt` prop is required for the CardScheme component to ensure accessibility for visually impaired users. However, if the logo is purely decorative and does not convey any additional information, you can set `alt=""` to make it invisible to assistive technology.

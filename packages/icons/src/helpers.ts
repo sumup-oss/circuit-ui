@@ -1,5 +1,5 @@
 /**
- * Copyright 2023, SumUp Ltd.
+ * Copyright 2026, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,14 +13,6 @@
  * limitations under the License.
  */
 
-import { defineConfig } from 'vitest/config';
-
-export default defineConfig({
-  esbuild: {
-    jsx: 'automatic',
-  },
-  test: {
-    globals: false,
-    environment: 'node',
-  },
-});
+export function getIconURL(name: string, size?: string): string {
+  return `https://circuit.sumup.com/icons/v2/${name}${size ? `_${size}` : ''}.svg`;
+}

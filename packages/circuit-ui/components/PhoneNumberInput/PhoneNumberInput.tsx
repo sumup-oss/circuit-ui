@@ -28,6 +28,7 @@ import {
   type ForwardedRef,
   type RefObject,
 } from 'react';
+import { Flag, type FlagProps } from '@sumup-oss/icons';
 
 import { Select, type SelectProps } from '../Select/index.js';
 import { Input, type InputProps } from '../Input/index.js';
@@ -47,7 +48,6 @@ import { applyMultipleRefs } from '../../util/refs.js';
 import { eachFn } from '../../util/helpers.js';
 import { changeInputValue } from '../../util/input-value.js';
 import { idx } from '../../util/idx.js';
-import { Flag, type FlagProps } from '../Flag/Flag.js';
 
 import {
   getCountryCode,

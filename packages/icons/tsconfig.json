@@ -5,7 +5,9 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "strict": true,
-    "types": ["node"]
+    "types": ["node"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   },
   "include": ["scripts/*", "tests/*", "constants.ts"]
 }
