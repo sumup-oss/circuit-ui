@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 11.13.0
+
+### Minor Changes
+
+- [#3757](https://github.com/sumup-oss/circuit-ui/pull/3757) [`a440e71`](https://github.com/sumup-oss/circuit-ui/commit/a440e71289d5928841ae03753ffac0723d4a72f2) Thanks [@missating](https://github.com/missating)! - Deprecated `import { Flag } from '@sumup-oss/circuit-ui';` export. Its implementation has moved to `@sumup-oss/icons` so `import { Flag } from '@sumup-oss/icons';` instead.
+
 ## 11.12.0
 
 ### Minor Changes
