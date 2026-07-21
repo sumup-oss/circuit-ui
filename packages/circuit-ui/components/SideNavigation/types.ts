@@ -101,7 +101,7 @@ export interface SecondaryLinkProps {
    * An optional badge to highlight the secondary link, e.g. to promote
    * a new link or to indicate new content.
    */
-  badge?: StatusProps;
+  badge?: Omit<StatusProps, 'variant'>;
   /**
    * An optional badge to highlight elements belonging to a specific tier.
    */

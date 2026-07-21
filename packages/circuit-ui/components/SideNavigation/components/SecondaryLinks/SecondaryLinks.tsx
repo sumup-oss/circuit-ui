@@ -69,7 +69,7 @@ function SecondaryLink({
             {label}
           </Body>
         </Skeleton>
-        {badge && <Status color="promo" as="span" {...badge} />}
+        {badge && <Status color="promo" as="span" {...badge} variant="pill" />}
         {tier && <TierIndicator {...tier} size="s" />}
       </Element>
     </li>
