@@ -32,7 +32,51 @@ export type CountryCodeOption = {
    * where `268` is the area code.
    */
   areaCodes?: string[];
+  /**
+   * Pre-computed option label. When set, takes precedence over
+   * `getOptionLabel`, `shouldDisplayCountryNames`, and `Intl.DisplayNames`.
+   */
+  label?: string;
 };
+
+function getCountryName(country: string, locale: Locale | undefined) {
+  // eslint-disable-next-line compat/compat
+  const isIntlDisplayNamesSupported = typeof Intl.DisplayNames === 'function';
+
+  if (!isIntlDisplayNamesSupported || !country) {
+    return country;
+  }
+
+  try {
+    // eslint-disable-next-line compat/compat
+    const displayName = new Intl.DisplayNames(locale, { type: 'region' });
+    return displayName.of(country);
+  } catch {
+    return country;
+  }
+}
+
+export function resolveCountryCodeOptionLabel(
+  option: CountryCodeOption,
+  locale: Locale | undefined,
+  shouldDisplayCountryNames = true,
+  getOptionLabel?: (option: CountryCodeOption) => string,
+): string {
+  if (option.label) {
+    return option.label;
+  }
+
+  if (getOptionLabel) {
+    return getOptionLabel(option);
+  }
+
+  if (!shouldDisplayCountryNames) {
+    return option.code;
+  }
+
+  const countryName = getCountryName(option.country, locale);
+  return countryName ? `${countryName} (${option.code})` : option.code;
+}
 
 export function parsePhoneNumber(
   value: string | undefined,
@@ -133,42 +177,18 @@ export function mapCountryCodeOptions(
   countryCodeOptions: CountryCodeOption[],
   locale: Locale | undefined,
   shouldDisplayCountryNames = true,
+  getOptionLabel?: (option: CountryCodeOption) => string,
 ): Required<SelectProps>['options'] {
-  if (!shouldDisplayCountryNames) {
-    return countryCodeOptions
-      .map(({ code, country }) => ({
-        label: code,
-        value: country,
-      }))
-      .sort((a, b) => a.label.localeCompare(b.label));
-  }
-
-  const getCountryName = (country: string) => {
-    // eslint-disable-next-line compat/compat
-    const isIntlDisplayNamesSupported = typeof Intl.DisplayNames === 'function';
-
-    // When Intl.DisplayNames is not supported, we can't provide the localized country names
-    if (!isIntlDisplayNamesSupported || !country) {
-      return country;
-    }
-
-    try {
-      // eslint-disable-next-line compat/compat
-      const displayName = new Intl.DisplayNames(locale, { type: 'region' });
-      return displayName.of(country);
-    } catch {
-      return country;
-    }
-  };
-
   return countryCodeOptions
-    .map(({ code, country }) => {
-      const countryName = getCountryName(country);
-      return {
-        label: countryName ? `${countryName} (${code})` : code,
-        value: country,
-      };
-    })
+    .map((option) => ({
+      label: resolveCountryCodeOptionLabel(
+        option,
+        locale,
+        shouldDisplayCountryNames,
+        getOptionLabel,
+      ),
+      value: option.country,
+    }))
     .sort((a, b) => a.label.localeCompare(b.label));
 }
 
@@ -186,4 +206,33 @@ export function getCountry(
 ) {
   const option = options.find((o) => o.code === code);
   return option?.country;
+}
+
+/**
+ * Matches native `<select>` sizing: width is based on the longest option label,
+ * not the currently selected one.
+ */
+export function getCountryCodeFieldWidth(
+  mappedOptions: { label: string }[],
+  size: 's' | 'm',
+  hasPrefix: boolean,
+): string | undefined {
+  const longestLabel = mappedOptions.reduce(
+    (longest, { label }) => (label.length > longest.length ? label : longest),
+    '',
+  );
+
+  if (!longestLabel) {
+    return undefined;
+  }
+
+  const chevronSpace =
+    size === 's' ? 'var(--cui-spacings-tera)' : 'var(--cui-spacings-exa)';
+  const leftPad = hasPrefix
+    ? chevronSpace
+    : size === 's'
+      ? 'var(--cui-spacings-kilo)'
+      : 'var(--cui-spacings-mega)';
+
+  return `calc(${leftPad} + ${longestLabel.length}ch + ${chevronSpace})`;
 }

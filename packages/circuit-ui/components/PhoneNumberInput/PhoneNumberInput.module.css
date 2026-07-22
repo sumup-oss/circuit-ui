@@ -17,7 +17,8 @@
   }
 
   .wrapper .country-code.country-code select,
-  .wrapper .country-code .country-code-input.country-code-input {
+  .wrapper .country-code .country-code-input.country-code-input,
+  .wrapper .country-code button[role='combobox'] {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
@@ -35,7 +36,8 @@
   }
 
   .wrapper .country-code.country-code select,
-  .wrapper .country-code .country-code-input.country-code-input {
+  .wrapper .country-code .country-code-input.country-code-input,
+  .wrapper .country-code button[role='combobox'] {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
@@ -66,9 +68,14 @@
   flex-grow: 1;
 }
 
+.country-code.country-code {
+  flex-shrink: 0;
+}
+
 /* Elevate the country code select above the subscriber number input on hover and focus */
 .country-code.country-code:hover,
 .country-code.country-code:focus,
+.country-code.country-code:focus-within,
 .country-code-input.country-code-input:hover,
 .country-code-input.country-code-input:focus {
   position: relative;

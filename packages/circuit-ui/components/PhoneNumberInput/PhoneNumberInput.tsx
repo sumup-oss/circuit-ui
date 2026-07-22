@@ -26,11 +26,12 @@ import {
   type ComponentType,
   type InputHTMLAttributes,
   type ForwardedRef,
+  type ReactNode,
   type RefObject,
 } from 'react';
 import { Flag, type FlagProps } from '@sumup-oss/icons';
 
-import { Select, type SelectProps } from '../Select/index.js';
+import { Select } from '../Select/index.js';
 import { Input, type InputProps } from '../Input/index.js';
 import {
   FieldLabelText,
@@ -51,12 +52,14 @@ import { idx } from '../../util/idx.js';
 
 import {
   getCountryCode,
+  getCountryCodeFieldWidth,
   mapCountryCodeOptions,
   normalizePhoneNumber,
   parsePhoneNumber,
   type CountryCodeOption,
   getCountry,
 } from './PhoneNumberInputService.js';
+import { CountryCodeDropdown } from './CountryCodeDropdown.js';
 import classes from './PhoneNumberInput.module.css';
 
 export interface PhoneNumberInputProps
@@ -143,6 +146,19 @@ export interface PhoneNumberInputProps
      */
     options: CountryCodeOption[];
     /**
+     * When provided, replaces the native country code select with a custom
+     * dropdown that renders each option via this render prop.
+     */
+    renderOption?: (
+      option: CountryCodeOption,
+      meta: { selected: boolean },
+    ) => ReactNode;
+    /**
+     * Optional SSR-stable label override per option. Used by both the native
+     * select and the custom dropdown for accessible option text.
+     */
+    getOptionLabel?: (option: CountryCodeOption) => string;
+    /**
      * Triggers error styles on the component. Important for accessibility.
      */
     invalid?: boolean;
@@ -157,7 +173,7 @@ export interface PhoneNumberInputProps
     /**
      * Callback when the country code changes.
      */
-    onChange?: SelectProps['onChange'];
+    onChange?: (event: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => void;
     /**
      * The ref to the country code selector HTML DOM element.
      */
@@ -251,6 +267,12 @@ export const PhoneNumberInput = forwardRef<
     const hiddenInputRef = useRef<HTMLInputElement>(null);
     const countryCodeRef = useRef<HTMLSelectElement | HTMLInputElement>(null);
     const subscriberNumberRef = useRef<HTMLInputElement>(null);
+    const {
+      renderOption,
+      getOptionLabel,
+      options: countryCodeOptions,
+      ...countryCodeFieldProps
+    } = countryCode;
 
     // This state is used to trigger a re-render when selecting a different
     // country with the same country code as the current one (e.g. Canada → USA).
@@ -268,11 +290,29 @@ export const PhoneNumberInput = forwardRef<
     const options = useMemo(
       () =>
         mapCountryCodeOptions(
-          countryCode.options,
+          countryCodeOptions,
           locale,
           shouldDisplayCountryNames,
+          getOptionLabel,
         ),
-      [countryCode.options, locale, shouldDisplayCountryNames],
+      [
+        countryCodeOptions,
+        locale,
+        shouldDisplayCountryNames,
+        getOptionLabel,
+      ],
+    );
+
+    const countryCodeFieldWidth = useMemo(
+      () =>
+        renderOption
+          ? getCountryCodeFieldWidth(
+              options,
+              size,
+              Boolean(countryCode.renderPrefix ?? true),
+            )
+          : undefined,
+      [options, size, countryCode.renderPrefix, renderOption],
     );
 
     const handleChange = () => {
@@ -284,7 +324,7 @@ export const PhoneNumberInput = forwardRef<
       if (!selectedCountry) {
         return;
       }
-      const code = countryCode.options.find(
+      const code = countryCodeOptions.find(
         ({ country }) => country === selectedCountry,
       )?.code;
 
@@ -314,7 +354,7 @@ export const PhoneNumberInput = forwardRef<
 
       const pastedPhoneNumber = parsePhoneNumber(
         event.clipboardData.getData('text/plain'),
-        countryCode.options,
+        countryCodeOptions,
         countryCodeRef.current.value,
       );
 
@@ -331,13 +371,19 @@ export const PhoneNumberInput = forwardRef<
 
     const parsedValue = parsePhoneNumber(
       value,
-      countryCode.options,
+      countryCodeOptions,
       countryCodeRef.current?.value,
     );
     const parsedDefaultValue = parsePhoneNumber(
       defaultValue,
-      countryCode.options,
+      countryCodeOptions,
     );
+
+    const selectedCountryCode =
+      parsedValue.countryCode ??
+      countryCodeRef.current?.value ??
+      parsedDefaultValue.countryCode ??
+      countryCode.defaultValue;
 
     if (
       process.env.NODE_ENV !== 'production' &&
@@ -408,13 +454,13 @@ export const PhoneNumberInput = forwardRef<
               size={size}
               className={classes['country-code']}
               inputClassName={classes['country-code-input']}
-              {...countryCode}
+              {...countryCodeFieldProps}
               value={getCountryCode(
-                countryCode.options,
+                countryCodeOptions,
                 parsedValue.countryCode,
               )}
               defaultValue={getCountryCode(
-                countryCode.options,
+                countryCodeOptions,
                 parsedDefaultValue.countryCode ?? countryCode.defaultValue,
               )}
               invalid={invalid || countryCode.invalid}
@@ -429,13 +475,42 @@ export const PhoneNumberInput = forwardRef<
                 (({ value: inputValue, ...rest }) => (
                   <DefaultPrefix
                     value={getCountry(
-                      countryCode.options,
+                      countryCodeOptions,
                       inputValue as string,
                     )}
                     {...rest}
                   />
                 ))
               }
+            />
+          ) : renderOption ? (
+            <CountryCodeDropdown
+              hideLabel
+              aria-describedby={descriptionIds}
+              required={required}
+              disabled={disabled}
+              size={size}
+              className={classes['country-code']}
+              style={
+                countryCodeFieldWidth
+                  ? { width: countryCodeFieldWidth }
+                  : undefined
+              }
+              label={countryCode.label}
+              options={countryCodeOptions}
+              mappedOptions={options}
+              value={selectedCountryCode}
+              invalid={invalid || countryCode.invalid}
+              renderOption={renderOption}
+              renderPrefix={countryCode.renderPrefix ?? DefaultPrefix}
+              onChange={eachFn<[ChangeEvent<HTMLInputElement>]>([
+                countryCode.onChange,
+                handleChange,
+              ])}
+              ref={applyMultipleRefs(
+                countryCodeRef as RefObject<HTMLInputElement>,
+                countryCode.ref as ForwardedRef<HTMLInputElement>,
+              )}
             />
           ) : (
             <Select
@@ -446,7 +521,7 @@ export const PhoneNumberInput = forwardRef<
               disabled={disabled}
               size={size}
               className={classes['country-code']}
-              {...countryCode}
+              {...countryCodeFieldProps}
               value={parsedValue.countryCode}
               defaultValue={
                 parsedDefaultValue.countryCode ?? countryCode.defaultValue

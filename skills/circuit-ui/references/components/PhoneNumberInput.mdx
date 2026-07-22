@@ -59,3 +59,15 @@ You should use only when the value is a critical information from the user that 
 Use the `renderPrefix` prop to add a small prefix to the country code selected input field. By default, the component will display the selected country's [Flag](Components/Flag/Docs). You can override that behavior by providing your own prefix component.
 
 <Story of={Stories.WithPrefix} />
+
+## Custom option labels
+
+Pass pre-computed labels via `countryCode.options[].label` or `countryCode.getOptionLabel` to avoid SSR/client mismatches from `Intl.DisplayNames` in server-rendered apps. Labels are used for native `<select>` options and as accessible names in the custom dropdown.
+
+<Story of={Stories.WithCustomLabels} />
+
+## Custom dropdown
+
+Pass `countryCode.renderOption` to replace the native country code select with a custom listbox dropdown. Use this when options need rich content such as flags or emojis that native `<option>` elements cannot render. Combine with pre-computed labels for hydration-safe country names.
+
+<Story of={Stories.WithCustomDropdown} />
