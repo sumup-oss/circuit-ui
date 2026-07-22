@@ -1,5 +1,16 @@
 # @sumup-oss/icons
 
+## 7.0.0-next.3
+
+### Minor Changes
+
+- [#3760](https://github.com/sumup-oss/circuit-ui/pull/3760) [`2cfb5fd`](https://github.com/sumup-oss/circuit-ui/commit/2cfb5fd10614cbdaac3d8b8bf9f58d228dac8582) Thanks [@matoous](https://github.com/matoous)! - Added a new set of security icons in size 24:
+
+  - `Passkey`
+  - `SecurityTimeSensitive`
+  - `TrustedCompany`
+  - `Unlock`
+
 ## 7.0.0-next.2
 
 ### Major Changes
