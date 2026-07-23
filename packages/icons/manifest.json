@@ -3367,6 +3367,11 @@
       "size": "24"
     },
     {
+      "name": "calendar_coins",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "checkmark",
       "category": "Miscellaneous",
       "size": "24"
