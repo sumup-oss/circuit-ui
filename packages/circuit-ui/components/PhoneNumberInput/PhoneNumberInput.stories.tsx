@@ -16,6 +16,7 @@
 import {
   Alert,
   Checkmark,
+  Flag,
   Notify,
   type IconComponentType,
 } from '@sumup-oss/icons';
@@ -180,6 +181,77 @@ export const WithoutCountryNames = (args: PhoneNumberInputProps) => (
 WithoutCountryNames.args = {
   ...Base.args,
   shouldDisplayCountryNames: false,
+};
+
+const precomputedCountryLabels: Record<string, string> = {
+  CA: 'Canada (+1)',
+  US: 'United States (+1)',
+  DE: 'Germany (+49)',
+};
+
+export const WithCustomLabels = (args: PhoneNumberInputProps) => (
+  <StatefulPhoneNumberInput {...args} />
+);
+
+WithCustomLabels.args = {
+  ...Base.args,
+  countryCode: {
+    ...Base.args.countryCode,
+    options: Base.args.countryCode.options.map((option) => ({
+      ...option,
+      label: precomputedCountryLabels[option.country],
+    })),
+  },
+};
+
+export const WithCustomDropdown = (args: PhoneNumberInputProps) => (
+  <StatefulPhoneNumberInput
+    {...args}
+    countryCode={{
+      ...args.countryCode,
+      options: args.countryCode.options.map((option) => ({
+        ...option,
+        label: precomputedCountryLabels[option.country],
+      })),
+      renderOption: (option) => (
+        <>
+          <Flag countryCode={option.country as 'CA' | 'US' | 'DE'} alt="" />
+          <span>{option.label}</span>
+        </>
+      ),
+    }}
+  />
+);
+
+WithCustomDropdown.args = Base.args;
+
+WithCustomDropdown.parameters = {
+  docs: {
+    source: {
+      code: `<PhoneNumberInput
+  label="Phone number"
+  countryCode={{
+    label: 'Country code',
+    defaultValue: 'CA',
+    options: [
+      { country: 'CA', code: '+1', label: 'Canada (+1)' },
+      { country: 'US', code: '+1', label: 'United States (+1)' },
+      { country: 'DE', code: '+49', label: 'Germany (+49)' },
+    ],
+    renderOption: (option) => (
+      <>
+        <Flag countryCode={option.country} alt="" />
+        <span>{option.label}</span>
+      </>
+    ),
+  }}
+  subscriberNumber={{
+    label: 'Subscriber number',
+    placeholder: '202 555 0132',
+  }}
+/>`,
+    },
+  },
 };
 
 export const Sizes = (args: PhoneNumberInputProps) => (
