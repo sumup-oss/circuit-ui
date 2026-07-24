@@ -15,16 +15,26 @@
 
 'use client';
 
-import { forwardRef, useEffect, useState, type HTMLAttributes } from 'react';
+import {
+  forwardRef,
+  useEffect,
+  useState,
+  type Ref,
+  type TimeHTMLAttributes,
+} from 'react';
 import { Temporal } from 'temporal-polyfill';
 
 import type { Locale } from '../../util/i18n.js';
 import { clsx } from '../../styles/clsx.js';
+import { Body, type BodyProps } from '../Body/Body.js';
 
 import { getInitialState, getState } from './TimestampService.js';
 import classes from './Timestamp.module.css';
 
-export interface TimestampProps extends HTMLAttributes<HTMLTimeElement> {
+type TimestampBodyProps = Omit<BodyProps, 'as' | 'children' | 'variant'> &
+  Omit<TimeHTMLAttributes<HTMLTimeElement>, 'children'>;
+
+export interface TimestampProps extends TimestampBodyProps {
   /**
    * A datetime in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)
    * format (`YYYY-MM-DDThh:mm:ss.sss[time-zone-id]`). Must include an
@@ -121,8 +131,9 @@ export const Timestamp = forwardRef<HTMLTimeElement, TimestampProps>(
     }, [state.interval, datetime, variant, formatStyle, locale, includeTime]);
 
     return (
-      <time
-        ref={ref}
+      <Body
+        ref={ref as Ref<HTMLParagraphElement>}
+        as="time"
         dateTime={zonedDateTime.toString({ timeZoneName: 'never' })}
         title={zonedDateTime.toLocaleString(locale, {
           year: 'numeric',
@@ -136,7 +147,9 @@ export const Timestamp = forwardRef<HTMLTimeElement, TimestampProps>(
         {...props}
       >
         {state.label}
-      </time>
+      </Body>
     );
   },
 );
+
+Timestamp.displayName = 'Timestamp';
