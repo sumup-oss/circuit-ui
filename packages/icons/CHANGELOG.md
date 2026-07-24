@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 6.14.0
+
+### Minor Changes
+
+- [#3773](https://github.com/sumup-oss/circuit-ui/pull/3773) [`654a308`](https://github.com/sumup-oss/circuit-ui/commit/654a3086b4ef46caac83876b5ef0deaa54824d53) Thanks [@oalpatov](https://github.com/oalpatov)! - Added the `CalendarCoins` icon in size 24.
+
 ## 6.13.0
 
 ### Minor Changes
