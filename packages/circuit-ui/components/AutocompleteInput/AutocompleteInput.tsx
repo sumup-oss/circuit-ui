@@ -249,6 +249,23 @@ export const AutocompleteInput = forwardRef<
       setActiveOption(undefined);
     }, []);
 
+    const syncSearchOnDismiss = useCallback(() => {
+      if (!Array.isArray(value)) {
+        if (!value && searchText !== '') {
+          changeInputValue(comboboxRef.current, '');
+        } else if (searchText !== value?.value) {
+          setSearchText(value?.label ?? '');
+          if (isImmersive) {
+            setPresentationFieldValue(value?.label ?? '');
+          }
+        }
+      } else if (searchText) {
+        changeInputValue(comboboxRef.current, '');
+      }
+      onSearch?.('');
+      closeResults();
+    }, [value, searchText, isImmersive, onSearch, closeResults]);
+
     const debouncedOnSearch = useMemo(
       () =>
         debounce(
@@ -273,9 +290,10 @@ export const AutocompleteInput = forwardRef<
     const onComboboxClear = useCallback(
       (event: ClickEvent) => {
         changeInputValue(comboboxRef.current, '');
+        onSearch?.('');
         onClear?.(event);
       },
-      [onClear],
+      [onClear, onSearch],
     );
 
     const onPresentationFieldClear = useCallback(
@@ -284,9 +302,10 @@ export const AutocompleteInput = forwardRef<
         setSearchText('');
         changeInputValue(presentationFieldRef.current, '');
         setIsOpen(true);
+        onSearch?.('');
         onClear?.(event);
       },
-      [onClear],
+      [onClear, onSearch],
     );
 
     const onPresentationFieldKeyDown = useCallback(() => {
@@ -449,7 +468,7 @@ export const AutocompleteInput = forwardRef<
     }, [closeResults, isImmersive]);
     useClickOutside([inputWrapperRef, refs.floating], handleClickOutside);
 
-    useEscapeKey(closeResults, isOpen);
+    useEscapeKey(syncSearchOnDismiss, isOpen);
 
     useEffect(() => {
       // if readOnly or disabled props become truthy, close the list box
@@ -504,15 +523,18 @@ export const AutocompleteInput = forwardRef<
 
     const restoreValue: FocusEventHandler<HTMLInputElement> = useCallback(
       (event) => {
-        if (!Array.isArray(value) && searchText !== value?.value) {
-          setSearchText(value?.label ?? '');
-          if (isImmersive) {
-            setPresentationFieldValue(value?.label ?? '');
-          }
+        const nextTarget = event.relatedTarget as Node | null;
+        const movingInside =
+          inputWrapperRef.current?.contains(nextTarget) ||
+          refs.floating.current?.contains(nextTarget) ||
+          resultsRef.current?.contains(nextTarget);
+
+        if (!movingInside) {
+          syncSearchOnDismiss();
         }
         props.onBlur?.(event);
       },
-      [value, searchText, isImmersive, props.onBlur],
+      [syncSearchOnDismiss, refs.floating, props.onBlur],
     );
 
     const comboboxProps = {
@@ -573,7 +595,7 @@ export const AutocompleteInput = forwardRef<
             open={isOpen}
             className={classes.modal}
             contentClassName={classes['modal-content']}
-            onClose={closeResults}
+            onClose={syncSearchOnDismiss}
           >
             <div ref={inputWrapperRef} className={classes['modal-input']}>
               <ComboboxInput
