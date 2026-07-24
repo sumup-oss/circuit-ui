@@ -47,7 +47,7 @@
     "@types/babel__core": "^7.20.5",
     "@types/react": "^19.2.15",
     "@types/react-dom": "^19.2.3",
-    "fast-xml-parser": "^5.9.3",
+    "fast-xml-parser": "^5.10.1",
     "jest-axe": "^10.0.0",
     "jsdom": "^29.0.2",
     "react": "^19.2.6",
