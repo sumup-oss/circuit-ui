@@ -73,6 +73,14 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
         }
       `,
     },
+    {
+      name: 'matched Badge component with an already-migrated Status-style variant value',
+      code: `
+        function Component() {
+          return <Badge variant="badge" color="neutral">1</Badge>
+        }
+      `,
+    },
   ],
   invalid: [
     {
@@ -315,6 +323,94 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
         { messageId: 'bodyVariant' },
         { messageId: 'bodyVariant' },
       ],
+    },
+    {
+      name: 'matched Badge component with a variant that maps 1:1 to color',
+      code: `
+        function Component() {
+          return <Badge variant="neutral">1</Badge>
+        }
+      `,
+      output: `
+        function Component() {
+          return <Badge color="neutral">1</Badge>
+        }
+      `,
+      errors: [{ messageId: 'propName' }],
+    },
+    {
+      name: 'matched Badge component with a variant remapped to a different color value',
+      code: `
+        function Component() {
+          return <Badge variant="danger">1</Badge>
+        }
+      `,
+      output: `
+        function Component() {
+          return <Badge color="alert">1</Badge>
+        }
+      `,
+      errors: [{ messageId: 'propName' }],
+    },
+    {
+      name: 'matched Badge component with a dynamic variant value',
+      code: `
+        function Component({ variant }) {
+          return <Badge variant={variant}>1</Badge>
+        }
+      `,
+      errors: [{ messageId: 'propName' }],
+    },
+    {
+      name: 'matched Badge component with a dynamic variant value and circle - neither is fixed, to avoid a duplicate `variant` attribute',
+      code: `
+        function Component({ variant }) {
+          return <Badge variant={variant} circle>1</Badge>
+        }
+      `,
+      errors: [{ messageId: 'propName' }, { messageId: 'propName' }],
+    },
+    {
+      name: 'matched Badge component with the circle shorthand',
+      code: `
+        function Component() {
+          return <Badge circle>1</Badge>
+        }
+      `,
+      output: `
+        function Component() {
+          return <Badge variant="badge">1</Badge>
+        }
+      `,
+      errors: [{ messageId: 'propName' }],
+    },
+    {
+      name: 'matched Badge component with circle={false}',
+      code: `
+        function Component() {
+          return <Badge circle={false}>1</Badge>
+        }
+      `,
+      output: `
+        function Component() {
+          return <Badge>1</Badge>
+        }
+      `,
+      errors: [{ messageId: 'propName' }],
+    },
+    {
+      name: 'matched Badge component with variant and circle combined',
+      code: `
+        function Component() {
+          return <Badge variant="success" circle>1</Badge>
+        }
+      `,
+      output: `
+        function Component() {
+          return <Badge color="confirm" variant="badge">1</Badge>
+        }
+      `,
+      errors: [{ messageId: 'propName' }, { messageId: 'propName' }],
     },
   ],
 });

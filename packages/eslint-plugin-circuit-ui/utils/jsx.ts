@@ -45,6 +45,32 @@ export function getAttributeValue(
   return null;
 }
 
+export function isStaticAttribute(attribute: TSESTree.JSXAttribute): boolean {
+  if (!attribute.value) {
+    return true;
+  }
+  if (attribute.value.type === TSESTree.AST_NODE_TYPES.Literal) {
+    return true;
+  }
+  return (
+    attribute.value.type === TSESTree.AST_NODE_TYPES.JSXExpressionContainer &&
+    attribute.value.expression.type === TSESTree.AST_NODE_TYPES.Literal
+  );
+}
+
+export function isAttributeTruthy(attribute: TSESTree.JSXAttribute): boolean {
+  if (!attribute.value) {
+    return true;
+  }
+  if (
+    attribute.value.type === TSESTree.AST_NODE_TYPES.JSXExpressionContainer &&
+    attribute.value.expression.type === TSESTree.AST_NODE_TYPES.Literal
+  ) {
+    return Boolean(attribute.value.expression.value);
+  }
+  return false;
+}
+
 export function filterWhitespaceChildren(
   children: TSESTree.JSXChild[],
 ): TSESTree.JSXChild[] {

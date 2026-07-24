@@ -20,7 +20,7 @@ import { light, schema } from '@sumup-oss/design-tokens';
 import { SumUpLogomark } from '@sumup-oss/icons';
 import { Anchor } from '../../packages/circuit-ui/components/Anchor/Anchor.js';
 import { Body } from '../../packages/circuit-ui/components/Body/Body.js';
-import { Badge } from '../../packages/circuit-ui/components/Badge/Badge.js';
+import { Status } from '../../packages/circuit-ui/components/Status/Status.js';
 import {
   Table,
   type TableHeaderCell,
@@ -109,14 +109,14 @@ function getRows(
                     : deprecation.additionalInfo
                 }
                 component={(props) => (
-                  <Badge
+                  <Status
                     {...props}
                     tabIndex={0}
-                    variant="warning"
+                    color="notify"
                     style={{ marginLeft: '1rem' }}
                   >
                     Deprecated
-                  </Badge>
+                  </Status>
                 )}
               />
             )}

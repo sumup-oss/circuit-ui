@@ -19,6 +19,8 @@ import {
   filterWhitespaceChildren,
   findAttribute,
   getAttributeValue,
+  isAttributeTruthy,
+  isStaticAttribute,
   transformAttributeValueToChildren,
 } from '../utils/jsx.js';
 import type { RuleDocs } from '../utils/meta.js';
@@ -47,6 +49,16 @@ type CustomConfig = {
 };
 
 type Config = PropValuesConfig | CustomConfig;
+
+// Mirrors the `colorMap` in Badge.tsx that the deprecated component uses
+// internally to render a Status.
+const badgeColorMap: Record<string, string> = {
+  neutral: 'neutral',
+  success: 'confirm',
+  warning: 'notify',
+  danger: 'alert',
+  promo: 'promo',
+};
 
 const configs: (Config & { components: string[] })[] = [
   {
@@ -303,6 +315,87 @@ const configs: (Config & { components: string[] })[] = [
           });
         }
       });
+    },
+  },
+  {
+    type: 'custom',
+    components: ['Badge'],
+    // variant → color, circle → variant
+    transform: (node, component, context) => {
+      const variantAttribute = findAttribute(node, 'variant');
+      const circleAttribute = findAttribute(node, 'circle');
+
+      if (!variantAttribute && !circleAttribute) {
+        return;
+      }
+
+      const variantValue = variantAttribute
+        ? getAttributeValue(variantAttribute)
+        : null;
+      const color = variantValue ? badgeColorMap[variantValue] : undefined;
+      // A static value that is not recognised (e.g. `"badge"`, `"pill"`) isn't
+      // an old Badge `variant`. it's already Status-shaped data
+      // (typically our own `circle` fix, applied in an earlier pass), so
+      // do nothing instead of reporting a false positive.
+      const isKnownOldVariant = Boolean(variantValue && color);
+      const variantNeedsAttention =
+        variantAttribute &&
+        (!isStaticAttribute(variantAttribute) || isKnownOldVariant);
+
+      // Both props are fixed together, or neither is: `circle` maps onto
+      // `variant`, so if the pre-existing `variant` (Badge's) can't be
+      // safely renamed to `color`, inserting `variant="badge"` for `circle`
+      // would collide with the untouched original `variant` attribute.
+      const canFix =
+        (!variantNeedsAttention || isKnownOldVariant) &&
+        (!circleAttribute || isStaticAttribute(circleAttribute));
+
+      if (variantNeedsAttention) {
+        context.report({
+          node: variantAttribute,
+          messageId: 'propName',
+          data: { component, current: 'variant', replacement: 'color' },
+          fix: canFix
+            ? (fixer) => {
+                const fixes = [
+                  fixer.replaceText(variantAttribute.name, 'color'),
+                ];
+                if (color !== variantValue) {
+                  fixes.push(
+                    fixer.replaceText(
+                      variantAttribute.value as TSESTree.Literal,
+                      `"${color}"`,
+                    ),
+                  );
+                }
+                return fixes;
+              }
+            : undefined,
+        });
+      }
+
+      if (circleAttribute) {
+        context.report({
+          node: circleAttribute,
+          messageId: 'propName',
+          data: { component, current: 'circle', replacement: 'variant' },
+          fix: canFix
+            ? (fixer) => {
+                if (isAttributeTruthy(circleAttribute)) {
+                  return fixer.replaceText(circleAttribute, 'variant="badge"');
+                }
+                // Also remove the whitespace preceding the attribute so we
+                // don't leave a stray space behind, e.g. `<Status >`.
+                const { text } = context.sourceCode;
+                let start = circleAttribute.range[0];
+                while (start > 0 && /\s/.test(text[start - 1])) {
+                  start -= 1;
+                }
+                return fixer.removeRange([start, circleAttribute.range[1]]);
+              }
+            : undefined,
+        });
+      }
     },
   },
 ];

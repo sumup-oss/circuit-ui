@@ -103,5 +103,29 @@ ruleTester.run('no-renamed-components', noRenamedComponents, {
           import {ActionMenuItemProps as CircuitPopoverItemProps} from '@sumup-oss/circuit-ui';`,
       errors: [{ messageId: 'renamed' }],
     },
+    {
+      name: 'matched Badge component from Circuit UI',
+      code: `
+          import {Badge} from '@sumup-oss/circuit-ui';
+   function Component() {
+          return <Badge>1</Badge>
+        }`,
+      output: `
+          import {Status} from '@sumup-oss/circuit-ui';
+   function Component() {
+          return <Status>1</Status>
+        }`,
+      errors: [
+        { messageId: 'renamed' },
+        { messageId: 'renamed' },
+        { messageId: 'renamed' },
+      ],
+    },
+    {
+      name: 'matched BadgeProps from Circuit UI',
+      code: `import {BadgeProps} from '@sumup-oss/circuit-ui';`,
+      output: `import {StatusProps} from '@sumup-oss/circuit-ui';`,
+      errors: [{ messageId: 'renamed' }],
+    },
   ],
 });

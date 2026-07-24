@@ -62,6 +62,25 @@ export default defineConfig([
     },
   },
   {
+    // Badge's own files still make use of its deprecated `variant`/`circle`
+    // for test and demonstration purposes.
+    files: ['packages/circuit-ui/components/Badge/**'],
+    rules: {
+      'circuit-ui/no-renamed-props': 'off',
+    },
+  },
+  {
+    // TODO: SecondaryLinks forwards its public `badge` prop, which is still
+    // typed as `BadgeProps`, directly onto a `Badge` element. Migrating
+    // this to `Status` requires a breaking change to that public prop's type
+    files: [
+      'packages/circuit-ui/components/SideNavigation/components/SecondaryLinks/SecondaryLinks.tsx',
+    ],
+    rules: {
+      'circuit-ui/no-renamed-props': 'off',
+    },
+  },
+  {
     files: ['packages/icons/scripts/*'],
     rules: {
       'import-x/no-extraneous-dependencies': 'off',

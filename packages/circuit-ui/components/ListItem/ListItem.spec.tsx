@@ -25,7 +25,7 @@ import {
   type RenderFn,
 } from '../../util/test-utils.js';
 import { Body } from '../Body/index.js';
-import { Badge } from '../Badge/index.js';
+import { Status } from '../Status/index.js';
 
 import { ListItem, type ListItemProps } from './ListItem.js';
 
@@ -60,9 +60,9 @@ describe('ListItem', () => {
     renderListItem(render, {
       ...baseProps,
       leadingComponent: (
-        <Badge variant="danger" circle>
+        <Status color="alert" variant="badge">
           3
-        </Badge>
+        </Status>
       ),
     });
     const [badge] = screen.getAllByText('3');
@@ -140,7 +140,7 @@ describe('ListItem', () => {
   it('should render a ListItem with a custom trailing component', () => {
     renderListItem(render, {
       ...baseProps,
-      trailingComponent: <Badge variant="promo">Promo</Badge>,
+      trailingComponent: <Status color="promo">Promo</Status>,
     });
 
     const [badge] = screen.getAllByText('Promo');
