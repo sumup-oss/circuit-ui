@@ -393,7 +393,7 @@ ruleTester.run('no-renamed-props', noRenamedProps, {
       `,
       output: `
         function Component() {
-          return <Badge>1</Badge>
+          return <Badge >1</Badge>
         }
       `,
       errors: [{ messageId: 'propName' }],
