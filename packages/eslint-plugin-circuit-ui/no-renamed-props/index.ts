@@ -384,14 +384,7 @@ const configs: (Config & { components: string[] })[] = [
                 if (isAttributeTruthy(circleAttribute)) {
                   return fixer.replaceText(circleAttribute, 'variant="badge"');
                 }
-                // Also remove the whitespace preceding the attribute so we
-                // don't leave a stray space behind, e.g. `<Status >`.
-                const { text } = context.sourceCode;
-                let start = circleAttribute.range[0];
-                while (start > 0 && /\s/.test(text[start - 1])) {
-                  start -= 1;
-                }
-                return fixer.removeRange([start, circleAttribute.range[1]]);
+                return fixer.remove(circleAttribute);
               }
             : undefined,
         });
