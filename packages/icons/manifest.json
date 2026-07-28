@@ -435,6 +435,11 @@
       "size": "24"
     },
     {
+      "name": "recurring_transfer",
+      "category": "Bank",
+      "size": "24"
+    },
+    {
       "name": "sum_up_logo",
       "category": "Brand",
       "size": "24",
