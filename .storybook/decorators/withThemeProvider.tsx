@@ -1,7 +1,5 @@
 import { useEffect } from 'react';
-import { ThemeProvider } from '@emotion/react';
 import type { Decorator } from '@storybook/react-vite';
-import { light } from '@sumup-oss/design-tokens';
 
 type Theme = 'light' | 'dark' | 'consumer';
 
@@ -33,9 +31,5 @@ export const withThemeProvider: Decorator = (Story, context) => {
     };
   }, [theme]);
 
-  return (
-    <ThemeProvider theme={light}>
-      <Story />
-    </ThemeProvider>
-  );
+  return <Story />;
 };

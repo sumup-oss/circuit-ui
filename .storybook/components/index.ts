@@ -19,7 +19,6 @@ export { Props, Meta };
 
 export { DocsContainer } from './DocsContainer.js';
 export { Status } from './Statuses.js';
-export { Preview } from './Preview.js';
 export { Story } from './Story.js';
 export { Icons } from './Icons.js';
 export { Intro } from './Intro.js';

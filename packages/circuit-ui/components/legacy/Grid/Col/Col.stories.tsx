@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-import styled from '../../../../styles/styled.js';
-
 import { Col, type ColProps } from './Col.js';
+import styles from '../Grid/GridStories.module.css';
 
 const colControl = {
   control: {
@@ -42,17 +41,11 @@ export default {
   },
 };
 
-const StyledCol = styled(Col)`
-  background-color: var(--cui-bg-highlight);
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  line-height: 24px;
-  height: 48px;
-  padding: 12px;
-`;
-
-export const Base = (args: ColProps) => <StyledCol {...args}>Column</StyledCol>;
+export const Base = (args: ColProps) => (
+  <Col className={styles.col} {...args}>
+    Column
+  </Col>
+);
 
 Base.args = {
   span: 12,

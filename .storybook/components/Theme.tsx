@@ -14,9 +14,8 @@
  */
 
 import { useEffect, useState, type ComponentType } from 'react';
-import { ThemeProvider, useTheme } from '@emotion/react';
 import { Unstyled } from '@storybook/blocks';
-import { light, schema } from '@sumup-oss/design-tokens';
+import { schema } from '@sumup-oss/design-tokens';
 import { Home } from '@sumup-oss/icons';
 import { Anchor } from '../../packages/circuit-ui/components/Anchor/Anchor.js';
 import { Body } from '../../packages/circuit-ui/components/Body/Body.js';
@@ -43,6 +42,20 @@ type CustomProperties = CustomProperty[];
 
 type PreviewProps = { name: CustomPropertyName };
 type PreviewComponent = ComponentType<PreviewProps>;
+
+const BREAKPOINTS = {
+  'untilKilo': '@media (max-width: 479px)',
+  'kilo': '@media (min-width: 480px)',
+  'kiloToMega': '@media (min-width: 480px) and (max-width: 767px)',
+  'mega': '@media (min-width: 768px)',
+  'untilMega': '@media (max-width: 767px)',
+  'megaToGiga': '@media (min-width: 768px) and (max-width: 959px)',
+  'giga': '@media (min-width: 960px)',
+  'untilGiga': '@media (max-width: 959px)',
+  'gigaToTera': '@media (min-width: 960px) and (max-width: 1279px)',
+  'tera': '@media (min-width: 1280px)',
+  'untilTera': '@media (max-width: 1279px)',
+};
 
 function filterCustomProperties(namespace: string | string[], type?: string) {
   return schema.filter((token) => {
@@ -328,15 +341,16 @@ export function Transition({ name }: PreviewProps) {
 const HEADERS = ['Media query name', 'Value'];
 
 function TableWrapper() {
-  const theme = useTheme();
   return (
     <Unstyled>
       <Table
         headers={HEADERS}
-        rows={Object.keys(theme.mq).map((bp) => [
+        rows={Object.keys(BREAKPOINTS).map((bp) => [
           { children: <code>{`theme.mq.${bp}`}</code> },
           {
-            children: <code>{theme.mq[bp as keyof typeof theme.mq]}</code>,
+            children: (
+              <code>{BREAKPOINTS[bp as keyof typeof BREAKPOINTS]}</code>
+            ),
           },
         ])}
       />
@@ -345,9 +359,5 @@ function TableWrapper() {
 }
 
 export function MediaQueriesTable() {
-  return (
-    <ThemeProvider theme={light}>
-      <TableWrapper />
-    </ThemeProvider>
-  );
+  return <TableWrapper />;
 }

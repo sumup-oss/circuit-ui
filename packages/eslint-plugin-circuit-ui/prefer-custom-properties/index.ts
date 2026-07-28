@@ -14,10 +14,11 @@
  */
 
 import { ESLintUtils, TSESTree } from '@typescript-eslint/utils';
-import { schema, light } from '@sumup-oss/design-tokens';
+import { schema } from '@sumup-oss/design-tokens';
 
 import type { RuleDocs } from '../utils/meta.js';
 import { get } from '../utils/helpers.js';
+import * as light from '../utils/light.js';
 
 const createRule = ESLintUtils.RuleCreator<RuleDocs>(
   (name) =>
@@ -27,13 +28,13 @@ const createRule = ESLintUtils.RuleCreator<RuleDocs>(
 export const preferCustomProperties = createRule({
   name: 'prefer-custom-properties',
   meta: {
-    type: 'suggestion',
+    type: 'problem',
     schema: [],
     fixable: 'code',
     docs: {
       description:
         'Custom properties prefixed with `--cui-` should be valid Circuit UI design tokens.',
-      recommended: 'warn',
+      recommended: 'error',
     },
     messages: {
       replace:

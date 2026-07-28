@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import styled from '../../../../styles/styled.js';
 import { Row, Col } from '../index.js';
+import styles from '../Grid/GridStories.module.css';
 
 export default {
   title: 'Layout/Row',
@@ -29,31 +29,16 @@ export default {
   },
 };
 
-const StyledCol = styled(Col)`
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  line-height: 24px;
-  height: 48px;
-  padding: 12px;
-  &:nth-of-type(n) {
-    background-color: var(--cui-bg-highlight);
-  }
-
-  &:nth-of-type(2n) {
-    background-color: var(--cui-bg-subtle);
-  }
-`;
-
-const StyledRow = styled(Row)`
-  border: 1px solid magenta;
-  margin-bottom: 8px;
-`;
-
 export const Base = () => (
-  <StyledRow>
-    <StyledCol span="4">Col 4</StyledCol>
-    <StyledCol span="4">Col 4</StyledCol>
-    <StyledCol span="4">Col 4</StyledCol>
-  </StyledRow>
+  <Row className={styles.row}>
+    <Col className={styles.col} span="4">
+      Col 4
+    </Col>
+    <Col className={styles.col} span="4">
+      Col 4
+    </Col>
+    <Col className={styles.col} span="4">
+      Col 4
+    </Col>
+  </Row>
 );
