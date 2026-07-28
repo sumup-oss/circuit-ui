@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 12.0.0-next.4
+
+### Major Changes
+
+- [#3766](https://github.com/sumup-oss/circuit-ui/pull/3766) [`522e0c6`](https://github.com/sumup-oss/circuit-ui/commit/522e0c6edb20fefab7461f7dba7c713d2d555a79) Thanks [@missating](https://github.com/missating)! - Migrated the SideNavigation component's `badge` prop from the deprecated `Badge` component's props to the `Status` component's props. On primary links, `badge.variant` has been renamed to `badge.color`. On secondary links, `badge` is now typed as `StatusProps` instead of `BadgeProps`: replace `variant` with `color`, and replace `circle` with `variant="badge"`.
+
 ## 12.0.0-next.3
 
 ### Major Changes
