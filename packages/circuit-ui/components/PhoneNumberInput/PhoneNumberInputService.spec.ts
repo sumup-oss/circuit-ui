@@ -285,4 +285,24 @@ describe('PhoneNumberInputService', () => {
       expect(getCountryCodeFieldWidth([], 'm', true)).toBeUndefined();
     });
   });
+
+  describe('resolveCountryCodeOptionLabel', () => {
+    it('should fall back to the country code when Intl.DisplayNames throws', () => {
+      const displayNamesSpy = vi
+        .spyOn(globalThis.Intl, 'DisplayNames')
+        .mockImplementation(() => {
+          throw new Error('Intl.DisplayNames unavailable');
+        });
+
+      expect(
+        resolveCountryCodeOptionLabel(
+          { country: 'DE', code: '+49' },
+          'en',
+          true,
+        ),
+      ).toBe('DE (+49)');
+
+      displayNamesSpy.mockRestore();
+    });
+  });
 });
