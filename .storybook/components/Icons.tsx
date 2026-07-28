@@ -31,7 +31,7 @@ import {
 import iconsManifest from '@sumup-oss/icons/manifest.json' with {
   type: 'json',
 };
-import { Badge } from '../../packages/circuit-ui/components/Badge/Badge.js';
+import { Status } from '../../packages/circuit-ui/components/Status/Status.js';
 import { Body } from '../../packages/circuit-ui/components/Body/Body.js';
 import { Headline } from '../../packages/circuit-ui/components/Headline/Headline.js';
 import { SearchInput } from '../../packages/circuit-ui/components/SearchInput/SearchInput.js';
@@ -281,14 +281,14 @@ function Icon({
           type="description"
           label={icon.deprecation}
           component={(props) => (
-            <Badge
+            <Status
               {...props}
               tabIndex={0}
-              variant="warning"
+              color="notify"
               className={classes.badge}
             >
               Deprecated
-            </Badge>
+            </Status>
           )}
         />
       )}

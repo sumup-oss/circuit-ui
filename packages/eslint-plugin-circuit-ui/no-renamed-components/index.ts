@@ -35,6 +35,14 @@ const components = [
     name: 'PopoverItemProps',
     alternative: 'ActionMenuItemProps',
   },
+  {
+    name: 'Badge',
+    alternative: 'Status',
+  },
+  {
+    name: 'BadgeProps',
+    alternative: 'StatusProps',
+  },
 ];
 
 export const noRenamedComponents = createRule({
