@@ -17,7 +17,13 @@ import { describe, it, vi, expect } from 'vitest';
 import { createRef, useState, type ChangeEvent } from 'react';
 import { getIconURL } from '@sumup-oss/icons';
 
-import { axe, fireEvent, render, screen, userEvent } from '../../util/test-utils.js';
+import {
+  axe,
+  fireEvent,
+  render,
+  screen,
+  userEvent,
+} from '../../util/test-utils.js';
 
 import {
   PhoneNumberInput,
@@ -615,7 +621,10 @@ describe('PhoneNumberInput', () => {
       combobox.focus();
       await userEvent.keyboard('{ArrowDown}');
       await userEvent.keyboard('{ArrowUp}');
-      expect(combobox).toHaveAttribute('aria-activedescendant', expect.stringMatching(/-option-2$/));
+      expect(combobox).toHaveAttribute(
+        'aria-activedescendant',
+        expect.stringMatching(/-option-2$/),
+      );
     });
 
     it('should select the active option with space', async () => {
