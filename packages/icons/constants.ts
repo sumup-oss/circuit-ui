@@ -23,6 +23,7 @@ export const DIST_DIR = path.join(BASE_DIR, 'dist');
 export const SIZES = ['16', '24', '32', '480'] as const;
 export const CATEGORIES = [
   'Action',
+  'Bank',
   'Communication',
   'Payment method',
   'Card scheme',
