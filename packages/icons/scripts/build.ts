@@ -136,6 +136,8 @@ function buildHelpersFile(): string {
   `;
 }
 
+const MANUAL_COMPONENTS: string[] = ['Flag', 'PaymentMethod', 'CardScheme'];
+
 function buildIndexFile(
   components: Component[],
   canonicalNames: Map<string, string>,
@@ -146,10 +148,14 @@ function buildIndexFile(
       return `export { ${name} } from './${fileName}.js';`;
     })
     .join('\n');
+  const manualExports = MANUAL_COMPONENTS.map(
+    (name) => `export * from './components/${name}/${name}.js';`,
+  ).join('\n');
   const helpersExport = `export * from './helpers.js';`;
   return `
     ${helpersExport}
     ${componentExports}
+    ${manualExports}
   `;
 }
 
@@ -175,6 +181,9 @@ function buildDeclarationFile(allIcons: Component[]): string {
     const SizesType = sizes.join(' | ');
     return `'${iconName}': ${SizesType};`;
   });
+  const manualExports = MANUAL_COMPONENTS.map(
+    (name) => `export * from './components/${name}/${name}.js';`,
+  ).join('\n');
   return `
     import type { FunctionComponent, SVGProps } from 'react';
 
@@ -208,6 +217,8 @@ function buildDeclarationFile(allIcons: Component[]): string {
     }
 
     export function getIconURL<Name extends IconName>(name: Name, size?: Icons[Name]): string;
+
+    ${manualExports}
   `;
 }
 

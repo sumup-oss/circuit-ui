@@ -43,6 +43,15 @@ function Component() {
     </div>
   );
 }
+
+// Badge → Status
+function Component() {
+  return (
+    <Badge variant="danger" circle>
+      1
+    </Badge>
+  );
+}
 ```
 
 Examples of **correct** code for this rule:
@@ -75,7 +84,18 @@ function Component() {
     </div>
   );
 }
+
+// Badge → Status
+function Component() {
+  return (
+    <Badge color="alert" variant="badge">
+      1
+    </Badge>
+  );
+}
 ```
+
+Note that renaming the `Badge` element itself to `Status` is handled by the separate [`no-renamed-components`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/eslint-plugin-circuit-ui/no-renamed-components) rule; this rule only remaps its props.
 
 ### Options
 

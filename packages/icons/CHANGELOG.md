@@ -2,6 +2,20 @@
 
 ## 7.0.0-next.3
 
+## 6.14.0
+
+### Minor Changes
+
+- [#3773](https://github.com/sumup-oss/circuit-ui/pull/3773) [`654a308`](https://github.com/sumup-oss/circuit-ui/commit/654a3086b4ef46caac83876b5ef0deaa54824d53) Thanks [@oalpatov](https://github.com/oalpatov)! - Added the `CalendarCoins` icon in size 24.
+
+## 6.13.0
+
+### Minor Changes
+
+- [#3757](https://github.com/sumup-oss/circuit-ui/pull/3757) [`a440e71`](https://github.com/sumup-oss/circuit-ui/commit/a440e71289d5928841ae03753ffac0723d4a72f2) Thanks [@missating](https://github.com/missating)! - Added `PaymentMethod` and `CardScheme` components. They were previously available as individual SVG icon components, but inlining their full-color SVG source made bundles heavy, so these components load the icons as an image from a URL instead.
+
+## 6.12.0
+
 ### Minor Changes
 
 - [#3760](https://github.com/sumup-oss/circuit-ui/pull/3760) [`2cfb5fd`](https://github.com/sumup-oss/circuit-ui/commit/2cfb5fd10614cbdaac3d8b8bf9f58d228dac8582) Thanks [@matoous](https://github.com/matoous)! - Added a new set of security icons in size 24:
@@ -44,6 +58,7 @@
 - [#3744](https://github.com/sumup-oss/circuit-ui/pull/3744) [`601c687`](https://github.com/sumup-oss/circuit-ui/commit/601c687d63fc0ef2866a9a98171155035b108eeb) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed the deprecated Card Scheme icons. Use the new CardScheme component instead or load the icon with its URL using the [`getIconUrl()`](https://circuit.sumup.com/?path=/docs/packages-icons--docs#load-from-a-url) helper.
 
 - [#3744](https://github.com/sumup-oss/circuit-ui/pull/3744) [`601c687`](https://github.com/sumup-oss/circuit-ui/commit/601c687d63fc0ef2866a9a98171155035b108eeb) Thanks [@sirineJ](https://github.com/sirineJ)! - Remove the deprecated Payment Method icons. Use the new PaymentMethod component instead or load the icon with its URL using the [`getIconUrl()`](https://circuit.sumup.com/?path=/docs/packages-icons--docs#load-from-a-url) helper.
+
 
 ## 6.11.0
 

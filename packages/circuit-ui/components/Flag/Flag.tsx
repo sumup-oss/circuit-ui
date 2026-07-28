@@ -13,61 +13,25 @@
  * limitations under the License.
  */
 
-import type { HTMLAttributes, Ref } from 'react';
-import { getIconURL, type IconName } from '@sumup-oss/icons';
+import { forwardRef } from 'react';
+import { Flag as IconsFlag, type FlagProps } from '@sumup-oss/icons';
 
-import { clsx } from '../../styles/clsx.js';
+import { deprecate } from '../../util/logger.js';
 
-import classes from './Flag.module.css';
-import type { FLAGS } from './constants.js';
-
-type CountryCode = (typeof FLAGS)[number];
-
-export type FlagProps = HTMLAttributes<HTMLImageElement> & {
-  ref?: Ref<HTMLImageElement>;
-  countryCode: CountryCode;
-  /**
-   * The alt text for the flag image.
-   */
-  alt: string;
-  /**
-   * Additional class name to apply to the flag wrapper.
-   */
-  className?: string;
-  /**
-   * Additional class name to apply to the flag's inner image.
-   */
-  imageClassName?: string;
-  /**
-   * Choose from 3 sizes.
-   * @default m
-   */
-  size?: 's' | 'm' | 'l';
-};
+export type { FlagProps };
 
 /**
- * Renders an SVG icon of a flag. Flags are sourced from: https://flagicons.lipis.dev/
+ * @deprecated Import `Flag` from `@sumup-oss/icons` instead.
  */
-export function Flag({
-  countryCode,
-  alt,
-  className,
-  imageClassName,
-  size = 'm',
-  ref,
-  ...props
-}: FlagProps) {
-  const flagName = `flag_${countryCode.toLowerCase()}` as IconName;
+export const Flag = forwardRef<HTMLImageElement, FlagProps>((props, ref) => {
+  if (process.env.NODE_ENV !== 'production') {
+    deprecate(
+      'Flag',
+      'The Flag component has moved. Import it from `@sumup-oss/icons` instead.',
+    );
+  }
 
-  return (
-    <div className={clsx(classes.wrapper, className)}>
-      <img
-        ref={ref}
-        className={clsx(classes.base, classes[size], imageClassName)}
-        src={getIconURL(flagName)}
-        {...props}
-        alt={alt}
-      />
-    </div>
-  );
-}
+  return <IconsFlag {...props} ref={ref} />;
+});
+
+Flag.displayName = 'Flag';

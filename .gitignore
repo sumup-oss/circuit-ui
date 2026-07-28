@@ -15,6 +15,7 @@ lib
 .out
 .docz
 circuit-ui-global.css
+packages/icons/src/components/*/constants.ts
 
 # These are generated in CI from other files.
 docs/packages/
