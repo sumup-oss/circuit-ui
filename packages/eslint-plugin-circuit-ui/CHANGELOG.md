@@ -1,5 +1,11 @@
 # @sumup-oss/eslint-plugin-circuit-ui
 
+## 7.5.0
+
+### Minor Changes
+
+- [#3765](https://github.com/sumup-oss/circuit-ui/pull/3765) [`a3b0a06`](https://github.com/sumup-oss/circuit-ui/commit/a3b0a06bba9bad1568d432582d6ccd8354644a16) Thanks [@missating](https://github.com/missating)! - Updated the `circuit-ui/no-renamed-components` and `circuit-ui/no-renamed-props` rules to migrate the deprecated `Badge` component to the new `Status` component.
+
 ## 7.4.1
 
 ### Patch Changes
