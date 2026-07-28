@@ -319,7 +319,6 @@ export const CountryCodeDropdown = forwardRef<
             type="button"
             ref={applyMultipleRefs(triggerRef, refs.setReference)}
             disabled={disabled}
-            autoComplete="tel-country-code"
             aria-haspopup="listbox"
             aria-expanded={isOpen}
             aria-controls={listboxId}
