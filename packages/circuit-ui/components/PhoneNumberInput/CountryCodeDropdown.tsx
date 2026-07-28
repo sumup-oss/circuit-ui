@@ -127,8 +127,9 @@ export const CountryCodeDropdown = forwardRef<
             );
             return option ? { option, label: mapped.label } : null;
           })
-          .filter((item): item is { option: CountryCodeOption; label: string } =>
-            Boolean(item),
+          .filter(
+            (item): item is { option: CountryCodeOption; label: string } =>
+              Boolean(item),
           ),
       [mappedOptions, options],
     );
@@ -275,10 +276,7 @@ export const CountryCodeDropdown = forwardRef<
     };
 
     const prefix = RenderPrefix && (
-      <RenderPrefix
-        className={selectClasses.prefix}
-        value={selectedCountry}
-      />
+      <RenderPrefix className={selectClasses.prefix} value={selectedCountry} />
     );
     const hasPrefix = Boolean(prefix);
 
@@ -298,7 +296,11 @@ export const CountryCodeDropdown = forwardRef<
         style={style}
       >
         <FieldLabel htmlFor={triggerId}>
-          <FieldLabelText label={label} hideLabel={hideLabel} required={required} />
+          <FieldLabelText
+            label={label}
+            hideLabel={hideLabel}
+            required={required}
+          />
         </FieldLabel>
         <input
           type="hidden"
@@ -352,6 +354,7 @@ export const CountryCodeDropdown = forwardRef<
           <ul
             ref={refs.setFloating}
             id={listboxId}
+            // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: list element has all necessary attributes to be interactive
             role="listbox"
             aria-labelledby={triggerId}
             hidden={!isOpen}
@@ -366,9 +369,11 @@ export const CountryCodeDropdown = forwardRef<
 
               return (
                 // biome-ignore lint/a11y/useKeyWithClickEvents: keyboard selection handled on listbox
+                // biome-ignore lint/a11y/useFocusableInteractive: options are reached via combobox aria-activedescendant
                 <li
                   key={option.country}
                   id={`${listboxId}-option-${index}`}
+                  // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: list element has all necessary attributes to be interactive
                   role="option"
                   aria-selected={isSelected}
                   aria-label={optionLabel}

@@ -397,8 +397,13 @@ describe('PhoneNumberInput', () => {
   });
 
   it('should use getOptionLabel for native select option labels', () => {
-    const getOptionLabel = ({ country, code }: { country: string; code: string }) =>
-      `Custom ${country} (${code})`;
+    const getOptionLabel = ({
+      country,
+      code,
+    }: {
+      country: string;
+      code: string;
+    }) => `Custom ${country} (${code})`;
     render(
       <PhoneNumberInput
         {...defaultProps}
@@ -408,8 +413,12 @@ describe('PhoneNumberInput', () => {
         }}
       />,
     );
-    expect(screen.getByRole('option', { name: 'Custom CA (+1)' })).toBeInTheDocument();
-    expect(screen.getByRole('option', { name: 'Custom DE (+49)' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('option', { name: 'Custom CA (+1)' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('option', { name: 'Custom DE (+49)' }),
+    ).toBeInTheDocument();
   });
 
   it('should use option.label for native select option labels', () => {
@@ -425,7 +434,9 @@ describe('PhoneNumberInput', () => {
         }}
       />,
     );
-    expect(screen.getByRole('option', { name: 'Label CA' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('option', { name: 'Label CA' }),
+    ).toBeInTheDocument();
   });
 
   describe('custom country dropdown', () => {
@@ -449,13 +460,7 @@ describe('PhoneNumberInput', () => {
     });
 
     it('should expose required and invalid state on the combobox', () => {
-      render(
-        <PhoneNumberInput
-          {...customDropdownProps}
-          required
-          invalid
-        />,
-      );
+      render(<PhoneNumberInput {...customDropdownProps} required invalid />);
       const combobox = screen.getByRole('combobox', { name: 'Country code' });
       expect(combobox).toHaveAttribute('aria-required', 'true');
       expect(combobox).toHaveAttribute('aria-invalid', 'true');
@@ -488,7 +493,9 @@ describe('PhoneNumberInput', () => {
           }}
         />,
       );
-      await userEvent.click(screen.getByRole('combobox', { name: 'Country code' }));
+      await userEvent.click(
+        screen.getByRole('combobox', { name: 'Country code' }),
+      );
       expect(
         screen.getByRole('option', { name: 'Accessible DE' }),
       ).toBeInTheDocument();
@@ -496,23 +503,24 @@ describe('PhoneNumberInput', () => {
 
     it('should open the custom dropdown and select a country', async () => {
       const onChange = vi.fn();
-      render(
-        <PhoneNumberInput
-          {...customDropdownProps}
-          onChange={onChange}
-        />,
-      );
+      render(<PhoneNumberInput {...customDropdownProps} onChange={onChange} />);
       await userEvent.click(screen.getByRole('combobox'));
       expect(screen.getByRole('listbox')).toBeInTheDocument();
-      await userEvent.click(screen.getByRole('option', { name: 'Germany (+49)' }));
+      await userEvent.click(
+        screen.getByRole('option', { name: 'Germany (+49)' }),
+      );
       expect(onChange).toHaveBeenCalled();
       expect(screen.getByRole('combobox')).toHaveTextContent('Germany (+49)');
     });
 
     it('should update the hidden phone number input when selecting a country', async () => {
-      const { container } = render(<PhoneNumberInput {...customDropdownProps} />);
+      const { container } = render(
+        <PhoneNumberInput {...customDropdownProps} />,
+      );
       await userEvent.click(screen.getByRole('combobox'));
-      await userEvent.click(screen.getByRole('option', { name: 'Germany (+49)' }));
+      await userEvent.click(
+        screen.getByRole('option', { name: 'Germany (+49)' }),
+      );
       const subscriberNumber = screen.getByLabelText(/Subscriber number/);
       await userEvent.type(subscriberNumber, '12345678');
       expect(getHiddenInput(container)).toHaveValue('+4912345678');
@@ -537,8 +545,12 @@ describe('PhoneNumberInput', () => {
         />,
       );
       await userEvent.click(screen.getByRole('combobox'));
-      await userEvent.click(screen.getByRole('option', { name: 'United States (+1)' }));
-      expect(screen.getByRole('combobox')).toHaveTextContent('United States (+1)');
+      await userEvent.click(
+        screen.getByRole('option', { name: 'United States (+1)' }),
+      );
+      expect(screen.getByRole('combobox')).toHaveTextContent(
+        'United States (+1)',
+      );
     });
   });
 

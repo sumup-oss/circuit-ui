@@ -225,8 +225,13 @@ describe('PhoneNumberInputService', () => {
         { country: 'CA', code: '+1' },
         { country: 'DE', code: '+49' },
       ];
-      const getOptionLabel = ({ country, code }: { country: string; code: string }) =>
-        `${country} ${code}`;
+      const getOptionLabel = ({
+        country,
+        code,
+      }: {
+        country: string;
+        code: string;
+      }) => `${country} ${code}`;
       const actual = mapCountryCodeOptions(
         options,
         undefined,

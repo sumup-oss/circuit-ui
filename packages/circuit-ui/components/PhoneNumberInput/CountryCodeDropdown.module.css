@@ -5,8 +5,8 @@
 .panel {
   z-index: calc(var(--cui-z-index-input) + 4);
   max-height: var(--country-code-dropdown-max-height, 240px);
-  margin: 0;
   padding: var(--cui-spacings-bit) 0;
+  margin: 0;
   overflow-y: auto;
   list-style: none;
   background-color: var(--cui-bg-normal);

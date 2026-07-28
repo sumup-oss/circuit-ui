@@ -18,7 +18,7 @@
 
   .wrapper .country-code.country-code select,
   .wrapper .country-code .country-code-input.country-code-input,
-  .wrapper .country-code button[role='combobox'] {
+  .wrapper .country-code button[role="combobox"] {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
@@ -37,7 +37,7 @@
 
   .wrapper .country-code.country-code select,
   .wrapper .country-code .country-code-input.country-code-input,
-  .wrapper .country-code button[role='combobox'] {
+  .wrapper .country-code button[role="combobox"] {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
