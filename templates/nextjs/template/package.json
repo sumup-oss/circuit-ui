@@ -1,6 +1,6 @@
 {
   "name": "next-app",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@next/bundle-analyzer": "^16.2.9",
-    "@sumup-oss/circuit-ui": "^11.0.0",
+    "@sumup-oss/circuit-ui": "^11.14.0",
     "@sumup-oss/design-tokens": "^10.0.0",
     "@sumup-oss/icons": "^6.0.0",
     "@sumup-oss/intl": "^3.5.1",
