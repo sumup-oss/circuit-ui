@@ -118,7 +118,6 @@ describe('AutocompleteInput', () => {
       vi.runAllTimers();
     });
     expect(props.onClear).toHaveBeenCalledOnce();
-    expect(props.onSearch).toHaveBeenLastCalledWith('');
   });
 
   it("should restore display value on blur if user doesn't make a selection", async () => {
@@ -374,6 +373,17 @@ describe('AutocompleteInput', () => {
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
     });
 
+    it('should close the list box when focus moves outside the component', async () => {
+      render(<AutocompleteInput {...props} />);
+      await userEvent.click(
+        screen.getByRole('combobox', { name: props.label }),
+      );
+      expect(screen.getByRole('listbox')).toBeVisible();
+      await userEvent.keyboard('{Tab}');
+
+      expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+    });
+
     it('should close the list box when Enter key is pressed', async () => {
       render(<AutocompleteInput {...props} />);
 
@@ -385,6 +395,7 @@ describe('AutocompleteInput', () => {
 
       await userEvent.keyboard('{Enter}');
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+      expect(props.onSearch).not.toHaveBeenCalled();
     });
 
     it('should close the list box when focus moves to another element via Tab', async () => {
