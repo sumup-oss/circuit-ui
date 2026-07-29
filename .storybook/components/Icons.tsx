@@ -21,7 +21,7 @@ import {
   type SetStateAction,
   type ChangeEvent,
 } from 'react';
-import { Unstyled } from '@storybook/blocks';
+import { Unstyled } from '@storybook/addon-docs/blocks';
 import * as iconComponents from '@sumup-oss/icons';
 import {
   getIconURL,
@@ -216,14 +216,14 @@ function Icon({
       .then(() => {
         setToast({
           variant: 'success',
-          body: `Copied the ${componentName} (${icon.size}) icon URL to the clipboard.`,
+          body: `Copied the ${icon.name} (${icon.size}) icon URL to the clipboard.`,
         });
       })
       .catch((error) => {
         console.error(error);
         setToast({
           variant: 'danger',
-          body: `Failed to copy the ${componentName} (${icon.size}) icon URL to the clipboard.`,
+          body: `Failed to copy the ${icon.name} (${icon.size}) icon URL to the clipboard.`,
         });
       });
   };
