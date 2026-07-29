@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 12.0.0-next.5
+
+### Major Changes
+
+- [#3685](https://github.com/sumup-oss/circuit-ui/pull/3685) [`9992a96`](https://github.com/sumup-oss/circuit-ui/commit/9992a962d382a5a71f9017dae8aed43aeced0a37) Thanks [@sirineJ](https://github.com/sirineJ)! - Remove deprecated style mixins in favor of utility classes.
+
 ## 12.0.0-next.4
 
 ### Major Changes
