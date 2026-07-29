@@ -86,13 +86,11 @@ describe('SidePanelContext', () => {
 
   describe('SidePanelProvider', () => {
     const getPanel = () => ({
-      backButtonLabel: 'Back',
       children: <p data-testid="children">Side panel content</p>,
       closeButtonLabel: 'Close',
       group: 'primary',
       headline: 'Side panel title',
       id: uniqueId(),
-      onClose: undefined,
     });
 
     const renderComponent = (Trigger: ComponentType, props = {}) =>
@@ -202,6 +200,36 @@ describe('SidePanelContext', () => {
         await userEvent.click(screen.getByText('Open second panel'));
 
         expect(screen.getAllByRole('dialog')).toHaveLength(2);
+      });
+
+      it('should call the onBack callback when closing a stacked side panel', async () => {
+        const onBack = vi.fn();
+        const Trigger = () => {
+          const { setSidePanel } = useContext(SidePanelContext);
+          return (
+            <>
+              {renderOpenButton(setSidePanel)}
+              {renderOpenButton(
+                setSidePanel,
+                { group: 'secondary', onBack },
+                'Open second panel',
+              )}
+            </>
+          );
+        };
+
+        renderComponent(Trigger);
+
+        await userEvent.click(screen.getByText('Open panel'));
+        await userEvent.click(screen.getByText('Open second panel'));
+        await userEvent.click(screen.getByText('Back'));
+        act(() => {
+          vi.runAllTimers();
+        });
+
+        await waitFor(() => {
+          expect(onBack).toHaveBeenCalled();
+        });
       });
 
       it('should close all stacked side panels when opening a panel from a lower group', async () => {

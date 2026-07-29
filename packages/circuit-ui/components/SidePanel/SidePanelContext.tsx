@@ -220,6 +220,7 @@ export function SidePanelProvider({
             transition,
             isInstantOpen,
             isInstantClose,
+            onBack,
             ...sidePanelProps
           } = sidePanel;
 
@@ -229,7 +230,7 @@ export function SidePanelProvider({
             void removeSidePanel(sidePanels[0].group);
           };
           const handleBack = isStacked
-            ? () => removeSidePanel(group)
+            ? () => removeSidePanel(group).then(() => onBack?.())
             : undefined;
 
           return (
