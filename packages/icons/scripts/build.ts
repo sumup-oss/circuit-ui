@@ -46,7 +46,6 @@ type Component = {
   deprecation?: string;
 };
 
-const DEPRECATED_CATEGORIES: string[] = [];
 const URL_ONLY_CATEGORIES = ['Flag', 'Card scheme', 'Payment method'];
 
 function createDeprecationComment(component: Component) {
@@ -54,16 +53,6 @@ function createDeprecationComment(component: Component) {
     return `
     /**
      * @deprecated ${component.deprecation}
-     */`;
-  }
-  if (
-    component.icons.some((icon) =>
-      DEPRECATED_CATEGORIES.includes(icon.category),
-    )
-  ) {
-    return `
-    /**
-     * @deprecated This icon is too heavy to be inlined as a React component. [Load it from a URL instead](https://circuit.sumup.com/?path=/docs/packages-icons--docs#load-from-a-url).
      */`;
   }
   return '';
@@ -159,21 +148,18 @@ function buildIndexFile(
   `;
 }
 
-function buildDeclarationFile(allIcons: Component[]): string {
-  const componentIcons = allIcons.filter(
-    (component) =>
-      !component.icons.some((icon) =>
-        URL_ONLY_CATEGORIES.includes(icon.category),
-      ),
-  );
-  const declarationStatements = componentIcons.map((component) => {
+function buildDeclarationFile(
+  allIcons: Component[],
+  components: Component[],
+): string {
+  const declarationStatements = components.map((component) => {
     const sizes = component.icons.map(({ size }) => `'${size}'`).sort();
     const SizesType = sizes.join(' | ');
     return `
       ${createDeprecationComment(component)}
       declare const ${component.name}: IconComponentType<${SizesType}>;`;
   });
-  const exportNames = componentIcons.map((component) => component.name);
+  const exportNames = components.map((component) => component.name);
   const iconNames = allIcons.map((component) => `'${component.icons[0].name}'`);
   const iconSizes = allIcons.map((component) => {
     const iconName = component.icons[0].name;
@@ -290,9 +276,14 @@ async function main() {
     }),
   );
 
-  const components = allIcons.filter(({ icons }) =>
-    icons.some((icon) => !URL_ONLY_CATEGORIES.includes(icon.category)),
-  );
+  const components = allIcons
+    .map((component) => ({
+      ...component,
+      icons: component.icons.filter(
+        (icon) => !URL_ONLY_CATEGORIES.includes(icon.category),
+      ),
+    }))
+    .filter((component) => component.icons.length > 0);
 
   // Group components by lowercase name to detect case-insensitive filename
   // collisions (e.g. SumUpCard / SumupCard).  When two names differ only in
@@ -319,7 +310,7 @@ async function main() {
 
   const indexRaw = buildIndexFile(components, canonicalNames);
   const helpersRaw = buildHelpersFile();
-  const declarationFile = buildDeclarationFile(allIcons);
+  const declarationFile = buildDeclarationFile(allIcons, components);
 
   await Promise.all(
     [...collisionGroups.values()].map((group) => {

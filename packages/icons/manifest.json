@@ -1310,7 +1310,6 @@
 
     {
       "category": "Flag",
-      "inactive": true,
       "keywords": ["Andorra"],
       "name": "flag_ad",
       "size": "480"
