@@ -19,6 +19,7 @@ import { forwardRef, type InputHTMLAttributes } from 'react';
 
 import type { Locale } from '../../util/i18n.js';
 import { CircuitError } from '../../util/errors.js';
+import { deprecate } from '../../util/logger.js';
 import { clsx } from '../../styles/clsx.js';
 import { Input, type InputProps } from '../Input/index.js';
 import classes from './TimeInput.module.css';
@@ -96,6 +97,13 @@ export const TimeInput = forwardRef<HTMLInputElement, TimeInputProps>(
         throw new CircuitError(
           'TimeInput',
           'The `max` prop must be in the format `HH:mm` or `HH:mm:ss`.',
+        );
+      }
+
+      if (!props.locale) {
+        deprecate(
+          'TimeInput',
+          'The `locale` prop is missing. It will become required in the next major version to prevent hydration mismatches.',
         );
       }
     }

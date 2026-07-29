@@ -43,6 +43,7 @@ import {
 } from '../../util/date.js';
 import { CircuitError } from '../../util/errors.js';
 import { applyMultipleRefs } from '../../util/refs.js';
+import { deprecate } from '../../util/logger.js';
 import { useSwipe } from '../../hooks/useSwipe/useSwipe.js';
 import { last } from '../../util/helpers.js';
 import { Body } from '../Body/Body.js';
@@ -139,6 +140,13 @@ export interface CalendarProps
  */
 export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
   (props, ref) => {
+    if (process.env.NODE_ENV !== 'production' && !props.locale) {
+      deprecate(
+        'Calendar',
+        'The `locale` prop is missing. It will become required in the next major version to prevent hydration mismatches.',
+      );
+    }
+
     const {
       selection,
       onSelect,

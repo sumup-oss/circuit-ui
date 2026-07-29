@@ -22,6 +22,7 @@ import { NumericFormat } from '../../vendor/react-number-format/index.js';
 import type { OnValueChange } from '../../vendor/react-number-format/types.js';
 import { clsx } from '../../styles/clsx.js';
 import { idx } from '../../util/idx.js';
+import { deprecate } from '../../util/logger.js';
 import type { Locale } from '../../util/i18n.js';
 import { useLocale } from '../../hooks/useLocale/useLocale.js';
 import { Input, type InputProps } from '../Input/index.js';
@@ -91,6 +92,13 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
     },
     ref,
   ) => {
+    if (process.env.NODE_ENV !== 'production' && !customLocale) {
+      deprecate(
+        'CurrencyInput',
+        'The `locale` prop is missing. It will become required in the next major version to prevent hydration mismatches.',
+      );
+    }
+
     const locale = useLocale(customLocale);
     const currencySymbolId = useId();
     const descriptionIds = idx(currencySymbolId, descriptionId);

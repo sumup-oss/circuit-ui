@@ -19,11 +19,12 @@ import { forwardRef, useEffect, useState, type HTMLAttributes } from 'react';
 import { Temporal } from 'temporal-polyfill';
 
 import type { Locale } from '../../util/i18n.js';
+import { deprecate } from '../../util/logger.js';
+import { useLocale } from '../../hooks/useLocale/useLocale.js';
 import { clsx } from '../../styles/clsx.js';
 
 import { getInitialState, getState } from './TimestampService.js';
 import classes from './Timestamp.module.css';
-import { useLocale } from '../../hooks/useLocale/useLocale.js';
 
 export interface TimestampProps extends HTMLAttributes<HTMLTimeElement> {
   /**
@@ -80,6 +81,13 @@ export const Timestamp = forwardRef<HTMLTimeElement, TimestampProps>(
     },
     ref,
   ) => {
+    if (process.env.NODE_ENV !== 'production' && !customLocale) {
+      deprecate(
+        'TimeStamp',
+        'The `locale` prop is missing. It will become required in the next major version to prevent hydration mismatches.',
+      );
+    }
+
     const locale = useLocale(customLocale);
     const zonedDateTime = Temporal.ZonedDateTime.from(datetime);
     const [state, setState] = useState(
