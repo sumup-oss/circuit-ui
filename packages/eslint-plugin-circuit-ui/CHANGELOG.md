@@ -1,5 +1,15 @@
 # @sumup-oss/eslint-plugin-circuit-ui
 
+## 8.0.0-next.1
+
+### Major Changes
+
+- [#3685](https://github.com/sumup-oss/circuit-ui/pull/3685) [`9992a96`](https://github.com/sumup-oss/circuit-ui/commit/9992a962d382a5a71f9017dae8aed43aeced0a37) Thanks [@sirineJ](https://github.com/sirineJ)! - Changed the `prefer-custom-properties` ESLint rule's type to `error` as Circuit UI no longer exports a Emotion.js theme object.
+
+### Minor Changes
+
+- [#3765](https://github.com/sumup-oss/circuit-ui/pull/3765) [`a3b0a06`](https://github.com/sumup-oss/circuit-ui/commit/a3b0a06bba9bad1568d432582d6ccd8354644a16) Thanks [@missating](https://github.com/missating)! - Updated the `circuit-ui/no-renamed-components` and `circuit-ui/no-renamed-props` rules to migrate the deprecated `Badge` component to the new `Status` component.
+
 ## 8.0.0-next.0
 
 ### Minor Changes

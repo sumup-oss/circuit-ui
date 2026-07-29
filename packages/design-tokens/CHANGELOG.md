@@ -1,5 +1,11 @@
 # @sumup-oss/design-tokens
 
+## 11.0.0-next.3
+
+### Minor Changes
+
+- [#3685](https://github.com/sumup-oss/circuit-ui/pull/3685) [`9992a96`](https://github.com/sumup-oss/circuit-ui/commit/9992a962d382a5a71f9017dae8aed43aeced0a37) Thanks [@sirineJ](https://github.com/sirineJ)! - Exported a Spacings type as a map of all Circuit UI's spacing token values.
+
 ## 11.0.0-next.2
 
 ### Major Changes

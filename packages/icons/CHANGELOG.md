@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 7.0.0-next.4
+
+### Major Changes
+
+- [#3783](https://github.com/sumup-oss/circuit-ui/pull/3783) [`014aa70`](https://github.com/sumup-oss/circuit-ui/commit/014aa70de218430bf8f3cfb06b6b5f977c8784ac) Thanks [@missating](https://github.com/missating)! - Removed multi-colored icons (payment methods, card schemes, and country flags) from the React component exports
+
 ## 7.0.0-next.3
 
 ## 6.14.0
@@ -58,7 +64,6 @@
 - [#3744](https://github.com/sumup-oss/circuit-ui/pull/3744) [`601c687`](https://github.com/sumup-oss/circuit-ui/commit/601c687d63fc0ef2866a9a98171155035b108eeb) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed the deprecated Card Scheme icons. Use the new CardScheme component instead or load the icon with its URL using the [`getIconUrl()`](https://circuit.sumup.com/?path=/docs/packages-icons--docs#load-from-a-url) helper.
 
 - [#3744](https://github.com/sumup-oss/circuit-ui/pull/3744) [`601c687`](https://github.com/sumup-oss/circuit-ui/commit/601c687d63fc0ef2866a9a98171155035b108eeb) Thanks [@sirineJ](https://github.com/sirineJ)! - Remove the deprecated Payment Method icons. Use the new PaymentMethod component instead or load the icon with its URL using the [`getIconUrl()`](https://circuit.sumup.com/?path=/docs/packages-icons--docs#load-from-a-url) helper.
-
 
 ## 6.11.0
 
