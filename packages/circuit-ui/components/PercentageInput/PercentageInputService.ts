@@ -16,8 +16,8 @@
 import { formatNumber } from '@sumup-oss/intl';
 
 export function formatPlaceholder(
-  placeholder?: string | number,
-  locale?: string | string[],
+  placeholder: string | number = '',
+  locale: string | string[],
   options?: Intl.NumberFormatOptions,
 ): string | undefined {
   return typeof placeholder === 'number'

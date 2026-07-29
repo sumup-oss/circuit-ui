@@ -20,7 +20,7 @@ import type { Locale } from '../../util/i18n.js';
 
 const TEST_VALUE = new Temporal.PlainDate(2024, 3, 8);
 
-export function getDateSegments(locale?: Locale) {
+export function getDateSegments(locale: Locale) {
   const parts = formatDateTimeToParts(TEST_VALUE, locale);
   return parts.map(({ type, value }) =>
     type === 'literal' ? { type, value } : { type },

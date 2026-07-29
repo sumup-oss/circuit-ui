@@ -26,6 +26,7 @@ import { Input, type InputProps } from '../Input/index.js';
 
 import { formatPlaceholder } from './PercentageInputService.js';
 import classes from './PercentageInput.module.css';
+import { useLocale } from '../../hooks/useLocale/useLocale.js';
 
 export interface PercentageInputProps
   extends Omit<
@@ -70,7 +71,7 @@ export const PercentageInput = forwardRef<
 >(
   (
     {
-      locale,
+      locale: customLocale,
       placeholder = '0',
       decimalScale = 0,
       'aria-describedby': descriptionId,
@@ -78,6 +79,7 @@ export const PercentageInput = forwardRef<
     },
     ref,
   ) => {
+    const locale = useLocale(customLocale);
     const percentageSymbolId = useId();
     const descriptionIds = idx(percentageSymbolId, descriptionId);
 
