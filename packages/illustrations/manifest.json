@@ -1,94 +1,229 @@
 {
   "illustrations": [
     {
-      "name": "success",
+      "name": "celebration",
       "category": "Feedback",
-      "size": "m",
-      "theme": "light"
-    },
-    {
-      "name": "error",
-      "category": "Feedback",
-      "size": "m",
-      "theme": "light"
-    },
-    {
-      "name": "error",
-      "category": "Feedback",
-      "size": "l",
-      "theme": "light"
-    },
-    {
-      "name": "warning",
-      "category": "Feedback",
-      "size": "m",
-      "theme": "light"
-    },
-    {
-      "name": "warning",
-      "category": "Feedback",
-      "size": "l",
-      "theme": "light"
-    },
-    {
-      "name": "pending",
-      "category": "Feedback",
-      "size": "m",
-      "theme": "light"
-    },
-    {
-      "name": "no-data",
-      "category": "Empty states",
-      "size": "m",
-      "theme": "light"
-    },
-    {
-      "name": "no-data",
-      "category": "Empty states",
-      "size": "l",
-      "theme": "light"
-    },
-    {
-      "name": "no-results",
-      "category": "Empty states",
-      "size": "m",
-      "theme": "light"
-    },
-    {
-      "name": "no-results",
-      "category": "Empty states",
-      "size": "m",
-      "theme": "dark"
-    },
-    {
-      "name": "no-results",
-      "category": "Empty states",
-      "size": "l",
       "theme": "light"
     },
     {
       "name": "celebration",
+      "category": "Feedback",
+      "theme": "dark"
+    },
+    {
+      "name": "error-1",
+      "category": "Feedback",
+      "theme": "light"
+    },
+    {
+      "name": "error-1",
+      "category": "Feedback",
+      "theme": "dark"
+    },
+    {
+      "name": "error-2",
+      "category": "Feedback",
+      "theme": "light"
+    },
+    {
+      "name": "error-2",
+      "category": "Feedback",
+      "theme": "dark"
+    },
+    {
+      "name": "waiting",
+      "category": "Feedback",
+      "theme": "light"
+    },
+    {
+      "name": "waiting",
+      "category": "Feedback",
+      "theme": "dark"
+    },
+    {
+      "name": "financial-milestone",
+      "category": "Feedback",
+      "theme": "light"
+    },
+    {
+      "name": "financial-milestone",
+      "category": "Feedback",
+      "theme": "dark"
+    },
+    {
+      "name": "empty-state-1",
+      "category": "States",
+      "theme": "light"
+    },
+    {
+      "name": "empty-state-1",
+      "category": "States",
+      "theme": "dark"
+    },
+    {
+      "name": "empty-state-2",
+      "category": "States",
+      "theme": "light"
+    },
+    {
+      "name": "empty-state-2",
+      "category": "States",
+      "theme": "dark"
+    },
+    {
+      "name": "empty-state-3",
+      "category": "States",
+      "theme": "light"
+    },
+    {
+      "name": "empty-state-3",
+      "category": "States",
+      "theme": "dark"
+    },
+    {
+      "name": "problems",
+      "category": "States",
+      "theme": "light"
+    },
+    {
+      "name": "problems",
+      "category": "States",
+      "theme": "dark"
+    },
+    {
+      "name": "off",
+      "category": "States",
+      "theme": "light"
+    },
+    {
+      "name": "off",
+      "category": "States",
+      "theme": "dark"
+    },
+    {
+      "name": "celebration",
       "category": "Communication",
-      "size": "m",
       "theme": "light"
     },
     {
-      "name": "device-problems",
-      "category": "System",
-      "size": "m",
+      "name": "account",
+      "category": "Feature",
       "theme": "light"
     },
     {
-      "name": "solo",
-      "category": "SumUp Devices",
-      "size": "m",
+      "name": "account",
+      "category": "Feature",
+      "theme": "dark"
+    },
+    {
+      "name": "bookings",
+      "category": "Feature",
       "theme": "light"
     },
     {
-      "name": "bank",
-      "category": "Merchant Products",
-      "size": "m",
+      "name": "bookings",
+      "category": "Feature",
+      "theme": "dark"
+    },
+    {
+      "name": "invoice",
+      "category": "Feature",
       "theme": "light"
+    },
+    {
+      "name": "invoice",
+      "category": "Feature",
+      "theme": "dark"
+    },
+    {
+      "name": "loyalty",
+      "category": "Feature",
+      "theme": "light"
+    },
+    {
+      "name": "loyalty",
+      "category": "Feature",
+      "theme": "dark"
+    },
+    {
+      "name": "giftcards",
+      "category": "Feature",
+      "theme": "light"
+    },
+    {
+      "name": "giftcards",
+      "category": "Feature",
+      "theme": "dark"
+    },
+    {
+      "name": "onlinepayments",
+      "category": "Feature",
+      "theme": "light"
+    },
+    {
+      "name": "onlinepayments",
+      "category": "Feature",
+      "theme": "dark"
+    },
+    {
+      "name": "paymentlinks",
+      "category": "Feature",
+      "theme": "light"
+    },
+    {
+      "name": "paymentlinks",
+      "category": "Feature",
+      "theme": "dark"
+    },
+    {
+      "name": "referral",
+      "category": "Feature",
+      "theme": "light"
+    },
+    {
+      "name": "referral",
+      "category": "Feature",
+      "theme": "dark"
+    },
+    {
+      "name": "rewards",
+      "category": "Feature",
+      "theme": "light"
+    },
+    {
+      "name": "rewards",
+      "category": "Feature",
+      "theme": "dark"
+    },
+    {
+      "name": "taptopay",
+      "category": "Feature",
+      "theme": "light"
+    },
+    {
+      "name": "taptopay",
+      "category": "Feature",
+      "theme": "dark"
+    },
+    {
+      "name": "security",
+      "category": "General communication",
+      "theme": "light"
+    },
+    {
+      "name": "security",
+      "category": "General communication",
+      "theme": "dark"
+    },
+    {
+      "name": "support",
+      "category": "General communication",
+      "theme": "light"
+    },
+    {
+      "name": "support",
+      "category": "General communication",
+      "theme": "dark"
     }
   ]
 }
