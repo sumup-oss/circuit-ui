@@ -135,4 +135,15 @@ describe('TabList', () => {
       expect(actual).toHaveNoViolations();
     });
   });
+
+  it('should render a trailing component for a tab item', () => {
+    render(
+      <TabList
+        tabs={[
+          { id: 'a', tab: 'Services', trailingComponent: { variant: 'plus' } },
+        ]}
+      />,
+    );
+    expect(screen.getByText('Services')).toBeVisible();
+  });
 });

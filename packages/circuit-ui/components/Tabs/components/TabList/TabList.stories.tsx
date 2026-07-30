@@ -66,3 +66,17 @@ export const NavigationWithTabsProp = () => (
     initialSelectedIndex={2}
   />
 );
+
+export const WithTierBadge = () => (
+  <TabList
+    tabs={[
+      {
+        id: 'services',
+        tab: 'Services',
+        trailingComponent: { variant: 'plus' },
+      },
+      { id: 'items', tab: 'Items' },
+      { id: 'discounts', tab: 'Discounts' },
+    ]}
+  />
+);

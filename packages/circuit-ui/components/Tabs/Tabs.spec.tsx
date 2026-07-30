@@ -115,4 +115,21 @@ describe('Tabs', () => {
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });
+
+  it('should render a trailing component for a tab item', () => {
+    render(
+      <Tabs
+        items={[
+          {
+            id: 'a',
+            tab: 'Services',
+            trailingComponent: { variant: 'plus' },
+            panel: 'panel-a',
+          },
+          { id: 'b', tab: 'Items', panel: 'panel-b' },
+        ]}
+      />,
+    );
+    expect(screen.getByText('Services')).toBeVisible();
+  });
 });

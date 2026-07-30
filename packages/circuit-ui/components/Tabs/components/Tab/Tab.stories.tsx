@@ -33,3 +33,10 @@ export const Base = () => (
     <Tab selected>Selected</Tab>
   </div>
 );
+
+export const WithTrailingComponent = () => (
+  <div>
+    <Tab trailingComponent={{ variant: 'plus' }}>Services</Tab>
+    <Tab>Items</Tab>
+  </div>
+);

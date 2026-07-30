@@ -24,6 +24,10 @@ import {
 import { useComponents } from '../../../ComponentsContext/index.js';
 import type { EmotionAsPropType } from '../../../../types/prop-types.js';
 import { clsx } from '../../../../styles/clsx.js';
+import {
+  TierIndicator,
+  type TierIndicatorProps,
+} from '../../../TierIndicator/TierIndicator.js';
 
 import classes from './Tab.module.css';
 
@@ -41,6 +45,11 @@ export type TabProps = LinkElProps &
      * Triggers selected styles of the component
      */
     selected?: boolean;
+    /**
+     * Display a `TierIndicator` badge next to the tab's label, e.g. to mark
+     * a tab as gated behind a paid plan. Always rendered at size 's'.
+     */
+    trailingComponent?: Omit<TierIndicatorProps, 'size'>;
   };
 
 const tabIndex = (selected: boolean) => (selected ? undefined : -1);
@@ -49,10 +58,29 @@ const tabIndex = (selected: boolean) => (selected ? undefined : -1);
  * Tab component that represents a single tab inside a Tabs wrapper
  */
 export const Tab = forwardRef<HTMLButtonElement, TabProps>(
-  ({ selected = false, as = 'tab', className, ...props }, ref) => {
+  (
+    {
+      selected = false,
+      as = 'tab',
+      className,
+      children,
+      trailingComponent,
+      ...props
+    },
+    ref,
+  ) => {
     const components = useComponents();
     const Link = components.Link as EmotionAsPropType;
     const Element = props.href ? Link : 'button';
+
+    const content = trailingComponent ? (
+      <span className={classes.content}>
+        {children}
+        <TierIndicator {...trailingComponent} size="s" />
+      </span>
+    ) : (
+      children
+    );
 
     return as === 'tab' ? (
       <Element
@@ -62,7 +90,9 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(
         aria-selected={selected}
         tabIndex={tabIndex(selected)}
         {...props}
-      />
+      >
+        {content}
+      </Element>
     ) : (
       <div role="listitem">
         <Element
@@ -70,7 +100,9 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(
           className={clsx(classes.base, className)}
           aria-current={selected ? 'page' : undefined}
           {...props}
-        />
+        >
+          {content}
+        </Element>
       </div>
     );
   },

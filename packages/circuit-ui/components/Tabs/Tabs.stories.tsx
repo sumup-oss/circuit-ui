@@ -122,6 +122,31 @@ Stretched.args = {
   stretched: true,
 };
 
+const tabsWithTierBadge = [
+  {
+    id: 'services',
+    tab: 'Services',
+    trailingComponent: { variant: 'plus' as const },
+    panel: <ContentWithInteractiveElements index={1} />,
+  },
+  {
+    id: 'items',
+    tab: 'Items',
+    panel: <ContentWithInteractiveElements index={2} />,
+  },
+  {
+    id: 'discounts',
+    tab: 'Discounts',
+    panel: <ContentWithInteractiveElements index={3} />,
+  },
+];
+
+export const WithTierBadge = (args: TabsProps) => <Tabs {...args} />;
+
+WithTierBadge.args = {
+  items: tabsWithTierBadge,
+};
+
 export const WithTabsProp = () => {
   const items = tabs.slice(0, 3);
   const [selectedId, setSelectedId] = useState(items[0].id);
