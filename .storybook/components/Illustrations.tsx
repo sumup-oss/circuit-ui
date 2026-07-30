@@ -53,13 +53,12 @@ function IllustrationPreview({
 }) {
   const { setToast } = useNotificationToast();
 
-  const id = `${illustration.name}-${illustration.size}-${illustration.theme}`;
+  const id = `${illustration.name}-${illustration.theme}`;
 
   const copyIllustrationURL = () => {
     const illustrationURL = getIllustrationUrl(
-      // @ts-ignore arguments are from the manifest file
+      // @ts-expect-error arguments are from the manifest file
       illustration.name,
-      illustration.size,
       illustration.theme,
     );
     navigator.clipboard
@@ -67,14 +66,32 @@ function IllustrationPreview({
       .then(() => {
         setToast({
           variant: 'success',
-          body: `Copied the URL for the ${illustration.name} (${illustration.size}) illustration in the ${illustration.theme} theme to the clipboard.`,
+          body: `Copied the URL for the ${illustration.name} illustration in the ${illustration.theme} theme to the clipboard.`,
         });
       })
       .catch((error) => {
         console.error(error);
         setToast({
           variant: 'danger',
-          body: `Failed to copy the URL for the ${illustration.name} (${illustration.size}) illustration in the ${illustration.theme} theme to the clipboard.`,
+          body: `Failed to copy the URL for the ${illustration.name} illustration in the ${illustration.theme} theme to the clipboard.`,
+        });
+      });
+  };
+
+  const copyIllustrationName = () => {
+    navigator.clipboard
+      .writeText(illustration.name)
+      .then(() => {
+        setToast({
+          variant: 'success',
+          body: `Copied the name for the ${illustration.name} illustration to the clipboard.`,
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+        setToast({
+          variant: 'danger',
+          body: `Failed to copy the name for the ${illustration.name} illustration to the clipboard.`,
         });
       });
   };
@@ -82,15 +99,10 @@ function IllustrationPreview({
   return (
     <div className={classes.wrapper}>
       <div className={clsx(classes['illustration-wrapper'])}>
-        <Illustration
-          variant={illustration.name}
-          size={illustration.size}
-          theme={illustration.theme}
-        />
+        <Illustration variant={illustration.name} theme={illustration.theme} />
       </div>
       <span id={id} className={classes.label}>
         {illustration.name}
-        <span className={classes.size}>{illustration.size}</span>
       </span>
       <div className={classes.actions}>
         {navigator.clipboard && (
@@ -103,6 +115,16 @@ function IllustrationPreview({
             Copy URL
           </IconButton>
         )}
+        {navigator.clipboard && (
+          <IconButton
+            variant="tertiary"
+            size="s"
+            icon={iconComponents.CopyPaste}
+            onClick={copyIllustrationName}
+          >
+            Copy name
+          </IconButton>
+        )}
       </div>
     </div>
   );
@@ -110,7 +132,6 @@ function IllustrationPreview({
 
 export function Illustrations() {
   const [search, setSearch] = useState('');
-  const [size, setSize] = useState('m');
   const [theme, setTheme] = useState('light');
 
   const handleChange =
@@ -118,12 +139,6 @@ export function Illustrations() {
     (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
       setState(event.target.value);
     };
-
-  const sizeOptions = [
-    { label: 's', value: 's' },
-    { label: 'm', value: 'm' },
-    { label: 'l', value: 'l' },
-  ];
 
   const themeOptions = [
     { label: 'Light', value: 'light' },
@@ -145,9 +160,8 @@ export function Illustrations() {
         lowerCaseKeyword.replace(/_/g, '').includes(lowerCaseSearch)
       );
     });
-    const matchesSize = size === 'all' || size === illustration.size;
     const matchesTheme = theme === illustration.theme;
-    return matchesKeyword && matchesSize && matchesTheme;
+    return matchesKeyword && matchesTheme;
   });
 
   return (
@@ -164,12 +178,6 @@ export function Illustrations() {
             onChange={handleChange(setSearch)}
             onClear={() => setSearch('')}
             clearLabel="Clear"
-          />
-          <Select
-            label="Size"
-            options={sizeOptions}
-            value={size}
-            onChange={handleChange(setSize)}
           />
           <Select
             label="Theme"
@@ -192,7 +200,7 @@ export function Illustrations() {
               <div data-color-scheme={theme} className={classes.list}>
                 {sortByName(items).map((illustration) => (
                   <IllustrationPreview
-                    key={`${illustration.name}-${illustration.size}`}
+                    key={`${illustration.name}-${illustration.theme}`}
                     illustration={illustration}
                   />
                 ))}
