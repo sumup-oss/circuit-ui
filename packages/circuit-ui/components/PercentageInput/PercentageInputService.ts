@@ -15,9 +15,11 @@
 
 import { formatNumber } from '@sumup-oss/intl';
 
+import type { Locale } from '../../util/i18n.js';
+
 export function formatPlaceholder(
-  placeholder: string | number = '',
-  locale: string | string[],
+  placeholder: string | number | undefined,
+  locale: Locale,
   options?: Intl.NumberFormatOptions,
 ): string | undefined {
   return typeof placeholder === 'number'
