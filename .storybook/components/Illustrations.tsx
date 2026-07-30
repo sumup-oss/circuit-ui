@@ -18,7 +18,7 @@ import {
 import illustrationsManifest from '@sumup-oss/illustrations/manifest.json' with {
   type: 'json',
 };
-import { Unstyled } from '@storybook/blocks';
+import { Unstyled } from '@storybook/addon-docs/blocks';
 import { ToastProvider } from '../../packages/circuit-ui/components/ToastContext/index.js';
 import { utilClasses } from '../../packages/circuit-ui/styles/utility.js';
 import { SearchInput } from '../../packages/circuit-ui/components/SearchInput/index.js';
