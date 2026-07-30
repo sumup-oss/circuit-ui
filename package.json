@@ -50,7 +50,6 @@
     "@storybook/addon-a11y": "^10.3.5",
     "@storybook/addon-docs": "^10.3.5",
     "@storybook/addon-links": "^10.3.5",
-    "@storybook/blocks": "^8.6.14",
     "@storybook/icons": "^2.0.1",
     "@storybook/react-vite": "^10.3.5",
     "@sumup-oss/eslint-plugin-circuit-ui": "^7.1.0",

@@ -8,6 +8,12 @@
 
 ## 7.0.0-next.3
 
+## 6.15.0
+
+### Minor Changes
+
+- [#3782](https://github.com/sumup-oss/circuit-ui/pull/3782) [`f60f9b9`](https://github.com/sumup-oss/circuit-ui/commit/f60f9b9aa1735d093a432294c64197a0a12162c6) Thanks [@pspasova](https://github.com/pspasova)! - Add RecurringTransfer icon in size 24px.
+
 ## 6.14.0
 
 ### Minor Changes

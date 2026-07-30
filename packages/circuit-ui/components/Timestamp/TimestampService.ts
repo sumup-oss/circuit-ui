@@ -67,7 +67,7 @@ const UNITS = [
     interval: 1000, // 1 second
   },
 ] satisfies {
-  name: Temporal.SmallestUnit<Temporal.DateTimeUnit>;
+  name: Temporal.PluralizeUnit<Temporal.DateUnit | Temporal.TimeUnit>;
   duration: Temporal.Duration;
   interval: number; // in milliseconds
 }[];

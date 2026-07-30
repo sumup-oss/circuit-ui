@@ -14,7 +14,7 @@
  */
 
 import { useEffect, useState, type ComponentType } from 'react';
-import { Unstyled } from '@storybook/blocks';
+import { Unstyled } from '@storybook/addon-docs/blocks';
 import { schema } from '@sumup-oss/design-tokens';
 import { Home } from '@sumup-oss/icons';
 import { Anchor } from '../../packages/circuit-ui/components/Anchor/Anchor.js';
