@@ -132,7 +132,9 @@ function IllustrationPreview({
 
 export function Illustrations() {
   const [search, setSearch] = useState('');
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(
+    document.documentElement.getAttribute('data-color-scheme') ?? 'light',
+  );
 
   const handleChange =
     (setState: Dispatch<SetStateAction<string>>) =>
