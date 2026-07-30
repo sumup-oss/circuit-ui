@@ -120,13 +120,24 @@ import { Illustration } from '@sumup-oss/illustrations';
 
 const SuccessScreen = ({ description }) => (
   <div>
-    <Illustration variant="success" aria-labelledby="success-description" />
+    <Illustration variant="celebration" aria-labelledby="success-description" />
     <span id="success-description">{description}</span>
   </div>
 );
 ```
 
 Illustrations come in a default size of 240 x 240 px. You can apply your own size by using the `height` or `width` props, all while respecting a 1:1 aspect ratio.
+
+```tsx
+import { Illustration } from '@sumup-oss/circuit-ui';
+
+const SuccessScreen = ({ description }) => (
+  <div>
+    <Illustration variant="celebration"  aria-labelledby="success-description" height={320}/>
+    <span id="success-description">{description}</span>
+  </div>
+);
+```
 
 If a theme is not specified, the illustration will render in the current theme (if available) or default to light.
 If a theme is provided, the illustration will be rendered in the specified theme.

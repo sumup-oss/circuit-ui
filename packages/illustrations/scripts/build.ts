@@ -44,7 +44,6 @@ function buildIllustrationUrlMapType(): string {
     a.localeCompare(b),
   );
 
-  console.log(illustrations);
   const entries = orderedVariants.flatMap((variantKey) => {
     const themes = illustrations[variantKey];
 
@@ -70,7 +69,6 @@ function buildHelpersFile(): string {
 }
 function buildDeclarationFile(): string {
   const illustrationUrlMap = buildIllustrationUrlMapType();
-  console.log('illustrationUrlMap', illustrationUrlMap);
 
   return `
     import type { HTMLAttributes, ReactElement } from 'react';
@@ -122,6 +120,8 @@ function buildDeclarationFile(): string {
        * Defaults to 'light', if supported, or to the first available theme.
        */
       theme?: Theme;
+      height?: number;
+      width?: number;
     }
 
     export function Illustration(props: IllustrationProps): ReactElement;
@@ -130,7 +130,6 @@ function buildDeclarationFile(): string {
 
 function buildIllustrationComponentFile(): string {
   const illustrations = aggregateIllustrationsFromManifest();
-  console.log(illustrations);
 
   const helperImport = `import { getIllustrationUrl } from './helpers.js';`;
   const stylesImport = `import classes from './Illustration.module.css';`;
@@ -143,7 +142,7 @@ function buildIllustrationComponentFile(): string {
     ${helperImport}
     ${stylesImport}
     
-    export function Illustration({ variant, theme, alt, style: styleProp, className: classNameProp, ...props }) {
+    export function Illustration({ variant, theme, height, width, alt, style: styleProp, className: classNameProp, ...props }) {
       
       const illustrationData = ${JSON.stringify(illustrations)};
       const illustration = illustrationData[variant];
@@ -179,7 +178,6 @@ function buildIllustrationComponentFile(): string {
         console.warn(new Error(\`${invalidThemeWarning}\`));
         themeToUse = availableThemes.includes('light') ? 'light': availableThemes[0];
       }
-      console.log("themeToUse", themeToUse);
       // if the requested theme is supported, use it exclusively
       // otherwise, make the illustration available in all available themes according to
       // the theme configuration
@@ -190,7 +188,7 @@ function buildIllustrationComponentFile(): string {
         return acc;
       }, {})
       
-      const mergedStyle = { ...style, ...(styleProp || {}) };
+      const mergedStyle = { ...style, height, width, ...(styleProp || {}) };
       const mergedClassName = [classes.base, classNameProp].filter(Boolean).join(' ');
 
       return <div
