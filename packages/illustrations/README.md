@@ -36,130 +36,81 @@ Import the Illustration component and chose the variant you want to use:
 </thead>
 <tbody>
   <tr>
-    <td rowspan="4">Feedback</td>
+    <td rowspan="3">Feedback</td>
     <td>Success</td>
-    <td><code>"success"</code></td>
+    <td><code>"celebration"</code>,<code>"financial-milestone"</code></td>
   </tr>
   <tr>
     <td>Error</td>
-    <td><code>"error"</code></td>
-  </tr>
-  <tr>
-    <td>Warning</td>
-    <td><code>"warning"</code></td>
+    <td><code>"error-1"</code>,<code>"error-2"</code></td>
   </tr>
   <tr>
     <td>Pending</td>
-    <td><code>"pending"</code></td>
+    <td><code>"waiting"</code></td>
   </tr>
   <tr>
-    <td rowspan="3">Empty states</td>
-    <td>Generic</td>
-    <td><code>"empty"</code></td>
+    <td rowspan="3">States</td>
+    <td>Empty</td>
+    <td><code>"empty-state-1"</code>,<code>"empty-state-2"</code>,<code>"empty-state-3"</code></td>
   </tr>
   <tr>
-    <td>No data</td>
-    <td><code>"no-data"</code></td>
+    <td>Off</td>
+    <td><code>"off"</code></td>
   </tr>
   <tr>
-    <td>No results</td>
-    <td><code>"no-results"</code></td>
+    <td>Problems</td>
+    <td><code>"problems"</code></td>
   </tr>
   <tr>
-    <td rowspan="6">Communication</td>
-    <td>Celebration</td>
-    <td><code>"celebration"</code></td>
+    <td rowspan="10">Feature</td>
+    <td>Account</td>
+    <td><code>"account"</code></td>
   </tr>
   <tr>
-    <td>Rewards</td>
-    <td><code>"rewards"</code></td>
+    <td>bookings</td>
+    <td><code>"bookings"</code></td>
   </tr>
   <tr>
-    <td>Support</td>
-    <td><code>"support"</code></td>
+    <td>Gift Cards</td>
+    <td><code>"giftcards"</code></td>
   </tr>
   <tr>
-    <td>Security</td>
-    <td><code>"security"</code></td>
+    <td>Invoice</td>
+    <td><code>"invoice"</code></td>
+  </tr>
+  <tr>
+    <td>Loyalty</td>
+    <td><code>"loyalty"</code></td>
+  </tr>
+  <tr>
+    <td>Online Payments</td>
+    <td><code>"onlinepayments"</code></td>
+  </tr>
+  <tr>
+    <td>Payment Links</td>
+    <td><code>"paymentlinks"</code></td>
   </tr>
   <tr>
     <td>Referral</td>
     <td><code>"referral"</code></td>
   </tr>
   <tr>
-    <td>Messages</td>
-    <td><code>"messages"</code></td>
-  </tr>
-  <tr>
-    <td rowspan="2">System</td>
-    <td>Device problems</td>
-    <td><code>"device-problems"</code></td>
-  </tr>
-  <tr>
-    <td>Offline</td>
-    <td><code>"offline"</code></td>
-  </tr>
-  <tr>
-    <td rowspan="6">SumUp Devices</td>
-    <td>Solo</td>
-    <td><code>"solo"</code></td>
-  </tr>
-  <tr>
-    <td>POS Lite + Solo</td>
-    <td><code>"pos-lite-solo"</code></td>
-  </tr>
-  <tr>
-    <td>POS Stand</td>
-    <td><code>"pos-stand"</code></td>
-  </tr>
-  <tr>
-    <td>SumUp Air</td>
-    <td><code>"sumup-air"</code></td>
-  </tr>
-  <tr>
-    <td>Android Terminal</td>
-    <td><code>"terminal"</code></td>
-  </tr>
-  <tr>
-    <td>Kiosk</td>
-    <td><code>"kiosk"</code></td>
-  </tr>
-  <tr>
-    <td rowspan="9">Merchant Products</td>
-    <td>Bank</td>
-    <td><code>"bank"</code></td>
-  </tr>
-  <tr>
-    <td>Invoices</td>
-    <td><code>"invoices"</code></td>
-  </tr>
-  <tr>
-    <td>Online Payments / Online Store</td>
-    <td><code>"online-payments"</code></td>
-  </tr>
-  <tr>
-    <td>Payment Links</td>
-    <td><code>"payment-links"</code></td>
-  </tr>
-  <tr>
-    <td>Bookings</td>
-    <td><code>"bookings"</code></td>
+    <td>Rewards</td>
+    <td><code>"rewards"</code></td>
   </tr>
   <tr>
     <td>Tap to Pay</td>
-    <td><code>"tap-to-pay"</code></td>
+    <td><code>"taptopay"</code></td>
+  </tr>
+
+  <tr>
+    <td rowspan="2">General communication</td>
+    <td>Security</td>
+    <td><code>"security"</code></td>
   </tr>
   <tr>
-    <td>Gift Cards</td>
-    <td><code>"gift-card"</code></td>
-  </tr>
-  <tr>
-    <td>Cash advance</td>
-    <td><code>"cash-advance"</code></td>
-  </tr>
-  <tr>
-    <td>Loyalty</td>
-    <td><code>"loyalty"</code></td>
+    <td>Support</td>
+    <td><code>"support"</code></td>
   </tr>
 </tbody>
 </table>
@@ -175,23 +126,7 @@ const SuccessScreen = ({ description }) => (
 );
 ```
 
-Illustrations come in three sizes: 
-- Small `"s"`: 120 x 120 px
-- Medium `"m"`: 240 x 240 px
-- Large `"l"`: 320 x 320 px
-
-They default to size `"m"`. Use the `size` prop to show one of the other sizes (`"s"` or `"l"`) instead:
-
-```tsx
-import { Illustration } from '@sumup-oss/circuit-ui';
-
-const SuccessScreen = ({ description }) => (
-  <div>
-    <Illustration variant="success" size="l" aria-labelledby="success-description" />
-    <span id="success-description">{description}</span>
-  </div>
-);
-```
+Illustrations come in a default size of 240 x 240 px. You can apply your own size by using the `height` or `width` props, all while respecting a 1:1 aspect ratio.
 
 If a theme is not specified, the illustration will render in the current theme (if available) or default to light.
 If a theme is provided, the illustration will be rendered in the specified theme.
@@ -226,7 +161,7 @@ const SuccessScreen = ({ message }) => (
 );
 ```
 
-Alternatively, you can manually construct the URL (`https://circuit.sumup.com/icons/v2/<variant>_<size>_<theme>.svg`). For example:
+Alternatively, you can manually construct the URL (`https://circuit.sumup.com/icons/v2/<variant>_<theme>.svg`). For example:
 
 ```css
 .illustration {

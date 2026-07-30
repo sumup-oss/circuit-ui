@@ -22,37 +22,38 @@ export const ILLUSTRATIONS_DIR = path.join(BASE_DIR, './assets');
 export const BASE_URL =
   'https://oss-circuit-ui-git-illustrations-package.sumup-vercel.app/'; //TODO replace with https://circuit.sumup.com/illustrations/'
 
-export const SIZES = ['s', 'm', 'l'] as const;
-export const SIZE_MAP: Record<string, string> = {
-  s: '120',
-  m: '240',
-  l: '320',
-};
 export const THEMES = ['light', 'dark', 'consumer'] as const;
 export const VARIANTS = [
   // Feedback
-  'success',
-  'error',
-  'warning',
-  'pending',
-  // Empty states
-  'empty',
-  'no-results',
-  'no-data',
-  // System
-  'device-problems',
-  // Communication
   'celebration',
-  // SumUp Devices
-  'solo',
-  // Merchant Products
-  'bank',
+  'error-1',
+  'error-2',
+  'financial-milestone',
+  'waiting',
+  // States
+  'empty-state-1',
+  'empty-state-2',
+  'empty-state-3',
+  'problems',
+  'off',
+  // Feature
+  'account',
+  'bookings',
+  'invoice',
+  'loyalty',
+  'giftcards',
+  'onlinepayments',
+  'paymentlinks',
+  'referrak',
+  'rewards',
+  'taptopay',
+  // General communication
+  'security',
+  'support',
 ] as const;
 export const CATEGORIES = [
   'Feedback',
-  'Empty states',
-  'System',
-  'Communication',
-  'SumUp Devices',
-  'Merchant Products',
+  'States',
+  'Feature',
+  'General communication',
 ] as const;

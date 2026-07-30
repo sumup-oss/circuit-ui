@@ -8,7 +8,6 @@ import {
   BASE_DIR,
   DIST_DIR,
   THEMES,
-  SIZES,
   VARIANTS,
   CATEGORIES,
   BASE_URL,
@@ -22,60 +21,41 @@ type Illustration = {
   name: (typeof VARIANTS)[number];
   category: (typeof CATEGORIES)[number];
   keywords?: string[];
-  size: (typeof SIZES)[number];
   theme: (typeof THEMES)[number];
 };
 
-type IllustrationsByVariantAndSize = Record<
-  string,
-  {
-    s?: string[];
-    m?: string[];
-    l?: string[];
-  }
->;
+type IllustrationsByVariant = Record<string, (typeof THEMES)[number][]>;
 
-function aggregateIllustrationsFromManifest(): IllustrationsByVariantAndSize {
+function aggregateIllustrationsFromManifest(): IllustrationsByVariant {
   return (manifest.illustrations as Illustration[]).reduce(
-    (acc, { name, size, theme }) => {
-      acc[name] = acc[name] || {};
+    (acc, { name, theme }) => {
+      acc[name] = acc[name] || [];
       const illustration = acc[name];
-      if (illustration[size] !== undefined) {
-        illustration[size]?.push(theme);
-      } else {
-        illustration[size] = [theme];
-      }
+      illustration.push(theme);
       return acc;
     },
-    {} as IllustrationsByVariantAndSize,
+    {} as IllustrationsByVariant,
   );
 }
 
 function buildIllustrationUrlMapType(): string {
   const illustrations = aggregateIllustrationsFromManifest();
-  const orderedVariants = Object.keys(illustrations)/*.sort((a, b) =>
+  const orderedVariants = Object.keys(illustrations).sort((a, b) =>
     a.localeCompare(b),
-  );*/
+  );
 
+  console.log(illustrations);
   const entries = orderedVariants.flatMap((variantKey) => {
-    const sizes = illustrations[variantKey];
-    const sizeBlocks = SIZES.flatMap((size) => {
-      const themes = sizes[size];
-      if (!themes?.length) {
-        return [];
-      }
-      const themeUnion = [...new Set(themes)]
-        .map((t) => JSON.stringify(t))
-        .join(' | ');
-      return [`    readonly ${size}: ${themeUnion};`];
-    });
+    const themes = illustrations[variantKey];
 
-    if (sizeBlocks.length === 0) {
+    if (themes.length === 0) {
       return [];
     }
 
     const variantLiteral = `${JSON.stringify(variantKey)}`;
-    return [`  ${variantLiteral}: {\n${sizeBlocks.join('\n')}\n  };`];
+    return [
+      `  ${variantLiteral}: \n${themes.map((t) => JSON.stringify(t)).join(' | ')}\n  ;`,
+    ];
   });
 
   return `{\n${entries.join('\n')}\n}`;
@@ -83,13 +63,14 @@ function buildIllustrationUrlMapType(): string {
 
 function buildHelpersFile(): string {
   return `
-    export function getIllustrationUrl(variant, size, theme) {
-      return '${BASE_URL}/illustrations/' + variant + (size ? '_' + size : '') + (theme ? '_' + theme : '') + '.svg';
+    export function getIllustrationUrl(variant, theme) {
+      return '${BASE_URL}/illustrations/' + variant + (theme ? '_' + theme : '') + '.svg';
     }
   `;
 }
 function buildDeclarationFile(): string {
   const illustrationUrlMap = buildIllustrationUrlMapType();
+  console.log('illustrationUrlMap', illustrationUrlMap);
 
   return `
     import type { HTMLAttributes, ReactElement } from 'react';
@@ -99,7 +80,6 @@ function buildDeclarationFile(): string {
       export default classes;
     }
 
-    export type Size = ${SIZES.map((size) => `"${size}"`).join(' | ')};
     export type Theme = ${THEMES.map((theme) => `"${theme}"`).join(' | ')};
     export type Variant = ${VARIANTS.map((variant) => `"${variant}"`).join(' | ')};
     export type Category = ${CATEGORIES.map((variant) => `"${variant}"`).join(' | ')};
@@ -107,7 +87,6 @@ function buildDeclarationFile(): string {
       illustrations: {
         name: Variant,
         category: Category,
-        size: Size,
         theme: Theme,
         keywords?: string[],
       }[]
@@ -116,21 +95,19 @@ function buildDeclarationFile(): string {
 
     type ManifestIllustration = {
       [V in keyof IllustrationUrlMap]: {
-        [S in keyof IllustrationUrlMap[V]]: {
+        
           name: V,
           category: Category,
-          size: S,
-          theme: IllustrationUrlMap[V][S],
+          theme: IllustrationUrlMap[V],
           keywords?: string[],
-        };
+        
       }[keyof IllustrationUrlMap[V]];
     }[keyof IllustrationUrlMap];
 
     export function getIllustrationUrl <V extends keyof IllustrationUrlMap,
-      S extends keyof IllustrationUrlMap[V]>(
+      >(
         variant: V,
-        size: S,
-        theme: IllustrationUrlMap[V][S]): string;
+        theme: IllustrationUrlMap[V]): string;
 
     export interface IllustrationProps extends HTMLAttributes<HTMLDivElement> {
        /**
@@ -142,10 +119,6 @@ function buildDeclarationFile(): string {
        */
       alt?: string;
       /**
-       * Choose between one of the 3 sizes: "s", "m" and "l". Defaults to 'm', if supported, or to the first available size.
-       */
-      size?: Size;
-      /**
        * Defaults to 'light', if supported, or to the first available theme.
        */
       theme?: Theme;
@@ -156,22 +129,21 @@ function buildDeclarationFile(): string {
 }
 
 function buildIllustrationComponentFile(): string {
-  const illustrations = aggregateIllustrationsFromManifest()
+  const illustrations = aggregateIllustrationsFromManifest();
+  console.log(illustrations);
 
   const helperImport = `import { getIllustrationUrl } from './helpers.js';`;
   const stylesImport = `import classes from './Illustration.module.css';`;
 
-  const invalidSizeWarning = `The '\${size}' size is not supported by the '\${variant}' illustration in the '\${theme}' theme. Please use one of the available sizes: \${availableSizesString}`;
-  const defaultSizeWarning = `No size was provided. Defaulting to size '\${sizeToUse}'.`;
   const defaultThemeWarning = `No theme was provided. Defaulting to '\${themeToUse}' theme.`;
-  const invalidThemeWarning = `The '\${theme}' theme is not supported by the '\${variant}' illustration in the '\${size}' size. Please use one of the available themes: \${availableThemesString}`;
+  const invalidThemeWarning = `The '\${theme}' theme is not supported by the '\${variant}' illustration. Please use one of the available themes: \${availableThemesString}`;
   const invalidVariantError = `@sumup-oss/illustrations has no '\${variant}' variant. Please use one of the available variants: \${Object.keys(illustrationData).join(', ')}`;
 
   return `
     ${helperImport}
     ${stylesImport}
     
-    export function Illustration({ variant, size, theme, alt, style: styleProp, className: classNameProp, ...props }) {
+    export function Illustration({ variant, theme, alt, style: styleProp, className: classNameProp, ...props }) {
       
       const illustrationData = ${JSON.stringify(illustrations)};
       const illustration = illustrationData[variant];
@@ -179,48 +151,17 @@ function buildIllustrationComponentFile(): string {
       if (
         process.env.NODE_ENV !== 'production' &&
         process.env.NODE_ENV !== 'test' &&
-        !illustration
+        !illustration 
       ) {
         throw new Error(\`${invalidVariantError}\`)
       }
-      
-      const availableSizes = Object.entries(illustration).reduce((acc = [], [size, themes]) => {
-        if(themes.length > 0) {
-          acc.push(size);
-        }
-        return acc;
-      }, []);
-      let sizeToUse = size;
-      
-      // if no size is provided, default to the first available size and show a warning
-      if (
-        process.env.NODE_ENV !== 'production' &&
-        process.env.NODE_ENV !== 'test' &&
-        !size
-      ) {
-        sizeToUse = availableSizes.includes('m') ? 'm' : availableSizes[0];
-        console.warn(new Error(\`${defaultSizeWarning}\`));
-      }
-      // if the requested size is not supported, default to the first available size and show a warning
-      if (
-        process.env.NODE_ENV !== 'production' &&
-        process.env.NODE_ENV !== 'test' &&
-        size &&
-        !availableSizes.includes(size)
-      ) {
-        sizeToUse = availableSizes.includes('m') ? 'm' : availableSizes[0];
-        const availableSizesString = availableSizes.join(', ');
-        console.warn(new Error(\`${invalidSizeWarning}\`));
-      }
-      
       let themeToUse = theme;
-      const availableThemes = illustration[sizeToUse];
+      const availableThemes = illustration;
 
       // if no theme is provided, default to the first available theme and show a warning
       if (
         process.env.NODE_ENV !== 'production' &&
         process.env.NODE_ENV !== 'test' &&
-        availableSizes.includes(size) &&
         !theme
       ) {
         themeToUse = availableThemes.includes('light') ? 'light': availableThemes[0];
@@ -231,26 +172,26 @@ function buildIllustrationComponentFile(): string {
       if (
         process.env.NODE_ENV !== 'production' &&
         process.env.NODE_ENV !== 'test' &&
-        availableSizes.includes(size) &&
         theme &&
         !availableThemes.includes(theme)
       ) {
-        const availableThemesString = illustration[sizeToUse].join(', ');
+        const availableThemesString = availableThemes.join(', ');
         console.warn(new Error(\`${invalidThemeWarning}\`));
         themeToUse = availableThemes.includes('light') ? 'light': availableThemes[0];
       }
+      console.log("themeToUse", themeToUse);
       // if the requested theme is supported, use it exclusively
       // otherwise, make the illustration available in all available themes according to
       // the theme configuration
       const style = (theme && theme === themeToUse) ? {
-      '--illustration-url-light': 'url("' + getIllustrationUrl(variant, sizeToUse, themeToUse) + '")',
+      '--illustration-url-light': 'url("' + getIllustrationUrl(variant, themeToUse) + '")',
       } : availableThemes.reduce((acc, theme) => {
-        acc['--illustration-url-' + theme] = 'url("' + getIllustrationUrl(variant, sizeToUse, theme) + '")';
+        acc['--illustration-url-' + theme] = 'url("' + getIllustrationUrl(variant, theme) + '")';
         return acc;
       }, {})
       
       const mergedStyle = { ...style, ...(styleProp || {}) };
-      const mergedClassName = [classes.base, classes[sizeToUse], classNameProp].filter(Boolean).join(' ');
+      const mergedClassName = [classes.base, classNameProp].filter(Boolean).join(' ');
 
       return <div
         role={alt ? 'img' : 'presentation'}
