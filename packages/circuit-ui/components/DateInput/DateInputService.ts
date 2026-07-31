@@ -30,7 +30,7 @@ export function getDateSegments(locale: Locale) {
 export function getCalendarButtonLabel(
   label: string,
   date: Temporal.PlainDate | undefined,
-  locale: Locale | undefined,
+  locale: Locale,
 ) {
   if (!date) {
     return label;
