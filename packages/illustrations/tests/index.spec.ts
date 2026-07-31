@@ -27,7 +27,7 @@ describe('Illustrations', () => {
       expect(isValidXML).toBeTruthy();
     });
 
-    it('should weigh less than 40kb', () => {
+    it('should weigh less than 60kb', () => {
       expect(fileSize).toBeLessThan(60);
     });
 

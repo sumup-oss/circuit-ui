@@ -137,8 +137,6 @@ function buildIllustrationComponentFile(): string {
   const helperImport = `import { getIllustrationUrl } from './helpers.js';`;
   const stylesImport = `import classes from './Illustration.module.css';`;
 
-  const defaultThemeWarning = `No theme was provided. Defaulting to '\${themeToUse}' theme.`;
-  const invalidThemeWarning = `The '\${theme}' theme is not supported by the '\${name}' illustration. Please use one of the available themes: \${availableThemesString}`;
   const invalidNameError = `@sumup-oss/illustrations has no '\${name}' illustration. Please use one of the available names: \${Object.keys(illustrationData).join(', ')}`;
 
   return `
@@ -160,27 +158,6 @@ function buildIllustrationComponentFile(): string {
       let themeToUse = theme;
       const availableThemes = illustration;
 
-      // if no theme is provided, default to the first available theme and show a warning
-      if (
-        process.env.NODE_ENV !== 'production' &&
-        process.env.NODE_ENV !== 'test' &&
-        !theme
-      ) {
-        themeToUse = availableThemes.includes('light') ? 'light': availableThemes[0];
-        console.warn(new Error(\`${defaultThemeWarning}\`));
-      }
-
-      // if the requested theme is not supported, default to the first available theme and show a warning
-      if (
-        process.env.NODE_ENV !== 'production' &&
-        process.env.NODE_ENV !== 'test' &&
-        theme &&
-        !availableThemes.includes(theme)
-      ) {
-        const availableThemesString = availableThemes.join(', ');
-        console.warn(new Error(\`${invalidThemeWarning}\`));
-        themeToUse = availableThemes.includes('light') ? 'light': availableThemes[0];
-      }
       // if the requested theme is supported, use it exclusively
       // otherwise, make the illustration available in all available themes according to
       // the theme configuration

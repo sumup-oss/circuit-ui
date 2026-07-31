@@ -5,6 +5,7 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "strict": true,
+    "target": "es2019",
     "types": ["node"],
     "jsx": "react"
   },

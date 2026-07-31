@@ -33,7 +33,7 @@ npm install @sumup-oss/illustrations
 # With yarn
 yarn add @sumup-oss/illustrations
 ```
-The React component requires React as a peer dependency.
+The React component requires `react` as a peer dependency.
 
 
 ## Usage
@@ -74,7 +74,8 @@ const SuccessScreen = ({ description }) => (
 
 Illustrations support light and dark themes.
 
-If no `theme` prop is provided, the illustration uses the currently applied color scheme when available, based on the `data-color-scheme` attribute in your app. Otherwise, it falls back to the light theme.
+The Illustration component will automatically switch between the light and dark theme variants based on the `data-color-scheme` attribute in your app. This is the default and recommended way to use the component.
+If you want to explicitly set the theme, use the `theme` prop.
 
 ```tsx
 import { Illustration } from '@sumup-oss/circuit-ui';
@@ -87,103 +88,10 @@ const SuccessScreen = ({ description }) => (
 );
 ```
 
-
-## Available illustrations
-
-
-<table>
-<thead>
-  <tr>
-    <th scope="col">Category</th>
-    <th scope="col">Illustration</th>
-    <th scope="col">Name</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td rowspan="3">Feedback</td>
-    <td>Success</td>
-    <td><code>"celebration"</code>,<code>"financial-milestone"</code></td>
-  </tr>
-  <tr>
-    <td>Error</td>
-    <td><code>"error-1"</code>,<code>"error-2"</code></td>
-  </tr>
-  <tr>
-    <td>Pending</td>
-    <td><code>"waiting"</code></td>
-  </tr>
-  <tr>
-    <td rowspan="3">States</td>
-    <td>Empty</td>
-    <td><code>"empty-state-1"</code>,<code>"empty-state-2"</code>,<code>"empty-state-3"</code></td>
-  </tr>
-  <tr>
-    <td>Off</td>
-    <td><code>"off"</code></td>
-  </tr>
-  <tr>
-    <td>Problems</td>
-    <td><code>"problems"</code></td>
-  </tr>
-  <tr>
-    <td rowspan="10">Feature</td>
-    <td>Account</td>
-    <td><code>"account"</code></td>
-  </tr>
-  <tr>
-    <td>bookings</td>
-    <td><code>"bookings"</code></td>
-  </tr>
-  <tr>
-    <td>Gift Cards</td>
-    <td><code>"giftcards"</code></td>
-  </tr>
-  <tr>
-    <td>Invoice</td>
-    <td><code>"invoice"</code></td>
-  </tr>
-  <tr>
-    <td>Loyalty</td>
-    <td><code>"loyalty"</code></td>
-  </tr>
-  <tr>
-    <td>Online Payments</td>
-    <td><code>"onlinepayments"</code></td>
-  </tr>
-  <tr>
-    <td>Payment Links</td>
-    <td><code>"paymentlinks"</code></td>
-  </tr>
-  <tr>
-    <td>Referral</td>
-    <td><code>"referral"</code></td>
-  </tr>
-  <tr>
-    <td>Rewards</td>
-    <td><code>"rewards"</code></td>
-  </tr>
-  <tr>
-    <td>Tap to Pay</td>
-    <td><code>"taptopay"</code></td>
-  </tr>
-
-  <tr>
-    <td rowspan="2">General communication</td>
-    <td>Security</td>
-    <td><code>"security"</code></td>
-  </tr>
-  <tr>
-    <td>Support</td>
-    <td><code>"support"</code></td>
-  </tr>
-</tbody>
-</table>
-
-
 ## Accessibility
 
 Illustrations are decorative by default and are ignored by screen readers.
+They should _always_ be accompanied by visible text that describes the meaning of the illustration in their context.
 
 If an illustration communicates meaning not already provided by nearby text, add an `alt` prop.
 
@@ -207,7 +115,7 @@ import { getIllustrationURL } from '@sumup-oss/illustrations';
 
 const SuccessScreen = ({ message }) => (
   <div>
-    <img src={getIllustrationURL('error-1', 'light')}/>
+    <img src={getIllustrationURL('error-1', 'light')} alt=""/>
     <span>Payment failed. Please contact your card provider.</span>
   </div>
 );

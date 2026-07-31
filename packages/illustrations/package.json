@@ -1,6 +1,6 @@
 {
   "name": "@sumup-oss/illustrations",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "SumUp's illustrations library",
   "type": "module",
   "main": "./dist/index.js",
@@ -12,9 +12,7 @@
     },
     "./manifest.json": "./manifest.json"
   },
-  "sideEffects": [
-    "./dist/**/*.css"
-  ],
+  "sideEffects": false,
   "files": [
     "dist",
     "manifest.json"
