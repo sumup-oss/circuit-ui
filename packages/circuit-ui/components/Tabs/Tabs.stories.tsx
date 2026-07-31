@@ -122,7 +122,7 @@ Stretched.args = {
   stretched: true,
 };
 
-const tabsWithTierBadge = [
+const tabsWithTierIndicator = [
   {
     id: 'services',
     tab: 'Services',
@@ -141,10 +141,10 @@ const tabsWithTierBadge = [
   },
 ];
 
-export const WithTierBadge = (args: TabsProps) => <Tabs {...args} />;
+export const WithTierIndicator = (args: TabsProps) => <Tabs {...args} />;
 
-WithTierBadge.args = {
-  items: tabsWithTierBadge,
+WithTierIndicator.args = {
+  items: tabsWithTierIndicator,
 };
 
 export const WithTabsProp = () => {

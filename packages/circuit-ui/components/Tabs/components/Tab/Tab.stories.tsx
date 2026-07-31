@@ -34,7 +34,7 @@ export const Base = () => (
   </div>
 );
 
-export const WithTrailingComponent = () => (
+export const WithTierIndicator = () => (
   <div>
     <Tab trailingComponent={{ variant: 'plus' }}>Services</Tab>
     <Tab>Items</Tab>

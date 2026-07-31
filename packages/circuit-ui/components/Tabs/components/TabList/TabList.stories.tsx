@@ -67,7 +67,7 @@ export const NavigationWithTabsProp = () => (
   />
 );
 
-export const WithTierBadge = () => (
+export const WithTierIndicator = () => (
   <TabList
     tabs={[
       {
