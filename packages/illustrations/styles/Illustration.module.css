@@ -10,13 +10,6 @@
   background-image: var(--illustration-url-dark, var(--illustration-url-light));
 }
 
-:global([data-color-scheme="consumer"]) .base {
-  background-image: var(
-    --illustration-url-consumer,
-    var(--illustration-url-light)
-  );
-}
-
 @media (prefers-color-scheme: dark) {
   .base {
     background-image: var(

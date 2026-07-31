@@ -145,7 +145,6 @@ export function Illustrations() {
   const themeOptions = [
     { label: 'Light', value: 'light' },
     { label: 'Dark', value: 'dark' },
-    { label: 'Consumer', value: 'consumer' },
   ];
 
   const lowerCaseSearch = search.toLowerCase();
