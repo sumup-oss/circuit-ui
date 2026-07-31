@@ -11,6 +11,9 @@ on:
 permissions:
   contents: read
 
+env:
+  BRANCH: ${{ github.head_ref || github.ref_name }}
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -21,11 +24,11 @@ jobs:
         template: [astro, nextjs]
         include:
           - template: astro
-            bootstrap: "npx create-astro@latest ./test-app --template sumup-oss/circuit-ui/templates/astro --install --no-git --typescript=strictest"
+            bootstrap: "npx create-astro@latest ./test-app --template sumup-oss/circuit-ui/templates/astro#$BRANCH --install --no-git --typescript=strictest"
             verify: "npm run lint:fix && npm run astro check"
             start: "npm run preview"
           - template: nextjs
-            bootstrap: 'npx create-next-app --example "https://github.com/sumup-oss/circuit-ui/tree/main/templates/nextjs/template" test-app'
+            bootstrap: 'npx create-next-app --example "https://github.com/sumup-oss/circuit-ui/tree/$BRANCH" --example-path=templates/nextjs/template test-app'
             verify: "npm run lint:fix && npm run test:ci"
             start: "npm run start"
 
