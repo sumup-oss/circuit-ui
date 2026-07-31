@@ -8,7 +8,7 @@ import {
   BASE_DIR,
   DIST_DIR,
   THEMES,
-  VARIANTS,
+  NAMES,
   CATEGORIES,
   BASE_URL,
 } from '../constants.js';
@@ -18,15 +18,15 @@ import manifest from '../manifest.json' with { type: 'json' };
 import config from '../../../biome.json' with { type: 'json' };
 
 type Illustration = {
-  name: (typeof VARIANTS)[number];
+  name: (typeof NAMES)[number];
   category: (typeof CATEGORIES)[number];
   keywords?: string[];
   theme: (typeof THEMES)[number];
 };
 
-type IllustrationsByVariant = Record<string, (typeof THEMES)[number][]>;
+type IllustrationsByName = Record<string, (typeof THEMES)[number][]>;
 
-function aggregateIllustrationsFromManifest(): IllustrationsByVariant {
+function aggregateIllustrationsFromManifest(): IllustrationsByName {
   return (manifest.illustrations as Illustration[]).reduce(
     (acc, { name, theme }) => {
       acc[name] = acc[name] || [];
@@ -34,26 +34,24 @@ function aggregateIllustrationsFromManifest(): IllustrationsByVariant {
       illustration.push(theme);
       return acc;
     },
-    {} as IllustrationsByVariant,
+    {} as IllustrationsByName,
   );
 }
 
 function buildIllustrationUrlMapType(): string {
   const illustrations = aggregateIllustrationsFromManifest();
-  const orderedVariants = Object.keys(illustrations).sort((a, b) =>
-    a.localeCompare(b),
-  );
+  const ordered = Object.keys(illustrations).sort((a, b) => a.localeCompare(b));
 
-  const entries = orderedVariants.flatMap((variantKey) => {
-    const themes = illustrations[variantKey];
+  const entries = ordered.flatMap((name) => {
+    const themes = illustrations[name];
 
     if (themes.length === 0) {
       return [];
     }
 
-    const variantLiteral = `${JSON.stringify(variantKey)}`;
+    const nameLiteral = `${JSON.stringify(name)}`;
     return [
-      `  ${variantLiteral}: \n${themes.map((t) => JSON.stringify(t)).join(' | ')}\n  ;`,
+      `  ${nameLiteral}: \n${themes.map((t) => JSON.stringify(t)).join(' | ')}\n  ;`,
     ];
   });
 
@@ -62,8 +60,8 @@ function buildIllustrationUrlMapType(): string {
 
 function buildHelpersFile(): string {
   return `
-    export function getIllustrationUrl(variant, theme) {
-      return '${BASE_URL}/illustrations/' + variant + (theme ? '_' + theme : '') + '.svg';
+    export function getIllustrationUrl(name, theme) {
+      return '${BASE_URL}/illustrations/' + name + (theme ? '_' + theme : '') + '.svg';
     }
   `;
 }
@@ -79,11 +77,11 @@ function buildDeclarationFile(): string {
     }
 
     export type Theme = ${THEMES.map((theme) => `"${theme}"`).join(' | ')};
-    export type Variant = ${VARIANTS.map((variant) => `"${variant}"`).join(' | ')};
-    export type Category = ${CATEGORIES.map((variant) => `"${variant}"`).join(' | ')};
+    export type Name = ${NAMES.map((name) => `"${name}"`).join(' | ')};
+    export type Category = ${CATEGORIES.map((name) => `"${name}"`).join(' | ')};
     export type IllustrationManifest = {
       illustrations: {
-        name: Variant,
+        name: Name,
         category: Category,
         theme: Theme,
         keywords?: string[],
@@ -102,16 +100,16 @@ function buildDeclarationFile(): string {
       }[keyof IllustrationUrlMap[V]];
     }[keyof IllustrationUrlMap];
 
-    export function getIllustrationUrl <V extends keyof IllustrationUrlMap,
+    export function getIllustrationUrl <N extends keyof IllustrationUrlMap,
       >(
-        variant: V,
-        theme: IllustrationUrlMap[V]): string;
+        name: N,
+        theme: IllustrationUrlMap[N]): string;
 
     export interface IllustrationProps extends HTMLAttributes<HTMLDivElement> {
        /**
-       * The illustration variant.
+       * The illustration name.
        */  
-      variant: Variant;
+      name: Name;
       /**
        * Accessible label; rendered on the \`role="img"\` container.
        */
@@ -140,24 +138,24 @@ function buildIllustrationComponentFile(): string {
   const stylesImport = `import classes from './Illustration.module.css';`;
 
   const defaultThemeWarning = `No theme was provided. Defaulting to '\${themeToUse}' theme.`;
-  const invalidThemeWarning = `The '\${theme}' theme is not supported by the '\${variant}' illustration. Please use one of the available themes: \${availableThemesString}`;
-  const invalidVariantError = `@sumup-oss/illustrations has no '\${variant}' variant. Please use one of the available variants: \${Object.keys(illustrationData).join(', ')}`;
+  const invalidThemeWarning = `The '\${theme}' theme is not supported by the '\${name}' illustration. Please use one of the available themes: \${availableThemesString}`;
+  const invalidNameError = `@sumup-oss/illustrations has no '\${name}' illustration. Please use one of the available names: \${Object.keys(illustrationData).join(', ')}`;
 
   return `
     ${helperImport}
     ${stylesImport}
     
-    export function Illustration({ variant, theme, size = 240, alt, style: styleProp, className: classNameProp, ...props }) {
+    export function Illustration({ name, theme, size = 240, alt, style: styleProp, className: classNameProp, ...props }) {
       
       const illustrationData = ${JSON.stringify(illustrations)};
-      const illustration = illustrationData[variant];
+      const illustration = illustrationData[name];
 
       if (
         process.env.NODE_ENV !== 'production' &&
         process.env.NODE_ENV !== 'test' &&
         !illustration 
       ) {
-        throw new Error(\`${invalidVariantError}\`)
+        throw new Error(\`${invalidNameError}\`)
       }
       let themeToUse = theme;
       const availableThemes = illustration;
@@ -187,9 +185,9 @@ function buildIllustrationComponentFile(): string {
       // otherwise, make the illustration available in all available themes according to
       // the theme configuration
       const style = (theme && theme === themeToUse) ? {
-      '--illustration-url-light': 'url("' + getIllustrationUrl(variant, themeToUse) + '")',
+      '--illustration-url-light': 'url("' + getIllustrationUrl(name, themeToUse) + '")',
       } : availableThemes.reduce((acc, theme) => {
-        acc['--illustration-url-' + theme] = 'url("' + getIllustrationUrl(variant, theme) + '")';
+        acc['--illustration-url-' + theme] = 'url("' + getIllustrationUrl(name, theme) + '")';
         return acc;
       }, {});
       

@@ -84,14 +84,14 @@ function IllustrationPreview({
       .then(() => {
         setToast({
           variant: 'success',
-          body: `Copied the name for the ${illustration.name} illustration to the clipboard.`,
+          body: `Copied the name for the ${illustration.name} illustration name to the clipboard.`,
         });
       })
       .catch((error) => {
         console.error(error);
         setToast({
           variant: 'danger',
-          body: `Failed to copy the name for the ${illustration.name} illustration to the clipboard.`,
+          body: `Failed to copy the name for the ${illustration.name} illustration name to the clipboard.`,
         });
       });
   };
@@ -99,7 +99,7 @@ function IllustrationPreview({
   return (
     <div className={classes.wrapper}>
       <div className={clsx(classes['illustration-wrapper'])}>
-        <Illustration variant={illustration.name} theme={illustration.theme} />
+        <Illustration name={illustration.name} theme={illustration.theme} />
       </div>
       <span id={id} className={classes.label}>
         {illustration.name}

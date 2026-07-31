@@ -23,7 +23,7 @@ export const BASE_URL =
   'https://oss-circuit-ui-git-illustrations-package.sumup-vercel.app/'; //TODO replace with https://circuit.sumup.com/illustrations/'
 
 export const THEMES = ['light', 'dark'] as const;
-export const VARIANTS = [
+export const NAMES = [
   // Feedback
   'celebration',
   'error-1',
