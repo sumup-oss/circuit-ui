@@ -117,11 +117,16 @@ function buildDeclarationFile(): string {
        */
       alt?: string;
       /**
-       * Defaults to 'light', if supported, or to the first available theme.
+       * The theme of the illustration. 
+       * @default 'light', if supported, or to the first available theme.
        */
       theme?: Theme;
-      height?: number;
-      width?: number;
+      /**
+       * The size in pixels of the illustration.
+       * Illustrations have a 1:1 aspect ratio, so size will be used as both width and height.
+       * @default 240
+       */
+      size?: number;
     }
 
     export function Illustration(props: IllustrationProps): ReactElement;
@@ -142,7 +147,7 @@ function buildIllustrationComponentFile(): string {
     ${helperImport}
     ${stylesImport}
     
-    export function Illustration({ variant, theme, height, width, alt, style: styleProp, className: classNameProp, ...props }) {
+    export function Illustration({ variant, theme, size = 240, alt, style: styleProp, className: classNameProp, ...props }) {
       
       const illustrationData = ${JSON.stringify(illustrations)};
       const illustration = illustrationData[variant];
@@ -186,9 +191,10 @@ function buildIllustrationComponentFile(): string {
       } : availableThemes.reduce((acc, theme) => {
         acc['--illustration-url-' + theme] = 'url("' + getIllustrationUrl(variant, theme) + '")';
         return acc;
-      }, {})
+      }, {});
       
-      const mergedStyle = { ...style, height, width, ...(styleProp || {}) };
+      
+      const mergedStyle = { ...style, width: size, height: size, ...(styleProp || {}) };
       const mergedClassName = [classes.base, classNameProp].filter(Boolean).join(' ');
 
       return <div
