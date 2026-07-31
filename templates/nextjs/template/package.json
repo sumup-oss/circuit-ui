@@ -45,5 +45,10 @@
     "jest-environment-jsdom": "^30.4.1",
     "typescript": "^6.0.3",
     "typescript-plugin-css-modules": "^5.2.0"
+  },
+  "overrides": {
+    "@sumup-oss/foundry": {
+      "@sumup-oss/stylelint-plugin-circuit-ui": "$@sumup-oss/stylelint-plugin-circuit-ui"
+    }
   }
 }

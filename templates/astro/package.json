@@ -36,5 +36,10 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-testing-library": "^7.16.2",
     "typescript": "^6.0.3"
+  },
+  "overrides": {
+    "@sumup-oss/foundry": {
+      "@sumup-oss/stylelint-plugin-circuit-ui": "$@sumup-oss/stylelint-plugin-circuit-ui"
+    }
   }
 }
