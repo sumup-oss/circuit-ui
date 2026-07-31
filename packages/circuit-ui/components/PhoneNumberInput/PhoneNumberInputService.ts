@@ -131,7 +131,7 @@ export function normalizePhoneNumber(
 
 export function mapCountryCodeOptions(
   countryCodeOptions: CountryCodeOption[],
-  locale: Locale | undefined,
+  locale: Locale,
   shouldDisplayCountryNames = true,
 ): Required<SelectProps>['options'] {
   if (!shouldDisplayCountryNames) {

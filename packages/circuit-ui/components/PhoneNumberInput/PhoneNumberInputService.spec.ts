@@ -132,7 +132,7 @@ describe('PhoneNumberInputService', () => {
         { country: 'US', code: '+1' },
         { country: 'DE', code: '+49' },
       ];
-      const locale = undefined;
+      const locale = 'en';
       const actual = mapCountryCodeOptions(options, locale);
       expect(actual[0].value).toBe('CA');
       expect(actual[1].value).toBe('DE');
@@ -145,7 +145,7 @@ describe('PhoneNumberInputService', () => {
         { country: 'US', code: '+1' },
         { country: 'DE', code: '+49' },
       ];
-      const locale = undefined;
+      const locale = 'en';
       const actual = mapCountryCodeOptions(options, locale);
       expect(actual[0].label).toBe('Canada (+1)');
       expect(actual[1].label).toBe('Germany (+49)');
@@ -154,7 +154,7 @@ describe('PhoneNumberInputService', () => {
 
     it('should omit the country name when it is not available', () => {
       const options = [{ country: '', code: '+49' }];
-      const locale = undefined;
+      const locale = 'en';
       const actual = mapCountryCodeOptions(options, locale);
       expect(actual[0].label).toBe('+49');
     });
@@ -165,7 +165,7 @@ describe('PhoneNumberInputService', () => {
         { country: 'US', code: '+1' },
         { country: 'DE', code: '+49' },
       ];
-      const locale = undefined;
+      const locale = 'en';
       const actual = mapCountryCodeOptions(options, locale);
       expect(actual[0].label).toBe('Canada (+1)');
       expect(actual[1].label).toBe('Germany (+49)');
@@ -189,7 +189,8 @@ describe('PhoneNumberInputService', () => {
         { country: 'US', code: '+1' },
         { country: 'DE', code: '+49' },
       ];
-      const actual = mapCountryCodeOptions(options, undefined, false);
+      const locale = 'en';
+      const actual = mapCountryCodeOptions(options, locale, false);
       expect(actual[0].label).toBe('+1');
       expect(actual[0].value).toBe('CA');
       expect(actual[1].label).toBe('+1');
@@ -204,7 +205,8 @@ describe('PhoneNumberInputService', () => {
         { country: 'CA', code: '+1' },
         { country: 'US', code: '+1' },
       ];
-      const actual = mapCountryCodeOptions(options, undefined, false);
+      const locale = 'en';
+      const actual = mapCountryCodeOptions(options, locale, false);
       expect(actual.map(({ label }) => label)).toEqual(['+1', '+1', '+49']);
     });
   });

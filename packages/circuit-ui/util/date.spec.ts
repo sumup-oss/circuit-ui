@@ -227,7 +227,7 @@ describe('CalendarService', () => {
       [11, 'November'],
       [12, 'December'],
     ])('should return the English name of the month %s', (isoMonth, name) => {
-      const actual = getMonthName(isoMonth);
+      const actual = getMonthName(isoMonth, 'en');
       expect(actual).toBe(name);
     });
 

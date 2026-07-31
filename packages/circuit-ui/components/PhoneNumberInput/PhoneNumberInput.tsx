@@ -48,6 +48,8 @@ import { applyMultipleRefs } from '../../util/refs.js';
 import { eachFn } from '../../util/helpers.js';
 import { changeInputValue } from '../../util/input-value.js';
 import { idx } from '../../util/idx.js';
+import { useLocale } from '../../hooks/useLocale/useLocale.js';
+import type { Locale } from '../../util/i18n.js';
 
 import {
   getCountryCode,
@@ -116,7 +118,7 @@ export interface PhoneNumberInputProps
    * `['GB', 'en-US']`. Used to localize the country names and determine the
    * preselected country code. Defaults to `navigator.languages`.
    */
-  locale?: string | string[];
+  locale?: Locale;
   /**
    * When `true`, displays the localised country name in the country code selector using
    * `Intl.DisplayNames`. When `false`, displays the calling codes from
@@ -239,7 +241,7 @@ export const PhoneNumberInput = forwardRef<
       validationHint,
       readOnly,
       'aria-describedby': descriptionId,
-      locale,
+      locale: customLocale,
       shouldDisplayCountryNames = true,
       size = 'm',
       className,
@@ -248,6 +250,7 @@ export const PhoneNumberInput = forwardRef<
     },
     ref,
   ) => {
+    const locale = useLocale(customLocale);
     const hiddenInputRef = useRef<HTMLInputElement>(null);
     const countryCodeRef = useRef<HTMLSelectElement | HTMLInputElement>(null);
     const subscriberNumberRef = useRef<HTMLInputElement>(null);

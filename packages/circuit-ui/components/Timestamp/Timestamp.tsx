@@ -23,6 +23,7 @@ import { clsx } from '../../styles/clsx.js';
 
 import { getInitialState, getState } from './TimestampService.js';
 import classes from './Timestamp.module.css';
+import { useLocale } from '../../hooks/useLocale/useLocale.js';
 
 export interface TimestampProps extends HTMLAttributes<HTMLTimeElement> {
   /**
@@ -73,12 +74,13 @@ export const Timestamp = forwardRef<HTMLTimeElement, TimestampProps>(
       variant = 'auto',
       formatStyle = 'long',
       includeTime = false,
-      locale,
+      locale: customLocale,
       className,
       ...props
     },
     ref,
   ) => {
+    const locale = useLocale(customLocale);
     const zonedDateTime = Temporal.ZonedDateTime.from(datetime);
     const [state, setState] = useState(
       getInitialState({ datetime, locale, formatStyle, includeTime }),

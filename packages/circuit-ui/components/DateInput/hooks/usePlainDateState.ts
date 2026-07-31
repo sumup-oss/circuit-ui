@@ -61,7 +61,7 @@ export function usePlainDateState({
   onChange: ((date: string) => void) | undefined;
   minDate: Temporal.PlainDate | undefined;
   maxDate: Temporal.PlainDate | undefined;
-  locale: Locale | undefined;
+  locale: Locale;
 }): PlainDateState {
   const [values, setValues] = useState<DateValues>(
     parseValue(defaultValue || value),
