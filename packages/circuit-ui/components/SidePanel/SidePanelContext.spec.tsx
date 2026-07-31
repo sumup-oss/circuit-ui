@@ -232,6 +232,37 @@ describe('SidePanelContext', () => {
         });
       });
 
+      it('should not call the onBack callback when closing of a stacked side panel is cancelled', async () => {
+        const onBack = vi.fn();
+        const onClose = vi.fn().mockRejectedValue(false);
+        const Trigger = () => {
+          const { setSidePanel } = useContext(SidePanelContext);
+          return (
+            <>
+              {renderOpenButton(setSidePanel)}
+              {renderOpenButton(
+                setSidePanel,
+                { group: 'secondary', onBack, onClose },
+                'Open second panel',
+              )}
+            </>
+          );
+        };
+
+        renderComponent(Trigger);
+
+        await userEvent.click(screen.getByText('Open panel'));
+        await userEvent.click(screen.getByText('Open second panel'));
+        await userEvent.click(screen.getByText('Back'));
+        act(() => {
+          vi.runAllTimers();
+        });
+
+        await waitFor(() => {
+          expect(onBack).not.toHaveBeenCalled();
+        });
+      });
+
       it('should close all stacked side panels when opening a panel from a lower group', async () => {
         const Trigger = () => {
           const { setSidePanel } = useContext(SidePanelContext);
