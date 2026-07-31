@@ -3,222 +3,222 @@
     {
       "name": "celebration",
       "category": "Feedback",
-      "theme": "light"
+      "color-scheme": "light"
     },
     {
       "name": "celebration",
       "category": "Feedback",
-      "theme": "dark"
+      "color-scheme": "dark"
     },
     {
       "name": "error-1",
       "category": "Feedback",
-      "theme": "light"
+      "color-scheme": "light"
     },
     {
       "name": "error-1",
       "category": "Feedback",
-      "theme": "dark"
+      "color-scheme": "dark"
     },
     {
       "name": "error-2",
       "category": "Feedback",
-      "theme": "light"
+      "color-scheme": "light"
     },
     {
       "name": "error-2",
       "category": "Feedback",
-      "theme": "dark"
+      "color-scheme": "dark"
     },
     {
       "name": "waiting",
       "category": "Feedback",
-      "theme": "light"
+      "color-scheme": "light"
     },
     {
       "name": "waiting",
       "category": "Feedback",
-      "theme": "dark"
+      "color-scheme": "dark"
     },
     {
       "name": "financial-milestone",
       "category": "Feedback",
-      "theme": "light"
+      "color-scheme": "light"
     },
     {
       "name": "financial-milestone",
       "category": "Feedback",
-      "theme": "dark"
+      "color-scheme": "dark"
     },
     {
       "name": "empty-state-1",
       "category": "States",
-      "theme": "light"
+      "color-scheme": "light"
     },
     {
       "name": "empty-state-1",
       "category": "States",
-      "theme": "dark"
+      "color-scheme": "dark"
     },
     {
       "name": "empty-state-2",
       "category": "States",
-      "theme": "light"
+      "color-scheme": "light"
     },
     {
       "name": "empty-state-2",
       "category": "States",
-      "theme": "dark"
+      "color-scheme": "dark"
     },
     {
       "name": "empty-state-3",
       "category": "States",
-      "theme": "light"
+      "color-scheme": "light"
     },
     {
       "name": "empty-state-3",
       "category": "States",
-      "theme": "dark"
+      "color-scheme": "dark"
     },
     {
       "name": "problems",
       "category": "States",
-      "theme": "light"
+      "color-scheme": "light"
     },
     {
       "name": "problems",
       "category": "States",
-      "theme": "dark"
+      "color-scheme": "dark"
     },
     {
       "name": "off",
       "category": "States",
-      "theme": "light"
+      "color-scheme": "light"
     },
     {
       "name": "off",
       "category": "States",
-      "theme": "dark"
+      "color-scheme": "dark"
     },
     {
       "name": "account",
       "category": "Feature",
-      "theme": "light"
+      "color-scheme": "light"
     },
     {
       "name": "account",
       "category": "Feature",
-      "theme": "dark"
+      "color-scheme": "dark"
     },
     {
       "name": "bookings",
       "category": "Feature",
-      "theme": "light"
+      "color-scheme": "light"
     },
     {
       "name": "bookings",
       "category": "Feature",
-      "theme": "dark"
+      "color-scheme": "dark"
     },
     {
       "name": "invoice",
       "category": "Feature",
-      "theme": "light"
+      "color-scheme": "light"
     },
     {
       "name": "invoice",
       "category": "Feature",
-      "theme": "dark"
+      "color-scheme": "dark"
     },
     {
       "name": "loyalty",
       "category": "Feature",
-      "theme": "light"
+      "color-scheme": "light"
     },
     {
       "name": "loyalty",
       "category": "Feature",
-      "theme": "dark"
+      "color-scheme": "dark"
     },
     {
       "name": "giftcards",
       "category": "Feature",
-      "theme": "light"
+      "color-scheme": "light"
     },
     {
       "name": "giftcards",
       "category": "Feature",
-      "theme": "dark"
+      "color-scheme": "dark"
     },
     {
       "name": "onlinepayments",
       "category": "Feature",
-      "theme": "light"
+      "color-scheme": "light"
     },
     {
       "name": "onlinepayments",
       "category": "Feature",
-      "theme": "dark"
+      "color-scheme": "dark"
     },
     {
       "name": "paymentlinks",
       "category": "Feature",
-      "theme": "light"
+      "color-scheme": "light"
     },
     {
       "name": "paymentlinks",
       "category": "Feature",
-      "theme": "dark"
+      "color-scheme": "dark"
     },
     {
       "name": "referral",
       "category": "Feature",
-      "theme": "light"
+      "color-scheme": "light"
     },
     {
       "name": "referral",
       "category": "Feature",
-      "theme": "dark"
+      "color-scheme": "dark"
     },
     {
       "name": "rewards",
       "category": "Feature",
-      "theme": "light"
+      "color-scheme": "light"
     },
     {
       "name": "rewards",
       "category": "Feature",
-      "theme": "dark"
+      "color-scheme": "dark"
     },
     {
       "name": "taptopay",
       "category": "Feature",
-      "theme": "light"
+      "color-scheme": "light"
     },
     {
       "name": "taptopay",
       "category": "Feature",
-      "theme": "dark"
+      "color-scheme": "dark"
     },
     {
       "name": "security",
       "category": "General communication",
-      "theme": "light"
+      "color-scheme": "light"
     },
     {
       "name": "security",
       "category": "General communication",
-      "theme": "dark"
+      "color-scheme": "dark"
     },
     {
       "name": "support",
       "category": "General communication",
-      "theme": "light"
+      "color-scheme": "light"
     },
     {
       "name": "support",
       "category": "General communication",
-      "theme": "dark"
+      "color-scheme": "dark"
     }
   ]
 }

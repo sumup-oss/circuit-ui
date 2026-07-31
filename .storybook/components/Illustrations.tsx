@@ -13,6 +13,7 @@ import {
   type ChangeEvent,
   type Dispatch,
   type SetStateAction,
+  useEffect,
   useState,
 } from 'react';
 import illustrationsManifest from '@sumup-oss/illustrations/manifest.json' with {
@@ -53,27 +54,27 @@ function IllustrationPreview({
 }) {
   const { setToast } = useNotificationToast();
 
-  const id = `${illustration.name}-${illustration.theme}`;
+  const id = `${illustration.name}-${illustration['color-scheme']}`;
 
   const copyIllustrationURL = () => {
     const illustrationURL = getIllustrationUrl(
       // @ts-expect-error arguments are from the manifest file
       illustration.name,
-      illustration.theme,
+      illustration['color-scheme'],
     );
     navigator.clipboard
       .writeText(illustrationURL)
       .then(() => {
         setToast({
           variant: 'success',
-          body: `Copied the URL for the ${illustration.name} illustration in the ${illustration.theme} theme to the clipboard.`,
+          body: `Copied the URL for the ${illustration.name} illustration in the ${illustration['color-scheme']} color scheme to the clipboard.`,
         });
       })
       .catch((error) => {
         console.error(error);
         setToast({
           variant: 'danger',
-          body: `Failed to copy the URL for the ${illustration.name} illustration in the ${illustration.theme} theme to the clipboard.`,
+          body: `Failed to copy the URL for the ${illustration.name} illustration in the ${illustration['color-scheme']} color scheme to the clipboard.`,
         });
       });
   };
@@ -99,7 +100,7 @@ function IllustrationPreview({
   return (
     <div className={classes.wrapper}>
       <div className={clsx(classes['illustration-wrapper'])}>
-        <Illustration name={illustration.name} theme={illustration.theme} />
+        <Illustration {...illustration} />
       </div>
       <span id={id} className={classes.label}>
         {illustration.name}
@@ -132,9 +133,13 @@ function IllustrationPreview({
 
 export function Illustrations() {
   const [search, setSearch] = useState('');
-  const [theme, setTheme] = useState(
-    document.documentElement.getAttribute('data-color-scheme') ?? 'light',
-  );
+  const [colorScheme, setColorScheme] = useState('light');
+
+  useEffect(() => {
+    setColorScheme(
+      document.documentElement.getAttribute('data-color-scheme') || 'light',
+    );
+  }, []);
 
   const handleChange =
     (setState: Dispatch<SetStateAction<string>>) =>
@@ -142,7 +147,7 @@ export function Illustrations() {
       setState(event.target.value);
     };
 
-  const themeOptions = [
+  const colorSchemeOptions = [
     { label: 'Light', value: 'light' },
     { label: 'Dark', value: 'dark' },
   ];
@@ -161,8 +166,8 @@ export function Illustrations() {
         lowerCaseKeyword.replace(/_/g, '').includes(lowerCaseSearch)
       );
     });
-    const matchesTheme = theme === illustration.theme;
-    return matchesKeyword && matchesTheme;
+    const matchesColorScheme = colorScheme === illustration['color-scheme'];
+    return matchesKeyword && matchesColorScheme;
   });
 
   return (
@@ -181,10 +186,10 @@ export function Illustrations() {
             clearLabel="Clear"
           />
           <Select
-            label="Theme"
-            options={themeOptions}
-            value={theme}
-            onChange={handleChange(setTheme)}
+            label="Color scheme"
+            options={colorSchemeOptions}
+            value={colorScheme}
+            onChange={handleChange(setColorScheme)}
           />
         </fieldset>
 
@@ -198,10 +203,10 @@ export function Illustrations() {
               <Headline as="h2" size="m" id={slugify(category)}>
                 {category}
               </Headline>
-              <div data-color-scheme={theme} className={classes.list}>
+              <div data-color-scheme={colorScheme} className={classes.list}>
                 {sortByName(items).map((illustration) => (
                   <IllustrationPreview
-                    key={`${illustration.name}-${illustration.theme}`}
+                    key={`${illustration.name}-${illustration['color-scheme']}`}
                     illustration={illustration}
                   />
                 ))}

@@ -4,7 +4,7 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
 
-import { CATEGORIES, ILLUSTRATIONS_DIR, THEMES } from '../constants.js';
+import { CATEGORIES, ILLUSTRATIONS_DIR, COLOR_SCHEMES } from '../constants.js';
 import manifest from '../manifest.json' with { type: 'json' };
 
 describe('Illustrations', () => {
@@ -35,7 +35,7 @@ describe('Illustrations', () => {
       const illustrationManifest = getIllustrationManifest(name, theme);
 
       expect(illustrationManifest.name).toBeTypeOf('string');
-      expect(THEMES).toContain(illustrationManifest.theme);
+      expect(COLOR_SCHEMES).toContain(illustrationManifest['color-scheme']);
       expect(CATEGORIES).toContain(illustrationManifest.category);
     });
 
@@ -49,7 +49,7 @@ describe('Illustrations', () => {
     it('should match the theme in the file name', () => {
       const illustrationManifest = getIllustrationManifest(name, theme);
 
-      expect(illustrationManifest.theme).toBe(theme);
+      expect(illustrationManifest['color-scheme']).toBe(theme);
     });
 
     it("should have valid  'width', 'height' and 'viewBox' attributes", () => {
@@ -96,11 +96,11 @@ function parseSVGAttributes(file: string) {
 function getIllustrationManifest(name: string, theme: string) {
   return manifest.illustrations.find(
     (illustration) =>
-      illustration.name === name && illustration.theme === theme,
+      illustration.name === name && illustration['color-scheme'] === theme,
   ) as {
     name: string;
     category: string;
     keywords: string[];
-    theme: string;
+    'color-scheme': string;
   };
 }

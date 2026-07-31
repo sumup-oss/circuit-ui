@@ -70,19 +70,19 @@ const SuccessScreen = ({ description }) => (
 );
 ```
 
-### Choose a theme
+### Choose a color scheme
 
 Illustrations support light and dark themes.
 
 The Illustration component will automatically switch between the light and dark theme variants based on the `data-color-scheme` attribute in your app. This is the default and recommended way to use the component.
-If you want to explicitly set the theme, use the `theme` prop.
+If you want to explicitly set the color scheme, use the `color-scheme` prop.
 
 ```tsx
 import { Illustration } from '@sumup-oss/circuit-ui';
 
 const SuccessScreen = ({ description }) => (
   <div>
-    <Illustration name="celebration" theme="dark"/>
+    <Illustration name="celebration" color-scheme="dark"/>
     <span>Your payment was successful.</span>
   </div>
 );
@@ -121,7 +121,7 @@ const SuccessScreen = ({ message }) => (
 );
 ```
 
-Alternatively, you can manually construct the URL (`https://circuit.sumup.com/illustrations/<name>_<theme>.svg`). For example:
+Alternatively, you can manually construct the URL (`https://circuit.sumup.com/illustrations/<name>_<color-scheme>.svg`). For example:
 
 ```css
 .illustration {

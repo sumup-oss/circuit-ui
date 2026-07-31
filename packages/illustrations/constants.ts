@@ -22,7 +22,7 @@ export const ILLUSTRATIONS_DIR = path.join(BASE_DIR, './assets');
 export const BASE_URL =
   'https://oss-circuit-ui-git-illustrations-package.sumup-vercel.app'; //TODO replace with https://circuit.sumup.com/illustrations/'
 
-export const THEMES = ['light', 'dark'] as const;
+export const COLOR_SCHEMES = ['light', 'dark'] as const;
 export const NAMES = [
   // Feedback
   'celebration',

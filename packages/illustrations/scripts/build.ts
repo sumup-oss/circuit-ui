@@ -7,7 +7,7 @@ import { transformSync } from '@babel/core';
 import {
   BASE_DIR,
   DIST_DIR,
-  THEMES,
+  COLOR_SCHEMES,
   NAMES,
   CATEGORIES,
   BASE_URL,
@@ -21,17 +21,17 @@ type Illustration = {
   name: (typeof NAMES)[number];
   category: (typeof CATEGORIES)[number];
   keywords?: string[];
-  theme: (typeof THEMES)[number];
+  'color-scheme': (typeof COLOR_SCHEMES)[number];
 };
 
-type IllustrationsByName = Record<string, (typeof THEMES)[number][]>;
+type IllustrationsByName = Record<string, (typeof COLOR_SCHEMES)[number][]>;
 
 function aggregateIllustrationsFromManifest(): IllustrationsByName {
   return (manifest.illustrations as Illustration[]).reduce(
-    (acc, { name, theme }) => {
+    (acc, { name, 'color-scheme': colorScheme }) => {
       acc[name] = acc[name] || [];
       const illustration = acc[name];
-      illustration.push(theme);
+      illustration.push(colorScheme);
       return acc;
     },
     {} as IllustrationsByName,
@@ -43,15 +43,15 @@ function buildIllustrationUrlMapType(): string {
   const ordered = Object.keys(illustrations).sort((a, b) => a.localeCompare(b));
 
   const entries = ordered.flatMap((name) => {
-    const themes = illustrations[name];
+    const illustrationThemes = illustrations[name];
 
-    if (themes.length === 0) {
+    if (illustrationThemes.length === 0) {
       return [];
     }
 
     const nameLiteral = `${JSON.stringify(name)}`;
     return [
-      `  ${nameLiteral}: \n${themes.map((t) => JSON.stringify(t)).join(' | ')}\n  ;`,
+      `  ${nameLiteral}: \n${illustrationThemes.map((t) => JSON.stringify(t)).join(' | ')}\n  ;`,
     ];
   });
 
@@ -60,8 +60,8 @@ function buildIllustrationUrlMapType(): string {
 
 function buildHelpersFile(): string {
   return `
-    export function getIllustrationUrl(name, theme = 'light') {
-      return '${BASE_URL}/illustrations/' + name + (theme ? '_' + theme : '') + '.svg';
+    export function getIllustrationUrl(name, colorScheme = 'light') {
+      return '${BASE_URL}/illustrations/' + name + (colorScheme ? '_' + colorScheme : '') + '.svg';
     }
   `;
 }
@@ -76,14 +76,14 @@ function buildDeclarationFile(): string {
       export default classes;
     }
 
-    export type Theme = ${THEMES.map((theme) => `"${theme}"`).join(' | ')};
+    export type ColorScheme = ${COLOR_SCHEMES.map((theme) => `"${theme}"`).join(' | ')};
     export type Name = ${NAMES.map((name) => `"${name}"`).join(' | ')};
     export type Category = ${CATEGORIES.map((name) => `"${name}"`).join(' | ')};
     export type IllustrationManifest = {
       illustrations: {
         name: Name,
         category: Category,
-        theme: Theme,
+        'color-scheme': ColorScheme,
         keywords?: string[],
       }[]
     };
@@ -94,7 +94,7 @@ function buildDeclarationFile(): string {
         
           name: V,
           category: Category,
-          theme: IllustrationUrlMap[V],
+          'color-scheme': IllustrationUrlMap[V],
           keywords?: string[],
         
       }[keyof IllustrationUrlMap[V]];
@@ -103,7 +103,7 @@ function buildDeclarationFile(): string {
     export function getIllustrationUrl <N extends keyof IllustrationUrlMap,
       >(
         name: N,
-        theme?: IllustrationUrlMap[N]): string;
+        colorScheme?: IllustrationUrlMap[N]): string;
 
     export interface IllustrationProps extends HTMLAttributes<HTMLDivElement> {
        /**
@@ -115,10 +115,10 @@ function buildDeclarationFile(): string {
        */
       alt?: string;
       /**
-       * The theme of the illustration. 
-       * @default 'light', if supported, or to the first available theme.
+       * The color scheme of the illustration. 
+       * @default 'light', if supported, or to the first available color scheme.
        */
-      theme?: Theme;
+      'color-scheme'?: ColorScheme;
       /**
        * The size in pixels of the illustration.
        * Illustrations have a 1:1 aspect ratio, so size will be used as both width and height.
@@ -143,27 +143,25 @@ function buildIllustrationComponentFile(): string {
     ${helperImport}
     ${stylesImport}
     
-    export function Illustration({ name, theme, size = 240, alt, style: styleProp, className: classNameProp, ...props }) {
+    export function Illustration({ name, 'color-scheme': colorScheme, size = 240, alt, style: styleProp, className: classNameProp, ...props }) {
       
       const illustrationData = ${JSON.stringify(illustrations)};
-      const illustration = illustrationData[name];
+      const illustrationThemes = illustrationData[name];
 
       if (
         process.env.NODE_ENV !== 'production' &&
         process.env.NODE_ENV !== 'test' &&
-        !illustration 
+        !illustrationThemes 
       ) {
         throw new Error(\`${invalidNameError}\`)
       }
-      let themeToUse = theme;
-      const availableThemes = illustration;
 
       // if the requested theme is supported, use it exclusively
       // otherwise, make the illustration available in all available themes according to
       // the theme configuration
-      const style = (theme && theme === themeToUse) ? {
-      '--illustration-url-light': 'url("' + getIllustrationUrl(name, themeToUse) + '")',
-      } : availableThemes.reduce((acc, theme) => {
+      const style = colorScheme  ? {
+      '--illustration-url-light': 'url("' + getIllustrationUrl(name, colorScheme) + '")',
+      } : illustrationThemes.reduce((acc, theme) => {
         acc['--illustration-url-' + theme] = 'url("' + getIllustrationUrl(name, theme) + '")';
         return acc;
       }, {});
