@@ -60,7 +60,7 @@ function buildIllustrationUrlMapType(): string {
 
 function buildHelpersFile(): string {
   return `
-    export function getIllustrationUrl(name, theme) {
+    export function getIllustrationUrl(name, theme = 'light') {
       return '${BASE_URL}/illustrations/' + name + (theme ? '_' + theme : '') + '.svg';
     }
   `;
@@ -103,7 +103,7 @@ function buildDeclarationFile(): string {
     export function getIllustrationUrl <N extends keyof IllustrationUrlMap,
       >(
         name: N,
-        theme: IllustrationUrlMap[N]): string;
+        theme?: IllustrationUrlMap[N]): string;
 
     export interface IllustrationProps extends HTMLAttributes<HTMLDivElement> {
        /**
