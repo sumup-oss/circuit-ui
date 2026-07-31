@@ -126,3 +126,11 @@ Avoid using external links, as this can create an inconsistent user experience a
 Set the `stretched` prop to true to make all tabs expand and share the available space evenly.
 
 <Story of={Stories.Stretched} />
+
+### Paid features
+
+Set the `trailingComponent` prop on a tab to display a `TierIndicator` badge next to its label, marking that tab as gated behind a paid plan. This works the same way whether you use the `items`-array API, `TabList`'s `tabs` prop, or manual `Tab` composition.
+
+However, whenever possible, communicate the value and availability of paid features within the page content itself (for example, on an "Overview" page) rather than in the navigation. This helps keep navigation clear and focused.
+
+<Story of={Stories.WithTierBadge} />
