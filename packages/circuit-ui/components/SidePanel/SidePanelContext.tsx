@@ -44,7 +44,7 @@ export type UpdateSidePanel = (
 export type RemoveSidePanel = (
   group: SidePanelHookProps['group'],
   isInstantClose?: boolean,
-) => Promise<void>;
+) => Promise<boolean>;
 
 export type SidePanelContextItem = SidePanelHookProps &
   Pick<SidePanelProps, 'onCloseEnd' | 'open'> &
@@ -61,7 +61,7 @@ type SidePanelContextValue = {
 export const SidePanelContext = createContext<SidePanelContextValue>({
   setSidePanel: () => {},
   updateSidePanel: () => {},
-  removeSidePanel: () => Promise.resolve(),
+  removeSidePanel: () => Promise.resolve(false),
   isPrimaryContentResized: false,
   transitionDuration: TRANSITION_DURATION,
 });
@@ -96,7 +96,7 @@ export function SidePanelProvider({
       const panel = findSidePanel(group);
 
       if (!panel) {
-        return;
+        return false;
       }
 
       const sidePanelIndex = sidePanelsRef.current.indexOf(panel);
@@ -145,9 +145,10 @@ export function SidePanelProvider({
             });
           });
         } catch (_error) {
-          break;
+          return false;
         }
       }
+      return true;
       /* eslint-enable no-await-in-loop */
     },
     [findSidePanel, dispatch, sidePanelsRef],
@@ -220,6 +221,7 @@ export function SidePanelProvider({
             transition,
             isInstantOpen,
             isInstantClose,
+            onBack,
             ...sidePanelProps
           } = sidePanel;
 
@@ -229,7 +231,12 @@ export function SidePanelProvider({
             void removeSidePanel(sidePanels[0].group);
           };
           const handleBack = isStacked
-            ? () => removeSidePanel(group)
+            ? () =>
+                removeSidePanel(group).then((didClose) => {
+                  if (didClose) {
+                    onBack?.();
+                  }
+                })
             : undefined;
 
           return (
