@@ -65,15 +65,11 @@ describe('Tab', () => {
     );
   });
 
-  it('should render a trailing component', () => {
-    render(<Tab trailingComponent={{ variant: 'plus' }}>Services</Tab>);
-    expect(screen.getByText('Services')).toBeVisible();
-  });
-
-  it('should always render the trailing component at size s', () => {
+  it('should render a trailing component, always at size s', () => {
     const { container } = render(
       <Tab trailingComponent={{ variant: 'plus' }}>Services</Tab>,
     );
+    expect(screen.getByText('Services')).toBeVisible();
     expect(container.querySelector('svg')).toHaveAttribute('height', '16');
   });
 });

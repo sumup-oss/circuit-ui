@@ -46,8 +46,8 @@ export type TabProps = LinkElProps &
      */
     selected?: boolean;
     /**
-     * Display a `TierIndicator` badge next to the tab's label, e.g. to mark
-     * a tab as gated behind a paid plan. Always rendered at size 's'.
+     * Display a `TierIndicator` badge next to the tab's label to indicate
+     * features that are part of the plus plan
      */
     trailingComponent?: Omit<TierIndicatorProps, 'size'>;
   };
