@@ -10,7 +10,7 @@ A [create-next-app template](https://nextjs.org/docs/api-reference/create-next-a
 
 ## 💻 Prerequisites
 
-- You should have **Node.js** installed at a version equal to or above **`v20.0.0`**.
+- You should have **Node.js** installed at a version equal to or above **`v22.0.0`**.
 
 ## ✨ Setting up a new Circuit UI + Next.js project
 
