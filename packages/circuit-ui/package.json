@@ -63,7 +63,7 @@
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.8",
     "@nanostores/react": "^1.1.0",
-    "nanostores": "^1.3.0"
+    "nanostores": "^1.4.1"
   },
   "devDependencies": {
     "@emotion/is-prop-valid": "^1.4.0",
