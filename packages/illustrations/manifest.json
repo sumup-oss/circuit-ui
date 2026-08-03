@@ -1,0 +1,224 @@
+{
+  "illustrations": [
+    {
+      "name": "celebration",
+      "category": "Feedback",
+      "color-scheme": "light"
+    },
+    {
+      "name": "celebration",
+      "category": "Feedback",
+      "color-scheme": "dark"
+    },
+    {
+      "name": "error-1",
+      "category": "Feedback",
+      "color-scheme": "light"
+    },
+    {
+      "name": "error-1",
+      "category": "Feedback",
+      "color-scheme": "dark"
+    },
+    {
+      "name": "error-2",
+      "category": "Feedback",
+      "color-scheme": "light"
+    },
+    {
+      "name": "error-2",
+      "category": "Feedback",
+      "color-scheme": "dark"
+    },
+    {
+      "name": "waiting",
+      "category": "Feedback",
+      "color-scheme": "light"
+    },
+    {
+      "name": "waiting",
+      "category": "Feedback",
+      "color-scheme": "dark"
+    },
+    {
+      "name": "financial-milestone",
+      "category": "Feedback",
+      "color-scheme": "light"
+    },
+    {
+      "name": "financial-milestone",
+      "category": "Feedback",
+      "color-scheme": "dark"
+    },
+    {
+      "name": "empty-state-1",
+      "category": "States",
+      "color-scheme": "light"
+    },
+    {
+      "name": "empty-state-1",
+      "category": "States",
+      "color-scheme": "dark"
+    },
+    {
+      "name": "empty-state-2",
+      "category": "States",
+      "color-scheme": "light"
+    },
+    {
+      "name": "empty-state-2",
+      "category": "States",
+      "color-scheme": "dark"
+    },
+    {
+      "name": "empty-state-3",
+      "category": "States",
+      "color-scheme": "light"
+    },
+    {
+      "name": "empty-state-3",
+      "category": "States",
+      "color-scheme": "dark"
+    },
+    {
+      "name": "problems",
+      "category": "States",
+      "color-scheme": "light"
+    },
+    {
+      "name": "problems",
+      "category": "States",
+      "color-scheme": "dark"
+    },
+    {
+      "name": "off",
+      "category": "States",
+      "color-scheme": "light"
+    },
+    {
+      "name": "off",
+      "category": "States",
+      "color-scheme": "dark"
+    },
+    {
+      "name": "account",
+      "category": "Feature",
+      "color-scheme": "light"
+    },
+    {
+      "name": "account",
+      "category": "Feature",
+      "color-scheme": "dark"
+    },
+    {
+      "name": "bookings",
+      "category": "Feature",
+      "color-scheme": "light"
+    },
+    {
+      "name": "bookings",
+      "category": "Feature",
+      "color-scheme": "dark"
+    },
+    {
+      "name": "invoice",
+      "category": "Feature",
+      "color-scheme": "light"
+    },
+    {
+      "name": "invoice",
+      "category": "Feature",
+      "color-scheme": "dark"
+    },
+    {
+      "name": "loyalty",
+      "category": "Feature",
+      "color-scheme": "light"
+    },
+    {
+      "name": "loyalty",
+      "category": "Feature",
+      "color-scheme": "dark"
+    },
+    {
+      "name": "giftcards",
+      "category": "Feature",
+      "color-scheme": "light"
+    },
+    {
+      "name": "giftcards",
+      "category": "Feature",
+      "color-scheme": "dark"
+    },
+    {
+      "name": "onlinepayments",
+      "category": "Feature",
+      "color-scheme": "light"
+    },
+    {
+      "name": "onlinepayments",
+      "category": "Feature",
+      "color-scheme": "dark"
+    },
+    {
+      "name": "paymentlinks",
+      "category": "Feature",
+      "color-scheme": "light"
+    },
+    {
+      "name": "paymentlinks",
+      "category": "Feature",
+      "color-scheme": "dark"
+    },
+    {
+      "name": "referral",
+      "category": "Feature",
+      "color-scheme": "light"
+    },
+    {
+      "name": "referral",
+      "category": "Feature",
+      "color-scheme": "dark"
+    },
+    {
+      "name": "rewards",
+      "category": "Feature",
+      "color-scheme": "light"
+    },
+    {
+      "name": "rewards",
+      "category": "Feature",
+      "color-scheme": "dark"
+    },
+    {
+      "name": "taptopay",
+      "category": "Feature",
+      "color-scheme": "light"
+    },
+    {
+      "name": "taptopay",
+      "category": "Feature",
+      "color-scheme": "dark"
+    },
+    {
+      "name": "security",
+      "category": "General communication",
+      "color-scheme": "light"
+    },
+    {
+      "name": "security",
+      "category": "General communication",
+      "color-scheme": "dark"
+    },
+    {
+      "name": "support",
+      "category": "General communication",
+      "color-scheme": "light"
+    },
+    {
+      "name": "support",
+      "category": "General communication",
+      "color-scheme": "dark"
+    }
+  ]
+}

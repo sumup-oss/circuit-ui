@@ -1,0 +1,20 @@
+/* Theme follows a root/layout ancestor, e.g. <html data-color-scheme="light">. */
+.base {
+  background-image: var(--illustration-url-light);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+:global([data-color-scheme="dark"]) .base {
+  background-image: var(--illustration-url-dark, var(--illustration-url-light));
+}
+
+@media (prefers-color-scheme: dark) {
+  .base {
+    background-image: var(
+      --illustration-url-dark,
+      var(--illustration-url-light)
+    );
+  }
+}
