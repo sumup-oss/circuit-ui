@@ -10,7 +10,7 @@ import { Illustration, getIllustrationUrl } from '@sumup-oss/illustrations';
 function MyComponent() {
   return (<div>
     <Illustration name="celebration" />;
-    <img src={getIllustrationUrl('celebration','light')} />
+    <img src={getIllustrationUrl('celebration','light')} alt="" />
   </div>)
 }
 
