@@ -28,7 +28,7 @@ The notification banner component has two variants:
 Use the `image` prop to add visual context to a notification banner. Images can help make a message more noticeable, especially for promotional content or important announcements.
 
 You can provide an image in one of two ways:
-- Pass standard image properties through the `img` object, using the `ImageProps` type.
+- Pass standard image properties through the `image` object, using the `ImageProps` type.
 - Use one of Circuit UI’s predefined illustrations by passing an `IllustrationProps` object. See the [illustration library](Features/Illustrations/Docs) for available illustrations.
 
 ```tsx
@@ -37,7 +37,7 @@ import { NotificationBanner, type NotificationBannerProps } from '@sumup-oss/cir
 // with a source URL
 function Banner(props: NotificationBannerProps) {
   return (
-    <NotificationBanner {...props} image={{ src: 'https://example.com/image.png', alt: "Image description" }} />
+    <NotificationBanner {...props} image={{ src: 'https://example.com/image.png', alt: "" }} />
   )
 }
 
@@ -56,7 +56,7 @@ import { NotificationBanner, type NotificationBannerProps } from '@sumup-oss/cir
 
 function Banner(props: NotificationBannerProps) {
   return (
-    <NotificationBanner {...props} image={{ src: 'https://example.com/image.png', alt: "Image description", width: '120' }} />
+    <NotificationBanner {...props} image={{ src: 'https://example.com/image.png', alt: "", width: '120' }} />
   )
 }
 ```
