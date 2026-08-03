@@ -10,6 +10,7 @@ const esModules = [
   '@nanostores/react',
   'nanostores',
   'temporal-polyfill',
+  'temporal-utils',
 ].join('|');
 
 const createJestConfig = nextJest({ dir: './' });
