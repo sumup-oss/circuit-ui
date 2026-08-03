@@ -53,6 +53,20 @@ describe('NotificationFullscreen', () => {
     expect(svg).toHaveAccessibleName(alt);
   });
 
+  it('should render with an illustration', () => {
+    const props: NotificationFullscreenProps = {
+      ...baseProps,
+      image: {
+        illustration: 'security',
+      },
+    };
+    renderNotificationFullscreen(props);
+
+    expect(screen.getByRole('presentation').getAttribute('style')).toContain(
+      'security_light.svg',
+    );
+  });
+
   it('should forward a ref', () => {
     const ref = createRef<HTMLDivElement>();
     const { container } = render(

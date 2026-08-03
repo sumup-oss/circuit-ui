@@ -35,11 +35,6 @@ describe('NotificationBanner', () => {
       children: 'Update',
       variant: 'primary',
     },
-    image: {
-      src: '/images/illustration-update.svg',
-      alt: 'Update',
-      width: '100',
-    },
   };
 
   it('should forward a ref', () => {
@@ -67,6 +62,33 @@ describe('NotificationBanner', () => {
     });
 
     expect(screen.getByRole('button', { name: /close/i })).toBeVisible();
+  });
+
+  it('should render an image', () => {
+    renderNotificationBanner({
+      ...baseProps,
+
+      image: {
+        src: '/images/illustration-update.svg',
+        alt: 'Update',
+        width: '100',
+      },
+    });
+
+    expect(screen.getByRole('img', { name: 'Update' })).toBeVisible();
+  });
+  it('should render an illustration', () => {
+    renderNotificationBanner({
+      ...baseProps,
+      image: {
+        illustration: 'security',
+        size: 120,
+      },
+    });
+
+    expect(screen.getByRole('presentation').getAttribute('style')).toContain(
+      'security_light.svg',
+    );
   });
 
   it('should call onClose when closed', async () => {
