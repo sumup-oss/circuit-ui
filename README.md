@@ -25,6 +25,7 @@ Here are a few helpful links for getting started with Circuit UI:
 - **[@sumup-oss/circuit-ui](./packages/circuit-ui)** — the core React component library
 - **[@sumup-oss/design-tokens](./packages/design-tokens)** — visual primitives such as typography, color, and spacing
 - **[@sumup-oss/icons](./packages/icons)** — a collection of SVG icons
+- **[@sumup-oss/illustrations](./packages/illustrations)** — Circuit UI illustration library
 - **[@sumup-oss/eslint-plugin-circuit-ui](./packages/eslint-plugin-circuit-ui)** — ESLint rules to help users follow best practices when using Circuit UI
 - **[@sumup-oss/stylelint-plugin-circuit-ui](./packages/stylelint-plugin-circuit-ui)** — Stylelint rules to help users follow best practices when using Circuit UI
 
