@@ -14,6 +14,7 @@
  */
 
 import { Tab } from '../Tab/Tab.js';
+import { TierIndicator } from '../../../TierIndicator/TierIndicator.js';
 import { TabList } from './TabList.js';
 
 export default {
@@ -73,7 +74,7 @@ export const WithTierIndicator = () => (
       {
         id: 'services',
         tab: 'Services',
-        trailingComponent: { variant: 'plus' },
+        trailingComponent: TierIndicator,
       },
       { id: 'items', tab: 'Items' },
       { id: 'discounts', tab: 'Discounts' },

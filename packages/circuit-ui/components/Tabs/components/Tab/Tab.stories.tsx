@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { TierIndicator } from '../../../TierIndicator/TierIndicator.js';
+
 import { Tab } from './Tab.js';
 
 export default {
@@ -36,7 +38,7 @@ export const Base = () => (
 
 export const WithTierIndicator = () => (
   <div>
-    <Tab trailingComponent={{ variant: 'plus' }}>Services</Tab>
+    <Tab trailingComponent={TierIndicator}>Services</Tab>
     <Tab>Items</Tab>
   </div>
 );

@@ -18,6 +18,8 @@ import { createRef } from 'react';
 
 import { axe, render, screen, userEvent } from '../../../../util/test-utils.js';
 
+import { TierIndicator } from '../../../TierIndicator/TierIndicator.js';
+
 import { TabList } from './TabList.js';
 
 const tabs = [
@@ -140,7 +142,11 @@ describe('TabList', () => {
     render(
       <TabList
         tabs={[
-          { id: 'a', tab: 'Services', trailingComponent: { variant: 'plus' } },
+          {
+            id: 'a',
+            tab: 'Services',
+            trailingComponent: TierIndicator,
+          },
         ]}
       />,
     );

@@ -17,6 +17,8 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { axe, render, screen, userEvent } from '../../util/test-utils.js';
 
+import { TierIndicator } from '../TierIndicator/TierIndicator.js';
+
 import { Tabs } from './Tabs.js';
 
 describe('Tabs', () => {
@@ -123,7 +125,7 @@ describe('Tabs', () => {
           {
             id: 'a',
             tab: 'Services',
-            trailingComponent: { variant: 'plus' },
+            trailingComponent: TierIndicator,
             panel: 'panel-a',
           },
           { id: 'b', tab: 'Items', panel: 'panel-b' },

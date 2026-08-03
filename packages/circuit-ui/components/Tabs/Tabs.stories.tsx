@@ -20,6 +20,7 @@ import { ArrowLeft, ExternalLink } from '@sumup-oss/icons';
 import { Body } from '../Body/index.js';
 import { Headline } from '../Headline/index.js';
 import { Button } from '../Button/index.js';
+import { TierIndicator } from '../TierIndicator/TierIndicator.js';
 import { modes } from '../../../../.storybook/modes.js';
 
 import type { TabsProps } from './Tabs.js';
@@ -126,7 +127,7 @@ const tabsWithTierIndicator = [
   {
     id: 'services',
     tab: 'Services',
-    trailingComponent: { variant: 'plus' as const },
+    trailingComponent: TierIndicator,
     panel: <ContentWithInteractiveElements index={1} />,
   },
   {

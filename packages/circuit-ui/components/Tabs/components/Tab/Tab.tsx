@@ -19,15 +19,13 @@ import {
   forwardRef,
   type AnchorHTMLAttributes,
   type ButtonHTMLAttributes,
+  type ComponentType,
 } from 'react';
 
 import { useComponents } from '../../../ComponentsContext/index.js';
 import type { EmotionAsPropType } from '../../../../types/prop-types.js';
 import { clsx } from '../../../../styles/clsx.js';
-import {
-  TierIndicator,
-  type TierIndicatorProps,
-} from '../../../TierIndicator/TierIndicator.js';
+import type { TierIndicatorProps } from '../../../TierIndicator/TierIndicator.js';
 
 import classes from './Tab.module.css';
 
@@ -49,7 +47,7 @@ export type TabProps = LinkElProps &
      * Display a `TierIndicator` badge next to the tab's label to indicate
      * features that are part of the plus plan
      */
-    trailingComponent?: Omit<TierIndicatorProps, 'size'>;
+    trailingComponent?: ComponentType<TierIndicatorProps>;
   };
 
 const tabIndex = (selected: boolean) => (selected ? undefined : -1);
@@ -64,7 +62,7 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(
       as = 'tab',
       className,
       children,
-      trailingComponent,
+      trailingComponent: TrailingComponent,
       ...props
     },
     ref,
@@ -73,10 +71,10 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(
     const Link = components.Link as EmotionAsPropType;
     const Element = props.href ? Link : 'button';
 
-    const content = trailingComponent ? (
+    const content = TrailingComponent ? (
       <span className={classes.content}>
         {children}
-        <TierIndicator {...trailingComponent} size="s" />
+        <TrailingComponent variant="plus" size="s" />
       </span>
     ) : (
       children
