@@ -29,6 +29,19 @@ import { CircuitError } from '../../util/errors.js';
 
 import classes from './NotificationModal.module.css';
 import { isString } from '../../util/type-check.js';
+import { Illustration, type IllustrationProps } from '@sumup-oss/illustrations';
+
+type NotificationIllustrationProps = Omit<
+  IllustrationProps,
+  'name' | 'size'
+> & {
+  illustration: IllustrationProps['name'];
+};
+
+type NotificationImageProps =
+  | ImageProps
+  | NotificationIllustrationProps
+  | { svg: FC<SVGProps<SVGSVGElement>>; alt: string };
 
 export type NotificationModalProps = Omit<ModalProps, 'children'> & {
   /**
@@ -38,7 +51,7 @@ export type NotificationModalProps = Omit<ModalProps, 'children'> & {
    * [decorative](https://www.w3.org/WAI/tutorials/images/decorative/),
    * or a localized description if the image is [informative](https://www.w3.org/WAI/tutorials/images/informative/).
    */
-  image?: ImageProps | { svg: FC<SVGProps<SVGSVGElement>>; alt: string };
+  image?: NotificationImageProps;
   /**
    * The notification's headline.
    */
@@ -69,6 +82,17 @@ function NotificationImage({ image }: Pick<NotificationModalProps, 'image'>) {
             : { 'aria-label': image.alt, 'role': 'img' })}
         />
       </div>
+    );
+  }
+  if ('illustration' in image) {
+    const { illustration, className, ...rest } = image;
+    return (
+      <Illustration
+        name={illustration}
+        size={120}
+        className={clsx(classes.illustration, className)}
+        {...rest}
+      />
     );
   }
 

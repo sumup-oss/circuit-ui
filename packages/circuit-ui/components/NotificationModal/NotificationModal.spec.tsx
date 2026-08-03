@@ -77,6 +77,22 @@ describe('NotificationModal', () => {
     expect(svg).toHaveAccessibleName(alt);
   });
 
+  it('should render with an illustration', () => {
+    const props: NotificationModalProps = {
+      ...baseNotificationModal,
+      image: { illustration: 'security' },
+    };
+    renderNotificationModal(props);
+    act(() => {
+      vi.advanceTimersByTime(ANIMATION_DURATION);
+    });
+
+    expect(screen.getByRole('presentation')).toBeVisible();
+    expect(screen.getByRole('presentation').getAttribute('style')).toContain(
+      'security_light.svg',
+    );
+  });
+
   it('should render without an image', () => {
     const { image, ...props } = baseNotificationModal;
     renderNotificationModal(props);
