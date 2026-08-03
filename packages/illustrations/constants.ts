@@ -43,7 +43,7 @@ export const NAMES = [
   'giftcards',
   'onlinepayments',
   'paymentlinks',
-  'referrak',
+  'referral',
   'rewards',
   'taptopay',
   // General communication
