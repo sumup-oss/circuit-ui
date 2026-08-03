@@ -38,6 +38,7 @@ import { getElementHeight } from '../Notification/NotificationService.js';
 import { DEFAULT_HEIGHT } from '../Notification/constants.js';
 
 import classes from './NotificationBanner.module.css';
+import { Illustration, type IllustrationProps } from '@sumup-oss/illustrations';
 
 type Action = Omit<ButtonProps, 'size'>;
 
@@ -65,17 +66,26 @@ interface NotificationImageProps extends ImageProps {
   align?: 'top' | 'left' | 'bottom' | 'right' | 'center';
 }
 
+type NotificationIllustrationProps = Omit<IllustrationProps, 'name'> & {
+  illustration: IllustrationProps['name'];
+};
+type ImageOrIllustrationProps =
+  | NotificationImageProps
+  | NotificationIllustrationProps;
+
 interface BaseProps extends Omit<HTMLAttributes<HTMLDivElement>, 'action'> {
   /**
    * Use the `system` variant for system notification use cases, otherwise,
    * use the `promotional` variant for promotional notification use cases.
+   * @default 'system'.
    */
   variant?: NotificationVariant;
   /**
    * Optional image to communicate message. The image container width is
    * adjustable.
    */
-  image?: NotificationImageProps;
+  image?: ImageOrIllustrationProps;
+
   /**
    * Optional notification headline to communicate a message.
    */
@@ -97,22 +107,26 @@ interface BaseProps extends Omit<HTMLAttributes<HTMLDivElement>, 'action'> {
 
 export type NotificationBannerProps = BaseProps & CloseProps;
 
-function NotificationImage({
-  align = 'center',
-  width = 200,
-  className,
-  ...props
-}: NotificationImageProps) {
-  return (
-    <Image
-      {...props}
-      className={clsx(classes.image, className)}
-      style={{
-        '--notification-image-align': align,
-        '--notification-image-width': `${width}px`,
-      }}
-    />
-  );
+function NotificationImage(props: ImageOrIllustrationProps) {
+  if ('src' in props) {
+    const { className, align = 'center', width = 200, ...imageProps } = props;
+    return (
+      <Image
+        {...imageProps}
+        className={clsx(classes.image, className)}
+        style={{
+          '--notification-image-align': align,
+          '--notification-image-width': `${width}px`,
+        }}
+      />
+    );
+  }
+  if ('illustration' in props) {
+    const { illustration, ...imageProps } = props;
+
+    return <Illustration {...imageProps} name={illustration} />;
+  }
+  return null;
 }
 
 /**
@@ -194,7 +208,7 @@ export const NotificationBanner = forwardRef<
             className={clsx(action.className, classes.button)}
             size="s"
           />
-          {image?.src && <NotificationImage {...image} />}
+          {image && <NotificationImage {...image} />}
           {onClose && closeButtonLabel && (
             <CloseButton className={classes.close} size="s" onClick={onClose}>
               {closeButtonLabel}

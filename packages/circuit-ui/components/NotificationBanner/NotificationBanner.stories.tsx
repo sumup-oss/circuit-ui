@@ -56,6 +56,24 @@ Base.args = {
   },
 };
 
+export const Illustration = (args: NotificationBannerProps) => (
+  <NotificationBanner {...args} />
+);
+
+Illustration.args = {
+  headline: 'Software update',
+  body: 'There is updated firmware available for your card reader. Please update to continue using your card reader.',
+  action: {
+    onClick: action('Action clicked'),
+    children: 'Update',
+    variant: 'primary',
+  },
+  image: {
+    illustration: 'security',
+    size: 120,
+  },
+};
+
 export const Dismissable = (args: NotificationBannerProps) => {
   const [isVisible, setVisible] = useState(args.isVisible);
   return (
