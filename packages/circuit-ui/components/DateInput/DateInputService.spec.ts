@@ -50,14 +50,14 @@ describe('DateInputService', () => {
 
     it('should return the plain label if the date is undefined', () => {
       const date = undefined;
-      const locale = undefined;
+      const locale = 'en';
       const actual = getCalendarButtonLabel(label, date, locale);
       expect(actual).toBe(label);
     });
 
     it('should postfix the formatted date to the label', () => {
       const date = new Temporal.PlainDate(2017, 8, 28);
-      const locale = undefined;
+      const locale = 'en';
       const actual = getCalendarButtonLabel(label, date, locale);
       expect(actual).toBe(`${label}, August 28, 2017`);
     });

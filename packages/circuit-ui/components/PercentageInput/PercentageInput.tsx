@@ -22,6 +22,8 @@ import { NumericFormat } from '../../vendor/react-number-format/index.js';
 import type { OnValueChange } from '../../vendor/react-number-format/types.js';
 import { clsx } from '../../styles/clsx.js';
 import { idx } from '../../util/idx.js';
+import type { Locale } from '../../util/i18n.js';
+import { useLocale } from '../../hooks/useLocale/useLocale.js';
 import { Input, type InputProps } from '../Input/index.js';
 
 import { formatPlaceholder } from './PercentageInputService.js';
@@ -37,7 +39,7 @@ export interface PercentageInputProps
    * One or more Unicode BCP 47 locale identifiers, such as `'de-DE'` or
    * `['GB', 'en-US']` (the first supported locale is used).
    */
-  locale?: string | string[];
+  locale?: Locale;
   /**
    * A short string that is shown inside the empty input.
    * If the placeholder is a number, it is formatted in the local format.
@@ -66,13 +68,14 @@ const DEFAULT_FORMAT = {
  * PercentageInput component for fractional values
  */
 export function PercentageInput({
-  locale,
+  locale: customLocale,
   placeholder = '0',
   decimalScale = 0,
   'aria-describedby': descriptionId,
   ref,
   ...props
 }: PercentageInputProps) {
+  const locale = useLocale(customLocale);
   const percentageSymbolId = useId();
   const descriptionIds = idx(percentageSymbolId, descriptionId);
 

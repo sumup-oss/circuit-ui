@@ -84,7 +84,7 @@ export function getInitialState({
   includeTime,
 }: {
   datetime: string;
-  locale: Locale | undefined;
+  locale: Locale;
   formatStyle: 'long' | 'short' | 'narrow';
   includeTime: boolean;
 }): State {
@@ -109,7 +109,7 @@ export function getState({
   includeTime,
 }: {
   datetime: string;
-  locale: Locale | undefined;
+  locale: Locale;
   formatStyle: 'long' | 'short' | 'narrow';
   variant: 'auto' | 'relative' | 'absolute';
   includeTime: boolean;

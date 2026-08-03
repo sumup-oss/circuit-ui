@@ -142,7 +142,7 @@ type Weekdays = [Weekday, Weekday, Weekday, Weekday, Weekday, Weekday, Weekday];
 export function getWeekdays(
   firstDayOfWeek: FirstDayOfWeek = 1,
   daysInWeek: DaysInWeek = 7,
-  locale?: Locale,
+  locale: Locale,
 ) {
   return Array.from(Array(daysInWeek)).map((_, index) => {
     // 1973 started with a Monday
@@ -162,7 +162,7 @@ export function getWeekdays(
 
 export function getMonthHeadline(
   yearMonth: Temporal.PlainYearMonth,
-  locale?: Locale,
+  locale: Locale,
 ) {
   // Temporal objects use the `iso8601` calendar system by default, which
   // (incorrectly?) renders the year before the month since Node 22.12

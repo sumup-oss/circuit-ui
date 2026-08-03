@@ -20,6 +20,7 @@ import { Temporal } from 'temporal-polyfill';
 
 import type { Locale } from '../../util/i18n.js';
 import { clsx } from '../../styles/clsx.js';
+import { useLocale } from '../../hooks/useLocale/useLocale.js';
 
 import { getInitialState, getState } from './TimestampService.js';
 import classes from './Timestamp.module.css';
@@ -72,10 +73,11 @@ export function Timestamp({
   variant = 'auto',
   formatStyle = 'long',
   includeTime = false,
-  locale,
+  locale: customLocale,
   className,
   ...props
 }: TimestampProps) {
+  const locale = useLocale(customLocale);
   const zonedDateTime = Temporal.ZonedDateTime.from(datetime);
   const [state, setState] = useState(
     getInitialState({ datetime, locale, formatStyle, includeTime }),

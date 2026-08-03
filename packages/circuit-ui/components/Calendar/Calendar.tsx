@@ -85,13 +85,6 @@ interface SharedProps {
    */
   maxDate?: Temporal.PlainDate;
   /**
-   * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
-   * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
-   * When passing an array, the first supported locale is used.
-   * Defaults to `navigator.language` in supported environments.
-   */
-  locale?: Locale;
-  /**
    * An integer indicating the first day of the week. Can be either `1` (Monday)
    * or `7` (Sunday). Default: `1`.
    */
@@ -114,6 +107,13 @@ export interface CalendarProps
   extends SharedProps,
     Omit<HTMLAttributes<HTMLDivElement>, 'onSelect'> {
   ref?: Ref<HTMLDivElement>;
+  /**
+   * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
+   * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
+   * When passing an array, the first supported locale is used.
+   * Defaults to `navigator.language` in supported environments.
+   */
+  locale?: Locale;
   /**
    * A callback that is called with the visible months on the initial render and
    * whenever a user navigates to different months.
@@ -336,6 +336,7 @@ interface MonthProps extends SharedProps {
   focusedDate: Temporal.PlainDate;
   hoveredDate: Temporal.PlainDate | null;
   daysInWeek: number;
+  locale: Locale;
 }
 
 function Month({
