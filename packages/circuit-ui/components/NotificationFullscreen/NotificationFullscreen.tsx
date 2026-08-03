@@ -29,16 +29,29 @@ import { isString } from '../../util/type-check.js';
 import { clsx } from '../../styles/clsx.js';
 
 import classes from './NotificationFullscreen.module.css';
+import { Illustration, type IllustrationProps } from '@sumup-oss/illustrations';
+
+type NotificationIllustrationProps = Omit<
+  IllustrationProps,
+  'name' | 'size'
+> & {
+  illustration: IllustrationProps['name'];
+};
+
+type NotificationImageProps =
+  | ImageProps
+  | NotificationIllustrationProps
+  | { svg: FC<SVGProps<SVGSVGElement>>; alt: string };
 
 export interface NotificationFullscreenProps
   extends HTMLAttributes<HTMLDivElement> {
   /**
    * An image to illustrate the notification. Supports either passing an image
-   * source to `image.src` or an SVG component to `image.svg`. Pass an empty
-   * string as alt text if the image is [decorative](https://www.w3.org/WAI/tutorials/images/decorative/),
+   * source to `image.src`, an SVG component to `image.svg`, or an illustration name from the [Illustrations](https://circuit.sumup.com/?path=/docs/features-illustrations--docs) library to `image.illustration`.
+   * Pass an empty string as alt text if the image is [decorative](https://www.w3.org/WAI/tutorials/images/decorative/),
    * or a localized description if the image is [informative](https://www.w3.org/WAI/tutorials/images/informative/).
    */
-  image: ImageProps | { svg: FC<SVGProps<SVGSVGElement>>; alt: string };
+  image: NotificationImageProps;
   /**
    * The notification's headline. Renders an `h2` element by default. If
    * appropriate, pass an object with `as: 'h1'` to render an `h1` element.
@@ -73,7 +86,13 @@ function NotificationImage(image: NotificationFullscreenProps['image']) {
       </div>
     );
   }
-  return <Image {...image} className={classes.image} />;
+  if ('src' in image) {
+    return <Image {...image} className={classes.image} />;
+  }
+  if ('illustration' in image) {
+    return <Illustration name={image.illustration} size={160} {...image} />;
+  }
+  return null;
 }
 
 /**

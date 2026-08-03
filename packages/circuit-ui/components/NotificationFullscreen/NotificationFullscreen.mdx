@@ -12,20 +12,28 @@ The NotificationFullscreen component provides important information or feedback 
 <Story of={Stories.Base} inline={false} />
 <Props of={Stories.Base} />
 
-## When to use it
+## When to use
 
+Use the NotificationFullscreen component in the following situations:
 - As a confirmation/success screen.
 - As an empty screen state.
 - As an error screen.
 
-## Usage guidelines
+## How to use
 
-- Use a concise headline to communicate your message.
-- Render an `h1` headline instead of the default `h2` if there is no other `h1` on the page (see "Accessibility" below).
-- When necessary, an optional body copy and actions (anchors or buttons) can be rendered.
-- The maximum width of the NotificationFullscreen is 420px, to optimize readability of the text.
-- The positioning of the action buttons follows the guidelines of the [ButtonGroup](Components/Button/ButtonGroup) component.
-- The image asset has a fixed height of 160px, and a maximum width of 280px.
+The NotificationFullscreen component is meant to be used as a standalone component. Its headline renders as a level 2 heading by default. If there is no other `h1` on the page, pass a `headline` prop as an object with the `as: "h1"` property (see Accessibility below).
+
+You can display one or two call-to-actions (anchors or buttons) at the bottom of the NotificationFullscreen using the `actions` prop, which follows the guidelines of the [ButtonGroup](Components/Button/ButtonGroup) component.
+
+### Image
+The NotificationFullscreen component can render an image asset in 3 different manners:
+- `src`: A URL to an image asset.
+- `svg`: An SVG element.
+- `illustration`: use one of the available illustrations from the [Illustration](Features/Illustration/Docs) library.
+
+The image asset has a fixed height of 160px, and a maximum width of 280px, except for illustrations that have fixed a 1:1 aspect ratio,
+
+<Story of={Stories.Illustration} inline={false} />
 
 ## Accessibility
 

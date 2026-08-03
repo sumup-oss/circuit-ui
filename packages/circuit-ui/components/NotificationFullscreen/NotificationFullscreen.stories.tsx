@@ -45,6 +45,24 @@ Base.args = {
   },
 };
 
+export const Illustration = (args: NotificationFullscreenProps) => (
+  <NotificationFullscreen {...args} />
+);
+
+Illustration.args = {
+  headline: "The browser you're using is no longer supported",
+  body: 'You need a more up-to-date browser to continue using SumUp.',
+  image: {
+    illustration: 'security',
+  },
+  actions: {
+    primary: {
+      children: 'Update now',
+      onClick: () => action('Clicked'),
+    },
+  },
+};
+
 export const WithHeading1 = (args: NotificationFullscreenProps) => (
   <NotificationFullscreen {...args} />
 );
