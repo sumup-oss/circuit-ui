@@ -122,9 +122,15 @@ function NotificationImage(props: ImageOrIllustrationProps) {
     );
   }
   if ('illustration' in props) {
-    const { illustration, ...imageProps } = props;
+    const { illustration, className, ...imageProps } = props;
 
-    return <Illustration {...imageProps} name={illustration} />;
+    return (
+      <Illustration
+        {...imageProps}
+        className={clsx(classes.illustration, className)}
+        name={illustration}
+      />
+    );
   }
   return null;
 }

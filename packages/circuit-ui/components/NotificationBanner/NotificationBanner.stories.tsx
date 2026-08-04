@@ -50,17 +50,16 @@ Base.args = {
     variant: 'primary',
   },
   image: {
-    src: '/images/illustration-update.svg',
-    alt: 'Update',
-    width: '120',
+    illustration: 'security',
+    size: 160,
   },
 };
 
-export const Illustration = (args: NotificationBannerProps) => (
+export const CustomImage = (args: NotificationBannerProps) => (
   <NotificationBanner {...args} />
 );
 
-Illustration.args = {
+CustomImage.args = {
   headline: 'Software update',
   body: 'There is updated firmware available for your card reader. Please update to continue using your card reader.',
   action: {
@@ -69,8 +68,8 @@ Illustration.args = {
     variant: 'primary',
   },
   image: {
-    illustration: 'security',
-    size: 120,
+    src: '/images/illustration-update.svg',
+    width: 120,
   },
 };
 
@@ -95,7 +94,7 @@ Dismissable.args = {
     variant: 'tertiary',
   },
   image: {
-    src: '/images/illustration-referrals.svg',
-    alt: 'Refer a friend',
+    illustration: 'referral',
+    size: 120,
   },
 };
