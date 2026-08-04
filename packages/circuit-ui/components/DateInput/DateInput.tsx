@@ -160,6 +160,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       min,
       max,
       locale,
+      formattingLocale,
       firstDayOfWeek,
       modifiers,
       hideLabel,
@@ -216,7 +217,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       onChange: handleChange,
       minDate,
       maxDate,
-      locale,
+      formattingLocale,
     });
 
     const [open, setOpen] = useState(false);
@@ -259,11 +260,11 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       closeCalendar();
     };
 
-    const segments = getDateSegments(locale);
+    const segments = getDateSegments(formattingLocale);
     const calendarButtonLabel = getCalendarButtonLabel(
       openCalendarButtonLabel,
       state.date,
-      locale,
+      formattingLocale,
     );
 
     if (
@@ -429,6 +430,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                 minDate={minDate}
                 maxDate={maxDate}
                 locale={locale}
+                formattingLocale={formattingLocale}
                 firstDayOfWeek={firstDayOfWeek}
                 modifiers={modifiers}
                 prevMonthButtonLabel={prevMonthButtonLabel}

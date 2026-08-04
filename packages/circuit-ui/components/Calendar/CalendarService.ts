@@ -142,17 +142,17 @@ type Weekdays = [Weekday, Weekday, Weekday, Weekday, Weekday, Weekday, Weekday];
 export function getWeekdays(
   firstDayOfWeek: FirstDayOfWeek = 1,
   daysInWeek: DaysInWeek = 7,
-  locale: Locale,
+  formattingLocale: Locale,
 ) {
   return Array.from(Array(daysInWeek)).map((_, index) => {
     // 1973 started with a Monday
     const date = new Temporal.PlainDate(1973, 1, index + firstDayOfWeek);
     return {
-      narrow: formatDateTime(date, locale, {
+      narrow: formatDateTime(date, formattingLocale, {
         weekday: 'narrow',
         calendar: date.calendarId,
       }),
-      long: formatDateTime(date, locale, {
+      long: formatDateTime(date, formattingLocale, {
         weekday: 'long',
         calendar: date.calendarId,
       }),
@@ -162,7 +162,7 @@ export function getWeekdays(
 
 export function getMonthHeadline(
   yearMonth: Temporal.PlainYearMonth,
-  locale: Locale,
+  formattingLocale: Locale,
 ) {
   // Temporal objects use the `iso8601` calendar system by default, which
   // (incorrectly?) renders the year before the month since Node 22.12
@@ -170,7 +170,7 @@ export function getMonthHeadline(
   // A `PlainYearMonth` has to be converted to a `PlainDate` to be able to
   // change its calendar system.
   const date = yearMonth.toPlainDate({ day: 1 }).withCalendar('gregory');
-  return formatDateTime(date, locale, {
+  return formatDateTime(date, formattingLocale, {
     year: 'numeric',
     month: 'long',
     calendar: date.calendarId,

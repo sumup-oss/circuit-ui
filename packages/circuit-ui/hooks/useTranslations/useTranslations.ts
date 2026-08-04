@@ -15,24 +15,19 @@
 
 'use client';
 
-import {
-  findSupportedLocale,
-  type Locale,
-  type Translations,
-} from '../../util/i18n.js';
+import type { I18nConfig } from '../../components/I18nContext/I18nContext.js';
+import { findSupportedLocale, type Translations } from '../../util/i18n.js';
 import { useI18n } from '../useI18n/useI18n.js';
 
 type I18nProps<Key extends string | number | symbol> = {
   [key in Key]: string;
-} & {
-  locale: Locale;
-};
+} & I18nConfig;
 
 export function useTranslations<
   Props extends Partial<I18nProps<Key>>,
   Key extends string | number | symbol,
 >(props: Props, translations: Translations<Key>): Props & I18nProps<Key> {
-  const { locale } = useI18n({ locale: props.locale });
+  const { locale, formattingLocale } = useI18n({ locale: props.locale });
 
   const supportedLocale = findSupportedLocale(locale);
   const strings = translations[supportedLocale] || {};
@@ -46,5 +41,5 @@ export function useTranslations<
     {} as Record<Key, string>,
   );
 
-  return { ...props, ...translatedProps, locale };
+  return { ...props, ...translatedProps, locale, formattingLocale };
 }

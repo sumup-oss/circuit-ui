@@ -152,6 +152,7 @@ export function createButtonComponent<Props>(
       navigationIcon: TrailingIcon,
       as,
       locale,
+      formattingLocale,
       ...sharedProps
     } = useTranslations(mapProps(props as Props), translations);
 
