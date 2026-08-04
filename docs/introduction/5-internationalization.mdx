@@ -1,0 +1,79 @@
+import { Intro, Meta } from '../../.storybook/components';
+
+<Meta title="Introduction/Internationalization" />
+
+# Internationalization
+
+<Intro>
+
+Circuit UI supports localization and locale-aware formatting for any language and region.
+
+</Intro>
+
+## Internationalization Context
+
+Wrap your application in the `I18nProvider` to configure the locale that the design system components should use to display localized translations and to format date, time, currency, and other numeric values. Optionally, pass a separate `formattingLocale` if the user's preferred language and formatting style differ. It defaults to the `locale` when omitted.
+
+```tsx
+// /app/layout.tsx or /pages/_app.tsx for Next.js
+import { I18nProvider } from '@sumup-oss/circuit-ui';
+
+export default function App() {
+  return (
+    <I18nProvider locale="en-US" formattingLocale="de-DE">
+      {/* children */}
+    </I18nProvider>
+  );
+}
+```
+
+A locale must be one or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) locale identifiers such as `'de-DE'` or `['GB', 'en-US']`. When providing an array, the first supported locale is used. Locales can be derived from the [`Accept-Language` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Accept-Language) on the server or the [`navigator.language` Web API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/languages) in the browser. Ensure the value is consistent between environments to avoid hydration mismatches when server-side rendering.
+
+## Translations
+
+Most translatable strings must be localized by developers and be passed to the design system components via props as they depend on the context a component is used in. Circuit UI includes default translations for a handful of essential strings that don't change with context. This ensures accessibility while keeping the bundle size small.
+
+Translations are included for the languages listed below. You can provide translations for additional languages using the relevant component props.
+
+- Bulgarian
+- Croatian
+- Czech
+- Danish
+- Dutch
+- English (Australia)
+- English (Ireland)
+- English (Malta)
+- English (UK)
+- English (US)
+- Estonian
+- Finnish
+- Flemish
+- French (Belgium)
+- French (France)
+- French (Luxembourg)
+- French (Switzerland)
+- German (Austria)
+- German (Germany)
+- German (Luxembourg)
+- German (Switzerland)
+- Greek (Cyprus)
+- Greek (Greece)
+- Hungarian
+- Italian (Italy)
+- Italian (Switzerland)
+- Latvian
+- Lithuanian
+- Norwegian Bokmål
+- Polish
+- Portuguese (Brazil)
+- Portuguese (Portugal)
+- Romanian
+- Slovak
+- Slovenian
+- Spanish (Chile)
+- Spanish (Colombia)
+- Spanish (Mexico)
+- Spanish (Peru)
+- Spanish (Spain)
+- Spanish (United States)
+- Swedish (Sweden)
