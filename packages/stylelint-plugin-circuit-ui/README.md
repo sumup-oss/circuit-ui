@@ -13,11 +13,7 @@ Stylelint rules to help users follow best practices when using Circuit UI.
 Depending on your preference, run one of the following in your terminal:
 
 ```sh
-# With npm
 npm install --save-dev @sumup-oss/stylelint-plugin-circuit-ui
-
-# With yarn v1
-yarn add --dev @sumup-oss/stylelint-plugin-circuit-ui
 ```
 
 ## Usage

@@ -26,20 +26,19 @@ The package includes light and dark theme variants and TypeScript support for il
 ## Installation
 
 Install the package with your package manager:
-```sh
-# With npm
-npm install @sumup-oss/illustrations
 
-# With yarn
-yarn add @sumup-oss/illustrations
+```sh
+npm install @sumup-oss/illustrations
 ```
+
 The React component requires `react` as a peer dependency.
 
 Make sure to import the package styles in your application:
 
 ```tsx
-import '@sumup-oss/illustration/styles.css';
+import "@sumup-oss/illustration/styles.css";
 ```
+
 ## Usage
 
 ### Render an illustration in React
@@ -47,16 +46,15 @@ import '@sumup-oss/illustration/styles.css';
 Import the Illustration component and pass the illustration name.
 
 ```tsx
-import { Illustration } from '@sumup-oss/illustrations';
+import { Illustration } from "@sumup-oss/illustrations";
 
 const SuccessScreen = ({ description }) => (
   <div>
-    <Illustration name="celebration"/>
+    <Illustration name="celebration" />
     <span>Your payment was successful.</span>
   </div>
 );
 ```
-
 
 ### Change the size
 
@@ -64,11 +62,11 @@ By default, illustrations render at `240px × 240px`.
 Use the `size` prop to change the rendered size.
 
 ```tsx
-import { Illustration } from '@sumup-oss/circuit-ui';
+import { Illustration } from "@sumup-oss/circuit-ui";
 
 const SuccessScreen = ({ description }) => (
   <div>
-    <Illustration name="celebration" size={320}/>
+    <Illustration name="celebration" size={320} />
     <span>Your payment was successful.</span>
   </div>
 );
@@ -82,11 +80,11 @@ The Illustration component will automatically switch between the light and dark 
 If you want to explicitly set the color scheme, use the `color-scheme` prop.
 
 ```tsx
-import { Illustration } from '@sumup-oss/circuit-ui';
+import { Illustration } from "@sumup-oss/circuit-ui";
 
 const SuccessScreen = ({ description }) => (
   <div>
-    <Illustration name="celebration" color-scheme="dark"/>
+    <Illustration name="celebration" color-scheme="dark" />
     <span>Your payment was successful.</span>
   </div>
 );
@@ -99,13 +97,12 @@ They should _always_ be accompanied by visible text that describes the meaning o
 
 If an illustration communicates meaning not already provided by nearby text, add an `alt` prop.
 
-
 ```tsx
-import { Illustration } from '@sumup-oss/circuit-ui';
+import { Illustration } from "@sumup-oss/circuit-ui";
 
 const SuccessScreen = ({ description }) => (
   <div>
-    <Illustration name="celebration" alt="Your payment was successful."/>
+    <Illustration name="celebration" alt="Your payment was successful." />
   </div>
 );
 ```
@@ -115,11 +112,11 @@ const SuccessScreen = ({ description }) => (
 The latest version of the illustrations library is [automatically deployed](https://circuit.sumup.com/illustrations) to [Vercel](https://vercel.com/). The files are hosted behind a global CDN, so they load quickly for all users. Use the `getIllustrationURL` helper function to get the full URL with type-safety:
 
 ```tsx
-import { getIllustrationURL } from '@sumup-oss/illustrations';
+import { getIllustrationURL } from "@sumup-oss/illustrations";
 
 const SuccessScreen = ({ message }) => (
   <div>
-    <img src={getIllustrationURL('error-1', 'light')} alt=""/>
+    <img src={getIllustrationURL("error-1", "light")} alt="" />
     <span>Payment failed. Please contact your card provider.</span>
   </div>
 );
@@ -129,6 +126,6 @@ Alternatively, you can manually construct the URL (`https://circuit.sumup.com/il
 
 ```css
 .illustration {
-  background-image: url('https://circuit.sumup.com/illustrations/bookings_dark.svg');
+  background-image: url("https://circuit.sumup.com/illustrations/bookings_dark.svg");
 }
 ```
