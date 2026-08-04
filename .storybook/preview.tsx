@@ -56,8 +56,16 @@ export const parameters = {
       order: [
         'Introduction',
         'Features',
+        [
+          'Theme',
+          'Base Components',
+          'Illustrations',
+          'Utility Classes',
+          'Style Mixins',
+        ],
         'Icons',
         ['Overview', 'CardScheme', 'Flag', 'PaymentMethod'],
+        'Typography',
       ],
       includeName: true,
     },
