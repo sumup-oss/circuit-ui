@@ -250,7 +250,7 @@ export const PhoneNumberInput = forwardRef<
     },
     ref,
   ) => {
-    const locale = useI18n(customLocale);
+    const { locale } = useI18n({ locale: customLocale });
     const hiddenInputRef = useRef<HTMLInputElement>(null);
     const countryCodeRef = useRef<HTMLSelectElement | HTMLInputElement>(null);
     const subscriberNumberRef = useRef<HTMLInputElement>(null);

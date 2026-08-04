@@ -15,47 +15,49 @@
  * limitations under the License.
  */
 
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import { getDefaultLocale, type Locale } from '../../util/i18n.js';
-
-const listeners = new Set<(locale: Locale) => void>();
-
-function updateLocale() {
-  const currentLocale = getDefaultLocale();
-  for (const listener of listeners) {
-    listener(currentLocale);
-  }
-}
+import {
+  I18nContext,
+  type I18nConfig,
+} from '../../components/I18nContext/I18nContext.js';
 
 /**
- * Returns the current browser/system language, and updates when it changes.
+ * Provides localization context, either from the I18nProvider or the current
+ * browser/system language.
  */
-export function useI18n(customLocale?: Locale): Locale {
-  const [locale, setLocale] = useState<Locale>(getDefaultLocale());
+export function useI18n({
+  locale: customLocale,
+  // TODO: Remove this fallback in v12 once the deprecated `locale` props have been removed.
+  formattingLocale: customFormattingLocale = customLocale,
+}: Partial<I18nConfig>): I18nConfig {
+  const {
+    locale: globalLocale,
+    formattingLocale: globalFormattingLocale,
+    isDefault,
+  } = useContext(I18nContext);
+  const [locale, setLocale] = useState<Locale>(customLocale || globalLocale);
+  const [formattingLocale, setFormattingLocale] = useState<Locale>(
+    customFormattingLocale || globalFormattingLocale || locale,
+  );
+
+  // Update the locales after hydration on the client
+  useEffect(() => {
+    if (customLocale || (globalLocale && !isDefault)) {
+      return;
+    }
+
+    setLocale(getDefaultLocale());
+  }, [customLocale, globalLocale, isDefault]);
 
   useEffect(() => {
-    if (customLocale) {
-      return undefined;
+    if (customFormattingLocale || (globalFormattingLocale && !isDefault)) {
+      return;
     }
 
-    // Update the locale after hydration on the client
-    setLocale(getDefaultLocale());
+    setFormattingLocale(getDefaultLocale());
+  }, [customFormattingLocale, globalFormattingLocale, isDefault]);
 
-    // Share a single listener between hook instances to optimize performance
-    if (listeners.size === 0) {
-      window.addEventListener('languagechange', updateLocale);
-    }
-
-    listeners.add(setLocale);
-
-    return () => {
-      listeners.delete(setLocale);
-      if (listeners.size === 0) {
-        window.removeEventListener('languagechange', updateLocale);
-      }
-    };
-  }, [customLocale]);
-
-  return customLocale || locale;
+  return { locale, formattingLocale };
 }

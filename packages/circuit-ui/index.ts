@@ -221,6 +221,7 @@ export {
   useComponents,
 } from './components/ComponentsContext/index.js';
 export type { ComponentsContextType } from './components/ComponentsContext/index.js';
+export { I18nProvider } from './components/I18nContext/I18nContext.js';
 export {
   Tooltip,
   type TooltipProps,

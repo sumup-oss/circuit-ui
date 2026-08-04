@@ -40,12 +40,19 @@ export interface CurrencyInputProps
    */
   currency: string;
   /**
+   * @deprecated Use the `I18nProvider` component or the `formattingLocale` prop instead.
+   *
    * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
    * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
    * When passing an array, the first supported locale is used.
-   * Defaults to `navigator.language` in supported environments.
    */
   locale?: Locale;
+  /**
+   * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
+   * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
+   * When passing an array, the first supported locale is used.
+   */
+  formattingLocale?: Locale;
   /**
    * A short string that is shown inside the empty input.
    * If the placeholder is a number, it is formatted in the local
@@ -84,6 +91,7 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
   (
     {
       locale: customLocale,
+      formattingLocale: customFormattingLocale,
       currency,
       placeholder,
       'aria-describedby': descriptionId,
@@ -91,12 +99,15 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
     },
     ref,
   ) => {
-    const locale = useI18n(customLocale);
+    const { formattingLocale } = useI18n({
+      locale: customLocale,
+      formattingLocale: customFormattingLocale,
+    });
     const currencySymbolId = useId();
     const descriptionIds = idx(currencySymbolId, descriptionId);
 
     const currencyFormat =
-      resolveCurrencyFormat(locale, currency) || DEFAULT_FORMAT;
+      resolveCurrencyFormat(formattingLocale, currency) || DEFAULT_FORMAT;
     const {
       currencyPosition,
       currencySymbol,
@@ -105,7 +116,7 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
       decimalDelimiter,
       groupDelimiter,
     } = currencyFormat;
-    const placeholderString = formatPlaceholder(placeholder, locale, {
+    const placeholderString = formatPlaceholder(placeholder, formattingLocale, {
       minimumFractionDigits,
       maximumFractionDigits,
     });
