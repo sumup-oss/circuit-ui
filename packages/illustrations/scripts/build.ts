@@ -71,11 +71,6 @@ function buildDeclarationFile(): string {
   return `
     import type { HTMLAttributes, ReactElement } from 'react';
 
-    declare module '*.module.css' {
-      const classes: { readonly [key: string]: string };
-      export default classes;
-    }
-
     export type ColorScheme = ${COLOR_SCHEMES.map((theme) => `"${theme}"`).join(' | ')};
     export type Name = ${NAMES.map((name) => `"${name}"`).join(' | ')};
     export type Category = ${CATEGORIES.map((name) => `"${name}"`).join(' | ')};
@@ -183,7 +178,7 @@ function buildIllustrationComponentFile(): string {
 
 function buildIndexFile(): string {
   const helpersExport = `export * from './helpers.js';`;
-  const illustrationExport = `export * from './illustration.js';`;
+  const illustrationExport = `export * from './Illustration.js';`;
   return `
     ${helpersExport}
     ${illustrationExport}
@@ -240,22 +235,13 @@ async function main() {
   const illustrationComponentRaw = buildIllustrationComponentFile();
 
   await transpileModule('index.js', indexRaw);
-  await transpileModule('illustration.js', illustrationComponentRaw);
+  await transpileModule('Illustration.js', illustrationComponentRaw);
   await transpileModule('helpers.js', helpersRaw);
   const illustrationCss = await fs.readFile(
     path.join(BASE_DIR, 'styles/Illustration.module.css'),
     'utf8',
   );
   await writeFile(DIST_DIR, 'Illustration.module.css', illustrationCss);
-  const illustrationCssTypes = await fs.readFile(
-    path.join(BASE_DIR, 'styles/Illustration.module.css.d.ts'),
-    'utf8',
-  );
-  await writeFile(
-    DIST_DIR,
-    'Illustration.module.css.d.ts',
-    illustrationCssTypes,
-  );
   await writeFile(DIST_DIR, 'index.d.ts', declarationFile);
 }
 
