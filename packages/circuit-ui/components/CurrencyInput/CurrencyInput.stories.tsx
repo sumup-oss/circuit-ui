@@ -30,11 +30,10 @@ export default {
 };
 
 const baseArgs = {
-  label: 'Amount (de-DE, EUR)',
+  label: 'Amount',
   placeholder: 123.45,
   validationHint: 'Excluding VAT',
   currency: 'EUR',
-  locale: 'de-DE',
 };
 
 export const Base = (args: CurrencyInputProps) => (
@@ -55,14 +54,14 @@ export const Currencies = (args: CurrencyInputProps) => (
       style={{ maxWidth: '250px' }}
       label="Amount (pt-BR, BRL)"
       currency="BRL"
-      locale="pt-BR"
+      formattingLocale="pt-BR"
     />
     <CurrencyInput
       {...args}
       style={{ maxWidth: '250px' }}
       label="Amount (pt-BR, EUR)"
       currency="EUR"
-      locale="pt-BR"
+      formattingLocale="pt-BR"
     />
   </Stack>
 );
@@ -76,14 +75,14 @@ export const Locales = (args: CurrencyInputProps) => (
       style={{ maxWidth: '250px' }}
       label="Amount (de-DE, EUR)"
       currency="EUR"
-      locale="de-DE"
+      formattingLocale="de-DE"
     />
     <CurrencyInput
       {...args}
       style={{ maxWidth: '250px' }}
       label="Amount (en-IE, EUR)"
       currency="EUR"
-      locale="en-IE"
+      formattingLocale="en-IE"
     />
   </Stack>
 );
