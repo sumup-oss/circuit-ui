@@ -35,10 +35,19 @@ export interface PercentageInputProps
     'placeholder' | 'ref' | 'value' | 'defaultValue' | 'type'
   > {
   /**
-   * One or more Unicode BCP 47 locale identifiers, such as `'de-DE'` or
-   * `['GB', 'en-US']` (the first supported locale is used).
+   * @deprecated Use the `I18nProvider` component or the `formattingLocale` prop instead.
+   *
+   * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
+   * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
+   * When passing an array, the first supported locale is used.
    */
   locale?: Locale;
+  /**
+   * One or more [IETF BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)
+   * locale identifiers such as `'de-DE'` or `['GB', 'en-US']`.
+   * When passing an array, the first supported locale is used.
+   */
+  formattingLocale?: Locale;
   /**
    * A short string that is shown inside the empty input.
    * If the placeholder is a number, it is formatted in the local format.
@@ -73,6 +82,7 @@ export const PercentageInput = forwardRef<
   (
     {
       locale: customLocale,
+      formattingLocale: customFormattingLocale,
       placeholder = '0',
       decimalScale = 0,
       'aria-describedby': descriptionId,
@@ -80,19 +90,22 @@ export const PercentageInput = forwardRef<
     },
     ref,
   ) => {
-    const locale = useI18n(customLocale);
+    const { formattingLocale } = useI18n({
+      locale: customLocale,
+      formattingLocale: customFormattingLocale,
+    });
     const percentageSymbolId = useId();
     const descriptionIds = idx(percentageSymbolId, descriptionId);
 
     const { groupDelimiter, decimalDelimiter } =
-      resolveNumberFormat(locale, {
+      resolveNumberFormat(formattingLocale, {
         style: 'percent',
         // There must be at least 1 decimal for the decimalDelimiter to be resolved
         minimumFractionDigits: 1,
         maximumFractionDigits: 1,
       }) || DEFAULT_FORMAT;
 
-    const placeholderString = formatPlaceholder(placeholder, locale, {
+    const placeholderString = formatPlaceholder(placeholder, formattingLocale, {
       minimumFractionDigits: decimalScale,
       maximumFractionDigits: decimalScale,
     });
