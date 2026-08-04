@@ -31,7 +31,7 @@ function updateLocale() {
 /**
  * Returns the current browser/system language, and updates when it changes.
  */
-export function useLocale(customLocale?: Locale): Locale {
+export function useI18n(customLocale?: Locale): Locale {
   const [locale, setLocale] = useState<Locale>(getDefaultLocale());
 
   useEffect(() => {
