@@ -17,9 +17,9 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { act, renderHook } from '../../util/test-utils.js';
 
-import { useLocale } from './useLocale.js';
+import { useI18n } from './useI18n.js';
 
-describe('useLocale', () => {
+describe('useI18n', () => {
   const navigatorLanguages = ['de-DE', 'de'];
 
   beforeAll(() => {
@@ -30,21 +30,21 @@ describe('useLocale', () => {
 
   it('should prioritize the custom locale over the browser locale', () => {
     const locale = 'fr-FR';
-    const { result } = renderHook(() => useLocale(locale));
+    const { result } = renderHook(() => useI18n(locale));
     expect(result.current).toBe(locale);
   });
 
   it('should return the browser locale', () => {
-    const { result } = renderHook(() => useLocale());
+    const { result } = renderHook(() => useI18n());
     expect(result.current).toBe(navigatorLanguages);
   });
 
   it('should register only a single "languagechange" event listener', () => {
     const addEventListener = vi.spyOn(window, 'addEventListener');
 
-    renderHook(() => useLocale());
-    renderHook(() => useLocale());
-    renderHook(() => useLocale());
+    renderHook(() => useI18n());
+    renderHook(() => useI18n());
+    renderHook(() => useI18n());
 
     expect(addEventListener).toHaveBeenCalledExactlyOnceWith(
       'languagechange',
@@ -54,9 +54,9 @@ describe('useLocale', () => {
 
   it('should update the locale in response to the "languagechange" event', () => {
     const results = [
-      renderHook(() => useLocale()),
-      renderHook(() => useLocale()),
-      renderHook(() => useLocale()),
+      renderHook(() => useI18n()),
+      renderHook(() => useI18n()),
+      renderHook(() => useI18n()),
     ];
 
     const updatedLocale = ['pt-BR'];

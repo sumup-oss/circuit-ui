@@ -23,7 +23,7 @@ import type { OnValueChange } from '../../vendor/react-number-format/types.js';
 import { clsx } from '../../styles/clsx.js';
 import { idx } from '../../util/idx.js';
 import type { Locale } from '../../util/i18n.js';
-import { useLocale } from '../../hooks/useLocale/useLocale.js';
+import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import { Input, type InputProps } from '../Input/index.js';
 
 import { formatPlaceholder } from './PercentageInputService.js';
@@ -80,7 +80,7 @@ export const PercentageInput = forwardRef<
     },
     ref,
   ) => {
-    const locale = useLocale(customLocale);
+    const locale = useI18n(customLocale);
     const percentageSymbolId = useId();
     const descriptionIds = idx(percentageSymbolId, descriptionId);
 

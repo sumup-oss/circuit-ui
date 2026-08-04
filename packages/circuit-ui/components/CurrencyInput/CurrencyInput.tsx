@@ -23,7 +23,7 @@ import type { OnValueChange } from '../../vendor/react-number-format/types.js';
 import { clsx } from '../../styles/clsx.js';
 import { idx } from '../../util/idx.js';
 import type { Locale } from '../../util/i18n.js';
-import { useLocale } from '../../hooks/useLocale/useLocale.js';
+import { useI18n } from '../../hooks/useI18n/useI18n.js';
 import { Input, type InputProps } from '../Input/index.js';
 
 import { formatPlaceholder } from './CurrencyInputService.js';
@@ -91,7 +91,7 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
     },
     ref,
   ) => {
-    const locale = useLocale(customLocale);
+    const locale = useI18n(customLocale);
     const currencySymbolId = useId();
     const descriptionIds = idx(currencySymbolId, descriptionId);
 

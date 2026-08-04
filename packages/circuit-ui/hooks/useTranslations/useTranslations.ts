@@ -20,7 +20,7 @@ import {
   type Locale,
   type Translations,
 } from '../../util/i18n.js';
-import { useLocale } from '../useLocale/useLocale.js';
+import { useI18n } from '../useI18n/useI18n.js';
 
 type I18nProps<Key extends string | number | symbol> = {
   [key in Key]: string;
@@ -32,7 +32,7 @@ export function useTranslations<
   Props extends Partial<I18nProps<Key>>,
   Key extends string | number | symbol,
 >(props: Props, translations: Translations<Key>): Props & I18nProps<Key> {
-  const locale = useLocale(props.locale);
+  const locale = useI18n(props.locale);
 
   const supportedLocale = findSupportedLocale(locale);
   const strings = translations[supportedLocale] || {};
