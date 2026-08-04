@@ -35,8 +35,6 @@ We also recommend installing and configuring [`@sumup-oss/eslint-plugin-circuit-
 
 ### Importing the styles
 
-### Configuring the theme
-
 SumUp's default theme is part of the [@sumup-oss/design-tokens](https://www.npmjs.com/package/@sumup-oss/design-tokens) package. Refer to the [Theme documentation](Features/Theme/Docs) to learn how to use and customize the theme.
 
 To make the theme available to Circuit UI, import the fonts and design tokens _before_ the component styles:
@@ -50,13 +48,10 @@ import '@sumup-oss/circuit-ui/styles.css';
 
 ### Configuring the viewport
 
-Finally, make sure that the viewport meta tag includes `viewport-fit=cover`, and that your app has the right padding to render inside [CSS safe areas](<https://developer.mozilla.org/en-US/docs/Web/CSS/env()>):
+Make sure that the viewport meta tag includes `viewport-fit=cover`, and that your app has the right padding to render inside [CSS safe areas](<https://developer.mozilla.org/en-US/docs/Web/CSS/env()>):
 
 ```tsx
-// /app/layout.tsx or /pages/_app.tsx for Next.js
-import '@sumup-oss/design-tokens/fonts.css';
-import '@sumup-oss/design-tokens/light.css';
-import '@sumup-oss/circuit-ui/styles.css';
+// /app/layout.tsx or /pages/_document.tsx for Next.js
 import Head from 'next/head';
 
 export default function App() {
@@ -74,9 +69,30 @@ export default function App() {
             'env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)',
         }}
       >
-        {/* Your app */}
+        {/* children */}
       </body>
     </>
+  );
+}
+```
+
+### Adding context providers
+
+Wrap your application in the `I18nProvider` to configure the locale that the design system components should use for [internationalization](Introduction/Internationalization/Docs). Optionally add the relevant context providers if you're planning on using any [modal](Components/Modal/Docs) or [toast](Notification/NotificationToast/Docs) components.
+
+```tsx
+// /app/layout.tsx or /pages/_app.tsx for Next.js
+import { I18nProvider, ToastProvider, ModalProvider } from '@sumup-oss/circuit-ui';
+
+export default function App() {
+  return (
+    <I18nProvider>
+      <ToastProvider>
+        <ModalProvider>
+          {/* children */}
+        </ModalProvider>
+      </ToastProvider>
+    </I18nProvider>
   );
 }
 ```
