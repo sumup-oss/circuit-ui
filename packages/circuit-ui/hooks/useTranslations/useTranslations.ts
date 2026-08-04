@@ -28,7 +28,7 @@ type I18nProps<Key extends string | number | symbol> = {
   locale: Locale;
 };
 
-export function useI18n<
+export function useTranslations<
   Props extends Partial<I18nProps<Key>>,
   Key extends string | number | symbol,
 >(props: Props, translations: Translations<Key>): Props & I18nProps<Key> {

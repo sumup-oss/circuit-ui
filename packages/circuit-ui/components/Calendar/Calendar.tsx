@@ -46,7 +46,7 @@ import { applyMultipleRefs } from '../../util/refs.js';
 import { useSwipe } from '../../hooks/useSwipe/useSwipe.js';
 import { last } from '../../util/helpers.js';
 import { Body } from '../Body/Body.js';
-import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import { useTranslations } from '../../hooks/useTranslations/useTranslations.js';
 
 import {
   CalendarActionType,
@@ -152,7 +152,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
       modifiers,
       numberOfMonths = 1,
       ...rest
-    } = useI18n(props, translations);
+    } = useTranslations(props, translations);
     const [{ months, focusedDate, hoveredDate, today }, dispatch] = useReducer(
       calendarReducer,
       { selection, minDate, maxDate, numberOfMonths },
