@@ -29,7 +29,7 @@ import { Calendar as CalendarIcon } from '@sumup-oss/icons';
 
 import type { ClickEvent } from '../../types/events.js';
 import { useMedia } from '../../hooks/useMedia/useMedia.js';
-import { useI18n } from '../../hooks/useI18n/useI18n.js';
+import { useTranslations } from '../../hooks/useTranslations/useTranslations.js';
 import {
   AccessibilityError,
   isSufficientlyLabelled,
@@ -187,7 +187,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       style,
       size = 'm',
       ...rest
-    } = useI18n(props, translations);
+    } = useTranslations(props, translations);
     const isMobile = useMedia('(max-width: 479px)');
 
     const inputRef = useRef<HTMLInputElement>(null);
