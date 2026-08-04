@@ -54,14 +54,14 @@ export function usePlainDateState({
   onChange,
   minDate,
   maxDate,
-  locale,
+  formattingLocale,
 }: {
   value: string | undefined;
   defaultValue: string | undefined;
   onChange: ((date: string) => void) | undefined;
   minDate: Temporal.PlainDate | undefined;
   maxDate: Temporal.PlainDate | undefined;
-  locale: Locale;
+  formattingLocale: Locale;
 }): PlainDateState {
   const [values, setValues] = useState<DateValues>(
     parseValue(defaultValue || value),
@@ -131,7 +131,9 @@ export function usePlainDateState({
     month: {
       value: values.month,
       'aria-valuetext': values.month
-        ? [values.month, getMonthName(values.month, locale)].join(', ')
+        ? [values.month, getMonthName(values.month, formattingLocale)].join(
+            ', ',
+          )
         : undefined,
       defaultValue: today.month,
       placeholder: 'mm',

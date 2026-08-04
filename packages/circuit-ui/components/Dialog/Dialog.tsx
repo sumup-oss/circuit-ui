@@ -134,6 +134,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       animationDuration = 0,
       onCloseStart,
       locale,
+      formattingLocale,
       style,
       ...rest
     } = useTranslations(props, translations);
