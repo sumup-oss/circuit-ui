@@ -90,7 +90,7 @@ function NotificationImage(image: NotificationFullscreenProps['image']) {
     return <Image {...image} className={classes.image} />;
   }
   if ('illustration' in image) {
-    return <Illustration name={image.illustration} size={160} {...image} />;
+    return <Illustration name={image.illustration} {...image} />;
   }
   return null;
 }
