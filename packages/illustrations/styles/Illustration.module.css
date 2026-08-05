@@ -6,8 +6,10 @@
   background-size: contain;
 }
 
-:global([data-color-scheme="dark"]) .base {
-  background-image: var(--illustration-url-dark, var(--illustration-url-light));
+@media (prefers-color-scheme: light) {
+  .base {
+    background-image: var(--illustration-url-light);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,4 +19,12 @@
       var(--illustration-url-light)
     );
   }
+}
+
+:global([data-color-scheme="light"]) .base {
+  background-image: var(--illustration-url-light);
+}
+
+:global([data-color-scheme="dark"]) .base {
+  background-image: var(--illustration-url-dark, var(--illustration-url-light));
 }
