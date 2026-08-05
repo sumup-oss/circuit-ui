@@ -15,7 +15,7 @@
 
 import { useState } from 'react';
 import { action } from 'storybook/actions';
-import { Shop } from '@sumup-oss/icons';
+import { Settings } from '@sumup-oss/icons';
 
 import { modes } from '../../../../.storybook/modes.js';
 import { SideNavigation } from '../SideNavigation/index.js';
@@ -46,16 +46,7 @@ export default {
 
 function CustomComponent() {
   return (
-    <Body
-      size="s"
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        height: '100%',
-        padding: '0 var(--cui-spacings-mega)',
-        textAlign: 'center',
-      }}
-    >
+    <Body size="s" weight="semibold">
       Test account
     </Body>
   );
@@ -86,7 +77,7 @@ export const baseArgs: TopNavigationProps = {
       target="_blank"
       rel="noreferrer"
     >
-      <SumUpLogo />
+      <SumUpLogo size="s" />
     </a>
   ),
   links: [
@@ -95,10 +86,10 @@ export const baseArgs: TopNavigationProps = {
       children: <CustomComponent />,
     },
     {
-      icon: Shop,
-      label: 'Shop',
-      href: '/shop',
-      onClick: action('Shop'),
+      icon: Settings,
+      label: 'Settings',
+      href: '/settings',
+      onClick: action('Settings'),
     },
   ],
   skipNavigationHref: '#main-content',
