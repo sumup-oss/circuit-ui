@@ -129,7 +129,7 @@ function buildDeclarationFile(): string {
 function buildIllustrationComponentFile(): string {
   const illustrations = aggregateIllustrationsFromManifest();
 
-  const helperImport = `import { getIllustrationUrl } from './helpers.js';`;
+  const helperImport = `import { getIllustrationUrl } from '../helpers.js';`;
   const stylesImport = `import classes from './Illustration.module.css';`;
 
   const invalidNameError = `@sumup-oss/illustrations has no '\${name}' illustration. Please use one of the available names: \${Object.keys(illustrationData).join(', ')}`;
@@ -178,14 +178,18 @@ function buildIllustrationComponentFile(): string {
 
 function buildIndexFile(): string {
   const helpersExport = `export * from './helpers.js';`;
-  const illustrationExport = `export * from './Illustration.js';`;
+  const illustrationExport = `export * from './components/Illustration.js';`;
   return `
     ${helpersExport}
     ${illustrationExport}
   `;
 }
 
-async function transpileModule(fileName: string, code: string) {
+async function transpileModule(
+  fileName: string,
+  code: string,
+  subPath?: string,
+) {
   const output = transformSync(code, {
     cwd: BASE_DIR,
     targets: { esmodules: true },
@@ -206,11 +210,16 @@ async function transpileModule(fileName: string, code: string) {
     ],
     filename: fileName,
   })?.code as string;
-  return writeFile(DIST_DIR, fileName, output);
+  return writeFile(path.join(DIST_DIR, subPath ?? ''), fileName, output);
 }
 
-async function writeFile(dir: string, fileName: string, fileContent: string) {
-  const filePath = path.join(dir, fileName);
+async function writeFile(
+  dir: string,
+  fileName: string,
+  fileContent: string,
+  subPath?: string,
+) {
+  const filePath = path.join(dir, subPath ?? '', fileName);
   const directory = path.dirname(filePath);
 
   const biome = new Biome();
@@ -235,13 +244,22 @@ async function main() {
   const illustrationComponentRaw = buildIllustrationComponentFile();
 
   await transpileModule('index.js', indexRaw);
-  await transpileModule('Illustration.js', illustrationComponentRaw);
+  await transpileModule(
+    'Illustration.js',
+    illustrationComponentRaw,
+    'components',
+  );
   await transpileModule('helpers.js', helpersRaw);
   const illustrationCss = await fs.readFile(
     path.join(BASE_DIR, 'styles/Illustration.module.css'),
     'utf8',
   );
-  await writeFile(DIST_DIR, 'Illustration.module.css', illustrationCss);
+  await writeFile(
+    DIST_DIR,
+    'Illustration.module.css',
+    illustrationCss,
+    'components',
+  );
   await writeFile(DIST_DIR, 'index.d.ts', declarationFile);
 }
 

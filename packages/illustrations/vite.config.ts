@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import crypto from 'node:crypto';
 import path from 'node:path';
 import preserveDirectives from 'rollup-plugin-preserve-directives';
 import fs from 'node:fs/promises';
@@ -21,37 +20,13 @@ import fs from 'node:fs/promises';
 import { defineConfig, type ViteUserConfig } from 'vitest/config';
 
 import pkg from './package.json' with { type: 'json' };
+import { generateScopedNameFactory } from '../../vite.config.js';
 
 const stylesFileName = 'styles';
 
-export const css: ViteUserConfig['css'] = {
+const css: ViteUserConfig['css'] = {
   modules: {
-    generateScopedName(className) {
-      const prefix = 'cui';
-      const parts = [prefix];
-
-      const filePath = '/dist/Illustration.module.css';
-
-      const componentName = 'Illustration';
-      parts.push(componentName);
-
-      if (className !== 'base') {
-        parts.push(className);
-      }
-
-      const hash = crypto
-        .createHash('md5')
-        .update(`${filePath}${className}`)
-        .digest('base64url')
-        // Remove non-word characters and underscores
-        .replace(/[\W_]/g, '')
-        // 36^4=1,679,616 possibilities
-        .substring(0, 4)
-        .toLowerCase();
-
-      parts.push(hash);
-      return parts.join('-');
-    },
+    generateScopedName: generateScopedNameFactory('illustrations'),
   },
 };
 
@@ -71,7 +46,7 @@ function cleanupFiles(files: string[]) {
 
 export default defineConfig({
   css,
-  plugins: [cleanupFiles(['dist/Illustration.module.css'])],
+  plugins: [cleanupFiles(['dist/components/Illustration.module.css'])],
   build: {
     target: ['es2019'],
     emptyOutDir: false,

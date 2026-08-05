@@ -13,62 +13,22 @@
  * limitations under the License.
  */
 
-import crypto from 'node:crypto';
 import path from 'node:path';
 import preserveDirectives from 'rollup-plugin-preserve-directives';
 
-import { defineConfig, type ViteUserConfig } from 'vitest/config';
+import { defineConfig, ViteUserConfig } from 'vitest/config';
 
 import { reorderUtilityCssVitePlugin } from './build/reorder-utility-css-plugin.js';
 import pkg from './package.json' with { type: 'json' };
+import { generateScopedNameFactory } from '../../vite.config.js';
 
 const stylesFileName = 'styles';
 
-export const css: ViteUserConfig['css'] = {
+const css: ViteUserConfig['css'] = {
   modules: {
-    generateScopedName(className, file) {
-      const prefix = 'cui';
-      const parts = [prefix];
-
-      const filePath = last(file.split('?')[0].split('/packages/circuit-ui'));
-      const fileName = path.basename(filePath, '.module.css');
-      const folderName = last(path.dirname(filePath).split(path.sep));
-      const isComponent = filePath.includes('/components');
-
-      if (isComponent) {
-        // ./components/Button/Button.module.css -> button
-        // ./components/Button/base.module.css -> button
-        const componentName =
-          fileName !== 'base'
-            ? fileName.toLowerCase()
-            : folderName.toLowerCase();
-        parts.push(componentName);
-      }
-
-      if (className !== 'base') {
-        parts.push(className);
-      }
-
-      const hash = crypto
-        .createHash('md5')
-        .update(`${filePath}${className}`)
-        .digest('base64url')
-        // Remove non-word characters and underscores
-        .replace(/[\W_]/g, '')
-        // 36^4=1,679,616 possibilities
-        .substring(0, 4)
-        .toLowerCase();
-
-      parts.push(hash);
-
-      return parts.join('-');
-    },
+    generateScopedName: generateScopedNameFactory('circuit-ui'),
   },
 };
-
-function last<T>(collection: T[]): T {
-  return collection[collection.length - 1];
-}
 
 export default defineConfig({
   css,
