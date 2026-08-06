@@ -35,7 +35,11 @@ yarn add @sumup-oss/illustrations
 ```
 The React component requires `react` as a peer dependency.
 
+Make sure to import the package styles in your application:
 
+```tsx
+import '@sumup-oss/illustration/styles.css';
+```
 ## Usage
 
 ### Render an illustration in React

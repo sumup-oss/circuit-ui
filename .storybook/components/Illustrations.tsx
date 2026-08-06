@@ -58,7 +58,6 @@ function IllustrationPreview({
 
   const copyIllustrationURL = () => {
     const illustrationURL = getIllustrationUrl(
-      // @ts-expect-error arguments are from the manifest file
       illustration.name,
       illustration['color-scheme'],
     );

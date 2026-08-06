@@ -15,9 +15,58 @@
 
 import { defineConfig } from 'vite';
 import GithubActionsReporter from 'vitest-github-actions-reporter';
+import path from 'node:path';
+import crypto from 'node:crypto';
 
-import { css } from './packages/circuit-ui/vite.config.js';
-import { coverageConfigDefaults } from 'vitest/config';
+import { coverageConfigDefaults, type ViteUserConfig } from 'vitest/config';
+
+function last<T>(collection: T[]): T {
+  return collection[collection.length - 1];
+}
+
+export function generateScopedNameFactory(directory: string) {
+  return function generateScopedName(className: string, file: string) {
+    const prefix = 'cui';
+    const parts = [prefix];
+
+    const filePath = last(file.split('?')[0].split(`/packages/${directory}/`));
+    const fileName = path.basename(filePath, '.module.css');
+    const folderName = last(path.dirname(filePath).split(path.sep));
+    const isComponent = filePath.includes('/components');
+
+    if (isComponent) {
+      // ./components/Button/Button.module.css -> button
+      // ./components/Button/base.module.css -> button
+      const componentName =
+        fileName !== 'base' ? fileName.toLowerCase() : folderName.toLowerCase();
+      parts.push(componentName);
+    }
+
+    if (className !== 'base') {
+      parts.push(className);
+    }
+
+    const hash = crypto
+      .createHash('md5')
+      .update(`${filePath}${className}`)
+      .digest('base64url')
+      // Remove non-word characters and underscores
+      .replace(/[\W_]/g, '')
+      // 36^4=1,679,616 possibilities
+      .substring(0, 4)
+      .toLowerCase();
+
+    parts.push(hash);
+
+    return parts.join('-');
+  };
+}
+
+const css: ViteUserConfig['css'] = {
+  modules: {
+    generateScopedName: generateScopedNameFactory('circuit-ui'),
+  },
+};
 
 export default defineConfig({
   css,

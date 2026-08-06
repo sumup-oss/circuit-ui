@@ -1,21 +1,15 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-import { Biome, type Configuration } from '@biomejs/js-api/nodejs';
-import { transformSync } from '@babel/core';
-
 import {
   BASE_DIR,
-  DIST_DIR,
+  BUILD_DIR,
   COLOR_SCHEMES,
   NAMES,
   CATEGORIES,
   BASE_URL,
 } from '../constants.js';
 import manifest from '../manifest.json' with { type: 'json' };
-
-// eslint-disable-next-line import-x/no-relative-packages
-import config from '../../../biome.json' with { type: 'json' };
 
 type Illustration = {
   name: (typeof NAMES)[number];
@@ -58,27 +52,13 @@ function buildIllustrationUrlMapType(): string {
   return `{\n${entries.join('\n')}\n}`;
 }
 
-function buildHelpersFile(): string {
-  return `
-    export function getIllustrationUrl(name, colorScheme = 'light') {
-      return '${BASE_URL}/illustrations/' + name + (colorScheme ? '_' + colorScheme : '') + '.svg';
-    }
-  `;
-}
-function buildDeclarationFile(): string {
+function buildTypesFile(): string {
   const illustrationUrlMap = buildIllustrationUrlMapType();
 
   return `
-    import type { HTMLAttributes, ReactElement } from 'react';
-
-    declare module '*.module.css' {
-      const classes: { readonly [key: string]: string };
-      export default classes;
-    }
-
-    export type ColorScheme = ${COLOR_SCHEMES.map((theme) => `"${theme}"`).join(' | ')};
     export type Name = ${NAMES.map((name) => `"${name}"`).join(' | ')};
     export type Category = ${CATEGORIES.map((name) => `"${name}"`).join(' | ')};
+    export type ColorScheme = ${COLOR_SCHEMES.map((theme) => `"${theme}"`).join(' | ')};
     export type IllustrationManifest = {
       illustrations: {
         name: Name,
@@ -87,23 +67,32 @@ function buildDeclarationFile(): string {
         keywords?: string[],
       }[]
     };
-    type IllustrationUrlMap = ${illustrationUrlMap};
+    export type IllustrationUrlMap = ${illustrationUrlMap};
+`;
+}
 
-    type ManifestIllustration = {
-      [V in keyof IllustrationUrlMap]: {
-        
-          name: V,
-          category: Category,
-          'color-scheme': IllustrationUrlMap[V],
-          keywords?: string[],
-        
-      }[keyof IllustrationUrlMap[V]];
-    }[keyof IllustrationUrlMap];
+function buildHelpersFile(): string {
+  return `
+    import type {Name, IllustrationUrlMap} from './types.ts';
+    export function getIllustrationUrl<N extends keyof IllustrationUrlMap>(name: N, colorScheme: IllustrationUrlMap[N]): string {
+      return '${BASE_URL}/illustrations/' + name + (colorScheme ? '_' + colorScheme : '') + '.svg';
+    }
+  `;
+}
 
-    export function getIllustrationUrl <N extends keyof IllustrationUrlMap,
-      >(
-        name: N,
-        colorScheme?: IllustrationUrlMap[N]): string;
+function buildIllustrationComponentFile(): string {
+  const illustrations = aggregateIllustrationsFromManifest();
+
+  const helperImport = `import { getIllustrationUrl } from '../helpers.js';`;
+  const stylesImport = `import classes from './Illustration.module.css';`;
+
+  const invalidNameError = `@sumup-oss/illustrations has no '\${name}' illustration. Please use one of the available names: \${Object.keys(illustrationData).join(', ')}`;
+
+  return `
+    ${helperImport}
+    ${stylesImport}
+    import type {Name, ColorScheme} from '../types.ts';
+    import type { HTMLAttributes } from 'react';
 
     export interface IllustrationProps extends HTMLAttributes<HTMLDivElement> {
        /**
@@ -126,26 +115,10 @@ function buildDeclarationFile(): string {
        */
       size?: number;
     }
-
-    export function Illustration(props: IllustrationProps): ReactElement;
-  `;
-}
-
-function buildIllustrationComponentFile(): string {
-  const illustrations = aggregateIllustrationsFromManifest();
-
-  const helperImport = `import { getIllustrationUrl } from './helpers.js';`;
-  const stylesImport = `import classes from './Illustration.module.css';`;
-
-  const invalidNameError = `@sumup-oss/illustrations has no '\${name}' illustration. Please use one of the available names: \${Object.keys(illustrationData).join(', ')}`;
-
-  return `
-    ${helperImport}
-    ${stylesImport}
     
-    export function Illustration({ name, 'color-scheme': colorScheme, size = 240, alt, style: styleProp, className: classNameProp, ...props }) {
+    export function Illustration({ name, 'color-scheme': colorScheme, size = 240, alt, style: styleProp, className: classNameProp, ...props }: IllustrationProps) {
       
-      const illustrationData = ${JSON.stringify(illustrations)};
+      const illustrationData: Record<Name, ColorScheme[]> = ${JSON.stringify(illustrations)} ;
       const illustrationThemes = illustrationData[name];
 
       if (
@@ -164,7 +137,7 @@ function buildIllustrationComponentFile(): string {
       } : illustrationThemes.reduce((acc, theme) => {
         acc['--illustration-url-' + theme] = 'url("' + getIllustrationUrl(name, theme) + '")';
         return acc;
-      }, {});
+      }, {} as Record<string, string>);
       
       
       const mergedStyle = { ...style, width: size, height: size, ...(styleProp || {}) };
@@ -183,80 +156,55 @@ function buildIllustrationComponentFile(): string {
 
 function buildIndexFile(): string {
   const helpersExport = `export * from './helpers.js';`;
-  const illustrationExport = `export * from './illustration.js';`;
+  const illustrationExport = `export * from './components/Illustration.jsx';`;
+  const typesExport = `export * from './types.js';`;
   return `
-    ${helpersExport}
-    ${illustrationExport}
+  ${typesExport}
+  ${helpersExport}
+  ${illustrationExport}
   `;
 }
 
-async function transpileModule(fileName: string, code: string) {
-  const output = transformSync(code, {
-    cwd: BASE_DIR,
-    targets: { esmodules: true },
-    presets: [
-      [
-        '@babel/preset-env',
-        {
-          modules: false,
-          exclude: ['transform-object-rest-spread'],
-        },
-      ],
-      [
-        '@babel/preset-react',
-        {
-          'runtime': 'automatic',
-        },
-      ],
-    ],
-    filename: fileName,
-  })?.code as string;
-  return writeFile(DIST_DIR, fileName, output);
-}
-
-async function writeFile(dir: string, fileName: string, fileContent: string) {
-  const filePath = path.join(dir, fileName);
+async function writeFile(
+  dir: string,
+  fileName: string,
+  fileContent: string,
+  subPath?: string,
+) {
+  const filePath = path.join(dir, subPath ?? '', fileName);
   const directory = path.dirname(filePath);
-
-  const biome = new Biome();
-  const { projectKey } = biome.openProject();
-
-  biome.applyConfiguration(projectKey, config as Configuration);
-
-  const formatted = biome.formatContent(projectKey, fileContent, {
-    filePath,
-  });
 
   if (directory && directory !== '.') {
     await fs.mkdir(directory, { recursive: true });
   }
-  return fs.writeFile(filePath, formatted.content, { flag: 'w' });
+  return fs.writeFile(filePath, fileContent, { flag: 'w' });
 }
 
 async function main() {
   const indexRaw = buildIndexFile();
   const helpersRaw = buildHelpersFile();
-  const declarationFile = buildDeclarationFile();
+  const typesRaw = buildTypesFile();
   const illustrationComponentRaw = buildIllustrationComponentFile();
 
-  await transpileModule('index.js', indexRaw);
-  await transpileModule('illustration.js', illustrationComponentRaw);
-  await transpileModule('helpers.js', helpersRaw);
   const illustrationCss = await fs.readFile(
     path.join(BASE_DIR, 'styles/Illustration.module.css'),
     'utf8',
   );
-  await writeFile(DIST_DIR, 'Illustration.module.css', illustrationCss);
-  const illustrationCssTypes = await fs.readFile(
-    path.join(BASE_DIR, 'styles/Illustration.module.css.d.ts'),
-    'utf8',
-  );
   await writeFile(
-    DIST_DIR,
-    'Illustration.module.css.d.ts',
-    illustrationCssTypes,
+    BUILD_DIR,
+    'Illustration.tsx',
+    illustrationComponentRaw,
+    'components',
   );
-  await writeFile(DIST_DIR, 'index.d.ts', declarationFile);
+  await writeFile(BUILD_DIR, 'index.ts', indexRaw);
+  await writeFile(BUILD_DIR, 'types.ts', typesRaw);
+  await writeFile(BUILD_DIR, 'helpers.ts', helpersRaw);
+  await writeFile(
+    BUILD_DIR,
+    'Illustration.module.css',
+    illustrationCss,
+    'components',
+  );
 }
 
 void main();
