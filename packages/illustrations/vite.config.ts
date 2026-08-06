@@ -26,7 +26,7 @@ const stylesFileName = 'styles';
 
 const css: ViteUserConfig['css'] = {
   modules: {
-    generateScopedName: generateScopedNameFactory('illustrations'),
+    generateScopedName: generateScopedNameFactory('illustrations/build'),
   },
 };
 
@@ -46,12 +46,15 @@ function cleanupFiles(files: string[]) {
 
 export default defineConfig({
   css,
+  esbuild: {
+    jsx: 'automatic',
+  },
   plugins: [cleanupFiles(['dist/components/Illustration.module.css'])],
   build: {
     target: ['es2019'],
     emptyOutDir: false,
     lib: {
-      entry: [path.resolve(__dirname, 'dist/index.js')],
+      entry: [path.resolve(__dirname, 'build/index.js')],
       formats: ['es'],
       fileName: (_, entryName: string) => `${entryName}.js`,
       cssFileName: stylesFileName,

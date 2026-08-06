@@ -1,21 +1,15 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-import { Biome, type Configuration } from '@biomejs/js-api/nodejs';
-import { transformSync } from '@babel/core';
-
 import {
   BASE_DIR,
-  DIST_DIR,
+  BUILD_DIR,
   COLOR_SCHEMES,
   NAMES,
   CATEGORIES,
   BASE_URL,
 } from '../constants.js';
 import manifest from '../manifest.json' with { type: 'json' };
-
-// eslint-disable-next-line import-x/no-relative-packages
-import config from '../../../biome.json' with { type: 'json' };
 
 type Illustration = {
   name: (typeof NAMES)[number];
@@ -178,39 +172,11 @@ function buildIllustrationComponentFile(): string {
 
 function buildIndexFile(): string {
   const helpersExport = `export * from './helpers.js';`;
-  const illustrationExport = `export * from './components/Illustration.js';`;
+  const illustrationExport = `export * from './components/Illustration.jsx';`;
   return `
     ${helpersExport}
     ${illustrationExport}
   `;
-}
-
-async function transpileModule(
-  fileName: string,
-  code: string,
-  subPath?: string,
-) {
-  const output = transformSync(code, {
-    cwd: BASE_DIR,
-    targets: { esmodules: true },
-    presets: [
-      [
-        '@babel/preset-env',
-        {
-          modules: false,
-          exclude: ['transform-object-rest-spread'],
-        },
-      ],
-      [
-        '@babel/preset-react',
-        {
-          'runtime': 'automatic',
-        },
-      ],
-    ],
-    filename: fileName,
-  })?.code as string;
-  return writeFile(path.join(DIST_DIR, subPath ?? ''), fileName, output);
 }
 
 async function writeFile(
@@ -222,19 +188,10 @@ async function writeFile(
   const filePath = path.join(dir, subPath ?? '', fileName);
   const directory = path.dirname(filePath);
 
-  const biome = new Biome();
-  const { projectKey } = biome.openProject();
-
-  biome.applyConfiguration(projectKey, config as Configuration);
-
-  const formatted = biome.formatContent(projectKey, fileContent, {
-    filePath,
-  });
-
   if (directory && directory !== '.') {
     await fs.mkdir(directory, { recursive: true });
   }
-  return fs.writeFile(filePath, formatted.content, { flag: 'w' });
+  return fs.writeFile(filePath, fileContent, { flag: 'w' });
 }
 
 async function main() {
@@ -243,24 +200,25 @@ async function main() {
   const declarationFile = buildDeclarationFile();
   const illustrationComponentRaw = buildIllustrationComponentFile();
 
-  await transpileModule('index.js', indexRaw);
-  await transpileModule(
-    'Illustration.js',
-    illustrationComponentRaw,
-    'components',
-  );
-  await transpileModule('helpers.js', helpersRaw);
   const illustrationCss = await fs.readFile(
     path.join(BASE_DIR, 'styles/Illustration.module.css'),
     'utf8',
   );
   await writeFile(
-    DIST_DIR,
+    BUILD_DIR,
+    'Illustration.jsx',
+    illustrationComponentRaw,
+    'components',
+  );
+  await writeFile(BUILD_DIR, 'index.js', indexRaw);
+  await writeFile(BUILD_DIR, 'helpers.js', helpersRaw);
+  await writeFile(
+    BUILD_DIR,
     'Illustration.module.css',
     illustrationCss,
     'components',
   );
-  await writeFile(DIST_DIR, 'index.d.ts', declarationFile);
+  await writeFile(BUILD_DIR, 'index.d.ts', declarationFile);
 }
 
 void main();

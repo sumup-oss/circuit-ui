@@ -17,7 +17,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export const BASE_DIR = path.dirname(fileURLToPath(import.meta.url));
-export const DIST_DIR = path.join(BASE_DIR, 'dist');
+export const BUILD_DIR = path.join(BASE_DIR, 'build');
 export const ILLUSTRATIONS_DIR = path.join(BASE_DIR, './assets');
 export const BASE_URL = 'https://circuit.sumup.com';
 
