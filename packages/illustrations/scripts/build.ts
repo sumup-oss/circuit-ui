@@ -52,22 +52,13 @@ function buildIllustrationUrlMapType(): string {
   return `{\n${entries.join('\n')}\n}`;
 }
 
-function buildHelpersFile(): string {
-  return `
-    export function getIllustrationUrl(name, colorScheme = 'light') {
-      return '${BASE_URL}/illustrations/' + name + (colorScheme ? '_' + colorScheme : '') + '.svg';
-    }
-  `;
-}
-function buildDeclarationFile(): string {
+function buildTypesFile(): string {
   const illustrationUrlMap = buildIllustrationUrlMapType();
 
   return `
-    import type { HTMLAttributes, ReactElement } from 'react';
-
-    export type ColorScheme = ${COLOR_SCHEMES.map((theme) => `"${theme}"`).join(' | ')};
     export type Name = ${NAMES.map((name) => `"${name}"`).join(' | ')};
     export type Category = ${CATEGORIES.map((name) => `"${name}"`).join(' | ')};
+    export type ColorScheme = ${COLOR_SCHEMES.map((theme) => `"${theme}"`).join(' | ')};
     export type IllustrationManifest = {
       illustrations: {
         name: Name,
@@ -76,23 +67,32 @@ function buildDeclarationFile(): string {
         keywords?: string[],
       }[]
     };
-    type IllustrationUrlMap = ${illustrationUrlMap};
+    export type IllustrationUrlMap = ${illustrationUrlMap};
+`;
+}
 
-    type ManifestIllustration = {
-      [V in keyof IllustrationUrlMap]: {
-        
-          name: V,
-          category: Category,
-          'color-scheme': IllustrationUrlMap[V],
-          keywords?: string[],
-        
-      }[keyof IllustrationUrlMap[V]];
-    }[keyof IllustrationUrlMap];
+function buildHelpersFile(): string {
+  return `
+    import type {Name, IllustrationUrlMap} from './types.ts';
+    export function getIllustrationUrl<N extends keyof IllustrationUrlMap>(name: N, colorScheme: IllustrationUrlMap[N]): string {
+      return '${BASE_URL}/illustrations/' + name + (colorScheme ? '_' + colorScheme : '') + '.svg';
+    }
+  `;
+}
 
-    export function getIllustrationUrl <N extends keyof IllustrationUrlMap,
-      >(
-        name: N,
-        colorScheme?: IllustrationUrlMap[N]): string;
+function buildIllustrationComponentFile(): string {
+  const illustrations = aggregateIllustrationsFromManifest();
+
+  const helperImport = `import { getIllustrationUrl } from '../helpers.js';`;
+  const stylesImport = `import classes from './Illustration.module.css';`;
+
+  const invalidNameError = `@sumup-oss/illustrations has no '\${name}' illustration. Please use one of the available names: \${Object.keys(illustrationData).join(', ')}`;
+
+  return `
+    ${helperImport}
+    ${stylesImport}
+    import type {Name, ColorScheme} from '../types.ts';
+    import type { HTMLAttributes } from 'react';
 
     export interface IllustrationProps extends HTMLAttributes<HTMLDivElement> {
        /**
@@ -115,26 +115,10 @@ function buildDeclarationFile(): string {
        */
       size?: number;
     }
-
-    export function Illustration(props: IllustrationProps): ReactElement;
-  `;
-}
-
-function buildIllustrationComponentFile(): string {
-  const illustrations = aggregateIllustrationsFromManifest();
-
-  const helperImport = `import { getIllustrationUrl } from '../helpers.js';`;
-  const stylesImport = `import classes from './Illustration.module.css';`;
-
-  const invalidNameError = `@sumup-oss/illustrations has no '\${name}' illustration. Please use one of the available names: \${Object.keys(illustrationData).join(', ')}`;
-
-  return `
-    ${helperImport}
-    ${stylesImport}
     
-    export function Illustration({ name, 'color-scheme': colorScheme, size = 240, alt, style: styleProp, className: classNameProp, ...props }) {
+    export function Illustration({ name, 'color-scheme': colorScheme, size = 240, alt, style: styleProp, className: classNameProp, ...props }: IllustrationProps) {
       
-      const illustrationData = ${JSON.stringify(illustrations)};
+      const illustrationData: Record<Name, ColorScheme[]> = ${JSON.stringify(illustrations)} ;
       const illustrationThemes = illustrationData[name];
 
       if (
@@ -153,7 +137,7 @@ function buildIllustrationComponentFile(): string {
       } : illustrationThemes.reduce((acc, theme) => {
         acc['--illustration-url-' + theme] = 'url("' + getIllustrationUrl(name, theme) + '")';
         return acc;
-      }, {});
+      }, {} as Record<string, string>);
       
       
       const mergedStyle = { ...style, width: size, height: size, ...(styleProp || {}) };
@@ -173,9 +157,11 @@ function buildIllustrationComponentFile(): string {
 function buildIndexFile(): string {
   const helpersExport = `export * from './helpers.js';`;
   const illustrationExport = `export * from './components/Illustration.jsx';`;
+  const typesExport = `export * from './types.js';`;
   return `
-    ${helpersExport}
-    ${illustrationExport}
+  ${typesExport}
+  ${helpersExport}
+  ${illustrationExport}
   `;
 }
 
@@ -197,7 +183,7 @@ async function writeFile(
 async function main() {
   const indexRaw = buildIndexFile();
   const helpersRaw = buildHelpersFile();
-  const declarationFile = buildDeclarationFile();
+  const typesRaw = buildTypesFile();
   const illustrationComponentRaw = buildIllustrationComponentFile();
 
   const illustrationCss = await fs.readFile(
@@ -206,19 +192,19 @@ async function main() {
   );
   await writeFile(
     BUILD_DIR,
-    'Illustration.jsx',
+    'Illustration.tsx',
     illustrationComponentRaw,
     'components',
   );
-  await writeFile(BUILD_DIR, 'index.js', indexRaw);
-  await writeFile(BUILD_DIR, 'helpers.js', helpersRaw);
+  await writeFile(BUILD_DIR, 'index.ts', indexRaw);
+  await writeFile(BUILD_DIR, 'types.ts', typesRaw);
+  await writeFile(BUILD_DIR, 'helpers.ts', helpersRaw);
   await writeFile(
     BUILD_DIR,
     'Illustration.module.css',
     illustrationCss,
     'components',
   );
-  await writeFile(BUILD_DIR, 'index.d.ts', declarationFile);
 }
 
 void main();

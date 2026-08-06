@@ -15,7 +15,6 @@
 
 import path from 'node:path';
 import preserveDirectives from 'rollup-plugin-preserve-directives';
-import fs from 'node:fs/promises';
 
 import { defineConfig, type ViteUserConfig } from 'vitest/config';
 
@@ -30,29 +29,13 @@ const css: ViteUserConfig['css'] = {
   },
 };
 
-function cleanupFiles(files: string[]) {
-  return {
-    name: 'delete-after-build',
-    apply: 'build' as const,
-    async closeBundle() {
-      await Promise.all(
-        files.map((file) =>
-          fs.rm(path.resolve(__dirname, file), { force: true }),
-        ),
-      );
-    },
-  };
-}
-
 export default defineConfig({
   css,
   esbuild: {
     jsx: 'automatic',
   },
-  plugins: [cleanupFiles(['dist/components/Illustration.module.css'])],
   build: {
     target: ['es2019'],
-    emptyOutDir: false,
     lib: {
       entry: [path.resolve(__dirname, 'build/index.js')],
       formats: ['es'],
