@@ -6,9 +6,9 @@
 }
 
 .base .image {
-  margin-bottom: var(--cui-spacings-giga);
   max-width: 280px;
   height: 160px;
+  margin-bottom: var(--cui-spacings-giga);
   object-fit: contain;
 }
 

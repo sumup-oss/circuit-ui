@@ -16,7 +16,7 @@
 import path from 'node:path';
 import preserveDirectives from 'rollup-plugin-preserve-directives';
 
-import { defineConfig, ViteUserConfig } from 'vitest/config';
+import { defineConfig, type ViteUserConfig } from 'vitest/config';
 
 import { reorderUtilityCssVitePlugin } from './build/reorder-utility-css-plugin.js';
 import pkg from './package.json' with { type: 'json' };
