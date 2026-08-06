@@ -85,7 +85,6 @@ interface BaseProps extends Omit<HTMLAttributes<HTMLDivElement>, 'action'> {
    * adjustable.
    */
   image?: ImageOrIllustrationProps;
-
   /**
    * Optional notification headline to communicate a message.
    */

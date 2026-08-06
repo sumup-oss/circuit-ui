@@ -24,11 +24,11 @@
 .base .image {
   max-width: 232px;
   height: 120px;
-  margin: 0 auto var(--cui-spacings-giga);
   object-fit: contain;
 }
 
-.illustration {
+.illustration,
+.image {
   margin: 0 auto var(--cui-spacings-giga);
 }
 
