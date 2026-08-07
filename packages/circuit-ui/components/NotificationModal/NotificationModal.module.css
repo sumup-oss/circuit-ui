@@ -24,12 +24,12 @@
 .base .image {
   max-width: 232px;
   height: 120px;
+  margin: 0 auto var(--cui-spacings-giga);
   object-fit: contain;
 }
 
-.illustration,
-.image {
-  margin: 0 auto var(--cui-spacings-giga);
+.illustration {
+  margin: 0 auto;
 }
 
 .base .image svg {

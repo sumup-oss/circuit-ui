@@ -28,7 +28,7 @@ The notification banner component has two variants:
 Use the `image` prop to add visual context to a notification banner. Images can help make a message more noticeable, especially for promotional content or important announcements.
 
 You can provide an image in one of two ways:
-- Use one of Circuit UI’s predefined illustrations by passing an `IllustrationProps` object. See the [illustration library](Features/Illustrations/Docs) for available illustrations.
+- Use one of Circuit UI’s available illustrations by passing an `IllustrationProps` object. See the [illustration library](Features/Illustrations/Docs) for the complete list of illustrations.
 - Pass standard image properties through the `image` object, using the `ImageProps` type.
 
 ```tsx
@@ -50,7 +50,8 @@ function Banner(props: NotificationBannerProps) {
 ```
 <Story of={Stories.CustomImage} inline={false} />
 
-Use the `width` property to set the width of the image. The default value is `200px`.
+For custom images, use the `width` property to set the width of the image. The default value is `200px`.
+For Illustrations, pass an object of type `IllustrationProps` to the `image` prop, and use the `size` property to set the size of the illustration.
 ```tsx
 import { NotificationBanner, type NotificationBannerProps } from '@sumup-oss/circuit-ui';
 
