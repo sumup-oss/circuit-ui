@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 11.15.1
+
+### Patch Changes
+
+- [#3817](https://github.com/sumup-oss/circuit-ui/pull/3817) [`e44442a`](https://github.com/sumup-oss/circuit-ui/commit/e44442a858430c8052a0536cd1e2c510c96c2d0d) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed a redundant slash in file path in global Vite css config.
+
 ## 11.15.0
 
 ### Minor Changes
