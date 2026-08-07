@@ -29,7 +29,7 @@ export function generateScopedNameFactory(directory: string) {
     const prefix = 'cui';
     const parts = [prefix];
 
-    const filePath = last(file.split('?')[0].split(`/packages/${directory}/`));
+    const filePath = last(file.split('?')[0].split(`/packages/${directory}`));
     const fileName = path.basename(filePath, '.module.css');
     const folderName = last(path.dirname(filePath).split(path.sep));
     const isComponent = filePath.includes('/components');
