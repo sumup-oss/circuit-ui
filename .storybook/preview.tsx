@@ -1,6 +1,7 @@
 import '@sumup-oss/design-tokens/fonts.css';
 import '@sumup-oss/design-tokens/dynamic.css';
 import '@sumup-oss/design-tokens/consumer-scoped.css';
+import '@sumup-oss/illustrations/styles.css';
 import '../packages/circuit-ui/styles/base.css';
 
 import {

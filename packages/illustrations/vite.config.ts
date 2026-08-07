@@ -16,9 +16,8 @@
 import path from 'node:path';
 import preserveDirectives from 'rollup-plugin-preserve-directives';
 
-import { defineConfig, ViteUserConfig } from 'vitest/config';
+import { defineConfig, type ViteUserConfig } from 'vitest/config';
 
-import { reorderUtilityCssVitePlugin } from './build/reorder-utility-css-plugin.js';
 import pkg from './package.json' with { type: 'json' };
 import { generateScopedNameFactory } from '../../vite.config.js';
 
@@ -26,22 +25,19 @@ const stylesFileName = 'styles';
 
 const css: ViteUserConfig['css'] = {
   modules: {
-    generateScopedName: generateScopedNameFactory('circuit-ui'),
+    generateScopedName: generateScopedNameFactory('illustrations/build'),
   },
 };
 
 export default defineConfig({
   css,
-  plugins: [reorderUtilityCssVitePlugin(`${stylesFileName}.css`)],
+  esbuild: {
+    jsx: 'automatic',
+  },
   build: {
     target: ['es2019'],
     lib: {
-      entry: [
-        path.resolve(__dirname, 'index.ts'),
-        path.resolve(__dirname, 'internal.ts'),
-        path.resolve(__dirname, 'experimental.ts'),
-        path.resolve(__dirname, 'legacy.ts'),
-      ],
+      entry: [path.resolve(__dirname, 'build/index.js')],
       formats: ['es'],
       fileName: (_, entryName: string) => `${entryName}.js`,
       cssFileName: stylesFileName,
@@ -57,17 +53,16 @@ export default defineConfig({
         preserveModules: true,
       },
       external: [
-        ...Object.keys(pkg.dependencies),
+        ...Object.keys(pkg.devDependencies),
         ...Object.keys(pkg.peerDependencies),
         // Subfolder imports
         'react/jsx-runtime',
-        '@emotion/react/jsx-runtime',
       ],
     },
   },
+
   test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: './setupTests.ts',
+    globals: false,
+    environment: 'node',
   },
 });

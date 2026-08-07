@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "emitDeclarationOnly": true,
+    "outDir": "./dist",
+    "types": ["vite/client", "node"]
+  },
+  "include": ["build/**/*"]
+}
