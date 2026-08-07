@@ -28,6 +28,10 @@
   object-fit: contain;
 }
 
+.illustration {
+  margin: 0 auto;
+}
+
 .base .image svg {
   width: 100%;
   height: 100%;

@@ -64,8 +64,7 @@ export const Base = (args: Omit<NotificationModalProps, 'open'>) => {
 
 Base.args = {
   image: {
-    src: '/images/illustration-update.svg',
-    alt: '',
+    illustration: 'security',
   },
   headline: "It's time to update your browser",
   body: "You'll soon need a more up-to-date browser to continue using SumUp.",
@@ -91,8 +90,7 @@ export const WithUseNotificationModal = () => {
         onClick={() =>
           setModal({
             image: {
-              src: '/images/illustration-update.svg',
-              alt: '',
+              illustration: 'security',
             },
             headline: "It's time to update your browser",
             body: "You'll soon need a more up-to-date browser to continue using SumUp.",

@@ -8,6 +8,7 @@
 .base .image {
   max-width: 280px;
   height: 160px;
+  margin-bottom: var(--cui-spacings-giga);
   object-fit: contain;
 }
 
@@ -17,7 +18,6 @@
 }
 
 .base .headline {
-  margin-top: var(--cui-spacings-giga);
   margin-bottom: var(--cui-spacings-byte);
   text-align: center;
 }

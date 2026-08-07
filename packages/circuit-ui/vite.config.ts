@@ -16,7 +16,7 @@
 import path from 'node:path';
 import preserveDirectives from 'rollup-plugin-preserve-directives';
 
-import { defineConfig, ViteUserConfig } from 'vitest/config';
+import { defineConfig, type ViteUserConfig } from 'vitest/config';
 
 import { reorderUtilityCssVitePlugin } from './build/reorder-utility-css-plugin.js';
 import pkg from './package.json' with { type: 'json' };
@@ -29,6 +29,18 @@ const css: ViteUserConfig['css'] = {
     generateScopedName: generateScopedNameFactory('circuit-ui'),
   },
 };
+
+const externalPackages = [
+  ...Object.keys(pkg.dependencies),
+  ...Object.keys(pkg.peerDependencies),
+];
+
+const isExternal = (id: string) =>
+  externalPackages.some(
+    (packageName) => id === packageName || id.startsWith(`${packageName}/`),
+  ) ||
+  id === 'react/jsx-runtime' ||
+  id === '@emotion/react/jsx-runtime';
 
 export default defineConfig({
   css,
@@ -56,13 +68,7 @@ export default defineConfig({
       output: {
         preserveModules: true,
       },
-      external: [
-        ...Object.keys(pkg.dependencies),
-        ...Object.keys(pkg.peerDependencies),
-        // Subfolder imports
-        'react/jsx-runtime',
-        '@emotion/react/jsx-runtime',
-      ],
+      external: isExternal,
     },
   },
   test: {

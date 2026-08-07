@@ -158,10 +158,14 @@ function buildIndexFile(): string {
   const helpersExport = `export * from './helpers.js';`;
   const illustrationExport = `export * from './components/Illustration.jsx';`;
   const typesExport = `export * from './types.js';`;
+  const namesArray = NAMES.map((name) => JSON.stringify(name)).join(', ');
+  const names = `export const NAMES: Name[] = [${namesArray}] as const;`;
   return `
+  import type {Name} from './types.ts';
   ${typesExport}
   ${helpersExport}
   ${illustrationExport}
+  ${names}
   `;
 }
 

@@ -34,6 +34,24 @@ Base.args = {
   headline: "The browser you're using is no longer supported",
   body: 'You need a more up-to-date browser to continue using SumUp.',
   image: {
+    illustration: 'security',
+  },
+  actions: {
+    primary: {
+      children: 'Update now',
+      onClick: () => action('Clicked'),
+    },
+  },
+};
+
+export const CustomImage = (args: NotificationFullscreenProps) => (
+  <NotificationFullscreen {...args} />
+);
+
+CustomImage.args = {
+  headline: "The browser you're using is no longer supported",
+  body: 'You need a more up-to-date browser to continue using SumUp.',
+  image: {
     src: '/images/illustration-update.svg',
     alt: '',
   },
