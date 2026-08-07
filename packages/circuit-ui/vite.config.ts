@@ -30,6 +30,18 @@ const css: ViteUserConfig['css'] = {
   },
 };
 
+const externalPackages = [
+  ...Object.keys(pkg.dependencies),
+  ...Object.keys(pkg.peerDependencies),
+];
+
+const isExternal = (id: string) =>
+  externalPackages.some(
+    (packageName) => id === packageName || id.startsWith(`${packageName}/`),
+  ) ||
+  id === 'react/jsx-runtime' ||
+  id === '@emotion/react/jsx-runtime';
+
 export default defineConfig({
   css,
   plugins: [reorderUtilityCssVitePlugin(`${stylesFileName}.css`)],
@@ -56,13 +68,7 @@ export default defineConfig({
       output: {
         preserveModules: true,
       },
-      external: [
-        ...Object.keys(pkg.dependencies),
-        ...Object.keys(pkg.peerDependencies),
-        // Subfolder imports
-        'react/jsx-runtime',
-        '@emotion/react/jsx-runtime',
-      ],
+      external: isExternal,
     },
   },
   test: {

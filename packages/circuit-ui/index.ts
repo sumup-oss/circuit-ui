@@ -12,8 +12,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+// styles
 import './styles/base.css';
+import '@sumup-oss/illustrations/styles.css';
 
 export { utilClasses } from './styles/utility.js';
 export { clsx } from './styles/clsx.js';
