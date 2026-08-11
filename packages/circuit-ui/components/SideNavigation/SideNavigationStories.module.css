@@ -1,0 +1,18 @@
+.main {
+  padding: var(--cui-spacings-tera);
+}
+
+.hamburger {
+  margin-top: var(--cui-spacings-byte);
+  margin-left: var(--cui-spacings-byte);
+}
+
+@media (min-width: 1024px) {
+  .main {
+    margin-left: var(--side-navigation-width);
+  }
+
+  .hamburger {
+    display: none;
+  }
+}

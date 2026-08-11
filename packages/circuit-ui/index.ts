@@ -123,9 +123,7 @@ export type { TopNavigationProps } from './components/TopNavigation/index.js';
 export { SideNavigation } from './components/SideNavigation/index.js';
 export type {
   SideNavigationProps,
-  PrimaryLinkProps,
-  SecondaryGroupProps,
-  SecondaryLinkProps,
+  NavigationGroup,
 } from './components/SideNavigation/index.js';
 
 export { Tabs } from './components/Tabs/Tabs.js';

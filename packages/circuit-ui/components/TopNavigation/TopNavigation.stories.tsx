@@ -26,6 +26,7 @@ import { Headline } from '../Headline/index.js';
 
 import { TopNavigation, type TopNavigationProps } from './TopNavigation.js';
 import { SumUpLogo } from '../SumUpLogo/SumUpLogo.js';
+import classes from './TopNavigationStories.module.css';
 
 export default {
   title: 'Navigation/TopNavigation',
@@ -114,14 +115,16 @@ export const WithSideNavigation = (args: TopNavigationProps) => {
   };
   return (
     <>
-      <TopNavigation {...args} hamburger={hamburger} />
-      <div style={{ display: 'flex' }}>
-        <SideNavigation
-          {...sideNavigationProps}
-          isOpen={isSideNavigationOpen}
-          skipNavigationHref={undefined}
-          onClose={() => setSideNavigationOpen(false)}
-        />
+      <SideNavigation
+        {...sideNavigationProps}
+        isOpen={isSideNavigationOpen}
+        onClose={() => setSideNavigationOpen(false)}
+        skipNavigationHref="#main-content"
+        skipNavigationLabel="Skip navigation"
+      />
+      <div className={classes.container}>
+        <TopNavigation {...args} hamburger={hamburger} />
+
         {placeHolderContent}
       </div>
     </>
@@ -131,6 +134,9 @@ export const WithSideNavigation = (args: TopNavigationProps) => {
 WithSideNavigation.storyName = 'With SideNavigation';
 WithSideNavigation.args = {
   ...baseArgs,
+  logo: undefined,
+  skipNavigationHref: undefined,
+  skipNavigationLabel: undefined,
   hamburger: {
     activeLabel: 'Close side navigation',
     inactiveLabel: 'Open side navigation',

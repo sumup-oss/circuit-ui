@@ -18,7 +18,6 @@
 import type React from 'react';
 
 import { legacyButtonSizeMap } from '../Button/index.js';
-import type { IconButtonProps } from '../Button/index.js';
 import { Skeleton } from '../Skeleton/index.js';
 import {
   AccessibilityError,
@@ -34,7 +33,10 @@ import {
 } from '../TopNavigation/components/NavigationButton/NavigationButton.js';
 
 export interface HamburgerProps
-  extends Omit<NavigationButtonProps, 'ref' | 'children' | 'icon' | 'type'> {
+  extends Omit<
+    NavigationButtonProps,
+    'ref' | 'children' | 'icon' | 'type' | 'label'
+  > {
   // biome-ignore lint/suspicious/noExplicitAny: ref can target button or anchor
   ref?: React.Ref<any>;
   /**
@@ -51,7 +53,6 @@ export interface HamburgerProps
   inactiveLabel: string;
   isLoading?: never;
   loadingLabel?: never;
-  size?: IconButtonProps['size'];
 }
 
 /**
@@ -103,7 +104,7 @@ export function Hamburger({
         // @ts-expect-error This doesn't have to be an SVG element.
         <Skeleton
           {...iconProps}
-          className={clsx(iconProps.className, classes[size], classes.skeleton)}
+          className={clsx(iconProps.className, classes.skeleton, classes[size])}
         >
           <span className={clsx(classes.base, classes[size])} />
         </Skeleton>

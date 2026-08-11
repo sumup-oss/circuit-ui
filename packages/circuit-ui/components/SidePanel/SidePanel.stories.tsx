@@ -23,8 +23,6 @@ import { Button } from '../Button/index.js';
 import { ListItemGroup } from '../ListItemGroup/index.js';
 import { TopNavigation } from '../TopNavigation/index.js';
 import { baseArgs as topNavigationProps } from '../TopNavigation/TopNavigation.stories.js';
-import { SideNavigation } from '../SideNavigation/index.js';
-import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories.js';
 import { FullViewport } from '../../../../.storybook/components/index.js';
 
 import { SidePanelProvider } from './SidePanelContext.js';
@@ -227,11 +225,6 @@ export const WithTopNavigation = (props: SidePanelHookProps) => {
     <>
       <TopNavigation {...topNavigationProps} hamburger={hamburger} />
       <div style={{ display: 'flex' }}>
-        <SideNavigation
-          {...sideNavigationProps}
-          isOpen={isSideNavigationOpen}
-          onClose={() => setSideNavigationOpen(false)}
-        />
         <div style={{ flex: '1' }}>
           <SidePanelProvider>
             <StoryInstructions />
