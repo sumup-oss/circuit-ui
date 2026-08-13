@@ -213,28 +213,17 @@ export const Base = (props: SidePanelHookProps) => (
 Base.args = baseArgs;
 Base.play = basePlay;
 
-export const WithTopNavigation = (props: SidePanelHookProps) => {
-  const [isSideNavigationOpen, setSideNavigationOpen] = useState(false);
-  const hamburger = {
-    activeLabel: 'Close side navigation',
-    inactiveLabel: 'Open side navigation',
-    isActive: isSideNavigationOpen,
-    onClick: () => setSideNavigationOpen((prev) => !prev),
-  };
-  return (
-    <>
-      <TopNavigation {...topNavigationProps} hamburger={hamburger} />
-      <div style={{ display: 'flex' }}>
-        <div style={{ flex: '1' }}>
-          <SidePanelProvider>
-            <StoryInstructions />
-            <ComponentWithSidePanel {...props} />
-          </SidePanelProvider>
-        </div>
-      </div>
-    </>
-  );
-};
+export const WithTopNavigation = (props: SidePanelHookProps) => (
+  <>
+    <TopNavigation {...topNavigationProps} />
+    <div style={{ display: 'flex' }}>
+      <SidePanelProvider>
+        <StoryInstructions />
+        <ComponentWithSidePanel {...props} />
+      </SidePanelProvider>
+    </div>
+  </>
+);
 WithTopNavigation.storyName = 'With TopNavigation';
 WithTopNavigation.args = baseArgs;
 WithTopNavigation.play = basePlay;

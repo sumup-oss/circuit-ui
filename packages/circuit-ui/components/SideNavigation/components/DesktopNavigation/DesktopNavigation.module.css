@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   z-index: var(--cui-z-index-navigation);
-  visibility: hidden;
+  display: none;
   width: var(--side-navigation-width);
   min-width: var(--side-navigation-width);
   height: 100vh;
@@ -17,7 +17,7 @@
 
 @media (min-width: 1024px) {
   .base {
-    visibility: visible;
+    display: block;
     flex-direction: column;
     justify-content: space-between;
   }

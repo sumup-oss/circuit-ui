@@ -27,6 +27,7 @@ import { Headline } from '../Headline/index.js';
 import { TopNavigation, type TopNavigationProps } from './TopNavigation.js';
 import { SumUpLogo } from '../SumUpLogo/SumUpLogo.js';
 import classes from './TopNavigationStories.module.css';
+import { useMedia } from '../../hooks/useMedia/index.js';
 
 export default {
   title: 'Navigation/TopNavigation',
@@ -37,7 +38,6 @@ export default {
     chromatic: {
       modes: {
         smallMobile: modes.smallMobile,
-        largeMobile: modes.largeMobile,
         tablet: modes.tablet,
       },
     },
@@ -52,6 +52,25 @@ function CustomComponent() {
     </Body>
   );
 }
+
+const Logo = () => {
+  const isMobile = useMedia('(max-width: 767px)');
+  return (
+    <a
+      href="https://sumup.com"
+      aria-label="Visit SumUp's website"
+      target="_blank"
+      rel="noreferrer"
+      style={{
+        height: 'var(--cui-icon-sizes-l)',
+        display: 'block',
+        color: 'var(--cui-fg-normal)',
+      }}
+    >
+      <SumUpLogo variant={isMobile ? 'short' : 'full'} />
+    </a>
+  );
+};
 
 const placeHolderContent = (
   <main id="main-content" style={{ padding: 'var(--cui-spacings-tera)' }}>
@@ -71,16 +90,7 @@ const placeHolderContent = (
 
 export const baseArgs: TopNavigationProps = {
   isLoading: false,
-  logo: (
-    <a
-      href="https://sumup.com"
-      aria-label="Visit SumUp's website"
-      target="_blank"
-      rel="noreferrer"
-    >
-      <SumUpLogo size="s" />
-    </a>
-  ),
+  logo: <Logo />,
   links: [
     {
       key: 'custom',

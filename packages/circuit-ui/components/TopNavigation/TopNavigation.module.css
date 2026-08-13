@@ -20,18 +20,15 @@
 }
 
 .wrapper {
+  display: flex;
+  gap: var(--cui-spacings-kilo);
+  align-items: center;
   min-width: 0;
   max-width: 100%;
 }
 
 .logo {
-  display: none;
   height: 100%;
-}
-
-.logo > * {
-  height: inherit;
-  line-height: 0;
 }
 
 .logo a:focus,
@@ -48,11 +45,6 @@
 .logo a:focus:not(:focus-visible),
 .logo button:focus:not(:focus-visible) {
   box-shadow: none;
-}
-
-.logo svg {
-  height: var(--cui-icon-sizes-m);
-  color: var(--cui-fg-normal);
 }
 
 @media (min-width: 1024px) {

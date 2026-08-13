@@ -165,7 +165,7 @@ export const baseArgs: SideNavigationProps = {
   logo,
 };
 
-const PlaceholderContent = () => (
+const placeHolderContent = (
   <main id="main-content" className={classes.main}>
     <Headline as="h1">Main content</Headline>
     <Body>
@@ -197,7 +197,7 @@ export const Base = (args: SideNavigationProps) => {
         isActive={isOpen}
         onClick={toggleIsOpen}
       />
-      <PlaceholderContent />
+      {placeHolderContent}
     </div>
   );
 };
