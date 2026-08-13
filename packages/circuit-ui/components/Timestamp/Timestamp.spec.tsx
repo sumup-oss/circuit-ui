@@ -27,7 +27,11 @@ vi.mock('../../util/date.js', async (importOriginal) => {
   ]);
   return {
     ...module,
-    getTodaysDate: vi.fn().mockReturnValue(new Temporal.PlainDate(2000, 1, 1)),
+    getTodaysZonedDateTimeISODate: vi.fn(() =>
+      Temporal.Instant.fromEpochMilliseconds(Date.now()).toZonedDateTimeISO(
+        'Europe/Berlin',
+      ),
+    ),
   };
 });
 

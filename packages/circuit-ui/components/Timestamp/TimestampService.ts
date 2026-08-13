@@ -21,6 +21,7 @@ import {
 } from '@sumup-oss/intl';
 
 import type { Locale } from '../../util/i18n.js';
+import { getTodaysZonedDateTimeISODate } from '../../util/date.js';
 
 const DATE_STYLE_MAP = {
   long: 'long',
@@ -115,7 +116,7 @@ export function getState({
   includeTime: boolean;
 }): State {
   const zonedDateTime = Temporal.ZonedDateTime.from(datetime);
-  const now = Temporal.Now.zonedDateTimeISO();
+  const now = getTodaysZonedDateTimeISODate();
   const duration = zonedDateTime.since(now);
 
   const isBeyondThreshold =
