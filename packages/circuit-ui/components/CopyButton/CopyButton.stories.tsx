@@ -23,7 +23,7 @@ export default {
   component: CopyButton,
   tags: ['status:experimental'],
   decorators: [
-    (Story: () => JSX.Element) => (
+    (Story: () => React.JSX.Element) => (
       <ToastProvider>
         <Story />
       </ToastProvider>
@@ -80,26 +80,24 @@ export default {
         category: 'Input',
       },
     },
-    invalid: {
-      control: 'boolean',
+    inputClassName: {
       table: {
         category: 'Input',
       },
     },
-    hasWarning: {
-      control: 'boolean',
+    renderPrefix: {
       table: {
         category: 'Input',
       },
     },
-    validationHint: {
-      control: 'text',
+    textAlign: {
+      control: 'select',
       table: {
         category: 'Input',
       },
     },
     // Button
-    size: {
+    variant: {
       control: 'select',
       table: {
         category: 'Button',
@@ -109,6 +107,35 @@ export default {
       control: 'boolean',
       table: {
         category: 'Button',
+      },
+    },
+    isLoading: {
+      control: 'boolean',
+      table: {
+        category: 'Button',
+      },
+    },
+    loadingLabel: {
+      control: 'text',
+      table: {
+        category: 'Button',
+      },
+    },
+    // Shared
+    size: {
+      control: 'select',
+      table: {
+        category: 'Shared',
+      },
+    },
+    className: {
+      table: {
+        category: 'Shared',
+      },
+    },
+    style: {
+      table: {
+        category: 'Shared',
       },
     },
     // State
@@ -187,25 +214,6 @@ export const Disabled = () => (
     />
   </Stack>
 );
-
-export const ValidationStates = (args: CopyButtonProps) => (
-  <Stack>
-    <CopyButton
-      {...args}
-      label="Invalid token"
-      validationHint="This token has expired."
-      invalid
-    />
-    <CopyButton
-      {...args}
-      label="Warning token"
-      validationHint="This token will expire soon."
-      hasWarning
-    />
-  </Stack>
-);
-
-ValidationStates.args = inputArgs;
 
 export const Variants = () => (
   <Stack vertical>

@@ -36,11 +36,11 @@ type CommonCopyButtonProps = {
    */
   copyLabel: string;
   /**
-   * Callback function when the value was copied.
+   * Callback function called after the value has been copied successfully.
    */
   onCopy?: (event: ClickEvent) => void;
   /**
-   * Test copy shown in as a notification after a successful copy action.
+   * Text shown in a notification after a successful copy action.
    */
   successLabel: string;
 };
@@ -48,13 +48,19 @@ type CommonCopyButtonProps = {
 type InputCopyButtonProps = CommonCopyButtonProps &
   Omit<
     InputProps,
+    | 'as'
     | 'defaultValue'
+    | 'hasWarning'
+    | 'invalid'
     | 'onCopy'
+    | 'optionalLabel'
     | 'passwordManagerIgnore'
     | 'readOnly'
     | 'renderSuffix'
+    | 'required'
     | 'showValid'
     | 'type'
+    | 'validationHint'
     | 'value'
   > & {
     /**
@@ -72,11 +78,14 @@ type InputCopyButtonProps = CommonCopyButtonProps &
 type ButtonCopyButtonProps = CommonCopyButtonProps &
   Omit<
     ButtonProps,
+    | 'as'
     | 'children'
     | 'destructive'
+    | 'href'
     | 'icon'
     | 'navigationIcon'
     | 'onClick'
+    | 'onCopy'
     | 'type'
     | 'value'
   > & {
@@ -89,7 +98,15 @@ type ButtonCopyButtonProps = CommonCopyButtonProps &
 type IconCopyButtonProps = CommonCopyButtonProps &
   Omit<
     IconButtonProps,
-    'children' | 'icon' | 'label' | 'onClick' | 'type' | 'value'
+    | 'as'
+    | 'children'
+    | 'href'
+    | 'icon'
+    | 'label'
+    | 'onClick'
+    | 'onCopy'
+    | 'type'
+    | 'value'
   > & {
     /**
      * The CopyButton variant.
@@ -119,13 +136,15 @@ export const CopyButton = forwardRef<
     try {
       // eslint-disable-next-line compat/compat
       await navigator.clipboard.writeText(value);
-      setToast({
-        body: successLabel,
-      });
-      onCopy?.(event);
     } catch {
       // Ignore clipboard failures so the UI does not enter a false success state.
+      return;
     }
+
+    setToast({
+      body: successLabel,
+    });
+    onCopy?.(event);
   };
 
   if (props.copyVariant === 'button') {
@@ -144,6 +163,7 @@ export const CopyButton = forwardRef<
         <Button
           {...buttonProps}
           ref={ref}
+          as="button"
           type="button"
           disabled={isCopyDisabled}
           onClick={handleCopy}
@@ -152,7 +172,11 @@ export const CopyButton = forwardRef<
         >
           {copyLabel}
         </Button>
-        <span id={valueDescriptionId} className={utilClasses.hideVisually}>
+        <span
+          id={valueDescriptionId}
+          className={utilClasses.hideVisually}
+          translate="no"
+        >
           {value}
         </span>
       </>
@@ -175,6 +199,7 @@ export const CopyButton = forwardRef<
         <IconButton
           {...iconButtonProps}
           ref={ref}
+          as="button"
           type="button"
           disabled={isCopyDisabled}
           onClick={handleCopy}
@@ -183,7 +208,11 @@ export const CopyButton = forwardRef<
         >
           {copyLabel}
         </IconButton>
-        <span id={valueDescriptionId} className={utilClasses.hideVisually}>
+        <span
+          id={valueDescriptionId}
+          className={utilClasses.hideVisually}
+          translate="no"
+        >
           {value}
         </span>
       </>
@@ -206,6 +235,8 @@ export const CopyButton = forwardRef<
     <Input
       {...inputProps}
       ref={ref}
+      as="input"
+      type="text"
       value={displayText}
       readOnly
       renderSuffix={(renderProps) => (

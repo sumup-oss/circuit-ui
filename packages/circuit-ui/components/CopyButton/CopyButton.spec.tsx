@@ -45,6 +45,7 @@ const buttonVariants = [
     },
     buttonName: 'Copy token',
     description: 'secret-token',
+    elementType: HTMLButtonElement,
   },
   {
     name: 'icon button',
@@ -56,12 +57,14 @@ const buttonVariants = [
     },
     buttonName: 'Copy token',
     description: 'secret-token',
+    elementType: HTMLButtonElement,
   },
 ] satisfies {
   name: string;
   props: React.ComponentProps<typeof CopyButton>;
   buttonName: string;
   description: string;
+  elementType: typeof HTMLButtonElement;
 }[];
 
 const variants = [
@@ -69,12 +72,14 @@ const variants = [
     name: 'input',
     props: defaultProps,
     buttonName: 'Copy token',
+    elementType: HTMLInputElement,
   },
   ...buttonVariants,
 ] satisfies {
   name: string;
   props: React.ComponentProps<typeof CopyButton>;
   buttonName: string;
+  elementType: typeof HTMLInputElement | typeof HTMLButtonElement;
 }[];
 
 const renderWithToastProvider = (ui: React.ReactNode) =>
@@ -109,7 +114,19 @@ describe('CopyButton', () => {
     ).not.toBeInTheDocument();
   });
 
-  describe.each(variants)('as $name', ({ props, buttonName }) => {
+  it('should copy the original value when a visible value is provided', async () => {
+    render(<CopyButton {...defaultProps} visibleValue="••••••••••••token" />);
+
+    await userEvent.click(
+      screen.getByRole('button', { name: defaultProps.copyLabel }),
+    );
+
+    expect(navigator.clipboard.writeText).toHaveBeenCalledWith(
+      defaultProps.value,
+    );
+  });
+
+  describe.each(variants)('as $name', ({ props, buttonName, elementType }) => {
     it('should show a notification toast when copying succeeds', async () => {
       const onCopy = vi.fn();
 
@@ -142,15 +159,11 @@ describe('CopyButton', () => {
     });
 
     it('should forward refs to the control', () => {
-      const ref = createRef<HTMLInputElement | HTMLButtonElement>();
+      const ref = createRef<HTMLInputElement & HTMLButtonElement>();
 
       render(<CopyButton {...props} ref={ref} />);
 
-      expect(ref.current).toBeInstanceOf(
-        props.copyVariant === 'button' || props.copyVariant === 'icon-button'
-          ? HTMLButtonElement
-          : HTMLInputElement,
-      );
+      expect(ref.current).toBeInstanceOf(elementType);
     });
 
     it('should merge a custom class name with the default ones', () => {
@@ -159,17 +172,12 @@ describe('CopyButton', () => {
         <CopyButton {...props} className={className} />,
       );
 
-      if (
-        props.copyVariant === 'button' ||
-        props.copyVariant === 'icon-button'
-      ) {
-        expect(screen.getByRole('button', { name: buttonName })).toHaveClass(
-          className,
-        );
-        return;
-      }
+      const element =
+        elementType === HTMLButtonElement
+          ? screen.getByRole('button', { name: buttonName })
+          : container.firstElementChild;
 
-      expect(container.firstElementChild).toHaveClass(className);
+      expect(element).toHaveClass(className);
     });
   });
 
