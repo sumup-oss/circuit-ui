@@ -31,6 +31,7 @@ export default {
     required: { control: 'boolean' },
     size: {
       options: ['s', 'm'],
+      control: { type: 'select' },
     },
   },
 };

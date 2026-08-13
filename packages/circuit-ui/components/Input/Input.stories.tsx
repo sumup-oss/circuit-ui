@@ -30,6 +30,7 @@ export default {
     disabled: { control: 'boolean' },
     size: {
       options: ['s', 'm'],
+      control: { type: 'select' },
     },
   },
 };

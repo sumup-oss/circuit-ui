@@ -21,6 +21,12 @@ export default {
   title: 'Forms/ColorInput',
   component: ColorInput,
   tags: ['status:stable'],
+  argTypes: {
+    size: {
+      options: ['s', 'm'],
+      control: { type: 'select' },
+    },
+  },
 };
 
 const baseArgs = {

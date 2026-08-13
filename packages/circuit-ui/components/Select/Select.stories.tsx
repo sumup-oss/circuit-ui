@@ -28,6 +28,12 @@ export default {
   title: 'Forms/Select',
   component: Select,
   tags: ['status:stable'],
+  argTypes: {
+    size: {
+      options: ['s', 'm'],
+      control: { type: 'select' },
+    },
+  },
 };
 
 const baseArgs = {
