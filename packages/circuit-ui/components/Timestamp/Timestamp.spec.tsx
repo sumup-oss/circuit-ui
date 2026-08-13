@@ -14,18 +14,24 @@
  */
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import MockDate from 'mockdate';
 import { createRef } from 'react';
 
 import { render, screen, axe, act } from '../../util/test-utils.js';
 
 import { Timestamp } from './Timestamp.js';
 
-describe('Calendar', () => {
-  beforeEach(() => {
-    MockDate.set('2020-01-01T01:00+01:00');
-  });
+vi.mock('../../util/date.js', async (importOriginal) => {
+  const [module, { Temporal }] = await Promise.all([
+    importOriginal<typeof import('../../util/date.js')>(),
+    import('temporal-polyfill'),
+  ]);
+  return {
+    ...module,
+    getTodaysDate: vi.fn().mockReturnValue(new Temporal.PlainDate(2000, 1, 1)),
+  };
+});
 
+describe('Timestamp', () => {
   const baseProps = {
     datetime: '2020-01-01T00:00+01:00[Europe/Berlin]',
   };
@@ -120,6 +126,7 @@ describe('Calendar', () => {
   describe('relative variant', () => {
     beforeEach(() => {
       vi.useFakeTimers();
+      vi.setSystemTime(new Date('2020-01-01T01:00+01:00'));
     });
 
     afterEach(() => {
