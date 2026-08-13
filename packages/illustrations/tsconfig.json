@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "target": "es2019",
+    "types": ["node"],
+    "jsx": "react-jsx"
+  },
+  "include": ["scripts/*", "tests/*", "constants.ts"],
+  "exclude": ["node_modules", "dist"]
+}

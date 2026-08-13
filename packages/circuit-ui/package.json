@@ -61,6 +61,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@sumup-oss/illustrations": "^1.0.0",
     "@floating-ui/react-dom": "^2.1.8",
     "@nanostores/react": "^1.1.0",
     "nanostores": "^1.4.1"

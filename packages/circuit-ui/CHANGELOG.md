@@ -1,5 +1,24 @@
 # @sumup-oss/circuit-ui
 
+## 11.15.1
+
+### Patch Changes
+
+- [#3817](https://github.com/sumup-oss/circuit-ui/pull/3817) [`e44442a`](https://github.com/sumup-oss/circuit-ui/commit/e44442a858430c8052a0536cd1e2c510c96c2d0d) Thanks [@sirineJ](https://github.com/sirineJ)! - Fixed a redundant slash in file path in global Vite css config.
+
+## 11.15.0
+
+### Minor Changes
+
+- [#3810](https://github.com/sumup-oss/circuit-ui/pull/3810) [`8becac3`](https://github.com/sumup-oss/circuit-ui/commit/8becac30ead770a95a7245080c2dd960b2abbbe6) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the NotificationBanner, NotificationFullScreen and NotificationModal components to support illustrations under the hood. Pass the illustration name to `image.illustration` to display any of the assets in the [illustration](https://circuit.sumup.com/?path=/docs/features-illustrations--docs) library.
+
+### Patch Changes
+
+- [#3786](https://github.com/sumup-oss/circuit-ui/pull/3786) [`a91eaec`](https://github.com/sumup-oss/circuit-ui/commit/a91eaeccc4ec443196997fe72c611840426b76d8) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed calling the `onBack` callback when navigating back from a stacked SidePanel.
+
+- Updated dependencies [[`d3927e7`](https://github.com/sumup-oss/circuit-ui/commit/d3927e784cc5ba829007e762d109194e0eb81f0e), [`e029f0c`](https://github.com/sumup-oss/circuit-ui/commit/e029f0cfaace56baaa510b4f787a1834209614ca), [`58b68ac`](https://github.com/sumup-oss/circuit-ui/commit/58b68aca48ed967a2c2d35994a7f25cbd8cfe90c), [`8becac3`](https://github.com/sumup-oss/circuit-ui/commit/8becac30ead770a95a7245080c2dd960b2abbbe6)]:
+  - @sumup-oss/illustrations@1.0.0
+
 ## 12.0.0-next.5
 
 ### Major Changes

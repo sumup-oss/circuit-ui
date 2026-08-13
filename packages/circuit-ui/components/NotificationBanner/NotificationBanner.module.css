@@ -93,15 +93,19 @@
   }
 }
 
-.base .image {
+.image,
+.illustration {
   grid-area: image;
   align-self: stretch;
+  border-radius: 0 var(--cui-border-radius-mega) var(--cui-border-radius-mega) 0;
+}
+
+.base .image {
   width: var(--notification-image-width);
   min-width: 0;
   height: auto;
   object-fit: contain;
   object-position: var(--notification-image-align);
-  border-radius: 0 var(--cui-border-radius-mega) var(--cui-border-radius-mega) 0;
 }
 
 .base .close {

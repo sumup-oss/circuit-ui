@@ -1,0 +1,55 @@
+{
+  "name": "@sumup-oss/illustrations",
+  "version": "1.0.0",
+  "description": "SumUp's illustrations library",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./manifest.json": "./manifest.json"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "manifest.json"
+  ],
+  "repository": {
+    "type": "git",
+    "directory": "packages/illustrations",
+    "url": "git+https://github.com/sumup-oss/circuit-ui.git"
+  },
+  "publishConfig": {
+    "provenance": true
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/sumup-oss/circuit-ui/issues"
+  },
+  "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/illustrations/README.md",
+  "scripts": {
+    "start": "tsx watch ./scripts/build.ts",
+    "build": "tsx ./scripts/build.ts  && vite build  && tsc -p tsconfig.build.json && rm -rf build",
+    "test": "vitest",
+    "lint": "foundry run eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "npm run lint -- --fix",
+    "prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.5",
+    "fast-xml-parser": "^5.7.1",
+    "rollup-plugin-preserve-directives": "^0.4.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.0.0 <20.0.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

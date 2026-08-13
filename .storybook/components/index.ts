@@ -21,6 +21,7 @@ export { DocsContainer } from './DocsContainer.js';
 export { Status } from './Statuses.js';
 export { Story } from './Story.js';
 export { Icons } from './Icons.js';
+export { Illustrations } from './Illustrations.js';
 export { Intro } from './Intro.js';
 export { Teaser } from './Teaser.js';
 export { Link } from './Link.js';
