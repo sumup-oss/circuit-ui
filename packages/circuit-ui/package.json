@@ -55,7 +55,7 @@
   },
   "homepage": "https://github.com/sumup-oss/circuit-ui/tree/main/packages/circuit-ui/README.md",
   "scripts": {
-    "build": "vite build && tsc -p tsconfig.build.json && rm -rf dist/node_modules",
+    "build": "vite build && mv dist/circuit-ui/* dist && rm -rf dist/circuit-ui && tsc -p tsconfig.build.json && rm -rf dist/node_modules",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
     "test": "vitest"
