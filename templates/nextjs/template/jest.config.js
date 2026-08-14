@@ -9,6 +9,8 @@ const esModules = [
   '@sumup-oss/intl',
   '@nanostores/react',
   'nanostores',
+  'temporal-polyfill',
+  'temporal-utils',
 ].join('|');
 
 const createJestConfig = nextJest({ dir: './' });
@@ -25,6 +27,7 @@ const customJestConfig = {
   coverageDirectory: './__coverage__',
   coverageReporters: ['cobertura', 'text-summary', 'html'],
   collectCoverageFrom: [
+    'app/**/*.(js|jsx|ts|tsx)',
     'components/**/*.(js|jsx|ts|tsx)',
     'pages/**/*.(js|jsx|ts|tsx)',
     'services/**/*.(js|jsx|ts|tsx)',

@@ -25,7 +25,7 @@
     "astro": "^6.4.6",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
-    "temporal-polyfill": "^0.3.2"
+    "temporal-polyfill": "^1.0.3"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.8",

@@ -14,7 +14,12 @@ export function DocCard({ title, description, href }: DocCardProps) {
   return (
     <Card>
       <Headline as="h2" className={styles.title}>
-        <a href={href} target="_blank" aria-describedby={descriptionId}>
+        <a
+          href={href}
+          target="_blank"
+          aria-describedby={descriptionId}
+          rel="noopener"
+        >
           {title}
         </a>
       </Headline>
