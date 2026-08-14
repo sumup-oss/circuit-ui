@@ -180,21 +180,6 @@ MaskedInput.args = {
   visibleValue: 'sk_live_******',
 };
 
-export const LongValue = (args: CopyButtonProps) => <CopyButton {...args} />;
-
-LongValue.args = {
-  label: 'Webhook secret',
-  value: 'whsec_4VbX8i2LwY7nQp3Rk5Tm9Uc1Fd6Hs0Za',
-  copyLabel: 'Copy secret',
-  successLabel: 'Secret copied',
-} satisfies CopyButtonProps;
-
-LongValue.parameters = {
-  chromatic: {
-    disableSnapshot: true,
-  },
-};
-
 export const Disabled = () => (
   <Stack vertical>
     <CopyButton {...inputArgs} disabled />

@@ -10,7 +10,7 @@ import * as Stories from './CopyButton.stories';
 CopyButton copies a value to the clipboard and can render as a read-only input, a full button, or an icon button.
 
 <Story of={Stories.Base} />
-<Props />
+<Props of={Stories.Base} />
 
 ## When to Use
 
@@ -24,18 +24,14 @@ Use the button or icon button variants when the value itself does not need to st
 
 Wrap your application in `ToastProvider` to display a feedback toast after a successful copy action.
 
-<Story of={Stories.MaskedInput} />
-
-Use `visibleValue` to show a masked or shortened value while preserving the full copied `value`.
-
-<Story of={Stories.LongValue} />
-
-## Variants
-
-<Story of={Stories.Variants} />
-
-## Content
+### Content
 
 Keep the visible label clear and specific so users understand what will be copied. Use concise copy such as `"Copy token"` or `"Copy secret"`, and customize `successLabel` when the success message should refer to a specific object.
 
-Long values remain selectable in the read-only field, and the full `value` is copied.
+Use `visibleValue` to show a masked or shortened value while preserving the full copied `value`.
+
+<Story of={Stories.MaskedInput} />
+
+### Variants
+
+<Story of={Stories.Variants} />
