@@ -30,7 +30,10 @@ export default {
   argTypes: {
     disabled: { control: 'boolean' },
     required: { control: 'boolean' },
-    size: { options: ['s', 'm '] },
+    size: {
+      options: ['s', 'm'],
+      control: { type: 'select' },
+    },
   },
 };
 

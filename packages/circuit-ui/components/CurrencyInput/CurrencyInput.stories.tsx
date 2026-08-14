@@ -24,6 +24,7 @@ export default {
   argTypes: {
     size: {
       options: ['s', 'm'],
+      control: { type: 'select' },
     },
   },
 };

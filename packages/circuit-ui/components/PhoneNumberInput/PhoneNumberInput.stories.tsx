@@ -35,7 +35,10 @@ export default {
   tags: ['status:stable'],
   argTypes: {
     disabled: { control: 'boolean' },
-    size: { options: ['s', 'm'] },
+    size: {
+      options: ['s', 'm'],
+      control: { type: 'select' },
+    },
   },
 };
 
