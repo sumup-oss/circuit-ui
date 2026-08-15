@@ -18,6 +18,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import {
   axe,
+  act,
   render,
   screen,
   userEvent,
@@ -143,14 +144,20 @@ describe('CopyButton', () => {
 
     it('should have no accessibility violations', async () => {
       const { container } = renderWithToastProvider(<CopyButton {...props} />);
+      // Flush Floating UI's asynchronous position update to prevent act warnings.
+      // eslint-disable-next-line testing-library/no-unnecessary-act
+      await act(async () => {});
 
       const actual = await axe(container);
 
       expect(actual).toHaveNoViolations();
     });
 
-    it('should disable copying when the value is empty', () => {
+    it('should disable copying when the value is empty', async () => {
       render(<CopyButton {...props} value="" />);
+      // Flush Floating UI's asynchronous position update to prevent act warnings.
+      // eslint-disable-next-line testing-library/no-unnecessary-act
+      await act(async () => {});
 
       expect(screen.getByRole('button', { name: buttonName })).toHaveAttribute(
         'aria-disabled',
@@ -158,19 +165,25 @@ describe('CopyButton', () => {
       );
     });
 
-    it('should forward refs to the control', () => {
+    it('should forward refs to the control', async () => {
       const ref = createRef<HTMLInputElement & HTMLButtonElement>();
 
       render(<CopyButton {...props} ref={ref} />);
+      // Flush Floating UI's asynchronous position update to prevent act warnings.
+      // eslint-disable-next-line testing-library/no-unnecessary-act
+      await act(async () => {});
 
       expect(ref.current).toBeInstanceOf(elementType);
     });
 
-    it('should merge a custom class name with the default ones', () => {
+    it('should merge a custom class name with the default ones', async () => {
       const className = 'custom-class';
       const { container } = render(
         <CopyButton {...props} className={className} />,
       );
+      // Flush Floating UI's asynchronous position update to prevent act warnings.
+      // eslint-disable-next-line testing-library/no-unnecessary-act
+      await act(async () => {});
 
       const element =
         elementType === HTMLButtonElement
@@ -186,13 +199,34 @@ describe('CopyButton', () => {
     buttonName,
     description,
   }) => {
-    it('should describe the copied value when it is not visible', () => {
+    it('should describe the copied value when it is not visible', async () => {
       render(<CopyButton {...props} />);
+      // Flush Floating UI's asynchronous position update to prevent act warnings.
+      // eslint-disable-next-line testing-library/no-unnecessary-act
+      await act(async () => {});
 
       expect(
         screen.getByRole('button', { name: buttonName }),
       ).toHaveAccessibleDescription(description);
     });
+  });
+
+  it('should show the copy label in a tooltip as an icon button', async () => {
+    const copyLabel = 'Copy token';
+
+    render(
+      <CopyButton
+        copyVariant="icon-button"
+        value="secret-token"
+        copyLabel={copyLabel}
+        successLabel="Copied to clipboard."
+      />,
+    );
+
+    await userEvent.hover(screen.getByRole('button', { name: copyLabel }));
+
+    expect(screen.getByRole('tooltip')).toHaveTextContent(copyLabel);
+    expect(screen.getByRole('tooltip')).toHaveAttribute('data-state', 'open');
   });
 
   it('should not announce success when clipboard write fails', async () => {
