@@ -15,14 +15,16 @@
 
 'use client';
 
-import { forwardRef, useId } from 'react';
+import { forwardRef, useId, type FocusEvent, type MouseEvent } from 'react';
 import { CopyPaste } from '@sumup-oss/icons';
 
 import { Button, IconButton } from '../Button/index.js';
 import { Input, type InputProps } from '../Input/index.js';
 import { useNotificationToast } from '../NotificationToast/index.js';
+import { Tooltip } from '../Tooltip/index.js';
 import type { ClickEvent } from '../../types/events.js';
 import type { ButtonProps, IconButtonProps } from '../Button/index.js';
+import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';
 import { idx } from '../../util/idx.js';
 
@@ -100,6 +102,7 @@ type IconCopyButtonProps = CommonCopyButtonProps &
     IconButtonProps,
     | 'as'
     | 'children'
+    | 'destructive'
     | 'href'
     | 'icon'
     | 'label'
@@ -186,7 +189,12 @@ export const CopyButton = forwardRef<
   if (props.copyVariant === 'icon-button') {
     const {
       'aria-describedby': ariaDescribedBy,
+      className,
       copyVariant,
+      onBlur,
+      onFocus,
+      onMouseEnter,
+      onMouseLeave,
       successLabel: _successLabel,
       copyLabel: _copyLabel,
       onCopy: _onCopy,
@@ -196,18 +204,47 @@ export const CopyButton = forwardRef<
 
     return (
       <>
-        <IconButton
-          {...iconButtonProps}
-          ref={ref}
-          as="button"
-          type="button"
-          disabled={isCopyDisabled}
-          onClick={handleCopy}
-          icon={CopyPaste}
-          aria-describedby={idx(ariaDescribedBy, valueDescriptionId)}
-        >
-          {copyLabel}
-        </IconButton>
+        <Tooltip
+          type="label"
+          label={copyLabel}
+          component={(tooltipProps) => (
+            <IconButton
+              {...iconButtonProps}
+              ref={ref}
+              as="button"
+              type="button"
+              title={undefined}
+              disabled={isCopyDisabled}
+              onClick={handleCopy}
+              onBlur={(event: FocusEvent<Element>) => {
+                onBlur?.(event as FocusEvent<HTMLButtonElement>);
+                tooltipProps.onBlur(event);
+              }}
+              onFocus={(event: FocusEvent<Element>) => {
+                onFocus?.(event as FocusEvent<HTMLButtonElement>);
+                tooltipProps.onFocus(event);
+              }}
+              onMouseEnter={(event: MouseEvent<Element>) => {
+                onMouseEnter?.(event as MouseEvent<HTMLButtonElement>);
+                tooltipProps.onMouseEnter(event);
+              }}
+              onMouseLeave={(event: MouseEvent<Element>) => {
+                onMouseLeave?.(event as MouseEvent<HTMLButtonElement>);
+                tooltipProps.onMouseLeave(event);
+              }}
+              icon={CopyPaste}
+              className={clsx(className, tooltipProps.className)}
+              aria-labelledby={tooltipProps['aria-labelledby']}
+              aria-describedby={idx(
+                ariaDescribedBy,
+                tooltipProps['aria-describedby'],
+                valueDescriptionId,
+              )}
+            >
+              {copyLabel}
+            </IconButton>
+          )}
+        />
         <span
           id={valueDescriptionId}
           className={utilClasses.hideVisually}
