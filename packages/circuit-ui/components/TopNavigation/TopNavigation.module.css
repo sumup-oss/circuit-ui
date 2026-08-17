@@ -1,55 +1,34 @@
 .base {
-  /* content height + border-bottom */
-  --top-navigation-height: 57px;
+  --top-navigation-height: 68px;
 
+  position: sticky;
+  top: 0;
+  z-index: calc(var(--cui-z-index-navigation) + 1);
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   height: var(--top-navigation-height);
+  padding: var(--cui-spacings-kilo) var(--cui-spacings-mega);
   background-color: var(--cui-bg-normal);
-  border-bottom: var(--cui-border-width-kilo) solid var(--cui-border-divider);
+  box-shadow: 0 0 0 0 rgb(0 0 0 / 20%);
+  transition: box-shadow var(--cui-transitions-default);
 }
 
-@media (min-width: 768px) {
-  .base {
-    position: sticky;
-    top: 0;
-
-    /* The +1 is necessary to ensure that the primary navigation doesn't overlap the top navigation on hover. */
-    z-index: calc(var(--cui-z-index-navigation) + 1);
-  }
+.scrolled {
+  box-shadow: 0 var(--cui-border-width-kilo) 0 0 var(--cui-border-subtle);
 }
 
 .wrapper {
   display: flex;
-  align-items: stretch;
-  height: 100%;
-}
-
-button.hamburger {
-  padding: var(--cui-spacings-mega);
-
-  /* The !important below is necessary to override the default hover styles. */
-  border-right: var(--cui-border-width-kilo) solid var(--cui-border-divider) !important;
-  border-radius: 0;
-}
-
-@media (min-width: 1280px) {
-  button.hamburger {
-    display: none;
-  }
+  gap: var(--cui-spacings-kilo);
+  align-items: center;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .logo {
   height: 100%;
-}
-
-.logo > * {
-  display: block;
-  height: inherit;
-  padding: var(--cui-spacings-mega);
-  line-height: 0;
 }
 
 .logo a:focus,
@@ -68,7 +47,16 @@ button.hamburger {
   box-shadow: none;
 }
 
-.logo svg {
-  height: var(--cui-icon-sizes-m);
-  color: var(--cui-fg-normal);
+@media (min-width: 1024px) {
+  .base {
+    padding: var(--cui-spacings-mega) var(--cui-spacings-tera);
+  }
+
+  button.hamburger {
+    display: none;
+  }
+
+  .logo {
+    display: block;
+  }
 }

@@ -1,0 +1,35 @@
+.base {
+  width: var(--navigation-button-width);
+  height: var(--navigation-button-height);
+  background-color: var(--cui-bg-subtle);
+  border: none;
+  border-radius: var(--cui-border-radius-circle);
+}
+
+.base .m {
+  --navigation-button-width: 44px;
+  --navigation-button-height: 44px;
+}
+
+.base .s {
+  --navigation-button-width: 32px;
+  --navigation-button-height: 32px;
+}
+
+.base:hover {
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+.base[aria-current="page"],
+.base[aria-pressed="true"],
+.base:active,
+.base[aria-expanded="true"] {
+  background-color: var(--cui-bg-highlight);
+}
+
+.base:focus,
+.base:focus-visible {
+  box-shadow:
+    0 0 0 0 var(--cui-bg-normal),
+    0 0 0 2px var(--cui-border-focus);
+}

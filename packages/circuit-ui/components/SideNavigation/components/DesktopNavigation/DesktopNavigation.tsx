@@ -15,95 +15,31 @@
 
 'use client';
 
-import { utilClasses } from '../../../../styles/utility.js';
-import { clsx } from '../../../../styles/clsx.js';
-import { useFocusList } from '../../../../hooks/useFocusList/index.js';
-import { Headline } from '../../../Headline/index.js';
-import { Skeleton, SkeletonContainer } from '../../../Skeleton/index.js';
-import type { PrimaryLinkProps } from '../../types.js';
-import { SecondaryLinks } from '../SecondaryLinks/index.js';
-import { PrimaryLink } from '../PrimaryLink/index.js';
-import { SkipLink } from '../../../SkipLink/index.js';
-
+import type { SideNavigationProps } from '../../types.js';
 import classes from './DesktopNavigation.module.css';
+import { NavigationContent } from '../NavigationContent/NavigationContent.js';
+import { useEffect } from 'react';
+import { clsx } from '../../../../styles/clsx.js';
 
-export interface DesktopNavigationProps {
-  /**
-   * Whether the navigation data is loading.
-   */
-  isLoading?: boolean;
-  /**
-   * A collection of links with nested secondary groups.
-   */
-  primaryLinks: PrimaryLinkProps[];
-  /**
-   * Text label for the primary navigation for screen readers.
-   * Important for accessibility.
-   */
-  primaryNavigationLabel: string;
-  /**
-   * Text label for the secondary navigation for screen readers.
-   * Important for accessibility.
-   */
-  secondaryNavigationLabel: string;
-  /**
-   * Hash link to the page's main content to enable keyboard and screen reader
-   * users to skip over the navigation links. Required to comply with
-   * [WCAG 2.1 SC 2.4.1](https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html)
-   */
-  skipNavigationHref?: string;
-  /**
-   * label for the skip navigation link.
-   */
-  skipNavigationLabel?: string;
-}
+const SIDE_NAVIGATION_WIDTH = '240px';
 
-export function DesktopNavigation({
-  isLoading,
-  primaryLinks,
-  primaryNavigationLabel,
-  secondaryNavigationLabel,
-  skipNavigationHref,
-  skipNavigationLabel,
-}: DesktopNavigationProps) {
-  const focusProps = useFocusList();
-
-  const activePrimaryLink = primaryLinks.find((link) => link.isActive);
-  const secondaryGroups = activePrimaryLink?.secondaryGroups;
-
+export const DesktopNavigation = ({
+  className,
+  label,
+  ...props
+}: Omit<SideNavigationProps, 'isOpen' | 'closeButtonLabel' | 'onClose'>) => {
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      '--side-navigation-width',
+      SIDE_NAVIGATION_WIDTH,
+    );
+    return () => {
+      document.documentElement.style.removeProperty('--side-navigation-width');
+    };
+  }, []);
   return (
-    <SkeletonContainer
-      isLoading={Boolean(isLoading)}
-      className={classes.wrapper}
-    >
-      <nav
-        className={clsx(classes.primary, utilClasses.hideScrollbar)}
-        aria-label={primaryNavigationLabel}
-      >
-        {skipNavigationHref && skipNavigationLabel && (
-          <SkipLink href={skipNavigationHref}>{skipNavigationLabel}</SkipLink>
-        )}
-        <ul className={classes.list}>
-          {primaryLinks.map((link) => (
-            <li key={link.label}>
-              <PrimaryLink {...link} {...focusProps} />
-            </li>
-          ))}
-        </ul>
-      </nav>
-      {secondaryGroups && secondaryGroups.length > 0 && (
-        <nav
-          className={classes.secondary}
-          aria-label={secondaryNavigationLabel}
-        >
-          <Skeleton className={classes.headline} as="div">
-            <Headline as="h2" size="s">
-              {activePrimaryLink?.label}
-            </Headline>
-          </Skeleton>
-          <SecondaryLinks secondaryGroups={secondaryGroups} />
-        </nav>
-      )}
-    </SkeletonContainer>
+    <div className={clsx(classes.base, className)}>
+      <NavigationContent {...props} suffix="desktop" />
+    </div>
   );
-}
+};

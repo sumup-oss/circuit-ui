@@ -18,7 +18,6 @@
 import type React from 'react';
 
 import { legacyButtonSizeMap } from '../Button/index.js';
-import { IconButton, type IconButtonProps } from '../Button/IconButton.js';
 import { Skeleton } from '../Skeleton/index.js';
 import {
   AccessibilityError,
@@ -28,9 +27,16 @@ import { deprecate } from '../../util/logger.js';
 import { clsx } from '../../styles/clsx.js';
 
 import classes from './Hamburger.module.css';
+import {
+  NavigationButton,
+  type NavigationButtonProps,
+} from '../TopNavigation/components/NavigationButton/NavigationButton.js';
 
 export interface HamburgerProps
-  extends Omit<IconButtonProps, 'ref' | 'children' | 'icon' | 'type'> {
+  extends Omit<
+    NavigationButtonProps,
+    'ref' | 'children' | 'icon' | 'type' | 'label'
+  > {
   // biome-ignore lint/suspicious/noExplicitAny: ref can target button or anchor
   ref?: React.Ref<any>;
   /**
@@ -58,7 +64,6 @@ export function Hamburger({
   activeLabel,
   inactiveLabel,
   size: legacySize = 'm',
-  className,
   ref,
   ...props
 }: HamburgerProps) {
@@ -93,7 +98,7 @@ export function Hamburger({
   const size = legacyButtonSizeMap[legacySize] || legacySize;
 
   return (
-    <IconButton
+    <NavigationButton
       {...props}
       icon={({ size: _size, ...iconProps }) => (
         // @ts-expect-error This doesn't have to be an SVG element.
@@ -104,12 +109,10 @@ export function Hamburger({
           <span className={clsx(classes.base, classes[size])} />
         </Skeleton>
       )}
-      className={clsx(classes.button, className)}
       size={size}
       type="button"
       ref={ref}
-    >
-      {isActive ? activeLabel : inactiveLabel}
-    </IconButton>
+      label={isActive ? activeLabel : inactiveLabel}
+    />
   );
 }

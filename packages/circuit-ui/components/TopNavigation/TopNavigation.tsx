@@ -15,12 +15,17 @@
 
 'use client';
 
-import { useEffect, type HTMLAttributes, type ReactNode } from 'react';
+import {
+  useEffect,
+  useRef,
+  type HTMLAttributes,
+  type ReactNode,
+  useState,
+} from 'react';
 
 import { Hamburger, type HamburgerProps } from '../Hamburger/index.js';
 import { SkeletonContainer } from '../Skeleton/index.js';
 import { clsx } from '../../styles/clsx.js';
-import { utilClasses } from '../../styles/utility.js';
 import { SkipLink } from '../SkipLink/index.js';
 
 import {
@@ -32,7 +37,7 @@ import classes from './TopNavigation.module.css';
 /**
  * @deprecated Use the `var(--top-navigation-height)` CSS variable instead.
  */
-export const TOP_NAVIGATION_HEIGHT = '57px';
+export const TOP_NAVIGATION_HEIGHT = '68px';
 
 export interface TopNavigationProps
   extends Partial<UtilityLinksProps>,
@@ -62,6 +67,9 @@ export function TopNavigation({
   skipNavigationLabel,
   ...props
 }: TopNavigationProps) {
+  const topNavigationRef = useRef<HTMLHeadElement>(null);
+  const [scrollState, setScrollState] = useState<typeof classes.scrolled>();
+
   useEffect(() => {
     document.documentElement.style.setProperty(
       '--top-navigation-height',
@@ -72,26 +80,56 @@ export function TopNavigation({
     };
   }, []);
 
+  // show light shadow when page is scrolled
+  useEffect(() => {
+    // create a sentinel to "spy" on page scroll
+    const sentinel = document.createElement('div');
+    sentinel.style.height = '1px'; // invisible line
+    sentinel.style.width = '100%';
+    sentinel.style.position = 'absolute';
+    sentinel.style.top = '0';
+    sentinel.style.pointerEvents = 'none';
+    // insert it as the very first child of <body>
+    document.body.prepend(sentinel);
+
+    const topNavigation = topNavigationRef.current;
+    if (!topNavigation || typeof IntersectionObserver === 'undefined') {
+      return undefined;
+    }
+
+    const handleObserver: IntersectionObserverCallback = ([entry]) =>
+      setScrollState(entry.isIntersecting ? undefined : classes.scrolled);
+
+    // IntersectionObserver in supported in the browser we are targeting
+    // eslint-disable-next-line compat/compat
+    const observer = new IntersectionObserver(handleObserver, {
+      threshold: 0,
+    });
+    observer.observe(sentinel);
+    return () => {
+      observer.unobserve(sentinel);
+      sentinel.remove();
+    };
+  }, []);
+
   return (
-    <header className={clsx(classes.base, className)} {...props}>
+    <header
+      ref={topNavigationRef}
+      className={clsx(classes.base, scrollState, className)}
+      {...props}
+    >
       {skipNavigationHref && skipNavigationLabel && (
         <SkipLink href={skipNavigationHref}>{skipNavigationLabel}</SkipLink>
       )}
       <div className={classes.wrapper}>
         {hamburger && (
           <SkeletonContainer isLoading={Boolean(isLoading)}>
-            <Hamburger
-              {...hamburger}
-              className={clsx(classes.hamburger, utilClasses.focusVisibleInset)}
-            />
+            <Hamburger {...hamburger} className={classes.hamburger} />
           </SkeletonContainer>
         )}
         <div className={classes.logo}>{logo}</div>
       </div>
-      <SkeletonContainer
-        className={classes.wrapper}
-        isLoading={Boolean(isLoading)}
-      >
+      <SkeletonContainer isLoading={Boolean(isLoading)}>
         {links && <UtilityLinks links={links} />}
       </SkeletonContainer>
     </header>

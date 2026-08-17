@@ -23,8 +23,6 @@ import { Button } from '../Button/index.js';
 import { ListItemGroup } from '../ListItemGroup/index.js';
 import { TopNavigation } from '../TopNavigation/index.js';
 import { baseArgs as topNavigationProps } from '../TopNavigation/TopNavigation.stories.js';
-import { SideNavigation } from '../SideNavigation/index.js';
-import { baseArgs as sideNavigationProps } from '../SideNavigation/SideNavigation.stories.js';
 import { FullViewport } from '../../../../.storybook/components/index.js';
 
 import { SidePanelProvider } from './SidePanelContext.js';
@@ -215,33 +213,17 @@ export const Base = (props: SidePanelHookProps) => (
 Base.args = baseArgs;
 Base.play = basePlay;
 
-export const WithTopNavigation = (props: SidePanelHookProps) => {
-  const [isSideNavigationOpen, setSideNavigationOpen] = useState(false);
-  const hamburger = {
-    activeLabel: 'Close side navigation',
-    inactiveLabel: 'Open side navigation',
-    isActive: isSideNavigationOpen,
-    onClick: () => setSideNavigationOpen((prev) => !prev),
-  };
-  return (
-    <>
-      <TopNavigation {...topNavigationProps} hamburger={hamburger} />
-      <div style={{ display: 'flex' }}>
-        <SideNavigation
-          {...sideNavigationProps}
-          isOpen={isSideNavigationOpen}
-          onClose={() => setSideNavigationOpen(false)}
-        />
-        <div style={{ flex: '1' }}>
-          <SidePanelProvider>
-            <StoryInstructions />
-            <ComponentWithSidePanel {...props} />
-          </SidePanelProvider>
-        </div>
-      </div>
-    </>
-  );
-};
+export const WithTopNavigation = (props: SidePanelHookProps) => (
+  <>
+    <TopNavigation {...topNavigationProps} />
+    <div style={{ display: 'flex' }}>
+      <SidePanelProvider>
+        <StoryInstructions />
+        <ComponentWithSidePanel {...props} />
+      </SidePanelProvider>
+    </div>
+  </>
+);
 WithTopNavigation.storyName = 'With TopNavigation';
 WithTopNavigation.args = baseArgs;
 WithTopNavigation.play = basePlay;
