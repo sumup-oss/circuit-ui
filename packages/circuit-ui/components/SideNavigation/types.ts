@@ -24,9 +24,21 @@ import type { IconComponentType } from '@sumup-oss/icons';
 
 export interface NavigationItem
   extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  /**
+   * Short label to describe the target of the link.
+   */
   label: string;
+  /**
+   * Function that's called when the link is clicked.
+   */
   onClick?: (event: MouseEvent | KeyboardEvent) => void;
+  /**
+   * Whether the link is the currently active page.
+   */
   isActive?: boolean;
+  /**
+   * Short label to describe that the link leads to an external page or opens in a new tab.
+   */
   externalLabel?: string;
 }
 
@@ -43,14 +55,32 @@ type WithLink = {
 };
 
 export type PrimaryNavigationItem = Omit<NavigationItem, 'href'> & {
+  /**
+   * Display an icon in addition to the text to help to identify the link.
+   */
   icon: IconComponentType;
+  /**
+   * Provide another variant of the icon to indicate the link is active.
+   */
   activeIcon: IconComponentType;
 } & (WithSecondaryItems | WithLink);
 
 export interface NavigationGroup {
+  /**
+   * Label for the group of links. Important for accessibility.
+   */
   label: string;
+  /**
+   * Hides the label for the group of links but keeps it accessible for screen readers.
+   */
   hideLabel?: boolean;
+  /**
+   * Unique identifier for the group of links.
+   */
   id: string;
+  /**
+   * Array of navigation items.
+   */
   items: PrimaryNavigationItem[];
 }
 

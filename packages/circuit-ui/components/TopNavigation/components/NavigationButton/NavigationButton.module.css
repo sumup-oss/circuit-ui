@@ -1,17 +1,19 @@
 .base {
+  width: var(--navigation-button-width);
+  height: var(--navigation-button-height);
   background-color: var(--cui-bg-subtle);
   border: none;
   border-radius: var(--cui-border-radius-circle);
 }
 
 .base .m {
-  width: 44px;
-  height: 44px;
+  --navigation-button-width: 44px;
+  --navigation-button-height: 44px;
 }
 
 .base .s {
-  width: 32px;
-  height: 32px;
+  --navigation-button-width: 32px;
+  --navigation-button-height: 32px;
 }
 
 .base:hover {

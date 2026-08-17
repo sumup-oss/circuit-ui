@@ -59,10 +59,12 @@ describe('NavigationContent', () => {
       screen.getByRole('link', { name: /skip navigation/i }),
     ).toBeInTheDocument();
   });
+
   it('should render logo', () => {
     render(<NavigationContent {...baseProps} logo={<p>Logo</p>} />);
     expect(screen.getByText('Logo')).toBeVisible();
   });
+
   it('should render navigation items', async () => {
     render(<NavigationContent {...baseProps} />);
     expect(
@@ -76,6 +78,7 @@ describe('NavigationContent', () => {
     await userEvent.click(screen.getByRole('link', { name: 'Item 1' }));
     expect(baseProps.onClose).toHaveBeenCalledTimes(1);
   });
+
   it('should have no accessibility violations', async () => {
     const { container } = render(<NavigationContent {...baseProps} />);
     const actual = await axe(container);

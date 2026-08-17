@@ -15,7 +15,13 @@
 
 'use client';
 
-import { useEffect, useRef, type HTMLAttributes, type ReactNode } from 'react';
+import {
+  useEffect,
+  useRef,
+  type HTMLAttributes,
+  type ReactNode,
+  useState,
+} from 'react';
 
 import { Hamburger, type HamburgerProps } from '../Hamburger/index.js';
 import { SkeletonContainer } from '../Skeleton/index.js';
@@ -62,6 +68,7 @@ export function TopNavigation({
   ...props
 }: TopNavigationProps) {
   const topNavigationRef = useRef<HTMLHeadElement>(null);
+  const [scrollState, setScrollState] = useState<typeof classes.scrolled>();
 
   useEffect(() => {
     document.documentElement.style.setProperty(
@@ -81,6 +88,7 @@ export function TopNavigation({
     sentinel.style.width = '100%';
     sentinel.style.position = 'absolute';
     sentinel.style.top = '0';
+    sentinel.style.pointerEvents = 'none';
     // insert it as the very first child of <body>
     document.body.prepend(sentinel);
 
@@ -90,9 +98,7 @@ export function TopNavigation({
     }
 
     const handleObserver: IntersectionObserverCallback = ([entry]) =>
-      entry.isIntersecting
-        ? topNavigation.classList.remove(classes.scrolled)
-        : topNavigation.classList.add(classes.scrolled);
+      setScrollState(entry.isIntersecting ? undefined : classes.scrolled);
 
     // IntersectionObserver in supported in the browser we are targeting
     // eslint-disable-next-line compat/compat
@@ -109,7 +115,7 @@ export function TopNavigation({
   return (
     <header
       ref={topNavigationRef}
-      className={clsx(classes.base, className)}
+      className={clsx(classes.base, scrollState, className)}
       {...props}
     >
       {skipNavigationHref && skipNavigationLabel && (

@@ -38,6 +38,7 @@ import { SideNavigation } from './SideNavigation.js';
 import classes from './SideNavigationStories.module.css';
 import { SumUpLogo } from '../SumUpLogo/SumUpLogo.js';
 import { Hamburger } from '../Hamburger/index.js';
+import { utilClasses } from '../../styles/utility.js';
 
 export default {
   title: 'Navigation/SideNavigation',
@@ -143,6 +144,7 @@ const groups: SideNavigationProps['groups'] = [
 const logo = (
   <div style={{ paddingTop: 'var(--cui-spacings-kilo)' }}>
     <a
+      className={utilClasses.focusVisible}
       href="https://sumup.com"
       aria-label="Visit SumUp's website"
       target="_blank"
