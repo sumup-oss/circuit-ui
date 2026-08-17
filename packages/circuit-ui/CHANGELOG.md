@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 11.15.2
+
+### Patch Changes
+
+- [#3827](https://github.com/sumup-oss/circuit-ui/pull/3827) [`9b2dc36`](https://github.com/sumup-oss/circuit-ui/commit/9b2dc36f39010d2dc109953f9ecfa4982f647310) Thanks [@connor-baer](https://github.com/connor-baer)! - Fixed bundling of the styles for the recently added `@sumup-oss/illustrations` sub-dependency.
+
 ## 11.15.1
 
 ### Patch Changes

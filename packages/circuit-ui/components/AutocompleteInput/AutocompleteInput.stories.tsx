@@ -187,6 +187,8 @@ export default {
       },
     },
     size: {
+      options: ['s', 'm'],
+      control: { type: 'select' },
       table: {
         category: 'Behavior & Appearance',
       },

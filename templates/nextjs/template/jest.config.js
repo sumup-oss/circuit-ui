@@ -9,6 +9,8 @@ const esModules = [
   '@sumup-oss/intl',
   '@nanostores/react',
   'nanostores',
+  'temporal-polyfill',
+  'temporal-utils',
 ].join('|');
 
 const createJestConfig = nextJest({ dir: './' });

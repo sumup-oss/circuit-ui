@@ -36,9 +36,11 @@ const externalPackages = [
 ];
 
 const isExternal = (id: string) =>
-  externalPackages.some(
+  id !== '@sumup-oss/illustrations/styles.css' &&
+  (externalPackages.some(
     (packageName) => id === packageName || id.startsWith(`${packageName}/`),
-  ) || id === 'react/jsx-runtime';
+  ) ||
+    id === 'react/jsx-runtime');
 
 export default defineConfig({
   css,
