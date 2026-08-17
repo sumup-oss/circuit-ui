@@ -6,6 +6,7 @@ import nextJest from 'next/jest.js';
 const esModules = [
   '@sumup-oss/circuit-ui',
   '@sumup-oss/icons',
+  '@sumup-oss/illustrations',
   '@sumup-oss/intl',
   '@nanostores/react',
   'nanostores',
