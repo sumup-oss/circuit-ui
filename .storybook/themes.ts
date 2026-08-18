@@ -68,7 +68,7 @@ export const dark = create({
   // Toolbar default and active colors
   barTextColor: '#a9a19d', // var(--cui-fg-subtle)
   barHoverColor: '#ada8a2', // var(--cui-fg-subtle-hovered)
-  barSelectedColor: '#1e1c1c', // var(--cui-fg-on-strong)
+  barSelectedColor: '#f0eee7', // var(--cui-fg-normal)
   barBg: '#141211', // var(--cui-bg-normal)
 
   // Form colors
