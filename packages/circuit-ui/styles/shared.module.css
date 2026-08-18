@@ -246,3 +246,9 @@
     transform: translateX(100%);
   }
 }
+
+.elevated-surface {
+  --cui-bg-normal: var(--cui-bg-elevated);
+
+  background-color: var(--cui-bg-elevated);
+}
