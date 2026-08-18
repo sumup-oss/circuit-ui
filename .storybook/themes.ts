@@ -53,29 +53,29 @@ export const dark = create({
   colorSecondary: '#f0eee7', // var(--cui-fg-normal)
 
   // UI
-  appBg: '#000000', // var(--cui-bg-normal)
-  appBorderColor: '#444138', // var(--cui-border-normal)
+  appBg: '#141211', // var(--cui-bg-normal)
+  appBorderColor: '#46423d', // var(--cui-border-normal)
   appBorderRadius: 8, // var(--cui-border-radius-byte)
-  appContentBg: '#000000', // var(--cui-bg-normal)
+  appContentBg: '#141211', // var(--cui-bg-normal)
   appHoverBg: '#0f0e0c', // var(--cui-bg-normal-hovered)
-  appPreviewBg: '#000000', // var(--cui-bg-normal)
+  appPreviewBg: '#141211', // var(--cui-bg-normal)
 
   // Text colors
   textColor: '#f0eee7', // var(--cui-fg-normal)
-  textMutedColor: '#c4b8b8', // var(--cui-fg-subtle)
+  textMutedColor: '#a9a19d', // var(--cui-fg-subtle)
   textInverseColor: '#1e1c1c', // var(--cui-fg-on-strong)
 
   // Toolbar default and active colors
-  barTextColor: '#c4b8b8', // var(--cui-fg-subtle)
-  barHoverColor: '#d3c7c7', // var(--cui-fg-subtle-hovered)
-  barSelectedColor: '#000000', // var(--cui-fg-on-strong)
-  barBg: '#000000', // var(--cui-bg-normal)
+  barTextColor: '#a9a19d', // var(--cui-fg-subtle)
+  barHoverColor: '#ada8a2', // var(--cui-fg-subtle-hovered)
+  barSelectedColor: '#1e1c1c', // var(--cui-fg-on-strong)
+  barBg: '#141211', // var(--cui-bg-normal)
 
   // Form colors
-  buttonBg: '#1e1c1c', // var(--cui-bg-subtle)
-  buttonBorder: '#444138', // var(--cui-border-normal)
-  inputBg: '#1e1c1c', // var(--cui-bg-subtle)
-  inputBorder: '#444138', // var(--cui-border-normal)
+  buttonBg: '#211f1e', // var(--cui-bg-subtle)
+  buttonBorder: '#46423d', // var(--cui-border-normal)
+  inputBg: '#211f1e', // var(--cui-bg-subtle)
+  inputBorder: '#46423d', // var(--cui-border-normal)
   inputTextColor: '#f0eee7', // var(--cui-fg-normal)
   inputBorderRadius: 16, // var(--cui-border-radius-pill)
 });
