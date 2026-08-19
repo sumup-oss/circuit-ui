@@ -237,16 +237,11 @@
     {
       "name": "more",
       "category": "Action",
-      "size": "24"
+      "size": "16"
     },
     {
       "name": "more",
       "category": "Action",
-      "size": "16"
-    },
-    {
-      "name": "more_circle",
-      "category": "Action",
       "size": "24"
     },
     {
@@ -255,7 +250,7 @@
       "size": "16"
     },
     {
-      "name": "move",
+      "name": "more_circle",
       "category": "Action",
       "size": "24"
     },
@@ -263,6 +258,11 @@
       "name": "move",
       "category": "Action",
       "size": "16"
+    },
+    {
+      "name": "move",
+      "category": "Action",
+      "size": "24"
     },
     {
       "name": "pause",
@@ -312,12 +312,12 @@
     {
       "name": "remove",
       "category": "Action",
-      "size": "24"
+      "size": "16"
     },
     {
       "name": "remove",
       "category": "Action",
-      "size": "16"
+      "size": "24"
     },
     {
       "name": "search",
@@ -440,9 +440,27 @@
       "size": "24"
     },
     {
+      "name": "sum_up_logo",
+      "category": "Brand",
+      "size": "24",
+      "deprecation": "Use the SumUpLogo component from '@sumup-oss/circuit-ui' instead."
+    },
+    {
+      "name": "sum_up_logomark",
+      "category": "Brand",
+      "size": "24",
+      "deprecation": "Use the SumUpLogo component from '@sumup-oss/circuit-ui' in its 'short' variant instead."
+    },
+    {
+      "name": "sum_up_logomark",
+      "category": "Brand",
+      "size": "32",
+      "deprecation": "Use the SumUpLogo component from '@sumup-oss/circuit-ui' in its 'short' variant instead."
+    },
+    {
       "name": "plus_tier",
       "category": "Brand",
-      "size": "32"
+      "size": "16"
     },
     {
       "name": "plus_tier",
@@ -452,25 +470,7 @@
     {
       "name": "plus_tier",
       "category": "Brand",
-      "size": "16"
-    },
-    {
-      "name": "sum_up_logo",
-      "category": "Brand",
-      "size": "24",
-      "deprecation": "Use the SumUpLogo component from '@sumup-oss/circuit-ui' instead."
-    },
-    {
-      "name": "sum_up_logomark",
-      "category": "Brand",
-      "size": "32",
-      "deprecation": "Use the SumUpLogo component from '@sumup-oss/circuit-ui' in its 'short' variant instead."
-    },
-    {
-      "name": "sum_up_logomark",
-      "category": "Brand",
-      "size": "24",
-      "deprecation": "Use the SumUpLogo component from '@sumup-oss/circuit-ui' in its 'short' variant instead."
+      "size": "32"
     },
     {
       "name": "alelo",
@@ -1250,435 +1250,7 @@
       },
       "deprecation": "Use the Flag component instead."
     },
-    {
-      "name": "bluetooth",
-      "category": "Device",
-      "size": "24"
-    },
-    {
-      "name": "bluetooth",
-      "category": "Device",
-      "size": "16"
-    },
-    {
-      "name": "camera",
-      "category": "Device",
-      "size": "24"
-    },
-    {
-      "name": "card_reader_air",
-      "category": "Device",
-      "size": "24"
-    },
-    {
-      "name": "card_reader_solo",
-      "category": "Device",
-      "size": "24"
-    },
-    {
-      "name": "card_reader_solo_lite",
-      "category": "Device",
-      "size": "24"
-    },
-    {
-      "name": "laptop",
-      "category": "Device",
-      "size": "24"
-    },
-    {
-      "name": "mobile",
-      "category": "Device",
-      "keywords": ["phone", "mobile"],
-      "size": "24"
-    },
-    {
-      "name": "mobile_phone",
-      "category": "Device",
-      "size": "24",
-      "alternative": ["Mobile"],
-      "deprecation": "Use the 'Mobile' icon instead."
-    },
-    {
-      "name": "nfc",
-      "category": "Device",
-      "size": "24"
-    },
-    {
-      "name": "printer",
-      "category": "Device",
-      "size": "24"
-    },
-    {
-      "name": "tablet",
-      "category": "Device",
-      "size": "24"
-    },
-    {
-      "name": "wifi",
-      "category": "Device",
-      "size": "24"
-    },
-    {
-      "name": "archive",
-      "category": "File",
-      "size": "24"
-    },
-    {
-      "name": "attachment",
-      "category": "File",
-      "size": "24"
-    },
-    {
-      "name": "credit_note",
-      "category": "File",
-      "size": "24"
-    },
-    {
-      "name": "delivery_note",
-      "category": "File",
-      "size": "24"
-    },
-    {
-      "name": "driver_license",
-      "category": "File",
-      "size": "24"
-    },
-    {
-      "name": "electronic_invoice",
-      "category": "File",
-      "size": "24"
-    },
-    {
-      "name": "fees_summary",
-      "category": "File",
-      "size": "24"
-    },
-    {
-      "name": "file",
-      "category": "File",
-      "size": "24"
-    },
-    {
-      "name": "history",
-      "category": "File",
-      "size": "24"
-    },
-    {
-      "name": "image",
-      "category": "File",
-      "size": "24"
-    },
-    {
-      "name": "passport",
-      "category": "File",
-      "size": "24"
-    },
-    {
-      "name": "recurring_invoice",
-      "category": "File",
-      "size": "24"
-    },
-    {
-      "name": "residence_permit",
-      "category": "File",
-      "size": "24"
-    },
-    {
-      "name": "zip_file",
-      "category": "File",
-      "size": "24"
-    },
-    {
-      "name": "account_filled",
-      "keywords": ["Navigation"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "accounting_filled",
-      "keywords": ["Navigation"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "bookings_filled",
-      "keywords": ["Navigation"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "cash_advance_filled",
-      "keywords": ["Navigation"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "customers_filled",
-      "category": "Filled",
-      "keywords": ["Navigation"],
-      "size": "24"
-    },
-    {
-      "name": "employees_filled",
-      "keywords": ["Navigation", "Users"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "expenses_filled",
-      "keywords": ["Navigation"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "gift_cards_filled",
-      "keywords": ["Navigation"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "home_filled",
-      "keywords": ["Navigation"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "investments_filled",
-      "keywords": ["Navigation"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "invoice_filled",
-      "keywords": ["Navigation"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "items_filled",
-      "keywords": ["Navigation"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "kiosk_filled",
-      "keywords": ["Navigation"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "loyalty_filled",
-      "keywords": ["Navigation"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "online_store_filled",
-      "keywords": ["Navigation"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "open_orders_filled",
-      "keywords": ["Navigation"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "payment_links_filled",
-      "keywords": ["Navigation"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "payouts_filled",
-      "keywords": ["Navigation"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "pos_filled",
-      "category": "Filled",
-      "keywords": ["Navigation"],
-      "size": "24"
-    },
-    {
-      "name": "profile_filled",
-      "category": "Filled",
-      "keywords": ["Navigation", "User"],
-      "size": "24"
-    },
-    {
-      "name": "promote_filled",
-      "keywords": ["Navigation", "Business Profile"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "receipt_filled",
-      "keywords": ["Navigation", "Sales"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "receivables_filled",
-      "keywords": ["Navigation"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "reports_filled",
-      "keywords": ["Navigation"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "settings_filled",
-      "category": "Filled",
-      "keywords": ["Navigation"],
-      "size": "24"
-    },
-    {
-      "name": "shop_filled",
-      "keywords": ["Navigation"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "sum_up_connect_filled",
-      "keywords": ["Navigation"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "thumb_up_filled",
-      "category": "Filled",
-      "keywords": ["Navigation", "Reviews"],
-      "size": "24"
-    },
-    {
-      "name": "tools_filled",
-      "keywords": ["Navigation"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "us_pos_backoffice_filled",
-      "keywords": ["Navigation"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "virtual_terminal_filled",
-      "keywords": ["Navigation"],
-      "category": "Filled",
-      "size": "24"
-    },
-    {
-      "name": "activate_card",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "atm",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "automatic_balance_transfer",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "bank",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "bulk_transfer",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "card_in",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "card_out",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "card_unknown",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "cash",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "cash_stack",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "direct_debit",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "interest_on_balance",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "no_costs",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "percentage",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "percentage",
-      "category": "Finance",
-      "size": "16"
-    },
-    {
-      "name": "piggy_bank",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "transfer_in",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "transfer_out",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "wealth",
-      "category": "Finance",
-      "size": "24"
-    },
-    {
-      "name": "wealth",
-      "category": "Finance",
-      "size": "16"
-    },
-    {
-      "name": "wire_transfer",
-      "category": "Finance",
-      "size": "24"
-    },
+
     {
       "category": "Flag",
       "skipComponentFile": true,
@@ -3486,6 +3058,249 @@
       "size": "480"
     },
     {
+      "name": "bluetooth",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "bluetooth",
+      "category": "Device",
+      "size": "16"
+    },
+    {
+      "name": "camera",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "card_reader_air",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "card_reader_solo",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "card_reader_solo_lite",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "laptop",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "mobile_phone",
+      "category": "Device",
+      "size": "24",
+      "alternative": ["Mobile"],
+      "deprecation": "Use the 'Mobile' icon instead."
+    },
+    {
+      "name": "mobile",
+      "category": "Device",
+      "keywords": ["phone", "mobile"],
+      "size": "24"
+    },
+    {
+      "name": "nfc",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "printer",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "tablet",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "wifi",
+      "category": "Device",
+      "size": "24"
+    },
+    {
+      "name": "archive",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "attachment",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "credit_note",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "delivery_note",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "driver_license",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "electronic_invoice",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "fees_summary",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "file",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "history",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "image",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "passport",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "recurring_invoice",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "residence_permit",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "zip_file",
+      "category": "File",
+      "size": "24"
+    },
+    {
+      "name": "activate_card",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "atm",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "automatic_balance_transfer",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "bank",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "bulk_transfer",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "card_in",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "card_out",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "card_unknown",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "cash",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "cash_stack",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "direct_debit",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "interest_on_balance",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "no_costs",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "percentage",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "percentage",
+      "category": "Finance",
+      "size": "16"
+    },
+    {
+      "name": "transfer_in",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "transfer_out",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "wealth",
+      "category": "Finance",
+      "size": "16"
+    },
+    {
+      "name": "wealth",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "piggy_bank",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
+      "name": "wire_transfer",
+      "category": "Finance",
+      "size": "24"
+    },
+    {
       "name": "accessibility",
       "category": "Miscellaneous",
       "size": "24"
@@ -3594,44 +3409,20 @@
       "deprecation": "Use the `ColorPicker` icon instead."
     },
     {
-      "name": "color_inversion",
-      "category": "Miscellaneous",
-      "size": "24"
-    },
-    {
       "name": "color_picker",
       "category": "Miscellaneous",
       "keywords": ["color", "correction"],
       "size": "24"
     },
     {
+      "name": "color_inversion",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "company",
       "category": "Miscellaneous",
       "size": "24"
-    },
-    {
-      "name": "contractor",
-      "category": "Miscellaneous",
-      "size": "24"
-    },
-    {
-      "name": "contractor",
-      "category": "Miscellaneous",
-      "size": "16"
-    },
-    {
-      "name": "contractors",
-      "category": "Miscellaneous",
-      "size": "24",
-      "alternative": ["Contractor"],
-      "deprecation": "Use the `Contractor` icon instead."
-    },
-    {
-      "name": "contractors",
-      "category": "Miscellaneous",
-      "size": "16",
-      "alternative": ["Contractor"],
-      "deprecation": "Use the `Contractor` icon instead."
     },
     {
       "name": "cookie",
@@ -3651,11 +3442,6 @@
       "size": "24"
     },
     {
-      "name": "customise",
-      "category": "Miscellaneous",
-      "size": "24"
-    },
-    {
       "name": "customize",
       "category": "Miscellaneous",
       "size": "24",
@@ -3663,11 +3449,21 @@
       "deprecation": "Use the `Customise` icon instead."
     },
     {
+      "name": "customise",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
       "name": "favorite",
       "category": "Miscellaneous",
       "size": "24",
       "alternative": ["Favourite"],
       "deprecation": "Use the `Favourite` icon instead."
+    },
+    {
+      "name": "favourite",
+      "category": "Miscellaneous",
+      "size": "24"
     },
     {
       "name": "favorite",
@@ -3679,10 +3475,10 @@
     {
       "name": "favourite",
       "category": "Miscellaneous",
-      "size": "24"
+      "size": "16"
     },
     {
-      "name": "favourite",
+      "name": "full_return",
       "category": "Miscellaneous",
       "size": "16"
     },
@@ -3690,11 +3486,6 @@
       "name": "full_return",
       "category": "Miscellaneous",
       "size": "24"
-    },
-    {
-      "name": "full_return",
-      "category": "Miscellaneous",
-      "size": "16"
     },
     {
       "name": "gauge",
@@ -3739,12 +3530,12 @@
     {
       "name": "location",
       "category": "Miscellaneous",
-      "size": "24"
+      "size": "16"
     },
     {
       "name": "location",
       "category": "Miscellaneous",
-      "size": "16"
+      "size": "24"
     },
     {
       "name": "mcc",
@@ -3781,12 +3572,12 @@
     {
       "name": "order_placed",
       "category": "Miscellaneous",
-      "size": "24"
+      "size": "16"
     },
     {
       "name": "order_placed",
       "category": "Miscellaneous",
-      "size": "16"
+      "size": "24"
     },
     {
       "name": "package",
@@ -3806,12 +3597,12 @@
     {
       "name": "partial_return",
       "category": "Miscellaneous",
-      "size": "24"
+      "size": "16"
     },
     {
       "name": "partial_return",
       "category": "Miscellaneous",
-      "size": "16"
+      "size": "24"
     },
     {
       "name": "print_failed",
@@ -3819,6 +3610,11 @@
       "size": "24",
       "alternative": ["PrinterFailed"],
       "deprecation": "Use the `PrinterFailed` icon instead."
+    },
+    {
+      "name": "printer_failed",
+      "category": "Miscellaneous",
+      "size": "24"
     },
     {
       "name": "print_failed",
@@ -3830,11 +3626,12 @@
     {
       "name": "printer_failed",
       "category": "Miscellaneous",
-      "size": "24"
+      "size": "16"
     },
     {
-      "name": "printer_failed",
+      "name": "profile",
       "category": "Miscellaneous",
+      "keywords": ["User"],
       "size": "16"
     },
     {
@@ -3844,10 +3641,10 @@
       "size": "24"
     },
     {
-      "name": "profile",
-      "category": "Miscellaneous",
-      "keywords": ["User"],
-      "size": "16"
+      "name": "profile_filled",
+      "category": "Filled",
+      "keywords": ["Navigation", "User"],
+      "size": "24"
     },
     {
       "name": "refunded",
@@ -3871,6 +3668,12 @@
       "size": "24"
     },
     {
+      "name": "settings_filled",
+      "category": "Filled",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
       "name": "sim_card",
       "category": "Miscellaneous",
       "size": "24"
@@ -3888,6 +3691,12 @@
     {
       "name": "thumb_up",
       "category": "Miscellaneous",
+      "keywords": ["Navigation", "Reviews"],
+      "size": "24"
+    },
+    {
+      "name": "thumb_up_filled",
+      "category": "Filled",
       "keywords": ["Navigation", "Reviews"],
       "size": "24"
     },
@@ -3921,6 +3730,75 @@
     {
       "name": "volume",
       "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "contractors",
+      "category": "Miscellaneous",
+      "size": "16",
+      "alternative": ["Contractor"],
+      "deprecation": "Use the `Contractor` icon instead."
+    },
+    {
+      "name": "contractor",
+      "category": "Miscellaneous",
+      "size": "16"
+    },
+    {
+      "name": "contractors",
+      "category": "Miscellaneous",
+      "size": "24",
+      "alternative": ["Contractor"],
+      "deprecation": "Use the `Contractor` icon instead."
+    },
+    {
+      "name": "contractor",
+      "category": "Miscellaneous",
+      "size": "24"
+    },
+    {
+      "name": "browser_secure",
+      "category": "Security",
+      "size": "24"
+    },
+    {
+      "name": "card_security",
+      "category": "Security",
+      "size": "24"
+    },
+    {
+      "name": "key",
+      "category": "Security",
+      "size": "24"
+    },
+    {
+      "name": "passkey",
+      "category": "Security",
+      "size": "24"
+    },
+    {
+      "name": "secure",
+      "category": "Security",
+      "size": "24"
+    },
+    {
+      "name": "secure_payments",
+      "category": "Security",
+      "size": "24"
+    },
+    {
+      "name": "security_time_sensitive",
+      "category": "Security",
+      "size": "24"
+    },
+    {
+      "name": "trusted_company",
+      "category": "Security",
+      "size": "24"
+    },
+    {
+      "name": "unlock",
+      "category": "Security",
       "size": "24"
     },
     {
@@ -3964,12 +3842,6 @@
       "size": "24"
     },
     {
-      "name": "customers",
-      "category": "Navigation",
-      "keywords": ["Navigation"],
-      "size": "24"
-    },
-    {
       "name": "external_link",
       "category": "Navigation",
       "size": "24"
@@ -3985,9 +3857,27 @@
       "size": "24"
     },
     {
+      "name": "customers",
+      "category": "Navigation",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "customers_filled",
+      "category": "Filled",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
       "name": "investments",
       "category": "Navigation",
       "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "investments_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -3997,9 +3887,21 @@
       "size": "24"
     },
     {
+      "name": "kiosk_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "loyalty",
       "category": "Navigation",
       "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "loyalty_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4368,9 +4270,21 @@
       "size": "24"
     },
     {
+      "name": "account_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "accounting",
       "keywords": ["Navigation"],
       "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "accounting_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4379,15 +4293,15 @@
       "size": "24"
     },
     {
-      "name": "bookings",
-      "keywords": ["Navigation"],
-      "category": "Product and feature",
-      "size": "24"
-    },
-    {
       "name": "cash_advance",
       "category": "Product and feature",
       "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "cash_advance_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4411,11 +4325,6 @@
       "size": "24"
     },
     {
-      "name": "deposit",
-      "category": "Product and feature",
-      "size": "24"
-    },
-    {
       "name": "discount",
       "category": "Product and feature",
       "size": "24"
@@ -4427,18 +4336,25 @@
       "size": "24"
     },
     {
+      "name": "employees_filled",
+      "keywords": ["Navigation", "Users"],
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "expenses",
       "category": "Product and feature",
       "keywords": ["Navigation"],
       "size": "24"
     },
     {
-      "name": "fee_calculator",
-      "category": "Product and feature",
+      "name": "expenses_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
-      "name": "general_preferences",
+      "name": "fee_calculator",
       "category": "Product and feature",
       "size": "24"
     },
@@ -4463,9 +4379,69 @@
       "size": "24"
     },
     {
+      "name": "gift_cards_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
+      "size": "24"
+    },
+    {
+      "name": "bookings",
+      "keywords": ["Navigation"],
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "bookings_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
+      "size": "24"
+    },
+    {
+      "name": "receivables",
+      "keywords": ["Navigation"],
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "receivables_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
+      "size": "24"
+    },
+    {
+      "name": "tools",
+      "keywords": ["Navigation"],
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "tools_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
+      "size": "24"
+    },
+    {
+      "name": "us_pos_backoffice",
+      "keywords": ["Navigation"],
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "us_pos_backoffice_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "home",
       "keywords": ["Navigation"],
       "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "home_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4485,9 +4461,21 @@
       "size": "24"
     },
     {
+      "name": "invoice_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "items",
       "category": "Product and feature",
       "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "items_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4512,9 +4500,9 @@
       "size": "24"
     },
     {
-      "name": "open_orders",
+      "name": "online_store_filled",
       "keywords": ["Navigation"],
-      "category": "Product and feature",
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4541,6 +4529,12 @@
       "size": "24"
     },
     {
+      "name": "payment_links_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "payment_methods",
       "category": "Product and feature",
       "size": "24"
@@ -4557,6 +4551,12 @@
       "size": "24"
     },
     {
+      "name": "payouts_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "pix",
       "category": "Product and feature",
       "size": "24"
@@ -4568,9 +4568,33 @@
       "size": "24"
     },
     {
+      "name": "pos_filled",
+      "category": "Filled",
+      "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
       "name": "promote",
       "keywords": ["Navigation", "Business Profile"],
       "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "promote_filled",
+      "keywords": ["Navigation", "Business Profile"],
+      "category": "Filled",
+      "size": "24"
+    },
+    {
+      "name": "open_orders",
+      "keywords": ["Navigation"],
+      "category": "Product and feature",
+      "size": "24"
+    },
+    {
+      "name": "open_orders_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4582,6 +4606,12 @@
       "name": "receipt",
       "category": "Product and feature",
       "keywords": ["Navigation", "Sales"],
+      "size": "24"
+    },
+    {
+      "name": "receipt_filled",
+      "keywords": ["Navigation", "Sales"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4605,12 +4635,6 @@
       "size": "24"
     },
     {
-      "name": "receivables",
-      "keywords": ["Navigation"],
-      "category": "Product and feature",
-      "size": "24"
-    },
-    {
       "name": "refer",
       "category": "Product and feature",
       "size": "24",
@@ -4626,6 +4650,12 @@
       "name": "reports",
       "category": "Product and feature",
       "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "reports_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4647,6 +4677,12 @@
       "size": "24"
     },
     {
+      "name": "shop_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "store_editor",
       "category": "Product and feature",
       "size": "24"
@@ -4660,6 +4696,12 @@
       "name": "sum_up_connect",
       "category": "Product and feature",
       "keywords": ["Navigation"],
+      "size": "24"
+    },
+    {
+      "name": "sum_up_connect_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
       "size": "24"
     },
     {
@@ -4688,19 +4730,7 @@
       "size": "24"
     },
     {
-      "name": "tools",
-      "keywords": ["Navigation"],
-      "category": "Product and feature",
-      "size": "24"
-    },
-    {
       "name": "transactions",
-      "category": "Product and feature",
-      "size": "24"
-    },
-    {
-      "name": "us_pos_backoffice",
-      "keywords": ["Navigation"],
       "category": "Product and feature",
       "size": "24"
     },
@@ -4711,53 +4741,24 @@
       "size": "24"
     },
     {
+      "name": "virtual_terminal_filled",
+      "keywords": ["Navigation"],
+      "category": "Filled",
+      "size": "24"
+    },
+    {
       "name": "webspace",
       "category": "Product and feature",
       "size": "24"
     },
     {
-      "name": "browser_secure",
-      "category": "Security",
+      "name": "deposit",
+      "category": "Product and feature",
       "size": "24"
     },
     {
-      "name": "card_security",
-      "category": "Security",
-      "size": "24"
-    },
-    {
-      "name": "key",
-      "category": "Security",
-      "size": "24"
-    },
-    {
-      "name": "passkey",
-      "category": "Security",
-      "size": "24"
-    },
-    {
-      "name": "secure",
-      "category": "Security",
-      "size": "24"
-    },
-    {
-      "name": "secure_payments",
-      "category": "Security",
-      "size": "24"
-    },
-    {
-      "name": "security_time_sensitive",
-      "category": "Security",
-      "size": "24"
-    },
-    {
-      "name": "trusted_company",
-      "category": "Security",
-      "size": "24"
-    },
-    {
-      "name": "unlock",
-      "category": "Security",
+      "name": "general_preferences",
+      "category": "Product and feature",
       "size": "24"
     },
     {
@@ -4810,76 +4811,6 @@
     {
       "name": "youtube",
       "category": "Social media",
-      "size": "24"
-    },
-    {
-      "name": "celery",
-      "category": "Allergen",
-      "size": "24"
-    },
-    {
-      "name": "crustaceans",
-      "category": "Allergen",
-      "size": "24"
-    },
-    {
-      "name": "eggs",
-      "category": "Allergen",
-      "size": "24"
-    },
-    {
-      "name": "fish",
-      "category": "Allergen",
-      "size": "24"
-    },
-    {
-      "name": "gluten",
-      "category": "Allergen",
-      "size": "24"
-    },
-    {
-      "name": "lupin",
-      "category": "Allergen",
-      "size": "24"
-    },
-    {
-      "name": "milk",
-      "category": "Allergen",
-      "size": "24"
-    },
-    {
-      "name": "molluscs",
-      "category": "Allergen",
-      "size": "24"
-    },
-    {
-      "name": "mustard",
-      "category": "Allergen",
-      "size": "24"
-    },
-    {
-      "name": "nuts",
-      "category": "Allergen",
-      "size": "24"
-    },
-    {
-      "name": "peanuts",
-      "category": "Allergen",
-      "size": "24"
-    },
-    {
-      "name": "sesame",
-      "category": "Allergen",
-      "size": "24"
-    },
-    {
-      "name": "soy",
-      "category": "Allergen",
-      "size": "24"
-    },
-    {
-      "name": "sulphites",
-      "category": "Allergen",
       "size": "24"
     }
   ]
