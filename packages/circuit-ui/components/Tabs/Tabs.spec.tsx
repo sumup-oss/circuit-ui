@@ -133,5 +133,6 @@ describe('Tabs', () => {
       />,
     );
     expect(screen.getByText('Services')).toBeVisible();
+    expect(screen.getByText('plus')).toBeVisible();
   });
 });
