@@ -1,5 +1,11 @@
 # @sumup-oss/circuit-ui
 
+## 11.16.0
+
+### Minor Changes
+
+- [#3834](https://github.com/sumup-oss/circuit-ui/pull/3834) [`b99c3c7`](https://github.com/sumup-oss/circuit-ui/commit/b99c3c7722e89c5ac7f8c83a5c5190c3e81d6e71) Thanks [@sirineJ](https://github.com/sirineJ)! - Improved the visual consistency of components in elevated surfaces with their containers. Children of components like Dialog and Popver now use `--cui-bg-elevated` as the value of `--cui-bg-normal`, ensuring consistent backgrounds throughout the component.
+
 ## 11.15.2
 
 ### Patch Changes
