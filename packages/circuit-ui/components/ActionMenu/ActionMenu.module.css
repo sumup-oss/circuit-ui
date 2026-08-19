@@ -4,7 +4,6 @@
   box-sizing: border-box;
   padding: var(--vertical-spacing) 0;
   overflow-y: auto;
-  background-color: var(--cui-bg-elevated);
   border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
   border-radius: var(--cui-border-radius-byte);
 }

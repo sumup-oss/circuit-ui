@@ -247,6 +247,7 @@ export const Popover = forwardRef<HTMLDialogElement, PopoverProps>(
           ref={applyMultipleRefs(ref, refs.setFloating, dialogRef)}
           className={clsx(
             classes.base,
+            sharedClasses.elevatedSurface,
             isClosing ? outAnimation : inAnimation,
             isMobile && !disableModalOnMobile && classes.modal,
             isMobile && disableModalOnMobile && classes['non-modal'],

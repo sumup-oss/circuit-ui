@@ -47,6 +47,7 @@ import { Button, type ButtonProps } from '../Button/index.js';
 import { Dialog, type PublicDialogProps } from '../Dialog/Dialog.js';
 
 import classes from './Toggletip.module.css';
+import { sharedClasses } from '../../styles/shared.js';
 
 export interface ToggletipReferenceProps {
   'id': string;
@@ -212,7 +213,11 @@ export const Toggletip = forwardRef<HTMLDialogElement, ToggletipProps>(
           data-side={side}
           aria-labelledby={headline ? headlineId : bodyId}
           aria-describedby={headline ? bodyId : undefined}
-          className={clsx(classes.base, className)}
+          className={clsx(
+            classes.base,
+            sharedClasses.elevatedSurface,
+            className,
+          )}
           closeButtonLabel={closeButtonLabel}
           style={{ ...style, ...dialogStyles }}
         >
