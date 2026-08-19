@@ -1,5 +1,11 @@
 # @sumup-oss/design-tokens
 
+## 10.2.0
+
+### Minor Changes
+
+- [#3832](https://github.com/sumup-oss/circuit-ui/pull/3832) [`774e4aa`](https://github.com/sumup-oss/circuit-ui/commit/774e4aac8fda8704dfb1f88272704fc771697f4f) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the dark theme color tokens.
+
 ## 10.1.0
 
 ### Minor Changes
