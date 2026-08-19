@@ -40,5 +40,5 @@ export const CATEGORIES = [
   'Social media',
   'Brand',
   'Filled',
-  'Allergen'
+  'Allergen',
 ] as const;
