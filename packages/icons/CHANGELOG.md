@@ -1,5 +1,11 @@
 # @sumup-oss/icons
 
+## 6.16.0
+
+### Minor Changes
+
+- [#3833](https://github.com/sumup-oss/circuit-ui/pull/3833) [`a40c68d`](https://github.com/sumup-oss/circuit-ui/commit/a40c68d45097444a30e2007c2d050d68c54c5634) Thanks [@Bonnie-wy](https://github.com/Bonnie-wy)! - Added allergen icons in size 24.
+
 ## 6.15.1
 
 ### Patch Changes
