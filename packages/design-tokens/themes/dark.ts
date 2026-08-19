@@ -18,7 +18,7 @@ import type { Token } from '../types/index.js';
 export const dark = [
   {
     name: '--cui-bg-normal',
-    value: '#000000',
+    value: '#141211',
     type: 'color',
   },
   {
@@ -38,42 +38,42 @@ export const dark = [
   },
   {
     name: '--cui-bg-subtle',
-    value: '#141311',
+    value: '#211f1e',
     type: 'color',
   },
   {
     name: '--cui-bg-subtle-hovered',
-    value: '#1a1816',
+    value: '#2b2827',
     type: 'color',
   },
   {
     name: '--cui-bg-subtle-pressed',
-    value: '#1e1c18',
+    value: '#343130',
     type: 'color',
   },
   {
     name: '--cui-bg-subtle-disabled',
-    value: 'rgba(20, 19, 17, 0.6000)',
+    value: 'rgba(43, 41, 40, 0.4000)',
     type: 'color',
   },
   {
     name: '--cui-bg-highlight',
-    value: '#1e1c18',
+    value: '#2e2c2b',
     type: 'color',
   },
   {
     name: '--cui-bg-highlight-hovered',
-    value: '#262420',
+    value: '#343231',
     type: 'color',
   },
   {
     name: '--cui-bg-highlight-pressed',
-    value: '#2e2c28',
+    value: '#3f3d3c',
     type: 'color',
   },
   {
     name: '--cui-bg-highlight-disabled',
-    value: 'rgba(30, 28, 24, 0.4000)',
+    value: 'rgba(65, 61, 61, 0.3500)',
     type: 'color',
   },
   {
@@ -140,22 +140,22 @@ export const dark = [
   /* eslint-enable circuit-ui/no-deprecated-custom-properties */
   {
     name: '--cui-bg-neutral',
-    value: '#2b2927',
+    value: '#211f1e',
     type: 'color',
   },
   {
     name: '--cui-bg-neutral-hovered',
-    value: '#201f1e',
+    value: '#272624',
     type: 'color',
   },
   {
     name: '--cui-bg-neutral-pressed',
-    value: '#282726',
+    value: '#353432',
     type: 'color',
   },
   {
     name: '--cui-bg-neutral-disabled',
-    value: 'rgba(24, 23, 22, 0.6000)',
+    value: 'rgba(31, 30, 30, 0.6000)',
     type: 'color',
   },
   {
@@ -175,7 +175,7 @@ export const dark = [
   },
   {
     name: '--cui-bg-neutral-strong-disabled',
-    value: 'rgba(85, 81, 73, 0.4000)',
+    value: 'rgba(85, 81, 73, 0.2000)',
     type: 'color',
   },
   {
@@ -185,17 +185,17 @@ export const dark = [
   },
   {
     name: '--cui-bg-success-hovered',
-    value: '#122814',
+    value: '#1c3e1d',
     type: 'color',
   },
   {
     name: '--cui-bg-success-pressed',
-    value: '#18321a',
+    value: '#234b24',
     type: 'color',
   },
   {
     name: '--cui-bg-success-disabled',
-    value: 'rgba(13, 31, 14, 0.6000)',
+    value: 'rgba(23, 52, 24, 0.4000)',
     type: 'color',
   },
   {
@@ -215,27 +215,27 @@ export const dark = [
   },
   {
     name: '--cui-bg-success-strong-disabled',
-    value: 'rgba(45, 184, 67, 0.4000)',
+    value: 'rgba(45, 184, 67, 0.2000)',
     type: 'color',
   },
   {
     name: '--cui-bg-warning',
-    value: '#39260f',
+    value: '#392a16',
     type: 'color',
   },
   {
     name: '--cui-bg-warning-hovered',
-    value: '#281c0c',
+    value: '#533715',
     type: 'color',
   },
   {
     name: '--cui-bg-warning-pressed',
-    value: '#302410',
+    value: '#644219',
     type: 'color',
   },
   {
     name: '--cui-bg-warning-disabled',
-    value: 'rgba(31, 21, 8, 0.6000)',
+    value: 'rgba(70, 46, 18, 0.4000)',
     type: 'color',
   },
   {
@@ -255,32 +255,32 @@ export const dark = [
   },
   {
     name: '--cui-bg-warning-strong-disabled',
-    value: 'rgba(248, 171, 47, 0.4000)',
+    value: 'rgba(248, 171, 47, 0.2000)',
     type: 'color',
   },
   {
     name: '--cui-bg-danger',
-    value: '#3c1e13',
+    value: '#3a1b0e',
     type: 'color',
   },
   {
     name: '--cui-bg-danger-hovered',
-    value: '#28140c',
+    value: '#63301d',
     type: 'color',
   },
   {
     name: '--cui-bg-danger-pressed',
-    value: '#301a10',
+    value: '#733721',
     type: 'color',
   },
   {
     name: '--cui-bg-danger-disabled',
-    value: 'rgba(31, 15, 9, 0.6000)',
+    value: 'rgba(88, 43, 27, 0.4000)',
     type: 'color',
   },
   {
     name: '--cui-bg-danger-strong',
-    value: '#ff6b33',
+    value: '#ff6123',
     type: 'color',
   },
   {
@@ -295,27 +295,27 @@ export const dark = [
   },
   {
     name: '--cui-bg-danger-strong-disabled',
-    value: 'rgba(255, 107, 51, 0.4000)',
+    value: 'rgba(88, 43, 27, 0.4000)',
     type: 'color',
   },
   {
     name: '--cui-bg-promo',
-    value: '#30182d',
+    value: '#40213c',
     type: 'color',
   },
   {
     name: '--cui-bg-promo-hovered',
-    value: '#221020',
+    value: '#522a4d',
     type: 'color',
   },
   {
     name: '--cui-bg-promo-pressed',
-    value: '#2a1428',
+    value: '#663560',
     type: 'color',
   },
   {
     name: '--cui-bg-promo-disabled',
-    value: 'rgba(26, 12, 24, 0.6000)',
+    value: 'rgba(51, 24, 47, 0.6000)',
     type: 'color',
   },
   {
@@ -335,7 +335,7 @@ export const dark = [
   },
   {
     name: '--cui-bg-promo-strong-disabled',
-    value: 'rgba(212, 100, 202, 0.4000)',
+    value: 'rgba(212, 100, 202, 0.2000)',
     type: 'color',
   },
   {
@@ -375,12 +375,12 @@ export const dark = [
   },
   {
     name: '--cui-fg-normal-disabled',
-    value: 'rgba(240, 238, 231, 0.4000)',
+    value: 'rgba(240, 238, 231, 0.3500)',
     type: 'color',
   },
   {
     name: '--cui-fg-subtle',
-    value: '#9b9590',
+    value: '#a9a19d',
     type: 'color',
   },
   {
@@ -480,7 +480,7 @@ export const dark = [
   },
   {
     name: '--cui-fg-neutral',
-    value: '#a09894',
+    value: '#c6bcb7',
     type: 'color',
   },
   {
@@ -500,7 +500,7 @@ export const dark = [
   },
   {
     name: '--cui-fg-success',
-    value: '#5abf2e',
+    value: '#20b839',
     type: 'color',
   },
   {
@@ -540,7 +540,7 @@ export const dark = [
   },
   {
     name: '--cui-fg-danger',
-    value: '#ff7a47',
+    value: '#ff4800',
     type: 'color',
   },
   {
@@ -560,7 +560,7 @@ export const dark = [
   },
   {
     name: '--cui-fg-promo',
-    value: '#d87ccf',
+    value: '#ff61f2',
     type: 'color',
   },
   {
@@ -600,7 +600,7 @@ export const dark = [
   },
   {
     name: '--cui-border-normal',
-    value: '#302d28',
+    value: '#46423d',
     type: 'color',
   },
   {
@@ -615,12 +615,12 @@ export const dark = [
   },
   {
     name: '--cui-border-normal-disabled',
-    value: 'rgba(48, 45, 40, 0.5000)',
+    value: 'rgba(66, 62, 56, 0.4000)',
     type: 'color',
   },
   {
     name: '--cui-border-subtle',
-    value: '#221f1b',
+    value: '#2e2c29',
     type: 'color',
   },
   {
@@ -640,7 +640,7 @@ export const dark = [
   },
   {
     name: '--cui-border-divider',
-    value: '#171614',
+    value: '#2e2c29',
     type: 'color',
   },
   {
@@ -805,7 +805,7 @@ export const dark = [
   },
   {
     name: '--cui-bg-elevated',
-    value: '#1a1916',
+    value: '#191716',
     type: 'color',
   },
   {

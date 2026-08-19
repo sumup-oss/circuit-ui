@@ -4,18 +4,18 @@ CSS variables provided by the Circuit UI design system and their values.
 
 | Token | Type | Deprecated | Replacement | Light Value | Dark Value |
 | --- | --- | --- | --- | --- | --- |
-| `--cui-bg-normal` | `color` | no |  | `#fbfbf9` | `#000000` |
+| `--cui-bg-normal` | `color` | no |  | `#fbfbf9` | `#141211` |
 | `--cui-bg-normal-hovered` | `color` | no |  | `#f1f0e9` | `#0f0e0c` |
 | `--cui-bg-normal-pressed` | `color` | no |  | `#e3e2d6` | `#1a1816` |
 | `--cui-bg-normal-disabled` | `color` | no |  | `rgba(251, 251, 249, 0.4000)` | `rgba(10, 9, 8, 0.6000)` |
-| `--cui-bg-subtle` | `color` | no |  | `#f5f4ed` | `#141311` |
-| `--cui-bg-subtle-hovered` | `color` | no |  | `#f0eee7` | `#1a1816` |
-| `--cui-bg-subtle-pressed` | `color` | no |  | `#e8e6dc` | `#1e1c18` |
-| `--cui-bg-subtle-disabled` | `color` | no |  | `rgba(221, 220, 212, 0.9000)` | `rgba(20, 19, 17, 0.6000)` |
-| `--cui-bg-highlight` | `color` | no |  | `#e8e6dc` | `#1e1c18` |
-| `--cui-bg-highlight-hovered` | `color` | no |  | `#d9d6c7` | `#262420` |
-| `--cui-bg-highlight-pressed` | `color` | no |  | `#d6d2c0` | `#2e2c28` |
-| `--cui-bg-highlight-disabled` | `color` | no |  | `rgba(117, 108, 108, 0.4000)` | `rgba(30, 28, 24, 0.4000)` |
+| `--cui-bg-subtle` | `color` | no |  | `#f5f4ed` | `#211f1e` |
+| `--cui-bg-subtle-hovered` | `color` | no |  | `#f0eee7` | `#2b2827` |
+| `--cui-bg-subtle-pressed` | `color` | no |  | `#e8e6dc` | `#343130` |
+| `--cui-bg-subtle-disabled` | `color` | no |  | `rgba(221, 220, 212, 0.9000)` | `rgba(43, 41, 40, 0.4000)` |
+| `--cui-bg-highlight` | `color` | no |  | `#e8e6dc` | `#2e2c2b` |
+| `--cui-bg-highlight-hovered` | `color` | no |  | `#d9d6c7` | `#343231` |
+| `--cui-bg-highlight-pressed` | `color` | no |  | `#d6d2c0` | `#3f3d3c` |
+| `--cui-bg-highlight-disabled` | `color` | no |  | `rgba(117, 108, 108, 0.4000)` | `rgba(65, 61, 61, 0.3500)` |
 | `--cui-bg-strong` | `color` | no |  | `#1e1c1c` | `#f5f4ed` |
 | `--cui-bg-strong-hovered` | `color` | no |  | `#3f3a3a` | `#e8e6dc` |
 | `--cui-bg-strong-pressed` | `color` | no |  | `#756c6c` | `#d9d6c7` |
@@ -28,46 +28,46 @@ CSS variables provided by the Circuit UI design system and their values.
 | `--cui-bg-accent-strong-hovered` | `color` | yes | `--cui-bg-strong-hovered` | `#332f2f` | `#e8e6dc` |
 | `--cui-bg-accent-strong-pressed` | `color` | yes | `--cui-bg-strong-pressed` | `#4d4949` | `#d9d6c7` |
 | `--cui-bg-accent-strong-disabled` | `color` | yes | `--cui-bg-strong-disabled` | `rgba(30, 28, 28, 0.1000)` | `rgba(245, 244, 237, 0.1000)` |
-| `--cui-bg-neutral` | `color` | no |  | `#f0eee7` | `#2b2927` |
-| `--cui-bg-neutral-hovered` | `color` | no |  | `#e8e6dc` | `#201f1e` |
-| `--cui-bg-neutral-pressed` | `color` | no |  | `#d9d6c7` | `#282726` |
-| `--cui-bg-neutral-disabled` | `color` | no |  | `rgba(217, 214, 199, 0.3000)` | `rgba(24, 23, 22, 0.6000)` |
+| `--cui-bg-neutral` | `color` | no |  | `#f0eee7` | `#211f1e` |
+| `--cui-bg-neutral-hovered` | `color` | no |  | `#e8e6dc` | `#272624` |
+| `--cui-bg-neutral-pressed` | `color` | no |  | `#d9d6c7` | `#353432` |
+| `--cui-bg-neutral-disabled` | `color` | no |  | `rgba(217, 214, 199, 0.3000)` | `rgba(31, 30, 30, 0.6000)` |
 | `--cui-bg-neutral-strong` | `color` | no |  | `#c7c3b3` | `#555149` |
 | `--cui-bg-neutral-strong-hovered` | `color` | no |  | `#c3bfaf` | `#605c54` |
 | `--cui-bg-neutral-strong-pressed` | `color` | no |  | `#bebaab` | `#6b665e` |
-| `--cui-bg-neutral-strong-disabled` | `color` | no |  | `rgba(195, 191, 175, 0.3000)` | `rgba(85, 81, 73, 0.4000)` |
+| `--cui-bg-neutral-strong-disabled` | `color` | no |  | `rgba(195, 191, 175, 0.3000)` | `rgba(85, 81, 73, 0.2000)` |
 | `--cui-bg-success` | `color` | no |  | `#dff4e2` | `#122913` |
-| `--cui-bg-success-hovered` | `color` | no |  | `#e2f6e5` | `#122814` |
-| `--cui-bg-success-pressed` | `color` | no |  | `#d6f2da` | `#18321a` |
-| `--cui-bg-success-disabled` | `color` | no |  | `rgba(237, 249, 239, 0.6000)` | `rgba(13, 31, 14, 0.6000)` |
+| `--cui-bg-success-hovered` | `color` | no |  | `#e2f6e5` | `#1c3e1d` |
+| `--cui-bg-success-pressed` | `color` | no |  | `#d6f2da` | `#234b24` |
+| `--cui-bg-success-disabled` | `color` | no |  | `rgba(237, 249, 239, 0.6000)` | `rgba(23, 52, 24, 0.4000)` |
 | `--cui-bg-success-strong` | `color` | no |  | `#1e862d` | `#2db843` |
 | `--cui-bg-success-strong-hovered` | `color` | no |  | `#23a235` | `#35cc4e` |
 | `--cui-bg-success-strong-pressed` | `color` | no |  | `#29bd3e` | `#3dd856` |
-| `--cui-bg-success-strong-disabled` | `color` | no |  | `rgba(32, 184, 57, 0.4000)` | `rgba(45, 184, 67, 0.4000)` |
-| `--cui-bg-warning` | `color` | no |  | `#feeed5` | `#39260f` |
-| `--cui-bg-warning-hovered` | `color` | no |  | `#f6e3c6` | `#281c0c` |
-| `--cui-bg-warning-pressed` | `color` | no |  | `#f0dab8` | `#302410` |
-| `--cui-bg-warning-disabled` | `color` | no |  | `rgba(254, 238, 213, 0.6000)` | `rgba(31, 21, 8, 0.6000)` |
+| `--cui-bg-success-strong-disabled` | `color` | no |  | `rgba(32, 184, 57, 0.4000)` | `rgba(45, 184, 67, 0.2000)` |
+| `--cui-bg-warning` | `color` | no |  | `#feeed5` | `#392a16` |
+| `--cui-bg-warning-hovered` | `color` | no |  | `#f6e3c6` | `#533715` |
+| `--cui-bg-warning-pressed` | `color` | no |  | `#f0dab8` | `#644219` |
+| `--cui-bg-warning-disabled` | `color` | no |  | `rgba(254, 238, 213, 0.6000)` | `rgba(70, 46, 18, 0.4000)` |
 | `--cui-bg-warning-strong` | `color` | no |  | `#da7603` | `#f8ab2f` |
 | `--cui-bg-warning-strong-hovered` | `color` | no |  | `#fb8804` | `#fabb50` |
 | `--cui-bg-warning-strong-pressed` | `color` | no |  | `#fd9a27` | `#fcc96e` |
-| `--cui-bg-warning-strong-disabled` | `color` | no |  | `rgba(248, 171, 47, 0.4000)` | `rgba(248, 171, 47, 0.4000)` |
-| `--cui-bg-danger` | `color` | no |  | `#ffdacc` | `#3c1e13` |
-| `--cui-bg-danger-hovered` | `color` | no |  | `#ffeae3` | `#28140c` |
-| `--cui-bg-danger-pressed` | `color` | no |  | `#fdddd1` | `#301a10` |
-| `--cui-bg-danger-disabled` | `color` | no |  | `rgba(255, 218, 204, 0.6000)` | `rgba(31, 15, 9, 0.6000)` |
-| `--cui-bg-danger-strong` | `color` | no |  | `#d23f04` | `#ff6b33` |
+| `--cui-bg-warning-strong-disabled` | `color` | no |  | `rgba(248, 171, 47, 0.4000)` | `rgba(248, 171, 47, 0.2000)` |
+| `--cui-bg-danger` | `color` | no |  | `#ffdacc` | `#3a1b0e` |
+| `--cui-bg-danger-hovered` | `color` | no |  | `#ffeae3` | `#63301d` |
+| `--cui-bg-danger-pressed` | `color` | no |  | `#fdddd1` | `#733721` |
+| `--cui-bg-danger-disabled` | `color` | no |  | `rgba(255, 218, 204, 0.6000)` | `rgba(88, 43, 27, 0.4000)` |
+| `--cui-bg-danger-strong` | `color` | no |  | `#d23f04` | `#ff6123` |
 | `--cui-bg-danger-strong-hovered` | `color` | no |  | `#cf3e05` | `#ff8050` |
 | `--cui-bg-danger-strong-pressed` | `color` | no |  | `#b63502` | `#ff9468` |
-| `--cui-bg-danger-strong-disabled` | `color` | no |  | `rgba(227, 68, 5, 0.4000)` | `rgba(255, 107, 51, 0.4000)` |
-| `--cui-bg-promo` | `color` | no |  | `#ffe4fd` | `#30182d` |
-| `--cui-bg-promo-hovered` | `color` | no |  | `#ffd7fc` | `#221020` |
-| `--cui-bg-promo-pressed` | `color` | no |  | `#ffcafb` | `#2a1428` |
-| `--cui-bg-promo-disabled` | `color` | no |  | `rgba(255, 228, 253, 0.6000)` | `rgba(26, 12, 24, 0.6000)` |
+| `--cui-bg-danger-strong-disabled` | `color` | no |  | `rgba(227, 68, 5, 0.4000)` | `rgba(88, 43, 27, 0.4000)` |
+| `--cui-bg-promo` | `color` | no |  | `#ffe4fd` | `#40213c` |
+| `--cui-bg-promo-hovered` | `color` | no |  | `#ffd7fc` | `#522a4d` |
+| `--cui-bg-promo-pressed` | `color` | no |  | `#ffcafb` | `#663560` |
+| `--cui-bg-promo-disabled` | `color` | no |  | `rgba(255, 228, 253, 0.6000)` | `rgba(51, 24, 47, 0.6000)` |
 | `--cui-bg-promo-strong` | `color` | no |  | `#b342a9` | `#d464ca` |
 | `--cui-bg-promo-strong-hovered` | `color` | no |  | `#c64bbb` | `#dc76d2` |
 | `--cui-bg-promo-strong-pressed` | `color` | no |  | `#d14fc6` | `#e488dc` |
-| `--cui-bg-promo-strong-disabled` | `color` | no |  | `rgba(225, 85, 214, 0.4000)` | `rgba(212, 100, 202, 0.4000)` |
+| `--cui-bg-promo-strong-disabled` | `color` | no |  | `rgba(225, 85, 214, 0.4000)` | `rgba(212, 100, 202, 0.2000)` |
 | `--cui-bg-brand` | `color` | no |  | `#ff61f2` | `#ff61f2` |
 | `--cui-bg-brand-hovered` | `color` | no |  | `#eb58df` | `#eb58df` |
 | `--cui-bg-brand-pressed` | `color` | no |  | `#da4ece` | `#da4ece` |
@@ -75,8 +75,8 @@ CSS variables provided by the Circuit UI design system and their values.
 | `--cui-fg-normal` | `color` | no |  | `#1e1c1c` | `#f0eee7` |
 | `--cui-fg-normal-hovered` | `color` | no |  | `rgba(30, 28, 28, 0.9000)` | `#f0eee7` |
 | `--cui-fg-normal-pressed` | `color` | no |  | `rgba(30, 28, 28, 0.8000)` | `#f0eee7` |
-| `--cui-fg-normal-disabled` | `color` | no |  | `rgba(30, 28, 28, 0.5000)` | `rgba(240, 238, 231, 0.4000)` |
-| `--cui-fg-subtle` | `color` | no |  | `#706464` | `#9b9590` |
+| `--cui-fg-normal-disabled` | `color` | no |  | `rgba(30, 28, 28, 0.5000)` | `rgba(240, 238, 231, 0.3500)` |
+| `--cui-fg-subtle` | `color` | no |  | `#706464` | `#a9a19d` |
 | `--cui-fg-subtle-hovered` | `color` | no |  | `rgba(112, 100, 100, 0.9000)` | `#ada8a2` |
 | `--cui-fg-subtle-pressed` | `color` | no |  | `rgba(112, 100, 100, 0.8000)` | `#c0bbb5` |
 | `--cui-fg-subtle-disabled` | `color` | no |  | `rgba(112, 100, 100, 0.5000)` | `rgba(155, 149, 144, 0.4000)` |
@@ -96,11 +96,11 @@ CSS variables provided by the Circuit UI design system and their values.
 | `--cui-fg-accent-hovered` | `color` | no |  | `#726767` | `#c7c3b8` |
 | `--cui-fg-accent-pressed` | `color` | no |  | `#887a7a` | `#ada9a0` |
 | `--cui-fg-accent-disabled` | `color` | no |  | `rgba(30, 28, 28, 0.5000)` | `rgba(240, 238, 231, 0.4000)` |
-| `--cui-fg-neutral` | `color` | no |  | `#786464` | `#a09894` |
+| `--cui-fg-neutral` | `color` | no |  | `#786464` | `#c6bcb7` |
 | `--cui-fg-neutral-hovered` | `color` | no |  | `#4f3c3c` | `#aea8a4` |
 | `--cui-fg-neutral-pressed` | `color` | no |  | `#3c2a2a` | `#bcb6b2` |
 | `--cui-fg-neutral-disabled` | `color` | no |  | `rgba(60, 42, 42, 0.3000)` | `rgba(160, 152, 148, 0.4000)` |
-| `--cui-fg-success` | `color` | no |  | `#3c7411` | `#5abf2e` |
+| `--cui-fg-success` | `color` | no |  | `#3c7411` | `#20b839` |
 | `--cui-fg-success-hovered` | `color` | no |  | `#0b721c` | `#6acc40` |
 | `--cui-fg-success-pressed` | `color` | no |  | `#075b15` | `#7ad852` |
 | `--cui-fg-success-disabled` | `color` | no |  | `rgba(20, 126, 38, 0.6000)` | `rgba(90, 191, 46, 0.4000)` |
@@ -108,11 +108,11 @@ CSS variables provided by the Circuit UI design system and their values.
 | `--cui-fg-warning-hovered` | `color` | no |  | `#9d6814` | `#fabb50` |
 | `--cui-fg-warning-pressed` | `color` | no |  | `#8e5c0c` | `#fcc96e` |
 | `--cui-fg-warning-disabled` | `color` | no |  | `rgba(174, 121, 35, 0.6000)` | `rgba(248, 171, 47, 0.4000)` |
-| `--cui-fg-danger` | `color` | no |  | `#b13606` | `#ff7a47` |
+| `--cui-fg-danger` | `color` | no |  | `#b13606` | `#ff4800` |
 | `--cui-fg-danger-hovered` | `color` | no |  | `#d53d02` | `#ff8e5c` |
 | `--cui-fg-danger-pressed` | `color` | no |  | `#e94403` | `#ffa070` |
 | `--cui-fg-danger-disabled` | `color` | no |  | `rgba(255, 72, 0, 0.6000)` | `rgba(255, 122, 71, 0.4000)` |
-| `--cui-fg-promo` | `color` | no |  | `#a33e9a` | `#d87ccf` |
+| `--cui-fg-promo` | `color` | no |  | `#a33e9a` | `#ff61f2` |
 | `--cui-fg-promo-hovered` | `color` | no |  | `#ec58e0` | `#e08ed8` |
 | `--cui-fg-promo-pressed` | `color` | no |  | `#e04fd4` | `#e8a0e0` |
 | `--cui-fg-promo-disabled` | `color` | no |  | `rgba(255, 97, 242, 0.6000)` | `rgba(216, 124, 207, 0.4000)` |
@@ -120,15 +120,15 @@ CSS variables provided by the Circuit UI design system and their values.
 | `--cui-fg-brand-hovered` | `color` | no |  | `#eb58df` | `#eb58df` |
 | `--cui-fg-brand-pressed` | `color` | no |  | `#da4ece` | `#da4ece` |
 | `--cui-fg-brand-disabled` | `color` | no |  | `rgba(255, 97, 242, 0.6000)` | `rgba(255, 97, 242, 0.4000)` |
-| `--cui-border-normal` | `color` | no |  | `#d0cdc3` | `#302d28` |
+| `--cui-border-normal` | `color` | no |  | `#d0cdc3` | `#46423d` |
 | `--cui-border-normal-hovered` | `color` | no |  | `#ded7cf` | `#3a3730` |
 | `--cui-border-normal-pressed` | `color` | no |  | `#cac4be` | `#454238` |
-| `--cui-border-normal-disabled` | `color` | no |  | `rgba(207, 206, 194, 0.5000)` | `rgba(48, 45, 40, 0.5000)` |
-| `--cui-border-subtle` | `color` | no |  | `#e3e2d6` | `#221f1b` |
+| `--cui-border-normal-disabled` | `color` | no |  | `rgba(207, 206, 194, 0.5000)` | `rgba(66, 62, 56, 0.4000)` |
+| `--cui-border-subtle` | `color` | no |  | `#e3e2d6` | `#2e2c29` |
 | `--cui-border-subtle-hovered` | `color` | no |  | `#d0cdc3` | `#2c2923` |
 | `--cui-border-subtle-pressed` | `color` | no |  | `#b7b0a9` | `#36332c` |
 | `--cui-border-subtle-disabled` | `color` | no |  | `rgba(221, 220, 212, 0.9000)` | `rgba(34, 31, 27, 0.4000)` |
-| `--cui-border-divider` | `color` | no |  | `#E7E6DF` | `#171614` |
+| `--cui-border-divider` | `color` | no |  | `#E7E6DF` | `#2e2c29` |
 | `--cui-border-divider-hovered` | `color` | no |  | `#D8D7CA` | `#201e1a` |
 | `--cui-border-divider-pressed` | `color` | no |  | `#CBC8BD` | `#2a2822` |
 | `--cui-border-divider-disabled` | `color` | no |  | `#E7E6DF` | `rgba(23, 22, 20, 0.4000)` |
@@ -161,7 +161,7 @@ CSS variables provided by the Circuit UI design system and their values.
 | `--cui-border-brand-pressed` | `color` | no |  | `#da4ece` | `#da4ece` |
 | `--cui-border-brand-disabled` | `color` | no |  | `rgba(255, 97, 242, 0.4000)` | `rgba(255, 97, 242, 0.4000)` |
 | `--cui-bg-overlay` | `color` | no |  | `rgba(30, 28, 28, 0.7000)` | `rgba(0, 0, 0, 0.7000)` |
-| `--cui-bg-elevated` | `color` | no |  | `#fbfbf9` | `#1a1916` |
+| `--cui-bg-elevated` | `color` | no |  | `#fbfbf9` | `#191716` |
 | `--cui-border-focus` | `color` | no |  | `#1e1c1c` | `#f0eee7` |
 | `--cui-border-radius-bit` | `dimension` | no |  | `4px` | `4px` |
 | `--cui-border-radius-byte` | `dimension` | no |  | `10px` | `10px` |
