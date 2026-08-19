@@ -8,6 +8,12 @@
 
 ## 7.0.0-next.3
 
+## 6.15.1
+
+### Patch Changes
+
+- [#3830](https://github.com/sumup-oss/circuit-ui/pull/3830) [`fbda66f`](https://github.com/sumup-oss/circuit-ui/commit/fbda66f35f85df77f3eab24e03ae3ad251d5654a) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the CopyPaste icon to an outlined version.
+
 ## 6.15.0
 
 ### Minor Changes
