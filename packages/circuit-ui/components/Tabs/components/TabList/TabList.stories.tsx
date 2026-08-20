@@ -14,6 +14,7 @@
  */
 
 import { Tab } from '../Tab/Tab.js';
+import { TierIndicator } from '../../../TierIndicator/TierIndicator.js';
 import { TabList } from './TabList.js';
 
 export default {
@@ -64,5 +65,19 @@ export const NavigationWithTabsProp = () => (
       { id: 'contact', tab: 'Contact', href: '/contact' },
     ]}
     initialSelectedIndex={2}
+  />
+);
+
+export const WithTierIndicator = () => (
+  <TabList
+    tabs={[
+      {
+        id: 'services',
+        tab: 'Services',
+        trailingComponent: TierIndicator,
+      },
+      { id: 'items', tab: 'Items' },
+      { id: 'discounts', tab: 'Discounts' },
+    ]}
   />
 );

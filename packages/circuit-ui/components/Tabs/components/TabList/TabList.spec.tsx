@@ -18,6 +18,8 @@ import { createRef } from 'react';
 
 import { axe, render, screen, userEvent } from '../../../../util/test-utils.js';
 
+import { TierIndicator } from '../../../TierIndicator/TierIndicator.js';
+
 import { TabList } from './TabList.js';
 
 const tabs = [
@@ -134,5 +136,20 @@ describe('TabList', () => {
       const actual = await axe(container);
       expect(actual).toHaveNoViolations();
     });
+  });
+
+  it('should render a trailing component for a tab item', () => {
+    render(
+      <TabList
+        tabs={[
+          {
+            id: 'a',
+            tab: 'Services',
+            trailingComponent: TierIndicator,
+          },
+        ]}
+      />,
+    );
+    expect(screen.getByText('Services')).toBeVisible();
   });
 });

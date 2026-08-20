@@ -19,11 +19,13 @@ import {
   forwardRef,
   type AnchorHTMLAttributes,
   type ButtonHTMLAttributes,
+  type ComponentType,
 } from 'react';
 
 import { useComponents } from '../../../ComponentsContext/index.js';
 import type { EmotionAsPropType } from '../../../../types/prop-types.js';
 import { clsx } from '../../../../styles/clsx.js';
+import type { TierIndicatorProps } from '../../../TierIndicator/TierIndicator.js';
 
 import classes from './Tab.module.css';
 
@@ -41,6 +43,11 @@ export type TabProps = LinkElProps &
      * Triggers selected styles of the component
      */
     selected?: boolean;
+    /**
+     * Display a `TierIndicator` badge next to the tab's label to indicate
+     * features that are part of the plus plan
+     */
+    trailingComponent?: ComponentType<TierIndicatorProps>;
   };
 
 const tabIndex = (selected: boolean) => (selected ? undefined : -1);
@@ -49,10 +56,29 @@ const tabIndex = (selected: boolean) => (selected ? undefined : -1);
  * Tab component that represents a single tab inside a Tabs wrapper
  */
 export const Tab = forwardRef<HTMLButtonElement, TabProps>(
-  ({ selected = false, as = 'tab', className, ...props }, ref) => {
+  (
+    {
+      selected = false,
+      as = 'tab',
+      className,
+      children,
+      trailingComponent: TrailingComponent,
+      ...props
+    },
+    ref,
+  ) => {
     const components = useComponents();
     const Link = components.Link as EmotionAsPropType;
     const Element = props.href ? Link : 'button';
+
+    const content = TrailingComponent ? (
+      <span className={classes.content}>
+        {children}
+        <TrailingComponent variant="plus" size="s" />
+      </span>
+    ) : (
+      children
+    );
 
     return as === 'tab' ? (
       <Element
@@ -62,7 +88,9 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(
         aria-selected={selected}
         tabIndex={tabIndex(selected)}
         {...props}
-      />
+      >
+        {content}
+      </Element>
     ) : (
       <div role="listitem">
         <Element
@@ -70,7 +98,9 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(
           className={clsx(classes.base, className)}
           aria-current={selected ? 'page' : undefined}
           {...props}
-        />
+        >
+          {content}
+        </Element>
       </div>
     );
   },

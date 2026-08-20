@@ -20,6 +20,7 @@ import { ArrowLeft, ExternalLink } from '@sumup-oss/icons';
 import { Body } from '../Body/index.js';
 import { Headline } from '../Headline/index.js';
 import { Button } from '../Button/index.js';
+import { TierIndicator } from '../TierIndicator/TierIndicator.js';
 import { modes } from '../../../../.storybook/modes.js';
 
 import type { TabsProps } from './Tabs.js';
@@ -122,6 +123,31 @@ Stretched.args = {
   stretched: true,
 };
 
+const tabsWithTierIndicator = [
+  {
+    id: 'services',
+    tab: 'Services',
+    trailingComponent: TierIndicator,
+    panel: <ContentWithInteractiveElements index={1} />,
+  },
+  {
+    id: 'items',
+    tab: 'Items',
+    panel: <ContentWithInteractiveElements index={2} />,
+  },
+  {
+    id: 'discounts',
+    tab: 'Discounts',
+    panel: <ContentWithInteractiveElements index={3} />,
+  },
+];
+
+export const WithTierIndicator = (args: TabsProps) => <Tabs {...args} />;
+
+WithTierIndicator.args = {
+  items: tabsWithTierIndicator,
+};
+
 export const WithTabsProp = () => {
   const items = tabs.slice(0, 3);
   const [selectedId, setSelectedId] = useState(items[0].id);
@@ -148,6 +174,10 @@ export const WithTabsProp = () => {
 
 WithTabsProp.parameters = {
   controls: { hideNoControlsWarning: true },
+  chromatic: {
+    // covered in the Base story
+    disableSnapshot: true,
+  },
 };
 
 export const Links = () => (
@@ -187,4 +217,8 @@ export const ControlledState = () => {
 
 ControlledState.parameters = {
   controls: { hideNoControlsWarning: true },
+  chromatic: {
+    // covered in the Base story
+    disableSnapshot: true,
+  },
 };

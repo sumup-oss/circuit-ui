@@ -24,6 +24,12 @@
   pointer-events: none;
 }
 
+.content {
+  display: flex;
+  gap: var(--cui-spacings-bit);
+  align-items: center;
+}
+
 .base:hover {
   color: var(--cui-fg-normal-hovered);
 }
