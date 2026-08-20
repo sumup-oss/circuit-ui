@@ -174,6 +174,10 @@ export const WithTabsProp = () => {
 
 WithTabsProp.parameters = {
   controls: { hideNoControlsWarning: true },
+  chromatic: {
+    // covered in the Base story
+    disableSnapshot: true,
+  },
 };
 
 export const Links = () => (
@@ -213,4 +217,8 @@ export const ControlledState = () => {
 
 ControlledState.parameters = {
   controls: { hideNoControlsWarning: true },
+  chromatic: {
+    // covered in the Base story
+    disableSnapshot: true,
+  },
 };
