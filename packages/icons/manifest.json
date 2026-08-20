@@ -475,16 +475,6 @@
       "size": "24"
     },
     {
-      "name": "more_ios",
-      "category": "Action",
-      "size": "24"
-    },
-    {
-      "name": "more_ios",
-      "category": "Action",
-      "size": "16"
-    },
-    {
       "name": "request_history",
       "category": "Finance",
       "size": "24"
@@ -492,16 +482,6 @@
     {
       "name": "request_history",
       "category": "Finance",
-      "size": "16"
-    },
-    {
-      "name": "share_ios",
-      "category": "Action",
-      "size": "24"
-    },
-    {
-      "name": "share_ios",
-      "category": "Action",
       "size": "16"
     },
     {
