@@ -74,6 +74,8 @@ To fix this, copy the icon and paste it on a draft Figma file. Make sure that it
 
 ![An icon in Figma is correctly placed on the "pixels" grid](https://github.com/sumup-oss/circuit-ui/raw/main/assets/contributing-icons-on-grid.png)
 
+Alternatively, under **Icon** > **Layout** toggle **Clip content** off.
+
 <details>
 <summary>Example of a good icon</summary>
 
