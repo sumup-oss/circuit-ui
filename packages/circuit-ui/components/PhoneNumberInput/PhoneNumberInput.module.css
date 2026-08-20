@@ -6,17 +6,34 @@
   display: none;
 }
 
+.country-code-autocomplete-shell {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.country-code-autocomplete-shell [role="option"] img {
+  width: var(--cui-icon-sizes-giga);
+  height: var(--cui-icon-sizes-mega);
+  border-radius: var(--cui-border-radius-bit);
+}
+
 @media (max-width: 479px) {
   .wrapper {
     flex-direction: column;
   }
 
-  .subscriber-number {
-    /* to avoid having a 2px inner border separating the two inputs */
-    transform: translateY(-1px);
+  .country-code-autocomplete-shell {
+    width: 100%;
   }
 
-  .wrapper .country-code.country-code select,
+  .country-code-autocomplete-shell .country-code {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+  }
+
+  .wrapper .country-code-autocomplete-shell .country-code > div,
+  .wrapper .country-code.country-code input,
   .wrapper .country-code .country-code-input.country-code-input {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
@@ -29,12 +46,8 @@
 }
 
 @media (min-width: 480px) {
-  .subscriber-number {
-    /* to avoid having a 2px inner border separating the two inputs */
-    transform: translateX(-1px);
-  }
-
-  .wrapper .country-code.country-code select,
+  .wrapper .country-code-autocomplete-shell .country-code > div,
+  .wrapper .country-code.country-code input,
   .wrapper .country-code .country-code-input.country-code-input {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -49,8 +62,26 @@
     max-width: calc(var(--cui-spacings-exa) + 4ch + var(--cui-spacings-mega));
   }
 
+  .country-code-autocomplete-shell .country-code {
+    width: fit-content;
+  }
+
+  .country-code-autocomplete-shell .country-code-autocomplete-input {
+    field-sizing: content;
+    min-width: var(--cui-spacings-yotta);
+    max-width: min(20rem, 45vw);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .subscriber-number.subscriber-number {
     min-width: 50%;
+  }
+
+  .country-code-autocomplete-shell + .subscriber-number.subscriber-number {
+    flex: 1 1 0;
+    min-width: 0;
   }
 
   .wrapper .subscriber-number .subscriber-number-input.subscriber-number-input {
@@ -59,24 +90,6 @@
   }
 }
 
-/* Elevate the subscriber number input above the country code select by default */
 .subscriber-number.subscriber-number {
-  position: relative;
-  z-index: calc(var(--cui-z-index-input) + 1);
   flex-grow: 1;
-}
-
-/* Elevate the country code select above the subscriber number input on hover and focus */
-.country-code.country-code:hover,
-.country-code.country-code:focus,
-.country-code-input.country-code-input:hover,
-.country-code-input.country-code-input:focus {
-  position: relative;
-  z-index: calc(var(--cui-z-index-input) + 2);
-}
-
-/* Elevate the input prefix above the country code select on hover and focus */
-svg:has(+ .country-code:hover),
-svg:has(+ .country-code:focus) {
-  z-index: calc(var(--cui-z-index-input) + 3);
 }

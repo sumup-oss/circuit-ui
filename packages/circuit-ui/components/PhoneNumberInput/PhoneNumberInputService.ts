@@ -13,9 +13,16 @@
  * limitations under the License.
  */
 
+import { getIconURL, type IconName } from '@sumup-oss/icons';
+
 import { isEmpty } from '../../util/helpers.js';
 import type { Locale } from '../../util/i18n.js';
+import type { AutocompleteInputOption } from '../AutocompleteInput/components/Option/Option.js';
 import type { SelectProps } from '../Select/Select.js';
+
+export function getCountryFlagIcon(country: string): string {
+  return getIconURL(`flag_${country.toLowerCase()}` as IconName);
+}
 
 export type CountryCodeOption = {
   /**
@@ -32,7 +39,51 @@ export type CountryCodeOption = {
    * where `268` is the area code.
    */
   areaCodes?: string[];
+  /**
+   * Pre-computed option label. When set, takes precedence over
+   * `getOptionLabel`, `shouldDisplayCountryNames`, and `Intl.DisplayNames`.
+   */
+  label?: string;
 };
+
+function getCountryName(country: string, locale: Locale | undefined) {
+  // eslint-disable-next-line compat/compat
+  const isIntlDisplayNamesSupported = typeof Intl.DisplayNames === 'function';
+
+  if (!isIntlDisplayNamesSupported || !country) {
+    return country;
+  }
+
+  try {
+    // eslint-disable-next-line compat/compat
+    const displayName = new Intl.DisplayNames(locale, { type: 'region' });
+    return displayName.of(country);
+  } catch {
+    return country;
+  }
+}
+
+export function resolveCountryCodeOptionLabel(
+  option: CountryCodeOption,
+  locale: Locale | undefined,
+  shouldDisplayCountryNames = true,
+  getOptionLabel?: (option: CountryCodeOption) => string,
+): string {
+  if (option.label) {
+    return option.label;
+  }
+
+  if (getOptionLabel) {
+    return getOptionLabel(option);
+  }
+
+  if (!shouldDisplayCountryNames) {
+    return option.code;
+  }
+
+  const countryName = getCountryName(option.country, locale);
+  return countryName ? `${countryName} (${option.code})` : option.code;
+}
 
 export function parsePhoneNumber(
   value: string | undefined,
@@ -131,45 +182,67 @@ export function normalizePhoneNumber(
 
 export function mapCountryCodeOptions(
   countryCodeOptions: CountryCodeOption[],
-  locale: Locale,
+  locale: Locale | undefined,
   shouldDisplayCountryNames = true,
+  getOptionLabel?: (option: CountryCodeOption) => string,
 ): Required<SelectProps>['options'] {
-  if (!shouldDisplayCountryNames) {
-    return countryCodeOptions
-      .map(({ code, country }) => ({
-        label: code,
-        value: country,
-      }))
-      .sort((a, b) => a.label.localeCompare(b.label));
+  return countryCodeOptions
+    .map((option) => ({
+      label: resolveCountryCodeOptionLabel(
+        option,
+        locale,
+        shouldDisplayCountryNames,
+        getOptionLabel,
+      ),
+      value: option.country,
+    }))
+    .sort((a, b) => a.label.localeCompare(b.label));
+}
+
+export function mapCountryCodeAutocompleteOptions(
+  countryCodeOptions: CountryCodeOption[],
+  locale: Locale | undefined,
+  shouldDisplayCountryNames = true,
+  getOptionLabel?: (option: CountryCodeOption) => string,
+): AutocompleteInputOption[] {
+  return mapCountryCodeOptions(
+    countryCodeOptions,
+    locale,
+    shouldDisplayCountryNames,
+    getOptionLabel,
+  ).map(({ label, value }) => ({
+    label,
+    value: String(value),
+    image: getCountryFlagIcon(String(value)),
+  }));
+}
+
+export function filterCountryCodeAutocompleteOptions(
+  options: AutocompleteInputOption[],
+  query: string,
+): AutocompleteInputOption[] {
+  const normalizedQuery = query.trim().toLowerCase();
+
+  if (!normalizedQuery) {
+    return options;
   }
 
-  const getCountryName = (country: string) => {
-    // eslint-disable-next-line compat/compat
-    const isIntlDisplayNamesSupported = typeof Intl.DisplayNames === 'function';
+  return options.filter(
+    ({ label, value }) =>
+      label.toLowerCase().includes(normalizedQuery) ||
+      value.toLowerCase().includes(normalizedQuery),
+  );
+}
 
-    // When Intl.DisplayNames is not supported, we can't provide the localized country names
-    if (!isIntlDisplayNamesSupported || !country) {
-      return country;
-    }
+export function getCountryCodeAutocompleteValue(
+  options: AutocompleteInputOption[],
+  country: string | undefined,
+): AutocompleteInputOption | undefined {
+  if (!country) {
+    return undefined;
+  }
 
-    try {
-      // eslint-disable-next-line compat/compat
-      const displayName = new Intl.DisplayNames(locale, { type: 'region' });
-      return displayName.of(country);
-    } catch {
-      return country;
-    }
-  };
-
-  return countryCodeOptions
-    .map(({ code, country }) => {
-      const countryName = getCountryName(country);
-      return {
-        label: countryName ? `${countryName} (${code})` : code,
-        value: country,
-      };
-    })
-    .sort((a, b) => a.label.localeCompare(b.label));
+  return options.find((option) => option.value === country);
 }
 
 export function getCountryCode(

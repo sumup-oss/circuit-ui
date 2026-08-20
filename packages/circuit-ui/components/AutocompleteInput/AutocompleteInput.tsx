@@ -535,6 +535,7 @@ export function AutocompleteInput({
     isOpen,
     moreResults,
     removeTagButtonLabel,
+    prefixValue: Array.isArray(value) ? undefined : value?.value,
   };
 
   if (isImmersive) {
@@ -542,6 +543,7 @@ export function AutocompleteInput({
       <>
         <ComboboxInput
           {...props}
+          prefixValue={Array.isArray(value) ? undefined : value?.value}
           inputClassName={props.inputClassName}
           label={label}
           size={size}
