@@ -30,9 +30,10 @@ UTIL CLASSES MARKER START
 }
 
 .focus-visible:focus {
-  outline: 0;
-  border-color: var(--cui-border-focus);
-  box-shadow: 0 0 0 2px var(--cui-border-focus);
+  outline-width: var(--cui-border-width-mega);
+  outline-style: solid;
+  outline-color: var(--cui-border-focus);
+  outline-offset: var(--cui-border-width-mega);
 }
 
 .focus-visible:focus::-moz-focus-inner {
