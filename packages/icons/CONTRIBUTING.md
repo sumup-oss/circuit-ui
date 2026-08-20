@@ -2,12 +2,60 @@
 
 This page outlines the process of contributing an icon to the `@sumup-oss/icons` package.
 
-> Note that icons should be added by internal contributors with access to the SumUp [Figma icons library](https://www.figma.com/file/vnFVuPNlqF45rkw1u9toBC/SumUp-Iconography) (internal link). If you don't have access but would like to see an icon added to `@sumup-oss/icons`, please [open an issue](https://github.com/sumup-oss/circuit-ui/issues/new).
+> Note that icons should be added by internal contributors with access to the [Circuit UI Foundation icons](https://www.figma.com/design/OgPQeoNZ2QoY7hZvy0ybk2/Circuit-UI-Foundation?node-id=5700-12762) in Figma (internal link). If you don't have access but would like to see an icon added to `@sumup-oss/icons`, please [open an issue](https://github.com/sumup-oss/circuit-ui/issues/new).
 
 ## Adding a new icon
 
+### Automated import from Figma
+
+If you have access to the [Circuit UI Foundation icons](https://www.figma.com/design/OgPQeoNZ2QoY7hZvy0ybk2/Circuit-UI-Foundation?node-id=5700-12762) in Figma (internal link), you can skip the copy-paste steps below.
+
+1. Create a Figma personal access token with file access and export it as `FIGMA_ACCESS_TOKEN`.
+2. Import from that library (the script defaults to this file and node):
+
+```sh
+# Preview what is new in Figma vs the repo
+npm run import:figma -- --sync --list
+
+# Import one icon by name
+npm run import:figma -- --name add_items --sizes 16,24 --category Action
+```
+
+The script exports SVG from Figma, runs SVGO, rejects off-grid / clip-path / wrong-size exports, writes `packages/icons/web/v2/{name}_{size}.svg`, and upserts a sorted `manifest.json` entry. Use `--dry-run` to preview without writing files.
+
+Then build the icons package and verify the icon in Storybook (see step 6 below). If the icon is not in the Figma library, make a request with the design team first.
+
+### Importing only what's new
+
+`--sync` diffs the Circuit UI Foundation icons node against the repository, so you don't have to know which icons the design team added:
+
+```sh
+# Show what would be imported, without exporting anything
+npm run import:figma -- --sync --list
+
+# Import every icon that has no SVG yet
+npm run import:figma -- --sync
+
+# Also re-import icons that were edited in Figma since the last sync
+npm run import:figma -- --sync --include changed --limit 20
+```
+
+The last imported Figma revision of each icon is tracked in `packages/icons/figma-lock.json`, which is committed alongside the SVGs. The first `--sync` run only seeds that file, so `--include changed` reports edits from then on. Icons that are deprecated in the manifest are never re-imported, and a single bad export is reported at the end of the run instead of aborting the rest.
+
+A successful import writes a Changeset for `@sumup-oss/icons` (minor for new icons, patch for updates). Pass `--pr` to commit, push, and open a GitHub pull request (`gh` must be authenticated):
+
+```sh
+npm run import:figma -- --sync --pr
+# or, after a local import:
+npm run import:figma -- --pr
+```
+
+The [`Sync icons from Figma`](https://github.com/sumup-oss/circuit-ui/blob/main/.github/workflows/icons-sync.yml) workflow runs `--sync`, verifies the package, then `--pr`. Review Chromatic on the pull request before merging.
+
+### Manual import
+
 1. Create a new SVG file for each icon size in [`packages/icons/web/v2/`](https://github.com/sumup-oss/circuit-ui/tree/main/packages/icons/web/v2) with the name `name_size.svg` (e.g. `add_items_24`—this will generate an `<AddItems />` component).
-2. Export the icon as SVG from the [Figma icons library](https://www.figma.com/file/vnFVuPNlqF45rkw1u9toBC/SumUp-Iconography) (internal link). If the icon isn't in the library, make a request with the design team first.
+2. Export the icon as SVG from the [Circuit UI Foundation icons](https://www.figma.com/design/OgPQeoNZ2QoY7hZvy0ybk2/Circuit-UI-Foundation?node-id=5700-12762) in Figma (internal link). If the icon isn't in the library, make a request with the design team first.
    ![Right click on the group in Figma and choose "Copy as SVG"](https://github.com/sumup-oss/circuit-ui/raw/main/assets/contributing-icons-export.png)
 3. Paste the SVG into your file and verify the code — refer to the ["Caveats"](#caveats) section below.
 4. Commit the icons, they will automatically be optimized in the precommit hook using `svgo`.

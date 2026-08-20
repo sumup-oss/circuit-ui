@@ -1,0 +1,71 @@
+name: Sync icons from Figma
+
+on:
+  schedule:
+    # Every weekday at 07:00 UTC
+    - cron: "0 7 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      include:
+        description: "Which icons to import"
+        type: choice
+        default: "new"
+        options:
+          - new
+          - changed
+          - all
+      limit:
+        description: "Import at most N icons (optional)"
+        type: string
+  # Allows a Figma LIBRARY_PUBLISH webhook to trigger the sync immediately.
+  repository_dispatch:
+    types: [figma-library-publish]
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    if: ${{ github.repository == 'sumup-oss/circuit-ui' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js v24
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24.x
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Import new icons
+        env:
+          FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}
+        run: |
+          npm run import:figma --workspace=@sumup-oss/icons -- \
+            --sync \
+            --include "${{ inputs.include || 'new' }}" \
+            ${{ inputs.limit && format('--limit {0}', inputs.limit) || '' }}
+
+      - name: Verify the icons
+        run: |
+          npx lerna run build --scope=@sumup-oss/icons
+          npx vitest run packages/icons --config packages/icons/vitest.config.ts
+
+      - name: Open a pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          npm run import:figma --workspace=@sumup-oss/icons -- --pr
