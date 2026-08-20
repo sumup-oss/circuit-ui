@@ -774,6 +774,11 @@
       "size": "24"
     },
     {
+      "name": "video",
+      "category": "Media",
+      "size": "24"
+    },
+    {
       "name": "flag_ae",
       "category": "Country flag",
       "keywords": ["United Arab Emirates"],
