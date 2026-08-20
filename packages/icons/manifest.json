@@ -505,6 +505,11 @@
       "size": "24"
     },
     {
+      "name": "headset",
+      "category": "Communication",
+      "size": "24"
+    },
+    {
       "name": "account_details",
       "category": "Finance",
       "size": "24"
