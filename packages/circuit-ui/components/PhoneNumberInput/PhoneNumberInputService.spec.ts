@@ -13,12 +13,19 @@
  * limitations under the License.
  */
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+
+import { getIconURL } from '@sumup-oss/icons';
 
 import {
+  filterCountryCodeAutocompleteOptions,
+  getCountryCodeAutocompleteValue,
+  getCountryFlagIcon,
+  mapCountryCodeAutocompleteOptions,
   mapCountryCodeOptions,
   normalizePhoneNumber,
   parsePhoneNumber,
+  resolveCountryCodeOptionLabel,
 } from './PhoneNumberInputService.js';
 
 describe('PhoneNumberInputService', () => {
@@ -208,6 +215,153 @@ describe('PhoneNumberInputService', () => {
       const locale = 'en';
       const actual = mapCountryCodeOptions(options, locale, false);
       expect(actual.map(({ label }) => label)).toEqual(['+1', '+1', '+49']);
+    });
+
+    it('should use option.label when provided', () => {
+      const options = [
+        { country: 'CA', code: '+1', label: 'Canada (+1)' },
+        { country: 'DE', code: '+49', label: 'Germany (+49)' },
+      ];
+      const actual = mapCountryCodeOptions(options, undefined, true);
+      expect(actual[0].label).toBe('Canada (+1)');
+      expect(actual[1].label).toBe('Germany (+49)');
+    });
+
+    it('should use getOptionLabel when provided', () => {
+      const options = [
+        { country: 'CA', code: '+1' },
+        { country: 'DE', code: '+49' },
+      ];
+      const getOptionLabel = ({
+        country,
+        code,
+      }: {
+        country: string;
+        code: string;
+      }) => `${country} ${code}`;
+      const actual = mapCountryCodeOptions(
+        options,
+        undefined,
+        true,
+        getOptionLabel,
+      );
+      expect(actual.find(({ value }) => value === 'CA')?.label).toBe('CA +1');
+      expect(actual.find(({ value }) => value === 'DE')?.label).toBe('DE +49');
+    });
+
+    it('should prefer option.label over getOptionLabel', () => {
+      const options = [{ country: 'CA', code: '+1', label: 'Custom label' }];
+      const getOptionLabel = () => 'Ignored';
+      expect(
+        resolveCountryCodeOptionLabel(
+          options[0],
+          undefined,
+          true,
+          getOptionLabel,
+        ),
+      ).toBe('Custom label');
+    });
+  });
+
+  describe('getCountryFlagIcon', () => {
+    it('should return the flag icon URL for a country code', () => {
+      expect(getCountryFlagIcon('DE')).toBe(getIconURL('flag_de'));
+    });
+  });
+
+  describe('mapCountryCodeAutocompleteOptions', () => {
+    it('should map select options to autocomplete options', () => {
+      const options = [
+        { country: 'CA', code: '+1' },
+        { country: 'DE', code: '+49' },
+      ];
+      const actual = mapCountryCodeAutocompleteOptions(options, undefined);
+
+      expect(actual).toEqual([
+        {
+          label: 'Canada (+1)',
+          value: 'CA',
+          image: getIconURL('flag_ca'),
+        },
+        {
+          label: 'Germany (+49)',
+          value: 'DE',
+          image: getIconURL('flag_de'),
+        },
+      ]);
+    });
+
+    it('should use custom labels from option.label', () => {
+      const options = [
+        { country: 'CA', code: '+1', label: 'Custom CA' },
+        { country: 'DE', code: '+49', label: 'Custom DE' },
+      ];
+      const actual = mapCountryCodeAutocompleteOptions(options, undefined);
+
+      expect(actual[0].label).toBe('Custom CA');
+      expect(actual[1].label).toBe('Custom DE');
+    });
+  });
+
+  describe('filterCountryCodeAutocompleteOptions', () => {
+    const options = [
+      { label: 'Canada (+1)', value: 'CA' },
+      { label: 'Germany (+49)', value: 'DE' },
+      { label: 'United States (+1)', value: 'US' },
+    ];
+
+    it('should return all options for an empty query', () => {
+      expect(filterCountryCodeAutocompleteOptions(options, '')).toEqual(
+        options,
+      );
+    });
+
+    it('should filter options by label', () => {
+      expect(filterCountryCodeAutocompleteOptions(options, 'germ')).toEqual([
+        { label: 'Germany (+49)', value: 'DE' },
+      ]);
+    });
+
+    it('should filter options by country code', () => {
+      expect(filterCountryCodeAutocompleteOptions(options, 'us')).toEqual([
+        { label: 'United States (+1)', value: 'US' },
+      ]);
+    });
+  });
+
+  describe('getCountryCodeAutocompleteValue', () => {
+    const options = [{ label: 'Canada (+1)', value: 'CA' }];
+
+    it('should return the matching option', () => {
+      expect(getCountryCodeAutocompleteValue(options, 'CA')).toEqual(
+        options[0],
+      );
+    });
+
+    it('should return undefined when the country is missing', () => {
+      expect(
+        getCountryCodeAutocompleteValue(options, undefined),
+      ).toBeUndefined();
+    });
+  });
+
+  describe('resolveCountryCodeOptionLabel', () => {
+    it('should fall back to the country code when Intl.DisplayNames throws', () => {
+      const displayNamesSpy = vi
+        .spyOn(globalThis.Intl, 'DisplayNames')
+        .mockImplementation(() => {
+          throw new Error('Intl.DisplayNames unavailable');
+        });
+
+      expect(
+        resolveCountryCodeOptionLabel(
+          { country: 'DE', code: '+49' },
+          'en',
+          true,
+        ),
+      ).toBe('DE (+49)');
+
+      displayNamesSpy.mockRestore();
     });
   });
 });
