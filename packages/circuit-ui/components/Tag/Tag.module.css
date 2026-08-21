@@ -41,7 +41,6 @@ a.content,
 button.content {
   text-align: left;
   cursor: pointer;
-  outline: 0;
 }
 
 a.content:hover,
