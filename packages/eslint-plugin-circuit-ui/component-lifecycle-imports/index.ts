@@ -25,7 +25,15 @@ const mappings = [
   {
     from: '@sumup-oss/circuit-ui/experimental',
     to: '@sumup-oss/circuit-ui',
-    specifiers: ['Timestamp', 'TimestampProps'],
+    specifiers: [
+      'Timestamp',
+      'TimestampProps',
+      'AutocompleteInput',
+      'AutocompleteInputProps',
+      'AutocompleteInputOption',
+      'AutocompleteInputOptionGroup',
+      'updateMultipleSelectionValue',
+    ],
   },
 ];
 

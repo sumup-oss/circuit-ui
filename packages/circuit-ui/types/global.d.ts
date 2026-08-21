@@ -15,13 +15,7 @@
 
 /// <reference types="vite/client" />
 
-import type { Theme as CircuitTheme } from '@sumup-oss/design-tokens';
-
 import 'react';
-
-declare module '@emotion/react' {
-  export interface Theme extends CircuitTheme {}
-}
 
 declare module 'react' {
   interface CSSProperties {

@@ -24,7 +24,7 @@ describe('CloseButton', () => {
   it('should merge a custom class name with the default ones', () => {
     const className = 'foo';
     const { container } = render(
-      <CloseButton label="Close" className={className} />,
+      <CloseButton className={className}>Close</CloseButton>,
     );
     const button = container.querySelector('button');
     expect(button?.className).toContain(className);
@@ -32,13 +32,13 @@ describe('CloseButton', () => {
 
   it('should forward a ref', () => {
     const ref = createRef<HTMLHRElement>();
-    const { container } = render(<CloseButton label="Close" ref={ref} />);
+    const { container } = render(<CloseButton ref={ref}>Close</CloseButton>);
     const button = container.querySelector('button');
     expect(ref.current).toBe(button);
   });
 
   it('should meet accessibility guidelines', async () => {
-    const { container } = render(<CloseButton label="Close" />);
+    const { container } = render(<CloseButton>Close</CloseButton>);
     const actual = await axe(container);
     expect(actual).toHaveNoViolations();
   });

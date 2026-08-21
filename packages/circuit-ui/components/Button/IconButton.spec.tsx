@@ -31,20 +31,6 @@ describe('IconButton', () => {
     expect(icon).toBeVisible();
   });
 
-  /**
-   * @deprecated
-   */
-  it('should render an icon passed as children', () => {
-    render(
-      // eslint-disable-next-line circuit-ui/no-renamed-props
-      <IconButton label="Close">
-        <svg data-testid="icon" />
-      </IconButton>,
-    );
-    const icon = screen.getByTestId('icon');
-    expect(icon).toBeVisible();
-  });
-
   it('should render a visually hidden label', () => {
     render(<IconButton icon={Close}>Close</IconButton>);
     const label = screen.getByText('Close');

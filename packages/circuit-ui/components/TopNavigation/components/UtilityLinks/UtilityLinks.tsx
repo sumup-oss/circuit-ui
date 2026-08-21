@@ -23,15 +23,11 @@ import type {
 } from 'react';
 import type { IconComponentType } from '@sumup-oss/icons';
 
-import type { AsPropType } from '../../../../types/prop-types.js';
-import { Body } from '../../../Body/index.js';
-import { useComponents } from '../../../ComponentsContext/index.js';
-import { Skeleton } from '../../../Skeleton/index.js';
-import { clsx } from '../../../../styles/clsx.js';
-import { utilClasses } from '../../../../styles/utility.js';
-import { sharedClasses } from '../../../../styles/shared.js';
-
 import classes from './UtilityLinks.module.css';
+import {
+  NavigationButton,
+  type NavigationButtonProps,
+} from '../NavigationButton/NavigationButton.js';
 
 export interface UtilityLinkProps
   extends AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -62,39 +58,6 @@ export interface UtilityLinkProps
   isActive?: boolean;
 }
 
-function UtilityLink({
-  icon: Icon,
-  label,
-  isActive,
-  className,
-  ...props
-}: UtilityLinkProps) {
-  const { Link } = useComponents();
-  const Element = props.href ? (Link as AsPropType) : 'button';
-
-  return (
-    <Element
-      {...props}
-      aria-current={isActive ? 'page' : undefined}
-      className={clsx(
-        classes.anchor,
-        sharedClasses.navigationItem,
-        utilClasses.focusVisibleInset,
-        className,
-      )}
-    >
-      <Skeleton className={classes.icon}>
-        <Icon aria-hidden="true" size="24" />
-      </Skeleton>
-      <Skeleton>
-        <Body as="span" className={classes.label} weight="semibold">
-          {label}
-        </Body>
-      </Skeleton>
-    </Element>
-  );
-}
-
 type CustomLinkProps = {
   /**
    * A string or a number that uniquely identifies the link among other links.
@@ -111,7 +74,7 @@ type CustomLinkProps = {
 };
 
 export interface UtilityLinksProps {
-  links: (UtilityLinkProps | CustomLinkProps)[];
+  links: (NavigationButtonProps | CustomLinkProps)[];
 }
 
 export function UtilityLinks({ links }: UtilityLinksProps) {
@@ -119,8 +82,8 @@ export function UtilityLinks({ links }: UtilityLinksProps) {
     <ul className={classes.list}>
       {links.map((link) =>
         isUtilityLink(link) ? (
-          <li key={link.label} className={classes.item}>
-            <UtilityLink {...link} />
+          <li key={link.label}>
+            <NavigationButton {...link} />
           </li>
         ) : (
           <li key={link.key} className={classes.item}>
@@ -133,7 +96,7 @@ export function UtilityLinks({ links }: UtilityLinksProps) {
 }
 
 function isUtilityLink(
-  link: UtilityLinkProps | CustomLinkProps,
-): link is UtilityLinkProps {
+  link: NavigationButtonProps | CustomLinkProps,
+): link is NavigationButtonProps {
   return 'label' in link;
 }

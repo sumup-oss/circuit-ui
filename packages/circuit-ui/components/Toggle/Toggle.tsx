@@ -15,20 +15,21 @@
 
 'use client';
 
-import { forwardRef, useId, type ButtonHTMLAttributes } from 'react';
+import { useId, type Ref, type InputHTMLAttributes } from 'react';
 
 import {
   AccessibilityError,
   isSufficientlyLabelled,
 } from '../../util/errors.js';
+import { idx } from '../../util/idx.js';
 import { FieldDescription, FieldWrapper } from '../Field/index.js';
 import { clsx } from '../../styles/clsx.js';
 import { utilClasses } from '../../styles/utility.js';
-import { deprecate } from '../../util/logger.js';
 
 import classes from './Toggle.module.css';
 
-export interface ToggleProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ToggleProps extends InputHTMLAttributes<HTMLInputElement> {
+  ref?: Ref<HTMLInputElement>;
   /**
    * Describes the function of the toggle. Should not change depending on the state.
    */
@@ -37,112 +38,67 @@ export interface ToggleProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * Further explanation of the toggle. Can change depending on the state.
    */
   description?: string;
-  /**
-   * Is the Switch on?
-   */
-  checked?: boolean;
-  /**
-   * @deprecated This prop is no longer needed.
-   */
-  checkedLabel?: string;
-  /**
-   * @deprecated This prop is no longer needed.
-   */
-  uncheckedLabel?: string;
 }
 
 /**
  * A toggle component with support for labels and additional explanations.
  */
-export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
-  (
-    {
-      label,
-      description,
-      'aria-describedby': describedBy,
-      checkedLabel,
-      uncheckedLabel,
-      checked = false,
-      onChange,
-      className,
-      style,
-      ...props
-    },
-    ref,
-  ) => {
-    const switchId = useId();
-    const labelId = useId();
-    const descriptionId = useId();
+export function Toggle({
+  label,
+  description,
+  'aria-describedby': describedBy,
+  className,
+  style,
+  ref,
+  ...props
+}: ToggleProps) {
+  const switchId = useId();
+  const labelId = useId();
+  const descriptionId = useId();
 
-    const descriptionIds = [describedBy, description && descriptionId]
-      .filter(Boolean)
-      .join(' ');
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !isSufficientlyLabelled(label)
+  ) {
+    throw new AccessibilityError(
+      'Toggle',
+      'The `label` prop is missing or invalid.',
+    );
+  }
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !isSufficientlyLabelled(label)
-    ) {
-      throw new AccessibilityError(
-        'Toggle',
-        'The `label` prop is missing or invalid.',
-      );
-    }
-
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test'
-    ) {
-      if (checkedLabel) {
-        deprecate(
-          'Toggle',
-          'The `checkedLabel` prop is deprecated and can be removed.',
-        );
-      }
-      if (uncheckedLabel) {
-        deprecate(
-          'Toggle',
-          'The `uncheckedLabel` prop is deprecated and can be removed.',
-        );
-      }
-    }
-
-    return (
-      <FieldWrapper
-        disabled={props.disabled}
-        className={clsx(classes.wrapper, className)}
-        style={style}
-      >
-        <button
-          type="button"
-          onClick={onChange}
+  return (
+    <FieldWrapper
+      disabled={props.disabled}
+      className={clsx(classes.wrapper, className)}
+      style={style}
+    >
+      <span className={classes['base-wrapper']}>
+        <input
+          type="checkbox"
+          // All browsers in our support matrix handle this correctly. See https://www.w3.org/WAI/ARIA/apg/patterns/switch/
+          // biome-ignore lint/a11y/useAriaPropsForRole: <input type="checkbox"> natively maps its checked state to aria-checked for role="switch" per the HTML-AAM spec.
           role="switch"
-          aria-checked={checked}
-          aria-labelledby={labelId}
-          aria-describedby={descriptionIds}
           id={switchId}
-          className={clsx(classes.track, utilClasses.focusVisible)}
+          aria-labelledby={labelId}
+          aria-describedby={idx(describedBy, description && descriptionId)}
+          className={clsx(classes.base, utilClasses.focusVisible)}
           {...props}
           ref={ref}
-        >
-          <span className={classes.knob} />
-        </button>
-        <label className={classes.label} id={labelId} htmlFor={switchId}>
-          {label}
-          {description && (
-            <FieldDescription aria-hidden="true">
-              {description}
-            </FieldDescription>
-          )}
-        </label>
+        />
+        <span className={classes.knob} aria-hidden="true" />
+      </span>
+      <label className={classes.label} id={labelId} htmlFor={switchId}>
+        {label}
         {description && (
-          <span id={descriptionId} className={utilClasses.hideVisually}>
-            {description}
-          </span>
+          <FieldDescription aria-hidden="true">{description}</FieldDescription>
         )}
-      </FieldWrapper>
-    );
-  },
-);
-
-Toggle.displayName = 'Toggle';
+      </label>
+      {description && (
+        <span id={descriptionId} className={utilClasses.hideVisually}>
+          {description}
+        </span>
+      )}
+    </FieldWrapper>
+  );
+}

@@ -15,7 +15,7 @@
 
 import { useState, type ChangeEvent } from 'react';
 import { action } from 'storybook/actions';
-import { CardReaderAir, CardReaderSolo, MobilePhone } from '@sumup-oss/icons';
+import { CardReaderAir, CardReaderSolo, Phone } from '@sumup-oss/icons';
 
 import { Stack } from '../../../../.storybook/components/index.js';
 import { Selector, type SelectorProps } from '../Selector/Selector.js';
@@ -146,7 +146,7 @@ WithIcons.args = {
       description: 'Requires the free SumUp app to accept payments',
     },
     {
-      icon: MobilePhone,
+      icon: Phone,
       label: 'Phone',
       value: 'phone',
       description: 'Accept payments using the free SumUp app',

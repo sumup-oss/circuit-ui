@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { forwardRef, type HTMLAttributes } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
 import type { AsPropType } from '../../types/prop-types.js';
@@ -21,6 +21,7 @@ import type { AsPropType } from '../../types/prop-types.js';
 import classes from './Card.module.css';
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
+  ref?: Ref<HTMLDivElement>;
   /**
    * The padding of the Card.
    */
@@ -31,14 +32,16 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   as?: AsPropType;
 }
 
-export const Card = forwardRef<HTMLDivElement, CardProps>(
-  ({ className, spacing = 'giga', as: Element = 'div', ...props }, ref) => (
+export function Card({
+  className,
+  spacing = 'giga',
+  as: Element = 'div',
+  ...props
+}: CardProps) {
+  return (
     <Element
       {...props}
-      ref={ref}
       className={clsx(classes.base, classes[spacing], className)}
     />
-  ),
-);
-
-Card.displayName = 'Card';
+  );
+}

@@ -8,15 +8,44 @@ import * as TopNavigationStories from '../TopNavigation/TopNavigation.stories';
 
 <Status variant="stable" />
 
-The side navigation is part of the [application shell](https://developers.google.com/web/fundamentals/architecture/app-shell). It contains the primary and secondary navigation links.
+The SideNavigation is part of the [application shell](https://developers.google.com/web/fundamentals/architecture/app-shell). It displays one or more groups of links that help users move between key areas of an application.
 
-<Props of={TopNavigationStories.WithSideNavigation} />
+<Props of={Stories.Base} />
 
-## Usage with the top navigation
+## How to use it
+
+### Structure
+
+The SideNavigation allows displaying multiple navigations groups. Each group supports up to two levels of nested links.
+
+```
+|__ Group 1
+|  |__ First level item 1
+|  |  |__ Second level item 1
+|  |  |__ Second level item 2
+|  |
+|  |__ First level item 2
+|  |__ First level item 3
+|
+|__ Group 2
+|  |__ First level item 1
+|  |  |__ Second level item 5
+|  |  |__ Second level item 5
+
+```
+Each group should have a unique `id` and a label. Keep labels short and concise. If a visible label is repetitive or unnecessary, use `hideLabel` to visually hide it while keeping it available to assistive technologies.
+
+### Small viewports
+
+On small viewports, the SideNavigation is displayed as a modal.
+Use the `open` and `onClose` props to control the visibility of the modal.
+Provide `label` and `closeButtonLabel`  props to ensure the accessibility of the modal and its close button.
+
+### Usage with the top navigation
+
+The SideNavigation can be used alongside the [TopNavigation](Navigation/TopNavigation) component. On narrow viewports, the latter can display a [Hamburger](Navigation/Hamburger/Base) button to toggle the SideNavigation.
 
 <Story of={TopNavigationStories.WithSideNavigation} inline={false} />
-
-The side navigation is meant to be used alongside the [TopNavigation](Navigation/TopNavigation) component, which displays a hamburger button on narrow viewports to toggle the side navigation.
 
 ## Accessibility
 

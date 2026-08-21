@@ -1,4 +1,5 @@
 import { PatternFormatProps, InputAttributes, ChangeMeta, NumberFormatBaseProps } from './types';
+import type { JSX } from "react";
 export declare function format<BaseType = InputAttributes>(numStr: string, props: PatternFormatProps<BaseType>): string;
 export declare function removeFormatting<BaseType = InputAttributes>(value: string, changeMeta: ChangeMeta, props: PatternFormatProps<BaseType>): string;
 export declare function getCaretBoundary<BaseType = InputAttributes>(formattedValue: string, props: PatternFormatProps<BaseType>): boolean[];

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { forwardRef, type HTMLAttributes } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
 
 import type { AsPropType } from '../../types/prop-types.js';
 import { deprecate } from '../../util/logger.js';
@@ -23,6 +23,7 @@ import { Status, type StatusColor } from '../Status/Status.js';
  * @deprecated Use the Status component instead.
  */
 export interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
+  ref?: Ref<HTMLDivElement>;
   /**
    * @deprecated Use the Status component's `color` prop instead.
    * Choose the style variant. Default: 'neutral'.
@@ -53,26 +54,27 @@ const colorMap: Record<NonNullable<BadgeProps['variant']>, StatusColor> = {
  * A badge communicates the status of an element or the count of items
  * related to an element.
  */
-export const Badge = forwardRef<HTMLDivElement, BadgeProps>(
-  ({ variant = 'neutral', circle, color: _color, children, ...props }, ref) => {
-    if (process.env.NODE_ENV !== 'production') {
-      deprecate(
-        'Badge',
-        'The Badge component is deprecated. Use the Status component with variant="pill" or variant="badge" instead.',
-      );
-    }
-
-    return (
-      <Status
-        ref={ref}
-        variant={circle ? 'badge' : 'pill'}
-        color={colorMap[variant]}
-        {...props}
-      >
-        {children as string | number | undefined}
-      </Status>
+export function Badge({
+  variant = 'neutral',
+  circle,
+  color: _color,
+  children,
+  ...props
+}: BadgeProps) {
+  if (process.env.NODE_ENV !== 'production') {
+    deprecate(
+      'Badge',
+      'The Badge component is deprecated. Use the Status component with variant="pill" or variant="badge" instead.',
     );
-  },
-);
+  }
 
-Badge.displayName = 'Badge';
+  return (
+    <Status
+      variant={circle ? 'badge' : 'pill'}
+      color={colorMap[variant]}
+      {...props}
+    >
+      {children as string | number | undefined}
+    </Status>
+  );
+}

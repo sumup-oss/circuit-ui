@@ -15,11 +15,11 @@
 
 'use client';
 
-import {
-  forwardRef,
-  type HTMLAttributes,
-  type ButtonHTMLAttributes,
-  type AnchorHTMLAttributes,
+import type {
+  HTMLAttributes,
+  ButtonHTMLAttributes,
+  AnchorHTMLAttributes,
+  Ref,
 } from 'react';
 import type { IconComponentType } from '@sumup-oss/icons';
 
@@ -84,87 +84,81 @@ export type TagProps = BaseProps &
   RemoveProps &
   DivElProps &
   LinkElProps &
-  ButtonElProps;
+  ButtonElProps & {
+    ref?: Ref<HTMLDivElement & HTMLButtonElement>;
+  };
 
-export const Tag = forwardRef<HTMLDivElement & HTMLButtonElement, TagProps>(
-  (
-    {
-      children,
-      prefix: Prefix,
-      suffix: Suffix,
-      onRemove,
-      removeButtonLabel,
-      selected,
-      onClick,
-      className,
-      style,
-      ...props
-    },
-    ref,
-  ) => {
-    const { Link } = useComponents();
+export function Tag({
+  children,
+  prefix: Prefix,
+  suffix: Suffix,
+  onRemove,
+  removeButtonLabel,
+  selected,
+  onClick,
+  className,
+  style,
+  ...props
+}: TagProps) {
+  const { Link } = useComponents();
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      onRemove &&
-      !isSufficientlyLabelled(removeButtonLabel)
-    ) {
-      throw new AccessibilityError(
-        'Tag',
-        'The `removeButtonLabel` prop is missing or invalid. Omit the `onRemove` prop if you intend to disable the tag removing functionality.',
-      );
-    }
-
-    let Element: AsPropType = 'div';
-    if (props.href) {
-      Element = Link;
-    } else if (onClick) {
-      Element = 'button';
-    }
-
-    const isRemovable = onRemove && removeButtonLabel;
-    const isButton = onClick && !props.href;
-
-    return (
-      <div
-        className={clsx(
-          classes.base,
-          isRemovable && classes.removable,
-          selected && classes.selected,
-          className,
-        )}
-        style={style}
-      >
-        <Element
-          className={clsx(classes.content, onClick && utilClasses.focusVisible)}
-          type={isButton ? 'button' : undefined}
-          aria-pressed={isButton && selected ? 'true' : undefined}
-          onClick={onClick}
-          ref={ref}
-          {...props}
-        >
-          {Prefix && <Prefix className={classes.prefix} aria-hidden="true" />}
-
-          {children}
-
-          {Suffix && <Suffix className={classes.suffix} aria-hidden="true" />}
-        </Element>
-
-        {isRemovable && (
-          <CloseButton
-            type="button"
-            variant={selected ? 'primary' : 'secondary'}
-            className={classes['remove-button']}
-            size="s"
-            onClick={onRemove}
-          >
-            {removeButtonLabel}
-          </CloseButton>
-        )}
-      </div>
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    onRemove &&
+    !isSufficientlyLabelled(removeButtonLabel)
+  ) {
+    throw new AccessibilityError(
+      'Tag',
+      'The `removeButtonLabel` prop is missing or invalid. Omit the `onRemove` prop if you intend to disable the tag removing functionality.',
     );
-  },
-);
+  }
 
-Tag.displayName = 'Tag';
+  let Element: AsPropType = 'div';
+  if (props.href) {
+    Element = Link;
+  } else if (onClick) {
+    Element = 'button';
+  }
+
+  const isRemovable = onRemove && removeButtonLabel;
+  const isButton = onClick && !props.href;
+
+  return (
+    <div
+      className={clsx(
+        classes.base,
+        isRemovable && classes.removable,
+        selected && classes.selected,
+        className,
+      )}
+      style={style}
+    >
+      <Element
+        className={clsx(classes.content, onClick && utilClasses.focusVisible)}
+        type={isButton ? 'button' : undefined}
+        aria-pressed={isButton && selected ? 'true' : undefined}
+        onClick={onClick}
+        {...props}
+      >
+        {Prefix && <Prefix className={classes.prefix} aria-hidden="true" />}
+
+        {children}
+
+        {Suffix && <Suffix className={classes.suffix} aria-hidden="true" />}
+      </Element>
+
+      {isRemovable && (
+        <CloseButton
+          type="button"
+          variant={selected ? 'primary' : 'secondary'}
+          className={classes['remove-button']}
+          size="s"
+          onClick={onRemove}
+        >
+          {removeButtonLabel}
+        </CloseButton>
+      )}
+    </div>
+  );
+}

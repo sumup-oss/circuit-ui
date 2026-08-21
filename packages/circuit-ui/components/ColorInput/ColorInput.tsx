@@ -16,13 +16,13 @@
 'use client';
 
 import {
-  forwardRef,
   useCallback,
   useEffect,
   useId,
   useRef,
   type ChangeEventHandler,
   type ClipboardEventHandler,
+  type Ref,
 } from 'react';
 
 import { classes as inputClasses } from '../Input/index.js';
@@ -60,6 +60,7 @@ export interface ColorInputProps
     | 'textAlign'
     | 'renderSuffix'
   > {
+  ref?: Ref<HTMLInputElement>;
   /**
    * A short string that is shown inside the empty input.
    */
@@ -74,166 +75,157 @@ export interface ColorInputProps
   defaultValue?: string;
 }
 
-export const ColorInput = forwardRef<HTMLInputElement, ColorInputProps>(
-  (
-    {
-      'aria-describedby': descriptionId,
-      className,
-      defaultValue,
-      disabled,
-      hasWarning,
-      showValid,
-      hideLabel,
-      invalid,
-      label,
-      onChange,
-      optionalLabel,
-      validationHint,
-      placeholder,
-      readOnly,
-      required,
-      inputClassName,
-      style,
-      value,
-      size = 'm',
-      ...props
-    },
-    ref,
-  ) => {
-    const colorPickerRef = useRef<HTMLInputElement>(null);
-    const colorInputRef = useRef<HTMLInputElement>(null);
+export function ColorInput({
+  'aria-describedby': descriptionId,
+  className,
+  defaultValue,
+  disabled,
+  hasWarning,
+  showValid,
+  hideLabel,
+  invalid,
+  label,
+  onChange,
+  optionalLabel,
+  validationHint,
+  placeholder,
+  readOnly,
+  required,
+  inputClassName,
+  style,
+  value,
+  size = 'm',
+  ref,
+  ...props
+}: ColorInputProps) {
+  const colorPickerRef = useRef<HTMLInputElement>(null);
+  const colorInputRef = useRef<HTMLInputElement>(null);
 
-    const labelId = useId();
-    const pickerId = useId();
-    const validationHintId = useId();
+  const labelId = useId();
+  const pickerId = useId();
+  const validationHintId = useId();
 
-    const descriptionIds = idx(
-      descriptionId,
-      validationHint && validationHintId,
-    );
+  const descriptionIds = idx(descriptionId, validationHint && validationHintId);
 
-    const updatePickerValue = useCallback((color: string) => {
-      if (!colorPickerRef.current || !isValidColor(color)) {
-        return;
-      }
+  const updatePickerValue = useCallback((color: string) => {
+    if (!colorPickerRef.current || !isValidColor(color)) {
+      return;
+    }
 
-      changeInputValue(colorPickerRef.current, normalizeColor(color));
-    }, []);
+    changeInputValue(colorPickerRef.current, normalizeColor(color));
+  }, []);
 
-    const updateInputValue = useCallback((color?: string) => {
-      if (!colorInputRef.current || !color) {
-        return;
-      }
+  const updateInputValue = useCallback((color?: string) => {
+    if (!colorInputRef.current || !color) {
+      return;
+    }
 
-      const currentColor = colorInputRef.current.value;
+    const currentColor = colorInputRef.current.value;
 
-      if (!isSameColor(currentColor, color)) {
-        changeInputValue(colorInputRef.current, color.trim().replace('#', ''));
-      }
-    }, []);
+    if (!isSameColor(currentColor, color)) {
+      changeInputValue(colorInputRef.current, color.trim().replace('#', ''));
+    }
+  }, []);
 
-    useEffect(() => {
-      updateInputValue(value);
-    }, [updateInputValue, value]);
+  useEffect(() => {
+    updateInputValue(value);
+  }, [updateInputValue, value]);
 
-    const handlePaste: ClipboardEventHandler<HTMLInputElement> = (event) => {
-      if (!colorPickerRef.current || !colorInputRef.current || readOnly) {
-        return;
-      }
+  const handlePaste: ClipboardEventHandler<HTMLInputElement> = (event) => {
+    if (!colorPickerRef.current || !colorInputRef.current || readOnly) {
+      return;
+    }
 
-      const pastedText = event.clipboardData.getData('text/plain').trim();
+    const pastedText = event.clipboardData.getData('text/plain').trim();
 
-      if (!pastedText || !isValidColor(pastedText)) {
-        return;
-      }
+    if (!pastedText || !isValidColor(pastedText)) {
+      return;
+    }
 
-      event.preventDefault();
+    event.preventDefault();
 
-      updatePickerValue(pastedText);
-      updateInputValue(pastedText);
-    };
+    updatePickerValue(pastedText);
+    updateInputValue(pastedText);
+  };
 
-    const onPickerChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-      onChange?.(event);
-      updateInputValue(event.target.value);
-    };
+  const onPickerChange: ChangeEventHandler<HTMLInputElement> = (event) => {
+    onChange?.(event);
+    updateInputValue(event.target.value);
+  };
 
-    const onInputChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-      updatePickerValue(event.target.value);
-    };
+  const onInputChange: ChangeEventHandler<HTMLInputElement> = (event) => {
+    updatePickerValue(event.target.value);
+  };
 
-    return (
-      <FieldSet
-        className={className}
-        style={style}
-        size={size}
-        disabled={disabled}
-      >
-        <FieldLegend id={labelId}>
-          <FieldLabelText
-            label={label}
-            hideLabel={hideLabel}
-            optionalLabel={optionalLabel}
-            required={required}
-          />
-        </FieldLegend>
-        <div className={clsx(classes.wrapper, classes[size])}>
-          <label
-            htmlFor={pickerId}
-            className={classes.picker}
-            data-disabled={disabled || readOnly}
-          >
-            <input
-              id={pickerId}
-              ref={applyMultipleRefs(colorPickerRef, ref)}
-              type="color"
-              aria-labelledby={labelId}
-              aria-describedby={descriptionIds}
-              aria-invalid={invalid ? 'true' : undefined}
-              className={classes['color-input']}
-              onChange={onPickerChange}
-              disabled={disabled || readOnly}
-              required={required}
-              defaultValue={defaultValue && normalizeColor(defaultValue)}
-              value={value && normalizeColor(value)}
-              {...props}
-            />
-          </label>
-          <span className={classes.symbol}>#</span>
+  return (
+    <FieldSet
+      className={className}
+      style={style}
+      size={size}
+      disabled={disabled}
+    >
+      <FieldLegend id={labelId}>
+        <FieldLabelText
+          label={label}
+          hideLabel={hideLabel}
+          optionalLabel={optionalLabel}
+          required={required}
+        />
+      </FieldLegend>
+      <div className={clsx(classes.wrapper, classes[size])}>
+        <label
+          htmlFor={pickerId}
+          className={classes.picker}
+          data-disabled={disabled || readOnly}
+        >
           <input
-            ref={colorInputRef}
-            type="text"
+            id={pickerId}
+            ref={applyMultipleRefs(colorPickerRef, ref)}
+            type="color"
             aria-labelledby={labelId}
             aria-describedby={descriptionIds}
-            className={clsx(
-              inputClasses.base,
-              !disabled && hasWarning && inputClasses.warning,
-              classes.input,
-              inputClassName,
-            )}
             aria-invalid={invalid ? 'true' : undefined}
+            className={classes['color-input']}
+            onChange={onPickerChange}
+            disabled={disabled || readOnly}
             required={required}
-            maxLength={6}
-            pattern="[0-9a-f]{3,6}"
-            readOnly={readOnly}
-            disabled={disabled}
-            defaultValue={(defaultValue || value)?.replace('#', '')}
-            placeholder={placeholder?.replace('#', '')}
-            onChange={onInputChange}
-            onPaste={handlePaste}
+            defaultValue={defaultValue && normalizeColor(defaultValue)}
+            value={value && normalizeColor(value)}
+            {...props}
           />
-        </div>
-        <FieldValidationHint
-          id={validationHintId}
+        </label>
+        <span className={classes.symbol}>#</span>
+        <input
+          ref={colorInputRef}
+          type="text"
+          aria-labelledby={labelId}
+          aria-describedby={descriptionIds}
+          className={clsx(
+            inputClasses.base,
+            !disabled && hasWarning && inputClasses.warning,
+            classes.input,
+            inputClassName,
+          )}
+          aria-invalid={invalid ? 'true' : undefined}
+          required={required}
+          maxLength={6}
+          pattern="[0-9a-f]{3,6}"
+          readOnly={readOnly}
           disabled={disabled}
-          invalid={invalid}
-          hasWarning={hasWarning}
-          showValid={showValid}
-          validationHint={validationHint}
+          defaultValue={(defaultValue || value)?.replace('#', '')}
+          placeholder={placeholder?.replace('#', '')}
+          onChange={onInputChange}
+          onPaste={handlePaste}
         />
-      </FieldSet>
-    );
-  },
-);
-
-ColorInput.displayName = 'ColorInput';
+      </div>
+      <FieldValidationHint
+        id={validationHintId}
+        disabled={disabled}
+        invalid={invalid}
+        hasWarning={hasWarning}
+        showValid={showValid}
+        validationHint={validationHint}
+      />
+    </FieldSet>
+  );
+}

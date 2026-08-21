@@ -14,11 +14,12 @@
  */
 
 import { describe, expect, it, vi } from 'vitest';
-import { Shop, SumUpLogo } from '@sumup-oss/icons';
+import { Shop } from '@sumup-oss/icons';
 
 import { axe, render, screen } from '../../util/test-utils.js';
 
 import { TopNavigation, type TopNavigationProps } from './TopNavigation.js';
+import { SumUpLogo } from '../SumUpLogo/SumUpLogo.js';
 
 describe('TopNavigation', () => {
   const baseProps: TopNavigationProps = {

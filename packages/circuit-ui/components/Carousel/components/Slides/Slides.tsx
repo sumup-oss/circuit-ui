@@ -13,16 +13,16 @@
  * limitations under the License.
  */
 
-import { forwardRef, type HTMLAttributes } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
 
 import { clsx } from '../../../../styles/clsx.js';
 
 import classes from './Slides.module.css';
 
-type SlidesProps = HTMLAttributes<HTMLDivElement>;
+type SlidesProps = HTMLAttributes<HTMLDivElement> & {
+  ref?: Ref<HTMLDivElement>;
+};
 
-export const Slides = forwardRef<HTMLDivElement, SlidesProps>(
-  ({ className, ...props }, ref) => (
-    <div className={clsx(classes.base, className)} ref={ref} {...props} />
-  ),
-);
+export function Slides({ className, ref, ...props }: SlidesProps) {
+  return <div className={clsx(classes.base, className)} {...props} />;
+}

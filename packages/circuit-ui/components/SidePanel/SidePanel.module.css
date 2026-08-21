@@ -22,7 +22,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
   height: 100%;
   padding: 0;
 
@@ -59,27 +58,35 @@
 
     /* biome-ignore lint/suspicious/noDuplicateProperties: Browser compatibility */
     height: calc(100dvh - var(--top-navigation-height, 0));
+    padding: var(--cui-spacings-mega) 0 !important;
     margin: 0;
     background-color: var(--cui-bg-normal);
   }
 
   .base::after {
     /* to account for inset box shadow */
-    margin-left: 1px;
+    bottom: calc(var(--cui-spacings-mega) + var(--cui-border-width-kilo));
+
+    /* to account for inset box shadow */
+    left: var(--cui-border-radius-kilo);
+    width: calc(
+      var(--side-panel-width) -
+      calc(var(--cui-border-radius-kilo) * 2) -
+      calc(var(--cui-spacings-mega) * 2)
+    );
     background: linear-gradient(
       color-mix(in sRGB, var(--cui-bg-normal) 0%, transparent),
       color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
       color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent)
     );
+    border-bottom-right-radius: var(--cui-border-radius-kilo);
+    border-bottom-left-radius: var(--cui-border-radius-kilo);
   }
 
   .wrapper {
-    height: calc(100% - var(--cui-spacings-kilo));
-    margin-top: var(--cui-spacings-kilo);
+    margin-right: var(--cui-spacings-tera);
     border: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
-    border-right: none;
-    border-bottom: none;
-    border-top-left-radius: var(--cui-border-radius-kilo);
+    border-radius: var(--cui-border-radius-kilo);
   }
 
   .content {

@@ -18,7 +18,11 @@ import type { HTMLAttributes, ReactNode } from 'react';
 import { ANIMATION_DURATION, SlideDirection } from '../../constants.js';
 import { clsx } from '../../../../styles/clsx.js';
 
-import * as SlideService from './SlideService.js';
+import {
+  getStackOrder,
+  shouldAnimate,
+  getDynamicWidth,
+} from './SlideService.js';
 import classes from './Slide.module.css';
 
 export interface SlideProps extends HTMLAttributes<HTMLDivElement> {
@@ -66,20 +70,11 @@ export function Slide({
   style = {},
   ...props
 }: SlideProps) {
-  const stackOrder = SlideService.getStackOrder(
-    index,
-    step,
-    prevStep,
-    slideDirection,
+  const stackOrder = getStackOrder(index, step, prevStep, slideDirection);
+  const dynamicWidth = getDynamicWidth(slideSize.width);
+  const isAnimating = Boolean(
+    slideSize.width && shouldAnimate(index, step, prevStep, slideDirection),
   );
-  const shouldAnimate = SlideService.shouldAnimate(
-    index,
-    step,
-    prevStep,
-    slideDirection,
-  );
-  const dynamicWidth = SlideService.getDynamicWidth(slideSize.width);
-  const isAnimating = Boolean(slideSize.width && shouldAnimate);
 
   return (
     <div

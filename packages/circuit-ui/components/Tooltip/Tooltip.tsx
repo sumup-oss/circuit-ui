@@ -17,7 +17,6 @@
 
 import {
   Fragment,
-  forwardRef,
   useCallback,
   useEffect,
   useId,
@@ -26,6 +25,7 @@ import {
   type FocusEventHandler,
   type HTMLAttributes,
   type MouseEventHandler,
+  type Ref,
 } from 'react';
 import {
   useFloating,
@@ -61,6 +61,7 @@ export interface TooltipReferenceProps {
 }
 
 export interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
+  ref?: Ref<HTMLDivElement>;
   /**
    * A clear and concise label for the reference component.
    * Interactive content such as buttons or links and rich content such as
@@ -107,161 +108,151 @@ function getState(activeTooltipId: string | null, tooltipId: string) {
   }
 }
 
-export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
-  (
-    {
-      label,
-      component: Component,
-      type,
-      placement: defaultPlacement = 'top',
-      className,
-      style,
-      ...props
+export function Tooltip({
+  label,
+  component: Component,
+  type,
+  placement: defaultPlacement = 'top',
+  className,
+  style,
+  ref,
+  ...props
+}: TooltipProps) {
+  const activeTooltipId = useStore($activeTooltipId);
+  const tooltipId = useId();
+  const arrowRef = useRef<HTMLDivElement>(null);
+
+  const state = getState(activeTooltipId, tooltipId);
+  const ariaAttributeName =
+    type === 'label' ? 'aria-labelledby' : 'aria-describedby';
+
+  const handleOpen = useCallback(() => {
+    $activeTooltipId.set(tooltipId);
+  }, [tooltipId]);
+  const handleClose = useCallback(() => {
+    $activeTooltipId.set(null);
+  }, []);
+
+  const handleFocus: FocusEventHandler = useCallback(
+    (event) => {
+      if (
+        // Vitest and Jest use nwsapi to mock the `Element.matches` API.
+        // It has a bug where `:focus-visible` is not matched unless
+        // the element has the `autofocus` property set.
+        // https://github.com/dperini/nwsapi/issues/122
+        process.env.NODE_ENV === 'test'
+          ? event.currentTarget.matches(':focus')
+          : event.currentTarget.matches(':focus-visible')
+      ) {
+        handleOpen();
+      }
     },
-    ref,
-  ) => {
-    const activeTooltipId = useStore($activeTooltipId);
-    const tooltipId = useId();
-    const arrowRef = useRef<HTMLDivElement>(null);
+    [handleOpen],
+  );
 
-    const state = getState(activeTooltipId, tooltipId);
-    const ariaAttributeName =
-      type === 'label' ? 'aria-labelledby' : 'aria-describedby';
+  // The tooltip works without JavaScript using only CSS (the "initial" state).
+  // When JS is available, the component is progressively enhanced and toggles
+  // between the "closed" and "open" states.
+  useEffect(() => {
+    $activeTooltipId.set(null);
+  }, []);
 
-    const handleOpen = useCallback(() => {
-      $activeTooltipId.set(tooltipId);
-    }, [tooltipId]);
-    const handleClose = useCallback(() => {
-      $activeTooltipId.set(null);
-    }, []);
+  useEscapeKey(handleClose, state === State.open);
 
-    const handleFocus: FocusEventHandler = useCallback(
-      (event) => {
-        if (
-          // Vitest and Jest use nwsapi to mock the `Element.matches` API.
-          // It has a bug where `:focus-visible` is not matched unless
-          // the element has the `autofocus` property set.
-          // https://github.com/dperini/nwsapi/issues/122
-          process.env.NODE_ENV === 'test'
-            ? event.currentTarget.matches(':focus')
-            : event.currentTarget.matches(':focus-visible')
-        ) {
-          handleOpen();
-        }
-      },
-      [handleOpen],
-    );
-
-    // The tooltip works without JavaScript using only CSS (the "initial" state).
-    // When JS is available, the component is progressively enhanced and toggles
-    // between the "closed" and "open" states.
-    useEffect(() => {
-      $activeTooltipId.set(null);
-    }, []);
-
-    useEscapeKey(handleClose, state === State.open);
-
-    const { refs, floatingStyles, middlewareData, update, placement } =
-      useFloating({
-        open: state === State.open,
-        placement: defaultPlacement,
-        middleware: [
-          flip(),
-          shift({ padding: 4 }),
-          arrow({
-            element: arrowRef,
-            // This accounts for the content's border radius
-            padding: 8,
-          }),
-        ],
-      });
-
-    useEffect(() => {
-      /* Intentionally running useEffect without dependencies
-       * to ensure that the reference element is always up-to-date.
-       * to fix the issue of the tooltip rendering in the wrong position
-       * whenever the reference component re-renders.
-       * */
-      const selector = `[${ariaAttributeName}="${tooltipId}"]`;
-      const referenceElement = document.querySelector(selector);
-
-      refs.setReference(referenceElement);
+  const { refs, floatingStyles, middlewareData, update, placement } =
+    useFloating({
+      open: state === State.open,
+      placement: defaultPlacement,
+      middleware: [
+        flip(),
+        shift({ padding: 4 }),
+        arrow({
+          element: arrowRef,
+          // This accounts for the content's border radius
+          padding: 8,
+        }),
+      ],
     });
 
-    /**
-     * We can't use Floating UI's `whileElementsMounted` option because our
-     * implementation hides the floating element using CSS instead of using
-     * conditional rendering.
-     */
-    useEffect(() => {
-      if (
-        state === State.open &&
-        refs.reference.current &&
-        refs.floating.current
-      ) {
-        return autoUpdate(
-          refs.reference.current,
-          refs.floating.current,
-          update,
-        );
-      }
-      return undefined;
-    }, [state, refs.reference, refs.floating, update]);
+  useEffect(() => {
+    /* Intentionally running useEffect without dependencies
+     * to ensure that the reference element is always up-to-date.
+     * to fix the issue of the tooltip rendering in the wrong position
+     * whenever the reference component re-renders.
+     * */
+    const selector = `[${ariaAttributeName}="${tooltipId}"]`;
+    const referenceElement = document.querySelector(selector);
 
-    if (process.env.NODE_ENV !== 'production') {
-      if (!type) {
-        throw new CircuitError('Tooltip', 'The `type` prop is required.');
-      }
+    refs.setReference(referenceElement);
+  });
 
-      if (!isSufficientlyLabelled(label)) {
-        throw new AccessibilityError(
-          'Tooltip',
-          'The `label` prop is missing or invalid.',
-        );
-      }
+  /**
+   * We can't use Floating UI's `whileElementsMounted` option because our
+   * implementation hides the floating element using CSS instead of using
+   * conditional rendering.
+   */
+  useEffect(() => {
+    if (
+      state === State.open &&
+      refs.reference.current &&
+      refs.floating.current
+    ) {
+      return autoUpdate(refs.reference.current, refs.floating.current, update);
+    }
+    return undefined;
+  }, [state, refs.reference, refs.floating, update]);
+
+  if (process.env.NODE_ENV !== 'production') {
+    if (!type) {
+      throw new CircuitError('Tooltip', 'The `type` prop is required.');
     }
 
-    const referenceProps = { [ariaAttributeName]: tooltipId };
-    const side = placement.split('-')[0] as Side;
+    if (!isSufficientlyLabelled(label)) {
+      throw new AccessibilityError(
+        'Tooltip',
+        'The `label` prop is missing or invalid.',
+      );
+    }
+  }
 
-    return (
-      <Fragment>
-        <Component
-          {...referenceProps}
-          onFocus={handleFocus}
-          onBlur={handleClose}
-          onMouseEnter={handleOpen}
-          onMouseLeave={handleClose}
-          className={classes.component}
-        />
+  const referenceProps = { [ariaAttributeName]: tooltipId };
+  const side = placement.split('-')[0] as Side;
+
+  return (
+    <Fragment>
+      <Component
+        {...referenceProps}
+        onFocus={handleFocus}
+        onBlur={handleClose}
+        onMouseEnter={handleOpen}
+        onMouseLeave={handleClose}
+        className={classes.component}
+      />
+      <div
+        {...props}
+        ref={applyMultipleRefs(ref, refs.setFloating)}
+        id={tooltipId}
+        // See https://github.com/w3c/aria/issues/979
+        role="tooltip"
+        onMouseEnter={handleOpen}
+        onMouseLeave={handleClose}
+        data-state={state}
+        data-side={side}
+        className={clsx(classes.base, className)}
+        style={
+          state === State.initial ? style : { ...style, ...floatingStyles }
+        }
+      >
+        <div className={classes.content}>{label}</div>
         <div
-          {...props}
-          ref={applyMultipleRefs(ref, refs.setFloating)}
-          id={tooltipId}
-          // See https://github.com/w3c/aria/issues/979
-          role="tooltip"
-          onMouseEnter={handleOpen}
-          onMouseLeave={handleClose}
-          data-state={state}
-          data-side={side}
-          className={clsx(classes.base, className)}
-          style={
-            state === State.initial ? style : { ...style, ...floatingStyles }
-          }
-        >
-          <div className={classes.content}>{label}</div>
-          <div
-            ref={arrowRef}
-            className={classes.arrow}
-            style={{
-              top: middlewareData.arrow?.y,
-              left: middlewareData.arrow?.x,
-            }}
-          />
-        </div>
-      </Fragment>
-    );
-  },
-);
-
-Tooltip.displayName = 'Tooltip';
+          ref={arrowRef}
+          className={classes.arrow}
+          style={{
+            top: middlewareData.arrow?.y,
+            left: middlewareData.arrow?.x,
+          }}
+        />
+      </div>
+    </Fragment>
+  );
+}

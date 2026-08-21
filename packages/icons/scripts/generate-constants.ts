@@ -27,6 +27,7 @@ type Icon = {
   name: string;
   category: string;
   deprecation?: string;
+  inactive?: boolean;
 };
 
 function namesForCategory(
@@ -34,7 +35,10 @@ function namesForCategory(
   transform: (name: string) => string = (name) => name,
 ): string[] {
   return (manifest.icons as Icon[])
-    .filter((icon) => icon.category === category && !icon.deprecation)
+    .filter(
+      (icon) =>
+        icon.category === category && !icon.deprecation && !icon.inactive,
+    )
     .map((icon) => transform(icon.name))
     .sort();
 }

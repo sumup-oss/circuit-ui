@@ -39,6 +39,10 @@ export function getTodaysDate() {
   return Temporal.Now.plainDateISO();
 }
 
+export function getTodaysZonedDateTimeISODate() {
+  return Temporal.Now.zonedDateTimeISO();
+}
+
 export function isPlainDate(date: unknown): date is Temporal.PlainDate {
   return date instanceof Temporal.PlainDate;
 }

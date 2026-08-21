@@ -1,0 +1,107 @@
+.base {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cui-spacings-giga);
+  width: 100%;
+  padding: var(--cui-spacings-mega) 0 0;
+}
+
+.list {
+  padding: 0 var(--cui-spacings-byte) var(--cui-spacings-byte)
+    var(--cui-spacings-byte);
+  margin: 0 0 var(--cui-spacings-giga);
+  list-style: none;
+}
+
+.sections {
+  height: 100%;
+}
+
+.label {
+  height: var(--cui-compact-s-line-height);
+  padding: 0 var(--cui-spacings-kilo);
+  margin-bottom: var(--cui-spacings-kilo);
+  text-transform: uppercase;
+}
+
+.loader {
+  margin: 0 var(--cui-spacings-byte) var(--cui-spacings-kilo);
+}
+
+.primary-item {
+  margin-bottom: var(--cui-spacings-bit);
+}
+
+.logo a:focus,
+.logo button:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 2px var(--cui-border-focus);
+}
+
+.logo a:focus::-moz-focus-inner,
+.logo button:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.logo a:focus:not(:focus-visible),
+.logo button:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.logo svg {
+  color: var(--cui-fg-normal);
+}
+
+@media (min-width: 1024px) {
+  .base {
+    gap: var(--cui-spacings-giga);
+    padding: var(--cui-spacings-byte) 0;
+  }
+
+  .list {
+    padding: 0 var(--cui-spacings-byte);
+  }
+
+  .logo {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding: 0 var(--cui-spacings-byte);
+    background-color: var(--cui-bg-normal);
+  }
+
+  .logo::after {
+    position: absolute;
+    right: 0;
+    bottom: calc(-1 * var(--cui-spacings-mega));
+    left: 0;
+    display: block;
+    height: var(--cui-spacings-mega);
+    pointer-events: none;
+    content: "";
+    background: linear-gradient(
+      color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent),
+      color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
+      color-mix(in sRGB, var(--cui-bg-normal) 1%, transparent)
+    );
+    border-radius: inherit;
+  }
+
+  .base::after {
+    position: fixed;
+    right: 0;
+    bottom: env(safe-area-inset-bottom);
+    left: 0;
+    display: block;
+    width: calc(var(--side-navigation-width) - 1px);
+    height: var(--cui-spacings-tera);
+    pointer-events: none;
+    content: "";
+    background: linear-gradient(
+      color-mix(in sRGB, var(--cui-bg-normal) 0%, transparent),
+      color-mix(in sRGB, var(--cui-bg-normal) 66%, transparent),
+      color-mix(in sRGB, var(--cui-bg-normal) 100%, transparent)
+    );
+    border-radius: inherit;
+  }
+}

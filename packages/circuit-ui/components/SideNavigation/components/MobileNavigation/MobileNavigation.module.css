@@ -1,58 +1,68 @@
 .base {
-  overflow: hidden;
-}
-
-.base::after {
-  height: var(--cui-spacings-mega);
-}
-
-.base.backdrop {
-  display: none;
-}
-
-.content,
-.base {
-  width: 100vw;
-  min-width: 100vw;
+  width: 80vw;
+  max-width: 300px;
   height: 100vh;
 
   /* biome-ignore lint/suspicious/noDuplicateProperties: Browser compatibility */
   height: 100dvh;
-  min-height: 100vh;
-  min-height: 100dvh;
+  max-height: unset;
+  margin: 0 !important;
+  background-color: color-mix(
+    in sRGB,
+    var(--cui-bg-normal) 80%,
+    transparent
+  ) !important;
+  backdrop-filter: blur(20px);
 }
 
-.navigation {
-  max-width: 480px;
-  height: 100%;
-  padding-top: 56px;
-  padding-bottom: calc(env(safe-area-inset-bottom) + var(--cui-spacings-tera));
-  margin: 0 auto;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content {
+  height: 100vh;
+
+  /* biome-ignore lint/suspicious/noDuplicateProperties: Browser compatibility */
+  height: 100dvh;
+  padding: var(--cui-spacings-mega);
+  padding-top: var(--cui-spacings-zetta);
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
 }
 
-.list {
-  padding: 0;
-  margin: 0;
-  list-style: none;
+/* Close button */
+.base > button {
+  top: var(--cui-spacings-kilo);
+  left: var(--cui-spacings-mega);
+  width: 44px;
+  height: 44px;
+  padding: 0 var(--cui-spacings-mega);
+  background-color: var(--cui-bg-subtle);
+  border: none;
+  border-radius: var(--cui-border-radius-circle);
 }
 
-.chevron {
-  transform: rotate(0deg);
-  transition: transform var(--cui-transitions-default);
+.base > button:hover {
+  background-color: var(--cui-bg-normal-hovered);
 }
 
-[aria-expanded="true"] .chevron {
-  color: var(--cui-fg-accent);
-  transform: rotate(-180deg);
+.base > button[aria-current="page"],
+.base > button[aria-pressed="true"],
+.base > button:active,
+.base > button[aria-expanded="true"] {
+  background-color: var(--cui-bg-highlight);
 }
 
-.group {
-  margin-bottom: -1px;
-  border-bottom: var(--cui-border-width-kilo) solid var(--cui-border-divider);
+.base > button:focus,
+.base > button:focus-visible {
+  box-shadow:
+    0 0 0 0 var(--cui-bg-normal),
+    0 0 0 2px var(--cui-border-focus);
 }
 
-.group > *:last-child {
-  padding-bottom: var(--cui-spacings-giga);
+@media (min-width: 1024px) {
+  .base {
+    display: none;
+  }
 }

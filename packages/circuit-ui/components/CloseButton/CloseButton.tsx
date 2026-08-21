@@ -13,19 +13,26 @@
  * limitations under the License.
  */
 
-import { forwardRef } from 'react';
+import type { Ref } from 'react';
 import { Close } from '@sumup-oss/icons';
 
 import { IconButton, type IconButtonProps } from '../Button/IconButton.js';
 
-export type CloseButtonProps = Omit<IconButtonProps, 'icon'>;
+export type CloseButtonProps = Omit<IconButtonProps, 'icon'> & {
+  // biome-ignore lint/suspicious/noExplicitAny: Inherits polymorphic ref from IconButton (button, anchor, or custom element)
+  ref?: Ref<any>;
+};
 
 /**
  * A generic close button.
  */
 
-export const CloseButton = forwardRef<any, CloseButtonProps>(
-  ({ label = 'Close', children = label, ...props }, ref) => (
+export function CloseButton({
+  children = 'Close',
+  ref,
+  ...props
+}: CloseButtonProps) {
+  return (
     <IconButton
       type="button"
       variant="tertiary"
@@ -35,7 +42,5 @@ export const CloseButton = forwardRef<any, CloseButtonProps>(
     >
       {children}
     </IconButton>
-  ),
-);
-
-CloseButton.displayName = 'CloseButton';
+  );
+}

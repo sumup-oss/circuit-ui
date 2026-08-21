@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { forwardRef, type TdHTMLAttributes } from 'react';
+import type { TdHTMLAttributes, Ref } from 'react';
 
 import { clsx } from '../../../../styles/clsx.js';
 import type { CellAlignment } from '../../types.js';
@@ -23,6 +23,7 @@ import classes from './TableCell.module.css';
 const PRESENTATION = 'presentation';
 
 export interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
+  ref?: Ref<HTMLTableCellElement>;
   /**
    * Aligns the content of the Cell with text-align.
    */
@@ -42,20 +43,18 @@ export interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
 /**
  * TableCell for the Table component. The Table handles rendering it.
  */
-export const TableCell = forwardRef<HTMLTableCellElement, TableCellProps>(
-  (
-    {
-      children,
-      className,
-      align = 'left',
-      condensed,
-      isHovered,
-      header,
-      role,
-      ...props
-    },
-    ref,
-  ) => (
+export function TableCell({
+  children,
+  className,
+  align = 'left',
+  condensed,
+  isHovered,
+  header,
+  role,
+  ref,
+  ...props
+}: TableCellProps) {
+  return (
     <td
       ref={ref}
       role={role}
@@ -72,7 +71,5 @@ export const TableCell = forwardRef<HTMLTableCellElement, TableCellProps>(
     >
       {children}
     </td>
-  ),
-);
-
-TableCell.displayName = 'TableCell';
+  );
+}

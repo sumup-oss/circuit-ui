@@ -15,7 +15,7 @@
 
 'use client';
 
-import { forwardRef, useId } from 'react';
+import { useId, type Ref } from 'react';
 
 import {
   AccessibilityError,
@@ -32,6 +32,7 @@ import {
 import classes from './RadioButton.module.css';
 
 export interface RadioButtonProps extends Omit<RadioButtonInputProps, 'align'> {
+  ref?: Ref<HTMLInputElement>;
   /**
    * A clear and concise description of the option's purpose.
    */
@@ -43,64 +44,58 @@ export interface RadioButtonProps extends Omit<RadioButtonInputProps, 'align'> {
   children?: never;
 }
 
-export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
-  (
-    {
-      label,
-      description,
-      disabled,
-      'aria-describedby': describedBy,
-      'id': customId,
-      className,
-      style,
-      ...props
-    },
-    ref,
-  ) => {
-    const id = useId();
-    const inputId = customId || id;
-    const descriptionId = useId();
+export function RadioButton({
+  label,
+  description,
+  disabled,
+  'aria-describedby': describedBy,
+  'id': customId,
+  className,
+  style,
+  ref,
+  ...props
+}: RadioButtonProps) {
+  const id = useId();
+  const inputId = customId || id;
+  const descriptionId = useId();
 
-    const descriptionIds = idx(describedBy, description && descriptionId);
+  const descriptionIds = idx(describedBy, description && descriptionId);
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !isSufficientlyLabelled(label)
-    ) {
-      throw new AccessibilityError(
-        'RadioButton',
-        'The `label` prop is missing or invalid.',
-      );
-    }
-
-    return (
-      <FieldWrapper className={className} style={style} disabled={disabled}>
-        <RadioButtonInput
-          {...props}
-          ref={ref}
-          id={inputId}
-          disabled={disabled}
-          aria-describedby={descriptionIds}
-          align="start"
-        >
-          <span className={classes['label-text']}>
-            {label}
-            {description && (
-              <FieldDescription aria-hidden="true">
-                {description}
-              </FieldDescription>
-            )}
-          </span>
-        </RadioButtonInput>
-        {description && (
-          <p id={descriptionId} className={utilClasses.hideVisually}>
-            {description}
-          </p>
-        )}
-      </FieldWrapper>
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !isSufficientlyLabelled(label)
+  ) {
+    throw new AccessibilityError(
+      'RadioButton',
+      'The `label` prop is missing or invalid.',
     );
-  },
-);
+  }
 
-RadioButton.displayName = 'RadioButton';
+  return (
+    <FieldWrapper className={className} style={style} disabled={disabled}>
+      <RadioButtonInput
+        {...props}
+        ref={ref}
+        id={inputId}
+        disabled={disabled}
+        aria-describedby={descriptionIds}
+        align="start"
+      >
+        <span className={classes['label-text']}>
+          {label}
+          {description && (
+            <FieldDescription aria-hidden="true">
+              {description}
+            </FieldDescription>
+          )}
+        </span>
+      </RadioButtonInput>
+      {description && (
+        <p id={descriptionId} className={utilClasses.hideVisually}>
+          {description}
+        </p>
+      )}
+    </FieldWrapper>
+  );
+}

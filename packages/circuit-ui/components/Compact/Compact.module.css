@@ -44,10 +44,6 @@
   color: var(--cui-fg-subtle);
 }
 
-.placeholder {
-  color: var(--cui-fg-placeholder);
-}
-
 .on-strong {
   color: var(--cui-fg-on-strong);
 }

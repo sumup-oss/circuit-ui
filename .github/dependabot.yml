@@ -28,9 +28,6 @@ updates:
       changesets:
         patterns:
           - "@changesets/*"
-      emotion:
-        patterns:
-          - "@emotion/*"
       nanostores:
         patterns:
           - "nanostores"

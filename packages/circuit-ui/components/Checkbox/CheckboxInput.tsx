@@ -16,11 +16,11 @@
 'use client';
 
 import {
-  forwardRef,
   useEffect,
   useId,
   useRef,
   type InputHTMLAttributes,
+  type Ref,
 } from 'react';
 import { Checkmark } from '@sumup-oss/icons';
 
@@ -37,6 +37,7 @@ import classes from './CheckboxInput.module.css';
 
 export interface CheckboxInputProps
   extends InputHTMLAttributes<HTMLInputElement> {
+  ref?: Ref<HTMLInputElement>;
   /**
    * Marks the input as invalid.
    */
@@ -53,69 +54,63 @@ export interface CheckboxInputProps
   align?: 'center' | 'start';
 }
 
-export const CheckboxInput = forwardRef<HTMLInputElement, CheckboxInputProps>(
-  (
-    {
-      id: customId,
-      invalid,
-      indeterminate = false,
-      children,
-      className,
-      style,
-      align = 'center',
-      ...props
-    },
-    ref,
-  ) => {
-    const inputRef = useRef<HTMLInputElement>(null);
+export function CheckboxInput({
+  id: customId,
+  invalid,
+  indeterminate = false,
+  children,
+  className,
+  style,
+  align = 'center',
+  ref,
+  ...props
+}: CheckboxInputProps) {
+  const inputRef = useRef<HTMLInputElement>(null);
 
-    // biome-ignore lint/correctness/useExhaustiveDependencies: Because it came from the props, we keep the `indeterminate` state even if the `checked` one is changed.
-    useEffect(() => {
-      if (inputRef.current) {
-        inputRef.current.indeterminate = indeterminate;
-      }
-    }, [props.checked, indeterminate]);
-
-    const id = useId();
-    const inputId = customId || id;
-
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !isSufficientlyLabelled(children, props)
-    ) {
-      throw new AccessibilityError(
-        'CheckboxInput',
-        'The input is missing a valid label.',
-      );
+  // biome-ignore lint/correctness/useExhaustiveDependencies: Because it came from the props, we keep the `indeterminate` state even if the `checked` one is changed.
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.indeterminate = indeterminate;
     }
+  }, [props.checked, indeterminate]);
 
-    return (
-      <>
-        <input
-          {...props}
-          ref={applyMultipleRefs(ref, inputRef)}
-          id={inputId}
-          type="checkbox"
-          aria-checked={indeterminate ? 'mixed' : undefined}
-          className={clsx(
-            classes.base,
-            invalid && classes.invalid,
-            utilClasses.hideVisually,
-          )}
-        />
-        <label
-          htmlFor={inputId}
-          className={clsx(className, classes.label, classes[align])}
-          style={style}
-        >
-          {children}
-          <Checkmark size="16" aria-hidden="true" data-symbol="checked" />
-          <IndeterminateIcon aria-hidden="true" data-symbol="indeterminate" />
-        </label>
-      </>
+  const id = useId();
+  const inputId = customId || id;
+
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !isSufficientlyLabelled(children, props)
+  ) {
+    throw new AccessibilityError(
+      'CheckboxInput',
+      'The input is missing a valid label.',
     );
-  },
-);
+  }
 
-CheckboxInput.displayName = 'CheckboxInput';
+  return (
+    <>
+      <input
+        {...props}
+        ref={applyMultipleRefs(ref, inputRef)}
+        id={inputId}
+        type="checkbox"
+        aria-checked={indeterminate ? 'mixed' : undefined}
+        className={clsx(
+          classes.base,
+          invalid && classes.invalid,
+          utilClasses.hideVisually,
+        )}
+      />
+      <label
+        htmlFor={inputId}
+        className={clsx(className, classes.label, classes[align])}
+        style={style}
+      >
+        {children}
+        <Checkmark size="16" aria-hidden="true" data-symbol="checked" />
+        <IndeterminateIcon aria-hidden="true" data-symbol="indeterminate" />
+      </label>
+    </>
+  );
+}

@@ -14,7 +14,12 @@
  */
 
 import { beforeAll, describe, expect, it, vi } from 'vitest';
-import { Shop } from '@sumup-oss/icons';
+import {
+  Invoice,
+  InvoiceFilled,
+  Payouts,
+  PayoutsFilled,
+} from '@sumup-oss/icons';
 
 import {
   render,
@@ -22,9 +27,13 @@ import {
   waitFor,
   screen,
   type RenderFn,
+  userEvent,
+  act,
+  within,
 } from '../../util/test-utils.js';
 
-import { SideNavigation, type SideNavigationProps } from './SideNavigation.js';
+import { SideNavigation } from './SideNavigation.js';
+import type { SideNavigationProps } from './types.js';
 
 describe('SideNavigation', () => {
   function setMediaMatches(matches: boolean) {
@@ -54,36 +63,23 @@ describe('SideNavigation', () => {
     isOpen: false,
     onClose: vi.fn(),
     closeButtonLabel: 'Close navigation modal',
-    primaryNavigationLabel: 'Primary',
-    secondaryNavigationLabel: 'Secondary',
-    primaryLinks: [
+    label: 'Side navigation',
+    groups: [
       {
-        icon: (iconProps) => <Shop {...iconProps} size="24" />,
-        label: 'Shop',
-        href: '/shop',
-        onClick: vi.fn(),
-        isActive: true,
-        badge: {
-          children: 'New',
-        },
-        secondaryGroups: [
+        id: 'primary',
+        label: 'Your shortcuts',
+        items: [
           {
-            label: 'For Kids',
-            secondaryLinks: [
-              {
-                label: 'Toys',
-                href: '/shop/toys',
-                onClick: vi.fn(),
-              },
-              {
-                label: 'Books',
-                href: '/shop/books',
-                onClick: vi.fn(),
-                badge: {
-                  children: 'New',
-                },
-              },
-            ],
+            icon: Payouts,
+            activeIcon: PayoutsFilled,
+            label: 'Payouts',
+            href: '/#payouts',
+          },
+          {
+            icon: Invoice,
+            activeIcon: InvoiceFilled,
+            label: 'Invoices',
+            href: '/#invoices',
           },
         ],
       },
@@ -93,6 +89,23 @@ describe('SideNavigation', () => {
   describe('on mobile', () => {
     beforeAll(() => {
       setMediaMatches(true);
+      vi.useFakeTimers({ shouldAdvanceTime: true });
+    });
+    afterAll(() => {
+      vi.useRealTimers();
+      vi.clearAllMocks();
+    });
+
+    it('should merge a custom class name with the default ones', () => {
+      const className = 'foo';
+      renderSideNavigation(render, {
+        ...defaultProps,
+        className,
+      });
+      const dialog = screen.getByRole<HTMLDialogElement>('dialog', {
+        hidden: true,
+      });
+      expect(dialog?.className).toContain(className);
     });
 
     it('should open the mobile navigation', async () => {
@@ -105,6 +118,48 @@ describe('SideNavigation', () => {
       await waitFor(() => {
         expect(screen.queryByRole('dialog')).toBeVisible();
       });
+    });
+
+    it('should call on close when closed', async () => {
+      const props = { ...defaultProps, onClose: vi.fn() };
+      const { rerender } = renderSideNavigation(render, props);
+
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+
+      renderSideNavigation(rerender, { ...props, isOpen: true });
+
+      await waitFor(() => {
+        expect(screen.queryByRole('dialog')).toBeVisible();
+      });
+      await userEvent.click(
+        screen.getByRole('button', { name: props.closeButtonLabel }),
+      );
+      act(() => {
+        vi.runAllTimers();
+      });
+      expect(props.onClose).toHaveBeenCalled();
+    });
+
+    it('should call on close when a navigation link is clicked', async () => {
+      const props = { ...defaultProps, onClose: vi.fn() };
+      const { rerender } = renderSideNavigation(render, props);
+
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+
+      renderSideNavigation(rerender, { ...props, isOpen: true });
+
+      await waitFor(() => {
+        expect(screen.queryByRole('dialog')).toBeVisible();
+      });
+      await userEvent.click(
+        within(screen.getByRole('dialog')).getByRole('link', {
+          name: 'Payouts',
+        }),
+      );
+      act(() => {
+        vi.runAllTimers();
+      });
+      expect(props.onClose).toHaveBeenCalled();
     });
   });
 

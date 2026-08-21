@@ -14,14 +14,31 @@
  */
 
 import { action } from 'storybook/actions';
-import { Like, Home, LiveChat, Package, Shop } from '@sumup-oss/icons';
+import {
+  Items,
+  ItemsFilled,
+  Bookings,
+  BookingsFilled,
+  Invoice,
+  InvoiceFilled,
+  Payouts,
+  PayoutsFilled,
+  Settings,
+  SettingsFilled,
+  Profile,
+} from '@sumup-oss/icons';
 import { useState } from 'react';
 
 import { modes } from '../../../../.storybook/modes.js';
 import { Headline } from '../Headline/index.js';
 import { Body } from '../Body/index.js';
 
-import { SideNavigation, type SideNavigationProps } from './SideNavigation.js';
+import type { SideNavigationProps } from './types.js';
+import { SideNavigation } from './SideNavigation.js';
+import classes from './SideNavigationStories.module.css';
+import { SumUpLogo } from '../SumUpLogo/SumUpLogo.js';
+import { Hamburger } from '../Hamburger/index.js';
+import { utilClasses } from '../../styles/utility.js';
 
 export default {
   title: 'Navigation/SideNavigation',
@@ -39,94 +56,119 @@ export default {
   excludeStories: /.*Args$/,
 };
 
+const groups: SideNavigationProps['groups'] = [
+  {
+    id: 'primary',
+    label: 'Your shortcuts',
+    items: [
+      {
+        icon: Payouts,
+        activeIcon: PayoutsFilled,
+        label: 'Payouts',
+        href: '/#payouts',
+        onClick: action('Payouts clicked'),
+      },
+      {
+        icon: Invoice,
+        activeIcon: InvoiceFilled,
+        label: 'Invoices',
+        href: '/#invoices',
+      },
+    ],
+  },
+  {
+    id: 'secondary',
+    label: 'Your business',
+    items: [
+      {
+        icon: Items,
+        activeIcon: ItemsFilled,
+        label: 'Items',
+        isActive: true,
+        onClick: action('Items clicked'),
+        secondaryItems: [
+          {
+            label: 'Catalog',
+            href: '/#items-catalog',
+          },
+          {
+            label: 'Inventory',
+            href: '/#items-inventory',
+          },
+          {
+            label: 'Reports',
+            href: '/#items-reports',
+            target: '_blank',
+            externalLabel: 'Opens in a new tab',
+            isActive: true,
+          },
+        ],
+      },
+      {
+        icon: Bookings,
+        activeIcon: BookingsFilled,
+        label: 'Bookings',
+        href: '/#bookings',
+      },
+
+      {
+        icon: Invoice,
+        activeIcon: InvoiceFilled,
+        label: 'Documents',
+        href: '/#documents',
+        target: '_blank',
+        externalLabel: 'Opens in a new tab',
+      },
+    ],
+  },
+  {
+    id: 'account',
+    label: 'Account',
+    items: [
+      {
+        icon: Profile,
+        activeIcon: Profile,
+        label: 'Personal information',
+        href: '/#account',
+      },
+      {
+        icon: Settings,
+        activeIcon: SettingsFilled,
+        label: 'Settings',
+        href: '/#settings',
+      },
+    ],
+  },
+];
+
+const logo = (
+  <div style={{ paddingTop: 'var(--cui-spacings-kilo)' }}>
+    <a
+      className={utilClasses.focusVisible}
+      href="https://sumup.com"
+      aria-label="Visit SumUp's website"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <SumUpLogo variant="full" />
+    </a>
+  </div>
+);
+
 export const baseArgs: SideNavigationProps = {
+  label: 'Side navigation',
   isLoading: false,
   isOpen: true,
   closeButtonLabel: 'Close navigation',
   onClose: action('Close'),
-  primaryNavigationLabel: 'Primary',
-  secondaryNavigationLabel: 'Secondary',
-  primaryLinks: [
-    {
-      icon: Home,
-      label: 'Home',
-      href: '/',
-      onClick: action('Home'),
-    },
-    {
-      icon: Shop,
-      label: 'Shop',
-      href: '/shop',
-      onClick: action('Shop'),
-      isActive: true,
-      badge: { variant: 'promo', children: 'New items' },
-      secondaryGroups: [
-        {
-          secondaryLinks: [
-            {
-              label: 'Shirts',
-              href: '/shop/shirts',
-              onClick: action('Shop → Shirts'),
-              badge: { children: 'New' },
-            },
-            {
-              label: 'Pants',
-              href: '/shop/pants',
-              onClick: action('Shop → Pants'),
-              tier: { variant: 'plus' },
-            },
-            {
-              label: 'Socks',
-              href: '/shop/socks',
-              onClick: action('Shop → Socks'),
-              isActive: true,
-            },
-          ],
-        },
-        {
-          label: 'For Kids',
-          secondaryLinks: [
-            {
-              label: 'Toys',
-              href: '/shop/toys',
-              onClick: action('Shop → Toys'),
-            },
-            {
-              label: 'Books',
-              href: '/shop/books',
-              onClick: action('Shop → Books'),
-            },
-          ],
-        },
-      ],
-    },
-    {
-      icon: Package,
-      label: 'Orders',
-      href: '/orders',
-      onClick: action('Orders'),
-    },
-    {
-      icon: Like,
-      label: 'Wishlist',
-      href: '/wishlist',
-      onClick: action('Wishlist'),
-    },
-    {
-      icon: LiveChat,
-      label: 'Support',
-      href: 'https://support.example.com',
-      onClick: action('Support'),
-      target: '_blank',
-      externalLabel: 'Opens in a new tab',
-    },
-  ],
+  groups,
   skipNavigationLabel: 'Skip Navigation',
   skipNavigationHref: '#main-content',
+  logo,
 };
 
 const placeHolderContent = (
-  <main id="main-content" style={{ padding: 'var(--cui-spacings-tera)' }}>
+  <main id="main-content" className={classes.main}>
     <Headline as="h1">Main content</Headline>
     <Body>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent semper
@@ -144,19 +186,20 @@ const placeHolderContent = (
 export const Base = (args: SideNavigationProps) => {
   const [isOpen, setIsOpen] = useState(args.isOpen);
 
-  const onSideNavigationClose = () => {
-    setIsOpen(false);
+  const toggleIsOpen = () => {
+    setIsOpen((prev) => !prev);
   };
   return (
     <div style={{ width: '100%', height: '100vh' }}>
-      <div style={{ display: 'flex' }}>
-        <SideNavigation
-          {...args}
-          isOpen={isOpen}
-          onClose={onSideNavigationClose}
-        />
-        {placeHolderContent}
-      </div>
+      <SideNavigation {...args} isOpen={isOpen} onClose={toggleIsOpen} />
+      <Hamburger
+        className={classes.hamburger}
+        activeLabel={'Close'}
+        inactiveLabel={'Open'}
+        isActive={isOpen}
+        onClick={toggleIsOpen}
+      />
+      {placeHolderContent}
     </div>
   );
 };

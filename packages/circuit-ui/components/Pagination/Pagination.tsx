@@ -27,7 +27,7 @@ import { clsx } from '../../styles/clsx.js';
 
 import { PageSelect } from './components/PageSelect/index.js';
 import { PageList } from './components/PageList/index.js';
-import * as PaginationService from './PaginationService.js';
+import { generatePages } from './PaginationService.js';
 import classes from './Pagination.module.css';
 
 export interface PaginationProps
@@ -112,7 +112,7 @@ export const Pagination = ({
   }
 
   const showList = totalPages <= 5;
-  const pages = PaginationService.generatePages(totalPages);
+  const pages = generatePages(totalPages);
 
   return (
     <nav

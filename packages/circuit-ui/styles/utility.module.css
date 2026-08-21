@@ -30,10 +30,10 @@ UTIL CLASSES MARKER START
 }
 
 .focus-visible:focus {
-  outline: 0;
-  box-shadow:
-    0 0 0 2px var(--cui-bg-normal),
-    0 0 0 4px var(--cui-border-focus);
+  outline-width: var(--cui-border-width-mega);
+  outline-style: solid;
+  outline-color: var(--cui-border-focus);
+  outline-offset: var(--cui-border-width-mega);
 }
 
 .focus-visible:focus::-moz-focus-inner {
@@ -41,12 +41,14 @@ UTIL CLASSES MARKER START
 }
 
 .focus-visible:focus:not(:focus-visible) {
-  box-shadow: none;
+  outline: 0;
 }
 
 .focus-visible-inset:focus {
-  outline: 0;
-  box-shadow: inset 0 0 0 2px var(--cui-border-focus);
+  outline-width: var(--cui-border-width-mega);
+  outline-style: solid;
+  outline-color: var(--cui-border-focus);
+  outline-offset: -2px;
 }
 
 .focus-visible-inset:focus::-moz-focus-inner {
@@ -54,7 +56,7 @@ UTIL CLASSES MARKER START
 }
 
 .focus-visible-inset:focus:not(:focus-visible) {
-  box-shadow: none;
+  outline: 0;
 }
 
 .shadow {

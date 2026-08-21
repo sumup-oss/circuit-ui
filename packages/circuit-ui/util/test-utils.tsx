@@ -23,8 +23,6 @@ import {
   type RenderResult,
 } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { ThemeProvider } from '@emotion/react';
-import { light } from '@sumup-oss/design-tokens';
 
 import {
   ComponentsContext,
@@ -43,7 +41,7 @@ const WithProviders: FunctionComponent<PropsWithChildren<unknown>> = ({
   children,
 }) => (
   <ComponentsContext.Provider value={defaultComponents}>
-    <ThemeProvider theme={light}>{children}</ThemeProvider>
+    {children}
   </ComponentsContext.Provider>
 );
 

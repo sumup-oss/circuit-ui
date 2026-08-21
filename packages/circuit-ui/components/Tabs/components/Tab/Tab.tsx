@@ -15,11 +15,11 @@
 
 'use client';
 
-import {
-  forwardRef,
-  type AnchorHTMLAttributes,
-  type ButtonHTMLAttributes,
-  type ComponentType,
+import type {
+  Ref,
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  ComponentType,
 } from 'react';
 
 import { useComponents } from '../../../ComponentsContext/index.js';
@@ -48,6 +48,7 @@ export type TabProps = LinkElProps &
      * features that are part of the plus plan
      */
     trailingComponent?: ComponentType<TierIndicatorProps>;
+    ref?: Ref<HTMLButtonElement>;
   };
 
 const tabIndex = (selected: boolean) => (selected ? undefined : -1);
@@ -55,55 +56,49 @@ const tabIndex = (selected: boolean) => (selected ? undefined : -1);
 /**
  * Tab component that represents a single tab inside a Tabs wrapper
  */
-export const Tab = forwardRef<HTMLButtonElement, TabProps>(
-  (
-    {
-      selected = false,
-      as = 'tab',
-      className,
-      children,
-      trailingComponent: TrailingComponent,
-      ...props
-    },
-    ref,
-  ) => {
-    const components = useComponents();
-    const Link = components.Link as EmotionAsPropType;
-    const Element = props.href ? Link : 'button';
+export function Tab({
+  selected = false,
+  as = 'tab',
+  className,
+  children,
+  trailingComponent: TrailingComponent,
+  ref,
+  ...props
+}: TabProps) {
+  const components = useComponents();
+  const Link = components.Link as EmotionAsPropType;
+  const Element = props.href ? Link : 'button';
 
-    const content = TrailingComponent ? (
-      <span className={classes.content}>
-        {children}
-        <TrailingComponent variant="plus" size="s" />
-      </span>
-    ) : (
-      children
-    );
+  const content = TrailingComponent ? (
+    <span className={classes.content}>
+      {children}
+      <TrailingComponent variant="plus" size="s" />
+    </span>
+  ) : (
+    children
+  );
 
-    return as === 'tab' ? (
+  return as === 'tab' ? (
+    <Element
+      ref={ref}
+      role={as}
+      className={clsx(classes.base, className)}
+      aria-selected={selected}
+      tabIndex={tabIndex(selected)}
+      {...props}
+    >
+      {content}
+    </Element>
+  ) : (
+    <div role="listitem">
       <Element
         ref={ref}
-        role={as}
         className={clsx(classes.base, className)}
-        aria-selected={selected}
-        tabIndex={tabIndex(selected)}
+        aria-current={selected ? 'page' : undefined}
         {...props}
       >
         {content}
       </Element>
-    ) : (
-      <div role="listitem">
-        <Element
-          ref={ref}
-          className={clsx(classes.base, className)}
-          aria-current={selected ? 'page' : undefined}
-          {...props}
-        >
-          {content}
-        </Element>
-      </div>
-    );
-  },
-);
-
-Tab.displayName = 'Tab';
+    </div>
+  );
+}

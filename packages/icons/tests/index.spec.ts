@@ -168,6 +168,5 @@ function getIconManifest(name: string, size: string) {
     keywords: string[];
     size: string;
     deprecation: string;
-    skipComponentFile?: undefined;
   };
 }

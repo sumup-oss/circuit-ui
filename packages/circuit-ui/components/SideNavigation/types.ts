@@ -13,23 +13,17 @@
  * limitations under the License.
  */
 
-import type { MouseEvent, KeyboardEvent, AnchorHTMLAttributes } from 'react';
+import type {
+  MouseEvent,
+  KeyboardEvent,
+  AnchorHTMLAttributes,
+  HTMLAttributes,
+  ReactNode,
+} from 'react';
 import type { IconComponentType } from '@sumup-oss/icons';
 
-import type { BadgeProps } from '../Badge/index.js';
-import type { TierIndicatorProps } from '../TierIndicator/TierIndicator.js';
-
-export interface PrimaryLinkProps
+export interface NavigationItem
   extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  /**
-   * Display an icon in addition to the text to help to identify the link.
-   * On narrow viewports, only the icon is displayed.
-   */
-  icon: IconComponentType;
-  /**
-   * Display a different icon when the link is active.
-   */
-  activeIcon?: IconComponentType;
   /**
    * Short label to describe the target of the link.
    */
@@ -46,64 +40,91 @@ export interface PrimaryLinkProps
    * Short label to describe that the link leads to an external page or opens in a new tab.
    */
   externalLabel?: string;
-  /**
-   * Whether to show a small circular badge to indicate that a nested secondary
-   * link has a badge.
-   */
-  badge?: {
-    /**
-     * Choose the style variant.
-     *
-     * @default 'promo'
-     */
-    variant?: BadgeProps['variant'];
-    /**
-     * A clear and concise description of the badge's meaning.
-     */
-    children: string;
-  };
-  /**
-   * A collection of secondary groups with nested secondary navigation links.
-   */
-  secondaryGroups?: SecondaryGroupProps[];
 }
 
-export interface SecondaryGroupProps {
-  /**
-   * A label that is displayed above the secondary navigation. Only optional
-   * for the first group.
-   */
-  label?: string;
-  /**
-   * A collection of secondary navigation links.
-   */
-  secondaryLinks: SecondaryLinkProps[];
-}
+type WithSecondaryItems = {
+  /** Nested secondary navigation items */
+  readonly secondaryItems: readonly NavigationItem[];
+  readonly href?: never;
+};
 
-export interface SecondaryLinkProps {
+type WithLink = {
+  readonly secondaryItems?: never;
+  /** Link destination for primary navigation */
+  readonly href: string;
+};
+
+export type PrimaryNavigationItem = Omit<NavigationItem, 'href'> & {
   /**
-   * Short label to describe the target of the link.
+   * Display an icon in addition to the text to help to identify the link.
+   */
+  icon: IconComponentType;
+  /**
+   * Provide another variant of the icon to indicate the link is active.
+   */
+  activeIcon: IconComponentType;
+} & (WithSecondaryItems | WithLink);
+
+export interface NavigationGroup {
+  /**
+   * Label for the group of links. Important for accessibility.
    */
   label: string;
   /**
-   * A valid path or URL to the link target.
+   * Hides the label for the group of links but keeps it accessible for screen readers.
    */
-  href: string;
+  hideLabel?: boolean;
   /**
-   * Function that's called when the link is clicked.
+   * Unique identifier for the group of links.
    */
-  onClick?: (event: MouseEvent | KeyboardEvent) => void;
+  id: string;
   /**
-   * Whether the link is the currently active page.
+   * Array of navigation items.
    */
-  isActive?: boolean;
+  items: PrimaryNavigationItem[];
+}
+
+export interface SideNavigationProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * An optional badge to highlight the secondary link, e.g. to promote
-   * a new link or to indicate new content.
+   * Whether the navigation data is loading.
    */
-  badge?: BadgeProps;
+  isLoading?: boolean;
   /**
-   * An optional badge to highlight elements belonging to a specific tier.
+   * Text label for the navigation modal.
+   * Important for accessibility.
    */
-  tier?: Omit<TierIndicatorProps, 'size'>;
+  label: string;
+  /**
+   * Whether the modal navigation is open.
+   */
+  isOpen: boolean;
+  /**
+   * Text label for the close button for screen readers.
+   * Important for accessibility.
+   */
+  closeButtonLabel?: string;
+  /**
+   * Callback function invoked when the modal closes.
+   */
+  onClose?: () => void;
+  /**
+   * Hash link to the page's main content to enable keyboard and screen reader
+   * users to skip over the navigation links. Required to comply with
+   * [WCAG 2.1 SC 2.4.1](https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html)
+   */
+  skipNavigationHref?: string;
+  /**
+   * label for the skip navigation link.
+   */
+  skipNavigationLabel?: string;
+  /**
+   * Collections of links to be displayed as navigation.
+   * Each group should have a label and a unique id.
+   * If you have only one group and wish to omit the label, use `hideLabel: true`
+   */
+  groups: NavigationGroup[];
+  /**
+   * An optional logo to display in the navigation.
+   */
+  logo?: ReactNode;
 }

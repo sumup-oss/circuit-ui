@@ -1,0 +1,90 @@
+.base {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--cui-spacings-byte);
+  color: var(--cui-fg-normal);
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  border-radius: var(--cui-border-radius-byte);
+  transition:
+    color var(--cui-transitions-default),
+    background-color var(--cui-transitions-default);
+}
+
+.base:hover {
+  background-color: var(--cui-bg-normal-hovered);
+}
+
+.base:active {
+  background-color: var(--cui-bg-normal-pressed);
+}
+
+.base:disabled,
+.base[disabled] {
+  pointer-events: none;
+}
+
+.label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.base:disabled .label,
+.base[disabled] .label {
+  color: var(--cui-fg-normal-disabled);
+}
+
+.label-container {
+  display: flex;
+  gap: var(--cui-spacings-byte);
+  width: 100%;
+}
+
+.icon {
+  /* icons should be proportional to the adjacent text's line height */
+  width: var(--cui-body-s-line-height);
+  min-width: var(--cui-body-s-line-height);
+  height: var(--cui-body-s-line-height);
+  color: var(--cui-fg-normal);
+}
+
+.external {
+  color: var(--cui-fg-subtle);
+}
+
+.chevron {
+  color: var(--cui-fg-subtle);
+  transition: transform var(--cui-transitions-default);
+}
+
+.chevron-up {
+  transform: rotate(180deg);
+}
+
+.list {
+  padding: 0 0 0 var(--cui-spacings-mega);
+  margin-bottom: var(--cui-spacings-byte);
+
+  /* Vertically align the border with the icons above: padding + half the icon width */
+  margin-left: calc(
+    var(--cui-spacings-byte) +
+    (var(--cui-body-s-line-height) / 2)
+  );
+  list-style: none;
+  border-left: var(--cui-border-width-kilo) solid var(--cui-border-subtle);
+}
+
+.list[aria-hidden="true"] {
+  margin-bottom: 0;
+}
+
+.loader {
+  margin: var(--cui-spacings-byte);
+}

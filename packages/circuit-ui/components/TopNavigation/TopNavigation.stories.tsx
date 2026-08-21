@@ -15,7 +15,7 @@
 
 import { useState } from 'react';
 import { action } from 'storybook/actions';
-import { Shop, SumUpLogo } from '@sumup-oss/icons';
+import { Settings } from '@sumup-oss/icons';
 
 import { modes } from '../../../../.storybook/modes.js';
 import { SideNavigation } from '../SideNavigation/index.js';
@@ -25,6 +25,9 @@ import type { HamburgerProps } from '../Hamburger/Hamburger.js';
 import { Headline } from '../Headline/index.js';
 
 import { TopNavigation, type TopNavigationProps } from './TopNavigation.js';
+import { SumUpLogo } from '../SumUpLogo/SumUpLogo.js';
+import classes from './TopNavigationStories.module.css';
+import { useMedia } from '../../hooks/useMedia/index.js';
 
 export default {
   title: 'Navigation/TopNavigation',
@@ -35,7 +38,6 @@ export default {
     chromatic: {
       modes: {
         smallMobile: modes.smallMobile,
-        largeMobile: modes.largeMobile,
         tablet: modes.tablet,
       },
     },
@@ -45,20 +47,30 @@ export default {
 
 function CustomComponent() {
   return (
-    <Body
-      size="s"
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        height: '100%',
-        padding: '0 var(--cui-spacings-mega)',
-        textAlign: 'center',
-      }}
-    >
+    <Body size="s" weight="semibold">
       Test account
     </Body>
   );
 }
+
+const Logo = () => {
+  const isMobile = useMedia('(max-width: 767px)');
+  return (
+    <a
+      href="https://sumup.com"
+      aria-label="Visit SumUp's website"
+      target="_blank"
+      rel="noreferrer"
+      style={{
+        height: 'var(--cui-icon-sizes-l)',
+        display: 'block',
+        color: 'var(--cui-fg-normal)',
+      }}
+    >
+      <SumUpLogo variant={isMobile ? 'short' : 'full'} />
+    </a>
+  );
+};
 
 const placeHolderContent = (
   <main id="main-content" style={{ padding: 'var(--cui-spacings-tera)' }}>
@@ -78,26 +90,17 @@ const placeHolderContent = (
 
 export const baseArgs: TopNavigationProps = {
   isLoading: false,
-  logo: (
-    <a
-      href="https://sumup.com"
-      aria-label="Visit SumUp's website"
-      target="_blank"
-      rel="noreferrer"
-    >
-      <SumUpLogo />
-    </a>
-  ),
+  logo: <Logo />,
   links: [
     {
       key: 'custom',
       children: <CustomComponent />,
     },
     {
-      icon: Shop,
-      label: 'Shop',
-      href: '/shop',
-      onClick: action('Shop'),
+      icon: Settings,
+      label: 'Settings',
+      href: '/settings',
+      onClick: action('Settings'),
     },
   ],
   skipNavigationHref: '#main-content',
@@ -122,14 +125,16 @@ export const WithSideNavigation = (args: TopNavigationProps) => {
   };
   return (
     <>
-      <TopNavigation {...args} hamburger={hamburger} />
-      <div style={{ display: 'flex' }}>
-        <SideNavigation
-          {...sideNavigationProps}
-          isOpen={isSideNavigationOpen}
-          skipNavigationHref={undefined}
-          onClose={() => setSideNavigationOpen(false)}
-        />
+      <SideNavigation
+        {...sideNavigationProps}
+        isOpen={isSideNavigationOpen}
+        onClose={() => setSideNavigationOpen(false)}
+        skipNavigationHref="#main-content"
+        skipNavigationLabel="Skip navigation"
+      />
+      <div className={classes.container}>
+        <TopNavigation {...args} hamburger={hamburger} />
+
         {placeHolderContent}
       </div>
     </>
@@ -139,6 +144,9 @@ export const WithSideNavigation = (args: TopNavigationProps) => {
 WithSideNavigation.storyName = 'With SideNavigation';
 WithSideNavigation.args = {
   ...baseArgs,
+  logo: undefined,
+  skipNavigationHref: undefined,
+  skipNavigationLabel: undefined,
   hamburger: {
     activeLabel: 'Close side navigation',
     inactiveLabel: 'Open side navigation',

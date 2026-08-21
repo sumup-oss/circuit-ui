@@ -1,5 +1,39 @@
 # @sumup-oss/design-tokens
 
+## 11.0.0-next.3
+
+### Minor Changes
+
+- [#3685](https://github.com/sumup-oss/circuit-ui/pull/3685) [`9992a96`](https://github.com/sumup-oss/circuit-ui/commit/9992a962d382a5a71f9017dae8aed43aeced0a37) Thanks [@sirineJ](https://github.com/sirineJ)! - Exported a Spacings type as a map of all Circuit UI's spacing token values.
+
+## 11.0.0-next.2
+
+### Major Changes
+
+- [#3750](https://github.com/sumup-oss/circuit-ui/pull/3750) [`ee603e3`](https://github.com/sumup-oss/circuit-ui/commit/ee603e33c7e37b97c309a1b989c7b9a0c69bc7da) Thanks [@sirineJ](https://github.com/sirineJ)! - Removed the CommonJS entry point from the design tokens package exports. The package now only exposes ES module builds, aligning with modern ESM-based JavaScript tooling.
+
+## 11.0.0-next.1
+
+### Major Changes
+
+- [#3749](https://github.com/sumup-oss/circuit-ui/pull/3749) [`6bf75c1`](https://github.com/sumup-oss/circuit-ui/commit/6bf75c1e1e687d8701ffc6bfdbd6a9b606b66ea0) Thanks [@sirineJ](https://github.com/sirineJ)! - Updated the browser support policy.
+
+  | Browser          | Previous | New |
+  | ---------------- | -------- | --- |
+  | Chrome           | 73+      | 85+ |
+  | Firefox          | 67+      | 79+ |
+  | Edge             | 79+      | 85+ |
+  | Safari iOS       | 12.2+    | 14+ |
+  | Safari macOS     | 12.1+    | 14+ |
+  | Opera            | 60+      | 71+ |
+  | Samsung Internet | 11.1+    | 14+ |
+
+## 11.0.0-next.0
+
+### Major Changes
+
+- [#3647](https://github.com/sumup-oss/circuit-ui/pull/3647) [`1ea4fe8`](https://github.com/sumup-oss/circuit-ui/commit/1ea4fe88cf5bb6e4574e3a0f1f322d969a70ebd3) Thanks [@missating](https://github.com/missating)! - Dropped support for Node.js 22. Node.js 24 or higher is now required.
+
 ## 10.2.0
 
 ### Minor Changes

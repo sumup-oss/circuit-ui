@@ -1,0 +1,73 @@
+.base {
+  --skip-value: var(--skip, 0);
+  --span-value: var(--span, 1);
+
+  left: calc(100% * var(--skip-value, 0) / 12);
+  float: left;
+  box-sizing: border-box;
+  width: calc(100% * var(--span-value) / 12);
+  padding-right: var(--cui-spacings-bit);
+  padding-left: var(--cui-spacings-bit);
+}
+
+.skip {
+  position: relative;
+}
+
+/* Until Kilo */
+@media (max-width: 479px) {
+  .base {
+    --skip-value: var(--skip-until-kilo, var(--skip));
+    --span-value: var(--span-until-kilo, var(--span));
+  }
+}
+
+/* Kilo */
+@media (min-width: 480px) {
+  .base {
+    --skip-value: var(--skip-kilo, var(--skip));
+    --span-value: var(--span-kilo, var(--span));
+
+    padding-right: var(--cui-spacings-byte);
+    padding-left: var(--cui-spacings-byte);
+  }
+}
+
+/* Giga */
+@media (min-width: 768px) {
+  .base {
+    --skip-value: var(--skip-giga, var(--skip-kilo, var(--skip)));
+    --span-value: var(--span-giga, var(--span-kilo, var(--span)));
+
+    padding-right: var(--cui-spacings-kilo);
+    padding-left: var(--cui-spacings-kilo);
+  }
+}
+
+/* Mega */
+@media (min-width: 960px) {
+  .base {
+    --skip-value: var(
+      --skip-mega,
+      var(--skip-giga, var(--skip-kilo, var(--skip)))
+    );
+    --span-value: var(
+      --span-mega,
+      var(--span-giga, var(--span-kilo, var(--span)))
+    );
+  }
+}
+
+/* Tera */
+@media (min-width: 1280px) {
+  .base {
+    --skip-value: var(
+      --skip-tera,
+      var(--skip-mega, var(--skip-giga, var(--skip-kilo, var(--skip))))
+    );
+    --span-value: var(
+      --span-tera,
+      var(--span-mega, var(--span-giga, var(--span-kilo, var(--span))))
+    );
+  }
+}

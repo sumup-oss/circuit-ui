@@ -1,6 +1,6 @@
 {
   "name": "next-app",
-  "version": "2.1.0",
+  "version": "2.0.3-next.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -16,9 +16,9 @@
   },
   "dependencies": {
     "@next/bundle-analyzer": "^16.2.11",
-    "@sumup-oss/circuit-ui": "^11.17.0",
-    "@sumup-oss/design-tokens": "^10.2.0",
-    "@sumup-oss/icons": "^6.16.0",
+    "@sumup-oss/circuit-ui": "^12.0.0-next.6",
+    "@sumup-oss/design-tokens": "^11.0.0-next.0",
+    "@sumup-oss/icons": "^7.0.0-next.0",
     "@sumup-oss/intl": "^3.5.1",
     "next": "^16.2.11",
     "react": "^19.2.6",
@@ -27,9 +27,9 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^16.2.11",
-    "@sumup-oss/eslint-plugin-circuit-ui": "^7.1.0",
+    "@sumup-oss/eslint-plugin-circuit-ui": "^8.0.0-next.0",
     "@sumup-oss/foundry": "^10.1.0",
-    "@sumup-oss/stylelint-plugin-circuit-ui": "^4.1.0",
+    "@sumup-oss/stylelint-plugin-circuit-ui": "^5.0.0-next.0",
     "@testing-library/jest-dom": "^7.0.0",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
@@ -45,5 +45,10 @@
     "jest-environment-jsdom": "^30.4.1",
     "typescript": "^6.0.3",
     "typescript-plugin-css-modules": "^5.2.0"
+  },
+  "overrides": {
+    "@sumup-oss/foundry": {
+      "@sumup-oss/stylelint-plugin-circuit-ui": "$@sumup-oss/stylelint-plugin-circuit-ui"
+    }
   }
 }

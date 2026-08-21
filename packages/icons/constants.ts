@@ -27,7 +27,6 @@ export const CATEGORIES = [
   'Communication',
   'Payment method',
   'Card scheme',
-  'Country flag',
   'Flag',
   'Device',
   'File',

@@ -15,12 +15,12 @@
 
 'use client';
 
-import {
-  forwardRef,
-  type ReactNode,
-  type ButtonHTMLAttributes,
-  type AnchorHTMLAttributes,
-  type HTMLAttributes,
+import type {
+  ReactNode,
+  ButtonHTMLAttributes,
+  AnchorHTMLAttributes,
+  HTMLAttributes,
+  Ref,
 } from 'react';
 import { ChevronRight, type IconComponentType } from '@sumup-oss/icons';
 
@@ -94,137 +94,130 @@ type ButtonElProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
 export type ListItemProps = BaseProps &
   DivElProps &
   LinkElProps &
-  ButtonElProps;
+  ButtonElProps & {
+    ref?: Ref<HTMLDivElement & HTMLAnchorElement & HTMLButtonElement>;
+  };
 
 /**
  * The ListItem component enables the user to render a list item with various
  * textual and visual elements.
  */
-export const ListItem = forwardRef<
-  HTMLDivElement & HTMLAnchorElement & HTMLButtonElement,
-  ListItemProps
->(
-  (
-    {
-      variant = 'action',
-      leadingComponent: LeadingComponent,
-      label,
-      details,
-      trailingLabel,
-      trailingDetails,
-      trailingComponent,
-      className,
-      selected,
-      ...props
-    },
-    ref,
-  ) => {
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test'
-    ) {
-      if (trailingDetails && !trailingLabel) {
-        throw new CircuitError(
-          'ListItem',
-          'Using `trailingDetails` without `trailingLabel` is not supported. Use a custom `trailingComponent` if necessary.',
-        );
-      }
-      if (trailingComponent && trailingLabel) {
-        throw new CircuitError(
-          'ListItem',
-          'Using `trailingLabel` and `trailingComponent` at the same time is not supported. Add a label to the custom `trailingComponent` if necessary.',
-        );
-      }
+export function ListItem({
+  variant = 'action',
+  leadingComponent: LeadingComponent,
+  label,
+  details,
+  trailingLabel,
+  trailingDetails,
+  trailingComponent,
+  className,
+  selected,
+  ref,
+  ...props
+}: ListItemProps) {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test'
+  ) {
+    if (trailingDetails && !trailingLabel) {
+      throw new CircuitError(
+        'ListItem',
+        'Using `trailingDetails` without `trailingLabel` is not supported. Use a custom `trailingComponent` if necessary.',
+      );
     }
-
-    const { Link } = useComponents();
-    let Element: AsPropType = 'div';
-    if (props.href) {
-      Element = Link as AsPropType;
-    } else if (props.onClick) {
-      Element = 'button';
+    if (trailingComponent && trailingLabel) {
+      throw new CircuitError(
+        'ListItem',
+        'Using `trailingLabel` and `trailingComponent` at the same time is not supported. Add a label to the custom `trailingComponent` if necessary.',
+      );
     }
+  }
 
-    const isNavigation = variant === 'navigation';
-    const hasTrailing = !!trailingLabel || !!trailingComponent;
-    const shouldRenderTrailingContainer = hasTrailing || isNavigation;
+  const { Link } = useComponents();
+  let Element: AsPropType = 'div';
+  if (props.href) {
+    Element = Link as AsPropType;
+  } else if (props.onClick) {
+    Element = 'button';
+  }
 
-    return (
-      <Element
-        {...props}
-        aria-current={props.onClick || props.href ? selected : undefined}
-        className={clsx(
-          classes.base,
-          isNavigation && classes.navigation,
-          className,
-        )}
-        ref={ref}
-      >
-        {LeadingComponent && (
-          <div className={classes.leading}>
-            {isReactComponent(LeadingComponent) ? (
-              <LeadingComponent size="24" aria-hidden="true" />
-            ) : (
-              LeadingComponent
-            )}
-          </div>
-        )}
-        <div className={classes.content}>
-          <div className={classes.main}>
-            {isString(label) ? (
-              <Body size="m" className={classes.label}>
-                {label}
-              </Body>
-            ) : (
-              label
-            )}
-            {details && (
-              <div className={classes.details}>
-                {isString(details) ? (
-                  <Body size="s" color="subtle">
-                    {details}
-                  </Body>
-                ) : (
-                  details
-                )}
-              </div>
-            )}
-          </div>
-          {shouldRenderTrailingContainer && (
-            <div
-              className={clsx(
-                classes.trailing,
-                Boolean(trailingLabel) && classes['has-label'],
-              )}
-            >
-              <div className={classes.chevron}>
-                {isString(trailingLabel) ? (
-                  <Body size="m" weight="semibold">
-                    {trailingLabel}
-                  </Body>
-                ) : (
-                  trailingLabel
-                )}
-                {trailingComponent}
-                {isNavigation && <ChevronRight size="16" aria-hidden="true" />}
-              </div>
-              {trailingDetails && (
-                <div className={classes.details}>
-                  {isString(trailingDetails) ? (
-                    <Body size="s" color="subtle">
-                      {trailingDetails}
-                    </Body>
-                  ) : (
-                    trailingDetails
-                  )}
-                </div>
+  const isNavigation = variant === 'navigation';
+  const hasTrailing = !!trailingLabel || !!trailingComponent;
+  const shouldRenderTrailingContainer = hasTrailing || isNavigation;
+
+  return (
+    <Element
+      {...props}
+      aria-current={props.onClick || props.href ? selected : undefined}
+      className={clsx(
+        classes.base,
+        isNavigation && classes.navigation,
+        className,
+      )}
+      ref={ref}
+    >
+      {LeadingComponent && (
+        <div className={classes.leading}>
+          {isReactComponent(LeadingComponent) ? (
+            <LeadingComponent size="24" aria-hidden="true" />
+          ) : (
+            LeadingComponent
+          )}
+        </div>
+      )}
+      <div className={classes.content}>
+        <div className={classes.main}>
+          {isString(label) ? (
+            <Body size="m" className={classes.label}>
+              {label}
+            </Body>
+          ) : (
+            label
+          )}
+          {details && (
+            <div className={classes.details}>
+              {isString(details) ? (
+                <Body size="s" color="subtle">
+                  {details}
+                </Body>
+              ) : (
+                details
               )}
             </div>
           )}
         </div>
-      </Element>
-    );
-  },
-);
-
-ListItem.displayName = 'ListItem';
+        {shouldRenderTrailingContainer && (
+          <div
+            className={clsx(
+              classes.trailing,
+              Boolean(trailingLabel) && classes['has-label'],
+            )}
+          >
+            <div className={classes.chevron}>
+              {isString(trailingLabel) ? (
+                <Body size="m" weight="semibold">
+                  {trailingLabel}
+                </Body>
+              ) : (
+                trailingLabel
+              )}
+              {trailingComponent}
+              {isNavigation && <ChevronRight size="16" aria-hidden="true" />}
+            </div>
+            {trailingDetails && (
+              <div className={classes.details}>
+                {isString(trailingDetails) ? (
+                  <Body size="s" color="subtle">
+                    {trailingDetails}
+                  </Body>
+                ) : (
+                  trailingDetails
+                )}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </Element>
+  );
+}

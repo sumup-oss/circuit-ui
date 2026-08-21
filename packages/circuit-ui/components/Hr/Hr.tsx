@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { forwardRef, type HTMLAttributes } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
 
 import type { AsPropType } from '../../types/prop-types.js';
 import { clsx } from '../../styles/clsx.js';
@@ -21,6 +21,7 @@ import { clsx } from '../../styles/clsx.js';
 import classes from './Hr.module.css';
 
 export interface HrProps extends HTMLAttributes<HTMLHRElement> {
+  ref?: Ref<HTMLHRElement>;
   /**
    * Render the text using any HTML element.
    */
@@ -30,23 +31,17 @@ export interface HrProps extends HTMLAttributes<HTMLHRElement> {
 /**
  * A horizontal rule to visually and semantically separate content.
  */
-export const Hr = forwardRef<HTMLHRElement, HrProps>(
-  (
-    {
-      className,
-      'as': Element = 'hr',
-      'aria-hidden': ariaHidden = 'true',
-      ...props
-    },
-    ref,
-  ) => (
+export function Hr({
+  className,
+  'as': Element = 'hr',
+  'aria-hidden': ariaHidden = 'true',
+  ...props
+}: HrProps) {
+  return (
     <Element
       {...props}
-      ref={ref}
       className={clsx(classes.base, className)}
       aria-hidden={ariaHidden}
     />
-  ),
-);
-
-Hr.displayName = 'Hr';
+  );
+}

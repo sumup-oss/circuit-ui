@@ -15,7 +15,7 @@
 
 'use client';
 
-import { forwardRef, useId } from 'react';
+import { useId } from 'react';
 
 import { FieldValidationHint, FieldWrapper } from '../Field/index.js';
 import {
@@ -46,67 +46,58 @@ export interface CheckboxProps extends Omit<CheckboxInputProps, 'align'> {
 /**
  * Checkbox component for forms.
  */
-export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  (
-    {
-      label,
-      disabled,
-      validationHint,
-      optionalLabel,
-      className,
-      style,
-      invalid,
-      indeterminate = false,
-      'aria-describedby': descriptionId,
-      children,
-      ...props
-    },
-    ref,
-  ) => {
-    const validationHintId = useId();
-    const descriptionIds = idx(
-      descriptionId,
-      validationHint && validationHintId,
+export function Checkbox({
+  label,
+  disabled,
+  validationHint,
+  optionalLabel,
+  className,
+  style,
+  invalid,
+  indeterminate = false,
+  'aria-describedby': descriptionId,
+  children,
+  ref,
+  ...props
+}: CheckboxProps) {
+  const validationHintId = useId();
+  const descriptionIds = idx(descriptionId, validationHint && validationHintId);
+
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    !isSufficientlyLabelled(label)
+  ) {
+    throw new AccessibilityError(
+      'Checkbox',
+      'The `label` prop is missing or invalid.',
     );
+  }
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      !isSufficientlyLabelled(label)
-    ) {
-      throw new AccessibilityError(
-        'Checkbox',
-        'The `label` prop is missing or invalid.',
-      );
-    }
-
-    return (
-      <FieldWrapper className={className} style={style} disabled={disabled}>
-        <CheckboxInput
-          {...props}
-          ref={ref}
-          aria-describedby={descriptionIds}
-          invalid={invalid}
-          disabled={disabled}
-          indeterminate={indeterminate}
-          align="start"
-        >
-          <span className={classes['label-text']}>
-            {label || children}
-            {optionalLabel ? (
-              <span className={classes.optional}>{` (${optionalLabel})`}</span>
-            ) : null}
-          </span>
-        </CheckboxInput>
-        <FieldValidationHint
-          id={validationHintId}
-          disabled={disabled}
-          invalid={invalid}
-          validationHint={validationHint}
-        />
-      </FieldWrapper>
-    );
-  },
-);
-
-Checkbox.displayName = 'Checkbox';
+  return (
+    <FieldWrapper className={className} style={style} disabled={disabled}>
+      <CheckboxInput
+        {...props}
+        ref={ref}
+        aria-describedby={descriptionIds}
+        invalid={invalid}
+        disabled={disabled}
+        indeterminate={indeterminate}
+        align="start"
+      >
+        <span className={classes['label-text']}>
+          {label || children}
+          {optionalLabel ? (
+            <span className={classes.optional}>{` (${optionalLabel})`}</span>
+          ) : null}
+        </span>
+      </CheckboxInput>
+      <FieldValidationHint
+        id={validationHintId}
+        disabled={disabled}
+        invalid={invalid}
+        validationHint={validationHint}
+      />
+    </FieldWrapper>
+  );
+}

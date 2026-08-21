@@ -15,7 +15,7 @@
 
 'use client';
 
-import { forwardRef, type ReactNode } from 'react';
+import type { ReactNode, Ref } from 'react';
 
 import { utilClasses } from '../../../../styles/utility.js';
 import { Options, type OptionsProps } from '../Options/Options.js';
@@ -27,6 +27,7 @@ import { Button, type ButtonProps } from '../../../Button/index.js';
 import classes from './Results.module.css';
 
 export type ResultsProps = OptionsProps & {
+  ref?: Ref<HTMLDivElement>;
   /**
    * Custom label to display while loading options.
    */
@@ -47,31 +48,29 @@ export type ResultsProps = OptionsProps & {
   isImmersive?: boolean;
 };
 
-export const Results = forwardRef<HTMLDivElement, ResultsProps>(
-  (
-    {
-      isLoading,
-      isLoadingMore,
-      loadingLabel,
-      noResultsMessage,
-      options,
-      value,
-      onOptionClick,
-      label,
-      activeOption,
-      loadMore,
-      action,
-      optionIdPrefix,
-      allowNewItems,
-      searchText,
-      resultsSummary,
-      isImmersive,
-      loadMoreLabel,
-      listboxId,
-      ...rest
-    },
-    ref,
-  ) => (
+export function Results({
+  isLoading,
+  isLoadingMore,
+  loadingLabel,
+  noResultsMessage,
+  options,
+  value,
+  onOptionClick,
+  label,
+  activeOption,
+  loadMore,
+  action,
+  optionIdPrefix,
+  allowNewItems,
+  searchText,
+  resultsSummary,
+  isImmersive,
+  loadMoreLabel,
+  listboxId,
+  ref,
+  ...rest
+}: ResultsProps) {
+  return (
     <div
       ref={ref}
       className={clsx(
@@ -129,5 +128,5 @@ export const Results = forwardRef<HTMLDivElement, ResultsProps>(
         </>
       )}
     </div>
-  ),
-);
+  );
+}

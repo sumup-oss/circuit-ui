@@ -44,6 +44,12 @@ ruleTester.run('component-lifecycle-imports', componentLifecycleImports, {
       `,
     },
     {
+      name: 'AutocompleteInput import from correct package',
+      code: `
+        import { AutocompleteInput } from '@sumup-oss/circuit-ui';
+      `,
+    },
+    {
       name: 'unrelated import from matching package',
       code: `
         import { Button } from '@sumup-oss/circuit-ui/experimental';
@@ -109,6 +115,26 @@ ruleTester.run('component-lifecycle-imports', componentLifecycleImports, {
       `,
       output: `
         import type { TimestampProps } from '@sumup-oss/circuit-ui';
+      `,
+      errors: [{ messageId: 'refactor' }],
+    },
+    {
+      name: 'AutocompleteInput import from experimental',
+      code: `
+        import { AutocompleteInput } from '@sumup-oss/circuit-ui/experimental';
+      `,
+      output: `
+        import { AutocompleteInput } from '@sumup-oss/circuit-ui';
+      `,
+      errors: [{ messageId: 'refactor' }],
+    },
+    {
+      name: 'AutocompleteInput type import from experimental',
+      code: `
+        import type { AutocompleteInputProps } from '@sumup-oss/circuit-ui/experimental';
+      `,
+      output: `
+        import type { AutocompleteInputProps } from '@sumup-oss/circuit-ui';
       `,
       errors: [{ messageId: 'refactor' }],
     },

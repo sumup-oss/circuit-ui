@@ -15,10 +15,10 @@
 
 import {
   Children,
-  forwardRef,
   cloneElement,
   type ReactElement,
   type HTMLAttributes,
+  type Ref,
 } from 'react';
 
 import { clsx } from '../../styles/clsx.js';
@@ -26,42 +26,46 @@ import { clsx } from '../../styles/clsx.js';
 import classes from './AspectRatio.module.css';
 
 export interface AspectRatioProps extends HTMLAttributes<HTMLDivElement> {
+  ref?: Ref<HTMLDivElement>;
   children?: ReactElement;
   aspectRatio?: number;
 }
 
-export const AspectRatio = forwardRef<HTMLDivElement, AspectRatioProps>(
-  ({ aspectRatio, className, style = {}, children, ...props }, ref) => {
-    if (!children) {
-      return null;
-    }
+export function AspectRatio({
+  aspectRatio,
+  className,
+  style = {},
+  children,
+  ref,
+  ...props
+}: AspectRatioProps) {
+  if (!children) {
+    return null;
+  }
 
-    const child = Children.only(children) as ReactElement<
-      HTMLAttributes<HTMLElement>
-    >;
+  const child = Children.only(children) as ReactElement<
+    HTMLAttributes<HTMLElement>
+  >;
 
-    if (!aspectRatio) {
-      return (
-        <div ref={ref} className={className} {...props}>
-          {child}
-        </div>
-      );
-    }
-
+  if (!aspectRatio) {
     return (
-      <div
-        ref={ref}
-        className={clsx(classes.base, className)}
-        style={{
-          ...style,
-          '--aspect-ratio': `${Math.round((1 / aspectRatio) * 100)}%`,
-        }}
-        {...props}
-      >
-        {cloneElement(child, { className: classes.child })}
+      <div ref={ref} className={className} {...props}>
+        {child}
       </div>
     );
-  },
-);
+  }
 
-AspectRatio.displayName = 'AspectRatio';
+  return (
+    <div
+      ref={ref}
+      className={clsx(classes.base, className)}
+      style={{
+        ...style,
+        '--aspect-ratio': `${Math.round((1 / aspectRatio) * 100)}%`,
+      }}
+      {...props}
+    >
+      {cloneElement(child, { className: classes.child })}
+    </div>
+  );
+}

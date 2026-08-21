@@ -51,7 +51,6 @@ export const Sizes = (args: NumeralProps) =>
 const colors = [
   'normal',
   'subtle',
-  'placeholder',
   'on-strong',
   'on-strong-subtle',
   'accent',

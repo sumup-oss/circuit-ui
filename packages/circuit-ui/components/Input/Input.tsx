@@ -16,10 +16,10 @@
 'use client';
 
 import {
-  forwardRef,
   useId,
   type ComponentType,
   type InputHTMLAttributes,
+  type Ref,
 } from 'react';
 
 import {
@@ -125,6 +125,7 @@ export interface BaseInputProps {
 export interface InputProps
   extends BaseInputProps,
     Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
+  ref?: Ref<HTMLInputElement>;
   /**
    * @private
    *
@@ -136,120 +137,111 @@ export interface InputProps
 /**
  * Input component for forms. Takes optional prefix and suffix as render props.
  */
-export const Input = forwardRef<HTMLInputElement, InputProps>(
-  (
-    {
-      value,
-      defaultValue,
-      'renderPrefix': RenderPrefix,
-      'renderSuffix': RenderSuffix,
-      validationHint,
-      optionalLabel,
-      required,
-      invalid,
-      hasWarning,
-      showValid,
-      disabled,
-      textAlign = 'left',
-      inputClassName,
-      passwordManagerIgnore,
-      'as': Element = 'input',
-      label,
-      hideLabel,
-      'id': customId,
-      className,
-      style,
-      'aria-describedby': descriptionId,
-      size = 'm',
-      ...props
-    },
-    ref,
-  ): ReturnType => {
-    const id = useId();
-    const inputId = customId || id;
-    const validationHintId = useId();
-    const descriptionIds = idx(
-      descriptionId,
-      validationHint && validationHintId,
+export function Input({
+  value,
+  defaultValue,
+  'renderPrefix': RenderPrefix,
+  'renderSuffix': RenderSuffix,
+  validationHint,
+  optionalLabel,
+  required,
+  invalid,
+  hasWarning,
+  showValid,
+  disabled,
+  textAlign = 'left',
+  inputClassName,
+  passwordManagerIgnore,
+  'as': Element = 'input',
+  label,
+  hideLabel,
+  'id': customId,
+  className,
+  style,
+  'aria-describedby': descriptionId,
+  size = 'm',
+  ref,
+  ...props
+}: InputProps): ReturnType {
+  const id = useId();
+  const inputId = customId || id;
+  const validationHintId = useId();
+  const descriptionIds = idx(descriptionId, validationHint && validationHintId);
+
+  const prefix = RenderPrefix && (
+    <RenderPrefix value={value ?? defaultValue} className={classes.prefix} />
+  );
+  const suffix = RenderSuffix && <RenderSuffix className={classes.suffix} />;
+
+  const hasPrefix = Boolean(prefix);
+  const hasSuffix = Boolean(suffix);
+
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    props.type !== 'hidden' &&
+    !isSufficientlyLabelled(label)
+  ) {
+    throw new AccessibilityError(
+      'Input',
+      'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
     );
+  }
 
-    const prefix = RenderPrefix && (
-      <RenderPrefix value={value ?? defaultValue} className={classes.prefix} />
-    );
-    const suffix = RenderSuffix && <RenderSuffix className={classes.suffix} />;
-
-    const hasPrefix = Boolean(prefix);
-    const hasSuffix = Boolean(suffix);
-
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      props.type !== 'hidden' &&
-      !isSufficientlyLabelled(label)
-    ) {
-      throw new AccessibilityError(
-        'Input',
-        'The `label` prop is missing or invalid. Pass `hideLabel` if you intend to hide the label visually.',
-      );
-    }
-
-    return (
-      <FieldWrapper
-        className={className}
-        style={style}
-        disabled={disabled}
-        size={size}
-      >
-        <FieldLabel htmlFor={inputId}>
-          <FieldLabelText
-            label={label}
-            hideLabel={hideLabel}
-            optionalLabel={optionalLabel}
-            required={required}
-          />
-        </FieldLabel>
-        <div className={clsx(classes.wrapper, classes[size])}>
-          {prefix}
-          <Element
-            id={inputId}
-            value={value}
-            defaultValue={defaultValue}
-            // @ts-expect-error The Input component renders as an `input` element
-            // by default. The types are overwritten as necessary in the
-            // TextArea component.
-            ref={ref}
-            aria-describedby={descriptionIds}
-            className={clsx(
-              classes.base,
-              !disabled && hasWarning && classes.warning,
-              textAlign === 'right' && classes['align-right'],
-              hasPrefix && classes['has-prefix'],
-              hasSuffix && classes['has-suffix'],
-              inputClassName,
-            )}
-            aria-invalid={invalid && 'true'}
-            required={required}
-            disabled={disabled}
-            data-1p-ignore={passwordManagerIgnore}
-            data-bwignore={passwordManagerIgnore}
-            data-lpignore={passwordManagerIgnore}
-            data-op-ignore={passwordManagerIgnore}
-            data-protonpass-ignore={passwordManagerIgnore}
-            {...props}
-          />
-          {suffix}
-        </div>
-        <FieldValidationHint
-          id={validationHintId}
-          disabled={disabled}
-          invalid={invalid}
-          hasWarning={hasWarning}
-          showValid={showValid}
-          validationHint={validationHint}
+  return (
+    <FieldWrapper
+      className={className}
+      style={style}
+      disabled={disabled}
+      size={size}
+    >
+      <FieldLabel htmlFor={inputId}>
+        <FieldLabelText
+          label={label}
+          hideLabel={hideLabel}
+          optionalLabel={optionalLabel}
+          required={required}
         />
-      </FieldWrapper>
-    );
-  },
-);
-
-Input.displayName = 'Input';
+      </FieldLabel>
+      <div className={clsx(classes.wrapper, classes[size])}>
+        {prefix}
+        <Element
+          id={inputId}
+          value={value}
+          defaultValue={defaultValue}
+          // @ts-expect-error The Input component renders as an `input` element
+          // by default. The types are overwritten as necessary in the
+          // TextArea component.
+          ref={ref}
+          aria-describedby={descriptionIds}
+          className={clsx(
+            classes.base,
+            !disabled && hasWarning && classes.warning,
+            textAlign === 'right' && classes['align-right'],
+            hasPrefix && classes['has-prefix'],
+            hasSuffix && classes['has-suffix'],
+            inputClassName,
+          )}
+          aria-invalid={invalid && 'true'}
+          required={required}
+          disabled={disabled}
+          data-1p-ignore={passwordManagerIgnore}
+          data-bwignore={passwordManagerIgnore}
+          data-lpignore={passwordManagerIgnore}
+          data-op-ignore={passwordManagerIgnore}
+          data-protonpass-ignore={passwordManagerIgnore}
+          {...props}
+        />
+        {suffix}
+      </div>
+      <FieldValidationHint
+        id={validationHintId}
+        disabled={disabled}
+        invalid={invalid}
+        hasWarning={hasWarning}
+        showValid={showValid}
+        validationHint={validationHint}
+      />
+    </FieldWrapper>
+  );
+}

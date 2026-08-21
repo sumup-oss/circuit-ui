@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { forwardRef, type HTMLAttributes } from 'react';
+import type { Ref, HTMLAttributes } from 'react';
 
 import type { IconComponentType } from '@sumup-oss/icons';
 
@@ -33,6 +33,7 @@ export type StatusColor =
   | 'special';
 
 export interface StatusProps extends HTMLAttributes<HTMLDivElement> {
+  ref?: Ref<HTMLDivElement>;
   /**
    * Choose the style variant.
    * @default 'pill'
@@ -64,46 +65,38 @@ const isDynamicWidth = (children: StatusProps['children']) =>
  * The status component communicates the condition of an entity
  * by conveying semantic meaning or indicating new, important information.
  */
-export const Status = forwardRef<HTMLDivElement, StatusProps>(
-  (
-    {
-      as: Element = 'div',
-      variant = 'pill',
-      color = 'neutral',
-      icon: Icon,
-      className,
-      style = {},
-      children,
-      ...props
-    },
-    ref,
-  ) => {
-    const width =
-      variant === 'badge' && isDynamicWidth(children) ? 'auto' : undefined;
+export function Status({
+  as: Element = 'div',
+  variant = 'pill',
+  color = 'neutral',
+  icon: Icon,
+  className,
+  style = {},
+  children,
+  ...props
+}: StatusProps) {
+  const width =
+    variant === 'badge' && isDynamicWidth(children) ? 'auto' : undefined;
 
-    return (
-      <Element
-        {...props}
-        ref={ref}
-        className={clsx(
-          classes.base,
-          classes[variant],
-          classes[color],
-          className,
-        )}
-        style={width ? { ...style, '--status-width': width } : style}
-      >
-        {variant === 'line' && Icon && (
-          <Icon aria-hidden="true" size="16" className={classes.icon} />
-        )}
-        {variant === 'dot' ? (
-          <span className={utilClasses.hideVisually}>{children}</span>
-        ) : (
-          children
-        )}
-      </Element>
-    );
-  },
-);
-
-Status.displayName = 'Status';
+  return (
+    <Element
+      {...props}
+      className={clsx(
+        classes.base,
+        classes[variant],
+        classes[color],
+        className,
+      )}
+      style={width ? { ...style, '--status-width': width } : style}
+    >
+      {variant === 'line' && Icon && (
+        <Icon aria-hidden="true" size="16" className={classes.icon} />
+      )}
+      {variant === 'dot' ? (
+        <span className={utilClasses.hideVisually}>{children}</span>
+      ) : (
+        children
+      )}
+    </Element>
+  );
+}

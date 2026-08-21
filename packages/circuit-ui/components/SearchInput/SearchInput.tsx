@@ -15,7 +15,7 @@
 
 'use client';
 
-import { forwardRef, useRef } from 'react';
+import { useRef } from 'react';
 import { Search } from '@sumup-oss/icons';
 
 import { Input, type InputProps } from '../Input/index.js';
@@ -55,59 +55,55 @@ export type SearchInputProps = InputProps & {
 /**
  * SearchInput component for forms.
  */
-export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
-  (props, ref) => {
-    const { value, onClear, clearLabel, inputClassName, locale, ...rest } =
-      useI18n(props, translations);
-    const localRef = useRef<HTMLInputElement>(null);
+export function SearchInput(rawProps: SearchInputProps) {
+  const { value, onClear, clearLabel, inputClassName, locale, ref, ...rest } =
+    useI18n(rawProps, translations);
+  const localRef = useRef<HTMLInputElement>(null);
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      process.env.NODE_ENV !== 'test' &&
-      onClear &&
-      !isSufficientlyLabelled(clearLabel)
-    ) {
-      throw new AccessibilityError(
-        'SearchInput',
-        'The `clearLabel` prop is missing or invalid. Omit the `onClear` prop if you intend to disable the input clearing functionality.',
-      );
-    }
-
-    const onClick = (event: ClickEvent) => {
-      onClear?.(event);
-      localRef.current?.focus();
-    };
-
-    return (
-      <Input
-        value={value}
-        type="search"
-        renderPrefix={(prefixProps) => (
-          <Search
-            size="24"
-            className={prefixProps.className}
-            aria-hidden="true"
-          />
-        )}
-        {...(value &&
-        !props.disabled &&
-        !props.readOnly &&
-        onClear &&
-        clearLabel
-          ? {
-              renderSuffix: (renderProps) => (
-                <CloseButton {...renderProps} size="s" onClick={onClick}>
-                  {clearLabel}
-                </CloseButton>
-              ),
-            }
-          : {})}
-        inputClassName={clsx(classes.base, inputClassName)}
-        {...rest}
-        ref={applyMultipleRefs(localRef, ref)}
-      />
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'test' &&
+    onClear &&
+    !isSufficientlyLabelled(clearLabel)
+  ) {
+    throw new AccessibilityError(
+      'SearchInput',
+      'The `clearLabel` prop is missing or invalid. Omit the `onClear` prop if you intend to disable the input clearing functionality.',
     );
-  },
-);
+  }
 
-SearchInput.displayName = 'SearchInput';
+  const onClick = (event: ClickEvent) => {
+    onClear?.(event);
+    localRef.current?.focus();
+  };
+
+  return (
+    <Input
+      value={value}
+      type="search"
+      renderPrefix={(prefixProps) => (
+        <Search
+          size="24"
+          className={prefixProps.className}
+          aria-hidden="true"
+        />
+      )}
+      {...(value &&
+      !rawProps.disabled &&
+      !rawProps.readOnly &&
+      onClear &&
+      clearLabel
+        ? {
+            renderSuffix: (renderProps) => (
+              <CloseButton {...renderProps} size="s" onClick={onClick}>
+                {clearLabel}
+              </CloseButton>
+            ),
+          }
+        : {})}
+      inputClassName={clsx(classes.base, inputClassName)}
+      {...rest}
+      ref={applyMultipleRefs(localRef, ref)}
+    />
+  );
+}

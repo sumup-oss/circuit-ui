@@ -18,12 +18,15 @@ import { createRef } from 'react';
 
 import { render, axe, userEvent, screen } from '../../util/test-utils.js';
 
-import { createButtonComponent, type SharedButtonProps } from './base.js';
+import { BaseButton, type SharedButtonProps } from './base.js';
 
-const Button = createButtonComponent<SharedButtonProps>(
-  'TestButton',
-  (props) => ({ ...props, children: 'Button', size: 'm' }),
-);
+function Button({ size, ...props }: SharedButtonProps) {
+  return (
+    <BaseButton componentName="TestButton" size="m" {...props}>
+      Button
+    </BaseButton>
+  );
+}
 
 describe('Button', () => {
   it('should merge a custom class name with the default ones', () => {

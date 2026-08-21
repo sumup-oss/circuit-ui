@@ -14,7 +14,6 @@
  */
 // styles
 import './styles/base.css';
-import '@sumup-oss/illustrations/styles.css';
 
 export { utilClasses } from './styles/utility.js';
 export { clsx } from './styles/clsx.js';
@@ -27,8 +26,6 @@ export { Display } from './components/Display/index.js';
 export type { DisplayProps } from './components/Display/index.js';
 export { Body } from './components/Body/index.js';
 export type { BodyProps } from './components/Body/index.js';
-export { BodyLarge } from './components/BodyLarge/index.js';
-export type { BodyLargeProps } from './components/BodyLarge/index.js';
 export { Compact } from './components/Compact/index.js';
 export type { CompactProps } from './components/Compact/index.js';
 export { Numeral } from './components/Numeral/index.js';
@@ -69,6 +66,15 @@ export { PhoneNumberInput } from './components/PhoneNumberInput/index.js';
 export type { PhoneNumberInputProps } from './components/PhoneNumberInput/index.js';
 export { ColorInput } from './components/ColorInput/index.js';
 export type { ColorInputProps } from './components/ColorInput/index.js';
+export {
+  AutocompleteInput,
+  updateMultipleSelectionValue,
+} from './components/AutocompleteInput/index.js';
+export type {
+  AutocompleteInputProps,
+  AutocompleteInputOption,
+  AutocompleteInputOptionGroup,
+} from './components/AutocompleteInput/index.js';
 
 // Actions
 export { Button } from './components/Button/index.js';
@@ -116,9 +122,7 @@ export type { TopNavigationProps } from './components/TopNavigation/index.js';
 export { SideNavigation } from './components/SideNavigation/index.js';
 export type {
   SideNavigationProps,
-  PrimaryLinkProps,
-  SecondaryGroupProps,
-  SecondaryLinkProps,
+  NavigationGroup,
 } from './components/SideNavigation/index.js';
 
 export { Tabs } from './components/Tabs/Tabs.js';

@@ -15,7 +15,7 @@
 
 'use client';
 
-import { forwardRef, type ReactNode, type HTMLAttributes } from 'react';
+import type { ReactNode, HTMLAttributes, Ref } from 'react';
 
 import type { ClickEvent } from '../../../../types/events.js';
 import { CloseButton } from '../../../CloseButton/index.js';
@@ -40,6 +40,7 @@ type CloseProps =
   | { onClose?: never; closeButtonLabel?: never };
 
 export type CardHeaderProps = {
+  ref?: Ref<HTMLDivElement>;
   /**
    * Headline to be shown.
    */
@@ -51,26 +52,29 @@ export type CardHeaderProps = {
  * Header used in the Card component. Used for styling and alignment
  * purposes only.
  */
-export const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
-  ({ onClose, children, closeButtonLabel, className, ...props }, ref) => {
-    const noHeadline = isArray(children) && !children[0];
-    return (
-      <div
-        className={clsx(
-          classes.base,
-          noHeadline && classes['no-headline'],
-          className,
-        )}
-        ref={ref}
-        {...props}
-      >
-        {children}
-        {onClose && closeButtonLabel && (
-          <CloseButton className={classes.close} onClick={onClose}>
-            {closeButtonLabel}
-          </CloseButton>
-        )}
-      </div>
-    );
-  },
-);
+export function CardHeader({
+  onClose,
+  children,
+  closeButtonLabel,
+  className,
+  ...props
+}: CardHeaderProps) {
+  const noHeadline = isArray(children) && !children[0];
+  return (
+    <div
+      className={clsx(
+        classes.base,
+        noHeadline && classes['no-headline'],
+        className,
+      )}
+      {...props}
+    >
+      {children}
+      {onClose && closeButtonLabel && (
+        <CloseButton className={classes.close} onClick={onClose}>
+          {closeButtonLabel}
+        </CloseButton>
+      )}
+    </div>
+  );
+}

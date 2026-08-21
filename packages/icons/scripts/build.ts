@@ -37,7 +37,7 @@ type Icon = {
   keywords?: string[];
   size: (typeof SIZES)[number];
   deprecation?: string;
-  skipComponentFile?: boolean;
+  inactive?: boolean;
 };
 
 type Component = {
@@ -46,23 +46,13 @@ type Component = {
   deprecation?: string;
 };
 
-const DEPRECATED_CATEGORIES = ['Card scheme', 'Payment method'];
+const URL_ONLY_CATEGORIES = ['Flag', 'Card scheme', 'Payment method'];
 
 function createDeprecationComment(component: Component) {
   if (component.deprecation) {
     return `
     /**
      * @deprecated ${component.deprecation}
-     */`;
-  }
-  if (
-    component.icons.some((icon) =>
-      DEPRECATED_CATEGORIES.includes(icon.category),
-    )
-  ) {
-    return `
-    /**
-     * @deprecated This icon is too heavy to be inlined as a React component. [Load it from a URL instead](https://circuit.sumup.com/?path=/docs/packages-icons--docs#load-from-a-url).
      */`;
   }
   return '';
@@ -83,13 +73,11 @@ function getFilePath(icon: Icon): string {
 }
 
 function buildComponentFile(component: Component): string {
-  const icons = component.icons
-    .filter((icon) => !icon.skipComponentFile)
-    .map((icon) => ({
-      size: icon.size,
-      filePath: getFilePath(icon),
-      name: getComponentName(`${icon.name}-${icon.size}`),
-    }));
+  const icons = component.icons.map((icon) => ({
+    size: icon.size,
+    filePath: getFilePath(icon),
+    name: getComponentName(`${icon.name}-${icon.size}`),
+  }));
 
   const iconImports = icons.map(
     (icon) =>
@@ -129,6 +117,14 @@ function buildComponentFile(component: Component): string {
   `;
 }
 
+function buildHelpersFile(): string {
+  return `
+    export function getIconURL(name, size) {
+      return 'https://circuit.sumup.com/icons/v2/' + name + (size ? '_' + size : '') + '.svg';
+    }
+  `;
+}
+
 const MANUAL_COMPONENTS: string[] = ['Flag', 'PaymentMethod', 'CardScheme'];
 
 function buildIndexFile(
@@ -152,7 +148,10 @@ function buildIndexFile(
   `;
 }
 
-function buildDeclarationFile(components: Component[]): string {
+function buildDeclarationFile(
+  allIcons: Component[],
+  components: Component[],
+): string {
   const declarationStatements = components.map((component) => {
     const sizes = component.icons.map(({ size }) => `'${size}'`).sort();
     const SizesType = sizes.join(' | ');
@@ -161,14 +160,12 @@ function buildDeclarationFile(components: Component[]): string {
       declare const ${component.name}: IconComponentType<${SizesType}>;`;
   });
   const exportNames = components.map((component) => component.name);
-  const iconNames = components.map(
-    (component) => `'${component.icons[0].name}'`,
-  );
-  const iconSizes = components.map((component) => {
+  const iconNames = allIcons.map((component) => `'${component.icons[0].name}'`);
+  const iconSizes = allIcons.map((component) => {
     const iconName = component.icons[0].name;
     const sizes = component.icons.map(({ size }) => `'${size}'`).sort();
     const SizesType = sizes.join(' | ');
-    return `${iconName}: ${SizesType};`;
+    return `'${iconName}': ${SizesType};`;
   });
   const manualExports = MANUAL_COMPONENTS.map(
     (name) => `export * from './components/${name}/${name}.js';`,
@@ -195,7 +192,6 @@ function buildDeclarationFile(components: Component[]): string {
       icons: {
         name: IconName;
         category: string;
-        skipComponentFile?: boolean;
         keywords?: string[];
         size: '16' | '24' | '32';
         deprecation?: string;
@@ -262,23 +258,32 @@ async function writeFile(dir: string, fileName: string, fileContent: string) {
 }
 
 async function main() {
-  const iconsByName = (manifest.icons as Icon[]).reduce(
-    (acc, icon) => {
-      acc[icon.name] = acc[icon.name] || [];
-      acc[icon.name].push(icon);
-      return acc;
-    },
-    {} as Record<string, Icon[]>,
+  const iconsByName = (manifest.icons as Icon[])
+    .filter((icon) => !icon.inactive)
+    .reduce(
+      (acc, icon) => {
+        acc[icon.name] = acc[icon.name] || [];
+        acc[icon.name].push(icon);
+        return acc;
+      },
+      {} as Record<string, Icon[]>,
+    );
+  const allIcons = Object.entries(iconsByName).map(
+    ([name, icons]): Component => ({
+      name: getComponentName(name),
+      icons,
+      deprecation: icons.find((icon) => icon.deprecation)?.deprecation,
+    }),
   );
-  const components = Object.entries(iconsByName)
-    .map(
-      ([name, icons]): Component => ({
-        name: getComponentName(name),
-        icons,
-        deprecation: icons.find((icon) => icon.deprecation)?.deprecation,
-      }),
-    )
-    .filter(({ icons }) => icons.some((icon) => !icon.skipComponentFile));
+
+  const components = allIcons
+    .map((component) => ({
+      ...component,
+      icons: component.icons.filter(
+        (icon) => !URL_ONLY_CATEGORIES.includes(icon.category),
+      ),
+    }))
+    .filter((component) => component.icons.length > 0);
 
   // Group components by lowercase name to detect case-insensitive filename
   // collisions (e.g. SumUpCard / SumupCard).  When two names differ only in
@@ -304,7 +309,8 @@ async function main() {
   }
 
   const indexRaw = buildIndexFile(components, canonicalNames);
-  const declarationFile = buildDeclarationFile(components);
+  const helpersRaw = buildHelpersFile();
+  const declarationFile = buildDeclarationFile(allIcons, components);
 
   await Promise.all(
     [...collisionGroups.values()].map((group) => {
@@ -316,6 +322,7 @@ async function main() {
   );
 
   await transpileModule('index.js', indexRaw);
+  await transpileModule('helpers.js', helpersRaw);
 
   await writeFile(DIST_DIR, 'index.d.ts', declarationFile);
 }

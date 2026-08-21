@@ -1,6 +1,5 @@
 ---
 import { Body, Card, Headline } from '@sumup-oss/circuit-ui';
-import { uniqueId } from '@sumup-oss/circuit-ui/legacy';
 
 interface Props {
   title: string;
@@ -9,7 +8,7 @@ interface Props {
 }
 
 const { title, description, href } = Astro.props;
-const descriptionId = uniqueId();
+const descriptionId = `${title}-description`;
 ---
 
 <Card>

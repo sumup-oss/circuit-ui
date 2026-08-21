@@ -15,7 +15,6 @@
 
 import { beforeEach, describe, expect, it, vi, type Mock } from 'vitest';
 import { createRef } from 'react';
-import MockDate from 'mockdate';
 import { waitFor } from '@testing-library/react';
 
 import { render, screen, axe, userEvent } from '../../util/test-utils.js';
@@ -23,6 +22,16 @@ import { useMedia } from '../../hooks/useMedia/useMedia.js';
 
 import { DateInput } from './DateInput.js';
 
+vi.mock('../../util/date.js', async (importOriginal) => {
+  const [module, { Temporal }] = await Promise.all([
+    importOriginal<typeof import('../../util/date.js')>(),
+    import('temporal-polyfill'),
+  ]);
+  return {
+    ...module,
+    getTodaysDate: vi.fn().mockReturnValue(new Temporal.PlainDate(2000, 1, 1)),
+  };
+});
 vi.mock('../../hooks/useMedia/useMedia.js');
 
 describe('DateInput', () => {
@@ -33,7 +42,7 @@ describe('DateInput', () => {
   };
 
   beforeEach(() => {
-    MockDate.set('2000-01-01');
+    vi.setSystemTime(new Date('2000-01-01T01:00+01:00'));
     (useMedia as Mock).mockReturnValue(false);
   });
 
