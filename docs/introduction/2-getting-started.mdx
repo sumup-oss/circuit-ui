@@ -55,6 +55,18 @@ import '@sumup-oss/design-tokens/light.css';
 import '@sumup-oss/circuit-ui/styles.css';
 ```
 
+In order to use illustrations from the `@sumup-oss/illustrations` package in Circuit UI components such as the NotificationBanner, you need to manually install the package and import its styles:
+
+1. Install the package:
+```sh
+npm install @sumup-oss/illustrations
+```
+2. Import the illustration styles:
+```tsx
+// /app/layout.tsx or /pages/_app.tsx for Next.js
+import '@sumup-oss/illustrations/styles.css';
+```
+
 ### Configuring the viewport
 
 Finally, make sure that the viewport meta tag includes `viewport-fit=cover`, and that your app has the right padding to render inside [CSS safe areas](<https://developer.mozilla.org/en-US/docs/Web/CSS/env()>):

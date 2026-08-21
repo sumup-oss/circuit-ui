@@ -14,7 +14,6 @@
  */
 // styles
 import './styles/base.css';
-import '@sumup-oss/illustrations/styles.css';
 
 export { utilClasses } from './styles/utility.js';
 export { clsx } from './styles/clsx.js';
