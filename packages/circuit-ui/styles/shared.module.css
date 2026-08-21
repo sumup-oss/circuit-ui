@@ -3,7 +3,7 @@
   padding: var(--cui-spacings-byte) var(--cui-spacings-giga)
     var(--cui-spacings-byte) var(--cui-spacings-kilo);
   color: var(--cui-fg-normal);
-  text-decoration: none;
+  text-decoration-color: transparent;
   background-color: var(--cui-bg-normal);
   border: 0;
 }

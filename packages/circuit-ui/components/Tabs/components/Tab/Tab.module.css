@@ -11,7 +11,7 @@
   line-height: var(--cui-body-s-line-height);
   color: var(--cui-fg-subtle);
   white-space: nowrap;
-  text-decoration: none;
+  text-decoration-color: transparent;
   cursor: pointer;
   background-color: var(--cui-bg-normal);
   border: none;

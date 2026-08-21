@@ -7,7 +7,7 @@
   padding: var(--cui-spacings-byte);
   color: var(--cui-fg-normal);
   text-align: left;
-  text-decoration: none;
+  text-decoration-color: transparent;
   cursor: pointer;
   background: none;
   border: none;

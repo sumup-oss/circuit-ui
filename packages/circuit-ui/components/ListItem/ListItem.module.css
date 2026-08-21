@@ -7,7 +7,7 @@
   margin: 0;
   color: var(--cui-fg-normal);
   text-align: left;
-  text-decoration: none;
+  text-decoration-color: transparent;
   background-color: var(--cui-bg-normal);
   border: var(--cui-border-width-mega) solid var(--cui-border-subtle);
   border-radius: var(--cui-border-radius-mega);
